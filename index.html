@@ -11,155 +11,173 @@
     body { background: #f5f0e8; display: flex; justify-content: center; padding: 24px 16px 48px; }
     .lp { background: #FFF9E6; border-radius: 24px; overflow: hidden; width: 100%; max-width: 480px; }
 
-    /* Hero */
-    .hero { background: #FF914D; padding: 52px 32px 60px; text-align: center; }
-    .hero-logo { width: 120px; height: 120px; border-radius: 28px; object-fit: cover; margin: 0 auto 20px; display: block; border: 3px solid rgba(255,255,255,0.35); }
-    .hero-badge { display: inline-block; background: #FFD166; color: #7A4A00; font-size: 12px; font-weight: 600; padding: 5px 14px; border-radius: 20px; margin-bottom: 16px; letter-spacing: 0.3px; }
-    .hero h1 { font-size: 40px; font-weight: 800; color: #fff; line-height: 1.15; margin-bottom: 12px; letter-spacing: -1.5px; }
-    .hero-sub { font-size: 15px; color: #FFE8D6; line-height: 1.7; margin-bottom: 32px; font-weight: 400; }
-    .btn-row { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
-    .btn-primary { display: inline-flex; align-items: center; gap: 6px; background: #fff; color: #CC5500; font-size: 15px; font-weight: 700; padding: 14px 26px; border-radius: 14px; border: none; cursor: pointer; letter-spacing: -0.3px; text-decoration: none; transition: background 0.15s; }
-    .btn-primary:hover { background: #FFF9E6; }
-    .btn-secondary { display: inline-flex; align-items: center; gap: 6px; background: transparent; color: #fff; font-size: 14px; font-weight: 500; padding: 14px 20px; border-radius: 14px; border: 1.5px solid rgba(255,255,255,0.45); cursor: pointer; text-decoration: none; transition: background 0.15s; }
-    .btn-secondary:hover { background: rgba(255,255,255,0.1); }
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes floatLogo { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+    @keyframes cardFloat { 0%,100% { transform: translateX(-50%) rotate(-2deg) translateY(0); } 50% { transform: translateX(-50%) rotate(-2deg) translateY(-6px); } }
+    @keyframes cardFloat2 { 0%,100% { transform: translateX(-50%) rotate(1deg) translateY(0); } 50% { transform: translateX(-50%) rotate(1deg) translateY(-4px); } }
+    @keyframes slideIn { from { opacity: 0; transform: translateX(-16px); } to { opacity: 1; transform: translateX(0); } }
 
-    /* Section */
-    .section { padding: 44px 24px; }
-    .section-title { font-size: 21px; font-weight: 700; color: #3D2200; text-align: center; margin-bottom: 6px; letter-spacing: -0.5px; }
-    .section-sub { font-size: 14px; color: #A0723A; text-align: center; margin-bottom: 26px; }
+    .hero { background: #FF914D; padding: 56px 28px 0; text-align: center; position: relative; overflow: hidden; }
+    .hero::before { content: ''; position: absolute; top: -60px; right: -60px; width: 200px; height: 200px; background: rgba(255,255,255,0.06); border-radius: 50%; }
+    .hero::after { content: ''; position: absolute; bottom: -40px; left: -40px; width: 160px; height: 160px; background: rgba(255,209,102,0.12); border-radius: 50%; }
+    .hero-logo { width: 100px; height: 100px; border-radius: 26px; object-fit: cover; margin: 0 auto 18px; display: block; border: 2.5px solid rgba(255,255,255,0.4); animation: floatLogo 3s ease-in-out infinite; position: relative; z-index: 1; }
+    .hero-badge { display: inline-block; background: rgba(255,255,255,0.18); color: #fff; font-size: 11px; font-weight: 600; padding: 5px 14px; border-radius: 20px; margin-bottom: 16px; letter-spacing: 1px; text-transform: uppercase; border: 1px solid rgba(255,255,255,0.25); position: relative; z-index: 1; animation: fadeUp 0.6s ease both; }
+    .hero h1 { font-size: 42px; font-weight: 800; color: #fff; line-height: 1.1; margin-bottom: 6px; letter-spacing: -2px; position: relative; z-index: 1; animation: fadeUp 0.6s 0.1s ease both; }
+    .hero-en { font-size: 13px; color: rgba(255,255,255,0.5); font-weight: 500; margin-bottom: 16px; letter-spacing: 3px; position: relative; z-index: 1; animation: fadeUp 0.6s 0.15s ease both; }
+    .hero-sub { font-size: 15px; color: rgba(255,255,255,0.85); line-height: 1.75; margin-bottom: 32px; position: relative; z-index: 1; animation: fadeUp 0.6s 0.2s ease both; }
+    .btn-row { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; position: relative; z-index: 1; animation: fadeUp 0.6s 0.3s ease both; padding-bottom: 40px; }
+    .btn-primary { display: inline-flex; align-items: center; gap: 7px; background: #fff; color: #CC5500; font-size: 14px; font-weight: 700; padding: 13px 24px; border-radius: 14px; border: none; cursor: pointer; letter-spacing: -0.3px; text-decoration: none; transition: transform 0.15s; }
+    .btn-primary:hover { transform: translateY(-2px); }
+    .btn-ghost { display: inline-flex; align-items: center; gap: 6px; background: rgba(255,255,255,0.12); color: #fff; font-size: 14px; font-weight: 500; padding: 13px 20px; border-radius: 14px; border: 1px solid rgba(255,255,255,0.3); cursor: pointer; text-decoration: none; transition: background 0.15s; }
+    .btn-ghost:hover { background: rgba(255,255,255,0.2); }
 
-    /* Swipe demo */
-    .swipe-demo { background: #fff; border-radius: 20px; padding: 28px 24px; border: 1px solid #FFE0B0; }
-    .card-stack { position: relative; height: 120px; margin-bottom: 20px; }
-    .word-card { position: absolute; border-radius: 16px; padding: 20px; width: 100%; }
-    .word-card.back2 { background: #FFD4B0; top: 14px; left: 8px; right: 8px; width: calc(100% - 16px); height: 96px; }
-    .word-card.back1 { background: #FFB07A; top: 8px; left: 4px; right: 4px; width: calc(100% - 8px); height: 104px; }
-    .word-card.front { background: #FF914D; top: 0; z-index: 2; }
-    .word-en { font-size: 22px; font-weight: 700; color: #fff; letter-spacing: -0.5px; }
-    .word-kr { font-size: 13px; color: #FFE8D6; margin-top: 5px; }
-    .word-diff { display: flex; gap: 2px; margin-top: 6px; font-size: 13px; }
-    .swipe-hint { display: flex; justify-content: space-between; font-size: 13px; font-weight: 600; }
-    .swipe-left { color: #E24B4A; }
-    .swipe-right { color: #1D9E75; }
+    .stat-row { display: grid; grid-template-columns: repeat(3,1fr); gap: 1px; background: rgba(0,0,0,0.08); border-top: 1px solid rgba(255,145,77,0.2); }
+    .stat-item { background: #FF914D; padding: 16px 8px; text-align: center; }
+    .stat-num { font-size: 20px; font-weight: 800; color: #fff; letter-spacing: -0.5px; }
+    .stat-label { font-size: 11px; color: rgba(255,255,255,0.65); margin-top: 2px; }
 
-    /* Features */
-    .features { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
-    .feat-card { background: #fff; border-radius: 16px; padding: 20px 16px; text-align: center; border: 1px solid #FFE0B0; }
-    .feat-icon { font-size: 28px; margin-bottom: 10px; display: block; }
-    .feat-title { font-size: 13px; font-weight: 700; color: #3D2200; margin-bottom: 5px; letter-spacing: -0.2px; }
-    .feat-desc { font-size: 12px; color: #A0723A; line-height: 1.5; }
+    .section { padding: 48px 24px; }
+    .label { display: inline-block; background: #FFE8CC; color: #CC5500; font-size: 11px; font-weight: 700; padding: 4px 12px; border-radius: 20px; letter-spacing: 0.5px; margin-bottom: 12px; }
+    .section-title { font-size: 24px; font-weight: 800; color: #1A0A00; margin-bottom: 8px; letter-spacing: -0.8px; line-height: 1.2; }
+    .section-sub { font-size: 14px; color: #A0723A; line-height: 1.7; margin-bottom: 28px; }
 
-    /* Languages */
-    .lang-section { background: #FFD166; border-radius: 20px; padding: 28px 24px; margin: 0 24px 28px; }
+    .swipe-wrap { position: relative; height: 160px; margin-bottom: 24px; }
+    .s-card { position: absolute; width: 85%; border-radius: 20px; padding: 22px; left: 50%; }
+    .s-card.c3 { background: #FFE0C0; height: 130px; top: 18px; transform: translateX(-50%) rotate(1deg); animation: cardFloat2 4s ease-in-out infinite 0.5s; opacity: 0.6; }
+    .s-card.c2 { background: #FFB882; height: 140px; top: 10px; transform: translateX(-50%) rotate(-2deg); animation: cardFloat 4s ease-in-out infinite 0.25s; opacity: 0.8; }
+    .s-card.c1 { background: #FF914D; top: 0; z-index: 2; transform: translateX(-50%); }
+    .card-word { font-size: 24px; font-weight: 800; color: #fff; letter-spacing: -0.5px; }
+    .card-meaning { font-size: 13px; color: rgba(255,255,255,0.8); margin-top: 6px; }
+    .card-diff { display: flex; gap: 3px; margin-top: 8px; font-size: 13px; }
+    .swipe-labels { display: flex; justify-content: space-between; align-items: center; }
+    .swipe-l { display: flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 600; color: #E24B4A; background: #FEF0F0; padding: 8px 14px; border-radius: 10px; }
+    .swipe-r { display: flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 600; color: #1D9E75; background: #F0FAF6; padding: 8px 14px; border-radius: 10px; }
+
+    .feat-list { display: flex; flex-direction: column; gap: 12px; }
+    .feat-item { display: flex; align-items: flex-start; gap: 14px; background: #fff; border-radius: 16px; padding: 18px; border: 1px solid #FFE8CC; animation: slideIn 0.5s ease both; }
+    .feat-item:nth-child(2) { animation-delay: 0.1s; }
+    .feat-item:nth-child(3) { animation-delay: 0.2s; }
+    .feat-item:nth-child(4) { animation-delay: 0.3s; }
+    .feat-icon-wrap { width: 44px; height: 44px; border-radius: 12px; background: #FFF0E0; display: flex; align-items: center; justify-content: center; font-size: 22px; flex-shrink: 0; }
+    .feat-text-title { font-size: 14px; font-weight: 700; color: #1A0A00; margin-bottom: 3px; letter-spacing: -0.2px; }
+    .feat-text-desc { font-size: 12px; color: #A0723A; line-height: 1.5; }
+
+    .lang-section { margin: 0 24px 32px; }
+    .lang-inner { background: #FFD166; border-radius: 20px; padding: 24px; }
     .lang-title { font-size: 15px; font-weight: 700; color: #7A4A00; margin-bottom: 16px; text-align: center; }
-    .lang-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
-    .lang-pill { background: #fff; border-radius: 12px; padding: 12px 4px; text-align: center; }
-    .lang-flag { font-size: 20px; display: block; margin-bottom: 4px; }
+    .lang-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 8px; }
+    .lang-pill { background: #fff; border-radius: 12px; padding: 12px 4px; text-align: center; transition: transform 0.15s; }
+    .lang-pill:hover { transform: translateY(-2px); }
+    .lang-flag { font-size: 22px; display: block; margin-bottom: 4px; }
     .lang-name { font-size: 11px; color: #7A4A00; font-weight: 600; }
 
-    /* Download */
-    .download-section { background: #3D2200; border-radius: 20px; margin: 0 24px 28px; padding: 36px 24px; text-align: center; }
-    .dl-logo { width: 64px; height: 64px; border-radius: 16px; object-fit: cover; margin: 0 auto 16px; display: block; border: 2px solid rgba(255,209,102,0.3); }
-    .dl-title { font-size: 20px; font-weight: 700; color: #FFD166; margin-bottom: 8px; letter-spacing: -0.5px; }
-    .dl-sub { font-size: 13px; color: #C49A6A; margin-bottom: 24px; }
-    .dl-btn { display: inline-flex; align-items: center; gap: 8px; background: #FF914D; color: #fff; font-size: 15px; font-weight: 700; padding: 15px 28px; border-radius: 14px; border: none; cursor: pointer; text-decoration: none; transition: background 0.15s; }
-    .dl-btn:hover { background: #e6813d; }
-    .dl-coming { margin-top: 14px; font-size: 12px; color: #7A5C3A; }
+    .dl-section { margin: 0 24px 32px; background: #1A0A00; border-radius: 24px; padding: 40px 24px; text-align: center; position: relative; overflow: hidden; }
+    .dl-section::before { content: ''; position: absolute; top: -50px; right: -50px; width: 180px; height: 180px; background: rgba(255,145,77,0.12); border-radius: 50%; }
+    .dl-logo { width: 60px; height: 60px; border-radius: 16px; object-fit: cover; margin: 0 auto 16px; display: block; border: 2px solid rgba(255,209,102,0.25); }
+    .dl-title { font-size: 22px; font-weight: 800; color: #FFD166; margin-bottom: 6px; letter-spacing: -0.8px; }
+    .dl-sub { font-size: 13px; color: rgba(255,255,255,0.45); margin-bottom: 24px; line-height: 1.6; }
+    .dl-btn { display: inline-flex; align-items: center; gap: 8px; background: #FF914D; color: #fff; font-size: 15px; font-weight: 700; padding: 15px 28px; border-radius: 14px; border: none; cursor: pointer; text-decoration: none; transition: transform 0.15s, background 0.15s; }
+    .dl-btn:hover { transform: translateY(-2px); background: #e6813d; }
+    .dl-coming { margin-top: 14px; font-size: 12px; color: rgba(255,255,255,0.3); }
+    .dl-coming span { display: inline-flex; align-items: center; gap: 4px; background: rgba(255,255,255,0.07); padding: 4px 12px; border-radius: 20px; }
 
-    /* Footer */
-    .footer { text-align: center; padding: 20px 24px 32px; font-size: 12px; color: #B5833A; }
-    .footer a { color: #B5833A; }
+    .divider { height: 1px; background: #FFE8CC; margin: 0 24px; }
+
+    .footer { text-align: center; padding: 24px 24px 36px; }
+    .footer-brand { font-size: 14px; font-weight: 700; color: #3D2200; margin-bottom: 4px; }
+    .footer-info { font-size: 12px; color: #C49A6A; }
+    .footer-info a { color: #C49A6A; text-decoration: none; }
   </style>
 </head>
 <body>
   <div class="lp">
 
-    <!-- Hero -->
     <div class="hero">
       <img class="hero-logo" src="logo.png" alt="치즈감자 로고">
-      <div class="hero-badge">나만의 단어장 앱</div>
+      <div class="hero-badge">Vocabulary Learning App</div>
       <h1>치즈감자</h1>
-      <p class="hero-sub">단어를 굽고, 외우고, 마스터하세요.<br>스와이프 하나로 언어 학습이 쉬워져요.</p>
+      <p class="hero-en">CHEESEPOTATO</p>
+      <p class="hero-sub">단어를 굽고, 외우고, 마스터하세요.<br>스와이프 하나로 언어 학습이 달라져요.</p>
       <div class="btn-row">
-        <a class="btn-primary" href="#download">⬇ 지금 다운로드</a>
-        <a class="btn-secondary" href="#features">살펴보기 →</a>
+        <a class="btn-primary" href="#download">⬇ 무료 다운로드</a>
+        <a class="btn-ghost" href="#features">기능 살펴보기 →</a>
       </div>
     </div>
 
-    <!-- Swipe Demo -->
+    <div class="stat-row">
+      <div class="stat-item"><div class="stat-num">4</div><div class="stat-label">지원 언어</div></div>
+      <div class="stat-item"><div class="stat-num">Free</div><div class="stat-label">완전 무료</div></div>
+      <div class="stat-item"><div class="stat-num">∞</div><div class="stat-label">단어 무제한</div></div>
+    </div>
+
     <div class="section">
-      <p class="section-title">스와이프로 배우는 단어장</p>
-      <p class="section-sub">틴더처럼 넘기며 외우는 감각적인 학습</p>
-      <div class="swipe-demo">
-        <div class="card-stack">
-          <div class="word-card back2"></div>
-          <div class="word-card back1"></div>
-          <div class="word-card front">
-            <div class="word-en">Perseverance</div>
-            <div class="word-kr">인내, 끈기</div>
-            <div class="word-diff"><span>🧀</span><span>🧀</span><span>🧀</span></div>
-          </div>
+      <div class="label">STUDY MODE</div>
+      <p class="section-title">스와이프로<br>외우는 단어장</p>
+      <p class="section-sub">틴더처럼 카드를 넘기며 학습해요.<br>어려운 단어는 왼쪽, 외운 단어는 오른쪽으로.</p>
+      <div class="swipe-wrap">
+        <div class="s-card c3"></div>
+        <div class="s-card c2"></div>
+        <div class="s-card c1">
+          <div class="card-word">Perseverance</div>
+          <div class="card-meaning">인내, 끈기</div>
+          <div class="card-diff"><span>🧀</span><span>🧀</span><span>🧀</span></div>
         </div>
-        <div class="swipe-hint">
-          <span class="swipe-left">← 어려워요</span>
-          <span class="swipe-right">외웠어요 →</span>
+      </div>
+      <div class="swipe-labels">
+        <div class="swipe-l">✕ 어려워요</div>
+        <div class="swipe-r">외웠어요 ✓</div>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section" id="features" style="padding-top: 36px;">
+      <div class="label">FEATURES</div>
+      <p class="section-title">학습에 필요한<br>모든 기능</p>
+      <p class="section-sub">단어 추가부터 통계까지, 하나의 앱에서.</p>
+      <div class="feat-list">
+        <div class="feat-item">
+          <div class="feat-icon-wrap">📚</div>
+          <div><div class="feat-text-title">나만의 단어장</div><div class="feat-text-desc">단어, 뜻, 사진을 직접 추가해 완전히 나만의 단어장을 만들어요</div></div>
+        </div>
+        <div class="feat-item">
+          <div class="feat-icon-wrap">📊</div>
+          <div><div class="feat-text-title">학습 대시보드</div><div class="feat-text-desc">D-day 카운트다운과 암기 추이 차트로 나의 학습 진도를 확인해요</div></div>
+        </div>
+        <div class="feat-item">
+          <div class="feat-icon-wrap">📷</div>
+          <div><div class="feat-text-title">사진 첨부</div><div class="feat-text-desc">단어에 이미지를 연결해 시각적 기억으로 더 오래 기억해요</div></div>
+        </div>
+        <div class="feat-item">
+          <div class="feat-icon-wrap">📤</div>
+          <div><div class="feat-text-title">엑셀 대량 가져오기</div><div class="feat-text-desc">.xlsx 파일로 수백 개의 단어를 한 번에 추가할 수 있어요</div></div>
         </div>
       </div>
     </div>
 
-    <!-- Features -->
-    <div class="section" id="features" style="padding-top: 0;">
-      <p class="section-title">이런 기능이 있어요</p>
-      <p class="section-sub">단어 학습에 필요한 모든 것</p>
-      <div class="features">
-        <div class="feat-card">
-          <span class="feat-icon">📚</span>
-          <div class="feat-title">나만의 단어장</div>
-          <div class="feat-desc">단어, 뜻, 사진을 직접 추가해서 나만의 단어장을 만들어요</div>
-        </div>
-        <div class="feat-card">
-          <span class="feat-icon">📊</span>
-          <div class="feat-title">학습 대시보드</div>
-          <div class="feat-desc">D-day 카운트다운과 암기 추이 차트로 진도를 확인해요</div>
-        </div>
-        <div class="feat-card">
-          <span class="feat-icon">📷</span>
-          <div class="feat-title">사진 첨부</div>
-          <div class="feat-desc">단어에 이미지를 붙여 시각적 기억력을 높여요</div>
-        </div>
-        <div class="feat-card">
-          <span class="feat-icon">📤</span>
-          <div class="feat-title">엑셀 가져오기</div>
-          <div class="feat-desc">.xlsx 파일로 단어를 한 번에 대량으로 추가해요</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Languages -->
     <div class="lang-section">
-      <div class="lang-title">4개 언어 지원</div>
-      <div class="lang-grid">
-        <div class="lang-pill"><span class="lang-flag">🇰🇷</span><span class="lang-name">한국어</span></div>
-        <div class="lang-pill"><span class="lang-flag">🇺🇸</span><span class="lang-name">English</span></div>
-        <div class="lang-pill"><span class="lang-flag">🇯🇵</span><span class="lang-name">日本語</span></div>
-        <div class="lang-pill"><span class="lang-flag">🇨🇳</span><span class="lang-name">中文</span></div>
+      <div class="lang-inner">
+        <div class="lang-title">4개 언어로 학습하세요</div>
+        <div class="lang-grid">
+          <div class="lang-pill"><span class="lang-flag">🇰🇷</span><span class="lang-name">한국어</span></div>
+          <div class="lang-pill"><span class="lang-flag">🇺🇸</span><span class="lang-name">English</span></div>
+          <div class="lang-pill"><span class="lang-flag">🇯🇵</span><span class="lang-name">日本語</span></div>
+          <div class="lang-pill"><span class="lang-flag">🇨🇳</span><span class="lang-name">中文</span></div>
+        </div>
       </div>
     </div>
 
-    <!-- Download -->
-    <div class="download-section" id="download">
+    <div class="dl-section" id="download">
       <img class="dl-logo" src="logo.png" alt="치즈감자">
       <div class="dl-title">지금 바로 시작하세요</div>
-      <div class="dl-sub">무료로 나만의 단어장을 만들어보세요</div>
-      <a class="dl-btn" href="https://play.google.com/store" target="_blank">
-        ▶ Google Play에서 다운로드
-      </a>
-      <div class="dl-coming">iOS 버전 출시 예정</div>
+      <div class="dl-sub">무료로 나만의 단어장을 만들고<br>더 스마트하게 언어를 공부하세요</div>
+      <a class="dl-btn" href="https://play.google.com/store" target="_blank">▶ Google Play 다운로드</a>
+      <div class="dl-coming"><span>🍎 iOS 버전 출시 예정</span></div>
     </div>
 
-    <!-- Footer -->
     <div class="footer">
-      © 2025 치즈감자 · 문의: <a href="mailto:junsanghan1225@gmail.com">junsanghan1225@gmail.com</a>
+      <div class="footer-brand">에브리 코리안즈</div>
+      <div class="footer-info">© 2025 치즈감자 · <a href="mailto:junsanghan1225@gmail.com">junsanghan1225@gmail.com</a></div>
     </div>
 
   </div>
