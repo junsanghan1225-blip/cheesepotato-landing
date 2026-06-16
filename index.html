@@ -13,10 +13,21 @@
 
     @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
     @keyframes floatLogo { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+    @keyframes floatA { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
+    @keyframes floatB { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
     @keyframes cardFloat { 0%,100% { transform: translateX(-50%) rotate(-2deg) translateY(0); } 50% { transform: translateX(-50%) rotate(-2deg) translateY(-6px); } }
     @keyframes cardFloat2 { 0%,100% { transform: translateX(-50%) rotate(1deg) translateY(0); } 50% { transform: translateX(-50%) rotate(1deg) translateY(-4px); } }
     @keyframes slideIn { from { opacity: 0; transform: translateX(-16px); } to { opacity: 1; transform: translateX(0); } }
+    @keyframes barGrow { from { width: 0; } to { width: var(--w); } }
 
+    /* 공통 */
+    .label { display: inline-block; background: #FFE8CC; color: #CC5500; font-size: 11px; font-weight: 700; padding: 4px 12px; border-radius: 20px; letter-spacing: 0.5px; margin-bottom: 12px; }
+    .section-title { font-size: 24px; font-weight: 800; color: #1A0A00; margin-bottom: 8px; letter-spacing: -0.8px; line-height: 1.2; }
+    .section-sub { font-size: 14px; color: #A0723A; line-height: 1.7; margin-bottom: 28px; }
+    .divider { height: 1px; background: #FFE8CC; margin: 0 24px; }
+    .section { padding: 48px 24px; }
+
+    /* Hero */
     .hero { background: #FF914D; padding: 56px 28px 0; text-align: center; position: relative; overflow: hidden; }
     .hero::before { content: ''; position: absolute; top: -60px; right: -60px; width: 200px; height: 200px; background: rgba(255,255,255,0.06); border-radius: 50%; }
     .hero::after { content: ''; position: absolute; bottom: -40px; left: -40px; width: 160px; height: 160px; background: rgba(255,209,102,0.12); border-radius: 50%; }
@@ -31,16 +42,13 @@
     .btn-ghost { display: inline-flex; align-items: center; gap: 6px; background: rgba(255,255,255,0.12); color: #fff; font-size: 14px; font-weight: 500; padding: 13px 20px; border-radius: 14px; border: 1px solid rgba(255,255,255,0.3); cursor: pointer; text-decoration: none; transition: background 0.15s; }
     .btn-ghost:hover { background: rgba(255,255,255,0.2); }
 
+    /* Stats */
     .stat-row { display: grid; grid-template-columns: repeat(3,1fr); gap: 1px; background: rgba(0,0,0,0.08); border-top: 1px solid rgba(255,145,77,0.2); }
     .stat-item { background: #FF914D; padding: 16px 8px; text-align: center; }
     .stat-num { font-size: 20px; font-weight: 800; color: #fff; letter-spacing: -0.5px; }
     .stat-label { font-size: 11px; color: rgba(255,255,255,0.65); margin-top: 2px; }
 
-    .section { padding: 48px 24px; }
-    .label { display: inline-block; background: #FFE8CC; color: #CC5500; font-size: 11px; font-weight: 700; padding: 4px 12px; border-radius: 20px; letter-spacing: 0.5px; margin-bottom: 12px; }
-    .section-title { font-size: 24px; font-weight: 800; color: #1A0A00; margin-bottom: 8px; letter-spacing: -0.8px; line-height: 1.2; }
-    .section-sub { font-size: 14px; color: #A0723A; line-height: 1.7; margin-bottom: 28px; }
-
+    /* Swipe */
     .swipe-wrap { position: relative; height: 160px; margin-bottom: 24px; }
     .s-card { position: absolute; width: 85%; border-radius: 20px; padding: 22px; left: 50%; }
     .s-card.c3 { background: #FFE0C0; height: 130px; top: 18px; transform: translateX(-50%) rotate(1deg); animation: cardFloat2 4s ease-in-out infinite 0.5s; opacity: 0.6; }
@@ -53,6 +61,7 @@
     .swipe-l { display: flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 600; color: #E24B4A; background: #FEF0F0; padding: 8px 14px; border-radius: 10px; }
     .swipe-r { display: flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 600; color: #1D9E75; background: #F0FAF6; padding: 8px 14px; border-radius: 10px; }
 
+    /* Features */
     .feat-list { display: flex; flex-direction: column; gap: 12px; }
     .feat-item { display: flex; align-items: flex-start; gap: 14px; background: #fff; border-radius: 16px; padding: 18px; border: 1px solid #FFE8CC; animation: slideIn 0.5s ease both; }
     .feat-item:nth-child(2) { animation-delay: 0.1s; }
@@ -62,6 +71,52 @@
     .feat-text-title { font-size: 14px; font-weight: 700; color: #1A0A00; margin-bottom: 3px; letter-spacing: -0.2px; }
     .feat-text-desc { font-size: 12px; color: #A0723A; line-height: 1.5; }
 
+    /* Characters */
+    .char-cards { display: flex; flex-direction: column; gap: 16px; }
+    .char-card { display: flex; align-items: center; gap: 16px; background: #fff; border-radius: 20px; padding: 20px; border: 1px solid #FFE8CC; }
+    .char-card.potato { flex-direction: row-reverse; background: #FFFBF0; }
+    .char-card.potato .char-text { text-align: right; }
+    .char-emoji { font-size: 56px; flex-shrink: 0; animation: floatA 3s ease-in-out infinite; }
+    .char-card.potato .char-emoji { animation: floatB 3.5s ease-in-out infinite 0.5s; }
+    .char-tag { display: inline-block; font-size: 10px; font-weight: 700; padding: 3px 10px; border-radius: 20px; margin-bottom: 6px; letter-spacing: 0.5px; }
+    .char-tag.cheese { background: #FFF0C0; color: #8B6200; }
+    .char-tag.potato { background: #F0EAD6; color: #5A4A2A; }
+    .char-name { font-size: 18px; font-weight: 800; color: #1A0A00; margin-bottom: 6px; letter-spacing: -0.5px; }
+    .char-desc { font-size: 13px; color: #A0723A; line-height: 1.6; }
+
+    /* Dashboard mockup */
+    .dash-mockup { background: #fff; border-radius: 20px; border: 1px solid #FFE8CC; overflow: hidden; }
+    .dash-header { background: #FF914D; padding: 16px 20px; }
+    .dash-header-title { font-size: 15px; font-weight: 700; color: #fff; }
+    .dash-header-sub { font-size: 12px; color: rgba(255,255,255,0.7); margin-top: 2px; }
+    .dash-body { padding: 20px; }
+    .dday-box { background: #FFF3E0; border-radius: 14px; padding: 16px; display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; border: 1px solid #FFE0B0; }
+    .dday-label { font-size: 12px; color: #A0723A; font-weight: 600; margin-bottom: 4px; }
+    .dday-num { font-size: 28px; font-weight: 800; color: #FF914D; letter-spacing: -1px; }
+    .dday-sub { font-size: 11px; color: #C49A6A; margin-top: 2px; }
+    .ring-bg { fill: none; stroke: #FFE0B0; stroke-width: 5; }
+    .ring-fill { fill: none; stroke: #FF914D; stroke-width: 5; stroke-linecap: round; stroke-dasharray: 157; stroke-dashoffset: 50; transform: rotate(-90deg); transform-origin: center; }
+    .ring-text { font-size: 11px; font-weight: 700; fill: #FF914D; text-anchor: middle; dominant-baseline: central; }
+    .dash-stat-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 10px; margin-bottom: 20px; }
+    .dash-stat-card { background: #FFF9F0; border-radius: 12px; padding: 12px 10px; text-align: center; border: 1px solid #FFE8CC; }
+    .dash-stat-val { font-size: 20px; font-weight: 800; color: #1A0A00; letter-spacing: -0.5px; }
+    .dash-stat-lbl { font-size: 10px; color: #A0723A; margin-top: 2px; font-weight: 500; }
+    .chart-title { font-size: 12px; font-weight: 700; color: #3D2200; margin-bottom: 12px; }
+    .chart-wrap { position: relative; height: 80px; display: flex; align-items: flex-end; gap: 6px; padding-bottom: 20px; }
+    .bar { border-radius: 6px 6px 0 0; background: #FFD166; flex: 1; position: relative; }
+    .bar:hover { background: #FF914D; }
+    .bar.active { background: #FF914D; }
+    .bar-label { position: absolute; bottom: -18px; left: 50%; transform: translateX(-50%); font-size: 9px; color: #A0723A; white-space: nowrap; }
+    .bar-val { position: absolute; top: -16px; left: 50%; transform: translateX(-50%); font-size: 9px; color: #CC5500; font-weight: 700; }
+    .diff-section { margin-top: 16px; }
+    .diff-title { font-size: 12px; font-weight: 700; color: #3D2200; margin-bottom: 10px; }
+    .diff-row { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
+    .diff-lbl { font-size: 11px; color: #A0723A; width: 52px; flex-shrink: 0; }
+    .diff-bar-bg { flex: 1; background: #FFE8CC; border-radius: 20px; height: 8px; overflow: hidden; }
+    .diff-bar-fill { height: 100%; border-radius: 20px; animation: barGrow 1s ease both; }
+    .diff-count { font-size: 11px; color: #CC5500; font-weight: 700; width: 28px; text-align: right; flex-shrink: 0; }
+
+    /* Languages */
     .lang-section { margin: 0 24px 32px; }
     .lang-inner { background: #FFD166; border-radius: 20px; padding: 24px; }
     .lang-title { font-size: 15px; font-weight: 700; color: #7A4A00; margin-bottom: 16px; text-align: center; }
@@ -71,6 +126,7 @@
     .lang-flag { font-size: 22px; display: block; margin-bottom: 4px; }
     .lang-name { font-size: 11px; color: #7A4A00; font-weight: 600; }
 
+    /* Download */
     .dl-section { margin: 0 24px 32px; background: #1A0A00; border-radius: 24px; padding: 40px 24px; text-align: center; position: relative; overflow: hidden; }
     .dl-section::before { content: ''; position: absolute; top: -50px; right: -50px; width: 180px; height: 180px; background: rgba(255,145,77,0.12); border-radius: 50%; }
     .dl-logo { width: 60px; height: 60px; border-radius: 16px; object-fit: cover; margin: 0 auto 16px; display: block; border: 2px solid rgba(255,209,102,0.25); }
@@ -81,8 +137,7 @@
     .dl-coming { margin-top: 14px; font-size: 12px; color: rgba(255,255,255,0.3); }
     .dl-coming span { display: inline-flex; align-items: center; gap: 4px; background: rgba(255,255,255,0.07); padding: 4px 12px; border-radius: 20px; }
 
-    .divider { height: 1px; background: #FFE8CC; margin: 0 24px; }
-
+    /* Footer */
     .footer { text-align: center; padding: 24px 24px 36px; }
     .footer-brand { font-size: 14px; font-weight: 700; color: #3D2200; margin-bottom: 4px; }
     .footer-info { font-size: 12px; color: #C49A6A; }
@@ -92,6 +147,7 @@
 <body>
   <div class="lp">
 
+    <!-- Hero -->
     <div class="hero">
       <img class="hero-logo" src="logo.png" alt="치즈감자 로고">
       <div class="hero-badge">Vocabulary Learning App</div>
@@ -104,12 +160,14 @@
       </div>
     </div>
 
+    <!-- 통계 바 -->
     <div class="stat-row">
       <div class="stat-item"><div class="stat-num">4</div><div class="stat-label">지원 언어</div></div>
       <div class="stat-item"><div class="stat-num">Free</div><div class="stat-label">완전 무료</div></div>
       <div class="stat-item"><div class="stat-num">∞</div><div class="stat-label">단어 무제한</div></div>
     </div>
 
+    <!-- 스와이프 -->
     <div class="section">
       <div class="label">STUDY MODE</div>
       <p class="section-title">스와이프로<br>외우는 단어장</p>
@@ -131,6 +189,7 @@
 
     <div class="divider"></div>
 
+    <!-- 주요 기능 -->
     <div class="section" id="features" style="padding-top: 36px;">
       <div class="label">FEATURES</div>
       <p class="section-title">학습에 필요한<br>모든 기능</p>
@@ -155,6 +214,96 @@
       </div>
     </div>
 
+    <div class="divider"></div>
+
+    <!-- 캐릭터 소개 -->
+    <div class="section">
+      <div class="label">CHARACTERS</div>
+      <p class="section-title">치즈와 감자를<br>소개합니다</p>
+      <p class="section-sub">치즈감자의 두 친구가 함께 단어 공부를 도와줄게요.</p>
+      <div class="char-cards">
+        <div class="char-card">
+          <div class="char-emoji">🧀</div>
+          <div class="char-text">
+            <div class="char-tag cheese">CHEESE</div>
+            <div class="char-name">치즈</div>
+            <div class="char-desc">단어를 얼마나 잘 외웠는지 알려주는 친구예요. 난이도를 🧀 개수로 표시해줘서 어떤 단어가 어려운지 한눈에 보여줘요.</div>
+          </div>
+        </div>
+        <div class="char-card potato">
+          <div class="char-emoji">🥔</div>
+          <div class="char-text">
+            <div class="char-tag potato">POTATO</div>
+            <div class="char-name">감자</div>
+            <div class="char-desc">단어를 얼마나 자주 봤는지 세어주는 친구예요. 🥔 x N 으로 열람 횟수를 보여줘서 자주 본 단어를 쉽게 찾을 수 있어요.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- 대시보드 -->
+    <div class="section">
+      <div class="label">DASHBOARD</div>
+      <p class="section-title">내 학습량을<br>한눈에 확인</p>
+      <p class="section-sub">D-day 카운트다운부터 암기 추이까지,<br>나의 학습 현황을 대시보드에서 확인하세요.</p>
+      <div class="dash-mockup">
+        <div class="dash-header">
+          <div class="dash-header-title">📊 학습 대시보드</div>
+          <div class="dash-header-sub">영어 단어장 · 2025년 6월</div>
+        </div>
+        <div class="dash-body">
+          <div class="dday-box">
+            <div>
+              <div class="dday-label">시험까지 남은 날</div>
+              <div class="dday-num">D-14</div>
+              <div class="dday-sub">2025년 7월 1일 · 목표 30일</div>
+            </div>
+            <svg width="60" height="60" viewBox="0 0 60 60">
+              <circle class="ring-bg" cx="30" cy="30" r="25"/>
+              <circle class="ring-fill" cx="30" cy="30" r="25"/>
+              <text class="ring-text" x="30" y="30">53%</text>
+            </svg>
+          </div>
+          <div class="dash-stat-grid">
+            <div class="dash-stat-card"><div class="dash-stat-val">142</div><div class="dash-stat-lbl">전체 단어</div></div>
+            <div class="dash-stat-card"><div class="dash-stat-val" style="color:#1D9E75">76</div><div class="dash-stat-lbl">외운 단어</div></div>
+            <div class="dash-stat-card"><div class="dash-stat-val" style="color:#FF914D">66</div><div class="dash-stat-lbl">학습 중</div></div>
+          </div>
+          <div class="chart-title">최근 7일 암기 추이</div>
+          <div class="chart-wrap">
+            <div class="bar" style="height:40%"><span class="bar-label">월</span><span class="bar-val">8</span></div>
+            <div class="bar" style="height:55%"><span class="bar-label">화</span><span class="bar-val">11</span></div>
+            <div class="bar" style="height:35%"><span class="bar-label">수</span><span class="bar-val">7</span></div>
+            <div class="bar" style="height:70%"><span class="bar-label">목</span><span class="bar-val">14</span></div>
+            <div class="bar" style="height:60%"><span class="bar-label">금</span><span class="bar-val">12</span></div>
+            <div class="bar active" style="height:85%"><span class="bar-label">토</span><span class="bar-val">17</span></div>
+            <div class="bar" style="height:45%"><span class="bar-label">일</span><span class="bar-val">9</span></div>
+          </div>
+          <div class="diff-section">
+            <div class="diff-title">난이도 분포</div>
+            <div class="diff-row">
+              <div class="diff-lbl">🧀</div>
+              <div class="diff-bar-bg"><div class="diff-bar-fill" style="--w:65%;width:65%;background:#FFD166"></div></div>
+              <div class="diff-count">62</div>
+            </div>
+            <div class="diff-row">
+              <div class="diff-lbl">🧀🧀</div>
+              <div class="diff-bar-bg"><div class="diff-bar-fill" style="--w:42%;width:42%;background:#FF914D"></div></div>
+              <div class="diff-count">48</div>
+            </div>
+            <div class="diff-row">
+              <div class="diff-lbl">🧀🧀🧀</div>
+              <div class="diff-bar-bg"><div class="diff-bar-fill" style="--w:28%;width:28%;background:#E24B4A"></div></div>
+              <div class="diff-count">32</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 언어 -->
     <div class="lang-section">
       <div class="lang-inner">
         <div class="lang-title">4개 언어로 학습하세요</div>
@@ -167,6 +316,7 @@
       </div>
     </div>
 
+    <!-- 다운로드 -->
     <div class="dl-section" id="download">
       <img class="dl-logo" src="logo.png" alt="치즈감자">
       <div class="dl-title">지금 바로 시작하세요</div>
@@ -175,6 +325,7 @@
       <div class="dl-coming"><span>🍎 iOS 버전 출시 예정</span></div>
     </div>
 
+    <!-- 푸터 -->
     <div class="footer">
       <div class="footer-brand">에브리 코리안즈</div>
       <div class="footer-info">© 2025 치즈감자 · <a href="mailto:junsanghan1225@gmail.com">junsanghan1225@gmail.com</a></div>
