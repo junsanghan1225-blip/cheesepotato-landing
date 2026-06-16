@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>치즈감자 — 나만의 단어장 앱</title>
+  <meta name="description" content="스와이프 하나로 언어 학습이 쉬워져요. 나만의 단어장 앱, 치즈감자.">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif; }
+    body { background: #f5f0e8; display: flex; justify-content: center; padding: 24px 16px 48px; }
+    .lp { background: #FFF9E6; border-radius: 24px; overflow: hidden; width: 100%; max-width: 480px; }
+
+    /* Hero */
+    .hero { background: #FF914D; padding: 52px 32px 60px; text-align: center; }
+    .hero-logo { width: 120px; height: 120px; border-radius: 28px; object-fit: cover; margin: 0 auto 20px; display: block; border: 3px solid rgba(255,255,255,0.35); }
+    .hero-badge { display: inline-block; background: #FFD166; color: #7A4A00; font-size: 12px; font-weight: 600; padding: 5px 14px; border-radius: 20px; margin-bottom: 16px; letter-spacing: 0.3px; }
+    .hero h1 { font-size: 40px; font-weight: 800; color: #fff; line-height: 1.15; margin-bottom: 12px; letter-spacing: -1.5px; }
+    .hero-sub { font-size: 15px; color: #FFE8D6; line-height: 1.7; margin-bottom: 32px; font-weight: 400; }
+    .btn-row { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
+    .btn-primary { display: inline-flex; align-items: center; gap: 6px; background: #fff; color: #CC5500; font-size: 15px; font-weight: 700; padding: 14px 26px; border-radius: 14px; border: none; cursor: pointer; letter-spacing: -0.3px; text-decoration: none; transition: background 0.15s; }
+    .btn-primary:hover { background: #FFF9E6; }
+    .btn-secondary { display: inline-flex; align-items: center; gap: 6px; background: transparent; color: #fff; font-size: 14px; font-weight: 500; padding: 14px 20px; border-radius: 14px; border: 1.5px solid rgba(255,255,255,0.45); cursor: pointer; text-decoration: none; transition: background 0.15s; }
+    .btn-secondary:hover { background: rgba(255,255,255,0.1); }
+
+    /* Section */
+    .section { padding: 44px 24px; }
+    .section-title { font-size: 21px; font-weight: 700; color: #3D2200; text-align: center; margin-bottom: 6px; letter-spacing: -0.5px; }
+    .section-sub { font-size: 14px; color: #A0723A; text-align: center; margin-bottom: 26px; }
+
+    /* Swipe demo */
+    .swipe-demo { background: #fff; border-radius: 20px; padding: 28px 24px; border: 1px solid #FFE0B0; }
+    .card-stack { position: relative; height: 120px; margin-bottom: 20px; }
+    .word-card { position: absolute; border-radius: 16px; padding: 20px; width: 100%; }
+    .word-card.back2 { background: #FFD4B0; top: 14px; left: 8px; right: 8px; width: calc(100% - 16px); height: 96px; }
+    .word-card.back1 { background: #FFB07A; top: 8px; left: 4px; right: 4px; width: calc(100% - 8px); height: 104px; }
+    .word-card.front { background: #FF914D; top: 0; z-index: 2; }
+    .word-en { font-size: 22px; font-weight: 700; color: #fff; letter-spacing: -0.5px; }
+    .word-kr { font-size: 13px; color: #FFE8D6; margin-top: 5px; }
+    .word-diff { display: flex; gap: 2px; margin-top: 6px; font-size: 13px; }
+    .swipe-hint { display: flex; justify-content: space-between; font-size: 13px; font-weight: 600; }
+    .swipe-left { color: #E24B4A; }
+    .swipe-right { color: #1D9E75; }
+
+    /* Features */
+    .features { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+    .feat-card { background: #fff; border-radius: 16px; padding: 20px 16px; text-align: center; border: 1px solid #FFE0B0; }
+    .feat-icon { font-size: 28px; margin-bottom: 10px; display: block; }
+    .feat-title { font-size: 13px; font-weight: 700; color: #3D2200; margin-bottom: 5px; letter-spacing: -0.2px; }
+    .feat-desc { font-size: 12px; color: #A0723A; line-height: 1.5; }
+
+    /* Languages */
+    .lang-section { background: #FFD166; border-radius: 20px; padding: 28px 24px; margin: 0 24px 28px; }
+    .lang-title { font-size: 15px; font-weight: 700; color: #7A4A00; margin-bottom: 16px; text-align: center; }
+    .lang-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+    .lang-pill { background: #fff; border-radius: 12px; padding: 12px 4px; text-align: center; }
+    .lang-flag { font-size: 20px; display: block; margin-bottom: 4px; }
+    .lang-name { font-size: 11px; color: #7A4A00; font-weight: 600; }
+
+    /* Download */
+    .download-section { background: #3D2200; border-radius: 20px; margin: 0 24px 28px; padding: 36px 24px; text-align: center; }
+    .dl-logo { width: 64px; height: 64px; border-radius: 16px; object-fit: cover; margin: 0 auto 16px; display: block; border: 2px solid rgba(255,209,102,0.3); }
+    .dl-title { font-size: 20px; font-weight: 700; color: #FFD166; margin-bottom: 8px; letter-spacing: -0.5px; }
+    .dl-sub { font-size: 13px; color: #C49A6A; margin-bottom: 24px; }
+    .dl-btn { display: inline-flex; align-items: center; gap: 8px; background: #FF914D; color: #fff; font-size: 15px; font-weight: 700; padding: 15px 28px; border-radius: 14px; border: none; cursor: pointer; text-decoration: none; transition: background 0.15s; }
+    .dl-btn:hover { background: #e6813d; }
+    .dl-coming { margin-top: 14px; font-size: 12px; color: #7A5C3A; }
+
+    /* Footer */
+    .footer { text-align: center; padding: 20px 24px 32px; font-size: 12px; color: #B5833A; }
+    .footer a { color: #B5833A; }
+  </style>
+</head>
+<body>
+  <div class="lp">
+
+    <!-- Hero -->
+    <div class="hero">
+      <img class="hero-logo" src="logo.png" alt="치즈감자 로고">
+      <div class="hero-badge">나만의 단어장 앱</div>
+      <h1>치즈감자</h1>
+      <p class="hero-sub">단어를 굽고, 외우고, 마스터하세요.<br>스와이프 하나로 언어 학습이 쉬워져요.</p>
+      <div class="btn-row">
+        <a class="btn-primary" href="#download">⬇ 지금 다운로드</a>
+        <a class="btn-secondary" href="#features">살펴보기 →</a>
+      </div>
+    </div>
+
+    <!-- Swipe Demo -->
+    <div class="section">
+      <p class="section-title">스와이프로 배우는 단어장</p>
+      <p class="section-sub">틴더처럼 넘기며 외우는 감각적인 학습</p>
+      <div class="swipe-demo">
+        <div class="card-stack">
+          <div class="word-card back2"></div>
+          <div class="word-card back1"></div>
+          <div class="word-card front">
+            <div class="word-en">Perseverance</div>
+            <div class="word-kr">인내, 끈기</div>
+            <div class="word-diff"><span>🧀</span><span>🧀</span><span>🧀</span></div>
+          </div>
+        </div>
+        <div class="swipe-hint">
+          <span class="swipe-left">← 어려워요</span>
+          <span class="swipe-right">외웠어요 →</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Features -->
+    <div class="section" id="features" style="padding-top: 0;">
+      <p class="section-title">이런 기능이 있어요</p>
+      <p class="section-sub">단어 학습에 필요한 모든 것</p>
+      <div class="features">
+        <div class="feat-card">
+          <span class="feat-icon">📚</span>
+          <div class="feat-title">나만의 단어장</div>
+          <div class="feat-desc">단어, 뜻, 사진을 직접 추가해서 나만의 단어장을 만들어요</div>
+        </div>
+        <div class="feat-card">
+          <span class="feat-icon">📊</span>
+          <div class="feat-title">학습 대시보드</div>
+          <div class="feat-desc">D-day 카운트다운과 암기 추이 차트로 진도를 확인해요</div>
+        </div>
+        <div class="feat-card">
+          <span class="feat-icon">📷</span>
+          <div class="feat-title">사진 첨부</div>
+          <div class="feat-desc">단어에 이미지를 붙여 시각적 기억력을 높여요</div>
+        </div>
+        <div class="feat-card">
+          <span class="feat-icon">📤</span>
+          <div class="feat-title">엑셀 가져오기</div>
+          <div class="feat-desc">.xlsx 파일로 단어를 한 번에 대량으로 추가해요</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Languages -->
+    <div class="lang-section">
+      <div class="lang-title">4개 언어 지원</div>
+      <div class="lang-grid">
+        <div class="lang-pill"><span class="lang-flag">🇰🇷</span><span class="lang-name">한국어</span></div>
+        <div class="lang-pill"><span class="lang-flag">🇺🇸</span><span class="lang-name">English</span></div>
+        <div class="lang-pill"><span class="lang-flag">🇯🇵</span><span class="lang-name">日本語</span></div>
+        <div class="lang-pill"><span class="lang-flag">🇨🇳</span><span class="lang-name">中文</span></div>
+      </div>
+    </div>
+
+    <!-- Download -->
+    <div class="download-section" id="download">
+      <img class="dl-logo" src="logo.png" alt="치즈감자">
+      <div class="dl-title">지금 바로 시작하세요</div>
+      <div class="dl-sub">무료로 나만의 단어장을 만들어보세요</div>
+      <a class="dl-btn" href="https://play.google.com/store" target="_blank">
+        ▶ Google Play에서 다운로드
+      </a>
+      <div class="dl-coming">iOS 버전 출시 예정</div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+      © 2025 치즈감자 · 문의: <a href="mailto:junsanghan1225@gmail.com">junsanghan1225@gmail.com</a>
+    </div>
+
+  </div>
+</body>
+</html>
