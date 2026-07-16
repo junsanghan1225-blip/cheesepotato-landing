@@ -1,336 +1,453 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>치즈감자 — 나만의 단어장 앱</title>
-  <meta name="description" content="스와이프 하나로 언어 학습이 쉬워져요. 나만의 단어장 앱, 치즈감자.">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css">
-  <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif; }
-    body { background: #f5f0e8; display: flex; justify-content: center; padding: 24px 16px 48px; }
-    .lp { background: #FFF9E6; border-radius: 24px; overflow: hidden; width: 100%; max-width: 480px; }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>치즈감자 — 나만의 단어장 앱</title>
+<meta name="description" content="스와이프 하나로 언어 학습이 쉬워져요. 나만의 단어장 앱, 치즈감자.">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/variable/pretendardvariable.css">
+<style>
+* { box-sizing:border-box; margin:0; padding:0; font-family:'Pretendard Variable','Pretendard',-apple-system,BlinkMacSystemFont,sans-serif; }
+body { background:#f5f0e8; display:flex; justify-content:center; padding:24px 16px 48px; }
+a { color:#CC5500; } a:hover { color:#FF914D; }
+.lp { background:#FFF9E6; border-radius:28px; overflow:hidden; width:100%; max-width:480px; box-shadow:0 24px 60px -24px rgba(120,60,10,.35); }
 
-    @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
-    @keyframes floatLogo { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
-    @keyframes floatA { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
-    @keyframes floatB { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
-    @keyframes cardFloat { 0%,100% { transform: translateX(-50%) rotate(-2deg) translateY(0); } 50% { transform: translateX(-50%) rotate(-2deg) translateY(-6px); } }
-    @keyframes cardFloat2 { 0%,100% { transform: translateX(-50%) rotate(1deg) translateY(0); } 50% { transform: translateX(-50%) rotate(1deg) translateY(-4px); } }
-    @keyframes slideIn { from { opacity: 0; transform: translateX(-16px); } to { opacity: 1; transform: translateX(0); } }
-    @keyframes barGrow { from { width: 0; } to { width: var(--w); } }
+@keyframes fadeUp { from { opacity:0; transform:translateY(24px); } to { opacity:1; transform:translateY(0); } }
+@keyframes float3d { 0%,100% { transform:translateY(0) rotateX(12deg) rotateY(-14deg); } 50% { transform:translateY(-12px) rotateX(16deg) rotateY(-10deg); } }
+@keyframes floatChip1 { 0%,100% { transform:translateZ(60px) translateY(0) rotate(-8deg); } 50% { transform:translateZ(60px) translateY(-10px) rotate(-5deg); } }
+@keyframes floatChip2 { 0%,100% { transform:translateZ(40px) translateY(0) rotate(6deg); } 50% { transform:translateZ(40px) translateY(-14px) rotate(9deg); } }
+@keyframes emojiFloat { 0%,100% { transform:translateY(0) rotate(-6deg) scale(1); } 50% { transform:translateY(-10px) rotate(4deg) scale(1.04); } }
+@keyframes cubeSpin { 0% { transform:rotateX(-12deg) rotateY(0deg); } 100% { transform:rotateX(-12deg) rotateY(360deg); } }
+@keyframes ringDash { from { stroke-dashoffset:157; } to { stroke-dashoffset:50; } }
+@keyframes barGrow { from { transform:scaleY(0); } to { transform:scaleY(1); } }
+@keyframes shadowPulse { 0%,100% { transform:scale(1); opacity:.35; } 50% { transform:scale(.82); opacity:.2; } }
 
-    /* 공통 */
-    .label { display: inline-block; background: #FFE8CC; color: #CC5500; font-size: 11px; font-weight: 700; padding: 4px 12px; border-radius: 20px; letter-spacing: 0.5px; margin-bottom: 12px; }
-    .section-title { font-size: 24px; font-weight: 800; color: #1A0A00; margin-bottom: 8px; letter-spacing: -0.8px; line-height: 1.2; }
-    .section-sub { font-size: 14px; color: #A0723A; line-height: 1.7; margin-bottom: 28px; }
-    .divider { height: 1px; background: #FFE8CC; margin: 0 24px; }
-    .section { padding: 48px 24px; }
+/* ── 스크롤 리빌 (3D rise-in) ── */
+.reveal { opacity:0; transform:translateY(28px); transition:opacity .8s cubic-bezier(.22,1,.36,1), transform .8s cubic-bezier(.22,1,.36,1); transition-delay:var(--d, 0s); }
+.reveal.in { opacity:1; transform:translateY(0); }
+.reveal-deep { opacity:0; transform:perspective(900px) rotateX(12deg) translateY(44px); transform-origin:center 100%; transition:opacity 1s cubic-bezier(.22,1,.36,1), transform 1s cubic-bezier(.22,1,.36,1); transition-delay:var(--d, 0s); }
+.reveal-deep.in { opacity:1; transform:perspective(900px) rotateX(0deg) translateY(0); }
 
-    /* Hero */
-    .hero { background: #FF914D; padding: 56px 28px 0; text-align: center; position: relative; overflow: hidden; }
-    .hero::before { content: ''; position: absolute; top: -60px; right: -60px; width: 200px; height: 200px; background: rgba(255,255,255,0.06); border-radius: 50%; }
-    .hero::after { content: ''; position: absolute; bottom: -40px; left: -40px; width: 160px; height: 160px; background: rgba(255,209,102,0.12); border-radius: 50%; }
-    .hero-logo { width: 100px; height: 100px; border-radius: 26px; object-fit: cover; margin: 0 auto 18px; display: block; border: 2.5px solid rgba(255,255,255,0.4); animation: floatLogo 3s ease-in-out infinite; position: relative; z-index: 1; }
-    .hero-badge { display: inline-block; background: rgba(255,255,255,0.18); color: #fff; font-size: 11px; font-weight: 600; padding: 5px 14px; border-radius: 20px; margin-bottom: 16px; letter-spacing: 1px; text-transform: uppercase; border: 1px solid rgba(255,255,255,0.25); position: relative; z-index: 1; animation: fadeUp 0.6s ease both; }
-    .hero h1 { font-size: 42px; font-weight: 800; color: #fff; line-height: 1.1; margin-bottom: 6px; letter-spacing: -2px; position: relative; z-index: 1; animation: fadeUp 0.6s 0.1s ease both; }
-    .hero-en { font-size: 13px; color: rgba(255,255,255,0.5); font-weight: 500; margin-bottom: 16px; letter-spacing: 3px; position: relative; z-index: 1; animation: fadeUp 0.6s 0.15s ease both; }
-    .hero-sub { font-size: 15px; color: rgba(255,255,255,0.85); line-height: 1.75; margin-bottom: 32px; position: relative; z-index: 1; animation: fadeUp 0.6s 0.2s ease both; }
-    .btn-row { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; position: relative; z-index: 1; animation: fadeUp 0.6s 0.3s ease both; padding-bottom: 40px; }
-    .btn-primary { display: inline-flex; align-items: center; gap: 7px; background: #fff; color: #CC5500; font-size: 14px; font-weight: 700; padding: 13px 24px; border-radius: 14px; border: none; cursor: pointer; letter-spacing: -0.3px; text-decoration: none; transition: transform 0.15s; }
-    .btn-primary:hover { transform: translateY(-2px); }
-    .btn-ghost { display: inline-flex; align-items: center; gap: 6px; background: rgba(255,255,255,0.12); color: #fff; font-size: 14px; font-weight: 500; padding: 13px 20px; border-radius: 14px; border: 1px solid rgba(255,255,255,0.3); cursor: pointer; text-decoration: none; transition: background 0.15s; }
-    .btn-ghost:hover { background: rgba(255,255,255,0.2); }
+/* 공통 */
+.label { display:inline-block; background:#FFE8CC; color:#CC5500; font-size:11px; font-weight:700; padding:4px 12px; border-radius:20px; letter-spacing:.5px; margin-bottom:12px; }
+.section-title { font-size:24px; font-weight:800; color:#1A0A00; margin-bottom:8px; letter-spacing:-.8px; line-height:1.2; }
+.section-sub { font-size:14px; color:#A0723A; line-height:1.7; margin-bottom:28px; }
+.divider { height:1px; background:#FFE8CC; margin:0 24px; }
+.section { padding:48px 24px; }
 
-    /* Stats */
-    .stat-row { display: grid; grid-template-columns: repeat(3,1fr); gap: 1px; background: rgba(0,0,0,0.08); border-top: 1px solid rgba(255,145,77,0.2); }
-    .stat-item { background: #FF914D; padding: 16px 8px; text-align: center; }
-    .stat-num { font-size: 20px; font-weight: 800; color: #fff; letter-spacing: -0.5px; }
-    .stat-label { font-size: 11px; color: rgba(255,255,255,0.65); margin-top: 2px; }
+/* Hero */
+.hero { background:linear-gradient(160deg,#FF914D 0%,#FF7A2E 100%); padding:52px 28px 0; text-align:center; position:relative; overflow:hidden; }
+.hero::before { content:''; position:absolute; top:-70px; right:-70px; width:220px; height:220px; background:rgba(255,255,255,.07); border-radius:50%; }
+.hero::after { content:''; position:absolute; bottom:-50px; left:-50px; width:180px; height:180px; background:rgba(255,209,102,.14); border-radius:50%; }
+.hero-logo { width:104px; height:104px; border-radius:28px; object-fit:cover; display:block; margin:0 auto 18px; border:2.5px solid rgba(255,255,255,.45); box-shadow:0 18px 30px -12px rgba(90,30,0,.45); position:relative; z-index:2; }
+.hero-badge { display:inline-block; background:rgba(255,255,255,.16); color:#fff; font-size:11px; font-weight:600; padding:5px 14px; border-radius:20px; letter-spacing:1.5px; text-transform:uppercase; border:1px solid rgba(255,255,255,.25); position:relative; z-index:2; animation:fadeUp .6s ease both; }
+.hero h1 { font-size:44px; font-weight:800; color:#fff; line-height:1.08; margin:14px 0 4px; letter-spacing:-2px; position:relative; z-index:2; animation:fadeUp .6s .08s ease both; }
+.hero-en { font-size:12px; color:rgba(255,255,255,.55); font-weight:500; margin:0 0 14px; letter-spacing:4px; position:relative; z-index:2; animation:fadeUp .6s .14s ease both; }
+.hero-sub { font-size:15px; color:rgba(255,255,255,.9); line-height:1.7; margin:0 0 28px; position:relative; z-index:2; animation:fadeUp .6s .2s ease both; }
+.hero-stage { perspective:900px; height:230px; position:relative; z-index:2; margin-bottom:-8px; }
+.hero-stack { position:absolute; left:50%; top:14px; width:250px; height:160px; margin-left:-125px; transform-style:preserve-3d; animation:float3d 4.5s ease-in-out infinite; }
+.hero-stack .back1 { position:absolute; inset:0; background:#FFE0C0; border-radius:22px; transform:translateZ(-56px) translateX(26px) translateY(20px); opacity:.55; }
+.hero-stack .back2 { position:absolute; inset:0; background:#FFB882; border-radius:22px; transform:translateZ(-28px) translateX(13px) translateY(10px); opacity:.8; }
+.hero-stack .front { position:absolute; inset:0; background:#fff; border-radius:22px; padding:24px; text-align:left; box-shadow:0 30px 50px -20px rgba(90,30,0,.5); }
+.hero-word { font-size:26px; font-weight:800; color:#1A0A00; letter-spacing:-.5px; }
+.hero-meaning { font-size:14px; color:#A0723A; margin-top:6px; }
+.hero-diff { display:flex; gap:4px; margin-top:12px; font-size:15px; }
+.chip1 { position:absolute; top:-26px; left:-30px; font-size:42px; animation:floatChip1 3.4s ease-in-out infinite; filter:drop-shadow(0 12px 10px rgba(90,30,0,.35)); }
+.chip2 { position:absolute; bottom:-18px; right:-26px; font-size:38px; animation:floatChip2 3.8s ease-in-out infinite .4s; filter:drop-shadow(0 12px 10px rgba(90,30,0,.35)); }
+.hero-shadow { position:absolute; left:50%; bottom:0; width:200px; height:22px; margin-left:-100px; background:radial-gradient(ellipse at center, rgba(90,30,0,.4) 0%, transparent 70%); animation:shadowPulse 4.5s ease-in-out infinite; }
+.btn-row { display:flex; gap:10px; justify-content:center; flex-wrap:wrap; position:relative; z-index:2; padding-bottom:36px; animation:fadeUp .6s .3s ease both; }
+.btn-primary { display:inline-flex; align-items:center; gap:7px; background:#fff; color:#CC5500; font-size:14px; font-weight:700; padding:13px 24px; border-radius:14px; text-decoration:none; box-shadow:0 6px 0 #d97a3a, 0 14px 24px -8px rgba(90,30,0,.4); transition:transform .12s, box-shadow .12s; }
+.btn-primary:hover { transform:translateY(3px); box-shadow:0 3px 0 #d97a3a, 0 8px 16px -8px rgba(90,30,0,.4); color:#CC5500; }
+.btn-primary:active { transform:translateY(6px); box-shadow:0 0 0 #d97a3a; }
+.btn-ghost { display:inline-flex; align-items:center; gap:6px; background:rgba(255,255,255,.12); color:#fff; font-size:14px; font-weight:500; padding:13px 20px; border-radius:14px; border:1px solid rgba(255,255,255,.3); text-decoration:none; transition:background .15s; }
+.btn-ghost:hover { background:rgba(255,255,255,.22); color:#fff; }
 
-    /* Swipe */
-    .swipe-wrap { position: relative; height: 160px; margin-bottom: 24px; }
-    .s-card { position: absolute; width: 85%; border-radius: 20px; padding: 22px; left: 50%; }
-    .s-card.c3 { background: #FFE0C0; height: 130px; top: 18px; transform: translateX(-50%) rotate(1deg); animation: cardFloat2 4s ease-in-out infinite 0.5s; opacity: 0.6; }
-    .s-card.c2 { background: #FFB882; height: 140px; top: 10px; transform: translateX(-50%) rotate(-2deg); animation: cardFloat 4s ease-in-out infinite 0.25s; opacity: 0.8; }
-    .s-card.c1 { background: #FF914D; top: 0; z-index: 2; transform: translateX(-50%); }
-    .card-word { font-size: 24px; font-weight: 800; color: #fff; letter-spacing: -0.5px; }
-    .card-meaning { font-size: 13px; color: rgba(255,255,255,0.8); margin-top: 6px; }
-    .card-diff { display: flex; gap: 3px; margin-top: 8px; font-size: 13px; }
-    .swipe-labels { display: flex; justify-content: space-between; align-items: center; }
-    .swipe-l { display: flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 600; color: #E24B4A; background: #FEF0F0; padding: 8px 14px; border-radius: 10px; }
-    .swipe-r { display: flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 600; color: #1D9E75; background: #F0FAF6; padding: 8px 14px; border-radius: 10px; }
+/* Stats */
+.stat-row { display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:rgba(0,0,0,.08); border-top:1px solid rgba(255,145,77,.2); }
+.stat-item { background:#FF7A2E; padding:16px 8px; text-align:center; }
+.stat-num { font-size:20px; font-weight:800; color:#fff; }
+.stat-label { font-size:11px; color:rgba(255,255,255,.65); margin-top:2px; }
 
-    /* Features */
-    .feat-list { display: flex; flex-direction: column; gap: 12px; }
-    .feat-item { display: flex; align-items: flex-start; gap: 14px; background: #fff; border-radius: 16px; padding: 18px; border: 1px solid #FFE8CC; animation: slideIn 0.5s ease both; }
-    .feat-item:nth-child(2) { animation-delay: 0.1s; }
-    .feat-item:nth-child(3) { animation-delay: 0.2s; }
-    .feat-item:nth-child(4) { animation-delay: 0.3s; }
-    .feat-icon-wrap { width: 44px; height: 44px; border-radius: 12px; background: #FFF0E0; display: flex; align-items: center; justify-content: center; font-size: 22px; flex-shrink: 0; }
-    .feat-text-title { font-size: 14px; font-weight: 700; color: #1A0A00; margin-bottom: 3px; letter-spacing: -0.2px; }
-    .feat-text-desc { font-size: 12px; color: #A0723A; line-height: 1.5; }
+/* Swipe */
+.swipe-wrap { perspective:800px; height:180px; position:relative; margin-bottom:20px; }
+.s-card { position:absolute; width:85%; border-radius:20px; left:50%; }
+.s-card.c3 { background:#FFE0C0; height:130px; top:22px; transform:translateX(-50%) rotate(2deg); opacity:.55; }
+.s-card.c2 { background:#FFB882; height:140px; top:12px; transform:translateX(-50%) rotate(-2deg); opacity:.8; }
+.s-card.c1 { background:#FF914D; top:0; z-index:2; padding:22px; transform:translateX(-50%); transition:transform .25s ease; box-shadow:0 24px 40px -16px rgba(204,85,0,.5); cursor:grab; }
+.card-word { font-size:24px; font-weight:800; color:#fff; letter-spacing:-.5px; }
+.card-meaning { font-size:13px; color:rgba(255,255,255,.85); margin-top:6px; }
+.card-diff { display:flex; gap:3px; margin-top:8px; font-size:13px; }
+.swipe-labels { display:flex; justify-content:space-between; align-items:center; }
+.swipe-l { display:flex; align-items:center; gap:6px; font-size:13px; font-weight:600; color:#E24B4A; background:#FEF0F0; padding:8px 14px; border-radius:10px; }
+.swipe-r { display:flex; align-items:center; gap:6px; font-size:13px; font-weight:600; color:#1D9E75; background:#F0FAF6; padding:8px 14px; border-radius:10px; }
 
-    /* Characters */
-    .char-cards { display: flex; flex-direction: column; gap: 16px; }
-    .char-card { display: flex; align-items: center; gap: 16px; background: #fff; border-radius: 20px; padding: 20px; border: 1px solid #FFE8CC; }
-    .char-card.potato { flex-direction: row-reverse; background: #FFFBF0; }
-    .char-card.potato .char-text { text-align: right; }
-    .char-emoji { font-size: 56px; flex-shrink: 0; animation: floatA 3s ease-in-out infinite; }
-    .char-card.potato .char-emoji { animation: floatB 3.5s ease-in-out infinite 0.5s; }
-    .char-tag { display: inline-block; font-size: 10px; font-weight: 700; padding: 3px 10px; border-radius: 20px; margin-bottom: 6px; letter-spacing: 0.5px; }
-    .char-tag.cheese { background: #FFF0C0; color: #8B6200; }
-    .char-tag.potato { background: #F0EAD6; color: #5A4A2A; }
-    .char-name { font-size: 18px; font-weight: 800; color: #1A0A00; margin-bottom: 6px; letter-spacing: -0.5px; }
-    .char-desc { font-size: 13px; color: #A0723A; line-height: 1.6; }
+/* Features */
+.feat-list { display:flex; flex-direction:column; gap:12px; perspective:1000px; }
+.feat-item { display:flex; align-items:flex-start; gap:14px; background:#fff; border-radius:16px; padding:18px; border:1px solid #FFE8CC; transition:transform .2s, box-shadow .2s; transform-style:preserve-3d; }
+.feat-item:hover { transform:rotateX(4deg) rotateY(-3deg) translateY(-3px); box-shadow:0 18px 30px -14px rgba(204,85,0,.35); }
+.feat-icon-wrap { width:44px; height:44px; border-radius:12px; background:linear-gradient(150deg,#FFF0E0,#FFDDB8); display:flex; align-items:center; justify-content:center; font-size:22px; flex-shrink:0; box-shadow:inset 0 -3px 0 rgba(204,85,0,.12), 0 4px 8px -2px rgba(204,85,0,.18); }
+.feat-text-title { font-size:14px; font-weight:700; color:#1A0A00; margin-bottom:3px; }
+.feat-text-desc { font-size:12px; color:#A0723A; line-height:1.5; }
 
-    /* Dashboard mockup */
-    .dash-mockup { background: #fff; border-radius: 20px; border: 1px solid #FFE8CC; overflow: hidden; }
-    .dash-header { background: #FF914D; padding: 16px 20px; }
-    .dash-header-title { font-size: 15px; font-weight: 700; color: #fff; }
-    .dash-header-sub { font-size: 12px; color: rgba(255,255,255,0.7); margin-top: 2px; }
-    .dash-body { padding: 20px; }
-    .dday-box { background: #FFF3E0; border-radius: 14px; padding: 16px; display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; border: 1px solid #FFE0B0; }
-    .dday-label { font-size: 12px; color: #A0723A; font-weight: 600; margin-bottom: 4px; }
-    .dday-num { font-size: 28px; font-weight: 800; color: #FF914D; letter-spacing: -1px; }
-    .dday-sub { font-size: 11px; color: #C49A6A; margin-top: 2px; }
-    .ring-bg { fill: none; stroke: #FFE0B0; stroke-width: 5; }
-    .ring-fill { fill: none; stroke: #FF914D; stroke-width: 5; stroke-linecap: round; stroke-dasharray: 157; stroke-dashoffset: 50; transform: rotate(-90deg); transform-origin: center; }
-    .ring-text { font-size: 11px; font-weight: 700; fill: #FF914D; text-anchor: middle; dominant-baseline: central; }
-    .dash-stat-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 10px; margin-bottom: 20px; }
-    .dash-stat-card { background: #FFF9F0; border-radius: 12px; padding: 12px 10px; text-align: center; border: 1px solid #FFE8CC; }
-    .dash-stat-val { font-size: 20px; font-weight: 800; color: #1A0A00; letter-spacing: -0.5px; }
-    .dash-stat-lbl { font-size: 10px; color: #A0723A; margin-top: 2px; font-weight: 500; }
-    .chart-title { font-size: 12px; font-weight: 700; color: #3D2200; margin-bottom: 12px; }
-    .chart-wrap { position: relative; height: 80px; display: flex; align-items: flex-end; gap: 6px; padding-bottom: 20px; }
-    .bar { border-radius: 6px 6px 0 0; background: #FFD166; flex: 1; position: relative; }
-    .bar:hover { background: #FF914D; }
-    .bar.active { background: #FF914D; }
-    .bar-label { position: absolute; bottom: -18px; left: 50%; transform: translateX(-50%); font-size: 9px; color: #A0723A; white-space: nowrap; }
-    .bar-val { position: absolute; top: -16px; left: 50%; transform: translateX(-50%); font-size: 9px; color: #CC5500; font-weight: 700; }
-    .diff-section { margin-top: 16px; }
-    .diff-title { font-size: 12px; font-weight: 700; color: #3D2200; margin-bottom: 10px; }
-    .diff-row { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
-    .diff-lbl { font-size: 11px; color: #A0723A; width: 52px; flex-shrink: 0; }
-    .diff-bar-bg { flex: 1; background: #FFE8CC; border-radius: 20px; height: 8px; overflow: hidden; }
-    .diff-bar-fill { height: 100%; border-radius: 20px; animation: barGrow 1s ease both; }
-    .diff-count { font-size: 11px; color: #CC5500; font-weight: 700; width: 28px; text-align: right; flex-shrink: 0; }
+/* Characters */
+.char-cards { display:flex; flex-direction:column; gap:16px; }
+.char-card { display:flex; align-items:center; gap:16px; background:#fff; border-radius:20px; padding:20px; border:1px solid #FFE8CC; }
+.char-card.potato { flex-direction:row-reverse; background:#FFFBF0; }
+.char-card.potato .char-text { text-align:right; }
+.char-fig { flex-shrink:0; text-align:center; }
+.char-emoji { font-size:56px; animation:emojiFloat 3s ease-in-out infinite; filter:drop-shadow(0 14px 8px rgba(139,98,0,.3)); }
+.char-card.potato .char-emoji { animation:emojiFloat 3.5s ease-in-out infinite .5s; filter:drop-shadow(0 14px 8px rgba(90,74,42,.3)); }
+.char-ground { width:44px; height:8px; margin:2px auto 0; background:radial-gradient(ellipse, rgba(139,98,0,.3), transparent 70%); animation:shadowPulse 3s ease-in-out infinite; }
+.char-tag { display:inline-block; font-size:10px; font-weight:700; padding:3px 10px; border-radius:20px; margin-bottom:6px; letter-spacing:.5px; }
+.char-tag.cheese { background:#FFF0C0; color:#8B6200; }
+.char-tag.potato { background:#F0EAD6; color:#5A4A2A; }
+.char-name { font-size:18px; font-weight:800; color:#1A0A00; margin-bottom:6px; }
+.char-desc { font-size:13px; color:#A0723A; line-height:1.6; }
 
-    /* Languages */
-    .lang-section { margin: 0 24px 32px; }
-    .lang-inner { background: #FFD166; border-radius: 20px; padding: 24px; }
-    .lang-title { font-size: 15px; font-weight: 700; color: #7A4A00; margin-bottom: 16px; text-align: center; }
-    .lang-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 8px; }
-    .lang-pill { background: #fff; border-radius: 12px; padding: 12px 4px; text-align: center; transition: transform 0.15s; }
-    .lang-pill:hover { transform: translateY(-2px); }
-    .lang-flag { font-size: 22px; display: block; margin-bottom: 4px; }
-    .lang-name { font-size: 11px; color: #7A4A00; font-weight: 600; }
+/* Dashboard */
+.dash-persp { perspective:1100px; }
+.dash-mockup { background:#fff; border-radius:20px; border:1px solid #FFE8CC; overflow:hidden; transition:transform .2s ease; transform-style:preserve-3d; box-shadow:0 30px 50px -20px rgba(204,85,0,.35); }
+.dash-header { background:#FF914D; padding:16px 20px; }
+.dash-header-title { font-size:15px; font-weight:700; color:#fff; }
+.dash-header-sub { font-size:12px; color:rgba(255,255,255,.7); margin-top:2px; }
+.dash-body { padding:20px; }
+.dday-box { background:#FFF3E0; border-radius:14px; padding:16px; display:flex; align-items:center; justify-content:space-between; margin-bottom:16px; border:1px solid #FFE0B0; }
+.dday-label { font-size:12px; color:#A0723A; font-weight:600; margin-bottom:4px; }
+.dday-num { font-size:28px; font-weight:800; color:#FF914D; letter-spacing:-1px; }
+.dday-sub { font-size:11px; color:#C49A6A; margin-top:2px; }
+.ring-bg { fill:none; stroke:#FFE0B0; stroke-width:5; }
+.ring-fill { fill:none; stroke:#FF914D; stroke-width:5; stroke-linecap:round; stroke-dasharray:157; stroke-dashoffset:157; transform:rotate(-90deg); transform-origin:center; }
+.in .ring-fill { animation:ringDash 1.4s cubic-bezier(.22,1,.36,1) .3s both; }
+.ring-text { font-size:11px; font-weight:700; fill:#FF914D; text-anchor:middle; dominant-baseline:central; }
+.dash-stat-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin-bottom:20px; }
+.dash-stat-card { background:#FFF9F0; border-radius:12px; padding:12px 10px; text-align:center; border:1px solid #FFE8CC; }
+.dash-stat-val { font-size:20px; font-weight:800; color:#1A0A00; }
+.dash-stat-lbl { font-size:10px; color:#A0723A; margin-top:2px; font-weight:500; }
+.chart-title { font-size:12px; font-weight:700; color:#3D2200; margin-bottom:12px; }
+.chart-wrap { position:relative; height:80px; display:flex; align-items:flex-end; gap:6px; padding-bottom:20px; }
+.bar { border-radius:6px 6px 0 0; background:#FFD166; flex:1; position:relative; transform-origin:bottom; transform:scaleY(0); }
+.in .bar { animation:barGrow .9s cubic-bezier(.22,1,.36,1) both; }
+.in .bar:nth-child(1) { animation-delay:.35s; } .in .bar:nth-child(2) { animation-delay:.42s; } .in .bar:nth-child(3) { animation-delay:.49s; } .in .bar:nth-child(4) { animation-delay:.56s; } .in .bar:nth-child(5) { animation-delay:.63s; } .in .bar:nth-child(6) { animation-delay:.7s; } .in .bar:nth-child(7) { animation-delay:.77s; }
+.bar:hover, .bar.active { background:#FF914D; }
+.bar-label { position:absolute; bottom:-18px; left:50%; transform:translateX(-50%); font-size:9px; color:#A0723A; white-space:nowrap; }
+.bar-val { position:absolute; top:-16px; left:50%; transform:translateX(-50%); font-size:9px; color:#CC5500; font-weight:700; }
+.diff-section { margin-top:16px; }
+.diff-title { font-size:12px; font-weight:700; color:#3D2200; margin-bottom:10px; }
+.diff-row { display:flex; align-items:center; gap:8px; margin-bottom:8px; }
+.diff-lbl { font-size:11px; width:52px; flex-shrink:0; }
+.diff-bar-bg { flex:1; background:#FFE8CC; border-radius:20px; height:8px; overflow:hidden; }
+.diff-bar-fill { height:100%; border-radius:20px; transform:scaleX(0); transform-origin:left; transition:transform 1.1s cubic-bezier(.22,1,.36,1) .5s; }
+.in .diff-bar-fill { transform:scaleX(1); }
+.diff-count { font-size:11px; color:#CC5500; font-weight:700; width:28px; text-align:right; flex-shrink:0; }
 
-    /* Download */
-    .dl-section { margin: 0 24px 32px; background: #1A0A00; border-radius: 24px; padding: 40px 24px; text-align: center; position: relative; overflow: hidden; }
-    .dl-section::before { content: ''; position: absolute; top: -50px; right: -50px; width: 180px; height: 180px; background: rgba(255,145,77,0.12); border-radius: 50%; }
-    .dl-logo { width: 60px; height: 60px; border-radius: 16px; object-fit: cover; margin: 0 auto 16px; display: block; border: 2px solid rgba(255,209,102,0.25); }
-    .dl-title { font-size: 22px; font-weight: 800; color: #FFD166; margin-bottom: 6px; letter-spacing: -0.8px; }
-    .dl-sub { font-size: 13px; color: rgba(255,255,255,0.45); margin-bottom: 24px; line-height: 1.6; }
-    .dl-btn { display: inline-flex; align-items: center; gap: 8px; background: #FF914D; color: #fff; font-size: 15px; font-weight: 700; padding: 15px 28px; border-radius: 14px; border: none; cursor: pointer; text-decoration: none; transition: transform 0.15s, background 0.15s; }
-    .dl-btn:hover { transform: translateY(-2px); background: #e6813d; }
-    .dl-coming { margin-top: 14px; font-size: 12px; color: rgba(255,255,255,0.3); }
-    .dl-coming span { display: inline-flex; align-items: center; gap: 4px; background: rgba(255,255,255,0.07); padding: 4px 12px; border-radius: 20px; }
+/* Languages : 3D cube */
+.lang-section { margin:0 24px 32px; }
+.lang-inner { background:#FFD166; border-radius:20px; padding:28px 24px; display:flex; align-items:center; gap:24px; }
+.cube-persp { perspective:500px; width:88px; height:88px; flex-shrink:0; }
+.cube { width:88px; height:88px; position:relative; transform-style:preserve-3d; animation:cubeSpin 12s linear infinite; }
+.cube-face { position:absolute; inset:0; background:#fff; border-radius:14px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:2px; box-shadow:inset 0 0 0 1px rgba(122,74,0,.12); }
+.cube-face .flag { font-size:30px; }
+.cube-face .nm { font-size:10px; font-weight:700; color:#7A4A00; }
+.cube-face.f1 { transform:translateZ(44px); }
+.cube-face.f2 { transform:rotateY(90deg) translateZ(44px); }
+.cube-face.f3 { transform:rotateY(180deg) translateZ(44px); }
+.cube-face.f4 { transform:rotateY(270deg) translateZ(44px); }
+.cube-top { position:absolute; inset:0; background:#FFF3D0; border-radius:14px; transform:rotateX(90deg) translateZ(44px); }
+.cube-bottom { position:absolute; inset:0; background:#E8B84A; border-radius:14px; transform:rotateX(-90deg) translateZ(44px); }
+.lang-title { font-size:16px; font-weight:800; color:#7A4A00; margin-bottom:4px; }
+.lang-desc { font-size:12px; color:#9A6A10; line-height:1.6; }
 
-    /* Footer */
-    .footer { text-align: center; padding: 24px 24px 36px; }
-    .footer-brand { font-size: 14px; font-weight: 700; color: #3D2200; margin-bottom: 4px; }
-    .footer-info { font-size: 12px; color: #C49A6A; }
-    .footer-info a { color: #C49A6A; text-decoration: none; }
-  </style>
+/* Download */
+.dl-section { margin:0 24px 32px; background:#1A0A00; border-radius:24px; padding:44px 24px; text-align:center; position:relative; overflow:hidden; }
+.dl-section::before { content:''; position:absolute; top:-50px; right:-50px; width:180px; height:180px; background:rgba(255,145,77,.12); border-radius:50%; }
+.dl-logo-wrap { perspective:600px; margin-bottom:16px; }
+.dl-logo { width:68px; height:68px; margin:0 auto; border-radius:18px; object-fit:cover; display:block; border:2px solid rgba(255,209,102,.35); box-shadow:0 20px 30px -12px rgba(255,145,77,.5); animation:float3d 4s ease-in-out infinite; }
+.dl-title { font-size:22px; font-weight:800; color:#FFD166; margin-bottom:6px; letter-spacing:-.8px; }
+.dl-sub { font-size:13px; color:rgba(255,255,255,.45); margin-bottom:24px; line-height:1.6; }
+.dl-btn { display:inline-flex; align-items:center; gap:8px; background:#FF914D; color:#fff; font-size:15px; font-weight:700; padding:15px 28px; border-radius:14px; text-decoration:none; box-shadow:0 6px 0 #b85e1e, 0 16px 28px -10px rgba(255,145,77,.5); transition:transform .12s, box-shadow .12s; }
+.dl-btn:hover { transform:translateY(3px); box-shadow:0 3px 0 #b85e1e, 0 10px 20px -10px rgba(255,145,77,.5); color:#fff; }
+.dl-btn:active { transform:translateY(6px); box-shadow:0 0 0 #b85e1e; }
+.dl-coming { margin-top:16px; font-size:12px; }
+.dl-coming span { display:inline-flex; align-items:center; gap:4px; background:rgba(255,255,255,.07); color:rgba(255,255,255,.35); padding:4px 12px; border-radius:20px; }
+
+/* Footer */
+.footer { text-align:center; padding:24px 24px 36px; }
+.footer-brand { font-size:14px; font-weight:700; color:#3D2200; margin-bottom:4px; }
+.footer-info { font-size:12px; color:#C49A6A; }
+.footer-info a { color:#C49A6A; text-decoration:none; }
+</style>
 </head>
 <body>
-  <div class="lp">
+<div class="lp">
 
-    <!-- Hero -->
-    <div class="hero">
-      <img class="hero-logo" src="logo.png" alt="치즈감자 로고">
-      <div class="hero-badge">Vocabulary Learning App</div>
-      <h1>치즈감자</h1>
-      <p class="hero-en">CHEESEPOTATO</p>
-      <p class="hero-sub">단어를 굽고, 외우고, 마스터하세요.<br>스와이프 하나로 언어 학습이 달라져요.</p>
-      <div class="btn-row">
-        <a class="btn-primary" href="#download">⬇ 무료 다운로드</a>
-        <a class="btn-ghost" href="#features">기능 살펴보기 →</a>
+  <!-- Hero -->
+  <div class="hero">
+    <img class="hero-logo" src="uploads/logo.png" alt="치즈감자 로고">
+    <div class="hero-badge">Vocabulary Learning App</div>
+    <h1>치즈감자</h1>
+    <p class="hero-en">CHEESEPOTATO</p>
+    <p class="hero-sub">단어를 굽고, 외우고, 마스터하세요.<br>스와이프 하나로 언어 학습이 달라져요.</p>
+    <div class="hero-stage">
+      <div class="hero-stack">
+        <div class="back1"></div>
+        <div class="back2"></div>
+        <div class="front">
+          <div class="hero-word">Perseverance</div>
+          <div class="hero-meaning">인내, 끈기</div>
+          <div class="hero-diff"><span>🧀</span><span>🧀</span><span>🧀</span></div>
+        </div>
+        <div class="chip1">🧀</div>
+        <div class="chip2">🥔</div>
       </div>
+      <div class="hero-shadow"></div>
     </div>
-
-    <!-- 통계 바 -->
-    <div class="stat-row">
-      <div class="stat-item"><div class="stat-num">4</div><div class="stat-label">지원 언어</div></div>
-      <div class="stat-item"><div class="stat-num">Free</div><div class="stat-label">완전 무료</div></div>
-      <div class="stat-item"><div class="stat-num">∞</div><div class="stat-label">단어 무제한</div></div>
+    <div class="btn-row">
+      <a class="btn-primary" href="#download">⬇ 무료 다운로드</a>
+      <a class="btn-ghost" href="#features">기능 살펴보기 →</a>
     </div>
-
-    <!-- 스와이프 -->
-    <div class="section">
-      <div class="label">STUDY MODE</div>
-      <p class="section-title">스와이프로<br>외우는 단어장</p>
-      <p class="section-sub">틴더처럼 카드를 넘기며 학습해요.<br>어려운 단어는 왼쪽, 외운 단어는 오른쪽으로.</p>
-      <div class="swipe-wrap">
-        <div class="s-card c3"></div>
-        <div class="s-card c2"></div>
-        <div class="s-card c1">
-          <div class="card-word">Perseverance</div>
-          <div class="card-meaning">인내, 끈기</div>
-          <div class="card-diff"><span>🧀</span><span>🧀</span><span>🧀</span></div>
-        </div>
-      </div>
-      <div class="swipe-labels">
-        <div class="swipe-l">✕ 어려워요</div>
-        <div class="swipe-r">외웠어요 ✓</div>
-      </div>
-    </div>
-
-    <div class="divider"></div>
-
-    <!-- 주요 기능 -->
-    <div class="section" id="features" style="padding-top: 36px;">
-      <div class="label">FEATURES</div>
-      <p class="section-title">학습에 필요한<br>모든 기능</p>
-      <p class="section-sub">단어 추가부터 통계까지, 하나의 앱에서.</p>
-      <div class="feat-list">
-        <div class="feat-item">
-          <div class="feat-icon-wrap">📚</div>
-          <div><div class="feat-text-title">나만의 단어장</div><div class="feat-text-desc">단어, 뜻, 사진을 직접 추가해 완전히 나만의 단어장을 만들어요</div></div>
-        </div>
-        <div class="feat-item">
-          <div class="feat-icon-wrap">📊</div>
-          <div><div class="feat-text-title">학습 대시보드</div><div class="feat-text-desc">D-day 카운트다운과 암기 추이 차트로 나의 학습 진도를 확인해요</div></div>
-        </div>
-        <div class="feat-item">
-          <div class="feat-icon-wrap">📷</div>
-          <div><div class="feat-text-title">사진 첨부</div><div class="feat-text-desc">단어에 이미지를 연결해 시각적 기억으로 더 오래 기억해요</div></div>
-        </div>
-        <div class="feat-item">
-          <div class="feat-icon-wrap">📤</div>
-          <div><div class="feat-text-title">엑셀 대량 가져오기</div><div class="feat-text-desc">.xlsx 파일로 수백 개의 단어를 한 번에 추가할 수 있어요</div></div>
-        </div>
-      </div>
-    </div>
-
-    <div class="divider"></div>
-
-    <!-- 캐릭터 소개 -->
-    <div class="section">
-      <div class="label">CHARACTERS</div>
-      <p class="section-title">치즈와 감자를<br>소개합니다</p>
-      <p class="section-sub">치즈감자의 두 친구가 함께 단어 공부를 도와줄게요.</p>
-      <div class="char-cards">
-        <div class="char-card">
-          <div class="char-emoji">🧀</div>
-          <div class="char-text">
-            <div class="char-tag cheese">CHEESE</div>
-            <div class="char-name">치즈</div>
-            <div class="char-desc">단어를 얼마나 잘 외웠는지 알려주는 친구예요. 난이도를 🧀 개수로 표시해줘서 어떤 단어가 어려운지 한눈에 보여줘요.</div>
-          </div>
-        </div>
-        <div class="char-card potato">
-          <div class="char-emoji">🥔</div>
-          <div class="char-text">
-            <div class="char-tag potato">POTATO</div>
-            <div class="char-name">감자</div>
-            <div class="char-desc">단어를 얼마나 자주 봤는지 세어주는 친구예요. 🥔 x N 으로 열람 횟수를 보여줘서 자주 본 단어를 쉽게 찾을 수 있어요.</div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="divider"></div>
-
-    <!-- 대시보드 -->
-    <div class="section">
-      <div class="label">DASHBOARD</div>
-      <p class="section-title">내 학습량을<br>한눈에 확인</p>
-      <p class="section-sub">D-day 카운트다운부터 암기 추이까지,<br>나의 학습 현황을 대시보드에서 확인하세요.</p>
-      <div class="dash-mockup">
-        <div class="dash-header">
-          <div class="dash-header-title">📊 학습 대시보드</div>
-          <div class="dash-header-sub">영어 단어장 · 2025년 6월</div>
-        </div>
-        <div class="dash-body">
-          <div class="dday-box">
-            <div>
-              <div class="dday-label">시험까지 남은 날</div>
-              <div class="dday-num">D-14</div>
-              <div class="dday-sub">2025년 7월 1일 · 목표 30일</div>
-            </div>
-            <svg width="60" height="60" viewBox="0 0 60 60">
-              <circle class="ring-bg" cx="30" cy="30" r="25"/>
-              <circle class="ring-fill" cx="30" cy="30" r="25"/>
-              <text class="ring-text" x="30" y="30">53%</text>
-            </svg>
-          </div>
-          <div class="dash-stat-grid">
-            <div class="dash-stat-card"><div class="dash-stat-val">142</div><div class="dash-stat-lbl">전체 단어</div></div>
-            <div class="dash-stat-card"><div class="dash-stat-val" style="color:#1D9E75">76</div><div class="dash-stat-lbl">외운 단어</div></div>
-            <div class="dash-stat-card"><div class="dash-stat-val" style="color:#FF914D">66</div><div class="dash-stat-lbl">학습 중</div></div>
-          </div>
-          <div class="chart-title">최근 7일 암기 추이</div>
-          <div class="chart-wrap">
-            <div class="bar" style="height:40%"><span class="bar-label">월</span><span class="bar-val">8</span></div>
-            <div class="bar" style="height:55%"><span class="bar-label">화</span><span class="bar-val">11</span></div>
-            <div class="bar" style="height:35%"><span class="bar-label">수</span><span class="bar-val">7</span></div>
-            <div class="bar" style="height:70%"><span class="bar-label">목</span><span class="bar-val">14</span></div>
-            <div class="bar" style="height:60%"><span class="bar-label">금</span><span class="bar-val">12</span></div>
-            <div class="bar active" style="height:85%"><span class="bar-label">토</span><span class="bar-val">17</span></div>
-            <div class="bar" style="height:45%"><span class="bar-label">일</span><span class="bar-val">9</span></div>
-          </div>
-          <div class="diff-section">
-            <div class="diff-title">난이도 분포</div>
-            <div class="diff-row">
-              <div class="diff-lbl">🧀</div>
-              <div class="diff-bar-bg"><div class="diff-bar-fill" style="--w:65%;width:65%;background:#FFD166"></div></div>
-              <div class="diff-count">62</div>
-            </div>
-            <div class="diff-row">
-              <div class="diff-lbl">🧀🧀</div>
-              <div class="diff-bar-bg"><div class="diff-bar-fill" style="--w:42%;width:42%;background:#FF914D"></div></div>
-              <div class="diff-count">48</div>
-            </div>
-            <div class="diff-row">
-              <div class="diff-lbl">🧀🧀🧀</div>
-              <div class="diff-bar-bg"><div class="diff-bar-fill" style="--w:28%;width:28%;background:#E24B4A"></div></div>
-              <div class="diff-count">32</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- 언어 -->
-    <div class="lang-section">
-      <div class="lang-inner">
-        <div class="lang-title">4개 언어로 학습하세요</div>
-        <div class="lang-grid">
-          <div class="lang-pill"><span class="lang-flag">🇰🇷</span><span class="lang-name">한국어</span></div>
-          <div class="lang-pill"><span class="lang-flag">🇺🇸</span><span class="lang-name">English</span></div>
-          <div class="lang-pill"><span class="lang-flag">🇯🇵</span><span class="lang-name">日本語</span></div>
-          <div class="lang-pill"><span class="lang-flag">🇨🇳</span><span class="lang-name">中文</span></div>
-        </div>
-      </div>
-    </div>
-
-    <!-- 다운로드 -->
-    <div class="dl-section" id="download">
-      <img class="dl-logo" src="logo.png" alt="치즈감자">
-      <div class="dl-title">지금 바로 시작하세요</div>
-      <div class="dl-sub">무료로 나만의 단어장을 만들고<br>더 스마트하게 언어를 공부하세요</div>
-      <a class="dl-btn" href="https://play.google.com/store" target="_blank">▶ Google Play 다운로드</a>
-      <div class="dl-coming"><span>🍎 iOS 버전 출시 예정</span></div>
-    </div>
-
-    <!-- 푸터 -->
-    <div class="footer">
-      <div class="footer-brand">에브리 코리안즈</div>
-      <div class="footer-info">© 2025 치즈감자 · <a href="mailto:junsanghan1225@gmail.com">junsanghan1225@gmail.com</a></div>
-    </div>
-
   </div>
+
+  <!-- 통계 바 -->
+  <div class="stat-row">
+    <div class="stat-item"><div class="stat-num">4</div><div class="stat-label">지원 언어</div></div>
+    <div class="stat-item"><div class="stat-num">Free</div><div class="stat-label">완전 무료</div></div>
+    <div class="stat-item"><div class="stat-num">∞</div><div class="stat-label">단어 무제한</div></div>
+  </div>
+
+  <!-- 스와이프 -->
+  <div class="section">
+    <div class="label">STUDY MODE</div>
+    <p class="section-title">스와이프로<br>외우는 단어장</p>
+    <p class="section-sub">카드를 직접 기울여보세요 —<br>어려운 단어는 왼쪽, 외운 단어는 오른쪽으로.</p>
+    <div class="swipe-wrap" id="swipeWrap">
+      <div class="s-card c3"></div>
+      <div class="s-card c2"></div>
+      <div class="s-card c1" id="swipeCard">
+        <div class="card-word">Perseverance</div>
+        <div class="card-meaning">인내, 끈기</div>
+        <div class="card-diff"><span>🧀</span><span>🧀</span><span>🧀</span></div>
+      </div>
+    </div>
+    <div class="swipe-labels">
+      <div class="swipe-l">✕ 어려워요</div>
+      <div class="swipe-r">외웠어요 ✓</div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- 기능 -->
+  <div class="section" id="features" style="padding-top:40px;">
+    <div class="label">FEATURES</div>
+    <p class="section-title">학습에 필요한<br>모든 기능</p>
+    <p class="section-sub">단어 추가부터 통계까지, 하나의 앱에서.</p>
+    <div class="feat-list">
+      <div class="feat-item">
+        <div class="feat-icon-wrap">📚</div>
+        <div><div class="feat-text-title">나만의 단어장</div><div class="feat-text-desc">단어, 뜻, 사진을 직접 추가해 완전히 나만의 단어장을 만들어요</div></div>
+      </div>
+      <div class="feat-item">
+        <div class="feat-icon-wrap">📊</div>
+        <div><div class="feat-text-title">학습 대시보드</div><div class="feat-text-desc">D-day 카운트다운과 암기 추이 차트로 나의 학습 진도를 확인해요</div></div>
+      </div>
+      <div class="feat-item">
+        <div class="feat-icon-wrap">📷</div>
+        <div><div class="feat-text-title">사진 첨부</div><div class="feat-text-desc">단어에 이미지를 연결해 시각적 기억으로 더 오래 기억해요</div></div>
+      </div>
+      <div class="feat-item">
+        <div class="feat-icon-wrap">📤</div>
+        <div><div class="feat-text-title">엑셀 대량 가져오기</div><div class="feat-text-desc">.xlsx 파일로 수백 개의 단어를 한 번에 추가할 수 있어요</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- 캐릭터 -->
+  <div class="section">
+    <div class="label">CHARACTERS</div>
+    <p class="section-title">치즈와 감자를<br>소개합니다</p>
+    <p class="section-sub">치즈감자의 두 친구가 함께 단어 공부를 도와줄게요.</p>
+    <div class="char-cards">
+      <div class="char-card">
+        <div class="char-fig"><div class="char-emoji">🧀</div><div class="char-ground"></div></div>
+        <div class="char-text">
+          <div class="char-tag cheese">CHEESE</div>
+          <div class="char-name">치즈</div>
+          <div class="char-desc">단어를 얼마나 잘 외웠는지 알려주는 친구예요. 난이도를 🧀 개수로 표시해줘서 어떤 단어가 어려운지 한눈에 보여줘요.</div>
+        </div>
+      </div>
+      <div class="char-card potato">
+        <div class="char-fig"><div class="char-emoji">🥔</div><div class="char-ground"></div></div>
+        <div class="char-text">
+          <div class="char-tag potato">POTATO</div>
+          <div class="char-name">감자</div>
+          <div class="char-desc">단어를 얼마나 자주 봤는지 세어주는 친구예요. 🥔 x N 으로 열람 횟수를 보여줘서 자주 본 단어를 쉽게 찾을 수 있어요.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- 대시보드 -->
+  <div class="section">
+    <div class="label">DASHBOARD</div>
+    <p class="section-title">내 학습량을<br>한눈에 확인</p>
+    <p class="section-sub">마우스를 올려 기울여보세요 —<br>나의 학습 현황이 살아있는 대시보드.</p>
+    <div class="dash-persp" id="dashPersp">
+    <div class="dash-mockup" id="dashMockup">
+      <div class="dash-header">
+        <div class="dash-header-title">📊 학습 대시보드</div>
+        <div class="dash-header-sub">영어 단어장 · 2026년 7월</div>
+      </div>
+      <div class="dash-body">
+        <div class="dday-box">
+          <div>
+            <div class="dday-label">시험까지 남은 날</div>
+            <div class="dday-num">D-14</div>
+            <div class="dday-sub">2026년 7월 30일 · 목표 30일</div>
+          </div>
+          <svg width="60" height="60" viewBox="0 0 60 60">
+            <circle class="ring-bg" cx="30" cy="30" r="25"/>
+            <circle class="ring-fill" cx="30" cy="30" r="25"/>
+            <text class="ring-text" x="30" y="30">53%</text>
+          </svg>
+        </div>
+        <div class="dash-stat-grid">
+          <div class="dash-stat-card"><div class="dash-stat-val">142</div><div class="dash-stat-lbl">전체 단어</div></div>
+          <div class="dash-stat-card"><div class="dash-stat-val" style="color:#1D9E75">76</div><div class="dash-stat-lbl">외운 단어</div></div>
+          <div class="dash-stat-card"><div class="dash-stat-val" style="color:#FF914D">66</div><div class="dash-stat-lbl">학습 중</div></div>
+        </div>
+        <div class="chart-title">최근 7일 암기 추이</div>
+        <div class="chart-wrap">
+          <div class="bar" style="height:40%"><span class="bar-label">월</span><span class="bar-val">8</span></div>
+          <div class="bar" style="height:55%"><span class="bar-label">화</span><span class="bar-val">11</span></div>
+          <div class="bar" style="height:35%"><span class="bar-label">수</span><span class="bar-val">7</span></div>
+          <div class="bar" style="height:70%"><span class="bar-label">목</span><span class="bar-val">14</span></div>
+          <div class="bar" style="height:60%"><span class="bar-label">금</span><span class="bar-val">12</span></div>
+          <div class="bar active" style="height:85%"><span class="bar-label">토</span><span class="bar-val">17</span></div>
+          <div class="bar" style="height:45%"><span class="bar-label">일</span><span class="bar-val">9</span></div>
+        </div>
+        <div class="diff-section">
+          <div class="diff-title">난이도 분포</div>
+          <div class="diff-row">
+            <div class="diff-lbl">🧀</div>
+            <div class="diff-bar-bg"><div class="diff-bar-fill" style="width:65%;background:#FFD166"></div></div>
+            <div class="diff-count">62</div>
+          </div>
+          <div class="diff-row">
+            <div class="diff-lbl">🧀🧀</div>
+            <div class="diff-bar-bg"><div class="diff-bar-fill" style="width:42%;background:#FF914D"></div></div>
+            <div class="diff-count">48</div>
+          </div>
+          <div class="diff-row">
+            <div class="diff-lbl">🧀🧀🧀</div>
+            <div class="diff-bar-bg"><div class="diff-bar-fill" style="width:28%;background:#E24B4A"></div></div>
+            <div class="diff-count">32</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+  </div>
+
+  <!-- 언어 : 3D 큐브 -->
+  <div class="lang-section">
+    <div class="lang-inner">
+      <div class="cube-persp">
+        <div class="cube">
+          <div class="cube-face f1"><span class="flag">🇰🇷</span><span class="nm">한국어</span></div>
+          <div class="cube-face f2"><span class="flag">🇺🇸</span><span class="nm">English</span></div>
+          <div class="cube-face f3"><span class="flag">🇯🇵</span><span class="nm">日本語</span></div>
+          <div class="cube-face f4"><span class="flag">🇨🇳</span><span class="nm">中文</span></div>
+          <div class="cube-top"></div>
+          <div class="cube-bottom"></div>
+        </div>
+      </div>
+      <div>
+        <div class="lang-title">4개 언어로 학습하세요</div>
+        <div class="lang-desc">한국어 · English · 日本語 · 中文<br>원하는 언어 조합으로 단어장을 만들어요.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 다운로드 -->
+  <div class="dl-section" id="download">
+    <div class="dl-logo-wrap"><img class="dl-logo" src="uploads/logo.png" alt="치즈감자"></div>
+    <div class="dl-title">지금 바로 시작하세요</div>
+    <div class="dl-sub">무료로 나만의 단어장을 만들고<br>더 스마트하게 언어를 공부하세요</div>
+    <a class="dl-btn" href="https://play.google.com/store" target="_blank">▶ Google Play 다운로드</a>
+    <div class="dl-coming"><span>🍎 iOS 버전 출시 예정</span></div>
+  </div>
+
+  <!-- 푸터 -->
+  <div class="footer">
+    <div class="footer-brand">에브리 코리안즈</div>
+    <div class="footer-info">© 2026 치즈감자 · <a href="mailto:junsanghan1225@gmail.com">junsanghan1225@gmail.com</a></div>
+  </div>
+
+</div>
+<script>
+function tilt(el, e, max) {
+  const r = el.getBoundingClientRect();
+  const x = (e.clientX - r.left) / r.width - .5;
+  const y = (e.clientY - r.top) / r.height - .5;
+  return { rx: (-y * max).toFixed(1), ry: (x * max).toFixed(1) };
+}
+const swipeWrap = document.getElementById('swipeWrap');
+const swipeCard = document.getElementById('swipeCard');
+let dragging = false, startX = 0, dx = 0;
+swipeWrap.addEventListener('mousemove', e => {
+  if (dragging) return;
+  const t = tilt(swipeWrap, e, 14);
+  swipeCard.style.transition = 'transform .25s ease';
+  swipeCard.style.transform = `translateX(-50%) rotateX(${t.rx}deg) rotateY(${t.ry}deg) translateZ(16px)`;
+});
+swipeWrap.addEventListener('mouseleave', () => { if (!dragging) { swipeCard.style.transition = 'transform .4s cubic-bezier(.22,1,.36,1)'; swipeCard.style.transform = 'translateX(-50%)'; } });
+// 드래그하면 스와이프처럼 따라오고, 놓으면 통통 튀며 제자리
+swipeCard.addEventListener('mousedown', e => {
+  dragging = true; startX = e.clientX; swipeCard.style.cursor = 'grabbing'; swipeCard.style.transition = 'none';
+  e.preventDefault();
+});
+window.addEventListener('mousemove', e => {
+  if (!dragging) return;
+  dx = e.clientX - startX;
+  const capped = Math.max(-120, Math.min(120, dx));
+  swipeCard.style.transform = `translateX(calc(-50% + ${capped}px)) rotate(${capped * 0.08}deg)`;
+});
+window.addEventListener('mouseup', () => {
+  if (!dragging) return;
+  dragging = false; swipeCard.style.cursor = 'grab';
+  swipeCard.style.transition = 'transform .55s cubic-bezier(.34,1.56,.64,1)'; // 스프링 백
+  swipeCard.style.transform = 'translateX(-50%)';
+  dx = 0;
+});
+const dashPersp = document.getElementById('dashPersp');
+const dashMockup = document.getElementById('dashMockup');
+dashPersp.addEventListener('mousemove', e => {
+  const t = tilt(dashPersp, e, 8);
+  dashMockup.style.transform = `rotateX(${t.rx}deg) rotateY(${t.ry}deg)`;
+});
+dashPersp.addEventListener('mouseleave', () => { dashMockup.style.transform = 'none'; });
+
+// 스크롤 리빌: 아래 요소들이 스크롤에 맞춰 3D로 떠오름 (히어로는 제외)
+const revealTargets = [
+  ['.feat-item', 'reveal', null],
+  ['.char-card', 'reveal', null],
+  ['.dash-mockup', 'reveal-deep', 0],
+  ['.dl-section', 'reveal-deep', 0]
+];
+revealTargets.forEach(([sel, cls, delay]) => {
+  document.querySelectorAll(sel).forEach((el, i) => {
+    el.classList.add(cls);
+    el.style.setProperty('--d', (delay !== null ? delay : i * 0.1) + 's');
+  });
+});
+const io = new IntersectionObserver(entries => {
+  entries.forEach(en => { if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); } });
+}, { threshold: 0.18, rootMargin: '0px 0px -6% 0px' });
+document.querySelectorAll('.reveal, .reveal-deep').forEach(el => io.observe(el));
+</script>
 </body>
 </html>
