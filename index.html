@@ -12,6 +12,55 @@ body { background:#f5f0e8; display:flex; justify-content:center; padding:24px 16
 a { color:#CC5500; } a:hover { color:#FF914D; }
 .lp { background:#FFF9E6; border-radius:28px; overflow:hidden; width:100%; max-width:480px; box-shadow:0 24px 60px -24px rgba(120,60,10,.35); }
 
+/* 데스크톱 : 480px 짜리 세로 카드는 큰 화면에서 우표만 하게 보인다.
+   폭과 글자를 함께 키운다. 폭만 늘리면 글자가 상대적으로 더 작아 보인다. */
+@media (min-width:900px) {
+  body { padding:40px 24px 72px; }
+  .lp { max-width:760px; border-radius:36px; }
+  .section { padding:64px 56px; }
+  .divider { margin:0 56px; }
+  .section-title { font-size:32px; letter-spacing:-1.1px; }
+  .section-sub { font-size:16px; margin-bottom:34px; }
+  .label { font-size:12px; padding:5px 14px; }
+  .hero { padding:68px 56px 0; }
+  .hero-logo { width:120px; height:120px; }
+  .hero h1 { font-size:56px; }
+  .hero-sub { font-size:17px; }
+  .hero-stage { height:260px; }
+  .stat-num { font-size:24px; } .stat-label { font-size:12px; }
+  .feat-item { padding:22px; }
+  .feat-text-title { font-size:16px; } .feat-text-desc { font-size:13.5px; }
+  .char-name { font-size:21px; } .char-desc { font-size:14px; }
+  .char-emoji { font-size:68px; }
+  .lang-section, .dl-section { margin-left:56px; margin-right:56px; }
+  .lang-title { font-size:19px; } .lang-desc { font-size:13.5px; }
+  .dl-title { font-size:27px; } .dl-sub { font-size:14.5px; }
+  .footer { padding:32px 56px 48px; }
+  /* 발음 테스트 */
+  .pt-hero { padding:68px 56px 48px; }
+  .pt-hero h2 { font-size:40px; letter-spacing:-1.8px; }
+  .pt-hero p { font-size:15.5px; }
+  .pt-body { padding:44px 56px 56px; }
+  .pt-card { padding:32px; }
+  .pt-target { font-size:32px; line-height:1.5; }
+  .pt-mic { width:88px; height:88px; font-size:34px; }
+  .pt-hint { font-size:14px; }
+  .pt-live-txt, .pt-heard-txt { font-size:17px; }
+  .pt-diff { font-size:20px; line-height:1.9; }
+  .pt-score-n { font-size:68px; }
+  .pt-verdict { font-size:15px; }
+}
+@media (min-width:1280px) {
+  .lp { max-width:860px; }
+  .section { padding:72px 68px; }
+  .divider { margin:0 68px; }
+  .hero { padding:76px 68px 0; }
+  .lang-section, .dl-section { margin-left:68px; margin-right:68px; }
+  .footer { padding:36px 68px 52px; }
+  .pt-hero { padding:76px 68px 52px; }
+  .pt-body { padding:48px 68px 64px; }
+}
+
 @keyframes fadeUp { from { opacity:0; transform:translateY(24px); } to { opacity:1; transform:translateY(0); } }
 @keyframes float3d { 0%,100% { transform:translateY(0) rotateX(12deg) rotateY(-14deg); } 50% { transform:translateY(-12px) rotateX(16deg) rotateY(-10deg); } }
 @keyframes floatChip1 { 0%,100% { transform:translateZ(60px) translateY(0) rotate(-8deg); } 50% { transform:translateZ(60px) translateY(-10px) rotate(-5deg); } }
@@ -80,6 +129,99 @@ a { color:#CC5500; } a:hover { color:#FF914D; }
 .swipe-labels { display:flex; justify-content:space-between; align-items:center; }
 .swipe-l { display:flex; align-items:center; gap:6px; font-size:13px; font-weight:600; color:#E24B4A; background:#FEF0F0; padding:8px 14px; border-radius:10px; }
 .swipe-r { display:flex; align-items:center; gap:6px; font-size:13px; font-weight:600; color:#1D9E75; background:#F0FAF6; padding:8px 14px; border-radius:10px; }
+
+/* ── 발음 테스트 (별도 화면) ──────────────────────────────
+   홈과 같은 카드 안에서 화면만 갈아 끼운다. 페이지를 나누면
+   주소가 달라져 공유가 번거로워진다. */
+/* 상단 버튼 바.
+   예전에는 calc() 로 카드 폭을 흉내 냈는데 화면 폭마다 어긋났다.
+   카드와 같은 max-width 를 가진 바에 담으면 저절로 맞는다. */
+.topbar { position:fixed; top:30px; left:0; right:0; z-index:50; padding:0 16px; pointer-events:none; }
+.topbar-in { max-width:480px; margin:0 auto; display:flex; justify-content:flex-end; align-items:center; gap:8px; padding-right:14px; }
+.topbar-in > * { pointer-events:auto; }
+.nav-btn, .lang-btn { border-radius:12px; border:1px solid rgba(255,255,255,.3); background:rgba(255,255,255,.16); color:#fff; cursor:pointer; backdrop-filter:blur(6px); transition:background .15s; }
+.nav-btn:hover, .lang-btn:hover { background:rgba(255,255,255,.3); }
+.nav-btn { width:42px; height:42px; font-size:17px; }
+.nav-btn.on { background:#fff; color:#CC5500; border-color:#fff; }
+.lang-btn { height:42px; padding:0 14px; font-size:13px; font-weight:700; letter-spacing:.5px; }
+/* 카드가 넓어지는 지점에서 버튼 바도 같이 넓어져야 한다.
+   이 규칙은 반드시 위 기본값 뒤에 와야 한다 - 앞에 두면 기본값에 덮인다. */
+@media (min-width:900px) {
+  .topbar { top:36px; }
+  .topbar-in { max-width:760px; padding-right:18px; }
+  .nav-btn { width:46px; height:46px; font-size:18px; }
+  .lang-btn { height:46px; font-size:14px; padding:0 16px; }
+}
+@media (min-width:1280px) { .topbar-in { max-width:860px; } }
+
+.hidden { display:none; }
+
+.pt-hero { background:linear-gradient(160deg,#FF914D 0%,#FF7A2E 100%); padding:56px 28px 40px; text-align:center; position:relative; overflow:hidden; }
+.pt-hero::before { content:''; position:absolute; top:-70px; right:-70px; width:220px; height:220px; background:rgba(255,255,255,.07); border-radius:50%; }
+.pt-badge { display:inline-block; background:rgba(255,255,255,.16); color:#fff; font-size:11px; font-weight:600; padding:5px 14px; border-radius:20px; letter-spacing:1.5px; border:1px solid rgba(255,255,255,.25); position:relative; z-index:2; }
+.pt-hero h2 { font-size:32px; font-weight:800; color:#fff; line-height:1.15; margin:14px 0 10px; letter-spacing:-1.4px; position:relative; z-index:2; }
+.pt-hero p { font-size:14px; color:rgba(255,255,255,.88); line-height:1.7; position:relative; z-index:2; word-break:keep-all; }
+
+.pt-body { padding:32px 24px 44px; }
+.pt-card { background:#fff; border-radius:20px; border:1px solid #FFE8CC; padding:24px; box-shadow:0 18px 30px -18px rgba(204,85,0,.3); }
+.pt-track { display:grid; grid-template-columns:repeat(8,1fr); gap:3px; margin-bottom:20px; }
+.pt-blk { height:6px; border-radius:1px; background:#FFE8CC; transition:background .3s; }
+.pt-blk.now { background:#FF914D; }
+.pt-head { display:flex; justify-content:space-between; align-items:baseline; margin-bottom:14px; }
+.pt-lvl { font-size:11px; font-weight:700; color:#CC5500; letter-spacing:.5px; }
+.pt-num { font-size:12px; color:#C49A6A; font-weight:600; font-variant-numeric:tabular-nums; }
+.pt-say { font-size:12px; color:#A0723A; margin-bottom:8px; }
+/* 읽을 문장. 이 화면의 주인공이라 가장 크게 둔다. */
+.pt-target { font-size:26px; font-weight:800; color:#1A0A00; line-height:1.45; letter-spacing:-.8px; word-break:keep-all; margin-bottom:6px; }
+.pt-target b { color:#FF914D; font-weight:800; }
+.pt-romaja { font-size:12px; color:#C49A6A; letter-spacing:.3px; margin-bottom:22px; }
+
+.pt-mic-wrap { display:flex; flex-direction:column; align-items:center; gap:12px; }
+.pt-mic { width:78px; height:78px; border-radius:50%; border:none; background:#FF914D; color:#fff; font-size:30px; cursor:pointer; box-shadow:0 6px 0 #b85e1e, 0 16px 28px -10px rgba(255,145,77,.55); transition:transform .12s, box-shadow .12s; }
+.pt-mic:hover { transform:translateY(2px); box-shadow:0 4px 0 #b85e1e, 0 10px 20px -10px rgba(255,145,77,.55); }
+.pt-mic:active { transform:translateY(5px); box-shadow:0 1px 0 #b85e1e; }
+.pt-mic:disabled { background:#E8C9AE; box-shadow:0 4px 0 #cdb198; cursor:default; }
+.pt-mic.rec { background:#E24B4A; box-shadow:0 6px 0 #a63130, 0 0 0 0 rgba(226,75,74,.5); animation:micPulse 1.3s ease-out infinite; }
+@keyframes micPulse { 0% { box-shadow:0 6px 0 #a63130, 0 0 0 0 rgba(226,75,74,.5); } 70% { box-shadow:0 6px 0 #a63130, 0 0 0 22px rgba(226,75,74,0); } 100% { box-shadow:0 6px 0 #a63130, 0 0 0 0 rgba(226,75,74,0); } }
+.pt-hint { font-size:13px; color:#A0723A; text-align:center; min-height:1.6em; word-break:keep-all; }
+
+.pt-heard { background:#FFFBF3; border:1px solid #FFE8CC; border-radius:12px; padding:14px 16px; margin-top:18px; }
+.pt-heard-lbl { font-size:11px; font-weight:700; color:#C49A6A; letter-spacing:.5px; margin-bottom:5px; }
+.pt-heard-txt { font-size:16px; color:#3D2200; font-weight:600; word-break:keep-all; }
+.pt-acc { display:flex; align-items:baseline; gap:7px; margin-top:12px; }
+.pt-acc-n { font-size:30px; font-weight:800; letter-spacing:-1px; font-variant-numeric:tabular-nums; }
+.pt-acc-t { font-size:12px; color:#A0723A; font-weight:600; }
+.good { color:#1D9E75; } .mid { color:#FF914D; } .bad { color:#E24B4A; }
+
+.pt-next { display:inline-flex; align-items:center; gap:7px; background:#FF914D; color:#fff; font-size:15px; font-weight:700; padding:14px 26px; border-radius:14px; border:none; cursor:pointer; margin-top:18px; box-shadow:0 5px 0 #b85e1e, 0 12px 22px -10px rgba(255,145,77,.5); transition:transform .12s, box-shadow .12s; }
+.pt-next:hover { transform:translateY(2px); box-shadow:0 3px 0 #b85e1e, 0 8px 16px -10px rgba(255,145,77,.5); }
+.pt-next:active { transform:translateY(5px); box-shadow:0 0 0 #b85e1e; }
+.pt-ghost { background:none; border:none; color:#A0723A; font-size:13px; text-decoration:underline; text-underline-offset:3px; cursor:pointer; padding:14px 6px; }
+.pt-ghost:hover { color:#CC5500; }
+
+/* 결과 */
+.pt-score { display:flex; align-items:baseline; gap:8px; margin-bottom:6px; }
+.pt-score-n { font-size:56px; font-weight:800; color:#FF914D; letter-spacing:-2.5px; line-height:1; font-variant-numeric:tabular-nums; }
+.pt-score-d { font-size:15px; color:#C49A6A; font-weight:600; }
+.pt-level { display:inline-block; background:#FFE8CC; color:#CC5500; font-size:13px; font-weight:700; padding:5px 14px; border-radius:20px; margin-bottom:10px; }
+.pt-verdict { font-size:14px; color:#A0723A; line-height:1.7; margin-bottom:20px; word-break:keep-all; }
+.pt-rows { display:flex; flex-direction:column; gap:12px; margin-bottom:22px; }
+.pt-row-top { display:flex; justify-content:space-between; align-items:baseline; gap:10px; font-size:13px; margin-bottom:5px; }
+.pt-row-top span:first-child { color:#3D2200; font-weight:600; word-break:keep-all; }
+.pt-row-top em { font-style:normal; font-weight:700; font-variant-numeric:tabular-nums; flex-shrink:0; }
+.pt-row-bg { background:#FFE8CC; border-radius:20px; height:6px; overflow:hidden; }
+.pt-row-fill { height:100%; border-radius:20px; }
+
+/* 읽는 동안 인식되는 글자를 그대로 보여준다. 내 말이 닿고 있다는 신호. */
+.pt-live { background:#FFFBF3; border:1px solid #FFE8CC; border-radius:12px; padding:14px 16px; margin-top:18px; }
+.pt-live-txt { font-size:15px; color:#3D2200; line-height:1.6; word-break:keep-all; min-height:1.6em; }
+/* 결과에서 어긋난 글자만 짚어준다. 점수만 주면 뭘 고쳐야 할지 모른다. */
+.pt-diff { font-size:17px; line-height:1.8; word-break:keep-all; color:#C49A6A; }
+.pt-diff .ok { color:#3D2200; }
+.pt-diff .no { color:#E24B4A; font-weight:800; border-bottom:2px solid #E24B4A; }
+
+/* 지원 안 되는 브라우저 안내 */
+.pt-warn { background:#FEF0F0; border:1px solid #F5C6C5; border-radius:12px; padding:16px; font-size:13px; color:#A33; line-height:1.7; word-break:keep-all; }
 
 /* Features */
 .feat-list { display:flex; flex-direction:column; gap:12px; perspective:1000px; }
@@ -178,7 +320,15 @@ a { color:#CC5500; } a:hover { color:#FF914D; }
 </style>
 </head>
 <body>
+<!-- 홈과 발음 테스트를 오가는 버튼. 페이지를 나누지 않고 화면만 바꾼다. -->
+<div class="topbar"><div class="topbar-in">
+  <button class="lang-btn" id="langBtn" aria-label="Switch to English">EN</button>
+  <button class="nav-btn" id="navBtn" aria-label="발음 테스트 열기">☰</button>
+</div></div>
+
 <div class="lp">
+
+<div id="homeView">
 
   <!-- Hero -->
   <div class="hero">
@@ -186,14 +336,14 @@ a { color:#CC5500; } a:hover { color:#FF914D; }
     <div class="hero-badge">Vocabulary Learning App</div>
     <h1>치즈감자</h1>
     <p class="hero-en">CHEESEPOTATO</p>
-    <p class="hero-sub">단어를 굽고, 외우고, 마스터하세요.<br>스와이프 하나로 언어 학습이 달라져요.</p>
+    <p class="hero-sub" data-en="Bake, memorize, master your words.<br>One swipe changes how you learn.">단어를 굽고, 외우고, 마스터하세요.<br>스와이프 하나로 언어 학습이 달라져요.</p>
     <div class="hero-stage">
       <div class="hero-stack">
         <div class="back1"></div>
         <div class="back2"></div>
         <div class="front">
           <div class="hero-word">Perseverance</div>
-          <div class="hero-meaning">인내, 끈기</div>
+          <div class="hero-meaning" data-en="perseverance">인내, 끈기</div>
           <div class="hero-diff"><span>🧀</span><span>🧀</span><span>🧀</span></div>
         </div>
         <div class="chip1">🧀</div>
@@ -202,35 +352,35 @@ a { color:#CC5500; } a:hover { color:#FF914D; }
       <div class="hero-shadow"></div>
     </div>
     <div class="btn-row">
-      <a class="btn-primary" href="#download">⬇ 무료 다운로드</a>
-      <a class="btn-ghost" href="#features">기능 살펴보기 →</a>
+      <a class="btn-primary" href="#download" data-en="⬇ Free download">⬇ 무료 다운로드</a>
+      <button class="btn-ghost" id="heroTestBtn" type="button" data-en="🎙 Pronunciation test →">🎙 발음 레벨 테스트 →</button>
     </div>
   </div>
 
   <!-- 통계 바 -->
   <div class="stat-row">
-    <div class="stat-item"><div class="stat-num">4</div><div class="stat-label">지원 언어</div></div>
-    <div class="stat-item"><div class="stat-num">Free</div><div class="stat-label">완전 무료</div></div>
-    <div class="stat-item"><div class="stat-num">∞</div><div class="stat-label">단어 무제한</div></div>
+    <div class="stat-item"><div class="stat-num">4</div><div class="stat-label" data-en="Languages">지원 언어</div></div>
+    <div class="stat-item"><div class="stat-num">Free</div><div class="stat-label" data-en="Always free">완전 무료</div></div>
+    <div class="stat-item"><div class="stat-num">∞</div><div class="stat-label" data-en="Unlimited words">단어 무제한</div></div>
   </div>
 
   <!-- 스와이프 -->
   <div class="section">
     <div class="label">STUDY MODE</div>
-    <p class="section-title">스와이프로<br>외우는 단어장</p>
-    <p class="section-sub">카드를 직접 기울여보세요 —<br>어려운 단어는 왼쪽, 외운 단어는 오른쪽으로.</p>
+    <p class="section-title" data-en="A wordbook you<br>swipe through">스와이프로<br>외우는 단어장</p>
+    <p class="section-sub" data-en="Tilt the card yourself —<br>hard words left, memorized words right.">카드를 직접 기울여보세요 —<br>어려운 단어는 왼쪽, 외운 단어는 오른쪽으로.</p>
     <div class="swipe-wrap" id="swipeWrap">
       <div class="s-card c3"></div>
       <div class="s-card c2"></div>
       <div class="s-card c1" id="swipeCard">
         <div class="card-word">Perseverance</div>
-        <div class="card-meaning">인내, 끈기</div>
+        <div class="card-meaning" data-en="perseverance">인내, 끈기</div>
         <div class="card-diff"><span>🧀</span><span>🧀</span><span>🧀</span></div>
       </div>
     </div>
     <div class="swipe-labels">
-      <div class="swipe-l">✕ 어려워요</div>
-      <div class="swipe-r">외웠어요 ✓</div>
+      <div class="swipe-l" data-en="✕ Still learning">✕ 어려워요</div>
+      <div class="swipe-r" data-en="Got it ✓">외웠어요 ✓</div>
     </div>
   </div>
 
@@ -239,24 +389,24 @@ a { color:#CC5500; } a:hover { color:#FF914D; }
   <!-- 기능 -->
   <div class="section" id="features" style="padding-top:40px;">
     <div class="label">FEATURES</div>
-    <p class="section-title">학습에 필요한<br>모든 기능</p>
-    <p class="section-sub">단어 추가부터 통계까지, 하나의 앱에서.</p>
+    <p class="section-title" data-en="Everything you need<br>to study">학습에 필요한<br>모든 기능</p>
+    <p class="section-sub" data-en="From adding words to tracking progress, in one app.">단어 추가부터 통계까지, 하나의 앱에서.</p>
     <div class="feat-list">
       <div class="feat-item">
         <div class="feat-icon-wrap">📚</div>
-        <div><div class="feat-text-title">나만의 단어장</div><div class="feat-text-desc">단어, 뜻, 사진을 직접 추가해 완전히 나만의 단어장을 만들어요</div></div>
+        <div><div class="feat-text-title" data-en="Your own wordbook">나만의 단어장</div><div class="feat-text-desc" data-en="Add words, meanings and photos to build a wordbook that is entirely yours">단어, 뜻, 사진을 직접 추가해 완전히 나만의 단어장을 만들어요</div></div>
       </div>
       <div class="feat-item">
         <div class="feat-icon-wrap">📊</div>
-        <div><div class="feat-text-title">학습 대시보드</div><div class="feat-text-desc">D-day 카운트다운과 암기 추이 차트로 나의 학습 진도를 확인해요</div></div>
+        <div><div class="feat-text-title" data-en="Study dashboard">학습 대시보드</div><div class="feat-text-desc" data-en="A D-day countdown and memorization chart show exactly how far you have come">D-day 카운트다운과 암기 추이 차트로 나의 학습 진도를 확인해요</div></div>
       </div>
       <div class="feat-item">
         <div class="feat-icon-wrap">📷</div>
-        <div><div class="feat-text-title">사진 첨부</div><div class="feat-text-desc">단어에 이미지를 연결해 시각적 기억으로 더 오래 기억해요</div></div>
+        <div><div class="feat-text-title" data-en="Attach photos">사진 첨부</div><div class="feat-text-desc" data-en="Link an image to a word so the picture carries the memory">단어에 이미지를 연결해 시각적 기억으로 더 오래 기억해요</div></div>
       </div>
       <div class="feat-item">
         <div class="feat-icon-wrap">📤</div>
-        <div><div class="feat-text-title">엑셀 대량 가져오기</div><div class="feat-text-desc">.xlsx 파일로 수백 개의 단어를 한 번에 추가할 수 있어요</div></div>
+        <div><div class="feat-text-title" data-en="Bulk Excel import">엑셀 대량 가져오기</div><div class="feat-text-desc" data-en="Add hundreds of words at once from an .xlsx file">.xlsx 파일로 수백 개의 단어를 한 번에 추가할 수 있어요</div></div>
       </div>
     </div>
   </div>
@@ -266,23 +416,23 @@ a { color:#CC5500; } a:hover { color:#FF914D; }
   <!-- 캐릭터 -->
   <div class="section">
     <div class="label">CHARACTERS</div>
-    <p class="section-title">치즈와 감자를<br>소개합니다</p>
-    <p class="section-sub">치즈감자의 두 친구가 함께 단어 공부를 도와줄게요.</p>
+    <p class="section-title" data-en="Meet Cheese<br>and Potato">치즈와 감자를<br>소개합니다</p>
+    <p class="section-sub" data-en="Two friends who study alongside you.">치즈감자의 두 친구가 함께 단어 공부를 도와줄게요.</p>
     <div class="char-cards">
       <div class="char-card">
         <div class="char-fig"><div class="char-emoji">🧀</div><div class="char-ground"></div></div>
         <div class="char-text">
           <div class="char-tag cheese">CHEESE</div>
-          <div class="char-name">치즈</div>
-          <div class="char-desc">단어를 얼마나 잘 외웠는지 알려주는 친구예요. 난이도를 🧀 개수로 표시해줘서 어떤 단어가 어려운지 한눈에 보여줘요.</div>
+          <div class="char-name" data-en="Cheese">치즈</div>
+          <div class="char-desc" data-en="Cheese tracks how well you know a word. Difficulty shows as 🧀 marks, so hard words stand out at a glance.">단어를 얼마나 잘 외웠는지 알려주는 친구예요. 난이도를 🧀 개수로 표시해줘서 어떤 단어가 어려운지 한눈에 보여줘요.</div>
         </div>
       </div>
       <div class="char-card potato">
         <div class="char-fig"><div class="char-emoji">🥔</div><div class="char-ground"></div></div>
         <div class="char-text">
           <div class="char-tag potato">POTATO</div>
-          <div class="char-name">감자</div>
-          <div class="char-desc">단어를 얼마나 자주 봤는지 세어주는 친구예요. 🥔 x N 으로 열람 횟수를 보여줘서 자주 본 단어를 쉽게 찾을 수 있어요.</div>
+          <div class="char-name" data-en="Potato">감자</div>
+          <div class="char-desc" data-en="Potato counts how often you look at a word. 🥔 x N shows the view count, so your most-revisited words are easy to find.">단어를 얼마나 자주 봤는지 세어주는 친구예요. 🥔 x N 으로 열람 횟수를 보여줘서 자주 본 단어를 쉽게 찾을 수 있어요.</div>
         </div>
       </div>
     </div>
@@ -293,20 +443,20 @@ a { color:#CC5500; } a:hover { color:#FF914D; }
   <!-- 대시보드 -->
   <div class="section">
     <div class="label">DASHBOARD</div>
-    <p class="section-title">내 학습량을<br>한눈에 확인</p>
-    <p class="section-sub">마우스를 올려 기울여보세요 —<br>나의 학습 현황이 살아있는 대시보드.</p>
+    <p class="section-title" data-en="See your progress<br>at a glance">내 학습량을<br>한눈에 확인</p>
+    <p class="section-sub" data-en="Hover to tilt it —<br>a dashboard that responds as you read.">마우스를 올려 기울여보세요 —<br>나의 학습 현황이 살아있는 대시보드.</p>
     <div class="dash-persp" id="dashPersp">
     <div class="dash-mockup" id="dashMockup">
       <div class="dash-header">
-        <div class="dash-header-title">📊 학습 대시보드</div>
-        <div class="dash-header-sub">영어 단어장 · 2026년 7월</div>
+        <div class="dash-header-title" data-en="📊 Study dashboard">📊 학습 대시보드</div>
+        <div class="dash-header-sub" data-en="English wordbook · July 2026">영어 단어장 · 2026년 7월</div>
       </div>
       <div class="dash-body">
         <div class="dday-box">
           <div>
-            <div class="dday-label">시험까지 남은 날</div>
+            <div class="dday-label" data-en="Days until the test">시험까지 남은 날</div>
             <div class="dday-num">D-14</div>
-            <div class="dday-sub">2026년 7월 30일 · 목표 30일</div>
+            <div class="dday-sub" data-en="July 30, 2026 · 30-day goal">2026년 7월 30일 · 목표 30일</div>
           </div>
           <svg width="60" height="60" viewBox="0 0 60 60">
             <circle class="ring-bg" cx="30" cy="30" r="25"/>
@@ -315,11 +465,11 @@ a { color:#CC5500; } a:hover { color:#FF914D; }
           </svg>
         </div>
         <div class="dash-stat-grid">
-          <div class="dash-stat-card"><div class="dash-stat-val">142</div><div class="dash-stat-lbl">전체 단어</div></div>
-          <div class="dash-stat-card"><div class="dash-stat-val" style="color:#1D9E75">76</div><div class="dash-stat-lbl">외운 단어</div></div>
-          <div class="dash-stat-card"><div class="dash-stat-val" style="color:#FF914D">66</div><div class="dash-stat-lbl">학습 중</div></div>
+          <div class="dash-stat-card"><div class="dash-stat-val">142</div><div class="dash-stat-lbl" data-en="Total words">전체 단어</div></div>
+          <div class="dash-stat-card"><div class="dash-stat-val" style="color:#1D9E75">76</div><div class="dash-stat-lbl" data-en="Memorized">외운 단어</div></div>
+          <div class="dash-stat-card"><div class="dash-stat-val" style="color:#FF914D">66</div><div class="dash-stat-lbl" data-en="Learning">학습 중</div></div>
         </div>
-        <div class="chart-title">최근 7일 암기 추이</div>
+        <div class="chart-title" data-en="Last 7 days">최근 7일 암기 추이</div>
         <div class="chart-wrap">
           <div class="bar" style="height:40%"><span class="bar-label">월</span><span class="bar-val">8</span></div>
           <div class="bar" style="height:55%"><span class="bar-label">화</span><span class="bar-val">11</span></div>
@@ -330,7 +480,7 @@ a { color:#CC5500; } a:hover { color:#FF914D; }
           <div class="bar" style="height:45%"><span class="bar-label">일</span><span class="bar-val">9</span></div>
         </div>
         <div class="diff-section">
-          <div class="diff-title">난이도 분포</div>
+          <div class="diff-title" data-en="By difficulty">난이도 분포</div>
           <div class="diff-row">
             <div class="diff-lbl">🧀</div>
             <div class="diff-bar-bg"><div class="diff-bar-fill" style="width:65%;background:#FFD166"></div></div>
@@ -366,8 +516,8 @@ a { color:#CC5500; } a:hover { color:#FF914D; }
         </div>
       </div>
       <div>
-        <div class="lang-title">4개 언어로 학습하세요</div>
-        <div class="lang-desc">한국어 · English · 日本語 · 中文<br>원하는 언어 조합으로 단어장을 만들어요.</div>
+        <div class="lang-title" data-en="Study in four languages">4개 언어로 학습하세요</div>
+        <div class="lang-desc" data-en="Korean · English · Japanese · Chinese<br>Pick any pair and build your wordbook.">한국어 · English · 日本語 · 中文<br>원하는 언어 조합으로 단어장을 만들어요.</div>
       </div>
     </div>
   </div>
@@ -375,17 +525,108 @@ a { color:#CC5500; } a:hover { color:#FF914D; }
   <!-- 다운로드 -->
   <div class="dl-section" id="download">
     <div class="dl-logo-wrap"><img class="dl-logo" src="logo.png" alt="치즈감자"></div>
-    <div class="dl-title">지금 바로 시작하세요</div>
-    <div class="dl-sub">무료로 나만의 단어장을 만들고<br>더 스마트하게 언어를 공부하세요</div>
-    <a class="dl-btn" href="https://play.google.com/store" target="_blank">▶ Google Play 다운로드</a>
-    <div class="dl-coming"><span>🍎 iOS 버전 출시 예정</span></div>
+    <div class="dl-title" data-en="Start today">지금 바로 시작하세요</div>
+    <div class="dl-sub" data-en="Build your own wordbook for free<br>and study smarter">무료로 나만의 단어장을 만들고<br>더 스마트하게 언어를 공부하세요</div>
+    <a class="dl-btn" href="https://play.google.com/store" target="_blank" data-en="▶ Get it on Google Play">▶ Google Play 다운로드</a>
+    <div class="dl-coming"><span data-en="🍎 iOS version coming soon">🍎 iOS 버전 출시 예정</span></div>
   </div>
 
   <!-- 푸터 -->
   <div class="footer">
-    <div class="footer-brand">에브리 코리안즈</div>
+    <div class="footer-brand" data-en="Every Koreans">에브리 코리안즈</div>
     <div class="footer-info">© 2026 치즈감자 · <a href="mailto:junsanghan1225@gmail.com">junsanghan1225@gmail.com</a></div>
   </div>
+
+</div><!-- /homeView -->
+
+<!-- ── 발음 레벨 테스트 ───────────────────────────────────── -->
+<div id="testView" class="hidden">
+
+  <div class="pt-hero">
+    <div class="pt-badge">PRONUNCIATION LEVEL</div>
+    <h2 data-en="Read it aloud.<br>We score your pronunciation.">읽어보세요.<br>발음으로 레벨을 잽니다.</h2>
+    <p data-en="Read the passage out loud and we compare it<br>character by character to tell you your level.">문장을 소리 내어 읽으면 얼마나 정확히 전달되는지<br>글자 단위로 비교해 레벨을 알려드려요.</p>
+  </div>
+
+  <div class="pt-body">
+
+    <!-- 시작 -->
+    <div id="ptCover">
+      <div class="label">HOW IT WORKS</div>
+      <p class="section-title" data-en="Read one passage<br>out loud. That is it.">지문 하나를<br>소리 내어 읽으면 끝</p>
+      <p class="section-sub" data-en="A short passage, picked at random.<br>No sign-up, no install.">무작위로 뽑은 짧은 글을 읽어주세요.<br>가입도, 설치도 필요 없어요.</p>
+      <div class="pt-card">
+        <div class="pt-mic-wrap">
+          <button class="pt-next" id="ptStart" data-en="Get a passage →">지문 받기 →</button>
+        </div>
+      </div>
+      <p class="section-sub" style="margin:18px 0 0; font-size:12px;" data-en="Needs microphone access. Recognition happens in your browser, and nothing you say is stored.">마이크 권한이 필요하고, 인식은 브라우저가 처리합니다. 녹음된 소리는 저장하지 않습니다.</p>
+    </div>
+
+    <!-- 읽기 -->
+    <div id="ptPlay" class="hidden">
+      <div class="pt-card">
+        <p class="pt-say" data-en="Read this out loud">이 글을 소리 내어 읽어주세요</p>
+        <p class="pt-target" id="ptTarget"></p>
+
+        <div class="pt-mic-wrap">
+          <button class="pt-mic" id="ptMic" aria-label="녹음 시작">🎙</button>
+          <p class="pt-hint" id="ptHint">마이크를 누르고 읽기 시작하세요</p>
+        </div>
+
+        <div class="pt-live hidden" id="ptLiveWrap">
+          <div class="pt-heard-lbl" data-en="What we hear">들리는 대로</div>
+          <div class="pt-live-txt" id="ptLive"></div>
+        </div>
+
+        <div class="pt-mic-wrap">
+          <button class="pt-ghost" id="ptSkip" data-en="Try another passage">다른 지문으로</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 결과 -->
+    <div id="ptDone" class="hidden">
+      <div class="pt-card">
+        <div class="pt-score">
+          <span class="pt-score-n" id="ptFinal">0</span>
+          <span class="pt-score-d" data-en="pts">점</span>
+        </div>
+        <div class="pt-level" id="ptLevelName"></div>
+        <p class="pt-verdict" id="ptVerdict"></p>
+
+        <div class="pt-heard">
+          <div class="pt-heard-lbl" data-en="Where it differed">다르게 들린 곳</div>
+          <div class="pt-diff" id="ptDiff"></div>
+        </div>
+
+        <div class="pt-heard" style="margin-top:10px;">
+          <div class="pt-heard-lbl" data-en="What we heard">이렇게 들렸어요</div>
+          <div class="pt-heard-txt" id="ptHeard"></div>
+        </div>
+
+        <div class="pt-mic-wrap">
+          <button class="pt-next" id="ptShare" data-en="Share result">결과 공유하기</button>
+          <button class="pt-ghost" id="ptAgain" data-en="Try another passage">다른 지문으로 다시</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 지원 안 될 때 -->
+    <div id="ptUnsupported" class="hidden">
+      <div class="pt-warn">
+        <span data-en="&lt;b&gt;This browser does not support speech recognition.&lt;/b&gt;&lt;br&gt;Open it in Chrome or Edge and it will work right away. On iPhone, use the latest Safari."><b>이 브라우저는 음성 인식을 지원하지 않아요.</b><br>크롬이나 엣지에서 열면 바로 쓸 수 있습니다. 아이폰은 사파리 최신 버전에서 동작해요.</span>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="footer">
+    <div class="footer-brand" data-en="Every Koreans">에브리 코리안즈</div>
+    <div class="footer-info">© 2026 치즈감자 · 재미로 보는 테스트</div>
+  </div>
+
+</div><!-- /testView -->
 
 </div>
 <script>
@@ -448,6 +689,276 @@ const io = new IntersectionObserver(entries => {
   entries.forEach(en => { if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); } });
 }, { threshold: 0.18, rootMargin: '0px 0px -6% 0px' });
 document.querySelectorAll('.reveal, .reveal-deep').forEach(el => io.observe(el));
+
+/* ── 발음 레벨 테스트 ─────────────────────────────────────────
+   브라우저에 내장된 음성 인식을 쓴다. 서버도 API 키도 없어서
+   아무리 퍼져도 비용이 0이고 멈출 일이 없다.
+
+   채점은 "들린 글자"와 "읽어야 할 글자"를 자모 단위로 비교한다.
+   음절 단위로 세면 받침 하나 틀린 것과 글자를 통째로 틀린 것이
+   같은 점수가 되어 버린다. */
+
+/* 지문 풀.
+   무작위로 하나만 읽으므로 난이도가 고르지 않으면 운으로 레벨이 갈린다.
+   길이(두 문장, 35자 안팎)와 받침·연음 부담을 비슷하게 맞췄다. */
+const PT = [
+  '오늘은 아침부터 비가 내렸습니다. 우산을 챙기지 않아서 그냥 뛰어갔어요.',
+  '주말에 친구들과 바다에 다녀왔습니다. 파도 소리를 들으니 마음이 편해졌어요.',
+  '새로 문을 연 식당에 갔습니다. 김치찌개가 얼큰해서 국물까지 다 먹었어요.',
+  '지하철에서 책을 읽는 사람을 봤습니다. 요즘 보기 드문 모습이라 반가웠어요.',
+  '봄이 되니 꽃들이 한꺼번에 피었습니다. 길을 걷는 것만으로도 기분이 좋아졌어요.',
+  '밤늦게까지 공부하다가 잠들었습니다. 아침에 일어나니 목이 뻐근하고 눈이 아팠어요.',
+  '오랜만에 시장에 들렀습니다. 값을 깎아 주셔서 생각보다 많이 사 왔어요.',
+  '창문을 열었더니 바람이 들어왔습니다. 낙엽 밟는 소리가 유난히 크게 들렸어요.',
+];
+
+const PT_LV = [
+  { min:90, n:'원어민 수준', s:'거의 그대로 전달됩니다. 발음으로 막힐 일은 없겠어요.' },
+  { min:75, n:'상급',       s:'잘 전달됩니다. 긴 문장에서 조금씩 흐려지는 정도예요.' },
+  { min:60, n:'중급',       s:'대체로 알아듣습니다. 받침과 연음을 다듬으면 확 올라가요.' },
+  { min:40, n:'초급',       s:'짧은 구절은 잘 됩니다. 천천히 끊어 읽는 연습을 해보세요.' },
+  { min:0,  n:'입문',       s:'지금부터 소리 내어 읽는 연습을 시작하면 됩니다.' },
+];
+
+const ptId = id => document.getElementById(id);
+let ptText = '', ptHeardAll = '', ptRec = null, ptRunning = false;
+
+/* 한글 음절을 초성·중성·종성으로 쪼갠다.
+   "감"과 "간"은 자모로 보면 셋 중 하나만 다른데,
+   음절로 세면 통째로 틀린 게 되어 점수가 과하게 깎인다. */
+const CHO = 'ㄱㄲㄴㄷㄸㄹㅁㅂㅃㅅㅆㅇㅈㅉㅊㅋㅌㅍㅎ'.split('');
+const JUNG = 'ㅏㅐㅑㅒㅓㅔㅕㅖㅗㅘㅙㅚㅛㅜㅝㅞㅟㅠㅡㅢㅣ'.split('');
+const JONG = ['','ㄱ','ㄲ','ㄳ','ㄴ','ㄵ','ㄶ','ㄷ','ㄹ','ㄺ','ㄻ','ㄼ','ㄽ','ㄾ','ㄿ','ㅀ','ㅁ','ㅂ','ㅄ','ㅅ','ㅆ','ㅇ','ㅈ','ㅊ','ㅋ','ㅌ','ㅍ','ㅎ'];
+function toJamo(s) {
+  const out = [];
+  for (const ch of s) {
+    const code = ch.charCodeAt(0) - 0xAC00;
+    if (code >= 0 && code <= 11171) {
+      out.push(CHO[Math.floor(code / 588)], JUNG[Math.floor((code % 588) / 28)]);
+      const j = JONG[code % 28];
+      if (j) out.push(j);
+    } else out.push(ch);
+  }
+  return out;
+}
+
+// 편집 거리. 지문이 짧아 단순 DP로 충분하다.
+function editDist(a, b) {
+  const m = a.length, n = b.length;
+  let prev = Array.from({ length: n + 1 }, (_, j) => j);
+  for (let i = 1; i <= m; i++) {
+    const cur = [i];
+    for (let j = 1; j <= n; j++) {
+      cur[j] = a[i-1] === b[j-1] ? prev[j-1] : 1 + Math.min(prev[j-1], prev[j], cur[j-1]);
+    }
+    prev = cur;
+  }
+  return prev[n];
+}
+
+/* 띄어쓰기와 문장부호는 뺀다. 음성 인식이 붙였다 뗐다 하는 게 제각각이라
+   그것 때문에 점수가 흔들리면 발음을 재는 게 아니게 된다. */
+const clean = s => (s || '').replace(/[\s.,!?~·"'…]/g, '');
+
+function accuracy(said, target) {
+  const a = toJamo(clean(said)), b = toJamo(clean(target));
+  if (!b.length) return 0;
+  return Math.max(0, Math.round((1 - editDist(a, b) / b.length) * 100));
+}
+
+/* 어느 글자가 어긋났는지 되짚는다.
+   비교는 공백을 뺀 글자끼리 하되, 화면에는 원래 지문 그대로
+   띄어쓰기와 마침표를 살려 보여준다. 공백을 지운 채로 뿌리면
+   한 덩어리가 되어 줄바꿈이 안 되고 옆으로 잘려나간다. */
+function diffHtml(said, target) {
+  const A = [...clean(said)], B = [...clean(target)];
+  const m = A.length, n = B.length;
+  const d = Array.from({ length: m + 1 }, (_, i) =>
+    Array.from({ length: n + 1 }, (_, j) => (i === 0 ? j : j === 0 ? i : 0)));
+  for (let i = 1; i <= m; i++)
+    for (let j = 1; j <= n; j++)
+      d[i][j] = A[i-1] === B[j-1] ? d[i-1][j-1]
+        : 1 + Math.min(d[i-1][j-1], d[i-1][j], d[i][j-1]);
+
+  const mark = new Array(n).fill(false); // true = 맞음
+  let i = m, j = n;
+  while (i > 0 && j > 0) {
+    if (A[i-1] === B[j-1] && d[i][j] === d[i-1][j-1]) { mark[j-1] = true; i--; j--; }
+    else if (d[i][j] === d[i-1][j-1] + 1) { i--; j--; }   // 바뀜
+    else if (d[i][j] === d[i][j-1] + 1) { j--; }          // 빠뜨림
+    else { i--; }                                          // 덧붙임
+  }
+
+  // 원문을 훑으며 공백·문장부호는 그대로 두고 글자에만 표시를 붙인다
+  let k = 0;
+  const html = [...target].map(ch => {
+    if (/[\s.,!?~·"'…]/.test(ch)) return ch;
+    const ok = mark[k++];
+    return `<span class="${ok ? 'ok' : 'no'}">${ch}</span>`;
+  }).join('');
+  const wrong = mark.filter(v => !v).length;
+  return { html, wrong, total: n };
+}
+
+const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+
+function ptPick() {
+  // 방금 읽은 지문은 피한다. 다시 눌렀는데 같은 글이 나오면 맥이 빠진다.
+  let next = ptText;
+  while (next === ptText && PT.length > 1) next = PT[Math.floor(Math.random() * PT.length)];
+  ptText = next || PT[0];
+  ptId('ptTarget').textContent = ptText;
+  ptHeardAll = '';
+  ptId('ptLive').textContent = '';
+  ptId('ptLiveWrap').classList.add('hidden');
+  ptId('ptMic').classList.remove('rec');
+  ptId('ptMic').disabled = false;
+  ptId('ptHint').textContent = '마이크를 누르고 읽기 시작하세요';
+}
+
+function ptStop() {
+  if (ptRec) { try { ptRec.stop(); } catch (e) {} }
+}
+
+function ptListen() {
+  if (ptRunning) { ptStop(); return; }   // 두 번째 누름 = 끝내기
+  ptRunning = true;
+  ptHeardAll = '';
+
+  const rec = new SR();
+  ptRec = rec;
+  rec.lang = 'ko-KR';
+  // 지문이 두 문장이라 중간 쉼에서 끊기면 안 된다. 이어서 듣게 한다.
+  rec.continuous = true;
+  rec.interimResults = true;
+
+  ptId('ptMic').classList.add('rec');
+  ptId('ptMic').setAttribute('aria-label', '녹음 끝내기');
+  ptId('ptHint').textContent = '듣고 있어요 — 다 읽으면 마이크를 다시 누르세요';
+  ptId('ptLiveWrap').classList.remove('hidden');
+
+  rec.onresult = (e) => {
+    let interim = '';
+    for (let i = e.resultIndex; i < e.results.length; i++) {
+      const txt = e.results[i][0].transcript;
+      if (e.results[i].isFinal) ptHeardAll += txt + ' ';
+      else interim += txt;
+    }
+    ptId('ptLive').textContent = (ptHeardAll + interim).trim();
+  };
+
+  rec.onerror = (e) => {
+    if (e.error === 'not-allowed') {
+      ptId('ptHint').textContent = '마이크 권한이 필요해요. 주소창 옆에서 허용해주세요.';
+    } else if (e.error !== 'no-speech' && e.error !== 'aborted') {
+      ptId('ptHint').textContent = '잘 못 들었어요. 다시 눌러주세요.';
+    }
+  };
+
+  rec.onend = () => {
+    ptRunning = false;
+    ptId('ptMic').classList.remove('rec');
+    ptId('ptMic').setAttribute('aria-label', '녹음 시작');
+    const said = ptHeardAll.trim();
+    if (said) ptFinish(said);
+    else ptId('ptHint').textContent = '소리가 안 들렸어요. 다시 눌러주세요.';
+  };
+
+  try { rec.start(); }
+  catch (err) { ptRunning = false; ptId('ptHint').textContent = '다시 눌러주세요.'; }
+}
+
+function ptFinish(said) {
+  const score = accuracy(said, ptText);
+  const lv = PT_LV.find(l => score >= l.min);
+  ptId('ptPlay').classList.add('hidden');
+  ptId('ptDone').classList.remove('hidden');
+  ptId('ptFinal').textContent = score;
+  ptId('ptLevelName').textContent = lv.n;
+  ptId('ptVerdict').textContent = lv.s;
+  ptId('ptHeard').textContent = said;
+
+  ptId('ptDiff').innerHTML = diffHtml(said, ptText).html;
+
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+ptId('ptStart').addEventListener('click', () => {
+  if (!SR) {
+    ptId('ptCover').classList.add('hidden');
+    ptId('ptUnsupported').classList.remove('hidden');
+    return;
+  }
+  ptId('ptCover').classList.add('hidden');
+  ptId('ptPlay').classList.remove('hidden');
+  ptPick();
+});
+
+ptId('ptMic').addEventListener('click', ptListen);
+ptId('ptSkip').addEventListener('click', () => { ptStop(); ptPick(); });
+ptId('ptAgain').addEventListener('click', () => {
+  ptId('ptDone').classList.add('hidden');
+  ptId('ptPlay').classList.remove('hidden');
+  ptPick();
+});
+
+ptId('ptShare').addEventListener('click', async () => {
+  const score = ptId('ptFinal').textContent;
+  const name = ptId('ptLevelName').textContent;
+  const text = `한국어 발음 테스트 ${score}점 — ${name}\n${location.href}`;
+  try {
+    if (navigator.share) await navigator.share({ text });
+    else {
+      await navigator.clipboard.writeText(text);
+      ptId('ptShare').textContent = '복사했어요';
+      setTimeout(() => { ptId('ptShare').textContent = '결과 공유하기'; }, 1600);
+    }
+  } catch (e) { /* 공유창을 닫은 것뿐이라 아무것도 하지 않는다 */ }
+});
+
+
+// 홈 ↔ 테스트 전환. 히어로 버튼과 ☰ 가 같은 길로 들어와야
+// 한쪽만 고치고 다른 쪽이 죽는 일이 없다.
+function ptShow(toTest) {
+  // 화면을 벗어나면 듣던 것을 멈춘다. 안 그러면 홈에서도 마이크가 살아 있다.
+  if (ptRec && ptRunning) { try { ptRec.stop(); } catch (e) {} }
+  ptId('homeView').classList.toggle('hidden', toTest);
+  ptId('testView').classList.toggle('hidden', !toTest);
+  const b = ptId('navBtn');
+  b.textContent = toTest ? '✕' : '☰';
+  b.classList.toggle('on', toTest);
+  b.setAttribute('aria-label', toTest ? '홈으로' : '발음 테스트 열기');
+  window.scrollTo({ top: 0, behavior: 'auto' });
+}
+ptId('navBtn').addEventListener('click', () => {
+  ptShow(ptId('testView').classList.contains('hidden'));
+});
+ptId('heroTestBtn').addEventListener('click', () => ptShow(true));
+
+/* 한국어 / English
+   원문(한국어)은 그대로 두고 data-en 에 영어를 달아 뒀다.
+   영어를 못 붙인 곳은 자동으로 한국어가 남아 화면이 비지 않는다. */
+let ptLang = 'ko';
+function applyLang(lang) {
+  ptLang = lang;
+  document.querySelectorAll('[data-en]').forEach(el => {
+    // 첫 전환 때 한국어 원문을 보관해 둔다. 안 그러면 되돌릴 수 없다.
+    if (el.dataset.ko === undefined) el.dataset.ko = el.innerHTML;
+    el.innerHTML = lang === 'en' ? el.dataset.en : el.dataset.ko;
+  });
+  document.documentElement.lang = lang;
+  const b = ptId('langBtn');
+  b.textContent = lang === 'en' ? 'KO' : 'EN';
+  b.setAttribute('aria-label', lang === 'en' ? '한국어로 보기' : 'Switch to English');
+  // 지문은 한국어 발음을 재는 것이라 번역하지 않는다. 안내 문구만 바꾼다.
+  ptId('ptHint').textContent = ptRunning
+    ? (lang === 'en' ? 'Listening — tap the mic again when you finish'
+                     : '듣고 있어요 — 다 읽으면 마이크를 다시 누르세요')
+    : (lang === 'en' ? 'Tap the mic and start reading'
+                     : '마이크를 누르고 읽기 시작하세요');
+}
+ptId('langBtn').addEventListener('click', () => applyLang(ptLang === 'ko' ? 'en' : 'ko'));
+
 </script>
 </body>
 </html>
