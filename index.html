@@ -628,6 +628,55 @@ a:hover { color:var(--orange-mid); }
 .wb-state { text-align:center; padding:52px 20px; color:var(--ink-3); font-size:14.5px; line-height:1.8; word-break:keep-all; }
 .wb-spin { width:28px; height:28px; margin:0 auto 18px; border:2px solid var(--line); border-top-color:var(--orange); border-radius:50%; animation:wbSpin .8s linear infinite; }
 
+/* ── 단어장 : 검색 · 정렬 · 보기 ─────────────────────────────── */
+.wb-tools { display:flex; gap:8px; flex-wrap:wrap; margin-bottom:12px; }
+.wb-search {
+  flex:1; min-width:170px; padding:11px 14px; font-size:14px; color:var(--ink);
+  background:var(--surface); border:1px solid var(--line); border-radius:var(--r-s);
+}
+.wb-search:focus { outline:none; border-color:var(--orange-mid); }
+.wb-search::placeholder { color:var(--ink-3); }
+.wb-sort {
+  padding:11px 12px; font-size:14px; color:var(--ink); cursor:pointer;
+  background:var(--surface); border:1px solid var(--line); border-radius:var(--r-s);
+}
+.wb-view { display:flex; gap:2px; padding:3px; background:rgba(27,21,18,.05); border-radius:var(--r-s); }
+.wb-view-btn {
+  width:36px; height:36px; border:none; background:none; cursor:pointer;
+  border-radius:6px; font-size:15px; color:var(--ink-3); transition:background .15s, color .15s;
+}
+.wb-view-btn.on { background:var(--surface); color:var(--ink); box-shadow:0 1px 3px rgba(27,21,18,.1); }
+
+.wb-chips { display:flex; gap:6px; flex-wrap:wrap; margin-bottom:18px; }
+.wb-chip {
+  display:inline-flex; align-items:center; gap:7px; padding:7px 13px;
+  border:1px solid var(--line); border-radius:20px; background:transparent;
+  color:var(--ink-2); font-size:13px; font-weight:600; cursor:pointer;
+  transition:background .15s, border-color .15s, color .15s;
+}
+.wb-chip:hover { background:rgba(27,21,18,.04); }
+.wb-chip.on { background:var(--ink); border-color:var(--ink); color:#fff; }
+/* 품사 색은 앱 src/lib/tags.ts 의 TAG_COLORS 와 같은 값이다. */
+.wb-dot { width:7px; height:7px; border-radius:50%; flex-shrink:0; }
+.wb-none { text-align:center; padding:44px 20px; color:var(--ink-3); font-size:14.5px; line-height:1.8; }
+
+/* 외운 단어는 조금 가라앉혀 아직 못 외운 것이 눈에 먼저 들어오게 한다. */
+.wb-item.done { background:var(--surface-2); }
+.wb-item.done .wb-word { color:var(--ink-2); }
+.wb-done { display:inline-block; margin-left:7px; font-size:11px; color:var(--green); font-weight:700; vertical-align:middle; }
+
+/* ── 바둑판 보기 ─────────────────────────────────────────────── */
+.wb-list.grid { grid-template-columns:repeat(2, minmax(0,1fr)); gap:12px; }
+.wb-list.grid .wb-item { flex-direction:column; gap:0; padding:0; overflow:hidden; }
+.wb-list.grid .wb-thumb { width:100%; height:112px; border-radius:0; }
+.wb-list.grid .wb-noimg { width:100%; height:112px; background:var(--tint); display:grid; place-items:center; font-size:26px; }
+.wb-list.grid .wb-main { padding:14px; }
+.wb-list.grid .wb-word { font-size:16px; }
+.wb-list.grid .wb-mean { font-size:13px; }
+/* 칸이 좁아 예문까지 넣으면 카드 높이가 제각각이 된다. 목록에서만 보인다. */
+.wb-list.grid .wb-ex { display:none; }
+.wb-list:not(.grid) .wb-noimg { display:none; }
+
 /* ══ 자료마당 (게시판) ═════════════════════════════════════════
    기능 목록과 같은 헤어라인 색인. 카드를 띄우지 않는다. */
 .bd { border-top:1px solid var(--line); margin-bottom:14px; }
@@ -796,6 +845,11 @@ a:hover { color:var(--orange-mid); }
   .pt-diff { font-size:22px; line-height:1.95; }
   .wb-thumb { width:70px; height:70px; }
   .wb-word { font-size:19px; }
+  /* 본문이 760px 라 4열로 나누면 카드가 158px 까지 좁아진다.
+     사진과 단어가 같이 들어가려면 200px 은 있어야 해서 3열로 둔다. */
+  .wb-list.grid { grid-template-columns:repeat(3, minmax(0,1fr)); gap:16px; }
+  .wb-list.grid .wb-thumb, .wb-list.grid .wb-noimg { height:140px; }
+  .wb-list.grid .wb-word { font-size:18px; }
 }
 
 @media (min-width:1200px) {
@@ -1456,7 +1510,28 @@ a:hover { color:var(--orange-mid); }
         <span class="wb-count" id="wbCount"></span>
         <button class="wb-out" id="wbLogout" type="button" data-en="Sign out">로그아웃</button>
       </div>
+
+      <div class="wb-tools">
+        <input class="wb-search" id="wbSearch" type="search" placeholder="단어 · 뜻 검색">
+        <!-- 정렬 항목은 앱 WordbookScreen 의 SortType 과 같게 맞춘다 -->
+        <select class="wb-sort" id="wbSort">
+          <option value="newest"       data-en="Newest first">최신순</option>
+          <option value="oldest"       data-en="Oldest first">오래된순</option>
+          <option value="remembered"   data-en="Memorized first">외운 것 먼저</option>
+          <option value="most_viewed"  data-en="Most viewed">많이 본 순</option>
+          <option value="least_viewed" data-en="Least viewed">적게 본 순</option>
+        </select>
+        <div class="wb-view">
+          <button class="wb-view-btn on" id="wbViewList" type="button" aria-label="목록으로 보기">☰</button>
+          <button class="wb-view-btn"    id="wbViewGrid" type="button" aria-label="바둑판으로 보기">⊞</button>
+        </div>
+      </div>
+
+      <!-- 품사·암기 상태 칩. 내용은 자바스크립트가 만든다 -->
+      <div class="wb-chips" id="wbChips"></div>
+
       <div class="wb-list" id="wbList"></div>
+      <div class="wb-none hidden" id="wbNone"></div>
     </div>
 
     <!-- 아직 단어가 없을 때 -->
@@ -1980,26 +2055,99 @@ function esc(s) {
 // ── 목록 ─────────────────────────────────────────────────────
 let rows = [];
 
-function setCount() {
-  $('wbCount').textContent = t(`단어 ${rows.length}개`, `${rows.length} words`);
+// 품사와 색은 앱 src/lib/tags.ts 의 TAGS · TAG_COLORS 와 같은 값이다.
+// 한쪽만 고치면 같은 단어가 앱과 웹에서 다른 색으로 보인다.
+const TAGS = ['명사', '동사', '형용사', '부사', '접속사', '관용구'];
+const TAG_EN = { '명사':'Noun', '동사':'Verb', '형용사':'Adjective', '부사':'Adverb', '접속사':'Conjunction', '관용구':'Idiom' };
+const TAG_COLORS = {
+  '명사':'#FF914D', '동사':'#4CAF50', '형용사':'#2196F3', '부사':'#9C27B0',
+  '접속사':'#FF7043', '전치사':'#00897B', '대명사':'#5C6BC0', '감탄사':'#EC407A', '관용구':'#8D6E63',
+};
+// 목록에서 뺀 품사(전치사 등)나 예전 값이 와도 색이 나오게 기본값을 둔다.
+const tagHue = (tag) => TAG_COLORS[tag ?? ''] ?? '#9A8B78';
+
+// 보기 방식은 기억해 둔다. 매번 목록으로 돌아가면 성가시다.
+let viewMode = localStorage.getItem('wbView') === 'grid' ? 'grid' : 'list';
+let sortType = 'newest';
+let query = '';
+let tagOn = null;    // null = 전체
+let doneOn = null;   // null = 전체, true = 외운 것, false = 학습 중
+
+function setCount(shown) {
+  $('wbCount').textContent = shown === rows.length
+    ? t(`단어 ${rows.length}개`, `${rows.length} words`)
+    : t(`${rows.length}개 중 ${shown}개`, `${shown} of ${rows.length}`);
+}
+
+function visibleWords() {
+  const q = query.trim().toLowerCase();
+  const out = rows.filter((w) => {
+    if (tagOn && w.tag !== tagOn) return false;
+    if (doneOn !== null && !!w.is_remembered !== doneOn) return false;
+    if (!q) return true;
+    return (w.word ?? '').toLowerCase().includes(q)
+        || (w.meaning ?? '').toLowerCase().includes(q)
+        || (w.example ?? '').toLowerCase().includes(q);
+  });
+
+  // 앱 WordbookScreen 의 정렬과 같은 규칙.
+  out.sort((a, b) => {
+    if (sortType === 'oldest') return a.id - b.id;
+    if (sortType === 'remembered') return (b.is_remembered ? 1 : 0) - (a.is_remembered ? 1 : 0);
+    if (sortType === 'most_viewed') return (b.view_count || 0) - (a.view_count || 0);
+    if (sortType === 'least_viewed') return (a.view_count || 0) - (b.view_count || 0);
+    return b.id - a.id;
+  });
+  return out;
+}
+
+function drawChips() {
+  const chip = (on, label, dot) =>
+    `<button class="wb-chip${on ? ' on' : ''}" data-chip="${label.key}">` +
+    (dot ? `<span class="wb-dot" style="background:${dot}"></span>` : '') +
+    `${esc(label.text)}</button>`;
+
+  const parts = [
+    chip(!tagOn && doneOn === null, { key: 'all', text: t('전체', 'All') }, null),
+    chip(doneOn === true,  { key: 'done',  text: t('외운 단어', 'Memorized') }, null),
+    chip(doneOn === false, { key: 'learn', text: t('학습 중', 'Learning') }, null),
+    ...TAGS.map((tg) => chip(tagOn === tg, { key: 'tag:' + tg, text: t(tg, TAG_EN[tg] ?? tg) }, tagHue(tg))),
+  ];
+  $('wbChips').innerHTML = parts.join('');
 }
 
 function render() {
-  setCount();
+  const shown = visibleWords();
+  setCount(shown.length);
+  drawChips();
+
   const list = $('wbList');
+  list.classList.toggle('grid', viewMode === 'grid');
+  $('wbViewList').classList.toggle('on', viewMode === 'list');
+  $('wbViewGrid').classList.toggle('on', viewMode === 'grid');
   list.innerHTML = '';
 
-  for (const w of rows) {
+  $('wbNone').classList.toggle('hidden', shown.length > 0);
+  if (shown.length === 0) {
+    $('wbNone').textContent = query
+      ? t(`"${query}" 와 맞는 단어가 없어요.`, `Nothing matches "${query}".`)
+      : t('조건에 맞는 단어가 없어요.', 'No words match those filters.');
+    return;
+  }
+
+  for (const w of shown) {
     const el = document.createElement('div');
-    el.className = 'wb-item';
+    el.className = 'wb-item' + (w.is_remembered ? ' done' : '');
     el.innerHTML =
-      (w.image_url ? '<img class="wb-thumb" alt="">' : '') +
+      (w.image_url ? '<img class="wb-thumb" alt="">' : '<div class="wb-noimg">🥔</div>') +
       '<div class="wb-main">' +
-        `<div class="wb-word">${esc(w.word)}</div>` +
+        `<div class="wb-word">${esc(w.word)}` +
+          (w.is_remembered ? `<span class="wb-done">✓</span>` : '') +
+        '</div>' +
         `<div class="wb-mean">${esc(w.meaning)}</div>` +
         // 예문과 품사는 나중에 붙은 것이라 예전 단어에는 비어 있다.
         (w.example ? `<div class="wb-ex">${esc(w.example)}</div>` : '') +
-        (w.tag ? `<span class="wb-tag">${esc(w.tag)}</span>` : '') +
+        (w.tag ? `<span class="wb-tag" style="color:${tagHue(w.tag)}">${esc(t(w.tag, TAG_EN[w.tag] ?? w.tag))}</span>` : '') +
       '</div>';
     list.appendChild(el);
 
@@ -2008,11 +2156,30 @@ function render() {
     if (w.image_url) {
       const img = el.querySelector('.wb-thumb');
       signedUrl(w.image_url)
-        .then((u) => { if (u) img.src = u; else img.remove(); })
+        .then((u) => { if (u) img.src = u; else img.replaceWith(Object.assign(document.createElement('div'), { className: 'wb-noimg', textContent: '🥔' })); })
         .catch(() => img.remove());
     }
   }
 }
+
+$('wbSearch').addEventListener('input', (e) => { query = e.target.value; render(); });
+$('wbSort').addEventListener('change', (e) => { sortType = e.target.value; render(); });
+$('wbViewList').addEventListener('click', () => { viewMode = 'list'; localStorage.setItem('wbView', 'list'); render(); });
+$('wbViewGrid').addEventListener('click', () => { viewMode = 'grid'; localStorage.setItem('wbView', 'grid'); render(); });
+
+$('wbChips').addEventListener('click', (ev) => {
+  const b = ev.target.closest('[data-chip]');
+  if (!b) return;
+  const key = b.dataset.chip;
+  if (key === 'all')        { tagOn = null; doneOn = null; }
+  else if (key === 'done')  { doneOn = doneOn === true ? null : true; }
+  else if (key === 'learn') { doneOn = doneOn === false ? null : false; }
+  else if (key.startsWith('tag:')) {
+    const tg = key.slice(4);
+    tagOn = tagOn === tg ? null : tg;
+  }
+  render();
+});
 
 let loading = false;
 async function loadWords() {
@@ -2022,7 +2189,10 @@ async function loadWords() {
   try {
     const { data, error } = await sb
       .from('words')
-      .select('id, word, meaning, example, tag, image_url, created_at')
+      // 정렬·필터에 쓰이는 값까지 한 번에 받는다. 어차피 전부 불러오므로
+      // 거르고 줄 세우는 일은 브라우저에서 한다 — 누를 때마다 서버에
+      // 다시 물으면 느리고, 단어 수가 그렇게 많지 않다.
+      .select('id, word, meaning, example, tag, image_url, created_at, is_remembered, view_count, difficulty')
       .order('created_at', { ascending: false });
     if (error) throw error;
 
@@ -2210,7 +2380,9 @@ sb.auth.onAuthStateChange((_event, session) => {
 function syncLang() {
   syncAuthText();
   if (mode === 'up') drawRules();
-  if (rows.length) setCount();
+  // 칩과 품사 이름까지 언어를 따라야 하므로 통째로 다시 그린다.
+  if (rows.length) render();
+  $('wbSearch').placeholder = t('단어 · 뜻 검색', 'Search words and meanings');
   // 자료마당의 받기·삭제 버튼 글자도 같이 바꾼다.
   if (libRows.length) renderLibrary();
   if (!pendingWords) $('libFileLabel').textContent = t('엑셀(.xlsx) 또는 .csv 파일 고르기', 'Choose an .xlsx or .csv file');
