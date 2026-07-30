@@ -628,6 +628,68 @@ a:hover { color:var(--orange-mid); }
 .wb-state { text-align:center; padding:52px 20px; color:var(--ink-3); font-size:14.5px; line-height:1.8; word-break:keep-all; }
 .wb-spin { width:28px; height:28px; margin:0 auto 18px; border:2px solid var(--line); border-top-color:var(--orange); border-radius:50%; animation:wbSpin .8s linear infinite; }
 
+/* ══ 자료마당 (게시판) ═════════════════════════════════════════
+   기능 목록과 같은 헤어라인 색인. 카드를 띄우지 않는다. */
+.bd { border-top:1px solid var(--line); margin-bottom:14px; }
+.bd-head {
+  display:none; padding:11px 4px; border-bottom:1px solid var(--line);
+  font-size:11px; font-weight:600; letter-spacing:.1em; text-transform:uppercase; color:var(--ink-3);
+}
+.bd-row {
+  display:grid; grid-template-columns:1fr auto; gap:6px 14px; align-items:center;
+  padding:18px 4px; border-bottom:1px solid var(--line-2); transition:background .18s;
+}
+.bd-row:hover { background:rgba(255,255,255,.55); }
+.bd-main { min-width:0; }
+.bd-title { font-size:16px; font-weight:700; color:var(--ink); letter-spacing:-.025em; word-break:keep-all; }
+.bd-desc { font-size:13.5px; color:var(--ink-2); line-height:1.6; margin-top:5px; word-break:keep-all; }
+.bd-meta { display:flex; flex-wrap:wrap; gap:10px; font-size:12px; color:var(--ink-3); margin-top:8px; }
+.bd-cat { font-size:10.5px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--orange-deep); }
+.bd-actions { display:flex; align-items:center; gap:8px; }
+.bd-dl {
+  display:inline-flex; align-items:center; gap:6px; white-space:nowrap;
+  background:transparent; color:var(--ink); font-size:13.5px; font-weight:600;
+  padding:9px 15px; border-radius:var(--r-s); border:1px solid var(--line); cursor:pointer;
+  transition:background .16s, border-color .16s;
+}
+.bd-dl:hover { background:rgba(27,21,18,.05); border-color:rgba(27,21,18,.22); }
+.bd-del { background:none; border:none; cursor:pointer; color:var(--ink-3); font-size:12.5px; padding:6px; }
+.bd-del:hover { color:var(--red); }
+
+.bd-sec-title {
+  display:flex; align-items:baseline; justify-content:space-between; gap:14px;
+  margin:44px 0 14px; flex-wrap:wrap;
+}
+.bd-sec-title h3 { font-size:19px; font-weight:700; color:var(--ink); letter-spacing:-.03em; }
+.bd-sec-note { font-size:13px; color:var(--ink-3); }
+
+/* 올리기 */
+.up-panel {
+  background:var(--surface); border:1px solid var(--line); border-radius:var(--r-l);
+  padding:22px; margin-bottom:18px;
+}
+.up-row { display:grid; gap:10px; }
+.up-file {
+  display:block; width:100%; padding:22px; text-align:center; cursor:pointer;
+  border:1px dashed rgba(27,21,18,.24); border-radius:var(--r);
+  background:var(--surface-2); color:var(--ink-2); font-size:14px;
+  transition:border-color .16s, background .16s;
+}
+.up-file:hover { border-color:var(--orange-mid); background:var(--tint); }
+.up-file input { display:none; }
+.up-found { font-size:13.5px; color:var(--green); line-height:1.7; }
+.up-hint { font-size:12.5px; color:var(--ink-3); line-height:1.7; word-break:keep-all; }
+.up-sel {
+  width:100%; padding:13px 14px; border-radius:var(--r-s); border:1px solid var(--line);
+  background:var(--surface); color:var(--ink); font-size:15px;
+}
+
+@media (min-width:760px) {
+  .bd-head { display:grid; grid-template-columns:1fr 120px 120px; }
+  .bd-row  { grid-template-columns:1fr 120px 120px; padding:20px 4px; }
+  .bd-title { font-size:17px; }
+}
+
 /* ══ 스크롤 리빌 ═══════════════════════════════════════════════
    예전에는 44px 씩 밀어 올리고 3D 로 회전시켰다. 화려하지만
    읽으려는 사람 앞에서 내용이 계속 움직인다. 조용하게 줄인다. */
@@ -754,6 +816,9 @@ a:hover { color:var(--orange-mid); }
     <button class="nav-link" id="wbBtn" type="button" aria-label="내 단어장 열기">
       <span class="nav-ico">📚</span><span class="nav-txt" data-en="My wordbook">내 단어장</span>
     </button>
+    <button class="nav-link" id="libBtn" type="button" aria-label="자료마당 열기">
+      <span class="nav-ico">📄</span><span class="nav-txt" data-en="Library">자료마당</span>
+    </button>
     <button class="nav-link" id="navBtn" type="button" aria-label="발음 테스트 열기">
       <span class="nav-ico">🎙</span><span class="nav-txt" data-en="Pronunciation test">발음 테스트</span>
     </button>
@@ -839,22 +904,28 @@ a:hover { color:var(--orange-mid); }
 
   <!-- 스와이프 -->
   <div class="section">
-    <div class="label">STUDY MODE</div>
-    <p class="section-title" data-en="A wordbook you<br>swipe through">스와이프로<br>외우는 단어장</p>
-    <p class="section-sub" data-en="Tilt the card yourself —<br>hard words left, memorized words right.">카드를 직접 기울여보세요 —<br>어려운 단어는 왼쪽, 외운 단어는 오른쪽으로.</p>
-    <div class="swipe-wrap" id="swipeWrap">
-      <div class="s-card c3"></div>
-      <div class="s-card c2"></div>
-      <div class="s-card c1" id="swipeCard">
-        <div class="card-word">Perseverance</div>
-        <div class="card-meaning" data-en="perseverance">인내, 끈기</div>
-        <div class="card-diff"><span>🧀</span><span>🧀</span><span>🧀</span></div>
+   <div class="split">
+    <div>
+      <div class="label">STUDY MODE</div>
+      <p class="section-title" data-en="A wordbook you<br>swipe through">스와이프로<br>외우는 단어장</p>
+      <p class="section-sub" data-en="Tilt the card yourself —<br>hard words left, memorized words right.">카드를 직접 기울여보세요 —<br>어려운 단어는 왼쪽, 외운 단어는 오른쪽으로.</p>
+    </div>
+    <div>
+      <div class="swipe-wrap" id="swipeWrap">
+        <div class="s-card c3"></div>
+        <div class="s-card c2"></div>
+        <div class="s-card c1" id="swipeCard">
+          <div class="card-word">Perseverance</div>
+          <div class="card-meaning" data-en="perseverance">인내, 끈기</div>
+          <div class="card-diff"><span>🧀</span><span>🧀</span><span>🧀</span></div>
+        </div>
+      </div>
+      <div class="swipe-labels">
+        <div class="swipe-l" data-en="✕ Still learning">✕ 어려워요</div>
+        <div class="swipe-r" data-en="Got it ✓">외웠어요 ✓</div>
       </div>
     </div>
-    <div class="swipe-labels">
-      <div class="swipe-l" data-en="✕ Still learning">✕ 어려워요</div>
-      <div class="swipe-r" data-en="Got it ✓">외웠어요 ✓</div>
-    </div>
+   </div>
   </div>
 
   <div class="divider"></div>
@@ -1124,6 +1195,163 @@ a:hover { color:var(--orange-mid); }
   </div>
 
 </div><!-- /testView -->
+
+<!-- ── 자료마당 ────────────────────────────────────────────────
+     올린 파일을 그대로 보관하지 않는다. 브라우저에서 앱과 같은
+     파서로 읽어 단어/뜻만 뽑아 저장하고, 받을 때 그 목록으로 xlsx 를
+     새로 만든다. 그래서 받는 파일은 항상 앱이 읽을 수 있고,
+     올릴 수 있는 것은 단어 목록뿐이다. -->
+<div id="libraryView" class="hidden">
+
+  <div class="pt-hero">
+    <div class="pt-badge">LIBRARY</div>
+    <h2 data-en="Word lists,<br>ready to import">바로 넣어 쓰는<br>단어 자료</h2>
+    <p data-en="Download a list and import it in the app — Wordbook → Import. Sign in to share your own.">받아서 앱의 단어장 → 가져오기로 넣으면 끝이에요. 로그인하면 직접 올릴 수도 있습니다.</p>
+  </div>
+
+  <div class="pt-body" style="max-width:1160px;">
+
+    <!-- 공식 자료 : 저장소에 함께 올라가는 파일이라 항상 받을 수 있다 -->
+    <div class="bd-sec-title">
+      <h3 data-en="Official files">공식 자료</h3>
+      <span class="bd-sec-note" data-en="Made by us. Always available.">치즈감자가 만든 자료예요.</span>
+    </div>
+
+    <div class="bd">
+      <div class="bd-head">
+        <span data-en="File">자료</span><span data-en="Words">단어</span><span data-en="Download">받기</span>
+      </div>
+
+      <div class="bd-row">
+        <div class="bd-main">
+          <div class="bd-cat" data-en="Template">서식</div>
+          <div class="bd-title" data-en="Blank template">빈 서식</div>
+          <div class="bd-desc" data-en="The exact layout the app reads: word in column A, meaning in B, difficulty 1-3 in C.">앱이 읽는 형식 그대로예요. A열 단어, B열 뜻, C열 난이도(1~3).</div>
+        </div>
+        <div class="bd-meta">3</div>
+        <div class="bd-actions"><a class="bd-dl" href="samples/template.xlsx" download>⬇ <span data-en="Get">받기</span></a></div>
+      </div>
+
+      <div class="bd-row">
+        <div class="bd-main">
+          <div class="bd-cat" data-en="English">영어</div>
+          <div class="bd-title" data-en="English basics 100">영어 기초 100</div>
+          <div class="bd-desc" data-en="Everyday nouns and verbs to start with.">일상에서 가장 먼저 만나는 명사와 동사.</div>
+        </div>
+        <div class="bd-meta">100</div>
+        <div class="bd-actions"><a class="bd-dl" href="samples/english-basic.xlsx" download>⬇ <span data-en="Get">받기</span></a></div>
+      </div>
+
+      <div class="bd-row">
+        <div class="bd-main">
+          <div class="bd-cat" data-en="English">영어</div>
+          <div class="bd-title" data-en="Middle school essentials 100">중학 필수 100</div>
+          <div class="bd-desc" data-en="Words that keep showing up in middle school textbooks.">교과서에 반복해서 나오는 단어들.</div>
+        </div>
+        <div class="bd-meta">100</div>
+        <div class="bd-actions"><a class="bd-dl" href="samples/english-middle.xlsx" download>⬇ <span data-en="Get">받기</span></a></div>
+      </div>
+
+      <div class="bd-row">
+        <div class="bd-main">
+          <div class="bd-cat">TOEIC</div>
+          <div class="bd-title" data-en="TOEIC business 80">토익 비즈니스 80</div>
+          <div class="bd-desc" data-en="Contracts, invoices, payroll — the vocabulary the test keeps asking about.">계약·청구·급여 등 시험에 자주 나오는 업무 어휘.</div>
+        </div>
+        <div class="bd-meta">80</div>
+        <div class="bd-actions"><a class="bd-dl" href="samples/english-toeic.xlsx" download>⬇ <span data-en="Get">받기</span></a></div>
+      </div>
+
+      <div class="bd-row">
+        <div class="bd-main">
+          <div class="bd-cat" data-en="Korean">한국어</div>
+          <div class="bd-title" data-en="Korean basics 80">한국어 기초 80</div>
+          <div class="bd-desc" data-en="For learners of Korean — Korean word, English meaning.">한국어를 배우는 분들을 위한 자료. 한국어 단어에 영어 뜻.</div>
+        </div>
+        <div class="bd-meta">80</div>
+        <div class="bd-actions"><a class="bd-dl" href="samples/korean-basic.xlsx" download>⬇ <span data-en="Get">받기</span></a></div>
+      </div>
+
+      <div class="bd-row">
+        <div class="bd-main">
+          <div class="bd-cat" data-en="Phrases">표현</div>
+          <div class="bd-title" data-en="Everyday English phrases 50">일상 영어 표현 50</div>
+          <div class="bd-desc" data-en="Whole sentences you can say as they are.">그대로 말할 수 있는 문장 단위 표현.</div>
+        </div>
+        <div class="bd-meta">50</div>
+        <div class="bd-actions"><a class="bd-dl" href="samples/english-phrases.xlsx" download>⬇ <span data-en="Get">받기</span></a></div>
+      </div>
+    </div>
+
+    <!-- 모두의 자료 : 사용자가 올린 것 -->
+    <div class="bd-sec-title">
+      <h3 data-en="Shared by everyone">모두의 자료</h3>
+      <button class="pt-next" id="libUploadBtn" type="button" style="padding:11px 18px; font-size:14px;" data-en="Share a list">자료 올리기</button>
+    </div>
+
+    <!-- 올리기 : 로그인 안내 -->
+    <div id="libNeedLogin" class="hidden">
+      <div class="wb-state" style="padding:28px 20px;">
+        <span data-en="Sign in to share a word list.">로그인하면 단어 자료를 올릴 수 있어요.</span>
+        <div><button class="pt-next" id="libGoLogin" type="button" data-en="Go to sign in">로그인하러 가기</button></div>
+      </div>
+    </div>
+
+    <!-- 올리기 : 폼 -->
+    <div id="libForm" class="hidden">
+      <div class="up-panel">
+        <div class="up-row">
+          <label class="up-file" id="libDrop">
+            <input type="file" id="libFile" accept=".xlsx,.xls,.csv">
+            <span id="libFileLabel" data-en="Choose an .xlsx or .csv file">엑셀(.xlsx) 또는 .csv 파일 고르기</span>
+          </label>
+          <div class="up-found hidden" id="libFound"></div>
+          <input class="wb-input" id="libTitle" type="text" maxlength="60" placeholder="제목" style="margin-bottom:0;">
+          <input class="wb-input" id="libDesc" type="text" maxlength="200" placeholder="한 줄 설명 (선택)" style="margin-bottom:0;">
+          <select class="up-sel" id="libCat">
+            <option value="영어">영어</option>
+            <option value="한국어">한국어</option>
+            <option value="일본어">일본어</option>
+            <option value="중국어">중국어</option>
+            <option value="시험">시험</option>
+            <option value="표현">표현</option>
+            <option value="기타">기타</option>
+          </select>
+          <p class="up-hint" data-en="Only the words are stored — the file itself is not kept. Please upload only lists you have the right to share.">파일은 보관하지 않고 <b>단어와 뜻만</b> 저장합니다. 올려도 되는 자료인지 확인하고 올려주세요.</p>
+          <div style="display:flex; gap:8px; flex-wrap:wrap;">
+            <button class="pt-next" id="libSubmit" type="button" style="flex:1; min-width:140px;" data-en="Share">올리기</button>
+            <button class="pt-ghost" id="libCancel" type="button" data-en="Cancel">취소</button>
+          </div>
+          <div class="wb-err hidden" id="libErr"></div>
+          <div class="wb-ok hidden" id="libOk"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="bd">
+      <div class="bd-head">
+        <span data-en="File">자료</span><span data-en="Words">단어</span><span data-en="Download">받기</span>
+      </div>
+      <div id="libList"></div>
+    </div>
+
+    <div id="libLoading"><div class="wb-state"><div class="wb-spin"></div><span data-en="Loading…">불러오는 중…</span></div></div>
+    <div id="libEmpty" class="hidden"><div class="wb-state" data-en="No shared lists yet. Be the first.">아직 올라온 자료가 없어요. 첫 번째가 되어 보세요.</div></div>
+    <div id="libError" class="hidden">
+      <div class="wb-state">
+        <span data-en="Could not load the list.">목록을 불러오지 못했어요.</span>
+        <div><button class="pt-next" id="libRetry" type="button" data-en="Try again">다시 시도</button></div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="footer">
+    <div class="footer-brand" data-en="Every Koreans">에브리 코리안즈</div>
+    <div class="footer-info">© 2026 치즈감자</div>
+  </div>
+
+</div><!-- /libraryView -->
 
 <!-- ── 로그인 · 회원가입 ───────────────────────────────────────
      폼을 단어장 안에 넣어 뒀더니 "로그인하려면 단어장부터 들어가야"
@@ -1558,11 +1786,13 @@ function ptShow(toTest) {
   if (ptRec && ptRunning) { try { ptRec.stop(); } catch (e) {} }
   ptId('homeView').classList.toggle('hidden', toTest);
   ptId('testView').classList.toggle('hidden', !toTest);
-  // 단어장·계정 화면도 같이 닫는다. 안 닫으면 홈 위에 겹쳐 남는다.
+  // 나머지 화면도 같이 닫는다. 안 닫으면 홈 위에 겹쳐 남는다.
   ptId('wordbookView').classList.add('hidden');
   ptId('authView').classList.add('hidden');
+  ptId('libraryView').classList.add('hidden');
   ptId('wbBtn').classList.remove('on');
   ptId('authBtn').classList.remove('on');
+  ptId('libBtn').classList.remove('on');
   const b = ptId('navBtn');
   // 글자 전체를 바꾸면 옆에 붙은 메뉴 이름까지 지워진다. 아이콘만 바꾼다.
   b.querySelector('.nav-ico').textContent = toTest ? '✕' : '🎙';
@@ -1610,6 +1840,9 @@ ptId('langBtn').addEventListener('click', () => applyLang(ptLang === 'ko' ? 'en'
      그래서 ptShow / applyLang 을 여기서 그냥 부를 수 있다. -->
 <script type="module">
 import { createClient } from 'https://esm.sh/@supabase/supabase-js@2';
+// 앱(package.json)과 같은 버전을 못박는다. 버전이 갈리면 앱에서는
+// 읽히는 파일이 여기서는 안 읽히는(또는 그 반대) 일이 생긴다.
+import * as XLSX from 'https://esm.sh/xlsx@0.18.5';
 
 // 이 키는 공개돼도 되는 값이다. 이미 APK 안에 같은 것이 들어 있고,
 // 접근을 막는 건 키가 아니라 테이블에 걸린 RLS 다.
@@ -1656,9 +1889,11 @@ function open(view) {
   $('testView').classList.add('hidden');
   $('wordbookView').classList.toggle('hidden', view !== 'wordbook');
   $('authView').classList.toggle('hidden', view !== 'account');
+  $('libraryView').classList.toggle('hidden', view !== 'library');
 
   $('wbBtn').classList.toggle('on', view === 'wordbook');
   $('authBtn').classList.toggle('on', view === 'account');
+  $('libBtn').classList.toggle('on', view === 'library');
   window.scrollTo({ top: 0, behavior: 'auto' });
 }
 
@@ -1666,6 +1901,8 @@ const showing = (id) => !$(id).classList.contains('hidden');
 
 $('wbBtn').addEventListener('click', () => open(showing('wordbookView') ? 'home' : 'wordbook'));
 $('authBtn').addEventListener('click', () => open(showing('authView') ? 'home' : 'account'));
+$('libBtn').addEventListener('click', () => { const go = !showing('libraryView'); open(go ? 'library' : 'home'); if (go) loadLibrary(); });
+$('libGoLogin').addEventListener('click', () => open('account'));
 $('wbGoLogin').addEventListener('click', () => open('account'));
 $('auGoWb').addEventListener('click', () => open('wordbook'));
 
@@ -1944,6 +2181,15 @@ sb.auth.onAuthStateChange((_event, session) => {
   $('auSignedIn').classList.toggle('hidden', !session);
   if (session) $('auWho').textContent = session.user?.email ?? '';
 
+  // 자료마당의 삭제 버튼은 로그인 상태에 따라 붙었다 떨어진다.
+  libSession = session;
+  if (libRows.length) renderLibrary();
+  if (!session) {
+    formOpen = false;
+    $('libForm').classList.add('hidden');
+    $('libNeedLogin').classList.add('hidden');
+  }
+
   if (session) {
     $('wbPw').value = '';
     $('auPw2').value = '';
@@ -1965,6 +2211,11 @@ function syncLang() {
   syncAuthText();
   if (mode === 'up') drawRules();
   if (rows.length) setCount();
+  // 자료마당의 받기·삭제 버튼 글자도 같이 바꾼다.
+  if (libRows.length) renderLibrary();
+  if (!pendingWords) $('libFileLabel').textContent = t('엑셀(.xlsx) 또는 .csv 파일 고르기', 'Choose an .xlsx or .csv file');
+  $('libTitle').placeholder = t('제목', 'Title');
+  $('libDesc').placeholder = t('한 줄 설명 (선택)', 'One-line description (optional)');
   const nav = $('authBtn').querySelector('.nav-txt');
   // 로그인 상태에 따라 글이 다르므로 지금 뭘 보여주고 있는지로 판단한다.
   if (!$('auSignedIn').classList.contains('hidden')) nav.textContent = t('내 계정', 'Account');
@@ -1973,6 +2224,244 @@ function syncLang() {
 // 위 고전 스크립트가 먼저 등록돼 있어 applyLang 이 끝난 뒤에 불린다.
 $('langBtn').addEventListener('click', syncLang);
 setMode('in');
+
+// ══ 자료마당 ═════════════════════════════════════════════════
+// 올린 파일을 보관하지 않는다. 여기서 읽어 단어/뜻만 뽑아 저장하고,
+// 받을 때 그 목록으로 xlsx 를 새로 만든다. 그래서 올라올 수 있는 건
+// 단어 문자열뿐이고, 받는 파일은 항상 앱이 읽을 수 있는 형식이다.
+const ADMIN_EMAIL = 'junsanghan1225@gmail.com';
+const MAX_WORDS = 2000;
+
+let libRows = [];
+let libSession = null;
+let pendingWords = null;   // 고른 파일에서 뽑아낸 목록
+let formOpen = false;
+
+const libMsg = (id, text) => { ['libErr','libOk'].forEach(k => $(k).classList.add('hidden'));
+  if (!id) return; $(id).textContent = text; $(id).classList.remove('hidden'); };
+
+// 앱의 handleImportExcel 과 같은 규칙. A열 단어, B열 뜻, C열 난이도.
+// A열이 '단어' 인 행은 머리글이라 버린다.
+function parseRows(rows) {
+  return rows.map((r) => ({
+    w: String(r?.[0] ?? '').trim(),
+    m: String(r?.[1] ?? '').trim(),
+    d: Math.min(3, Math.max(1, parseInt(String(r?.[2] ?? '1'), 10) || 1)),
+  })).filter((x) => x.w && x.m && x.w !== '단어');
+}
+
+function resetLibForm() {
+  pendingWords = null;
+  $('libFile').value = '';
+  $('libTitle').value = '';
+  $('libDesc').value = '';
+  $('libFileLabel').textContent = t('엑셀(.xlsx) 또는 .csv 파일 고르기', 'Choose an .xlsx or .csv file');
+  $('libFound').classList.add('hidden');
+  libMsg(null);
+}
+
+$('libFile').addEventListener('change', async (ev) => {
+  const file = ev.target.files?.[0];
+  libMsg(null);
+  pendingWords = null;
+  $('libFound').classList.add('hidden');
+  if (!file) return;
+
+  if (!/\.(xlsx|xls|csv)$/i.test(file.name)) {
+    return libMsg('libErr', t('엑셀(.xlsx, .xls) 또는 .csv 파일만 올릴 수 있어요.',
+                              'Only .xlsx, .xls or .csv files can be shared.'));
+  }
+  if (file.size > 3 * 1024 * 1024) {
+    return libMsg('libErr', t('파일이 너무 커요. 3MB 아래로 올려 주세요.',
+                              'That file is too large — please keep it under 3MB.'));
+  }
+
+  try {
+    const wb = XLSX.read(await file.arrayBuffer(), { type: 'array' });
+    const words = parseRows(XLSX.utils.sheet_to_json(wb.Sheets[wb.SheetNames[0]], { header: 1 }));
+
+    if (words.length === 0) {
+      return libMsg('libErr', t('단어를 찾지 못했어요. A열에 단어, B열에 뜻을 넣어 주세요.',
+                                'No words found. Put the word in column A and its meaning in column B.'));
+    }
+    if (words.length > MAX_WORDS) {
+      return libMsg('libErr', t(`한 번에 ${MAX_WORDS}개까지 올릴 수 있어요.`,
+                                `Up to ${MAX_WORDS} words per file.`));
+    }
+
+    pendingWords = words;
+    $('libFileLabel').textContent = file.name;
+    $('libFound').textContent = t(`${words.length}개 단어를 찾았어요 — 예) ${words[0].w} : ${words[0].m}`,
+                                  `Found ${words.length} words — e.g. ${words[0].w} : ${words[0].m}`);
+    $('libFound').classList.remove('hidden');
+    if (!$('libTitle').value.trim()) $('libTitle').value = file.name.replace(/\.[^.]+$/, '').slice(0, 60);
+  } catch (e) {
+    libMsg('libErr', t('파일을 읽지 못했어요. 엑셀에서 다시 저장한 뒤 올려 주세요.',
+                       'Could not read that file. Try re-saving it from Excel.'));
+  }
+});
+
+$('libUploadBtn').addEventListener('click', async () => {
+  formOpen = !formOpen;
+  const { data: { session } } = await sb.auth.getSession();
+  libSession = session;
+  $('libNeedLogin').classList.toggle('hidden', !formOpen || !!session);
+  $('libForm').classList.toggle('hidden', !formOpen || !session);
+});
+
+$('libCancel').addEventListener('click', () => {
+  formOpen = false;
+  $('libForm').classList.add('hidden');
+  $('libNeedLogin').classList.add('hidden');
+  resetLibForm();
+});
+
+$('libSubmit').addEventListener('click', async () => {
+  libMsg(null);
+  const { data: { session } } = await sb.auth.getSession();
+  if (!session) return open('account');
+  if (!pendingWords) return libMsg('libErr', t('먼저 파일을 골라 주세요.', 'Choose a file first.'));
+
+  const title = $('libTitle').value.trim();
+  if (!title) return libMsg('libErr', t('제목을 적어 주세요.', 'Please add a title.'));
+
+  const btn = $('libSubmit');
+  btn.disabled = true;
+  // author · downloads · created_at 은 보내지 않는다. 보내봐야 DB 트리거가
+  // 덮어쓴다 — 클라이언트가 정하게 두면 이름을 사칭하거나 날짜를 조작해
+  // 목록 맨 위를 영구히 차지할 수 있다.
+  const { error } = await sb.from('resources').insert({
+    title,
+    description: $('libDesc').value.trim() || null,
+    category: $('libCat').value,
+    words: pendingWords,
+    word_count: pendingWords.length,
+    user_id: session.user.id,
+  });
+  btn.disabled = false;
+
+  if (error) {
+    return libMsg('libErr', t('올리지 못했어요. 잠시 후 다시 시도해 주세요.',
+                              'Could not share it. Please try again.'));
+  }
+  libMsg('libOk', t('올렸어요. 목록 맨 위에 있어요.', 'Shared — it is at the top of the list.'));
+  resetLibForm();
+  loadLibrary();
+});
+
+function renderLibrary() {
+  const list = $('libList');
+  list.innerHTML = '';
+  $('libEmpty').classList.toggle('hidden', libRows.length > 0);
+
+  const myId = libSession?.user?.id;
+  const isAdmin = libSession?.user?.email === ADMIN_EMAIL;
+
+  for (const r of libRows) {
+    const el = document.createElement('div');
+    el.className = 'bd-row';
+    const canDelete = myId && (r.user_id === myId || isAdmin);
+    el.innerHTML =
+      '<div class="bd-main">' +
+        `<div class="bd-cat">${esc(r.category)}</div>` +
+        `<div class="bd-title">${esc(r.title)}</div>` +
+        (r.description ? `<div class="bd-desc">${esc(r.description)}</div>` : '') +
+        '<div class="bd-meta">' +
+          `<span>${esc(r.author || '익명')}</span>` +
+          `<span>${new Date(r.created_at).toLocaleDateString()}</span>` +
+          `<span>↓ ${r.downloads}</span>` +
+        '</div>' +
+      '</div>' +
+      `<div class="bd-meta">${r.word_count}</div>` +
+      '<div class="bd-actions">' +
+        `<button class="bd-dl" data-dl="${r.id}">⬇ ${t('받기', 'Get')}</button>` +
+        (canDelete ? `<button class="bd-del" data-del="${r.id}">${t('삭제', 'Delete')}</button>` : '') +
+      '</div>';
+    list.appendChild(el);
+  }
+}
+
+async function loadLibrary() {
+  $('libLoading').classList.remove('hidden');
+  $('libEmpty').classList.add('hidden');
+  $('libError').classList.add('hidden');
+
+  const { data: { session } } = await sb.auth.getSession();
+  libSession = session;
+
+  try {
+    // words 는 무겁다. 목록에는 안 쓰므로 받을 때만 따로 가져온다.
+    const { data, error } = await sb
+      .from('resources')
+      .select('id,title,description,category,word_count,author,downloads,created_at,user_id')
+      .order('created_at', { ascending: false })
+      .limit(100);
+    if (error) throw error;
+    libRows = data ?? [];
+    renderLibrary();
+  } catch (e) {
+    $('libError').classList.remove('hidden');
+  } finally {
+    $('libLoading').classList.add('hidden');
+  }
+}
+
+$('libRetry').addEventListener('click', loadLibrary);
+
+$('libList').addEventListener('click', async (ev) => {
+  const dl = ev.target.closest('[data-dl]');
+  if (dl) return downloadResource(Number(dl.dataset.dl), dl);
+  const del = ev.target.closest('[data-del]');
+  if (del) return deleteResource(Number(del.dataset.del));
+});
+
+async function downloadResource(id, btn) {
+  const label = btn.textContent;
+  btn.disabled = true;
+  btn.textContent = '…';
+  try {
+    const { data, error } = await sb.from('resources').select('title, words').eq('id', id).single();
+    if (error) throw error;
+
+    // 앱 내보내기와 같은 머리글. 이대로 앱의 가져오기에 들어간다.
+    // 남이 올린 값이라 그대로 믿지 않는다. 글자와 숫자로 못박아 넣는다.
+    // (수식 주입은 해당 없다 — SheetJS 는 문자열 셀로 쓰고, xlsx 는 수식을
+    //  별도 <f> 요소에 담아서 Excel 이 문자열을 계산하지 않는다.)
+    const aoa = [
+      ['단어', '뜻', '난이도'],
+      ...(data.words ?? []).map((w) => [String(w?.w ?? ''), String(w?.m ?? ''), Number(w?.d) || 1]),
+    ];
+    const ws = XLSX.utils.aoa_to_sheet(aoa);
+    ws['!cols'] = [{ wch: 26 }, { wch: 34 }, { wch: 9 }];
+    const wb = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(wb, ws, '단어장');
+    XLSX.writeFile(wb, `${String(data.title).replace(/[\\/:*?"<>|]/g, '_')}.xlsx`);
+
+    // 세는 데 실패해도 파일은 이미 받았다. 조용히 넘어간다.
+    sb.rpc('bump_resource_download', { rid: id }).then(() => {
+      const row = libRows.find((r) => r.id === id);
+      if (row) { row.downloads += 1; renderLibrary(); }
+    }, () => {});
+  } catch (e) {
+    btn.textContent = t('실패', 'Failed');
+    setTimeout(() => { btn.textContent = label; }, 1600);
+    return;
+  } finally {
+    btn.disabled = false;
+  }
+  btn.textContent = label;
+}
+
+async function deleteResource(id) {
+  const row = libRows.find((r) => r.id === id);
+  const ok = confirm(t(`"${row?.title ?? ''}" 자료를 지울까요? 되돌릴 수 없어요.`,
+                       `Delete "${row?.title ?? ''}"? This cannot be undone.`));
+  if (!ok) return;
+  const { error } = await sb.from('resources').delete().eq('id', id);
+  if (error) return;
+  libRows = libRows.filter((r) => r.id !== id);
+  renderLibrary();
+}
 
 // ── 헤더 선 ──────────────────────────────────────────────────
 // 맨 위에서는 선을 두지 않는다. 스크롤을 내려 내용이 헤더 밑으로
