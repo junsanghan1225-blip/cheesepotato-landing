@@ -732,6 +732,9 @@ a:hover { color:var(--orange-mid); }
   width:100%; padding:13px 14px; border-radius:var(--r-s); border:1px solid var(--line);
   background:var(--surface); color:var(--ink); font-size:15px;
 }
+.rp-on { font-size:14px; color:var(--ink-2); padding-bottom:4px; word-break:keep-all; }
+.rp-on b { color:var(--ink); }
+.bd-flag { font-size:11.5px; font-weight:700; color:var(--red); white-space:nowrap; }
 
 @media (min-width:760px) {
   .bd-head { display:grid; grid-template-columns:1fr 120px 120px; }
@@ -1132,7 +1135,7 @@ a:hover { color:var(--orange-mid); }
   <!-- 푸터 -->
   <div class="footer">
     <div class="footer-brand" data-en="Every Koreans">에브리 코리안즈</div>
-    <div class="footer-info">© 2026 치즈감자 · <a href="mailto:junsanghan1225@gmail.com">junsanghan1225@gmail.com</a></div>
+    <div class="footer-info">© 2026 치즈감자 · <a href="privacy.html" data-en="Privacy policy">개인정보처리방침</a> · <a href="mailto:junsanghan1225@gmail.com">junsanghan1225@gmail.com</a></div>
   </div>
 
 </div><!-- /homeView -->
@@ -1245,7 +1248,7 @@ a:hover { color:var(--orange-mid); }
 
   <div class="footer">
     <div class="footer-brand" data-en="Every Koreans">에브리 코리안즈</div>
-    <div class="footer-info">© 2026 치즈감자 · 재미로 보는 테스트</div>
+    <div class="footer-info">© 2026 치즈감자 · <span data-en="Just for fun">재미로 보는 테스트</span> · <a href="privacy.html" data-en="Privacy policy">개인정보처리방침</a></div>
   </div>
 
 </div><!-- /testView -->
@@ -1382,6 +1385,32 @@ a:hover { color:var(--orange-mid); }
       </div>
     </div>
 
+    <!-- 신고 : 문제를 발견한 사람이 알릴 수 있어야 한다.
+         자동으로 감추지는 않는다 — 계정 몇 개로 멀쩡한 자료를 내리는
+         데 쓰이기 때문이다. 세어서 관리자에게 보여주고 판단은 사람이 한다. -->
+    <div id="libReport" class="hidden">
+      <div class="up-panel">
+        <div class="up-row">
+          <div class="rp-on" id="libReportOn"></div>
+          <select class="up-sel" id="libReason">
+            <option value="저작권"   data-en="Copyright — this is a paid/published word list">저작권 — 사서 쓰는 자료예요</option>
+            <option value="부적절"   data-en="Inappropriate content">부적절한 내용</option>
+            <option value="스팸"     data-en="Spam or advertising">광고·스팸</option>
+            <option value="오류"     data-en="Many wrong meanings">뜻이 많이 틀렸어요</option>
+            <option value="기타"     data-en="Something else">기타</option>
+          </select>
+          <input class="wb-input" id="libReportDetail" type="text" maxlength="300" placeholder="덧붙일 말 (선택)" style="margin-bottom:0;">
+          <p class="up-hint" data-en="We review every report and remove what should not be here. The uploader is never told who reported it.">확인 후 내려야 할 자료는 삭제합니다. 누가 신고했는지는 올린 사람에게 보이지 않습니다.</p>
+          <div style="display:flex; gap:8px; flex-wrap:wrap;">
+            <button class="pt-next" id="libReportSend" type="button" style="flex:1; min-width:140px;" data-en="Send report">신고 보내기</button>
+            <button class="pt-ghost" id="libReportCancel" type="button" data-en="Cancel">취소</button>
+          </div>
+          <div class="wb-err hidden" id="libReportErr"></div>
+          <div class="wb-ok hidden" id="libReportOk"></div>
+        </div>
+      </div>
+    </div>
+
     <div class="bd">
       <div class="bd-head">
         <span data-en="File">자료</span><span data-en="Words">단어</span><span data-en="Download">받기</span>
@@ -1402,7 +1431,7 @@ a:hover { color:var(--orange-mid); }
 
   <div class="footer">
     <div class="footer-brand" data-en="Every Koreans">에브리 코리안즈</div>
-    <div class="footer-info">© 2026 치즈감자</div>
+    <div class="footer-info">© 2026 치즈감자 · <a href="privacy.html" data-en="Privacy policy">개인정보처리방침</a></div>
   </div>
 
 </div><!-- /libraryView -->
@@ -1470,7 +1499,7 @@ a:hover { color:var(--orange-mid); }
 
   <div class="footer">
     <div class="footer-brand" data-en="Every Koreans">에브리 코리안즈</div>
-    <div class="footer-info">© 2026 치즈감자</div>
+    <div class="footer-info">© 2026 치즈감자 · <a href="privacy.html" data-en="Privacy policy">개인정보처리방침</a></div>
   </div>
 
 </div><!-- /authView -->
@@ -1556,7 +1585,7 @@ a:hover { color:var(--orange-mid); }
 
   <div class="footer">
     <div class="footer-brand" data-en="Every Koreans">에브리 코리안즈</div>
-    <div class="footer-info">© 2026 치즈감자</div>
+    <div class="footer-info">© 2026 치즈감자 · <a href="privacy.html" data-en="Privacy policy">개인정보처리방침</a></div>
   </div>
 
 </div><!-- /wordbookView -->
@@ -2388,6 +2417,7 @@ function syncLang() {
   if (!pendingWords) $('libFileLabel').textContent = t('엑셀(.xlsx) 또는 .csv 파일 고르기', 'Choose an .xlsx or .csv file');
   $('libTitle').placeholder = t('제목', 'Title');
   $('libDesc').placeholder = t('한 줄 설명 (선택)', 'One-line description (optional)');
+  $('libReportDetail').placeholder = t('덧붙일 말 (선택)', 'Anything to add (optional)');
   const nav = $('authBtn').querySelector('.nav-txt');
   // 로그인 상태에 따라 글이 다르므로 지금 뭘 보여주고 있는지로 판단한다.
   if (!$('auSignedIn').classList.contains('hidden')) nav.textContent = t('내 계정', 'Account');
@@ -2544,10 +2574,16 @@ function renderLibrary() {
           `<span>↓ ${r.downloads}</span>` +
         '</div>' +
       '</div>' +
-      `<div class="bd-meta">${r.word_count}</div>` +
+      `<div class="bd-meta">${r.word_count}` +
+        // 신고 수는 관리자에게만 보여준다. 다른 사람에게 보이면
+        // "신고 많은 자료"가 오히려 눈에 띄고, 보복 신고도 생긴다.
+        (isAdmin && r.report_count > 0 ? ` <span class="bd-flag">🚩 ${r.report_count}</span>` : '') +
+      '</div>' +
       '<div class="bd-actions">' +
         `<button class="bd-dl" data-dl="${r.id}">⬇ ${t('받기', 'Get')}</button>` +
-        (canDelete ? `<button class="bd-del" data-del="${r.id}">${t('삭제', 'Delete')}</button>` : '') +
+        (canDelete
+          ? `<button class="bd-del" data-del="${r.id}">${t('삭제', 'Delete')}</button>`
+          : `<button class="bd-del" data-report="${r.id}">${t('신고', 'Report')}</button>`) +
       '</div>';
     list.appendChild(el);
   }
@@ -2565,12 +2601,17 @@ async function loadLibrary() {
     // words 는 무겁다. 목록에는 안 쓰므로 받을 때만 따로 가져온다.
     const { data, error } = await sb
       .from('resources')
+      // report_count 는 여기서 읽지 않는다. 이 컬럼은 신고 기능과 함께
+      // 나중에 붙는 것이라, 목록 조회에 섞으면 마이그레이션 전에는
+      // 조회 전체가 400 으로 죽는다. 배지는 관리자만 보므로 아래에서
+      // 따로 가져오고, 실패하면 배지 없이 넘어간다.
       .select('id,title,description,category,word_count,author,downloads,created_at,user_id')
       .order('created_at', { ascending: false })
       .limit(100);
     if (error) throw error;
     libRows = data ?? [];
     renderLibrary();
+    loadReportCounts();   // 관리자에게만 의미가 있다. 늦게 붙어도 된다.
   } catch (e) {
     $('libError').classList.remove('hidden');
   } finally {
@@ -2585,6 +2626,87 @@ $('libList').addEventListener('click', async (ev) => {
   if (dl) return downloadResource(Number(dl.dataset.dl), dl);
   const del = ev.target.closest('[data-del]');
   if (del) return deleteResource(Number(del.dataset.del));
+  const rep = ev.target.closest('[data-report]');
+  if (rep) return openReport(Number(rep.dataset.report));
+});
+
+// ── 신고 ─────────────────────────────────────────────────────
+let reportingId = null;
+
+/* 신고 수는 따로, 관리자일 때만 가져온다.
+   db/resource_reports.sql 을 아직 안 돌렸으면 report_count 컬럼이 없어
+   400 이 난다. 그때는 조용히 넘어가면 그만이다 — 배지가 안 보일 뿐
+   목록은 멀쩡하다. 목록 조회에 섞었다면 자료마당 전체가 죽었을 것이다. */
+async function loadReportCounts() {
+  if (libSession?.user?.email !== ADMIN_EMAIL) return;
+  try {
+    const { data, error } = await sb.from('resources').select('id,report_count');
+    if (error || !data) return;
+    const map = new Map(data.map((r) => [r.id, r.report_count]));
+    let changed = false;
+    for (const r of libRows) {
+      const n = map.get(r.id) ?? 0;
+      if (r.report_count !== n) { r.report_count = n; changed = true; }
+    }
+    if (changed) renderLibrary();
+  } catch (e) {
+    // 마이그레이션 전 — 배지 없이 그대로 둔다.
+  }
+}
+
+const repMsg = (id, text) => { ['libReportErr','libReportOk'].forEach(k => $(k).classList.add('hidden'));
+  if (!id) return; $(id).textContent = text; $(id).classList.remove('hidden'); };
+
+async function openReport(id) {
+  const { data: { session } } = await sb.auth.getSession();
+  // 신고하려면 누가 신고했는지 남아야 한다. 익명 신고는 같은 사람이
+  // 몇 번이고 눌러 숫자를 부풀릴 수 있어 받지 않는다.
+  if (!session) return open('account');
+
+  reportingId = id;
+  const row = libRows.find((r) => r.id === id);
+  $('libReportOn').innerHTML = t(`<b>${esc(row?.title ?? '')}</b> 자료를 신고합니다.`,
+                                 `Reporting <b>${esc(row?.title ?? '')}</b>.`);
+  $('libReportDetail').value = '';
+  repMsg(null);
+  $('libReport').classList.remove('hidden');
+  $('libReport').scrollIntoView({ behavior: 'smooth', block: 'center' });
+}
+
+$('libReportCancel').addEventListener('click', () => {
+  reportingId = null;
+  $('libReport').classList.add('hidden');
+});
+
+$('libReportSend').addEventListener('click', async () => {
+  if (reportingId == null) return;
+  repMsg(null);
+  const { data: { session } } = await sb.auth.getSession();
+  if (!session) return open('account');
+
+  const btn = $('libReportSend');
+  btn.disabled = true;
+  const { error } = await sb.from('resource_reports').insert({
+    resource_id: reportingId,
+    reason: $('libReason').value,
+    detail: $('libReportDetail').value.trim() || null,
+    user_id: session.user.id,
+  });
+  btn.disabled = false;
+
+  if (error) {
+    // 같은 자료를 두 번 신고하면 unique 제약에 걸린다. 오류로 보이면
+    // 안 되고, 이미 접수됐다고 알려주는 게 맞다.
+    const dup = (error.code === '23505') || /duplicate|unique/i.test(error.message || '');
+    return repMsg('libReportErr', dup
+      ? t('이미 신고한 자료예요.', 'You have already reported this one.')
+      : t('신고를 보내지 못했어요. 잠시 후 다시 시도해 주세요.', 'Could not send the report. Please try again.'));
+  }
+
+  repMsg('libReportOk', t('신고를 받았어요. 확인 후 처리하겠습니다.',
+                          'Report received. We will review it.'));
+  reportingId = null;
+  setTimeout(() => { $('libReport').classList.add('hidden'); loadLibrary(); }, 1600);
 });
 
 async function downloadResource(id, btn) {
