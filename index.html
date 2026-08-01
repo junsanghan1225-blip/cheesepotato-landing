@@ -666,6 +666,33 @@ a:hover { color:var(--orange-mid); }
 }
 .wb-add:hover { background:#33261E; }
 .wf-lbl { font-size:11px; font-weight:600; letter-spacing:.1em; text-transform:uppercase; color:var(--ink-3); margin-bottom:9px; }
+/* 엑셀 가져오기 · 내보내기 */
+.wb-x {
+  display:inline-flex; align-items:center; white-space:nowrap; cursor:pointer;
+  background:transparent; color:var(--ink-2); border:1px solid var(--line);
+  font-size:13px; font-weight:600; padding:9px 13px; border-radius:var(--r-s);
+  transition:background .16s, border-color .16s;
+}
+.wb-x:hover { background:rgba(27,21,18,.05); border-color:rgba(27,21,18,.22); color:var(--ink); }
+.wb-x input { display:none; }
+
+/* ── 내 계정 ─────────────────────────────────────────────────── */
+.ac-head { display:flex; align-items:center; gap:16px; margin-bottom:20px; }
+.ac-ava {
+  width:64px; height:64px; border-radius:50%; flex-shrink:0;
+  background:var(--tint); border:1px solid var(--line);
+  display:grid; place-items:center; font-size:28px; overflow:hidden;
+}
+.ac-ava img { width:100%; height:100%; object-fit:cover; }
+.ac-who { min-width:0; }
+.ac-name { font-size:20px; font-weight:700; color:var(--ink); letter-spacing:-.03em; word-break:break-word; }
+.ac-mail { font-size:13.5px; color:var(--ink-3); margin-top:3px; word-break:break-all; }
+.ac-row { display:flex; gap:8px; flex-wrap:wrap; }
+.ac-row > * { flex:1; min-width:130px; }
+.ac-foot {
+  display:flex; align-items:center; justify-content:space-between; gap:14px; flex-wrap:wrap;
+  margin-top:24px; padding-top:20px; border-top:1px solid var(--line-2);
+}
 /* 목록에서 카드를 누르면 고칠 수 있다는 걸 손에 알려준다. */
 .wb-item { cursor:pointer; }
 
@@ -1290,82 +1317,6 @@ a:hover { color:var(--orange-mid); }
 
 </div><!-- /testView -->
 
-<!-- ── 설정 ────────────────────────────────────────────────────
-     앱 SettingsScreen 과 같은 항목을 같은 표에 쓴다. 시작일은 처음
-     설정할 때 정해지는 값이라 여기서 건드리지 않는다(앱도 그렇다). -->
-<div id="setView" class="hidden">
-
-  <div class="pt-hero">
-    <div class="pt-badge">SETTINGS</div>
-    <h2 data-en="Study settings">학습 설정</h2>
-    <p data-en="Change these here and the app picks them up right away.">여기서 바꾸면 앱에도 바로 반영됩니다.</p>
-  </div>
-
-  <div class="pt-body" style="max-width:560px;">
-
-    <div id="setNeedLogin" class="hidden">
-      <div class="wb-state">
-        <div style="font-size:40px; margin-bottom:8px;">🔒</div>
-        <span data-en="Sign in to change your settings.">로그인하면 설정을 바꿀 수 있어요.</span>
-        <div><button class="pt-next" id="setGoLogin" type="button" data-en="Go to sign in">로그인하러 가기</button></div>
-      </div>
-    </div>
-
-    <div id="setLoading" class="hidden">
-      <div class="wb-state"><div class="wb-spin"></div><span data-en="Loading…">불러오는 중…</span></div>
-    </div>
-
-    <div id="setError" class="hidden">
-      <div class="wb-state">
-        <span data-en="Could not load your settings.">설정을 불러오지 못했어요.</span>
-        <div><button class="pt-next" id="setRetry" type="button" data-en="Try again">다시 시도</button></div>
-      </div>
-    </div>
-
-    <div id="setBody" class="hidden">
-      <div class="up-panel">
-        <div class="up-row">
-          <div>
-            <div class="wf-lbl" data-en="Wordbook name">단어장 이름</div>
-            <input class="wb-input" id="stTitle" type="text" maxlength="40" placeholder="예) 토익 단어장" style="margin-bottom:0;">
-          </div>
-          <div>
-            <div class="wf-lbl" data-en="Language you are learning">공부할 언어</div>
-            <select class="up-sel" id="stStudy"></select>
-            <input class="wb-input hidden" id="stStudyOther" type="text" maxlength="20" placeholder="직접 입력" style="margin:10px 0 0;">
-          </div>
-          <div>
-            <div class="wf-lbl" data-en="Your own language">모국어</div>
-            <select class="up-sel" id="stNative"></select>
-            <input class="wb-input hidden" id="stNativeOther" type="text" maxlength="20" placeholder="직접 입력" style="margin:10px 0 0;">
-          </div>
-          <div class="dgrid2b">
-            <div>
-              <div class="wf-lbl" data-en="Words per day">하루 목표</div>
-              <input class="wb-input" id="stGoal" type="number" min="1" max="200" style="margin-bottom:0;">
-            </div>
-            <div>
-              <div class="wf-lbl" data-en="Study period (days)">학습 기간 (일)</div>
-              <input class="wb-input" id="stDays" type="number" min="1" max="365" style="margin-bottom:0;">
-            </div>
-          </div>
-          <p class="up-hint" id="stCalc"></p>
-          <button class="pt-next" id="stSave" type="button" style="width:100%;" data-en="Save">저장</button>
-          <div class="wb-err hidden" id="stErr"></div>
-          <div class="wb-ok hidden" id="stOk"></div>
-        </div>
-      </div>
-
-      <p class="dnote" style="margin-top:18px; text-align:center;" data-en="Deleting your account is done in the app — Settings → Delete account.">계정 삭제는 앱에서 합니다 — 설정 → 계정 삭제.</p>
-    </div>
-  </div>
-
-  <div class="footer">
-    <div class="footer-brand" data-en="Every Koreans">에브리 코리안즈</div>
-    <div class="footer-info">© 2026 치즈감자 · <a href="privacy.html" data-en="Privacy policy">개인정보처리방침</a></div>
-  </div>
-
-</div><!-- /setView -->
 
 <!-- ── 대시보드 ────────────────────────────────────────────────
      앱 DashboardScreen 과 같은 지표를 같은 계산으로 보여준다.
@@ -1649,15 +1600,100 @@ a:hover { color:var(--orange-mid); }
       <p class="wb-note" id="auNote"></p>
       </div><!-- /auForms -->
 
-      <!-- 이미 로그인한 사람이 계정 화면에 들어왔을 때 -->
+      <!-- 이미 로그인한 사람이 계정 화면에 들어왔을 때.
+           프로필과 학습 설정을 여기 모은다 — 계정에 관한 것을 보러 온
+           사람이 다시 다른 곳으로 옮겨 다니지 않게. -->
       <div id="auSignedIn" class="hidden">
-        <div class="wb-state">
-          <div style="font-size:40px; margin-bottom:8px;">🧀</div>
-          <div id="auWho"></div>
-          <div><button class="pt-next" id="auGoWb" type="button" data-en="Open my wordbook">내 단어장 보기</button></div>
-          <!-- 설정은 자주 여는 곳이 아니라 헤더를 늘리지 않고 여기에 둔다. -->
-          <div style="margin-top:12px;"><button class="pt-ghost" id="auGoSet" type="button" data-en="Study settings">학습 설정</button></div>
-          <div style="margin-top:14px;"><button class="wb-out" id="auLogout" type="button" data-en="Sign out">로그아웃</button></div>
+
+        <div class="ac-head">
+          <div class="ac-ava" id="acAva">🧀</div>
+          <div class="ac-who">
+            <div class="ac-name" id="acName"></div>
+            <div class="ac-mail" id="auWho"></div>
+          </div>
+        </div>
+
+        <div class="ac-row">
+          <button class="pt-next" id="auGoWb" type="button" data-en="My wordbook">내 단어장</button>
+          <button class="pt-ghost" id="auGoDash" type="button" data-en="Dashboard">대시보드</button>
+        </div>
+
+        <!-- 프로필 -->
+        <div class="up-panel" style="margin-top:22px;">
+          <div class="up-row">
+            <div class="dcard-t" data-en="Profile">프로필</div>
+            <div>
+              <div class="wf-lbl" data-en="Name">이름</div>
+              <input class="wb-input" id="acNameIn" type="text" maxlength="30" placeholder="이름" style="margin-bottom:0;">
+            </div>
+            <div>
+              <div class="wf-lbl" data-en="Photo">사진</div>
+              <label class="up-file" id="acPhotoLabel">
+                <input type="file" id="acPhoto" accept="image/*">
+                <span id="acPhotoTxt" data-en="Choose a photo">사진 고르기</span>
+              </label>
+              <div id="acAvaWrap" class="hidden" style="display:flex; align-items:center; gap:12px; margin-top:12px;">
+                <img id="acPreview" alt="" style="width:64px; height:64px; border-radius:50%; object-fit:cover;">
+                <button class="wb-out" id="acPhotoClear" type="button" data-en="Remove photo">사진 없애기</button>
+              </div>
+            </div>
+            <button class="pt-next" id="acSave" type="button" style="width:100%;" data-en="Save profile">프로필 저장</button>
+            <div class="wb-err hidden" id="acErr"></div>
+            <div class="wb-ok hidden" id="acOk"></div>
+          </div>
+        </div>
+
+        <!-- 학습 설정 -->
+        <div class="up-panel" style="margin-top:14px;">
+          <div class="up-row">
+            <div class="dcard-t" data-en="Study settings">학습 설정</div>
+            <div id="setLoading" class="hidden">
+              <div class="wb-state" style="padding:24px;"><div class="wb-spin"></div></div>
+            </div>
+            <div id="setError" class="hidden">
+              <div class="wb-state" style="padding:20px;">
+                <span data-en="Could not load your settings.">설정을 불러오지 못했어요.</span>
+                <div><button class="pt-ghost" id="setRetry" type="button" data-en="Try again">다시 시도</button></div>
+              </div>
+            </div>
+            <div id="setBody" class="hidden">
+              <div class="up-row">
+                <div>
+                  <div class="wf-lbl" data-en="Wordbook name">단어장 이름</div>
+                  <input class="wb-input" id="stTitle" type="text" maxlength="40" placeholder="예) 토익 단어장" style="margin-bottom:0;">
+                </div>
+                <div>
+                  <div class="wf-lbl" data-en="Language you are learning">공부할 언어</div>
+                  <select class="up-sel" id="stStudy"></select>
+                  <input class="wb-input hidden" id="stStudyOther" type="text" maxlength="20" placeholder="직접 입력" style="margin:10px 0 0;">
+                </div>
+                <div>
+                  <div class="wf-lbl" data-en="Your own language">모국어</div>
+                  <select class="up-sel" id="stNative"></select>
+                  <input class="wb-input hidden" id="stNativeOther" type="text" maxlength="20" placeholder="직접 입력" style="margin:10px 0 0;">
+                </div>
+                <div class="dgrid2b">
+                  <div>
+                    <div class="wf-lbl" data-en="Words per day">하루 목표</div>
+                    <input class="wb-input" id="stGoal" type="number" min="1" max="200" style="margin-bottom:0;">
+                  </div>
+                  <div>
+                    <div class="wf-lbl" data-en="Study period (days)">학습 기간 (일)</div>
+                    <input class="wb-input" id="stDays" type="number" min="1" max="365" style="margin-bottom:0;">
+                  </div>
+                </div>
+                <p class="up-hint" id="stCalc"></p>
+                <button class="pt-next" id="stSave" type="button" style="width:100%;" data-en="Save settings">설정 저장</button>
+                <div class="wb-err hidden" id="stErr"></div>
+                <div class="wb-ok hidden" id="stOk"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="ac-foot">
+          <button class="wb-out" id="auLogout" type="button" data-en="Sign out">로그아웃</button>
+          <span class="dnote" data-en="Deleting your account is done in the app — Settings → Delete account.">계정 삭제는 앱에서 합니다 — 설정 → 계정 삭제</span>
         </div>
       </div>
     </div>
@@ -1703,9 +1739,13 @@ a:hover { color:var(--orange-mid); }
     <div id="wbListWrap" class="hidden">
       <div class="wb-top">
         <span class="wb-count" id="wbCount"></span>
-        <div style="display:flex; align-items:center; gap:12px;">
+        <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
           <button class="wb-add" id="wbAddBtn" type="button" data-en="+ Add word">+ 단어 추가</button>
-          <button class="wb-out" id="wbLogout" type="button" data-en="Sign out">로그아웃</button>
+          <label class="wb-x" id="wbImpLabel">
+            <input type="file" id="wbImp" accept=".xlsx,.xls,.csv">
+            <span data-en="⬆ Import">⬆ 가져오기</span>
+          </label>
+          <button class="wb-x" id="wbExp" type="button" data-en="⬇ Export">⬇ 내보내기</button>
         </div>
       </div>
 
@@ -2140,7 +2180,6 @@ function ptShow(toTest) {
   ptId('authView').classList.add('hidden');
   ptId('libraryView').classList.add('hidden');
   ptId('dashView').classList.add('hidden');
-  ptId('setView').classList.add('hidden');
   ptId('wbBtn').classList.remove('on');
   ptId('authBtn').classList.remove('on');
   ptId('libBtn').classList.remove('on');
@@ -2243,11 +2282,9 @@ function open(view) {
   $('authView').classList.toggle('hidden', view !== 'account');
   $('libraryView').classList.toggle('hidden', view !== 'library');
   $('dashView').classList.toggle('hidden', view !== 'dashboard');
-  $('setView').classList.toggle('hidden', view !== 'settings');
 
   $('wbBtn').classList.toggle('on', view === 'wordbook');
-  // 설정은 계정 화면에서 들어가므로 헤더에서도 같은 자리로 표시한다.
-  $('authBtn').classList.toggle('on', view === 'account' || view === 'settings');
+  $('authBtn').classList.toggle('on', view === 'account');
   $('libBtn').classList.toggle('on', view === 'library');
   $('dashBtn').classList.toggle('on', view === 'dashboard');
   window.scrollTo({ top: 0, behavior: 'auto' });
@@ -2256,7 +2293,11 @@ function open(view) {
 const showing = (id) => !$(id).classList.contains('hidden');
 
 $('wbBtn').addEventListener('click', () => open(showing('wordbookView') ? 'home' : 'wordbook'));
-$('authBtn').addEventListener('click', () => open(showing('authView') ? 'home' : 'account'));
+$('authBtn').addEventListener('click', () => {
+  if (showing('authView')) return open('home');
+  open('account');
+  loadAccount();   // 로그인 상태면 프로필과 설정을 채운다
+});
 $('libBtn').addEventListener('click', () => { const go = !showing('libraryView'); open(go ? 'library' : 'home'); if (go) loadLibrary(); });
 $('libGoLogin').addEventListener('click', () => open('account'));
 $('dashBtn').addEventListener('click', () => { const go = !showing('dashView'); open(go ? 'dashboard' : 'home'); if (go) loadDashboard(); });
@@ -2613,7 +2654,8 @@ async function signOut() {
   await sb.auth.signOut();
   open('home');
 }
-$('wbLogout').addEventListener('click', signOut);
+// 로그아웃은 계정 화면에만 둔다. 단어장 자리에는 엑셀이 들어갔다 —
+// 단어를 보다가 실수로 누를 만한 곳에 있을 버튼이 아니다.
 $('auLogout').addEventListener('click', signOut);
 
 $('wbRetry').addEventListener('click', loadWords);
@@ -2647,7 +2689,6 @@ sb.auth.onAuthStateChange((_event, session) => {
     dashSettings = null;
     dashAiUsed = null;
     dashPanel('dashNeedLogin');
-    setPanel('setNeedLogin');
     // 열려 있던 단어 폼도 닫는다. 남겨두면 로그아웃한 채로 저장을 누르게 된다.
     $('wbForm2').classList.add('hidden');
     editingId = null;
@@ -2685,6 +2726,12 @@ function syncLang() {
     drawWfTag(); $('wfTag').value = keepTag;   // 다시 그리면 고른 값이 풀린다
     drawWfDiff();
     syncWfText();
+  }
+  // 내 계정 — 프로필
+  $('acNameIn').placeholder = t('이름', 'Name');
+  if (!acAvatarFile) $('acPhotoTxt').textContent = t('사진 고르기', 'Choose a photo');
+  if (!$('acNameIn').value.trim() && $('acName').textContent) {
+    $('acName').textContent = t('이름 없음', 'No name');
   }
   // 설정 — 언어 목록도 번역된다.
   if (!$('setBody').classList.contains('hidden')) {
@@ -2970,7 +3017,9 @@ const LANG_EN = { '한국어':'Korean','영어':'English','일본어':'Japanese'
   '인도네시아어':'Indonesian','아랍어':'Arabic' };
 const OTHER = '기타';
 
-const SET_PANELS = ['setNeedLogin', 'setLoading', 'setError', 'setBody'];
+// 설정은 계정 화면 안에 있다. 로그인 안내는 계정 화면이 이미 하므로
+// 여기에는 따로 두지 않는다.
+const SET_PANELS = ['setLoading', 'setError', 'setBody'];
 const setPanel = (name) => SET_PANELS.forEach((k) => $(k).classList.toggle('hidden', k !== name));
 const setMsg = (id, text) => { ['stErr','stOk'].forEach(k => $(k).classList.add('hidden'));
   if (id) { $(id).textContent = text; $(id).classList.remove('hidden'); } };
@@ -3001,7 +3050,7 @@ $('stDays').addEventListener('input', setCalc);
 
 async function loadSettings() {
   const { data: { session } } = await sb.auth.getSession();
-  if (!session) return setPanel('setNeedLogin');
+  if (!session) return;
   setPanel('setLoading');
   try {
     const { data, error } = await sb.from('settings')
@@ -3064,9 +3113,181 @@ $('stSave').addEventListener('click', async () => {
   dashSettings = null;
 });
 
-$('auGoSet').addEventListener('click', () => { open('settings'); loadSettings(); });
-$('setGoLogin').addEventListener('click', () => open('account'));
 $('setRetry').addEventListener('click', loadSettings);
+
+// ══ 프로필 ═══════════════════════════════════════════════════
+// 앱은 프로필을 AsyncStorage(기기 안)에 둔다. 폰을 바꾸면 사라지고
+// 웹에서는 볼 수 없다. 웹은 settings 표의 display_name / avatar_url 을
+// 쓴다(db/add_profile.sql). 앱은 칸이 늘어도 무시하므로 안 깨진다.
+let acAvatarPath = null;   // 저장된 경로
+let acAvatarFile = null;   // 새로 고른 사진
+let acAvatarDrop = false;  // 없애기를 눌렀는지
+
+const acMsg = (id, text) => { ['acErr','acOk'].forEach(k => $(k).classList.add('hidden'));
+  if (id) { $(id).textContent = text; $(id).classList.remove('hidden'); } };
+
+function showAvatar(url) {
+  if (url) {
+    $('acAva').innerHTML = '<img alt="">';
+    $('acAva').querySelector('img').src = url;
+    $('acPreview').src = url;
+    $('acAvaWrap').classList.remove('hidden');
+  } else {
+    $('acAva').textContent = '🧀';
+    $('acAvaWrap').classList.add('hidden');
+  }
+}
+
+$('acPhoto').addEventListener('change', async (ev) => {
+  const file = ev.target.files?.[0];
+  acMsg(null);
+  if (!file) return;
+  if (!file.type.startsWith('image/')) return acMsg('acErr', t('사진 파일만 올릴 수 있어요.', 'Images only.'));
+  if (file.size > 12 * 1024 * 1024) return acMsg('acErr', t('사진이 너무 커요. 12MB 아래로 골라 주세요.', 'Max 12MB.'));
+  try {
+    acAvatarFile = await shrinkImage(file);
+    acAvatarDrop = false;
+    $('acPhotoTxt').textContent = file.name;
+    showAvatar(URL.createObjectURL(acAvatarFile));
+  } catch (e) {
+    acAvatarFile = null;
+    acMsg('acErr', t('사진을 읽지 못했어요.', 'Could not read that photo.'));
+  }
+});
+
+$('acPhotoClear').addEventListener('click', () => {
+  acAvatarFile = null;
+  acAvatarDrop = true;
+  $('acPhoto').value = '';
+  $('acPhotoTxt').textContent = t('사진 고르기', 'Choose a photo');
+  showAvatar(null);
+});
+
+$('acSave').addEventListener('click', async () => {
+  acMsg(null);
+  const { data: { session } } = await sb.auth.getSession();
+  if (!session) return open('account');
+
+  const btn = $('acSave');
+  btn.disabled = true;
+  try {
+    let path = acAvatarPath;
+    let replaced = null;
+
+    if (acAvatarFile) {
+      // 프로필 사진도 word-images 버킷을 쓴다. 앱과 같은 규칙이라
+      // 첫 폴더가 소유자여야 정책을 통과한다.
+      const p = `${session.user.id}/avatar-${Date.now()}.jpg`;
+      const up = await sb.storage.from('word-images').upload(p, acAvatarFile, { contentType: 'image/jpeg' });
+      if (up.error) throw up.error;
+      replaced = acAvatarPath;
+      path = p;
+    } else if (acAvatarDrop) {
+      replaced = acAvatarPath;
+      path = null;
+    }
+
+    const { error } = await sb.from('settings')
+      .update({ display_name: $('acNameIn').value.trim() || null, avatar_url: path })
+      .eq('user_id', session.user.id);
+    if (error) throw error;
+
+    if (replaced) dropImage(replaced);
+    acAvatarPath = path;
+    acAvatarFile = null;
+    acAvatarDrop = false;
+    $('acPhoto').value = '';
+    $('acPhotoTxt').textContent = t('사진 고르기', 'Choose a photo');
+    $('acName').textContent = $('acNameIn').value.trim() || t('이름 없음', 'No name');
+    acMsg('acOk', t('저장했어요.', 'Saved.'));
+  } catch (e) {
+    // 컬럼이 아직 없으면 여기로 온다. 원인을 알려줘야 헤매지 않는다.
+    const missing = /display_name|avatar_url|column/i.test(e?.message || '');
+    acMsg('acErr', missing
+      ? t('프로필 칸이 아직 없어요. db/add_profile.sql 을 먼저 실행해 주세요.',
+          'Profile columns are missing — run db/add_profile.sql first.')
+      : t('저장하지 못했어요. 잠시 후 다시 시도해 주세요.', 'Could not save. Please try again.'));
+  } finally {
+    btn.disabled = false;
+  }
+});
+
+/* 계정 화면을 열 때 프로필과 설정을 함께 채운다. */
+async function loadAccount() {
+  const { data: { session } } = await sb.auth.getSession();
+  if (!session) return;
+
+  $('acName').textContent = t('불러오는 중…', 'Loading…');
+  loadSettings();
+
+  // display_name / avatar_url 이 없는 프로젝트에서도 화면이 살아야 한다.
+  const { data, error } = await sb.from('settings')
+    .select('display_name, avatar_url').eq('user_id', session.user.id).limit(1).maybeSingle();
+
+  const name = error ? '' : (data?.display_name ?? '');
+  acAvatarPath = error ? null : (data?.avatar_url ?? null);
+  acAvatarFile = null;
+  acAvatarDrop = false;
+
+  $('acNameIn').value = name;
+  $('acName').textContent = name || t('이름 없음', 'No name');
+  showAvatar(null);
+  if (acAvatarPath) signedUrl(acAvatarPath).then((u) => { if (u) showAvatar(u); }).catch(() => {});
+}
+
+$('auGoDash').addEventListener('click', () => { open('dashboard'); loadDashboard(); });
+
+// ══ 엑셀 가져오기 · 내보내기 ═════════════════════════════════
+// 앱 WordbookScreen 과 같은 형식이다. A열 단어, B열 뜻, C열 난이도.
+// 머리글은 '단어' 여야 가져올 때 건너뛴다.
+$('wbExp').addEventListener('click', () => {
+  if (!rows.length) return;
+  const list = visibleWords();   // 걸러 놓은 상태 그대로 내보낸다
+  const aoa = [['단어', '뜻', '난이도'], ...list.map((w) => [String(w.word ?? ''), String(w.meaning ?? ''), Number(w.difficulty) || 1])];
+  const ws = XLSX.utils.aoa_to_sheet(aoa);
+  ws['!cols'] = [{ wch: 26 }, { wch: 34 }, { wch: 9 }];
+  const wb = XLSX.utils.book_new();
+  XLSX.utils.book_append_sheet(wb, ws, '단어장');
+  const name = (dashSettings?.title || t('단어장', 'wordbook')).replace(/[\\/:*?"<>|]/g, '_');
+  XLSX.writeFile(wb, `${name}_${new Date().toISOString().slice(0, 10)}.xlsx`);
+});
+
+$('wbImp').addEventListener('change', async (ev) => {
+  const file = ev.target.files?.[0];
+  ev.target.value = '';
+  if (!file) return;
+
+  const { data: { session } } = await sb.auth.getSession();
+  if (!session) return open('account');
+
+  if (!/\.(xlsx|xls|csv)$/i.test(file.name)) {
+    return alert(t('엑셀(.xlsx, .xls) 또는 .csv 파일만 가져올 수 있어요.', 'Only .xlsx, .xls or .csv files.'));
+  }
+  if (file.size > 3 * 1024 * 1024) {
+    return alert(t('파일이 너무 커요. 3MB 아래로 골라 주세요.', 'Please keep it under 3MB.'));
+  }
+
+  try {
+    const wb = XLSX.read(await file.arrayBuffer(), { type: 'array' });
+    const parsed = parseRows(XLSX.utils.sheet_to_json(wb.Sheets[wb.SheetNames[0]], { header: 1 }));
+    if (!parsed.length) {
+      return alert(t('단어를 찾지 못했어요. A열에 단어, B열에 뜻을 넣어 주세요.',
+                     'No words found. Put the word in column A and its meaning in column B.'));
+    }
+    if (!confirm(t(`${parsed.length}개 단어를 가져올까요?`, `Import ${parsed.length} words?`))) return;
+
+    const { error } = await sb.from('words').insert(parsed.map((w) => ({
+      word: w.w, meaning: w.m, difficulty: w.d,
+      example: null, tag: null,
+      is_remembered: false, image_url: null, view_count: 0, remembered_at: null,
+      user_id: session.user.id,
+    })));
+    if (error) throw error;
+    await loadWords();
+  } catch (e) {
+    alert(t('가져오지 못했어요. 잠시 후 다시 시도해 주세요.', 'Could not import. Please try again.'));
+  }
+});
 
 // ══ 대시보드 ═════════════════════════════════════════════════
 // 계산은 앱 DashboardScreen 과 같은 공식을 쓴다. 같은 숫자가 두 곳에서
