@@ -677,21 +677,37 @@ a:hover { color:var(--orange-mid); }
 .wb-x input { display:none; }
 
 /* ── 내 계정 ─────────────────────────────────────────────────── */
-.ac-head { display:flex; align-items:center; gap:16px; margin-bottom:20px; }
+/* 로그인 폼은 좁아야 읽기 좋지만 계정 화면은 넣을 것이 많다.
+   같은 상자를 쓰면 계정 쪽이 360px 에 갇혀 텅 비어 보인다. */
+#auBody { max-width:960px; }
+.ac-head {
+  display:flex; align-items:center; gap:18px;
+  padding-bottom:22px; margin-bottom:22px; border-bottom:1px solid var(--line-2);
+}
 .ac-ava {
-  width:64px; height:64px; border-radius:50%; flex-shrink:0;
+  width:76px; height:76px; border-radius:50%; flex-shrink:0;
   background:var(--tint); border:1px solid var(--line);
-  display:grid; place-items:center; font-size:28px; overflow:hidden;
+  display:grid; place-items:center; font-size:32px; overflow:hidden;
 }
 .ac-ava img { width:100%; height:100%; object-fit:cover; }
 .ac-who { min-width:0; }
-.ac-name { font-size:20px; font-weight:700; color:var(--ink); letter-spacing:-.03em; word-break:break-word; }
-.ac-mail { font-size:13.5px; color:var(--ink-3); margin-top:3px; word-break:break-all; }
+.ac-name { font-size:23px; font-weight:700; color:var(--ink); letter-spacing:-.035em; word-break:break-word; }
+.ac-mail { font-size:14px; color:var(--ink-3); margin-top:4px; word-break:break-all; }
 .ac-row { display:flex; gap:8px; flex-wrap:wrap; }
 .ac-row > * { flex:1; min-width:130px; }
+.ac-grid { display:grid; gap:14px; margin-top:22px; }
 .ac-foot {
   display:flex; align-items:center; justify-content:space-between; gap:14px; flex-wrap:wrap;
   margin-top:24px; padding-top:20px; border-top:1px solid var(--line-2);
+}
+
+@media (min-width:860px) {
+  .ac-head { gap:22px; }
+  .ac-ava { width:92px; height:92px; font-size:38px; }
+  .ac-name { font-size:27px; }
+  /* 프로필과 학습 설정을 나란히. 세로로 쌓으면 오른쪽이 계속 빈다. */
+  .ac-grid { grid-template-columns:1fr 1.15fr; align-items:start; gap:16px; }
+  .ac-row { max-width:420px; }
 }
 /* 목록에서 카드를 누르면 고칠 수 있다는 걸 손에 알려준다. */
 .wb-item { cursor:pointer; }
@@ -1565,10 +1581,11 @@ a:hover { color:var(--orange-mid); }
     <p data-en="One account works for both the app and the web.">앱과 웹이 같은 계정을 씁니다.</p>
   </div>
 
-  <div class="pt-body">
-    <div class="wb-login">
+  <div class="pt-body" id="auBody">
 
-      <div id="auForms">
+      <!-- 로그인 폼만 좁게. 계정 화면은 아래에서 폭을 다 쓴다 —
+           둘을 같은 상자에 넣으면 계정 쪽이 360px 에 갇힌다. -->
+      <div id="auForms" class="wb-login">
       <div class="au-tabs">
         <button class="au-tab on" id="auTabIn" type="button" data-en="Sign in">로그인</button>
         <button class="au-tab" id="auTabUp" type="button" data-en="Sign up">회원가입</button>
@@ -1618,8 +1635,9 @@ a:hover { color:var(--orange-mid); }
           <button class="pt-ghost" id="auGoDash" type="button" data-en="Dashboard">대시보드</button>
         </div>
 
+        <div class="ac-grid">
         <!-- 프로필 -->
-        <div class="up-panel" style="margin-top:22px;">
+        <div class="up-panel">
           <div class="up-row">
             <div class="dcard-t" data-en="Profile">프로필</div>
             <div>
@@ -1644,7 +1662,7 @@ a:hover { color:var(--orange-mid); }
         </div>
 
         <!-- 학습 설정 -->
-        <div class="up-panel" style="margin-top:14px;">
+        <div class="up-panel">
           <div class="up-row">
             <div class="dcard-t" data-en="Study settings">학습 설정</div>
             <div id="setLoading" class="hidden">
@@ -1691,12 +1709,13 @@ a:hover { color:var(--orange-mid); }
           </div>
         </div>
 
+        </div><!-- /ac-grid -->
+
         <div class="ac-foot">
           <button class="wb-out" id="auLogout" type="button" data-en="Sign out">로그아웃</button>
           <span class="dnote" data-en="Deleting your account is done in the app — Settings → Delete account.">계정 삭제는 앱에서 합니다 — 설정 → 계정 삭제</span>
         </div>
-      </div>
-    </div>
+      </div><!-- /auSignedIn -->
   </div>
 
   <div class="footer">
@@ -2563,7 +2582,11 @@ let mode = 'in';   // 'in' = 로그인, 'up' = 회원가입
 
 function syncAuthText() {
   const up = mode === 'up';
-  $('auTitle').textContent = up ? t('회원가입', 'Sign up') : t('로그인', 'Sign in');
+  // 로그인한 사람에게는 로그인/회원가입 폼이 아니라 계정이 보인다.
+  // 제목이 "로그인" 으로 남아 있으면 화면과 어긋난다.
+  const signedIn = !$('auSignedIn').classList.contains('hidden');
+  $('auTitle').textContent = signedIn ? t('내 계정', 'My account')
+                                      : up ? t('회원가입', 'Sign up') : t('로그인', 'Sign in');
   $('wbSubmit').textContent = up ? t('가입하기', 'Create account') : t('로그인', 'Sign in');
   $('auNote').textContent = up
     ? t('여기서 가입하면 앱에서도 같은 계정으로 로그인됩니다.',
@@ -2677,6 +2700,7 @@ sb.auth.onAuthStateChange((_event, session) => {
   nav.setAttribute('aria-label', session ? '내 계정' : '로그인');
   $('auForms').classList.toggle('hidden', !!session);
   $('auSignedIn').classList.toggle('hidden', !session);
+  syncAuthText();   // 제목이 "로그인" ↔ "내 계정" 으로 따라와야 한다
   if (session) $('auWho').textContent = session.user?.email ?? '';
 
   // 자료마당의 삭제 버튼은 로그인 상태에 따라 붙었다 떨어진다.
