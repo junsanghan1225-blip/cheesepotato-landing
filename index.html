@@ -659,6 +659,15 @@ a:hover { color:var(--orange-mid); }
 /* 품사 색은 앱 src/lib/tags.ts 의 TAG_COLORS 와 같은 값이다. */
 .wb-dot { width:7px; height:7px; border-radius:50%; flex-shrink:0; }
 .wb-none { text-align:center; padding:44px 20px; color:var(--ink-3); font-size:14.5px; line-height:1.8; }
+.wb-add {
+  background:var(--ink); color:#fff; border:1px solid var(--ink); cursor:pointer;
+  font-size:13.5px; font-weight:600; padding:9px 15px; border-radius:var(--r-s);
+  white-space:nowrap; transition:background .16s;
+}
+.wb-add:hover { background:#33261E; }
+.wf-lbl { font-size:11px; font-weight:600; letter-spacing:.1em; text-transform:uppercase; color:var(--ink-3); margin-bottom:9px; }
+/* 목록에서 카드를 누르면 고칠 수 있다는 걸 손에 알려준다. */
+.wb-item { cursor:pointer; }
 
 /* 외운 단어는 조금 가라앉혀 아직 못 외운 것이 눈에 먼저 들어오게 한다. */
 .wb-item.done { background:var(--surface-2); }
@@ -699,6 +708,7 @@ a:hover { color:var(--orange-mid); }
   .dcard { padding:28px; }
   .dgrid2 { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
   .dgrid2 .dcard { margin-bottom:0; }
+  .dgrid2b { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
 }
 
 /* ══ 자료마당 (게시판) ═════════════════════════════════════════
@@ -1280,6 +1290,83 @@ a:hover { color:var(--orange-mid); }
 
 </div><!-- /testView -->
 
+<!-- ── 설정 ────────────────────────────────────────────────────
+     앱 SettingsScreen 과 같은 항목을 같은 표에 쓴다. 시작일은 처음
+     설정할 때 정해지는 값이라 여기서 건드리지 않는다(앱도 그렇다). -->
+<div id="setView" class="hidden">
+
+  <div class="pt-hero">
+    <div class="pt-badge">SETTINGS</div>
+    <h2 data-en="Study settings">학습 설정</h2>
+    <p data-en="Change these here and the app picks them up right away.">여기서 바꾸면 앱에도 바로 반영됩니다.</p>
+  </div>
+
+  <div class="pt-body" style="max-width:560px;">
+
+    <div id="setNeedLogin" class="hidden">
+      <div class="wb-state">
+        <div style="font-size:40px; margin-bottom:8px;">🔒</div>
+        <span data-en="Sign in to change your settings.">로그인하면 설정을 바꿀 수 있어요.</span>
+        <div><button class="pt-next" id="setGoLogin" type="button" data-en="Go to sign in">로그인하러 가기</button></div>
+      </div>
+    </div>
+
+    <div id="setLoading" class="hidden">
+      <div class="wb-state"><div class="wb-spin"></div><span data-en="Loading…">불러오는 중…</span></div>
+    </div>
+
+    <div id="setError" class="hidden">
+      <div class="wb-state">
+        <span data-en="Could not load your settings.">설정을 불러오지 못했어요.</span>
+        <div><button class="pt-next" id="setRetry" type="button" data-en="Try again">다시 시도</button></div>
+      </div>
+    </div>
+
+    <div id="setBody" class="hidden">
+      <div class="up-panel">
+        <div class="up-row">
+          <div>
+            <div class="wf-lbl" data-en="Wordbook name">단어장 이름</div>
+            <input class="wb-input" id="stTitle" type="text" maxlength="40" placeholder="예) 토익 단어장" style="margin-bottom:0;">
+          </div>
+          <div>
+            <div class="wf-lbl" data-en="Language you are learning">공부할 언어</div>
+            <select class="up-sel" id="stStudy"></select>
+            <input class="wb-input hidden" id="stStudyOther" type="text" maxlength="20" placeholder="직접 입력" style="margin:10px 0 0;">
+          </div>
+          <div>
+            <div class="wf-lbl" data-en="Your own language">모국어</div>
+            <select class="up-sel" id="stNative"></select>
+            <input class="wb-input hidden" id="stNativeOther" type="text" maxlength="20" placeholder="직접 입력" style="margin:10px 0 0;">
+          </div>
+          <div class="dgrid2b">
+            <div>
+              <div class="wf-lbl" data-en="Words per day">하루 목표</div>
+              <input class="wb-input" id="stGoal" type="number" min="1" max="200" style="margin-bottom:0;">
+            </div>
+            <div>
+              <div class="wf-lbl" data-en="Study period (days)">학습 기간 (일)</div>
+              <input class="wb-input" id="stDays" type="number" min="1" max="365" style="margin-bottom:0;">
+            </div>
+          </div>
+          <p class="up-hint" id="stCalc"></p>
+          <button class="pt-next" id="stSave" type="button" style="width:100%;" data-en="Save">저장</button>
+          <div class="wb-err hidden" id="stErr"></div>
+          <div class="wb-ok hidden" id="stOk"></div>
+        </div>
+      </div>
+
+      <p class="dnote" style="margin-top:18px; text-align:center;" data-en="Deleting your account is done in the app — Settings → Delete account.">계정 삭제는 앱에서 합니다 — 설정 → 계정 삭제.</p>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div class="footer-brand" data-en="Every Koreans">에브리 코리안즈</div>
+    <div class="footer-info">© 2026 치즈감자 · <a href="privacy.html" data-en="Privacy policy">개인정보처리방침</a></div>
+  </div>
+
+</div><!-- /setView -->
+
 <!-- ── 대시보드 ────────────────────────────────────────────────
      앱 DashboardScreen 과 같은 지표를 같은 계산으로 보여준다.
      숫자가 두 곳에서 다르면 어느 쪽이 맞는지 알 수 없게 된다. -->
@@ -1568,6 +1655,8 @@ a:hover { color:var(--orange-mid); }
           <div style="font-size:40px; margin-bottom:8px;">🧀</div>
           <div id="auWho"></div>
           <div><button class="pt-next" id="auGoWb" type="button" data-en="Open my wordbook">내 단어장 보기</button></div>
+          <!-- 설정은 자주 여는 곳이 아니라 헤더를 늘리지 않고 여기에 둔다. -->
+          <div style="margin-top:12px;"><button class="pt-ghost" id="auGoSet" type="button" data-en="Study settings">학습 설정</button></div>
           <div style="margin-top:14px;"><button class="wb-out" id="auLogout" type="button" data-en="Sign out">로그아웃</button></div>
         </div>
       </div>
@@ -1614,7 +1703,49 @@ a:hover { color:var(--orange-mid); }
     <div id="wbListWrap" class="hidden">
       <div class="wb-top">
         <span class="wb-count" id="wbCount"></span>
-        <button class="wb-out" id="wbLogout" type="button" data-en="Sign out">로그아웃</button>
+        <div style="display:flex; align-items:center; gap:12px;">
+          <button class="wb-add" id="wbAddBtn" type="button" data-en="+ Add word">+ 단어 추가</button>
+          <button class="wb-out" id="wbLogout" type="button" data-en="Sign out">로그아웃</button>
+        </div>
+      </div>
+
+      <!-- 추가와 수정이 같은 폼을 쓴다. 항목이 같은데 두 벌을 두면
+           한쪽만 고치는 일이 생긴다. -->
+      <div id="wbForm2" class="hidden">
+        <div class="up-panel">
+          <div class="up-row">
+            <div class="rp-on" id="wbFormTitle"></div>
+            <input class="wb-input" id="wfWord" type="text" maxlength="200" placeholder="단어" style="margin-bottom:0;">
+            <input class="wb-input" id="wfMean" type="text" maxlength="300" placeholder="뜻" style="margin-bottom:0;">
+            <input class="wb-input" id="wfEx" type="text" maxlength="300" placeholder="예문 (선택)" style="margin-bottom:0;">
+            <select class="up-sel" id="wfTag"></select>
+
+            <div>
+              <div class="wf-lbl" data-en="Difficulty">난이도</div>
+              <div class="wb-chips" id="wfDiff" style="margin-bottom:0;"></div>
+            </div>
+
+            <div>
+              <div class="wf-lbl" data-en="Photo (optional)">사진 (선택)</div>
+              <label class="up-file" id="wfPhotoLabel">
+                <input type="file" id="wfPhoto" accept="image/*">
+                <span id="wfPhotoTxt" data-en="Choose a photo">사진 고르기</span>
+              </label>
+              <img id="wfPreview" class="hidden" alt="" style="width:100%; max-height:200px; object-fit:cover; border-radius:12px; margin-top:10px;">
+            </div>
+
+            <div style="display:flex; gap:8px; flex-wrap:wrap;">
+              <button class="pt-next" id="wfSave" type="button" style="flex:1; min-width:130px;" data-en="Save">저장</button>
+              <button class="pt-ghost" id="wfCancel" type="button" data-en="Cancel">취소</button>
+            </div>
+            <div style="display:flex; gap:14px; flex-wrap:wrap; align-items:center;">
+              <button class="wb-out" id="wfToggle" type="button"></button>
+              <button class="wb-out" id="wfDelete" type="button" style="color:var(--red);" data-en="Delete this word">이 단어 삭제</button>
+            </div>
+            <div class="wb-err hidden" id="wfErr"></div>
+            <div class="wb-ok hidden" id="wfOk"></div>
+          </div>
+        </div>
       </div>
 
       <div class="wb-tools">
@@ -2009,6 +2140,7 @@ function ptShow(toTest) {
   ptId('authView').classList.add('hidden');
   ptId('libraryView').classList.add('hidden');
   ptId('dashView').classList.add('hidden');
+  ptId('setView').classList.add('hidden');
   ptId('wbBtn').classList.remove('on');
   ptId('authBtn').classList.remove('on');
   ptId('libBtn').classList.remove('on');
@@ -2111,9 +2243,11 @@ function open(view) {
   $('authView').classList.toggle('hidden', view !== 'account');
   $('libraryView').classList.toggle('hidden', view !== 'library');
   $('dashView').classList.toggle('hidden', view !== 'dashboard');
+  $('setView').classList.toggle('hidden', view !== 'settings');
 
   $('wbBtn').classList.toggle('on', view === 'wordbook');
-  $('authBtn').classList.toggle('on', view === 'account');
+  // 설정은 계정 화면에서 들어가므로 헤더에서도 같은 자리로 표시한다.
+  $('authBtn').classList.toggle('on', view === 'account' || view === 'settings');
   $('libBtn').classList.toggle('on', view === 'library');
   $('dashBtn').classList.toggle('on', view === 'dashboard');
   window.scrollTo({ top: 0, behavior: 'auto' });
@@ -2289,6 +2423,7 @@ function render() {
   for (const w of shown) {
     const el = document.createElement('div');
     el.className = 'wb-item' + (w.is_remembered ? ' done' : '');
+    el.dataset.id = w.id;   // 눌렀을 때 어느 단어인지 찾는다
     el.innerHTML =
       (w.image_url ? '<img class="wb-thumb" alt="">' : '<div class="wb-noimg">🥔</div>') +
       '<div class="wb-main">' +
@@ -2512,6 +2647,10 @@ sb.auth.onAuthStateChange((_event, session) => {
     dashSettings = null;
     dashAiUsed = null;
     dashPanel('dashNeedLogin');
+    setPanel('setNeedLogin');
+    // 열려 있던 단어 폼도 닫는다. 남겨두면 로그아웃한 채로 저장을 누르게 된다.
+    $('wbForm2').classList.add('hidden');
+    editingId = null;
   }
 
   if (session) {
@@ -2537,6 +2676,23 @@ function syncLang() {
   // 칩과 품사 이름까지 언어를 따라야 하므로 통째로 다시 그린다.
   if (rows.length) render();
   $('wbSearch').placeholder = t('단어 · 뜻 검색', 'Search words and meanings');
+  // 단어 폼 — 품사·난이도 칩은 글이라 다시 그린다.
+  $('wfWord').placeholder = t('단어', 'Word');
+  $('wfMean').placeholder = t('뜻', 'Meaning');
+  $('wfEx').placeholder = t('예문 (선택)', 'Example sentence (optional)');
+  if (!$('wbForm2').classList.contains('hidden')) {
+    const keepTag = $('wfTag').value;
+    drawWfTag(); $('wfTag').value = keepTag;   // 다시 그리면 고른 값이 풀린다
+    drawWfDiff();
+    syncWfText();
+  }
+  // 설정 — 언어 목록도 번역된다.
+  if (!$('setBody').classList.contains('hidden')) {
+    const s = $('stStudy').value, n = $('stNative').value;
+    langOptions($('stStudy')); langOptions($('stNative'));
+    $('stStudy').value = s; $('stNative').value = n;
+    setCalc();
+  }
   // 대시보드는 요일·단위까지 글로 되어 있어 통째로 다시 그린다.
   // 숨김 여부가 아니라 내용 유무로 판단한다 — 숨겨져 있을 때 건너뛰면
   // 다시 열었을 때 예전 언어가 그대로 남는다.
@@ -2547,6 +2703,23 @@ function syncLang() {
   $('libTitle').placeholder = t('제목', 'Title');
   $('libDesc').placeholder = t('한 줄 설명 (선택)', 'One-line description (optional)');
   $('libReportDetail').placeholder = t('덧붙일 말 (선택)', 'Anything to add (optional)');
+
+  /* 선택상자와 숫자칸에는 화면에 보이는 이름이 없거나 옆에 떨어져 있다.
+     그대로 두면 스크린리더가 "콤보 상자" 라고만 읽는다. 여기서 붙여야
+     언어를 바꿀 때 같이 바뀐다. */
+  const aria = {
+    wbSort:       t('정렬 기준', 'Sort by'),
+    wfTag:        t('품사', 'Part of speech'),
+    stStudy:      t('공부할 언어', 'Language you are learning'),
+    stNative:     t('모국어', 'Your own language'),
+    stStudyOther: t('공부할 언어 직접 입력', 'Type the language you are learning'),
+    stNativeOther:t('모국어 직접 입력', 'Type your own language'),
+    stGoal:       t('하루 목표 단어 수', 'Words per day'),
+    stDays:       t('학습 기간 (일)', 'Study period in days'),
+    libCat:       t('자료 분류', 'Category'),
+    libReason:    t('신고 사유', 'Reason for reporting'),
+  };
+  Object.entries(aria).forEach(([id, label]) => $(id)?.setAttribute('aria-label', label));
   const nav = $('authBtn').querySelector('.nav-txt');
   // 로그인 상태에 따라 글이 다르므로 지금 뭘 보여주고 있는지로 판단한다.
   if (!$('auSignedIn').classList.contains('hidden')) nav.textContent = t('내 계정', 'Account');
@@ -2555,6 +2728,345 @@ function syncLang() {
 // 위 고전 스크립트가 먼저 등록돼 있어 applyLang 이 끝난 뒤에 불린다.
 $('langBtn').addEventListener('click', syncLang);
 setMode('in');
+
+// ══ 단어 추가 · 수정 ═════════════════════════════════════════
+// 앱 OvenScreen 의 insert 와 같은 모양으로 넣는다. 필드가 어긋나면
+// 웹에서 만든 단어가 앱에서 이상하게 보인다.
+let editingId = null;      // null = 새로 만들기
+let wfPhotoFile = null;    // 새로 고른 사진
+let wfPhotoKeep = null;    // 수정 중일 때 원래 사진 경로
+let wfDiff = 1;
+
+const wfMsg = (id, text) => { ['wfErr','wfOk'].forEach(k => $(k).classList.add('hidden'));
+  if (id) { $(id).textContent = text; $(id).classList.remove('hidden'); } };
+
+function drawWfTag() {
+  $('wfTag').innerHTML =
+    `<option value="">${t('품사 없음', 'No part of speech')}</option>` +
+    TAGS.map((tg) => `<option value="${esc(tg)}">${esc(t(tg, TAG_EN[tg] ?? tg))}</option>`).join('');
+}
+
+function drawWfDiff() {
+  $('wfDiff').innerHTML = [1, 2, 3].map((n) =>
+    `<button class="wb-chip${wfDiff === n ? ' on' : ''}" type="button" data-diff="${n}">` +
+    '🧀'.repeat(n) + `</button>`).join('');
+}
+
+$('wfDiff').addEventListener('click', (ev) => {
+  const b = ev.target.closest('[data-diff]');
+  if (!b) return;
+  wfDiff = Number(b.dataset.diff);
+  drawWfDiff();
+});
+
+/* 폼 안의 글자를 지금 언어로 맞춘다.
+   openWordForm 에서 한 번만 넣으면 도중에 언어를 바꿔도 그대로 남는다. */
+function syncWfText() {
+  $('wbFormTitle').textContent = editingId ? t('단어 고치기', 'Edit word') : t('새 단어', 'New word');
+  if (editingId) {
+    const w = rows.find((r) => r.id === editingId);
+    $('wfToggle').textContent = w?.is_remembered
+      ? t('학습 중으로 되돌리기', 'Mark as still learning')
+      : t('외웠다고 표시', 'Mark as memorized');
+  }
+  // 고른 파일 이름이 들어가 있으면 덮지 않는다.
+  if (!wfPhotoFile) $('wfPhotoTxt').textContent = t('사진 고르기', 'Choose a photo');
+}
+
+function openWordForm(w) {
+  editingId = w?.id ?? null;
+  wfPhotoFile = null;
+  wfPhotoKeep = w?.image_url ?? null;
+  wfDiff = w?.difficulty || 1;
+
+  drawWfTag();
+  drawWfDiff();
+  $('wfWord').value = w?.word ?? '';
+  $('wfMean').value = w?.meaning ?? '';
+  $('wfEx').value = w?.example ?? '';
+  $('wfTag').value = w?.tag ?? '';
+  $('wfPhoto').value = '';
+  $('wfPhotoTxt').textContent = t('사진 고르기', 'Choose a photo');
+  $('wfDelete').classList.toggle('hidden', !editingId);
+  $('wfToggle').classList.toggle('hidden', !editingId);
+  syncWfText();
+
+  // 수정 중이면 원래 사진을 먼저 보여준다.
+  $('wfPreview').classList.add('hidden');
+  if (wfPhotoKeep) {
+    signedUrl(wfPhotoKeep).then((u) => {
+      if (u && editingId === (w?.id ?? null)) { $('wfPreview').src = u; $('wfPreview').classList.remove('hidden'); }
+    }).catch(() => {});
+  }
+
+  wfMsg(null);
+  $('wbForm2').classList.remove('hidden');
+  $('wbForm2').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+
+$('wbAddBtn').addEventListener('click', () => openWordForm(null));
+$('wfCancel').addEventListener('click', () => { $('wbForm2').classList.add('hidden'); editingId = null; });
+
+// 목록에서 카드를 누르면 고치기로 들어간다.
+$('wbList').addEventListener('click', (ev) => {
+  const card = ev.target.closest('.wb-item');
+  if (!card) return;
+  const w = rows.find((r) => r.id === Number(card.dataset.id));
+  if (w) openWordForm(w);
+});
+
+/* 사진은 올리기 전에 줄인다.
+   요즘 폰 사진은 장당 1~3MB인데 단어 카드 크기로만 보이므로 원본 해상도가
+   필요 없다. 앱(src/lib/images.ts)도 같은 값으로 줄인다 — 한쪽만 크게
+   올리면 같은 단어장인데 사진 용량이 제각각이 된다. */
+const IMG_MAX_W = 1280;
+
+function shrinkImage(file) {
+  return new Promise((resolve, reject) => {
+    const img = new Image();
+    const url = URL.createObjectURL(file);
+    img.onload = () => {
+      URL.revokeObjectURL(url);
+      const scale = Math.min(1, IMG_MAX_W / img.width);
+      const cv = document.createElement('canvas');
+      cv.width = Math.round(img.width * scale);
+      cv.height = Math.round(img.height * scale);
+      cv.getContext('2d').drawImage(img, 0, 0, cv.width, cv.height);
+      cv.toBlob((b) => (b ? resolve(b) : reject(new Error('encode'))), 'image/jpeg', 0.7);
+    };
+    img.onerror = () => { URL.revokeObjectURL(url); reject(new Error('load')); };
+    img.src = url;
+  });
+}
+
+$('wfPhoto').addEventListener('change', async (ev) => {
+  const file = ev.target.files?.[0];
+  wfMsg(null);
+  if (!file) return;
+  if (!file.type.startsWith('image/')) {
+    return wfMsg('wfErr', t('사진 파일만 올릴 수 있어요.', 'Images only.'));
+  }
+  if (file.size > 12 * 1024 * 1024) {
+    return wfMsg('wfErr', t('사진이 너무 커요. 12MB 아래로 골라 주세요.', 'That photo is too large (max 12MB).'));
+  }
+  try {
+    wfPhotoFile = await shrinkImage(file);
+    $('wfPhotoTxt').textContent = file.name;
+    $('wfPreview').src = URL.createObjectURL(wfPhotoFile);
+    $('wfPreview').classList.remove('hidden');
+  } catch (e) {
+    wfPhotoFile = null;
+    wfMsg('wfErr', t('사진을 읽지 못했어요. 다른 사진으로 해보세요.', 'Could not read that photo.'));
+  }
+});
+
+/* 안 쓰게 된 사진을 지운다.
+   사진을 바꾸거나 단어를 지울 때 예전 파일을 그대로 두면 스토리지에
+   영영 남는다. 앱 src/lib/images.ts removeImage 와 같은 규칙 —
+   예전 데이터는 공개 URL(http…)이라 건드리지 않는다. */
+async function dropImage(path) {
+  if (!path || path.startsWith('http')) return;
+  try { await sb.storage.from('word-images').remove([path]); } catch (e) { /* 남아도 화면은 멀쩡하다 */ }
+}
+
+$('wfSave').addEventListener('click', async () => {
+  wfMsg(null);
+  const { data: { session } } = await sb.auth.getSession();
+  if (!session) return open('account');
+
+  const word = $('wfWord').value.trim();
+  const meaning = $('wfMean').value.trim();
+  if (!word || !meaning) {
+    return wfMsg('wfErr', t('단어와 뜻은 꼭 넣어 주세요.', 'Word and meaning are required.'));
+  }
+
+  const btn = $('wfSave');
+  btn.disabled = true;
+  try {
+    let imagePath = wfPhotoKeep;
+    let replaced = null;
+    if (wfPhotoFile) {
+      // 첫 폴더가 소유자다 — 스토리지 정책이 이걸로 본인 여부를 가린다.
+      const path = `${session.user.id}/${Date.now()}.jpg`;
+      const up = await sb.storage.from('word-images').upload(path, wfPhotoFile, { contentType: 'image/jpeg' });
+      if (up.error) throw up.error;
+      replaced = wfPhotoKeep;   // 저장에 성공한 뒤에 지운다
+      imagePath = path;
+    }
+
+    const body = {
+      word, meaning,
+      example: $('wfEx').value.trim() || null,
+      tag: $('wfTag').value || null,
+      difficulty: wfDiff,
+      image_url: imagePath,
+    };
+
+    if (editingId) {
+      const { error } = await sb.from('words').update(body).eq('id', editingId);
+      if (error) throw error;
+    } else {
+      const { error } = await sb.from('words').insert({
+        ...body,
+        is_remembered: false,
+        view_count: 0,
+        remembered_at: null,
+        user_id: session.user.id,
+      });
+      if (error) throw error;
+    }
+
+    // DB 가 새 경로를 가리킨 뒤에 예전 파일을 지운다. 순서를 바꾸면
+    // 저장이 실패했을 때 사진만 사라진다.
+    if (replaced) dropImage(replaced);
+
+    $('wbForm2').classList.add('hidden');
+    editingId = null;
+    await loadWords();
+  } catch (e) {
+    wfMsg('wfErr', t('저장하지 못했어요. 잠시 후 다시 시도해 주세요.', 'Could not save. Please try again.'));
+  } finally {
+    btn.disabled = false;
+  }
+});
+
+$('wfToggle').addEventListener('click', async () => {
+  if (!editingId) return;
+  const w = rows.find((r) => r.id === editingId);
+  if (!w) return;
+  const next = !w.is_remembered;
+  // 앱 WordbookScreen 과 같이 외운 시각도 같이 남긴다. 안 남기면
+  // 대시보드의 7일 추이에 안 잡힌다.
+  const { error } = await sb.from('words')
+    .update({ is_remembered: next, remembered_at: next ? new Date().toISOString() : null })
+    .eq('id', editingId);
+  if (error) return wfMsg('wfErr', t('바꾸지 못했어요.', 'Could not change that.'));
+  $('wbForm2').classList.add('hidden');
+  editingId = null;
+  await loadWords();
+});
+
+$('wfDelete').addEventListener('click', async () => {
+  if (!editingId) return;
+  const w = rows.find((r) => r.id === editingId);
+  if (!confirm(t(`"${w?.word ?? ''}" 를 지울까요? 되돌릴 수 없어요.`,
+                 `Delete "${w?.word ?? ''}"? This cannot be undone.`))) return;
+  const { error } = await sb.from('words').delete().eq('id', editingId);
+  if (error) return wfMsg('wfErr', t('지우지 못했어요.', 'Could not delete it.'));
+  dropImage(w?.image_url);   // 단어가 사라졌으니 사진도 남길 이유가 없다
+  $('wbForm2').classList.add('hidden');
+  editingId = null;
+  await loadWords();
+});
+
+// ══ 설정 ═════════════════════════════════════════════════════
+// 앱 lib/languages.ts 의 LANGUAGES 와 같은 목록·같은 순서.
+// DB 에는 한국어 이름으로 저장한다(앱과 AI 프롬프트가 그 값을 쓴다).
+const LANGUAGES = ['한국어','영어','일본어','중국어','스페인어','프랑스어','독일어',
+                   '이탈리아어','러시아어','베트남어','태국어','포르투갈어','인도네시아어','아랍어'];
+const LANG_EN = { '한국어':'Korean','영어':'English','일본어':'Japanese','중국어':'Chinese',
+  '스페인어':'Spanish','프랑스어':'French','독일어':'German','이탈리아어':'Italian',
+  '러시아어':'Russian','베트남어':'Vietnamese','태국어':'Thai','포르투갈어':'Portuguese',
+  '인도네시아어':'Indonesian','아랍어':'Arabic' };
+const OTHER = '기타';
+
+const SET_PANELS = ['setNeedLogin', 'setLoading', 'setError', 'setBody'];
+const setPanel = (name) => SET_PANELS.forEach((k) => $(k).classList.toggle('hidden', k !== name));
+const setMsg = (id, text) => { ['stErr','stOk'].forEach(k => $(k).classList.add('hidden'));
+  if (id) { $(id).textContent = text; $(id).classList.remove('hidden'); } };
+
+function langOptions(sel) {
+  sel.innerHTML = LANGUAGES.map((l) =>
+    `<option value="${esc(l)}">${esc(t(l, LANG_EN[l] ?? l))}</option>`).join('') +
+    `<option value="${OTHER}">${t('기타 (직접 입력)', 'Other (type it in)')}</option>`;
+}
+
+function bindOther(selId, otherId) {
+  const sync = () => $(otherId).classList.toggle('hidden', $(selId).value !== OTHER);
+  $(selId).addEventListener('change', sync);
+  return sync;
+}
+const syncStudyOther = bindOther('stStudy', 'stStudyOther');
+const syncNativeOther = bindOther('stNative', 'stNativeOther');
+
+function setCalc() {
+  const g = Number($('stGoal').value) || 0;
+  const d = Number($('stDays').value) || 0;
+  $('stCalc').textContent = g && d
+    ? t(`이 기간에 ${g * d}개를 목표로 합니다.`, `That is ${g * d} words over the period.`)
+    : '';
+}
+$('stGoal').addEventListener('input', setCalc);
+$('stDays').addEventListener('input', setCalc);
+
+async function loadSettings() {
+  const { data: { session } } = await sb.auth.getSession();
+  if (!session) return setPanel('setNeedLogin');
+  setPanel('setLoading');
+  try {
+    const { data, error } = await sb.from('settings')
+      .select('title, study_lang, native_lang, daily_goal, study_days')
+      .eq('user_id', session.user.id).limit(1).maybeSingle();
+    if (error) throw error;
+
+    langOptions($('stStudy'));
+    langOptions($('stNative'));
+
+    const put = (selId, otherId, value, fallback) => {
+      const v = value || fallback;
+      if (v && !LANGUAGES.includes(v)) { $(selId).value = OTHER; $(otherId).value = v; }
+      else $(selId).value = v;
+    };
+    put('stStudy', 'stStudyOther', data?.study_lang, '영어');
+    put('stNative', 'stNativeOther', data?.native_lang, '한국어');
+    syncStudyOther(); syncNativeOther();
+
+    $('stTitle').value = data?.title ?? '';
+    $('stGoal').value = data?.daily_goal ?? 10;
+    $('stDays').value = data?.study_days ?? 30;
+    setCalc();
+    setMsg(null);
+    setPanel('setBody');
+  } catch (e) {
+    setPanel('setError');
+  }
+}
+
+$('stSave').addEventListener('click', async () => {
+  setMsg(null);
+  const { data: { session } } = await sb.auth.getSession();
+  if (!session) return open('account');
+
+  const title = $('stTitle').value.trim();
+  if (!title) return setMsg('stErr', t('단어장 이름을 넣어 주세요.', 'Please name your wordbook.'));
+
+  const pick = (selId, otherId) =>
+    ($(selId).value === OTHER ? $(otherId).value.trim() : $(selId).value);
+  const study = pick('stStudy', 'stStudyOther');
+  const native = pick('stNative', 'stNativeOther');
+  if (!study || !native) return setMsg('stErr', t('언어를 골라 주세요.', 'Please pick both languages.'));
+
+  const goal = Math.max(1, Math.min(200, Number($('stGoal').value) || 10));
+  const days = Math.max(1, Math.min(365, Number($('stDays').value) || 30));
+
+  const btn = $('stSave');
+  btn.disabled = true;
+  // 앱과 같이 update 를 쓴다. 설정 행은 가입할 때 이미 만들어져 있다.
+  const { error } = await sb.from('settings').update({
+    title, study_lang: study, native_lang: native, daily_goal: goal, study_days: days,
+  }).eq('user_id', session.user.id);
+  btn.disabled = false;
+
+  if (error) return setMsg('stErr', t('저장하지 못했어요. 잠시 후 다시 시도해 주세요.', 'Could not save. Please try again.'));
+  $('stGoal').value = goal; $('stDays').value = days; setCalc();
+  setMsg('stOk', t('저장했어요. 앱에도 반영됩니다.', 'Saved — the app will pick it up.'));
+  // 대시보드가 이 값을 쓰므로 다음에 열 때 새로 읽게 비운다.
+  dashSettings = null;
+});
+
+$('auGoSet').addEventListener('click', () => { open('settings'); loadSettings(); });
+$('setGoLogin').addEventListener('click', () => open('account'));
+$('setRetry').addEventListener('click', loadSettings);
 
 // ══ 대시보드 ═════════════════════════════════════════════════
 // 계산은 앱 DashboardScreen 과 같은 공식을 쓴다. 같은 숫자가 두 곳에서
