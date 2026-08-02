@@ -954,6 +954,184 @@ body.nav-open { overflow:hidden; }
   .bd-title { font-size:17px; }
 }
 
+/* ══ 게임 ══════════════════════════════════════════════════════
+   게임은 앞으로 늘어난다. 그래서 목록(gamesView)과 게임 하나
+   (clawView)를 따로 뒀다 — 새 게임은 카드 하나와 화면 하나만
+   더하면 되고 목록은 안 고쳐도 된다. */
+
+.game-grid { display:grid; gap:16px; grid-template-columns:1fr; }
+
+.game-card {
+  display:block; width:100%; text-align:left;
+  background:var(--surface); border:1px solid var(--line);
+  border-radius:var(--r-xl); padding:28px;
+  cursor:pointer; color:inherit;
+  transition:border-color .2s, transform .2s, box-shadow .2s;
+}
+.game-card:hover {
+  border-color:rgba(255,145,77,.5); transform:translateY(-3px);
+  box-shadow:0 18px 40px -26px rgba(27,21,18,.4);
+}
+.game-card-ico {
+  width:64px; height:64px; border-radius:20px; margin-bottom:18px;
+  display:flex; align-items:center; justify-content:center; font-size:32px;
+  background:var(--tint); border:1px solid rgba(255,145,77,.24);
+}
+.game-card-name { font-size:20px; font-weight:700; color:var(--ink); letter-spacing:-.02em; }
+.game-card-desc { margin-top:8px; font-size:14.5px; line-height:1.7; color:var(--ink-2); word-break:keep-all; }
+.game-card-go { margin-top:18px; font-size:13.5px; font-weight:700; color:var(--orange-deep); }
+
+/* 준비 중인 칸. 눌리지 않지만 자리는 보여 준다 — 여기가 늘어난다는
+   것을 말로 설명하는 것보다 빠르다. */
+.game-card.soon { cursor:default; background:var(--surface-2); border-style:dashed; }
+.game-card.soon:hover { transform:none; box-shadow:none; border-color:var(--line); }
+.game-card.soon .game-card-ico { background:rgba(27,21,18,.04); border-color:var(--line-2); filter:grayscale(1); opacity:.55; }
+.game-card.soon .game-card-name { color:var(--ink-3); }
+.game-soon-tag {
+  display:inline-block; margin-top:16px; padding:5px 10px; border-radius:999px;
+  background:rgba(27,21,18,.05); color:var(--ink-3);
+  font-size:11px; font-weight:700; letter-spacing:.1em; text-transform:uppercase;
+}
+
+/* ── 인형뽑기 ────────────────────────────────────────────────── */
+
+.claw-wrap { max-width:640px; margin:0 auto; padding:22px var(--gut) var(--sec); }
+
+.claw-bar { display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:20px; }
+.claw-back {
+  display:inline-flex; align-items:center; gap:6px;
+  background:none; border:none; cursor:pointer; padding:8px 10px 8px 0;
+  color:var(--ink-2); font-size:14px; font-weight:600;
+  transition:color .16s;
+}
+.claw-back:hover { color:var(--ink); }
+.claw-score { display:flex; gap:8px; }
+.claw-pill {
+  padding:7px 13px; border-radius:999px; border:1px solid var(--line);
+  background:var(--surface); font-size:13px; font-weight:700; color:var(--ink);
+  font-variant-numeric:tabular-nums;
+}
+
+/* 문제. 무엇을 집어야 하는지가 화면에서 가장 큰 글이어야 한다 —
+   기계가 아니라 단어가 주인공이다. */
+.claw-ask {
+  text-align:center; margin-bottom:18px;
+  padding:20px 18px; border-radius:var(--r-l);
+  background:var(--tint); border:1px solid rgba(255,145,77,.22);
+}
+.claw-ask-label {
+  display:block; font-size:11.5px; font-weight:700; letter-spacing:.14em;
+  text-transform:uppercase; color:var(--orange-deep); margin-bottom:9px;
+}
+.claw-ask-word {
+  display:block; font-size:clamp(24px, 6vw, 32px); font-weight:800;
+  color:var(--ink); letter-spacing:-.02em; line-height:1.3; word-break:keep-all;
+}
+
+.claw-machine {
+  position:relative; height:340px; overflow:hidden;
+  border-radius:var(--r-xl);
+  background:linear-gradient(180deg, #2A2140 0%, #3B2E52 58%, #4A3A63 100%);
+  border:1px solid rgba(27,21,18,.3);
+  box-shadow:inset 0 2px 0 rgba(255,255,255,.14), 0 20px 44px -30px rgba(27,21,18,.6);
+}
+/* 유리에 비친 빛. 한 줄이면 충분하고, 더 넣으면 인형이 안 보인다. */
+.claw-machine::before {
+  content:''; position:absolute; inset:0; pointer-events:none;
+  background:linear-gradient(115deg, rgba(255,255,255,.13) 0 22%, transparent 22% 46%, rgba(255,255,255,.07) 46% 54%, transparent 54%);
+}
+.claw-rail { position:absolute; top:24px; left:0; right:0; height:3px; background:rgba(255,255,255,.16); }
+
+.claw-unit {
+  position:absolute; top:24px; left:50%; z-index:3;
+  transform:translateX(-50%); will-change:left;
+}
+.claw-cord { width:3px; height:26px; margin:0 auto; background:rgba(255,255,255,.5); transition:height .45s ease-in; }
+.claw-head { position:relative; width:52px; height:30px; margin-top:-1px; }
+.claw-head::before {
+  content:''; position:absolute; top:0; left:50%; transform:translateX(-50%);
+  width:26px; height:11px; border-radius:4px;
+  background:linear-gradient(180deg,#E8E2D4,#A99C86);
+}
+.claw-arm {
+  position:absolute; top:8px; width:9px; height:24px;
+  background:linear-gradient(180deg,#E8E2D4,#9C8F79);
+  transition:transform .2s ease;
+}
+.claw-arm.l { left:12px; border-radius:5px 0 0 8px; transform-origin:top right;  transform:rotate(-26deg); }
+.claw-arm.r { right:12px; border-radius:0 5px 8px 0; transform-origin:top left;  transform:rotate(26deg); }
+.claw-unit.shut .claw-arm.l { transform:rotate(-4deg); }
+.claw-unit.shut .claw-arm.r { transform:rotate(4deg); }
+
+/* 인형 무더기가 놓이는 바닥 */
+.claw-bed { position:absolute; left:0; right:0; bottom:0; height:96px; background:rgba(0,0,0,.22); border-top:1px solid rgba(255,255,255,.09); }
+
+.doll {
+  position:absolute; bottom:14px; z-index:2;
+  width:76px; margin-left:-38px;
+  text-align:center;
+  transition:bottom .5s cubic-bezier(.4,0,.2,1), left .2s ease, opacity .3s, transform .3s;
+}
+.doll-body {
+  position:relative; width:58px; height:54px; margin:0 auto 6px;
+  border-radius:26px 26px 22px 22px;
+  background:var(--c);
+  box-shadow:inset 0 -7px 0 rgba(0,0,0,.13), 0 5px 10px -4px rgba(0,0,0,.45);
+}
+/* 귀 두 개. 색만 바뀌고 모양은 같아서 무더기가 한 종족처럼 보인다. */
+.doll-body::before, .doll-body::after {
+  content:''; position:absolute; top:-7px; width:17px; height:17px;
+  border-radius:50%; background:var(--c);
+}
+.doll-body::before { left:3px; }
+.doll-body::after  { right:3px; }
+.doll-face { position:absolute; inset:0; display:flex; align-items:center; justify-content:center; gap:9px; padding-top:6px; }
+.doll-eye { width:6px; height:8px; border-radius:50%; background:rgba(27,21,18,.72); }
+.doll-mouth {
+  position:absolute; left:50%; top:30px; transform:translateX(-50%);
+  width:12px; height:6px; border-bottom:2px solid rgba(27,21,18,.55); border-radius:0 0 12px 12px;
+}
+/* 이름표는 줄여 쓰지 않고 줄을 바꾼다. 말줄임으로 자르면
+   "persever…" 가 되어 무엇을 뽑는 건지 알 수 없다 — 읽히지 않는
+   순간 게임이 성립하지 않는다. */
+.doll-tag {
+  display:inline-block; max-width:100%;
+  padding:3px 8px; border-radius:11px;
+  background:rgba(255,255,255,.94); color:#231A2E;
+  font-size:11.5px; font-weight:700; letter-spacing:-.01em;
+  line-height:1.3; word-break:break-word;
+}
+.doll.won  { opacity:0; transform:scale(.6) translateY(-14px); }
+.doll.dim  { opacity:.35; }
+
+.claw-ctrl { display:flex; justify-content:center; margin-top:20px; }
+.claw-grab {
+  min-width:180px; padding:16px 26px; border:none; border-radius:999px; cursor:pointer;
+  background:var(--orange-mid); color:#fff;
+  font-size:16px; font-weight:800; letter-spacing:.06em;
+  box-shadow:0 8px 0 -1px var(--orange-deep);
+  transition:transform .12s, box-shadow .12s, background .18s;
+}
+.claw-grab:hover { background:var(--orange-deep); }
+.claw-grab:active { transform:translateY(4px); box-shadow:0 4px 0 -1px var(--orange-deep); }
+.claw-grab:disabled { background:#B9AA98; box-shadow:0 8px 0 -1px #9C8D7C; cursor:default; transform:none; }
+
+.claw-msg { min-height:26px; margin-top:16px; text-align:center; font-size:15px; font-weight:600; color:var(--ink-2); }
+.claw-msg.good { color:var(--green); }
+.claw-msg.bad  { color:var(--red); }
+
+.claw-note { margin-top:22px; text-align:center; font-size:13px; line-height:1.7; color:var(--ink-3); word-break:keep-all; }
+.claw-note button {
+  background:none; border:none; padding:0; cursor:pointer;
+  color:var(--orange-deep); font-size:13px; font-weight:700; text-decoration:underline;
+}
+
+.claw-over { text-align:center; padding:34px 22px; }
+.claw-over-emoji { font-size:56px; }
+.claw-over-score { margin-top:10px; font-size:44px; font-weight:800; color:var(--ink); letter-spacing:-.03em; }
+.claw-over-line { margin-top:10px; font-size:15px; color:var(--ink-2); word-break:keep-all; }
+.claw-over-btns { display:flex; flex-wrap:wrap; gap:10px; justify-content:center; margin-top:24px; }
+
 /* ══ 스크롤 리빌 ═══════════════════════════════════════════════
    예전에는 44px 씩 밀어 올리고 3D 로 회전시켰다. 화려하지만
    읽으려는 사람 앞에서 내용이 계속 움직인다. 조용하게 줄인다. */
@@ -1074,7 +1252,7 @@ body.nav-open { overflow:hidden; }
   .feat-list { column-gap:64px; }
 }
 
-/* 사이드 메뉴 — 좁은 화면.
+/* 사이드 메뉴 · 게임 — 좁은 화면.
    미디어쿼리는 스타일시트 맨 아래에 둔다. 위에 두면 뒤에 오는
    기본값에 조용히 덮인다. */
 @media (max-width:759px) {
@@ -1084,6 +1262,21 @@ body.nav-open { overflow:hidden; }
   /* 헤더에서는 아이콘만 남기지만 메뉴 안에서는 글자가 본체다. */
   .side-list .nav-link { padding:12px; }
   .side-list .nav-ico { font-size:16px; }
+
+  /* 인형 넷이 좁은 화면에 들어가려면 몸집을 줄여야 한다. 이름표가
+     먼저 잘리면 무엇을 뽑는 게임인지 알 수 없으므로 몸을 줄인다. */
+  .claw-machine { height:290px; }
+  .doll { width:62px; margin-left:-31px; }
+  .doll-body { width:46px; height:44px; border-radius:21px 21px 18px 18px; }
+  .doll-body::before, .doll-body::after { width:14px; height:14px; top:-6px; }
+  .doll-mouth { top:24px; }
+  .doll-tag { font-size:10.5px; padding:3px 6px; border-radius:9px; }
+  .game-card { padding:24px; }
+}
+
+@media (min-width:760px) {
+  .game-grid { grid-template-columns:repeat(2, minmax(0,1fr)); }
+  .claw-machine { height:380px; }
 }
 </style>
 </head>
@@ -1124,6 +1317,9 @@ body.nav-open { overflow:hidden; }
   </div>
 
   <div class="side-list" id="sideList">
+    <button class="nav-link" id="gameBtn" type="button" aria-label="게임 열기">
+      <span class="nav-ico">🎮</span><span class="nav-txt" data-en="Games">게임</span>
+    </button>
     <button class="nav-link" id="dashBtn" type="button" aria-label="대시보드 열기">
       <span class="nav-ico">📊</span><span class="nav-txt" data-en="Dashboard">대시보드</span>
     </button>
@@ -1558,6 +1754,114 @@ body.nav-open { overflow:hidden; }
   </div>
 
 </div><!-- /dashView -->
+
+<!-- ── 게임 목록 ───────────────────────────────────────────────
+     게임은 앞으로 늘어난다. 여기는 고르는 곳이고, 게임 하나하나는
+     자기 화면을 따로 갖는다. 새 게임을 더할 때 카드 하나와 화면
+     하나만 만들면 되고 이 목록의 짜임은 안 건드린다. -->
+<div id="gamesView" class="hidden">
+
+  <div class="pt-hero">
+    <div class="pt-badge">GAMES</div>
+    <h2 data-en="Play with<br>your words">외운 단어로<br>놀아 보세요</h2>
+    <p data-en="Your own wordbook becomes the game. Not signed in? A sample set is ready.">내 단어장이 그대로 게임이 됩니다. 로그인 전에는 맛보기 단어로 놀 수 있어요.</p>
+  </div>
+
+  <div class="pt-body" style="max-width:900px;">
+    <div class="game-grid">
+
+      <button class="game-card" id="gcClaw" type="button">
+        <span class="game-card-ico">🧸</span>
+        <span class="game-card-name" data-en="Claw machine">인형뽑기</span>
+        <span class="game-card-desc" data-en="A meaning shows up top. Time the claw and grab the doll wearing the right word.">위에 뜻이 하나 뜹니다. 집게를 맞춰 세워 그 뜻에 맞는 단어를 쓴 인형을 뽑으세요.</span>
+        <span class="game-card-go" data-en="Play →">놀아보기 →</span>
+      </button>
+
+      <div class="game-card soon">
+        <span class="game-card-ico">🃏</span>
+        <span class="game-card-name" data-en="Memory match">짝 맞추기</span>
+        <span class="game-card-desc" data-en="Flip the cards and pair each word with its meaning.">카드를 뒤집어 단어와 뜻을 짝지어요.</span>
+        <span class="game-soon-tag" data-en="Coming soon">준비 중</span>
+      </div>
+
+      <div class="game-card soon">
+        <span class="game-card-ico">⏱</span>
+        <span class="game-card-name" data-en="Speed quiz">스피드 퀴즈</span>
+        <span class="game-card-desc" data-en="Sixty seconds. How many can you get right?">60초 동안 몇 개나 맞힐 수 있을까요.</span>
+        <span class="game-soon-tag" data-en="Coming soon">준비 중</span>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="footer">
+    <div class="footer-brand" data-en="Every Koreans">에브리 코리안즈</div>
+    <div class="footer-info">© 2026 치즈감자 · <a href="privacy.html" data-en="Privacy policy">개인정보처리방침</a></div>
+  </div>
+
+</div><!-- /gamesView -->
+
+<!-- ── 게임 : 인형뽑기 ─────────────────────────────────────────
+     문제(뜻)와 답(단어)이 화면에서 가장 큰 글이어야 한다. 기계는
+     거들 뿐이고, 여기서 남는 것은 단어다.
+
+     글은 거의 다 자바스크립트가 만든다. data-en 을 달면 applyLang 이
+     [data-en] 의 innerHTML 을 통째로 바꾸면서 진행 중인 판을 지워
+     버리므로, 바뀌는 글은 clawSyncText() 가 직접 넣는다. -->
+<div id="clawView" class="hidden">
+  <div class="claw-wrap">
+
+    <div class="claw-bar">
+      <button class="claw-back" id="clawBack" type="button">← <span id="clawBackTxt">게임</span></button>
+      <div class="claw-score">
+        <span class="claw-pill" id="clawRound">1 / 5</span>
+        <span class="claw-pill" id="clawScore">🧸 0</span>
+      </div>
+    </div>
+
+    <div id="clawPlay">
+      <div class="claw-ask">
+        <span class="claw-ask-label" id="clawAskLabel">이 뜻을 가진 단어를 뽑으세요</span>
+        <strong class="claw-ask-word" id="clawTarget">…</strong>
+      </div>
+
+      <div class="claw-machine" id="clawMachine">
+        <div class="claw-rail"></div>
+        <div class="claw-bed"></div>
+        <div class="claw-unit" id="clawUnit">
+          <div class="claw-cord" id="clawCord"></div>
+          <div class="claw-head"><i class="claw-arm l"></i><i class="claw-arm r"></i></div>
+        </div>
+        <!-- 인형은 판마다 다시 만든다 -->
+      </div>
+
+      <div class="claw-ctrl">
+        <button class="claw-grab" id="clawGrab" type="button">GRAB</button>
+      </div>
+      <p class="claw-msg" id="clawMsg"></p>
+      <p class="claw-note" id="clawNote"></p>
+    </div>
+
+    <div id="clawOver" class="hidden">
+      <div class="claw-over">
+        <div class="claw-over-emoji" id="clawOverEmoji">🧸</div>
+        <div class="claw-over-score" id="clawOverScore">0 / 5</div>
+        <p class="claw-over-line" id="clawOverLine"></p>
+        <div class="claw-over-btns">
+          <button class="pt-next" id="clawAgain" type="button">다시 하기</button>
+          <button class="pt-next" id="clawToGames" type="button">다른 게임 보기</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="footer">
+    <div class="footer-brand" data-en="Every Koreans">에브리 코리안즈</div>
+    <div class="footer-info">© 2026 치즈감자 · <a href="privacy.html" data-en="Privacy policy">개인정보처리방침</a></div>
+  </div>
+
+</div><!-- /clawView -->
 
 <!-- ── 자료마당 ────────────────────────────────────────────────
      올린 파일을 그대로 보관하지 않는다. 브라우저에서 앱과 같은
@@ -2374,10 +2678,16 @@ function ptShow(toTest) {
   ptId('authView').classList.add('hidden');
   ptId('libraryView').classList.add('hidden');
   ptId('dashView').classList.add('hidden');
+  ptId('gamesView').classList.add('hidden');
+  ptId('clawView').classList.add('hidden');
   ptId('wbBtn').classList.remove('on');
   ptId('authBtn').classList.remove('on');
   ptId('libBtn').classList.remove('on');
   ptId('dashBtn').classList.remove('on');
+  ptId('gameBtn').classList.remove('on');
+  // 인형뽑기가 돌고 있었다면 멈춘다. 아래 모듈 스크립트가 나중에
+  // 실행되므로 있으면 부르는 식으로만 손댄다.
+  if (window.clawStop) window.clawStop();
   const b = ptId('navBtn');
   // 아이콘은 🎙 로 둔다. 헤더에 있을 때는 ✕ 로 바꿔 "누르면 닫힌다" 를
   // 알렸지만, 메뉴 안에서는 고르는 순간 메뉴가 닫혀 그 ✕ 를 볼 일이
@@ -2506,11 +2816,20 @@ function open(view) {
   $('authView').classList.toggle('hidden', view !== 'account');
   $('libraryView').classList.toggle('hidden', view !== 'library');
   $('dashView').classList.toggle('hidden', view !== 'dashboard');
+  $('gamesView').classList.toggle('hidden', view !== 'games');
+  $('clawView').classList.toggle('hidden', view !== 'claw');
 
   $('wbBtn').classList.toggle('on', view === 'wordbook');
   $('authBtn').classList.toggle('on', view === 'account');
   $('libBtn').classList.toggle('on', view === 'library');
   $('dashBtn').classList.toggle('on', view === 'dashboard');
+  // 게임 하나하나도 게임 밑에 있다. 인형뽑기에 들어가 있는 동안
+  // 메뉴에서 게임이 꺼져 보이면 길을 잃는다.
+  $('gameBtn').classList.toggle('on', view === 'games' || view === 'claw');
+
+  // 게임에서 나가면 집게를 멈춘다. 안 그러면 안 보이는 화면에서
+  // 매 프레임 계속 돈다.
+  if (view !== 'claw') clawStop();
   window.scrollTo({ top: 0, behavior: 'auto' });
 }
 
@@ -2525,6 +2844,12 @@ $('authBtn').addEventListener('click', () => {
 $('libBtn').addEventListener('click', () => { const go = !showing('libraryView'); open(go ? 'library' : 'home'); if (go) loadLibrary(); });
 $('libGoLogin').addEventListener('click', () => open('account'));
 $('dashBtn').addEventListener('click', () => { const go = !showing('dashView'); open(go ? 'dashboard' : 'home'); if (go) loadDashboard(); });
+// 게임 하나에 들어가 있을 때 눌러도 목록으로 돌아온다 — 한 단계 위가
+// 홈이 아니라 목록이어야 다른 게임으로 건너갈 수 있다.
+$('gameBtn').addEventListener('click', () => {
+  if (showing('clawView')) return open('games');
+  open(showing('gamesView') ? 'home' : 'games');
+});
 $('dashGoLogin').addEventListener('click', () => open('account'));
 $('dashGoLib').addEventListener('click', () => { open('library'); loadLibrary(); });
 $('dashRetry').addEventListener('click', loadDashboard);
@@ -2908,6 +3233,11 @@ sb.auth.onAuthStateChange((_event, session) => {
   syncAuthText();   // 제목이 "로그인" ↔ "내 계정" 으로 따라와야 한다
   if (session) $('auWho').textContent = session.user?.email ?? '';
 
+  // 인형뽑기가 쓰는 단어도 다시 모은다. 로그인했는데 계속 맛보기
+  // 단어가 나오면 내 단어가 안 들어간 줄 안다.
+  clawPool = [];
+  clawMine = false;
+
   // 자료마당의 삭제 버튼은 로그인 상태에 따라 붙었다 떨어진다.
   libSession = session;
   if (libRows.length) renderLibrary();
@@ -2979,6 +3309,12 @@ function syncLang() {
   $('libTitle').placeholder = t('제목', 'Title');
   $('libDesc').placeholder = t('한 줄 설명 (선택)', 'One-line description (optional)');
   $('libReportDetail').placeholder = t('덧붙일 말 (선택)', 'Anything to add (optional)');
+  /* 인형뽑기의 안내와 버튼. 문제·답의 방향(clawFlip)은 건드리지 않는다 —
+     하던 판 도중에 뒤집히면 그 판을 버리는 셈이다. */
+  if (showing('clawView')) {
+    clawSyncStatic();
+    if (clawDone) clawSyncOver();
+  }
 
   /* 선택상자와 숫자칸에는 화면에 보이는 이름이 없거나 옆에 떨어져 있다.
      그대로 두면 스크린리더가 "콤보 상자" 라고만 읽는다. 여기서 붙여야
@@ -4015,6 +4351,290 @@ async function deleteResource(id) {
   libRows = libRows.filter((r) => r.id !== id);
   renderLibrary();
 }
+
+/* ══ 게임 : 인형뽑기 ═══════════════════════════════════════════
+   뜻을 하나 보여 주고, 그 뜻에 맞는 단어를 쓴 인형을 뽑게 한다.
+
+   ── 왜 로그인을 안 막는가 ────────────────────────────────────
+   지금 이 사이트가 하는 가장 큰 일은 처음 온 사람을 붙잡는 것이다.
+   로그인 벽을 먼저 세우면 놀아 보기도 전에 돌아간다. 그래서 단어가
+   없으면 맛보기로 놀게 하고, 노는 중에 "내 단어로 하고 싶다" 는
+   생각이 들 때 로그인을 권한다.
+
+   ── 왜 캔버스가 아닌가 ───────────────────────────────────────
+   인형 이름은 사람이 넣은 글이다. DOM 이면 textContent 로 넣어 끝이고
+   글자 크기·줄임표·화면 낭독까지 브라우저가 해 준다. 캔버스로 그리면
+   그 전부를 손으로 다시 만들어야 한다. */
+
+// 맛보기 단어. 앱을 안 깔아도, 로그인을 안 해도 바로 놀 수 있어야 한다.
+const CLAW_SAMPLE = [
+  { word: 'perseverance', meaning: '인내, 끈기' },
+  { word: 'curious',      meaning: '호기심 많은' },
+  { word: 'harvest',      meaning: '수확' },
+  { word: 'lantern',      meaning: '등불' },
+  { word: 'whisper',      meaning: '속삭이다' },
+  { word: 'brave',        meaning: '용감한' },
+  { word: 'journey',      meaning: '여정' },
+  { word: 'gentle',       meaning: '다정한' },
+  { word: 'sparkle',      meaning: '반짝이다' },
+  { word: 'puzzle',       meaning: '수수께끼' },
+  { word: 'melody',       meaning: '선율' },
+  { word: 'comfort',      meaning: '위로' },
+];
+
+const CLAW_ROUNDS = 5;
+const CLAW_DOLLS  = 4;
+const CLAW_COLORS = ['#FF9F6B', '#7FD1C1', '#F2A0C4', '#9BB8F5', '#F6CE6B', '#B79BF0'];
+// 집게가 오가는 범위와 속도(% / 프레임). 인형은 이 안에 놓는다.
+const CLAW_MIN = 10, CLAW_MAX = 90, CLAW_SPEED = 0.55;
+/* 잡히는 거리. 인형 간격이 25% 인데 9% 로 두면 인형 위에서는 넉넉히
+   잡히고 사이에서는 헛집는다. 0 에 가깝게 두면 실력이 아니라 운이 된다. */
+const CLAW_CATCH = 9;
+
+let clawPool = [];       // [{word, meaning}]
+let clawMine = false;    // 내 단어장에서 왔는가
+/* 문제와 답을 뒤집었는가. 맛보기 단어는 영어-한국어 쌍이라, 영어로 보는
+   사람에게 "인내, 끈기" 를 문제로 내면 읽을 수가 없다. 그 경우에만
+   영어를 문제로 내고 한국어를 뽑게 한다 — 한국어를 배우는 쪽에 맞다.
+   판이 시작될 때 한 번 정하고 중간에 바꾸지 않는다. 하던 판의 문제와
+   답이 갑자기 뒤바뀌면 그 판을 버리는 셈이다. */
+let clawFlip = false;
+let clawRound = 0, clawScore = 0;
+let clawTarget = null;
+let clawBusy = false;    // 집는 중 — 두 번 눌리면 두 번 내려간다
+let clawDone = false;
+let clawRaf = 0, clawX = 50, clawDir = 1;
+
+const clawLabel = (w) => (clawFlip ? w.meaning : w.word);
+const clawQuestion = (w) => (clawFlip ? w.word : w.meaning);
+
+// ── 집게 움직임 ──────────────────────────────────────────────
+function clawTick() {
+  clawX += clawDir * CLAW_SPEED;
+  if (clawX >= CLAW_MAX) { clawX = CLAW_MAX; clawDir = -1; }
+  if (clawX <= CLAW_MIN) { clawX = CLAW_MIN; clawDir = 1; }
+  $('clawUnit').style.left = clawX + '%';
+  clawRaf = requestAnimationFrame(clawTick);
+}
+function clawRun()  { if (!clawRaf) clawRaf = requestAnimationFrame(clawTick); }
+function clawStop() { if (clawRaf) cancelAnimationFrame(clawRaf); clawRaf = 0; }
+// 위 고전 스크립트의 ptShow 가 화면을 넘길 때 부른다.
+window.clawStop = clawStop;
+
+// ── 단어 모으기 ──────────────────────────────────────────────
+async function clawLoadPool() {
+  try {
+    const { data: { session } } = await sb.auth.getSession();
+    if (session) {
+      const { data } = await sb.from('words')
+        .select('word, meaning').eq('user_id', session.user.id).limit(300);
+      const ok = (data || []).filter((w) => w.word?.trim() && w.meaning?.trim());
+      if (ok.length >= CLAW_DOLLS) { clawPool = ok; clawMine = true; return; }
+    }
+  } catch (e) {
+    // 못 읽어도 게임은 열려야 한다. 맛보기로 논다.
+  }
+  clawPool = CLAW_SAMPLE;
+  clawMine = false;
+}
+
+// ── 한 판 깔기 ───────────────────────────────────────────────
+function clawDeal() {
+  const idx = [...clawPool.keys()];
+  for (let i = idx.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [idx[i], idx[j]] = [idx[j], idx[i]];
+  }
+
+  const pick = [];
+  for (const i of idx) {
+    const w = clawPool[i];
+    // 같은 이름표가 둘이면 어느 것을 뽑아도 맞아 버려 문제가 성립하지 않는다.
+    if (pick.some((p) => clawLabel(p) === clawLabel(w))) continue;
+    pick.push(w);
+    if (pick.length === CLAW_DOLLS) break;
+  }
+
+  clawTarget = pick[Math.floor(Math.random() * pick.length)];
+
+  const n = pick.length;
+  const step = n > 1 ? (CLAW_MAX - CLAW_MIN - 4) / (n - 1) : 0;
+  const machine = $('clawMachine');
+  machine.querySelectorAll('.doll').forEach((d) => d.remove());
+
+  pick.forEach((w, i) => {
+    const el = document.createElement('div');
+    el.className = 'doll';
+    el.style.left = (CLAW_MIN + 2 + step * i) + '%';
+    el.style.setProperty('--c', CLAW_COLORS[i % CLAW_COLORS.length]);
+    el.innerHTML =
+      '<div class="doll-body">' +
+        '<div class="doll-face"><i class="doll-eye"></i><i class="doll-eye"></i></div>' +
+        '<div class="doll-mouth"></div>' +
+      '</div><span class="doll-tag"></span>';
+    // 사람이 넣은 글이다. innerHTML 로 넣으면 남의 단어가 태그가 된다.
+    el.querySelector('.doll-tag').textContent = clawLabel(w);
+    machine.appendChild(el);
+  });
+}
+
+// ── 집기 ─────────────────────────────────────────────────────
+function clawGo() {
+  if (clawBusy || clawDone) return;
+  clawBusy = true;
+  clawStop();
+  $('clawGrab').disabled = true;
+  clawSay('', '');
+
+  const machine = $('clawMachine');
+  const unit = $('clawUnit');
+  const dolls = [...machine.querySelectorAll('.doll')];
+
+  let hit = null, best = 999;
+  for (const el of dolls) {
+    const dx = Math.abs(parseFloat(el.style.left) - clawX);
+    if (dx < best) { best = dx; hit = el; }
+  }
+  if (best > CLAW_CATCH) hit = null;
+
+  const h = machine.clientHeight;
+  const cord = $('clawCord');
+
+  cord.style.height = (h - 24 - 96) + 'px';          // 내려간다
+  setTimeout(() => {                                  // 오므린다
+    unit.classList.add('shut');
+    if (hit) hit.style.left = clawX + '%';
+  }, 470);
+  setTimeout(() => {                                  // 올라온다
+    cord.style.height = '26px';
+    if (hit) hit.style.bottom = (h - 104) + 'px';
+  }, 700);
+  setTimeout(() => clawJudge(hit), 1260);
+}
+
+function clawJudge(hit) {
+  const answer = clawLabel(clawTarget);
+  const got = hit ? hit.querySelector('.doll-tag').textContent : null;
+
+  if (got === answer) {
+    clawScore++;
+    hit.classList.add('won');
+    clawSay('good', t('맞았어요! 🎉', 'Got it! 🎉'));
+  } else if (got) {
+    clawSay('bad', t(`아쉬워요 — 정답은 “${answer}” 였어요.`,
+                     `So close — the answer was “${answer}”.`));
+  } else {
+    clawSay('bad', t('빈손이에요. 인형 바로 위에서 눌러 보세요.',
+                     'Empty claw — press right above a doll.'));
+  }
+  clawPills();
+
+  setTimeout(() => {
+    $('clawUnit').classList.remove('shut');
+    if (clawRound >= CLAW_ROUNDS) clawFinish();
+    else clawNext();
+  }, 1500);
+}
+
+// ── 판 넘기기 ────────────────────────────────────────────────
+function clawNext() {
+  clawRound++;
+  clawDeal();
+  clawPills();
+  $('clawTarget').textContent = clawQuestion(clawTarget);
+  clawSay('', '');
+  clawBusy = false;
+  $('clawGrab').disabled = false;
+  clawRun();
+}
+
+function clawFinish() {
+  clawDone = true;
+  clawStop();
+  $('clawPlay').classList.add('hidden');
+  $('clawOver').classList.remove('hidden');
+  clawSyncOver();
+}
+
+async function clawStart() {
+  clawStop();
+  clawDone = false; clawBusy = true;
+  clawRound = 0; clawScore = 0;
+  clawX = 50; clawDir = 1;
+  $('clawUnit').classList.remove('shut');
+  $('clawUnit').style.left = '50%';
+  $('clawCord').style.height = '26px';
+  $('clawOver').classList.add('hidden');
+  $('clawPlay').classList.remove('hidden');
+  $('clawGrab').disabled = true;
+  $('clawTarget').textContent = t('불러오는 중…', 'Loading…');
+  clawSay('', '');
+
+  if (!clawPool.length) await clawLoadPool();
+  clawFlip = !clawMine && isEn();
+  clawSyncStatic();
+  clawNext();
+}
+
+// ── 글 ───────────────────────────────────────────────────────
+function clawSay(kind, text) {
+  const el = $('clawMsg');
+  el.className = 'claw-msg' + (kind ? ' ' + kind : '');
+  el.textContent = text;
+}
+
+function clawPills() {
+  $('clawRound').textContent = `${Math.min(clawRound, CLAW_ROUNDS)} / ${CLAW_ROUNDS}`;
+  $('clawScore').textContent = `🧸 ${clawScore}`;
+}
+
+/* 판과 무관하게 언어만 따라가는 글. applyLang 은 [data-en] 의 innerHTML 을
+   통째로 바꾸므로 여기 글에는 data-en 을 달 수 없다. */
+function clawSyncStatic() {
+  $('clawBackTxt').textContent = t('게임', 'Games');
+  $('clawAskLabel').textContent = clawFlip
+    ? t('이 단어의 뜻을 뽑으세요', 'Grab the meaning of this word')
+    : t('이 뜻을 가진 단어를 뽑으세요', 'Grab the word for this meaning');
+  $('clawAgain').textContent = t('다시 하기', 'Play again');
+  $('clawToGames').textContent = t('다른 게임 보기', 'Other games');
+
+  const note = $('clawNote');
+  note.textContent = '';
+  if (clawMine) {
+    note.textContent = t('내 단어장에서 가져온 단어예요.', 'These come from your wordbook.');
+  } else {
+    note.append(t('맛보기 단어로 놀고 있어요. ', 'You are playing with a sample set. '));
+    const b = document.createElement('button');
+    b.type = 'button';
+    b.textContent = t('로그인하면 내 단어로 놀 수 있어요', 'Sign in to play with your own words');
+    b.addEventListener('click', () => open('account'));
+    note.append(b);
+  }
+}
+
+function clawSyncOver() {
+  const all = clawScore === CLAW_ROUNDS;
+  $('clawOverEmoji').textContent = all ? '🏆' : clawScore >= 3 ? '🧸' : '🥔';
+  $('clawOverScore').textContent = `${clawScore} / ${CLAW_ROUNDS}`;
+  $('clawOverLine').textContent = all
+    ? t('전부 뽑았어요. 단어가 손에 붙었네요.', 'A clean sweep — those words are yours.')
+    : clawScore >= 3
+      ? t('잘하고 있어요. 한 판 더 해볼까요?', 'Nicely done. One more round?')
+      : t('괜찮아요. 틀린 단어일수록 오래 남아요.', 'No worries — the ones you miss are the ones you remember.');
+}
+
+$('gcClaw').addEventListener('click', () => { open('claw'); clawStart(); });
+$('clawBack').addEventListener('click', () => open('games'));
+$('clawToGames').addEventListener('click', () => open('games'));
+$('clawAgain').addEventListener('click', () => clawStart());
+$('clawGrab').addEventListener('click', clawGo);
+// 스페이스바로도 집는다. 버튼에 손이 가 있지 않아도 바로 누를 수 있다.
+addEventListener('keydown', (e) => {
+  if (e.code !== 'Space' || !showing('clawView')) return;
+  if (e.target.closest('input, textarea, select, button')) return;
+  e.preventDefault();
+  clawGo();
+});
 
 // ── 헤더 선 ──────────────────────────────────────────────────
 // 맨 위에서는 선을 두지 않는다. 스크롤을 내려 내용이 헤더 밑으로
