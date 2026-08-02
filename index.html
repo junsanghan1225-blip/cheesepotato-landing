@@ -1097,6 +1097,10 @@ body.nav-open { overflow:hidden; }
     <button class="nav-link" id="wbBtn" type="button" aria-label="내 단어장 열기">
       <span class="nav-ico">📚</span><span class="nav-txt" data-en="My wordbook">내 단어장</span>
     </button>
+    <!-- 로그인 여부에 따라 글이 바뀌므로 data-en 대신 JS 가 관리한다. -->
+    <button class="nav-link" id="authBtn" type="button" aria-label="로그인">
+      <span class="nav-ico">👤</span><span class="nav-txt">로그인</span>
+    </button>
     <button class="lang-btn" id="langBtn" type="button" aria-label="Switch to English">EN</button>
     <a class="hd-cta" href="#download" id="hdCta" data-en="Download">다운로드</a>
     <button class="menu-btn" id="menuBtn" type="button"
@@ -1128,10 +1132,6 @@ body.nav-open { overflow:hidden; }
     </button>
     <button class="nav-link" id="navBtn" type="button" aria-label="발음 테스트 열기">
       <span class="nav-ico">🎙</span><span class="nav-txt" data-en="Pronunciation test">발음 테스트</span>
-    </button>
-    <!-- 로그인 여부에 따라 글이 바뀌므로 data-en 대신 JS 가 관리한다. -->
-    <button class="nav-link" id="authBtn" type="button" aria-label="로그인">
-      <span class="nav-ico">👤</span><span class="nav-txt">로그인</span>
     </button>
   </div>
 
