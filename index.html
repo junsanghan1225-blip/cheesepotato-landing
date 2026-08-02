@@ -1057,41 +1057,73 @@ body.nav-open { overflow:hidden; }
   font-variant-numeric:tabular-nums;
 }
 
+/* ── 유리장 ──────────────────────────────────────────────────
+   ## 진짜 3차원이다
+
+   예전에는 "뒤로 갈수록 작게 그리고 위로 올려" 흉내를 냈다. 크기와
+   높이는 맞출 수 있어도 **좌우가 안 모인다** — 실제로는 뒤로 갈수록
+   왼쪽 것이 오른쪽으로, 오른쪽 것이 왼쪽으로 당겨져야 하는데 그대로
+   서 있으니 눈에 걸렸다.
+
+   이제 perspective 하나를 두고 안엣것을 전부 같은 공간에 놓는다.
+   깊이는 translateZ 로만 주고, 크기·높이·좌우 수렴은 브라우저가
+   계산한다. 겹침 순서도 3차원 위치로 알아서 정해지므로 z-index 를
+   손으로 매길 필요가 없다.
+
+   perspective-origin 을 가운데보다 위에 두는 것은, 사람이 기계를
+   내려다보기 때문이다. 그래야 바닥이 보이고 뒷줄이 위로 물러난다. */
 .claw-machine {
   position:relative; height:340px; overflow:hidden;
   border-radius:18px;
+  /* 안쪽 깊이. 자바스크립트의 CLAW_DEPTH 와 같은 값이어야 한다. */
+  --depth:210px;
+  perspective:620px;
+  perspective-origin:50% 32%;
   /* 안쪽은 밝게 둔다. 치즈 노랑과 감자 갈색이 어두운 바탕에서는
      탁해 보이고, 이름표 흰 알약도 눈을 찌른다. */
   background:linear-gradient(180deg,#F4FBFF 0%, #DFF0FC 62%, #C8E4F8 100%);
   border:3px solid #fff;
   box-shadow:inset 0 0 0 1px rgba(44,88,172,.22), inset 0 10px 22px -10px rgba(44,88,172,.22);
 }
-/* 유리에 비친 빛. 한 줄이면 충분하고, 더 넣으면 인형이 안 보인다. */
+/* 유리에 비친 빛. 한 줄이면 충분하고, 더 넣으면 인형이 안 보인다.
+   이건 유리 표면이라 3차원 무대 밖에 둔다. */
 .claw-machine::before {
   content:''; position:absolute; inset:0; pointer-events:none; z-index:4;
   background:linear-gradient(115deg, rgba(255,255,255,.5) 0 20%, transparent 20% 44%, rgba(255,255,255,.28) 44% 51%, transparent 51%);
 }
-/* ── 깊이 ────────────────────────────────────────────────────
-   앞뒤는 진짜 3D 가 아니라 눈속임이다. 뒤로 갈수록 (1) 위로 올라가고
-   (2) 작아지고 (3) 앞엣것에 가린다. 이 셋이면 사람 눈은 깊이로 읽는다.
-   z 는 0(앞) ~ 1(뒤). 값은 자바스크립트가 --z 로 넣는다. */
+.cm-stage { position:absolute; inset:0; transform-style:preserve-3d; }
+
+/* 뒷벽. 깊이의 끝을 막아 준다 — 없으면 뒤가 뚫려 보인다. */
+.cm-back {
+  position:absolute; inset:0;
+  transform:translateZ(calc(var(--depth) * -1));
+  background:linear-gradient(180deg,#DCEEFB,#B9DAF3);
+  box-shadow:inset 0 0 40px rgba(44,88,172,.18);
+}
+/* 바닥. 아래 모서리를 축으로 눕혀 뒤로 물러나게 한다. 이 면이 있어야
+   인형이 허공이 아니라 무언가 위에 서 있는 것으로 보인다. */
+.cm-floor {
+  position:absolute; left:-25%; right:-25%; bottom:0; height:var(--depth);
+  transform-origin:bottom center; transform:rotateX(90deg);
+  background:
+    repeating-linear-gradient(90deg, rgba(44,88,172,.09) 0 1px, transparent 1px 46px),
+    linear-gradient(180deg,#BEDCF3,#E6F4FE);
+}
+
 .claw-rail {
-  position:absolute; left:0; right:0; height:3px;
-  /* 집게와 같은 식으로 움직인다. 여기에 transition 을 걸면 매 프레임
-     새 목표가 잡혀 레일만 뒤늦게 따라오고 집게가 허공에 걸린다. */
-  top:calc(34px - var(--z, 0) * 16px);
-  background:rgba(44,88,172,.22);
+  position:absolute; left:0; right:0; top:26px; height:3px;
+  transform:translateZ(var(--tz, 0px));
+  background:rgba(44,88,172,.3);
 }
 .claw-unit {
-  position:absolute; left:50%; z-index:3;
-  top:calc(34px - var(--z, 0) * 16px);
-  transform:translateX(-50%) scale(calc(1 - var(--z, 0) * .12));
+  position:absolute; left:50%; top:26px;
+  transform:translateX(-50%) translateZ(var(--tz, 0px));
   transform-origin:top center;
-  will-change:left, top;
+  will-change:left, transform;
 }
 /* 출구로 실어 나를 때만 미끄러진다. 평소에 걸어 두면 손잡이를 누르는
    동안 매 프레임 새 목표가 잡혀 집게가 손을 늦게 따라온다. */
-.claw-unit.carry { transition:left .6s cubic-bezier(.4,0,.2,1), top .6s cubic-bezier(.4,0,.2,1); }
+.claw-unit.carry { transition:left .6s cubic-bezier(.4,0,.2,1), transform .6s cubic-bezier(.4,0,.2,1); }
 .claw-cord { width:3px; height:26px; margin:0 auto; background:#6C7D91; transition:height .45s ease-in; }
 .claw-head { position:relative; width:52px; height:30px; margin-top:-1px; }
 .claw-head::before {
@@ -1108,9 +1140,6 @@ body.nav-open { overflow:hidden; }
 .claw-arm.r { right:12px; border-radius:0 5px 8px 0; transform-origin:top left;  transform:rotate(26deg); }
 .claw-unit.shut .claw-arm.l { transform:rotate(-4deg); }
 .claw-unit.shut .claw-arm.r { transform:rotate(4deg); }
-
-/* 인형 무더기가 놓이는 바닥 */
-.claw-bed { position:absolute; left:0; right:0; bottom:0; height:140px; background:rgba(44,88,172,.10); border-top:1px solid rgba(44,88,172,.14); }
 
 /* ── 출구 ────────────────────────────────────────────────────
    뽑은 인형이 여기로 떨어진다. 앞쪽 왼편에 두는 것은 진짜 기계와
@@ -1131,12 +1160,22 @@ body.nav-open { overflow:hidden; }
   color:#7FA6C8; font-size:9.5px; font-weight:800; letter-spacing:.16em; text-align:center;
 }
 
+/* 인형도 같은 공간에 선다. 깊이는 --tz 하나뿐이고, 얼마나 작아지고
+   얼마나 안쪽으로 당겨질지는 원근이 정한다. */
 .doll {
-  position:absolute; z-index:2;
-  width:76px; margin-left:-38px;
+  position:absolute;
+  width:76px;
   text-align:center;
   transform-origin:bottom center;
-  transition:bottom .5s cubic-bezier(.4,0,.2,1), left .35s ease, opacity .3s, transform .3s;
+  transform:translateX(-50%) translateZ(var(--tz, 0px)) scale(var(--s, 1));
+  transition:bottom .5s cubic-bezier(.4,0,.2,1), left .35s ease, opacity .3s, transform .5s cubic-bezier(.4,0,.2,1);
+}
+/* 바닥에 지는 그림자. 이게 없으면 인형이 떠 있는 것처럼 보인다. */
+.doll-shade {
+  position:absolute; left:50%; bottom:-7px; width:46px; height:11px;
+  transform:translateX(-50%);
+  border-radius:50%;
+  background:radial-gradient(ellipse at center, rgba(27,53,90,.34), rgba(27,53,90,0) 70%);
 }
 
 /* 치즈와 감자. 앱 이름이 치즈감자라 인형도 그 둘이다.
@@ -1521,9 +1560,11 @@ body.nav-open { overflow:hidden; }
   .chute-txt { font-size:9px; }
 
   /* 인형이 두 줄로 서면서 세로도 그만큼 필요해졌다. 290px 로 두면
-     뒷줄 위로 집게가 오갈 자리가 안 남는다. */
-  .claw-machine { height:320px; }
-  .doll { width:62px; margin-left:-31px; }
+     뒷줄 위로 집게가 오갈 자리가 안 남는다. 좁은 화면에서는 깊이도
+     줄인다 — 210px 를 그대로 두면 뒷줄이 너무 멀어져 이름표가 작아진다. */
+  .claw-machine { height:320px; --depth:150px; perspective:520px; }
+  .doll { width:62px; }
+  .doll-shade { width:38px; height:9px; }
   .doll-body { width:46px; height:44px; }
   .doll-body.cheese { border-radius:24px 24px 11px 11px; }
   .doll-mouth { top:25px; }
@@ -2126,16 +2167,21 @@ body.nav-open { overflow:hidden; }
           <span class="cab-badge" id="clawScore">🧸 0</span>
         </div>
 
+        <!-- 안쪽은 진짜 3차원이다. 아래 .cm-stage 안의 모든 것이 하나의
+             원근 안에 놓여, 크기·높이·좌우 수렴이 저절로 맞는다. -->
         <div class="claw-machine" id="clawMachine">
-          <div class="claw-bed"></div>
-          <!-- 뽑은 인형이 떨어지는 구멍. 앞쪽 왼편, 진짜 기계와 같은 자리다. -->
-          <div class="chute"><span class="chute-lip"></span><span class="chute-txt" data-en="EXIT">출구</span></div>
-          <div class="claw-rail" id="clawRail"></div>
-          <div class="claw-unit" id="clawUnit">
-            <div class="claw-cord" id="clawCord"></div>
-            <div class="claw-head"><i class="claw-arm l"></i><i class="claw-arm r"></i></div>
+          <div class="cm-stage" id="clawStage">
+            <div class="cm-back"></div>
+            <div class="cm-floor"></div>
+            <!-- 뽑은 인형이 떨어지는 구멍. 앞쪽 왼편, 진짜 기계와 같은 자리다. -->
+            <div class="chute"><span class="chute-lip"></span><span class="chute-txt" data-en="EXIT">출구</span></div>
+            <div class="claw-rail" id="clawRail"></div>
+            <div class="claw-unit" id="clawUnit">
+              <div class="claw-cord" id="clawCord"></div>
+              <div class="claw-head"><i class="claw-arm l"></i><i class="claw-arm r"></i></div>
+            </div>
+            <!-- 인형은 판마다 다시 만든다 -->
           </div>
-          <!-- 인형은 판마다 다시 만든다 -->
         </div>
 
         <div class="cab-panel">
@@ -4857,9 +4903,19 @@ const CLAW_DOLLS  = 4;
 const CLAW_MIN = 10, CLAW_MAX = 90, CLAW_SPEED = 0.85;
 // 앞뒤. 0 이 앞(나에게 가까운 줄), 1 이 뒤. 한쪽 끝에서 끝까지 약 1.2초.
 const CLAW_ZSPEED = 0.014;
-// 인형이 놓이는 두 줄의 깊이와, 바닥에서 띄우는 높이(px).
+/* 유리장 안쪽 깊이(px). z(0~1) 를 여기에 곱해 translateZ 로 넣는다.
+   좁은 화면에서는 CSS 가 이 값을 줄이므로(뒷줄이 너무 멀어지지 않게)
+   상수로 들고 있으면 어긋난다 — 뒷벽보다 인형이 뒤에 서는 꼴이 된다.
+   그래서 그때그때 CSS 에서 읽는다. */
+function clawDepth() {
+  const v = parseFloat(getComputedStyle($('clawMachine')).getPropertyValue('--depth'));
+  return v || 210;
+}
+// 인형이 놓이는 두 줄의 깊이. 둘 다 바닥에 서므로 높이는 하나뿐이다.
 const CLAW_ROW_Z = [0, 1];
-const CLAW_ROW_Y = [14, 62];
+const CLAW_FLOOR_Y = 20;      // 바닥에서 띄우는 높이
+const CLAW_RAIL_TOP = 26;     // 레일 높이(면 안에서)
+const CLAW_HEAD_H = 30;       // 집게 머리 높이
 // 출구 자리. CSS 의 .chute 와 같은 곳을 가리켜야 한다.
 const CLAW_EXIT_X = 12, CLAW_EXIT_Z = 0;
 const CLAW_BEST_KEY = 'clawBest';
@@ -4893,11 +4949,13 @@ function clawPanel(name) {
    승부는 온전히 "이 뜻의 단어가 무엇인가" 로 넘어간다. */
 const CLAW_ARROWS = { '-1,0': 'clawLeft', '1,0': 'clawRight', '0,-1': 'clawDown', '0,1': 'clawUp' };
 
-/** 집게를 지금 좌표에 놓는다. 깊이는 CSS 가 --z 로 받아 높이·크기로 바꾼다. */
+/** 집게를 지금 좌표에 놓는다. 깊이는 translateZ 하나로 끝이고,
+ *  얼마나 작아 보일지는 원근이 정한다. */
 function clawPlace() {
+  const tz = -(clawDepth() * clawZ) + 'px';
   $('clawUnit').style.left = clawX + '%';
-  $('clawUnit').style.setProperty('--z', clawZ);
-  $('clawRail').style.setProperty('--z', clawZ);
+  $('clawUnit').style.setProperty('--tz', tz);
+  $('clawRail').style.setProperty('--tz', tz);
 }
 
 function clawTick() {
@@ -5030,6 +5088,8 @@ function clawDeal() {
   const lo = CLAW_MIN + 2, hi = CLAW_MAX - 2;
   const step = n > 1 ? (hi - lo) / (n - 1) : 0;
   const machine = $('clawMachine');
+  const stage = $('clawStage');
+  const depth = clawDepth();
   machine.querySelectorAll('.doll').forEach((d) => d.remove());
 
   pick.forEach((w, i) => {
@@ -5037,10 +5097,9 @@ function clawDeal() {
     const el = document.createElement('div');
     el.className = 'doll';
     el.style.left = at.x + '%';
-    el.style.bottom = CLAW_ROW_Y[at.row] + 'px';
-    // 뒤에 놓인 것은 작게 그리고 앞엣것에 가리게 둔다 — 그래야 깊이로 읽힌다.
-    el.style.transform = 'scale(' + (1 - CLAW_ROW_Z[at.row] * 0.18) + ')';
-    el.style.zIndex = at.row === 0 ? 2 : 1;
+    el.style.bottom = CLAW_FLOOR_Y + 'px';
+    // 깊이만 준다. 크기도 위치도 원근이 알아서 맞춘다.
+    el.style.setProperty('--tz', -(depth * CLAW_ROW_Z[at.row]) + 'px');
     el.dataset.z = CLAW_ROW_Z[at.row];
     el.dataset.row = at.row;
     // 치즈와 감자를 번갈아 놓는다. 같은 것만 넷이면 무더기가 심심하다.
@@ -5050,10 +5109,12 @@ function clawDeal() {
         '<i class="doll-blush l"></i><i class="doll-blush r"></i>' +
         '<span class="doll-face"><i class="doll-eye"></i><i class="doll-eye"></i></span>' +
         '<span class="doll-mouth"></span>' +
-      '</div><span class="doll-tag"></span>';
+      '</div><span class="doll-tag"></span><i class="doll-shade"></i>';
     // 사람이 넣은 글이다. innerHTML 로 넣으면 내 단어가 태그가 된다.
     el.querySelector('.doll-tag').textContent = w.word;
-    machine.appendChild(el);
+    // 무대 안에 넣어야 같은 원근을 받는다. 기계에 바로 붙이면
+    // 유리 바깥에 평면으로 떠 버린다.
+    stage.appendChild(el);
   });
 }
 
@@ -5080,20 +5141,21 @@ function clawGo() {
   }
   if (best > 1) hit = null;                          // 둘 다 안 닿으면 빈손
 
+  /* 줄 길이는 깊이와 상관없다. 집게와 인형이 같은 Z 면 위에 있으므로
+     그 면 안에서만 재면 되고, 화면에서 얼마나 짧아 보일지는 원근이
+     알아서 줄인다. 예전에는 이걸 손으로 보정하느라 식이 길었다. */
   const h = machine.clientHeight;
   const cord = $('clawCord');
-  const railY = 34 - clawZ * 16;
-  // 앞줄은 낮게 놓여 있어 그만큼 더 내려가야 한다.
-  const floorY = CLAW_ROW_Y[0] + clawZ * (CLAW_ROW_Y[1] - CLAW_ROW_Y[0]);
+  const reach = h - CLAW_RAIL_TOP - CLAW_HEAD_H - CLAW_FLOOR_Y - CLAW_DOLL_H;
 
-  cord.style.height = (h - railY - floorY - CLAW_DOLL_H - 30) + 'px';   // 내려간다
+  cord.style.height = reach + 'px';                   // 내려간다
   setTimeout(() => {                                  // 오므린다
     unit.classList.add('shut');
     if (hit) hit.style.left = clawX + '%';
   }, 470);
   setTimeout(() => {                                  // 올라온다
-    cord.style.height = '26px';
-    if (hit) hit.style.bottom = (h - railY - 56 - CLAW_DOLL_H) + 'px';
+    cord.style.height = CLAW_RAIL_TOP + 'px';
+    if (hit) hit.style.bottom = (h - CLAW_RAIL_TOP - CLAW_HEAD_H - CLAW_DOLL_H) + 'px';
   }, 700);
   setTimeout(() => clawJudge(hit), 1260);
 }
@@ -5110,10 +5172,15 @@ function clawDeliver(doll) {
   clawPlace();
   doll.style.left = CLAW_EXIT_X + '%';
 
+  // 인형도 집게를 따라 앞으로 나온다 — 같은 Z 에 있어야 매달린 것으로 보인다.
+  doll.style.setProperty('--tz', '0px');
+
   setTimeout(() => {
     $('clawUnit').classList.remove('shut');           // 놓는다
     doll.style.bottom = '10px';
-    doll.style.transform = 'scale(.45)';
+    // 크기는 transform 전체가 아니라 --s 로만 건드린다. 통째로 덮으면
+    // 깊이(--tz)까지 지워져 인형이 순간 튄다.
+    doll.style.setProperty('--s', '.45');
     doll.classList.add('won');                        // 구멍으로 사라진다
   }, 620);
 }
@@ -5187,7 +5254,7 @@ async function clawStart() {
   clawX = 50; clawZ = 0;
   $('clawUnit').classList.remove('shut', 'carry');
   clawPlace();
-  $('clawCord').style.height = '26px';
+  $('clawCord').style.height = CLAW_RAIL_TOP + 'px';
   $('clawGrab').disabled = true;
   clawSay('', '');
   clawScreen('', 'READY');
