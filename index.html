@@ -972,14 +972,16 @@ body.nav-open { overflow:hidden; }
   border-color:rgba(255,145,77,.5); transform:translateY(-3px);
   box-shadow:0 18px 40px -26px rgba(27,21,18,.4);
 }
+/* 카드 속은 전부 span 이다(button 안에 div 를 넣을 수 없다). span 은
+   inline 이라 그냥 두면 제목·설명·화살표가 한 줄로 붙어 버린다. */
 .game-card-ico {
   width:64px; height:64px; border-radius:20px; margin-bottom:18px;
   display:flex; align-items:center; justify-content:center; font-size:32px;
   background:var(--tint); border:1px solid rgba(255,145,77,.24);
 }
-.game-card-name { font-size:20px; font-weight:700; color:var(--ink); letter-spacing:-.02em; }
-.game-card-desc { margin-top:8px; font-size:14.5px; line-height:1.7; color:var(--ink-2); word-break:keep-all; }
-.game-card-go { margin-top:18px; font-size:13.5px; font-weight:700; color:var(--orange-deep); }
+.game-card-name { display:block; font-size:20px; font-weight:700; color:var(--ink); letter-spacing:-.02em; }
+.game-card-desc { display:block; margin-top:8px; font-size:14.5px; line-height:1.7; color:var(--ink-2); word-break:keep-all; }
+.game-card-go { display:block; margin-top:18px; font-size:13.5px; font-weight:700; color:var(--orange-deep); }
 
 /* 준비 중인 칸. 눌리지 않지만 자리는 보여 준다 — 여기가 늘어난다는
    것을 말로 설명하는 것보다 빠르다. */
@@ -1091,15 +1093,22 @@ body.nav-open { overflow:hidden; }
   position:absolute; left:50%; top:30px; transform:translateX(-50%);
   width:12px; height:6px; border-bottom:2px solid rgba(27,21,18,.55); border-radius:0 0 12px 12px;
 }
-/* 이름표는 줄여 쓰지 않고 줄을 바꾼다. 말줄임으로 자르면
-   "persever…" 가 되어 무엇을 뽑는 건지 알 수 없다 — 읽히지 않는
-   순간 게임이 성립하지 않는다. */
+/* 이름표는 줄여 쓰지 않는다. 말줄임으로 자르면 "persever…" 가 되어
+   무엇을 뽑는 건지 알 수 없다 — 읽히지 않는 순간 게임이 성립하지 않는다.
+
+   너비는 인형 몸이 아니라 **옆 인형까지의 거리**로 잡는다. 몸(58px)에
+   맞추면 열두 자짜리 단어가 "persevera / nce" 로 잘려 더 못 읽는다.
+   인형 사이가 25% (기계 560px 기준 142px) 라 130px 까지는 부딪히지 않는다.
+   그래도 넘치는 긴 말은 그때 줄을 바꾼다. */
 .doll-tag {
-  display:inline-block; max-width:100%;
-  padding:3px 8px; border-radius:11px;
+  display:inline-block; max-width:130px;
+  padding:3px 9px; border-radius:11px;
   background:rgba(255,255,255,.94); color:#231A2E;
   font-size:11.5px; font-weight:700; letter-spacing:-.01em;
-  line-height:1.3; word-break:break-word;
+  /* keep-all 이 없으면 "책임감이 강한" 이 "책임감이 강 / 한" 으로 끊긴다.
+     한국어는 띄어쓰기에서만 넘기고, 그래도 안 들어가는 긴 라틴 단어만
+     overflow-wrap 이 쪼갠다. */
+  line-height:1.35; word-break:keep-all; overflow-wrap:break-word;
 }
 .doll.won  { opacity:0; transform:scale(.6) translateY(-14px); }
 .doll.dim  { opacity:.35; }
@@ -1270,7 +1279,8 @@ body.nav-open { overflow:hidden; }
   .doll-body { width:46px; height:44px; border-radius:21px 21px 18px 18px; }
   .doll-body::before, .doll-body::after { width:14px; height:14px; top:-6px; }
   .doll-mouth { top:24px; }
-  .doll-tag { font-size:10.5px; padding:3px 6px; border-radius:9px; }
+  /* 좁은 화면에서는 인형 사이가 80px 밖에 안 된다. */
+  .doll-tag { font-size:10.5px; padding:3px 7px; border-radius:9px; max-width:76px; }
   .game-card { padding:24px; }
 }
 
@@ -1764,7 +1774,7 @@ body.nav-open { overflow:hidden; }
   <div class="pt-hero">
     <div class="pt-badge">GAMES</div>
     <h2 data-en="Play with<br>your words">외운 단어로<br>놀아 보세요</h2>
-    <p data-en="Your own wordbook becomes the game. Not signed in? A sample set is ready.">내 단어장이 그대로 게임이 됩니다. 로그인 전에는 맛보기 단어로 놀 수 있어요.</p>
+    <p data-en="Your own wordbook becomes the game. Sign in and the words you saved show up here.">내 단어장이 그대로 게임이 됩니다. 로그인하면 저장해 둔 단어가 그대로 나와요.</p>
   </div>
 
   <div class="pt-body" style="max-width:900px;">
@@ -1813,13 +1823,40 @@ body.nav-open { overflow:hidden; }
 
     <div class="claw-bar">
       <button class="claw-back" id="clawBack" type="button">← <span id="clawBackTxt">게임</span></button>
-      <div class="claw-score">
+      <div class="claw-score hidden" id="clawPills">
         <span class="claw-pill" id="clawRound">1 / 5</span>
         <span class="claw-pill" id="clawScore">🧸 0</span>
       </div>
     </div>
 
-    <div id="clawPlay">
+    <div id="clawLoading" class="hidden">
+      <div class="wb-state"><div class="wb-spin"></div><span data-en="Loading…">불러오는 중…</span></div>
+    </div>
+
+    <div id="clawNeedLogin" class="hidden">
+      <div class="wb-state">
+        <div style="font-size:40px; margin-bottom:8px;">🔒</div>
+        <span data-en="Sign in to play with the words in your own wordbook.">로그인하면 내 단어장에 있는 단어로 놀 수 있어요.</span>
+        <div><button class="pt-next" id="clawGoLogin" type="button" data-en="Go to sign in">로그인하러 가기</button></div>
+      </div>
+    </div>
+
+    <div id="clawFew" class="hidden">
+      <div class="wb-state">
+        <div style="font-size:44px; margin-bottom:8px;">🥔</div>
+        <span data-en="You need at least four words to play. Grab a starter list and come back.">놀려면 단어가 네 개는 있어야 해요. 자료마당에서 받아오고 다시 와 주세요.</span>
+        <div><button class="pt-next" id="clawGoLib" type="button" data-en="Get a starter list">자료마당에서 받아오기</button></div>
+      </div>
+    </div>
+
+    <div id="clawErr" class="hidden">
+      <div class="wb-state">
+        <span data-en="Could not load your words.">단어를 불러오지 못했어요.</span>
+        <div><button class="pt-next" id="clawRetry" type="button" data-en="Try again">다시 시도</button></div>
+      </div>
+    </div>
+
+    <div id="clawPlay" class="hidden">
       <div class="claw-ask">
         <span class="claw-ask-label" id="clawAskLabel">이 뜻을 가진 단어를 뽑으세요</span>
         <strong class="claw-ask-word" id="clawTarget">…</strong>
@@ -3233,10 +3270,10 @@ sb.auth.onAuthStateChange((_event, session) => {
   syncAuthText();   // 제목이 "로그인" ↔ "내 계정" 으로 따라와야 한다
   if (session) $('auWho').textContent = session.user?.email ?? '';
 
-  // 인형뽑기가 쓰는 단어도 다시 모은다. 로그인했는데 계속 맛보기
-  // 단어가 나오면 내 단어가 안 들어간 줄 안다.
-  clawPool = [];
-  clawMine = false;
+  /* 인형뽑기를 열어 둔 채로 로그인 상태가 바뀌었다면 그 자리에서
+     다시 판정한다. 로그아웃했는데 앞사람 단어가 그대로 떠 있으면 안 된다.
+     (단어는 clawStart 가 판마다 다시 읽으므로 여기서 비울 것은 없다.) */
+  if (showing('clawView')) clawStart();
 
   // 자료마당의 삭제 버튼은 로그인 상태에 따라 붙었다 떨어진다.
   libSession = session;
@@ -3309,8 +3346,7 @@ function syncLang() {
   $('libTitle').placeholder = t('제목', 'Title');
   $('libDesc').placeholder = t('한 줄 설명 (선택)', 'One-line description (optional)');
   $('libReportDetail').placeholder = t('덧붙일 말 (선택)', 'Anything to add (optional)');
-  /* 인형뽑기의 안내와 버튼. 문제·답의 방향(clawFlip)은 건드리지 않는다 —
-     하던 판 도중에 뒤집히면 그 판을 버리는 셈이다. */
+  // 인형뽑기의 안내와 버튼. 문제·답은 사람이 넣은 단어라 번역하지 않는다.
   if (showing('clawView')) {
     clawSyncStatic();
     if (clawDone) clawSyncOver();
@@ -4355,32 +4391,15 @@ async function deleteResource(id) {
 /* ══ 게임 : 인형뽑기 ═══════════════════════════════════════════
    뜻을 하나 보여 주고, 그 뜻에 맞는 단어를 쓴 인형을 뽑게 한다.
 
-   ── 왜 로그인을 안 막는가 ────────────────────────────────────
-   지금 이 사이트가 하는 가장 큰 일은 처음 온 사람을 붙잡는 것이다.
-   로그인 벽을 먼저 세우면 놀아 보기도 전에 돌아간다. 그래서 단어가
-   없으면 맛보기로 놀게 하고, 노는 중에 "내 단어로 하고 싶다" 는
-   생각이 들 때 로그인을 권한다.
+   ── 내 단어장 단어로만 논다 ──────────────────────────────────
+   그래서 로그인이 필요하다. 아무 단어나 내면 그냥 심심풀이지만, 내가
+   저장해 둔 단어가 나오면 노는 것이 곧 복습이 된다. 로그인 전에는
+   무엇이 기다리는지 알려 주고 로그인으로 보낸다.
 
    ── 왜 캔버스가 아닌가 ───────────────────────────────────────
    인형 이름은 사람이 넣은 글이다. DOM 이면 textContent 로 넣어 끝이고
-   글자 크기·줄임표·화면 낭독까지 브라우저가 해 준다. 캔버스로 그리면
+   글자 크기·줄바꿈·화면 낭독까지 브라우저가 해 준다. 캔버스로 그리면
    그 전부를 손으로 다시 만들어야 한다. */
-
-// 맛보기 단어. 앱을 안 깔아도, 로그인을 안 해도 바로 놀 수 있어야 한다.
-const CLAW_SAMPLE = [
-  { word: 'perseverance', meaning: '인내, 끈기' },
-  { word: 'curious',      meaning: '호기심 많은' },
-  { word: 'harvest',      meaning: '수확' },
-  { word: 'lantern',      meaning: '등불' },
-  { word: 'whisper',      meaning: '속삭이다' },
-  { word: 'brave',        meaning: '용감한' },
-  { word: 'journey',      meaning: '여정' },
-  { word: 'gentle',       meaning: '다정한' },
-  { word: 'sparkle',      meaning: '반짝이다' },
-  { word: 'puzzle',       meaning: '수수께끼' },
-  { word: 'melody',       meaning: '선율' },
-  { word: 'comfort',      meaning: '위로' },
-];
 
 const CLAW_ROUNDS = 5;
 const CLAW_DOLLS  = 4;
@@ -4391,22 +4410,21 @@ const CLAW_MIN = 10, CLAW_MAX = 90, CLAW_SPEED = 0.55;
    잡히고 사이에서는 헛집는다. 0 에 가깝게 두면 실력이 아니라 운이 된다. */
 const CLAW_CATCH = 9;
 
-let clawPool = [];       // [{word, meaning}]
-let clawMine = false;    // 내 단어장에서 왔는가
-/* 문제와 답을 뒤집었는가. 맛보기 단어는 영어-한국어 쌍이라, 영어로 보는
-   사람에게 "인내, 끈기" 를 문제로 내면 읽을 수가 없다. 그 경우에만
-   영어를 문제로 내고 한국어를 뽑게 한다 — 한국어를 배우는 쪽에 맞다.
-   판이 시작될 때 한 번 정하고 중간에 바꾸지 않는다. 하던 판의 문제와
-   답이 갑자기 뒤바뀌면 그 판을 버리는 셈이다. */
-let clawFlip = false;
+let clawPool = [];       // [{word, meaning}] — 내 단어장에서 온 것
 let clawRound = 0, clawScore = 0;
 let clawTarget = null;
 let clawBusy = false;    // 집는 중 — 두 번 눌리면 두 번 내려간다
 let clawDone = false;
 let clawRaf = 0, clawX = 50, clawDir = 1;
 
-const clawLabel = (w) => (clawFlip ? w.meaning : w.word);
-const clawQuestion = (w) => (clawFlip ? w.word : w.meaning);
+// 한 번에 하나만 보여 준다. 각자 토글하면 두 개가 겹쳐 뜬다.
+const CLAW_PANELS = ['clawLoading', 'clawNeedLogin', 'clawFew', 'clawErr', 'clawPlay', 'clawOver'];
+function clawPanel(name) {
+  CLAW_PANELS.forEach((k) => $(k).classList.toggle('hidden', k !== name));
+  // 점수 알약은 놀고 있을 때만 뜻이 있다. 로그인 안내 옆에 "0 / 5" 가
+  // 붙어 있으면 이미 시작한 줄 안다.
+  $('clawPills').classList.toggle('hidden', name !== 'clawPlay' && name !== 'clawOver');
+}
 
 // ── 집게 움직임 ──────────────────────────────────────────────
 function clawTick() {
@@ -4421,21 +4439,28 @@ function clawStop() { if (clawRaf) cancelAnimationFrame(clawRaf); clawRaf = 0; }
 // 위 고전 스크립트의 ptShow 가 화면을 넘길 때 부른다.
 window.clawStop = clawStop;
 
-// ── 단어 모으기 ──────────────────────────────────────────────
+/* ── 단어 모으기 ─────────────────────────────────────────────
+   왜 이렇게 됐는지를 돌려준다. 못 놀 때 "안 됩니다" 만 뜨면 로그인을
+   해야 하는지, 단어를 더 넣어야 하는지, 잠시 뒤 다시 오면 되는지
+   알 수 없다. */
 async function clawLoadPool() {
   try {
     const { data: { session } } = await sb.auth.getSession();
-    if (session) {
-      const { data } = await sb.from('words')
-        .select('word, meaning').eq('user_id', session.user.id).limit(300);
-      const ok = (data || []).filter((w) => w.word?.trim() && w.meaning?.trim());
-      if (ok.length >= CLAW_DOLLS) { clawPool = ok; clawMine = true; return; }
-    }
+    if (!session) return 'clawNeedLogin';
+
+    const { data, error } = await sb.from('words')
+      .select('word, meaning').eq('user_id', session.user.id).limit(300);
+    if (error) return 'clawErr';
+
+    // 단어나 뜻이 빈 줄은 문제로 낼 수 없다.
+    const ok = (data || []).filter((w) => w.word?.trim() && w.meaning?.trim());
+    if (ok.length < CLAW_DOLLS) return 'clawFew';
+
+    clawPool = ok;
+    return 'clawPlay';
   } catch (e) {
-    // 못 읽어도 게임은 열려야 한다. 맛보기로 논다.
+    return 'clawErr';
   }
-  clawPool = CLAW_SAMPLE;
-  clawMine = false;
 }
 
 // ── 한 판 깔기 ───────────────────────────────────────────────
@@ -4450,7 +4475,7 @@ function clawDeal() {
   for (const i of idx) {
     const w = clawPool[i];
     // 같은 이름표가 둘이면 어느 것을 뽑아도 맞아 버려 문제가 성립하지 않는다.
-    if (pick.some((p) => clawLabel(p) === clawLabel(w))) continue;
+    if (pick.some((p) => p.word === w.word)) continue;
     pick.push(w);
     if (pick.length === CLAW_DOLLS) break;
   }
@@ -4472,8 +4497,8 @@ function clawDeal() {
         '<div class="doll-face"><i class="doll-eye"></i><i class="doll-eye"></i></div>' +
         '<div class="doll-mouth"></div>' +
       '</div><span class="doll-tag"></span>';
-    // 사람이 넣은 글이다. innerHTML 로 넣으면 남의 단어가 태그가 된다.
-    el.querySelector('.doll-tag').textContent = clawLabel(w);
+    // 사람이 넣은 글이다. innerHTML 로 넣으면 내 단어가 태그가 된다.
+    el.querySelector('.doll-tag').textContent = w.word;
     machine.appendChild(el);
   });
 }
@@ -4513,7 +4538,7 @@ function clawGo() {
 }
 
 function clawJudge(hit) {
-  const answer = clawLabel(clawTarget);
+  const answer = clawTarget.word;
   const got = hit ? hit.querySelector('.doll-tag').textContent : null;
 
   if (got === answer) {
@@ -4541,7 +4566,7 @@ function clawNext() {
   clawRound++;
   clawDeal();
   clawPills();
-  $('clawTarget').textContent = clawQuestion(clawTarget);
+  $('clawTarget').textContent = clawTarget.meaning;
   clawSay('', '');
   clawBusy = false;
   $('clawGrab').disabled = false;
@@ -4551,8 +4576,7 @@ function clawNext() {
 function clawFinish() {
   clawDone = true;
   clawStop();
-  $('clawPlay').classList.add('hidden');
-  $('clawOver').classList.remove('hidden');
+  clawPanel('clawOver');
   clawSyncOver();
 }
 
@@ -4564,15 +4588,19 @@ async function clawStart() {
   $('clawUnit').classList.remove('shut');
   $('clawUnit').style.left = '50%';
   $('clawCord').style.height = '26px';
-  $('clawOver').classList.add('hidden');
-  $('clawPlay').classList.remove('hidden');
   $('clawGrab').disabled = true;
-  $('clawTarget').textContent = t('불러오는 중…', 'Loading…');
   clawSay('', '');
-
-  if (!clawPool.length) await clawLoadPool();
-  clawFlip = !clawMine && isEn();
   clawSyncStatic();
+
+  /* 판을 시작할 때마다 다시 읽는다. 한 번 읽어 두면 앱에서 방금 넣은
+     단어가 안 나오고, 그 사이 세션이 끊겨도 계속 놀 수 있는 것처럼
+     보인다. 조회 한 번 값이라 아낄 이유가 없다. */
+  clawPanel('clawLoading');
+  const where = await clawLoadPool();
+  // 로그인이 필요하거나, 단어가 모자라거나, 못 읽었다.
+  if (where !== 'clawPlay') { clawPanel(where); return; }
+
+  clawPanel('clawPlay');
   clawNext();
 }
 
@@ -4592,24 +4620,10 @@ function clawPills() {
    통째로 바꾸므로 여기 글에는 data-en 을 달 수 없다. */
 function clawSyncStatic() {
   $('clawBackTxt').textContent = t('게임', 'Games');
-  $('clawAskLabel').textContent = clawFlip
-    ? t('이 단어의 뜻을 뽑으세요', 'Grab the meaning of this word')
-    : t('이 뜻을 가진 단어를 뽑으세요', 'Grab the word for this meaning');
+  $('clawAskLabel').textContent = t('이 뜻을 가진 단어를 뽑으세요', 'Grab the word for this meaning');
   $('clawAgain').textContent = t('다시 하기', 'Play again');
   $('clawToGames').textContent = t('다른 게임 보기', 'Other games');
-
-  const note = $('clawNote');
-  note.textContent = '';
-  if (clawMine) {
-    note.textContent = t('내 단어장에서 가져온 단어예요.', 'These come from your wordbook.');
-  } else {
-    note.append(t('맛보기 단어로 놀고 있어요. ', 'You are playing with a sample set. '));
-    const b = document.createElement('button');
-    b.type = 'button';
-    b.textContent = t('로그인하면 내 단어로 놀 수 있어요', 'Sign in to play with your own words');
-    b.addEventListener('click', () => open('account'));
-    note.append(b);
-  }
+  $('clawNote').textContent = t('내 단어장에 저장해 둔 단어예요.', 'These come from your own wordbook.');
 }
 
 function clawSyncOver() {
@@ -4624,6 +4638,9 @@ function clawSyncOver() {
 }
 
 $('gcClaw').addEventListener('click', () => { open('claw'); clawStart(); });
+$('clawGoLogin').addEventListener('click', () => open('account'));
+$('clawGoLib').addEventListener('click', () => { open('library'); loadLibrary(); });
+$('clawRetry').addEventListener('click', () => clawStart());
 $('clawBack').addEventListener('click', () => open('games'));
 $('clawToGames').addEventListener('click', () => open('games'));
 $('clawAgain').addEventListener('click', () => clawStart());
