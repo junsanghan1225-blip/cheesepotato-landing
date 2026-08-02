@@ -1071,12 +1071,27 @@ body.nav-open { overflow:hidden; }
   content:''; position:absolute; inset:0; pointer-events:none; z-index:4;
   background:linear-gradient(115deg, rgba(255,255,255,.5) 0 20%, transparent 20% 44%, rgba(255,255,255,.28) 44% 51%, transparent 51%);
 }
-.claw-rail { position:absolute; top:24px; left:0; right:0; height:3px; background:rgba(44,88,172,.22); }
-
-.claw-unit {
-  position:absolute; top:24px; left:50%; z-index:3;
-  transform:translateX(-50%); will-change:left;
+/* ── 깊이 ────────────────────────────────────────────────────
+   앞뒤는 진짜 3D 가 아니라 눈속임이다. 뒤로 갈수록 (1) 위로 올라가고
+   (2) 작아지고 (3) 앞엣것에 가린다. 이 셋이면 사람 눈은 깊이로 읽는다.
+   z 는 0(앞) ~ 1(뒤). 값은 자바스크립트가 --z 로 넣는다. */
+.claw-rail {
+  position:absolute; left:0; right:0; height:3px;
+  /* 집게와 같은 식으로 움직인다. 여기에 transition 을 걸면 매 프레임
+     새 목표가 잡혀 레일만 뒤늦게 따라오고 집게가 허공에 걸린다. */
+  top:calc(34px - var(--z, 0) * 16px);
+  background:rgba(44,88,172,.22);
 }
+.claw-unit {
+  position:absolute; left:50%; z-index:3;
+  top:calc(34px - var(--z, 0) * 16px);
+  transform:translateX(-50%) scale(calc(1 - var(--z, 0) * .12));
+  transform-origin:top center;
+  will-change:left, top;
+}
+/* 출구로 실어 나를 때만 미끄러진다. 평소에 걸어 두면 손잡이를 누르는
+   동안 매 프레임 새 목표가 잡혀 집게가 손을 늦게 따라온다. */
+.claw-unit.carry { transition:left .6s cubic-bezier(.4,0,.2,1), top .6s cubic-bezier(.4,0,.2,1); }
 .claw-cord { width:3px; height:26px; margin:0 auto; background:#6C7D91; transition:height .45s ease-in; }
 .claw-head { position:relative; width:52px; height:30px; margin-top:-1px; }
 .claw-head::before {
@@ -1095,13 +1110,33 @@ body.nav-open { overflow:hidden; }
 .claw-unit.shut .claw-arm.r { transform:rotate(4deg); }
 
 /* 인형 무더기가 놓이는 바닥 */
-.claw-bed { position:absolute; left:0; right:0; bottom:0; height:96px; background:rgba(44,88,172,.10); border-top:1px solid rgba(44,88,172,.14); }
+.claw-bed { position:absolute; left:0; right:0; bottom:0; height:140px; background:rgba(44,88,172,.10); border-top:1px solid rgba(44,88,172,.14); }
+
+/* ── 출구 ────────────────────────────────────────────────────
+   뽑은 인형이 여기로 떨어진다. 앞쪽 왼편에 두는 것은 진짜 기계와
+   같은 자리라서다 — 처음 보는 사람도 어디로 나올지 짐작한다. */
+.chute {
+  position:absolute; left:4%; bottom:8px; z-index:1;
+  width:82px; height:52px; border-radius:10px 10px 14px 14px;
+  background:linear-gradient(180deg,#1B2733,#0E151D);
+  box-shadow:inset 0 6px 12px rgba(0,0,0,.65), 0 0 0 3px rgba(255,255,255,.55);
+}
+.chute-lip {
+  position:absolute; left:-3px; right:-3px; top:-7px; height:12px; border-radius:8px;
+  background:linear-gradient(180deg,#FFF,#C9DCEC);
+  box-shadow:0 2px 4px -1px rgba(27,53,90,.4);
+}
+.chute-txt {
+  position:absolute; left:0; right:0; bottom:7px;
+  color:#7FA6C8; font-size:9.5px; font-weight:800; letter-spacing:.16em; text-align:center;
+}
 
 .doll {
-  position:absolute; bottom:14px; z-index:2;
+  position:absolute; z-index:2;
   width:76px; margin-left:-38px;
   text-align:center;
-  transition:bottom .5s cubic-bezier(.4,0,.2,1), left .2s ease, opacity .3s, transform .3s;
+  transform-origin:bottom center;
+  transition:bottom .5s cubic-bezier(.4,0,.2,1), left .35s ease, opacity .3s, transform .3s;
 }
 
 /* 치즈와 감자. 앱 이름이 치즈감자라 인형도 그 둘이다.
@@ -1157,8 +1192,9 @@ body.nav-open { overflow:hidden; }
      overflow-wrap 이 쪼갠다. */
   line-height:1.35; word-break:keep-all; overflow-wrap:break-word;
 }
-.doll.won  { opacity:0; transform:scale(.6) translateY(-14px); }
-.doll.dim  { opacity:.35; }
+/* 출구로 빨려 들어가는 모습. 크기는 인라인으로 정하므로(깊이마다 다르다)
+   여기서는 투명도만 건드린다 — transform 을 여기 두면 인라인 값을 덮는다. */
+.doll.won { opacity:0; }
 
 /* ── 조작판 ──────────────────────────────────────────────────
    전광판 · 버튼 둘 · 조이스틱. 진짜 기계처럼 세 덩어리로 나눈다. */
@@ -1197,21 +1233,27 @@ body.nav-open { overflow:hidden; }
 
 .cab-stick {
   grid-area:stick;
-  display:flex; align-items:center; gap:8px;
-  padding:10px 12px; border-radius:16px;
+  display:grid; gap:4px; justify-items:center; align-items:center;
+  grid-template-columns:repeat(3, auto); grid-template-rows:repeat(3, auto);
+  padding:8px 10px; border-radius:16px;
   background:linear-gradient(180deg,rgba(255,255,255,.7),rgba(255,255,255,.35));
   box-shadow:inset 0 2px 0 rgba(255,255,255,.9), inset 0 -2px 6px rgba(44,88,172,.18);
 }
+.cab-arrow.up    { grid-area:1 / 2; }
+.cab-arrow.left  { grid-area:2 / 1; }
+.stick           { grid-area:2 / 2; }
+.cab-arrow.right { grid-area:2 / 3; }
+.cab-arrow.down  { grid-area:3 / 2; }
 .cab-arrow {
-  width:34px; height:44px; border:none; border-radius:10px; cursor:pointer;
-  background:#F3F8FC; color:#3A6FC4; font-size:13px;
+  width:34px; height:30px; border:none; border-radius:9px; cursor:pointer;
+  background:#F3F8FC; color:#3A6FC4; font-size:12px; line-height:1;
   box-shadow:0 3px 0 -1px rgba(44,88,172,.35);
   transition:transform .1s, box-shadow .1s, background .16s;
 }
 .cab-arrow:hover { background:#E4F0FA; }
 .cab-arrow:active, .cab-arrow.on { transform:translateY(2px); box-shadow:0 1px 0 -1px rgba(44,88,172,.35); background:#D6E8F8; }
 /* 조이스틱. 누르는 쪽으로 기울어야 손이 닿는 느낌이 난다. */
-.stick { position:relative; display:block; width:38px; height:44px; }
+.stick { position:relative; display:block; width:38px; height:40px; }
 .stick::after {
   content:''; position:absolute; left:50%; bottom:0; transform:translateX(-50%);
   width:34px; height:12px; border-radius:50%;
@@ -1231,6 +1273,10 @@ body.nav-open { overflow:hidden; }
 }
 .stick.l i { transform:translateX(-50%) rotate(-22deg); }
 .stick.r i { transform:translateX(-50%) rotate(22deg); }
+/* 앞뒤로 밀면 옆으로 기울 데가 없다. 밀면 짧아 보이고(멀어짐) 당기면
+   길어 보이게 해서 같은 손잡이로 네 방향을 다 읽게 한다. */
+.stick.u i { transform:translateX(-50%) scaleY(.78); }
+.stick.d i { transform:translateX(-50%) scaleY(1.1) translateY(3px); }
 
 .claw-msg { min-height:26px; margin-top:16px; text-align:center; font-size:15px; font-weight:600; color:var(--ink-2); }
 .claw-msg.good { color:var(--green); }
@@ -1388,13 +1434,16 @@ body.nav-open { overflow:hidden; }
   .cab-screen { height:46px; }
   .cab-screen span { font-size:13px; letter-spacing:.12em; }
   .cab-btn { min-height:48px; font-size:11px; letter-spacing:.05em; }
-  .cab-stick { padding:8px 9px; gap:6px; }
-  .cab-arrow { width:30px; height:40px; }
-  .stick { width:32px; height:40px; }
+  /* 폰에서는 이 넷이 유일한 조작이다. 작으면 계속 빗나가 누른다. */
+  .cab-stick { padding:6px 6px; gap:3px; }
+  .cab-arrow { width:34px; height:30px; font-size:11px; }
+  .stick { width:30px; height:34px; }
+  .chute { width:70px; height:46px; }
+  .chute-txt { font-size:9px; }
 
-  /* 인형 넷이 좁은 화면에 들어가려면 몸집을 줄여야 한다. 이름표가
-     먼저 잘리면 무엇을 뽑는 게임인지 알 수 없으므로 몸을 줄인다. */
-  .claw-machine { height:290px; }
+  /* 인형이 두 줄로 서면서 세로도 그만큼 필요해졌다. 290px 로 두면
+     뒷줄 위로 집게가 오갈 자리가 안 남는다. */
+  .claw-machine { height:320px; }
   .doll { width:62px; margin-left:-31px; }
   .doll-body { width:46px; height:44px; }
   .doll-body.cheese { border-radius:24px 24px 11px 11px; }
@@ -1993,8 +2042,10 @@ body.nav-open { overflow:hidden; }
         </div>
 
         <div class="claw-machine" id="clawMachine">
-          <div class="claw-rail"></div>
           <div class="claw-bed"></div>
+          <!-- 뽑은 인형이 떨어지는 구멍. 앞쪽 왼편, 진짜 기계와 같은 자리다. -->
+          <div class="chute"><span class="chute-lip"></span><span class="chute-txt" data-en="EXIT">출구</span></div>
+          <div class="claw-rail" id="clawRail"></div>
           <div class="claw-unit" id="clawUnit">
             <div class="claw-cord" id="clawCord"></div>
             <div class="claw-head"><i class="claw-arm l"></i><i class="claw-arm r"></i></div>
@@ -2011,10 +2062,13 @@ body.nav-open { overflow:hidden; }
             <button class="cab-btn drop" id="clawGrab" type="button">LOWER<br>CLAW</button>
           </div>
 
+          <!-- 네 방향. 진짜 기계처럼 앞뒤로도 움직인다. -->
           <div class="cab-stick">
-            <button class="cab-arrow" id="clawLeft" type="button" aria-label="집게를 왼쪽으로">◀</button>
+            <button class="cab-arrow up"    id="clawUp"    type="button" aria-label="집게를 뒤로">▲</button>
+            <button class="cab-arrow left"  id="clawLeft"  type="button" aria-label="집게를 왼쪽으로">◀</button>
             <span class="stick" id="clawStick"><i></i></span>
-            <button class="cab-arrow" id="clawRight" type="button" aria-label="집게를 오른쪽으로">▶</button>
+            <button class="cab-arrow right" id="clawRight" type="button" aria-label="집게를 오른쪽으로">▶</button>
+            <button class="cab-arrow down"  id="clawDown"  type="button" aria-label="집게를 앞으로">▼</button>
           </div>
         </div>
       </div>
@@ -4549,17 +4603,31 @@ const CLAW_ROUNDS = 5;
 const CLAW_DOLLS  = 4;
 // 집게가 오가는 범위와 속도(% / 프레임). 인형은 이 안에 놓는다.
 const CLAW_MIN = 10, CLAW_MAX = 90, CLAW_SPEED = 0.85;
+// 앞뒤. 0 이 앞(나에게 가까운 줄), 1 이 뒤. 한쪽 끝에서 끝까지 약 1.2초.
+const CLAW_ZSPEED = 0.014;
+// 인형이 놓이는 두 줄의 깊이와, 바닥에서 띄우는 높이(px).
+const CLAW_ROW_Z = [0, 1];
+const CLAW_ROW_Y = [14, 62];
+// 출구 자리. CSS 의 .chute 와 같은 곳을 가리켜야 한다.
+const CLAW_EXIT_X = 12, CLAW_EXIT_Z = 0;
 const CLAW_BEST_KEY = 'clawBest';
-/* 잡히는 거리. 인형 간격이 25% 인데 9% 로 두면 인형 위에서는 넉넉히
-   잡히고 사이에서는 헛집는다. 0 에 가깝게 두면 실력이 아니라 운이 된다. */
-const CLAW_CATCH = 9;
+/* 잡히는 거리. 가로는 인형 사이가 25% 안팎이라 9% 면 인형 위에서는
+   넉넉히 잡히고 사이에서는 헛집는다. 0 에 가깝게 두면 실력이 아니라
+   운이 된다. 깊이는 줄이 앞뒤 둘뿐이라 넉넉히 0.4 를 준다 — 손잡이를
+   끝까지 밀지 않아도 그 줄로 읽힌다. */
+const CLAW_CATCH = 9, CLAW_ZCATCH = 0.4;
+/* 인형 한 마리가 제 바닥에서 위로 차지하는 높이(몸 + 이름표). 집게가
+   얼마나 내려가야 닿는지, 들어 올렸을 때 어디에 매달리는지를 여기서 잰다. */
+const CLAW_DOLL_H = 82;
 
 let clawPool = [];       // [{word, meaning}] — 내 단어장에서 온 것
 let clawRound = 0, clawScore = 0;
 let clawTarget = null;
 let clawBusy = false;    // 집는 중 — 두 번 눌리면 두 번 내려간다
 let clawDone = false;
-let clawRaf = 0, clawX = 50, clawDir = 0;   // clawDir: -1 왼쪽 · 0 멈춤 · 1 오른쪽
+let clawRaf = 0;
+let clawX = 50, clawZ = 0;                  // 가로(%) 와 깊이(0 앞 ~ 1 뒤)
+let clawDx = 0, clawDz = 0;                 // 누르고 있는 방향
 
 // 한 번에 하나만 보여 준다. 각자 토글하면 두 개가 겹쳐 뜬다.
 const CLAW_PANELS = ['clawLoading', 'clawNeedLogin', 'clawFew', 'clawErr', 'clawPlay', 'clawOver'];
@@ -4571,32 +4639,48 @@ function clawPanel(name) {
    저절로 오가지 않는다. ◀▶ 를 누르고 있는 동안만 움직이고, 놓으면
    그 자리에 선다 — 진짜 오락실 기계가 그렇다. 조준이 쉬워진 만큼
    승부는 온전히 "이 뜻의 단어가 무엇인가" 로 넘어간다. */
-function clawTick() {
-  if (!clawDir) { clawRaf = 0; return; }   // 놓으면 루프도 같이 끝난다
-  clawX = Math.min(CLAW_MAX, Math.max(CLAW_MIN, clawX + clawDir * CLAW_SPEED));
+const CLAW_ARROWS = { '-1,0': 'clawLeft', '1,0': 'clawRight', '0,-1': 'clawDown', '0,1': 'clawUp' };
+
+/** 집게를 지금 좌표에 놓는다. 깊이는 CSS 가 --z 로 받아 높이·크기로 바꾼다. */
+function clawPlace() {
   $('clawUnit').style.left = clawX + '%';
+  $('clawUnit').style.setProperty('--z', clawZ);
+  $('clawRail').style.setProperty('--z', clawZ);
+}
+
+function clawTick() {
+  if (!clawDx && !clawDz) { clawRaf = 0; return; }   // 놓으면 루프도 같이 끝난다
+  clawX = Math.min(CLAW_MAX, Math.max(CLAW_MIN, clawX + clawDx * CLAW_SPEED));
+  clawZ = Math.min(1, Math.max(0, clawZ + clawDz * CLAW_ZSPEED));
+  clawPlace();
   clawRaf = requestAnimationFrame(clawTick);
 }
+
 function clawStop() {
-  clawDir = 0;
+  clawDx = 0; clawDz = 0;
   if (clawRaf) cancelAnimationFrame(clawRaf);
   clawRaf = 0;
   $('clawStick').className = 'stick';
-  $('clawLeft').classList.remove('on');
-  $('clawRight').classList.remove('on');
+  Object.values(CLAW_ARROWS).forEach((id) => $(id).classList.remove('on'));
 }
 // 위 고전 스크립트의 ptShow 가 화면을 넘길 때 부른다.
 window.clawStop = clawStop;
 
-function clawHold(dir) {
+/**
+ * dx: -1 왼쪽 · 1 오른쪽 / dz: -1 앞으로 · 1 뒤로.
+ *
+ * 한 번에 한 방향만 간다. 대각선까지 받으면 버튼 넷으로는 낼 수 없는
+ * 입력이라 키보드로 하는 사람과 손가락으로 하는 사람의 조작이 갈린다.
+ */
+function clawHold(dx, dz) {
   if (clawBusy || clawDone || $('clawPlay').classList.contains('hidden')) return;
-  if (clawDir === dir) return;
-  clawDir = dir;
-  $('clawStick').className = 'stick ' + (dir < 0 ? 'l' : 'r');
-  // 한쪽을 누른 채 반대쪽을 누르면 방향은 바뀌는데 눌린 표시가 둘 다
-  // 남는다. 먼저 지우고 새로 켠다.
-  $('clawLeft').classList.toggle('on', dir < 0);
-  $('clawRight').classList.toggle('on', dir > 0);
+  if (clawDx === dx && clawDz === dz) return;
+  clawDx = dx; clawDz = dz;
+  $('clawStick').className = 'stick ' + (dx < 0 ? 'l' : dx > 0 ? 'r' : dz > 0 ? 'u' : 'd');
+  // 한쪽을 누른 채 다른 쪽을 누르면 방향은 바뀌는데 눌린 표시가 둘 다
+  // 남는다. 먼저 다 지우고 새로 켠다.
+  const on = CLAW_ARROWS[dx + ',' + dz];
+  Object.values(CLAW_ARROWS).forEach((id) => $(id).classList.toggle('on', id === on));
   if (!clawRaf) clawRaf = requestAnimationFrame(clawTick);
 }
 
@@ -4652,15 +4736,28 @@ function clawDeal() {
 
   clawTarget = pick[Math.floor(Math.random() * pick.length)];
 
+  /* 가로로 고르게 벌려 놓고 앞줄·뒷줄을 번갈아 준다.
+     같은 x 에 앞뒤로 겹쳐 놓으면 뒤엣것의 이름표가 앞 인형 몸에 가려
+     안 읽힌다. 지그재그로 두면 다 읽히고, 무더기도 더 그럴듯해진다.
+
+     맨 왼쪽을 뒷줄에 주는 것은 앞쪽 왼편이 출구 자리라서다. */
   const n = pick.length;
-  const step = n > 1 ? (CLAW_MAX - CLAW_MIN - 4) / (n - 1) : 0;
+  const lo = CLAW_MIN + 2, hi = CLAW_MAX - 2;
+  const step = n > 1 ? (hi - lo) / (n - 1) : 0;
   const machine = $('clawMachine');
   machine.querySelectorAll('.doll').forEach((d) => d.remove());
 
   pick.forEach((w, i) => {
+    const at = { x: n > 1 ? lo + step * i : 50, row: i % 2 === 0 ? 1 : 0 };
     const el = document.createElement('div');
     el.className = 'doll';
-    el.style.left = (CLAW_MIN + 2 + step * i) + '%';
+    el.style.left = at.x + '%';
+    el.style.bottom = CLAW_ROW_Y[at.row] + 'px';
+    // 뒤에 놓인 것은 작게 그리고 앞엣것에 가리게 둔다 — 그래야 깊이로 읽힌다.
+    el.style.transform = 'scale(' + (1 - CLAW_ROW_Z[at.row] * 0.18) + ')';
+    el.style.zIndex = at.row === 0 ? 2 : 1;
+    el.dataset.z = CLAW_ROW_Z[at.row];
+    el.dataset.row = at.row;
     // 치즈와 감자를 번갈아 놓는다. 같은 것만 넷이면 무더기가 심심하다.
     el.innerHTML =
       '<div class="doll-body ' + (i % 2 ? 'potato' : 'cheese') + '">' +
@@ -4686,28 +4783,54 @@ function clawGo() {
 
   const machine = $('clawMachine');
   const unit = $('clawUnit');
-  const dolls = [...machine.querySelectorAll('.doll')];
 
-  let hit = null, best = 999;
-  for (const el of dolls) {
-    const dx = Math.abs(parseFloat(el.style.left) - clawX);
-    if (dx < best) { best = dx; hit = el; }
+  /* 가로와 깊이를 함께 본다. 각 축을 저마다의 허용 거리로 나눠서 재면
+     "가로로는 멀지만 깊이로는 딱" 같은 애매한 경우가 한 값으로 정리된다. */
+  let hit = null, best = Infinity;
+  for (const el of machine.querySelectorAll('.doll')) {
+    const dx = (parseFloat(el.style.left) - clawX) / CLAW_CATCH;
+    const dz = (parseFloat(el.dataset.z) - clawZ) / CLAW_ZCATCH;
+    const d = dx * dx + dz * dz;
+    if (d < best) { best = d; hit = el; }
   }
-  if (best > CLAW_CATCH) hit = null;
+  if (best > 1) hit = null;                          // 둘 다 안 닿으면 빈손
 
   const h = machine.clientHeight;
   const cord = $('clawCord');
+  const railY = 34 - clawZ * 16;
+  // 앞줄은 낮게 놓여 있어 그만큼 더 내려가야 한다.
+  const floorY = CLAW_ROW_Y[0] + clawZ * (CLAW_ROW_Y[1] - CLAW_ROW_Y[0]);
 
-  cord.style.height = (h - 24 - 96) + 'px';          // 내려간다
+  cord.style.height = (h - railY - floorY - CLAW_DOLL_H - 30) + 'px';   // 내려간다
   setTimeout(() => {                                  // 오므린다
     unit.classList.add('shut');
     if (hit) hit.style.left = clawX + '%';
   }, 470);
   setTimeout(() => {                                  // 올라온다
     cord.style.height = '26px';
-    if (hit) hit.style.bottom = (h - 104) + 'px';
+    if (hit) hit.style.bottom = (h - railY - 56 - CLAW_DOLL_H) + 'px';
   }, 700);
   setTimeout(() => clawJudge(hit), 1260);
+}
+
+/**
+ * 뽑은 인형을 출구까지 옮겨 떨어뜨린다.
+ *
+ * 집자마자 사라지게 두면 "뽑았다" 는 실감이 안 난다. 기계가 손님 앞으로
+ * 물건을 날라다 주는 그 몇 초가 인형뽑기의 값이다.
+ */
+function clawDeliver(doll) {
+  $('clawUnit').classList.add('carry');
+  clawX = CLAW_EXIT_X; clawZ = CLAW_EXIT_Z;
+  clawPlace();
+  doll.style.left = CLAW_EXIT_X + '%';
+
+  setTimeout(() => {
+    $('clawUnit').classList.remove('shut');           // 놓는다
+    doll.style.bottom = '10px';
+    doll.style.transform = 'scale(.45)';
+    doll.classList.add('won');                        // 구멍으로 사라진다
+  }, 620);
 }
 
 function clawJudge(hit) {
@@ -4716,7 +4839,7 @@ function clawJudge(hit) {
 
   if (got === answer) {
     clawScore++;
-    hit.classList.add('won');
+    clawDeliver(hit);
     clawSay('good', t('맞았어요! 🎉', 'Got it! 🎉'));
     clawScreen('win', 'WINNER!');
   } else if (got) {
@@ -4724,22 +4847,30 @@ function clawJudge(hit) {
                      `So close — the answer was “${answer}”.`));
     clawScreen('miss', 'TRY AGAIN');
   } else {
-    clawSay('bad', t('빈손이에요. 인형 바로 위에 세우고 눌러 보세요.',
-                     'Empty claw — line it up over a doll first.'));
+    // 양옆만 맞추고 앞뒤를 안 맞춘 경우가 대부분이다. 그 얘기를 해 준다.
+    clawSay('bad', t('빈손이에요. 양옆뿐 아니라 앞뒤(▲▼)도 인형에 맞춰 보세요.',
+                     'Empty claw — match the depth (▲▼) too, not just left and right.'));
     clawScreen('miss', 'MISSED');
   }
   clawPills();
 
+  // 맞았으면 출구까지 옮겨 떨어뜨리는 시간을 더 준다. 그 장면이
+  // 이 게임의 상이라 잘라 먹으면 뽑은 맛이 안 난다.
   setTimeout(() => {
     $('clawUnit').classList.remove('shut');
     if (clawRound >= CLAW_ROUNDS) clawFinish();
     else clawNext();
-  }, 1500);
+  }, got === answer ? 2100 : 1500);
 }
 
 // ── 판 넘기기 ────────────────────────────────────────────────
 function clawNext() {
   clawRound++;
+  // 출구까지 실어 나른 뒤라면 집게가 왼쪽 구석에 서 있다. 가운데로
+  // 되돌려 어느 줄이든 같은 거리에서 시작하게 한다.
+  $('clawUnit').classList.remove('carry');
+  clawX = 50; clawZ = 0;
+  clawPlace();
   clawDeal();
   clawPills();
   $('clawTarget').textContent = clawTarget.meaning;
@@ -4767,9 +4898,9 @@ async function clawStart() {
   clawStop();
   clawDone = false; clawBusy = true;
   clawRound = 0; clawScore = 0;
-  clawX = 50; clawDir = 1;
-  $('clawUnit').classList.remove('shut');
-  $('clawUnit').style.left = '50%';
+  clawX = 50; clawZ = 0;
+  $('clawUnit').classList.remove('shut', 'carry');
+  clawPlace();
   $('clawCord').style.height = '26px';
   $('clawGrab').disabled = true;
   clawSay('', '');
@@ -4821,8 +4952,8 @@ function clawSyncStatic() {
   $('clawAskLabel').textContent = t('이 뜻을 가진 단어를 뽑으세요', 'Grab the word for this meaning');
   $('clawAgain').textContent = t('다시 하기', 'Play again');
   $('clawToGames').textContent = t('다른 게임 보기', 'Other games');
-  $('clawNote').textContent = t('◀ ▶ 로 집게를 옮기고 LOWER CLAW 를 누르세요. 단어는 내 단어장에서 옵니다.',
-                                'Move the claw with ◀ ▶ and press LOWER CLAW. The words come from your wordbook.');
+  $('clawNote').textContent = t('◀ ▶ ▲ ▼ 로 앞뒤·양옆을 맞추고 LOWER CLAW 를 누르세요. 뽑은 인형은 출구로 나옵니다.',
+                                'Line it up with ◀ ▶ ▲ ▼, then press LOWER CLAW. What you catch drops out the chute.');
   clawSyncBest();
 }
 
@@ -4851,29 +4982,31 @@ $('clawStart').addEventListener('click', () => clawStart());
    누르고 있는 동안 움직이고 놓으면 선다. pointer 이벤트 하나로 마우스와
    손가락을 같이 받는다. pointerleave·pointercancel 까지 놓아 주지 않으면
    버튼 밖에서 손을 떼었을 때 집게가 계속 달린다. */
-[['clawLeft', -1], ['clawRight', 1]].forEach(([id, dir]) => {
+Object.entries(CLAW_ARROWS).forEach(([dir, id]) => {
+  const [dx, dz] = dir.split(',').map(Number);
   const el = $(id);
-  el.addEventListener('pointerdown', (e) => { e.preventDefault(); clawHold(dir); });
+  el.addEventListener('pointerdown', (e) => { e.preventDefault(); clawHold(dx, dz); });
   ['pointerup', 'pointerleave', 'pointercancel'].forEach((k) => el.addEventListener(k, clawStop));
 });
 // 창을 벗어나면 손을 뗀 것으로 본다(탭 전환 등).
 addEventListener('blur', clawStop);
 
+// 위/아래 키는 앞뒤다. ▲ 가 뒤(멀어짐)인 것은 화면에서 위가 안쪽이라서다.
+const CLAW_KEYS = { ArrowLeft: [-1, 0], ArrowRight: [1, 0], ArrowUp: [0, 1], ArrowDown: [0, -1] };
+
 addEventListener('keydown', (e) => {
   if (!showing('clawView') || $('clawPlay').classList.contains('hidden')) return;
   if (e.target.closest('input, textarea, select')) return;
-  if (e.key === 'ArrowLeft')  { e.preventDefault(); clawHold(-1); }
-  else if (e.key === 'ArrowRight') { e.preventDefault(); clawHold(1); }
-  else if (e.code === 'Space') {
+  const dir = CLAW_KEYS[e.key];
+  if (dir) { e.preventDefault(); clawHold(dir[0], dir[1]); return; }
+  if (e.code === 'Space') {
     // 버튼에 초점이 있으면 브라우저가 이미 누름으로 바꿔 준다. 두 번 집지 않는다.
     if (e.target.closest('button')) return;
     e.preventDefault();
     clawGo();
   }
 });
-addEventListener('keyup', (e) => {
-  if (e.key === 'ArrowLeft' || e.key === 'ArrowRight') clawStop();
-});
+addEventListener('keyup', (e) => { if (CLAW_KEYS[e.key]) clawStop(); });
 
 // ── 헤더 선 ──────────────────────────────────────────────────
 // 맨 위에서는 선을 두지 않는다. 스크롤을 내려 내용이 헤더 밑으로
