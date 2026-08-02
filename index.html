@@ -882,6 +882,105 @@ body.nav-open { overflow:hidden; }
 .dmost-n { margin-left:auto; font-size:13px; font-weight:700; color:var(--orange-deep); white-space:nowrap; }
 .dnote { font-size:13px; color:var(--ink-3); line-height:1.7; word-break:keep-all; }
 
+/* ── 대시보드 : 확장 ─────────────────────────────────────────
+   카드를 그냥 더 쌓으면 스무 장짜리 목록이 된다. 섹션으로 묶고 각
+   섹션에 눈썹 제목을 달아, 무엇을 보는 중인지 늘 알게 한다. */
+
+.dsec { margin:34px 0 0; }
+.dsec:first-child { margin-top:0; }
+.dsec-h {
+  display:flex; align-items:baseline; gap:10px; margin-bottom:14px;
+  font-size:11px; font-weight:700; letter-spacing:.16em; text-transform:uppercase;
+  color:var(--ink-3);
+}
+.dsec-h::after { content:''; flex:1; height:1px; background:var(--line-2); }
+
+/* 큰 숫자 넉 장. 숫자 아래 한 줄로 맥락을 붙인다 — 42 라는 숫자만으로는
+   잘하고 있는 건지 알 수 없다. */
+.kpis { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px; }
+.kpi {
+  background:var(--surface); border:1px solid var(--line); border-radius:var(--r-l);
+  padding:18px 16px;
+}
+.kpi-l { font-size:11.5px; color:var(--ink-3); letter-spacing:.02em; }
+.kpi-v {
+  margin-top:7px; font-size:30px; font-weight:800; letter-spacing:-.04em;
+  color:var(--ink); font-variant-numeric:tabular-nums; line-height:1;
+}
+.kpi-v small { font-size:15px; font-weight:700; color:var(--ink-3); margin-left:3px; letter-spacing:0; }
+.kpi-d { margin-top:8px; font-size:11.5px; color:var(--ink-3); line-height:1.5; word-break:keep-all; }
+.kpi-d.up { color:var(--green); font-weight:600; }
+.kpi-d.warn { color:var(--orange-deep); font-weight:600; }
+
+/* 도넛. 링 하나로 암기율을 보여 준다. 숫자만 있는 것보다 한눈에 들어온다. */
+.ring-wrap { display:flex; align-items:center; gap:22px; flex-wrap:wrap; }
+.ring { width:132px; height:132px; flex:0 0 auto; transform:rotate(-90deg); }
+.ring-bg { fill:none; stroke:rgba(27,21,18,.08); stroke-width:13; }
+.ring-fg { fill:none; stroke:url(#ringGrad); stroke-width:13; stroke-linecap:round;
+           transition:stroke-dashoffset .9s cubic-bezier(.22,1,.36,1); }
+.ring-mid { position:relative; }
+.ring-box { position:relative; width:132px; height:132px; flex:0 0 auto; }
+.ring-num {
+  position:absolute; inset:0; display:flex; flex-direction:column;
+  align-items:center; justify-content:center; gap:2px;
+}
+.ring-num b { font-size:27px; font-weight:800; letter-spacing:-.04em; color:var(--ink); font-variant-numeric:tabular-nums; }
+.ring-num span { font-size:10.5px; color:var(--ink-3); letter-spacing:.08em; text-transform:uppercase; }
+.ring-legend { display:flex; flex-direction:column; gap:10px; min-width:150px; }
+.ring-item { display:flex; align-items:center; gap:9px; font-size:13.5px; color:var(--ink-2); }
+.ring-item i { width:9px; height:9px; border-radius:3px; flex:0 0 auto; }
+.ring-item b { margin-left:auto; color:var(--ink); font-weight:700; font-variant-numeric:tabular-nums; }
+
+/* 선 그래프. 쌓인 단어와 외운 단어를 같이 그려 둘 사이 간격이
+   "아직 안 외운 것" 으로 보이게 한다. */
+.spark { width:100%; height:auto; display:block; overflow:visible; }
+.spark-axis { stroke:var(--line-2); stroke-width:1; }
+.spark-grid { stroke:rgba(27,21,18,.05); stroke-width:1; }
+.spark-fill-a { fill:url(#gradA); }
+.spark-fill-b { fill:url(#gradB); }
+.spark-line-a { fill:none; stroke:var(--orange-mid); stroke-width:2.5; stroke-linejoin:round; stroke-linecap:round; }
+.spark-line-b { fill:none; stroke:var(--green); stroke-width:2.5; stroke-linejoin:round; stroke-linecap:round; }
+.spark-lbl { font-size:10px; fill:var(--ink-3); }
+.legend { display:flex; gap:16px; margin-top:12px; flex-wrap:wrap; }
+.legend span { display:inline-flex; align-items:center; gap:7px; font-size:12px; color:var(--ink-3); }
+.legend i { width:14px; height:3px; border-radius:2px; }
+
+/* 잔디밭. 최근 열두 주를 한 눈에 — 꾸준했는지 몰아쳤는지가 보인다. */
+.heat { display:flex; gap:3px; overflow-x:auto; padding-bottom:4px; }
+.heat-col { display:flex; flex-direction:column; gap:3px; }
+.heat-c { width:13px; height:13px; border-radius:3px; background:rgba(27,21,18,.055); }
+.heat-c.l1 { background:#FBE0C6; }
+.heat-c.l2 { background:#F7BE86; }
+.heat-c.l3 { background:#F0954A; }
+.heat-c.l4 { background:#D9631C; }
+.heat-foot { display:flex; align-items:center; gap:7px; margin-top:12px; font-size:11.5px; color:var(--ink-3); }
+.heat-foot .heat-c { width:11px; height:11px; }
+
+/* 요일 막대 */
+.wk { display:flex; align-items:flex-end; gap:8px; height:96px; }
+.wk-b { flex:1; display:flex; flex-direction:column; justify-content:flex-end; align-items:center; height:100%; }
+.wk-fill { width:100%; border-radius:6px 6px 3px 3px; background:linear-gradient(180deg,#FFC58F,var(--orange)); min-height:4px;
+           transition:height .7s cubic-bezier(.22,1,.36,1); }
+.wk-fill.top { background:linear-gradient(180deg,var(--orange),var(--orange-deep)); }
+.wk-l { margin-top:8px; font-size:11px; color:var(--ink-3); }
+.wk-n { font-size:11px; font-weight:700; color:var(--ink-2); margin-bottom:5px; font-variant-numeric:tabular-nums; }
+
+/* 목록형 카드 — 손이 안 간 단어, 품사별 암기율 */
+.drow { display:flex; align-items:center; gap:12px; padding:11px 0; border-top:1px solid var(--line-2); }
+.drow:first-child { border-top:none; padding-top:0; }
+.drow-w { font-size:15px; font-weight:700; color:var(--ink); letter-spacing:-.02em; }
+.drow-m { font-size:12.5px; color:var(--ink-3); margin-top:2px; }
+.drow-main { min-width:0; flex:1; }
+.drow-main > * { overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+.drow-n { font-size:12px; color:var(--ink-3); white-space:nowrap; font-variant-numeric:tabular-nums; }
+.drow-bar { width:88px; height:6px; border-radius:4px; background:rgba(27,21,18,.07); overflow:hidden; flex:0 0 auto; }
+.drow-bar i { display:block; height:100%; border-radius:4px; background:var(--green); }
+
+.dfill { display:flex; gap:10px; flex-wrap:wrap; }
+.dfill-item { flex:1; min-width:130px; background:var(--surface-2); border:1px solid var(--line-2); border-radius:var(--r); padding:14px; }
+.dfill-v { font-size:20px; font-weight:800; color:var(--ink); letter-spacing:-.03em; font-variant-numeric:tabular-nums; }
+.dfill-l { font-size:11.5px; color:var(--ink-3); margin-top:4px; }
+
 @media (min-width:760px) {
   .dcard { padding:28px; }
   .dgrid2 { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
@@ -1616,6 +1715,22 @@ body.nav-open { overflow:hidden; }
   .game-grid { grid-template-columns:repeat(2, minmax(0,1fr)); }
   /* 인형 더미 위에 집게가 다닐 만큼만. 더 키우면 빈 하늘만 넓어진다. */
   .claw-machine { height:326px; }
+
+  /* 대시보드 — 넓은 화면 */
+  .kpis { grid-template-columns:repeat(4, minmax(0,1fr)); gap:12px; }
+  .kpi { padding:20px 18px; }
+  .kpi-v { font-size:34px; }
+  .heat-c { width:15px; height:15px; }
+  .wk { height:120px; }
+}
+
+@media (max-width:759px) {
+  /* 잔디밭은 열두 주가 다 안 들어가면 옆으로 밀어 본다. */
+  .heat { gap:2.5px; }
+  .heat-col { gap:2.5px; }
+  .heat-c { width:11px; height:11px; }
+  .ring-box, .ring { width:112px; height:112px; }
+  .ring-num b { font-size:23px; }
 }
 </style>
 </head>
@@ -3812,6 +3927,7 @@ sb.auth.onAuthStateChange((_event, session) => {
     $('libNeedLogin').classList.add('hidden');
     dashSettings = null;
     dashAiUsed = null;
+    dashPronUsed = null;
     dashPanel('dashNeedLogin');
     // 열려 있던 단어 폼도 닫는다. 남겨두면 로그아웃한 채로 저장을 누르게 된다.
     $('wbForm2').classList.add('hidden');
@@ -4438,6 +4554,7 @@ const dayKey = (d) => `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2,
 
 let dashSettings = null;
 let dashAiUsed = null;
+let dashPronUsed = null;
 
 async function loadDashboard() {
   const { data: { session } } = await sb.auth.getSession();
@@ -4461,6 +4578,17 @@ async function loadDashboard() {
     dashSettings = st.data ?? null;
     dashAiUsed = usage.data?.count ?? null;
 
+    /* 발음 사용량은 따로 가져온다. pron_count 는 db/add_pron_count.sql 을
+       돌려야 생기는 칸이라, 위 조회에 섞으면 마이그레이션 전에는 조회
+       전체가 400 으로 죽어 대시보드가 통째로 안 뜬다. 없으면 이 줄만
+       조용히 빠진다. */
+    dashPronUsed = null;
+    try {
+      const p = await sb.from('ai_usage').select('pron_count')
+        .eq('user_id', session.user.id).eq('day', today).maybeSingle();
+      if (!p.error) dashPronUsed = p.data?.pron_count ?? null;
+    } catch (e) { /* 칸이 없다 — 발음 줄만 안 보인다 */ }
+
     if (!rows.length) return dashPanel('dashEmpty');
     renderDashboard();
     dashPanel('dashBody');
@@ -4469,11 +4597,83 @@ async function loadDashboard() {
   }
 }
 
-function renderDashboard() {
+/* ── 대시보드 계산 ───────────────────────────────────────────
+   화면을 그리기 전에 숫자를 먼저 다 낸다. 그리는 코드 안에서 계산까지
+   하면 어느 숫자가 어디서 왔는지 나중에 못 찾는다. */
+function dashStats() {
   const st = dashSettings;
   const total = rows.length;
   const done = rows.filter((w) => w.is_remembered).length;
+
+  // 날짜별 집계. 하루를 문자열 앞 열 글자로 자른다 — 시간대 계산을
+  // 끼우면 기기마다 하루 경계가 달라진다.
+  const added = {}, memo = {};
+  rows.forEach((w) => {
+    const a = String(w.created_at || '').slice(0, 10);
+    if (a) added[a] = (added[a] || 0) + 1;
+    if (w.is_remembered) {
+      const m = String(w.remembered_at || '').slice(0, 10);
+      if (m) memo[m] = (memo[m] || 0) + 1;
+    }
+  });
+
+  const dayAgo = (n) => { const d = new Date(); d.setDate(d.getDate() - n); return d; };
+
+  // 연속 학습일. 오늘 아직 안 했을 수 있으므로 어제부터 세도 이어진 것으로 본다.
+  let streak = 0;
+  for (let i = (memo[dayKey(new Date())] ? 0 : 1); i < 400; i++) {
+    if (!memo[dayKey(dayAgo(i))]) break;
+    streak++;
+  }
+  // 최장 기록 — 외운 날들을 줄 세워 이어진 구간 중 가장 긴 것
+  const memoDays = Object.keys(memo).sort();
+  let best = 0, run = 0, prev = null;
+  memoDays.forEach((k) => {
+    if (prev && (new Date(k) - new Date(prev)) === 86400000) run++; else run = 1;
+    best = Math.max(best, run); prev = k;
+  });
+
+  // 최근 14일 속도로 남은 단어를 다 외우는 데 걸릴 날
+  let recent = 0;
+  for (let i = 0; i < 14; i++) recent += memo[dayKey(dayAgo(i))] || 0;
+  const perDay = recent / 14;
   const learning = total - done;
+  const etaDays = perDay > 0 ? Math.ceil(learning / perDay) : null;
+
+  return {
+    st, total, done, learning, added, memo, streak, best, perDay, etaDays,
+    todayMemo: memo[dayKey(new Date())] || 0,
+    weekAdded: Object.keys(added).filter((k) => new Date(k) >= dayAgo(6)).reduce((s, k) => s + added[k], 0),
+    withExample: rows.filter((w) => (w.example || '').trim()).length,
+    withImage: rows.filter((w) => w.image_url).length,
+    unseen: rows.filter((w) => !w.is_remembered && !(w.view_count > 0)).length,
+  };
+}
+
+/** 누적 성장 곡선. 쌓인 단어와 외운 단어를 겹쳐 그린다. */
+function dashCurve(s, days = 30) {
+  const pts = [];
+  let cumT = 0, cumD = 0;
+  // 기간 이전에 이미 쌓여 있던 것부터 세어야 선이 0 에서 시작하지 않는다.
+  const from = new Date(); from.setDate(from.getDate() - (days - 1));
+  const fromKey = dayKey(from);
+  Object.keys(s.added).forEach((k) => { if (k < fromKey) cumT += s.added[k]; });
+  Object.keys(s.memo).forEach((k) => { if (k < fromKey) cumD += s.memo[k]; });
+
+  for (let i = days - 1; i >= 0; i--) {
+    const d = new Date(); d.setDate(d.getDate() - i);
+    const k = dayKey(d);
+    cumT += s.added[k] || 0;
+    cumD += s.memo[k] || 0;
+    pts.push({ k, d, t: cumT, m: cumD });
+  }
+  return pts;
+}
+
+function renderDashboard() {
+  const S = dashStats();
+  const st = S.st;
+  const total = S.total, done = S.done, learning = S.learning;
 
   const d1 = rows.filter((w) => (w.difficulty || 1) === 1).length;
   const d2 = rows.filter((w) => w.difficulty === 2).length;
@@ -4514,6 +4714,59 @@ function renderDashboard() {
     : dday > 0 ? `D-${dday}` : dday === 0 ? 'D-Day' : '🎉';
 
   const card = (title, inner) => `<div class="dcard"><div class="dcard-t">${title}</div>${inner}</div>`;
+  const sec = (title, inner) => `<div class="dsec"><div class="dsec-h">${title}</div>${inner}</div>`;
+  const pct = (n, d) => (d ? Math.round((n / d) * 100) : 0);
+
+  const donePct = pct(done, total);
+
+  // ── 누적 곡선 (30일)
+  const curve = dashCurve(S, 30);
+  const cMax = Math.max(1, curve[curve.length - 1].t);
+  const CW = 600, CH = 170, CP = 8;
+  const cx = (i) => CP + (i * (CW - CP * 2)) / (curve.length - 1);
+  const cy = (v) => CH - 22 - (v / cMax) * (CH - 40);
+  const line = (key) => curve.map((p, i) => `${i ? 'L' : 'M'}${cx(i).toFixed(1)},${cy(p[key]).toFixed(1)}`).join('');
+  const area = (key) => line(key) + `L${cx(curve.length - 1).toFixed(1)},${CH - 22}L${cx(0).toFixed(1)},${CH - 22}Z`;
+
+  // ── 잔디밭 (12주). 그 날 더한 것과 외운 것을 합쳐 "활동" 으로 본다.
+  const heatDays = 84;
+  const heatStart = new Date();
+  heatStart.setDate(heatStart.getDate() - (heatDays - 1 + ((heatStart.getDay() + 7) % 7)));
+  const heatCols = [];
+  let hMax = 1;
+  for (let c = 0; c < 13; c++) {
+    const col = [];
+    for (let r = 0; r < 7; r++) {
+      const d = new Date(heatStart);
+      d.setDate(d.getDate() + c * 7 + r);
+      if (d > new Date()) { col.push(null); continue; }
+      const k = dayKey(d);
+      const n = (S.added[k] || 0) + (S.memo[k] || 0);
+      hMax = Math.max(hMax, n);
+      col.push({ k, n, d });
+    }
+    heatCols.push(col);
+  }
+  const heatLv = (n) => (n === 0 ? '' : n <= hMax * 0.25 ? ' l1' : n <= hMax * 0.5 ? ' l2' : n <= hMax * 0.75 ? ' l3' : ' l4');
+  const activeDays = Object.keys(S.memo).length;
+
+  // ── 요일별 패턴
+  const wk = [0, 0, 0, 0, 0, 0, 0];
+  Object.keys(S.memo).forEach((k) => { wk[new Date(k).getDay()] += S.memo[k]; });
+  const wkMax = Math.max(1, ...wk);
+
+  // ── 품사별 암기율
+  const tagStat = TAGS.filter((tg) => tagCounts[tg]).map((tg) => {
+    const all = rows.filter((w) => w.tag === tg);
+    const ok = all.filter((w) => w.is_remembered).length;
+    return { tg, all: all.length, ok, pct: pct(ok, all.length) };
+  }).sort((a, b) => b.all - a.all);
+
+  // ── 손이 안 간 단어. 아직 못 외웠고 덜 본 것부터, 오래된 순.
+  const stale = rows.filter((w) => !w.is_remembered)
+    .sort((a, b) => (a.view_count || 0) - (b.view_count || 0) ||
+                    String(a.created_at || '').localeCompare(String(b.created_at || '')))
+    .slice(0, 5);
 
   const html = [
     // ── D-day
@@ -4529,66 +4782,208 @@ function renderDashboard() {
           `<div class="dbar-wrap" style="margin-top:16px;"><div class="dbar" style="width:${progressPct}%"></div></div>`)
       : '',
 
-    // ── 단어 수
-    '<div class="dash-stat-grid" style="margin-bottom:14px;">' +
-      `<div class="dash-stat-card"><div class="dash-stat-val">${total}</div><div class="dash-stat-lbl">${t('전체 단어', 'Total')}</div></div>` +
-      `<div class="dash-stat-card"><div class="dash-stat-val" style="color:var(--green)">${done}</div><div class="dash-stat-lbl">${t('외운 단어', 'Memorized')}</div></div>` +
-      `<div class="dash-stat-card"><div class="dash-stat-val" style="color:var(--orange-deep)">${learning}</div><div class="dash-stat-lbl">${t('학습 중', 'Learning')}</div></div>` +
+    // ── 한눈에 : 큰 숫자 넷 + 암기율 링
+    sec(t('한눈에', 'At a glance'),
+      '<div class="kpis">' +
+        `<div class="kpi"><div class="kpi-l">${t('전체 단어', 'Total words')}</div>` +
+          `<div class="kpi-v">${total}</div>` +
+          `<div class="kpi-d">${S.weekAdded > 0
+              ? t(`이번 주 +${S.weekAdded}`, `+${S.weekAdded} this week`)
+              : t('이번 주에 더한 단어 없음', 'None added this week')}</div></div>` +
+
+        `<div class="kpi"><div class="kpi-l">${t('외운 단어', 'Memorized')}</div>` +
+          `<div class="kpi-v">${done}<small>/ ${total}</small></div>` +
+          `<div class="kpi-d${donePct >= 50 ? ' up' : ''}">${t(`암기율 ${donePct}%`, `${donePct}% mastered`)}</div></div>` +
+
+        `<div class="kpi"><div class="kpi-l">${t('오늘 외운 단어', 'Memorized today')}</div>` +
+          `<div class="kpi-v">${S.todayMemo}${st?.daily_goal ? `<small>/ ${st.daily_goal}</small>` : ''}</div>` +
+          `<div class="kpi-d${st?.daily_goal && S.todayMemo >= st.daily_goal ? ' up' : ''}">${
+            !st?.daily_goal ? t('목표를 정하면 여기에 나와요', 'Set a goal to track this')
+            : S.todayMemo >= st.daily_goal ? t('오늘 목표 달성 🎉', 'Goal reached 🎉')
+            : t(`${st.daily_goal - S.todayMemo}개 남았어요`, `${st.daily_goal - S.todayMemo} to go`)}</div></div>` +
+
+        `<div class="kpi"><div class="kpi-l">${t('연속 학습', 'Streak')}</div>` +
+          `<div class="kpi-v">${S.streak}<small>${t('일', 'd')}</small></div>` +
+          `<div class="kpi-d${S.streak > 0 && S.streak >= S.best ? ' up' : ''}">${
+            S.best > 0 ? t(`최장 ${S.best}일`, `Best ${S.best} days`) : t('오늘부터 시작', 'Start today')}</div></div>` +
+      '</div>' +
+
+      card(t('암기율', 'Mastery'),
+        '<div class="ring-wrap">' +
+          '<div class="ring-box">' +
+            '<svg class="ring" viewBox="0 0 132 132" aria-hidden="true">' +
+              '<defs><linearGradient id="ringGrad" x1="0" y1="0" x2="1" y2="1">' +
+                '<stop offset="0" stop-color="#FFB570"/><stop offset="1" stop-color="#12704F"/>' +
+              '</linearGradient></defs>' +
+              '<circle class="ring-bg" cx="66" cy="66" r="52"/>' +
+              `<circle class="ring-fg" cx="66" cy="66" r="52" stroke-dasharray="326.7" stroke-dashoffset="${(326.7 * (1 - donePct / 100)).toFixed(1)}"/>` +
+            '</svg>' +
+            `<div class="ring-num"><b>${donePct}%</b><span>${t('외움', 'Done')}</span></div>` +
+          '</div>' +
+          '<div class="ring-legend">' +
+            `<div class="ring-item"><i style="background:#12704F"></i>${t('외운 단어', 'Memorized')}<b>${done}</b></div>` +
+            `<div class="ring-item"><i style="background:#FFB570"></i>${t('학습 중', 'Learning')}<b>${learning}</b></div>` +
+            `<div class="ring-item"><i style="background:rgba(27,21,18,.16)"></i>${t('아직 안 본 단어', 'Never opened')}<b>${S.unseen}</b></div>` +
+          '</div>' +
+        '</div>')),
+
+    // ── 흐름 : 누적 곡선
+    sec(t('흐름', 'Progress'),
+      card(t('최근 30일 누적', 'Last 30 days, cumulative'),
+        `<svg class="spark" viewBox="0 0 ${CW} ${CH}" preserveAspectRatio="none" aria-hidden="true">` +
+          '<defs>' +
+            '<linearGradient id="gradA" x1="0" y1="0" x2="0" y2="1">' +
+              '<stop offset="0" stop-color="#FF914D" stop-opacity=".22"/><stop offset="1" stop-color="#FF914D" stop-opacity="0"/></linearGradient>' +
+            '<linearGradient id="gradB" x1="0" y1="0" x2="0" y2="1">' +
+              '<stop offset="0" stop-color="#12704F" stop-opacity=".2"/><stop offset="1" stop-color="#12704F" stop-opacity="0"/></linearGradient>' +
+          '</defs>' +
+          [0.25, 0.5, 0.75].map((f) =>
+            `<line class="spark-grid" x1="${CP}" y1="${(cy(cMax * f)).toFixed(1)}" x2="${CW - CP}" y2="${(cy(cMax * f)).toFixed(1)}"/>`).join('') +
+          `<line class="spark-axis" x1="${CP}" y1="${CH - 22}" x2="${CW - CP}" y2="${CH - 22}"/>` +
+          `<path class="spark-fill-a" d="${area('t')}"/>` +
+          `<path class="spark-fill-b" d="${area('m')}"/>` +
+          `<path class="spark-line-a" d="${line('t')}"/>` +
+          `<path class="spark-line-b" d="${line('m')}"/>` +
+          `<text class="spark-lbl" x="${CP}" y="${CH - 6}">${curve[0].d.getMonth() + 1}/${curve[0].d.getDate()}</text>` +
+          `<text class="spark-lbl" x="${CW - CP}" y="${CH - 6}" text-anchor="end">${t('오늘', 'today')}</text>` +
+          `<text class="spark-lbl" x="${CP}" y="${(cy(cMax) - 5).toFixed(1)}">${cMax}</text>` +
+        '</svg>' +
+        '<div class="legend">' +
+          `<span><i style="background:var(--orange-mid)"></i>${t('쌓인 단어', 'Words added')}</span>` +
+          `<span><i style="background:var(--green)"></i>${t('외운 단어', 'Memorized')}</span>` +
+        '</div>' +
+        `<p class="dnote" style="margin-top:10px;">${
+          S.etaDays !== null
+            ? t(`요즘 하루 ${S.perDay.toFixed(1)}개씩 외우고 있어요. 이 속도면 남은 ${learning}개를 ${S.etaDays}일 뒤에 다 외워요.`,
+                `About ${S.perDay.toFixed(1)} words a day lately — at this pace the remaining ${learning} take ${S.etaDays} more days.`)
+            : t('최근 2주간 외운 단어가 없어요. 하루 한 개부터 다시 시작해 볼까요?',
+                'No words memorized in the last two weeks. One a day is enough to restart.')}</p>`)),
+
+    // ── 꾸준함 : 잔디밭 · 7일 · 요일
+    sec(t('꾸준함', 'Consistency'),
+      card(t('최근 12주 활동', 'Last 12 weeks'),
+        '<div class="heat">' +
+          heatCols.map((col) =>
+            '<div class="heat-col">' +
+            col.map((c) => c === null
+              ? '<div class="heat-c" style="visibility:hidden"></div>'
+              : `<div class="heat-c${heatLv(c.n)}" title="${c.k} · ${c.n}"></div>`).join('') +
+            '</div>').join('') +
+        '</div>' +
+        '<div class="heat-foot">' +
+          `<span>${t(`활동한 날 ${activeDays}일`, `${activeDays} active days`)}</span>` +
+          `<span style="margin-left:auto">${t('적음', 'Less')}</span>` +
+          '<div class="heat-c"></div><div class="heat-c l1"></div><div class="heat-c l2"></div>' +
+          '<div class="heat-c l3"></div><div class="heat-c l4"></div>' +
+          `<span>${t('많음', 'More')}</span>` +
+        '</div>')),
+
+    // ── 리듬 : 최근 7일 · 요일 습관
+    '<div class="dgrid2">' +
+      card(t('최근 7일 암기 추이', 'Last 7 days'),
+        '<div class="chart-wrap">' +
+          days.map((d) =>
+            `<div class="bar${d.n === maxN && d.n > 0 ? ' active' : ''}" style="height:${Math.max(4, Math.round((d.n / maxN) * 100))}%">` +
+            `<span class="bar-label">${d.label}</span><span class="bar-val">${d.n}</span></div>`
+          ).join('') +
+        '</div><div style="height:22px"></div>') +
+
+      card(t('요일별 습관', 'By weekday'),
+        '<div class="wk">' +
+          wk.map((n, i) =>
+            '<div class="wk-b">' +
+              (n ? `<span class="wk-n">${n}</span>` : '') +
+              `<span class="wk-fill${n === wkMax && n > 0 ? ' top' : ''}" style="height:${Math.max(4, Math.round((n / wkMax) * 100))}%"></span>` +
+            '</div>').join('') +
+        '</div>' +
+        '<div class="wk" style="height:auto; align-items:center;">' +
+          (isEn() ? DAY_EN : DAY_KO).map((l) => `<div class="wk-b" style="height:auto"><span class="wk-l">${l}</span></div>`).join('') +
+        '</div>' +
+        `<p class="dnote" style="margin-top:10px;">${
+          wkMax > 0
+            ? t(`${(isEn() ? DAY_EN : DAY_KO)[wk.indexOf(wkMax)]}요일에 가장 많이 외웠어요.`,
+                `You memorize most on ${DAY_EN[wk.indexOf(wkMax)]}.`)
+            : t('아직 요일 습관이 쌓이지 않았어요.', 'Not enough data yet.')}</p>`) +
     '</div>',
 
-    // ── 목표
-    goalTotal
-      ? card(t('목표 달성률', 'Goal progress'),
-          `<div class="dbar-row"><span>${t(`하루 ${st.daily_goal}개 × ${st.study_days}일`, `${st.daily_goal}/day × ${st.study_days} days`)}</span>` +
-          `<span><b>${total}</b> / ${goalTotal} (${goalPct}%)</span></div>` +
-          `<div class="dbar-wrap"><div class="dbar" style="width:${goalPct}%"></div></div>`)
-      : '',
+    // ── 단어 뜯어보기
+    sec(t('단어 뜯어보기', 'Your words'),
+      '<div class="dgrid2">' +
+        card('🧀 ' + t('난이도 분포', 'By difficulty'),
+          [[d1, '🧀', '#81C784'], [d2, '🧀🧀', '#F0C24B'], [d3, '🧀🧀🧀', '#FF914D']].map(([n, lbl, col]) =>
+            '<div class="diff-row">' +
+              `<div class="diff-lbl">${lbl}</div>` +
+              `<div class="diff-bar-bg"><div class="diff-bar-fill" style="width:${total ? Math.round((n / total) * 100) : 0}%;background:${col}"></div></div>` +
+              `<div class="diff-count">${n}</div>` +
+            '</div>').join('')) +
 
-    // ── 7일 추이
-    card(t('최근 7일 암기 추이', 'Last 7 days'),
-      '<div class="chart-wrap">' +
-        days.map((d) =>
-          `<div class="bar${d.n === maxN && d.n > 0 ? ' active' : ''}" style="height:${Math.max(4, Math.round((d.n / maxN) * 100))}%">` +
-          `<span class="bar-label">${d.label}</span><span class="bar-val">${d.n}</span></div>`
-        ).join('') +
-      '</div><div style="height:22px"></div>'),
+        (tagStat.length
+          ? card('🏷️ ' + t('품사별 암기율', 'Mastery by part of speech'),
+              tagStat.map((s) =>
+                '<div class="drow">' +
+                  `<span class="wb-dot" style="background:${tagHue(s.tg)}; flex:0 0 auto"></span>` +
+                  `<div class="drow-main"><div class="drow-w" style="font-size:13.5px">${esc(t(s.tg, TAG_EN[s.tg] ?? s.tg))}</div></div>` +
+                  `<div class="drow-bar"><i style="width:${s.pct}%"></i></div>` +
+                  `<div class="drow-n">${s.ok}/${s.all}</div>` +
+                '</div>').join(''))
+          : '') +
+      '</div>' +
 
-    // ── 난이도
-    card('🧀 ' + t('난이도 분포', 'By difficulty'),
-      [[d1, '🧀', '#81C784'], [d2, '🧀🧀', '#F0C24B'], [d3, '🧀🧀🧀', '#FF914D']].map(([n, lbl, col]) =>
-        '<div class="diff-row">' +
-          `<div class="diff-lbl">${lbl}</div>` +
-          `<div class="diff-bar-bg"><div class="diff-bar-fill" style="width:${total ? Math.round((n / total) * 100) : 0}%;background:${col}"></div></div>` +
-          `<div class="diff-count">${n}</div>` +
-        '</div>').join('')),
+      '<div class="dgrid2">' +
+        (most
+          ? card(t('가장 많이 본 단어', 'Most viewed'),
+              '<div class="dmost">' +
+                `<span class="dmost-w">${esc(most.word)}</span>` +
+                `<span class="dmost-m">${esc(most.meaning)}</span>` +
+                `<span class="dmost-n">🥔 ${most.view_count}${t('회', '×')}</span>` +
+              '</div>')
+          : '') +
 
-    // ── 품사
-    Object.keys(tagCounts).length
-      ? card('🏷️ ' + t('품사 분포', 'By part of speech'),
-          '<div class="dtags">' +
-          TAGS.filter((tg) => tagCounts[tg]).map((tg) =>
-            `<span class="dtag"><span class="wb-dot" style="background:${tagHue(tg)}"></span>` +
-            `${esc(t(tg, TAG_EN[tg] ?? tg))} <b>${tagCounts[tg]}</b></span>`).join('') +
-          '</div>')
-      : '',
+        (stale.length
+          ? card(t('손이 덜 간 단어', 'Least touched'),
+              stale.map((w) =>
+                '<div class="drow">' +
+                  '<div class="drow-main">' +
+                    `<div class="drow-w">${esc(w.word)}</div>` +
+                    `<div class="drow-m">${esc(w.meaning)}</div>` +
+                  '</div>' +
+                  `<div class="drow-n">${t(`${w.view_count || 0}회`, `${w.view_count || 0}×`)}</div>` +
+                '</div>').join('') +
+              `<p class="dnote" style="margin-top:12px;">${t('오래 안 본 것부터 다시 보면 가장 빨리 늘어요.', 'Revisiting these first pays off the most.')}</p>`)
+          : '') +
+      '</div>'),
 
-    // ── 가장 많이 본 단어
-    most
-      ? card(t('가장 많이 본 단어', 'Most viewed'),
-          '<div class="dmost">' +
-            `<span class="dmost-w">${esc(most.word)}</span>` +
-            `<span class="dmost-m">${esc(most.meaning)}</span>` +
-            `<span class="dmost-n">🥔 ${most.view_count}${t('회', '×')}</span>` +
-          '</div>')
-      : '',
+    // ── 목표와 기록
+    sec(t('목표와 기록', 'Goals and records'),
+      (goalTotal
+        ? card(t('목표 달성률', 'Goal progress'),
+            `<div class="dbar-row"><span>${t(`하루 ${st.daily_goal}개 × ${st.study_days}일`, `${st.daily_goal}/day × ${st.study_days} days`)}</span>` +
+            `<span><b>${total}</b> / ${goalTotal} (${goalPct}%)</span></div>` +
+            `<div class="dbar-wrap"><div class="dbar" style="width:${goalPct}%"></div></div>`)
+        : '') +
 
-    // ── AI 사용량
-    dashAiUsed !== null
-      ? card(t('오늘 쓴 AI 인식', "Today's AI recognitions"),
-          `<div class="dbar-row"><span>${t('사진으로 단어 만들기', 'Photo to word')}</span><span><b>${dashAiUsed}</b> / 30</span></div>` +
-          `<div class="dbar-wrap"><div class="dbar" style="width:${Math.min(100, Math.round((dashAiUsed / 30) * 100))}%"></div></div>` +
-          `<p class="dnote" style="margin-top:12px;">${t('한도는 매일 자정에 다시 채워집니다.', 'The limit resets every midnight.')}</p>`)
-      : '',
+      card(t('단어 채움 정도', 'How complete your cards are'),
+        '<div class="dfill">' +
+          `<div class="dfill-item"><div class="dfill-v">${pct(S.withExample, total)}%</div>` +
+            `<div class="dfill-l">${t(`예문 있는 단어 ${S.withExample}개`, `${S.withExample} with an example`)}</div></div>` +
+          `<div class="dfill-item"><div class="dfill-v">${pct(S.withImage, total)}%</div>` +
+            `<div class="dfill-l">${t(`사진 있는 단어 ${S.withImage}개`, `${S.withImage} with a photo`)}</div></div>` +
+          `<div class="dfill-item"><div class="dfill-v">${S.unseen}</div>` +
+            `<div class="dfill-l">${t('한 번도 안 열어 본 단어', 'Never opened')}</div></div>` +
+        '</div>' +
+        `<p class="dnote" style="margin-top:12px;">${t('예문이 있으면 뜻만 외울 때보다 오래 남아요.', 'Cards with an example stick longer than a bare meaning.')}</p>`) +
+
+      (dashAiUsed !== null
+        ? card(t('오늘 쓴 AI', "Today's AI use"),
+            `<div class="dbar-row"><span>${t('사진으로 단어 만들기', 'Photo to word')}</span><span><b>${dashAiUsed}</b> / 30</span></div>` +
+            `<div class="dbar-wrap"><div class="dbar" style="width:${Math.min(100, Math.round((dashAiUsed / 30) * 100))}%"></div></div>` +
+            (dashPronUsed !== null
+              ? `<div class="dbar-row" style="margin-top:16px;"><span>${t('발음 짐작', 'Pronunciation feedback')}</span><span><b>${dashPronUsed}</b> / 30</span></div>` +
+                `<div class="dbar-wrap"><div class="dbar" style="width:${Math.min(100, Math.round((dashPronUsed / 30) * 100))}%"></div></div>`
+              : '') +
+            `<p class="dnote" style="margin-top:12px;">${t('한도는 매일 자정에 다시 채워집니다.', 'The limit resets every midnight.')}</p>`)
+        : ''),
+    ),
   ].join('');
 
   $('dashBody').innerHTML = html;
