@@ -1288,6 +1288,85 @@ body.nav-open { overflow:hidden; }
   color:var(--orange-deep); font-size:13px; font-weight:700; text-decoration:underline;
 }
 
+/* ── 짝 맞추기 ──────────────────────────────────────────────── */
+
+.mt-grid {
+  display:grid; gap:10px;
+  grid-template-columns:repeat(3, minmax(0,1fr));
+  max-width:560px; margin:0 auto;
+}
+/* 카드가 뒤집히는 것은 두 면을 겹쳐 놓고 통째로 돌리는 것이다.
+   앞면·뒷면을 각각 숨겼다 보였다 하면 도는 느낌이 안 난다. */
+.mt-card { perspective:700px; background:none; border:none; padding:0; cursor:pointer; }
+/* display:block 이 꼭 있어야 한다. button 안에는 div 를 못 넣어 span 을
+   썼는데, span 은 inline 이라 aspect-ratio 가 통째로 무시되고 카드
+   높이가 0 이 된다 — 화면에서 카드가 사라진다. */
+.mt-inner {
+  display:block; position:relative; width:100%; aspect-ratio:1 / 1.15;
+  transform-style:preserve-3d;
+  transition:transform .42s cubic-bezier(.32,.72,0,1);
+}
+.mt-card.open .mt-inner, .mt-card.done .mt-inner { transform:rotateY(180deg); }
+.mt-face {
+  position:absolute; inset:0; backface-visibility:hidden;
+  display:flex; align-items:center; justify-content:center;
+  padding:10px; border-radius:var(--r-l);
+  font-size:14px; font-weight:700; line-height:1.35;
+  word-break:keep-all; overflow-wrap:break-word; text-align:center;
+  overflow:hidden;
+}
+.mt-back {
+  background:linear-gradient(160deg,#FFB77E,#E1682B);
+  color:#fff; font-size:26px;
+  box-shadow:inset 0 -4px 0 rgba(0,0,0,.12);
+}
+.mt-front {
+  transform:rotateY(180deg);
+  background:var(--surface); color:var(--ink);
+  border:1.5px solid var(--line);
+}
+/* 단어면과 뜻면을 살짝 달리해서, 같은 쪽 두 장을 고르는 실수를 줄인다. */
+.mt-front.mean { background:var(--tint); border-color:rgba(255,145,77,.3); }
+.mt-card.done { cursor:default; }
+.mt-card.done .mt-front { border-color:var(--green); box-shadow:0 0 0 2px rgba(18,112,79,.18); }
+.mt-card.done .mt-inner { opacity:.55; transition:transform .42s cubic-bezier(.32,.72,0,1), opacity .3s .2s; }
+.mt-card:disabled { cursor:default; }
+
+/* ── 스피드 퀴즈 ────────────────────────────────────────────── */
+
+.qz-top { max-width:560px; margin:0 auto 18px; }
+.qz-time {
+  height:10px; border-radius:999px; overflow:hidden;
+  background:rgba(27,21,18,.08);
+}
+.qz-time-fill {
+  display:block; height:100%; width:100%;
+  background:linear-gradient(90deg,var(--orange),var(--orange-mid));
+  transform-origin:left center;
+  transition:transform .25s linear, background .3s;
+}
+/* 마지막 10초. 색이 바뀌면 굳이 숫자를 안 봐도 급한 줄 안다. */
+.qz-time.hurry .qz-time-fill { background:linear-gradient(90deg,#E8734F,var(--red)); }
+.qz-meta { display:flex; justify-content:space-between; align-items:baseline; margin-top:8px; }
+.qz-clock { font-size:15px; font-weight:800; color:var(--ink); font-variant-numeric:tabular-nums; }
+.qz-time.hurry ~ .qz-meta .qz-clock { color:var(--red); }
+.qz-score { font-size:15px; font-weight:800; color:var(--orange-deep); font-variant-numeric:tabular-nums; }
+
+.qz-choices { display:grid; gap:10px; max-width:560px; margin:0 auto; }
+.qz-choice {
+  width:100%; padding:17px 18px; cursor:pointer; text-align:left;
+  border-radius:var(--r-l); border:1.5px solid var(--line);
+  background:var(--surface); color:var(--ink);
+  font-size:16px; font-weight:600; letter-spacing:-.01em;
+  word-break:keep-all; overflow-wrap:break-word;
+  transition:border-color .16s, background .16s, transform .1s;
+}
+.qz-choice:hover { border-color:rgba(255,145,77,.55); }
+.qz-choice:active { transform:translateY(1px); }
+.qz-choice.right { border-color:var(--green); background:rgba(18,112,79,.08); color:var(--green); }
+.qz-choice.wrong { border-color:var(--red);   background:rgba(196,61,52,.07); color:var(--red); }
+.qz-choice:disabled { cursor:default; }
+
 .claw-over { text-align:center; padding:34px 22px; }
 .claw-over-emoji { font-size:56px; }
 .claw-over-score { margin-top:10px; font-size:44px; font-weight:800; color:var(--ink); letter-spacing:-.03em; }
@@ -1455,6 +1534,12 @@ body.nav-open { overflow:hidden; }
      "perseverance" 도 한 줄에 들어가고 옆과 11px 은 벌어진다. */
   .doll-tag { font-size:10.5px; padding:3px 7px; border-radius:9px; max-width:100px; }
   .game-card { padding:24px; }
+
+  /* 짝 맞추기 · 스피드 퀴즈 — 좁은 화면 */
+  .mt-grid { gap:8px; }
+  .mt-face { font-size:12.5px; padding:7px; border-radius:14px; }
+  .mt-back { font-size:22px; }
+  .qz-choice { padding:15px 16px; font-size:15px; border-radius:16px; }
 }
 
 @media (min-width:760px) {
@@ -1960,19 +2045,19 @@ body.nav-open { overflow:hidden; }
         <span class="game-card-go" data-en="Play →">놀아보기 →</span>
       </button>
 
-      <div class="game-card soon">
+      <button class="game-card" id="gcMatch" type="button">
         <span class="game-card-ico">🃏</span>
         <span class="game-card-name" data-en="Memory match">짝 맞추기</span>
-        <span class="game-card-desc" data-en="Flip the cards and pair each word with its meaning.">카드를 뒤집어 단어와 뜻을 짝지어요.</span>
-        <span class="game-soon-tag" data-en="Coming soon">준비 중</span>
-      </div>
+        <span class="game-card-desc" data-en="Twelve cards face down. Turn a word and its meaning over together.">카드 열두 장이 엎어져 있어요. 단어와 뜻을 한 쌍씩 찾아 뒤집으세요.</span>
+        <span class="game-card-go" data-en="Play →">놀아보기 →</span>
+      </button>
 
-      <div class="game-card soon">
+      <button class="game-card" id="gcQuiz" type="button">
         <span class="game-card-ico">⏱</span>
         <span class="game-card-name" data-en="Speed quiz">스피드 퀴즈</span>
-        <span class="game-card-desc" data-en="Sixty seconds. How many can you get right?">60초 동안 몇 개나 맞힐 수 있을까요.</span>
-        <span class="game-soon-tag" data-en="Coming soon">준비 중</span>
-      </div>
+        <span class="game-card-desc" data-en="Sixty seconds, four choices at a time. How many can you get?">60초, 보기는 넷. 몇 개나 맞힐 수 있을까요.</span>
+        <span class="game-card-go" data-en="Play →">놀아보기 →</span>
+      </button>
 
     </div>
   </div>
@@ -2097,6 +2182,153 @@ body.nav-open { overflow:hidden; }
   </div>
 
 </div><!-- /clawView -->
+
+<!-- ── 게임 : 짝 맞추기 ────────────────────────────────────────
+     열두 장을 엎어 놓고 단어와 뜻을 한 쌍씩 찾는다. 짝이 맞으면
+     그 자리에 열린 채로 남아, 화면이 곧 "내가 맞힌 것들" 이 된다. -->
+<div id="matchView" class="hidden">
+  <div class="claw-wrap">
+
+    <div class="claw-bar">
+      <button class="claw-back" id="matchBack" type="button">← <span id="matchBackTxt">게임</span></button>
+      <span class="claw-pill hidden" id="matchBest"></span>
+    </div>
+
+    <div id="matchLoading" class="hidden">
+      <div class="wb-state"><div class="wb-spin"></div><span data-en="Loading…">불러오는 중…</span></div>
+    </div>
+
+    <div id="matchNeedLogin" class="hidden">
+      <div class="wb-state">
+        <div style="font-size:40px; margin-bottom:8px;">🔒</div>
+        <span data-en="Sign in to play with the words in your own wordbook.">로그인하면 내 단어장에 있는 단어로 놀 수 있어요.</span>
+        <div><button class="pt-next" id="matchGoLogin" type="button" data-en="Go to sign in">로그인하러 가기</button></div>
+      </div>
+    </div>
+
+    <div id="matchFew" class="hidden">
+      <div class="wb-state">
+        <div style="font-size:44px; margin-bottom:8px;">🥔</div>
+        <span data-en="You need at least six words for this one. Grab a starter list and come back.">이 게임은 단어가 여섯 개는 있어야 해요. 자료마당에서 받아오고 다시 와 주세요.</span>
+        <div><button class="pt-next" id="matchGoLib" type="button" data-en="Get a starter list">자료마당에서 받아오기</button></div>
+      </div>
+    </div>
+
+    <div id="matchErr" class="hidden">
+      <div class="wb-state">
+        <span data-en="Could not load your words.">단어를 불러오지 못했어요.</span>
+        <div><button class="pt-next" id="matchRetry" type="button" data-en="Try again">다시 시도</button></div>
+      </div>
+    </div>
+
+    <div id="matchPlay" class="hidden">
+      <div class="claw-ask">
+        <span class="claw-ask-label" id="matchLabel">같은 뜻끼리 짝지으세요</span>
+        <strong class="claw-ask-word" id="matchLeft">6 쌍 남음</strong>
+      </div>
+      <div class="mt-grid" id="matchGrid"></div>
+      <p class="claw-msg" id="matchMsg"></p>
+      <p class="claw-note" id="matchNote"></p>
+    </div>
+
+    <div id="matchOver" class="hidden">
+      <div class="claw-over">
+        <div class="claw-over-emoji" id="matchOverEmoji">🃏</div>
+        <div class="claw-over-score" id="matchOverScore">0</div>
+        <p class="claw-over-line" id="matchOverLine"></p>
+        <div class="claw-over-btns">
+          <button class="pt-next" id="matchAgain" type="button">다시 하기</button>
+          <button class="pt-next" id="matchToGames" type="button">다른 게임 보기</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="footer">
+    <div class="footer-brand" data-en="Every Koreans">에브리 코리안즈</div>
+    <div class="footer-info">© 2026 치즈감자 · <a href="privacy.html" data-en="Privacy policy">개인정보처리방침</a></div>
+  </div>
+
+</div><!-- /matchView -->
+
+<!-- ── 게임 : 스피드 퀴즈 ──────────────────────────────────────
+     60초 동안 뜻을 보고 단어를 고른다. 시간이 주인공이라 남은 시간이
+     화면에서 계속 줄어드는 것이 보여야 한다. -->
+<div id="quizView" class="hidden">
+  <div class="claw-wrap">
+
+    <div class="claw-bar">
+      <button class="claw-back" id="quizBack" type="button">← <span id="quizBackTxt">게임</span></button>
+      <span class="claw-pill hidden" id="quizBest"></span>
+    </div>
+
+    <div id="quizLoading" class="hidden">
+      <div class="wb-state"><div class="wb-spin"></div><span data-en="Loading…">불러오는 중…</span></div>
+    </div>
+
+    <div id="quizNeedLogin" class="hidden">
+      <div class="wb-state">
+        <div style="font-size:40px; margin-bottom:8px;">🔒</div>
+        <span data-en="Sign in to play with the words in your own wordbook.">로그인하면 내 단어장에 있는 단어로 놀 수 있어요.</span>
+        <div><button class="pt-next" id="quizGoLogin" type="button" data-en="Go to sign in">로그인하러 가기</button></div>
+      </div>
+    </div>
+
+    <div id="quizFew" class="hidden">
+      <div class="wb-state">
+        <div style="font-size:44px; margin-bottom:8px;">🥔</div>
+        <span data-en="You need at least four words to play. Grab a starter list and come back.">놀려면 단어가 네 개는 있어야 해요. 자료마당에서 받아오고 다시 와 주세요.</span>
+        <div><button class="pt-next" id="quizGoLib" type="button" data-en="Get a starter list">자료마당에서 받아오기</button></div>
+      </div>
+    </div>
+
+    <div id="quizErr" class="hidden">
+      <div class="wb-state">
+        <span data-en="Could not load your words.">단어를 불러오지 못했어요.</span>
+        <div><button class="pt-next" id="quizRetry" type="button" data-en="Try again">다시 시도</button></div>
+      </div>
+    </div>
+
+    <div id="quizPlay" class="hidden">
+      <div class="qz-top">
+        <div class="qz-time"><span class="qz-time-fill" id="quizFill"></span></div>
+        <div class="qz-meta">
+          <span class="qz-clock" id="quizClock">60</span>
+          <span class="qz-score" id="quizScore">0</span>
+        </div>
+      </div>
+
+      <div class="claw-ask">
+        <span class="claw-ask-label" id="quizLabel">이 뜻을 가진 단어는?</span>
+        <strong class="claw-ask-word" id="quizTarget">…</strong>
+      </div>
+
+      <div class="qz-choices" id="quizChoices"></div>
+      <p class="claw-msg" id="quizMsg"></p>
+      <p class="claw-note" id="quizNote"></p>
+    </div>
+
+    <div id="quizOver" class="hidden">
+      <div class="claw-over">
+        <div class="claw-over-emoji" id="quizOverEmoji">⏱</div>
+        <div class="claw-over-score" id="quizOverScore">0</div>
+        <p class="claw-over-line" id="quizOverLine"></p>
+        <div class="claw-over-btns">
+          <button class="pt-next" id="quizAgain" type="button">다시 하기</button>
+          <button class="pt-next" id="quizToGames" type="button">다른 게임 보기</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="footer">
+    <div class="footer-brand" data-en="Every Koreans">에브리 코리안즈</div>
+    <div class="footer-info">© 2026 치즈감자 · <a href="privacy.html" data-en="Privacy policy">개인정보처리방침</a></div>
+  </div>
+
+</div><!-- /quizView -->
 
 <!-- ── 자료마당 ────────────────────────────────────────────────
      올린 파일을 그대로 보관하지 않는다. 브라우저에서 앱과 같은
@@ -2915,14 +3147,17 @@ function ptShow(toTest) {
   ptId('dashView').classList.add('hidden');
   ptId('gamesView').classList.add('hidden');
   ptId('clawView').classList.add('hidden');
+  ptId('matchView').classList.add('hidden');
+  ptId('quizView').classList.add('hidden');
   ptId('wbBtn').classList.remove('on');
   ptId('authBtn').classList.remove('on');
   ptId('libBtn').classList.remove('on');
   ptId('dashBtn').classList.remove('on');
   ptId('gameBtn').classList.remove('on');
-  // 인형뽑기가 돌고 있었다면 멈춘다. 아래 모듈 스크립트가 나중에
-  // 실행되므로 있으면 부르는 식으로만 손댄다.
+  // 집게나 퀴즈 시계가 돌고 있었다면 멈춘다. 아래 모듈 스크립트가
+  // 나중에 실행되므로 있으면 부르는 식으로만 손댄다.
   if (window.clawStop) window.clawStop();
+  if (window.qzStop) window.qzStop();
   const b = ptId('navBtn');
   // 아이콘은 🎙 로 둔다. 헤더에 있을 때는 ✕ 로 바꿔 "누르면 닫힌다" 를
   // 알렸지만, 메뉴 안에서는 고르는 순간 메뉴가 닫혀 그 ✕ 를 볼 일이
@@ -3039,6 +3274,9 @@ function panel(name) {
   PANELS.forEach((k) => $(k).classList.toggle('hidden', k !== name));
 }
 
+// 게임 목록과 그 아래 게임들. 새 게임을 더하면 여기에도 넣는다.
+const GAME_VIEWS = ['games', 'claw', 'match', 'quiz'];
+
 /* 화면 전환. 'home' | 'wordbook' | 'account' 셋을 여기서 다룬다.
    발음 테스트는 위 고전 스크립트의 ptShow 가 주인이라 여기서는 닫기만 한다. */
 function open(view) {
@@ -3053,18 +3291,21 @@ function open(view) {
   $('dashView').classList.toggle('hidden', view !== 'dashboard');
   $('gamesView').classList.toggle('hidden', view !== 'games');
   $('clawView').classList.toggle('hidden', view !== 'claw');
+  $('matchView').classList.toggle('hidden', view !== 'match');
+  $('quizView').classList.toggle('hidden', view !== 'quiz');
 
   $('wbBtn').classList.toggle('on', view === 'wordbook');
   $('authBtn').classList.toggle('on', view === 'account');
   $('libBtn').classList.toggle('on', view === 'library');
   $('dashBtn').classList.toggle('on', view === 'dashboard');
-  // 게임 하나하나도 게임 밑에 있다. 인형뽑기에 들어가 있는 동안
+  // 게임 하나하나도 게임 밑에 있다. 게임 안에 들어가 있는 동안
   // 메뉴에서 게임이 꺼져 보이면 길을 잃는다.
-  $('gameBtn').classList.toggle('on', view === 'games' || view === 'claw');
+  $('gameBtn').classList.toggle('on', GAME_VIEWS.includes(view));
 
-  // 게임에서 나가면 집게를 멈춘다. 안 그러면 안 보이는 화면에서
-  // 매 프레임 계속 돈다.
+  /* 나가면 돌던 것을 멈춘다. 집게는 안 보이는 화면에서 매 프레임 돌고,
+     퀴즈 시계는 돌아왔을 때 이미 끝나 있게 만든다. */
   if (view !== 'claw') clawStop();
+  if (view !== 'quiz') qzStop();
   window.scrollTo({ top: 0, behavior: 'auto' });
 }
 
@@ -3082,7 +3323,8 @@ $('dashBtn').addEventListener('click', () => { const go = !showing('dashView'); 
 // 게임 하나에 들어가 있을 때 눌러도 목록으로 돌아온다 — 한 단계 위가
 // 홈이 아니라 목록이어야 다른 게임으로 건너갈 수 있다.
 $('gameBtn').addEventListener('click', () => {
-  if (showing('clawView')) return open('games');
+  // 게임 하나에 들어가 있으면 한 단계 위는 홈이 아니라 목록이다.
+  if (showing('clawView') || showing('matchView') || showing('quizView')) return open('games');
   open(showing('gamesView') ? 'home' : 'games');
 });
 $('dashGoLogin').addEventListener('click', () => open('account'));
@@ -3468,10 +3710,12 @@ sb.auth.onAuthStateChange((_event, session) => {
   syncAuthText();   // 제목이 "로그인" ↔ "내 계정" 으로 따라와야 한다
   if (session) $('auWho').textContent = session.user?.email ?? '';
 
-  /* 인형뽑기를 열어 둔 채로 로그인 상태가 바뀌었다면 그 자리에서
-     다시 판정한다. 로그아웃했는데 앞사람 단어가 그대로 떠 있으면 안 된다.
-     (단어는 clawStart 가 판마다 다시 읽으므로 여기서 비울 것은 없다.) */
+  /* 게임을 열어 둔 채로 로그인 상태가 바뀌었다면 그 자리에서 다시
+     판정한다. 로그아웃했는데 앞사람 단어가 그대로 떠 있으면 안 된다.
+     (단어는 각 게임이 판마다 다시 읽으므로 여기서 비울 것은 없다.) */
   if (showing('clawView')) clawStart();
+  if (showing('matchView')) mtStart();
+  if (showing('quizView')) qzStart();
 
   // 자료마당의 삭제 버튼은 로그인 상태에 따라 붙었다 떨어진다.
   libSession = session;
@@ -3544,10 +3788,18 @@ function syncLang() {
   $('libTitle').placeholder = t('제목', 'Title');
   $('libDesc').placeholder = t('한 줄 설명 (선택)', 'One-line description (optional)');
   $('libReportDetail').placeholder = t('덧붙일 말 (선택)', 'Anything to add (optional)');
-  // 인형뽑기의 안내와 버튼. 문제·답은 사람이 넣은 단어라 번역하지 않는다.
+  // 게임의 안내와 버튼. 문제·답은 사람이 넣은 단어라 번역하지 않는다.
   if (showing('clawView')) {
     clawSyncStatic();
     if (clawDone) clawSyncOver();
+  }
+  if (showing('matchView')) {
+    mtSyncStatic();
+    if (mtDone) mtSyncOver();
+  }
+  if (showing('quizView')) {
+    qzSyncStatic();
+    if (qzDone) qzSyncOver();
   }
 
   /* 선택상자와 숫자칸에는 화면에 보이는 이름이 없거나 옆에 떨어져 있다.
@@ -4684,28 +4936,61 @@ function clawHold(dx, dz) {
   if (!clawRaf) clawRaf = requestAnimationFrame(clawTick);
 }
 
-/* ── 단어 모으기 ─────────────────────────────────────────────
+/* ── 단어 모으기 (게임 셋이 함께 쓴다) ───────────────────────
    왜 이렇게 됐는지를 돌려준다. 못 놀 때 "안 됩니다" 만 뜨면 로그인을
    해야 하는지, 단어를 더 넣어야 하는지, 잠시 뒤 다시 오면 되는지
-   알 수 없다. */
-async function clawLoadPool() {
+   알 수 없다. 돌려주는 값은 'NeedLogin' | 'Few' | 'Err' | 'Play' 이고,
+   부르는 쪽이 제 화면 이름(clawFew, quizFew …)에 붙여 쓴다.
+
+   게임마다 필요한 단어 수가 다르다(짝 맞추기는 여섯 쌍). 그래서
+   최소 개수를 밖에서 받는다. */
+let gameWords = [];
+async function gameLoadWords(min) {
   try {
     const { data: { session } } = await sb.auth.getSession();
-    if (!session) return 'clawNeedLogin';
+    if (!session) return 'NeedLogin';
 
     const { data, error } = await sb.from('words')
       .select('word, meaning').eq('user_id', session.user.id).limit(300);
-    if (error) return 'clawErr';
+    if (error) return 'Err';
 
     // 단어나 뜻이 빈 줄은 문제로 낼 수 없다.
     const ok = (data || []).filter((w) => w.word?.trim() && w.meaning?.trim());
-    if (ok.length < CLAW_DOLLS) return 'clawFew';
+    if (ok.length < min) return 'Few';
 
-    clawPool = ok;
-    return 'clawPlay';
+    gameWords = ok;
+    return 'Play';
   } catch (e) {
-    return 'clawErr';
+    return 'Err';
   }
+}
+
+/** 배열을 뒤섞는다. 원본은 두고 새 배열을 돌려준다. */
+function gameShuffle(list) {
+  const a = [...list];
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+
+/** 기기에 남기는 최고 기록. 서버에 표를 둘 만큼 중한 값이 아니다. */
+function gameBest(key, score) {
+  try {
+    const had = parseInt(localStorage.getItem(key), 10) || 0;
+    if (score > had) { localStorage.setItem(key, String(score)); return score; }
+    return had;
+  } catch (e) { return 0; }
+}
+function gameBestRead(key) {
+  try { return parseInt(localStorage.getItem(key), 10) || 0; } catch (e) { return 0; }
+}
+
+async function clawLoadPool() {
+  const where = await gameLoadWords(CLAW_DOLLS);
+  if (where === 'Play') clawPool = gameWords;
+  return 'claw' + where;
 }
 
 /* 한 판에 놓을 인형 수. 좁은 화면에서는 셋만 놓는다.
@@ -4890,6 +5175,7 @@ function clawFinish() {
       localStorage.setItem(CLAW_BEST_KEY, String(clawScore));
     }
   } catch (e) { /* 저장을 막아 둔 브라우저 — 기록만 없을 뿐 게임은 멀쩡하다 */ }
+  clawSyncBest();    // 방금 세운 기록이 그 자리에서 보여야 한다
   clawPanel('clawOver');
   clawSyncOver();
 }
@@ -5007,6 +5293,315 @@ addEventListener('keydown', (e) => {
   }
 });
 addEventListener('keyup', (e) => { if (CLAW_KEYS[e.key]) clawStop(); });
+
+/* ══ 게임 : 짝 맞추기 ══════════════════════════════════════════
+   여섯 쌍, 열두 장. 단어 카드와 뜻 카드를 짝지어 뒤집는다.
+
+   점수는 맞힌 수가 아니라 **뒤집은 횟수**다. 열두 장이니 언젠가는
+   다 맞는다 — 재미는 "몇 번 만에 끝냈나" 에 있고, 적을수록 잘한 것이다.
+   그래서 최고 기록도 가장 작은 값을 남긴다. */
+
+const MT_PAIRS = 6;
+const MT_BEST_KEY = 'matchBest';
+
+let mtCards = [], mtOpen = [];
+let mtLeft = 0, mtFlips = 0, mtBusy = false, mtDone = false;
+
+const MT_PANELS = ['matchLoading', 'matchNeedLogin', 'matchFew', 'matchErr', 'matchPlay', 'matchOver'];
+function mtPanel(name) { MT_PANELS.forEach((k) => $(k).classList.toggle('hidden', k !== name)); }
+
+async function mtStart() {
+  mtDone = false; mtBusy = true; mtFlips = 0; mtOpen = [];
+  mtSyncStatic();
+  mtPanel('matchLoading');
+  // 판마다 다시 읽는다. 앱에서 방금 넣은 단어가 안 나오면 고장으로 보인다.
+  const where = await gameLoadWords(MT_PAIRS);
+  if (where !== 'Play') { mtPanel('match' + where); return; }
+  mtPanel('matchPlay');
+  mtDeal();
+}
+
+function mtDeal() {
+  const pick = [];
+  for (const w of gameShuffle(gameWords)) {
+    // 같은 단어가 두 쌍이면 어느 것과 맞춰도 맞아 버린다.
+    if (pick.some((p) => p.word === w.word || p.meaning === w.meaning)) continue;
+    pick.push(w);
+    if (pick.length === MT_PAIRS) break;
+  }
+
+  const cards = [];
+  pick.forEach((w, i) => {
+    cards.push({ pair: i, kind: 'word', text: w.word });
+    cards.push({ pair: i, kind: 'mean', text: w.meaning });
+  });
+  mtCards = gameShuffle(cards);
+  mtLeft = pick.length;
+
+  const grid = $('matchGrid');
+  grid.textContent = '';
+  mtCards.forEach((c) => {
+    const b = document.createElement('button');
+    b.type = 'button';
+    b.className = 'mt-card';
+    b.innerHTML = '<span class="mt-inner">' +
+      '<span class="mt-face mt-back">🧀</span>' +
+      '<span class="mt-face mt-front"></span></span>';
+    const front = b.querySelector('.mt-front');
+    if (c.kind === 'mean') front.classList.add('mean');
+    // 사람이 넣은 글이다. innerHTML 로 넣으면 내 단어가 태그가 된다.
+    front.textContent = c.text;
+    b.addEventListener('click', () => mtFlip(c));
+    c.el = b;
+    grid.appendChild(b);
+  });
+
+  mtBusy = false;
+  mtSay('', '');
+  mtCount();
+}
+
+function mtFlip(c) {
+  if (mtBusy || mtDone || c.done || mtOpen.includes(c)) return;
+  c.el.classList.add('open');
+  mtOpen.push(c);
+  if (mtOpen.length < 2) return;
+
+  mtFlips++;
+  const [a, b] = mtOpen;
+
+  if (a.pair === b.pair) {
+    a.done = b.done = true;
+    a.el.classList.add('done'); b.el.classList.add('done');
+    a.el.disabled = b.el.disabled = true;
+    mtOpen = [];
+    mtLeft--;
+    mtSay('good', t('짝을 찾았어요!', 'Pair found!'));
+    mtCount();
+    if (mtLeft === 0) setTimeout(mtFinish, 800);
+    return;
+  }
+
+  // 틀린 짝은 잠깐 보여 주고 덮는다. 바로 덮으면 무엇이었는지 못 본다.
+  mtBusy = true;
+  mtSay('bad', t('짝이 아니에요.', 'Not a pair.'));
+  mtCount();
+  setTimeout(() => {
+    a.el.classList.remove('open');
+    b.el.classList.remove('open');
+    mtOpen = []; mtBusy = false;
+    mtSay('', '');
+  }, 900);
+}
+
+function mtFinish() {
+  mtDone = true;
+  try {
+    const had = parseInt(localStorage.getItem(MT_BEST_KEY), 10) || 0;
+    // 적을수록 잘한 것이라 최솟값을 남긴다.
+    if (!had || mtFlips < had) localStorage.setItem(MT_BEST_KEY, String(mtFlips));
+  } catch (e) { /* 저장을 막아 둔 브라우저 — 기록만 없을 뿐 게임은 멀쩡하다 */ }
+  mtSyncBest();      // 방금 세운 기록이 그 자리에서 보여야 한다
+  mtPanel('matchOver');
+  mtSyncOver();
+}
+
+function mtSyncBest() {
+  const best = gameBestRead(MT_BEST_KEY);
+  $('matchBest').classList.toggle('hidden', best <= 0);
+  $('matchBest').textContent = t(`최소 ${best}번`, `Best ${mtTurn(best)}`);
+}
+
+function mtSay(kind, text) {
+  const el = $('matchMsg');
+  el.className = 'claw-msg' + (kind ? ' ' + kind : '');
+  el.textContent = text;
+}
+
+// 영어는 하나일 때 s 가 빠진다. "1 pairs left" 는 눈에 걸린다.
+const mtPair = (n) => (n === 1 ? '1 pair' : `${n} pairs`);
+const mtTurn = (n) => (n === 1 ? '1 turn' : `${n} turns`);
+
+function mtCount() {
+  $('matchLeft').textContent = t(`${mtLeft}쌍 남았어요`, `${mtPair(mtLeft)} left`);
+  $('matchLabel').textContent = t(`같은 뜻끼리 짝지으세요 · 뒤집은 횟수 ${mtFlips}`,
+                                  `Match each word with its meaning · ${mtTurn(mtFlips)}`);
+}
+
+function mtSyncStatic() {
+  $('matchBackTxt').textContent = t('게임', 'Games');
+  $('matchAgain').textContent = t('다시 하기', 'Play again');
+  $('matchToGames').textContent = t('다른 게임 보기', 'Other games');
+  $('matchNote').textContent = t('카드를 눌러 뒤집으세요. 단어는 내 단어장에서 옵니다.',
+                                 'Tap a card to turn it over. The words come from your wordbook.');
+  mtSyncBest();
+  if (!$('matchPlay').classList.contains('hidden')) mtCount();
+}
+
+function mtSyncOver() {
+  const perfect = mtFlips === MT_PAIRS;   // 한 번도 안 틀렸다
+  $('matchOverEmoji').textContent = perfect ? '🏆' : mtFlips <= MT_PAIRS * 2 ? '🃏' : '🥔';
+  $('matchOverScore').textContent = t(`${mtFlips}번`, mtTurn(mtFlips));
+  $('matchOverLine').textContent = perfect
+    ? t('한 번도 안 틀렸어요. 다 외우고 있었네요.', 'Not one wrong turn — you knew them all.')
+    : mtFlips <= MT_PAIRS * 2
+      ? t('좋아요. 다음엔 더 줄여 볼까요?', 'Nice. Think you can do it in fewer?')
+      : t('괜찮아요. 헤맨 카드일수록 오래 남아요.', 'The ones you hunted for are the ones that stick.');
+}
+
+$('gcMatch').addEventListener('click', () => { open('match'); mtStart(); });
+$('matchGoLogin').addEventListener('click', () => open('account'));
+$('matchGoLib').addEventListener('click', () => { open('library'); loadLibrary(); });
+$('matchRetry').addEventListener('click', () => mtStart());
+$('matchBack').addEventListener('click', () => open('games'));
+$('matchToGames').addEventListener('click', () => open('games'));
+$('matchAgain').addEventListener('click', () => mtStart());
+
+/* ══ 게임 : 스피드 퀴즈 ════════════════════════════════════════
+   60초 동안 뜻을 보고 단어를 고른다.
+
+   시간이 주인공이라 남은 시간을 막대로도 보여 준다. 숫자만 두면 몇 초
+   남았는지 매번 읽어야 하는데, 그 사이에 시간이 간다. */
+
+const QZ_SECONDS = 60, QZ_CHOICES = 4;
+const QZ_BEST_KEY = 'quizBest';
+
+let qzLeft = QZ_SECONDS, qzScore = 0, qzTimer = 0;
+let qzAnswer = null, qzBusy = false, qzDone = false;
+
+const QZ_PANELS = ['quizLoading', 'quizNeedLogin', 'quizFew', 'quizErr', 'quizPlay', 'quizOver'];
+function qzPanel(name) { QZ_PANELS.forEach((k) => $(k).classList.toggle('hidden', k !== name)); }
+
+function qzStop() { if (qzTimer) clearInterval(qzTimer); qzTimer = 0; }
+// 화면을 벗어나도 시계가 돌면, 돌아왔을 때 이미 끝나 있다.
+window.qzStop = qzStop;
+
+async function qzStart() {
+  qzStop();
+  qzDone = false; qzBusy = true; qzScore = 0; qzLeft = QZ_SECONDS;
+  qzSyncStatic();
+  qzMeta();
+  qzPanel('quizLoading');
+  const where = await gameLoadWords(QZ_CHOICES);
+  if (where !== 'Play') { qzPanel('quiz' + where); return; }
+  qzPanel('quizPlay');
+  qzNext();
+  qzTimer = setInterval(() => {
+    qzLeft--;
+    qzMeta();
+    if (qzLeft <= 0) qzFinish();
+  }, 1000);
+}
+
+function qzNext() {
+  const pick = [];
+  for (const w of gameShuffle(gameWords)) {
+    // 보기에 같은 단어가 둘이면 어느 것을 골라도 맞아 버린다.
+    if (pick.some((p) => p.word === w.word)) continue;
+    pick.push(w);
+    if (pick.length === QZ_CHOICES) break;
+  }
+  qzAnswer = pick[Math.floor(Math.random() * pick.length)];
+  $('quizTarget').textContent = qzAnswer.meaning;
+
+  const box = $('quizChoices');
+  box.textContent = '';
+  gameShuffle(pick).forEach((w) => {
+    const b = document.createElement('button');
+    b.type = 'button';
+    b.className = 'qz-choice';
+    b.textContent = w.word;                 // 사람이 넣은 글
+    b.addEventListener('click', () => qzPick(w, b));
+    box.appendChild(b);
+  });
+  qzBusy = false;
+}
+
+function qzPick(w, btn) {
+  if (qzBusy || qzDone) return;
+  qzBusy = true;
+  const right = w.word === qzAnswer.word;
+  const all = [...$('quizChoices').children];
+  all.forEach((b) => { b.disabled = true; });
+
+  if (right) {
+    qzScore++;
+    btn.classList.add('right');
+    qzSay('good', t('정답!', 'Correct!'));
+  } else {
+    btn.classList.add('wrong');
+    // 틀렸을 때 답을 같이 켜 준다. 무엇이 맞는지 모르고 넘어가면
+    // 틀린 채로 한 번 더 외운다.
+    all.forEach((b) => { if (b.textContent === qzAnswer.word) b.classList.add('right'); });
+    qzSay('bad', t(`정답은 “${qzAnswer.word}” 예요.`, `It was “${qzAnswer.word}”.`));
+  }
+  qzMeta();
+
+  setTimeout(() => {
+    if (qzDone) return;
+    qzSay('', '');
+    qzNext();
+  }, right ? 450 : 1000);
+}
+
+function qzFinish() {
+  qzDone = true;
+  qzStop();
+  qzLeft = 0;
+  qzMeta();
+  gameBest(QZ_BEST_KEY, qzScore);
+  qzSyncBest();      // 방금 세운 기록이 그 자리에서 보여야 한다
+  qzPanel('quizOver');
+  qzSyncOver();
+}
+
+function qzSyncBest() {
+  const best = gameBestRead(QZ_BEST_KEY);
+  $('quizBest').classList.toggle('hidden', best <= 0);
+  $('quizBest').textContent = t(`최고 ${best}개`, `Best ${best}`);
+}
+
+function qzSay(kind, text) {
+  const el = $('quizMsg');
+  el.className = 'claw-msg' + (kind ? ' ' + kind : '');
+  el.textContent = text;
+}
+
+function qzMeta() {
+  $('quizClock').textContent = Math.max(0, qzLeft);
+  $('quizScore').textContent = qzScore;
+  $('quizFill').style.transform = 'scaleX(' + Math.max(0, qzLeft / QZ_SECONDS) + ')';
+  // 마지막 10초는 색으로 알린다. 숫자를 읽는 데도 시간이 든다.
+  $('quizFill').parentElement.classList.toggle('hurry', qzLeft <= 10);
+}
+
+function qzSyncStatic() {
+  $('quizBackTxt').textContent = t('게임', 'Games');
+  $('quizLabel').textContent = t('이 뜻을 가진 단어는?', 'Which word means this?');
+  $('quizAgain').textContent = t('다시 하기', 'Play again');
+  $('quizToGames').textContent = t('다른 게임 보기', 'Other games');
+  $('quizNote').textContent = t('60초 동안 최대한 많이. 단어는 내 단어장에서 옵니다.',
+                                'As many as you can in 60 seconds. The words come from your wordbook.');
+  qzSyncBest();
+}
+
+function qzSyncOver() {
+  $('quizOverEmoji').textContent = qzScore >= 20 ? '🏆' : qzScore >= 10 ? '⏱' : '🥔';
+  $('quizOverScore').textContent = t(`${qzScore}개`, `${qzScore}`);
+  $('quizOverLine').textContent = qzScore >= 20
+    ? t('빠르고 정확해요. 이 단어들은 이제 손에 붙었네요.', 'Fast and right — these are yours now.')
+    : qzScore >= 10
+      ? t('좋아요. 한 번 더 하면 더 빨라져요.', 'Solid. One more run and it gets quicker.')
+      : t('괜찮아요. 방금 본 단어부터 다시 보면 돼요.', 'No rush — start with the ones you just saw.');
+}
+
+$('gcQuiz').addEventListener('click', () => { open('quiz'); qzStart(); });
+$('quizGoLogin').addEventListener('click', () => open('account'));
+$('quizGoLib').addEventListener('click', () => { open('library'); loadLibrary(); });
+$('quizRetry').addEventListener('click', () => qzStart());
+$('quizBack').addEventListener('click', () => open('games'));
+$('quizToGames').addEventListener('click', () => open('games'));
+$('quizAgain').addEventListener('click', () => qzStart());
 
 // ── 헤더 선 ──────────────────────────────────────────────────
 // 맨 위에서는 선을 두지 않는다. 스크롤을 내려 내용이 헤더 밑으로
