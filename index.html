@@ -145,6 +145,141 @@ a:hover { color:var(--orange-mid); }
   .hd-cta { display:none; }
 }
 
+/* ══ 사이드 메뉴 ═══════════════════════════════════════════════
+   위 미디어쿼리 뒤에 오지만 겹치는 선택자는 전부 `.side-list` 로
+   한 단계 더 좁혔다. 좁은 화면에서 `.nav-link .nav-txt` 를 숨기는
+   규칙이 메뉴 안 글자까지 지우면 아이콘만 남는다. */
+
+.menu-btn {
+  display:inline-flex; align-items:center; justify-content:center;
+  width:38px; height:38px; margin-left:8px;
+  border:1px solid var(--line); border-radius:var(--r-s);
+  background:transparent; cursor:pointer;
+  transition:background .16s, border-color .16s;
+}
+.menu-btn:hover { background:rgba(27,21,18,.05); border-color:rgba(27,21,18,.2); }
+/* 선 두 개로 만든다. 세 줄보다 조용하고, 열면 그대로 ✕ 가 된다. */
+.menu-bars { position:relative; display:block; width:16px; height:9px; }
+.menu-bars i {
+  position:absolute; left:0; width:100%; height:1.5px; border-radius:1px;
+  background:var(--ink);
+  transition:transform .3s cubic-bezier(.32,.72,0,1);
+}
+.menu-bars i:nth-child(1) { top:0; }
+.menu-bars i:nth-child(2) { bottom:0; }
+.menu-btn.open .menu-bars i:nth-child(1) { transform:translateY(3.75px) rotate(45deg); }
+.menu-btn.open .menu-bars i:nth-child(2) { transform:translateY(-3.75px) rotate(-45deg); }
+
+/* 헤더(z-index 60) 보다 위에 온다. 메뉴가 열린 동안 헤더 버튼이
+   눌리면 뒤에서 화면이 바뀌어 있어 혼란스럽다. */
+.nav-scrim {
+  position:fixed; inset:0; z-index:70;
+  background:rgba(27,21,18,.34);
+  backdrop-filter:blur(2px);
+  opacity:0; visibility:hidden;
+  transition:opacity .3s, visibility .3s;
+}
+.nav-scrim.on { opacity:1; visibility:visible; }
+
+.side-nav {
+  position:fixed; top:0; right:0; z-index:80;
+  width:min(330px, 86vw); height:100dvh;
+  display:flex; flex-direction:column;
+  background:var(--surface-2);
+  border-left:1px solid var(--line);
+  box-shadow:-30px 0 60px -34px rgba(27,21,18,.4);
+  /* 닫혀 있을 때 visibility 까지 감추지 않으면 화면 밖 버튼에
+     탭 키가 들어간다. */
+  transform:translateX(100%); visibility:hidden;
+  transition:transform .38s cubic-bezier(.32,.72,0,1), visibility .38s;
+  overscroll-behavior:contain;
+}
+.side-nav.on { transform:none; visibility:visible; }
+
+.side-hd {
+  flex:0 0 auto; height:64px;
+  display:flex; align-items:center; justify-content:space-between;
+  padding:0 16px 0 24px;
+  border-bottom:1px solid var(--line-2);
+}
+.side-eyebrow {
+  font-size:11px; font-weight:700; letter-spacing:.16em;
+  text-transform:uppercase; color:var(--ink-3);
+}
+.side-close {
+  width:34px; height:34px; display:inline-flex; align-items:center; justify-content:center;
+  border:none; background:none; border-radius:var(--r-s); cursor:pointer;
+  color:var(--ink-3); font-size:15px; line-height:1;
+  transition:background .16s, color .16s;
+}
+.side-close:hover { background:rgba(27,21,18,.05); color:var(--ink); }
+
+.side-list {
+  flex:1 1 auto; overflow-y:auto;
+  display:flex; flex-direction:column; gap:2px;
+  padding:16px 14px;
+}
+
+.side-list .nav-link {
+  width:100%; justify-content:flex-start; gap:13px;
+  padding:12px; border-radius:var(--r);
+  font-size:15px; letter-spacing:-.01em;
+  /* 열릴 때 한 줄씩 따라 들어온다. 한꺼번에 나타나는 것보다 차분하다.
+     늦추기는 opacity·transform 에만 걸어야 한다 — 배경색까지 늦추면
+     열어 둔 뒤 마우스를 올렸을 때 반응이 굼떠 보인다. */
+  opacity:0; transform:translateX(16px);
+  transition:opacity .34s ease var(--d, 0s),
+             transform .34s cubic-bezier(.32,.72,0,1) var(--d, 0s),
+             background .16s, color .16s;
+}
+.side-nav.on .side-list .nav-link { opacity:1; transform:none; }
+.side-nav.on .side-list .nav-link:nth-child(1) { --d:.05s; }
+.side-nav.on .side-list .nav-link:nth-child(2) { --d:.09s; }
+.side-nav.on .side-list .nav-link:nth-child(3) { --d:.13s; }
+.side-nav.on .side-list .nav-link:nth-child(4) { --d:.17s; }
+
+.side-list .nav-link .nav-txt { display:inline; }
+.side-list .nav-ico {
+  flex:0 0 auto; width:34px; height:34px; border-radius:10px;
+  display:inline-flex; align-items:center; justify-content:center;
+  font-size:16px;
+  background:var(--surface); border:1px solid var(--line-2);
+  transition:background .16s, border-color .16s;
+}
+/* 오른쪽 홑화살괄호. 평소에는 없고 짚었을 때만 스며든다. */
+.side-list .nav-link::after {
+  content:'›'; margin-left:auto; padding-left:8px;
+  color:var(--ink-3); font-size:17px; line-height:1;
+  opacity:0; transform:translateX(-4px);
+  transition:opacity .16s, transform .16s;
+}
+.side-list .nav-link:hover { background:rgba(27,21,18,.045); color:var(--ink); }
+.side-list .nav-link:hover .nav-ico { background:var(--tint); border-color:rgba(255,145,77,.32); }
+.side-list .nav-link:hover::after { opacity:.65; transform:none; }
+.side-list .nav-link.on { background:var(--tint); color:var(--ink); font-weight:600; }
+.side-list .nav-link.on .nav-ico { background:var(--surface); border-color:rgba(255,145,77,.42); }
+.side-list .nav-link.on::after { opacity:.65; transform:none; }
+
+.side-foot { flex:0 0 auto; padding:16px 20px 22px; border-top:1px solid var(--line-2); }
+.side-cta {
+  display:flex; align-items:center; justify-content:center;
+  background:var(--ink); color:#fff;
+  font-size:14.5px; font-weight:600; letter-spacing:-.01em;
+  padding:13px 16px; border-radius:var(--r);
+  transition:background .18s;
+}
+.side-cta:hover { background:#33261E; color:#fff; }
+.side-note { margin-top:11px; text-align:center; font-size:11.5px; color:var(--ink-3); }
+
+/* 메뉴가 열린 동안 뒤 페이지가 같이 굴러가면 어디를 보고 있었는지 잃는다. */
+body.nav-open { overflow:hidden; }
+
+/* 미끄러지는 걸 꺼 둔 사람에게는 그냥 나타났다 사라지게 한다. */
+@media (prefers-reduced-motion:reduce) {
+  .side-nav, .nav-scrim, .side-list .nav-link, .menu-bars i { transition-duration:.01ms; }
+  .side-list .nav-link { transform:none; }
+}
+
 /* ══ 공통 조판 ═════════════════════════════════════════════════ */
 
 /* 눈썹 라벨. 알약 배지 대신 대문자 자간으로 처리한다 —
@@ -938,6 +1073,18 @@ a:hover { color:var(--orange-mid); }
   .hero-in { gap:76px; }
   .feat-list { column-gap:64px; }
 }
+
+/* 사이드 메뉴 — 좁은 화면.
+   미디어쿼리는 스타일시트 맨 아래에 둔다. 위에 두면 뒤에 오는
+   기본값에 조용히 덮인다. */
+@media (max-width:759px) {
+  .side-nav { width:min(304px, 88vw); }
+  .side-hd { height:56px; padding-left:20px; }
+  .side-list { padding:14px 12px; }
+  /* 헤더에서는 아이콘만 남기지만 메뉴 안에서는 글자가 본체다. */
+  .side-list .nav-link { padding:12px; }
+  .side-list .nav-ico { font-size:16px; }
+}
 </style>
 </head>
 <body>
@@ -950,6 +1097,29 @@ a:hover { color:var(--orange-mid); }
     <button class="nav-link" id="wbBtn" type="button" aria-label="내 단어장 열기">
       <span class="nav-ico">📚</span><span class="nav-txt" data-en="My wordbook">내 단어장</span>
     </button>
+    <button class="lang-btn" id="langBtn" type="button" aria-label="Switch to English">EN</button>
+    <a class="hd-cta" href="#download" id="hdCta" data-en="Download">다운로드</a>
+    <button class="menu-btn" id="menuBtn" type="button"
+            aria-label="메뉴 열기" aria-expanded="false" aria-controls="sideNav">
+      <span class="menu-bars"><i></i><i></i></span>
+    </button>
+  </nav>
+</div></header>
+
+<!-- ── 사이드 메뉴 ─────────────────────────────────────────────
+     헤더에 여섯 개가 늘어서 있으면 무엇이 중요한지 안 보인다. 자주
+     쓰는 내 단어장과 다운로드만 남기고 나머지 화면은 여기로 모았다.
+
+     버튼은 **옮기기만 했다**. id 와 class 가 그대로여야 ptShow /
+     open / syncLang 이 예전처럼 찾아 쓴다. -->
+<div class="nav-scrim" id="navScrim"></div>
+<aside class="side-nav" id="sideNav" aria-label="메뉴" aria-hidden="true">
+  <div class="side-hd">
+    <span class="side-eyebrow" data-en="Menu">메뉴</span>
+    <button class="side-close" id="sideClose" type="button" aria-label="메뉴 닫기">✕</button>
+  </div>
+
+  <div class="side-list" id="sideList">
     <button class="nav-link" id="dashBtn" type="button" aria-label="대시보드 열기">
       <span class="nav-ico">📊</span><span class="nav-txt" data-en="Dashboard">대시보드</span>
     </button>
@@ -963,10 +1133,15 @@ a:hover { color:var(--orange-mid); }
     <button class="nav-link" id="authBtn" type="button" aria-label="로그인">
       <span class="nav-ico">👤</span><span class="nav-txt">로그인</span>
     </button>
-    <button class="lang-btn" id="langBtn" type="button" aria-label="Switch to English">EN</button>
-    <a class="hd-cta" href="#download" id="hdCta" data-en="Download">다운로드</a>
-  </nav>
-</div></header>
+  </div>
+
+  <div class="side-foot">
+    <!-- 헤더의 다운로드는 좁은 화면에서 숨는다. 여기 하나 더 둬서
+         폰으로 온 사람도 받을 곳을 잃지 않는다. -->
+    <a class="side-cta" href="#download" id="sideCta" data-en="⬇ Download">⬇ 다운로드</a>
+    <p class="side-note" data-en="Free · Android">무료 · 안드로이드</p>
+  </div>
+</aside>
 
 <div class="lp">
 
@@ -2204,8 +2379,10 @@ function ptShow(toTest) {
   ptId('libBtn').classList.remove('on');
   ptId('dashBtn').classList.remove('on');
   const b = ptId('navBtn');
-  // 글자 전체를 바꾸면 옆에 붙은 메뉴 이름까지 지워진다. 아이콘만 바꾼다.
-  b.querySelector('.nav-ico').textContent = toTest ? '✕' : '🎙';
+  // 아이콘은 🎙 로 둔다. 헤더에 있을 때는 ✕ 로 바꿔 "누르면 닫힌다" 를
+  // 알렸지만, 메뉴 안에서는 고르는 순간 메뉴가 닫혀 그 ✕ 를 볼 일이
+  // 없다. 다시 열었을 때만 보여 어색하다. 옆 항목들과 똑같이 .on 으로
+  // 지금 여기라는 것만 보인다.
   b.classList.toggle('on', toTest);
   b.setAttribute('aria-label', toTest ? '홈으로' : '발음 테스트 열기');
   window.scrollTo({ top: 0, behavior: 'auto' });
@@ -2238,6 +2415,36 @@ function applyLang(lang) {
                      : '마이크를 누르고 읽기 시작하세요');
 }
 ptId('langBtn').addEventListener('click', () => applyLang(ptLang === 'ko' ? 'en' : 'ko'));
+
+/* ── 사이드 메뉴 ─────────────────────────────────────────────
+   여닫는 길이 여럿(☰ · 스크림 · ✕ · Esc)이라 한 곳에 모아 둔다.
+   상태를 각자 토글하면 스크림만 남거나 ☰ 모양만 안 돌아오는 일이
+   생긴다. 여기 아래 모듈 스크립트에서 부를 일은 없다 — 스크림이
+   헤더를 덮고 있어 메뉴가 열린 동안에는 다른 길이 없다. */
+const sideNav = ptId('sideNav');
+const menuBtn = ptId('menuBtn');
+
+function setMenu(open) {
+  sideNav.classList.toggle('on', open);
+  ptId('navScrim').classList.toggle('on', open);
+  menuBtn.classList.toggle('open', open);
+  document.body.classList.toggle('nav-open', open);
+  sideNav.setAttribute('aria-hidden', open ? 'false' : 'true');
+  menuBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+  menuBtn.setAttribute('aria-label', open ? '메뉴 닫기' : '메뉴 열기');
+}
+
+menuBtn.addEventListener('click', () => setMenu(!sideNav.classList.contains('on')));
+ptId('navScrim').addEventListener('click', () => setMenu(false));
+ptId('sideClose').addEventListener('click', () => setMenu(false));
+addEventListener('keydown', (e) => { if (e.key === 'Escape') setMenu(false); });
+
+/* 메뉴에서 무언가를 고르면 닫힌다. 각 버튼의 원래 동작은 그대로 두고
+   닫기만 얹었다 — 항목이 늘어도 여기는 안 고쳐도 된다. */
+ptId('sideList').addEventListener('click', (e) => {
+  if (e.target.closest('.nav-link')) setMenu(false);
+});
+ptId('sideCta').addEventListener('click', () => setMenu(false));
 
 </script>
 
@@ -2290,10 +2497,8 @@ function panel(name) {
 /* 화면 전환. 'home' | 'wordbook' | 'account' 셋을 여기서 다룬다.
    발음 테스트는 위 고전 스크립트의 ptShow 가 주인이라 여기서는 닫기만 한다. */
 function open(view) {
-  // 발음 테스트가 열려 있었다면 아이콘을 원래대로 돌려놓는다.
-  const nb = $('navBtn');
-  nb.querySelector('.nav-ico').textContent = '🎙';
-  nb.classList.remove('on');
+  // 발음 테스트가 열려 있었다면 표시를 거둔다.
+  $('navBtn').classList.remove('on');
 
   $('homeView').classList.toggle('hidden', view !== 'home');
   $('testView').classList.add('hidden');
