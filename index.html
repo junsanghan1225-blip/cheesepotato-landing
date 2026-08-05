@@ -988,6 +988,218 @@ body.nav-open { overflow:hidden; }
   .dgrid2b { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
 }
 
+/* ══ 배우기 : 코스 카탈로그 ════════════════════════════════════ */
+.lc-grid { display:grid; gap:16px; }
+.lc-card {
+  display:block; width:100%; text-align:left; cursor:pointer;
+  background:var(--surface); border:1px solid var(--line); border-radius:var(--r-xl);
+  padding:28px; transition:border-color .18s, transform .18s, box-shadow .18s;
+}
+.lc-card:hover { border-color:rgba(27,21,18,.22); transform:translateY(-2px); box-shadow:0 22px 44px -32px rgba(27,21,18,.4); }
+.lc-card:disabled { opacity:.55; cursor:default; transform:none; box-shadow:none; }
+.lc-top { display:flex; align-items:flex-start; gap:18px; }
+.lc-mark {
+  width:62px; height:62px; flex-shrink:0; border-radius:18px;
+  background:var(--tint); border:1px solid var(--line-2);
+  display:grid; place-items:center; font-size:30px; font-weight:700; color:var(--ink);
+}
+.lc-lv { font-size:11px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--orange-deep); }
+.lc-title { font-size:23px; font-weight:700; color:var(--ink); letter-spacing:-.035em; margin-top:7px; }
+.lc-tag { font-size:15px; color:var(--ink-2); line-height:1.6; margin-top:6px; word-break:keep-all; }
+.lc-blurb { font-size:14px; color:var(--ink-3); line-height:1.75; margin-top:14px; word-break:keep-all; }
+.lc-meter { display:flex; align-items:center; gap:12px; margin-top:20px; }
+.lc-bar { flex:1; height:7px; background:rgba(27,21,18,.08); border-radius:5px; overflow:hidden; }
+.lc-fill { height:100%; background:var(--orange); border-radius:5px; transition:width .6s cubic-bezier(.22,1,.36,1); }
+.lc-num { font-size:12.5px; font-weight:700; color:var(--ink-3); font-variant-numeric:tabular-nums; white-space:nowrap; }
+.lc-lock { font-size:13px; color:var(--ink-3); margin-top:18px; }
+
+/* 레슨 목록 */
+.ll-row {
+  display:flex; align-items:center; gap:14px; width:100%; text-align:left; cursor:pointer;
+  background:none; border:none; padding:16px 4px; border-bottom:1px solid var(--line-2);
+  transition:background .16s;
+}
+.ll-row:hover { background:rgba(255,255,255,.6); }
+.ll-dot {
+  width:30px; height:30px; flex-shrink:0; border-radius:50%;
+  border:1.5px solid var(--line); display:grid; place-items:center;
+  font-size:12px; font-weight:700; color:var(--ink-3); font-variant-numeric:tabular-nums;
+}
+.ll-row.done .ll-dot { background:var(--green); border-color:var(--green); color:#fff; }
+.ll-main { flex:1; min-width:0; }
+.ll-t { font-size:16px; font-weight:600; color:var(--ink); letter-spacing:-.02em; word-break:keep-all; }
+.ll-row.done .ll-t { color:var(--ink-2); }
+.ll-m { font-size:12.5px; color:var(--ink-3); margin-top:3px; }
+.ll-go { font-size:15px; color:var(--ink-3); flex-shrink:0; }
+
+/* ══ 배우기 : 레슨 화면 ════════════════════════════════════════ */
+.ls-bar {
+  position:sticky; top:0; z-index:40;
+  background:rgba(242,238,228,.94); backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--line);
+}
+.ls-bar-in {
+  max-width:760px; margin:0 auto; padding:12px var(--gut);
+  display:flex; align-items:center; gap:14px;
+}
+.ls-x { background:none; border:none; cursor:pointer; font-size:19px; color:var(--ink-3); padding:4px 6px; line-height:1; }
+.ls-x:hover { color:var(--ink); }
+.ls-track { flex:1; height:7px; background:rgba(27,21,18,.08); border-radius:5px; overflow:hidden; }
+.ls-prog { height:100%; background:var(--orange); border-radius:5px; transition:width .45s cubic-bezier(.22,1,.36,1); }
+.ls-count { font-size:12.5px; font-weight:700; color:var(--ink-3); font-variant-numeric:tabular-nums; white-space:nowrap; }
+
+.ls-body { max-width:760px; margin:0 auto; padding:36px var(--gut) 120px; }
+.ls-kicker { font-size:11.5px; font-weight:700; letter-spacing:.16em; text-transform:uppercase; color:var(--orange-deep); }
+.ls-h1 { font-size:clamp(28px,5.6vw,38px); font-weight:700; color:var(--ink); letter-spacing:-.045em; line-height:1.14; margin:10px 0 30px; word-break:keep-all; }
+
+/* 블록 */
+.bk { margin-bottom:26px; animation:bkIn .5s cubic-bezier(.22,1,.36,1) both; }
+@keyframes bkIn { from { opacity:0; transform:translateY(10px); } to { opacity:1; transform:none; } }
+.bk-h { font-size:19px; font-weight:700; color:var(--ink); letter-spacing:-.03em; margin-bottom:10px; word-break:keep-all; }
+.bk-p { font-size:16.5px; line-height:1.85; color:var(--ink-2); word-break:keep-all; }
+.bk-p + .bk-p { margin-top:14px; }
+.bk-p strong { color:var(--ink); font-weight:700; }
+.bk-p code, .bk-note code { background:var(--tint); border:1px solid var(--line-2); border-radius:5px; padding:2px 7px; font-size:.92em; color:var(--orange-deep); }
+.bk-note {
+  background:var(--tint); border:1px solid var(--line); border-left:3px solid var(--orange);
+  border-radius:0 14px 14px 0; padding:18px 20px;
+  font-size:15.5px; line-height:1.8; color:var(--ink-2); word-break:keep-all;
+}
+.bk-note strong { color:var(--ink); }
+
+/* 글자 카드 */
+.bk-chars { display:flex; flex-wrap:wrap; gap:10px; }
+.ch-card {
+  flex:1 1 120px; min-width:110px; cursor:pointer; text-align:center;
+  background:var(--surface); border:1px solid var(--line); border-radius:16px; padding:18px 12px;
+  transition:border-color .16s, transform .12s;
+}
+.ch-card:hover { border-color:var(--orange); transform:translateY(-2px); }
+.ch-card:active { transform:translateY(0); }
+.ch-big { font-size:36px; font-weight:700; color:var(--ink); line-height:1.15; }
+.ch-rom { font-size:12.5px; font-weight:700; letter-spacing:.06em; color:var(--orange-deep); margin-top:8px; }
+.ch-tip { font-size:12.5px; color:var(--ink-3); line-height:1.6; margin-top:8px; word-break:keep-all; }
+.ch-card .ch-tip strong { color:var(--ink-2); }
+
+/* 표 */
+.bk-tw { overflow-x:auto; border:1px solid var(--line); border-radius:14px; background:var(--surface); }
+.bk-tw table { border-collapse:collapse; width:100%; }
+.bk-tw th, .bk-tw td { padding:12px 14px; text-align:left; font-size:14.5px; border-bottom:1px solid var(--line-2); word-break:keep-all; }
+.bk-tw th { background:var(--tint); color:var(--ink); font-weight:700; font-size:12.5px; white-space:nowrap; }
+.bk-tw tr:last-child td { border-bottom:none; }
+.bk-tw td strong { color:var(--ink); }
+
+/* 문제 */
+.ex {
+  background:var(--surface); border:1px solid var(--line); border-radius:var(--r-xl);
+  padding:26px; margin-bottom:26px;
+}
+.ex.ok { border-color:rgba(18,112,79,.45); background:#F7FBF8; }
+.ex-tag { font-size:11px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--ink-3); margin-bottom:12px; }
+.ex-q { font-size:17.5px; font-weight:600; color:var(--ink); line-height:1.6; letter-spacing:-.02em; word-break:keep-all; }
+.ex-opts { display:grid; gap:9px; margin-top:18px; }
+.ex-opt {
+  display:flex; align-items:center; gap:12px; width:100%; text-align:left; cursor:pointer;
+  background:var(--surface-2); border:1px solid var(--line); border-radius:13px;
+  padding:15px 17px; font-size:16px; color:var(--ink); transition:border-color .14s, background .14s;
+  word-break:keep-all;
+}
+.ex-opt:hover:not(:disabled) { border-color:rgba(27,21,18,.26); background:#fff; }
+.ex-opt:disabled { cursor:default; }
+.ex-opt.right { border-color:var(--green); background:#EAF6F0; color:var(--ink); font-weight:600; }
+.ex-opt.wrong { border-color:var(--red); background:#FCEFEE; }
+.ex-mark { margin-left:auto; font-size:15px; flex-shrink:0; }
+.ex-say {
+  display:inline-flex; align-items:center; gap:9px; cursor:pointer;
+  background:var(--ink); color:#fff; border:1px solid var(--ink);
+  font-size:15px; font-weight:600; padding:13px 22px; border-radius:var(--r-s); margin-top:4px;
+}
+.ex-say:hover { background:#33261E; }
+.ex-why {
+  font-size:14.5px; line-height:1.75; color:var(--ink-2); word-break:keep-all;
+  margin-top:16px; padding-top:16px; border-top:1px solid var(--line-2);
+}
+.ex-why b { color:var(--green); }
+
+/* 입력형 */
+.ex-in {
+  width:100%; padding:15px 16px; font-size:20px; text-align:center;
+  border:1px solid var(--line); border-radius:13px; background:var(--surface-2); color:var(--ink);
+  margin-top:18px;
+}
+.ex-in:focus { outline:none; border-color:var(--orange-mid); background:#fff; }
+.ex-keys { display:flex; flex-wrap:wrap; gap:8px; margin-top:12px; justify-content:center; }
+.ex-key {
+  min-width:52px; cursor:pointer; font-size:19px; color:var(--ink);
+  background:var(--surface-2); border:1px solid var(--line); border-radius:11px; padding:11px 14px;
+}
+.ex-key:hover { border-color:var(--orange); background:#fff; }
+
+/* 어순 */
+.ex-slot {
+  min-height:56px; display:flex; flex-wrap:wrap; gap:8px; align-items:center;
+  border:1px dashed rgba(27,21,18,.24); border-radius:13px; padding:12px; margin-top:18px;
+  background:var(--surface-2);
+}
+.ex-slot:empty::before { content:attr(data-ph); color:var(--ink-3); font-size:14px; }
+.tok {
+  cursor:pointer; font-size:16px; color:var(--ink);
+  background:#fff; border:1px solid var(--line); border-radius:10px; padding:10px 15px;
+}
+.tok:hover { border-color:var(--orange); }
+.ex-bank { display:flex; flex-wrap:wrap; gap:8px; margin-top:12px; }
+
+/* 짝 맞추기 */
+.ex-pair { display:grid; grid-template-columns:1fr 1fr; gap:9px; margin-top:18px; }
+.pc {
+  cursor:pointer; font-size:15.5px; color:var(--ink); text-align:center; word-break:keep-all;
+  background:var(--surface-2); border:1px solid var(--line); border-radius:12px; padding:14px 10px;
+  transition:border-color .14s, background .14s, opacity .3s;
+}
+.pc:hover:not(:disabled) { border-color:rgba(27,21,18,.26); background:#fff; }
+.pc.sel { border-color:var(--orange); background:#FFF4EA; }
+.pc.gone { opacity:.28; cursor:default; border-style:dashed; }
+.pc.miss { border-color:var(--red); background:#FCEFEE; }
+
+/* 말하기 */
+.ex-target { font-size:30px; font-weight:700; color:var(--ink); letter-spacing:-.03em; line-height:1.4; margin-top:16px; word-break:keep-all; }
+.ex-rom { font-size:14px; color:var(--ink-3); margin-top:8px; }
+.ex-mic {
+  width:74px; height:74px; border-radius:50%; font-size:28px; cursor:pointer;
+  background:var(--orange); color:#fff; border:none; margin:20px auto 0; display:block;
+  transition:background .18s, transform .12s;
+}
+.ex-mic:hover { background:#FFA366; }
+.ex-mic.rec { background:var(--red); animation:micPulse 1.5s ease-out infinite; }
+.ex-heard { font-size:15px; color:var(--ink-2); margin-top:14px; min-height:1.6em; word-break:keep-all; }
+.ex-skip { background:none; border:none; cursor:pointer; font-size:13.5px; color:var(--ink-3); margin-top:12px; text-decoration:underline; }
+.ex-skip:hover { color:var(--ink); }
+
+/* 이어가기 · 마침 */
+.ls-next {
+  position:fixed; left:0; right:0; bottom:0; z-index:45;
+  background:rgba(242,238,228,.96); backdrop-filter:blur(12px);
+  border-top:1px solid var(--line); padding:14px var(--gut);
+}
+.ls-next-in { max-width:760px; margin:0 auto; display:flex; gap:10px; align-items:center; }
+.ls-next-in .pt-next { flex:1; }
+.ls-done { text-align:center; padding:44px 0 20px; }
+.ls-done-big { font-size:60px; line-height:1; }
+.ls-done-t { font-size:27px; font-weight:700; color:var(--ink); letter-spacing:-.04em; margin-top:18px; }
+.ls-done-s { font-size:15.5px; color:var(--ink-2); line-height:1.75; margin-top:12px; word-break:keep-all; }
+.ls-streak {
+  display:inline-flex; align-items:center; gap:9px; margin-top:20px;
+  background:var(--tint); border:1px solid var(--line); border-radius:22px; padding:10px 18px;
+  font-size:14px; font-weight:600; color:var(--ink);
+}
+
+@media (min-width:760px) {
+  .lc-grid { grid-template-columns:1fr 1fr; }
+  .ls-body { padding:52px var(--gut) 130px; }
+  .ex { padding:30px; }
+  .ch-card { flex:1 1 140px; }
+}
+
 /* ══ 자료마당 (게시판) ═════════════════════════════════════════
    기능 목록과 같은 헤어라인 색인. 카드를 띄우지 않는다. */
 .bd { border-top:1px solid var(--line); margin-bottom:14px; }
@@ -1741,6 +1953,10 @@ body.nav-open { overflow:hidden; }
     <img src="logo.png" alt=""><span>치즈감자</span>
   </button>
   <nav class="site-nav">
+    <!-- 배우기가 이 사이트의 본체다. 헤더에서 가장 먼저 온다. -->
+    <button class="nav-link" id="learnBtn" type="button" aria-label="배우기 열기">
+      <span class="nav-ico">📖</span><span class="nav-txt" data-en="Learn">배우기</span>
+    </button>
     <button class="nav-link" id="wbBtn" type="button" aria-label="내 단어장 열기">
       <span class="nav-ico">📚</span><span class="nav-txt" data-en="My wordbook">내 단어장</span>
     </button>
@@ -2044,6 +2260,55 @@ body.nav-open { overflow:hidden; }
   </div>
 
 </div><!-- /homeView -->
+
+<!-- ── 배우기 : 코스 카탈로그 ──────────────────────────────────
+     내용은 courses.js 에 있고 여기서는 그리기만 한다. -->
+<div id="learnView" class="hidden">
+
+  <div class="pt-hero">
+    <div class="pt-badge">LEARN KOREAN</div>
+    <h2 data-en="Start reading Korean<br>this morning">오늘 아침에<br>한국어를 읽기 시작하세요</h2>
+    <p data-en="Hangul was designed to be learnable in a day. Short lessons, one thing at a time, and you check yourself as you go.">한글은 하루면 익히도록 설계된 글자입니다. 짧은 레슨, 한 번에 하나씩, 그리고 스스로 확인하면서.</p>
+  </div>
+
+  <div class="pt-body" style="max-width:1000px;">
+    <div id="lcList" class="lc-grid"></div>
+
+    <!-- 코스를 고르면 레슨 목록이 여기 열린다 -->
+    <div id="llWrap" class="hidden" style="margin-top:32px;">
+      <div class="bd-sec-title">
+        <h3 id="llTitle"></h3>
+        <button class="wb-out" id="llBack" type="button" data-en="← All courses">← 코스 목록</button>
+      </div>
+      <div class="bd"><div id="llRows"></div></div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div class="footer-brand" data-en="Every Koreans">에브리 코리안즈</div>
+    <div class="footer-info">© 2026 치즈감자 · <a href="privacy.html" data-en="Privacy policy">개인정보처리방침</a></div>
+  </div>
+
+</div><!-- /learnView -->
+
+<!-- ── 배우기 : 레슨 ──────────────────────────────────────────── -->
+<div id="lessonView" class="hidden">
+  <div class="ls-bar"><div class="ls-bar-in">
+    <button class="ls-x" id="lsExit" type="button" aria-label="레슨 나가기">✕</button>
+    <div class="ls-track"><div class="ls-prog" id="lsProg" style="width:0%"></div></div>
+    <span class="ls-count" id="lsCount"></span>
+  </div></div>
+
+  <div class="ls-body">
+    <div class="ls-kicker" id="lsKicker"></div>
+    <h1 class="ls-h1" id="lsTitle"></h1>
+    <div id="lsBlocks"></div>
+  </div>
+
+  <div class="ls-next hidden" id="lsNextBar"><div class="ls-next-in">
+    <button class="pt-next" id="lsNext" type="button"></button>
+  </div></div>
+</div><!-- /lessonView -->
 
 <!-- ── 발음 레벨 테스트 ───────────────────────────────────── -->
 <div id="testView" class="hidden">
@@ -3350,6 +3615,10 @@ function ptShow(toTest) {
   ptId('clawView').classList.add('hidden');
   ptId('matchView').classList.add('hidden');
   ptId('quizView').classList.add('hidden');
+  ptId('learnView').classList.add('hidden');
+  ptId('lessonView').classList.add('hidden');
+  ptId('learnBtn')?.classList.remove('on');
+  if (window.lsLeave) window.lsLeave();   // 레슨 안에서 듣던 것 정리
   ptId('wbBtn').classList.remove('on');
   ptId('authBtn').classList.remove('on');
   ptId('libBtn').classList.remove('on');
@@ -3395,7 +3664,24 @@ function applyLang(lang) {
     : (lang === 'en' ? 'Tap the mic and start reading'
                      : '마이크를 누르고 읽기 시작하세요');
 }
-ptId('langBtn').addEventListener('click', () => applyLang(ptLang === 'ko' ? 'en' : 'ko'));
+ptId('langBtn').addEventListener('click', () => {
+  const next = ptLang === 'ko' ? 'en' : 'ko';
+  applyLang(next);
+  try { localStorage.setItem('lang', next); } catch (e) {}
+});
+
+/* 기본은 영어다.
+   이 사이트는 한국어를 **모르는** 사람에게 한국어를 가르친다. 한글을
+   못 읽는 사람에게 한국어 화면을 내밀면 첫 화면에서 나간다.
+   한 번 고른 언어는 기억해 두어 다음에 다시 고르게 하지 않는다. */
+(function initLang() {
+  let saved = null;
+  try { saved = localStorage.getItem('lang'); } catch (e) {}
+  // 저장된 것이 없으면 브라우저 언어를 본다. 한국어 사용자에게까지
+  // 영어를 들이밀 이유는 없다.
+  const guess = (navigator.language || '').toLowerCase().startsWith('ko') ? 'ko' : 'en';
+  applyLang(saved || guess);
+})();
 
 /* ── 사이드 메뉴 ─────────────────────────────────────────────
    여닫는 길이 여럿(☰ · 스크림 · ✕ · Esc)이라 한 곳에 모아 둔다.
@@ -3441,6 +3727,8 @@ import { createClient } from 'https://esm.sh/@supabase/supabase-js@2';
 // 앱(package.json)과 같은 버전을 못박는다. 버전이 갈리면 앱에서는
 // 읽히는 파일이 여기서는 안 읽히는(또는 그 반대) 일이 생긴다.
 import * as XLSX from 'https://esm.sh/xlsx@0.18.5';
+// 커리큘럼. 내용과 엔진을 갈라 두면 글을 고치다 화면을 깨지 않는다.
+import { COURSES } from './courses.js';
 
 // 이 키는 공개돼도 되는 값이다. 이미 APK 안에 같은 것이 들어 있고,
 // 접근을 막는 건 키가 아니라 테이블에 걸린 RLS 다.
@@ -3494,6 +3782,12 @@ function open(view) {
   $('clawView').classList.toggle('hidden', view !== 'claw');
   $('matchView').classList.toggle('hidden', view !== 'match');
   $('quizView').classList.toggle('hidden', view !== 'quiz');
+  $('learnView').classList.toggle('hidden', view !== 'learn');
+  $('lessonView').classList.toggle('hidden', view !== 'lesson');
+
+  // 레슨 안에 있는 동안에도 '배우기' 는 켜 둔다. 꺼지면 길을 잃는다.
+  $('learnBtn').classList.toggle('on', view === 'learn' || view === 'lesson');
+  if (view !== 'lesson') lsLeave();
 
   $('wbBtn').classList.toggle('on', view === 'wordbook');
   $('authBtn').classList.toggle('on', view === 'account');
@@ -3980,6 +4274,9 @@ function syncLang() {
     $('stStudy').value = s; $('stNative').value = n;
     setCalc();
   }
+  // 배우기 — 잠금 안내·분·문제 수가 글이라 다시 그린다.
+  if ($('lcList').childElementCount) drawCourses();
+  if (!$('llWrap').classList.contains('hidden')) drawLessonRows();
   // 대시보드는 요일·단위까지 글로 되어 있어 통째로 다시 그린다.
   // 숨김 여부가 아니라 내용 유무로 판단한다 — 숨겨져 있을 때 건너뛰면
   // 다시 열었을 때 예전 언어가 그대로 남는다.
@@ -4988,6 +5285,464 @@ function renderDashboard() {
 
   $('dashBody').innerHTML = html;
 }
+
+// ══ 배우기 ═══════════════════════════════════════════════════
+// 내용은 courses.js 에 있다. 여기는 그리고 채점하고 진도를 남기는 일만 한다.
+
+let doneSet = new Set();     // 끝낸 lesson id
+let doneDays = [];           // 끝낸 날짜(YYYY-MM-DD) 내림차순 — 연속일 계산용
+let lsCourse = null, lsLesson = null;
+let lsQueue = [], lsSolved = 0, lsTotal = 0;
+
+/* 글자 안쪽 서식. **굵게** 와 `코드` 만 받는다.
+   레슨 글은 우리가 쓰는 것이라 더 넓힐 이유가 없고, 넓히면 그만큼
+   깨질 자리가 는다. */
+function md(s) {
+  return esc(String(s ?? ''))
+    .replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>')
+    .replace(/`([^`]+)`/g, '<code>$1</code>')
+    .replace(/\n\n/g, '</p><p class="bk-p">');
+}
+
+/* 한국어 음성. 기기에 한국어 목소리가 없으면 조용히 넘어간다 —
+   소리가 안 나는 것보다 오류창이 뜨는 게 더 나쁘다. */
+function say(text) {
+  try {
+    speechSynthesis.cancel();
+    const u = new SpeechSynthesisUtterance(text);
+    u.lang = 'ko-KR';
+    u.rate = 0.85;   // 배우는 중이라 조금 느리게
+    speechSynthesis.speak(u);
+  } catch (e) { /* 지원 안 함 */ }
+}
+
+async function loadProgress() {
+  doneSet = new Set(); doneDays = [];
+  const { data: { session } } = await sb.auth.getSession();
+  if (!session) return;
+  try {
+    const { data, error } = await sb.from('lesson_progress')
+      .select('lesson_id, done_at').eq('user_id', session.user.id)
+      .order('done_at', { ascending: false });
+    if (error || !data) return;
+    data.forEach((r) => doneSet.add(r.lesson_id));
+    doneDays = [...new Set(data.map((r) => String(r.done_at).slice(0, 10)))];
+  } catch (e) { /* 표가 아직 없으면 진도 없이 그냥 쓴다 */ }
+}
+
+/* 연속 학습일. 오늘 안 했으면 어제까지의 연속을 보여준다 —
+   자정 넘자마자 0 이 되면 어제 한 일이 사라진 것처럼 보인다. */
+function streak() {
+  if (!doneDays.length) return 0;
+  const d = new Date(); d.setHours(0, 0, 0, 0);
+  const key = (x) => `${x.getFullYear()}-${String(x.getMonth()+1).padStart(2,'0')}-${String(x.getDate()).padStart(2,'0')}`;
+  if (doneDays[0] !== key(d)) d.setDate(d.getDate() - 1);
+  let n = 0;
+  for (;;) { if (!doneDays.includes(key(d))) break; n++; d.setDate(d.getDate() - 1); }
+  return n;
+}
+
+const courseDone = (c) => c.lessons.filter((l) => doneSet.has(l.id)).length;
+
+function drawCourses() {
+  $('lcList').innerHTML = COURSES.map((c) => {
+    const n = courseDone(c), all = c.lessons.length;
+    const pct = Math.round((n / all) * 100);
+    const need = c.needs ? COURSES.find((x) => x.id === c.needs) : null;
+    // 앞 코스를 절반은 해야 다음이 열린다. 다 해야 열면 지루하고,
+    // 아무 때나 열면 순서를 만든 뜻이 없다.
+    const locked = !!(need && courseDone(need) < Math.ceil(need.lessons.length / 2));
+    return (
+      `<button class="lc-card" data-course="${c.id}"${locked ? ' disabled' : ''}>` +
+        '<div class="lc-top">' +
+          `<div class="lc-mark">${esc(c.emoji)}</div>` +
+          '<div style="min-width:0">' +
+            `<div class="lc-lv">${esc(c.level)}</div>` +
+            `<div class="lc-title">${esc(c.title)}</div>` +
+            `<div class="lc-tag">${esc(c.tagline)}</div>` +
+          '</div>' +
+        '</div>' +
+        `<p class="lc-blurb">${esc(c.blurb)}</p>` +
+        (locked
+          ? `<div class="lc-lock">🔒 ${t(`먼저 ${need.title} 를 절반쯤 끝내면 열려요.`, `Opens once you are halfway through ${need.title}.`)}</div>`
+          : '<div class="lc-meter">' +
+              `<div class="lc-bar"><div class="lc-fill" style="width:${pct}%"></div></div>` +
+              `<span class="lc-num">${n} / ${all}</span>` +
+            '</div>') +
+      '</button>'
+    );
+  }).join('');
+}
+
+$('lcList').addEventListener('click', (ev) => {
+  const b = ev.target.closest('[data-course]');
+  if (!b || b.disabled) return;
+  openCourse(COURSES.find((c) => c.id === b.dataset.course));
+});
+
+function openCourse(c) {
+  lsCourse = c;
+  drawLessonRows();
+  $('llWrap').classList.remove('hidden');
+  $('llWrap').scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+/* 목록만 다시 그린다. 언어를 바꿀 때도 쓰는데, 그때 화면이 튀면
+   안 되므로 스크롤은 openCourse 쪽에만 둔다. */
+function drawLessonRows() {
+  const c = lsCourse;
+  if (!c) return;
+  $('llTitle').textContent = c.title;
+  $('llRows').innerHTML = c.lessons.map((l, i) => {
+    const done = doneSet.has(l.id);
+    return (
+      `<button class="ll-row${done ? ' done' : ''}" data-lesson="${esc(l.id)}">` +
+        `<span class="ll-dot">${done ? '✓' : i + 1}</span>` +
+        '<span class="ll-main">' +
+          `<span class="ll-t">${esc(l.title)}</span>` +
+          `<span class="ll-m">${l.minutes} ${t('분', 'min')} · ${l.blocks.filter(isEx).length} ${t('문제', 'exercises')}</span>` +
+        '</span>' +
+        '<span class="ll-go">→</span>' +
+      '</button>'
+    );
+  }).join('');
+}
+
+$('llBack').addEventListener('click', () => {
+  $('llWrap').classList.add('hidden');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+
+$('llRows').addEventListener('click', (ev) => {
+  const b = ev.target.closest('[data-lesson]');
+  if (!b) return;
+  startLesson(lsCourse, lsCourse.lessons.find((l) => l.id === b.dataset.lesson));
+});
+
+const isEx = (b) => ['choice','listen','type','order','pair','speak'].includes(b.t);
+
+function startLesson(course, lesson) {
+  lsCourse = course; lsLesson = lesson;
+  lsQueue = lesson.blocks.slice();
+  lsSolved = 0;
+  lsTotal = lesson.blocks.filter(isEx).length;
+
+  $('lsKicker').textContent = course.title;
+  $('lsTitle').textContent = lesson.title;
+  $('lsBlocks').innerHTML = '';
+  $('lsNextBar').classList.add('hidden');
+  lsMeter();
+  open('lesson');
+  flow();
+}
+
+function lsMeter() {
+  const pct = lsTotal ? Math.round((lsSolved / lsTotal) * 100) : 0;
+  $('lsProg').style.width = pct + '%';
+  $('lsCount').textContent = lsTotal ? `${lsSolved} / ${lsTotal}` : '';
+}
+
+/* 읽는 블록은 문제를 만날 때까지 죽 펼치고, 문제가 나오면 멈춘다.
+   맞히면 다시 흐른다. 한 번에 다 보여주면 읽지 않고 내려가고,
+   한 칸씩 보여주면 앞을 다시 볼 수가 없다. */
+function flow() {
+  while (lsQueue.length && !isEx(lsQueue[0])) {
+    $('lsBlocks').insertAdjacentHTML('beforeend', readBlock(lsQueue.shift()));
+  }
+  if (!lsQueue.length) return finishLesson();
+
+  const b = lsQueue.shift();
+  const host = document.createElement('div');
+  $('lsBlocks').appendChild(host);
+  exBlock(host, b, () => {
+    lsSolved++; lsMeter();
+    flow();
+    // 새로 나온 곳이 보이게. 맞히고 나서 화면이 그대로면 끝난 줄 안다.
+    setTimeout(() => host.nextElementSibling?.scrollIntoView({ behavior:'smooth', block:'center' }), 120);
+  });
+  setTimeout(() => host.scrollIntoView({ behavior:'smooth', block:'center' }), 60);
+}
+
+function readBlock(b) {
+  if (b.t === 'text')
+    return `<div class="bk">${b.h ? `<div class="bk-h">${esc(b.h)}</div>` : ''}<p class="bk-p">${md(b.md)}</p></div>`;
+  if (b.t === 'note')
+    return `<div class="bk"><div class="bk-note">${md(b.md)}</div></div>`;
+  if (b.t === 'chars')
+    return '<div class="bk"><div class="bk-chars">' + b.items.map((it) =>
+      `<button class="ch-card" data-say="${esc(it.ch)}">` +
+        `<div class="ch-big">${esc(it.ch)}</div>` +
+        `<div class="ch-rom">${esc(it.rom)}</div>` +
+        (it.tip ? `<div class="ch-tip">${md(it.tip)}</div>` : '') +
+      '</button>').join('') + '</div></div>';
+  if (b.t === 'table')
+    return '<div class="bk"><div class="bk-tw"><table><thead><tr>' +
+      b.head.map((h) => `<th>${md(h)}</th>`).join('') + '</tr></thead><tbody>' +
+      b.rows.map((r) => '<tr>' + r.map((c) => `<td>${md(c)}</td>`).join('') + '</tr>').join('') +
+      '</tbody></table></div></div>';
+  return '';
+}
+
+// 글자 카드를 누르면 읽어 준다.
+$('lsBlocks').addEventListener('click', (ev) => {
+  const c = ev.target.closest('[data-say]');
+  if (c) say(c.dataset.say);
+});
+
+/* 문제 한 개. 맞히면 done() 을 부른다. */
+function exBlock(host, b, done) {
+  const wrap = document.createElement('div');
+  wrap.className = 'ex';
+  host.appendChild(wrap);
+
+  const tag = { choice:t('고르기','Choose'), listen:t('듣기','Listen'), type:t('쓰기','Type'),
+                order:t('배열','Arrange'), pair:t('짝 맞추기','Match'), speak:t('말하기','Speak') }[b.t];
+  const head = `<div class="ex-tag">${tag}</div>` + (b.q ? `<div class="ex-q">${md(b.q)}</div>` : '');
+
+  const solve = () => { wrap.classList.add('ok'); done(); };
+  const why = () => b.why ? `<div class="ex-why"><b>${t('맞아요','Correct')}</b> — ${md(b.why)}</div>` : '';
+
+  // ── 고르기 · 듣기 ────────────────────────────────────────
+  if (b.t === 'choice' || b.t === 'listen') {
+    wrap.innerHTML = head +
+      (b.t === 'listen' ? `<button class="ex-say" data-say="${esc(b.say)}">🔊 ${t('다시 듣기','Play again')}</button>` : '') +
+      '<div class="ex-opts">' + b.options.map((o, i) =>
+        `<button class="ex-opt" data-i="${i}">${esc(o)}<span class="ex-mark"></span></button>`).join('') + '</div>';
+    if (b.t === 'listen') setTimeout(() => say(b.say), 350);
+
+    wrap.addEventListener('click', (ev) => {
+      const s = ev.target.closest('[data-say]');
+      if (s) return say(s.dataset.say);
+      const o = ev.target.closest('.ex-opt');
+      if (!o || o.disabled) return;
+      const i = Number(o.dataset.i);
+      if (i === b.answer) {
+        wrap.querySelectorAll('.ex-opt').forEach((x) => { x.disabled = true; });
+        o.classList.add('right'); o.querySelector('.ex-mark').textContent = '✓';
+        wrap.insertAdjacentHTML('beforeend', why());
+        solve();
+      } else {
+        o.classList.add('wrong'); o.querySelector('.ex-mark').textContent = '✕';
+        o.disabled = true;
+      }
+    });
+    return;
+  }
+
+  // ── 쓰기 ─────────────────────────────────────────────────
+  if (b.t === 'type') {
+    wrap.innerHTML = head +
+      '<input class="ex-in" type="text" autocomplete="off" autocapitalize="off" spellcheck="false">' +
+      (b.keys ? '<div class="ex-keys">' + b.keys.map((k) =>
+        `<button class="ex-key" data-k="${esc(k)}">${esc(k)}</button>`).join('') + '</div>' : '');
+    const input = wrap.querySelector('.ex-in');
+    const check = () => {
+      if (input.value.trim() === b.answer) {
+        input.disabled = true;
+        wrap.querySelectorAll('.ex-key').forEach((k) => { k.disabled = true; });
+        wrap.insertAdjacentHTML('beforeend', why());
+        solve();
+      } else {
+        input.style.borderColor = 'var(--red)';
+        setTimeout(() => { input.style.borderColor = ''; }, 700);
+      }
+    };
+    input.addEventListener('keydown', (e) => { if (e.key === 'Enter') check(); });
+    input.addEventListener('input', () => { if (input.value.trim() === b.answer) check(); });
+    wrap.addEventListener('click', (ev) => {
+      const k = ev.target.closest('[data-k]');
+      if (!k || k.disabled) return;
+      // 자판이 없는 사람을 위한 것이라 누르면 그 글자로 바로 채운다.
+      input.value = k.dataset.k;
+      check();
+    });
+    return;
+  }
+
+  // ── 배열 ─────────────────────────────────────────────────
+  if (b.t === 'order') {
+    const bank = b.tokens.map((x, i) => ({ x, i })).sort(() => Math.random() - 0.5);
+    wrap.innerHTML = head +
+      `<div class="ex-slot" id="sl" data-ph="${t('여기에 놓으세요','Tap the words below')}"></div>` +
+      '<div class="ex-bank">' + bank.map((o) =>
+        `<button class="tok" data-b="${o.i}">${esc(o.x)}</button>`).join('') + '</div>';
+    const slot = wrap.querySelector('.ex-slot');
+    const picked = [];
+    const check = () => {
+      if (picked.length !== b.answer.length) return;
+      const got = picked.map((i) => b.tokens[i]);
+      if (got.every((v, i) => v === b.answer[i])) {
+        wrap.querySelectorAll('.tok').forEach((x) => { x.disabled = true; });
+        wrap.insertAdjacentHTML('beforeend', why());
+        solve();
+      } else {
+        slot.style.borderColor = 'var(--red)';
+        setTimeout(() => {
+          slot.style.borderColor = '';
+          picked.length = 0; slot.innerHTML = '';
+          wrap.querySelectorAll('.ex-bank .tok').forEach((x) => { x.disabled = false; x.style.display = ''; });
+        }, 700);
+      }
+    };
+    wrap.addEventListener('click', (ev) => {
+      const from = ev.target.closest('.ex-bank .tok');
+      if (from && !from.disabled) {
+        const i = Number(from.dataset.b);
+        picked.push(i); from.style.display = 'none';
+        slot.insertAdjacentHTML('beforeend', `<button class="tok" data-s="${i}">${esc(b.tokens[i])}</button>`);
+        return check();
+      }
+      const back = ev.target.closest('.ex-slot .tok');
+      if (back) {
+        const i = Number(back.dataset.s);
+        picked.splice(picked.indexOf(i), 1); back.remove();
+        wrap.querySelector(`.ex-bank [data-b="${i}"]`).style.display = '';
+      }
+    });
+    return;
+  }
+
+  // ── 짝 맞추기 ────────────────────────────────────────────
+  if (b.t === 'pair') {
+    const L = b.pairs.map((p, i) => ({ v:p[0], i })).sort(() => Math.random() - 0.5);
+    const R = b.pairs.map((p, i) => ({ v:p[1], i })).sort(() => Math.random() - 0.5);
+    wrap.innerHTML = head + '<div class="ex-pair">' +
+      L.map((o, n) =>
+        `<button class="pc" data-side="l" data-i="${o.i}" style="grid-row:${n+1};grid-column:1">${esc(o.v)}</button>` +
+        `<button class="pc" data-side="r" data-i="${R[n].i}" style="grid-row:${n+1};grid-column:2">${esc(R[n].v)}</button>`
+      ).join('') + '</div>';
+    let sel = null, left = b.pairs.length;
+    wrap.addEventListener('click', (ev) => {
+      const c = ev.target.closest('.pc');
+      if (!c || c.classList.contains('gone')) return;
+      if (!sel) { sel = c; c.classList.add('sel'); return; }
+      if (sel === c) { sel.classList.remove('sel'); sel = null; return; }
+      if (sel.dataset.side === c.dataset.side) { sel.classList.remove('sel'); sel = c; c.classList.add('sel'); return; }
+      if (sel.dataset.i === c.dataset.i) {
+        sel.classList.remove('sel'); sel.classList.add('gone'); c.classList.add('gone');
+        sel = null;
+        if (--left === 0) solve();
+      } else {
+        const a = sel; a.classList.remove('sel');
+        a.classList.add('miss'); c.classList.add('miss');
+        setTimeout(() => { a.classList.remove('miss'); c.classList.remove('miss'); }, 550);
+        sel = null;
+      }
+    });
+    return;
+  }
+
+  // ── 말하기 ───────────────────────────────────────────────
+  if (b.t === 'speak') {
+    wrap.innerHTML = head +
+      `<div style="text-align:center">` +
+        `<div class="ex-target" data-say="${esc(b.say)}">${esc(b.say)}</div>` +
+        (b.rom ? `<div class="ex-rom">${esc(b.rom)}</div>` : '') +
+        `<button class="ex-say" data-say="${esc(b.say)}" style="margin-top:14px">🔊 ${t('들어보기','Hear it')}</button>` +
+        `<button class="ex-mic" type="button">🎙</button>` +
+        `<div class="ex-heard"></div>` +
+        `<button class="ex-skip" type="button">${t('마이크 없이 넘어가기','Skip — no microphone')}</button>` +
+      '</div>';
+    const mic = wrap.querySelector('.ex-mic');
+    const heard = wrap.querySelector('.ex-heard');
+    const SRC = window.SpeechRecognition || window.webkitSpeechRecognition;
+    if (!SRC) { mic.disabled = true; heard.textContent = t('이 브라우저는 음성 인식을 지원하지 않아요. 넘어가도 됩니다.', 'This browser cannot listen. Feel free to skip.'); }
+
+    wrap.addEventListener('click', (ev) => {
+      const s = ev.target.closest('[data-say]');
+      if (s) return say(s.dataset.say);
+      if (ev.target.closest('.ex-skip')) { wrap.insertAdjacentHTML('beforeend', ''); return solve(); }
+      if (!ev.target.closest('.ex-mic') || !SRC || mic.dataset.on) return;
+
+      const rec = new SRC();
+      lsRec = rec;
+      rec.lang = 'ko-KR'; rec.interimResults = true; rec.continuous = false;
+      let got = '';
+      mic.dataset.on = '1'; mic.classList.add('rec');
+      heard.textContent = t('듣고 있어요…', 'Listening…');
+      rec.onresult = (e) => {
+        got = '';
+        for (let i = 0; i < e.results.length; i++) got += e.results[i][0].transcript;
+        heard.textContent = got;
+      };
+      rec.onerror = () => {};
+      rec.onend = () => {
+        mic.classList.remove('rec'); delete mic.dataset.on; lsRec = null;
+        const said = got.trim();
+        if (!said) { heard.textContent = t('소리가 안 들렸어요. 다시 눌러 주세요.', 'Nothing came through. Tap again.'); return; }
+        // 발음 테스트와 같은 자모 비교를 쓴다. 두 곳에서 다른 잣대를
+        // 쓰면 같은 말을 하고도 점수가 달라진다.
+        const score = window.accuracy ? window.accuracy(said, b.say) : 0;
+        if (score >= 60) {
+          heard.innerHTML = `${esc(said)} <b style="color:var(--green)">· ${score}%</b>`;
+          mic.disabled = true;
+          solve();
+        } else {
+          heard.innerHTML = `${esc(said)} <b style="color:var(--red)">· ${score}%</b><br>` +
+            `<span style="font-size:13px;color:var(--ink-3)">${t('조금만 더 또박또박 해볼까요?', 'Close — try once more, a little clearer.')}</span>`;
+        }
+      };
+      try { rec.start(); } catch (e) { mic.classList.remove('rec'); delete mic.dataset.on; }
+    });
+    return;
+  }
+}
+
+let lsRec = null;
+/* 레슨을 벗어날 때 듣던 것과 읽던 것을 멈춘다.
+   안 그러면 홈에 가서도 마이크가 살아 있고 목소리가 계속 나온다. */
+window.lsLeave = function () {
+  if (lsRec) { try { lsRec.stop(); } catch (e) {} lsRec = null; }
+  try { speechSynthesis.cancel(); } catch (e) {}
+};
+
+async function finishLesson() {
+  const idx = lsCourse.lessons.indexOf(lsLesson);
+  const next = lsCourse.lessons[idx + 1] || null;
+  const first = !doneSet.has(lsLesson.id);
+
+  doneSet.add(lsLesson.id);
+
+  // 진도는 남기되, 못 남겨도 화면은 그대로 간다. 다 풀고 나서
+  // "저장 실패" 를 보는 것만큼 김빠지는 일이 없다.
+  const { data: { session } } = await sb.auth.getSession();
+  if (session) {
+    try {
+      await sb.from('lesson_progress')
+        .upsert({ user_id: session.user.id, lesson_id: lsLesson.id, done_at: new Date().toISOString() },
+                { onConflict: 'user_id,lesson_id' });
+      await loadProgress();
+    } catch (e) { /* 표가 없거나 잠깐 끊긴 것 */ }
+  }
+
+  const n = streak();
+  $('lsBlocks').insertAdjacentHTML('beforeend',
+    '<div class="ls-done">' +
+      `<div class="ls-done-big">${first ? '🧀' : '👏'}</div>` +
+      `<div class="ls-done-t">${first ? t('레슨 완료','Lesson complete') : t('다시 한 번 완벽하게','Nailed it again')}</div>` +
+      `<p class="ls-done-s">${esc(lsLesson.title)}</p>` +
+      (session
+        ? (n > 1 ? `<div class="ls-streak">🔥 ${t(`${n}일 연속`, `${n}-day streak`)}</div>` : '')
+        : `<p class="ls-done-s" style="color:var(--ink-3)">${t('로그인하면 진도가 저장돼요.','Sign in and your progress is saved.')}</p>`) +
+    '</div>');
+
+  $('lsNext').textContent = next ? t('다음 레슨 →', 'Next lesson →') : t('코스 목록으로', 'Back to the course');
+  $('lsNextBar').classList.remove('hidden');
+  $('lsNext').onclick = () => {
+    if (next) startLesson(lsCourse, next);
+    else { open('learn'); drawCourses(); openCourse(lsCourse); }
+  };
+  setTimeout(() => $('lsBlocks').lastElementChild?.scrollIntoView({ behavior:'smooth', block:'center' }), 120);
+}
+
+$('lsExit').addEventListener('click', () => { open('learn'); drawCourses(); if (lsCourse) openCourse(lsCourse); });
+
+$('learnBtn').addEventListener('click', async () => {
+  if (showing('learnView') || showing('lessonView')) return open('home');
+  open('learn');
+  await loadProgress();
+  drawCourses();
+});
 
 // ══ 자료마당 ═════════════════════════════════════════════════
 // 올린 파일을 보관하지 않는다. 여기서 읽어 단어/뜻만 뽑아 저장하고,
