@@ -50,14 +50,21 @@ const RETIRED = new Set([
  * 이유로 죽기 시작하면 사람들은 검사기를 안 돌린다.
  */
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
-const COURSE_FILES = ['courses.js', 'courses-grammar.js', 'courses-grammar-detailed.js'];
 
+/* 파일 이름을 적어 두지 않고 HEAD 에서 찾는다.
+   처음에는 셋을 손으로 적었는데, courses-grammar-beginner.js 가 늘자
+   courses.js 가 그 파일을 import 하면서 임시 폴더에서 풀리지 않았고,
+   검사는 조용히 "건너뜀" 이 됐다. 지키라고 만든 것이 새 파일 하나에
+   꺼지면 없는 것만 못하다. */
 async function lessonIdsAtHead() {
   let tracked;
   try {
-    tracked = execFileSync('git', ['ls-tree', '--name-only', 'HEAD', '--', ...COURSE_FILES],
+    // ls-tree 에 'courses*.js' 를 pathspec 으로 주면 아무것도 안 나온다.
+    // 전부 받아서 여기서 거른다.
+    tracked = execFileSync('git', ['ls-tree', '--name-only', 'HEAD'],
       { cwd: ROOT, encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'] })
-      .split('\n').map((s) => s.trim()).filter(Boolean);
+      .split('\n').map((s) => s.trim())
+      .filter((f) => /^courses[\w.-]*\.js$/.test(f));
   } catch (e) {
     return null;
   }

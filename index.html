@@ -2044,48 +2044,55 @@ body.nav-open { overflow:hidden; }
 }
 
 /* ── Cloze 빈칸 문제 ───────────────────────── */
+/* 치즈감자 살결로 되돌린 자리.
+   레트로 팔레트(#1a1228 자주-검정 · 보라 · 두꺼운 하드 그림자)를 따로
+   들여왔던 곳이다. 배우기 화면만 다른 사이트처럼 보였다. 색과 모서리는
+   전부 --변수로, 테두리는 다른 문제 카드(.ex)와 같은 1px 로 맞춘다. */
 .ex-cloze {
-  background: linear-gradient(180deg, #fff 0%, #fdf6e9 100%);
-  border: 3px solid #1a1228;
-  border-radius: 14px;
+  background: var(--surface-2);
+  border: 1px solid var(--line);
+  border-radius: var(--r-xl);
   padding: 22px 20px 18px;
-  box-shadow: 0 6px 0 #1a1228, inset 0 1px 0 rgba(255,255,255,.6);
   position: relative;
   overflow: visible;
 }
 .cloze-sentence {
-  font-size: clamp(18px);
-  line-height: 1.85;
-  padding: 14px 16px;
-  background: #1a1228;
-  color: var(--retro-ink);
-  border-radius: 10px;
-  font-family: 'Pretendard Variable', Pretendard, sans-serif;
+  /* 원래 clamp(18px) 였다. clamp 는 인자 셋을 받아서 이 선언은 통째로
+     버려지고 있었다 — 문장 크기가 지정된 적이 없다. */
+  font-size: clamp(17px, 2.6vw, 19px);
+  line-height: 1.9;
+  padding: 15px 17px;
+  background: var(--surface);
+  color: var(--ink);
+  border: 1px solid var(--line-2);
+  border-radius: 13px;
   margin: 6px 0 18px;
-  letter-spacing: .2px;
+  word-break: keep-all;
 }
 .cloze-blank {
   display: inline-block;
-  min-width: 90px;
-  padding: 2px 10px;
+  min-width: 84px;
+  padding: 1px 9px;
   margin: 0 3px;
   vertical-align: baseline;
-  background: linear-gradient(180deg, var(--retro-yellow), #facc15);
-  color: #1a1228;
-  border-bottom: 3px dashed #78350f;
-  border-radius: 5px;
-  font-family: var(--px-font);
-  font-size: 13px;
+  background: var(--tint);
+  color: var(--ink-3);
+  border-bottom: 2px solid var(--orange-mid);
+  border-radius: 7px;
+  font-size: .95em;
+  font-weight: 700;
   text-align: center;
 }
 .cloze-blank.reveal {
-  background: linear-gradient(180deg, var(--retro-good), #22c55e);
-  color: #fff; border-bottom-color: #166534;
+  background: #EAF6F0;
+  color: var(--ink);
+  border-bottom-color: var(--green);
   animation: pop 350ms ease-out;
 }
 .cloze-blank.hint {
-  background: linear-gradient(180deg, #fde68a, #fbbf24);
-  color: #78350f; border-bottom-style: solid;
+  background: var(--tint);
+  color: var(--ink-3);
+  border-bottom-color: var(--orange);
 }
 @keyframes pop {
   0% { transform: scale(.7); }
@@ -2098,53 +2105,62 @@ body.nav-open { overflow:hidden; }
 }
 .cloze-toggle {
   display: inline-flex; align-items: center; gap: 6px;
-  background: #f3e8ff; color: #6b21a8;
-  border: 2px solid #6b21a8; border-radius: 999px;
+  background: var(--tint); color: var(--ink-2);
+  border: 1px solid var(--line); border-radius: 999px;
   padding: 6px 12px;
   font-size: 12.5px; font-weight: 700;
   cursor: pointer;
-  transition: all .18s;
+  transition: border-color .16s, background .16s;
 }
-.cloze-toggle input { accent-color: #7c3aed; }
-.cloze-toggle:hover { background: #ede9fe; transform: translateY(-1px); }
+.cloze-toggle input { accent-color: var(--orange); }
+.cloze-toggle:hover { border-color: var(--orange); }
+/* 듣기와 힌트가 한 줄에 나란히 선다. 듣기는 채운 알약, 힌트는 점선 알약 —
+   둘 다 잉크색 큰 단추로 두면 무엇이 본줄기인지 안 보인다. */
+.cloze-say {
+  margin: 0; padding: 7px 15px;
+  font-size: 13px; font-weight: 600;
+  border-radius: 999px;
+  background: var(--tint); color: var(--ink-2);
+  border: 1px solid var(--line);
+}
+.cloze-say:hover { background: #fff; border-color: var(--orange); color: var(--ink); }
+/* 힌트는 다른 문제의 .ex-hint 와 같은 점선 알약이다. */
 .cloze-hint {
   margin-left: auto;
-  background: #fff7ed; color: var(--orange-deep);
-  border: 2px solid var(--orange-deep);
-  border-radius: 999px; padding: 6px 14px;
-  font-size: 12.5px; font-weight: 700;
+  background: none; color: var(--ink-3);
+  border: 1px dashed var(--line-2);
+  border-radius: 999px; padding: 7px 14px;
+  font-size: 13px; font-weight: 600;
   cursor: pointer;
-  transition: all .18s;
+  transition: border-color .16s, color .16s;
 }
-.cloze-hint:hover:not(:disabled) { background: #ffedd5; transform: translateY(-1px); }
-.cloze-hint:disabled { opacity:.4; cursor:not-allowed; }
+.cloze-hint:hover:not(:disabled) { border-color: var(--orange); color: var(--ink); }
+.cloze-hint:disabled { opacity:.45; cursor:default; }
 
 .cloze-choices {
   display: grid; grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 10px;
 }
+/* 다른 문제의 .ex-opt 와 같은 모양이다. 같은 일을 하는 단추가 화면마다
+   다르게 생기면 사용자는 그때마다 새로 배워야 한다. */
 .cloze-choices .ex-opt {
   text-align: left;
-  padding: 13px 14px;
-  font-size: 15px;
-  border-radius: 10px;
-  border: 2.5px solid #1a1228;
-  background: #fff;
-  font-weight: 600;
-  color: #1a1228;
-  box-shadow: 0 4px 0 #1a1228;
-  transition: transform .1s ease, box-shadow .1s ease;
+  padding: 14px 16px;
+  font-size: 15.5px;
+  border-radius: 13px;
+  border: 1px solid var(--line);
+  background: var(--surface);
+  font-weight: 500;
+  color: var(--ink);
+  box-shadow: none;
+  transition: border-color .14s, background .14s;
 }
 .cloze-choices .ex-opt:not(:disabled):hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 0 #1a1228;
-  background: #fef3c7;
+  border-color: rgba(27,21,18,.26);
+  background: #fff;
 }
-.cloze-choices .ex-opt:not(:disabled):active {
-  transform: translateY(2px); box-shadow: 0 2px 0 #1a1228;
-}
-.cloze-choices .ex-opt.right { background: #dcfce7; border-color: var(--retro-good); box-shadow: 0 4px 0 #166534; }
-.cloze-choices .ex-opt.wrong { background: #fee2e2; border-color: var(--red); box-shadow: 0 4px 0 #7f1d1d; }
+.cloze-choices .ex-opt.right { background:#EAF6F0; border-color:var(--green); font-weight:600; }
+.cloze-choices .ex-opt.wrong { background:#FCEFEE; border-color:var(--red); }
 @media (max-width: 520px) {
   .cloze-choices { grid-template-columns: 1fr; }
   .cloze-sentence { font-size: 16.5px; padding: 12px 13px; }
@@ -2157,82 +2173,78 @@ body.nav-open { overflow:hidden; }
 }
 .cloze-inp {
   flex: 1;
-  font-size: 17px;
-  padding: 12px 14px;
-  border-radius: 10px;
-  border: 2.5px solid #1a1228;
-  background: #fff;
-  font-family: 'Pretendard Variable', Pretendard, sans-serif;
+  font-size: 18px;
+  padding: 14px 16px;
+  border-radius: 13px;
+  border: 1px solid var(--line);
+  background: var(--surface);
+  color: var(--ink);
   font-weight: 600;
-  box-shadow: 0 4px 0 #1a1228;
   outline: none;
 }
-.cloze-inp:focus {
-  background: #fef9c3;
-  transform: translateY(-1px);
-  box-shadow: 0 5px 0 #1a1228;
-}
+.cloze-inp:focus { border-color: var(--orange-mid); background: #fff; }
 .cloze-keys {
   display: flex; flex-wrap: wrap; gap: 6px;
   margin-top: 10px;
 }
 .cloze-key {
-  background: #fff;
-  border: 2px solid #1a1228;
-  border-radius: 8px;
-  padding: 6px 10px;
-  font-size: 14px; font-weight: 700;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 11px;
+  padding: 10px 14px;
+  font-size: 16px; font-weight: 500;
   cursor: pointer;
-  box-shadow: 0 3px 0 #1a1228;
-  transition: all .1s;
-  color: #1a1228;
+  color: var(--ink);
+  transition: border-color .14s, background .14s;
 }
-.cloze-key:hover:not(:disabled) { background: #ede9fe; transform: translateY(-1px); box-shadow: 0 4px 0 #1a1228; }
-.cloze-key:active:not(:disabled) { transform: translateY(2px); box-shadow: 0 1px 0 #1a1228; }
-.cloze-key:disabled { opacity: .35; cursor: not-allowed; }
+.cloze-key:hover:not(:disabled) { border-color: var(--orange); background: #fff; }
+.cloze-key:disabled { opacity: .4; cursor: default; }
 
 /* 레트로 버튼 (다시 · 1분 챌린지) */
 .btn-retro {
   display: inline-flex; align-items: center; gap: 8px;
-  background: linear-gradient(180deg, #ff4d8d 0%, #e11d48 100%);
+/* 레슨 끝 단추. 분홍·파랑·초록 그라데이션에 3px 검정 테두리와 하드
+   그림자였다 — 오락실 기계 살결이라 사이트의 다른 단추와 남남이었다.
+   기본은 잉크 채움(.pt-next 와 같은 자리), 옆에 서는 것은 테두리만. */
+  background: var(--ink);
   color: #fff;
-  font-family: var(--px-font); font-size: 10.5px;
-  padding: 13px 18px;
-  border: 3px solid #1a1228;
-  border-radius: 10px;
-  box-shadow: 0 5px 0 #1a1228;
+  font-size: 15px; font-weight: 600;
+  padding: 13px 22px;
+  border: 1px solid var(--ink);
+  border-radius: var(--r-s);
   cursor: pointer;
-  letter-spacing: .4px;
-  transition: all .12s ease;
+  transition: background .16s, border-color .16s, color .16s;
 }
-.btn-retro:hover { transform: translateY(-2px); box-shadow: 0 7px 0 #1a1228; }
-.btn-retro:active { transform: translateY(3px); box-shadow: 0 2px 0 #1a1228; }
-.btn-retro.blue { background: linear-gradient(180deg, #60a5fa 0%, #2563eb 100%); }
-.btn-retro.green { background: linear-gradient(180deg, #4ade80 0%, #16a34a 100%); }
+.btn-retro:hover { background: #33261E; }
+.btn-retro.blue {
+  background: none; color: var(--ink); border-color: var(--line);
+}
+.btn-retro.blue:hover { background: var(--tint); border-color: rgba(27,21,18,.26); }
+.btn-retro.green { background: var(--orange); border-color: var(--orange); color: var(--ink); }
+.btn-retro.green:hover { background: #FFA366; }
 .ls-challenge {
-  display: flex; flex-direction: column; gap: 14px;
+  display: flex; flex-direction: column; gap: 12px;
   align-items: center; text-align: center;
-  padding: 18px;
-  background: linear-gradient(180deg, #fef3c7 0%, #fde68a 100%);
-  border: 3px dashed #92400e;
-  border-radius: 14px;
+  padding: 22px;
+  background: var(--tint);
+  border: 1px solid var(--line);
+  border-radius: var(--r-xl);
   margin-top: 16px;
 }
 .ls-challenge h3 {
-  font-family: var(--px-font);
-  font-size: 13px;
-  color: #78350f;
+  font-size: 17px; font-weight: 700;
+  color: var(--ink);
+  letter-spacing: -.02em;
   margin: 0;
-  letter-spacing: .5px;
 }
-.ls-challenge p { margin: 0; color: #78350f; font-size: 14px; opacity: .9; }
+.ls-challenge p { margin: 0; color: var(--ink-2); font-size: 14.5px; line-height:1.7; word-break:keep-all; }
 .ls-challenge-btns { display:flex; gap: 10px; flex-wrap: wrap; justify-content:center; }
 
 /* ── Cloze 난이도 세그먼트 토글 (쉬움/도전) ── */
 .diff-seg {
   display:inline-flex;
-  background:#f3f4f6;
-  border:2px solid #e5e7eb;
+  background:rgba(27,21,18,.07);
+  border:none;
   border-radius:999px;
   padding:3px;
   gap:2px;
@@ -2246,18 +2258,18 @@ body.nav-open { overflow:hidden; }
   border-radius:999px;
   font-size:13px;
   font-weight:700;
-  color:#6b7280;
+  color:var(--ink-3);
   cursor:pointer;
-  transition:all .2s ease;
+  transition:background .16s, color .16s;
 }
-.diff-seg label:hover { color:#374151; }
+.diff-seg label:hover { color:var(--ink-2); }
 .diff-seg input { display:none; }
-.diff-seg input:checked + span { color:#fff; }
+.diff-seg input:checked + span { color:var(--ink); }
+/* 레슨 머리띠의 난이도 토글(.ls-diff)과 같은 모양으로 맞춘다. */
 .diff-seg label:has(input:checked) {
-  background:linear-gradient(135deg,#6366f1 0%,#8b5cf6 100%);
-  color:#fff;
-  box-shadow:0 3px 0 #4338ca;
-  transform:translateY(-1px);
+  background:var(--surface);
+  color:var(--ink);
+  box-shadow:0 1px 3px rgba(27,21,18,.12);
 }
 
 /* ── Cloze 마스터리 레벨 배지 ── */
@@ -2271,11 +2283,13 @@ body.nav-open { overflow:hidden; }
   font-weight:800;
   letter-spacing:.2px;
 }
-.m-lv1 { background:#f3f4f6; color:#9ca3af; border:1.5px solid #e5e7eb; }
-.m-lv2 { background:#dbeafe; color:#1d4ed8; border:1.5px solid #93c5fd; }
-.m-lv3 { background:#fef3c7; color:#92400e; border:1.5px solid #fcd34d; }
-.m-lv4 { background:#ffedd5; color:#c2410c; border:1.5px solid #fdba74; }
-.m-lv5 { background:linear-gradient(135deg,#fef08a 0%,#fbbf24 50%,#f59e0b 100%); color:#78350f; border:1.5px solid #f59e0b; box-shadow:0 2px 0 #b45309; }
+/* 파랑에서 주황으로. 한 배지가 다섯 색을 갈아입으면 그 자체가 소음이라,
+   같은 주황 안에서 진하기만 올린다. 다 채우면 초록으로 한 번 바뀐다. */
+.m-lv1 { background:var(--tint); color:var(--ink-3); border:1px solid var(--line-2); }
+.m-lv2 { background:#FFF4EA; color:var(--orange-deep); border:1px solid rgba(255,138,61,.35); }
+.m-lv3 { background:#FFE9D6; color:var(--orange-deep); border:1px solid rgba(255,138,61,.55); }
+.m-lv4 { background:#FFDCC0; color:var(--orange-deep); border:1px solid var(--orange-mid); }
+.m-lv5 { background:#EAF6F0; color:var(--green); border:1px solid rgba(18,112,79,.4); }
 .m-mastered { display:inline-block; animation:crownBob 1.6s ease-in-out infinite; }
 @keyframes crownBob {
   0%,100% { transform:translateY(0) rotate(-3deg); }
@@ -5691,6 +5705,20 @@ function md(s) {
     .replace(/\n\n/g, '</p><p class="bk-p">');
 }
 
+/* 보기 섞기.
+   sort(() => Math.random() - .5) 는 이 파일 곳곳에 쓰지만 여기서는 안 된다.
+   그 방법은 자리가 고르게 안 퍼져서, 만 번 돌리면 정답이 첫 자리에 14%,
+   가운데에 38% 씩 몰린다. 자리가 단서가 되지 않게 하려고 섞는 것이므로
+   치우치면 하나 마나다. 뒤에서부터 하나씩 뽑아 바꾼다(피셔–예이츠). */
+function shuffled(arr) {
+  const a = arr.slice();
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+
 /* 인라인 서식만. 표 칸이나 <p> 안처럼 문단을 새로 못 여는 자리에 쓴다. */
 function mdIn(s) {
   return esc(String(s ?? ''))
@@ -6164,10 +6192,16 @@ function exBlock(host, b, done) {
 
   // ── 고르기 · 듣기 ────────────────────────────────────────
   if (b.t === 'choice' || b.t === 'listen') {
+    /* 보기를 섞어서 그린다. 데이터에는 정답이 거의 항상 맨 앞에 적혀
+       있어서, 그대로 두면 문장을 안 읽고 첫 단추만 눌러도 맞는다.
+       자리를 외우는 것은 문법을 아는 것이 아니다.
+       원본 b.options 는 건드리지 않고 그릴 순서만 새로 만든다. */
+    const ord = shuffled(b.options.map((o, i) => i));
+    const ansAt = ord.indexOf(b.answer);
     wrap.innerHTML = head +
       (b.t === 'listen' ? `<button class="ex-say" data-say="${esc(b.say)}"${b.audio ? ` data-audio="${esc(b.audio)}"` : ''}>🔊 ${t('다시 듣기','Play again')}</button>` : '') +
-      '<div class="ex-opts">' + b.options.map((o, i) =>
-        `<button class="ex-opt" data-i="${i}">${esc(o)}<span class="ex-mark"></span></button>`).join('') + '</div>';
+      '<div class="ex-opts">' + ord.map((src, i) =>
+        `<button class="ex-opt" data-i="${i}">${esc(b.options[src])}<span class="ex-mark"></span></button>`).join('') + '</div>';
     if (b.t === 'listen') setTimeout(() => say(b.say, b.audio), 350);
 
     wrap.addEventListener('click', (ev) => {
@@ -6176,7 +6210,7 @@ function exBlock(host, b, done) {
       const o = ev.target.closest('.ex-opt');
       if (!o || o.disabled) return;
       const i = Number(o.dataset.i);
-      if (i === b.answer) {
+      if (i === ansAt) {
         wrap.querySelectorAll('.ex-opt').forEach((x) => { x.disabled = true; });
         o.classList.add('right'); o.querySelector('.ex-mark').textContent = '✓';
         wrap.insertAdjacentHTML('beforeend', why());
@@ -6360,6 +6394,11 @@ function exBlock(host, b, done) {
     wrapIn.className = 'ex-wrap-in';
     wrap.appendChild(wrapIn);
 
+    /* 보기를 섞어서 그린다. 데이터에는 정답이 거의 항상 맨 앞이라, 그대로
+       두면 문장을 안 읽고 첫 단추만 눌러도 맞는다. 채점은 글자로 하므로
+       (picked === answer) 순서를 바꿔도 안전하다. */
+    const shownOpts = shuffled(b.options ?? []);
+
     const fullSay = b.say || senRaw.replace(/\[([^\]]+)\]/g, '$1');
     const meaningHtml = (b.meaning || b.q)
       ? `<div style="margin:4px 0 10px;color:var(--ink-3);font-size:14px;">${md(b.meaning || b.q)}</div>` : '';
@@ -6390,12 +6429,13 @@ function exBlock(host, b, done) {
         `<div class="cloze-tools">` +
           // 구버전 토글은 숨기고 (상단 큰 토글이 존재하므로) 호환성 위해 유지
           `<label class="cloze-toggle" style="display:none"><input type="checkbox" id="cMode"><span>${t('직접 쓰기','Type it')}</span></label>` +
-          `<button class="ex-say" data-say="${esc(fullSay)}"${b.audio ? ` data-audio="${esc(b.audio)}"` : ''} style="margin:0;background:#ede9fe;color:#6b21a8;border:2px solid #6b21a8;border-radius:999px;padding:6px 12px;font-size:12.5px;font-weight:700;cursor:pointer;box-shadow:none;">🔊 ${t('문장 듣기','Hear sentence')}</button>` +
+          // 색을 인라인으로 박아 두면 스타일시트로는 못 고친다. 클래스로만 둔다.
+          `<button class="ex-say cloze-say" data-say="${esc(fullSay)}"${b.audio ? ` data-audio="${esc(b.audio)}"` : ''}>🔊 ${t('문장 듣기','Hear sentence')}</button>` +
           `<button class="cloze-hint" id="cHint" type="button">💡 ${t('첫 자음 힌트','First letter hint')}</button>` +
         `</div>` +
         // 4지선다 모드 (기본 · 쉬움 모드)
         `<div class="cloze-choices" id="cOpts">` +
-          (b.options ?? []).map((o, i) =>
+          shownOpts.map((o, i) =>
             `<button class="ex-opt" data-i="${i}">${esc(o)}<span class="ex-mark"></span></button>`
           ).join('') +
         `</div>` +
@@ -6552,7 +6592,7 @@ function exBlock(host, b, done) {
       const o = ev.target.closest('.ex-opt');
       if (!o || o.disabled) return;
       const i = Number(o.dataset.i);
-      const picked = (b.options ?? [])[i];
+      const picked = shownOpts[i];
       if (picked === answer) markRight(o);
       else markWrong(o);
     });
