@@ -1083,6 +1083,15 @@ body.nav-open { overflow:hidden; }
 .ch-rom { font-size:12.5px; font-weight:700; letter-spacing:.06em; color:var(--orange-deep); margin-top:8px; }
 .ch-tip { font-size:12.5px; color:var(--ink-3); line-height:1.6; margin-top:8px; word-break:keep-all; }
 .ch-card .ch-tip strong { color:var(--ink-2); }
+/* 예문 카드 — 한 줄에 하나, 왼쪽 정렬. 문장은 가운데 정렬하면 읽는 눈이
+   줄마다 처음을 다시 찾아야 한다. 눌러서 듣는 것은 낱글자와 똑같다. */
+.bk-chars.wide { flex-direction:column; gap:8px; }
+.bk-chars.wide .ch-card { flex:1 1 auto; width:100%; text-align:left; padding:15px 17px; }
+.bk-chars.wide .ch-big { font-size:19px; line-height:1.55; word-break:keep-all; }
+.bk-chars.wide .ch-tip { margin-top:5px; font-size:13px; }
+.bk-chars.wide .ch-card::after {
+  content:'🔊'; float:right; margin-left:10px; font-size:13px; opacity:.4;
+}
 
 /* 표 */
 .bk-tw { overflow-x:auto; border:1px solid var(--line); border-radius:14px; background:var(--surface); }
@@ -6114,11 +6123,15 @@ function readBlock(b) {
     return `<div class="bk">${b.h ? `<div class="bk-h">${esc(b.h)}</div>` : ''}${mdBlock(b.md)}</div>`;
   if (b.t === 'note')
     return `<div class="bk"><div class="bk-note">${mdBlock(b.md)}</div></div>`;
+  /* wide 를 주면 한 줄에 하나씩, 글자를 줄여 문장을 담는다.
+     기본 카드는 36px 라 낱글자용이다 — 예문을 넣으면 카드 밖으로 넘친다.
+     rom 은 없으면 안 그린다. 문장마다 로마자를 다는 건 품이 크고, 없다고
+     undefined 가 찍히면 그게 더 나쁘다. */
   if (b.t === 'chars')
-    return '<div class="bk"><div class="bk-chars">' + b.items.map((it) =>
+    return `<div class="bk"><div class="bk-chars${b.wide ? ' wide' : ''}">` + b.items.map((it) =>
       `<button class="ch-card" data-say="${esc(it.ch)}"${it.audio ? ` data-audio="${esc(it.audio)}"` : ''}>` +
         `<div class="ch-big">${esc(it.ch)}</div>` +
-        `<div class="ch-rom">${esc(it.rom)}</div>` +
+        (it.rom ? `<div class="ch-rom">${esc(it.rom)}</div>` : '') +
         (it.tip ? `<div class="ch-tip">${md(it.tip)}</div>` : '') +
       '</button>').join('') + '</div></div>';
   if (b.t === 'table')
