@@ -30,6 +30,7 @@
    + 세분화된 뉘앙스 차이 문법 (초·중·고급 세부 코스)은 courses-grammar-detailed.js 에서 불러온다. */
 import { GRAMMAR_COURSES } from './courses-grammar.js';
 import { DETAILED_GRAMMAR_COURSES } from './courses-grammar-detailed.js';
+import { BEGINNER_GRAMMAR_COURSES } from './courses-grammar-beginner.js';
 
 export const COURSES = [
 
@@ -732,5 +733,8 @@ export const COURSES = [
 
 // 세분화 문법 코스들 (뉘앙스 차이 구분) — courses-grammar-detailed.js
 ...DETAILED_GRAMMAR_COURSES,
+
+// 초급 조사 (이/가 · 은/는) — courses-grammar-beginner.js
+...BEGINNER_GRAMMAR_COURSES,
 
 ];
