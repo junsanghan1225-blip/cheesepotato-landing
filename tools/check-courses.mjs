@@ -18,7 +18,7 @@
 import { COURSES } from '../courses.js';
 
 const BLOCK_TYPES = new Set([
-  'text', 'note', 'chars', 'table', 'choice', 'listen', 'type', 'order', 'pair', 'speak',
+  'text', 'note', 'chars', 'table', 'choice', 'listen', 'type', 'order', 'pair', 'speak', 'cloze',
 ]);
 
 const problems = [];
@@ -90,6 +90,23 @@ for (const c of COURSES) {
 
       if (b.t === 'pair' && !b.pairs?.length) problems.push(`${at}: pairs 없음`);
       if (b.t === 'speak' && !b.say) problems.push(`${at}: say 없음`);
+
+      if (b.t === 'cloze') {
+        if (!b.sentence) problems.push(`${at}: sentence 없음`);
+        const hasBracket = /\[([^\]]+)\]/.test(b.sentence);
+        if (!b.answer && !hasBracket) {
+          problems.push(`${at}: answer 없고 sentence 에 [정답] 대괄호 마킹도 없음 — 빈칸과 정답을 알 수 없음`);
+        }
+        if (!b.options?.length) problems.push(`${at}: options 없음`);
+        else if (b.options.length < 2) problems.push(`${at}: options 가 ${b.options.length}개 — 2개 이상 필요`);
+        const effectiveAnswer = b.answer ?? (b.sentence.match(/\[([^\]]+)\]/) || [])[1];
+        if (effectiveAnswer && !b.options.includes(effectiveAnswer)) {
+          problems.push(`${at}: 정답 '${effectiveAnswer}' 이 options 배열 안에 없음 — 무엇을 골라도 오답이 된다`);
+        }
+        if (b.keys && effectiveAnswer && !b.keys.includes(effectiveAnswer)) {
+          problems.push(`${at}: 정답 '${effectiveAnswer}' 이 keys 안에 없음 — 자판 없는 사람은 못 푼다`);
+        }
+      }
     }
   }
 }

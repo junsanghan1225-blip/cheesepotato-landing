@@ -24,10 +24,12 @@
    끝낸 사람의 기록이 사라진다.** 순서를 바꾸는 건 괜찮고, id 는 두어라.
    ══════════════════════════════════════════════════════════════ */
 
-/* 문법은 courses-grammar.js 에 있다. 여기 목록 끝에 이어 붙는다.
+/* 문법은 courses-grammar.js 에 있다. 여기 목록 끝에 이어 붙인다.
    파일을 나눈 이유는 문법이 계속 늘어날 예정이라 한 파일에 두면
-   고칠 곳을 찾기 어려워지기 때문이다. */
+   고칠 곳을 찾기 어려워지기 때문이다.
+   + 세분화된 뉘앙스 차이 문법 (초·중·고급 세부 코스)은 courses-grammar-detailed.js 에서 불러온다. */
 import { GRAMMAR_COURSES } from './courses-grammar.js';
+import { DETAILED_GRAMMAR_COURSES } from './courses-grammar-detailed.js';
 
 export const COURSES = [
 
@@ -690,6 +692,34 @@ export const COURSES = [
 
       { t:'speak', say:'이거 두 잔 주세요', rom:'i-geo du jan ju-se-yo', q:'Order it for real.' },
 
+      { t:'cloze', sentence:'나는 [아메리카노]를 두 잔 주세요', answer:'아메리카노',
+        audio:'나는_아메리카노를_두_잔_주세요.mp3',
+        meaning:'Please give me two americanos.',
+        options:['아메리카노','카페라떼','에스프레소','녹차'],
+        keys:['아메리카노','카페라떼','에스프레소','녹차'],
+        why:'아메리카노(americano) · 카페라떼(café latte) · 에스프레소(espresso) · 녹차(green tea)' },
+
+      { t:'cloze', sentence:'얼마예요? — [사천 원]이에요', answer:'사천 원',
+        audio:'얼마예요_사천_원이에요.mp3',
+        meaning:'How much is it? — It is 4,000 won.',
+        options:['사천 원','이천 원','육천 원','만 원'],
+        keys:['사천 원','이천 원','육천 원','만 원'],
+        why:'사천=4천 · 이천=2천 · 육천=6천 · 만=10,000' },
+
+      { t:'cloze', sentence:'화장실은 [어디]에 있나요?', answer:'어디',
+        audio:'화장실은_어디에_있나요.mp3',
+        meaning:'Where is the restroom?',
+        options:['어디','언제','누구','무엇'],
+        keys:['어디','언제','누구','무엇'],
+        why:'어디(where) · 언제(when) · 누구(who) · 무엇(what)' },
+
+      { t:'cloze', sentence:'맛있게 드세요! — [감사합니다]', answer:'감사합니다',
+        audio:'맛있게_드세요_감사합니다.mp3',
+        meaning:'Enjoy your meal! — Thank you.',
+        options:['감사합니다','안녕하세요','미안합니다','안녕히 가세요'],
+        keys:['감사합니다','안녕하세요','미안합니다','안녕히 가세요'],
+        why:'감사합니다(thank you) · 안녕하세요(hello) · 미안합니다(sorry) · 안녕히 가세요(goodbye)' },
+
       { t:'text', md:'That is a complete transaction, start to finish, in a language you could not read an hour ago.' },
     ],
   },
@@ -699,5 +729,8 @@ export const COURSES = [
 
 // 문법 코스들 — courses-grammar.js
 ...GRAMMAR_COURSES,
+
+// 세분화 문법 코스들 (뉘앙스 차이 구분) — courses-grammar-detailed.js
+...DETAILED_GRAMMAR_COURSES,
 
 ];
