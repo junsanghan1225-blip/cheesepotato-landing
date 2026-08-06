@@ -14,70 +14,74 @@
  *   - order 문제의 tokens 와 answer 조각이 다름 — 맞출 수가 없다
  *   - needs 가 없는 코스를 가리킴 — 영영 안 열린다
  *   - 표의 칸 수가 머리글과 다름 — 칸이 밀린다
+ *   - 이전 커밋에 있던 레슨 id 가 말없이 사라짐 — 진도가 고아가 된다
  */
+import { execFileSync } from 'node:child_process';
+import { mkdtempSync, writeFileSync, rmSync } from 'node:fs';
+import { tmpdir } from 'node:os';
+import { dirname, join } from 'node:path';
+import { fileURLToPath, pathToFileURL } from 'node:url';
 import { COURSES } from '../courses.js';
-import { execSync } from 'node:child_process';
 
-/* ──────────────────────────────────────────────────────────────────
-   🔍 레슨 ID 유실 방지 검사기 (git HEAD vs 현재 비교)
-   - lesson_progress DB 테이블이 레슨 ID를 유일키로 사용하므로,
-     한 번 발행된 레슨 ID를 실수로 삭제하면 기존 유저들의 진도가 깨짐!
-   - git HEAD 커밋에 존재하던 레슨 ID가 현재 COURSES에 없으면
-     경고 or 에러로 알려준다.
-   ────────────────────────────────────────────────────────────────── */
-function getLessonIdsFromGitHead() {
-  const SOURCE_FILES = [
-    'courses.js',
-    'courses-grammar.js',
-    'courses-grammar-detailed.js',
-  ];
-  const idRegex = /\bid:\s*(['"])([a-zA-Z0-9_-]+)\1/g;
-  const result = new Set();
+/* 일부러 없앤 레슨 id.
+ *
+ * lesson_progress 는 lesson_id 문자열 하나로만 기록한다. id 를 바꾸면 그
+ * 레슨을 끝낸 사람의 행이 어느 레슨에도 안 붙는 고아가 되고, 화면에는 안 푼
+ * 것으로 나온다. 무엇이 무엇으로 바뀌었는지 아무 데도 안 남아서 되돌릴
+ * 방법이 없다.
+ *
+ * 그래서 없어진 id 는 기본이 실패다. 정말 버리기로 했으면 여기에 적고 왜
+ * 버렸는지 남긴다. 적는 순간 그건 사고가 아니라 결정이 된다.
+ *
+ * 형식:  'gr-01',   // 2026-08-06 왜 버렸는지 한 줄
+ */
+const RETIRED = new Set([
+  // 아직 없다. 지금까지 발행한 레슨 id 는 전부 살아 있다.
+]);
 
-  for (const fname of SOURCE_FILES) {
-    try {
-      // git HEAD 에서 파일 내용을 가져온다 (없는 파일이면 조용히 skip)
-      const raw = execSync(`git show HEAD:./${fname} 2>nul || echo `, { encoding: 'utf8' });
-      let match;
-      while ((match = idRegex.exec(raw)) !== null) {
-        const id = match[2];
-        // 코스 최상단 id 와 레슨 id 를 구분할 순 없지만, 어차피 코스 id도
-        // 지우면 안 되는 건 마찬가지라 그냥 전부 유지대상으로 본다.
-        if (id && !['grammar-core', 'hangul', 'first-words'].includes(id)
-            && id.includes('-')
-            && id.split('-').length >= 4) {
-          // 레슨 ID 패턴: (bg-d-01-01, im-02-02-01 등 세그먼트 4개 이상
-          // 코스 최상단 ID: (bg-d-01, im-02-02 등) 세그먼트 3개 → 제외
-          result.add(id);
-        }
-      }
-    } catch (e) {
-      // git 이 없거나 / HEAD 가 없거나 / 파일이 HEAD에는 없었던 경우 → 스킵 (graceful)
-      continue;
-    }
-  }
-  return result;
-}
+/* ── 이전 커밋과 견주기 ────────────────────────────────────────
+ *
+ * HEAD 판 코스 파일을 임시 폴더에 그대로 풀어서 import 한다. 정규식으로
+ * id 를 긁으면 주석 안의 id 까지 잡히고, 코스 id 와 레슨 id 를 가릴 수 없어
+ * 이름 모양으로 어림잡게 된다. 그 어림이 틀리면 검사기가 조용히 거짓말을
+ * 한다 — 실제로 읽어 오면 그럴 일이 없다.
+ *
+ * git 이 없거나 저장소가 아니면 이 검사만 건너뛴다. 검사기 전체가 다른
+ * 이유로 죽기 시작하면 사람들은 검사기를 안 돌린다.
+ */
+const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
+const COURSE_FILES = ['courses.js', 'courses-grammar.js', 'courses-grammar-detailed.js'];
 
-function checkLessonIdRetention(currentLessonIds) {
+async function lessonIdsAtHead() {
+  let tracked;
   try {
-    const headIds = getLessonIdsFromGitHead();
-    if (headIds.size === 0) {
-      console.log('ℹ️  (레슨 유실검사) git HEAD 레슨 ID를 찾을 수 없어 스킵합니다 (최초커밋 / git 미연결)');
-      return;
-    }
-    const missing = [...headIds].filter((id) => !currentLessonIds.has(id));
-    if (missing.length > 0) {
-      problems.push(
-        `⚠️  레슨 ID 유실 위험: HEAD 커밋에 있던 ${missing.length}개의 ID가 현재 COURSES에 없습니다!\n` +
-        `   삭제한 레슨 ID: ${missing.join(', ')}\n` +
-        `   → 기존 유저 진도(lesson_progress)가 깨질 수 있으니 되돌리거나 의도한 경우만 진행하세요!`
-      );
-    } else {
-      console.log(`✅ 레슨 유실검사 통과: HEAD ${headIds.size}개 → 현재 ${currentLessonIds.size}개, 유실 0개`);
-    }
+    tracked = execFileSync('git', ['ls-tree', '--name-only', 'HEAD', '--', ...COURSE_FILES],
+      { cwd: ROOT, encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'] })
+      .split('\n').map((s) => s.trim()).filter(Boolean);
   } catch (e) {
-    console.log('ℹ️  (레슨 유실검사) git 명령 실패로 스킵합니다:', e.message.split('\n')[0]);
+    return null;
+  }
+  if (!tracked.includes('courses.js')) return null;
+
+  const dir = mkdtempSync(join(tmpdir(), 'cp-courses-'));
+  try {
+    for (const f of tracked) {
+      const src = execFileSync('git', ['show', `HEAD:${f}`],
+        { cwd: ROOT, encoding: 'utf8', maxBuffer: 32 * 1024 * 1024 });
+      writeFileSync(join(dir, f), src);
+    }
+    const old = await import(pathToFileURL(join(dir, 'courses.js')).href);
+    const ids = new Set();
+    for (const c of old.COURSES ?? []) {
+      for (const l of c.lessons ?? []) if (l.id) ids.add(l.id);
+    }
+    return ids;
+  } catch (e) {
+    // HEAD 판이 읽히지 않는다. 지금 판의 문제는 아니다.
+    console.warn(`(이전 커밋을 읽지 못해 레슨 id 유실 검사를 건너뜀: ${e.message})`);
+    return null;
+  } finally {
+    try { rmSync(dir, { recursive: true, force: true }); } catch (e) { /* 임시 폴더 */ }
   }
 }
 
@@ -175,11 +179,31 @@ for (const c of COURSES) {
   }
 }
 
-// ▼ 레슨 ID 유실 방지 검사: HEAD 커밋 대비 사라진 레슨 ID가 있는지 확인
-checkLessonIdRetention(new Set(lessonIds.keys()));
+// ▼ 레슨 id 유실 검사: HEAD 커밋에 있던 id 가 사라졌는지 본다.
+const headIds = await lessonIdsAtHead();
+let idsIntact = false;
+if (headIds) {
+  const lost = [...headIds].filter((id) => !lessonIds.has(id) && !RETIRED.has(id));
+  idsIntact = lost.length === 0;
+  if (lost.length) {
+    problems.push(
+      `이전 커밋에 있던 레슨 id ${lost.length}개가 사라졌다: ${lost.join(', ')}\n` +
+      '  → 그 레슨을 끝낸 사람의 lesson_progress 행이 고아가 된다.\n' +
+      '  → 이름만 바꾼 것이면 옛 id 를 그대로 두고, 정말 버리는 것이면\n' +
+      '     tools/check-courses.mjs 의 RETIRED 에 이유와 함께 적어라.');
+  }
+  // 다시 살아난 id 는 지워 준다 — 안 지우면 진짜 사고를 그냥 통과시킨다.
+  const zombie = [...RETIRED].filter((id) => lessonIds.has(id));
+  if (zombie.length) {
+    problems.push(`RETIRED 에 적힌 id 가 다시 쓰이고 있다: ${zombie.join(', ')} — RETIRED 에서 빼라`);
+  }
+}
 
 console.log(`코스 ${COURSES.length} / 레슨 ${lessons} / 블록 ${blocks}`);
 console.log('코스: ' + COURSES.map((c) => `${c.id}(${c.lessons.length})`).join(', '));
+console.log(!headIds ? '이전 커밋 견주기 건너뜀'
+  : idsIntact ? `이전 커밋 레슨 id ${headIds.size}개 전부 살아 있음`
+  : '이전 커밋 대비 레슨 id 유실 있음 — 아래 참고');
 
 if (problems.length) {
   console.error(`\n문제 ${problems.length}개:\n` + problems.join('\n'));
