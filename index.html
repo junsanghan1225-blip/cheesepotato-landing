@@ -996,7 +996,6 @@ body.nav-open { overflow:hidden; }
   padding:28px; transition:border-color .18s, transform .18s, box-shadow .18s;
 }
 .lc-card:hover { border-color:rgba(27,21,18,.22); transform:translateY(-2px); box-shadow:0 22px 44px -32px rgba(27,21,18,.4); }
-.lc-card:disabled { opacity:.55; cursor:default; transform:none; box-shadow:none; }
 .lc-top { display:flex; align-items:flex-start; gap:18px; }
 .lc-mark {
   width:62px; height:62px; flex-shrink:0; border-radius:18px;
@@ -1011,7 +1010,11 @@ body.nav-open { overflow:hidden; }
 .lc-bar { flex:1; height:7px; background:rgba(27,21,18,.08); border-radius:5px; overflow:hidden; }
 .lc-fill { height:100%; background:var(--orange); border-radius:5px; transition:width .6s cubic-bezier(.22,1,.36,1); }
 .lc-num { font-size:12.5px; font-weight:700; color:var(--ink-3); font-variant-numeric:tabular-nums; white-space:nowrap; }
-.lc-lock { font-size:13px; color:var(--ink-3); margin-top:18px; }
+/* 막는 표시가 아니라 길 안내다. 눈에 띄면 자물쇠처럼 읽혀서 흐리게 둔다. */
+.lc-order {
+  font-size:12.5px; line-height:1.6; color:var(--ink-3); margin-top:16px;
+  padding-left:13px; border-left:2px solid var(--line-2); word-break:keep-all;
+}
 
 /* 레슨 목록 */
 .ll-row {
@@ -1083,6 +1086,15 @@ body.nav-open { overflow:hidden; }
 
 /* 표 */
 .bk-tw { overflow-x:auto; border:1px solid var(--line); border-radius:14px; background:var(--surface); }
+/* 본문 안 마크다운 — 제목·목록·표. 앞에 글이 있으므로 위쪽을 띄운다. */
+.bk-h-in { margin-top:24px; }
+.bk-h-in:first-child { margin-top:0; }
+.bk-tw-in { margin-top:14px; }
+.bk-list { margin:12px 0 0; padding-left:22px; }
+.bk-list li { font-size:16.5px; line-height:1.85; color:var(--ink-2); word-break:keep-all; }
+.bk-list li + li { margin-top:6px; }
+.bk-list li strong { color:var(--ink); font-weight:700; }
+.bk-note .bk-list li { font-size:15px; }
 .bk-tw table { border-collapse:collapse; width:100%; }
 .bk-tw th, .bk-tw td { padding:12px 14px; text-align:left; font-size:14.5px; border-bottom:1px solid var(--line-2); word-break:keep-all; }
 .bk-tw th { background:var(--tint); color:var(--ink); font-weight:700; font-size:12.5px; white-space:nowrap; }
@@ -5670,6 +5682,81 @@ function md(s) {
     .replace(/\n\n/g, '</p><p class="bk-p">');
 }
 
+/* 인라인 서식만. 표 칸이나 <p> 안처럼 문단을 새로 못 여는 자리에 쓴다. */
+function mdIn(s) {
+  return esc(String(s ?? ''))
+    .replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>')
+    .replace(/`([^`]+)`/g, '<code>$1</code>');
+}
+
+/* 레슨 본문. ### 제목, | 표 |, - 목록, 그리고 문단을 만든다.
+   md() 로는 이것들을 못 그린다. md() 가 문제 지문과 표 칸에도 쓰이는데,
+   <p> 안에 <table> 이나 <h> 를 넣으면 브라우저가 <p> 를 먼저 닫아 버려서
+   서식이 통째로 어긋나기 때문이다. 그래서 본문만 여기서 따로 그린다.
+
+   글 하나가 안 읽히면 학습자는 거기서 막힌다. 데이터에 마크다운을 써 놓고
+   렌더러가 모르면 화면에 ### 와 파이프가 그대로 나온다 — 실제로 그랬다. */
+function mdBlock(src) {
+  const lines = String(src ?? '').split('\n');
+  let out = '', para = [], list = null, table = null;
+
+  const flushPara = () => {
+    // 한 줄 개행은 문단 안의 줄바꿈이다. 예전부터 공백으로 이어 붙여
+    // 왔으므로 그대로 둔다 — 여기서 <br> 로 바꾸면 기존 26개 레슨의
+    // 생김새가 한꺼번에 달라진다.
+    if (para.length) { out += `<p class="bk-p">${mdIn(para.join(' '))}</p>`; para = []; }
+  };
+  const flushList = () => {
+    if (!list) return;
+    out += `<${list.tag} class="bk-list">` +
+      list.items.map((x) => `<li>${mdIn(x)}</li>`).join('') + `</${list.tag}>`;
+    list = null;
+  };
+  const flushTable = () => {
+    if (!table) return;
+    const [head, ...rows] = table;
+    out += '<div class="bk-tw bk-tw-in"><table><thead><tr>' +
+      head.map((h) => `<th>${mdIn(h)}</th>`).join('') + '</tr></thead><tbody>' +
+      rows.map((r) => '<tr>' + r.map((c) => `<td>${mdIn(c)}</td>`).join('') + '</tr>').join('') +
+      '</tbody></table></div>';
+    table = null;
+  };
+  const flushAll = () => { flushPara(); flushList(); flushTable(); };
+
+  for (const raw of lines) {
+    const line = raw.trim();
+    if (!line) { flushAll(); continue; }
+
+    if (/^\|.*\|$/.test(line)) {
+      flushPara(); flushList();
+      const cells = line.slice(1, -1).split('|').map((x) => x.trim());
+      // |---|---| 구분선은 자리만 잡는 줄이라 버린다.
+      if (cells.every((x) => /^:?-{2,}:?$/.test(x))) continue;
+      (table ??= []).push(cells);
+      continue;
+    }
+    flushTable();
+
+    const h = line.match(/^(#{1,6})\s+(.*)$/);
+    if (h) { flushPara(); flushList(); out += `<div class="bk-h bk-h-in">${mdIn(h[2])}</div>`; continue; }
+
+    const ul = line.match(/^[-*]\s+(.*)$/);
+    const ol = line.match(/^\d+[.)]\s+(.*)$/);
+    if (ul || ol) {
+      flushPara();
+      const tag = ul ? 'ul' : 'ol';
+      if (list && list.tag !== tag) flushList();
+      (list ??= { tag, items: [] }).items.push((ul || ol)[1]);
+      continue;
+    }
+    flushList();
+
+    para.push(line);
+  }
+  flushAll();
+  return out;
+}
+
 /* 한국어 음성.
    1순위: 직접 제작한 고품질 MP3 파일 (local assets/audio/ or Supabase Storage URL)
    2순위(Fallback): 브라우저 내장 Web Speech API
@@ -5780,11 +5867,16 @@ function drawCourses() {
     const n = courseDone(c), all = c.lessons.length;
     const pct = Math.round((n / all) * 100);
     const need = c.needs ? COURSES.find((x) => x.id === c.needs) : null;
-    // 앞 코스를 절반은 해야 다음이 열린다. 다 해야 열면 지루하고,
-    // 아무 때나 열면 순서를 만든 뜻이 없다.
-    const locked = !!(need && courseDone(need) < Math.ceil(need.lessons.length / 2));
+    /* 순서는 알려 주되 막지는 않는다.
+       예전에는 앞 코스를 절반 해야 다음이 열렸는데, 코스가 열한 개로 늘고
+       뒤쪽 아홉 개가 한 줄로 엮이면서 화면이 자물쇠로 뒤덮였다. 그러면
+       무엇을 배우는 곳인지 보이지 않는다.
+       그리고 여기 오는 사람이 다 초보가 아니다 — 이미 말은 하는데 문법만
+       정리하러 오는 사람에게 자물쇠를 보여 주면 그냥 나간다. 같은 이유로
+       grammar-core 는 처음부터 needs 를 비워 뒀다. */
+    const early = !!(need && courseDone(need) < Math.ceil(need.lessons.length / 2));
     return (
-      `<button class="lc-card" data-course="${c.id}"${locked ? ' disabled' : ''}>` +
+      `<button class="lc-card" data-course="${c.id}">` +
         '<div class="lc-top">' +
           `<div class="lc-mark">${esc(c.emoji)}</div>` +
           '<div style="min-width:0">' +
@@ -5794,12 +5886,14 @@ function drawCourses() {
           '</div>' +
         '</div>' +
         `<p class="lc-blurb">${esc(c.blurb)}</p>` +
-        (locked
-          ? `<div class="lc-lock">🔒 ${t(`먼저 ${need.title} 를 절반쯤 끝내면 열려요.`, `Opens once you are halfway through ${need.title}.`)}</div>`
-          : '<div class="lc-meter">' +
-              `<div class="lc-bar"><div class="lc-fill" style="width:${pct}%"></div></div>` +
-              `<span class="lc-num">${n} / ${all}</span>` +
-            '</div>') +
+        (early
+          ? `<div class="lc-order">${t(`순서로는 ‘${esc(need.title)}’ 다음이에요. 먼저 열어 봐도 괜찮아요.`,
+                                       `Meant to come after ‘${esc(need.title)}’ — open it early if you like.`)}</div>`
+          : '') +
+        '<div class="lc-meter">' +
+          `<div class="lc-bar"><div class="lc-fill" style="width:${pct}%"></div></div>` +
+          `<span class="lc-num">${n} / ${all}</span>` +
+        '</div>' +
       '</button>'
     );
   }).join('');
@@ -6017,9 +6111,9 @@ function flow() {
 
 function readBlock(b) {
   if (b.t === 'text')
-    return `<div class="bk">${b.h ? `<div class="bk-h">${esc(b.h)}</div>` : ''}<p class="bk-p">${md(b.md)}</p></div>`;
+    return `<div class="bk">${b.h ? `<div class="bk-h">${esc(b.h)}</div>` : ''}${mdBlock(b.md)}</div>`;
   if (b.t === 'note')
-    return `<div class="bk"><div class="bk-note">${md(b.md)}</div></div>`;
+    return `<div class="bk"><div class="bk-note">${mdBlock(b.md)}</div></div>`;
   if (b.t === 'chars')
     return '<div class="bk"><div class="bk-chars">' + b.items.map((it) =>
       `<button class="ch-card" data-say="${esc(it.ch)}"${it.audio ? ` data-audio="${esc(it.audio)}"` : ''}>` +
