@@ -16,6 +16,70 @@
  *   - 표의 칸 수가 머리글과 다름 — 칸이 밀린다
  */
 import { COURSES } from '../courses.js';
+import { execSync } from 'node:child_process';
+
+/* ──────────────────────────────────────────────────────────────────
+   🔍 레슨 ID 유실 방지 검사기 (git HEAD vs 현재 비교)
+   - lesson_progress DB 테이블이 레슨 ID를 유일키로 사용하므로,
+     한 번 발행된 레슨 ID를 실수로 삭제하면 기존 유저들의 진도가 깨짐!
+   - git HEAD 커밋에 존재하던 레슨 ID가 현재 COURSES에 없으면
+     경고 or 에러로 알려준다.
+   ────────────────────────────────────────────────────────────────── */
+function getLessonIdsFromGitHead() {
+  const SOURCE_FILES = [
+    'courses.js',
+    'courses-grammar.js',
+    'courses-grammar-detailed.js',
+  ];
+  const idRegex = /\bid:\s*(['"])([a-zA-Z0-9_-]+)\1/g;
+  const result = new Set();
+
+  for (const fname of SOURCE_FILES) {
+    try {
+      // git HEAD 에서 파일 내용을 가져온다 (없는 파일이면 조용히 skip)
+      const raw = execSync(`git show HEAD:./${fname} 2>nul || echo `, { encoding: 'utf8' });
+      let match;
+      while ((match = idRegex.exec(raw)) !== null) {
+        const id = match[2];
+        // 코스 최상단 id 와 레슨 id 를 구분할 순 없지만, 어차피 코스 id도
+        // 지우면 안 되는 건 마찬가지라 그냥 전부 유지대상으로 본다.
+        if (id && !['grammar-core', 'hangul', 'first-words'].includes(id)
+            && id.includes('-')
+            && id.split('-').length >= 4) {
+          // 레슨 ID 패턴: (bg-d-01-01, im-02-02-01 등 세그먼트 4개 이상
+          // 코스 최상단 ID: (bg-d-01, im-02-02 등) 세그먼트 3개 → 제외
+          result.add(id);
+        }
+      }
+    } catch (e) {
+      // git 이 없거나 / HEAD 가 없거나 / 파일이 HEAD에는 없었던 경우 → 스킵 (graceful)
+      continue;
+    }
+  }
+  return result;
+}
+
+function checkLessonIdRetention(currentLessonIds) {
+  try {
+    const headIds = getLessonIdsFromGitHead();
+    if (headIds.size === 0) {
+      console.log('ℹ️  (레슨 유실검사) git HEAD 레슨 ID를 찾을 수 없어 스킵합니다 (최초커밋 / git 미연결)');
+      return;
+    }
+    const missing = [...headIds].filter((id) => !currentLessonIds.has(id));
+    if (missing.length > 0) {
+      problems.push(
+        `⚠️  레슨 ID 유실 위험: HEAD 커밋에 있던 ${missing.length}개의 ID가 현재 COURSES에 없습니다!\n` +
+        `   삭제한 레슨 ID: ${missing.join(', ')}\n` +
+        `   → 기존 유저 진도(lesson_progress)가 깨질 수 있으니 되돌리거나 의도한 경우만 진행하세요!`
+      );
+    } else {
+      console.log(`✅ 레슨 유실검사 통과: HEAD ${headIds.size}개 → 현재 ${currentLessonIds.size}개, 유실 0개`);
+    }
+  } catch (e) {
+    console.log('ℹ️  (레슨 유실검사) git 명령 실패로 스킵합니다:', e.message.split('\n')[0]);
+  }
+}
 
 const BLOCK_TYPES = new Set([
   'text', 'note', 'chars', 'table', 'choice', 'listen', 'type', 'order', 'pair', 'speak', 'cloze',
@@ -110,6 +174,9 @@ for (const c of COURSES) {
     }
   }
 }
+
+// ▼ 레슨 ID 유실 방지 검사: HEAD 커밋 대비 사라진 레슨 ID가 있는지 확인
+checkLessonIdRetention(new Set(lessonIds.keys()));
 
 console.log(`코스 ${COURSES.length} / 레슨 ${lessons} / 블록 ${blocks}`);
 console.log('코스: ' + COURSES.map((c) => `${c.id}(${c.lessons.length})`).join(', '));
