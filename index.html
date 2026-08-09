@@ -670,6 +670,12 @@ body.nav-open { overflow:hidden; }
 .pt-live { margin-top:22px; padding-top:20px; border-top:1px solid var(--line-2); }
 .pt-live-txt { font-size:16px; color:var(--ink-2); line-height:1.7; min-height:1.7em; word-break:keep-all; }
 
+/* 난이도 고르기. 세그먼트 자체는 Cloze 의 .diff-seg 를 그대로 쓴다 —
+   같은 뜻의 조작은 사이트 안에서 같은 모양이어야 한다. */
+.pt-lv-row { display:flex; flex-direction:column; align-items:center; gap:9px; }
+.pt-lv-desc { font-size:12.5px; color:var(--ink-3); line-height:1.6; text-align:center; word-break:keep-all; }
+.pt-lv-tag { margin-top:10px; font-size:12px; color:var(--ink-3); }
+
 .pt-score { display:flex; align-items:baseline; justify-content:center; gap:5px; }
 .pt-score-n { font-size:60px; font-weight:700; color:var(--ink); letter-spacing:-.05em; font-variant-numeric:tabular-nums; line-height:1; }
 .pt-score-d { font-size:16px; color:var(--ink-3); font-weight:500; }
@@ -2715,8 +2721,16 @@ body.nav-open { overflow:hidden; }
     <div id="ptCover">
       <div class="label">HOW IT WORKS</div>
       <p class="section-title" data-en="Read one passage<br>out loud. That is it.">지문 하나를<br>소리 내어 읽으면 끝</p>
-      <p class="section-sub" data-en="A short passage, picked at random.<br>No sign-up, no install.">무작위로 뽑은 짧은 글을 읽어주세요.<br>가입도, 설치도 필요 없어요.</p>
+      <p class="section-sub" data-en="Pick a level and we hand you one passage at random.<br>No sign-up, no install.">난이도를 고르면 그 단계 지문을 무작위로 하나 뽑아드려요.<br>가입도, 설치도 필요 없어요.</p>
       <div class="pt-card">
+        <div class="pt-lv-row">
+          <div class="diff-seg pt-lv" role="radiogroup" aria-label="난이도">
+            <label><input type="radio" name="ptLvA" value="easy"><span data-en="Easy">쉬움</span></label>
+            <label><input type="radio" name="ptLvA" value="normal" checked><span data-en="Normal">보통</span></label>
+            <label><input type="radio" name="ptLvA" value="hard"><span data-en="Hard">어려움</span></label>
+          </div>
+          <p class="pt-lv-desc" id="ptLvDesc"></p>
+        </div>
         <div class="pt-mic-wrap">
           <button class="pt-next" id="ptStart" data-en="Get a passage →">지문 받기 →</button>
         </div>
@@ -2727,6 +2741,15 @@ body.nav-open { overflow:hidden; }
     <!-- 읽기 -->
     <div id="ptPlay" class="hidden">
       <div class="pt-card">
+        <!-- 읽다가도 바꿀 수 있게 여기에도 둔다. 값은 시작 화면 토글과
+             하나로 묶여 있어 서로 어긋나지 않는다. -->
+        <div class="pt-lv-row" style="margin-bottom:20px;">
+          <div class="diff-seg pt-lv" role="radiogroup" aria-label="난이도">
+            <label><input type="radio" name="ptLvB" value="easy"><span data-en="Easy">쉬움</span></label>
+            <label><input type="radio" name="ptLvB" value="normal" checked><span data-en="Normal">보통</span></label>
+            <label><input type="radio" name="ptLvB" value="hard"><span data-en="Hard">어려움</span></label>
+          </div>
+        </div>
         <p class="pt-say" data-en="Read this out loud">이 글을 소리 내어 읽어주세요</p>
         <p class="pt-target" id="ptTarget"></p>
 
@@ -2755,6 +2778,9 @@ body.nav-open { overflow:hidden; }
         </div>
         <div class="pt-level" id="ptLevelName"></div>
         <p class="pt-verdict" id="ptVerdict"></p>
+        <!-- 점수 기준은 세 단계가 같다. 어느 지문이었는지 적어 둬야
+             90점이 어디서 나온 90점인지 알 수 있다. -->
+        <div class="pt-lv-tag"><span data-en="Passage">지문</span> · <span id="ptLvTag"></span></div>
 
         <div class="pt-heard">
           <div class="pt-heard-lbl" data-en="Where it differed">다르게 들린 곳</div>
@@ -3729,19 +3755,71 @@ document.querySelectorAll('.reveal, .reveal-deep').forEach(el => io.observe(el))
    음절 단위로 세면 받침 하나 틀린 것과 글자를 통째로 틀린 것이
    같은 점수가 되어 버린다. */
 
-/* 지문 풀.
-   무작위로 하나만 읽으므로 난이도가 고르지 않으면 운으로 레벨이 갈린다.
-   길이(두 문장, 35자 안팎)와 받침·연음 부담을 비슷하게 맞췄다. */
-const PT = [
-  '오늘은 아침부터 비가 내렸습니다. 우산을 챙기지 않아서 그냥 뛰어갔어요.',
-  '주말에 친구들과 바다에 다녀왔습니다. 파도 소리를 들으니 마음이 편해졌어요.',
-  '새로 문을 연 식당에 갔습니다. 김치찌개가 얼큰해서 국물까지 다 먹었어요.',
-  '지하철에서 책을 읽는 사람을 봤습니다. 요즘 보기 드문 모습이라 반가웠어요.',
-  '봄이 되니 꽃들이 한꺼번에 피었습니다. 길을 걷는 것만으로도 기분이 좋아졌어요.',
-  '밤늦게까지 공부하다가 잠들었습니다. 아침에 일어나니 목이 뻐근하고 눈이 아팠어요.',
-  '오랜만에 시장에 들렀습니다. 값을 깎아 주셔서 생각보다 많이 사 왔어요.',
-  '창문을 열었더니 바람이 들어왔습니다. 낙엽 밟는 소리가 유난히 크게 들렸어요.',
-];
+/* 지문 풀 — 난이도 세 단계.
+   무작위로 하나만 뽑으므로, 한 단계 안에서 난이도가 고르지 않으면
+   운으로 레벨이 갈린다. 그래서 단계 안에서는 길이와 받침·연음 부담을
+   서로 비슷하게 맞췄다. 단계 사이에만 차이를 둔다.
+
+   쉬움   — 한 문장, 12~18자. 받침이 홑받침이고 연음이 거의 없다.
+   보통   — 두 문장, 35자 안팎. 처음부터 있던 지문들이다.
+   어려움 — 두 문장, 45~55자. 겹받침(값·넋·맑은·읽던·앉은),
+            구개음화(굳이·같이), 경음화, ㅎ 약화가 한 지문에 여러 번 나온다.
+
+   점수 계산은 세 단계가 똑같다. 단계별로 기준을 다르게 하면 90점이
+   무슨 뜻인지 알 수 없게 되고, 앱과 웹이 같은 계산식을 쓴다는 약속도
+   깨진다. 어려운 지문에서 나온 점수라는 건 결과 화면에 단계를 적어
+   알린다. */
+const PT_SETS = {
+  easy: [
+    '오늘 날씨가 참 좋아요.',
+    '저는 물을 자주 마셔요.',
+    '학교에 같이 가요.',
+    '밥을 맛있게 먹었어요.',
+    '친구를 기다리고 있어요.',
+    '이 책은 정말 재미있어요.',
+    '내일 아침에 만나요.',
+    '커피 한 잔 주세요.',
+  ],
+  normal: [
+    '오늘은 아침부터 비가 내렸습니다. 우산을 챙기지 않아서 그냥 뛰어갔어요.',
+    '주말에 친구들과 바다에 다녀왔습니다. 파도 소리를 들으니 마음이 편해졌어요.',
+    '새로 문을 연 식당에 갔습니다. 김치찌개가 얼큰해서 국물까지 다 먹었어요.',
+    '지하철에서 책을 읽는 사람을 봤습니다. 요즘 보기 드문 모습이라 반가웠어요.',
+    '봄이 되니 꽃들이 한꺼번에 피었습니다. 길을 걷는 것만으로도 기분이 좋아졌어요.',
+    '밤늦게까지 공부하다가 잠들었습니다. 아침에 일어나니 목이 뻐근하고 눈이 아팠어요.',
+    '오랜만에 시장에 들렀습니다. 값을 깎아 주셔서 생각보다 많이 사 왔어요.',
+    '창문을 열었더니 바람이 들어왔습니다. 낙엽 밟는 소리가 유난히 크게 들렸어요.',
+  ],
+  hard: [
+    '옷을 갈아입고 밖에 나갔더니 햇빛이 눈부셨습니다. 얇은 외투로는 조금 추웠지만 걷기에는 좋았어요.',
+    '맑은 날에 넓은 들판을 한참 걸었습니다. 흙냄새와 풀 향기가 섞여 코끝을 간질였어요.',
+    '값을 치르고 나오는데 갑자기 소나기가 쏟아졌습니다. 우산 없이 뛰다 보니 옷이 흠뻑 젖었어요.',
+    '읽던 책을 덮고 창밖을 내다봤습니다. 낯선 골목에서 낙엽 밟는 소리가 또렷하게 들려왔어요.',
+    '앉은 자리에서 꼼짝도 못 하고 발표를 들었습니다. 어려운 낱말이 많아 끝까지 집중하기가 힘들었어요.',
+    '굳이 서두르지 않아도 괜찮다고 하셨습니다. 같이 앉아서 이야기를 나누다 보니 마음이 놓였어요.',
+    '싫증 내지 않고 꾸준히 연습했더니 실력이 늘었습니다. 짧은 문장부터 또박또박 읽는 게 도움이 됐어요.',
+    '넋 놓고 있다가 약속 시간을 놓쳤습니다. 헐레벌떡 뛰어갔지만 이미 다들 떠난 뒤였어요.',
+  ],
+};
+
+const PT_LV_NAME = {
+  easy:   { ko:'쉬움',   en:'Easy'   },
+  normal: { ko:'보통',   en:'Normal' },
+  hard:   { ko:'어려움', en:'Hard'   },
+};
+
+let ptLevel = 'normal';        // 지금 고른 단계
+let ptPickedLevel = 'normal';  // 방금 읽은 지문이 나온 단계 (결과 화면용)
+const PT = () => PT_SETS[ptLevel] || PT_SETS.normal;
+
+/* 지금 화면이 영어인지. ptLang 을 직접 보지 않는 이유는 그게 이 아래에서
+   선언되기 때문이다 — 저장된 단계를 불러오는 코드가 먼저 도는데 거기서
+   ptLang 을 읽으면 TDZ 로 스크립트 전체가 죽는다. <html lang> 은
+   applyLang 이 늘 맞춰 두므로 언제 읽어도 안전하다. */
+const ptIsEn = () => document.documentElement.lang === 'en';
+/* 안내 문구는 data-en 으로 못 붙인다 — 상황에 따라 자바스크립트가 바꿔
+   쓰는 자리라서다. 영어 화면인데 여기만 한국어로 남아 있었다. */
+const ptT = (ko, en) => (ptIsEn() ? en : ko);
 
 const PT_LV = [
   { min:90, n:'원어민 수준', s:'거의 그대로 전달됩니다. 발음으로 막힐 일은 없겠어요.' },
@@ -3835,16 +3913,22 @@ const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
 
 function ptPick() {
   // 방금 읽은 지문은 피한다. 다시 눌렀는데 같은 글이 나오면 맥이 빠진다.
+  const pool = PT();
   let next = ptText;
-  while (next === ptText && PT.length > 1) next = PT[Math.floor(Math.random() * PT.length)];
-  ptText = next || PT[0];
+  while (next === ptText && pool.length > 1) next = pool[Math.floor(Math.random() * pool.length)];
+  ptText = next || pool[0];
+  ptPickedLevel = ptLevel;
   ptId('ptTarget').textContent = ptText;
   ptHeardAll = '';
+  ptFinals = [];
   ptId('ptLive').textContent = '';
   ptId('ptLiveWrap').classList.add('hidden');
   ptId('ptMic').classList.remove('rec');
   ptId('ptMic').disabled = false;
-  ptId('ptHint').textContent = '마이크를 누르고 읽기 시작하세요';
+  // 영어 화면에서 지문을 바꾸면 안내만 한국어로 돌아가 있었다.
+  ptId('ptHint').textContent = ptIsEn()
+    ? 'Tap the mic and start reading'
+    : '마이크를 누르고 읽기 시작하세요';
 }
 
 /* 말이 끊기면 저절로 끝낸다.
@@ -3856,16 +3940,41 @@ function ptPick() {
 const PT_SILENCE_MS = 2500;
 /* 권한만 허용하고 아무 말도 안 한 경우. 마이크를 켠 채로 두지 않는다. */
 const PT_NOSPEECH_MS = 9000;
+
+/* 마지막 방패. 침묵 시계가 어떤 이유로든 안 먹어도 마이크는 반드시 꺼진다.
+   실제로 학생 두 명이 이걸로 막혔다 — 인식기가 같은 말을 되보내는 바람에
+   글자가 계속 "늘어나" 침묵 시계가 영영 다시 감겼고, 마이크가 켜진 채로
+   화면이 글자로 뒤덮였다. 아래 onresult 가 그 원인을 없앴지만, 원인을
+   고쳤다고 방패를 안 두면 다음 브라우저에서 같은 일이 또 난다.
+
+   지문 길이에 맞춰 늘린다. 어려움 단계는 글이 길어 천천히 읽으면
+   1분 가까이 걸린다. 여유를 크게 잡는 이유는 이게 평소에 쓰이는 시계가
+   아니라 사고가 났을 때만 도는 시계이기 때문이다. */
+const ptMaxMs = () => Math.min(90000, 25000 + ptText.length * 800);
+
+/* 인식된 글자 길이 상한. 35자 지문을 읽는데 그 세 배가 넘게 들렸다면
+   이미 발음을 재는 상황이 아니다. 더 들어봐야 점수는 0에서 안 움직이고
+   화면과 AI 요청만 뚱뚱해진다. */
+const ptMaxChars = () => ptText.length * 3 + 30;
+
 let ptSilenceTimer = null;
+let ptMaxTimer = null;
 let ptLastText = '';
+let ptFinals = [];      // 확정된 결과를 번호 칸에 담아 둔다 (아래 onresult 참고)
+let ptAborted = false;  // 채점하지 말고 그냥 끄라는 표시
 
 function ptArmSilence(ms) {
   clearTimeout(ptSilenceTimer);
   ptSilenceTimer = setTimeout(() => { if (ptRunning) ptStop(); }, ms);
 }
 
-function ptStop() {
+/* abort = true 면 끄기만 하고 채점하지 않는다.
+   지문을 바꾸거나 화면을 떠날 때 쓴다. 안 그러면 "다른 지문으로" 를
+   눌렀는데 방금 끊긴 녹음이 결과 화면을 띄워 버린다. */
+function ptStop(abort) {
   clearTimeout(ptSilenceTimer);
+  clearTimeout(ptMaxTimer);
+  if (abort) ptAborted = true;
   if (ptRec) { try { ptRec.stop(); } catch (e) {} }
 }
 
@@ -3874,6 +3983,8 @@ function ptListen() {
   ptRunning = true;
   ptHeardAll = '';
   ptLastText = '';
+  ptFinals = [];
+  ptAborted = false;
 
   const rec = new SR();
   ptRec = rec;
@@ -3884,18 +3995,37 @@ function ptListen() {
 
   ptId('ptMic').classList.add('rec');
   ptId('ptMic').setAttribute('aria-label', '녹음 끝내기');
-  ptId('ptHint').textContent = '듣고 있어요 — 다 읽고 잠시 기다리면 저절로 끝나요';
+  ptId('ptHint').textContent = ptT(
+    '듣고 있어요 — 다 읽고 잠시 기다리면 저절로 끝나요',
+    'Listening — pause when you finish and it stops on its own');
   ptId('ptLiveWrap').classList.remove('hidden');
 
+  /* 결과는 "이어붙이지" 않고 번호 칸에 덮어쓴다.
+
+     예전에는 e.resultIndex 부터 훑으며 확정된 조각을 ptHeardAll 에 +=
+     했다. 안드로이드 크롬은 continuous 로 들을 때 이미 확정된 결과를
+     resultIndex 0 부터 통째로 다시 보내는 일이 있는데, 그러면 매번
+     지금까지 나온 걸 전부 다시 붙여서 같은 말이 눈덩이처럼 불어난다.
+     게다가 글자가 계속 늘어나니 아래 침묵 시계가 영영 다시 감겨
+     마이크가 꺼지지도 않았다. 학생들이 겪은 게 이거다.
+
+     번호 칸(ptFinals[i])에 넣으면 같은 결과가 몇 번을 다시 와도 제자리에
+     덮어써서 결과가 같다. 0번부터 매번 다시 훑는 이유도 같다 —
+     인식기가 resultIndex 를 어떻게 주든 상관없이 답이 하나로 정해진다.
+     레슨의 말하기 문제(.ex-mic)도 처음부터 이 방식이었다. */
   rec.onresult = (e) => {
     let interim = '';
-    for (let i = e.resultIndex; i < e.results.length; i++) {
-      const txt = e.results[i][0].transcript;
-      if (e.results[i].isFinal) ptHeardAll += txt + ' ';
-      else interim += txt;
+    for (let i = 0; i < e.results.length; i++) {
+      const r = e.results[i];
+      if (r.isFinal) ptFinals[i] = r[0].transcript;
+      else { ptFinals[i] = ''; interim += r[0].transcript; }
     }
-    const now = (ptHeardAll + interim).trim();
+    ptHeardAll = ptFinals.filter(Boolean).join(' ');
+    const now = (ptHeardAll + ' ' + interim).replace(/\s+/g, ' ').trim();
     ptId('ptLive').textContent = now;
+
+    // 지문 길이의 세 배가 넘게 들렸으면 더 들을 이유가 없다.
+    if (now.length > ptMaxChars()) { ptStop(); return; }
 
     // 글자가 실제로 늘었을 때만 시계를 되돌린다. 브라우저에 따라
     // 같은 중간 결과를 계속 다시 보내는데, 그것까지 세면 말을 멈춰도
@@ -3908,20 +4038,30 @@ function ptListen() {
 
   rec.onerror = (e) => {
     if (e.error === 'not-allowed') {
-      ptId('ptHint').textContent = '마이크 권한이 필요해요. 주소창 옆에서 허용해주세요.';
+      ptId('ptHint').textContent = ptT(
+        '마이크 권한이 필요해요. 주소창 옆에서 허용해주세요.',
+        'Microphone access is needed. Allow it next to the address bar.');
     } else if (e.error !== 'no-speech' && e.error !== 'aborted') {
-      ptId('ptHint').textContent = '잘 못 들었어요. 다시 눌러주세요.';
+      ptId('ptHint').textContent = ptT(
+        '잘 못 들었어요. 다시 눌러주세요.',
+        'That did not come through. Tap again.');
     }
   };
 
   rec.onend = () => {
     clearTimeout(ptSilenceTimer);
+    clearTimeout(ptMaxTimer);
     ptRunning = false;
+    ptRec = null;
     ptId('ptMic').classList.remove('rec');
     ptId('ptMic').setAttribute('aria-label', '녹음 시작');
+    // 지문을 바꾸거나 화면을 떠나면서 끈 것이다. 채점하지 않는다.
+    if (ptAborted) { ptAborted = false; return; }
     const said = ptHeardAll.trim();
     if (said) ptFinish(said);
-    else ptId('ptHint').textContent = '소리가 안 들렸어요. 다시 눌러주세요.';
+    else ptId('ptHint').textContent = ptT(
+      '소리가 안 들렸어요. 다시 눌러주세요.',
+      'Nothing came through. Tap again.');
   };
 
   try {
@@ -3929,14 +4069,22 @@ function ptListen() {
     // 허용해 놓고 아무 말도 안 하는 경우를 대비해 먼저 걸어둔다.
     // 말을 시작하면 위 onresult 가 짧은 쪽으로 바꿔 단다.
     ptArmSilence(PT_NOSPEECH_MS);
+    // 위 시계와 별개로 도는 마지막 방패. 여기서는 되감지 않는다.
+    clearTimeout(ptMaxTimer);
+    ptMaxTimer = setTimeout(() => { if (ptRunning) ptStop(); }, ptMaxMs());
   } catch (err) {
     ptRunning = false;
     clearTimeout(ptSilenceTimer);
-    ptId('ptHint').textContent = '다시 눌러주세요.';
+    clearTimeout(ptMaxTimer);
+    ptId('ptHint').textContent = ptT('다시 눌러주세요.', 'Tap again.');
   }
 }
 
 function ptFinish(said) {
+  // 상한을 넘은 건 이미 발음 자료가 아니다. 화면과 AI 요청이 그만큼
+  // 커지지 않게 여기서 한 번 더 자른다.
+  said = said.slice(0, ptMaxChars());
+
   const score = accuracy(said, ptText);
   const lv = PT_LV.find(l => score >= l.min);
   ptId('ptPlay').classList.add('hidden');
@@ -3945,6 +4093,16 @@ function ptFinish(said) {
   ptId('ptLevelName').textContent = lv.n;
   ptId('ptVerdict').textContent = lv.s;
   ptId('ptHeard').textContent = said;
+
+  /* 어느 단계 지문이었는지 남긴다. 점수 기준은 세 단계가 같으므로
+     이 표시가 없으면 90점이 쉬움에서 나온 건지 어려움에서 나온 건지
+     알 수 없다. data-ko/en 을 같이 심어 두면 나중에 언어를 바꿔도
+     applyLang 이 알아서 따라온다. */
+  const tag = ptId('ptLvTag');
+  const nm = PT_LV_NAME[ptPickedLevel] || PT_LV_NAME.normal;
+  tag.dataset.ko = nm.ko;
+  tag.dataset.en = nm.en;
+  tag.textContent = ptIsEn() ? nm.en : nm.ko;
 
   ptId('ptDiff').innerHTML = diffHtml(said, ptText).html;
 
@@ -3967,17 +4125,69 @@ ptId('ptStart').addEventListener('click', () => {
 });
 
 ptId('ptMic').addEventListener('click', ptListen);
-ptId('ptSkip').addEventListener('click', () => { ptStop(); ptPick(); });
+// 듣던 중에 눌렀다면 채점하지 않고 끈다. 지문을 바꾸겠다는 뜻이지
+// 방금 읽은 걸 매겨 달라는 뜻이 아니다.
+ptId('ptSkip').addEventListener('click', () => { ptStop(true); ptPick(); });
 ptId('ptAgain').addEventListener('click', () => {
   ptId('ptDone').classList.add('hidden');
   ptId('ptPlay').classList.remove('hidden');
   ptPick();
 });
 
+/* ── 난이도 (쉬움 · 보통 · 어려움) ──────────────────────
+   토글이 두 군데(시작 화면·읽기 화면)에 있다. 학생이 지문을 받기 전에도,
+   읽다가 어렵다 싶을 때도 바꿀 수 있어야 하는데, 한 곳에만 두면 둘 중
+   하나가 불편해진다. 대신 값은 한 곳(ptLevel)에만 두고 두 토글을 거기에
+   맞춘다 — 화면마다 따로 기억하면 서로 달라져서 어느 게 맞는지 모른다. */
+const PT_LV_DESC = {
+  easy:   { ko:'한 문장, 12~18자. 받침이 단순하고 연음이 거의 없어요.',
+            en:'One short sentence. Simple endings, almost no liaison.' },
+  normal: { ko:'두 문장, 35자 안팎. 기본 지문이에요.',
+            en:'Two sentences, about 35 characters. The default.' },
+  hard:   { ko:'두 문장, 45~55자. 겹받침과 연음이 여러 번 나와요.',
+            en:'Two long sentences. Consonant clusters and liaison throughout.' },
+};
+
+function ptSetLevel(lv) {
+  if (!PT_SETS[lv]) return;
+  ptLevel = lv;
+  document.querySelectorAll('.pt-lv input[type=radio]')
+    .forEach(r => { r.checked = (r.value === lv); });
+  // 설명은 data-ko/en 을 같이 심어 둔다. 언어를 바꾸면 applyLang 이 따라온다.
+  const d = ptId('ptLvDesc'), t = PT_LV_DESC[lv];
+  if (d && t) {
+    d.dataset.ko = t.ko;
+    d.dataset.en = t.en;
+    d.textContent = ptIsEn() ? t.en : t.ko;
+  }
+  try { localStorage.setItem('ptLevel', lv); } catch (e) {}
+}
+
+document.querySelectorAll('.pt-lv').forEach(seg => {
+  seg.addEventListener('change', (e) => {
+    const r = e.target.closest('input[type=radio]');
+    if (!r) return;
+    ptSetLevel(r.value);
+    // 읽는 중에 바꿨으면 그 단계 지문을 바로 내준다. 바꿔 놓고 예전
+    // 지문이 그대로 있으면 안 바뀐 줄 안다. 듣던 것은 채점 없이 끈다.
+    if (!ptId('ptPlay').classList.contains('hidden')) { ptStop(true); ptPick(); }
+  });
+});
+
+// 한 번 고른 단계는 기억한다. 매번 다시 고르게 하지 않는다.
+(function initPtLevel() {
+  let saved = null;
+  try { saved = localStorage.getItem('ptLevel'); } catch (e) {}
+  ptSetLevel(PT_SETS[saved] ? saved : 'normal');
+})();
+
 ptId('ptShare').addEventListener('click', async () => {
   const score = ptId('ptFinal').textContent;
   const name = ptId('ptLevelName').textContent;
-  const text = `한국어 발음 테스트 ${score}점 — ${name}\n${location.href}`;
+  // 어느 단계 지문이었는지 같이 적는다. 세 단계가 같은 기준으로 채점되니
+  // 이게 빠지면 받은 사람이 점수만 보고 서로 비교하게 된다.
+  const diff = (PT_LV_NAME[ptPickedLevel] || PT_LV_NAME.normal).ko;
+  const text = `한국어 발음 테스트 ${score}점 — ${name} (${diff} 지문)\n${location.href}`;
   try {
     if (navigator.share) await navigator.share({ text });
     else {
@@ -3993,7 +4203,8 @@ ptId('ptShare').addEventListener('click', async () => {
 // 한쪽만 고치고 다른 쪽이 죽는 일이 없다.
 function ptShow(toTest) {
   // 화면을 벗어나면 듣던 것을 멈춘다. 안 그러면 홈에서도 마이크가 살아 있다.
-  if (ptRec && ptRunning) { try { ptRec.stop(); } catch (e) {} }
+  // 채점은 하지 않는다 — 나가는 길에 결과 화면이 뜨면 홈으로 못 간다.
+  if (ptRunning) ptStop(true);
   ptId('homeView').classList.toggle('hidden', toTest);
   ptId('testView').classList.toggle('hidden', !toTest);
   // 나머지 화면도 같이 닫는다. 안 닫으면 홈 위에 겹쳐 남는다.
