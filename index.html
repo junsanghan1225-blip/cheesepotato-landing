@@ -4164,16 +4164,49 @@ function ptArmSilence(ms) {
   ptSilenceTimer = setTimeout(() => { if (ptRunning) ptStop(); }, ms);
 }
 
+/* 조각을 이어 붙이되, 앞 조각이 "자라난 것" 이면 갈아 끼운다.
+
+   모바일 크롬·사파리는 중간 결과를 한 칸에서 갈아 끼우지 않고 새 칸에 쌓아
+   보낸다. 실제로 이렇게 온다:
+
+       주말에
+       주말에 친구들과
+       주말에 친구들과 바다에
+       주말에 친구들과 바다에 다녀왔습니다
+
+   이건 네 마디가 아니라 **한 마디가 자라는 중**이다. 그대로 이으면
+   "주말에 주말에 친구들과 주말에 친구들과 바다에 …" 로 눈덩이가 된다.
+   학생 화면에 나온 게 그거다. 데스크톱은 한 칸을 갈아 끼우므로 안 보였다.
+
+   앞 조각을 통째로 품고 있으면 자란 것으로 보고 갈아 끼운다. 띄어쓰기는
+   빼고 견준다 — 인식기가 띄어쓰기를 붙였다 뗐다 하는 게 제각각이라
+   "주말에친구들과" 와 "주말에 친구들과" 를 다른 말로 보면 안 걸러진다.
+   서로 품지 않는 조각(두 문장처럼)은 그대로 이어 붙는다. */
+function ptJoin(parts) {
+  const bare = (s) => s.replace(/\s+/g, '');
+  const out = [];
+  for (const raw of parts) {
+    const p = (raw || '').trim();
+    if (!p) continue;
+    const i = out.length - 1;
+    if (i >= 0) {
+      if (bare(p).startsWith(bare(out[i]))) { out[i] = p; continue; }  // 자랐다
+      if (bare(out[i]).startsWith(bare(p))) continue;                  // 되풀이
+    }
+    out.push(p);
+  }
+  return out.join(' ');
+}
+
 /* 이번 회차에서 확정된 말을 넘겨 담는다.
    다시 켜면 결과 번호가 0부터 다시 시작하므로, 여기서 안 옮기면
    다음 회차가 앞 문장을 덮어써 버린다. */
 function ptCommit() {
-  const seg = ptFinals.filter(Boolean).join(' ').trim();
+  const seg = ptJoin(ptFinals);
   ptFinals = [];
   if (!seg) return;
-  // 끄고 켜는 사이에 앞 회차 것을 다시 보내는 인식기가 있다. 꼬리가 같으면 버린다.
-  if (ptCommitted.endsWith(seg)) return;
-  ptCommitted = (ptCommitted + ' ' + seg).trim();
+  // 끄고 켜는 사이에 앞 회차 것을 다시 보내는 인식기가 있다. ptJoin 이 거른다.
+  ptCommitted = ptJoin([ptCommitted, seg]);
 }
 
 /* abort = true 면 끄기만 하고 채점하지 않는다.
@@ -4248,18 +4281,21 @@ function ptListen() {
      번호 칸(ptFinals[i])에 넣으면 같은 결과가 몇 번을 다시 와도 제자리에
      덮어써서 결과가 같다. 0번부터 매번 다시 훑는 이유도 같다 —
      인식기가 resultIndex 를 어떻게 주든 상관없이 답이 하나로 정해진다.
-     레슨의 말하기 문제(.ex-mic)도 처음부터 이 방식이었다. */
+     레슨의 말하기 문제(.ex-mic)도 처음부터 이 방식이었다.
+
+     칸에 넣는 것만으로는 모자란다. 모바일은 자라나는 중간 결과를 **서로 다른
+     칸에** 쌓아 보내기 때문에, 칸마다 제자리에 잘 들어가 있어도 이어 붙이면
+     눈덩이가 된다. 그래서 이을 때 ptJoin 이 자란 조각을 갈아 끼운다. */
   rec.onresult = (e) => {
-    let interim = '';
+    const interims = [];
     for (let i = 0; i < e.results.length; i++) {
       const r = e.results[i];
       if (r.isFinal) ptFinals[i] = r[0].transcript;
-      else { ptFinals[i] = ''; interim += r[0].transcript; }
+      else { ptFinals[i] = ''; interims.push(r[0].transcript); }
     }
     // 지난 회차에서 넘겨받은 말이 앞에 붙는다 (아래 onend 참고).
-    ptHeardAll = (ptCommitted + ' ' + ptFinals.filter(Boolean).join(' '))
-      .replace(/\s+/g, ' ').trim();
-    const now = (ptHeardAll + ' ' + interim).replace(/\s+/g, ' ').trim();
+    ptHeardAll = ptJoin([ptCommitted, ptJoin(ptFinals)]);
+    const now = ptJoin([ptHeardAll, ptJoin(interims)]);
     ptId('ptLive').textContent = now;
 
     // 지문 길이의 세 배가 넘게 들렸으면 더 들을 이유가 없다.
