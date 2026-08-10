@@ -4120,8 +4120,17 @@ function ptPick() {
    2.5초로 잡은 이유: 지문이 두 문장이라 중간에 쉼이 생기는데, 보통
    문장 사이 쉼은 1초 안쪽이다. 너무 짧게 잡으면 읽는 도중에 끊긴다. */
 const PT_SILENCE_MS = 2500;
-/* 권한만 허용하고 아무 말도 안 한 경우. 마이크를 켠 채로 두지 않는다. */
-const PT_NOSPEECH_MS = 9000;
+/* 권한만 허용하고 아무 말도 안 한 경우. 마이크를 켠 채로 두지 않는다.
+
+   9초였는데 20초로 늘렸다. 학생이 마이크를 누른 뒤 지문을 읽고, 무슨 뜻인지
+   가늠하고, 숨을 고르고 나서 소리를 낸다. 한국어를 배우는 사람에게 두 문장은
+   9초 안에 읽기 시작할 수 있는 글이 아니다.
+
+   게다가 안드로이드 크롬은 5초쯤 조용하면 스스로 no-speech 를 내고 끝낸다.
+   예전에는 그 순간 바로 "소리가 안 들렸어요" 가 떴다 — 학생이 이제 막
+   읽으려던 참인데. 이제 아래 onend 가 다시 켜므로, 끝낼지 말지는 이 시계가
+   정한다. 그래서 이 값이 곧 "읽기 시작할 때까지 기다려 주는 시간" 이다. */
+const PT_NOSPEECH_MS = 20000;
 
 /* 마지막 방패. 침묵 시계가 어떤 이유로든 안 먹어도 마이크는 반드시 꺼진다.
    실제로 학생 두 명이 이걸로 막혔다 — 인식기가 같은 말을 되보내는 바람에
@@ -4148,6 +4157,7 @@ let ptCommitted = '';    // 지난 회차들에서 넘겨받은 말
 let ptAborted = false;   // 채점하지 말고 그냥 끄라는 표시
 let ptStopping = false;  // 우리가 끄는 중이다 = 다시 켜지 말 것
 let ptHintLocked = false; // 안내에 이미 까닭을 적었다 = 덮어쓰지 말 것
+let ptStarted = false;   // 소리를 잡기 시작한 적이 있다 (회차마다가 아니라 한 번)
 
 function ptArmSilence(ms) {
   clearTimeout(ptSilenceTimer);
@@ -4209,6 +4219,7 @@ function ptListen() {
   ptAborted = false;
   ptStopping = false;
   ptHintLocked = false;
+  ptStarted = false;
 
   const rec = new SR();
   ptRec = rec;
@@ -4291,9 +4302,19 @@ function ptListen() {
 
   /* 소리를 실제로 잡기 시작한 순간. 여기서 "아무 말도 안 함" 시계를 건다.
      start() 직후에 걸면 모바일에서 마이크 권한 창이 떠 있는 동안 그 시계가
-     돌아간다 — 처음 오는 학생이 "허용" 을 9초 안에 못 누르면 끊겼다.
-     이미 말이 들린 뒤(다시 켜는 회차)라면 침묵 시계가 돌고 있으므로 건드리지 않는다. */
-  rec.onstart = () => { if (!ptLastText) ptArmSilence(PT_NOSPEECH_MS); };
+     돌아간다 — 처음 오는 학생이 "허용" 을 못 누르는 사이에 끊겼다.
+
+     딱 한 번만 건다. 아래 onend 가 다시 켜면 onstart 도 다시 오는데, 그때마다
+     다시 걸면 시계가 매번 처음으로 돌아가 영영 안 울린다. 그러면 아무 말도
+     안 한 학생의 마이크가 마지막 방패(약 53초)까지 켜져 있게 된다. */
+  rec.onstart = () => {
+    if (ptStarted) return;
+    ptStarted = true;
+    ptArmSilence(PT_NOSPEECH_MS);
+    ptId('ptHint').textContent = ptT(
+      '듣고 있어요 — 천천히 읽기 시작하세요',
+      'Listening — start reading whenever you are ready');
+  };
 
   rec.onend = () => {
     ptCommit();
