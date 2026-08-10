@@ -1026,6 +1026,78 @@ body.nav-open { overflow:hidden; }
   padding-left:13px; border-left:2px solid var(--line-2); word-break:keep-all;
 }
 
+/* ══ 배우기 : 예문 게시판 ═══════════════════════════════════════ */
+.sb-q {
+  width:100%; padding:13px 16px; font-size:15px; color:var(--ink);
+  background:var(--surface); border:1px solid var(--line); border-radius:var(--r);
+  outline:none; margin-bottom:20px;
+}
+.sb-q:focus { border-color:var(--orange); }
+.sb-cat { margin-bottom:26px; }
+.sb-cat-h { display:flex; align-items:baseline; gap:9px; margin-bottom:11px; }
+.sb-cat-n { font-size:11px; font-weight:700; letter-spacing:.13em; color:var(--orange-deep); font-variant-numeric:tabular-nums; }
+.sb-cat-t { font-size:16px; font-weight:700; color:var(--ink); letter-spacing:-.02em; }
+.sb-pts { display:grid; gap:8px; }
+.sb-pt {
+  display:flex; align-items:center; gap:12px; width:100%; text-align:left; cursor:pointer;
+  background:var(--surface); border:1px solid var(--line-2); border-radius:var(--r);
+  padding:13px 15px; transition:border-color .16s, transform .16s;
+}
+.sb-pt:hover { border-color:rgba(27,21,18,.22); transform:translateY(-1px); }
+.sb-pt-name { font-size:15px; font-weight:700; color:var(--ink); letter-spacing:-.02em; flex:1; min-width:0; word-break:keep-all; }
+/* 글이 있는 표현에만 숫자가 붙는다. 0 을 다 그리면 텅 빈 게시판처럼 보인다. */
+.sb-pt-n {
+  flex-shrink:0; font-size:11.5px; font-weight:700; color:var(--orange-deep);
+  background:#FFF4EA; border:1px solid rgba(255,138,61,.35); border-radius:999px; padding:2px 8px;
+  font-variant-numeric:tabular-nums;
+}
+.sb-none { font-size:14px; color:var(--ink-3); padding:26px 0; text-align:center; }
+
+/* 표현 하나 — 상세 */
+.sb-head { margin-bottom:20px; }
+.sb-head-cat { font-size:11px; font-weight:700; letter-spacing:.13em; text-transform:uppercase; color:var(--orange-deep); }
+.sb-head-name { font-size:27px; font-weight:700; color:var(--ink); letter-spacing:-.035em; margin-top:7px; word-break:keep-all; }
+.sb-desc { font-size:15px; color:var(--ink-2); line-height:1.75; margin-top:12px; word-break:keep-all; }
+.sb-facts { display:grid; gap:1px; background:var(--line-2); border:1px solid var(--line-2); border-radius:var(--r); overflow:hidden; margin-top:18px; }
+.sb-fact { background:var(--surface); padding:12px 15px; }
+.sb-fact-k { font-size:11px; font-weight:700; letter-spacing:.11em; text-transform:uppercase; color:var(--ink-3); }
+.sb-fact-v { font-size:14.5px; color:var(--ink-2); line-height:1.65; margin-top:5px; word-break:keep-all; }
+.sb-exs { margin-top:18px; display:grid; gap:9px; }
+.sb-ex { background:var(--tint); border-left:3px solid var(--orange); border-radius:0 var(--r) var(--r) 0; padding:12px 15px; font-size:15.5px; color:var(--ink); line-height:1.7; word-break:keep-all; }
+
+/* 게시판 */
+.sb-board { margin-top:30px; padding-top:22px; border-top:1px solid var(--line-2); }
+.sb-board-h { display:flex; align-items:center; justify-content:space-between; gap:10px; flex-wrap:wrap; margin-bottom:14px; }
+.sb-board-t { font-size:16px; font-weight:700; color:var(--ink); letter-spacing:-.02em; }
+.sb-posts { display:grid; gap:10px; }
+.sb-post { background:var(--surface); border:1px solid var(--line-2); border-radius:var(--r); padding:14px 16px; }
+.sb-post-top { display:flex; align-items:baseline; gap:8px; margin-bottom:7px; }
+.sb-by { font-size:13px; font-weight:700; color:var(--ink); }
+.sb-when { font-size:12px; color:var(--ink-3); }
+.sb-mine-tag { font-size:11px; font-weight:700; color:var(--orange-deep); }
+.sb-text { font-size:15.5px; color:var(--ink); line-height:1.72; word-break:keep-all; }
+.sb-post-bot { display:flex; align-items:center; gap:10px; margin-top:10px; }
+.sb-like {
+  display:inline-flex; align-items:center; gap:5px; cursor:pointer;
+  background:none; border:1px solid var(--line-2); border-radius:999px; padding:4px 11px;
+  font-size:12.5px; font-weight:700; color:var(--ink-3); transition:border-color .16s, color .16s;
+  font-variant-numeric:tabular-nums;
+}
+.sb-like:hover { border-color:rgba(27,21,18,.22); color:var(--ink-2); }
+.sb-like.on { color:var(--orange-deep); border-color:rgba(255,138,61,.45); background:#FFF4EA; }
+.sb-del { background:none; border:none; cursor:pointer; font-size:12.5px; color:var(--ink-3); text-decoration:underline; padding:4px; }
+.sb-del:hover { color:var(--red); }
+.sb-write { margin-top:18px; background:var(--surface-2); border:1px solid var(--line-2); border-radius:var(--r); padding:16px; }
+.sb-write-row { display:flex; gap:9px; flex-wrap:wrap; align-items:flex-end; margin-top:11px; }
+.sb-in {
+  padding:11px 14px; font-size:15px; color:var(--ink); font-family:inherit;
+  background:var(--surface); border:1px solid var(--line); border-radius:var(--r); outline:none;
+}
+.sb-in:focus { border-color:var(--orange); }
+#sbName { width:150px; flex-shrink:0; }
+#sbText { width:100%; resize:vertical; min-height:64px; line-height:1.65; }
+.sb-note { font-size:12.5px; color:var(--ink-3); line-height:1.6; margin-top:11px; word-break:keep-all; }
+
 /* 레슨 목록 */
 .ll-row {
   display:flex; align-items:center; gap:14px; width:100%; text-align:left; cursor:pointer;
@@ -2658,15 +2730,49 @@ body.nav-open { overflow:hidden; }
   </div>
 
   <div class="pt-body" style="max-width:1000px;">
-    <div id="lcList" class="lc-grid"></div>
 
-    <!-- 코스를 고르면 레슨 목록이 여기 열린다 -->
-    <div id="llWrap" class="hidden" style="margin-top:32px;">
+    <!-- 배우기 첫 화면 : 갈래 고르기.
+         예전에는 코스 카드가 바로 여기 있었다. 퀴즈와 예문 만들기가
+         들어오면서 한 층을 얹고 코스를 그 아래로 내렸다. -->
+    <div id="lsecList" class="lc-grid"></div>
+
+    <!-- 갈래 하나를 고르면 그 안이 열린다 -->
+    <div id="lsecWrap" class="hidden">
       <div class="bd-sec-title">
-        <h3 id="llTitle"></h3>
-        <button class="wb-out" id="llBack" type="button" data-en="← All courses">← 코스 목록</button>
+        <h3 id="lsecTitle"></h3>
+        <button class="wb-out" id="lsecBack" type="button" data-en="← Learn">← 배우기</button>
       </div>
-      <div class="bd"><div id="llRows"></div></div>
+
+      <!-- 갈래 : 코스 -->
+      <div id="lcWrap" class="hidden">
+        <div id="lcList" class="lc-grid"></div>
+
+        <!-- 코스를 고르면 레슨 목록이 여기 열린다 -->
+        <div id="llWrap" class="hidden" style="margin-top:32px;">
+          <div class="bd-sec-title">
+            <h3 id="llTitle"></h3>
+            <button class="wb-out" id="llBack" type="button" data-en="← All courses">← 코스 목록</button>
+          </div>
+          <div class="bd"><div id="llRows"></div></div>
+        </div>
+      </div>
+
+      <!-- 갈래 : 예문 만들기 -->
+      <div id="sbWrap" class="hidden">
+        <div id="sbBrowse">
+          <input id="sbQ" class="sb-q" type="search" autocomplete="off">
+          <div id="sbCats"></div>
+        </div>
+        <div id="sbDetail" class="hidden"></div>
+      </div>
+
+      <!-- 아직 안 채운 갈래 -->
+      <div id="lsecSoon" class="hidden">
+        <div class="wb-state">
+          <div style="font-size:40px; margin-bottom:8px;">🥔</div>
+          <span id="lsecSoonTxt"></span>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -4035,23 +4141,62 @@ const ptMaxChars = () => ptText.length * 3 + 30;
 
 let ptSilenceTimer = null;
 let ptMaxTimer = null;
+let ptRetryTimer = null;
 let ptLastText = '';
-let ptFinals = [];      // 확정된 결과를 번호 칸에 담아 둔다 (아래 onresult 참고)
-let ptAborted = false;  // 채점하지 말고 그냥 끄라는 표시
+let ptFinals = [];       // 이번 회차에서 확정된 결과 (아래 onresult 참고)
+let ptCommitted = '';    // 지난 회차들에서 넘겨받은 말
+let ptAborted = false;   // 채점하지 말고 그냥 끄라는 표시
+let ptStopping = false;  // 우리가 끄는 중이다 = 다시 켜지 말 것
+let ptHintLocked = false; // 안내에 이미 까닭을 적었다 = 덮어쓰지 말 것
 
 function ptArmSilence(ms) {
   clearTimeout(ptSilenceTimer);
   ptSilenceTimer = setTimeout(() => { if (ptRunning) ptStop(); }, ms);
 }
 
+/* 이번 회차에서 확정된 말을 넘겨 담는다.
+   다시 켜면 결과 번호가 0부터 다시 시작하므로, 여기서 안 옮기면
+   다음 회차가 앞 문장을 덮어써 버린다. */
+function ptCommit() {
+  const seg = ptFinals.filter(Boolean).join(' ').trim();
+  ptFinals = [];
+  if (!seg) return;
+  // 끄고 켜는 사이에 앞 회차 것을 다시 보내는 인식기가 있다. 꼬리가 같으면 버린다.
+  if (ptCommitted.endsWith(seg)) return;
+  ptCommitted = (ptCommitted + ' ' + seg).trim();
+}
+
 /* abort = true 면 끄기만 하고 채점하지 않는다.
    지문을 바꾸거나 화면을 떠날 때 쓴다. 안 그러면 "다른 지문으로" 를
    눌렀는데 방금 끊긴 녹음이 결과 화면을 띄워 버린다. */
 function ptStop(abort) {
+  ptStopping = true;   // 이 뒤에 오는 onend 는 다시 켜지 않는다
   clearTimeout(ptSilenceTimer);
   clearTimeout(ptMaxTimer);
+  clearTimeout(ptRetryTimer);
   if (abort) ptAborted = true;
   if (ptRec) { try { ptRec.stop(); } catch (e) {} }
+}
+
+/* 진짜로 끝났을 때 하는 일. onend 에서 두 갈래(다시 켜기 / 끝내기)로
+   갈리므로 끝내는 쪽을 따로 뺐다. */
+function ptEnd() {
+  clearTimeout(ptSilenceTimer);
+  clearTimeout(ptMaxTimer);
+  clearTimeout(ptRetryTimer);
+  ptRunning = false;
+  ptRec = null;
+  ptId('ptMic').classList.remove('rec');
+  ptId('ptMic').setAttribute('aria-label', '녹음 시작');
+  // 지문을 바꾸거나 화면을 떠나면서 끈 것이다. 채점하지 않는다.
+  if (ptAborted) { ptAborted = false; return; }
+  const said = ptHeardAll.trim();
+  if (said) ptFinish(said);
+  // 권한 거부처럼 까닭이 분명한 경우엔 그 안내를 남긴다. 예전에는 여기서
+  // "소리가 안 들렸어요" 로 덮어써서, 학생이 왜 안 되는지 알 수가 없었다.
+  else if (!ptHintLocked) ptId('ptHint').textContent = ptT(
+    '소리가 안 들렸어요. 다시 눌러주세요.',
+    'Nothing came through. Tap again.');
 }
 
 function ptListen() {
@@ -4060,12 +4205,16 @@ function ptListen() {
   ptHeardAll = '';
   ptLastText = '';
   ptFinals = [];
+  ptCommitted = '';
   ptAborted = false;
+  ptStopping = false;
+  ptHintLocked = false;
 
   const rec = new SR();
   ptRec = rec;
   rec.lang = 'ko-KR';
-  // 지문이 두 문장이라 중간 쉼에서 끊기면 안 된다. 이어서 듣게 한다.
+  /* 지문이 두 문장이라 중간 쉼에서 끊기면 안 된다. 이어서 듣게 한다.
+     다만 이건 데스크톱에서만 지켜진다 — 모바일은 아래 onend 가 다시 켠다. */
   rec.continuous = true;
   rec.interimResults = true;
 
@@ -4096,7 +4245,9 @@ function ptListen() {
       if (r.isFinal) ptFinals[i] = r[0].transcript;
       else { ptFinals[i] = ''; interim += r[0].transcript; }
     }
-    ptHeardAll = ptFinals.filter(Boolean).join(' ');
+    // 지난 회차에서 넘겨받은 말이 앞에 붙는다 (아래 onend 참고).
+    ptHeardAll = (ptCommitted + ' ' + ptFinals.filter(Boolean).join(' '))
+      .replace(/\s+/g, ' ').trim();
     const now = (ptHeardAll + ' ' + interim).replace(/\s+/g, ' ').trim();
     ptId('ptLive').textContent = now;
 
@@ -4113,38 +4264,60 @@ function ptListen() {
   };
 
   rec.onerror = (e) => {
-    if (e.error === 'not-allowed') {
+    /* 다시 켜 봐야 소용없는 오류다. 여기서 안 막으면 아래 onend 가 다시
+       켜고, 또 같은 오류가 나고, 끝없이 돈다 — 권한을 거부한 학생의
+       화면에서 그 고리가 계속 돌게 된다. */
+    if (e.error === 'not-allowed' || e.error === 'service-not-allowed' || e.error === 'audio-capture') {
+      ptStopping = true;
+    }
+
+    if (e.error === 'not-allowed' || e.error === 'service-not-allowed') {
       ptId('ptHint').textContent = ptT(
         '마이크 권한이 필요해요. 주소창 옆에서 허용해주세요.',
         'Microphone access is needed. Allow it next to the address bar.');
+      ptHintLocked = true;
+    } else if (e.error === 'audio-capture') {
+      ptId('ptHint').textContent = ptT(
+        '마이크를 찾지 못했어요.',
+        'No microphone was found.');
+      ptHintLocked = true;
     } else if (e.error !== 'no-speech' && e.error !== 'aborted') {
       ptId('ptHint').textContent = ptT(
         '잘 못 들었어요. 다시 눌러주세요.',
         'That did not come through. Tap again.');
+      ptHintLocked = true;
     }
   };
 
+  /* 소리를 실제로 잡기 시작한 순간. 여기서 "아무 말도 안 함" 시계를 건다.
+     start() 직후에 걸면 모바일에서 마이크 권한 창이 떠 있는 동안 그 시계가
+     돌아간다 — 처음 오는 학생이 "허용" 을 9초 안에 못 누르면 끊겼다.
+     이미 말이 들린 뒤(다시 켜는 회차)라면 침묵 시계가 돌고 있으므로 건드리지 않는다. */
+  rec.onstart = () => { if (!ptLastText) ptArmSilence(PT_NOSPEECH_MS); };
+
   rec.onend = () => {
-    clearTimeout(ptSilenceTimer);
-    clearTimeout(ptMaxTimer);
-    ptRunning = false;
-    ptRec = null;
-    ptId('ptMic').classList.remove('rec');
-    ptId('ptMic').setAttribute('aria-label', '녹음 시작');
-    // 지문을 바꾸거나 화면을 떠나면서 끈 것이다. 채점하지 않는다.
-    if (ptAborted) { ptAborted = false; return; }
-    const said = ptHeardAll.trim();
-    if (said) ptFinish(said);
-    else ptId('ptHint').textContent = ptT(
-      '소리가 안 들렸어요. 다시 눌러주세요.',
-      'Nothing came through. Tap again.');
+    ptCommit();
+
+    /* 모바일에서 continuous 는 지켜지지 않는다. 안드로이드 크롬도 iOS
+       사파리도 첫 쉼에서 인식을 끝내 버린다. 지문이 두 문장이라 학생이
+       문장 사이에서 숨을 쉬면 딱 거기서 잘렸다 — 앞 문장만 읽은 셈이 되어
+       50점이 나온다. 끝내라고 한 적이 없으면 다시 켠다. 언제 끝낼지는
+       침묵 시계(2.5초)와 마지막 방패가 정한다. 그 둘은 계속 돌고 있다. */
+    if (ptRunning && !ptStopping) {
+      try { rec.start(); return; } catch (e) {}
+      // 엔진이 아직 정리 중이면 잠깐 뒤에 한 번만 더 해 본다.
+      ptRetryTimer = setTimeout(() => {
+        if (!ptRunning || ptStopping) return;
+        try { rec.start(); } catch (e) { ptEnd(); }
+      }, 300);
+      return;
+    }
+
+    ptEnd();
   };
 
   try {
     rec.start();
-    // 허용해 놓고 아무 말도 안 하는 경우를 대비해 먼저 걸어둔다.
-    // 말을 시작하면 위 onresult 가 짧은 쪽으로 바꿔 단다.
-    ptArmSilence(PT_NOSPEECH_MS);
     // 위 시계와 별개로 도는 마지막 방패. 여기서는 되감지 않는다.
     clearTimeout(ptMaxTimer);
     ptMaxTimer = setTimeout(() => { if (ptRunning) ptStop(); }, ptMaxMs());
@@ -4414,6 +4587,7 @@ import { createClient } from 'https://esm.sh/@supabase/supabase-js@2';
 import * as XLSX from 'https://esm.sh/xlsx@0.18.5';
 // 커리큘럼. 내용과 엔진을 갈라 두면 글을 고치다 화면을 깨지 않는다.
 import { COURSES } from './courses.js';
+import { SB_CATS, SB_MORE, SB_SEED } from './sentences.js';
 
 // 이 키는 공개돼도 되는 값이다. 이미 APK 안에 같은 것이 들어 있고,
 // 접근을 막는 건 키가 아니라 테이블에 걸린 RLS 다.
@@ -4960,8 +5134,14 @@ function syncLang() {
     setCalc();
   }
   // 배우기 — 잠금 안내·분·문제 수가 글이라 다시 그린다.
+  // 갈래 카드도 글이다. 숨겨져 있어도 내용이 있으면 다시 그린다 —
+  // 건너뛰면 다시 열었을 때 예전 언어가 그대로 남는다.
+  if ($('lsecList').childElementCount) drawSections();
   if ($('lcList').childElementCount) drawCourses();
+  if ($('sbCats').childElementCount) sbShow(sbPoint);
   if (!$('llWrap').classList.contains('hidden')) drawLessonRows();
+  // 갈래 제목과 "준비 중" 안내도 자바스크립트가 넣은 글이다.
+  if (lsecOpen) openSection(lsecOpen);
   // 대시보드는 요일·단위까지 글로 되어 있어 통째로 다시 그린다.
   // 숨김 여부가 아니라 내용 유무로 판단한다 — 숨겨져 있을 때 건너뛰면
   // 다시 열었을 때 예전 언어가 그대로 남는다.
@@ -6194,6 +6374,336 @@ function streak() {
 
 const courseDone = (c) => c.lessons.filter((l) => doneSet.has(l.id)).length;
 
+/* ── 배우기 갈래 ────────────────────────────────────────────────
+   여기 한 줄을 더하면 갈래가 하나 는다. 화면(HTML)은 안 건드린다 —
+   갈래마다 마크업을 따로 두면 하나 고치고 다른 하나가 죽는다.
+
+   ready:false 는 아직 안 채운 갈래다. 카드는 보이되 눌러도 "준비 중" 만
+   나온다. 내용이 들어오면 ready 를 켜고 pane 을 이어 붙이면 된다.
+   pane 은 그 갈래를 열었을 때 보일 요소의 id 다. */
+const LEARN_SECTIONS = [
+  {
+    id: 'courses', emoji: '📚', ready: true, pane: 'lcWrap',
+    lv:    { ko: '코스',            en: 'COURSES' },
+    title: { ko: '코스로 배우기',    en: 'Learn by course' },
+    tag:   { ko: '한글부터 문장 만들기까지, 순서대로',
+             en: 'Hangul to building sentences, in order' },
+    blurb: { ko: '읽는 설명과 푸는 문제가 한 레슨 안에 같이 있어요. 처음이라면 여기서 시작하세요.',
+             en: 'Each lesson mixes what to read with what to try. Start here if you are new.' },
+  },
+  {
+    id: 'quiz', emoji: '⚡', ready: false, pane: null,
+    lv:    { ko: '퀴즈',            en: 'QUIZ' },
+    title: { ko: '문제만 풀기',      en: 'Just the questions' },
+    tag:   { ko: '설명은 건너뛰고 문제만 이어서',
+             en: 'Skip the reading, keep the questions coming' },
+    blurb: { ko: '레슨에서 문제만 뽑아 이어서 풉니다. 배운 걸 확인할 때 쓰세요.',
+             en: 'Pulls the questions out of the lessons and runs them back to back.' },
+  },
+  {
+    id: 'sentence', emoji: '✍️', ready: true, pane: 'sbWrap',
+    lv:    { ko: '예문',            en: 'SENTENCES' },
+    title: { ko: '예문 만들기',      en: 'Build a sentence' },
+    tag:   { ko: '외운 문장 말고 내 문장',
+             en: 'Your own sentence, not a memorised one' },
+    blurb: { ko: '배운 조각으로 직접 문장을 만들어 봅니다.',
+             en: 'Put the pieces you have learned into sentences of your own.' },
+  },
+];
+
+const secTx = (o) => (isEn() ? o.en : o.ko);
+
+function drawSections() {
+  $('lsecList').innerHTML = LEARN_SECTIONS.map((s) => {
+    // 코스 갈래만 진도가 있다. 나머지는 아직 셀 것이 없다.
+    let foot = '';
+    if (s.id === 'courses') {
+      const n = COURSES.reduce((a, c) => a + courseDone(c), 0);
+      const all = COURSES.reduce((a, c) => a + c.lessons.length, 0);
+      foot =
+        '<div class="lc-meter">' +
+          `<div class="lc-bar"><div class="lc-fill" style="width:${all ? Math.round((n / all) * 100) : 0}%"></div></div>` +
+          `<span class="lc-num">${n} / ${all}</span>` +
+        '</div>';
+    } else if (!s.ready) {
+      foot = `<div class="lc-order">${t('아직 준비 중이에요.', 'Not ready yet.')}</div>`;
+    }
+    return (
+      `<button class="lc-card" data-section="${s.id}">` +
+        '<div class="lc-top">' +
+          `<div class="lc-mark">${esc(s.emoji)}</div>` +
+          '<div style="min-width:0">' +
+            `<div class="lc-lv">${esc(secTx(s.lv))}</div>` +
+            `<div class="lc-title">${esc(secTx(s.title))}</div>` +
+            `<div class="lc-tag">${esc(secTx(s.tag))}</div>` +
+          '</div>' +
+        '</div>' +
+        `<p class="lc-blurb">${esc(secTx(s.blurb))}</p>` +
+        foot +
+      '</button>'
+    );
+  }).join('');
+}
+
+/* 갈래를 열고 닫는 길은 하나로 둔다. 화면마다 따로 토글하면
+   갈래 목록과 갈래 속이 같이 떠 있거나 둘 다 사라진다. */
+let lsecOpen = null;   // 지금 열린 갈래 id. 언어를 바꿀 때 다시 그리려고 둔다.
+
+function openSection(id) {
+  const s = LEARN_SECTIONS.find((x) => x.id === id);
+  if (!s) return;
+  lsecOpen = s.id;
+  $('lsecList').classList.add('hidden');
+  $('lsecWrap').classList.remove('hidden');
+  $('lsecTitle').textContent = secTx(s.title);
+  /* 갈래 속은 전부 닫고 이 갈래 것만 연다. 목록을 훑어서 닫는 이유는
+     갈래를 늘릴 때 여기 한 줄을 빠뜨리면 예전 갈래가 새 갈래 위에
+     겹쳐 남기 때문이다. */
+  LEARN_SECTIONS.forEach((x) => { if (x.pane) $(x.pane).classList.add('hidden'); });
+  $('lsecSoon').classList.add('hidden');
+  if (s.ready && s.pane) {
+    $(s.pane).classList.remove('hidden');
+    if (s.id === 'courses') drawCourses();
+    if (s.id === 'sentence') sbShow(sbPoint);
+  } else {
+    $('lsecSoonTxt').textContent = t('이 갈래는 아직 준비 중이에요. 곧 채울게요.',
+                                     'This one is not ready yet. Coming soon.');
+    $('lsecSoon').classList.remove('hidden');
+  }
+}
+
+/* 레슨에서 나올 때 가는 자리. 갈래가 생기기 전에는 그냥 코스 목록이었다.
+   이제는 코스 갈래를 먼저 열어야 카드가 보인다 — 세 곳(✕ · 끝냄 · 이어하기)이
+   같은 길로 나와야 한 곳만 고치고 다른 데가 죽는 일이 없다. */
+function backToCourses() {
+  open('learn');
+  openSection('courses');
+  if (lsCourse) openCourse(lsCourse);
+}
+
+function backToSections() {
+  lsecOpen = null;
+  $('lsecWrap').classList.add('hidden');
+  $('llWrap').classList.add('hidden');
+  $('lsecList').classList.remove('hidden');
+  drawSections();
+}
+
+$('lsecList').addEventListener('click', (ev) => {
+  const b = ev.target.closest('[data-section]');
+  if (b) openSection(b.dataset.section);
+});
+$('lsecBack').addEventListener('click', () => {
+  backToSections();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+
+/* ══ 예문 게시판 ═══════════════════════════════════════════════
+   문법 표현 하나를 고르면 뜻과 선생님 예문을 보여 주고, 그 아래에서
+   자기 예문을 올린다. 자료는 sentences.js 에 있다.
+
+   **글은 이 브라우저에만 쌓인다.** 서버에 올리면 다른 학생 글도 보이지만
+   그러려면 표를 새로 만들고 신고·숨김을 어떻게 할지부터 정해야 한다
+   (자동 숨김은 안 한다는 결정이 이미 있다). 그건 따로 정할 일이라
+   여기서는 아티팩트와 같이 localStorage 에만 둔다. 지우면 사라진다는 걸
+   화면에 적어 둔다 — 안 적으면 사라졌을 때 버그로 읽힌다. */
+const SB_KEY = 'cp-sentences-v1';
+let sbStore = { name: '', mine: {}, likes: {} };
+let sbPoint = null;   // 지금 열어 둔 표현. null 이면 목록.
+let sbSort = 'new';
+
+const SB_POINTS = SB_CATS.flatMap((c) => c.points.map((p) => ({ ...p, cat: c })));
+const sbFind = (id) => SB_POINTS.find((p) => p.id === id);
+
+function sbLoad() {
+  try { Object.assign(sbStore, JSON.parse(localStorage.getItem(SB_KEY) || '{}')); } catch (e) {}
+  sbStore.mine = sbStore.mine || {};
+  sbStore.likes = sbStore.likes || {};
+}
+function sbSave() {
+  try { localStorage.setItem(SB_KEY, JSON.stringify(sbStore)); } catch (e) {}
+}
+sbLoad();
+
+// 올린 지 얼마나 됐는지. 씨앗 글은 처음부터 글로 적혀 있어 그대로 쓴다.
+function sbAgo(at) {
+  const d = (Date.now() - at) / 1000;
+  if (d < 60) return t('방금', 'just now');
+  if (d < 3600) return t(`${Math.floor(d / 60)}분 전`, `${Math.floor(d / 60)} min ago`);
+  if (d < 86400) return t(`${Math.floor(d / 3600)}시간 전`, `${Math.floor(d / 3600)} h ago`);
+  return t(`${Math.floor(d / 86400)}일 전`, `${Math.floor(d / 86400)} d ago`);
+}
+
+function sbPosts(id) {
+  const seed = (SB_SEED[id] || []).map((s, i) => ({
+    key: `${id}~s${i}`, by: s[0], text: s[1], base: s[2], when: s[3], at: 0, mine: false,
+  }));
+  const mine = (sbStore.mine[id] || []).map((p) => ({
+    key: p.key, by: p.by, text: p.text, base: 0, when: null, at: p.at, mine: true,
+  }));
+  const all = seed.concat(mine).map((p) => ({ ...p, likes: p.base + (sbStore.likes[p.key] ? 1 : 0) }));
+  return sbSort === 'top'
+    ? all.slice().sort((a, b) => b.likes - a.likes || b.at - a.at)
+    : all.slice().sort((a, b) => b.at - a.at);   // 씨앗(at=0)은 뒤로 간다
+}
+const sbCount = (id) => (SB_SEED[id] || []).length + (sbStore.mine[id] || []).length;
+
+function sbDrawList() {
+  $('sbQ').placeholder = t('문법 표현 검색 — 「-길래」, 이유, 추측…',
+                           'Search a grammar point — meaning or form');
+  const q = ($('sbQ').value || '').trim().toLowerCase();
+  /* 갈래 이름도 검색에 넣는다 — 학생은 「-길래」가 아니라 "이유" 로 찾는다.
+     갈래는 인자로 받는다. SB_CATS 안의 점에는 갈래가 안 달려 있다
+     (달린 건 SB_POINTS 쪽이다). 여기서 p.cat 을 보면 조용히 터진다. */
+  const hit = (p, c) => !q ||
+    p.name.toLowerCase().includes(q) || p.desc.toLowerCase().includes(q) ||
+    p.ex.toLowerCase().includes(q) ||
+    (SB_MORE[p.id] || []).join(' ').toLowerCase().includes(q) ||
+    (isEn() ? c.en : c.ko).toLowerCase().includes(q);
+
+  const html = SB_CATS.map((c) => {
+    const pts = c.points.filter((p) => hit(p, c));
+    if (!pts.length) return '';
+    return (
+      '<div class="sb-cat">' +
+        '<div class="sb-cat-h">' +
+          `<span class="sb-cat-n">${c.id}</span>` +
+          `<span class="sb-cat-t">${esc(isEn() ? c.en : c.ko)}</span>` +
+        '</div>' +
+        '<div class="sb-pts">' +
+          pts.map((p) => {
+            const n = sbCount(p.id);
+            return `<button class="sb-pt" data-pt="${p.id}">` +
+              `<span class="sb-pt-name">${esc(p.name)}</span>` +
+              (n ? `<span class="sb-pt-n">${n}</span>` : '') +
+            '</button>';
+          }).join('') +
+        '</div>' +
+      '</div>'
+    );
+  }).join('');
+  $('sbCats').innerHTML = html ||
+    `<p class="sb-none">${t('찾는 표현이 없어요.', 'No grammar point matches that.')}</p>`;
+}
+
+function sbDrawDetail() {
+  const p = sbPoint && sbFind(sbPoint);
+  if (!p) return;
+  const more = SB_MORE[p.id] || ['', '', '', ''];
+  const posts = sbPosts(p.id);
+
+  $('sbDetail').innerHTML =
+    `<button class="wb-out" id="sbBack" type="button">← ${t('표현 목록', 'All grammar points')}</button>` +
+    '<div class="sb-head" style="margin-top:16px;">' +
+      `<div class="sb-head-cat">${esc(isEn() ? p.cat.en : p.cat.ko)}</div>` +
+      `<div class="sb-head-name">${esc(p.name)}</div>` +
+      `<p class="sb-desc">${esc(p.desc)}</p>` +
+    '</div>' +
+    '<div class="sb-facts">' +
+      `<div class="sb-fact"><div class="sb-fact-k">${t('형태', 'Form')}</div><div class="sb-fact-v">${esc(more[0])}</div></div>` +
+      `<div class="sb-fact"><div class="sb-fact-k">${t('자주 함께 쓰는 말', 'Often paired with')}</div><div class="sb-fact-v">${esc(more[1])}</div></div>` +
+      `<div class="sb-fact"><div class="sb-fact-k">${t('주의할 점', 'Watch out')}</div><div class="sb-fact-v">${esc(more[2])}</div></div>` +
+    '</div>' +
+    '<div class="sb-exs">' +
+      `<div class="sb-ex">${esc(p.ex)}</div>` +
+      (more[3] ? `<div class="sb-ex">${esc(more[3])}</div>` : '') +
+    '</div>' +
+
+    '<div class="sb-board">' +
+      '<div class="sb-board-h">' +
+        `<span class="sb-board-t">${t('우리가 만든 예문', 'Sentences we wrote')} ${posts.length}</span>` +
+        '<div class="diff-seg" role="radiogroup">' +
+          `<label><input type="radio" name="sbSort" value="new"${sbSort === 'new' ? ' checked' : ''}><span>${t('최신순', 'Newest')}</span></label>` +
+          `<label><input type="radio" name="sbSort" value="top"${sbSort === 'top' ? ' checked' : ''}><span>${t('좋아요순', 'Most liked')}</span></label>` +
+        '</div>' +
+      '</div>' +
+
+      '<div class="sb-posts">' +
+        (posts.length ? posts.map((o) =>
+          '<div class="sb-post">' +
+            '<div class="sb-post-top">' +
+              `<span class="sb-by">${esc(o.by)}</span>` +
+              `<span class="sb-when">${esc(o.mine ? sbAgo(o.at) : o.when)}</span>` +
+              (o.mine ? `<span class="sb-mine-tag">${t('내 글', 'mine')}</span>` : '') +
+            '</div>' +
+            `<div class="sb-text">${esc(o.text)}</div>` +
+            '<div class="sb-post-bot">' +
+              `<button class="sb-like${sbStore.likes[o.key] ? ' on' : ''}" data-like="${esc(o.key)}">♥ ${o.likes}</button>` +
+              (o.mine ? `<button class="sb-del" data-del="${esc(o.key)}">${t('지우기', 'Delete')}</button>` : '') +
+            '</div>' +
+          '</div>').join('')
+          : `<p class="sb-none">${t('아직 아무도 안 썼어요. 첫 예문을 올려 보세요.', 'Nobody has written one yet. Go first.')}</p>`) +
+      '</div>' +
+
+      '<div class="sb-write">' +
+        `<textarea id="sbText" class="sb-in" rows="2" placeholder="${t(`「${esc(p.name)}」로 문장을 만들어 보세요`, `Write a sentence using ${esc(p.name)}`)}"></textarea>` +
+        '<div class="sb-write-row">' +
+          `<input id="sbName" class="sb-in" type="text" maxlength="20" placeholder="${t('이름', 'Your name')}" value="${esc(sbStore.name)}">` +
+          `<button class="pt-next" id="sbPost" type="button">${t('올리기', 'Post')}</button>` +
+        '</div>' +
+        `<p class="sb-note">${t('올린 예문은 이 브라우저에만 저장돼요. 방문 기록을 지우면 함께 사라집니다.',
+                                'Your sentences stay in this browser only. Clearing site data removes them.')}</p>` +
+      '</div>' +
+    '</div>';
+}
+
+function sbShow(id) {
+  sbPoint = id;
+  $('sbBrowse').classList.toggle('hidden', !!id);
+  $('sbDetail').classList.toggle('hidden', !id);
+  if (id) sbDrawDetail(); else sbDrawList();
+}
+
+$('sbQ').addEventListener('input', sbDrawList);
+
+$('sbCats').addEventListener('click', (ev) => {
+  const b = ev.target.closest('[data-pt]');
+  if (!b) return;
+  sbShow(b.dataset.pt);
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+
+/* 상세는 통째로 다시 그리므로 버튼마다 리스너를 달면 그릴 때마다 샌다.
+   바깥 상자 하나에서 받는다. */
+$('sbDetail').addEventListener('click', (ev) => {
+  if (ev.target.closest('#sbBack')) { sbShow(null); window.scrollTo({ top: 0, behavior: 'smooth' }); return; }
+
+  const like = ev.target.closest('[data-like]');
+  if (like) {
+    const k = like.dataset.like;
+    if (sbStore.likes[k]) delete sbStore.likes[k]; else sbStore.likes[k] = 1;
+    sbSave(); sbDrawDetail(); return;
+  }
+
+  const del = ev.target.closest('[data-del]');
+  if (del) {
+    const k = del.dataset.del;
+    sbStore.mine[sbPoint] = (sbStore.mine[sbPoint] || []).filter((p) => p.key !== k);
+    // 지운 글에 눌러 둔 좋아요도 같이 지운다. 안 그러면 없는 글의 표시가
+    // 저장소에 계속 쌓인다.
+    delete sbStore.likes[k];
+    sbSave(); sbDrawDetail(); return;
+  }
+
+  if (ev.target.closest('#sbPost')) {
+    const ta = $('sbText'), text = (ta.value || '').trim();
+    if (!text) { ta.focus(); return; }
+    const by = ($('sbName').value || '').trim() || t('익명', 'Anonymous');
+    sbStore.name = by;
+    sbStore.mine[sbPoint] = (sbStore.mine[sbPoint] || []).concat([
+      { key: `u${Date.now()}`, by, text, at: Date.now() },
+    ]);
+    sbSave();
+    sbSort = 'new';   // 방금 올린 글이 안 보이면 안 올라간 줄 안다
+    sbDrawDetail();
+  }
+});
+
+$('sbDetail').addEventListener('change', (ev) => {
+  const r = ev.target.closest('input[name=sbSort]');
+  if (r) { sbSort = r.value; sbDrawDetail(); }
+});
+
 function drawCourses() {
   $('lcList').innerHTML = COURSES.map((c) => {
     const n = courseDone(c), all = c.lessons.length;
@@ -6983,7 +7493,7 @@ async function finishLesson() {
   $('lsNext').onclick = () => {
     if (lsChallengeTimer) { clearInterval(lsChallengeTimer); lsChallengeTimer = 0; }
     if (next) startLesson(lsCourse, next);
-    else { open('learn'); drawCourses(); openCourse(lsCourse); }
+    else backToCourses();
   };
   setTimeout(() => $('lsBlocks').lastElementChild?.scrollIntoView({ behavior:'smooth', block:'center' }), 120);
 }
@@ -7093,18 +7603,18 @@ function endChallenge() {
   $('lsCount').textContent = `Score ${lsChallengeScore}`;
   const btR = $('lsRetryCh'), btB = $('lsBackCourse');
   if (btR) btR.addEventListener('click', startChallenge);
-  if (btB) btB.addEventListener('click', () => { open('learn'); drawCourses(); openCourse(lsCourse); });
+  if (btB) btB.addEventListener('click', backToCourses);
   $('lsNextBar').classList.remove('hidden');
   setTimeout(() => $('lsBlocks').lastElementChild?.scrollIntoView({ behavior:'smooth', block:'center' }), 120);
 }
 
-$('lsExit').addEventListener('click', () => { open('learn'); drawCourses(); if (lsCourse) openCourse(lsCourse); });
+$('lsExit').addEventListener('click', backToCourses);
 
 $('learnBtn').addEventListener('click', async () => {
   if (showing('learnView') || showing('lessonView')) return open('home');
   open('learn');
   await loadProgress();
-  drawCourses();
+  backToSections();   // 배우기는 갈래 고르기로 열린다
 });
 
 // ══ 자료마당 ═════════════════════════════════════════════════
