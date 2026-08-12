@@ -31,6 +31,8 @@
 import { GRAMMAR_COURSES } from './courses-grammar.js';
 import { DETAILED_GRAMMAR_COURSES } from './courses-grammar-detailed.js';
 import { BEGINNER_GRAMMAR_COURSES } from './courses-grammar-beginner.js';
+// 초급 1단계 — 설계는 docs/curriculum-beginner.md
+import { BEGINNER_STAGE1_COURSES } from './courses-beginner-stage1.js';
 
 /* ══ 급 ═════════════════════════════════════════════════════════
    배우기의 세 갈래(코스 · 예문 · 문제) 가 **모두 같은 이 목록**을 쓴다.
@@ -756,7 +758,17 @@ export const COURSES = [
 // 세분화 문법 코스들 (뉘앙스 차이 구분) — courses-grammar-detailed.js
 ...DETAILED_GRAMMAR_COURSES,
 
-// 초급 조사 (이/가 · 은/는) — courses-grammar-beginner.js
+/* 초급 1단계 — courses-beginner-stage1.js
+   순서는 배열 순서가 곧 카드 순서라 가르치는 차례대로 둔다
+   (docs/curriculum-beginner.md §4). -아/어요(bg-d-01)가 먼저 와야
+   하다 동사와 불규칙이 말이 되므로 세밀 코스 뒤에 붙인다.
+   ※ bg-d-02(-고 싶다/-ㄹ 거예요)만 2단계 내용인데 앞에 있다. 예전에
+     만든 코스라 그렇고, 2단계를 넣을 때 자리를 함께 옮긴다. */
+...BEGINNER_STAGE1_COURSES,
+
+/* 이/가 와 은/는 — courses-grammar-beginner.js
+   초급 **맨 뒤**가 제자리다. 처음부터 대조하면 문장 하나 만들 때마다
+   멈춘다. 둘 다 손에 익은 다음에 붙인다 (같은 문서 §2 원칙 ②). */
 ...BEGINNER_GRAMMAR_COURSES,
 
 ];
