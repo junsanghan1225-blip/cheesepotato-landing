@@ -15,13 +15,17 @@
  *   - needs 가 없는 코스를 가리킴 — 영영 안 열린다
  *   - 표의 칸 수가 머리글과 다름 — 칸이 밀린다
  *   - 이전 커밋에 있던 레슨 id 가 말없이 사라짐 — 진도가 고아가 된다
+ *   - 급(lv)이 없거나 모르는 값 — 어느 급에도 안 뜬다
+ *   - cloze 대괄호가 한 쌍이 아님 / 정답과 다름 — 빈칸이 엉뚱한 데 뚫린다
+ *   - 예문 게시판 갈래의 급·id 문제 — 학생 글이 고아가 된다
  */
 import { execFileSync } from 'node:child_process';
 import { mkdtempSync, writeFileSync, rmSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { dirname, join } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
-import { COURSES } from '../courses.js';
+import { COURSES, LEVEL_IDS } from '../courses.js';
+import { SB_CATS } from '../sentences.js';
 
 /* 일부러 없앤 레슨 id.
  *
@@ -109,6 +113,12 @@ for (const c of COURSES) {
   for (const key of ['id', 'emoji', 'title', 'tagline', 'blurb', 'level']) {
     if (!c[key]) problems.push(`코스 ${c.id}: ${key} 없음`);
   }
+  /* 급이 없으면 세 갈래(코스·예문·문제) 어디에도 안 뜬다. 파일에는
+     멀쩡히 있는데 화면에서만 사라지므로 눈으로는 못 찾는다. */
+  if (!c.lv) problems.push(`코스 ${c.id}: lv 없음 — 어느 급에도 안 뜬다`);
+  else if (!LEVEL_IDS.includes(c.lv)) {
+    problems.push(`코스 ${c.id}: 모르는 급 '${c.lv}' (쓸 수 있는 것: ${LEVEL_IDS.join(', ')})`);
+  }
   if (c.needs && !COURSES.some((x) => x.id === c.needs)) {
     problems.push(`코스 ${c.id}: needs '${c.needs}' 가 없는 코스를 가리킴 — 영영 안 열린다`);
   }
@@ -174,7 +184,30 @@ for (const c of COURSES) {
         }
         if (!b.options?.length) problems.push(`${at}: options 없음`);
         else if (b.options.length < 2) problems.push(`${at}: options 가 ${b.options.length}개 — 2개 이상 필요`);
-        const effectiveAnswer = b.answer ?? (b.sentence.match(/\[([^\]]+)\]/) || [])[1];
+
+        /* 대괄호 검사.
+           화면을 그리는 정규식은 /^(.*)\[([^\]]+)\](.*)$/s 이고 앞의 .* 이
+           욕심쟁이라 **마지막 한 쌍**만 빈칸이 된다. 그래서
+             · 두 쌍 이상이면 앞의 것은 대괄호째 화면에 남는다.
+               상황 설명을 '[사내 회의록]' 처럼 넣으면 여기 걸린다.
+             · 마지막 쌍 안의 글과 answer 가 다르면 빈칸은 대괄호 자리에
+               뚫리는데 정답은 딴 것이 된다. 최악은 앞 쌍이 정답이라
+               답이 화면에 그대로 노출되는 경우다.
+           둘 다 실제로 나갔던 사고라 검사기가 막는다. */
+        const pairs = [...(b.sentence ?? '').matchAll(/\[([^\]]+)\]/g)];
+        if (pairs.length > 1) {
+          problems.push(
+            `${at}: 대괄호가 ${pairs.length}쌍 (${pairs.map((p) => p[1]).join(' / ')}) — ` +
+            '마지막 한 쌍만 빈칸이 되고 나머지는 대괄호째 화면에 남는다.\n' +
+            '  → 상황 설명은 대괄호 말고 meaning/q 로 빼거나 () 를 써라.');
+        }
+        const marked = pairs.length ? pairs[pairs.length - 1][1] : undefined;
+        if (b.answer && marked && b.answer !== marked) {
+          problems.push(
+            `${at}: 빈칸은 '${marked}' 자리에 뚫리는데 answer 는 '${b.answer}' 다 — ` +
+            '빈칸과 정답이 다른 자리다.');
+        }
+        const effectiveAnswer = b.answer ?? marked;
         if (effectiveAnswer && !b.options.includes(effectiveAnswer)) {
           problems.push(`${at}: 정답 '${effectiveAnswer}' 이 options 배열 안에 없음 — 무엇을 골라도 오답이 된다`);
         }
@@ -182,6 +215,39 @@ for (const c of COURSES) {
           problems.push(`${at}: 정답 '${effectiveAnswer}' 이 keys 안에 없음 — 자판 없는 사람은 못 푼다`);
         }
       }
+    }
+  }
+}
+
+/* ── 예문 게시판 ──────────────────────────────────────────────
+ * 학생 글이 표현 id 로 묶여 있다. 코스의 lesson.id 와 같은 이유로
+ * id 가 겹치거나 바뀌면 남의 글이 붙거나 제 글이 사라진다.
+ */
+const sbCatIds = new Set();
+const sbPointIds = new Map();
+let sbPoints = 0;
+
+for (const c of SB_CATS ?? []) {
+  const where = `예문 갈래 ${c.id}`;
+  if (sbCatIds.has(String(c.id))) problems.push(`${where}: 갈래 id 중복`);
+  sbCatIds.add(String(c.id));
+
+  if (!c.ko || !c.en) problems.push(`${where}: 이름(ko/en)이 비었다`);
+  if (!c.lv) problems.push(`${where}: lv 없음 — 어느 급에도 안 뜬다`);
+  else if (!LEVEL_IDS.includes(c.lv)) {
+    problems.push(`${where}: 모르는 급 '${c.lv}' (쓸 수 있는 것: ${LEVEL_IDS.join(', ')})`);
+  }
+  if (!c.points?.length) problems.push(`${where}: points 없음`);
+
+  for (const p of c.points ?? []) {
+    sbPoints++;
+    if (!p.id) { problems.push(`${where}: id 없는 표현 '${p.name ?? '?'}'`); continue; }
+    if (sbPointIds.has(p.id)) {
+      problems.push(`예문 표현 id 중복: ${p.id} (${sbPointIds.get(p.id)} 와 ${c.id}) — 학생 글이 섞인다`);
+    }
+    sbPointIds.set(p.id, c.id);
+    for (const key of ['name', 'desc', 'ex']) {
+      if (!p[key]) problems.push(`예문 표현 ${p.id}: ${key} 없음`);
     }
   }
 }
@@ -208,6 +274,19 @@ if (headIds) {
 
 console.log(`코스 ${COURSES.length} / 레슨 ${lessons} / 블록 ${blocks}`);
 console.log('코스: ' + COURSES.map((c) => `${c.id}(${c.lessons.length})`).join(', '));
+
+/* 급별로 무엇이 얼마나 있는지. 재료를 넣고 나서 어디에 들어갔는지
+   눈으로 보려면 이 줄이 있어야 한다 — 화면을 열어 세는 것보다 빠르다. */
+for (const lv of LEVEL_IDS) {
+  const cs = COURSES.filter((c) => c.lv === lv);
+  const ls = cs.reduce((a, c) => a + c.lessons.length, 0);
+  const qs = cs.reduce((a, c) => a + c.lessons.reduce((b, l) =>
+    b + l.blocks.filter((x) => ['choice','listen','type','order','pair','speak','cloze'].includes(x.t)).length, 0), 0);
+  const sc = (SB_CATS ?? []).filter((c) => c.lv === lv);
+  const sp = sc.reduce((a, c) => a + (c.points?.length ?? 0), 0);
+  console.log(`  ${lv}: 코스 ${cs.length} · 레슨 ${ls} · 문제 ${qs} | 예문 갈래 ${sc.length} · 표현 ${sp}`);
+}
+console.log(`예문 게시판: 갈래 ${(SB_CATS ?? []).length} / 표현 ${sbPoints}`);
 console.log(!headIds ? '이전 커밋 견주기 건너뜀'
   : idsIntact ? `이전 커밋 레슨 id ${headIds.size}개 전부 살아 있음`
   : '이전 커밋 대비 레슨 id 유실 있음 — 아래 참고');

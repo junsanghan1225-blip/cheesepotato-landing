@@ -23,6 +23,7 @@ export const DETAILED_GRAMMAR_COURSES = [
     title: '초급 세밀: -아요 / -어요 바르게 쓰기',
     tagline: '모음에 따라 달라지는 어미 자동 구분',
     blurb: '하다·먹다·가다 동사의 모음(ㅏ/ㅗ vs 그 외)을 보고 -아요 / -어요를 정확히 고르는 8문제 훈련입니다.',
+    lv: 'bg',
     level: 'Beginner',
     needs: 'grammar-core',
     lessons: [
@@ -96,6 +97,7 @@ export const DETAILED_GRAMMAR_COURSES = [
     title: '초급 세밀: -고 싶다 / -을 거예요 뉘앙스 구분',
     tagline: '단순 희망 vs 확정된 미래 계획',
     blurb: '하고 싶은 막연한 소원 vs 내일 반드시 할 계획. 두 표현을 언제 써야 하는지 문맥으로 구분하는 훈련입니다.',
+    lv: 'bg',
     level: 'Beginner',
     needs: 'bg-d-01',
     lessons: [
@@ -312,6 +314,7 @@ export const DETAILED_GRAMMAR_COURSES = [
     title: '중급 02-02: 집중으로 인한 부정결과 (-느라고)',
     tagline: '하느라 다른 게 밀렸을 때만!',
     blurb: '드라마를 보느라 숙제를 못 했어요. 내가 한 행위에 **집중하느라** 다른 일을 놓친 부정적 결과. 주체는 항상 "나".',
+    lv: 'im',
     level: 'Intermediate',
     needs: 'bg-d-02',
     lessons: [
@@ -351,6 +354,7 @@ export const DETAILED_GRAMMAR_COURSES = [
     title: '중급 02-03: 돌발 상황 부정결과 (-는 바람에)',
     tagline: '예상치 못한 일이 터졌을 때!',
     blurb: '갑자기 비가 오는 바람에 옷이 젖었어요. 내 의지와 상관없는 **예상 밖 돌발사건**으로 생긴 부정적 결과에만 씁니다.',
+    lv: 'im',
     level: 'Intermediate',
     needs: 'im-02-02',
     lessons: [
@@ -396,6 +400,7 @@ export const DETAILED_GRAMMAR_COURSES = [
     title: '중급 03-01: 추측의 단계 (-ㄹ 것 같다 / -나 보다 / -겠군요)',
     tagline: '약한 추측 → 관찰 추측 → 강한 확신 추측',
     blurb: '비 올 것 같아요 (50%) / 비가 오나 봐요 (70% · 창문 보고) / 비가 오겠군요 (95% · 소리 들림). 단계별 뉘앙스 차이를 Cloze로 완벽 구분!',
+    lv: 'im',
     level: 'Intermediate',
     needs: 'im-02-03',
     lessons: [
@@ -435,6 +440,7 @@ export const DETAILED_GRAMMAR_COURSES = [
     title: '중급 03-02: 반응 표현 (-다니! / -잖아 / -네요 vs -군요)',
     tagline: '놀람 · 상기 · 새로 알게 됐을 때 뉘앙스',
     blurb: '결혼했다니! (최초 충격) / 결혼했잖아! (상기시킴) / 결혼했네요~ (감상) / 결혼했군요! (새로 깨달음). 4가지 반응형 어미를 문맥으로 완벽 구분!',
+    lv: 'im',
     level: 'Intermediate',
     needs: 'im-03-01',
     lessons: [
@@ -444,7 +450,7 @@ export const DETAILED_GRAMMAR_COURSES = [
         blocks: [
           { t:'text', md:'### 💡 반응형 어미 4종 완벽 가이드\n| 어미 | 뉘앙스 | 언제 써? |\n|---|---|---|\n| -다니! (놀람) | 😱 충격·경악·믿을 수 없음 | 상대방의 말을 **처음 듣고 입이 떡 벌어질 때** |\n| -잖아! (상기) | 😤 뭘 잊고 있냐고 일깨워 줄 때 | 상대방이 이미 알고 있었는데 잊고 있을 때 "잖아 우리가 약속했잖아!" |\n| -네요 (감상) | 😌 자기 혼자 감탄하는 느낌 | 자기가 직접 보고 느낀 개인적 감상. "오늘 날씨 좋네요~" |\n| -군요 (깨달음) | 💡 아하! 이제 알겠다 | 방금 상황 보고 **새로운 사실을 깨달았을 때** |' },
 
-          { t:'cloze', sentence:'A: 저 다음 달에 결혼해요! B: 결혼하신다니! [너무 놀라워요]', answer:'다니',
+          { t:'cloze', sentence:'A: 저 다음 달에 결혼해요! B: 결혼하신[다니]! 너무 놀라워요', answer:'다니',
             meaning:'A: I am getting married next month! B: WHAT?! Married?! That is so shocking!',
             options:['다니','잖아','네','군'],
             keys:['다니','잖아','네','군'],
@@ -483,6 +489,7 @@ export const DETAILED_GRAMMAR_COURSES = [
     title: '고급 01-01: 관형절연 미묘한 차이 (-는 / -던 / -ㄹ)',
     tagline: '현재진행 · 과거습관 · 미래예정의 시간 뉘앙스',
     blurb: '"내가 만나는 사람 / 만났던 사람 / 만날 사람" — 시제가 아니라 **화자가 바라보는 시간 관점** 차이! 실제 뉴스 기사 문장으로 고급 수준 Cloze 훈련.',
+    lv: 'ad',
     level: 'Advanced',
     needs: 'im-03-02',
     lessons: [
@@ -528,6 +535,7 @@ export const DETAILED_GRAMMAR_COURSES = [
     title: '고급 02-01: 격식·비격식 화법 4단계 매칭',
     tagline: '해요체 / 합쇼체 / 해라체 / 하오체 4화법 완벽 구분',
     blurb: '사내 회의 / 친구 술자리 / 신문 사설 / 옛 드라마 대사. 상황에 맞는 화법을 고르는 것은 한국어 실력 최종 단계! 4지선다 고급 Cloze 8문제.',
+    lv: 'ad',
     level: 'Advanced',
     needs: 'ad-01-01',
     lessons: [
@@ -537,14 +545,14 @@ export const DETAILED_GRAMMAR_COURSES = [
         blocks: [
           { t:'text', md:'### 💡 격식도 4단계 화법 매칭표\n| 레벨 | 화법 | 끝말 | 언제 써? |\n|---|---|---|---|\n| Lv1 친절·평범 | **해요체** | -아요/어요/해요 | 일상 대부분 · 가게 · 직장 상사 이외 대인 관계 |\n| Lv2 가장 격식 | **합쇼체** | -ㅂ니다/습니다 | 신문·방송·보고서·회의 공식석상 |\n| Lv3 반말 | **해라체** | -아/어/해 · -ㄴ다 | 친구 사이 · 가족 · 끼리끼리 문자 · 일기 |\n| Lv4 옛날 어른 | **하오체** | -오/소 · -시오 | 요즘은 거의 안 쓰나 옛 드라마·관공서 키오스크에서 종종 출현 |' },
 
-          { t:'cloze', sentence:'[사내 회의록] 금일 제 3차 정기 이사회는 서면으로 진행되었[습니다].', answer:'습니다',
-            meaning:'[Company Minutes] The 3rd regular board meeting today was conducted in writing.',
+          { t:'cloze', sentence:'(사내 회의록) 금일 제 3차 정기 이사회는 서면으로 진행되었[습니다].', answer:'습니다',
+            meaning:'(Company Minutes) The 3rd regular board meeting today was conducted in writing.',
             options:['습니다','어요','다','소'],
             keys:['습니다','어요','다','소'],
             why:'회의록은 가장 격식이 높은 공식 문서. 합쇼체 -ㅂ니다/습니다.' },
 
-          { t:'cloze', sentence:'[단톡방] A: 야 술 한잔 할[래]? B: 좋아! 저녁 7시에 봐!', answer:'래',
-            meaning:'[Kakao chat] A: Hey wanna grab a drink? B: Hell yeah! See u 7 PM!',
+          { t:'cloze', sentence:'(단톡방) A: 야 술 한잔 할[래]? B: 좋아! 저녁 7시에 봐!', answer:'래',
+            meaning:'(Kakao chat) A: Hey wanna grab a drink? B: Hell yeah! See u 7 PM!',
             options:['래','요','겠습니까','시오'],
             keys:['래','요','겠습니까','시오'],
             why:'친구들 단톡방은 완전 반말 해라체 분위기 → 술 하ㄹ + ㄹ래 → 래' },
@@ -555,8 +563,8 @@ export const DETAILED_GRAMMAR_COURSES = [
             keys:['어요','습니다','라','시오'],
             why:'편의점 알바와 고객은 일상적 친절한 관계. 표준 해요체 -어요.' },
 
-          { t:'cloze', sentence:'[사극 드라마 임금님 말씀] 감히 신하가 이런 말을 하[시오]? 용서가 안 되[오].', answer:'시오',
-            meaning:'[Historical Drama King Speech] DARE YOU, SUBJECT, UTTER SUCH WORDS? I CANNOT FORGIVE THEE.',
+          { t:'cloze', sentence:'(사극 드라마 임금님 말씀) 감히 신하가 이런 말을 하[시오]? 용서가 안 되오.', answer:'시오',
+            meaning:'(Historical Drama King Speech) DARE YOU, SUBJECT, UTTER SUCH WORDS? I CANNOT FORGIVE THEE.',
             options:['시오','군요','는데','해'],
             keys:['시오','군요','는데','해'],
             why:'조선시대 왕이 쓰는 격식 높은 하오체. -시오·-오 로 끝나는 게 특징.' },

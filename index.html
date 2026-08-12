@@ -998,6 +998,39 @@ body.nav-open { overflow:hidden; }
   .dgrid2b { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
 }
 
+/* ══ 배우기 : 급 고르기 ════════════════════════════════════════
+   세 갈래(코스 · 예문 · 문제)가 같은 줄을 쓴다. 갈래마다 다르게
+   생기면 같은 것을 고르는 자리인 줄 모른다. */
+.lv-bar { display:flex; gap:8px; margin:0 0 26px; flex-wrap:wrap; }
+.lv-chip {
+  cursor:pointer; border:1px solid var(--line); background:var(--surface);
+  border-radius:999px; padding:9px 17px; text-align:left;
+  transition:border-color .18s, background .18s, color .18s;
+}
+.lv-chip:hover { border-color:rgba(27,21,18,.22); }
+.lv-chip.on { background:var(--ink); border-color:var(--ink); }
+.lv-chip-n { display:block; font-size:14px; font-weight:700; color:var(--ink); letter-spacing:-.02em; }
+.lv-chip.on .lv-chip-n { color:var(--surface); }
+.lv-chip-t { display:block; font-size:11px; color:var(--ink-3); margin-top:2px; word-break:keep-all; }
+.lv-chip.on .lv-chip-t { color:rgba(255,255,255,.72); }
+/* 아직 재료가 없는 급. 눌리기는 하되 비어 있음을 미리 알린다 —
+   눌러 보고 빈 화면을 만나면 고장으로 읽는다. */
+.lv-chip.empty .lv-chip-n { color:var(--ink-3); }
+
+/* ══ 배우기 : 문제만 풀기 ══════════════════════════════════════ */
+.dr-card {
+  background:var(--surface); border:1px solid var(--line); border-radius:var(--r-xl);
+  padding:28px; text-align:center;
+}
+.dr-big { font-size:40px; }
+.dr-t { font-size:22px; font-weight:700; color:var(--ink); letter-spacing:-.035em; margin-top:10px; }
+.dr-s { font-size:14px; color:var(--ink-3); line-height:1.75; margin-top:10px; word-break:keep-all; }
+.dr-go { margin-top:20px; }
+/* 문제 위에 붙는 출처 한 줄. .ex-tag 를 쓰면 "고르기/빈칸" 딱지와
+   같은 모양이 둘 나란히 서서 어느 쪽이 문제 종류인지 헷갈린다. */
+.dr-from { font-size:11px; font-weight:600; letter-spacing:.1em; text-transform:uppercase;
+           color:var(--ink-3); margin-bottom:8px; }
+
 /* ══ 배우기 : 코스 카탈로그 ════════════════════════════════════ */
 .lc-grid { display:grid; gap:16px; }
 .lc-card {
@@ -2743,6 +2776,10 @@ body.nav-open { overflow:hidden; }
         <button class="wb-out" id="lsecBack" type="button" data-en="← Learn">← 배우기</button>
       </div>
 
+      <!-- 급 고르기. 세 갈래가 같은 줄을 함께 쓴다. 갈래마다 따로 두면
+           초급으로 보다가 갈래를 옮겼을 때 급이 딸려오지 않는다. -->
+      <div id="lvBar" class="lv-bar"></div>
+
       <!-- 갈래 : 코스 -->
       <div id="lcWrap" class="hidden">
         <div id="lcList" class="lc-grid"></div>
@@ -2765,6 +2802,11 @@ body.nav-open { overflow:hidden; }
         </div>
         <div id="sbDetail" class="hidden"></div>
       </div>
+
+      <!-- 갈래 : 문제만 풀기.
+           고른 급의 레슨에서 문제 블록만 뽑아 이어서 푼다. 안이 통째로
+           JS 생성물이라 data-en 을 못 쓴다 — drDraw() 가 직접 넣는다. -->
+      <div id="drWrap" class="hidden"></div>
 
       <!-- 아직 안 채운 갈래 -->
       <div id="lsecSoon" class="hidden">
@@ -4643,7 +4685,7 @@ import { createClient } from 'https://esm.sh/@supabase/supabase-js@2';
 // 읽히는 파일이 여기서는 안 읽히는(또는 그 반대) 일이 생긴다.
 import * as XLSX from 'https://esm.sh/xlsx@0.18.5';
 // 커리큘럼. 내용과 엔진을 갈라 두면 글을 고치다 화면을 깨지 않는다.
-import { COURSES } from './courses.js';
+import { COURSES, LEVELS } from './courses.js';
 import { SB_CATS, SB_MORE, SB_SEED } from './sentences.js';
 
 // 이 키는 공개돼도 되는 값이다. 이미 APK 안에 같은 것이 들어 있고,
@@ -5194,10 +5236,11 @@ function syncLang() {
   // 갈래 카드도 글이다. 숨겨져 있어도 내용이 있으면 다시 그린다 —
   // 건너뛰면 다시 열었을 때 예전 언어가 그대로 남는다.
   if ($('lsecList').childElementCount) drawSections();
-  if ($('lcList').childElementCount) drawCourses();
-  if ($('sbCats').childElementCount) sbShow(sbPoint);
   if (!$('llWrap').classList.contains('hidden')) drawLessonRows();
-  // 갈래 제목과 "준비 중" 안내도 자바스크립트가 넣은 글이다.
+  /* 갈래 제목 · 급 이름 · "준비 중" 안내가 모두 자바스크립트가 넣은 글이다.
+     openSection 이 급 줄과 갈래 속을 다시 그리므로 여기 한 줄이면 된다 —
+     예전에는 코스 목록과 예문 목록을 따로 불렀는데, 이제 그 둘이
+     drawSectionPane 안에 있어서 두 번 그리는 셈이었다. */
   if (lsecOpen) openSection(lsecOpen);
   // 대시보드는 요일·단위까지 글로 되어 있어 통째로 다시 그린다.
   // 숨김 여부가 아니라 내용 유무로 판단한다 — 숨겨져 있을 때 건너뛰면
@@ -6221,7 +6264,10 @@ let lsHp = 3;                 // 하트 3개
 let lsXp = 0;                 // 누적 경험치
 let lsCombo = 0;              // 연속 정답 수
 let lsWrong = [];             // 틀린 cloze 블록 (복습 챌린지용) — [{sentence, answer, options, meaning, q?}]
-let lsMode = 'lesson';        // 'lesson' | 'challenge' (1분 복습 모드)
+let lsMode = 'lesson';        // 'lesson' | 'quiz' (문제만 풀기) | 'challenge' (1분 복습)
+/* 이 판이 '문제만 풀기' 에서 시작됐나. lsMode 로는 판별이 안 된다 —
+   챌린지로 넘어가면 lsMode 가 'challenge' 가 되면서 출처를 잃는다. */
+let lsFromQuiz = false;
 let lsChallengeTimer = 0;     // 챌린지 setInterval id
 let lsChallengeLeft = 60;     // 챌린지 남은 초
 let lsChallengeQ = [];        // 챌린지 문제 큐 (틀린 문제들 + 필요하면 부풀림)
@@ -6441,7 +6487,7 @@ const courseDone = (c) => c.lessons.filter((l) => doneSet.has(l.id)).length;
 const LEARN_SECTIONS = [
   {
     id: 'courses', emoji: '📚', ready: true, pane: 'lcWrap',
-    lv:    { ko: '코스',            en: 'COURSES' },
+    eyebrow: { ko: '코스',        en: 'COURSES' },
     title: { ko: '코스로 배우기',    en: 'Learn by course' },
     tag:   { ko: '한글부터 문장 만들기까지, 순서대로',
              en: 'Hangul to building sentences, in order' },
@@ -6449,8 +6495,8 @@ const LEARN_SECTIONS = [
              en: 'Each lesson mixes what to read with what to try. Start here if you are new.' },
   },
   {
-    id: 'quiz', emoji: '⚡', ready: false, pane: null,
-    lv:    { ko: '퀴즈',            en: 'QUIZ' },
+    id: 'quiz', emoji: '⚡', ready: true, pane: 'drWrap',
+    eyebrow: { ko: '퀴즈',        en: 'QUIZ' },
     title: { ko: '문제만 풀기',      en: 'Just the questions' },
     tag:   { ko: '설명은 건너뛰고 문제만 이어서',
              en: 'Skip the reading, keep the questions coming' },
@@ -6459,7 +6505,7 @@ const LEARN_SECTIONS = [
   },
   {
     id: 'sentence', emoji: '✍️', ready: true, pane: 'sbWrap',
-    lv:    { ko: '예문',            en: 'SENTENCES' },
+    eyebrow: { ko: '예문',        en: 'SENTENCES' },
     title: { ko: '예문 만들기',      en: 'Build a sentence' },
     tag:   { ko: '외운 문장 말고 내 문장',
              en: 'Your own sentence, not a memorised one' },
@@ -6490,7 +6536,7 @@ function drawSections() {
         '<div class="lc-top">' +
           `<div class="lc-mark">${esc(s.emoji)}</div>` +
           '<div style="min-width:0">' +
-            `<div class="lc-lv">${esc(secTx(s.lv))}</div>` +
+            `<div class="lc-lv">${esc(secTx(s.eyebrow))}</div>` +
             `<div class="lc-title">${esc(secTx(s.title))}</div>` +
             `<div class="lc-tag">${esc(secTx(s.tag))}</div>` +
           '</div>' +
@@ -6506,6 +6552,68 @@ function drawSections() {
    갈래 목록과 갈래 속이 같이 떠 있거나 둘 다 사라진다. */
 let lsecOpen = null;   // 지금 열린 갈래 id. 언어를 바꿀 때 다시 그리려고 둔다.
 
+/* ══ 급 고르기 ═══════════════════════════════════════════════
+   급은 갈래보다 오래 간다. 초급을 보던 사람이 코스에서 문제로 옮겨도
+   초급이어야 한다 — 갈래마다 급을 따로 두면 옮길 때마다 다시 고르게 되고,
+   그러면 자기가 지금 몇 급을 보고 있는지 알 수 없다. 그래서 한 값이다. */
+let lsecLv = 'bg';
+
+const lvTx = (l) => (isEn() ? l.en : l.ko);
+
+/* 급에 든 것이 몇 개인가. 갈래마다 세는 것이 달라서 여기 모아 둔다 —
+   흩어 두면 빈 급을 알리는 자리와 실제로 그리는 자리가 어긋난다. */
+function lvCount(sectionId, lv) {
+  if (sectionId === 'courses')  return COURSES.filter((c) => c.lv === lv).length;
+  if (sectionId === 'sentence') return SB_CATS.filter((c) => c.lv === lv).length;
+  if (sectionId === 'quiz')     return drPool(lv).length;
+  return 0;
+}
+
+function drawLevelBar() {
+  if (!lsecOpen) return;
+  $('lvBar').innerHTML = LEVELS.map((l) => {
+    const empty = lvCount(lsecOpen, l.id) === 0;
+    return `<button class="lv-chip${l.id === lsecLv ? ' on' : ''}${empty ? ' empty' : ''}" data-lv="${l.id}">` +
+      `<span class="lv-chip-n">${esc(lvTx(l))}</span>` +
+      `<span class="lv-chip-t">${esc(empty ? t('준비 중', 'Coming soon') : lvTx(l.tag))}</span>` +
+    '</button>';
+  }).join('');
+}
+
+/* 재료가 아직 없는 급. 빈 격자를 그냥 두면 안 나온 것인지 고장인지
+   구별이 안 된다. 갈래마다 다른 문구를 쓰지 않는 이유는, 학생에게는
+   어느 갈래든 "여긴 아직 없다" 하나로 읽히기 때문이다. */
+const lvEmpty = () => {
+  const l = LEVELS.find((x) => x.id === lsecLv);
+  const name = l ? lvTx(l) : '';
+  return '<div class="wb-state">' +
+    '<div style="font-size:40px; margin-bottom:8px;">🥔</div>' +
+    `<span>${esc(t(`${name}은 아직 준비 중이에요. 곧 채울게요.`,
+                   `${name} is not ready yet — coming soon.`))}</span>` +
+  '</div>';
+};
+
+$('lvBar').addEventListener('click', (ev) => {
+  const b = ev.target.closest('[data-lv]');
+  if (!b || b.dataset.lv === lsecLv) return;
+  lsecLv = b.dataset.lv;
+  /* 급을 바꾸면 갈래 안에서 열어 둔 것은 닫는다. 다른 급의 코스를
+     열어 둔 채 목록만 갈면 화면과 열린 것이 어긋난다. */
+  $('llWrap').classList.add('hidden');
+  sbPoint = null;
+  drawLevelBar();
+  drawSectionPane();
+});
+
+/* 지금 열린 갈래의 속을 다시 그린다. 갈래를 열 때와 급을 바꿀 때와
+   언어를 바꿀 때가 모두 여기로 온다 — 세 곳이 각자 그리면 하나를
+   고쳤을 때 나머지 둘이 옛 그림으로 남는다. */
+function drawSectionPane() {
+  if (lsecOpen === 'courses')  drawCourses();
+  if (lsecOpen === 'sentence') sbShow(sbPoint);
+  if (lsecOpen === 'quiz')     drDraw();
+}
+
 function openSection(id) {
   const s = LEARN_SECTIONS.find((x) => x.id === id);
   if (!s) return;
@@ -6519,10 +6627,14 @@ function openSection(id) {
   LEARN_SECTIONS.forEach((x) => { if (x.pane) $(x.pane).classList.add('hidden'); });
   $('lsecSoon').classList.add('hidden');
   if (s.ready && s.pane) {
+    $('lvBar').classList.remove('hidden');
+    drawLevelBar();
     $(s.pane).classList.remove('hidden');
-    if (s.id === 'courses') drawCourses();
-    if (s.id === 'sentence') sbShow(sbPoint);
+    drawSectionPane();
   } else {
+    /* 급 고르기는 갈래 속이 있을 때만 뜻이 있다. 준비 중인 갈래 위에
+       남겨 두면 눌러도 아무 일이 없는 줄이 된다. */
+    $('lvBar').classList.add('hidden');
     $('lsecSoonTxt').textContent = t('이 갈래는 아직 준비 중이에요. 곧 채울게요.',
                                      'This one is not ready yet. Coming soon.');
     $('lsecSoon').classList.remove('hidden');
@@ -6618,7 +6730,13 @@ function sbDrawList() {
     (SB_MORE[p.id] || []).join(' ').toLowerCase().includes(q) ||
     (isEn() ? c.en : c.ko).toLowerCase().includes(q);
 
-  const html = SB_CATS.map((c) => {
+  /* 빈 급에서는 검색칸도 숨긴다. 찾을 것이 없는데 찾는 칸만 있으면
+     자기가 잘못 찾은 줄 안다. */
+  const inLv = SB_CATS.filter((c) => c.lv === lsecLv);
+  $('sbQ').classList.toggle('hidden', !inLv.length);
+  if (!inLv.length) return void ($('sbCats').innerHTML = lvEmpty());
+
+  const html = inLv.map((c) => {
     const pts = c.points.filter((p) => hit(p, c));
     if (!pts.length) return '';
     return (
@@ -6762,7 +6880,9 @@ $('sbDetail').addEventListener('change', (ev) => {
 });
 
 function drawCourses() {
-  $('lcList').innerHTML = COURSES.map((c) => {
+  const inLv = COURSES.filter((c) => c.lv === lsecLv);
+  if (!inLv.length) return void ($('lcList').innerHTML = lvEmpty());
+  $('lcList').innerHTML = inLv.map((c) => {
     const n = courseDone(c), all = c.lessons.length;
     const pct = Math.round((n / all) * 100);
     const need = c.needs ? COURSES.find((x) => x.id === c.needs) : null;
@@ -6852,7 +6972,7 @@ function startLesson(course, lesson) {
   lsTotal = lesson.blocks.filter(isEx).length;
 
   /* Cloze 게임 상태 초기화 · HUD 보여주기 (문제가 하나라도 있으면) */
-  lsHp = 3; lsXp = 0; lsCombo = 0; lsWrong = []; lsMode = 'lesson';
+  lsHp = 3; lsXp = 0; lsCombo = 0; lsWrong = []; lsMode = 'lesson'; lsFromQuiz = false;
   if (lsChallengeTimer) { clearInterval(lsChallengeTimer); lsChallengeTimer = 0; }
   if (lsTotal > 0) {
     $('lsHud').style.display = '';
@@ -7429,8 +7549,10 @@ function exBlock(host, b, done) {
       syncHud();
       /* 마스터리 오답 기록 */
       updateMastery(false, usedTyping);
-      /* 틀린 문제 복습 큐에 등록 (중복 방지) */
-      if (lsMode === 'lesson') {
+      /* 틀린 문제 복습 큐에 등록 (중복 방지).
+         문제만 풀기도 모은다 — 끝나고 틀린 것만 다시 푸는 자리가 거기도 있다.
+         챌린지는 이 큐로 돌고 있는 중이라 여기서 다시 담으면 안 된다. */
+      if (lsMode !== 'challenge') {
         const exists = lsWrong.some((w) => w.sentence === senRaw);
         if (!exists) lsWrong.push({
           sentence: senRaw, answer, options: b.options ?? [], keys: b.keys ?? [],
@@ -7572,7 +7694,9 @@ function startChallenge() {
 
   /* lsBlocks 지우고 새 제목 + 문제 공간 */
   $('lsBlocks').innerHTML = '';
-  $('lsKicker').textContent = lsCourse.title;
+  /* 문제만 풀기에서 온 판에는 코스가 없다. 예전엔 레슨에서만 올 수
+     있어서 lsCourse.title 을 그냥 읽었는데, 이제 여기서 터진다. */
+  $('lsKicker').textContent = lsCourse ? lsCourse.title : t('문제만 풀기', 'Just the questions');
   $('lsTitle').textContent = t('⚡ 1분 복습 챌린지', '⚡ 60s Review Challenge');
   $('lsNextBar').classList.add('hidden');
 
@@ -7652,7 +7776,7 @@ function endChallenge() {
       <p class="ls-done-s">${t('60초 동안 총','Scored')} <b>${lsChallengeScore}</b> ${t('문제 맞혔어요','in 60 seconds.')}</p>
       <div class="ls-challenge-btns" style="margin-top:8px">
         <button type="button" class="btn-retro green" id="lsRetryCh">🔁 ${t('한 번 더','Retry')}</button>
-        <button type="button" class="btn-retro blue" id="lsBackCourse">${t('코스로 돌아가기','Back to course')}</button>
+        <button type="button" class="btn-retro blue" id="lsBackCourse">${lsFromQuiz ? t('배우기로','Back to Learn') : t('코스로 돌아가기','Back to course')}</button>
       </div>
     </div>`);
   $('hudHp').style.opacity = '';
@@ -7660,12 +7784,142 @@ function endChallenge() {
   $('lsCount').textContent = `Score ${lsChallengeScore}`;
   const btR = $('lsRetryCh'), btB = $('lsBackCourse');
   if (btR) btR.addEventListener('click', startChallenge);
-  if (btB) btB.addEventListener('click', backToCourses);
+  if (btB) btB.addEventListener('click', leaveLesson);
   $('lsNextBar').classList.remove('hidden');
   setTimeout(() => $('lsBlocks').lastElementChild?.scrollIntoView({ behavior:'smooth', block:'center' }), 120);
 }
 
-$('lsExit').addEventListener('click', backToCourses);
+/* ══ 배우기 : 문제만 풀기 ═══════════════════════════════════════
+   코스는 읽고 풀지만 여기는 풀기만 한다. 이미 배운 것을 확인하러 오는
+   자리라, 설명을 다시 읽히면 두 번은 안 온다.
+
+   문제는 레슨에서 그대로 가져온다. 여기 따로 쓰지 않는 이유는 두 벌이
+   되는 순간 한쪽만 고쳐지기 때문이다 — 레슨에서 고친 문제가 여기 옛날
+   것으로 남으면 어느 쪽이 맞는지 알 길이 없다. 그래서 레슨이 원본이고
+   여기는 뽑아 쓰기만 한다. */
+
+const DR_MAX = 15;   // 한 판. 다 맞혀야 끝나므로 길면 끝을 못 보고 나간다.
+
+/* 그 급의 모든 레슨에서 문제 블록만. 어느 코스에서 왔는지 함께 들고
+   온다 — 문제만 이어지면 지금 무엇을 확인하는 중인지 알 수 없다. */
+function drPool(lv) {
+  const out = [];
+  COURSES.filter((c) => c.lv === lv).forEach((c) => {
+    c.lessons.forEach((l) => {
+      l.blocks.filter(isEx).forEach((b) => out.push({ b, course: c, lesson: l }));
+    });
+  });
+  return out;
+}
+
+let drQueue = [], drTotal = 0, drDone = 0;
+
+function drDraw() {
+  const pool = drPool(lsecLv);
+  if (!pool.length) return void ($('drWrap').innerHTML = lvEmpty());
+  const n = Math.min(DR_MAX, pool.length);
+  $('drWrap').innerHTML =
+    '<div class="dr-card">' +
+      '<div class="dr-big">⚡</div>' +
+      `<div class="dr-t">${esc(t(`문제 ${n}개`, `${n} questions`))}</div>` +
+      `<p class="dr-s">${esc(t(
+        `이 급의 레슨에서 문제만 뽑아 섞었어요. 설명 없이 문제만 이어집니다. (전체 ${pool.length}개 중 ${n}개)`,
+        `Pulled from this level's lessons and shuffled. No reading — just questions. (${n} of ${pool.length})`))}</p>` +
+      `<div class="dr-go"><button type="button" class="btn-retro green" id="drGo">${esc(t('시작하기', 'Start'))}</button></div>` +
+    '</div>';
+  $('drGo').addEventListener('click', drStart);
+}
+
+function drMeter() {
+  $('lsProg').style.width = (drTotal ? Math.round((drDone / drTotal) * 100) : 0) + '%';
+  $('lsCount').textContent = drTotal ? `${drDone} / ${drTotal}` : '';
+}
+
+function drStart() {
+  const pool = drPool(lsecLv).slice().sort(() => Math.random() - 0.5);
+  drQueue = pool.slice(0, DR_MAX);
+  drTotal = drQueue.length; drDone = 0;
+  if (!drTotal) return;
+
+  /* 레슨 화면을 빌려 쓰지만 레슨은 아니다. lsCourse/lsLesson 을 비워
+     두는 것이 중요하다 — 남아 있으면 나갈 때 엉뚱한 코스로 가고,
+     진도(lesson_progress)에 풀지도 않은 레슨이 찍힌다. */
+  lsCourse = null; lsLesson = null;
+  lsMode = 'quiz'; lsFromQuiz = true;
+  lsHp = 3; lsXp = 0; lsCombo = 0; lsWrong = [];
+  if (lsChallengeTimer) { clearInterval(lsChallengeTimer); lsChallengeTimer = 0; }
+
+  const l = LEVELS.find((x) => x.id === lsecLv);
+  $('lsKicker').textContent = t('문제만 풀기', 'Just the questions');
+  $('lsTitle').textContent = l ? lvTx(l) : '';
+  $('lsBlocks').innerHTML = '';
+  $('lsNextBar').classList.add('hidden');
+  $('lsHud').style.display = '';
+  syncHud();
+  drMeter();
+  open('lesson');
+  drNext();
+}
+
+function drNext() {
+  if (lsMode !== 'quiz') return;         // 나갔는데 예약된 다음 문제가 오는 것 막기
+  if (!drQueue.length) return drEnd();
+
+  const item = drQueue.shift();
+  const host = document.createElement('div');
+  $('lsBlocks').appendChild(host);
+  host.insertAdjacentHTML('beforeend', `<div class="dr-from">${esc(item.course.title)}</div>`);
+
+  exBlock(host, item.b, () => {
+    drDone++; drMeter();
+    setTimeout(drNext, 420);
+  });
+  setTimeout(() => host.scrollIntoView({ behavior:'smooth', block:'center' }), 60);
+}
+
+function drEnd() {
+  lsMode = 'lesson';
+  $('lsProg').style.width = '100%';
+  /* 몇 개 틀렸는지는 **말하지 않는다.** lsWrong 에는 빈칸(cloze) 오답만
+     담긴다 — 고르기·쓰기·배열·짝 맞추기는 틀려도 어디에도 안 남는다
+     (hpDown 이 빈칸 갈래에만 있다). 그래서 "한 번도 안 틀렸어요" 를
+     띄우면 고르기를 다섯 번 틀린 사람에게도 그 말이 나간다.
+     다 맞혀야 다음으로 넘어가므로 "다 풀었다" 는 언제나 참이다. */
+  const missed = lsWrong.length;
+  $('lsBlocks').insertAdjacentHTML('beforeend',
+    '<div class="ls-done">' +
+      '<div class="ls-done-big">🎉</div>' +
+      `<div class="ls-done-t">${esc(t('한 판 끝!', 'Round done!'))}</div>` +
+      `<p class="ls-done-s">${esc(missed
+        ? t(`${drTotal}문제를 다 풀었어요. 빈칸에서 틀렸던 ${missed}개는 아래에서 다시 풀 수 있어요.`,
+            `${drTotal} questions done. You can redo the ${missed} cloze answers you missed.`)
+        : t(`${drTotal}문제를 다 풀었어요.`, `${drTotal} questions done.`))}</p>` +
+      '<div class="ls-challenge-btns" style="margin-top:8px">' +
+        (missed ? `<button type="button" class="btn-retro green" id="drCh">⚡ ${esc(t('틀린 것만 1분', '60s on the misses'))}</button>` : '') +
+        `<button type="button" class="btn-retro green" id="drAgain">🔁 ${esc(t('한 판 더', 'One more'))}</button>` +
+        `<button type="button" class="btn-retro blue" id="drBack">${esc(t('배우기로', 'Back to Learn'))}</button>` +
+      '</div>' +
+    '</div>');
+  $('drCh')?.addEventListener('click', startChallenge);
+  $('drAgain').addEventListener('click', drStart);
+  $('drBack').addEventListener('click', backToQuiz);
+  $('lsNextBar').classList.add('hidden');
+  setTimeout(() => $('lsBlocks').lastElementChild?.scrollIntoView({ behavior:'smooth', block:'center' }), 120);
+}
+
+/* 문제만 풀기에서 시작한 판은 코스 목록이 아니라 여기로 돌아와야 한다.
+   챌린지를 거쳐 나올 수도 있어서 lsMode 로는 판별이 안 된다 —
+   시작할 때 어디서 왔는지를 따로 들고 있는 이유다. */
+function backToQuiz() {
+  if (lsChallengeTimer) { clearInterval(lsChallengeTimer); lsChallengeTimer = 0; }
+  lsMode = 'lesson'; lsFromQuiz = false;
+  open('learn');
+  openSection('quiz');
+}
+
+const leaveLesson = () => (lsFromQuiz ? backToQuiz() : backToCourses());
+
+$('lsExit').addEventListener('click', leaveLesson);
 
 $('learnBtn').addEventListener('click', async () => {
   if (showing('learnView') || showing('lessonView')) return open('home');

@@ -32,6 +32,26 @@ import { GRAMMAR_COURSES } from './courses-grammar.js';
 import { DETAILED_GRAMMAR_COURSES } from './courses-grammar-detailed.js';
 import { BEGINNER_GRAMMAR_COURSES } from './courses-grammar-beginner.js';
 
+/* ══ 급 ═════════════════════════════════════════════════════════
+   배우기의 세 갈래(코스 · 예문 · 문제) 가 **모두 같은 이 목록**을 쓴다.
+   갈래마다 따로 두면 한 곳에 급을 더했을 때 다른 곳이 조용히 빠진다.
+
+   `lv` 는 골라 쓰는 열쇠고, 코스 카드에 찍히는 `level` 은 사람이 읽는
+   한 줄이다("Start here" 처럼). 둘은 다른 일을 한다 — `level` 로 묶으려
+   들면 문구를 고치는 순간 묶음이 흩어진다.
+
+   급을 더할 때는 여기에 한 줄을 넣으면 세 갈래에 한꺼번에 생긴다. */
+export const LEVELS = [
+  { id: 'bg', ko: '초급', en: 'Beginner',
+    tag: { ko: '한글과 기본 문장',        en: 'Hangul and everyday sentences' } },
+  { id: 'im', ko: '중급', en: 'Intermediate',
+    tag: { ko: '이어 말하기와 뉘앙스',    en: 'Connecting ideas, and nuance' } },
+  { id: 'ad', ko: '고급', en: 'Advanced',
+    tag: { ko: '글말과 미묘한 차이',      en: 'Written register, fine distinctions' } },
+];
+
+export const LEVEL_IDS = LEVELS.map((l) => l.id);
+
 export const COURSES = [
 
 /* ═══════════════════════════════════════════════════════════════
@@ -45,6 +65,7 @@ export const COURSES = [
   title: 'Read Korean',
   tagline: 'The alphabet, from zero to reading real words.',
   blurb: 'Hangul was invented on purpose, in one lifetime, to be learnable in a morning. Most people can read Korean out loud after this course — even without knowing what the words mean yet.',
+  lv: 'bg',
   level: 'Start here',
   lessons: [
 
@@ -446,6 +467,7 @@ export const COURSES = [
   title: 'First Words',
   tagline: 'Enough Korean to get through a day.',
   blurb: 'Greetings, ordering, prices, directions. Every sentence here is one you will use in your first week — said the polite way that works with anyone, anywhere.',
+  lv: 'bg',
   level: 'After Hangul',
   needs: 'hangul',
   lessons: [

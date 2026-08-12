@@ -29,6 +29,7 @@ export const GRAMMAR_COURSES = [
   title: 'Building Sentences',
   tagline: 'The machinery behind every Korean sentence.',
   blurb: 'You can say a few phrases. Now learn how they are built — so you can make your own instead of repeating ones you memorised. Tenses, negation, particles, and joining clauses.',
+  lv: 'bg',
   level: 'After First Words',
   // needs 를 일부러 비워 둔다. 순서상으로는 First Words 다음이지만, 이미
   // 말을 좀 하는 사람이 문법만 보러 오는 경우가 많다. 그런 사람에게

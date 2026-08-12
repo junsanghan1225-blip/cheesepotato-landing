@@ -8,10 +8,21 @@
 
    id 는 '갈래번호-표현번호' 다. 이 id 로 학생 글을 localStorage 에 묶으므로
    **번호를 바꾸면 그 표현에 달린 글이 전부 고아가 된다.** 표현을 지울 때는
-   지우지 말고 순서만 유지한 채 뒤에 붙일 것. */
+   지우지 말고 순서만 유지한 채 뒤에 붙일 것.
+
+   ── 급 (lv) ────────────────────────────────────────────────
+   갈래마다 `lv` 이 있고 값은 courses.js 의 LEVELS 와 같은 열쇠를 쓴다
+   ('bg' 초급 · 'im' 중급 · 'ad' 고급). 여기 있는 22갈래는 전부 고급이다 —
+   -느니, -(으)ㄹ 바에야 같은 글말 표현이라 초급이 읽을 글이 아니다.
+
+   **새 급을 더할 때 기존 갈래 번호를 다시 매기지 마라.** 초급을 1번부터
+   넣겠다고 지금 1번을 23번으로 밀면, 위에 적은 대로 1-1 에 달린 글이
+   전부 고아가 된다. 새 갈래는 급 이름을 앞에 붙인 id 를 쓴다 —
+   초급이면 'bg1', 표현은 'bg1-1'. 숫자만인 id 는 이미 나간 고급 것이고,
+   앞으로 만드는 것은 전부 접두사를 단다. 섞여 보여도 안전한 쪽이 낫다. */
 
 export const SB_CATS = [
-  { id: 1, ko: "선택을 나타낼 때", en: "Expressing Choices", points: [
+  { id: 1, lv: "ad", ko: "선택을 나타낼 때", en: "Expressing Choices", points: [
     { id: "1-1", name: "-느니",
       desc: "앞의 일을 하기보다 뒤의 일을 택하는 편이 낫다는 뜻. 뒤에 흔히 「차라리」가 오고 「-는 게 낫다, -겠다」로 끝맺습니다.",
       ex: "이 값을 주고 사느니 차라리 만들어 쓰겠어요." },
@@ -25,7 +36,7 @@ export const SB_CATS = [
       desc: "앞말보다 뒷말이 더 정확한 표현이라고 고쳐 말할 때 씁니다.",
       ex: "싫다기보다는 아직 자신이 없어요." },
   ] },
-  { id: 2, ko: "인용을 나타낼 때", en: "Expressing Citations and Quotations", points: [
+  { id: 2, lv: "ad", ko: "인용을 나타낼 때", en: "Expressing Citations and Quotations", points: [
     { id: "2-1", name: "보고",
       desc: "말을 듣는 상대를 가리키는 구어적인 조사입니다. 「에게」보다 편한 사이에 씁니다.",
       ex: "누가 너보고 그런 말을 했어?" },
@@ -39,7 +50,7 @@ export const SB_CATS = [
       desc: "정보의 출처를 밝히는 격식적인 표현입니다.",
       ex: "일기 예보에 의하면 내일 비가 온답니다." },
   ] },
-  { id: 3, ko: "명사화됨을 나타낼 때", en: "Expressing Nominalization", points: [
+  { id: 3, lv: "ad", ko: "명사화됨을 나타낼 때", en: "Expressing Nominalization", points: [
     { id: "3-1", name: "-(으)ㅁ",
       desc: "문장을 명사처럼 만드는 문어적 표현으로 공지·보고에 자주 쓰입니다.",
       ex: "회의가 취소되었음을 알려 드립니다." },
@@ -50,7 +61,7 @@ export const SB_CATS = [
       desc: "앞의 내용을 격식 있게 받아 이어 말할 때 씁니다.",
       ex: "조사한 바에 따르면 원인은 부주의였습니다." },
   ] },
-  { id: 4, ko: "원인과 이유를 나타낼 때", en: "Expressing Causes and Reasons", points: [
+  { id: 4, lv: "ad", ko: "원인과 이유를 나타낼 때", en: "Expressing Causes and Reasons", points: [
     { id: "4-1", name: "(으)로 인해서",
       desc: "격식체로 원인을 밝힐 때 씁니다. 뉴스와 보고서에 자주 나옵니다.",
       ex: "폭설로 인해서 항공편이 결항되었습니다." },
@@ -85,7 +96,7 @@ export const SB_CATS = [
       desc: "구어적으로 이유를 말할 때 씁니다. 앞 절의 주어는 보통 내가 아닙니다.",
       ex: "맛있어 보이길래 하나 샀어요." },
   ] },
-  { id: 5, ko: "가정 상황을 나타낼 때", en: "Expressing Hypothetical Situations", points: [
+  { id: 5, lv: "ad", ko: "가정 상황을 나타낼 때", en: "Expressing Hypothetical Situations", points: [
     { id: "5-1", name: "-더라도",
       desc: "그런 상황을 가정하더라도 결과는 달라지지 않는다는 뜻입니다.",
       ex: "실패하더라도 후회는 없어요." },
@@ -105,7 +116,7 @@ export const SB_CATS = [
       desc: "실제로는 아니지만 그런 셈으로 여긴다는 뜻입니다.",
       ex: "속는 셈치고 한번 믿어 볼게요." },
   ] },
-  { id: 6, ko: "순차적 행동을 나타낼 때", en: "Expressing the Ordering of Behavior", points: [
+  { id: 6, lv: "ad", ko: "순차적 행동을 나타낼 때", en: "Expressing the Ordering of Behavior", points: [
     { id: "6-1", name: "-기가 무섭게",
       desc: "앞의 일이 끝나자마자 곧바로 뒤의 일이 일어남을 강조합니다.",
       ex: "종이 울리기가 무섭게 교실을 나갔다." },
@@ -113,7 +124,7 @@ export const SB_CATS = [
       desc: "앞의 일이 끝나고 곧 뒤의 일이 이어짐을 나타내는 문어적 표현입니다.",
       ex: "문을 열자 찬바람이 들어왔다." },
   ] },
-  { id: 7, ko: "조건과 결정을 나타낼 때", en: "Expressing Conditions and Decisions", points: [
+  { id: 7, lv: "ad", ko: "조건과 결정을 나타낼 때", en: "Expressing Conditions and Decisions", points: [
     { id: "7-1", name: "-는 한",
       desc: "그 조건이 유지되는 동안에는 이라는 뜻입니다.",
       ex: "내가 아는 한 그런 규정은 없습니다." },
@@ -130,7 +141,7 @@ export const SB_CATS = [
       desc: "어떻게 하느냐에 따라 결과가 달라진다는 뜻입니다.",
       ex: "세상일은 다 생각하기 나름이지요." },
   ] },
-  { id: 8, ko: "따로 함과 같이 함을 나타낼 때", en: "Expressing Doing Things Separately and Together", points: [
+  { id: 8, lv: "ad", ko: "따로 함과 같이 함을 나타낼 때", en: "Expressing Doing Things Separately and Together", points: [
     { id: "8-1", name: "은/는 대로",
       desc: "각각 그것대로 따로 나름의 쓸모가 있음을 나타냅니다.",
       ex: "이건 이것대로 저건 저것대로 쓸모가 있어요." },
@@ -138,7 +149,7 @@ export const SB_CATS = [
       desc: "어떤 일을 하는 기회에 다른 일도 겸해서 한다는 뜻입니다.",
       ex: "나가는 김에 우편물도 부칠게요." },
   ] },
-  { id: 9, ko: "대조와 반대를 나타낼 때", en: "Expressing Contrasts and Opposites", points: [
+  { id: 9, lv: "ad", ko: "대조와 반대를 나타낼 때", en: "Expressing Contrasts and Opposites", points: [
     { id: "9-1", name: "-건만",
       desc: "그런데도 기대와 달랐다는 아쉬움을 담은 문어적 표현입니다.",
       ex: "그렇게 열심히 했건만 결과가 아쉽네요." },
@@ -149,7 +160,7 @@ export const SB_CATS = [
       desc: "그럼에도 불구하고 라는 뜻의 격식적인 표현입니다.",
       ex: "반대에도 불구하고 계획을 밀어붙였다." },
   ] },
-  { id: 10, ko: "유사함을 나타낼 때", en: "Expressing Similarity", points: [
+  { id: 10, lv: "ad", ko: "유사함을 나타낼 때", en: "Expressing Similarity", points: [
     { id: "10-1", name: "-듯이",
       desc: "마치 그것처럼 이라는 뜻으로 비유할 때 씁니다.",
       ex: "물이 흐르듯이 자연스럽게 말해요." },
@@ -157,7 +168,7 @@ export const SB_CATS = [
       desc: "거의 그렇게 하는 것과 다름없다는 뜻입니다.",
       ex: "요즘은 회사에서 살다시피 해요." },
   ] },
-  { id: 11, ko: "추가와 포함을 나타낼 때", en: "Expressing Addition and Inclusion", points: [
+  { id: 11, lv: "ad", ko: "추가와 포함을 나타낼 때", en: "Expressing Addition and Inclusion", points: [
     { id: "11-1", name: "-거니와",
       desc: "앞의 것도 그렇지만 뒤의 것은 더 그렇다는 뜻입니다.",
       ex: "값도 싸거니와 품질도 좋습니다." },
@@ -177,7 +188,7 @@ export const SB_CATS = [
       desc: "그것을 첫째로 하여 여럿을 아우를 때 씁니다.",
       ex: "회장님을 비롯해서 모두 참석했습니다." },
   ] },
-  { id: 12, ko: "습관과 태도를 나타낼 때", en: "Expressing Habits and Attitude", points: [
+  { id: 12, lv: "ad", ko: "습관과 태도를 나타낼 때", en: "Expressing Habits and Attitude", points: [
     { id: "12-1", name: "-아/어 대다",
       desc: "같은 행동을 심하게 반복함을 부정적으로 나타냅니다.",
       ex: "아이가 밤새 울어 대서 혼났어요." },
@@ -188,7 +199,7 @@ export const SB_CATS = [
       desc: "하는 듯 마는 듯 대충 한다는 뜻입니다.",
       ex: "밥을 먹는 둥 마는 둥 하고 나갔다." },
   ] },
-  { id: 13, ko: "정도를 나타낼 때", en: "Expressing Degree", points: [
+  { id: 13, lv: "ad", ko: "정도를 나타낼 때", en: "Expressing Degree", points: [
     { id: "13-1", name: "-(으)리만치",
       desc: "그럴 정도로 라는 뜻의 문어적 표현입니다.",
       ex: "눈이 부시리만치 환한 아침이었다." },
@@ -196,7 +207,7 @@ export const SB_CATS = [
       desc: "더 이상 견디지 못하고 결국 이라는 뜻입니다.",
       ex: "참다 못해 한마디 하고 말았어요." },
   ] },
-  { id: 14, ko: "의도를 나타낼 때", en: "Expressing Intention", points: [
+  { id: 14, lv: "ad", ko: "의도를 나타낼 때", en: "Expressing Intention", points: [
     { id: "14-1", name: "-(느)ㄴ다는 것이",
       desc: "하려던 것이 뜻밖에 다른 결과가 되었을 때 씁니다.",
       ex: "설탕을 넣는다는 것이 소금을 넣었어요." },
@@ -207,7 +218,7 @@ export const SB_CATS = [
       desc: "하려고 하더니 결국 그렇게 되었다는 뜻입니다.",
       ex: "비가 오려더니 결국 쏟아지네요." },
   ] },
-  { id: 15, ko: "추측과 가능성을 나타낼 때", en: "Expressing Supposition and Possibility", points: [
+  { id: 15, lv: "ad", ko: "추측과 가능성을 나타낼 때", en: "Expressing Supposition and Possibility", points: [
     { id: "15-1", name: "-는 듯이",
       desc: "그런 것처럼 보이게 행동함을 나타냅니다.",
       ex: "다 아는 듯이 고개를 끄덕였다." },
@@ -230,7 +241,7 @@ export const SB_CATS = [
       desc: "그렇게 되기 쉽다는 뜻으로 주로 안 좋은 결과에 씁니다.",
       ex: "서두르면 실수하기 십상이에요." },
   ] },
-  { id: 16, ko: "당연함을 나타낼 때", en: "Expressing Inevitability", points: [
+  { id: 16, lv: "ad", ko: "당연함을 나타낼 때", en: "Expressing Inevitability", points: [
     { id: "16-1", name: "-기 마련이다",
       desc: "그렇게 되는 것이 당연하다는 뜻입니다.",
       ex: "꾸준히 하면 늘기 마련이지요." },
@@ -238,7 +249,7 @@ export const SB_CATS = [
       desc: "세상의 이치가 그러하다고 말할 때 씁니다.",
       ex: "급하게 먹으면 체하는 법이에요." },
   ] },
-  { id: 17, ko: "나열함을 나타낼 때", en: "Expressing Enumeration", points: [
+  { id: 17, lv: "ad", ko: "나열함을 나타낼 때", en: "Expressing Enumeration", points: [
     { id: "17-1", name: "-는가 하면",
       desc: "이런 경우가 있는가 하면 저런 경우도 있다는 뜻입니다.",
       ex: "웃는가 하면 곧 울상이 돼요." },
@@ -252,7 +263,7 @@ export const SB_CATS = [
       desc: "이것이며 저것이며 여럿을 나열할 때 씁니다.",
       ex: "옷이며 신발이며 다 새로 샀어요." },
   ] },
-  { id: 18, ko: "결과와 회상을 나타낼 때", en: "Expressing Results and Retrospection", points: [
+  { id: 18, lv: "ad", ko: "결과와 회상을 나타낼 때", en: "Expressing Results and Retrospection", points: [
     { id: "18-1", name: "-(으)ㄴ 끝에",
       desc: "오래 애쓴 끝에 어떤 결과에 이르렀다는 뜻입니다.",
       ex: "오래 고민한 끝에 결정했습니다." },
@@ -266,7 +277,7 @@ export const SB_CATS = [
       desc: "직접 보고 겪은 일을 회상해 전할 때 씁니다.",
       ex: "어제 가 보니까 아주 좋데요." },
   ] },
-  { id: 19, ko: "상황이나 기준을 나타낼 때", en: "Expressing Situations and Standards", points: [
+  { id: 19, lv: "ad", ko: "상황이나 기준을 나타낼 때", en: "Expressing Situations and Standards", points: [
     { id: "19-1", name: "-는 가운데",
       desc: "그런 상황이 이어지는 속에서 라는 뜻입니다.",
       ex: "비가 내리는 가운데 경기가 계속됐다." },
@@ -280,7 +291,7 @@ export const SB_CATS = [
       desc: "앞의 변화에 따라 뒤도 달라짐을 나타냅니다.",
       ex: "기온이 높아짐에 따라 전력 사용이 늘었다." },
   ] },
-  { id: 20, ko: "강조를 나타낼 때", en: "Expressing Emphasis", points: [
+  { id: 20, lv: "ad", ko: "강조를 나타낼 때", en: "Expressing Emphasis", points: [
     { id: "20-1", name: "여간 -지 않다",
       desc: "보통이 아니다, 즉 매우 그렇다는 뜻입니다.",
       ex: "여간 까다롭지 않은 손님이에요." },
@@ -291,7 +302,7 @@ export const SB_CATS = [
       desc: "하려고 해도 도저히 할 수 없다는 뜻입니다.",
       ex: "그날 일은 잊을래야 잊을 수가 없어요." },
   ] },
-  { id: 21, ko: "높임법을 나타낼 때", en: "Expressing Honorifics", points: [
+  { id: 21, lv: "ad", ko: "높임법을 나타낼 때", en: "Expressing Honorifics", points: [
     { id: "21-1", name: "하오체",
       desc: "예스럽고 정중한 말투로 안내문이나 옛 문헌에 남아 있습니다.",
       ex: "어서 오시오. 여기 앉으시오." },
@@ -299,7 +310,7 @@ export const SB_CATS = [
       desc: "손아랫사람을 어느 정도 대접해 부르는 말투입니다.",
       ex: "자네도 이리 와서 한잔하게." },
   ] },
-  { id: 22, ko: "기타 유용한 표현들", en: "Other Useful Expressions", points: [
+  { id: 22, lv: "ad", ko: "기타 유용한 표현들", en: "Other Useful Expressions", points: [
     { id: "22-1", name: "-(으)므로, -(으)나, -(으)며",
       desc: "문어체에서 이유·대조·나열을 잇는 연결 어미들입니다.",
       ex: "규정이 바뀌었으므로 확인 바랍니다." },

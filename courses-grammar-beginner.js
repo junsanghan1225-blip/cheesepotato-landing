@@ -23,6 +23,7 @@ export const BEGINNER_GRAMMAR_COURSES = [
   title: '초급 세밀: 이/가 와 은/는 가려 쓰기',
   tagline: '새로 본 것에는 이/가, 주제와 대조에는 은/는',
   blurb: '한국어를 꽤 하는 사람도 끝까지 헷갈리는 자리다. 규칙을 외우는 대신 "지금 새로 말하는 것인가, 이미 얘기하던 것인가" 를 묻는 연습을 한다.',
+  lv: 'bg',
   level: 'Beginner',
   needs: 'bg-d-02',
   lessons: [
