@@ -96,8 +96,10 @@ async function lessonIdsAtHead() {
   }
 }
 
+const norm2 = (s) => String(s).trim().replace(/\s+/g, ' ').replace(/[.!?~]+$/, '');
+
 const BLOCK_TYPES = new Set([
-  'text', 'note', 'chars', 'table', 'choice', 'listen', 'type', 'order', 'pair', 'speak', 'cloze',
+  'text', 'note', 'chars', 'table', 'choice', 'listen', 'type', 'order', 'pair', 'speak', 'cloze', 'build',
 ]);
 
 const problems = [];
@@ -174,6 +176,55 @@ for (const c of COURSES) {
       }
 
       if (b.t === 'pair' && !b.pairs?.length) problems.push(`${at}: pairs 없음`);
+
+      /* 문장 만들기.
+         answers 가 비면 무엇을 쳐도 안 맞는다 — 학습자가 레슨 끝에서
+         막힌다. must 조각은 answers 안에 실제로 들어 있어야 한다.
+         안 그러면 정답을 쳐도 「~가 없어요」 가 뜬다. */
+      if (b.t === 'build') {
+        if (!b.q) problems.push(`${at}: q 없음 — 무엇을 만들라는 건지 알 수 없다`);
+        if (!b.answers?.length) problems.push(`${at}: answers 없음 — 무엇을 쳐도 안 맞는다`);
+        const flat = (x) => String(x).replace(/\s/g, '').replace(/[.!?~]+$/, '');
+        for (const m of b.must ?? []) {
+          if (!(b.answers ?? []).some((a) => flat(a).includes(flat(m)))) {
+            problems.push(`${at}: must 조각 '${m}' 이 어느 answers 에도 없다 — 정답을 써도 틀렸다고 한다`);
+          }
+        }
+        for (const w of b.bank ?? []) {
+          if (!String(w).trim()) problems.push(`${at}: bank 에 빈 낱말`);
+        }
+        /* 낱말 은행을 줬으면 정답을 그 조각들로 만들 수 있어야 한다.
+           자판 없는 사람은 은행만으로 답해야 하기 때문이다.
+
+           정답을 공백으로 쪼개 견주면 안 된다 — 조각은 '매운 음식을'
+           처럼 여러 낱말짜리일 수 있다. 화면에서 조각은 누를 때마다
+           공백 하나로 이어 붙으므로, 앞에서부터 조각을 이어 붙여
+           정답이 되는 길이 있는지를 본다. */
+        if (b.bank?.length && b.answers?.length) {
+          const chips = b.bank.map(norm2).filter(Boolean);
+          const canBuild = (answer) => {
+            const target = norm2(answer);
+            const dead = new Set();
+            const walk = (pos) => {
+              if (pos >= target.length) return true;
+              if (dead.has(pos)) return false;
+              for (const chip of chips) {
+                if (!target.startsWith(chip, pos)) continue;
+                const end = pos + chip.length;
+                if (end === target.length) return true;
+                if (target[end] !== ' ') continue;   // 조각 뒤에는 공백이 온다
+                if (walk(end + 1)) return true;
+              }
+              dead.add(pos);
+              return false;
+            };
+            return walk(0);
+          };
+          if (!b.answers.some(canBuild)) {
+            problems.push(`${at}: bank 조각만으로는 어느 정답도 만들 수 없다 — 자판 없는 사람은 못 푼다`);
+          }
+        }
+      }
       if (b.t === 'speak' && !b.say) problems.push(`${at}: say 없음`);
 
       if (b.t === 'cloze') {
