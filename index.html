@@ -1167,6 +1167,26 @@ body.nav-open { overflow:hidden; }
 #sbText { width:100%; resize:vertical; min-height:64px; line-height:1.65; }
 .sb-note { font-size:12.5px; color:var(--ink-3); line-height:1.6; margin-top:11px; word-break:keep-all; }
 
+/* 답장. 왼쪽 선 하나로 원글에 매단다 — 상자를 또 겹치면 게시판이
+   금세 상자밭이 된다. */
+.sb-reply-btn { background:none; border:none; cursor:pointer; font-size:12.5px; color:var(--ink-3); padding:4px; }
+.sb-reply-btn:hover { color:var(--orange-deep); }
+.sb-replies {
+  display:grid; gap:9px; margin:11px 0 0 4px;
+  padding-left:13px; border-left:2px solid var(--line-2);
+}
+.sb-reply-top { display:flex; align-items:baseline; gap:8px; margin-bottom:5px; }
+.sb-reply-text { font-size:14.5px; color:var(--ink-2); line-height:1.7; word-break:keep-all; }
+.sb-reply-bot { margin-top:6px; }
+.sb-reply-form { margin:11px 0 0 4px; padding-left:13px; border-left:2px solid var(--orange); }
+.sb-reply-form .sb-in { width:100%; resize:vertical; min-height:48px; line-height:1.6; font-size:14.5px; }
+.sb-reply-row { display:flex; gap:8px; flex-wrap:wrap; align-items:center; margin-top:8px; }
+.sb-reply-send {
+  padding:8px 15px; font-size:13px; font-weight:700; cursor:pointer; color:#fff;
+  background:var(--ink); border:none; border-radius:999px;
+}
+.sb-reply-send:hover { background:var(--orange-deep); }
+
 /* 레슨 목록 */
 .ll-row {
   display:flex; align-items:center; gap:14px; width:100%; text-align:left; cursor:pointer;
@@ -6944,9 +6964,15 @@ $('lsecWrap').addEventListener('change', (ev) => {
    여기서는 아티팩트와 같이 localStorage 에만 둔다. 지우면 사라진다는 걸
    화면에 적어 둔다 — 안 적으면 사라졌을 때 버그로 읽힌다. */
 const SB_KEY = 'cp-sentences-v1';
-let sbStore = { name: '', mine: {}, likes: {} };
+/* replies 는 원글 key 로 묶는다(표현 id 가 아니라). 씨앗 글의 key 는
+   `${표현id}~s${순번}` 으로 고정이라 씨앗에 단 답장도 그대로 살아남는다. */
+let sbStore = { name: '', mine: {}, likes: {}, replies: {} };
 let sbPoint = null;   // 지금 열어 둔 표현. null 이면 목록.
 let sbSort = 'new';
+/* 상세는 무슨 일이 있어도 통째로 다시 그린다. 쓰던 글을 상태에 담아 두지
+   않으면 남의 글에 ♥ 를 누르는 순간 내가 쓰던 문장이 날아간다. */
+let sbReplyTo = null;   // 답장 칸을 연 원글 key
+let sbDraft = '', sbReplyDraft = '';
 
 const SB_POINTS = SB_CATS.flatMap((c) => c.points.map((p) => ({ ...p, cat: c })));
 const sbFind = (id) => SB_POINTS.find((p) => p.id === id);
@@ -6955,6 +6981,8 @@ function sbLoad() {
   try { Object.assign(sbStore, JSON.parse(localStorage.getItem(SB_KEY) || '{}')); } catch (e) {}
   sbStore.mine = sbStore.mine || {};
   sbStore.likes = sbStore.likes || {};
+  // 답장은 나중에 붙었다. 예전 브라우저에 남은 저장본에는 이 칸이 없다.
+  sbStore.replies = sbStore.replies || {};
 }
 function sbSave() {
   try { localStorage.setItem(SB_KEY, JSON.stringify(sbStore)); } catch (e) {}
@@ -6983,6 +7011,24 @@ function sbPosts(id) {
     : all.slice().sort((a, b) => b.at - a.at);   // 씨앗(at=0)은 뒤로 간다
 }
 const sbCount = (id) => (SB_SEED[id] || []).length + (sbStore.mine[id] || []).length;
+
+/* 답장은 언제나 쓴 순서대로 본다. 위쪽 정렬(최신순·좋아요순)은 원글에만
+   건다 — 대화가 거꾸로 뒤집히면 무슨 말에 대한 답인지 못 읽는다. */
+const sbReplies = (key) => (sbStore.replies[key] || []).slice().sort((a, b) => a.at - b.at);
+
+/* 다시 그리기 전에 화면에 있던 초안을 상태로 걷어 온다. sbDrawDetail 이
+   어디서 불리든 거치므로 초안을 잃는 길이 없다. */
+function sbKeepDrafts() {
+  const ta = $('sbText'); if (ta) sbDraft = ta.value;
+  const rt = $('sbReplyText'); if (rt) sbReplyDraft = rt.value;
+  const nm = $('sbName'); if (nm && nm.value.trim()) sbStore.name = nm.value.trim();
+}
+/* 초안을 버릴 때는 화면의 칸도 같이 비운다. 상태만 비우면 바로 뒤에 도는
+   sbKeepDrafts 가 아직 글이 남아 있는 칸을 도로 읽어 와 되살린다. */
+function sbDropDraft(which) {
+  if (which !== 'reply') { sbDraft = ''; const a = $('sbText'); if (a) a.value = ''; }
+  if (which !== 'post') { sbReplyDraft = ''; const b = $('sbReplyText'); if (b) b.value = ''; }
+}
 
 function sbDrawList() {
   drawSentenceHead();
@@ -7032,8 +7078,11 @@ function sbDrawDetail() {
   const p = sbPoint && sbFind(sbPoint);
   if (!p) return;
   if (sentenceTier(p) !== learnLv.sentence) { sbShow(null); return; }
+  sbKeepDrafts();
   const more = SB_MORE[p.id] || ['', '', '', ''];
   const posts = sbPosts(p.id);
+  // 답장 칸을 열어 둔 원글이 사라졌으면(지웠거나 정렬이 바뀌었거나) 닫는다.
+  if (sbReplyTo && !posts.some((o) => o.key === sbReplyTo)) { sbReplyTo = null; sbReplyDraft = ''; }
 
   $('sbDetail').innerHTML =
     `<button class="wb-out" id="sbBack" type="button">← ${t('표현 목록', 'All grammar points')}</button>` +
@@ -7062,24 +7111,58 @@ function sbDrawDetail() {
       '</div>' +
 
       '<div class="sb-posts">' +
-        (posts.length ? posts.map((o) =>
-          '<div class="sb-post">' +
-            '<div class="sb-post-top">' +
-              `<span class="sb-by">${esc(o.by)}</span>` +
-              `<span class="sb-when">${esc(o.mine ? sbAgo(o.at) : o.when)}</span>` +
-              (o.mine ? `<span class="sb-mine-tag">${t('내 글', 'mine')}</span>` : '') +
-            '</div>' +
-            `<div class="sb-text">${esc(o.text)}</div>` +
-            '<div class="sb-post-bot">' +
-              `<button class="sb-like${sbStore.likes[o.key] ? ' on' : ''}" data-like="${esc(o.key)}">♥ ${o.likes}</button>` +
-              (o.mine ? `<button class="sb-del" data-del="${esc(o.key)}">${t('지우기', 'Delete')}</button>` : '') +
-            '</div>' +
-          '</div>').join('')
+        (posts.length ? posts.map((o) => {
+          const reps = sbReplies(o.key);
+          const open = sbReplyTo === o.key;
+          return (
+            '<div class="sb-post">' +
+              '<div class="sb-post-top">' +
+                `<span class="sb-by">${esc(o.by)}</span>` +
+                `<span class="sb-when">${esc(o.mine ? sbAgo(o.at) : o.when)}</span>` +
+                (o.mine ? `<span class="sb-mine-tag">${t('내 글', 'mine')}</span>` : '') +
+              '</div>' +
+              `<div class="sb-text">${esc(o.text)}</div>` +
+              '<div class="sb-post-bot">' +
+                `<button class="sb-like${sbStore.likes[o.key] ? ' on' : ''}" data-like="${esc(o.key)}">♥ ${o.likes}</button>` +
+                `<button class="sb-reply-btn" data-reply="${esc(o.key)}">` +
+                  `💬 ${esc(open ? t('접기', 'Cancel') : t('답장', 'Reply'))}${reps.length ? ` ${reps.length}` : ''}` +
+                '</button>' +
+                (o.mine ? `<button class="sb-del" data-del="${esc(o.key)}">${t('지우기', 'Delete')}</button>` : '') +
+              '</div>' +
+
+              (reps.length ?
+                '<div class="sb-replies">' +
+                  reps.map((r) =>
+                    '<div>' +
+                      '<div class="sb-reply-top">' +
+                        `<span class="sb-by">${esc(r.by)}</span>` +
+                        `<span class="sb-when">${esc(sbAgo(r.at))}</span>` +
+                        `<span class="sb-mine-tag">${t('내 글', 'mine')}</span>` +
+                      '</div>' +
+                      `<div class="sb-reply-text">${esc(r.text)}</div>` +
+                      '<div class="sb-reply-bot">' +
+                        `<button class="sb-del" data-delreply="${esc(r.key)}" data-parent="${esc(o.key)}">${t('지우기', 'Delete')}</button>` +
+                      '</div>' +
+                    '</div>').join('') +
+                '</div>'
+                : '') +
+
+              (open ?
+                '<div class="sb-reply-form">' +
+                  `<textarea id="sbReplyText" class="sb-in" rows="2" placeholder="${esc(t(`${o.by} 님 문장에 답장하기`, `Reply to ${o.by}`))}">${esc(sbReplyDraft)}</textarea>` +
+                  '<div class="sb-reply-row">' +
+                    `<button class="sb-reply-send" id="sbReplySend" type="button">${t('답장 올리기', 'Send reply')}</button>` +
+                  '</div>' +
+                '</div>'
+                : '') +
+            '</div>'
+          );
+        }).join('')
           : `<p class="sb-none">${t('아직 아무도 안 썼어요. 첫 예문을 올려 보세요.', 'Nobody has written one yet. Go first.')}</p>`) +
       '</div>' +
 
       '<div class="sb-write">' +
-        `<textarea id="sbText" class="sb-in" rows="2" placeholder="${t(`「${esc(p.name)}」로 문장을 만들어 보세요`, `Write a sentence using ${esc(p.name)}`)}"></textarea>` +
+        `<textarea id="sbText" class="sb-in" rows="2" placeholder="${t(`「${esc(p.name)}」로 문장을 만들어 보세요`, `Write a sentence using ${esc(p.name)}`)}">${esc(sbDraft)}</textarea>` +
         '<div class="sb-write-row">' +
           `<input id="sbName" class="sb-in" type="text" maxlength="20" placeholder="${t('이름', 'Your name')}" value="${esc(sbStore.name)}">` +
           `<button class="pt-next" id="sbPost" type="button">${t('올리기', 'Post')}</button>` +
@@ -7091,6 +7174,9 @@ function sbDrawDetail() {
 }
 
 function sbShow(id) {
+  // 표현을 갈아탈 때는 초안을 버린다. 남겨 두면 「-길래」에 쓰다 만 문장이
+  // 「-더라도」 칸에 그대로 떠 있다.
+  if (id !== sbPoint) { sbReplyTo = null; sbDropDraft('both'); }
   sbPoint = id;
   $('sbBrowse').classList.toggle('hidden', !!id);
   $('sbDetail').classList.toggle('hidden', !id);
@@ -7118,13 +7204,48 @@ $('sbDetail').addEventListener('click', (ev) => {
     sbSave(); sbDrawDetail(); return;
   }
 
+  // 답장 칸 열고 닫기. 같은 글을 다시 누르면 접힌다.
+  const rep = ev.target.closest('[data-reply]');
+  if (rep) {
+    const k = rep.dataset.reply;
+    sbKeepDrafts();          // 본문 칸에 쓰던 문장은 지킨다
+    sbReplyTo = (sbReplyTo === k) ? null : k;
+    sbDropDraft('reply');    // 답장 칸은 다른 글로 옮겨 가므로 비운다
+    sbDrawDetail();
+    if (sbReplyTo) $('sbReplyText')?.focus();
+    return;
+  }
+
+  const delRep = ev.target.closest('[data-delreply]');
+  if (delRep) {
+    const parent = delRep.dataset.parent, k = delRep.dataset.delreply;
+    sbStore.replies[parent] = (sbStore.replies[parent] || []).filter((r) => r.key !== k);
+    if (!sbStore.replies[parent].length) delete sbStore.replies[parent];
+    sbSave(); sbDrawDetail(); return;
+  }
+
+  if (ev.target.closest('#sbReplySend')) {
+    const ta = $('sbReplyText'), text = (ta.value || '').trim();
+    if (!text) { ta.focus(); return; }
+    const by = sbStore.name || t('익명', 'Anonymous');
+    sbStore.replies[sbReplyTo] = (sbStore.replies[sbReplyTo] || []).concat([
+      { key: `r${Date.now()}`, by, text, at: Date.now() },
+    ]);
+    sbSave();
+    sbReplyTo = null;          // 올렸으면 칸을 접는다
+    sbDropDraft('reply');
+    sbDrawDetail();
+    return;
+  }
+
   const del = ev.target.closest('[data-del]');
   if (del) {
     const k = del.dataset.del;
     sbStore.mine[sbPoint] = (sbStore.mine[sbPoint] || []).filter((p) => p.key !== k);
-    // 지운 글에 눌러 둔 좋아요도 같이 지운다. 안 그러면 없는 글의 표시가
-    // 저장소에 계속 쌓인다.
+    // 지운 글에 눌러 둔 좋아요와 그 글에 달린 답장도 같이 지운다. 안 그러면
+    // 없는 글에 매달린 것들이 저장소에 계속 쌓인다.
     delete sbStore.likes[k];
+    delete sbStore.replies[k];
     sbSave(); sbDrawDetail(); return;
   }
 
@@ -7137,7 +7258,8 @@ $('sbDetail').addEventListener('click', (ev) => {
       { key: `u${Date.now()}`, by, text, at: Date.now() },
     ]);
     sbSave();
-    sbSort = 'new';   // 방금 올린 글이 안 보이면 안 올라간 줄 안다
+    sbDropDraft('post');   // 올렸으니 초안을 비운다
+    sbSort = 'new';        // 방금 올린 글이 안 보이면 안 올라간 줄 안다
     sbDrawDetail();
   }
 });
