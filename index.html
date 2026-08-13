@@ -4661,7 +4661,69 @@ function ptShow(toTest) {
   b.classList.toggle('on', toTest);
   b.setAttribute('aria-label', toTest ? '홈으로' : '발음 테스트 열기');
   window.scrollTo({ top: 0, behavior: 'auto' });
+  // 주소에 남긴다. 아래 cpMark 는 이 함수보다 뒤에 정의되지만, 화면 전환은
+  // 사람이 눌러야 일어나므로 그때는 이미 있다.
+  window.cpMark?.(toTest ? 'test' : 'home');
 }
+/* ── 주소와 화면 ──────────────────────────────────────────────
+   화면 열 개를 한 페이지에서 갈아 끼운다. 주소가 하나뿐이면 브라우저는
+   화면이 바뀐 것을 모른다. 그래서 이런 일이 있었다.
+
+   - 뒤로가기가 앞 화면이 아니라 **사이트 밖**으로 나갔다. 폰에서는 뒤로
+     스와이프 한 번에 사이트가 닫힌다.
+   - 새로고침하면 어디에 있었든 늘 홈이었다.
+   - 배우기를 남에게 링크로 보낼 수도, 즐겨찾기에 둘 수도 없었다.
+
+   해시만 pushState 로 바꾼다. 경로(/learn)를 쓰면 GitHub Pages 가
+   새로고침 때 404 를 낸다 — 정적 호스팅에는 그 주소에 해당하는 파일이 없다.
+
+   **모르는 자리표는 건드리지 않는다.** 헤더와 메뉴의 다운로드가 #download 를
+   그대로 쓰고 있어서(그쪽은 화면을 바꾸지 않고 굴러 내려가기만 한다),
+   아무 해시나 받아 open() 에 넘기면 맞는 화면이 하나도 없어 전부 닫히고
+   빈 페이지가 된다. */
+const SLUG_VIEW = {
+  wordbook: 'wordbook', account: 'account', library: 'library', dashboard: 'dashboard',
+  learn: 'learn', test: 'test', games: 'games',
+  // 게임 한 판과 레슨은 도중부터 열 수 없다. 주소로 들어오면 한 단계 위를 연다.
+  claw: 'games', match: 'games', quiz: 'games', lesson: 'learn',
+};
+const VIEW_SLUG = {
+  home: '', test: 'test', wordbook: 'wordbook', account: 'account',
+  library: 'library', dashboard: 'dashboard', games: 'games',
+  claw: 'claw', match: 'match', quiz: 'quiz', learn: 'learn', lesson: 'lesson',
+};
+let routeBusy = false;
+
+/* 화면이 바뀔 때마다 주소에 남긴다. open() 과 ptShow() 가 둘 다 여기를 거친다. */
+window.cpMark = function (view) {
+  if (routeBusy) return;                 // 주소를 읽고 여는 중이면 다시 안 쓴다
+  const slug = VIEW_SLUG[view] ?? '';
+  if (location.hash.replace(/^#/, '') === slug) return;   // 같은 자리면 히스토리를 안 늘린다
+  history.pushState(null, '', slug ? '#' + slug : location.pathname + location.search);
+};
+
+/* 주소를 보고 화면을 연다. 뒤로/앞으로와 첫 접속이 이 길로 들어온다. */
+function cpApply(slug) {
+  if (slug && !SLUG_VIEW[slug]) return;  // #download 같은 남의 자리표는 그대로 둔다
+  const view = SLUG_VIEW[slug] || 'home';
+  routeBusy = true;
+  try {
+    if (view === 'test') ptShow(true);
+    // 모듈이 아직 안 돌았으면 open() 이 없다. 그때는 홈이 안전하다.
+    else if (view === 'home' || !window.cpOpen) ptShow(false);
+    else window.cpOpen(view);
+  } finally { routeBusy = false; }
+}
+window.addEventListener('popstate', () => cpApply(location.hash.replace(/^#/, '')));
+
+/* 첫 화면. **주소에 화면이 적혀 있을 때만** 손댄다 — 안 적혀 있으면
+   로그인하고 돌아온 흐름 같은 것이 정한 화면을 그대로 두어야 한다.
+   모듈이 다 돌고 나서 불린다(그래야 cpOpen 이 있다). */
+window.cpStart = function () {
+  const slug = location.hash.replace(/^#/, '');
+  if (slug && SLUG_VIEW[slug]) cpApply(slug);
+};
+
 ptId('navBtn').addEventListener('click', () => {
   ptShow(ptId('testView').classList.contains('hidden'));
 });
@@ -4828,7 +4890,17 @@ function open(view) {
   if (view !== 'claw') clawStop();
   if (view !== 'quiz') qzStop();
   window.scrollTo({ top: 0, behavior: 'auto' });
+  window.cpMark(view);
 }
+
+/* 주소로 바로 들어오는 길. 버튼을 눌러 들어올 때 같이 하던 불러오기까지
+   여기서 한다 — 안 하면 #dashboard 로 들어온 사람은 빈 대시보드를 본다. */
+window.cpOpen = function (view) {
+  open(view);
+  if (view === 'account') loadAccount();
+  if (view === 'library') loadLibrary();
+  if (view === 'dashboard') loadDashboard();
+};
 
 const showing = (id) => !$(id).classList.contains('hidden');
 
@@ -9434,6 +9506,11 @@ if (params.get('error')) {
   sessionStorage.removeItem('wbReturning');
   open('wordbook');
 }
+
+/* 주소에 적힌 화면을 연다. 맨 끝에서 부른다 — 여기까지 와야 cpOpen 과
+   loadAccount / loadLibrary / loadDashboard 가 다 있다. 바로 위의 구글 복귀가
+   화면을 정했으면 그쪽이 이미 주소에 남겼으므로 같은 화면이 다시 열릴 뿐이다. */
+window.cpStart();
 </script>
 </body>
 </html>
