@@ -6588,11 +6588,6 @@ const COURSE_LEVEL_FALLBACK = {
   'first-words': 'beginner',
   'grammar-core': 'beginner',
 };
-const SENTENCE_LEVEL_MAP = {
-  beginner: new Set([14, 16, 17, 21, 22]),
-  intermediate: new Set([4, 6, 7, 8, 10, 15, 18, 19]),
-  advanced: new Set([1, 2, 3, 5, 9, 11, 12, 13, 20]),
-};
 const COURSE_CURRICULUM_TAG = {
   hangul:            { ko:'입문',        en:'Intro' },
   'first-words':     { ko:'기초 표현',   en:'Core phrases' },
@@ -6695,18 +6690,18 @@ const levelCourses = (level) => COURSES.filter((c) => courseTier(c) === level);
 const lessonExercises = (lesson) => lesson.blocks.filter(isEx);
 const levelLessons = (level) => levelCourses(level).flatMap((c) => c.lessons.map((lesson) => ({ course: c, lesson })));
 const levelQuizRows = (level) => levelLessons(level).filter(({ lesson }) => lessonExercises(lesson).length);
-const sentenceTier = (p) => {
-  const id = Number(p.cat?.id ?? String(p.id).split('-')[0]);
-  if (SENTENCE_LEVEL_MAP.beginner.has(id)) return 'beginner';
-  if (SENTENCE_LEVEL_MAP.intermediate.has(id)) return 'intermediate';
-  return 'advanced';
-};
+/* 단계는 sentences.js 의 표현마다 붙어 있다. 갈래가 아니라 표현이 가진다 —
+   「원인과 이유」 안에 -아서(초급)와 -기로서니(고급)가 같이 있는 것이 정상이다.
+   lv 를 빠뜨린 표현은 화면에서 사라지는 대신 중급으로 떨어진다. 놓친 것은
+   `node tools/check-sentences.mjs` 가 잡는다. */
+const sentenceTier = (p) =>
+  (p.lv === 'beginner' || p.lv === 'intermediate' || p.lv === 'advanced') ? p.lv : 'intermediate';
 function drawSentenceHead() {
   const level = learnLv.sentence;
   const all = SB_POINTS.filter((p) => sentenceTier(p) === level);
   $('sbLevel').innerHTML = renderLevelSwitch('sentence');
   $('sbIntro').textContent = ({
-    beginner: t('자주 쓰는 의도·높임·기초 연결 표현부터 내 문장으로 바꿔 봅니다.', 'Turn common intentions, honorifics, and starter connectors into your own sentences.'),
+    beginner: t('첫 문장을 만드는 데 꼭 필요한 표현부터 내 문장으로 바꿔 봅니다.', 'Start with the expressions you need to build your very first sentences.'),
     intermediate: t('이유, 조건, 가능성처럼 문장을 길게 만드는 표현을 직접 써 봅니다.', 'Practice the expressions that make sentences longer: reasons, conditions, and possibility.'),
     advanced: t('뉘앙스가 갈리는 고급 표현으로 문장을 세밀하게 다듬습니다.', 'Work on nuance-heavy advanced expressions and make your sentences more precise.'),
   })[level];
@@ -7005,7 +7000,7 @@ function sbDrawList() {
     (isEn() ? c.en : c.ko).toLowerCase().includes(q);
 
   const html = SB_CATS.map((c) => {
-    const pts = c.points.filter((p) => sentenceTier({ ...p, cat: c }) === level && hit(p, c));
+    const pts = c.points.filter((p) => sentenceTier(p) === level && hit(p, c));
     if (!pts.length) return '';
     return (
       '<div class="sb-cat">' +
@@ -7025,8 +7020,12 @@ function sbDrawList() {
       '</div>'
     );
   }).join('');
-  $('sbCats').innerHTML = html ||
-    `<p class="sb-none">${t('찾는 표현이 없어요.', 'No grammar point matches that.')}</p>`;
+  /* 비었을 때 이유가 둘이다. 찾는 말이 없는 것과, 그 단계를 아직 안 채운
+     것은 다른 일인데 한 문장으로 뭉치면 학생이 제 검색어를 의심한다. */
+  $('sbCats').innerHTML = html || (q
+    ? `<p class="sb-none">${t('찾는 표현이 없어요.', 'No grammar point matches that.')}</p>`
+    : `<div class="learn-empty">${esc(t('이 단계 표현은 아직 채우는 중이에요.',
+                                        'Grammar points for this level are still being filled in.'))}</div>`);
 }
 
 function sbDrawDetail() {
