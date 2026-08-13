@@ -6653,11 +6653,17 @@ let learnLv = { courses: 'beginner', quiz: 'beginner', sentence: 'beginner' };
 
 const learnLevel = (id) => LEARN_LEVELS.find((x) => x.id === id) || LEARN_LEVELS[0];
 const learnLevelText = (id) => (isEn() ? learnLevel(id).en : learnLevel(id).ko);
+/* 세그먼트 모양은 발음 테스트의 .pt-lv-row / .pt-lv-desc 를 그대로 쓴다(글씨만
+   있는 스타일이라 빌려도 된다). 다만 .pt-lv 는 붙이지 않는다 — 그건 스타일이
+   아니라 고전 스크립트의 손잡이다. ptSetLevel() 이 `.pt-lv input[type=radio]`
+   을 전부 훑어 값이 easy/normal/hard 가 아닌 것을 꺼 버리므로, 이 라디오에
+   그 클래스를 달면 발음 테스트에서 난이도를 한 번 바꾸는 순간 배우기의
+   단계 선택이 통째로 풀린다. */
 function renderLevelSwitch(section) {
   const cur = learnLevel(learnLv[section]);
   return (
     '<div class="pt-lv-row">' +
-      `<div class="diff-seg pt-lv" role="tablist" aria-label="${t('단계', 'Level')}">` +
+      `<div class="diff-seg learn-lv" role="radiogroup" aria-label="${t('단계', 'Level')}">` +
         LEARN_LEVELS.map((lv) =>
           `<label><input type="radio" name="learn_${section}" value="${lv.id}" data-learn-section="${section}" data-learn-level="${lv.id}"${lv.id === cur.id ? ' checked' : ''}><span>${esc(isEn() ? lv.en : lv.ko)}</span></label>`
         ).join('') +
@@ -6746,7 +6752,7 @@ function drawQuiz() {
           `<span class="lq-chip">${esc(t('랜덤', 'Mixed'))}</span>` +
           `<span>${esc(t('짧고 빠르게 감 잡기', 'Short burst review'))}</span>` +
         '</div>' +
-      '</button>`
+      '</button>'
     ) +
     rows.map(({ course, lesson }) => {
       const types = [...new Set(lessonExercises(lesson).map((b) => ({
