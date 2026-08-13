@@ -1025,6 +1025,75 @@ body.nav-open { overflow:hidden; }
   font-size:12.5px; line-height:1.6; color:var(--ink-3); margin-top:16px;
   padding-left:13px; border-left:2px solid var(--line-2); word-break:keep-all;
 }
+.learn-head {
+  background:var(--surface-2);
+  border:1px solid var(--line-2);
+  border-radius:var(--r-xl);
+  padding:22px 22px 18px;
+  margin-bottom:18px;
+}
+.learn-copy {
+  font-size:14.5px; color:var(--ink-2); line-height:1.72; margin-top:14px; word-break:keep-all;
+}
+.learn-summary {
+  display:grid; grid-template-columns:repeat(auto-fit, minmax(120px, 1fr)); gap:10px;
+  margin-top:16px;
+}
+.learn-stat {
+  background:var(--surface); border:1px solid var(--line-2); border-radius:16px; padding:13px 14px;
+}
+.learn-stat-k {
+  font-size:11px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:var(--ink-3);
+}
+.learn-stat-v {
+  font-size:22px; font-weight:700; color:var(--ink); letter-spacing:-.04em; margin-top:6px;
+  font-variant-numeric:tabular-nums;
+}
+.learn-stat-s {
+  font-size:12.5px; color:var(--ink-3); line-height:1.55; margin-top:5px; word-break:keep-all;
+}
+.lq-card { padding:24px; }
+.lq-card .lc-title { font-size:21px; }
+.lq-meta {
+  display:flex; align-items:center; gap:8px; flex-wrap:wrap; margin-top:12px;
+  font-size:12px; color:var(--ink-3);
+}
+.lq-chip {
+  display:inline-flex; align-items:center; gap:5px; padding:4px 9px;
+  background:#FFF4EA; border:1px solid rgba(255,138,61,.3); border-radius:999px;
+  color:var(--orange-deep); font-weight:700;
+}
+.learn-empty {
+  text-align:center; padding:42px 20px; color:var(--ink-3); font-size:14px; line-height:1.75;
+  background:var(--surface); border:1px dashed var(--line); border-radius:18px;
+}
+.roadmap-grid {
+  display:grid; gap:14px; margin-bottom:18px;
+  grid-template-columns:repeat(auto-fit, minmax(220px, 1fr));
+}
+.roadmap-card {
+  background:var(--surface); border:1px solid var(--line-2); border-radius:20px; padding:18px 18px 16px;
+}
+.roadmap-top { display:flex; align-items:flex-start; justify-content:space-between; gap:10px; }
+.roadmap-k {
+  font-size:11px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:var(--orange-deep);
+}
+.roadmap-t {
+  font-size:18px; font-weight:700; color:var(--ink); letter-spacing:-.03em; margin-top:7px; word-break:keep-all;
+}
+.roadmap-m {
+  font-size:12px; font-weight:700; color:var(--ink-3); white-space:nowrap; font-variant-numeric:tabular-nums;
+}
+.roadmap-points { display:grid; gap:7px; margin-top:13px; }
+.roadmap-p {
+  font-size:13px; color:var(--ink-2); line-height:1.6; word-break:keep-all;
+  padding-left:12px; position:relative;
+}
+.roadmap-p::before {
+  content:''; position:absolute; left:0; top:.62em; width:5px; height:5px;
+  border-radius:50%; background:var(--orange);
+}
+.roadmap-foot { margin-top:12px; font-size:12.5px; color:var(--ink-3); line-height:1.6; word-break:keep-all; }
 
 /* ══ 배우기 : 예문 게시판 ═══════════════════════════════════════ */
 .sb-q {
@@ -2745,6 +2814,12 @@ body.nav-open { overflow:hidden; }
 
       <!-- 갈래 : 코스 -->
       <div id="lcWrap" class="hidden">
+        <div class="learn-head">
+          <div id="lcLevel"></div>
+          <p id="lcIntro" class="learn-copy"></p>
+          <div id="lcSummary" class="learn-summary"></div>
+        </div>
+        <div id="lcRoadmap" class="roadmap-grid"></div>
         <div id="lcList" class="lc-grid"></div>
 
         <!-- 코스를 고르면 레슨 목록이 여기 열린다 -->
@@ -2757,8 +2832,23 @@ body.nav-open { overflow:hidden; }
         </div>
       </div>
 
+      <!-- 갈래 : 문제만 풀기 -->
+      <div id="lqWrap" class="hidden">
+        <div class="learn-head">
+          <div id="lqLevel"></div>
+          <p id="lqIntro" class="learn-copy"></p>
+          <div id="lqSummary" class="learn-summary"></div>
+        </div>
+        <div id="lqList" class="lc-grid"></div>
+      </div>
+
       <!-- 갈래 : 예문 만들기 -->
       <div id="sbWrap" class="hidden">
+        <div class="learn-head">
+          <div id="sbLevel"></div>
+          <p id="sbIntro" class="learn-copy"></p>
+          <div id="sbSummary" class="learn-summary"></div>
+        </div>
         <div id="sbBrowse">
           <input id="sbQ" class="sb-q" type="search" autocomplete="off">
           <div id="sbCats"></div>
@@ -6215,6 +6305,7 @@ let doneSet = new Set();     // 끝낸 lesson id
 let doneDays = [];           // 끝낸 날짜(YYYY-MM-DD) 내림차순 — 연속일 계산용
 let lsCourse = null, lsLesson = null;
 let lsQueue = [], lsSolved = 0, lsTotal = 0;
+let lsReturnSection = 'courses';
 
 /* ── Cloze 게임 상태 (Clozemaster Vibe) ── */
 let lsHp = 3;                 // 하트 3개
@@ -6449,7 +6540,7 @@ const LEARN_SECTIONS = [
              en: 'Each lesson mixes what to read with what to try. Start here if you are new.' },
   },
   {
-    id: 'quiz', emoji: '⚡', ready: false, pane: null,
+    id: 'quiz', emoji: '⚡', ready: true, pane: 'lqWrap',
     lv:    { ko: '퀴즈',            en: 'QUIZ' },
     title: { ko: '문제만 풀기',      en: 'Just the questions' },
     tag:   { ko: '설명은 건너뛰고 문제만 이어서',
@@ -6469,6 +6560,257 @@ const LEARN_SECTIONS = [
 ];
 
 const secTx = (o) => (isEn() ? o.en : o.ko);
+const LEARN_LEVELS = [
+  {
+    id: 'beginner',
+    ko: '초급',
+    en: 'Beginner',
+    descKo: '입문, 핵심 문형, 살아남는 표현부터 먼저 익힙니다.',
+    descEn: 'Start with Hangul, core patterns, and the phrases you need first.',
+  },
+  {
+    id: 'intermediate',
+    ko: '중급',
+    en: 'Intermediate',
+    descKo: '문장 길이를 늘리고, 이유·추측·조건을 더 자연스럽게 다룹니다.',
+    descEn: 'Build longer sentences and handle reasons, guesses, and conditions.',
+  },
+  {
+    id: 'advanced',
+    ko: '고급',
+    en: 'Advanced',
+    descKo: '뉘앙스 차이, 격식, 고급 연결 표현까지 정교하게 다듬습니다.',
+    descEn: 'Refine nuance, register, and high-level connections in real Korean.',
+  },
+];
+const COURSE_LEVEL_FALLBACK = {
+  hangul: 'beginner',
+  'first-words': 'beginner',
+  'grammar-core': 'beginner',
+};
+const SENTENCE_LEVEL_MAP = {
+  beginner: new Set([14, 16, 17, 21, 22]),
+  intermediate: new Set([4, 6, 7, 8, 10, 15, 18, 19]),
+  advanced: new Set([1, 2, 3, 5, 9, 11, 12, 13, 20]),
+};
+const COURSE_CURRICULUM_TAG = {
+  hangul:            { ko:'입문',        en:'Intro' },
+  'first-words':     { ko:'기초 표현',   en:'Core phrases' },
+  'grammar-core':    { ko:'문장 기초',   en:'Sentence core' },
+  'bg-d-01':         { ko:'활용',        en:'Conjugation' },
+  'bg-d-02':         { ko:'희망·계획',   en:'Hope & plans' },
+  'bg-04':           { ko:'조사',        en:'Particles' },
+  'im-02-02':        { ko:'이유·원인',   en:'Cause' },
+  'im-02-03':        { ko:'이유·원인',   en:'Cause' },
+  'im-03-01':        { ko:'추측',        en:'Conjecture' },
+  'im-03-02':        { ko:'반응 표현',   en:'Reaction' },
+  'ad-01-01':        { ko:'관형형',      en:'Adnominal forms' },
+  'ad-02-01':        { ko:'화법',        en:'Speech levels' },
+};
+const BEGINNER_ROADMAP = [
+  {
+    id:'intro',
+    tag:{ ko:'0. 입문 및 기초', en:'0. Introduction' },
+    title:{ ko:'읽기와 생존 표현', en:'Reading and survival phrases' },
+    points:[
+      { ko:'한국어 소개 · 기초 단어 · 숫자/날짜/시간의 출발점', en:'Korean basics, starter words, numbers, dates, and time foundations' },
+      { ko:'N-이다 / 있다·없다 / 첫 대화 만들기', en:'N-ida, existence, and first useful dialogues' },
+    ],
+    courses:['hangul','first-words'],
+  },
+  {
+    id:'core',
+    tag:{ ko:'문장 뼈대', en:'Sentence core' },
+    title:{ ko:'문장 구조와 활용', en:'Structure and conjugation' },
+    points:[
+      { ko:'한국어 문장 구조 · 동사/형용사 활용 · 문장 연결 기초', en:'Sentence structure, verb/adjective conjugation, and basic connectors' },
+      { ko:'현재/과거/미래의 핵심 뼈대부터 익히기', en:'Build present, past, and future fundamentals first' },
+    ],
+    courses:['grammar-core','bg-d-01'],
+  },
+  {
+    id:'expressions',
+    tag:{ ko:'표현 확장', en:'Expression builder' },
+    title:{ ko:'희망·계획·기초 조사', en:'Hope, plans, and starter particles' },
+    points:[
+      { ko:'V-고 싶다 / V-(으)ㄹ 거예요 로 바람과 계획 가르기', en:'Separate hope from plan with -go sipda and -(eu)l geoyeyo' },
+      { ko:'N이/가 · N은/는으로 문장 초점 잡기', en:'Use subject and topic particles to control focus' },
+    ],
+    courses:['bg-d-02','bg-04'],
+  },
+  {
+    id:'next',
+    tag:{ ko:'다음 빌드', en:'Coming next' },
+    title:{ ko:'초급 본편 확장', en:'Next beginner units' },
+    points:[
+      { ko:'부정 표현, 목적격, 위치/시간 조사, 허락·금지, 이유 표현', en:'Negation, object/location particles, permission, prohibition, and reasons' },
+      { ko:'의견 묻기, 부탁, 경험, 조건까지 초급 본편으로 확장', en:'Expand into requests, experiences, opinions, and conditions' },
+    ],
+    courses:[],
+  },
+];
+let learnLv = { courses: 'beginner', quiz: 'beginner', sentence: 'beginner' };
+
+const learnLevel = (id) => LEARN_LEVELS.find((x) => x.id === id) || LEARN_LEVELS[0];
+const learnLevelText = (id) => (isEn() ? learnLevel(id).en : learnLevel(id).ko);
+function renderLevelSwitch(section) {
+  const cur = learnLevel(learnLv[section]);
+  return (
+    '<div class="pt-lv-row">' +
+      `<div class="diff-seg pt-lv" role="tablist" aria-label="${t('단계', 'Level')}">` +
+        LEARN_LEVELS.map((lv) =>
+          `<label><input type="radio" name="learn_${section}" value="${lv.id}" data-learn-section="${section}" data-learn-level="${lv.id}"${lv.id === cur.id ? ' checked' : ''}><span>${esc(isEn() ? lv.en : lv.ko)}</span></label>`
+        ).join('') +
+      '</div>' +
+      `<div class="pt-lv-desc">${esc(isEn() ? cur.descEn : cur.descKo)}</div>` +
+    '</div>'
+  );
+}
+function renderLearnSummary(items) {
+  return items.map((item) =>
+    '<div class="learn-stat">' +
+      `<div class="learn-stat-k">${esc(item.k)}</div>` +
+      `<div class="learn-stat-v">${esc(String(item.v))}</div>` +
+      `<div class="learn-stat-s">${esc(item.s)}</div>` +
+    '</div>'
+  ).join('');
+}
+function courseTier(c) {
+  const lv = String(c.level || '').toLowerCase();
+  if (lv === 'beginner' || lv === 'intermediate' || lv === 'advanced') return lv;
+  return COURSE_LEVEL_FALLBACK[c.id] || 'beginner';
+}
+function courseLabel(c) {
+  const lv = learnLevelText(courseTier(c));
+  const unit = COURSE_CURRICULUM_TAG[c.id];
+  return unit ? `${lv} · ${t(unit.ko, unit.en)}` : lv;
+}
+const levelCourses = (level) => COURSES.filter((c) => courseTier(c) === level);
+const lessonExercises = (lesson) => lesson.blocks.filter(isEx);
+const levelLessons = (level) => levelCourses(level).flatMap((c) => c.lessons.map((lesson) => ({ course: c, lesson })));
+const levelQuizRows = (level) => levelLessons(level).filter(({ lesson }) => lessonExercises(lesson).length);
+const sentenceTier = (p) => {
+  const id = Number(p.cat?.id ?? String(p.id).split('-')[0]);
+  if (SENTENCE_LEVEL_MAP.beginner.has(id)) return 'beginner';
+  if (SENTENCE_LEVEL_MAP.intermediate.has(id)) return 'intermediate';
+  return 'advanced';
+};
+function drawSentenceHead() {
+  const level = learnLv.sentence;
+  const all = SB_POINTS.filter((p) => sentenceTier(p) === level);
+  $('sbLevel').innerHTML = renderLevelSwitch('sentence');
+  $('sbIntro').textContent = ({
+    beginner: t('자주 쓰는 의도·높임·기초 연결 표현부터 내 문장으로 바꿔 봅니다.', 'Turn common intentions, honorifics, and starter connectors into your own sentences.'),
+    intermediate: t('이유, 조건, 가능성처럼 문장을 길게 만드는 표현을 직접 써 봅니다.', 'Practice the expressions that make sentences longer: reasons, conditions, and possibility.'),
+    advanced: t('뉘앙스가 갈리는 고급 표현으로 문장을 세밀하게 다듬습니다.', 'Work on nuance-heavy advanced expressions and make your sentences more precise.'),
+  })[level];
+  $('sbSummary').innerHTML = renderLearnSummary([
+    { k: t('표현', 'Points'), v: all.length, s: t('현재 단계에서 바로 연습할 문형', 'Grammar points in this level') },
+    { k: t('갈래', 'Sets'), v: new Set(all.map((p) => p.cat.id)).size, s: t('비슷한 표현끼리 모아 둔 묶음', 'Grouped by similar use') },
+    { k: t('목표', 'Goal'), v: learnLevelText(level), s: t('외운 문장이 아니라 내 문장 만들기', 'Make your own sentence, not a memorised one') },
+  ]);
+}
+function drawQuiz() {
+  const level = learnLv.quiz;
+  const rows = levelQuizRows(level);
+  const exCount = rows.reduce((a, { lesson }) => a + lessonExercises(lesson).length, 0);
+  $('lqLevel').innerHTML = renderLevelSwitch('quiz');
+  $('lqIntro').textContent = ({
+    beginner: t('설명은 건너뛰고, 지금 단계의 핵심 문제만 빠르게 이어서 풉니다.', 'Skip the reading and run through the key questions for this level.'),
+    intermediate: t('형태를 아는지보다, 문맥에 맞는 표현을 고를 수 있는지 확인합니다.', 'Check whether you can choose the right form in context, not just recognise it.'),
+    advanced: t('미묘한 뉘앙스와 격식 차이를 문제로 압축해서 점검합니다.', 'Compress nuance and register into focused drills.') ,
+  })[level];
+  $('lqSummary').innerHTML = renderLearnSummary([
+    { k: t('레슨', 'Lessons'), v: rows.length, s: t('문제만 따로 풀 수 있는 레슨', 'Lessons available in quiz mode') },
+    { k: t('문제', 'Questions'), v: exCount, s: t('현재 단계에서 바로 풀 수 있는 수', 'Exercises ready right now') },
+    { k: t('방식', 'Mode'), v: t('랜덤+선택', 'Mixed'), s: t('랜덤 퀴즈 또는 레슨별 점검', 'Random drill or per-lesson practice') },
+  ]);
+  if (!rows.length) {
+    $('lqList').innerHTML = `<div class="learn-empty">${esc(t('이 단계의 퀴즈는 아직 채우는 중이에요.', 'Quiz mode for this level is still being filled in.'))}</div>`;
+    return;
+  }
+  const mixedCount = Math.min(12, exCount);
+  $('lqList').innerHTML =
+    (
+      `<button class="lc-card lq-card" data-quiz-level="${level}">` +
+        '<div class="lc-top">' +
+          '<div class="lc-mark">⚡</div>' +
+          '<div style="min-width:0">' +
+            `<div class="lc-lv">${esc(t('랜덤 퀴즈', 'Mixed quiz'))}</div>` +
+            `<div class="lc-title">${esc(t(`${learnLevelText(level)} 몰아풀기`, `${learnLevelText(level)} sprint`))}</div>` +
+            `<div class="lc-tag">${esc(t('현재 단계의 문제만 섞어서 한 번에 점검합니다.', 'Pull questions from this level and run them back to back.'))}</div>` +
+          '</div>' +
+        '</div>' +
+        `<p class="lc-blurb">${esc(t(`한 번에 ${mixedCount}문제. 읽기 없이 바로 시작합니다.`, `${mixedCount} questions in one run, no reading first.`))}</p>` +
+        '<div class="lq-meta">' +
+          `<span class="lq-chip">${esc(t('랜덤', 'Mixed'))}</span>` +
+          `<span>${esc(t('짧고 빠르게 감 잡기', 'Short burst review'))}</span>` +
+        '</div>' +
+      '</button>`
+    ) +
+    rows.map(({ course, lesson }) => {
+      const types = [...new Set(lessonExercises(lesson).map((b) => ({
+        choice: t('고르기', 'Choice'),
+        listen: t('듣기', 'Listen'),
+        type: t('쓰기', 'Type'),
+        order: t('배열', 'Arrange'),
+        pair: t('짝짓기', 'Match'),
+        speak: t('말하기', 'Speak'),
+        cloze: t('빈칸', 'Cloze'),
+      })[b.t] || b.t))].slice(0, 3).join(' · ');
+      return (
+        `<button class="lc-card lq-card" data-quiz-course="${esc(course.id)}" data-quiz-lesson="${esc(lesson.id)}">` +
+          '<div class="lc-top">' +
+            `<div class="lc-mark">${esc(course.emoji)}</div>` +
+            '<div style="min-width:0">' +
+              `<div class="lc-lv">${esc(learnLevelText(courseTier(course)))}</div>` +
+              `<div class="lc-title">${esc(lesson.title)}</div>` +
+              `<div class="lc-tag">${esc(course.title)}</div>` +
+            '</div>' +
+          '</div>' +
+          `<p class="lc-blurb">${esc(t(`설명은 빼고 ${lessonExercises(lesson).length}문제만 이어서 풉니다.`, `${lessonExercises(lesson).length} exercises only, with the reading removed.`))}</p>` +
+          '<div class="lq-meta">' +
+            `<span class="lq-chip">${esc(types || t('문제', 'Exercise'))}</span>` +
+            `<span>${esc(`${lesson.minutes} ${t('분', 'min')}`)}</span>` +
+          '</div>' +
+        '</button>'
+      );
+    }).join('');
+}
+function buildMixedQuiz(level) {
+  const picked = shuffled(levelQuizRows(level).flatMap(({ lesson }) => lessonExercises(lesson))).slice(0, 12);
+  return {
+    id: `quiz-${level}`,
+    title: t(`${learnLevelText(level)} 랜덤 퀴즈`, `${learnLevelText(level)} mixed quiz`),
+    minutes: Math.max(4, Math.ceil(picked.length * 0.7)),
+    blocks: picked,
+    trackProgress: false,
+  };
+}
+function drawCourseRoadmap(level, rows) {
+  if (level !== 'beginner') {
+    $('lcRoadmap').innerHTML = '';
+    $('lcRoadmap').classList.add('hidden');
+    return;
+  }
+  $('lcRoadmap').classList.remove('hidden');
+  $('lcRoadmap').innerHTML = BEGINNER_ROADMAP.map((part) => {
+    const linked = part.courses.map((id) => rows.find((c) => c.id === id)).filter(Boolean);
+    const done = linked.reduce((a, c) => a + courseDone(c), 0);
+    const total = linked.reduce((a, c) => a + c.lessons.length, 0);
+    const meter = total ? `${done} / ${total}` : t('빌드 예정', 'Planned');
+    const foot = linked.length
+      ? t(`${linked.map((c) => c.title).join(' · ')} 로 바로 이어집니다.`, `Flows into ${linked.map((c) => c.title).join(' · ')}.`)
+      : t('사용자가 준 초급 커리큘럼을 따라 다음 단위로 계속 넓힐 예정입니다.', 'This will expand next using your beginner curriculum outline.');
+    return (
+      `<div class="roadmap-card">` +
+        `<div class="roadmap-top"><div><div class="roadmap-k">${esc(t(part.tag.ko, part.tag.en))}</div><div class="roadmap-t">${esc(t(part.title.ko, part.title.en))}</div></div><div class="roadmap-m">${esc(meter)}</div></div>` +
+        `<div class="roadmap-points">${part.points.map((p) => `<div class="roadmap-p">${esc(t(p.ko, p.en))}</div>`).join('')}</div>` +
+        `<div class="roadmap-foot">${esc(foot)}</div>` +
+      `</div>`
+    );
+  }).join('');
+}
 
 function drawSections() {
   $('lsecList').innerHTML = LEARN_SECTIONS.map((s) => {
@@ -6482,6 +6824,9 @@ function drawSections() {
           `<div class="lc-bar"><div class="lc-fill" style="width:${all ? Math.round((n / all) * 100) : 0}%"></div></div>` +
           `<span class="lc-num">${n} / ${all}</span>` +
         '</div>';
+    } else if (s.id === 'quiz') {
+      const all = COURSES.reduce((a, c) => a + c.lessons.reduce((n, l) => n + lessonExercises(l).length, 0), 0);
+      foot = `<div class="lc-order">${t(`전체 ${all}문제를 레벨별로 몰아 풀 수 있어요.`, `You can drill all ${all} exercises by level.`)}</div>`;
     } else if (!s.ready) {
       foot = `<div class="lc-order">${t('아직 준비 중이에요.', 'Not ready yet.')}</div>`;
     }
@@ -6521,7 +6866,12 @@ function openSection(id) {
   if (s.ready && s.pane) {
     $(s.pane).classList.remove('hidden');
     if (s.id === 'courses') drawCourses();
-    if (s.id === 'sentence') sbShow(sbPoint);
+    if (s.id === 'quiz') drawQuiz();
+    if (s.id === 'sentence') {
+      drawSentenceHead();
+      const cur = sbPoint ? sbFind(sbPoint) : null;
+      sbShow(cur && sentenceTier(cur) === learnLv.sentence ? sbPoint : null);
+    }
   } else {
     $('lsecSoonTxt').textContent = t('이 갈래는 아직 준비 중이에요. 곧 채울게요.',
                                      'This one is not ready yet. Coming soon.');
@@ -6536,6 +6886,14 @@ function backToCourses() {
   open('learn');
   openSection('courses');
   if (lsCourse) openCourse(lsCourse);
+}
+function backFromLesson() {
+  if (lsReturnSection === 'quiz') {
+    open('learn');
+    openSection('quiz');
+    return;
+  }
+  backToCourses();
 }
 
 function backToSections() {
@@ -6553,6 +6911,26 @@ $('lsecList').addEventListener('click', (ev) => {
 $('lsecBack').addEventListener('click', () => {
   backToSections();
   window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+$('lsecWrap').addEventListener('change', (ev) => {
+  const r = ev.target.closest('[data-learn-section][data-learn-level]');
+  if (!r) return;
+  const section = r.dataset.learnSection;
+  const level = r.dataset.learnLevel;
+  if (!LEARN_LEVELS.some((lv) => lv.id === level)) return;
+  learnLv[section] = level;
+  if (section === 'courses') {
+    lsCourse = null;
+    $('llWrap').classList.add('hidden');
+    drawCourses();
+  } else if (section === 'quiz') {
+    drawQuiz();
+  } else if (section === 'sentence') {
+    drawSentenceHead();
+    const cur = sbPoint ? sbFind(sbPoint) : null;
+    if (cur && sentenceTier(cur) !== level) sbPoint = null;
+    sbShow(sbPoint);
+  }
 });
 
 /* ══ 예문 게시판 ═══════════════════════════════════════════════
@@ -6606,9 +6984,11 @@ function sbPosts(id) {
 const sbCount = (id) => (SB_SEED[id] || []).length + (sbStore.mine[id] || []).length;
 
 function sbDrawList() {
+  drawSentenceHead();
   $('sbQ').placeholder = t('문법 표현 검색 — 「-길래」, 이유, 추측…',
                            'Search a grammar point — meaning or form');
   const q = ($('sbQ').value || '').trim().toLowerCase();
+  const level = learnLv.sentence;
   /* 갈래 이름도 검색에 넣는다 — 학생은 「-길래」가 아니라 "이유" 로 찾는다.
      갈래는 인자로 받는다. SB_CATS 안의 점에는 갈래가 안 달려 있다
      (달린 건 SB_POINTS 쪽이다). 여기서 p.cat 을 보면 조용히 터진다. */
@@ -6619,7 +6999,7 @@ function sbDrawList() {
     (isEn() ? c.en : c.ko).toLowerCase().includes(q);
 
   const html = SB_CATS.map((c) => {
-    const pts = c.points.filter((p) => hit(p, c));
+    const pts = c.points.filter((p) => sentenceTier({ ...p, cat: c }) === level && hit(p, c));
     if (!pts.length) return '';
     return (
       '<div class="sb-cat">' +
@@ -6646,6 +7026,7 @@ function sbDrawList() {
 function sbDrawDetail() {
   const p = sbPoint && sbFind(sbPoint);
   if (!p) return;
+  if (sentenceTier(p) !== learnLv.sentence) { sbShow(null); return; }
   const more = SB_MORE[p.id] || ['', '', '', ''];
   const posts = sbPosts(p.id);
 
@@ -6762,7 +7143,28 @@ $('sbDetail').addEventListener('change', (ev) => {
 });
 
 function drawCourses() {
-  $('lcList').innerHTML = COURSES.map((c) => {
+  const level = learnLv.courses;
+  const rows = levelCourses(level);
+  const allLessons = rows.reduce((a, c) => a + c.lessons.length, 0);
+  const doneLessons = rows.reduce((a, c) => a + courseDone(c), 0);
+  const exCount = rows.reduce((a, c) => a + c.lessons.reduce((n, l) => n + lessonExercises(l).length, 0), 0);
+  $('lcLevel').innerHTML = renderLevelSwitch('courses');
+  $('lcIntro').textContent = ({
+    beginner: t('읽기와 첫 문장을 가장 먼저 잡습니다. 한글, 생존 표현, 문장 뼈대를 여기서 끝냅니다.', 'Start with Hangul, survival phrases, and the bones of Korean sentences.'),
+    intermediate: t('이유, 추측, 돌발 상황처럼 말맛이 달라지는 지점을 중급 코스로 묶었습니다.', 'Intermediate focuses on cause, guesswork, and the turns that make Korean feel natural.'),
+    advanced: t('반응 표현, 격식, 미묘한 차이를 가르는 고급 문법을 한곳에 모았습니다.', 'Advanced gathers the grammar that separates nuance, register, and reaction.'),
+  })[level];
+  $('lcSummary').innerHTML = renderLearnSummary([
+    { k: t('코스', 'Courses'), v: rows.length, s: t('현재 단계에서 열어 볼 길', 'Available paths in this level') },
+    { k: t('레슨', 'Lessons'), v: doneLessons, s: `${allLessons} ${t('개 중 완료', 'completed total')}` },
+    { k: t('문제', 'Exercises'), v: exCount, s: t('설명 속에 섞여 있는 연습 문제', 'Exercises mixed into the lessons') },
+  ]);
+  drawCourseRoadmap(level, rows);
+  if (!rows.length) {
+    $('lcList').innerHTML = `<div class="learn-empty">${esc(t('이 단계 코스는 곧 채울게요.', 'Courses for this level are coming soon.'))}</div>`;
+    return;
+  }
+  $('lcList').innerHTML = rows.map((c) => {
     const n = courseDone(c), all = c.lessons.length;
     const pct = Math.round((n / all) * 100);
     const need = c.needs ? COURSES.find((x) => x.id === c.needs) : null;
@@ -6779,7 +7181,7 @@ function drawCourses() {
         '<div class="lc-top">' +
           `<div class="lc-mark">${esc(c.emoji)}</div>` +
           '<div style="min-width:0">' +
-            `<div class="lc-lv">${esc(c.level)}</div>` +
+            `<div class="lc-lv">${esc(courseLabel(c))}</div>` +
             `<div class="lc-title">${esc(c.title)}</div>` +
             `<div class="lc-tag">${esc(c.tagline)}</div>` +
           '</div>' +
@@ -6840,7 +7242,27 @@ $('llBack').addEventListener('click', () => {
 $('llRows').addEventListener('click', (ev) => {
   const b = ev.target.closest('[data-lesson]');
   if (!b) return;
+  lsReturnSection = 'courses';
   startLesson(lsCourse, lsCourse.lessons.find((l) => l.id === b.dataset.lesson));
+});
+$('lqList').addEventListener('click', (ev) => {
+  const mixed = ev.target.closest('[data-quiz-level]');
+  if (mixed) {
+    const level = mixed.dataset.quizLevel;
+    const lesson = buildMixedQuiz(level);
+    lsReturnSection = 'quiz';
+    startLesson({ id:`quiz-course-${level}`, title:t(`${learnLevelText(level)} 문제만 풀기`, `${learnLevelText(level)} quiz`), lessons:[lesson] }, lesson);
+    return;
+  }
+  const one = ev.target.closest('[data-quiz-course][data-quiz-lesson]');
+  if (!one) return;
+  const course = COURSES.find((c) => c.id === one.dataset.quizCourse);
+  const lesson = course?.lessons.find((l) => l.id === one.dataset.quizLesson);
+  if (!course || !lesson) return;
+  const quizLesson = { ...lesson, blocks: lessonExercises(lesson) };
+  const quizCourse = { id: `${course.id}-quiz`, title: t(`${course.title} · 문제만`, `${course.title} · Quiz only`), lessons:[quizLesson] };
+  lsReturnSection = 'quiz';
+  startLesson(quizCourse, quizLesson);
 });
 
 const isEx = (b) => ['choice','listen','type','order','pair','speak','cloze'].includes(b.t);
@@ -7503,14 +7925,15 @@ window.lsLeave = function () {
 async function finishLesson() {
   const idx = lsCourse.lessons.indexOf(lsLesson);
   const next = lsCourse.lessons[idx + 1] || null;
-  const first = !doneSet.has(lsLesson.id);
+  const trackProgress = lsLesson.trackProgress !== false;
+  const first = trackProgress ? !doneSet.has(lsLesson.id) : false;
 
-  doneSet.add(lsLesson.id);
+  if (trackProgress) doneSet.add(lsLesson.id);
 
   // 진도는 남기되, 못 남겨도 화면은 그대로 간다. 다 풀고 나서
   // "저장 실패" 를 보는 것만큼 김빠지는 일이 없다.
   const { data: { session } } = await sb.auth.getSession();
-  if (session) {
+  if (trackProgress && session) {
     try {
       await sb.from('lesson_progress')
         .upsert({ user_id: session.user.id, lesson_id: lsLesson.id, done_at: new Date().toISOString() },
@@ -7524,12 +7947,14 @@ async function finishLesson() {
 
   $('lsBlocks').insertAdjacentHTML('beforeend',
     '<div class="ls-done">' +
-      `<div class="ls-done-big">${first ? '🧀' : '👏'}</div>` +
-      `<div class="ls-done-t">${first ? t('레슨 완료','Lesson complete') : t('다시 한 번 완벽하게','Nailed it again')}</div>` +
+      `<div class="ls-done-big">${trackProgress ? (first ? '🧀' : '👏') : '⚡'}</div>` +
+      `<div class="ls-done-t">${trackProgress ? (first ? t('레슨 완료','Lesson complete') : t('다시 한 번 완벽하게','Nailed it again')) : t('퀴즈 완료','Quiz complete')}</div>` +
       `<p class="ls-done-s">${esc(lsLesson.title)}</p>` +
-      (session
+      (trackProgress && session
         ? (n > 1 ? `<div class="ls-streak">🔥 ${t(`${n}일 연속`, `${n}-day streak`)}</div>` : '')
-        : `<p class="ls-done-s" style="color:var(--ink-3)">${t('로그인하면 진도가 저장돼요.','Sign in and your progress is saved.')}</p>`) +
+        : (trackProgress
+            ? `<p class="ls-done-s" style="color:var(--ink-3)">${t('로그인하면 진도가 저장돼요.','Sign in and your progress is saved.')}</p>`
+            : `<p class="ls-done-s" style="color:var(--ink-3)">${t('퀴즈 모드는 진도 대신 감을 올리는 데 집중합니다.','Quiz mode focuses on reps, not progress tracking.')}</p>`)) +
       // ── Cloze 복습 1분 챌린지 (틀린 문제가 있을 때만 노출) ──
       (wrongCount > 0 ?
         `<div class="ls-challenge">
@@ -7545,12 +7970,12 @@ async function finishLesson() {
   const bt = $('lsGoChallenge');
   if (bt) bt.addEventListener('click', startChallenge);
 
-  $('lsNext').textContent = next ? t('다음 레슨 →', 'Next lesson →') : t('코스 목록으로', 'Back to the course');
+  $('lsNext').textContent = next ? t('다음 레슨 →', 'Next lesson →') : (lsReturnSection === 'quiz' ? t('퀴즈 목록으로', 'Back to quiz') : t('코스 목록으로', 'Back to the course'));
   $('lsNextBar').classList.remove('hidden');
   $('lsNext').onclick = () => {
     if (lsChallengeTimer) { clearInterval(lsChallengeTimer); lsChallengeTimer = 0; }
     if (next) startLesson(lsCourse, next);
-    else backToCourses();
+    else backFromLesson();
   };
   setTimeout(() => $('lsBlocks').lastElementChild?.scrollIntoView({ behavior:'smooth', block:'center' }), 120);
 }
@@ -7660,12 +8085,12 @@ function endChallenge() {
   $('lsCount').textContent = `Score ${lsChallengeScore}`;
   const btR = $('lsRetryCh'), btB = $('lsBackCourse');
   if (btR) btR.addEventListener('click', startChallenge);
-  if (btB) btB.addEventListener('click', backToCourses);
+  if (btB) btB.addEventListener('click', backFromLesson);
   $('lsNextBar').classList.remove('hidden');
   setTimeout(() => $('lsBlocks').lastElementChild?.scrollIntoView({ behavior:'smooth', block:'center' }), 120);
 }
 
-$('lsExit').addEventListener('click', backToCourses);
+$('lsExit').addEventListener('click', backFromLesson);
 
 $('learnBtn').addEventListener('click', async () => {
   if (showing('learnView') || showing('lessonView')) return open('home');
