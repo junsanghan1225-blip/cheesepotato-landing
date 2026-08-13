@@ -21,12 +21,14 @@
    않으려면 `node tools/check-sentences.mjs` 가 잡아 준다.
 
    단계별로 파일을 갈랐다. 이 파일의 22갈래 85표현이 고급 교육과정 그대로이고
-   초급은 sentences-beginner.js 에 있다. 한 파일에 다 넣으면 초급 한 줄을
-   고치다 고급을 깨도 모른다 — 코스 자료를 courses*.js 로 가른 것과 같다.
+   초급은 sentences-beginner.js, 중급은 sentences-intermediate.js 에 있다.
+   한 파일에 다 넣으면 초급 한 줄을 고치다 고급을 깨도 모른다 — 코스 자료를
+   courses*.js 로 가른 것과 같다.
 
-   **갈래 id 는 단계를 넘어 이어 붙인다.** 고급 1~22, 초급 23~47.
+   **갈래 id 는 단계를 넘어 이어 붙인다.** 고급 1~22, 초급 23~47, 중급 48~73.
    화면에 보이는 번호는 no(그 단계 교육과정의 제 번호)다. */
 import { BEGINNER_CATS } from './sentences-beginner.js';
+import { INTERMEDIATE_CATS } from './sentences-intermediate.js';
 
 const ADVANCED_CATS = [
   { id: 1, ko: "선택을 나타낼 때", en: "Expressing Choices", points: [
@@ -330,9 +332,9 @@ const ADVANCED_CATS = [
   ] },
 ];
 
-/* 화면이 읽는 것은 이것 하나다. 초급이 앞, 고급이 뒤 — 목록은 단계로
+/* 화면이 읽는 것은 이것 하나다. 초급·중급·고급 차례 — 목록은 단계로
    걸러 보여 주므로 섞이지 않는다. */
-export const SB_CATS = [...BEGINNER_CATS, ...ADVANCED_CATS];
+export const SB_CATS = [...BEGINNER_CATS, ...INTERMEDIATE_CATS, ...ADVANCED_CATS];
 
 /* 표현마다 더 알아 둘 것. [형태, 자주 함께 쓰는 말, 주의할 점, 예문 하나 더]
    고급은 아래에 따로 적혀 있고, 초급은 표현 옆의 more 를 걷어 온다.

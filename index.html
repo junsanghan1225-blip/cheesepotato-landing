@@ -4900,6 +4900,14 @@ window.cpOpen = function (view) {
   if (view === 'account') loadAccount();
   if (view === 'library') loadLibrary();
   if (view === 'dashboard') loadDashboard();
+  /* 배우기는 헤더 버튼이 open() 말고 진도 읽기와 갈래 그리기를 더 한다.
+     그 둘이 빠지면 갈래 카드가 하나도 없는 빈 배우기가 열린다.
+     먼저 그려 두고 진도를 받아 다시 그린다 — 네트워크를 기다리는 동안
+     빈 화면을 보이지 않으려는 것이다. 진도를 못 읽어도 화면은 나온다. */
+  if (view === 'learn') {
+    backToSections();
+    loadProgress().then(backToSections, () => {});
+  }
 };
 
 const showing = (id) => !$(id).classList.contains('hidden');
