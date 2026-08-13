@@ -18,9 +18,17 @@
    맞춰야 했다. 지금은 여기 하나뿐이다.
 
    lv 를 빠뜨린 표현은 중급으로 떨어진다(화면에서 사라지지 않게). 놓치지
-   않으려면 `node tools/check-sentences.mjs` 가 잡아 준다. */
+   않으려면 `node tools/check-sentences.mjs` 가 잡아 준다.
 
-export const SB_CATS = [
+   단계별로 파일을 갈랐다. 이 파일의 22갈래 85표현이 고급 교육과정 그대로이고
+   초급은 sentences-beginner.js 에 있다. 한 파일에 다 넣으면 초급 한 줄을
+   고치다 고급을 깨도 모른다 — 코스 자료를 courses*.js 로 가른 것과 같다.
+
+   **갈래 id 는 단계를 넘어 이어 붙인다.** 고급 1~22, 초급 23~47.
+   화면에 보이는 번호는 no(그 단계 교육과정의 제 번호)다. */
+import { BEGINNER_CATS } from './sentences-beginner.js';
+
+const ADVANCED_CATS = [
   { id: 1, ko: "선택을 나타낼 때", en: "Expressing Choices", points: [
     { id: "1-1", lv: "advanced", name: "-느니",
       desc: "앞의 일을 하기보다 뒤의 일을 택하는 편이 낫다는 뜻. 뒤에 흔히 「차라리」가 오고 「-는 게 낫다, -겠다」로 끝맺습니다.",
@@ -322,8 +330,20 @@ export const SB_CATS = [
   ] },
 ];
 
-/* 표현마다 더 알아 둘 것. [형태, 자주 함께 쓰는 말, 주의할 점, 예문 하나 더] */
+/* 화면이 읽는 것은 이것 하나다. 초급이 앞, 고급이 뒤 — 목록은 단계로
+   걸러 보여 주므로 섞이지 않는다. */
+export const SB_CATS = [...BEGINNER_CATS, ...ADVANCED_CATS];
+
+/* 표현마다 더 알아 둘 것. [형태, 자주 함께 쓰는 말, 주의할 점, 예문 하나 더]
+   고급은 아래에 따로 적혀 있고, 초급은 표현 옆의 more 를 걷어 온다.
+   새로 쓰는 단계는 more 쪽을 쓴다 — 따로 적으면 표현과 자료가 어긋나도
+   눈에 안 띈다. */
+const MORE_FROM_POINTS = Object.fromEntries(
+  SB_CATS.flatMap((c) => c.points.filter((p) => p.more).map((p) => [p.id, p.more]))
+);
+
 export const SB_MORE = {
+  ...MORE_FROM_POINTS,
   "1-1": ["동사 + -느니", "차라리 · -는 게 낫다 · -겠다",
     "과거 「-았/었-」과 함께 쓰지 않아요.", "이렇게 기다리느니 그냥 걸어가는 게 낫겠어요."],
   "1-2": ["동사 + -(으)ㄹ 바에야", "차라리 · 아예",
