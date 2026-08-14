@@ -1933,6 +1933,39 @@ body.nav-open { overflow:hidden; }
 .qz-choice.wrong { border-color:var(--red);   background:rgba(196,61,52,.07); color:var(--red); }
 .qz-choice:disabled { cursor:default; }
 
+/* ══ TOPIK 유형 연습 ═════════════════════════════════════════
+   지문이 주인공인 화면이다. 안내문과 순서 배열은 줄바꿈이 뜻을 나르므로
+   pre-line 으로 둔다 — 한 줄로 이어 붙으면 표가 표가 아니게 된다. */
+.tq-passage {
+  background:var(--surface); border:1px solid var(--line-2); border-left:3px solid var(--orange);
+  border-radius:0 var(--r) var(--r) 0; padding:18px 20px; margin-bottom:18px;
+  font-size:16px; line-height:1.95; color:var(--ink); white-space:pre-line; word-break:keep-all;
+}
+.tq-question { font-size:15.5px; font-weight:700; color:var(--ink); line-height:1.7; margin-bottom:14px; word-break:keep-all; }
+.tq-choices { display:grid; gap:9px; }
+.tq-choices .qz-choice { text-align:left; font-size:15.5px; padding:15px 17px; line-height:1.6; word-break:keep-all; }
+.tq-num { display:inline-block; width:22px; color:var(--ink-3); font-weight:700; font-variant-numeric:tabular-nums; }
+.tq-why {
+  margin-top:14px; padding:13px 16px; font-size:14px; line-height:1.75; color:var(--ink-2);
+  background:var(--tint); border-left:3px solid var(--orange); border-radius:0 var(--r) var(--r) 0;
+  word-break:keep-all;
+}
+.tq-chip {
+  display:inline-flex; align-items:center; gap:5px; padding:4px 9px; font-size:12px; font-weight:700;
+  background:#FFF4EA; border:1px solid rgba(255,138,61,.3); border-radius:999px; color:var(--orange-deep);
+}
+.tq-note {
+  margin-top:22px; font-size:12px; line-height:1.7; color:var(--ink-3);
+  padding-left:12px; border-left:2px solid var(--line-2); word-break:keep-all;
+}
+.tq-wrongs { display:grid; gap:10px; margin-top:20px; text-align:left; }
+.tq-wrong {
+  background:var(--surface); border:1px solid var(--line-2); border-radius:var(--r); padding:14px 16px;
+}
+.tq-wrong-p { font-size:13px; color:var(--ink-3); line-height:1.7; white-space:pre-line; word-break:keep-all; }
+.tq-wrong-a { font-size:14.5px; color:var(--green); font-weight:700; margin-top:6px; word-break:keep-all; }
+.tq-wrong-w { font-size:12.5px; color:var(--ink-3); line-height:1.65; margin-top:6px; word-break:keep-all; }
+
 /* ══ 숫자 읽기 ═══════════════════════════════════════════════
    보기가 둘뿐이라 한 줄에 나란히 놓는다. 셋 이상이면 세로로 쌓아야 하지만
    둘은 나란히 놓아야 **견주기**가 된다 — 이 게임이 가르치는 것이 두 읽기의
@@ -2871,6 +2904,53 @@ body.nav-open { overflow:hidden; }
             <button class="wb-out" id="llBack" type="button" data-en="← All courses">← 코스 목록</button>
           </div>
           <div class="bd"><div id="llRows"></div></div>
+        </div>
+      </div>
+
+      <!-- 갈래 : TOPIK 유형 연습 -->
+      <div id="tqWrap" class="hidden">
+        <div id="tqPick">
+          <div class="learn-head">
+            <div id="tqLevel"></div>
+            <p id="tqIntro" class="learn-copy"></p>
+            <div id="tqSummary" class="learn-summary"></div>
+          </div>
+          <div id="tqList" class="lc-grid"></div>
+          <p class="tq-note" id="tqNote"></p>
+        </div>
+
+        <div id="tqPlay" class="hidden">
+          <div class="bd-sec-title">
+            <h3 id="tqPlayTitle"></h3>
+            <button class="wb-out" id="tqQuit" type="button"></button>
+          </div>
+          <div class="qz-top">
+            <div class="qz-time"><span class="qz-time-fill" id="tqFill"></span></div>
+            <div class="qz-meta">
+              <span class="qz-clock" id="tqCount">0 / 0</span>
+              <span class="qz-score" id="tqScore">0</span>
+            </div>
+          </div>
+          <div class="tq-passage hidden" id="tqPassage"></div>
+          <p class="tq-question" id="tqQuestion"></p>
+          <div class="tq-choices" id="tqChoices"></div>
+          <div class="tq-why hidden" id="tqWhy"></div>
+          <div style="text-align:center; margin-top:18px;">
+            <button class="pt-next hidden" id="tqNext" type="button"></button>
+          </div>
+        </div>
+
+        <div id="tqOver" class="hidden">
+          <div class="claw-over">
+            <div class="claw-over-emoji" id="tqOverEmoji">📖</div>
+            <div class="claw-over-score" id="tqOverScore">0</div>
+            <p class="claw-over-line" id="tqOverLine"></p>
+            <div class="tq-wrongs" id="tqWrongs"></div>
+            <div class="claw-over-btns">
+              <button class="pt-next" id="tqAgain" type="button"></button>
+              <button class="pt-next" id="tqBack" type="button"></button>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -4905,6 +4985,8 @@ import * as XLSX from 'https://esm.sh/xlsx@0.18.5';
 // 커리큘럼. 내용과 엔진을 갈라 두면 글을 고치다 화면을 깨지 않는다.
 import { COURSES } from './courses.js';
 import { SB_CATS, SB_MORE, SB_SEED } from './sentences.js';
+// TOPIK 유형 연습문제. 기출이 아니라 자체 제작이다.
+import { TOPIK_READING } from './topik.js';
 // 숫자 게임의 읽기와 문제 만들기. 화면을 모르는 순수 계산이라 따로 뒀다.
 import { makeRound } from './numbers.js';
 
@@ -5486,8 +5568,9 @@ function syncLang() {
   // 숨김 여부가 아니라 내용 유무로 판단한다 — 숨겨져 있을 때 건너뛰면
   // 다시 열었을 때 예전 언어가 그대로 남는다.
   if ($('dashBody').childElementCount && rows.length) renderDashboard();
-  // 숫자 게임도 통째로 자바스크립트가 넣은 글이다.
+  // 숫자 게임과 TOPIK 연습도 통째로 자바스크립트가 넣은 글이다.
   numSyncLang();
+  tqSyncLang();
   // 자료마당의 받기·삭제 버튼 글자도 같이 바꾼다.
   if (libRows.length) renderLibrary();
   if (!pendingWords) $('libFileLabel').textContent = t('엑셀(.xlsx) 또는 .csv 파일 고르기', 'Choose an .xlsx or .csv file');
@@ -6734,6 +6817,15 @@ const LEARN_SECTIONS = [
              en: 'Each lesson mixes what to read with what to try. Start here if you are new.' },
   },
   {
+    id: 'topik', emoji: '📖', ready: true, pane: 'tqWrap',
+    lv:    { ko: 'TOPIK',           en: 'TOPIK' },
+    title: { ko: 'TOPIK 유형 연습',  en: 'TOPIK-style practice' },
+    tag:   { ko: '급수별 읽기 문제를 유형으로 나눠서',
+             en: 'Reading questions by level and question type' },
+    blurb: { ko: '지문을 읽고 보기 넷에서 고릅니다. 틀리면 왜 그런지 바로 알려 줘요.',
+             en: 'Read a passage, pick from four. A wrong answer tells you why.' },
+  },
+  {
     id: 'sentence', emoji: '✍️', ready: true, pane: 'sbWrap',
     lv:    { ko: '예문',            en: 'SENTENCES' },
     title: { ko: '예문 만들기',      en: 'Build a sentence' },
@@ -6879,6 +6971,226 @@ const lessonExercises = (lesson) => lesson.blocks.filter(isEx);
    `node tools/check-sentences.mjs` 가 잡는다. */
 const sentenceTier = (p) =>
   (p.lv === 'beginner' || p.lv === 'intermediate' || p.lv === 'advanced') ? p.lv : 'intermediate';
+
+/* ══ TOPIK 유형 연습 ═════════════════════════════════════════
+   **기출이 아니다.** 유형만 따라 한 자체 제작 문제이고, 화면에도 그렇게
+   적어 둔다. 공식 시험을 사칭하는 것처럼 보이면 저작권보다 스토어 정책에
+   먼저 걸린다.
+
+   다른 갈래와 달리 초급·중급·고급이 아니라 **급수(1급·2급)** 로 나눈다.
+   TOPIK 을 준비하는 사람은 어차피 급수로 생각하고, 지금 자료가 TOPIK I
+   뿐이라 초급·중급·고급으로 나누면 두 탭이 빈다.
+
+   유형별로 골라 풀 수 있게 한 것은, 못 하는 유형이 사람마다 다르기
+   때문이다. 순서 배열만 계속 틀리는 사람에게 서른 문제를 통째로 다시
+   내밀면 그 사람은 이미 맞히는 문제를 스물다섯 개 더 푼다. */
+const TQ_TYPE_TX = {
+  theme:  { ko:'무엇에 대한 이야기', en:'What is it about' },
+  blank:  { ko:'빈칸 채우기',        en:'Fill in the blank' },
+  notice: { ko:'안내문 읽기',        en:'Read the notice' },
+  detail: { ko:'내용 일치',          en:'Matching the text' },
+  main:   { ko:'중심 생각',          en:'Main idea' },
+  order:  { ko:'순서 배열',          en:'Put in order' },
+};
+const TQ_TYPE_ORDER = ['theme', 'blank', 'notice', 'detail', 'main', 'order'];
+const TQ_GRADES = [1, 2];
+const TQ_KEY = 'cp-topik-grade';
+
+let tqGrade = 1;
+try { const g = parseInt(localStorage.getItem(TQ_KEY), 10); if (TQ_GRADES.includes(g)) tqGrade = g; } catch (e) {}
+let tqRound = [], tqIdx = 0, tqScore = 0, tqWrongs = [], tqBusy = false, tqTitle = '';
+
+const tqOf = (grade) => TOPIK_READING.filter((q) => q.grade === grade);
+const tqPanel = (name) => ['tqPick', 'tqPlay', 'tqOver'].forEach((k) => $(k).classList.toggle('hidden', k !== name));
+const tqBestKey = (g) => `cp-topik-best-${g}`;
+
+/* 고르기 화면 — 급수, 통계, 유형별 카드. */
+function drawTopik() {
+  const rows = tqOf(tqGrade);
+  const byType = {};
+  rows.forEach((q) => { (byType[q.type] = byType[q.type] || []).push(q); });
+
+  $('tqLevel').innerHTML =
+    '<div class="pt-lv-row">' +
+      `<div class="diff-seg tq-lv" role="radiogroup" aria-label="${t('급수', 'Level')}">` +
+        TQ_GRADES.map((g) =>
+          `<label><input type="radio" name="tqGrade" value="${g}"${g === tqGrade ? ' checked' : ''}><span>${esc(t(`${g}급`, `Level ${g}`))}</span></label>`
+        ).join('') +
+      '</div>' +
+      `<div class="pt-lv-desc">${esc(tqGrade === 1
+        ? t('가장 기초. 짧은 글과 안내문을 읽고 고릅니다.', 'The basics — short texts and notices.')
+        : t('생활에서 겪는 상황. 글이 조금 길어집니다.', 'Everyday situations, with slightly longer texts.'))}</div>` +
+    '</div>';
+  $('tqIntro').textContent = t(
+    '지문을 읽고 보기 넷 중에서 고릅니다. 틀리면 왜 그런지 바로 알려 줘요.',
+    'Read the passage and pick one of four. A wrong answer tells you why right away.');
+  $('tqSummary').innerHTML = renderLearnSummary([
+    { k: t('문제', 'Questions'), v: rows.length, s: t('이 급수에서 풀 수 있는 수', 'Available at this level') },
+    { k: t('유형', 'Types'), v: Object.keys(byType).length, s: t('골라서 연습할 수 있어요', 'Practise one type at a time') },
+    { k: t('최고', 'Best'), v: `${gameBestRead(tqBestKey(tqGrade))} / ${rows.length}`, s: t('한 번에 다 풀었을 때', 'Full run, all questions') },
+  ]);
+
+  const card = (key, emoji, title, tag, blurb, n) =>
+    `<button class="lc-card lq-card" data-tq="${esc(key)}">` +
+      '<div class="lc-top">' +
+        `<div class="lc-mark">${emoji}</div>` +
+        '<div style="min-width:0">' +
+          `<div class="lc-lv">${esc(t(`${tqGrade}급`, `Level ${tqGrade}`))}</div>` +
+          `<div class="lc-title">${esc(title)}</div>` +
+          `<div class="lc-tag">${esc(tag)}</div>` +
+        '</div>' +
+      '</div>' +
+      `<p class="lc-blurb">${esc(blurb)}</p>` +
+      `<div class="lq-meta"><span class="lq-chip">${esc(t(`${n}문제`, `${n} questions`))}</span></div>` +
+    '</button>';
+
+  if (!rows.length) {
+    $('tqList').innerHTML = `<div class="learn-empty">${esc(t('이 급수 문제는 아직 채우는 중이에요.', 'Questions for this level are still being written.'))}</div>`;
+  } else {
+    $('tqList').innerHTML =
+      card('all', '📖', t('전체 풀기', 'Full run'), t('유형을 섞어서 처음부터 끝까지', 'Every type, mixed'),
+           t('실제 시험처럼 여러 유형이 번갈아 나옵니다.', 'Types come in mixed order, like the real thing.'), rows.length) +
+      TQ_TYPE_ORDER.filter((k) => byType[k]).map((k) =>
+        card(k, '🔎', t(TQ_TYPE_TX[k].ko, TQ_TYPE_TX[k].en),
+             t('이 유형만 이어서', 'This type only'),
+             t('한 유형만 모아 풀면 약한 곳이 빨리 드러납니다.', 'Drilling one type shows you what is weak.'),
+             byType[k].length)
+      ).join('');
+  }
+  /* 사칭으로 보이지 않게 화면에 적어 둔다. 자료 파일에만 적어 두면
+     그 파일을 읽는 사람만 알고 학습자는 모른다. */
+  $('tqNote').textContent = t(
+    'TOPIK 유형을 따라 만든 자체 제작 연습문제입니다. 기출문제가 아니며 국립국제교육원과 관계가 없습니다.',
+    'These are original practice questions written in the TOPIK format. They are not past exam papers and are not affiliated with NIIED.');
+  tqPanel('tqPick');
+}
+
+function tqStart(key) {
+  const rows = tqOf(tqGrade);
+  const picked = key === 'all' ? rows : rows.filter((q) => q.type === key);
+  if (!picked.length) return;
+  // 문제 순서를 섞는다. 늘 같은 차례로 나오면 두 번째 판부터 답을 외운다.
+  tqRound = gameShuffle(picked.slice());
+  tqIdx = 0; tqScore = 0; tqWrongs = []; tqBusy = false;
+  tqTitle = key === 'all'
+    ? t(`${tqGrade}급 전체 풀기`, `Level ${tqGrade} — full run`)
+    : t(`${tqGrade}급 · ${TQ_TYPE_TX[key].ko}`, `Level ${tqGrade} · ${TQ_TYPE_TX[key].en}`);
+  tqPanel('tqPlay');
+  tqDraw();
+}
+
+function tqMeta() {
+  $('tqPlayTitle').textContent = tqTitle;
+  $('tqQuit').textContent = t('← 그만두기', '← Quit');
+  $('tqCount').textContent = `${tqIdx} / ${tqRound.length}`;
+  $('tqScore').textContent = String(tqScore);
+  $('tqFill').style.width = `${(tqIdx / tqRound.length) * 100}%`;
+}
+
+function tqDraw() {
+  const q = tqRound[tqIdx];
+  if (!q) return tqFinish();
+  tqMeta();
+  $('tqPassage').classList.toggle('hidden', !q.passage);
+  $('tqPassage').textContent = q.passage || '';
+  $('tqQuestion').textContent = q.question;
+  $('tqWhy').classList.add('hidden');
+  $('tqNext').classList.add('hidden');
+
+  const box = $('tqChoices');
+  box.textContent = '';
+  /* 보기 순서는 섞지 않는다. 자료에서 정답 자리를 넷에 고루 흩어 두었고
+     (tools/check-topik.mjs 가 지킨다), 순서 배열 유형은 보기 자체가
+     차례라 섞으면 읽기가 어지러워진다. */
+  q.options.forEach((text, i) => {
+    const b = document.createElement('button');
+    b.type = 'button';
+    b.className = 'qz-choice';
+    b.innerHTML = `<span class="tq-num">${i + 1}</span>${esc(text)}`;
+    b.addEventListener('click', () => tqPick(i, b));
+    box.appendChild(b);
+  });
+  tqBusy = false;
+  window.scrollTo({ top: 0, behavior: 'auto' });
+}
+
+function tqPick(i, btn) {
+  if (tqBusy) return;
+  tqBusy = true;
+  const q = tqRound[tqIdx];
+  const right = i === q.answer;
+  const all = [...$('tqChoices').children];
+  all.forEach((b) => { b.disabled = true; });
+
+  if (right) { tqScore++; btn.classList.add('right'); }
+  else {
+    tqWrongs.push(q);
+    btn.classList.add('wrong');
+    all[q.answer]?.classList.add('right');
+  }
+  /* 해설은 맞았을 때도 보여 준다. 넷 중 하나라 찍어서 맞히는 사람이 있고,
+     그 사람이 다음 판 같은 유형에서 틀린다. */
+  $('tqWhy').innerHTML =
+    `<span class="tq-chip">${esc(right ? t('정답', 'Correct') : t('정답은 ' + (q.answer + 1) + '번', 'Answer: ' + (q.answer + 1)))}</span> ` +
+    esc(q.why);
+  $('tqWhy').classList.remove('hidden');
+
+  tqIdx++;
+  tqMeta();
+  $('tqNext').textContent = tqIdx < tqRound.length ? t('다음 문제 →', 'Next →') : t('결과 보기 →', 'See results →');
+  $('tqNext').classList.remove('hidden');
+}
+
+function tqFinish() {
+  const n = tqRound.length;
+  // 최고 기록은 전체를 다 푼 판에만 남긴다. 유형별 판과 견주면 뜻이 없다.
+  if (n === tqOf(tqGrade).length) {
+    gameBest(tqBestKey(tqGrade), tqScore);
+  }
+  const pct = tqScore / n;
+  $('tqOverEmoji').textContent = pct === 1 ? '🏆' : pct >= 0.7 ? '🎉' : '📖';
+  $('tqOverScore').textContent = `${tqScore} / ${n}`;
+  $('tqOverLine').textContent = tqWrongs.length
+    ? t(`틀린 ${tqWrongs.length}문제를 아래에 모았어요.`, `The ${tqWrongs.length} you missed are below.`)
+    : t('전부 맞혔어요.', 'All correct.');
+  $('tqWrongs').innerHTML = tqWrongs.map((q) =>
+    '<div class="tq-wrong">' +
+      `<div class="lc-lv">${esc(t(TQ_TYPE_TX[q.type].ko, TQ_TYPE_TX[q.type].en))}</div>` +
+      (q.passage ? `<div class="tq-wrong-p">${esc(q.passage)}</div>` : '') +
+      `<div class="tq-wrong-a">${esc(`${q.answer + 1}. ${q.options[q.answer]}`)}</div>` +
+      `<div class="tq-wrong-w">${esc(q.why)}</div>` +
+    '</div>').join('');
+  $('tqAgain').textContent = t('다시 풀기', 'Try again');
+  $('tqBack').textContent = t('다른 유형 고르기', 'Pick another type');
+  tqPanel('tqOver');
+  window.scrollTo({ top: 0, behavior: 'auto' });
+}
+
+$('tqLevel').addEventListener('change', (ev) => {
+  const r = ev.target.closest('input[name=tqGrade]');
+  if (!r) return;
+  const g = parseInt(r.value, 10);
+  if (!TQ_GRADES.includes(g)) return;
+  tqGrade = g;
+  try { localStorage.setItem(TQ_KEY, String(g)); } catch (e) {}
+  drawTopik();
+});
+$('tqList').addEventListener('click', (ev) => {
+  const b = ev.target.closest('[data-tq]');
+  if (b) tqStart(b.dataset.tq);
+});
+$('tqNext').addEventListener('click', tqDraw);
+$('tqQuit').addEventListener('click', drawTopik);
+$('tqAgain').addEventListener('click', () => tqStart(tqRound.length === tqOf(tqGrade).length ? 'all' : tqRound[0].type));
+$('tqBack').addEventListener('click', drawTopik);
+
+function tqSyncLang() {
+  if ($('tqWrap').classList.contains('hidden')) return;
+  if (!$('tqPick').classList.contains('hidden')) drawTopik();
+  else if (!$('tqOver').classList.contains('hidden')) tqFinish();
+  else { tqMeta(); $('tqNext').textContent = tqIdx < tqRound.length ? t('다음 문제 →', 'Next →') : t('결과 보기 →', 'See results →'); }
+}
+
 function drawSentenceHead() {
   const level = learnLv.sentence;
   const all = SB_POINTS.filter((p) => sentenceTier(p) === level);
@@ -6970,6 +7282,7 @@ function openSection(id) {
   if (s.ready && s.pane) {
     $(s.pane).classList.remove('hidden');
     if (s.id === 'courses') drawCourses();
+    if (s.id === 'topik') drawTopik();
     if (s.id === 'sentence') {
       drawSentenceHead();
       const cur = sbPoint ? sbFind(sbPoint) : null;
