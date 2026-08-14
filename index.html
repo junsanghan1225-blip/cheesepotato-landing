@@ -2874,16 +2874,6 @@ body.nav-open { overflow:hidden; }
         </div>
       </div>
 
-      <!-- 갈래 : 문제만 풀기 -->
-      <div id="lqWrap" class="hidden">
-        <div class="learn-head">
-          <div id="lqLevel"></div>
-          <p id="lqIntro" class="learn-copy"></p>
-          <div id="lqSummary" class="learn-summary"></div>
-        </div>
-        <div id="lqList" class="lc-grid"></div>
-      </div>
-
       <!-- 갈래 : 예문 만들기 -->
       <div id="sbWrap" class="hidden">
         <div class="learn-head">
@@ -6510,7 +6500,6 @@ let doneSet = new Set();     // 끝낸 lesson id
 let doneDays = [];           // 끝낸 날짜(YYYY-MM-DD) 내림차순 — 연속일 계산용
 let lsCourse = null, lsLesson = null;
 let lsQueue = [], lsSolved = 0, lsTotal = 0;
-let lsReturnSection = 'courses';
 
 /* ── Cloze 게임 상태 (Clozemaster Vibe) ── */
 let lsHp = 3;                 // 하트 3개
@@ -6745,15 +6734,6 @@ const LEARN_SECTIONS = [
              en: 'Each lesson mixes what to read with what to try. Start here if you are new.' },
   },
   {
-    id: 'quiz', emoji: '⚡', ready: true, pane: 'lqWrap',
-    lv:    { ko: '퀴즈',            en: 'QUIZ' },
-    title: { ko: '문제만 풀기',      en: 'Just the questions' },
-    tag:   { ko: '설명은 건너뛰고 문제만 이어서',
-             en: 'Skip the reading, keep the questions coming' },
-    blurb: { ko: '레슨에서 문제만 뽑아 이어서 풉니다. 배운 걸 확인할 때 쓰세요.',
-             en: 'Pulls the questions out of the lessons and runs them back to back.' },
-  },
-  {
     id: 'sentence', emoji: '✍️', ready: true, pane: 'sbWrap',
     lv:    { ko: '예문',            en: 'SENTENCES' },
     title: { ko: '예문 만들기',      en: 'Build a sentence' },
@@ -6849,7 +6829,7 @@ const BEGINNER_ROADMAP = [
     courses:[],
   },
 ];
-let learnLv = { courses: 'beginner', quiz: 'beginner', sentence: 'beginner' };
+let learnLv = { courses: 'beginner', sentence: 'beginner' };
 
 const learnLevel = (id) => LEARN_LEVELS.find((x) => x.id === id) || LEARN_LEVELS[0];
 const learnLevelText = (id) => (isEn() ? learnLevel(id).en : learnLevel(id).ko);
@@ -6893,8 +6873,6 @@ function courseLabel(c) {
 }
 const levelCourses = (level) => COURSES.filter((c) => courseTier(c) === level);
 const lessonExercises = (lesson) => lesson.blocks.filter(isEx);
-const levelLessons = (level) => levelCourses(level).flatMap((c) => c.lessons.map((lesson) => ({ course: c, lesson })));
-const levelQuizRows = (level) => levelLessons(level).filter(({ lesson }) => lessonExercises(lesson).length);
 /* 단계는 sentences.js 의 표현마다 붙어 있다. 갈래가 아니라 표현이 가진다 —
    「원인과 이유」 안에 -아서(초급)와 -기로서니(고급)가 같이 있는 것이 정상이다.
    lv 를 빠뜨린 표현은 화면에서 사라지는 대신 중급으로 떨어진다. 놓친 것은
@@ -6915,83 +6893,6 @@ function drawSentenceHead() {
     { k: t('갈래', 'Sets'), v: new Set(all.map((p) => p.cat.id)).size, s: t('비슷한 표현끼리 모아 둔 묶음', 'Grouped by similar use') },
     { k: t('목표', 'Goal'), v: learnLevelText(level), s: t('외운 문장이 아니라 내 문장 만들기', 'Make your own sentence, not a memorised one') },
   ]);
-}
-function drawQuiz() {
-  const level = learnLv.quiz;
-  const rows = levelQuizRows(level);
-  const exCount = rows.reduce((a, { lesson }) => a + lessonExercises(lesson).length, 0);
-  $('lqLevel').innerHTML = renderLevelSwitch('quiz');
-  $('lqIntro').textContent = ({
-    beginner: t('설명은 건너뛰고, 지금 단계의 핵심 문제만 빠르게 이어서 풉니다.', 'Skip the reading and run through the key questions for this level.'),
-    intermediate: t('형태를 아는지보다, 문맥에 맞는 표현을 고를 수 있는지 확인합니다.', 'Check whether you can choose the right form in context, not just recognise it.'),
-    advanced: t('미묘한 뉘앙스와 격식 차이를 문제로 압축해서 점검합니다.', 'Compress nuance and register into focused drills.') ,
-  })[level];
-  $('lqSummary').innerHTML = renderLearnSummary([
-    { k: t('레슨', 'Lessons'), v: rows.length, s: t('문제만 따로 풀 수 있는 레슨', 'Lessons available in quiz mode') },
-    { k: t('문제', 'Questions'), v: exCount, s: t('현재 단계에서 바로 풀 수 있는 수', 'Exercises ready right now') },
-    { k: t('방식', 'Mode'), v: t('랜덤+선택', 'Mixed'), s: t('랜덤 퀴즈 또는 레슨별 점검', 'Random drill or per-lesson practice') },
-  ]);
-  if (!rows.length) {
-    $('lqList').innerHTML = `<div class="learn-empty">${esc(t('이 단계의 퀴즈는 아직 채우는 중이에요.', 'Quiz mode for this level is still being filled in.'))}</div>`;
-    return;
-  }
-  const mixedCount = Math.min(12, exCount);
-  $('lqList').innerHTML =
-    (
-      `<button class="lc-card lq-card" data-quiz-level="${level}">` +
-        '<div class="lc-top">' +
-          '<div class="lc-mark">⚡</div>' +
-          '<div style="min-width:0">' +
-            `<div class="lc-lv">${esc(t('랜덤 퀴즈', 'Mixed quiz'))}</div>` +
-            `<div class="lc-title">${esc(t(`${learnLevelText(level)} 몰아풀기`, `${learnLevelText(level)} sprint`))}</div>` +
-            `<div class="lc-tag">${esc(t('현재 단계의 문제만 섞어서 한 번에 점검합니다.', 'Pull questions from this level and run them back to back.'))}</div>` +
-          '</div>' +
-        '</div>' +
-        `<p class="lc-blurb">${esc(t(`한 번에 ${mixedCount}문제. 읽기 없이 바로 시작합니다.`, `${mixedCount} questions in one run, no reading first.`))}</p>` +
-        '<div class="lq-meta">' +
-          `<span class="lq-chip">${esc(t('랜덤', 'Mixed'))}</span>` +
-          `<span>${esc(t('짧고 빠르게 감 잡기', 'Short burst review'))}</span>` +
-        '</div>' +
-      '</button>'
-    ) +
-    rows.map(({ course, lesson }) => {
-      const types = [...new Set(lessonExercises(lesson).map((b) => ({
-        choice: t('고르기', 'Choice'),
-        listen: t('듣기', 'Listen'),
-        type: t('쓰기', 'Type'),
-        order: t('배열', 'Arrange'),
-        pair: t('짝짓기', 'Match'),
-        speak: t('말하기', 'Speak'),
-        cloze: t('빈칸', 'Cloze'),
-      })[b.t] || b.t))].slice(0, 3).join(' · ');
-      return (
-        `<button class="lc-card lq-card" data-quiz-course="${esc(course.id)}" data-quiz-lesson="${esc(lesson.id)}">` +
-          '<div class="lc-top">' +
-            `<div class="lc-mark">${esc(course.emoji)}</div>` +
-            '<div style="min-width:0">' +
-              `<div class="lc-lv">${esc(learnLevelText(courseTier(course)))}</div>` +
-              `<div class="lc-title">${esc(lesson.title)}</div>` +
-              `<div class="lc-tag">${esc(course.title)}</div>` +
-            '</div>' +
-          '</div>' +
-          `<p class="lc-blurb">${esc(t(`설명은 빼고 ${lessonExercises(lesson).length}문제만 이어서 풉니다.`, `${lessonExercises(lesson).length} exercises only, with the reading removed.`))}</p>` +
-          '<div class="lq-meta">' +
-            `<span class="lq-chip">${esc(types || t('문제', 'Exercise'))}</span>` +
-            `<span>${esc(`${lesson.minutes} ${t('분', 'min')}`)}</span>` +
-          '</div>' +
-        '</button>'
-      );
-    }).join('');
-}
-function buildMixedQuiz(level) {
-  const picked = shuffled(levelQuizRows(level).flatMap(({ lesson }) => lessonExercises(lesson))).slice(0, 12);
-  return {
-    id: `quiz-${level}`,
-    title: t(`${learnLevelText(level)} 랜덤 퀴즈`, `${learnLevelText(level)} mixed quiz`),
-    minutes: Math.max(4, Math.ceil(picked.length * 0.7)),
-    blocks: picked,
-    trackProgress: false,
-  };
 }
 function drawCourseRoadmap(level, rows) {
   if (level !== 'beginner') {
@@ -7030,9 +6931,6 @@ function drawSections() {
           `<div class="lc-bar"><div class="lc-fill" style="width:${all ? Math.round((n / all) * 100) : 0}%"></div></div>` +
           `<span class="lc-num">${n} / ${all}</span>` +
         '</div>';
-    } else if (s.id === 'quiz') {
-      const all = COURSES.reduce((a, c) => a + c.lessons.reduce((n, l) => n + lessonExercises(l).length, 0), 0);
-      foot = `<div class="lc-order">${t(`전체 ${all}문제를 레벨별로 몰아 풀 수 있어요.`, `You can drill all ${all} exercises by level.`)}</div>`;
     } else if (!s.ready) {
       foot = `<div class="lc-order">${t('아직 준비 중이에요.', 'Not ready yet.')}</div>`;
     }
@@ -7072,7 +6970,6 @@ function openSection(id) {
   if (s.ready && s.pane) {
     $(s.pane).classList.remove('hidden');
     if (s.id === 'courses') drawCourses();
-    if (s.id === 'quiz') drawQuiz();
     if (s.id === 'sentence') {
       drawSentenceHead();
       const cur = sbPoint ? sbFind(sbPoint) : null;
@@ -7092,14 +6989,6 @@ function backToCourses() {
   open('learn');
   openSection('courses');
   if (lsCourse) openCourse(lsCourse);
-}
-function backFromLesson() {
-  if (lsReturnSection === 'quiz') {
-    open('learn');
-    openSection('quiz');
-    return;
-  }
-  backToCourses();
 }
 
 function backToSections() {
@@ -7129,8 +7018,6 @@ $('lsecWrap').addEventListener('change', (ev) => {
     lsCourse = null;
     $('llWrap').classList.add('hidden');
     drawCourses();
-  } else if (section === 'quiz') {
-    drawQuiz();
   } else if (section === 'sentence') {
     drawSentenceHead();
     const cur = sbPoint ? sbFind(sbPoint) : null;
@@ -7557,29 +7444,8 @@ $('llBack').addEventListener('click', () => {
 $('llRows').addEventListener('click', (ev) => {
   const b = ev.target.closest('[data-lesson]');
   if (!b) return;
-  lsReturnSection = 'courses';
   startLesson(lsCourse, lsCourse.lessons.find((l) => l.id === b.dataset.lesson));
 });
-$('lqList').addEventListener('click', (ev) => {
-  const mixed = ev.target.closest('[data-quiz-level]');
-  if (mixed) {
-    const level = mixed.dataset.quizLevel;
-    const lesson = buildMixedQuiz(level);
-    lsReturnSection = 'quiz';
-    startLesson({ id:`quiz-course-${level}`, title:t(`${learnLevelText(level)} 문제만 풀기`, `${learnLevelText(level)} quiz`), lessons:[lesson] }, lesson);
-    return;
-  }
-  const one = ev.target.closest('[data-quiz-course][data-quiz-lesson]');
-  if (!one) return;
-  const course = COURSES.find((c) => c.id === one.dataset.quizCourse);
-  const lesson = course?.lessons.find((l) => l.id === one.dataset.quizLesson);
-  if (!course || !lesson) return;
-  const quizLesson = { ...lesson, blocks: lessonExercises(lesson) };
-  const quizCourse = { id: `${course.id}-quiz`, title: t(`${course.title} · 문제만`, `${course.title} · Quiz only`), lessons:[quizLesson] };
-  lsReturnSection = 'quiz';
-  startLesson(quizCourse, quizLesson);
-});
-
 const isEx = (b) => ['choice','listen','type','order','pair','speak','cloze'].includes(b.t);
 
 function startLesson(course, lesson) {
@@ -8240,15 +8106,14 @@ window.lsLeave = function () {
 async function finishLesson() {
   const idx = lsCourse.lessons.indexOf(lsLesson);
   const next = lsCourse.lessons[idx + 1] || null;
-  const trackProgress = lsLesson.trackProgress !== false;
-  const first = trackProgress ? !doneSet.has(lsLesson.id) : false;
+  const first = !doneSet.has(lsLesson.id);
 
-  if (trackProgress) doneSet.add(lsLesson.id);
+  doneSet.add(lsLesson.id);
 
   // 진도는 남기되, 못 남겨도 화면은 그대로 간다. 다 풀고 나서
   // "저장 실패" 를 보는 것만큼 김빠지는 일이 없다.
   const { data: { session } } = await sb.auth.getSession();
-  if (trackProgress && session) {
+  if (session) {
     try {
       await sb.from('lesson_progress')
         .upsert({ user_id: session.user.id, lesson_id: lsLesson.id, done_at: new Date().toISOString() },
@@ -8262,14 +8127,12 @@ async function finishLesson() {
 
   $('lsBlocks').insertAdjacentHTML('beforeend',
     '<div class="ls-done">' +
-      `<div class="ls-done-big">${trackProgress ? (first ? '🧀' : '👏') : '⚡'}</div>` +
-      `<div class="ls-done-t">${trackProgress ? (first ? t('레슨 완료','Lesson complete') : t('다시 한 번 완벽하게','Nailed it again')) : t('퀴즈 완료','Quiz complete')}</div>` +
+      `<div class="ls-done-big">${first ? '🧀' : '👏'}</div>` +
+      `<div class="ls-done-t">${first ? t('레슨 완료','Lesson complete') : t('다시 한 번 완벽하게','Nailed it again')}</div>` +
       `<p class="ls-done-s">${esc(lsLesson.title)}</p>` +
-      (trackProgress && session
+      (session
         ? (n > 1 ? `<div class="ls-streak">🔥 ${t(`${n}일 연속`, `${n}-day streak`)}</div>` : '')
-        : (trackProgress
-            ? `<p class="ls-done-s" style="color:var(--ink-3)">${t('로그인하면 진도가 저장돼요.','Sign in and your progress is saved.')}</p>`
-            : `<p class="ls-done-s" style="color:var(--ink-3)">${t('퀴즈 모드는 진도 대신 감을 올리는 데 집중합니다.','Quiz mode focuses on reps, not progress tracking.')}</p>`)) +
+        : `<p class="ls-done-s" style="color:var(--ink-3)">${t('로그인하면 진도가 저장돼요.','Sign in and your progress is saved.')}</p>`) +
       // ── Cloze 복습 1분 챌린지 (틀린 문제가 있을 때만 노출) ──
       (wrongCount > 0 ?
         `<div class="ls-challenge">
@@ -8285,12 +8148,12 @@ async function finishLesson() {
   const bt = $('lsGoChallenge');
   if (bt) bt.addEventListener('click', startChallenge);
 
-  $('lsNext').textContent = next ? t('다음 레슨 →', 'Next lesson →') : (lsReturnSection === 'quiz' ? t('퀴즈 목록으로', 'Back to quiz') : t('코스 목록으로', 'Back to the course'));
+  $('lsNext').textContent = next ? t('다음 레슨 →', 'Next lesson →') : t('코스 목록으로', 'Back to the course');
   $('lsNextBar').classList.remove('hidden');
   $('lsNext').onclick = () => {
     if (lsChallengeTimer) { clearInterval(lsChallengeTimer); lsChallengeTimer = 0; }
     if (next) startLesson(lsCourse, next);
-    else backFromLesson();
+    else backToCourses();
   };
   setTimeout(() => $('lsBlocks').lastElementChild?.scrollIntoView({ behavior:'smooth', block:'center' }), 120);
 }
@@ -8400,12 +8263,12 @@ function endChallenge() {
   $('lsCount').textContent = `Score ${lsChallengeScore}`;
   const btR = $('lsRetryCh'), btB = $('lsBackCourse');
   if (btR) btR.addEventListener('click', startChallenge);
-  if (btB) btB.addEventListener('click', backFromLesson);
+  if (btB) btB.addEventListener('click', backToCourses);
   $('lsNextBar').classList.remove('hidden');
   setTimeout(() => $('lsBlocks').lastElementChild?.scrollIntoView({ behavior:'smooth', block:'center' }), 120);
 }
 
-$('lsExit').addEventListener('click', backFromLesson);
+$('lsExit').addEventListener('click', backToCourses);
 
 $('learnBtn').addEventListener('click', async () => {
   if (showing('learnView') || showing('lessonView')) return open('home');
