@@ -1933,6 +1933,28 @@ body.nav-open { overflow:hidden; }
 .qz-choice.wrong { border-color:var(--red);   background:rgba(196,61,52,.07); color:var(--red); }
 .qz-choice:disabled { cursor:default; }
 
+/* ══ 숫자 읽기 ═══════════════════════════════════════════════
+   보기가 둘뿐이라 한 줄에 나란히 놓는다. 셋 이상이면 세로로 쌓아야 하지만
+   둘은 나란히 놓아야 **견주기**가 된다 — 이 게임이 가르치는 것이 두 읽기의
+   차이라서 눈이 한 번에 둘을 잡아야 한다. */
+/* 숫자는 크게 띄운다. 읽을 것이 이것 하나뿐이라 화면의 중심이어야 한다. */
+.num-digits { font-size:clamp(32px, 8vw, 44px); font-variant-numeric:tabular-nums; }
+.num-two { display:grid; grid-template-columns:1fr 1fr; gap:10px; max-width:560px; margin:22px auto 0; }
+.num-two .qz-choice { font-size:17px; padding:20px 14px; word-break:keep-all; }
+.num-why {
+  max-width:560px; margin:16px auto 0; padding:13px 16px; font-size:14px; line-height:1.7;
+  color:var(--ink-2); background:var(--tint); border-left:3px solid var(--orange);
+  border-radius:0 var(--r) var(--r) 0; word-break:keep-all;
+}
+.num-streak { font-size:13px; font-weight:700; color:var(--orange-deep); }
+.num-wrongs { max-width:560px; margin:22px auto 0; text-align:left; display:grid; gap:9px; }
+.num-wrong-row {
+  background:var(--surface); border:1px solid var(--line-2); border-radius:var(--r); padding:12px 15px;
+}
+.num-wrong-q { font-size:14px; font-weight:700; color:var(--ink); font-variant-numeric:tabular-nums; }
+.num-wrong-a { font-size:14px; color:var(--green); margin-top:4px; }
+.num-wrong-w { font-size:12.5px; color:var(--ink-3); line-height:1.6; margin-top:5px; word-break:keep-all; }
+
 .claw-over { text-align:center; padding:34px 22px; }
 .claw-over-emoji { font-size:56px; }
 .claw-over-score { margin-top:10px; font-size:44px; font-weight:800; color:var(--ink); letter-spacing:-.03em; }
@@ -3139,6 +3161,15 @@ body.nav-open { overflow:hidden; }
         <span class="game-card-go" data-en="Play →">놀아보기 →</span>
       </button>
 
+      <!-- 이 게임만 로그인도 단어장도 필요 없다. 문제를 그때그때 만들어
+           내므로 처음 온 사람도 바로 놀 수 있다. -->
+      <button class="game-card" id="gcNum" type="button">
+        <span class="game-card-ico">🔢</span>
+        <span class="game-card-name" data-en="Read the number">숫자 읽기</span>
+        <span class="game-card-desc" data-en="Three o'clock is 세 시, but thirty minutes is 삼십 분. Two readings, pick the right one. No sign-in needed.">3시는 세 시인데 30분은 삼십 분. 두 가지 읽기 중에 맞는 것을 고르세요. 로그인 없이 바로 됩니다.</span>
+        <span class="game-card-go" data-en="Play →">놀아보기 →</span>
+      </button>
+
       <button class="game-card" id="gcQuiz" type="button">
         <span class="game-card-ico">⏱</span>
         <span class="game-card-name" data-en="Speed quiz">스피드 퀴즈</span>
@@ -3431,6 +3462,72 @@ body.nav-open { overflow:hidden; }
   </div>
 
 </div><!-- /quizView -->
+
+<!-- ── 게임 : 숫자 읽기 ──────────────────────────────────────
+     로그인도 단어장도 안 쓴다. numbers.js 가 문제를 만들어 준다. -->
+<div id="numView" class="hidden">
+  <div class="claw-wrap">
+
+    <div class="claw-bar">
+      <button class="claw-back" id="numBack" type="button">← <span id="numBackTxt">게임</span></button>
+      <span class="claw-pill hidden" id="numBest"></span>
+    </div>
+
+    <div id="numSetup" class="hidden">
+      <div class="claw-ask">
+        <span class="claw-ask-label" id="numSetupLabel"></span>
+        <strong class="claw-ask-word">🔢</strong>
+      </div>
+      <div class="pt-lv-row" style="margin-top:18px;">
+        <div class="diff-seg num-lv" role="radiogroup" id="numLv"></div>
+        <div class="pt-lv-desc" id="numLvDesc"></div>
+      </div>
+      <div style="text-align:center; margin-top:22px;">
+        <button class="pt-next" id="numGo" type="button"></button>
+      </div>
+      <p class="claw-note" id="numSetupNote"></p>
+    </div>
+
+    <div id="numPlay" class="hidden">
+      <div class="qz-top">
+        <div class="qz-time"><span class="qz-time-fill" id="numFill"></span></div>
+        <div class="qz-meta">
+          <span class="qz-clock" id="numCount">0 / 12</span>
+          <span class="qz-score" id="numScore">0</span>
+        </div>
+      </div>
+
+      <div class="claw-ask">
+        <span class="claw-ask-label" id="numAskLabel"></span>
+        <strong class="claw-ask-word num-digits" id="numAsk">…</strong>
+      </div>
+
+      <div class="num-two" id="numChoices"></div>
+      <p class="claw-msg" id="numMsg"></p>
+      <div class="num-why hidden" id="numWhy"></div>
+    </div>
+
+    <div id="numOver" class="hidden">
+      <div class="claw-over">
+        <div class="claw-over-emoji" id="numOverEmoji">🔢</div>
+        <div class="claw-over-score" id="numOverScore">0</div>
+        <p class="claw-over-line" id="numOverLine"></p>
+        <div class="num-wrongs" id="numWrongs"></div>
+        <div class="claw-over-btns">
+          <button class="pt-next" id="numAgain" type="button"></button>
+          <button class="pt-next" id="numToGames" type="button"></button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="footer">
+    <div class="footer-brand" data-en="Every Koreans">에브리 코리안즈</div>
+    <div class="footer-info">© 2026 치즈감자 · <a href="privacy.html" data-en="Privacy policy">개인정보처리방침</a></div>
+  </div>
+
+</div><!-- /numView -->
 
 <!-- ── 자료마당 ────────────────────────────────────────────────
      올린 파일을 그대로 보관하지 않는다. 브라우저에서 앱과 같은
@@ -4640,6 +4737,7 @@ function ptShow(toTest) {
   ptId('clawView').classList.add('hidden');
   ptId('matchView').classList.add('hidden');
   ptId('quizView').classList.add('hidden');
+  ptId('numView').classList.add('hidden');
   ptId('learnView').classList.add('hidden');
   ptId('lessonView').classList.add('hidden');
   ptId('learnBtn')?.classList.remove('on');
@@ -4685,12 +4783,12 @@ const SLUG_VIEW = {
   wordbook: 'wordbook', account: 'account', library: 'library', dashboard: 'dashboard',
   learn: 'learn', test: 'test', games: 'games',
   // 게임 한 판과 레슨은 도중부터 열 수 없다. 주소로 들어오면 한 단계 위를 연다.
-  claw: 'games', match: 'games', quiz: 'games', lesson: 'learn',
+  claw: 'games', match: 'games', quiz: 'games', num: 'num', lesson: 'learn',
 };
 const VIEW_SLUG = {
   home: '', test: 'test', wordbook: 'wordbook', account: 'account',
   library: 'library', dashboard: 'dashboard', games: 'games',
-  claw: 'claw', match: 'match', quiz: 'quiz', learn: 'learn', lesson: 'lesson',
+  claw: 'claw', match: 'match', quiz: 'quiz', num: 'num', learn: 'learn', lesson: 'lesson',
 };
 let routeBusy = false;
 
@@ -4817,6 +4915,8 @@ import * as XLSX from 'https://esm.sh/xlsx@0.18.5';
 // 커리큘럼. 내용과 엔진을 갈라 두면 글을 고치다 화면을 깨지 않는다.
 import { COURSES } from './courses.js';
 import { SB_CATS, SB_MORE, SB_SEED } from './sentences.js';
+// 숫자 게임의 읽기와 문제 만들기. 화면을 모르는 순수 계산이라 따로 뒀다.
+import { makeRound } from './numbers.js';
 
 // 이 키는 공개돼도 되는 값이다. 이미 APK 안에 같은 것이 들어 있고,
 // 접근을 막는 건 키가 아니라 테이블에 걸린 RLS 다.
@@ -4852,7 +4952,7 @@ function panel(name) {
 }
 
 // 게임 목록과 그 아래 게임들. 새 게임을 더하면 여기에도 넣는다.
-const GAME_VIEWS = ['games', 'claw', 'match', 'quiz'];
+const GAME_VIEWS = ['games', 'claw', 'match', 'quiz', 'num'];
 
 /* 화면 전환. 'home' | 'wordbook' | 'account' 셋을 여기서 다룬다.
    발음 테스트는 위 고전 스크립트의 ptShow 가 주인이라 여기서는 닫기만 한다. */
@@ -4870,6 +4970,7 @@ function open(view) {
   $('clawView').classList.toggle('hidden', view !== 'claw');
   $('matchView').classList.toggle('hidden', view !== 'match');
   $('quizView').classList.toggle('hidden', view !== 'quiz');
+  $('numView').classList.toggle('hidden', view !== 'num');
   $('learnView').classList.toggle('hidden', view !== 'learn');
   $('lessonView').classList.toggle('hidden', view !== 'lesson');
 
@@ -4904,6 +5005,8 @@ window.cpOpen = function (view) {
      그 둘이 빠지면 갈래 카드가 하나도 없는 빈 배우기가 열린다.
      먼저 그려 두고 진도를 받아 다시 그린다 — 네트워크를 기다리는 동안
      빈 화면을 보이지 않으려는 것이다. 진도를 못 읽어도 화면은 나온다. */
+  // 숫자 게임은 판을 도중부터 못 여니 단계 고르기 화면으로 연다.
+  if (view === 'num') numSetup();
   if (view === 'learn') {
     backToSections();
     loadProgress().then(backToSections, () => {});
@@ -4925,7 +5028,7 @@ $('dashBtn').addEventListener('click', () => { const go = !showing('dashView'); 
 // 홈이 아니라 목록이어야 다른 게임으로 건너갈 수 있다.
 $('gameBtn').addEventListener('click', () => {
   // 게임 하나에 들어가 있으면 한 단계 위는 홈이 아니라 목록이다.
-  if (showing('clawView') || showing('matchView') || showing('quizView')) return open('games');
+  if (showing('clawView') || showing('matchView') || showing('quizView') || showing('numView')) return open('games');
   open(showing('gamesView') ? 'home' : 'games');
 });
 $('dashGoLogin').addEventListener('click', () => open('account'));
@@ -5393,6 +5496,8 @@ function syncLang() {
   // 숨김 여부가 아니라 내용 유무로 판단한다 — 숨겨져 있을 때 건너뛰면
   // 다시 열었을 때 예전 언어가 그대로 남는다.
   if ($('dashBody').childElementCount && rows.length) renderDashboard();
+  // 숫자 게임도 통째로 자바스크립트가 넣은 글이다.
+  numSyncLang();
   // 자료마당의 받기·삭제 버튼 글자도 같이 바꾼다.
   if (libRows.length) renderLibrary();
   if (!pendingWords) $('libFileLabel').textContent = t('엑셀(.xlsx) 또는 .csv 파일 고르기', 'Choose an .xlsx or .csv file');
@@ -9428,6 +9533,191 @@ function qzSyncOver() {
 }
 
 $('gcQuiz').addEventListener('click', () => { open('quiz'); qzStart(); });
+
+/* ══ 게임 : 숫자 읽기 ═════════════════════════════════════════
+   한국어 숫자의 어려움은 하나·둘·셋을 외우는 데 있지 않고 **어느 쪽
+   체계를 쓰는지 순간에 가르는 데** 있다. 시는 순우리말인데 분은 한자어다.
+   그래서 보기를 둘만 두고 나란히 놓는다 — 골라야 견주게 되고, 견주는 것이
+   말할 때 실제로 하는 일이다. 오답은 numbers.js 가 그럴 법한 착각으로
+   만들어 준다(체계를 바꿔 읽기, 불규칙을 규칙대로 읽기, 자릿수 놓치기).
+
+   **시계를 안 둔 것은 일부러다.** 기르려는 것이 빠르기가 아니라 가르기라,
+   시간에 쫓기면 생각하는 대신 찍게 된다. 대신 연속 맞힌 수로 흐름을 준다.
+   스피드 퀴즈가 이미 60초짜리라 겹치지도 않는다.
+
+   **로그인도 단어장도 안 쓴다.** 나머지 셋은 모두 저장해 둔 단어가 있어야
+   놀 수 있어서, 처음 온 사람은 게임 목록에서 할 수 있는 게 하나도 없었다. */
+const NUM_TOTAL = 12;
+const NUM_LV_TX = {
+  beginner:     { ko: '초급', en: 'Beginner',
+                  d: { ko: '열까지 세기, 시각, 나이, 가게에서 쓰는 값.',
+                       en: 'Counting to ten, clock times, ages, everyday prices.' } },
+  intermediate: { ko: '중급', en: 'Intermediate',
+                  d: { ko: '단위 명사를 넓히고 날짜와 만 단위 값까지 갑니다.',
+                       en: 'More counters, dates, and prices past ten thousand.' } },
+  advanced:     { ko: '고급', en: 'Advanced',
+                  d: { ko: '큰 수, 개월과 달, 횟수의 번과 번호의 번을 가릅니다.',
+                       en: 'Big numbers, 개월 vs 달, and the two kinds of 번.' } },
+};
+const NUM_LV_KEY = 'cp-num-lv';
+let numLevel = 'beginner';
+try { const s = localStorage.getItem(NUM_LV_KEY); if (NUM_LV_TX[s]) numLevel = s; } catch (e) {}
+
+let numRound = [], numIdx = 0, numScore = 0, numStreak = 0, numBusy = false;
+let numWrongs = [];
+
+const NUM_PANELS = ['numSetup', 'numPlay', 'numOver'];
+function numPanel(name) { NUM_PANELS.forEach((k) => $(k).classList.toggle('hidden', k !== name)); }
+const numBestKey = (lv) => `cp-num-best-${lv}`;
+const numLvName = () => t(NUM_LV_TX[numLevel].ko, NUM_LV_TX[numLevel].en);
+
+function numSyncBest() {
+  const best = gameBestRead(numBestKey(numLevel));
+  $('numBest').classList.toggle('hidden', best <= 0);
+  $('numBest').textContent = t(`최고 ${best} / ${NUM_TOTAL}`, `Best ${best} / ${NUM_TOTAL}`);
+}
+
+/* 고르기 화면. 단계는 기억해 두고 다음에 다시 고르게 하지 않는다. */
+function numSetup() {
+  $('numBackTxt').textContent = t('게임', 'Games');
+  $('numSetupLabel').textContent = t('어떤 단계로 풀어 볼까요?', 'Which level?');
+  $('numGo').textContent = t('시작하기', 'Start');
+  $('numSetupNote').textContent = t(
+    `${NUM_TOTAL}문제. 보기 둘 중에 맞는 읽기를 고르면 됩니다. 로그인 없이 바로 돼요.`,
+    `${NUM_TOTAL} questions. Two readings, pick the right one. No sign-in needed.`);
+  $('numLv').innerHTML = Object.entries(NUM_LV_TX).map(([id, x]) =>
+    `<label><input type="radio" name="numLv" value="${id}"${id === numLevel ? ' checked' : ''}><span>${esc(t(x.ko, x.en))}</span></label>`
+  ).join('');
+  $('numLvDesc').textContent = t(NUM_LV_TX[numLevel].d.ko, NUM_LV_TX[numLevel].d.en);
+  numSyncBest();
+  numPanel('numSetup');
+}
+
+function numStart() {
+  numRound = makeRound(numLevel, NUM_TOTAL);
+  numIdx = 0; numScore = 0; numStreak = 0; numWrongs = []; numBusy = false;
+  numPanel('numPlay');
+  numDraw();
+}
+
+function numMeta() {
+  $('numCount').textContent = `${numIdx} / ${NUM_TOTAL}`;
+  $('numScore').textContent = numStreak > 1
+    ? t(`${numScore} · ${numStreak}연속`, `${numScore} · ${numStreak} in a row`)
+    : String(numScore);
+  $('numFill').style.width = `${(numIdx / NUM_TOTAL) * 100}%`;
+}
+
+function numDraw() {
+  const q = numRound[numIdx];
+  if (!q) return numFinish();
+  numMeta();
+  $('numAskLabel').textContent = t('이 숫자는 어떻게 읽을까요?', 'How do you read this?');
+  $('numAsk').textContent = q.ask;
+  $('numMsg').textContent = '';
+  $('numMsg').className = 'claw-msg';
+  $('numWhy').classList.add('hidden');
+
+  const box = $('numChoices');
+  box.textContent = '';
+  // 정답이 늘 왼쪽에 있으면 두 판째부터는 읽지도 않고 왼쪽을 누른다.
+  gameShuffle([q.answer, q.wrong]).forEach((text) => {
+    const b = document.createElement('button');
+    b.type = 'button';
+    b.className = 'qz-choice';
+    b.textContent = text;
+    b.addEventListener('click', () => numPick(text, b));
+    box.appendChild(b);
+  });
+  numBusy = false;
+}
+
+function numPick(text, btn) {
+  if (numBusy) return;
+  numBusy = true;
+  const q = numRound[numIdx];
+  const right = text === q.answer;
+  const all = [...$('numChoices').children];
+  all.forEach((b) => { b.disabled = true; });
+
+  if (right) {
+    numScore++; numStreak++;
+    btn.classList.add('right');
+    $('numMsg').className = 'claw-msg good';
+    $('numMsg').textContent = numStreak >= 3
+      ? t(`정답! ${numStreak}연속 🔥`, `Correct! ${numStreak} in a row 🔥`)
+      : t('정답!', 'Correct!');
+  } else {
+    numStreak = 0;
+    numWrongs.push(q);
+    btn.classList.add('wrong');
+    all.forEach((b) => { if (b.textContent === q.answer) b.classList.add('right'); });
+    $('numMsg').className = 'claw-msg bad';
+    $('numMsg').textContent = t(`「${q.answer}」 예요.`, `It is “${q.answer}”.`);
+  }
+  /* 규칙은 맞았을 때도 보여 준다. 둘 중 하나라 찍어서 맞히는 사람이 많고,
+     그 사람이 바로 다음 판 같은 자리에서 틀린다. */
+  $('numWhy').textContent = q.why;
+  $('numWhy').classList.remove('hidden');
+
+  numIdx++;
+  numMeta();
+  setTimeout(() => {
+    // 그새 화면을 떠났으면 그만둔다. 안 보이는 곳에서 다음 문제를 그리면
+    // 돌아왔을 때 판이 저 혼자 끝나 있다.
+    if ($('numPlay').classList.contains('hidden')) return;
+    numDraw();
+  }, right ? 900 : 2300);
+}
+
+function numFinish() {
+  gameBest(numBestKey(numLevel), numScore);
+  numSyncBest();
+  const pct = numScore / NUM_TOTAL;
+  $('numOverEmoji').textContent = pct === 1 ? '🏆' : pct >= 0.7 ? '🎉' : '🔢';
+  $('numOverScore').textContent = `${numScore} / ${NUM_TOTAL}`;
+  $('numOverLine').textContent = pct === 1
+    ? t('전부 맞혔어요. 다음 단계로 올려 볼까요?', 'All correct. Ready for the next level?')
+    : t(`${numLvName()} 단계`, `${numLvName()} level`);
+  // 틀린 것만 모아 다시 보여 준다. 점수만 보고 나가면 무엇을 틀렸는지 모른다.
+  $('numWrongs').innerHTML = numWrongs.map((q) =>
+    '<div class="num-wrong-row">' +
+      `<div class="num-wrong-q">${esc(q.ask)}</div>` +
+      `<div class="num-wrong-a">${esc(q.answer)}</div>` +
+      `<div class="num-wrong-w">${esc(q.why)}</div>` +
+    '</div>').join('');
+  $('numAgain').textContent = t('다시 하기', 'Play again');
+  $('numToGames').textContent = t('단계 바꾸기', 'Change level');
+  numPanel('numOver');
+}
+
+$('numLv').addEventListener('change', (ev) => {
+  const r = ev.target.closest('input[name=numLv]');
+  if (!r || !NUM_LV_TX[r.value]) return;
+  numLevel = r.value;
+  try { localStorage.setItem(NUM_LV_KEY, numLevel); } catch (e) {}
+  $('numLvDesc').textContent = t(NUM_LV_TX[numLevel].d.ko, NUM_LV_TX[numLevel].d.en);
+  numSyncBest();
+});
+$('numGo').addEventListener('click', numStart);
+$('numAgain').addEventListener('click', numStart);
+$('numToGames').addEventListener('click', numSetup);
+$('numBack').addEventListener('click', () => open('games'));
+$('gcNum').addEventListener('click', () => { open('num'); numSetup(); });
+
+/* 언어를 바꾸면 보고 있던 칸을 다시 그린다. 전부 자바스크립트가 넣은 글이라
+   data-en 이 못 붙는다. */
+function numSyncLang() {
+  if (!showing('numView')) return;
+  if (!$('numSetup').classList.contains('hidden')) numSetup();
+  else if (!$('numOver').classList.contains('hidden')) numFinish();
+  else {
+    $('numBackTxt').textContent = t('게임', 'Games');
+    $('numAskLabel').textContent = t('이 숫자는 어떻게 읽을까요?', 'How do you read this?');
+    numMeta(); numSyncBest();
+  }
+}
+
 $('quizGoLogin').addEventListener('click', () => open('account'));
 $('quizGoLib').addEventListener('click', () => { open('library'); loadLibrary(); });
 $('quizRetry').addEventListener('click', () => qzStart());
