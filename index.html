@@ -1966,6 +1966,42 @@ body.nav-open { overflow:hidden; }
 .tq-wrong-a { font-size:14.5px; color:var(--green); font-weight:700; margin-top:6px; word-break:keep-all; }
 .tq-wrong-w { font-size:12.5px; color:var(--ink-3); line-height:1.65; margin-top:6px; word-break:keep-all; }
 
+/* 유형별 성적. 여러 유형이 섞인 판(전체 풀기)에만 나온다.
+   막대를 두는 이유는 숫자를 읽게 하려는 게 아니라 **견주게** 하려는 것이다 —
+   6 / 9 와 2 / 6 중 어느 쪽이 급한지는 길이가 먼저 말해 준다. */
+.tq-bd { margin-top:24px; text-align:left; }
+.tq-bd-h { font-size:12px; font-weight:800; letter-spacing:.08em; color:var(--ink-3); text-transform:uppercase; }
+.tq-bd-row { display:flex; align-items:center; gap:10px; margin-top:9px; }
+.tq-bd-name { flex:0 0 126px; font-size:13.5px; color:var(--ink-2); word-break:keep-all; }
+.tq-bd-bar { flex:1 1 auto; height:8px; background:var(--line-2); border-radius:999px; overflow:hidden; }
+.tq-bd-bar i { display:block; height:100%; border-radius:999px; }
+.tq-bd-bar i.low  { background:var(--red); }
+.tq-bd-bar i.mid  { background:var(--orange); }
+.tq-bd-bar i.high { background:var(--green); }
+.tq-bd-num { flex:0 0 52px; text-align:right; font-size:13px; font-weight:700; color:var(--ink); font-variant-numeric:tabular-nums; }
+.tq-bd-tip { margin-top:14px; font-size:13.5px; line-height:1.7; color:var(--ink-2); word-break:keep-all; }
+.tq-bd-tip b { color:var(--orange-deep); }
+.tq-bd-go {
+  margin-top:10px; padding:9px 15px; font:inherit; font-size:13.5px; font-weight:700;
+  color:var(--orange-deep); background:#FFF4EA; border:1px solid rgba(255,138,61,.35);
+  border-radius:999px; cursor:pointer;
+}
+.tq-bd-go:hover { background:#FFE8D3; }
+
+/* 세트별 기록. 고르기 화면에 붙는다 — 어느 세트를 누를지 정하는 자리에서
+   지난번 점수가 보여야 고를 수 있다. 결과 화면에만 두면 한 판이 끝나는
+   순간 사라져서, 다음에 왔을 때 무엇이 약했는지 기억나지 않는다. */
+.tq-rec { margin-top:26px; padding:20px 22px; background:var(--surface); border:1px solid var(--line-2); border-radius:var(--r-l); }
+.tq-rec .tq-bd-row:first-of-type { margin-top:12px; }
+.tq-rec-none { flex:1 1 auto; font-size:12.5px; color:var(--ink-3); }
+.tq-rec-num { flex:0 0 52px; text-align:right; font-size:13px; font-weight:700; color:var(--ink); font-variant-numeric:tabular-nums; }
+.tq-rec-row-all .tq-bd-name { font-weight:800; color:var(--ink); }
+.tq-rec-sep { height:1px; background:var(--line-2); margin:12px 0 4px; }
+@media (max-width:520px) {
+  .tq-bd-name { flex-basis:84px; font-size:12.5px; }
+  .tq-rec { padding:16px 15px; }
+}
+
 /* ══ 숫자 읽기 ═══════════════════════════════════════════════
    보기가 둘뿐이라 한 줄에 나란히 놓는다. 셋 이상이면 세로로 쌓아야 하지만
    둘은 나란히 놓아야 **견주기**가 된다 — 이 게임이 가르치는 것이 두 읽기의
@@ -2916,6 +2952,7 @@ body.nav-open { overflow:hidden; }
             <div id="tqSummary" class="learn-summary"></div>
           </div>
           <div id="tqList" class="lc-grid"></div>
+          <div class="tq-rec hidden" id="tqRecord"></div>
           <p class="tq-note" id="tqNote"></p>
         </div>
 
@@ -2945,6 +2982,7 @@ body.nav-open { overflow:hidden; }
             <div class="claw-over-emoji" id="tqOverEmoji">📖</div>
             <div class="claw-over-score" id="tqOverScore">0</div>
             <p class="claw-over-line" id="tqOverLine"></p>
+            <div class="tq-bd hidden" id="tqBreak"></div>
             <div class="tq-wrongs" id="tqWrongs"></div>
             <div class="claw-over-btns">
               <button class="pt-next" id="tqAgain" type="button"></button>
@@ -6994,15 +7032,34 @@ const TQ_TYPE_TX = {
 };
 const TQ_TYPE_ORDER = ['theme', 'blank', 'notice', 'detail', 'main', 'order'];
 const TQ_GRADES = [1, 2];
+/* 이 아래로 떨어지면 「약한 유형」으로 본다. */
+const TQ_WEAK = 0.6;
 const TQ_KEY = 'cp-topik-grade';
 
 let tqGrade = 1;
 try { const g = parseInt(localStorage.getItem(TQ_KEY), 10); if (TQ_GRADES.includes(g)) tqGrade = g; } catch (e) {}
-let tqRound = [], tqIdx = 0, tqScore = 0, tqWrongs = [], tqBusy = false, tqTitle = '';
+let tqRound = [], tqIdx = 0, tqScore = 0, tqWrongs = [], tqBusy = false, tqTitle = '', tqSet = 'all';
 
 const tqOf = (grade) => TOPIK_READING.filter((q) => q.grade === grade);
 const tqPanel = (name) => ['tqPick', 'tqPlay', 'tqOver'].forEach((k) => $(k).classList.toggle('hidden', k !== name));
 const tqBestKey = (g) => `cp-topik-best-${g}`;
+
+/* 세트별 최고 기록. 「점수/그때의 문제 수」를 한 칸에 넣는다.
+   문제 수를 같이 적어 두는 이유 — 문제는 앞으로도 늘어난다. 점수만 두면
+   여덟 문제짜리에서 받은 8점이 나중에 8 / 12 로 보여서 기록이 거짓이 된다. */
+const tqSetKey = (g, set) => `cp-topik-set-${g}-${set}`;
+function tqSetRead(g, set) {
+  try {
+    const m = /^(\d+)\/(\d+)$/.exec(localStorage.getItem(tqSetKey(g, set)) || '');
+    return m ? { s: +m[1], n: +m[2] } : null;
+  } catch (e) { return null; }
+}
+function tqSetWrite(g, set, s, n) {
+  const had = tqSetRead(g, set);
+  // 비율로 견준다. 문제가 늘어난 뒤의 12 / 20 은 예전 8 / 10 보다 나은 기록이 아니다.
+  if (had && had.s / had.n >= s / n) return;
+  try { localStorage.setItem(tqSetKey(g, set), `${s}/${n}`); } catch (e) {}
+}
 
 /* 고르기 화면 — 급수, 통계, 유형별 카드. */
 function drawTopik() {
@@ -7044,6 +7101,8 @@ function drawTopik() {
       `<div class="lq-meta"><span class="lq-chip">${esc(t(`${n}문제`, `${n} questions`))}</span></div>` +
     '</button>';
 
+  tqDrawRecord(byType);
+
   if (!rows.length) {
     $('tqList').innerHTML = `<div class="learn-empty">${esc(t('이 급수 문제는 아직 채우는 중이에요.', 'Questions for this level are still being written.'))}</div>`;
   } else {
@@ -7065,13 +7124,80 @@ function drawTopik() {
   tqPanel('tqPick');
 }
 
+/* 약한 유형을 짚어 주는 한 줄. 기록판과 결과 화면이 같이 쓴다.
+   이름 뒤에 조사를 붙이지 않는다 — 「순서 배열이」와 「빈칸 채우기가」는
+   받침에 따라 갈리는데 유형 이름은 앞으로도 늘어난다.
+   그리고 **둘까지만 적는다.** 다섯 개를 다 적으면 「전부 약하다」가 되어
+   어디부터 손대야 할지 알려 주지 못한다. */
+function tqWeakTip(weak, total, name) {
+  if (!weak.length) return `<p class="tq-bd-tip">${esc(t('유형별로 고르게 나왔어요.', 'Even across every type.'))}</p>`;
+  const go = `<button class="tq-bd-go" type="button" data-tq-go="${esc(weak[0])}">` +
+    `${esc(t(`${name(weak[0])}만 풀어 보기 →`, `Practise ${name(weak[0])} →`))}</button>`;
+  if (weak.length >= total) {
+    return `<p class="tq-bd-tip">${esc(t('아직 전체적으로 낮아요. 가장 낮은 유형부터 하나씩 풀어 보세요.',
+      'Everything is still low. Start with the weakest type and work up.'))}</p>` + go;
+  }
+  const shown = weak.slice(0, 2).map(name).join(' · ');
+  const more = weak.length > 2 ? t(` 외 ${weak.length - 2}개`, ` and ${weak.length - 2} more`) : '';
+  return `<p class="tq-bd-tip">${t('여기가 약해요', 'Weakest here')} — <b>${esc(shown)}</b>${esc(more)}` +
+    `<br>${esc(t('이 유형만 모아서 한 판 더 풀어 보세요.', 'Drill just that type for a round.'))}</p>` + go;
+}
+
+/* 세트별 점수 — 고르기 화면에 붙는 기록판.
+   전체 풀기를 맨 위에 두고 유형은 늘 같은 차례로 둔다. 결과 화면의
+   유형별 표는 못 맞힌 쪽부터 세우지만 여기는 아니다. 여기는 몇 번씩
+   다시 보는 자리라 줄이 매번 움직이면 눈이 자리를 못 외운다. */
+function tqDrawRecord(byType) {
+  const box = $('tqRecord');
+  const sets = ['all', ...TQ_TYPE_ORDER.filter((k) => byType[k])];
+  const name = (k) => (k === 'all'
+    ? t('전체 풀기', 'Full run')
+    : t(TQ_TYPE_TX[k].ko, TQ_TYPE_TX[k].en));
+  const total = (k) => (k === 'all' ? tqOf(tqGrade).length : byType[k].length);
+
+  const rec = sets.map((k) => ({ k, r: tqSetRead(tqGrade, k), now: total(k) }));
+  /* 한 판도 안 푼 급수에서는 빈 표를 보여 줄 까닭이 없다. */
+  if (!rec.some((x) => x.r)) { box.textContent = ''; box.classList.add('hidden'); return; }
+
+  /* 줄은 늘 같은 차례로 두지만 「약한 곳」은 낮은 쪽부터 세운다 —
+     단추가 가리키는 곳이 가장 급한 유형이어야 한다. */
+  const weak = rec
+    .filter((x) => x.k !== 'all' && x.r && x.r.n >= 3 && x.r.s / x.r.n < TQ_WEAK)
+    .sort((a, b) => (a.r.s / a.r.n) - (b.r.s / b.r.n));
+
+  box.innerHTML =
+    `<div class="tq-bd-h">${esc(t('세트별 점수', 'Your scores'))}</div>` +
+    rec.map((x, i) => {
+      const head = (i === 1) ? '<div class="tq-rec-sep"></div>' : '';
+      if (!x.r) {
+        return head + `<div class="tq-bd-row${x.k === 'all' ? ' tq-rec-row-all' : ''}">` +
+            `<span class="tq-bd-name">${esc(name(x.k))}</span>` +
+            `<span class="tq-rec-none">${esc(t(`아직 안 풀었어요 · ${x.now}문제`, `Not played yet · ${x.now} questions`))}</span>` +
+          '</div>';
+      }
+      const pct = Math.round((x.r.s / x.r.n) * 100);
+      const tone = pct < 60 ? 'low' : pct < 80 ? 'mid' : 'high';
+      return head + `<div class="tq-bd-row${x.k === 'all' ? ' tq-rec-row-all' : ''}">` +
+          `<span class="tq-bd-name">${esc(name(x.k))}</span>` +
+          `<span class="tq-bd-bar"><i class="${tone}" style="width:${pct}%"></i></span>` +
+          `<span class="tq-rec-num">${x.r.s} / ${x.r.n}</span>` +
+        '</div>';
+    }).join('') +
+    /* 아직 안 푼 세트가 있으면 「고르게 나왔어요」라고 할 수 없다.
+       그때는 아무 말도 하지 않는다 — 표가 이미 말하고 있다. */
+    (weak.length
+      ? tqWeakTip(weak.map((x) => x.k), rec.length - 1, name)
+      : (rec.every((x) => x.r) ? tqWeakTip([], 0, name) : ''));
+  box.classList.remove('hidden');
+}
+
 function tqStart(key) {
   const rows = tqOf(tqGrade);
   const picked = key === 'all' ? rows : rows.filter((q) => q.type === key);
   if (!picked.length) return;
   // 문제 순서를 섞는다. 늘 같은 차례로 나오면 두 번째 판부터 답을 외운다.
   tqRound = gameShuffle(picked.slice());
-  tqIdx = 0; tqScore = 0; tqWrongs = []; tqBusy = false;
+  tqIdx = 0; tqScore = 0; tqWrongs = []; tqBusy = false; tqSet = key;
   tqTitle = key === 'all'
     ? t(`${tqGrade}급 전체 풀기`, `Level ${tqGrade} — full run`)
     : t(`${tqGrade}급 · ${TQ_TYPE_TX[key].ko}`, `Level ${tqGrade} · ${TQ_TYPE_TX[key].en}`);
@@ -7141,18 +7267,69 @@ function tqPick(i, btn) {
   $('tqNext').classList.remove('hidden');
 }
 
+/* 유형별 성적. 판을 끝까지 풀어야 tqFinish() 가 불리므로(그만두기는 곧장
+   고르기 화면으로 간다) tqRound 를 그대로 「푼 문제」로 세도 된다.
+   못 맞힌 쪽이 위로 오게 세워 둔다 — 「부족한 유형」이 물음이기 때문이다. */
+function tqByType() {
+  const missed = new Set(tqWrongs.map((q) => q.id));
+  const m = new Map();
+  tqRound.forEach((q) => {
+    const r = m.get(q.type) || { type: q.type, n: 0, ok: 0 };
+    r.n++;
+    if (!missed.has(q.id)) r.ok++;
+    m.set(q.type, r);
+  });
+  return [...m.values()].sort((a, b) => (a.ok / a.n) - (b.ok / b.n) || b.n - a.n);
+}
+
+function tqDrawBreak() {
+  const box = $('tqBreak');
+  const rows = tqByType();
+  /* 한 유형만 나온 판에서는 점수를 한 번 더 적는 것뿐이라 접어 둔다. */
+  if (rows.length < 2) { box.textContent = ''; box.classList.add('hidden'); return; }
+
+  const name = (k) => t(TQ_TYPE_TX[k].ko, TQ_TYPE_TX[k].en);
+  /* 문제 수가 적은 유형은 한두 개만 틀려도 비율이 폭삭 내려간다.
+     세 문제는 되어야 「약하다」고 말할 수 있다. */
+  const weak = rows.filter((r) => r.n >= 3 && r.ok / r.n < TQ_WEAK);
+
+  box.innerHTML =
+    `<div class="tq-bd-h">${esc(t('유형별로 보면', 'By type'))}</div>` +
+    rows.map((r) => {
+      const pct = Math.round((r.ok / r.n) * 100);
+      const tone = pct < 60 ? 'low' : pct < 80 ? 'mid' : 'high';
+      return '<div class="tq-bd-row">' +
+          `<span class="tq-bd-name">${esc(name(r.type))}</span>` +
+          `<span class="tq-bd-bar"><i class="${tone}" style="width:${pct}%"></i></span>` +
+          `<span class="tq-bd-num">${r.ok} / ${r.n}</span>` +
+        '</div>';
+    }).join('') +
+    /* 이름 뒤에 조사를 붙이지 않는다. 「순서 배열이」와 「빈칸 채우기가」는
+       받침에 따라 갈리는데, 유형 이름은 앞으로도 늘어난다. */
+    tqWeakTip(weak.map((r) => r.type), rows.length, name);
+  box.classList.remove('hidden');
+}
+
 function tqFinish() {
   const n = tqRound.length;
   // 최고 기록은 전체를 다 푼 판에만 남긴다. 유형별 판과 견주면 뜻이 없다.
   if (n === tqOf(tqGrade).length) {
     gameBest(tqBestKey(tqGrade), tqScore);
   }
+  tqSetWrite(tqGrade, tqSet, tqScore, n);
+  /* 전체 풀기는 유형별 점수도 같이 남긴다. 같은 문제를 같은 자리에서 푼
+     것이라 유형별 판과 다를 바가 없고, 이걸 안 남기면 40문제를 다 풀고도
+     기록판이 「아직 안 풀었어요」만 늘어놓는다 — 정작 알고 싶은 것이
+     어느 유형이 약한가인데. */
+  if (tqSet === 'all') tqByType().forEach((r) => tqSetWrite(tqGrade, r.type, r.ok, r.n));
   const pct = tqScore / n;
   $('tqOverEmoji').textContent = pct === 1 ? '🏆' : pct >= 0.7 ? '🎉' : '📖';
   $('tqOverScore').textContent = `${tqScore} / ${n}`;
+  const rate = t(`정답률 ${Math.round(pct * 100)}%`, `${Math.round(pct * 100)}% correct`);
   $('tqOverLine').textContent = tqWrongs.length
-    ? t(`틀린 ${tqWrongs.length}문제를 아래에 모았어요.`, `The ${tqWrongs.length} you missed are below.`)
+    ? `${rate} · ` + t(`틀린 ${tqWrongs.length}문제를 아래에 모았어요.`, `The ${tqWrongs.length} you missed are below.`)
     : t('전부 맞혔어요.', 'All correct.');
+  tqDrawBreak();
   $('tqWrongs').innerHTML = tqWrongs.map((q) =>
     '<div class="tq-wrong">' +
       `<div class="lc-lv">${esc(t(TQ_TYPE_TX[q.type].ko, TQ_TYPE_TX[q.type].en))}</div>` +
@@ -7179,9 +7356,15 @@ $('tqList').addEventListener('click', (ev) => {
   const b = ev.target.closest('[data-tq]');
   if (b) tqStart(b.dataset.tq);
 });
+/* 「…만 풀어 보기」. 두 자리(기록판·결과 화면)에 같은 단추가 나오므로
+   다시 그릴 때마다 붙이지 않도록 바깥 상자에 한 번만 걸어 둔다. */
+['tqRecord', 'tqBreak'].forEach((id) => $(id).addEventListener('click', (ev) => {
+  const b = ev.target.closest('[data-tq-go]');
+  if (b) tqStart(b.dataset.tqGo);
+}));
 $('tqNext').addEventListener('click', tqDraw);
 $('tqQuit').addEventListener('click', drawTopik);
-$('tqAgain').addEventListener('click', () => tqStart(tqRound.length === tqOf(tqGrade).length ? 'all' : tqRound[0].type));
+$('tqAgain').addEventListener('click', () => tqStart(tqSet));
 $('tqBack').addEventListener('click', drawTopik);
 
 function tqSyncLang() {
