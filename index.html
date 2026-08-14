@@ -5,6 +5,25 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>치즈감자 — 나만의 단어장 앱</title>
 <meta name="description" content="스와이프 하나로 언어 학습이 쉬워져요. 나만의 단어장 앱, 치즈감자.">
+<link rel="canonical" href="https://everykoreans.com/">
+
+<!-- 카카오톡·디스코드·트위터에 주소를 붙여넣으면 제목도 그림도 안 떴다.
+     og: 와 twitter: 태그가 하나도 없었기 때문이다. 앱을 받게 하려고 만든
+     사이트인데 링크가 맨몸으로 돌아다니고 있었다. -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://everykoreans.com/">
+<meta property="og:site_name" content="치즈감자">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:title" content="치즈감자 — 나만의 단어장 앱">
+<meta property="og:description" content="스와이프 하나로 언어 학습이 쉬워져요. 한국어 배우기, TOPIK 유형 연습, 예문 만들기까지.">
+<meta property="og:image" content="https://everykoreans.com/logo.png">
+<meta property="og:image:alt" content="치즈감자">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="치즈감자 — 나만의 단어장 앱">
+<meta name="twitter:description" content="스와이프 하나로 언어 학습이 쉬워져요. 한국어 배우기, TOPIK 유형 연습, 예문 만들기까지.">
+<meta name="twitter:image" content="https://everykoreans.com/logo.png">
+<meta name="theme-color" content="#F2EEE4">
+
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/variable/pretendardvariable.css">
 <style>
 /* ══════════════════════════════════════════════════════════════
@@ -100,18 +119,23 @@ a:hover { color:var(--orange-mid); }
   height:64px; display:flex; align-items:center; justify-content:space-between; gap:14px;
 }
 .brand {
-  display:flex; align-items:center; gap:9px;
-  background:none; border:none; padding:0; cursor:pointer;
+  /* 로고도 누르면 첫 화면으로 가는 단추다. 그림이 28px 이라 누르는 자리가
+     28×28 이었다. 위아래 여백으로 44px 를 만든다 — 그림 크기는 그대로. */
+  display:flex; align-items:center; gap:9px; min-height:44px;
+  background:none; border:none; padding:0 2px; cursor:pointer;
   color:var(--ink); font-size:16px; font-weight:700; letter-spacing:-.03em;
 }
 .brand img { width:28px; height:28px; border-radius:7px; object-fit:cover; }
 .site-nav { display:flex; align-items:center; gap:2px; }
 
+/* 머리띠 단추. 폰에서 39×35px 이라 손끝보다 작았다 — 사이트에서 가장 많이
+   누르는 자리인데도. 높이를 44px 로 올린다. 좁은 화면에서는 글자가 숨고
+   그림글자만 남으므로 최소 너비도 같이 준다. */
 .nav-link {
-  display:inline-flex; align-items:center; gap:7px;
+  display:inline-flex; align-items:center; justify-content:center; gap:7px;
   background:none; border:none; cursor:pointer;
   color:var(--ink-2); font-size:14px; font-weight:500;
-  padding:8px 11px; border-radius:var(--r-s);
+  min-height:44px; padding:0 12px; border-radius:var(--r-s);
   transition:background .16s, color .16s;
 }
 .nav-link:hover { background:rgba(27,21,18,.05); color:var(--ink); }
@@ -119,7 +143,7 @@ a:hover { color:var(--orange-mid); }
 .nav-ico { font-size:14px; line-height:1; }
 
 .lang-btn {
-  height:34px; padding:0 11px; margin-left:6px;
+  height:44px; padding:0 13px; margin-left:6px;
   font-size:12px; font-weight:700; letter-spacing:.08em;
   border-radius:var(--r-s); border:1px solid var(--line);
   background:transparent; color:var(--ink-2); cursor:pointer;
@@ -140,8 +164,10 @@ a:hover { color:var(--orange-mid); }
   .site-hd-in { height:56px; padding:0 16px; }
   .brand span { display:none; }
   .nav-link .nav-txt { display:none; }
-  .nav-link { padding:9px 9px; }
-  .nav-ico { font-size:17px; }
+  /* 글자가 숨으면 그림글자 하나만 남아 폭이 39px 로 줄었다.
+     누르는 자리는 가로도 44px 는 되어야 한다. */
+  .nav-link { min-width:44px; padding:0 6px; }
+  .nav-ico { font-size:18px; }
   .hd-cta { display:none; }
 }
 
@@ -152,7 +178,7 @@ a:hover { color:var(--orange-mid); }
 
 .menu-btn {
   display:inline-flex; align-items:center; justify-content:center;
-  width:38px; height:38px; margin-left:8px;
+  width:44px; height:44px; margin-left:8px;
   border:1px solid var(--line); border-radius:var(--r-s);
   background:transparent; cursor:pointer;
   transition:background .16s, border-color .16s;
@@ -207,7 +233,7 @@ a:hover { color:var(--orange-mid); }
   text-transform:uppercase; color:var(--ink-3);
 }
 .side-close {
-  width:34px; height:34px; display:inline-flex; align-items:center; justify-content:center;
+  width:44px; height:44px; display:inline-flex; align-items:center; justify-content:center;
   border:none; background:none; border-radius:var(--r-s); cursor:pointer;
   color:var(--ink-3); font-size:15px; line-height:1;
   transition:background .16s, color .16s;
@@ -620,7 +646,9 @@ body.nav-open { overflow:hidden; }
   padding-bottom:18px; margin-bottom:18px; border-bottom:1px solid var(--line-2);
 }
 .footer-info { font-size:12.5px; color:var(--ink-3); line-height:1.8; }
-.footer-info a { color:var(--ink-3); }
+/* 바닥글 링크는 14px 높이라 손가락으로 겨냥이 안 됐다. 줄 사이를 넓히지
+   않으려고 세로 여백 대신 inline-block 높이로 늘린다. */
+.footer-info a { display:inline-block; min-height:32px; line-height:32px; color:var(--ink-3); text-decoration:underline; text-underline-offset:3px; }
 .footer-info a:hover { color:var(--orange-deep); }
 
 /* ══ 발음 테스트 · 계정 · 단어장 공통 머리 ═════════════════════ */
@@ -754,8 +782,18 @@ body.nav-open { overflow:hidden; }
 /* ══ 내 단어장 ═════════════════════════════════════════════════ */
 .wb-top { display:flex; align-items:center; justify-content:space-between; margin-bottom:18px; padding-bottom:14px; border-bottom:1px solid var(--line-2); }
 .wb-count { font-size:12px; font-weight:600; letter-spacing:.1em; text-transform:uppercase; color:var(--ink-3); }
-.wb-out { background:none; border:none; cursor:pointer; padding:4px; font-size:13px; color:var(--ink-3); }
-.wb-out:hover { color:var(--orange-deep); }
+/* 「← 배우기」 「← 그만두기」 같은 되돌아가기 단추.
+   폰에서 재 보니 77×26px 에 글자 13px 이었다. 손가락으로 누르는 자리는
+   44px 는 되어야 하고, 무엇보다 글자가 흐려서(--ink-3) 눌러도 되는 것인지
+   보이지 않았다. 테두리를 한 줄 두르고 크기를 손가락에 맞췄다. */
+.wb-out {
+  display:inline-flex; align-items:center; gap:5px;
+  min-height:44px; padding:0 15px;
+  background:transparent; border:1px solid var(--line); border-radius:999px;
+  font:inherit; font-size:14px; font-weight:600; color:var(--ink-2);
+  cursor:pointer; transition:background .16s, border-color .16s, color .16s;
+}
+.wb-out:hover { background:var(--surface-2); border-color:rgba(27,21,18,.2); color:var(--ink); }
 .wb-list { display:grid; gap:10px; }
 .wb-item {
   display:flex; gap:16px; padding:18px;
@@ -2538,8 +2576,12 @@ body.nav-open { overflow:hidden; }
 .diff-seg label {
   display:inline-flex;
   align-items:center;
+  justify-content:center;
   gap:4px;
-  padding:5px 14px;
+  /* 라디오 자체는 display:none 이라 이 label 이 곧 누르는 자리다.
+     28px 이던 것을 40px 로 — 세 칸이 붙어 있어 작으면 옆 칸이 눌린다. */
+  min-height:40px;
+  padding:0 16px;
   border-radius:999px;
   font-size:13px;
   font-weight:700;
@@ -2910,7 +2952,7 @@ body.nav-open { overflow:hidden; }
     <div class="dl-logo-wrap"><img class="dl-logo" src="logo.png" alt="치즈감자"></div>
     <div class="dl-title" data-en="Start today">지금 바로 시작하세요</div>
     <div class="dl-sub" data-en="Build your own wordbook for free<br>and study smarter">무료로 나만의 단어장을 만들고<br>더 스마트하게 언어를 공부하세요</div>
-    <a class="dl-btn" href="https://play.google.com/store" target="_blank" data-en="▶ Get it on Google Play">▶ Google Play 다운로드</a>
+    <a class="dl-btn" href="https://play.google.com/store" target="_blank" rel="noopener noreferrer" data-en="▶ Get it on Google Play">▶ Google Play 다운로드</a>
     <div class="dl-coming"><span data-en="🍎 iOS version coming soon">🍎 iOS 버전 출시 예정</span></div>
   </div>
 
@@ -8995,19 +9037,19 @@ function renderLibrary() {
         '<div class="bd-meta">' +
           `<span>${esc(r.author || '익명')}</span>` +
           `<span>${new Date(r.created_at).toLocaleDateString()}</span>` +
-          `<span>↓ ${r.downloads}</span>` +
+          `<span>↓ ${esc(r.downloads)}</span>` +
         '</div>' +
       '</div>' +
-      `<div class="bd-meta">${r.word_count}` +
+      `<div class="bd-meta">${esc(r.word_count)}` +
         // 신고 수는 관리자에게만 보여준다. 다른 사람에게 보이면
         // "신고 많은 자료"가 오히려 눈에 띄고, 보복 신고도 생긴다.
-        (isAdmin && r.report_count > 0 ? ` <span class="bd-flag">🚩 ${r.report_count}</span>` : '') +
+        (isAdmin && r.report_count > 0 ? ` <span class="bd-flag">🚩 ${esc(r.report_count)}</span>` : '') +
       '</div>' +
       '<div class="bd-actions">' +
-        `<button class="bd-dl" data-dl="${r.id}">⬇ ${t('받기', 'Get')}</button>` +
+        `<button class="bd-dl" data-dl="${esc(r.id)}">⬇ ${t('받기', 'Get')}</button>` +
         (canDelete
-          ? `<button class="bd-del" data-del="${r.id}">${t('삭제', 'Delete')}</button>`
-          : `<button class="bd-del" data-report="${r.id}">${t('신고', 'Report')}</button>`) +
+          ? `<button class="bd-del" data-del="${esc(r.id)}">${t('삭제', 'Delete')}</button>`
+          : `<button class="bd-del" data-report="${esc(r.id)}">${t('신고', 'Report')}</button>`) +
       '</div>';
     list.appendChild(el);
   }

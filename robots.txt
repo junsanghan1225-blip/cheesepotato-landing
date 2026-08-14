@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://everykoreans.com/sitemap.xml

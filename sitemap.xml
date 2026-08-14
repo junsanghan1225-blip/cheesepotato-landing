@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 저장소에 실제로 있는 HTML 은 이 둘뿐이다. 화면 전환은 해시(#learn 등)로
+     하므로 크롤러에게는 한 쪽이다. 없는 주소를 적어 두면 404 만 늘어난다. -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://everykoreans.com/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/privacy.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+</urlset>
