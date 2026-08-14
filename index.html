@@ -1966,40 +1966,55 @@ body.nav-open { overflow:hidden; }
 .tq-wrong-a { font-size:14.5px; color:var(--green); font-weight:700; margin-top:6px; word-break:keep-all; }
 .tq-wrong-w { font-size:12.5px; color:var(--ink-3); line-height:1.65; margin-top:6px; word-break:keep-all; }
 
-/* 유형별 성적. 여러 유형이 섞인 판(전체 풀기)에만 나온다.
+/* 유형별 성적.
    막대를 두는 이유는 숫자를 읽게 하려는 게 아니라 **견주게** 하려는 것이다 —
-   6 / 9 와 2 / 6 중 어느 쪽이 급한지는 길이가 먼저 말해 준다. */
-.tq-bd { margin-top:24px; text-align:left; }
-.tq-bd-h { font-size:12px; font-weight:800; letter-spacing:.08em; color:var(--ink-3); text-transform:uppercase; }
-.tq-bd-row { display:flex; align-items:center; gap:10px; margin-top:9px; }
-.tq-bd-name { flex:0 0 126px; font-size:13.5px; color:var(--ink-2); word-break:keep-all; }
-.tq-bd-bar { flex:1 1 auto; height:8px; background:var(--line-2); border-radius:999px; overflow:hidden; }
-.tq-bd-bar i { display:block; height:100%; border-radius:999px; }
-.tq-bd-bar i.low  { background:var(--red); }
-.tq-bd-bar i.mid  { background:var(--orange); }
-.tq-bd-bar i.high { background:var(--green); }
-.tq-bd-num { flex:0 0 52px; text-align:right; font-size:13px; font-weight:700; color:var(--ink); font-variant-numeric:tabular-nums; }
-.tq-bd-tip { margin-top:14px; font-size:13.5px; line-height:1.7; color:var(--ink-2); word-break:keep-all; }
-.tq-bd-tip b { color:var(--orange-deep); }
+   6 / 9 와 2 / 6 중 어느 쪽이 급한지는 길이가 먼저 말해 준다.
+
+   색은 셋뿐이고 셋 다 채도를 낮춰 이 쪽지의 크림색과 같은 식구로 맞췄다.
+   빨강·노랑·초록을 그대로 쓰면 신호등이 되고, 신호등은 관리자 화면처럼
+   보인다. 벽돌·흙·이끼로 내려 두면 같은 것을 말하면서도 종이에 가깝다. */
+/* 색 토막은 두 상자가 같이 쓴다. .tq-bd 에만 걸면 기록판(.tq-rec)의
+   막대가 색을 못 찾아 빈 채로 그려진다. */
+.tq-bd, .tq-rec { --tq-low:#B2604A; --tq-mid:#BE8A55; --tq-high:#5F7F68; }
+/* 결과 화면은 가운데 정렬이라 표만 왼쪽 끝에 붙으면 점수와 어긋난다.
+   폭을 한 줄 크기(122+14+340+14+62)로 묶어 가운데에 세운다. */
+.tq-bd { max-width:552px; margin:26px auto 0; text-align:left; }
+.tq-bd-h { font-size:11px; font-weight:700; letter-spacing:.14em; color:var(--ink-3); text-transform:uppercase; }
+.tq-bd-row { display:flex; align-items:center; gap:14px; margin-top:13px; }
+.tq-bd-name { flex:0 0 122px; font-size:13px; line-height:1.45; color:var(--ink-2); word-break:keep-all; }
+/* 막대는 늘어나지 않고 좁아지기만 한다. 넓은 화면에서 끝까지 늘어나면
+   5px 짜리 선이 650px 가 되어 표가 아니라 스프레드시트로 보이고,
+   숫자도 막대에서 멀어져 어느 줄의 것인지 눈으로 따라가야 한다. */
+.tq-bd-bar { flex:0 1 340px; height:5px; background:rgba(27,21,18,.07); border-radius:999px; overflow:hidden; }
+.tq-bd-bar i { display:block; height:100%; border-radius:999px; background:var(--tq-mid); }
+.tq-bd-bar i.low  { background:var(--tq-low); }
+.tq-bd-bar i.high { background:var(--tq-high); }
+/* 분모를 흐리게 둔다. 눈이 먼저 잡아야 하는 것은 맞힌 수다. */
+.tq-bd-num { flex:0 0 62px; text-align:right; font-size:13px; font-weight:500; color:var(--ink-3); font-variant-numeric:tabular-nums; }
+.tq-bd-num b { font-weight:700; color:var(--ink); }
+.tq-bd-num.none b { font-weight:500; color:var(--ink-3); }
+.tq-bd-tip { margin-top:18px; font-size:13px; line-height:1.7; color:var(--ink-3); word-break:keep-all; }
+.tq-bd-tip b { font-weight:600; color:var(--ink-2); }
 .tq-bd-go {
-  margin-top:10px; padding:9px 15px; font:inherit; font-size:13.5px; font-weight:700;
-  color:var(--orange-deep); background:#FFF4EA; border:1px solid rgba(255,138,61,.35);
-  border-radius:999px; cursor:pointer;
+  margin-top:12px; padding:8px 16px; font:inherit; font-size:13px; font-weight:600;
+  color:var(--ink-2); background:transparent; border:1px solid var(--line);
+  border-radius:999px; cursor:pointer; transition:background .15s ease, border-color .15s ease;
 }
-.tq-bd-go:hover { background:#FFE8D3; }
+.tq-bd-go:hover { background:var(--surface-2); border-color:rgba(27,21,18,.2); }
 
 /* 세트별 기록. 고르기 화면에 붙는다 — 어느 세트를 누를지 정하는 자리에서
    지난번 점수가 보여야 고를 수 있다. 결과 화면에만 두면 한 판이 끝나는
    순간 사라져서, 다음에 왔을 때 무엇이 약했는지 기억나지 않는다. */
-.tq-rec { margin-top:26px; padding:20px 22px; background:var(--surface); border:1px solid var(--line-2); border-radius:var(--r-l); }
-.tq-rec .tq-bd-row:first-of-type { margin-top:12px; }
-.tq-rec-none { flex:1 1 auto; font-size:12.5px; color:var(--ink-3); }
-.tq-rec-num { flex:0 0 52px; text-align:right; font-size:13px; font-weight:700; color:var(--ink); font-variant-numeric:tabular-nums; }
-.tq-rec-row-all .tq-bd-name { font-weight:800; color:var(--ink); }
-.tq-rec-sep { height:1px; background:var(--line-2); margin:12px 0 4px; }
+.tq-rec { margin-top:28px; padding:24px 26px; background:var(--surface); border:1px solid var(--line-2); border-radius:var(--r-l); }
+.tq-rec .tq-bd-row:first-of-type { margin-top:16px; }
+.tq-rec-row-all .tq-bd-name { font-weight:700; color:var(--ink); }
+.tq-rec-row-all .tq-bd-bar { height:7px; }
+.tq-rec-sep { height:1px; background:var(--line-2); margin:16px 0 2px; }
 @media (max-width:520px) {
-  .tq-bd-name { flex-basis:84px; font-size:12.5px; }
-  .tq-rec { padding:16px 15px; }
+  .tq-bd-row { gap:11px; }
+  .tq-bd-name { flex-basis:92px; font-size:12.5px; }
+  .tq-bd-num { flex-basis:56px; font-size:12.5px; }
+  .tq-rec { padding:19px 17px; }
 }
 
 /* ══ 숫자 읽기 ═══════════════════════════════════════════════
@@ -7124,6 +7139,19 @@ function drawTopik() {
   tqPanel('tqPick');
 }
 
+/* 한 줄. 아직 안 푼 세트도 빈 막대와 「— / N」으로 그린다.
+   줄마다 칸이 어긋나면 표가 아니라 목록이 되어 견주기가 안 된다. */
+function tqBar(label, ok, n, cls) {
+  const has = ok !== null;
+  const pct = has ? Math.round((ok / n) * 100) : 0;
+  const tone = !has ? '' : pct < 60 ? 'low' : pct >= 80 ? 'high' : '';
+  return `<div class="tq-bd-row${cls || ''}">` +
+      `<span class="tq-bd-name">${esc(label)}</span>` +
+      `<span class="tq-bd-bar">${has ? `<i class="${tone}" style="width:${pct}%"></i>` : ''}</span>` +
+      `<span class="tq-bd-num${has ? '' : ' none'}"><b>${has ? ok : '—'}</b> / ${n}</span>` +
+    '</div>';
+}
+
 /* 약한 유형을 짚어 주는 한 줄. 기록판과 결과 화면이 같이 쓴다.
    이름 뒤에 조사를 붙이지 않는다 — 「순서 배열이」와 「빈칸 채우기가」는
    받침에 따라 갈리는데 유형 이름은 앞으로도 늘어난다.
@@ -7131,16 +7159,16 @@ function drawTopik() {
    어디부터 손대야 할지 알려 주지 못한다. */
 function tqWeakTip(weak, total, name) {
   if (!weak.length) return `<p class="tq-bd-tip">${esc(t('유형별로 고르게 나왔어요.', 'Even across every type.'))}</p>`;
+  /* 무슨 유형인지는 단추가 이미 말한다. 설명을 한 줄 더 붙이면 말이 겹친다. */
   const go = `<button class="tq-bd-go" type="button" data-tq-go="${esc(weak[0])}">` +
-    `${esc(t(`${name(weak[0])}만 풀어 보기 →`, `Practise ${name(weak[0])} →`))}</button>`;
+    `${esc(t(`${name(weak[0])} 풀어 보기 →`, `Practise ${name(weak[0])} →`))}</button>`;
   if (weak.length >= total) {
-    return `<p class="tq-bd-tip">${esc(t('아직 전체적으로 낮아요. 가장 낮은 유형부터 하나씩 풀어 보세요.',
-      'Everything is still low. Start with the weakest type and work up.'))}</p>` + go;
+    return `<p class="tq-bd-tip">${esc(t('아직 전체적으로 낮아요. 낮은 곳부터 하나씩.',
+      'Still low across the board — start with the lowest.'))}</p>` + go;
   }
   const shown = weak.slice(0, 2).map(name).join(' · ');
   const more = weak.length > 2 ? t(` 외 ${weak.length - 2}개`, ` and ${weak.length - 2} more`) : '';
-  return `<p class="tq-bd-tip">${t('여기가 약해요', 'Weakest here')} — <b>${esc(shown)}</b>${esc(more)}` +
-    `<br>${esc(t('이 유형만 모아서 한 판 더 풀어 보세요.', 'Drill just that type for a round.'))}</p>` + go;
+  return `<p class="tq-bd-tip">${t('아직 약한 곳', 'Weakest')} &nbsp;<b>${esc(shown)}</b>${esc(more)}</p>` + go;
 }
 
 /* 세트별 점수 — 고르기 화면에 붙는 기록판.
@@ -7167,22 +7195,11 @@ function tqDrawRecord(byType) {
 
   box.innerHTML =
     `<div class="tq-bd-h">${esc(t('세트별 점수', 'Your scores'))}</div>` +
-    rec.map((x, i) => {
-      const head = (i === 1) ? '<div class="tq-rec-sep"></div>' : '';
-      if (!x.r) {
-        return head + `<div class="tq-bd-row${x.k === 'all' ? ' tq-rec-row-all' : ''}">` +
-            `<span class="tq-bd-name">${esc(name(x.k))}</span>` +
-            `<span class="tq-rec-none">${esc(t(`아직 안 풀었어요 · ${x.now}문제`, `Not played yet · ${x.now} questions`))}</span>` +
-          '</div>';
-      }
-      const pct = Math.round((x.r.s / x.r.n) * 100);
-      const tone = pct < 60 ? 'low' : pct < 80 ? 'mid' : 'high';
-      return head + `<div class="tq-bd-row${x.k === 'all' ? ' tq-rec-row-all' : ''}">` +
-          `<span class="tq-bd-name">${esc(name(x.k))}</span>` +
-          `<span class="tq-bd-bar"><i class="${tone}" style="width:${pct}%"></i></span>` +
-          `<span class="tq-rec-num">${x.r.s} / ${x.r.n}</span>` +
-        '</div>';
-    }).join('') +
+    rec.map((x, i) =>
+      (i === 1 ? '<div class="tq-rec-sep"></div>' : '') +
+      tqBar(name(x.k), x.r ? x.r.s : null, x.r ? x.r.n : x.now,
+            x.k === 'all' ? ' tq-rec-row-all' : '')
+    ).join('') +
     /* 아직 안 푼 세트가 있으면 「고르게 나왔어요」라고 할 수 없다.
        그때는 아무 말도 하지 않는다 — 표가 이미 말하고 있다. */
     (weak.length
@@ -7295,17 +7312,7 @@ function tqDrawBreak() {
 
   box.innerHTML =
     `<div class="tq-bd-h">${esc(t('유형별로 보면', 'By type'))}</div>` +
-    rows.map((r) => {
-      const pct = Math.round((r.ok / r.n) * 100);
-      const tone = pct < 60 ? 'low' : pct < 80 ? 'mid' : 'high';
-      return '<div class="tq-bd-row">' +
-          `<span class="tq-bd-name">${esc(name(r.type))}</span>` +
-          `<span class="tq-bd-bar"><i class="${tone}" style="width:${pct}%"></i></span>` +
-          `<span class="tq-bd-num">${r.ok} / ${r.n}</span>` +
-        '</div>';
-    }).join('') +
-    /* 이름 뒤에 조사를 붙이지 않는다. 「순서 배열이」와 「빈칸 채우기가」는
-       받침에 따라 갈리는데, 유형 이름은 앞으로도 늘어난다. */
+    rows.map((r) => tqBar(name(r.type), r.ok, r.n)).join('') +
     tqWeakTip(weak.map((r) => r.type), rows.length, name);
   box.classList.remove('hidden');
 }
