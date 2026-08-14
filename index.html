@@ -3068,7 +3068,7 @@ body.nav-open { overflow:hidden; }
           <div id="sbSummary" class="learn-summary"></div>
         </div>
         <div id="sbBrowse">
-          <input id="sbQ" class="sb-q" type="search" autocomplete="off">
+          <input id="sbQ" class="sb-q" type="search" autocomplete="off" aria-label="표현 찾기" data-en-aria="Search expressions">
           <div id="sbCats"></div>
         </div>
         <div id="sbDetail" class="hidden"></div>
@@ -3817,7 +3817,7 @@ body.nav-open { overflow:hidden; }
           <div class="up-found hidden" id="libFound"></div>
           <input class="wb-input" id="libTitle" type="text" maxlength="60" placeholder="제목" style="margin-bottom:0;">
           <input class="wb-input" id="libDesc" type="text" maxlength="200" placeholder="한 줄 설명 (선택)" style="margin-bottom:0;">
-          <select class="up-sel" id="libCat">
+          <select class="up-sel" id="libCat" aria-label="자료 갈래" data-en-aria="Category">
             <option value="영어">영어</option>
             <option value="한국어">한국어</option>
             <option value="일본어">일본어</option>
@@ -3844,7 +3844,7 @@ body.nav-open { overflow:hidden; }
       <div class="up-panel">
         <div class="up-row">
           <div class="rp-on" id="libReportOn"></div>
-          <select class="up-sel" id="libReason">
+          <select class="up-sel" id="libReason" aria-label="신고 사유" data-en-aria="Reason for report">
             <option value="저작권"   data-en="Copyright — this is a paid/published word list">저작권 — 사서 쓰는 자료예요</option>
             <option value="부적절"   data-en="Inappropriate content">부적절한 내용</option>
             <option value="스팸"     data-en="Spam or advertising">광고·스팸</option>
@@ -4002,23 +4002,23 @@ body.nav-open { overflow:hidden; }
                   <input class="wb-input" id="stTitle" type="text" maxlength="40" placeholder="예) 토익 단어장" style="margin-bottom:0;">
                 </div>
                 <div>
-                  <div class="wf-lbl" data-en="Language you are learning">공부할 언어</div>
-                  <select class="up-sel" id="stStudy"></select>
+                  <div class="wf-lbl" id="lblStStudy" data-en="Language you are learning">공부할 언어</div>
+                  <select class="up-sel" aria-labelledby="lblStStudy" id="stStudy"></select>
                   <input class="wb-input hidden" id="stStudyOther" type="text" maxlength="20" placeholder="직접 입력" style="margin:10px 0 0;">
                 </div>
                 <div>
-                  <div class="wf-lbl" data-en="Your own language">모국어</div>
-                  <select class="up-sel" id="stNative"></select>
+                  <div class="wf-lbl" id="lblStNative" data-en="Your own language">모국어</div>
+                  <select class="up-sel" aria-labelledby="lblStNative" id="stNative"></select>
                   <input class="wb-input hidden" id="stNativeOther" type="text" maxlength="20" placeholder="직접 입력" style="margin:10px 0 0;">
                 </div>
                 <div class="dgrid2b">
                   <div>
-                    <div class="wf-lbl" data-en="Words per day">하루 목표</div>
-                    <input class="wb-input" id="stGoal" type="number" min="1" max="200" style="margin-bottom:0;">
+                    <div class="wf-lbl" id="lblStGoal" data-en="Words per day">하루 목표</div>
+                    <input class="wb-input" aria-labelledby="lblStGoal" id="stGoal" type="number" min="1" max="200" style="margin-bottom:0;">
                   </div>
                   <div>
-                    <div class="wf-lbl" data-en="Study period (days)">학습 기간 (일)</div>
-                    <input class="wb-input" id="stDays" type="number" min="1" max="365" style="margin-bottom:0;">
+                    <div class="wf-lbl" id="lblStDays" data-en="Study period (days)">학습 기간 (일)</div>
+                    <input class="wb-input" aria-labelledby="lblStDays" id="stDays" type="number" min="1" max="365" style="margin-bottom:0;">
                   </div>
                 </div>
                 <p class="up-hint" id="stCalc"></p>
@@ -4098,7 +4098,7 @@ body.nav-open { overflow:hidden; }
             <input class="wb-input" id="wfWord" type="text" maxlength="200" placeholder="단어" style="margin-bottom:0;">
             <input class="wb-input" id="wfMean" type="text" maxlength="300" placeholder="뜻" style="margin-bottom:0;">
             <input class="wb-input" id="wfEx" type="text" maxlength="300" placeholder="예문 (선택)" style="margin-bottom:0;">
-            <select class="up-sel" id="wfTag"></select>
+            <select class="up-sel" id="wfTag" aria-label="단어 갈래" data-en-aria="Word tag"></select>
 
             <div>
               <div class="wf-lbl" data-en="Difficulty">난이도</div>
@@ -4131,7 +4131,7 @@ body.nav-open { overflow:hidden; }
       <div class="wb-tools">
         <input class="wb-search" id="wbSearch" type="search" placeholder="단어 · 뜻 검색">
         <!-- 정렬 항목은 앱 WordbookScreen 의 SortType 과 같게 맞춘다 -->
-        <select class="wb-sort" id="wbSort">
+        <select class="wb-sort" id="wbSort" aria-label="정렬 기준" data-en-aria="Sort by">
           <option value="newest"       data-en="Newest first">최신순</option>
           <option value="oldest"       data-en="Oldest first">오래된순</option>
           <option value="remembered"   data-en="Memorized first">외운 것 먼저</option>
@@ -5013,6 +5013,13 @@ function applyLang(lang) {
     // 첫 전환 때 한국어 원문을 보관해 둔다. 안 그러면 되돌릴 수 없다.
     if (el.dataset.ko === undefined) el.dataset.ko = el.innerHTML;
     el.innerHTML = lang === 'en' ? el.dataset.en : el.dataset.ko;
+  });
+  /* 눈에 보이는 이름표가 없는 칸(찾기 상자, 갈래 고르기)은 aria-label 로만
+     이름이 붙는다. 그건 innerHTML 이 아니라서 위 반복이 못 건드린다 —
+     따로 바꿔 주지 않으면 영어 화면에서 화면 낭독기만 한국어로 읽는다. */
+  document.querySelectorAll('[data-en-aria]').forEach(el => {
+    if (el.dataset.koAria === undefined) el.dataset.koAria = el.getAttribute('aria-label') || '';
+    el.setAttribute('aria-label', lang === 'en' ? el.dataset.enAria : el.dataset.koAria);
   });
   document.documentElement.lang = lang;
   const b = ptId('langBtn');
