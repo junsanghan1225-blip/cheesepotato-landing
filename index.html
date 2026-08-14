@@ -6890,6 +6890,15 @@ const LEARN_SECTIONS = [
 ];
 
 const secTx = (o) => (isEn() ? o.en : o.ko);
+
+/* 코스·레슨의 글. 지금은 대부분 그냥 문자열이라 언어를 바꿔도 그대로
+   남는다 — 한국어 화면에 「Read Korean」이, 영어 화면에 「중급 02-02」가
+   그대로 뜬다. {ko, en} 으로 하나씩 옮기는 중이라 둘 다 받아 준다.
+   옮기는 동안 어느 쪽이 와도 화면이 깨지지 않아야 한다.
+   다 옮기고 나면 이 함수는 t() 한 줄로 줄어든다. */
+const cTx = (v) => (v && typeof v === 'object')
+  ? (isEn() ? (v.en ?? v.ko ?? '') : (v.ko ?? v.en ?? ''))
+  : (v ?? '');
 const LEARN_LEVELS = [
   {
     id: 'beginner',
@@ -7409,7 +7418,7 @@ function drawCourseRoadmap(level, rows) {
     const total = linked.reduce((a, c) => a + c.lessons.length, 0);
     const meter = total ? `${done} / ${total}` : t('빌드 예정', 'Planned');
     const foot = linked.length
-      ? t(`${linked.map((c) => c.title).join(' · ')} 로 바로 이어집니다.`, `Flows into ${linked.map((c) => c.title).join(' · ')}.`)
+      ? t(`${linked.map((c) => cTx(c.title)).join(' · ')} 로 바로 이어집니다.`, `Flows into ${linked.map((c) => cTx(c.title)).join(' · ')}.`)
       : t('사용자가 준 초급 커리큘럼을 따라 다음 단위로 계속 넓힐 예정입니다.', 'This will expand next using your beginner curriculum outline.');
     return (
       `<div class="roadmap-card">` +
@@ -7887,11 +7896,11 @@ function drawCourses() {
           `<div class="lc-mark">${esc(c.emoji)}</div>` +
           '<div style="min-width:0">' +
             `<div class="lc-lv">${esc(courseLabel(c))}</div>` +
-            `<div class="lc-title">${esc(c.title)}</div>` +
-            `<div class="lc-tag">${esc(c.tagline)}</div>` +
+            `<div class="lc-title">${esc(cTx(c.title))}</div>` +
+            `<div class="lc-tag">${esc(cTx(c.tagline))}</div>` +
           '</div>' +
         '</div>' +
-        `<p class="lc-blurb">${esc(c.blurb)}</p>` +
+        `<p class="lc-blurb">${esc(cTx(c.blurb))}</p>` +
         (early
           ? `<div class="lc-order">${t(`순서로는 ‘${esc(need.title)}’ 다음이에요. 먼저 열어 봐도 괜찮아요.`,
                                        `Meant to come after ‘${esc(need.title)}’ — open it early if you like.`)}</div>`
@@ -7923,14 +7932,14 @@ function openCourse(c) {
 function drawLessonRows() {
   const c = lsCourse;
   if (!c) return;
-  $('llTitle').textContent = c.title;
+  $('llTitle').textContent = cTx(c.title);
   $('llRows').innerHTML = c.lessons.map((l, i) => {
     const done = doneSet.has(l.id);
     return (
       `<button class="ll-row${done ? ' done' : ''}" data-lesson="${esc(l.id)}">` +
         `<span class="ll-dot">${done ? '✓' : i + 1}</span>` +
         '<span class="ll-main">' +
-          `<span class="ll-t">${esc(l.title)}</span>` +
+          `<span class="ll-t">${esc(cTx(l.title))}</span>` +
           `<span class="ll-m">${l.minutes} ${t('분', 'min')} · ${l.blocks.filter(isEx).length} ${t('문제', 'exercises')}</span>` +
         '</span>' +
         '<span class="ll-go">→</span>' +
@@ -7967,8 +7976,8 @@ function startLesson(course, lesson) {
     $('lsHud').style.display = 'none';
   }
 
-  $('lsKicker').textContent = course.title;
-  $('lsTitle').textContent = lesson.title;
+  $('lsKicker').textContent = cTx(course.title);
+  $('lsTitle').textContent = cTx(lesson.title);
   $('lsBlocks').innerHTML = '';
   $('lsNextBar').classList.add('hidden');
   lsMeter();
@@ -8632,7 +8641,7 @@ async function finishLesson() {
     '<div class="ls-done">' +
       `<div class="ls-done-big">${first ? '🧀' : '👏'}</div>` +
       `<div class="ls-done-t">${first ? t('레슨 완료','Lesson complete') : t('다시 한 번 완벽하게','Nailed it again')}</div>` +
-      `<p class="ls-done-s">${esc(lsLesson.title)}</p>` +
+      `<p class="ls-done-s">${esc(cTx(lsLesson.title))}</p>` +
       (session
         ? (n > 1 ? `<div class="ls-streak">🔥 ${t(`${n}일 연속`, `${n}-day streak`)}</div>` : '')
         : `<p class="ls-done-s" style="color:var(--ink-3)">${t('로그인하면 진도가 저장돼요.','Sign in and your progress is saved.')}</p>`) +
