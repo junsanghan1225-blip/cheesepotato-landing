@@ -2544,6 +2544,25 @@ body.nav-open { overflow:hidden; }
   margin: 6px 0 18px;
   word-break: keep-all;
 }
+/* 주고받는 말. dlg-turn 이 flex 라 저절로 한 사람에 한 줄이 된다 —
+   담는 상자를 flex 로 바꿀 필요가 없어서, 대화가 아닌 문장은 지금 모양
+   그대로 남는다. 말꼬리(A·B)를 고정폭으로 잡아 말이 세로로 맞아떨어지게
+   한다. 말꼬리마다 폭이 다르면 줄마다 시작점이 어긋나 도로 읽기 나빠진다. */
+.dlg-turn { display: flex; gap: 10px; align-items: baseline; }
+.dlg-turn + .dlg-turn { margin-top: 6px; }
+.dlg-who {
+  flex: none; min-width: 1.7em; text-align: center;
+  align-self: flex-start; margin-top: .35em;
+  padding: 1px 6px; border-radius: 6px;
+  background: var(--tint); color: var(--orange-deep);
+  font-size: .72em; font-weight: 800; line-height: 1.6;
+  font-variant-numeric: tabular-nums;
+}
+.dlg-said { min-width: 0; }
+.dlg-scene {
+  display: block; margin-bottom: 8px;
+  font-size: .78em; font-weight: 700; color: var(--ink-3);
+}
 .cloze-blank {
   display: inline-block;
   min-width: 84px;
@@ -6917,6 +6936,36 @@ function md(s) {
     .replace(/\n\n/g, '</p><p class="bk-p">');
 }
 
+/* 「A: 저 다음 달에 결혼해요! B: 결혼하신다니! 너무 놀라워요.」처럼 두 사람이
+   주고받는 말을 한 줄로 이어 붙이면 어디까지가 A 의 말이고 어디부터가 B 의
+   말인지 눈으로 못 가른다. 말하는 사람이 바뀌는 자리에서 줄을 나눈다.
+
+   **자료의 sentence 는 손대지 않는다.** 그 글자가 마스터리 기록의 열쇠라서
+   (exBlock 의 audioSlug(senRaw)) 줄바꿈 하나만 넣어도 학습자가 쌓아 둔
+   숙달도가 통째로 고아가 된다. 이미 escape 를 마친 HTML 을 받아 그리는
+   쪽에서만 나눈다.
+
+   말꼬리가 한 종류뿐이면 대화가 아니므로 손대지 않고 그대로 돌려준다 —
+   영어 뜻풀이에 「A: 」 하나가 우연히 들어 있다고 줄을 나누면 안 된다. */
+const DLG_WHO = /(^|[\s>])((?:[A-D]|남자|여자|점원|손님|의사|기사)\s*:)\s*/g;
+function dlgLines(html) {
+  const s = String(html ?? '');
+  const at = [...s.matchAll(DLG_WHO)];
+  if (new Set(at.map((m) => m[2].replace(/\s/g, ''))).size < 2) return s;
+  /* 첫 말꼬리 앞에 남는 것은 「(단톡방)」 같은 상황 설명이다. */
+  const scene = s.slice(0, at[0].index + at[0][1].length).trim();
+  const turns = at.map((m, i) => {
+    const from = m.index + m[0].length;
+    const next = at[i + 1];
+    const to = next ? next.index + next[1].length : s.length;
+    return { who: m[2].replace(/\s*:$/, ''), said: s.slice(from, to).trim() };
+  });
+  return (scene ? `<span class="dlg-scene">${scene}</span>` : '') +
+    turns.map((x) =>
+      `<span class="dlg-turn"><b class="dlg-who">${x.who}</b>` +
+      `<span class="dlg-said">${x.said}</span></span>`).join('');
+}
+
 /* 보기 섞기.
    sort(() => Math.random() - .5) 는 이 파일 곳곳에 쓰지만 여기서는 안 된다.
    그 방법은 자리가 고르게 안 퍼져서, 만 번 돌리면 정답이 첫 자리에 14%,
@@ -9114,7 +9163,7 @@ function exBlock(host, b, done) {
 
     const fullSay = b.say || senRaw.replace(/\[([^\]]+)\]/g, '$1');
     const meaningHtml = (b.meaning || b.q)
-      ? `<div style="margin:4px 0 10px;color:var(--ink-3);font-size:14px;">${md(b.meaning || b.q)}</div>` : '';
+      ? `<div style="margin:4px 0 10px;color:var(--ink-3);font-size:14px;">${dlgLines(md(b.meaning || b.q))}</div>` : '';
 
     /* ── 마스터리 레벨 로드 ── */
     const mstKey = audioSlug(senRaw);
@@ -9136,7 +9185,9 @@ function exBlock(host, b, done) {
       `</div>` +
       meaningHtml +
       `<div class="ex-cloze">` +
-        `<div class="cloze-sentence" id="cSen">${esc(before)}<span class="cloze-blank" id="cBlank">${'_'.repeat(Math.max(4, answer.length))}</span>${esc(after)}</div>` +
+        `<div class="cloze-sentence" id="cSen">${dlgLines(
+            esc(before) + `<span class="cloze-blank" id="cBlank">${'_'.repeat(Math.max(4, answer.length))}</span>` + esc(after)
+          )}</div>` +
         // 2단계 초성 힌트 팝업 자리
         `<div id="cHintPop" style="text-align:center"></div>` +
         `<div class="cloze-tools">` +
@@ -9163,7 +9214,7 @@ function exBlock(host, b, done) {
               `</div>`
             : '') +
         `</div>` +
-        `<div id="cMean" style="display:none;margin-top:12px;padding:10px 12px;background:#fff7ed;border-radius:8px;color:var(--orange-deep);font-size:14px;"><b>${t('뜻','Meaning')}:</b> ${md(b.meaning || b.q || '')}</div>` +
+        `<div id="cMean" style="display:none;margin-top:12px;padding:10px 12px;background:#fff7ed;border-radius:8px;color:var(--orange-deep);font-size:14px;"><b>${t('뜻','Meaning')}:</b> ${dlgLines(md(b.meaning || b.q || ''))}</div>` +
       `</div>`;
 
     const blankEl = wrapIn.querySelector('#cBlank');
