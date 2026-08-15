@@ -2048,6 +2048,58 @@ body.nav-open { overflow:hidden; }
 }
 .tq-bd-go:hover { background:var(--surface-2); border-color:rgba(27,21,18,.2); }
 
+/* ── 모의고사 시계 ── */
+.tq-timer {
+  font-size:15px; font-weight:800; color:var(--ink); font-variant-numeric:tabular-nums;
+  letter-spacing:.02em;
+}
+.tq-timer.low { color:var(--red); }
+
+/* ── 성적표 ────────────────────────────────────────────────
+   「몇 점」만으로는 무엇을 고칠지 알 수 없다. 시험지에서 어디가 무너졌는지가
+   보여야 다음 공부가 정해진다. */
+.tq-sheet {
+  --tq-low:#B2604A; --tq-mid:#BE8A55; --tq-high:#5F7F68;
+  max-width:552px; margin:26px auto 0; text-align:left;
+  padding:24px 26px; background:var(--surface);
+  border:1px solid var(--line-2); border-radius:var(--r-l);
+}
+/* 문항별 정오표. 시험지와 같은 번호로 늘어놓는다 — 비율표보다 이 한 줄이
+   먼저 말해 준다. 마흔 칸이 한눈에 들어와야 하므로 번호는 작게. */
+.tq-cells { display:flex; flex-wrap:wrap; gap:4px; margin-top:14px; }
+.tq-cell {
+  flex:0 0 auto; width:30px; height:30px;
+  display:inline-flex; align-items:center; justify-content:center;
+  border-radius:7px; font-size:11px; font-weight:700; font-variant-numeric:tabular-nums;
+}
+.tq-cell.yes  { background:#E4EDE7; color:#3E6650; }
+.tq-cell.no   { background:#F5E3DE; color:#8E4634; }
+.tq-cell.skip { background:rgba(27,21,18,.06); color:var(--ink-3); }
+.tq-legend { display:flex; flex-wrap:wrap; gap:14px; margin-top:12px; font-size:12px; color:var(--ink-3); }
+.tq-legend span { display:inline-flex; align-items:center; gap:5px; }
+.tq-legend i { width:11px; height:11px; border-radius:3px; display:inline-block; }
+.tq-legend i.yes { background:#E4EDE7; }
+.tq-legend i.no { background:#F5E3DE; }
+.tq-legend i.skip { background:rgba(27,21,18,.1); }
+
+.tq-facts { display:flex; flex-wrap:wrap; gap:10px; margin-top:20px; }
+.tq-facts > div {
+  flex:1 1 96px; padding:12px 14px; background:var(--surface-2);
+  border-radius:var(--r); text-align:left;
+}
+.tq-facts b { display:block; font-size:20px; font-weight:800; color:var(--ink); letter-spacing:-.02em; }
+.tq-facts b.up { color:var(--tq-high); }
+.tq-facts b.down { color:var(--tq-low); }
+.tq-facts span { font-size:11.5px; color:var(--ink-3); }
+
+/* 회차 추이. 눈금도 숫자도 없다 — 오르는지 내리는지만 보면 되는 자리다. */
+.tq-trend { display:flex; align-items:flex-end; gap:6px; height:64px; margin-top:14px; }
+.tq-trend-bar { flex:1 1 auto; background:rgba(27,21,18,.14); border-radius:3px 3px 0 0; }
+.tq-trend-bar[data-now] { background:var(--tq-high); }
+@media (max-width:520px) {
+  .tq-sheet { padding:19px 17px; }
+  .tq-cell { width:27px; height:27px; font-size:10.5px; }
+}
 /* 세트별 기록. 고르기 화면에 붙는다 — 어느 세트를 누를지 정하는 자리에서
    지난번 점수가 보여야 고를 수 있다. 결과 화면에만 두면 한 판이 끝나는
    순간 사라져서, 다음에 왔을 때 무엇이 약했는지 기억나지 않는다. */
@@ -3030,6 +3082,10 @@ body.nav-open { overflow:hidden; }
             <div class="qz-time"><span class="qz-time-fill" id="tqFill"></span></div>
             <div class="qz-meta">
               <span class="qz-clock" id="tqCount">0 / 0</span>
+              <!-- 모의고사에서는 점수 자리에 남은 시간이 온다. 실제 시험에는
+                   푸는 도중에 점수를 알려 주는 것이 없고, 있으면 남은 문제를
+                   푸는 마음이 달라진다. -->
+              <span class="tq-timer hidden" id="tqTimer"></span>
               <span class="qz-score" id="tqScore">0</span>
             </div>
           </div>
@@ -3050,6 +3106,9 @@ body.nav-open { overflow:hidden; }
             <div class="claw-over-emoji" id="tqOverEmoji">📖</div>
             <div class="claw-over-score" id="tqOverScore">0</div>
             <p class="claw-over-line" id="tqOverLine"></p>
+            <!-- 성적표. 모의고사를 끝냈을 때만 나온다 — 문항별 정오표,
+                 구간·갈래별 성적, 걸린 시간, 회차 추이. -->
+            <div class="tq-sheet hidden" id="tqSheet"></div>
             <div class="tq-bd hidden" id="tqBreak"></div>
             <div class="tq-wrongs" id="tqWrongs"></div>
             <div class="claw-over-btns">
@@ -7156,6 +7215,9 @@ const TQ_KEY = 'cp-topik-grade';
 let tqGrade = 1;
 try { const g = parseInt(localStorage.getItem(TQ_KEY), 10); if (TQ_GRADES.includes(g)) tqGrade = g; } catch (e) {}
 let tqRound = [], tqIdx = 0, tqScore = 0, tqWrongs = [], tqBusy = false, tqTitle = '', tqSet = 'all';
+/* 모의고사용. tqPicks 는 문항마다 무엇을 골랐는지 — 성적표의 정오표가 이걸
+   읽는다. 못 푼 문항은 null 로 남아서 「안 냄」과 「틀림」을 가릴 수 있다. */
+let tqMock = false, tqPicks = [], tqLeft = 0, tqSpent = 0, tqSaved = false;
 
 const tqOf = (grade) => TOPIK_READING.filter((q) => q.grade === grade);
 const tqPanel = (name) => ['tqPick', 'tqPlay', 'tqOver'].forEach((k) => $(k).classList.toggle('hidden', k !== name));
@@ -7228,9 +7290,20 @@ function drawTopik() {
   if (!rows.length) {
     $('tqList').innerHTML = `<div class="learn-empty">${esc(t('이 급수 문제는 아직 채우는 중이에요.', 'Questions for this level are still being written.'))}</div>`;
   } else {
+    /* 모의고사는 마흔 자리가 다 찼을 때만 낸다. 한 자리라도 비면 40문항이
+       안 되고, 「모의고사」라고 써 놓고 서른아홉 문항을 내면 거짓말이 된다. */
+    const filled = new Set(TOPIK_READING.map((q) => q.slot));
+    const mockReady = TOPIK_SLOTS.every((s) => filled.has(s.n));
     $('tqList').innerHTML =
+      (mockReady
+        ? card('mock', '📝', t('모의고사 한 회', 'Full mock exam'),
+               t('읽기 31~70번 · 60분', 'Reading 31–70 · 60 min'),
+               t('실제 시험 차례대로 40문항. 푸는 동안에는 답을 알려 주지 않고, 끝나면 성적표가 나옵니다.',
+                 'All 40 in exam order. No answers until you finish, then a full result sheet.'),
+               TOPIK_SLOTS.length)
+        : '') +
       card('all', '📖', t('전체 풀기', 'Full run'), t('유형을 섞어서 처음부터 끝까지', 'Every type, mixed'),
-           t('실제 시험처럼 여러 유형이 번갈아 나옵니다.', 'Types come in mixed order, like the real thing.'), rows.length) +
+           t('이 급수 문제를 다 풀어 봅니다. 문제마다 바로 해설이 붙어요.', 'Every question at this level, with the answer explained as you go.'), rows.length) +
       TQ_TYPE_ORDER.filter((k) => byType[k]).map((k) =>
         card(k, '🔎', t(TQ_TYPE_TX[k].ko, TQ_TYPE_TX[k].en),
              t(`읽기 ${tqSlotLabel(byType[k])}`, `Reading ${tqSlotLabel(byType[k])}`),
@@ -7324,13 +7397,103 @@ function tqDrawRecord(byType) {
   box.classList.remove('hidden');
 }
 
+/* ══ 모의고사 ═══════════════════════════════════════════════════
+   실제 시험 읽기는 31번부터 70번까지 마흔 문항을 60분에 푼다. 지금까지의
+   「전체 풀기」는 유형을 섞어 무작위로 냈는데, 그건 연습이지 시험이 아니다.
+   시험은 세 가지가 다르다 —
+     차례가 정해져 있다. 쉬운 자리에서 시작해 뒤로 갈수록 글이 길어진다.
+     푸는 도중에 답을 알려 주지 않는다. 알려 주면 다음 문제를 푸는 마음이 달라진다.
+     시간이 있다. 다 맞혀도 시간을 넘겼으면 시험장에서는 못 맞힌 것이다. */
+const TQ_MOCK_SEC = 60 * 60;   // 읽기 60분
+const tqMockKey = (g) => `cp-topik-mock-${g}`;
+
+/* 한 회를 뽑는다. 자리마다 하나씩, 청사진 차례대로.
+   짝 지문 자리(49~56, 59~70)는 두 문항이 같은 글을 나눠 쓰므로 짝을
+   통째로 골라야 한다. 자리마다 따로 뽑으면 49번과 50번이 서로 다른 글에서
+   와서, 앞 문제의 지문을 읽고 뒤 문제를 푸는 시험이 되지 않는다. */
+function tqBuildMock() {
+  const pool = TOPIK_READING;
+  const bySlot = new Map();
+  pool.forEach((q) => {
+    if (!bySlot.has(q.slot)) bySlot.set(q.slot, []);
+    bySlot.get(q.slot).push(q);
+  });
+  /* 짝은 pair 이름과 지문이 같은 것끼리 한 벌이다. 같은 pair 이름이라도
+     지문이 다르면 다른 벌이다 — 회차가 늘면 그렇게 된다. */
+  const sets = new Map();
+  pool.filter((q) => q.pair).forEach((q) => {
+    const k = `${q.pair}|${(q.passage || '').replace(/\s+/g, '')}`;
+    if (!sets.has(k)) sets.set(k, []);
+    sets.get(k).push(q);
+  });
+  const byPair = new Map();
+  sets.forEach((list, k) => {
+    if (list.length !== 2) return;              // 짝이 안 맞는 것은 쓰지 않는다
+    const name = list[0].pair;
+    if (!byPair.has(name)) byPair.set(name, []);
+    byPair.get(name).push(list.slice().sort((a, b) => a.slot - b.slot));
+  });
+
+  const round = [];
+  const usedPair = new Set();
+  for (const s of TOPIK_SLOTS) {
+    if (s.pair) {
+      if (usedPair.has(s.pair)) continue;       // 앞 자리에서 이미 벌째로 넣었다
+      const vers = byPair.get(s.pair);
+      if (!vers?.length) return null;           // 한 자리라도 비면 한 회가 안 된다
+      round.push(...vers[Math.floor(Math.random() * vers.length)]);
+      usedPair.add(s.pair);
+    } else {
+      const cand = bySlot.get(s.n);
+      if (!cand?.length) return null;
+      round.push(cand[Math.floor(Math.random() * cand.length)]);
+    }
+  }
+  return round;
+}
+
+let tqTick = null;
+function tqStopClock() { if (tqTick) { clearInterval(tqTick); tqTick = null; } }
+
+function tqStartMock() {
+  const round = tqBuildMock();
+  if (!round) return;
+  tqRound = round;
+  tqIdx = 0; tqScore = 0; tqWrongs = []; tqBusy = false; tqSet = 'mock';
+  tqMock = true; tqPicks = []; tqLeft = TQ_MOCK_SEC; tqSpent = 0; tqSaved = false;
+  tqTitle = t('모의고사 · 읽기 31~70번', 'Mock exam — reading 31–70');
+  $('tqTimer').classList.remove('hidden');
+  tqClock();                       // 1초 뒤가 아니라 지금부터 보여야 한다
+  tqStopClock();
+  tqTick = setInterval(() => {
+    if (!tqMock) return tqStopClock();
+    tqLeft--; tqSpent++;
+    tqClock();
+    /* 시간이 다 되면 남은 문항은 못 푼 것으로 두고 성적표로 간다.
+       실제 시험이 그렇다 — 안 낸 답은 틀린 답과 같이 매겨진다. */
+    if (tqLeft <= 0) { tqStopClock(); tqFinish(); }
+  }, 1000);
+  tqPanel('tqPlay');
+  tqDraw();
+}
+
+function tqClock() {
+  const m = Math.floor(Math.max(0, tqLeft) / 60), s = Math.max(0, tqLeft) % 60;
+  const el = $('tqTimer');
+  el.textContent = `${m}:${String(s).padStart(2, '0')}`;
+  el.classList.toggle('low', tqLeft <= 300);   // 5분 남으면 눈에 띄게
+}
+
 function tqStart(key) {
+  if (key === 'mock') return tqStartMock();
+  tqMock = false; tqStopClock();
+  $('tqTimer').classList.add('hidden');
   const rows = tqOf(tqGrade);
   const picked = key === 'all' ? rows : rows.filter((q) => q.type === key);
   if (!picked.length) return;
   // 문제 순서를 섞는다. 늘 같은 차례로 나오면 두 번째 판부터 답을 외운다.
   tqRound = gameShuffle(picked.slice());
-  tqIdx = 0; tqScore = 0; tqWrongs = []; tqBusy = false; tqSet = key;
+  tqIdx = 0; tqScore = 0; tqWrongs = []; tqBusy = false; tqSet = key; tqPicks = []; tqSaved = false;
   tqTitle = key === 'all'
     ? t(`${tqGrade}급 전체 풀기`, `Level ${tqGrade} — full run`)
     : t(`${tqGrade}급 · ${TQ_TYPE_TX[key].ko}`, `Level ${tqGrade} · ${TQ_TYPE_TX[key].en}`);
@@ -7341,7 +7504,14 @@ function tqStart(key) {
 function tqMeta() {
   $('tqPlayTitle').textContent = tqTitle;
   $('tqQuit').textContent = t('← 그만두기', '← Quit');
-  $('tqCount').textContent = `${tqIdx} / ${tqRound.length}`;
+  /* 모의고사에서는 지금 몇 번 문항인지가 더 쓸모 있다. 실제 시험지의
+     번호와 같아야 「나는 뒤쪽이 약하다」를 스스로 알아챌 수 있다. */
+  const q = tqRound[Math.min(tqIdx, tqRound.length - 1)];
+  $('tqCount').textContent = tqMock && q
+    ? t(`${q.slot}번 · ${tqIdx + 1} / ${tqRound.length}`, `Q${q.slot} · ${tqIdx + 1} / ${tqRound.length}`)
+    : `${tqIdx} / ${tqRound.length}`;
+  // 푸는 도중의 점수는 모의고사에서 감춘다.
+  $('tqScore').classList.toggle('hidden', tqMock);
   $('tqScore').textContent = String(tqScore);
   $('tqFill').style.width = `${(tqIdx / tqRound.length) * 100}%`;
 }
@@ -7385,9 +7555,22 @@ function tqPick(i, btn) {
   const all = [...$('tqChoices').children];
   all.forEach((b) => { b.disabled = true; });
 
-  if (right) { tqScore++; btn.classList.add('right'); }
+  tqPicks[tqIdx] = i;
+  if (right) tqScore++;
+  else tqWrongs.push(q);
+
+  /* 모의고사에서는 맞았는지도 알려 주지 않는다. 실제 시험이 그렇고,
+     알려 주면 다음 문항을 푸는 마음이 달라진다. 채점은 끝나고 한꺼번에. */
+  if (tqMock) {
+    btn.classList.add('picked');
+    tqIdx++;
+    tqMeta();
+    if (tqIdx >= tqRound.length) return tqFinish();
+    return tqDraw();
+  }
+
+  if (right) btn.classList.add('right');
   else {
-    tqWrongs.push(q);
     btn.classList.add('wrong');
     all[q.answer]?.classList.add('right');
   }
@@ -7419,6 +7602,113 @@ function tqByType() {
   return [...m.values()].sort((a, b) => (a.ok / a.n) - (b.ok / b.n) || b.n - a.n);
 }
 
+/* ══ 성적표 ═══════════════════════════════════════════════════
+   모의고사를 끝냈을 때만 나온다. 「몇 점」만으로는 무엇을 고쳐야 할지
+   알 수 없다. 시험지에서 어디가 무너졌는지가 보여야 다음 공부가 정해진다. */
+
+const TQ_GENRE_EN = {
+  '서술문': 'Short passage', '실용문': 'Notice', '수필': 'Essay',
+  '설명문': 'Explanatory', '매체담화': 'Email / post',
+};
+const tqGenreTx = (g) => t(g, TQ_GENRE_EN[g] || g);
+
+/* 어떤 잣대로든 묶어서 정답률을 낸다. */
+function tqGroupBy(pick) {
+  const missed = new Set(tqWrongs.map((q) => q.id));
+  const m = new Map();
+  tqRound.forEach((q, i) => {
+    const k = pick(q, i);
+    if (k == null) return;
+    const r = m.get(k) || { k, n: 0, ok: 0 };
+    r.n++;
+    if (tqPicks[i] != null && !missed.has(q.id)) r.ok++;
+    m.set(k, r);
+  });
+  return [...m.values()];
+}
+
+const tqMockRead = (g) => {
+  try { return JSON.parse(localStorage.getItem(tqMockKey(g)) || '[]'); } catch (e) { return []; }
+};
+function tqMockWrite(rec) {
+  try {
+    // 최근 열 회만 남긴다. 더 남겨도 추이를 읽는 데 보태는 것이 없다.
+    const all = [...tqMockRead(tqGrade), rec].slice(-10);
+    localStorage.setItem(tqMockKey(tqGrade), JSON.stringify(all));
+  } catch (e) {}
+}
+
+function tqDrawSheet() {
+  const box = $('tqSheet');
+  if (!tqMock) { box.textContent = ''; box.classList.add('hidden'); return; }
+
+  const n = tqRound.length;
+  const missed = new Set(tqWrongs.map((q) => q.id));
+  const state = (i) => (tqPicks[i] == null ? 'skip' : (missed.has(tqRound[i].id) ? 'no' : 'yes'));
+  const skipped = tqRound.filter((_, i) => tqPicks[i] == null).length;
+
+  /* 문항별 정오표. 시험지와 같은 번호로 늘어놓는다 — 어디에서 무너졌는지는
+     비율표보다 이 한 줄이 먼저 말해 준다. */
+  const grid = tqRound.map((q, i) =>
+    `<span class="tq-cell ${state(i)}" title="${esc(t(`${q.slot}번 · ${TQ_TYPE_TX[q.type].ko}`, `Q${q.slot} · ${TQ_TYPE_TX[q.type].en}`))}">${q.slot}</span>`
+  ).join('');
+
+  /* 앞뒤 구간. 31~48 은 짧은 글, 49~70 은 한 문단짜리 글에 한 지문 두 문제다.
+     같은 정답률이라도 어느 쪽이 무너졌는지에 따라 할 공부가 다르다. */
+  const half = tqGroupBy((q) => (q.slot <= 48 ? 'front' : 'back'))
+    .sort((a, b) => (a.k === 'front' ? -1 : 1));
+  const halfName = (k) => (k === 'front'
+    ? t('31~48번 · 짧은 글', 'Q31–48 · short texts')
+    : t('49~70번 · 긴 글', 'Q49–70 · longer texts'));
+
+  const genres = tqGroupBy((q) => q.genre).sort((a, b) => (a.ok / a.n) - (b.ok / b.n));
+
+  const mm = Math.floor(tqSpent / 60), ss = tqSpent % 60;
+  const per = n ? Math.max(1, Math.round(tqSpent / n)) : 0;
+
+  const past = tqMockRead(tqGrade);
+  const prev = past.length ? past[past.length - 1] : null;
+  const diff = prev ? tqScore - prev.score : null;
+
+  box.innerHTML =
+    `<div class="tq-bd-h">${esc(t('성적표', 'Result sheet'))}</div>` +
+
+    `<div class="tq-cells">${grid}</div>` +
+    '<div class="tq-legend">' +
+      `<span><i class="yes"></i>${esc(t('맞음', 'Correct'))}</span>` +
+      `<span><i class="no"></i>${esc(t('틀림', 'Wrong'))}</span>` +
+      (skipped ? `<span><i class="skip"></i>${esc(t(`못 풀고 넘김 ${skipped}`, `Unanswered ${skipped}`))}</span>` : '') +
+    '</div>' +
+
+    '<div class="tq-facts">' +
+      `<div><b>${Math.round((tqScore / n) * 100)}%</b><span>${esc(t('정답률', 'Correct'))}</span></div>` +
+      `<div><b>${mm}:${String(ss).padStart(2, '0')}</b><span>${esc(t('걸린 시간', 'Time taken'))}</span></div>` +
+      `<div><b>${per}${esc(t('초', 's'))}</b><span>${esc(t('한 문항 평균', 'Per question'))}</span></div>` +
+      (diff === null ? ''
+        : `<div><b class="${diff > 0 ? 'up' : diff < 0 ? 'down' : ''}">${diff > 0 ? '+' : ''}${diff}</b>` +
+          `<span>${esc(t('지난 회 대비', 'vs last time'))}</span></div>`) +
+    '</div>' +
+
+    `<div class="tq-bd-h" style="margin-top:22px">${esc(t('구간별', 'By section'))}</div>` +
+    half.map((r) => tqBar(halfName(r.k), r.ok, r.n)).join('') +
+
+    `<div class="tq-bd-h" style="margin-top:22px">${esc(t('지문 갈래별', 'By passage type'))}</div>` +
+    genres.map((r) => tqBar(tqGenreTx(r.k), r.ok, r.n)).join('') +
+
+    (past.length >= 1
+      ? `<div class="tq-bd-h" style="margin-top:22px">${esc(t('회차 추이', 'Over time'))}</div>` +
+        '<div class="tq-trend">' +
+          [...past, { score: tqScore, n }].map((r, i, a) =>
+            `<span class="tq-trend-bar" style="height:${Math.max(6, Math.round((r.score / r.n) * 100))}%"` +
+            `${i === a.length - 1 ? ' data-now="1"' : ''} title="${r.score} / ${r.n}"></span>`
+          ).join('') +
+        '</div>' +
+        `<p class="tq-bd-tip">${esc(t(`${past.length + 1}회째. 오른쪽 끝이 이번 회예요.`,
+                                       `Run ${past.length + 1}. The last bar is this one.`))}</p>`
+      : '');
+  box.classList.remove('hidden');
+}
+
 function tqDrawBreak() {
   const box = $('tqBreak');
   const rows = tqByType();
@@ -7439,6 +7729,11 @@ function tqDrawBreak() {
 
 function tqFinish() {
   const n = tqRound.length;
+  tqStopClock();
+  /* 언어를 바꾸면 tqSyncLang 이 이 함수를 다시 부른다. 기록은 그때 또
+     남으면 안 된다 — 한 판이 회차 목록에 두 번 들어간다. */
+  const first = !tqSaved;
+  tqSaved = true;
   // 최고 기록은 전체를 다 푼 판에만 남긴다. 유형별 판과 견주면 뜻이 없다.
   if (n === tqOf(tqGrade).length) {
     gameBest(tqBestKey(tqGrade), tqScore);
@@ -7456,6 +7751,10 @@ function tqFinish() {
   $('tqOverLine').textContent = tqWrongs.length
     ? `${rate} · ` + t(`틀린 ${tqWrongs.length}문제를 아래에 모았어요.`, `The ${tqWrongs.length} you missed are below.`)
     : t('전부 맞혔어요.', 'All correct.');
+  tqDrawSheet();
+  /* 기록은 성적표를 그린 뒤에 남긴다. 먼저 쓰면 성적표가 방금 쓴 자기
+     자신을 「지난 회」로 읽어서, 첫 회에 「지난 회 대비 0」이 뜬다. */
+  if (first && tqMock) tqMockWrite({ at: Date.now(), score: tqScore, n, sec: tqSpent });
   tqDrawBreak();
   $('tqWrongs').innerHTML = tqWrongs.map((q) =>
     '<div class="tq-wrong">' +
@@ -7490,9 +7789,17 @@ $('tqList').addEventListener('click', (ev) => {
   if (b) tqStart(b.dataset.tqGo);
 }));
 $('tqNext').addEventListener('click', tqDraw);
-$('tqQuit').addEventListener('click', drawTopik);
+/* 그만두기 — 모의고사는 되돌릴 수 없으니 한 번 묻는다. 시계도 멈춘다. */
+$('tqQuit').addEventListener('click', () => {
+  if (tqMock && tqIdx < tqRound.length &&
+      !confirm(t('모의고사를 그만둘까요? 지금까지 푼 것은 기록에 남지 않아요.',
+                 'Quit the mock exam? Nothing so far will be saved.'))) return;
+  tqMock = false; tqStopClock();
+  $('tqTimer').classList.add('hidden');
+  drawTopik();
+});
 $('tqAgain').addEventListener('click', () => tqStart(tqSet));
-$('tqBack').addEventListener('click', drawTopik);
+$('tqBack').addEventListener('click', () => { tqMock = false; tqStopClock(); $('tqTimer').classList.add('hidden'); drawTopik(); });
 
 function tqSyncLang() {
   if ($('tqWrap').classList.contains('hidden')) return;
@@ -7580,6 +7887,12 @@ let lsecOpen = null;   // 지금 열린 갈래 id. 언어를 바꿀 때 다시 �
 function openSection(id) {
   const s = LEARN_SECTIONS.find((x) => x.id === id);
   if (!s) return;
+  /* 이미 열려 있는 갈래를 다시 여는 경우가 있다 — 언어를 바꾸면 syncLang 이
+     openSection(lsecOpen) 을 부른다. 그때 속까지 새로 그리면 풀던 판이나
+     성적표가 사라지고 갈래 첫 화면으로 튕긴다. 실제로 모의고사 성적표를
+     띄워 놓고 EN 을 누르면 성적이 통째로 날아갔다.
+     글자는 갈래마다 …SyncLang 이 따로 맞춰 주므로 여기서 다시 그릴 까닭이 없다. */
+  const already = lsecOpen === s.id;
   lsecOpen = s.id;
   $('lsecList').classList.add('hidden');
   $('lsecWrap').classList.remove('hidden');
@@ -7591,12 +7904,14 @@ function openSection(id) {
   $('lsecSoon').classList.add('hidden');
   if (s.ready && s.pane) {
     $(s.pane).classList.remove('hidden');
-    if (s.id === 'courses') drawCourses();
-    if (s.id === 'topik') drawTopik();
-    if (s.id === 'sentence') {
-      drawSentenceHead();
-      const cur = sbPoint ? sbFind(sbPoint) : null;
-      sbShow(cur && sentenceTier(cur) === learnLv.sentence ? sbPoint : null);
+    if (!already) {
+      if (s.id === 'courses') drawCourses();
+      if (s.id === 'topik') drawTopik();
+      if (s.id === 'sentence') {
+        drawSentenceHead();
+        const cur = sbPoint ? sbFind(sbPoint) : null;
+        sbShow(cur && sentenceTier(cur) === learnLv.sentence ? sbPoint : null);
+      }
     }
   } else {
     $('lsecSoonTxt').textContent = t('이 갈래는 아직 준비 중이에요. 곧 채울게요.',
