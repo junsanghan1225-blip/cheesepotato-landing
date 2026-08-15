@@ -96,6 +96,17 @@ const BLOCK_TYPES = new Set([
   'text', 'note', 'chars', 'table', 'choice', 'listen', 'type', 'order', 'pair', 'speak', 'cloze',
 ]);
 
+/* 화면이 실제로 읽는 밭 이름. 여기 없는 이름으로 글을 써 두면 화면은
+   그것을 모르므로 **아무 말 없이 버린다.** 실제로 그런 일이 있었다 —
+   중급·고급 여섯 레슨의 발음 안내가 speak 블록에 guide 로 적혀 있었는데,
+   화면은 q 만 그려서 여섯 줄이 통째로 안 보이고 있었다. 오타 하나로
+   글이 조용히 사라지는 길이라 이름을 못박아 둔다. */
+const BLOCK_KEYS = new Set([
+  't', 'h', 'md', 'q', 'why', 'head', 'rows', 'items', 'wide',
+  'options', 'answer', 'keys', 'tokens', 'pairs',
+  'say', 'rom', 'audio', 'sentence', 'meaning',
+]);
+
 const problems = [];
 const lessonIds = new Map();
 const courseIds = new Set();
@@ -126,6 +137,9 @@ for (const c of COURSES) {
       blocks++;
       const at = `${l.id} 블록 ${i + 1} (${b.t})`;
       if (!BLOCK_TYPES.has(b.t)) { problems.push(`${at}: 모르는 종류`); continue; }
+      Object.keys(b).forEach((k) => {
+        if (!BLOCK_KEYS.has(k)) problems.push(`${at}: 모르는 밭 '${k}' — 화면이 안 읽으므로 글이 그냥 사라진다`);
+      });
 
       if ((b.t === 'text' || b.t === 'note') && !b.md) problems.push(`${at}: md 없음`);
       if (b.t === 'chars' && !b.items?.length) problems.push(`${at}: items 없음`);
