@@ -54,8 +54,10 @@ function mustHave(name) {
   /* 「-는 듯하다」는 글에서 「듯해요」로, 「-기 일쑤이다」는 「일쑤예요」로 나온다.
      하/이 로 끝나는 줄기는 해/예 꼴도 받아 준다. */
   const alt = [cand];
-  if (cand.endsWith('하')) alt.push(cand.slice(0, -1) + '해');
+  if (cand.endsWith('하')) alt.push(cand.slice(0, -1) + '해', cand.slice(0, -1) + '했');
   if (cand.endsWith('이')) alt.push(cand.slice(0, -1) + '예');
+  /* 「-든지」는 「-든」으로 줄여 쓴다. 「-지」로 끝나는 꼴은 준말도 받는다. */
+  if (cand.endsWith('지') && cand.length >= 3) alt.push(cand.slice(0, -1));
   return alt;
 }
 
