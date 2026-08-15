@@ -140,6 +140,14 @@ for (const c of COURSES) {
       Object.keys(b).forEach((k) => {
         if (!BLOCK_KEYS.has(k)) problems.push(`${at}: 모르는 밭 '${k}' — 화면이 안 읽으므로 글이 그냥 사라진다`);
       });
+      /* 굵게 표시가 홀수면 여는 자리만 있고 닫는 자리가 없다. 그러면 그
+         뒤가 통째로 굵어져서 어디가 중요한지 못 가른다. 실제로 그런 일이
+         있었다 — ad-01-01 의 note 하나가 「사체(사는)**가 되지만」처럼
+         닫히지 않은 채 올라올 뻔했다. */
+      [b.md, b.why, b.q].filter(Boolean).forEach((str) => {
+        if ((String(str).match(/\*\*/g) || []).length % 2)
+          problems.push(`${at}: 굵게 표시(**)가 짝이 안 맞는다 — 뒤가 통째로 굵어진다`);
+      });
 
       if ((b.t === 'text' || b.t === 'note') && !b.md) problems.push(`${at}: md 없음`);
       if (b.t === 'chars' && !b.items?.length) problems.push(`${at}: items 없음`);
