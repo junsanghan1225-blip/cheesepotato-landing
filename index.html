@@ -7330,7 +7330,8 @@ const tqRuns = (nums) => {
 const tqRange = (nums) => {
   const runs = tqRuns(nums);
   if (!runs.length) return '';
-  return runs.map(([a, b]) => (a === b ? `${a}` : `${a}~${b}`)).join(', ') + t('번', '');
+  const dash = t('~', '–');
+  return runs.map(([a, b]) => (a === b ? `${a}` : `${a}${dash}${b}`)).join(', ') + t('번', '');
 };
 /* 자리가 흩어져 있는 유형은 번호를 다 적으면 「34~39, 49, 51, 53, 55, 61,
    65, 67, 69번」이 되어 카드 부제가 두 줄로 접힌다. 앞 덩어리만 적고
@@ -7424,12 +7425,12 @@ function drawTopik() {
     { k: t('최고', 'Best'), v: `${gameBestRead(tqBestKey(tqGrade))} / ${rows.length}`, s: t('한 번에 다 풀었을 때', 'Full run, all questions') },
   ]);
 
-  const card = (key, emoji, title, tag, blurb, n) =>
+  const card = (key, emoji, title, tag, blurb, n, lv) =>
     `<button class="lc-card lq-card" data-tq="${esc(key)}">` +
       '<div class="lc-top">' +
         `<div class="lc-mark">${emoji}</div>` +
         '<div style="min-width:0">' +
-          `<div class="lc-lv">${esc(t(`${tqGrade}급`, `Level ${tqGrade}`))}</div>` +
+          `<div class="lc-lv">${esc(lv || t(`${tqGrade}급`, `Level ${tqGrade}`))}</div>` +
           `<div class="lc-title">${esc(title)}</div>` +
           `<div class="lc-tag">${esc(tag)}</div>` +
         '</div>' +
@@ -7448,12 +7449,16 @@ function drawTopik() {
     const filled = new Set(TOPIK_READING.map((q) => q.slot));
     const mockReady = TOPIK_SLOTS.every((s) => filled.has(s.n));
     $('tqList').innerHTML =
+      /* 모의고사만은 급수를 안 가린다. 실제 TOPIK I 은 1급·2급이 한 장에
+         같이 나오는 시험이라 급수로 나누면 시험이 아니게 된다. 다만 1급을
+         골라 둔 학습자에게 말없이 2급 지문을 내밀면 속이는 것이므로,
+         급수 딱지와 소개글에 섞여 나온다고 적어 둔다. */
       (mockReady
         ? card('mock', '📝', t('모의고사 한 회', 'Full mock exam'),
                t('읽기 31~70번 · 60분', 'Reading 31–70 · 60 min'),
-               t('실제 시험 차례대로 40문항. 푸는 동안에는 답을 알려 주지 않고, 끝나면 성적표가 나옵니다.',
-                 'All 40 in exam order. No answers until you finish, then a full result sheet.'),
-               TOPIK_SLOTS.length)
+               t('실제 시험 차례대로 40문항. 실제 TOPIK I 은 1급과 2급이 한 장에 같이 나오므로 이 모의고사도 급수를 가리지 않습니다. 푸는 동안에는 답을 알려 주지 않고, 끝나면 성적표가 나옵니다.',
+                 'All 40 in exam order. The real TOPIK I puts levels 1 and 2 on one paper, so this mock mixes both regardless of the level you picked. No answers until you finish, then a full result sheet.'),
+               TOPIK_SLOTS.length, t('1·2급', 'Levels 1–2'))
         : '') +
       card('all', '📖', t('전체 풀기', 'Full run'), t('유형을 섞어서 처음부터 끝까지', 'Every type, mixed'),
            t('이 급수 문제를 다 풀어 봅니다. 문제마다 바로 해설이 붙어요.', 'Every question at this level, with the answer explained as you go.'), rows.length) +
@@ -7468,16 +7473,21 @@ function drawTopik() {
      그 파일을 읽는 사람만 알고 학습자는 모른다.
      그리고 어느 자리까지 준비됐는지도 같이 적는다 — 40자리 중 스무 자리만
      차 있는데 「TOPIK 연습」이라고만 써 두면 학습자가 다 있는 줄 안다. */
-  const filled = new Set(TOPIK_READING.map((q) => q.slot));
+  /* **고른 급수 안에서** 센다. 전체 문제로 세면 1급 화면에서도 「31~70번을 모두
+     연습할 수 있습니다」가 뜨는데, 1급이 실제로 가진 자리는 31~45·57~58번뿐이라
+     없는 연습을 있다고 말하게 된다. */
+  const filled = new Set(rows.map((q) => q.slot));
   const done = TOPIK_SLOTS.filter((s) => filled.has(s.n)).map((s) => s.n);
   const todo = TOPIK_SLOTS.filter((s) => !filled.has(s.n)).map((s) => s.n);
   $('tqNote').textContent =
     t('TOPIK 유형을 따라 만든 자체 제작 연습문제입니다. 기출문제가 아니며 국립국제교육원과 관계가 없습니다.',
       'These are original practice questions written in the TOPIK format. They are not past exam papers and are not affiliated with NIIED.') +
-    (todo.length
-      ? ' ' + t(`읽기 ${tqRange(done)} 자리를 연습할 수 있고, ${tqRange(todo)} 자리는 준비 중입니다.`,
-                ` Covers reading ${tqRange(done)}; ${tqRange(todo)} still being written.`)
-      : ' ' + t('읽기 31~70번 자리를 모두 연습할 수 있습니다.', ' Covers all of reading 31–70.'));
+    (!done.length
+      ? ''
+      : todo.length
+        ? ' ' + t(`${tqGrade}급으로는 읽기 ${tqRange(done)} 자리를 연습할 수 있고, ${tqRange(todo)} 자리는 준비 중입니다.`,
+                  `At level ${tqGrade} this covers reading ${tqRange(done)}; ${tqRange(todo)} still being written.`)
+        : ' ' + t('읽기 31~70번 자리를 모두 연습할 수 있습니다.', 'Covers all of reading 31–70.'));
   tqPanel('tqPick');
 }
 
