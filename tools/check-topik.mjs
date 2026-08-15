@@ -185,10 +185,6 @@ pairs.forEach((list) => {
   }
 });
 
-/* 짝마다 몇 벌이 있는지. 벌 수가 다르면 그만큼만 회차를 만들 수 있다. */
-const pairSets = {};
-pairs.forEach((list) => { const n = list[0].pair; pairSets[n] = (pairSets[n] || 0) + 1; });
-
 /* 정답 자리 쏠림. 넷이 고르지 않으면 학습자가 자리를 외운다. */
 const n = TOPIK_READING.length;
 const want = n / 4;
