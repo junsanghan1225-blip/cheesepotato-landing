@@ -66,9 +66,13 @@ TOPIK_READING.forEach((q, i) => {
       errs.push(`${at} — ${q.slot}번은 짝 자리가 아닌데 pair 가 붙어 있다`);
     }
   }
+  /* pair 는 「49-50번 자리 짝」이라는 이름이지 한 벌의 이름이 아니다.
+     회차가 늘면 같은 이름의 짝이 여러 벌 생기고, 벌을 가르는 것은 지문이다.
+     이름만으로 묶으면 2회분부터 「문항이 4개다」라고 잘못 짚는다. */
   if (q.pair) {
-    if (!pairs.has(q.pair)) pairs.set(q.pair, []);
-    pairs.get(q.pair).push(q);
+    const k = `${q.pair}|${(q.passage || '').replace(/\s+/g, '')}`;
+    if (!pairs.has(k)) pairs.set(k, []);
+    pairs.get(k).push(q);
   }
   if (!TYPES.has(q.type)) errs.push(`${at} — 모르는 type "${q.type}"`);
   if (!GENRES.has(q.genre)) errs.push(`${at} — 모르는 genre "${q.genre}"`);
@@ -163,16 +167,27 @@ TOPIK_READING.forEach((q, i) => {
 });
 
 /* 짝 지문 — 둘이 짝이고 지문이 글자까지 같아야 한다. */
-pairs.forEach((list, key) => {
+pairs.forEach((list) => {
+  const name = list[0].pair;
+  const at = list.map((q) => q.id).join(', ');
   if (list.length !== 2) {
-    errs.push(`짝 ${key} — 문항이 ${list.length}개다 (둘이어야 한다: ${list.map((q) => q.id).join(', ')})`);
+    errs.push(`짝 ${name} — 한 지문에 문항이 ${list.length}개다 (둘이어야 한다: ${at})`);
     return;
   }
+  /* 지문이 같은 것은 묶을 때 이미 확인했다. 여기서는 두 문항이 그 짝의
+     서로 다른 자리를 맡고 있는지를 본다 — 49번 둘이 한 지문을 나눠 쓰면
+     한 회에 같은 문제가 두 번 나온다. */
   const [a, b] = list;
-  if ((a.passage || '').replace(/\s+/g, '') !== (b.passage || '').replace(/\s+/g, '')) {
-    errs.push(`짝 ${key} — ${a.id} 와 ${b.id} 의 지문이 다르다. 한 지문을 나눠 써야 한다`);
+  const want = name.split('-').map(Number);
+  const got = [a.slot, b.slot].sort((x, y) => x - y);
+  if (got[0] !== want[0] || got[1] !== want[1]) {
+    errs.push(`짝 ${name} — 자리가 ${got.join(', ')}번이다. ${want.join(', ')}번이어야 한다 (${at})`);
   }
 });
+
+/* 짝마다 몇 벌이 있는지. 벌 수가 다르면 그만큼만 회차를 만들 수 있다. */
+const pairSets = {};
+pairs.forEach((list) => { const n = list[0].pair; pairSets[n] = (pairSets[n] || 0) + 1; });
 
 /* 정답 자리 쏠림. 넷이 고르지 않으면 학습자가 자리를 외운다. */
 const n = TOPIK_READING.length;
