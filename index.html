@@ -3280,7 +3280,7 @@ body.nav-open { overflow:hidden; }
           <input id="sbQ" class="sb-q" type="search" autocomplete="off" aria-label="표현 찾기" data-en-aria="Search expressions">
           <div id="sbCats"></div>
         </div>
-        <div id="sbDetail" class="hidden"></div>
+        <div data-clarity-mask="true" id="sbDetail" class="hidden"></div>
       </div>
 
       <!-- 아직 안 채운 갈래 -->
@@ -3470,7 +3470,7 @@ body.nav-open { overflow:hidden; }
 <!-- ── 대시보드 ────────────────────────────────────────────────
      앱 DashboardScreen 과 같은 지표를 같은 계산으로 보여준다.
      숫자가 두 곳에서 다르면 어느 쪽이 맞는지 알 수 없게 된다. -->
-<div id="dashView" class="hidden">
+<div data-clarity-mask="true" id="dashView" class="hidden">
 
   <div class="pt-hero">
     <div class="pt-badge">DASHBOARD</div>
@@ -4104,7 +4104,7 @@ body.nav-open { overflow:hidden; }
      제목·버튼·안내문은 탭에 따라 글이 바뀌므로 data-en 을 달지 않고
      자바스크립트가 통째로 관리한다. 둘을 섞으면 언어를 바꿀 때
      applyLang 이 예전 글로 되돌려 놓는다. -->
-<div id="authView" class="hidden">
+<div data-clarity-mask="true" id="authView" class="hidden">
 
   <div class="pt-hero">
     <h2 id="auTitle">로그인</h2>
@@ -4155,7 +4155,7 @@ body.nav-open { overflow:hidden; }
         <div class="ac-head">
           <div class="ac-ava" id="acAva">🧀</div>
           <div class="ac-who">
-            <div class="ac-name" id="acName"></div>
+            <div data-clarity-mask="true" class="ac-name" id="acName"></div>
             <div class="ac-mail" id="auWho"></div>
           </div>
         </div>
@@ -4258,7 +4258,7 @@ body.nav-open { overflow:hidden; }
 <!-- ── 내 단어장 ──────────────────────────────────────────────
      앱에 저장한 단어를 그대로 읽어 온다. 여기서는 고치거나 지울 수 없다 —
      쓰는 곳이 두 군데가 되면 어느 쪽이 맞는지 다투게 된다. -->
-<div id="wordbookView" class="hidden">
+<div data-clarity-mask="true" id="wordbookView" class="hidden">
 
   <div class="pt-hero">
     <h2 data-en="My wordbook">내 단어장</h2>
@@ -4356,7 +4356,7 @@ body.nav-open { overflow:hidden; }
       <!-- 품사·암기 상태 칩. 내용은 자바스크립트가 만든다 -->
       <div class="wb-chips" id="wbChips"></div>
 
-      <div class="wb-list" id="wbList"></div>
+      <div data-clarity-mask="true" class="wb-list" id="wbList"></div>
       <div class="wb-none hidden" id="wbNone"></div>
     </div>
 
@@ -10971,6 +10971,49 @@ if (params.get('error')) {
    loadAccount / loadLibrary / loadDashboard 가 다 있다. 바로 위의 구글 복귀가
    화면을 정했으면 그쪽이 이미 주소에 남겼으므로 같은 화면이 다시 열릴 뿐이다. */
 window.cpStart();
+</script>
+
+<!-- ── 방문 기록 (Microsoft Clarity) ────────────────────────────────
+     쿠키를 쓰지 않고, 화면 녹화와 방문 수를 같이 본다.
+
+     **왜 맨 아래인가** — 이 스크립트는 남의 서버에서 온다. 위에 두면
+     그쪽이 느린 날 우리 화면이 같이 늦게 뜬다. 여기에 두면 사이트가 다
+     그려진 뒤에 붙으므로 학습자가 기다리는 시간이 늘지 않는다.
+
+     **개인 정보** — Clarity 는 화면을 녹화한다. 그래서 학습자가 친 글과
+     저장해 둔 단어가 그대로 찍힐 수 있다. 아래 clarity-mask 로 그런
+     자리를 가려 둔다(모양은 남고 글자만 별표가 된다 — 어디를 눌렀는지는
+     보이되 무엇을 썼는지는 안 보인다).                                -->
+<script type="text/javascript">
+  (function(c,l,a,r,i,t,y){
+    c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+    t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+    y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+  })(window, document, "clarity", "script", "y2rlymno2u");
+</script>
+<script type="text/javascript">
+(function () {
+  /* 이 사이트는 주소의 # 뒤만 바뀌는 한 장짜리다. 그래서 그냥 두면
+     한 번 들어온 사람이 배우기·숫자·게임을 다 돌아다녀도 방문 하나로만
+     남는다. 「몇 명 왔나」는 알 수 있어도 「무엇을 보러 왔나」는 못 본다.
+     # 이 바뀔 때마다 어느 화면인지 딱지를 달아 둔다 — Clarity 에서
+     그 딱지로 녹화를 걸러 볼 수 있다. */
+  var NAME = {
+    '': '홈', 'download': '내려받기', 'learn': '배우기', 'num': '숫자',
+    'games': '놀이', 'lesson': '레슨', 'quiz': '단어 시험', 'test': '발음 시험',
+    'wordbook': '내 단어장', 'library': '자료마당', 'dash': '내 정보',
+    'auth': '로그인', 'claw': '인형뽑기', 'match': '짝 맞추기',
+  };
+  function mark() {
+    var h = (location.hash || '').replace(/^#/, '').split('?')[0];
+    /* 모르는 해시는 그대로 흘리지 않는다 — 남이 주소에 아무 말이나 넣어
+       보낼 수 있고, 그게 대시보드 딱지 목록을 어지럽힌다. */
+    var name = Object.prototype.hasOwnProperty.call(NAME, h) ? NAME[h] : '기타';
+    try { window.clarity && window.clarity('set', '화면', name); } catch (e) {}
+  }
+  window.addEventListener('hashchange', mark);
+  mark();
+})();
 </script>
 </body>
 </html>
