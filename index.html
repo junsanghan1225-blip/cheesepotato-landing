@@ -7358,13 +7358,19 @@ let tqRound = [], tqIdx = 0, tqScore = 0, tqWrongs = [], tqBusy = false, tqTitle
 /* 모의고사용. tqPicks 는 문항마다 무엇을 골랐는지 — 성적표의 정오표가 이걸
    읽는다. 못 푼 문항은 null 로 남아서 「안 냄」과 「틀림」을 가릴 수 있다. */
 let tqMock = false, tqPicks = [], tqLeft = 0, tqSpent = 0, tqSaved = false;
-/* 로그인 없이 풀 수 있는 문항 수. 모의고사는 한 회가 40문항이라 열 문항쯤
-   풀어야 「이게 뭔지」 알 수 있고, 유형별 연습은 한 판이 짧아 셋이면 안다.
-   맛보기가 없으면 무엇을 얻는지 모른 채 로그인을 요구받게 된다. */
+/* 로그인 없는 사람에게 **첫 판은 끝까지** 열어 준다. 성적표까지 봐야
+   이게 무엇인지 알고, 그걸 본 사람만 로그인할 까닭이 생긴다. 중간에서
+   끊으면 무엇을 얻는지 모른 채 로그인을 요구받는 셈이라 그냥 나간다.
+   두 번째 판부터는 모의고사 10문항, 유형별 연습 3문항까지. */
 const TQ_FREE_MOCK = 10;
 const TQ_FREE_DRILL = 3;
+const TQ_FREE_KEY = 'cp-topik-free-used';
 let tqSignedIn = false;
+const tqFreeUsed = () => { try { return localStorage.getItem(TQ_FREE_KEY) === '1'; } catch (e) { return false; } };
+const tqFreeMark = () => { try { localStorage.setItem(TQ_FREE_KEY, '1'); } catch (e) {} };
 const tqFreeLimit = () => (tqMock ? TQ_FREE_MOCK : TQ_FREE_DRILL);
+/* 벽을 칠 때인가. 첫 판을 아직 안 썼으면 몇 문항을 풀었든 막지 않는다. */
+const tqWalled = () => !tqSignedIn && tqFreeUsed() && tqIdx >= tqFreeLimit();
 
 const tqOf = (grade) => TOPIK_READING.filter((q) => q.grade === grade);
 const tqPanel = (name) => ['tqPick', 'tqPlay', 'tqOver'].forEach((k) => $(k).classList.toggle('hidden', k !== name));
@@ -7688,14 +7694,12 @@ function tqWall() {
   const lim = tqFreeLimit();
   $('tqExamBody').classList.add('hidden');
   $('tqWall').classList.remove('hidden');
-  $('tqWallTitle').textContent = tqMock
-    ? t(`모의고사 ${lim}문항을 풀어 봤어요`, `That's ${lim} questions of the mock exam`)
-    : t(`${lim}문항을 풀어 봤어요`, `That's ${lim} questions`);
+  $('tqWallTitle').textContent = t('여기부터는 로그인이 필요해요', 'Sign in to keep going');
   $('tqWallSub').textContent = tqMock
-    ? t('로그인하면 40문항을 끝까지 풀고 성적표를 받을 수 있어요. 회차마다 기록이 남아서 늘고 있는지도 보입니다.',
-        'Sign in to finish all 40 and get your result sheet. Every run is saved, so you can see yourself improving.')
-    : t('로그인하면 이 유형을 끝까지 풀 수 있어요. 어느 유형이 약한지도 기록으로 남습니다.',
-        'Sign in to finish this type. Your weak spots get tracked, too.');
+    ? t('첫 판은 끝까지 보셨어요. 로그인하면 40문항을 다 풀고 성적표를 받을 수 있고, 회차마다 기록이 남아서 늘고 있는지도 보입니다.',
+        'Your first run was on us. Sign in to finish all 40, get the full result sheet, and keep every run so you can see yourself improve.')
+    : t('첫 판은 끝까지 보셨어요. 로그인하면 이 유형을 끝까지 풀 수 있고, 어느 유형이 약한지도 기록으로 남습니다.',
+        'Your first run was on us. Sign in to finish this type and keep track of your weak spots.');
   $('tqGoLogin').textContent = t('로그인하러 가기', 'Go to sign in');
   $('tqWallBack').textContent = t('← 다른 것 고르기', '← Pick something else');
   /* 벽에 막힌 동안에는 시계를 멈춘다. 로그인하는 사이에 시험 시간이
@@ -7757,7 +7761,7 @@ function tqDraw() {
   if (!q) return tqFinish();
   /* 맛보기를 다 썼으면 문제 대신 벽을 보여 준다. 판을 끝내지는 않는다 —
      로그인하고 돌아오면 이 문항부터 이어서 풀 수 있어야 한다. */
-  if (!tqSignedIn && tqIdx >= tqFreeLimit()) return tqWall();
+  if (tqWalled()) return tqWall();
   $('tqWall').classList.add('hidden');
   $('tqExamBody').classList.remove('hidden');
   tqMeta();
@@ -8010,6 +8014,8 @@ function tqFinish() {
      남으면 안 된다 — 한 판이 회차 목록에 두 번 들어간다. */
   const first = !tqSaved;
   tqSaved = true;
+  /* 첫 판을 끝까지 봤다. 다음 판부터는 맛보기 수만큼만 열린다. */
+  if (first && !tqSignedIn) tqFreeMark();
   // 최고 기록은 전체를 다 푼 판에만 남긴다. 유형별 판과 견주면 뜻이 없다.
   if (n === tqOf(tqGrade).length) {
     gameBest(tqBestKey(tqGrade), tqScore);
