@@ -24,7 +24,9 @@ for (const [id, texts] of Object.entries(src)) {
   if (!known.has(id)) { console.error(`모르는 표현 id: ${id}`); process.exit(1); }
   const rows = texts.map((t, i) => {
     const h = hash(`${id}~${i}`);
-    return [CAST[h % CAST.length], t, LIKES[(h >> 8) % LIKES.length], WHEN[(h >> 16) % WHEN.length]];
+    /* 반드시 >>> 로 민다. >> 는 부호를 살려서 h 가 2^31 을 넘으면 음수가 되고,
+       음수 % 길이 도 음수라 배열에서 undefined 가 튀어나온다. */
+    return [CAST[h % CAST.length], t, LIKES[(h >>> 8) % LIKES.length], WHEN[(h >>> 16) % WHEN.length]];
   });
   /* 한 표현에 같은 사람이 두 번 나오면 대화가 아니라 혼잣말로 보인다. */
   for (let i = 1; i < rows.length; i++) {

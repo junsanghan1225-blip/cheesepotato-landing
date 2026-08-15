@@ -77,7 +77,9 @@ console.log(`한국어 학습 앱의 「예문 게시판」에 올릴 **학습�
 
 let cat = null;
 b.forEach((p) => {
-  if (p.cat !== cat) { cat = p.cat; console.log(`\n### ${p.no}. ${p.catko}`); }
+  /* 고급 갈래에는 no 가 없다. 화면과 똑같이 id 로 메운다 —
+     안 그러면 지시문에 「undefined. 선택을 나타낼 때」가 찍힌다. */
+  if (p.cat !== cat) { cat = p.cat; console.log(`\n### ${p.no ?? p.cat}. ${p.catko}`); }
   const m = SB_MORE[p.id] || [];
   console.log(`\n- **${p.id}** 「${p.name}」`);
   console.log(`  뜻   ${p.desc}`);
