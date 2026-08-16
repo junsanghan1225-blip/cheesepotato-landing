@@ -97,6 +97,9 @@ function open(view) {
      퀴즈 시계는 돌아왔을 때 이미 끝나 있게 만든다. */
   if (view !== 'claw') clawStop();
   if (view !== 'quiz') qzStop();
+  /* TOPIK 을 풀며 표시해 둔 낱말이 있으면 단어장 맨 위에 내건다.
+     여기 두면 단추로 들어오든 메뉴로 들어오든 주소로 들어오든 다 걸린다. */
+  if (view === 'wordbook') wbPendingDraw();
   window.scrollTo({ top: 0, behavior: 'auto' });
   window.cpMark(view);
 }
@@ -308,7 +311,12 @@ function render() {
         `<div class="wb-word">${esc(w.word)}` +
           (w.is_remembered ? `<span class="wb-done">✓</span>` : '') +
         '</div>' +
-        `<div class="wb-mean">${esc(w.meaning)}</div>` +
+        /* TOPIK 을 풀며 눌러 담은 낱말은 뜻이 비어 있다 — 우리가 지어내
+           넣지 않기 때문이다. 빈 줄로 두면 고장난 것처럼 보이니 채우라고
+           말해 준다. 누르면 여느 단어와 똑같이 고치는 자리가 열린다. */
+        (w.meaning
+          ? `<div class="wb-mean">${esc(w.meaning)}</div>`
+          : `<div class="wb-mean wb-nomean">${esc(t('뜻을 채워 주세요', 'Add a meaning'))}</div>`) +
         // 예문과 품사는 나중에 붙은 것이라 예전 단어에는 비어 있다.
         (w.example ? `<div class="wb-ex">${esc(w.example)}</div>` : '') +
         (w.tag ? `<span class="wb-tag" style="color:${tagHue(w.tag)}">${esc(t(w.tag, TAG_EN[w.tag] ?? w.tag))}</span>` : '') +
@@ -528,6 +536,9 @@ sb.auth.onAuthStateChange((_event, session) => {
      자리에서 바로 반영한다 — 벽에 막혀 있다가 로그인하고 돌아오면
      그 문항이 열려 있어야 한다. */
   tqSignedIn = !!session;
+  /* 「로그인하고 담기」를 누르고 돌아왔을 수 있다. 표시해 둔 낱말이
+     있으면 단어장 맨 위에 다시 내건다. */
+  wbPendingDraw();
   if (tqRound.length && !$('tqPlay').classList.contains('hidden')) {
     // 벽에 막혀 멈춰 두었던 시계를 다시 돌린다.
     if (tqMock && tqSignedIn && !tqTick && tqLeft > 0) tqRunClock();
@@ -2528,6 +2539,305 @@ function tqMeta() {
   $('tqFill').style.width = `${(tqIdx / tqRound.length) * 100}%`;
 }
 
+/* ── 모르는 낱말 표시 ─────────────────────────────────────────────
+   읽다 막히는 낱말을 눌러 두면 다 푼 뒤 결과 화면에 모아 준다.
+
+   **누르는 순간에는 아무것도 알려 주지 않는다.** 뜻을 그 자리에서 띄우면
+   시험을 보다 말고 사전을 켜는 셈이 되어 점수가 제 실력이 아니게 된다.
+   표시만 남기고, 뜻은 다 풀고 나서 단어장에서 채운다.
+
+   **어절(띄어쓰기 단위)로 자른다.** 형태소로 자르지 않는 이유는, 한국어
+   어간을 규칙으로 뽑으려 들면 「만들다 + -느라고」를 「만느라고」로 만드는
+   식의 잘못이 잦기 때문이다. 틀린 원형을 단어장에 넣는 것보다 어절
+   그대로 넣고 학습자가 고치는 편이 낫다 — 단어장에 이미 고치는 자리가
+   있고, 무엇이 틀렸는지는 본인이 제일 잘 안다.
+
+   표시해 둔 것은 localStorage 에도 남긴다. 구글 로그인은 페이지를 통째로
+   다시 불러오므로 결과 화면이 사라지는데, 그때 표시가 같이 날아가면
+   「로그인하고 담기」라는 말이 거짓말이 된다. */
+const TQ_UNK_KEY = 'cp_tq_unknown';
+/* 다듬은 낱말 → { word, ex }. 같은 낱말을 여러 문항에서 눌러도 하나로 친다. */
+let tqUnknown = new Map();
+
+/* 앞뒤에 붙은 문장부호와 ㉠㉡㉢㉣ 따위를 턴다. 가운데 것은 그대로 둔다 —
+   「할 수 있다」의 낱말 안에 든 것이 아니라 어절 경계의 군더더기만 뗀다. */
+const tqWordKey = (s) => String(s).replace(/^[^0-9A-Za-z가-힣]+|[^0-9A-Za-z가-힣]+$/g, '');
+/* 문단에 붙인 번호. (가)(나)(다)(라) 처럼 괄호 안에 딱 한 자만 든 것이다.
+   지문에서 낱말처럼 보이지만 담을 말이 아니다.
+   한 자로 좁힌 이유 — 두 자까지 막으면 (서울) 같은 진짜 말도 같이 막힌다. */
+const TQ_MARKER = /^[(（[［〔<〈【{][0-9A-Za-z가-힣][)）\]］〕>〉】}]$/;
+
+const tqUnkLoad = () => {
+  try {
+    const raw = JSON.parse(localStorage.getItem(TQ_UNK_KEY) || '[]');
+    if (!Array.isArray(raw)) return;
+    /* localStorage 는 학습자가 직접 고칠 수 있는 자리다. 여기서 나온 값이
+       화면과 DB 로 바로 가므로 모양이 맞는 것만 들인다. */
+    for (const r of raw) {
+      const w = tqWordKey(r?.word ?? '');
+      if (w && w.length <= 40) tqUnknown.set(w, { word: w, ex: String(r?.ex ?? '').slice(0, 300) });
+    }
+  } catch (e) { /* 못 읽으면 빈 채로 시작한다 */ }
+};
+const tqUnkStore = () => {
+  try { localStorage.setItem(TQ_UNK_KEY, JSON.stringify([...tqUnknown.values()])); } catch (e) {}
+};
+tqUnkLoad();
+
+/* 누른 낱말이 있던 문장. 낱말만 덩그러니 있는 단어장보다 문장이 붙은 쪽이
+   훨씬 오래 남아서, 예문 칸에 같이 넣어 둔다. */
+function tqSentAt(text, at) {
+  const lineFrom = text.lastIndexOf('\n', at - 1) + 1;
+  let from = lineFrom;
+  for (const m of text.slice(lineFrom, at).matchAll(/[.!?…]\s+/g)) from = lineFrom + m.index + m[0].length;
+  const rest = text.slice(at);
+  const e = rest.search(/[.!?…](\s|$)|\n/);
+  return text.slice(from, e >= 0 ? at + e + 1 : text.length).trim();
+}
+
+/* 글을 어절마다 누를 수 있는 조각으로 바꿔 담는다. 띄어쓰기와 줄바꿈은
+   글자 그대로 남긴다 — 지문은 white-space:pre-line 이라 줄바꿈이 뜻을
+   나르고(안내문·순서 배열), 한 줄로 이어 붙으면 표가 표가 아니게 된다. */
+function tqWordify(el, text) {
+  el.textContent = '';
+  const s = String(text ?? '');
+  if (!s) return;
+  let at = 0;
+  for (const piece of s.split(/(\s+)/)) {
+    if (!piece) continue;
+    const here = at;
+    at += piece.length;
+    if (/^\s+$/.test(piece)) { el.appendChild(document.createTextNode(piece)); continue; }
+    const key = tqWordKey(piece);
+    /* 한글이 든 어절만 누를 수 있게 한다. 「1.」이나 「㉠」까지 열어 두면
+       보기 번호를 눌러 단어장에 「1」이 들어간다. 한국어를 배우는
+       화면이라 담을 만한 것은 한글이 든 말뿐이다.
+
+       괄호로 싼 표시도 뺀다 — 순서 배열 지문의 (가)(나)(다)(라) 가
+       그렇다. 낱말처럼 생겼지만 문단에 붙인 번호라, 눌러 담으면
+       단어장에 「나」가 들어간다. */
+    if (!key || !/[가-힣]/.test(key) || TQ_MARKER.test(piece)) {
+      el.appendChild(document.createTextNode(piece));
+      continue;
+    }
+    const span = document.createElement('span');
+    span.className = 'tq-w' + (tqUnknown.has(key) ? ' on' : '');
+    span.textContent = piece;
+    span.title = t('모르는 낱말로 표시', 'Mark as unknown');
+    span.addEventListener('click', () => {
+      if (tqUnknown.has(key)) tqUnknown.delete(key);
+      else tqUnknown.set(key, { word: key, ex: tqSentAt(s, here) });
+      span.classList.toggle('on', tqUnknown.has(key));
+      tqUnkStore();
+      /* 같은 낱말이 화면 안 다른 곳에도 있으면 같이 켜고 끈다.
+         하나만 칠해지면 「눌렀는데 왜 저기는 그대로지」가 된다. */
+      document.querySelectorAll('#tqPlay .tq-w, #tqOver .tq-w').forEach((o) => {
+        if (tqWordKey(o.textContent) === key) o.classList.toggle('on', tqUnknown.has(key));
+      });
+    });
+    el.appendChild(span);
+  }
+}
+
+/* 결과 화면에 모아 보여 준다. 낱말 하나가 곧 지우는 단추다 — 옆에 작은
+   × 를 따로 두면 좁은 화면에서 손가락보다 작아져 엉뚱한 것이 지워진다. */
+function tqUnkDraw() {
+  const box = $('tqUnk');
+  const list = [...tqUnknown.values()];
+  box.classList.toggle('hidden', list.length === 0);
+  if (!list.length) return;
+
+  box.textContent = '';
+  const h = document.createElement('div');
+  h.className = 'tq-bd-h';
+  h.textContent = t(`몰랐던 낱말 ${list.length}개`, `${list.length} words you marked`);
+  box.appendChild(h);
+
+  const wrap = document.createElement('div');
+  wrap.className = 'tq-unk-words';
+  for (const it of list) {
+    const b = document.createElement('button');
+    b.type = 'button';
+    b.className = 'tq-unk-w';
+    b.title = t('빼기', 'Remove');
+    b.append(it.word, Object.assign(document.createElement('b'), { textContent: '×' }));
+    b.addEventListener('click', () => {
+      tqUnknown.delete(it.word);
+      tqUnkStore();
+      tqUnkDraw();
+      /* 지문 쪽 표시도 같이 꺼 준다. 안 그러면 뺐는데 아직 칠해져 있다. */
+      document.querySelectorAll('#tqPlay .tq-w, #tqOver .tq-w').forEach((o) => {
+        if (tqWordKey(o.textContent) === it.word) o.classList.remove('on');
+      });
+    });
+    wrap.appendChild(b);
+  }
+  box.appendChild(wrap);
+
+  const btns = document.createElement('div');
+  btns.className = 'tq-unk-btns';
+  const save = document.createElement('button');
+  save.className = 'pt-next';
+  save.id = 'tqUnkSave';
+  save.type = 'button';
+  save.textContent = tqSignedIn
+    ? t('단어장에 담기', 'Add to my wordbook')
+    : t('로그인하고 담기', 'Sign in and add');
+  save.addEventListener('click', tqUnkSaveFromOver);
+  const clear = document.createElement('button');
+  /* 담기와 같은 무게로 두면 안 된다 — 지우기는 되돌릴 수 없는 쪽이라
+     실수로 누르기 쉬운 자리에 검은 단추로 세울 일이 아니다. */
+  clear.className = 'pt-ghost';
+  clear.type = 'button';
+  clear.textContent = t('표시 지우기', 'Clear marks');
+  clear.addEventListener('click', () => {
+    tqUnknown.clear();
+    tqUnkStore();
+    tqUnkDraw();
+    document.querySelectorAll('.tq-w.on').forEach((o) => o.classList.remove('on'));
+  });
+  btns.append(save, clear);
+  box.appendChild(btns);
+
+  const note = document.createElement('p');
+  note.className = 'tq-note';
+  note.textContent = tqSignedIn
+    ? t('뜻은 비워 둔 채로 담깁니다. 낱말이 「먹었습니다」처럼 붙어 있으면 단어장에서 고칠 수 있어요.',
+        'They are saved without a meaning. If a word came out inflected, you can fix it in the wordbook.')
+    : t('로그인하면 담을 수 있어요. 표시해 둔 낱말은 로그인하고 돌아와도 그대로 있습니다.',
+        'Sign in to save these. Your marks stay put while you sign in.');
+  box.appendChild(note);
+}
+
+/* 단어장 맨 위 줄. 구글 로그인은 페이지를 통째로 다시 불러오므로 결과
+   화면이 사라진다 — 「로그인하고 담기」를 누르고 돌아온 사람이 표시해 둔
+   낱말을 다시 만나는 자리가 여기다. 로그인한 사람에게만 보인다. */
+function wbPendingDraw() {
+  const box = $('wbPending');
+  if (!box) return;
+  const list = [...tqUnknown.values()];
+  box.classList.toggle('hidden', !(tqSignedIn && list.length));
+  if (!tqSignedIn || !list.length) return;
+
+  box.textContent = '';
+  const ttl = document.createElement('div');
+  ttl.className = 'wb-pending-t';
+  ttl.textContent = t(`표시해 둔 낱말 ${list.length}개`, `${list.length} words you marked`);
+  const sub = document.createElement('div');
+  sub.className = 'wb-pending-s';
+  sub.textContent = t(`TOPIK 을 풀면서 눌러 둔 낱말이에요 — ${list.slice(0, 6).map((x) => x.word).join(', ')}${list.length > 6 ? ' …' : ''}`,
+    `You marked these while practising TOPIK — ${list.slice(0, 6).map((x) => x.word).join(', ')}${list.length > 6 ? ' …' : ''}`);
+  const btns = document.createElement('div');
+  btns.className = 'tq-unk-btns';
+  const add = document.createElement('button');
+  add.className = 'wb-add';
+  add.type = 'button';
+  add.textContent = t('단어장에 담기', 'Add to my wordbook');
+  add.addEventListener('click', async () => {
+    add.disabled = true;
+    add.textContent = t('담는 중…', 'Adding…');
+    const r = await tqUnkSave('wb');
+    if (r.ok) { wbPendingDraw(); return; }
+    /* 실패하면 줄을 그대로 두고 까닭을 적는다. 그냥 사라지면 담긴 줄
+       알고 넘어가게 된다. */
+    add.disabled = false;
+    add.textContent = t('단어장에 담기', 'Add to my wordbook');
+    const old = box.querySelector('.tq-unk-msg');
+    if (old) old.remove();
+    const p = document.createElement('p');
+    p.className = 'tq-unk-msg no';
+    p.textContent = t('담지 못했어요. 잠시 후 다시 해 주세요.', 'Could not add them. Please try again.');
+    box.appendChild(p);
+  });
+  const drop = document.createElement('button');
+  drop.className = 'wb-x';
+  drop.type = 'button';
+  drop.textContent = t('지우기', 'Discard');
+  drop.addEventListener('click', () => {
+    tqUnknown.clear();
+    tqUnkStore();
+    wbPendingDraw();
+    document.querySelectorAll('.tq-w.on').forEach((o) => o.classList.remove('on'));
+  });
+  btns.append(add, drop);
+  box.append(ttl, sub, btns);
+}
+
+/* 담기. 이미 있는 낱말은 빼고 넣는다 — 여러 판을 풀다 보면 같은 낱말을
+   또 표시하게 되는데, 그때마다 쌓이면 단어장이 같은 말로 채워진다. */
+async function tqUnkSave(where) {
+  const list = [...tqUnknown.values()];
+  if (!list.length) return { ok: true, added: 0, dup: 0 };
+
+  const { data: { session } } = await sb.auth.getSession();
+  if (!session) {
+    /* 표시는 이미 localStorage 에 있다. 구글 로그인이 페이지를 다시
+       불러와도 단어장 맨 위에서 다시 만나게 된다. */
+    tqUnkStore();
+    open('account');
+    return { ok: false, needLogin: true };
+  }
+
+  try {
+    const words = list.map((x) => x.word);
+    /* RLS 가 본인 행만 돌려주므로 user_id 를 따로 안 걸어도 남의 단어와
+       견주는 일은 없다. */
+    const { data: had, error: e1 } = await sb.from('words').select('word').in('word', words);
+    if (e1) throw e1;
+    const have = new Set((had ?? []).map((r) => r.word));
+    const fresh = list.filter((x) => !have.has(x.word));
+
+    if (fresh.length) {
+      const { error: e2 } = await sb.from('words').insert(fresh.map((x) => ({
+        word: x.word,
+        /* 뜻은 비워 둔다. 여기서 지어내 넣으면 학습자가 그 잘못된 뜻을
+           외우게 된다 — 빈 칸은 채우면 되지만 틀린 뜻은 지워야 한다. */
+        meaning: '',
+        example: x.ex || null,
+        tag: null,
+        difficulty: 1,
+        image_url: null,
+        is_remembered: false,
+        view_count: 0,
+        remembered_at: null,
+        user_id: session.user.id,
+      })));
+      if (e2) throw e2;
+    }
+
+    tqUnknown.clear();
+    tqUnkStore();
+    document.querySelectorAll('.tq-w.on').forEach((o) => o.classList.remove('on'));
+    loadWords();
+    return { ok: true, added: fresh.length, dup: list.length - fresh.length };
+  } catch (e) {
+    return { ok: false };
+  } finally {
+    if (where !== 'wb') tqUnkDraw();
+  }
+}
+
+/* 결과 화면의 담기 단추. 여기서만 「담는 중」과 결과 줄을 보여 준다 —
+   단어장 쪽 줄은 자기 자리에서 따로 알린다. */
+async function tqUnkSaveFromOver() {
+  const btn = $('tqUnkSave');
+  if (btn) { btn.disabled = true; btn.textContent = t('담는 중…', 'Adding…'); }
+  const r = await tqUnkSave('over');
+  if (r.needLogin) return;
+  const box = $('tqUnk');
+  box.classList.remove('hidden');
+  const old = box.querySelector('.tq-unk-msg');
+  if (old) old.remove();
+  const p = document.createElement('p');
+  p.className = `tq-unk-msg ${r.ok ? 'ok' : 'no'}`;
+  p.textContent = r.ok
+    ? t(`단어장에 ${r.added}개를 담았어요.`, `Added ${r.added} to your wordbook.`) +
+      (r.dup ? t(` ${r.dup}개는 이미 있어서 건너뛰었어요.`, ` ${r.dup} were already there.`) : '')
+    : t('담지 못했어요. 잠시 후 다시 해 주세요.', 'Could not add them. Please try again.');
+  box.appendChild(p);
+  if (!r.ok && btn) { btn.disabled = false; btn.textContent = t('단어장에 담기', 'Add to my wordbook'); }
+}
+
 function tqDraw() {
   const q = tqRound[tqIdx];
   if (!q) return tqFinish();
@@ -2538,12 +2848,14 @@ function tqDraw() {
   $('tqExamBody').classList.remove('hidden');
   tqMeta();
   $('tqPassage').classList.toggle('hidden', !q.passage);
-  $('tqPassage').textContent = q.passage || '';
+  /* textContent 대신 어절 조각으로 담는다 — 읽다 막히는 낱말을 눌러
+     표시해 둘 수 있게. 글자와 줄바꿈은 그대로다. */
+  tqWordify($('tqPassage'), q.passage);
   /* 넣을 문장이 없으면 59번 유형은 풀 수가 없다. 자료에만 두고 화면에
      안 그리면 학습자는 ㉠㉡㉢㉣ 만 보고 찍게 된다. */
   $('tqInsert').classList.toggle('hidden', !q.sentence);
-  $('tqInsert').textContent = q.sentence || '';
-  $('tqQuestion').textContent = q.question;
+  tqWordify($('tqInsert'), q.sentence);
+  tqWordify($('tqQuestion'), q.question);
   $('tqWhy').classList.add('hidden');
   $('tqNext').classList.add('hidden');
 
@@ -2820,13 +3132,34 @@ function tqFinish() {
      자신을 「지난 회」로 읽어서, 첫 회에 「지난 회 대비 0」이 뜬다. */
   if (first && tqMock) tqMockWrite({ at: Date.now(), score: tqScore, n, sec: tqSpent });
   tqDrawBreak();
-  $('tqWrongs').innerHTML = tqWrongs.map((q) =>
-    '<div class="tq-wrong">' +
-      `<div class="lc-lv">${esc(t(TQ_TYPE_TX[q.type].ko, TQ_TYPE_TX[q.type].en))}</div>` +
-      (q.passage ? `<div class="tq-wrong-p">${esc(q.passage)}</div>` : '') +
-      `<div class="tq-wrong-a">${esc(`${q.answer + 1}. ${q.options[q.answer]}`)}</div>` +
-      `<div class="tq-wrong-w">${esc(q.why)}</div>` +
-    '</div>').join('');
+  /* 틀린 문항 다시 보기. innerHTML 로 찍지 않고 조각으로 쌓는 이유는
+     여기서도 낱말을 눌러 표시할 수 있어야 해서다 — 무엇을 몰랐는지는
+     해설을 읽다가 비로소 알게 되는 일이 많다. */
+  const wrongs = $('tqWrongs');
+  wrongs.textContent = '';
+  for (const q of tqWrongs) {
+    const card = document.createElement('div');
+    card.className = 'tq-wrong';
+    const lv = document.createElement('div');
+    lv.className = 'lc-lv';
+    lv.textContent = t(TQ_TYPE_TX[q.type].ko, TQ_TYPE_TX[q.type].en);
+    card.appendChild(lv);
+    if (q.passage) {
+      const p = document.createElement('div');
+      p.className = 'tq-wrong-p';
+      tqWordify(p, q.passage);
+      card.appendChild(p);
+    }
+    const a = document.createElement('div');
+    a.className = 'tq-wrong-a';
+    tqWordify(a, `${q.answer + 1}. ${q.options[q.answer]}`);
+    const w = document.createElement('div');
+    w.className = 'tq-wrong-w';
+    tqWordify(w, q.why);
+    card.append(a, w);
+    wrongs.appendChild(card);
+  }
+  tqUnkDraw();
   $('tqAgain').textContent = t('다시 풀기', 'Try again');
   $('tqBack').textContent = t('다른 유형 고르기', 'Pick another type');
   tqPanel('tqOver');
