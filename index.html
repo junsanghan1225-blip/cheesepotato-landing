@@ -2102,6 +2102,100 @@ body.nav-open { overflow:hidden; }
 .tq-wrong-a { font-size:14.5px; color:var(--green); font-weight:700; margin-top:6px; word-break:keep-all; }
 .tq-wrong-w { font-size:12.5px; color:var(--ink-3); line-height:1.65; margin-top:6px; word-break:keep-all; }
 
+/* ══ 읽기 연습 ═══════════════════════════════════════════════
+   카드를 누르면 **그 자리에서** 아래가 펼쳐진다. 새 화면으로 넘기지
+   않는 이유는, 읽기는 목록과 글을 오가며 고르는 일이라 화면이 바뀌면
+   어디까지 봤는지를 매번 잃기 때문이다. */
+.rd-card {
+  background:var(--surface); border:1px solid var(--line-2); border-radius:var(--r);
+  margin-bottom:10px; overflow:hidden; transition:border-color .16s;
+}
+.rd-card.on { border-color:rgba(255,145,77,.45); }
+.rd-head {
+  display:flex; align-items:center; gap:12px; width:100%;
+  padding:15px 17px; background:none; border:none; cursor:pointer; text-align:left;
+}
+.rd-head:hover { background:rgba(27,21,18,.02); }
+.rd-head-l { flex:1; min-width:0; }
+.rd-title { font-size:15.5px; font-weight:700; color:var(--ink); word-break:keep-all; }
+/* 첫 줄 맛보기. 제목만으로는 무슨 글인지 안 잡힌다. */
+.rd-peek {
+  font-size:12.5px; color:var(--ink-3); margin-top:3px;
+  overflow:hidden; text-overflow:ellipsis; white-space:nowrap;
+}
+.rd-score-chip {
+  flex:none; font-size:12px; font-weight:700; padding:3px 9px; border-radius:999px;
+  background:#EEF4F0; color:var(--green);
+}
+.rd-caret { flex:none; color:var(--ink-3); font-size:12px; }
+
+.rd-body { padding:0 17px 17px; }
+/* 읽으라고 있는 글이다. 줄 간격을 넉넉히 준다. */
+.rd-passage {
+  font-size:15.5px; line-height:2; color:var(--ink); word-break:keep-all;
+  padding:14px 16px; background:var(--surface-2); border-left:3px solid var(--orange);
+  border-radius:0 var(--r) var(--r) 0;
+}
+.rd-words { display:flex; flex-wrap:wrap; gap:6px; margin-top:10px; }
+.rd-word {
+  font-size:11.5px; color:var(--ink-3); padding:3px 9px; border-radius:999px;
+  background:var(--tint); border:1px solid rgba(255,138,61,.22); word-break:keep-all;
+}
+.rd-word b { color:var(--orange-deep); font-weight:700; }
+.rd-q { font-size:14.5px; font-weight:700; color:var(--ink); margin:18px 0 9px; word-break:keep-all; }
+.rd-input {
+  width:100%; padding:13px 15px; font:inherit; font-size:15px; line-height:1.8;
+  color:var(--ink); background:var(--surface); border:1px solid var(--line);
+  border-radius:var(--r); resize:vertical;
+}
+.rd-input:focus { outline:none; border-color:var(--orange); }
+.rd-btns { display:flex; gap:8px; margin-top:11px; flex-wrap:wrap; }
+
+.rd-out { margin-top:18px; }
+.rd-msg { font-size:13.5px; color:var(--ink-3); }
+/* 점수는 크게, 그러나 이름을 정확히 — 「내용 점수」다. 맥락을 잰 것이
+   아니라 짚어야 할 것을 몇 개 짚었는지를 센 값이라서. */
+.rd-score { display:flex; align-items:center; gap:14px; padding:14px 16px; border-radius:var(--r); }
+.rd-score.good { background:rgba(18,112,79,.07); }
+.rd-score.mid  { background:rgba(190,138,85,.10); }
+.rd-score.low  { background:rgba(178,96,74,.09); }
+.rd-score-n { font-size:34px; font-weight:800; letter-spacing:-.04em; line-height:1; }
+.rd-score.good .rd-score-n { color:var(--green); }
+.rd-score.mid  .rd-score-n { color:#8A6234; }
+.rd-score.low  .rd-score-n { color:#8E4536; }
+.rd-score-t { min-width:0; }
+.rd-score-t b { display:block; font-size:12.5px; letter-spacing:.02em; color:var(--ink); }
+.rd-score-t span { display:block; font-size:12.5px; color:var(--ink-2); margin-top:3px; line-height:1.6; word-break:keep-all; }
+
+.rd-marks { margin-top:12px; display:grid; gap:6px; }
+.rd-mark {
+  display:flex; gap:9px; align-items:baseline;
+  font-size:13.5px; color:var(--ink-3); word-break:keep-all;
+}
+.rd-mark.ok { color:var(--ink); }
+.rd-mark-i { flex:none; width:14px; text-align:center; color:var(--line); font-weight:700; }
+.rd-mark.ok .rd-mark-i { color:var(--green); }
+
+.rd-note {
+  margin-top:12px; font-size:12px; line-height:1.7; color:var(--ink-3);
+  padding-left:12px; border-left:2px solid var(--line-2); word-break:keep-all;
+}
+.rd-fold { margin-top:12px; border-top:1px solid var(--line-2); padding-top:12px; }
+.rd-fold-h {
+  display:flex; justify-content:space-between; align-items:center; width:100%;
+  background:none; border:none; cursor:pointer; padding:0;
+  font:inherit; font-size:12.5px; font-weight:700; color:var(--ink-2);
+}
+.rd-fold-h:hover { color:var(--ink); }
+.rd-fold-b { margin-top:9px; font-size:14px; line-height:1.85; color:var(--ink-2); word-break:keep-all; }
+
+@media (max-width:600px) {
+  .rd-head { padding:14px 14px; gap:9px; }
+  .rd-body { padding:0 14px 14px; }
+  .rd-passage { font-size:15px; padding:13px 14px; }
+  .rd-score-n { font-size:30px; }
+}
+
 /* ── 모르는 낱말 표시 ─────────────────────────────────────────
    지문을 읽다 막히는 낱말을 눌러 두면 다 푼 뒤에 모아서 보여 준다.
    누르는 순간에는 아무것도 알려 주지 않는다 — 뜻을 그 자리에서 띄우면
@@ -3431,6 +3525,23 @@ body.nav-open { overflow:hidden; }
           <div id="sbCats"></div>
         </div>
         <div id="sbDetail" class="hidden"></div>
+      </div>
+
+      <!-- 갈래 : 읽기 연습 ─────────────────────────────────────
+           읽고 이해한 것을 자기 말로 다시 쓰는 자리. TOPIK 유형 연습은
+           보기 넷에서 고르는데, 그건 이해했는지를 재기에는 좋아도
+           이해한 것을 꺼내는 연습은 안 된다.
+
+           길이와 급수를 따로 고른다 — 쉬운 글을 길게 읽고 싶은 사람과
+           어려운 글을 짧게 한 편만 보고 싶은 사람이 둘 다 있다. -->
+      <div id="rdWrap" class="hidden">
+        <div class="learn-head">
+          <div id="rdLen"></div>
+          <div id="rdLevel"></div>
+          <p id="rdIntro" class="learn-copy"></p>
+          <div id="rdSummary" class="learn-summary"></div>
+        </div>
+        <div id="rdList"></div>
       </div>
 
       <!-- 아직 안 채운 갈래 -->

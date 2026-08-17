@@ -20,6 +20,8 @@ import * as XLSX from './vendor/xlsx.js';
 // 커리큘럼. 내용과 엔진을 갈라 두면 글을 고치다 화면을 깨지 않는다.
 import { COURSES } from './courses.js';
 import { SB_CATS, SB_MORE, SB_SEED } from './sentences.js';
+// 읽기 연습 지문. 길이(short·long) × 급수 여섯 칸.
+import { READING } from './reading.js';
 // TOPIK 유형 연습문제. 기출이 아니라 자체 제작이다.
 import { TOPIK_READING, TOPIK_BLUEPRINT, TOPIK_SLOTS } from './topik.js';
 // 숫자 게임의 읽기와 문제 만들기. 화면을 모르는 순수 계산이라 따로 뒀다.
@@ -616,6 +618,10 @@ function syncLang() {
   if ($('lsecList').childElementCount) drawSections();
   if ($('lcList').childElementCount) drawCourses();
   if ($('sbCats').childElementCount) sbShow(sbPoint);
+  /* 읽기는 고르개·안내·카드가 전부 자바스크립트가 넣은 글이다.
+     펼쳐 둔 글과 이미 낸 답은 다시 그리면 사라지므로, 아직 아무것도
+     안 펼쳤을 때만 새로 그린다. */
+  if ($('rdList').childElementCount && !rdOpen) drawReading();
   if (!$('llWrap').classList.contains('hidden')) drawLessonRows();
   // 갈래 제목과 "준비 중" 안내도 자바스크립트가 넣은 글이다.
   if (lsecOpen) openSection(lsecOpen);
@@ -1911,6 +1917,15 @@ const LEARN_SECTIONS = [
              en: 'Read a passage, pick from four. A wrong answer tells you why.' },
   },
   {
+    id: 'reading', emoji: '📝', ready: true, pane: 'rdWrap',
+    lv:    { ko: '읽기',            en: 'READING' },
+    title: { ko: '읽고 써 보기',     en: 'Read and write it back' },
+    tag:   { ko: '읽은 것을 자기 말로 다시',
+             en: 'Say it back in your own words' },
+    blurb: { ko: '글을 읽고 이해한 것을 직접 써 봅니다. 무엇을 짚었고 무엇을 놓쳤는지 바로 알려 줘요.',
+             en: 'Read a passage, then write what you understood. You see at once what you caught and what you missed.' },
+  },
+  {
     id: 'sentence', emoji: '✍️', ready: true, pane: 'sbWrap',
     lv:    { ko: '예문',            en: 'SENTENCES' },
     title: { ko: '예문 만들기',      en: 'Build a sentence' },
@@ -2015,7 +2030,7 @@ const BEGINNER_ROADMAP = [
     courses:[],
   },
 ];
-let learnLv = { courses: 'beginner', sentence: 'beginner' };
+let learnLv = { courses: 'beginner', sentence: 'beginner', reading: 'beginner' };
 
 const learnLevel = (id) => LEARN_LEVELS.find((x) => x.id === id) || LEARN_LEVELS[0];
 const learnLevelText = (id) => (isEn() ? learnLevel(id).en : learnLevel(id).ko);
@@ -3299,6 +3314,270 @@ function drawSections() {
    갈래 목록과 갈래 속이 같이 떠 있거나 둘 다 사라진다. */
 let lsecOpen = null;   // 지금 열린 갈래 id. 언어를 바꿀 때 다시 그리려고 둔다.
 
+/* ══ 읽기 연습 ═══════════════════════════════════════════════════
+   읽고, 이해한 것을 자기 말로 다시 쓰는 자리.
+
+   **채점을 무엇이라 부르는가** — 지문마다 「짚어야 할 것」을 여러 표현으로
+   정해 두고, 학습자가 쓴 글에서 몇 개를 짚었는지로 100점을 낸다. 이건
+   맥락을 재는 것이 아니라 「이해했으면 그 내용이 글에 나온다」는 상관을
+   쓴 근사치다. 그래서 화면에서도 「맥락 점수」가 아니라 **내용 점수**라고
+   부르고, 놓친 항목이 무엇인지 같이 보여 준다 — 숫자보다 그쪽이 배울
+   거리다. 그리고 「다르게 썼다면 틀린 게 아니다」를 반드시 함께 적는다.
+   같은 뜻을 다른 말로 쓴 사람을 틀렸다고 하면 안 된다.
+
+   영어 대조(en)는 **답을 낸 뒤에만** 편다. 미리 보이면 읽기 연습이
+   아니라 번역문 읽기가 된다. */
+
+const RD_LENS = [
+  { id: 'short', ko: '짧은 글', en: 'Short', dKo: '서너 문장. 짬이 날 때 한 편.', dEn: 'Three or four sentences. One when you have a minute.' },
+  { id: 'long',  ko: '긴 글',   en: 'Long',  dKo: '한 문단. 흐름을 따라가는 연습.', dEn: 'A full paragraph. Practice following a thread.' },
+];
+let rdLen = 'short';
+let rdOpen = null;          // 지금 펼친 지문 id
+const RD_DONE_KEY = 'cp_rd_done';
+
+/* 푼 기록은 브라우저에 둔다. 로그인 없이도 쓸 수 있어야 하는 자리라
+   서버를 거치지 않는다. */
+const rdDoneRead = () => {
+  try {
+    const o = JSON.parse(localStorage.getItem(RD_DONE_KEY) || '{}');
+    return (o && typeof o === 'object' && !Array.isArray(o)) ? o : {};
+  } catch (e) { return {}; }
+};
+const rdDoneWrite = (id, score) => {
+  try {
+    const o = rdDoneRead();
+    /* 다시 풀어 더 잘했을 때만 올린다. 한 번 잘 본 것을 나중에 대충
+       써서 깎아 내리면 기록이 벌이 된다. */
+    o[id] = Math.max(Number(o[id]) || 0, score);
+    localStorage.setItem(RD_DONE_KEY, JSON.stringify(o));
+  } catch (e) {}
+};
+
+const rdRows = () => READING[rdLen]?.[learnLv.reading] ?? [];
+const rdFind = (id) => Object.values(READING).flatMap((g) => Object.values(g)).flat().find((r) => r.id === id);
+
+/* 띄어쓰기를 지우고 견준다. 「지하철로」와 「지하철 로」를 다르게 셀
+   까닭이 없다. */
+const rdFlat = (s) => String(s ?? '').replace(/\s+/g, '');
+const rdHit = (answer, key) => {
+  const a = rdFlat(answer);
+  return key.k.some((w) => a.includes(rdFlat(w)));
+};
+
+function rdLenSwitch() {
+  const cur = RD_LENS.find((x) => x.id === rdLen) || RD_LENS[0];
+  return (
+    '<div class="pt-lv-row">' +
+      `<div class="diff-seg learn-lv" role="radiogroup" aria-label="${t('글 길이', 'Passage length')}">` +
+        RD_LENS.map((x) =>
+          `<label><input type="radio" name="rd_len" value="${x.id}" data-rd-len="${x.id}"${x.id === rdLen ? ' checked' : ''}><span>${esc(isEn() ? x.en : x.ko)}</span></label>`
+        ).join('') +
+      '</div>' +
+      `<div class="pt-lv-desc">${esc(isEn() ? cur.dEn : cur.dKo)}</div>` +
+    '</div>'
+  );
+}
+
+function drawReading() {
+  $('rdLen').innerHTML = rdLenSwitch();
+  $('rdLevel').innerHTML = renderLevelSwitch('reading');
+  $('rdIntro').textContent = t(
+    '글을 읽고, 무슨 이야기였는지 자기 말로 써 보세요. 다 쓰면 무엇을 짚었고 무엇을 놓쳤는지 알려 드립니다. 영어 뜻은 답을 낸 뒤에 펼 수 있어요.',
+    'Read the passage, then write what it said in your own words. Once you answer, you will see what you caught and what you missed. The English is there afterwards.');
+
+  const rows = rdRows();
+  const done = rdDoneRead();
+  const solved = rows.filter((r) => done[r.id] != null);
+  const avg = solved.length ? Math.round(solved.reduce((a, r) => a + done[r.id], 0) / solved.length) : 0;
+  $('rdSummary').innerHTML = renderLearnSummary([
+    { k: t('지문', 'Passages'), v: rows.length, s: t('이 칸에 있는 글', 'Passages in this bucket') },
+    { k: t('푼 것', 'Done'), v: solved.length, s: `${rows.length} ${t('편 가운데', 'in this bucket')}` },
+    { k: t('평균', 'Average'), v: solved.length ? `${avg}점` : '—', s: t('푼 글의 내용 점수', 'Content score on what you did') },
+  ]);
+
+  const box = $('rdList');
+  box.textContent = '';
+  if (!rows.length) {
+    box.innerHTML = `<div class="learn-empty">${esc(t('이 칸은 곧 채울게요.', 'This bucket is coming soon.'))}</div>`;
+    return;
+  }
+  rows.forEach((r) => box.appendChild(rdCard(r, done[r.id])));
+}
+
+function rdCard(r, score) {
+  const card = document.createElement('div');
+  card.className = 'rd-card' + (rdOpen === r.id ? ' on' : '');
+
+  const head = document.createElement('button');
+  head.type = 'button';
+  head.className = 'rd-head';
+  head.setAttribute('aria-expanded', rdOpen === r.id ? 'true' : 'false');
+  head.innerHTML =
+    '<div class="rd-head-l">' +
+      `<div class="rd-title">${esc(r.title)}</div>` +
+      `<div class="rd-peek">${esc(r.passage.slice(0, 46))}…</div>` +
+    '</div>' +
+    (score != null ? `<span class="rd-score-chip">${score}${esc(t('점', ''))}</span>` : '') +
+    `<span class="rd-caret" aria-hidden="true">${rdOpen === r.id ? '▴' : '▾'}</span>`;
+  head.addEventListener('click', () => {
+    /* 아코디언이다 — 한 번에 하나만 편다. 여럿이 펼쳐져 있으면 어느
+       칸에 쓰고 있는지 헷갈리고, 긴 글에서는 화면이 통째로 흐른다. */
+    rdOpen = rdOpen === r.id ? null : r.id;
+    drawReading();
+    if (rdOpen === r.id) {
+      const el = [...document.querySelectorAll('.rd-card')].find((c) => c.classList.contains('on'));
+      el?.scrollIntoView({ block: 'start', behavior: 'smooth' });
+    }
+  });
+  card.appendChild(head);
+
+  if (rdOpen !== r.id) return card;
+
+  const body = document.createElement('div');
+  body.className = 'rd-body';
+
+  const p = document.createElement('p');
+  p.className = 'rd-passage';
+  p.textContent = r.passage;
+  body.appendChild(p);
+
+  /* 낱말 풀이. 사전을 따로 켜지 않게 하려는 것이라 지문 바로 아래 둔다. */
+  const words = document.createElement('div');
+  words.className = 'rd-words';
+  for (const [w, m] of r.words) {
+    const chip = document.createElement('span');
+    chip.className = 'rd-word';
+    chip.innerHTML = `<b>${esc(w)}</b> ${esc(m)}`;
+    words.appendChild(chip);
+  }
+  body.appendChild(words);
+
+  const q = document.createElement('p');
+  q.className = 'rd-q';
+  q.textContent = r.question;
+  body.appendChild(q);
+
+  const ta = document.createElement('textarea');
+  ta.className = 'rd-input';
+  ta.rows = rdLen === 'long' ? 6 : 4;
+  ta.placeholder = t('여기에 한국어로 써 보세요.', 'Write here, in Korean.');
+  /* 학습자가 쓴 글이다. 화면 녹화에 남을 자리가 아니다. */
+  ta.setAttribute('data-clarity-mask', 'true');
+  body.appendChild(ta);
+
+  const btns = document.createElement('div');
+  btns.className = 'rd-btns';
+  const go = document.createElement('button');
+  go.className = 'pt-next';
+  go.type = 'button';
+  go.textContent = t('확인하기', 'Check my answer');
+  const out = document.createElement('div');
+  out.className = 'rd-out hidden';
+  go.addEventListener('click', () => rdGrade(r, ta.value, out, go));
+  btns.appendChild(go);
+  body.append(btns, out);
+
+  card.appendChild(body);
+  return card;
+}
+
+function rdGrade(r, answer, out, btn) {
+  const text = String(answer || '').trim();
+  if (rdFlat(text).length < 10) {
+    out.classList.remove('hidden');
+    out.innerHTML = `<p class="rd-msg">${esc(t('조금 더 써 보세요. 한 문장이라도 괜찮아요.', 'Write a little more — even one sentence is fine.'))}</p>`;
+    return;
+  }
+
+  const marks = r.keys.map((k) => ({ ...k, ok: rdHit(text, k) }));
+  const got = marks.filter((m) => m.ok).length;
+  const score = Math.round((got / marks.length) * 100);
+  rdDoneWrite(r.id, score);
+  btn.textContent = t('다시 확인하기', 'Check again');
+
+  /* 카드 머리의 점수 딱지를 그 자리에서 갈아 끼운다. 목록을 통째로 다시
+     그리면 지금 펼친 칸이 접히고 방금 쓴 글이 사라진다 — 점수 하나
+     보이자고 학습자가 쓴 것을 지울 수는 없다. */
+  const head = out.closest('.rd-card')?.querySelector('.rd-head');
+  if (head) {
+    let chip = head.querySelector('.rd-score-chip');
+    if (!chip) {
+      chip = document.createElement('span');
+      chip.className = 'rd-score-chip';
+      head.insertBefore(chip, head.querySelector('.rd-caret'));
+    }
+    chip.textContent = `${rdDoneRead()[r.id]}${t('점', '')}`;
+  }
+
+  const band = score >= 80 ? 'good' : score >= 50 ? 'mid' : 'low';
+  const line = score >= 80 ? t('잘 읽으셨어요.', 'You read it well.')
+    : score >= 50 ? t('큰 줄기는 잡으셨어요.', 'You got the main thread.')
+    : t('한 번 더 읽어 볼까요?', 'Want to read it once more?');
+
+  out.classList.remove('hidden');
+  out.textContent = '';
+
+  /* 점수. 이름을 「내용 점수」라고 정확히 부른다 — 맥락을 잰 것이 아니라
+     짚어야 할 것을 몇 개 짚었는지를 센 값이다. */
+  const top = document.createElement('div');
+  top.className = `rd-score ${band}`;
+  top.innerHTML =
+    `<div class="rd-score-n">${score}</div>` +
+    `<div class="rd-score-t"><b>${esc(t('내용 점수', 'Content score'))}</b>` +
+    `<span>${esc(t(`짚어야 할 ${marks.length}가지 가운데 ${got}가지 — ${line}`,
+                    `${got} of ${marks.length} points — ${line}`))}</span></div>`;
+  out.appendChild(top);
+
+  const list = document.createElement('div');
+  list.className = 'rd-marks';
+  for (const m of marks) {
+    const row = document.createElement('div');
+    row.className = 'rd-mark' + (m.ok ? ' ok' : '');
+    row.innerHTML = `<span class="rd-mark-i" aria-hidden="true">${m.ok ? '✓' : '·'}</span>` +
+      `<span>${esc(m.why)}</span>`;
+    row.querySelector('.rd-mark-i').setAttribute('aria-label', m.ok ? t('짚음', 'caught') : t('안 보임', 'not found'));
+    list.appendChild(row);
+  }
+  out.appendChild(list);
+
+  /* 같은 뜻을 다른 말로 쓴 사람을 틀렸다고 하면 안 된다. 이 줄이 없으면
+     점수가 판결처럼 보인다. */
+  const note = document.createElement('p');
+  note.className = 'rd-note';
+  note.textContent = t(
+    '이 점수는 「짚어야 할 것을 몇 개 썼나」를 센 것입니다. 다르게 썼다고 틀린 게 아니니, 아래 모범 답안과 나란히 놓고 견줘 보세요.',
+    'This counts how many of the points you mentioned. Saying it differently is not wrong — compare with the model answer below.');
+  out.appendChild(note);
+
+  out.appendChild(rdFold(t('모범 답안', 'Model answer'), r.model, true));
+  /* 영어는 여기서 처음 열린다. 답을 내기 전에 보이면 읽기 연습이 아니라
+     번역문 읽기가 된다. */
+  out.appendChild(rdFold(t('영어로 대조하기', 'Compare with the English'), r.en, false));
+}
+
+/* 접었다 펴는 칸. 모범 답안은 펴 두고, 영어는 접어 둔다 — 영어를 먼저
+   보면 자기 답을 스스로 견줄 기회가 사라진다. */
+function rdFold(title, text, open) {
+  const wrap = document.createElement('div');
+  wrap.className = 'rd-fold';
+  const b = document.createElement('button');
+  b.type = 'button';
+  b.className = 'rd-fold-h';
+  const body = document.createElement('p');
+  body.className = 'rd-fold-b';
+  body.textContent = text;
+  const sync = () => {
+    b.innerHTML = `${esc(title)}<span aria-hidden="true">${open ? '▴' : '▾'}</span>`;
+    b.setAttribute('aria-expanded', open ? 'true' : 'false');
+    body.classList.toggle('hidden', !open);
+  };
+  b.addEventListener('click', () => { open = !open; sync(); });
+  sync();
+  wrap.append(b, body);
+  return wrap;
+}
+
 function openSection(id) {
   const s = LEARN_SECTIONS.find((x) => x.id === id);
   if (!s) return;
@@ -3322,6 +3601,7 @@ function openSection(id) {
     if (!already) {
       if (s.id === 'courses') drawCourses();
       if (s.id === 'topik') drawTopik();
+      if (s.id === 'reading') drawReading();
       if (s.id === 'sentence') {
         drawSentenceHead();
         const cur = sbPoint ? sbFind(sbPoint) : null;
@@ -3376,7 +3656,22 @@ $('lsecWrap').addEventListener('change', (ev) => {
     const cur = sbPoint ? sbFind(sbPoint) : null;
     if (cur && sentenceTier(cur) !== level) sbPoint = null;
     sbShow(sbPoint);
+  } else if (section === 'reading') {
+    /* 급수를 바꾸면 펼쳐 둔 글은 다른 칸의 것이라 닫는다. 안 닫으면
+       초급을 골랐는데 고급 지문이 펼쳐진 채로 남는다. */
+    rdOpen = null;
+    drawReading();
   }
+});
+
+/* 글 길이 고르개. 급수와 달리 읽기에만 있어서 따로 받는다. */
+$('lsecWrap').addEventListener('change', (ev) => {
+  const r = ev.target.closest('[data-rd-len]');
+  if (!r) return;
+  if (!RD_LENS.some((x) => x.id === r.dataset.rdLen)) return;
+  rdLen = r.dataset.rdLen;
+  rdOpen = null;
+  drawReading();
 });
 
 /* ══ 예문 게시판 ═══════════════════════════════════════════════
