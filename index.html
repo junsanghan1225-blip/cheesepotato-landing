@@ -585,9 +585,12 @@ body.nav-open { overflow:hidden; }
 }
 .feat-item:hover { background:rgba(255,255,255,.5); }
 .feat-icon-wrap {
+  /* --tint 은 --bg 와 명도 차가 거의 없어서, 카드 위(sb-ex 등)에서는 도드라져도
+     여기서는 배지 없이 이모지만 떠 있는 것처럼 보였다. 카드 배경(--surface)을
+     써서 lc-mark·game-card-ico 와 같은 급의 배지로 보이게 한다. */
   width:42px; height:42px; flex-shrink:0;
   display:grid; place-items:center; font-size:20px;
-  background:var(--tint); border:1px solid var(--line-2); border-radius:var(--r);
+  background:var(--surface); border:1px solid rgba(255,145,77,.22); border-radius:var(--r);
 }
 .feat-text-title { font-size:16.5px; font-weight:700; color:var(--ink); letter-spacing:-.025em; }
 .feat-text-desc { font-size:14.5px; color:var(--ink-2); line-height:1.7; margin-top:6px; word-break:keep-all; }
@@ -3303,7 +3306,7 @@ body.nav-open { overflow:hidden; }
     <div>
       <div class="label">DASHBOARD</div>
       <p class="section-title" data-en="See your progress<br>at a glance">내 학습량을<br>한눈에 확인</p>
-      <p class="section-sub" data-en="Hover to tilt it —<br>a dashboard that responds as you read.">마우스를 올려 기울여보세요 —<br>나의 학습 현황이 살아있는 대시보드.</p>
+      <p class="section-sub" data-en="Tap to open yours — hover to tilt it,<br>a dashboard that responds as you read.">탭하면 내 대시보드로 — 마우스를 올리면 기울어져요,<br>나의 학습 현황이 살아있는 대시보드.</p>
     </div>
     <div class="dash-persp" id="dashPersp">
     <div class="dash-mockup" id="dashMockup">
