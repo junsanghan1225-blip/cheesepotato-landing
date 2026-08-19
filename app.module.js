@@ -67,6 +67,9 @@ const GAME_VIEWS = ['games', 'claw', 'match', 'quiz', 'num'];
 /* 화면 전환. 'home' | 'wordbook' | 'account' 셋을 여기서 다룬다.
    발음 테스트는 위 고전 스크립트의 ptShow 가 주인이라 여기서는 닫기만 한다. */
 function open(view) {
+  /* 모의고사를 푸는 중이면 먼저 묻는다. 라우터가 몰고 있는 중이면 그쪽에서
+     이미 물었으므로 건너뛴다. */
+  if (!window.cpRouteBusy?.() && window.cpBlockLeave?.()) return;
   // 발음 테스트가 열려 있었다면 표시를 거둔다.
   $('navBtn').classList.remove('on');
 
@@ -109,7 +112,7 @@ function open(view) {
 
 /* 주소로 바로 들어오는 길. 버튼을 눌러 들어올 때 같이 하던 불러오기까지
    여기서 한다 — 안 하면 #dashboard 로 들어온 사람은 빈 대시보드를 본다. */
-window.cpOpen = function (view) {
+window.cpOpen = function (view, sub) {
   open(view);
   if (view === 'account') loadAccount();
   if (view === 'library') loadLibrary();
@@ -122,7 +125,16 @@ window.cpOpen = function (view) {
   if (view === 'num') numSetup();
   if (view === 'learn') {
     backToSections();
-    loadProgress().then(backToSections, () => {});
+    /* 주소에 갈래가 적혀 있으면 그 갈래를 연다. backToSections 뒤에 부르는
+       이유 — 먼저 목록으로 돌려 놓아야 앞서 열려 있던 갈래가 안 겹친다. */
+    if (sub) openLearnSub(sub);
+    /* 진도를 받은 뒤에 화면을 다시 그린다. 여태 무조건 backToSections 였는데,
+       그러면 #learn/topik 으로 들어온 사람이 진도가 도착하는 순간 갈래
+       목록으로 튕긴다. 갈래 안에 있으면 그 갈래만 새로 그린다. */
+    loadProgress().then(() => {
+      if (!lsecOpen) backToSections();
+      else if (lsecOpen === 'courses') drawCourses();
+    }, () => {});
   }
 };
 
@@ -3376,16 +3388,45 @@ $('tqWallBack').addEventListener('click', () => {
 });
 $('tqSubmit').addEventListener('click', tqSubmitAsk);
 /* 그만두기 — 모의고사는 되돌릴 수 없으니 한 번 묻는다. 시계도 멈춘다. */
-$('tqQuit').addEventListener('click', () => {
-  if (tqMock && tqIdx < tqRound.length &&
-      !confirm(t('모의고사를 그만둘까요? 지금까지 푼 것은 기록에 남지 않아요.',
-                 'Quit the mock exam? Nothing so far will be saved.'))) return;
+/* 모의고사를 푸는 중인가. 70분짜리를 실수로 날리지 않게 막는 자리들이
+   이것 하나를 본다. */
+/* 성적표가 떠 있으면 이미 끝난 것이라 잃을 것이 없다. 이것을 빼먹으면
+   다 풀고 결과를 본 뒤 나가려는 사람에게도 「그만둘까요?」를 묻는다. */
+const tqRunning = () => tqMock && tqIdx < tqRound.length && !showing('tqOver');
+const tqAskQuit = () => confirm(t('모의고사를 그만둘까요? 지금까지 푼 것은 기록에 남지 않아요.',
+                                  'Quit the mock exam? Nothing so far will be saved.'));
+function tqDropMock() {
   tqMock = false; tqStopClock();
   $('tqOmr').classList.add('hidden');
+}
+
+/* 새로고침·창 닫기. 앱 안의 길목은 아래 cpBlockLeave 가 막지만, 새로고침은
+   자바스크립트가 못 막으므로 브라우저에게 물어 달라고 부탁하는 수밖에 없다. */
+window.addEventListener('beforeunload', (ev) => {
+  if (!tqRunning()) return;
+  ev.preventDefault();
+  ev.returnValue = '';
+});
+
+/* 주소가 바뀌어 화면을 떠나려 할 때 라우터가 묻는다. 「머문다」를 고르면
+   true 를 돌려주고, 라우터가 주소를 되돌린다.
+
+   이 자리가 필요한 까닭 — 그만두기 단추에는 확인이 붙어 있는데 뒤로 가기와
+   헤더 단추는 그 확인을 건너뛰어서, 다 푼 시험이 소리 없이 사라졌다. */
+window.cpBlockLeave = function () {
+  if (!tqRunning()) return false;
+  if (!tqAskQuit()) return true;
+  tqDropMock();
+  return false;
+};
+
+$('tqQuit').addEventListener('click', () => {
+  if (tqRunning() && !tqAskQuit()) return;
+  tqDropMock();
   drawTopik();
 });
 $('tqAgain').addEventListener('click', () => tqStart(tqSet));
-$('tqBack').addEventListener('click', () => { tqMock = false; tqStopClock(); $('tqOmr').classList.add('hidden'); drawTopik(); });
+$('tqBack').addEventListener('click', () => { tqDropMock(); drawTopik(); });
 
 function tqSyncLang() {
   if ($('tqWrap').classList.contains('hidden')) return;
@@ -3744,6 +3785,9 @@ function openSection(id) {
      글자는 갈래마다 …SyncLang 이 따로 맞춰 주므로 여기서 다시 그릴 까닭이 없다. */
   const already = lsecOpen === s.id;
   lsecOpen = s.id;
+  /* 갈래도 주소에 남긴다. 안 남기면 새로고침했을 때 갈래 목록으로 튕기고,
+     뒤로 가기가 배우기를 통째로 빠져나간다. */
+  window.cpMark('learn', s.id);
   $('lsecList').classList.add('hidden');
   $('lsecWrap').classList.remove('hidden');
   $('lsecTitle').textContent = secTx(s.title);
@@ -3774,6 +3818,29 @@ function openSection(id) {
 /* 레슨에서 나올 때 가는 자리. 갈래가 생기기 전에는 그냥 코스 목록이었다.
    이제는 코스 갈래를 먼저 열어야 카드가 보인다 — 세 곳(✕ · 끝냄 · 이어하기)이
    같은 길로 나와야 한 곳만 고치고 다른 데가 죽는 일이 없다. */
+/* 주소에 적힌 배우기 속 자리를 연다.
+   `topik` · `sentence` · `sentence/23-1` 꼴을 받는다.
+
+   표현 하나까지 여는 이유 — 문법 표현 쪽은 남에게 건네고 싶어지는 자리다.
+   「-길래 설명 여기 있어」 하고 주소를 보냈는데 목록만 열리면 못 쓴다. */
+function openLearnSub(sub) {
+  const [secId, ...rest] = String(sub).split('/');
+  if (!LEARN_SECTIONS.some((x) => x.id === secId)) return;
+  /* 표현 없이 갈래만 적힌 주소면 열려 있던 표현을 놓는다. 안 놓으면
+     openSection 이 「직전에 보던 표현」을 되살려서, 상세에서 뒤로 가기를
+     눌러도 같은 상세가 다시 열린다. */
+  if (secId === 'sentence' && !rest[0]) sbPoint = null;
+  openSection(secId);
+  if (secId !== 'sentence' || !rest[0]) return;
+  const p = sbFind(rest[0]);
+  if (!p) return;
+  /* 표현마다 단계가 다르다. 단계를 안 맞추면 sbDrawDetail 이 「이 단계 것이
+     아니다」로 보고 목록으로 되돌린다. */
+  learnLv.sentence = sentenceTier(p);
+  drawSentenceHead();
+  sbShow(p.id);
+}
+
 function backToCourses() {
   open('learn');
   openSection('courses');
@@ -3782,6 +3849,7 @@ function backToCourses() {
 
 function backToSections() {
   lsecOpen = null;
+  window.cpMark('learn');
   $('lsecWrap').classList.add('hidden');
   $('llWrap').classList.add('hidden');
   $('lsecList').classList.remove('hidden');
@@ -3793,6 +3861,7 @@ $('lsecList').addEventListener('click', (ev) => {
   if (b) openSection(b.dataset.section);
 });
 $('lsecBack').addEventListener('click', () => {
+  if (window.cpBlockLeave?.()) return;
   backToSections();
   window.scrollTo({ top: 0, behavior: 'smooth' });
 });
@@ -4084,6 +4153,8 @@ function sbShow(id) {
   // 「-더라도」 칸에 그대로 떠 있다.
   if (id !== sbPoint) { sbReplyTo = null; sbDropDraft('both'); }
   sbPoint = id;
+  /* 표현 하나하나가 주소를 가진다 — 건네받은 사람이 그 표현을 바로 본다. */
+  window.cpMark('learn', id ? `sentence/${id}` : 'sentence');
   $('sbBrowse').classList.toggle('hidden', !!id);
   $('sbDetail').classList.toggle('hidden', !id);
   if (id) sbDrawDetail(); else sbDrawList();
