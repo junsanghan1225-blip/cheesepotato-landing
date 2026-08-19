@@ -91,6 +91,22 @@ for (const q of rows) {
      글꼴에 따라 폭이 들쭉날쭉해 빈칸이 빈칸처럼 안 보인다. */
   if (String(q.passage).includes('(    )') || String(q.question).includes('(    )'))
     note.push(`${q.id} — 빈칸이 반각 공백이다. (　　　　) 로 바꿀 것`);
+
+  /* 마크다운은 자료에 쓰지 않는다. 화면이 esc() 로만 지나가므로 별표가
+     별표째로 나오고, 묶인 문항끼리 지문이 달라지는 원인이 되기도 한다. */
+  if (/\*\*|__|~~/.test(String(q.passage)))
+    at(q, '지문에 마크다운 강조가 섞였다 — 밑줄은 mark 칸이 맡는다');
+
+  /* 만들다 흘린 영어 부스러기. 「( check  )에 들어갈 말」 같은 것이 실제로
+     나왔다. TV·KTX 처럼 대문자로 쓰는 말은 지문에 정상으로 나오므로
+     소문자만 본다. */
+  for (const [k, v] of [['question', q.question], ['passage', q.passage]]) {
+    const m = String(v ?? '').match(/[a-z]{3,}/);
+    if (m) note.push(`${q.id} — ${k} 에 영어 「${m[0]}」 가 섞였다. 만들다 흘린 것인지 볼 것`);
+  }
+
+  if (typeof q.passage === 'string' && q.passage !== q.passage.trim())
+    note.push(`${q.id} — 지문 앞뒤에 공백이 붙었다`);
 }
 
 /* 지문 하나를 나눠 쓰는 자리는 지문이 글자까지 같아야 한다. */
@@ -126,6 +142,13 @@ console.log('유형 ' + Object.entries(byType).map(([k, v]) => `${k} ${v}`).join
 if (share > 0.4 && rows.length >= 8) {
   bad.push(`정답이 한 자리에 쏠렸다 — ${rows.length}개 중 ${most}개가 같은 자리(${Math.round(share * 100)}%). ` +
            '지문을 안 읽고 찍어도 맞는 시험이 된다. 선택지 차례를 섞을 것');
+}
+/* 한 자리가 아예 비는 것도 쏠림만큼 나쁘다. 「④ 는 답이 아니다」를 배우면
+   네 갈래가 셋으로 줄어든다. */
+const empty = dist.map((n, i) => (n === 0 ? i : -1)).filter((i) => i >= 0);
+if (empty.length && rows.length >= 8) {
+  bad.push(`정답이 한 번도 안 나온 자리가 있다 — ${empty.map((i) => '①②③④'[i]).join(' ')}. ` +
+           '네 자리에 고르게 흩을 것');
 }
 
 if (note.length) {
