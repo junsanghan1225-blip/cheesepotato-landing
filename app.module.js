@@ -24,6 +24,7 @@ import { SB_CATS, SB_MORE, SB_SEED } from './sentences.js';
 import { READING } from './reading.js';
 // TOPIK 유형 연습문제. 기출이 아니라 자체 제작이다.
 import { TOPIK_READING, TOPIK_BLUEPRINT, TOPIK_SLOTS } from './topik.js';
+import { TOPIK2_READING, TOPIK2_BLUEPRINT, TOPIK2_SLOTS } from './topik2.js';
 // 숫자 게임의 읽기와 문제 만들기. 화면을 모르는 순수 계산이라 따로 뒀다.
 import { makeRound } from './numbers.js';
 
@@ -2097,11 +2098,55 @@ const sentenceTier = (p) =>
    자료에 유형이 하나 늘 때 화면에서만 조용히 빠진다. 실제로 그랬다 —
    실용문이 「안내문 읽기」로 적혀 있었는데, 시험에서 그 자리는 「맞지
    않는 것」을 고르는 자리라 뜻이 어긋나 있었다. */
-const TQ_TYPE_TX = Object.fromEntries(
-  TOPIK_BLUEPRINT.map((b) => [b.type, { ko: b.ko, en: b.en }])
+/* 시험 두 벌. 화면은 늘 「고른 시험」 하나만 본다 — tqE() 가 그 벌을 준다.
+   TOPIK I 은 읽기가 31~70번 40문항 60분, II 는 1~50번 50문항 70분이다.
+
+   급수가 안 겹치는 것(I 은 1·2, II 는 3~6)이 다행이라, 급수를 열쇠로 쓰는
+   기록들(최고 점수·세트별 점수·모의고사 이력)은 손대지 않아도 섞이지 않는다. */
+const TQ_EXAMS = {
+  I: {
+    reading: TOPIK_READING, blueprint: TOPIK_BLUEPRINT, slots: TOPIK_SLOTS,
+    grades: [1, 2], mockSec: 60 * 60, from: 31, to: 70,
+    name: { ko: 'TOPIK I', en: 'TOPIK I' },
+    sub: { ko: '1·2급', en: 'Levels 1–2' },
+    /* 급수를 부르는 말. II 는 우리가 붙인 난이도 구간이라 「급」이라고
+       못 박으면 사칭이 된다 — 실제 3~6급은 총점으로 갈린다. */
+    gradeTx: (g) => t(`${g}급`, `Level ${g}`),
+    chipTx: (g) => t(`${g}급`, `Lv ${g}`),
+    lead: (g) => (g === 1
+      ? t('가장 기초. 짧은 글과 안내문을 읽고 고릅니다.', 'The basics — short texts and notices.')
+      : t('생활에서 겪는 상황. 글이 조금 길어집니다.', 'Everyday situations, with slightly longer texts.')),
+  },
+  II: {
+    reading: TOPIK2_READING, blueprint: TOPIK2_BLUEPRINT, slots: TOPIK2_SLOTS,
+    grades: [3, 4, 5, 6], mockSec: 70 * 60, from: 1, to: 50,
+    name: { ko: 'TOPIK II', en: 'TOPIK II' },
+    sub: { ko: '3~6급 수준', en: 'Levels 3–6' },
+    gradeTx: (g) => t(`${g}급 수준`, `Level ${g}`),
+    /* 칩은 짧게. 「3급 수준」 넷을 한 줄에 두면 좁은 화면에서 「3급 수 / 준」
+       으로 접힌다. 우리가 나눈 구간이라는 것은 칩 위의 시험 딱지(3~6급 수준)와
+       아래 설명·안내문이 이미 말하고 있다. */
+    chipTx: (g) => t(`${g}급`, `Lv ${g}`),
+    lead: (g) => ({
+      3: t('짧은 실용문과 문법. 광고와 안내문을 읽습니다.', 'Short practical texts and grammar — ads and notices.'),
+      4: t('순서와 맥락. 설명문과 수필이 나옵니다.', 'Order and context — short essays and explanations.'),
+      5: t('신문 제목과 긴 설명문. 추론이 들어갑니다.', 'Headlines and longer texts, with inference.'),
+      6: t('논설문과 소설. 필자의 태도와 의도까지 봅니다.', 'Editorials and fiction — the writer\'s stance and intent.'),
+    }[g] || ''),
+  },
+};
+const TQ_EXAM_KEY = 'cp-topik-exam';
+let tqExam = 'I';
+try { const e = localStorage.getItem(TQ_EXAM_KEY); if (TQ_EXAMS[e]) tqExam = e; } catch (e) {}
+const tqE = () => TQ_EXAMS[tqExam];
+
+/* 유형 이름은 고른 시험의 청사진에서 뽑는다. 두 시험을 합쳐 두면 TOPIK I
+   화면에 II 에만 있는 유형(비슷한 말 고르기 등) 이름이 섞여 들어온다. */
+const tqTypeTx = () => Object.fromEntries(
+  tqE().blueprint.map((b) => [b.type, { ko: b.ko, en: b.en }])
 );
-/* 시험에 나오는 차례대로. 31번부터 70번까지 눈으로 훑는 순서와 같다. */
-const TQ_TYPE_ORDER = [...new Set(TOPIK_BLUEPRINT.map((b) => b.type))];
+/* 시험에 나오는 차례대로. 문항 번호를 눈으로 훑는 순서와 같다. */
+const tqTypeOrder = () => [...new Set(tqE().blueprint.map((b) => b.type))];
 
 /* 문항 번호를 「34~39번」처럼 묶어서 적는다. 잇단 번호는 한 덩어리로 —
    「49, 50, 51, 52」보다 「49~52」가 눈에 한 번에 들어온다. */
@@ -2136,13 +2181,21 @@ const tqRangeShort = (nums) => {
    자리인데 지금 있는 것은 34~39번뿐이라, 청사진을 그대로 적으면 없는 연습을
    있다고 말하게 되고 줄도 두 줄로 접힌다. */
 const tqSlotLabel = (rows) => tqRangeShort([...new Set(rows.map((q) => q.slot))]);
-const TQ_GRADES = [1, 2];
 /* 이 아래로 떨어지면 「약한 유형」으로 본다. */
 const TQ_WEAK = 0.6;
-const TQ_KEY = 'cp-topik-grade';
+/* 고른 급수는 시험마다 따로 적어 둔다. 한 칸에 넣으면 TOPIK II 에서 5급을
+   고른 뒤 I 로 돌아왔을 때 있지도 않은 5급이 골라져 있게 된다. */
+const TQ_KEY = (exam) => (exam === 'I' ? 'cp-topik-grade' : `cp-topik-grade-${exam}`);
+const tqGrades = () => tqE().grades;
 
 let tqGrade = 1;
-try { const g = parseInt(localStorage.getItem(TQ_KEY), 10); if (TQ_GRADES.includes(g)) tqGrade = g; } catch (e) {}
+const tqLoadGrade = () => {
+  const gs = tqGrades();
+  let g = gs[0];
+  try { const v = parseInt(localStorage.getItem(TQ_KEY(tqExam)), 10); if (gs.includes(v)) g = v; } catch (e) {}
+  tqGrade = g;
+};
+tqLoadGrade();
 let tqRound = [], tqIdx = 0, tqScore = 0, tqWrongs = [], tqBusy = false, tqTitle = '', tqSet = 'all';
 /* 모의고사용. tqPicks 는 문항마다 무엇을 골랐는지 — 성적표의 정오표가 이걸
    읽는다. 못 푼 문항은 null 로 남아서 「안 냄」과 「틀림」을 가릴 수 있다. */
@@ -2161,7 +2214,7 @@ const tqFreeLimit = () => (tqMock ? TQ_FREE_MOCK : TQ_FREE_DRILL);
 /* 벽을 칠 때인가. 첫 판을 아직 안 썼으면 몇 문항을 풀었든 막지 않는다. */
 const tqWalled = () => !tqSignedIn && tqFreeUsed() && tqIdx >= tqFreeLimit();
 
-const tqOf = (grade) => TOPIK_READING.filter((q) => q.grade === grade);
+const tqOf = (grade) => tqE().reading.filter((q) => q.grade === grade);
 const tqPanel = (name) => ['tqPick', 'tqPlay', 'tqOver'].forEach((k) => $(k).classList.toggle('hidden', k !== name));
 const tqBestKey = (g) => `cp-topik-best-${g}`;
 
@@ -2173,7 +2226,7 @@ const tqSetKey = (g, set) => `cp-topik-set-${g}-${set}`;
    묻는 것이 「같은 것」에서 「맞지 않는 것」으로 뒤집혀서, 예전 점수가 지금
    세트의 점수가 아니다. 다만 열쇠는 지워 둔다. 안 지우면 아무도 읽지 않는
    줄이 브라우저에 영영 남는다. */
-TQ_GRADES.forEach((g) => { try { localStorage.removeItem(`cp-topik-set-${g}-notice`); } catch (e) {} });
+[1, 2].forEach((g) => { try { localStorage.removeItem(`cp-topik-set-${g}-notice`); } catch (e) {} });
 function tqSetRead(g, set) {
   try {
     const m = /^(\d+)\/(\d+)$/.exec(localStorage.getItem(tqSetKey(g, set)) || '');
@@ -2193,16 +2246,24 @@ function drawTopik() {
   const byType = {};
   rows.forEach((q) => { (byType[q.type] = byType[q.type] || []).push(q); });
 
+  /* 시험을 먼저 고르고 그 안에서 급수를 고른다. 두 줄로 나눈 이유 —
+     한 줄에 여섯 개(TOPIK I·II·1·2·3·4·5·6)를 늘어놓으면 무엇이 시험이고
+     무엇이 급수인지 구분이 안 되고, 좁은 화면에서 두 줄로 접힌다. */
+  const ex = tqE();
   $('tqLevel').innerHTML =
+    `<div class="diff-seg tq-lv tq-exam" role="radiogroup" aria-label="${t('시험', 'Exam')}">` +
+      Object.entries(TQ_EXAMS).map(([k, v]) =>
+        `<label><input type="radio" name="tqExam" value="${k}"${k === tqExam ? ' checked' : ''}>` +
+        `<span>${esc(t(v.name.ko, v.name.en))} <b>${esc(t(v.sub.ko, v.sub.en))}</b></span></label>`
+      ).join('') +
+    '</div>' +
     '<div class="pt-lv-row">' +
       `<div class="diff-seg tq-lv" role="radiogroup" aria-label="${t('급수', 'Level')}">` +
-        TQ_GRADES.map((g) =>
-          `<label><input type="radio" name="tqGrade" value="${g}"${g === tqGrade ? ' checked' : ''}><span>${esc(t(`${g}급`, `Level ${g}`))}</span></label>`
+        tqGrades().map((g) =>
+          `<label><input type="radio" name="tqGrade" value="${g}"${g === tqGrade ? ' checked' : ''}><span>${esc(ex.chipTx(g))}</span></label>`
         ).join('') +
       '</div>' +
-      `<div class="pt-lv-desc">${esc(tqGrade === 1
-        ? t('가장 기초. 짧은 글과 안내문을 읽고 고릅니다.', 'The basics — short texts and notices.')
-        : t('생활에서 겪는 상황. 글이 조금 길어집니다.', 'Everyday situations, with slightly longer texts.'))}</div>` +
+      `<div class="pt-lv-desc">${esc(ex.lead(tqGrade))}</div>` +
     '</div>';
   $('tqIntro').textContent = t(
     '지문을 읽고 보기 넷 중에서 고릅니다. 틀리면 왜 그런지 바로 알려 줘요.',
@@ -2218,7 +2279,7 @@ function drawTopik() {
       '<div class="lc-top">' +
         `<div class="lc-mark">${emoji}</div>` +
         '<div style="min-width:0">' +
-          `<div class="lc-lv">${esc(lv || t(`${tqGrade}급`, `Level ${tqGrade}`))}</div>` +
+          `<div class="lc-lv">${esc(lv || ex.gradeTx(tqGrade))}</div>` +
           `<div class="lc-title">${esc(title)}</div>` +
           `<div class="lc-tag">${esc(tag)}</div>` +
         '</div>' +
@@ -2234,8 +2295,10 @@ function drawTopik() {
   } else {
     /* 모의고사는 마흔 자리가 다 찼을 때만 낸다. 한 자리라도 비면 40문항이
        안 되고, 「모의고사」라고 써 놓고 서른아홉 문항을 내면 거짓말이 된다. */
-    const filled = new Set(TOPIK_READING.map((q) => q.slot));
-    const mockReady = TOPIK_SLOTS.every((s) => filled.has(s.n));
+    const filled = new Set(ex.reading.map((q) => q.slot));
+    const mockReady = ex.slots.every((s) => filled.has(s.n));
+    const span = t(`읽기 ${ex.from}~${ex.to}번`, `Reading ${ex.from}–${ex.to}`);
+    const mins = ex.mockSec / 60;
     $('tqList').innerHTML =
       /* 모의고사만은 급수를 안 가린다. 실제 TOPIK I 은 1급·2급이 한 장에
          같이 나오는 시험이라 급수로 나누면 시험이 아니게 된다. 다만 1급을
@@ -2243,15 +2306,15 @@ function drawTopik() {
          급수 딱지와 소개글에 섞여 나온다고 적어 둔다. */
       (mockReady
         ? card('mock', '📝', t('모의고사 한 회', 'Full mock exam'),
-               t('읽기 31~70번 · 60분', 'Reading 31–70 · 60 min'),
-               t('실제 시험 차례대로 40문항. 실제 TOPIK I 은 1급과 2급이 한 장에 같이 나오므로 이 모의고사도 급수를 가리지 않습니다. 푸는 동안에는 답을 알려 주지 않고, 끝나면 성적표가 나옵니다.',
-                 'All 40 in exam order. The real TOPIK I puts levels 1 and 2 on one paper, so this mock mixes both regardless of the level you picked. No answers until you finish, then a full result sheet.'),
-               TOPIK_SLOTS.length, t('1·2급', 'Levels 1–2'))
+               t(`${span} · ${mins}분`, `${span} · ${mins} min`),
+               t(`실제 시험 차례대로 ${ex.slots.length}문항. 실제 시험은 여러 급수가 한 장에 같이 나오므로 이 모의고사도 급수를 가리지 않습니다. 푸는 동안에는 답을 알려 주지 않고, 끝나면 성적표가 나옵니다.`,
+                 `All ${ex.slots.length} in exam order. The real paper mixes levels, so this mock does too regardless of the level you picked. No answers until you finish, then a full result sheet.`),
+               ex.slots.length, t(ex.sub.ko, ex.sub.en))
         : '') +
       card('all', '📖', t('전체 풀기', 'Full run'), t('유형을 섞어서 처음부터 끝까지', 'Every type, mixed'),
            t('이 급수 문제를 다 풀어 봅니다. 문제마다 바로 해설이 붙어요.', 'Every question at this level, with the answer explained as you go.'), rows.length) +
-      TQ_TYPE_ORDER.filter((k) => byType[k]).map((k) =>
-        card(k, '🔎', t(TQ_TYPE_TX[k].ko, TQ_TYPE_TX[k].en),
+      tqTypeOrder().filter((k) => byType[k]).map((k) =>
+        card(k, '🔎', t(tqTypeTx()[k].ko, tqTypeTx()[k].en),
              t(`읽기 ${tqSlotLabel(byType[k])}`, `Reading ${tqSlotLabel(byType[k])}`),
              t('한 유형만 모아 풀면 약한 곳이 빨리 드러납니다.', 'Drilling one type shows you what is weak.'),
              byType[k].length)
@@ -2265,17 +2328,17 @@ function drawTopik() {
      연습할 수 있습니다」가 뜨는데, 1급이 실제로 가진 자리는 31~45·57~58번뿐이라
      없는 연습을 있다고 말하게 된다. */
   const filled = new Set(rows.map((q) => q.slot));
-  const done = TOPIK_SLOTS.filter((s) => filled.has(s.n)).map((s) => s.n);
-  const todo = TOPIK_SLOTS.filter((s) => !filled.has(s.n)).map((s) => s.n);
+  const done = ex.slots.filter((s) => filled.has(s.n)).map((s) => s.n);
+  const todo = ex.slots.filter((s) => !filled.has(s.n)).map((s) => s.n);
   $('tqNote').textContent =
     t('TOPIK 유형을 따라 만든 자체 제작 연습문제입니다. 기출문제가 아니며 국립국제교육원과 관계가 없습니다.',
       'These are original practice questions written in the TOPIK format. They are not past exam papers and are not affiliated with NIIED.') +
     (!done.length
       ? ''
       : todo.length
-        ? ' ' + t(`${tqGrade}급으로는 읽기 ${tqRange(done)} 자리를 연습할 수 있고, ${tqRange(todo)} 자리는 준비 중입니다.`,
-                  `At level ${tqGrade} this covers reading ${tqRange(done)}; ${tqRange(todo)} still being written.`)
-        : ' ' + t('읽기 31~70번 자리를 모두 연습할 수 있습니다.', 'Covers all of reading 31–70.'));
+        ? ' ' + t(`${ex.gradeTx(tqGrade)}으로는 읽기 ${tqRange(done)} 자리를 연습할 수 있고, ${tqRange(todo)} 자리는 준비 중입니다.`,
+                  `At ${ex.gradeTx(tqGrade)} this covers reading ${tqRange(done)}; ${tqRange(todo)} still being written.`)
+        : ' ' + t(`읽기 ${ex.from}~${ex.to}번 자리를 모두 연습할 수 있습니다.`, `Covers all of reading ${ex.from}–${ex.to}.`));
   tqPanel('tqPick');
 }
 
@@ -2317,10 +2380,10 @@ function tqWeakTip(weak, total, name) {
    다시 보는 자리라 줄이 매번 움직이면 눈이 자리를 못 외운다. */
 function tqDrawRecord(byType) {
   const box = $('tqRecord');
-  const sets = ['all', ...TQ_TYPE_ORDER.filter((k) => byType[k])];
+  const sets = ['all', ...tqTypeOrder().filter((k) => byType[k])];
   const name = (k) => (k === 'all'
     ? t('전체 풀기', 'Full run')
-    : t(TQ_TYPE_TX[k].ko, TQ_TYPE_TX[k].en));
+    : t(tqTypeTx()[k].ko, tqTypeTx()[k].en));
   const total = (k) => (k === 'all' ? tqOf(tqGrade).length : byType[k].length);
 
   const rec = sets.map((k) => ({ k, r: tqSetRead(tqGrade, k), now: total(k) }));
@@ -2355,7 +2418,8 @@ function tqDrawRecord(byType) {
      차례가 정해져 있다. 쉬운 자리에서 시작해 뒤로 갈수록 글이 길어진다.
      푸는 도중에 답을 알려 주지 않는다. 알려 주면 다음 문제를 푸는 마음이 달라진다.
      시간이 있다. 다 맞혀도 시간을 넘겼으면 시험장에서는 못 맞힌 것이다. */
-const TQ_MOCK_SEC = 60 * 60;   // 읽기 60분
+/* 시험마다 다르다 — TOPIK I 읽기 60분, II 읽기 70분. */
+const tqMockSec = () => tqE().mockSec;
 const tqMockKey = (g) => `cp-topik-mock-${g}`;
 
 /* 한 회를 뽑는다. 자리마다 하나씩, 청사진 차례대로.
@@ -2363,7 +2427,7 @@ const tqMockKey = (g) => `cp-topik-mock-${g}`;
    통째로 골라야 한다. 자리마다 따로 뽑으면 49번과 50번이 서로 다른 글에서
    와서, 앞 문제의 지문을 읽고 뒤 문제를 푸는 시험이 되지 않는다. */
 function tqBuildMock() {
-  const pool = TOPIK_READING;
+  const pool = tqE().reading;
   const bySlot = new Map();
   pool.forEach((q) => {
     if (!bySlot.has(q.slot)) bySlot.set(q.slot, []);
@@ -2381,7 +2445,7 @@ function tqBuildMock() {
      48~50 처럼 지문 하나에 셋이 붙는 자리를 못 받는다 — 받아도 조용히
      버려지고, 그 자리가 비어 한 회가 통째로 안 만들어진다. */
   const pairSize = new Map();
-  TOPIK_SLOTS.forEach((s) => {
+  tqE().slots.forEach((s) => {
     if (s.pair) pairSize.set(s.pair, (pairSize.get(s.pair) ?? 0) + 1);
   });
   const byPair = new Map();
@@ -2394,7 +2458,7 @@ function tqBuildMock() {
 
   const round = [];
   const usedPair = new Set();
-  for (const s of TOPIK_SLOTS) {
+  for (const s of tqE().slots) {
     if (s.pair) {
       if (usedPair.has(s.pair)) continue;       // 앞 자리에서 이미 벌째로 넣었다
       const vers = byPair.get(s.pair);
@@ -2429,8 +2493,8 @@ function tqStartMock() {
   if (!round) return;
   tqRound = round;
   tqIdx = 0; tqScore = 0; tqWrongs = []; tqBusy = false; tqSet = 'mock';
-  tqMock = true; tqPicks = []; tqLeft = TQ_MOCK_SEC; tqSpent = 0; tqSaved = false;
-  tqTitle = t('모의고사 · 읽기 31~70번', 'Mock exam — reading 31–70');
+  tqMock = true; tqPicks = []; tqLeft = tqMockSec(); tqSpent = 0; tqSaved = false;
+  tqTitle = t(`모의고사 · 읽기 ${tqE().from}~${tqE().to}번`, `Mock exam — reading ${tqE().from}–${tqE().to}`);
   $('tqOmr').classList.remove('hidden');
   $('tqOmr').classList.remove('open');
   tqClockBuild();
@@ -2473,9 +2537,9 @@ function tqClock() {
   const dg = $('tqDigits');
   if (dg) dg.textContent = `${m}:${String(s).padStart(2, '0')}`;
   const arc = $('tqArc');
-  if (arc) arc.setAttribute('stroke-dasharray', `${(TQ_C * left / TQ_MOCK_SEC).toFixed(2)} ${TQ_C}`);
+  if (arc) arc.setAttribute('stroke-dasharray', `${(TQ_C * left / tqMockSec()).toFixed(2)} ${TQ_C}`);
   const sec = $('tqSec');
-  if (sec) sec.setAttribute('transform', `rotate(${((TQ_MOCK_SEC - left) % 60) * 6} 50 50)`);
+  if (sec) sec.setAttribute('transform', `rotate(${((tqMockSec() - left) % 60) * 6} 50 50)`);
   $('tqOmr').classList.toggle('low', left <= 300);   // 5분 남으면 붉게
 }
 
@@ -2538,8 +2602,8 @@ function tqStart(key) {
   tqRound = gameShuffle(picked.slice());
   tqIdx = 0; tqScore = 0; tqWrongs = []; tqBusy = false; tqSet = key; tqPicks = []; tqSaved = false;
   tqTitle = key === 'all'
-    ? t(`${tqGrade}급 전체 풀기`, `Level ${tqGrade} — full run`)
-    : t(`${tqGrade}급 · ${TQ_TYPE_TX[key].ko}`, `Level ${tqGrade} · ${TQ_TYPE_TX[key].en}`);
+    ? t(`${tqE().gradeTx(tqGrade)} 전체 풀기`, `${tqE().gradeTx(tqGrade)} — full run`)
+    : t(`${tqE().gradeTx(tqGrade)} · ${tqTypeTx()[key].ko}`, `${tqE().gradeTx(tqGrade)} · ${tqTypeTx()[key].en}`);
   $('tqWall').classList.add('hidden');
   $('tqExamBody').classList.remove('hidden');
   tqPanel('tqPlay');
@@ -3108,7 +3172,7 @@ function tqDrawSheet() {
   /* 문항별 정오표. 시험지와 같은 번호로 늘어놓는다 — 어디에서 무너졌는지는
      비율표보다 이 한 줄이 먼저 말해 준다. */
   const grid = tqRound.map((q, i) =>
-    `<span class="tq-cell ${state(i)}" title="${esc(t(`${q.slot}번 · ${TQ_TYPE_TX[q.type].ko}`, `Q${q.slot} · ${TQ_TYPE_TX[q.type].en}`))}">${q.slot}</span>`
+    `<span class="tq-cell ${state(i)}" title="${esc(t(`${q.slot}번 · ${tqTypeTx()[q.type].ko}`, `Q${q.slot} · ${tqTypeTx()[q.type].en}`))}">${q.slot}</span>`
   ).join('');
 
   /* 앞뒤 구간. 31~48 은 짧은 글, 49~70 은 한 문단짜리 글에 한 지문 두 문제다.
@@ -3173,7 +3237,7 @@ function tqDrawBreak() {
   /* 한 유형만 나온 판에서는 점수를 한 번 더 적는 것뿐이라 접어 둔다. */
   if (rows.length < 2) { box.textContent = ''; box.classList.add('hidden'); return; }
 
-  const name = (k) => t(TQ_TYPE_TX[k].ko, TQ_TYPE_TX[k].en);
+  const name = (k) => t(tqTypeTx()[k].ko, tqTypeTx()[k].en);
   /* 문제 수가 적은 유형은 한두 개만 틀려도 비율이 폭삭 내려간다.
      세 문제는 되어야 「약하다」고 말할 수 있다. */
   const weak = rows.filter((r) => r.n >= 3 && r.ok / r.n < TQ_WEAK);
@@ -3238,7 +3302,7 @@ function tqFinish() {
     card.className = 'tq-wrong';
     const lv = document.createElement('div');
     lv.className = 'lc-lv';
-    lv.textContent = t(TQ_TYPE_TX[q.type].ko, TQ_TYPE_TX[q.type].en);
+    lv.textContent = t(tqTypeTx()[q.type].ko, tqTypeTx()[q.type].en);
     card.appendChild(lv);
     if (q.passage) {
       const p = document.createElement('div');
@@ -3263,12 +3327,23 @@ function tqFinish() {
 }
 
 $('tqLevel').addEventListener('change', (ev) => {
+  /* 시험을 바꾸면 급수도 그 시험의 것으로 갈아 끼운다. 안 갈면 TOPIK I 에서
+     2급을 고른 채 II 로 넘어가 있지도 않은 2급으로 빈 화면을 보게 된다. */
+  const x = ev.target.closest('input[name=tqExam]');
+  if (x) {
+    if (!TQ_EXAMS[x.value]) return;
+    tqExam = x.value;
+    try { localStorage.setItem(TQ_EXAM_KEY, tqExam); } catch (e) {}
+    tqLoadGrade();
+    drawTopik();
+    return;
+  }
   const r = ev.target.closest('input[name=tqGrade]');
   if (!r) return;
   const g = parseInt(r.value, 10);
-  if (!TQ_GRADES.includes(g)) return;
+  if (!tqGrades().includes(g)) return;
   tqGrade = g;
-  try { localStorage.setItem(TQ_KEY, String(g)); } catch (e) {}
+  try { localStorage.setItem(TQ_KEY(tqExam), String(g)); } catch (e) {}
   drawTopik();
 });
 $('tqList').addEventListener('click', (ev) => {

@@ -68,7 +68,7 @@ export const TOPIK_SLOTS = TOPIK_BLUEPRINT.flatMap((b) => {
   return rows;
 });
 
-export const TOPIK_READING = [
+const TOPIK_READING_RAW = [
   /* ── 1급 ──────────────────────────────────────────────── */
   {
     id: 'tr-001', grade: 1, slot: 31, type: 'theme', genre: '서술문', topic: '날씨',
@@ -2799,3 +2799,10 @@ export const TOPIK_READING = [
     why: '옷을 갈아입고(가), 준비운동을 하고 물에 들어가고(나), 물 안에서 수영을 하고(다), 마친 뒤 몸을 씻습니다(라). 물에 들어가기 전에 물속에서 수영하지는 못하므로 「(가)-(다)-(나)-(라)」는 차례가 어긋납니다.',
   },
 ];
+
+/* exam 칸은 여기서 한 번에 붙인다. 209개 객체에 일일이 적으면 diff 가
+   커지고 빠뜨린 하나를 찾기 어렵다. TOPIK II 는 자료에 이미 들어 있다.
+
+   이 칸이 필요한 까닭 — TOPIK I 은 읽기가 31~70 번이고 II 는 1~50 번이라
+   31~50 이 겹친다. slot 만 보면 어느 시험의 몇 번인지 알 수 없다. */
+export const TOPIK_READING = TOPIK_READING_RAW.map((q) => ({ exam: 'I', ...q }));
