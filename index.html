@@ -1271,11 +1271,12 @@ body.nav-open { overflow:hidden; }
 .sb-dlg-line { display:flex; align-items:flex-end; gap:8px; max-width:88%; }
 .sb-dlg-line.b { flex-direction:row-reverse; margin-left:auto; }
 .sb-dlg-who {
-  flex:none; width:22px; height:22px; border-radius:50%;
+  flex:none; width:26px; height:26px; border-radius:50%;
   display:flex; align-items:center; justify-content:center;
-  font-size:11px; font-weight:700; color:#fff; background:var(--ink-3);
+  font-size:15px; line-height:1;
+  background:var(--surface); border:1px solid var(--line-2);
 }
-.sb-dlg-line.b .sb-dlg-who { background:var(--orange); }
+.sb-dlg-line.b .sb-dlg-who { border-color:rgba(255,138,61,.3); }
 .sb-dlg-bubble {
   background:var(--surface-2); border:1px solid var(--line-2); border-radius:var(--r-l) var(--r-l) var(--r-l) 4px;
   padding:9px 13px; font-size:14.5px; color:var(--ink); line-height:1.6; word-break:keep-all;
@@ -2238,13 +2239,30 @@ body.nav-open { overflow:hidden; }
 /* 낱말 하나가 곧 지우는 단추다. 옆에 작은 × 를 따로 두면 좁은 화면에서
    손가락보다 작아져서 엉뚱한 것이 지워진다. */
 .tq-unk-w {
-  display:inline-flex; align-items:center; gap:6px; padding:7px 12px;
+  display:inline-flex; align-items:center; gap:2px; padding:7px 8px 7px 12px;
   font-size:14.5px; font-weight:600; color:var(--ink);
   background:var(--surface); border:1px solid rgba(255,138,61,.4); border-radius:999px;
-  cursor:pointer; word-break:keep-all;
+  word-break:keep-all;
 }
-.tq-unk-w:hover { border-color:var(--orange); }
-.tq-unk-w b { color:var(--ink-3); font-weight:700; font-size:13px; }
+.tq-unk-w:focus-within { border-color:var(--orange); box-shadow:0 0 0 3px rgba(255,145,77,.16); }
+/* 낱말은 그대로 고칠 수 있는 칸이다. 어절이 「마실」처럼 잘려 나오면
+   여기서 「마시다」로 고치고, 「-ㄹ 수 있어요」는 + 로 따로 담는다. */
+.tq-unk-in {
+  border:none; background:none; padding:0; margin:0; min-width:1.5ch;
+  font:inherit; color:inherit; text-align:center;
+}
+.tq-unk-in:focus { outline:none; }
+.tq-unk-del {
+  border:none; background:none; cursor:pointer; padding:0 4px;
+  color:var(--ink-3); font-weight:700; font-size:15px; line-height:1;
+}
+.tq-unk-del:hover { color:var(--red); }
+.tq-unk-add {
+  display:inline-flex; align-items:center; padding:7px 13px;
+  font-size:13.5px; font-weight:600; color:var(--ink-3);
+  background:none; border:1px dashed var(--line); border-radius:999px; cursor:pointer;
+}
+.tq-unk-add:hover { color:var(--orange-deep); border-color:var(--orange); }
 .tq-unk-btns { display:flex; gap:8px; flex-wrap:wrap; }
 .tq-unk-msg { margin-top:10px; font-size:13px; line-height:1.7; word-break:keep-all; }
 .tq-unk-msg.ok { color:var(--green); }
