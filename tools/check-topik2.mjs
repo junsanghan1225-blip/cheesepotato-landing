@@ -78,6 +78,11 @@ for (const q of rows) {
     if (!q.sentence) at(q, 'insert 인데 sentence 가 없다');
     for (const m of ['㉠', '㉡', '㉢', '㉣'])
       if (!String(q.passage).includes(m)) at(q, `insert 인데 지문에 ${m} 이 없다`);
+    /* 이 유형의 선택지는 고르는 말이 아니라 지문 속 자리표다. 차례를 섞으면
+       ② 를 골랐는데 ㉢ 자리에 넣는 꼴이 된다. 정답 쏠림을 푼다고 여기까지
+       섞지 않도록 못박아 둔다. */
+    if (Array.isArray(q.options) && q.options.join('') !== '㉠㉡㉢㉣')
+      at(q, 'insert 의 선택지는 ㉠㉡㉢㉣ 차례 그대로여야 한다 — 섞으면 자리가 어긋난다');
   }
   if (q.type === 'paraphrase' || q.type === 'feeling') {
     if (!q.mark) at(q, `${q.type} 인데 mark 가 없다`);
@@ -100,9 +105,15 @@ for (const q of rows) {
   /* 만들다 흘린 영어 부스러기. 「( check  )에 들어갈 말」 같은 것이 실제로
      나왔다. TV·KTX 처럼 대문자로 쓰는 말은 지문에 정상으로 나오므로
      소문자만 본다. */
-  for (const [k, v] of [['question', q.question], ['passage', q.passage]]) {
+  const texts = [['question', q.question], ['passage', q.passage], ['why', q.why],
+                 ...(Array.isArray(q.options) ? q.options.map((o, i) => [`선택지 ${i + 1}`, o]) : [])];
+  for (const [k, v] of texts) {
     const m = String(v ?? '').match(/[a-z]{3,}/);
     if (m) note.push(`${q.id} — ${k} 에 영어 「${m[0]}」 가 섞였다. 만들다 흘린 것인지 볼 것`);
+    /* 한자도 마찬가지다. 「핵심主張」처럼 낱말 한쪽만 한자로 나오면 학습자가
+       읽지 못한다. 한자를 일부러 쓸 일이 있으면 짚어만 두고 넘어간다. */
+    const h = String(v ?? '').match(/[一-鿿]+/);
+    if (h) note.push(`${q.id} — ${k} 에 한자 「${h[0]}」 가 섞였다`);
   }
 
   if (typeof q.passage === 'string' && q.passage !== q.passage.trim())
@@ -139,14 +150,14 @@ const byType = {};
 rows.forEach((q) => { byType[q.type] = (byType[q.type] ?? 0) + 1; });
 console.log('유형 ' + Object.entries(byType).map(([k, v]) => `${k} ${v}`).join(' · '));
 
-if (share > 0.4 && rows.length >= 8) {
+if (share > 0.4 && rows.length >= 6) {
   bad.push(`정답이 한 자리에 쏠렸다 — ${rows.length}개 중 ${most}개가 같은 자리(${Math.round(share * 100)}%). ` +
            '지문을 안 읽고 찍어도 맞는 시험이 된다. 선택지 차례를 섞을 것');
 }
 /* 한 자리가 아예 비는 것도 쏠림만큼 나쁘다. 「④ 는 답이 아니다」를 배우면
    네 갈래가 셋으로 줄어든다. */
 const empty = dist.map((n, i) => (n === 0 ? i : -1)).filter((i) => i >= 0);
-if (empty.length && rows.length >= 8) {
+if (empty.length && rows.length >= 6) {
   bad.push(`정답이 한 번도 안 나온 자리가 있다 — ${empty.map((i) => '①②③④'[i]).join(' ')}. ` +
            '네 자리에 고르게 흩을 것');
 }
