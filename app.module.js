@@ -2377,10 +2377,17 @@ function tqBuildMock() {
     if (!sets.has(k)) sets.set(k, []);
     sets.get(k).push(q);
   });
+  /* 한 벌이 몇 문항인지는 설계표가 정한다. 둘로 못박아 두면 TOPIK II 의
+     48~50 처럼 지문 하나에 셋이 붙는 자리를 못 받는다 — 받아도 조용히
+     버려지고, 그 자리가 비어 한 회가 통째로 안 만들어진다. */
+  const pairSize = new Map();
+  TOPIK_SLOTS.forEach((s) => {
+    if (s.pair) pairSize.set(s.pair, (pairSize.get(s.pair) ?? 0) + 1);
+  });
   const byPair = new Map();
   sets.forEach((list, k) => {
-    if (list.length !== 2) return;              // 짝이 안 맞는 것은 쓰지 않는다
     const name = list[0].pair;
+    if (list.length !== (pairSize.get(name) ?? 2)) return;  // 벌이 안 맞는 것은 쓰지 않는다
     if (!byPair.has(name)) byPair.set(name, []);
     byPair.get(name).push(list.slice().sort((a, b) => a.slot - b.slot));
   });
@@ -2582,6 +2589,14 @@ const tqWordKey = (s) => String(s).replace(/^[^0-9A-Za-z가-힣]+|[^0-9A-Za-z가
    한 자로 좁힌 이유 — 두 자까지 막으면 (서울) 같은 진짜 말도 같이 막힌다. */
 const TQ_MARKER = /^[(（[［〔<〈【{][0-9A-Za-z가-힣][)）\]］〕>〉】}]$/;
 
+/* 손으로 고쳐 넣은 말을 다듬는다. 지문에서 집는 tqWordKey 와 달리 앞의
+   붙임표와 자모를 남긴다 — 「-ㄹ 수 있어요」처럼 문법 형태를 그대로
+   담고 싶어 하기 때문이다. tqWordKey 를 그대로 쓰면 「수 있어요」가 된다
+   (붙임표는 군더더기로 떨어지고, ㄹ 은 가-힣 밖이라 함께 잘린다). */
+const tqUnkNorm = (s) => String(s).trim()
+  .replace(/^[^0-9A-Za-z가-힣ㄱ-ㆎ-]+|[^0-9A-Za-z가-힣ㄱ-ㆎ]+$/g, '');
+
+
 const tqUnkLoad = () => {
   try {
     const raw = JSON.parse(localStorage.getItem(TQ_UNK_KEY) || '[]');
@@ -2589,7 +2604,7 @@ const tqUnkLoad = () => {
     /* localStorage 는 학습자가 직접 고칠 수 있는 자리다. 여기서 나온 값이
        화면과 DB 로 바로 가므로 모양이 맞는 것만 들인다. */
     for (const r of raw) {
-      const w = tqWordKey(r?.word ?? '');
+      const w = tqUnkNorm(r?.word ?? '');
       if (w && w.length <= 40) tqUnknown.set(w, { word: w, ex: String(r?.ex ?? '').slice(0, 300) });
     }
   } catch (e) { /* 못 읽으면 빈 채로 시작한다 */ }
@@ -2654,11 +2669,80 @@ function tqWordify(el, text) {
   }
 }
 
-/* 결과 화면에 모아 보여 준다. 낱말 하나가 곧 지우는 단추다 — 옆에 작은
-   × 를 따로 두면 좁은 화면에서 손가락보다 작아져 엉뚱한 것이 지워진다. */
+/* 어절을 고쳐 담는다. 형태소 분석은 안 한다 — tqWordify 위의 주석대로
+   규칙으로 어간을 뽑으면 「만들다 + -느라고」가 「만느라고」가 되는 식의
+   사고가 난다. 대신 학습자가 직접 글자를 지우고 고치게 둔다. 「아침을」
+   에서 「을」을 지워 「아침」만 남기거나, 「마실 수 있어요」를 통째로
+   「마시다」로 고치고 옆에 「-ㄹ 수 있어요」를 새 낱말로 따로 추가하는
+   식이다 — 옳은 원형을 아는 것은 규칙이 아니라 학습자 쪽이다. */
+/* 칸 너비를 글자에 맞춘다. ch 는 숫자 「0」의 너비라서 한글을 그대로
+   세면 반쯤 잘린다 — 한글·한자·가나는 두 칸으로 친다. */
+const tqUnkWidth = (s) => {
+  let n = 0;
+  for (const c of String(s)) n += /[ᄀ-ᇿ　-〿぀-ヿ㐀-䶿一-鿿가-힯＀-｠]/.test(c) ? 2 : 1;
+  return `${Math.max(3, n + 1)}ch`;
+};
+
+/* 낱말 칸 하나를 그린다. 눌러서 지우는 자리였던 것을, 클릭하면 바로
+   고칠 수 있는 입력칸으로 바꾼다. 지우는 단추(×)는 텍스트와 겹치지
+   않게 따로 둔다 — 안 그러면 고치려고 누른 게 지우기가 된다. */
+function tqUnkRow(it, wrap) {
+  const row = document.createElement('span');
+  row.className = 'tq-unk-w';
+
+  const input = document.createElement('input');
+  input.className = 'tq-unk-in';
+  input.value = it.word;
+  input.setAttribute('aria-label', t('낱말 고치기', 'Edit word'));
+  input.autocomplete = 'off';
+  input.style.width = tqUnkWidth(it.word);
+  input.addEventListener('input', () => { input.style.width = tqUnkWidth(input.value); });
+
+  const commit = () => {
+    const next = tqUnkNorm(input.value);
+    /* 고치기 전 낱말은 무조건 뺀다. 새로 추가하는 칸이면 it.key 가 map 에
+       없으므로 그냥 지나간다. */
+    tqUnknown.delete(it.key);
+    if (!next) { tqUnkStore(); tqUnkDraw(); return; }
+    if (next === it.key) { tqUnknown.set(it.key, it); tqUnkStore(); return; }
+    /* 이미 있는 낱말로 고치면 하나로 합쳐진다 — 먼저 담긴 예문을 남긴다.
+       나중 것으로 덮으면 「아침을」과 「아침」을 각각 다른 문장에서 눌러
+       놓고 하나로 합쳤을 때 먼저 고른 문장이 조용히 사라진다. */
+    const had = tqUnknown.get(next);
+    tqUnknown.set(next, { word: next, ex: had ? had.ex : it.ex });
+    tqUnkStore();
+    tqUnkDraw();
+  };
+  input.addEventListener('blur', commit);
+  input.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') { e.preventDefault(); input.blur(); }
+    if (e.key === 'Escape') { input.value = it.word; input.style.width = tqUnkWidth(it.word); input.blur(); }
+  });
+  row.appendChild(input);
+
+  const del = document.createElement('button');
+  del.type = 'button';
+  del.className = 'tq-unk-del';
+  del.title = t('빼기', 'Remove');
+  del.textContent = '×';
+  del.addEventListener('click', () => {
+    tqUnknown.delete(it.key);
+    tqUnkStore();
+    tqUnkDraw();
+    /* 지문 쪽 표시도 같이 꺼 준다. 안 그러면 뺐는데 아직 칠해져 있다. */
+    document.querySelectorAll('#tqPlay .tq-w, #tqOver .tq-w').forEach((o) => {
+      if (tqWordKey(o.textContent) === it.key) o.classList.remove('on');
+    });
+  });
+  row.appendChild(del);
+  wrap.appendChild(row);
+  return input;
+}
+
+/* 결과 화면에 모아 보여 준다. */
 function tqUnkDraw() {
   const box = $('tqUnk');
-  const list = [...tqUnknown.values()];
+  const list = [...tqUnknown.entries()].map(([key, v]) => ({ key, word: v.word, ex: v.ex }));
   box.classList.toggle('hidden', list.length === 0);
   if (!list.length) return;
 
@@ -2670,23 +2754,20 @@ function tqUnkDraw() {
 
   const wrap = document.createElement('div');
   wrap.className = 'tq-unk-words';
-  for (const it of list) {
-    const b = document.createElement('button');
-    b.type = 'button';
-    b.className = 'tq-unk-w';
-    b.title = t('빼기', 'Remove');
-    b.append(it.word, Object.assign(document.createElement('b'), { textContent: '×' }));
-    b.addEventListener('click', () => {
-      tqUnknown.delete(it.word);
-      tqUnkStore();
-      tqUnkDraw();
-      /* 지문 쪽 표시도 같이 꺼 준다. 안 그러면 뺐는데 아직 칠해져 있다. */
-      document.querySelectorAll('#tqPlay .tq-w, #tqOver .tq-w').forEach((o) => {
-        if (tqWordKey(o.textContent) === it.word) o.classList.remove('on');
-      });
-    });
-    wrap.appendChild(b);
-  }
+  for (const it of list) tqUnkRow(it, wrap);
+
+  /* 「-ㄹ 수 있어요」처럼 원래 지문에 없던 조각을 따로 담고 싶을 때 쓴다.
+     빈 칸을 하나 열어 두고, 아무것도 안 쓰고 나가면 조용히 사라진다. */
+  const add = document.createElement('button');
+  add.type = 'button';
+  add.className = 'tq-unk-add';
+  add.textContent = '+ ' + t('낱말 추가', 'Add word');
+  add.addEventListener('click', () => {
+    const input = tqUnkRow({ key: '⁣new' + Date.now(), word: '', ex: '' }, wrap);
+    add.before(input.closest('.tq-unk-w'));
+    input.focus();
+  });
+  wrap.appendChild(add);
   box.appendChild(wrap);
 
   const btns = document.createElement('div');
@@ -2717,8 +2798,8 @@ function tqUnkDraw() {
   const note = document.createElement('p');
   note.className = 'tq-note';
   note.textContent = tqSignedIn
-    ? t('뜻은 비워 둔 채로 담깁니다. 낱말이 「먹었습니다」처럼 붙어 있으면 단어장에서 고칠 수 있어요.',
-        'They are saved without a meaning. If a word came out inflected, you can fix it in the wordbook.')
+    ? t('낱말을 눌러 고칠 수 있어요 — 「아침을」에서 「을」을 지우거나, 붙어 나온 말을 나눠 새 낱말로 추가해 보세요.',
+        'Tap a word to edit it — trim a particle, or split an inflected phrase into a new word.')
     : t('로그인하면 담을 수 있어요. 표시해 둔 낱말은 로그인하고 돌아와도 그대로 있습니다.',
         'Sign in to save these. Your marks stay put while you sign in.');
   box.appendChild(note);
@@ -3775,6 +3856,7 @@ function sbDrawList() {
              c.id 는 학생 글을 묶는 열쇠라 단계를 넘어 안 겹치게 이어 붙이므로
              (초급이 23번부터 시작한다) 그대로 보이면 「23. 시제」가 된다. */
           `<span class="sb-cat-n">${c.no ?? c.id}</span>` +
+          (c.emoji ? `<span class="sb-cat-emoji" aria-hidden="true">${c.emoji}</span>` : '') +
           `<span class="sb-cat-t">${esc(isEn() ? c.en : c.ko)}</span>` +
         '</div>' +
         '<div class="sb-pts">' +
@@ -3810,6 +3892,7 @@ function sbDrawDetail() {
   $('sbDetail').innerHTML =
     `<button class="wb-out" id="sbBack" type="button">← ${t('표현 목록', 'All grammar points')}</button>` +
     '<div class="sb-head" style="margin-top:16px;">' +
+      (p.cat.emoji ? `<div class="sb-head-emoji" aria-hidden="true">${p.cat.emoji}</div>` : '') +
       `<div class="sb-head-cat">${esc(isEn() ? p.cat.en : p.cat.ko)}</div>` +
       `<div class="sb-head-name">${esc(p.name)}</div>` +
       `<p class="sb-desc">${esc(p.desc)}</p>` +
@@ -3823,6 +3906,28 @@ function sbDrawDetail() {
       `<div class="sb-ex">${esc(p.ex)}</div>` +
       (more[3] ? `<div class="sb-ex">${esc(more[3])}</div>` : '') +
     '</div>' +
+    /* 대화문. 단문 예문 하나로는 그 표현이 실제 대화에서 어떻게 오가는지
+       안 보인다. p.dlg 는 "A: …" / "B: …" 로 시작하는 2~3줄짜리 배열이고,
+       없는 표현(아직 대화문을 안 붙인 초급·중급)은 통째로 건너뛴다. */
+    (p.dlg && p.dlg.length ?
+      '<div class="sb-dlg">' +
+        `<div class="sb-dlg-h">${t('대화로 보기', 'In conversation')}</div>` +
+        '<div class="sb-dlg-body">' +
+          p.dlg.map((line) => {
+            /* 자료에는 A/B 로 적혀 있지만 화면에는 치즈와 감자가 선다.
+               남녀를 그리지 않아도 두 사람인 것이 보이고, 사이트의 두
+               캐릭터가 그대로 말하는 이가 된다. */
+            const m = /^([AB]):\s*(.+)$/.exec(line);
+            const who = m ? m[1] : 'A';
+            const txt = m ? m[2] : line;
+            return `<div class="sb-dlg-line ${who === 'A' ? 'a' : 'b'}">` +
+              `<span class="sb-dlg-who" aria-hidden="true">${who === 'A' ? '🧀' : '🥔'}</span>` +
+              `<span class="sb-dlg-bubble">${esc(txt)}</span>` +
+            '</div>';
+          }).join('') +
+        '</div>' +
+      '</div>'
+      : '') +
 
     '<div class="sb-board">' +
       '<div class="sb-board-h">' +
