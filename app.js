@@ -1013,25 +1013,49 @@ const VIEW_SLUG = {
   claw: 'claw', match: 'match', quiz: 'quiz', num: 'num', learn: 'learn', lesson: 'lesson',
 };
 let routeBusy = false;
+/* 마지막으로 주소에 남긴 자리. 떠나기를 막았을 때 되돌릴 곳이다. */
+let lastSlug = '';
 
-/* 화면이 바뀔 때마다 주소에 남긴다. open() 과 ptShow() 가 둘 다 여기를 거친다. */
-window.cpMark = function (view) {
+/* 화면이 바뀔 때마다 주소에 남긴다. open() 과 ptShow() 가 둘 다 여기를 거친다.
+   sub 는 그 화면 안에서 더 들어간 자리다 — 배우기의 갈래(#learn/topik)나
+   예문 표현 하나(#learn/sentence/23-1) 같은 것.
+
+   sub 가 없으면 여태처럼 화면 이름만 남긴다. 화면 안으로 들어갔는데 주소가
+   그대로면 새로고침했을 때 갈래 목록으로 튕긴다 — 실제로 그랬다. */
+window.cpMark = function (view, sub) {
   if (routeBusy) return;                 // 주소를 읽고 여는 중이면 다시 안 쓴다
-  const slug = VIEW_SLUG[view] ?? '';
-  if (location.hash.replace(/^#/, '') === slug) return;   // 같은 자리면 히스토리를 안 늘린다
+  const base = VIEW_SLUG[view] ?? '';
+  const slug = sub ? `${base}/${sub}` : base;
+  if (location.hash.replace(/^#/, '') === slug) { lastSlug = slug; return; }   // 같은 자리면 히스토리를 안 늘린다
+  lastSlug = slug;
   history.pushState(null, '', slug ? '#' + slug : location.pathname + location.search);
 };
 
+/* 라우터가 화면을 몰고 있는 중인가. 모듈 쪽 나가기 확인이 두 번 뜨지 않게
+   하려고 알려 준다 — 라우터가 이미 물어봤으면 다시 묻지 않는다. */
+window.cpRouteBusy = () => routeBusy;
+
 /* 주소를 보고 화면을 연다. 뒤로/앞으로와 첫 접속이 이 길로 들어온다. */
 function cpApply(slug) {
-  if (slug && !SLUG_VIEW[slug]) return;  // #download 같은 남의 자리표는 그대로 둔다
-  const view = SLUG_VIEW[slug] || 'home';
+  /* 첫 토막이 화면 이름이고 나머지가 그 안에서 들어간 자리다. */
+  const cut = String(slug).indexOf('/');
+  const head = cut < 0 ? slug : slug.slice(0, cut);
+  const sub = cut < 0 ? '' : slug.slice(cut + 1);
+  if (head && !SLUG_VIEW[head]) return;  // #download 같은 남의 자리표는 그대로 둔다
+  const view = SLUG_VIEW[head] || 'home';
+  /* 떠나면 안 되는 것이 돌고 있으면(모의고사) 먼저 묻는다. 「머문다」를
+     고르면 주소를 되돌리고 화면은 손대지 않는다. */
+  if (slug !== lastSlug && window.cpBlockLeave && window.cpBlockLeave()) {
+    history.pushState(null, '', lastSlug ? '#' + lastSlug : location.pathname + location.search);
+    return;
+  }
   routeBusy = true;
   try {
     if (view === 'test') ptShow(true);
     // 모듈이 아직 안 돌았으면 open() 이 없다. 그때는 홈이 안전하다.
     else if (view === 'home' || !window.cpOpen) ptShow(false);
-    else window.cpOpen(view);
+    else window.cpOpen(view, sub);
+    lastSlug = slug;
   } finally { routeBusy = false; }
 }
 window.addEventListener('popstate', () => cpApply(location.hash.replace(/^#/, '')));
@@ -1041,7 +1065,8 @@ window.addEventListener('popstate', () => cpApply(location.hash.replace(/^#/, ''
    모듈이 다 돌고 나서 불린다(그래야 cpOpen 이 있다). */
 window.cpStart = function () {
   const slug = location.hash.replace(/^#/, '');
-  if (slug && SLUG_VIEW[slug]) cpApply(slug);
+  const head = slug.split('/')[0];
+  if (head && SLUG_VIEW[head]) cpApply(slug);
 };
 
 ptId('navBtn').addEventListener('click', () => {
