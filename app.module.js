@@ -2377,10 +2377,17 @@ function tqBuildMock() {
     if (!sets.has(k)) sets.set(k, []);
     sets.get(k).push(q);
   });
+  /* 한 벌이 몇 문항인지는 설계표가 정한다. 둘로 못박아 두면 TOPIK II 의
+     48~50 처럼 지문 하나에 셋이 붙는 자리를 못 받는다 — 받아도 조용히
+     버려지고, 그 자리가 비어 한 회가 통째로 안 만들어진다. */
+  const pairSize = new Map();
+  TOPIK_SLOTS.forEach((s) => {
+    if (s.pair) pairSize.set(s.pair, (pairSize.get(s.pair) ?? 0) + 1);
+  });
   const byPair = new Map();
   sets.forEach((list, k) => {
-    if (list.length !== 2) return;              // 짝이 안 맞는 것은 쓰지 않는다
     const name = list[0].pair;
+    if (list.length !== (pairSize.get(name) ?? 2)) return;  // 벌이 안 맞는 것은 쓰지 않는다
     if (!byPair.has(name)) byPair.set(name, []);
     byPair.get(name).push(list.slice().sort((a, b) => a.slot - b.slot));
   });
