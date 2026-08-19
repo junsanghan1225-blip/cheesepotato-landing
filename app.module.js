@@ -3775,6 +3775,7 @@ function sbDrawList() {
              c.id 는 학생 글을 묶는 열쇠라 단계를 넘어 안 겹치게 이어 붙이므로
              (초급이 23번부터 시작한다) 그대로 보이면 「23. 시제」가 된다. */
           `<span class="sb-cat-n">${c.no ?? c.id}</span>` +
+          (c.emoji ? `<span class="sb-cat-emoji" aria-hidden="true">${c.emoji}</span>` : '') +
           `<span class="sb-cat-t">${esc(isEn() ? c.en : c.ko)}</span>` +
         '</div>' +
         '<div class="sb-pts">' +
@@ -3810,6 +3811,7 @@ function sbDrawDetail() {
   $('sbDetail').innerHTML =
     `<button class="wb-out" id="sbBack" type="button">← ${t('표현 목록', 'All grammar points')}</button>` +
     '<div class="sb-head" style="margin-top:16px;">' +
+      (p.cat.emoji ? `<div class="sb-head-emoji" aria-hidden="true">${p.cat.emoji}</div>` : '') +
       `<div class="sb-head-cat">${esc(isEn() ? p.cat.en : p.cat.ko)}</div>` +
       `<div class="sb-head-name">${esc(p.name)}</div>` +
       `<p class="sb-desc">${esc(p.desc)}</p>` +
@@ -3823,6 +3825,25 @@ function sbDrawDetail() {
       `<div class="sb-ex">${esc(p.ex)}</div>` +
       (more[3] ? `<div class="sb-ex">${esc(more[3])}</div>` : '') +
     '</div>' +
+    /* 대화문. 단문 예문 하나로는 그 표현이 실제 대화에서 어떻게 오가는지
+       안 보인다. p.dlg 는 "A: …" / "B: …" 로 시작하는 2~3줄짜리 배열이고,
+       없는 표현(아직 대화문을 안 붙인 초급·중급)은 통째로 건너뛴다. */
+    (p.dlg && p.dlg.length ?
+      '<div class="sb-dlg">' +
+        `<div class="sb-dlg-h">${t('대화로 보기', 'In conversation')}</div>` +
+        '<div class="sb-dlg-body">' +
+          p.dlg.map((line) => {
+            const m = /^([AB]):\s*(.+)$/.exec(line);
+            const who = m ? m[1] : 'A';
+            const txt = m ? m[2] : line;
+            return `<div class="sb-dlg-line ${who === 'A' ? 'a' : 'b'}">` +
+              `<span class="sb-dlg-who">${who}</span>` +
+              `<span class="sb-dlg-bubble">${esc(txt)}</span>` +
+            '</div>';
+          }).join('') +
+        '</div>' +
+      '</div>'
+      : '') +
 
     '<div class="sb-board">' +
       '<div class="sb-board-h">' +

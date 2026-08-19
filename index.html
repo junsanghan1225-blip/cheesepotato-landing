@@ -1257,6 +1257,27 @@ body.nav-open { overflow:hidden; }
 .sb-fact-v { font-size:14.5px; color:var(--ink-2); line-height:1.65; margin-top:5px; word-break:keep-all; }
 .sb-exs { margin-top:18px; display:grid; gap:9px; }
 .sb-ex { background:var(--tint); border-left:3px solid var(--orange); border-radius:0 var(--r) var(--r) 0; padding:12px 15px; font-size:15.5px; color:var(--ink); line-height:1.7; word-break:keep-all; }
+.sb-head-emoji { font-size:34px; line-height:1; margin-bottom:8px; }
+.sb-cat-emoji { font-size:15px; line-height:1; }
+
+/* 대화문 — 메신저처럼 A 는 왼쪽(중립), B 는 오른쪽(브랜드 오렌지)에 둔다.
+   말풍선 색만 봐도 누가 그 표현을 실제로 썼는지 한눈에 들어온다. */
+.sb-dlg { margin-top:18px; }
+.sb-dlg-h { font-size:11px; font-weight:700; letter-spacing:.11em; text-transform:uppercase; color:var(--ink-3); margin-bottom:9px; }
+.sb-dlg-body { display:grid; gap:8px; }
+.sb-dlg-line { display:flex; align-items:flex-end; gap:8px; max-width:88%; }
+.sb-dlg-line.b { flex-direction:row-reverse; margin-left:auto; }
+.sb-dlg-who {
+  flex:none; width:22px; height:22px; border-radius:50%;
+  display:flex; align-items:center; justify-content:center;
+  font-size:11px; font-weight:700; color:#fff; background:var(--ink-3);
+}
+.sb-dlg-line.b .sb-dlg-who { background:var(--orange); }
+.sb-dlg-bubble {
+  background:var(--surface-2); border:1px solid var(--line-2); border-radius:var(--r-l) var(--r-l) var(--r-l) 4px;
+  padding:9px 13px; font-size:14.5px; color:var(--ink); line-height:1.6; word-break:keep-all;
+}
+.sb-dlg-line.b .sb-dlg-bubble { background:var(--tint); border-color:rgba(255,138,61,.25); border-radius:var(--r-l) var(--r-l) 4px var(--r-l); }
 
 /* 게시판 */
 .sb-board { margin-top:30px; padding-top:22px; border-top:1px solid var(--line-2); }
