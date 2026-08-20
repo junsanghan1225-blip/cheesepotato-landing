@@ -1096,5 +1096,215 @@
     "desc": "Indicates that something happens frequently, used mostly for bad or undesirable events.",
     "form": "Verb stem + 「-기 일쑤이다」",
     "care": "Used to describe bad habits or recurring negative occurrences."
+  },
+  {
+    "id": "12-3",
+    "desc": "Indicates doing an action half-heartedly or barely doing it at all.",
+    "form": "Verb stem + 「-는 둥 마는 둥 하다」",
+    "care": "Expresses an insincere or careless attitude."
+  },
+  {
+    "id": "13-1",
+    "desc": "A formal written expression meaning 'to the extent that' or 'so much that'.",
+    "form": "Verb/Adj stem + 「-(으)리만치」",
+    "care": "Has the same meaning as 「-(으)리만큼」."
+  },
+  {
+    "id": "13-2",
+    "desc": "Indicates reaching an extreme point where one can no longer endure, leading to an outcome.",
+    "form": "Verb/Adj stem + 「-다 못해」",
+    "care": "Also used when an extreme degree causes a change into a different state."
+  },
+  {
+    "id": "14-1",
+    "desc": "Used when intending to do one action unexpectedly resulted in a different, mistaken outcome.",
+    "form": "Verb stem + 「-(느)ㄴ다는 것이」",
+    "care": "Used only when the outcome differs from what was intended."
+  },
+  {
+    "id": "14-2",
+    "desc": "Indicates intending to do something but giving it up midway.",
+    "form": "Verb stem + 「-(으)려다 말다」",
+    "care": "Used when you changed your mind and decided not to do the action."
+  },
+  {
+    "id": "14-3",
+    "desc": "Indicates that something looked like it was about to happen and ended up actually occurring.",
+    "form": "Verb stem + 「-(으)려더니」",
+    "care": "Used in situations where an initial expectation turns out to be correct."
+  },
+  {
+    "id": "15-1",
+    "desc": "Indicates acting in a manner that makes it appear as though something is true.",
+    "form": "Verb/Adj stem + 「-는 듯이」",
+    "care": "Placed directly before an action to describe how it is performed."
+  },
+  {
+    "id": "15-2",
+    "desc": "Means 'as if saying that', showing something through facial expressions or actions.",
+    "form": "Verb stem + 「-(느)ㄴ다는 듯이」",
+    "care": "Used when expressing a thought through looks or gestures instead of spoken words."
+  },
+  {
+    "id": "15-3",
+    "desc": "Used to make a gentle, soft guess that something seems to be the case.",
+    "form": "Verb/Adj stem + 「-는 듯하다」",
+    "care": "Softer and more literary than 「-는 것 같다」."
+  },
+  {
+    "id": "15-4",
+    "desc": "Used when you are entirely certain that an obvious outcome will happen.",
+    "form": "Verb stem + 「-(으)ㄹ 게 뻔하다」",
+    "care": "Because it expresses confident certainty, it is frequently used for negative outcomes."
+  },
+  {
+    "id": "15-5",
+    "desc": "Indicates that a situation or feeling is fully understandable and natural.",
+    "form": "Verb/Adj stem + 「-(으)ㄹ 법하다」",
+    "care": "Used when showing empathy and understanding toward another person's feelings."
+  },
+  {
+    "id": "15-6",
+    "desc": "Strongly denies something, stating there is absolutely no reason or possibility for it.",
+    "form": "Verb/Adj stem + 「-(으)ㄹ 리가 없다」",
+    "care": "Used for strong denial or firm conviction."
+  },
+  {
+    "id": "15-7",
+    "desc": "Means that it is very easy or likely to end up in a certain state, usually a negative one.",
+    "form": "Verb stem + 「-기 십상이다」",
+    "care": "Frequently used when giving advice or warnings."
+  },
+  {
+    "id": "16-1",
+    "desc": "Expresses that it is natural and inevitable for something to happen that way.",
+    "form": "Verb/Adj stem + 「-기 마련이다」",
+    "care": "Also written and used as 「-게 마련이다」."
+  },
+  {
+    "id": "16-2",
+    "desc": "Used to state a universal principle or natural law of the world.",
+    "form": "Verb/Adj stem + 「-는 법이다」",
+    "care": "Used like a proverb or maxim to state how things naturally work."
+  },
+  {
+    "id": "17-1",
+    "desc": "Indicates that while one case exists, another contrasting or different case also occurs.",
+    "form": "Verb stem + 「-는가 하면」 / Adj stem + 「-(으)ㄴ가 하면」",
+    "care": "Places two different cases side by side."
+  },
+  {
+    "id": "17-2",
+    "desc": "Expresses that there is a lot of talk and gossip about this and that.",
+    "form": "Verb stem + 「-느니 -느니 하다」",
+    "care": "Used by pairing opposing or contrasting words together."
+  },
+  {
+    "id": "17-3",
+    "desc": "Lists multiple tasks to vividly describe being extremely busy doing this and that.",
+    "form": "Verb stem + 「-(으)랴 -(으)랴」",
+    "care": "Vividly lists tasks to emphasize a hectic situation."
+  },
+  {
+    "id": "17-4",
+    "desc": "Used to list multiple items together, meaning 'this, that, and more'.",
+    "form": "Noun + 「(이)며」 + Noun + 「(이)며」",
+    "care": "Lists multiple things all at once."
+  },
+  {
+    "id": "18-1",
+    "desc": "Indicates that an outcome was reached after a long period of struggle or effort.",
+    "form": "Verb stem + 「-(으)ㄴ 끝에」",
+    "care": "Preceded by a process that took a long time and significant effort."
+  },
+  {
+    "id": "18-2",
+    "desc": "Expresses finally accomplishing a difficult task through hard work and persistence.",
+    "form": "Verb stem + 「-아/어 내다」",
+    "care": "Used for achievements attained after great effort."
+  },
+  {
+    "id": "18-3",
+    "desc": "Indicates that an emotion or state became so extreme that it resulted in a certain outcome.",
+    "form": "Verb/Adj stem + 「-(으)ㄴ 나머지」",
+    "care": "Expresses an outcome caused by an excessive degree in the first clause."
+  },
+  {
+    "id": "18-4",
+    "desc": "Used to report and recall something you directly observed or experienced in the past.",
+    "form": "Verb/Adj stem + 「-데요」",
+    "care": "Used only for things seen firsthand; use 「-대요」 for things heard from others."
+  },
+  {
+    "id": "19-1",
+    "desc": "Means in the middle of or while such an ongoing situation continues.",
+    "form": "Verb stem + 「-는 가운데」 / Noun + 「가운데」",
+    "care": "Frequently appears in news broadcasts and media reports."
+  },
+  {
+    "id": "19-2",
+    "desc": "Means 'now that things have reached this point', referring to a critical situation.",
+    "form": "Verb stem + 「-는 마당에」",
+    "care": "Used in urgent, awkward, or difficult situations."
+  },
+  {
+    "id": "19-3",
+    "desc": "Indicates that there is no exception within that category, or means 'considering that'.",
+    "form": "Noun + 「치고」",
+    "care": "When used as 「치고는」, it conveys that something is unexpected for that category."
+  },
+  {
+    "id": "19-4",
+    "desc": "Indicates that as the first change occurs, the following situation also changes accordingly.",
+    "form": "Verb stem + 「-(으)ㅁ에 따라」 / Noun + 「에 따라」",
+    "care": "Suited for texts explaining data, trends, and reports."
+  },
+  {
+    "id": "20-1",
+    "desc": "Means that something is extraordinary, indicating an extreme degree.",
+    "form": "「여간」 + Adj stem + 「-지 않다」",
+    "care": "Must always end in a negative grammatical form."
+  },
+  {
+    "id": "20-2",
+    "desc": "Means that a quality is beyond description, being as extreme as can be.",
+    "form": "Adj stem + 「-기가 이를 데 없다」",
+    "care": "Used for high praise or strong admiration."
+  },
+  {
+    "id": "20-3",
+    "desc": "Expresses that even if you desperately want or try to do an action, you cannot do it at all.",
+    "form": "Verb stem + 「-(으)ㄹ래야」 + Verb stem + 「-(으)ㄹ 수가 없다」",
+    "care": "Repeats the same verb stem twice."
+  },
+  {
+    "id": "21-1",
+    "desc": "An archaic, respectful speech style preserved in public notices and historical texts.",
+    "form": "Verb/Adj stem + 「-(으)오」 / 「-소」",
+    "care": "Seen in historical public notices, subtitles, and traditional stories."
+  },
+  {
+    "id": "21-2",
+    "desc": "A speech style used to address people of lower status with a certain degree of respect.",
+    "form": "Verb/Adj stem + 「-네」 / 「-게」 / 「-나」",
+    "care": "Traditionally used by teachers to students or fathers-in-law to sons-in-law."
+  },
+  {
+    "id": "22-1",
+    "desc": "Written connecting endings used for expressing reason, contrast, and listing.",
+    "form": "Verb/Adj stem + 「-(으)므로」 / 「-(으)나」 / 「-(으)며」",
+    "care": "In spoken Korean, 「-니까, -지만, -고」 are more natural."
+  },
+  {
+    "id": "22-2",
+    "desc": "Deals with the structural forms of passive and causative verbs.",
+    "form": "「-이/히/리/기-」 / 「-게 하다」 / 「-시키다」",
+    "care": "Even for the same verb stem, the meaning changes depending on the attached affix."
+  },
+  {
+    "id": "22-3",
+    "desc": "Advanced Korean grammatical expressions useful to recognize in literary texts.",
+    "form": "Verb stem + 「-(으)세라」 / 「-는 양」 / 「-는 한편」",
+    "care": "Frequently encountered in literary and formal written works."
   }
 ]
