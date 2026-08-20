@@ -20,6 +20,7 @@ node tools/check-data.mjs         # 자료 전체 크로스체크
 node tools/check-sentences.mjs    # 예문 표현
 node tools/check-topik.mjs        # TOPIK I
 node tools/check-topik2.mjs docs/topik2-all50.json   # TOPIK II
+node tools/check-glossary.mjs     # 낱말 뜻풀이
 node --check app.js && node --check app.module.js
 ```
 
@@ -56,6 +57,7 @@ GitHub Pages 는 캐시 머리글을 우리가 못 정한다. `app.js` 를 그�
 |---|---|---|
 | `topik2.js` | `tools/build-topik2.mjs` | `docs/topik2-all50.json` |
 | `sentence/` · `sitemap.xml` | `tools/build-pages.mjs` | `sentences*.js` |
+| `glossary.js` | `tools/build-glossary.mjs` | `docs/glossary.json` |
 | `favicon-32.png` · `icon-180.png` | `tools/build-icons.py` | `logo.png` |
 | `privacy.html` | `tools/build-privacy.js` | 앱 저장소의 `docs/privacy-policy.md` |
 | `vendor/` | `tools/vendor.mjs` | 바깥 라이브러리 |
@@ -87,6 +89,31 @@ GitHub Pages 는 캐시 머리글을 우리가 못 정한다. `app.js` 를 그�
   주소를 따로 낼 때 함께 붙일 것.
 - 예문 자료를 고쳤으면 `build-pages.mjs` 를 다시 돌린다. 안 돌리면 지운
   표현의 쪽이 남아 **앱에 없는 것이 검색에 걸린다.**
+
+---
+
+## 낱말 뜻풀이
+
+시험을 풀다 모르는 낱말을 눌러 단어장에 담을 때, 뜻 칸이 늘 비어 있었다.
+빈 칸을 스무 개 받아 놓고 하나씩 채우는 사람은 없다.
+
+**번역기를 부르지 않고 사전을 들고 다닌다.** 번역기에는 열쇠가 있어야 하는데
+이 사이트는 정적이라 열쇠를 둘 데가 없다 — 코드에 넣으면 그대로 공개된다.
+대신 **우리 지문에 나오는 낱말**만 미리 적어 둔다. 지문에 없는 말은 눌릴 일이
+없으니 온 세상 낱말을 담을 까닭도 없다.
+
+- 뜻은 단어장 설정의 **모국어**를 따라간다. 그 말이 사전에 없으면 영어로
+  물러서고, 영어도 없으면 **빈 칸으로 둔다.** 지어내 채우면 학습자가 그 틀린
+  뜻을 외운다 — 빈 칸은 채우면 되지만 틀린 뜻은 외우고 나서야 안다.
+- 활용형을 `alt` 로 함께 적어 둔다. 「먹었습니다」를 눌러도 「먹다」로 담긴다.
+  활용형이 그대로 쌓이면 단어장이 같은 말로 열 줄이 된다.
+- 담기 전에 결과 화면에서 뜻을 고칠 수 있다. **손으로 적은 뜻은 낱말을
+  다듬어도 안 지워진다** — 지워지면 다듬는 일 자체를 안 하게 된다.
+- 지금 얼마나 덮는지는 `node tools/check-glossary.mjs` 가 말해 준다.
+  가짓수보다 **나온 횟수**로 센 쪽을 보면 된다. 학습자가 마주치는 것은
+  자주 나오는 낱말이다.
+
+더 채우려면 `docs/glossary-gemini-prompt.md` 를 따른다.
 
 ---
 
