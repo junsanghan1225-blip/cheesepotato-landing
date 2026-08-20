@@ -14,6 +14,7 @@ npx --yes http-server . -p 5500
 ## 올리기 전에
 
 ```bash
+node tools/build-grammar.mjs      # 글에서 찾아낼 문법 (예문 이름을 고쳤으면 반드시)
 node tools/build-pages.mjs        # 검색용 정적 쪽 (예문 자료를 고쳤으면 반드시)
 node tools/stamp.mjs              # 캐시 자국을 새로 찍는다 (자료·코드를 고쳤으면 반드시)
 node tools/check-data.mjs         # 자료 전체 크로스체크
@@ -60,6 +61,7 @@ GitHub Pages 는 캐시 머리글을 우리가 못 정한다. `app.js` 를 그�
 | `topik2.js` | `tools/build-topik2.mjs` | `docs/topik2-all50.json` |
 | `sentence/` · `sitemap.xml` | `tools/build-pages.mjs` | `sentences*.js` |
 | `glossary.js` · `glossary-<말>.js` | `tools/build-glossary.mjs` | `docs/glossary.json` (+ `glossary-krdict.json`) |
+| `grammar.js` | `tools/build-grammar.mjs` | `sentences.js` 의 문법 이름 |
 | `docs/glossary-krdict.json` | `tools/build-krdict-glossary.mjs` | 국립국어원 내려받기 자료 |
 | `favicon-32.png` · `icon-180.png` | `tools/build-icons.py` | `logo.png` |
 | `privacy.html` | `tools/build-privacy.js` | 앱 저장소의 `docs/privacy-policy.md` |
@@ -146,6 +148,49 @@ node tools/build-krdict-glossary.mjs ~/Downloads/krdict
 ```
 
 영어 뜻풀이를 손으로 더 채우려면 `docs/glossary-gemini-prompt.md` 를 따른다.
+
+---
+
+## 글 속의 문법
+
+낱말을 모르면 눌러서 사전을 보는데 **어미는 눌러 볼 데가 없었다.**
+「-는 바람에」를 처음 본 사람은 그것이 한 덩어리인 줄도 모르고, 「바람」을
+사전에서 찾다가 「wind」를 보고 더 헷갈린다.
+
+예문 만들기에 그 설명이 **290개나 쌓여 있는데** 읽는 사람이 거기로 갈 길이
+없었다. 그래서 읽기 연습 지문에서 아는 문법에 밑줄을 긋고, 누르면 말풍선으로
+무엇인지 띄우고, 거기 단추로 그 문법 쪽(`#learn/sentence/51-4`)으로 바로
+건너가게 했다.
+
+```bash
+node tools/build-grammar.mjs            # grammar.js 를 굽는다
+node tools/build-grammar.mjs --report   # 지문 어디에 걸리는지 전부 본다
+```
+
+문법 이름(`sentences.js` 의 `name`)은 사람이 읽으라고 적힌 것이라
+(「A/V-(으)ㄴ/는데 ①」) 그대로는 글에서 못 찾는다. `build-grammar.mjs` 가 그것을
+찾을 수 있는 꼴로 옮긴다 — `(으)ㄴ` 은 받침으로 붙거나 「은」이 되고, 「-았/었」은
+녹아 붙어도 받침 ㅆ 을 남기고(갔·먹었·했·봤), 「-아/어」는 종잡을 수 없어
+**받침 없고 홀소리가 ㅏㅐㅓㅕㅘㅙㅝ인 글자**로 좁혀 둔다.
+
+**안 짚는 것이 셋 있다. 셋 다 지문 54편에 실제로 대 보고 정했다.**
+
+- **이름이 꼴이 아닌 것** — 「'ㅂ' 불규칙」 「직접 인용」 「하오체」. 글에서
+  찾을 자국이 없다.
+- **글자만 보고 못 가르는 것** — `BLIND`. 「-(으)ㄴ들」은 「만들」 「현대인들」에,
+  「-았/었다가」는 「게다가」에, 「-아/어 보다」는 「비판보다」에 걸렸다. 걸린
+  자리를 그대로 적어 두었으니, 되살리고 싶으면 `--report` 로 대 보고 되살려라.
+- **너무 자주 나오는 것** — `TOO_BASIC`. 「-습니다」는 54편에서 274번 걸린다.
+  문장마다 하나씩이다. 다 밑줄을 그으면 글이 아니라 밑줄이 된다. 자리 토씨
+  (이/가·은/는·을/를·의)도 같다.
+
+토씨를 한때 통째로 뺐다가 되돌렸다 — 초급 지문 열여덟 편 가운데 **여섯 편에
+밑줄이 하나도 안 남았기** 때문이다. 초급 글이 바로 그 토씨로 쓰여 있다.
+「에서」와 「에」의 차이, 「에게」, 「보다」는 초급이 실제로 헷갈리는 것이라
+남겼다. 지금은 한 편에 4.0군데, 밑줄이 하나도 없는 지문은 54편 중 2편이다.
+
+말풍선의 설명은 **한국어다.** 예문 만들기 화면이 원래 그렇다 —
+`sentences.js` 의 `desc` 에 한국어만 있다. 영어를 채우려면 거기부터다.
 
 ---
 

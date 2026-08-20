@@ -13,22 +13,24 @@
    어느 날 갑자기 다른 코드가 실려 왔다.
    이제 vendor/ 안에 받아 두고 CSP 로 바깥을 막는다. 버전을 올릴 때는
    tools/vendor.mjs 의 PIN 을 고치고 다시 돌린다. */
-import { createClient } from './vendor/supabase-js.js?v=7ec460df';
+import { createClient } from './vendor/supabase-js.js?v=56bc1b8d';
 // 앱(package.json)과 같은 줄기를 쓴다. 갈리면 앱에서는 읽히는 파일이
 // 여기서는 안 읽히는(또는 그 반대) 일이 생긴다.
-import * as XLSX from './vendor/xlsx.js?v=7ec460df';
+import * as XLSX from './vendor/xlsx.js?v=56bc1b8d';
 // 커리큘럼. 내용과 엔진을 갈라 두면 글을 고치다 화면을 깨지 않는다.
-import { COURSES } from './courses.js?v=7ec460df';
-import { GLOSSARY, GLOSS_LANGS } from './glossary.js?v=7ec460df';
-import { glossFind } from './gloss-find.js?v=7ec460df';
-import { SB_CATS, SB_MORE, SB_SEED } from './sentences.js?v=7ec460df';
+import { COURSES } from './courses.js?v=56bc1b8d';
+import { GLOSSARY, GLOSS_LANGS } from './glossary.js?v=56bc1b8d';
+import { glossFind } from './gloss-find.js?v=56bc1b8d';
+import { GRAMMAR } from './grammar.js?v=56bc1b8d';
+import { grammarScan } from './grammar-find.js?v=56bc1b8d';
+import { SB_CATS, SB_MORE, SB_SEED } from './sentences.js?v=56bc1b8d';
 // 읽기 연습 지문. 길이(short·long) × 급수 여섯 칸.
-import { READING } from './reading.js?v=7ec460df';
+import { READING } from './reading.js?v=56bc1b8d';
 // TOPIK 유형 연습문제. 기출이 아니라 자체 제작이다.
-import { TOPIK_READING, TOPIK_BLUEPRINT, TOPIK_SLOTS } from './topik.js?v=7ec460df';
-import { TOPIK2_READING, TOPIK2_BLUEPRINT, TOPIK2_SLOTS } from './topik2.js?v=7ec460df';
+import { TOPIK_READING, TOPIK_BLUEPRINT, TOPIK_SLOTS } from './topik.js?v=56bc1b8d';
+import { TOPIK2_READING, TOPIK2_BLUEPRINT, TOPIK2_SLOTS } from './topik2.js?v=56bc1b8d';
 // 숫자 게임의 읽기와 문제 만들기. 화면을 모르는 순수 계산이라 따로 뒀다.
-import { makeRound } from './numbers.js?v=7ec460df';
+import { makeRound } from './numbers.js?v=56bc1b8d';
 
 // 이 키는 공개돼도 되는 값이다. 이미 APK 안에 같은 것이 들어 있고,
 // 접근을 막는 건 키가 아니라 테이블에 걸린 RLS 다.
@@ -4121,6 +4123,104 @@ const rdDoneWrite = (id, score) => {
 const rdRows = () => READING[rdLen]?.[learnLv.reading] ?? [];
 const rdFind = (id) => Object.values(READING).flatMap((g) => Object.values(g)).flat().find((r) => r.id === id);
 
+/* ══ 글 속의 문법 ═══════════════════════════════════════════════
+   낱말을 모르면 사전을 찾지만 **어미는 찾을 데가 없다.** 「-는 바람에」를
+   처음 본 사람은 그것이 한 덩어리인 줄도 모르고, 「바람」을 사전에서
+   찾다가 「wind」를 보고 더 헷갈린다.
+
+   예문 만들기에 그 설명이 290개나 쌓여 있는데 읽는 사람이 그리로 갈 길이
+   없었다. 그래서 글에서 아는 문법에 밑줄을 긋고, 누르면 무엇인지 말풍선을
+   띄우고, 거기서 바로 그 쪽으로 건너가게 한다.
+
+   무엇을 짚고 무엇을 안 짚는지는 tools/build-grammar.mjs 머리말에 있다 —
+   요약하면 **글자만 보고 못 가르는 것과 너무 자주 나오는 것은 안 짚는다.**
+   지문의 반이 밑줄이면 짚어 준 것이 아니다. */
+function rdGrammarify(el, text) {
+  el.textContent = '';
+  let hits = [];
+  try { hits = grammarScan(text); } catch (e) { /* 못 찾으면 그냥 글로 둔다 */ }
+  let at = 0;
+  for (const h of hits) {
+    if (h.from > at) el.appendChild(document.createTextNode(text.slice(at, h.from)));
+    const b = document.createElement('button');
+    b.type = 'button';
+    b.className = 'rd-g';
+    b.textContent = text.slice(h.from, h.to);
+    b.dataset.g = h.id;
+    /* 마우스를 얹었을 때 무엇인지 보이게 한다. 누르기 전에 알면 굳이
+       안 눌러도 되는 사람이 있다. */
+    b.title = h.name;
+    el.appendChild(b);
+    at = h.to;
+  }
+  if (at < text.length) el.appendChild(document.createTextNode(text.slice(at)));
+}
+
+/* 지금 말풍선이 가리키고 있는 낱말. 닫을 때 표시를 지우려고 들고 있다. */
+let rdGAt = null;
+
+function rdGClose() {
+  $('rdGPop').hidden = true;
+  rdGAt?.classList.remove('on');
+  rdGAt = null;
+}
+
+/* 누른 낱말 위에 말풍선을 놓는다. 위가 좁으면 아래로 내린다 — 지문 첫
+   줄에서 누르면 위에 자리가 없어서, 고집하면 화면 밖으로 나간다. */
+function rdGPlace(btn) {
+  /* 글을 다시 그리면 눌렀던 낱말이 화면에서 사라진다. 그것을 붙들고
+     자리를 재면 0 이 나와 말풍선이 구석으로 튄다. */
+  if (!btn.isConnected) { rdGClose(); return; }
+  const pop = $('rdGPop');
+  const r = btn.getBoundingClientRect();
+  const p = pop.getBoundingClientRect();
+  const gap = 10;
+  const up = r.top - p.height - gap >= 8;
+  pop.classList.toggle('up', up);
+  pop.classList.toggle('down', !up);
+  pop.style.top = `${up ? r.top - p.height - gap : r.bottom + gap}px`;
+  /* 낱말 가운데에 맞추되 화면 밖으로는 안 나가게 잡아 둔다. */
+  const mid = r.left + r.width / 2;
+  const left = Math.max(8, Math.min(window.innerWidth - p.width - 8, mid - p.width / 2));
+  pop.style.left = `${left}px`;
+  /* 꼬리는 말풍선이 밀린 만큼 반대로 옮겨 늘 낱말을 가리키게 한다. */
+  const tail = $('rdGTail');
+  tail.style.left = `${Math.max(8, Math.min(p.width - 18, mid - left - 5))}px`;
+}
+
+function rdGOpen(btn) {
+  const g = GRAMMAR.find((x) => x.id === btn.dataset.g);
+  if (!g) return;
+  rdGClose();
+  rdGAt = btn;
+  btn.classList.add('on');
+  $('rdGName').textContent = g.name;
+  $('rdGDesc').textContent = g.desc || '';
+  $('rdGGo').textContent = t('문법 보기 →', 'See the grammar →');
+  $('rdGGo').dataset.g = g.id;
+  const pop = $('rdGPop');
+  pop.hidden = false;
+  /* 자리는 크기를 안 뒤에 잡는다 — 숨어 있는 동안은 높이가 0 이라,
+     먼저 잡으면 늘 아래로 붙는다. */
+  rdGPlace(btn);
+}
+
+$('rdGGo').addEventListener('click', () => {
+  const id = $('rdGGo').dataset.g;
+  rdGClose();
+  if (id) openLearnSub(`sentence/${id}`);
+});
+document.addEventListener('click', (ev) => {
+  const b = ev.target.closest?.('.rd-g');
+  if (b) { ev.preventDefault(); rdGOpen(b); return; }
+  if (!ev.target.closest?.('#rdGPop')) rdGClose();
+});
+document.addEventListener('keydown', (ev) => { if (ev.key === 'Escape') rdGClose(); });
+/* 글이 흐르면 말풍선도 따라가야 한다. 그 자리에 남으면 엉뚱한 낱말을
+   가리키는 꼴이 된다. */
+window.addEventListener('scroll', () => { if (rdGAt) rdGPlace(rdGAt); }, true);
+window.addEventListener('resize', () => { if (rdGAt) rdGPlace(rdGAt); });
+
 /* 띄어쓰기를 지우고 견준다. 「지하철로」와 「지하철 로」를 다르게 셀
    까닭이 없다. */
 const rdFlat = (s) => String(s ?? '').replace(/\s+/g, '');
@@ -4144,11 +4244,14 @@ function rdLenSwitch() {
 }
 
 function drawReading() {
+  /* 다시 그리면 밑줄 친 낱말이 새것으로 바뀐다. 말풍선을 열어 둔 채로
+     두면 없어진 낱말을 가리키고 있게 된다. */
+  rdGClose();
   $('rdLen').innerHTML = rdLenSwitch();
   $('rdLevel').innerHTML = renderLevelSwitch('reading');
   $('rdIntro').textContent = t(
-    '글을 읽고, 무슨 이야기였는지 자기 말로 써 보세요. 다 쓰면 무엇을 짚었고 무엇을 놓쳤는지 알려 드립니다. 영어 뜻은 답을 낸 뒤에 펼 수 있어요.',
-    'Read the passage, then write what it said in your own words. Once you answer, you will see what you caught and what you missed. The English is there afterwards.');
+    '글을 읽고, 무슨 이야기였는지 자기 말로 써 보세요. 다 쓰면 무엇을 짚었고 무엇을 놓쳤는지 알려 드립니다. 영어 뜻은 답을 낸 뒤에 펼 수 있어요. 글 속에 밑줄 친 곳은 문법이니 눌러 보세요.',
+    'Read the passage, then write what it said in your own words. Once you answer, you will see what you caught and what you missed. The English is there afterwards. The underlined bits are grammar — tap one.');
 
   const rows = rdRows();
   const done = rdDoneRead();
@@ -4203,7 +4306,7 @@ function rdCard(r, score) {
 
   const p = document.createElement('p');
   p.className = 'rd-passage';
-  p.textContent = r.passage;
+  rdGrammarify(p, r.passage);
   body.appendChild(p);
 
   /* 낱말 풀이. 사전을 따로 켜지 않게 하려는 것이라 지문 바로 아래 둔다. */
@@ -4380,8 +4483,8 @@ const GUIDES = {
   reading: {
     emoji: '📝',
     steps: [
-      { ko: ['글을 하나 고르기', '길지 않은 글이에요. 끝까지 한 번 읽으세요.'],
-        en: ['Pick a passage', 'They are short. Read one all the way through.'] },
+      { ko: ['글을 하나 고르기', '길지 않은 글이에요. 끝까지 한 번 읽으세요. 밑줄 친 곳은 문법이니 눌러 보세요.'],
+        en: ['Pick a passage', 'They are short. Read one all the way through — the underlined bits are grammar, so tap one.'] },
       { ko: ['자기 말로 다시 쓰기', '외운 문장이 아니라, 이해한 것을 자기 말로 적어 봅니다.'],
         en: ['Say it back in your own words', 'Not a memorised sentence — what you actually understood.'] },
       { ko: ['짚은 것과 놓친 것', '무엇을 맞게 짚었고 무엇을 놓쳤는지 바로 알려 줘요.'],

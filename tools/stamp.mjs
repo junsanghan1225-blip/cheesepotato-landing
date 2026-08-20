@@ -29,6 +29,7 @@ const ASSETS = [
   'app.js', 'app.module.js', 'analytics.js',
   'courses.js', 'courses-grammar.js', 'courses-grammar-beginner.js',
   'glossary.js', 'gloss-find.js',
+  'grammar.js', 'grammar-find.js',
   /* 언어팩. 화면이 필요할 때만 부르지만, 부를 때 자국이 없으면 예전 것을
      쥔 채로 새 뜻풀이를 못 받는다. */
   'glossary-ja.js', 'glossary-zh.js', 'glossary-vi.js', 'glossary-ru.js',
@@ -45,7 +46,8 @@ const ASSETS = [
 /* 자국이 박히는 파일. index.html 의 script·link 와, 모듈끼리 부르는 import. */
 /* glossary.js 도 자국을 박는 자리다 — 그 안의 GLOSS_LANGS 가 언어팩 주소를
    들고 있다. 생성물이라 build-glossary 를 돌린 뒤에 stamp 를 돌려야 한다. */
-const HOSTS = ['index.html', 'app.module.js', 'courses.js', 'sentences.js', 'glossary.js'];
+const HOSTS = ['index.html', 'app.module.js', 'courses.js', 'sentences.js', 'glossary.js',
+               'grammar-find.js'];
 
 const V = /\?v=[0-9a-f]{8}/g;
 const read = (f) => readFileSync(join(ROOT, f), 'utf8');

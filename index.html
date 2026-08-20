@@ -82,8 +82,8 @@
      Pretendard 는 통짜(2.0MB) 대신 조각난 쪽을 쓴다 — 브라우저가
      unicode-range 를 보고 화면에 실제로 나온 글자가 든 조각만 받는다.
      그래서 저장소는 무거워졌지만 학습자가 받는 양은 오히려 줄었다. -->
-<link rel="stylesheet" href="vendor/pretendard.css?v=7ec460df">
-<link rel="stylesheet" href="vendor/pressstart2p.css?v=7ec460df">
+<link rel="stylesheet" href="vendor/pretendard.css?v=56bc1b8d">
+<link rel="stylesheet" href="vendor/pressstart2p.css?v=56bc1b8d">
 <style>
 /* ══════════════════════════════════════════════════════════════
    치즈감자 — 랜딩
@@ -2218,6 +2218,40 @@ body.nav-open { overflow:hidden; }
   padding:14px 16px; background:var(--surface-2); border-left:3px solid var(--orange);
   border-radius:0 var(--r) var(--r) 0;
 }
+/* 글 속의 문법. 낱말과 헷갈리지 않게 밑줄만 긋는다 — 배경색을 깔면
+   지문이 형광펜 자국이 되고, 정작 읽어야 할 글이 뒤로 물러난다. */
+.rd-g {
+  font:inherit; color:inherit; background:none; border:0; padding:0; margin:0;
+  cursor:pointer; border-bottom:1.5px dashed var(--orange);
+  /* 밑줄이 글자에 붙으면 받침과 겹쳐 읽기 힘들다. */
+  padding-bottom:1px;
+}
+.rd-g:hover, .rd-g.on { background:var(--tint); border-bottom-style:solid; }
+.rd-g:focus-visible { outline:2px solid var(--orange); outline-offset:2px; border-radius:3px; }
+
+/* 말풍선. 지문 위에 겹쳐 뜨므로 fixed 로 두고 자리는 코드가 잡는다 —
+   지문 안에 넣으면 첫 줄에서 잘리고, 스크롤에 딸려 흐른다. */
+.rd-g-pop {
+  position:fixed; z-index:60; width:max-content; max-width:min(300px, calc(100vw - 24px));
+  background:var(--ink-bg); color:#fff; border-radius:12px; padding:11px 13px 10px;
+  box-shadow:0 10px 30px rgba(27,21,18,.24); word-break:keep-all;
+}
+.rd-g-pop[hidden] { display:none; }
+.rd-g-name { font-size:14px; font-weight:700; letter-spacing:-.02em; }
+.rd-g-desc { font-size:12.5px; line-height:1.65; color:rgba(255,255,255,.78); margin:5px 0 0; }
+.rd-g-go {
+  margin-top:9px; font:inherit; font-size:12px; font-weight:600; cursor:pointer;
+  color:var(--ink); background:#fff; border:0; border-radius:999px; padding:5px 11px;
+}
+.rd-g-go:hover { background:#FFE9D6; }
+/* 꼬리. 말풍선이 어느 낱말을 가리키는지 이것 하나로 안다. */
+.rd-g-tail {
+  position:absolute; left:0; width:10px; height:10px; background:var(--ink-bg);
+  transform:rotate(45deg);
+}
+.rd-g-pop.up   .rd-g-tail { bottom:-5px; }
+.rd-g-pop.down .rd-g-tail { top:-5px; }
+
 .rd-words { display:flex; flex-wrap:wrap; gap:6px; margin-top:10px; }
 .rd-word {
   font-size:11.5px; color:var(--ink-3); padding:3px 9px; border-radius:999px;
@@ -4885,9 +4919,19 @@ body.nav-open { overflow:hidden; }
   <div class="cg-card" id="cgCard"></div>
 </div>
 
-<script src="app.js?v=7ec460df"></script>
-<script type="module" src="app.module.js?v=7ec460df"></script>
+<!-- 읽기 연습에서 문법을 눌렀을 때 뜨는 말풍선. 지문 위에 겹쳐야 해서
+     지문 안이 아니라 여기 둔다 — 안에 넣으면 첫 줄에서 잘린다.
+     속은 app.module.js 가 채운다. -->
+<div id="rdGPop" class="rd-g-pop" role="dialog" aria-live="polite" hidden>
+  <div class="rd-g-name" id="rdGName"></div>
+  <p class="rd-g-desc" id="rdGDesc"></p>
+  <button type="button" class="rd-g-go" id="rdGGo"></button>
+  <span class="rd-g-tail" id="rdGTail" aria-hidden="true"></span>
+</div>
 
-<script src="analytics.js?v=7ec460df" defer></script>
+<script src="app.js?v=56bc1b8d"></script>
+<script type="module" src="app.module.js?v=56bc1b8d"></script>
+
+<script src="analytics.js?v=56bc1b8d" defer></script>
 </body>
 </html>
