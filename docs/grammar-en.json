@@ -664,5 +664,221 @@
     "desc": "Passes on something you heard and asks for the listener's thoughts.",
     "form": "「-다고 하던데」 (Shortened: 「-다던데」)",
     "care": "Used for things heard from others, not witnessed firsthand. Frequently followed by a question or suggestion."
+  },
+  {
+    "id": "64-5",
+    "desc": "Expresses that doing a certain action resulted in a particular outcome or discovery.",
+    "form": "Verb stem + 「-았더니」 / 「-었더니」",
+    "care": "The first clause is what you did, and the second is the result. The subjects are opposite to 「-더니」."
+  },
+  {
+    "id": "64-6",
+    "desc": "Warns that continuing to do an action will eventually lead to a bad result.",
+    "form": "Verb stem + 「-다가는」",
+    "care": "Always followed by a negative outcome. Used to dissuade someone from doing something."
+  },
+  {
+    "id": "64-7",
+    "desc": "Indicates that, all things considered, a situation is practically equivalent to something.",
+    "form": "Verb stem + 「-는 셈이다」 / Adj stem + 「-(으)ㄴ 셈이다」",
+    "care": "Means it is not strictly identical, but it can be considered practically the same."
+  },
+  {
+    "id": "65-1",
+    "desc": "Indicates doing an action in advance and maintaining that resulting state.",
+    "form": "Verb stem + 「-아 놓다」 / 「-어 놓다」",
+    "care": "Almost identical to 「-아/어 두다」, but 「놓다」 is slightly more colloquial."
+  },
+  {
+    "id": "65-2",
+    "desc": "Indicates doing an action in advance for future use or purpose.",
+    "form": "Verb stem + 「-아 두다」 / 「-어 두다」",
+    "care": "Carries a sense of keeping the state longer than 「놓다」, as in 「보관해 두다」."
+  },
+  {
+    "id": "65-3",
+    "desc": "Indicates doing another action while maintaining the preceding state unchanged.",
+    "form": "Verb stem without final consonant + 「-ㄴ 채로」 / with final consonant + 「-은 채로」",
+    "care": "Usually used for situations where doing so is improper, as in 「불을 켠 채로 잤어요」."
+  },
+  {
+    "id": "65-4",
+    "desc": "Means doing something exactly as it is, or immediately after an action occurs.",
+    "form": "Verb stem + 「-는 대로」 / Past tense + 「-(으)ㄴ 대로」 / Noun + 「대로」",
+    "care": "Also used to mean 'as soon as', as in 「도착하는 대로 연락할게요」."
+  },
+  {
+    "id": "66-1",
+    "desc": "States that something leans toward a certain side rather than making a definitive claim.",
+    "form": "Verb stem + 「-는 편이다」 / Adj stem + 「-(으)ㄴ 편이다」",
+    "care": "Avoids blunt assertions, making it very common in self-introductions."
+  },
+  {
+    "id": "66-2",
+    "desc": "Attaches to a noun to create an adjective meaning having that quality or impression.",
+    "form": "Noun + 「스럽다」",
+    "care": "While 「답다」 means fitting the qualifications, 「스럽다」 means giving off that impression."
+  },
+  {
+    "id": "66-3",
+    "desc": "Attaches to a noun to indicate being truly worthy of or matching its name.",
+    "form": "Noun + 「답다」",
+    "care": "Mainly used for praise. 「어른답다」 means behaving up to the qualifications of an adult."
+  },
+  {
+    "id": "67-1",
+    "desc": "Emphasizes the extreme degree of a state or action beyond description.",
+    "form": "「얼마나」 + Verb/Adj stem + 「-(으)ㄴ지」 / 「-는지」 + 「모르다」",
+    "care": "Omitting the leading word 「얼마나」 changes the meaning. Always use them together."
+  },
+  {
+    "id": "67-2",
+    "desc": "Expresses that there is no other choice or alternative but to do that action.",
+    "form": "Verb/Adj stem without final consonant + 「-ㄹ 수밖에」 / with final consonant + 「-을 수밖에」 + 「없다」",
+    "care": "Means there is no other way. Used when making excuses or explaining inevitable circumstances."
+  },
+  {
+    "id": "67-3",
+    "desc": "Expresses that something is only that one thing and nothing more.",
+    "form": "Verb/Adj stem without final consonant + 「-ㄹ 뿐」 / with final consonant + 「-을 뿐」 + 「이다」",
+    "care": "Used to speak modestly or to draw a clear line."
+  },
+  {
+    "id": "68-1",
+    "desc": "Indicates a purpose or goal, meaning 'so that' a certain state or action is achieved.",
+    "form": "Verb/Adj stem + 「-게」",
+    "care": "Shorter and more casual than 「-도록」, making it much more frequent in spoken Korean."
+  },
+  {
+    "id": "69-1",
+    "desc": "Indicates that an action was completed and then reversed to the opposite state.",
+    "form": "Verb stem + 「-았다가」 / 「-었다가」",
+    "care": "While 「-다가」 means interrupted midway, this occurs after full completion. A reverse action follows."
+  },
+  {
+    "id": "69-3",
+    "desc": "Expresses completing an action entirely, accompanied by feelings of relief or regret.",
+    "form": "Verb stem + 「-아 버리다」 / 「-어 버리다」",
+    "care": "Carries two nuances: relief in 「끝내 버렸다」, or regret in 「잃어버렸다」."
+  },
+  {
+    "id": "69-4",
+    "desc": "Expresses that a situation ended up happening in the end, with strong lingering regret.",
+    "form": "Verb stem + 「-고 말다」",
+    "care": "Carries deeper regret than 「-아/어 버리다」. Used when things did not turn out as desired."
+  },
+  {
+    "id": "70-1",
+    "desc": "Expresses that doing or not doing the action makes no difference, so it is useless.",
+    "form": "Verb stem without final consonant + 「-나 마나」 / with final consonant + 「-으나 마나」",
+    "care": "Used when the result is completely predictable. That obvious result follows in the next clause."
+  },
+  {
+    "id": "70-2",
+    "desc": "Expresses that even if you try doing the action, it will be useless or in vain.",
+    "form": "Verb stem + 「-아 봤자」 / 「-어 봤자」",
+    "care": "Followed by words indicating futility. More colloquial than 「-(으)나 마나」."
+  },
+  {
+    "id": "71-2",
+    "desc": "Expresses regret about a past situation, imagining what would have happened if things went differently.",
+    "form": "Verb/Adj stem + 「-았더라면」 / 「-었더라면」 (Followed by 「-았/었을 텐데」)",
+    "care": "Used for past events that cannot be changed. Commonly followed by 「-았/었을 텐데」."
+  },
+  {
+    "id": "71-3",
+    "desc": "Indicates that something almost happened, but ultimately did not occur in reality.",
+    "form": "Verb stem without final consonant + 「-ㄹ 뻔하다」 / with final consonant + 「-을 뻔하다」",
+    "care": "Used for things that did not actually occur. Always used in the past tense."
+  },
+  {
+    "id": "72-1",
+    "desc": "Expresses personal regret, wishing that you had done a particular action.",
+    "form": "Verb stem without final consonant + 「-ㄹ걸」 / with final consonant + 「-을걸」 + 「그랬다」",
+    "care": "Shares a similar form with guessing 「-(으)ㄹ걸요」. Distinguish it by the ending 「그랬다」."
+  },
+  {
+    "id": "72-2",
+    "desc": "Expresses regret that you should have done something, but failed to do so.",
+    "form": "Verb/Adj stem + 「-았어야」 / 「-었어야」 + 「했는데」",
+    "care": "Carries a heavier sense of admitting your own fault than 「-(으)ㄹ걸 그랬다」."
+  },
+  {
+    "id": "73-1",
+    "desc": "Expresses a repeated habit or routine that you do from time to time.",
+    "form": "Verb stem + 「-곤 하다」 (Original: 「-고는 하다」)",
+    "care": "Use the past form 「-곤 했다」 for past habits: 「어릴 때 자주 놀곤 했어요」."
+  },
+  {
+    "id": "73-2",
+    "desc": "Used to modestly deflect a compliment or apologize in a humble way.",
+    "form": "Verb/Adj stem + 「-기는요」 / Noun + 「은/는요」",
+    "care": "Used as a humble reply when receiving a compliment. Speak in a gentle tone."
+  },
+  {
+    "id": "73-3",
+    "desc": "Indicates pretending to do or be something that is not true in reality.",
+    "form": "Verb stem + 「-는 척하다」 / Adj stem + 「-(으)ㄴ 척하다」 / Past tense + 「-(으)ㄴ 척하다」",
+    "care": "While 「-는 것 같다」 is a guess, 「-는 척하다」 is an intentional pretense."
+  },
+  {
+    "id": "1-1",
+    "desc": "Indicates that choosing the latter option is better than doing the former.",
+    "form": "Verb stem + 「-느니」",
+    "care": "Not used with the past tense marker 「-았/었-」."
+  },
+  {
+    "id": "1-2",
+    "desc": "Expresses choosing a better alternative since things have already ended up this way.",
+    "form": "Verb stem + 「-(으)ㄹ 바에야」",
+    "care": "Presupposes a predetermined situation. 「-느니」 compares two actions side by side."
+  },
+  {
+    "id": "1-3",
+    "desc": "Indicates that the outcome remains the same regardless of which option is chosen.",
+    "form": "Verb/Adj stem + 「-건 -건」",
+    "care": "Used by repeating the same word or pairing antonyms together."
+  },
+  {
+    "id": "1-4",
+    "desc": "Used to rephrase a statement, indicating that the latter expression is more accurate than the former.",
+    "form": "Verb stem + 「-(느)ㄴ다기보다는」",
+    "care": "Ideal for softening and refining the other person's wording."
+  },
+  {
+    "id": "2-1",
+    "desc": "A colloquial particle pointing to the person spoken to. Used among closer acquaintances than 「에게」.",
+    "form": "Noun (Person) + 「보고」",
+    "care": "Used only in spoken Korean. Use 「에게」 in formal settings."
+  },
+  {
+    "id": "2-2",
+    "desc": "Used to emphasize and reiterate what you already said.",
+    "form": "Verb stem + 「-(느)ㄴ다니까」",
+    "care": "Repeats the same statement to express frustration or strong emphasis."
+  },
+  {
+    "id": "2-3",
+    "desc": "Used to ask the listener for confirmation regarding a fact you heard.",
+    "form": "Verb stem + 「-(느)ㄴ다면서(요)」",
+    "care": "Since it asks for confirmation, pronounce it with a rising intonation at the end."
+  },
+  {
+    "id": "2-4",
+    "desc": "A formal expression used to state the source of information.",
+    "form": "Noun + 「에 의하면」",
+    "care": "The following sentence naturally ends with a quoted citation form."
+  },
+  {
+    "id": "3-1",
+    "desc": "A written nominalizer that turns sentences into noun forms, commonly used in public notices and reports.",
+    "form": "Verb/Adj stem + 「-(으)ㅁ」",
+    "care": "Used in written public notices and reports. In spoken Korean, 「-는 것」 is more natural."
+  },
+  {
+    "id": "3-3",
+    "desc": "Used in formal contexts to refer to the preceding content and continue the statement.",
+    "form": "Verb stem + 「-는 바」",
+    "care": "Mainly used in formal written documents."
   }
 ]
