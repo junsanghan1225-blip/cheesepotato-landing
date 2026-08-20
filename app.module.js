@@ -13,20 +13,21 @@
    어느 날 갑자기 다른 코드가 실려 왔다.
    이제 vendor/ 안에 받아 두고 CSP 로 바깥을 막는다. 버전을 올릴 때는
    tools/vendor.mjs 의 PIN 을 고치고 다시 돌린다. */
-import { createClient } from './vendor/supabase-js.js?v=71380a33';
+import { createClient } from './vendor/supabase-js.js?v=bfb9ba59';
 // 앱(package.json)과 같은 줄기를 쓴다. 갈리면 앱에서는 읽히는 파일이
 // 여기서는 안 읽히는(또는 그 반대) 일이 생긴다.
-import * as XLSX from './vendor/xlsx.js?v=71380a33';
+import * as XLSX from './vendor/xlsx.js?v=bfb9ba59';
 // 커리큘럼. 내용과 엔진을 갈라 두면 글을 고치다 화면을 깨지 않는다.
-import { COURSES } from './courses.js?v=71380a33';
-import { SB_CATS, SB_MORE, SB_SEED } from './sentences.js?v=71380a33';
+import { COURSES } from './courses.js?v=bfb9ba59';
+import { GLOSSARY } from './glossary.js?v=bfb9ba59';
+import { SB_CATS, SB_MORE, SB_SEED } from './sentences.js?v=bfb9ba59';
 // 읽기 연습 지문. 길이(short·long) × 급수 여섯 칸.
-import { READING } from './reading.js?v=71380a33';
+import { READING } from './reading.js?v=bfb9ba59';
 // TOPIK 유형 연습문제. 기출이 아니라 자체 제작이다.
-import { TOPIK_READING, TOPIK_BLUEPRINT, TOPIK_SLOTS } from './topik.js?v=71380a33';
-import { TOPIK2_READING, TOPIK2_BLUEPRINT, TOPIK2_SLOTS } from './topik2.js?v=71380a33';
+import { TOPIK_READING, TOPIK_BLUEPRINT, TOPIK_SLOTS } from './topik.js?v=bfb9ba59';
+import { TOPIK2_READING, TOPIK2_BLUEPRINT, TOPIK2_SLOTS } from './topik2.js?v=bfb9ba59';
 // 숫자 게임의 읽기와 문제 만들기. 화면을 모르는 순수 계산이라 따로 뒀다.
-import { makeRound } from './numbers.js?v=71380a33';
+import { makeRound } from './numbers.js?v=bfb9ba59';
 
 // 이 키는 공개돼도 되는 값이다. 이미 APK 안에 같은 것이 들어 있고,
 // 접근을 막는 건 키가 아니라 테이블에 걸린 RLS 다.
@@ -2683,13 +2684,26 @@ const tqUnkLoad = () => {
     /* localStorage 는 학습자가 직접 고칠 수 있는 자리다. 여기서 나온 값이
        화면과 DB 로 바로 가므로 모양이 맞는 것만 들인다. */
     for (const r of raw) {
+      /* key 는 지문에서 누른 꼴이고 word 는 단어장에 담길 꼴이다. 둘이
+         달라질 수 있게 되면서(「먹었습니다」를 눌러도 「먹다」로 담는다)
+         값만 적어서는 안 되고 열쇠도 함께 적는다. key 가 없는 것은 그
+         전에 적힌 기록이라 word 를 열쇠로 쓴다. */
       const w = tqUnkNorm(r?.word ?? '');
-      if (w && w.length <= 40) tqUnknown.set(w, { word: w, ex: String(r?.ex ?? '').slice(0, 300) });
+      const k = tqUnkNorm(r?.key ?? '') || w;
+      if (!k || k.length > 40) continue;
+      tqUnknown.set(k, {
+        word: w || k,
+        ex: String(r?.ex ?? '').slice(0, 300),
+        mean: String(r?.mean ?? '').slice(0, 120),
+      });
     }
   } catch (e) { /* 못 읽으면 빈 채로 시작한다 */ }
 };
 const tqUnkStore = () => {
-  try { localStorage.setItem(TQ_UNK_KEY, JSON.stringify([...tqUnknown.values()])); } catch (e) {}
+  try {
+    localStorage.setItem(TQ_UNK_KEY, JSON.stringify(
+      [...tqUnknown.entries()].map(([key, v]) => ({ key, ...v }))));
+  } catch (e) {}
 };
 tqUnkLoad();
 
@@ -2767,7 +2781,13 @@ function tqWordify(el, text, mark) {
     span.title = t('모르는 낱말로 표시', 'Mark as unknown');
     span.addEventListener('click', () => {
       if (tqUnknown.has(key)) tqUnknown.delete(key);
-      else tqUnknown.set(key, { word: key, ex: tqSentAt(s, here) });
+      else {
+        /* 누른 꼴이 「먹었습니다」여도 단어장에는 「먹다」로 담는다.
+           활용형이 그대로 쌓이면 같은 말이 열 번 들어간다. 지문에서
+           켜고 끄는 열쇠는 누른 꼴 그대로 두어야 다시 눌러 끌 수 있다. */
+        const g = tqGloss(key);
+        tqUnknown.set(key, { word: g.head || key, ex: tqSentAt(s, here), mean: g.meaning });
+      }
       span.classList.toggle('on', tqUnknown.has(key));
       tqUnkStore();
       /* 같은 낱말이 화면 안 다른 곳에도 있으면 같이 켜고 끈다.
@@ -2794,6 +2814,50 @@ const tqUnkWidth = (s) => {
   return `${Math.max(3, n + 1)}ch`;
 };
 
+/* ── 뜻풀이 ───────────────────────────────────────────────────
+   눌러 담은 낱말의 뜻 칸이 늘 비어 있었다. 빈 칸을 스무 개 받아 놓고
+   하나씩 채우는 사람은 없다 — 그대로 굳은 단어장이 된다.
+
+   사전을 들고 다니는 까닭은 번역기를 부를 수가 없어서다. 열쇠가 있어야
+   하는데 이 사이트는 정적이라 열쇠를 둘 데가 없다(코드에 넣으면 그대로
+   공개된다). 대신 **우리 지문에 나오는 낱말**만 미리 적어 둔다. 지문에
+   없는 말은 눌릴 일이 없으니 온 세상 낱말을 담을 까닭도 없다.
+
+   못 찾은 낱말은 비워 둔다. 지어내 채우면 학습자가 그 틀린 뜻을 외운다 —
+   빈 칸은 채우면 되지만 틀린 뜻은 외우고 나서야 안다. */
+const LANG_CODE = { '한국어': 'ko', '영어': 'en', '일본어': 'ja', '중국어': 'zh',
+  '스페인어': 'es', '프랑스어': 'fr', '독일어': 'de', '이탈리아어': 'it',
+  '러시아어': 'ru', '베트남어': 'vi', '태국어': 'th', '포르투갈어': 'pt',
+  '인도네시아어': 'id', '아랍어': 'ar' };
+
+const TQ_MEAN_KEY = 'cp-mean-lang';
+/* 기본은 영어다. 로그인 전에도 뜻이 붙어야 하고, 사전이 지금 확실히 가진
+   말이 영어뿐이다. */
+let tqMeanLang = 'en';
+try { const v = localStorage.getItem(TQ_MEAN_KEY); if (v) tqMeanLang = v; } catch (e) {}
+
+/* 단어장 설정의 모국어를 따라간다. 설정을 열지 않아도 알아야 해서 여기서
+   따로 한 번 읽고, 다음부터는 기기에 적어 둔 것을 쓴다. */
+async function tqLoadMeanLang() {
+  try {
+    const { data: { session } } = await sb.auth.getSession();
+    if (!session) return;
+    const { data } = await sb.from('settings').select('native_lang')
+      .eq('user_id', session.user.id).limit(1).maybeSingle();
+    tqMeanLang = LANG_CODE[data?.native_lang] || 'en';
+    localStorage.setItem(TQ_MEAN_KEY, tqMeanLang);
+  } catch (e) { /* 못 읽으면 영어로 간다 */ }
+}
+tqLoadMeanLang();
+
+/* 낱말 하나의 뜻과 표제어. 고른 말에 없으면 영어로 물러선다 — 뜻이 아예
+   없는 것보다 읽을 수 있는 말로라도 있는 편이 낫다. */
+function tqGloss(word) {
+  const hit = GLOSSARY[tqUnkNorm(word)];
+  if (!hit) return { meaning: '', head: '' };
+  return { meaning: hit[tqMeanLang] || hit.en || '', head: hit.head || '' };
+}
+
 /* 낱말 칸 하나를 그린다. 눌러서 지우는 자리였던 것을, 클릭하면 바로
    고칠 수 있는 입력칸으로 바꾼다. 지우는 단추(×)는 텍스트와 겹치지
    않게 따로 둔다 — 안 그러면 고치려고 누른 게 지우기가 된다. */
@@ -2815,12 +2879,29 @@ function tqUnkRow(it, wrap) {
        없으므로 그냥 지나간다. */
     tqUnknown.delete(it.key);
     if (!next) { tqUnkStore(); tqUnkDraw(); return; }
-    if (next === it.key) { tqUnknown.set(it.key, it); tqUnkStore(); return; }
+    /* 낱말을 고치면 뜻도 다시 찾는다. 다만 **손으로 적은 뜻은 건드리지
+       않는다** — 「아침을」을 「아침」으로 다듬었다고 학습자가 적어 둔 뜻이
+       사라지면, 다듬는 일 자체를 안 하게 된다.
+       사전이 준 그대로였을 때만(=손대지 않았을 때만) 갈아 끼운다. */
+    const auto = tqGloss(it.key).meaning;
+    const typed = mean.value.trim();
+    const keep = typed && typed !== auto;
+    const g = tqGloss(next);
+    if (next === it.key) {
+      tqUnknown.set(it.key, { ...it, mean: keep ? typed : g.meaning });
+      tqUnkStore();
+      tqUnkDraw();
+      return;
+    }
     /* 이미 있는 낱말로 고치면 하나로 합쳐진다 — 먼저 담긴 예문을 남긴다.
        나중 것으로 덮으면 「아침을」과 「아침」을 각각 다른 문장에서 눌러
        놓고 하나로 합쳤을 때 먼저 고른 문장이 조용히 사라진다. */
     const had = tqUnknown.get(next);
-    tqUnknown.set(next, { word: next, ex: had ? had.ex : it.ex });
+    tqUnknown.set(next, {
+      word: g.head || next,
+      ex: had ? had.ex : it.ex,
+      mean: keep ? typed : (had?.mean || g.meaning),
+    });
     tqUnkStore();
     tqUnkDraw();
   };
@@ -2830,6 +2911,24 @@ function tqUnkRow(it, wrap) {
     if (e.key === 'Escape') { input.value = it.word; input.style.width = tqUnkWidth(it.word); input.blur(); }
   });
   row.appendChild(input);
+
+  /* 뜻 칸. 사전에 있으면 채워서 내놓고, 없으면 비워 둔다. 담기 전에
+     여기서 고칠 수 있어야 한다 — 사전이 늘 맞을 수는 없고, 지문에서
+     쓰인 뜻이 사전의 첫 뜻이 아닐 때도 많다. */
+  const mean = document.createElement('input');
+  mean.className = 'tq-unk-mean';
+  mean.value = it.mean || '';
+  mean.placeholder = t('뜻', 'meaning');
+  mean.setAttribute('aria-label', t('뜻 고치기', 'Edit meaning'));
+  mean.autocomplete = 'off';
+  mean.addEventListener('blur', () => {
+    const cur = tqUnknown.get(it.key);
+    if (!cur) return;
+    cur.mean = mean.value.trim().slice(0, 120);
+    tqUnkStore();
+  });
+  mean.addEventListener('keydown', (e) => { if (e.key === 'Enter') { e.preventDefault(); mean.blur(); } });
+  row.appendChild(mean);
 
   const del = document.createElement('button');
   del.type = 'button';
@@ -2853,7 +2952,7 @@ function tqUnkRow(it, wrap) {
 /* 결과 화면에 모아 보여 준다. */
 function tqUnkDraw() {
   const box = $('tqUnk');
-  const list = [...tqUnknown.entries()].map(([key, v]) => ({ key, word: v.word, ex: v.ex }));
+  const list = [...tqUnknown.entries()].map(([key, v]) => ({ key, word: v.word, ex: v.ex, mean: v.mean }));
   box.classList.toggle('hidden', list.length === 0);
   if (!list.length) return;
 
@@ -2862,6 +2961,21 @@ function tqUnkDraw() {
   h.className = 'tq-bd-h';
   h.textContent = t(`몰랐던 낱말 ${list.length}개`, `${list.length} words you marked`);
   box.appendChild(h);
+
+  /* 몇 개에 뜻이 붙었는지 적어 둔다. 사전이 우리 지문에 나오는 낱말만
+     담고 있어 늘 다 채워지지는 않는데, 아무 말이 없으면 「왜 어떤 건
+     비어 있지」가 된다. 빈 것은 직접 적으면 된다는 것도 여기서 알린다. */
+  const filled = list.filter((x) => x.mean).length;
+  if (filled < list.length) {
+    const s = document.createElement('p');
+    s.className = 'tq-bd-tip';
+    s.textContent = filled
+      ? t(`${list.length}개 가운데 ${filled}개에 뜻을 채웠어요. 나머지는 직접 적어 주세요.`,
+          `${filled} of ${list.length} came with a meaning — fill in the rest yourself.`)
+      : t('아직 뜻이 없는 낱말이에요. 담기 전에 직접 적을 수 있어요.',
+          'No meanings found for these. You can type them in before adding.');
+    box.appendChild(s);
+  }
 
   const wrap = document.createElement('div');
   wrap.className = 'tq-unk-words';
@@ -2874,7 +2988,7 @@ function tqUnkDraw() {
   add.className = 'tq-unk-add';
   add.textContent = '+ ' + t('낱말 추가', 'Add word');
   add.addEventListener('click', () => {
-    const input = tqUnkRow({ key: '⁣new' + Date.now(), word: '', ex: '' }, wrap);
+    const input = tqUnkRow({ key: '⁣new' + Date.now(), word: '', ex: '', mean: '' }, wrap);
     add.before(input.closest('.tq-unk-w'));
     input.focus();
   });
@@ -2997,9 +3111,10 @@ async function tqUnkSave(where) {
     if (fresh.length) {
       const { error: e2 } = await sb.from('words').insert(fresh.map((x) => ({
         word: x.word,
-        /* 뜻은 비워 둔다. 여기서 지어내 넣으면 학습자가 그 잘못된 뜻을
-           외우게 된다 — 빈 칸은 채우면 되지만 틀린 뜻은 지워야 한다. */
-        meaning: '',
+        /* 사전에 있는 낱말이면 뜻이 채워져 온다. 없으면 빈 칸 그대로 둔다 —
+           여기서 지어내 넣으면 학습자가 그 틀린 뜻을 외우게 된다. 빈 칸은
+           채우면 되지만 틀린 뜻은 외우고 나서야 안다. */
+        meaning: (x.mean || '').slice(0, 120),
         example: x.ex || null,
         tag: null,
         difficulty: 1,
@@ -3977,8 +4092,8 @@ const GUIDES = {
         en: ['Pick the exam and level first', 'TOPIK I (levels 1–2) or TOPIK II (levels 3–6), then the level you want to practise.'] },
       { ko: ['연습은 바로 해설, 모의고사는 끝나고 성적표', '「전체 풀기」와 유형별 연습은 문제마다 왜 그런지 바로 알려 줘요. 「모의고사 한 회」는 시간을 재고, 다 풀어야 성적표가 나옵니다.'],
         en: ['Practice explains as you go — the mock waits', 'Full run and the per-type drills tell you why right away. The full mock is timed and only shows the result sheet at the end.'] },
-      { ko: ['모르는 낱말은 짚어 두세요', '지문에서 고른 말이 단어장으로 갑니다. 「아침을」은 「아침」으로 다듬고, 「마실 수 있어요」는 「마시다」와 「-ㄹ 수 있어요」로 나눠 담을 수 있어요.'],
-        en: ['Mark the words you do not know', 'Picked words go to your wordbook — and you can trim or split them first.'] },
+      { ko: ['모르는 낱말은 짚어 두세요', '지문에서 고른 말이 뜻과 함께 단어장으로 갑니다. 「아침을」은 「아침」으로 다듬고, 「마실 수 있어요」는 「마시다」와 「-ㄹ 수 있어요」로 나눠 담을 수 있어요.'],
+        en: ['Mark the words you do not know', 'Picked words go to your wordbook with their meaning — and you can trim, split or reword them first.'] },
     ],
     warn: { ko: '⚠️ 모의고사를 푸는 동안에는 화면을 떠나지 마세요. 나가면 지금까지 푼 것이 기록에 남지 않아요.',
             en: '⚠️ Do not leave the screen during a mock exam — what you have answered so far will not be saved.' },

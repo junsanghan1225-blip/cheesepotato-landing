@@ -28,6 +28,7 @@ const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const ASSETS = [
   'app.js', 'app.module.js', 'analytics.js',
   'courses.js', 'courses-grammar.js', 'courses-grammar-beginner.js',
+  'glossary.js',
   'courses-grammar-detailed.js', 'numbers.js', 'reading.js',
   'sentences.js', 'sentences-beginner.js', 'sentences-intermediate.js',
   'topik.js', 'topik2.js',

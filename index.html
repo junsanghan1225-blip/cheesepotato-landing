@@ -82,8 +82,8 @@
      Pretendard 는 통짜(2.0MB) 대신 조각난 쪽을 쓴다 — 브라우저가
      unicode-range 를 보고 화면에 실제로 나온 글자가 든 조각만 받는다.
      그래서 저장소는 무거워졌지만 학습자가 받는 양은 오히려 줄었다. -->
-<link rel="stylesheet" href="vendor/pretendard.css?v=71380a33">
-<link rel="stylesheet" href="vendor/pressstart2p.css?v=71380a33">
+<link rel="stylesheet" href="vendor/pretendard.css?v=bfb9ba59">
+<link rel="stylesheet" href="vendor/pressstart2p.css?v=bfb9ba59">
 <style>
 /* ══════════════════════════════════════════════════════════════
    치즈감자 — 랜딩
@@ -2265,32 +2265,43 @@ body.nav-open { overflow:hidden; }
 .tq-mk { text-decoration:underline; text-decoration-thickness:1.5px; text-underline-offset:4px; }
 
 .tq-unk { max-width:552px; margin:26px auto 0; text-align:left; }
-.tq-unk-words { display:flex; flex-wrap:wrap; gap:7px; margin:12px 0 14px; }
-/* 낱말 하나가 곧 지우는 단추다. 옆에 작은 × 를 따로 두면 좁은 화면에서
-   손가락보다 작아져서 엉뚱한 것이 지워진다. */
+/* 뜻 칸이 붙으면서 알약을 죽 늘어놓던 것을 줄로 세운다. 「to be
+   convenient」 같은 뜻이 들어가면 알약 하나가 화면 폭을 다 먹어서, 어차피
+   한 줄에 하나씩 서게 된다 — 그럴 바에는 줄을 맞춰 세우는 편이 읽기 쉽고
+   뜻 칸끼리 세로로 정렬된다. */
+.tq-unk-words { display:flex; flex-direction:column; gap:7px; margin:12px 0 14px; }
 .tq-unk-w {
-  display:inline-flex; align-items:center; gap:2px; padding:7px 8px 7px 12px;
+  display:flex; align-items:center; gap:9px; padding:7px 8px 7px 13px;
   font-size:14.5px; font-weight:600; color:var(--ink);
-  background:var(--surface); border:1px solid rgba(255,138,61,.4); border-radius:999px;
+  background:var(--surface); border:1px solid rgba(255,138,61,.4); border-radius:var(--r);
   word-break:keep-all;
 }
 .tq-unk-w:focus-within { border-color:var(--orange); box-shadow:0 0 0 3px rgba(255,145,77,.16); }
 /* 낱말은 그대로 고칠 수 있는 칸이다. 어절이 「마실」처럼 잘려 나오면
    여기서 「마시다」로 고치고, 「-ㄹ 수 있어요」는 + 로 따로 담는다. */
 .tq-unk-in {
-  border:none; background:none; padding:0; margin:0; min-width:1.5ch;
-  font:inherit; color:inherit; text-align:center;
+  border:none; background:none; padding:0; margin:0; min-width:1.5ch; flex:none;
+  font:inherit; color:inherit; text-align:left;
 }
 .tq-unk-in:focus { outline:none; }
+/* 뜻 칸. 사전에 있으면 채워져 나오고 없으면 비어 있다. 낱말보다 옅게 두어
+   무엇이 낱말이고 무엇이 뜻인지 한눈에 갈리게 한다. */
+.tq-unk-mean {
+  flex:1 1 auto; min-width:0; border:none; background:none; padding:0 0 0 9px;
+  border-left:1px solid var(--line-2);
+  font:inherit; font-weight:400; font-size:13.5px; color:var(--ink-2);
+}
+.tq-unk-mean:focus { outline:none; }
+.tq-unk-mean::placeholder { color:var(--ink-3); opacity:.7; }
 .tq-unk-del {
   border:none; background:none; cursor:pointer; padding:0 4px;
   color:var(--ink-3); font-weight:700; font-size:15px; line-height:1;
 }
 .tq-unk-del:hover { color:var(--red); }
 .tq-unk-add {
-  display:inline-flex; align-items:center; padding:7px 13px;
+  display:inline-flex; align-items:center; justify-content:center; padding:9px 13px;
   font-size:13.5px; font-weight:600; color:var(--ink-3);
-  background:none; border:1px dashed var(--line); border-radius:999px; cursor:pointer;
+  background:none; border:1px dashed var(--line); border-radius:var(--r); cursor:pointer;
 }
 .tq-unk-add:hover { color:var(--orange-deep); border-color:var(--orange); }
 .tq-unk-btns { display:flex; gap:8px; flex-wrap:wrap; }
@@ -4835,9 +4846,9 @@ body.nav-open { overflow:hidden; }
   <div class="cg-card" id="cgCard"></div>
 </div>
 
-<script src="app.js?v=71380a33"></script>
-<script type="module" src="app.module.js?v=71380a33"></script>
+<script src="app.js?v=bfb9ba59"></script>
+<script type="module" src="app.module.js?v=bfb9ba59"></script>
 
-<script src="analytics.js?v=71380a33" defer></script>
+<script src="analytics.js?v=bfb9ba59" defer></script>
 </body>
 </html>
