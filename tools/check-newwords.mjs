@@ -33,12 +33,33 @@ if (!file) { console.error('쓰기: node tools/check-newwords.mjs <파일.json>'
 
    없어도 돌아간다. 그때는 이미 검토한 자료에 안 나온 말을 모두 보여 주고,
    사람이 눈으로 훑는다. */
-const DICT_PATH = new URL('../data/korean-words.txt', import.meta.url);
+const DICT_NAMES = ['korean-words.json', 'korean-words.txt'];
 let dict = null;
-if (existsSync(DICT_PATH)) {
-  dict = new Set(readFileSync(DICT_PATH, 'utf8').split('\n')
-    .map((l) => l.trim())
-    .filter((l) => l && !l.startsWith('#')));
+let dictFrom = '';
+for (const name of DICT_NAMES) {
+  const at = new URL(`../data/${name}`, import.meta.url);
+  if (!existsSync(at)) continue;
+  const raw = readFileSync(at, 'utf8');
+  dictFrom = name;
+  if (name.endsWith('.json')) {
+    /* 사전 파일의 모양은 받는 곳마다 다르다. 낱말만 늘어놓은 배열일 수도,
+       {word: …} 꼴의 객체 배열일 수도, 낱말을 열쇠로 둔 객체일 수도 있다.
+       셋 다 받아 준다 — 자료를 우리 모양에 맞추라고 하는 것보다 우리가
+       맞추는 편이 빠르고, 틀릴 데도 적다. */
+    const j = JSON.parse(raw);
+    const pick = (v) => (typeof v === 'string' ? v
+      : String(v?.word ?? v?.entry ?? v?.표제어 ?? v?.lemma ?? v?.name ?? ''));
+    const list = Array.isArray(j) ? j.map(pick) : Object.keys(j);
+    dict = new Set(list.map((w) => w.trim()).filter(Boolean));
+  } else {
+    dict = new Set(raw.split('\n').map((l) => l.trim()).filter((l) => l && !l.startsWith('#')));
+  }
+  break;
+}
+/* 사전 표제어에는 「먹다01」「가:다」처럼 번호와 장단음 표시가 붙어 오기도
+   한다. 한글만 남긴다 — 안 그러면 어느 낱말도 안 맞는다. */
+if (dict) {
+  dict = new Set([...dict].map((w) => w.replace(/[^가-힣]/g, '')).filter((w) => w.length >= 1));
 }
 
 /* 조사를 뗀다. 「봉수아나」와 「봉수아」를 따로 세면 목록만 길어진다.
@@ -146,7 +167,7 @@ const more = fresh.filter((x) => x.ids.length > 1);
 
 console.log(`문항 ${rows.length}개 · ${dict ? '사전에 없는 낱말' : '처음 보는 낱말'} ${fresh.length}개`);
 console.log(dict
-  ? `(data/korean-words.txt 의 표제어 ${dict.size}개와 이미 검토한 자료에 견줬다)\n`
+  ? `(data/${dictFrom} 의 표제어 ${dict.size}개와 이미 검토한 자료에 견줬다)\n`
   : '(이미 검토한 자료 — 기존 문항·예문·뜻풀이 사전 — 에 한 번도 안 나온 말)\n');
 
 if (once.length) {
@@ -163,6 +184,6 @@ if (more.length) {
    아니라 새 지문이라는 뜻이다. 사람이 보라는 말만 하고 물러난다. */
 console.log('\n※ 이 목록은 「틀렸다」가 아니라 「눈으로 보라」는 뜻이다.');
 if (!dict) {
-  console.log('※ data/korean-words.txt (국어사전 표제어, 한 줄에 하나) 를 넣으면');
+  console.log('※ data/korean-words.json 또는 .txt (국어사전 표제어) 를 넣으면');
   console.log('   이 목록이 「사전에 없는 말」만 남아 몇 개로 줄어든다.');
 }
