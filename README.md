@@ -59,7 +59,7 @@ GitHub Pages 는 캐시 머리글을 우리가 못 정한다. `app.js` 를 그�
 |---|---|---|
 | `topik2.js` | `tools/build-topik2.mjs` | `docs/topik2-all50.json` |
 | `sentence/` · `sitemap.xml` | `tools/build-pages.mjs` | `sentences*.js` |
-| `glossary.js` | `tools/build-glossary.mjs` | `docs/glossary.json` (+ `glossary-krdict.json`) |
+| `glossary.js` · `glossary-<말>.js` | `tools/build-glossary.mjs` | `docs/glossary.json` (+ `glossary-krdict.json`) |
 | `docs/glossary-krdict.json` | `tools/build-krdict-glossary.mjs` | 국립국어원 내려받기 자료 |
 | `favicon-32.png` · `icon-180.png` | `tools/build-icons.py` | `logo.png` |
 | `privacy.html` | `tools/build-privacy.js` | 앱 저장소의 `docs/privacy-policy.md` |
@@ -110,11 +110,27 @@ GitHub Pages 는 캐시 머리글을 우리가 못 정한다. `app.js` 를 그�
   뜻을 외운다 — 빈 칸은 채우면 되지만 틀린 뜻은 외우고 나서야 안다.
 - 활용형을 `alt` 로 함께 적어 둔다. 「먹었습니다」를 눌러도 「먹다」로 담긴다.
   활용형이 그대로 쌓이면 단어장이 같은 말로 열 줄이 된다.
+- `alt` 로 다 못 적는다. 사전은 「먹다」로 적혀 있는데 지문은 언제나
+  「먹었습니다」다. **`gloss-find.js` 가 토씨와 어미를 떼어** 사전에 있는 꼴로
+  되돌린다. 뗀 결과가 **사전에 실제로 있을 때만** 인정하고, **덜 뗀 쪽이
+  이긴다** — 「가지고」는 「가지다」에서 멈추지 「가다」까지 가지 않는다.
+  화면과 검사기가 이 파일 하나를 같이 쓴다.
+- `only: true` 는 「사전이 이 낱말에 단 뜻은 딴말이다」는 표시다. 사전의
+  「이」는 louse(이[蟲])고 「씨」는 seed(씨앗)다. 우리 지문에서는 「이 상자」의
+  이, 「민수 씨」의 씨다. 영어 표는 우리 것이 이기지만 이 표시가 없으면
+  **언어팩에서 「しらみ」가 그대로 나간다.**
 - 담기 전에 결과 화면에서 뜻을 고칠 수 있다. **손으로 적은 뜻은 낱말을
   다듬어도 안 지워진다** — 지워지면 다듬는 일 자체를 안 하게 된다.
 - 지금 얼마나 덮는지는 `node tools/check-glossary.mjs` 가 말해 준다.
   가짓수보다 **나온 횟수**로 센 쪽을 보면 된다. 학습자가 마주치는 것은
-  자주 나오는 낱말이다.
+  자주 나오는 낱말이다. 지금은 가짓수 87% · 횟수 93% 다.
+  `build-glossary.mjs` 를 먼저 돌려야 한다 — 검사기가 구운 `glossary.js` 를
+  읽는다.
+
+  한때 이 숫자가 99% 였다. 앞머리 한 글자만 맞아도 닿은 것으로 세고 있었고,
+  화면은 그때 정확히 일치하는 것만 찾아서 **실제로는 47%** 였다. 지금은
+  검사기가 화면과 같은 `gloss-find.js` 를 불러 쓴다. **재는 쪽과 하는 쪽이
+  갈라지면 숫자가 일을 안 하고 위로를 한다.**
 
 다국어 뜻풀이는 국립국어원 「한국어기초사전」에서 가져온다. **CC BY-SA 2.0 KR
 이라 상업적으로 써도 되지만 출처를 밝혀야 하고, 거기서 나온 자료는 같은

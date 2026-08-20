@@ -13,21 +13,22 @@
    어느 날 갑자기 다른 코드가 실려 왔다.
    이제 vendor/ 안에 받아 두고 CSP 로 바깥을 막는다. 버전을 올릴 때는
    tools/vendor.mjs 의 PIN 을 고치고 다시 돌린다. */
-import { createClient } from './vendor/supabase-js.js?v=1a30814f';
+import { createClient } from './vendor/supabase-js.js?v=7ec460df';
 // 앱(package.json)과 같은 줄기를 쓴다. 갈리면 앱에서는 읽히는 파일이
 // 여기서는 안 읽히는(또는 그 반대) 일이 생긴다.
-import * as XLSX from './vendor/xlsx.js?v=1a30814f';
+import * as XLSX from './vendor/xlsx.js?v=7ec460df';
 // 커리큘럼. 내용과 엔진을 갈라 두면 글을 고치다 화면을 깨지 않는다.
-import { COURSES } from './courses.js?v=1a30814f';
-import { GLOSSARY } from './glossary.js?v=1a30814f';
-import { SB_CATS, SB_MORE, SB_SEED } from './sentences.js?v=1a30814f';
+import { COURSES } from './courses.js?v=7ec460df';
+import { GLOSSARY, GLOSS_LANGS } from './glossary.js?v=7ec460df';
+import { glossFind } from './gloss-find.js?v=7ec460df';
+import { SB_CATS, SB_MORE, SB_SEED } from './sentences.js?v=7ec460df';
 // 읽기 연습 지문. 길이(short·long) × 급수 여섯 칸.
-import { READING } from './reading.js?v=1a30814f';
+import { READING } from './reading.js?v=7ec460df';
 // TOPIK 유형 연습문제. 기출이 아니라 자체 제작이다.
-import { TOPIK_READING, TOPIK_BLUEPRINT, TOPIK_SLOTS } from './topik.js?v=1a30814f';
-import { TOPIK2_READING, TOPIK2_BLUEPRINT, TOPIK2_SLOTS } from './topik2.js?v=1a30814f';
+import { TOPIK_READING, TOPIK_BLUEPRINT, TOPIK_SLOTS } from './topik.js?v=7ec460df';
+import { TOPIK2_READING, TOPIK2_BLUEPRINT, TOPIK2_SLOTS } from './topik2.js?v=7ec460df';
 // 숫자 게임의 읽기와 문제 만들기. 화면을 모르는 순수 계산이라 따로 뒀다.
-import { makeRound } from './numbers.js?v=1a30814f';
+import { makeRound } from './numbers.js?v=7ec460df';
 
 // 이 키는 공개돼도 되는 값이다. 이미 APK 안에 같은 것이 들어 있고,
 // 접근을 막는 건 키가 아니라 테이블에 걸린 RLS 다.
@@ -2788,7 +2789,10 @@ const tqWordKey = (s) => String(s).replace(/^[^0-9A-Za-z가-힣]+|[^0-9A-Za-z가
 /* 문단에 붙인 번호. (가)(나)(다)(라) 처럼 괄호 안에 딱 한 자만 든 것이다.
    지문에서 낱말처럼 보이지만 담을 말이 아니다.
    한 자로 좁힌 이유 — 두 자까지 막으면 (서울) 같은 진짜 말도 같이 막힌다. */
-const TQ_MARKER = /^[(（[［〔<〈【{][0-9A-Za-z가-힣][)）\]］〕>〉】}]$/;
+/* 「(나)-(다)-(가)-(라)」처럼 이어 붙인 것도 함께 막는다. 순서 배열 문항의
+   보기가 통째로 한 어절이라, 안 막으면 「나다가라」라는 없는 말이 낱말로
+   잡혀 단어장에 담긴다. */
+const TQ_MARKER = /^([(（[［〔<〈【{][0-9A-Za-z가-힣][)）\]］〕>〉】}][-–—→,\s]*)+$/;
 
 /* 손으로 고쳐 넣은 말을 다듬는다. 지문에서 집는 tqWordKey 와 달리 앞의
    붙임표와 자모를 남긴다 — 「-ㄹ 수 있어요」처럼 문법 형태를 그대로
@@ -2968,15 +2972,54 @@ async function tqLoadMeanLang() {
     tqMeanLang = LANG_CODE[data?.native_lang] || 'en';
     localStorage.setItem(TQ_MEAN_KEY, tqMeanLang);
   } catch (e) { /* 못 읽으면 영어로 간다 */ }
+  tqLoadPack();
 }
 tqLoadMeanLang();
+/* 기기에 적어 둔 말이 있으면 로그인을 기다리지 않고 먼저 받는다. */
+tqLoadPack();
+
+/* 고른 말의 뜻풀이 묶음. 필요할 때 한 번만 받아 온다.
+
+   열 나라 말을 glossary.js 에 다 담으면 4.5MB 가 되고 그것을 모든 방문자가
+   내려받는다 — 아랍어 뜻풀이를 영어 쓰는 사람에게까지 물리는 셈이다.
+   그래서 영어만 늘 담고, 나머지는 그 말을 고른 사람만 받는다. */
+let tqPack = null;          // { [낱말]: '뜻' }
+let tqPackFor = '';
+
+async function tqLoadPack() {
+  const L = tqMeanLang;
+  if (L === 'en' || L === 'ko' || !GLOSS_LANGS[L] || tqPackFor === L) return;
+  try {
+    const mod = await import(GLOSS_LANGS[L]);
+    /* 받는 사이에 학습자가 말을 바꿨을 수 있다. 그때 덮어쓰면 고른 말과
+       다른 말이 뜬다. */
+    if (tqMeanLang !== L) return;
+    tqPack = mod.G;
+    tqPackFor = L;
+    /* 낱말 목록이 이미 그려져 있으면 다시 그린다 — 안 그러면 받아 놓고도
+       빈 칸이 그대로 남는다. */
+    if (!$('tqUnk').classList.contains('hidden')) tqUnkDraw();
+  } catch (e) { /* 못 받으면 영어로 간다 */ }
+}
 
 /* 낱말 하나의 뜻과 표제어. 고른 말에 없으면 영어로 물러선다 — 뜻이 아예
-   없는 것보다 읽을 수 있는 말로라도 있는 편이 낫다. */
+   없는 것보다 읽을 수 있는 말로라도 있는 편이 낫다.
+   누른 꼴이 사전에 그대로 없으면 gloss-find 가 토씨와 어미를 떼어 준다 —
+   사전은 「먹다」인데 지문은 늘 「먹었습니다」다. */
 function tqGloss(word) {
-  const hit = GLOSSARY[tqUnkNorm(word)];
-  if (!hit) return { meaning: '', head: '' };
-  return { meaning: hit[tqMeanLang] || hit.en || '', head: hit.head || '' };
+  const key = tqUnkNorm(word);
+  const inDict = (k) => Object.prototype.hasOwnProperty.call(GLOSSARY, k) ||
+    !!(tqPack && tqPackFor === tqMeanLang && Object.prototype.hasOwnProperty.call(tqPack, k));
+  const found = glossFind(inDict, key);
+  if (!found) return { meaning: '', head: '' };
+  const hit = GLOSSARY[found];
+  /* 언어팩이 먼저다. 우리가 쓴 뜻풀이에는 영어뿐이라, 일본어를 고른 사람에게
+     내줄 것이 거기에는 없다. */
+  const packed = tqPack && tqPackFor === tqMeanLang ? tqPack[hit?.head || found] : '';
+  return {
+    meaning: packed || (hit && (hit[tqMeanLang] || hit.en)) || '',
+    head: (hit && hit.head) || found,
+  };
 }
 
 /* 낱말 칸 하나를 그린다. 눌러서 지우는 자리였던 것을, 클릭하면 바로

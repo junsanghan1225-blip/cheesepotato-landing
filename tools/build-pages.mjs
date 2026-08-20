@@ -125,7 +125,9 @@ function page({ url, title, desc, body, kind = 'article' }) {
 ${body}
 <div class="foot">
   <a href="/">치즈감자</a> · <a href="/sentence/">문법 표현 전체</a> · <a href="/privacy.html">개인정보</a><br>
-  한국어를 배우는 사람을 위한 단어장과 연습 · Learn Korean with CheesePotato
+  한국어를 배우는 사람을 위한 단어장과 연습 · Learn Korean with CheesePotato<br>
+  낱말 뜻풀이 출처: <a href="https://krdict.korean.go.kr">국립국어원 한국어기초사전</a>
+  · <a href="https://creativecommons.org/licenses/by-sa/2.0/kr/">CC BY-SA 2.0 KR</a>
 </div>
 </div>
 </body>
