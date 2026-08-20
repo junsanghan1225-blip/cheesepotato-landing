@@ -59,7 +59,8 @@ GitHub Pages 는 캐시 머리글을 우리가 못 정한다. `app.js` 를 그�
 |---|---|---|
 | `topik2.js` | `tools/build-topik2.mjs` | `docs/topik2-all50.json` |
 | `sentence/` · `sitemap.xml` | `tools/build-pages.mjs` | `sentences*.js` |
-| `glossary.js` | `tools/build-glossary.mjs` | `docs/glossary.json` |
+| `glossary.js` | `tools/build-glossary.mjs` | `docs/glossary.json` (+ `glossary-krdict.json`) |
+| `docs/glossary-krdict.json` | `tools/build-krdict-glossary.mjs` | 국립국어원 내려받기 자료 |
 | `favicon-32.png` · `icon-180.png` | `tools/build-icons.py` | `logo.png` |
 | `privacy.html` | `tools/build-privacy.js` | 앱 저장소의 `docs/privacy-policy.md` |
 | `vendor/` | `tools/vendor.mjs` | 바깥 라이브러리 |
@@ -115,7 +116,20 @@ GitHub Pages 는 캐시 머리글을 우리가 못 정한다. `app.js` 를 그�
   가짓수보다 **나온 횟수**로 센 쪽을 보면 된다. 학습자가 마주치는 것은
   자주 나오는 낱말이다.
 
-더 채우려면 `docs/glossary-gemini-prompt.md` 를 따른다.
+다국어 뜻풀이는 국립국어원 「한국어기초사전」에서 가져온다. **CC BY-SA 2.0 KR
+이라 상업적으로 써도 되지만 출처를 밝혀야 하고, 거기서 나온 자료는 같은
+라이선스로 열어 두어야 한다.** 그래서 우리가 쓴 뜻풀이와 파일부터 갈라 둔다 —
+한 파일에 섞으면 어디까지가 CC BY-SA 인지 말할 수 없게 된다.
+자세한 것은 `docs/glossary-license.md`.
+
+내려받은 자료는 1GB 가까이 된다. 그대로 저장소에 넣지 말고
+`tools/build-krdict-glossary.mjs` 로 **우리 지문에 나오는 낱말만** 뽑는다.
+
+```bash
+node tools/build-krdict-glossary.mjs ~/Downloads/krdict
+```
+
+영어 뜻풀이를 손으로 더 채우려면 `docs/glossary-gemini-prompt.md` 를 따른다.
 
 ---
 
