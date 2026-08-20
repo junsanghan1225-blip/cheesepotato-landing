@@ -21,6 +21,8 @@ node tools/check-sentences.mjs    # 예문 표현
 node tools/check-topik.mjs        # TOPIK I
 node tools/check-topik2.mjs docs/topik2-all50.json   # TOPIK II
 node tools/check-glossary.mjs     # 낱말 뜻풀이
+node tools/check-style.mjs docs/topik2-round2.json     # 출제·문법 (새 문항을 받았을 때)
+node tools/check-newwords.mjs docs/topik2-round2.json  # 처음 보는 낱말 (사람이 눈으로)
 node --check app.js && node --check app.module.js
 ```
 
