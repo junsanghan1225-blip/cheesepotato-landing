@@ -205,6 +205,56 @@ writeFileSync(join(ROOT, 'grammar.js'),
 export const GRAMMAR = ${JSON.stringify(rows)};
 `);
 
+/* ── 영어 설명 ─────────────────────────────────────────────
+ * sentences.js 의 설명은 한국어뿐이다. 한국어를 배우러 온 사람에게 한국어로
+ * 설명하면 설명이 또 하나의 숙제가 된다.
+ *
+ * 영어는 sentences.js 에 섞지 않고 docs/grammar-en.json 에 따로 둔다 —
+ * 그 파일은 손으로 오래 다듬은 자료라, 번역을 한 줄씩 끼워 넣다가 다른
+ * 줄을 건드리면 되돌릴 데가 없다. 여기서 id 로 맞춰 붙인다.
+ *
+ * 채우는 길은 docs/grammar-gemini-prompt.md 에.
+ */
+let mineEn = [];
+try { mineEn = JSON.parse(readFileSync(join(ROOT, 'docs/grammar-en.json'), 'utf8')); } catch (e) { /* 없으면 한국어로 */ }
+
+const ids = new Set();
+for (const g of SB_CATS) for (const p of g.points || []) ids.add(p.id);
+
+const enTable = {};
+const enBad = [];
+for (const e of mineEn) {
+  if (!ids.has(e.id)) { enBad.push(`${e.id} — 예문 만들기에 없는 id 다`); continue; }
+  if (enTable[e.id]) { enBad.push(`${e.id} — 두 번 적혔다`); continue; }
+  const row = {};
+  for (const k of ['desc', 'form', 'care']) {
+    const v = String(e[k] ?? '').trim();
+    if (!v) continue;
+    /* 「형태」 칸에는 한국어 꼴이 그대로 들어간다 — 「N + 이에요」의 이에요는
+       번역할 것이 아니다. 설명말만 영어면 된다. desc·care 는 통째로 영어라야
+       한다. 한글이 남아 있으면 옮기다 만 것이다. */
+    if (k !== 'form' && /[가-힣]/.test(v.replace(/[「」][^「」]*[「」]/g, ''))) {
+      enBad.push(`${e.id} ${k} — 「」 밖에 한글이 남았다: ${v.slice(0, 40)}`);
+      continue;
+    }
+    row[k] = v;
+  }
+  if (!row.desc) { enBad.push(`${e.id} — desc 가 없다`); continue; }
+  enTable[e.id] = row;
+}
+
+writeFileSync(join(ROOT, 'grammar-en.js'),
+`/* 문법 설명의 영어 — 생성물. 손으로 고치지 말 것.
+ *
+ *   고칠 때: docs/grammar-en.json 을 고치고
+ *            node tools/build-grammar.mjs 를 다시 돌린다.
+ *
+ * ${Object.keys(enTable).length} / ${ids.size} 개. 없는 것은 화면이 한국어로 물러선다 —
+ * 지어내 채우면 배우는 사람이 그 틀린 설명을 그대로 외운다.
+ */
+export const GRAMMAR_EN = ${JSON.stringify(enTable)};
+`);
+
 /* ── 읽기 지문에서 무엇이 걸리는지 ─────────────────────────── */
 const { grammarScan } = await import('../grammar-find.js');
 const texts = [];
@@ -224,6 +274,12 @@ for (const [id, text] of texts) {
 }
 
 console.log(`문법 ${rows.length}개를 구웠다 (안 담은 것 ${skipped.length}개).`);
+console.log(`영어 설명 ${Object.keys(enTable).length}/${ids.size}개.` +
+  (enBad.length ? '' : ' 이상 없음.'));
+if (enBad.length) {
+  console.log('\n영어 설명에서 고쳐야 할 것');
+  enBad.forEach((m) => console.log('  ✗ ' + m));
+}
 console.log(`읽기 지문 ${texts.length}편에서 ${marks}군데가 걸린다 — 한 편에 ${(marks / texts.length).toFixed(1)}군데.`);
 console.log(`서로 다른 문법 ${byId.size}가지.`);
 console.log('\n자주 걸리는 차례:');

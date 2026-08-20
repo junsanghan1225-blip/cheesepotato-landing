@@ -1,0 +1,236 @@
+[
+  {
+    "id": "23-2",
+    "desc": "Says whether something exists or not. Also used for having something.",
+    "form": "N + 이/가 있어요 · 없어요",
+    "care": "「있다」 covers both existing and owning. You also say 「있어요」 for what you have."
+  },
+  {
+    "id": "26-4",
+    "desc": "Joins two nouns, or says you did something together with someone. All three mean the same and differ only in tone.",
+    "form": "와/과 (written) · 하고 (either) · (이)랑 (spoken)",
+    "care": "「와/과」 suits writing, 「(이)랑」 suits friends. 「하고」 is safe anywhere."
+  },
+  {
+    "id": "26-8",
+    "desc": "Marks where something happens, or where it starts from.",
+    "form": "N + 에서",
+    "care": "For a place where an action happens, use 「에서」, not 「에」: 「카페에서 만나요」."
+  },
+  {
+    "id": "26-10",
+    "desc": "Marks the person you give something to or say something to.",
+    "form": "에게 (written) · 한테 (spoken) · 께 (honorific)",
+    "care": "Use 「께」 for someone senior. For a thing rather than a person, use 「에」: 「회사에 연락했어요」."
+  },
+  {
+    "id": "26-13",
+    "desc": "Nothing but that — and it feels like too little.",
+    "form": "N + 밖에 + a negative",
+    "care": "What follows must be negative. 「천 원밖에 있어요」 is wrong."
+  },
+  {
+    "id": "26-18",
+    "desc": "Compares something to what it resembles.",
+    "form": "N + 처럼 / 같이",
+    "care": "「같이」 also means 'together', so use 「처럼」 where that could confuse."
+  },
+  {
+    "id": "26-19",
+    "desc": "Compares two things and says which one is more.",
+    "form": "N + 보다 (+ 더)",
+    "care": "「보다」 attaches to what you compare against. 「어제보다 춥다」 means today is colder."
+  },
+  {
+    "id": "26-20",
+    "desc": "Every one without exception, or repeating at that interval.",
+    "form": "N + 마다",
+    "care": "「매일」 is one word and 「날마다」 is a particle. Both are natural."
+  },
+  {
+    "id": "27-2",
+    "desc": "One or the other — a choice between two actions.",
+    "form": "V + 거나",
+    "care": "To join nouns instead, use 「(이)나」: 「커피나 차」."
+  },
+  {
+    "id": "27-3",
+    "desc": "The first half and the second half go against each other.",
+    "form": "A/V + 지만 · past -았/었지만",
+    "care": "The plainest way to contrast two things. It never sounds out of place."
+  },
+  {
+    "id": "28-1",
+    "desc": "Before that — you do this first.",
+    "form": "N 전에 · V + 기 전에",
+    "care": "A verb always needs 「-기」: 「먹기 전에」, not 「먹 전에」."
+  },
+  {
+    "id": "28-2",
+    "desc": "After that thing has finished.",
+    "form": "N 후에 · V + (으)ㄴ 후에 · same meaning: -(으)ㄴ 다음에",
+    "care": "A verb takes the past form 「-(으)ㄴ」: 「먹은 후에」, not 「먹는 후에」."
+  },
+  {
+    "id": "28-3",
+    "desc": "You finish the first thing completely, then do the next.",
+    "form": "V + 고 나서",
+    "care": "Makes the finishing clearer than plain 「-고」 does."
+  },
+  {
+    "id": "28-5",
+    "desc": "At that time, or around when that happens.",
+    "form": "N 때 · A/V + (으)ㄹ 때 · past -았/었을 때",
+    "care": "After a noun it attaches directly, with no 「-을」: 「방학 때」."
+  },
+  {
+    "id": "28-6",
+    "desc": "Doing two things at the same time.",
+    "form": "-면서 after a vowel · -으면서 after a consonant",
+    "care": "Both halves need the same subject. 「제가 자면서 동생이 공부해요」 is wrong."
+  },
+  {
+    "id": "28-8",
+    "desc": "The next thing happens the instant the first one ends.",
+    "form": "V + 자마자",
+    "care": "For almost no gap in time — much faster than 「-고 나서」."
+  },
+  {
+    "id": "28-9",
+    "desc": "Throughout that stretch of time.",
+    "form": "N 동안 · V + 는 동안",
+    "care": "With 「-는 동안」 the two subjects may differ: 「제가 자는 동안 비가 왔어요」."
+  },
+  {
+    "id": "29-1",
+    "desc": "Says whether you can or cannot do something. Covers both ability and possibility.",
+    "form": "-ㄹ 수 after a vowel · -을 수 after a consonant",
+    "care": "Softer than 「못」. To turn something down, 「갈 수 없어요」 is gentler than 「못 가요」."
+  },
+  {
+    "id": "30-1",
+    "desc": "Asks or tells someone to do something, politely. It also raises the listener.",
+    "form": "-세요 after a vowel · -으세요 after a consonant",
+    "care": "A few verbs change entirely: 「먹다」 becomes 「드세요」, 「자다」 becomes 「주무세요」."
+  },
+  {
+    "id": "32-2",
+    "desc": "Gives a reason. Unlike 「-아/어서」, a request or a suggestion can follow.",
+    "form": "-니까 after a vowel · -으니까 after a consonant",
+    "care": "For thanks or apologies use 「-아/어서」: 「와 주셔서 감사합니다」."
+  },
+  {
+    "id": "32-3",
+    "desc": "Names the cause plainly. Common in writing.",
+    "form": "N 때문에 · A/V + 기 때문에",
+    "care": "No command can follow. Note that 「저 때문에」 means 'my fault', so use it carefully."
+  },
+  {
+    "id": "38-2",
+    "desc": "You do something with that intention.",
+    "form": "-려고 after a vowel · -으려고 after a consonant",
+    "care": "No command or suggestion can follow. Use 「-(으)려면」 or 「-도록」 for that."
+  },
+  {
+    "id": "38-4",
+    "desc": "Says what the purpose is. It suits writing.",
+    "form": "N + 을/를 위해서 · V + 기 위해서",
+    "care": "Stiffer than 「-(으)려고」, which sounds more natural when speaking."
+  },
+  {
+    "id": "39-2",
+    "desc": "If you intend to do that — and what follows is what it takes.",
+    "form": "-려면 after a vowel · -으려면 after a consonant",
+    "care": "Unlike 「-(으)려고」, a command or a suggestion can follow."
+  },
+  {
+    "id": "51-7",
+    "desc": "You are worried it might turn out that way, so you do something about it first.",
+    "form": "-ㄹ까 봐 after a vowel · -을까 봐 after a consonant",
+    "care": "What follows is what the worry made you do. Only for bad outcomes."
+  },
+  {
+    "id": "59-3",
+    "desc": "Even that one — and that is surprising.",
+    "form": "N + 조차 · usually followed by a negative",
+    "care": "For taking in even what you would not expect. A negative almost always follows."
+  },
+  {
+    "id": "60-1",
+    "desc": "On the way there or back.",
+    "form": "V + 는 길에 · attaches to going and coming verbs",
+    "care": "Only for verbs of going and coming. 「먹는 길에」 is wrong."
+  },
+  {
+    "id": "62-3",
+    "desc": "Not the best choice, but that one will do.",
+    "form": "이라도 after a consonant · 라도 after a vowel",
+    "care": "Sounds more considerate than 「(이)나」. Use it when offering something."
+  },
+  {
+    "id": "63-3",
+    "desc": "You did that, then switched to the opposite.",
+    "form": "V + 았다가 / 었다가",
+    "care": "It fits pairs that reverse each other: 「켜다 ↔ 끄다」, 「가다 ↔ 오다」."
+  },
+  {
+    "id": "64-2",
+    "desc": "You kept doing it, and this is how it turned out.",
+    "form": "V + 다 보니",
+    "care": "「-고 보니」 is after finishing once; this one is the result of repeating."
+  },
+  {
+    "id": "64-3",
+    "desc": "Keep doing it and one day it will turn out that way.",
+    "form": "V + 다 보면",
+    "care": "「-다 보니」 already happened; this one is still ahead. Good for encouraging someone."
+  },
+  {
+    "id": "67-4",
+    "desc": "That one, and nothing else, is the real thing.",
+    "form": "이야말로 after a consonant · 야말로 after a vowel",
+    "care": "Suits writing and speeches. A little heavy for everyday talk."
+  },
+  {
+    "id": "68-2",
+    "desc": "So that it turns out that way, or right up until then.",
+    "form": "A/V + 도록",
+    "care": "It also means 'until', as in 「밤새도록」. More formal than 「-게」."
+  },
+  {
+    "id": "69-2",
+    "desc": "Describes a noun by something that was true once, back then.",
+    "form": "A/V + 았던 / 었던",
+    "care": "「-던」 is for what repeated or was left unfinished; this one finished once."
+  },
+  {
+    "id": "71-1",
+    "desc": "Supposes that it were so. For things far from what is actually true.",
+    "form": "verb -(느)ㄴ다면 · adjective -다면 · N(이)라면",
+    "care": "「-(으)면」 is an ordinary condition; this one is an unlikely supposition."
+  },
+  {
+    "id": "3-2",
+    "desc": "Marks the process or the case of doing something.",
+    "form": "verb + -는 데",
+    "care": "Unlike the connective 「-는데」, this one is written with a space."
+  },
+  {
+    "id": "5-1",
+    "desc": "Even supposing that were so, the result does not change.",
+    "form": "verb or adjective + -더라도",
+    "care": "It can also suppose something contrary to fact."
+  },
+  {
+    "id": "11-2",
+    "desc": "Far from what you expected — the opposite happened instead.",
+    "form": "verb + -기는커녕 · noun + 은/는커녕",
+    "care": "A negative follows."
+  },
+  {
+    "id": "11-5",
+    "desc": "Even the last one left is included.",
+    "form": "noun + 마저",
+    "care": "Usually for a situation you regret."
+  }
+]
