@@ -82,8 +82,8 @@
      Pretendard 는 통짜(2.0MB) 대신 조각난 쪽을 쓴다 — 브라우저가
      unicode-range 를 보고 화면에 실제로 나온 글자가 든 조각만 받는다.
      그래서 저장소는 무거워졌지만 학습자가 받는 양은 오히려 줄었다. -->
-<link rel="stylesheet" href="vendor/pretendard.css?v=4a3cfc32">
-<link rel="stylesheet" href="vendor/pressstart2p.css?v=4a3cfc32">
+<link rel="stylesheet" href="vendor/pretendard.css?v=71380a33">
+<link rel="stylesheet" href="vendor/pressstart2p.css?v=71380a33">
 <style>
 /* ══════════════════════════════════════════════════════════════
    치즈감자 — 랜딩
@@ -2259,6 +2259,10 @@ body.nav-open { overflow:hidden; }
 /* 손가락으로 쓰는 화면에서는 :hover 가 눌린 채로 붙어 버린다 */
 @media (hover:hover) { .tq-w:hover { background:rgba(255,145,77,.15); } }
 .tq-w.on { background:#FFE2C7; box-shadow:inset 0 -2px 0 var(--orange); }
+/* 「밑줄 친 부분」. 실제 시험지가 밑줄이라 밑줄 그대로 둔다 — 색으로
+   칠하면 모르는 낱말 표시(주황 바탕)와 헷갈린다. text-decoration 을 쓰는
+   것은 조각마다 따로 그어져도 한 줄로 이어져 보이기 때문이다. */
+.tq-mk { text-decoration:underline; text-decoration-thickness:1.5px; text-underline-offset:4px; }
 
 .tq-unk { max-width:552px; margin:26px auto 0; text-align:left; }
 .tq-unk-words { display:flex; flex-wrap:wrap; gap:7px; margin:12px 0 14px; }
@@ -2490,6 +2494,41 @@ body.nav-open { overflow:hidden; }
    지난번 점수가 보여야 고를 수 있다. 결과 화면에만 두면 한 판이 끝나는
    순간 사라져서, 다음에 왔을 때 무엇이 약했는지 기억나지 않는다. */
 .tq-rec { margin-top:28px; padding:24px 26px; background:var(--surface); border:1px solid var(--line-2); border-radius:var(--r-l); }
+
+/* 모의고사 기록. 겉모습은 기록판(.tq-rec)과 같게 두고 속만 다르다 —
+   고르기 화면에 상자가 둘 서는데 서로 다르게 생기면 둘째 것이 광고처럼
+   보인다. */
+.tq-log { margin-top:20px; padding:24px 26px; background:var(--surface); border:1px solid var(--line-2); border-radius:var(--r-l); }
+.tq-log-rows { margin-top:18px; }
+.tq-log-row {
+  display:flex; align-items:center; gap:12px;
+  padding:12px 0; border-top:1px solid var(--line-2);
+}
+.tq-log-row:first-child { border-top:0; }
+.tq-log-when { flex:1 1 auto; min-width:0; }
+.tq-log-when b { display:block; font-size:14px; font-weight:700; color:var(--ink); }
+.tq-log-when span { font-size:11.5px; color:var(--ink-3); }
+.tq-log-score { text-align:right; flex:none; }
+.tq-log-score b { display:block; font-size:15px; font-weight:800; color:var(--ink); letter-spacing:-.02em; }
+.tq-log-score span { font-size:11.5px; color:var(--ink-3); }
+.tq-log-share {
+  flex:none; min-height:34px; padding:0 13px; border-radius:999px;
+  border:1px solid var(--line); background:var(--surface); color:var(--ink-2);
+  font-size:12.5px; font-weight:700; cursor:pointer; font-family:inherit;
+}
+.tq-log-share:hover { border-color:var(--orange); color:var(--orange-deep); }
+.tq-log-clear {
+  margin-top:16px; padding:8px 0; border:0; background:none; cursor:pointer;
+  font-family:inherit; font-size:12.5px; color:var(--ink-3); text-decoration:underline;
+  text-underline-offset:3px; min-height:32px;
+}
+.tq-log-clear:hover { color:var(--red); }
+@media (max-width:520px) {
+  .tq-log { padding:19px 17px; }
+  /* 좁아지면 공유 단추가 점수를 밀어낸다. 단추를 아래로 내린다. */
+  .tq-log-row { flex-wrap:wrap; }
+  .tq-log-share { margin-left:auto; }
+}
 .tq-rec .tq-bd-row:first-of-type { margin-top:16px; }
 .tq-rec-row-all .tq-bd-name { font-weight:700; color:var(--ink); }
 .tq-rec-row-all .tq-bd-bar { height:7px; }
@@ -3554,6 +3593,10 @@ body.nav-open { overflow:hidden; }
           </div>
           <div id="tqList" class="lc-grid"></div>
           <div class="tq-rec hidden" id="tqRecord"></div>
+          <!-- 지금까지 본 모의고사를 한자리에 모은다. 성적표는 판이 끝난
+               그 자리에서만 보이던 터라, 지난 회를 다시 보려면 다시 푸는
+               수밖에 없었다. -->
+          <div class="tq-log hidden" id="tqLog"></div>
           <p class="tq-note" id="tqNote"></p>
         </div>
 
@@ -3631,6 +3674,9 @@ body.nav-open { overflow:hidden; }
             <div class="tq-unk hidden" id="tqUnk"></div>
             <div class="tq-wrongs" id="tqWrongs"></div>
             <div class="claw-over-btns">
+              <!-- 모의고사를 끝냈을 때만 보인다. 유형별 연습 점수를 공유하면
+                   받는 쪽은 무슨 점수인지 알 수가 없다. -->
+              <button class="pt-next hidden" id="tqShare" type="button"></button>
               <button class="pt-next" id="tqAgain" type="button"></button>
               <button class="pt-next" id="tqBack" type="button"></button>
             </div>
@@ -4789,9 +4835,9 @@ body.nav-open { overflow:hidden; }
   <div class="cg-card" id="cgCard"></div>
 </div>
 
-<script src="app.js?v=4a3cfc32"></script>
-<script type="module" src="app.module.js?v=4a3cfc32"></script>
+<script src="app.js?v=71380a33"></script>
+<script type="module" src="app.module.js?v=71380a33"></script>
 
-<script src="analytics.js?v=4a3cfc32" defer></script>
+<script src="analytics.js?v=71380a33" defer></script>
 </body>
 </html>

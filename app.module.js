@@ -13,20 +13,20 @@
    어느 날 갑자기 다른 코드가 실려 왔다.
    이제 vendor/ 안에 받아 두고 CSP 로 바깥을 막는다. 버전을 올릴 때는
    tools/vendor.mjs 의 PIN 을 고치고 다시 돌린다. */
-import { createClient } from './vendor/supabase-js.js?v=4a3cfc32';
+import { createClient } from './vendor/supabase-js.js?v=71380a33';
 // 앱(package.json)과 같은 줄기를 쓴다. 갈리면 앱에서는 읽히는 파일이
 // 여기서는 안 읽히는(또는 그 반대) 일이 생긴다.
-import * as XLSX from './vendor/xlsx.js?v=4a3cfc32';
+import * as XLSX from './vendor/xlsx.js?v=71380a33';
 // 커리큘럼. 내용과 엔진을 갈라 두면 글을 고치다 화면을 깨지 않는다.
-import { COURSES } from './courses.js?v=4a3cfc32';
-import { SB_CATS, SB_MORE, SB_SEED } from './sentences.js?v=4a3cfc32';
+import { COURSES } from './courses.js?v=71380a33';
+import { SB_CATS, SB_MORE, SB_SEED } from './sentences.js?v=71380a33';
 // 읽기 연습 지문. 길이(short·long) × 급수 여섯 칸.
-import { READING } from './reading.js?v=4a3cfc32';
+import { READING } from './reading.js?v=71380a33';
 // TOPIK 유형 연습문제. 기출이 아니라 자체 제작이다.
-import { TOPIK_READING, TOPIK_BLUEPRINT, TOPIK_SLOTS } from './topik.js?v=4a3cfc32';
-import { TOPIK2_READING, TOPIK2_BLUEPRINT, TOPIK2_SLOTS } from './topik2.js?v=4a3cfc32';
+import { TOPIK_READING, TOPIK_BLUEPRINT, TOPIK_SLOTS } from './topik.js?v=71380a33';
+import { TOPIK2_READING, TOPIK2_BLUEPRINT, TOPIK2_SLOTS } from './topik2.js?v=71380a33';
 // 숫자 게임의 읽기와 문제 만들기. 화면을 모르는 순수 계산이라 따로 뒀다.
-import { makeRound } from './numbers.js?v=4a3cfc32';
+import { makeRound } from './numbers.js?v=71380a33';
 
 // 이 키는 공개돼도 되는 값이다. 이미 APK 안에 같은 것이 들어 있고,
 // 접근을 막는 건 키가 아니라 테이블에 걸린 RLS 다.
@@ -2303,6 +2303,7 @@ function drawTopik() {
     '</button>';
 
   tqDrawRecord(byType);
+  tqDrawLog();
 
   if (!rows.length) {
     $('tqList').innerHTML = `<div class="learn-empty">${esc(t('이 급수 문제는 아직 채우는 중이에요.', 'Questions for this level are still being written.'))}</div>`;
@@ -2706,16 +2707,46 @@ function tqSentAt(text, at) {
 /* 글을 어절마다 누를 수 있는 조각으로 바꿔 담는다. 띄어쓰기와 줄바꿈은
    글자 그대로 남긴다 — 지문은 white-space:pre-line 이라 줄바꿈이 뜻을
    나르고(안내문·순서 배열), 한 줄로 이어 붙으면 표가 표가 아니게 된다. */
-function tqWordify(el, text) {
+/* mark — 「밑줄 친 부분」을 묻는 유형(paraphrase · feeling)에서 그 부분.
+   자료에는 mark 칸으로 있었는데 화면이 이 칸을 안 썼다. 그래서 문제는
+   「밑줄 친 부분과 의미가 가장 비슷한 것」이라고 묻는데 지문에는 밑줄이
+   없었다 — 무엇을 묻는지 알 수 없는 문항이 되어 있었다. */
+function tqWordify(el, text, mark) {
   el.textContent = '';
   const s = String(text ?? '');
   if (!s) return;
+  /* 글자 위치로 잡는다. 밑줄 칠 곳이 「늦을지도 모른다」처럼 여러 어절에
+     걸치므로 어절 단위로는 못 집는다. */
+  const mk = String(mark ?? '');
+  const mi = mk ? s.indexOf(mk) : -1;
+  const mj = mi + mk.length;
+  /* 조각 하나를 밑줄 안팎으로 나눠 담는다. 밑줄은 어절 한가운데서 끝나기도
+     한다 — 「늘기 마련이다.」의 마침표는 밑줄 밖이다. 어절째로 그으면
+     실제 시험지와 달라진다.
+     조각을 쪼개 넣되 담는 그릇(into)은 하나로 두는 것이 중요하다. 어절은
+     통째로 눌러야 하므로 클릭을 받는 span 을 나눌 수는 없다. */
+  const put = (into, piece, here) => {
+    const a = Math.max(0, Math.min(piece.length, mi - here));
+    const b = Math.max(0, Math.min(piece.length, mj - here));
+    if (a > 0) into.appendChild(document.createTextNode(piece.slice(0, a)));
+    const u = document.createElement('span');
+    u.className = 'tq-mk';
+    u.textContent = piece.slice(a, b);
+    into.appendChild(u);
+    if (b < piece.length) into.appendChild(document.createTextNode(piece.slice(b)));
+  };
   let at = 0;
   for (const piece of s.split(/(\s+)/)) {
     if (!piece) continue;
     const here = at;
     at += piece.length;
-    if (/^\s+$/.test(piece)) { el.appendChild(document.createTextNode(piece)); continue; }
+    const inMark = mi >= 0 && here < mj && at > mi;
+    if (/^\s+$/.test(piece)) {
+      /* 밑줄 안쪽의 띄어쓰기도 함께 그어야 밑줄이 끊기지 않는다. */
+      if (inMark) put(el, piece, here);
+      else el.appendChild(document.createTextNode(piece));
+      continue;
+    }
     const key = tqWordKey(piece);
     /* 한글이 든 어절만 누를 수 있게 한다. 「1.」이나 「㉠」까지 열어 두면
        보기 번호를 눌러 단어장에 「1」이 들어간다. 한국어를 배우는
@@ -2725,12 +2756,14 @@ function tqWordify(el, text) {
        그렇다. 낱말처럼 생겼지만 문단에 붙인 번호라, 눌러 담으면
        단어장에 「나」가 들어간다. */
     if (!key || !/[가-힣]/.test(key) || TQ_MARKER.test(piece)) {
-      el.appendChild(document.createTextNode(piece));
+      if (inMark) put(el, piece, here);
+      else el.appendChild(document.createTextNode(piece));
       continue;
     }
     const span = document.createElement('span');
     span.className = 'tq-w' + (tqUnknown.has(key) ? ' on' : '');
-    span.textContent = piece;
+    if (inMark) put(span, piece, here);
+    else span.textContent = piece;
     span.title = t('모르는 낱말로 표시', 'Mark as unknown');
     span.addEventListener('click', () => {
       if (tqUnknown.has(key)) tqUnknown.delete(key);
@@ -3024,7 +3057,7 @@ function tqDraw() {
   $('tqPassage').classList.toggle('hidden', !q.passage);
   /* textContent 대신 어절 조각으로 담는다 — 읽다 막히는 낱말을 눌러
      표시해 둘 수 있게. 글자와 줄바꿈은 그대로다. */
-  tqWordify($('tqPassage'), q.passage);
+  tqWordify($('tqPassage'), q.passage, q.mark);
   /* 넣을 문장이 없으면 59번 유형은 풀 수가 없다. 자료에만 두고 화면에
      안 그리면 학습자는 ㉠㉡㉢㉣ 만 보고 찍게 된다. */
   $('tqInsert').classList.toggle('hidden', !q.sentence);
@@ -3162,7 +3195,12 @@ const tqMockRead = (g) => {
   try { raw = JSON.parse(localStorage.getItem(tqMockKey(g)) || '[]'); } catch (e) { return []; }
   if (!Array.isArray(raw)) return [];
   return raw
-    .map((r) => ({ at: Number(r?.at), score: Number(r?.score), n: Number(r?.n), sec: Number(r?.sec) }))
+    .map((r) => ({
+      at: Number(r?.at), score: Number(r?.score), n: Number(r?.n), sec: Number(r?.sec),
+      /* exam 은 나중에 붙인 칸이다. 그 전에 남긴 기록에는 없으므로 급수로
+         메운다 — 3급부터는 II 뿐이고 1·2급은 I 뿐이라 되짚을 수 있다. */
+      exam: TQ_EXAMS[r?.exam] ? r.exam : (g >= 3 ? 'II' : 'I'),
+    }))
     .filter((r) => Number.isFinite(r.score) && Number.isFinite(r.n) && r.n > 0 && r.score >= 0)
     .slice(-10);
 };
@@ -3173,6 +3211,135 @@ function tqMockWrite(rec) {
     localStorage.setItem(tqMockKey(tqGrade), JSON.stringify(all));
   } catch (e) {}
 }
+
+/* ── 모의고사 기록 ────────────────────────────────────────────
+   기록은 급수마다 따로 쌓인다(cp-topik-mock-<급수>). 보는 사람에게는 그게
+   한 벌이라 두 시험·여섯 급수를 모아 한 줄로 세운다. */
+function tqLogAll() {
+  const out = [];
+  Object.entries(TQ_EXAMS).forEach(([key, ex]) => {
+    ex.grades.forEach((g) => {
+      const list = tqMockRead(g);
+      list.forEach((r, i) => {
+        /* 급수만 보고 시험을 되짚은 옛 기록이 엉뚱한 시험에 붙는 것을 막는다. */
+        if (r.exam !== key) return;
+        out.push({ ...r, grade: g, no: i + 1, of: list.length });
+      });
+    });
+  });
+  // 최근 것이 위로. 지난주 것을 보려고 스크롤을 내리는 일이 없게.
+  return out.sort((a, b) => (b.at || 0) - (a.at || 0));
+}
+
+const tqPct = (r) => Math.round((r.score / r.n) * 100);
+const tqMin = (sec) => Math.max(1, Math.round((Number(sec) || 0) / 60));
+/* 날짜는 보는 사람 기기의 방식으로. 한국어 화면이면 2026. 8. 20. 이 되고
+   영어면 Aug 20, 2026 이 된다. */
+const tqWhen = (at) => (Number.isFinite(at) && at > 0
+  ? new Date(at).toLocaleDateString(isEn() ? 'en-US' : 'ko-KR',
+      { year: 'numeric', month: 'short', day: 'numeric' })
+  : t('날짜 없음', 'No date'));
+
+/* 받는 사람이 무슨 점수인지 알 수 있어야 한다. 점수만 보내면 40점이 40문제
+   중 40인지 50문제 중 40인지도 모른다 — 시험·급수·문항 수를 같이 적는다. */
+function tqShareText(r) {
+  const ex = TQ_EXAMS[r.exam] || tqE();
+  const link = `${location.origin}${location.pathname}#learn/topik`;
+  return [
+    t(`치즈감자 · ${t(ex.name.ko, ex.name.en)} 모의고사 (${ex.gradeTx(r.grade)})`,
+      `CheesePotato · ${t(ex.name.ko, ex.name.en)} mock exam (${ex.gradeTx(r.grade)})`),
+    t(`${r.score} / ${r.n} · 정답률 ${tqPct(r)}% · ${tqMin(r.sec)}분`,
+      `${r.score} / ${r.n} · ${tqPct(r)}% correct · ${tqMin(r.sec)} min`),
+    link,
+  ].join('\n');
+}
+
+async function tqShareRec(r, btn) {
+  const text = tqShareText(r);
+  const was = btn ? btn.textContent : '';
+  try {
+    if (navigator.share) { await navigator.share({ text }); return; }
+    await navigator.clipboard.writeText(text);
+    if (!btn) return;
+    btn.textContent = t('복사했어요', 'Copied');
+    setTimeout(() => { btn.textContent = was; }, 1600);
+  } catch (e) {
+    /* 공유창을 닫았거나 클립보드를 막아 둔 것이다. 닫은 것까지 「실패」로
+       알리면, 마음이 바뀌어 그만둔 사람에게 오류를 보여 주는 꼴이 된다. */
+  }
+}
+
+let tqLogRows = [];
+
+function tqDrawLog() {
+  const box = $('tqLog');
+  tqLogRows = tqLogAll();
+  if (!tqLogRows.length) { box.textContent = ''; box.classList.add('hidden'); return; }
+
+  /* 최고와 추이는 **같은 시험·급수 안에서만** 잰다. TOPIK I 2급 78% 와
+     TOPIK II 3급 74% 를 견주면 「4%p 떨어졌다」가 되는데 둘은 애초에 다른
+     시험이다. 어려운 쪽으로 옮겨 간 것을 퇴보라고 읽게 만든다.
+     본 횟수만 전부를 센다 — 그건 섞어도 뜻이 안 변한다. */
+  const now = tqLogRows[0];
+  const same = tqLogRows.filter((r) => r.exam === now.exam && r.grade === now.grade);
+  const best = same.reduce((a, b) => (tqPct(b) > tqPct(a) ? b : a));
+  /* 회차마다 문항 수가 다를 수 있어 점수가 아니라 정답률로 잰다. */
+  const gain = same.length >= 2 ? tqPct(now) - tqPct(same[same.length - 1]) : null;
+  const nowEx = TQ_EXAMS[now.exam] || tqE();
+  const nowName = `${t(nowEx.name.ko, nowEx.name.en)} ${nowEx.gradeTx(now.grade)}`;
+
+  box.innerHTML =
+    `<div class="tq-bd-h">${esc(t('모의고사 기록', 'Mock exam history'))}</div>` +
+    '<div class="tq-facts">' +
+      `<div><b>${tqLogRows.length}</b><span>${esc(t('본 횟수', 'Runs'))}</span></div>` +
+      `<div><b>${tqPct(best)}%</b><span>${esc(t('최고 정답률', 'Best'))}</span></div>` +
+      (gain === null ? ''
+        : `<div><b class="${gain > 0 ? 'up' : gain < 0 ? 'down' : ''}">${gain > 0 ? '+' : ''}${gain}%p</b>` +
+          `<span>${esc(t('처음 대비', 'vs first'))}</span></div>`) +
+    '</div>' +
+    /* 어느 기준으로 잰 값인지 적어 둔다. 여러 급수를 오간 사람에게는
+       숫자만으로 무엇과 무엇을 견줬는지 알 길이 없다. */
+    (same.length !== tqLogRows.length
+      ? `<p class="tq-bd-tip">${esc(t(`최고와 처음 대비는 ${nowName} 안에서만 견줬어요.`,
+                                      `Best and progress compare within ${nowName} only.`))}</p>`
+      : '') +
+    '<div class="tq-log-rows">' +
+      tqLogRows.map((r, i) => {
+        const ex = TQ_EXAMS[r.exam] || tqE();
+        return '<div class="tq-log-row">' +
+          '<div class="tq-log-when">' +
+            `<b>${esc(tqWhen(r.at))}</b>` +
+            `<span>${esc(t(ex.name.ko, ex.name.en))} · ${esc(ex.gradeTx(r.grade))}</span>` +
+          '</div>' +
+          '<div class="tq-log-score">' +
+            `<b>${r.score} / ${r.n}</b>` +
+            `<span>${tqPct(r)}% · ${tqMin(r.sec)}${esc(t('분', 'min'))}</span>` +
+          '</div>' +
+          `<button class="tq-log-share" type="button" data-share="${i}">` +
+            `${esc(t('공유', 'Share'))}</button>` +
+        '</div>';
+      }).join('') +
+    '</div>' +
+    `<button class="tq-log-clear" type="button" data-clear="1">${esc(t('기록 지우기', 'Clear history'))}</button>`;
+  box.classList.remove('hidden');
+}
+
+$('tqLog').addEventListener('click', (ev) => {
+  const s = ev.target.closest('[data-share]');
+  if (s) { tqShareRec(tqLogRows[Number(s.dataset.share)], s); return; }
+  if (!ev.target.closest('[data-clear]')) return;
+  if (!confirm(t('모의고사 기록을 모두 지울까요? 되돌릴 수 없어요.',
+                 'Clear every mock exam record? This cannot be undone.'))) return;
+  try {
+    Object.values(TQ_EXAMS).forEach((ex) =>
+      ex.grades.forEach((g) => localStorage.removeItem(tqMockKey(g))));
+  } catch (e) { /* 못 지워도 화면은 다시 그린다 */ }
+  tqDrawLog();
+});
+
+$('tqShare').addEventListener('click', (ev) =>
+  tqShareRec({ at: Date.now(), score: tqScore, n: tqRound.length, sec: tqSpent, exam: tqExam, grade: tqGrade },
+             ev.currentTarget));
 
 function tqDrawSheet() {
   const box = $('tqSheet');
@@ -3304,7 +3471,7 @@ function tqFinish() {
   tqDrawSheet();
   /* 기록은 성적표를 그린 뒤에 남긴다. 먼저 쓰면 성적표가 방금 쓴 자기
      자신을 「지난 회」로 읽어서, 첫 회에 「지난 회 대비 0」이 뜬다. */
-  if (first && tqMock) tqMockWrite({ at: Date.now(), score: tqScore, n, sec: tqSpent });
+  if (first && tqMock) tqMockWrite({ at: Date.now(), score: tqScore, n, sec: tqSpent, exam: tqExam });
   tqDrawBreak();
   /* 틀린 문항 다시 보기. innerHTML 로 찍지 않고 조각으로 쌓는 이유는
      여기서도 낱말을 눌러 표시할 수 있어야 해서다 — 무엇을 몰랐는지는
@@ -3321,7 +3488,7 @@ function tqFinish() {
     if (q.passage) {
       const p = document.createElement('div');
       p.className = 'tq-wrong-p';
-      tqWordify(p, q.passage);
+      tqWordify(p, q.passage, q.mark);
       card.appendChild(p);
     }
     const a = document.createElement('div');
@@ -3336,6 +3503,10 @@ function tqFinish() {
   tqUnkDraw();
   $('tqAgain').textContent = t('다시 풀기', 'Try again');
   $('tqBack').textContent = t('다른 유형 고르기', 'Pick another type');
+  /* 공유는 모의고사에만. 유형별 연습 점수를 보내면 받는 쪽은 그게 무슨
+     점수인지 알 수가 없다. */
+  $('tqShare').textContent = t('결과 공유하기', 'Share result');
+  $('tqShare').classList.toggle('hidden', !tqMock);
   tqPanel('tqOver');
   window.scrollTo({ top: 0, behavior: 'auto' });
 }
