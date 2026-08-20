@@ -10,11 +10,32 @@
  */
 import { readFileSync } from 'node:fs';
 
-const [from, to] = process.argv.slice(2).map(Number);
-if (!Number.isInteger(from) || !Number.isInteger(to) || from < 1 || to > 50 || from > to) {
-  console.error('쓰기: node tools/topik2-prompt.mjs <시작문항> <끝문항>   (예: 13 24)');
+const args = process.argv.slice(2);
+/* 회차. 자리(slot)는 1~50 그대로 두고 id 만 회차마다 밀어서 매긴다 —
+   2회차의 1번은 t2-051 이다. 화면은 같은 자리에 여러 벌이 있는 것을
+   이미 받아들이고(makeRound 가 자리마다 하나씩 뽑는다), 자리를 그대로
+   두어야 설계표 한 장으로 몇 회든 만들 수 있다. */
+const rIdx = args.indexOf('--round');
+const round = rIdx >= 0 ? Number(args[rIdx + 1]) : 1;
+const [from, to] = args.filter((a) => !a.startsWith('--') && a !== String(round)).map(Number);
+if (!Number.isInteger(from) || !Number.isInteger(to) || from < 1 || to > 50 || from > to
+    || !Number.isInteger(round) || round < 1) {
+  console.error('쓰기: node tools/topik2-prompt.mjs <시작문항> <끝문항> [--round N]   (예: 13 24 --round 2)');
   process.exit(2);
 }
+const idOf = (slot) => `t2-${String((round - 1) * 50 + slot).padStart(3, '0')}`;
+
+/* 이미 만든 회차의 소재. 같은 자리에 같은 이야기가 또 나오면 두 번째 회차가
+   시험이 아니라 복습이 된다. 자리마다 무엇을 이미 썼는지 알려 주고 피하게
+   한다 — 안 알려 주면 「도서관에서 책을 빌렸다」가 회차마다 나온다. */
+let usedBySlot = new Map();
+try {
+  const had = JSON.parse(readFileSync(new URL('../docs/topik2-all50.json', import.meta.url), 'utf8'));
+  had.forEach((q) => {
+    if (!usedBySlot.has(q.slot)) usedBySlot.set(q.slot, []);
+    if (q.topic) usedBySlot.get(q.slot).push(q.topic);
+  });
+} catch (e) { /* 1회차가 아직 없으면 피할 것도 없다 */ }
 
 const src = readFileSync(new URL('../docs/topik2-gemini-prompt.md', import.meta.url), 'utf8');
 const lines = src.split('\n');
@@ -60,9 +81,26 @@ const pairs = rowsIn
   .filter(Boolean)
   .map((m) => (m[3] ? `${m[1]}-${m[3]}` : `${m[1]}-${m[2]}`));
 
-console.log(`## 이번에 낼 것: ${from}~${to}번 (${to - from + 1}문항)
+/* 이번 묶음에서 이미 쓴 소재. 자리 번호와 함께 보여 줘야 「25번에 이미
+   있는 이야기」인지 알 수 있다. */
+const avoid = [];
+for (let s = from; s <= to; s++) {
+  const list = usedBySlot.get(s) || [];
+  if (list.length) avoid.push(`  - ${s}번: ${[...new Set(list)].join(' · ')}`);
+}
 
-- \`id\` 는 \`t2-${String(from).padStart(3, '0')}\` 부터 이어서 매겨라.
-- \`slot\` 은 ${from}부터 ${to}까지.${pairs.length ? `\n- 지문 하나를 나눠 쓰는 자리: ${pairs.map((p) => `\`pair:"${p}"\``).join(', ')} — 묶인 문항은 \`passage\` 를 글자까지 똑같이 넣어라.` : ''}
+console.log(`## 이번에 낼 것: ${round}회차 ${from}~${to}번 (${to - from + 1}문항)
 
+- \`id\` 는 \`${idOf(from)}\` 부터 이어서 매겨라 (${idOf(from)} ~ ${idOf(to)}).
+- \`slot\` 은 ${from}부터 ${to}까지. **회차가 달라도 자리 번호는 그대로다** —
+  실제 시험의 몇 번 자리인지를 가리키는 값이라 회차마다 새로 매기지 않는다.${pairs.length ? `\n- 지문 하나를 나눠 쓰는 자리: ${pairs.map((p) => `\`pair:"${p}"\``).join(', ')} — 묶인 문항은 \`passage\` 를 글자까지 똑같이 넣어라.` : ''}
+${round > 1 && avoid.length ? `
+### 이미 쓴 소재 — 다시 쓰지 마라
+
+같은 자리에 같은 이야기가 또 나오면 두 번째 회차가 시험이 아니라 복습이
+된다. 아래는 1회차가 그 자리에서 이미 다룬 소재다. **소재도 결론도 겹치지
+않게** 새로 잡아라. 유형과 난이도만 같으면 된다.
+
+${avoid.join('\n')}
+` : ''}
 ${out}`);

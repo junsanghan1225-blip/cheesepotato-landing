@@ -47,8 +47,30 @@ const BLUEPRINT = [
   [50, 50, 'detail', '논설문', '일치하는 내용', 'Which matches', '48-50'],
 ];
 
-const src = new URL('../docs/topik2-all50.json', import.meta.url);
-const rows = JSON.parse(readFileSync(src, 'utf8'));
+/* 회차 파일을 모두 읽어 합친다. 자리(slot)는 회차가 달라도 그대로라 한
+   자리에 여러 벌이 쌓이고, 모의고사는 자리마다 그 가운데 하나씩 뽑는다.
+   ROUNDS 에 이름만 더하면 회차가 는다 — 없는 파일은 조용히 건너뛴다. */
+const ROUNDS = ['topik2-all50.json', 'topik2-round2.json', 'topik2-round3.json'];
+const rows = [];
+const loaded = [];
+for (const name of ROUNDS) {
+  let text;
+  try { text = readFileSync(new URL(`../docs/${name}`, import.meta.url), 'utf8'); }
+  catch (e) { continue; }
+  const part = JSON.parse(text);
+  rows.push(...part);
+  loaded.push(`${name} ${part.length}문항`);
+}
+if (!rows.length) { console.error('읽을 회차 파일이 없다.'); process.exit(1); }
+
+/* id 가 겹치면 뒤의 것이 앞의 것을 조용히 가린다. 회차를 더할 때 id 를
+   이어 매기는 것을 잊는 것이 제일 흔한 실수라 여기서 멈춘다. */
+const dup = rows.map((q) => q.id).filter((id, i, a) => a.indexOf(id) !== i);
+if (dup.length) {
+  console.error(`id 가 겹친다: ${[...new Set(dup)].join(', ')}`);
+  console.error('회차마다 id 를 이어서 매길 것 — 2회차는 t2-051 부터다.');
+  process.exit(1);
+}
 
 /* 화면이 읽는 차례대로 칸을 세운다. 없는 칸은 넣지 않는다 —
    sentence 와 mark 는 그 유형에만 붙는다. */
@@ -112,5 +134,6 @@ export const TOPIK2_READING = ${j(out)};
 writeFileSync(new URL('../topik2.js', import.meta.url), body);
 const byType = {};
 out.forEach((q) => { byType[q.type] = (byType[q.type] ?? 0) + 1; });
+console.log(`읽은 회차: ${loaded.join(' · ')}`);
 console.log(`topik2.js — 문항 ${out.length} · 자리 ${want.size} · 유형 ${Object.keys(byType).length}`);
 console.log(Object.entries(byType).map(([k, v]) => `${k} ${v}`).join(' · '));

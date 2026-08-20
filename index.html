@@ -82,8 +82,8 @@
      Pretendard 는 통짜(2.0MB) 대신 조각난 쪽을 쓴다 — 브라우저가
      unicode-range 를 보고 화면에 실제로 나온 글자가 든 조각만 받는다.
      그래서 저장소는 무거워졌지만 학습자가 받는 양은 오히려 줄었다. -->
-<link rel="stylesheet" href="vendor/pretendard.css?v=cbb9b4b0">
-<link rel="stylesheet" href="vendor/pressstart2p.css?v=cbb9b4b0">
+<link rel="stylesheet" href="vendor/pretendard.css?v=1f12af83">
+<link rel="stylesheet" href="vendor/pressstart2p.css?v=1f12af83">
 <style>
 /* ══════════════════════════════════════════════════════════════
    치즈감자 — 랜딩
@@ -1226,6 +1226,14 @@ body.nav-open { overflow:hidden; }
   background:#FFF4EA; border:1px solid rgba(255,138,61,.3); border-radius:999px;
   color:var(--orange-deep); font-weight:700;
 }
+/* 지문 갈래 칩. 문항 수 칩과 같은 색이면 어느 것이 「몇 문제」인지 안 보인다 —
+   갈래는 곁들이는 정보라 한 단계 눕힌다. */
+.lq-chip.soft { background:var(--surface-2); border-color:var(--line); color:var(--ink-3); }
+/* 이미 본 회차의 기록. 「해 봤다」는 다른 칩과 종류가 다른 말이라 색을 가른다. */
+.lq-chip.done { background:rgba(18,112,79,.09); border-color:rgba(18,112,79,.28); color:var(--green); }
+/* 잠긴 회차. 눌리기는 해야 한다 — 눌러야 로그인으로 갈 수 있다. */
+.tq-locked { background:var(--surface-2); }
+.tq-locked .lc-title, .tq-locked .lc-blurb { color:var(--ink-3); }
 .learn-empty {
   text-align:center; padding:42px 20px; color:var(--ink-3); font-size:14px; line-height:1.75;
   background:var(--surface); border:1px dashed var(--line); border-radius:18px;
@@ -4869,9 +4877,9 @@ body.nav-open { overflow:hidden; }
   <div class="cg-card" id="cgCard"></div>
 </div>
 
-<script src="app.js?v=cbb9b4b0"></script>
-<script type="module" src="app.module.js?v=cbb9b4b0"></script>
+<script src="app.js?v=1f12af83"></script>
+<script type="module" src="app.module.js?v=1f12af83"></script>
 
-<script src="analytics.js?v=cbb9b4b0" defer></script>
+<script src="analytics.js?v=1f12af83" defer></script>
 </body>
 </html>
