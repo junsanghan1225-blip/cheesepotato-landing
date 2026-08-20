@@ -13,21 +13,21 @@
    어느 날 갑자기 다른 코드가 실려 왔다.
    이제 vendor/ 안에 받아 두고 CSP 로 바깥을 막는다. 버전을 올릴 때는
    tools/vendor.mjs 의 PIN 을 고치고 다시 돌린다. */
-import { createClient } from './vendor/supabase-js.js?v=cbb9b4b0';
+import { createClient } from './vendor/supabase-js.js?v=1f12af83';
 // 앱(package.json)과 같은 줄기를 쓴다. 갈리면 앱에서는 읽히는 파일이
 // 여기서는 안 읽히는(또는 그 반대) 일이 생긴다.
-import * as XLSX from './vendor/xlsx.js?v=cbb9b4b0';
+import * as XLSX from './vendor/xlsx.js?v=1f12af83';
 // 커리큘럼. 내용과 엔진을 갈라 두면 글을 고치다 화면을 깨지 않는다.
-import { COURSES } from './courses.js?v=cbb9b4b0';
-import { GLOSSARY } from './glossary.js?v=cbb9b4b0';
-import { SB_CATS, SB_MORE, SB_SEED } from './sentences.js?v=cbb9b4b0';
+import { COURSES } from './courses.js?v=1f12af83';
+import { GLOSSARY } from './glossary.js?v=1f12af83';
+import { SB_CATS, SB_MORE, SB_SEED } from './sentences.js?v=1f12af83';
 // 읽기 연습 지문. 길이(short·long) × 급수 여섯 칸.
-import { READING } from './reading.js?v=cbb9b4b0';
+import { READING } from './reading.js?v=1f12af83';
 // TOPIK 유형 연습문제. 기출이 아니라 자체 제작이다.
-import { TOPIK_READING, TOPIK_BLUEPRINT, TOPIK_SLOTS } from './topik.js?v=cbb9b4b0';
-import { TOPIK2_READING, TOPIK2_BLUEPRINT, TOPIK2_SLOTS } from './topik2.js?v=cbb9b4b0';
+import { TOPIK_READING, TOPIK_BLUEPRINT, TOPIK_SLOTS } from './topik.js?v=1f12af83';
+import { TOPIK2_READING, TOPIK2_BLUEPRINT, TOPIK2_SLOTS } from './topik2.js?v=1f12af83';
 // 숫자 게임의 읽기와 문제 만들기. 화면을 모르는 순수 계산이라 따로 뒀다.
-import { makeRound } from './numbers.js?v=cbb9b4b0';
+import { makeRound } from './numbers.js?v=1f12af83';
 
 // 이 키는 공개돼도 되는 값이다. 이미 APK 안에 같은 것이 들어 있고,
 // 접근을 막는 건 키가 아니라 테이블에 걸린 RLS 다.
@@ -2215,6 +2215,8 @@ let tqRound = [], tqIdx = 0, tqScore = 0, tqWrongs = [], tqBusy = false, tqTitle
 /* 모의고사용. tqPicks 는 문항마다 무엇을 골랐는지 — 성적표의 정오표가 이걸
    읽는다. 못 푼 문항은 null 로 남아서 「안 냄」과 「틀림」을 가릴 수 있다. */
 let tqMock = false, tqPicks = [], tqLeft = 0, tqSpent = 0, tqSaved = false;
+/* 지금 푸는 모의고사가 몇 회차인가. 기록·이어하기·성적표가 이것으로 갈린다. */
+let tqMockRound = 1;
 /* 로그인 없는 사람에게 **첫 판은 끝까지** 열어 준다. 성적표까지 봐야
    이게 무엇인지 알고, 그걸 본 사람만 로그인할 까닭이 생긴다. 중간에서
    끊으면 무엇을 얻는지 모른 채 로그인을 요구받는 셈이라 그냥 나간다.
@@ -2350,13 +2352,7 @@ function drawTopik() {
          같이 나오는 시험이라 급수로 나누면 시험이 아니게 된다. 다만 1급을
          골라 둔 학습자에게 말없이 2급 지문을 내밀면 속이는 것이므로,
          급수 딱지와 소개글에 섞여 나온다고 적어 둔다. */
-      (mockReady
-        ? card('mock', '📝', t('모의고사 한 회', 'Full mock exam'),
-               t(`${span} · ${mins}분`, `${span} · ${mins} min`),
-               t(`실제 시험 차례대로 ${ex.slots.length}문항. 실제 시험은 여러 급수가 한 장에 같이 나오므로 이 모의고사도 급수를 가리지 않습니다. 푸는 동안에는 답을 알려 주지 않고, 끝나면 성적표가 나옵니다.`,
-                 `All ${ex.slots.length} in exam order. The real paper mixes levels, so this mock does too regardless of the level you picked. No answers until you finish, then a full result sheet.`),
-               ex.slots.length, t(ex.sub.ko, ex.sub.en))
-        : '') +
+      tqRoundCards(ex, span, mins, mockReady) +
       card('all', '📖', t('전체 풀기', 'Full run'), t('유형을 섞어서 처음부터 끝까지', 'Every type, mixed'),
            t('이 급수 문제를 다 풀어 봅니다. 문제마다 바로 해설이 붙어요.', 'Every question at this level, with the answer explained as you go.'), rows.length) +
       tqTypeOrder().filter((k) => byType[k]).map((k) =>
@@ -2420,6 +2416,68 @@ function tqWeakTip(weak, total, name) {
   return `<p class="tq-bd-tip">${t('아직 약한 곳', 'Weakest')} &nbsp;<b>${esc(shown)}</b>${esc(more)}</p>` + go;
 }
 
+/* ── 회차 카드 ────────────────────────────────────────────────
+   「모의고사 한 회」 한 장이던 것을 회차마다 한 장으로 편다. 한 장뿐이면
+   눌러 보기 전에는 몇 회를 풀 수 있는지, 다시 누르면 같은 문제가 나오는지
+   알 수가 없다. 회차를 펴 두면 「아직 두 회 남았다」가 눌러 보기 전에 보인다.
+
+   **1회차만 열어 둔다.** 나머지는 로그인해야 열린다 — 무엇을 얻는지 한 회
+   풀어 보고 나서 정하게 하려는 것이다. 문을 먼저 잠그면 무엇이 있는지 모른
+   채 로그인을 요구받는 셈이라 그냥 나간다. */
+const TQ_FREE_ROUNDS = 1;
+
+function tqRoundCards(ex, span, mins, mockReady) {
+  if (!mockReady) return '';
+  const total = tqRoundCount();
+  if (total < 1) return '';
+
+  const log = tqLogAll();
+  const rows = [];
+  for (let r = 1; r <= total; r++) {
+    const list = tqBuildMock(r);
+    if (!list) continue;
+    /* 회차마다 지문 갈래가 어떻게 섞였는지 세어 둔다. 「50문항 70분」만
+       적힌 카드는 어느 회차나 똑같아 보여서 고를 거리가 없다. */
+    const genres = [...new Set(list.map((q) => q.genre).filter(Boolean))];
+    const mine = log.filter((x) => x.exam === tqExam && (x.round || 1) === r);
+    const top = mine.length ? Math.max(...mine.map((x) => Math.round((x.score / x.n) * 100))) : null;
+    rows.push({ r, n: list.length, genres, top, tries: mine.length,
+                locked: r > TQ_FREE_ROUNDS && !tqSignedIn });
+  }
+
+  return rows.map((x) => {
+    const tag = x.locked
+      ? t('로그인하면 열려요', 'Sign in to unlock')
+      : t(`${span} · ${mins}분`, `${span} · ${mins} min`);
+    /* 갈래 이름을 다 적으면 카드가 글자로 찬다. 넷까지만 보이고 나머지는 수로. */
+    const gs = x.genres.slice(0, 4).map((g) => tqGenreTx(g));
+    const more = x.genres.length - gs.length;
+    const blurb = x.locked
+      ? t('한 회는 그냥 풀어 볼 수 있어요. 그다음 회차부터는 로그인하면 열립니다 — 기록이 남아야 회차끼리 견줄 수 있어서예요.',
+          'The first round is free. Signing in opens the rest — records need an account before rounds can be compared.')
+      : t(`실제 시험 차례대로 ${x.n}문항. 여러 급수가 한 장에 섞여 나오고, 푸는 동안에는 답을 알려 주지 않아요. 끝나면 성적표가 나옵니다.`,
+          `All ${x.n} in exam order. Levels are mixed as on the real paper, and no answers until you finish — then a full result sheet.`);
+
+    return `<button class="lc-card lq-card${x.locked ? ' tq-locked' : ''}" data-tq="${x.locked ? 'lock' : `mock:${x.r}`}">` +
+      '<div class="lc-top">' +
+        `<div class="lc-mark">${x.locked ? '🔒' : '📝'}</div>` +
+        '<div style="min-width:0">' +
+          `<div class="lc-lv">${esc(t(ex.sub.ko, ex.sub.en))}</div>` +
+          `<div class="lc-title">${esc(t(`모의고사 ${x.r}회차`, `Mock exam · Round ${x.r}`))}</div>` +
+          `<div class="lc-tag">${esc(tag)}</div>` +
+        '</div>' +
+      '</div>' +
+      `<p class="lc-blurb">${esc(blurb)}</p>` +
+      '<div class="lq-meta">' +
+        `<span class="lq-chip">${esc(t(`${x.n}문제`, `${x.n} questions`))}</span>` +
+        (x.locked ? '' : gs.map((g) => `<span class="lq-chip soft">${esc(g)}</span>`).join('') +
+          (more > 0 ? `<span class="lq-chip soft">+${more}</span>` : '')) +
+        (x.top === null ? '' : `<span class="lq-chip done">${esc(t(`최고 ${x.top}% · ${x.tries}번 봄`, `Best ${x.top}% · ${x.tries} run${x.tries > 1 ? 's' : ''}`))}</span>`) +
+      '</div>' +
+    '</button>';
+  }).join('');
+}
+
 /* 세트별 점수 — 고르기 화면에 붙는 기록판.
    전체 풀기를 맨 위에 두고 유형은 늘 같은 차례로 둔다. 결과 화면의
    유형별 표는 못 맞힌 쪽부터 세우지만 여기는 아니다. 여기는 몇 번씩
@@ -2472,49 +2530,78 @@ const tqMockKey = (g) => `cp-topik-mock-${g}`;
    짝 지문 자리(49~56, 59~70)는 두 문항이 같은 글을 나눠 쓰므로 짝을
    통째로 골라야 한다. 자리마다 따로 뽑으면 49번과 50번이 서로 다른 글에서
    와서, 앞 문제의 지문을 읽고 뒤 문제를 푸는 시험이 되지 않는다. */
-function tqBuildMock() {
+/* ── 회차 ─────────────────────────────────────────────────────
+   자리(slot)마다 문항이 여러 벌 쌓인다. 그 **n번째 벌만 모으면 한 회차**가
+   된다. 자리마다 아무거나 하나씩 집으면 회차라고 부를 수가 없다 — 같은
+   「2회차」를 두 번 풀어도 다른 시험이 나오고, 기록을 견줄 수도 없다.
+
+   그래서 id 로 줄을 세워 n번째를 집는다. 언제 풀어도 2회차는 같은 시험이다. */
+function tqSlotVersions() {
   const pool = tqE().reading;
   const bySlot = new Map();
   pool.forEach((q) => {
     if (!bySlot.has(q.slot)) bySlot.set(q.slot, []);
     bySlot.get(q.slot).push(q);
   });
-  /* 짝은 pair 이름과 지문이 같은 것끼리 한 벌이다. 같은 pair 이름이라도
-     지문이 다르면 다른 벌이다 — 회차가 늘면 그렇게 된다. */
+  bySlot.forEach((list) => list.sort((a, b) => String(a.id).localeCompare(String(b.id))));
+
   const sets = new Map();
   pool.filter((q) => q.pair).forEach((q) => {
     const k = `${q.pair}|${(q.passage || '').replace(/\s+/g, '')}`;
     if (!sets.has(k)) sets.set(k, []);
     sets.get(k).push(q);
   });
-  /* 한 벌이 몇 문항인지는 설계표가 정한다. 둘로 못박아 두면 TOPIK II 의
-     48~50 처럼 지문 하나에 셋이 붙는 자리를 못 받는다 — 받아도 조용히
-     버려지고, 그 자리가 비어 한 회가 통째로 안 만들어진다. */
   const pairSize = new Map();
-  tqE().slots.forEach((s) => {
-    if (s.pair) pairSize.set(s.pair, (pairSize.get(s.pair) ?? 0) + 1);
-  });
+  tqE().slots.forEach((s) => { if (s.pair) pairSize.set(s.pair, (pairSize.get(s.pair) ?? 0) + 1); });
+
   const byPair = new Map();
-  sets.forEach((list, k) => {
+  sets.forEach((list) => {
     const name = list[0].pair;
-    if (list.length !== (pairSize.get(name) ?? 2)) return;  // 벌이 안 맞는 것은 쓰지 않는다
+    if (list.length !== (pairSize.get(name) ?? 2)) return;   // 벌이 안 맞는 것은 쓰지 않는다
     if (!byPair.has(name)) byPair.set(name, []);
     byPair.get(name).push(list.slice().sort((a, b) => a.slot - b.slot));
   });
+  byPair.forEach((vers) => vers.sort((a, b) => String(a[0].id).localeCompare(String(b[0].id))));
 
+  return { bySlot, byPair };
+}
+
+/* 몇 회차까지 만들 수 있나. **제일 얇은 자리가 정한다** — 한 자리라도 비면
+   그 회차는 40문항이 안 되고, 「모의고사」라고 써 놓고 39문항을 내면
+   거짓말이 된다. */
+function tqRoundCount() {
+  const { bySlot, byPair } = tqSlotVersions();
+  let min = Infinity;
+  const seen = new Set();
+  for (const s of tqE().slots) {
+    if (s.pair) {
+      if (seen.has(s.pair)) continue;
+      seen.add(s.pair);
+      min = Math.min(min, (byPair.get(s.pair) || []).length);
+    } else {
+      min = Math.min(min, (bySlot.get(s.n) || []).length);
+    }
+  }
+  return Number.isFinite(min) ? min : 0;
+}
+
+/* r회차(1부터) 한 벌. 못 만들면 null. */
+function tqBuildMock(r = 1) {
+  const { bySlot, byPair } = tqSlotVersions();
+  const at = Math.max(0, r - 1);
   const round = [];
   const usedPair = new Set();
   for (const s of tqE().slots) {
     if (s.pair) {
-      if (usedPair.has(s.pair)) continue;       // 앞 자리에서 이미 벌째로 넣었다
+      if (usedPair.has(s.pair)) continue;
       const vers = byPair.get(s.pair);
-      if (!vers?.length) return null;           // 한 자리라도 비면 한 회가 안 된다
-      round.push(...vers[Math.floor(Math.random() * vers.length)]);
+      if (!vers?.[at]) return null;
+      round.push(...vers[at]);
       usedPair.add(s.pair);
     } else {
       const cand = bySlot.get(s.n);
-      if (!cand?.length) return null;
-      round.push(cand[Math.floor(Math.random() * cand.length)]);
+      if (!cand?.[at]) return null;
+      round.push(cand[at]);
     }
   }
   return round;
@@ -2534,16 +2621,17 @@ function tqRunClock() {
   }, 1000);
 }
 
-function tqStartMock() {
-  const round = tqBuildMock();
+function tqStartMock(r = 1) {
+  const round = tqBuildMock(r);
   if (!round) return;
+  tqMockRound = r;
   /* 새로 시작하면 붙들어 둔 자리는 버린다. 둘을 같이 들고 있으면
      이어하기 카드가 이미 지나간 회차를 가리킨다. */
   tqHoldClear();
   tqRound = round;
   tqIdx = 0; tqScore = 0; tqWrongs = []; tqBusy = false; tqSet = 'mock';
   tqMock = true; tqPicks = []; tqLeft = tqMockSec(); tqSpent = 0; tqSaved = false;
-  tqTitle = t(`모의고사 · 읽기 ${tqE().from}~${tqE().to}번`, `Mock exam — reading ${tqE().from}–${tqE().to}`);
+  tqTitle = t(`${r}회차 · 읽기 ${tqE().from}~${tqE().to}번`, `Round ${r} — reading ${tqE().from}–${tqE().to}`);
   $('tqOmr').classList.remove('hidden');
   $('tqOmr').classList.remove('open');
   tqClockBuild();
@@ -2640,8 +2728,8 @@ function tqSubmitAsk() {
   tqFinish();
 }
 
-function tqStart(key) {
-  if (key === 'mock') return tqStartMock();
+function tqStart(key, round = 1) {
+  if (key === 'mock') return tqStartMock(round);
   tqMock = false; tqStopClock();
   $('tqOmr').classList.add('hidden');
   const rows = tqOf(tqGrade);
@@ -3358,6 +3446,8 @@ const tqMockRead = (g) => {
       /* exam 은 나중에 붙인 칸이다. 그 전에 남긴 기록에는 없으므로 급수로
          메운다 — 3급부터는 II 뿐이고 1·2급은 I 뿐이라 되짚을 수 있다. */
       exam: TQ_EXAMS[r?.exam] ? r.exam : (g >= 3 ? 'II' : 'I'),
+      /* 회차도 나중에 붙인 칸이다. 없으면 1회차로 본다. */
+      round: Number(r?.round) > 0 ? Number(r.round) : 1,
     }))
     .filter((r) => Number.isFinite(r.score) && Number.isFinite(r.n) && r.n > 0 && r.score >= 0)
     .slice(-10);
@@ -3404,8 +3494,8 @@ function tqShareText(r) {
   const ex = TQ_EXAMS[r.exam] || tqE();
   const link = `${location.origin}${location.pathname}#learn/topik`;
   return [
-    t(`치즈감자 · ${t(ex.name.ko, ex.name.en)} 모의고사 (${ex.gradeTx(r.grade)})`,
-      `CheesePotato · ${t(ex.name.ko, ex.name.en)} mock exam (${ex.gradeTx(r.grade)})`),
+    t(`치즈감자 · ${t(ex.name.ko, ex.name.en)} 모의고사 ${r.round || 1}회차 (${ex.gradeTx(r.grade)})`,
+      `CheesePotato · ${t(ex.name.ko, ex.name.en)} mock exam, round ${r.round || 1} (${ex.gradeTx(r.grade)})`),
     t(`${r.score} / ${r.n} · 정답률 ${tqPct(r)}% · ${tqMin(r.sec)}분`,
       `${r.score} / ${r.n} · ${tqPct(r)}% correct · ${tqMin(r.sec)} min`),
     link,
@@ -3467,7 +3557,7 @@ function tqDrawLog() {
         return '<div class="tq-log-row">' +
           '<div class="tq-log-when">' +
             `<b>${esc(tqWhen(r.at))}</b>` +
-            `<span>${esc(t(ex.name.ko, ex.name.en))} · ${esc(ex.gradeTx(r.grade))}</span>` +
+            `<span>${esc(t(ex.name.ko, ex.name.en))} · ${esc(ex.gradeTx(r.grade))} · ${esc(t(`${r.round || 1}회차`, `Round ${r.round || 1}`))}</span>` +
           '</div>' +
           '<div class="tq-log-score">' +
             `<b>${r.score} / ${r.n}</b>` +
@@ -3629,7 +3719,7 @@ function tqFinish() {
   tqDrawSheet();
   /* 기록은 성적표를 그린 뒤에 남긴다. 먼저 쓰면 성적표가 방금 쓴 자기
      자신을 「지난 회」로 읽어서, 첫 회에 「지난 회 대비 0」이 뜬다. */
-  if (first && tqMock) { tqMockWrite({ at: Date.now(), score: tqScore, n, sec: tqSpent, exam: tqExam }); tqHoldClear(); }
+  if (first && tqMock) { tqMockWrite({ at: Date.now(), score: tqScore, n, sec: tqSpent, exam: tqExam, round: tqMockRound }); tqHoldClear(); }
   tqDrawBreak();
   /* 틀린 문항 다시 보기. innerHTML 로 찍지 않고 조각으로 쌓는 이유는
      여기서도 낱말을 눌러 표시할 수 있어야 해서다 — 무엇을 몰랐는지는
@@ -3699,8 +3789,13 @@ $('tqList').addEventListener('click', (ev) => {
   }
   const b = ev.target.closest('[data-tq]');
   if (!b) return;
-  if (b.dataset.tq === 'resume') { tqHoldResume(); return; }
-  tqStart(b.dataset.tq);
+  const key = b.dataset.tq;
+  if (key === 'resume') { tqHoldResume(); return; }
+  /* 잠긴 회차는 로그인 화면으로 보낸다. 아무 일도 안 일어나면 고장으로
+     보이고, 카드에 적힌 「로그인하면 열려요」가 빈말이 된다. */
+  if (key === 'lock') { open('account'); return; }
+  if (key.startsWith('mock:')) { tqStart('mock', Number(key.slice(5))); return; }
+  tqStart(key);
 });
 /* 「…만 풀어 보기」. 두 자리(기록판·결과 화면)에 같은 단추가 나오므로
    다시 그릴 때마다 붙이지 않도록 바깥 상자에 한 번만 걸어 둔다. */
@@ -3752,7 +3847,7 @@ function tqHoldSave() {
   if (!tqRunning()) return;
   try {
     localStorage.setItem(TQ_HOLD_KEY, JSON.stringify({
-      exam: tqExam, grade: tqGrade,
+      exam: tqExam, grade: tqGrade, round: tqMockRound,
       ids: tqRound.map((q) => q.id),
       picks: tqPicks.map((v) => (Number.isInteger(v) ? v : null)),
       idx: tqIdx, left: tqLeft, spent: tqSpent, at: Date.now(),
@@ -3798,9 +3893,10 @@ function tqHoldResume() {
   tqIdx = Math.min(Math.max(0, Number(h.idx) || 0), round.length - 1);
   tqScore = 0; tqWrongs = []; tqBusy = false; tqSet = 'mock';
   tqMock = true; tqSaved = false;
+  tqMockRound = Number(h.round) > 0 ? Number(h.round) : 1;
   tqLeft = Math.min(Number(h.left), tqMockSec());
   tqSpent = Math.max(0, Number(h.spent) || 0);
-  tqTitle = t(`모의고사 · 읽기 ${tqE().from}~${tqE().to}번`, `Mock exam — reading ${tqE().from}–${tqE().to}`);
+  tqTitle = t(`${tqMockRound}회차 · 읽기 ${tqE().from}~${tqE().to}번`, `Round ${tqMockRound} — reading ${tqE().from}–${tqE().to}`);
 
   $('tqOmr').classList.remove('hidden', 'open');
   tqClockBuild(); tqClock(); tqOmrDraw(); tqRunClock();
@@ -3851,7 +3947,9 @@ $('tqQuit').addEventListener('click', () => {
   tqDropMock();
   drawTopik();
 });
-$('tqAgain').addEventListener('click', () => tqStart(tqSet));
+/* 「다시 풀기」는 방금 본 그 회차를 다시 낸다. 회차를 안 넘기면 2회차를
+   보고 나서 다시 풀었을 때 1회차가 나온다. */
+$('tqAgain').addEventListener('click', () => tqStart(tqSet, tqMockRound));
 $('tqBack').addEventListener('click', () => { tqDropMock(); drawTopik(); });
 
 function tqSyncLang() {
