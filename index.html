@@ -39,8 +39,16 @@
 <meta name="referrer" content="strict-origin-when-cross-origin">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>치즈감자 — 나만의 단어장 앱</title>
-<meta name="description" content="스와이프 하나로 언어 학습이 쉬워져요. 나만의 단어장 앱, 치즈감자.">
+<!-- 제목과 설명을 두 말로 쓴다. 이 사이트를 찾을 사람은 한국어를 **배우는**
+     사람이고, 브라우저가 한국어가 아니면 화면도 영어로 뜬다. 그런데
+     검색과 공유 미리보기만 한국어로 나가서, 정작 대상이 검색으로는 못 닿고
+     있었다.
+
+     ※ hreflang 은 안 건다. 언어를 주소가 아니라 화면에서 갈라 영어 쪽
+       주소가 따로 없기 때문이다. 없는 주소를 hreflang 으로 적으면 구글이
+       그 줄을 통째로 버린다. 영어 주소를 따로 낼 때 함께 붙일 것. -->
+<title>치즈감자 — Learn Korean: TOPIK 연습과 문법 표현 290개</title>
+<meta name="description" content="Learn Korean with your own wordbook — TOPIK I·II 모의고사, 문법 표현 290개의 뜻풀이·예문·대화문, 단어 게임까지. 스와이프 하나로 언어 학습이 쉬워져요.">
 <link rel="canonical" href="https://everykoreans.com/">
 
 <!-- 카카오톡·디스코드·트위터에 주소를 붙여넣으면 제목도 그림도 안 떴다.
@@ -50,15 +58,22 @@
 <meta property="og:url" content="https://everykoreans.com/">
 <meta property="og:site_name" content="치즈감자">
 <meta property="og:locale" content="ko_KR">
-<meta property="og:title" content="치즈감자 — 나만의 단어장 앱">
-<meta property="og:description" content="스와이프 하나로 언어 학습이 쉬워져요. 한국어 배우기, TOPIK 유형 연습, 예문 만들기까지.">
+<meta property="og:locale:alternate" content="en_US">
+<meta property="og:title" content="치즈감자 — Learn Korean: TOPIK 연습과 문법 표현 290개">
+<meta property="og:description" content="Learn Korean with your own wordbook — TOPIK I·II 모의고사, 문법 표현 290개의 뜻풀이·예문·대화문, 단어 게임까지.">
 <meta property="og:image" content="https://everykoreans.com/logo.png">
 <meta property="og:image:alt" content="치즈감자">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="치즈감자 — 나만의 단어장 앱">
-<meta name="twitter:description" content="스와이프 하나로 언어 학습이 쉬워져요. 한국어 배우기, TOPIK 유형 연습, 예문 만들기까지.">
+<meta name="twitter:title" content="치즈감자 — Learn Korean: TOPIK 연습과 문법 표현 290개">
+<meta name="twitter:description" content="Learn Korean with your own wordbook — TOPIK I·II 모의고사, 문법 표현 290개의 뜻풀이·예문·대화문, 단어 게임까지.">
 <meta name="twitter:image" content="https://everykoreans.com/logo.png">
 <meta name="theme-color" content="#F2EEE4">
+
+<!-- 탭 아이콘. 없으면 브라우저가 /favicon.ico 를 알아서 찾다가 404 를 받는다.
+     실제로 그러고 있었다. logo.png 는 600×600 254KB 라 탭 아이콘으로 쓰기엔
+     너무 무거워서, 줄인 것을 따로 뒀다 (tools/build-icons.py). -->
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="apple-touch-icon" href="icon-180.png">
 
 <!-- 글꼴 두 벌. 예전에는 jsdelivr 와 구글에서 받아 왔는데, 남의 서버에서
      오는 것을 우리 페이지에 넣는 통로는 적을수록 좋아서 저장소로 들여왔다.
@@ -67,8 +82,8 @@
      Pretendard 는 통짜(2.0MB) 대신 조각난 쪽을 쓴다 — 브라우저가
      unicode-range 를 보고 화면에 실제로 나온 글자가 든 조각만 받는다.
      그래서 저장소는 무거워졌지만 학습자가 받는 양은 오히려 줄었다. -->
-<link rel="stylesheet" href="vendor/pretendard.css?v=250c6a43">
-<link rel="stylesheet" href="vendor/pressstart2p.css?v=250c6a43">
+<link rel="stylesheet" href="vendor/pretendard.css?v=4a3cfc32">
+<link rel="stylesheet" href="vendor/pressstart2p.css?v=4a3cfc32">
 <style>
 /* ══════════════════════════════════════════════════════════════
    치즈감자 — 랜딩
@@ -3093,6 +3108,57 @@ body.nav-open { overflow:hidden; }
 @media (prefers-reduced-motion: reduce) {
   .combo-pop.show, .xp-float, .cloze-blank.reveal, .m-mastered, .cloze-ghost { animation: none !important; opacity: 1 !important; transform: none !important; filter: none !important; }
 }
+
+/* ── 갈래 사용법 안내 ────────────────────────────────────────────
+   갈래를 처음 열었을 때 한 번만 뜬다. 두 번째부터는 제목 옆 ? 로만 연다.
+   들어올 때마다 뜨면 세 번째 방문에는 읽지 않고 닫는 버튼이 되고,
+   그러면 정작 처음 온 사람에게도 「닫는 것」으로 배워진다. */
+.cg-back {
+  position: fixed; inset: 0; z-index: 90; display: flex; align-items: flex-end; justify-content: center;
+  background: rgba(27,21,18,.42); -webkit-backdrop-filter: blur(2px); backdrop-filter: blur(2px);
+  padding: 16px; animation: cgFade .16s ease-out;
+}
+@keyframes cgFade { from { opacity: 0; } to { opacity: 1; } }
+.cg-card {
+  background: var(--surface); border-radius: var(--r-xl); width: 100%; max-width: 460px;
+  padding: 26px 24px 20px; box-shadow: 0 18px 48px rgba(27,21,18,.22);
+  max-height: 86vh; overflow-y: auto; animation: cgUp .2s cubic-bezier(.22,.9,.3,1);
+}
+@keyframes cgUp { from { transform: translateY(14px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+.cg-emoji { font-size: 34px; line-height: 1; }
+.cg-t { font-size: 20px; font-weight: 800; letter-spacing: -.02em; margin: 10px 0 4px; color: var(--ink); }
+.cg-s { font-size: 13.5px; color: var(--ink-3); margin: 0 0 18px; line-height: 1.6; }
+.cg-steps { display: grid; gap: 13px; margin: 0 0 4px; }
+.cg-step { display: grid; grid-template-columns: 28px 1fr; gap: 11px; align-items: start; }
+.cg-step-n {
+  width: 26px; height: 26px; border-radius: 50%; background: var(--tint); color: var(--orange-deep);
+  font-size: 13px; font-weight: 800; display: flex; align-items: center; justify-content: center;
+}
+.cg-step-b { font-size: 14.5px; font-weight: 700; color: var(--ink); display: block; margin-bottom: 2px; }
+.cg-step-x { font-size: 13.5px; color: var(--ink-2); line-height: 1.65; }
+.cg-warn {
+  margin-top: 16px; padding: 12px 14px; border-radius: var(--r);
+  background: var(--tint); border: 1px solid rgba(196,85,28,.18);
+  font-size: 13px; line-height: 1.6; color: var(--ink-2);
+}
+.cg-go {
+  width: 100%; margin-top: 20px; padding: 14px; border: 0; border-radius: var(--r-l);
+  background: var(--orange-mid); color: #fff; font-size: 15.5px; font-weight: 700; cursor: pointer;
+  font-family: inherit; min-height: 48px;
+}
+.cg-go:hover { background: var(--orange-deep); }
+/* 제목 옆 ? — 한 번 닫은 뒤에도 다시 볼 길은 있어야 한다. */
+.lsec-help {
+  width: 30px; height: 30px; flex: none; border-radius: 50%; border: 1px solid var(--line);
+  background: var(--surface); color: var(--ink-3); font-size: 14px; font-weight: 800;
+  cursor: pointer; font-family: inherit; line-height: 1;
+  /* 부모가 space-between 이라 그냥 두면 제목과 「← 배우기」 사이 한복판에
+     혼자 뜬다. margin-right:auto 로 제목 쪽에 붙이고, 부모가 baseline
+     정렬이라 동그란 단추는 따로 가운데를 맞춘다. */
+  margin-left: 8px; margin-right: auto; align-self: center;
+}
+.lsec-help:hover { color: var(--orange-deep); border-color: var(--orange); }
+@media (min-width: 640px) { .cg-back { align-items: center; } }
 </style>
 </head>
 <body>
@@ -3423,7 +3489,10 @@ body.nav-open { overflow:hidden; }
   <!-- 푸터 -->
   <div class="footer">
     <div class="footer-brand" data-en="Every Koreans">에브리 코리안즈</div>
-    <div class="footer-info">© 2026 치즈감자 · <a href="privacy.html" data-en="Privacy policy">개인정보처리방침</a> · <a href="mailto:junsanghan1225@gmail.com">junsanghan1225@gmail.com</a></div>
+    <!-- sentence/ 로 가는 링크를 여기 둔다. sitemap 에도 적어 두었지만,
+         어느 쪽에서도 이어지지 않는 쪽은 크롤러가 늦게 보고 늦게 믿는다.
+         홈에서 한 번 걸리면 290쪽이 거기서부터 따라 발견된다. -->
+    <div class="footer-info">© 2026 치즈감자 · <a href="sentence/" data-en="Korean grammar points">한국어 문법 표현</a> · <a href="privacy.html" data-en="Privacy policy">개인정보처리방침</a> · <a href="mailto:junsanghan1225@gmail.com">junsanghan1225@gmail.com</a></div>
   </div>
 
 </div><!-- /homeView -->
@@ -3449,6 +3518,9 @@ body.nav-open { overflow:hidden; }
     <div id="lsecWrap" class="hidden">
       <div class="bd-sec-title">
         <h3 id="lsecTitle"></h3>
+        <!-- 안내를 다시 볼 길. 안내는 처음 한 번만 저절로 뜨므로, 이것이
+             없으면 무심코 닫은 사람은 두 번 다시 못 본다. -->
+        <button class="lsec-help hidden" id="lsecHelp" type="button" aria-label="사용법 보기">?</button>
         <button class="wb-out" id="lsecBack" type="button" data-en="← Learn">← 배우기</button>
       </div>
 
@@ -4710,9 +4782,16 @@ body.nav-open { overflow:hidden; }
 </div><!-- /wordbookView -->
 
 </div>
-<script src="app.js?v=250c6a43"></script>
-<script type="module" src="app.module.js?v=250c6a43"></script>
 
-<script src="analytics.js?v=250c6a43" defer></script>
+<!-- 갈래 사용법. 속은 app.module.js 가 채운다 — 갈래마다 글이 다르고
+     한국어·영어 두 벌이라 여기 적어 두면 두 곳을 맞춰야 한다. -->
+<div id="cgWrap" class="cg-back hidden" role="dialog" aria-modal="true" aria-labelledby="cgTitle">
+  <div class="cg-card" id="cgCard"></div>
+</div>
+
+<script src="app.js?v=4a3cfc32"></script>
+<script type="module" src="app.module.js?v=4a3cfc32"></script>
+
+<script src="analytics.js?v=4a3cfc32" defer></script>
 </body>
 </html>

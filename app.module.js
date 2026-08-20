@@ -13,20 +13,20 @@
    어느 날 갑자기 다른 코드가 실려 왔다.
    이제 vendor/ 안에 받아 두고 CSP 로 바깥을 막는다. 버전을 올릴 때는
    tools/vendor.mjs 의 PIN 을 고치고 다시 돌린다. */
-import { createClient } from './vendor/supabase-js.js?v=250c6a43';
+import { createClient } from './vendor/supabase-js.js?v=4a3cfc32';
 // 앱(package.json)과 같은 줄기를 쓴다. 갈리면 앱에서는 읽히는 파일이
 // 여기서는 안 읽히는(또는 그 반대) 일이 생긴다.
-import * as XLSX from './vendor/xlsx.js?v=250c6a43';
+import * as XLSX from './vendor/xlsx.js?v=4a3cfc32';
 // 커리큘럼. 내용과 엔진을 갈라 두면 글을 고치다 화면을 깨지 않는다.
-import { COURSES } from './courses.js?v=250c6a43';
-import { SB_CATS, SB_MORE, SB_SEED } from './sentences.js?v=250c6a43';
+import { COURSES } from './courses.js?v=4a3cfc32';
+import { SB_CATS, SB_MORE, SB_SEED } from './sentences.js?v=4a3cfc32';
 // 읽기 연습 지문. 길이(short·long) × 급수 여섯 칸.
-import { READING } from './reading.js?v=250c6a43';
+import { READING } from './reading.js?v=4a3cfc32';
 // TOPIK 유형 연습문제. 기출이 아니라 자체 제작이다.
-import { TOPIK_READING, TOPIK_BLUEPRINT, TOPIK_SLOTS } from './topik.js?v=250c6a43';
-import { TOPIK2_READING, TOPIK2_BLUEPRINT, TOPIK2_SLOTS } from './topik2.js?v=250c6a43';
+import { TOPIK_READING, TOPIK_BLUEPRINT, TOPIK_SLOTS } from './topik.js?v=4a3cfc32';
+import { TOPIK2_READING, TOPIK2_BLUEPRINT, TOPIK2_SLOTS } from './topik2.js?v=4a3cfc32';
 // 숫자 게임의 읽기와 문제 만들기. 화면을 모르는 순수 계산이라 따로 뒀다.
-import { makeRound } from './numbers.js?v=250c6a43';
+import { makeRound } from './numbers.js?v=4a3cfc32';
 
 // 이 키는 공개돼도 되는 값이다. 이미 APK 안에 같은 것이 들어 있고,
 // 접근을 막는 건 키가 아니라 테이블에 걸린 RLS 다.
@@ -638,6 +638,8 @@ function syncLang() {
   if (!$('llWrap').classList.contains('hidden')) drawLessonRows();
   // 갈래 제목과 "준비 중" 안내도 자바스크립트가 넣은 글이다.
   if (lsecOpen) openSection(lsecOpen);
+  // 사용법이 열려 있으면 그 속도 자바스크립트가 넣은 글이다.
+  if (guideOpen) drawGuide(guideOpen);
   // 대시보드는 요일·단위까지 글로 되어 있어 통째로 다시 그린다.
   // 숨김 여부가 아니라 내용 유무로 판단한다 — 숨겨져 있을 때 건너뛰면
   // 다시 열었을 때 예전 언어가 그대로 남는다.
@@ -3775,7 +3777,129 @@ function rdFold(title, text, open) {
   return wrap;
 }
 
-function openSection(id) {
+/* ── 갈래 사용법 안내 ──────────────────────────────────────────
+   갈래마다 「무엇을 하는 곳이고 어떻게 쓰는지」를 세 걸음으로 적는다.
+
+   **처음 한 번만 저절로 뜬다.** 들어올 때마다 띄우면 세 번째 방문쯤에는
+   읽지 않고 닫는 단추가 되고, 그러면 정작 처음 온 사람도 그렇게 배운다.
+   대신 제목 옆 ? 를 남겨 언제든 다시 볼 수 있게 한다.
+
+   걸음은 셋까지만 쓴다. 넷을 넘으면 첫 화면에 스크롤이 생기는데, 안내를
+   스크롤해 가며 읽는 사람은 없다. 꼭 짚어야 하는데 걸음이 아닌 것(모의고사를
+   도중에 나가면 기록이 안 남는다 같은 것)은 warn 에 따로 적는다. */
+const GUIDES = {
+  courses: {
+    emoji: '📚',
+    steps: [
+      { ko: ['순서대로 따라가기', '한글 읽기부터 문장 만들기까지 차례가 정해져 있어요. 처음이라면 맨 위 코스부터 시작하세요.'],
+        en: ['Follow the order', 'Courses run from reading Hangul to building sentences. If you are new, start with the first one.'] },
+      { ko: ['읽고 그 자리에서 풀기', '레슨 하나 안에 설명과 문제가 같이 있어요. 읽은 것을 바로 확인합니다.'],
+        en: ['Read, then try it', 'Each lesson keeps the explanation and the questions in one place.'] },
+      { ko: ['하루씩 쌓여요', '끝낸 레슨은 기록에 남고, 며칠을 이어서 했는지 세어 줍니다.'],
+        en: ['Your days add up', 'Finished lessons are saved, and we count how many days in a row you keep going.'] },
+    ],
+  },
+  topik: {
+    emoji: '📖',
+    steps: [
+      { ko: ['시험과 급수를 먼저', 'TOPIK I(1·2급)과 TOPIK II(3~6급 수준) 중에서 고르고, 풀 급수를 정하세요.'],
+        en: ['Pick the exam and level first', 'TOPIK I (levels 1–2) or TOPIK II (levels 3–6), then the level you want to practise.'] },
+      { ko: ['연습은 바로 해설, 모의고사는 끝나고 성적표', '「전체 풀기」와 유형별 연습은 문제마다 왜 그런지 바로 알려 줘요. 「모의고사 한 회」는 시간을 재고, 다 풀어야 성적표가 나옵니다.'],
+        en: ['Practice explains as you go — the mock waits', 'Full run and the per-type drills tell you why right away. The full mock is timed and only shows the result sheet at the end.'] },
+      { ko: ['모르는 낱말은 짚어 두세요', '지문에서 고른 말이 단어장으로 갑니다. 「아침을」은 「아침」으로 다듬고, 「마실 수 있어요」는 「마시다」와 「-ㄹ 수 있어요」로 나눠 담을 수 있어요.'],
+        en: ['Mark the words you do not know', 'Picked words go to your wordbook — and you can trim or split them first.'] },
+    ],
+    warn: { ko: '⚠️ 모의고사를 푸는 동안에는 화면을 떠나지 마세요. 나가면 지금까지 푼 것이 기록에 남지 않아요.',
+            en: '⚠️ Do not leave the screen during a mock exam — what you have answered so far will not be saved.' },
+  },
+  reading: {
+    emoji: '📝',
+    steps: [
+      { ko: ['글을 하나 고르기', '길지 않은 글이에요. 끝까지 한 번 읽으세요.'],
+        en: ['Pick a passage', 'They are short. Read one all the way through.'] },
+      { ko: ['자기 말로 다시 쓰기', '외운 문장이 아니라, 이해한 것을 자기 말로 적어 봅니다.'],
+        en: ['Say it back in your own words', 'Not a memorised sentence — what you actually understood.'] },
+      { ko: ['짚은 것과 놓친 것', '무엇을 맞게 짚었고 무엇을 놓쳤는지 바로 알려 줘요.'],
+        en: ['What you caught, what you missed', 'You see both right away.'] },
+    ],
+  },
+  sentence: {
+    emoji: '✍️',
+    steps: [
+      { ko: ['단계와 표현 고르기', '초급·중급·고급 중에서 고르고 갈래에서 표현을 찾으세요. 73갈래에 290개가 있어요.'],
+        en: ['Pick a level, then a grammar point', 'Beginner, intermediate or advanced — 290 points across 73 groups.'] },
+      { ko: ['뜻과 대화문 읽기', '표현마다 뜻풀이·형태·주의할 점·예문이 있고, 🧀와 🥔의 대화로도 볼 수 있어요.'],
+        en: ['Read the meaning and the dialogue', 'Every point has its meaning, form, what to watch out for, examples — and a short 🧀 / 🥔 conversation.'] },
+      { ko: ['내 문장 올리기', '읽고 끝내지 말고 한 문장 써 보세요. 다른 사람이 쓴 문장도 같이 보입니다.'],
+        en: ['Write your own', 'Do not just read it — post one sentence. You will see what others wrote too.'] },
+    ],
+  },
+};
+
+const guideKey = (id) => `cp-guide-${id}`;
+/* localStorage 를 막아 둔 브라우저에서는 「이미 봤다」로 친다. 못 적는데도
+   띄우면 들어올 때마다 같은 안내가 뜨는데, 그건 안내가 아니라 방해다. */
+const guideSeen = (id) => { try { return localStorage.getItem(guideKey(id)) === '1'; } catch { return true; } };
+const guideMark = (id) => { try { localStorage.setItem(guideKey(id), '1'); } catch { /* 못 적어도 그만 */ } };
+
+let guideOpen = null;
+
+function drawGuide(id) {
+  const g = GUIDES[id];
+  const s = LEARN_SECTIONS.find((x) => x.id === id);
+  if (!g || !s) return;
+  const pick = (o) => (isEn() ? o.en : o.ko);
+  $('cgCard').innerHTML =
+    `<div class="cg-emoji" aria-hidden="true">${g.emoji}</div>` +
+    `<h3 class="cg-t" id="cgTitle">${esc(secTx(s.title))}</h3>` +
+    `<p class="cg-s">${esc(secTx(s.tag))}</p>` +
+    '<div class="cg-steps">' +
+      g.steps.map((st, i) => {
+        const [head, body] = pick(st);
+        return '<div class="cg-step">' +
+          `<span class="cg-step-n" aria-hidden="true">${i + 1}</span>` +
+          `<span><b class="cg-step-b">${esc(head)}</b><span class="cg-step-x">${esc(body)}</span></span>` +
+        '</div>';
+      }).join('') +
+    '</div>' +
+    (g.warn ? `<div class="cg-warn">${esc(pick(g.warn))}</div>` : '') +
+    `<button class="cg-go" id="cgGo" type="button">${t('알겠어요, 시작할게요', 'Got it — let’s start')}</button>`;
+}
+
+function showGuide(id) {
+  if (!GUIDES[id]) return;
+  guideOpen = id;
+  drawGuide(id);
+  $('cgWrap').classList.remove('hidden');
+  $('cgGo')?.focus();
+}
+
+/* 닫는 순간에 「봤다」로 적는다. 열자마자 적으면, 띄워 놓고 아무것도 안 한
+   채 새로고침한 사람이 안내를 영영 못 보게 된다. */
+function closeGuide() {
+  if (!guideOpen) return;
+  guideMark(guideOpen);
+  guideOpen = null;
+  $('cgWrap').classList.add('hidden');
+}
+
+$('cgWrap').addEventListener('click', (ev) => {
+  // 카드 밖(어두운 바탕)을 눌렀거나, 「알겠어요」를 눌렀을 때
+  if (ev.target === $('cgWrap') || ev.target.closest('#cgGo')) closeGuide();
+});
+/* Escape 는 app.js 가 메뉴 닫기에도 쓴다. 안내가 열려 있을 때만 가로채고,
+   그때는 뒤쪽 메뉴까지 같이 닫히지 않도록 여기서 멈춘다. */
+addEventListener('keydown', (ev) => {
+  if (ev.key !== 'Escape' || !guideOpen) return;
+  ev.stopPropagation();
+  closeGuide();
+}, true);
+$('lsecHelp').addEventListener('click', () => { if (lsecOpen) showGuide(lsecOpen); });
+
+/* quiet — 사용법을 띄우지 않는다. 남이 보낸 주소로 표현 하나를 콕 집어
+   들어온 때에 쓴다. 그 표현을 보러 온 사람 앞을 안내가 가로막으면
+   안내가 아니라 문지기가 된다. */
+function openSection(id, quiet) {
   const s = LEARN_SECTIONS.find((x) => x.id === id);
   if (!s) return;
   /* 이미 열려 있는 갈래를 다시 여는 경우가 있다 — 언어를 바꾸면 syncLang 이
@@ -3813,6 +3937,12 @@ function openSection(id) {
                                      'This one is not ready yet. Coming soon.');
     $('lsecSoon').classList.remove('hidden');
   }
+  /* ? 는 사용법이 있는 갈래에서만 보인다. */
+  $('lsecHelp').classList.toggle('hidden', !GUIDES[s.id]);
+  /* 처음 여는 갈래면 사용법을 한 번 띄운다. already 를 빼는 이유는
+     openSection 이 언어 전환 때도 불리기 때문이다 — EN 을 눌렀다고
+     안내가 다시 뜨면 이상하다. */
+  if (!already && !quiet && s.ready && !guideSeen(s.id)) showGuide(s.id);
 }
 
 /* 레슨에서 나올 때 가는 자리. 갈래가 생기기 전에는 그냥 코스 목록이었다.
@@ -3830,7 +3960,7 @@ function openLearnSub(sub) {
      openSection 이 「직전에 보던 표현」을 되살려서, 상세에서 뒤로 가기를
      눌러도 같은 상세가 다시 열린다. */
   if (secId === 'sentence' && !rest[0]) sbPoint = null;
-  openSection(secId);
+  openSection(secId, !!rest[0]);
   if (secId !== 'sentence' || !rest[0]) return;
   const p = sbFind(rest[0]);
   if (!p) return;
