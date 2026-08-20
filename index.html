@@ -82,8 +82,8 @@
      Pretendard 는 통짜(2.0MB) 대신 조각난 쪽을 쓴다 — 브라우저가
      unicode-range 를 보고 화면에 실제로 나온 글자가 든 조각만 받는다.
      그래서 저장소는 무거워졌지만 학습자가 받는 양은 오히려 줄었다. -->
-<link rel="stylesheet" href="vendor/pretendard.css?v=bfb9ba59">
-<link rel="stylesheet" href="vendor/pressstart2p.css?v=bfb9ba59">
+<link rel="stylesheet" href="vendor/pretendard.css?v=cbb9b4b0">
+<link rel="stylesheet" href="vendor/pressstart2p.css?v=cbb9b4b0">
 <style>
 /* ══════════════════════════════════════════════════════════════
    치즈감자 — 랜딩
@@ -1153,6 +1153,16 @@ body.nav-open { overflow:hidden; }
 
 /* ══ 배우기 : 코스 카탈로그 ════════════════════════════════════ */
 .lc-grid { display:grid; gap:16px; }
+/* 풀다 만 회차. 카드 아래에 지우는 길을 작게 붙인다 — 카드와 같은 무게로
+   두면 「이어서 풀기」와 「지우기」 가운데 무엇이 하려던 일인지 헷갈린다. */
+.tq-hold { display:grid; gap:8px; }
+.tq-hold .lc-card { border-color:var(--orange); background:var(--tint); }
+.tq-hold-drop {
+  justify-self:start; padding:6px 0; border:0; background:none; cursor:pointer;
+  font-family:inherit; font-size:12.5px; color:var(--ink-3);
+  text-decoration:underline; text-underline-offset:3px; min-height:32px;
+}
+.tq-hold-drop:hover { color:var(--red); }
 .lc-card {
   display:block; width:100%; text-align:left; cursor:pointer;
   background:var(--surface); border:1px solid var(--line); border-radius:var(--r-xl);
@@ -2118,7 +2128,10 @@ body.nav-open { overflow:hidden; }
 .tq-passage {
   background:var(--surface); border:1px solid var(--line-2); border-left:3px solid var(--orange);
   border-radius:0 var(--r) var(--r) 0; padding:18px 20px; margin-bottom:18px;
-  font-size:16px; line-height:1.95; color:var(--ink); white-space:pre-line; word-break:keep-all;
+  /* 줄 간격 1.95 는 낱말을 눌러 표시하려고 넉넉히 잡았던 값인데, 네 문장이
+     열세 줄로 벌어져 지문을 한눈에 훑을 수가 없었다. 1.78 이면 16px 글자에서
+     줄 상자가 아직 28px 이라 손가락으로 누르기에 모자라지 않다. */
+  font-size:16px; line-height:1.78; color:var(--ink); white-space:pre-line; word-break:keep-all;
 }
 /* 59번에서 지문에 끼워 넣을 문장. 지문과 같은 크기로 두되 테두리를 점선으로
    두어 「아직 글에 안 들어간 조각」으로 보이게 한다. 지문과 똑같이 그리면
@@ -2128,10 +2141,20 @@ body.nav-open { overflow:hidden; }
   padding:14px 18px; margin-bottom:18px;
   font-size:15.5px; line-height:1.9; color:var(--ink-2); word-break:keep-all;
 }
+/* 「보기」 딱지. 점선 상자만 덩그러니 있으면 그것이 지문의 일부인지 옮길
+   문장인지 갈리지 않는다. 실제 시험지도 <보기> 라고 적어 준다. */
+.tq-insert-h {
+  display:block; font-size:11.5px; font-weight:800; letter-spacing:.08em;
+  color:var(--ink-3); margin-bottom:7px;
+}
 .tq-question { font-size:15.5px; font-weight:700; color:var(--ink); line-height:1.7; margin-bottom:14px; word-break:keep-all; }
 .tq-choices { display:grid; gap:9px; }
 .tq-choices .qz-choice { text-align:left; font-size:15.5px; padding:15px 17px; line-height:1.6; word-break:keep-all; }
-.tq-num { display:inline-block; width:22px; color:var(--ink-3); font-weight:700; font-variant-numeric:tabular-nums; }
+/* 보기 번호는 ①②③④ 다. 실제 시험지가 그렇고, 해설과 성적표도 이미 그
+   글자로 말한다 — 화면만 1234 라서 「③을 고르세요」와 「3」이 따로 놀았다.
+   문장 넣기 유형에서는 더 나빴다. 보기 내용이 ㉠㉡㉢㉣ 라서 「1 ㉠」처럼
+   번호 매기기가 두 벌로 보였다. */
+.tq-num { display:inline-block; width:22px; color:var(--ink-3); font-weight:700; }
 .tq-why {
   margin-top:14px; padding:13px 16px; font-size:14px; line-height:1.75; color:var(--ink-2);
   background:var(--tint); border-left:3px solid var(--orange); border-radius:0 var(--r) var(--r) 0;
@@ -4846,9 +4869,9 @@ body.nav-open { overflow:hidden; }
   <div class="cg-card" id="cgCard"></div>
 </div>
 
-<script src="app.js?v=bfb9ba59"></script>
-<script type="module" src="app.module.js?v=bfb9ba59"></script>
+<script src="app.js?v=cbb9b4b0"></script>
+<script type="module" src="app.module.js?v=cbb9b4b0"></script>
 
-<script src="analytics.js?v=bfb9ba59" defer></script>
+<script src="analytics.js?v=cbb9b4b0" defer></script>
 </body>
 </html>
