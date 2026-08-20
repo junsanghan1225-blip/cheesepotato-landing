@@ -1306,5 +1306,221 @@
     "desc": "Advanced Korean grammatical expressions useful to recognize in literary texts.",
     "form": "Verb stem + 「-(으)세라」 / 「-는 양」 / 「-는 한편」",
     "care": "Frequently encountered in literary and formal written works."
+  },
+  {
+    "id": "52-3",
+    "desc": "Used to verify or confirm something you heard from someone else.",
+    "form": "Verb/Adj stem + 「-다면서요」 (Shortened: 「-다며」)",
+    "care": "Because you already heard about it, it is often paired with a welcoming tone or congratulations."
+  },
+  {
+    "id": "52-4",
+    "desc": "Used to ask back in disbelief or surprise about something unexpected you just heard.",
+    "form": "Verb/Adj stem + 「-다니요」 / Noun + 「(이)라니요」",
+    "care": "Carries a stronger sense of surprise and disappointment than 「-다고요?」."
+  },
+  {
+    "id": "53-1",
+    "desc": "Expresses that you are thinking about doing something, but have not made up your mind yet.",
+    "form": "Verb stem without final consonant + 「-ㄹ까」 / with final consonant + 「-을까」 + 「하다」",
+    "care": "Feels much less finalized than 「-(으)려고 하다」."
+  },
+  {
+    "id": "53-2",
+    "desc": "A formal expression meaning 'in order to' or 'with the purpose of doing something'.",
+    "form": "Verb stem + 「-고자」 (Often paired: 「-고자 하다」)",
+    "care": "Used in presentations and official documents. In spoken Korean, 「-(으)려고」 is more natural."
+  },
+  {
+    "id": "53-3",
+    "desc": "Expresses that you were just about to do that very action.",
+    "form": "Verb stem without final consonant + 「-려던」 / with final consonant + 「-으려던」 + 「참이다」",
+    "care": "Used when the other person's suggestion matches your exact plan. Pairs well with 「마침」."
+  },
+  {
+    "id": "53-4",
+    "desc": "Indicates doing an action to serve dual purposes, killing two birds with one stone.",
+    "form": "Verb stem without final consonant + 「-ㄹ 겸」 / with final consonant + 「-을 겸」 (Often used twice)",
+    "care": "Using it twice in a row sounds much more natural."
+  },
+  {
+    "id": "53-5",
+    "desc": "Expresses a firm personal resolution or reminds someone of what must rightfully be done.",
+    "form": "Verb/Adj stem + 「-아야지요」 / 「-어야지요」 (Casual: 「-아/어야지」)",
+    "care": "Used for both self-determination and scolding others. The latter carries a slightly reproaching tone."
+  },
+  {
+    "id": "54-1",
+    "desc": "Indicates that something is worthwhile or worth doing.",
+    "form": "Verb stem without final consonant + 「-ㄹ 만하다」 / with final consonant + 「-을 만하다」",
+    "care": "Used when making recommendations. 「먹을 만해요」 means it is acceptable, though not exceptionally delicious."
+  },
+  {
+    "id": "54-2",
+    "desc": "Used to gently instruct or encourage someone to do something.",
+    "form": "Verb stem + 「-도록 하다」",
+    "care": "Sounds stiffer than 「-(으)세요」, making it suitable for announcements and official instructions."
+  },
+  {
+    "id": "54-3",
+    "desc": "Gently suggests a course of action, asking why you do not do it that way.",
+    "form": "Verb stem + 「-지 그래요」 (Past tense: 「-지 그랬어요」)",
+    "care": "The past form 「-지 그랬어요」 expresses regret that you did not do so."
+  },
+  {
+    "id": "55-1",
+    "desc": "Modifies a noun to indicate a past repeated action or an unfinished state.",
+    "form": "Verb/Adj stem + 「-던」 (For completed past events: 「-았/었던」)",
+    "care": "While 「-(으)ㄴ」 marks a completed event, 「-던」 refers to repeated or discontinued habits."
+  },
+  {
+    "id": "55-2",
+    "desc": "Shares a fact based on your own past direct experience or observation.",
+    "form": "Verb/Adj stem + 「-더라고요」",
+    "care": "Used only for things you directly witnessed yourself. Not used to describe your own subjective emotions."
+  },
+  {
+    "id": "55-3",
+    "desc": "Shares what you directly observed in the past while leaving room for the listener to respond.",
+    "form": "Verb/Adj stem + 「-던데요」",
+    "care": "Leaves more conversational room than 「-더라고요」, inviting the listener to continue speaking."
+  },
+  {
+    "id": "56-1",
+    "desc": "Passive verbs indicating that an action is done to the subject. The affix varies by verb stem.",
+    "form": "「보다」 → 「보이다」 / 「먹다」 → 「먹히다」 / 「열다」 → 「열리다」 / 「안다」 → 「안기다」",
+    "care": "Which affix attaches is fixed for each verb, so they must be memorized individually."
+  },
+  {
+    "id": "56-2",
+    "desc": "Expresses a passive action without specifying who performed it.",
+    "form": "Verb stem + 「-아지다」 / 「-어지다」",
+    "care": "On adjectives, 「-아/어지다」 indicates change (e.g., 「따뜻해지다」); on verbs, it marks the passive voice."
+  },
+  {
+    "id": "56-3",
+    "desc": "Indicates that a situation ended up that way regardless of your own intention.",
+    "form": "Verb stem + 「-게 되다」",
+    "care": "Gives the impression that it was not your own decision. Used to break personal news cautiously."
+  },
+  {
+    "id": "57-1",
+    "desc": "Causative verbs indicating that the subject makes or lets someone else do an action.",
+    "form": "「먹다」 → 「먹이다」 / 「앉다」 → 「앉히다」 / 「울다」 → 「울리다」 / 「웃다」 → 「웃기다」 / 「자다」 → 「재우다」",
+    "care": "Many causative affixes overlap with passive forms. Distinguish them by identifying who performs the action."
+  },
+  {
+    "id": "57-2",
+    "desc": "Indicates making, ordering, or allowing someone to perform an action.",
+    "form": "Verb/Adj stem + 「-게 하다」",
+    "care": "Used for verbs that lack single-word causative forms. Can be applied broadly."
+  },
+  {
+    "id": "58-1",
+    "desc": "States an essential condition, meaning only if the first clause happens can the rest occur.",
+    "form": "Verb/Adj stem + 「-아야」 / 「-어야」",
+    "care": "Much stricter than 「-(으)면」. It emphasizes that without this condition, the result is impossible."
+  },
+  {
+    "id": "58-2",
+    "desc": "Sets a condition meaning 'once/if that happens'. Followed by a request or suggestion.",
+    "form": "Verb/Adj stem + 「-거든」",
+    "care": "Different from causal 「-거든요」. This conditional form is followed by imperative or suggestive endings."
+  },
+  {
+    "id": "59-1",
+    "desc": "Adds more information, meaning 'not only this, but also that'.",
+    "form": "Verb/Adj stem without final consonant + 「-ㄹ 뿐만 아니라」 / with final consonant + 「-을 뿐만 아니라」 / Noun + 「뿐만 아니라」",
+    "care": "Both clauses must align in tone: positive points follow positive points, and negatives follow negatives."
+  },
+  {
+    "id": "59-2",
+    "desc": "Indicates that an additional situation is compounded on top of the first one.",
+    "form": "Verb stem + 「-는 데다가」 / Adj stem + 「-(으)ㄴ 데다가」",
+    "care": "Conveys that situations overlap to intensify the result. Often paired with 「까지」 in the second clause."
+  },
+  {
+    "id": "59-4",
+    "desc": "Gives an example, stating that just considering this single case proves the point.",
+    "form": "Noun + 「만 해도」",
+    "care": "Means taking just one example among many is enough. Used when presenting evidence."
+  },
+  {
+    "id": "60-2",
+    "desc": "Indicates that an action was interrupted or changed to another action midway.",
+    "form": "Verb stem + 「-다가」 (After full completion: 「-았/었다가」)",
+    "care": "「-다가」 indicates an interruption midway, whereas 「-았/었다가」 happens after full completion."
+  },
+  {
+    "id": "61-1",
+    "desc": "Compares the degree of an action or state, meaning 'to the extent that'.",
+    "form": "Verb/Adj stem without final consonant + 「-ㄹ 정도로」 / with final consonant + 「-을 정도로」",
+    "care": "Often used with vivid exaggeration to emphasize intensity."
+  },
+  {
+    "id": "61-2",
+    "desc": "Indicates that the size or degree of something is roughly equivalent to the noun.",
+    "form": "Noun + 「만 하다」",
+    "care": "Frequently used to compare physical sizes. While 「-보다」 marks difference, this marks similarity."
+  },
+  {
+    "id": "61-3",
+    "desc": "Means 'as much as' or 'in proportion to' the extent of the action or state.",
+    "form": "Past: 「-(으)ㄴ 만큼」 / Present: 「-는 만큼」 / Future: 「-(으)ㄹ 만큼」 / Noun + 「만큼」",
+    "care": "While 「-(으)ㄹ 정도로」 tends to exaggerate, this denotes proportion—you get as much as you put in."
+  },
+  {
+    "id": "62-1",
+    "desc": "Indicates that any person, item, or place is fine without restriction.",
+    "form": "「아무나」 (People) / 「아무거나」 (Things) / 「아무 데나」 (Places)",
+    "care": "In negative sentences, these change to 「아무도」, 「아무것도」, and 「아무 데도」."
+  },
+  {
+    "id": "62-2",
+    "desc": "Expresses settling for an option as a second-best choice, even if not fully satisfied.",
+    "form": "Noun with final consonant + 「이나」 / without final consonant + 「나」",
+    "care": "Conveys picking an alternative out of lack of better options rather than picking your ideal choice."
+  },
+  {
+    "id": "62-4",
+    "desc": "Indicates that choosing either option makes no difference.",
+    "form": "Verb/Adj stem + 「-든지」 (Shortened: 「-든」)",
+    "care": "While 「-거나」 simply lists choices, this emphasizes complete indifference between either option."
+  },
+  {
+    "id": "62-5",
+    "desc": "Indicates replacing one action or thing with another instead.",
+    "form": "Verb stem + 「-는 대신에」 / Adj stem + 「-(으)ㄴ 대신에」 / Noun + 「대신에」",
+    "care": "Also used for trade-offs or compensations, as in 「비싼 대신에 오래 써요」."
+  },
+  {
+    "id": "63-1",
+    "desc": "Indicates that a certain amount of time has elapsed before an action takes place.",
+    "form": "Time duration + 「만에」",
+    "care": "「동안」 refers to throughout that duration, while 「만에」 refers to after that duration has passed."
+  },
+  {
+    "id": "63-2",
+    "desc": "Indicates completing an action and carrying that resulting state into the next action.",
+    "form": "Verb stem + 「-아 가지고」 / 「-어 가지고」 (Shortened: 「-아/어 갖고」)",
+    "care": "Also used colloquially for causes: 「늦어 가지고 못 봤어요」. Do not use in formal writing."
+  },
+  {
+    "id": "63-4",
+    "desc": "Clarifies sequential order, meaning doing the next action after completely finishing the first.",
+    "form": "Verb stem + 「-고서」",
+    "care": "Emphasizes the completion of the preceding action more clearly than 「-고」."
+  },
+  {
+    "id": "64-1",
+    "desc": "Indicates realizing something new only after completing the action.",
+    "form": "Verb stem + 「-고 보니」",
+    "care": "The action comes first and the realization comes after. The phrase 「알고 보니」 is particularly common."
+  },
+  {
+    "id": "64-4",
+    "desc": "Connects an observation you witnessed in the past with its resulting outcome.",
+    "form": "Verb/Adj stem + 「-더니」",
+    "care": "Used for other people's actions that you directly witnessed. For your own actions, use 「-았/었더니」."
   }
 ]
