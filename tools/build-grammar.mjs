@@ -232,14 +232,20 @@ for (const e of mineEn) {
     if (!v) continue;
     /* 「형태」 칸에는 한국어 꼴이 그대로 들어간다 — 「N + 이에요」의 이에요는
        번역할 것이 아니다. 설명말만 영어면 된다. desc·care 는 통째로 영어라야
-       한다. 한글이 남아 있으면 옮기다 만 것이다. */
-    if (k !== 'form' && /[가-힣]/.test(v.replace(/[「」][^「」]*[「」]/g, ''))) {
+       한다. 한글이 남아 있으면 옮기다 만 것이다.
+
+       낫표(「」) 안은 가리키는 꼴이고 대괄호([]) 안은 소리 나는 대로다
+       (「-ㄹ 거예요」를 [-ㄹ 꺼에요]로 읽는다). 둘 다 옮길 것이 아니라 배울
+       것이라 검사에서 뺀다. */
+    if (k !== 'form' && /[가-힣]/.test(v.replace(/[「」][^「」]*[「」]|\[[^\]]*\]/g, ''))) {
       enBad.push(`${e.id} ${k} — 「」 밖에 한글이 남았다: ${v.slice(0, 40)}`);
       continue;
     }
     row[k] = v;
   }
   if (!row.desc) { enBad.push(`${e.id} — desc 가 없다`); continue; }
+  /* 말풍선은 지문 위에 겹쳐 뜬다. 설명이 길면 짚어 주려던 글을 덮는다. */
+  if (row.desc.length > 160) enBad.push(`${e.id} desc — ${row.desc.length}자다. 160자를 넘으면 말풍선이 글을 덮는다`);
   enTable[e.id] = row;
 }
 
