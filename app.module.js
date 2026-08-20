@@ -13,21 +13,21 @@
    어느 날 갑자기 다른 코드가 실려 왔다.
    이제 vendor/ 안에 받아 두고 CSP 로 바깥을 막는다. 버전을 올릴 때는
    tools/vendor.mjs 의 PIN 을 고치고 다시 돌린다. */
-import { createClient } from './vendor/supabase-js.js?v=bfb9ba59';
+import { createClient } from './vendor/supabase-js.js?v=cbb9b4b0';
 // 앱(package.json)과 같은 줄기를 쓴다. 갈리면 앱에서는 읽히는 파일이
 // 여기서는 안 읽히는(또는 그 반대) 일이 생긴다.
-import * as XLSX from './vendor/xlsx.js?v=bfb9ba59';
+import * as XLSX from './vendor/xlsx.js?v=cbb9b4b0';
 // 커리큘럼. 내용과 엔진을 갈라 두면 글을 고치다 화면을 깨지 않는다.
-import { COURSES } from './courses.js?v=bfb9ba59';
-import { GLOSSARY } from './glossary.js?v=bfb9ba59';
-import { SB_CATS, SB_MORE, SB_SEED } from './sentences.js?v=bfb9ba59';
+import { COURSES } from './courses.js?v=cbb9b4b0';
+import { GLOSSARY } from './glossary.js?v=cbb9b4b0';
+import { SB_CATS, SB_MORE, SB_SEED } from './sentences.js?v=cbb9b4b0';
 // 읽기 연습 지문. 길이(short·long) × 급수 여섯 칸.
-import { READING } from './reading.js?v=bfb9ba59';
+import { READING } from './reading.js?v=cbb9b4b0';
 // TOPIK 유형 연습문제. 기출이 아니라 자체 제작이다.
-import { TOPIK_READING, TOPIK_BLUEPRINT, TOPIK_SLOTS } from './topik.js?v=bfb9ba59';
-import { TOPIK2_READING, TOPIK2_BLUEPRINT, TOPIK2_SLOTS } from './topik2.js?v=bfb9ba59';
+import { TOPIK_READING, TOPIK_BLUEPRINT, TOPIK_SLOTS } from './topik.js?v=cbb9b4b0';
+import { TOPIK2_READING, TOPIK2_BLUEPRINT, TOPIK2_SLOTS } from './topik2.js?v=cbb9b4b0';
 // 숫자 게임의 읽기와 문제 만들기. 화면을 모르는 순수 계산이라 따로 뒀다.
-import { makeRound } from './numbers.js?v=bfb9ba59';
+import { makeRound } from './numbers.js?v=cbb9b4b0';
 
 // 이 키는 공개돼도 되는 값이다. 이미 APK 안에 같은 것이 들어 있고,
 // 접근을 막는 건 키가 아니라 테이블에 걸린 RLS 다.
@@ -2229,6 +2229,9 @@ const tqFreeLimit = () => (tqMock ? TQ_FREE_MOCK : TQ_FREE_DRILL);
 /* 벽을 칠 때인가. 첫 판을 아직 안 썼으면 몇 문항을 풀었든 막지 않는다. */
 const tqWalled = () => !tqSignedIn && tqFreeUsed() && tqIdx >= tqFreeLimit();
 
+/* 보기 번호. 자료에는 0부터 세는 자리로 들어 있고 화면에는 이 글자로 나간다.
+   성적표와 해설이 쓰는 글자와 같아야 한다. */
+const TQ_CIRCLE = ['①', '②', '③', '④'];
 const tqOf = (grade) => tqE().reading.filter((q) => q.grade === grade);
 const tqPanel = (name) => ['tqPick', 'tqPlay', 'tqOver'].forEach((k) => $(k).classList.toggle('hidden', k !== name));
 const tqBestKey = (g) => `cp-topik-best-${g}`;
@@ -2315,7 +2318,34 @@ function drawTopik() {
     const mockReady = ex.slots.every((s) => filled.has(s.n));
     const span = t(`읽기 ${ex.from}~${ex.to}번`, `Reading ${ex.from}–${ex.to}`);
     const mins = ex.mockSec / 60;
-    $('tqList').innerHTML =
+
+    /* 풀다 만 회차가 있으면 맨 위에 세운다. 아래에 두면 「모의고사 한 회」를
+       먼저 눌러 새로 시작하게 되고, 그 순간 붙들어 둔 자리가 사라진다. */
+    const hold = tqHoldRead();
+    const holdCard = !hold ? '' : (() => {
+      const hx = TQ_EXAMS[hold.exam];
+      const done = hold.picks.filter((v) => Number.isInteger(v)).length;
+      const mm = Math.floor(hold.left / 60);
+      return '<div class="tq-hold">' +
+        '<button class="lc-card lq-card" data-tq="resume">' +
+          '<div class="lc-top">' +
+            '<div class="lc-mark">⏳</div>' +
+            '<div style="min-width:0">' +
+              `<div class="lc-lv">${esc(t(hx.name.ko, hx.name.en))} · ${esc(hx.gradeTx(hold.grade))}</div>` +
+              `<div class="lc-title">${esc(t('이어서 풀기', 'Pick up where you left off'))}</div>` +
+              `<div class="lc-tag">${esc(t(`${hold.ids.length}문항 중 ${done}개 풀었고 ${mm}분 남았어요`,
+                                           `${done} of ${hold.ids.length} answered · ${mm} min left`))}</div>` +
+            '</div>' +
+          '</div>' +
+          `<p class="lc-blurb">${esc(t('나가기 전에 고른 답과 남은 시간이 그대로 있어요. 시계는 이어서 갑니다.',
+                                        'Your answers and the clock are exactly where you left them.'))}</p>` +
+        '</button>' +
+        '<button class="tq-hold-drop" type="button" data-tq-drop="1">' +
+          `${esc(t('지우고 새로 시작할래요', 'Discard it and start fresh'))}</button>` +
+      '</div>';
+    })();
+
+    $('tqList').innerHTML = holdCard +
       /* 모의고사만은 급수를 안 가린다. 실제 TOPIK I 은 1급·2급이 한 장에
          같이 나오는 시험이라 급수로 나누면 시험이 아니게 된다. 다만 1급을
          골라 둔 학습자에게 말없이 2급 지문을 내밀면 속이는 것이므로,
@@ -2507,6 +2537,9 @@ function tqRunClock() {
 function tqStartMock() {
   const round = tqBuildMock();
   if (!round) return;
+  /* 새로 시작하면 붙들어 둔 자리는 버린다. 둘을 같이 들고 있으면
+     이어하기 카드가 이미 지나간 회차를 가리킨다. */
+  tqHoldClear();
   tqRound = round;
   tqIdx = 0; tqScore = 0; tqWrongs = []; tqBusy = false; tqSet = 'mock';
   tqMock = true; tqPicks = []; tqLeft = tqMockSec(); tqSpent = 0; tqSaved = false;
@@ -3176,7 +3209,15 @@ function tqDraw() {
   /* 넣을 문장이 없으면 59번 유형은 풀 수가 없다. 자료에만 두고 화면에
      안 그리면 학습자는 ㉠㉡㉢㉣ 만 보고 찍게 된다. */
   $('tqInsert').classList.toggle('hidden', !q.sentence);
-  tqWordify($('tqInsert'), q.sentence);
+  if (q.sentence) {
+    /* 점선 상자만 있으면 지문의 일부인지 옮길 문장인지 갈리지 않는다.
+       tqWordify 가 상자를 비우고 다시 담으므로 딱지는 그 뒤에 끼운다. */
+    tqWordify($('tqInsert'), q.sentence);
+    const tag = document.createElement('span');
+    tag.className = 'tq-insert-h';
+    tag.textContent = t('보기', 'Given sentence');
+    $('tqInsert').prepend(tag);
+  }
   tqWordify($('tqQuestion'), q.question);
   $('tqWhy').classList.add('hidden');
   $('tqNext').classList.add('hidden');
@@ -3193,7 +3234,9 @@ function tqDraw() {
     /* 되돌아온 문항은 아까 고른 답이 그대로 보여야 한다. 안 그러면
        내가 뭘 골랐는지 모른 채 다시 고르게 된다. */
     if (tqMock && tqPicks[tqIdx] === i) b.classList.add('picked');
-    b.innerHTML = `<span class="tq-num">${i + 1}</span>${esc(text)}`;
+    /* ①②③④ — 실제 시험지의 번호다. 해설과 성적표가 이미 이 글자로
+       말하고 있어서, 화면만 1234 이면 「③이 답인 까닭」과 「3」이 따로 논다. */
+    b.innerHTML = `<span class="tq-num">${TQ_CIRCLE[i]}</span>${esc(text)}`;
     b.addEventListener('click', () => tqPick(i, b));
     box.appendChild(b);
   });
@@ -3586,7 +3629,7 @@ function tqFinish() {
   tqDrawSheet();
   /* 기록은 성적표를 그린 뒤에 남긴다. 먼저 쓰면 성적표가 방금 쓴 자기
      자신을 「지난 회」로 읽어서, 첫 회에 「지난 회 대비 0」이 뜬다. */
-  if (first && tqMock) tqMockWrite({ at: Date.now(), score: tqScore, n, sec: tqSpent, exam: tqExam });
+  if (first && tqMock) { tqMockWrite({ at: Date.now(), score: tqScore, n, sec: tqSpent, exam: tqExam }); tqHoldClear(); }
   tqDrawBreak();
   /* 틀린 문항 다시 보기. innerHTML 로 찍지 않고 조각으로 쌓는 이유는
      여기서도 낱말을 눌러 표시할 수 있어야 해서다 — 무엇을 몰랐는지는
@@ -3647,8 +3690,17 @@ $('tqLevel').addEventListener('change', (ev) => {
   drawTopik();
 });
 $('tqList').addEventListener('click', (ev) => {
+  if (ev.target.closest('[data-tq-drop]')) {
+    if (!confirm(t('풀던 모의고사를 지울까요? 되돌릴 수 없어요.',
+                   'Discard the mock exam in progress? This cannot be undone.'))) return;
+    tqHoldClear();
+    drawTopik();
+    return;
+  }
   const b = ev.target.closest('[data-tq]');
-  if (b) tqStart(b.dataset.tq);
+  if (!b) return;
+  if (b.dataset.tq === 'resume') { tqHoldResume(); return; }
+  tqStart(b.dataset.tq);
 });
 /* 「…만 풀어 보기」. 두 자리(기록판·결과 화면)에 같은 단추가 나오므로
    다시 그릴 때마다 붙이지 않도록 바깥 상자에 한 번만 걸어 둔다. */
@@ -3681,17 +3733,103 @@ $('tqSubmit').addEventListener('click', tqSubmitAsk);
 /* 성적표가 떠 있으면 이미 끝난 것이라 잃을 것이 없다. 이것을 빼먹으면
    다 풀고 결과를 본 뒤 나가려는 사람에게도 「그만둘까요?」를 묻는다. */
 const tqRunning = () => tqMock && tqIdx < tqRound.length && !showing('tqOver');
-const tqAskQuit = () => confirm(t('모의고사를 그만둘까요? 지금까지 푼 것은 기록에 남지 않아요.',
-                                  'Quit the mock exam? Nothing so far will be saved.'));
+
+/* ── 풀던 자리 붙들어 두기 ────────────────────────────────────
+   70분짜리를 중간에 나가면 통째로 사라졌다. 「그만둘까요? 기록에 남지
+   않아요」라고 묻기는 했지만, 묻는다고 사라진 시험이 덜 아깝지는 않다.
+
+   그래서 나갈 때 **푼 답과 남은 시간을 붙들어 둔다.** 나가겠다고만 물어보고,
+   저장은 늘 한다 — 「저장할까요 / 버릴까요」를 한 번 더 물으면 나가려는
+   사람에게 창을 두 번 띄우는 꼴이고, 버리는 쪽을 고를 까닭도 별로 없다.
+   버리고 싶으면 이어하기 카드에서 지우면 된다.
+
+   문항은 id 만 적는다. 지문째로 적으면 localStorage 가 한 회에 수십 KB 를
+   먹고, 자료를 고쳤을 때 예전 지문이 되살아난다. */
+const TQ_HOLD_KEY = 'cp-topik-hold';
+const TQ_HOLD_DAYS = 14;   // 이보다 오래된 것은 이어 풀 마음이 이미 없다
+
+function tqHoldSave() {
+  if (!tqRunning()) return;
+  try {
+    localStorage.setItem(TQ_HOLD_KEY, JSON.stringify({
+      exam: tqExam, grade: tqGrade,
+      ids: tqRound.map((q) => q.id),
+      picks: tqPicks.map((v) => (Number.isInteger(v) ? v : null)),
+      idx: tqIdx, left: tqLeft, spent: tqSpent, at: Date.now(),
+    }));
+  } catch (e) { /* 못 적으면 그만이다 — 나가는 것까지 막을 일은 아니다 */ }
+}
+
+function tqHoldRead() {
+  try {
+    const h = JSON.parse(localStorage.getItem(TQ_HOLD_KEY) || 'null');
+    if (!h || !TQ_EXAMS[h.exam] || !Array.isArray(h.ids) || !h.ids.length) return null;
+    if (!TQ_EXAMS[h.exam].grades.includes(h.grade)) return null;
+    if (!(Date.now() - Number(h.at) < TQ_HOLD_DAYS * 86400000)) return null;
+    /* 남은 시간이 없으면 이어 풀 것이 아니라 이미 끝난 시험이다. */
+    if (!(Number(h.left) > 0)) return null;
+    return h;
+  } catch (e) { return null; }
+}
+const tqHoldClear = () => { try { localStorage.removeItem(TQ_HOLD_KEY); } catch (e) {} };
+
+/* 붙들어 둔 자리로 돌아간다. 자료가 바뀌어 없어진 문항이 있으면 되살리지
+   않는다 — 한 문항이 빠진 채로 이어 풀면 번호가 밀려 성적표가 거짓이 된다. */
+function tqHoldResume() {
+  const h = tqHoldRead();
+  if (!h) { drawTopik(); return; }
+  tqExam = h.exam;
+  try { localStorage.setItem(TQ_EXAM_KEY, tqExam); } catch (e) {}
+  tqGrade = h.grade;
+  try { localStorage.setItem(TQ_KEY(tqExam), String(tqGrade)); } catch (e) {}
+
+  const byId = new Map(tqE().reading.map((q) => [q.id, q]));
+  const round = h.ids.map((id) => byId.get(id));
+  if (round.some((q) => !q)) {
+    tqHoldClear();
+    alert(t('그 사이 문제가 바뀌어서 이어 풀 수 없어요. 새로 시작해 주세요.',
+            'The questions changed since then, so this run cannot be resumed. Please start a new one.'));
+    drawTopik();
+    return;
+  }
+
+  tqRound = round;
+  tqPicks = round.map((_, i) => (Number.isInteger(h.picks?.[i]) ? h.picks[i] : null));
+  tqIdx = Math.min(Math.max(0, Number(h.idx) || 0), round.length - 1);
+  tqScore = 0; tqWrongs = []; tqBusy = false; tqSet = 'mock';
+  tqMock = true; tqSaved = false;
+  tqLeft = Math.min(Number(h.left), tqMockSec());
+  tqSpent = Math.max(0, Number(h.spent) || 0);
+  tqTitle = t(`모의고사 · 읽기 ${tqE().from}~${tqE().to}번`, `Mock exam — reading ${tqE().from}–${tqE().to}`);
+
+  $('tqOmr').classList.remove('hidden', 'open');
+  tqClockBuild(); tqClock(); tqOmrDraw(); tqRunClock();
+  $('tqWall').classList.add('hidden');
+  $('tqExamBody').classList.remove('hidden');
+  tqPanel('tqPlay');
+  tqDraw();
+}
+
+/* 나가겠느냐고만 묻는다. 저장은 어느 쪽이든 한다. */
+function tqAskQuit() {
+  const ok = confirm(t('모의고사를 그만둘까요? 지금까지 푼 답과 남은 시간은 저장돼요 — 나중에 이어서 풀 수 있어요.',
+                       'Leave the mock exam? Your answers and the time left are saved — you can pick it up later.'));
+  if (ok) tqHoldSave();
+  return ok;
+}
+
 function tqDropMock() {
   tqMock = false; tqStopClock();
   $('tqOmr').classList.add('hidden');
 }
 
 /* 새로고침·창 닫기. 앱 안의 길목은 아래 cpBlockLeave 가 막지만, 새로고침은
-   자바스크립트가 못 막으므로 브라우저에게 물어 달라고 부탁하는 수밖에 없다. */
+   자바스크립트가 못 막으므로 브라우저에게 물어 달라고 부탁하는 수밖에 없다.
+   부탁이 통하든 안 통하든 그 전에 붙들어 둔다 — 실수로 새로고침한 사람이
+   70분을 잃는 일은 이것으로 끝난다. */
 window.addEventListener('beforeunload', (ev) => {
   if (!tqRunning()) return;
+  tqHoldSave();
   ev.preventDefault();
   ev.returnValue = '';
 });
