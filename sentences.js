@@ -21,7 +21,13 @@
    초급이면 'bg1', 표현은 'bg1-1'. 숫자만인 id 는 이미 나간 고급 것이고,
    앞으로 만드는 것은 전부 접두사를 단다. 섞여 보여도 안전한 쪽이 낫다. */
 
-export const SB_CATS = [
+import { SB_CATS_BG, SB_MORE_BG, SB_MORE_BG_EN } from './sentences-beginner.js';
+
+/* 초급은 sentences-beginner.js 에 있다. 파일을 나눈 이유는 문법이 계속
+   늘어날 예정이라 한 파일에 두면 고칠 곳을 못 찾기 때문이다.
+   급 차례대로 이어 붙인다 — 화면은 급으로 걸러 그리므로 순서는 같은
+   급 안에서만 뜻이 있지만, 파일을 읽는 사람에게는 이 편이 낫다. */
+const SB_CATS_AD = [
   { id: 1, lv: "ad", ko: "선택을 나타낼 때", en: "Expressing Choices", points: [
     { id: "1-1", name: "-느니",
       desc: "앞의 일을 하기보다 뒤의 일을 택하는 편이 낫다는 뜻. 뒤에 흔히 「차라리」가 오고 「-는 게 낫다, -겠다」로 끝맺습니다.",
@@ -324,7 +330,13 @@ export const SB_CATS = [
 ];
 
 /* 표현마다 더 알아 둘 것. [형태, 자주 함께 쓰는 말, 주의할 점, 예문 하나 더] */
-export const SB_MORE = {
+export const SB_CATS = [...SB_CATS_BG, ...SB_CATS_AD];
+
+/* 영어 MORE 는 초급에만 있다. 고급 표현을 찾아보는 사람은 한국어를
+   읽을 수 있어서 급한 곳부터 채웠다. 없으면 한국어를 그대로 쓴다. */
+export const SB_MORE_EN = { ...SB_MORE_BG_EN };
+
+const SB_MORE_AD = {
   "1-1": ["동사 + -느니", "차라리 · -는 게 낫다 · -겠다",
     "과거 「-았/었-」과 함께 쓰지 않아요.", "이렇게 기다리느니 그냥 걸어가는 게 낫겠어요."],
   "1-2": ["동사 + -(으)ㄹ 바에야", "차라리 · 아예",
@@ -498,6 +510,8 @@ export const SB_MORE = {
 };
 
 /* 미리 넣어 둔 예문. [쓴 사람, 문장, 좋아요, 얼마 전] */
+export const SB_MORE = { ...SB_MORE_BG, ...SB_MORE_AD };
+
 export const SB_SEED = {
   "1-1": [
     ["하루", "시끄러운 카페에서 공부하느니 도서관에 가는 게 낫겠어요.", 6, "2일 전"],

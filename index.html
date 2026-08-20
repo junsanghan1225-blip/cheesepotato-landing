@@ -1066,6 +1066,29 @@ body.nav-open { overflow:hidden; }
   outline:none; margin-bottom:20px;
 }
 .sb-q:focus { border-color:var(--orange); }
+/* ── 거르개 ─────────────────────────────────────────────────
+   표현이 189개라 목록만으로는 못 찾는다. 형태와 갈래로 좁힌다. */
+.sb-frow { display:flex; gap:7px; flex-wrap:wrap; margin-top:12px; }
+.sb-frow-cats { max-height:96px; overflow-y:auto; }
+.sb-f {
+  cursor:pointer; padding:6px 13px; font-size:13px; font-weight:600;
+  border:1px solid var(--line); border-radius:999px;
+  background:var(--surface); color:var(--ink-2); white-space:nowrap;
+  transition:border-color .15s, background .15s, color .15s;
+}
+.sb-f:hover { border-color:rgba(27,21,18,.24); }
+.sb-f.on { background:var(--ink); border-color:var(--ink); color:var(--surface); }
+.sb-f-n { opacity:.55; margin-left:5px; font-weight:500; }
+.sb-count { margin-top:14px; font-size:13px; color:var(--ink-3); }
+.sb-ex-en { font-size:14px; color:var(--ink-3); margin-top:-4px; padding-left:2px; line-height:1.6; }
+.sb-elsewhere {
+  margin-top:10px; padding:12px 14px; border:1px dashed var(--line);
+  border-radius:12px; font-size:13.5px; color:var(--ink-2); line-height:1.6;
+}
+.sb-elsewhere button {
+  cursor:pointer; margin-left:6px; padding:4px 11px; font-size:13px; font-weight:600;
+  border:1px solid var(--ink); border-radius:999px; background:var(--ink); color:var(--surface);
+}
 .sb-cat { margin-bottom:26px; }
 .sb-cat-h { display:flex; align-items:baseline; gap:9px; margin-bottom:11px; }
 .sb-cat-n { font-size:11px; font-weight:700; letter-spacing:.13em; color:var(--orange-deep); font-variant-numeric:tabular-nums; }
@@ -2823,6 +2846,11 @@ body.nav-open { overflow:hidden; }
       <div id="sbWrap" class="hidden">
         <div id="sbBrowse">
           <input id="sbQ" class="sb-q" type="search" autocomplete="off">
+          <!-- 거르개 두 줄: 형태(어미·문형·조사)와 갈래. 급은 위의 급 줄이 맡는다.
+               JS 가 만드는 글이라 data-en 을 못 쓴다 — sbDrawList 가 직접 넣는다. -->
+          <div class="sb-frow" id="sbKindRow"></div>
+          <div class="sb-frow sb-frow-cats" id="sbCatRow"></div>
+          <div class="sb-count" id="sbCount"></div>
           <div id="sbCats"></div>
         </div>
         <div id="sbDetail" class="hidden"></div>
@@ -4711,7 +4739,7 @@ import { createClient } from 'https://esm.sh/@supabase/supabase-js@2';
 import * as XLSX from 'https://esm.sh/xlsx@0.18.5';
 // 커리큘럼. 내용과 엔진을 갈라 두면 글을 고치다 화면을 깨지 않는다.
 import { COURSES, LEVELS } from './courses.js';
-import { SB_CATS, SB_MORE, SB_SEED } from './sentences.js';
+import { SB_CATS, SB_MORE, SB_MORE_EN, SB_SEED } from './sentences.js';
 
 // 이 키는 공개돼도 되는 값이다. 이미 APK 안에 같은 것이 들어 있고,
 // 접근을 막는 건 키가 아니라 테이블에 걸린 RLS 다.
@@ -6626,6 +6654,7 @@ $('lvBar').addEventListener('click', (ev) => {
      열어 둔 채 목록만 갈면 화면과 열린 것이 어긋난다. */
   $('llWrap').classList.add('hidden');
   sbPoint = null;
+  sbCatSel = null;   // 갈래는 급마다 다르다. 들고 가면 빈 화면이 된다.
   drawLevelBar();
   drawSectionPane();
 });
@@ -6742,54 +6771,167 @@ function sbPosts(id) {
 }
 const sbCount = (id) => (SB_SEED[id] || []).length + (sbStore.mine[id] || []).length;
 
-function sbDrawList() {
-  $('sbQ').placeholder = t('문법 표현 검색 — 「-길래」, 이유, 추측…',
-                           'Search a grammar point — meaning or form');
-  const q = ($('sbQ').value || '').trim().toLowerCase();
-  /* 갈래 이름도 검색에 넣는다 — 학생은 「-길래」가 아니라 "이유" 로 찾는다.
-     갈래는 인자로 받는다. SB_CATS 안의 점에는 갈래가 안 달려 있다
-     (달린 건 SB_POINTS 쪽이다). 여기서 p.cat 을 보면 조용히 터진다. */
-  const hit = (p, c) => !q ||
-    p.name.toLowerCase().includes(q) || p.desc.toLowerCase().includes(q) ||
-    p.ex.toLowerCase().includes(q) ||
-    (SB_MORE[p.id] || []).join(' ').toLowerCase().includes(q) ||
-    (isEn() ? c.en : c.ko).toLowerCase().includes(q);
+/* ══ 거르기와 찾기 ═════════════════════════════════════════════
+   표현이 189개다. 목록만 늘어놓으면 고르는 대신 훑고 지나간다.
+   세 축으로 좁힌다 — 급(위의 급 줄) · 형태 · 갈래. 그리고 검색.
 
-  /* 빈 급에서는 검색칸도 숨긴다. 찾을 것이 없는데 찾는 칸만 있으면
-     자기가 잘못 찾은 줄 안다. */
-  const inLv = SB_CATS.filter((c) => c.lv === lsecLv);
-  $('sbQ').classList.toggle('hidden', !inLv.length);
-  if (!inLv.length) return void ($('sbCats').innerHTML = lvEmpty());
+   검색은 글자를 납작하게 만들어 견준다. 「-(으)면」을 찾는 사람은
+   「면」이나 「으면」을 치지 「-(으)면」을 그대로 치지 않는다.
+   하이픈과 괄호를 남겨 두면 아무것도 안 나온다. */
+const sbFlat = (x) => String(x).toLowerCase()
+  .replace(/[()[\]{}「」]/g, '')
+  .replace(/[-·~/\s]/g, '');
 
-  const html = inLv.map((c) => {
-    const pts = c.points.filter((p) => hit(p, c));
-    if (!pts.length) return '';
-    return (
-      '<div class="sb-cat">' +
-        '<div class="sb-cat-h">' +
-          `<span class="sb-cat-n">${c.id}</span>` +
-          `<span class="sb-cat-t">${esc(isEn() ? c.en : c.ko)}</span>` +
-        '</div>' +
-        '<div class="sb-pts">' +
-          pts.map((p) => {
-            const n = sbCount(p.id);
-            return `<button class="sb-pt" data-pt="${p.id}">` +
-              `<span class="sb-pt-name">${esc(p.name)}</span>` +
-              (n ? `<span class="sb-pt-n">${n}</span>` : '') +
-            '</button>';
-          }).join('') +
-        '</div>' +
-      '</div>'
-    );
+/* 형태는 이름에서 뽑는다. 데이터에 칸을 하나 더 두면 189개를 손으로
+   채워야 하고, 새 표현을 넣을 때마다 빠뜨린다.
+   괄호 속 구별말(「에 (장소)」)은 떼고 본다. */
+const SB_ADV = new Set(['안', '못']);   // 조사가 아니라 부사라 따로 적는다
+function sbKind(name) {
+  const bare = String(name).replace(/\s*\([^)]*\)\s*/g, '').trim();
+  if (SB_ADV.has(bare)) return 'end';
+  if (bare.includes(' ') || /다$/.test(bare)) return 'pat';
+  return bare.startsWith('-') ? 'end' : 'par';
+}
+const SB_KINDS = [
+  { id: 'all', ko: '전체', en: 'All' },
+  { id: 'end', ko: '어미', en: 'Endings' },
+  { id: 'pat', ko: '문형', en: 'Patterns' },
+  { id: 'par', ko: '조사', en: 'Particles' },
+];
+let sbKindSel = 'all';
+let sbCatSel = null;      // null 이면 갈래 전체
+
+const sbQv = () => sbFlat($('sbQ').value || '');
+
+/* 한 표현이 검색어에 걸리나. 뜻풀이와 예문, 그리고 MORE 까지 본다 —
+   학생은 「-길래」가 아니라 "이유" 나 "because" 로 찾는다. */
+function sbHit(p, c, q) {
+  if (!q) return true;
+  const more = (SB_MORE[p.id] || []).concat(SB_MORE_EN[p.id] || []);
+  return [p.name, p.desc, p.descEn, p.ex, p.exEn, c.ko, c.en, ...more]
+    .some((x) => x && sbFlat(x).includes(q));
+}
+
+/* 지금 걸러진 표현들. 급까지만 적용한 것과 전부 적용한 것을 같이 돌려준다 —
+   갈래 칩에 개수를 적으려면 "형태와 검색만 걸렀을 때 몇 개인지" 가 필요하다. */
+function sbPass(lv, { kind = sbKindSel, cat = sbCatSel, q = sbQv() } = {}) {
+  const out = [];
+  SB_CATS.filter((c) => c.lv === lv).forEach((c) => {
+    if (cat && String(c.id) !== String(cat)) return;
+    c.points.forEach((p) => {
+      if (kind !== 'all' && sbKind(p.name) !== kind) return;
+      if (!sbHit(p, c, q)) return;
+      out.push({ p, c });
+    });
+  });
+  return out;
+}
+
+function sbDrawFilters() {
+  const q = sbQv();
+
+  // 형태 줄 — 갈래 고르기는 빼고 센다. 그래야 눌렀을 때 나올 수가 맞는다.
+  $('sbKindRow').innerHTML = SB_KINDS.map((k) => {
+    const n = sbPass(lsecLv, { kind: k.id, cat: null, q }).length;
+    return `<button class="sb-f${k.id === sbKindSel ? ' on' : ''}" data-kind="${k.id}">` +
+      `${esc(isEn() ? k.en : k.ko)}<span class="sb-f-n">${n}</span></button>`;
   }).join('');
-  $('sbCats').innerHTML = html ||
-    `<p class="sb-none">${t('찾는 표현이 없어요.', 'No grammar point matches that.')}</p>`;
+
+  // 갈래 줄 — 지금 형태·검색으로 걸러도 남는 갈래만 보여 준다.
+  const cats = SB_CATS.filter((c) => c.lv === lsecLv);
+  const chips = cats.map((c) => {
+    const n = sbPass(lsecLv, { cat: c.id, q }).length;
+    return { c, n };
+  }).filter((x) => x.n > 0);
+
+  $('sbCatRow').innerHTML =
+    `<button class="sb-f${sbCatSel === null ? ' on' : ''}" data-cat="">` +
+      `${esc(t('갈래 전체', 'All topics'))}</button>` +
+    chips.map(({ c, n }) =>
+      `<button class="sb-f${String(c.id) === String(sbCatSel) ? ' on' : ''}" data-cat="${esc(String(c.id))}">` +
+        `${esc(isEn() ? c.en : c.ko)}<span class="sb-f-n">${n}</span></button>`).join('');
+}
+
+function sbDrawList() {
+  $('sbQ').placeholder = t('문법 검색 — 「면」 · 이유 · 시간…',
+                           'Search grammar — 면 · reason · because…');
+
+  /* 빈 급에서는 찾는 칸도 거르개도 숨긴다. 찾을 것이 없는데 찾는 칸만
+     있으면 자기가 잘못 찾은 줄 안다. */
+  const inLv = SB_CATS.filter((c) => c.lv === lsecLv);
+  const bare = !inLv.length;
+  $('sbQ').classList.toggle('hidden', bare);
+  $('sbKindRow').classList.toggle('hidden', bare);
+  $('sbCatRow').classList.toggle('hidden', bare);
+  $('sbCount').classList.toggle('hidden', bare);
+  if (bare) return void ($('sbCats').innerHTML = lvEmpty());
+
+  const q = sbQv();
+
+  /* 고른 갈래가 지금 조건에서 사라졌으면 놓아 준다. 안 그러면 아무것도
+     안 나오는 화면에서 왜 비었는지 알 수가 없다. */
+  if (sbCatSel && !sbPass(lsecLv, { cat: sbCatSel, q }).length) sbCatSel = null;
+
+  sbDrawFilters();
+
+  const rows = sbPass(lsecLv, { q });
+  $('sbCount').textContent = q || sbKindSel !== 'all' || sbCatSel
+    ? t(`${rows.length}개 찾았어요`, `${rows.length} found`)
+    : t(`표현 ${rows.length}개`, `${rows.length} grammar points`);
+
+  // 갈래별로 묶어 그린다
+  const byCat = new Map();
+  rows.forEach(({ p, c }) => {
+    if (!byCat.has(c)) byCat.set(c, []);
+    byCat.get(c).push(p);
+  });
+
+  let html = [...byCat.entries()].map(([c, pts]) =>
+    '<div class="sb-cat">' +
+      '<div class="sb-cat-h">' +
+        `<span class="sb-cat-n">${esc(String(c.id).replace(/^bg/, ''))}</span>` +
+        `<span class="sb-cat-t">${esc(isEn() ? c.en : c.ko)}</span>` +
+      '</div>' +
+      '<div class="sb-pts">' +
+        pts.map((p) => {
+          const n = sbCount(p.id);
+          return `<button class="sb-pt" data-pt="${esc(p.id)}">` +
+            `<span class="sb-pt-name">${esc(p.name)}</span>` +
+            (n ? `<span class="sb-pt-n">${n}</span>` : '') +
+          '</button>';
+        }).join('') +
+      '</div>' +
+    '</div>').join('');
+
+  if (!html) {
+    html = `<p class="sb-none">${t('이 조건에 맞는 표현이 없어요.', 'Nothing matches those filters.')}</p>`;
+  }
+
+  /* 다른 급에 있으면 알려 준다. 초급을 보던 사람이 「-느니」를 찾으면
+     여기서는 안 나오는데, 없는 것이 아니라 급이 다른 것이다. */
+  if (q) {
+    const other = LEVELS.filter((l) => l.id !== lsecLv)
+      .map((l) => ({ l, n: sbPass(l.id, { kind: sbKindSel, cat: null, q }).length }))
+      .filter((x) => x.n > 0);
+    if (other.length) {
+      html += other.map(({ l, n }) =>
+        '<div class="sb-elsewhere">' +
+          esc(t(`${lvTx(l)}에도 ${n}개 있어요.`, `${n} more in ${lvTx(l)}.`)) +
+          `<button type="button" data-golv="${l.id}">${esc(t('보러 가기', 'Show'))}</button>` +
+        '</div>').join('');
+    }
+  }
+
+  $('sbCats').innerHTML = html;
 }
 
 function sbDrawDetail() {
   const p = sbPoint && sbFind(sbPoint);
   if (!p) return;
-  const more = SB_MORE[p.id] || ['', '', '', ''];
+  /* 초급 표현에는 영어 설명이 따로 있다. 없으면 한국어를 그대로 쓴다 —
+     고급 표현을 찾아보는 사람은 한국어를 읽을 수 있다. */
+  const more = (isEn() && SB_MORE_EN[p.id]) || SB_MORE[p.id] || ['', '', '', ''];
+  const desc = (isEn() && p.descEn) || p.desc;
   const posts = sbPosts(p.id);
 
   $('sbDetail').innerHTML =
@@ -6797,15 +6939,16 @@ function sbDrawDetail() {
     '<div class="sb-head" style="margin-top:16px;">' +
       `<div class="sb-head-cat">${esc(isEn() ? p.cat.en : p.cat.ko)}</div>` +
       `<div class="sb-head-name">${esc(p.name)}</div>` +
-      `<p class="sb-desc">${esc(p.desc)}</p>` +
+      `<p class="sb-desc">${md(desc)}</p>` +
     '</div>' +
     '<div class="sb-facts">' +
-      `<div class="sb-fact"><div class="sb-fact-k">${t('형태', 'Form')}</div><div class="sb-fact-v">${esc(more[0])}</div></div>` +
+      `<div class="sb-fact"><div class="sb-fact-k">${t('형태', 'Form')}</div><div class="sb-fact-v">${md(more[0])}</div></div>` +
       `<div class="sb-fact"><div class="sb-fact-k">${t('자주 함께 쓰는 말', 'Often paired with')}</div><div class="sb-fact-v">${esc(more[1])}</div></div>` +
-      `<div class="sb-fact"><div class="sb-fact-k">${t('주의할 점', 'Watch out')}</div><div class="sb-fact-v">${esc(more[2])}</div></div>` +
+      `<div class="sb-fact"><div class="sb-fact-k">${t('주의할 점', 'Watch out')}</div><div class="sb-fact-v">${md(more[2])}</div></div>` +
     '</div>' +
     '<div class="sb-exs">' +
       `<div class="sb-ex">${esc(p.ex)}</div>` +
+      (isEn() && p.exEn ? `<div class="sb-ex-en">${esc(p.exEn)}</div>` : '') +
       (more[3] ? `<div class="sb-ex">${esc(more[3])}</div>` : '') +
     '</div>' +
 
@@ -6856,7 +6999,35 @@ function sbShow(id) {
 
 $('sbQ').addEventListener('input', sbDrawList);
 
+/* 거르개 두 줄. 통째로 다시 그리므로 칩마다 리스너를 달면 그릴 때마다 샌다. */
+$('sbKindRow').addEventListener('click', (ev) => {
+  const b = ev.target.closest('[data-kind]');
+  if (!b) return;
+  sbKindSel = b.dataset.kind;
+  sbDrawList();
+});
+
+$('sbCatRow').addEventListener('click', (ev) => {
+  const b = ev.target.closest('[data-cat]');
+  if (!b) return;
+  // 켜져 있는 것을 다시 누르면 끈다. 끄는 길이 따로 없으면 갇힌다.
+  const v = b.dataset.cat || null;
+  sbCatSel = (v && String(v) === String(sbCatSel)) ? null : v;
+  sbDrawList();
+});
+
 $('sbCats').addEventListener('click', (ev) => {
+  /* 다른 급으로 건너가기. 검색어와 형태는 들고 간다 — 찾던 것을 계속
+     찾는 중이므로 거기서 조건이 풀리면 다시 쳐야 한다. */
+  const go = ev.target.closest('[data-golv]');
+  if (go) {
+    lsecLv = go.dataset.golv;
+    sbCatSel = null;
+    drawLevelBar();
+    sbDrawList();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    return;
+  }
   const b = ev.target.closest('[data-pt]');
   if (!b) return;
   sbShow(b.dataset.pt);

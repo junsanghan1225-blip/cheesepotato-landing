@@ -25,7 +25,7 @@ import { tmpdir } from 'node:os';
 import { dirname, join } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { COURSES, LEVEL_IDS } from '../courses.js';
-import { SB_CATS } from '../sentences.js';
+import { SB_CATS, SB_MORE, SB_MORE_EN } from '../sentences.js';
 
 /* 일부러 없앤 레슨 id.
  *
@@ -299,6 +299,16 @@ for (const c of SB_CATS ?? []) {
     sbPointIds.set(p.id, c.id);
     for (const key of ['name', 'desc', 'ex']) {
       if (!p[key]) problems.push(`예문 표현 ${p.id}: ${key} 없음`);
+    }
+    if (!SB_MORE[p.id]) problems.push(`예문 표현 ${p.id}: SB_MORE 없음 — 상세 화면의 형태·주의가 빈칸이 된다`);
+    /* 초급은 영어 설명이 있어야 한다. 이 게시판을 읽는 초급 학습자는
+       한국어 뜻풀이를 못 읽는다 — 읽을 수 있으면 그 표현이 필요 없다.
+       고급은 찾아보는 사람이 한국어를 읽을 수 있어서 안 막는다. */
+    if (c.lv === 'bg') {
+      for (const key of ['descEn', 'exEn']) {
+        if (!p[key]) problems.push(`예문 표현 ${p.id}: ${key} 없음 — 초급 학습자는 한국어 설명을 못 읽는다`);
+      }
+      if (!SB_MORE_EN[p.id]) problems.push(`예문 표현 ${p.id}: SB_MORE_EN 없음 — 영어로 보면 상세가 한국어로 남는다`);
     }
   }
 }
