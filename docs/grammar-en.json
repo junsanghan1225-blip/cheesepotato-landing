@@ -880,5 +880,221 @@
     "desc": "Used in formal contexts to refer to the preceding content and continue the statement.",
     "form": "Verb stem + 「-는 바」",
     "care": "Mainly used in formal written documents."
+  },
+  {
+    "id": "4-1",
+    "desc": "Used to state a cause in formal contexts. Frequently appears in news broadcasts and formal reports.",
+    "form": "Noun + 「(으)로 인해서」",
+    "care": "Cannot be followed by imperative or suggestive sentences."
+  },
+  {
+    "id": "4-2",
+    "desc": "Used when a chaotic or hectic situation leads to a bad outcome.",
+    "form": "Verb stem + 「-는 통에」",
+    "care": "Used only when the outcome is bad."
+  },
+  {
+    "id": "4-3",
+    "desc": "Used in formal written Korean to state a cause or ground.",
+    "form": "Noun + 「(으)로 말미암아」",
+    "care": "Suited for formal written contexts like newspapers and academic papers."
+  },
+  {
+    "id": "4-4",
+    "desc": "Indicates that the preceding content serves as a sufficient reason or ground for what follows.",
+    "form": "Verb stem + 「-느니만큼」 / Adj stem + 「-(으)니만큼」",
+    "care": "In practice, the form 「-(으)니만큼」 is used much more often."
+  },
+  {
+    "id": "4-5",
+    "desc": "Indicates that since things have already turned out this way, one must naturally do the following action.",
+    "form": "Verb stem + 「-는 이상」",
+    "care": "Followed by expressions of obligation or strong determination."
+  },
+  {
+    "id": "4-6",
+    "desc": "Indicates that no matter how much that may be the case, going that far is excessive.",
+    "form": "Verb/Adj stem + 「-기로서니」",
+    "care": "Typically paired with 「아무리」 in the first clause."
+  },
+  {
+    "id": "4-7",
+    "desc": "Expresses that fortunately, taking that action prevented a serious disaster or trouble.",
+    "form": "Verb stem + 「-기에 망정이지」",
+    "care": "Frequently followed by 「-(으)ㄹ 뻔했다」 in the next clause."
+  },
+  {
+    "id": "4-8",
+    "desc": "Used when someone did something under a plausible excuse but the result is displeasing.",
+    "form": "Verb stem + 「-(느)ㄴ답시고」",
+    "care": "Conveys the speaker's displeasure or disapproval."
+  },
+  {
+    "id": "4-9",
+    "desc": "Used to state a means or method of an action in formal contexts.",
+    "form": "Verb stem + 「-(으)ㅁ으로써」",
+    "care": "Expresses a means, making it distinct from the causal form 「-(으)므로」."
+  },
+  {
+    "id": "4-10",
+    "desc": "Used in written style to state a reason or ground for an action.",
+    "form": "Verb/Adj stem + 「-기에」",
+    "care": "The subject of the following clause is usually the speaker."
+  },
+  {
+    "id": "4-11",
+    "desc": "Used in spoken Korean to give a reason. The subject of the first clause is usually not the speaker.",
+    "form": "Verb/Adj stem + 「-길래」",
+    "care": "Used in place of 「-기에」 in everyday spoken conversation."
+  },
+  {
+    "id": "5-2",
+    "desc": "A concessive expression meaning 'even if', stronger and more literary than 「-더라도」.",
+    "form": "Verb/Adj stem + 「-(으)ㄹ지라도」",
+    "care": "Used formally in speeches and written texts."
+  },
+  {
+    "id": "5-3",
+    "desc": "Means that doing so is useless, commonly used alongside a rhetorical question.",
+    "form": "Verb/Adj stem + 「-(으)ㄴ들」",
+    "care": "Frequently followed by a rhetorical question."
+  },
+  {
+    "id": "5-4",
+    "desc": "Indicates that even if the first condition is accepted, one will firmly uphold the following principle.",
+    "form": "Verb/Adj stem + 「-(으)ㄹ망정」",
+    "care": "The first clause sets a bad condition, while the second shows a resolute attitude."
+  },
+  {
+    "id": "5-5",
+    "desc": "Used to assume and accept something as true, even if it is not actually the case.",
+    "form": "Verb stem + 「-(느)ㄴ다고 치다」",
+    "care": "Frequently used in the form 「-다 치더라도」."
+  },
+  {
+    "id": "5-6",
+    "desc": "Indicates considering or treating something as such, even though it is not true in reality.",
+    "form": "Verb stem + 「-는 셈치다」",
+    "care": "Used when making up your mind while regarding a situation differently from reality."
+  },
+  {
+    "id": "6-1",
+    "desc": "Emphasizes that the second action occurs immediately as soon as the first action finishes.",
+    "form": "Verb stem + 「-기가 무섭게」",
+    "care": "The two actions happen so quickly they feel almost simultaneous."
+  },
+  {
+    "id": "6-2",
+    "desc": "A written expression indicating that the second action immediately follows the first.",
+    "form": "Verb stem + 「-자」",
+    "care": "Cannot be used with imperative or suggestive endings."
+  },
+  {
+    "id": "7-1",
+    "desc": "Means 'as long as' or 'while that condition is maintained'.",
+    "form": "Verb stem + 「-는 한」",
+    "care": "Refers to the duration during which a condition remains true."
+  },
+  {
+    "id": "7-2",
+    "desc": "Indicates that whenever you try to do an action, an interruption always gets in the way.",
+    "form": "Verb stem + 「-(으)ㄹ라치면」",
+    "care": "Used for recurring, frustrating interruptions."
+  },
+  {
+    "id": "7-3",
+    "desc": "A written expression meaning 'if you keep on doing that action'.",
+    "form": "Verb stem + 「-노라면」",
+    "care": "Being a literary form, it fits words of personal resolution or comfort."
+  },
+  {
+    "id": "7-4",
+    "desc": "Indicates that the outcome depends entirely on that factor.",
+    "form": "Verb stem + 「-느냐에 달려 있다」",
+    "care": "Naturally pairs with question words in the clause."
+  },
+  {
+    "id": "7-5",
+    "desc": "Indicates that the outcome changes depending on how one does or perceives it.",
+    "form": "Verb stem + 「-기 나름이다」",
+    "care": "Frequently used like a short proverb or maxim."
+  },
+  {
+    "id": "8-1",
+    "desc": "Indicates that each item has its own distinct usefulness or value respectively.",
+    "form": "Noun + 「은/는 대로」",
+    "care": "Repeated twice in the same form to create a contrast."
+  },
+  {
+    "id": "8-2",
+    "desc": "Indicates taking the opportunity of doing one action to do another at the same time.",
+    "form": "Verb stem + 「-는 김에」",
+    "care": "Used when adding a secondary action to the main intended task."
+  },
+  {
+    "id": "9-1",
+    "desc": "A written expression showing regret that the result fell short of expectations despite the preceding effort.",
+    "form": "Verb/Adj stem + 「-건만」",
+    "care": "A literary ending carrying feelings of regret and disappointment."
+  },
+  {
+    "id": "9-2",
+    "desc": "Indicates acting in an opposite or contradictory way even after doing that action.",
+    "form": "Verb stem + 「-고도」",
+    "care": "The subject must be identical in both the preceding and following clauses."
+  },
+  {
+    "id": "9-3",
+    "desc": "A formal expression meaning 'in spite of' or 'despite that'.",
+    "form": "Verb stem + 「-(으)ㅁ에도 불구하고」 / Noun + 「에도 불구하고」",
+    "care": "Well suited for formal written texts and presentations."
+  },
+  {
+    "id": "10-1",
+    "desc": "Used to make a comparison, meaning 'just as' or 'as if'.",
+    "form": "Verb/Adj stem + 「-듯이」",
+    "care": "Frequently used in proverbs and figurative expressions."
+  },
+  {
+    "id": "10-2",
+    "desc": "Indicates that an action is practically equivalent to doing that, almost to the point of being true.",
+    "form": "Verb stem + 「-다시피 하다」",
+    "care": "Means it is not literally the case, but very close to it."
+  },
+  {
+    "id": "11-1",
+    "desc": "Indicates that not only the first statement is true, but the following is even more so.",
+    "form": "Verb/Adj stem + 「-거니와」",
+    "care": "Both clauses must align in the same positive or negative direction."
+  },
+  {
+    "id": "11-3",
+    "desc": "Adds further information, meaning 'not only that, but also...'.",
+    "form": "Verb/Adj stem + 「-(으)ㄹ뿐더러」",
+    "care": "Group positive traits together with positives, and negatives with negatives."
+  },
+  {
+    "id": "11-4",
+    "desc": "Used to grant permission for the first action while attaching a specific condition.",
+    "form": "Verb stem + 「-되」",
+    "care": "Fits rules, guidelines, and formal instructions."
+  },
+  {
+    "id": "11-6",
+    "desc": "Used to list several items by putting the primary or representative one first.",
+    "form": "Noun + 「을/를 비롯해서」",
+    "care": "Introduces a list by placing the representative example at the front."
+  },
+  {
+    "id": "12-1",
+    "desc": "Expresses negative disapproval toward someone repeatedly performing an excessive action.",
+    "form": "Verb stem + 「-아/어 대다」",
+    "care": "Due to its negative nuance, do not use it when speaking about elders or superiors."
+  },
+  {
+    "id": "12-2",
+    "desc": "Indicates that something happens frequently, used mostly for bad or undesirable events.",
+    "form": "Verb stem + 「-기 일쑤이다」",
+    "care": "Used to describe bad habits or recurring negative occurrences."
   }
 ]
