@@ -1513,6 +1513,70 @@ body.nav-open { overflow:hidden; }
   margin-top:18px;
 }
 .ex-in:focus { outline:none; border-color:var(--orange-mid); background:#fff; }
+/* ══ 배우기 : 쓰기 (TOPIK) ═══════════════════════════════════
+   글자 수와 문체 경고가 화면의 본체다. 분량 미달과 해요체 섞임이
+   실제 시험에서 가장 흔한 감점인데, 둘 다 다 쓰고 나서 알면 늦다. */
+.tw-card {
+  display:block; width:100%; text-align:left; cursor:pointer; margin-bottom:14px;
+  background:var(--surface); border:1px solid var(--line); border-radius:var(--r-xl);
+  padding:22px 24px; transition:border-color .18s, transform .18s;
+}
+.tw-card:hover { border-color:rgba(27,21,18,.22); transform:translateY(-2px); }
+.tw-card-top { display:flex; align-items:baseline; gap:10px; flex-wrap:wrap; }
+.tw-no { font-size:12px; font-weight:700; letter-spacing:.1em; color:var(--orange-deep); }
+.tw-pt { font-size:12px; color:var(--ink-3); }
+.tw-card-t { font-size:19px; font-weight:700; color:var(--ink); letter-spacing:-.03em; margin-top:6px; }
+.tw-card-s { font-size:14px; color:var(--ink-3); line-height:1.7; margin-top:6px; word-break:keep-all; }
+
+.tw-head { display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap; }
+.tw-passage {
+  background:var(--tint); border:1px solid var(--line-2); border-radius:14px;
+  padding:20px 22px; margin-top:16px; font-size:16.5px; line-height:2; color:var(--ink);
+  word-break:keep-all; white-space:pre-wrap;
+}
+.tw-data { margin:0; padding-left:20px; font-size:15px; line-height:1.9; color:var(--ink-2); }
+.tw-cond { font-size:13.5px; color:var(--ink-3); margin-top:12px; }
+.tw-tasks { margin:12px 0 0; padding-left:20px; font-size:15px; line-height:1.9; color:var(--ink); }
+
+.tw-in {
+  width:100%; padding:14px 16px; font-size:16px; line-height:1.9;
+  border:1px solid var(--line); border-radius:12px;
+  background:var(--surface-2); color:var(--ink); font-family:inherit; resize:vertical;
+}
+.tw-in:focus { outline:none; border-color:var(--orange-mid); background:#fff; }
+.tw-blank-row { margin-top:16px; }
+.tw-blank-mark { font-size:15px; font-weight:700; color:var(--orange-deep); margin-bottom:6px; }
+
+.tw-bar { display:flex; align-items:center; gap:14px; flex-wrap:wrap; margin-top:12px; }
+.tw-n { font-size:14px; font-weight:700; color:var(--ink); font-variant-numeric:tabular-nums; }
+.tw-n.short { color:var(--ink-3); }
+.tw-n.ok { color:var(--green); }
+.tw-n.over { color:var(--red); }
+.tw-gauge { flex:1; min-width:120px; height:6px; border-radius:999px; background:var(--line-2); position:relative; overflow:hidden; }
+.tw-gauge-f { height:100%; background:var(--orange); transition:width .2s; }
+.tw-gauge-f.ok { background:var(--green); }
+.tw-gauge-f.over { background:var(--red); }
+.tw-clock { font-size:14px; font-weight:700; color:var(--ink-2); font-variant-numeric:tabular-nums; }
+
+.tw-warn {
+  margin-top:14px; padding:13px 15px; border-radius:12px;
+  border:1px solid var(--line); background:var(--surface-2);
+  font-size:14px; line-height:1.75; color:var(--ink-2); word-break:keep-all;
+}
+.tw-warn.hit { border-color:var(--red); }
+.tw-warn b { color:var(--red); }
+.tw-warn .good { color:var(--green); }
+
+.tw-acts { display:flex; gap:8px; flex-wrap:wrap; margin-top:18px; }
+.tw-model {
+  margin-top:16px; padding:20px 22px; border:1px solid var(--line); border-radius:14px;
+  background:var(--surface); font-size:15.5px; line-height:2; color:var(--ink);
+  white-space:pre-wrap; word-break:keep-all;
+}
+.tw-sec-t { font-size:12px; font-weight:700; letter-spacing:.12em; text-transform:uppercase;
+            color:var(--ink-3); margin:20px 0 8px; }
+.tw-ul { margin:0; padding-left:20px; font-size:14.5px; line-height:1.85; color:var(--ink-2); word-break:keep-all; }
+
 /* ══ 배우기 : 문제만 풀기 ══════════════════════════════════════ */
 .dq-card {
   background:var(--surface); border:1px solid var(--line); border-radius:var(--r-xl);
@@ -3809,6 +3873,17 @@ body.nav-open { overflow:hidden; }
       <!-- 갈래 : 예문 만들기 -->
       <!-- 갈래 : 문제만 풀기.
            레슨에서 문제 블록만 뽑아 이어서 푼다. 안은 app.module.js 가 채운다. -->
+      <!-- 갈래 : TOPIK 쓰기. 안은 app.module.js 가 채운다. -->
+      <div id="twWrap" class="hidden">
+        <div class="learn-head">
+          <div id="twLevel"></div>
+          <p id="twIntro" class="learn-copy"></p>
+          <div id="twSummary" class="learn-summary"></div>
+        </div>
+        <div id="twList"></div>
+        <div id="twDesk" class="hidden"></div>
+      </div>
+
       <div id="dqWrap" class="hidden">
         <div class="learn-head">
           <div id="dqLevel"></div>

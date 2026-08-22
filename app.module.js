@@ -24,6 +24,7 @@ import { glossFind } from './gloss-find.js?v=8314a20b';
 import { GRAMMAR } from './grammar.js?v=8314a20b';
 import { GRAMMAR_EN } from './grammar-en.js?v=8314a20b';
 import { grammarScan } from './grammar-find.js?v=8314a20b';
+import { TW_ITEMS, TW_QS } from './topik-writing.js?v=8314a20b';
 import { SB_CATS, SB_MORE, SB_SEED } from './sentences.js?v=8314a20b';
 // 읽기 연습 지문. 길이(short·long) × 급수 여섯 칸.
 import { READING } from './reading.js?v=8314a20b';
@@ -1946,6 +1947,15 @@ const LEARN_SECTIONS = [
              en: 'Read a passage, then write what you understood. You see at once what you caught and what you missed.' },
   },
   {
+    id: 'writing', emoji: '📝', ready: true, pane: 'twWrap',
+    lv:    { ko: '쓰기',            en: 'WRITING' },
+    title: { ko: 'TOPIK 쓰기',      en: 'TOPIK writing' },
+    tag:   { ko: '분량과 문체를 지키며 실제로 써 보기',
+             en: 'Write to length, in the right register' },
+    blurb: { ko: '51~54번 유형으로 직접 씁니다. 글자 수와 문체를 쓰는 동안 알려 줘요. (기출이 아닌 창작 문항)',
+             en: 'Write the four TOPIK II task types. Length and register are checked as you type. (Original items, not past papers.)' },
+  },
+  {
     id: 'quiz', emoji: '⚡', ready: true, pane: 'dqWrap',
     lv:    { ko: '문제',            en: 'DRILL' },
     title: { ko: '문제만 풀기',      en: 'Just the questions' },
@@ -2066,7 +2076,7 @@ const BEGINNER_ROADMAP = [
     courses:[],
   },
 ];
-let learnLv = { courses: 'beginner', quiz: 'beginner', sentence: 'beginner', reading: 'beginner' };
+let learnLv = { courses: 'beginner', quiz: 'beginner', writing: 'intermediate', sentence: 'beginner', reading: 'beginner' };
 
 const learnLevel = (id) => LEARN_LEVELS.find((x) => x.id === id) || LEARN_LEVELS[0];
 const learnLevelText = (id) => (isEn() ? learnLevel(id).en : learnLevel(id).ko);
@@ -4617,6 +4627,7 @@ function openSection(id, quiet) {
       if (s.id === 'courses') drawCourses();
       if (s.id === 'topik') drawTopik();
       if (s.id === 'quiz') dqDraw();
+      if (s.id === 'writing') twDraw();
       if (s.id === 'reading') drawReading();
       if (s.id === 'sentence') {
         drawSentenceHead();
@@ -4698,6 +4709,10 @@ $('lsecWrap').addEventListener('change', (ev) => {
     lsCourse = null;
     $('llWrap').classList.add('hidden');
     drawCourses();
+  } else if (section === 'writing') {
+    // 급을 바꾸면 열어 둔 문항은 다른 급 것이라 놓는다
+    twStopClock(); twItem = null;
+    twDraw();
   } else if (section === 'quiz') {
     /* 급을 바꾸면 시작 화면으로 되돌린다. 다른 급의 문제를 풀던 중이면
        남은 문제가 그 급 것이라 섞이기 때문이다. */
@@ -5372,6 +5387,278 @@ $('lsBlocks').addEventListener('click', (ev) => {
   if (c) say(c.dataset.say, c.dataset.audio);
 });
 
+
+
+function twDrawHead() {
+  const level = learnLv.writing;
+  const mine = TW_ITEMS.filter((x) => x.lv === level);
+  $('twLevel').innerHTML = renderLevelSwitch('writing');
+  $('twIntro').textContent = t(
+    '실제 시험처럼 분량과 문체를 지키며 직접 써 봅니다. 쓰는 동안 글자 수와 문체를 알려 줘요.',
+    'Write to the real exam’s length and register. Length and register are checked as you type.');
+  $('twSummary').innerHTML = renderLearnSummary([
+    { k: t('문항', 'Items'), v: mine.length, s: t('이 단계에서 연습할 문항', 'Practice items in this level') },
+    { k: t('유형', 'Types'), v: new Set(mine.map((x) => x.q)).size, s: t('51~54번 가운데', 'Of TOPIK II tasks 51–54') },
+    { k: t('단계', 'Level'), v: learnLevelText(level), s: t('기출이 아닌 창작 문항', 'Original items, not past papers') },
+  ]);
+}
+
+/* ══ 배우기 : TOPIK 쓰기 ═══════════════════════════════════════
+   1단계는 채점을 하지 않는다. 대신 **쓰는 동안** 두 가지를 알려 준다 —
+   글자 수와 문체. 실제 시험에서 가장 흔한 감점 둘이고, 둘 다 다 쓰고
+   나서 알면 늦다. 채점(AI)은 3단계이고 없어도 이 화면은 산다.
+
+   설계는 docs/topik-writing-plan.md. */
+
+let twItem = null;       // 지금 열어 둔 문항
+let twTick = 0;          // 타이머 setInterval 손잡이
+let twLeft = 0;          // 남은 초
+
+/* 글자 수는 **띄어쓰기를 넣어** 센다. 실제 TOPIK 이 원고지 칸을 세기
+   때문이다 — 문항 조건에 "600~700자(띄어쓰기 포함)" 이라고 적힌 그것이다.
+   처음에 공백을 빼고 셌는데, 그러면 학습자가 600자를 채웠다고 생각할 때
+   실제로는 700자를 넘는다. 분량이 이 화면의 본체인데 잣대가 시험과
+   다르면 없느니만 못하다.
+   줄바꿈만 뺀다. 문단을 나눴다고 칸이 늘지는 않는다. */
+const twCount = (s) => String(s).replace(/[\r\n]/g, '').length;
+
+/* ── 문체 검사 ───────────────────────────────────────────────
+   AI 가 아니라 규칙이다. 논술에 해요체가 섞이면 무조건 감점이라
+   규칙이 틀릴 일이 없다.
+
+   문장을 끝에서 보고 세 갈래로 가른다. 문장 가운데의 -아/어요 는
+   인용일 수 있어서 **끝만** 본다. */
+const TW_HAEYO   = /(아요|어요|여요|에요|예요|해요|세요|께요|나요|가요|까요|지요|네요|군요|는데요|거든요)$/;
+/* 「ㅂ니다」를 글자 그대로 적으면 안 된다. 합니다·입니다·됩니다는 ㅂ 이
+   앞 글자에 받침으로 붙어 있어서 낱자 ㅂ 이 문자열에 없다. 처음에 그렇게
+   적었다가 합니다체에서 가장 흔한 「합니다」를 통째로 놓쳤다.
+   받침을 따지지 말고 「니다·니까」로 끝나는지만 본다. */
+const TW_HAPNIDA = /(니다|니까|시오)$/;
+const TW_PLAIN   = /(ㄴ다|는다|았다|었다|이다|한다|된다|난다|같다|없다|있다|않다|하다|되다|다)$/;
+
+function twSentences(text) {
+  return String(text)
+    .split(/[.!?…\n]+/)
+    .map((x) => x.trim().replace(/["'’”\)\]]+$/, ''))
+    .filter((x) => x.length > 1);
+}
+
+/* 목표 문체에 어긋나는 문장들을 돌려준다. */
+function twRegisterMiss(text, want) {
+  const bad = [];
+  for (const sen of twSentences(text)) {
+    const haeyo = TW_HAEYO.test(sen);
+    const hapnida = TW_HAPNIDA.test(sen);
+    const plain = TW_PLAIN.test(sen);
+    if (want === 'formal') {
+      // 안내문 — 합니다체가 맞고 해요체가 틀리다. -(느)ㄴ다체도 어색하다.
+      if (haeyo) bad.push({ sen, why: t('해요체', 'informal 해요') });
+      else if (!hapnida && plain) bad.push({ sen, why: t('-(느)ㄴ다체', 'plain -(느)ㄴ다') });
+    } else {
+      // 설명문·논술 — -(느)ㄴ다체가 맞고 해요체·합니다체 둘 다 틀리다.
+      if (haeyo) bad.push({ sen, why: t('해요체', 'informal 해요') });
+      else if (hapnida) bad.push({ sen, why: t('합니다체', 'formal 합니다') });
+    }
+  }
+  return bad;
+}
+
+const twWant = (it) => (it.register === 'formal'
+  ? t('합니다체 (안내문)', '합니다 style (notice)')
+  : t('-(느)ㄴ다체 (설명문·논술)', 'plain -(느)ㄴ다 style'));
+
+/* ── 문항 목록 ─────────────────────────────────────────────── */
+function twDraw() {
+  /* 언어를 바꾸면 openSection 이 갈래 속을 다시 그리는데, 여기서 목록으로
+     되돌리면 **쓰던 글이 사라진다.** 600자를 쓰다가 EN 을 눌렀다고 글이
+     날아가면 다시는 안 쓴다. 문항이 열려 있으면 손대지 않는다 —
+     딱지가 옛 언어로 남는 편이 글을 잃는 것보다 낫다. */
+  if (twItem) return;
+  twDrawHead();
+  twStopClock();
+  twItem = null;
+  $('twDesk').classList.add('hidden');
+  $('twList').classList.remove('hidden');
+
+  const mine = TW_ITEMS.filter((x) => x.lv === learnLv.writing);
+  if (!mine.length) return void ($('twList').innerHTML = lvEmpty());
+
+  // 문항 번호별로 묶는다. 51 다섯 개가 흩어져 있으면 무엇이 무엇인지 모른다.
+  let html = '';
+  for (const g of TW_QS) {
+    const items = mine.filter((x) => x.q === g.q);
+    if (!items.length) continue;
+    html += `<div class="tw-sec-t">${esc(isEn() ? g.en : g.ko)} · ${g.pt}${t('점', ' pts')}</div>` +
+      items.map((it) =>
+        `<button class="tw-card" data-tw="${esc(it.id)}">` +
+          '<div class="tw-card-top">' +
+            `<span class="tw-no">${it.q}</span>` +
+            `<span class="tw-pt">${it.min ? `${it.min}~${it.max}${t('자', ' chars')}` : t('빈칸 2곳', '2 blanks')}</span>` +
+          '</div>' +
+          `<div class="tw-card-t">${esc(it.title)}</div>` +
+          `<div class="tw-card-s">${esc(it.cond)}</div>` +
+        '</button>').join('');
+  }
+  $('twList').innerHTML = html +
+    `<p class="sb-none" style="margin-top:18px">${t(
+      '기출문제가 아니라 같은 유형으로 새로 쓴 연습 문항이에요.',
+      'These are original practice items, not past exam papers.')}</p>`;
+}
+
+$('twList').addEventListener('click', (ev) => {
+  const b = ev.target.closest('[data-tw]');
+  if (!b) return;
+  twOpen(TW_ITEMS.find((x) => x.id === b.dataset.tw));
+});
+
+/* ── 쓰기 화면 ─────────────────────────────────────────────── */
+function twOpen(it) {
+  if (!it) return;
+  twItem = it;
+  $('twList').classList.add('hidden');
+  $('twDesk').classList.remove('hidden');
+
+  const long = !!it.min;   // 53·54 는 긴 글, 51·52 는 빈칸 둘
+
+  $('twDesk').innerHTML =
+    `<button class="wb-out" id="twBack" type="button">← ${t('문항 목록', 'All items')}</button>` +
+    '<div class="tw-head" style="margin-top:16px">' +
+      `<div><span class="tw-no">${it.q}</span> <span class="tw-card-t">${esc(it.title)}</span></div>` +
+      (long ? `<button class="wb-out" id="twClock" type="button">⏱ ${t('시간 재기', 'Timer')}</button>` : '') +
+    '</div>' +
+
+    `<div class="tw-passage">${esc(it.passage)}</div>` +
+    (it.data ? '<ul class="tw-data">' + it.data.map((d) => `<li>${esc(d)}</li>`).join('') + '</ul>' : '') +
+    (it.tasks ? '<ol class="tw-tasks">' + it.tasks.map((x) => `<li>${esc(x)}</li>`).join('') + '</ol>' : '') +
+    `<p class="tw-cond">${esc(it.cond)} · ${t('문체', 'Register')}: <b>${esc(twWant(it))}</b></p>` +
+
+    (long
+      ? '<textarea id="twText" class="tw-in" rows="14" style="margin-top:16px"></textarea>' +
+        '<div class="tw-bar">' +
+          '<span class="tw-n" id="twN">0</span>' +
+          '<div class="tw-gauge"><div class="tw-gauge-f" id="twG" style="width:0%"></div></div>' +
+          '<span class="tw-clock" id="twT"></span>' +
+        '</div>'
+      : it.blanks.map((b, i) =>
+          '<div class="tw-blank-row">' +
+            `<div class="tw-blank-mark">${esc(b.mark)}</div>` +
+            `<textarea class="tw-in tw-blank" data-i="${i}" rows="2"></textarea>` +
+          '</div>').join('')) +
+
+    `<div class="tw-warn" id="twW"></div>` +
+
+    '<div class="tw-acts">' +
+      `<button class="btn-retro green" id="twShow" type="button">${t('모범답안 보기', 'Show a model answer')}</button>` +
+      `<button class="wb-out" id="twClear" type="button">${t('지우기', 'Clear')}</button>` +
+    '</div>' +
+    '<div id="twOut"></div>';
+
+  $('twBack').addEventListener('click', twDraw);
+  $('twClear').addEventListener('click', () => {
+    $('twDesk').querySelectorAll('.tw-in').forEach((x) => { x.value = ''; });
+    $('twOut').innerHTML = '';
+    twSync();
+  });
+  $('twShow').addEventListener('click', twReveal);
+  $('twDesk').querySelectorAll('.tw-in').forEach((x) => x.addEventListener('input', twSync));
+  if (long) $('twClock').addEventListener('click', twToggleClock);
+
+  twSync();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+/* 쓰는 동안 도는 것 — 글자 수와 문체. */
+function twSync() {
+  const it = twItem;
+  if (!it) return;
+  const long = !!it.min;
+  const text = long
+    ? ($('twText')?.value || '')
+    : [...$('twDesk').querySelectorAll('.tw-blank')].map((x) => x.value).join('. ');
+
+  if (long) {
+    const n = twCount($('twText').value);
+    const el = $('twN'), g = $('twG');
+    el.textContent = `${n}${t('자', '')}  /  ${it.min}~${it.max}`;
+    const pct = Math.min(100, Math.round((n / it.max) * 100));
+    g.style.width = pct + '%';
+    const cls = n > it.max ? 'over' : n >= it.min ? 'ok' : 'short';
+    el.className = 'tw-n ' + cls;
+    g.className = 'tw-gauge-f ' + (cls === 'short' ? '' : cls);
+  }
+
+  const miss = twRegisterMiss(text, it.register);
+  const w = $('twW');
+  if (!text.trim()) {
+    w.className = 'tw-warn';
+    w.innerHTML = t(`문체는 <b style="color:inherit">${esc(twWant(it))}</b> 로 씁니다. 쓰는 동안 확인해 드려요.`,
+                    `Write in <b style="color:inherit">${esc(twWant(it))}</b>. I’ll check as you type.`);
+  } else if (!miss.length) {
+    w.className = 'tw-warn';
+    w.innerHTML = `<span class="good">✓ ${t('문체가 맞아요.', 'Register looks right.')}</span>`;
+  } else {
+    w.className = 'tw-warn hit';
+    w.innerHTML = `<b>${t(`문체가 어긋난 문장 ${miss.length}개`, `${miss.length} sentence(s) in the wrong register`)}</b><br>` +
+      miss.slice(0, 3).map((m) => `· ${esc(m.sen.slice(-24))} — ${esc(m.why)}`).join('<br>');
+  }
+}
+
+/* ── 모범답안 ──────────────────────────────────────────────── */
+function twReveal() {
+  const it = twItem;
+  if (!it) return;
+  let html = '';
+  if (it.blanks) {
+    html += it.blanks.map((b) =>
+      `<div class="tw-sec-t">${esc(b.mark)} ${t('모범답안', 'Model answers')}</div>` +
+      '<ul class="tw-ul">' + b.answers.map((a) => `<li>${esc(a)}</li>`).join('') + '</ul>' +
+      `<p class="tw-cond">${esc(b.point)}</p>`).join('');
+  }
+  if (it.model) {
+    html += `<div class="tw-sec-t">${t('모범답안', 'Model answer')} · ${twCount(it.model)}${t('자', ' chars')}</div>` +
+      `<div class="tw-model">${esc(it.model)}</div>`;
+  }
+  if (it.points) {
+    html += `<div class="tw-sec-t">${t('무엇을 보는가', 'What is scored')}</div>` +
+      '<ul class="tw-ul">' +
+        `<li><b>${t('내용 및 과제 수행', 'Content')}</b> — ${esc(it.points.content)}</li>` +
+        `<li><b>${t('글의 전개 구조', 'Structure')}</b> — ${esc(it.points.structure)}</li>` +
+        `<li><b>${t('언어 사용', 'Language')}</b> — ${esc(it.points.language)}</li>` +
+      '</ul>';
+  }
+  html += `<div class="tw-sec-t">${t('흔한 감점 요인', 'Common deductions')}</div>` +
+    '<ul class="tw-ul">' + it.deduct.map((d) => `<li>${esc(d)}</li>`).join('') + '</ul>';
+  $('twOut').innerHTML = html;
+  setTimeout(() => $('twOut').scrollIntoView({ behavior: 'smooth', block: 'start' }), 60);
+}
+
+/* ── 타이머 ────────────────────────────────────────────────
+   강제하지 않는다. 처음 쓰는 사람에게 시계를 들이대면 안 쓴다.
+   54번 30분, 53번 15분이 시험의 권장 배분이다. */
+function twStopClock() {
+  if (twTick) { clearInterval(twTick); twTick = 0; }
+}
+function twToggleClock() {
+  if (twTick) {
+    twStopClock();
+    $('twClock').textContent = `⏱ ${t('시간 재기', 'Timer')}`;
+    if ($('twT')) $('twT').textContent = '';
+    return;
+  }
+  twLeft = (twItem?.q === 54 ? 30 : 15) * 60;
+  $('twClock').textContent = `⏸ ${t('멈추기', 'Stop')}`;
+  const paint = () => {
+    if (!$('twT')) return twStopClock();
+    const m = Math.floor(twLeft / 60), sec = twLeft % 60;
+    $('twT').textContent = `${m}:${String(sec).padStart(2, '0')}`;
+  };
+  paint();
+  twTick = setInterval(() => {
+    twLeft--;
+    if (twLeft <= 0) { twStopClock(); if ($('twT')) $('twT').textContent = t('시간 끝', 'Time'); return; }
+    paint();
+  }, 1000);
+}
 
 /* ══ 배우기 : 문제만 풀기 ═══════════════════════════════════════
    코스는 읽고 풀지만 여기는 풀기만 한다. 이미 배운 것을 확인하러 오는

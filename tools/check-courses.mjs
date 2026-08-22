@@ -22,6 +22,7 @@ import { tmpdir } from 'node:os';
 import { dirname, join } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { COURSES } from '../courses.js';
+import { TW_ITEMS } from '../topik-writing.js';
 
 /* 일부러 없앤 레슨 id.
  *
@@ -326,6 +327,74 @@ for (const c of COURSES) {
   }
 }
 
+/* ── TOPIK 쓰기 문항 ─────────────────────────────────────────
+ * 51·52 는 빈칸마다 허용 답이 있어야 하고, 53·54 는 분량과 모범답안이
+ * 있어야 한다. 모범답안이 분량 밖이면 학습자에게 "이렇게 쓰세요" 하고
+ * 규칙을 어긴 글을 보여 주는 셈이 된다.
+ */
+const twIds = new Set();
+for (const it of TW_ITEMS ?? []) {
+  const at = `TOPIK ${it.id}`;
+  if (twIds.has(it.id)) problems.push(`${at}: id 중복`);
+  twIds.add(it.id);
+
+  for (const k of ['q', 'lv', 'register', 'title', 'passage', 'cond']) {
+    if (!it[k]) problems.push(`${at}: ${k} 없음`);
+  }
+  if (![51, 52, 53, 54].includes(it.q)) problems.push(`${at}: 모르는 문항 번호 ${it.q}`);
+  if (it.lv && !['beginner','intermediate','advanced'].includes(it.lv)) problems.push(`${at}: 모르는 단계 '${it.lv}' — beginner/intermediate/advanced 중 하나여야 한다`);
+  if (!['formal', 'plain'].includes(it.register)) {
+    problems.push(`${at}: register 는 formal 또는 plain 이어야 한다 (지금 '${it.register}')`);
+  }
+  if (!it.deduct?.length) problems.push(`${at}: deduct 없음 — 감점 요인은 1단계의 핵심 안내다`);
+
+  if (it.q === 51 || it.q === 52) {
+    if (it.blanks?.length !== 2) problems.push(`${at}: 빈칸이 2개여야 한다 (지금 ${it.blanks?.length ?? 0}개)`);
+    for (const b of it.blanks ?? []) {
+      if (!b.mark) problems.push(`${at}: 빈칸 표시(mark) 없음`);
+      else if (!it.passage.includes(b.mark)) {
+        problems.push(`${at}: 지문에 '${b.mark}' 가 없다 — 화면에 빈칸이 안 보인다`);
+      }
+      if (!b.answers?.length) problems.push(`${at} ${b.mark}: 허용 답 없음`);
+      if (!b.point) problems.push(`${at} ${b.mark}: 채점 포인트 없음`);
+    }
+  } else {
+    if (!it.min || !it.max) problems.push(`${at}: min/max 없음 — 글자 수 눈금을 못 그린다`);
+    if (!it.tasks?.length) problems.push(`${at}: tasks 없음`);
+    if (!it.model) problems.push(`${at}: 모범답안 없음`);
+    else {
+      const n = String(it.model).replace(/[\r\n]/g, '').length;  // 띄어쓰기 포함 — 화면과 같은 잣대
+      if (it.min && (n < it.min || n > it.max)) {
+        problems.push(`${at}: 모범답안이 ${n}자로 분량(${it.min}~${it.max}) 밖이다 — 규칙을 어긴 글을 본보기로 보여 주게 된다`);
+      }
+    }
+    if (!it.points) problems.push(`${at}: points(채점 세 항목) 없음`);
+
+    /* 수준별 예시 답안은 3단계 AI 채점의 **닻**이 된다. 닻이 어긋나면
+       모델이 그 어긋난 기준을 배운다. 그래서 여기서 앞뒤를 맞춰 본다 —
+       높은 점수를 준 글이 분량 미달이면 둘 중 하나가 틀린 것이다. */
+    const cnt = (x) => String(x).replace(/[\r\n]/g, '').length;
+    const full = it.q === 54 ? 50 : 30;
+    for (const sm of it.samples ?? []) {
+      const where = `${at} 예시(${sm.level})`;
+      if (!sm.text) { problems.push(`${where}: 글이 없음`); continue; }
+      if (!sm.why) problems.push(`${where}: 점수를 준 이유가 없음`);
+      if (typeof sm.total !== 'number' || sm.total < 0 || sm.total > full) {
+        problems.push(`${where}: 총점 ${sm.total} 이 0~${full} 을 벗어남`);
+      }
+      if (sm.scores) {
+        const sum = Object.values(sm.scores).reduce((a, b) => a + b, 0);
+        if (sum !== sm.total) problems.push(`${where}: 세부 점수 합 ${sum} 이 총점 ${sm.total} 과 다름`);
+      }
+      const n = cnt(sm.text);
+      if (sm.total >= full * 0.8 && it.min && n < it.min) {
+        problems.push(`${where}: ${sm.total}점인데 ${n}자로 분량(${it.min}자) 미달이다 — ` +
+          '분량 미달은 큰 감점이라 점수와 글이 어긋난다. AI 채점의 닻이 되므로 맞춰야 한다');
+      }
+    }
+  }
+}
+
 // ▼ 레슨 id 유실 검사: HEAD 커밋에 있던 id 가 사라졌는지 본다.
 const headIds = await lessonIdsAtHead();
 let idsIntact = false;
@@ -347,6 +416,8 @@ if (headIds) {
 }
 
 console.log(`코스 ${COURSES.length} / 레슨 ${lessons} / 블록 ${blocks}`);
+console.log('TOPIK 쓰기: ' + [51, 52, 53, 54].map((q) =>
+  `${q}번 ${(TW_ITEMS ?? []).filter((x) => x.q === q).length}`).join(' · '));
 console.log('코스: ' + COURSES.map((c) => `${c.id}(${c.lessons.length})`).join(', '));
 console.log(!headIds ? '이전 커밋 견주기 건너뜀'
   : idsIntact ? `이전 커밋 레슨 id ${headIds.size}개 전부 살아 있음`
