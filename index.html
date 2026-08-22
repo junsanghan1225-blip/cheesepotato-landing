@@ -1513,6 +1513,19 @@ body.nav-open { overflow:hidden; }
   margin-top:18px;
 }
 .ex-in:focus { outline:none; border-color:var(--orange-mid); background:#fff; }
+/* ══ 배우기 : 문제만 풀기 ══════════════════════════════════════ */
+.dq-card {
+  background:var(--surface); border:1px solid var(--line); border-radius:var(--r-xl);
+  padding:28px; text-align:center; margin-top:18px;
+}
+.dq-big { font-size:40px; }
+.dq-t { font-size:22px; font-weight:700; color:var(--ink); letter-spacing:-.035em; margin-top:10px; }
+.dq-go { margin-top:20px; }
+/* 문제 위에 붙는 출처 한 줄. .ex-tag 를 쓰면 "고르기/빈칸" 딱지와 같은
+   모양이 둘 나란히 서서 어느 쪽이 문제 종류인지 헷갈린다. */
+.dq-from { font-size:11px; font-weight:600; letter-spacing:.1em; text-transform:uppercase;
+           color:var(--ink-3); margin-bottom:8px; }
+
 /* ── 문장 만들기 ────────────────────────────────────────────
    보기에서 고르는 것과 달리 빈손에서 문장을 짜는 자리라, 틀렸을 때
    무엇이 틀렸는지 한 줄로 말해 줘야 한다. 빨간 테두리만 깜빡이면
@@ -3794,6 +3807,17 @@ body.nav-open { overflow:hidden; }
       </div>
 
       <!-- 갈래 : 예문 만들기 -->
+      <!-- 갈래 : 문제만 풀기.
+           레슨에서 문제 블록만 뽑아 이어서 푼다. 안은 app.module.js 가 채운다. -->
+      <div id="dqWrap" class="hidden">
+        <div class="learn-head">
+          <div id="dqLevel"></div>
+          <p id="dqIntro" class="learn-copy"></p>
+          <div id="dqSummary" class="learn-summary"></div>
+        </div>
+        <div id="dqBody"></div>
+      </div>
+
       <div id="sbWrap" class="hidden">
         <div class="learn-head">
           <div id="sbLevel"></div>

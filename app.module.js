@@ -1946,6 +1946,15 @@ const LEARN_SECTIONS = [
              en: 'Read a passage, then write what you understood. You see at once what you caught and what you missed.' },
   },
   {
+    id: 'quiz', emoji: '⚡', ready: true, pane: 'dqWrap',
+    lv:    { ko: '문제',            en: 'DRILL' },
+    title: { ko: '문제만 풀기',      en: 'Just the questions' },
+    tag:   { ko: '설명은 건너뛰고 문제만 이어서',
+             en: 'Skip the reading, keep the questions coming' },
+    blurb: { ko: '레슨에서 문제만 뽑아 섞어 이어서 풉니다. 배운 걸 확인할 때 쓰세요.',
+             en: 'Pulls the questions out of the lessons and runs them back to back.' },
+  },
+  {
     id: 'sentence', emoji: '✍️', ready: true, pane: 'sbWrap',
     lv:    { ko: '예문',            en: 'SENTENCES' },
     title: { ko: '예문 만들기',      en: 'Build a sentence' },
@@ -2057,7 +2066,7 @@ const BEGINNER_ROADMAP = [
     courses:[],
   },
 ];
-let learnLv = { courses: 'beginner', sentence: 'beginner', reading: 'beginner' };
+let learnLv = { courses: 'beginner', quiz: 'beginner', sentence: 'beginner', reading: 'beginner' };
 
 const learnLevel = (id) => LEARN_LEVELS.find((x) => x.id === id) || LEARN_LEVELS[0];
 const learnLevelText = (id) => (isEn() ? learnLevel(id).en : learnLevel(id).ko);
@@ -4607,6 +4616,7 @@ function openSection(id, quiet) {
     if (!already) {
       if (s.id === 'courses') drawCourses();
       if (s.id === 'topik') drawTopik();
+      if (s.id === 'quiz') dqDraw();
       if (s.id === 'reading') drawReading();
       if (s.id === 'sentence') {
         drawSentenceHead();
@@ -4688,6 +4698,10 @@ $('lsecWrap').addEventListener('change', (ev) => {
     lsCourse = null;
     $('llWrap').classList.add('hidden');
     drawCourses();
+  } else if (section === 'quiz') {
+    /* 급을 바꾸면 시작 화면으로 되돌린다. 다른 급의 문제를 풀던 중이면
+       남은 문제가 그 급 것이라 섞이기 때문이다. */
+    dqDraw();
   } else if (section === 'sentence') {
     drawSentenceHead();
     const cur = sbPoint ? sbFind(sbPoint) : null;
@@ -5172,7 +5186,7 @@ function startLesson(course, lesson) {
   lsTotal = lesson.blocks.filter(isEx).length;
 
   /* Cloze 게임 상태 초기화 · HUD 보여주기 (문제가 하나라도 있으면) */
-  lsHp = 3; lsXp = 0; lsCombo = 0; lsWrong = []; lsMode = 'lesson';
+  lsHp = 3; lsXp = 0; lsCombo = 0; lsWrong = []; lsMode = 'lesson'; dqFrom = false;
   if (lsChallengeTimer) { clearInterval(lsChallengeTimer); lsChallengeTimer = 0; }
   if (lsTotal > 0) {
     $('lsHud').style.display = '';
@@ -5357,6 +5371,145 @@ $('lsBlocks').addEventListener('click', (ev) => {
   const c = ev.target.closest('[data-say]');
   if (c) say(c.dataset.say, c.dataset.audio);
 });
+
+
+/* ══ 배우기 : 문제만 풀기 ═══════════════════════════════════════
+   코스는 읽고 풀지만 여기는 풀기만 한다. 이미 배운 것을 확인하러 오는
+   자리라, 설명을 다시 읽히면 두 번은 안 온다.
+
+   문제는 레슨에서 그대로 가져온다. 여기 따로 쓰지 않는 이유는 두 벌이
+   되는 순간 한쪽만 고쳐지기 때문이다 — 레슨에서 고친 문제가 여기 옛날
+   것으로 남으면 어느 쪽이 맞는지 알 길이 없다.
+
+   이름을 dq 로 짓는다. qz 는 스피드 퀴즈 게임이, tq 는 TOPIK 유형
+   연습이 이미 쓰고 있다. */
+
+const DQ_MAX = 15;   // 한 판. 다 맞혀야 끝나므로 길면 끝을 못 보고 나간다.
+
+/* 그 급의 모든 레슨에서 문제 블록만. 어느 코스에서 왔는지 함께 들고
+   온다 — 문제만 이어지면 지금 무엇을 확인하는 중인지 알 수 없다. */
+function dqPool(level) {
+  const out = [];
+  COURSES.filter((c) => courseTier(c) === level).forEach((c) => {
+    c.lessons.forEach((l) => {
+      l.blocks.filter(isEx).forEach((b) => out.push({ b, course: c, lesson: l }));
+    });
+  });
+  return out;
+}
+
+let dqQueue = [], dqTotal = 0, dqDone = 0, dqFrom = false;
+
+function dqDraw() {
+  const level = learnLv.quiz;
+  const pool = dqPool(level);
+  $('dqLevel').innerHTML = renderLevelSwitch('quiz');
+  $('dqIntro').textContent = t(
+    '레슨에서 문제만 뽑아 섞었어요. 설명 없이 문제만 이어집니다.',
+    'Questions pulled from the lessons and shuffled. No reading — just questions.');
+  $('dqSummary').innerHTML = renderLearnSummary([
+    { k: t('문제', 'Questions'), v: pool.length, s: t('이 단계 레슨에 들어 있는 문제', 'Questions in this level’s lessons') },
+    { k: t('한 판', 'Per round'), v: Math.min(DQ_MAX, pool.length), s: t('섞어서 이어 푸는 개수', 'Shuffled and run back to back') },
+    { k: t('단계', 'Level'), v: learnLevelText(level), s: t('배운 것을 확인하는 자리', 'Check what you have learned') },
+  ]);
+
+  if (!pool.length) {
+    $('dqBody').innerHTML = `<div class="learn-empty">${esc(t(
+      '이 단계 문제는 아직 채우는 중이에요.', 'This level’s questions are still being written.'))}</div>`;
+    return;
+  }
+  $('dqBody').innerHTML =
+    '<div class="dq-card">' +
+      '<div class="dq-big">⚡</div>' +
+      `<div class="dq-t">${esc(t(`문제 ${Math.min(DQ_MAX, pool.length)}개`, `${Math.min(DQ_MAX, pool.length)} questions`))}</div>` +
+      `<div class="dq-go"><button type="button" class="btn-retro green" id="dqGo">${esc(t('시작하기', 'Start'))}</button></div>` +
+    '</div>';
+  $('dqGo').addEventListener('click', dqStart);
+}
+
+function dqMeter() {
+  $('lsProg').style.width = (dqTotal ? Math.round((dqDone / dqTotal) * 100) : 0) + '%';
+  $('lsCount').textContent = dqTotal ? `${dqDone} / ${dqTotal}` : '';
+}
+
+function dqStart() {
+  const pool = dqPool(learnLv.quiz).slice().sort(() => Math.random() - 0.5);
+  dqQueue = pool.slice(0, DQ_MAX);
+  dqTotal = dqQueue.length; dqDone = 0;
+  if (!dqTotal) return;
+
+  /* 레슨 화면을 빌려 쓰지만 레슨은 아니다. lsCourse/lsLesson 을 비워
+     두는 것이 중요하다 — 남아 있으면 나갈 때 엉뚱한 코스로 가고,
+     진도(lesson_progress)에 풀지도 않은 레슨이 찍힌다. */
+  lsCourse = null; lsLesson = null;
+  lsMode = 'quiz'; dqFrom = true;
+  lsHp = 3; lsXp = 0; lsCombo = 0; lsWrong = [];
+  if (lsChallengeTimer) { clearInterval(lsChallengeTimer); lsChallengeTimer = 0; }
+
+  $('lsKicker').textContent = t('문제만 풀기', 'Just the questions');
+  $('lsTitle').textContent = learnLevelText(learnLv.quiz);
+  $('lsBlocks').innerHTML = '';
+  $('lsNextBar').classList.add('hidden');
+  $('lsHud').style.display = '';
+  syncHud();
+  dqMeter();
+  open('lesson');
+  dqNext();
+}
+
+function dqNext() {
+  if (lsMode !== 'quiz') return;       // 나갔는데 예약된 다음 문제가 오는 것 막기
+  if (!dqQueue.length) return dqEnd();
+
+  const item = dqQueue.shift();
+  const host = document.createElement('div');
+  $('lsBlocks').appendChild(host);
+  host.insertAdjacentHTML('beforeend', `<div class="dq-from">${esc(cTx(item.course.title))}</div>`);
+
+  exBlock(host, item.b, () => {
+    dqDone++; dqMeter();
+    setTimeout(dqNext, 420);
+  });
+  setTimeout(() => host.scrollIntoView({ behavior: 'smooth', block: 'center' }), 60);
+}
+
+function dqEnd() {
+  lsMode = 'lesson';
+  $('lsProg').style.width = '100%';
+  /* 몇 개 틀렸는지는 **말하지 않는다.** lsWrong 에는 빈칸(cloze) 오답만
+     담긴다 — 고르기·쓰기·배열·짝 맞추기는 틀려도 어디에도 안 남는다.
+     그래서 "한 번도 안 틀렸어요" 를 띄우면 고르기를 다섯 번 틀린
+     사람에게도 그 말이 나간다. 다 맞혀야 넘어가므로 "다 풀었다" 는 참이다. */
+  const missed = lsWrong.length;
+  $('lsBlocks').insertAdjacentHTML('beforeend',
+    '<div class="ls-done">' +
+      '<div class="ls-done-big">🎉</div>' +
+      `<div class="ls-done-t">${esc(t('한 판 끝!', 'Round done!'))}</div>` +
+      `<p class="ls-done-s">${esc(missed
+        ? t(`${dqTotal}문제를 다 풀었어요. 빈칸에서 틀렸던 ${missed}개는 아래에서 다시 풀 수 있어요.`,
+            `${dqTotal} questions done. You can redo the ${missed} cloze answers you missed.`)
+        : t(`${dqTotal}문제를 다 풀었어요.`, `${dqTotal} questions done.`))}</p>` +
+      '<div class="ls-challenge-btns" style="margin-top:8px">' +
+        (missed ? `<button type="button" class="btn-retro green" id="dqCh">⚡ ${esc(t('틀린 것만 1분', '60s on the misses'))}</button>` : '') +
+        `<button type="button" class="btn-retro green" id="dqAgain">🔁 ${esc(t('한 판 더', 'One more'))}</button>` +
+        `<button type="button" class="btn-retro blue" id="dqBack">${esc(t('배우기로', 'Back to Learn'))}</button>` +
+      '</div>' +
+    '</div>');
+  $('dqCh')?.addEventListener('click', startChallenge);
+  $('dqAgain').addEventListener('click', dqStart);
+  $('dqBack').addEventListener('click', backToQuiz);
+  $('lsNextBar').classList.add('hidden');
+  setTimeout(() => $('lsBlocks').lastElementChild?.scrollIntoView({ behavior: 'smooth', block: 'center' }), 120);
+}
+
+/* 문제만 풀기에서 시작한 판은 코스 목록이 아니라 여기로 돌아와야 한다.
+   챌린지를 거쳐 나올 수도 있어서 lsMode 로는 판별이 안 된다. */
+function backToQuiz() {
+  if (lsChallengeTimer) { clearInterval(lsChallengeTimer); lsChallengeTimer = 0; }
+  lsMode = 'lesson'; dqFrom = false;
+  open('learn');
+  openSection('quiz');
+}
 
 /* 문제 한 개. 맞히면 done() 을 부른다. */
 function exBlock(host, b, done) {
@@ -5838,7 +5991,9 @@ function exBlock(host, b, done) {
       /* 마스터리 오답 기록 */
       updateMastery(false, usedTyping);
       /* 틀린 문제 복습 큐에 등록 (중복 방지) */
-      if (lsMode === 'lesson') {
+      /* 문제만 풀기도 모은다 — 끝나고 틀린 것만 다시 푸는 자리가 거기도
+         있다. 챌린지는 이 큐로 돌고 있는 중이라 다시 담으면 안 된다. */
+      if (lsMode !== 'challenge') {
         const exists = lsWrong.some((w) => w.sentence === senRaw);
         if (!exists) lsWrong.push({
           sentence: senRaw, answer, options: b.options ?? [], keys: b.keys ?? [],
@@ -5980,7 +6135,9 @@ function startChallenge() {
 
   /* lsBlocks 지우고 새 제목 + 문제 공간 */
   $('lsBlocks').innerHTML = '';
-  $('lsKicker').textContent = lsCourse.title;
+  /* 문제만 풀기에서 온 판에는 코스가 없다. 예전엔 레슨에서만 챌린지로
+     올 수 있어서 lsCourse.title 을 그냥 읽었는데, 이제 여기서 터진다. */
+  $('lsKicker').textContent = lsCourse ? cTx(lsCourse.title) : t('문제만 풀기', 'Just the questions');
   $('lsTitle').textContent = t('⚡ 1분 복습 챌린지', '⚡ 60s Review Challenge');
   $('lsNextBar').classList.add('hidden');
 
@@ -6060,7 +6217,7 @@ function endChallenge() {
       <p class="ls-done-s">${t('60초 동안 총','Scored')} <b>${lsChallengeScore}</b> ${t('문제 맞혔어요','in 60 seconds.')}</p>
       <div class="ls-challenge-btns" style="margin-top:8px">
         <button type="button" class="btn-retro green" id="lsRetryCh">🔁 ${t('한 번 더','Retry')}</button>
-        <button type="button" class="btn-retro blue" id="lsBackCourse">${t('코스로 돌아가기','Back to course')}</button>
+        <button type="button" class="btn-retro blue" id="lsBackCourse">${dqFrom ? t('배우기로','Back to Learn') : t('코스로 돌아가기','Back to course')}</button>
       </div>
     </div>`);
   $('hudHp').style.opacity = '';
@@ -6068,12 +6225,14 @@ function endChallenge() {
   $('lsCount').textContent = `Score ${lsChallengeScore}`;
   const btR = $('lsRetryCh'), btB = $('lsBackCourse');
   if (btR) btR.addEventListener('click', startChallenge);
-  if (btB) btB.addEventListener('click', backToCourses);
+  if (btB) btB.addEventListener('click', leaveLesson);
   $('lsNextBar').classList.remove('hidden');
   setTimeout(() => $('lsBlocks').lastElementChild?.scrollIntoView({ behavior:'smooth', block:'center' }), 120);
 }
 
-$('lsExit').addEventListener('click', backToCourses);
+/* 문제만 풀기에서 온 판은 코스가 아니라 그리로 돌아간다. */
+const leaveLesson = () => (dqFrom ? backToQuiz() : backToCourses());
+$('lsExit').addEventListener('click', leaveLesson);
 
 $('learnBtn').addEventListener('click', async () => {
   if (showing('learnView') || showing('lessonView')) return open('home');
