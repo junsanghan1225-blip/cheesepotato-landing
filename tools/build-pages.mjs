@@ -32,6 +32,7 @@ const OUT = join(ROOT, 'sentence');
 const OUT_COURSE = join(ROOT, 'course');
 const OUT_LESSON = join(ROOT, 'lesson');
 const OUT_TW = join(ROOT, 'topik-writing');
+const OUT_CMP = join(ROOT, 'compare');
 
 const esc = (s) => String(s ?? '')
   .replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;')
@@ -201,6 +202,8 @@ function pointPage(cat, p, prev, next) {
        직접 문장을 써 보는 곳은 앱이다. */
     `<a class="cta" href="/#learn/sentence/${esc(p.id)}">이 표현으로 문장 만들어 보기` +
       `<span>Practice writing your own sentence with ${esc(p.name)}</span></a>`,
+    `<div class="near"><a href="/compare/${esc(cat.id)}.html"><b>같은 갈래 견주어 보기</b>` +
+      `${esc(cat.ko)} 표현 ${cat.points.length}가지</a></div>`,
     (prev || next) ? '<div class="near">' +
       (prev ? `<a href="/sentence/${esc(prev.id)}.html"><b>← 앞 표현</b>${esc(prev.name)}</a>` : '') +
       (next ? `<a href="/sentence/${esc(next.id)}.html"><b>다음 표현 →</b>${esc(next.name)}</a>` : '') +
@@ -284,6 +287,138 @@ function hubPage(cats, total) {
   });
 }
 
+
+
+/* ══ 갈래 비교 쪽 ═══════════════════════════════════════════════
+   낱쪽 290개는 「-느니 뜻」에는 걸려도 「-느니와 -(으)ㄹ 바에야 차이」에는
+   안 걸린다. 사람도 AI 답변 엔진도 **견주는 말**로 묻는데, 표현 하나만
+   있는 쪽은 그 물음에 답할 거리가 없다.
+
+   갈래는 이미 뜻이 비슷한 것끼리 묶여 있으니 그대로 비교 쪽이 된다.
+   표를 하나 놓고, 표현마다 「언제 쓰나」를 묻고 답한다.
+
+   물음과 답을 **화면에 실제로 보이게** 쓴다. FAQPage 표시는 눈에 보이는
+   물음·답이 있을 때만 맞는 말이라, 표시만 붙이고 본문이 없으면 거짓이다.
+   ═══════════════════════════════════════════════════════════════ */
+/* 은/는 을 받침으로 고른다. 한국어를 가르치는 쪽에서 조사가 틀리면
+   그 쪽에 적힌 다른 말도 못 믿는다.
+
+   이름이 「숫자 (한자어 · 순우리말)」처럼 한글이 아닌 글자로 끝나기도 해서
+   뒤에서부터 마지막 한글 음절을 찾아 그것의 받침을 본다. 한글이 아예 없으면
+   「는」으로 둔다 — 그런 이름은 지금 없지만 나중에 생기면 조용히 틀리는
+   것보다 한쪽으로 정해 두는 편이 낫다. */
+function eunNeun(name) {
+  const m = String(name).match(/[가-힣](?=[^가-힣]*$)/);
+  if (!m) return '는';
+  return (m[0].charCodeAt(0) - 0xAC00) % 28 ? '은' : '는';
+}
+
+function comparePage(cat) {
+  const pts = cat.points;
+  const names = pts.map((p) => p.name);
+  const lv = tier(pts[0]);
+
+  /* 제목이 곧 사람들이 치는 말이 되게 한다. 둘셋이면 이름을 그대로 붙여
+     「A와 B 차이」로, 많으면 이름을 다 넣을 수 없으니 갈래 이름으로 간다. */
+  const title = pts.length <= 3
+    ? `${names.join('와 ')} 차이 — ${cat.ko} | 치즈감자`
+    : `${cat.ko} 표현 ${pts.length}가지 — ${names.slice(0, 2).join(' · ')} 외 | 치즈감자`;
+  const desc = clip(`${cat.ko}(${cat.en})에 쓰는 표현 ${pts.length}가지를 한자리에서 견줍니다. ` +
+    `${names.slice(0, 4).join(' · ')}${names.length > 4 ? ' 외' : ''} — 뜻과 형태, 주의할 점을 나란히 놓았습니다.`);
+
+  const rows = pts.map((p) => {
+    const more = SB_MORE[p.id] || ['', '', '', ''];
+    return `<div class="fact"><b><a href="/sentence/${esc(p.id)}.html">${esc(p.name)}</a></b>` +
+      `<span>${esc(p.desc)}${more[0] ? `<br><small>형태 · ${esc(more[0])}</small>` : ''}` +
+      `${more[2] ? `<br><small>주의 · ${esc(more[2])}</small>` : ''}</span></div>`;
+  }).join('');
+
+  /* 표현마다 하나씩. 이게 FAQPage 표시가 가리키는 실제 본문이다. */
+  const qas = pts.map((p) => {
+    const more = SB_MORE[p.id] || ['', '', '', ''];
+    const q = `「${p.name}」${eunNeun(p.name)} 언제 쓰나요?`;
+    /* 화면에 그리는 글과 **똑같은 조각**으로 답을 만든다. 여기서 말이
+       갈리면 FAQPage 표시가 화면에 없는 글을 가리키게 된다 — 표시만
+       붙이고 본문이 다르면 그건 거짓말이다. */
+    const warn = more[2] ? `주의할 점 — ${more[2]}` : '';
+    const eg = `예: ${p.ex}`;
+    const a = [p.desc, warn, eg].filter(Boolean).join(' ');
+    return { q, a,
+      html: `<h2>${esc(q)}</h2><p class="desc">${esc(p.desc)}</p>` +
+        (warn ? `<div class="ex">${esc(warn)}</div>` : '') +
+        `<div class="ex">${esc(eg)}</div>` +
+        `<p class="sub"><a href="/sentence/${esc(p.id)}.html">${esc(p.name)} 자세히 보기 →</a></p>` };
+  });
+
+  const body = [
+    `<nav class="crumb"><a href="/">치즈감자</a> › <a href="/compare/">갈래별 비교</a> › ${esc(cat.ko)}</nav>`,
+    `<span class="badge">${LV_KO[lv]} · ${LV_EN[lv]}</span>`,
+    `<h1>${esc(cat.emoji ? cat.emoji + ' ' : '')}${esc(cat.ko)} — 표현 ${pts.length}가지</h1>`,
+    `<p class="sub">${esc(cat.en)}</p>`,
+    `<p class="lead">뜻이 비슷해 보이지만 쓰는 자리가 다릅니다. 아래 표에서 뜻과 형태, 주의할 점을 나란히 놓고 견주세요.<br>` +
+    `${pts.length} Korean expressions for ${esc(cat.en.toLowerCase())} — compared side by side.</p>`,
+    `<div class="facts">${rows}</div>`,
+    qas.map((x) => x.html).join('\n'),
+    `<a class="cta" href="/#learn/sentence">이 갈래로 문장 만들어 보기<span>Practice these expressions in the app</span></a>`,
+  ].join('\n');
+
+  const jsonld = [
+    {
+      '@context': 'https://schema.org',
+      '@type': 'FAQPage',
+      '@id': `${SITE}/compare/${cat.id}.html`,
+      inLanguage: 'ko',
+      mainEntity: qas.map((x) => ({
+        '@type': 'Question', name: x.q,
+        acceptedAnswer: { '@type': 'Answer', text: x.a },
+      })),
+    },
+    {
+      '@context': 'https://schema.org',
+      '@type': 'ItemList',
+      name: `${cat.ko} — ${cat.en}`,
+      numberOfItems: pts.length,
+      itemListElement: pts.map((p, i) => ({
+        '@type': 'ListItem', position: i + 1, name: p.name,
+        url: `${SITE}/sentence/${p.id}.html`,
+      })),
+    },
+    crumbLd([['치즈감자', '/'], ['갈래별 비교', '/compare/'], [cat.ko, null]]),
+  ];
+  return page({ url: `/compare/${cat.id}.html`, title, desc, body, jsonld });
+}
+
+function compareHub(cats) {
+  const order = ['beginner', 'intermediate', 'advanced'];
+  const sections = order.map((lv) => {
+    const inLv = cats.filter((c) => tier(c.points[0]) === lv);
+    if (!inLv.length) return '';
+    return `<h2 id="${lv}">${LV_KO[lv]} · ${LV_EN[lv]} — ${inLv.length}갈래</h2>` +
+      inLv.map((c) =>
+        `<div class="cat"><h3><a href="/compare/${esc(c.id)}.html">` +
+        `${esc(c.emoji ? c.emoji + ' ' : '')}${esc(c.ko)}</a></h3>` +
+        `<p>${esc(c.points.map((p) => p.name).join(' · '))}</p></div>`).join('\n');
+  }).filter(Boolean).join('\n');
+
+  const body = [
+    '<nav class="crumb"><a href="/">치즈감자</a> › 갈래별 비교</nav>',
+    `<h1>비슷한 한국어 표현 견주어 보기 — ${cats.length}갈래</h1>`,
+    '<p class="lead">뜻이 비슷한 표현끼리 묶어 뜻·형태·주의할 점을 나란히 놓았습니다. ' +
+    '「-아/어서와 -(으)니까는 어떻게 다른가」 같은 물음이 여기서 풀립니다.<br>' +
+    `${cats.length} sets of similar Korean expressions, compared side by side.</p>`,
+    `<a class="cta" href="/sentence/">문법 표현 전체 보기<span>All grammar points</span></a>`,
+    sections,
+  ].join('\n');
+
+  return page({
+    url: '/compare/', kind: 'website',
+    title: `비슷한 한국어 표현 비교 ${cats.length}갈래 — 뜻·형태·주의할 점 | 치즈감자`,
+    desc: clip(`뜻이 비슷한 한국어 표현을 갈래별로 견줍니다. ${cats.length}갈래, 표현 ${cats.reduce((a, c) => a + c.points.length, 0)}개. ` +
+      'Similar Korean grammar expressions compared side by side.'),
+    body,
+    jsonld: [crumbLd([['치즈감자', '/'], ['갈래별 비교', '/compare/']])],
+  });
+}
 
 /* ══ 코스 · 레슨 · TOPIK 쓰기 ═══════════════════════════════════
    표현 290쪽만 있고 코스 18개·레슨 71강·TOPIK 쓰기 16문항은 앱 안에만
@@ -537,7 +672,7 @@ ${urls.map(({ loc, freq, pri }) =>
 /* ── 돌린다 ─────────────────────────────────────────────────── */
 /* 통째로 지우고 다시 쓴다. 표현을 지웠을 때 예전 쪽이 남아 검색에 걸리면
    앱에 없는 것을 보여 주게 된다. */
-for (const d of [OUT, OUT_COURSE, OUT_LESSON, OUT_TW]) {
+for (const d of [OUT, OUT_COURSE, OUT_LESSON, OUT_TW, OUT_CMP]) {
   rmSync(d, { recursive: true, force: true });
   mkdirSync(d, { recursive: true });
 }
@@ -560,6 +695,17 @@ for (const cat of SB_CATS) {
 }
 
 writeFileSync(join(OUT, 'index.html'), hubPage(SB_CATS, n));
+
+/* ── 갈래 비교 ─────────────────────────────────────────────── */
+let nCmp = 0;
+for (const cat of SB_CATS) {
+  if (cat.points.length < 2) continue;   // 하나짜리는 견줄 것이 없다
+  writeFileSync(join(OUT_CMP, `${cat.id}.html`), comparePage(cat));
+  urls.push({ loc: `/compare/${cat.id}.html`, freq: 'monthly', pri: '0.8' });
+  nCmp++;
+}
+writeFileSync(join(OUT_CMP, 'index.html'), compareHub(SB_CATS.filter((c) => c.points.length >= 2)));
+urls.push({ loc: '/compare/', freq: 'weekly', pri: '0.9' });
 
 /* ── 코스와 레슨 ─────────────────────────────────────────────── */
 let nC = 0, nL = 0;
@@ -593,6 +739,7 @@ urls.push({ loc: '/privacy.html', freq: 'yearly', pri: '0.3' });
 writeFileSync(join(ROOT, 'sitemap.xml'), sitemap(urls));
 
 console.log(`표현 ${n}쪽 + 목록 1쪽 → sentence/`);
+console.log(`갈래 비교 ${nCmp}쪽 + 목록 1쪽 → compare/`);
 console.log(`코스 ${nC}쪽 + 목록 1쪽 → course/`);
 console.log(`레슨 ${nL}쪽 → lesson/`);
 console.log(`TOPIK 쓰기 ${nW}쪽 + 목록 1쪽 → topik-writing/`);
