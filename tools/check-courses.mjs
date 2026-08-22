@@ -350,12 +350,35 @@ for (const it of TOPIK_ITEMS ?? []) {
     if (!it.tasks?.length) problems.push(`${at}: tasks 없음`);
     if (!it.model) problems.push(`${at}: 모범답안 없음`);
     else {
-      const n = String(it.model).replace(/\s/g, '').length;
+      const n = String(it.model).replace(/[\r\n]/g, '').length;  // 띄어쓰기 포함 — 화면과 같은 잣대
       if (it.min && (n < it.min || n > it.max)) {
         problems.push(`${at}: 모범답안이 ${n}자로 분량(${it.min}~${it.max}) 밖이다 — 규칙을 어긴 글을 본보기로 보여 주게 된다`);
       }
     }
     if (!it.points) problems.push(`${at}: points(채점 세 항목) 없음`);
+
+    /* 수준별 예시 답안은 3단계 AI 채점의 **닻**이 된다. 닻이 어긋나면
+       모델이 그 어긋난 기준을 배운다. 그래서 여기서 앞뒤를 맞춰 본다 —
+       높은 점수를 준 글이 분량 미달이면 둘 중 하나가 틀린 것이다. */
+    const cnt = (x) => String(x).replace(/[\r\n]/g, '').length;
+    const full = it.q === 54 ? 50 : 30;
+    for (const sm of it.samples ?? []) {
+      const where = `${at} 예시(${sm.level})`;
+      if (!sm.text) { problems.push(`${where}: 글이 없음`); continue; }
+      if (!sm.why) problems.push(`${where}: 점수를 준 이유가 없음`);
+      if (typeof sm.total !== 'number' || sm.total < 0 || sm.total > full) {
+        problems.push(`${where}: 총점 ${sm.total} 이 0~${full} 을 벗어남`);
+      }
+      if (sm.scores) {
+        const sum = Object.values(sm.scores).reduce((a, b) => a + b, 0);
+        if (sum !== sm.total) problems.push(`${where}: 세부 점수 합 ${sum} 이 총점 ${sm.total} 과 다름`);
+      }
+      const n = cnt(sm.text);
+      if (sm.total >= full * 0.8 && it.min && n < it.min) {
+        problems.push(`${where}: ${sm.total}점인데 ${n}자로 분량(${it.min}자) 미달이다 — ` +
+          '분량 미달은 큰 감점이라 점수와 글이 어긋난다. AI 채점의 닻이 되므로 맞춰야 한다');
+      }
+    }
   }
 }
 
