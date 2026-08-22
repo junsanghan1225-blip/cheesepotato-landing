@@ -31,6 +31,13 @@ const only = (() => {
   return i >= 0 && args[i + 1] ? new Set(args[i + 1].split(',')) : null;
 })();
 const countOnly = args.includes('--count');
+/* --write 로 파일에 바로 쓴다. 윈도우 PowerShell 5 의 > 는 UTF-16 으로
+   쓰기 때문에 한글이 깨져서 굽는 쪽이 목록을 못 읽는다. 셸을 거치지 않고
+   여기서 UTF-8 로 쓰면 그 함정이 아예 없어진다. */
+const writeTo = (() => {
+  const i = args.indexOf('--write');
+  return i >= 0 && args[i + 1] ? args[i + 1] : null;
+})();
 
 /* 화면의 audioSlug 와 **글자 하나까지 같아야 한다.** 다르면 파일을 올려도
    화면이 못 찾아서 로봇 목소리가 계속 나온다. app.module.js 를 고치면
@@ -166,7 +173,8 @@ const line = (k, s) =>
 const total = { n: uniq.length, c: uniq.reduce((a, r) => a + chars(r), 0),
                 parts: uniq.reduce((a, r) => a + r.parts.length, 0) };
 
-if (countOnly || !process.stdout.isTTY === false) { /* 표는 늘 stderr 로 */ }
+/* 표는 늘 stderr 로 낸다. stdout 은 JSONL 전용이라, 표가 섞이면
+   > 로 받은 목록 파일이 굽는 쪽에서 안 읽힌다. */
 console.error('구울 소리');
 Object.entries(stat).forEach(([k, s]) => console.error(line(k, s)));
 console.error('  ' + '─'.repeat(46));
@@ -183,4 +191,13 @@ if (clash.length) {
   });
 }
 
-if (!countOnly) uniq.forEach((r) => console.log(JSON.stringify(r)));
+if (countOnly) process.exit(0);
+
+const jsonl = uniq.map((r) => JSON.stringify(r)).join('\n') + '\n';
+if (writeTo) {
+  fs.mkdirSync(path.dirname(path.resolve(writeTo)), { recursive: true });
+  fs.writeFileSync(writeTo, jsonl, 'utf8');
+  console.error(`\n  목록을 ${writeTo} 에 썼다 (${uniq.length}줄, UTF-8).`);
+} else {
+  process.stdout.write(jsonl);
+}

@@ -52,6 +52,32 @@ const TMP     = arg('--tmp', '/tmp/tts-parts');
 const KEY = process.env.ELEVEN_API_KEY;
 const VOICE = { m: process.env.ELEVEN_VOICE_M, w: process.env.ELEVEN_VOICE_W };
 
+/* --voices : 내 목소리 목록과 id 를 보여 준다.
+   ElevenLabs 화면에는 이름만 보이고 id 는 메뉴 안에 숨어 있다. 목소리를
+   만들어 놓고도 id 를 몰라서 못 굽는 일이 실제로 생긴다. 열쇠가 맞는지도
+   여기서 같이 확인된다 — 글자를 하나도 안 쓰고. */
+if (has('--voices')) {
+  if (!KEY) { console.error('ELEVEN_API_KEY 가 없다.'); process.exit(1); }
+  const res = await fetch('https://api.elevenlabs.io/v2/voices?page_size=100',
+                          { headers: { 'xi-api-key': KEY } });
+  if (!res.ok) {
+    console.error(`목록을 못 받았다: ${res.status}`);
+    console.error((await res.text()).slice(0, 300));
+    console.error(res.status === 401 ? '\n열쇠가 틀렸다. ELEVEN_API_KEY 를 다시 봐라.' : '');
+    process.exit(1);
+  }
+  const { voices = [] } = await res.json();
+  console.log(`목소리 ${voices.length}개\n`);
+  for (const v of voices) {
+    const mine = v.category === 'cloned' || v.category === 'generated' || v.category === 'professional';
+    console.log(`  ${mine ? '★' : ' '} ${String(v.name).padEnd(24)} ${v.voice_id}`);
+    console.log(`    ${v.category || ''}${v.labels?.gender ? ' · ' + v.labels.gender : ''}${v.labels?.language ? ' · ' + v.labels.language : ''}`);
+  }
+  console.log('\n★ 은 직접 만든 목소리다. 그 id 를 ELEVEN_VOICE_M 에 넣어라.');
+  console.log('여자 목소리는 아무 한국어 목소리나 골라 ELEVEN_VOICE_W 에 넣으면 된다.');
+  process.exit(0);
+}
+
 if (!fs.existsSync(IN)) {
   console.error(`목록이 없다: ${IN}\n먼저: node tools/tts-manifest.mjs > ${IN}`);
   process.exit(1);
