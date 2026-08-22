@@ -82,8 +82,8 @@
      Pretendard 는 통짜(2.0MB) 대신 조각난 쪽을 쓴다 — 브라우저가
      unicode-range 를 보고 화면에 실제로 나온 글자가 든 조각만 받는다.
      그래서 저장소는 무거워졌지만 학습자가 받는 양은 오히려 줄었다. -->
-<link rel="stylesheet" href="vendor/pretendard.css?v=1e79e74b">
-<link rel="stylesheet" href="vendor/pressstart2p.css?v=1e79e74b">
+<link rel="stylesheet" href="vendor/pretendard.css?v=533c0885">
+<link rel="stylesheet" href="vendor/pressstart2p.css?v=533c0885">
 <style>
 /* ══════════════════════════════════════════════════════════════
    치즈감자 — 랜딩
@@ -2336,6 +2336,55 @@ body.nav-open { overflow:hidden; }
   margin-top:22px; font-size:12px; line-height:1.7; color:var(--ink-3);
   padding-left:12px; border-left:2px solid var(--line-2); word-break:keep-all;
 }
+
+/* ── TOPIK 시험·갈래 고르는 줄 ─────────────────────────────
+   시험 줄과 갈래 줄을 위아래로 나눈다. 한 줄에 붙이면 무엇이 시험이고
+   무엇이 갈래인지 구분이 안 된다. */
+.tq-skillbar { display:flex; flex-direction:column; align-items:center; gap:10px; margin-bottom:20px; }
+.tq-skills { display:flex; gap:8px; flex-wrap:wrap; justify-content:center; }
+.tq-skill {
+  display:inline-flex; align-items:center; gap:7px; padding:9px 18px;
+  font-size:14px; font-weight:800; cursor:pointer; white-space:nowrap;
+  background:var(--surface); border:1px solid var(--line-2); border-radius:999px;
+  color:var(--ink-2); transition:background .15s, border-color .15s, color .15s;
+}
+.tq-skill:hover { border-color:var(--orange); color:var(--orange-deep); }
+.tq-skill[aria-pressed="true"] {
+  background:var(--orange); border-color:var(--orange); color:#fff;
+}
+.tq-skill-em { font-size:16px; line-height:1; }
+
+/* ── 듣기 ──────────────────────────────────────────────── */
+.tl-audio {
+  display:flex; align-items:center; justify-content:center; gap:14px;
+  margin:22px 0 18px; flex-wrap:wrap;
+}
+.tl-play {
+  display:inline-flex; align-items:center; gap:9px; padding:14px 30px;
+  font-size:16px; font-weight:800; cursor:pointer; color:#fff;
+  background:var(--orange); border:none; border-radius:999px;
+  box-shadow:0 4px 14px rgba(255,138,61,.32); transition:transform .12s, box-shadow .12s;
+}
+.tl-play:hover { transform:translateY(-1px); box-shadow:0 6px 18px rgba(255,138,61,.4); }
+.tl-play:disabled { opacity:.55; cursor:default; transform:none; box-shadow:none; }
+.tl-play.on { background:var(--ink-2); box-shadow:none; }
+.tl-plays { font-size:12px; color:var(--ink-3); }
+/* 대본은 답을 고른 뒤에만 나온다. 고르는 동안 보이면 듣기가 아니라 읽기다. */
+.tl-script {
+  margin-top:16px; padding:14px 16px; text-align:left;
+  background:var(--surface-2); border:1px solid var(--line-2); border-radius:var(--r);
+}
+.tl-script-h { font-size:12px; font-weight:800; color:var(--ink-3); margin-bottom:9px; }
+.tl-line { display:flex; gap:9px; margin-bottom:7px; font-size:14px; line-height:1.65; word-break:keep-all; }
+.tl-line:last-child { margin-bottom:0; }
+.tl-who {
+  flex:none; min-width:34px; height:22px; padding:0 7px; border-radius:999px;
+  display:inline-flex; align-items:center; justify-content:center;
+  font-size:11px; font-weight:800; color:#fff;
+}
+.tl-who.m { background:#4C7DF0; }
+.tl-who.w { background:#E0568F; }
+.tl-who.n { background:var(--ink-3); }
 .tq-wrongs { display:grid; gap:10px; margin-top:20px; text-align:left; }
 .tq-wrong {
   background:var(--surface); border:1px solid var(--line-2); border-radius:var(--r); padding:14px 16px;
@@ -3835,6 +3884,13 @@ body.nav-open { overflow:hidden; }
 
       <!-- 갈래 : TOPIK 유형 연습 -->
       <div id="tqWrap" class="hidden">
+        <!-- 시험(TOPIK I·II)과 갈래(듣기·읽기·쓰기)를 고르는 줄. 갈래 셋이
+             한 지붕 아래 살기 때문에 이 줄만 셋 위에 공통으로 선다.
+             시험은 한 번 고르면 몇 달을 안 바꾸는 것이고 갈래는 한 자리에서
+             오가는 것이라, 파고들게 하지 않고 둘 다 늘 보이게 뒀다. -->
+        <div id="tqSkillBar"></div>
+
+        <div id="tqBodyRead">
         <div id="tqPick">
           <div class="learn-head">
             <div id="tqLevel"></div>
@@ -3937,21 +3993,83 @@ body.nav-open { overflow:hidden; }
             </div>
           </div>
         </div>
+        </div><!-- /tqBodyRead -->
+
+        <!-- 듣기. 한 문항 = 한 MP3 (assets/audio/listen/<id>.mp3) 이고,
+             파일이 없으면 브라우저 목소리가 대본을 읽는다. say() 와 같은
+             폴백이라 파일만 채우면 코드를 안 고쳐도 바뀐다. -->
+        <div id="tqBodyListen" class="hidden">
+          <div id="tlPick">
+            <div class="learn-head">
+              <div id="tlLevel"></div>
+              <p id="tlIntro" class="learn-copy"></p>
+              <div id="tlSummary" class="learn-summary"></div>
+            </div>
+            <div id="tlList" class="lc-grid"></div>
+            <p class="tq-note" id="tlNote"></p>
+          </div>
+
+          <div id="tlPlay" class="hidden">
+            <div class="bd-sec-title">
+              <h3 id="tlPlayTitle"></h3>
+              <div class="tq-hd-btns">
+                <button class="wb-out" id="tlQuit" type="button"></button>
+              </div>
+            </div>
+            <div class="qz-top">
+              <div class="qz-time"><span class="qz-time-fill" id="tlFill"></span></div>
+              <div class="qz-meta">
+                <span class="qz-clock" id="tlCount">0 / 0</span>
+                <span class="qz-score" id="tlScore">0</span>
+              </div>
+            </div>
+            <div class="tl-audio">
+              <button class="tl-play" id="tlSay" type="button"></button>
+              <span class="tl-plays" id="tlPlays"></span>
+            </div>
+            <p class="tq-question" id="tlQuestion"></p>
+            <div class="tq-choices" id="tlChoices"></div>
+            <div class="tq-why hidden" id="tlWhy"></div>
+            <!-- 대본은 **답을 고른 뒤에만** 펼친다. 고르는 동안 보이면
+                 듣기가 아니라 읽기가 된다. -->
+            <div class="tl-script hidden" id="tlScript"></div>
+            <div style="text-align:center; margin-top:18px;">
+              <button class="pt-next hidden" id="tlNext" type="button"></button>
+            </div>
+          </div>
+
+          <div id="tlOver" class="hidden">
+            <div class="claw-over">
+              <div class="claw-over-emoji">🎧</div>
+              <div class="claw-over-score" id="tlOverScore">0</div>
+              <p class="claw-over-line" id="tlOverLine"></p>
+              <div class="tq-wrongs" id="tlWrongs"></div>
+              <div class="claw-over-btns">
+                <button class="pt-next" id="tlAgain" type="button"></button>
+                <button class="pt-next" id="tlBack" type="button"></button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 쓰기. TOPIK II 에만 있다 — 실제 시험에 TOPIK I 쓰기가 없다.
+             예전에는 배우기의 별도 갈래였고 주소가 #learn/writing 이었다.
+             그 주소는 정적 쪽에 걸려 있어 openLearnSub 가 여기로 넘긴다. -->
+        <div id="tqBodyWrite" class="hidden">
+          <div class="learn-head">
+            <div id="twLevel"></div>
+            <p id="twIntro" class="learn-copy"></p>
+            <div id="twSummary" class="learn-summary"></div>
+          </div>
+          <div id="twList"></div>
+          <div id="twDesk" class="hidden"></div>
+        </div>
       </div>
 
       <!-- 갈래 : 예문 만들기 -->
       <!-- 갈래 : 문제만 풀기.
            레슨에서 문제 블록만 뽑아 이어서 푼다. 안은 app.module.js 가 채운다. -->
-      <!-- 갈래 : TOPIK 쓰기. 안은 app.module.js 가 채운다. -->
-      <div id="twWrap" class="hidden">
-        <div class="learn-head">
-          <div id="twLevel"></div>
-          <p id="twIntro" class="learn-copy"></p>
-          <div id="twSummary" class="learn-summary"></div>
-        </div>
-        <div id="twList"></div>
-        <div id="twDesk" class="hidden"></div>
-      </div>
+      <!-- TOPIK 쓰기 판은 tqBodyWrite 로 옮겼다 (TOPIK 갈래 안). -->
 
       <div id="dqWrap" class="hidden">
         <div class="learn-head">
@@ -5122,9 +5240,9 @@ body.nav-open { overflow:hidden; }
   <span class="rd-g-tail" id="rdGTail" aria-hidden="true"></span>
 </div>
 
-<script src="app.js?v=1e79e74b"></script>
-<script type="module" src="app.module.js?v=1e79e74b"></script>
+<script src="app.js?v=533c0885"></script>
+<script type="module" src="app.module.js?v=533c0885"></script>
 
-<script src="analytics.js?v=1e79e74b" defer></script>
+<script src="analytics.js?v=533c0885" defer></script>
 </body>
 </html>

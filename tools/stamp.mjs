@@ -38,10 +38,11 @@ const ASSETS = [
   'courses-grammar-detailed.js', 'numbers.js', 'reading.js',
   'courses-beginner-stage1.js',
   'sentences.js', 'sentences-beginner.js', 'sentences-intermediate.js',
-  /* topik.js 는 TOPIK I 읽기, topik-writing.js 는 TOPIK II 쓰기다.
-     이름이 비슷해 한쪽만 넣기 쉬운데, 빠진 쪽은 자국이 안 바뀌어
-     고쳐 올려도 예전 문항이 그대로 나온다. */
-  'topik.js', 'topik2.js', 'topik-writing.js',
+  /* topik.js 는 TOPIK I 읽기, topik2.js 는 TOPIK II 읽기,
+     topik-writing.js 는 쓰기, topik-listening.js 는 듣기다. 이름이 비슷해
+     한쪽만 넣기 쉬운데, 빠진 쪽은 자국이 안 바뀌어 고쳐 올려도 예전
+     문항이 그대로 나온다. */
+  'topik.js', 'topik2.js', 'topik-writing.js', 'topik-listening.js',
   'vendor/pretendard.css', 'vendor/pressstart2p.css',
   /* 들여온 남의 라이브러리도 넣는다. 자주 안 바뀌지만, 바뀌었을 때 예전
      것이 남아 있으면 원인을 찾기가 제일 어렵다. */

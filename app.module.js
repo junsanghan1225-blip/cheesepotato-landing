@@ -13,26 +13,27 @@
    어느 날 갑자기 다른 코드가 실려 왔다.
    이제 vendor/ 안에 받아 두고 CSP 로 바깥을 막는다. 버전을 올릴 때는
    tools/vendor.mjs 의 PIN 을 고치고 다시 돌린다. */
-import { createClient } from './vendor/supabase-js.js?v=1e79e74b';
+import { createClient } from './vendor/supabase-js.js?v=533c0885';
 // 앱(package.json)과 같은 줄기를 쓴다. 갈리면 앱에서는 읽히는 파일이
 // 여기서는 안 읽히는(또는 그 반대) 일이 생긴다.
-import * as XLSX from './vendor/xlsx.js?v=1e79e74b';
+import * as XLSX from './vendor/xlsx.js?v=533c0885';
 // 커리큘럼. 내용과 엔진을 갈라 두면 글을 고치다 화면을 깨지 않는다.
-import { COURSES } from './courses.js?v=1e79e74b';
-import { GLOSSARY, GLOSS_LANGS } from './glossary.js?v=1e79e74b';
-import { glossFind } from './gloss-find.js?v=1e79e74b';
-import { GRAMMAR } from './grammar.js?v=1e79e74b';
-import { GRAMMAR_EN } from './grammar-en.js?v=1e79e74b';
-import { grammarScan } from './grammar-find.js?v=1e79e74b';
-import { TW_ITEMS, TW_QS } from './topik-writing.js?v=1e79e74b';
-import { SB_CATS, SB_MORE, SB_SEED } from './sentences.js?v=1e79e74b';
+import { COURSES } from './courses.js?v=533c0885';
+import { GLOSSARY, GLOSS_LANGS } from './glossary.js?v=533c0885';
+import { glossFind } from './gloss-find.js?v=533c0885';
+import { GRAMMAR } from './grammar.js?v=533c0885';
+import { GRAMMAR_EN } from './grammar-en.js?v=533c0885';
+import { grammarScan } from './grammar-find.js?v=533c0885';
+import { TW_ITEMS, TW_QS } from './topik-writing.js?v=533c0885';
+import { TOPIKL_BY_EXAM, TOPIKL_PICTURE_SLOTS } from './topik-listening.js?v=533c0885';
+import { SB_CATS, SB_MORE, SB_SEED } from './sentences.js?v=533c0885';
 // 읽기 연습 지문. 길이(short·long) × 급수 여섯 칸.
-import { READING } from './reading.js?v=1e79e74b';
+import { READING } from './reading.js?v=533c0885';
 // TOPIK 유형 연습문제. 기출이 아니라 자체 제작이다.
-import { TOPIK_READING, TOPIK_BLUEPRINT, TOPIK_SLOTS } from './topik.js?v=1e79e74b';
-import { TOPIK2_READING, TOPIK2_BLUEPRINT, TOPIK2_SLOTS } from './topik2.js?v=1e79e74b';
+import { TOPIK_READING, TOPIK_BLUEPRINT, TOPIK_SLOTS } from './topik.js?v=533c0885';
+import { TOPIK2_READING, TOPIK2_BLUEPRINT, TOPIK2_SLOTS } from './topik2.js?v=533c0885';
 // 숫자 게임의 읽기와 문제 만들기. 화면을 모르는 순수 계산이라 따로 뒀다.
-import { makeRound } from './numbers.js?v=1e79e74b';
+import { makeRound } from './numbers.js?v=533c0885';
 
 // 이 키는 공개돼도 되는 값이다. 이미 APK 안에 같은 것이 들어 있고,
 // 접근을 막는 건 키가 아니라 테이블에 걸린 RLS 다.
@@ -1815,9 +1816,16 @@ function mdBlock(src) {
 
 /* 오디오 파일명으로 안전하게 쓸 수 있도록 텍스트 정규화
    한글·영어·숫자는 유지, 그 외 특수문자·공백은 언더바로 치환 */
+/* \uC18C\uB9AC \uD30C\uC77C \uC774\uB984. **\uB0B1\uC790(\u3131 \u3134 \u314F \u3153 \u2026)\uB97C \uBE60\uB728\uB9AC\uBA74 \uC548 \uB41C\uB2E4.**
+   \uB0B1\uC790\uB294 \uD55C\uAE00 \uC74C\uC808(U+AC00~D7AF)\uC774 \uC544\uB2C8\uB77C \uD638\uD658 \uC790\uBAA8(U+3130~318F)\uC5D0 \uC788\uC5B4\uC11C,
+   \uC74C\uC808 \uBC94\uC704\uB9CC \uB0A8\uAE30\uBA74 \u300C\u3131\u300D\uC774 \uD1B5\uC9F8\uB85C \uC9C0\uC6CC\uC838 \uC774\uB984\uC774 \uBE48 \uBB38\uC790\uC5F4\uC774 \uB41C\uB2E4.
+   \uADF8\uB7EC\uBA74 say('\u3131') \uC774 assets/audio/.mp3 \uB97C \uCC3E\uC544 \uC601\uC601 \uBABB \uB9CC\uB09C\uB2E4 \u2014 \uAE00\uC790
+   \uCE74\uB4DC 39\uAC1C\uB294 \uD55C\uAE00\uC744 \uCC98\uC74C \uBC30\uC6B0\uB294 \uC0AC\uB78C\uC774 \uAC00\uC7A5 \uBA3C\uC800 \uB4E3\uB294 \uC18C\uB9AC\uC778\uB370, \uB179\uC74C\uC744
+   \uC62C\uB824\uB3C4 \uB85C\uBD07 \uBAA9\uC18C\uB9AC\uB85C\uB9CC \uB098\uC624\uAC8C \uB41C\uB2E4. tools/tts-manifest.mjs \uC5D0 \uAC19\uC740
+   \uD568\uC218\uAC00 \uC788\uC73C\uB2C8 \uC5EC\uAE30\uB97C \uACE0\uCE58\uBA74 \uADF8\uCABD\uB3C4 \uACE0\uCCD0\uB77C. */
 function audioSlug(text) {
   return String(text ?? '').trim()
-    .replace(/[^\uAC00-\uD7AFa-zA-Z0-9]+/g, '_')
+    .replace(/[^\u3130-\u318F\uAC00-\uD7AFa-zA-Z0-9]+/g, '_')
     .replace(/^_+|_+$/g, '')
     .slice(0, 64);
 }
@@ -1932,10 +1940,10 @@ const LEARN_SECTIONS = [
     id: 'topik', emoji: '📖', ready: true, pane: 'tqWrap',
     lv:    { ko: 'TOPIK',           en: 'TOPIK' },
     title: { ko: 'TOPIK 유형 연습',  en: 'TOPIK-style practice' },
-    tag:   { ko: '급수별 읽기 문제를 유형으로 나눠서',
-             en: 'Reading questions by level and question type' },
-    blurb: { ko: '지문을 읽고 보기 넷에서 고릅니다. 틀리면 왜 그런지 바로 알려 줘요.',
-             en: 'Read a passage, pick from four. A wrong answer tells you why.' },
+    tag:   { ko: 'TOPIK I·II 를 듣기 · 읽기 · 쓰기로 나눠서',
+             en: 'TOPIK I and II, split into listening, reading and writing' },
+    blurb: { ko: '시험을 고르고 갈래를 고릅니다. 틀리면 왜 그런지 바로 알려 줘요. (기출이 아닌 창작 문항)',
+             en: 'Pick your exam, then pick a skill. A wrong answer tells you why. (Original items, not past papers.)' },
   },
   {
     id: 'reading', emoji: '📝', ready: true, pane: 'rdWrap',
@@ -1946,15 +1954,10 @@ const LEARN_SECTIONS = [
     blurb: { ko: '글을 읽고 이해한 것을 직접 써 봅니다. 무엇을 짚었고 무엇을 놓쳤는지 바로 알려 줘요.',
              en: 'Read a passage, then write what you understood. You see at once what you caught and what you missed.' },
   },
-  {
-    id: 'writing', emoji: '📝', ready: true, pane: 'twWrap',
-    lv:    { ko: '쓰기',            en: 'WRITING' },
-    title: { ko: 'TOPIK 쓰기',      en: 'TOPIK writing' },
-    tag:   { ko: '분량과 문체를 지키며 실제로 써 보기',
-             en: 'Write to length, in the right register' },
-    blurb: { ko: '51~54번 유형으로 직접 씁니다. 글자 수와 문체를 쓰는 동안 알려 줘요. (기출이 아닌 창작 문항)',
-             en: 'Write the four TOPIK II task types. Length and register are checked as you type. (Original items, not past papers.)' },
-  },
+  /* TOPIK 쓰기는 별도 갈래였다가 TOPIK 갈래 안(TOPIK II › 쓰기)으로
+     들어갔다. 실제 시험에서 쓰기는 TOPIK II 의 한 영역이지 따로 보는
+     시험이 아니라, 나란히 두면 시험 구성을 잘못 가르치게 된다.
+     옛 주소 #learn/writing 은 openLearnSub 가 새 자리로 넘긴다. */
   {
     id: 'quiz', emoji: '⚡', ready: true, pane: 'dqWrap',
     lv:    { ko: '문제',            en: 'DRILL' },
@@ -2185,6 +2188,371 @@ let tqExam = 'I';
 try { const e = localStorage.getItem(TQ_EXAM_KEY); if (TQ_EXAMS[e]) tqExam = e; } catch (e) {}
 const tqE = () => TQ_EXAMS[tqExam];
 
+/* ═══════════════════════════════════════════════════════════════
+   TOPIK 갈래 — 듣기 · 읽기 · 쓰기
+   ───────────────────────────────────────────────────────────────
+   시험을 먼저 고르고 그 안에서 갈래를 고른다.
+
+   **TOPIK I 에는 쓰기가 없다.** 실제 시험이 듣기 30 + 읽기 40 이고 쓰기는
+   TOPIK II 에만 있다. 있지도 않은 갈래를 연습 시키면 시험장에서 처음
+   놀라게 되므로, exams 에 적힌 시험에서만 그 갈래를 낸다.
+
+   쓰기는 예전에 배우기의 별도 갈래(#learn/writing)였다. 주소가 정적 쪽에
+   걸려 있어 openLearnSub 가 여기로 넘긴다 — 옛 주소를 죽이면 검색에서
+   들어온 사람이 빈 화면을 본다.
+   ═══════════════════════════════════════════════════════════════ */
+const TQ_SKILLS = {
+  listening: { emoji: '🎧', exams: ['I', 'II'], body: 'tqBodyListen',
+               name: { ko: '듣기', en: 'Listening' } },
+  reading:   { emoji: '📖', exams: ['I', 'II'], body: 'tqBodyRead',
+               name: { ko: '읽기', en: 'Reading' } },
+  writing:   { emoji: '✍️', exams: ['II'],      body: 'tqBodyWrite',
+               name: { ko: '쓰기', en: 'Writing' } },
+};
+const TQ_SKILL_KEY = 'cp-topik-skill';
+let tqSkill = 'reading';
+try { const s = localStorage.getItem(TQ_SKILL_KEY); if (TQ_SKILLS[s]) tqSkill = s; } catch (e) {}
+
+const tqSkillsFor = (exam) =>
+  Object.entries(TQ_SKILLS).filter(([, v]) => v.exams.includes(exam)).map(([k]) => k);
+
+/* 시험을 바꿨을 때 그 시험에 없는 갈래에 서 있으면 읽기로 물러난다.
+   TOPIK II 쓰기를 보다가 TOPIK I 을 누르면 갈 곳이 없어지기 때문이다. */
+function tqFixSkill() {
+  if (!tqSkillsFor(tqExam).includes(tqSkill)) tqSkill = 'reading';
+}
+
+function tqDrawSkillBar() {
+  tqFixSkill();
+  $('tqSkillBar').className = 'tq-skillbar';
+  $('tqSkillBar').innerHTML =
+    `<div class="diff-seg tq-lv tq-exam" role="radiogroup" aria-label="${t('시험', 'Exam')}">` +
+      Object.entries(TQ_EXAMS).map(([k, v]) =>
+        `<label><input type="radio" name="tqExam" value="${k}"${k === tqExam ? ' checked' : ''}>` +
+        `<span>${esc(t(v.name.ko, v.name.en))} <b>${esc(t(v.sub.ko, v.sub.en))}</b></span></label>`
+      ).join('') +
+    '</div>' +
+    '<div class="tq-skills">' +
+      tqSkillsFor(tqExam).map((k) => {
+        const s = TQ_SKILLS[k];
+        return `<button class="tq-skill" type="button" data-tqskill="${k}"` +
+               ` aria-pressed="${k === tqSkill}">` +
+               `<span class="tq-skill-em" aria-hidden="true">${s.emoji}</span>` +
+               `${esc(t(s.name.ko, s.name.en))}</button>`;
+      }).join('') +
+    '</div>';
+}
+
+/* 고른 갈래의 판만 보이고 나머지는 닫는다. 목록을 훑어서 닫는 이유는
+   갈래를 늘릴 때 여기 한 줄을 빠뜨리면 예전 갈래가 겹쳐 남기 때문이다. */
+function tqShowSkill(quiet) {
+  tqFixSkill();
+  tlStop();
+  tqDrawSkillBar();
+  Object.values(TQ_SKILLS).forEach((s) => $(s.body)?.classList.add('hidden'));
+  const body = $(TQ_SKILLS[tqSkill].body);
+  if (body) body.classList.remove('hidden');
+  if (tqSkill === 'reading')   drawTopik();
+  if (tqSkill === 'listening') tlDraw();
+  if (tqSkill === 'writing')   twDraw();
+  if (!quiet) window.cpMark('learn', `topik/${tqExam}/${tqSkill}`);
+}
+
+function tqSetSkill(k, quiet) {
+  if (!TQ_SKILLS[k] || !tqSkillsFor(tqExam).includes(k)) return;
+  tqSkill = k;
+  try { localStorage.setItem(TQ_SKILL_KEY, k); } catch (e) {}
+  tqShowSkill(quiet);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   듣기
+   ───────────────────────────────────────────────────────────────
+   한 문항 = 한 MP3 다 (assets/audio/listen/<id>.mp3). 파일이 없으면
+   브라우저 내장 목소리가 대본을 차례로 읽는다 — say() 와 같은 폴백이라
+   **파일을 채우면 코드를 안 고쳐도 진짜 목소리로 바뀐다.**
+
+   줄마다 파일을 따로 두지 않는 이유: 실제 시험은 대화가 끊기지 않고
+   이어서 들린다. 줄 사이에 로딩 틈이 생기면 난이도가 달라진다.
+   ═══════════════════════════════════════════════════════════════ */
+const TL_BASE = (window.__AUDIO_BASE__ || 'assets/audio/') + 'listen/';
+const TL_WHO = { m: { ko: '남자', en: 'M' }, w: { ko: '여자', en: 'W' }, n: { ko: '안내', en: 'N' } };
+
+let tlRound = [], tlIdx = 0, tlScore = 0, tlWrong = [], tlPlayed = 0;
+let tlAudioEl = null, tlSetName = '';
+
+const tlE = () => TOPIKL_BY_EXAM[tqExam] || TOPIKL_BY_EXAM.I;
+const tlOf = (grade) => tlE().items.filter((q) => q.grade === grade);
+
+function tlStop() {
+  if (tlAudioEl) { try { tlAudioEl.pause(); } catch (e) {} tlAudioEl = null; }
+  try { if ('speechSynthesis' in window) speechSynthesis.cancel(); } catch (e) {}
+}
+
+/* 브라우저 목소리로 대본을 읽는다. **남녀를 갈라야 한다** — 듣기 문항의
+   절반이 「여자는 무엇을 합니까」인데 둘이 같은 소리로 나오면 그 문제는
+   풀 방법이 아예 없다. 한국어 목소리가 하나뿐인 기기가 많아 음높이로
+   가른다. 완벽하진 않아도 누가 말하는지는 구분된다. */
+function tlWebSpeech(script, onDone) {
+  if (!('speechSynthesis' in window)) { onDone && onDone(); return; }
+  speechSynthesis.cancel();
+  let i = 0;
+  const next = () => {
+    if (i >= script.length) { onDone && onDone(); return; }
+    const line = script[i++];
+    try {
+      const u = new SpeechSynthesisUtterance(line.text);
+      u.lang = 'ko-KR';
+      u.rate = 0.92;
+      u.pitch = line.who === 'w' ? 1.35 : line.who === 'm' ? 0.72 : 1;
+      u.onend = next;
+      u.onerror = next;
+      speechSynthesis.speak(u);
+    } catch (e) { next(); }
+  };
+  next();
+}
+
+function tlSpeak(q, onDone) {
+  tlStop();
+  let done = false;
+  const finish = () => { if (done) return; done = true; tlAudioEl = null; onDone && onDone(); };
+  const fall = () => { if (done) return; done = true; tlAudioEl = null; tlWebSpeech(q.script, onDone); };
+  try {
+    const a = new Audio(`${TL_BASE}${q.id}.mp3`);
+    tlAudioEl = a;
+    a.onended = finish;
+    a.onerror = fall;
+    a.play().catch(fall);
+  } catch (e) { fall(); }
+}
+
+const tlTypeTx = () => Object.fromEntries(tlE().blueprint.map((b) => [b.type, { ko: b.ko, en: b.en }]));
+const tlBestKey = (g) => `cp-tl-best-${tqExam}-${g}`;
+
+/* 고르기 화면 — 급수와 유형별 카드. */
+function tlDraw() {
+  $('tlPick').classList.remove('hidden');
+  $('tlPlay').classList.add('hidden');
+  $('tlOver').classList.add('hidden');
+
+  const ex = tqE();
+  const rows = tlOf(tqGrade);
+  const byType = {};
+  rows.forEach((q) => { (byType[q.type] = byType[q.type] || []).push(q); });
+
+  $('tlLevel').innerHTML =
+    '<div class="pt-lv-row">' +
+      `<div class="diff-seg tq-lv" role="radiogroup" aria-label="${t('급수', 'Level')}">` +
+        tqGrades().map((g) =>
+          `<label><input type="radio" name="tqGrade" value="${g}"${g === tqGrade ? ' checked' : ''}><span>${esc(ex.chipTx(g))}</span></label>`
+        ).join('') +
+      '</div>' +
+      `<div class="pt-lv-desc">${esc(ex.lead(tqGrade))}</div>` +
+    '</div>';
+
+  $('tlIntro').textContent = t(
+    '듣고 보기 넷 중에서 고릅니다. 대본은 답을 고른 뒤에 보여 줘요.',
+    'Listen, then pick one of four. The transcript opens after you answer.');
+
+  $('tlSummary').innerHTML = renderLearnSummary([
+    { k: t('문항', 'Items'), v: rows.length, s: t('이 급수에서 들을 수 있는 수', 'Available at this level') },
+    { k: t('유형', 'Types'), v: Object.keys(byType).length, s: t('골라서 연습할 수 있어요', 'Practise one type at a time') },
+    { k: t('최고', 'Best'), v: `${gameBestRead(tlBestKey(tqGrade))} / ${rows.length}`, s: t('한 번에 다 풀었을 때', 'Full run, all items') },
+  ]);
+
+  const tx = tlTypeTx();
+  const card = (key, emoji, title, tag, blurb, n) =>
+    `<button class="lc-card lq-card" data-tl="${esc(key)}">` +
+      '<div class="lc-top">' +
+        `<div class="lc-mark">${emoji}</div>` +
+        '<div style="min-width:0">' +
+          `<div class="lc-lv">${esc(ex.gradeTx(tqGrade))}</div>` +
+          `<div class="lc-title">${esc(title)}</div>` +
+          `<div class="lc-tag">${esc(tag)}</div>` +
+        '</div>' +
+      '</div>' +
+      `<p class="lc-blurb">${esc(blurb)}</p>` +
+      `<div class="lq-meta"><span class="lq-chip">${esc(t(`${n}문항`, `${n} items`))}</span></div>` +
+    '</button>';
+
+  if (!rows.length) {
+    $('tlList').innerHTML = `<div class="learn-empty">${esc(t('이 급수 듣기는 아직 채우는 중이에요.', 'Listening for this level is still being written.'))}</div>`;
+  } else {
+    const cards = [card('all', '🎧', t('전체 이어서 듣기', 'Listen straight through'),
+      t('이 급수 전부', 'Every item at this level'),
+      t('유형을 섞어 차례로 듣습니다. 실제 시험처럼 무엇이 나올지 모르는 채로 풀어요.',
+        'Types are mixed, as on the real paper — you do not know what is coming.'), rows.length)];
+    tlE().blueprint.forEach((b) => {
+      const list = byType[b.type];
+      if (!list || !list.length) return;
+      cards.push(card(b.type, '🔊', t(b.ko, b.en),
+        t(`${b.from}~${b.to}번 유형`, `Items ${b.from}–${b.to}`),
+        t('같은 유형만 모아서 듣습니다. 무엇을 물을지 알고 들으면 무엇을 놓쳤는지가 보여요.',
+          'One type at a time. Knowing what is asked makes it clear what you missed.'), list.length));
+    });
+    $('tlList').innerHTML = cards.join('');
+  }
+
+  /* 그림 문항이 있는 자리는 왜 비었는지 적는다. 조용히 빠뜨리면
+     학습자는 그 유형이 시험에 없는 줄 안다. */
+  const pic = TOPIKL_PICTURE_SLOTS[tqExam];
+  $('tlNote').textContent =
+    t('TOPIK 형식을 따라 직접 만든 연습 문항이에요. 기출이 아니고 국립국제교육원과 관계가 없습니다.',
+      'These are original practice items written in the TOPIK format. They are not past papers and are not affiliated with NIIED.') +
+    (pic ? ' ' + t(
+      `실제 시험 ${pic.slots.join('·')}번은 「${pic.ko}」인데, 그림이 있어야 성립하는 유형이라 아직 넣지 않았어요.`,
+      `Items ${pic.slots.join(', ')} on the real paper are "${pic.en}". That type needs pictures, so it is not here yet.`) : '');
+}
+
+/* ── 푸는 화면 ─────────────────────────────────────────── */
+function tlStart(key) {
+  const rows = tlOf(tqGrade);
+  const list = key === 'all' ? rows : rows.filter((q) => q.type === key);
+  if (!list.length) return;
+  const tx = tlTypeTx()[key];
+  tlSetName = key === 'all' ? t('전체 이어서 듣기', 'Listen straight through') : (tx ? t(tx.ko, tx.en) : key);
+  /* 전체는 시험 차례대로(자리 번호), 유형별도 자리 번호대로. 섞지 않는다 —
+     실제 시험이 쉬운 자리부터 나오므로 그 흐름이 곧 난이도 곡선이다. */
+  tlRound = [...list].sort((a, b) => a.slot - b.slot);
+  tlIdx = 0; tlScore = 0; tlWrong = [];
+  $('tlPick').classList.add('hidden');
+  $('tlOver').classList.add('hidden');
+  $('tlPlay').classList.remove('hidden');
+  $('tlPlayTitle').textContent = tlSetName;
+  $('tlQuit').textContent = t('그만두기', 'Quit');
+  tlDrawQ();
+}
+
+function tlDrawQ() {
+  const q = tlRound[tlIdx];
+  if (!q) return;
+  tlStop();
+  tlPlayed = 0;
+
+  $('tlCount').textContent = `${tlIdx + 1} / ${tlRound.length}`;
+  $('tlScore').textContent = String(tlScore);
+  $('tlFill').style.width = `${(tlIdx / tlRound.length) * 100}%`;
+
+  $('tlSay').classList.remove('on');
+  $('tlSay').disabled = false;
+  $('tlSay').textContent = '▶  ' + t('듣기', 'Play');
+  $('tlPlays').textContent = t('여러 번 들어도 돼요', 'Replay as often as you like');
+
+  $('tlQuestion').textContent = q.q;
+  $('tlWhy').classList.add('hidden');
+  $('tlScript').classList.add('hidden');
+  $('tlNext').classList.add('hidden');
+  $('tlChoices').innerHTML = q.options.map((o, i) =>
+    `<button class="tq-choice" type="button" data-tlpick="${i}">${esc(o)}</button>`).join('');
+
+  /* 문항이 바뀌면 바로 한 번 들려준다. 누르게만 해 두면 「듣기」를 안 누르고
+     보기부터 읽는 사람이 생겨서 듣기 연습이 안 된다. */
+  tlPlayNow();
+}
+
+function tlPlayNow() {
+  const q = tlRound[tlIdx];
+  if (!q) return;
+  tlPlayed++;
+  const b = $('tlSay');
+  b.classList.add('on');
+  b.textContent = '‖  ' + t('듣는 중…', 'Playing…');
+  $('tlPlays').textContent = tlPlayed > 1
+    ? t(`${tlPlayed}번째 듣기`, `Play ${tlPlayed}`)
+    : t('여러 번 들어도 돼요', 'Replay as often as you like');
+  tlSpeak(q, () => {
+    b.classList.remove('on');
+    b.textContent = '▶  ' + t('다시 듣기', 'Play again');
+  });
+}
+
+function tlPick(i) {
+  const q = tlRound[tlIdx];
+  if (!q || $('tlNext').classList.contains('hidden') === false) return;
+  tlStop();
+  $('tlSay').classList.remove('on');
+  $('tlSay').textContent = '▶  ' + t('다시 듣기', 'Play again');
+
+  const ok = i === q.answer;
+  if (ok) tlScore++;
+  else tlWrong.push({ q, picked: i });
+
+  [...$('tlChoices').querySelectorAll('[data-tlpick]')].forEach((b) => {
+    const n = +b.dataset.tlpick;
+    b.disabled = true;
+    if (n === q.answer) b.classList.add('ok');
+    else if (n === i) b.classList.add('no');
+  });
+
+  $('tlScore').textContent = String(tlScore);
+  $('tlWhy').textContent = q.why;
+  $('tlWhy').classList.remove('hidden');
+
+  /* 답을 고른 다음에야 대본을 편다. 앞에 두면 듣기가 아니라 읽기가 된다. */
+  $('tlScript').innerHTML =
+    `<div class="tl-script-h">${esc(t('들은 내용', 'What you heard'))}</div>` +
+    q.script.map((l) => {
+      const w = TL_WHO[l.who] || TL_WHO.n;
+      return `<div class="tl-line"><span class="tl-who ${l.who}">${esc(t(w.ko, w.en))}</span>` +
+             `<span>${esc(l.text)}</span></div>`;
+    }).join('');
+  $('tlScript').classList.remove('hidden');
+
+  $('tlNext').textContent = tlIdx + 1 >= tlRound.length
+    ? t('결과 보기', 'See the result') : t('다음', 'Next');
+  $('tlNext').classList.remove('hidden');
+}
+
+function tlNext() {
+  if (tlIdx + 1 >= tlRound.length) { tlEnd(); return; }
+  tlIdx++;
+  tlDrawQ();
+}
+
+function tlEnd() {
+  tlStop();
+  $('tlPlay').classList.add('hidden');
+  $('tlOver').classList.remove('hidden');
+  const n = tlRound.length;
+  $('tlOverScore').textContent = `${tlScore} / ${n}`;
+  const pct = n ? tlScore / n : 0;
+  $('tlOverLine').textContent = pct === 1
+    ? t('다 맞았어요. 대본 없이도 다 들렸네요.', 'All correct — you caught every one without the transcript.')
+    : pct >= 0.7
+      ? t('잘 들었어요. 틀린 것만 대본으로 다시 보세요.', 'Good listening. Go back over the ones you missed.')
+      : t('한 번 더 들어 보세요. 틀린 문항은 대본이 아래에 있어요.', 'Try another round — the transcripts for your misses are below.');
+
+  /* 최고 기록은 「전체 이어서 듣기」일 때만 남긴다. 유형별 점수를 최고로
+     올리면 여덟 문항짜리 만점이 마흔 문항 기록을 덮어쓴다. */
+  if (tlRound.length === tlOf(tqGrade).length) gameBest(tlBestKey(tqGrade), tlScore);
+
+  $('tlWrongs').innerHTML = tlWrong.length
+    ? tlWrong.map(({ q, picked }) =>
+        '<div class="tq-wrong">' +
+          `<div class="tq-wrong-q">${esc(q.q)}</div>` +
+          `<div class="tq-wrong-a">${esc(t('고른 것', 'You picked'))}: ${esc(q.options[picked])}</div>` +
+          `<div class="tq-wrong-a">${esc(t('정답', 'Answer'))}: ${esc(q.options[q.answer])}</div>` +
+          `<div class="tq-wrong-w">${esc(q.why)}</div>` +
+          '<div style="margin-top:9px">' +
+            q.script.map((l) => {
+              const w = TL_WHO[l.who] || TL_WHO.n;
+              return `<div class="tl-line"><span class="tl-who ${l.who}">${esc(t(w.ko, w.en))}</span>` +
+                     `<span>${esc(l.text)}</span></div>`;
+            }).join('') +
+          '</div>' +
+        '</div>').join('')
+    : '';
+
+  $('tlAgain').textContent = t('다시 풀기', 'Try again');
+  $('tlBack').textContent = t('목록으로', 'Back to the list');
+}
+
+function tlBackToPick() {
+  tlStop();
+  tlDraw();
+}
+
 /* 유형 이름은 고른 시험의 청사진에서 뽑는다. 두 시험을 합쳐 두면 TOPIK I
    화면에 II 에만 있는 유형(비슷한 말 고르기 등) 이름이 섞여 들어온다. */
 const tqTypeTx = () => Object.fromEntries(
@@ -2296,17 +2664,11 @@ function drawTopik() {
   const byType = {};
   rows.forEach((q) => { (byType[q.type] = byType[q.type] || []).push(q); });
 
-  /* 시험을 먼저 고르고 그 안에서 급수를 고른다. 두 줄로 나눈 이유 —
-     한 줄에 여섯 개(TOPIK I·II·1·2·3·4·5·6)를 늘어놓으면 무엇이 시험이고
-     무엇이 급수인지 구분이 안 되고, 좁은 화면에서 두 줄로 접힌다. */
+  /* 시험 고르는 줄은 tqSkillBar 로 올라갔다 — 듣기·읽기·쓰기 셋이 같은
+     시험을 봐야 하므로 갈래마다 따로 그리면 셋이 어긋난다. 여기는
+     급수만 그린다. */
   const ex = tqE();
   $('tqLevel').innerHTML =
-    `<div class="diff-seg tq-lv tq-exam" role="radiogroup" aria-label="${t('시험', 'Exam')}">` +
-      Object.entries(TQ_EXAMS).map(([k, v]) =>
-        `<label><input type="radio" name="tqExam" value="${k}"${k === tqExam ? ' checked' : ''}>` +
-        `<span>${esc(t(v.name.ko, v.name.en))} <b>${esc(t(v.sub.ko, v.sub.en))}</b></span></label>`
-      ).join('') +
-    '</div>' +
     '<div class="pt-lv-row">' +
       `<div class="diff-seg tq-lv" role="radiogroup" aria-label="${t('급수', 'Level')}">` +
         tqGrades().map((g) =>
@@ -3901,26 +4263,62 @@ function tqFinish() {
   window.scrollTo({ top: 0, behavior: 'auto' });
 }
 
-$('tqLevel').addEventListener('change', (ev) => {
-  /* 시험을 바꾸면 급수도 그 시험의 것으로 갈아 끼운다. 안 갈면 TOPIK I 에서
-     2급을 고른 채 II 로 넘어가 있지도 않은 2급으로 빈 화면을 보게 된다. */
+/* 시험을 바꾸면 급수도 그 시험의 것으로 갈아 끼운다. 안 갈면 TOPIK I 에서
+   2급을 고른 채 II 로 넘어가 있지도 않은 2급으로 빈 화면을 보게 된다.
+   갈래도 마찬가지다 — tqShowSkill 안의 tqFixSkill 이 TOPIK II 쓰기에서
+   TOPIK I 로 넘어갈 때 읽기로 물러나 준다. */
+$('tqSkillBar').addEventListener('change', (ev) => {
   const x = ev.target.closest('input[name=tqExam]');
-  if (x) {
-    if (!TQ_EXAMS[x.value]) return;
-    tqExam = x.value;
-    try { localStorage.setItem(TQ_EXAM_KEY, tqExam); } catch (e) {}
-    tqLoadGrade();
-    drawTopik();
-    return;
-  }
+  if (!x || !TQ_EXAMS[x.value]) return;
+  tqExam = x.value;
+  try { localStorage.setItem(TQ_EXAM_KEY, tqExam); } catch (e) {}
+  tqLoadGrade();
+  tqShowSkill();
+});
+$('tqSkillBar').addEventListener('click', (ev) => {
+  const b = ev.target.closest('[data-tqskill]');
+  if (b) tqSetSkill(b.dataset.tqskill);
+});
+
+/* 급수 줄은 갈래마다 따로 그려지지만 값은 하나를 나눠 쓴다. 갈래별로
+   따로 두면 읽기에서 2급을 고르고 듣기로 갔을 때 1급이 나온다. */
+function tqOnGrade(ev) {
   const r = ev.target.closest('input[name=tqGrade]');
   if (!r) return;
   const g = parseInt(r.value, 10);
   if (!tqGrades().includes(g)) return;
   tqGrade = g;
   try { localStorage.setItem(TQ_KEY(tqExam), String(g)); } catch (e) {}
-  drawTopik();
+  tqShowSkill(true);
+}
+$('tqLevel').addEventListener('change', tqOnGrade);
+$('tlLevel').addEventListener('change', tqOnGrade);
+
+/* ── 듣기 ── */
+$('tlList').addEventListener('click', (ev) => {
+  const b = ev.target.closest('[data-tl]');
+  if (b) tlStart(b.dataset.tl);
 });
+$('tlSay').addEventListener('click', () => {
+  /* 듣는 중에 다시 누르면 멈춘다. 안 그러면 두 벌이 겹쳐 흘러서
+     대화가 뭉개진다. */
+  if ($('tlSay').classList.contains('on')) {
+    tlStop();
+    $('tlSay').classList.remove('on');
+    $('tlSay').textContent = '▶  ' + t('다시 듣기', 'Play again');
+    return;
+  }
+  tlPlayNow();
+});
+$('tlChoices').addEventListener('click', (ev) => {
+  const b = ev.target.closest('[data-tlpick]');
+  if (b && !b.disabled) tlPick(+b.dataset.tlpick);
+});
+$('tlNext').addEventListener('click', tlNext);
+$('tlQuit').addEventListener('click', tlBackToPick);
+$('tlAgain').addEventListener('click', () => tlStart(
+  tlRound.length === tlOf(tqGrade).length ? 'all' : (tlRound[0]?.type || 'all')));
+$('tlBack').addEventListener('click', tlBackToPick);
 $('tqList').addEventListener('click', (ev) => {
   if (ev.target.closest('[data-tq-drop]')) {
     if (!confirm(t('풀던 모의고사를 지울까요? 되돌릴 수 없어요.',
@@ -4096,9 +4494,25 @@ $('tqBack').addEventListener('click', () => { tqDropMock(); drawTopik(); });
 
 function tqSyncLang() {
   if ($('tqWrap').classList.contains('hidden')) return;
+  tqDrawSkillBar();
+  /* 갈래마다 「지금 무엇을 보고 있나」가 달라서 각자 맞춘다. 셋을 다
+     다시 그리면 풀던 판과 쓰던 글이 사라진다. */
+  if (tqSkill === 'listening') { tlSyncLang(); return; }
+  if (tqSkill === 'writing') { twDraw(); return; }
   if (!$('tqPick').classList.contains('hidden')) drawTopik();
   else if (!$('tqOver').classList.contains('hidden')) tqFinish();
   else { tqMeta(); $('tqNext').textContent = tqIdx < tqRound.length ? t('다음 문제 →', 'Next →') : t('결과 보기 →', 'See results →'); }
+}
+
+function tlSyncLang() {
+  if (!$('tlPick').classList.contains('hidden')) { tlDraw(); return; }
+  if (!$('tlOver').classList.contains('hidden')) { tlEnd(); return; }
+  /* 푸는 중이면 단추 글만 갈아 끼운다. tlDrawQ 를 다시 부르면 소리가
+     처음부터 다시 나온다 — 언어를 눌렀다고 대화가 다시 흐르면 놀란다. */
+  if (!tlRound[tlIdx]) return;
+  $('tlQuit').textContent = t('그만두기', 'Quit');
+  $('tlNext').textContent = tlIdx + 1 >= tlRound.length
+    ? t('결과 보기', 'See the result') : t('다음', 'Next');
 }
 
 function drawSentenceHead() {
@@ -4689,15 +5103,20 @@ function openSection(id, quiet) {
   /* 갈래 속은 전부 닫고 이 갈래 것만 연다. 목록을 훑어서 닫는 이유는
      갈래를 늘릴 때 여기 한 줄을 빠뜨리면 예전 갈래가 새 갈래 위에
      겹쳐 남기 때문이다. */
+  /* 갈래를 옮기면 듣던 소리를 끊는다. 안 끊으면 코스 화면으로 가 있는데
+     TOPIK 듣기 대화가 계속 흘러나온다. */
+  tlStop();
   LEARN_SECTIONS.forEach((x) => { if (x.pane) $(x.pane).classList.add('hidden'); });
   $('lsecSoon').classList.add('hidden');
   if (s.ready && s.pane) {
     $(s.pane).classList.remove('hidden');
     if (!already) {
       if (s.id === 'courses') drawCourses();
-      if (s.id === 'topik') drawTopik();
+      /* TOPIK 은 갈래(듣기·읽기·쓰기)를 거쳐 들어간다. quiet 을 넘기는 이유 —
+         openSection 이 이미 주소를 찍었는데 여기서 또 찍으면 뒤로 가기가
+         한 칸 더 생겨서 한 번 눌러도 안 빠져나간다. */
+      if (s.id === 'topik') tqShowSkill(true);
       if (s.id === 'quiz') dqDraw();
-      if (s.id === 'writing') twDraw();
       if (s.id === 'reading') drawReading();
       if (s.id === 'sentence') {
         drawSentenceHead();
@@ -4727,13 +5146,40 @@ function openSection(id, quiet) {
    표현 하나까지 여는 이유 — 문법 표현 쪽은 남에게 건네고 싶어지는 자리다.
    「-길래 설명 여기 있어」 하고 주소를 보냈는데 목록만 열리면 못 쓴다. */
 function openLearnSub(sub) {
-  const [secId, ...rest] = String(sub).split('/');
+  let [secId, ...rest] = String(sub).split('/');
+
+  /* 옛 주소 #learn/writing 을 새 자리로 넘긴다. 쓰기가 별도 갈래였을 때
+     찍은 정적 쪽과 밖에서 걸린 링크가 그 주소를 쓰고 있어서, 죽이면
+     검색으로 들어온 사람이 빈 화면을 본다. */
+  if (secId === 'writing') { secId = 'topik'; rest = ['II', 'writing']; }
+
   if (!LEARN_SECTIONS.some((x) => x.id === secId)) return;
+
   /* 넘겨받은 모의고사 주소: learn/topik/mock/<시험>/<회차> */
   if (secId === 'topik' && rest[0] === 'mock' && rest[1] && rest[2]) {
     openSection('topik', true);
     tqOpenShared(rest[1], rest[2]);
     return;
+  }
+
+  /* learn/topik/<시험>/<갈래> — 시험과 갈래를 함께 지정하는 주소.
+     갈래만 적힌 것(learn/topik/listening)도 받는다. */
+  if (secId === 'topik' && rest.length) {
+    const wantExam  = TQ_EXAMS[rest[0]] ? rest[0] : null;
+    const wantSkill = TQ_SKILLS[rest[wantExam ? 1 : 0]] ? rest[wantExam ? 1 : 0] : null;
+    if (wantExam || wantSkill) {
+      if (wantExam && wantExam !== tqExam) {
+        tqExam = wantExam;
+        try { localStorage.setItem(TQ_EXAM_KEY, tqExam); } catch (e) {}
+        tqLoadGrade();
+      }
+      /* 그 시험에 없는 갈래면 갈아 끼우지 않는다 — tqFixSkill 이 읽기로
+         물러나 준다. TOPIK I 쓰기 주소를 받았을 때가 그렇다. */
+      if (wantSkill && tqSkillsFor(tqExam).includes(wantSkill)) tqSkill = wantSkill;
+      openSection('topik', true);
+      tqShowSkill(true);
+      return;
+    }
   }
   /* 표현 없이 갈래만 적힌 주소면 열려 있던 표현을 놓는다. 안 놓으면
      openSection 이 「직전에 보던 표현」을 되살려서, 상세에서 뒤로 가기를
