@@ -9,120 +9,48 @@
    아래 app.module.js 가 ptShow · applyLang 같은 것을 그냥 부르는 게
    그래서 된다. 인라인이었을 때와 규칙이 똑같으니 동작도 그대로다. */
 
-function tilt(el, e, max) {
-  const r = el.getBoundingClientRect();
-  const x = (e.clientX - r.left) / r.width - .5;
-  const y = (e.clientY - r.top) / r.height - .5;
-  return { rx: (-y * max).toFixed(1), ry: (x * max).toFixed(1) };
-}
-const swipeWrap = document.getElementById('swipeWrap');
-const swipeCard = document.getElementById('swipeCard');
-let dragging = false, startX = 0, dx = 0, dragMoved = false;
-swipeWrap.addEventListener('mousemove', e => {
-  if (dragging) return;
-  const t = tilt(swipeWrap, e, 14);
-  swipeCard.style.transition = 'transform .25s ease';
-  swipeCard.style.transform = `translateX(-50%) rotateX(${t.rx}deg) rotateY(${t.ry}deg) translateZ(16px)`;
-});
-swipeWrap.addEventListener('mouseleave', () => { if (!dragging) { swipeCard.style.transition = 'transform .4s cubic-bezier(.22,1,.36,1)'; swipeCard.style.transform = 'translateX(-50%)'; } });
-// 드래그하면 스와이프처럼 따라오고, 놓으면 통통 튀며 제자리
-swipeCard.addEventListener('mousedown', e => {
-  dragging = true; dragMoved = false; startX = e.clientX;
-  swipeCard.style.cursor = 'grabbing'; swipeCard.style.transition = 'none';
-  e.preventDefault();
-});
-window.addEventListener('mousemove', e => {
-  if (!dragging) return;
-  dx = e.clientX - startX;
-  if (Math.abs(dx) > 6) dragMoved = true;
-  const capped = Math.max(-120, Math.min(120, dx));
-  swipeCard.style.transform = `translateX(calc(-50% + ${capped}px)) rotate(${capped * 0.08}deg)`;
-});
-window.addEventListener('mouseup', () => {
-  if (!dragging) return;
-  dragging = false; swipeCard.style.cursor = 'grab';
-  swipeCard.style.transition = 'transform .55s cubic-bezier(.34,1.56,.64,1)'; // 스프링 백
-  swipeCard.style.transform = 'translateX(-50%)';
-  dx = 0;
-});
+/* ── 첫 화면에서 갈래로 바로 ───────────────────────────────────
+   예전 첫 화면에는 기울어지는 단어 카드와 대시보드 그림이 있었다. 판이
+   단어장에서 한국어 학습으로 옮겨 가면서 그 구역이 통째로 빠졌고, 그것을
+   움직이던 코드(tilt·swipe·dash)도 같이 뺐다.
 
-/* 눌러도 아무 일이 안 났다 — 방문 기록에 죽은 클릭으로 잡혔다.
-   cursor:grab 으로 「끌 수 있다」고 말해 놓고 끌기는 마우스에만 달아
-   두었기 때문이다. 우리 방문자는 절반이 넘게 폰에서 오는데, 그쪽에는
-   mousedown 이 아예 안 온다. 카드를 눌러도 죽은 듯 가만히 있었다.
+   **DOM 이 없는데 코드가 남으면 이 파일 전체가 죽는다.** getElementById 가
+   null 을 주고 그다음 addEventListener 에서 멈추는데, 그러면 아래에 있는
+   발음 레벨 테스트와 글자 크기 조절까지 통째로 안 붙는다. 구역을 지울
+   때 여기를 같이 지워야 하는 이유다.
 
-   눌리면 카드가 한 번 넘어갔다 돌아온다. 아래에 「✕ 어려워요 / 외웠어요 ✓」
-   가 적혀 있으니, 무엇을 하는 자리인지는 글로 설명하는 것보다 한 번
-   보여 주는 편이 빠르다. 좌우를 번갈아 넘겨 양쪽 다 된다는 것도 알린다. */
-let flungTimes = 0;
-function swipeFling() {
-  if (dragging) return;
-  const dir = (flungTimes++ % 2) ? -1 : 1;
-  swipeCard.style.transition = 'transform .34s cubic-bezier(.4,0,.6,1), opacity .34s';
-  swipeCard.style.transform = `translateX(calc(-50% + ${dir * 150}px)) rotate(${dir * 13}deg)`;
-  swipeCard.style.opacity = '.3';
-  setTimeout(() => {
-    swipeCard.style.transition = 'transform .5s cubic-bezier(.34,1.56,.64,1), opacity .3s';
-    swipeCard.style.transform = 'translateX(-50%)';
-    swipeCard.style.opacity = '';
-  }, 340);
-}
-/* 끌다가 놓은 것도 click 으로 오므로, 움직인 적이 있으면 넘기지 않는다.
-   맨 위 카드가 아니라 더미 전체에 단다 — 뒤에 깔린 c2·c3 의 삐져나온
-   자락도 카드처럼 생겨서 거기를 누르는 사람이 있다. */
-swipeWrap.addEventListener('click', () => { if (!dragMoved) swipeFling(); });
-/* 이제 이 카드는 누르는 자리다. 키보드로도 닿아야 한다. */
-swipeCard.setAttribute('role', 'button');
-swipeCard.setAttribute('tabindex', '0');
-swipeCard.setAttribute('aria-label', '단어 카드 넘겨 보기');
-swipeCard.addEventListener('keydown', (e) => {
-  if (e.key !== 'Enter' && e.key !== ' ') return;
-  e.preventDefault();
-  swipeFling();
-});
-/* 첫 화면 카드 → 배우기.
-   방문 기록을 보면 사람들이 오는 곳은 레딧이고, 첫 화면에서 가장 많이
-   눌리는 것은 ☰ 메뉴다. 앱을 받으러 온 것이 아니라 **여기서 한국어를
-   해 보려고** 온 것이다. 그런데 첫 화면의 주인공인 이 카드는 눌러도
-   아무 데도 안 갔다. 눌러 본 사람은 「해 보고 싶다」고 말한 것이니
-   그 자리로 보낸다. */
-document.getElementById('heroCardBtn').addEventListener('click', () => {
+   cpOpen 은 app.module.js 가 만든다. 이 파일이 먼저 실행되지만 사람이
+   누를 때는 이미 와 있으므로, 붙이는 자리만 여기 두면 된다. 그래도 아직
+   안 온 순간에 눌릴 수 있으니 헤더 단추를 대신 누르는 길을 남겨 둔다. */
+function goLearn(sub) {
+  if (window.cpOpen) return window.cpOpen('learn', sub);
   document.getElementById('learnBtn').click();
-});
+}
+document.getElementById('heroLearnBtn').addEventListener('click', () => goLearn());
+document.getElementById('heroTopikBtn').addEventListener('click', () => goLearn('topik'));
+/* 첫 화면 카드도 눌리는 자리다. 방문 기록을 보면 사람들이 오는 곳은
+   레딧이고, 앱을 받으러 온 것이 아니라 **여기서 한국어를 해 보려고**
+   온다. 눌러 본 사람은 「해 보고 싶다」고 말한 것이니 그 자리로 보낸다. */
+document.getElementById('heroCardBtn').addEventListener('click', () => goLearn());
 
-const dashPersp = document.getElementById('dashPersp');
-const dashMockup = document.getElementById('dashMockup');
-dashPersp.addEventListener('mousemove', e => {
-  const t = tilt(dashPersp, e, 8);
-  dashMockup.style.transform = `rotateX(${t.rx}deg) rotateY(${t.ry}deg)`;
-});
-dashPersp.addEventListener('mouseleave', () => { dashMockup.style.transform = 'none'; });
-
-/* 대시보드 그림 → 진짜 대시보드.
-   데스크톱에서 591×599 로 첫 화면 다음으로 큰 덩어리인데, 마우스를 대면
-   따라 기울기까지 하면서 눌러도 아무 데도 안 갔다. 게다가 이건 있지도
-   않은 것을 그려 둔 그림이 아니다 — 웹에도 「내 정보」에 같은 화면이 있다.
-   눌러 본 사람은 그걸 보고 싶다고 말한 것이다.
-
-   button 으로 바꾸지 않고 role 만 얹는 이유는, 안에 표와 카드가 층층이
-   들어 있어 태그를 바꾸면 조판이 흔들리기 때문이다. 안에 눌리는 것이
-   하나도 없으므로 role=button 을 얹어도 겹치지 않는다. */
-dashMockup.setAttribute('role', 'button');
-dashMockup.setAttribute('tabindex', '0');
-dashMockup.setAttribute('aria-label', '내 정보 열기');
-dashMockup.setAttribute('data-en-aria', 'Open my dashboard');
-dashMockup.style.cursor = 'pointer';
-const goDash = () => document.getElementById('dashBtn').click();
-dashMockup.addEventListener('click', goDash);
-dashMockup.addEventListener('keydown', (e) => {
-  if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); goDash(); }
+/* 「무엇을 배우나」 여섯 장. data-go 에 적힌 자리로 보낸다.
+   낱말 사전은 배우기 갈래가 아니라 자료마당(library) 안에 있다. */
+const WAY_GO = {
+  learn:    () => goLearn(),
+  topik:    () => goLearn('topik'),
+  sentence: () => goLearn('sentence'),
+  reading:  () => goLearn('reading'),
+  games:    () => window.cpOpen && window.cpOpen('games'),
+  glossary: () => window.cpOpen && window.cpOpen('library'),
+};
+document.querySelectorAll('.way[data-go]').forEach((b) => {
+  b.addEventListener('click', () => { const f = WAY_GO[b.dataset.go]; if (f) f(); });
 });
 
 // 스크롤 리빌: 아래 요소들이 스크롤에 맞춰 3D로 떠오름 (히어로는 제외)
 const revealTargets = [
-  ['.feat-item', 'reveal', null],
-  ['.char-card', 'reveal', null],
-  ['.dash-mockup', 'reveal-deep', 0],
+  ['.way', 'reveal', null],
+  ['.faq-i', 'reveal', null],
   ['.dl-section', 'reveal-deep', 0]
 ];
 revealTargets.forEach(([sel, cls, delay]) => {

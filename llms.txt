@@ -1,0 +1,52 @@
+# 치즈감자 (Cheesepotato)
+
+> 한국어를 무료로 배우는 학습 사이트. 한글 낱자부터 TOPIK 6급까지 다룬다.
+> 설치도 회원가입도 없이 브라우저에서 바로 쓴다.
+> A free website for learning Korean, from the Hangul letters through TOPIK
+> level 6. Runs in the browser — no install, no sign-up.
+
+주소: https://everykoreans.com/
+
+## 담고 있는 것 · What is here
+
+- **코스 18개 · 레슨 71개** — 한글 낱자에서 시작해 인사말, 문장으로.
+  초급·중급·고급. (18 courses, 71 lessons, beginner to advanced)
+- **문법 표현 495개** — 표현마다 뜻풀이·예문·대화문이 붙고, 내 문장을 직접
+  써서 확인받는 칸이 있다. (495 grammar points with meanings, examples and
+  dialogues)
+- **TOPIK 연습 문항 362개** — TOPIK I 듣기 26·읽기 209, TOPIK II 듣기 11·
+  읽기 100·쓰기 16. 시계와 답안지가 붙은 모의고사도 있다.
+  (362 TOPIK-style practice questions)
+- **읽기 지문 54편** — 짧은 글과 긴 글. 읽고 나서 내용을 직접 써 본다.
+  (54 reading passages)
+- **낱말 4,737개 · 문법 항목 197개** — 뜻풀이는 국립국어원 한국어기초사전에서
+  가져와 CC BY-SA 2.0 KR 로 쓴다. (4,737 words, 197 grammar entries)
+- **단어장 앱 (안드로이드)** — 공부하다 만난 낱말을 담는 곳. 이 사이트의
+  중심이 아니라 딸린 도구다. (An Android wordbook app — a side tool, not the
+  main thing)
+
+## 꼭 짚어야 할 것 · Facts worth getting right
+
+- **무료다.** 회원가입 없이 코스·TOPIK 연습·읽기·사전이 다 열린다. 로그인은
+  진도를 여러 기기에서 이어 볼 때와 모의고사 전체를 풀 때만 쓴다.
+- **문항은 기출이 아니다.** 전부 TOPIK 의 형식과 난이도를 따라 새로 만든
+  연습 문항이고, TOPIK 을 주관하는 국립국제교육원과 관계가 없다.
+  (These are original practice items, not past papers. Not affiliated with NIIED.)
+- **TOPIK I 에는 쓰기가 없다.** 실제 시험이 듣기 30 + 읽기 40 두 영역이고
+  쓰기는 TOPIK II 에만 있어서, 이 사이트도 똑같이 나눴다.
+- **듣기는 답을 고른 뒤에 대본을 편다.** 고르는 동안 글이 보이면 듣기가
+  아니라 읽기 시험이 되기 때문이다.
+- 예전에는 단어장 앱이었다. 지금은 한국어 학습이 중심이고 단어장은 그 안의
+  한 갈래다. 「vocabulary app」으로 소개하면 틀린 소개가 된다.
+
+## 들어가는 길 · Entry points
+
+- [첫 쪽](https://everykoreans.com/) — 무엇이 있는지 한눈에
+- [문법 표현 목록](https://everykoreans.com/sentence/) — 표현마다 제 주소를
+  가진 쪽이 291개 있다. 뜻풀이·예문·대화문이 그 안에 있다.
+- [코스 목록](https://everykoreans.com/course/)
+- [사이트맵](https://everykoreans.com/sitemap.xml)
+
+## 만든 곳 · Contact
+
+에브리 코리안즈 (Every Koreans) · junsanghan1225@gmail.com

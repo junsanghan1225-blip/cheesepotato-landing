@@ -1,4 +1,60 @@
+# 치즈감자 — 한국어 학습 사이트
+#
+# 전부 열려 있다. 아래에 대화형 엔진의 크롤러를 하나씩 또 적은 것은
+# 규칙이 달라져서가 아니라 **뜻을 분명히 하려는 것**이다. Google-Extended
+# 와 Applebot-Extended 는 검색 순위와 상관없이 「AI 답변에 써도 되느냐」만
+# 따로 정하는 이름이라, 안 적혀 있으면 안 쓰는 쪽으로 읽는 곳이 있다.
+#
+# 우리는 배우는 사람이 어디서 묻든 닿기를 바란다. 요즘 한국어를 처음
+# 배우려는 사람은 검색창보다 ChatGPT 에 먼저 물어본다.
+
 User-agent: *
+Allow: /
+
+# ── 대화형 엔진 · AI answer engines ──────────────────────────
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-User
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: meta-externalagent
+Allow: /
+
+User-agent: Amazonbot
+Allow: /
+
+User-agent: DuckAssistBot
+Allow: /
+
+User-agent: cohere-ai
+Allow: /
+
+User-agent: CCBot
 Allow: /
 
 Sitemap: https://everykoreans.com/sitemap.xml
