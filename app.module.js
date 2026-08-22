@@ -13,26 +13,26 @@
    어느 날 갑자기 다른 코드가 실려 왔다.
    이제 vendor/ 안에 받아 두고 CSP 로 바깥을 막는다. 버전을 올릴 때는
    tools/vendor.mjs 의 PIN 을 고치고 다시 돌린다. */
-import { createClient } from './vendor/supabase-js.js?v=28226259';
+import { createClient } from './vendor/supabase-js.js?v=1e79e74b';
 // 앱(package.json)과 같은 줄기를 쓴다. 갈리면 앱에서는 읽히는 파일이
 // 여기서는 안 읽히는(또는 그 반대) 일이 생긴다.
-import * as XLSX from './vendor/xlsx.js?v=28226259';
+import * as XLSX from './vendor/xlsx.js?v=1e79e74b';
 // 커리큘럼. 내용과 엔진을 갈라 두면 글을 고치다 화면을 깨지 않는다.
-import { COURSES } from './courses.js?v=28226259';
-import { GLOSSARY, GLOSS_LANGS } from './glossary.js?v=28226259';
-import { glossFind } from './gloss-find.js?v=28226259';
-import { GRAMMAR } from './grammar.js?v=28226259';
-import { GRAMMAR_EN } from './grammar-en.js?v=28226259';
-import { grammarScan } from './grammar-find.js?v=28226259';
-import { TW_ITEMS, TW_QS } from './topik-writing.js?v=28226259';
-import { SB_CATS, SB_MORE, SB_SEED } from './sentences.js?v=28226259';
+import { COURSES } from './courses.js?v=1e79e74b';
+import { GLOSSARY, GLOSS_LANGS } from './glossary.js?v=1e79e74b';
+import { glossFind } from './gloss-find.js?v=1e79e74b';
+import { GRAMMAR } from './grammar.js?v=1e79e74b';
+import { GRAMMAR_EN } from './grammar-en.js?v=1e79e74b';
+import { grammarScan } from './grammar-find.js?v=1e79e74b';
+import { TW_ITEMS, TW_QS } from './topik-writing.js?v=1e79e74b';
+import { SB_CATS, SB_MORE, SB_SEED } from './sentences.js?v=1e79e74b';
 // 읽기 연습 지문. 길이(short·long) × 급수 여섯 칸.
-import { READING } from './reading.js?v=28226259';
+import { READING } from './reading.js?v=1e79e74b';
 // TOPIK 유형 연습문제. 기출이 아니라 자체 제작이다.
-import { TOPIK_READING, TOPIK_BLUEPRINT, TOPIK_SLOTS } from './topik.js?v=28226259';
-import { TOPIK2_READING, TOPIK2_BLUEPRINT, TOPIK2_SLOTS } from './topik2.js?v=28226259';
+import { TOPIK_READING, TOPIK_BLUEPRINT, TOPIK_SLOTS } from './topik.js?v=1e79e74b';
+import { TOPIK2_READING, TOPIK2_BLUEPRINT, TOPIK2_SLOTS } from './topik2.js?v=1e79e74b';
 // 숫자 게임의 읽기와 문제 만들기. 화면을 모르는 순수 계산이라 따로 뒀다.
-import { makeRound } from './numbers.js?v=28226259';
+import { makeRound } from './numbers.js?v=1e79e74b';
 
 // 이 키는 공개돼도 되는 값이다. 이미 APK 안에 같은 것이 들어 있고,
 // 접근을 막는 건 키가 아니라 테이블에 걸린 RLS 다.
@@ -2651,6 +2651,70 @@ function tqRunClock() {
   }, 1000);
 }
 
+
+/* ══ 모의고사 링크 넘기기 ═══════════════════════════════════════
+   선생이 풀던 회차를 학생에게 넘긴다. 주소에 **회차만** 싣는다 —
+   고른 답과 남은 시간은 안 싣는다.
+
+   답을 실으면 학생이 풀 것이 없어지고, 애초에 그건 선생의 답안지다.
+   시계도 마찬가지다 — 남은 25분을 물려받으면 시험이 아니라 벌이 된다.
+   학생은 같은 문제를 처음부터 제 시간으로 푼다.
+
+   열자마자 시계를 돌리지도 않는다. 받은 사람이 버스에서 눌러 볼 수도
+   있는데 60분짜리가 그 자리에서 시작되면 한 회차를 버리게 된다.
+   회차 카드까지만 데려다 놓고 시작은 학생이 누른다. */
+function tqShareUrl() {
+  if (!tqMock || !tqMockRound) return '';
+  return `${location.origin}${location.pathname}#learn/topik/mock/${tqExam}/${tqMockRound}`;
+}
+
+async function tqShareCopy() {
+  const url = tqShareUrl();
+  if (!url) return;
+  const btn = $('tqHandoff');
+  let done = false;
+  try {
+    await navigator.clipboard.writeText(url);
+    done = true;
+  } catch (e) {
+    /* 보안 맥락이 아니거나 권한이 없으면 clipboard 가 막힌다. 그때는
+       주소를 골라 둔 칸으로 보여 준다 — 「복사 실패」만 띄우면 넘길
+       방법이 없어진다. */
+    const box = document.createElement('input');
+    box.value = url;
+    box.setAttribute('readonly', '');
+    box.className = 'tq-share-box';
+    btn.after(box);
+    box.select();
+    try { done = document.execCommand('copy'); } catch (e2) {}
+    if (done) box.remove();
+  }
+  btn.textContent = done
+    ? t('링크 복사됨 ✓', 'Link copied ✓')
+    : t('아래 주소를 복사하세요', 'Copy the address below');
+  setTimeout(() => { btn.textContent = t('링크 넘기기', 'Share link'); }, 2600);
+}
+
+/* 받은 주소로 들어왔을 때. 회차 카드까지 데려다 놓는다. */
+function tqOpenShared(exam, round) {
+  if (!TQ_EXAMS[exam]) return;
+  const r = parseInt(round, 10);
+  if (!(r > 0)) return;
+  tqExam = exam;
+  try { localStorage.setItem(TQ_EXAM_KEY, exam); } catch (e) {}
+  drawTopik();
+  /* 그 회차 카드를 찾아 눈에 띄게 하고 그리로 굴린다. 목록이 길어서
+     그냥 두면 받은 사람이 어느 것을 눌러야 하는지 모른다. */
+  setTimeout(() => {
+    /* 카드는 갈래 판(tqWrap) 안에 있다. tqWall 은 로그인 잠금벽이라
+       거기서 찾으면 영영 못 만난다. */
+    const card = $('tqWrap')?.querySelector(`[data-tq="mock:${r}"]`);
+    if (!card) return;
+    card.classList.add('tq-shared');
+    card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }, 80);
+}
+
 function tqStartMock(r = 1) {
   const round = tqBuildMock(r);
   if (!round) return;
@@ -2670,6 +2734,12 @@ function tqStartMock(r = 1) {
   tqRunClock();
   $('tqWall').classList.add('hidden');
   $('tqExamBody').classList.remove('hidden');
+  /* 이름을 tqHandoff 로 둔다. tqShare 는 성적표 화면이 이미 쓰고 있어
+     같은 id 를 두면 $() 가 둘 중 하나를 집어 엉뚱한 단추가 움직인다. */
+  if ($('tqHandoff')) {
+    $('tqHandoff').textContent = t('링크 넘기기', 'Share link');
+    $('tqHandoff').classList.remove('hidden');
+  }
   tqPanel('tqPlay');
   tqDraw();
 }
@@ -4659,6 +4729,12 @@ function openSection(id, quiet) {
 function openLearnSub(sub) {
   const [secId, ...rest] = String(sub).split('/');
   if (!LEARN_SECTIONS.some((x) => x.id === secId)) return;
+  /* 넘겨받은 모의고사 주소: learn/topik/mock/<시험>/<회차> */
+  if (secId === 'topik' && rest[0] === 'mock' && rest[1] && rest[2]) {
+    openSection('topik', true);
+    tqOpenShared(rest[1], rest[2]);
+    return;
+  }
   /* 표현 없이 갈래만 적힌 주소면 열려 있던 표현을 놓는다. 안 놓으면
      openSection 이 「직전에 보던 표현」을 되살려서, 상세에서 뒤로 가기를
      눌러도 같은 상세가 다시 열린다. */
@@ -4688,6 +4764,8 @@ function backToSections() {
   $('lsecList').classList.remove('hidden');
   drawSections();
 }
+
+$('tqHandoff')?.addEventListener('click', tqShareCopy);
 
 $('lsecList').addEventListener('click', (ev) => {
   const b = ev.target.closest('[data-section]');

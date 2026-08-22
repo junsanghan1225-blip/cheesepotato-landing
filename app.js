@@ -1007,6 +1007,45 @@ const SLUG_VIEW = {
   // 게임 한 판과 레슨은 도중부터 열 수 없다. 주소로 들어오면 한 단계 위를 연다.
   claw: 'games', match: 'games', quiz: 'games', num: 'num', lesson: 'learn',
 };
+
+/* ══ 글자 크기 ═══════════════════════════════════════════════════
+   잘 안 보이는 학습자를 위한 것이다. 이 판은 px 로 짜여 있어 rem 을
+   바꿔도 안 커지므로, :root 에 zoom 을 걸어 브라우저가 그 배율로 다시
+   배치하게 한다 — 글자만 커지고 칸이 안 커지면 글이 넘쳐 더 못 읽는다.
+
+   app.js 는 모듈보다 먼저 도므로 여기 둔다. 저장해 둔 배율을 첫 그림
+   전에 걸어야 화면이 한 번 작게 그려졌다 커지는 일이 없다. */
+const TXT_KEY = 'cp_txt_scale';
+const TXT_STEPS = [1, 1.15, 1.3, 1.5];
+
+function txtRead() {
+  try {
+    const v = parseFloat(localStorage.getItem(TXT_KEY));
+    return TXT_STEPS.includes(v) ? v : 1;
+  } catch (e) { return 1; }
+}
+function txtApply(v) {
+  /* 1 배면 아예 지운다. zoom:1 을 걸어 두면 브라우저에 따라 자잘한
+     반올림 차이가 남는다. */
+  document.documentElement.style.zoom = v === 1 ? '' : String(v);
+  const i = TXT_STEPS.indexOf(v);
+  const dn = document.getElementById('txtDown');
+  const up = document.getElementById('txtUp');
+  if (dn) dn.disabled = i <= 0;
+  if (up) up.disabled = i >= TXT_STEPS.length - 1;
+}
+/* 저장한 값을 먼저 건다. 단추가 아직 없어도 배율은 걸린다. */
+txtApply(txtRead());
+
+function txtStep(dir) {
+  const i = TXT_STEPS.indexOf(txtRead());
+  const next = TXT_STEPS[Math.min(TXT_STEPS.length - 1, Math.max(0, i + dir))];
+  try { localStorage.setItem(TXT_KEY, String(next)); } catch (e) {}
+  txtApply(next);
+}
+document.getElementById('txtDown')?.addEventListener('click', () => txtStep(-1));
+document.getElementById('txtUp')?.addEventListener('click', () => txtStep(1));
+
 const VIEW_SLUG = {
   home: '', test: 'test', wordbook: 'wordbook', account: 'account',
   library: 'library', dashboard: 'dashboard', games: 'games',
