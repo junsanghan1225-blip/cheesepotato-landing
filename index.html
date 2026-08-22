@@ -1513,6 +1513,31 @@ body.nav-open { overflow:hidden; }
   margin-top:18px;
 }
 .ex-in:focus { outline:none; border-color:var(--orange-mid); background:#fff; }
+/* ── 문장 만들기 ────────────────────────────────────────────
+   보기에서 고르는 것과 달리 빈손에서 문장을 짜는 자리라, 틀렸을 때
+   무엇이 틀렸는지 한 줄로 말해 줘야 한다. 빨간 테두리만 깜빡이면
+   학습자는 같은 문장을 다시 친다. */
+.ex-bank { display:flex; flex-wrap:wrap; gap:8px; margin-top:12px; justify-content:center; }
+.ex-chip {
+  cursor:pointer; padding:9px 14px; font-size:16px;
+  border:1px solid var(--line); border-radius:999px;
+  background:var(--surface-2); color:var(--ink); transition:border-color .15s, background .15s;
+}
+.ex-chip:hover:not(:disabled) { border-color:var(--orange); background:#fff; }
+.ex-chip:disabled { opacity:.4; cursor:default; }
+.ex-build-row { display:flex; gap:8px; justify-content:center; margin-top:14px; }
+.ex-check, .ex-clear, .ex-reveal {
+  cursor:pointer; padding:10px 20px; font-size:15px; font-weight:600;
+  border-radius:11px; border:1px solid var(--line); background:var(--surface-2); color:var(--ink);
+}
+.ex-check { background:var(--ink); border-color:var(--ink); color:var(--surface); }
+.ex-check:disabled, .ex-clear:disabled { opacity:.4; cursor:default; }
+.ex-reveal { padding:5px 12px; font-size:13px; margin-left:8px; }
+.ex-fb { margin-top:12px; font-size:15px; line-height:1.7; text-align:center; word-break:keep-all; }
+.ex-fb b.yes { color:var(--green); }
+.ex-fb .no { color:var(--red); }
+.ex-fb .shown { color:var(--ink-3); }
+
 .ex-keys { display:flex; flex-wrap:wrap; gap:8px; margin-top:12px; justify-content:center; }
 .ex-key {
   min-width:52px; cursor:pointer; font-size:19px; color:var(--ink);

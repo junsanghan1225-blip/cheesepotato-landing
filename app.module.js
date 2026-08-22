@@ -2007,6 +2007,13 @@ const COURSE_CURRICULUM_TAG = {
   'im-03-02':        { ko:'반응 표현',   en:'Reaction' },
   'ad-01-01':        { ko:'관형형',      en:'Adnominal forms' },
   'ad-02-01':        { ko:'화법',        en:'Speech levels' },
+  // 초급 1단계 — docs/curriculum-beginner.md
+  'bg-05':           { ko:'이에요/예요',  en:'Am / is' },
+  'bg-06':           { ko:'있다·자리',    en:'Exist & place' },
+  'bg-07':           { ko:'하다 동사',    en:'하다 verbs' },
+  'bg-08':           { ko:'조사',         en:'Particles' },
+  'bg-09':           { ko:'부정',         en:'Saying no' },
+  'bg-irr-01':       { ko:'불규칙',       en:'Irregulars' },
 };
 const BEGINNER_ROADMAP = [
   {
@@ -5156,7 +5163,7 @@ $('llRows').addEventListener('click', (ev) => {
   if (!b) return;
   startLesson(lsCourse, lsCourse.lessons.find((l) => l.id === b.dataset.lesson));
 });
-const isEx = (b) => ['choice','listen','type','order','pair','speak','cloze'].includes(b.t);
+const isEx = (b) => ['choice','listen','type','order','pair','speak','cloze','build'].includes(b.t);
 
 function startLesson(course, lesson) {
   lsCourse = course; lsLesson = lesson;
@@ -5359,7 +5366,7 @@ function exBlock(host, b, done) {
 
   const tag = { choice:t('고르기','Choose'), listen:t('듣기','Listen'), type:t('쓰기','Type'),
                 order:t('배열','Arrange'), pair:t('짝 맞추기','Match'), speak:t('말하기','Speak'),
-                cloze:t('빈칸','Cloze') }[b.t];
+                cloze:t('빈칸','Cloze'), build:t('문장 만들기','Build a sentence') }[b.t];
   const head = `<div class="ex-tag">${tag}</div>` + (b.q ? `<div class="ex-q">${md(b.q)}</div>` : '');
 
   const solve = () => { wrap.classList.add('ok'); done(); };
@@ -5502,6 +5509,92 @@ function exBlock(host, b, done) {
   }
 
   // ── 말하기 ───────────────────────────────────────────────
+  /* ── 문장 만들기 ──────────────────────────────────────────
+     보기를 고르는 문제는 답이 화면에 있다. 여기는 빈손에서 짠다 —
+     읽을 줄 아는 것과 만들 줄 아는 것 사이가 여기서 갈린다.
+
+     채점에서 띄어쓰기와 문장부호는 뺀다. 조사 자리를 맞혔는데 마침표
+     하나로 틀렸다고 하면 무엇을 배웠는지 알 수 없다. 대신 띄어쓰기가
+     다르면 바른 모양을 같이 보여 준다.
+
+     answers 는 **여러 개**다. 한국어는 같은 뜻을 여러 어순으로 말할 수
+     있어서 하나만 받으면 맞는 문장을 틀렸다고 한다.
+
+     must 는 반드시 들어가야 할 조각이다. 이게 있으면 "틀렸어요" 대신
+     「~가 없어요」 라고 짚어 줄 수 있다. 그 한 줄이 이 블록의 값어치다. */
+  if (b.t === 'build') {
+    wrap.innerHTML = head +
+      '<input class="ex-in ex-build-in" type="text" autocomplete="off" autocapitalize="off" spellcheck="false">' +
+      (b.bank ? '<div class="ex-bank">' + shuffled(b.bank).map((w) =>
+        `<button class="ex-chip" type="button" data-w="${esc(w)}">${esc(w)}</button>`).join('') + '</div>' : '') +
+      '<div class="ex-build-row">' +
+        `<button class="ex-check" type="button">${t('확인', 'Check')}</button>` +
+        `<button class="ex-clear" type="button">${t('지우기', 'Clear')}</button>` +
+      '</div>' +
+      '<div class="ex-fb"></div>';
+
+    const input = wrap.querySelector('.ex-build-in');
+    const fb = wrap.querySelector('.ex-fb');
+    let tries = 0;
+
+    const norm = (s) => String(s).trim().replace(/\s+/g, ' ').replace(/[.!?~]+$/, '');
+    const bare = (s) => norm(s).replace(/\s/g, '');
+    const answers = (b.answers ?? []).map(norm);
+
+    const finish = (msg) => {
+      input.disabled = true;
+      wrap.querySelectorAll('.ex-chip, .ex-check, .ex-clear, .ex-reveal').forEach((x) => { x.disabled = true; });
+      fb.innerHTML = msg;
+      wrap.insertAdjacentHTML('beforeend', why());
+      solve();
+    };
+
+    /* 두 번 틀리면 답을 보여 준다. 막다른 길을 두면 안 되는 자리다 —
+       고르기와 달리 찍어서 넘어갈 수가 없어서, 못 만드는 사람은
+       레슨 전체가 거기서 끝난다. */
+    const nudge = (msg) => {
+      input.style.borderColor = 'var(--red)';
+      setTimeout(() => { input.style.borderColor = ''; }, 700);
+      fb.innerHTML = `<span class="no">${msg}</span>` +
+        (tries >= 2 ? `<button class="ex-reveal" type="button">${t('답 보기', 'Show me')}</button>` : '');
+    };
+
+    const check = () => {
+      const got = norm(input.value);
+      if (!got) return;
+      tries++;
+
+      if (answers.includes(got)) return finish(`<b class="yes">${t('맞아요', 'Correct')}</b>`);
+
+      const spaced = answers.find((a) => bare(a) === bare(got));
+      if (spaced) return finish(
+        `<b class="yes">${t('맞아요', 'Correct')}</b> — ` +
+        `${t('띄어쓰기만 달라요', 'just the spacing')}: <b>${esc(spaced)}</b>`);
+
+      const missing = (b.must ?? []).find((m) => !bare(got).includes(bare(m)));
+      if (missing) return nudge(t(`아직 「${missing}」 이 없어요.`, `“${missing}” is not in there yet.`));
+
+      nudge(b.hint ? md(b.hint) : t('아직 아니에요. 다시 볼까요?', 'Not yet — look again.'));
+    };
+
+    input.addEventListener('keydown', (ev) => { if (ev.key === 'Enter') check(); });
+    wrap.addEventListener('click', (ev) => {
+      const chip = ev.target.closest('[data-w]');
+      if (chip && !chip.disabled) {
+        input.value = (input.value.trim() + ' ' + chip.dataset.w).trim();
+        input.focus();
+        return;
+      }
+      if (ev.target.closest('.ex-reveal')) {
+        input.value = answers[0] ?? '';
+        return finish(`<span class="shown">${t('답', 'Answer')}</span> — <b>${esc(input.value)}</b>`);
+      }
+      if (ev.target.closest('.ex-check')) return check();
+      if (ev.target.closest('.ex-clear')) { input.value = ''; fb.innerHTML = ''; input.focus(); }
+    });
+    return;
+  }
+
   if (b.t === 'speak') {
     wrap.innerHTML = head +
       `<div style="text-align:center">` +

@@ -31,6 +31,8 @@
 import { GRAMMAR_COURSES } from './courses-grammar.js?v=8314a20b';
 import { DETAILED_GRAMMAR_COURSES } from './courses-grammar-detailed.js?v=8314a20b';
 import { BEGINNER_GRAMMAR_COURSES } from './courses-grammar-beginner.js?v=8314a20b';
+// 초급 1단계 — 설계는 docs/curriculum-beginner.md
+import { BEGINNER_STAGE1_COURSES } from './courses-beginner-stage1.js?v=8314a20b';
 
 export const COURSES = [
 
@@ -734,7 +736,13 @@ export const COURSES = [
 // 세분화 문법 코스들 (뉘앙스 차이 구분) — courses-grammar-detailed.js
 ...DETAILED_GRAMMAR_COURSES,
 
-// 초급 조사 (이/가 · 은/는) — courses-grammar-beginner.js
+/* 초급 1단계 — courses-beginner-stage1.js
+   배열 순서가 곧 카드 순서라 가르치는 차례대로 둔다. -아/어요(bg-d-01)가
+   먼저 와야 하다 동사와 불규칙이 말이 되므로 세밀 코스 뒤에 붙인다. */
+...BEGINNER_STAGE1_COURSES,
+
+/* 이/가 와 은/는 — 초급 **맨 뒤**가 제자리다. 처음부터 대조하면 문장
+   하나 만들 때마다 멈춘다 (docs/curriculum-beginner.md §2 원칙 ②). */
 ...BEGINNER_GRAMMAR_COURSES,
 
 ];

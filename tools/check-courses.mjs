@@ -92,8 +92,10 @@ async function lessonIdsAtHead() {
   }
 }
 
+const norm2 = (s) => String(s).trim().replace(/\s+/g, ' ').replace(/[.!?~]+$/, '');
+
 const BLOCK_TYPES = new Set([
-  'text', 'note', 'chars', 'table', 'choice', 'listen', 'type', 'order', 'pair', 'speak', 'cloze',
+  'text', 'note', 'chars', 'table', 'choice', 'listen', 'type', 'order', 'pair', 'speak', 'cloze', 'build',
 ]);
 
 /* 화면이 실제로 읽는 밭 이름. 여기 없는 이름으로 글을 써 두면 화면은
@@ -105,6 +107,8 @@ const BLOCK_KEYS = new Set([
   't', 'h', 'md', 'q', 'why', 'head', 'rows', 'items', 'wide',
   'options', 'answer', 'keys', 'tokens', 'pairs',
   'say', 'rom', 'audio', 'sentence', 'meaning',
+  // 문장 만들기(build) — 허용 답 여럿, 낱말 은행, 꼭 들어갈 조각, 힌트
+  'answers', 'bank', 'must', 'hint',
 ]);
 
 const problems = [];
@@ -186,6 +190,55 @@ for (const c of COURSES) {
       }
 
       if (b.t === 'pair' && !b.pairs?.length) problems.push(`${at}: pairs 없음`);
+
+      /* 문장 만들기.
+         answers 가 비면 무엇을 쳐도 안 맞는다 — 학습자가 레슨 끝에서
+         막힌다. must 조각은 answers 안에 실제로 들어 있어야 한다.
+         안 그러면 정답을 쳐도 「~가 없어요」 가 뜬다. */
+      if (b.t === 'build') {
+        if (!b.q) problems.push(`${at}: q 없음 — 무엇을 만들라는 건지 알 수 없다`);
+        if (!b.answers?.length) problems.push(`${at}: answers 없음 — 무엇을 쳐도 안 맞는다`);
+        const flat = (x) => String(x).replace(/\s/g, '').replace(/[.!?~]+$/, '');
+        for (const m of b.must ?? []) {
+          if (!(b.answers ?? []).some((a) => flat(a).includes(flat(m)))) {
+            problems.push(`${at}: must 조각 '${m}' 이 어느 answers 에도 없다 — 정답을 써도 틀렸다고 한다`);
+          }
+        }
+        for (const w of b.bank ?? []) {
+          if (!String(w).trim()) problems.push(`${at}: bank 에 빈 낱말`);
+        }
+        /* 낱말 은행을 줬으면 정답을 그 조각들로 만들 수 있어야 한다.
+           자판 없는 사람은 은행만으로 답해야 하기 때문이다.
+
+           정답을 공백으로 쪼개 견주면 안 된다 — 조각은 '매운 음식을'
+           처럼 여러 낱말짜리일 수 있다. 화면에서 조각은 누를 때마다
+           공백 하나로 이어 붙으므로, 앞에서부터 조각을 이어 붙여
+           정답이 되는 길이 있는지를 본다. */
+        if (b.bank?.length && b.answers?.length) {
+          const chips = b.bank.map(norm2).filter(Boolean);
+          const canBuild = (answer) => {
+            const target = norm2(answer);
+            const dead = new Set();
+            const walk = (pos) => {
+              if (pos >= target.length) return true;
+              if (dead.has(pos)) return false;
+              for (const chip of chips) {
+                if (!target.startsWith(chip, pos)) continue;
+                const end = pos + chip.length;
+                if (end === target.length) return true;
+                if (target[end] !== ' ') continue;   // 조각 뒤에는 공백이 온다
+                if (walk(end + 1)) return true;
+              }
+              dead.add(pos);
+              return false;
+            };
+            return walk(0);
+          };
+          if (!b.answers.some(canBuild)) {
+            problems.push(`${at}: bank 조각만으로는 어느 정답도 만들 수 없다 — 자판 없는 사람은 못 푼다`);
+          }
+        }
+      }
       if (b.t === 'speak' && !b.say) problems.push(`${at}: say 없음`);
 
       if (b.t === 'cloze') {
@@ -196,7 +249,72 @@ for (const c of COURSES) {
         }
         if (!b.options?.length) problems.push(`${at}: options 없음`);
         else if (b.options.length < 2) problems.push(`${at}: options 가 ${b.options.length}개 — 2개 이상 필요`);
-        const effectiveAnswer = b.answer ?? (b.sentence.match(/\[([^\]]+)\]/) || [])[1];
+
+        /* 대괄호 검사.
+           화면을 그리는 정규식은 /^(.*)\[([^\]]+)\](.*)$/s 이고 앞의 .* 이
+           욕심쟁이라 **마지막 한 쌍**만 빈칸이 된다. 그래서
+             · 두 쌍 이상이면 앞의 것은 대괄호째 화면에 남는다.
+               상황 설명을 '[사내 회의록]' 처럼 넣으면 여기 걸린다.
+             · 마지막 쌍 안의 글과 answer 가 다르면 빈칸은 대괄호 자리에
+               뚫리는데 정답은 딴 것이 된다. 최악은 앞 쌍이 정답이라
+               답이 화면에 그대로 노출되는 경우다.
+           둘 다 실제로 나갔던 사고라 검사기가 막는다. */
+        const pairs = [...(b.sentence ?? '').matchAll(/\[([^\]]+)\]/g)];
+        if (pairs.length > 1) {
+          problems.push(
+            `${at}: 대괄호가 ${pairs.length}쌍 (${pairs.map((p) => p[1]).join(' / ')}) — ` +
+            '마지막 한 쌍만 빈칸이 되고 나머지는 대괄호째 화면에 남는다.\n' +
+            '  → 상황 설명은 대괄호 말고 meaning/q 로 빼거나 () 를 써라.');
+        }
+        const marked = pairs.length ? pairs[pairs.length - 1][1] : undefined;
+        if (b.answer && marked && b.answer !== marked) {
+          problems.push(
+            `${at}: 빈칸은 '${marked}' 자리에 뚫리는데 answer 는 '${b.answer}' 다 — ` +
+            '빈칸과 정답이 다른 자리다.');
+        }
+        const effectiveAnswer = b.answer ?? marked;
+        if (effectiveAnswer && !b.options.includes(effectiveAnswer)) {
+          problems.push(`${at}: 정답 '${effectiveAnswer}' 이 options 배열 안에 없음 — 무엇을 골라도 오답이 된다`);
+        }
+        if (b.keys && effectiveAnswer && !b.keys.includes(effectiveAnswer)) {
+          problems.push(`${at}: 정답 '${effectiveAnswer}' 이 keys 안에 없음 — 자판 없는 사람은 못 푼다`);
+        }
+      }
+
+      if (b.t === 'speak' && !b.say) problems.push(`${at}: say 없음`);
+
+      if (b.t === 'cloze') {
+        if (!b.sentence) problems.push(`${at}: sentence 없음`);
+        const hasBracket = /\[([^\]]+)\]/.test(b.sentence);
+        if (!b.answer && !hasBracket) {
+          problems.push(`${at}: answer 없고 sentence 에 [정답] 대괄호 마킹도 없음 — 빈칸과 정답을 알 수 없음`);
+        }
+        if (!b.options?.length) problems.push(`${at}: options 없음`);
+        else if (b.options.length < 2) problems.push(`${at}: options 가 ${b.options.length}개 — 2개 이상 필요`);
+        /* 대괄호 검사.
+           화면을 그리는 정규식은 /^(.*)\[([^\]]+)\](.*)$/s 이고 앞의 .* 이
+           욕심쟁이라 **마지막 한 쌍**만 빈칸이 된다. 그래서
+             · 두 쌍 이상이면 앞의 것은 대괄호째 화면에 남는다.
+               상황 설명을 '[사내 회의록]' 처럼 넣으면 여기 걸린다.
+             · 마지막 쌍 안의 글과 answer 가 다르면 빈칸은 대괄호 자리에
+               뚫리는데 정답은 딴 것이 된다. 최악은 앞 쌍이 정답이라
+               답이 화면에 그대로 노출되는 경우다.
+           둘 다 실제로 나갔던 사고라 검사기가 막는다. */
+        const pairs = [...(b.sentence ?? '').matchAll(/\[([^\]]+)\]/g)];
+        if (pairs.length > 1) {
+          problems.push(
+            `${at}: 대괄호가 ${pairs.length}쌍 (${pairs.map((p) => p[1]).join(' / ')}) — ` +
+            '마지막 한 쌍만 빈칸이 되고 나머지는 대괄호째 화면에 남는다.\n' +
+            '  → 상황 설명은 대괄호 말고 meaning/q 로 빼거나 () 를 써라.');
+        }
+        const marked = pairs.length ? pairs[pairs.length - 1][1] : undefined;
+        if (b.answer && marked && b.answer !== marked) {
+          problems.push(
+            `${at}: 빈칸은 '${marked}' 자리에 뚫리는데 answer 는 '${b.answer}' 다 — ` +
+            '빈칸과 정답이 다른 자리다.');
+        }
+        const effectiveAnswer = b.answer ?? marked;
+
         if (effectiveAnswer && !b.options.includes(effectiveAnswer)) {
           problems.push(`${at}: 정답 '${effectiveAnswer}' 이 options 배열 안에 없음 — 무엇을 골라도 오답이 된다`);
         }
