@@ -22,6 +22,7 @@
    앞으로 만드는 것은 전부 접두사를 단다. 섞여 보여도 안전한 쪽이 낫다. */
 
 import { SB_CATS_BG, SB_MORE_BG, SB_MORE_BG_EN } from './sentences-beginner.js';
+import { SB_CATS_IM, SB_MORE_IM, SB_MORE_IM_EN } from './sentences-intermediate.js';
 
 /* 초급은 sentences-beginner.js 에 있다. 파일을 나눈 이유는 문법이 계속
    늘어날 예정이라 한 파일에 두면 고칠 곳을 못 찾기 때문이다.
@@ -330,11 +331,11 @@ const SB_CATS_AD = [
 ];
 
 /* 표현마다 더 알아 둘 것. [형태, 자주 함께 쓰는 말, 주의할 점, 예문 하나 더] */
-export const SB_CATS = [...SB_CATS_BG, ...SB_CATS_AD];
+export const SB_CATS = [...SB_CATS_BG, ...SB_CATS_IM, ...SB_CATS_AD];
 
 /* 영어 MORE 는 초급에만 있다. 고급 표현을 찾아보는 사람은 한국어를
    읽을 수 있어서 급한 곳부터 채웠다. 없으면 한국어를 그대로 쓴다. */
-export const SB_MORE_EN = { ...SB_MORE_BG_EN };
+export const SB_MORE_EN = { ...SB_MORE_BG_EN, ...SB_MORE_IM_EN };
 
 const SB_MORE_AD = {
   "1-1": ["동사 + -느니", "차라리 · -는 게 낫다 · -겠다",
@@ -510,7 +511,7 @@ const SB_MORE_AD = {
 };
 
 /* 미리 넣어 둔 예문. [쓴 사람, 문장, 좋아요, 얼마 전] */
-export const SB_MORE = { ...SB_MORE_BG, ...SB_MORE_AD };
+export const SB_MORE = { ...SB_MORE_BG, ...SB_MORE_IM, ...SB_MORE_AD };
 
 export const SB_SEED = {
   "1-1": [
