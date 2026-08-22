@@ -23,10 +23,15 @@ import { writeFileSync, mkdirSync, rmSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 import { SB_CATS, SB_MORE } from '../sentences.js';
+import { COURSES } from '../courses.js';
+import { TW_ITEMS, TW_QS } from '../topik-writing.js';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const SITE = 'https://everykoreans.com';
 const OUT = join(ROOT, 'sentence');
+const OUT_COURSE = join(ROOT, 'course');
+const OUT_LESSON = join(ROOT, 'lesson');
+const OUT_TW = join(ROOT, 'topik-writing');
 
 const esc = (s) => String(s ?? '')
   .replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;')
@@ -96,7 +101,26 @@ h2{font-size:15px;margin:32px 0 10px;color:var(--dim);letter-spacing:.02em}
 `.trim();
 
 /* 쪽 하나를 조립한다. head 는 어느 쪽이나 같은 모양이라 여기 모아 둔다. */
-function page({ url, title, desc, body, kind = 'article' }) {
+/* schema.org 자료. 사람에게는 안 보이고 기계가 읽는다.
+   AI 답변 엔진과 검색이 「이 쪽이 무엇에 대한 것인가」를 가장 곧바로 아는
+   길이라, 글을 아무리 잘 써 두어도 이게 없으면 문단을 짐작해서 읽는다.
+   없는 말을 지어 넣지 않는다 — 틀린 표시는 없느니만 못하다. */
+const ld = (obj) => obj
+  ? `\n<script type="application/ld+json">${JSON.stringify(obj)
+      .replaceAll('<', '\\u003c')}</script>`
+  : '';
+
+/* 빵부스러기. 쪽 하나가 사이트 어디에 붙어 있는지 알려 준다. */
+const crumbLd = (parts) => ({
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: parts.map(([name, loc], i) => ({
+    '@type': 'ListItem', position: i + 1, name,
+    ...(loc ? { item: SITE + loc } : {}),
+  })),
+});
+
+function page({ url, title, desc, body, kind = 'article', jsonld }) {
   return `<!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -117,7 +141,7 @@ function page({ url, title, desc, body, kind = 'article' }) {
 <meta name="twitter:title" content="${esc(title)}">
 <meta name="twitter:description" content="${esc(desc)}">
 <meta name="twitter:image" content="${SITE}/logo.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">${[].concat(jsonld ?? []).map(ld).join('')}
 <style>${CSS}</style>
 </head>
 <body>
@@ -183,7 +207,28 @@ function pointPage(cat, p, prev, next) {
       '</div>' : '',
   ].filter(Boolean).join('\n');
 
-  return page({ url: `/sentence/${p.id}.html`, title, desc, body });
+  /* 문법 표현은 낱말이 아니라 **뜻이 정해진 용어**다. DefinedTerm 이
+     그 자리에 가장 정확하다 — Article 로 두면 기계가 이것을 글 한 편으로
+     보고 무엇을 설명하는 쪽인지는 못 읽는다. */
+  const jsonld = [
+    {
+      '@context': 'https://schema.org',
+      '@type': 'DefinedTerm',
+      '@id': `${SITE}/sentence/${p.id}.html`,
+      name: p.name,
+      description: p.desc,
+      inLanguage: 'ko',
+      termCode: p.id,
+      inDefinedTermSet: {
+        '@type': 'DefinedTermSet',
+        '@id': `${SITE}/sentence/`,
+        name: '한국어 문법 표현 · Korean grammar points',
+      },
+      ...(more[0] ? { alternateName: more[0] } : {}),
+    },
+    crumbLd([['치즈감자', '/'], ['문법 표현', '/sentence/'], [cat.ko, null], [p.name, null]]),
+  ];
+  return page({ url: `/sentence/${p.id}.html`, title, desc, body, jsonld });
 }
 
 /* ── 전체 목록 한 쪽 ────────────────────────────────────────────
@@ -214,14 +259,262 @@ function hubPage(cats, total) {
     sections,
   ].join('\n');
 
+  const jsonld = [
+    {
+      '@context': 'https://schema.org',
+      '@type': 'DefinedTermSet',
+      '@id': `${SITE}/sentence/`,
+      name: `한국어 문법 표현 ${total}개`,
+      inLanguage: 'ko',
+      hasDefinedTerm: cats.flatMap((c) => c.points).map((p) => ({
+        '@type': 'DefinedTerm', name: p.name, url: `${SITE}/sentence/${p.id}.html`,
+      })),
+    },
+    crumbLd([['치즈감자', '/'], ['문법 표현', '/sentence/']]),
+  ];
   return page({
     url: '/sentence/',
     kind: 'website',
+    jsonld,
     title: `한국어 문법 표현 ${total}개 — 초급·중급·고급 | 치즈감자`,
     desc: clip(`한국어 문법 표현 ${total}개를 초급·중급·고급으로 정리했습니다. ` +
       '표현마다 뜻풀이와 형태, 주의할 점, 예문과 대화문이 있습니다. ' +
       `${total} Korean grammar points with meanings, examples and dialogues.`),
     body,
+  });
+}
+
+
+/* ══ 코스 · 레슨 · TOPIK 쓰기 ═══════════════════════════════════
+   표현 290쪽만 있고 코스 18개·레슨 71강·TOPIK 쓰기 16문항은 앱 안에만
+   있었다. 해시 주소라 크롤러에게는 없는 것과 같다.
+
+   레슨 쪽에는 **읽는 블록만** 싣는다. 문제와 답은 안 싣는다 —
+   답이 검색에 걸리면 앱에서 풀 것이 없어지고, 애초에 사람들이 찾는 것은
+   "-아/어요 가 뭔가" 지 "3번 문제 답" 이 아니다.
+   ═══════════════════════════════════════════════════════════════ */
+
+/* main 은 제목을 문자열로도 {ko,en} 으로도 쓴다. 옮기는 중이라 둘 다 온다. */
+const tx = (v) => (v && typeof v === 'object') ? (v.ko ?? v.en ?? '') : (v ?? '');
+
+/* 아주 작은 마크다운. 자료에 **굵게** 와 `코드` 만 쓰인다. */
+const mdLite = (t) => esc(t)
+  .replace(/\*\*([^*]+)\*\*/g, '<b>$1</b>')
+  .replace(/`([^`]+)`/g, '<code>$1</code>')
+  .replace(/\n/g, '<br>');
+
+const LV_OF = (c) => {
+  const lv = String(c.level || '').toLowerCase();
+  return LV_KO[lv] ? lv : 'beginner';
+};
+
+/* ── 레슨 한 쪽 ─────────────────────────────────────────────── */
+function lessonPage(course, lesson, prev, next) {
+  const lv = LV_OF(course);
+  const read = (lesson.blocks || []).filter((b) => ['text', 'note', 'chars', 'table'].includes(b.t));
+  const nQ = (lesson.blocks || []).length - read.length;
+
+  const blocks = read.map((b) => {
+    if (b.t === 'text') return (b.h ? `<h2>${esc(b.h)}</h2>` : '') + `<p class="desc">${mdLite(b.md)}</p>`;
+    if (b.t === 'note') return `<div class="ex">${mdLite(b.md)}</div>`;
+    if (b.t === 'chars') return '<div class="facts">' + b.items.map((it) =>
+      `<div class="fact"><b>${esc(it.ch)}${it.rom ? ' · ' + esc(it.rom) : ''}</b>` +
+      `<span>${it.tip ? mdLite(it.tip) : ''}</span></div>`).join('') + '</div>';
+    if (b.t === 'table') return '<div class="facts">' + (b.rows || []).map((r) =>
+      `<div class="fact"><b>${mdLite(r[0])}</b><span>${r.slice(1).map(mdLite).join(' · ')}</span></div>`).join('') + '</div>';
+    return '';
+  }).filter(Boolean).join('\n');
+
+  const title = `${tx(lesson.title)} — ${tx(course.title)} | 치즈감자`;
+  const desc = clip(`${tx(course.title)} · ${tx(lesson.title)} — ` +
+    (read.find((b) => b.t === 'text')?.md || tx(course.tagline) || '').replace(/[*`#]/g, ''));
+
+  const body = [
+    `<nav class="crumb"><a href="/">치즈감자</a> › <a href="/course/">코스</a> › ` +
+      `<a href="/course/${esc(course.id)}.html">${esc(tx(course.title))}</a></nav>`,
+    `<span class="badge">${LV_KO[lv]} · ${LV_EN[lv]}</span>`,
+    `<h1>${esc(tx(lesson.title))}</h1>`,
+    `<p class="sub">${esc(tx(course.title))}${lesson.minutes ? ` · ${lesson.minutes}분` : ''}</p>`,
+    blocks,
+    nQ ? `<h2>연습 · Practice</h2><p class="lead">이 레슨에는 풀어 보는 문제가 ${nQ}개 있습니다. ` +
+      `앱에서 하나씩 맞히며 넘어갑니다.<br>${nQ} exercises come with this lesson — open it to work through them.</p>` : '',
+    `<a class="cta" href="/#learn/courses">이 레슨 열기<span>Open this lesson in the app</span></a>`,
+    (prev || next) ? '<div class="near">' +
+      (prev ? `<a href="/lesson/${esc(prev.id)}.html"><b>← 앞 레슨</b>${esc(tx(prev.title))}</a>` : '') +
+      (next ? `<a href="/lesson/${esc(next.id)}.html"><b>다음 레슨 →</b>${esc(tx(next.title))}</a>` : '') +
+      '</div>' : '',
+  ].filter(Boolean).join('\n');
+
+  const jsonld = [
+    {
+      '@context': 'https://schema.org',
+      '@type': 'LearningResource',
+      '@id': `${SITE}/lesson/${lesson.id}.html`,
+      name: tx(lesson.title),
+      inLanguage: 'ko',
+      teaches: tx(course.title),
+      educationalLevel: LV_EN[lv],
+      learningResourceType: 'lesson',
+      isPartOf: { '@type': 'Course', '@id': `${SITE}/course/${course.id}.html`, name: tx(course.title) },
+      ...(lesson.minutes ? { timeRequired: `PT${lesson.minutes}M` } : {}),
+    },
+    crumbLd([['치즈감자', '/'], ['코스', '/course/'],
+             [tx(course.title), `/course/${course.id}.html`], [tx(lesson.title), null]]),
+  ];
+  return page({ url: `/lesson/${lesson.id}.html`, title, desc, body, jsonld });
+}
+
+/* ── 코스 한 쪽 ─────────────────────────────────────────────── */
+function coursePage(course) {
+  const lv = LV_OF(course);
+  const title = `${tx(course.title)} — ${LV_KO[lv]} 한국어 코스 | 치즈감자`;
+  const desc = clip(`${tx(course.title)} · ${tx(course.tagline)} — ${tx(course.blurb)}`);
+  const body = [
+    `<nav class="crumb"><a href="/">치즈감자</a> › <a href="/course/">코스</a></nav>`,
+    `<span class="badge">${LV_KO[lv]} · ${LV_EN[lv]}</span>`,
+    `<h1>${esc(course.emoji ? course.emoji + ' ' : '')}${esc(tx(course.title))}</h1>`,
+    `<p class="sub">${esc(tx(course.tagline))}</p>`,
+    `<p class="desc">${esc(tx(course.blurb))}</p>`,
+    `<h2>레슨 ${course.lessons.length}강 · Lessons</h2>`,
+    '<ul class="pts">' + course.lessons.map((l) =>
+      `<li><a href="/lesson/${esc(l.id)}.html">${esc(tx(l.title))}</a></li>`).join('') + '</ul>',
+    `<a class="cta" href="/#learn/courses">코스 열기<span>Open this course in the app</span></a>`,
+  ].join('\n');
+
+  const jsonld = [
+    {
+      '@context': 'https://schema.org',
+      '@type': 'Course',
+      '@id': `${SITE}/course/${course.id}.html`,
+      name: tx(course.title),
+      description: tx(course.blurb),
+      inLanguage: 'ko',
+      educationalLevel: LV_EN[lv],
+      teaches: tx(course.tagline),
+      isAccessibleForFree: true,
+      provider: { '@type': 'Organization', name: '치즈감자', url: SITE },
+      hasCourseInstance: {
+        '@type': 'CourseInstance',
+        courseMode: 'online',
+        courseWorkload: `PT${course.lessons.reduce((a, l) => a + (l.minutes || 5), 0)}M`,
+      },
+      hasPart: course.lessons.map((l) => ({
+        '@type': 'LearningResource', name: tx(l.title), url: `${SITE}/lesson/${l.id}.html`,
+      })),
+    },
+    crumbLd([['치즈감자', '/'], ['코스', '/course/'], [tx(course.title), null]]),
+  ];
+  return page({ url: `/course/${course.id}.html`, title, desc, body, jsonld });
+}
+
+/* ── 코스 목록 ─────────────────────────────────────────────── */
+function courseHub(courses) {
+  const order = ['beginner', 'intermediate', 'advanced'];
+  const sections = order.map((lv) => {
+    const inLv = courses.filter((c) => LV_OF(c) === lv);
+    if (!inLv.length) return '';
+    const nL = inLv.reduce((a, c) => a + c.lessons.length, 0);
+    return `<h2 id="${lv}">${LV_KO[lv]} · ${LV_EN[lv]} — 코스 ${inLv.length}개 · ${nL}강</h2>` +
+      inLv.map((c) =>
+        `<div class="cat"><h3><a href="/course/${esc(c.id)}.html">` +
+        `${esc(c.emoji ? c.emoji + ' ' : '')}${esc(tx(c.title))}</a></h3>` +
+        `<p>${esc(tx(c.tagline))}</p><ul class="pts">` +
+        c.lessons.map((l) => `<li><a href="/lesson/${esc(l.id)}.html">${esc(tx(l.title))}</a></li>`).join('') +
+        '</ul></div>').join('\n');
+  }).filter(Boolean).join('\n');
+
+  const nC = courses.length, nL = courses.reduce((a, c) => a + c.lessons.length, 0);
+  const body = [
+    '<nav class="crumb"><a href="/">치즈감자</a> › 코스</nav>',
+    `<h1>한국어 코스 ${nC}개 · ${nL}강</h1>`,
+    '<p class="lead">한글 읽기부터 문장 만들기까지 순서대로 이어집니다. 레슨마다 읽는 설명과 푸는 문제가 함께 있습니다.<br>' +
+    `${nC} Korean courses (${nL} lessons) from reading Hangul to building your own sentences.</p>`,
+    `<a class="cta" href="/#learn/courses">코스로 배우기 열기<span>Open the course track</span></a>`,
+    sections,
+  ].join('\n');
+
+  return page({
+    url: '/course/', kind: 'website',
+    title: `한국어 코스 ${nC}개 · ${nL}강 — 초급·중급·고급 | 치즈감자`,
+    desc: clip(`한글 읽기부터 문장 만들기까지 한국어 코스 ${nC}개 ${nL}강. ` +
+      `${nC} Korean courses with ${nL} lessons, from Hangul to sentence building.`),
+    body,
+    jsonld: [crumbLd([['치즈감자', '/'], ['코스', '/course/']])],
+  });
+}
+
+/* ── TOPIK 쓰기 한 쪽 ──────────────────────────────────────── */
+function twPage(it) {
+  const q = TW_QS.find((x) => x.q === it.q);
+  const lvKo = LV_KO[it.lv] || '중급';
+  const title = `TOPIK ${it.q}번 연습 — ${it.title} | 치즈감자`;
+  const desc = clip(`TOPIK II 쓰기 ${it.q}번 유형 연습 문항. ${it.title} — ${it.cond}. ` +
+    '기출이 아닌 창작 문항이고 모범답안과 채점 포인트가 함께 있습니다.');
+
+  const body = [
+    `<nav class="crumb"><a href="/">치즈감자</a> › <a href="/topik-writing/">TOPIK 쓰기</a> › ${esc(q ? q.ko : it.q + '번')}</nav>`,
+    `<span class="badge">${lvKo} · ${esc(q ? q.ko : '')} · ${q ? q.pt : ''}점</span>`,
+    `<h1>${esc(it.title)}</h1>`,
+    `<p class="sub">${esc(it.cond)}</p>`,
+    '<h2>문항 · Task</h2>',
+    `<p class="desc">${esc(it.passage)}</p>`,
+    it.data ? '<div class="facts">' + it.data.map((d) =>
+      `<div class="fact"><span>${esc(d)}</span></div>`).join('') + '</div>' : '',
+    it.tasks ? '<h2>다뤄야 할 것 · Must cover</h2><ul class="pts">' +
+      it.tasks.map((x) => `<li>${esc(x)}</li>`).join('') + '</ul>' : '',
+    it.model ? `<h2>모범답안 · Model answer</h2><div class="ex">${esc(it.model).replace(/\n/g, '<br>')}</div>` : '',
+    it.points ? '<h2>무엇을 보는가 · What is scored</h2><div class="facts">' +
+      [['내용 및 과제 수행', it.points.content], ['글의 전개 구조', it.points.structure],
+       ['언어 사용', it.points.language]].map(([k, v]) =>
+        `<div class="fact"><b>${esc(k)}</b><span>${esc(v)}</span></div>`).join('') + '</div>' : '',
+    '<h2>흔한 감점 요인 · Common deductions</h2><ul class="pts">' +
+      it.deduct.map((d) => `<li>${esc(d)}</li>`).join('') + '</ul>',
+    `<a class="cta" href="/#learn/writing">직접 써 보기<span>Write it yourself — length and register checked as you type</span></a>`,
+  ].filter(Boolean).join('\n');
+
+  const jsonld = [
+    {
+      '@context': 'https://schema.org',
+      '@type': 'LearningResource',
+      '@id': `${SITE}/topik-writing/${it.id}.html`,
+      name: `TOPIK ${it.q}번 — ${it.title}`,
+      description: it.cond,
+      inLanguage: 'ko',
+      learningResourceType: 'exercise',
+      educationalLevel: LV_EN[it.lv] || 'Intermediate',
+      teaches: 'TOPIK II writing',
+      isAccessibleForFree: true,
+    },
+    crumbLd([['치즈감자', '/'], ['TOPIK 쓰기', '/topik-writing/'], [it.title, null]]),
+  ];
+  return page({ url: `/topik-writing/${it.id}.html`, title, desc, body, jsonld });
+}
+
+function twHub(items) {
+  const sections = TW_QS.map((g) => {
+    const mine = items.filter((x) => x.q === g.q);
+    if (!mine.length) return '';
+    return `<div class="cat"><h3>${esc(g.ko)} · ${g.pt}점</h3><p>${esc(g.en)}</p><ul class="pts">` +
+      mine.map((x) => `<li><a href="/topik-writing/${esc(x.id)}.html">${esc(x.title)}</a></li>`).join('') +
+      '</ul></div>';
+  }).filter(Boolean).join('\n');
+
+  const body = [
+    '<nav class="crumb"><a href="/">치즈감자</a> › TOPIK 쓰기</nav>',
+    `<h1>TOPIK II 쓰기 연습 문항 ${items.length}개</h1>`,
+    '<p class="lead">51~54번 유형으로 직접 써 보는 연습 문항입니다. 문항마다 모범답안과 채점 포인트, 흔한 감점 요인이 붙어 있습니다.<br>' +
+    '<b>기출문제가 아니라 같은 유형으로 새로 쓴 창작 문항입니다.</b><br>' +
+    `${items.length} original TOPIK II writing practice tasks with model answers and scoring notes.</p>`,
+    `<a class="cta" href="/#learn/writing">TOPIK 쓰기 열기<span>Open the writing practice</span></a>`,
+    sections,
+  ].join('\n');
+
+  return page({
+    url: '/topik-writing/', kind: 'website',
+    title: `TOPIK II 쓰기 연습 문항 ${items.length}개 — 51·52·53·54번 | 치즈감자`,
+    desc: clip(`TOPIK II 쓰기 51~54번 유형 연습 문항 ${items.length}개. 모범답안과 채점 기준, 감점 요인까지. 기출이 아닌 창작 문항입니다.`),
+    body,
+    jsonld: [crumbLd([['치즈감자', '/'], ['TOPIK 쓰기', '/topik-writing/']])],
   });
 }
 
@@ -244,8 +537,10 @@ ${urls.map(({ loc, freq, pri }) =>
 /* ── 돌린다 ─────────────────────────────────────────────────── */
 /* 통째로 지우고 다시 쓴다. 표현을 지웠을 때 예전 쪽이 남아 검색에 걸리면
    앱에 없는 것을 보여 주게 된다. */
-rmSync(OUT, { recursive: true, force: true });
-mkdirSync(OUT, { recursive: true });
+for (const d of [OUT, OUT_COURSE, OUT_LESSON, OUT_TW]) {
+  rmSync(d, { recursive: true, force: true });
+  mkdirSync(d, { recursive: true });
+}
 
 const urls = [
   { loc: '/', freq: 'weekly', pri: '1.0' },
@@ -265,8 +560,40 @@ for (const cat of SB_CATS) {
 }
 
 writeFileSync(join(OUT, 'index.html'), hubPage(SB_CATS, n));
+
+/* ── 코스와 레슨 ─────────────────────────────────────────────── */
+let nC = 0, nL = 0;
+for (const c of COURSES) {
+  writeFileSync(join(OUT_COURSE, `${c.id}.html`), coursePage(c));
+  urls.push({ loc: `/course/${c.id}.html`, freq: 'monthly', pri: '0.7' });
+  nC++;
+  c.lessons.forEach((l, i) => {
+    /* 앞뒤는 같은 코스 안에서만 잇는다. 코스를 넘겨 이으면 한글 다음에
+       고급 문법이 와서 읽는 차례가 무너진다. */
+    writeFileSync(join(OUT_LESSON, `${l.id}.html`),
+      lessonPage(c, l, c.lessons[i - 1], c.lessons[i + 1]));
+    urls.push({ loc: `/lesson/${l.id}.html`, freq: 'monthly', pri: '0.6' });
+    nL++;
+  });
+}
+writeFileSync(join(OUT_COURSE, 'index.html'), courseHub(COURSES));
+urls.push({ loc: '/course/', freq: 'weekly', pri: '0.9' });
+
+/* ── TOPIK 쓰기 ─────────────────────────────────────────────── */
+let nW = 0;
+for (const it of TW_ITEMS) {
+  writeFileSync(join(OUT_TW, `${it.id}.html`), twPage(it));
+  urls.push({ loc: `/topik-writing/${it.id}.html`, freq: 'monthly', pri: '0.7' });
+  nW++;
+}
+writeFileSync(join(OUT_TW, 'index.html'), twHub(TW_ITEMS));
+urls.push({ loc: '/topik-writing/', freq: 'weekly', pri: '0.9' });
+
 urls.push({ loc: '/privacy.html', freq: 'yearly', pri: '0.3' });
 writeFileSync(join(ROOT, 'sitemap.xml'), sitemap(urls));
 
-console.log(`표현 쪽 ${n}개 + 목록 1쪽 을 sentence/ 에 썼다.`);
+console.log(`표현 ${n}쪽 + 목록 1쪽 → sentence/`);
+console.log(`코스 ${nC}쪽 + 목록 1쪽 → course/`);
+console.log(`레슨 ${nL}쪽 → lesson/`);
+console.log(`TOPIK 쓰기 ${nW}쪽 + 목록 1쪽 → topik-writing/`);
 console.log(`sitemap.xml 에 주소 ${urls.length}개.`);
