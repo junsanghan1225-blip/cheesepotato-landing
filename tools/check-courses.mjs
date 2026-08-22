@@ -26,6 +26,7 @@ import { dirname, join } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { COURSES, LEVEL_IDS } from '../courses.js';
 import { SB_CATS, SB_MORE, SB_MORE_EN } from '../sentences.js';
+import { TOPIK_ITEMS } from '../topik.js';
 
 /* 일부러 없앤 레슨 id.
  *
@@ -313,6 +314,51 @@ for (const c of SB_CATS ?? []) {
   }
 }
 
+/* ── TOPIK 쓰기 문항 ─────────────────────────────────────────
+ * 51·52 는 빈칸마다 허용 답이 있어야 하고, 53·54 는 분량과 모범답안이
+ * 있어야 한다. 모범답안이 분량 밖이면 학습자에게 "이렇게 쓰세요" 하고
+ * 규칙을 어긴 글을 보여 주는 셈이 된다.
+ */
+const twIds = new Set();
+for (const it of TOPIK_ITEMS ?? []) {
+  const at = `TOPIK ${it.id}`;
+  if (twIds.has(it.id)) problems.push(`${at}: id 중복`);
+  twIds.add(it.id);
+
+  for (const k of ['q', 'lv', 'register', 'title', 'passage', 'cond']) {
+    if (!it[k]) problems.push(`${at}: ${k} 없음`);
+  }
+  if (![51, 52, 53, 54].includes(it.q)) problems.push(`${at}: 모르는 문항 번호 ${it.q}`);
+  if (it.lv && !LEVEL_IDS.includes(it.lv)) problems.push(`${at}: 모르는 급 '${it.lv}'`);
+  if (!['formal', 'plain'].includes(it.register)) {
+    problems.push(`${at}: register 는 formal 또는 plain 이어야 한다 (지금 '${it.register}')`);
+  }
+  if (!it.deduct?.length) problems.push(`${at}: deduct 없음 — 감점 요인은 1단계의 핵심 안내다`);
+
+  if (it.q === 51 || it.q === 52) {
+    if (it.blanks?.length !== 2) problems.push(`${at}: 빈칸이 2개여야 한다 (지금 ${it.blanks?.length ?? 0}개)`);
+    for (const b of it.blanks ?? []) {
+      if (!b.mark) problems.push(`${at}: 빈칸 표시(mark) 없음`);
+      else if (!it.passage.includes(b.mark)) {
+        problems.push(`${at}: 지문에 '${b.mark}' 가 없다 — 화면에 빈칸이 안 보인다`);
+      }
+      if (!b.answers?.length) problems.push(`${at} ${b.mark}: 허용 답 없음`);
+      if (!b.point) problems.push(`${at} ${b.mark}: 채점 포인트 없음`);
+    }
+  } else {
+    if (!it.min || !it.max) problems.push(`${at}: min/max 없음 — 글자 수 눈금을 못 그린다`);
+    if (!it.tasks?.length) problems.push(`${at}: tasks 없음`);
+    if (!it.model) problems.push(`${at}: 모범답안 없음`);
+    else {
+      const n = String(it.model).replace(/\s/g, '').length;
+      if (it.min && (n < it.min || n > it.max)) {
+        problems.push(`${at}: 모범답안이 ${n}자로 분량(${it.min}~${it.max}) 밖이다 — 규칙을 어긴 글을 본보기로 보여 주게 된다`);
+      }
+    }
+    if (!it.points) problems.push(`${at}: points(채점 세 항목) 없음`);
+  }
+}
+
 // ▼ 레슨 id 유실 검사: HEAD 커밋에 있던 id 가 사라졌는지 본다.
 const headIds = await lessonIdsAtHead();
 let idsIntact = false;
@@ -348,6 +394,8 @@ for (const lv of LEVEL_IDS) {
   console.log(`  ${lv}: 코스 ${cs.length} · 레슨 ${ls} · 문제 ${qs} | 예문 갈래 ${sc.length} · 표현 ${sp}`);
 }
 console.log(`예문 게시판: 갈래 ${(SB_CATS ?? []).length} / 표현 ${sbPoints}`);
+console.log('TOPIK 쓰기: ' + [51, 52, 53, 54].map((q) =>
+  `${q}번 ${(TOPIK_ITEMS ?? []).filter((x) => x.q === q).length}`).join(' · '));
 console.log(!headIds ? '이전 커밋 견주기 건너뜀'
   : idsIntact ? `이전 커밋 레슨 id ${headIds.size}개 전부 살아 있음`
   : '이전 커밋 대비 레슨 id 유실 있음 — 아래 참고');
