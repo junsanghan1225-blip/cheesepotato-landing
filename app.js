@@ -936,13 +936,19 @@ const SLUG_VIEW = {
   claw: 'games', match: 'games', quiz: 'games', num: 'num', lesson: 'learn',
 };
 
-/* ══ 글자 크기 ═══════════════════════════════════════════════════
-   잘 안 보이는 학습자를 위한 것이다. 이 판은 px 로 짜여 있어 rem 을
-   바꿔도 안 커지므로, :root 에 zoom 을 걸어 브라우저가 그 배율로 다시
-   배치하게 한다 — 글자만 커지고 칸이 안 커지면 글이 넘쳐 더 못 읽는다.
+/* ══ 시험지 글자 크기 ═══════════════════════════════════════════
+   모의고사 안에서만 쓴다. 60~70분을 들여다보는 화면이라 여기가 필요한
+   자리다.
 
-   app.js 는 모듈보다 먼저 도므로 여기 둔다. 저장해 둔 배율을 첫 그림
-   전에 걸어야 화면이 한 번 작게 그려졌다 커지는 일이 없다. */
+   여태 머리띠에 있었는데 두 가지가 잘못돼 있었다.
+   하나, 폰에서 이 단추가 **☰ 메뉴를 덮고 있었다** — 사이트에서 가장 많이
+   눌리는 자리를 가렸다.
+   둘, 배율을 :root 에 걸어서 시험을 나온 뒤에도 판 전체가 커진 채로
+   남았다. 그런데 되돌릴 단추는 시험 화면에만 있으니 빠져나올 길이 없다.
+
+   그래서 배율은 시험지(#tqExam)에만 건다. 단추가 거기에만 있으니 효과도
+   거기서 끝나야 한다. 고른 배율은 기억해 둔다 — 다음 회차에 또 고르게
+   하면 그것대로 성가시다. */
 const TXT_KEY = 'cp_txt_scale';
 const TXT_STEPS = [1, 1.15, 1.3, 1.5];
 
@@ -953,17 +959,16 @@ function txtRead() {
   } catch (e) { return 1; }
 }
 function txtApply(v) {
+  const sheet = document.getElementById('tqExam');
   /* 1 배면 아예 지운다. zoom:1 을 걸어 두면 브라우저에 따라 자잘한
      반올림 차이가 남는다. */
-  document.documentElement.style.zoom = v === 1 ? '' : String(v);
+  if (sheet) sheet.style.zoom = v === 1 ? '' : String(v);
   const i = TXT_STEPS.indexOf(v);
   const dn = document.getElementById('txtDown');
   const up = document.getElementById('txtUp');
   if (dn) dn.disabled = i <= 0;
   if (up) up.disabled = i >= TXT_STEPS.length - 1;
 }
-/* 저장한 값을 먼저 건다. 단추가 아직 없어도 배율은 걸린다. */
-txtApply(txtRead());
 
 function txtStep(dir) {
   const i = TXT_STEPS.indexOf(txtRead());
@@ -973,6 +978,14 @@ function txtStep(dir) {
 }
 document.getElementById('txtDown')?.addEventListener('click', () => txtStep(-1));
 document.getElementById('txtUp')?.addEventListener('click', () => txtStep(1));
+
+/* 모의고사가 시작·끝날 때 app.module.js 가 부른다. 켤 때 기억해 둔 배율을
+   걸고, 끌 때는 시험지를 1 배로 돌려 놓는다 (기억해 둔 값은 그대로다). */
+window.cpTxtSize = function (on) {
+  const box = document.getElementById('tqTxtSize');
+  if (box) box.classList.toggle('hidden', !on);
+  txtApply(on ? txtRead() : 1);
+};
 
 const VIEW_SLUG = {
   home: '', test: 'test', wordbook: 'wordbook', account: 'account',

@@ -13,27 +13,27 @@
    어느 날 갑자기 다른 코드가 실려 왔다.
    이제 vendor/ 안에 받아 두고 CSP 로 바깥을 막는다. 버전을 올릴 때는
    tools/vendor.mjs 의 PIN 을 고치고 다시 돌린다. */
-import { createClient } from './vendor/supabase-js.js?v=2f86b4e3';
+import { createClient } from './vendor/supabase-js.js?v=0fad11dd';
 // 앱(package.json)과 같은 줄기를 쓴다. 갈리면 앱에서는 읽히는 파일이
 // 여기서는 안 읽히는(또는 그 반대) 일이 생긴다.
-import * as XLSX from './vendor/xlsx.js?v=2f86b4e3';
+import * as XLSX from './vendor/xlsx.js?v=0fad11dd';
 // 커리큘럼. 내용과 엔진을 갈라 두면 글을 고치다 화면을 깨지 않는다.
-import { COURSES } from './courses.js?v=2f86b4e3';
-import { GLOSSARY, GLOSS_LANGS } from './glossary.js?v=2f86b4e3';
-import { glossFind } from './gloss-find.js?v=2f86b4e3';
-import { GRAMMAR } from './grammar.js?v=2f86b4e3';
-import { GRAMMAR_EN } from './grammar-en.js?v=2f86b4e3';
-import { grammarScan } from './grammar-find.js?v=2f86b4e3';
-import { TW_ITEMS, TW_QS } from './topik-writing.js?v=2f86b4e3';
-import { TOPIKL_BY_EXAM, TOPIKL_PICTURE_SLOTS } from './topik-listening.js?v=2f86b4e3';
-import { SB_CATS, SB_MORE, SB_SEED } from './sentences.js?v=2f86b4e3';
+import { COURSES } from './courses.js?v=0fad11dd';
+import { GLOSSARY, GLOSS_LANGS } from './glossary.js?v=0fad11dd';
+import { glossFind } from './gloss-find.js?v=0fad11dd';
+import { GRAMMAR } from './grammar.js?v=0fad11dd';
+import { GRAMMAR_EN } from './grammar-en.js?v=0fad11dd';
+import { grammarScan } from './grammar-find.js?v=0fad11dd';
+import { TW_ITEMS, TW_QS } from './topik-writing.js?v=0fad11dd';
+import { TOPIKL_BY_EXAM, TOPIKL_PICTURE_SLOTS } from './topik-listening.js?v=0fad11dd';
+import { SB_CATS, SB_MORE, SB_SEED } from './sentences.js?v=0fad11dd';
 // 읽기 연습 지문. 길이(short·long) × 급수 여섯 칸.
-import { READING } from './reading.js?v=2f86b4e3';
+import { READING } from './reading.js?v=0fad11dd';
 // TOPIK 유형 연습문제. 기출이 아니라 자체 제작이다.
-import { TOPIK_READING, TOPIK_BLUEPRINT, TOPIK_SLOTS } from './topik.js?v=2f86b4e3';
-import { TOPIK2_READING, TOPIK2_BLUEPRINT, TOPIK2_SLOTS } from './topik2.js?v=2f86b4e3';
+import { TOPIK_READING, TOPIK_BLUEPRINT, TOPIK_SLOTS } from './topik.js?v=0fad11dd';
+import { TOPIK2_READING, TOPIK2_BLUEPRINT, TOPIK2_SLOTS } from './topik2.js?v=0fad11dd';
 // 숫자 게임의 읽기와 문제 만들기. 화면을 모르는 순수 계산이라 따로 뒀다.
-import { makeRound } from './numbers.js?v=2f86b4e3';
+import { makeRound } from './numbers.js?v=0fad11dd';
 
 // 이 키는 공개돼도 되는 값이다. 이미 APK 안에 같은 것이 들어 있고,
 // 접근을 막는 건 키가 아니라 테이블에 걸린 RLS 다.
@@ -3090,6 +3090,9 @@ function tqStartMock(r = 1) {
   tqTitle = t(`${r}회차 · 읽기 ${tqE().from}~${tqE().to}번`, `Round ${r} — reading ${tqE().from}–${tqE().to}`);
   $('tqOmr').classList.remove('hidden');
   $('tqOmr').classList.remove('open');
+  /* 글자 크기 단추는 모의고사에서만 나온다. 유형 연습은 몇 분이면 끝나서
+     굳이 필요 없고, 늘 보이면 화면만 시끄럽다. */
+  window.cpTxtSize?.(true);
   tqClockBuild();
   tqClock();                       // 1초 뒤가 아니라 지금부터 보여야 한다
   tqOmrDraw();
@@ -3194,6 +3197,7 @@ function tqStart(key, round = 1) {
   if (key === 'mock') return tqStartMock(round);
   tqMock = false; tqStopClock();
   $('tqOmr').classList.add('hidden');
+  window.cpTxtSize?.(false);
   const rows = tqOf(tqGrade);
   const picked = key === 'all' ? rows : rows.filter((q) => q.type === key);
   if (!picked.length) return;
@@ -4357,6 +4361,7 @@ $('tqGoLogin').addEventListener('click', () => open('account'));
 $('tqWallBack').addEventListener('click', () => {
   tqMock = false; tqStopClock();
   $('tqOmr').classList.add('hidden');
+  window.cpTxtSize?.(false);
   $('tqWall').classList.add('hidden');
   $('tqExamBody').classList.remove('hidden');
   drawTopik();
@@ -4457,6 +4462,7 @@ function tqAskQuit() {
 function tqDropMock() {
   tqMock = false; tqStopClock();
   $('tqOmr').classList.add('hidden');
+  window.cpTxtSize?.(false);
 }
 
 /* 새로고침·창 닫기. 앱 안의 길목은 아래 cpBlockLeave 가 막지만, 새로고침은

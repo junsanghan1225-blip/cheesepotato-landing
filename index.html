@@ -102,8 +102,8 @@
      Pretendard 는 통짜(2.0MB) 대신 조각난 쪽을 쓴다 — 브라우저가
      unicode-range 를 보고 화면에 실제로 나온 글자가 든 조각만 받는다.
      그래서 저장소는 무거워졌지만 학습자가 받는 양은 오히려 줄었다. -->
-<link rel="stylesheet" href="vendor/pretendard.css?v=2f86b4e3">
-<link rel="stylesheet" href="vendor/pressstart2p.css?v=2f86b4e3">
+<link rel="stylesheet" href="vendor/pretendard.css?v=0fad11dd">
+<link rel="stylesheet" href="vendor/pressstart2p.css?v=0fad11dd">
 <style>
 /* ══════════════════════════════════════════════════════════════
    치즈감자 — 랜딩
@@ -221,10 +221,19 @@ a:hover { color:var(--orange-mid); }
 .nav-link.on { background:rgba(27,21,18,.07); color:var(--ink); font-weight:600; }
 .nav-ico { font-size:14px; line-height:1; }
 
-/* ══ 글자 크기 ═══════════════════════════════════════════════
-   px 로 짜인 판이라 rem 을 바꿔도 안 커진다. :root 에 zoom 을 걸면
-   브라우저가 그 배율로 다시 배치하므로 글자·여백·버튼이 함께 커지고
-   판이 안 깨진다 — 브라우저 확대와 같은 방식이다. */
+/* ══ 글자 크기 (모의고사 안에서만) ═══════════════════════════
+   여태 머리띠에 있었다. 그런데 폰에서 이 단추가 **☰ 메뉴를 덮고
+   있었다** — 사이트에서 가장 많이 눌리는 자리를 가린 것이다.
+   시험지처럼 오래 들여다보는 화면에서만 필요한 것이라 모의고사 안으로
+   옮겼다.
+
+   배율은 :root 가 아니라 시험지(#tqExam)에만 건다. 단추가 시험 화면에만
+   있으므로 효과도 거기서 끝나야 한다 — 안 그러면 시험을 나온 뒤 판
+   전체가 커진 채로 남는데 되돌릴 단추가 어디에도 없다.
+
+   px 로 짜인 판이라 rem 을 바꿔도 안 커진다. zoom 을 걸면 브라우저가 그
+   배율로 다시 배치하므로 글자·여백·버튼이 함께 커진다 — 글자만 커지고
+   칸이 그대로면 글이 넘쳐 더 못 읽는다. */
 .txt-size { display:flex; gap:4px; align-items:center; }
 .txt-btn {
   cursor:pointer; min-width:34px; height:30px; padding:0 7px;
@@ -293,36 +302,7 @@ a:hover { color:var(--orange-mid); }
 @media (max-width:359px) {
   .site-hd-in { padding:0 10px; }
   .nav-link { padding:0 3px; min-width:44px; }
-  /* ══ 글자 크기 ═══════════════════════════════════════════════
-   px 로 짜인 판이라 rem 을 바꿔도 안 커진다. :root 에 zoom 을 걸면
-   브라우저가 그 배율로 다시 배치하므로 글자·여백·버튼이 함께 커지고
-   판이 안 깨진다 — 브라우저 확대와 같은 방식이다. */
-.txt-size { display:flex; gap:4px; align-items:center; }
-.txt-btn {
-  cursor:pointer; min-width:34px; height:30px; padding:0 7px;
-  font-size:13px; font-weight:700; line-height:1;
-  border:1px solid var(--line); border-radius:9px;
-  background:var(--surface); color:var(--ink-2);
-}
-.txt-btn:hover:not(:disabled) { border-color:var(--orange); color:var(--ink); }
-.txt-btn:disabled { opacity:.35; cursor:default; }
-@media (max-width:759px){ .txt-btn { min-width:30px; height:28px; font-size:12px; } }
-
-/* 모의고사 제목 줄의 단추 묶음 */
-.tq-hd-btns { display:flex; gap:8px; align-items:center; flex-wrap:wrap; }
-/* clipboard 가 막힌 자리에서 주소를 골라 둔 채 보여 주는 칸 */
-.tq-share-box {
-  width:100%; margin-top:8px; padding:9px 12px; font-size:13px;
-  border:1px solid var(--orange); border-radius:10px;
-  background:var(--surface-2); color:var(--ink);
-}
-/* 넘겨받은 회차 카드. 목록이 길어 그냥 두면 어느 것인지 모른다. */
-.lc-card.tq-shared {
-  border-color:var(--orange);
-  box-shadow:0 0 0 3px color-mix(in srgb, var(--orange) 28%, transparent);
-}
-
-.lang-btn { padding:0 9px; margin-left:3px; }
+  .lang-btn { padding:0 9px; margin-left:3px; }
   .menu-btn { margin-left:4px; }
 }
 
@@ -419,7 +399,15 @@ a:hover { color:var(--orange-mid); }
 .side-nav.on .side-list .nav-link:nth-child(3) { --d:.13s; }
 .side-nav.on .side-list .nav-link:nth-child(4) { --d:.17s; }
 
-.side-list .nav-link .nav-txt { display:inline; }
+/* 좁은 화면 규칙(.nav-link{flex-direction:column})이 머리띠용인데 여기까지
+   따라와서, 폰에서 메뉴 한 줄이 111px 짜리 세로 덩어리가 되어 있었다.
+   여섯 줄이면 화면을 꽉 채운다. 사이드는 늘 가로줄이다. */
+.side-list .nav-link { flex-direction:row; }
+/* 이름표도 같은 규칙에 9.5px 로 쪼그라들어 있었다. 여기는 읽으라고 둔
+   글자다. (.nav-link .nav-txt 보다 한 단계 좁혀야 이긴다) */
+.side-list .nav-link .nav-txt {
+  display:inline; font-size:15px; font-weight:500; line-height:1.3; letter-spacing:-.01em;
+}
 .side-list .nav-ico {
   flex:0 0 auto; width:34px; height:34px; border-radius:10px;
   display:inline-flex; align-items:center; justify-content:center;
@@ -3719,12 +3707,7 @@ button.btn-primary, button.btn-ghost { font-family:inherit; }
     <button class="nav-link" id="authBtn" type="button" aria-label="로그인">
       <span class="nav-ico">👤</span><span class="nav-txt">로그인</span>
     </button>
-    <!-- 글자 크기. 잘 안 보이는 학습자를 위한 자리라 늘 보이는 머리띠에 둔다.
-         설정 안에 숨기면 필요한 사람이 못 찾는다. -->
-    <div class="txt-size" role="group" aria-label="글자 크기" data-en-aria="Text size">
-      <button class="txt-btn" id="txtDown" type="button" aria-label="글자 작게" data-en-aria="Smaller text">가−</button>
-      <button class="txt-btn" id="txtUp" type="button" aria-label="글자 크게" data-en-aria="Larger text">가+</button>
-    </div>
+    <!-- 글자 크기 단추는 모의고사 화면(#tqPlay)으로 옮겼다. -->
     <button class="lang-btn" id="langBtn" type="button" aria-label="Switch to English">EN</button>
     <a class="hd-cta" href="#download" id="hdCta" data-en="Download">다운로드</a>
     <button class="menu-btn" id="menuBtn" type="button"
@@ -4127,6 +4110,14 @@ button.btn-primary, button.btn-ghost { font-family:inherit; }
           <div class="bd-sec-title">
             <h3 id="tqPlayTitle"></h3>
             <div class="tq-hd-btns">
+              <!-- 글자 크기. 모의고사는 60~70분을 들여다보는 화면이라
+                   여기가 필요한 자리다. 유형 연습에서는 감춘다
+                   (app.module.js 의 tqStart / tqStartMock). -->
+              <div class="txt-size hidden" id="tqTxtSize" role="group"
+                   aria-label="시험지 글자 크기" data-en-aria="Exam text size">
+                <button class="txt-btn" id="txtDown" type="button" aria-label="글자 작게" data-en-aria="Smaller text">가−</button>
+                <button class="txt-btn" id="txtUp" type="button" aria-label="글자 크게" data-en-aria="Larger text">가+</button>
+              </div>
               <!-- 지금 회차를 그대로 여는 주소를 복사한다. 학생에게 넘기면
                    같은 회차를 자기 답안지로 푼다. -->
               <button class="wb-out" id="tqHandoff" type="button"></button>
@@ -5457,9 +5448,9 @@ button.btn-primary, button.btn-ghost { font-family:inherit; }
   <span class="rd-g-tail" id="rdGTail" aria-hidden="true"></span>
 </div>
 
-<script src="app.js?v=2f86b4e3"></script>
-<script type="module" src="app.module.js?v=2f86b4e3"></script>
+<script src="app.js?v=0fad11dd"></script>
+<script type="module" src="app.module.js?v=0fad11dd"></script>
 
-<script src="analytics.js?v=2f86b4e3" defer></script>
+<script src="analytics.js?v=0fad11dd" defer></script>
 </body>
 </html>
