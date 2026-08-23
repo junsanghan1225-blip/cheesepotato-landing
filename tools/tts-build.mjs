@@ -58,15 +58,35 @@ const VOICE = { m: process.env.ELEVEN_VOICE_M, w: process.env.ELEVEN_VOICE_W };
    여기서 같이 확인된다 — 글자를 하나도 안 쓰고. */
 if (has('--voices')) {
   if (!KEY) { console.error('ELEVEN_API_KEY 가 없다.'); process.exit(1); }
-  const res = await fetch('https://api.elevenlabs.io/v2/voices?page_size=100',
-                          { headers: { 'xi-api-key': KEY } });
+  /* v2 를 먼저 보고 안 되면 v1 로 물러난다. **이게 처음 부르는 명령이다** —
+     여기서 막히면 그다음이 전부 막히는데 곁에 물어볼 사람이 없다.
+     길이 하나뿐이면 ElevenLabs 가 판을 바꿨을 때 그대로 멈춘다. */
+  let res = null, used = '';
+  for (const url of ['https://api.elevenlabs.io/v2/voices?page_size=100',
+                     'https://api.elevenlabs.io/v1/voices']) {
+    try { res = await fetch(url, { headers: { 'xi-api-key': KEY } }); }
+    catch (e) {
+      console.error(`못 닿았다: ${e.message}`);
+      console.error('인터넷이 되는지, 회사망이 막고 있지 않은지 보라.');
+      process.exit(1);
+    }
+    used = url;
+    if (res.ok) break;
+    /* 401·429 는 길을 바꿔도 똑같다. 열쇠와 크레딧 문제이니 바로 알린다. */
+    if (res.status === 401 || res.status === 429) break;
+  }
   if (!res.ok) {
-    console.error(`목록을 못 받았다: ${res.status}`);
+    console.error(`목록을 못 받았다: ${res.status} (${used})`);
     console.error((await res.text()).slice(0, 300));
-    console.error(res.status === 401 ? '\n열쇠가 틀렸다. ELEVEN_API_KEY 를 다시 봐라.' : '');
+    if (res.status === 401) console.error('\n열쇠가 틀렸다. ELEVEN_API_KEY 를 다시 봐라 — sk_ 로 시작한다.');
+    if (res.status === 429) console.error('\n크레딧이 떨어졌거나 너무 빨리 불렀다.');
     process.exit(1);
   }
   const { voices = [] } = await res.json();
+  if (!voices.length) {
+    console.error('목소리가 하나도 없다. ElevenLabs 에서 목소리를 먼저 만들어라.');
+    process.exit(1);
+  }
   console.log(`목소리 ${voices.length}개\n`);
   for (const v of voices) {
     const mine = v.category === 'cloned' || v.category === 'generated' || v.category === 'professional';
