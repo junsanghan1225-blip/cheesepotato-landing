@@ -1110,6 +1110,29 @@ ptId('langBtn').addEventListener('click', () => {
 const sideNav = ptId('sideNav');
 const menuBtn = ptId('menuBtn');
 
+/* 주소를 보고 지금 자리를 메뉴에 표시한다.
+   주소 한 곳만 보므로 화면이 늘어도 여기를 안 고쳐도 된다 —
+   side-item 의 data-open 이 곧 그 자리의 주소다. */
+function sideMark() {
+  const here = location.hash.replace(/^#/, '');
+  let hit = null;
+  document.querySelectorAll('#sideList .side-item').forEach((el) => {
+    const path = el.dataset.open || '';
+    /* learn/topik 은 learn/topik/II/listening 도 제 것으로 친다.
+       갈래 안에서 더 파고들어도 표시가 유지되어야 한다. */
+    const on = !!path && (here === path || here.startsWith(path + '/'));
+    el.classList.toggle('on', on);
+    if (on) hit = el;
+  });
+  document.querySelectorAll('#sideList .side-group').forEach((g) => {
+    /* 이미 사람이 펼쳐 둔 것은 접지 않는다. 표시할 자리가 그 안에 있을
+       때만 펼친다. */
+    if (!hit || !g.contains(hit)) return;
+    g.classList.add('open');
+    g.querySelector('.side-parent')?.setAttribute('aria-expanded', 'true');
+  });
+}
+
 function setMenu(open) {
   /* **aria-hidden 을 걸기 전에 포커스를 먼저 빼낸다.**
      서랍 안의 항목을 누르면 그 단추가 포커스를 쥔 채로 남는데, 그대로
@@ -1121,6 +1144,11 @@ function setMenu(open) {
      visibility:hidden 이 탭은 이미 막고 있지만 그건 전이가 끝난 뒤의
      이야기다. 닫는 0.38초 동안에는 아직 보이는 상태라 포커스가 살아 있다. */
   if (!open && sideNav.contains(document.activeElement)) menuBtn.focus();
+
+  /* 열 때 지금 있는 자리를 짚어 준다. 배우기 안에 있으면 배우기가 펼쳐진
+     채로 열리고, 보고 있던 갈래에 표시가 붙는다. 매번 접힌 채로 열리면
+     「내가 어디 있더라」를 메뉴가 안 알려 주는 셈이다. */
+  if (open) sideMark();
 
   sideNav.classList.toggle('on', open);
   ptId('navScrim').classList.toggle('on', open);
@@ -1143,6 +1171,33 @@ addEventListener('keydown', (e) => { if (e.key === 'Escape') setMenu(false); });
 /* 메뉴에서 무언가를 고르면 닫힌다. 각 버튼의 원래 동작은 그대로 두고
    닫기만 얹었다 — 항목이 늘어도 여기는 안 고쳐도 된다. */
 ptId('sideList').addEventListener('click', (e) => {
+  /* ── 갈래 하나를 고른 것 ──
+     메뉴를 닫고 그 자리로 간다. data-nav-to 는 제 단추를 대신 누른다 —
+     게임은 화면을 여는 것 말고 판을 까는 일까지 하므로, 여기서 흉내 내면
+     언젠가 둘이 어긋난다. */
+  const item = e.target.closest('.side-item');
+  if (item) {
+    setMenu(false);
+    const to = item.dataset.navTo;
+    if (to) { ptId(to)?.click(); return; }
+    const [view, ...rest] = String(item.dataset.open || '').split('/');
+    if (view && window.cpOpen) window.cpOpen(view, rest.join('/') || undefined);
+    return;
+  }
+
+  /* ── 묶음을 펼치거나 접은 것 ──
+     여기서는 메뉴를 닫지 않는다. 펼쳐 놓고 고르는 자리이므로 닫히면
+     방금 편 것을 못 본다. */
+  const parent = e.target.closest('.side-parent');
+  if (parent) {
+    const group = parent.closest('.side-group');
+    const open = !group.classList.contains('open');
+    group.classList.toggle('open', open);
+    parent.setAttribute('aria-expanded', String(open));
+    return;
+  }
+
+  /* ── 그냥 한 줄인 것 ── */
   const link = e.target.closest('.nav-link');
   if (!link) return;
   /* data-nav-to 가 달린 항목은 제 손잡이가 없다. 헤더의 같은 단추를

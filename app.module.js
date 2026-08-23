@@ -13,27 +13,27 @@
    어느 날 갑자기 다른 코드가 실려 왔다.
    이제 vendor/ 안에 받아 두고 CSP 로 바깥을 막는다. 버전을 올릴 때는
    tools/vendor.mjs 의 PIN 을 고치고 다시 돌린다. */
-import { createClient } from './vendor/supabase-js.js?v=0fad11dd';
+import { createClient } from './vendor/supabase-js.js?v=e24e7ef9';
 // 앱(package.json)과 같은 줄기를 쓴다. 갈리면 앱에서는 읽히는 파일이
 // 여기서는 안 읽히는(또는 그 반대) 일이 생긴다.
-import * as XLSX from './vendor/xlsx.js?v=0fad11dd';
+import * as XLSX from './vendor/xlsx.js?v=e24e7ef9';
 // 커리큘럼. 내용과 엔진을 갈라 두면 글을 고치다 화면을 깨지 않는다.
-import { COURSES } from './courses.js?v=0fad11dd';
-import { GLOSSARY, GLOSS_LANGS } from './glossary.js?v=0fad11dd';
-import { glossFind } from './gloss-find.js?v=0fad11dd';
-import { GRAMMAR } from './grammar.js?v=0fad11dd';
-import { GRAMMAR_EN } from './grammar-en.js?v=0fad11dd';
-import { grammarScan } from './grammar-find.js?v=0fad11dd';
-import { TW_ITEMS, TW_QS } from './topik-writing.js?v=0fad11dd';
-import { TOPIKL_BY_EXAM, TOPIKL_PICTURE_SLOTS } from './topik-listening.js?v=0fad11dd';
-import { SB_CATS, SB_MORE, SB_SEED } from './sentences.js?v=0fad11dd';
+import { COURSES } from './courses.js?v=e24e7ef9';
+import { GLOSSARY, GLOSS_LANGS } from './glossary.js?v=e24e7ef9';
+import { glossFind } from './gloss-find.js?v=e24e7ef9';
+import { GRAMMAR } from './grammar.js?v=e24e7ef9';
+import { GRAMMAR_EN } from './grammar-en.js?v=e24e7ef9';
+import { grammarScan } from './grammar-find.js?v=e24e7ef9';
+import { TW_ITEMS, TW_QS } from './topik-writing.js?v=e24e7ef9';
+import { TOPIKL_BY_EXAM, TOPIKL_PICTURE_SLOTS } from './topik-listening.js?v=e24e7ef9';
+import { SB_CATS, SB_MORE, SB_SEED } from './sentences.js?v=e24e7ef9';
 // 읽기 연습 지문. 길이(short·long) × 급수 여섯 칸.
-import { READING } from './reading.js?v=0fad11dd';
+import { READING } from './reading.js?v=e24e7ef9';
 // TOPIK 유형 연습문제. 기출이 아니라 자체 제작이다.
-import { TOPIK_READING, TOPIK_BLUEPRINT, TOPIK_SLOTS } from './topik.js?v=0fad11dd';
-import { TOPIK2_READING, TOPIK2_BLUEPRINT, TOPIK2_SLOTS } from './topik2.js?v=0fad11dd';
+import { TOPIK_READING, TOPIK_BLUEPRINT, TOPIK_SLOTS } from './topik.js?v=e24e7ef9';
+import { TOPIK2_READING, TOPIK2_BLUEPRINT, TOPIK2_SLOTS } from './topik2.js?v=e24e7ef9';
 // 숫자 게임의 읽기와 문제 만들기. 화면을 모르는 순수 계산이라 따로 뒀다.
-import { makeRound } from './numbers.js?v=0fad11dd';
+import { makeRound } from './numbers.js?v=e24e7ef9';
 
 // 이 키는 공개돼도 되는 값이다. 이미 APK 안에 같은 것이 들어 있고,
 // 접근을 막는 건 키가 아니라 테이블에 걸린 RLS 다.
@@ -158,7 +158,13 @@ $('libGoLogin').addEventListener('click', () => open('account'));
 $('dashBtn').addEventListener('click', () => { const go = !showing('dashView'); open(go ? 'dashboard' : 'home'); if (go) loadDashboard(); });
 // 게임 하나에 들어가 있을 때 눌러도 목록으로 돌아온다 — 한 단계 위가
 // 홈이 아니라 목록이어야 다른 게임으로 건너갈 수 있다.
-$('gameBtn').addEventListener('click', () => {
+$('gameBtn').addEventListener('click', (e) => {
+  /* 사이드 메뉴에서는 이 단추가 「펼치기」다 — 안에 게임 넷이 따로 있어서
+     굳이 목록 화면을 거칠 이유가 없다. 펼치기는 app.js 가 맡으므로 여기서는
+     비켜 준다. 안 비키면 누르는 순간 게임 화면으로 넘어가 버려서 방금 편
+     것을 못 본다.
+     (머리띠로 다시 옮기면 side-parent 가 아니게 되어 예전처럼 움직인다.) */
+  if (e.currentTarget.classList.contains('side-parent')) return;
   // 게임 하나에 들어가 있으면 한 단계 위는 홈이 아니라 목록이다.
   if (showing('clawView') || showing('matchView') || showing('quizView') || showing('numView')) return open('games');
   open(showing('gamesView') ? 'home' : 'games');
