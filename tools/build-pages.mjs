@@ -111,15 +111,32 @@ const ld = (obj) => obj
       .replaceAll('<', '\\u003c')}</script>`
   : '';
 
-/* 빵부스러기. 쪽 하나가 사이트 어디에 붙어 있는지 알려 준다. */
-const crumbLd = (parts) => ({
-  '@context': 'https://schema.org',
-  '@type': 'BreadcrumbList',
-  itemListElement: parts.map(([name, loc], i) => ({
-    '@type': 'ListItem', position: i + 1, name,
-    ...(loc ? { item: SITE + loc } : {}),
-  })),
-});
+/* 빵부스러기. 쪽 하나가 사이트 어디에 붙어 있는지 알려 준다.
+
+   **마지막을 뺀 모든 자리에는 주소가 있어야 한다.** 구글은 마지막 자리
+   (지금 보고 있는 쪽)에만 item 을 빼도 된다고 하고, 가운데가 비면
+   Search Console 이 Missing field "item" 으로 잡는다. 실제로 그렇게
+   290쪽이 잡혔다 — 갈래 이름을 넣어 두고 주소를 안 준 탓이다.
+
+   눈으로는 안 보이는 실수라(사람에게는 아무 일도 안 일어난다) 여기서
+   멈춘다. 조용히 넘어가면 몇 달 뒤에 메일로 알게 된다. */
+const crumbLd = (parts) => {
+  parts.forEach(([name, loc], i) => {
+    if (!loc && i < parts.length - 1) {
+      throw new Error(
+        `빵부스러기가 잘못됐다: 「${name}」(${i + 1}번째/${parts.length})에 주소가 없다.\n` +
+        '  마지막 자리만 주소를 뺄 수 있다. 갈 곳이 없는 자리라면 아예 넣지 마라.');
+    }
+  });
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: parts.map(([name, loc], i) => ({
+      '@type': 'ListItem', position: i + 1, name,
+      ...(loc ? { item: SITE + loc } : {}),
+    })),
+  };
+};
 
 function page({ url, title, desc, body, kind = 'article', jsonld }) {
   return `<!DOCTYPE html>
@@ -229,7 +246,13 @@ function pointPage(cat, p, prev, next) {
       },
       ...(more[0] ? { alternateName: more[0] } : {}),
     },
-    crumbLd([['치즈감자', '/'], ['문법 표현', '/sentence/'], [cat.ko, null], [p.name, null]]),
+    /* 갈래 쪽은 /compare/ 에 있다. 다만 표현이 하나뿐인 갈래는 견줄 것이
+       없어 안 만드므로(아래 생성 고리의 조건과 같아야 한다), 그럴 때는
+       갈래 자리를 아예 뺀다. 없는 주소를 적어 두면 크롤러가 404 를 받고,
+       주소 없이 이름만 두면 구글이 Missing field "item" 으로 잡는다. */
+    crumbLd([['치즈감자', '/'], ['문법 표현', '/sentence/'],
+             ...(cat.points.length >= 2 ? [[cat.ko, `/compare/${cat.id}.html`]] : []),
+             [p.name, null]]),
   ];
   return page({ url: `/sentence/${p.id}.html`, title, desc, body, jsonld });
 }

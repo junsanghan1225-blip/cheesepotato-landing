@@ -158,6 +158,55 @@ if (wayCount) {
     err(`영어 제목이 "${titleEn} ways" 인데 카드는 ${wayCount}장이다 ("${EN_NUM[wayCount]} ways")`);
 }
 
+/* ── 3.7 찍어 낸 쪽의 빵부스러기 ──────────────────────────────
+   구글은 **마지막을 뺀 모든 자리에 item(주소)** 을 요구한다. 가운데가
+   비면 Search Console 이 Missing field "item" 으로 잡고, 그 쪽은 검색
+   결과에서 빵부스러기를 잃는다. 실제로 290쪽이 그렇게 잡혔다.
+
+   사람 눈에는 아무 일도 안 일어나는 종류라 여기서 본다. build-pages.mjs
+   도 만들 때 멈추지만, 이미 찍혀 있는 쪽은 그쪽이 못 본다 —
+   생성기를 안 고치고 파일만 손대는 경우가 있어서 두 겹으로 둔다.
+
+   가리키는 주소가 진짜 있는지도 본다. 없는 곳을 가리키면 크롤러가
+   404 를 받고, 그건 빵부스러기가 없느니만 못하다. */
+const pages = [];
+const walkDir = (d) => {
+  for (const e of fs.readdirSync(d, { withFileTypes: true })) {
+    if (e.name === '.git' || e.name === 'node_modules' || e.name === 'vendor') continue;
+    const full = path.join(d, e.name);
+    if (e.isDirectory()) walkDir(full);
+    else if (e.name.endsWith('.html')) pages.push(full);
+  }
+};
+walkDir(ROOT);
+
+let crumbs = 0, links = 0;
+const missItem = [], deadLink = [];
+for (const f of pages) {
+  const txt = fs.readFileSync(f, 'utf8');
+  for (const m of txt.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)) {
+    let d;
+    try { d = JSON.parse(m[1]); } catch (e) { err(`${path.relative(ROOT, f)}: JSON-LD 가 깨졌다`); continue; }
+    for (const b of [].concat(d)) {
+      if (b?.['@type'] !== 'BreadcrumbList') continue;
+      crumbs++;
+      const els = b.itemListElement || [];
+      els.forEach((e, i) => {
+        const last = i === els.length - 1;
+        if (!e.item) { if (!last) missItem.push(`${path.relative(ROOT, f)} — ${i + 1}번째 「${e.name}」`); return; }
+        links++;
+        let rel = String(e.item).replace(/^https?:\/\/[^/]+/, '').replace(/^\//, '');
+        if (!rel || rel.endsWith('/')) rel += 'index.html';
+        if (!fs.existsSync(path.join(ROOT, rel)))
+          deadLink.push(`${path.relative(ROOT, f)} — ${e.item}`);
+      });
+    }
+  }
+}
+const few = (a) => a.slice(0, 3).map((x) => '\n      · ' + x).join('') + (a.length > 3 ? `\n      … 외 ${a.length - 3}개` : '');
+if (missItem.length) err(`빵부스러기 ${missItem.length}자리에 item 이 없다 (마지막이 아닌데):${few(missItem)}`);
+if (deadLink.length) err(`빵부스러기가 없는 쪽을 ${deadLink.length}번 가리킨다:${few(deadLink)}`);
+
 /* ── 4. 제목과 설명 ──────────────────────────────────────── */
 const title = (html.match(/<title>([\s\S]*?)<\/title>/) || [])[1] || '';
 const desc = (html.match(/<meta name="description" content="([\s\S]*?)">/) || [])[1] || '';
