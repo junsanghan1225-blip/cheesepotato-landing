@@ -13,7 +13,7 @@
    어느 날 갑자기 다른 코드가 실려 왔다.
    이제 vendor/ 안에 받아 두고 CSP 로 바깥을 막는다. 버전을 올릴 때는
    tools/vendor.mjs 의 PIN 을 고치고 다시 돌린다. */
-import { createClient } from './vendor/supabase-js.js?v=2377f767';
+import { createClient } from './vendor/supabase-js.js?v=8b1ccfde';
 // 앱(package.json)과 같은 줄기를 쓴다. 갈리면 앱에서는 읽히는 파일이
 // 여기서는 안 읽히는(또는 그 반대) 일이 생긴다.
 /* 엑셀 라이브러리는 422KB — 이 판에서 가장 무거운 조각이다. 그런데 쓰는
@@ -25,24 +25,21 @@ import { createClient } from './vendor/supabase-js.js?v=2377f767';
    자국(?v=)은 tools/stamp.mjs 가 아래 줄에 알아서 붙인다 — 정적으로 쓰든
    동적으로 쓰든 같은 글자를 찾으므로 바꿔도 그대로 찍힌다. */
 let XLSX = null;
-const needXLSX = async () => (XLSX ??= await import('./vendor/xlsx.js?v=2377f767'));
+const needXLSX = async () => (XLSX ??= await import('./vendor/xlsx.js?v=8b1ccfde'));
 // 커리큘럼. 내용과 엔진을 갈라 두면 글을 고치다 화면을 깨지 않는다.
-import { COURSES } from './courses.js?v=2377f767';
-import { GLOSSARY, GLOSS_LANGS } from './glossary.js?v=2377f767';
-import { glossFind } from './gloss-find.js?v=2377f767';
-import { GRAMMAR } from './grammar.js?v=2377f767';
-import { GRAMMAR_EN } from './grammar-en.js?v=2377f767';
-import { grammarScan } from './grammar-find.js?v=2377f767';
-import { TW_ITEMS, TW_QS } from './topik-writing.js?v=2377f767';
-import { TOPIKL_BY_EXAM, TOPIKL_PICTURE_SLOTS } from './topik-listening.js?v=2377f767';
-import { SB_CATS, SB_MORE, SB_SEED } from './sentences.js?v=2377f767';
+import { COURSES } from './courses.js?v=8b1ccfde';
+import { GLOSSARY, GLOSS_LANGS } from './glossary.js?v=8b1ccfde';
+import { glossFind } from './gloss-find.js?v=8b1ccfde';
+import { GRAMMAR } from './grammar.js?v=8b1ccfde';
+import { GRAMMAR_EN } from './grammar-en.js?v=8b1ccfde';
+import { grammarScan } from './grammar-find.js?v=8b1ccfde';
+import { TW_ITEMS, TW_QS } from './topik-writing.js?v=8b1ccfde';
+import { TOPIKL_BY_EXAM, TOPIKL_PICTURE_SLOTS } from './topik-listening.js?v=8b1ccfde';
+import { SB_CATS, SB_MORE, SB_SEED } from './sentences.js?v=8b1ccfde';
 // 읽기 연습 지문. 길이(short·long) × 급수 여섯 칸.
-import { READING } from './reading.js?v=2377f767';
 // TOPIK 유형 연습문제. 기출이 아니라 자체 제작이다.
-import { TOPIK_READING, TOPIK_BLUEPRINT, TOPIK_SLOTS } from './topik.js?v=2377f767';
-import { TOPIK2_READING, TOPIK2_BLUEPRINT, TOPIK2_SLOTS } from './topik2.js?v=2377f767';
 // 숫자 게임의 읽기와 문제 만들기. 화면을 모르는 순수 계산이라 따로 뒀다.
-import { makeRound } from './numbers.js?v=2377f767';
+import { makeRound } from './numbers.js?v=8b1ccfde';
 
 // 이 키는 공개돼도 되는 값이다. 이미 APK 안에 같은 것이 들어 있고,
 // 접근을 막는 건 키가 아니라 테이블에 걸린 RLS 다.
@@ -76,6 +73,30 @@ const PANELS = ['wbAuth', 'wbLoading', 'wbListWrap', 'wbEmpty', 'wbError'];
 function panel(name) {
   PANELS.forEach((k) => $(k).classList.toggle('hidden', k !== name));
 }
+
+/* ══ 늦게 받는 자료 ═════════════════════════════════════════════
+   시험지와 읽기 지문은 합쳐 438KB 다. 맨 위에서 받으면 첫 화면만 보고
+   나가는 사람도 전부 받는데, 그 사람은 TOPIK 을 누르지도 않았다.
+
+   갈래에 들어갈 때 받는다. open('learn') 이 미리 불을 붙여 두므로
+   (warmLearn) 갈래 목록을 보는 동안 받아지고, 실제로 기다리는 일은
+   거의 없다. 그래도 쓰기 전에 반드시 await 한다 — 「거의 없다」에 기대면
+   느린 망에서만 빈 화면이 나오고, 그건 재현이 안 돼서 못 고친다. */
+const TQ_DATA = { I: null, II: null };
+let tqDataP = null;
+const tqNeedData = () => (tqDataP ??= Promise.all([
+  import('./topik.js?v=8b1ccfde'), import('./topik2.js?v=8b1ccfde'),
+]).then(([a, b]) => {
+  TQ_DATA.I  = { reading: a.TOPIK_READING,  blueprint: a.TOPIK_BLUEPRINT,  slots: a.TOPIK_SLOTS };
+  TQ_DATA.II = { reading: b.TOPIK2_READING, blueprint: b.TOPIK2_BLUEPRINT, slots: b.TOPIK2_SLOTS };
+}));
+
+let READING = null, rdP = null;
+const rdNeed = () => (rdP ??= import('./reading.js?v=8b1ccfde').then((m) => { READING = m.READING; }));
+
+/* 배우기를 열면 둘 다 미리 부른다. 기다리지 않는다 — 갈래 목록은 이
+   자료가 없어도 그려지고, 사람이 갈래를 고르는 사이에 도착한다. */
+const warmLearn = () => { tqNeedData(); rdNeed(); };
 
 // 게임 목록과 그 아래 게임들. 새 게임을 더하면 여기에도 넣는다.
 const GAME_VIEWS = ['games', 'claw', 'match', 'quiz', 'num'];
@@ -122,6 +143,9 @@ function open(view) {
   /* TOPIK 을 풀며 표시해 둔 낱말이 있으면 단어장 맨 위에 내건다.
      여기 두면 단추로 들어오든 메뉴로 들어오든 주소로 들어오든 다 걸린다. */
   if (view === 'wordbook') wbPendingDraw();
+  /* 배우기·레슨에 들어오면 시험지와 지문을 미리 부른다. 기다리지 않는다 —
+     사람이 갈래를 고르는 사이에 도착한다. */
+  if (view === 'learn' || view === 'lesson') warmLearn();
   window.scrollTo({ top: 0, behavior: 'auto' });
   window.cpMark(view);
 }
@@ -2170,7 +2194,11 @@ const sentenceTier = (p) =>
    기록들(최고 점수·세트별 점수·모의고사 이력)은 손대지 않아도 섞이지 않는다. */
 const TQ_EXAMS = {
   I: {
-    reading: TOPIK_READING, blueprint: TOPIK_BLUEPRINT, slots: TOPIK_SLOTS,
+    /* 자료가 아직 안 왔으면 빈 것을 준다. 화면이 잠깐 비는 것과
+       터지는 것은 다르다 — 부르는 쪽은 tqNeedData 를 await 한다. */
+    get reading()   { return TQ_DATA.I?.reading   ?? []; },
+    get blueprint() { return TQ_DATA.I?.blueprint ?? []; },
+    get slots()     { return TQ_DATA.I?.slots     ?? {}; },
     grades: [1, 2], mockSec: 60 * 60, from: 31, to: 70,
     name: { ko: 'TOPIK I', en: 'TOPIK I' },
     sub: { ko: '1·2급', en: 'Levels 1–2' },
@@ -2183,7 +2211,11 @@ const TQ_EXAMS = {
       : t('생활에서 겪는 상황. 글이 조금 길어집니다.', 'Everyday situations, with slightly longer texts.')),
   },
   II: {
-    reading: TOPIK2_READING, blueprint: TOPIK2_BLUEPRINT, slots: TOPIK2_SLOTS,
+    /* 자료가 아직 안 왔으면 빈 것을 준다. 화면이 잠깐 비는 것과
+       터지는 것은 다르다 — 부르는 쪽은 tqNeedData 를 await 한다. */
+    get reading()   { return TQ_DATA.II?.reading   ?? []; },
+    get blueprint() { return TQ_DATA.II?.blueprint ?? []; },
+    get slots()     { return TQ_DATA.II?.slots     ?? {}; },
     grades: [3, 4, 5, 6], mockSec: 70 * 60, from: 1, to: 50,
     name: { ko: 'TOPIK II', en: 'TOPIK II' },
     sub: { ko: '3~6급 수준', en: 'Levels 3–6' },
@@ -2262,9 +2294,12 @@ function tqDrawSkillBar() {
 
 /* 고른 갈래의 판만 보이고 나머지는 닫는다. 목록을 훑어서 닫는 이유는
    갈래를 늘릴 때 여기 한 줄을 빠뜨리면 예전 갈래가 겹쳐 남기 때문이다. */
-function tqShowSkill(quiet) {
+async function tqShowSkill(quiet) {
   tqFixSkill();
   tlStop();
+  /* 시험지가 와야 갈래 목록의 문항 수·회차가 나온다. 안 기다리면 0문항짜리
+     빈 카드가 잠깐 보였다가 채워진다 — 느린 망에서만 보이는 종류다. */
+  await tqNeedData();
   tqDrawSkillBar();
   Object.values(TQ_SKILLS).forEach((s) => $(s.body)?.classList.add('hidden'));
   const body = $(TQ_SKILLS[tqSkill].body);
@@ -4654,8 +4689,8 @@ const rdDoneWrite = (id, score) => {
   } catch (e) {}
 };
 
-const rdRows = () => READING[rdLen]?.[learnLv.reading] ?? [];
-const rdFind = (id) => Object.values(READING).flatMap((g) => Object.values(g)).flat().find((r) => r.id === id);
+const rdRows = () => READING?.[rdLen]?.[learnLv.reading] ?? [];
+const rdFind = (id) => Object.values(READING ?? {}).flatMap((g) => Object.values(g)).flat().find((r) => r.id === id);
 
 /* ══ 글 속의 문법 ═══════════════════════════════════════════════
    낱말을 모르면 사전을 찾지만 **어미는 찾을 데가 없다.** 「-는 바람에」를
@@ -4783,7 +4818,8 @@ function rdLenSwitch() {
   );
 }
 
-function drawReading() {
+async function drawReading() {
+  await rdNeed();
   /* 다시 그리면 밑줄 친 낱말이 새것으로 바뀐다. 말풍선을 열어 둔 채로
      두면 없어진 낱말을 가리키고 있게 된다. */
   rdGClose();
@@ -4827,11 +4863,14 @@ function rdCard(r, score) {
     '</div>' +
     (score != null ? `<span class="rd-score-chip">${score}${esc(t('점', ''))}</span>` : '') +
     `<span class="rd-caret" aria-hidden="true">${rdOpen === r.id ? '▴' : '▾'}</span>`;
-  head.addEventListener('click', () => {
+  head.addEventListener('click', async () => {
     /* 아코디언이다 — 한 번에 하나만 편다. 여럿이 펼쳐져 있으면 어느
        칸에 쓰고 있는지 헷갈리고, 긴 글에서는 화면이 통째로 흐른다. */
     rdOpen = rdOpen === r.id ? null : r.id;
-    drawReading();
+    /* **기다려야 한다.** 아래에서 갓 그려진 카드를 찾아 굴리는데,
+       drawReading 이 지문을 받아 오느라 늦어질 수 있어서 안 기다리면
+       옛 카드를 집는다. 지문이 이미 와 있으면 이 await 는 한 틱이다. */
+    await drawReading();
     if (rdOpen === r.id) {
       const el = [...document.querySelectorAll('.rd-card')].find((c) => c.classList.contains('on'));
       el?.scrollIntoView({ block: 'start', behavior: 'smooth' });

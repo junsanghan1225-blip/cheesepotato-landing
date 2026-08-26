@@ -90,8 +90,13 @@
 <meta name="theme-color" content="#F2EEE4">
 
 <!-- 탭 아이콘. 없으면 브라우저가 /favicon.ico 를 알아서 찾다가 404 를 받는다.
-     실제로 그러고 있었다. logo.png 는 600×600 254KB 라 탭 아이콘으로 쓰기엔
-     너무 무거워서, 줄인 것을 따로 뒀다 (tools/build-icons.py). -->
+     실제로 그러고 있었다. logo.png 는 600×600 248KB 라 줄인 것을 따로 둔다
+     (tools/build-icons.py 가 만든다).
+
+     화면에 보이는 로고 셋도 logo-256.png(14KB)를 쓴다 — 가장 큰 것이 2배
+     화면에서 112px 인데 600×600 을 받고 있었다. logo.png 는 og:image 와
+     JSON-LD 의 Organization.logo 로만 남는다. 그 둘은 카카오톡·구글 서버가
+     따로 받아 가는 것이라 첫 화면 무게와 상관이 없다. -->
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
 <link rel="apple-touch-icon" href="icon-180.png">
 
@@ -102,8 +107,8 @@
      Pretendard 는 통짜(2.0MB) 대신 조각난 쪽을 쓴다 — 브라우저가
      unicode-range 를 보고 화면에 실제로 나온 글자가 든 조각만 받는다.
      그래서 저장소는 무거워졌지만 학습자가 받는 양은 오히려 줄었다. -->
-<link rel="stylesheet" href="vendor/pretendard.css?v=2377f767">
-<link rel="stylesheet" href="vendor/pressstart2p.css?v=2377f767">
+<link rel="stylesheet" href="vendor/pretendard.css?v=8b1ccfde">
+<link rel="stylesheet" href="vendor/pressstart2p.css?v=8b1ccfde">
 <style>
 /* ══════════════════════════════════════════════════════════════
    치즈감자 — 랜딩
@@ -3746,7 +3751,7 @@ button.btn-primary, button.btn-ghost { font-family:inherit; }
 <!-- 사이트 헤더. 페이지를 나누지 않고 화면만 바꾼다. -->
 <header class="site-hd"><div class="site-hd-in">
   <button class="brand" id="brandBtn" type="button" aria-label="홈으로">
-    <img src="logo.png" alt=""><span>치즈감자</span>
+    <img src="logo-256.png" alt="" width="28" height="28"><span>치즈감자</span>
   </button>
   <nav class="site-nav">
     <!-- 배우기가 이 사이트의 본체다. 헤더에서 가장 먼저 온다. -->
@@ -3883,7 +3888,7 @@ button.btn-primary, button.btn-ghost { font-family:inherit; }
   <div class="hero">
    <div class="hero-in">
     <div class="hero-copy">
-      <img class="hero-logo" src="logo.png" alt="치즈감자 로고">
+      <img class="hero-logo" src="logo-256.png" alt="치즈감자 로고" width="56" height="56">
       <div class="hero-badge" data-en="Free Korean learning · TOPIK I & II">무료 한국어 학습 · TOPIK I·II 대비</div>
       <h1>치즈감자</h1>
       <p class="hero-en">CHEESEPOTATO</p>
@@ -4115,7 +4120,7 @@ button.btn-primary, button.btn-ghost { font-family:inherit; }
 
   <!-- 다운로드 -->
   <div class="dl-section" id="download">
-    <div class="dl-logo-wrap"><img class="dl-logo" src="logo.png" alt="치즈감자"></div>
+    <div class="dl-logo-wrap"><img class="dl-logo" src="logo-256.png" alt="치즈감자" width="54" height="54"></div>
     <div class="dl-title" data-en="Start today">지금 바로 시작하세요</div>
     <div class="dl-sub" data-en="Build your own wordbook for free<br>and study smarter">무료로 나만의 단어장을 만들고<br>더 스마트하게 언어를 공부하세요</div>
     <a class="dl-btn" href="https://play.google.com/store" target="_blank" rel="noopener noreferrer" data-en="▶ Get it on Google Play">▶ Google Play 다운로드</a>
@@ -5554,9 +5559,9 @@ button.btn-primary, button.btn-ghost { font-family:inherit; }
   <span class="rd-g-tail" id="rdGTail" aria-hidden="true"></span>
 </div>
 
-<script src="app.js?v=2377f767"></script>
-<script type="module" src="app.module.js?v=2377f767"></script>
+<script src="app.js?v=8b1ccfde"></script>
+<script type="module" src="app.module.js?v=8b1ccfde"></script>
 
-<script src="analytics.js?v=2377f767" defer></script>
+<script src="analytics.js?v=8b1ccfde" defer></script>
 </body>
 </html>
