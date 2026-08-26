@@ -13,27 +13,36 @@
    어느 날 갑자기 다른 코드가 실려 왔다.
    이제 vendor/ 안에 받아 두고 CSP 로 바깥을 막는다. 버전을 올릴 때는
    tools/vendor.mjs 의 PIN 을 고치고 다시 돌린다. */
-import { createClient } from './vendor/supabase-js.js?v=e24e7ef9';
+import { createClient } from './vendor/supabase-js.js?v=2377f767';
 // 앱(package.json)과 같은 줄기를 쓴다. 갈리면 앱에서는 읽히는 파일이
 // 여기서는 안 읽히는(또는 그 반대) 일이 생긴다.
-import * as XLSX from './vendor/xlsx.js?v=e24e7ef9';
+/* 엑셀 라이브러리는 422KB — 이 판에서 가장 무거운 조각이다. 그런데 쓰는
+   자리는 넷뿐이고 전부 「단추를 눌렀을 때」다 (단어장 내보내기·가져오기,
+   자료마당 올리기·받기). 맨 위에 두면 **처음 온 사람도 전부 받는다** —
+   첫 화면이 받는 3.3MB 중 422KB 가 눌러 본 적도 없는 단추 몫이었다.
+
+   누를 때 가져온다. 한 번 가져오면 XLSX 에 담아 두므로 두 번 안 받는다.
+   자국(?v=)은 tools/stamp.mjs 가 아래 줄에 알아서 붙인다 — 정적으로 쓰든
+   동적으로 쓰든 같은 글자를 찾으므로 바꿔도 그대로 찍힌다. */
+let XLSX = null;
+const needXLSX = async () => (XLSX ??= await import('./vendor/xlsx.js?v=2377f767'));
 // 커리큘럼. 내용과 엔진을 갈라 두면 글을 고치다 화면을 깨지 않는다.
-import { COURSES } from './courses.js?v=e24e7ef9';
-import { GLOSSARY, GLOSS_LANGS } from './glossary.js?v=e24e7ef9';
-import { glossFind } from './gloss-find.js?v=e24e7ef9';
-import { GRAMMAR } from './grammar.js?v=e24e7ef9';
-import { GRAMMAR_EN } from './grammar-en.js?v=e24e7ef9';
-import { grammarScan } from './grammar-find.js?v=e24e7ef9';
-import { TW_ITEMS, TW_QS } from './topik-writing.js?v=e24e7ef9';
-import { TOPIKL_BY_EXAM, TOPIKL_PICTURE_SLOTS } from './topik-listening.js?v=e24e7ef9';
-import { SB_CATS, SB_MORE, SB_SEED } from './sentences.js?v=e24e7ef9';
+import { COURSES } from './courses.js?v=2377f767';
+import { GLOSSARY, GLOSS_LANGS } from './glossary.js?v=2377f767';
+import { glossFind } from './gloss-find.js?v=2377f767';
+import { GRAMMAR } from './grammar.js?v=2377f767';
+import { GRAMMAR_EN } from './grammar-en.js?v=2377f767';
+import { grammarScan } from './grammar-find.js?v=2377f767';
+import { TW_ITEMS, TW_QS } from './topik-writing.js?v=2377f767';
+import { TOPIKL_BY_EXAM, TOPIKL_PICTURE_SLOTS } from './topik-listening.js?v=2377f767';
+import { SB_CATS, SB_MORE, SB_SEED } from './sentences.js?v=2377f767';
 // 읽기 연습 지문. 길이(short·long) × 급수 여섯 칸.
-import { READING } from './reading.js?v=e24e7ef9';
+import { READING } from './reading.js?v=2377f767';
 // TOPIK 유형 연습문제. 기출이 아니라 자체 제작이다.
-import { TOPIK_READING, TOPIK_BLUEPRINT, TOPIK_SLOTS } from './topik.js?v=e24e7ef9';
-import { TOPIK2_READING, TOPIK2_BLUEPRINT, TOPIK2_SLOTS } from './topik2.js?v=e24e7ef9';
+import { TOPIK_READING, TOPIK_BLUEPRINT, TOPIK_SLOTS } from './topik.js?v=2377f767';
+import { TOPIK2_READING, TOPIK2_BLUEPRINT, TOPIK2_SLOTS } from './topik2.js?v=2377f767';
 // 숫자 게임의 읽기와 문제 만들기. 화면을 모르는 순수 계산이라 따로 뒀다.
-import { makeRound } from './numbers.js?v=e24e7ef9';
+import { makeRound } from './numbers.js?v=2377f767';
 
 // 이 키는 공개돼도 되는 값이다. 이미 APK 안에 같은 것이 들어 있고,
 // 접근을 막는 건 키가 아니라 테이블에 걸린 RLS 다.
@@ -1169,8 +1178,9 @@ $('auGoDash').addEventListener('click', () => { open('dashboard'); loadDashboard
 // ══ 엑셀 가져오기 · 내보내기 ═════════════════════════════════
 // 앱 WordbookScreen 과 같은 형식이다. A열 단어, B열 뜻, C열 난이도.
 // 머리글은 '단어' 여야 가져올 때 건너뛴다.
-$('wbExp').addEventListener('click', () => {
+$('wbExp').addEventListener('click', async () => {
   if (!rows.length) return;
+  await needXLSX();
   const list = visibleWords();   // 걸러 놓은 상태 그대로 내보낸다
   const aoa = [['단어', '뜻', '난이도'], ...list.map((w) => [String(w.word ?? ''), String(w.meaning ?? ''), Number(w.difficulty) || 1])];
   const ws = XLSX.utils.aoa_to_sheet(aoa);
@@ -1197,6 +1207,7 @@ $('wbImp').addEventListener('change', async (ev) => {
   }
 
   try {
+    await needXLSX();
     const wb = XLSX.read(await file.arrayBuffer(), { type: 'array' });
     const parsed = parseRows(XLSX.utils.sheet_to_json(wb.Sheets[wb.SheetNames[0]], { header: 1 }));
     if (!parsed.length) {
@@ -7116,6 +7127,7 @@ $('libFile').addEventListener('change', async (ev) => {
   }
 
   try {
+    await needXLSX();
     const wb = XLSX.read(await file.arrayBuffer(), { type: 'array' });
     const words = parseRows(XLSX.utils.sheet_to_json(wb.Sheets[wb.SheetNames[0]], { header: 1 }));
 
@@ -7362,6 +7374,7 @@ async function downloadResource(id, btn) {
       ['단어', '뜻', '난이도'],
       ...(data.words ?? []).map((w) => [String(w?.w ?? ''), String(w?.m ?? ''), Number(w?.d) || 1]),
     ];
+    await needXLSX();
     const ws = XLSX.utils.aoa_to_sheet(aoa);
     ws['!cols'] = [{ wch: 26 }, { wch: 34 }, { wch: 9 }];
     const wb = XLSX.utils.book_new();
