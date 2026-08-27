@@ -13,7 +13,7 @@
    어느 날 갑자기 다른 코드가 실려 왔다.
    이제 vendor/ 안에 받아 두고 CSP 로 바깥을 막는다. 버전을 올릴 때는
    tools/vendor.mjs 의 PIN 을 고치고 다시 돌린다. */
-import { createClient } from './vendor/supabase-js.js?v=54ebda26';
+import { createClient } from './vendor/supabase-js.js?v=8737ecf1';
 // 앱(package.json)과 같은 줄기를 쓴다. 갈리면 앱에서는 읽히는 파일이
 // 여기서는 안 읽히는(또는 그 반대) 일이 생긴다.
 /* 엑셀 라이브러리는 422KB — 이 판에서 가장 무거운 조각이다. 그런데 쓰는
@@ -25,21 +25,21 @@ import { createClient } from './vendor/supabase-js.js?v=54ebda26';
    자국(?v=)은 tools/stamp.mjs 가 아래 줄에 알아서 붙인다 — 정적으로 쓰든
    동적으로 쓰든 같은 글자를 찾으므로 바꿔도 그대로 찍힌다. */
 let XLSX = null;
-const needXLSX = async () => (XLSX ??= await import('./vendor/xlsx.js?v=54ebda26'));
+const needXLSX = async () => (XLSX ??= await import('./vendor/xlsx.js?v=8737ecf1'));
 // 커리큘럼. 내용과 엔진을 갈라 두면 글을 고치다 화면을 깨지 않는다.
-import { COURSES } from './courses.js?v=54ebda26';
-import { GLOSSARY, GLOSS_LANGS } from './glossary.js?v=54ebda26';
-import { glossFind } from './gloss-find.js?v=54ebda26';
-import { GRAMMAR } from './grammar.js?v=54ebda26';
-import { GRAMMAR_EN } from './grammar-en.js?v=54ebda26';
-import { grammarScan } from './grammar-find.js?v=54ebda26';
-import { TW_ITEMS, TW_QS } from './topik-writing.js?v=54ebda26';
-import { TOPIKL_BY_EXAM, TOPIKL_PICTURE_SLOTS } from './topik-listening.js?v=54ebda26';
-import { SB_CATS, SB_MORE, SB_SEED } from './sentences.js?v=54ebda26';
+import { COURSES } from './courses.js?v=8737ecf1';
+import { GLOSSARY, GLOSS_LANGS } from './glossary.js?v=8737ecf1';
+import { glossFind } from './gloss-find.js?v=8737ecf1';
+import { GRAMMAR } from './grammar.js?v=8737ecf1';
+import { GRAMMAR_EN } from './grammar-en.js?v=8737ecf1';
+import { grammarScan } from './grammar-find.js?v=8737ecf1';
+import { TW_ITEMS, TW_QS } from './topik-writing.js?v=8737ecf1';
+import { TOPIKL_BY_EXAM, TOPIKL_PICTURE_SLOTS } from './topik-listening.js?v=8737ecf1';
+import { SB_CATS, SB_MORE, SB_SEED } from './sentences.js?v=8737ecf1';
 // 읽기 연습 지문. 길이(short·long) × 급수 여섯 칸.
 // TOPIK 유형 연습문제. 기출이 아니라 자체 제작이다.
 // 숫자 게임의 읽기와 문제 만들기. 화면을 모르는 순수 계산이라 따로 뒀다.
-import { makeRound } from './numbers.js?v=54ebda26';
+import { makeRound } from './numbers.js?v=8737ecf1';
 
 // 이 키는 공개돼도 되는 값이다. 이미 APK 안에 같은 것이 들어 있고,
 // 접근을 막는 건 키가 아니라 테이블에 걸린 RLS 다.
@@ -85,14 +85,14 @@ function panel(name) {
 const TQ_DATA = { I: null, II: null };
 let tqDataP = null;
 const tqNeedData = () => (tqDataP ??= Promise.all([
-  import('./topik.js?v=54ebda26'), import('./topik2.js?v=54ebda26'),
+  import('./topik.js?v=8737ecf1'), import('./topik2.js?v=8737ecf1'),
 ]).then(([a, b]) => {
   TQ_DATA.I  = { reading: a.TOPIK_READING,  blueprint: a.TOPIK_BLUEPRINT,  slots: a.TOPIK_SLOTS };
   TQ_DATA.II = { reading: b.TOPIK2_READING, blueprint: b.TOPIK2_BLUEPRINT, slots: b.TOPIK2_SLOTS };
 }));
 
 let READING = null, rdP = null;
-const rdNeed = () => (rdP ??= import('./reading.js?v=54ebda26').then((m) => { READING = m.READING; }));
+const rdNeed = () => (rdP ??= import('./reading.js?v=8737ecf1').then((m) => { READING = m.READING; }));
 
 /* 배우기를 열면 둘 다 미리 부른다. 기다리지 않는다 — 갈래 목록은 이
    자료가 없어도 그려지고, 사람이 갈래를 고르는 사이에 도착한다. */
@@ -5445,12 +5445,40 @@ function sbDrawList() {
       '</div>'
     );
   }).join('');
+  /* 검색은 지금 단계 안에서만 돈다. 그런데 「-게 되다」처럼 같은 이름이
+     초급·중급 두 단계에 걸쳐 있는 표현이 여럿이라 — 고급을 보던 중에
+     치면 이름은 안 맞았는데 자주 함께 쓰는 말 칸에 그 글자가 우연히
+     섞인 딴 표현(4-3 「(으)로 말미암아」)만 나오고, 정작 찾던 것은
+     "찾는 표현이 없어요"에 가려 안 보였다 — 진짜 버그였다.
+
+     이름이 맞아떨어지는데 다른 단계에 있는 것은 검색 결과 위에 따로
+     알려 준다. 지금 단계 목록 자체는 그대로 두고(그 단계만 보고
+     싶은 사람도 있다), 놓친 게 있다는 것만 짚어 준다. */
+  let crossHtml = '';
+  if (q) {
+    const shown = new Set();
+    SB_CATS.forEach((c) => c.points.filter((p) => sentenceTier(p) === level && hit(p, c))
+      .forEach((p) => shown.add(p.id)));
+    const elsewhere = SB_POINTS.filter((p) =>
+      sentenceTier(p) !== level && !shown.has(p.id) && p.name.toLowerCase().includes(q));
+    if (elsewhere.length) {
+      crossHtml = '<div class="sb-cross">' +
+        `<p class="sb-cross-t">${t('다른 단계에 있어요', 'Found in another level')}</p>` +
+        elsewhere.slice(0, 5).map((p) =>
+          `<button class="sb-cross-item" type="button" data-jump="${esc(p.id)}">` +
+            `<span class="sb-cross-name">${esc(p.name)}</span>` +
+            `<span class="sb-cross-lv">${esc(learnLevelText(sentenceTier(p)))}</span>` +
+          '</button>').join('') +
+      '</div>';
+    }
+  }
+
   /* 비었을 때 이유가 둘이다. 찾는 말이 없는 것과, 그 단계를 아직 안 채운
      것은 다른 일인데 한 문장으로 뭉치면 학생이 제 검색어를 의심한다. */
-  $('sbCats').innerHTML = html || (q
-    ? `<p class="sb-none">${t('찾는 표현이 없어요.', 'No grammar point matches that.')}</p>`
+  $('sbCats').innerHTML = crossHtml + (html || (q
+    ? `<p class="sb-none">${t('이 단계에는 찾는 표현이 없어요.', 'No grammar point in this level matches that.')}</p>`
     : `<div class="learn-empty">${esc(t('이 단계 표현은 아직 채우는 중이에요.',
-                                        'Grammar points for this level are still being filled in.'))}</div>`);
+                                        'Grammar points for this level are still being filled in.'))}</div>`));
 }
 
 function sbDrawDetail() {
@@ -5593,6 +5621,16 @@ function sbShow(id) {
 $('sbQ').addEventListener('input', sbDrawList);
 
 $('sbCats').addEventListener('click', (ev) => {
+  const jump = ev.target.closest('[data-jump]');
+  if (jump) {
+    const p = sbFind(jump.dataset.jump);
+    if (!p) return;
+    learnLv.sentence = sentenceTier(p);   // 단계를 그 표현이 있는 쪽으로 옮긴다.
+    drawSentenceHead();
+    sbShow(p.id);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    return;
+  }
   const b = ev.target.closest('[data-pt]');
   if (!b) return;
   sbShow(b.dataset.pt);

@@ -107,8 +107,8 @@
      Pretendard 는 통짜(2.0MB) 대신 조각난 쪽을 쓴다 — 브라우저가
      unicode-range 를 보고 화면에 실제로 나온 글자가 든 조각만 받는다.
      그래서 저장소는 무거워졌지만 학습자가 받는 양은 오히려 줄었다. -->
-<link rel="stylesheet" href="vendor/pretendard.css?v=54ebda26">
-<link rel="stylesheet" href="vendor/pressstart2p.css?v=54ebda26">
+<link rel="stylesheet" href="vendor/pretendard.css?v=8737ecf1">
+<link rel="stylesheet" href="vendor/pressstart2p.css?v=8737ecf1">
 <style>
 /* ══════════════════════════════════════════════════════════════
    치즈감자 — 랜딩
@@ -1612,6 +1612,23 @@ button.btn-primary, button.btn-ghost { font-family:inherit; }
   font-variant-numeric:tabular-nums;
 }
 .sb-none { font-size:14px; color:var(--ink-3); padding:26px 0; text-align:center; }
+
+/* 검색이 지금 보는 단계 안에서만 도는데, 같은 이름의 표현이 여러 단계에
+   걸쳐 있을 때 진짜 찾던 것이 가려지는 일이 있었다(예: 「-게 되다」가
+   초급·중급 둘 다에 있는데 고급을 보던 중이면 안 나옴). 그걸 짚어 주는 줄. */
+.sb-cross {
+  margin-bottom:22px; padding:14px 16px; border-radius:var(--r-l);
+  background:var(--tint); border:1px solid rgba(196,85,28,.18);
+}
+.sb-cross-t { font-size:12.5px; font-weight:700; color:var(--orange-deep); margin-bottom:9px; }
+.sb-cross-item {
+  display:inline-flex; align-items:center; gap:8px; width:auto;
+  background:var(--surface); border:1px solid var(--line); border-radius:999px;
+  padding:7px 13px 7px 15px; margin:0 8px 8px 0; cursor:pointer;
+  font-size:13.5px; font-weight:700; color:var(--ink); transition:border-color .16s;
+}
+.sb-cross-item:hover { border-color:rgba(27,21,18,.28); }
+.sb-cross-lv { font-size:11px; font-weight:700; color:var(--ink-3); background:var(--line-2); border-radius:999px; padding:2px 8px; }
 
 /* 표현 하나 — 상세 */
 .sb-head { margin-bottom:20px; }
@@ -5665,9 +5682,9 @@ body.hlp-open { overflow:hidden; }
 <div id="hlpScrim" class="hlp-scrim"></div>
 <aside id="hlpPanel" class="hlp-panel" aria-label="한국어 도우미" aria-hidden="true"></aside>
 
-<script src="app.js?v=54ebda26"></script>
-<script type="module" src="app.module.js?v=54ebda26"></script>
+<script src="app.js?v=8737ecf1"></script>
+<script type="module" src="app.module.js?v=8737ecf1"></script>
 
-<script src="analytics.js?v=54ebda26" defer></script>
+<script src="analytics.js?v=8737ecf1" defer></script>
 </body>
 </html>
