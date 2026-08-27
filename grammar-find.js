@@ -13,7 +13,7 @@
  * 길이로 줄 세워 긴 것부터 자리를 잡고, 이미 잡힌 자리와 겹치는 것은
  * 버린다.
  */
-import { GRAMMAR } from './grammar.js?v=f53ec08e';
+import { GRAMMAR } from './grammar.js?v=25e2c60d';
 
 const BASE = 0xac00;
 
