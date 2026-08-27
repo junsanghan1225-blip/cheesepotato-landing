@@ -13,7 +13,7 @@
    어느 날 갑자기 다른 코드가 실려 왔다.
    이제 vendor/ 안에 받아 두고 CSP 로 바깥을 막는다. 버전을 올릴 때는
    tools/vendor.mjs 의 PIN 을 고치고 다시 돌린다. */
-import { createClient } from './vendor/supabase-js.js?v=c23e3caf';
+import { createClient } from './vendor/supabase-js.js?v=a15bf657';
 // 앱(package.json)과 같은 줄기를 쓴다. 갈리면 앱에서는 읽히는 파일이
 // 여기서는 안 읽히는(또는 그 반대) 일이 생긴다.
 /* 엑셀 라이브러리는 422KB — 이 판에서 가장 무거운 조각이다. 그런데 쓰는
@@ -25,21 +25,21 @@ import { createClient } from './vendor/supabase-js.js?v=c23e3caf';
    자국(?v=)은 tools/stamp.mjs 가 아래 줄에 알아서 붙인다 — 정적으로 쓰든
    동적으로 쓰든 같은 글자를 찾으므로 바꿔도 그대로 찍힌다. */
 let XLSX = null;
-const needXLSX = async () => (XLSX ??= await import('./vendor/xlsx.js?v=c23e3caf'));
+const needXLSX = async () => (XLSX ??= await import('./vendor/xlsx.js?v=a15bf657'));
 // 커리큘럼. 내용과 엔진을 갈라 두면 글을 고치다 화면을 깨지 않는다.
-import { COURSES } from './courses.js?v=c23e3caf';
-import { GLOSSARY, GLOSS_LANGS } from './glossary.js?v=c23e3caf';
-import { glossFind } from './gloss-find.js?v=c23e3caf';
-import { GRAMMAR } from './grammar.js?v=c23e3caf';
-import { GRAMMAR_EN } from './grammar-en.js?v=c23e3caf';
-import { grammarScan } from './grammar-find.js?v=c23e3caf';
-import { TW_ITEMS, TW_QS } from './topik-writing.js?v=c23e3caf';
-import { TOPIKL_BY_EXAM, TOPIKL_PICTURE_SLOTS } from './topik-listening.js?v=c23e3caf';
-import { SB_CATS, SB_MORE, SB_SEED } from './sentences.js?v=c23e3caf';
+import { COURSES } from './courses.js?v=a15bf657';
+import { GLOSSARY, GLOSS_LANGS } from './glossary.js?v=a15bf657';
+import { glossFind } from './gloss-find.js?v=a15bf657';
+import { GRAMMAR } from './grammar.js?v=a15bf657';
+import { GRAMMAR_EN } from './grammar-en.js?v=a15bf657';
+import { grammarScan } from './grammar-find.js?v=a15bf657';
+import { TW_ITEMS, TW_QS } from './topik-writing.js?v=a15bf657';
+import { TOPIKL_BY_EXAM, TOPIKL_PICTURE_SLOTS } from './topik-listening.js?v=a15bf657';
+import { SB_CATS, SB_MORE, SB_SEED } from './sentences.js?v=a15bf657';
 // 읽기 연습 지문. 길이(short·long) × 급수 여섯 칸.
 // TOPIK 유형 연습문제. 기출이 아니라 자체 제작이다.
 // 숫자 게임의 읽기와 문제 만들기. 화면을 모르는 순수 계산이라 따로 뒀다.
-import { makeRound } from './numbers.js?v=c23e3caf';
+import { makeRound } from './numbers.js?v=a15bf657';
 
 // 이 키는 공개돼도 되는 값이다. 이미 APK 안에 같은 것이 들어 있고,
 // 접근을 막는 건 키가 아니라 테이블에 걸린 RLS 다.
@@ -85,14 +85,14 @@ function panel(name) {
 const TQ_DATA = { I: null, II: null };
 let tqDataP = null;
 const tqNeedData = () => (tqDataP ??= Promise.all([
-  import('./topik.js?v=c23e3caf'), import('./topik2.js?v=c23e3caf'),
+  import('./topik.js?v=a15bf657'), import('./topik2.js?v=a15bf657'),
 ]).then(([a, b]) => {
   TQ_DATA.I  = { reading: a.TOPIK_READING,  blueprint: a.TOPIK_BLUEPRINT,  slots: a.TOPIK_SLOTS };
   TQ_DATA.II = { reading: b.TOPIK2_READING, blueprint: b.TOPIK2_BLUEPRINT, slots: b.TOPIK2_SLOTS };
 }));
 
 let READING = null, rdP = null;
-const rdNeed = () => (rdP ??= import('./reading.js?v=c23e3caf').then((m) => { READING = m.READING; }));
+const rdNeed = () => (rdP ??= import('./reading.js?v=a15bf657').then((m) => { READING = m.READING; }));
 
 /* 배우기를 열면 둘 다 미리 부른다. 기다리지 않는다 — 갈래 목록은 이
    자료가 없어도 그려지고, 사람이 갈래를 고르는 사이에 도착한다. */
@@ -6134,6 +6134,7 @@ function twOpen(it) {
     `<div class="tw-warn" id="twW"></div>` +
 
     '<div class="tw-acts">' +
+      (long ? '' : `<button class="btn-retro" id="twSubmit" type="button">${t('제출하기', 'Submit')}</button>`) +
       `<button class="btn-retro green" id="twShow" type="button">${t('모범답안 보기', 'Show a model answer')}</button>` +
       `<button class="wb-out" id="twClear" type="button">${t('지우기', 'Clear')}</button>` +
     '</div>' +
@@ -6146,6 +6147,7 @@ function twOpen(it) {
     twSync();
   });
   $('twShow').addEventListener('click', twReveal);
+  if (!long) $('twSubmit').addEventListener('click', twSubmit);
   $('twDesk').querySelectorAll('.tw-in').forEach((x) => x.addEventListener('input', twSync));
   if (long) $('twClock').addEventListener('click', twToggleClock);
 
@@ -6215,6 +6217,98 @@ function twReveal() {
   html += `<div class="tw-sec-t">${t('흔한 감점 요인', 'Common deductions')}</div>` +
     '<ul class="tw-ul">' + it.deduct.map((d) => `<li>${esc(d)}</li>`).join('') + '</ul>';
   $('twOut').innerHTML = html;
+  setTimeout(() => $('twOut').scrollIntoView({ behavior: 'smooth', block: 'start' }), 60);
+}
+
+/* ── 51·52 채점 (규칙, AI 아님) ────────────────────────────────
+   docs/topik-writing-plan.md 2단계. 53·54 는 600~700자 논술이라
+   규칙으로 못 매기고(AI 가 필요) 여기서는 안 다룬다.
+
+   answers 에 적힌 2~3개 표현과 글자 그대로(또는 띄어쓰기만 다르게)
+   맞아야 5점을 준다. 그 표현들과 다르면 — 한국어는 같은 뜻을 여러
+   어순으로 말할 수 있어서 — 맞았는지 규칙으로 확신할 수 없다.
+   그래서 "정답"이나 "오답"이라고 단정하지 않고 "표현이 달라요, 모범
+   답안과 비교해 보세요"로 되돌린다. 자신 없는 것을 자신 있게 말하지
+   않는다 — §5 의 "연습용 참고 점수" 원칙과 같다. */
+function twScoreBlank(text, blank, register) {
+  const norm = (s) => String(s).trim().replace(/\s+/g, ' ').replace(/[.!?~]+$/, '');
+  const bare = (s) => norm(s).replace(/\s/g, '');
+  const got = norm(text);
+  if (!got) return { pt: 0, tag: 'empty' };
+
+  const miss = twRegisterMiss(got, register);
+  if (miss.length) return { pt: 2, tag: 'register', why: miss[0].why };
+
+  const answers = blank.answers.map(norm);
+  if (answers.includes(got) || answers.some((a) => bare(a) === bare(got))) return { pt: 5, tag: 'exact' };
+
+  return { pt: 3, tag: 'guess' };
+}
+
+/* t() 는 부르는 순간의 언어를 읽는다(isEn() 참고). 모듈 위에서 한 번만
+   객체로 굳혀 두면 언어를 나중에 바꿔도 그때 언어로 안 바뀐다 — 그래서
+   함수로 두고 twSubmit 이 부를 때마다 새로 구한다. */
+function twTagText(tag) {
+  switch (tag) {
+    case 'empty':    return t('아직 안 썼어요.', 'Not answered yet.');
+    case 'register': return t('문체가 달라요', 'Wrong register');
+    case 'exact':     return t('정확해요', 'Matches a model answer');
+    default:          return t('표현이 달라요 — 모범답안과 비교해 보세요.', 'Different wording — compare with the model answers below.');
+  }
+}
+
+/* 다음 채점 대상은 같은 문항 번호(51 또는 52)뿐이다. 51 을 풀다가
+   갑자기 52 로 넘기면 "51번을 이어서 푼다"는 기대가 깨진다. */
+function twNextSameType() {
+  const it = twItem;
+  if (!it) return;
+  const mine = TW_ITEMS.filter((x) => x.lv === learnLv.writing && x.q === it.q);
+  const idx = mine.findIndex((x) => x.id === it.id);
+  const next = mine[idx + 1];
+  if (next) return twOpen(next);
+  twItem = null;   // twDraw 는 twItem 이 있으면 되돌아가지 않는다(쓰던 글 보호). 다 풀었으니 비운다.
+  twDraw();
+}
+
+function twSubmit() {
+  const it = twItem;
+  if (!it || !it.blanks) return;
+
+  const rows = it.blanks.map((b, i) => {
+    const text = $('twDesk').querySelector(`.tw-blank[data-i="${i}"]`)?.value || '';
+    const r = twScoreBlank(text, b, it.register);
+    return { b, r };
+  });
+  const total = rows.reduce((s, x) => s + x.r.pt, 0);
+  const max = rows.length * 5;
+
+  const sameType = TW_ITEMS.filter((x) => x.lv === learnLv.writing && x.q === it.q);
+  const isLastOfType = sameType.findIndex((x) => x.id === it.id) >= sameType.length - 1;
+
+  const html =
+    `<div class="tw-sec-t">${t('채점 결과 (연습용)', 'Score (practice only)')}</div>` +
+    `<p class="tw-score-big">${total} <span>/ ${max}${t('점', ' pts')}</span></p>` +
+    '<ul class="tw-ul">' +
+      rows.map(({ b, r }) =>
+        `<li><b>${esc(b.mark)}</b> ${r.pt}${t('점', 'pt')} — ${esc(twTagText(r.tag))}` +
+        (r.tag === 'register' && r.why ? ` (${esc(r.why)})` : '') + '</li>').join('') +
+    '</ul>' +
+    `<p class="tw-cond">${t(
+      '연습용 참고 점수예요. 규칙 기반 채점이라 실제 TOPIK 채점과 다를 수 있어요. ' +
+      '"표현이 달라요"는 틀렸다는 뜻이 아니라 규칙으로 확신할 수 없다는 뜻이에요 — 모범답안과 견줘 보세요.',
+      'A practice estimate from rule-based matching — it can differ from real TOPIK scoring. ' +
+      '"Different wording" does not mean wrong, only that the rules cannot confirm it — compare with the model answers.'
+    )}</p>` +
+    '<div class="tw-acts">' +
+      (isLastOfType
+        ? `<p class="tw-cond"><b>${t('이 유형은 다 풀었어요.', 'You’ve done all of this type.')}</b></p>`
+        : `<button class="btn-retro" id="twNext" type="button">${t('다음 문제 (같은 유형) →', 'Next (same type) →')}</button>`) +
+      `<button class="btn-retro green" id="twShow2" type="button">${t('모범답안 보기', 'Show a model answer')}</button>` +
+    '</div>';
+
+  $('twOut').innerHTML = html;
+  if (!isLastOfType) $('twNext').addEventListener('click', twNextSameType);
+  $('twShow2').addEventListener('click', twReveal);
   setTimeout(() => $('twOut').scrollIntoView({ behavior: 'smooth', block: 'start' }), 60);
 }
 
