@@ -27,8 +27,8 @@
 
    **갈래 id 는 단계를 넘어 이어 붙인다.** 고급 1~22, 초급 23~47, 중급 48~73.
    화면에 보이는 번호는 no(그 단계 교육과정의 제 번호)다. */
-import { BEGINNER_CATS } from './sentences-beginner.js?v=a15bf657';
-import { INTERMEDIATE_CATS } from './sentences-intermediate.js?v=a15bf657';
+import { BEGINNER_CATS } from './sentences-beginner.js?v=5f2d3633';
+import { INTERMEDIATE_CATS } from './sentences-intermediate.js?v=5f2d3633';
 
 /* 갈래 emoji 는 「배우기 › 예문 만들기」 목록·상세 화면 양쪽에서 갈래를
    시각적으로 구분하는 데만 쓴다. 뜻풀이에 영향이 없는 장식이라 순서를
@@ -256,7 +256,7 @@ const ADVANCED_CATS = [
     { id: "12-2", lv: "advanced", name: "-기 일쑤이다",
       desc: "그런 일이 자주 있다는 뜻으로 주로 안 좋은 일에 씁니다.",
       ex: "늦잠을 자서 지각하기 일쑤예요.",
-      dlg: ["A: 요즘 학교 잘 다녀?", "B: 늦잠을 자서 지각하기 일쑤예요."] },
+      dlg: ["A: 요즘 학교 잘 다녀요?", "B: 늦잠을 자서 지각하기 일쑤예요."] },
     { id: "12-3", lv: "advanced", name: "-는 둥 마는 둥 하다",
       desc: "하는 듯 마는 듯 대충 한다는 뜻입니다.",
       ex: "밥을 먹는 둥 마는 둥 하고 나갔다.",
@@ -356,11 +356,11 @@ const ADVANCED_CATS = [
     { id: "18-3", lv: "advanced", name: "-(으)ㄴ 나머지",
       desc: "정도가 지나쳐서 그 결과 이렇게 되었다는 뜻입니다.",
       ex: "너무 긴장한 나머지 이름을 잊었다.",
-      dlg: ["A: 발표할 때 무슨 일 있었어?", "B: 너무 긴장한 나머지 제 이름까지 깜빡했어요."] },
+      dlg: ["A: 발표할 때 무슨 일 있었어요?", "B: 너무 긴장한 나머지 제 이름까지 깜빡했어요."] },
     { id: "18-4", lv: "advanced", name: "-데요",
       desc: "직접 보고 겪은 일을 회상해 전할 때 씁니다.",
       ex: "어제 가 보니까 아주 좋데요.",
-      dlg: ["A: 그 집 새로 생긴 식당 가 봤어?", "B: 응, 어제 가 보니까 음식이 생각보다 맵데요."] },
+      dlg: ["A: 그 집 새로 생긴 식당 가 보셨어요?", "B: 네, 어제 가 보니까 음식이 생각보다 맵데요."] },
   ] },
   { id: 19, ko: "상황이나 기준을 나타낼 때", en: "Expressing Situations and Standards", emoji: "📐", points: [
     { id: "19-1", lv: "advanced", name: "-는 가운데",
@@ -402,7 +402,7 @@ const ADVANCED_CATS = [
     { id: "21-2", lv: "advanced", name: "하게체",
       desc: "손아랫사람을 어느 정도 대접해 부르는 말투입니다.",
       ex: "자네도 이리 와서 한잔하게.",
-      dlg: ["A: 저 어르신은 후배분한테 말투가 특이하시네요.", "B: 응, \"이리 와서 한잔하게\" 하시는 걸 보니 하게체를 쓰시나 봐."] },
+      dlg: ["A: 저 어르신은 후배분한테 말투가 특이하시네.", "B: 응, \"이리 와서 한잔하게\" 하시는 걸 보니 하게체를 쓰시나 봐."] },
   ] },
   { id: 22, ko: "기타 유용한 표현들", en: "Other Useful Expressions", emoji: "🧩", points: [
     { id: "22-1", lv: "advanced", name: "-(으)므로, -(으)나, -(으)며",
