@@ -13,7 +13,7 @@
    어느 날 갑자기 다른 코드가 실려 왔다.
    이제 vendor/ 안에 받아 두고 CSP 로 바깥을 막는다. 버전을 올릴 때는
    tools/vendor.mjs 의 PIN 을 고치고 다시 돌린다. */
-import { createClient } from './vendor/supabase-js.js?v=ee0ee5e0';
+import { createClient } from './vendor/supabase-js.js?v=13bc362e';
 // 앱(package.json)과 같은 줄기를 쓴다. 갈리면 앱에서는 읽히는 파일이
 // 여기서는 안 읽히는(또는 그 반대) 일이 생긴다.
 /* 엑셀 라이브러리는 422KB — 이 판에서 가장 무거운 조각이다. 그런데 쓰는
@@ -25,21 +25,21 @@ import { createClient } from './vendor/supabase-js.js?v=ee0ee5e0';
    자국(?v=)은 tools/stamp.mjs 가 아래 줄에 알아서 붙인다 — 정적으로 쓰든
    동적으로 쓰든 같은 글자를 찾으므로 바꿔도 그대로 찍힌다. */
 let XLSX = null;
-const needXLSX = async () => (XLSX ??= await import('./vendor/xlsx.js?v=ee0ee5e0'));
+const needXLSX = async () => (XLSX ??= await import('./vendor/xlsx.js?v=13bc362e'));
 // 커리큘럼. 내용과 엔진을 갈라 두면 글을 고치다 화면을 깨지 않는다.
-import { COURSES } from './courses.js?v=ee0ee5e0';
-import { GLOSSARY, GLOSS_LANGS } from './glossary.js?v=ee0ee5e0';
-import { glossFind } from './gloss-find.js?v=ee0ee5e0';
-import { GRAMMAR } from './grammar.js?v=ee0ee5e0';
-import { GRAMMAR_EN } from './grammar-en.js?v=ee0ee5e0';
-import { grammarScan } from './grammar-find.js?v=ee0ee5e0';
-import { TW_ITEMS, TW_QS } from './topik-writing.js?v=ee0ee5e0';
-import { TOPIKL_BY_EXAM, TOPIKL_PICTURE_SLOTS } from './topik-listening.js?v=ee0ee5e0';
-import { SB_CATS, SB_MORE, SB_SEED } from './sentences.js?v=ee0ee5e0';
+import { COURSES } from './courses.js?v=13bc362e';
+import { GLOSSARY, GLOSS_LANGS } from './glossary.js?v=13bc362e';
+import { glossFind } from './gloss-find.js?v=13bc362e';
+import { GRAMMAR } from './grammar.js?v=13bc362e';
+import { GRAMMAR_EN } from './grammar-en.js?v=13bc362e';
+import { grammarScan } from './grammar-find.js?v=13bc362e';
+import { TW_ITEMS, TW_QS } from './topik-writing.js?v=13bc362e';
+import { TOPIKL_BY_EXAM, TOPIKL_PICTURE_SLOTS } from './topik-listening.js?v=13bc362e';
+import { SB_CATS, SB_MORE, SB_SEED } from './sentences.js?v=13bc362e';
 // 읽기 연습 지문. 길이(short·long) × 급수 여섯 칸.
 // TOPIK 유형 연습문제. 기출이 아니라 자체 제작이다.
 // 숫자 게임의 읽기와 문제 만들기. 화면을 모르는 순수 계산이라 따로 뒀다.
-import { makeRound } from './numbers.js?v=ee0ee5e0';
+import { makeRound } from './numbers.js?v=13bc362e';
 
 // 이 키는 공개돼도 되는 값이다. 이미 APK 안에 같은 것이 들어 있고,
 // 접근을 막는 건 키가 아니라 테이블에 걸린 RLS 다.
@@ -85,14 +85,14 @@ function panel(name) {
 const TQ_DATA = { I: null, II: null };
 let tqDataP = null;
 const tqNeedData = () => (tqDataP ??= Promise.all([
-  import('./topik.js?v=ee0ee5e0'), import('./topik2.js?v=ee0ee5e0'),
+  import('./topik.js?v=13bc362e'), import('./topik2.js?v=13bc362e'),
 ]).then(([a, b]) => {
   TQ_DATA.I  = { reading: a.TOPIK_READING,  blueprint: a.TOPIK_BLUEPRINT,  slots: a.TOPIK_SLOTS };
   TQ_DATA.II = { reading: b.TOPIK2_READING, blueprint: b.TOPIK2_BLUEPRINT, slots: b.TOPIK2_SLOTS };
 }));
 
 let READING = null, rdP = null;
-const rdNeed = () => (rdP ??= import('./reading.js?v=ee0ee5e0').then((m) => { READING = m.READING; }));
+const rdNeed = () => (rdP ??= import('./reading.js?v=13bc362e').then((m) => { READING = m.READING; }));
 
 /* 배우기를 열면 둘 다 미리 부른다. 기다리지 않는다 — 갈래 목록은 이
    자료가 없어도 그려지고, 사람이 갈래를 고르는 사이에 도착한다. */
@@ -1855,15 +1855,16 @@ function mdBlock(src) {
      지정하지 않으면 `audioSlug(텍스트).mp3` 로 자동 생성된 경로를 먼저 탐색
    - MP3가 없거나 로딩/재생 실패시 조용히 Web Speech 로 전환 (오류창 절대 안 띄움) */
 
-/* 오디오 파일명으로 안전하게 쓸 수 있도록 텍스트 정규화
-   한글·영어·숫자는 유지, 그 외 특수문자·공백은 언더바로 치환 */
-/* \uC18C\uB9AC \uD30C\uC77C \uC774\uB984. **\uB0B1\uC790(\u3131 \u3134 \u314F \u3153 \u2026)\uB97C \uBE60\uB728\uB9AC\uBA74 \uC548 \uB41C\uB2E4.**
-   \uB0B1\uC790\uB294 \uD55C\uAE00 \uC74C\uC808(U+AC00~D7AF)\uC774 \uC544\uB2C8\uB77C \uD638\uD658 \uC790\uBAA8(U+3130~318F)\uC5D0 \uC788\uC5B4\uC11C,
-   \uC74C\uC808 \uBC94\uC704\uB9CC \uB0A8\uAE30\uBA74 \u300C\u3131\u300D\uC774 \uD1B5\uC9F8\uB85C \uC9C0\uC6CC\uC838 \uC774\uB984\uC774 \uBE48 \uBB38\uC790\uC5F4\uC774 \uB41C\uB2E4.
-   \uADF8\uB7EC\uBA74 say('\u3131') \uC774 assets/audio/.mp3 \uB97C \uCC3E\uC544 \uC601\uC601 \uBABB \uB9CC\uB09C\uB2E4 \u2014 \uAE00\uC790
-   \uCE74\uB4DC 39\uAC1C\uB294 \uD55C\uAE00\uC744 \uCC98\uC74C \uBC30\uC6B0\uB294 \uC0AC\uB78C\uC774 \uAC00\uC7A5 \uBA3C\uC800 \uB4E3\uB294 \uC18C\uB9AC\uC778\uB370, \uB179\uC74C\uC744
-   \uC62C\uB824\uB3C4 \uB85C\uBD07 \uBAA9\uC18C\uB9AC\uB85C\uB9CC \uB098\uC624\uAC8C \uB41C\uB2E4. tools/tts-manifest.mjs \uC5D0 \uAC19\uC740
-   \uD568\uC218\uAC00 \uC788\uC73C\uB2C8 \uC5EC\uAE30\uB97C \uACE0\uCE58\uBA74 \uADF8\uCABD\uB3C4 \uACE0\uCCD0\uB77C. */
+/* 오디오 파일명으로 안전하게 쓸 수 있도록 텍스트 정규화.
+   한글·영어·숫자는 유지, 그 외 특수문자·공백은 언더바로 치환한다.
+
+   **낱자(ㄱ ㄴ ㅏ ㅓ …)를 빠뜨리면 안 된다.** 낱자는 한글 음절
+   (U+AC00~D7AF)이 아니라 호환 자모(U+3130~318F)에 있어서, 음절 범위만
+   남기면 「ㄱ」이 통째로 지워져 이름이 빈 문자열이 된다. 그러면
+   say('ㄱ') 이 assets/audio/.mp3 를 찾아 영영 못 만난다 — 글자 카드
+   39개는 한글을 처음 배우는 사람이 가장 먼저 듣는 소리인데, 녹음을
+   올려도 로봇 목소리로만 나오게 된다. tools/tts-manifest.mjs 에 같은
+   함수가 있으니 여기를 고치면 그쪽도 고쳐라. */
 function audioSlug(text) {
   return String(text ?? '').trim()
     .replace(/[^\u3130-\u318F\uAC00-\uD7AFa-zA-Z0-9]+/g, '_')

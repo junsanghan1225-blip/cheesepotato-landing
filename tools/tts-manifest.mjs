@@ -59,9 +59,19 @@ const add = (group, out, parts) => {
 };
 const want = (g) => !only || only.has(g);
 
-/* ── 1. 코스의 소리 · 글자 카드 ─────────────────────────────
+/* ── 1. 코스의 소리 · 글자 카드 · 빈칸 채우기(cloze) ────────
    say:'…' 와 글자 카드 ch:'…'. 한글을 처음 배우는 사람이 가장 먼저
-   듣는 소리라 여기가 제일 중요하다. */
+   듣는 소리라 여기가 제일 중요하다.
+
+   cloze(t:'cloze')는 따로 챙긴다. 화면(app.module.js 의 exBlock, senRaw/
+   fullSay)이 실제로 재생하는 것은 sentence 의 [빈칸] 을 채운 문장이고,
+   경로는 audio 필드가 있으면 그걸, 없으면 audioSlug(그 문장)+.mp3 를
+   찾는다 — 여기도 정확히 같은 규칙으로 뽑아야 한다.
+
+   **이걸 빼먹었던 적이 있다.** courses.js 의 cloze 76개 중 손으로 audio
+   필드를 넣어 둔 4개만 파일이 있었고(그나마 내용은 비어 있었다) 나머지
+   72개는 이 도구가 아예 모르는 채로 있었다 — say:/ch: 만 훑어서다. 구우려고
+   manifest 를 뽑아도 그 72개는 목록에 안 잡히니 영영 로봇 목소리로 남는다. */
 if (want('course')) {
   const files = fs.readdirSync(ROOT).filter((f) => /^courses.*\.js$/.test(f));
   const seen = new Set();
@@ -75,6 +85,20 @@ if (want('course')) {
         seen.add(text);
         add('course', `${audioSlug(text)}.mp3`, [{ voice: 'm', text }]);
       }
+    }
+
+    /* cloze 블록 하나를 통째로 잡는다. 안에 { } 가 중첩되는 칸이 없어서
+       (배열은 [ ] 를 쓴다) 첫 } 에서 끊어도 그 블록의 진짜 끝이다. */
+    for (const m of code.matchAll(/\{\s*t\s*:\s*'cloze'[\s\S]*?\}/g)) {
+      const block = m[0];
+      const sm = /\bsentence\s*:\s*'([^']+)'/.exec(block) || /\bsentence\s*:\s*"([^"]+)"/.exec(block);
+      if (!sm) continue;
+      // senRaw.replace(/\[([^\]]+)\]/g, '$1') — app.module.js 의 fullSay 계산과 같다.
+      const full = sm[1].replace(/\[([^\]]+)\]/g, '$1').trim();
+      if (!full || seen.has(full)) continue;
+      seen.add(full);
+      const am = /\baudio\s*:\s*'([^']+)'/.exec(block) || /\baudio\s*:\s*"([^"]+)"/.exec(block);
+      add('course', am ? am[1] : `${audioSlug(full)}.mp3`, [{ voice: 'm', text: full }]);
     }
   }
 }
