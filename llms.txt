@@ -11,8 +11,8 @@
 
 - **코스 18개 · 레슨 71개** — 한글 낱자에서 시작해 인사말, 문장으로.
   초급·중급·고급. (18 courses, 71 lessons, beginner to advanced)
-- **문법 표현 495개** — 표현마다 뜻풀이·예문·대화문이 붙고, 내 문장을 직접
-  써서 확인받는 칸이 있다. (495 grammar points with meanings, examples and
+- **문법 표현 290개** — 표현마다 뜻풀이·예문·대화문이 붙고, 내 문장을 직접
+  써서 확인받는 칸이 있다. (290 grammar points with meanings, examples and
   dialogues)
 - **TOPIK 연습 문항 372개** — TOPIK I 듣기 26·읽기 209, TOPIK II 듣기 11·
   읽기 100·쓰기 26. 시계와 답안지가 붙은 모의고사도 있다.
