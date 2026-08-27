@@ -13,7 +13,7 @@
    어느 날 갑자기 다른 코드가 실려 왔다.
    이제 vendor/ 안에 받아 두고 CSP 로 바깥을 막는다. 버전을 올릴 때는
    tools/vendor.mjs 의 PIN 을 고치고 다시 돌린다. */
-import { createClient } from './vendor/supabase-js.js?v=13bc362e';
+import { createClient } from './vendor/supabase-js.js?v=0bafbbb2';
 // 앱(package.json)과 같은 줄기를 쓴다. 갈리면 앱에서는 읽히는 파일이
 // 여기서는 안 읽히는(또는 그 반대) 일이 생긴다.
 /* 엑셀 라이브러리는 422KB — 이 판에서 가장 무거운 조각이다. 그런데 쓰는
@@ -25,21 +25,21 @@ import { createClient } from './vendor/supabase-js.js?v=13bc362e';
    자국(?v=)은 tools/stamp.mjs 가 아래 줄에 알아서 붙인다 — 정적으로 쓰든
    동적으로 쓰든 같은 글자를 찾으므로 바꿔도 그대로 찍힌다. */
 let XLSX = null;
-const needXLSX = async () => (XLSX ??= await import('./vendor/xlsx.js?v=13bc362e'));
+const needXLSX = async () => (XLSX ??= await import('./vendor/xlsx.js?v=0bafbbb2'));
 // 커리큘럼. 내용과 엔진을 갈라 두면 글을 고치다 화면을 깨지 않는다.
-import { COURSES } from './courses.js?v=13bc362e';
-import { GLOSSARY, GLOSS_LANGS } from './glossary.js?v=13bc362e';
-import { glossFind } from './gloss-find.js?v=13bc362e';
-import { GRAMMAR } from './grammar.js?v=13bc362e';
-import { GRAMMAR_EN } from './grammar-en.js?v=13bc362e';
-import { grammarScan } from './grammar-find.js?v=13bc362e';
-import { TW_ITEMS, TW_QS } from './topik-writing.js?v=13bc362e';
-import { TOPIKL_BY_EXAM, TOPIKL_PICTURE_SLOTS } from './topik-listening.js?v=13bc362e';
-import { SB_CATS, SB_MORE, SB_SEED } from './sentences.js?v=13bc362e';
+import { COURSES } from './courses.js?v=0bafbbb2';
+import { GLOSSARY, GLOSS_LANGS } from './glossary.js?v=0bafbbb2';
+import { glossFind } from './gloss-find.js?v=0bafbbb2';
+import { GRAMMAR } from './grammar.js?v=0bafbbb2';
+import { GRAMMAR_EN } from './grammar-en.js?v=0bafbbb2';
+import { grammarScan } from './grammar-find.js?v=0bafbbb2';
+import { TW_ITEMS, TW_QS } from './topik-writing.js?v=0bafbbb2';
+import { TOPIKL_BY_EXAM, TOPIKL_PICTURE_SLOTS } from './topik-listening.js?v=0bafbbb2';
+import { SB_CATS, SB_MORE, SB_SEED } from './sentences.js?v=0bafbbb2';
 // 읽기 연습 지문. 길이(short·long) × 급수 여섯 칸.
 // TOPIK 유형 연습문제. 기출이 아니라 자체 제작이다.
 // 숫자 게임의 읽기와 문제 만들기. 화면을 모르는 순수 계산이라 따로 뒀다.
-import { makeRound } from './numbers.js?v=13bc362e';
+import { makeRound } from './numbers.js?v=0bafbbb2';
 
 // 이 키는 공개돼도 되는 값이다. 이미 APK 안에 같은 것이 들어 있고,
 // 접근을 막는 건 키가 아니라 테이블에 걸린 RLS 다.
@@ -85,14 +85,14 @@ function panel(name) {
 const TQ_DATA = { I: null, II: null };
 let tqDataP = null;
 const tqNeedData = () => (tqDataP ??= Promise.all([
-  import('./topik.js?v=13bc362e'), import('./topik2.js?v=13bc362e'),
+  import('./topik.js?v=0bafbbb2'), import('./topik2.js?v=0bafbbb2'),
 ]).then(([a, b]) => {
   TQ_DATA.I  = { reading: a.TOPIK_READING,  blueprint: a.TOPIK_BLUEPRINT,  slots: a.TOPIK_SLOTS };
   TQ_DATA.II = { reading: b.TOPIK2_READING, blueprint: b.TOPIK2_BLUEPRINT, slots: b.TOPIK2_SLOTS };
 }));
 
 let READING = null, rdP = null;
-const rdNeed = () => (rdP ??= import('./reading.js?v=13bc362e').then((m) => { READING = m.READING; }));
+const rdNeed = () => (rdP ??= import('./reading.js?v=0bafbbb2').then((m) => { READING = m.READING; }));
 
 /* 배우기를 열면 둘 다 미리 부른다. 기다리지 않는다 — 갈래 목록은 이
    자료가 없어도 그려지고, 사람이 갈래를 고르는 사이에 도착한다. */
@@ -8685,32 +8685,124 @@ function hlpPointCard(p) {
   '</div>';
 }
 
+/* 2단계 — cites 모으기. 직접 이름이 맞은 표현(hlpFindPoints)과, 문장
+   속에 섞여 있는 문법을 찾아내는 grammarScan(읽기 지문에서 쓰던 것과
+   같은 도구) 을 합친다. "-느니랑 -을 바에야 차이가 뭐예요?" 처럼
+   자연스러운 질문에서도 grammarScan 이 두 표현을 다 집어낸다 —
+   hlpFindPoints 만으로는(이름 전체가 맞아야 하니) 못 찾는다.
+   서버(ask-korean)는 여기서 넘긴 것 밖의 지식을 쓰지 않는다. */
+function hlpCites(q) {
+  const out = [];
+  const seen = new Set();
+  const addPoint = (p) => {
+    if (!p || seen.has('p:' + p.id) || out.length >= 6) return;
+    seen.add('p:' + p.id);
+    const more = SB_MORE[p.id] || ['', '', '', ''];
+    out.push({
+      id: p.id, kind: 'point', name: p.name,
+      desc: gTx(p.id, 'desc', p.desc),
+      form: more[0] ? gTx(p.id, 'form', more[0]) : '',
+      care: more[2] ? gTx(p.id, 'care', more[2]) : '',
+      ex: p.ex,
+    });
+  };
+  const word = hlpFindWord(q);
+  if (word && out.length < 6) { seen.add('w:' + word.head); out.push({ id: word.head, kind: 'word', name: word.head, en: word.en }); }
+  hlpFindPoints(q).forEach(addPoint);
+  grammarScan(q).forEach((g) => addPoint(sbFind(g.id)));
+  return out;
+}
+
+function hlpAiIdle(cites) {
+  return '<div class="hlp-ai" id="hlpAi">' +
+    `<button id="hlpAiBtn" class="hlp-ai-btn" type="button">✨ ${t('이 질문을 AI 도우미에게 물어보기', 'Ask the AI helper about this')}</button>` +
+    `<p class="hlp-ai-note">${t('로그인이 필요해요. 하루 20번까지 물어볼 수 있어요. 저희 자료에 없는 건 "모른다"고 답해요.', 'Sign-in required, up to 20 questions a day. It says "I don’t know" rather than guessing.')}</p>` +
+  '</div>';
+}
+
 function hlpDraw() {
   const body = $('hlpBody');
   if (!body) return;
   const q = hlpLastQ;
   if (!q) {
     body.innerHTML = `<div class="hlp-empty">${esc(t(
-      '낱말 하나(예: 가지고)나 문법 이름(예: -느니)을 입력해 보세요. 사전 4,737개와 문법 표현 290개 안에서 찾아요. 이 자료에 없으면 아직 답하지 못해요.',
-      'Type a word (e.g. 가지고) or a grammar name (e.g. -느니). We search 4,737 dictionary entries and 290 grammar points — nothing more, for now.'
+      '낱말 하나(예: 가지고)나 문법 이름(예: -느니)을 입력해 보세요. 사전 4,737개와 문법 표현 290개 안에서 찾아요. 문장으로 물어보면 AI 도우미에게 물어볼 수도 있어요.',
+      'Type a word (e.g. 가지고) or a grammar name (e.g. -느니). Ask a full question and you can also send it to the AI helper.'
     ))}</div>`;
     return;
   }
   const word = hlpFindWord(q);
   const points = hlpFindPoints(q).slice(0, 5);
-  if (!word && !points.length) {
-    body.innerHTML = `<div class="hlp-none">${esc(t(
-      `"${q}"는 저희 자료에 없어요. 오타는 아닌지, 또는 사전에 나온 기본형으로 다시 써 보세요.`,
-      `We couldn't find "${q}" in our material. Check the spelling, or try the dictionary (base) form.`
-    ))}</div>`;
-    return;
-  }
-  body.innerHTML = (word ? hlpWordCard(word) : '') + points.map(hlpPointCard).join('');
+  const cites = hlpCites(q);
+
+  const cards = (!word && !points.length)
+    ? `<div class="hlp-none">${esc(t(
+        `"${q}"는 저희 자료에 없어요. 오타는 아닌지, 또는 사전에 나온 기본형으로 다시 써 보세요.`,
+        `We couldn't find "${q}" in our material. Check the spelling, or try the dictionary (base) form.`
+      ))}</div>`
+    : (word ? hlpWordCard(word) : '') + points.map(hlpPointCard).join('');
+
+  body.innerHTML = cards + hlpAiIdle(cites);
+  $('hlpAiBtn').addEventListener('click', () => hlpAskAI(q, cites));
 }
 
 function hlpAsk(raw) {
   hlpLastQ = String(raw ?? '').trim();
   hlpDraw();
+}
+
+/* AI 호출. score-pronunciation 을 부르는 window.ptAiGuess 와 같은 틀 —
+   로그인 확인, 15초에서 끊기, 429/daily_limit 처리, 실패하면 조용히
+   접는다(이미 0층 결과는 화면에 있으니 여기만 죽어도 된다). */
+async function hlpAskAI(q, cites) {
+  const wrap = $('hlpAi');
+  if (!wrap) return;
+
+  const { data: { session } } = await sb.auth.getSession();
+  if (!session) {
+    wrap.innerHTML =
+      `<p class="hlp-none">${t('로그인하면 AI 도우미에게 물어볼 수 있어요.', 'Sign in to ask the AI helper.')}</p>` +
+      `<button id="hlpAiLoginBtn" class="hlp-ai-btn" type="button">${t('로그인하러 가기', 'Go to sign in')}</button>`;
+    $('hlpAiLoginBtn').addEventListener('click', () => { hlpSetOpen(false); open('account'); });
+    return;
+  }
+
+  wrap.innerHTML = `<p class="hlp-ai-load">${t('생각하는 중…', 'Thinking…')}</p>`;
+
+  const ctrl = new AbortController();
+  const timer = setTimeout(() => ctrl.abort(), 15000);
+  try {
+    const res = await fetch(`${SB_URL}/functions/v1/ask-korean`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        apikey: SB_ANON,
+        Authorization: `Bearer ${session.access_token}`,
+      },
+      body: JSON.stringify({ q, lang: isEn() ? 'en' : 'ko', cites }),
+      signal: ctrl.signal,
+    });
+    const out = await res.json().catch(() => null);
+
+    if (res.status === 429 || out?.error === 'daily_limit') {
+      wrap.innerHTML = `<p class="hlp-none">${t('오늘 AI 도우미에게 물어볼 수 있는 횟수를 다 썼어요. 내일 다시 써 주세요.', "You've used today's AI questions — try again tomorrow.")}</p>`;
+      return;
+    }
+    if (!res.ok || out?.grounded === undefined) throw new Error('bad response');
+
+    if (!out.grounded || !out.answer) {
+      wrap.innerHTML = `<p class="hlp-none">${t('이건 저희 자료에 없어요. 표현을 바꿔서 다시 물어봐 주세요.', "This isn't in our material — try rephrasing.")}</p>`;
+      return;
+    }
+
+    wrap.innerHTML =
+      `<div class="hlp-ai-answer">${esc(out.answer)}</div>` +
+      `<p class="hlp-ai-note">${t('AI 도우미의 답변이에요 — 사전·문법 카드와는 결이 달라요.', 'This is the AI helper speaking — different from the dictionary/grammar cards above.')}</p>`;
+  } catch (e) {
+    wrap.innerHTML = `<p class="hlp-none">${t('지금은 답할 수 없어요. 잠시 후 다시 시도해 주세요.', "Couldn't get an answer right now — try again in a moment.")}</p>`;
+  } finally {
+    clearTimeout(timer);
+  }
 }
 
 /* 패널의 뼈대(제목·입력칸)를 그린다. 열 때와 언어를 바꿀 때만 부른다 —

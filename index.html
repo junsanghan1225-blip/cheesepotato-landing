@@ -107,8 +107,8 @@
      Pretendard 는 통짜(2.0MB) 대신 조각난 쪽을 쓴다 — 브라우저가
      unicode-range 를 보고 화면에 실제로 나온 글자가 든 조각만 받는다.
      그래서 저장소는 무거워졌지만 학습자가 받는 양은 오히려 줄었다. -->
-<link rel="stylesheet" href="vendor/pretendard.css?v=13bc362e">
-<link rel="stylesheet" href="vendor/pressstart2p.css?v=13bc362e">
+<link rel="stylesheet" href="vendor/pretendard.css?v=0bafbbb2">
+<link rel="stylesheet" href="vendor/pressstart2p.css?v=0bafbbb2">
 <style>
 /* ══════════════════════════════════════════════════════════════
    치즈감자 — 랜딩
@@ -2001,6 +2001,23 @@ body.hlp-open { overflow:hidden; }
   color:var(--orange-deep); text-decoration:none;
 }
 .hlp-card-link:hover { text-decoration:underline; }
+
+/* AI 도우미(2단계). 0층 카드 아래, 구분선으로 갈라 붙인다 —
+   사전·문법 카드(우리가 보증하는 것)와 AI 가 한 말(근거가 있을 때만)이
+   섞여 보이면 안 된다. */
+.hlp-ai { margin-top:18px; padding-top:16px; border-top:1px solid var(--line); }
+.hlp-ai-btn {
+  width:100%; border:none; border-radius:var(--r); background:var(--ink-bg); color:#fff;
+  padding:12px 16px; font-size:14px; font-weight:700; cursor:pointer; font-family:inherit;
+}
+.hlp-ai-btn:hover { background:#33261E; }
+.hlp-ai-note { font-size:12px; color:var(--ink-3); margin-top:8px; line-height:1.6; text-align:center; }
+.hlp-ai-load { font-size:13.5px; color:var(--ink-3); text-align:center; padding:10px 0; }
+.hlp-ai-answer {
+  padding:14px 16px; border-radius:var(--r-l); background:var(--tint);
+  border:1px solid rgba(196,85,28,.18); font-size:14.5px; color:var(--ink); line-height:1.75;
+  word-break:keep-all; white-space:pre-wrap;
+}
 
 /* ══ 배우기 : 문제만 풀기 ══════════════════════════════════════ */
 .dq-card {
@@ -5672,9 +5689,9 @@ body.hlp-open { overflow:hidden; }
 <div id="hlpScrim" class="hlp-scrim"></div>
 <aside id="hlpPanel" class="hlp-panel" aria-label="한국어 도우미" aria-hidden="true"></aside>
 
-<script src="app.js?v=13bc362e"></script>
-<script type="module" src="app.module.js?v=13bc362e"></script>
+<script src="app.js?v=0bafbbb2"></script>
+<script type="module" src="app.module.js?v=0bafbbb2"></script>
 
-<script src="analytics.js?v=13bc362e" defer></script>
+<script src="analytics.js?v=0bafbbb2" defer></script>
 </body>
 </html>
