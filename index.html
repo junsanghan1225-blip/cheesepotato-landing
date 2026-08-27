@@ -107,8 +107,8 @@
      Pretendard 는 통짜(2.0MB) 대신 조각난 쪽을 쓴다 — 브라우저가
      unicode-range 를 보고 화면에 실제로 나온 글자가 든 조각만 받는다.
      그래서 저장소는 무거워졌지만 학습자가 받는 양은 오히려 줄었다. -->
-<link rel="stylesheet" href="vendor/pretendard.css?v=62034ec3">
-<link rel="stylesheet" href="vendor/pressstart2p.css?v=62034ec3">
+<link rel="stylesheet" href="vendor/pretendard.css?v=54ebda26">
+<link rel="stylesheet" href="vendor/pressstart2p.css?v=54ebda26">
 <style>
 /* ══════════════════════════════════════════════════════════════
    치즈감자 — 랜딩
@@ -1898,6 +1898,102 @@ button.btn-primary, button.btn-ghost { font-family:inherit; }
 .tw-ul { margin:0; padding-left:20px; font-size:14.5px; line-height:1.85; color:var(--ink-2); word-break:keep-all; }
 .tw-score-big { font-size:34px; font-weight:800; color:var(--orange-deep); margin:2px 0 12px; font-variant-numeric:tabular-nums; }
 .tw-score-big span { font-size:16px; font-weight:700; color:var(--ink-3); }
+
+/* ── 한국어 도우미 ──────────────────────────────────────────────
+   side-nav(메뉴 서랍)와 같은 틀 — transform + visibility 로 여닫고,
+   .on 이 붙을 때만 탭·클릭이 걸린다. 모바일 기본은 아래에서 올라오는
+   시트, 760px 부터 오른쪽에 붙는 서랍으로 바뀐다. */
+.hlp-fab {
+  position:fixed; right:18px; bottom:18px; z-index:82;
+  width:54px; height:54px; border-radius:50%; border:none;
+  background:var(--ink-bg); color:#fff; font-size:24px; line-height:1;
+  display:flex; align-items:center; justify-content:center; cursor:pointer;
+  box-shadow:0 10px 26px rgba(27,21,18,.3); transition:transform .16s;
+}
+.hlp-fab:hover { transform:translateY(-2px); }
+.hlp-fab.hidden { display:none; }
+
+.hlp-scrim {
+  position:fixed; inset:0; z-index:83;
+  background:rgba(27,21,18,.34); backdrop-filter:blur(2px);
+  opacity:0; visibility:hidden; transition:opacity .28s, visibility .28s;
+}
+.hlp-scrim.on { opacity:1; visibility:visible; }
+
+.hlp-panel {
+  position:fixed; z-index:84; left:0; right:0; bottom:0; top:auto;
+  max-height:82vh; display:flex; flex-direction:column;
+  background:var(--surface-2); border-radius:var(--r-xl) var(--r-xl) 0 0;
+  border-top:1px solid var(--line);
+  box-shadow:0 -20px 50px -20px rgba(27,21,18,.35);
+  transform:translateY(100%); visibility:hidden;
+  transition:transform .34s cubic-bezier(.32,.72,0,1), visibility .34s;
+  overscroll-behavior:contain;
+}
+.hlp-panel.on { transform:none; visibility:visible; }
+body.hlp-open { overflow:hidden; }
+
+@media (min-width:760px) {
+  .hlp-fab { right:24px; bottom:24px; }
+  .hlp-panel {
+    left:auto; top:0; bottom:0; height:100dvh; max-height:none;
+    width:min(400px, 92vw);
+    border-radius:0; border-top:none; border-left:1px solid var(--line);
+    box-shadow:-30px 0 60px -34px rgba(27,21,18,.4);
+    transform:translateX(100%);
+  }
+  .hlp-panel.on { transform:none; }
+}
+
+.hlp-hd {
+  display:flex; align-items:flex-start; justify-content:space-between; gap:12px;
+  padding:18px var(--gut) 14px; border-bottom:1px solid var(--line); flex:none;
+}
+.hlp-title { font-size:17px; font-weight:800; color:var(--ink); letter-spacing:-.02em; }
+.hlp-sub { font-size:12.5px; color:var(--ink-3); margin-top:3px; }
+.hlp-x {
+  width:32px; height:32px; border-radius:50%; border:none; background:var(--tint);
+  color:var(--ink-2); font-size:15px; cursor:pointer; flex:none;
+}
+.hlp-x:hover { background:var(--line); }
+
+.hlp-form { display:flex; gap:8px; padding:14px var(--gut); border-bottom:1px solid var(--line); flex:none; }
+.hlp-in {
+  flex:1; min-width:0; border:1px solid var(--line); border-radius:var(--r); background:var(--surface);
+  padding:10px 14px; font-size:15px; color:var(--ink); font-family:inherit;
+}
+.hlp-in:focus { outline:none; border-color:var(--orange-mid); }
+.hlp-go {
+  border:none; border-radius:var(--r); background:var(--ink-bg); color:#fff;
+  padding:0 18px; font-size:14px; font-weight:700; cursor:pointer; flex:none;
+}
+.hlp-go:hover { background:#33261E; }
+
+.hlp-body { flex:1; overflow-y:auto; padding:4px var(--gut) 28px; }
+.hlp-empty { padding:26px 4px; text-align:center; color:var(--ink-3); font-size:13.5px; line-height:1.8; }
+.hlp-none {
+  margin-top:14px; padding:14px 16px; border-radius:var(--r); background:var(--tint);
+  font-size:13.5px; color:var(--ink-2); line-height:1.7; word-break:keep-all;
+}
+.hlp-card {
+  margin-top:14px; padding:16px 18px; border-radius:var(--r-l);
+  background:var(--surface); border:1px solid var(--line);
+}
+.hlp-card-kind {
+  font-size:11px; font-weight:700; letter-spacing:.1em; text-transform:uppercase;
+  color:var(--orange-deep); margin-bottom:6px;
+}
+.hlp-card-head { font-size:18px; font-weight:800; color:var(--ink); letter-spacing:-.02em; word-break:keep-all; }
+.hlp-card-sub { font-size:12.5px; color:var(--ink-3); margin-top:2px; }
+.hlp-card-meaning { font-size:14.5px; color:var(--ink-2); margin-top:10px; line-height:1.7; word-break:keep-all; }
+.hlp-fact { margin-top:10px; }
+.hlp-fact-k { font-size:11.5px; font-weight:700; color:var(--ink-3); }
+.hlp-fact-v { font-size:14px; color:var(--ink-2); line-height:1.65; margin-top:2px; word-break:keep-all; }
+.hlp-card-link {
+  display:inline-block; margin-top:12px; font-size:13px; font-weight:700;
+  color:var(--orange-deep); text-decoration:none;
+}
+.hlp-card-link:hover { text-decoration:underline; }
 
 /* ══ 배우기 : 문제만 풀기 ══════════════════════════════════════ */
 .dq-card {
@@ -5561,9 +5657,17 @@ button.btn-primary, button.btn-ghost { font-family:inherit; }
   <span class="rd-g-tail" id="rdGTail" aria-hidden="true"></span>
 </div>
 
-<script src="app.js?v=62034ec3"></script>
-<script type="module" src="app.module.js?v=62034ec3"></script>
+<!-- 한국어 도우미. 어느 화면에서든 뜬다 — 갈래 화면(learnView 등)
+     안에 두면 그 갈래를 나갈 때 open() 이 hidden 을 걸어 사라진다.
+     docs/ai-sidebar-plan.md 1단계: 0층 조회만, 로그인 필요 없음.
+     속은 app.module.js 가 채운다. -->
+<button id="hlpFab" class="hlp-fab" type="button" aria-label="한국어 도우미 열기">🧀</button>
+<div id="hlpScrim" class="hlp-scrim"></div>
+<aside id="hlpPanel" class="hlp-panel" aria-label="한국어 도우미" aria-hidden="true"></aside>
 
-<script src="analytics.js?v=62034ec3" defer></script>
+<script src="app.js?v=54ebda26"></script>
+<script type="module" src="app.module.js?v=54ebda26"></script>
+
+<script src="analytics.js?v=54ebda26" defer></script>
 </body>
 </html>

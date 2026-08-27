@@ -13,7 +13,7 @@
    어느 날 갑자기 다른 코드가 실려 왔다.
    이제 vendor/ 안에 받아 두고 CSP 로 바깥을 막는다. 버전을 올릴 때는
    tools/vendor.mjs 의 PIN 을 고치고 다시 돌린다. */
-import { createClient } from './vendor/supabase-js.js?v=62034ec3';
+import { createClient } from './vendor/supabase-js.js?v=54ebda26';
 // 앱(package.json)과 같은 줄기를 쓴다. 갈리면 앱에서는 읽히는 파일이
 // 여기서는 안 읽히는(또는 그 반대) 일이 생긴다.
 /* 엑셀 라이브러리는 422KB — 이 판에서 가장 무거운 조각이다. 그런데 쓰는
@@ -25,21 +25,21 @@ import { createClient } from './vendor/supabase-js.js?v=62034ec3';
    자국(?v=)은 tools/stamp.mjs 가 아래 줄에 알아서 붙인다 — 정적으로 쓰든
    동적으로 쓰든 같은 글자를 찾으므로 바꿔도 그대로 찍힌다. */
 let XLSX = null;
-const needXLSX = async () => (XLSX ??= await import('./vendor/xlsx.js?v=62034ec3'));
+const needXLSX = async () => (XLSX ??= await import('./vendor/xlsx.js?v=54ebda26'));
 // 커리큘럼. 내용과 엔진을 갈라 두면 글을 고치다 화면을 깨지 않는다.
-import { COURSES } from './courses.js?v=62034ec3';
-import { GLOSSARY, GLOSS_LANGS } from './glossary.js?v=62034ec3';
-import { glossFind } from './gloss-find.js?v=62034ec3';
-import { GRAMMAR } from './grammar.js?v=62034ec3';
-import { GRAMMAR_EN } from './grammar-en.js?v=62034ec3';
-import { grammarScan } from './grammar-find.js?v=62034ec3';
-import { TW_ITEMS, TW_QS } from './topik-writing.js?v=62034ec3';
-import { TOPIKL_BY_EXAM, TOPIKL_PICTURE_SLOTS } from './topik-listening.js?v=62034ec3';
-import { SB_CATS, SB_MORE, SB_SEED } from './sentences.js?v=62034ec3';
+import { COURSES } from './courses.js?v=54ebda26';
+import { GLOSSARY, GLOSS_LANGS } from './glossary.js?v=54ebda26';
+import { glossFind } from './gloss-find.js?v=54ebda26';
+import { GRAMMAR } from './grammar.js?v=54ebda26';
+import { GRAMMAR_EN } from './grammar-en.js?v=54ebda26';
+import { grammarScan } from './grammar-find.js?v=54ebda26';
+import { TW_ITEMS, TW_QS } from './topik-writing.js?v=54ebda26';
+import { TOPIKL_BY_EXAM, TOPIKL_PICTURE_SLOTS } from './topik-listening.js?v=54ebda26';
+import { SB_CATS, SB_MORE, SB_SEED } from './sentences.js?v=54ebda26';
 // 읽기 연습 지문. 길이(short·long) × 급수 여섯 칸.
 // TOPIK 유형 연습문제. 기출이 아니라 자체 제작이다.
 // 숫자 게임의 읽기와 문제 만들기. 화면을 모르는 순수 계산이라 따로 뒀다.
-import { makeRound } from './numbers.js?v=62034ec3';
+import { makeRound } from './numbers.js?v=54ebda26';
 
 // 이 키는 공개돼도 되는 값이다. 이미 APK 안에 같은 것이 들어 있고,
 // 접근을 막는 건 키가 아니라 테이블에 걸린 RLS 다.
@@ -85,14 +85,14 @@ function panel(name) {
 const TQ_DATA = { I: null, II: null };
 let tqDataP = null;
 const tqNeedData = () => (tqDataP ??= Promise.all([
-  import('./topik.js?v=62034ec3'), import('./topik2.js?v=62034ec3'),
+  import('./topik.js?v=54ebda26'), import('./topik2.js?v=54ebda26'),
 ]).then(([a, b]) => {
   TQ_DATA.I  = { reading: a.TOPIK_READING,  blueprint: a.TOPIK_BLUEPRINT,  slots: a.TOPIK_SLOTS };
   TQ_DATA.II = { reading: b.TOPIK2_READING, blueprint: b.TOPIK2_BLUEPRINT, slots: b.TOPIK2_SLOTS };
 }));
 
 let READING = null, rdP = null;
-const rdNeed = () => (rdP ??= import('./reading.js?v=62034ec3').then((m) => { READING = m.READING; }));
+const rdNeed = () => (rdP ??= import('./reading.js?v=54ebda26').then((m) => { READING = m.READING; }));
 
 /* 배우기를 열면 둘 다 미리 부른다. 기다리지 않는다 — 갈래 목록은 이
    자료가 없어도 그려지고, 사람이 갈래를 고르는 사이에 도착한다. */
@@ -8590,6 +8590,154 @@ window.ptAiGuess = async (target, heard, score) => {
     clearTimeout(timer);
   }
 };
+
+/* ══ 한국어 도우미 ═══════════════════════════════════════════════
+   docs/ai-sidebar-plan.md 1단계 — 0층 조회만. 사전(GLOSSARY)과 문법
+   표현(SB_CATS/SB_MORE)은 이미 누구나 보는 공개 자료라 로그인을 묻지
+   않는다. AI(2단계)는 아직 안 부른다 — 자료에 없으면 「없다」고만
+   말한다. gloss-find.js 의 원칙 그대로다: "틀린 뜻을 내주느니
+   빈 칸을 내준다."
+
+   문항 화면에서 답을 대신 풀어 주는 것을 막는 장치(3단계, where 를
+   보고 잠그는 것)는 아직 없다 — 지금은 사전 조회뿐이라 그 문제가
+   생기지 않는다. AI 가 붙는 2단계에서 반드시 넣는다. */
+
+let hlpLastQ = '';   // 언어를 바꿨을 때 같은 결과를 다시 그리려고 쥐고 있는다.
+
+/* 표시용 이름 비교를 위해 앞의 품사 표시(V-, A/V- 따위)와 공백을 뗀다.
+   "V-(으)ㄹ 수 있다"와 사람이 치는 "을 수 있다"가 같아 보이게 하려는
+   것이다. Ⓝ 같은 문자표는 grammar.js 전용(문장 속에서 찾을 때)이라
+   여기 이름에는 안 나온다. */
+const hlpNormName = (s) => String(s ?? '')
+  .replace(/\s+/g, '')
+  .replace(/^[AVN/]+-?/, '')
+  .replace(/^-/, '');
+
+function hlpFindWord(q) {
+  const key = String(q ?? '').trim();
+  if (!key) return null;
+  const inDict = (k) => Object.prototype.hasOwnProperty.call(GLOSSARY, k);
+  const found = glossFind(inDict, key);
+  if (!found) return null;
+  const hit = GLOSSARY[found];
+  return { query: key, head: hit.head || found, en: hit.en || '' };
+}
+
+/* 이름이 맞아떨어지는 것을 먼저, 이름 안에 들어 있는 것을 다음으로 —
+   "-느니"를 치면 "-느니"가 맨 위에 오고 "-느니만 못하다" 같은 게
+   뒤에 붙는 식이다. */
+function hlpFindPoints(q) {
+  const nq = hlpNormName(q);
+  if (!nq) return [];
+  const exact = [], partial = [];
+  for (const p of SB_POINTS) {
+    const nn = hlpNormName(p.name);
+    if (nn === nq) exact.push(p);
+    else if (nn.includes(nq)) partial.push(p);
+  }
+  return [...exact, ...partial];
+}
+
+function hlpWordCard(w) {
+  return '<div class="hlp-card">' +
+    `<div class="hlp-card-kind">${t('낱말', 'Word')}</div>` +
+    `<div class="hlp-card-head">${esc(w.head)}</div>` +
+    (w.head !== w.query ? `<div class="hlp-card-sub">${esc(w.query)}</div>` : '') +
+    `<div class="hlp-card-meaning">${esc(w.en) || t('아직 뜻풀이가 없어요.', 'No definition yet.')}</div>` +
+  '</div>';
+}
+
+function hlpPointCard(p) {
+  const more = SB_MORE[p.id] || ['', '', '', ''];
+  return '<div class="hlp-card">' +
+    `<div class="hlp-card-kind">${t('문법 표현', 'Grammar')}</div>` +
+    `<div class="hlp-card-head">${esc(p.name)}</div>` +
+    `<div class="hlp-card-sub">${esc(isEn() ? p.cat.en : p.cat.ko)}</div>` +
+    `<div class="hlp-card-meaning">${esc(gTx(p.id, 'desc', p.desc))}</div>` +
+    (more[0] ? `<div class="hlp-fact"><div class="hlp-fact-k">${t('형태', 'Form')}</div><div class="hlp-fact-v">${esc(gTx(p.id, 'form', more[0]))}</div></div>` : '') +
+    (more[2] ? `<div class="hlp-fact"><div class="hlp-fact-k">${t('주의할 점', 'Watch out')}</div><div class="hlp-fact-v">${esc(gTx(p.id, 'care', more[2]))}</div></div>` : '') +
+    `<div class="hlp-fact"><div class="hlp-fact-k">${t('예문', 'Example')}</div><div class="hlp-fact-v">${esc(p.ex)}</div></div>` +
+    `<a class="hlp-card-link" href="/sentence/${esc(p.id)}.html" target="_blank" rel="noopener">${t('자세히 보기 →', 'See details →')}</a>` +
+  '</div>';
+}
+
+function hlpDraw() {
+  const body = $('hlpBody');
+  if (!body) return;
+  const q = hlpLastQ;
+  if (!q) {
+    body.innerHTML = `<div class="hlp-empty">${esc(t(
+      '낱말 하나(예: 가지고)나 문법 이름(예: -느니)을 입력해 보세요. 사전 4,737개와 문법 표현 290개 안에서 찾아요. 이 자료에 없으면 아직 답하지 못해요.',
+      'Type a word (e.g. 가지고) or a grammar name (e.g. -느니). We search 4,737 dictionary entries and 290 grammar points — nothing more, for now.'
+    ))}</div>`;
+    return;
+  }
+  const word = hlpFindWord(q);
+  const points = hlpFindPoints(q).slice(0, 5);
+  if (!word && !points.length) {
+    body.innerHTML = `<div class="hlp-none">${esc(t(
+      `"${q}"는 저희 자료에 없어요. 오타는 아닌지, 또는 사전에 나온 기본형으로 다시 써 보세요.`,
+      `We couldn't find "${q}" in our material. Check the spelling, or try the dictionary (base) form.`
+    ))}</div>`;
+    return;
+  }
+  body.innerHTML = (word ? hlpWordCard(word) : '') + points.map(hlpPointCard).join('');
+}
+
+function hlpAsk(raw) {
+  hlpLastQ = String(raw ?? '').trim();
+  hlpDraw();
+}
+
+/* 패널의 뼈대(제목·입력칸)를 그린다. 열 때와 언어를 바꿀 때만 부른다 —
+   검색할 때마다 다시 그리면 입력칸의 커서 위치가 매번 날아간다. */
+function hlpRenderChrome() {
+  $('hlpPanel').innerHTML =
+    '<div class="hlp-hd">' +
+      '<div>' +
+        `<div class="hlp-title" id="hlpTitle">${t('한국어 도우미', 'Korean helper')}</div>` +
+        `<div class="hlp-sub">${t('낱말이나 문법을 찾아보세요', 'Look up a word or grammar point')}</div>` +
+      '</div>' +
+      `<button id="hlpClose" class="hlp-x" type="button" aria-label="${t('닫기', 'Close')}">✕</button>` +
+    '</div>' +
+    '<form id="hlpForm" class="hlp-form">' +
+      `<input id="hlpInput" class="hlp-in" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="${esc(t('예: 가지고, -느니', 'e.g. 가지고, -느니'))}">` +
+      `<button type="submit" class="hlp-go">${t('찾기', 'Find')}</button>` +
+    '</form>' +
+    '<div class="hlp-body" id="hlpBody"></div>';
+
+  $('hlpClose').addEventListener('click', () => hlpSetOpen(false));
+  $('hlpForm').addEventListener('submit', (ev) => { ev.preventDefault(); hlpAsk($('hlpInput').value); });
+  $('hlpInput').value = hlpLastQ;
+  hlpDraw();
+}
+
+function hlpSetOpen(open) {
+  const panel = $('hlpPanel');
+  // side-nav 와 같은 규칙 — aria-hidden 을 걸기 전에 안쪽 포커스부터 뺀다.
+  if (!open && panel.contains(document.activeElement)) $('hlpFab').focus();
+  panel.classList.toggle('on', open);
+  $('hlpScrim').classList.toggle('on', open);
+  document.body.classList.toggle('hlp-open', open);
+  panel.setAttribute('aria-hidden', open ? 'false' : 'true');
+  $('hlpFab').setAttribute('aria-label', t(open ? '한국어 도우미 닫기' : '한국어 도우미 열기',
+                                            open ? 'Close Korean helper' : 'Open Korean helper'));
+  if (open) {
+    hlpRenderChrome();
+    setTimeout(() => $('hlpInput')?.focus(), 60);
+  }
+}
+
+$('hlpFab').addEventListener('click', () => hlpSetOpen(!$('hlpPanel').classList.contains('on')));
+$('hlpScrim').addEventListener('click', () => hlpSetOpen(false));
+addEventListener('keydown', (ev) => {
+  if (ev.key === 'Escape' && $('hlpPanel').classList.contains('on')) hlpSetOpen(false);
+});
+// langBtn 은 app.js 의 고전 스크립트가 먼저 등록해 두었다. applyLang 이
+// 이미 끝난 뒤에 불리므로 isEn()/gTx() 가 새 언어를 보고 다시 그린다.
+$('langBtn').addEventListener('click', () => {
+  if ($('hlpPanel').classList.contains('on')) hlpRenderChrome();
+});
 
 // ── 구글에서 돌아왔을 때 ─────────────────────────────────────
 const params = new URLSearchParams(window.location.search);
