@@ -45,6 +45,22 @@ const OTHER = ['ja', 'zh', 'vi', 'ru', 'es', 'fr', 'ar', 'mn', 'id'];
  */
 const POS_SKIP = new Set(['어미', '조사', '접사']);
 
+/* 국립국어원 품사를 앱의 단어장 태그(src/lib/tags.ts 의 TAGS·TAG_KEYS)로
+   옮긴다. 못 옮기는 것(관형사·수사·품사 없음 등)은 붙이지 않는다 —
+   억지로 끼워 맞추면 학습자가 틀린 품사를 외운다. 「의존 명사」("것"·"수"·
+   "때" 같은 말)는 전통 문법에서도 명사의 하위 갈래라 명사로 묶는다.
+   접속사·관용구는 한국어 사전 품사 분류에 아예 없는 갈래라(그 말들은
+   보통 "부사"로 분류된다) 이 사전에서는 자동으로 못 붙인다 — 사람이
+   달아야 한다. */
+const POS_TAG = {
+  '명사': '명사', '의존 명사': '명사',
+  '동사': '동사',
+  '형용사': '형용사', '보조 형용사': '형용사',
+  '부사': '부사',
+  '대명사': '대명사',
+  '감탄사': '감탄사',
+};
+
 /* 괄호로만 이루어진 풀이는 자리표다 — 「(무대응어휘)」 「(нет эквивалента)」. */
 const isBlank = (s) => !s || /^\s*[(（].*[)）]\s*$/.test(s);
 
@@ -70,6 +86,23 @@ function isRoman(ko, en) {
   return !!r && e.includes(r) && e.length <= r.length + 3;
 }
 
+/* krdict 를 먼저 가볍게 한 번 훑어 표제어 → 품사만 뽑아 둔다. 품사는
+   krdict 에만 있고 우리가 쓴 docs/glossary.json 에는 없다. 아래 "우리가
+   쓴 것" 을 채울 때 이 표를 같이 봐야, 우리가 직접 골라 적은(그래서
+   krdict 처리 루프에서는 건너뛰는) 「먹다」·「학교」 같은 기본 낱말에도
+   품사가 붙는다 — 안 그러면 정작 자주 쓰는 낱말일수록 품사가 안 붙는
+   역설이 생긴다(우리가 손으로 고른 낱말일수록 기본·빈도 높은 말이다).
+   한 낱말에 뜻이 여럿이라 품사가 갈리면 먼저 나온 것을 쓴다 — 완벽한
+   동음이의어 구분보다 태그 하나 붙는 편이 안 붙는 것보다 낫다. */
+let krdictEarly = { words: [] };
+try { krdictEarly = read('docs/glossary-krdict.json'); } catch (e) { /* 아직 없으면 건너뛴다 */ }
+const krPos = new Map();
+for (const w of krdictEarly.words || []) {
+  if (krPos.has(w.ko)) continue;
+  const pos = POS_TAG[w.pos];
+  if (pos) krPos.set(w.ko, pos);
+}
+
 /* ── 1. 우리가 쓴 것 ─────────────────────────────────────────── */
 const mine = read('docs/glossary.json');
 const table = {};
@@ -89,6 +122,7 @@ for (const e of mine) {
     if (k === 'ko' || k === 'alt' || k === 'only') continue;
     val[k] = v;
   }
+  if (!val.pos && krPos.has(e.ko)) val.pos = krPos.get(e.ko);
   /* 표제어와 활용형을 한 표에 넣는다. 찾는 쪽은 무엇이 표제어인지 모르므로
      어느 꼴로 눌러도 한 번에 닿아야 한다. */
   for (const key of [e.ko, ...(e.alt || [])]) {
@@ -98,8 +132,7 @@ for (const e of mine) {
 const mineKeys = new Set(Object.keys(table));
 
 /* ── 2. 사전에서 온 것 ───────────────────────────────────────── */
-let krdict = { words: [] };
-try { krdict = read('docs/glossary-krdict.json'); } catch (e) { /* 아직 없으면 우리 것만 */ }
+const krdict = krdictEarly; // 위에서 이미 읽어 두었다 — 파일을 두 번 읽지 않는다.
 
 const packs = Object.fromEntries(OTHER.map((L) => [L, {}]));
 let fromDict = 0;
@@ -118,7 +151,11 @@ for (const w of krdict.words || []) {
     const en = first('en');
     if (!en) dropped.blank++;
     else if (isRoman(w.ko, en)) dropped.roman++;
-    else { table[w.ko] = { head: w.ko, en }; fromDict++; }
+    else {
+      const pos = POS_TAG[w.pos];
+      table[w.ko] = { head: w.ko, en, ...(pos ? { pos } : {}) };
+      fromDict++;
+    }
   }
   /* 다른 말은 우리 것이 있든 없든 담는다 — 우리 것에는 영어뿐이라
      일본어를 고른 사람에게 내줄 것이 없다. */
@@ -175,4 +212,5 @@ const kb = (f) => (readFileSync(join(ROOT, f)).length / 1024).toFixed(0);
 console.log(`glossary.js — 찾을 수 있는 꼴 ${Object.keys(table).length}개 (${kb('glossary.js')}KB)`);
 console.log(`  우리가 쓴 것 ${mineKeys.size} · 사전에서 온 것 ${fromDict}`);
 console.log(`  걸러 낸 것 — 어미·조사·접사 ${dropped.pos} · 읽는 법만 적힌 것 ${dropped.roman} · 영어가 없는 것 ${dropped.blank} · 우리가 딴말로 못 박은 것 ${dropped.only}`);
+console.log(`  품사 태그 붙은 것 ${Object.values(table).filter((v) => v.pos).length}개 — 모의고사에서 낱말을 표시해 단어장에 담을 때 자동으로 붙는다.`);
 console.log('언어팩 ' + OTHER.map((L) => `${L} ${Object.keys(packs[L]).length}개(${kb(`glossary-${L}.js`)}KB)`).join(' · '));
