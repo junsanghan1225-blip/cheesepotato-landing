@@ -14,9 +14,13 @@
 
 import fs from 'fs';
 import path from 'path';
-import { pathToFileURL } from 'url';
+import { pathToFileURL, fileURLToPath } from 'url';
 
-const ROOT = path.resolve(path.dirname(new URL(import.meta.url).pathname), '..');
+/* fileURLToPath 를 꼭 써야 한다 — new URL(...).pathname 은 윈도우에서
+   「/C:/Users/…」처럼 드라이브 앞에 슬래시가 하나 더 붙는다. 그걸 그대로
+   path.resolve 에 넣으면 현재 드라이브가 또 앞에 붙어 「C:\C:\Users\…」가
+   되어 모든 경로가 깨진다. */
+const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const html = fs.readFileSync(path.join(ROOT, 'index.html'), 'utf8');
 const load = (f) => import(pathToFileURL(path.join(ROOT, f)).href);
 
@@ -80,16 +84,20 @@ faqDom.forEach((d, i) => {
 /* ── 3. 내세운 숫자가 진짜인가 ────────────────────────────────
    숫자는 이 쪽에서 가장 인용되기 쉬운 부분이다. 자료가 늘었는데 첫 쪽이
    옛 숫자를 붙들고 있으면, 인용된 곳마다 틀린 숫자가 남는다. */
-const [c, s1, s2, s3, tk, tk2, tw, tl, rd, gl, gr] = await Promise.all(
-  ['courses.js', 'sentences.js', 'sentences-beginner.js', 'sentences-intermediate.js',
+const [c, s1, tk, tk2, tw, tl, rd, gl, gr] = await Promise.all(
+  ['courses.js', 'sentences.js',
    'topik.js', 'topik2.js', 'topik-writing.js', 'topik-listening.js', 'reading.js',
    'glossary.js', 'grammar.js'].map(load));
 
 const lessons = c.COURSES.reduce((a, x) => a + (x.lessons?.length || 0), 0);
+/* sentences.js 의 SB_CATS 는 이미 sentences-beginner.js·sentences-
+   intermediate.js 를 가져와 합친 것(SB_CATS = [...BEGINNER_CATS,
+   ...INTERMEDIATE_CATS, ...ADVANCED_CATS])이다. 그 두 파일을 여기서 또
+   따로 세면 초급·중급 표현이 두 번 잡혀 290 이 495 로 부풀려진다. */
 let points = 0;
-for (const m of [s1, s2, s3]) {
-  const arr = Object.values(m).find((v) => Array.isArray(v) && v[0]?.points);
-  if (arr) points += arr.reduce((a, x) => a + (x.points?.length || 0), 0);
+{
+  const arr = Object.values(s1).find((v) => Array.isArray(v) && v[0]?.points);
+  if (arr) points = arr.reduce((a, x) => a + (x.points?.length || 0), 0);
 }
 let passages = 0;
 for (const a of Object.values(rd.READING)) for (const b of Object.values(a)) passages += b.length;

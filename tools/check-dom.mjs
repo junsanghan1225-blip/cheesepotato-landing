@@ -10,8 +10,13 @@
 
 import fs from 'fs';
 import path from 'path';
+import { fileURLToPath } from 'url';
 
-const ROOT = path.resolve(path.dirname(new URL(import.meta.url).pathname), '..');
+/* fileURLToPath 를 꼭 써야 한다 — new URL(...).pathname 은 윈도우에서
+   「/C:/Users/…」처럼 드라이브 앞에 슬래시가 하나 더 붙는다. 그걸 그대로
+   path.resolve 에 넣으면 현재 드라이브가 또 앞에 붙어 「C:\C:\Users\…」가
+   되어 모든 경로가 깨진다. */
+const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const html = fs.readFileSync(path.join(ROOT, 'index.html'), 'utf8');
 const ids = new Set([...html.matchAll(/\bid="([^"]+)"/g)].map((m) => m[1]));
 
