@@ -48,6 +48,10 @@ const YES     = has('--yes');
 const LIMIT   = parseInt(arg('--limit', '0'), 10) || 0;
 const MODEL   = arg('--model', 'eleven_multilingual_v2');
 const TMP     = arg('--tmp', '/tmp/tts-parts');
+/* 말 속도. ElevenLabs 가 받는 값은 0.7(느림)~1.2(빠름), 기본 1 이다.
+   처음 구운 소리가 너무 빠르다는 말이 나와서 넣었다 — 이미 구운 파일은
+   건너뛰므로(스킵) 다시 구우려면 그 mp3 를 지우고 다시 돌려야 한다. */
+const SPEED   = Math.min(1.2, Math.max(0.7, parseFloat(arg('--speed', '1')) || 1));
 
 const KEY = process.env.ELEVEN_API_KEY;
 const VOICE = { m: process.env.ELEVEN_VOICE_M, w: process.env.ELEVEN_VOICE_W };
@@ -172,6 +176,7 @@ async function speak(part, ctxPrev, ctxNext, seed, outFile) {
       similarity_boost: 0.85,
       style: 0,
       use_speaker_boost: true,
+      speed: SPEED,
     },
   };
   if (ctxPrev) body.previous_text = ctxPrev;
