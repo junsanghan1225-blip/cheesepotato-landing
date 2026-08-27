@@ -27,15 +27,23 @@ const idOf = (slot) => `t2-${String((round - 1) * 50 + slot).padStart(3, '0')}`;
 
 /* 이미 만든 회차의 소재. 같은 자리에 같은 이야기가 또 나오면 두 번째 회차가
    시험이 아니라 복습이 된다. 자리마다 무엇을 이미 썼는지 알려 주고 피하게
-   한다 — 안 알려 주면 「도서관에서 책을 빌렸다」가 회차마다 나온다. */
+   한다 — 안 알려 주면 「도서관에서 책을 빌렸다」가 회차마다 나온다.
+   회차 파일 이름은 build-topik2.mjs 의 ROUNDS 와 같은 규칙이다 —
+   1회차만 옛 이름(topik2-all50.json)이고 그 뒤로는 topik2-round{N}.json.
+   3회차를 만들 때는 1·2회차 소재를 **둘 다** 봐야 한다 — 1회차만 보면
+   2회차와 겹친다. */
+const roundFile = (n) => (n === 1 ? 'topik2-all50.json' : `topik2-round${n}.json`);
 let usedBySlot = new Map();
-try {
-  const had = JSON.parse(readFileSync(new URL('../docs/topik2-all50.json', import.meta.url), 'utf8'));
+for (let r = 1; r < round; r++) {
+  let had;
+  try {
+    had = JSON.parse(readFileSync(new URL(`../docs/${roundFile(r)}`, import.meta.url), 'utf8'));
+  } catch (e) { continue; /* 그 회차 파일이 아직 없으면 피할 것도 없다 */ }
   had.forEach((q) => {
     if (!usedBySlot.has(q.slot)) usedBySlot.set(q.slot, []);
     if (q.topic) usedBySlot.get(q.slot).push(q.topic);
   });
-} catch (e) { /* 1회차가 아직 없으면 피할 것도 없다 */ }
+}
 
 const src = readFileSync(new URL('../docs/topik2-gemini-prompt.md', import.meta.url), 'utf8');
 const lines = src.split('\n');
