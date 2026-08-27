@@ -14,9 +14,9 @@
 - **문법 표현 290개** — 표현마다 뜻풀이·예문·대화문이 붙고, 내 문장을 직접
   써서 확인받는 칸이 있다. (290 grammar points with meanings, examples and
   dialogues)
-- **TOPIK 연습 문항 422개** — TOPIK I 듣기 26·읽기 209, TOPIK II 듣기 11·
+- **TOPIK 연습 문항 430개** — TOPIK I 듣기 26·읽기 209, TOPIK II 듣기 19·
   읽기 150·쓰기 26. 시계와 답안지가 붙은 모의고사도 있다.
-  (422 TOPIK-style practice questions)
+  (430 TOPIK-style practice questions)
 - **읽기 지문 54편** — 짧은 글과 긴 글. 읽고 나서 내용을 직접 써 본다.
   (54 reading passages)
 - **낱말 4,737개 · 문법 항목 197개** — 뜻풀이는 국립국어원 한국어기초사전에서
