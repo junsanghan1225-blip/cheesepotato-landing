@@ -107,8 +107,8 @@
      Pretendard 는 통짜(2.0MB) 대신 조각난 쪽을 쓴다 — 브라우저가
      unicode-range 를 보고 화면에 실제로 나온 글자가 든 조각만 받는다.
      그래서 저장소는 무거워졌지만 학습자가 받는 양은 오히려 줄었다. -->
-<link rel="stylesheet" href="vendor/pretendard.css?v=758a425a">
-<link rel="stylesheet" href="vendor/pressstart2p.css?v=758a425a">
+<link rel="stylesheet" href="vendor/pretendard.css?v=481ed313">
+<link rel="stylesheet" href="vendor/pressstart2p.css?v=481ed313">
 <style>
 /* ══════════════════════════════════════════════════════════════
    치즈감자 — 랜딩
@@ -1964,20 +1964,39 @@ body.hlp-open { overflow:hidden; }
 }
 .hlp-x:hover { background:var(--line); }
 
-.hlp-form { display:flex; gap:8px; padding:14px var(--gut); border-bottom:1px solid var(--line); flex:none; }
+/* Canva AI 같은 가벼운 느낌 — 칸 하나 + 동그란 보내기 단추. "찾기"라는
+   글자 단추 대신 화살표 아이콘 하나로, 사전 검색창이라기보다 그냥
+   말 거는 자리처럼 보이게 한다. */
+.hlp-form {
+  display:flex; align-items:center; gap:8px; padding:14px var(--gut);
+  border-bottom:1px solid var(--line); flex:none;
+}
 .hlp-in {
-  flex:1; min-width:0; border:1px solid var(--line); border-radius:var(--r); background:var(--surface);
-  padding:10px 14px; font-size:15px; color:var(--ink); font-family:inherit;
+  flex:1; min-width:0; border:1px solid var(--line); border-radius:999px; background:var(--surface);
+  padding:12px 18px; font-size:15px; color:var(--ink); font-family:inherit;
 }
 .hlp-in:focus { outline:none; border-color:var(--orange-mid); }
 .hlp-go {
-  border:none; border-radius:var(--r); background:var(--ink-bg); color:#fff;
-  padding:0 18px; font-size:14px; font-weight:700; cursor:pointer; flex:none;
+  width:40px; height:40px; border:none; border-radius:50%; background:var(--ink-bg); color:#fff;
+  font-size:16px; cursor:pointer; flex:none; display:flex; align-items:center; justify-content:center;
 }
 .hlp-go:hover { background:#33261E; }
 
 .hlp-body { flex:1; overflow-y:auto; padding:4px var(--gut) 28px; }
-.hlp-empty { padding:26px 4px; text-align:center; color:var(--ink-3); font-size:13.5px; line-height:1.8; }
+.hlp-empty {
+  padding:34px 8px 10px; text-align:center; color:var(--ink); font-size:19px;
+  font-weight:800; letter-spacing:-.02em; line-height:1.5; word-break:keep-all;
+}
+.hlp-empty span {
+  display:block; margin-top:10px; color:var(--ink-3); font-size:13px; font-weight:400;
+}
+.hlp-suggest { display:flex; flex-wrap:wrap; justify-content:center; gap:8px; margin-top:22px; }
+.hlp-chip {
+  border:1px solid var(--line); border-radius:20px; background:var(--surface);
+  color:var(--ink-2); font-size:13px; font-weight:600; padding:8px 14px; cursor:pointer;
+  font-family:inherit; transition:background .15s, border-color .15s;
+}
+.hlp-chip:hover { background:var(--tint); border-color:var(--orange-mid); }
 .hlp-none {
   margin-top:14px; padding:14px 16px; border-radius:var(--r); background:var(--tint);
   font-size:13.5px; color:var(--ink-2); line-height:1.7; word-break:keep-all;
@@ -5701,9 +5720,9 @@ body.hlp-open { overflow:hidden; }
 <div id="hlpScrim" class="hlp-scrim"></div>
 <aside id="hlpPanel" class="hlp-panel" aria-label="한국어 도우미" aria-hidden="true"></aside>
 
-<script src="app.js?v=758a425a"></script>
-<script type="module" src="app.module.js?v=758a425a"></script>
+<script src="app.js?v=481ed313"></script>
+<script type="module" src="app.module.js?v=481ed313"></script>
 
-<script src="analytics.js?v=758a425a" defer></script>
+<script src="analytics.js?v=481ed313" defer></script>
 </body>
 </html>
