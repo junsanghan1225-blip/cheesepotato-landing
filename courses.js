@@ -28,11 +28,11 @@
    파일을 나눈 이유는 문법이 계속 늘어날 예정이라 한 파일에 두면
    고칠 곳을 찾기 어려워지기 때문이다.
    + 세분화된 뉘앙스 차이 문법 (초·중·고급 세부 코스)은 courses-grammar-detailed.js 에서 불러온다. */
-import { GRAMMAR_COURSES } from './courses-grammar.js?v=4622a3db';
-import { DETAILED_GRAMMAR_COURSES } from './courses-grammar-detailed.js?v=4622a3db';
-import { BEGINNER_GRAMMAR_COURSES } from './courses-grammar-beginner.js?v=4622a3db';
+import { GRAMMAR_COURSES } from './courses-grammar.js?v=3495300a';
+import { DETAILED_GRAMMAR_COURSES } from './courses-grammar-detailed.js?v=3495300a';
+import { BEGINNER_GRAMMAR_COURSES } from './courses-grammar-beginner.js?v=3495300a';
 // 초급 1단계 — 설계는 docs/curriculum-beginner.md
-import { BEGINNER_STAGE1_COURSES } from './courses-beginner-stage1.js?v=4622a3db';
+import { BEGINNER_STAGE1_COURSES } from './courses-beginner-stage1.js?v=3495300a';
 
 export const COURSES = [
 
