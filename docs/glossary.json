@@ -495,7 +495,8 @@
   "alt": [
    "밖에",
    "밖으로",
-   "밖이"
+   "밖이",
+   "밖에서"
   ]
  },
  {
@@ -1346,7 +1347,8 @@
    "보고",
    "보며",
    "봐야",
-   "보면서"
+   "보면서",
+   "보려고"
   ]
  },
  {
@@ -1401,7 +1403,8 @@
   "en": "to buy",
   "alt": [
    "샀습니다",
-   "사서"
+   "사서",
+   "사지"
   ]
  },
  {
@@ -1550,13 +1553,14 @@
  },
  {
   "ko": "받다",
-  "en": "to receive; to accept",
+  "en": "to receive; to get",
   "alt": [
    "받습니다",
    "받았습니다",
    "받지",
    "받는",
-   "받는다"
+   "받는다",
+   "받기"
   ]
  },
  {
@@ -1579,11 +1583,12 @@
  },
  {
   "ko": "걸리다",
-  "en": "to take (time); to catch (an illness)",
+  "en": "to catch (cold); to take time",
   "alt": [
    "걸립니다",
    "걸렸습니다",
-   "걸린"
+   "걸린",
+   "걸리지"
   ]
  },
  {
@@ -1696,7 +1701,7 @@
  },
  {
   "ko": "지키다",
-  "en": "to protect; to follow",
+  "en": "to keep; to protect",
   "alt": [
    "지킵니다",
    "지켰습니다",
@@ -1704,7 +1709,9 @@
    "지키는",
    "지켜",
    "지키기",
-   "지키려면"
+   "지키려면",
+   "지켜온",
+   "지킬"
   ]
  },
  {
@@ -1713,7 +1720,8 @@
   "alt": [
    "버립니다",
    "버려야",
-   "버렸습니다"
+   "버렸습니다",
+   "버릴"
   ]
  },
  {
@@ -1985,7 +1993,8 @@
    "깨끗합니다",
    "깨끗한",
    "깨끗하게",
-   "깨끗이"
+   "깨끗이",
+   "깨끗하고"
   ]
  },
  {
@@ -2062,10 +2071,11 @@
  },
  {
   "ko": "어둡다",
-  "en": "to be dark",
+  "en": "to be dark; to be dim",
   "alt": [
    "어둡습니다",
-   "어두운"
+   "어두운",
+   "어둡고"
   ]
  },
  {
@@ -2257,7 +2267,11 @@
  {
   "ko": "주",
   "en": "week",
-  "only": true
+  "only": true,
+  "alt": [
+   "주에",
+   "주부터"
+  ]
  },
  {
   "ko": "못",
@@ -2624,7 +2638,8 @@
    "않아",
    "않습니다",
    "않는다",
-   "않은"
+   "않은",
+   "않으려면"
   ]
  },
  {
@@ -3309,11 +3324,12 @@
  },
  {
   "ko": "일",
-  "en": "matter; work",
+  "en": "work; task",
   "alt": [
    "일을",
    "일이",
-   "일입니다"
+   "일입니다",
+   "일은"
   ]
  },
  {
@@ -3470,7 +3486,8 @@
   "en": "to raise; to increase",
   "alt": [
    "높여",
-   "높이기"
+   "높이기",
+   "높이고"
   ]
  },
  {
@@ -4014,7 +4031,8 @@
   "ko": "곳",
   "en": "place; spot",
   "alt": [
-   "곳에서"
+   "곳에서",
+   "곳이"
   ]
  },
  {
@@ -5119,7 +5137,8 @@
   "ko": "입다",
   "en": "to wear; to put on",
   "alt": [
-   "입습니다"
+   "입습니다",
+   "입어"
   ]
  },
  {
@@ -5512,7 +5531,8 @@
   "ko": "바꾸다",
   "en": "to change; to exchange",
   "alt": [
-   "바꾸어"
+   "바꾸어",
+   "바꾸려고"
   ]
  },
  {
@@ -5898,5 +5918,496 @@
  {
   "ko": "신분",
   "en": "status; identity"
+ },
+ {
+  "ko": "보호하다",
+  "en": "to protect; to preserve"
+ },
+ {
+  "ko": "질서",
+  "en": "order; public order"
+ },
+ {
+  "ko": "활빈서",
+  "en": "Hwalbinseo; royal relief hospital"
+ },
+ {
+  "ko": "의약품",
+  "en": "medicine; pharmaceutical supplies"
+ },
+ {
+  "ko": "사물인터넷",
+  "en": "Internet of Things; IoT"
+ },
+ {
+  "ko": "노동력",
+  "en": "labor force; manpower"
+ },
+ {
+  "ko": "자동차",
+  "en": "car; automobile"
+ },
+ {
+  "ko": "사용하다",
+  "en": "to use; to utilize"
+ },
+ {
+  "ko": "안전성",
+  "en": "safety; security"
+ },
+ {
+  "ko": "널리",
+  "en": "widely; extensively"
+ },
+ {
+  "ko": "과제",
+  "en": "task; challenge"
+ },
+ {
+  "ko": "오랜",
+  "en": "long; long-standing"
+ },
+ {
+  "ko": "개발하다",
+  "en": "to develop",
+  "alt": [
+   "개발해"
+  ]
+ },
+ {
+  "ko": "전환하다",
+  "en": "to convert; to switch",
+  "alt": [
+   "전환해"
+  ]
+ },
+ {
+  "ko": "패턴",
+  "en": "pattern"
+ },
+ {
+  "ko": "보장하다",
+  "en": "to guarantee; to secure",
+  "alt": [
+   "보장해"
+  ]
+ },
+ {
+  "ko": "제한",
+  "en": "restriction; limit"
+ },
+ {
+  "ko": "콘텐츠",
+  "en": "content; digital contents"
+ },
+ {
+  "ko": "식품",
+  "en": "food; grocery"
+ },
+ {
+  "ko": "유통기한",
+  "en": "expiration date; sell-by date"
+ },
+ {
+  "ko": "소비기한",
+  "en": "use-by date"
+ },
+ {
+  "ko": "음식물",
+  "en": "food; edibles"
+ },
+ {
+  "ko": "무단",
+  "en": "without permission; unauthorized"
+ },
+ {
+  "ko": "적극",
+  "en": "active; positive"
+ },
+ {
+  "ko": "현대",
+  "en": "modern times; present day"
+ },
+ {
+  "ko": "정년",
+  "en": "retirement age"
+ },
+ {
+  "ko": "연장",
+  "en": "extension; prolongation"
+ },
+ {
+  "ko": "상업",
+  "en": "commerce; business"
+ },
+ {
+  "ko": "부품",
+  "en": "part; component"
+ },
+ {
+  "ko": "제조사",
+  "en": "manufacturer"
+ },
+ {
+  "ko": "다양성",
+  "en": "diversity; variety"
+ },
+ {
+  "ko": "공정",
+  "en": "fairness; process"
+ },
+ {
+  "ko": "동시",
+  "en": "same time; simultaneous"
+ },
+ {
+  "ko": "해파리",
+  "en": "jellyfish"
+ },
+ {
+  "ko": "빛",
+  "en": "light; color",
+  "alt": [
+   "빛의"
+  ]
+ },
+ {
+  "ko": "삼십",
+  "en": "thirty; 30"
+ },
+ {
+  "ko": "기둥",
+  "en": "pillar; post"
+ },
+ {
+  "ko": "서글프다",
+  "en": "to be sad; to be sorrowful",
+  "alt": [
+   "서글펐다"
+  ]
+ },
+ {
+  "ko": "멀어지다",
+  "en": "to become distant; to recede",
+  "alt": [
+   "멀어져"
+  ]
+ },
+ {
+  "ko": "쓸어내리다",
+  "en": "to sweep down; to stroke",
+  "alt": [
+   "쓸어내렸다"
+  ]
+ },
+ {
+  "ko": "모방하다",
+  "en": "to imitate; to mimic"
+ },
+ {
+  "ko": "생산하다",
+  "en": "to produce; to manufacture"
+ },
+ {
+  "ko": "촉매",
+  "en": "catalyst"
+ },
+ {
+  "ko": "불공정하다",
+  "en": "to be unfair; to be unjust",
+  "alt": [
+   "불공정한"
+  ]
+ },
+ {
+  "ko": "촉구하다",
+  "en": "to urge; to demand",
+  "alt": [
+   "촉구하고"
+  ]
+ },
+ {
+  "ko": "심사",
+  "en": "screening; evaluation"
+ },
+ {
+  "ko": "정당하다",
+  "en": "to be fair; to be justified",
+  "alt": [
+   "정당한"
+  ]
+ },
+ {
+  "ko": "인공위성",
+  "en": "artificial satellite; satellite"
+ },
+ {
+  "ko": "규범",
+  "en": "norm; standard"
+ },
+ {
+  "ko": "원도심",
+  "en": "original downtown; old city center"
+ },
+ {
+  "ko": "공용",
+  "en": "public use; shared use"
+ },
+ {
+  "ko": "동의",
+  "en": "agreement; consent"
+ },
+ {
+  "ko": "강제",
+  "en": "compulsion; coercion"
+ },
+ {
+  "ko": "행정",
+  "en": "administration"
+ },
+ {
+  "ko": "실적",
+  "en": "performance; results"
+ },
+ {
+  "ko": "소유권",
+  "en": "ownership; title"
+ },
+ {
+  "ko": "근대화",
+  "en": "modernization"
+ },
+ {
+  "ko": "정체성",
+  "en": "identity"
+ },
+ {
+  "ko": "원형",
+  "en": "original form; archetype"
+ },
+ {
+  "ko": "현대적",
+  "en": "modern; contemporary"
+ },
+ {
+  "ko": "살리다",
+  "en": "to revive; to preserve",
+  "alt": [
+   "살릴"
+  ]
+ },
+ {
+  "ko": "역사문화권",
+  "en": "historical and cultural zone"
+ },
+ {
+  "ko": "승차난",
+  "en": "difficulty in catching a ride; taxi shortage"
+ },
+ {
+  "ko": "시범",
+  "en": "demonstration; trial"
+ },
+ {
+  "ko": "대처",
+  "en": "handling; response"
+ },
+ {
+  "ko": "어업",
+  "en": "fishery; fishing industry"
+ },
+ {
+  "ko": "폐사율",
+  "en": "mortality rate; death rate"
+ },
+ {
+  "ko": "자금",
+  "en": "funds; money"
+ },
+ {
+  "ko": "금요일",
+  "en": "Friday"
+ },
+ {
+  "ko": "아홉",
+  "en": "nine; 9"
+ },
+ {
+  "ko": "층",
+  "en": "floor; story",
+  "alt": [
+   "층에",
+   "층에서"
+  ]
+ },
+ {
+  "ko": "준비물",
+  "en": "supplies; required materials"
+ },
+ {
+  "ko": "거기",
+  "en": "there; that place"
+ },
+ {
+  "ko": "값",
+  "en": "price; cost",
+  "alt": [
+   "값이"
+  ]
+ },
+ {
+  "ko": "회사",
+  "en": "company; office"
+ },
+ {
+  "ko": "세탁소",
+  "en": "laundromat; dry cleaner"
+ },
+ {
+  "ko": "산",
+  "en": "mountain",
+  "alt": [
+   "산에"
+  ]
+ },
+ {
+  "ko": "요리하다",
+  "en": "to cook"
+ },
+ {
+  "ko": "생각하다",
+  "en": "to think",
+  "alt": [
+   "생각합니다"
+  ]
+ },
+ {
+  "ko": "권",
+  "en": "volume; book counter",
+  "alt": [
+   "권을"
+  ]
+ },
+ {
+  "ko": "기차표",
+  "en": "train ticket"
+ },
+ {
+  "ko": "급하다",
+  "en": "to be urgent; to be hurried",
+  "alt": [
+   "급하게"
+  ]
+ },
+ {
+  "ko": "또는",
+  "en": "or; either"
+ },
+ {
+  "ko": "거래",
+  "en": "transaction; trade"
+ },
+ {
+  "ko": "정문",
+  "en": "main gate; front gate"
+ },
+ {
+  "ko": "환전소",
+  "en": "currency exchange; money exchange"
+ },
+ {
+  "ko": "즐겁다",
+  "en": "to be joyful; to be pleasant",
+  "alt": [
+   "즐거운"
+  ]
+ },
+ {
+  "ko": "점",
+  "en": "point; aspect",
+  "alt": [
+   "점이"
+  ]
+ },
+ {
+  "ko": "잇다",
+  "en": "to connect; to continue",
+  "alt": [
+   "이어"
+  ]
+ },
+ {
+  "ko": "여럿",
+  "en": "many; several people"
+ },
+ {
+  "ko": "짐",
+  "en": "luggage; load",
+  "alt": [
+   "짐을"
+  ]
+ },
+ {
+  "ko": "두껍다",
+  "en": "to be thick",
+  "alt": [
+   "두꺼운"
+  ]
+ },
+ {
+  "ko": "베다",
+  "en": "to pillow (one's head)",
+  "alt": [
+   "베고"
+  ]
+ },
+ {
+  "ko": "하늘",
+  "en": "sky"
+ },
+ {
+  "ko": "미술관",
+  "en": "art museum; art gallery"
+ },
+ {
+  "ko": "방문",
+  "en": "visit"
+ },
+ {
+  "ko": "학원",
+  "en": "academy; private institute"
+ },
+ {
+  "ko": "경찰관",
+  "en": "police officer"
+ },
+ {
+  "ko": "친절하다",
+  "en": "to be kind; to be friendly",
+  "alt": [
+   "친절하게"
+  ]
+ },
+ {
+  "ko": "젖다",
+  "en": "to get wet",
+  "alt": [
+   "젖지"
+  ]
+ },
+ {
+  "ko": "주인",
+  "en": "owner; master"
+ },
+ {
+  "ko": "나누다",
+  "en": "to divide; to separate",
+  "alt": [
+   "나누어서"
+  ]
+ },
+ {
+  "ko": "쓰레기통",
+  "en": "trash can; garbage bin"
  }
 ]
