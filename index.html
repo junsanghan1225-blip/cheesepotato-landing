@@ -372,6 +372,15 @@ a:hover { color:var(--orange-mid); }
   font-size:11px; font-weight:700; letter-spacing:.16em;
   text-transform:uppercase; color:var(--ink-3);
 }
+/* 메뉴 안 갈래 이름표(배우기 · 연습·놀이 · 내 활동). 위 side-eyebrow 와
+   같은 톤이지만 훨씬 작게 — 메뉴 제목과 헷갈리면 안 된다. 안 눌리는
+   글자일 뿐이라 side-item 처럼 단추 모양을 안 준다. */
+.side-sec-h {
+  padding:0 12px; margin:16px 0 4px;
+  font-size:10.5px; font-weight:700; letter-spacing:.12em;
+  text-transform:uppercase; color:var(--ink-3);
+}
+.side-sec-h:first-child { margin-top:0; }
 .side-close {
   width:44px; height:44px; display:inline-flex; align-items:center; justify-content:center;
   border:none; background:none; border-radius:var(--r-s); cursor:pointer;
@@ -398,13 +407,14 @@ a:hover { color:var(--orange-mid); }
 
    묶음(.side-group)이 생겨서 .nav-link 가 더 이상 나란한 형제가 아니다.
    바로 아래 자식을 기준으로 세야 순서가 안 어긋난다. */
-.side-list > .nav-link, .side-list > .side-group {
+.side-list > .nav-link, .side-list > .side-group, .side-list > .side-sec-h {
   opacity:0; transform:translateX(16px);
   transition:opacity .34s ease var(--d, 0s),
              transform .34s cubic-bezier(.32,.72,0,1) var(--d, 0s);
 }
 .side-nav.on .side-list > .nav-link,
-.side-nav.on .side-list > .side-group { opacity:1; transform:none; }
+.side-nav.on .side-list > .side-group,
+.side-nav.on .side-list > .side-sec-h { opacity:1; transform:none; }
 .side-nav.on .side-list > *:nth-child(1) { --d:.05s; }
 .side-nav.on .side-list > *:nth-child(2) { --d:.09s; }
 .side-nav.on .side-list > *:nth-child(3) { --d:.13s; }
@@ -3996,6 +4006,11 @@ body.hlp-open { overflow:hidden; }
          화면으로 가는 대신 여기서 바로 고르게 한다 — 어차피 그 화면이
          이 목록과 같은 것을 보여 주므로, 한 번 더 그리게 할 이유가 없다.
          (머리띠의 📖 배우기 는 그대로 목록 화면으로 간다.) -->
+    <!-- 일곱 개가 한 줄로 죽 늘어서 있으면 무엇이 무엇과 딸린 것인지
+         안 보인다. 세 갈래(배우기·놀이·내 활동)로 나눠 이름표를 붙였다.
+         이름표는 눈으로 가르는 것일 뿐 눌리지 않는다 — 실제로 여닫는
+         것은 여전히 .side-group(배우기·게임) 뿐이다. -->
+    <div class="side-sec-h" data-en="Learn">배우기</div>
     <div class="side-group" data-group="learn">
       <button class="nav-link side-parent" type="button"
               aria-expanded="false" aria-controls="sideSubLearn">
@@ -4021,11 +4036,11 @@ body.hlp-open { overflow:hidden; }
        </div>
       </div>
     </div>
-
-    <button class="nav-link" type="button" data-nav-to="wbBtn" aria-label="내 단어장 열기">
-      <span class="nav-ico">📚</span><span class="nav-txt" data-en="My wordbook">내 단어장</span>
+    <button class="nav-link" id="dictBtn" type="button" aria-label="국어사전 열기">
+      <span class="nav-ico">🔎</span><span class="nav-txt" data-en="Dictionary">국어사전</span>
     </button>
 
+    <div class="side-sec-h" data-en="Practice">연습 · 놀이</div>
     <div class="side-group" data-group="games">
       <!-- id 는 gameBtn 그대로다. 다른 곳에서 이 id 로 게임 목록을 연다. -->
       <button class="nav-link side-parent" id="gameBtn" type="button"
@@ -4051,17 +4066,19 @@ body.hlp-open { overflow:hidden; }
        </div>
       </div>
     </div>
+    <button class="nav-link" id="navBtn" type="button" aria-label="발음 테스트 열기">
+      <span class="nav-ico">🎙</span><span class="nav-txt" data-en="Pronunciation test">발음 테스트</span>
+    </button>
+
+    <div class="side-sec-h" data-en="My activity">내 활동</div>
+    <button class="nav-link" type="button" data-nav-to="wbBtn" aria-label="내 단어장 열기">
+      <span class="nav-ico">📚</span><span class="nav-txt" data-en="My wordbook">내 단어장</span>
+    </button>
     <button class="nav-link" id="dashBtn" type="button" aria-label="대시보드 열기">
       <span class="nav-ico">📊</span><span class="nav-txt" data-en="Dashboard">대시보드</span>
     </button>
     <button class="nav-link" id="libBtn" type="button" aria-label="자료마당 열기">
       <span class="nav-ico">📄</span><span class="nav-txt" data-en="Library">자료마당</span>
-    </button>
-    <button class="nav-link" id="dictBtn" type="button" aria-label="국어사전 열기">
-      <span class="nav-ico">🔎</span><span class="nav-txt" data-en="Dictionary">국어사전</span>
-    </button>
-    <button class="nav-link" id="navBtn" type="button" aria-label="발음 테스트 열기">
-      <span class="nav-ico">🎙</span><span class="nav-txt" data-en="Pronunciation test">발음 테스트</span>
     </button>
   </div>
 
