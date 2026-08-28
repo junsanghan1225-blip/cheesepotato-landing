@@ -110,8 +110,15 @@ if (!fs.existsSync(IN)) {
 const rows = fs.readFileSync(IN, 'utf8').split('\n')
   .filter((l) => l.trim().startsWith('{')).map((l) => JSON.parse(l));
 
-/* 이미 구운 것은 뺀다. 이 한 줄이 이 도구에서 제일 중요하다. */
-const todo = rows.filter((r) => !fs.existsSync(path.join(OUTDIR, r.out)));
+/* 이미 구운 것은 뺀다. 이 한 줄이 이 도구에서 제일 중요하다.
+   **크기가 0이면 없는 것으로 친다.** 손으로 만들어 둔 자리표시자나
+   중간에 끊겨 남은 빈 파일이 있으면, 있기만 하고 소리는 안 나는데
+   도구는 "이미 구웠다"며 영영 건너뛴다. 화면은 빈 mp3 를 못 읽어
+   조용히 로봇 목소리로 넘어가므로(app.module.js 의 say → playAudioFile
+   실패 → playWebSpeech) 아무도 못 알아챈다. 실제로 assets/audio 에
+   0바이트 파일 4개가 그렇게 남아 있었다. */
+const baked = (f) => { try { return fs.statSync(f).size > 0; } catch (e) { return false; } };
+const todo = rows.filter((r) => !baked(path.join(OUTDIR, r.out)));
 const done = rows.length - todo.length;
 const pick = LIMIT ? todo.slice(0, LIMIT) : todo;
 
@@ -163,7 +170,7 @@ const seedOf = (s) => {
 };
 
 async function speak(part, ctxPrev, ctxNext, seed, outFile) {
-  if (fs.existsSync(outFile)) return 'skip';
+  if (baked(outFile)) return 'skip';
   const vid = VOICE[part.voice] || VOICE.m;
   const body = {
     text: part.text,
@@ -182,14 +189,35 @@ async function speak(part, ctxPrev, ctxNext, seed, outFile) {
   if (ctxPrev) body.previous_text = ctxPrev;
   if (ctxNext) body.next_text = ctxNext;
 
-  const res = await fetch(
-    `https://api.elevenlabs.io/v1/text-to-speech/${vid}?output_format=mp3_44100_128`,
-    { method: 'POST', headers: { 'xi-api-key': KEY, 'Content-Type': 'application/json' },
-      body: JSON.stringify(body) });
+  /* 잠깐 막히는 것과 아주 막힌 것은 다르다.
+     ElevenLabs 는 서버가 붐빌 때도 429(system_busy)를 준다 — 크레딧은
+     멀쩡한데 "지금은 바쁘니 나중에"라는 뜻이다. 이걸 크레딧 소진과 같이
+     다루면 900개를 굽다 중간에 멈춰 서서 사람이 손으로 다시 돌려야 한다
+     (실제로 58번째에서 그렇게 멈췄다). 이런 것만 잠깐 쉬었다 다시 부른다.
+     크레딧이 정말 떨어진 것(quota·credit)은 기다려도 안 풀리므로 그대로
+     올려보내 바깥에서 멈추게 한다. */
+  const url = `https://api.elevenlabs.io/v1/text-to-speech/${vid}?output_format=mp3_44100_128`;
+  const opts = { method: 'POST', headers: { 'xi-api-key': KEY, 'Content-Type': 'application/json' },
+                 body: JSON.stringify(body) };
+  let res, detail = '';
+  for (let tryN = 0; tryN < 4; tryN++) {
+    if (tryN) await new Promise((r) => setTimeout(r, 2000 * tryN));   // 2·4·6초
+    res = await fetch(url, opts);
+    if (res.ok) break;
+    detail = (await res.text()).slice(0, 200);
+    const busy = /system_busy|heavy traffic|too many|rate.?limit/i.test(detail)
+              || res.status >= 500;
+    const broke = /quota|credit|insufficient/i.test(detail);
+    if (!busy || broke || tryN === 3) throw new Error(`${res.status} ${detail}`);
+    console.log(`    (${res.status} 잠시 붐빈다 — ${2 * (tryN + 1)}초 쉬고 다시)`);
+  }
 
-  if (!res.ok) throw new Error(`${res.status} ${(await res.text()).slice(0, 200)}`);
+  /* 200 인데 몸통이 비어 있으면 쓰지 않는다. 그대로 쓰면 0바이트 파일이
+     남고, 다음부터 "이미 구웠다"며 건너뛰어 영영 소리가 안 난다. */
+  const buf = Buffer.from(await res.arrayBuffer());
+  if (!buf.length) throw new Error('빈 응답이 왔다 (0바이트) — 쓰지 않았다');
   fs.mkdirSync(path.dirname(outFile), { recursive: true });
-  fs.writeFileSync(outFile, Buffer.from(await res.arrayBuffer()));
+  fs.writeFileSync(outFile, buf);
   return 'made';
 }
 
@@ -231,11 +259,15 @@ for (const [i, r] of pick.entries()) {
   } catch (e) {
     failed++;
     console.error(`${tag}  ✗ ${e.message}`);
-    /* 429(한도 초과)는 계속 돌려 봐야 다 실패한다. 크레딧이 남았는지
-       보고 다시 돌리는 편이 낫다. */
-    if (/\b429\b|quota|credit/i.test(e.message)) {
-      console.error('\n크레딧이 떨어졌거나 너무 빨리 부르고 있다. 여기서 멈춘다 —');
-      console.error('구운 것은 남아 있으니 다시 돌리면 이어서 굽는다.');
+    /* 여기까지 온 429 는 speak() 가 이미 네 번 쉬었다 불러 본 것이다.
+       계속 돌려 봐야 다 실패하니 멈춘다. 까닭을 갈라서 알려 준다 —
+       크레딧이 떨어진 것과 서버가 오래 붐비는 것은 할 일이 다르다. */
+    if (/\b429\b|quota|credit|insufficient/i.test(e.message)) {
+      const busy = /system_busy|heavy traffic|too many|rate.?limit/i.test(e.message);
+      console.error(busy
+        ? '\nElevenLabs 서버가 계속 붐빈다(크레딧 문제가 아니다). 여기서 멈춘다 —'
+        : '\n크레딧이 떨어졌다. 여기서 멈춘다 —');
+      console.error('구운 것은 남아 있으니 잠시 뒤 다시 돌리면 이어서 굽는다.');
       break;
     }
   }
