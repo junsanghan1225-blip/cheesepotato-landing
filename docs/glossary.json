@@ -1394,7 +1394,8 @@
    "쓸",
    "써야",
    "써서",
-   "쓰면"
+   "쓰면",
+   "쓰시던"
   ]
  },
  {
@@ -1570,7 +1571,8 @@
    "줘서",
    "주려고",
    "주지",
-   "주며"
+   "주며",
+   "주고"
   ]
  },
  {
@@ -1590,11 +1592,12 @@
  },
  {
   "ko": "보내다",
-  "en": "to send; to spend (time)",
+  "en": "to send",
   "alt": [
    "보냅니다",
    "보냈습니다",
-   "보내는"
+   "보내는",
+   "보낸"
   ]
  },
  {
@@ -2104,11 +2107,12 @@
  },
  {
   "ko": "어둡다",
-  "en": "to be dark; to be dim",
+  "en": "to be dark",
   "alt": [
    "어둡습니다",
    "어두운",
-   "어둡고"
+   "어둡고",
+   "어두워"
   ]
  },
  {
@@ -2502,13 +2506,14 @@
  },
  {
   "ko": "내다",
-  "en": "to pay; to submit",
+  "en": "to produce; to make",
   "alt": [
    "내는",
    "냈습니다",
    "내서",
    "냅니다",
-   "내지"
+   "내지",
+   "냈다"
   ]
  },
  {
@@ -2639,12 +2644,13 @@
  },
  {
   "ko": "따르다",
-  "en": "follow; go along with",
+  "en": "to follow; to conform",
   "alt": [
    "따라",
    "따른",
    "따릅니다",
-   "따라서"
+   "따라서",
+   "따르면"
   ]
  },
  {
@@ -2682,7 +2688,8 @@
    "않은",
    "않으려면",
    "않게",
-   "않아서"
+   "않아서",
+   "않았다"
   ]
  },
  {
@@ -2900,7 +2907,8 @@
   "ko": "속",
   "en": "inside; interior",
   "alt": [
-   "속에서"
+   "속에서",
+   "속에"
   ]
  },
  {
@@ -3060,7 +3068,11 @@
  },
  {
   "ko": "시민",
-  "en": "citizen"
+  "en": "citizen",
+  "alt": [
+   "시민들",
+   "시민들에게"
+  ]
  },
  {
   "ko": "지구",
@@ -3771,7 +3783,8 @@
   "en": "to help; to assist",
   "alt": [
    "돕는",
-   "돕고"
+   "돕고",
+   "돕는다"
   ]
  },
  {
@@ -4793,7 +4806,8 @@
   "ko": "잡다",
   "en": "to catch; to hold",
   "alt": [
-   "잡고"
+   "잡고",
+   "잡을"
   ]
  },
  {
@@ -5147,9 +5161,10 @@
  },
  {
   "ko": "높다",
-  "en": "to be high; to be tall",
+  "en": "to be high",
   "alt": [
-   "높은"
+   "높은",
+   "높게"
   ]
  },
  {
@@ -5207,7 +5222,8 @@
   "alt": [
    "어렵습니다",
    "어려워",
-   "어렵게"
+   "어렵게",
+   "어려운"
   ]
  },
  {
@@ -5714,7 +5730,8 @@
   "ko": "숲",
   "en": "forest; woods",
   "alt": [
-   "숲은"
+   "숲은",
+   "숲을"
   ]
  },
  {
@@ -5900,7 +5917,8 @@
   "ko": "커지다",
   "en": "to grow; to get bigger",
   "alt": [
-   "커지고"
+   "커지고",
+   "커졌다"
   ]
  },
  {
@@ -7242,5 +7260,377 @@
  {
   "ko": "홍보",
   "en": "promotion; public relations"
+ },
+ {
+  "ko": "보행",
+  "en": "walking; pedestrian movement"
+ },
+ {
+  "ko": "필수",
+  "en": "essential; necessity"
+ },
+ {
+  "ko": "파악하다",
+  "en": "to grasp; to understand",
+  "alt": [
+   "파악하여"
+  ]
+ },
+ {
+  "ko": "전시",
+  "en": "exhibition; display"
+ },
+ {
+  "ko": "인기",
+  "en": "popularity"
+ },
+ {
+  "ko": "수단",
+  "en": "means; method"
+ },
+ {
+  "ko": "영상",
+  "en": "video; image"
+ },
+ {
+  "ko": "실제",
+  "en": "reality; actual"
+ },
+ {
+  "ko": "방문객",
+  "en": "visitor; guest"
+ },
+ {
+  "ko": "제공하다",
+  "en": "to provide; to offer",
+  "alt": [
+   "제공할"
+  ]
+ },
+ {
+  "ko": "형성",
+  "en": "formation; development"
+ },
+ {
+  "ko": "과연",
+  "en": "indeed; really"
+ },
+ {
+  "ko": "행위",
+  "en": "act; action"
+ },
+ {
+  "ko": "완화하다",
+  "en": "to relieve; to ease",
+  "alt": [
+   "완화하고"
+  ]
+ },
+ {
+  "ko": "푸른빛",
+  "en": "blue light; bluish color"
+ },
+ {
+  "ko": "뇌파",
+  "en": "brainwave; EEG"
+ },
+ {
+  "ko": "안정시키다",
+  "en": "to stabilize; to calm down",
+  "alt": [
+   "안정시켜"
+  ]
+ },
+ {
+  "ko": "정서적",
+  "en": "emotional"
+ },
+ {
+  "ko": "반려식물",
+  "en": "companion plant; pet plant"
+ },
+ {
+  "ko": "쬐다",
+  "en": "to bask; to warm oneself",
+  "alt": [
+   "쬐는"
+  ]
+ },
+ {
+  "ko": "유익하다",
+  "en": "to be beneficial; to be useful"
+ },
+ {
+  "ko": "촉진하다",
+  "en": "to promote; to accelerate",
+  "alt": [
+   "촉진해"
+  ]
+ },
+ {
+  "ko": "활력",
+  "en": "vitality; vigor"
+ },
+ {
+  "ko": "내부",
+  "en": "inside; interior"
+ },
+ {
+  "ko": "일정하다",
+  "en": "to be regular; to be uniform",
+  "alt": [
+   "일정하게"
+  ]
+ },
+ {
+  "ko": "녹화",
+  "en": "greening; afforestation"
+ },
+ {
+  "ko": "면적",
+  "en": "area; size"
+ },
+ {
+  "ko": "소식",
+  "en": "news; word"
+ },
+ {
+  "ko": "도색",
+  "en": "painting; coating"
+ },
+ {
+  "ko": "사랑방",
+  "en": "community room; reception room"
+ },
+ {
+  "ko": "눈살",
+  "en": "brow; eyebrows"
+ },
+ {
+  "ko": "자율",
+  "en": "autonomy; self-regulation"
+ },
+ {
+  "ko": "업체",
+  "en": "company; business"
+ },
+ {
+  "ko": "불편",
+  "en": "inconvenience; discomfort"
+ },
+ {
+  "ko": "걱정",
+  "en": "worry; concern"
+ },
+ {
+  "ko": "억울하다",
+  "en": "to feel wronged; to be unfair"
+ },
+ {
+  "ko": "차곡차곡",
+  "en": "neatly; in order"
+ },
+ {
+  "ko": "꺼내다",
+  "en": "to take out; to pull out",
+  "alt": [
+   "꺼내"
+  ]
+ },
+ {
+  "ko": "잉크",
+  "en": "ink"
+ },
+ {
+  "ko": "답답하다",
+  "en": "to feel frustrated; to feel suffocated"
+ },
+ {
+  "ko": "주파수",
+  "en": "frequency"
+ },
+ {
+  "ko": "노랫소리",
+  "en": "singing voice; song sound"
+ },
+ {
+  "ko": "홀가분하다",
+  "en": "to feel relieved; to feel carefree"
+ },
+ {
+  "ko": "가꾸다",
+  "en": "to cultivate; to tend",
+  "alt": [
+   "가꾸는"
+  ]
+ },
+ {
+  "ko": "가득",
+  "en": "full; completely"
+ },
+ {
+  "ko": "검토",
+  "en": "review; examination"
+ },
+ {
+  "ko": "혈액",
+  "en": "blood"
+ },
+ {
+  "ko": "환자",
+  "en": "patient"
+ },
+ {
+  "ko": "날개",
+  "en": "wing"
+ },
+ {
+  "ko": "대책",
+  "en": "countermeasure; plan"
+ },
+ {
+  "ko": "경쟁력",
+  "en": "competitiveness"
+ },
+ {
+  "ko": "차세대",
+  "en": "next generation"
+ },
+ {
+  "ko": "국제",
+  "en": "international"
+ },
+ {
+  "ko": "지연",
+  "en": "delay; postponement"
+ },
+ {
+  "ko": "취업",
+  "en": "getting a job; employment"
+ },
+ {
+  "ko": "서민",
+  "en": "ordinary people; commoner"
+ },
+ {
+  "ko": "가계",
+  "en": "household finances; household"
+ },
+ {
+  "ko": "유통",
+  "en": "distribution; circulation"
+ },
+ {
+  "ko": "소득",
+  "en": "income; earnings"
+ },
+ {
+  "ko": "줄어들다",
+  "en": "to decrease; to diminish",
+  "alt": [
+   "줄어들었다"
+  ]
+ },
+ {
+  "ko": "논밭",
+  "en": "farmland; paddies and fields"
+ },
+ {
+  "ko": "극심하다",
+  "en": "to be severe; to be extreme",
+  "alt": [
+   "극심한"
+  ]
+ },
+ {
+  "ko": "확장",
+  "en": "expansion; enlargement"
+ },
+ {
+  "ko": "절감",
+  "en": "reduction; cut"
+ },
+ {
+  "ko": "운영하다",
+  "en": "to operate; to run",
+  "alt": [
+   "운영하는"
+  ]
+ },
+ {
+  "ko": "급증하다",
+  "en": "to surge; to increase rapidly",
+  "alt": [
+   "급증하면서"
+  ]
+ },
+ {
+  "ko": "논의",
+  "en": "discussion; debate"
+ },
+ {
+  "ko": "협력하다",
+  "en": "to cooperate; to collaborate"
+ },
+ {
+  "ko": "대우",
+  "en": "treatment; compensation"
+ },
+ {
+  "ko": "요구",
+  "en": "demand; request"
+ },
+ {
+  "ko": "찾아오다",
+  "en": "to come visit; to arrive",
+  "alt": [
+   "찾아온"
+  ]
+ },
+ {
+  "ko": "비하다",
+  "en": "to compare",
+  "alt": [
+   "비해"
+  ]
+ },
+ {
+  "ko": "완벽히",
+  "en": "perfectly; completely"
+ },
+ {
+  "ko": "왕실",
+  "en": "royal family; royal court"
+ },
+ {
+  "ko": "기록",
+  "en": "record; document"
+ },
+ {
+  "ko": "정밀하다",
+  "en": "to be precise; to be accurate",
+  "alt": [
+   "정밀하게"
+  ]
+ },
+ {
+  "ko": "전국",
+  "en": "nationwide; whole country"
+ },
+ {
+  "ko": "과학적",
+  "en": "scientific"
+ },
+ {
+  "ko": "앙부일구",
+  "en": "Angbuilgu; hemispherical sundial"
+ },
+ {
+  "ko": "시각",
+  "en": "time; hour"
+ },
+ {
+  "ko": "마케팅",
+  "en": "marketing"
  }
 ]
