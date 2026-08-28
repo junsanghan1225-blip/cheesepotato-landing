@@ -90,7 +90,19 @@ items.forEach((it, i) => {
   const existingIdx = byKo.get(ko);
   if (existingIdx != null) {
     const before = next[existingIdx];
-    next[existingIdx] = { ...before, ...it, ko, en, ...(alt.length ? { alt } : {}) };
+    /* alt 는 **더한다**, 갈아 끼우지 않는다. 예전에는 여기서 통째로
+       바꿔치기했는데, 그러면 이전 회차에서 검증해 넣은 활용형이 이번
+       회차가 몇 개만 보냈다는 이유로 조용히 사라졌다(「있다」가
+       있습니다·있었습니다·있어서·있는·있을·있고 여섯 개를 잃고 이번
+       회차의 세 개만 남을 뻔했다). */
+    const mergedAlt = [...new Set([...(before.alt || []), ...alt])];
+    /* only:true 는 사람이 「이 낱말은 이 뜻으로 쓴다」고 못 박은 자리다
+       (build-glossary.mjs 참고 — 자동으로 고른 딴 뜻을 막으려고 있다).
+       Gemini 도 자동으로 고른 뜻이니 여기를 조용히 덮으면 안 된다.
+       활용형은 늘어도 안전하니 그건 그대로 더한다. */
+    const en2 = before.only ? before.en : en;
+    if (before.only && en2 !== en) warn.push(`${at}: "${ko}" 는 딴 뜻으로 못 박혀 있어(only) 영어 뜻은 그대로 두고 활용형만 더했다 — 손으로 정한 뜻: "${before.en}"`);
+    next[existingIdx] = { ...before, ...it, ko, en: en2, ...(mergedAlt.length ? { alt: mergedAlt } : {}) };
     updated++;
   } else {
     /* 딴 표제어가 이미 쓰고 있는 꼴과 겹치면 어느 뜻으로 나갈지 못 정한다.
