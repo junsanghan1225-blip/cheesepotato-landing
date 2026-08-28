@@ -650,7 +650,8 @@
    "물을",
    "물이",
    "물도",
-   "물에"
+   "물에",
+   "물로"
   ],
   "only": true
  },
@@ -1137,7 +1138,8 @@
   "en": "body",
   "alt": [
    "몸을",
-   "몸이"
+   "몸이",
+   "몸의"
   ]
  },
  {
@@ -1145,7 +1147,8 @@
   "en": "eye; snow",
   "alt": [
    "눈을",
-   "눈이"
+   "눈이",
+   "눈에"
   ]
  },
  {
@@ -1276,13 +1279,14 @@
  },
  {
   "ko": "없다",
-  "en": "to not be; to not have",
+  "en": "to not exist; to lack",
   "alt": [
    "없습니다",
    "없었습니다",
    "없어서",
    "없는",
-   "없이"
+   "없이",
+   "없어"
   ]
  },
  {
@@ -1298,7 +1302,8 @@
    "해야",
    "하셨습니다",
    "했다",
-   "하면"
+   "하면",
+   "하여"
   ]
  },
  {
@@ -1540,12 +1545,13 @@
  },
  {
   "ko": "찾다",
-  "en": "to look for; to find",
+  "en": "to find; to look for",
   "alt": [
    "찾습니다",
    "찾았습니다",
    "찾으러",
-   "찾는"
+   "찾는",
+   "찾아"
   ]
  },
  {
@@ -1563,7 +1569,8 @@
    "주어",
    "줘서",
    "주려고",
-   "주지"
+   "주지",
+   "주며"
   ]
  },
  {
@@ -1772,7 +1779,8 @@
    "늘었습니다",
    "늘기",
    "늘어",
-   "늘고"
+   "늘고",
+   "늘면서"
   ]
  },
  {
@@ -2027,7 +2035,8 @@
   "alt": [
    "중요합니다",
    "중요한",
-   "중요해서"
+   "중요해서",
+   "중요하지"
   ]
  },
  {
@@ -2378,7 +2387,8 @@
   "en": "rain",
   "only": true,
   "alt": [
-   "비가"
+   "비가",
+   "비나"
   ]
  },
  {
@@ -2395,7 +2405,10 @@
  },
  {
   "ko": "데",
-  "en": "(in -는 데) in doing; for"
+  "en": "place; point",
+  "alt": [
+   "데에"
+  ]
  },
  {
   "ko": "손",
@@ -2599,7 +2612,8 @@
   "en": "car; tea",
   "only": true,
   "alt": [
-   "차를"
+   "차를",
+   "차나"
   ]
  },
  {
@@ -2667,7 +2681,8 @@
    "않는다",
    "않은",
    "않으려면",
-   "않게"
+   "않게",
+   "않아서"
   ]
  },
  {
@@ -2837,7 +2852,8 @@
   "en": "night",
   "alt": [
    "밤에",
-   "밤이"
+   "밤이",
+   "밤을"
   ]
  },
  {
@@ -5110,7 +5126,8 @@
   "en": "room",
   "alt": [
    "방이",
-   "방에서"
+   "방에서",
+   "방을"
   ]
  },
  {
@@ -5398,7 +5415,8 @@
   "en": "to attend; to go regularly",
   "alt": [
    "다니기",
-   "다닐"
+   "다닐",
+   "다닙니다"
   ]
  },
  {
@@ -5572,7 +5590,8 @@
   "en": "to change; to exchange",
   "alt": [
    "바꾸어",
-   "바꾸려고"
+   "바꾸려고",
+   "바꿔"
   ]
  },
  {
@@ -6822,5 +6841,406 @@
  {
   "ko": "내내",
   "en": "throughout; all the time"
+ },
+ {
+  "ko": "묻다",
+  "en": "to ask; to inquire",
+  "alt": [
+   "묻습니다"
+  ]
+ },
+ {
+  "ko": "접다",
+  "en": "to fold; to collapse",
+  "alt": [
+   "접는"
+  ]
+ },
+ {
+  "ko": "찍다",
+  "en": "to take (photo); to stamp",
+  "alt": [
+   "찍으러"
+  ]
+ },
+ {
+  "ko": "사진사",
+  "en": "photographer"
+ },
+ {
+  "ko": "아저씨",
+  "en": "middle-aged man; mister"
+ },
+ {
+  "ko": "나중",
+  "en": "later; after"
+ },
+ {
+  "ko": "표정",
+  "en": "facial expression; look"
+ },
+ {
+  "ko": "색깔",
+  "en": "color"
+ },
+ {
+  "ko": "발",
+  "en": "foot; feet",
+  "alt": [
+   "발이"
+  ]
+ },
+ {
+  "ko": "비누",
+  "en": "soap"
+ },
+ {
+  "ko": "물놀이",
+  "en": "water play; swimming"
+ },
+ {
+  "ko": "확인하다",
+  "en": "to check; to confirm",
+  "alt": [
+   "확인하고"
+  ]
+ },
+ {
+  "ko": "양말",
+  "en": "socks"
+ },
+ {
+  "ko": "우체통",
+  "en": "mailbox; postbox"
+ },
+ {
+  "ko": "음료수",
+  "en": "beverage; drink"
+ },
+ {
+  "ko": "초보자",
+  "en": "beginner; novice"
+ },
+ {
+  "ko": "장난감",
+  "en": "toy"
+ },
+ {
+  "ko": "나눔",
+  "en": "sharing; distribution"
+ },
+ {
+  "ko": "자료",
+  "en": "data; material"
+ },
+ {
+  "ko": "찌개",
+  "en": "stew; jjigae"
+ },
+ {
+  "ko": "풀리다",
+  "en": "to be solved; to loosen",
+  "alt": [
+   "풀릴"
+  ]
+ },
+ {
+  "ko": "노력하다",
+  "en": "to make an effort; to try"
+ },
+ {
+  "ko": "유지하다",
+  "en": "to maintain; to keep",
+  "alt": [
+   "유지해"
+  ]
+ },
+ {
+  "ko": "세탁기",
+  "en": "washing machine"
+ },
+ {
+  "ko": "안심하다",
+  "en": "to feel relieved; to rest assured",
+  "alt": [
+   "안심하고"
+  ]
+ },
+ {
+  "ko": "무게",
+  "en": "weight"
+ },
+ {
+  "ko": "즐기다",
+  "en": "to enjoy",
+  "alt": [
+   "즐겨"
+  ]
+ },
+ {
+  "ko": "무선",
+  "en": "wireless"
+ },
+ {
+  "ko": "피로",
+  "en": "fatigue; tiredness"
+ },
+ {
+  "ko": "구석구석",
+  "en": "every nook and corner; everywhere"
+ },
+ {
+  "ko": "검진",
+  "en": "medical checkup; screening"
+ },
+ {
+  "ko": "개선하다",
+  "en": "to improve; to upgrade",
+  "alt": [
+   "개선해"
+  ]
+ },
+ {
+  "ko": "장비",
+  "en": "equipment; gear"
+ },
+ {
+  "ko": "당신",
+  "en": "you"
+ },
+ {
+  "ko": "진료",
+  "en": "medical treatment; clinic care"
+ },
+ {
+  "ko": "참가하다",
+  "en": "to participate; to take part",
+  "alt": [
+   "참가할"
+  ]
+ },
+ {
+  "ko": "조립",
+  "en": "assembly"
+ },
+ {
+  "ko": "누리집",
+  "en": "website; homepage"
+ },
+ {
+  "ko": "별도",
+  "en": "separate; additional"
+ },
+ {
+  "ko": "올해",
+  "en": "this year"
+ },
+ {
+  "ko": "차도",
+  "en": "roadway; driveway"
+ },
+ {
+  "ko": "이용자",
+  "en": "user; patron"
+ },
+ {
+  "ko": "예정",
+  "en": "schedule; plan",
+  "alt": [
+   "예정이다"
+  ]
+ },
+ {
+  "ko": "노선",
+  "en": "route; line"
+ },
+ {
+  "ko": "구역",
+  "en": "zone; area"
+ },
+ {
+  "ko": "작물",
+  "en": "crop; produce"
+ },
+ {
+  "ko": "분리배출",
+  "en": "separate garbage collection"
+ },
+ {
+  "ko": "투명",
+  "en": "transparent; clarity"
+ },
+ {
+  "ko": "가져오다",
+  "en": "to bring; to fetch",
+  "alt": [
+   "가져오면"
+  ]
+ },
+ {
+  "ko": "수거함",
+  "en": "collection box; bin"
+ },
+ {
+  "ko": "라벨",
+  "en": "label"
+ },
+ {
+  "ko": "소형",
+  "en": "small size; compact"
+ },
+ {
+  "ko": "수량",
+  "en": "quantity; amount"
+ },
+ {
+  "ko": "물량",
+  "en": "volume of goods; supply volume"
+ },
+ {
+  "ko": "제대로",
+  "en": "properly; right"
+ },
+ {
+  "ko": "테이프",
+  "en": "tape"
+ },
+ {
+  "ko": "자재",
+  "en": "materials"
+ },
+ {
+  "ko": "각광받다",
+  "en": "to be in the spotlight; to be popular",
+  "alt": [
+   "각광받고"
+  ]
+ },
+ {
+  "ko": "매년",
+  "en": "every year; annually"
+ },
+ {
+  "ko": "대부분",
+  "en": "most; majority"
+ },
+ {
+  "ko": "유리병",
+  "en": "glass bottle"
+ },
+ {
+  "ko": "가공",
+  "en": "processing; manufacturing"
+ },
+ {
+  "ko": "독특하다",
+  "en": "to be unique; to be distinct",
+  "alt": [
+   "독특한"
+  ]
+ },
+ {
+  "ko": "습도",
+  "en": "humidity"
+ },
+ {
+  "ko": "의하다",
+  "en": "to be based on; to be due to",
+  "alt": [
+   "의해"
+  ]
+ },
+ {
+  "ko": "수분",
+  "en": "moisture; water"
+ },
+ {
+  "ko": "배출하다",
+  "en": "to discharge; to emit"
+ },
+ {
+  "ko": "꿀벌",
+  "en": "honeybee; bee"
+ },
+ {
+  "ko": "세포",
+  "en": "cell"
+ },
+ {
+  "ko": "나침반",
+  "en": "compass"
+ },
+ {
+  "ko": "구름",
+  "en": "cloud"
+ },
+ {
+  "ko": "밤낮",
+  "en": "day and night"
+ },
+ {
+  "ko": "냄새",
+  "en": "smell; odor"
+ },
+ {
+  "ko": "개미",
+  "en": "ant"
+ },
+ {
+  "ko": "흔적",
+  "en": "trace; track"
+ },
+ {
+  "ko": "현대식",
+  "en": "modern style"
+ },
+ {
+  "ko": "냉난방",
+  "en": "heating and cooling; HVAC"
+ },
+ {
+  "ko": "탈바꿈하다",
+  "en": "to transform; to change",
+  "alt": [
+   "탈바꿈했다"
+  ]
+ },
+ {
+  "ko": "게다가",
+  "en": "moreover; in addition"
+ },
+ {
+  "ko": "계획",
+  "en": "plan; project"
+ },
+ {
+  "ko": "세우다",
+  "en": "to establish; to set up",
+  "alt": [
+   "세워"
+  ]
+ },
+ {
+  "ko": "뇌",
+  "en": "brain",
+  "alt": [
+   "뇌는"
+  ]
+ },
+ {
+  "ko": "단점",
+  "en": "disadvantage; drawback"
+ },
+ {
+  "ko": "한편",
+  "en": "meanwhile; on the other hand"
+ },
+ {
+  "ko": "개인정보",
+  "en": "personal information; personal data"
+ },
+ {
+  "ko": "홍보",
+  "en": "promotion; public relations"
  }
 ]
