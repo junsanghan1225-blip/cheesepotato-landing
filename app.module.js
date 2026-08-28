@@ -13,7 +13,7 @@
    어느 날 갑자기 다른 코드가 실려 왔다.
    이제 vendor/ 안에 받아 두고 CSP 로 바깥을 막는다. 버전을 올릴 때는
    tools/vendor.mjs 의 PIN 을 고치고 다시 돌린다. */
-import { createClient } from './vendor/supabase-js.js?v=ef18b8c0';
+import { createClient } from './vendor/supabase-js.js?v=1bdb0567';
 // 앱(package.json)과 같은 줄기를 쓴다. 갈리면 앱에서는 읽히는 파일이
 // 여기서는 안 읽히는(또는 그 반대) 일이 생긴다.
 /* 엑셀 라이브러리는 422KB — 이 판에서 가장 무거운 조각이다. 그런데 쓰는
@@ -25,21 +25,21 @@ import { createClient } from './vendor/supabase-js.js?v=ef18b8c0';
    자국(?v=)은 tools/stamp.mjs 가 아래 줄에 알아서 붙인다 — 정적으로 쓰든
    동적으로 쓰든 같은 글자를 찾으므로 바꿔도 그대로 찍힌다. */
 let XLSX = null;
-const needXLSX = async () => (XLSX ??= await import('./vendor/xlsx.js?v=ef18b8c0'));
+const needXLSX = async () => (XLSX ??= await import('./vendor/xlsx.js?v=1bdb0567'));
 // 커리큘럼. 내용과 엔진을 갈라 두면 글을 고치다 화면을 깨지 않는다.
-import { COURSES } from './courses.js?v=ef18b8c0';
-import { GLOSSARY, GLOSS_LANGS } from './glossary.js?v=ef18b8c0';
-import { glossFind } from './gloss-find.js?v=ef18b8c0';
-import { GRAMMAR } from './grammar.js?v=ef18b8c0';
-import { GRAMMAR_EN } from './grammar-en.js?v=ef18b8c0';
-import { grammarScan } from './grammar-find.js?v=ef18b8c0';
-import { TW_ITEMS, TW_QS } from './topik-writing.js?v=ef18b8c0';
-import { TOPIKL_BY_EXAM, TOPIKL_PICTURE_SLOTS } from './topik-listening.js?v=ef18b8c0';
-import { SB_CATS, SB_MORE, SB_SEED } from './sentences.js?v=ef18b8c0';
+import { COURSES } from './courses.js?v=1bdb0567';
+import { GLOSSARY, GLOSS_LANGS } from './glossary.js?v=1bdb0567';
+import { glossFind } from './gloss-find.js?v=1bdb0567';
+import { GRAMMAR } from './grammar.js?v=1bdb0567';
+import { GRAMMAR_EN } from './grammar-en.js?v=1bdb0567';
+import { grammarScan } from './grammar-find.js?v=1bdb0567';
+import { TW_ITEMS, TW_QS } from './topik-writing.js?v=1bdb0567';
+import { TOPIKL_BY_EXAM, TOPIKL_PICTURE_SLOTS } from './topik-listening.js?v=1bdb0567';
+import { SB_CATS, SB_MORE, SB_SEED } from './sentences.js?v=1bdb0567';
 // 읽기 연습 지문. 길이(short·long) × 급수 여섯 칸.
 // TOPIK 유형 연습문제. 기출이 아니라 자체 제작이다.
 // 숫자 게임의 읽기와 문제 만들기. 화면을 모르는 순수 계산이라 따로 뒀다.
-import { makeRound } from './numbers.js?v=ef18b8c0';
+import { makeRound } from './numbers.js?v=1bdb0567';
 
 // 이 키는 공개돼도 되는 값이다. 이미 APK 안에 같은 것이 들어 있고,
 // 접근을 막는 건 키가 아니라 테이블에 걸린 RLS 다.
@@ -85,14 +85,14 @@ function panel(name) {
 const TQ_DATA = { I: null, II: null };
 let tqDataP = null;
 const tqNeedData = () => (tqDataP ??= Promise.all([
-  import('./topik.js?v=ef18b8c0'), import('./topik2.js?v=ef18b8c0'),
+  import('./topik.js?v=1bdb0567'), import('./topik2.js?v=1bdb0567'),
 ]).then(([a, b]) => {
   TQ_DATA.I  = { reading: a.TOPIK_READING,  blueprint: a.TOPIK_BLUEPRINT,  slots: a.TOPIK_SLOTS };
   TQ_DATA.II = { reading: b.TOPIK2_READING, blueprint: b.TOPIK2_BLUEPRINT, slots: b.TOPIK2_SLOTS };
 }));
 
 let READING = null, rdP = null;
-const rdNeed = () => (rdP ??= import('./reading.js?v=ef18b8c0').then((m) => { READING = m.READING; }));
+const rdNeed = () => (rdP ??= import('./reading.js?v=1bdb0567').then((m) => { READING = m.READING; }));
 
 /* 배우기를 열면 둘 다 미리 부른다. 기다리지 않는다 — 갈래 목록은 이
    자료가 없어도 그려지고, 사람이 갈래를 고르는 사이에 도착한다. */
@@ -444,6 +444,14 @@ let dictQuery = '';
 let dictTag = null;   // null = 전체
 let dictShown = 60;   // 한 번에 그리는 수 — 4천 개를 한꺼번에 그리면 스크롤이 무거워진다
 const DICT_PAGE = 60;
+let dictOpen = null;  // 지금 "뜻풀이 더 보기"를 펼쳐 둔 표제어. 한 번에 하나만.
+
+/* 뜻이 둘 이상인 표제어만 담은 자료(글로서리 전체가 아니라 그 절반쯤).
+   glossary.js 처럼 늘 받지 않고 국어사전 화면을 열 때만 따로 받는다 —
+   평소엔 안 쓰는 522KB 를 첫 화면 모두에게 물릴 까닭이 없다. */
+let dictSensesP = null;
+const dictLoadSenses = () => (dictSensesP ??=
+  import('./glossary-senses.js?v=1bdb0567').then((m) => m.SENSES).catch(() => ({})));
 
 function dictVisible() {
   const q = dictQuery.trim().toLowerCase();
@@ -495,17 +503,48 @@ async function dictAdd(word, meaning, tag, btn) {
   }
 }
 
+/* 펼친 표제어의 "뜻풀이 더 보기" 칸만 따로 그린다. 목록 전체를 다시
+   그리면 검색창 포커스가 날아가고 스크롤 자리도 잃는다. */
+async function dictDrawSenses(head) {
+  const box = document.querySelector(`.wb-item[data-head="${CSS.escape(head)}"] .dict-senses`);
+  if (!box) return;
+  const all = await dictLoadSenses();
+  const senses = all[head];
+  if (!senses || !senses.length) {
+    box.innerHTML = `<p class="dnote">${esc(t('이 표제어는 뜻이 하나예요.', 'This headword has only one sense.'))}</p>`;
+    return;
+  }
+  box.innerHTML = '<ol class="dict-sense-list">' +
+    senses.map(([ko, en]) =>
+      `<li><span class="dict-sense-ko">${esc(ko)}</span>` +
+      (en ? `<span class="dict-sense-en">${esc(en)}</span>` : '') + '</li>').join('') +
+    '</ol>';
+}
+
+/* 국립국어원 자료에 예문(용례)은 없다 — 뜻풀이와 번역만 있다. 지어내지
+   않는다는 원칙(gloss-find.js 의 "틀린 뜻을 내주느니 빈 칸을 내준다")과
+   같은 이유로, 여기서도 없는 예문을 만들어 붙이지 않는다. */
+
 function dictDraw() {
   dictDrawChips();
+  const active = dictQuery || dictTag;
+  $('dictMore').style.display = 'none';
+
+  if (!active) {
+    /* 검색바만 보이는 첫 화면. 4천 개를 다 늘어놓지 않는다 — 찾아보는
+       화면이지 훑어보는 목록이 아니다. */
+    $('dictCount').textContent = t(`표제어 ${DICT_ENTRIES.length}개 · 찾아보세요`, `${DICT_ENTRIES.length} headwords — search to begin`);
+    $('dictList').innerHTML = '';
+    $('dictNone').classList.add('hidden');
+    return;
+  }
+
   const shown = dictVisible();
-  $('dictCount').textContent = dictQuery || dictTag
-    ? t(`${shown.length}개 찾음`, `${shown.length} found`)
-    : t(`표제어 ${DICT_ENTRIES.length}개`, `${DICT_ENTRIES.length} headwords`);
+  $('dictCount').textContent = t(`${shown.length}개 찾음`, `${shown.length} found`);
 
   const list = $('dictList');
   list.innerHTML = '';
   $('dictNone').classList.toggle('hidden', shown.length > 0);
-  $('dictMore').style.display = 'none';
   if (!shown.length) {
     $('dictNone').textContent = dictQuery
       ? t(`"${dictQuery}" 와 맞는 낱말이 없어요.`, `Nothing matches "${dictQuery}".`)
@@ -516,8 +555,10 @@ function dictDraw() {
   const page = shown.slice(0, dictShown);
   page.forEach((v) => {
     const g = tqGloss(v.head);
+    const isOpen = dictOpen === v.head;
     const el = document.createElement('div');
     el.className = 'wb-item';
+    el.dataset.head = v.head;
     el.innerHTML =
       '<div class="wb-noimg">🥔</div>' +
       '<div class="wb-main">' +
@@ -526,9 +567,12 @@ function dictDraw() {
           ? `<div class="wb-mean">${esc(g.meaning)}</div>`
           : `<div class="wb-mean wb-nomean">${esc(t('뜻풀이 준비 중', 'Definition not ready yet'))}</div>`) +
         (v.pos ? `<span class="wb-tag" style="color:${tagHue(v.pos)}">${esc(t(v.pos, TAG_EN[v.pos] ?? v.pos))}</span>` : '') +
+        `<button class="dict-more" type="button" data-dict-toggle="${esc(v.head)}">${esc(isOpen ? t('접기', 'Hide') : t('뜻풀이 더 보기', 'More senses'))}</button>` +
+        (isOpen ? '<div class="dict-senses"></div>' : '') +
       '</div>' +
       `<button class="btn-retro" type="button" data-dict-add="${esc(v.head)}">${esc(t('담기', 'Save'))}</button>`;
     list.appendChild(el);
+    if (isOpen) dictDrawSenses(v.head);
   });
 
   if (shown.length > page.length) {
@@ -537,17 +581,20 @@ function dictDraw() {
   }
 }
 
-$('dictSearch').addEventListener('input', (e) => { dictQuery = e.target.value; dictShown = DICT_PAGE; dictDraw(); });
+$('dictSearch').addEventListener('input', (e) => { dictQuery = e.target.value; dictShown = DICT_PAGE; dictOpen = null; dictDraw(); });
 $('dictChips').addEventListener('click', (ev) => {
   const b = ev.target.closest('[data-dict-chip]');
   if (!b) return;
   const key = b.dataset.dictChip;
   dictTag = key === 'all' ? null : (dictTag === key ? null : key);
   dictShown = DICT_PAGE;
+  dictOpen = null;
   dictDraw();
 });
 $('dictMore').addEventListener('click', () => { dictShown += DICT_PAGE; dictDraw(); });
 $('dictList').addEventListener('click', (ev) => {
+  const t1 = ev.target.closest('[data-dict-toggle]');
+  if (t1) { dictOpen = dictOpen === t1.dataset.dictToggle ? null : t1.dataset.dictToggle; dictDraw(); return; }
   const b = ev.target.closest('[data-dict-add]');
   if (!b) return;
   const head = b.dataset.dictAdd;

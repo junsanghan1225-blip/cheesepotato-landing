@@ -107,8 +107,8 @@
      Pretendard 는 통짜(2.0MB) 대신 조각난 쪽을 쓴다 — 브라우저가
      unicode-range 를 보고 화면에 실제로 나온 글자가 든 조각만 받는다.
      그래서 저장소는 무거워졌지만 학습자가 받는 양은 오히려 줄었다. -->
-<link rel="stylesheet" href="vendor/pretendard.css?v=ef18b8c0">
-<link rel="stylesheet" href="vendor/pressstart2p.css?v=ef18b8c0">
+<link rel="stylesheet" href="vendor/pretendard.css?v=1bdb0567">
+<link rel="stylesheet" href="vendor/pressstart2p.css?v=1bdb0567">
 <style>
 /* ══════════════════════════════════════════════════════════════
    치즈감자 — 랜딩
@@ -1243,6 +1243,16 @@ button.btn-primary, button.btn-ghost { font-family:inherit; }
 .wb-ex { font-size:13px; color:var(--ink-3); line-height:1.65; margin-top:10px; word-break:break-word; }
 .wb-tag { display:inline-block; margin-top:10px; font-size:10.5px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--orange-deep); }
 
+/* ── 국어사전 카드의 "뜻풀이 더 보기" ─────────────────────────── */
+.dict-more { display:block; margin-top:10px; font-size:12.5px; font-weight:600; color:var(--ink-3); background:none; border:none; padding:0; cursor:pointer; text-decoration:underline; text-underline-offset:3px; }
+.dict-more:hover { color:var(--orange-deep); }
+.dict-senses { margin-top:10px; }
+.dict-sense-list { list-style:decimal; padding-left:18px; }
+.dict-sense-list li { margin-top:6px; }
+.dict-sense-list li:first-child { margin-top:0; }
+.dict-sense-ko { display:block; font-size:13.5px; color:var(--ink); line-height:1.6; word-break:keep-all; }
+.dict-sense-en { display:block; font-size:12.5px; color:var(--ink-3); margin-top:2px; }
+
 .wb-state { text-align:center; padding:52px 20px; color:var(--ink-3); font-size:14.5px; line-height:1.8; word-break:keep-all; }
 .wb-spin { width:28px; height:28px; margin:0 auto 18px; border:2px solid var(--line); border-top-color:var(--orange); border-radius:50%; animation:wbSpin .8s linear infinite; }
 
@@ -1254,6 +1264,16 @@ button.btn-primary, button.btn-ghost { font-family:inherit; }
 }
 .wb-search:focus { outline:none; border-color:var(--orange-mid); }
 .wb-search::placeholder { color:var(--ink-3); }
+
+/* ── 국어사전 : 검색이 첫눈에 가장 크게 보이도록 ────────────────
+   다른 화면처럼 큰 안내문·목록으로 시작하지 않는다. 찾아보는 화면이라
+   검색창 하나면 충분하다. */
+.dict-body { padding-top:56px; }
+.dict-h { text-align:center; font-size:22px; margin-bottom:22px; }
+.dict-body .wb-search { font-size:16px; padding:14px 18px; border-radius:999px; text-align:center; }
+.dict-body .wb-search:not(:placeholder-shown) { text-align:left; }
+.dict-body .wb-chips { justify-content:center; margin-top:14px; }
+.dict-body .wb-count { display:block; text-align:center; margin-top:10px; }
 .wb-sort {
   padding:11px 12px; font-size:14px; color:var(--ink); cursor:pointer;
   background:var(--surface); border:1px solid var(--line); border-radius:var(--r-s);
@@ -5403,18 +5423,19 @@ body.hlp-open { overflow:hidden; }
      첫 화면 "낱말·문법 사전" 카드가 예전엔 자료마당(엑셀 내려받기)으로
      보냈다 — 정작 사전이라 부를 만한 화면이 없었다. glossary.js 에 이미
      있는 자료(GLOSSARY, 표제어 4,047개)를 그대로 찾아보는 화면을 새로
-     만든다. 새로 받아 오는 자료는 없다 — 있는 것을 찾아보게 할 뿐이다. -->
+     만든다. 새로 받아 오는 자료는 없다 — 있는 것을 찾아보게 할 뿐이다.
+
+     처음엔 안내문과 큰 목록을 다 보여 줬는데, 검색하러 온 사람에게는
+     군더더기다. 찾아보는 화면이니 검색창이 첫눈에 가장 크게 보이면
+     된다 — 결과는 입력하거나 품사를 고른 뒤에만 그린다(dictDraw 의
+     빈 상태 참고). -->
 <div id="dictView" class="hidden">
 
-  <div class="pt-hero">
-    <div class="pt-badge">DICTIONARY</div>
-    <h2 data-en="Korean dictionary">국어사전</h2>
-    <p id="dictLead" data-en="4,047 headwords from the National Institute of Korean Language. Search, filter by part of speech, and save any word straight to your wordbook.">국립국어원 뜻풀이를 담은 표제어 4,047개예요. 찾아보고, 품사로 걸러 보고, 바로 단어장에 담을 수 있어요.</p>
-  </div>
+  <div class="pt-body dict-body" style="max-width:640px;">
+    <h2 class="dict-h" data-en="Korean dictionary">국어사전</h2>
 
-  <div class="pt-body" style="max-width:900px;">
     <div class="wb-tools">
-      <input class="wb-search" id="dictSearch" type="search" placeholder="단어 · 뜻 검색">
+      <input class="wb-search" id="dictSearch" type="search" placeholder="단어 · 뜻 검색" autocomplete="off">
     </div>
     <div class="wb-chips" id="dictChips"></div>
     <span class="wb-count" id="dictCount"></span>
@@ -5757,9 +5778,9 @@ body.hlp-open { overflow:hidden; }
 <div id="hlpScrim" class="hlp-scrim"></div>
 <aside id="hlpPanel" class="hlp-panel" aria-label="한국어 도우미" aria-hidden="true"></aside>
 
-<script src="app.js?v=ef18b8c0"></script>
-<script type="module" src="app.module.js?v=ef18b8c0"></script>
+<script src="app.js?v=1bdb0567"></script>
+<script type="module" src="app.module.js?v=1bdb0567"></script>
 
-<script src="analytics.js?v=ef18b8c0" defer></script>
+<script src="analytics.js?v=1bdb0567" defer></script>
 </body>
 </html>
