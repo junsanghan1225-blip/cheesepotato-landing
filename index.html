@@ -107,8 +107,8 @@
      Pretendard 는 통짜(2.0MB) 대신 조각난 쪽을 쓴다 — 브라우저가
      unicode-range 를 보고 화면에 실제로 나온 글자가 든 조각만 받는다.
      그래서 저장소는 무거워졌지만 학습자가 받는 양은 오히려 줄었다. -->
-<link rel="stylesheet" href="vendor/pretendard.css?v=dd88db4f">
-<link rel="stylesheet" href="vendor/pressstart2p.css?v=dd88db4f">
+<link rel="stylesheet" href="vendor/pretendard.css?v=4622a3db">
+<link rel="stylesheet" href="vendor/pressstart2p.css?v=4622a3db">
 <style>
 /* ══════════════════════════════════════════════════════════════
    치즈감자 — 랜딩
@@ -134,6 +134,10 @@
   --ink:   #1B1512;
   --ink-2: #4E3E31;
   --ink-3: #8C7A66;
+  /* rgba(var(--ink-rgb), …) 꼴로 여기저기 쓰는 테두리·hover 옅은 칠이 어두운
+     모드에서도 맞게 뒤집히도록 세 자리만 따로 둔다. rgba(var(--ink-rgb),.05)
+     로 쓰면 이 값을 그대로 삼는다. */
+  --ink-rgb: 27,21,18;
 
   /* 브랜드 — 앱과 같은 값 */
   --orange:      #FF914D;
@@ -146,8 +150,8 @@
   --red:         #C43D34;
 
   /* 선 */
-  --line:  rgba(27,21,18,.11);
-  --line-2:rgba(27,21,18,.06);
+  --line:  rgba(var(--ink-rgb),.11);
+  --line-2:rgba(var(--ink-rgb),.06);
 
   --r-s: 8px; --r: 12px; --r-l: 18px; --r-xl: 26px;
   --max: 1200px;
@@ -155,6 +159,52 @@
 
   /* 리듬 */
   --sec: 76px;
+}
+
+/* ── 어두운 모드 ──────────────────────────────────────────────
+   기기 설정(prefers-color-scheme)을 기본으로 따른다. themeBtn 을 눌러
+   사람이 직접 고르면 :root 에 data-theme 를 붙여 기기 설정을 덮는다
+   (localStorage 'theme' 에 적어 다음에도 그대로 — app.js 의 langBtn 과
+   같은 틀이다). 토큰만 뒤집으면 되므로 여기 둘, [data-theme="dark"] 둘
+   말고는 손댈 곳이 없다 — 색은 전부 var(--…) 아니면 rgba(var(--ink-rgb),…)
+   로 쓰고 있어서다. */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg:        #17130F;
+    --surface:   #221C17;
+    --surface-2: #1C1712;
+    --tint:      #2E2015;
+    --ink-bg:    #2A2119;
+
+    --ink:   #F2EAE0;
+    --ink-2: #CBB8A6;
+    --ink-3: #9C8973;
+    --ink-rgb: 242,234,224;
+
+    --orange:      #FF9E5C;
+    --orange-mid:  #FF8A47;
+    --orange-deep: #FFA05E;
+    --green:       #3FBF8F;
+    --red:         #E1594E;
+  }
+}
+:root[data-theme="dark"] {
+  --bg:        #17130F;
+  --surface:   #221C17;
+  --surface-2: #1C1712;
+  --tint:      #2E2015;
+  --ink-bg:    #2A2119;
+
+  --ink:   #F2EAE0;
+  --ink-2: #CBB8A6;
+  --ink-3: #9C8973;
+  --ink-rgb: 242,234,224;
+
+  --orange:      #FF9E5C;
+  --orange-mid:  #FF8A47;
+  --orange-deep: #FFA05E;
+  --green:       #3FBF8F;
+  --red:         #E1594E;
 }
 
 * { box-sizing:border-box; margin:0; padding:0;
@@ -172,7 +222,11 @@ body {
 a { color:var(--orange-deep); text-decoration:none; }
 a:hover { color:var(--orange-mid); }
 
-::selection { background:#FFD9B8; color:var(--ink); }
+::selection { background:#FFD9B8; color:#1B1512; }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) ::selection { background:#5A3B1F; color:#F2EAE0; }
+}
+:root[data-theme="dark"] ::selection { background:#5A3B1F; color:#F2EAE0; }
 
 /* 키보드로 옮겨 다니는 사람에게만 테두리를 보여준다. */
 :focus-visible { outline:2px solid var(--orange-mid); outline-offset:3px; border-radius:4px; }
@@ -222,8 +276,8 @@ a:hover { color:var(--orange-mid); }
   min-height:44px; padding:0 12px; border-radius:var(--r-s);
   transition:background .16s, color .16s;
 }
-.nav-link:hover { background:rgba(27,21,18,.05); color:var(--ink); }
-.nav-link.on { background:rgba(27,21,18,.07); color:var(--ink); font-weight:600; }
+.nav-link:hover { background:rgba(var(--ink-rgb),.05); color:var(--ink); }
+.nav-link.on { background:rgba(var(--ink-rgb),.07); color:var(--ink); font-weight:600; }
 .nav-ico { font-size:14px; line-height:1; }
 
 /* ══ 글자 크기 (모의고사 안에서만) ═══════════════════════════
@@ -271,11 +325,11 @@ a:hover { color:var(--orange-mid); }
   background:transparent; color:var(--ink-2); cursor:pointer;
   transition:background .16s, border-color .16s;
 }
-.lang-btn:hover { background:rgba(27,21,18,.05); border-color:rgba(27,21,18,.2); }
+.lang-btn:hover { background:rgba(var(--ink-rgb),.05); border-color:rgba(var(--ink-rgb),.2); }
 
 .hd-cta {
   display:inline-flex; align-items:center;
-  background:var(--ink); color:#fff;
+  background:var(--ink-bg); color:#fff;
   font-size:14px; font-weight:600; letter-spacing:-.01em;
   padding:10px 17px; border-radius:var(--r-s); margin-left:8px;
   transition:background .18s;
@@ -323,7 +377,7 @@ a:hover { color:var(--orange-mid); }
   background:transparent; cursor:pointer;
   transition:background .16s, border-color .16s;
 }
-.menu-btn:hover { background:rgba(27,21,18,.05); border-color:rgba(27,21,18,.2); }
+.menu-btn:hover { background:rgba(var(--ink-rgb),.05); border-color:rgba(var(--ink-rgb),.2); }
 /* 선 두 개로 만든다. 세 줄보다 조용하고, 열면 그대로 ✕ 가 된다. */
 .menu-bars { position:relative; display:block; width:16px; height:9px; }
 .menu-bars i {
@@ -340,7 +394,7 @@ a:hover { color:var(--orange-mid); }
    눌리면 뒤에서 화면이 바뀌어 있어 혼란스럽다. */
 .nav-scrim {
   position:fixed; inset:0; z-index:70;
-  background:rgba(27,21,18,.34);
+  background:rgba(var(--ink-rgb),.34);
   backdrop-filter:blur(2px);
   opacity:0; visibility:hidden;
   transition:opacity .3s, visibility .3s;
@@ -353,7 +407,7 @@ a:hover { color:var(--orange-mid); }
   display:flex; flex-direction:column;
   background:var(--surface-2);
   border-left:1px solid var(--line);
-  box-shadow:-30px 0 60px -34px rgba(27,21,18,.4);
+  box-shadow:-30px 0 60px -34px rgba(var(--ink-rgb),.4);
   /* 닫혀 있을 때 visibility 까지 감추지 않으면 화면 밖 버튼에
      탭 키가 들어간다. */
   transform:translateX(100%); visibility:hidden;
@@ -387,7 +441,7 @@ a:hover { color:var(--orange-mid); }
   color:var(--ink-3); font-size:15px; line-height:1;
   transition:background .16s, color .16s;
 }
-.side-close:hover { background:rgba(27,21,18,.05); color:var(--ink); }
+.side-close:hover { background:rgba(var(--ink-rgb),.05); color:var(--ink); }
 
 .side-list {
   flex:1 1 auto; overflow-y:auto;
@@ -445,7 +499,7 @@ a:hover { color:var(--orange-mid); }
    도로 눕는다.** 누르면 마우스는 항상 그 자리에 있으므로 늘 그렇게 된다.
    `.on` 도 마찬가지라(게임에 들어가 있으면 붙는다) 같이 넘어야 한다. */
 .side-list .side-group.open > .side-parent::after { transform:rotate(90deg); opacity:.8; }
-.side-group.open > .side-parent { background:rgba(27,21,18,.045); color:var(--ink); }
+.side-group.open > .side-parent { background:rgba(var(--ink-rgb),.045); color:var(--ink); }
 .side-group.open > .side-parent .nav-ico { background:var(--tint); border-color:rgba(255,145,77,.32); }
 
 .side-item {
@@ -465,7 +519,7 @@ a:hover { color:var(--orange-mid); }
   content:''; position:absolute; left:23px; top:4px; bottom:8px;
   width:1.5px; background:var(--line-2); border-radius:2px;
 }
-.side-item:hover { background:rgba(27,21,18,.045); color:var(--ink); }
+.side-item:hover { background:rgba(var(--ink-rgb),.045); color:var(--ink); }
 .side-item:focus-visible { outline:2px solid var(--orange); outline-offset:-2px; }
 .side-item.on { color:var(--ink); font-weight:600; background:var(--tint); }
 .side-item-ico { flex:0 0 auto; font-size:15px; line-height:1; width:18px; text-align:center; }
@@ -493,7 +547,7 @@ a:hover { color:var(--orange-mid); }
   opacity:0; transform:translateX(-4px);
   transition:opacity .16s, transform .16s;
 }
-.side-list .nav-link:hover { background:rgba(27,21,18,.045); color:var(--ink); }
+.side-list .nav-link:hover { background:rgba(var(--ink-rgb),.045); color:var(--ink); }
 .side-list .nav-link:hover .nav-ico { background:var(--tint); border-color:rgba(255,145,77,.32); }
 .side-list .nav-link:hover::after { opacity:.65; transform:none; }
 .side-list .nav-link.on { background:var(--tint); color:var(--ink); font-weight:600; }
@@ -503,7 +557,7 @@ a:hover { color:var(--orange-mid); }
 .side-foot { flex:0 0 auto; padding:16px 20px 22px; border-top:1px solid var(--line-2); }
 .side-cta {
   display:flex; align-items:center; justify-content:center;
-  background:var(--ink); color:#fff;
+  background:var(--ink-bg); color:#fff;
   font-size:14.5px; font-weight:600; letter-spacing:-.01em;
   padding:13px 16px; border-radius:var(--r);
   transition:background .18s;
@@ -592,9 +646,9 @@ body.nav-open { overflow:hidden; }
 /* 버튼은 평면이다. 두께 6px 짜리 하드 섀도는 게임 UI 처럼 보인다. */
 .btn-primary, .dl-btn, .pt-next {
   display:inline-flex; align-items:center; justify-content:center; gap:8px;
-  background:var(--ink); color:#fff;
+  background:var(--ink-bg); color:#fff;
   font-size:15px; font-weight:600; letter-spacing:-.01em;
-  padding:14px 24px; border-radius:var(--r-s); border:1px solid var(--ink);
+  padding:14px 24px; border-radius:var(--r-s); border:1px solid var(--ink-bg);
   cursor:pointer; transition:background .18s, border-color .18s, transform .12s;
 }
 .btn-primary:hover, .dl-btn:hover, .pt-next:hover { background:#33261E; border-color:#33261E; color:#fff; }
@@ -607,7 +661,7 @@ body.nav-open { overflow:hidden; }
   padding:14px 22px; border-radius:var(--r-s); border:1px solid var(--line);
   cursor:pointer; transition:background .18s, border-color .18s;
 }
-.btn-ghost:hover, .pt-ghost:hover { background:rgba(27,21,18,.045); border-color:rgba(27,21,18,.22); color:var(--ink); }
+.btn-ghost:hover, .pt-ghost:hover { background:rgba(var(--ink-rgb),.045); border-color:rgba(var(--ink-rgb),.22); color:var(--ink); }
 
 /* 떠 있는 단어 카드 */
 .hero-stage { position:relative; height:210px; perspective:1100px; }
@@ -625,14 +679,14 @@ body.nav-open { overflow:hidden; }
 .hero-stack .front {
   position:absolute; inset:0; background:var(--surface);
   border:1px solid var(--line); border-radius:var(--r-l);
-  padding:22px; box-shadow:0 22px 48px -28px rgba(27,21,18,.3);
+  padding:22px; box-shadow:0 22px 48px -28px rgba(var(--ink-rgb),.3);
   cursor:pointer; text-align:left; width:100%; font:inherit; color:inherit;
   transition:transform .2s cubic-bezier(.22,1,.36,1), box-shadow .2s;
 }
 @media (hover:hover) {
   .hero-stack .front:hover {
     transform:translateY(-4px);
-    box-shadow:0 30px 56px -28px rgba(27,21,18,.36);
+    box-shadow:0 30px 56px -28px rgba(var(--ink-rgb),.36);
     border-color:rgba(255,145,77,.45);
   }
 }
@@ -889,7 +943,7 @@ button.btn-primary, button.btn-ghost { font-family:inherit; }
 .ai-card {
   width:252px; background:var(--surface);
   border:1px solid var(--line); border-radius:var(--r-l); padding:20px;
-  box-shadow:0 18px 40px -30px rgba(27,21,18,.3);
+  box-shadow:0 18px 40px -30px rgba(var(--ink-rgb),.3);
 }
 .ai-tag {
   display:inline-block; font-size:10.5px; font-weight:700;
@@ -909,7 +963,7 @@ button.btn-primary, button.btn-ghost { font-family:inherit; }
   background:var(--surface); border:1px solid var(--line); border-radius:var(--r-l);
   transform:translateX(-50%);
 }
-.s-card.c1 { z-index:3; box-shadow:0 22px 46px -30px rgba(27,21,18,.32); cursor:grab; }
+.s-card.c1 { z-index:3; box-shadow:0 22px 46px -30px rgba(var(--ink-rgb),.32); cursor:grab; }
 .s-card.c2 { z-index:2; transform:translateX(-50%) translateY(12px) scale(.96); opacity:.6; }
 .s-card.c3 { z-index:1; transform:translateX(-50%) translateY(24px) scale(.92); opacity:.34; }
 .card-word { font-size:23px; font-weight:700; color:var(--ink); letter-spacing:-.035em; }
@@ -952,7 +1006,7 @@ button.btn-primary, button.btn-ghost { font-family:inherit; }
 .char-card.potato .char-emoji { animation-delay:.7s; }
 .char-ground {
   position:absolute; bottom:-4px; left:50%; width:52px; height:9px; margin-left:-26px;
-  background:radial-gradient(ellipse at center, rgba(27,21,18,.16), transparent 70%);
+  background:radial-gradient(ellipse at center, rgba(var(--ink-rgb),.16), transparent 70%);
 }
 .char-text { flex:1; min-width:0; }
 .char-tag {
@@ -968,7 +1022,7 @@ button.btn-primary, button.btn-ghost { font-family:inherit; }
 .dash-mockup {
   background:var(--surface); border:1px solid var(--line); border-radius:var(--r-xl);
   overflow:hidden; transition:transform .3s ease; transform-style:preserve-3d;
-  box-shadow:0 32px 64px -40px rgba(27,21,18,.34);
+  box-shadow:0 32px 64px -40px rgba(var(--ink-rgb),.34);
 }
 .dash-header { padding:20px 22px; border-bottom:1px solid var(--line-2); background:var(--surface-2); }
 .dash-header-title { font-size:14px; font-weight:700; color:var(--ink); letter-spacing:-.02em; }
@@ -982,7 +1036,7 @@ button.btn-primary, button.btn-ghost { font-family:inherit; }
 .dday-label { font-size:11px; font-weight:600; letter-spacing:.1em; text-transform:uppercase; color:var(--ink-3); }
 .dday-num { font-size:30px; font-weight:700; color:var(--orange-deep); letter-spacing:-.04em; margin-top:5px; font-variant-numeric:tabular-nums; }
 .dday-sub { font-size:11.5px; color:var(--ink-3); margin-top:4px; }
-.ring-bg { fill:none; stroke:rgba(27,21,18,.09); stroke-width:5; }
+.ring-bg { fill:none; stroke:rgba(var(--ink-rgb),.09); stroke-width:5; }
 .ring-fill {
   fill:none; stroke:var(--orange); stroke-width:5; stroke-linecap:round;
   transform:rotate(-90deg); transform-origin:center;
@@ -1010,7 +1064,7 @@ button.btn-primary, button.btn-ghost { font-family:inherit; }
 .diff-section { margin-top:32px; }
 .diff-row { display:flex; align-items:center; gap:10px; margin-bottom:9px; }
 .diff-lbl { width:52px; font-size:12px; flex-shrink:0; }
-.diff-bar-bg { flex:1; height:7px; background:rgba(27,21,18,.07); border-radius:4px; overflow:hidden; }
+.diff-bar-bg { flex:1; height:7px; background:rgba(var(--ink-rgb),.07); border-radius:4px; overflow:hidden; }
 .diff-bar-fill { height:100%; border-radius:4px; }
 .diff-count { width:26px; text-align:right; font-size:11.5px; color:var(--ink-3); font-variant-numeric:tabular-nums; }
 
@@ -1062,10 +1116,13 @@ button.btn-primary, button.btn-ghost { font-family:inherit; }
    6:1 을 넘고, 어두운 띠 위에서 오히려 또렷하다. */
 .dl-section .dl-btn {
   position:relative; margin-top:30px;
-  background:var(--orange); border-color:var(--orange); color:var(--ink);
+  /* color 는 항상 어두운 잉크 그대로 — 주황 칠 위의 글자라 밝은 모드
+     var(--ink) 는 맞았지만, 어두운 모드에서 var(--ink) 가 밝은 색으로
+     뒤집히면 밝은 주황 위에 밝은 글자가 된다. */
+  background:var(--orange); border-color:var(--orange); color:#1B1512;
   font-weight:700;
 }
-.dl-section .dl-btn:hover { background:#FFA76B; border-color:#FFA76B; color:var(--ink); }
+.dl-section .dl-btn:hover { background:#FFA76B; border-color:#FFA76B; color:#1B1512; }
 .dl-coming { position:relative; margin-top:16px; font-size:12.5px; color:rgba(251,248,241,.42); }
 
 /* ══ 푸터 ══════════════════════════════════════════════════════ */
@@ -1187,13 +1244,13 @@ button.btn-primary, button.btn-ghost { font-family:inherit; }
 
 /* ══ 로그인 · 회원가입 ═════════════════════════════════════════ */
 .wb-login { max-width:360px; margin:0 auto; }
-.au-tabs { display:flex; gap:2px; padding:3px; background:rgba(27,21,18,.05); border-radius:var(--r); margin-bottom:24px; }
+.au-tabs { display:flex; gap:2px; padding:3px; background:rgba(var(--ink-rgb),.05); border-radius:var(--r); margin-bottom:24px; }
 .au-tab {
   flex:1; padding:10px; border:none; cursor:pointer; border-radius:var(--r-s);
   background:transparent; color:var(--ink-3); font-size:14px; font-weight:600;
   transition:background .16s, color .16s;
 }
-.au-tab.on { background:var(--surface); color:var(--ink); box-shadow:0 1px 3px rgba(27,21,18,.08); }
+.au-tab.on { background:var(--surface); color:var(--ink); box-shadow:0 1px 3px rgba(var(--ink-rgb),.08); }
 .au-rules { display:grid; gap:8px; margin:16px 2px 6px; }
 .au-rule { display:flex; align-items:center; gap:9px; font-size:13px; color:var(--ink-3); transition:color .16s; }
 .au-rule.ok { color:var(--green); }
@@ -1206,7 +1263,7 @@ button.btn-primary, button.btn-ghost { font-family:inherit; }
   padding:14px; border-radius:var(--r-s); border:1px solid var(--line); cursor:pointer;
   transition:background .16s, border-color .16s;
 }
-.wb-gbtn:hover { background:var(--surface-2); border-color:rgba(27,21,18,.2); }
+.wb-gbtn:hover { background:var(--surface-2); border-color:rgba(var(--ink-rgb),.2); }
 .wb-gbtn svg { width:18px; height:18px; flex-shrink:0; }
 .wb-or { display:flex; align-items:center; gap:14px; margin:22px 0; color:var(--ink-3); font-size:12px; }
 .wb-or::before, .wb-or::after { content:''; flex:1; height:1px; background:var(--line-2); }
@@ -1236,14 +1293,14 @@ button.btn-primary, button.btn-ghost { font-family:inherit; }
   font:inherit; font-size:14px; font-weight:600; color:var(--ink-2);
   cursor:pointer; transition:background .16s, border-color .16s, color .16s;
 }
-.wb-out:hover { background:var(--surface-2); border-color:rgba(27,21,18,.2); color:var(--ink); }
+.wb-out:hover { background:var(--surface-2); border-color:rgba(var(--ink-rgb),.2); color:var(--ink); }
 .wb-list { display:grid; gap:10px; }
 .wb-item {
   display:flex; gap:16px; padding:18px;
   background:var(--surface); border:1px solid var(--line); border-radius:var(--r-l);
   transition:border-color .18s;
 }
-.wb-item:hover { border-color:rgba(27,21,18,.2); }
+.wb-item:hover { border-color:rgba(var(--ink-rgb),.2); }
 .wb-thumb { width:60px; height:60px; border-radius:var(--r); object-fit:cover; flex-shrink:0; background:var(--tint); }
 .wb-main { flex:1; min-width:0; }
 .wb-word { font-size:17.5px; font-weight:700; color:var(--ink); letter-spacing:-.03em; word-break:break-word; }
@@ -1267,7 +1324,7 @@ button.btn-primary, button.btn-ghost { font-family:inherit; }
   cursor:pointer; white-space:nowrap;
   transition:background .16s, border-color .16s, color .16s;
 }
-.dict-add:hover { background:var(--surface-2); border-color:rgba(27,21,18,.2); color:var(--ink); }
+.dict-add:hover { background:var(--surface-2); border-color:rgba(var(--ink-rgb),.2); color:var(--ink); }
 .dict-add:disabled { opacity:.65; cursor:default; }
 
 .dict-more { display:block; margin-top:10px; font-size:12.5px; font-weight:600; color:var(--ink-3); background:none; border:none; padding:0; cursor:pointer; text-decoration:underline; text-underline-offset:3px; }
@@ -1308,12 +1365,12 @@ button.btn-primary, button.btn-ghost { font-family:inherit; }
   padding:11px 12px; font-size:14px; color:var(--ink); cursor:pointer;
   background:var(--surface); border:1px solid var(--line); border-radius:var(--r-s);
 }
-.wb-view { display:flex; gap:2px; padding:3px; background:rgba(27,21,18,.05); border-radius:var(--r-s); }
+.wb-view { display:flex; gap:2px; padding:3px; background:rgba(var(--ink-rgb),.05); border-radius:var(--r-s); }
 .wb-view-btn {
   width:36px; height:36px; border:none; background:none; cursor:pointer;
   border-radius:6px; font-size:15px; color:var(--ink-3); transition:background .15s, color .15s;
 }
-.wb-view-btn.on { background:var(--surface); color:var(--ink); box-shadow:0 1px 3px rgba(27,21,18,.1); }
+.wb-view-btn.on { background:var(--surface); color:var(--ink); box-shadow:0 1px 3px rgba(var(--ink-rgb),.1); }
 
 .wb-chips { display:flex; gap:6px; flex-wrap:wrap; margin-bottom:18px; }
 .wb-chip {
@@ -1322,13 +1379,13 @@ button.btn-primary, button.btn-ghost { font-family:inherit; }
   color:var(--ink-2); font-size:13px; font-weight:600; cursor:pointer;
   transition:background .15s, border-color .15s, color .15s;
 }
-.wb-chip:hover { background:rgba(27,21,18,.04); }
-.wb-chip.on { background:var(--ink); border-color:var(--ink); color:#fff; }
+.wb-chip:hover { background:rgba(var(--ink-rgb),.04); }
+.wb-chip.on { background:var(--ink-bg); border-color:var(--ink-bg); color:#fff; }
 /* 품사 색은 앱 src/lib/tags.ts 의 TAG_COLORS 와 같은 값이다. */
 .wb-dot { width:7px; height:7px; border-radius:50%; flex-shrink:0; }
 .wb-none { text-align:center; padding:44px 20px; color:var(--ink-3); font-size:14.5px; line-height:1.8; }
 .wb-add {
-  background:var(--ink); color:#fff; border:1px solid var(--ink); cursor:pointer;
+  background:var(--ink-bg); color:#fff; border:1px solid var(--ink-bg); cursor:pointer;
   font-size:13.5px; font-weight:600; padding:9px 15px; border-radius:var(--r-s);
   white-space:nowrap; transition:background .16s;
 }
@@ -1341,7 +1398,7 @@ button.btn-primary, button.btn-ghost { font-family:inherit; }
   font-size:13px; font-weight:600; padding:9px 13px; border-radius:var(--r-s);
   transition:background .16s, border-color .16s;
 }
-.wb-x:hover { background:rgba(27,21,18,.05); border-color:rgba(27,21,18,.22); color:var(--ink); }
+.wb-x:hover { background:rgba(var(--ink-rgb),.05); border-color:rgba(var(--ink-rgb),.22); color:var(--ink); }
 .wb-x input { display:none; }
 
 /* ── 내 계정 ─────────────────────────────────────────────────── */
@@ -1402,7 +1459,7 @@ button.btn-primary, button.btn-ghost { font-family:inherit; }
    쓴다. 실제 화면이 목업과 같아 보여야 광고가 거짓말이 안 된다. */
 .dcard { background:var(--surface); border:1px solid var(--line); border-radius:var(--r-xl); padding:22px; margin-bottom:14px; }
 .dcard-t { font-size:11px; font-weight:600; letter-spacing:.1em; text-transform:uppercase; color:var(--ink-3); margin-bottom:16px; }
-.dbar-wrap { height:8px; background:rgba(27,21,18,.07); border-radius:5px; overflow:hidden; }
+.dbar-wrap { height:8px; background:rgba(var(--ink-rgb),.07); border-radius:5px; overflow:hidden; }
 .dbar { height:100%; background:var(--orange); border-radius:5px; transition:width .6s cubic-bezier(.22,1,.36,1); }
 .dbar-row { display:flex; align-items:baseline; justify-content:space-between; gap:12px; margin-bottom:9px; font-size:13.5px; color:var(--ink-2); }
 .dbar-row b { color:var(--ink); font-weight:700; font-variant-numeric:tabular-nums; }
@@ -1448,7 +1505,7 @@ button.btn-primary, button.btn-ghost { font-family:inherit; }
 /* 도넛. 링 하나로 암기율을 보여 준다. 숫자만 있는 것보다 한눈에 들어온다. */
 .ring-wrap { display:flex; align-items:center; gap:22px; flex-wrap:wrap; }
 .ring { width:132px; height:132px; flex:0 0 auto; transform:rotate(-90deg); }
-.ring-bg { fill:none; stroke:rgba(27,21,18,.08); stroke-width:13; }
+.ring-bg { fill:none; stroke:rgba(var(--ink-rgb),.08); stroke-width:13; }
 .ring-fg { fill:none; stroke:url(#ringGrad); stroke-width:13; stroke-linecap:round;
            transition:stroke-dashoffset .9s cubic-bezier(.22,1,.36,1); }
 .ring-mid { position:relative; }
@@ -1468,7 +1525,7 @@ button.btn-primary, button.btn-ghost { font-family:inherit; }
    "아직 안 외운 것" 으로 보이게 한다. */
 .spark { width:100%; height:auto; display:block; overflow:visible; }
 .spark-axis { stroke:var(--line-2); stroke-width:1; }
-.spark-grid { stroke:rgba(27,21,18,.05); stroke-width:1; }
+.spark-grid { stroke:rgba(var(--ink-rgb),.05); stroke-width:1; }
 .spark-fill-a { fill:url(#gradA); }
 .spark-fill-b { fill:url(#gradB); }
 .spark-line-a { fill:none; stroke:var(--orange-mid); stroke-width:2.5; stroke-linejoin:round; stroke-linecap:round; }
@@ -1481,7 +1538,7 @@ button.btn-primary, button.btn-ghost { font-family:inherit; }
 /* 잔디밭. 최근 열두 주를 한 눈에 — 꾸준했는지 몰아쳤는지가 보인다. */
 .heat { display:flex; gap:3px; overflow-x:auto; padding-bottom:4px; }
 .heat-col { display:flex; flex-direction:column; gap:3px; }
-.heat-c { width:13px; height:13px; border-radius:3px; background:rgba(27,21,18,.055); }
+.heat-c { width:13px; height:13px; border-radius:3px; background:rgba(var(--ink-rgb),.055); }
 .heat-c.l1 { background:#FBE0C6; }
 .heat-c.l2 { background:#F7BE86; }
 .heat-c.l3 { background:#F0954A; }
@@ -1506,7 +1563,7 @@ button.btn-primary, button.btn-ghost { font-family:inherit; }
 .drow-main { min-width:0; flex:1; }
 .drow-main > * { overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
 .drow-n { font-size:12px; color:var(--ink-3); white-space:nowrap; font-variant-numeric:tabular-nums; }
-.drow-bar { width:88px; height:6px; border-radius:4px; background:rgba(27,21,18,.07); overflow:hidden; flex:0 0 auto; }
+.drow-bar { width:88px; height:6px; border-radius:4px; background:rgba(var(--ink-rgb),.07); overflow:hidden; flex:0 0 auto; }
 .drow-bar i { display:block; height:100%; border-radius:4px; background:var(--green); }
 
 .dfill { display:flex; gap:10px; flex-wrap:wrap; }
@@ -1538,7 +1595,7 @@ button.btn-primary, button.btn-ghost { font-family:inherit; }
   background:var(--surface); border:1px solid var(--line); border-radius:var(--r-xl);
   padding:28px; transition:border-color .18s, transform .18s, box-shadow .18s;
 }
-.lc-card:hover { border-color:rgba(27,21,18,.22); transform:translateY(-2px); box-shadow:0 22px 44px -32px rgba(27,21,18,.4); }
+.lc-card:hover { border-color:rgba(var(--ink-rgb),.22); transform:translateY(-2px); box-shadow:0 22px 44px -32px rgba(var(--ink-rgb),.4); }
 .lc-top { display:flex; align-items:flex-start; gap:18px; }
 .lc-mark {
   width:62px; height:62px; flex-shrink:0; border-radius:18px;
@@ -1550,7 +1607,7 @@ button.btn-primary, button.btn-ghost { font-family:inherit; }
 .lc-tag { font-size:15px; color:var(--ink-2); line-height:1.6; margin-top:6px; word-break:keep-all; }
 .lc-blurb { font-size:14px; color:var(--ink-3); line-height:1.75; margin-top:14px; word-break:keep-all; }
 .lc-meter { display:flex; align-items:center; gap:12px; margin-top:20px; }
-.lc-bar { flex:1; height:7px; background:rgba(27,21,18,.08); border-radius:5px; overflow:hidden; }
+.lc-bar { flex:1; height:7px; background:rgba(var(--ink-rgb),.08); border-radius:5px; overflow:hidden; }
 .lc-fill { height:100%; background:var(--orange); border-radius:5px; transition:width .6s cubic-bezier(.22,1,.36,1); }
 .lc-num { font-size:12.5px; font-weight:700; color:var(--ink-3); font-variant-numeric:tabular-nums; white-space:nowrap; }
 /* 막는 표시가 아니라 길 안내다. 눈에 띄면 자물쇠처럼 읽혀서 흐리게 둔다. */
@@ -1653,7 +1710,7 @@ button.btn-primary, button.btn-ghost { font-family:inherit; }
   background:var(--surface); border:1px solid var(--line-2); border-radius:var(--r);
   padding:13px 15px; transition:border-color .16s, transform .16s;
 }
-.sb-pt:hover { border-color:rgba(27,21,18,.22); transform:translateY(-1px); }
+.sb-pt:hover { border-color:rgba(var(--ink-rgb),.22); transform:translateY(-1px); }
 .sb-pt-name { font-size:15px; font-weight:700; color:var(--ink); letter-spacing:-.02em; flex:1; min-width:0; word-break:keep-all; }
 /* 글이 있는 표현에만 숫자가 붙는다. 0 을 다 그리면 텅 빈 게시판처럼 보인다. */
 .sb-pt-n {
@@ -1722,7 +1779,7 @@ button.btn-primary, button.btn-ghost { font-family:inherit; }
   font-size:12.5px; font-weight:700; color:var(--ink-3); transition:border-color .16s, color .16s;
   font-variant-numeric:tabular-nums;
 }
-.sb-like:hover { border-color:rgba(27,21,18,.22); color:var(--ink-2); }
+.sb-like:hover { border-color:rgba(var(--ink-rgb),.22); color:var(--ink-2); }
 .sb-like.on { color:var(--orange-deep); border-color:rgba(255,138,61,.45); background:#FFF4EA; }
 .sb-del { background:none; border:none; cursor:pointer; font-size:12.5px; color:var(--ink-3); text-decoration:underline; padding:4px; }
 .sb-del:hover { color:var(--red); }
@@ -1753,7 +1810,7 @@ button.btn-primary, button.btn-ghost { font-family:inherit; }
 .sb-reply-row { display:flex; gap:8px; flex-wrap:wrap; align-items:center; margin-top:8px; }
 .sb-reply-send {
   padding:8px 15px; font-size:13px; font-weight:700; cursor:pointer; color:#fff;
-  background:var(--ink); border:none; border-radius:999px;
+  background:var(--ink-bg); border:none; border-radius:999px;
 }
 .sb-reply-send:hover { background:var(--orange-deep); }
 
@@ -1788,7 +1845,7 @@ button.btn-primary, button.btn-ghost { font-family:inherit; }
 }
 .ls-x { background:none; border:none; cursor:pointer; font-size:19px; color:var(--ink-3); padding:4px 6px; line-height:1; }
 .ls-x:hover { color:var(--ink); }
-.ls-track { flex:1; height:7px; background:rgba(27,21,18,.08); border-radius:5px; overflow:hidden; }
+.ls-track { flex:1; height:7px; background:rgba(var(--ink-rgb),.08); border-radius:5px; overflow:hidden; }
 .ls-prog { height:100%; background:var(--orange); border-radius:5px; transition:width .45s cubic-bezier(.22,1,.36,1); }
 .ls-count { font-size:12.5px; font-weight:700; color:var(--ink-3); font-variant-numeric:tabular-nums; white-space:nowrap; }
 
@@ -1866,14 +1923,14 @@ button.btn-primary, button.btn-ghost { font-family:inherit; }
   padding:15px 17px; font-size:16px; color:var(--ink); transition:border-color .14s, background .14s;
   word-break:keep-all;
 }
-.ex-opt:hover:not(:disabled) { border-color:rgba(27,21,18,.26); background:#fff; }
+.ex-opt:hover:not(:disabled) { border-color:rgba(var(--ink-rgb),.26); background:#fff; }
 .ex-opt:disabled { cursor:default; }
 .ex-opt.right { border-color:var(--green); background:#EAF6F0; color:var(--ink); font-weight:600; }
 .ex-opt.wrong { border-color:var(--red); background:#FCEFEE; }
 .ex-mark { margin-left:auto; font-size:15px; flex-shrink:0; }
 .ex-say {
   display:inline-flex; align-items:center; gap:9px; cursor:pointer;
-  background:var(--ink); color:#fff; border:1px solid var(--ink);
+  background:var(--ink-bg); color:#fff; border:1px solid var(--ink-bg);
   font-size:15px; font-weight:600; padding:13px 22px; border-radius:var(--r-s); margin-top:4px;
 }
 .ex-say:hover { background:#33261E; }
@@ -1898,7 +1955,7 @@ button.btn-primary, button.btn-ghost { font-family:inherit; }
   background:var(--surface); border:1px solid var(--line); border-radius:var(--r-xl);
   padding:22px 24px; transition:border-color .18s, transform .18s;
 }
-.tw-card:hover { border-color:rgba(27,21,18,.22); transform:translateY(-2px); }
+.tw-card:hover { border-color:rgba(var(--ink-rgb),.22); transform:translateY(-2px); }
 .tw-card-top { display:flex; align-items:baseline; gap:10px; flex-wrap:wrap; }
 .tw-no { font-size:12px; font-weight:700; letter-spacing:.1em; color:var(--orange-deep); }
 .tw-pt { font-size:12px; color:var(--ink-3); }
@@ -1965,14 +2022,14 @@ button.btn-primary, button.btn-ghost { font-family:inherit; }
   width:54px; height:54px; border-radius:50%; border:none;
   background:var(--ink-bg); color:#fff; font-size:24px; line-height:1;
   display:flex; align-items:center; justify-content:center; cursor:pointer;
-  box-shadow:0 10px 26px rgba(27,21,18,.3); transition:transform .16s;
+  box-shadow:0 10px 26px rgba(var(--ink-rgb),.3); transition:transform .16s;
 }
 .hlp-fab:hover { transform:translateY(-2px); }
 .hlp-fab.hidden { display:none; }
 
 .hlp-scrim {
   position:fixed; inset:0; z-index:83;
-  background:rgba(27,21,18,.34); backdrop-filter:blur(2px);
+  background:rgba(var(--ink-rgb),.34); backdrop-filter:blur(2px);
   opacity:0; visibility:hidden; transition:opacity .28s, visibility .28s;
 }
 .hlp-scrim.on { opacity:1; visibility:visible; }
@@ -1982,7 +2039,7 @@ button.btn-primary, button.btn-ghost { font-family:inherit; }
   max-height:82vh; display:flex; flex-direction:column;
   background:var(--surface-2); border-radius:var(--r-xl) var(--r-xl) 0 0;
   border-top:1px solid var(--line);
-  box-shadow:0 -20px 50px -20px rgba(27,21,18,.35);
+  box-shadow:0 -20px 50px -20px rgba(var(--ink-rgb),.35);
   transform:translateY(100%); visibility:hidden;
   transition:transform .34s cubic-bezier(.32,.72,0,1), visibility .34s;
   overscroll-behavior:contain;
@@ -1996,7 +2053,7 @@ body.hlp-open { overflow:hidden; }
     left:auto; top:0; bottom:0; height:100dvh; max-height:none;
     width:min(400px, 92vw);
     border-radius:0; border-top:none; border-left:1px solid var(--line);
-    box-shadow:-30px 0 60px -34px rgba(27,21,18,.4);
+    box-shadow:-30px 0 60px -34px rgba(var(--ink-rgb),.4);
     transform:translateX(100%);
   }
   .hlp-panel.on { transform:none; }
@@ -2130,7 +2187,10 @@ body.hlp-open { overflow:hidden; }
   cursor:pointer; padding:10px 20px; font-size:15px; font-weight:600;
   border-radius:11px; border:1px solid var(--line); background:var(--surface-2); color:var(--ink);
 }
-.ex-check { background:var(--ink); border-color:var(--ink); color:var(--surface); }
+/* color 는 var(--surface) 가 아니라 흰색 그대로 — 어두운 모드에서는
+   --surface 도 어두워지므로 그걸 쓰면 어두운 칠 위에 어두운 표시가 된다.
+   이 칸은 늘 어두운 칠(--ink-bg) 위의 밝은 표시라 흰색으로 고정한다. */
+.ex-check { background:var(--ink-bg); border-color:var(--ink-bg); color:#fff; }
 .ex-check:disabled, .ex-clear:disabled { opacity:.4; cursor:default; }
 .ex-reveal { padding:5px 12px; font-size:13px; margin-left:8px; }
 .ex-fb { margin-top:12px; font-size:15px; line-height:1.7; text-align:center; word-break:keep-all; }
@@ -2148,7 +2208,7 @@ body.hlp-open { overflow:hidden; }
 /* 어순 */
 .ex-slot {
   min-height:56px; display:flex; flex-wrap:wrap; gap:8px; align-items:center;
-  border:1px dashed rgba(27,21,18,.24); border-radius:13px; padding:12px; margin-top:18px;
+  border:1px dashed rgba(var(--ink-rgb),.24); border-radius:13px; padding:12px; margin-top:18px;
   background:var(--surface-2);
 }
 .ex-slot:empty::before { content:attr(data-ph); color:var(--ink-3); font-size:14px; }
@@ -2166,7 +2226,7 @@ body.hlp-open { overflow:hidden; }
   background:var(--surface-2); border:1px solid var(--line); border-radius:12px; padding:14px 10px;
   transition:border-color .14s, background .14s, opacity .3s;
 }
-.pc:hover:not(:disabled) { border-color:rgba(27,21,18,.26); background:#fff; }
+.pc:hover:not(:disabled) { border-color:rgba(var(--ink-rgb),.26); background:#fff; }
 .pc.sel { border-color:var(--orange); background:#FFF4EA; }
 .pc.gone { opacity:.28; cursor:default; border-style:dashed; }
 .pc.miss { border-color:var(--red); background:#FCEFEE; }
@@ -2234,7 +2294,7 @@ body.hlp-open { overflow:hidden; }
   padding:9px 15px; border-radius:var(--r-s); border:1px solid var(--line); cursor:pointer;
   transition:background .16s, border-color .16s;
 }
-.bd-dl:hover { background:rgba(27,21,18,.05); border-color:rgba(27,21,18,.22); }
+.bd-dl:hover { background:rgba(var(--ink-rgb),.05); border-color:rgba(var(--ink-rgb),.22); }
 .bd-del { background:none; border:none; cursor:pointer; color:var(--ink-3); font-size:12.5px; padding:6px; }
 .bd-del:hover { color:var(--red); }
 
@@ -2253,7 +2313,7 @@ body.hlp-open { overflow:hidden; }
 .up-row { display:grid; gap:10px; }
 .up-file {
   display:block; width:100%; padding:22px; text-align:center; cursor:pointer;
-  border:1px dashed rgba(27,21,18,.24); border-radius:var(--r);
+  border:1px dashed rgba(var(--ink-rgb),.24); border-radius:var(--r);
   background:var(--surface-2); color:var(--ink-2); font-size:14px;
   transition:border-color .16s, background .16s;
 }
@@ -2291,7 +2351,7 @@ body.hlp-open { overflow:hidden; }
 }
 .game-card:hover {
   border-color:rgba(255,145,77,.5); transform:translateY(-3px);
-  box-shadow:0 18px 40px -26px rgba(27,21,18,.4);
+  box-shadow:0 18px 40px -26px rgba(var(--ink-rgb),.4);
 }
 /* 카드 속은 전부 span 이다(button 안에 div 를 넣을 수 없다). span 은
    inline 이라 그냥 두면 제목·설명·화살표가 한 줄로 붙어 버린다. */
@@ -2308,11 +2368,11 @@ body.hlp-open { overflow:hidden; }
    것을 말로 설명하는 것보다 빠르다. */
 .game-card.soon { cursor:default; background:var(--surface-2); border-style:dashed; }
 .game-card.soon:hover { transform:none; box-shadow:none; border-color:var(--line); }
-.game-card.soon .game-card-ico { background:rgba(27,21,18,.04); border-color:var(--line-2); filter:grayscale(1); opacity:.55; }
+.game-card.soon .game-card-ico { background:rgba(var(--ink-rgb),.04); border-color:var(--line-2); filter:grayscale(1); opacity:.55; }
 .game-card.soon .game-card-name { color:var(--ink-3); }
 .game-soon-tag {
   display:inline-block; margin-top:16px; padding:5px 10px; border-radius:999px;
-  background:rgba(27,21,18,.05); color:var(--ink-3);
+  background:rgba(var(--ink-rgb),.05); color:var(--ink-3);
   font-size:11px; font-weight:700; letter-spacing:.1em; text-transform:uppercase;
 }
 
@@ -2721,7 +2781,7 @@ body.hlp-open { overflow:hidden; }
 .qz-top { max-width:560px; margin:0 auto 18px; }
 .qz-time {
   height:10px; border-radius:999px; overflow:hidden;
-  background:rgba(27,21,18,.08);
+  background:rgba(var(--ink-rgb),.08);
 }
 .qz-time-fill {
   display:block; height:100%; width:100%;
@@ -2751,7 +2811,7 @@ body.hlp-open { overflow:hidden; }
 .qz-choice.wrong { border-color:var(--red);   background:rgba(196,61,52,.07); color:var(--red); }
 /* 모의고사에서 고른 답. 맞았는지는 알려 주지 않으므로 옳고 그름의 색을
    쓰지 않는다 — OMR 을 칠한 것처럼 「여기에 표시했다」만 보이면 된다. */
-.qz-choice.picked { border-color:var(--ink); background:rgba(27,21,18,.05); color:var(--ink); font-weight:700; }
+.qz-choice.picked { border-color:var(--ink); background:rgba(var(--ink-rgb),.05); color:var(--ink); font-weight:700; }
 .qz-choice.picked .tq-num { color:var(--ink); }
 .qz-choice:disabled { cursor:default; }
 
@@ -2770,7 +2830,7 @@ body.hlp-open { overflow:hidden; }
    두어 「아직 글에 안 들어간 조각」으로 보이게 한다. 지문과 똑같이 그리면
    어디까지가 읽을 글이고 어디부터가 옮길 문장인지 갈리지 않는다. */
 .tq-insert {
-  background:var(--surface-2); border:1px dashed rgba(27,21,18,.22); border-radius:var(--r);
+  background:var(--surface-2); border:1px dashed rgba(var(--ink-rgb),.22); border-radius:var(--r);
   padding:14px 18px; margin-bottom:18px;
   font-size:15.5px; line-height:1.9; color:var(--ink-2); word-break:keep-all;
 }
@@ -2871,7 +2931,7 @@ body.hlp-open { overflow:hidden; }
   display:flex; align-items:center; gap:12px; width:100%;
   padding:15px 17px; background:none; border:none; cursor:pointer; text-align:left;
 }
-.rd-head:hover { background:rgba(27,21,18,.02); }
+.rd-head:hover { background:rgba(var(--ink-rgb),.02); }
 .rd-head-l { flex:1; min-width:0; }
 .rd-title { font-size:15.5px; font-weight:700; color:var(--ink); word-break:keep-all; }
 /* 첫 줄 맛보기. 제목만으로는 무슨 글인지 안 잡힌다. */
@@ -2908,7 +2968,7 @@ body.hlp-open { overflow:hidden; }
 .rd-g-pop {
   position:fixed; z-index:60; width:max-content; max-width:min(300px, calc(100vw - 24px));
   background:var(--ink-bg); color:#fff; border-radius:12px; padding:11px 13px 10px;
-  box-shadow:0 10px 30px rgba(27,21,18,.24); word-break:keep-all;
+  box-shadow:0 10px 30px rgba(var(--ink-rgb),.24); word-break:keep-all;
 }
 .rd-g-pop[hidden] { display:none; }
 .rd-g-name { font-size:14px; font-weight:700; letter-spacing:-.02em; }
@@ -3075,7 +3135,7 @@ body.hlp-open { overflow:hidden; }
 /* 막대는 늘어나지 않고 좁아지기만 한다. 넓은 화면에서 끝까지 늘어나면
    5px 짜리 선이 650px 가 되어 표가 아니라 스프레드시트로 보이고,
    숫자도 막대에서 멀어져 어느 줄의 것인지 눈으로 따라가야 한다. */
-.tq-bd-bar { flex:0 1 340px; height:5px; background:rgba(27,21,18,.07); border-radius:999px; overflow:hidden; }
+.tq-bd-bar { flex:0 1 340px; height:5px; background:rgba(var(--ink-rgb),.07); border-radius:999px; overflow:hidden; }
 .tq-bd-bar i { display:block; height:100%; border-radius:999px; background:var(--tq-mid); }
 .tq-bd-bar i.low  { background:var(--tq-low); }
 .tq-bd-bar i.high { background:var(--tq-high); }
@@ -3090,7 +3150,7 @@ body.hlp-open { overflow:hidden; }
   color:var(--ink-2); background:transparent; border:1px solid var(--line);
   border-radius:999px; cursor:pointer; transition:background .15s ease, border-color .15s ease;
 }
-.tq-bd-go:hover { background:var(--surface-2); border-color:rgba(27,21,18,.2); }
+.tq-bd-go:hover { background:var(--surface-2); border-color:rgba(var(--ink-rgb),.2); }
 
 /* ══ 모의고사 답안지(OMR) ═════════════════════════════════════
    실제 시험은 OMR 을 보면서 왔다 갔다 하며 푼다. 한 문항씩 앞으로만 가는
@@ -3121,7 +3181,7 @@ body.hlp-open { overflow:hidden; }
 .tq-clock-wrap { flex:0 0 auto; display:inline-flex; align-items:center; gap:9px; }
 .tq-clock { width:46px; height:46px; display:block; }
 .tq-clock .face { fill:var(--surface-2); stroke:var(--line); stroke-width:2; }
-.tq-clock .tick { stroke:rgba(27,21,18,.28); stroke-width:2; stroke-linecap:round; }
+.tq-clock .tick { stroke:rgba(var(--ink-rgb),.28); stroke-width:2; stroke-linecap:round; }
 .tq-clock .arc {
   fill:none; stroke:var(--tq-high, #5F7F68); stroke-width:5; stroke-linecap:round;
   transform:rotate(-90deg); transform-origin:50px 50px;
@@ -3142,9 +3202,9 @@ body.hlp-open { overflow:hidden; }
   color:var(--ink-3); cursor:pointer;
   transition:background .14s, border-color .14s, color .14s;
 }
-.tq-omr-cell:hover { border-color:rgba(27,21,18,.22); }
+.tq-omr-cell:hover { border-color:rgba(var(--ink-rgb),.22); }
 /* 답을 골라 둔 칸. 색이 아니라 「채워졌다」로 읽혀야 OMR 같다. */
-.tq-omr-cell.done { background:var(--ink); border-color:var(--ink); color:#fff; }
+.tq-omr-cell.done { background:var(--ink-bg); border-color:var(--ink-bg); color:#fff; }
 .tq-omr-cell.now  { outline:2px solid var(--orange); outline-offset:1px; color:var(--ink); }
 .tq-omr-cell.done.now { color:#fff; }
 
@@ -3164,7 +3224,7 @@ body.hlp-open { overflow:hidden; }
     position:fixed; left:0; right:0; bottom:0; top:auto; z-index:40;
     border-radius:var(--r-l) var(--r-l) 0 0;
     border:1px solid var(--line); border-bottom:none;
-    box-shadow:0 -6px 24px rgba(27,21,18,.10);
+    box-shadow:0 -6px 24px rgba(var(--ink-rgb),.10);
   }
   .tq-omr-bar { cursor:pointer; padding:12px 16px; min-height:56px; }
   .tq-omr-caret { display:inline-block; font-size:11px; color:var(--ink-3); transition:transform .2s; }
@@ -3214,13 +3274,13 @@ body.hlp-open { overflow:hidden; }
 }
 .tq-cell.yes  { background:#E4EDE7; color:#3E6650; }
 .tq-cell.no   { background:#F5E3DE; color:#8E4634; }
-.tq-cell.skip { background:rgba(27,21,18,.06); color:var(--ink-3); }
+.tq-cell.skip { background:rgba(var(--ink-rgb),.06); color:var(--ink-3); }
 .tq-legend { display:flex; flex-wrap:wrap; gap:14px; margin-top:12px; font-size:12px; color:var(--ink-3); }
 .tq-legend span { display:inline-flex; align-items:center; gap:5px; }
 .tq-legend i { width:11px; height:11px; border-radius:3px; display:inline-block; }
 .tq-legend i.yes { background:#E4EDE7; }
 .tq-legend i.no { background:#F5E3DE; }
-.tq-legend i.skip { background:rgba(27,21,18,.1); }
+.tq-legend i.skip { background:rgba(var(--ink-rgb),.1); }
 
 .tq-facts { display:flex; flex-wrap:wrap; gap:10px; margin-top:20px; }
 .tq-facts > div {
@@ -3234,7 +3294,7 @@ body.hlp-open { overflow:hidden; }
 
 /* 회차 추이. 눈금도 숫자도 없다 — 오르는지 내리는지만 보면 되는 자리다. */
 .tq-trend { display:flex; align-items:flex-end; gap:6px; height:64px; margin-top:14px; }
-.tq-trend-bar { flex:1 1 auto; background:rgba(27,21,18,.14); border-radius:3px 3px 0 0; }
+.tq-trend-bar { flex:1 1 auto; background:rgba(var(--ink-rgb),.14); border-radius:3px 3px 0 0; }
 .tq-trend-bar[data-now] { background:var(--tq-high); }
 @media (max-width:520px) {
   .tq-sheet { padding:19px 17px; }
@@ -3729,7 +3789,7 @@ body.hlp-open { overflow:hidden; }
   transition: border-color .14s, background .14s;
 }
 .cloze-choices .ex-opt:not(:disabled):hover {
-  border-color: rgba(27,21,18,.26);
+  border-color: rgba(var(--ink-rgb),.26);
   background: #fff;
 }
 .cloze-choices .ex-opt.right { background:#EAF6F0; border-color:var(--green); font-weight:600; }
@@ -3779,11 +3839,11 @@ body.hlp-open { overflow:hidden; }
 /* 레슨 끝 단추. 분홍·파랑·초록 그라데이션에 3px 검정 테두리와 하드
    그림자였다 — 오락실 기계 살결이라 사이트의 다른 단추와 남남이었다.
    기본은 잉크 채움(.pt-next 와 같은 자리), 옆에 서는 것은 테두리만. */
-  background: var(--ink);
+  background: var(--ink-bg);
   color: #fff;
   font-size: 15px; font-weight: 600;
   padding: 13px 22px;
-  border: 1px solid var(--ink);
+  border: 1px solid var(--ink-bg);
   border-radius: var(--r-s);
   cursor: pointer;
   transition: background .16s, border-color .16s, color .16s;
@@ -3792,8 +3852,8 @@ body.hlp-open { overflow:hidden; }
 .btn-retro.blue {
   background: none; color: var(--ink); border-color: var(--line);
 }
-.btn-retro.blue:hover { background: var(--tint); border-color: rgba(27,21,18,.26); }
-.btn-retro.green { background: var(--orange); border-color: var(--orange); color: var(--ink); }
+.btn-retro.blue:hover { background: var(--tint); border-color: rgba(var(--ink-rgb),.26); }
+.btn-retro.green { background: var(--orange); border-color: var(--orange); color: #1B1512; }
 .btn-retro.green:hover { background: #FFA366; }
 .ls-challenge {
   display: flex; flex-direction: column; gap: 12px;
@@ -3816,7 +3876,7 @@ body.hlp-open { overflow:hidden; }
 /* ── Cloze 난이도 세그먼트 토글 (쉬움/도전) ── */
 .diff-seg {
   display:inline-flex;
-  background:rgba(27,21,18,.07);
+  background:rgba(var(--ink-rgb),.07);
   border:none;
   border-radius:999px;
   padding:3px;
@@ -3846,7 +3906,7 @@ body.hlp-open { overflow:hidden; }
 .diff-seg label:has(input:checked) {
   background:var(--surface);
   color:var(--ink);
-  box-shadow:0 1px 3px rgba(27,21,18,.12);
+  box-shadow:0 1px 3px rgba(var(--ink-rgb),.12);
 }
 
 /* ── Cloze 마스터리 레벨 배지 ── */
@@ -3904,13 +3964,13 @@ body.hlp-open { overflow:hidden; }
    그러면 정작 처음 온 사람에게도 「닫는 것」으로 배워진다. */
 .cg-back {
   position: fixed; inset: 0; z-index: 90; display: flex; align-items: flex-end; justify-content: center;
-  background: rgba(27,21,18,.42); -webkit-backdrop-filter: blur(2px); backdrop-filter: blur(2px);
+  background: rgba(var(--ink-rgb),.42); -webkit-backdrop-filter: blur(2px); backdrop-filter: blur(2px);
   padding: 16px; animation: cgFade .16s ease-out;
 }
 @keyframes cgFade { from { opacity: 0; } to { opacity: 1; } }
 .cg-card {
   background: var(--surface); border-radius: var(--r-xl); width: 100%; max-width: 460px;
-  padding: 26px 24px 20px; box-shadow: 0 18px 48px rgba(27,21,18,.22);
+  padding: 26px 24px 20px; box-shadow: 0 18px 48px rgba(var(--ink-rgb),.22);
   max-height: 86vh; overflow-y: auto; animation: cgUp .2s cubic-bezier(.22,.9,.3,1);
 }
 @keyframes cgUp { from { transform: translateY(14px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
@@ -3972,6 +4032,7 @@ body.hlp-open { overflow:hidden; }
       <span class="nav-ico">👤</span><span class="nav-txt">로그인</span>
     </button>
     <!-- 글자 크기 단추는 모의고사 화면(#tqPlay)으로 옮겼다. -->
+    <button class="lang-btn" id="themeBtn" type="button" aria-label="어두운 모드로 바꾸기">🌙</button>
     <button class="lang-btn" id="langBtn" type="button" aria-label="Switch to English">EN</button>
     <a class="hd-cta" href="#download" id="hdCta" data-en="Download">다운로드</a>
     <button class="menu-btn" id="menuBtn" type="button"
@@ -5818,9 +5879,9 @@ body.hlp-open { overflow:hidden; }
 <div id="hlpScrim" class="hlp-scrim"></div>
 <aside id="hlpPanel" class="hlp-panel" aria-label="한국어 도우미" aria-hidden="true"></aside>
 
-<script src="app.js?v=dd88db4f"></script>
-<script type="module" src="app.module.js?v=dd88db4f"></script>
+<script src="app.js?v=4622a3db"></script>
+<script type="module" src="app.module.js?v=4622a3db"></script>
 
-<script src="analytics.js?v=dd88db4f" defer></script>
+<script src="analytics.js?v=4622a3db" defer></script>
 </body>
 </html>

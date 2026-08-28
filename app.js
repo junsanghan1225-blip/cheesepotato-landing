@@ -1105,6 +1105,48 @@ ptId('langBtn').addEventListener('click', () => {
   applyLang(saved || guess);
 })();
 
+/* ── 어두운 모드 ─────────────────────────────────────────────
+   langBtn 과 같은 틀이다. 기본은 기기 설정(prefers-color-scheme) 그대로
+   따른다 — 그래서 사람이 단추를 누르기 전에는 :root 에 data-theme 를
+   아예 안 붙인다. index.html 의 @media (prefers-color-scheme: dark)
+   규칙이 그 상태를 맡는다. 누르면 그때부터 기기 설정과 상관없이
+   고른 대로 고정하고 기억해 둔다. */
+const themeBtn = ptId('themeBtn');
+const darkQuery = matchMedia('(prefers-color-scheme: dark)');
+
+function isDarkNow() {
+  const t = document.documentElement.getAttribute('data-theme');
+  if (t === 'dark') return true;
+  if (t === 'light') return false;
+  return darkQuery.matches;
+}
+function paintThemeBtn() {
+  const dark = isDarkNow();
+  themeBtn.textContent = dark ? '☀️' : '🌙';
+  themeBtn.setAttribute('aria-label', dark ? '밝은 모드로 바꾸기' : '어두운 모드로 바꾸기');
+}
+function applyTheme(theme) {
+  // theme 이 없으면(null) data-theme 를 아예 지워 기기 설정을 그대로 따른다.
+  if (theme) document.documentElement.setAttribute('data-theme', theme);
+  else document.documentElement.removeAttribute('data-theme');
+  paintThemeBtn();
+}
+themeBtn.addEventListener('click', () => {
+  const next = isDarkNow() ? 'light' : 'dark';
+  applyTheme(next);
+  try { localStorage.setItem('theme', next); } catch (e) {}
+});
+// 단추를 누른 적이 없는 사람은 기기 설정이 바뀌면(밤이 되어 시스템이
+// 자동으로 어두워지는 경우 등) 단추 그림도 따라 바뀌어야 한다.
+darkQuery.addEventListener('change', () => {
+  if (!document.documentElement.hasAttribute('data-theme')) paintThemeBtn();
+});
+(function initTheme() {
+  let saved = null;
+  try { saved = localStorage.getItem('theme'); } catch (e) {}
+  applyTheme(saved === 'dark' || saved === 'light' ? saved : null);
+})();
+
 /* ── 사이드 메뉴 ─────────────────────────────────────────────
    여닫는 길이 여럿(☰ · 스크림 · ✕ · Esc)이라 한 곳에 모아 둔다.
    상태를 각자 토글하면 스크림만 남거나 ☰ 모양만 안 돌아오는 일이
