@@ -13,7 +13,7 @@
    어느 날 갑자기 다른 코드가 실려 왔다.
    이제 vendor/ 안에 받아 두고 CSP 로 바깥을 막는다. 버전을 올릴 때는
    tools/vendor.mjs 의 PIN 을 고치고 다시 돌린다. */
-import { createClient } from './vendor/supabase-js.js?v=a29b256d';
+import { createClient } from './vendor/supabase-js.js?v=758a425a';
 // 앱(package.json)과 같은 줄기를 쓴다. 갈리면 앱에서는 읽히는 파일이
 // 여기서는 안 읽히는(또는 그 반대) 일이 생긴다.
 /* 엑셀 라이브러리는 422KB — 이 판에서 가장 무거운 조각이다. 그런데 쓰는
@@ -25,21 +25,21 @@ import { createClient } from './vendor/supabase-js.js?v=a29b256d';
    자국(?v=)은 tools/stamp.mjs 가 아래 줄에 알아서 붙인다 — 정적으로 쓰든
    동적으로 쓰든 같은 글자를 찾으므로 바꿔도 그대로 찍힌다. */
 let XLSX = null;
-const needXLSX = async () => (XLSX ??= await import('./vendor/xlsx.js?v=a29b256d'));
+const needXLSX = async () => (XLSX ??= await import('./vendor/xlsx.js?v=758a425a'));
 // 커리큘럼. 내용과 엔진을 갈라 두면 글을 고치다 화면을 깨지 않는다.
-import { COURSES } from './courses.js?v=a29b256d';
-import { GLOSSARY, GLOSS_LANGS } from './glossary.js?v=a29b256d';
-import { glossFind } from './gloss-find.js?v=a29b256d';
-import { GRAMMAR } from './grammar.js?v=a29b256d';
-import { GRAMMAR_EN } from './grammar-en.js?v=a29b256d';
-import { grammarScan } from './grammar-find.js?v=a29b256d';
-import { TW_ITEMS, TW_QS } from './topik-writing.js?v=a29b256d';
-import { TOPIKL_BY_EXAM, TOPIKL_PICTURE_SLOTS } from './topik-listening.js?v=a29b256d';
-import { SB_CATS, SB_MORE, SB_SEED } from './sentences.js?v=a29b256d';
+import { COURSES } from './courses.js?v=758a425a';
+import { GLOSSARY, GLOSS_LANGS } from './glossary.js?v=758a425a';
+import { glossFind } from './gloss-find.js?v=758a425a';
+import { GRAMMAR } from './grammar.js?v=758a425a';
+import { GRAMMAR_EN } from './grammar-en.js?v=758a425a';
+import { grammarScan } from './grammar-find.js?v=758a425a';
+import { TW_ITEMS, TW_QS } from './topik-writing.js?v=758a425a';
+import { TOPIKL_BY_EXAM, TOPIKL_PICTURE_SLOTS } from './topik-listening.js?v=758a425a';
+import { SB_CATS, SB_MORE, SB_SEED } from './sentences.js?v=758a425a';
 // 읽기 연습 지문. 길이(short·long) × 급수 여섯 칸.
 // TOPIK 유형 연습문제. 기출이 아니라 자체 제작이다.
 // 숫자 게임의 읽기와 문제 만들기. 화면을 모르는 순수 계산이라 따로 뒀다.
-import { makeRound } from './numbers.js?v=a29b256d';
+import { makeRound } from './numbers.js?v=758a425a';
 
 // 이 키는 공개돼도 되는 값이다. 이미 APK 안에 같은 것이 들어 있고,
 // 접근을 막는 건 키가 아니라 테이블에 걸린 RLS 다.
@@ -85,14 +85,14 @@ function panel(name) {
 const TQ_DATA = { I: null, II: null };
 let tqDataP = null;
 const tqNeedData = () => (tqDataP ??= Promise.all([
-  import('./topik.js?v=a29b256d'), import('./topik2.js?v=a29b256d'),
+  import('./topik.js?v=758a425a'), import('./topik2.js?v=758a425a'),
 ]).then(([a, b]) => {
   TQ_DATA.I  = { reading: a.TOPIK_READING,  blueprint: a.TOPIK_BLUEPRINT,  slots: a.TOPIK_SLOTS };
   TQ_DATA.II = { reading: b.TOPIK2_READING, blueprint: b.TOPIK2_BLUEPRINT, slots: b.TOPIK2_SLOTS };
 }));
 
 let READING = null, rdP = null;
-const rdNeed = () => (rdP ??= import('./reading.js?v=a29b256d').then((m) => { READING = m.READING; }));
+const rdNeed = () => (rdP ??= import('./reading.js?v=758a425a').then((m) => { READING = m.READING; }));
 
 /* 배우기를 열면 둘 다 미리 부른다. 기다리지 않는다 — 갈래 목록은 이
    자료가 없어도 그려지고, 사람이 갈래를 고르는 사이에 도착한다. */
@@ -8770,18 +8770,18 @@ function hlpCites(q) {
 }
 
 function hlpAiIdle(cites) {
-  return '<div class="hlp-ai" id="hlpAi">' +
+  return '<div class="hlp-ai">' +
     `<button id="hlpAiBtn" class="hlp-ai-btn" type="button">✨ ${t('이 질문을 AI 도우미에게 물어보기', 'Ask the AI helper about this')}</button>` +
     `<p class="hlp-ai-note">${t('로그인이 필요해요. 하루 20번까지 물어볼 수 있어요. 저희 자료에 없는 건 "모른다"고 답해요.', 'Sign-in required, up to 20 questions a day. It says "I don’t know" rather than guessing.')}</p>` +
   '</div>';
 }
 
 function hlpDraw() {
-  const body = $('hlpBody');
-  if (!body) return;
+  const cardsEl = $('hlpCards');
+  if (!cardsEl) return;
   const q = hlpLastQ;
   if (!q) {
-    body.innerHTML = `<div class="hlp-empty">${esc(t(
+    cardsEl.innerHTML = `<div class="hlp-empty">${esc(t(
       '낱말 하나(예: 가지고)나 문법 이름(예: -느니)을 입력해 보세요. 사전 4,737개와 문법 표현 290개 안에서 찾아요. 문장으로 물어보면 AI 도우미에게 물어볼 수도 있어요.',
       'Type a word (e.g. 가지고) or a grammar name (e.g. -느니). Ask a full question and you can also send it to the AI helper.'
     ))}</div>`;
@@ -8798,7 +8798,7 @@ function hlpDraw() {
       ))}</div>`
     : (word ? hlpWordCard(word) : '') + points.map(hlpPointCard).join('');
 
-  body.innerHTML = cards + hlpAiIdle(cites);
+  cardsEl.innerHTML = cards + hlpAiIdle(cites);
   $('hlpAiBtn').addEventListener('click', () => hlpAskAI(q, cites));
 }
 
@@ -8807,23 +8807,38 @@ function hlpAsk(raw) {
   hlpDraw();
 }
 
+/* 물어본 것들을 말풍선으로 쌓는다. 매 질문은 여전히 따로따로
+   서버에 보내 답을 받는다(대화 기억 없음) — 화면만 채팅처럼 보이게
+   쌓아 둘 뿐이다. 새로 찾기를 해도(hlpDraw → #hlpCards) 이 자리는
+   안 지워지고, 패널을 닫을 때만 비운다(hlpSetOpen). */
+let hlpChat = [];
+
+function hlpChatBubble(role, text) {
+  return `<div class="hlp-msg ${role === 'user' ? 'hlp-msg-user' : 'hlp-msg-ai'}">${esc(text)}</div>`;
+}
+
+function hlpRenderChat() {
+  const chat = $('hlpChat');
+  if (!chat) return;
+  chat.innerHTML = hlpChat.map((m) => hlpChatBubble(m.role, m.text)).join('');
+  chat.scrollTop = chat.scrollHeight;
+}
+
 /* AI 호출. score-pronunciation 을 부르는 window.ptAiGuess 와 같은 틀 —
    로그인 확인, 15초에서 끊기, 429/daily_limit 처리, 실패하면 조용히
-   접는다(이미 0층 결과는 화면에 있으니 여기만 죽어도 된다). */
+   말풍선 하나로 접는다(이미 0층 결과는 위에 그대로 있으니 여기만
+   죽어도 된다). */
 async function hlpAskAI(q, cites) {
-  const wrap = $('hlpAi');
-  if (!wrap) return;
-
   const { data: { session } } = await sb.auth.getSession();
   if (!session) {
-    wrap.innerHTML =
-      `<p class="hlp-none">${t('로그인하면 AI 도우미에게 물어볼 수 있어요.', 'Sign in to ask the AI helper.')}</p>` +
-      `<button id="hlpAiLoginBtn" class="hlp-ai-btn" type="button">${t('로그인하러 가기', 'Go to sign in')}</button>`;
-    $('hlpAiLoginBtn').addEventListener('click', () => { hlpSetOpen(false); open('account'); });
+    hlpSetOpen(false);
+    open('account');
     return;
   }
 
-  wrap.innerHTML = `<p class="hlp-ai-load">${t('생각하는 중…', 'Thinking…')}</p>`;
+  hlpChat.push({ role: 'user', text: q });
+  const idx = hlpChat.push({ role: 'ai', text: t('생각하는 중…', 'Thinking…') }) - 1;
+  hlpRenderChat();
 
   const ctrl = new AbortController();
   const timer = setTimeout(() => ctrl.abort(), 15000);
@@ -8840,24 +8855,22 @@ async function hlpAskAI(q, cites) {
     });
     const out = await res.json().catch(() => null);
 
+    let reply;
     if (res.status === 429 || out?.error === 'daily_limit') {
-      wrap.innerHTML = `<p class="hlp-none">${t('오늘 AI 도우미에게 물어볼 수 있는 횟수를 다 썼어요. 내일 다시 써 주세요.', "You've used today's AI questions — try again tomorrow.")}</p>`;
-      return;
+      reply = t('오늘 AI 도우미에게 물어볼 수 있는 횟수를 다 썼어요. 내일 다시 써 주세요.', "You've used today's AI questions — try again tomorrow.");
+    } else if (!res.ok || out?.grounded === undefined) {
+      reply = t('지금은 답할 수 없어요. 잠시 후 다시 시도해 주세요.', "Couldn't get an answer right now — try again in a moment.");
+    } else if (!out.grounded || !out.answer) {
+      reply = t('이건 저희 자료에 없어요. 표현을 바꿔서 다시 물어봐 주세요.', "This isn't in our material — try rephrasing.");
+    } else {
+      reply = out.answer;
     }
-    if (!res.ok || out?.grounded === undefined) throw new Error('bad response');
-
-    if (!out.grounded || !out.answer) {
-      wrap.innerHTML = `<p class="hlp-none">${t('이건 저희 자료에 없어요. 표현을 바꿔서 다시 물어봐 주세요.', "This isn't in our material — try rephrasing.")}</p>`;
-      return;
-    }
-
-    wrap.innerHTML =
-      `<div class="hlp-ai-answer">${esc(out.answer)}</div>` +
-      `<p class="hlp-ai-note">${t('AI 도우미의 답변이에요 — 사전·문법 카드와는 결이 달라요.', 'This is the AI helper speaking — different from the dictionary/grammar cards above.')}</p>`;
+    hlpChat[idx] = { role: 'ai', text: reply };
   } catch (e) {
-    wrap.innerHTML = `<p class="hlp-none">${t('지금은 답할 수 없어요. 잠시 후 다시 시도해 주세요.', "Couldn't get an answer right now — try again in a moment.")}</p>`;
+    hlpChat[idx] = { role: 'ai', text: t('지금은 답할 수 없어요. 잠시 후 다시 시도해 주세요.', "Couldn't get an answer right now — try again in a moment.") };
   } finally {
     clearTimeout(timer);
+    hlpRenderChat();
   }
 }
 
@@ -8876,12 +8889,16 @@ function hlpRenderChrome() {
       `<input id="hlpInput" class="hlp-in" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="${esc(t('예: 가지고, -느니', 'e.g. 가지고, -느니'))}">` +
       `<button type="submit" class="hlp-go">${t('찾기', 'Find')}</button>` +
     '</form>' +
-    '<div class="hlp-body" id="hlpBody"></div>';
+    '<div class="hlp-body" id="hlpBody">' +
+      '<div id="hlpCards"></div>' +
+      '<div id="hlpChat" class="hlp-chat"></div>' +
+    '</div>';
 
   $('hlpClose').addEventListener('click', () => hlpSetOpen(false));
   $('hlpForm').addEventListener('submit', (ev) => { ev.preventDefault(); hlpAsk($('hlpInput').value); });
   $('hlpInput').value = hlpLastQ;
   hlpDraw();
+  hlpRenderChat();
 }
 
 function hlpSetOpen(open) {
@@ -8897,6 +8914,10 @@ function hlpSetOpen(open) {
   if (open) {
     hlpRenderChrome();
     setTimeout(() => $('hlpInput')?.focus(), 60);
+  } else {
+    // 닫으면 쌓아 둔 말풍선을 비운다 — 서버에도 아무것도 안 남기는
+    // 것과 같은 원칙이다. 다음에 열면 늘 새 판으로 시작한다.
+    hlpChat = [];
   }
 }
 
