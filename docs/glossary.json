@@ -1330,7 +1330,8 @@
    "마십니다",
    "마셨습니다",
    "마시고",
-   "마시는"
+   "마시는",
+   "마셔"
   ]
  },
  {
@@ -1543,17 +1544,19 @@
    "주는",
    "드립니다",
    "준다",
-   "주기"
+   "주기",
+   "주시면"
   ]
  },
  {
   "ko": "받다",
-  "en": "to receive",
+  "en": "to receive; to accept",
   "alt": [
    "받습니다",
    "받았습니다",
    "받지",
-   "받는"
+   "받는",
+   "받는다"
   ]
  },
  {
@@ -1706,7 +1709,7 @@
  },
  {
   "ko": "버리다",
-  "en": "to throw away",
+  "en": "to throw away; to discard",
   "alt": [
    "버립니다",
    "버려야",
@@ -2863,9 +2866,10 @@
  },
  {
   "ko": "가지다",
-  "en": "to have; to hold",
+  "en": "to have; to possess",
   "alt": [
-   "가지고"
+   "가지고",
+   "가진"
   ]
  },
  {
@@ -3344,7 +3348,8 @@
   "en": "I; me (informal)",
   "alt": [
    "나는",
-   "내가"
+   "내가",
+   "나도"
   ]
  },
  {
@@ -3912,7 +3917,9 @@
   "ko": "늦다",
   "en": "to be late",
   "alt": [
-   "늦지"
+   "늦지",
+   "늦은",
+   "늦을"
   ]
  },
  {
@@ -4196,9 +4203,10 @@
  },
  {
   "ko": "닦다",
-  "en": "to wipe; to brush",
+  "en": "to wipe; to polish",
   "alt": [
-   "닦아"
+   "닦아",
+   "닦았습니다"
   ]
  },
  {
@@ -5047,7 +5055,8 @@
   "ko": "방",
   "en": "room",
   "alt": [
-   "방이"
+   "방이",
+   "방에서"
   ]
  },
  {
@@ -5124,7 +5133,8 @@
   "ko": "어렵다",
   "en": "to be difficult; to be hard",
   "alt": [
-   "어렵습니다"
+   "어렵습니다",
+   "어려워"
   ]
  },
  {
@@ -5254,7 +5264,8 @@
   "ko": "건강하다",
   "en": "to be healthy",
   "alt": [
-   "건강하게"
+   "건강하게",
+   "건강한"
   ]
  },
  {
@@ -5308,5 +5319,584 @@
  {
   "ko": "하나씩",
   "en": "one by one; each"
+ },
+ {
+  "ko": "그동안",
+  "en": "meanwhile; during that time"
+ },
+ {
+  "ko": "잊다",
+  "en": "to forget",
+  "alt": [
+   "잊지"
+  ]
+ },
+ {
+  "ko": "현금",
+  "en": "cash"
+ },
+ {
+  "ko": "다니다",
+  "en": "to attend; to go regularly",
+  "alt": [
+   "다니기",
+   "다닐"
+  ]
+ },
+ {
+  "ko": "길고양이",
+  "en": "stray cat; street cat"
+ },
+ {
+  "ko": "미소",
+  "en": "smile"
+ },
+ {
+  "ko": "고맙다",
+  "en": "to be thankful; to be grateful",
+  "alt": [
+   "고맙겠습니다"
+  ]
+ },
+ {
+  "ko": "앉다",
+  "en": "to sit",
+  "alt": [
+   "앉은"
+  ]
+ },
+ {
+  "ko": "눈물",
+  "en": "tears"
+ },
+ {
+  "ko": "우리말",
+  "en": "Korean language; our language"
+ },
+ {
+  "ko": "욕실",
+  "en": "bathroom"
+ },
+ {
+  "ko": "고치다",
+  "en": "to repair; to fix",
+  "alt": [
+   "고쳐"
+  ]
+ },
+ {
+  "ko": "벗다",
+  "en": "to take off (clothes, shoes)",
+  "alt": [
+   "벗고"
+  ]
+ },
+ {
+  "ko": "날",
+  "en": "day",
+  "alt": [
+   "날에"
+  ]
+ },
+ {
+  "ko": "주머니",
+  "en": "pocket; pouch"
+ },
+ {
+  "ko": "외출",
+  "en": "going out; outing"
+ },
+ {
+  "ko": "계단",
+  "en": "stairs; stairway"
+ },
+ {
+  "ko": "놀이터",
+  "en": "playground"
+ },
+ {
+  "ko": "김밥",
+  "en": "gimbap; seaweed rice roll"
+ },
+ {
+  "ko": "벽",
+  "en": "wall",
+  "alt": [
+   "벽에"
+  ]
+ },
+ {
+  "ko": "스트레스",
+  "en": "stress"
+ },
+ {
+  "ko": "가뭄",
+  "en": "drought"
+ },
+ {
+  "ko": "소음",
+  "en": "noise; unpleasant sound"
+ },
+ {
+  "ko": "전시실",
+  "en": "exhibition hall; gallery"
+ },
+ {
+  "ko": "작품",
+  "en": "work of art; piece"
+ },
+ {
+  "ko": "정밀",
+  "en": "precision; accuracy"
+ },
+ {
+  "ko": "맞춤형",
+  "en": "customized; tailored"
+ },
+ {
+  "ko": "정확하다",
+  "en": "to be accurate; to be correct",
+  "alt": [
+   "정확한"
+  ]
+ },
+ {
+  "ko": "재료비",
+  "en": "material cost"
+ },
+ {
+  "ko": "프로그램",
+  "en": "program"
+ },
+ {
+  "ko": "참가",
+  "en": "participation; entry"
+ },
+ {
+  "ko": "관측",
+  "en": "observation; sighting"
+ },
+ {
+  "ko": "대형",
+  "en": "large size; large-scale"
+ },
+ {
+  "ko": "관심",
+  "en": "interest; attention"
+ },
+ {
+  "ko": "도시민",
+  "en": "urban citizen; city dweller"
+ },
+ {
+  "ko": "확대",
+  "en": "expansion; enlargement"
+ },
+ {
+  "ko": "일부",
+  "en": "part; portion"
+ },
+ {
+  "ko": "일반",
+  "en": "general; common"
+ },
+ {
+  "ko": "농업",
+  "en": "agriculture; farming"
+ },
+ {
+  "ko": "와이파이",
+  "en": "Wi-Fi"
+ },
+ {
+  "ko": "바꾸다",
+  "en": "to change; to exchange",
+  "alt": [
+   "바꾸어"
+  ]
+ },
+ {
+  "ko": "포인트",
+  "en": "point; reward point"
+ },
+ {
+  "ko": "전자제품",
+  "en": "electronic product; appliance"
+ },
+ {
+  "ko": "폐가전",
+  "en": "waste electronic appliance"
+ },
+ {
+  "ko": "수수료",
+  "en": "fee; commission"
+ },
+ {
+  "ko": "비닐",
+  "en": "plastic; vinyl"
+ },
+ {
+  "ko": "토양",
+  "en": "soil; ground"
+ },
+ {
+  "ko": "방수",
+  "en": "waterproof"
+ },
+ {
+  "ko": "증산",
+  "en": "transpiration; vapor loss"
+ },
+ {
+  "ko": "올바르다",
+  "en": "to be correct; to be proper",
+  "alt": [
+   "올바른"
+  ]
+ },
+ {
+  "ko": "체내",
+  "en": "inside the body; internal"
+ },
+ {
+  "ko": "감각",
+  "en": "sense; sensation"
+ },
+ {
+  "ko": "기관",
+  "en": "organ; institution"
+ },
+ {
+  "ko": "대기",
+  "en": "waiting; atmosphere"
+ },
+ {
+  "ko": "농도",
+  "en": "concentration; density"
+ },
+ {
+  "ko": "경고",
+  "en": "warning; alert"
+ },
+ {
+  "ko": "집중력",
+  "en": "concentration; focus"
+ },
+ {
+  "ko": "한층",
+  "en": "much more; still more"
+ },
+ {
+  "ko": "최대한",
+  "en": "as much as possible; maximum"
+ },
+ {
+  "ko": "운전자",
+  "en": "driver"
+ },
+ {
+  "ko": "도입하다",
+  "en": "to introduce; to adopt",
+  "alt": [
+   "도입하고"
+  ]
+ },
+ {
+  "ko": "경영",
+  "en": "management; administration"
+ },
+ {
+  "ko": "식사",
+  "en": "meal; dining"
+ },
+ {
+  "ko": "블록",
+  "en": "block; brick"
+ },
+ {
+  "ko": "높아지다",
+  "en": "to get higher; to rise",
+  "alt": [
+   "높아지고"
+  ]
+ },
+ {
+  "ko": "기후변화",
+  "en": "climate change"
+ },
+ {
+  "ko": "긍정적",
+  "en": "positive; affirmative",
+  "alt": [
+   "긍정적인"
+  ]
+ },
+ {
+  "ko": "숲",
+  "en": "forest; woods",
+  "alt": [
+   "숲은"
+  ]
+ },
+ {
+  "ko": "콘크리트",
+  "en": "concrete"
+ },
+ {
+  "ko": "정화하다",
+  "en": "to purify; to clean"
+ },
+ {
+  "ko": "숙면",
+  "en": "deep sleep; sound sleep"
+ },
+ {
+  "ko": "정원",
+  "en": "garden"
+ },
+ {
+  "ko": "냉방",
+  "en": "air conditioning; cooling"
+ },
+ {
+  "ko": "빗물",
+  "en": "rainwater"
+ },
+ {
+  "ko": "기여하다",
+  "en": "to contribute",
+  "alt": [
+   "기여하고"
+  ]
+ },
+ {
+  "ko": "치료",
+  "en": "treatment; cure"
+ },
+ {
+  "ko": "책장",
+  "en": "bookshelf; bookcase"
+ },
+ {
+  "ko": "웃음소리",
+  "en": "laughter; sound of laughing"
+ },
+ {
+  "ko": "귀",
+  "en": "ear",
+  "alt": [
+   "귀를"
+  ]
+ },
+ {
+  "ko": "벽화",
+  "en": "mural; wall painting"
+ },
+ {
+  "ko": "밤길",
+  "en": "night street; night road"
+ },
+ {
+  "ko": "순찰대",
+  "en": "patrol team; patrol"
+ },
+ {
+  "ko": "골목",
+  "en": "alley; side street"
+ },
+ {
+  "ko": "맡다",
+  "en": "to take charge of; to smell",
+  "alt": [
+   "맡았다"
+  ]
+ },
+ {
+  "ko": "손목시계",
+  "en": "wristwatch; watch"
+ },
+ {
+  "ko": "묵묵히",
+  "en": "silently; without a word"
+ },
+ {
+  "ko": "한구석",
+  "en": "corner; nook"
+ },
+ {
+  "ko": "품",
+  "en": "bosom; embrace",
+  "alt": [
+   "품에"
+  ]
+ },
+ {
+  "ko": "글씨",
+  "en": "handwriting; lettering"
+ },
+ {
+  "ko": "닳다",
+  "en": "to wear out; to be worn down",
+  "alt": [
+   "닳아"
+  ]
+ },
+ {
+  "ko": "모르다",
+  "en": "to not know",
+  "alt": [
+   "모르게"
+  ]
+ },
+ {
+  "ko": "뭉클해지다",
+  "en": "to be touched; to be moved",
+  "alt": [
+   "뭉클해졌다"
+  ]
+ },
+ {
+  "ko": "서재",
+  "en": "study; library"
+ },
+ {
+  "ko": "스치다",
+  "en": "to graze; to flash by",
+  "alt": [
+   "스쳐"
+  ]
+ },
+ {
+  "ko": "조심스레",
+  "en": "carefully; cautiously"
+ },
+ {
+  "ko": "맑다",
+  "en": "to be clear; to be clean",
+  "alt": [
+   "맑은"
+  ]
+ },
+ {
+  "ko": "흐르다",
+  "en": "to flow; to pass by",
+  "alt": [
+   "흘러"
+  ]
+ },
+ {
+  "ko": "기계",
+  "en": "machine; machinery"
+ },
+ {
+  "ko": "판매",
+  "en": "sale; selling"
+ },
+ {
+  "ko": "더욱",
+  "en": "more and more; further"
+ },
+ {
+  "ko": "반도체",
+  "en": "semiconductor"
+ },
+ {
+  "ko": "환율",
+  "en": "exchange rate"
+ },
+ {
+  "ko": "세계",
+  "en": "world; globe"
+ },
+ {
+  "ko": "품질",
+  "en": "quality"
+ },
+ {
+  "ko": "치솟다",
+  "en": "to soar; to skyrocket"
+ },
+ {
+  "ko": "커지다",
+  "en": "to grow; to get bigger",
+  "alt": [
+   "커지고"
+  ]
+ },
+ {
+  "ko": "사용량",
+  "en": "amount used; consumption"
+ },
+ {
+  "ko": "영세",
+  "en": "small-scale; petty"
+ },
+ {
+  "ko": "지원금",
+  "en": "subsidy; financial grant"
+ },
+ {
+  "ko": "주택",
+  "en": "housing; house"
+ },
+ {
+  "ko": "갈등",
+  "en": "conflict; dispute"
+ },
+ {
+  "ko": "간",
+  "en": "between; among",
+  "alt": [
+   "간의"
+  ]
+ },
+ {
+  "ko": "우려",
+  "en": "concern; worry"
+ },
+ {
+  "ko": "유도하다",
+  "en": "to induce; to encourage"
+ },
+ {
+  "ko": "맞추다",
+  "en": "to adjust; to set",
+  "alt": [
+   "맞춰"
+  ]
+ },
+ {
+  "ko": "측정",
+  "en": "measurement"
+ },
+ {
+  "ko": "잠재력",
+  "en": "potential; latent ability"
+ },
+ {
+  "ko": "자발적",
+  "en": "voluntary; spontaneous",
+  "alt": [
+   "자발적인"
+  ]
+ },
+ {
+  "ko": "마련하다",
+  "en": "to prepare; to arrange"
+ },
+ {
+  "ko": "단기간",
+  "en": "short period; short term"
+ },
+ {
+  "ko": "체계적",
+  "en": "systematic",
+  "alt": [
+   "체계적인"
+  ]
+ },
+ {
+  "ko": "신분",
+  "en": "status; identity"
  }
 ]

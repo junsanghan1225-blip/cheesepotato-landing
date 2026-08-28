@@ -13,7 +13,7 @@
    어느 날 갑자기 다른 코드가 실려 왔다.
    이제 vendor/ 안에 받아 두고 CSP 로 바깥을 막는다. 버전을 올릴 때는
    tools/vendor.mjs 의 PIN 을 고치고 다시 돌린다. */
-import { createClient } from './vendor/supabase-js.js?v=f25cd6fd';
+import { createClient } from './vendor/supabase-js.js?v=f28d9cbe';
 // 앱(package.json)과 같은 줄기를 쓴다. 갈리면 앱에서는 읽히는 파일이
 // 여기서는 안 읽히는(또는 그 반대) 일이 생긴다.
 /* 엑셀 라이브러리는 422KB — 이 판에서 가장 무거운 조각이다. 그런데 쓰는
@@ -25,21 +25,21 @@ import { createClient } from './vendor/supabase-js.js?v=f25cd6fd';
    자국(?v=)은 tools/stamp.mjs 가 아래 줄에 알아서 붙인다 — 정적으로 쓰든
    동적으로 쓰든 같은 글자를 찾으므로 바꿔도 그대로 찍힌다. */
 let XLSX = null;
-const needXLSX = async () => (XLSX ??= await import('./vendor/xlsx.js?v=f25cd6fd'));
+const needXLSX = async () => (XLSX ??= await import('./vendor/xlsx.js?v=f28d9cbe'));
 // 커리큘럼. 내용과 엔진을 갈라 두면 글을 고치다 화면을 깨지 않는다.
-import { COURSES } from './courses.js?v=f25cd6fd';
-import { GLOSSARY, GLOSS_LANGS } from './glossary.js?v=f25cd6fd';
-import { glossFind } from './gloss-find.js?v=f25cd6fd';
-import { GRAMMAR } from './grammar.js?v=f25cd6fd';
-import { GRAMMAR_EN } from './grammar-en.js?v=f25cd6fd';
-import { grammarScan } from './grammar-find.js?v=f25cd6fd';
-import { TW_ITEMS, TW_QS } from './topik-writing.js?v=f25cd6fd';
-import { TOPIKL_BY_EXAM, TOPIKL_PICTURE_SLOTS } from './topik-listening.js?v=f25cd6fd';
-import { SB_CATS, SB_MORE, SB_SEED } from './sentences.js?v=f25cd6fd';
+import { COURSES } from './courses.js?v=f28d9cbe';
+import { GLOSSARY, GLOSS_LANGS } from './glossary.js?v=f28d9cbe';
+import { glossFind } from './gloss-find.js?v=f28d9cbe';
+import { GRAMMAR } from './grammar.js?v=f28d9cbe';
+import { GRAMMAR_EN } from './grammar-en.js?v=f28d9cbe';
+import { grammarScan } from './grammar-find.js?v=f28d9cbe';
+import { TW_ITEMS, TW_QS } from './topik-writing.js?v=f28d9cbe';
+import { TOPIKL_BY_EXAM, TOPIKL_PICTURE_SLOTS } from './topik-listening.js?v=f28d9cbe';
+import { SB_CATS, SB_MORE, SB_SEED } from './sentences.js?v=f28d9cbe';
 // 읽기 연습 지문. 길이(short·long) × 급수 여섯 칸.
 // TOPIK 유형 연습문제. 기출이 아니라 자체 제작이다.
 // 숫자 게임의 읽기와 문제 만들기. 화면을 모르는 순수 계산이라 따로 뒀다.
-import { makeRound } from './numbers.js?v=f25cd6fd';
+import { makeRound } from './numbers.js?v=f28d9cbe';
 
 // 이 키는 공개돼도 되는 값이다. 이미 APK 안에 같은 것이 들어 있고,
 // 접근을 막는 건 키가 아니라 테이블에 걸린 RLS 다.
@@ -85,14 +85,14 @@ function panel(name) {
 const TQ_DATA = { I: null, II: null };
 let tqDataP = null;
 const tqNeedData = () => (tqDataP ??= Promise.all([
-  import('./topik.js?v=f25cd6fd'), import('./topik2.js?v=f25cd6fd'),
+  import('./topik.js?v=f28d9cbe'), import('./topik2.js?v=f28d9cbe'),
 ]).then(([a, b]) => {
   TQ_DATA.I  = { reading: a.TOPIK_READING,  blueprint: a.TOPIK_BLUEPRINT,  slots: a.TOPIK_SLOTS };
   TQ_DATA.II = { reading: b.TOPIK2_READING, blueprint: b.TOPIK2_BLUEPRINT, slots: b.TOPIK2_SLOTS };
 }));
 
 let READING = null, rdP = null;
-const rdNeed = () => (rdP ??= import('./reading.js?v=f25cd6fd').then((m) => { READING = m.READING; }));
+const rdNeed = () => (rdP ??= import('./reading.js?v=f28d9cbe').then((m) => { READING = m.READING; }));
 
 /* 배우기를 열면 둘 다 미리 부른다. 기다리지 않는다 — 갈래 목록은 이
    자료가 없어도 그려지고, 사람이 갈래를 고르는 사이에 도착한다. */
@@ -453,14 +453,14 @@ let dictOpen = null;  // 지금 "더 보기"(예문·뜻풀이)를 펼쳐 둔 �
    평소엔 안 쓰는 522KB 를 첫 화면 모두에게 물릴 까닭이 없다. */
 let dictSensesP = null;
 const dictLoadSenses = () => (dictSensesP ??=
-  import('./glossary-senses.js?v=f25cd6fd').then((m) => m.SENSES).catch(() => ({})));
+  import('./glossary-senses.js?v=f28d9cbe').then((m) => m.SENSES).catch(() => ({})));
 
 /* 예문. 국립국어원 자료엔 없어서 Gemini 로 새로 지은 것이다(있는 만큼만
    — docs/glossary-examples-gemini-prompt.md 참고). 뜻풀이와 같은 자리에서
    같이 받는다 — 펼치는 손짓 하나에 몰아 두는 편이 화면이 덜 복잡하다. */
 let dictExamplesP = null;
 const dictLoadExamples = () => (dictExamplesP ??=
-  import('./glossary-examples.js?v=f25cd6fd').then((m) => m.EXAMPLES).catch(() => ({})));
+  import('./glossary-examples.js?v=f28d9cbe').then((m) => m.EXAMPLES).catch(() => ({})));
 
 function dictVisible() {
   const q = dictQuery.trim().toLowerCase();
