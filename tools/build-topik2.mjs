@@ -50,7 +50,7 @@ const BLUEPRINT = [
 /* 회차 파일을 모두 읽어 합친다. 자리(slot)는 회차가 달라도 그대로라 한
    자리에 여러 벌이 쌓이고, 모의고사는 자리마다 그 가운데 하나씩 뽑는다.
    ROUNDS 에 이름만 더하면 회차가 는다 — 없는 파일은 조용히 건너뛴다. */
-const ROUNDS = ['topik2-all50.json', 'topik2-round2.json', 'topik2-round3.json'];
+const ROUNDS = ['topik2-all50.json', 'topik2-round2.json', 'topik2-round3.json', 'topik2-round4.json'];
 const rows = [];
 const loaded = [];
 for (const name of ROUNDS) {
