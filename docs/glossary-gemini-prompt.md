@@ -15,9 +15,12 @@ node tools/glossary-words.mjs 200 > /tmp/words.tsv
 세 칸이 탭으로 나온다 — `낱말`, `나온 횟수`, `처음 나온 문장`. 이 파일을
 아래 지시문 뒤에 그대로 붙여서 보낸다.
 
-받은 JSON 은 `docs/glossary.json` 의 배열에 이어 붙이고:
+받은 JSON 은 파일로 저장해서 검사기로 넣는다 — 모양(한글 표제어인지·영어
+뜻이 있는지·활용형이 다른 표제어와 안 겹치는지)을 봐 준다:
 
 ```bash
+node tools/add-glossary-words.mjs 받은것.json --dry   # 넣기 전에 먼저 훑어본다
+node tools/add-glossary-words.mjs 받은것.json         # 문제 없으면 진짜로 넣는다
 node tools/build-glossary.mjs && node tools/check-glossary.mjs && node tools/stamp.mjs
 ```
 
