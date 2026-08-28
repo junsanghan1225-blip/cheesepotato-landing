@@ -107,8 +107,8 @@
      Pretendard 는 통짜(2.0MB) 대신 조각난 쪽을 쓴다 — 브라우저가
      unicode-range 를 보고 화면에 실제로 나온 글자가 든 조각만 받는다.
      그래서 저장소는 무거워졌지만 학습자가 받는 양은 오히려 줄었다. -->
-<link rel="stylesheet" href="vendor/pretendard.css?v=3495300a">
-<link rel="stylesheet" href="vendor/pressstart2p.css?v=3495300a">
+<link rel="stylesheet" href="vendor/pretendard.css?v=5042599d">
+<link rel="stylesheet" href="vendor/pressstart2p.css?v=5042599d">
 <style>
 /* ══════════════════════════════════════════════════════════════
    치즈감자 — 랜딩
@@ -339,22 +339,13 @@ a:hover { color:var(--orange-mid); }
 @media (max-width:759px) {
   .site-hd-in { height:56px; padding:0 16px; }
   .brand span { display:none; }
-  /* 예전에는 여기서 `.nav-txt` 를 통째로 숨겼다. 그래서 폰에서는 📖 📚 👤
-     그림글자만 남았는데, 방문 기록을 보니 **☰ 메뉴가 사이트에서 가장 많이
-     눌리는 자리**였다. 이름이 안 보이니 무엇이 무엇인지 확인하려고 메뉴를
-     연 것이다 — 바로 옆에 그 화면으로 가는 단추가 있는데도.
-     그림글자 아래에 이름을 조그맣게 붙인다. 390px 에서도 자리가 남는다
-     (머리띠 전체가 268px 쯤 쓴다). */
-  .nav-link {
-    flex-direction:column; gap:2px;
-    min-width:46px; padding:0 5px;
-  }
-  /* 두 줄로 접히면 머리띠 높이가 어긋난다. 접히느니 칸을 넓힌다. */
-  .nav-link .nav-txt { display:block; font-size:11px; font-weight:600; letter-spacing:-.02em; line-height:1; white-space:nowrap; }
-  /* 이름표를 붙인 뒤로는 그림글자가 더 안 쓴다 — 글자 위에 큰 이모지까지
-     얹으니 바로 옆의 정갈한 아이콘 단추(🌙·KO·☰)와 결이 안 맞고 조잡해
-     보였다. 이름이 이미 또렷하니 그림글자는 뺀다. */
-  .nav-link .nav-ico { display:none; }
+  /* 한때는 이름표만 조그맣게 남기고 그림글자를 뺐다 — 바로 옆 아이콘
+     단추(🌙·KO·☰)와 결이 안 맞고 조잡해 보였기 때문이다. 그런데 배우기·
+     단어장·로그인 셋 다 사이드 메뉴에도 그대로 있다(로그인도 이제
+     #sideAuthBtn 으로 옮겨 붙였다). 좁은 머리띠에 같은 것을 두 벌 두느니
+     아예 여기서는 지우고 ☰ 하나로 정리한다 — 실제로도 ☰ 이 가장 많이
+     눌리는 자리였다. */
+  .site-nav > .nav-link { display:none; }
   .hd-cta { display:none; }
 }
 
@@ -4145,6 +4136,13 @@ body.hlp-open { overflow:hidden; }
     </button>
 
     <div class="side-sec-h" data-en="My activity">내 활동</div>
+    <!-- 로그인/계정. 머리띠의 authBtn 이 폰에서는 숨으므로 여기가 유일한
+         길이다. 아이콘·이름은 로그인 상태가 바뀔 때 authBtn 과 함께
+         맞춘다(app.module.js paintAuthNav) — 손잡이만 여기 것, 동작은
+         제 단추를 그대로 대신 누른다. -->
+    <button class="nav-link" id="sideAuthBtn" type="button" data-nav-to="authBtn" aria-label="로그인">
+      <span class="nav-ico">👤</span><span class="nav-txt" data-en="Sign in">로그인</span>
+    </button>
     <button class="nav-link" type="button" data-nav-to="wbBtn" aria-label="내 단어장 열기">
       <span class="nav-ico">📚</span><span class="nav-txt" data-en="My wordbook">내 단어장</span>
     </button>
@@ -5892,9 +5890,9 @@ body.hlp-open { overflow:hidden; }
 <div id="hlpScrim" class="hlp-scrim"></div>
 <aside id="hlpPanel" class="hlp-panel" aria-label="한국어 도우미" aria-hidden="true"></aside>
 
-<script src="app.js?v=3495300a"></script>
-<script type="module" src="app.module.js?v=3495300a"></script>
+<script src="app.js?v=5042599d"></script>
+<script type="module" src="app.module.js?v=5042599d"></script>
 
-<script src="analytics.js?v=3495300a" defer></script>
+<script src="analytics.js?v=5042599d" defer></script>
 </body>
 </html>

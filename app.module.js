@@ -13,7 +13,7 @@
    어느 날 갑자기 다른 코드가 실려 왔다.
    이제 vendor/ 안에 받아 두고 CSP 로 바깥을 막는다. 버전을 올릴 때는
    tools/vendor.mjs 의 PIN 을 고치고 다시 돌린다. */
-import { createClient } from './vendor/supabase-js.js?v=3495300a';
+import { createClient } from './vendor/supabase-js.js?v=5042599d';
 // 앱(package.json)과 같은 줄기를 쓴다. 갈리면 앱에서는 읽히는 파일이
 // 여기서는 안 읽히는(또는 그 반대) 일이 생긴다.
 /* 엑셀 라이브러리는 422KB — 이 판에서 가장 무거운 조각이다. 그런데 쓰는
@@ -25,21 +25,21 @@ import { createClient } from './vendor/supabase-js.js?v=3495300a';
    자국(?v=)은 tools/stamp.mjs 가 아래 줄에 알아서 붙인다 — 정적으로 쓰든
    동적으로 쓰든 같은 글자를 찾으므로 바꿔도 그대로 찍힌다. */
 let XLSX = null;
-const needXLSX = async () => (XLSX ??= await import('./vendor/xlsx.js?v=3495300a'));
+const needXLSX = async () => (XLSX ??= await import('./vendor/xlsx.js?v=5042599d'));
 // 커리큘럼. 내용과 엔진을 갈라 두면 글을 고치다 화면을 깨지 않는다.
-import { COURSES } from './courses.js?v=3495300a';
-import { GLOSSARY, GLOSS_LANGS } from './glossary.js?v=3495300a';
-import { glossFind } from './gloss-find.js?v=3495300a';
-import { GRAMMAR } from './grammar.js?v=3495300a';
-import { GRAMMAR_EN } from './grammar-en.js?v=3495300a';
-import { grammarScan } from './grammar-find.js?v=3495300a';
-import { TW_ITEMS, TW_QS } from './topik-writing.js?v=3495300a';
-import { TOPIKL_BY_EXAM, TOPIKL_PICTURE_SLOTS } from './topik-listening.js?v=3495300a';
-import { SB_CATS, SB_MORE, SB_SEED } from './sentences.js?v=3495300a';
+import { COURSES } from './courses.js?v=5042599d';
+import { GLOSSARY, GLOSS_LANGS } from './glossary.js?v=5042599d';
+import { glossFind } from './gloss-find.js?v=5042599d';
+import { GRAMMAR } from './grammar.js?v=5042599d';
+import { GRAMMAR_EN } from './grammar-en.js?v=5042599d';
+import { grammarScan } from './grammar-find.js?v=5042599d';
+import { TW_ITEMS, TW_QS } from './topik-writing.js?v=5042599d';
+import { TOPIKL_BY_EXAM, TOPIKL_PICTURE_SLOTS } from './topik-listening.js?v=5042599d';
+import { SB_CATS, SB_MORE, SB_SEED } from './sentences.js?v=5042599d';
 // 읽기 연습 지문. 길이(short·long) × 급수 여섯 칸.
 // TOPIK 유형 연습문제. 기출이 아니라 자체 제작이다.
 // 숫자 게임의 읽기와 문제 만들기. 화면을 모르는 순수 계산이라 따로 뒀다.
-import { makeRound } from './numbers.js?v=3495300a';
+import { makeRound } from './numbers.js?v=5042599d';
 
 // 이 키는 공개돼도 되는 값이다. 이미 APK 안에 같은 것이 들어 있고,
 // 접근을 막는 건 키가 아니라 테이블에 걸린 RLS 다.
@@ -85,14 +85,14 @@ function panel(name) {
 const TQ_DATA = { I: null, II: null };
 let tqDataP = null;
 const tqNeedData = () => (tqDataP ??= Promise.all([
-  import('./topik.js?v=3495300a'), import('./topik2.js?v=3495300a'),
+  import('./topik.js?v=5042599d'), import('./topik2.js?v=5042599d'),
 ]).then(([a, b]) => {
   TQ_DATA.I  = { reading: a.TOPIK_READING,  blueprint: a.TOPIK_BLUEPRINT,  slots: a.TOPIK_SLOTS };
   TQ_DATA.II = { reading: b.TOPIK2_READING, blueprint: b.TOPIK2_BLUEPRINT, slots: b.TOPIK2_SLOTS };
 }));
 
 let READING = null, rdP = null;
-const rdNeed = () => (rdP ??= import('./reading.js?v=3495300a').then((m) => { READING = m.READING; }));
+const rdNeed = () => (rdP ??= import('./reading.js?v=5042599d').then((m) => { READING = m.READING; }));
 
 /* 배우기를 열면 둘 다 미리 부른다. 기다리지 않는다 — 갈래 목록은 이
    자료가 없어도 그려지고, 사람이 갈래를 고르는 사이에 도착한다. */
@@ -453,14 +453,14 @@ let dictOpen = null;  // 지금 "더 보기"(예문·뜻풀이)를 펼쳐 둔 �
    평소엔 안 쓰는 522KB 를 첫 화면 모두에게 물릴 까닭이 없다. */
 let dictSensesP = null;
 const dictLoadSenses = () => (dictSensesP ??=
-  import('./glossary-senses.js?v=3495300a').then((m) => m.SENSES).catch(() => ({})));
+  import('./glossary-senses.js?v=5042599d').then((m) => m.SENSES).catch(() => ({})));
 
 /* 예문. 국립국어원 자료엔 없어서 Gemini 로 새로 지은 것이다(있는 만큼만
    — docs/glossary-examples-gemini-prompt.md 참고). 뜻풀이와 같은 자리에서
    같이 받는다 — 펼치는 손짓 하나에 몰아 두는 편이 화면이 덜 복잡하다. */
 let dictExamplesP = null;
 const dictLoadExamples = () => (dictExamplesP ??=
-  import('./glossary-examples.js?v=3495300a').then((m) => m.EXAMPLES).catch(() => ({})));
+  import('./glossary-examples.js?v=5042599d').then((m) => m.EXAMPLES).catch(() => ({})));
 
 function dictVisible() {
   const q = dictQuery.trim().toLowerCase();
@@ -777,15 +777,24 @@ $('wbDl').addEventListener('click', () => {
 });
 
 // ── 로그인 상태 ──────────────────────────────────────────────
+// 머리띠(authBtn)와 사이드 메뉴(sideAuthBtn)가 같은 상태를 보여줘야
+// 한다 — 폰에서는 머리띠 것이 숨고 사이드 것만 남으므로, 한쪽만 맞추면
+// 다른 쪽이 낡은 채로 남는다.
+function paintAuthNav(signedIn) {
+  [$('authBtn'), $('sideAuthBtn')].forEach((btn) => {
+    if (!btn) return;
+    btn.querySelector('.nav-ico').textContent = signedIn ? '🧀' : '👤';
+    btn.querySelector('.nav-txt').textContent = signedIn ? t('내 계정', 'Account') : t('로그인', 'Sign in');
+    btn.setAttribute('aria-label', signedIn ? '내 계정' : '로그인');
+  });
+}
+
 // 페이지를 처음 열 때도 한 번 불리므로 시작 상태를 따로 챙길 필요가 없다.
 sb.auth.onAuthStateChange((_event, session) => {
   hideErr();
 
   // 헤더와 계정 화면을 상태에 맞춘다.
-  const nav = $('authBtn');
-  nav.querySelector('.nav-ico').textContent = session ? '🧀' : '👤';
-  nav.querySelector('.nav-txt').textContent = session ? t('내 계정', 'Account') : t('로그인', 'Sign in');
-  nav.setAttribute('aria-label', session ? '내 계정' : '로그인');
+  paintAuthNav(!!session);
   $('auForms').classList.toggle('hidden', !!session);
   $('auSignedIn').classList.toggle('hidden', !session);
   syncAuthText();   // 제목이 "로그인" ↔ "내 계정" 으로 따라와야 한다
@@ -930,10 +939,8 @@ function syncLang() {
     libReason:    t('신고 사유', 'Reason for reporting'),
   };
   Object.entries(aria).forEach(([id, label]) => $(id)?.setAttribute('aria-label', label));
-  const nav = $('authBtn').querySelector('.nav-txt');
   // 로그인 상태에 따라 글이 다르므로 지금 뭘 보여주고 있는지로 판단한다.
-  if (!$('auSignedIn').classList.contains('hidden')) nav.textContent = t('내 계정', 'Account');
-  else nav.textContent = t('로그인', 'Sign in');
+  paintAuthNav(!$('auSignedIn').classList.contains('hidden'));
 }
 // 위 고전 스크립트가 먼저 등록돼 있어 applyLang 이 끝난 뒤에 불린다.
 $('langBtn').addEventListener('click', syncLang);
