@@ -34,14 +34,16 @@ document.getElementById('heroTopikBtn').addEventListener('click', () => goLearn(
 document.getElementById('heroCardBtn').addEventListener('click', () => goLearn());
 
 /* 「무엇을 배우나」 여섯 장. data-go 에 적힌 자리로 보낸다.
-   낱말 사전은 배우기 갈래가 아니라 자료마당(library) 안에 있다. */
+   낱말 사전은 배우기 갈래가 아니라 따로 뗀 화면(dictionary)이다 —
+   예전엔 자료마당(엑셀 내려받기)으로 보냈는데, 「사전」이라 적어 놓고
+   막상 눌러 보면 찾아볼 사전 화면이 없이 엑셀 파일 목록만 나왔다. */
 const WAY_GO = {
   learn:    () => goLearn(),
   topik:    () => goLearn('topik'),
   sentence: () => goLearn('sentence'),
   reading:  () => goLearn('reading'),
   games:    () => window.cpOpen && window.cpOpen('games'),
-  glossary: () => window.cpOpen && window.cpOpen('library'),
+  glossary: () => window.cpOpen && window.cpOpen('dictionary'),
 };
 document.querySelectorAll('.way[data-go]').forEach((b) => {
   b.addEventListener('click', () => { const f = WAY_GO[b.dataset.go]; if (f) f(); });
@@ -931,6 +933,7 @@ function ptShow(toTest) {
    빈 페이지가 된다. */
 const SLUG_VIEW = {
   wordbook: 'wordbook', account: 'account', library: 'library', dashboard: 'dashboard',
+  dictionary: 'dictionary',
   learn: 'learn', test: 'test', games: 'games',
   // 게임 한 판과 레슨은 도중부터 열 수 없다. 주소로 들어오면 한 단계 위를 연다.
   claw: 'games', match: 'games', quiz: 'games', num: 'num', lesson: 'learn',
@@ -989,7 +992,7 @@ window.cpTxtSize = function (on) {
 
 const VIEW_SLUG = {
   home: '', test: 'test', wordbook: 'wordbook', account: 'account',
-  library: 'library', dashboard: 'dashboard', games: 'games',
+  library: 'library', dashboard: 'dashboard', dictionary: 'dictionary', games: 'games',
   claw: 'claw', match: 'match', quiz: 'quiz', num: 'num', learn: 'learn', lesson: 'lesson',
 };
 let routeBusy = false;

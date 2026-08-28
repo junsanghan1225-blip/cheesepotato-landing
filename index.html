@@ -107,8 +107,8 @@
      Pretendard 는 통짜(2.0MB) 대신 조각난 쪽을 쓴다 — 브라우저가
      unicode-range 를 보고 화면에 실제로 나온 글자가 든 조각만 받는다.
      그래서 저장소는 무거워졌지만 학습자가 받는 양은 오히려 줄었다. -->
-<link rel="stylesheet" href="vendor/pretendard.css?v=2d271bcc">
-<link rel="stylesheet" href="vendor/pressstart2p.css?v=2d271bcc">
+<link rel="stylesheet" href="vendor/pretendard.css?v=ef18b8c0">
+<link rel="stylesheet" href="vendor/pressstart2p.css?v=ef18b8c0">
 <style>
 /* ══════════════════════════════════════════════════════════════
    치즈감자 — 랜딩
@@ -5399,6 +5399,40 @@ body.hlp-open { overflow:hidden; }
 
 </div><!-- /libraryView -->
 
+<!-- ── 국어사전 ─────────────────────────────────────────────────
+     첫 화면 "낱말·문법 사전" 카드가 예전엔 자료마당(엑셀 내려받기)으로
+     보냈다 — 정작 사전이라 부를 만한 화면이 없었다. glossary.js 에 이미
+     있는 자료(GLOSSARY, 표제어 4,047개)를 그대로 찾아보는 화면을 새로
+     만든다. 새로 받아 오는 자료는 없다 — 있는 것을 찾아보게 할 뿐이다. -->
+<div id="dictView" class="hidden">
+
+  <div class="pt-hero">
+    <div class="pt-badge">DICTIONARY</div>
+    <h2 data-en="Korean dictionary">국어사전</h2>
+    <p id="dictLead" data-en="4,047 headwords from the National Institute of Korean Language. Search, filter by part of speech, and save any word straight to your wordbook.">국립국어원 뜻풀이를 담은 표제어 4,047개예요. 찾아보고, 품사로 걸러 보고, 바로 단어장에 담을 수 있어요.</p>
+  </div>
+
+  <div class="pt-body" style="max-width:900px;">
+    <div class="wb-tools">
+      <input class="wb-search" id="dictSearch" type="search" placeholder="단어 · 뜻 검색">
+    </div>
+    <div class="wb-chips" id="dictChips"></div>
+    <span class="wb-count" id="dictCount"></span>
+
+    <div class="wb-list" id="dictList"></div>
+    <div class="wb-none hidden" id="dictNone"></div>
+    <button class="btn-retro" id="dictMore" type="button" style="margin-top:16px; display:none;"></button>
+
+    <p class="tq-note" style="margin-top:28px;" data-en="From the Basic Korean Dictionary published by the National Institute of Korean Language (국립국어원), used under CC BY-SA 2.0 KR.">국립국어원 한국어기초사전에서 가져왔고 CC BY-SA 2.0 KR 로 씁니다.</p>
+  </div>
+
+  <div class="footer">
+    <div class="footer-brand" data-en="Every Koreans">에브리 코리안즈</div>
+    <div class="footer-info">© 2026 치즈감자 · <a href="privacy.html" data-en="Privacy policy">개인정보처리방침</a></div>
+  </div>
+
+</div><!-- /dictView -->
+
 <!-- ── 로그인 · 회원가입 ───────────────────────────────────────
      폼을 단어장 안에 넣어 뒀더니 "로그인하려면 단어장부터 들어가야"
      하는 이상한 순서가 됐다. 계정 화면을 따로 뗀다.
@@ -5723,9 +5757,9 @@ body.hlp-open { overflow:hidden; }
 <div id="hlpScrim" class="hlp-scrim"></div>
 <aside id="hlpPanel" class="hlp-panel" aria-label="한국어 도우미" aria-hidden="true"></aside>
 
-<script src="app.js?v=2d271bcc"></script>
-<script type="module" src="app.module.js?v=2d271bcc"></script>
+<script src="app.js?v=ef18b8c0"></script>
+<script type="module" src="app.module.js?v=ef18b8c0"></script>
 
-<script src="analytics.js?v=2d271bcc" defer></script>
+<script src="analytics.js?v=ef18b8c0" defer></script>
 </body>
 </html>

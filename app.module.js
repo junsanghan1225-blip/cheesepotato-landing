@@ -13,7 +13,7 @@
    어느 날 갑자기 다른 코드가 실려 왔다.
    이제 vendor/ 안에 받아 두고 CSP 로 바깥을 막는다. 버전을 올릴 때는
    tools/vendor.mjs 의 PIN 을 고치고 다시 돌린다. */
-import { createClient } from './vendor/supabase-js.js?v=2d271bcc';
+import { createClient } from './vendor/supabase-js.js?v=ef18b8c0';
 // 앱(package.json)과 같은 줄기를 쓴다. 갈리면 앱에서는 읽히는 파일이
 // 여기서는 안 읽히는(또는 그 반대) 일이 생긴다.
 /* 엑셀 라이브러리는 422KB — 이 판에서 가장 무거운 조각이다. 그런데 쓰는
@@ -25,21 +25,21 @@ import { createClient } from './vendor/supabase-js.js?v=2d271bcc';
    자국(?v=)은 tools/stamp.mjs 가 아래 줄에 알아서 붙인다 — 정적으로 쓰든
    동적으로 쓰든 같은 글자를 찾으므로 바꿔도 그대로 찍힌다. */
 let XLSX = null;
-const needXLSX = async () => (XLSX ??= await import('./vendor/xlsx.js?v=2d271bcc'));
+const needXLSX = async () => (XLSX ??= await import('./vendor/xlsx.js?v=ef18b8c0'));
 // 커리큘럼. 내용과 엔진을 갈라 두면 글을 고치다 화면을 깨지 않는다.
-import { COURSES } from './courses.js?v=2d271bcc';
-import { GLOSSARY, GLOSS_LANGS } from './glossary.js?v=2d271bcc';
-import { glossFind } from './gloss-find.js?v=2d271bcc';
-import { GRAMMAR } from './grammar.js?v=2d271bcc';
-import { GRAMMAR_EN } from './grammar-en.js?v=2d271bcc';
-import { grammarScan } from './grammar-find.js?v=2d271bcc';
-import { TW_ITEMS, TW_QS } from './topik-writing.js?v=2d271bcc';
-import { TOPIKL_BY_EXAM, TOPIKL_PICTURE_SLOTS } from './topik-listening.js?v=2d271bcc';
-import { SB_CATS, SB_MORE, SB_SEED } from './sentences.js?v=2d271bcc';
+import { COURSES } from './courses.js?v=ef18b8c0';
+import { GLOSSARY, GLOSS_LANGS } from './glossary.js?v=ef18b8c0';
+import { glossFind } from './gloss-find.js?v=ef18b8c0';
+import { GRAMMAR } from './grammar.js?v=ef18b8c0';
+import { GRAMMAR_EN } from './grammar-en.js?v=ef18b8c0';
+import { grammarScan } from './grammar-find.js?v=ef18b8c0';
+import { TW_ITEMS, TW_QS } from './topik-writing.js?v=ef18b8c0';
+import { TOPIKL_BY_EXAM, TOPIKL_PICTURE_SLOTS } from './topik-listening.js?v=ef18b8c0';
+import { SB_CATS, SB_MORE, SB_SEED } from './sentences.js?v=ef18b8c0';
 // 읽기 연습 지문. 길이(short·long) × 급수 여섯 칸.
 // TOPIK 유형 연습문제. 기출이 아니라 자체 제작이다.
 // 숫자 게임의 읽기와 문제 만들기. 화면을 모르는 순수 계산이라 따로 뒀다.
-import { makeRound } from './numbers.js?v=2d271bcc';
+import { makeRound } from './numbers.js?v=ef18b8c0';
 
 // 이 키는 공개돼도 되는 값이다. 이미 APK 안에 같은 것이 들어 있고,
 // 접근을 막는 건 키가 아니라 테이블에 걸린 RLS 다.
@@ -85,14 +85,14 @@ function panel(name) {
 const TQ_DATA = { I: null, II: null };
 let tqDataP = null;
 const tqNeedData = () => (tqDataP ??= Promise.all([
-  import('./topik.js?v=2d271bcc'), import('./topik2.js?v=2d271bcc'),
+  import('./topik.js?v=ef18b8c0'), import('./topik2.js?v=ef18b8c0'),
 ]).then(([a, b]) => {
   TQ_DATA.I  = { reading: a.TOPIK_READING,  blueprint: a.TOPIK_BLUEPRINT,  slots: a.TOPIK_SLOTS };
   TQ_DATA.II = { reading: b.TOPIK2_READING, blueprint: b.TOPIK2_BLUEPRINT, slots: b.TOPIK2_SLOTS };
 }));
 
 let READING = null, rdP = null;
-const rdNeed = () => (rdP ??= import('./reading.js?v=2d271bcc').then((m) => { READING = m.READING; }));
+const rdNeed = () => (rdP ??= import('./reading.js?v=ef18b8c0').then((m) => { READING = m.READING; }));
 
 /* 배우기를 열면 둘 다 미리 부른다. 기다리지 않는다 — 갈래 목록은 이
    자료가 없어도 그려지고, 사람이 갈래를 고르는 사이에 도착한다. */
@@ -115,6 +115,7 @@ function open(view) {
   $('wordbookView').classList.toggle('hidden', view !== 'wordbook');
   $('authView').classList.toggle('hidden', view !== 'account');
   $('libraryView').classList.toggle('hidden', view !== 'library');
+  $('dictView').classList.toggle('hidden', view !== 'dictionary');
   $('dashView').classList.toggle('hidden', view !== 'dashboard');
   $('gamesView').classList.toggle('hidden', view !== 'games');
   $('clawView').classList.toggle('hidden', view !== 'claw');
@@ -157,6 +158,7 @@ window.cpOpen = function (view, sub) {
   if (view === 'account') loadAccount();
   if (view === 'library') loadLibrary();
   if (view === 'dashboard') loadDashboard();
+  if (view === 'dictionary') dictDraw();
   /* 배우기는 헤더 버튼이 open() 말고 진도 읽기와 갈래 그리기를 더 한다.
      그 둘이 빠지면 갈래 카드가 하나도 없는 빈 배우기가 열린다.
      먼저 그려 두고 진도를 받아 다시 그린다 — 네트워크를 기다리는 동안
@@ -421,6 +423,137 @@ $('wbChips').addEventListener('click', (ev) => {
     tagOn = tagOn === tg ? null : tg;
   }
   render();
+});
+
+// ══ 국어사전 ═════════════════════════════════════════════════
+// 첫 화면 "낱말·문법 사전" 카드가 예전엔 자료마당(엑셀 내려받기)으로
+// 보냈다 — 사전이라 적어 놓고 실제로 찾아볼 사전 화면이 없었다.
+// 새 자료를 안 받아 온다: glossary.js 는 이미 늘 받아 두는 파일이라
+// (tqGloss 가 동기로 써야 해서 지연 로딩을 안 한다), 여기서 표제어만
+// 한 번 추려 쓰면 된다.
+
+/* GLOSSARY 는 활용형까지 다 키로 들어 있다(「아침에」·「아침을」…).
+   사전 화면은 활용형이 아니라 표제어를 훑어보는 자리라 한 번만 추린다. */
+const DICT_ENTRIES = (() => {
+  const byHead = new Map();
+  Object.values(GLOSSARY).forEach((v) => { if (!byHead.has(v.head)) byHead.set(v.head, v); });
+  return [...byHead.values()].sort((a, b) => a.head.localeCompare(b.head, 'ko'));
+})();
+
+let dictQuery = '';
+let dictTag = null;   // null = 전체
+let dictShown = 60;   // 한 번에 그리는 수 — 4천 개를 한꺼번에 그리면 스크롤이 무거워진다
+const DICT_PAGE = 60;
+
+function dictVisible() {
+  const q = dictQuery.trim().toLowerCase();
+  const qHead = q && glossFind((k) => Object.prototype.hasOwnProperty.call(GLOSSARY, k), dictQuery.trim());
+  return DICT_ENTRIES.filter((v) => {
+    if (dictTag && v.pos !== dictTag) return false;
+    if (!q) return true;
+    if (v.head.toLowerCase().includes(q)) return true;
+    const meaning = tqGloss(v.head).meaning || '';
+    if (meaning.toLowerCase().includes(q)) return true;
+    return !!qHead && v.head === qHead;
+  });
+}
+
+function dictDrawChips() {
+  const posCounts = {};
+  DICT_ENTRIES.forEach((v) => { if (v.pos) posCounts[v.pos] = (posCounts[v.pos] || 0) + 1; });
+  const chip = (on, label) => `<button class="wb-chip${on ? ' on' : ''}" data-dict-chip="${esc(label.key)}">${esc(label.text)}</button>`;
+  $('dictChips').innerHTML =
+    chip(!dictTag, { key: 'all', text: t('전체', 'All') }) +
+    TAGS.concat(['대명사', '감탄사']).filter((tg) => posCounts[tg]).map((tg) =>
+      chip(dictTag === tg, { key: tg, text: t(tg, TAG_EN[tg] ?? tg) })).join('');
+}
+
+async function dictAdd(word, meaning, tag, btn) {
+  const { data: { session } } = await sb.auth.getSession();
+  if (!session) { open('account'); return; }
+  const was = btn.textContent;
+  btn.disabled = true;
+  try {
+    const { data: had, error: e1 } = await sb.from('words').select('id').eq('word', word).maybeSingle();
+    if (e1) throw e1;
+    if (had) {
+      btn.textContent = t('이미 있어요', 'Already saved');
+    } else {
+      const { error: e2 } = await sb.from('words').insert({
+        word, meaning: (meaning || '').slice(0, 120), example: null, tag: tag || null,
+        difficulty: 1, image_url: null, is_remembered: false, view_count: 0,
+        remembered_at: null, user_id: session.user.id,
+      });
+      if (e2) throw e2;
+      btn.textContent = t('담았어요 ✓', 'Saved ✓');
+      loadWords();
+    }
+  } catch (e) {
+    btn.textContent = t('실패 — 다시', 'Failed — retry');
+  } finally {
+    setTimeout(() => { btn.textContent = was; btn.disabled = false; }, 1600);
+  }
+}
+
+function dictDraw() {
+  dictDrawChips();
+  const shown = dictVisible();
+  $('dictCount').textContent = dictQuery || dictTag
+    ? t(`${shown.length}개 찾음`, `${shown.length} found`)
+    : t(`표제어 ${DICT_ENTRIES.length}개`, `${DICT_ENTRIES.length} headwords`);
+
+  const list = $('dictList');
+  list.innerHTML = '';
+  $('dictNone').classList.toggle('hidden', shown.length > 0);
+  $('dictMore').style.display = 'none';
+  if (!shown.length) {
+    $('dictNone').textContent = dictQuery
+      ? t(`"${dictQuery}" 와 맞는 낱말이 없어요.`, `Nothing matches "${dictQuery}".`)
+      : t('조건에 맞는 낱말이 없어요.', 'No words match those filters.');
+    return;
+  }
+
+  const page = shown.slice(0, dictShown);
+  page.forEach((v) => {
+    const g = tqGloss(v.head);
+    const el = document.createElement('div');
+    el.className = 'wb-item';
+    el.innerHTML =
+      '<div class="wb-noimg">🥔</div>' +
+      '<div class="wb-main">' +
+        `<div class="wb-word">${esc(v.head)}</div>` +
+        (g.meaning
+          ? `<div class="wb-mean">${esc(g.meaning)}</div>`
+          : `<div class="wb-mean wb-nomean">${esc(t('뜻풀이 준비 중', 'Definition not ready yet'))}</div>`) +
+        (v.pos ? `<span class="wb-tag" style="color:${tagHue(v.pos)}">${esc(t(v.pos, TAG_EN[v.pos] ?? v.pos))}</span>` : '') +
+      '</div>' +
+      `<button class="btn-retro" type="button" data-dict-add="${esc(v.head)}">${esc(t('담기', 'Save'))}</button>`;
+    list.appendChild(el);
+  });
+
+  if (shown.length > page.length) {
+    $('dictMore').style.display = '';
+    $('dictMore').textContent = t(`더 보기 (${shown.length - page.length})`, `Show more (${shown.length - page.length})`);
+  }
+}
+
+$('dictSearch').addEventListener('input', (e) => { dictQuery = e.target.value; dictShown = DICT_PAGE; dictDraw(); });
+$('dictChips').addEventListener('click', (ev) => {
+  const b = ev.target.closest('[data-dict-chip]');
+  if (!b) return;
+  const key = b.dataset.dictChip;
+  dictTag = key === 'all' ? null : (dictTag === key ? null : key);
+  dictShown = DICT_PAGE;
+  dictDraw();
+});
+$('dictMore').addEventListener('click', () => { dictShown += DICT_PAGE; dictDraw(); });
+$('dictList').addEventListener('click', (ev) => {
+  const b = ev.target.closest('[data-dict-add]');
+  if (!b) return;
+  const head = b.dataset.dictAdd;
+  const g = tqGloss(head);
+  const v = DICT_ENTRIES.find((x) => x.head === head);
+  dictAdd(head, g.meaning, v?.pos, b);
 });
 
 let loading = false;
