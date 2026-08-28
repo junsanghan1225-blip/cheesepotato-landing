@@ -13,7 +13,7 @@
    어느 날 갑자기 다른 코드가 실려 왔다.
    이제 vendor/ 안에 받아 두고 CSP 로 바깥을 막는다. 버전을 올릴 때는
    tools/vendor.mjs 의 PIN 을 고치고 다시 돌린다. */
-import { createClient } from './vendor/supabase-js.js?v=8eeec578';
+import { createClient } from './vendor/supabase-js.js?v=9fb6a554';
 // 앱(package.json)과 같은 줄기를 쓴다. 갈리면 앱에서는 읽히는 파일이
 // 여기서는 안 읽히는(또는 그 반대) 일이 생긴다.
 /* 엑셀 라이브러리는 422KB — 이 판에서 가장 무거운 조각이다. 그런데 쓰는
@@ -25,21 +25,21 @@ import { createClient } from './vendor/supabase-js.js?v=8eeec578';
    자국(?v=)은 tools/stamp.mjs 가 아래 줄에 알아서 붙인다 — 정적으로 쓰든
    동적으로 쓰든 같은 글자를 찾으므로 바꿔도 그대로 찍힌다. */
 let XLSX = null;
-const needXLSX = async () => (XLSX ??= await import('./vendor/xlsx.js?v=8eeec578'));
+const needXLSX = async () => (XLSX ??= await import('./vendor/xlsx.js?v=9fb6a554'));
 // 커리큘럼. 내용과 엔진을 갈라 두면 글을 고치다 화면을 깨지 않는다.
-import { COURSES } from './courses.js?v=8eeec578';
-import { GLOSSARY, GLOSS_LANGS } from './glossary.js?v=8eeec578';
-import { glossFind } from './gloss-find.js?v=8eeec578';
-import { GRAMMAR } from './grammar.js?v=8eeec578';
-import { GRAMMAR_EN } from './grammar-en.js?v=8eeec578';
-import { grammarScan } from './grammar-find.js?v=8eeec578';
-import { TW_ITEMS, TW_QS } from './topik-writing.js?v=8eeec578';
-import { TOPIKL_BY_EXAM, TOPIKL_PICTURE_SLOTS } from './topik-listening.js?v=8eeec578';
-import { SB_CATS, SB_MORE, SB_SEED } from './sentences.js?v=8eeec578';
+import { COURSES } from './courses.js?v=9fb6a554';
+import { GLOSSARY, GLOSS_LANGS } from './glossary.js?v=9fb6a554';
+import { glossFind } from './gloss-find.js?v=9fb6a554';
+import { GRAMMAR } from './grammar.js?v=9fb6a554';
+import { GRAMMAR_EN } from './grammar-en.js?v=9fb6a554';
+import { grammarScan } from './grammar-find.js?v=9fb6a554';
+import { TW_ITEMS, TW_QS } from './topik-writing.js?v=9fb6a554';
+import { TOPIKL_BY_EXAM, TOPIKL_PICTURE_SLOTS } from './topik-listening.js?v=9fb6a554';
+import { SB_CATS, SB_MORE, SB_SEED } from './sentences.js?v=9fb6a554';
 // 읽기 연습 지문. 길이(short·long) × 급수 여섯 칸.
 // TOPIK 유형 연습문제. 기출이 아니라 자체 제작이다.
 // 숫자 게임의 읽기와 문제 만들기. 화면을 모르는 순수 계산이라 따로 뒀다.
-import { makeRound } from './numbers.js?v=8eeec578';
+import { makeRound } from './numbers.js?v=9fb6a554';
 
 // 이 키는 공개돼도 되는 값이다. 이미 APK 안에 같은 것이 들어 있고,
 // 접근을 막는 건 키가 아니라 테이블에 걸린 RLS 다.
@@ -85,14 +85,14 @@ function panel(name) {
 const TQ_DATA = { I: null, II: null };
 let tqDataP = null;
 const tqNeedData = () => (tqDataP ??= Promise.all([
-  import('./topik.js?v=8eeec578'), import('./topik2.js?v=8eeec578'),
+  import('./topik.js?v=9fb6a554'), import('./topik2.js?v=9fb6a554'),
 ]).then(([a, b]) => {
   TQ_DATA.I  = { reading: a.TOPIK_READING,  blueprint: a.TOPIK_BLUEPRINT,  slots: a.TOPIK_SLOTS };
   TQ_DATA.II = { reading: b.TOPIK2_READING, blueprint: b.TOPIK2_BLUEPRINT, slots: b.TOPIK2_SLOTS };
 }));
 
 let READING = null, rdP = null;
-const rdNeed = () => (rdP ??= import('./reading.js?v=8eeec578').then((m) => { READING = m.READING; }));
+const rdNeed = () => (rdP ??= import('./reading.js?v=9fb6a554').then((m) => { READING = m.READING; }));
 
 /* 배우기를 열면 둘 다 미리 부른다. 기다리지 않는다 — 갈래 목록은 이
    자료가 없어도 그려지고, 사람이 갈래를 고르는 사이에 도착한다. */
@@ -1285,6 +1285,10 @@ async function loadDashboard() {
     // 단어는 단어장에서 이미 받아 둔 것을 쓴다. 대시보드로 곧장 들어와
     // 아직 비어 있으면 그때 가져온다.
     if (!rows.length) await loadWords();
+    // TOPIK 읽기 청사진(유형 이름표)도 필요하다 — 배우기에 한 번도 안
+    // 들어가 봤으면 아직 안 왔다. 문제 자료(지문)까지는 필요 없고
+    // 이름표만 있으면 되지만, 부르는 값이 이거 하나다.
+    await tqNeedData();
 
     const today = dayKey(new Date());
     const [st, usage] = await Promise.all([
@@ -1309,7 +1313,7 @@ async function loadDashboard() {
       if (!p.error) dashPronUsed = p.data?.pron_count ?? null;
     } catch (e) { /* 칸이 없다 — 발음 줄만 안 보인다 */ }
 
-    if (!rows.length) return dashPanel('dashEmpty');
+    if (!rows.length && !dashTopikHasAny()) return dashPanel('dashEmpty');
     renderDashboard();
     dashPanel('dashBody');
   } catch (e) {
@@ -1704,9 +1708,132 @@ function renderDashboard() {
             `<p class="dnote" style="margin-top:12px;">${t('한도는 매일 자정에 다시 채워집니다.', 'The limit resets every midnight.')}</p>`)
         : ''),
     ),
+
+    dashTopikHtml(),
   ].join('');
 
   $('dashBody').innerHTML = html;
+  $('dashBody').querySelectorAll('[data-dash-go]').forEach((b) => {
+    b.addEventListener('click', () => {
+      const [exam, skill] = b.dataset.dashGo.split(':');
+      window.cpOpen('learn', `topik/${exam}/${skill}`);
+    });
+  });
+}
+
+// ══ 대시보드 : TOPIK 풀이 현황 ═══════════════════════════════════
+// 읽기·듣기·쓰기는 단어장과 다른 열쇠(cp-topik-*, cp-tl-*, cp-tw-*)에
+// 각자 쌓인다. 원본 기록은 그 갈래 화면(유형 연습 기록판)에 이미 있고,
+// 여기는 그것을 모아 한눈에 보여줄 뿐이다 — 새로 저장하는 값은 없다.
+
+function dashTopikHasAny() {
+  try {
+    return Object.keys(localStorage).some((k) =>
+      k.startsWith('cp-topik-set-') || k.startsWith('cp-topik-mock-') ||
+      k.startsWith('cp-topik-best-') || k.startsWith('cp-tl-set-') ||
+      k.startsWith('cp-tl-best-') || k.startsWith('cp-tw-') || k === 'cp-topik-hold');
+  } catch (e) { return false; }
+}
+
+/* 한 시험의 급수마다 유형별 점수를 모은다. 읽기·듣기가 자료 모양은
+   달라도(청사진 안의 type·ko·en) 같은 함수로 다룬다. */
+function dashSkillRows(skill, exam, blueprint, setRead) {
+  const grades = TQ_EXAMS[exam].grades;
+  const types = [...new Set(blueprint.map((b) => b.type))];
+  const typeName = Object.fromEntries(blueprint.map((b) => [b.type, { ko: b.ko, en: b.en }]));
+  const out = [];
+  grades.forEach((g) => types.forEach((ty) => {
+    const r = setRead(g, ty);
+    if (r && r.n > 0) out.push({ skill, exam, g, type: ty, name: typeName[ty], s: r.s, n: r.n });
+  }));
+  return out;
+}
+
+function dashTopikHtml() {
+  const card = (title, inner) => `<div class="dcard"><div class="dcard-t">${title}</div>${inner}</div>`;
+  const sec = (title, inner) => `<div class="dsec"><div class="dsec-h">${title}</div>${inner}</div>`;
+  const pct = (n, d) => (d ? Math.round((n / d) * 100) : 0);
+
+  const readRows = [
+    ...dashSkillRows('reading', 'I',  TQ_EXAMS.I.blueprint,  (g, ty) => tqSetRead(g, ty)),
+    ...dashSkillRows('reading', 'II', TQ_EXAMS.II.blueprint, (g, ty) => tqSetRead(g, ty)),
+  ];
+  const listenRows = [
+    ...dashSkillRows('listening', 'I',  TOPIKL_BY_EXAM.I.blueprint,  (g, ty) => tlSetRead('I', g, ty)),
+    ...dashSkillRows('listening', 'II', TOPIKL_BY_EXAM.II.blueprint, (g, ty) => tlSetRead('II', g, ty)),
+  ];
+  const allRows = [...readRows, ...listenRows];
+
+  const twRows = [51, 52].map((q) => {
+    const items = TW_ITEMS.filter((x) => x.q === q);
+    const done = items.map((x) => twSetRead(x.id)).filter(Boolean);
+    return { q, items, done };
+  }).filter((r) => r.done.length);
+
+  const hold = tqHoldRead();
+
+  if (!allRows.length && !twRows.length && !hold) return '';
+
+  const sumS = allRows.reduce((s, x) => s + x.s, 0);
+  const sumN = allRows.reduce((s, x) => s + x.n, 0);
+  const overallPct = pct(sumS, sumN);
+
+  const weak = allRows
+    .filter((x) => x.n >= 3 && x.s / x.n < TQ_WEAK)
+    .sort((a, b) => (a.s / a.n) - (b.s / b.n))
+    .slice(0, 3);
+
+  const goBtn = (exam, skill, label) =>
+    `<button class="tq-bd-go" type="button" data-dash-go="${exam}:${skill}">${esc(label)}</button>`;
+
+  const holdCard = !hold ? '' : (() => {
+    const hx = TQ_EXAMS[hold.exam];
+    const done = hold.picks.filter((v) => Number.isInteger(v)).length;
+    return card(t('풀다 만 모의고사', 'Mock exam in progress'),
+      `<p class="dnote">${esc(t(
+        `${t(hx.name.ko, hx.name.en)} · ${hx.gradeTx(hold.grade)} · ${hold.ids.length}문항 중 ${done}개 풀었어요`,
+        `${t(hx.name.ko, hx.name.en)} · ${hx.gradeTx(hold.grade)} · ${done} of ${hold.ids.length} answered`
+      ))}</p>` +
+      goBtn(hold.exam, 'reading', t('이어서 풀기 →', 'Resume →')));
+  })();
+
+  const weakCard = !allRows.length ? '' : card(
+    t('약한 곳', 'Weakest spots'),
+    weak.length
+      ? weak.map((r) => {
+          const skillTx = TQ_SKILLS[r.skill].name;
+          const p = pct(r.s, r.n);
+          return '<div class="drow">' +
+            `<div class="drow-main"><div class="drow-w">${esc(t(r.name.ko, r.name.en))}</div>` +
+            `<div class="drow-m">${esc(t(skillTx.ko, skillTx.en))} · ${esc(TQ_EXAMS[r.exam].gradeTx(r.g))}</div></div>` +
+            `<div class="drow-n">${p}%</div>` +
+          '</div>';
+        }).join('') +
+        goBtn(weak[0].exam, weak[0].skill, t(`${t(weak[0].name.ko, weak[0].name.en)} 풀어 보기 →`, `Practise ${t(weak[0].name.ko, weak[0].name.en)} →`))
+      : `<p class="dnote">${esc(t('유형별로 고르게 나왔어요.', 'Even across every type.'))}</p>`
+  );
+
+  const twCard = !twRows.length ? '' : card(
+    t('쓰기 51·52번', 'Writing 51–52'),
+    twRows.map((r) => {
+      const sumPt = r.done.reduce((s, x) => s + x.pt, 0);
+      const sumMax = r.done.reduce((s, x) => s + x.max, 0);
+      const p = pct(sumPt, sumMax);
+      return `<div class="dbar-row"><span>${r.q}${t('번', '')}</span><span><b>${r.done.length}</b> / ${r.items.length} · ${p}${t('점', '%')}</span></div>` +
+        `<div class="dbar-wrap"><div class="dbar" style="width:${p}%"></div></div>`;
+    }).join(''));
+
+  return sec(t('TOPIK 풀이', 'TOPIK practice'),
+    holdCard +
+    (allRows.length
+      ? card(t('전체 정답률', 'Overall accuracy'),
+          `<div class="kpis" style="grid-template-columns:1fr 1fr;">` +
+            `<div class="kpi"><div class="kpi-l">${t('시도한 문제', 'Answered')}</div><div class="kpi-v">${sumN}</div></div>` +
+            `<div class="kpi"><div class="kpi-l">${t('정답률', 'Correct')}</div><div class="kpi-v">${overallPct}<small>%</small></div></div>` +
+          '</div>')
+      : '') +
+    weakCard + twCard
+  );
 }
 
 // ══ 배우기 ═══════════════════════════════════════════════════
@@ -2341,7 +2468,7 @@ const TL_BASE = (window.__AUDIO_BASE__ || 'assets/audio/') + 'listen/';
 const TL_WHO = { m: { ko: '남자', en: 'M' }, w: { ko: '여자', en: 'W' }, n: { ko: '안내', en: 'N' } };
 
 let tlRound = [], tlIdx = 0, tlScore = 0, tlWrong = [], tlPlayed = 0;
-let tlAudioEl = null, tlSetName = '';
+let tlAudioEl = null, tlSetName = '', tlSet = 'all';
 
 const tlE = () => TOPIKL_BY_EXAM[tqExam] || TOPIKL_BY_EXAM.I;
 const tlOf = (grade) => tlE().items.filter((q) => q.grade === grade);
@@ -2391,6 +2518,52 @@ function tlSpeak(q, onDone) {
 
 const tlTypeTx = () => Object.fromEntries(tlE().blueprint.map((b) => [b.type, { ko: b.ko, en: b.en }]));
 const tlBestKey = (g) => `cp-tl-best-${tqExam}-${g}`;
+
+/* 세트별 점수 — 읽기의 tqSetKey·tqSetRead·tqSetWrite 와 같은 모양이다.
+   급수(1·2=I, 3~6=II)가 시험을 가르므로 tqSetKey 처럼 exam 없이도 안
+   섞이지만, tlBestKey 가 이미 exam 을 넣는 규칙이라 그대로 맞춘다. */
+const tlSetKey = (exam, g, set) => `cp-tl-set-${exam}-${g}-${set}`;
+function tlSetRead(exam, g, set) {
+  try {
+    const m = /^(\d+)\/(\d+)$/.exec(localStorage.getItem(tlSetKey(exam, g, set)) || '');
+    return m ? { s: +m[1], n: +m[2] } : null;
+  } catch (e) { return null; }
+}
+function tlSetWrite(exam, g, set, s, n) {
+  const had = tlSetRead(exam, g, set);
+  if (had && had.s / had.n >= s / n) return;
+  try { localStorage.setItem(tlSetKey(exam, g, set), `${s}/${n}`); } catch (e) {}
+}
+
+/* 기록판 — 유형별 점수와 약한 유형 짚어 주기. tqDrawRecord 와 같은 계산을
+   tqBar·tqWeakTip(둘 다 순수 함수) 그대로 재사용한다. */
+function tlDrawRecord(byType) {
+  const box = $('tlRecord');
+  const sets = ['all', ...tlE().blueprint.map((b) => b.type).filter((k, i, a) => a.indexOf(k) === i && byType[k])];
+  const name = (k) => (k === 'all'
+    ? t('전체 이어서 듣기', 'Listen straight through')
+    : t(tlTypeTx()[k].ko, tlTypeTx()[k].en));
+  const total = (k) => (k === 'all' ? tlOf(tqGrade).length : byType[k].length);
+
+  const rec = sets.map((k) => ({ k, r: tlSetRead(tqExam, tqGrade, k), now: total(k) }));
+  if (!rec.some((x) => x.r)) { box.textContent = ''; box.classList.add('hidden'); return; }
+
+  const weak = rec
+    .filter((x) => x.k !== 'all' && x.r && x.r.n >= 3 && x.r.s / x.r.n < TQ_WEAK)
+    .sort((a, b) => (a.r.s / a.r.n) - (b.r.s / b.r.n));
+
+  box.innerHTML =
+    `<div class="tq-bd-h">${esc(t('세트별 점수', 'Your scores'))}</div>` +
+    rec.map((x, i) =>
+      (i === 1 ? '<div class="tq-rec-sep"></div>' : '') +
+      tqBar(name(x.k), x.r ? x.r.s : null, x.r ? x.r.n : x.now,
+            x.k === 'all' ? ' tq-rec-row-all' : '')
+    ).join('') +
+    (weak.length
+      ? tqWeakTip(weak.map((x) => x.k), rec.length - 1, name)
+      : (rec.every((x) => x.r) ? tqWeakTip([], 0, name) : ''));
+  box.classList.remove('hidden');
+}
 
 /* 고르기 화면 — 급수와 유형별 카드. */
 function tlDraw() {
@@ -2455,6 +2628,7 @@ function tlDraw() {
     });
     $('tlList').innerHTML = cards.join('');
   }
+  tlDrawRecord(byType);
 
   /* 그림 문항이 있는 자리는 왜 비었는지 적는다. 조용히 빠뜨리면
      학습자는 그 유형이 시험에 없는 줄 안다. */
@@ -2477,6 +2651,7 @@ function tlStart(key) {
   /* 전체는 시험 차례대로(자리 번호), 유형별도 자리 번호대로. 섞지 않는다 —
      실제 시험이 쉬운 자리부터 나오므로 그 흐름이 곧 난이도 곡선이다. */
   tlRound = [...list].sort((a, b) => a.slot - b.slot);
+  tlSet = key;
   tlIdx = 0; tlScore = 0; tlWrong = [];
   $('tlPick').classList.add('hidden');
   $('tlOver').classList.add('hidden');
@@ -2588,6 +2763,8 @@ function tlEnd() {
   /* 최고 기록은 「전체 이어서 듣기」일 때만 남긴다. 유형별 점수를 최고로
      올리면 여덟 문항짜리 만점이 마흔 문항 기록을 덮어쓴다. */
   if (tlRound.length === tlOf(tqGrade).length) gameBest(tlBestKey(tqGrade), tlScore);
+  /* 세트별 점수는 항상 남긴다 — 「전체」만 남기면 유형별 약한 곳을 못 짚는다. */
+  tlSetWrite(tqExam, tqGrade, tlSet, tlScore, n);
 
   $('tlWrongs').innerHTML = tlWrong.length
     ? tlWrong.map(({ q, picked }) =>
@@ -4456,6 +4633,10 @@ $('tqList').addEventListener('click', (ev) => {
   const b = ev.target.closest('[data-tq-go]');
   if (b) tqStart(b.dataset.tqGo);
 }));
+$('tlRecord').addEventListener('click', (ev) => {
+  const b = ev.target.closest('[data-tq-go]');
+  if (b) tlStart(b.dataset.tqGo);
+});
 $('tqNext').addEventListener('click', () => (tqMock ? tqSubmitAsk() : tqDraw()));
 
 /* 답안지 — 칸을 누르면 그 문항으로 간다. */
@@ -6133,6 +6314,50 @@ const twWant = (it) => (it.register === 'formal'
   ? t('합니다체 (안내문)', '합니다 style (notice)')
   : t('-(느)ㄴ다체 (설명문·논술)', 'plain -(느)ㄴ다 style'));
 
+/* ── 문항별 점수 저장 ────────────────────────────────────────
+   51·52 번만 규칙 채점이 있다(twSubmit). 53·54 는 분량·문체만 보고 점수를
+   안 매기므로 여기 안 남는다 — 매기지도 않은 점수를 「기록」이라고 보여
+   주면 거짓말이 된다. 세트가 아니라 문항 하나하나가 열쇠다(51번은 다섯
+   문제가 각자 다른 지문이라 세트로 묶을 수가 없다). */
+const twSetKey = (id) => `cp-tw-${id}`;
+function twSetRead(id) {
+  try {
+    const v = JSON.parse(localStorage.getItem(twSetKey(id)) || 'null');
+    return v && Number.isFinite(v.pt) && Number.isFinite(v.max) ? v : null;
+  } catch (e) { return null; }
+}
+function twSetWrite(id, pt, max) {
+  const had = twSetRead(id);
+  if (had && had.pt >= pt) return;
+  try { localStorage.setItem(twSetKey(id), JSON.stringify({ pt, max })); } catch (e) {}
+}
+
+/* 기록판 — 51·52 번 진행률과 평균 점수. tqBar 를 그대로 쓴다(있는 값이
+   s/n 이 아니라 pt/max 라 「초」 자리는 백분율로 맞춰 넘긴다). */
+function twDrawRecord() {
+  const box = $('twRecord');
+  const mine = TW_ITEMS.filter((x) => x.lv === learnLv.writing);
+  const rows = [51, 52].map((q) => {
+    const items = mine.filter((x) => x.q === q);
+    const done = items.map((x) => twSetRead(x.id)).filter(Boolean);
+    return { q, items, done };
+  }).filter((r) => r.items.length);
+
+  if (!rows.some((r) => r.done.length)) { box.textContent = ''; box.classList.add('hidden'); return; }
+
+  const label = (q) => (TW_QS.find((x) => x.q === q) || {})[isEn() ? 'en' : 'ko'] || String(q);
+  box.innerHTML =
+    `<div class="tq-bd-h">${esc(t('51·52번 진행', 'Progress on 51–52'))}</div>` +
+    rows.map((r) => tqBar(label(r.q), r.done.length, r.items.length, '')).join('') +
+    rows.filter((r) => r.done.length).map((r) => {
+      const sumPt = r.done.reduce((s, x) => s + x.pt, 0);
+      const sumMax = r.done.reduce((s, x) => s + x.max, 0);
+      const pct = sumMax ? Math.round((sumPt / sumMax) * 100) : 0;
+      return `<p class="tq-bd-tip">${esc(t(`${label(r.q)} 평균 ${pct}점`, `${label(r.q)} averaging ${pct}%`))}</p>`;
+    }).join('');
+  box.classList.remove('hidden');
+}
+
 /* ── 문항 목록 ─────────────────────────────────────────────── */
 function twDraw() {
   /* 언어를 바꾸면 openSection 이 갈래 속을 다시 그리는데, 여기서 목록으로
@@ -6147,6 +6372,7 @@ function twDraw() {
   $('twList').classList.remove('hidden');
 
   const mine = TW_ITEMS.filter((x) => x.lv === learnLv.writing);
+  twDrawRecord();
   if (!mine.length) return void ($('twList').innerHTML = lvEmpty());
 
   // 문항 번호별로 묶는다. 51 다섯 개가 흩어져 있으면 무엇이 무엇인지 모른다.
@@ -6364,6 +6590,7 @@ function twSubmit() {
   });
   const total = rows.reduce((s, x) => s + x.r.pt, 0);
   const max = rows.length * 5;
+  twSetWrite(it.id, total, max);
 
   const sameType = TW_ITEMS.filter((x) => x.lv === learnLv.writing && x.q === it.q);
   const isLastOfType = sameType.findIndex((x) => x.id === it.id) >= sameType.length - 1;
