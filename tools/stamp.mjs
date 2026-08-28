@@ -29,9 +29,9 @@ const ASSETS = [
   'app.js', 'app.module.js', 'analytics.js',
   'courses.js', 'courses-grammar.js', 'courses-grammar-beginner.js',
   'glossary.js', 'gloss-find.js',
-  /* 국어사전 화면(#dictionary)의 "뜻풀이 더 보기" 자료. glossary.js 처럼
-     늘 받는 파일이 아니라 그 화면을 열 때만 따로 받는다. */
-  'glossary-senses.js',
+  /* 국어사전 화면(#dictionary)의 "더 보기" 자료(뜻풀이·예문). glossary.js
+     처럼 늘 받는 파일이 아니라 그 화면을 열 때만 따로 받는다. */
+  'glossary-senses.js', 'glossary-examples.js',
   'grammar.js', 'grammar-en.js', 'grammar-find.js',
   /* 언어팩. 화면이 필요할 때만 부르지만, 부를 때 자국이 없으면 예전 것을
      쥔 채로 새 뜻풀이를 못 받는다. */
