@@ -1683,10 +1683,15 @@ button.btn-primary, button.btn-ghost { font-family:inherit; }
 /* 잠긴 회차. 눌리기는 해야 한다 — 눌러야 로그인으로 갈 수 있다. */
 .tq-locked { background:var(--surface-2); }
 .tq-locked .lc-title, .tq-locked .lc-blurb { color:var(--ink-3); }
+/* 앱 전체 여덟 자리(TOPIK 듣기·문제, 코스, 읽기, 회화, 예문, 문제 풀기)가
+   같이 쓰는 "아직 없다" 자리다. 텍스트만 있으면 오류 메시지처럼 보인다 —
+   #lsecSoon 이 이미 쓰는 🥔 을 ::before 로 붙여서 한 곳만 고쳐도 여덟
+   자리가 다 같이 다듬어지게 했다(호출부 여덟 곳을 일일이 안 건드린다). */
 .learn-empty {
   text-align:center; padding:42px 20px; color:var(--ink-3); font-size:14px; line-height:1.75;
   background:var(--surface); border:1px dashed var(--line); border-radius:18px;
 }
+.learn-empty::before { content:"🥔"; display:block; font-size:32px; margin-bottom:10px; line-height:1; }
 .roadmap-grid {
   display:grid; gap:14px; margin-bottom:18px;
   grid-template-columns:repeat(auto-fit, minmax(220px, 1fr));
