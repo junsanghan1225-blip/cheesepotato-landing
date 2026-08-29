@@ -771,11 +771,19 @@ button.btn-primary, button.btn-ghost { font-family:inherit; }
 .way {
   display:block; width:100%; text-align:left; cursor:pointer;
   background:var(--surface); border:0; padding:28px 26px 26px;
-  font-family:inherit; transition:background .16s;
+  font-family:inherit; transition:background .2s cubic-bezier(.22,1,.36,1);
 }
 .way:hover { background:var(--tint); }
+.way:hover .way-em { border-color:rgba(255,138,61,.35); transform:translateY(-1px); }
 .way:focus-visible { outline:2px solid var(--orange); outline-offset:-2px; }
-.way-em { font-size:26px; line-height:1; margin-bottom:14px; }
+/* 맨 이모지 대신 옅은 배지에 담는다 — .lc-mark 와 같은 자리다. 낱개
+   글자보다 자리가 잡혀 보이고, 누르는 곳이라는 신호도 더 또렷해진다. */
+.way-em {
+  width:46px; height:46px; display:grid; place-items:center;
+  font-size:21px; line-height:1; margin-bottom:16px;
+  background:var(--tint); border:1px solid var(--line-2); border-radius:14px;
+  transition:transform .2s cubic-bezier(.22,1,.36,1), border-color .2s;
+}
 .way-t {
   font-size:19px; font-weight:700; color:var(--ink);
   letter-spacing:-.02em; margin:0 0 9px;
