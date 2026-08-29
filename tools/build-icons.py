@@ -19,6 +19,10 @@ SIZES = {
     # 넉넉하다. 여태 셋 다 600×600 원본을 받고 있었다 — 첫 화면 무게의
     # 248KB 가 28px 짜리 그림 몫이었다.
     'logo-256.png': 256,
+    # manifest.json 이 홈 화면에 담을 때 쓰는 두 크기. PWA 설치 배지·
+    # 스플래시 화면에 쓰이므로 규격(192·512)이 정해져 있다.
+    'icon-192.png': 192,
+    'icon-512.png': 512,
 }
 
 # og:image 와 JSON-LD 의 Organization.logo 는 logo.png(600×600) 그대로 둔다.

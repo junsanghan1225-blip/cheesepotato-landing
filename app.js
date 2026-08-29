@@ -1124,6 +1124,15 @@ function paintThemeBtn() {
   const dark = isDarkNow();
   themeBtn.textContent = dark ? '☀️' : '🌙';
   themeBtn.setAttribute('aria-label', dark ? '밝은 모드로 바꾸기' : '어두운 모드로 바꾸기');
+  /* <meta theme-color> 둘은 media 로 시스템 설정만 본다. 사이트 안 단추로
+     손수 반대로 뒤집었을 때(예: 시스템은 밝은데 여기서 어둡게 눌렀을 때)는
+     media 가 안 따라오므로, 그 경우엔 둘 다 지금 색으로 맞춰 강제한다. */
+  const manual = document.documentElement.hasAttribute('data-theme');
+  document.querySelectorAll('meta[name="theme-color"]').forEach((m) => {
+    // 손수 고른 게 아니면 이 칸이 원래 뜻하던 색(자기 media 짝)으로 되돌린다 —
+    // 전에 손수 골랐다가 "기기 설정 따르기"로 돌아온 경우를 위해서다.
+    m.setAttribute('content', manual ? (dark ? '#17130F' : '#F2EEE4') : (m.media.includes('dark') ? '#17130F' : '#F2EEE4'));
+  });
 }
 function applyTheme(theme) {
   // theme 이 없으면(null) data-theme 를 아예 지워 기기 설정을 그대로 따른다.
@@ -1252,4 +1261,15 @@ ptId('sideList').addEventListener('click', (e) => {
   if (to) ptId(to)?.click();
 });
 ptId('sideCta').addEventListener('click', () => setMenu(false));
+
+/* ── 오프라인 ─────────────────────────────────────────────────
+   sw.js 가 한 번 받아 둔 자료로 다음 방문(지하철·비행기 등 망이 끊긴
+   자리)을 열어 준다. load 뒤에 등록하는 이유 — 첫 화면이 뜨는 데 끼어들
+   일이 아니다. 실패해도(구형 브라우저·시크릿 모드 일부) 조용히 넘어간다 —
+   있으면 좋은 것이지 없다고 사이트가 망가지면 안 된다. */
+if ('serviceWorker' in navigator) {
+  addEventListener('load', () => {
+    navigator.serviceWorker.register('/sw.js').catch(() => {});
+  });
+}
 
