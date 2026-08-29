@@ -13,7 +13,7 @@
    어느 날 갑자기 다른 코드가 실려 왔다.
    이제 vendor/ 안에 받아 두고 CSP 로 바깥을 막는다. 버전을 올릴 때는
    tools/vendor.mjs 의 PIN 을 고치고 다시 돌린다. */
-import { createClient } from './vendor/supabase-js.js?v=68804289';
+import { createClient } from './vendor/supabase-js.js?v=62f5af15';
 // 앱(package.json)과 같은 줄기를 쓴다. 갈리면 앱에서는 읽히는 파일이
 // 여기서는 안 읽히는(또는 그 반대) 일이 생긴다.
 /* 엑셀 라이브러리는 422KB — 이 판에서 가장 무거운 조각이다. 그런데 쓰는
@@ -25,23 +25,23 @@ import { createClient } from './vendor/supabase-js.js?v=68804289';
    자국(?v=)은 tools/stamp.mjs 가 아래 줄에 알아서 붙인다 — 정적으로 쓰든
    동적으로 쓰든 같은 글자를 찾으므로 바꿔도 그대로 찍힌다. */
 let XLSX = null;
-const needXLSX = async () => (XLSX ??= await import('./vendor/xlsx.js?v=68804289'));
+const needXLSX = async () => (XLSX ??= await import('./vendor/xlsx.js?v=62f5af15'));
 // 커리큘럼. 내용과 엔진을 갈라 두면 글을 고치다 화면을 깨지 않는다.
-import { COURSES } from './courses.js?v=68804289';
-import { GLOSSARY, GLOSS_LANGS } from './glossary.js?v=68804289';
-import { glossFind } from './gloss-find.js?v=68804289';
-import { GRAMMAR } from './grammar.js?v=68804289';
-import { GRAMMAR_EN } from './grammar-en.js?v=68804289';
-import { grammarScan } from './grammar-find.js?v=68804289';
-import { TW_ITEMS, TW_QS } from './topik-writing.js?v=68804289';
-import { TOPIKL_BY_EXAM, TOPIKL_PICTURE_SLOTS } from './topik-listening.js?v=68804289';
-import { SB_CATS, SB_MORE, SB_SEED } from './sentences.js?v=68804289';
+import { COURSES } from './courses.js?v=62f5af15';
+import { GLOSSARY, GLOSS_LANGS } from './glossary.js?v=62f5af15';
+import { glossFind } from './gloss-find.js?v=62f5af15';
+import { GRAMMAR } from './grammar.js?v=62f5af15';
+import { GRAMMAR_EN } from './grammar-en.js?v=62f5af15';
+import { grammarScan } from './grammar-find.js?v=62f5af15';
+import { TW_ITEMS, TW_QS } from './topik-writing.js?v=62f5af15';
+import { TOPIKL_BY_EXAM, TOPIKL_PICTURE_SLOTS } from './topik-listening.js?v=62f5af15';
+import { SB_CATS, SB_MORE, SB_SEED } from './sentences.js?v=62f5af15';
 // 읽기 연습 지문. 길이(short·long) × 급수 여섯 칸.
 // TOPIK 유형 연습문제. 기출이 아니라 자체 제작이다.
 // 숫자 게임의 읽기와 문제 만들기. 화면을 모르는 순수 계산이라 따로 뒀다.
 // 게임 목록에서 「숫자 읽기」를 시작할 때만 받는다 — XLSX 와 같은 자리다.
 let makeRound = null;
-const needNumbers = async () => (makeRound ??= (await import('./numbers.js?v=68804289')).makeRound);
+const needNumbers = async () => (makeRound ??= (await import('./numbers.js?v=62f5af15')).makeRound);
 
 // 이 키는 공개돼도 되는 값이다. 이미 APK 안에 같은 것이 들어 있고,
 // 접근을 막는 건 키가 아니라 테이블에 걸린 RLS 다.
@@ -87,14 +87,14 @@ function panel(name) {
 const TQ_DATA = { I: null, II: null };
 let tqDataP = null;
 const tqNeedData = () => (tqDataP ??= Promise.all([
-  import('./topik.js?v=68804289'), import('./topik2.js?v=68804289'),
+  import('./topik.js?v=62f5af15'), import('./topik2.js?v=62f5af15'),
 ]).then(([a, b]) => {
   TQ_DATA.I  = { reading: a.TOPIK_READING,  blueprint: a.TOPIK_BLUEPRINT,  slots: a.TOPIK_SLOTS };
   TQ_DATA.II = { reading: b.TOPIK2_READING, blueprint: b.TOPIK2_BLUEPRINT, slots: b.TOPIK2_SLOTS };
 }));
 
 let READING = null, rdP = null;
-const rdNeed = () => (rdP ??= import('./reading.js?v=68804289').then((m) => { READING = m.READING; }));
+const rdNeed = () => (rdP ??= import('./reading.js?v=62f5af15').then((m) => { READING = m.READING; }));
 
 /* 배우기를 열면 둘 다 미리 부른다. 기다리지 않는다 — 갈래 목록은 이
    자료가 없어도 그려지고, 사람이 갈래를 고르는 사이에 도착한다. */
@@ -462,14 +462,14 @@ let dictOpen = null;  // 지금 "더 보기"(예문·뜻풀이)를 펼쳐 둔 �
    평소엔 안 쓰는 522KB 를 첫 화면 모두에게 물릴 까닭이 없다. */
 let dictSensesP = null;
 const dictLoadSenses = () => (dictSensesP ??=
-  import('./glossary-senses.js?v=68804289').then((m) => m.SENSES).catch(() => ({})));
+  import('./glossary-senses.js?v=62f5af15').then((m) => m.SENSES).catch(() => ({})));
 
 /* 예문. 국립국어원 자료엔 없어서 Gemini 로 새로 지은 것이다(있는 만큼만
    — docs/glossary-examples-gemini-prompt.md 참고). 뜻풀이와 같은 자리에서
    같이 받는다 — 펼치는 손짓 하나에 몰아 두는 편이 화면이 덜 복잡하다. */
 let dictExamplesP = null;
 const dictLoadExamples = () => (dictExamplesP ??=
-  import('./glossary-examples.js?v=68804289').then((m) => m.EXAMPLES).catch(() => ({})));
+  import('./glossary-examples.js?v=62f5af15').then((m) => m.EXAMPLES).catch(() => ({})));
 
 function dictVisible() {
   const q = dictQuery.trim().toLowerCase();
@@ -812,6 +812,85 @@ $('wbDl').addEventListener('click', () => {
   setTimeout(() => $('download')?.scrollIntoView({ behavior: 'smooth' }), 60);
 });
 
+// ══ 진도 동기화 ══════════════════════════════════════════════
+// 코스 레슨(lesson_progress)만 서버에 있었다. TOPIK 읽기·듣기·쓰기
+// 점수와 읽기 지문 기록은 브라우저 localStorage 뿐이라, 폰에서 풀고
+// 노트북을 열면 기록이 0이었다. 새 표를 만들지 않고 db/add_progress_
+// sync.sql 로 settings.progress(jsonb) 를 더해, 그 안에 관련 localStorage
+// 키를 통째로 담는다.
+//
+// **기록만 올린다.** 지금 뭘 보고 있는지(고른 급수·시험, 풀다 만
+// 모의고사)는 안 올린다 — 그건 기기마다 다른 게 자연스럽다.
+const PROGRESS_PREFIXES = ['cp-topik-set-', 'cp-topik-best-', 'cp-topik-mock-', 'cp-tl-set-', 'cp-tl-best-', 'cp-tw-'];
+const PROGRESS_KEYS = ['cp_rd_done'];
+
+function progressSnapshot() {
+  const out = {};
+  try {
+    for (const k of Object.keys(localStorage)) {
+      if (!PROGRESS_PREFIXES.some((p) => k.startsWith(p)) && !PROGRESS_KEYS.includes(k)) continue;
+      const raw = localStorage.getItem(k);
+      /* cp-topik-set-*·cp-tl-set-* 는 JSON 이 아니라 "8/12" 그대로 박혀
+         있다(tqSetWrite 참고) — JSON.parse 가 터지면 건너뛰지 않고 그
+         문자열 자체를 담는다. 건너뛰면 세트별 점수가 통째로 동기화에서
+         빠진다. */
+      try { out[k] = JSON.parse(raw); } catch (e) { out[k] = raw; }
+    }
+  } catch (e) { /* localStorage 를 막은 브라우저도 있다 */ }
+  return out;
+}
+
+// "8/12" 꼴 — cp-topik-set-*·cp-tl-set-* 가 쓰는 모양.
+const RATIO_RE = /^(\d+)\/(\d+)$/;
+
+/* 두 기기의 기록을 하나로 합친다. 이 판의 기록 값은 점수(숫자), 「점수/
+   문제 수」 문자열, 아니면 그걸 담은 객체·배열이다 — 숫자는 큰 쪽이,
+   비율 문자열은 tqSetWrite 와 같은 규칙(비율이 높은 쪽)이 이겨서 더
+   나은 기록을 잃지 않는다. 객체는 키를 합쳐 겹치면 같은 규칙으로 재귀
+   합치고, 배열(모의고사 이력)은 겹치는 것을 걸러서 이어 붙인다. */
+function progressMerge(a, b) {
+  if (a == null) return b;
+  if (b == null) return a;
+  if (typeof a === 'number' && typeof b === 'number') return Math.max(a, b);
+  if (typeof a === 'string' && typeof b === 'string') {
+    const ma = RATIO_RE.exec(a), mb = RATIO_RE.exec(b);
+    if (ma && mb) return (+ma[1] / +ma[2]) >= (+mb[1] / +mb[2]) ? a : b;
+    return b;   // 비율 꼴이 아닌 문자열은(있을 수 없지만) 나중 것으로 본다
+  }
+  if (Array.isArray(a) && Array.isArray(b)) {
+    const seen = new Set(a.map((x) => JSON.stringify(x)));
+    return [...a, ...b.filter((x) => !seen.has(JSON.stringify(x)))];
+  }
+  if (a && b && typeof a === 'object' && typeof b === 'object' && !Array.isArray(a) && !Array.isArray(b)) {
+    const out = { ...a };
+    for (const k of Object.keys(b)) out[k] = k in out ? progressMerge(out[k], b[k]) : b[k];
+    return out;
+  }
+  return b;   // 모양이 안 맞는 값이 왔다면(있을 수 없지만) 나중 것으로 본다
+}
+
+/* 로그인 순간, 탭을 떠날 때(닫기·전환), 대시보드를 열 때 부른다. 매번
+   서버 기록과 이 기기 기록을 합쳐서 양쪽에 같이 남긴다 — 그냥 이
+   기기 것으로 덮어쓰면, 다른 기기가 그새 올려 둔 것을 지울 수 있다
+   (두 기기를 번갈아 쓰는 사람이면 실제로 벌어진다). 매 문항마다
+   부르지 않는 이유 — 손댈 자리가 수십 곳이라, 대신 "여기서는 끝났다"
+   싶은 자리만 잡는다. */
+async function progressSync() {
+  const { data: { session } } = await sb.auth.getSession();
+  if (!session) return;
+  const { data, error } = await sb.from('settings').select('progress').eq('user_id', session.user.id).maybeSingle();
+  if (error) return;   // db/add_progress_sync.sql 을 아직 안 돌렸으면 여기로 온다 — 조용히 넘어간다
+  const merged = { ...progressSnapshot() };
+  for (const [k, v] of Object.entries(data?.progress || {})) merged[k] = k in merged ? progressMerge(merged[k], v) : v;
+  for (const [k, v] of Object.entries(merged)) {
+    // "8/12" 는 원래 모양대로 그대로 쓴다 — JSON.stringify 를 씌우면
+    // 따옴표가 붙어("\"8/12\"") tqSetRead 의 정규식이 다시는 못 읽는다.
+    try { localStorage.setItem(k, typeof v === 'string' ? v : JSON.stringify(v)); } catch (e) {}
+  }
+  await sb.from('settings').upsert({ user_id: session.user.id, progress: merged }, { onConflict: 'user_id' });
+}
+addEventListener('visibilitychange', () => { if (document.visibilityState === 'hidden') progressSync(); });
+
 // ── 로그인 상태 ──────────────────────────────────────────────
 // 머리띠(authBtn)와 사이드 메뉴(sideAuthBtn)가 같은 상태를 보여줘야
 // 한다 — 폰에서는 머리띠 것이 숨고 사이드 것만 남으므로, 한쪽만 맞추면
@@ -875,6 +954,7 @@ sb.auth.onAuthStateChange((_event, session) => {
     $('wbPw').value = '';
     $('auPw2').value = '';
     loadWords();
+    progressSync();   // 이 기기와 서버 기록을 지금 합쳐 둔다
     // 로그인하려고 계정 화면에 있었다면 곧바로 단어장으로 넘겨준다.
     if (showing('authView')) open('wordbook');
   } else {
@@ -1526,6 +1606,9 @@ async function loadDashboard() {
     // 들어가 봤으면 아직 안 왔다. 문제 자료(지문)까지는 필요 없고
     // 이름표만 있으면 되지만, 부르는 값이 이거 하나다.
     await tqNeedData();
+    // 다른 기기 기록을 지금 끌어와 합쳐 둔다 — 아래 dashTopikHtml() 이
+    // 이 localStorage 를 그대로 읽으므로, render 전에 끝나야 반영된다.
+    await progressSync();
 
     const today = dayKey(new Date());
     const [st, usage] = await Promise.all([
