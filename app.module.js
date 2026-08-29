@@ -13,7 +13,7 @@
    어느 날 갑자기 다른 코드가 실려 왔다.
    이제 vendor/ 안에 받아 두고 CSP 로 바깥을 막는다. 버전을 올릴 때는
    tools/vendor.mjs 의 PIN 을 고치고 다시 돌린다. */
-import { createClient } from './vendor/supabase-js.js?v=62f5af15';
+import { createClient } from './vendor/supabase-js.js?v=79c462ef';
 // 앱(package.json)과 같은 줄기를 쓴다. 갈리면 앱에서는 읽히는 파일이
 // 여기서는 안 읽히는(또는 그 반대) 일이 생긴다.
 /* 엑셀 라이브러리는 422KB — 이 판에서 가장 무거운 조각이다. 그런데 쓰는
@@ -25,23 +25,46 @@ import { createClient } from './vendor/supabase-js.js?v=62f5af15';
    자국(?v=)은 tools/stamp.mjs 가 아래 줄에 알아서 붙인다 — 정적으로 쓰든
    동적으로 쓰든 같은 글자를 찾으므로 바꿔도 그대로 찍힌다. */
 let XLSX = null;
-const needXLSX = async () => (XLSX ??= await import('./vendor/xlsx.js?v=62f5af15'));
+const needXLSX = async () => (XLSX ??= await import('./vendor/xlsx.js?v=79c462ef'));
 // 커리큘럼. 내용과 엔진을 갈라 두면 글을 고치다 화면을 깨지 않는다.
-import { COURSES } from './courses.js?v=62f5af15';
-import { GLOSSARY, GLOSS_LANGS } from './glossary.js?v=62f5af15';
-import { glossFind } from './gloss-find.js?v=62f5af15';
-import { GRAMMAR } from './grammar.js?v=62f5af15';
-import { GRAMMAR_EN } from './grammar-en.js?v=62f5af15';
-import { grammarScan } from './grammar-find.js?v=62f5af15';
-import { TW_ITEMS, TW_QS } from './topik-writing.js?v=62f5af15';
-import { TOPIKL_BY_EXAM, TOPIKL_PICTURE_SLOTS } from './topik-listening.js?v=62f5af15';
-import { SB_CATS, SB_MORE, SB_SEED } from './sentences.js?v=62f5af15';
+// 갈래 목록(drawSections)·코스(drawCourses)·문제만 풀기(dqDraw) 를 열 때만
+// 받는다 — 배우기 갈래 목록도 안 본 사람에게 코스 71개 레슨을 다 물릴
+// 까닭이 없다. warmLearn() 이 배우기를 여는 순간 미리 불을 붙여 둔다.
+let COURSES = [], coursesP = null;
+const coursesNeed = () => (coursesP ??= import('./courses.js?v=79c462ef').then((m) => { COURSES = m.COURSES; }));
+import { GLOSSARY, GLOSS_LANGS } from './glossary.js?v=79c462ef';
+import { glossFind } from './gloss-find.js?v=79c462ef';
+/* 문법 사전(뜻풀이 197개). 읽기 지문의 밑줄 문법 말풍선(rdNeed)과 예문
+   만들기 화면(sbNeed) 양쪽이 쓴다 — 둘 중 먼저 여는 화면이 받아 두고,
+   나중 화면은 그 약속(??=)을 그대로 쓴다. */
+let GRAMMAR = [], GRAMMAR_EN = {}, grammarP = null;
+const grammarNeed = () => (grammarP ??= Promise.all([
+  import('./grammar.js?v=79c462ef'), import('./grammar-en.js?v=79c462ef'),
+]).then(([a, b]) => { GRAMMAR = a.GRAMMAR; GRAMMAR_EN = b.GRAMMAR_EN; }));
+import { grammarScan } from './grammar-find.js?v=79c462ef';
+// TOPIK 쓰기·듣기 문항. 읽기(topik.js·topik2.js)와 같은 tqNeedData() 로
+// 함께 받는다 — 유형 연습(topik) 갈래 하나가 세 기술을 다 쓰므로 따로
+// 가를 까닭이 없다. 값은 tqNeedData 정의부에서 채운다.
+let TW_ITEMS = [], TW_QS = [];
+let TOPIKL_BY_EXAM = {}, TOPIKL_PICTURE_SLOTS = {};
+/* 예문 만들기 화면. sentences.js 안에서 sentences-beginner.js·
+   sentences-intermediate.js 를 이미 이어 붙여 내보내므로, 여기서는
+   한 번만 부르면 셋 다 온다. 한국어 도우미(hlp) 도 인용을 찾을 때
+   sbFind 를 쓰는데, 그쪽은 안 기다리고 그냥 부른다 — 답이 못 찾은
+   인용 없이 나가는 것이 채팅이 멈추는 것보다 낫다. */
+let SB_CATS = [], SB_MORE = {}, SB_SEED = {}, SB_POINTS = [], sbDataP = null;
+const sbNeed = () => (sbDataP ??= import('./sentences.js?v=79c462ef').then((m) => {
+  SB_CATS = m.SB_CATS; SB_MORE = m.SB_MORE; SB_SEED = m.SB_SEED;
+  // 갈래마다 표현을 펼쳐 한 줄에 담는다 — SB_CATS 안의 점에는 갈래가 안
+  // 달려 있어서(sbFind 가 표현 하나를 id 로 바로 찾으려면 이게 있어야 한다).
+  SB_POINTS = SB_CATS.flatMap((c) => c.points.map((p) => ({ ...p, cat: c })));
+}));
 // 읽기 연습 지문. 길이(short·long) × 급수 여섯 칸.
 // TOPIK 유형 연습문제. 기출이 아니라 자체 제작이다.
 // 숫자 게임의 읽기와 문제 만들기. 화면을 모르는 순수 계산이라 따로 뒀다.
 // 게임 목록에서 「숫자 읽기」를 시작할 때만 받는다 — XLSX 와 같은 자리다.
 let makeRound = null;
-const needNumbers = async () => (makeRound ??= (await import('./numbers.js?v=62f5af15')).makeRound);
+const needNumbers = async () => (makeRound ??= (await import('./numbers.js?v=79c462ef')).makeRound);
 
 // 이 키는 공개돼도 되는 값이다. 이미 APK 안에 같은 것이 들어 있고,
 // 접근을 막는 건 키가 아니라 테이블에 걸린 RLS 다.
@@ -86,19 +109,28 @@ function panel(name) {
    느린 망에서만 빈 화면이 나오고, 그건 재현이 안 돼서 못 고친다. */
 const TQ_DATA = { I: null, II: null };
 let tqDataP = null;
+/* 읽기(topik.js·topik2.js)에 쓰기·듣기 문항까지 한 판에 같이 받는다 —
+   유형 연습(topik) 갈래 하나가 이 넷을 다 쓰므로 갈라 봤자 요청만
+   늘어난다. */
 const tqNeedData = () => (tqDataP ??= Promise.all([
-  import('./topik.js?v=62f5af15'), import('./topik2.js?v=62f5af15'),
-]).then(([a, b]) => {
+  import('./topik.js?v=79c462ef'), import('./topik2.js?v=79c462ef'),
+  import('./topik-writing.js?v=79c462ef'), import('./topik-listening.js?v=79c462ef'),
+]).then(([a, b, c, d]) => {
   TQ_DATA.I  = { reading: a.TOPIK_READING,  blueprint: a.TOPIK_BLUEPRINT,  slots: a.TOPIK_SLOTS };
   TQ_DATA.II = { reading: b.TOPIK2_READING, blueprint: b.TOPIK2_BLUEPRINT, slots: b.TOPIK2_SLOTS };
+  TW_ITEMS = c.TW_ITEMS; TW_QS = c.TW_QS;
+  TOPIKL_BY_EXAM = d.TOPIKL_BY_EXAM; TOPIKL_PICTURE_SLOTS = d.TOPIKL_PICTURE_SLOTS;
 }));
 
 let READING = null, rdP = null;
-const rdNeed = () => (rdP ??= import('./reading.js?v=62f5af15').then((m) => { READING = m.READING; }));
+// 지문의 밑줄 문법 말풍선이 GRAMMAR 를 쓰므로 같이 받아 둔다.
+const rdNeed = () => (rdP ??= Promise.all([
+  import('./reading.js?v=79c462ef'), grammarNeed(),
+]).then(([m]) => { READING = m.READING; }));
 
-/* 배우기를 열면 둘 다 미리 부른다. 기다리지 않는다 — 갈래 목록은 이
-   자료가 없어도 그려지고, 사람이 갈래를 고르는 사이에 도착한다. */
-const warmLearn = () => { tqNeedData(); rdNeed(); };
+/* 배우기를 열면 넷 다 미리 불을 붙인다. 기다리지 않는다 — 갈래 목록은
+   이 자료가 없어도 그려지고, 사람이 갈래를 고르는 사이에 도착한다. */
+const warmLearn = () => { tqNeedData(); rdNeed(); coursesNeed(); sbNeed(); };
 
 // 게임 목록과 그 아래 게임들. 새 게임을 더하면 여기에도 넣는다.
 const GAME_VIEWS = ['games', 'claw', 'match', 'quiz', 'num'];
@@ -462,14 +494,14 @@ let dictOpen = null;  // 지금 "더 보기"(예문·뜻풀이)를 펼쳐 둔 �
    평소엔 안 쓰는 522KB 를 첫 화면 모두에게 물릴 까닭이 없다. */
 let dictSensesP = null;
 const dictLoadSenses = () => (dictSensesP ??=
-  import('./glossary-senses.js?v=62f5af15').then((m) => m.SENSES).catch(() => ({})));
+  import('./glossary-senses.js?v=79c462ef').then((m) => m.SENSES).catch(() => ({})));
 
 /* 예문. 국립국어원 자료엔 없어서 Gemini 로 새로 지은 것이다(있는 만큼만
    — docs/glossary-examples-gemini-prompt.md 참고). 뜻풀이와 같은 자리에서
    같이 받는다 — 펼치는 손짓 하나에 몰아 두는 편이 화면이 덜 복잡하다. */
 let dictExamplesP = null;
 const dictLoadExamples = () => (dictExamplesP ??=
-  import('./glossary-examples.js?v=62f5af15').then((m) => m.EXAMPLES).catch(() => ({})));
+  import('./glossary-examples.js?v=79c462ef').then((m) => m.EXAMPLES).catch(() => ({})));
 
 function dictVisible() {
   const q = dictQuery.trim().toLowerCase();
@@ -5162,7 +5194,8 @@ function tlSyncLang() {
     ? t('결과 보기', 'See the result') : t('다음', 'Next');
 }
 
-function drawSentenceHead() {
+async function drawSentenceHead() {
+  await sbNeed();
   const level = learnLv.sentence;
   const all = SB_POINTS.filter((p) => sentenceTier(p) === level);
   $('sbLevel').innerHTML = renderLevelSwitch('sentence');
@@ -5202,7 +5235,8 @@ function drawCourseRoadmap(level, rows) {
   }).join('');
 }
 
-function drawSections() {
+async function drawSections() {
+  await coursesNeed();
   $('lsecList').innerHTML = LEARN_SECTIONS.map((s) => {
     // 코스 갈래만 진도가 있다. 나머지는 아직 셀 것이 없다.
     let foot = '';
@@ -5296,7 +5330,7 @@ const rdFind = (id) => Object.values(READING ?? {}).flatMap((g) => Object.values
 function rdGrammarify(el, text) {
   el.textContent = '';
   let hits = [];
-  try { hits = grammarScan(text); } catch (e) { /* 못 찾으면 그냥 글로 둔다 */ }
+  try { hits = grammarScan(text, GRAMMAR); } catch (e) { /* 못 찾으면 그냥 글로 둔다 */ }
   let at = 0;
   for (const h of hits) {
     if (h.from > at) el.appendChild(document.createTextNode(text.slice(at, h.from)));
@@ -5753,7 +5787,7 @@ $('lsecHelp').addEventListener('click', () => { if (lsecOpen) showGuide(lsecOpen
 /* quiet — 사용법을 띄우지 않는다. 남이 보낸 주소로 표현 하나를 콕 집어
    들어온 때에 쓴다. 그 표현을 보러 온 사람 앞을 안내가 가로막으면
    안내가 아니라 문지기가 된다. */
-function openSection(id, quiet) {
+async function openSection(id, quiet) {
   const s = LEARN_SECTIONS.find((x) => x.id === id);
   if (!s) return;
   /* 이미 열려 있는 갈래를 다시 여는 경우가 있다 — 언어를 바꾸면 syncLang 이
@@ -5788,6 +5822,7 @@ function openSection(id, quiet) {
       if (s.id === 'quiz') dqDraw();
       if (s.id === 'reading') drawReading();
       if (s.id === 'sentence') {
+        await sbNeed();
         drawSentenceHead();
         const cur = sbPoint ? sbFind(sbPoint) : null;
         sbShow(cur && sentenceTier(cur) === learnLv.sentence ? sbPoint : null);
@@ -5814,7 +5849,7 @@ function openSection(id, quiet) {
 
    표현 하나까지 여는 이유 — 문법 표현 쪽은 남에게 건네고 싶어지는 자리다.
    「-길래 설명 여기 있어」 하고 주소를 보냈는데 목록만 열리면 못 쓴다. */
-function openLearnSub(sub) {
+async function openLearnSub(sub) {
   let [secId, ...rest] = String(sub).split('/');
 
   /* 옛 주소 #learn/writing 을 새 자리로 넘긴다. 쓰기가 별도 갈래였을 때
@@ -5856,6 +5891,7 @@ function openLearnSub(sub) {
   if (secId === 'sentence' && !rest[0]) sbPoint = null;
   openSection(secId, !!rest[0]);
   if (secId !== 'sentence' || !rest[0]) return;
+  await sbNeed();
   const p = sbFind(rest[0]);
   if (!p) return;
   /* 표현마다 단계가 다르다. 단계를 안 맞추면 sbDrawDetail 이 「이 단계 것이
@@ -5891,7 +5927,7 @@ $('lsecBack').addEventListener('click', () => {
   backToSections();
   window.scrollTo({ top: 0, behavior: 'smooth' });
 });
-$('lsecWrap').addEventListener('change', (ev) => {
+$('lsecWrap').addEventListener('change', async (ev) => {
   const r = ev.target.closest('[data-learn-section][data-learn-level]');
   if (!r) return;
   const section = r.dataset.learnSection;
@@ -5911,6 +5947,7 @@ $('lsecWrap').addEventListener('change', (ev) => {
        남은 문제가 그 급 것이라 섞이기 때문이다. */
     dqDraw();
   } else if (section === 'sentence') {
+    await sbNeed();
     drawSentenceHead();
     const cur = sbPoint ? sbFind(sbPoint) : null;
     if (cur && sentenceTier(cur) !== level) sbPoint = null;
@@ -5953,7 +5990,7 @@ let sbSort = 'new';
 let sbReplyTo = null;   // 답장 칸을 연 원글 key
 let sbDraft = '', sbReplyDraft = '';
 
-const SB_POINTS = SB_CATS.flatMap((c) => c.points.map((p) => ({ ...p, cat: c })));
+// SB_POINTS 는 sbNeed() 가 자료를 받은 뒤에 채운다(위 import 자리 참고).
 const sbFind = (id) => SB_POINTS.find((p) => p.id === id);
 
 function sbLoad() {
@@ -6306,7 +6343,8 @@ $('sbDetail').addEventListener('change', (ev) => {
   if (r) { sbSort = r.value; sbDrawDetail(); }
 });
 
-function drawCourses() {
+async function drawCourses() {
+  await coursesNeed();
   const level = learnLv.courses;
   const rows = levelCourses(level);
   const allLessons = rows.reduce((a, c) => a + c.lessons.length, 0);
@@ -7052,7 +7090,8 @@ function dqPool(level) {
 
 let dqQueue = [], dqTotal = 0, dqDone = 0, dqFrom = false;
 
-function dqDraw() {
+async function dqDraw() {
+  await coursesNeed();
   const level = learnLv.quiz;
   const pool = dqPool(level);
   $('dqLevel').innerHTML = renderLevelSwitch('quiz');
@@ -9368,7 +9407,7 @@ function hlpCites(q) {
   const word = hlpFindWord(q);
   if (word && out.length < 6) { seen.add('w:' + word.head); out.push({ id: word.head, kind: 'word', name: word.head, en: word.en }); }
   hlpFindPoints(q).forEach(addPoint);
-  grammarScan(q).forEach((g) => addPoint(sbFind(g.id)));
+  grammarScan(q, GRAMMAR).forEach((g) => addPoint(sbFind(g.id)));
   return out;
 }
 
@@ -9534,6 +9573,10 @@ function hlpSetOpen(open) {
   $('hlpFab').setAttribute('aria-label', t(open ? '한국어 도우미 닫기' : '한국어 도우미 열기',
                                             open ? 'Close Korean helper' : 'Open Korean helper'));
   if (open) {
+    // 인용을 찾을 때 SB_POINTS·GRAMMAR 를 쓴다(hlpCites). 여기서 배우기를
+    // 한 번도 안 연 사람도 열 수 있는 자리라, 미리 불을 붙여만 둔다 —
+    // 기다리지 않는다. 타자 치는 동안 대개 도착한다.
+    sbNeed(); grammarNeed();
     hlpRenderChrome();
     setTimeout(() => $('hlpInput')?.focus(), 60);
   } else {

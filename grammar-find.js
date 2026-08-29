@@ -12,9 +12,12 @@
  * 쪽을 집으면 「-는데도」를 「-는데」라고 가르치게 된다. 그래서 걸린 것을
  * 길이로 줄 세워 긴 것부터 자리를 잡고, 이미 잡힌 자리와 겹치는 것은
  * 버린다.
- */
-import { GRAMMAR } from './grammar.js?v=62f5af15';
-
+ *
+ * GRAMMAR 는 여기서 직접 안 부르고 grammarScan(text, GRAMMAR) 로 받는다.
+ * 예전에는 위에서 import 했는데, 그러면 이 파일을 부르는 순간(app.module.js
+ * 맨 위, 페이지를 열자마자) grammar.js 32KB 가 따라 들어왔다 — app.module.js
+ * 쪽은 GRAMMAR 를 다 채워 읽기·예문 화면을 열 때만 받게 늦춰 뒀는데, 그
+ * 노력이 여기서 새고 있었다. */
 const BASE = 0xac00;
 
 /* 그 받침이 든 글자를 전부 펼친다. 받침 하나에 19×21 = 399자다.
@@ -54,27 +57,35 @@ const SUB = {
   'Ⓗ': '[가-힣]',
 };
 
-const RE = GRAMMAR.map((g) => ({
-  ...g,
-  rx: g.re.map((src) => ({
-    re: new RegExp(src.replace(/[ⓃⓇⓂⒷⓈⒶⒽ]/g, (c) => SUB[c]), 'g'),
-    head: src.startsWith('Ⓗ') ? 1 : 0,
-  })),
-}));
+/* 정규식으로 굽는 일은 한 번만 한다 — GRAMMAR 배열 자체는 안 바뀌므로,
+   받은 뒤 첫 호출에서 굽고 그다음부터는 재사용한다. */
+let RE = null, reFor = null;
+function buildRE(GRAMMAR) {
+  if (RE && reFor === GRAMMAR) return RE;
+  reFor = GRAMMAR;
+  return RE = GRAMMAR.map((g) => ({
+    ...g,
+    rx: g.re.map((src) => ({
+      re: new RegExp(src.replace(/[ⓃⓇⓂⒷⓈⒶⒽ]/g, (c) => SUB[c]), 'g'),
+      head: src.startsWith('Ⓗ') ? 1 : 0,
+    })),
+  }));
+}
 
 /**
  * 글에서 아는 문법이 있는 자리를 찾는다.
  *
  * @param {string} text
+ * @param {Array} GRAMMAR grammar.js 의 GRAMMAR 배열(부르는 쪽이 이미 받아 둔 것을 넘긴다)
  * @returns {{from:number,to:number,id:string,name:string,desc:string}[]}
  *          앞에서부터 차례로, 서로 겹치지 않는다.
  */
-export function grammarScan(text) {
+export function grammarScan(text, GRAMMAR) {
   const s = String(text || '');
-  if (!s) return [];
+  if (!s || !GRAMMAR?.length) return [];
 
   const found = [];
-  for (const g of RE) {
+  for (const g of buildRE(GRAMMAR)) {
     for (const { re, head } of g.rx) {
       re.lastIndex = 0;
       let m;

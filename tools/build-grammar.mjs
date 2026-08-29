@@ -270,7 +270,7 @@ let marks = 0;
 const byId = new Map();
 const lines = [];
 for (const [id, text] of texts) {
-  const hits = grammarScan(text);
+  const hits = grammarScan(text, rows);
   marks += hits.length;
   for (const h of hits) {
     byId.set(h.id, (byId.get(h.id) ?? 0) + 1);
