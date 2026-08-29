@@ -42,6 +42,7 @@ const WAY_GO = {
   topik:    () => goLearn('topik'),
   sentence: () => goLearn('sentence'),
   reading:  () => goLearn('reading'),
+  convo:    () => goLearn('convo'),
   games:    () => window.cpOpen && window.cpOpen('games'),
   glossary: () => window.cpOpen && window.cpOpen('dictionary'),
 };

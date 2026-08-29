@@ -21,6 +21,9 @@
   (54 reading passages)
 - **낱말 5,346개 · 문법 항목 197개** — 뜻풀이는 국립국어원 한국어기초사전에서
   가져와 CC BY-SA 2.0 KR 로 쓴다. (5,346 words, 197 grammar entries)
+- **회화 연습** — 카페·병원 같은 실제 상황에서 상대가 말을 걸고, 보기 없이
+  자기 말로 직접 대답한다. (Situational conversation practice — you answer
+  in your own words, no multiple choice)
 - **단어장 앱 (안드로이드)** — 공부하다 만난 낱말을 담는 곳. 이 사이트의
   중심이 아니라 딸린 도구다. (An Android wordbook app — a side tool, not the
   main thing)
