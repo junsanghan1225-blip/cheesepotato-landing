@@ -13,7 +13,7 @@
    어느 날 갑자기 다른 코드가 실려 왔다.
    이제 vendor/ 안에 받아 두고 CSP 로 바깥을 막는다. 버전을 올릴 때는
    tools/vendor.mjs 의 PIN 을 고치고 다시 돌린다. */
-import { createClient } from './vendor/supabase-js.js?v=19888cf0';
+import { createClient } from './vendor/supabase-js.js?v=baaac2a3';
 // 앱(package.json)과 같은 줄기를 쓴다. 갈리면 앱에서는 읽히는 파일이
 // 여기서는 안 읽히는(또는 그 반대) 일이 생긴다.
 /* 엑셀 라이브러리는 422KB — 이 판에서 가장 무거운 조각이다. 그런데 쓰는
@@ -25,21 +25,21 @@ import { createClient } from './vendor/supabase-js.js?v=19888cf0';
    자국(?v=)은 tools/stamp.mjs 가 아래 줄에 알아서 붙인다 — 정적으로 쓰든
    동적으로 쓰든 같은 글자를 찾으므로 바꿔도 그대로 찍힌다. */
 let XLSX = null;
-const needXLSX = async () => (XLSX ??= await import('./vendor/xlsx.js?v=19888cf0'));
+const needXLSX = async () => (XLSX ??= await import('./vendor/xlsx.js?v=baaac2a3'));
 // 커리큘럼. 내용과 엔진을 갈라 두면 글을 고치다 화면을 깨지 않는다.
-import { COURSES } from './courses.js?v=19888cf0';
-import { GLOSSARY, GLOSS_LANGS } from './glossary.js?v=19888cf0';
-import { glossFind } from './gloss-find.js?v=19888cf0';
-import { GRAMMAR } from './grammar.js?v=19888cf0';
-import { GRAMMAR_EN } from './grammar-en.js?v=19888cf0';
-import { grammarScan } from './grammar-find.js?v=19888cf0';
-import { TW_ITEMS, TW_QS } from './topik-writing.js?v=19888cf0';
-import { TOPIKL_BY_EXAM, TOPIKL_PICTURE_SLOTS } from './topik-listening.js?v=19888cf0';
-import { SB_CATS, SB_MORE, SB_SEED } from './sentences.js?v=19888cf0';
+import { COURSES } from './courses.js?v=baaac2a3';
+import { GLOSSARY, GLOSS_LANGS } from './glossary.js?v=baaac2a3';
+import { glossFind } from './gloss-find.js?v=baaac2a3';
+import { GRAMMAR } from './grammar.js?v=baaac2a3';
+import { GRAMMAR_EN } from './grammar-en.js?v=baaac2a3';
+import { grammarScan } from './grammar-find.js?v=baaac2a3';
+import { TW_ITEMS, TW_QS } from './topik-writing.js?v=baaac2a3';
+import { TOPIKL_BY_EXAM, TOPIKL_PICTURE_SLOTS } from './topik-listening.js?v=baaac2a3';
+import { SB_CATS, SB_MORE, SB_SEED } from './sentences.js?v=baaac2a3';
 // 읽기 연습 지문. 길이(short·long) × 급수 여섯 칸.
 // TOPIK 유형 연습문제. 기출이 아니라 자체 제작이다.
 // 숫자 게임의 읽기와 문제 만들기. 화면을 모르는 순수 계산이라 따로 뒀다.
-import { makeRound } from './numbers.js?v=19888cf0';
+import { makeRound } from './numbers.js?v=baaac2a3';
 
 // 이 키는 공개돼도 되는 값이다. 이미 APK 안에 같은 것이 들어 있고,
 // 접근을 막는 건 키가 아니라 테이블에 걸린 RLS 다.
@@ -85,14 +85,14 @@ function panel(name) {
 const TQ_DATA = { I: null, II: null };
 let tqDataP = null;
 const tqNeedData = () => (tqDataP ??= Promise.all([
-  import('./topik.js?v=19888cf0'), import('./topik2.js?v=19888cf0'),
+  import('./topik.js?v=baaac2a3'), import('./topik2.js?v=baaac2a3'),
 ]).then(([a, b]) => {
   TQ_DATA.I  = { reading: a.TOPIK_READING,  blueprint: a.TOPIK_BLUEPRINT,  slots: a.TOPIK_SLOTS };
   TQ_DATA.II = { reading: b.TOPIK2_READING, blueprint: b.TOPIK2_BLUEPRINT, slots: b.TOPIK2_SLOTS };
 }));
 
 let READING = null, rdP = null;
-const rdNeed = () => (rdP ??= import('./reading.js?v=19888cf0').then((m) => { READING = m.READING; }));
+const rdNeed = () => (rdP ??= import('./reading.js?v=baaac2a3').then((m) => { READING = m.READING; }));
 
 /* 배우기를 열면 둘 다 미리 부른다. 기다리지 않는다 — 갈래 목록은 이
    자료가 없어도 그려지고, 사람이 갈래를 고르는 사이에 도착한다. */
@@ -306,6 +306,7 @@ let sortType = 'newest';
 let query = '';
 let tagOn = null;    // null = 전체
 let doneOn = null;   // null = 전체, true = 외운 것, false = 학습 중
+let dueOn = false;   // 「오늘 복습」 칩. srsReady 일 때만 쓴다.
 
 function setCount(shown) {
   $('wbCount').textContent = shown === rows.length
@@ -323,6 +324,7 @@ function visibleWords() {
   const out = rows.filter((w) => {
     if (tagOn && w.tag !== tagOn) return false;
     if (doneOn !== null && !!w.is_remembered !== doneOn) return false;
+    if (dueOn && !(w.due_at && new Date(w.due_at) <= new Date())) return false;
     if (!q) return true;
     if ((w.word ?? '').toLowerCase().includes(q)
         || (w.meaning ?? '').toLowerCase().includes(q)
@@ -347,8 +349,12 @@ function drawChips() {
     (dot ? `<span class="wb-dot" style="background:${dot}"></span>` : '') +
     `${esc(label.text)}</button>`;
 
+  // srsReady 가 아니면(db/add_srs.sql 을 아직 안 돌렸으면) 칩을 안 보여준다 —
+  // 눌러도 아무 일 없는 단추를 두느니 없는 편이 낫다.
+  const dueCount = srsReady ? rows.filter((w) => w.due_at && new Date(w.due_at) <= new Date()).length : 0;
   const parts = [
-    chip(!tagOn && doneOn === null, { key: 'all', text: t('전체', 'All') }, null),
+    chip(!tagOn && doneOn === null && !dueOn, { key: 'all', text: t('전체', 'All') }, null),
+    ...(srsReady ? [chip(dueOn, { key: 'due', text: t(`오늘 복습 ${dueCount}`, `Due today ${dueCount}`) }, null)] : []),
     chip(doneOn === true,  { key: 'done',  text: t('외운 단어', 'Memorized') }, null),
     chip(doneOn === false, { key: 'learn', text: t('학습 중', 'Learning') }, null),
     ...TAGS.map((tg) => chip(tagOn === tg, { key: 'tag:' + tg, text: t(tg, TAG_EN[tg] ?? tg) }, tagHue(tg))),
@@ -417,7 +423,8 @@ $('wbChips').addEventListener('click', (ev) => {
   const b = ev.target.closest('[data-chip]');
   if (!b) return;
   const key = b.dataset.chip;
-  if (key === 'all')        { tagOn = null; doneOn = null; }
+  if (key === 'all')        { tagOn = null; doneOn = null; dueOn = false; }
+  else if (key === 'due')   { dueOn = !dueOn; }
   else if (key === 'done')  { doneOn = doneOn === true ? null : true; }
   else if (key === 'learn') { doneOn = doneOn === false ? null : false; }
   else if (key.startsWith('tag:')) {
@@ -453,14 +460,14 @@ let dictOpen = null;  // 지금 "더 보기"(예문·뜻풀이)를 펼쳐 둔 �
    평소엔 안 쓰는 522KB 를 첫 화면 모두에게 물릴 까닭이 없다. */
 let dictSensesP = null;
 const dictLoadSenses = () => (dictSensesP ??=
-  import('./glossary-senses.js?v=19888cf0').then((m) => m.SENSES).catch(() => ({})));
+  import('./glossary-senses.js?v=baaac2a3').then((m) => m.SENSES).catch(() => ({})));
 
 /* 예문. 국립국어원 자료엔 없어서 Gemini 로 새로 지은 것이다(있는 만큼만
    — docs/glossary-examples-gemini-prompt.md 참고). 뜻풀이와 같은 자리에서
    같이 받는다 — 펼치는 손짓 하나에 몰아 두는 편이 화면이 덜 복잡하다. */
 let dictExamplesP = null;
 const dictLoadExamples = () => (dictExamplesP ??=
-  import('./glossary-examples.js?v=19888cf0').then((m) => m.EXAMPLES).catch(() => ({})));
+  import('./glossary-examples.js?v=baaac2a3').then((m) => m.EXAMPLES).catch(() => ({})));
 
 function dictVisible() {
   const q = dictQuery.trim().toLowerCase();
@@ -616,18 +623,29 @@ $('dictList').addEventListener('click', (ev) => {
 });
 
 let loading = false;
+/* db/add_srs.sql 을 아직 안 돌렸으면 due_at·interval_days 칸이 없어
+   select 가 통째로 실패한다 — 단어장 전체가 죽으면 안 되므로, 그 두
+   칸을 빼고 한 번 더 물어서 예전처럼 돌아가게 한다. srsReady 는 복습
+   칩·간격 계산을 켤지 끌지를 그걸로 정한다. */
+const WB_COLS = 'id, word, meaning, example, tag, image_url, created_at, is_remembered, view_count, difficulty, remembered_at';
+let srsReady = false;
 async function loadWords() {
   if (loading) return;
   loading = true;
   panel('wbLoading');
   try {
-    const { data, error } = await sb
-      .from('words')
+    let { data, error } = await sb.from('words')
       // 정렬·필터에 쓰이는 값까지 한 번에 받는다. 어차피 전부 불러오므로
       // 거르고 줄 세우는 일은 브라우저에서 한다 — 누를 때마다 서버에
       // 다시 물으면 느리고, 단어 수가 그렇게 많지 않다.
-      .select('id, word, meaning, example, tag, image_url, created_at, is_remembered, view_count, difficulty, remembered_at')
+      .select(WB_COLS + ', due_at, interval_days')
       .order('created_at', { ascending: false });
+    if (error) {
+      srsReady = false;
+      ({ data, error } = await sb.from('words').select(WB_COLS).order('created_at', { ascending: false }));
+    } else {
+      srsReady = true;
+    }
     if (error) throw error;
 
     rows = data ?? [];
@@ -639,6 +657,22 @@ async function loadWords() {
   } finally {
     loading = false;
   }
+}
+
+/* ── 간격 반복(SRS) ────────────────────────────────────────────
+   버튼을 늘리지 않는다 — 이미 있는 「기억했어요」 토글에 실어 보낸다.
+   기억했다고 누를 때마다 간격을 곱절로 늘리고(1→2→4→8일…), 그새 다시
+   「아직이에요」로 돌리면 처음(1일)으로 되돌린다. 이렇게 하면 안다고
+   표시한 단어일수록 점점 뜸하게 돌아온다 — 아는 것을 계속 복습시켜
+   지치게 하는 게 SRS 가 제일 많이 실패하는 지점이라, 상한(6개월)을
+   두고 버튼도 둘 이상 만들지 않았다. */
+const SRS_MAX_DAYS = 180;
+function srsNext(intervalDays, remembered) {
+  if (!remembered) return { interval_days: 1, due_at: new Date().toISOString() };
+  const days = Math.min(SRS_MAX_DAYS, Math.max(1, Math.round((intervalDays || 1) * 2)));
+  const due = new Date();
+  due.setDate(due.getDate() + days);
+  return { interval_days: days, due_at: due.toISOString() };
 }
 
 // ── 비밀번호 규칙 ────────────────────────────────────────────
@@ -1154,8 +1188,10 @@ $('wfToggle').addEventListener('click', async () => {
   const next = !w.is_remembered;
   // 앱 WordbookScreen 과 같이 외운 시각도 같이 남긴다. 안 남기면
   // 대시보드의 7일 추이에 안 잡힌다.
+  const patch = { is_remembered: next, remembered_at: next ? new Date().toISOString() : null };
+  if (srsReady) Object.assign(patch, srsNext(w.interval_days, next));
   const { error } = await sb.from('words')
-    .update({ is_remembered: next, remembered_at: next ? new Date().toISOString() : null })
+    .update(patch)
     .eq('id', editingId);
   if (error) return wfMsg('wfErr', t('바꾸지 못했어요.', 'Could not change that.'));
   $('wbForm2').classList.add('hidden');
