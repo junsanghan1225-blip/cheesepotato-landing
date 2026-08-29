@@ -38,7 +38,7 @@ const ASSETS = [
   'glossary-ja.js', 'glossary-zh.js', 'glossary-vi.js', 'glossary-ru.js',
   'glossary-es.js', 'glossary-fr.js', 'glossary-ar.js', 'glossary-mn.js',
   'glossary-id.js',
-  'courses-grammar-detailed.js', 'numbers.js', 'reading.js',
+  'courses-grammar-detailed.js', 'numbers.js', 'reading.js', 'convo.js',
   'courses-beginner-stage1.js',
   'sentences.js', 'sentences-beginner.js', 'sentences-intermediate.js',
   /* topik.js 는 TOPIK I 읽기, topik2.js 는 TOPIK II 읽기,

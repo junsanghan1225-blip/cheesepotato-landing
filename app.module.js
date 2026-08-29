@@ -13,7 +13,7 @@
    어느 날 갑자기 다른 코드가 실려 왔다.
    이제 vendor/ 안에 받아 두고 CSP 로 바깥을 막는다. 버전을 올릴 때는
    tools/vendor.mjs 의 PIN 을 고치고 다시 돌린다. */
-import { createClient } from './vendor/supabase-js.js?v=79c462ef';
+import { createClient } from './vendor/supabase-js.js?v=f9846d2f';
 // 앱(package.json)과 같은 줄기를 쓴다. 갈리면 앱에서는 읽히는 파일이
 // 여기서는 안 읽히는(또는 그 반대) 일이 생긴다.
 /* 엑셀 라이브러리는 422KB — 이 판에서 가장 무거운 조각이다. 그런데 쓰는
@@ -25,23 +25,23 @@ import { createClient } from './vendor/supabase-js.js?v=79c462ef';
    자국(?v=)은 tools/stamp.mjs 가 아래 줄에 알아서 붙인다 — 정적으로 쓰든
    동적으로 쓰든 같은 글자를 찾으므로 바꿔도 그대로 찍힌다. */
 let XLSX = null;
-const needXLSX = async () => (XLSX ??= await import('./vendor/xlsx.js?v=79c462ef'));
+const needXLSX = async () => (XLSX ??= await import('./vendor/xlsx.js?v=f9846d2f'));
 // 커리큘럼. 내용과 엔진을 갈라 두면 글을 고치다 화면을 깨지 않는다.
 // 갈래 목록(drawSections)·코스(drawCourses)·문제만 풀기(dqDraw) 를 열 때만
 // 받는다 — 배우기 갈래 목록도 안 본 사람에게 코스 71개 레슨을 다 물릴
 // 까닭이 없다. warmLearn() 이 배우기를 여는 순간 미리 불을 붙여 둔다.
 let COURSES = [], coursesP = null;
-const coursesNeed = () => (coursesP ??= import('./courses.js?v=79c462ef').then((m) => { COURSES = m.COURSES; }));
-import { GLOSSARY, GLOSS_LANGS } from './glossary.js?v=79c462ef';
-import { glossFind } from './gloss-find.js?v=79c462ef';
+const coursesNeed = () => (coursesP ??= import('./courses.js?v=f9846d2f').then((m) => { COURSES = m.COURSES; }));
+import { GLOSSARY, GLOSS_LANGS } from './glossary.js?v=f9846d2f';
+import { glossFind } from './gloss-find.js?v=f9846d2f';
 /* 문법 사전(뜻풀이 197개). 읽기 지문의 밑줄 문법 말풍선(rdNeed)과 예문
    만들기 화면(sbNeed) 양쪽이 쓴다 — 둘 중 먼저 여는 화면이 받아 두고,
    나중 화면은 그 약속(??=)을 그대로 쓴다. */
 let GRAMMAR = [], GRAMMAR_EN = {}, grammarP = null;
 const grammarNeed = () => (grammarP ??= Promise.all([
-  import('./grammar.js?v=79c462ef'), import('./grammar-en.js?v=79c462ef'),
+  import('./grammar.js?v=f9846d2f'), import('./grammar-en.js?v=f9846d2f'),
 ]).then(([a, b]) => { GRAMMAR = a.GRAMMAR; GRAMMAR_EN = b.GRAMMAR_EN; }));
-import { grammarScan } from './grammar-find.js?v=79c462ef';
+import { grammarScan } from './grammar-find.js?v=f9846d2f';
 // TOPIK 쓰기·듣기 문항. 읽기(topik.js·topik2.js)와 같은 tqNeedData() 로
 // 함께 받는다 — 유형 연습(topik) 갈래 하나가 세 기술을 다 쓰므로 따로
 // 가를 까닭이 없다. 값은 tqNeedData 정의부에서 채운다.
@@ -53,7 +53,7 @@ let TOPIKL_BY_EXAM = {}, TOPIKL_PICTURE_SLOTS = {};
    sbFind 를 쓰는데, 그쪽은 안 기다리고 그냥 부른다 — 답이 못 찾은
    인용 없이 나가는 것이 채팅이 멈추는 것보다 낫다. */
 let SB_CATS = [], SB_MORE = {}, SB_SEED = {}, SB_POINTS = [], sbDataP = null;
-const sbNeed = () => (sbDataP ??= import('./sentences.js?v=79c462ef').then((m) => {
+const sbNeed = () => (sbDataP ??= import('./sentences.js?v=f9846d2f').then((m) => {
   SB_CATS = m.SB_CATS; SB_MORE = m.SB_MORE; SB_SEED = m.SB_SEED;
   // 갈래마다 표현을 펼쳐 한 줄에 담는다 — SB_CATS 안의 점에는 갈래가 안
   // 달려 있어서(sbFind 가 표현 하나를 id 로 바로 찾으려면 이게 있어야 한다).
@@ -64,7 +64,7 @@ const sbNeed = () => (sbDataP ??= import('./sentences.js?v=79c462ef').then((m) =
 // 숫자 게임의 읽기와 문제 만들기. 화면을 모르는 순수 계산이라 따로 뒀다.
 // 게임 목록에서 「숫자 읽기」를 시작할 때만 받는다 — XLSX 와 같은 자리다.
 let makeRound = null;
-const needNumbers = async () => (makeRound ??= (await import('./numbers.js?v=79c462ef')).makeRound);
+const needNumbers = async () => (makeRound ??= (await import('./numbers.js?v=f9846d2f')).makeRound);
 
 // 이 키는 공개돼도 되는 값이다. 이미 APK 안에 같은 것이 들어 있고,
 // 접근을 막는 건 키가 아니라 테이블에 걸린 RLS 다.
@@ -113,8 +113,8 @@ let tqDataP = null;
    유형 연습(topik) 갈래 하나가 이 넷을 다 쓰므로 갈라 봤자 요청만
    늘어난다. */
 const tqNeedData = () => (tqDataP ??= Promise.all([
-  import('./topik.js?v=79c462ef'), import('./topik2.js?v=79c462ef'),
-  import('./topik-writing.js?v=79c462ef'), import('./topik-listening.js?v=79c462ef'),
+  import('./topik.js?v=f9846d2f'), import('./topik2.js?v=f9846d2f'),
+  import('./topik-writing.js?v=f9846d2f'), import('./topik-listening.js?v=f9846d2f'),
 ]).then(([a, b, c, d]) => {
   TQ_DATA.I  = { reading: a.TOPIK_READING,  blueprint: a.TOPIK_BLUEPRINT,  slots: a.TOPIK_SLOTS };
   TQ_DATA.II = { reading: b.TOPIK2_READING, blueprint: b.TOPIK2_BLUEPRINT, slots: b.TOPIK2_SLOTS };
@@ -125,12 +125,15 @@ const tqNeedData = () => (tqDataP ??= Promise.all([
 let READING = null, rdP = null;
 // 지문의 밑줄 문법 말풍선이 GRAMMAR 를 쓰므로 같이 받아 둔다.
 const rdNeed = () => (rdP ??= Promise.all([
-  import('./reading.js?v=79c462ef'), grammarNeed(),
+  import('./reading.js?v=f9846d2f'), grammarNeed(),
 ]).then(([m]) => { READING = m.READING; }));
 
-/* 배우기를 열면 넷 다 미리 불을 붙인다. 기다리지 않는다 — 갈래 목록은
+let CONVO = null, cvP = null;
+const cvNeed = () => (cvP ??= import('./convo.js?v=f9846d2f').then((m) => { CONVO = m.CONVO; }));
+
+/* 배우기를 열면 다섯 다 미리 불을 붙인다. 기다리지 않는다 — 갈래 목록은
    이 자료가 없어도 그려지고, 사람이 갈래를 고르는 사이에 도착한다. */
-const warmLearn = () => { tqNeedData(); rdNeed(); coursesNeed(); sbNeed(); };
+const warmLearn = () => { tqNeedData(); rdNeed(); coursesNeed(); sbNeed(); cvNeed(); };
 
 // 게임 목록과 그 아래 게임들. 새 게임을 더하면 여기에도 넣는다.
 const GAME_VIEWS = ['games', 'claw', 'match', 'quiz', 'num'];
@@ -494,14 +497,14 @@ let dictOpen = null;  // 지금 "더 보기"(예문·뜻풀이)를 펼쳐 둔 �
    평소엔 안 쓰는 522KB 를 첫 화면 모두에게 물릴 까닭이 없다. */
 let dictSensesP = null;
 const dictLoadSenses = () => (dictSensesP ??=
-  import('./glossary-senses.js?v=79c462ef').then((m) => m.SENSES).catch(() => ({})));
+  import('./glossary-senses.js?v=f9846d2f').then((m) => m.SENSES).catch(() => ({})));
 
 /* 예문. 국립국어원 자료엔 없어서 Gemini 로 새로 지은 것이다(있는 만큼만
    — docs/glossary-examples-gemini-prompt.md 참고). 뜻풀이와 같은 자리에서
    같이 받는다 — 펼치는 손짓 하나에 몰아 두는 편이 화면이 덜 복잡하다. */
 let dictExamplesP = null;
 const dictLoadExamples = () => (dictExamplesP ??=
-  import('./glossary-examples.js?v=79c462ef').then((m) => m.EXAMPLES).catch(() => ({})));
+  import('./glossary-examples.js?v=f9846d2f').then((m) => m.EXAMPLES).catch(() => ({})));
 
 function dictVisible() {
   const q = dictQuery.trim().toLowerCase();
@@ -2506,6 +2509,15 @@ const LEARN_SECTIONS = [
     blurb: { ko: '배운 조각으로 직접 문장을 만들어 봅니다.',
              en: 'Put the pieces you have learned into sentences of your own.' },
   },
+  {
+    id: 'convo', emoji: '💬', ready: true, pane: 'cvWrap',
+    lv:    { ko: '회화',            en: 'CONVERSATION' },
+    title: { ko: '회화 연습',       en: 'Practice a conversation' },
+    tag:   { ko: '상황극 속에서 직접 대답하기',
+             en: 'Answer for yourself, inside a real situation' },
+    blurb: { ko: '카페·병원 같은 상황에서 상대 말에 직접 대답해 봅니다. 보기 넷 중 고르는 게 아니에요.',
+             en: 'Someone speaks to you in a real situation — cafe, hospital — and you answer in your own words.' },
+  },
 ];
 
 const secTx = (o) => (isEn() ? o.en : o.ko);
@@ -2609,7 +2621,7 @@ const BEGINNER_ROADMAP = [
     courses:[],
   },
 ];
-let learnLv = { courses: 'beginner', quiz: 'beginner', writing: 'intermediate', sentence: 'beginner', reading: 'beginner' };
+let learnLv = { courses: 'beginner', quiz: 'beginner', writing: 'intermediate', sentence: 'beginner', reading: 'beginner', convo: 'beginner' };
 
 const learnLevel = (id) => LEARN_LEVELS.find((x) => x.id === id) || LEARN_LEVELS[0];
 const learnLevelText = (id) => (isEn() ? learnLevel(id).en : learnLevel(id).ko);
@@ -5665,6 +5677,335 @@ function rdFold(title, text, open) {
   return wrap;
 }
 
+/* ══ 회화 연습 ═══════════════════════════════════════════════════
+   읽기와 채점 철학은 같다(짚어야 할 것을 몇 개 짚었나 — rdHit 를 그대로
+   쓴다). 다른 것은 한 판에 다 보여주지 않고 turn 을 하나씩 밟는다는
+   점이다. convo.js 의 accept 는 사람이 채워 넣는 자리라, 아직 비어
+   있는 turn 을 만나면 점수를 매기지 않고 모범 답안만 보여준다 —
+   Gemini 로 막 받아온 시나리오도 곧바로 눌러볼 수 있어야 한다. */
+let cvOpen = null;      // 열린 시나리오 id
+let cvStep = 0;         // 지금 풀 turn 인덱스(0부터)
+let cvHist = [];        // 지나온 turn [{npc, said, score}]
+let cvCat = 'all';      // 분류 필터
+const CV_DONE_KEY = 'cp_cv_done';
+
+const cvDoneRead = () => {
+  try {
+    const o = JSON.parse(localStorage.getItem(CV_DONE_KEY) || '{}');
+    return (o && typeof o === 'object' && !Array.isArray(o)) ? o : {};
+  } catch (e) { return {}; }
+};
+const cvDoneWrite = (id, score) => {
+  try {
+    const o = cvDoneRead();
+    o[id] = Math.max(Number(o[id]) || 0, score);
+    localStorage.setItem(CV_DONE_KEY, JSON.stringify(o));
+  } catch (e) {}
+};
+
+const cvRows = () => (CONVO ?? []).filter((c) => c.lv === learnLv.convo && (cvCat === 'all' || c.category === cvCat));
+
+/* convo.js 머리말의 분류 표. 목록에 없는 분류는 원문 그대로 보여준다 —
+   고정 목록이 아니라 이름을 몰라도 화면이 깨지면 안 된다. */
+const CV_CAT_LABEL = {
+  cafe: { ko: '카페', en: 'Cafe' }, store: { ko: '가게', en: 'Shopping' },
+  restaurant: { ko: '식당', en: 'Restaurant' }, transit: { ko: '교통', en: 'Transit' },
+  hospital: { ko: '병원', en: 'Hospital' }, phone: { ko: '전화', en: 'Phone' },
+  work: { ko: '직장', en: 'Work' }, social: { ko: '친구', en: 'Friends' }, service: { ko: '행정', en: 'Errands' },
+};
+const cvCatLabel = (id) => { const x = CV_CAT_LABEL[id]; return x ? (isEn() ? x.en : x.ko) : id; };
+
+async function drawConvo() {
+  await cvNeed();
+  $('cvLevel').innerHTML = renderLevelSwitch('convo');
+
+  const catsHere = [...new Set((CONVO ?? []).filter((c) => c.lv === learnLv.convo).map((c) => c.category))];
+  if (cvCat !== 'all' && !catsHere.includes(cvCat)) cvCat = 'all';
+  $('cvCats').innerHTML = ['all', ...catsHere].map((id) =>
+    `<button type="button" class="cv-cat${id === cvCat ? ' on' : ''}" data-cv-cat="${esc(id)}">${esc(id === 'all' ? t('전체', 'All') : cvCatLabel(id))}</button>`
+  ).join('');
+
+  $('cvIntro').textContent = t(
+    '상황을 하나 고르면 상대가 말을 걸어요. 보기 없이 자기 말로 답해 보세요. 한 턴이 끝날 때마다 무엇을 짚었는지 바로 알려 드려요.',
+    'Pick a situation and someone starts talking to you. Answer in your own words — no multiple choice. After each turn you see what you caught.');
+
+  const rows = cvRows();
+  const done = cvDoneRead();
+  const solved = rows.filter((c) => done[c.id] != null);
+  const avg = solved.length ? Math.round(solved.reduce((a, c) => a + done[c.id], 0) / solved.length) : 0;
+  $('cvSummary').innerHTML = renderLearnSummary([
+    { k: t('상황', 'Scenarios'), v: rows.length, s: t('이 칸에 있는 상황', 'Scenarios in this bucket') },
+    { k: t('끝낸 것', 'Done'), v: solved.length, s: `${rows.length} ${t('개 가운데', 'in this bucket')}` },
+    { k: t('평균', 'Average'), v: solved.length ? `${avg}${t('점', '')}` : '—', s: t('끝낸 상황의 점수', 'Score on what you finished') },
+  ]);
+
+  const box = $('cvList');
+  box.textContent = '';
+  if (!rows.length) {
+    box.innerHTML = `<div class="learn-empty">${esc(t('이 칸은 곧 채울게요.', 'This bucket is coming soon.'))}</div>`;
+    return;
+  }
+  rows.forEach((c) => box.appendChild(cvCard(c, done[c.id])));
+}
+
+$('cvCats').addEventListener('click', (ev) => {
+  const b = ev.target.closest('[data-cv-cat]');
+  if (!b) return;
+  cvCat = b.dataset.cvCat;
+  cvOpen = null;
+  drawConvo();
+});
+
+function cvCard(c, score) {
+  const card = document.createElement('div');
+  card.className = 'rd-card' + (cvOpen === c.id ? ' on' : '');
+
+  const head = document.createElement('button');
+  head.type = 'button';
+  head.className = 'rd-head';
+  head.setAttribute('aria-expanded', cvOpen === c.id ? 'true' : 'false');
+  head.innerHTML =
+    '<div class="rd-head-l">' +
+      `<div class="rd-title">${esc(c.title)}</div>` +
+      `<div class="rd-peek">${esc(String(c.setting).slice(0, 46))}…</div>` +
+    '</div>' +
+    (score != null ? `<span class="rd-score-chip">${score}${esc(t('점', ''))}</span>` : '') +
+    `<span class="rd-caret" aria-hidden="true">${cvOpen === c.id ? '▴' : '▾'}</span>`;
+  head.addEventListener('click', async () => {
+    // 아코디언이다 — 한 번에 하나만 편다(rd-card 와 같은 규칙).
+    const opening = cvOpen !== c.id;
+    cvOpen = opening ? c.id : null;
+    if (opening) { cvStep = 0; cvHist = []; }
+    await drawConvo();
+    if (cvOpen === c.id) {
+      const el = [...document.querySelectorAll('.rd-card')].find((x) => x.classList.contains('on'));
+      el?.scrollIntoView({ block: 'start', behavior: 'smooth' });
+    }
+  });
+  card.appendChild(head);
+
+  if (cvOpen !== c.id) return card;
+
+  const body = document.createElement('div');
+  body.className = 'rd-body';
+  body.appendChild(cvBody(c));
+  card.appendChild(body);
+  return card;
+}
+
+function cvBody(c) {
+  const wrap = document.createElement('div');
+
+  const meta = document.createElement('div');
+  meta.className = 'cv-meta';
+  meta.innerHTML =
+    `<span class="cv-role">${esc(t('나', 'You'))} · ${esc(c.roleUser)}</span>` +
+    `<span class="cv-role">${esc(t('상대', 'Them'))} · ${esc(c.roleOther)}</span>`;
+  wrap.appendChild(meta);
+
+  const setting = document.createElement('p');
+  setting.className = 'cv-setting';
+  setting.textContent = c.setting;
+  wrap.appendChild(setting);
+
+  if (c.vocab?.length) {
+    const words = document.createElement('div');
+    words.className = 'rd-words';
+    for (const [w, m] of c.vocab) {
+      const chip = document.createElement('span');
+      chip.className = 'rd-word';
+      chip.innerHTML = `<b>${esc(w)}</b> ${esc(m)}`;
+      words.appendChild(chip);
+    }
+    wrap.appendChild(words);
+  }
+
+  if (cvHist.length) {
+    const hist = document.createElement('div');
+    hist.className = 'cv-hist';
+    cvHist.forEach((h) => {
+      const row = document.createElement('div');
+      row.className = 'cv-hist-row';
+      row.innerHTML =
+        `<div class="cv-hist-npc"><b>${esc(c.roleOther)}</b> ${esc(h.npc)}</div>` +
+        `<div class="cv-hist-said"><b>${esc(t('나', 'Me'))}</b> ${esc(h.said)}</div>`;
+      hist.appendChild(row);
+    });
+    wrap.appendChild(hist);
+  }
+
+  wrap.appendChild(cvStep < c.turns.length ? cvTurnBlock(c) : cvDoneBlock(c));
+  return wrap;
+}
+
+function cvTurnBlock(c) {
+  const turn = c.turns[cvStep];
+  const box = document.createElement('div');
+
+  const step = document.createElement('div');
+  step.className = 'cv-step';
+  step.textContent = t(`턴 ${cvStep + 1} / ${c.turns.length}`, `Turn ${cvStep + 1} of ${c.turns.length}`);
+  box.appendChild(step);
+
+  const npc = document.createElement('p');
+  npc.className = 'cv-npc';
+  npc.innerHTML = `<b>${esc(c.roleOther)}</b> ${esc(turn.npc.text)}`;
+  box.appendChild(npc);
+
+  /* 녹음이 아직 없는 turn 이 대부분이다(assets/audio/convo/ 를 채우는
+     중). say() 가 mp3 를 못 찾으면 조용히 Web Speech 로 넘어가므로
+     버튼은 늘 그려도 된다 — rd-say 와 같은 규칙. */
+  const listen = document.createElement('button');
+  listen.type = 'button';
+  listen.className = 'rd-say';
+  listen.dataset.say = turn.npc.text;
+  listen.dataset.audio = `assets/audio/convo/${turn.id}.mp3`;
+  listen.textContent = `🔊 ${t('다시 듣기', 'Listen again')}`;
+  box.appendChild(listen);
+
+  const prompt = document.createElement('p');
+  prompt.className = 'rd-q';
+  prompt.textContent = turn.userPrompt;
+  box.appendChild(prompt);
+
+  const ta = document.createElement('textarea');
+  ta.className = 'rd-input';
+  ta.rows = 3;
+  ta.placeholder = t('여기에 한국어로 답해 보세요.', 'Answer here, in Korean.');
+  ta.setAttribute('data-clarity-mask', 'true');
+  box.appendChild(ta);
+
+  const btns = document.createElement('div');
+  btns.className = 'rd-btns';
+  const go = document.createElement('button');
+  go.className = 'pt-next';
+  go.type = 'button';
+  go.textContent = t('확인하기', 'Check my answer');
+  const out = document.createElement('div');
+  out.className = 'rd-out hidden';
+  go.addEventListener('click', () => cvGrade(c, turn, ta.value, out, go));
+  btns.appendChild(go);
+  box.append(btns, out);
+
+  box.addEventListener('click', (ev) => {
+    const s = ev.target.closest('[data-say]');
+    if (s) say(s.dataset.say, s.dataset.audio);
+  });
+
+  return box;
+}
+
+function cvGrade(c, turn, answer, out, btn) {
+  const text = String(answer || '').trim();
+  if (rdFlat(text).length < 2) {
+    out.classList.remove('hidden');
+    out.innerHTML = `<p class="rd-msg">${esc(t('한마디라도 써 보세요.', 'Write at least a word or two.'))}</p>`;
+    return;
+  }
+
+  /* accept 가 아직 안 채워진 turn 도 있다(convo-merge.mjs 직후) — 그때는
+     점수를 안 매기고 모범 답안만 보여준다. 채점 기준 없이 0점을 주면
+     막 받아온 시나리오가 전부 틀린 것처럼 보인다. */
+  const hasKeys = Array.isArray(turn.accept) && turn.accept.length > 0;
+  const marks = hasKeys ? turn.accept.map((k) => ({ ...k, ok: rdHit(text, k) })) : [];
+  const got = marks.filter((m) => m.ok).length;
+  const score = hasKeys ? Math.round((got / marks.length) * 100) : null;
+
+  out.classList.remove('hidden');
+  out.textContent = '';
+
+  if (hasKeys) {
+    const band = score >= 70 ? 'good' : score >= 30 ? 'mid' : 'low';
+    const line = score >= 70 ? t('잘 대답했어요.', 'Good answer.')
+      : score >= 30 ? t('반쯤 짚었어요.', 'You got part of it.')
+      : t('다시 한번 볼까요?', 'Want to try that again?');
+    const top = document.createElement('div');
+    top.className = `rd-score ${band}`;
+    top.innerHTML =
+      `<div class="rd-score-n">${score}</div>` +
+      `<div class="rd-score-t"><b>${esc(t('내용 점수', 'Content score'))}</b>` +
+      `<span>${esc(t(`${marks.length}가지 가운데 ${got}가지 — ${line}`, `${got} of ${marks.length} points — ${line}`))}</span></div>`;
+    out.appendChild(top);
+
+    const list = document.createElement('div');
+    list.className = 'rd-marks';
+    for (const m of marks) {
+      const row = document.createElement('div');
+      row.className = 'rd-mark' + (m.ok ? ' ok' : '');
+      row.innerHTML = `<span class="rd-mark-i" aria-hidden="true">${m.ok ? '✓' : '·'}</span><span>${esc(m.why)}</span>`;
+      list.appendChild(row);
+    }
+    out.appendChild(list);
+
+    if (got === 0 && turn.onMiss) {
+      const hint = document.createElement('p');
+      hint.className = 'rd-note';
+      hint.innerHTML = `<b>${esc(c.roleOther)}</b> “${esc(turn.onMiss.text)}”`;
+      out.appendChild(hint);
+    }
+  } else {
+    const msg = document.createElement('p');
+    msg.className = 'rd-note';
+    msg.textContent = t(
+      '아직 채점 기준이 준비되지 않은 턴이에요 — 아래 모범 답안과 견줘 보세요.',
+      'No scoring criteria set up for this turn yet — compare with the model answer below.');
+    out.appendChild(msg);
+  }
+
+  out.appendChild(rdFold(t('모범 답안', 'Model answer'), turn.model, true));
+  if (turn.tip) out.appendChild(rdFold(t('표현 팁', 'Usage tip'), turn.tip, false));
+
+  const nextBtn = document.createElement('button');
+  nextBtn.className = 'pt-next';
+  nextBtn.type = 'button';
+  nextBtn.style.marginTop = '14px';
+  const isLast = cvStep + 1 >= c.turns.length;
+  nextBtn.textContent = isLast ? t('마치기 →', 'Finish →') : t('다음 →', 'Next →');
+  nextBtn.addEventListener('click', () => {
+    cvHist.push({ npc: turn.npc.text, said: text, score });
+    cvStep++;
+    drawConvo();
+  });
+  out.appendChild(nextBtn);
+
+  btn.disabled = true;
+}
+
+function cvDoneBlock(c) {
+  const box = document.createElement('div');
+
+  if (c.outro) {
+    const outro = document.createElement('p');
+    outro.className = 'cv-outro';
+    outro.innerHTML = `<b>${esc(c.roleOther)}</b> ${esc(c.outro.text)}`;
+    box.appendChild(outro);
+  }
+
+  const scored = cvHist.filter((h) => h.score != null);
+  const avg = scored.length ? Math.round(scored.reduce((a, h) => a + h.score, 0) / scored.length) : null;
+  if (avg != null) cvDoneWrite(c.id, avg);
+
+  const band = avg == null ? 'mid' : avg >= 70 ? 'good' : avg >= 30 ? 'mid' : 'low';
+  const top = document.createElement('div');
+  top.className = `rd-score ${band}`;
+  top.style.marginTop = '4px';
+  top.innerHTML =
+    `<div class="rd-score-n">${avg != null ? avg : '✓'}</div>` +
+    `<div class="rd-score-t"><b>${esc(t('상황 끝', 'Scenario done'))}</b>` +
+    `<span>${esc(avg != null ? t('턴 점수 평균', 'Average across turns') : t('아직 채점 기준이 없어요', 'No scoring set up yet'))}</span></div>`;
+  box.appendChild(top);
+
+  const again = document.createElement('button');
+  again.className = 'pt-next';
+  again.type = 'button';
+  again.style.marginTop = '14px';
+  again.textContent = t('다시 해보기', 'Try again');
+  again.addEventListener('click', () => { cvStep = 0; cvHist = []; drawConvo(); });
+  box.appendChild(again);
+
+  return box;
+}
+
 /* ── 갈래 사용법 안내 ──────────────────────────────────────────
    갈래마다 「무엇을 하는 곳이고 어떻게 쓰는지」를 세 걸음으로 적는다.
 
@@ -5720,6 +6061,17 @@ const GUIDES = {
         en: ['Read the meaning and the dialogue', 'Every point has its meaning, form, what to watch out for, examples — and a short 🧀 / 🥔 conversation.'] },
       { ko: ['내 문장 올리기', '읽고 끝내지 말고 한 문장 써 보세요. 다른 사람이 쓴 문장도 같이 보입니다.'],
         en: ['Write your own', 'Do not just read it — post one sentence. You will see what others wrote too.'] },
+    ],
+  },
+  convo: {
+    emoji: '💬',
+    steps: [
+      { ko: ['상황 하나 고르기', '카페·병원처럼 실제로 겪을 만한 상황이에요. 어떤 역할인지 먼저 읽으세요.'],
+        en: ['Pick a situation', 'Real ones — a cafe, a hospital. Read who you are before you start.'] },
+      { ko: ['상대 말에 직접 대답하기', '보기 넷이 없어요. 상대가 한 말을 읽고 자기 말로 답을 써 보세요.'],
+        en: ['Answer in your own words', 'No multiple choice — read what they say, then write your reply.'] },
+      { ko: ['한 걸음씩 이어가기', '한 턴이 끝나면 무엇을 짚었는지 보여 주고 다음 말로 넘어갑니다.'],
+        en: ['Take it one turn at a time', 'After each turn you see what you caught, then move on.'] },
     ],
   },
 };
@@ -5821,6 +6173,7 @@ async function openSection(id, quiet) {
       if (s.id === 'topik') tqShowSkill(true);
       if (s.id === 'quiz') dqDraw();
       if (s.id === 'reading') drawReading();
+      if (s.id === 'convo') drawConvo();
       if (s.id === 'sentence') {
         await sbNeed();
         drawSentenceHead();
@@ -5957,6 +6310,9 @@ $('lsecWrap').addEventListener('change', async (ev) => {
        초급을 골랐는데 고급 지문이 펼쳐진 채로 남는다. */
     rdOpen = null;
     drawReading();
+  } else if (section === 'convo') {
+    cvOpen = null;
+    drawConvo();
   }
 });
 
