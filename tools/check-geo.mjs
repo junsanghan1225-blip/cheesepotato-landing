@@ -150,6 +150,42 @@ for (const [name, n] of Object.entries(real)) {
   }
 }
 
+/* ── 3.2 TOPIK 표의 칸도 맞는가 ───────────────────────────────
+   위의 3번 검사는 「이름 옆에 붙은 수」를 찾는다. 그런데 표는 이름(TOPIK II)
+   과 수(19)가 서로 다른 칸에 있어서 그 무늬에 안 걸린다 — 실제로 이 표가
+   듣기 11 · 읽기 100 · 쓰기 16 으로 한참 옛 값을 들고 있었는데 3번 검사가
+   조용히 지나쳤다. 표는 대화형 엔진이 통째로 뽑아 가는 자리라 더 위험하다.
+
+   표 자리를 알고 있으니 줄과 칸을 짚어서 직접 맞춰 본다. */
+{
+  const tbl = html.match(/<table class="tq-tbl">([\s\S]*?)<\/table>/);
+  if (!tbl) err('첫 쪽에서 TOPIK 표(.tq-tbl)를 못 찾았다');
+  else {
+    const rows = [...tbl[1].matchAll(/<tr>\s*<th scope="row">([\s\S]*?)<\/th>([\s\S]*?)<\/tr>/g)];
+    const want = {
+      'TOPIK I':  [real['TOPIK I 듣기'],  real['TOPIK I 읽기'],  null],
+      'TOPIK II': [real['TOPIK II 듣기'], real['TOPIK II 읽기'], real['TOPIK 쓰기']],
+    };
+    const seen = new Set();
+    for (const [, head, body] of rows) {
+      const name = strip(head);
+      const cells = [...body.matchAll(/<td[^>]*>([\s\S]*?)<\/td>/g)].map((m) => strip(m[1]));
+      const exp = want[name];
+      if (!exp) { err(`TOPIK 표에 모르는 줄이 있다: 「${name}」`); continue; }
+      seen.add(name);
+      ['듣기', '읽기', '쓰기'].forEach((skill, i) => {
+        if (exp[i] == null) return;             // TOPIK I 쓰기는 「시험에 없음」이 맞다
+        const got = Number(String(cells[i] ?? '').replace(/,/g, ''));
+        if (!Number.isFinite(got))
+          err(`TOPIK 표 ${name} ${skill} 칸이 수가 아니다: 「${cells[i]}」`);
+        else if (got !== exp[i])
+          err(`TOPIK 표: ${name} ${skill} 를 ${got.toLocaleString()} 이라 적었는데 실제는 ${comma(exp[i])} 이다`);
+      });
+    }
+    for (const name of Object.keys(want)) if (!seen.has(name)) err(`TOPIK 표에 ${name} 줄이 없다`);
+  }
+}
+
 /* ── 3.5 우리말로 센 수도 맞는가 ──────────────────────────────
    「다섯 갈래」라고 써 놓고 카드를 여섯 장 두는 일이 실제로 있었다.
    숫자가 아니라 글자라서 위의 숫자 검사에 안 걸린다. 갈래를 하나 더할
