@@ -50,7 +50,13 @@ document.querySelectorAll('.way[data-go]').forEach((b) => {
   b.addEventListener('click', () => { const f = WAY_GO[b.dataset.go]; if (f) f(); });
 });
 
-// 스크롤 리빌: 아래 요소들이 스크롤에 맞춰 3D로 떠오름 (히어로는 제외)
+/* 스크롤 리빌: 아래 요소들이 스크롤에 맞춰 조용히 떠오른다 (히어로는 제외).
+
+   밀리는 간격이 카드마다 0.1초였다. 「무엇을 배우나」가 일곱 장이라
+   마지막 카드는 0.6초를 기다린 뒤에야 뜨기 시작했고, 그동안 화면
+   아래쪽이 비어 있어서 느려 보였다. 0.045초로 줄이고 넷째 장부터는
+   더 안 밀리게 잡는다 — 층이 지는 느낌만 남기고 기다림은 없앤다. */
+const STAGGER = 0.045, STAGGER_MAX = 3;
 const revealTargets = [
   ['.way', 'reveal', null],
   ['.faq-i', 'reveal', null],
@@ -59,7 +65,7 @@ const revealTargets = [
 revealTargets.forEach(([sel, cls, delay]) => {
   document.querySelectorAll(sel).forEach((el, i) => {
     el.classList.add(cls);
-    el.style.setProperty('--d', (delay !== null ? delay : i * 0.1) + 's');
+    el.style.setProperty('--d', (delay !== null ? delay : Math.min(i, STAGGER_MAX) * STAGGER) + 's');
   });
 });
 const io = new IntersectionObserver(entries => {
