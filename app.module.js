@@ -13,7 +13,7 @@
    어느 날 갑자기 다른 코드가 실려 왔다.
    이제 vendor/ 안에 받아 두고 CSP 로 바깥을 막는다. 버전을 올릴 때는
    tools/vendor.mjs 의 PIN 을 고치고 다시 돌린다. */
-import { createClient } from './vendor/supabase-js.js?v=a5e267f6';
+import { createClient } from './vendor/supabase-js.js?v=1ee4c01d';
 // 앱(package.json)과 같은 줄기를 쓴다. 갈리면 앱에서는 읽히는 파일이
 // 여기서는 안 읽히는(또는 그 반대) 일이 생긴다.
 /* 엑셀 라이브러리는 422KB — 이 판에서 가장 무거운 조각이다. 그런데 쓰는
@@ -25,23 +25,23 @@ import { createClient } from './vendor/supabase-js.js?v=a5e267f6';
    자국(?v=)은 tools/stamp.mjs 가 아래 줄에 알아서 붙인다 — 정적으로 쓰든
    동적으로 쓰든 같은 글자를 찾으므로 바꿔도 그대로 찍힌다. */
 let XLSX = null;
-const needXLSX = async () => (XLSX ??= await import('./vendor/xlsx.js?v=a5e267f6'));
+const needXLSX = async () => (XLSX ??= await import('./vendor/xlsx.js?v=1ee4c01d'));
 // 커리큘럼. 내용과 엔진을 갈라 두면 글을 고치다 화면을 깨지 않는다.
 // 갈래 목록(drawSections)·코스(drawCourses)·문제만 풀기(dqDraw) 를 열 때만
 // 받는다 — 배우기 갈래 목록도 안 본 사람에게 코스 71개 레슨을 다 물릴
 // 까닭이 없다. warmLearn() 이 배우기를 여는 순간 미리 불을 붙여 둔다.
 let COURSES = [], coursesP = null;
-const coursesNeed = () => (coursesP ??= import('./courses.js?v=a5e267f6').then((m) => { COURSES = m.COURSES; }));
-import { GLOSSARY, GLOSS_LANGS } from './glossary.js?v=a5e267f6';
-import { glossFind } from './gloss-find.js?v=a5e267f6';
+const coursesNeed = () => (coursesP ??= import('./courses.js?v=1ee4c01d').then((m) => { COURSES = m.COURSES; }));
+import { GLOSSARY, GLOSS_LANGS } from './glossary.js?v=1ee4c01d';
+import { glossFind } from './gloss-find.js?v=1ee4c01d';
 /* 문법 사전(뜻풀이 197개). 읽기 지문의 밑줄 문법 말풍선(rdNeed)과 예문
    만들기 화면(sbNeed) 양쪽이 쓴다 — 둘 중 먼저 여는 화면이 받아 두고,
    나중 화면은 그 약속(??=)을 그대로 쓴다. */
 let GRAMMAR = [], GRAMMAR_EN = {}, grammarP = null;
 const grammarNeed = () => (grammarP ??= Promise.all([
-  import('./grammar.js?v=a5e267f6'), import('./grammar-en.js?v=a5e267f6'),
+  import('./grammar.js?v=1ee4c01d'), import('./grammar-en.js?v=1ee4c01d'),
 ]).then(([a, b]) => { GRAMMAR = a.GRAMMAR; GRAMMAR_EN = b.GRAMMAR_EN; }));
-import { grammarScan } from './grammar-find.js?v=a5e267f6';
+import { grammarScan } from './grammar-find.js?v=1ee4c01d';
 // TOPIK 쓰기·듣기 문항. 읽기(topik.js·topik2.js)와 같은 tqNeedData() 로
 // 함께 받는다 — 유형 연습(topik) 갈래 하나가 세 기술을 다 쓰므로 따로
 // 가를 까닭이 없다. 값은 tqNeedData 정의부에서 채운다.
@@ -53,7 +53,7 @@ let TOPIKL_BY_EXAM = {}, TOPIKL_PICTURE_SLOTS = {};
    sbFind 를 쓰는데, 그쪽은 안 기다리고 그냥 부른다 — 답이 못 찾은
    인용 없이 나가는 것이 채팅이 멈추는 것보다 낫다. */
 let SB_CATS = [], SB_MORE = {}, SB_SEED = {}, SB_POINTS = [], sbDataP = null;
-const sbNeed = () => (sbDataP ??= import('./sentences.js?v=a5e267f6').then((m) => {
+const sbNeed = () => (sbDataP ??= import('./sentences.js?v=1ee4c01d').then((m) => {
   SB_CATS = m.SB_CATS; SB_MORE = m.SB_MORE; SB_SEED = m.SB_SEED;
   // 갈래마다 표현을 펼쳐 한 줄에 담는다 — SB_CATS 안의 점에는 갈래가 안
   // 달려 있어서(sbFind 가 표현 하나를 id 로 바로 찾으려면 이게 있어야 한다).
@@ -64,7 +64,7 @@ const sbNeed = () => (sbDataP ??= import('./sentences.js?v=a5e267f6').then((m) =
 // 숫자 게임의 읽기와 문제 만들기. 화면을 모르는 순수 계산이라 따로 뒀다.
 // 게임 목록에서 「숫자 읽기」를 시작할 때만 받는다 — XLSX 와 같은 자리다.
 let makeRound = null;
-const needNumbers = async () => (makeRound ??= (await import('./numbers.js?v=a5e267f6')).makeRound);
+const needNumbers = async () => (makeRound ??= (await import('./numbers.js?v=1ee4c01d')).makeRound);
 
 // 이 키는 공개돼도 되는 값이다. 이미 APK 안에 같은 것이 들어 있고,
 // 접근을 막는 건 키가 아니라 테이블에 걸린 RLS 다.
@@ -113,8 +113,8 @@ let tqDataP = null;
    유형 연습(topik) 갈래 하나가 이 넷을 다 쓰므로 갈라 봤자 요청만
    늘어난다. */
 const tqNeedData = () => (tqDataP ??= Promise.all([
-  import('./topik.js?v=a5e267f6'), import('./topik2.js?v=a5e267f6'),
-  import('./topik-writing.js?v=a5e267f6'), import('./topik-listening.js?v=a5e267f6'),
+  import('./topik.js?v=1ee4c01d'), import('./topik2.js?v=1ee4c01d'),
+  import('./topik-writing.js?v=1ee4c01d'), import('./topik-listening.js?v=1ee4c01d'),
 ]).then(([a, b, c, d]) => {
   TQ_DATA.I  = { reading: a.TOPIK_READING,  blueprint: a.TOPIK_BLUEPRINT,  slots: a.TOPIK_SLOTS };
   TQ_DATA.II = { reading: b.TOPIK2_READING, blueprint: b.TOPIK2_BLUEPRINT, slots: b.TOPIK2_SLOTS };
@@ -125,11 +125,11 @@ const tqNeedData = () => (tqDataP ??= Promise.all([
 let READING = null, rdP = null;
 // 지문의 밑줄 문법 말풍선이 GRAMMAR 를 쓰므로 같이 받아 둔다.
 const rdNeed = () => (rdP ??= Promise.all([
-  import('./reading.js?v=a5e267f6'), grammarNeed(),
+  import('./reading.js?v=1ee4c01d'), grammarNeed(),
 ]).then(([m]) => { READING = m.READING; }));
 
 let CONVO = null, cvP = null;
-const cvNeed = () => (cvP ??= import('./convo.js?v=a5e267f6').then((m) => { CONVO = m.CONVO; }));
+const cvNeed = () => (cvP ??= import('./convo.js?v=1ee4c01d').then((m) => { CONVO = m.CONVO; }));
 
 /* 배우기를 열면 다섯 다 미리 불을 붙인다. 기다리지 않는다 — 갈래 목록은
    이 자료가 없어도 그려지고, 사람이 갈래를 고르는 사이에 도착한다. */
@@ -497,14 +497,14 @@ let dictOpen = null;  // 지금 "더 보기"(예문·뜻풀이)를 펼쳐 둔 �
    평소엔 안 쓰는 522KB 를 첫 화면 모두에게 물릴 까닭이 없다. */
 let dictSensesP = null;
 const dictLoadSenses = () => (dictSensesP ??=
-  import('./glossary-senses.js?v=a5e267f6').then((m) => m.SENSES).catch(() => ({})));
+  import('./glossary-senses.js?v=1ee4c01d').then((m) => m.SENSES).catch(() => ({})));
 
 /* 예문. 국립국어원 자료엔 없어서 Gemini 로 새로 지은 것이다(있는 만큼만
    — docs/glossary-examples-gemini-prompt.md 참고). 뜻풀이와 같은 자리에서
    같이 받는다 — 펼치는 손짓 하나에 몰아 두는 편이 화면이 덜 복잡하다. */
 let dictExamplesP = null;
 const dictLoadExamples = () => (dictExamplesP ??=
-  import('./glossary-examples.js?v=a5e267f6').then((m) => m.EXAMPLES).catch(() => ({})));
+  import('./glossary-examples.js?v=1ee4c01d').then((m) => m.EXAMPLES).catch(() => ({})));
 
 function dictVisible() {
   const q = dictQuery.trim().toLowerCase();
@@ -4007,13 +4007,24 @@ function tqWordify(el, text, mark) {
     else span.textContent = piece;
     span.title = t('모르는 낱말로 표시', 'Mark as unknown');
     span.addEventListener('click', () => {
-      if (tqUnknown.has(key)) tqUnknown.delete(key);
-      else {
+      if (tqUnknown.has(key)) {
+        tqUnknown.delete(key);
+        tqWPopClose();          // 표시를 끄면 그 낱말 말풍선도 같이 닫는다
+      } else {
         /* 누른 꼴이 「먹었습니다」여도 단어장에는 「먹다」로 담는다.
            활용형이 그대로 쌓이면 같은 말이 열 번 들어간다. 지문에서
            켜고 끄는 열쇠는 누른 꼴 그대로 두어야 다시 눌러 끌 수 있다. */
         const g = tqGloss(key);
         tqUnknown.set(key, { word: g.head || key, ex: tqSentAt(s, here), mean: g.meaning, tag: g.tag });
+        /* 표시하는 그 손짓 하나로 뜻까지 본다 — 누르는 방법은 그대로 두고
+           보이는 것만 는다. 사전에 없는 말이면 안 띄운다(없는 뜻을 지어내지
+           않는다). 모의고사 중에도 안 띄운다.
+
+           단 성적표(#tqOver)의 「틀린 문제 다시 보기」는 예외다 — 시험이
+           이미 끝난 자리라 가릴 까닭이 없다. 모의고사가 끝나도 tqMock 은
+           다음 판을 시작할 때까지 켜져 있어서, 시각이 아니라 자리로 가른다. */
+        if (g.head && (!tqMock || span.closest('#tqOver'))) tqWPopOpen(span, g);
+        else tqWPopClose();
       }
       span.classList.toggle('on', tqUnknown.has(key));
       tqUnkStore();
@@ -4103,6 +4114,70 @@ async function tqLoadPack() {
     if (!$('tqUnk').classList.contains('hidden')) tqUnkDraw();
   } catch (e) { /* 못 받으면 영어로 간다 */ }
 }
+
+/* ══ 지문에서 바로 뜻 보기 ═══════════════════════════════════════
+   모르는 낱말이 많으면 문제를 풀 수가 없다 — 답을 몰라서가 아니라 무슨
+   말인지 몰라서 못 푸는 것은 시험 연습이 아니다. 그래서 **연습에서는**
+   누른 낱말의 뜻을 그 자리에서 보여 준다.
+
+   **모의고사에서는 안 보여 준다.** 이 파일 위(모르는 낱말 표시)에 적어
+   둔 그대로다 — 시간을 재고 실제 시험처럼 도는 자리에서 뜻을 띄우면
+   성적이 제 실력이 아니게 된다. 모의고사에서는 지금처럼 표시만 남고,
+   뜻은 끝난 뒤 성적표의 낱말 목록에서 본다.
+
+   사전에 있는 것만 띄운다. tqGloss 가 못 찾으면 head 가 빈 문자열이고,
+   그때는 말풍선 없이 표시만 남긴다 — 없는 뜻을 지어내지 않는다. */
+let tqWPopAt = null;   // 지금 말풍선이 가리키는 낱말. 닫을 때 표시를 지우려고 들고 있다.
+
+function tqWPopClose() {
+  if (!tqWPopAt) return;
+  $('tqWPop').hidden = true;
+  tqWPopAt = null;
+}
+
+/* 자리잡기는 읽기의 문법 말풍선(rdGPlace)과 같은 규칙이다 — 위가 좁으면
+   아래로 내리고, 화면 밖으로 안 나가게 잡고, 꼬리로 낱말을 가리킨다. */
+function tqWPopPlace(el) {
+  if (!el?.isConnected) return tqWPopClose();
+  const pop = $('tqWPop');
+  const r = el.getBoundingClientRect();
+  const p = pop.getBoundingClientRect();
+  const gap = 10;
+  const up = r.top - p.height - gap >= 8;
+  pop.classList.toggle('up', up);
+  pop.classList.toggle('down', !up);
+  pop.style.top = `${up ? r.top - p.height - gap : r.bottom + gap}px`;
+  const mid = r.left + r.width / 2;
+  const left = Math.max(8, Math.min(window.innerWidth - p.width - 8, mid - p.width / 2));
+  pop.style.left = `${left}px`;
+  $('tqWPopTail').style.left = `${Math.max(8, Math.min(p.width - 18, mid - left - 5))}px`;
+}
+
+function tqWPopOpen(el, g) {
+  tqWPopClose();
+  tqWPopAt = el;
+  $('tqWPopWord').textContent = g.head;
+  $('tqWPopMean').textContent = g.meaning || t('뜻풀이가 아직 없어요.', 'No meaning written yet.');
+  const tag = $('tqWPopTag');
+  tag.textContent = g.tag || '';
+  tag.hidden = !g.tag;
+  const pop = $('tqWPop');
+  pop.hidden = false;
+  /* 크기를 안 뒤에 자리를 잡는다 — 숨어 있는 동안은 높이가 0 이라
+     먼저 잡으면 늘 아래로 붙는다. */
+  tqWPopPlace(el);
+}
+
+/* 밖을 누르면 닫는다. 낱말과 말풍선 안쪽은 뺀다 — 낱말을 누른 그 클릭이
+   여기까지 올라와서 방금 연 말풍선을 도로 닫아 버리기 때문이다. */
+document.addEventListener('click', (ev) => {
+  if (ev.target.closest?.('.tq-w') || ev.target.closest?.('#tqWPop')) return;
+  tqWPopClose();
+});
+document.addEventListener('keydown', (ev) => { if (ev.key === 'Escape') tqWPopClose(); });
+/* 지문이 흐르면 말풍선도 따라간다. 그 자리에 남으면 엉뚱한 낱말을 가리킨다. */
+window.addEventListener('scroll', () => { if (tqWPopAt) tqWPopPlace(tqWPopAt); }, true);
+window.addEventListener('resize', () => { if (tqWPopAt) tqWPopPlace(tqWPopAt); });
 
 /* 낱말 하나의 뜻과 표제어. 고른 말에 없으면 영어로 물러선다 — 뜻이 아예
    없는 것보다 읽을 수 있는 말로라도 있는 편이 낫다.
@@ -4471,6 +4546,9 @@ const TQ_Q_EN = {
 const tqQuestionText = (q) => (isEn() && TQ_Q_EN[q.question]) || q.question;
 
 function tqDraw() {
+  /* 문항이 바뀌면 지문이 통째로 새로 그려진다. 말풍선을 열어 둔 채로
+     두면 없어진 낱말을 가리키고 있게 된다(읽기의 rdGClose 와 같은 이유). */
+  tqWPopClose();
   const q = tqRound[tqIdx];
   if (!q) return tqFinish();
   /* 맛보기를 다 썼으면 문제 대신 벽을 보여 준다. 판을 끝내지는 않는다 —
@@ -6161,6 +6239,9 @@ async function openSection(id, quiet) {
   /* 갈래를 옮기면 듣던 소리를 끊는다. 안 끊으면 코스 화면으로 가 있는데
      TOPIK 듣기 대화가 계속 흘러나온다. */
   tlStop();
+  /* 낱말 말풍선은 화면 맨 바깥에 있어서 갈래를 옮겨도 안 사라진다.
+     여기서 직접 닫는다 — 안 닫으면 코스 화면 위에 떠 있게 된다. */
+  tqWPopClose();
   LEARN_SECTIONS.forEach((x) => { if (x.pane) $(x.pane).classList.add('hidden'); });
   $('lsecSoon').classList.add('hidden');
   if (s.ready && s.pane) {
