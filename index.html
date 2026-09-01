@@ -115,8 +115,8 @@
      Pretendard 는 통짜(2.0MB) 대신 조각난 쪽을 쓴다 — 브라우저가
      unicode-range 를 보고 화면에 실제로 나온 글자가 든 조각만 받는다.
      그래서 저장소는 무거워졌지만 학습자가 받는 양은 오히려 줄었다. -->
-<link rel="stylesheet" href="vendor/pretendard.css?v=33e48219">
-<link rel="stylesheet" href="vendor/pressstart2p.css?v=33e48219">
+<link rel="stylesheet" href="vendor/pretendard.css?v=03248e25">
+<link rel="stylesheet" href="vendor/pressstart2p.css?v=03248e25">
 <style>
 /* ══════════════════════════════════════════════════════════════
    치즈감자 — 랜딩
@@ -1750,197 +1750,203 @@ button.btn-primary, button.btn-ghost { font-family:inherit; }
 
    두 칸이다: 왼쪽 목록(갈래·찾기·문서들), 오른쪽 문서(제목·서식·본문).
    좁은 화면에서는 한 칸만 보이고 .on-doc 이 붙으면 문서 쪽으로 넘어간다. */
-.sb-memo-btn {
-  display:inline-flex; align-items:center; gap:7px; margin-bottom:16px;
+/* 예문 만들기에서 내 노트로 넘어가는 자리. 노트는 어디서든 열 수
+   있어야 해서 사이드 메뉴에도 같은 길을 뒀다. */
+.sb-to-notes {
+  display:inline-flex; align-items:center; gap:7px; margin-bottom:18px;
   padding:9px 15px; font-size:13.5px; font-weight:600; color:var(--ink-2);
   background:transparent; border:1px solid var(--line); border-radius:999px;
   cursor:pointer; transition:background .16s, border-color .16s, color .16s;
 }
-.sb-memo-btn:hover { background:var(--surface-2); border-color:rgba(var(--ink-rgb),.2); color:var(--ink); }
-.sb-memo-btn.on { background:var(--tint); border-color:rgba(255,138,61,.35); color:var(--orange-deep); }
+.sb-to-notes:hover { background:var(--surface-2); border-color:rgba(var(--ink-rgb),.2); color:var(--ink); }
 
-.sb-memo {
-  display:grid; grid-template-columns:1fr; gap:0; margin-bottom:22px;
-  background:var(--surface); border:1px solid var(--line); border-radius:var(--r-l);
-  overflow:hidden; min-height:420px;
+.nt-memo {
+  display:grid; grid-template-columns:1fr; gap:0;
+  background:var(--surface); border:1px solid var(--line-2); border-radius:var(--r-l);
+  overflow:hidden; min-height:480px;
 }
-@media (min-width:820px) { .sb-memo { grid-template-columns:262px 1fr; } }
+@media (min-width:820px) { .nt-memo { grid-template-columns:262px 1fr; } }
 
 /* ── 왼쪽: 목록 ─────────────────────────────────────────────── */
-.sb-memo-side {
+.nt-memo-side {
   display:flex; flex-direction:column; min-width:0;
   background:var(--surface-2); border-right:1px solid var(--line-2); padding:14px;
 }
-.sb-memo-side-h { margin-bottom:10px; }
-.sb-memo-new {
-  width:100%; font:inherit; font-size:13.5px; font-weight:600; color:#fff;
-  background:var(--ink-bg); border:1px solid var(--ink-bg); border-radius:var(--r-s);
-  padding:10px 12px; cursor:pointer;
-  transition:background .18s cubic-bezier(.22,1,.36,1);
+/* 목록 머리. 왼쪽에 「노트」, 오른쪽에 + 하나. */
+.nt-memo-side-h { display:flex; align-items:center; margin-bottom:9px; }
+.nt-memo-side-h::before {
+  content:'NOTES'; font-size:10.5px; font-weight:700; letter-spacing:.14em; color:var(--ink-3);
 }
-.sb-memo-new:hover { background:#33261E; }
-.sb-memo-q {
+.nt-memo-new {
+  margin-left:auto; font:inherit; font-size:17px; line-height:1; color:var(--ink-2);
+  background:none; border:1px solid transparent; border-radius:7px;
+  width:28px; height:28px; cursor:pointer;
+  display:inline-flex; align-items:center; justify-content:center;
+  transition:background .16s, color .16s;
+}
+.nt-memo-new:hover { background:rgba(var(--ink-rgb),.07); color:var(--ink); }
+.nt-memo-q {
   width:100%; padding:9px 12px; font:inherit; font-size:13px; margin-bottom:10px;
   color:var(--ink); background:var(--surface); border:1px solid var(--line); border-radius:var(--r-s);
 }
-.sb-memo-q:focus { outline:none; border-color:var(--orange); }
+.nt-memo-q:focus { outline:none; border-color:var(--orange); }
 
 /* 갈래 칩. 회화 연습의 .cv-cat 과 같은 결 — 같은 「거르개」다. */
-.sb-memo-cats { display:flex; flex-wrap:wrap; gap:5px; margin-bottom:11px; }
-.sb-memo-cat {
+.nt-memo-cats { display:flex; flex-wrap:wrap; gap:5px; margin-bottom:11px; }
+.nt-memo-cat {
   font:inherit; font-size:11.5px; font-weight:600; color:var(--ink-2);
   padding:4px 10px; border-radius:999px; background:var(--surface);
   border:1px solid var(--line); cursor:pointer; max-width:100%;
   overflow:hidden; text-overflow:ellipsis; white-space:nowrap;
   transition:background .16s, border-color .16s, color .16s;
 }
-.sb-memo-cat:hover { border-color:rgba(var(--ink-rgb),.22); color:var(--ink); }
-.sb-memo-cat.on { background:var(--orange); border-color:var(--orange); color:#fff; }
+.nt-memo-cat:hover { border-color:rgba(var(--ink-rgb),.22); color:var(--ink); }
+.nt-memo-cat.on { background:var(--orange); border-color:var(--orange); color:#fff; }
 /* 갈래를 만들고 고치는 단추는 거르개가 아니다 — 점선으로 갈라 둔다
    (낱말장의 .tq-unk-add 와 같은 규칙). */
-.sb-memo-cat.act { border-style:dashed; background:none; color:var(--ink-3); font-weight:500; }
-.sb-memo-cat.act:hover { color:var(--orange-deep); border-color:var(--orange); }
+.nt-memo-cat.act { border-style:dashed; background:none; color:var(--ink-3); font-weight:500; }
+.nt-memo-cat.act:hover { color:var(--orange-deep); border-color:var(--orange); }
 
-.sb-memo-list { flex:1 1 auto; overflow-y:auto; display:flex; flex-direction:column; gap:5px; max-height:420px; }
-.sb-memo-item {
+.nt-memo-list { flex:1 1 auto; overflow-y:auto; display:flex; flex-direction:column; gap:5px; max-height:420px; }
+.nt-memo-item {
   text-align:left; width:100%; font:inherit; cursor:pointer;
   background:var(--surface); border:1px solid var(--line-2); border-radius:var(--r-s);
   padding:9px 11px; transition:border-color .16s, background .16s;
 }
-.sb-memo-item:hover { border-color:rgba(var(--ink-rgb),.2); }
-.sb-memo-item.on { border-color:var(--orange); background:var(--tint); }
-.sb-memo-item-t {
+.nt-memo-item:hover { border-color:rgba(var(--ink-rgb),.2); }
+.nt-memo-item.on { border-color:var(--orange); background:var(--tint); }
+.nt-memo-item-t {
   font-size:13.5px; font-weight:700; color:var(--ink); letter-spacing:-.02em;
   overflow:hidden; text-overflow:ellipsis; white-space:nowrap;
 }
-.sb-memo-item-p {
+.nt-memo-item-p {
   font-size:11.5px; color:var(--ink-3); margin-top:2px;
   overflow:hidden; text-overflow:ellipsis; white-space:nowrap;
 }
-.sb-memo-item-m { display:flex; align-items:center; gap:5px; margin-top:5px; }
-.sb-memo-item-c {
+.nt-memo-item-m { display:flex; align-items:center; gap:5px; margin-top:5px; }
+.nt-memo-item-c {
   font-size:10px; font-weight:700; letter-spacing:.04em; color:var(--orange-deep);
   background:var(--tint); border:1px solid rgba(255,138,61,.25); border-radius:999px; padding:1px 7px;
   overflow:hidden; text-overflow:ellipsis; white-space:nowrap; max-width:60%;
 }
-.sb-memo-item-at { font-size:10.5px; color:var(--ink-3); margin-left:auto; flex:none; }
-.sb-memo-empty { font-size:12.5px; color:var(--ink-3); text-align:center; padding:22px 8px; word-break:keep-all; line-height:1.6; }
-.sb-memo-empty[hidden] { display:none; }
-.sb-memo-side-f { display:flex; align-items:center; gap:8px; margin-top:11px; padding-top:11px; border-top:1px solid var(--line-2); }
-.sb-memo-tool {
+.nt-memo-item-at { font-size:10.5px; color:var(--ink-3); margin-left:auto; flex:none; }
+.nt-memo-empty { font-size:12.5px; color:var(--ink-3); text-align:center; padding:22px 8px; word-break:keep-all; line-height:1.6; }
+.nt-memo-empty[hidden] { display:none; }
+.nt-memo-side-f { display:flex; align-items:center; gap:8px; margin-top:11px; padding-top:11px; border-top:1px solid var(--line-2); }
+.nt-memo-tool {
   font:inherit; font-size:11.5px; font-weight:600; color:var(--ink-2);
   padding:6px 11px; background:var(--surface); border:1px solid var(--line);
   border-radius:var(--r-s); cursor:pointer; white-space:nowrap;
   transition:border-color .16s, color .16s;
 }
-.sb-memo-tool:hover { border-color:rgba(var(--ink-rgb),.22); color:var(--ink); }
-.sb-memo-tool:disabled { opacity:.4; cursor:default; }
-.sb-memo-stat { font-size:11px; color:var(--ink-3); margin-left:auto; }
+.nt-memo-tool:hover { border-color:rgba(var(--ink-rgb),.22); color:var(--ink); }
+.nt-memo-tool:disabled { opacity:.4; cursor:default; }
+.nt-memo-stat { font-size:11px; color:var(--ink-3); margin-left:auto; }
 
 /* ── 오른쪽: 문서 ───────────────────────────────────────────── */
-.sb-memo-doc { display:flex; flex-direction:column; min-width:0; padding:16px 18px 14px; }
-.sb-memo-doc.hidden, .sb-memo-none.hidden { display:none; }
-.sb-memo-doc-h { display:flex; align-items:center; gap:8px; margin-bottom:10px; }
-.sb-memo-back {
+.nt-memo-doc { display:flex; flex-direction:column; min-width:0; padding:16px 18px 14px; }
+.nt-memo-doc.hidden, .nt-memo-none.hidden { display:none; }
+.nt-memo-doc-h { display:flex; align-items:center; gap:8px; margin-bottom:10px; }
+.nt-memo-back {
   display:none; font:inherit; font-size:12.5px; font-weight:600; color:var(--ink-2);
   background:none; border:1px solid var(--line); border-radius:999px; padding:5px 12px; cursor:pointer;
 }
-.sb-memo-back:hover { color:var(--ink); border-color:rgba(var(--ink-rgb),.22); }
-.sb-memo-sel {
+.nt-memo-back:hover { color:var(--ink); border-color:rgba(var(--ink-rgb),.22); }
+.nt-memo-sel {
   font:inherit; font-size:12px; color:var(--ink-2); padding:6px 9px;
   background:var(--surface); border:1px solid var(--line); border-radius:var(--r-s);
   cursor:pointer; max-width:46%;
 }
-.sb-memo-sel:focus { outline:none; border-color:var(--orange); }
-.sb-memo-doc-acts { display:flex; gap:2px; margin-left:auto; }
-.sb-memo-act {
+.nt-memo-sel:focus { outline:none; border-color:var(--orange); }
+.nt-memo-doc-acts { display:flex; gap:2px; margin-left:auto; }
+.nt-memo-act {
   border:none; background:none; cursor:pointer; color:var(--ink-3);
   width:28px; height:28px; border-radius:7px; font-size:13px; line-height:1;
   display:inline-flex; align-items:center; justify-content:center;
   transition:background .16s, color .16s;
 }
-.sb-memo-act:hover { background:rgba(var(--ink-rgb),.06); color:var(--ink); }
-.sb-memo-act.on { color:var(--orange-deep); background:var(--tint); }
-.sb-memo-act-del:hover { color:var(--red); }
+.nt-memo-act:hover { background:rgba(var(--ink-rgb),.06); color:var(--ink); }
+.nt-memo-act.on { color:var(--orange-deep); background:var(--tint); }
+.nt-memo-act-del:hover { color:var(--red); }
 
-.sb-memo-title {
+.nt-memo-title {
   width:100%; border:none; background:none; padding:0 0 8px;
   font:inherit; font-size:22px; font-weight:700; letter-spacing:-.035em; color:var(--ink);
 }
-.sb-memo-title:focus { outline:none; }
-.sb-memo-title::placeholder { color:var(--ink-3); opacity:.55; }
+.nt-memo-title:focus { outline:none; }
+.nt-memo-title::placeholder { color:var(--ink-3); opacity:.55; }
 
-.sb-memo-bar { display:flex; flex-wrap:wrap; gap:3px; padding:6px 0 9px; border-bottom:1px solid var(--line-2); margin-bottom:11px; }
-.sb-memo-fx {
+.nt-memo-bar { display:flex; flex-wrap:wrap; gap:2px; padding:2px 0 8px; margin-bottom:6px; }
+.nt-memo-fx {
   font:inherit; font-size:12px; font-weight:600; color:var(--ink-2);
   background:none; border:1px solid transparent; border-radius:6px;
   padding:5px 9px; cursor:pointer; line-height:1;
   transition:background .16s, color .16s;
 }
-.sb-memo-fx:hover { background:rgba(var(--ink-rgb),.06); color:var(--ink); }
-.sb-memo-fx.on { background:var(--tint); color:var(--orange-deep); }
-.sb-memo-fx-sp { width:1px; background:var(--line-2); margin:4px 4px; }
+.nt-memo-fx:hover { background:rgba(var(--ink-rgb),.06); color:var(--ink); }
+.nt-memo-fx.on { background:var(--tint); color:var(--orange-deep); }
+.nt-memo-fx-sp { width:1px; background:var(--line-2); margin:4px 4px; }
 
-.sb-memo-body {
+.nt-memo-body {
   flex:1 1 auto; width:100%; min-height:260px; resize:vertical;
   border:none; background:none; padding:0;
   font:inherit; font-size:15px; line-height:1.9; color:var(--ink);
 }
-.sb-memo-body:focus { outline:none; }
-.sb-memo-body::placeholder { color:var(--ink-3); opacity:.6; }
+.nt-memo-body:focus { outline:none; }
+.nt-memo-body::placeholder { color:var(--ink-3); opacity:.6; }
 
 /* 미리보기. 쓰던 글을 그대로 두고 보기만 바꾸는 자리라 크기를 맞춰 둔다. */
-.sb-memo-view { flex:1 1 auto; min-height:260px; font-size:15px; line-height:1.9; color:var(--ink); word-break:keep-all; }
-.sb-memo-view h1 { font-size:20px; font-weight:700; letter-spacing:-.03em; margin:14px 0 6px; }
-.sb-memo-view h2 { font-size:17px; font-weight:700; letter-spacing:-.025em; margin:13px 0 5px; }
-.sb-memo-view h3 { font-size:15px; font-weight:700; margin:12px 0 4px; }
-.sb-memo-view p { margin:0 0 9px; }
-.sb-memo-view ul, .sb-memo-view ol { margin:0 0 9px; padding-left:20px; }
-.sb-memo-view li { margin:2px 0; }
-.sb-memo-view blockquote {
+.nt-memo-view { flex:1 1 auto; min-height:260px; font-size:15px; line-height:1.9; color:var(--ink); word-break:keep-all; }
+.nt-memo-view h1 { font-size:20px; font-weight:700; letter-spacing:-.03em; margin:14px 0 6px; }
+.nt-memo-view h2 { font-size:17px; font-weight:700; letter-spacing:-.025em; margin:13px 0 5px; }
+.nt-memo-view h3 { font-size:15px; font-weight:700; margin:12px 0 4px; }
+.nt-memo-view p { margin:0 0 9px; }
+.nt-memo-view ul, .nt-memo-view ol { margin:0 0 9px; padding-left:20px; }
+.nt-memo-view li { margin:2px 0; }
+.nt-memo-view blockquote {
   margin:0 0 10px; padding:6px 0 6px 13px; border-left:3px solid var(--orange);
   color:var(--ink-2); background:var(--surface-2); border-radius:0 var(--r-s) var(--r-s) 0;
 }
-.sb-memo-view code { font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:13.5px; background:var(--surface-2); border:1px solid var(--line-2); border-radius:5px; padding:1px 5px; }
-.sb-memo-view hr { border:none; border-top:1px solid var(--line); margin:14px 0; }
-.sb-memo-view a { color:var(--orange-deep); text-decoration:underline; text-underline-offset:3px; }
+.nt-memo-view code { font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:13.5px; background:var(--surface-2); border:1px solid var(--line-2); border-radius:5px; padding:1px 5px; }
+.nt-memo-view hr { border:none; border-top:1px solid var(--line); margin:14px 0; }
+.nt-memo-view a { color:var(--orange-deep); text-decoration:underline; text-underline-offset:3px; }
 /* 할 일. 미리보기에서 눌러 켜고 끌 수 있다 — 원문의 [ ] 가 [x] 로 바뀐다. */
-.sb-memo-todo { list-style:none; margin-left:-20px; }
-.sb-memo-todo li { display:flex; align-items:flex-start; gap:8px; }
-.sb-memo-tick {
+.nt-memo-todo { list-style:none; margin-left:-20px; }
+.nt-memo-todo li { display:flex; align-items:flex-start; gap:8px; }
+.nt-memo-tick {
   flex:none; margin-top:5px; width:15px; height:15px; border-radius:4px; cursor:pointer;
   border:1.5px solid var(--line); background:var(--surface); padding:0;
   display:inline-flex; align-items:center; justify-content:center;
   font-size:10px; line-height:1; color:#fff;
 }
-.sb-memo-tick.on { background:var(--orange); border-color:var(--orange); }
-.sb-memo-done { color:var(--ink-3); text-decoration:line-through; }
+.nt-memo-tick.on { background:var(--orange); border-color:var(--orange); }
+.nt-memo-done { color:var(--ink-3); text-decoration:line-through; }
 
-.sb-memo-doc-f { display:flex; align-items:center; gap:10px; margin-top:10px; padding-top:9px; border-top:1px solid var(--line-2); }
-.sb-memo-saved { font-size:11.5px; color:var(--ink-3); }
-.sb-memo-count { font-size:11.5px; color:var(--ink-3); margin-left:auto; }
+.nt-memo-doc-f { display:flex; align-items:center; gap:10px; margin-top:10px; padding-top:9px; border-top:1px solid var(--line-2); }
+.nt-memo-saved { font-size:11.5px; color:var(--ink-3); }
+.nt-memo-count { font-size:11.5px; color:var(--ink-3); margin-left:auto; }
 
 /* 아무 문서도 안 열었을 때 */
-.sb-memo-none {
+.nt-memo-none {
   display:none; align-items:center; justify-content:center; text-align:center;
   padding:40px 24px; font-size:13.5px; color:var(--ink-3); line-height:1.7; word-break:keep-all;
 }
-.sb-memo.no-doc .sb-memo-doc { display:none; }
-.sb-memo.no-doc .sb-memo-none { display:flex; }
+.nt-memo.no-doc .nt-memo-doc { display:none; }
+.nt-memo.no-doc .nt-memo-none { display:flex; }
 
 /* 좁은 화면: 한 칸만 보여 주고 목록 ↔ 문서로 오간다. */
 @media (max-width:819px) {
-  .sb-memo { min-height:0; }
-  .sb-memo-side { border-right:none; border-bottom:1px solid var(--line-2); }
-  .sb-memo-list { max-height:300px; }
-  .sb-memo-doc, .sb-memo-none { display:none; }
-  .sb-memo.on-doc .sb-memo-side { display:none; }
-  .sb-memo.on-doc .sb-memo-doc { display:flex; }
-  .sb-memo.on-doc.no-doc .sb-memo-doc { display:none; }
-  .sb-memo-back { display:inline-flex; }
-  .sb-memo-sel { max-width:none; flex:1 1 auto; min-width:0; }
-  .sb-memo-title { font-size:19px; }
-  .sb-memo-body, .sb-memo-view { min-height:200px; }
+  .nt-memo { min-height:0; }
+  .nt-memo-side { border-right:none; border-bottom:1px solid var(--line-2); }
+  .nt-memo-list { max-height:300px; }
+  .nt-memo-doc, .nt-memo-none { display:none; }
+  .nt-memo.on-doc .nt-memo-side { display:none; }
+  .nt-memo.on-doc .nt-memo-doc { display:flex; }
+  .nt-memo.on-doc.no-doc .nt-memo-doc { display:none; }
+  .nt-memo-back { display:inline-flex; }
+  .nt-memo-sel { max-width:none; flex:1 1 auto; min-width:0; }
+  .nt-memo-title { font-size:19px; }
+  .nt-memo-body, .nt-memo-view { min-height:200px; }
 }
 
 /* ══ 배우기 : 예문 게시판 ═══════════════════════════════════════ */
@@ -4425,6 +4431,9 @@ body.hlp-open { overflow:hidden; }
         <button class="side-item" type="button" data-open="learn/sentence">
           <span class="side-item-ico">✍️</span><span data-en="Build a sentence">예문 만들기</span>
         </button>
+        <button class="side-item" type="button" data-open="learn/notes">
+          <span class="side-item-ico">🗒️</span><span data-en="My notes">내 노트</span>
+        </button>
        </div>
       </div>
     </div>
@@ -5027,53 +5036,9 @@ body.hlp-open { overflow:hidden; }
           <p id="sbIntro" class="learn-copy"></p>
           <div id="sbSummary" class="learn-summary"></div>
         </div>
-        <!-- 내 메모장 — 로그인 없이 브라우저에만 남는 개인 칠판. 표현마다
-             딸린 게시판(sbDetail 안, 남도 보는 예문 자리)과는 완전히
-             별개다 — 여기는 나만 보고, 급수·표현에도 안 묶인다. -->
-        <button type="button" id="sbMemoBtn" class="sb-memo-btn"></button>
-        <!-- 두 칸짜리 노트 앱이다. 왼쪽은 갈래·찾기·문서 목록, 오른쪽은
-             지금 펼친 문서(제목 + 본문 + 서식 단추). 좁은 화면에서는 한
-             칸만 보이고 목록 ↔ 문서로 오간다(sb-memo.on-doc). -->
-        <div id="sbMemo" class="sb-memo hidden">
-          <div class="sb-memo-side">
-            <div class="sb-memo-side-h">
-              <button type="button" id="sbMemoNew" class="sb-memo-new"></button>
-            </div>
-            <input id="sbMemoQ" class="sb-memo-q" type="search" autocomplete="off">
-            <div id="sbMemoCats" class="sb-memo-cats"></div>
-            <div id="sbMemoList" class="sb-memo-list"></div>
-            <p id="sbMemoEmpty" class="sb-memo-empty" hidden></p>
-            <div class="sb-memo-side-f">
-              <button type="button" id="sbMemoDl" class="sb-memo-tool"></button>
-              <span id="sbMemoStat" class="sb-memo-stat"></span>
-            </div>
-          </div>
-
-          <div class="sb-memo-doc" id="sbMemoDoc">
-            <div class="sb-memo-doc-h">
-              <button type="button" id="sbMemoBack" class="sb-memo-back"></button>
-              <select id="sbMemoDocCat" class="sb-memo-sel"></select>
-              <span class="sb-memo-doc-acts">
-                <button type="button" id="sbMemoPin" class="sb-memo-act" title="고정">📌</button>
-                <button type="button" id="sbMemoCopy" class="sb-memo-act" title="복사">⧉</button>
-                <button type="button" id="sbMemoDup" class="sb-memo-act" title="복제">⧉+</button>
-                <button type="button" id="sbMemoDel" class="sb-memo-act sb-memo-act-del" title="지우기">🗑</button>
-              </span>
-            </div>
-            <input id="sbMemoTitle" class="sb-memo-title" type="text" maxlength="120" data-clarity-mask="true">
-            <!-- 서식 단추. 글자를 직접 넣는 방식이라(마크다운) 붙여넣기·
-                 되돌리기가 브라우저 기본 그대로 산다. -->
-            <div id="sbMemoBar" class="sb-memo-bar"></div>
-            <textarea id="sbMemoBody" class="sb-memo-body" data-clarity-mask="true"></textarea>
-            <div id="sbMemoView" class="sb-memo-view hidden"></div>
-            <div class="sb-memo-doc-f">
-              <span id="sbMemoSaved" class="sb-memo-saved"></span>
-              <span id="sbMemoCount" class="sb-memo-count"></span>
-            </div>
-          </div>
-
-          <div class="sb-memo-none" id="sbMemoNone"></div>
-        </div>
+        <!-- 내 노트로 건너가는 자리. 메모장 자체는 별도 갈래(ntWrap)로
+             옮겼다 — 예문을 보다 적고 싶을 때 여기서 바로 넘어간다. -->
+        <button type="button" id="sbToNotes" class="sb-to-notes"></button>
         <div id="sbBrowse">
           <input id="sbQ" class="sb-q" type="search" autocomplete="off" aria-label="표현 찾기" data-en-aria="Search expressions">
           <div id="sbCats"></div>
@@ -5096,6 +5061,59 @@ body.hlp-open { overflow:hidden; }
           <div id="rdSummary" class="learn-summary"></div>
         </div>
         <div id="rdList"></div>
+      </div>
+
+      <!-- 갈래 : 내 노트 ───────────────────────────────────────
+           로그인 없이 브라우저에만 남는 개인 노트. 표현마다 딸린
+           게시판(남도 보는 예문 자리)과는 완전히 별개다 — 여기는
+           나만 보고, 급수·표현에도 안 묶인다. -->
+      <div id="ntWrap" class="hidden">
+        <div class="learn-head">
+          <p id="ntIntro" class="learn-copy"></p>
+        </div>
+        <!-- 두 칸짜리 노트 앱이다. 왼쪽은 갈래·찾기·문서 목록, 오른쪽은
+             지금 펼친 문서(제목 + 본문 + 서식 단추). 좁은 화면에서는 한
+             칸만 보이고 목록 ↔ 문서로 오간다(nt-memo.on-doc). -->
+        <div id="ntMemo" class="nt-memo">
+          <div class="nt-memo-side">
+            <div class="nt-memo-side-h">
+              <button type="button" id="ntMemoNew" class="nt-memo-new"></button>
+            </div>
+            <input id="ntMemoQ" class="nt-memo-q" type="search" autocomplete="off">
+            <div id="ntMemoCats" class="nt-memo-cats"></div>
+            <div id="ntMemoList" class="nt-memo-list"></div>
+            <p id="ntMemoEmpty" class="nt-memo-empty" hidden></p>
+            <div class="nt-memo-side-f">
+              <button type="button" id="ntMemoDl" class="nt-memo-tool"></button>
+              <span id="ntMemoStat" class="nt-memo-stat"></span>
+            </div>
+          </div>
+
+          <div class="nt-memo-doc" id="ntMemoDoc">
+            <div class="nt-memo-doc-h">
+              <button type="button" id="ntMemoBack" class="nt-memo-back"></button>
+              <select id="ntMemoDocCat" class="nt-memo-sel"></select>
+              <span class="nt-memo-doc-acts">
+                <button type="button" id="ntMemoPin" class="nt-memo-act" title="고정">📌</button>
+                <button type="button" id="ntMemoCopy" class="nt-memo-act" title="복사">⧉</button>
+                <button type="button" id="ntMemoDup" class="nt-memo-act" title="복제">⧉+</button>
+                <button type="button" id="ntMemoDel" class="nt-memo-act nt-memo-act-del" title="지우기">🗑</button>
+              </span>
+            </div>
+            <input id="ntMemoTitle" class="nt-memo-title" type="text" maxlength="120" data-clarity-mask="true">
+            <!-- 서식 단추. 글자를 직접 넣는 방식이라(마크다운) 붙여넣기·
+                 되돌리기가 브라우저 기본 그대로 산다. -->
+            <div id="ntMemoBar" class="nt-memo-bar"></div>
+            <textarea id="ntMemoBody" class="nt-memo-body" data-clarity-mask="true"></textarea>
+            <div id="ntMemoView" class="nt-memo-view hidden"></div>
+            <div class="nt-memo-doc-f">
+              <span id="ntMemoSaved" class="nt-memo-saved"></span>
+              <span id="ntMemoCount" class="nt-memo-count"></span>
+            </div>
+          </div>
+
+          <div class="nt-memo-none" id="ntMemoNone"></div>
+        </div>
       </div>
 
       <!-- 갈래 : 회화 연습 ─────────────────────────────────────
@@ -6298,9 +6316,9 @@ body.hlp-open { overflow:hidden; }
 <div id="hlpScrim" class="hlp-scrim"></div>
 <aside id="hlpPanel" class="hlp-panel" aria-label="한국어 도우미" aria-hidden="true"></aside>
 
-<script src="app.js?v=33e48219"></script>
-<script type="module" src="app.module.js?v=33e48219"></script>
+<script src="app.js?v=03248e25"></script>
+<script type="module" src="app.module.js?v=03248e25"></script>
 
-<script src="analytics.js?v=33e48219" defer></script>
+<script src="analytics.js?v=03248e25" defer></script>
 </body>
 </html>
