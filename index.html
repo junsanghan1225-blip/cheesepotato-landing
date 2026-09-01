@@ -115,8 +115,8 @@
      Pretendard 는 통짜(2.0MB) 대신 조각난 쪽을 쓴다 — 브라우저가
      unicode-range 를 보고 화면에 실제로 나온 글자가 든 조각만 받는다.
      그래서 저장소는 무거워졌지만 학습자가 받는 양은 오히려 줄었다. -->
-<link rel="stylesheet" href="vendor/pretendard.css?v=a39c7cf3">
-<link rel="stylesheet" href="vendor/pressstart2p.css?v=a39c7cf3">
+<link rel="stylesheet" href="vendor/pretendard.css?v=16728a27">
+<link rel="stylesheet" href="vendor/pressstart2p.css?v=16728a27">
 <style>
 /* ══════════════════════════════════════════════════════════════
    치즈감자 — 랜딩
@@ -1876,51 +1876,154 @@ button.btn-primary, button.btn-ghost { font-family:inherit; }
 .nt-memo-title:focus { outline:none; }
 .nt-memo-title::placeholder { color:var(--ink-3); opacity:.55; }
 
-.nt-memo-bar { display:flex; flex-wrap:wrap; gap:2px; padding:2px 0 8px; margin-bottom:6px; }
-.nt-memo-fx {
-  font:inherit; font-size:12px; font-weight:600; color:var(--ink-2);
-  background:none; border:1px solid transparent; border-radius:6px;
-  padding:5px 9px; cursor:pointer; line-height:1;
-  transition:background .16s, color .16s;
-}
-.nt-memo-fx:hover { background:rgba(var(--ink-rgb),.06); color:var(--ink); }
-.nt-memo-fx.on { background:var(--tint); color:var(--orange-deep); }
-.nt-memo-fx-sp { width:1px; background:var(--line-2); margin:4px 4px; }
+/* ── 블록(섹션) 편집기 ─────────────────────────────────────────
+   노션처럼 한 덩이씩 쌓는다. 한 블록이 한 줄짜리 글감이고, 종류(제목·
+   목록·할 일·인용·강조 칸·코드·구분선)와 색을 저마다 가진다.
 
-.nt-memo-body {
-  flex:1 1 auto; width:100%; min-height:260px; resize:vertical;
-  border:none; background:none; padding:0;
-  font:inherit; font-size:15px; line-height:1.9; color:var(--ink);
-}
-.nt-memo-body:focus { outline:none; }
-.nt-memo-body::placeholder { color:var(--ink-3); opacity:.6; }
+   글 칸은 contenteditable 이다. 그런데 **글자를 치는 동안에는 그 칸의
+   DOM 을 절대 다시 그리지 않는다** — 한글은 조합 중(ㄱ→가→각)에 DOM 이
+   바뀌면 조합이 끊겨 「각」이 「ㄱ가」로 흩어진다. 치는 동안에는 자료만
+   고치고, 다시 그리는 것은 블록을 더하거나 종류를 바꿀 때뿐이다. */
+.nb-list { display:flex; flex-direction:column; gap:1px; margin-top:2px; }
+.nb-row { display:flex; align-items:flex-start; gap:2px; border-radius:6px; padding:1px 0; }
+.nb-row.drag-over { box-shadow:inset 0 2px 0 var(--orange); }
+.nb-row.dragging { opacity:.4; }
 
-/* 미리보기. 쓰던 글을 그대로 두고 보기만 바꾸는 자리라 크기를 맞춰 둔다. */
-.nt-memo-view { flex:1 1 auto; min-height:260px; font-size:15px; line-height:1.9; color:var(--ink); word-break:keep-all; }
-.nt-memo-view h1 { font-size:20px; font-weight:700; letter-spacing:-.03em; margin:14px 0 6px; }
-.nt-memo-view h2 { font-size:17px; font-weight:700; letter-spacing:-.025em; margin:13px 0 5px; }
-.nt-memo-view h3 { font-size:15px; font-weight:700; margin:12px 0 4px; }
-.nt-memo-view p { margin:0 0 9px; }
-.nt-memo-view ul, .nt-memo-view ol { margin:0 0 9px; padding-left:20px; }
-.nt-memo-view li { margin:2px 0; }
-.nt-memo-view blockquote {
-  margin:0 0 10px; padding:6px 0 6px 13px; border-left:3px solid var(--orange);
-  color:var(--ink-2); background:var(--surface-2); border-radius:0 var(--r-s) var(--r-s) 0;
-}
-.nt-memo-view code { font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:13.5px; background:var(--surface-2); border:1px solid var(--line-2); border-radius:5px; padding:1px 5px; }
-.nt-memo-view hr { border:none; border-top:1px solid var(--line); margin:14px 0; }
-.nt-memo-view a { color:var(--orange-deep); text-decoration:underline; text-underline-offset:3px; }
-/* 할 일. 미리보기에서 눌러 켜고 끌 수 있다 — 원문의 [ ] 가 [x] 로 바뀐다. */
-.nt-memo-todo { list-style:none; margin-left:-20px; }
-.nt-memo-todo li { display:flex; align-items:flex-start; gap:8px; }
-.nt-memo-tick {
-  flex:none; margin-top:5px; width:15px; height:15px; border-radius:4px; cursor:pointer;
-  border:1.5px solid var(--line); background:var(--surface); padding:0;
+/* 왼쪽 손잡이. 얹어야 나온다 — 늘 보이면 글보다 단추가 먼저 보인다. */
+.nb-gut { display:flex; align-items:center; gap:0; flex:none; width:44px; padding-top:3px; opacity:0; transition:opacity .12s; }
+.nb-row:hover .nb-gut, .nb-row:focus-within .nb-gut { opacity:1; }
+.nb-gut button {
+  width:21px; height:24px; border:none; background:none; cursor:pointer; padding:0;
+  color:var(--ink-3); font-size:14px; line-height:1; border-radius:5px;
   display:inline-flex; align-items:center; justify-content:center;
-  font-size:10px; line-height:1; color:#fff;
 }
-.nt-memo-tick.on { background:var(--orange); border-color:var(--orange); }
-.nt-memo-done { color:var(--ink-3); text-decoration:line-through; }
+.nb-gut button:hover { background:rgba(var(--ink-rgb),.08); color:var(--ink); }
+.nb-grip { cursor:grab; }
+.nb-grip:active { cursor:grabbing; }
+
+.nb-main { flex:1 1 auto; min-width:0; }
+/* 글 칸. 종류에 따라 크기와 굵기만 달라지고 자리는 하나다. */
+.nb-txt {
+  width:100%; outline:none; font:inherit; color:var(--ink);
+  font-size:15px; line-height:1.85; padding:3px 6px; border-radius:5px;
+  word-break:keep-all; overflow-wrap:anywhere; white-space:pre-wrap;
+}
+.nb-txt:empty::before { content:attr(data-ph); color:var(--ink-3); opacity:.55; }
+.nb-txt:focus { background:rgba(var(--ink-rgb),.03); }
+
+.nb-h1 .nb-txt { font-size:24px; font-weight:700; letter-spacing:-.035em; line-height:1.4; margin-top:8px; }
+.nb-h2 .nb-txt { font-size:19px; font-weight:700; letter-spacing:-.03em; line-height:1.45; margin-top:6px; }
+.nb-h3 .nb-txt { font-size:16.5px; font-weight:700; letter-spacing:-.02em; line-height:1.5; }
+.nb-code .nb-txt {
+  font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:13.5px; line-height:1.7;
+  background:var(--surface-2); border:1px solid var(--line-2); border-radius:var(--r-s); padding:10px 12px;
+}
+/* 목록·할 일은 앞에 표가 붙는다. 표는 글자와 같은 줄 높이에 맞춘다. */
+.nb-mark { flex:none; width:20px; padding-top:6px; text-align:center; color:var(--ink-3); font-size:14px; line-height:1; user-select:none; }
+.nb-inline { display:flex; align-items:flex-start; }
+.nb-tick {
+  flex:none; margin:7px 0 0; width:16px; height:16px; border-radius:4px; cursor:pointer; padding:0;
+  border:1.5px solid var(--line); background:var(--surface);
+  display:inline-flex; align-items:center; justify-content:center; font-size:10px; color:#fff; line-height:1;
+}
+.nb-tick.on { background:var(--orange); border-color:var(--orange); }
+.nb-todo.done .nb-txt { color:var(--ink-3); text-decoration:line-through; }
+
+.nb-quote .nb-inline { border-left:3px solid var(--orange); padding-left:11px; }
+.nb-quote .nb-txt { color:var(--ink-2); }
+/* 강조 칸(콜아웃). 노션의 그것 — 아이콘 하나에 옅은 바탕. */
+.nb-call .nb-inline { background:var(--tint); border-radius:var(--r); padding:9px 12px 9px 10px; }
+.nb-call .nb-mark { padding-top:4px; font-size:15px; }
+.nb-hr { height:1px; background:var(--line); margin:12px 6px; border-radius:1px; }
+
+/* 블록 색. 글자색과 바탕색을 따로 고른다 — 노션과 같다. 반투명이라
+   밝은 모드·어두운 모드 어느 쪽에서도 글자가 산다. */
+.nb-c-gray   .nb-txt { color:var(--ink-3); }
+.nb-c-orange .nb-txt { color:var(--orange-deep); }
+.nb-c-green  .nb-txt { color:var(--green); }
+.nb-c-red    .nb-txt { color:var(--red); }
+.nb-c-blue   .nb-txt { color:#4A7DB5; }
+:root[data-theme="dark"] .nb-c-blue .nb-txt { color:#8FB6E4; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .nb-c-blue .nb-txt { color:#8FB6E4; } }
+.nb-b-gray   .nb-inline, .nb-b-gray   > .nb-txt { background:rgba(var(--ink-rgb),.07); }
+.nb-b-orange .nb-inline, .nb-b-orange > .nb-txt { background:rgba(255,145,77,.16); }
+.nb-b-yellow .nb-inline, .nb-b-yellow > .nb-txt { background:rgba(240,194,75,.20); }
+.nb-b-green  .nb-inline, .nb-b-green  > .nb-txt { background:rgba(18,112,79,.14); }
+.nb-b-red    .nb-inline, .nb-b-red    > .nb-txt { background:rgba(196,61,52,.14); }
+.nb-b-gray > .nb-txt, .nb-b-orange > .nb-txt, .nb-b-yellow > .nb-txt,
+.nb-b-green > .nb-txt, .nb-b-red > .nb-txt { border-radius:var(--r-s); }
+
+/* 노트 아이콘. 없으면 옅은 자리만 두고, 얹으면 「아이콘 고르기」가 뜬다. */
+/* 문서 칸이 flex 라 그냥 두면 단추가 가로로 늘어나고, 단추는 속을
+   가운데로 모으므로 아이콘이 한복판에 떠 버린다(.way-n 때와 같은 일).
+   제 크기로 세우고 왼쪽에 붙인다. */
+.nt-memo-icon {
+  align-self:flex-start; text-align:left;
+  font-size:38px; line-height:1; background:none; border:none; cursor:pointer;
+  padding:2px 6px; margin:0 0 2px -6px; border-radius:8px; color:var(--ink-3);
+}
+.nt-memo-icon:hover { background:rgba(var(--ink-rgb),.06); }
+.nt-memo-icon.none { font-size:13px; font-weight:600; opacity:0; transition:opacity .14s; }
+.nt-memo-doc:hover .nt-memo-icon.none { opacity:1; }
+
+/* 이모지 고르개 */
+.nb-emo {
+  position:fixed; z-index:71; width:min(320px, calc(100vw - 24px)); max-height:min(58vh, 340px);
+  overflow-y:auto; background:var(--surface); border:1px solid var(--line);
+  border-radius:var(--r); box-shadow:0 18px 44px -18px rgba(var(--ink-rgb),.42); padding:8px;
+}
+.nb-emo[hidden] { display:none; }
+.nb-emo-h { font-size:10.5px; font-weight:700; letter-spacing:.12em; color:var(--ink-3); padding:6px 6px 4px; }
+.nb-emo-grid { display:grid; grid-template-columns:repeat(8, 1fr); gap:2px; }
+.nb-emo-grid button {
+  font-size:19px; line-height:1; padding:6px 0; background:none; border:none; cursor:pointer;
+  border-radius:6px;
+}
+.nb-emo-grid button:hover { background:rgba(var(--ink-rgb),.09); }
+.nb-emo-clear {
+  width:100%; margin-top:6px; font:inherit; font-size:12.5px; color:var(--ink-3);
+  background:none; border:1px dashed var(--line); border-radius:var(--r-s); padding:7px; cursor:pointer;
+}
+.nb-emo-clear:hover { color:var(--red); border-color:var(--red); }
+
+/* 맨 아래 「+ 블록 더하기」 — 빈 자리를 눌러 이어 쓰는 자리다. */
+.nb-add-end {
+  margin-top:6px; width:100%; text-align:left; font:inherit; font-size:13.5px;
+  color:var(--ink-3); background:none; border:none; cursor:pointer;
+  padding:8px 6px; border-radius:6px;
+}
+.nb-add-end:hover { background:rgba(var(--ink-rgb),.05); color:var(--ink-2); }
+
+/* 종류 고르개 · 블록 메뉴. 화면 위에 떠서 자리를 코드가 잡는다. */
+.nb-menu {
+  position:fixed; z-index:70; min-width:212px; max-height:min(62vh, 420px); overflow-y:auto;
+  background:var(--surface); border:1px solid var(--line); border-radius:var(--r);
+  box-shadow:0 18px 44px -18px rgba(var(--ink-rgb),.42); padding:6px;
+}
+.nb-menu[hidden] { display:none; }
+.nb-menu-h { font-size:10.5px; font-weight:700; letter-spacing:.12em; color:var(--ink-3); padding:7px 9px 5px; }
+.nb-menu button {
+  display:flex; align-items:center; gap:9px; width:100%; text-align:left;
+  font:inherit; font-size:13.5px; color:var(--ink); background:none; border:none;
+  padding:7px 9px; border-radius:6px; cursor:pointer;
+}
+.nb-menu button:hover, .nb-menu button.on { background:rgba(var(--ink-rgb),.07); }
+.nb-menu-i { flex:none; width:20px; text-align:center; color:var(--ink-2); font-size:13px; }
+.nb-menu-x { margin-left:auto; font-size:11px; color:var(--ink-3); }
+.nb-menu-sep { height:1px; background:var(--line-2); margin:5px 4px; }
+/* 색 고르개는 동그라미를 늘어놓는다 — 이름보다 색이 빠르다. */
+.nb-swatches { display:flex; flex-wrap:wrap; gap:6px; padding:4px 9px 8px; }
+.nb-sw {
+  width:22px; height:22px; border-radius:50%; cursor:pointer; padding:0;
+  border:1px solid rgba(var(--ink-rgb),.18);
+}
+.nb-sw.on { outline:2px solid var(--orange); outline-offset:2px; }
+
+@media (max-width:819px) {
+  /* 좁은 화면에서는 손잡이를 늘 보여 준다 — 얹을 마우스가 없다. */
+  .nb-gut { opacity:1; width:40px; }
+  .nb-txt { font-size:15.5px; }
+}
 
 .nt-memo-doc-f { display:flex; align-items:center; gap:10px; margin-top:10px; padding-top:9px; border-top:1px solid var(--line-2); }
 .nt-memo-saved { font-size:11.5px; color:var(--ink-3); }
@@ -5122,12 +5225,13 @@ body.hlp-open { overflow:hidden; }
                 <button type="button" id="ntMemoDel" class="nt-memo-act nt-memo-act-del" title="지우기">🗑</button>
               </span>
             </div>
+            <button type="button" id="ntMemoIcon" class="nt-memo-icon"></button>
             <input id="ntMemoTitle" class="nt-memo-title" type="text" maxlength="120" data-clarity-mask="true">
-            <!-- 서식 단추. 글자를 직접 넣는 방식이라(마크다운) 붙여넣기·
-                 되돌리기가 브라우저 기본 그대로 산다. -->
-            <div id="ntMemoBar" class="nt-memo-bar"></div>
-            <textarea id="ntMemoBody" class="nt-memo-body" data-clarity-mask="true"></textarea>
-            <div id="ntMemoView" class="nt-memo-view hidden"></div>
+            <!-- 블록(섹션)들이 쌓이는 자리. 한 덩이가 한 블록이고, 블록마다
+                 종류(제목·목록·할 일·인용·강조 칸…)와 색을 따로 가진다.
+                 왼쪽에 마우스를 얹으면 + 와 손잡이(⠿)가 나온다. -->
+            <div id="ntMemoBlocks" class="nb-list" data-clarity-mask="true"></div>
+            <button type="button" id="ntMemoAddEnd" class="nb-add-end"></button>
             <div class="nt-memo-doc-f">
               <span id="ntMemoSaved" class="nt-memo-saved"></span>
               <span id="ntMemoCount" class="nt-memo-count"></span>
@@ -6317,6 +6421,13 @@ body.hlp-open { overflow:hidden; }
   <span class="rd-g-tail" id="rdGTail" aria-hidden="true"></span>
 </div>
 
+<!-- 노트 블록: 종류 고르개(/ 메뉴)와 블록 손잡이 메뉴. 화면 맨 바깥에
+     두는 까닭은 rdGPop 과 같다 — 갈래 화면 안에 넣으면 그 갈래를 나갈 때
+     hidden 이 걸려 사라지고, 안쪽에 두면 잘려 보인다. -->
+<div id="nbMenu" class="nb-menu" role="menu" hidden></div>
+<!-- 이모지 고르개. 노트 아이콘·갈래 아이콘·블록 안에 넣기가 모두 이걸 쓴다. -->
+<div id="nbEmo" class="nb-emo" role="dialog" hidden></div>
+
 <!-- TOPIK 지문에서 낱말을 눌렀을 때 뜻을 보여 주는 말풍선.
      읽기의 문법 말풍선(rdGPop)과 같은 자리·같은 모양이라 스타일을 같이
      쓴다. 화면 맨 바깥에 두는 까닭도 같다 — 갈래 화면 안에 넣으면
@@ -6338,9 +6449,9 @@ body.hlp-open { overflow:hidden; }
 <div id="hlpScrim" class="hlp-scrim"></div>
 <aside id="hlpPanel" class="hlp-panel" aria-label="한국어 도우미" aria-hidden="true"></aside>
 
-<script src="app.js?v=a39c7cf3"></script>
-<script type="module" src="app.module.js?v=a39c7cf3"></script>
+<script src="app.js?v=16728a27"></script>
+<script type="module" src="app.module.js?v=16728a27"></script>
 
-<script src="analytics.js?v=a39c7cf3" defer></script>
+<script src="analytics.js?v=16728a27" defer></script>
 </body>
 </html>
