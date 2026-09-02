@@ -2661,6 +2661,18 @@
   "only": true
  },
  {
+  "ko": "느끼다",
+  "en": "feel; perceive; sense",
+  "pos": "동사",
+  "only": true,
+  "alt": [
+   "느껴요",
+   "느낀",
+   "느껴",
+   "느낍니다"
+  ]
+ },
+ {
   "ko": "녹",
   "en": "rust",
   "pos": "명사",
@@ -2668,7 +2680,7 @@
  },
  {
   "ko": "녹화",
-  "en": "video recording",
+  "en": "video recording; greening (planting trees)",
   "pos": "명사",
   "only": true,
   "alt": [
@@ -7417,10 +7429,6 @@
   "alt": [
    "일정하게"
   ]
- },
- {
-  "ko": "녹화",
-  "en": "greening; afforestation"
  },
  {
   "ko": "면적",
