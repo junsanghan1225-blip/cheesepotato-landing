@@ -5115,5 +5115,165 @@ export const EXAMPLES = {
  "무슨": {
   "ex": "오늘 점심으로 무슨 음식을 먹을까요?",
   "en": "What food shall we eat for lunch today?"
+ },
+ "무시": {
+  "ex": "다른 사람의 의견에 대한 무시는 좋지 않아요.",
+  "en": "Disregard for other people's opinions is not good."
+ },
+ "무엇": {
+  "ex": "오늘 점심으로 무엇을 드시고 싶어요?",
+  "en": "What do you want to eat for lunch today?"
+ },
+ "무역": {
+  "ex": "한국은 여러 나라와 활발하게 무역을 해요.",
+  "en": "Korea actively conducts trade with various countries."
+ },
+ "무용": {
+  "ex": "리아는 무대 위에서 아름다운 전통 무용을 춰요.",
+  "en": "Lia dances a beautiful traditional dance on stage."
+ },
+ "무인": {
+  "ex": "요즘은 길가에 무인 편의점이 많이 생겨요.",
+  "en": "These days, many unmanned convenience stores appear on the streets."
+ },
+ "묵": {
+  "ex": "시장에서 고소한 참기름을 뿌린 도토리 묵을 사요.",
+  "en": "I buy acorn jelly seasoned with fragrant sesame oil at the market."
+ },
+ "묵다": {
+  "ex": "오래 묵은 김치로 맛있는 찌개를 끓여요.",
+  "en": "I make delicious stew with kimchi that has gotten old."
+ },
+ "묵묵히": {
+  "ex": "석진은 힘든 일도 불평 없이 묵묵히 해내요.",
+  "en": "Seokjin does difficult work silently without complaining."
+ },
+ "문": {
+  "ex": "바람이 차가우니까 거실 문을 닫아요.",
+  "en": "The wind is cold, so I close the living room door."
+ },
+ "문구": {
+  "ex": "생일 카드에 따뜻한 축하 문구를 적어요.",
+  "en": "I write a warm celebratory phrase on the birthday card."
+ },
+ "문방구": {
+  "ex": "학교 앞 문방구에서 예쁜 공책을 사요.",
+  "en": "I buy a pretty notebook at the stationery store in front of the school."
+ },
+ "문서": {
+  "ex": "회의를 시작하기 전에 준비한 문서를 나눠줘요.",
+  "en": "I distribute the prepared documents before starting the meeting."
+ },
+ "문어": {
+  "ex": "바다 깊은 곳에서 다리가 여덟 개인 문어가 헤엄쳐요.",
+  "en": "An octopus with eight legs swims deep in the sea."
+ },
+ "문어체": {
+  "ex": "이 신문 기사는 격식 있는 문어체로 쓰여 있어요.",
+  "en": "This newspaper article is written in a formal literary style."
+ },
+ "문의": {
+  "ex": "제품에 궁금한 점이 있어서 전화로 문의를 드려요.",
+  "en": "I have questions about the product, so I make an inquiry by phone."
+ },
+ "문자": {
+  "ex": "수업이 끝난 후에 리아에게 문자 메시지를 보내요.",
+  "en": "I send a text message to Lia after class ends."
+ },
+ "문장": {
+  "ex": "공책에 한국어로 바르고 정확한 문장을 써요.",
+  "en": "I write a correct and accurate sentence in Korean in my notebook."
+ },
+ "문제": {
+  "ex": "수학 시험에서 어려운 문제를 천천히 풀어요.",
+  "en": "I slowly solve a difficult question on the math exam."
+ },
+ "문제점": {
+  "ex": "직원들이 모여서 계획의 문제점을 함께 찾아요.",
+  "en": "Employees gather to find the drawbacks of the plan together."
+ },
+ "문학": {
+  "ex": "도서관에서 한국 현대 문학 책을 빌려요.",
+  "en": "I borrow a book of modern Korean literature from the library."
+ },
+ "문학적": {
+  "ex": "이 소설은 문학적 가치가 매우 높아요.",
+  "en": "This novel has very high literary value."
+ },
+ "문헌": {
+  "ex": "역사 연구를 위해 도서관에서 옛날 문헌을 찾아요.",
+  "en": "I search for ancient documents in the library for historical research."
+ },
+ "문화": {
+  "ex": "외국 친구들과 만나서 서로의 문화를 나눠요.",
+  "en": "I meet foreign friends and share each other's culture."
+ },
+ "문화원": {
+  "ex": "주말마다 동네 문화원에서 한국어 수업을 들어요.",
+  "en": "I take Korean classes at the neighborhood cultural center every weekend."
+ },
+ "문화적": {
+  "ex": "서울에는 다양한 문화적 행사가 자주 열려요.",
+  "en": "Various cultural events are frequently held in Seoul."
+ },
+ "묻다": {
+  "ex": "길을 잘 몰라서 지나가는 사람에게 길을 물어요.",
+  "en": "I do not know the way well, so I ask a passerby for directions."
+ },
+ "묻어나다": {
+  "ex": "편지 글 속에 친구의 따뜻한 진심이 묻어나요.",
+  "en": "My friend's warm sincerity is smeared in the letter text."
+ },
+ "묻히다": {
+  "ex": "신선한 딸기에 달콤한 꿀을 살짝 묻혀요.",
+  "en": "I lightly cover fresh strawberries with sweet honey."
+ },
+ "물": {
+  "ex": "목이 마를 때는 시원한 물을 마셔요.",
+  "en": "When I am thirsty, I drink cold water."
+ },
+ "물가": {
+  "ex": "요즘 시장에 가면 물가가 많이 올라서 놀라요.",
+  "en": "I am surprised that prices have gone up a lot when I go to the market these days."
+ },
+ "물건": {
+  "ex": "가방 안에 든 소중한 물건을 확인해요.",
+  "en": "I check the precious items in my bag."
+ },
+ "물고기": {
+  "ex": "맑은 연못 속에서 예쁜 물고기가 헤엄쳐요.",
+  "en": "Pretty fish swim in the clear pond."
+ },
+ "물놀이": {
+  "ex": "여름 휴가 때 바다에서 신나는 물놀이를 즐겨요.",
+  "en": "I enjoy exciting swimming in the sea during summer vacation."
+ },
+ "물다": {
+  "ex": "강아지 치즈가 장난감을 입에 물고 달려와요.",
+  "en": "The puppy Cheese runs over holding a toy in his mouth."
+ },
+ "물량": {
+  "ex": "가게에 손님이 많아서 물건의 물량을 늘려요.",
+  "en": "There are many customers in the shop, so we increase the supply volume of goods."
+ },
+ "물러서다": {
+  "ex": "지하철이 들어오니까 안전선 뒤로 한 걸음 물러서요.",
+  "en": "The subway is approaching, so I step back one step behind the yellow safety line."
+ },
+ "물려받다": {
+  "ex": "할머니께 예쁜 반지를 소중하게 물려받아요.",
+  "en": "I inherit a pretty ring precious to me from my grandmother."
+ },
+ "물론": {
+  "ex": "그 일은 물론 제가 도와드릴게요.",
+  "en": "Of course, I will help you with that work."
+ },
+ "물리": {
+  "ex": "과학에 관심이 많아서 학교에서 물리를 공부해요.",
+  "en": "I am interested in science, so I study physics at school."
+ },
+ "물리다": {
+  "ex": "매일 똑같은 반찬만 먹어서 이제 조금 물려요.",
+  "en": "I eat the exact same side dishes every day, so I have had enough of them now."
  }
 };
