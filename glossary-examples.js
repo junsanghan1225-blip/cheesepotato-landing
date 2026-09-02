@@ -3835,5 +3835,165 @@ export const EXAMPLES = {
  "도서": {
   "ex": "배를 타고 남해의 아름다운 여러 도서를 방문해요.",
   "en": "I visit several beautiful islands in the South Sea by boat."
+ },
+ "도서관": {
+  "ex": "방과 후에 조용한 도서관에서 책을 읽어요.",
+  "en": "I read books in the quiet library after school."
+ },
+ "도시": {
+  "ex": "서울은 밤에도 불빛이 환한 큰 도시예요.",
+  "en": "Seoul is a big city with bright lights even at night."
+ },
+ "도시락": {
+  "ex": "소풍 갈 때 먹으려고 맛있는 도시락을 싸요.",
+  "en": "I pack a delicious lunch box to eat on the picnic."
+ },
+ "도시민": {
+  "ex": "주말이 되면 많은 도시민이 교외로 떠나요.",
+  "en": "Many urban citizens leave for the suburbs on weekends."
+ },
+ "도심": {
+  "ex": "복잡한 도심을 지나서 한적한 공원에 도착해요.",
+  "en": "I pass through the crowded downtown and arrive at a quiet park."
+ },
+ "도와주다": {
+  "ex": "민수가 무거운 짐을 드는 친구를 도와줘요.",
+  "en": "Minsu helps his friend carrying heavy luggage."
+ },
+ "도움": {
+  "ex": "선생님의 따뜻한 도움 덕분에 문제를 쉽게 풀어요.",
+  "en": "Thanks to the teacher's warm assistance, I solve the problem easily."
+ },
+ "도입": {
+  "ex": "학교에서 새로운 온라인 학습 프로그램의 도입을 결정해요.",
+  "en": "The school decides on the introduction of a new online learning program."
+ },
+ "도입하다": {
+  "ex": "우리 회사는 최신 기술을 빠르게 도입해요.",
+  "en": "Our company rapidly adopts the latest technology."
+ },
+ "도저히": {
+  "ex": "너무 피곤해서 오늘은 도저히 운동을 못 하겠어요.",
+  "en": "I am so tired that I can't exercise today by any possibility."
+ },
+ "도중": {
+  "ex": "집에 돌아가는 도중에 마트에 들러요.",
+  "en": "I drop by the grocery store on the way home."
+ },
+ "도착": {
+  "ex": "기차의 정시 도착을 알리는 방송이 나와요.",
+  "en": "An announcement comes out signaling the on-time arrival of the train."
+ },
+ "도착하다": {
+  "ex": "약속 시간 십 분 전에 약속 장소에 도착해요.",
+  "en": "I arrive at the meeting place ten minutes before the appointment time."
+ },
+ "독감": {
+  "ex": "겨울철에 독감에 걸리지 않도록 예방주사를 맞아요.",
+  "en": "I get a flu shot to avoid catching influenza in the winter."
+ },
+ "독서": {
+  "ex": "주말에는 거실 소파에 앉아 독서를 즐겨요.",
+  "en": "I enjoy reading while sitting on the living room sofa over the weekend."
+ },
+ "독성": {
+  "ex": "이 야생 버섯은 강한 독성을 가지고 있어요.",
+  "en": "This wild mushroom has strong toxicity."
+ },
+ "독창": {
+  "ex": "음악회에서 수미가 맑은 목소리로 독창을 해요.",
+  "en": "Sumi performs a solo in a clear voice at the concert."
+ },
+ "독창성": {
+  "ex": "선생님이 지영이의 그림 속에 담긴 독창성을 칭찬해요.",
+  "en": "The teacher praises the creativity contained in Jiyoung's drawing."
+ },
+ "독창적": {
+  "ex": "현우는 항상 독창적인 아이디어로 과제를 해결해요.",
+  "en": "Hyunwoo always solves assignments with creative ideas."
+ },
+ "독특하다": {
+  "ex": "이 식당은 음식의 맛과 향이 아주 독특해요.",
+  "en": "The taste and aroma of the food at this restaurant are very unique."
+ },
+ "돈": {
+  "ex": "서점에서 책을 사려고 지갑에서 돈을 꺼내요.",
+  "en": "I take out money from my wallet to buy a book at the bookstore."
+ },
+ "돌": {
+  "ex": "동생의 첫 번째 생일인 돌을 맞아서 잔치를 열어요.",
+  "en": "We throw a party to celebrate my younger sibling's first birthday."
+ },
+ "돌기": {
+  "ex": "손잡이 표면에 미끄러움을 막는 작은 돌기가 있어요.",
+  "en": "There are small bumps on the handle surface to prevent slipping."
+ },
+ "돌다": {
+  "ex": "바람이 불자 지붕 위의 바람개비가 빙글빙글 돌아요.",
+  "en": "As the wind blows, the pinwheel on the roof rotates around and around."
+ },
+ "돌려주다": {
+  "ex": "도서관에서 빌린 책을 약속한 날에 돌려줘요.",
+  "en": "I return the borrowed book to the library on the promised day."
+ },
+ "돌발": {
+  "ex": "길에서 돌발 상황이 생겨서 차가 멈춰요.",
+  "en": "The car stops because an unforeseen incident occurred on the road."
+ },
+ "돌보다": {
+  "ex": "바쁜 부모님을 대신해서 어린 동생을 정성껏 돌봐요.",
+  "en": "I take care of my younger sibling attentively instead of my busy parents."
+ },
+ "돌아가다": {
+  "ex": "수업이 끝나면 모두 집으로 돌아가요.",
+  "en": "Everyone goes back home when class finishes."
+ },
+ "돌아서다": {
+  "ex": "친구가 이름을 부르자 뒤를 향해 돌아서요.",
+  "en": "I turn toward the back as my friend calls my name."
+ },
+ "돌아오다": {
+  "ex": "여행을 마치고 건강하게 집으로 돌아와요.",
+  "en": "I return home safely and in good health after finishing the trip."
+ },
+ "돕다": {
+  "ex": "어려운 상황에 처한 이웃을 따뜻하게 도와요.",
+  "en": "I warmly assist neighbors in difficult situations."
+ },
+ "동네": {
+  "ex": "우리 동네에는 예쁜 카페와 빵집이 많아요.",
+  "en": "There are many pretty cafes and bakeries in our neighborhood."
+ },
+ "동동": {
+  "ex": "아이가 신이 나서 북을 동동 두드려요.",
+  "en": "The child beats the drum rub-a-dub with excitement."
+ },
+ "동력": {
+  "ex": "전기는 기차를 움직이는 중요한 동력이에요.",
+  "en": "Electricity is an important power that moves trains."
+ },
+ "동료": {
+  "ex": "직장 동료들과 함께 점심을 먹어요.",
+  "en": "I eat lunch together with my workplace colleagues."
+ },
+ "동물": {
+  "ex": "주말에 동물원에 가서 귀여운 동물들을 봐요.",
+  "en": "I go to the zoo on the weekend to see cute animals."
+ },
+ "동물병원": {
+  "ex": "아픈 강아지를 치료하러 근처 동물병원에 가요.",
+  "en": "I go to a nearby veterinary clinic to treat the sick puppy."
+ },
+ "동사": {
+  "ex": "'먹다'와 '가다'는 움직임을 나타내는 동사예요.",
+  "en": "'Eat' and 'go' are verbs that express movement."
+ },
+ "동생": {
+  "ex": "초등학교에 다니는 제 남동생은 아주 착해요.",
+  "en": "My younger sibling attending elementary school is very kind."
+ },
+ "동시": {
+  "ex": "두 사람이 신호를 보고 동시에 출발해요.",
+  "en": "The two people see the signal and depart at the same time."
  }
 };
