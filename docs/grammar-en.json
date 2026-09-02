@@ -1522,5 +1522,221 @@
     "desc": "Connects an observation you witnessed in the past with its resulting outcome.",
     "form": "Verb/Adj stem + 「-더니」",
     "care": "Used for other people's actions that you directly witnessed. For your own actions, use 「-았/었더니」."
+  },
+  {
+    "id": "30-6",
+    "desc": "Means that it is completely fine not to do something.",
+    "form": "Verb stem + 「-지 않아도 되다」 · Same meaning as 「안」 + Verb stem + 「-아/어도 되다」",
+    "care": "This is the opposite of 「-아/어야 되다」. 「안 와도 돼요」 is shorter and more common."
+  },
+  {
+    "id": "31-1",
+    "desc": "Expresses that you want to do something.",
+    "form": "Verb stem + 「-고 싶다」 · For someone else's desire: 「-고 싶어하다」",
+    "care": "Use 「-고 싶어해요」 for other people's desires: 「동생이 가고 싶어해요」."
+  },
+  {
+    "id": "31-2",
+    "desc": "Expresses a wish for something to happen when it has not happened yet.",
+    "form": "Adjective/Verb stem + 「-았으면 / -었으면 좋겠다」",
+    "care": "Although the form looks past tense, it refers to a future wish. 「-면 좋겠다」 carries the same meaning."
+  },
+  {
+    "id": "32-1",
+    "desc": "States that something happened because of this reason. It is the most basic way to express cause.",
+    "form": "Adjective/Verb stem + 「-아서 / -어서」",
+    "care": "It cannot be followed by commands or suggestions. You cannot say 「추워서 창문을 닫으세요」; use 「추우니까」 instead."
+  },
+  {
+    "id": "33-1",
+    "desc": "Asks someone to do something for you. The second form is more polite.",
+    "form": "Verb stem + 「-아 / -어 + 주세요 · 주시겠어요?」",
+    "care": "Adding 「좀」 makes it much softer. 「-아/어 주시겠어요?」 is the most polite form."
+  },
+  {
+    "id": "33-2",
+    "desc": "Offers to do something for someone, or asks if they want you to do it.",
+    "form": "Verb stem + 「-아 / -어 + 줄게요 · 줄까요?」",
+    "care": "Use 「-아/어 드릴게요」 when offering help to someone you honor: 「제가 도와 드릴게요」."
+  },
+  {
+    "id": "34-1",
+    "desc": "Means trying something out. It is also often used when making suggestions.",
+    "form": "Verb stem + 「-아 / -어 + 보다」",
+    "care": "「-아/어 봤어요」 expresses past experience, while 「-아/어 보세요」 is a suggestion to try something."
+  },
+  {
+    "id": "34-2",
+    "desc": "Expresses past experience by stating whether something has happened or not.",
+    "form": "Without final consonant: 「-ㄴ 적이」 · With final consonant: 「-은 적이」",
+    "care": "This fits notable life experiences rather than routine, recent past events. Saying 「어제 밥 먹은 적이 있어요」 sounds awkward."
+  },
+  {
+    "id": "35-1",
+    "desc": "Suggests doing something together by asking the listener's thought.",
+    "form": "Without final consonant: 「-ㄹ까요」 · With final consonant: 「-을까요」",
+    "care": "You can answer with 「좋아요」, 「그래요」, or 「-(으)ㅂ시다」."
+  },
+  {
+    "id": "35-2",
+    "desc": "Asks if the listener would like you to do something.",
+    "form": "Without final consonant: 「-ㄹ까요」 · With final consonant: 「-을까요」",
+    "care": "Usage ① means 'Shall we do it together?', while usage ② means 'Shall I do it?'. Adding 「제가」 clarifies the meaning."
+  },
+  {
+    "id": "35-3",
+    "desc": "Suggests doing something together. It suits formal situations.",
+    "form": "Without final consonant: 「-ㅂ시다」 · With final consonant: 「-읍시다」",
+    "care": "Do not use this with elders or superiors. 「-(으)시겠어요?」 or 「-(으)ㄹ까요?」 is safer."
+  },
+  {
+    "id": "35-4",
+    "desc": "Asks someone's preference very politely. It is frequently used when serving guests.",
+    "form": "Without final consonant: 「-시겠어요」 · With final consonant: 「-으시겠어요」",
+    "care": "This is the most polite way to make an inquiry or offer, ideal for addressing customers in stores or offices."
+  },
+  {
+    "id": "35-5",
+    "desc": "Casually asks what the listener wants to do among close acquaintances.",
+    "form": "Without final consonant: 「-ㄹ래요」 · With final consonant: 「-을래요」",
+    "care": "Because it has a casual tone, it is not suitable for elders, superiors, or formal settings."
+  },
+  {
+    "id": "36-1",
+    "desc": "Declares your clear intention to do something.",
+    "form": "Adjective/Verb stem + 「-겠어요 / -겠습니다」",
+    "care": "Used when stating your firm intention in formal settings: 「알겠습니다」, 「하겠습니다」."
+  },
+  {
+    "id": "36-2",
+    "desc": "Tells the listener you will do something as if making a promise.",
+    "form": "Without final consonant: 「-ㄹ게요」 · With final consonant: 「-을게요」",
+    "care": "The subject is always 'I'. You cannot say 「친구가 올게요」; say 「올 거예요」 instead."
+  },
+  {
+    "id": "36-3",
+    "desc": "Casually states your own choice or intention to do something.",
+    "form": "Without final consonant: 「-ㄹ래요」 · With final consonant: 「-을래요」",
+    "care": "Because it strongly emphasizes personal intention, it is better to use 「-(으)ㄹ게요」 in front of elders or superiors."
+  },
+  {
+    "id": "37-1",
+    "desc": "Provides relevant background context before bringing up the main point. Used very often in Korean conversation.",
+    "form": "Verbs: 「-는데」 · Adjectives: 「-(으)ㄴ데」 · Noun: 「-인데」",
+    "care": "It sounds especially natural when bringing up a request: 「죄송한데 길 좀 여쭤볼게요」."
+  },
+  {
+    "id": "37-2",
+    "desc": "Means discovering a fact after trying or experiencing something.",
+    "form": "Without final consonant: 「-니까」 · With final consonant: 「-으니까」",
+    "care": "It shares the same form as 「-(으)니까」 for reasons. If a newly discovered fact follows, it expresses discovery."
+  },
+  {
+    "id": "38-1",
+    "desc": "States that you go or come in order to do something.",
+    "form": "Without final consonant: 「-러」 · With final consonant: 「-으러」 + 「가다 / 오다 / 다니다」",
+    "care": "Only movement verbs like 'go' and 'come' can follow. You cannot say 「먹으러 공부해요」."
+  },
+  {
+    "id": "38-3",
+    "desc": "Means you intend to do something, or that something is about to happen.",
+    "form": "Without final consonant: 「-려고」 · With final consonant: 「-으려고」 + 「하다」",
+    "care": "It feels less definite than 「-(으)ㄹ 거예요」, making it ideal when you are still in the planning stage."
+  },
+  {
+    "id": "38-5",
+    "desc": "Means deciding to do something.",
+    "form": "Verb stem + 「-기로 하다 / 정하다 / 약속하다」",
+    "care": "Used both for decisions made on your own and for promises made with others."
+  },
+  {
+    "id": "39-1",
+    "desc": "Means 'if' or 'when' something happens. Widely used for conditions and suppositions.",
+    "form": "Without final consonant: 「-면」 · With final consonant: 「-으면」",
+    "care": "This is the most widely used conditional expression. Adding 「만약」 in front strengthens the sense of hypothetical condition."
+  },
+  {
+    "id": "39-3",
+    "desc": "Means that even in such a situation, the outcome remains unchanged.",
+    "form": "Adjective/Verb stem + 「-아도 / -어도」 · Often used with 「아무리」 in front",
+    "care": "If 「-(으)면」 sets a condition, 「-아/어도」 means doing something regardless of that condition."
+  },
+  {
+    "id": "40-1",
+    "desc": "Makes an immediate guess based on what you see, hear, or feel right now.",
+    "form": "Adjective/Verb stem + 「-겠어요」",
+    "care": "An immediate guess based on what you see. It is frequently used to show empathy, like 「힘들겠어요」 or 「피곤하겠어요」."
+  },
+  {
+    "id": "40-2",
+    "desc": "Expresses a guess that something is likely the case.",
+    "form": "Without final consonant: 「-ㄹ 거예요」 · With final consonant: 「-을 거예요」",
+    "care": "It has the same form as the future plan in ①. If the subject is another person, it is usually a conjecture."
+  },
+  {
+    "id": "40-3",
+    "desc": "Wonders together whether something might happen.",
+    "form": "Without final consonant: 「-ㄹ까요」 · With final consonant: 「-을까요」",
+    "care": "Unlike the suggestion form of 「-(으)ㄹ까요?」, this is closer to thinking out loud and does not require an answer."
+  },
+  {
+    "id": "40-4",
+    "desc": "Softly expresses that something seems to be the case. Frequently used to avoid sounding overly direct.",
+    "form": "Past: 「-(으)ㄴ」 · Present verb: 「-는」 / Adjective: 「-(으)ㄴ」 · Future: 「-(으)ㄹ 것 같다」",
+    "care": "Also used to express personal thoughts softly. 「좋은 것 같아요」 sounds much more tentative and polite than 「좋아요」."
+  },
+  {
+    "id": "41-1",
+    "desc": "Changes verbs and adjectives into forms that attach in front of nouns to modify them.",
+    "form": "Past: 「-(으)ㄴ」 · Present: 「-는」 · Future: 「-(으)ㄹ」 · Adjective: 「-(으)ㄴ」",
+    "care": "The present-tense modifier for adjectives is 「-(으)ㄴ」. It is 「예쁜 옷」, not 「예쁘는 옷」."
+  },
+  {
+    "id": "41-2",
+    "desc": "Turns verbs and adjectives into nouns.",
+    "form": "Adjective/Verb stem + 「-기」",
+    "care": "Many words have become fixed vocabulary with this ending, such as 「읽기, 쓰기, 듣기, 말하기」."
+  },
+  {
+    "id": "41-3",
+    "desc": "Turns adjectives into adverbs to describe how an action is performed.",
+    "form": "Adjective stem + 「-게」",
+    "care": "Frequently used in common greetings, like 「맛있게 드세요」 and 「재미있게 보내세요」."
+  },
+  {
+    "id": "41-4",
+    "desc": "Used to describe another person's emotions observed from the outside.",
+    "form": "Adjective stem + 「-아하다 / -어하다」",
+    "care": "Use simple adjectives for your own feelings, but use 「-아/어하다」 for others' feelings: 「저는 좋아요 / 동생은 좋아해요」."
+  },
+  {
+    "id": "42-1",
+    "desc": "Indicates the ongoing state of wearing clothing, accessories, or footwear.",
+    "form": "Verb stem + 「-고 있다」",
+    "care": "「지금 옷을 입고 있어요」 can mean both 'in the process of putting clothes on' and 'currently wearing clothes'."
+  },
+  {
+    "id": "42-2",
+    "desc": "Indicates that a state continues after an action has finished.",
+    "form": "Verb stem + 「-아 있다 / -어 있다」",
+    "care": "It does not attach to verbs that take an object. You cannot say 「밥을 먹어 있어요」."
+  },
+  {
+    "id": "42-3",
+    "desc": "Indicates a gradual change of state.",
+    "form": "Adjective stem + 「-아지다 / -어지다」",
+    "care": "Attaches to adjectives to indicate a change of state: 「예뻐지다」, 「좋아지다」."
+  },
+  {
+    "id": "42-4",
+    "desc": "Means that something ended up happening regardless of your own intention.",
+    "form": "Verb stem + 「-게 되다」",
+    "care": "It implies that the outcome was not entirely your own decision, and is also used to deliver news carefully."
+  },
+  {
+    "id": "43-1",
+    "desc": "Connects an uncertain clause within a sentence.",
+    "form": "Verbs: 「-는지」 · Adjectives: 「-(으)ㄴ지」 · Past: 「-았/었는지」",
+    "care": "This is different from 「-(으)ㄴ 지」 (time elapsed), which is written with a space."
   }
 ]
