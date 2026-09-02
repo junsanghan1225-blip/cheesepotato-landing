@@ -327,5 +327,165 @@ export const EXAMPLES = {
  "갈아입다": {
   "ex": "집에 도착해서 편한 옷으로 갈아입어요.",
   "en": "I arrive home and change into comfortable clothes."
+ },
+ "갉다": {
+  "ex": "작은 쥐가 나무를 갉아요.",
+  "en": "A small mouse nibbles on the wood."
+ },
+ "갉아먹다": {
+  "ex": "그 사람은 남의 돈을 몰래 갉아먹어요.",
+  "en": "That person secretly steals others' money."
+ },
+ "감각": {
+  "ex": "추운 날씨에 손가락의 감각이 없어요.",
+  "en": "I have no sensation in my fingers in the cold weather."
+ },
+ "감기": {
+  "ex": "목이 아파서 감기에 걸린 것 같아요.",
+  "en": "My throat hurts, so I think I caught a cold."
+ },
+ "감기다": {
+  "ex": "졸려서 눈이 자꾸 감겨요.",
+  "en": "My eyes keep shutting because I am sleepy."
+ },
+ "감기약": {
+  "ex": "식사를 하고 따뜻한 물과 함께 감기약을 먹어요.",
+  "en": "I eat a meal and take cold medicine with warm water."
+ },
+ "감다": {
+  "ex": "피곤해서 잠시 눈을 감아요.",
+  "en": "I close my eyes for a moment because I am tired."
+ },
+ "감동": {
+  "ex": "친구의 편지를 읽고 큰 감동을 받아요.",
+  "en": "I receive deep emotion upon reading my friend's letter."
+ },
+ "감동적": {
+  "ex": "어제 본 영화는 정말 감동적이에요.",
+  "en": "The movie I watched yesterday is really touching."
+ },
+ "감량": {
+  "ex": "건강을 위해 체중 감량을 시작해요.",
+  "en": "I start weight reduction for my health."
+ },
+ "감사": {
+  "ex": "도와주신 분들께 마음 깊이 감사를 전해요.",
+  "en": "I express my gratitude deeply to the people who helped."
+ },
+ "감상": {
+  "ex": "비 오는 날에는 조용한 감상에 젖어요.",
+  "en": "I get lost in quiet sentimentality on rainy days."
+ },
+ "감상하다": {
+  "ex": "미술관에서 멋진 그림을 감상해요.",
+  "en": "I appreciate wonderful paintings at the art museum."
+ },
+ "감소": {
+  "ex": "새 도로가 생겨서 교통사고의 감소가 보여요.",
+  "en": "With the new road, a reduction in traffic accidents is seen."
+ },
+ "감소하다": {
+  "ex": "날씨가 추워져서 공원의 방문객이 감소해요.",
+  "en": "The number of visitors to the park decreases as the weather gets colder."
+ },
+ "감정": {
+  "ex": "얼굴 표정에 솔직한 감정이 드러나요.",
+  "en": "Honest emotions show on the facial expression."
+ },
+ "감지": {
+  "ex": "이 기계는 작은 위험의 감지도 잘해요.",
+  "en": "This machine is also good at the sensing of small dangers."
+ },
+ "감지하다": {
+  "ex": "경보기는 방 안의 연기를 빠르게 감지해요.",
+  "en": "The alarm detects smoke in the room quickly."
+ },
+ "감찰": {
+  "ex": "팀장이 부서의 업무 진행 상황을 꼼꼼한 감찰로 살펴요.",
+  "en": "The team leader examines the department's work progress with careful inspection."
+ },
+ "감찰하다": {
+  "ex": "감독관이 시험장의 부정행위를 엄격하게 감찰해요.",
+  "en": "The supervisor strictly inspects cheating at the exam site."
+ },
+ "감축": {
+  "ex": "회사가 올해 생산량 감축을 결정해요.",
+  "en": "The company decides on a cutback in production this year."
+ },
+ "감축하다": {
+  "ex": "우리 공장은 에너지 사용량을 감축해요.",
+  "en": "Our factory reduces energy consumption."
+ },
+ "감탄": {
+  "ex": "아름다운 풍경을 보고 저절로 감탄이 나와요.",
+  "en": "Admiration comes out naturally upon looking at the beautiful scenery."
+ },
+ "감탄하다": {
+  "ex": "친구의 훌륭한 그림 실력에 모두가 감탄해요.",
+  "en": "Everyone admires my friend's great painting skills."
+ },
+ "갑": {
+  "ex": "계약서에서 회사를 갑으로 표시해요.",
+  "en": "The contract indicates the company as Party A."
+ },
+ "갑자기": {
+  "ex": "하늘이 어두워지더니 갑자기 비가 내려요.",
+  "en": "The sky turns dark and suddenly it starts raining."
+ },
+ "갑작스럽다": {
+  "ex": "갑작스러운 질문에 당황해서 말이 안 나와요.",
+  "en": "I am so flustered by the unexpected question that words do not come out."
+ },
+ "값": {
+  "ex": "이 사과는 크기에 비해 값이 싸요.",
+  "en": "This apple has a cheap price compared to its size."
+ },
+ "값어치": {
+  "ex": "이 물건은 충분히 제 값어치를 해요.",
+  "en": "This item is definitely worth its value."
+ },
+ "강": {
+  "ex": "주말에 가족과 함께 강 근처를 산책해요.",
+  "en": "I take a walk near the river with my family on weekends."
+ },
+ "강남": {
+  "ex": "서울에서는 한강의 남쪽 지역을 강남이라고 불러요.",
+  "en": "In Seoul, the area south of the Han River is called Gangnam."
+ },
+ "강수": {
+  "ex": "팀의 승리를 위해 감독이 과감한 강수를 둬요.",
+  "en": "The coach plays an aggressive move for the team's victory."
+ },
+ "강아지": {
+  "ex": "귀여운 강아지가 꼬리를 흔들며 다가와요.",
+  "en": "A cute puppy approaches while wagging its tail."
+ },
+ "강우": {
+  "ex": "여름철 집중 강우로 하천 수위가 올라가요.",
+  "en": "The river water level rises due to heavy summer rainfall."
+ },
+ "강우량": {
+  "ex": "올해는 작년보다 연간 강우량이 많아요.",
+  "en": "The annual precipitation this year is higher than last year."
+ },
+ "강제": {
+  "ex": "아무도 다른 사람에게 일을 강제로 시키지 않아요.",
+  "en": "No one assigns work to others through coercion."
+ },
+ "강조": {
+  "ex": "선생님은 시간 약속의 강조를 잊지 않아요.",
+  "en": "The teacher does not forget the emphasis on punctuality."
+ },
+ "강조하다": {
+  "ex": "선생님이 중요한 단어에 밑줄을 그으며 강조해요.",
+  "en": "The teacher emphasizes important words by underlining them."
+ },
+ "강하": {
+  "ex": "이 지역에는 크고 작은 강하가 흘러요.",
+  "en": "Large and small rivers and streams flow through this region."
+ },
+ "강하다": {
+  "ex": "이 나무는 비바람에도 끄떡없을 만큼 아주 강해요.",
+  "en": "This tree is very hard and solid enough to withstand wind and rain."
  }
 };
