@@ -5275,5 +5275,165 @@ export const EXAMPLES = {
  "물리다": {
   "ex": "매일 똑같은 반찬만 먹어서 이제 조금 물려요.",
   "en": "I eat the exact same side dishes every day, so I have had enough of them now."
+ },
+ "물방울": {
+  "ex": "나뭇잎 위에 맑은 물방울이 맺혀요.",
+  "en": "Clear water drops form on the tree leaves."
+ },
+ "물속": {
+  "ex": "물고기들이 깊은 물속에서 헤엄쳐요.",
+  "en": "Fish swim deep underwater."
+ },
+ "물어보다": {
+  "ex": "선생님께 모르는 문제를 조심스럽게 물어봐요.",
+  "en": "I carefully ask the teacher about a problem I do not understand."
+ },
+ "물음": {
+  "ex": "선생님의 질문에 정확한 대답으로 물음에 답해요.",
+  "en": "I answer the question with an accurate response to the teacher's inquiry."
+ },
+ "물질": {
+  "ex": "과학 시간에 여러 가지 화학 물질의 성질을 배워요.",
+  "en": "We learn the properties of various chemical substances in science class."
+ },
+ "뭉클": {
+  "ex": "친구의 편지를 읽고 가슴이 뭉클해요.",
+  "en": "My heart feels strongly touched upon reading my friend's letter."
+ },
+ "뭉클해지다": {
+  "ex": "따뜻한 가족 영화를 보고 마음이 뭉클해져요.",
+  "en": "My heart is deeply moved after watching a warm family movie."
+ },
+ "뭐": {
+  "ex": "오늘 저녁 메뉴로 뭐 먹을까요?",
+  "en": "What shall we eat for tonight's dinner menu?"
+ },
+ "뭘": {
+  "ex": "도와줘서 고맙다는 친구에게 뭘, 별것도 아닌데 하고 웃어요.",
+  "en": "When my friend thanks me for helping, I smile and say it's no problem at all."
+ },
+ "미": {
+  "ex": "전통 한복은 부드러운 선의 미가 돋보여요.",
+  "en": "Traditional hanbok stands out with the beauty of soft lines."
+ },
+ "미끄럼": {
+  "ex": "겨울철 얼음판 위에서는 미끄럼 사고를 조심해요.",
+  "en": "Watch out for sliding accidents on ice in winter."
+ },
+ "미끄럼틀": {
+  "ex": "놀이터에서 아이들이 신나게 미끄럼틀을 타요.",
+  "en": "Children joyfully ride the slide at the playground."
+ },
+ "미끄럽다": {
+  "ex": "비가 와서 바닥이 매우 미끄러워요.",
+  "en": "The floor is very slippery because it rained."
+ },
+ "미래": {
+  "ex": "멋진 미래를 위해 매일 열심히 공부해요.",
+  "en": "I study hard every day for a wonderful future."
+ },
+ "미루다": {
+  "ex": "오늘 할 일을 내일로 미루지 않아요.",
+  "en": "I do not postpone today's work until tomorrow."
+ },
+ "미리": {
+  "ex": "비행기 표를 출발 한 달 전에 미리 예약해요.",
+  "en": "I book the flight ticket in advance one month before departure."
+ },
+ "미생물": {
+  "ex": "현미경으로 작은 미생물을 관찰해요.",
+  "en": "I observe small microorganisms through a microscope."
+ },
+ "미세": {
+  "ex": "과학자들이 물질의 미세 구조를 관찰해요.",
+  "en": "Scientists observe the minute structure of substances."
+ },
+ "미세먼지": {
+  "ex": "봄에는 공기 중에 미세먼지가 많아서 마스크를 써요.",
+  "en": "There is a lot of fine dust in the air in spring, so I wear a mask."
+ },
+ "미세플라스틱": {
+  "ex": "바다를 오염시키는 미세플라스틱 문제를 줄여요.",
+  "en": "We reduce the problem of microplastics that pollute the sea."
+ },
+ "미세하다": {
+  "ex": "두 제품 사이에는 아주 미세한 차이만 있어요.",
+  "en": "There is only a microscopic difference between the two products."
+ },
+ "미소": {
+  "ex": "리아가 반갑게 인사하며 밝은 미소를 지어요.",
+  "en": "Lia greets brightly and gives a warm smile."
+ },
+ "미술": {
+  "ex": "학교에서 재미있는 미술 수업을 들어요.",
+  "en": "I take an enjoyable art class at school."
+ },
+ "미술관": {
+  "ex": "주말에 조용한 미술관에서 그림을 감상해요.",
+  "en": "I appreciate paintings at a quiet art gallery on the weekend."
+ },
+ "미안": {
+  "ex": "약속 시간에 늦어서 친구에게 미안한 마음이 들어요.",
+  "en": "I feel sorry toward my friend because I was late for the appointment."
+ },
+ "미안하다": {
+  "ex": "기다리게 해서 정말 미안해요.",
+  "en": "I am really sorry for making you wait."
+ },
+ "미어지다": {
+  "ex": "슬픈 사연을 들으니 가슴이 미어져요.",
+  "en": "My heart is torn with grief upon hearing the sad story."
+ },
+ "미용": {
+  "ex": "피부 미용을 위해 매일 물을 많이 마셔요.",
+  "en": "I drink plenty of water every day for skin cosmetic treatment."
+ },
+ "미용실": {
+  "ex": "머리를 자르려고 동네 미용실을 예약해요.",
+  "en": "I make an appointment at the neighborhood hair salon to cut my hair."
+ },
+ "미워하다": {
+  "ex": "사소한 일로 친구를 미워하지 않아요.",
+  "en": "I do not hate my friend over small matters."
+ },
+ "미진": {
+  "ex": "마음속의 작은 미진까지 털어내요.",
+  "en": "I shake off even the small trifles in my heart."
+ },
+ "미진하다": {
+  "ex": "아직 준비가 미진해서 조금 더 연습해요.",
+  "en": "The preparation is still insufficient, so I practice a bit more."
+ },
+ "미치다": {
+  "ex": "선생님의 조언이 제 생각에 긍정적인 영향을 미쳐요.",
+  "en": "The teacher's advice exerts a positive influence on my thoughts."
+ },
+ "민수": {
+  "ex": "민수는 수업이 끝나고 도서관에 가요.",
+  "en": "Minsu goes to the library after class."
+ },
+ "민심": {
+  "ex": "지도자는 시민들의 목소리를 듣고 민심을 살펴요.",
+  "en": "The leader listens to the citizens' voices and examines the public sentiment."
+ },
+ "믿기다": {
+  "ex": "시험에 한 번에 합격했다는 소식이 잘 안 믿겨요.",
+  "en": "The news of passing the exam on the first try is hardly believed."
+ },
+ "믿다": {
+  "ex": "저는 정직한 친구들의 말을 항상 믿어요.",
+  "en": "I always believe the words of my honest friends."
+ },
+ "믿음": {
+  "ex": "서로에 대한 깊은 믿음으로 함께 일해요.",
+  "en": "We work together with deep trust and conviction in each other."
+ },
+ "밀": {
+  "ex": "농장에서 누렇게 익은 밀을 수확해요.",
+  "en": "They harvest ripe yellow wheat at the farm."
+ },
+ "밀다": {
+  "ex": "마트에서 무거운 쇼핑 카트를 앞으로 밀어요.",
+  "en": "I push the heavy shopping cart forward at the mart."
  }
 };
