@@ -958,5 +958,165 @@
  "결혼식": {
   "ex": "이번 주말에 친구의 결혼식에 가요.",
   "en": "I am going to my friend's wedding this weekend."
+ },
+ "결혼하다": {
+  "ex": "민수와 수미는 다음 달에 결혼해요.",
+  "en": "Minsu and Sumi are getting married next month."
+ },
+ "겸사": {
+  "ex": "친구를 만나는 겸사로 시내에 다녀와요.",
+  "en": "I go downtown, taking the opportunity to meet a friend as well."
+ },
+ "겸사겸사": {
+  "ex": "운동도 하고 친구도 만날 겸사겸사 공원에 가요.",
+  "en": "I go to the park to exercise and also see a friend at the same time."
+ },
+ "겸손": {
+  "ex": "선생님은 늘 따뜻한 겸손을 보여 주세요.",
+  "en": "The teacher always shows warm humility."
+ },
+ "겸손하다": {
+  "ex": "지영이는 칭찬을 들으면 항상 겸손해요.",
+  "en": "Jiyoung is always modest when she receives a compliment."
+ },
+ "겹": {
+  "ex": "날씨가 쌀쌀해서 옷을 두 겹으로 입어요.",
+  "en": "I wear two layers of clothes because the weather is chilly."
+ },
+ "겹다": {
+  "ex": "합격 소식을 듣고 기쁨에 겨워요.",
+  "en": "I am overwhelmed with joy upon hearing the acceptance news."
+ },
+ "겹치다": {
+  "ex": "약속 시간이 다른 일정과 겹쳐요.",
+  "en": "My appointment time overlaps with another schedule."
+ },
+ "경": {
+  "ex": "이야기 속에서 영국의 경이 편지를 읽어요.",
+  "en": "In the story, the British lord reads a letter."
+ },
+ "경고": {
+  "ex": "선생님이 위험한 장난에 대해 경고를 해요.",
+  "en": "The teacher gives a warning about dangerous pranks."
+ },
+ "경기": {
+  "ex": "요즘 시장의 경기가 별로 좋지 않아요.",
+  "en": "The market economy is not very good these days."
+ },
+ "경력": {
+  "ex": "현우는 회사에서 일한 경력이 길어요.",
+  "en": "Hyunwoo has long work experience at the company."
+ },
+ "경솔": {
+  "ex": "그런 행동은 큰 경솔이에요.",
+  "en": "Such behavior is a big act of thoughtlessness."
+ },
+ "경영": {
+  "ex": "민수는 대학에서 회사 경영을 배워요.",
+  "en": "Minsu learns business administration at the university."
+ },
+ "경우": {
+  "ex": "약속을 안 지키는 것은 경우에 어긋나요.",
+  "en": "Breaking a promise goes against basic reason."
+ },
+ "경쟁": {
+  "ex": "두 가게가 손님을 모으려고 경쟁을 해요.",
+  "en": "Two shops engage in competition to attract customers."
+ },
+ "경쟁력": {
+  "ex": "우리 상품은 가격 경쟁력이 있어요.",
+  "en": "Our product has price competitiveness."
+ },
+ "경제": {
+  "ex": "신문에서 오늘 나라 경제에 대한 뉴스를 읽어요.",
+  "en": "I read news about the national economy in today's newspaper."
+ },
+ "경제적": {
+  "ex": "버스를 타는 것이 택시보다 훨씬 경제적이에요.",
+  "en": "Taking a bus is much more economical than taking a taxi."
+ },
+ "경찰": {
+  "ex": "길을 잃어서 경찰의 도움을 받아요.",
+  "en": "I get help from the police because I am lost."
+ },
+ "경찰관": {
+  "ex": "경찰관이 사거리에서 교통을 정리해요.",
+  "en": "A police officer directs traffic at the intersection."
+ },
+ "경험": {
+  "ex": "여행을 통해 새로운 경험을 많이 쌓아요.",
+  "en": "I gain a lot of new experience through travel."
+ },
+ "곁": {
+  "ex": "아이가 항상 엄마 곁에 있어요.",
+  "en": "The child always stays by mother's side."
+ },
+ "곁들다": {
+  "ex": "남의 대화에 함부로 곁들면 안 돼요.",
+  "en": "You should not carelessly interfere in others' conversations."
+ },
+ "계기": {
+  "ex": "한국 드라마를 보고 한국어를 배우는 계기가 생겨요.",
+  "en": "Watching Korean dramas gives me the opportunity to learn Korean."
+ },
+ "계단": {
+  "ex": "건물 3층까지 계단으로 올라가요.",
+  "en": "I go up to the third floor of the building using the stairs."
+ },
+ "계산": {
+  "ex": "가게에서 물건값을 정확하게 계산해요.",
+  "en": "I accurately calculate the price of items at the store."
+ },
+ "계속": {
+  "ex": "오후부터 밖에서 비가 계속 내려요.",
+  "en": "Rain keeps falling outside continuously since the afternoon."
+ },
+ "계속되다": {
+  "ex": "따뜻한 봄 날씨가 이번 주 내내 계속돼요.",
+  "en": "The warm spring weather continues all through this week."
+ },
+ "계속하다": {
+  "ex": "저는 매일 한국어 공부를 계속해요.",
+  "en": "I continue studying Korean every day."
+ },
+ "계시": {
+  "ex": "그는 마음속으로 신의 계시를 믿어요.",
+  "en": "He believes in divine revelation in his heart."
+ },
+ "계시다": {
+  "ex": "선생님은 지금 교무실에 계세요.",
+  "en": "The teacher is in the teachers' office right now."
+ },
+ "계약": {
+  "ex": "새 집을 구하고 오늘 계약을 맺어요.",
+  "en": "I find a new house and make a contract today."
+ },
+ "계약서": {
+  "ex": "집을 빌리기 전에 계약서를 꼼꼼히 읽어요.",
+  "en": "I read the written contract carefully before renting the house."
+ },
+ "계열": {
+  "ex": "수미는 대학에서 인문 계열 공부를 해요.",
+  "en": "Sumi studies in the humanities department at university."
+ },
+ "계절": {
+  "ex": "가을은 제가 가장 좋아하는 계절이에요.",
+  "en": "Autumn is my favorite season."
+ },
+ "계획": {
+  "ex": "주말에 친구들과 소풍을 갈 계획을 세워요.",
+  "en": "I make a plan to go on a picnic with friends over the weekend."
+ },
+ "고가": {
+  "ex": "할머니가 옛날에 부르던 고가를 들려주세요.",
+  "en": "My grandmother sings an old song that was sung long ago."
+ },
+ "고갈": {
+  "ex": "가뭄 때문에 저수지의 물이 고갈에 이르러요.",
+  "en": "The water in the reservoir reaches depletion due to the drought."
+ },
+ "고개": {
+  "ex": "민수는 음악을 들으면서 고개를 끄덕여요.",
+  "en": "Minsu nods his head while listening to music."
  }
 }
