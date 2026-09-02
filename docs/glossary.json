@@ -2727,6 +2727,18 @@
   "only": true
  },
  {
+  "ko": "발병",
+  "en": "occurrence of disease; outbreak",
+  "pos": "명사",
+  "only": true
+ },
+ {
+  "ko": "발전기",
+  "en": "electric generator; dynamo",
+  "pos": "명사",
+  "only": true
+ },
+ {
   "ko": "녹",
   "en": "rust",
   "pos": "명사",
