@@ -115,8 +115,8 @@
      Pretendard 는 통짜(2.0MB) 대신 조각난 쪽을 쓴다 — 브라우저가
      unicode-range 를 보고 화면에 실제로 나온 글자가 든 조각만 받는다.
      그래서 저장소는 무거워졌지만 학습자가 받는 양은 오히려 줄었다. -->
-<link rel="stylesheet" href="vendor/pretendard.css?v=ece002a7">
-<link rel="stylesheet" href="vendor/pressstart2p.css?v=ece002a7">
+<link rel="stylesheet" href="vendor/pretendard.css?v=ecc8146c">
+<link rel="stylesheet" href="vendor/pressstart2p.css?v=ecc8146c">
 <style>
 /* ══════════════════════════════════════════════════════════════
    치즈감자 — 랜딩
@@ -1990,6 +1990,29 @@ button.btn-primary, button.btn-ghost { font-family:inherit; }
 .nb-call .nb-mark { padding-top:4px; font-size:15px; }
 .nb-hr { height:1px; background:var(--line); margin:12px 6px; border-radius:1px; }
 
+/* 사진 칸. 빈 칸은 눌러서 고르는 자리, 채운 칸은 사진 + 바꾸기. 설명
+   칸은 사진 밑에 작게 — 인용구처럼 덧붙이는 말이라 본문보다 옅다. */
+.nb-img-wrap { position:relative; margin:4px 6px 2px; }
+.nb-img-add {
+  width:100%; padding:26px 10px; text-align:center; font:inherit; font-size:13.5px; font-weight:600;
+  color:var(--ink-3); background:var(--surface-2); border:1.5px dashed var(--line); border-radius:var(--r);
+  cursor:pointer; transition:border-color .16s, color .16s;
+}
+.nb-img-add:hover { color:var(--orange-deep); border-color:var(--orange); }
+.nb-img-el { display:block; max-width:100%; max-height:420px; border-radius:var(--r); border:1px solid var(--line-2); }
+.nb-img-chg {
+  position:absolute; right:8px; bottom:8px; font:inherit; font-size:11.5px; font-weight:600; color:#fff;
+  background:rgba(20,16,12,.62); border:none; border-radius:999px; padding:5px 11px; cursor:pointer;
+  opacity:0; transition:opacity .14s;
+}
+.nb-img-wrap:hover .nb-img-chg, .nb-img-wrap:focus-within .nb-img-chg { opacity:1; }
+.nb-img-cap {
+  display:block; width:100%; margin:5px 6px 0; font:inherit; font-size:12.5px; font-style:italic; color:var(--ink-3);
+  background:none; border:none; padding:2px 0;
+}
+.nb-img-cap:focus { outline:none; color:var(--ink-2); }
+@media (max-width:819px) { .nb-img-chg { opacity:1; } }   /* 손가락으로는 얹어 볼 수 없다 */
+
 /* 블록 색. 글자색과 바탕색을 따로 고른다 — 노션과 같다. 반투명이라
    밝은 모드·어두운 모드 어느 쪽에서도 글자가 산다. */
 .nb-c-gray   .nb-txt { color:var(--ink-3); }
@@ -2039,6 +2062,80 @@ button.btn-primary, button.btn-ghost { font-family:inherit; }
   background:none; border:1px dashed var(--line); border-radius:var(--r-s); padding:7px; cursor:pointer;
 }
 .nb-emo-clear:hover { color:var(--red); border-color:var(--red); }
+
+/* ══ 노트를 예쁘게 인쇄 · PDF로 저장 ═══════════════════════════════
+   화면에는 늘 숨어 있다가, 인쇄할 때만 다른 모든 것을 대신해서 나온다
+   (body.nt-printing 이 붙었을 때만). --ink 같은 테마 변수는 안 쓴다 —
+   어두운 모드에서 인쇄해도 종이는 늘 흰 종이라, 테마를 따라가면 흰
+   글자가 흰 종이 위에 앉는 사고가 난다. 색은 여기 안에서 못 박아 둔다. */
+#ntPrintView { display:none; }
+@page { size:A4; margin:16mm 15mm; }
+@media print {
+  body.nt-printing > *:not(#ntPrintView) { display:none !important; }
+  body.nt-printing #ntPrintView { display:block !important; }
+}
+#ntPrintView {
+  max-width:720px; margin:0 auto; font-family:inherit; color:#2A2118; line-height:1.7;
+}
+.ntp-head {
+  display:flex; align-items:center; justify-content:space-between; gap:10px;
+  padding-bottom:10px; margin-bottom:18px; border-bottom:2px solid #1B1512;
+}
+.ntp-brand { font-size:12.5px; font-weight:800; letter-spacing:.02em; color:#1B1512; }
+.ntp-cat {
+  font-size:11px; font-weight:700; color:#B85A1E; background:#FDE7D6;
+  border-radius:999px; padding:3px 11px;
+}
+.ntp-title { font-size:26px; font-weight:800; letter-spacing:-.03em; color:#1B1512; margin:0 0 20px; }
+.ntp-body h1 { font-size:20px; font-weight:800; letter-spacing:-.03em; margin:20px 0 8px; color:#1B1512; }
+.ntp-body h2 { font-size:16.5px; font-weight:800; letter-spacing:-.025em; margin:16px 0 6px; color:#1B1512; }
+.ntp-body h3 { font-size:14.5px; font-weight:800; margin:13px 0 5px; color:#1B1512; }
+.ntp-body p { margin:0 0 10px; word-break:keep-all; }
+.ntp-list { margin:0 0 10px; padding-left:22px; }
+.ntp-list li { margin-bottom:4px; word-break:keep-all; }
+.ntp-todo { display:flex; align-items:flex-start; gap:8px; margin-bottom:6px; word-break:keep-all; }
+.ntp-box {
+  flex:none; width:14px; height:14px; margin-top:3px; border:1.5px solid #8C7A66; border-radius:4px;
+  display:inline-flex; align-items:center; justify-content:center; font-size:10px; color:#12704F; font-weight:800;
+}
+.ntp-todo.done { color:#8C7A66; text-decoration:line-through; }
+.ntp-quote {
+  margin:0 0 12px; padding:2px 0 2px 14px; border-left:3px solid #FF914D; color:#4A4038; font-style:italic;
+  word-break:keep-all;
+}
+.ntp-call {
+  display:flex; gap:9px; align-items:flex-start; border-radius:10px; padding:11px 14px; margin:0 0 12px;
+  word-break:keep-all;
+}
+.ntp-call-i { flex:none; font-size:15px; line-height:1.5; }
+.ntp-code {
+  font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:12.5px; line-height:1.6;
+  background:#F1EBE3; border:1px solid #E4DACB; border-radius:8px; padding:10px 12px; margin:0 0 12px;
+  white-space:pre-wrap; word-break:break-word;
+}
+.ntp-hr { border:none; border-top:1px solid #E4DACB; margin:16px 0; }
+.ntp-fig { margin:6px 0 16px; text-align:center; page-break-inside:avoid; }
+.ntp-img {
+  max-width:100%; max-height:500px; border-radius:10px; border:1px solid #E4DACB;
+  box-shadow:0 2px 10px rgba(27,21,18,.08);
+}
+.ntp-cap { font-size:12px; font-style:italic; color:#8C7A66; margin-top:6px; }
+.ntp-foot {
+  margin-top:26px; padding-top:12px; border-top:1px solid #E4DACB; font-size:10.5px; color:#8C7A66;
+  display:flex; justify-content:space-between; gap:10px;
+}
+/* 색 낱말 — 화면의 반투명 색과 달리, 종이는 늘 흰 바탕이라 미리 섞어 둔
+   짙은/옅은 값을 그대로 쓴다(JS 가 ntp-c-*/ntp-b-* 로 붙인다). */
+.ntp-c-gray   { color:#8C7A66; }
+.ntp-c-orange { color:#B85A1E; }
+.ntp-c-green  { color:#0F5A40; }
+.ntp-c-red    { color:#A63229; }
+.ntp-c-blue   { color:#345E8C; }
+.ntp-b-gray   { background:#F1EBE3; }
+.ntp-b-orange { background:#FDE7D6; }
+.ntp-b-yellow { background:#FBF0CC; }
+.ntp-b-green  { background:#DCEEE5; }
+.ntp-b-red    { background:#F5DCDA; }
 
 /* 맨 아래 「+ 블록 더하기」 — 빈 자리를 눌러 이어 쓰는 자리다. */
 .nb-add-end {
@@ -5274,6 +5371,7 @@ body.hlp-open { overflow:hidden; }
               <span class="nt-memo-doc-acts">
                 <button type="button" id="ntMemoWb" class="nt-memo-act" title="단어장에 담기">📚</button>
                 <button type="button" id="ntMemoPin" class="nt-memo-act" title="고정">📌</button>
+                <button type="button" id="ntMemoPrint" class="nt-memo-act" title="예쁘게 인쇄·PDF로 저장">🖨️</button>
                 <button type="button" id="ntMemoCopy" class="nt-memo-act" title="복사">⧉</button>
                 <button type="button" id="ntMemoDup" class="nt-memo-act" title="복제">⧉+</button>
                 <button type="button" id="ntMemoDel" class="nt-memo-act nt-memo-act-del" title="지우기">🗑</button>
@@ -6496,6 +6594,11 @@ body.hlp-open { overflow:hidden; }
   </div>
 </div>
 
+<!-- 노트를 예쁘게 인쇄·PDF로 저장하는 자리. 화면에서는 늘 숨어 있다가
+     인쇄할 때만(@media print) 다른 모든 것을 대신해서 나타난다. 속은
+     ntPrintOpen() 이 찍을 때마다 새로 채운다. -->
+<div id="ntPrintView"></div>
+
 <!-- TOPIK 지문에서 낱말을 눌렀을 때 뜻을 보여 주는 말풍선.
      읽기의 문법 말풍선(rdGPop)과 같은 자리·같은 모양이라 스타일을 같이
      쓴다. 화면 맨 바깥에 두는 까닭도 같다 — 갈래 화면 안에 넣으면
@@ -6517,9 +6620,9 @@ body.hlp-open { overflow:hidden; }
 <div id="hlpScrim" class="hlp-scrim"></div>
 <aside id="hlpPanel" class="hlp-panel" aria-label="한국어 도우미" aria-hidden="true"></aside>
 
-<script src="app.js?v=ece002a7"></script>
-<script type="module" src="app.module.js?v=ece002a7"></script>
+<script src="app.js?v=ecc8146c"></script>
+<script type="module" src="app.module.js?v=ecc8146c"></script>
 
-<script src="analytics.js?v=ece002a7" defer></script>
+<script src="analytics.js?v=ecc8146c" defer></script>
 </body>
 </html>

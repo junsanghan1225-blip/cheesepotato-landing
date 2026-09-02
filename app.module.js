@@ -13,7 +13,7 @@
    어느 날 갑자기 다른 코드가 실려 왔다.
    이제 vendor/ 안에 받아 두고 CSP 로 바깥을 막는다. 버전을 올릴 때는
    tools/vendor.mjs 의 PIN 을 고치고 다시 돌린다. */
-import { createClient } from './vendor/supabase-js.js?v=ece002a7';
+import { createClient } from './vendor/supabase-js.js?v=ecc8146c';
 // 앱(package.json)과 같은 줄기를 쓴다. 갈리면 앱에서는 읽히는 파일이
 // 여기서는 안 읽히는(또는 그 반대) 일이 생긴다.
 /* 엑셀 라이브러리는 422KB — 이 판에서 가장 무거운 조각이다. 그런데 쓰는
@@ -25,23 +25,23 @@ import { createClient } from './vendor/supabase-js.js?v=ece002a7';
    자국(?v=)은 tools/stamp.mjs 가 아래 줄에 알아서 붙인다 — 정적으로 쓰든
    동적으로 쓰든 같은 글자를 찾으므로 바꿔도 그대로 찍힌다. */
 let XLSX = null;
-const needXLSX = async () => (XLSX ??= await import('./vendor/xlsx.js?v=ece002a7'));
+const needXLSX = async () => (XLSX ??= await import('./vendor/xlsx.js?v=ecc8146c'));
 // 커리큘럼. 내용과 엔진을 갈라 두면 글을 고치다 화면을 깨지 않는다.
 // 갈래 목록(drawSections)·코스(drawCourses)·문제만 풀기(dqDraw) 를 열 때만
 // 받는다 — 배우기 갈래 목록도 안 본 사람에게 코스 71개 레슨을 다 물릴
 // 까닭이 없다. warmLearn() 이 배우기를 여는 순간 미리 불을 붙여 둔다.
 let COURSES = [], coursesP = null;
-const coursesNeed = () => (coursesP ??= import('./courses.js?v=ece002a7').then((m) => { COURSES = m.COURSES; }));
-import { GLOSSARY, GLOSS_LANGS } from './glossary.js?v=ece002a7';
-import { glossFind } from './gloss-find.js?v=ece002a7';
+const coursesNeed = () => (coursesP ??= import('./courses.js?v=ecc8146c').then((m) => { COURSES = m.COURSES; }));
+import { GLOSSARY, GLOSS_LANGS } from './glossary.js?v=ecc8146c';
+import { glossFind } from './gloss-find.js?v=ecc8146c';
 /* 문법 사전(뜻풀이 197개). 읽기 지문의 밑줄 문법 말풍선(rdNeed)과 예문
    만들기 화면(sbNeed) 양쪽이 쓴다 — 둘 중 먼저 여는 화면이 받아 두고,
    나중 화면은 그 약속(??=)을 그대로 쓴다. */
 let GRAMMAR = [], GRAMMAR_EN = {}, grammarP = null;
 const grammarNeed = () => (grammarP ??= Promise.all([
-  import('./grammar.js?v=ece002a7'), import('./grammar-en.js?v=ece002a7'),
+  import('./grammar.js?v=ecc8146c'), import('./grammar-en.js?v=ecc8146c'),
 ]).then(([a, b]) => { GRAMMAR = a.GRAMMAR; GRAMMAR_EN = b.GRAMMAR_EN; }));
-import { grammarScan } from './grammar-find.js?v=ece002a7';
+import { grammarScan } from './grammar-find.js?v=ecc8146c';
 // TOPIK 쓰기·듣기 문항. 읽기(topik.js·topik2.js)와 같은 tqNeedData() 로
 // 함께 받는다 — 유형 연습(topik) 갈래 하나가 세 기술을 다 쓰므로 따로
 // 가를 까닭이 없다. 값은 tqNeedData 정의부에서 채운다.
@@ -53,7 +53,7 @@ let TOPIKL_BY_EXAM = {}, TOPIKL_PICTURE_SLOTS = {};
    sbFind 를 쓰는데, 그쪽은 안 기다리고 그냥 부른다 — 답이 못 찾은
    인용 없이 나가는 것이 채팅이 멈추는 것보다 낫다. */
 let SB_CATS = [], SB_MORE = {}, SB_SEED = {}, SB_POINTS = [], sbDataP = null;
-const sbNeed = () => (sbDataP ??= import('./sentences.js?v=ece002a7').then((m) => {
+const sbNeed = () => (sbDataP ??= import('./sentences.js?v=ecc8146c').then((m) => {
   SB_CATS = m.SB_CATS; SB_MORE = m.SB_MORE; SB_SEED = m.SB_SEED;
   // 갈래마다 표현을 펼쳐 한 줄에 담는다 — SB_CATS 안의 점에는 갈래가 안
   // 달려 있어서(sbFind 가 표현 하나를 id 로 바로 찾으려면 이게 있어야 한다).
@@ -64,7 +64,7 @@ const sbNeed = () => (sbDataP ??= import('./sentences.js?v=ece002a7').then((m) =
 // 숫자 게임의 읽기와 문제 만들기. 화면을 모르는 순수 계산이라 따로 뒀다.
 // 게임 목록에서 「숫자 읽기」를 시작할 때만 받는다 — XLSX 와 같은 자리다.
 let makeRound = null;
-const needNumbers = async () => (makeRound ??= (await import('./numbers.js?v=ece002a7')).makeRound);
+const needNumbers = async () => (makeRound ??= (await import('./numbers.js?v=ecc8146c')).makeRound);
 
 // 이 키는 공개돼도 되는 값이다. 이미 APK 안에 같은 것이 들어 있고,
 // 접근을 막는 건 키가 아니라 테이블에 걸린 RLS 다.
@@ -113,8 +113,8 @@ let tqDataP = null;
    유형 연습(topik) 갈래 하나가 이 넷을 다 쓰므로 갈라 봤자 요청만
    늘어난다. */
 const tqNeedData = () => (tqDataP ??= Promise.all([
-  import('./topik.js?v=ece002a7'), import('./topik2.js?v=ece002a7'),
-  import('./topik-writing.js?v=ece002a7'), import('./topik-listening.js?v=ece002a7'),
+  import('./topik.js?v=ecc8146c'), import('./topik2.js?v=ecc8146c'),
+  import('./topik-writing.js?v=ecc8146c'), import('./topik-listening.js?v=ecc8146c'),
 ]).then(([a, b, c, d]) => {
   TQ_DATA.I  = { reading: a.TOPIK_READING,  blueprint: a.TOPIK_BLUEPRINT,  slots: a.TOPIK_SLOTS };
   TQ_DATA.II = { reading: b.TOPIK2_READING, blueprint: b.TOPIK2_BLUEPRINT, slots: b.TOPIK2_SLOTS };
@@ -125,11 +125,11 @@ const tqNeedData = () => (tqDataP ??= Promise.all([
 let READING = null, rdP = null;
 // 지문의 밑줄 문법 말풍선이 GRAMMAR 를 쓰므로 같이 받아 둔다.
 const rdNeed = () => (rdP ??= Promise.all([
-  import('./reading.js?v=ece002a7'), grammarNeed(),
+  import('./reading.js?v=ecc8146c'), grammarNeed(),
 ]).then(([m]) => { READING = m.READING; }));
 
 let CONVO = null, cvP = null;
-const cvNeed = () => (cvP ??= import('./convo.js?v=ece002a7').then((m) => { CONVO = m.CONVO; }));
+const cvNeed = () => (cvP ??= import('./convo.js?v=ecc8146c').then((m) => { CONVO = m.CONVO; }));
 
 /* 배우기를 열면 다섯 다 미리 불을 붙인다. 기다리지 않는다 — 갈래 목록은
    이 자료가 없어도 그려지고, 사람이 갈래를 고르는 사이에 도착한다. */
@@ -527,14 +527,14 @@ let dictOpen = null;  // 지금 "더 보기"(예문·뜻풀이)를 펼쳐 둔 �
    평소엔 안 쓰는 522KB 를 첫 화면 모두에게 물릴 까닭이 없다. */
 let dictSensesP = null;
 const dictLoadSenses = () => (dictSensesP ??=
-  import('./glossary-senses.js?v=ece002a7').then((m) => m.SENSES).catch(() => ({})));
+  import('./glossary-senses.js?v=ecc8146c').then((m) => m.SENSES).catch(() => ({})));
 
 /* 예문. 국립국어원 자료엔 없어서 Gemini 로 새로 지은 것이다(있는 만큼만
    — docs/glossary-examples-gemini-prompt.md 참고). 뜻풀이와 같은 자리에서
    같이 받는다 — 펼치는 손짓 하나에 몰아 두는 편이 화면이 덜 복잡하다. */
 let dictExamplesP = null;
 const dictLoadExamples = () => (dictExamplesP ??=
-  import('./glossary-examples.js?v=ece002a7').then((m) => m.EXAMPLES).catch(() => ({})));
+  import('./glossary-examples.js?v=ecc8146c').then((m) => m.EXAMPLES).catch(() => ({})));
 
 function dictVisible() {
   const q = dictQuery.trim().toLowerCase();
@@ -5746,6 +5746,7 @@ const NB_TYPES = [
   { t: 'quote', i: '❝',  ko: '인용',      en: 'Quote' },
   { t: 'call',  i: '💡', ko: '강조 칸',   en: 'Callout' },
   { t: 'code',  i: '</>',ko: '코드',      en: 'Code' },
+  { t: 'img',   i: '🖼️', ko: '사진',      en: 'Image' },
   { t: 'hr',    i: '—',  ko: '구분선',    en: 'Divider' },
 ];
 const NB_COLORS = [
@@ -5766,7 +5767,7 @@ const NB_BGS = [
 ];
 
 const nbId = () => `b${Date.now().toString(36)}${Math.random().toString(36).slice(2, 5)}`;
-const nbNew = (t = 'text', s = '') => ({ id: nbId(), t, s, done: false, c: '', bg: '' });
+const nbNew = (t = 'text', s = '') => ({ id: nbId(), t, s, done: false, c: '', bg: '', cap: '' });
 
 /* 내가 쓴 글이지만 저장소에서 그대로 innerHTML 로 들어가는 값이다.
    스크립트나 손잡이(onclick 따위)는 떼고 넣는다 — 남이 심을 길이
@@ -5816,6 +5817,7 @@ function nbFromText(body) {
 /* 블록을 글자로 되돌린다. 복사·내려받기·단어장 담기가 이걸 쓴다. */
 function nbToText(blocks) {
   return (blocks || []).map((b) => {
+    if (b.t === 'img') return b.cap ? `[${t('사진', 'Photo')}: ${b.cap}]` : `[${t('사진', 'Photo')}]`;
     const s = nbPlain(b.s);
     if (b.t === 'hr') return '---';
     if (b.t === 'h1') return `# ${s}`;
@@ -5902,6 +5904,45 @@ function nbRow(m, b, i) {
     return row;
   }
 
+  /* 사진 칸. contenteditable 이 아니다 — 파일 고르개로 넣고, 설명은
+     그냥 <input> 이다(한글 조합은 네이티브 입력칸이 알아서 하니 여기서
+     따로 신경 쓸 게 없다). */
+  if (b.t === 'img') {
+    const wrap = document.createElement('div');
+    wrap.className = 'nb-img-wrap';
+    const file = document.createElement('input');
+    file.type = 'file'; file.accept = 'image/*'; file.className = 'nb-img-file'; file.hidden = true;
+    file.addEventListener('change', () => nbImgPick(m, b, file));
+    if (b.s) {
+      const img = document.createElement('img');
+      img.className = 'nb-img-el';
+      img.src = b.s;
+      img.alt = b.cap || '';
+      const chg = document.createElement('button');
+      chg.type = 'button'; chg.className = 'nb-img-chg';
+      chg.textContent = t('사진 바꾸기', 'Replace photo');
+      chg.addEventListener('click', () => file.click());
+      wrap.append(img, chg, file);
+    } else {
+      const add = document.createElement('button');
+      add.type = 'button'; add.className = 'nb-img-add';
+      add.textContent = t('🖼️ 사진 추가', '🖼️ Add photo');
+      add.addEventListener('click', () => file.click());
+      wrap.append(add, file);
+    }
+    main.appendChild(wrap);
+    const cap = document.createElement('input');
+    cap.type = 'text'; cap.className = 'nb-img-cap'; cap.maxLength = 140;
+    cap.placeholder = t('설명 (안 써도 돼요)', 'Caption (optional)');
+    cap.value = b.cap || '';
+    cap.dataset.clarityMask = 'true';
+    cap.addEventListener('input', () => { b.cap = cap.value; ntMemoTouchNow(); });
+    main.appendChild(cap);
+    row.appendChild(main);
+    nbDropZone(row, m, b);
+    return row;
+  }
+
   const inline = document.createElement('div');
   inline.className = 'nb-inline';
 
@@ -5945,6 +5986,53 @@ const nbPh = (t0) => ({
   ul: t('목록', 'List item'), ol: t('목록', 'List item'), todo: t('할 일', 'To-do'),
   quote: t('인용', 'Quote'), call: t('강조할 말', 'Callout'), code: t('코드', 'Code'),
 }[t0] || '');
+
+/* 사진은 넣기 전에 줄인다. 단어장 사진(shrinkImage, 1280px)보다 더
+   줄인다 — 노트 사진은 브라우저 저장 공간(localStorage)에 글자로
+   박혀 들어가서, 서버에 올리는 단어장 사진보다 용량에 더 민감하다. */
+const NB_IMG_MAX_W = 1000;
+function nbImgShrink(file) {
+  return new Promise((resolve, reject) => {
+    const img = new Image();
+    const url = URL.createObjectURL(file);
+    img.onload = () => {
+      URL.revokeObjectURL(url);
+      const scale = Math.min(1, NB_IMG_MAX_W / img.width);
+      const cv = document.createElement('canvas');
+      cv.width = Math.round(img.width * scale);
+      cv.height = Math.round(img.height * scale);
+      cv.getContext('2d').drawImage(img, 0, 0, cv.width, cv.height);
+      resolve(cv.toDataURL('image/jpeg', 0.72));
+    };
+    img.onerror = () => { URL.revokeObjectURL(url); reject(new Error('load')); };
+    img.src = url;
+  });
+}
+async function nbImgPick(m, b, input) {
+  const file = input.files?.[0];
+  input.value = '';
+  if (!file) return;
+  if (!file.type.startsWith('image/')) {
+    $('ntMemoSaved').textContent = t('사진 파일만 넣을 수 있어요', 'Images only');
+    return;
+  }
+  if (file.size > 15 * 1024 * 1024) {
+    $('ntMemoSaved').textContent = t('사진이 너무 커요 (15MB까지)', 'Photo too large (max 15MB)');
+    return;
+  }
+  try {
+    const url = await nbImgShrink(file);
+    /* 줄여도 이만하면 저장 공간을 너무 먹는다 — 다른 사진을 권한다. */
+    if (url.length > 900 * 1024) {
+      $('ntMemoSaved').textContent = t('줄여도 너무 커요 — 다른 사진을 써 보세요', 'Still too large — try a different photo');
+      return;
+    }
+    b.s = url;
+    nbSave(m);
+  } catch (e) {
+    $('ntMemoSaved').textContent = t('사진을 못 읽었어요', "Couldn't read that photo");
+  }
+}
 
 /* 번호 목록의 번호. 바로 위가 번호 목록이면 이어서 센다. */
 function nbOrd(m, i) {
@@ -6177,9 +6265,12 @@ function nbMenuOpen(anchor, m, b, only) {
 
   head(t('블록 종류', 'Turn into'));
   NB_TYPES.forEach((ty) => item(ty.i, t(ty.ko, ty.en), () => {
+    /* 사진 칸과 글 칸은 s 가 다른 것을 담는다(주소 vs 글자) — 종류가
+       그 경계를 넘으면 헌 값이 다음 칸에서 그대로 깨진 채 쓰이니 비운다. */
+    if ((ty.t === 'img') !== (b.t === 'img')) { b.s = ''; b.cap = ''; }
     b.t = ty.t;
     if (ty.t !== 'todo') b.done = false;
-    nbFocus = ty.t === 'hr' ? null : b.id;
+    nbFocus = ty.t === 'hr' || ty.t === 'img' ? null : b.id;
     nbMenuClose();
     nbSave(m);
   }, b.t === ty.t));
@@ -6399,6 +6490,92 @@ $('ntMemoPin').addEventListener('click', () => {
   ntMemoStore();
   ntMemoDraw();
 });
+
+/* ── 예쁘게 인쇄 · PDF로 저장 ─────────────────────────────────
+   새 라이브러리를 안 들인다. 브라우저 인쇄 대화상자에는 어차피
+   「PDF로 저장」이 있고, 그러면 한글 글꼴도 브라우저가 알아서
+   그려 준다(따로 글꼴을 심어야 하는 PDF 라이브러리보다 마음이 편하다).
+   화면엔 숨어 있던 #ntPrintView 를 채우고 body 에 표(nt-printing)를
+   붙이면, CSS(@media print)가 그것만 남기고 나머지를 다 지운다. */
+const NTP_TXT_COL = { gray: 'ntp-c-gray', orange: 'ntp-c-orange', green: 'ntp-c-green', red: 'ntp-c-red', blue: 'ntp-c-blue' };
+const NTP_BG_COL = { gray: 'ntp-b-gray', orange: 'ntp-b-orange', yellow: 'ntp-b-yellow', green: 'ntp-b-green', red: 'ntp-b-red' };
+
+function ntPrintBody(blocks) {
+  const out = [];
+  let list = null;   // { t: 'ul'|'ol', items: [] }
+  const flush = () => {
+    if (!list) return;
+    const tag = list.t === 'ol' ? 'ol' : 'ul';
+    out.push(`<${tag} class="ntp-list">${list.items.join('')}</${tag}>`);
+    list = null;
+  };
+  (blocks || []).forEach((b) => {
+    if (b.t === 'img') {
+      flush();
+      if (!b.s) return;   // 아직 안 고른 빈 사진 칸은 건너뛴다
+      const cap = b.cap ? `<figcaption class="ntp-cap">${esc(b.cap)}</figcaption>` : '';
+      out.push(`<figure class="ntp-fig"><img class="ntp-img" src="${b.s}" alt="">${cap}</figure>`);
+      return;
+    }
+    if (b.t === 'hr') { flush(); out.push('<hr class="ntp-hr">'); return; }
+    /* 빈 줄은 학생 나눠줄 자료엔 안 남긴다 — 쓰다 만 빈 목록칸·빈 문단이
+       그대로 찍히면 인쇄물이 지저분해진다. 실제 노트(화면)는 안 바뀐다,
+       인쇄판을 만들 때만 거른다. */
+    if (!nbPlain(b.s || '')) return;
+    const cls = b.c && NTP_TXT_COL[b.c] ? ` class="${NTP_TXT_COL[b.c]}"` : '';
+    const html = nbClean(b.s || '');
+    if (b.t === 'ul' || b.t === 'ol') {
+      if (list && list.t !== b.t) flush();
+      if (!list) list = { t: b.t, items: [] };
+      list.items.push(`<li${cls}>${html}</li>`);
+      return;
+    }
+    flush();
+    if (b.t === 'h1') { out.push(`<h1${cls}>${html}</h1>`); return; }
+    if (b.t === 'h2') { out.push(`<h2${cls}>${html}</h2>`); return; }
+    if (b.t === 'h3') { out.push(`<h3${cls}>${html}</h3>`); return; }
+    if (b.t === 'todo') {
+      out.push(`<div class="ntp-todo${b.done ? ' done' : ''}"><span class="ntp-box">${b.done ? '✓' : ''}</span><span${cls}>${html}</span></div>`);
+      return;
+    }
+    if (b.t === 'quote') { out.push(`<blockquote class="ntp-quote"${cls}>${html}</blockquote>`); return; }
+    if (b.t === 'call') {
+      const bgCls = (b.bg && NTP_BG_COL[b.bg]) || NTP_BG_COL.orange;
+      out.push(`<div class="ntp-call ${bgCls}"><span class="ntp-call-i">💡</span><span${cls}>${html}</span></div>`);
+      return;
+    }
+    if (b.t === 'code') { out.push(`<pre class="ntp-code">${html}</pre>`); return; }
+    out.push(`<p${cls}>${html}</p>`);
+  });
+  flush();
+  return out.join('');
+}
+
+function ntPrintOpen() {
+  const m = ntMemoCur();
+  if (!m) return;
+  if (ntMemoTimer) ntMemoSave();
+  const cat = m.cat ? ntCatFind(m.cat) : null;
+  const catHtml = m.cat
+    ? `<span class="ntp-cat">${cat && cat.i ? esc(cat.i) + ' ' : ''}${esc(cat ? cat.n : m.cat)}</span>` : '';
+  $('ntPrintView').innerHTML = `
+    <div class="ntp-head">
+      <span class="ntp-brand">🧀 ${t('치즈감자', 'CheesePotato')}</span>
+      ${catHtml}
+    </div>
+    <h1 class="ntp-title">${m.icon ? esc(m.icon) + ' ' : ''}${esc(ntMemoName(m))}</h1>
+    <div class="ntp-body">${ntPrintBody(nbBlocks(m))}</div>
+    <div class="ntp-foot"><span>${t('치즈감자 · everykoreans.com 에서 정리한 노트', 'Made with CheesePotato · everykoreans.com')}</span><span>${esc(tqWhen(m.up || m.at))}</span></div>
+  `;
+  document.body.classList.add('nt-printing');
+  window.print();
+}
+window.addEventListener('afterprint', () => {
+  document.body.classList.remove('nt-printing');
+  $('ntPrintView').innerHTML = '';
+});
+$('ntMemoPrint').addEventListener('click', ntPrintOpen);
+
 $('ntMemoCopy').addEventListener('click', async () => {
   const m = ntMemoCur();
   if (!m) return;
