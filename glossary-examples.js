@@ -1767,5 +1767,165 @@ export const EXAMPLES = {
  "그만두다": {
   "ex": "민수는 다니던 학원을 그만둬요.",
   "en": "Minsu quits the academy he was attending."
+ },
+ "그만큼": {
+  "ex": "열심히 노력한 만큼 결과도 그만큼 좋아요.",
+  "en": "As much as you worked hard, the results are that much better."
+ },
+ "그을다": {
+  "ex": "여름 햇빛에 피부가 까맣게 그을어요.",
+  "en": "My skin gets sunburned and blackened in the summer sun."
+ },
+ "그저": {
+  "ex": "가족들이 모두 건강하기만을 그저 바라요.",
+  "en": "I just wish only for all family members to be healthy."
+ },
+ "그제": {
+  "ex": "그제 서점에서 재미있는 만화책을 사요.",
+  "en": "I buy an interesting comic book at the bookstore the day before yesterday."
+ },
+ "그제야": {
+  "ex": "선생님의 설명을 듣고 그제야 문제를 이해해요.",
+  "en": "Only after hearing the teacher's explanation do I understand the problem at last."
+ },
+ "그중": {
+  "ex": "여러 과일 중에서 그중 사과를 가장 좋아해요.",
+  "en": "Among various fruits, I like apples the most among them."
+ },
+ "그치다": {
+  "ex": "오후가 되니 내리던 비가 딱 그쳐요.",
+  "en": "As afternoon comes, the falling rain stops completely."
+ },
+ "극단": {
+  "ex": "생각이 너무 극단으로 치우치면 안 돼요.",
+  "en": "Thoughts shouldn't lean too much toward the extreme."
+ },
+ "극단적": {
+  "ex": "어려운 상황에서도 극단적인 선택은 피해요.",
+  "en": "Even in difficult situations, avoid extreme choices."
+ },
+ "극대": {
+  "ex": "효과를 극대로 끌어올려요.",
+  "en": "We bring the effect up to the maximum."
+ },
+ "극대화": {
+  "ex": "공부 효율의 극대화를 위해 계획표를 짜요.",
+  "en": "I make a timetable for the maximization of study efficiency."
+ },
+ "극대화하다": {
+  "ex": "우리는 학습 효율을 극대화해요.",
+  "en": "We maximize learning efficiency."
+ },
+ "극복": {
+  "ex": "민수는 끈기로 어려움 극복에 성공해요.",
+  "en": "Minsu succeeds in the conquest of difficulties through persistence."
+ },
+ "극복하다": {
+  "ex": "모두가 힘을 모아 큰 위기를 극복해요.",
+  "en": "Everyone gathers strength and overcomes a major crisis."
+ },
+ "극심하다": {
+  "ex": "출근 시간에는 도로의 교통 체증이 극심해요.",
+  "en": "Traffic congestion on the road is extreme during commute hours."
+ },
+ "극장": {
+  "ex": "주말에 친구와 함께 영화를 보러 극장에 가요.",
+  "en": "I go to the cinema with a friend over the weekend to watch a movie."
+ },
+ "근거": {
+  "ex": "이 도시는 무역의 중심 근거로 발전해요.",
+  "en": "This city develops into a central base of trade."
+ },
+ "근대": {
+  "ex": "역사 박물관에서 한국의 근대 문화를 배워요.",
+  "en": "I learn about Korean modern times culture at the history museum."
+ },
+ "근대화": {
+  "ex": "기술 발전에 따라 마을의 근대화가 빠르게 이뤄져요.",
+  "en": "Modernization of the village proceeds quickly with technological development."
+ },
+ "근데": {
+  "ex": "근데 오늘 점심에 우리 뭐 먹어요?",
+  "en": "By the way, what are we eating for lunch today?"
+ },
+ "근로": {
+  "ex": "회사에서 직원들의 정당한 근로를 존중해요.",
+  "en": "The company respects the lawful labor of employees."
+ },
+ "근로자": {
+  "ex": "공장에서 많은 근로자가 열심히 일해요.",
+  "en": "Many workers work diligently at the factory."
+ },
+ "근본": {
+  "ex": "정직은 모든 인간관계의 가장 중요한 근본이에요.",
+  "en": "Honesty is the most important foundation of all human relationships."
+ },
+ "근본적": {
+  "ex": "이 문제를 해결하려면 근본적인 원인을 찾아야 해요.",
+  "en": "To solve this problem, we must find the fundamental cause."
+ },
+ "근육": {
+  "ex": "매일 팔굽혀펴기를 해서 팔 근육을 키워요.",
+  "en": "I do push-ups every day to build arm muscles."
+ },
+ "근처": {
+  "ex": "학교 근처에 조용하고 아담한 카페가 있어요.",
+  "en": "There is a quiet and cozy cafe near the school."
+ },
+ "글": {
+  "ex": "일기장에 오늘의 하루를 짧은 글로 적어요.",
+  "en": "I write down my day in short text in my diary."
+ },
+ "글말": {
+  "ex": "보고서나 책에는 주로 격식 있는 글말을 써요.",
+  "en": "We mainly use formal written language in reports or books."
+ },
+ "글쎄": {
+  "ex": "\"글쎄, 그건 나도 잘 모르겠어\"라고 친구가 말해요.",
+  "en": "My friend says, 'Well, I don't know that very well either.'"
+ },
+ "글쎄다": {
+  "ex": "친구가 묻자 현우는 \"글쎄다, 생각해 볼게\"라고 답해요.",
+  "en": "When asked by a friend, Hyunwoo replies, 'Well, I will think about it.'"
+ },
+ "글쎄요": {
+  "ex": "\"글쎄요, 저는 그 질문에 대해 잘 몰라요\"라고 대답해요.",
+  "en": "I answer, 'Well, I don't know much about that question.'"
+ },
+ "글씨": {
+  "ex": "공책에 또박또박 바른 글씨를 써요.",
+  "en": "I write neat handwriting distinctly in the notebook."
+ },
+ "글자": {
+  "ex": "안경을 쓰니 칠판의 작은 글자가 잘 보여요.",
+  "en": "Wearing glasses allows me to see the small letters on the blackboard well."
+ },
+ "금방": {
+  "ex": "방 청소를 금방 끝내고 놀러 가요.",
+  "en": "I will finish cleaning the room right away and go out to play."
+ },
+ "금세": {
+  "ex": "얼음을 따뜻한 물에 넣으니 금세 녹아요.",
+  "en": "Putting ice in warm water melts it immediately."
+ },
+ "금요일": {
+  "ex": "이번 주 금요일에 친구들과 영화를 봐요.",
+  "en": "I will watch a movie with friends this Friday."
+ },
+ "금지": {
+  "ex": "이 건물 안에서는 모든 흡연이 금지예요.",
+  "en": "All smoking is a ban inside this building."
+ },
+ "금지하다": {
+  "ex": "도서관에서는 큰 소리로 떠드는 것을 금지해요.",
+  "en": "The library prohibits making loud noises."
+ },
+ "급격히": {
+  "ex": "겨울이 되면서 기온이 급격히 떨어져요.",
+  "en": "As winter comes, the temperature drops rapidly."
+ },
+ "급증": {
+  "ex": "휴가철이 되자 공항 이용객의 급증이 나타나요.",
+  "en": "A rapid increase in airport users appears during the vacation season."
  }
 };
