@@ -3355,5 +3355,165 @@ export const EXAMPLES = {
  "다이어트": {
   "ex": "건강을 위해 기름진 음식을 줄이고 다이어트를 해요.",
   "en": "I cut back on greasy food and go on a diet for my health."
+ },
+ "다짐": {
+  "ex": "새해 첫날에 매일 운동하겠다는 다짐을 해요.",
+  "en": "I make a pledge on New Year's Day to exercise every day."
+ },
+ "다짐하다": {
+  "ex": "민수는 오늘부터 책을 더 많이 읽기로 다짐해요.",
+  "en": "Minsu promises to read more books starting today."
+ },
+ "다치다": {
+  "ex": "축구를 하다가 넘어져서 다리를 다쳐요.",
+  "en": "I fall while playing soccer and injure my leg."
+ },
+ "다행": {
+  "ex": "비가 오기 전에 집에 도착해서 참 다행이에요.",
+  "en": "It is such a fortune that I arrived home before it rained."
+ },
+ "다행히": {
+  "ex": "늦잠을 잤지만 다행히 버스를 제시간에 타요.",
+  "en": "I overslept, but luckily I catch the bus on time."
+ },
+ "닦다": {
+  "ex": "밥을 먹고 깨끗하게 이를 닦아요.",
+  "en": "I brush and polish my teeth cleanly after eating."
+ },
+ "단가": {
+  "ex": "원재료 가격이 올라서 상품의 단가가 높아져요.",
+  "en": "The unit price of the product increases because raw material prices went up."
+ },
+ "단계": {
+  "ex": "한국어 공부를 첫 단계부터 차근차근 시작해요.",
+  "en": "I start studying Korean step by step from the first phase."
+ },
+ "단골": {
+  "ex": "집 앞 작은 카페는 제가 자주 가는 단골이에요.",
+  "en": "The small cafe in front of my house is my favorite store that I visit often."
+ },
+ "단골손님": {
+  "ex": "사장님이 가게를 찾아온 단골손님에게 반갑게 인사해요.",
+  "en": "The owner warmly greets the regular customer who visited the store."
+ },
+ "단기": {
+  "ex": "방학 동안 학교에서 여는 단기 특강을 들어요.",
+  "en": "I take a short period lecture opened at school during vacation."
+ },
+ "단기간": {
+  "ex": "단기간에 시험 준비를 끝내려고 열심히 공부해요.",
+  "en": "I study hard to finish exam preparation in a short period of time."
+ },
+ "단순": {
+  "ex": "복잡한 생각 대신 단순함이 때로는 큰 힘이 돼요.",
+  "en": "Sometimes simpleness becomes great power instead of complicated thoughts."
+ },
+ "단순하다": {
+  "ex": "이 기계는 사용 방법이 아주 단순해요.",
+  "en": "This machine is very simple to use."
+ },
+ "단식": {
+  "ex": "현우는 배드민턴 단식 경기에서 멋지게 이겨요.",
+  "en": "Hyunwoo wins splendidly in the badminton singles match."
+ },
+ "단어": {
+  "ex": "공책에 오늘 배운 새 단어를 다섯 번 써요.",
+  "en": "I write the new vocabulary words learned today five times in my notebook."
+ },
+ "단열": {
+  "ex": "겨울철에 찬 바람을 막기 위해 창문에 단열 처리를 해요.",
+  "en": "I apply insulation to the windows to block cold wind in the winter."
+ },
+ "단위": {
+  "ex": "길이를 잴 때는 미터라는 기본 단위를 써요.",
+  "en": "We use the basic unit called meter when measuring length."
+ },
+ "단일": {
+  "ex": "두 팀이 이번 대회에 단일 팀으로 출전해요.",
+  "en": "The two teams enter this competition as a single team."
+ },
+ "단일화": {
+  "ex": "회사에서 복잡한 업무 규칙의 단일화를 추진해요.",
+  "en": "The company promotes the unification of complex work rules."
+ },
+ "단점": {
+  "ex": "이 옷은 예쁘지만 세탁이 어려운 단점이 있어요.",
+  "en": "These clothes are pretty, but they have the drawback of being hard to wash."
+ },
+ "단정": {
+  "ex": "결과를 아직 모르니 성급한 단정은 피해요.",
+  "en": "I avoid hasty conclusions because we don't know the result yet."
+ },
+ "단지": {
+  "ex": "할머니가 마당 구석 단지에 고추장을 담아 두세요.",
+  "en": "My grandmother keeps red pepper paste in a pot in the corner of the yard."
+ },
+ "단추": {
+  "ex": "외출하기 전에 셔츠의 단추를 잠가요.",
+  "en": "I fasten the buttons of my shirt before going out."
+ },
+ "단축": {
+  "ex": "새 도로가 생겨서 통학 시간의 단축이 기대돼요.",
+  "en": "Reduction in commute time is expected as a new road opened."
+ },
+ "단축되다": {
+  "ex": "빠른 기차를 타니 이동 시간이 한 시간 단축돼요.",
+  "en": "Travel time is reduced by one hour when taking the fast train."
+ },
+ "단풍": {
+  "ex": "가을이 되니 산 전체에 붉은 단풍이 물들어요.",
+  "en": "As autumn arrives, the whole mountain is tinted with red autumn foliage."
+ },
+ "닫다": {
+  "ex": "바람이 차가워서 방 창문을 꼭 닫아요.",
+  "en": "I close the room window tightly because the wind is cold."
+ },
+ "달다": {
+  "ex": "갈증이 나서 친구에게 물을 좀 달라고 부탁해요.",
+  "en": "Being thirsty, I request my friend to give me some water."
+ },
+ "달라지다": {
+  "ex": "이사 온 뒤로 제 방 풍경이 많이 달라져요.",
+  "en": "After moving, the scenery of my room becomes very different."
+ },
+ "달리": {
+  "ex": "민수는 평소와 달리 오늘 일찍 일어나요.",
+  "en": "Unlike usual, Minsu wakes up early today."
+ },
+ "달리다": {
+  "ex": "아침마다 건강을 위해 운동장을 힘차게 달려요.",
+  "en": "I run vigorously around the sports ground every morning for my health."
+ },
+ "달빛": {
+  "ex": "어두운 밤길을 환한 달빛이 비춰 줘요.",
+  "en": "Bright moonlight shines on the dark night road."
+ },
+ "달이다": {
+  "ex": "어머니가 주방에서 따뜻한 한약을 정성껏 달여요.",
+  "en": "Mother boils traditional herbal medicine carefully in the kitchen."
+ },
+ "닳다": {
+  "ex": "오래 신은 신발의 바닥이 많이 닳아요.",
+  "en": "The soles of the shoes worn for a long time are worn down a lot."
+ },
+ "담그다": {
+  "ex": "피로를 풀려고 따뜻한 물에 발을 담가요.",
+  "en": "I soak my feet in warm water to relieve fatigue."
+ },
+ "담다": {
+  "ex": "갓 지은 밥을 예쁜 그릇에 정성껏 담아요.",
+  "en": "I dish up freshly cooked rice carefully into a pretty bowl."
+ },
+ "담당": {
+  "ex": "수미는 이번 축제에서 무대 준비 담당을 맡아요.",
+  "en": "Sumi takes on being in charge of stage preparation at this festival."
+ },
+ "담당자": {
+  "ex": "궁금한 점이 있으면 행사 담당자에게 물어보세요.",
+  "en": "If you have questions, please ask the event person in charge."
+ },
+ "담배": {
+  "ex": "건강을 위해 공공장소에서 담배를 피우지 않아요.",
+  "en": "I do not smoke tobacco in public places for health."
  }
 };
