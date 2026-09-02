@@ -23,7 +23,8 @@ catch (e) { console.log('docs/glossary-examples.json 이 아직 없다 — 예�
 const byHead = new Map();
 Object.values(GLOSSARY).forEach((v) => { if (!byHead.has(v.head)) byHead.set(v.head, v); });
 const inDict = (k) => Object.prototype.hasOwnProperty.call(GLOSSARY, k);
-const HAEYO = /(아요|어요|여요|워요|라요|러요|에요|예요|해요|세요|께요|나요|가요|까요|지요|네요|군요|는데요|거든요)$/;
+/* add-glossary-examples.mjs 와 같은 자리 — 두 곳 다 고쳐야 한다. */
+const HAEYO = /(아요|어요|여요|워요|꿔요|라요|러요|려요|겨요|쳐요|켜요|셔요|져요|펴요|커요|써요|떠요|꺼요|봐요|와요|돼요|놔요|에요|예요|해요|세요|께요|나요|가요|까요|지요|네요|군요|는데요|거든요)$/;
 
 const bad = [];
 const warn = [];
