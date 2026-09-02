@@ -2715,6 +2715,18 @@
   "only": true
  },
  {
+  "ko": "미어지다",
+  "en": "be heart-broken; be torn (with grief); be worn out (fabric)",
+  "pos": "동사",
+  "only": true
+ },
+ {
+  "ko": "미진하다",
+  "en": "insufficient; unsatisfactory; not fully done",
+  "pos": "형용사",
+  "only": true
+ },
+ {
   "ko": "녹",
   "en": "rust",
   "pos": "명사",
