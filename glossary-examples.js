@@ -2875,5 +2875,165 @@ export const EXAMPLES = {
  "너무": {
   "ex": "오늘 날씨가 너무 더워요.",
   "en": "Today the weather is very hot."
+ },
+ "넉": {
+  "ex": "시장에서 사과 넉 냥어치를 사요.",
+  "en": "I buy four nyang worth of apples at the market."
+ },
+ "넉넉히": {
+  "ex": "친구들과 함께 먹으려고 음식을 넉넉히 준비해요.",
+  "en": "I prepare food plentifully to eat with friends."
+ },
+ "넌지시": {
+  "ex": "친구에게 비밀을 넌지시 알려 줘요.",
+  "en": "I tell the secret to my friend obliquely."
+ },
+ "널": {
+  "ex": "마당에서 두 사람이 나무 널을 뛰어요.",
+  "en": "Two people jump on a wooden plank in the yard."
+ },
+ "널다": {
+  "ex": "햇빛이 좋은 옥상에 깨끗한 빨래를 널어요.",
+  "en": "I hang out clean laundry on the sunny rooftop."
+ },
+ "널리": {
+  "ex": "좋은 소식이 동네에 널리 퍼져요.",
+  "en": "The good news spreads widely throughout the neighborhood."
+ },
+ "널리다": {
+  "ex": "방바닥에 책과 공책이 어지럽게 널려요.",
+  "en": "Books and notebooks are spread messily on the room floor."
+ },
+ "넓다": {
+  "ex": "새로 이사한 거실이 아주 넓어요.",
+  "en": "The newly moved living room is very broad."
+ },
+ "넓히다": {
+  "ex": "독서를 통해 다양한 지식을 넓혀요.",
+  "en": "I broaden various knowledge through reading."
+ },
+ "넘다": {
+  "ex": "약속 시간이 이미 삼십 분을 넘어요.",
+  "en": "The appointment time already exceeds thirty minutes."
+ },
+ "넘어지다": {
+  "ex": "빙판길을 걷다가 실수로 넘어져요.",
+  "en": "I accidentally fall down while walking on the icy road."
+ },
+ "넣다": {
+  "ex": "필통 안에 연필과 지우개를 넣어요.",
+  "en": "I put pencils and an eraser in the pencil case."
+ },
+ "넷": {
+  "ex": "우리 반에는 동아리가 넷 있어요.",
+  "en": "There are four clubs in our class."
+ },
+ "년": {
+  "ex": "저는 한국어를 공부한 지 일 년이 돼요.",
+  "en": "It has been one year since I studied Korean."
+ },
+ "노": {
+  "ex": "호수에서 나무로 만든 노를 저어요.",
+  "en": "I paddle the wooden oar in the lake."
+ },
+ "노동": {
+  "ex": "정직한 육체 노동은 보람이 커요.",
+  "en": "Honest physical labor is very rewarding."
+ },
+ "노동력": {
+  "ex": "농사철에는 많은 노동력이 필요해요.",
+  "en": "A lot of manpower is needed during the farming season."
+ },
+ "노동자": {
+  "ex": "공장에서 많은 노동자가 성실히 일해요.",
+  "en": "Many workers work diligently in the factory."
+ },
+ "노래": {
+  "ex": "방 안에서 신나는 노래를 들어요.",
+  "en": "I listen to an exciting song in the room."
+ },
+ "노래하다": {
+  "ex": "음악 시간에 친구들과 다 함께 노래해요.",
+  "en": "We sing all together with friends in music class."
+ },
+ "노랫소리": {
+  "ex": "옆방에서 맑은 노랫소리가 들려요.",
+  "en": "A clear singing voice is heard from the next room."
+ },
+ "노력": {
+  "ex": "시험에 합격하기 위해 많은 노력을 기울여요.",
+  "en": "I put in a lot of effort to pass the exam."
+ },
+ "노력하다": {
+  "ex": "한국어를 유창하게 하려고 매일 노력해요.",
+  "en": "I make an effort every day to speak Korean fluently."
+ },
+ "노선": {
+  "ex": "지하철 노선을 확인하고 전철을 타요.",
+  "en": "I check the subway line and take the train."
+ },
+ "노선도": {
+  "ex": "벽에 붙은 버스 노선도를 자세히 살펴봐요.",
+  "en": "I look closely at the bus route map on the wall."
+ },
+ "노인": {
+  "ex": "버스에서 연세가 많은 노인께 자리를 양보해요.",
+  "en": "I give up my seat to an elderly senior citizen on the bus."
+ },
+ "노출": {
+  "ex": "인터넷에 개인 정보의 노출을 막아요.",
+  "en": "I prevent the disclosure of personal information on the internet."
+ },
+ "노출되다": {
+  "ex": "햇빛에 피부가 오래 노출돼요.",
+  "en": "Skin is exposed to the sunlight for a long time."
+ },
+ "노트": {
+  "ex": "수업 시간에 중요한 내용을 새 노트에 필기해요.",
+  "en": "I take notes on important points in a new notebook during class."
+ },
+ "노트북": {
+  "ex": "카페에서 노트북으로 과제를 해요.",
+  "en": "I work on my assignment on a laptop at the cafe."
+ },
+ "녹": {
+  "ex": "조선 시대 관리들은 나라에서 녹을 받아요.",
+  "en": "Officials of the Joseon dynasty receive a public servant's salary from the state."
+ },
+ "녹다": {
+  "ex": "따뜻한 방에 두니 아이스크림이 금방 녹아요.",
+  "en": "The ice cream melts quickly when placed in a warm room."
+ },
+ "녹지": {
+  "ex": "도심 한가운데에 넓은 푸른 녹지가 조성돼요.",
+  "en": "A wide green space is created in the middle of the city center."
+ },
+ "녹화": {
+  "ex": "마을 주민들이 산에 나무를 심어 산림 녹화를 해요.",
+  "en": "Villagers plant trees on the mountain for afforestation."
+ },
+ "논": {
+  "ex": "농부가 시골 논에서 벼를 키워요.",
+  "en": "The farmer grows rice in the rural rice field."
+ },
+ "논문": {
+  "ex": "도서관에서 학술 논문을 꼼꼼하게 읽어요.",
+  "en": "I read the academic thesis carefully in the library."
+ },
+ "논밭": {
+  "ex": "시골 마을의 넓은 논밭에 곡식이 자라요.",
+  "en": "Crops grow in the wide paddies and fields of the rural village."
+ },
+ "논의": {
+  "ex": "회의실에서 환경 문제에 관한 논의를 해요.",
+  "en": "We hold a discussion on environmental issues in the meeting room."
+ },
+ "놀": {
+  "ex": "저녁 하늘에 붉은 놀이 아름답게 물들어요.",
+  "en": "The red evening glow tints the sky beautifully."
+ },
+ "놀다": {
+  "ex": "주말에 공원에서 친구들과 재미있게 놀아요.",
+  "en": "I have fun playing with friends in the park on the weekend."
  }
 };
