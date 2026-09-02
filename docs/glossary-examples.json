@@ -638,5 +638,165 @@
  "거리": {
   "ex": "집에서 학교까지의 거리가 아주 가까워요.",
   "en": "The distance from home to school is very close."
+ },
+ "거울": {
+  "ex": "외출하기 전에 거울을 봐요.",
+  "en": "I look in the mirror before going out."
+ },
+ "거의": {
+  "ex": "오늘 해야 할 일을 거의 다 끝내요.",
+  "en": "I finish almost all the work I have to do today."
+ },
+ "거절": {
+  "ex": "친구의 부탁을 정중한 거절로 답해요.",
+  "en": "I respond with a polite refusal to my friend's request."
+ },
+ "거절하다": {
+  "ex": "약속이 있어서 친구의 초대를 거절해요.",
+  "en": "I refuse my friend's invitation because I have an appointment."
+ },
+ "거짓": {
+  "ex": "진실을 숨기기 위해 거짓을 말하면 안 돼요.",
+  "en": "You should not tell a lie to hide the truth."
+ },
+ "거짓말": {
+  "ex": "민수는 친구에게 거짓말을 하지 않아요.",
+  "en": "Minsu does not tell a lie to his friends."
+ },
+ "거치": {
+  "ex": "책상 위에 휴대폰의 거치를 위한 받침대를 둬요.",
+  "en": "I place a stand on the desk for the placing of the mobile phone."
+ },
+ "거치다": {
+  "ex": "이 기차는 부산을 거쳐서 서울로 가요.",
+  "en": "This train goes to Seoul via Busan."
+ },
+ "거품": {
+  "ex": "비누를 손에 묻혀서 하얀 거품을 내요.",
+  "en": "I put soap on my hands to make white foam."
+ },
+ "걱정": {
+  "ex": "시험 결과 때문에 많은 걱정이 들어요.",
+  "en": "I have a lot of worry because of the exam results."
+ },
+ "걱정되다": {
+  "ex": "비가 많이 와서 부모님 건강이 걱정돼요.",
+  "en": "I am worried about my parents' health because it rains so much."
+ },
+ "걱정하다": {
+  "ex": "너무 걱정하지 말고 편하게 쉬어요.",
+  "en": "Do not worry too much and rest comfortably."
+ },
+ "건": {
+  "ex": "오늘 회의에서 이번 건을 다뤄요.",
+  "en": "We handle this matter in today's meeting."
+ },
+ "건강": {
+  "ex": "매일 운동을 해서 건강을 지켜요.",
+  "en": "I exercise every day to protect my health."
+ },
+ "건강하다": {
+  "ex": "우리 할아버지는 연세가 많으셔도 아주 건강해요.",
+  "en": "My grandfather is very healthy even though he is old."
+ },
+ "건너": {
+  "ex": "길 건너에 조용한 공원이 있어요.",
+  "en": "There is a quiet park on the opposite side of the street."
+ },
+ "건너다": {
+  "ex": "초록불이 켜지면 횡단보도를 건너요.",
+  "en": "I cross the crosswalk when the green light turns on."
+ },
+ "건립": {
+  "ex": "시민들을 위해 새 도서관의 건립을 추진해요.",
+  "en": "We promote the construction of a new library for citizens."
+ },
+ "건립하다": {
+  "ex": "마을 주민들이 힘을 모아 작은 쉼터를 건립해요.",
+  "en": "The village residents gather their strength to build a small shelter."
+ },
+ "건물": {
+  "ex": "저 높은 건물이 우리 회사예요.",
+  "en": "That tall building is my company."
+ },
+ "건설": {
+  "ex": "새로운 다리의 건설이 시작돼요.",
+  "en": "The construction of a new bridge begins."
+ },
+ "건성": {
+  "ex": "선생님의 말씀을 건성으로 들으면 안 돼요.",
+  "en": "You should not listen to the teacher's words with half-heartedness."
+ },
+ "건전지": {
+  "ex": "리모컨이 안 켜져서 새 건전지를 넣어요.",
+  "en": "The remote control does not turn on, so I put in a new battery."
+ },
+ "건축": {
+  "ex": "대학교에서 멋진 전통 건축을 공부해요.",
+  "en": "I study wonderful traditional architecture at university."
+ },
+ "건축물": {
+  "ex": "서울에는 아름다운 현대식 건축물이 많아요.",
+  "en": "There are many beautiful modern buildings in Seoul."
+ },
+ "걷기": {
+  "ex": "건강을 위해 매일 아침 걷기를 해요.",
+  "en": "I do walking every morning for my health."
+ },
+ "걷다": {
+  "ex": "날씨가 좋아서 친구와 공원을 걸어요.",
+  "en": "The weather is good, so I walk in the park with my friend."
+ },
+ "걸다": {
+  "ex": "저녁에 퇴근하고 어머니께 전화를 걸어요.",
+  "en": "I call my mother after finishing work in the evening."
+ },
+ "걸리다": {
+  "ex": "집에서 학교까지 지하철로 삼십 분 걸려요.",
+  "en": "It takes thirty minutes by subway from home to school."
+ },
+ "걸맞다": {
+  "ex": "이 옷은 격식 있는 자리에 잘 걸맞아요.",
+  "en": "This outfit is well-matched for a formal occasion."
+ },
+ "걸어가다": {
+  "ex": "가까운 거리라서 천천히 걸어가요.",
+  "en": "It is a short distance, so I walk slowly."
+ },
+ "걸음": {
+  "ex": "약속 시간에 늦어서 바쁜 걸음으로 서둘러요.",
+  "en": "I am late for the appointment, so I hurry with a fast step."
+ },
+ "검": {
+  "ex": "박물관에서 옛날 장군이 쓰던 검을 구경해요.",
+  "en": "I see the sword used by an ancient general at the museum."
+ },
+ "검다": {
+  "ex": "밤하늘이 구름 한 점 없이 아주 검어요.",
+  "en": "The night sky is very dark without a single cloud."
+ },
+ "검사": {
+  "ex": "병원에서 꼼꼼하게 시력 검사를 받아요.",
+  "en": "I take a thorough eye examination at the hospital."
+ },
+ "검은색": {
+  "ex": "저는 깔끔한 검은색 바지를 자주 입어요.",
+  "en": "I often wear neat black pants."
+ },
+ "검증": {
+  "ex": "전문가들이 새로운 기술의 안전성 검증을 마쳐요.",
+  "en": "Experts finish testing the safety of the new technology."
+ },
+ "검진": {
+  "ex": "일 년에 한 번씩 정기 건강 검진을 받아요.",
+  "en": "I receive a regular medical checkup once a year."
+ },
+ "검출": {
+  "ex": "수질 조사에서 오염 물질의 검출이 확인돼요.",
+  "en": "The detection of pollutants is confirmed in the water quality inspection."
+ },
+ "검출되다": {
+  "ex": "음식에서 유해한 성분이 전혀 검출되지 않아요.",
+  "en": "No harmful ingredients are detected in the food at all."
  }
 }
