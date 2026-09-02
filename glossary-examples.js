@@ -4635,5 +4635,165 @@ export const EXAMPLES = {
  "맑다": {
   "ex": "오늘 하늘은 구름 한 점 없이 아주 맑아요.",
   "en": "The sky today is very clear without a single cloud."
+ },
+ "맛": {
+  "ex": "이 음식은 매콤하고 달콤한 맛이 나요.",
+  "en": "This food has a spicy and sweet taste."
+ },
+ "맛보다": {
+  "ex": "시장에서 여러 가지 과일을 조금씩 맛봐요.",
+  "en": "I taste various fruits little by little at the market."
+ },
+ "맛있다": {
+  "ex": "어머니가 만들어 주신 불고기가 정말 맛있어요.",
+  "en": "The bulgogi made by my mother is really delicious."
+ },
+ "망": {
+  "ex": "어부가 바다에서 물고기를 잡으려고 큰 망을 던져요.",
+  "en": "The fisherman casts a large net to catch fish in the sea."
+ },
+ "망치": {
+  "ex": "벽에 못을 박으려고 망치를 들어요.",
+  "en": "I pick up a hammer to drive a nail into the wall."
+ },
+ "망치다": {
+  "ex": "늦잠을 자서 오늘 하루 일정을 다 망쳐요.",
+  "en": "I oversleep and completely ruin today's schedule."
+ },
+ "맞다": {
+  "ex": "선생님의 질문에 준상의 대답이 딱 맞아요.",
+  "en": "Junsang's answer to the teacher's question is completely correct."
+ },
+ "맞서다": {
+  "ex": "우리는 두려움에 용감하게 맞서요.",
+  "en": "We bravely confront our fears."
+ },
+ "맞선": {
+  "ex": "주리는 주말에 좋은 사람과 맞선을 봐요.",
+  "en": "Juri goes on a blind date with a potential spouse over the weekend."
+ },
+ "맞아": {
+  "ex": "맞아, 그 영화 정말 재미있었어요.",
+  "en": "Right, that movie was really fun."
+ },
+ "맞장구": {
+  "ex": "친구의 재미있는 이야기에 밝게 맞장구를 쳐요.",
+  "en": "I show bright agreement to my friend's interesting story."
+ },
+ "맞추다": {
+  "ex": "내일 아침 일찍 일어나려고 알람 시계를 여섯 시에 맞춰요.",
+  "en": "I set the alarm clock to 6 o'clock to wake up early tomorrow morning."
+ },
+ "맞춤형": {
+  "ex": "이 학원은 학생들을 위한 맞춤형 수업을 제공해요.",
+  "en": "This academy provides customized classes for students."
+ },
+ "맡기다": {
+  "ex": "여행을 떠나기 전에 친구에게 고양이 감자를 맡겨요.",
+  "en": "Before leaving for a trip, I entrust my cat Gamja to my friend."
+ },
+ "맡다": {
+  "ex": "이번 팀 프로젝트의 발표를 제가 맡아요.",
+  "en": "I take charge of the presentation for this team project."
+ },
+ "매": {
+  "ex": "옛날 서당에서는 회초리 매로 학생을 가르쳐요.",
+  "en": "In ancient village schools, they taught students with a rod."
+ },
+ "매년": {
+  "ex": "우리 가족은 매년 여름마다 바다로 여행을 떠나요.",
+  "en": "Our family travels to the sea every year in the summer."
+ },
+ "매다": {
+  "ex": "출근하기 전에 거울을 보며 넥타이를 매요.",
+  "en": "I tie my necktie looking in the mirror before going to work."
+ },
+ "매력": {
+  "ex": "리아는 밝은 웃음이 가장 큰 매력이에요.",
+  "en": "Lia's bright smile is her biggest attraction."
+ },
+ "매력적": {
+  "ex": "이 소설은 주인공의 성격이 아주 매력적이에요.",
+  "en": "The main character's personality in this novel has great attractiveness."
+ },
+ "매립": {
+  "ex": "바다를 메우는 쓰레기 매립 작업을 조심해서 진행해요.",
+  "en": "They carefully proceed with the waste landfill work filling the sea."
+ },
+ "매매": {
+  "ex": "부동산 사무소에서 아파트 매매 계약을 체결해요.",
+  "en": "They sign an apartment transaction contract at the real estate office."
+ },
+ "매시간": {
+  "ex": "기차가 역에서 매시간 정각에 출발해요.",
+  "en": "The train departs from the station every hour on the hour."
+ },
+ "매우": {
+  "ex": "오늘 날씨가 매우 추우니까 따뜻하게 입어요.",
+  "en": "The weather is very cold today, so dress warmly."
+ },
+ "매월": {
+  "ex": "우리 회사는 매월 마지막 주 금요일에 일찍 퇴근해요.",
+  "en": "Our company leaves early every month on the last Friday."
+ },
+ "매일": {
+  "ex": "건강을 위해서 매일 아침 공원을 산책해요.",
+  "en": "I walk in the park every day in the morning for my health."
+ },
+ "매입": {
+  "ex": "회사에서 새 건물의 부지 매입을 결정해요.",
+  "en": "The company decides on the site purchase for a new building."
+ },
+ "매입하다": {
+  "ex": "회사가 새로운 공장을 지을 땅을 매입해요.",
+  "en": "The company purchases land to build a new factory."
+ },
+ "매장": {
+  "ex": "백화점 매장에서 새 옷을 구경해요.",
+  "en": "I look at new clothes at the department store shop."
+ },
+ "매주": {
+  "ex": "석진은 매주 토요일마다 도서관에서 책을 빌려요.",
+  "en": "Seokjin borrows books from the library weekly every Saturday."
+ },
+ "매진": {
+  "ex": "인기 있는 콘서트 티켓이 금방 매진이에요.",
+  "en": "The popular concert tickets are sold out quickly."
+ },
+ "매진되다": {
+  "ex": "주말 기차표가 일찍 매진돼요.",
+  "en": "Weekend train tickets are sold out early."
+ },
+ "맵다": {
+  "ex": "이 떡볶이는 고추장이 많이 들어가서 꽤 매워요.",
+  "en": "This tteokbokki is quite spicy because it has lots of red chili paste."
+ },
+ "머": {
+  "ex": "오늘 저녁에 머 먹을까요?",
+  "en": "What shall we eat for dinner today?"
+ },
+ "머리": {
+  "ex": "날씨가 더워서 미용실에 가서 머리를 짧게 잘라요.",
+  "en": "The weather is hot, so I go to the hair salon and cut my hair short."
+ },
+ "머릿속": {
+  "ex": "시험 전날이라 여러 가지 생각이 머릿속에 가득해요.",
+  "en": "It is the day before the exam, so various thoughts are full in my head."
+ },
+ "먹거리": {
+  "ex": "전통 시장에는 맛있고 다양한 먹거리가 넘쳐요.",
+  "en": "The traditional market is full of delicious and diverse food."
+ },
+ "먹구름": {
+  "ex": "하늘에 짙은 먹구름이 끼더니 곧 비가 쏟아져요.",
+  "en": "Dark clouds gather in the sky, and soon it pours rain."
+ },
+ "먹다": {
+  "ex": "아침 일찍 가족과 함께 따뜻한 밥을 먹어요.",
+  "en": "I eat a warm meal early in the morning together with my family."
+ },
+ "먹먹하다": {
+  "ex": "비행기가 높이 올라가니까 귀가 먹먹해요.",
+  "en": "My ears feel deafened as the airplane climbs high."
  }
 };
