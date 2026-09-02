@@ -4955,5 +4955,165 @@ export const EXAMPLES = {
  "모이다": {
   "ex": "주말 저녁에 온 가족이 거실에 모여요.",
   "en": "The whole family gathers in the living room on weekend evenings."
+ },
+ "모임": {
+  "ex": "주말에 친구들과 즐거운 독서 모임을 가져요.",
+  "en": "I have an enjoyable book club meeting with my friends on the weekend."
+ },
+ "모자": {
+  "ex": "햇빛이 강해서 챙이 넓은 모자를 써요.",
+  "en": "The sunlight is strong, so I wear a wide-brimmed hat."
+ },
+ "모집": {
+  "ex": "동아리에서 신입 회원 모집을 시작해요.",
+  "en": "The club begins the recruitment of new members."
+ },
+ "모집하다": {
+  "ex": "회사에서 새 프로젝트를 함께할 팀원을 모집해요.",
+  "en": "The company recruits team members to work together on a new project."
+ },
+ "목": {
+  "ex": "운동을 오래 해서 목이 말라요.",
+  "en": "My throat is dry because I exercised for a long time."
+ },
+ "목감기": {
+  "ex": "목감기에 걸려서 따뜻한 차를 마셔요.",
+  "en": "I caught a sore throat, so I drink warm tea."
+ },
+ "목구멍": {
+  "ex": "물이 목구멍을 부드럽게 넘어가요.",
+  "en": "The water goes down the throat smoothly."
+ },
+ "목소리": {
+  "ex": "리아는 맑고 고운 목소리로 노래해요.",
+  "en": "Lia sings in a clear and beautiful voice."
+ },
+ "목요일": {
+  "ex": "우리는 매주 목요일에 한국어 수업을 들어요.",
+  "en": "We take Korean classes every Thursday."
+ },
+ "목욕": {
+  "ex": "퇴근 후에 따뜻한 물로 목욕을 해요.",
+  "en": "I take a bath with warm water after work."
+ },
+ "목욕시키다": {
+  "ex": "마당에서 강아지 치즈를 깨끗하게 목욕시켜요.",
+  "en": "I give the puppy Cheese a clean bath in the yard."
+ },
+ "목재": {
+  "ex": "튼튼한 목재로 책상을 만들어요.",
+  "en": "I make a desk out of sturdy lumber."
+ },
+ "목적": {
+  "ex": "한국 여행의 주된 목적은 맛있는 음식이에요.",
+  "en": "The main purpose of traveling to Korea is delicious food."
+ },
+ "목적어": {
+  "ex": "선생님이 문장에서 목적어를 찾는 법을 알려줘요.",
+  "en": "The teacher shows how to find an object in a sentence."
+ },
+ "목표": {
+  "ex": "올해 한국어 시험 합격을 목표로 공부해요.",
+  "en": "I study with the goal of passing the Korean exam this year."
+ },
+ "몰다": {
+  "ex": "아버지가 안전하게 차를 몰아요.",
+  "en": "My father drives the car safely."
+ },
+ "몰입": {
+  "ex": "준상은 재미있는 책 읽기에 깊은 몰입을 보여요.",
+  "en": "Junsang shows deep absorption in reading an interesting book."
+ },
+ "몸": {
+  "ex": "건강을 위해 매일 아침 몸을 움직여요.",
+  "en": "I move my body every morning for my health."
+ },
+ "몸살": {
+  "ex": "무리해서 일했더니 심한 몸살이 나요.",
+  "en": "I overworked, so my body is aching all over."
+ },
+ "몸속": {
+  "ex": "신선한 과일 주스가 몸속을 건강하게 만들어요.",
+  "en": "Fresh fruit juice makes the inside of the body healthy."
+ },
+ "몸통": {
+  "ex": "고양이 감자의 통통한 몸통이 참 귀여워요.",
+  "en": "The chubby body of the cat Gamja is really cute."
+ },
+ "몹시": {
+  "ex": "바람이 불어서 날씨가 몹시 쌀쌀해요.",
+  "en": "The wind blows, so the weather is extremely chilly."
+ },
+ "못": {
+  "ex": "감기에 걸려서 오늘 수업에 못 가요.",
+  "en": "I caught a cold, so I cannot go to class today."
+ },
+ "못다": {
+  "ex": "시간이 부족해서 못다 한 이야기를 나중에 나눠요.",
+  "en": "Because time is short, we will share stories not yet finished later."
+ },
+ "못하다": {
+  "ex": "바쁜 일정 때문에 저녁 식사를 제때 못해요.",
+  "en": "I am unable to eat dinner on time due to a busy schedule."
+ },
+ "무": {
+  "ex": "시장에서 싱싱하고 단단한 무를 사요.",
+  "en": "I buy a fresh and firm radish at the market."
+ },
+ "무겁다": {
+  "ex": "책이 가득 들어 있는 가방이 꽤 무거워요.",
+  "en": "The bag filled with books is quite heavy."
+ },
+ "무게": {
+  "ex": "여행용 여행 가방의 무게를 미리 재요.",
+  "en": "I measure the weight of my travel suitcase in advance."
+ },
+ "무너지다": {
+  "ex": "오래된 흙담이 비에 쉽게 무너져요.",
+  "en": "The old mud wall easily collapses in the rain."
+ },
+ "무단": {
+  "ex": "허락 없이 남의 물건을 무단으로 쓰면 안 돼요.",
+  "en": "You must not use other people's belongings without permission."
+ },
+ "무려": {
+  "ex": "오늘 행사장에 무려 백 명의 손님이 와요.",
+  "en": "As many as a whopping hundred guests come to the event hall today."
+ },
+ "무렵": {
+  "ex": "해가 질 무렵에 공원으로 산책을 나가요.",
+  "en": "I go out for a walk in the park around sunset."
+ },
+ "무료": {
+  "ex": "이 박물관은 모든 관람객에게 입장료가 무료예요.",
+  "en": "This museum is free of charge for all visitors."
+ },
+ "무리": {
+  "ex": "저 멀리 하늘 위로 새 한 무리가 날아가요.",
+  "en": "Far away in the sky, a flock of birds flies by."
+ },
+ "무리하다": {
+  "ex": "하루 만에 이 많은 일을 끝내기는 너무 무리해요.",
+  "en": "It is too much to finish this much work in just one day."
+ },
+ "무분별": {
+  "ex": "자연을 훼손하는 무분별한 개발을 막아요.",
+  "en": "We prevent senseless development that damages nature."
+ },
+ "무분별하다": {
+  "ex": "쓰레기를 아무 데나 버리는 행동은 무분별해요.",
+  "en": "Throwing trash anywhere is reckless."
+ },
+ "무선": {
+  "ex": "선이 없어서 편리한 무선 이어폰을 써요.",
+  "en": "I use convenient wireless earphones because there are no wires."
+ },
+ "무섭다": {
+  "ex": "밤에 혼자 어두운 길을 걸을 때는 조금 무서워요.",
+  "en": "I feel a bit scared of walking alone on a dark street at night."
+ },
+ "무슨": {
+  "ex": "오늘 점심으로 무슨 음식을 먹을까요?",
+  "en": "What food shall we eat for lunch today?"
  }
 };
