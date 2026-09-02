@@ -807,5 +807,165 @@ export const EXAMPLES = {
  "검출되다": {
   "ex": "음식에서 유해한 성분이 전혀 검출되지 않아요.",
   "en": "No harmful ingredients are detected in the food at all."
+ },
+ "검토": {
+  "ex": "민수 씨가 서류를 꼼꼼하게 검토해요.",
+  "en": "Minsu reviews the documents thoroughly."
+ },
+ "겁": {
+  "ex": "지영이는 밤길을 걸을 때 겁이 많아요.",
+  "en": "Jiyoung has a lot of fear when walking at night."
+ },
+ "것": {
+  "ex": "이 가방은 제가 제일 좋아하는 것이에요.",
+  "en": "This bag is my favorite thing."
+ },
+ "겉": {
+  "ex": "이 빵은 겉이 아주 바삭해요.",
+  "en": "The outside of this bread is very crispy."
+ },
+ "겉껍질": {
+  "ex": "과일의 겉껍질을 깨끗이 벗겨요.",
+  "en": "Peel the outer skin of the fruit clean."
+ },
+ "게다": {
+  "ex": "수미는 노래를 잘하고 게다 춤도 잘 춰요.",
+  "en": "Sumi sings well, and additionally, she dances well."
+ },
+ "게다가": {
+  "ex": "오늘 날씨가 춥고 게다가 바람도 많이 불어요.",
+  "en": "Today is cold, and in addition, it is very windy."
+ },
+ "게시": {
+  "ex": "선생님이 시험 일정을 벽에 게시해요.",
+  "en": "The teacher posts the exam schedule on the wall."
+ },
+ "게시물": {
+  "ex": "현우가 인터넷에 재미있는 게시물을 올려요.",
+  "en": "Hyunwoo posts an interesting post online."
+ },
+ "게시판": {
+  "ex": "학교 게시판에서 동아리 소식을 확인해요.",
+  "en": "I check the club news on the school bulletin board."
+ },
+ "게임": {
+  "ex": "친구들과 교실에서 보드게임을 해요.",
+  "en": "I play board games with friends in the classroom."
+ },
+ "겨": {
+  "ex": "쌀을 찧을 때 쌀겨가 많이 나와요.",
+  "en": "A lot of rice bran comes out when pounding rice."
+ },
+ "겨루다": {
+  "ex": "두 팀이 운동장에서 달리기 실력을 겨뤄요.",
+  "en": "The two teams compete in running on the field."
+ },
+ "겨를": {
+  "ex": "요즘 일이 많아서 쉴 겨를이 없어요.",
+  "en": "I have so much work these days that I don't have time to rest."
+ },
+ "겨우": {
+  "ex": "아침에 늦게 일어나서 겨우 버스를 탔어요.",
+  "en": "I woke up late in the morning and barely caught the bus."
+ },
+ "겨울": {
+  "ex": "한국의 겨울은 눈이 자주 내려요.",
+  "en": "Winter in Korea often brings snow."
+ },
+ "겨울철": {
+  "ex": "겨울철에는 따뜻한 옷을 입어야 해요.",
+  "en": "You should wear warm clothes during the winter season."
+ },
+ "격": {
+  "ex": "지영이는 우리 모임의 대표 격이에요.",
+  "en": "Jiyoung holds the position of leader in our gathering."
+ },
+ "격려": {
+  "ex": "선생님이 힘들어하는 학생들에게 격려를 보내요.",
+  "en": "The teacher offers encouragement to the struggling students."
+ },
+ "격식": {
+  "ex": "중요한 모임이라서 격식을 차려요.",
+  "en": "Since it is an important meeting, we observe formalities."
+ },
+ "격식적": {
+  "ex": "회사에서는 격식적인 태도가 필요해요.",
+  "en": "A formal attitude is needed at the company."
+ },
+ "격식체": {
+  "ex": "처음 만난 사람에게는 격식체로 말해요.",
+  "en": "I speak in a formal style to people I meet for the first time."
+ },
+ "격언": {
+  "ex": "할머니가 옛날 격언을 자주 들려주세요.",
+  "en": "My grandmother often tells me old proverbs."
+ },
+ "겪다": {
+  "ex": "새로운 환경에서 여러 가지 어려움을 겪어요.",
+  "en": "I go through various difficulties in a new environment."
+ },
+ "견": {
+  "ex": "이 부드러운 옷은 고급 견으로 만들어요.",
+  "en": "This soft clothing is made of high-quality silk."
+ },
+ "견디다": {
+  "ex": "민수는 힘든 운동을 씩씩하게 잘 견뎌요.",
+  "en": "Minsu endures tough workouts bravely."
+ },
+ "견주다": {
+  "ex": "제 그림 실력을 친구의 솜씨와 견줘요.",
+  "en": "I compare my drawing skills with my friend's talent."
+ },
+ "결국": {
+  "ex": "민수가 오랫동안 고민한 끝에 결국 여행을 떠나요.",
+  "en": "After thinking about it for a long time, Minsu in the end goes on a trip."
+ },
+ "결심": {
+  "ex": "새해를 맞아서 운동을 하기로 결심을 해요.",
+  "en": "I make a resolution to exercise for the new year."
+ },
+ "결재": {
+  "ex": "부장님이 제 휴가 신청서를 결재해요.",
+  "en": "The manager approves my leave application."
+ },
+ "결정": {
+  "ex": "어려운 문제지만 신중하게 결정을 내려요.",
+  "en": "It is a difficult problem, but I make a careful decision."
+ },
+ "결정되다": {
+  "ex": "다음 주 회의 날짜가 드디어 결정돼요.",
+  "en": "The date for next week's meeting is finally decided."
+ },
+ "결정하다": {
+  "ex": "오늘 저녁 메뉴를 친구와 함께 결정해요.",
+  "en": "I decide on the dinner menu with my friend."
+ },
+ "결제": {
+  "ex": "식당에서 음식값을 카드로 결제해요.",
+  "en": "I pay for the meal with a card at the restaurant."
+ },
+ "결코": {
+  "ex": "우리는 그 약속을 결코 잊지 않아요.",
+  "en": "We will never forget that promise."
+ },
+ "결함": {
+  "ex": "기계에 작은 결함이 있어서 수리해요.",
+  "en": "There is a small defect in the machine, so we are repairing it."
+ },
+ "결항": {
+  "ex": "태풍 때문에 비행기 결항이 늘어나요.",
+  "en": "Flight cancellations are increasing due to the typhoon."
+ },
+ "결항되다": {
+  "ex": "안개가 너무 심해서 배가 결항돼요.",
+  "en": "The ship is canceled because the fog is too thick."
+ },
+ "결혼": {
+  "ex": "두 사람이 오랜 연애 끝에 결혼을 해요.",
+  "en": "The two get married after a long relationship."
+ },
+ "결혼식": {
+  "ex": "이번 주말에 친구의 결혼식에 가요.",
+  "en": "I am going to my friend's wedding this weekend."
  }
 };
