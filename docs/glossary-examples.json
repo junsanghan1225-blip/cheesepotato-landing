@@ -2079,6 +2079,166 @@
   "ex": "휴가철이 되자 공항 이용객의 급증이 나타나요.",
   "en": "A rapid increase in airport users appears during the vacation season."
  },
+ "급증하다": {
+  "ex": "날씨가 더워지면서 차가운 음료수 주문이 급증해요.",
+  "en": "Orders for cold drinks surge as the weather gets hotter."
+ },
+ "급하다": {
+  "ex": "지금 아주 급한 전화가 와서 먼저 일어날게요.",
+  "en": "I will get going first because I received a very urgent call just now."
+ },
+ "긍정": {
+  "ex": "선생님은 학생의 제안에 밝은 표정으로 긍정을 표해요.",
+  "en": "The teacher expresses affirmation of the student's proposal with a bright expression."
+ },
+ "긍정적": {
+  "ex": "민수는 항상 매사에 긍정적인 생각을 해요.",
+  "en": "Minsu always has positive thoughts about everything."
+ },
+ "긍정하다": {
+  "ex": "수미는 친구의 좋은 의견을 흔쾌히 긍정해요.",
+  "en": "Sumi readily affirms her friend's good opinion."
+ },
+ "기": {
+  "ex": "아침에 맑은 공기를 마시니 온몸에 기가 넘쳐요.",
+  "en": "Drinking in fresh morning air fills my whole body with energy."
+ },
+ "기간": {
+  "ex": "방학 기간 동안 매일 도서관에 가요.",
+  "en": "I go to the library every day during the vacation period."
+ },
+ "기계": {
+  "ex": "공장에서 빵을 만드는 기계가 빠르게 돌아가요.",
+  "en": "The machine making bread runs quickly in the factory."
+ },
+ "기관": {
+  "ex": "구청은 시민을 위해 일하는 공공 기관이에요.",
+  "en": "The gu office is a public institution working for citizens."
+ },
+ "기구": {
+  "ex": "체육관에서 여러 가지 운동 기구를 사용해요.",
+  "en": "I use various exercise implements at the gymnasium."
+ },
+ "기근": {
+  "ex": "가뭄이 길어져서 마을에 큰 기근이 찾아와요.",
+  "en": "A great famine visits the village as the drought continues."
+ },
+ "기기": {
+  "ex": "스마트폰은 우리가 자주 쓰는 전자 기기예요.",
+  "en": "A smartphone is an electronic device that we use frequently."
+ },
+ "기능": {
+  "ex": "새 휴대전화에는 아주 편리한 사진 촬영 기능이 있어요.",
+  "en": "The new mobile phone has a very convenient photo shooting feature."
+ },
+ "기다": {
+  "ex": "어린 아기가 거실 바닥을 천천히 기어요.",
+  "en": "The young baby crawls slowly across the living room floor."
+ },
+ "기다리다": {
+  "ex": "버스 정류장에서 친구를 십 분 동안 기다려요.",
+  "en": "I wait for my friend for ten minutes at the bus stop."
+ },
+ "기대": {
+  "ex": "수미는 새로운 학기에 대해 큰 기대를 품어요.",
+  "en": "Sumi holds high expectations for the new semester."
+ },
+ "기대다": {
+  "ex": "피곤해서 푹신한 소파에 편하게 기대요.",
+  "en": "Being tired, I lean comfortably against the soft sofa."
+ },
+ "기대하다": {
+  "ex": "이번 주말에 친구들과 떠날 여행을 많이 기대해요.",
+  "en": "I anticipate the trip with my friends this weekend very much."
+ },
+ "기둥": {
+  "ex": "튼튼한 나무 기둥이 건물 천장을 받쳐 줘요.",
+  "en": "Sturdy wooden pillars support the ceiling of the building."
+ },
+ "기로": {
+  "ex": "회사는 새로운 사업의 성공과 실패의 기로에 서요.",
+  "en": "The company stands at the crossroads of success and failure for the new business."
+ },
+ "기록": {
+  "ex": "오늘의 공부 시간을 공책에 꼼꼼한 기록으로 남겨요.",
+  "en": "I leave a meticulous record of today's study time in my notebook."
+ },
+ "기록물": {
+  "ex": "도서관 자료실에서 귀중한 역사 기록물을 보관해요.",
+  "en": "The library archives keep valuable historical records."
+ },
+ "기름": {
+  "ex": "프라이팬에 고소한 식용 기름을 둘러요.",
+  "en": "I put savory cooking oil in the frying pan."
+ },
+ "기반": {
+  "ex": "탄탄한 기초 실력은 앞으로의 공부에 좋은 기반이 돼요.",
+  "en": "Solid basic skills serve as a good foundation for future study."
+ },
+ "기본": {
+  "ex": "인사는 모든 예절의 가장 중요한 기본이에요.",
+  "en": "Greeting is the most essential prerequisite of all manners."
+ },
+ "기본적": {
+  "ex": "우리는 누구나 기본적인 권리를 존중받아야 해요.",
+  "en": "Every one of us should have our basic rights respected."
+ },
+ "기분": {
+  "ex": "날씨가 맑아서 오늘 아침부터 기분이 아주 좋아요.",
+  "en": "The weather is sunny, so my mood is very good since this morning."
+ },
+ "기뻐하다": {
+  "ex": "민수는 시험에 합격해서 온 가족과 함께 기뻐해요.",
+  "en": "Minsu is happy with his whole family because he passed the exam."
+ },
+ "기쁘다": {
+  "ex": "오랜만에 친구의 편지를 받아서 마음이 참 기뻐요.",
+  "en": "My heart is truly glad to receive a letter from a friend after a long time."
+ },
+ "기사": {
+  "ex": "친절한 버스 기사님이 승객들에게 인사해요.",
+  "en": "The kind bus driver greets the passengers."
+ },
+ "기상": {
+  "ex": "텔레비전에서 오늘의 기상 뉴스를 주의 깊게 봐요.",
+  "en": "I watch today's meteorological news carefully on TV."
+ },
+ "기생": {
+  "ex": "조선 시대 그림 속에서 화려한 옷을 입은 기생을 봐요.",
+  "en": "I see a gisaeng wearing splendid clothes in a Joseon period painting."
+ },
+ "기생충": {
+  "ex": "손을 깨끗이 씻어서 기생충 감염을 예방해요.",
+  "en": "I wash my hands clean to prevent parasite infections."
+ },
+ "기숙사": {
+  "ex": "학교 수업을 마치고 조용한 기숙사 방으로 돌아와요.",
+  "en": "After finishing school classes, I return to my quiet dormitory room."
+ },
+ "기술": {
+  "ex": "민수는 직업 학교에서 자동차 수리 기술을 배워요.",
+  "en": "Minsu learns car repair skills at the vocational school."
+ },
+ "기술적": {
+  "ex": "기계의 기술적인 문제를 꼼꼼히 점검해요.",
+  "en": "I thoroughly inspect technical problems with the machine."
+ },
+ "기어": {
+  "ex": "언덕길을 오를 때는 자전거의 기어를 낮춰요.",
+  "en": "When climbing a hill, I lower the bicycle gear."
+ },
+ "기억": {
+  "ex": "작년 여름에 친구들과 바다로 떠난 기억이 떠올라요.",
+  "en": "The remembrance of going to the beach with friends last summer comes to mind."
+ },
+ "기억력": {
+  "ex": "수미는 한 번 본 단어를 잘 잊지 않을 정도로 기억력이 좋아요.",
+  "en": "Sumi has such good memory that she hardly forgets words she saw once."
+ },
+ "기업": {
+  "ex": "현우는 대학을 졸업하고 큰 IT 기업에 취직해요.",
+  "en": "Hyunwoo gets a job at a large IT company after graduating from university."
+ },
  "기여": {
   "ex": "우리는 동네 청소로 깨끗한 환경 만들기에 기여를 해요.",
   "en": "We make a contribution to creating a clean environment by cleaning the neighborhood."
