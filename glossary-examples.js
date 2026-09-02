@@ -4475,5 +4475,165 @@ export const EXAMPLES = {
  "마음먹다": {
   "ex": "새해를 맞아 매일 일기를 쓰기로 마음먹어요.",
   "en": "I make up my mind to write a diary every day for the new year."
+ },
+ "마이크": {
+  "ex": "노래방에서 마이크를 잡고 노래를 불러요.",
+  "en": "I hold the microphone and sing at the karaoke room."
+ },
+ "마지막": {
+  "ex": "오늘이 이번 학기의 마지막 수업이에요.",
+  "en": "Today is the last class of this semester."
+ },
+ "마찬가지": {
+  "ex": "준상도 저와 마찬가지로 한국어를 배워요.",
+  "en": "Junsang is learning Korean just the same as me."
+ },
+ "마치": {
+  "ex": "강아지 치즈는 마치 사람처럼 말을 잘 알아들어요.",
+  "en": "The puppy Cheese understands words well, as if he were a person."
+ },
+ "마치다": {
+  "ex": "오후 여섯 시에 회사 업무를 마쳐요.",
+  "en": "I finish my company work at 6 PM."
+ },
+ "마침": {
+  "ex": "도서관에 가려던 참에 마침 친구를 만나요.",
+  "en": "Just as I was about to go to the library, I opportunely meet a friend."
+ },
+ "마침내": {
+  "ex": "오랫동안 열심히 연습해서 마침내 시험에 합격해요.",
+  "en": "I practice hard for a long time and finally pass the exam."
+ },
+ "마케팅": {
+  "ex": "회사에서 새 제품의 온라인 마케팅을 담당해요.",
+  "en": "I am in charge of online marketing for the new product at the company."
+ },
+ "마트": {
+  "ex": "저녁 요리를 하려고 동네 마트에서 장을 봐요.",
+  "en": "I buy groceries at the neighborhood mart to cook dinner."
+ },
+ "막": {
+  "ex": "지금 막 집에 도착해서 옷을 갈아입어요.",
+  "en": "I just arrived home now and am changing clothes."
+ },
+ "막다": {
+  "ex": "감기에 걸리지 않으려고 마스크로 먼지를 막아요.",
+  "en": "I block dust with a mask to prevent catching a cold."
+ },
+ "막대하다": {
+  "ex": "이번 프로젝트에 막대한 시간과 노력이 들어요.",
+  "en": "An enormous amount of time and effort goes into this project."
+ },
+ "막상": {
+  "ex": "시험이 어려울 줄 알았는데 막상 보니 쉬워요.",
+  "en": "I thought the exam would be hard, but in reality, it is easy."
+ },
+ "막히다": {
+  "ex": "퇴근 시간에는 도로가 항상 심하게 막혀요.",
+  "en": "The road is always heavily blocked during rush hour."
+ },
+ "만": {
+  "ex": "이 책은 서점에서 딱 만 원에 팔아요.",
+  "en": "This book sells for only ten thousand won at the bookstore."
+ },
+ "만나다": {
+  "ex": "주말에 카페에서 리아를 만나요.",
+  "en": "I meet Lia at a cafe on the weekend."
+ },
+ "만난": {
+  "ex": "온갖 만난을 이겨내고 꿈을 이뤄요.",
+  "en": "I overcome all difficulties and achieve my dream."
+ },
+ "만날": {
+  "ex": "석진은 만날 친구들과 운동장에서 축구를 해요.",
+  "en": "Seokjin plays soccer with his friends on the sports field every day."
+ },
+ "만년필": {
+  "ex": "소중한 친구에게 줄 편지를 만년필로 정성껏 써요.",
+  "en": "I carefully write a letter to a precious friend with a fountain pen."
+ },
+ "만들다": {
+  "ex": "주말에 가족들과 함께 맛있는 김밥을 만들어요.",
+  "en": "I make delicious gimbap together with my family on the weekend."
+ },
+ "만약": {
+  "ex": "만약 내일 비가 오면 약속을 미뤄요.",
+  "en": "Supposing it rains tomorrow, we postpone the appointment."
+ },
+ "만족": {
+  "ex": "열심히 준비한 결과에 스스로 큰 만족을 느껴요.",
+  "en": "I feel great satisfaction with the results I worked hard to prepare."
+ },
+ "만족도": {
+  "ex": "새로 나온 서비스에 대한 고객들의 만족도가 아주 높아요.",
+  "en": "The customers' satisfaction level with the newly released service is very high."
+ },
+ "만지다": {
+  "ex": "박물관의 오래된 전시물은 손으로 만지면 안 돼요.",
+  "en": "You should not touch the old exhibits in the museum with your hands."
+ },
+ "많다": {
+  "ex": "도서관에 읽고 싶은 책이 정말 많아요.",
+  "en": "There are really many books I want to read in the library."
+ },
+ "많아지다": {
+  "ex": "봄이 오니까 공원에 산책하는 사람들이 많아져요.",
+  "en": "As spring comes, people walking in the park increase."
+ },
+ "많이": {
+  "ex": "건강을 위해 매일 물을 많이 마셔요.",
+  "en": "I drink a lot of water every day for my health."
+ },
+ "말": {
+  "ex": "친구에게 따뜻한 응원의 말을 건네요.",
+  "en": "I offer warm words of encouragement to my friend."
+ },
+ "말끝": {
+  "ex": "주리는 부끄러워서 자꾸 말끝을 흐려요.",
+  "en": "Juri is shy, so she keeps trailing off at the end of her talk."
+ },
+ "말다": {
+  "ex": "너무 걱정하지 말고 편안한 마음으로 쉬어요.",
+  "en": "Do not worry too much and rest with a comfortable mind."
+ },
+ "말로": {
+  "ex": "그 사람은 욕심을 부리다가 불행한 말로를 맞아요.",
+  "en": "That person was greedy and met unfortunate final years."
+ },
+ "말리다": {
+  "ex": "복잡한 싸움에 억울하게 말려요.",
+  "en": "I am unfairly involved in a complicated fight."
+ },
+ "말미": {
+  "ex": "바쁜 업무를 끝내고 며칠 동안의 짧은 말미를 얻어요.",
+  "en": "I finish busy tasks and get a short time off for a few days."
+ },
+ "말미암다": {
+  "ex": "부주의로 말미암은 작은 실수가 생겨요.",
+  "en": "A small mistake caused by carelessness occurs."
+ },
+ "말씀": {
+  "ex": "선생님의 좋은 말씀을 귀담아들어요.",
+  "en": "I listen carefully to the teacher's good words."
+ },
+ "말씀드리다": {
+  "ex": "회의 결과를 팀장님께 자세히 말씀드려요.",
+  "en": "I relate the meeting results in detail to the team leader."
+ },
+ "말투": {
+  "ex": "석진은 언제나 다정하고 상냥한 말투로 이야기해요.",
+  "en": "Seokjin always speaks in a kind and gentle manner of speaking."
+ },
+ "말하기": {
+  "ex": "한국어 말하기 연습을 매일 꾸준히 해요.",
+  "en": "I practice speaking in my Korean speaking class steadily every day."
+ },
+ "말하다": {
+  "ex": "솔직하게 제 생각을 친구에게 말해요.",
+  "en": "I speak my mind honestly to my friend."
+ },
+ "맑다": {
+  "ex": "오늘 하늘은 구름 한 점 없이 아주 맑아요.",
+  "en": "The sky today is very clear without a single cloud."
  }
 };
