@@ -3515,5 +3515,165 @@ export const EXAMPLES = {
  "담배": {
   "ex": "건강을 위해 공공장소에서 담배를 피우지 않아요.",
   "en": "I do not smoke tobacco in public places for health."
+ },
+ "담보": {
+  "ex": "은행에서 안전한 대출을 위해 집을 담보로 제공해요.",
+  "en": "I provide the house as security for a safe loan at the bank."
+ },
+ "담보하다": {
+  "ex": "건물을 담보하고 사업 자금을 마련해요.",
+  "en": "I collateralize the building to secure business funds."
+ },
+ "담장": {
+  "ex": "집 앞 돌 담장 옆에 예쁜 장미가 피어요.",
+  "en": "Pretty roses bloom next to the stone wall in front of the house."
+ },
+ "답": {
+  "ex": "수학 문제의 정확한 답을 공책에 적어요.",
+  "en": "I write down the correct answer to the math problem in my notebook."
+ },
+ "답답하다": {
+  "ex": "창문이 닫혀 있어서 방 안 공기가 답답해요.",
+  "en": "I feel suffocated because the windows are closed and the air in the room is stuffy."
+ },
+ "답장": {
+  "ex": "친구의 반가운 문자에 바로 답장을 보내요.",
+  "en": "I immediately send a reply to my friend's welcoming text."
+ },
+ "답하다": {
+  "ex": "선생님의 질문에 또렷한 목소리로 답해요.",
+  "en": "I reply to the teacher's question in a clear voice."
+ },
+ "당": {
+  "ex": "건강을 위해 당이 많이 든 음료를 줄여요.",
+  "en": "I cut down on drinks with high sugar for my health."
+ },
+ "당도": {
+  "ex": "이 수박은 당도가 아주 높아서 달콤해요.",
+  "en": "This watermelon is very sweet because its sugar content is high."
+ },
+ "당시": {
+  "ex": "그 당시에는 인터넷이 없었어요.",
+  "en": "At that time, there was no internet."
+ },
+ "당신": {
+  "ex": "노래 가사 속에서 당신의 이름을 불러요.",
+  "en": "I call your name in the song lyrics."
+ },
+ "당연하다": {
+  "ex": "열심히 공부했으니 좋은 점수를 받는 것은 당연해요.",
+  "en": "It is natural to receive good grades since you studied hard."
+ },
+ "당연히": {
+  "ex": "약속 시간은 당연히 잘 지켜야 해요.",
+  "en": "Naturally, one must keep the appointment time well."
+ },
+ "당일": {
+  "ex": "시험 당일에는 아침 일찍 시험장에 도착해요.",
+  "en": "On the day of the exam, I arrive early in the morning at the testing site."
+ },
+ "당장": {
+  "ex": "급한 일이 생겨서 당장 회사로 가요.",
+  "en": "An urgent matter arose, so I go to the office right now."
+ },
+ "당첨": {
+  "ex": "수미는 복권 당첨의 행운을 얻어요.",
+  "en": "Sumi gets the good fortune of prize winning with a lottery ticket."
+ },
+ "당하다": {
+  "ex": "갑작스러운 사고로 큰 고통을 당해요.",
+  "en": "I undergo pain from a sudden accident."
+ },
+ "닿다": {
+  "ex": "키가 커서 손이 높은 천장에 닿아요.",
+  "en": "My hand touches the high ceiling because I am tall."
+ },
+ "대개": {
+  "ex": "주말에는 대개 집에서 조용히 휴식을 취해요.",
+  "en": "For the most part, I rest quietly at home on weekends."
+ },
+ "대거": {
+  "ex": "많은 시민이 행사에 대거 참여해요.",
+  "en": "A great number of citizens participate in the event."
+ },
+ "대구": {
+  "ex": "시장 생선가게에서 싱싱한 대구를 사요.",
+  "en": "I buy fresh cod at the market fish shop."
+ },
+ "대규모": {
+  "ex": "공원에서 대규모 음악 축제가 열려요.",
+  "en": "A large-scale music festival is held in the park."
+ },
+ "대기": {
+  "ex": "병원 로비에서 순서를 기다리며 대기해요.",
+  "en": "I do waiting in the hospital lobby for my turn."
+ },
+ "대나무": {
+  "ex": "정원에 푸르고 곧은 대나무가 자라요.",
+  "en": "Green and straight bamboo grows in the garden."
+ },
+ "대단지": {
+  "ex": "학교 근처에 새로운 아파트 대단지가 들어서요.",
+  "en": "A large apartment complex is built near the school."
+ },
+ "대답": {
+  "ex": "친구의 질문에 친절한 대답을 건네요.",
+  "en": "I give a kind answer to my friend's question."
+ },
+ "대략": {
+  "ex": "선생님이 책의 대략을 학생들에게 알려 줘요.",
+  "en": "The teacher shares an outline of the book with the students."
+ },
+ "대량": {
+  "ex": "공장에서 빵을 대량으로 생산해요.",
+  "en": "The factory produces bread in large quantities."
+ },
+ "대리": {
+  "ex": "바쁜 친구의 대리로 서류를 제출해요.",
+  "en": "I submit the documents as a substitute for my busy friend."
+ },
+ "대립": {
+  "ex": "두 사람은 서로 다른 의견으로 대립을 겪어요.",
+  "en": "The two undergo conflict due to differing opinions."
+ },
+ "대면": {
+  "ex": "우리는 오랜만에 직접 만나서 대면 대화를 나눠요.",
+  "en": "We meet in person after a long time and have a face-to-face conversation."
+ },
+ "대부": {
+  "ex": "부동산으로 큰 부자가 된 유명한 대부를 만나요.",
+  "en": "I meet a famous billionaire who became wealthy through real estate."
+ },
+ "대부분": {
+  "ex": "우리 반 학생들의 대부분이 한국어를 잘해요.",
+  "en": "The majority of our class students speak Korean well."
+ },
+ "대비": {
+  "ex": "작년과 올해의 성적을 대비해 봐요.",
+  "en": "I make a comparison between last year's grades and this year's."
+ },
+ "대상": {
+  "ex": "어린이를 대상으로 하는 그림 대회가 열려요.",
+  "en": "A drawing contest targeting children is held."
+ },
+ "대신": {
+  "ex": "아픈 친구 대신 제가 오늘 청소를 해요.",
+  "en": "I clean today instead of my sick friend."
+ },
+ "대안": {
+  "ex": "기존 계획이 어려워서 새로운 대안을 찾아요.",
+  "en": "I look for a new alternative because the original plan is difficult."
+ },
+ "대여": {
+  "ex": "도서관에서 책 세 권의 대여를 신청해요.",
+  "en": "I apply for the rental of three books at the library."
+ },
+ "대우": {
+  "ex": "회사에서 직원들에게 정당하고 좋은 대우를 해 줘요.",
+  "en": "The company provides fair and good treatment to its employees."
+ },
+ "대응": {
+  "ex": "갑작스러운 날씨 변화에 신속한 대응을 해요.",
+  "en": "We make a swift response to the sudden change in weather."
  }
 };
