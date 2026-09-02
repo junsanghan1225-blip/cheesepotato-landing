@@ -2655,6 +2655,12 @@
   ]
  },
  {
+  "ko": "너",
+  "en": "you (to a friend or someone younger)",
+  "pos": "대명사",
+  "only": true
+ },
+ {
   "ko": "따르다",
   "en": "to follow; to conform",
   "alt": [

@@ -2719,5 +2719,161 @@ export const EXAMPLES = {
  "낭비": {
   "ex": "안 쓰는 불을 켜 두는 것은 전기 낭비예요.",
   "en": "Leaving unused lights on is a waste of electricity."
+ },
+ "낮": {
+  "ex": "여름에는 밤보다 낮이 훨씬 길어요.",
+  "en": "In summer, the daytime is much longer than the night."
+ },
+ "낮다": {
+  "ex": "이 의자는 높이가 낮아서 앉기 편해요.",
+  "en": "This chair has a low height, so it is comfortable to sit on."
+ },
+ "낮추다": {
+  "ex": "조용한 도서관에서는 목소리를 낮춰요.",
+  "en": "I lower my voice in the quiet library."
+ },
+ "낱": {
+  "ex": "달걀을 상자가 아니라 낱 개로 사요.",
+  "en": "I buy eggs by the piece rather than by the box."
+ },
+ "낱말": {
+  "ex": "공책에 새로운 한국어 낱말을 적어요.",
+  "en": "I write down new Korean words in my notebook."
+ },
+ "낳다": {
+  "ex": "어머니가 병원에서 건강한 아기를 낳아요.",
+  "en": "The mother gives birth to a healthy baby at the hospital."
+ },
+ "내": {
+  "ex": "이 필통은 내 물건이에요.",
+  "en": "This pencil case is my item."
+ },
+ "내가다": {
+  "ex": "직원이 식당 주방에서 음식을 식탁으로 내가요.",
+  "en": "The employee brings out the food from the kitchen to the dining table."
+ },
+ "내걸다": {
+  "ex": "학교 정문에 축제 현수막을 내걸어요.",
+  "en": "We hang a festival banner on the school main gate."
+ },
+ "내구성": {
+  "ex": "이 신발은 튼튼해서 내구성이 아주 좋아요.",
+  "en": "These shoes are sturdy, so their durability is very good."
+ },
+ "내기": {
+  "ex": "친구들과 점심 빵 사주기 내기를 해요.",
+  "en": "I make a bet with friends on buying lunch bread."
+ },
+ "내내": {
+  "ex": "주말 내내 집에서 책을 읽어요.",
+  "en": "I read books at home throughout the entire weekend."
+ },
+ "내년": {
+  "ex": "민수는 내년에 대학교를 졸업해요.",
+  "en": "Minsu graduates from university next year."
+ },
+ "내놓다": {
+  "ex": "가게 앞에 신선한 과일 상자를 내놓아요.",
+  "en": "I put out boxes of fresh fruit in front of the shop."
+ },
+ "내다": {
+  "ex": "선생님께 숙제 공책을 내요.",
+  "en": "I hand in and produce my homework notebook to the teacher."
+ },
+ "내려가다": {
+  "ex": "엘리베이터를 타고 1층으로 내려가요.",
+  "en": "I take the elevator and go down to the first floor."
+ },
+ "내려놓다": {
+  "ex": "무거운 짐을 바닥에 조심스럽게 내려놓아요.",
+  "en": "I put down the heavy luggage carefully on the floor."
+ },
+ "내려서다": {
+  "ex": "버스가 멈추자 승강장에 내려서요.",
+  "en": "As the bus stops, I step down onto the platform."
+ },
+ "내리": {
+  "ex": "어제부터 사흘 내리 비가 와요.",
+  "en": "It has been raining for three days in a row since yesterday."
+ },
+ "내리다": {
+  "ex": "이번 정류장에서 버스를 내려요.",
+  "en": "I get off the bus at this stop."
+ },
+ "내밀다": {
+  "ex": "인사를 하면서 친구에게 손을 내밀어요.",
+  "en": "I extend my hand to my friend while greeting."
+ },
+ "내부": {
+  "ex": "박물관 내부는 아주 넓고 조용해요.",
+  "en": "The inside of the museum is very spacious and quiet."
+ },
+ "내성": {
+  "ex": "약을 너무 자주 먹으면 내성이 생겨요.",
+  "en": "If you take medicine too often, you build up a tolerance."
+ },
+ "내성적": {
+  "ex": "현우는 조용하고 내성적인 성격이에요.",
+  "en": "Hyunwoo has a quiet and introverted personality."
+ },
+ "내야": {
+  "ex": "야구 선수가 내야로 빠르게 달려가요.",
+  "en": "The baseball player runs quickly to the infield."
+ },
+ "내용": {
+  "ex": "책의 내용이 아주 재미있어요.",
+  "en": "The content of the book is very interesting."
+ },
+ "내일": {
+  "ex": "내일 아침 일찍 학교에 가요.",
+  "en": "I go to school early tomorrow morning."
+ },
+ "내키다": {
+  "ex": "마음이 내키면 언제든지 놀러 와요.",
+  "en": "Come over to play anytime if you feel like it."
+ },
+ "냄새": {
+  "ex": "주방에서 맛있는 찌개 냄새가 나요.",
+  "en": "There is a delicious stew smell coming from the kitchen."
+ },
+ "냅다": {
+  "ex": "버스가 오자 정류장으로 냅다 달려가요.",
+  "en": "As the bus arrives, I dash hard toward the bus stop."
+ },
+ "냉": {
+  "ex": "아랫배에 차가운 냉이 들어서 따뜻한 차를 마셔요.",
+  "en": "I drink warm tea because I have cold abdomen syndrome."
+ },
+ "냉난방": {
+  "ex": "이 교실은 냉난방 시설이 잘 되어 있어요.",
+  "en": "This classroom has good heating and cooling facilities."
+ },
+ "냉면": {
+  "ex": "더운 여름에 시원한 냉면을 먹어요.",
+  "en": "I eat cold naengmyeon in the hot summer."
+ },
+ "냉방": {
+  "ex": "여름에는 실내 냉방을 적당히 켜요.",
+  "en": "In summer, we turn on moderate indoor cooling."
+ },
+ "냉장": {
+  "ex": "신선한 우유는 냉장 보관을 해요.",
+  "en": "I keep fresh milk under refrigeration."
+ },
+ "냉장고": {
+  "ex": "과일을 차갑게 먹으려고 냉장고에 넣어요.",
+  "en": "I put fruit in the refrigerator to eat it cold."
+ },
+ "너": {
+  "ex": "저는 너를 정말 믿어요.",
+  "en": "I really trust you."
+ },
+ "너머": {
+  "ex": "창문 너머로 푸른 산이 보여요.",
+  "en": "A green mountain is seen over beyond the window."
+ },
+ "너무": {
+  "ex": "오늘 날씨가 너무 더워요.",
+  "en": "Today the weather is very hot."
  }
 };
