@@ -167,5 +167,165 @@ export const EXAMPLES = {
  "가운": {
   "ex": "올해는 우리 집안의 가운이 참 좋아요.",
   "en": "Our family's luck is very good this year."
+ },
+ "가운데": {
+  "ex": "테이블 가운데에 꽃병을 놓아요.",
+  "en": "I put a vase in the middle of the table."
+ },
+ "가을": {
+  "ex": "가을에는 단풍이 참 예뻐요.",
+  "en": "The autumn leaves are really pretty in the fall."
+ },
+ "가입": {
+  "ex": "오늘 헬스클럽에 가입해요.",
+  "en": "I am signing up for a fitness club today."
+ },
+ "가장": {
+  "ex": "민수는 성실하게 일하는 한 집안의 가장이에요.",
+  "en": "Minsu is the head of a household who works hard."
+ },
+ "가재": {
+  "ex": "맑은 개울가에서 작은 가재를 잡아요.",
+  "en": "I catch a small crawfish in the clear stream."
+ },
+ "가전": {
+  "ex": "새 아파트에 들어갈 가전을 구경해요.",
+  "en": "I browse electronics for the new apartment."
+ },
+ "가전제품": {
+  "ex": "주말에 매장에서 가전제품을 사요.",
+  "en": "I buy household appliances at the store over the weekend."
+ },
+ "가정": {
+  "ex": "수미는 따뜻하고 행복한 가정을 꾸려요.",
+  "en": "Sumi creates a warm and happy home."
+ },
+ "가정하다": {
+  "ex": "최악의 상황을 가정하고 계획을 세워요.",
+  "en": "I make a plan assuming the worst situation."
+ },
+ "가져가다": {
+  "ex": "학교에 숙제 공책을 가져가요.",
+  "en": "I bring my homework notebook to school."
+ },
+ "가져다주다": {
+  "ex": "할머니께 따뜻한 물 한 잔을 가져다줘요.",
+  "en": "I bring a glass of warm water to my grandmother."
+ },
+ "가져오다": {
+  "ex": "수업 시간에 한국어 책을 가져와요.",
+  "en": "I bring my Korean book to class."
+ },
+ "가족": {
+  "ex": "주말마다 가족과 함께 저녁을 먹어요.",
+  "en": "I have dinner with my family every weekend."
+ },
+ "가죽": {
+  "ex": "부드러운 소 가죽으로 만든 신발을 신어요.",
+  "en": "I wear shoes made of soft cow skin."
+ },
+ "가중": {
+  "ex": "시험 기간이라 학생들의 피로가 가중돼요.",
+  "en": "The students' fatigue increases because of the exam period."
+ },
+ "가지": {
+  "ex": "나무 위에 앉은 새가 가지를 흔들어요.",
+  "en": "A bird sitting on the tree shakes the branch."
+ },
+ "가지다": {
+  "ex": "민수는 멋진 꿈을 가져요.",
+  "en": "Minsu has a wonderful dream."
+ },
+ "가치": {
+  "ex": "이 오래된 책은 역사적 가치가 높아요.",
+  "en": "This old book has high historical value."
+ },
+ "가치관": {
+  "ex": "사람마다 서로 다른 가치관을 가지고 살아요.",
+  "en": "People live with different values from one another."
+ },
+ "가해": {
+  "ex": "타인에게 가해 행위를 하면 안 돼요.",
+  "en": "You must not do wrongdoing to others."
+ },
+ "각각": {
+  "ex": "학생들이 각각 다른 발표 주제를 골라요.",
+  "en": "The students each choose different presentation topics."
+ },
+ "각광": {
+  "ex": "전기차가 친환경 기술로 큰 각광을 받아요.",
+  "en": "Electric cars receive great recognition as eco-friendly technology."
+ },
+ "각광받다": {
+  "ex": "건강한 식단이 요즘 많은 사람들에게 각광받아요.",
+  "en": "Healthy diets are in the spotlight among many people these days."
+ },
+ "각오": {
+  "ex": "어려운 시험을 앞두고 새로운 각오를 다져요.",
+  "en": "I make a new resolve ahead of a difficult exam."
+ },
+ "각자": {
+  "ex": "식사가 끝나면 각자 그릇을 치워요.",
+  "en": "When the meal is finished, each person cleans up their own bowl."
+ },
+ "각종": {
+  "ex": "서점에 가면 각종 책을 쉽게 찾아요.",
+  "en": "When you go to a bookstore, you can easily find all kinds of books."
+ },
+ "각지": {
+  "ex": "전국 각지에서 많은 관광객이 모여요.",
+  "en": "Many tourists gather from various places all over the country."
+ },
+ "각지다": {
+  "ex": "이 식탁은 모서리가 각져요.",
+  "en": "The edges of this dining table angulate sharply."
+ },
+ "간": {
+  "ex": "친구 간에는 서로 배려하는 마음이 필요해요.",
+  "en": "Mutual consideration is necessary between friends."
+ },
+ "간단하다": {
+  "ex": "오늘 저녁은 라면으로 간단하게 먹어요.",
+  "en": "I eat something simple like ramen for dinner today."
+ },
+ "간담": {
+  "ex": "갑작스러운 큰 소리에 간담이 서늘해요.",
+  "en": "My inner thoughts chill with fear at the sudden loud noise."
+ },
+ "간담회": {
+  "ex": "회사 직원들이 모여서 작은 간담회를 열어요.",
+  "en": "The company employees gather to hold a small discussion."
+ },
+ "간소화": {
+  "ex": "업무 절차의 간소화가 꼭 필요해요.",
+  "en": "The simplification of work procedures is definitely needed."
+ },
+ "간소화하다": {
+  "ex": "복잡한 서류 절차를 알기 쉽게 간소화해요.",
+  "en": "We simplify complicated paperwork procedures to make them easy to understand."
+ },
+ "간접": {
+  "ex": "책을 읽으며 간접 경험을 쌓아요.",
+  "en": "I build up indirect experience by reading books."
+ },
+ "간판": {
+  "ex": "길을 걷다가 예쁜 카페 간판을 봐요.",
+  "en": "Walking down the street, I see a pretty cafe signboard."
+ },
+ "갈다": {
+  "ex": "방에 불이 안 들어와서 전구를 갈아요.",
+  "en": "The light in the room does not turn on, so I replace the lightbulb."
+ },
+ "갈등": {
+  "ex": "대화를 통해 친구와의 갈등을 풀어요.",
+  "en": "I resolve the conflict with my friend through conversation."
+ },
+ "갈래": {
+  "ex": "산길이 두 갈래로 나뉘어요.",
+  "en": "The mountain path divides into two branches."
+ },
+ "갈아입다": {
+  "ex": "집에 도착해서 편한 옷으로 갈아입어요.",
+  "en": "I arrive home and change into comfortable clothes."
  }
 };

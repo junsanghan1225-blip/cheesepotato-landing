@@ -23,8 +23,18 @@ catch (e) { console.log('docs/glossary-examples.json 이 아직 없다 — 예�
 const byHead = new Map();
 Object.values(GLOSSARY).forEach((v) => { if (!byHead.has(v.head)) byHead.set(v.head, v); });
 const inDict = (k) => Object.prototype.hasOwnProperty.call(GLOSSARY, k);
-/* add-glossary-examples.mjs 와 같은 자리 — 두 곳 다 고쳐야 한다. */
-const HAEYO = /(아요|어요|여요|워요|꿔요|라요|러요|려요|겨요|쳐요|켜요|셔요|져요|펴요|커요|써요|떠요|꺼요|봐요|와요|돼요|놔요|에요|예요|해요|세요|께요|나요|가요|까요|지요|네요|군요|는데요|거든요)$/;
+/* add-glossary-examples.mjs 와 같은 자리 — 두 곳 다 고쳐야 한다.
+   「요」 앞 글자의 홀소리(중성)를 갈라 보는 이유는 그쪽 주석에 있다. */
+const HAEYO_FIXED = /(지요|군요|거든요)$/;
+const HAEYO_BARE_VOWEL = new Set([8, 12, 13, 17, 18, 19, 20]); // ㅗㅛㅜㅠㅡㅢㅣ
+function endsHaeyo(bare) {
+  if (HAEYO_FIXED.test(bare)) return true;
+  if (!bare.endsWith('요') || bare.length < 2) return false;
+  const code = bare.codePointAt(bare.length - 2) - 0xAC00;
+  if (code < 0 || code > 11171) return false;
+  const jung = Math.floor(code / 28) % 21;
+  return !HAEYO_BARE_VOWEL.has(jung);
+}
 
 const bad = [];
 const warn = [];
@@ -42,7 +52,7 @@ heads.forEach((head) => {
   if (!en) { bad.push(`${head}: 번역이 비었다`); return; }
 
   const bare = ex.replace(/[?!.]+$/, '');
-  if (!HAEYO.test(bare)) bad.push(`${head}: 해요체로 안 끝난다 — "${ex}"`);
+  if (!endsHaeyo(bare)) bad.push(`${head}: 해요체로 안 끝난다 — "${ex}"`);
   if (ex.length > 60) warn.push(`${head}: 예문이 길다(${ex.length}자) — "${ex}"`);
 
   /* gloss-find.js 의 스테머가 모든 불규칙활용을 다 잡지는 못하므로

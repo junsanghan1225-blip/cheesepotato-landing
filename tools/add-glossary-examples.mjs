@@ -47,14 +47,24 @@ const byHead = new Map();
 Object.values(GLOSSARY).forEach((v) => { if (!byHead.has(v.head)) byHead.set(v.head, v); });
 const inDict = (k) => Object.prototype.hasOwnProperty.call(GLOSSARY, k);
 
-/* 해요체 종결. build-writing 쪽(TW_HAEYO)에 ㅂ·르 불규칙 꼴(워요·라요·
-   러요 — 가까워요·몰라요·불러요)을 더했고, 여기서는 이→여 축약(려요·
-   겨요·쳐요·켜요·셔요·져요·펴요 — 가려요·즐겨요·가르쳐요·가리켜요·
-   가셔요·켜져요), ㅜ 축약(꿔요 — 가꿔요), ㅡ 탈락(커요·써요·떠요·꺼요),
-   ㅗ/ㅚ 축약(봐요·와요·돼요·놔요 — 봐요·와요·돼요·놔요) 꼴을 더 더했다.
-   전부 사전 예문을 짓다가 실제로 걸린 것들이다. 문장 끝의 물음표·
-   느낌표·마침표는 먼저 뗀다. */
-const HAEYO = /(아요|어요|여요|워요|꿔요|라요|러요|려요|겨요|쳐요|켜요|셔요|져요|펴요|커요|써요|떠요|꺼요|봐요|와요|돼요|놔요|에요|예요|해요|세요|께요|나요|가요|까요|지요|네요|군요|는데요|거든요)$/;
+/* 해요체 종결. 처음엔 build-writing 쪽(TW_HAEYO)처럼 「아요·어요·…」를
+   글자로 하나씩 나열했는데, 사전 예문을 짓다 보니 동사 줄기가 저마다
+   다른 꼴로 줄어들어(가려요·가르쳐요·가리켜요·가꿔요·커요·써요·봐요·
+   와요·사요·타요·캐요…) 나열이 끝없이 늘어났다. 한글은 초성·중성·
+   종성으로 쪼갤 수 있으므로, 「요」 앞 글자의 **홀소리(중성)** 만
+   본다 — ㅗㅛㅜㅠㅡㅢㅣ(가다·오다·이다 처럼 아직 「아/어」가 안 붙은
+   맨 줄기 꼴) 가 아니면 해요체로 본다. 「지요·군요·거든요」처럼
+   홀소리로는 안 갈리는 굳은 어미만 따로 적어 둔다. */
+const HAEYO_FIXED = /(지요|군요|거든요)$/;
+const HAEYO_BARE_VOWEL = new Set([8, 12, 13, 17, 18, 19, 20]); // ㅗㅛㅜㅠㅡㅢㅣ
+function endsHaeyo(bare) {
+  if (HAEYO_FIXED.test(bare)) return true;
+  if (!bare.endsWith('요') || bare.length < 2) return false;
+  const code = bare.codePointAt(bare.length - 2) - 0xAC00;
+  if (code < 0 || code > 11171) return false; // 완성형 한글이 아니면 통과시키지 않는다
+  const jung = Math.floor(code / 28) % 21;
+  return !HAEYO_BARE_VOWEL.has(jung);
+}
 
 let out = {};
 try { out = JSON.parse(readFileSync(OUT, 'utf8')); } catch (e) { /* 처음이면 빈 것으로 시작 */ }
@@ -80,7 +90,7 @@ items.forEach((it, i) => {
   if (ex.length > 60) bad.push(`${at}: 예문이 60자를 넘는다(${ex.length}자) — 한 문장치고 길다`);
 
   const bare = ex.replace(/[?!.]+$/, '');
-  if (!HAEYO.test(bare)) bad.push(`${at}: 해요체로 안 끝난다 — "${ex}"`);
+  if (!endsHaeyo(bare)) bad.push(`${at}: 해요체로 안 끝난다 — "${ex}"`);
 
   /* 예문에 그 낱말이 실제로 들어 있는가. 글자 그대로 있거나(활용 안
      한 경우), 예문의 어느 낱말을 표제어로 풀었을 때 이 표제어와
