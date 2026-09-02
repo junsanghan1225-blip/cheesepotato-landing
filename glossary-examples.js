@@ -4795,5 +4795,165 @@ export const EXAMPLES = {
  "먹먹하다": {
   "ex": "비행기가 높이 올라가니까 귀가 먹먹해요.",
   "en": "My ears feel deafened as the airplane climbs high."
+ },
+ "먹이": {
+  "ex": "아침마다 강아지 치즈에게 맛있는 먹이를 줘요.",
+  "en": "I give delicious food to the puppy Cheese every morning."
+ },
+ "먹이다": {
+  "ex": "엄마가 아기에게 따뜻한 이유식을 먹여요.",
+  "en": "The mother feeds warm baby food to the baby."
+ },
+ "먹이사슬": {
+  "ex": "자연에서는 여러 동물이 먹이사슬로 연결돼요.",
+  "en": "In nature, various animals are connected through the food chain."
+ },
+ "먼저": {
+  "ex": "급한 일이 있어서 제가 먼저 갈게요.",
+  "en": "I have an urgent matter, so I will go first."
+ },
+ "먼지": {
+  "ex": "창문을 열고 방 안의 먼지를 털어내요.",
+  "en": "I open the window and dust off the room."
+ },
+ "멀다": {
+  "ex": "회사에서 집까지 거리가 꽤 멀어요.",
+  "en": "The distance from the company to my house is quite far."
+ },
+ "멀리": {
+  "ex": "주말에는 복잡한 도시를 벗어나 멀리 떠나요.",
+  "en": "On the weekend, I get away from the crowded city and travel far."
+ },
+ "멀어지다": {
+  "ex": "기차가 출발하자 역의 모습이 점점 멀어져요.",
+  "en": "As the train departs, the view of the station gradually recedes."
+ },
+ "멈추다": {
+  "ex": "빨간 신호등을 보고 길가에 차를 멈춰요.",
+  "en": "I see the red traffic light and stop the car by the roadside."
+ },
+ "멋": {
+  "ex": "석진은 심플한 옷으로 멋을 내요.",
+  "en": "Seokjin creates stylishness with simple clothes."
+ },
+ "메뉴": {
+  "ex": "오늘 점심 메뉴로 따뜻한 찌개를 골라요.",
+  "en": "I choose a warm stew as today's lunch menu."
+ },
+ "메뉴판": {
+  "ex": "식당에 앉아서 직원에게 메뉴판을 요청해요.",
+  "en": "I sit at the restaurant and ask the staff for the menu."
+ },
+ "메다": {
+  "ex": "오랜 친구의 슬픈 소식을 듣고 목이 메요.",
+  "en": "My throat chokes up upon hearing sad news about an old friend."
+ },
+ "메시지": {
+  "ex": "수업이 끝나고 리아에게 문자 메시지를 보내요.",
+  "en": "After class ends, I send a text message to Lia."
+ },
+ "며칠": {
+  "ex": "오늘이 며칠인지 달력을 봐요.",
+  "en": "I look at the calendar to see what date it is today."
+ },
+ "면도": {
+  "ex": "아침에 일어나서 깔끔하게 면도를 해요.",
+  "en": "I wake up in the morning and do a clean shave."
+ },
+ "면역": {
+  "ex": "예방접종을 맞아서 독감에 대한 면역을 얻어요.",
+  "en": "I get vaccinated and gain immunity against the flu."
+ },
+ "면역력": {
+  "ex": "규칙적인 운동은 우리 몸의 면역력을 높여요.",
+  "en": "Regular exercise boosts our body's immunity."
+ },
+ "면적": {
+  "ex": "이 공원은 면적이 넓어서 산책하기 좋아요.",
+  "en": "This park has a large area, so it is great for taking walks."
+ },
+ "면접": {
+  "ex": "내일 오후에 회사 입사 면접을 봐요.",
+  "en": "I have a job interview at the company tomorrow afternoon."
+ },
+ "면제": {
+  "ex": "우수한 성적으로 이번 학기 학비 면제를 받아요.",
+  "en": "I receive an exemption from tuition this semester for outstanding grades."
+ },
+ "명령": {
+  "ex": "컴퓨터에 작업을 시작하라는 명령을 내려요.",
+  "en": "I give a command to the computer to start the task."
+ },
+ "명사": {
+  "ex": "'학교'와 '사과'는 사물의 이름을 나타내는 명사예요.",
+  "en": "'School' and 'apple' are nouns that express the names of things."
+ },
+ "명상": {
+  "ex": "조용한 방에서 눈을 감고 아침 명상을 해요.",
+  "en": "I close my eyes and do morning meditation in a quiet room."
+ },
+ "몇": {
+  "ex": "책상 위에 몇 권의 책이 놓여 있어요.",
+  "en": "There are several books placed on the desk."
+ },
+ "모": {
+  "ex": "농부가 봄에 논에 파란 모를 심어요.",
+  "en": "The farmer plants green rice seedlings in the paddy field in spring."
+ },
+ "모두": {
+  "ex": "수업이 끝나고 친구들 모두 집으로 돌아가요.",
+  "en": "Class ends, and all the friends return home."
+ },
+ "모든": {
+  "ex": "준상은 모든 일에 항상 최선을 다해요.",
+  "en": "Junsang always does his best in every single thing."
+ },
+ "모레": {
+  "ex": "내일은 약속이 있고 모레 시간이 괜찮아요.",
+  "en": "I have plans tomorrow, and I am free the day after tomorrow."
+ },
+ "모르다": {
+  "ex": "새로 바뀐 지하철 노선을 아직 잘 몰라요.",
+  "en": "I do not know the newly changed subway line very well yet."
+ },
+ "모바일": {
+  "ex": "스마트폰으로 모바일 게임을 재미있게 즐겨요.",
+  "en": "I enjoy playing mobile games on my smartphone."
+ },
+ "모방": {
+  "ex": "아이들은 부모님의 행동을 모방하며 배워요.",
+  "en": "Children learn through the imitation of their parents' actions."
+ },
+ "모방하다": {
+  "ex": "주리는 좋아하는 가수의 춤을 그대로 모방해요.",
+  "en": "Juri mimics the dance of her favorite singer just as it is."
+ },
+ "모습": {
+  "ex": "공원에서 즐겁게 뛰어노는 아이들의 모습이 보여요.",
+  "en": "I see the appearance of children playing joyfully in the park."
+ },
+ "모시": {
+  "ex": "여름에는 시원하고 가벼운 모시 옷을 즐겨 입어요.",
+  "en": "In summer, I enjoy wearing cool and light ramie fabric clothes."
+ },
+ "모시다": {
+  "ex": "부모님을 모시고 맛있는 한식당에 가요.",
+  "en": "I attend my parents and go to a delicious Korean restaurant."
+ },
+ "모양": {
+  "ex": "쿠키를 귀여운 별 모양으로 예쁘게 구워요.",
+  "en": "I bake cookies nicely into a cute star shape."
+ },
+ "모으다": {
+  "ex": "여행을 가려고 매달 조금씩 돈을 모아요.",
+  "en": "I collect a little money every month to go on a trip."
+ },
+ "모음": {
+  "ex": "한국어의 자음과 모음을 차근차근 배워요.",
+  "en": "I learn the consonants and vowels of Korean step by step."
+ },
+ "모이다": {
+  "ex": "주말 저녁에 온 가족이 거실에 모여요.",
+  "en": "The whole family gathers in the living room on weekend evenings."
  }
 };

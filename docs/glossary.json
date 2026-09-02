@@ -2685,6 +2685,12 @@
   "only": true
  },
  {
+  "ko": "명사",
+  "en": "noun",
+  "pos": "명사",
+  "only": true
+ },
+ {
   "ko": "녹",
   "en": "rust",
   "pos": "명사",
