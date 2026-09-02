@@ -2643,6 +2643,18 @@
   "only": true
  },
  {
+  "ko": "곱다",
+  "en": "beautiful; lovely",
+  "pos": "형용사",
+  "only": true,
+  "alt": [
+   "고와요",
+   "고운",
+   "고와서",
+   "고왔다"
+  ]
+ },
+ {
   "ko": "따르다",
   "en": "to follow; to conform",
   "alt": [

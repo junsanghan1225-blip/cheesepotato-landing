@@ -1281,11 +1281,331 @@ export const EXAMPLES = {
   "en": "I walk along the narrow alleyway with a friend in the evening."
  },
  "곱": {
-  "ex": "주말에는 평일보다 손님이 두 곱으로 많아요.",
-  "en": "On weekends, there are double the number of customers compared to weekdays."
+  "ex": "이번 학기 신입생 수가 작년의 두 곱이 되었어요.",
+  "en": "The number of new students this semester has doubled from last year."
  },
  "곱다": {
-  "ex": "할머니의 허리가 나이가 드셔서 점점 곱아요.",
-  "en": "My grandmother's back gets gradually hunched with age."
+  "ex": "이 배우는 웃는 얼굴이 정말 고와요.",
+  "en": "This actor's smiling face is really lovely."
+ },
+ "곳": {
+  "ex": "여기는 제가 자주 산책하는 곳이에요.",
+  "en": "This is the place where I often take walks."
+ },
+ "공간": {
+  "ex": "도서관에는 조용히 책을 읽는 공간이 있어요.",
+  "en": "There is a space to read books quietly in the library."
+ },
+ "공감": {
+  "ex": "친구의 이야기를 듣고 깊은 공감을 느껴요.",
+  "en": "I feel deep sympathy after listening to my friend's story."
+ },
+ "공개": {
+  "ex": "학교에서 내일 시험 결과를 공개해요.",
+  "en": "The school makes an announcement of the test results tomorrow."
+ },
+ "공개되다": {
+  "ex": "새로운 영화 예고편이 인터넷에 공개돼요.",
+  "en": "The new movie trailer is made public on the internet."
+ },
+ "공격": {
+  "ex": "축구 경기에서 우리 팀이 상대 팀을 공격해요.",
+  "en": "Our team launches an attack on the opposing team in the soccer match."
+ },
+ "공고": {
+  "ex": "민수는 기술을 배우려고 공고에 진학해요.",
+  "en": "Minsu goes to a vocational high school to learn technical skills."
+ },
+ "공공": {
+  "ex": "도서관은 모두가 함께 쓰는 공공 시설이에요.",
+  "en": "The library is a public facility that everyone uses together."
+ },
+ "공급": {
+  "ex": "가뭄 때문에 마을에 깨끗한 물을 공급해요.",
+  "en": "We provide a supply of clean water to the village due to the drought."
+ },
+ "공기": {
+  "ex": "산 위에 올라가니 맑은 공기가 느껴져요.",
+  "en": "I feel fresh air as I go up the mountain."
+ },
+ "공기청정기": {
+  "ex": "먼지가 많아서 방에 공기청정기를 틀어요.",
+  "en": "I turn on the air cleaner in the room because there is a lot of dust."
+ },
+ "공놀이": {
+  "ex": "아이들이 운동장에서 신나게 공놀이를 해요.",
+  "en": "Children play a ball game cheerfully on the playground."
+ },
+ "공문": {
+  "ex": "회사에서 다른 부서로 중요한 공문을 보내요.",
+  "en": "The company sends an important official document to another department."
+ },
+ "공방": {
+  "ex": "주말에 도자기 공방에서 그릇을 만들어요.",
+  "en": "I make bowls at the pottery studio on the weekend."
+ },
+ "공부": {
+  "ex": "내일 시험이 있어서 저녁에 공부를 해요.",
+  "en": "I do study in the evening because I have an exam tomorrow."
+ },
+ "공부하다": {
+  "ex": "도서관에서 친구와 함께 한국어를 공부해요.",
+  "en": "I study Korean together with my friend in the library."
+ },
+ "공사": {
+  "ex": "도로에서 횡단보도를 새로 만드는 공사를 해요.",
+  "en": "They are doing construction work to create a new crosswalk on the road."
+ },
+ "공사하다": {
+  "ex": "집 앞 건물을 새로 깨끗하게 공사해요.",
+  "en": "They construct the building in front of my house anew."
+ },
+ "공약": {
+  "ex": "반장 후보가 학생들을 위한 공약을 발표해요.",
+  "en": "The class president candidate announces pledges for the students."
+ },
+ "공연": {
+  "ex": "주말에 극장에서 멋진 음악 공연을 봐요.",
+  "en": "I watch a wonderful music performance at the theater over the weekend."
+ },
+ "공예": {
+  "ex": "할머니가 전통 공예로 예쁜 상자를 만드세요.",
+  "en": "My grandmother makes a pretty box with traditional craftsmanship."
+ },
+ "공용": {
+  "ex": "기숙사에서는 공용 세탁기를 사용해요.",
+  "en": "We use a shared use washing machine in the dormitory."
+ },
+ "공원": {
+  "ex": "날씨가 맑아서 공원에서 자전거를 타요.",
+  "en": "The weather is clear, so I ride a bicycle in the park."
+ },
+ "공작": {
+  "ex": "미술 시간에 종이로 동물 공작을 해요.",
+  "en": "We make paper animal crafts during art class."
+ },
+ "공장": {
+  "ex": "이 공장에서는 매일 신선한 빵을 만들어요.",
+  "en": "This factory bakes fresh bread every day."
+ },
+ "공정": {
+  "ex": "운동 경기에서는 공정한 규칙 준수가 중요해요.",
+  "en": "Fairness in following the rules is important in sports games."
+ },
+ "공존": {
+  "ex": "도심 속에서 자연과 인간의 공존을 생각해요.",
+  "en": "I think about the coexistence of nature and humans in the city center."
+ },
+ "공존하다": {
+  "ex": "이 공원에는 다양한 식물과 동물이 함께 공존해요.",
+  "en": "Various plants and animals co-exist together in this park."
+ },
+ "공지": {
+  "ex": "선생님이 다음 주 소풍 일정을 공지로 알려 줘요.",
+  "en": "The teacher gives notice about next week's picnic schedule."
+ },
+ "공책": {
+  "ex": "수업 내용을 공책에 깔끔하게 적어요.",
+  "en": "I write down the class notes neatly in my notebook."
+ },
+ "공항": {
+  "ex": "비행기를 타려고 아침 일찍 공항에 도착해요.",
+  "en": "I arrive at the airport early in the morning to catch a flight."
+ },
+ "과거": {
+  "ex": "수미는 과거의 즐거웠던 추억을 떠올려요.",
+  "en": "Sumi recalls pleasant memories from the past."
+ },
+ "과다": {
+  "ex": "설탕 과다는 건강에 좋지 않아요.",
+  "en": "An extreme amount of sugar is not good for health."
+ },
+ "과도": {
+  "ex": "사과를 깎으려고 주방에서 과도를 꺼내요.",
+  "en": "I take out a fruit knife from the kitchen to peel an apple."
+ },
+ "과도하다": {
+  "ex": "늦은 밤에 하는 과도한 운동은 피해요.",
+  "en": "I avoid excessive exercise late at night."
+ },
+ "과연": {
+  "ex": "그 소문이 과연 사실인지 궁금해요.",
+  "en": "I wonder if that rumor is really true indeed."
+ },
+ "과열": {
+  "ex": "휴대폰을 너무 오래 써서 기계 과열이 생겨요.",
+  "en": "Machine overheating occurs because I used my phone for too long."
+ },
+ "과일": {
+  "ex": "아침마다 신선한 사과와 과일을 먹어요.",
+  "en": "I eat fresh apples and fruit every morning."
+ },
+ "과자": {
+  "ex": "텔레비전을 보면서 달콤한 과자를 먹어요.",
+  "en": "I eat sweet snacks while watching television."
+ },
+ "과장": {
+  "ex": "우리 부서의 김 과장님이 새 프로젝트를 맡아요.",
+  "en": "Manager Kim, head of our department, takes charge of the new project."
+ },
+ "과정": {
+  "ex": "한국어를 배우는 과정이 참 즐거워요.",
+  "en": "The process of learning Korean is truly enjoyable."
+ },
+ "과제": {
+  "ex": "수업이 끝나고 도서관에서 숙제 과제를 해요.",
+  "en": "I work on my assignment task in the library after class."
+ },
+ "과학": {
+  "ex": "현우는 학교에서 과학 과목을 제일 좋아해요.",
+  "en": "Hyunwoo likes science subject the most at school."
+ },
+ "과학관": {
+  "ex": "주말에 동생과 함께 국립 과학관에 가요.",
+  "en": "I go to the science museum with my younger sibling over the weekend."
+ },
+ "과학적": {
+  "ex": "선생님이 과학적인 방법으로 실험을 설명해요.",
+  "en": "The teacher explains the experiment using a scientific method."
+ },
+ "관": {
+  "ex": "왕이 머리에 화려한 금빛 관을 써요.",
+  "en": "The king wears a splendid golden crown on his head."
+ },
+ "관계": {
+  "ex": "그분은 오랫동안 관계에서 일한 공무원이에요.",
+  "en": "That person is a civil servant who has worked in government circles for a long time."
+ },
+ "관광": {
+  "ex": "방학 동안 친구들과 부산으로 관광을 떠나요.",
+  "en": "I leave for tourism in Busan with my friends during vacation."
+ },
+ "관내": {
+  "ex": "경찰관이 구청 관내를 순찰해요.",
+  "en": "The police officer patrols within the district."
+ },
+ "관람": {
+  "ex": "오후에 미술관에서 전시 관람을 해요.",
+  "en": "I do exhibition viewing at the art museum in the afternoon."
+ },
+ "관람객": {
+  "ex": "공연장에 많은 관람객이 모여요.",
+  "en": "Many visitors gather at the concert hall."
+ },
+ "관리": {
+  "ex": "건물 주인이 시설의 청결과 관리에 신경 써요.",
+  "en": "The building owner cares about the cleanliness and management of the facility."
+ },
+ "관심": {
+  "ex": "지영이는 한국 문화에 관심이 많아요.",
+  "en": "Jiyoung has a lot of interest in Korean culture."
+ },
+ "관아": {
+  "ex": "역사 드라마에서 백성들이 관아로 찾아가요.",
+  "en": "In historical dramas, people visit the government office."
+ },
+ "관절": {
+  "ex": "할머니가 무릎 관절이 아파서 병원에 가세요.",
+  "en": "My grandmother goes to the hospital because her knee joint hurts."
+ },
+ "관측": {
+  "ex": "밤하늘에서 망원경으로 별 관측을 해요.",
+  "en": "I do star observation with a telescope in the night sky."
+ },
+ "관형형": {
+  "ex": "동사 뒤에 '-는'을 붙여서 관형형을 만들어요.",
+  "en": "We make an adnominal form by attaching '-neun' after a verb."
+ },
+ "광": {
+  "ex": "마당 구석에 있는 광에 안 쓰는 물건을 둬요.",
+  "en": "I put unused items in the storage located at the corner of the yard."
+ },
+ "광산": {
+  "ex": "인부들이 깊은 광산에서 석탄을 캐요.",
+  "en": "Workers dig for coal in a deep mine."
+ },
+ "광합성": {
+  "ex": "식물은 햇빛을 받아서 광합성을 해요.",
+  "en": "Plants receive sunlight and carry out photosynthesis."
+ },
+ "괜찮다": {
+  "ex": "감기에 걸렸지만 이제 몸이 괜찮아요.",
+  "en": "I caught a cold, but my body is all right now."
+ },
+ "괜히": {
+  "ex": "쓸데없는 걱정 때문에 괜히 마음만 불안해요.",
+  "en": "My mind is anxious in vain due to useless worries."
+ },
+ "교실": {
+  "ex": "수업 시작 전에 교실 창문을 열어요.",
+  "en": "I open the classroom window before class starts."
+ },
+ "교육": {
+  "ex": "학교에서 학생들에게 안전 교육을 해요.",
+  "en": "The school conducts safety education for the students."
+ },
+ "교차": {
+  "ex": "도로의 교차 지점에서 차들이 멈춰 서요.",
+  "en": "Cars stop at the road intersection point."
+ },
+ "교차하다": {
+  "ex": "두 개의 긴 도로가 중앙에서 서로 교차해요.",
+  "en": "The two long roads intersect each other at the center."
+ },
+ "교통": {
+  "ex": "출근 시간에는 시내 교통이 아주 복잡해요.",
+  "en": "City traffic is very crowded during commuting hours."
+ },
+ "교통수단": {
+  "ex": "지하철은 빠르고 편리한 대중 교통수단이에요.",
+  "en": "The subway is a fast and convenient means of transportation."
+ },
+ "구": {
+  "ex": "두 단어가 모여서 하나의 명사 구를 이뤄요.",
+  "en": "Two words come together to form one noun phrase."
+ },
+ "구경": {
+  "ex": "주말에 전통 시장에 가서 장터 구경을 해요.",
+  "en": "I go to the traditional market on the weekend for sightseeing."
+ },
+ "구경하다": {
+  "ex": "친구들과 함께 예쁜 옷 가게를 구경해요.",
+  "en": "I look around and watch pretty clothes shops with friends."
+ },
+ "구름": {
+  "ex": "파란 하늘에 하얀 구름이 둥실 떠 있어요.",
+  "en": "White clouds are floating lightly in the blue sky."
+ },
+ "구매": {
+  "ex": "인터넷 쇼핑몰에서 책 구매를 신청해요.",
+  "en": "I submit a purchase request for a book at the online shopping mall."
+ },
+ "구매하다": {
+  "ex": "문구점에서 새 공책과 필통을 구매해요.",
+  "en": "I purchase a new notebook and pencil case at the stationery store."
+ },
+ "구멍": {
+  "ex": "양말 앞부분에 작은 구멍이 났어요.",
+  "en": "A small hole has formed at the front of the sock."
+ },
+ "구석": {
+  "ex": "방 구석에 작은 화분을 놓아요.",
+  "en": "I place a small flowerpot in the corner of the room."
+ },
+ "구석구석": {
+  "ex": "주말을 맞아 집 안 구석구석을 깨끗이 청소해요.",
+  "en": "I clean every nook and corner of the house clean over the weekend."
+ },
+ "구성": {
+  "ex": "우리 팀은 열 명의 학생으로 팀 구성을 마쳐요.",
+  "en": "Our team finishes the team composition with ten students."
+ },
+ "구어": {
+  "ex": "친구끼리는 격식 있는 글보다 편한 구어로 대화해요.",
+  "en": "Friends converse in comfortable spoken language rather than formal writing."
+ },
+ "구역": {
+  "ex": "이곳은 아이들이 안전하게 뛰어노는 보호 구역이에요.",
+  "en": "This is a safety zone where children play safely."
  }
 };
