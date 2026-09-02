@@ -1127,5 +1127,165 @@ export const EXAMPLES = {
  "고개": {
   "ex": "민수는 음악을 들으면서 고개를 끄덕여요.",
   "en": "Minsu nods his head while listening to music."
+ },
+ "고객": {
+  "ex": "가게 직원이 들어오는 고객에게 인사해요.",
+  "en": "The store employee greets the incoming customer."
+ },
+ "고급": {
+  "ex": "백화점에서 고급 옷을 구경해요.",
+  "en": "I browse high-quality clothes at the department store."
+ },
+ "고기": {
+  "ex": "오늘 저녁에 가족들과 맛있는 고기를 구워 먹어요.",
+  "en": "I grill and eat delicious meat with my family tonight."
+ },
+ "고다": {
+  "ex": "어머니가 주방에서 따뜻한 국물을 푹 고아요.",
+  "en": "Mother boils the warm soup thoroughly in the kitchen."
+ },
+ "고도화": {
+  "ex": "회사가 새로운 기술의 고도화를 추진해요.",
+  "en": "The company pursues the advancement of new technology."
+ },
+ "고도화하다": {
+  "ex": "연구소에서 컴퓨터 시스템을 빠르게 고도화해요.",
+  "en": "The research lab rapidly advances the computer system."
+ },
+ "고령": {
+  "ex": "할아버지는 고령이지만 매일 산책을 하세요.",
+  "en": "My grandfather is of advanced age, but he takes a walk every day."
+ },
+ "고령층": {
+  "ex": "동네 복지관에서 고령층을 위한 운동 교실을 열어요.",
+  "en": "The neighborhood community center opens an exercise class for seniors."
+ },
+ "고령화": {
+  "ex": "우리 사회에서 고령화가 빠르게 진행돼요.",
+  "en": "Aging progresses rapidly in our society."
+ },
+ "고르다": {
+  "ex": "시장에서 제일 신선한 사과를 골라요.",
+  "en": "I choose the freshest apples at the market."
+ },
+ "고마움": {
+  "ex": "도움을 준 친구에게 진심으로 고마움을 전해요.",
+  "en": "I express my sincere gratitude to the friend who helped me."
+ },
+ "고맙다": {
+  "ex": "생일 선물을 챙겨 줘서 정말 고마워요.",
+  "en": "Thank you so much for preparing a birthday gift for me."
+ },
+ "고민": {
+  "ex": "진로 문제 때문에 요즘 고민이 많아요.",
+  "en": "I have a lot of worries these days because of career issues."
+ },
+ "고민하다": {
+  "ex": "주말에 무엇을 할지 친구와 고민해요.",
+  "en": "I agonize over what to do on the weekend with my friend."
+ },
+ "고생": {
+  "ex": "먼 길을 걸어오느라 정말 고생이 많았어요.",
+  "en": "You went through a lot of hardship walking such a long distance."
+ },
+ "고서": {
+  "ex": "도서관 특별실에서 오래된 고서를 읽어요.",
+  "en": "I read an ancient book in the special room of the library."
+ },
+ "고수": {
+  "ex": "민수는 자신의 계획에 대해 고수를 선언해요.",
+  "en": "Minsu declares adherence to his plan."
+ },
+ "고수하다": {
+  "ex": "수미는 자신의 의견을 끝까지 고수해요.",
+  "en": "Sumi adheres to her opinion until the end."
+ },
+ "고양": {
+  "ex": "교장 선생님이 학생들의 독서 의욕 고양에 힘써요.",
+  "en": "The principal strives for the boosting of students' motivation to read."
+ },
+ "고양이": {
+  "ex": "귀여운 고양이가 소파 위에서 잠을 자요.",
+  "en": "A cute cat sleeps on the sofa."
+ },
+ "고용": {
+  "ex": "새 공장이 들어서서 동네 주민의 고용이 늘어요.",
+  "en": "Employment of neighborhood residents increases as a new factory opens."
+ },
+ "고유": {
+  "ex": "한복은 한국의 고유한 전통 옷이에요.",
+  "en": "Hanbok is Korea's unique traditional clothing."
+ },
+ "고이": {
+  "ex": "선생님의 따뜻한 편지를 서랍 속에 고이 간직해요.",
+  "en": "I keep the teacher's warm letter nicely in the drawer."
+ },
+ "고이다": {
+  "ex": "비가 많이 와서 길가 웅덩이에 물이 고여요.",
+  "en": "Water stagnates in the roadside puddle because it rained a lot."
+ },
+ "고장": {
+  "ex": "시계에 고장이 나서 시간을 볼 수 없어요.",
+  "en": "The watch broke down, so I cannot see the time."
+ },
+ "고치": {
+  "ex": "나무 아래에서 하얀 누에고치를 발견해요.",
+  "en": "I find a white silkworm cocoon under the tree."
+ },
+ "고치다": {
+  "ex": "책상의 흔들리는 다리를 스스로 고쳐요.",
+  "en": "I fix the wobbly leg of the desk myself."
+ },
+ "고풍": {
+  "ex": "이 오래된 한옥은 고풍이 멋스럽게 묻어나요.",
+  "en": "This old traditional house stylishly reflects old customs."
+ },
+ "고향": {
+  "ex": "이번 명절에는 기차를 타고 고향에 내려가요.",
+  "en": "I take a train down to my hometown this holiday."
+ },
+ "곤란": {
+  "ex": "갑작스러운 질문을 받아서 곤란을 겪어요.",
+  "en": "I experience trouble after receiving an unexpected question."
+ },
+ "곤충": {
+  "ex": "아이들이 풀밭에서 여러 곤충을 관찰해요.",
+  "en": "Children observe various insects in the grassy field."
+ },
+ "곧": {
+  "ex": "수업이 끝났으니 곧 집으로 돌아가요.",
+  "en": "Since class is over, I go home immediately."
+ },
+ "곧다": {
+  "ex": "공원에 심은 나무의 줄기가 참 곧아요.",
+  "en": "The trunks of the trees planted in the park are very straight."
+ },
+ "곧장": {
+  "ex": "학교 수업을 마치고 곧장 집으로 가요.",
+  "en": "I go straight home after finishing school classes."
+ },
+ "골": {
+  "ex": "지영이는 친구의 짓궂은 장난에 골이 나요.",
+  "en": "Jiyoung feels anger at her friend's mischievous prank."
+ },
+ "골다": {
+  "ex": "피곤해서 방에서 깊이 잠들고 코를 골아요.",
+  "en": "Being tired, I fall fast asleep in the room and snore."
+ },
+ "골목": {
+  "ex": "우리 집 앞 골목은 늘 조용하고 한적해요.",
+  "en": "The alley in front of our house is always quiet and peaceful."
+ },
+ "골목길": {
+  "ex": "저녁에 친구와 함께 좁은 골목길을 걸어요.",
+  "en": "I walk along the narrow alleyway with a friend in the evening."
+ },
+ "곱": {
+  "ex": "주말에는 평일보다 손님이 두 곱으로 많아요.",
+  "en": "On weekends, there are double the number of customers compared to weekdays."
+ },
+ "곱다": {
+  "ex": "할머니의 허리가 나이가 드셔서 점점 곱아요.",
+  "en": "My grandmother's back gets gradually hunched with age."
  }
 };
