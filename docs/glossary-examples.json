@@ -2078,5 +2078,161 @@
  "깜빡": {
   "ex": "어두운 밤길에 가로등 불빛이 깜빡거려요.",
   "en": "The streetlight flickers with a flash on the dark night road."
+ },
+ "깨": {
+  "ex": "나물 위에 고소한 깨를 솔솔 뿌려요.",
+  "en": "I sprinkle savory sesame seeds over the seasoned vegetables."
+ },
+ "깨끗하다": {
+  "ex": "방을 청소해서 아주 깨끗해요.",
+  "en": "The room is very clean because I cleaned it."
+ },
+ "깨끗해지다": {
+  "ex": "빨래를 하니 옷이 다시 깨끗해져요.",
+  "en": "The clothes become clean again after doing the laundry."
+ },
+ "깨다": {
+  "ex": "시원한 물을 마시니 술이 금방 깨요.",
+  "en": "Drinking cool water helps me sober up quickly."
+ },
+ "깨달음": {
+  "ex": "선생님의 말씀에서 큰 깨달음을 얻어요.",
+  "en": "I gain great enlightenment from the teacher's words."
+ },
+ "깨뜨리다": {
+  "ex": "실수로 바닥에 유리컵을 깨뜨려요.",
+  "en": "I accidentally break the glass cup on the floor."
+ },
+ "꺼내다": {
+  "ex": "가방에서 필통과 공책을 꺼내요.",
+  "en": "I take out a pencil case and a notebook from my bag."
+ },
+ "꺼리다": {
+  "ex": "지영이는 매운 음식을 먹기를 꺼려요.",
+  "en": "Jiyoung dislikes eating spicy food."
+ },
+ "껍질": {
+  "ex": "사과의 얇은 껍질을 칼로 벗겨요.",
+  "en": "I peel the thin skin of the apple with a knife."
+ },
+ "꼬다": {
+  "ex": "의자에 앉아서 다리를 꼬아요.",
+  "en": "I twist and cross my legs while sitting on the chair."
+ },
+ "꼬물거리다": {
+  "ex": "작은 아기가 침대 위에서 손발을 꼬물거려요.",
+  "en": "The little baby squirmingly moves its hands and feet on the bed."
+ },
+ "꼭": {
+  "ex": "친구의 손을 꼭 잡아요.",
+  "en": "I hold my friend's hand firmly."
+ },
+ "꼼꼼하다": {
+  "ex": "수미는 준비물을 챙기는 태도가 아주 꼼꼼해요.",
+  "en": "Sumi is very meticulous in packing her supplies."
+ },
+ "꼼꼼히": {
+  "ex": "계약서의 내용을 꼼꼼히 확인해요.",
+  "en": "I carefully check the contents of the contract."
+ },
+ "꽃": {
+  "ex": "마당 화단에 예쁜 꽃이 활짝 피어요.",
+  "en": "Pretty flowers bloom fully in the yard flowerbed."
+ },
+ "꾸다": {
+  "ex": "어젯밤에 하늘을 나는 꿈을 꿔요.",
+  "en": "I dreamed of flying in the sky last night."
+ },
+ "꾸미다": {
+  "ex": "생일 파티를 위해 방을 예쁘게 꾸며요.",
+  "en": "I decorate the room prettily for the birthday party."
+ },
+ "꾸준히": {
+  "ex": "건강을 위해 매일 꾸준히 운동해요.",
+  "en": "I exercise steadily every day for my health."
+ },
+ "꿀": {
+  "ex": "따뜻한 물에 달콤한 꿀을 타서 마셔요.",
+  "en": "I mix sweet honey in warm water and drink it."
+ },
+ "꿀벌": {
+  "ex": "노란 꿀벌이 꽃 주위를 맴돌아요.",
+  "en": "A yellow honeybee hovers around the flowers."
+ },
+ "끄다": {
+  "ex": "잠들기 전에 방의 전등을 꺼요.",
+  "en": "I extinguish the lights in the room before going to sleep."
+ },
+ "끄덕": {
+  "ex": "민수는 이해했다는 뜻으로 고개를 끄덕 해요.",
+  "en": "Minsu nods his head with a nod to show he understood."
+ },
+ "끈": {
+  "ex": "풀린 운동화 끈을 다시 묶어요.",
+  "en": "I tie the loosened sneaker string again."
+ },
+ "끊기다": {
+  "ex": "터널 안으로 들어가서 전화가 갑자기 끊겨요.",
+  "en": "The phone call suddenly breaks as I enter the tunnel."
+ },
+ "끊다": {
+  "ex": "가위로 포장 상자의 두꺼운 테이프를 끊어요.",
+  "en": "I cut the thick tape of the packing box with scissors."
+ },
+ "끊임없다": {
+  "ex": "이 식당은 손님의 발길이 끊임없어요.",
+  "en": "This restaurant has an incessant stream of customers."
+ },
+ "끌": {
+  "ex": "목수가 뾰족한 끌로 나무를 깎아요.",
+  "en": "The carpenter carves the wood with a sharp chisel."
+ },
+ "끌다": {
+  "ex": "무거운 여행 가방을 손으로 끌어요.",
+  "en": "I pull the heavy luggage with my hand."
+ },
+ "끌어들이다": {
+  "ex": "재미있는 행사가 많은 손님을 끌어들여요.",
+  "en": "The fun event attracts many customers."
+ },
+ "끌어안다": {
+  "ex": "오랜만에 만난 친구를 반갑게 끌어안아요.",
+  "en": "I gladly hug the friend I haven't seen in a long time."
+ },
+ "끌어오다": {
+  "ex": "강에서 밭으로 농사용 물을 끌어와요.",
+  "en": "I draw agricultural water from the river to the field."
+ },
+ "끓다": {
+  "ex": "냄비 안에서 물이 보글보글 끓어요.",
+  "en": "Water boils bubbling in the pot."
+ },
+ "끝": {
+  "ex": "드디어 긴 시험의 끝이 보여요.",
+  "en": "I finally see the end of the long exam."
+ },
+ "끝나다": {
+  "ex": "오후 다섯 시에 오늘의 수업이 끝나요.",
+  "en": "Today's class ends at five in the afternoon."
+ },
+ "끝내": {
+  "ex": "현우는 포기하지 않고 끝내 문제를 풀어요.",
+  "en": "Hyunwoo does not give up and solves the problem to the end."
+ },
+ "끝내다": {
+  "ex": "저녁을 먹기 전에 숙제를 다 끝내요.",
+  "en": "I finish all my homework before having dinner."
+ },
+ "끝맺다": {
+  "ex": "마지막 인사말로 발표를 잘 끝맺어요.",
+  "en": "I end the presentation well with closing remarks."
+ },
+ "끼": {
+  "ex": "바쁘더라도 하루 세 끼를 꼬박꼬박 챙겨 먹어요.",
+  "en": "Even if I am busy, I make sure to eat three meals a day."
+ },
+ "끼다": {
+  "ex": "이른 아침이라 호수에 짙은 안개가 껴요.",
+  "en": "Thick fog hangs over the lake because it is early morning."
  }
 }
