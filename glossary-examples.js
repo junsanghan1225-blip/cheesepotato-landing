@@ -3195,5 +3195,165 @@ export const EXAMPLES = {
  "눈살": {
   "ex": "시끄러운 소리에 사람들이 눈살을 찌푸려요.",
   "en": "People knit their brows at the loud noise."
+ },
+ "눈앞": {
+  "ex": "버스가 바로 눈앞에서 멈춰 서요.",
+  "en": "The bus comes to a stop right in a close place in front of my eyes."
+ },
+ "눕다": {
+  "ex": "피곤해서 푹신한 침대에 누워요.",
+  "en": "I lie down on the soft bed because I am tired."
+ },
+ "뉘다": {
+  "ex": "잠든 아기를 이불 위에 조심스럽게 뉘어요.",
+  "en": "I carefully lay the sleeping baby on the blanket."
+ },
+ "뉴스": {
+  "ex": "저녁에 거실에서 텔레비전 뉴스를 봐요.",
+  "en": "I watch the television news in the living room in the evening."
+ },
+ "느끼다": {
+  "ex": "친구의 편지를 읽고 큰 고마움을 느껴요.",
+  "en": "I feel great gratitude after reading my friend's letter."
+ },
+ "느낌": {
+  "ex": "이 그림을 보면 참 따뜻한 느낌이 들어요.",
+  "en": "I get a truly warm feeling when looking at this painting."
+ },
+ "느려지다": {
+  "ex": "컴퓨터를 오래 쓰니 속도가 조금 느려져요.",
+  "en": "The speed slows down a bit after using the computer for a long time."
+ },
+ "늘": {
+  "ex": "지영이는 아침마다 늘 밝게 인사해요.",
+  "en": "Jiyoung always greets brightly every morning."
+ },
+ "늘다": {
+  "ex": "매일 연습하니 한국어 말하기 실력이 많이 늘어요.",
+  "en": "My Korean speaking skills increase a lot because I practice every day."
+ },
+ "늘리다": {
+  "ex": "건강을 위해 매일 운동 시간을 조금씩 늘려요.",
+  "en": "I increase my daily workout time little by little for my health."
+ },
+ "늘어나다": {
+  "ex": "방학이 되자 도서관을 찾는 학생이 크게 늘어나요.",
+  "en": "The number of students visiting the library increases greatly as vacation starts."
+ },
+ "늘어놓다": {
+  "ex": "책상 위에 새로 산 필기구를 가지런히 늘어놓아요.",
+  "en": "I neatly arrange the newly bought stationery on the desk."
+ },
+ "늘어서다": {
+  "ex": "도로 양옆으로 푸른 가로수들이 길게 늘어서요.",
+  "en": "Green street trees line up long on both sides of the road."
+ },
+ "능": {
+  "ex": "주말에 역사 유적지인 왕의 능을 찾아가요.",
+  "en": "I visit the royal tomb of a king, a historical site, over the weekend."
+ },
+ "능력": {
+  "ex": "현우는 어려운 문제를 혼자서 푸는 능력이 뛰어나요.",
+  "en": "Hyunwoo has an excellent ability to solve difficult problems alone."
+ },
+ "늦가을": {
+  "ex": "늦가을이 되니 나무에서 마른 낙엽이 떨어져요.",
+  "en": "Dry fallen leaves drop from trees as late fall arrives."
+ },
+ "늦게": {
+  "ex": "어젯밤에 책을 읽느라 잠자리에 늦게 들어요.",
+  "en": "I go to bed late because I read a book last night."
+ },
+ "늦다": {
+  "ex": "차가 많이 막혀서 약속 시간에 조금 늦어요.",
+  "en": "I am a little late for the appointment because of heavy traffic."
+ },
+ "늦잠": {
+  "ex": "일요일 아침에는 늦잠을 푹 자요.",
+  "en": "I indulge in late rising and sleep in on Sunday morning."
+ },
+ "늪": {
+  "ex": "숲속 깊은 곳에 커다란 자연 늪이 있어요.",
+  "en": "There is a large natural swamp deep in the forest."
+ },
+ "다": {
+  "ex": "오늘 해야 할 숙제를 다 끝내요.",
+  "en": "I finish all the homework I need to do today completely."
+ },
+ "다녀오다": {
+  "ex": "오후에 서점에 가서 필요한 책을 사고 다녀와요.",
+  "en": "I go and come back after buying necessary books at the bookstore in the afternoon."
+ },
+ "다니다": {
+  "ex": "저는 매일 아침 버스를 타고 학교에 다녀요.",
+  "en": "I go regularly to school by bus every morning."
+ },
+ "다도": {
+  "ex": "문화 센터에서 전통 다도를 배워요.",
+  "en": "I learn traditional ceremonial tea-making at the cultural center."
+ },
+ "다락": {
+  "ex": "시골집 좁은 다락에 오래된 상자들을 올려둬요.",
+  "en": "I put old boxes up in the narrow attic of the rural house."
+ },
+ "다락방": {
+  "ex": "조용한 다락방에서 혼자 책을 읽어요.",
+  "en": "I read a book alone in the quiet attic."
+ },
+ "다르다": {
+  "ex": "이 두 옷은 디자인과 색깔이 완전히 달라요.",
+  "en": "These two pieces of clothing are completely different in design and color."
+ },
+ "다름없다": {
+  "ex": "매일 같이 지내는 민수는 제게 가족이나 다름없어요.",
+  "en": "Minsu, with whom I spend time every day, is not different from family to me."
+ },
+ "다리": {
+  "ex": "오래 걸었더니 다리가 조금 뻐근해요.",
+  "en": "My legs feel a little stiff because I walked for a long time."
+ },
+ "다리다": {
+  "ex": "구겨진 셔츠를 다리미로 깨끗하게 다려요.",
+  "en": "I iron the wrinkled shirt neatly with an iron."
+ },
+ "다만": {
+  "ex": "다만 몇 분이라도 조용히 쉬고 싶어요.",
+  "en": "I just want to rest quietly even if only for a few minutes."
+ },
+ "다방": {
+  "ex": "어르신들이 골목 안 옛날 다방에 모여요.",
+  "en": "Seniors gather at an old coffeehouse in the alley."
+ },
+ "다방면": {
+  "ex": "수미는 예술과 운동 등 다방면에 재능이 많아요.",
+  "en": "Sumi has many talents in many fields such as art and sports."
+ },
+ "다섯": {
+  "ex": "식탁 위에 놓인 사과 다섯 개를 씻어요.",
+  "en": "I wash five apples placed on the dining table."
+ },
+ "다시": {
+  "ex": "틀린 문제를 책을 보며 다시 풀어요.",
+  "en": "I solve the incorrect problem again while looking at the book."
+ },
+ "다시다": {
+  "ex": "맛있는 냄새를 맡고 입맛을 다시며 침을 삼켜요.",
+  "en": "Smelling the delicious aroma, I smack my lips and swallow saliva."
+ },
+ "다양성": {
+  "ex": "우리는 사회의 문화적 다양성을 존중해요.",
+  "en": "We respect the cultural diversity of society."
+ },
+ "다양하다": {
+  "ex": "이 식당에는 메뉴 종류가 아주 다양해요.",
+  "en": "The types of menu items at this restaurant are very diverse."
+ },
+ "다음": {
+  "ex": "수업이 끝난 다음 친구와 영화를 봐요.",
+  "en": "I watch a movie with a friend following the class."
+ },
+ "다이어트": {
+  "ex": "건강을 위해 기름진 음식을 줄이고 다이어트를 해요.",
+  "en": "I cut back on greasy food and go on a diet for my health."
  }
 };
