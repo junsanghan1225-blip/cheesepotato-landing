@@ -2643,6 +2643,120 @@
   "only": true
  },
  {
+  "ko": "곱다",
+  "en": "beautiful; lovely",
+  "pos": "형용사",
+  "only": true,
+  "alt": [
+   "고와요",
+   "고운",
+   "고와서",
+   "고왔다"
+  ]
+ },
+ {
+  "ko": "너",
+  "en": "you (to a friend or someone younger)",
+  "pos": "대명사",
+  "only": true
+ },
+ {
+  "ko": "느끼다",
+  "en": "feel; perceive; sense",
+  "pos": "동사",
+  "only": true,
+  "alt": [
+   "느껴요",
+   "느낀",
+   "느껴",
+   "느낍니다"
+  ]
+ },
+ {
+  "ko": "동사",
+  "en": "verb",
+  "pos": "명사",
+  "only": true
+ },
+ {
+  "ko": "동향",
+  "en": "trend; tendency; person from the same hometown",
+  "pos": "명사",
+  "only": true
+ },
+ {
+  "ko": "명사",
+  "en": "noun",
+  "pos": "명사",
+  "only": true
+ },
+ {
+  "ko": "문장",
+  "en": "sentence",
+  "pos": "명사",
+  "only": true
+ },
+ {
+  "ko": "무용",
+  "en": "dance",
+  "pos": "명사",
+  "only": true
+ },
+ {
+  "ko": "물리",
+  "en": "physics",
+  "pos": "명사",
+  "only": true
+ },
+ {
+  "ko": "물가",
+  "en": "prices; cost of living; waterside",
+  "pos": "명사",
+  "only": true
+ },
+ {
+  "ko": "미어지다",
+  "en": "be heart-broken; be torn (with grief); be worn out (fabric)",
+  "pos": "동사",
+  "only": true
+ },
+ {
+  "ko": "미진하다",
+  "en": "insufficient; unsatisfactory; not fully done",
+  "pos": "형용사",
+  "only": true
+ },
+ {
+  "ko": "발병",
+  "en": "occurrence of disease; outbreak",
+  "pos": "명사",
+  "only": true
+ },
+ {
+  "ko": "발전기",
+  "en": "electric generator; dynamo",
+  "pos": "명사",
+  "only": true
+ },
+ {
+  "ko": "녹",
+  "en": "rust",
+  "pos": "명사",
+  "only": true
+ },
+ {
+  "ko": "녹화",
+  "en": "video recording; greening (planting trees)",
+  "pos": "명사",
+  "only": true,
+  "alt": [
+   "녹화하다",
+   "녹화해요",
+   "녹화한",
+   "녹화된"
+  ]
+ },
+ {
   "ko": "따르다",
   "en": "to follow; to conform",
   "alt": [
@@ -2794,7 +2908,8 @@
  },
  {
   "ko": "도로",
-  "en": "road; street"
+  "en": "road; street",
+  "pos": "명사"
  },
  {
   "ko": "문화",
@@ -7381,10 +7496,6 @@
   "alt": [
    "일정하게"
   ]
- },
- {
-  "ko": "녹화",
-  "en": "greening; afforestation"
  },
  {
   "ko": "면적",
