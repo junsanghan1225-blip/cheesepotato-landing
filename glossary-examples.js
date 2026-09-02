@@ -3995,5 +3995,165 @@ export const EXAMPLES = {
  "동시": {
   "ex": "두 사람이 신호를 보고 동시에 출발해요.",
   "en": "The two people see the signal and depart at the same time."
+ },
+ "동아리": {
+  "ex": "수미는 대학교에서 사진 동아리에 가입해요.",
+  "en": "Sumi joins a photography club at the university."
+ },
+ "동안": {
+  "ex": "방학 동안 매일 아침 일찍 일어나요.",
+  "en": "I wake up early every morning during the vacation."
+ },
+ "동의": {
+  "ex": "친구의 좋은 제안에 흔쾌히 동의를 표해요.",
+  "en": "I readily express agreement with my friend's good suggestion."
+ },
+ "동일": {
+  "ex": "이 두 옷은 동일 제품이에요.",
+  "en": "These two clothes are identical products."
+ },
+ "동작": {
+  "ex": "체육 시간에 선생님의 춤 동작을 따라 해요.",
+  "en": "I follow the teacher's dance movements in PE class."
+ },
+ "동전": {
+  "ex": "지갑에서 음료수를 뽑을 동전을 꺼내요.",
+  "en": "I take out coins from my wallet to buy a drink."
+ },
+ "동참": {
+  "ex": "학생들이 학교 청소 활동에 적극적인 동참을 해요.",
+  "en": "Students make active participation in school cleaning activities."
+ },
+ "동참하다": {
+  "ex": "우리 반 친구들이 환경 보호 운동에 함께 동참해요.",
+  "en": "Our classmates join the environmental protection campaign together."
+ },
+ "동향": {
+  "ex": "타지에서 만난 민수는 저와 같은 동향 사람이에요.",
+  "en": "Minsu, whom I met in another region, is from the same hometown as me."
+ },
+ "동호회": {
+  "ex": "주말마다 독서 동호회 모임에 나가요.",
+  "en": "I attend the reading club meetings every weekend."
+ },
+ "돼지": {
+  "ex": "농장에서 귀여운 아기 돼지에게 먹이를 줘요.",
+  "en": "I feed a cute piglet at the farm."
+ },
+ "돼지고기": {
+  "ex": "저녁으로 맛있는 돼지고기 볶음을 요리해요.",
+  "en": "I cook delicious stir-fried pork for dinner."
+ },
+ "되게": {
+  "ex": "오늘 날씨가 되게 쌀쌀해요.",
+  "en": "The weather is really chilly today."
+ },
+ "되다": {
+  "ex": "열심히 공부해서 훌륭한 선생님이 돼요.",
+  "en": "I study hard to become a great teacher."
+ },
+ "되도록": {
+  "ex": "외출할 때는 되도록 따뜻한 옷을 입어요.",
+  "en": "I wear warm clothes if possible when going out."
+ },
+ "되돌다": {
+  "ex": "길을 잘못 들어서 다시 온 길을 되돌아요.",
+  "en": "I turn back on the path I came from after taking the wrong road."
+ },
+ "되묻다": {
+  "ex": "말을 잘 못 알아들어서 친구에게 다시 되물어요.",
+  "en": "I ask again because I didn't catch what my friend said well."
+ },
+ "되풀이": {
+  "ex": "같은 실수의 되풀이를 막으려고 메모를 해요.",
+  "en": "I take notes to prevent the repetition of the same mistake."
+ },
+ "되풀이하다": {
+  "ex": "중요한 문장을 여러 번 소리 내어 되풀이해요.",
+  "en": "I reiterate important sentences out loud several times."
+ },
+ "두": {
+  "ex": "아침에 따뜻한 빵 두 개를 먹어요.",
+  "en": "I eat two pieces of warm bread in the morning."
+ },
+ "두껍다": {
+  "ex": "겨울에는 두꺼운 외투를 챙겨 입어요.",
+  "en": "I put on a thick coat in winter."
+ },
+ "두다": {
+  "ex": "가방을 책상 위에 얌전히 둬요.",
+  "en": "I put the bag gently on the desk."
+ },
+ "두루": {
+  "ex": "민수는 반 친구들과 두루 친하게 지내요.",
+  "en": "Minsu gets along well with all classmates without exception."
+ },
+ "두세": {
+  "ex": "서점에서 마음에 드는 책 두세 권을 골라요.",
+  "en": "I choose a couple of books I like at the bookstore."
+ },
+ "두어": {
+  "ex": "약속 장소에서 친구를 두어 시간 기다려요.",
+  "en": "I wait a couple of hours for my friend at the meeting place."
+ },
+ "둘": {
+  "ex": "사과 상자 안에 남은 사과가 둘이에요.",
+  "en": "There are two apples left in the apple box."
+ },
+ "둘러싸다": {
+  "ex": "선물을 예쁜 포장지로 정성껏 둘러싸요.",
+  "en": "I carefully wrap the gift with pretty wrapping paper."
+ },
+ "둘째": {
+  "ex": "현우는 삼 형제 중에서 둘째예요.",
+  "en": "Hyunwoo is the second among three brothers."
+ },
+ "뒤": {
+  "ex": "수업이 끝난 뒤에 도서관으로 가요.",
+  "en": "I go to the library after class is over."
+ },
+ "뒤집다": {
+  "ex": "빨래를 널기 전에 옷을 바르게 뒤집어요.",
+  "en": "I turn the clothes right side out before hanging the laundry."
+ },
+ "뒷말": {
+  "ex": "서로 오해가 생기지 않도록 뒷말을 줄여요.",
+  "en": "We reduce unnecessary following talk so that no misunderstanding arises."
+ },
+ "뒷받침": {
+  "ex": "부모님의 든든한 뒷받침 덕분에 꿈을 키워요.",
+  "en": "Thanks to my parents' solid support, I nurture my dream."
+ },
+ "뒷자리": {
+  "ex": "친구와 함께 자동차 뒷자리에 나란히 앉아요.",
+  "en": "I sit side by side with my friend in the car backseat."
+ },
+ "뒷짐": {
+  "ex": "할아버지가 공원에서 뒷짐을 지고 여유롭게 산책하세요.",
+  "en": "My grandfather takes a leisurely walk in the park with his hands held together behind his back."
+ },
+ "드디어": {
+  "ex": "기다리던 방학이 드디어 시작돼요.",
+  "en": "The vacation I waited for finally begins at last."
+ },
+ "드라마": {
+  "ex": "저녁에 가족들과 인기 있는 한국 드라마를 봐요.",
+  "en": "I watch a popular Korean drama with my family in the evening."
+ },
+ "드러내다": {
+  "ex": "지영이는 환한 미소를 지으며 기쁜 마음을 드러내요.",
+  "en": "Jiyoung exposes her happy feelings with a bright smile."
+ },
+ "드릴": {
+  "ex": "벽에 구멍을 뚫으려고 전동 드릴을 사용해요.",
+  "en": "I use an electric drill to make a hole in the wall."
+ },
+ "드물다": {
+  "ex": "이곳은 공기가 맑아서 요즘 보기 드문 청정 지역이에요.",
+  "en": "This place has clean air, making it an uncommon clean area nowadays."
+ },
+ "드세다": {
+  "ex": "바닷가에서 불어오는 바람이 아주 드세요.",
+  "en": "The wind blowing from the seashore is very tough and wild."
  }
 };
