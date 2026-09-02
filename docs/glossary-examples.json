@@ -1599,6 +1599,166 @@
   "ex": "이곳은 아이들이 안전하게 뛰어노는 보호 구역이에요.",
   "en": "This is a safety zone where children play safely."
  },
+ "구월": {
+  "ex": "구월이 되면 날씨가 선선해져요.",
+  "en": "When September comes, the weather becomes cool."
+ },
+ "구입": {
+  "ex": "서점에서 새로 나온 한국어 책 구입을 해요.",
+  "en": "I make a purchase of a new Korean book at the bookstore."
+ },
+ "구조": {
+  "ex": "이 건물은 아주 튼튼한 구조로 만들어져요.",
+  "en": "This building is made with a very sturdy structure."
+ },
+ "구조적": {
+  "ex": "회사에서 구조적인 문제를 고치려고 노력해요.",
+  "en": "The company tries to fix structural problems."
+ },
+ "구직": {
+  "ex": "민수는 대학교를 졸업하고 구직 준비를 해요.",
+  "en": "Minsu prepares for job seeking after graduating from university."
+ },
+ "구직자": {
+  "ex": "일자리 박람회에 많은 구직자가 찾아와요.",
+  "en": "Many job seekers visit the job fair."
+ },
+ "구청": {
+  "ex": "민원 서류를 신청하러 구청에 가요.",
+  "en": "I go to the gu office to apply for civil service documents."
+ },
+ "구체적": {
+  "ex": "선생님이 구체적인 예시를 들어서 설명해요.",
+  "en": "The teacher explains by giving concrete examples."
+ },
+ "구축": {
+  "ex": "학교가 안전한 네트워크 시스템 구축에 힘써요.",
+  "en": "The school works on the establishment of a safe network system."
+ },
+ "구하다": {
+  "ex": "수미는 학교 근처에서 살 방을 구해요.",
+  "en": "Sumi looks for a room to live in near the school."
+ },
+ "국": {
+  "ex": "식탁 위에 따뜻한 미역국을 차려요.",
+  "en": "I serve warm seaweed soup on the dining table."
+ },
+ "국가": {
+  "ex": "세계 여러 국가가 함께 평화를 논의해요.",
+  "en": "Various countries around the world discuss peace together."
+ },
+ "국가적": {
+  "ex": "이번 행사는 큰 국가적인 행사예요.",
+  "en": "This event is a major national event."
+ },
+ "국립": {
+  "ex": "주말에 가족들과 국립 박물관을 방문해요.",
+  "en": "I visit the national museum with my family on the weekend."
+ },
+ "국물": {
+  "ex": "따뜻한 국수를 먹을 때 국물이 아주 시원해요.",
+  "en": "When eating warm noodles, the broth is very refreshing."
+ },
+ "국수": {
+  "ex": "점심 식사로 맛있는 비빔국수를 만들어요.",
+  "en": "I make delicious spicy mixed noodles for lunch."
+ },
+ "국제": {
+  "ex": "서울에서 큰 국제 회의가 열려요.",
+  "en": "A large international conference is held in Seoul."
+ },
+ "군": {
+  "ex": "형이 나라를 지키기 위해 군에 입대해요.",
+  "en": "My older brother enlists in the military to defend the country."
+ },
+ "군집": {
+  "ex": "공원 호수에 물고기들의 큰 군집이 보여요.",
+  "en": "A large group of fish is seen in the park lake."
+ },
+ "굳다": {
+  "ex": "시간이 지나니 부드럽던 진흙이 딱딱하게 굳어요.",
+  "en": "As time passes, the soft mud hardens."
+ },
+ "굳이": {
+  "ex": "오늘은 쉬는 날이니 굳이 일찍 일어날 필요는 없어요.",
+  "en": "Today is a day off, so there is no need to take the trouble of waking up early."
+ },
+ "굴": {
+  "ex": "겨울철 시장에서 싱싱한 바다 굴을 한 봉지 사요.",
+  "en": "I buy a bag of fresh ocean oysters at the winter market."
+ },
+ "굴다": {
+  "ex": "처음 만난 사람에게 쌀쌀맞게 굴면 안 돼요.",
+  "en": "You shouldn't behave coldly toward someone you meet for the first time."
+ },
+ "굶다": {
+  "ex": "바쁘다고 아침밥을 굶으면 건강에 안 좋아요.",
+  "en": "Skipping breakfast because you are busy is not good for your health."
+ },
+ "궁": {
+  "ex": "옛날 군인은 가죽과 나무로 만든 궁을 쏴요.",
+  "en": "Ancient soldiers shot a bow made of leather and wood."
+ },
+ "궁금하다": {
+  "ex": "친구가 준비한 생일 선물이 무엇인지 정말 궁금해요.",
+  "en": "I am really curious about what birthday gift my friend prepared."
+ },
+ "권": {
+  "ex": "도서관에서 재미있는 한국어 동화책 두 권을 빌려요.",
+  "en": "I borrow two volumes of interesting Korean children's books from the library."
+ },
+ "권리": {
+  "ex": "모든 시민은 안전하게 보호받을 권리를 가져요.",
+  "en": "Every citizen has the right to be protected safely."
+ },
+ "권위": {
+  "ex": "선생님은 학생들 앞에서 부드러운 권위를 지켜요.",
+  "en": "The teacher maintains gentle authority in front of the students."
+ },
+ "권유": {
+  "ex": "선생님의 따뜻한 권유로 독서 동아리에 들어가요.",
+  "en": "I join the book club on the teacher's warm recommendation."
+ },
+ "권하다": {
+  "ex": "의사 선생님이 저에게 매일 아침 가벼운 운동을 권해요.",
+  "en": "The doctor recommends light exercise every morning to me."
+ },
+ "권한": {
+  "ex": "팀장은 프로젝트 일정을 조정할 권한을 행사해요.",
+  "en": "The team leader exercises the right to adjust the project schedule."
+ },
+ "궤도": {
+  "ex": "새로 쏘아 올린 인공위성이 지구 궤도를 돌아요.",
+  "en": "The newly launched satellite travels in Earth's orbit."
+ },
+ "귀": {
+  "ex": "모자를 쓰니 추운 날씨에도 귀가 따뜻해요.",
+  "en": "Wearing a hat keeps my ears warm even in cold weather."
+ },
+ "귀가": {
+  "ex": "늦은 시간에 안전한 귀가를 위해 서둘러요.",
+  "en": "I hurry for a safe homecoming late at night."
+ },
+ "귀가하다": {
+  "ex": "저녁 여섯 시가 되면 가족들이 모두 집으로 귀가해요.",
+  "en": "At six in the evening, all family members come home."
+ },
+ "귀로": {
+  "ex": "퇴근 귀로에 편의점에 들러 우유를 사요.",
+  "en": "I drop by the convenience store on my way back from work to buy milk."
+ },
+ "귀엽다": {
+  "ex": "공원에서 뛰노는 아기 강아지가 정말 귀여워요.",
+  "en": "The puppy running around in the park is really cute."
+ },
+ "규명": {
+  "ex": "전문가들이 기계 고장 원인의 규명을 시작해요.",
+  "en": "Experts begin the investigation into the cause of the machine breakdown."
+ },
+ "규범": {
+  "ex": "우리는 공공장소에서 지켜야 할 사회적 규범을 따라요.",
+  "en": "We follow the social norms that must be observed in public places."
+ },
  "규정": {
   "ex": "우리는 도서관 이용 규정을 잘 지켜요.",
   "en": "We follow the library usage regulations well."
