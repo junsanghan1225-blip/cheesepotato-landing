@@ -1598,5 +1598,165 @@
  "구역": {
   "ex": "이곳은 아이들이 안전하게 뛰어노는 보호 구역이에요.",
   "en": "This is a safety zone where children play safely."
+ },
+ "규정": {
+  "ex": "우리는 도서관 이용 규정을 잘 지켜요.",
+  "en": "We follow the library usage regulations well."
+ },
+ "규제": {
+  "ex": "정부가 과도한 개발에 대한 규제를 강화해요.",
+  "en": "The government strengthens restrictions on excessive development."
+ },
+ "규칙": {
+  "ex": "학생들이 교실 규칙을 지켜요.",
+  "en": "Students keep classroom rules."
+ },
+ "규칙적": {
+  "ex": "민수는 매일 아침 규칙적인 운동을 해요.",
+  "en": "Minsu does regular exercise every morning."
+ },
+ "균": {
+  "ex": "외출 후에는 비누로 유해한 균을 씻어내요.",
+  "en": "After going out, I wash off harmful germs with soap."
+ },
+ "균일": {
+  "ex": "이 매장에서는 옷을 균일 가격에 팔아요.",
+  "en": "This shop sells clothes at a uniform price."
+ },
+ "균일하다": {
+  "ex": "이 나무 조각들은 크기가 아주 균일해요.",
+  "en": "These wooden pieces are very uniform in size."
+ },
+ "균형": {
+  "ex": "일과 휴식의 균형을 잘 잡아요.",
+  "en": "I keep a good balance between work and rest."
+ },
+ "그": {
+  "ex": "저는 그 영화를 지난주에 봤어요.",
+  "en": "I watched that movie last week."
+ },
+ "그건": {
+  "ex": "그건 정말 좋은 생각이에요.",
+  "en": "That is a really good idea."
+ },
+ "그날": {
+  "ex": "우리는 그날 처음으로 만나요.",
+  "en": "We meet for the first time on that day."
+ },
+ "그날그날": {
+  "ex": "숙제는 그날그날 끝내요.",
+  "en": "I finish my homework on a day-to-day basis."
+ },
+ "그냥": {
+  "ex": "휴일에는 그냥 집에서 쉬어요.",
+  "en": "On holidays, I just rest at home."
+ },
+ "그늘": {
+  "ex": "시원한 나무 그늘 아래에서 쉬어요.",
+  "en": "I rest under the cool shade of a tree."
+ },
+ "그다음": {
+  "ex": "설명을 듣고 그다음 문제를 풀어요.",
+  "en": "I listen to the explanation and solve the next problem."
+ },
+ "그대로": {
+  "ex": "책을 책상 위에 있는 그대로 둬요.",
+  "en": "I leave the book as it is on the desk."
+ },
+ "그동안": {
+  "ex": "그동안 매일 열심히 운동해요.",
+  "en": "During that time, I exercise hard every day."
+ },
+ "그때": {
+  "ex": "그때는 날씨가 꽤 쌀쌀해요.",
+  "en": "At that time, the weather is quite chilly."
+ },
+ "그래": {
+  "ex": "친구의 제안에 \"그래, 좋아\"라고 답해요.",
+  "en": "I reply, 'Sure, sounds good' to my friend's suggestion."
+ },
+ "그래서": {
+  "ex": "비가 와요, 그래서 우산을 사요.",
+  "en": "It is raining, so I buy an umbrella."
+ },
+ "그래야": {
+  "ex": "일찍 자요, 그래야 아침에 일찍 일어나요.",
+  "en": "Sleep early, so that you can wake up early in the morning."
+ },
+ "그러게": {
+  "ex": "그러게, 미리 준비했어야 해요.",
+  "en": "I told you so, we should have prepared in advance."
+ },
+ "그러나": {
+  "ex": "날씨가 흐려요, 그러나 춥지는 않아요.",
+  "en": "The weather is cloudy, however it is not cold."
+ },
+ "그러니까": {
+  "ex": "시간이 부족해요, 그러니까 지금 출발해요.",
+  "en": "Time is running short, so let's depart now."
+ },
+ "그러다": {
+  "ex": "자꾸 그러다가 감기에 걸려요.",
+  "en": "If you keep doing so, you will catch a cold."
+ },
+ "그러면": {
+  "ex": "그러면 우리 내일 만나요.",
+  "en": "If so, let's meet tomorrow."
+ },
+ "그러하다": {
+  "ex": "우리 동네 사정은 대개 다 그러해요.",
+  "en": "The situation in our neighborhood is mostly like that."
+ },
+ "그런": {
+  "ex": "교실에서는 그런 행동을 하면 안 돼요.",
+  "en": "You shouldn't do that kind of behavior in the classroom."
+ },
+ "그런데": {
+  "ex": "가게에 가요, 그런데 문이 닫혀 있어요.",
+  "en": "I go to the store, but the door is closed."
+ },
+ "그럼": {
+  "ex": "그럼 제가 먼저 발표해요.",
+  "en": "In that case, I will present first."
+ },
+ "그렇게": {
+  "ex": "수미는 항상 그렇게 밝게 웃어요.",
+  "en": "Sumi always smiles brightly like that."
+ },
+ "그렇다": {
+  "ex": "그 일의 사정은 원래 그렇다고 해요.",
+  "en": "They say the circumstance of the matter is originally like that."
+ },
+ "그렇지": {
+  "ex": "\"그렇지, 바로 그거야\" 하며 미소를 지어요.",
+  "en": "I smile saying, 'That's right, exactly that.'"
+ },
+ "그릇": {
+  "ex": "식탁 위에 큰 국그릇을 놓아요.",
+  "en": "I place a large soup bowl on the dining table."
+ },
+ "그리": {
+  "ex": "오늘 시험은 그리 어렵지 않아요.",
+  "en": "Today's exam is not that difficult."
+ },
+ "그리고": {
+  "ex": "저는 우유를 마셔요, 그리고 빵도 먹어요.",
+  "en": "I drink milk, and I eat bread too."
+ },
+ "그리다": {
+  "ex": "도화지에 아름다운 풍경을 그려요.",
+  "en": "I draw a beautiful landscape on the drawing paper."
+ },
+ "그림": {
+  "ex": "벽에 멋진 바다 그림을 걸어요.",
+  "en": "I hang a wonderful sea painting on the wall."
+ },
+ "그만": {
+  "ex": "시간이 늦었으니 그만 자요.",
+  "en": "It is late, so stop and go to sleep."
+ },
+ "그만두다": {
+  "ex": "민수는 다니던 학원을 그만둬요.",
+  "en": "Minsu quits the academy he was attending."
  }
 }
