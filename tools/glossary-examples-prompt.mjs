@@ -32,6 +32,12 @@ const arg = (name, def) => {
 const N = Math.max(1, parseInt(arg('n', '40'), 10) || 40);
 const SKIP = Math.max(0, parseInt(arg('skip', '0'), 10) || 0);
 
+/* 자연스러운 단독 예문이 안 나오는 낱말. Gemini 에게 세 번 시켜도 매번
+   "꼼꼼 챙겨요"처럼 「꼼꼼히」 없이 동사를 바로 꾸미는 어색한 문장만
+   나왔다(사전은 부사로 등재했지만 실제로는 「꼼꼼히·꼼꼼하다」로만
+   쓰인다) — 사람이 보고 골라낸 것이니 다시 주문서에 넣지 않는다. */
+const NO_EXAMPLE = new Set(['꼼꼼']);
+
 let done = {};
 try { done = JSON.parse(readFileSync(join(ROOT, 'docs/glossary-examples.json'), 'utf8')); }
 catch (e) { /* 아직 한 개도 없으면 빈 것으로 시작 */ }
@@ -42,10 +48,11 @@ const byHead = new Map();
 Object.values(GLOSSARY).forEach((v) => { if (!byHead.has(v.head)) byHead.set(v.head, v); });
 const all = [...byHead.values()].sort((a, b) => a.head.localeCompare(b.head, 'ko'));
 
-const remaining = all.filter((v) => !done[v.head]);
+const hasExample = all.filter((v) => done[v.head]).length;
+const remaining = all.filter((v) => !done[v.head] && !NO_EXAMPLE.has(v.head));
 const batch = remaining.slice(SKIP, SKIP + N);
 
-console.log(`전체 표제어 ${all.length}개 · 예문 있음 ${all.length - remaining.length}개 · 남음 ${remaining.length}개`);
+console.log(`전체 표제어 ${all.length}개 · 예문 있음 ${hasExample}개 · 뺀 것 ${NO_EXAMPLE.size}개 · 남음 ${remaining.length}개`);
 console.log(SKIP
   ? `이번 주문서: ${batch.length}개 (앞의 ${SKIP}개는 건너뜀)\n`
   : `이번 주문서: ${batch.length}개\n`);
