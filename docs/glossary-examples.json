@@ -478,5 +478,165 @@
  "강하다": {
   "ex": "이 나무는 비바람에도 끄떡없을 만큼 아주 강해요.",
   "en": "This tree is very hard and solid enough to withstand wind and rain."
+ },
+ "강행": {
+  "ex": "비가 많이 오는데도 등산 일정을 강행해요.",
+  "en": "Even though it rains a lot, they push ahead with the hiking schedule."
+ },
+ "강화": {
+  "ex": "회사에서 보안 강화에 힘써요.",
+  "en": "The company puts effort into the reinforcement of security."
+ },
+ "강화되다": {
+  "ex": "학교 앞 안전 규칙이 더욱 강화돼요.",
+  "en": "Safety rules in front of the school are strengthened even more."
+ },
+ "강화하다": {
+  "ex": "건강을 위해 하체 근육을 강화해요.",
+  "en": "I strengthen my lower body muscles for my health."
+ },
+ "갖다": {
+  "ex": "수미는 항상 손에 작은 손수건을 가져요.",
+  "en": "Sumi always holds a small handkerchief in her hand."
+ },
+ "갖추다": {
+  "ex": "이 도서관은 다양한 편의 시설을 갖춰요.",
+  "en": "This library is well equipped with various convenience facilities."
+ },
+ "같다": {
+  "ex": "친구와 저는 입고 있는 옷 색깔이 같아요.",
+  "en": "My friend and I have the same clothing color."
+ },
+ "같이": {
+  "ex": "주말에 친구와 같이 도서관에 가요.",
+  "en": "I go to the library together with my friend on the weekend."
+ },
+ "갚다": {
+  "ex": "친구에게 빌린 돈을 오늘 갚아요.",
+  "en": "I pay back the money I borrowed from my friend today."
+ },
+ "개": {
+  "ex": "공원에서 귀여운 개가 뛰어놀아요.",
+  "en": "A cute dog runs and plays in the park."
+ },
+ "개강": {
+  "ex": "다음 주 월요일에 대학교 개강을 맞아요.",
+  "en": "Next Monday marks the opening of a course at the university."
+ },
+ "개다": {
+  "ex": "비가 그치고 오후부터 날씨가 맑게 개요.",
+  "en": "The rain stops and the weather clears up in the afternoon."
+ },
+ "개미": {
+  "ex": "작은 개미가 땅 위에서 과자 부스러기를 날라요.",
+  "en": "A small ant carries cookie crumbs on the ground."
+ },
+ "개발": {
+  "ex": "회사가 새로운 모바일 앱 개발에 집중해요.",
+  "en": "The company focuses on the development of a new mobile app."
+ },
+ "개발되다": {
+  "ex": "새로운 기능의 편리한 프로그램이 개발돼요.",
+  "en": "A convenient program with new features is developed."
+ },
+ "개발비": {
+  "ex": "신제품을 만들 때 많은 개발비가 들어요.",
+  "en": "A lot of development expenses are required when making a new product."
+ },
+ "개발하다": {
+  "ex": "연구원들이 더 편리한 프로그램을 개발해요.",
+  "en": "Researchers develop a more convenient program."
+ },
+ "개봉": {
+  "ex": "우체통에서 꺼낸 편지 봉투를 조심스럽게 개봉해요.",
+  "en": "I carefully open the letter envelope taken out of the mailbox."
+ },
+ "개선": {
+  "ex": "근무 환경의 빠른 개선을 위해 노력해요.",
+  "en": "We make efforts for the rapid improvement of the working environment."
+ },
+ "개선하다": {
+  "ex": "손님의 의견을 듣고 서비스 품질을 개선해요.",
+  "en": "We improve the service quality after listening to customer feedback."
+ },
+ "개설": {
+  "ex": "대학교에서 새로운 외국어 강좌 개설을 준비해요.",
+  "en": "The university prepares the establishment of a new foreign language course."
+ },
+ "개설하다": {
+  "ex": "은행에 직접 가서 새 통장을 개설해요.",
+  "en": "I go to the bank in person to open a new account."
+ },
+ "개수": {
+  "ex": "바구니에 담긴 사과의 개수를 세어요.",
+  "en": "I count the number of apples in the basket."
+ },
+ "개업": {
+  "ex": "친구의 식당 개업을 축하하러 가요.",
+  "en": "I go to congratulate my friend on the opening of his restaurant."
+ },
+ "개인": {
+  "ex": "여기는 개인 방이라서 조용해요.",
+  "en": "This is a personal room, so it is quiet."
+ },
+ "개인정보": {
+  "ex": "인터넷 사이트에 중요한 개인정보를 조심해서 입력해요.",
+  "en": "I carefully enter my important personal information on the website."
+ },
+ "개입": {
+  "ex": "사소한 말다툼에 지나친 개입은 피해요.",
+  "en": "I avoid unnecessary meddling in minor arguments."
+ },
+ "개점": {
+  "ex": "새로운 백화점이 드디어 오늘 개점을 해요.",
+  "en": "The new department store finally starts business today."
+ },
+ "개정": {
+  "ex": "기존 규칙의 개정 작업을 서둘러요.",
+  "en": "We hurry the revision work on the existing rules."
+ },
+ "개체": {
+  "ex": "숲속에 사는 동물 개체 수가 점점 늘어나요.",
+  "en": "The number of individual animals living in the forest is gradually increasing."
+ },
+ "개최": {
+  "ex": "서울에서 큰 국제 문화 행사의 개최가 열려요.",
+  "en": "The holding of a large international cultural event takes place in Seoul."
+ },
+ "개항": {
+  "ex": "새로운 바닷길의 중심지로 오랜 역사를 가진 개항이 이루어져요.",
+  "en": "Opening up a port with a long history takes place as the center of new sea routes."
+ },
+ "개항하다": {
+  "ex": "이 도시는 백 년 전에 외국 배를 위해 항구를 개항해요.",
+  "en": "This city opens up a port for foreign ships a hundred years ago."
+ },
+ "갯벌": {
+  "ex": "아이들이 바닷가 갯벌에서 조개를 잡아요.",
+  "en": "Children catch clams in the tideland by the sea."
+ },
+ "거": {
+  "ex": "책상 위에 놓인 예쁜 가방이 제 거예요.",
+  "en": "The pretty bag placed on the desk is my thing."
+ },
+ "거기": {
+  "ex": "거기에 제 지갑이 놓여 있어요.",
+  "en": "My wallet is placed there."
+ },
+ "거든요": {
+  "ex": "지금은 바빠서 못 가요, 할 일이 많거든요.",
+  "en": "I cannot go now because I am busy; you see, I have a lot of work."
+ },
+ "거래": {
+  "ex": "중고 물건을 안전한 직거래로 사고팔아요.",
+  "en": "I buy and sell secondhand goods through safe direct trade."
+ },
+ "거르다": {
+  "ex": "바쁘다고 아침 식사를 거르면 안 돼요.",
+  "en": "You should not skip your breakfast just because you are busy."
+ },
+ "거리": {
+  "ex": "집에서 학교까지의 거리가 아주 가까워요.",
+  "en": "The distance from home to school is very close."
  }
 }
