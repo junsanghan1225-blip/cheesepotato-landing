@@ -2691,6 +2691,30 @@
   "only": true
  },
  {
+  "ko": "문장",
+  "en": "sentence",
+  "pos": "명사",
+  "only": true
+ },
+ {
+  "ko": "무용",
+  "en": "dance",
+  "pos": "명사",
+  "only": true
+ },
+ {
+  "ko": "물리",
+  "en": "physics",
+  "pos": "명사",
+  "only": true
+ },
+ {
+  "ko": "물가",
+  "en": "prices; cost of living; waterside",
+  "pos": "명사",
+  "only": true
+ },
+ {
   "ko": "녹",
   "en": "rust",
   "pos": "명사",
