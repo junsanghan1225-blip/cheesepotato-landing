@@ -4315,5 +4315,165 @@ export const EXAMPLES = {
  "또": {
   "ex": "점심을 먹고 시원한 주스를 또 마셔요.",
   "en": "I have lunch and also drink refreshing juice again."
+ },
+ "또는": {
+  "ex": "주말에는 도서관 또는 공원에서 시간을 보내요.",
+  "en": "On weekends, I spend time at the library or at the park."
+ },
+ "또한": {
+  "ex": "준상이는 노래를 잘하고 또한 그림도 잘 그려요.",
+  "en": "Junsang sings well, and furthermore, he draws well."
+ },
+ "똑": {
+  "ex": "수도꼭지에서 물이 바닥으로 똑 떨어져요.",
+  "en": "Water falls dripping onto the floor from the faucet."
+ },
+ "똑같다": {
+  "ex": "리아와 제가 산 필통 모양이 서로 똑같아요.",
+  "en": "The pencil cases that Lia and I bought are exactly the same in shape."
+ },
+ "뚜": {
+  "ex": "배가 출발하며 뚜 소리를 내요.",
+  "en": "The ship makes a toot sound as it departs."
+ },
+ "뚜언": {
+  "ex": "뚜언 씨는 오늘도 한국어를 열심히 공부해요.",
+  "en": "Mr. Tuan studies Korean diligently today as well."
+ },
+ "뛰다": {
+  "ex": "강아지 치즈가 마당에서 신나게 폴짝 뛰어요.",
+  "en": "The puppy Cheese hops and jumps happily in the yard."
+ },
+ "뛰어나다": {
+  "ex": "주리는 그림 실력이 아주 뛰어나요.",
+  "en": "Juri is truly outstanding in her drawing skills."
+ },
+ "뛰어넘다": {
+  "ex": "체육 시간에 낮은 장애물을 가볍게 뛰어넘어요.",
+  "en": "I lightly jump over low hurdles in PE class."
+ },
+ "뛰쳐나가다": {
+  "ex": "친구의 부르는 소리를 듣고 문밖으로 뛰쳐나가요.",
+  "en": "Hearing my friend calling, I rush out the door."
+ },
+ "뜨다": {
+  "ex": "물 위에 가벼운 나뭇잎이 동동 떠요.",
+  "en": "A light leaf floats lightly on the water."
+ },
+ "뜰": {
+  "ex": "집 앞 넓은 뜰에 예쁜 꽃나무를 심어요.",
+  "en": "I plant pretty flowering trees in the wide yard in front of the house."
+ },
+ "뜻": {
+  "ex": "선생님의 깊은 뜻을 마음속에 새겨요.",
+  "en": "I engrave the teacher's deep intention in my heart."
+ },
+ "뜻밖": {
+  "ex": "생일날 친구에게 뜻밖의 선물을 받아요.",
+  "en": "I receive an unexpected gift from a friend on my birthday."
+ },
+ "뜻하다": {
+  "ex": "이 신호는 안전을 뜻해요.",
+  "en": "This signal means safety."
+ },
+ "띄다": {
+  "ex": "칠판에 적힌 큰 글씨가 한눈에 눈에 띄어요.",
+  "en": "The large letters written on the blackboard are seen at a glance."
+ },
+ "띠": {
+  "ex": "바지가 커서 허리에 검은색 띠를 둘러요.",
+  "en": "I wear a black belt around my waist because my pants are big."
+ },
+ "띠다": {
+  "ex": "허리에 단단하게 가죽 띠를 띠어요.",
+  "en": "I tie a leather belt tightly around my waist."
+ },
+ "라디오": {
+  "ex": "아침에 방에서 음악 라디오를 들어요.",
+  "en": "I listen to music radio in my room in the morning."
+ },
+ "라면": {
+  "ex": "점심으로 냄비에 매콤한 라면을 끓여 먹어요.",
+  "en": "I boil and eat spicy instant noodles in a pot for lunch."
+ },
+ "라벨": {
+  "ex": "새 옷에 붙은 가격 라벨을 떼어내요.",
+  "en": "I remove the price label attached to the new clothes."
+ },
+ "래요": {
+  "ex": "선생님이 내일까지 숙제를 내래요.",
+  "en": "The teacher says to turn in the homework by tomorrow."
+ },
+ "레이다": {
+  "ex": "공항 관제탑에서 레이다로 비행기 위치를 확인해요.",
+  "en": "The airport control tower checks airplane positions with radar."
+ },
+ "레이더": {
+  "ex": "배가 짙은 안개 속에서 레이더를 켜고 항해해요.",
+  "en": "The ship sails in thick fog with its radar turned on."
+ },
+ "레이저": {
+  "ex": "선생님이 발표할 때 붉은색 레이저 포인터를 사용해요.",
+  "en": "The teacher uses a red laser pointer when giving a presentation."
+ },
+ "리": {
+  "ex": "성실한 석진이가 약속을 잊었을 리가 없어요.",
+  "en": "There is no reason or likelihood that diligent Seokjin forgot the promise."
+ },
+ "리듬": {
+  "ex": "음악에 맞춰 손뼉을 치며 신나는 리듬을 타요.",
+  "en": "I clap to the music and ride the exciting rhythm."
+ },
+ "링링": {
+  "ex": "링링 씨가 유창한 발음으로 한국어를 읽어요.",
+  "en": "Ms. Lingling reads Korean with fluent pronunciation."
+ },
+ "마": {
+  "ex": "건강을 위해 아침마다 신선한 마를 갈아 마셔요.",
+  "en": "I grind and drink fresh yam every morning for my health."
+ },
+ "마당": {
+  "ex": "고양이 감자가 마당에서 나비를 쫓아요.",
+  "en": "The cat Gamja chases a butterfly in the garden yard."
+ },
+ "마련": {
+  "ex": "손님을 맞이할 다과 마련에 신경을 써요.",
+  "en": "I pay attention to the preparation of refreshments to welcome guests."
+ },
+ "마련되다": {
+  "ex": "축제 장소에 다양한 쉼터가 잘 마련돼요.",
+  "en": "Various rest areas are well arranged at the festival venue."
+ },
+ "마련하다": {
+  "ex": "가족들과 여행을 가려고 경비를 미리 마련해요.",
+  "en": "I prepare travel expenses in advance to go on a trip with my family."
+ },
+ "마르다": {
+  "ex": "운동을 열심히 해서 목이 몹시 말라요.",
+  "en": "I am very thirsty because I exercised hard."
+ },
+ "마무리": {
+  "ex": "오늘 해야 할 일의 마무리를 깔끔하게 지어요.",
+  "en": "I bring a neat finish to the tasks I need to do today."
+ },
+ "마시다": {
+  "ex": "아침에 일어나서 시원한 물 한 잔을 마셔요.",
+  "en": "I wake up in the morning and drink a glass of cool water."
+ },
+ "마을": {
+  "ex": "우리 마을은 조용하고 공기가 맑아요.",
+  "en": "Our village is quiet and has fresh air."
+ },
+ "마음": {
+  "ex": "친구를 도울 수 있어서 제 마음이 정말 뿌듯해요.",
+  "en": "My heart feels truly fulfilled to be able to help my friend."
+ },
+ "마음대로": {
+  "ex": "도서관 책을 마음대로 가져가면 안 돼요.",
+  "en": "You shouldn't take library books at will as you please."
+ },
+ "마음먹다": {
+  "ex": "새해를 맞아 매일 일기를 쓰기로 마음먹어요.",
+  "en": "I make up my mind to write a diary every day for the new year."
  }
 };
