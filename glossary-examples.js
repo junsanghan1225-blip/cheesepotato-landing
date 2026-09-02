@@ -5435,5 +5435,165 @@ export const EXAMPLES = {
  "밀다": {
   "ex": "마트에서 무거운 쇼핑 카트를 앞으로 밀어요.",
   "en": "I push the heavy shopping cart forward at the mart."
+ },
+ "밀리": {
+  "ex": "작은 부품의 길이를 밀리 단위로 재요.",
+  "en": "I measure the length of the small part in millimeter units."
+ },
+ "밀리다": {
+  "ex": "바빠서 해야 할 빨래가 조금 밀려요.",
+  "en": "The laundry I need to do is left undone because I am busy."
+ },
+ "밀리미터": {
+  "ex": "공책의 두께를 밀리미터로 정확하게 측정해요.",
+  "en": "I accurately measure the thickness of the notebook in millimeters."
+ },
+ "밀어": {
+  "ex": "벤치에 앉은 두 사람이 다정한 밀어를 속삭여요.",
+  "en": "Two people sitting on the bench whisper sweet lovers' whispers."
+ },
+ "및": {
+  "ex": "수업 준비물로 연필 및 지우개를 챙겨요.",
+  "en": "I pack pencils as well as erasers as class supplies."
+ },
+ "밑": {
+  "ex": "책상 밑에 떨어진 연필을 주워요.",
+  "en": "I pick up the pencil that dropped under the desk."
+ },
+ "밑줄": {
+  "ex": "교재의 중요한 단어에 파란색 밑줄을 그어요.",
+  "en": "I draw a blue underline under important words in the textbook."
+ },
+ "바깥": {
+  "ex": "선선한 바깥 바람을 쐬러 밖으로 나가요.",
+  "en": "I go outside to get some cool outside breeze."
+ },
+ "바꾸다": {
+  "ex": "기분 전환을 위해 방의 가구 배치를 바꿔요.",
+  "en": "I change the furniture layout in my room for a change of mood."
+ },
+ "바뀌다": {
+  "ex": "계절이 바뀌어 날씨가 점점 쌀쌀해져요.",
+  "en": "The season changes, and the weather gets increasingly chilly."
+ },
+ "바늘": {
+  "ex": "실을 바늘 구멍에 조심스럽게 넣어요.",
+  "en": "I carefully put the thread through the eye of the needle."
+ },
+ "바다": {
+  "ex": "여름 휴가 때 푸른 바다로 수영하러 가요.",
+  "en": "I go swimming in the blue sea during summer vacation."
+ },
+ "바닥": {
+  "ex": "거실 바닥을 깨끗한 걸레로 닦아요.",
+  "en": "I wipe the living room floor with a clean rag."
+ },
+ "바라다": {
+  "ex": "친구가 이번 시험에서 좋은 결과를 얻기를 바라요.",
+  "en": "I hope my friend gets good results on this exam."
+ },
+ "바라보다": {
+  "ex": "석진은 공원 벤치에 앉아 먼 산을 바라봐요.",
+  "en": "Seokjin sits on the park bench and gazes at the distant mountain."
+ },
+ "바람": {
+  "ex": "창문으로 시원한 가을 바람이 불어와요.",
+  "en": "A cool autumn wind blows in through the window."
+ },
+ "바람직하다": {
+  "ex": "규칙적인 식습관을 갖는 것은 건강에 아주 바람직해요.",
+  "en": "Having regular eating habits is very desirable for health."
+ },
+ "바로": {
+  "ex": "숙제를 끝내고 바로 잠자리에 들어요.",
+  "en": "I finish my homework and go to bed right away."
+ },
+ "바로잡다": {
+  "ex": "앉을 때 삐뚤어진 자세를 바르게 바로잡아요.",
+  "en": "I straighten my crooked posture when sitting."
+ },
+ "바쁘다": {
+  "ex": "요즘 시험공부 때문에 하루 종일 바빠요.",
+  "en": "I am busy all day these days studying for exams."
+ },
+ "바지": {
+  "ex": "운동할 때는 편안하고 가벼운 바지를 입어요.",
+  "en": "I wear comfortable and light pants when exercising."
+ },
+ "박": {
+  "ex": "지붕 위에 탐스럽게 열린 하얀 박이 보여요.",
+  "en": "I see a lovely white gourd hanging on the roof."
+ },
+ "박다": {
+  "ex": "벽에 그림을 걸려고 망치로 못을 박아요.",
+  "en": "I hammer a nail with a hammer to hang a picture on the wall."
+ },
+ "박물관": {
+  "ex": "역사 박물관에서 옛날 생활 모습을 관람해요.",
+  "en": "I view ancient ways of life at the history museum."
+ },
+ "박차": {
+  "ex": "프로젝트의 빠른 완성을 위해 작업에 박차를 가해요.",
+  "en": "We spur on our work to quickly complete the project."
+ },
+ "박차다": {
+  "ex": "선수가 바닥을 힘차게 박차며 달리기 시작해요.",
+  "en": "The athlete kicks off the ground vigorously and begins running."
+ },
+ "박탈": {
+  "ex": "규칙 위반으로 참가 자격의 박탈을 겪어요.",
+  "en": "I experience the forfeiture of my participation eligibility due to a rule violation."
+ },
+ "밖": {
+  "ex": "날씨가 화창해서 친구들과 밖으로 나가요.",
+  "en": "The weather is sunny, so I go outside with my friends."
+ },
+ "반": {
+  "ex": "샌드위치를 칼로 잘라 친구와 반씩 나눠 먹어요.",
+  "en": "I cut the sandwich in half with a knife and share it with my friend."
+ },
+ "반가움": {
+  "ex": "오랜 친구의 연락을 받고 큰 반가움이 들어요.",
+  "en": "I feel great delight upon hearing from an old friend."
+ },
+ "반갑다": {
+  "ex": "수업 시간에 새로운 친구를 만나서 정말 반가워요.",
+  "en": "I am really glad to meet a new friend in class."
+ },
+ "반납": {
+  "ex": "다 읽은 책을 도서관 안내 데스크에 반납해요.",
+  "en": "I return the finished book to the library front desk."
+ },
+ "반년": {
+  "ex": "운동을 시작한 지 반년 만에 체력이 좋아져요.",
+  "en": "My stamina improves just half a year after starting exercise."
+ },
+ "반대": {
+  "ex": "어린이 놀이터는 학교의 정반대 방향에 있어요.",
+  "en": "The children's playground is in the exact opposite direction of the school."
+ },
+ "반대되다": {
+  "ex": "제 계획은 원래 일정과 서로 반대돼요.",
+  "en": "My plan is opposite to the original schedule."
+ },
+ "반대말": {
+  "ex": "밝다의 반대말은 어둡다예요.",
+  "en": "The antonym of 'bright' is 'dark'."
+ },
+ "반대하다": {
+  "ex": "환경을 해치는 무분별한 개발 계획에 반대해요.",
+  "en": "I oppose reckless development plans that harm the environment."
+ },
+ "반도체": {
+  "ex": "컴퓨터에 꼭 필요한 부품인 반도체를 생산해요.",
+  "en": "They produce semiconductors, which are essential components for computers."
+ },
+ "반드시": {
+  "ex": "외출할 때는 반드시 현관문을 잠가요.",
+  "en": "I certainly lock the front door when going out."
+ },
+ "반려": {
+  "ex": "귀여운 강아지 치즈는 제 삶의 든든한 반려예요.",
+  "en": "The cute puppy Cheese is a dependable companion in my life."
  }
 };
