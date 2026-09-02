@@ -3035,5 +3035,165 @@ export const EXAMPLES = {
  "놀다": {
   "ex": "주말에 공원에서 친구들과 재미있게 놀아요.",
   "en": "I have fun playing with friends in the park on the weekend."
+ },
+ "놀라다": {
+  "ex": "갑작스러운 큰 소리에 깜짝 놀라요.",
+  "en": "I am startled and surprised by the sudden loud noise."
+ },
+ "놀람": {
+  "ex": "친구의 깜짝 선물에 큰 놀람을 느껴요.",
+  "en": "I feel great surprise at my friend's surprise gift."
+ },
+ "놀이": {
+  "ex": "교실에서 친구들과 재미있는 윷놀이를 해요.",
+  "en": "I play an interesting game of yutnori with friends in the classroom."
+ },
+ "놀이터": {
+  "ex": "아이들이 아파트 앞 놀이터에서 미끄럼틀을 타요.",
+  "en": "Children ride the slide at the playground in front of the apartment."
+ },
+ "농": {
+  "ex": "민수는 친구에게 가벼운 농을 던져요.",
+  "en": "Minsu tosses a light joke to his friend."
+ },
+ "농가": {
+  "ex": "마을의 여러 농가에서 가을 과일을 수확해요.",
+  "en": "Several farming families in the village harvest autumn fruits."
+ },
+ "농기": {
+  "ex": "축제 장소에 가득한 농기에 모두가 웃어요.",
+  "en": "Everyone laughs in the playful atmosphere filling the festival venue."
+ },
+ "농기구": {
+  "ex": "농부가 창고에서 밭을 갈 농기구를 챙겨요.",
+  "en": "The farmer gathers agricultural implements to plow the field from the storage."
+ },
+ "농도": {
+  "ex": "차에 설탕을 넣어 단맛의 농도를 조절해요.",
+  "en": "I adjust the concentration of sweetness by adding sugar to the tea."
+ },
+ "농부": {
+  "ex": "농부가 논에서 정성껏 벼를 길러요.",
+  "en": "The farmer carefully grows rice in the paddy field."
+ },
+ "농사": {
+  "ex": "시골에서 가족들과 함께 채소 농사를 지어요.",
+  "en": "I do vegetable farming together with my family in the countryside."
+ },
+ "농산물": {
+  "ex": "시장에서 싱싱하고 맛있는 농산물을 사요.",
+  "en": "I buy fresh and delicious produce at the market."
+ },
+ "농업": {
+  "ex": "이 지역은 쌀을 주로 생산하는 농업이 발달해요.",
+  "en": "Agriculture mainly producing rice is well developed in this region."
+ },
+ "농작물": {
+  "ex": "가뭄 때문에 밭의 농작물이 마르지 않게 물을 줘요.",
+  "en": "I water the crops in the field so they do not dry up from drought."
+ },
+ "농장": {
+  "ex": "주말에 넓은 딸기 농장에서 과일을 따요.",
+  "en": "I pick fruit at a spacious strawberry farm over the weekend."
+ },
+ "농촌": {
+  "ex": "방학 동안 평화롭고 조용한 농촌에 다녀와요.",
+  "en": "I visit a peaceful and quiet rural area during the vacation."
+ },
+ "높다": {
+  "ex": "가을 하늘이 구름 없이 아주 높고 파래요.",
+  "en": "The autumn sky is very high and blue without clouds."
+ },
+ "높아지다": {
+  "ex": "봄이 오면서 낮 기온이 점점 높아져요.",
+  "en": "Daytime temperatures gradually get higher as spring arrives."
+ },
+ "높이": {
+  "ex": "새들이 푸른 하늘 위로 높이 날아가요.",
+  "en": "Birds fly high above into the blue sky."
+ },
+ "높이다": {
+  "ex": "공부 집중력을 높이기 위해 책상을 정리해요.",
+  "en": "I organize my desk to raise my study concentration."
+ },
+ "높임": {
+  "ex": "어른과 대화할 때는 항상 높임의 말을 써요.",
+  "en": "I always use respectful forms when speaking with elders."
+ },
+ "높임법": {
+  "ex": "한국어 수업 시간에 올바른 높임법을 배워요.",
+  "en": "We learn the correct honorification during Korean class."
+ },
+ "놓다": {
+  "ex": "책상 위에 따뜻한 차 한 잔을 놓아요.",
+  "en": "I place a cup of warm tea on the desk."
+ },
+ "놓이다": {
+  "ex": "시험이 무사히 끝나서 마음이 놓여요.",
+  "en": "I am relieved that the exam ended safely."
+ },
+ "뇌": {
+  "ex": "충분한 수면은 인간의 뇌 건강에 필수적이에요.",
+  "en": "Sufficient sleep is essential for human brain health."
+ },
+ "뇌다": {
+  "ex": "수미는 외운 단어를 입속으로 계속 뇌어요.",
+  "en": "Sumi keeps repeating the same remark under her breath to memorize words."
+ },
+ "뇌파": {
+  "ex": "병원에서 잠잘 때의 뇌파를 측정해요.",
+  "en": "The hospital measures brainwaves during sleep."
+ },
+ "누": {
+  "ex": "다른 사람에게 절대로 누를 끼치지 마세요.",
+  "en": "Please never cause trouble to other people."
+ },
+ "누구": {
+  "ex": "지금 문 밖에서 부르는 사람이 누구예요?",
+  "en": "Who is the person calling from outside the door right now?"
+ },
+ "누다": {
+  "ex": "아침에 일어나서 먼저 시원하게 소변을 누어요.",
+  "en": "I wake up in the morning and evacuate my bladder first."
+ },
+ "누렇다": {
+  "ex": "가을이 되자 들판의 벼가 누래요.",
+  "en": "The rice in the fields turns deep yellow as autumn arrives."
+ },
+ "누르다": {
+  "ex": "엘리베이터를 타려고 층 버튼을 눌러요.",
+  "en": "I press the floor button to take the elevator."
+ },
+ "누리다": {
+  "ex": "휴일에는 여유로운 자유를 마음껏 누려요.",
+  "en": "On holidays, I fully enjoy peaceful freedom."
+ },
+ "누리집": {
+  "ex": "학교 누리집에서 공지사항을 확인해요.",
+  "en": "I check the announcements on the school website."
+ },
+ "눅다": {
+  "ex": "화가 났던 친구의 마음이 점차 눅어요.",
+  "en": "My friend's angry mind gradually softens."
+ },
+ "눈": {
+  "ex": "겨울이 되니 하늘에서 하얀 눈이 내려요.",
+  "en": "White snow falls from the sky as winter comes."
+ },
+ "눈길": {
+  "ex": "창밖으로 아름다운 풍경에 눈길을 돌려요.",
+  "en": "I turn my glance to the beautiful scenery outside the window."
+ },
+ "눈물": {
+  "ex": "감동적인 영화를 보고 눈물을 흘려요.",
+  "en": "I shed tears after watching a touching movie."
+ },
+ "눈사람": {
+  "ex": "공원에서 동생과 함께 귀여운 눈사람을 만들어요.",
+  "en": "I make a cute snowman with my younger sibling in the park."
+ },
+ "눈살": {
+  "ex": "시끄러운 소리에 사람들이 눈살을 찌푸려요.",
+  "en": "People knit their brows at the loud noise."
  }
 };
