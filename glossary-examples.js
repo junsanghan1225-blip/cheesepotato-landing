@@ -2997,8 +2997,8 @@ export const EXAMPLES = {
   "en": "I work on my assignment on a laptop at the cafe."
  },
  "녹": {
-  "ex": "조선 시대 관리들은 나라에서 녹을 받아요.",
-  "en": "Officials of the Joseon dynasty receive a public servant's salary from the state."
+  "ex": "오래된 자전거 체인에 붉은 녹이 슬어요.",
+  "en": "Red rust forms on the old bicycle chain."
  },
  "녹다": {
   "ex": "따뜻한 방에 두니 아이스크림이 금방 녹아요.",
@@ -3009,8 +3009,8 @@ export const EXAMPLES = {
   "en": "A wide green space is created in the middle of the city center."
  },
  "녹화": {
-  "ex": "마을 주민들이 산에 나무를 심어 산림 녹화를 해요.",
-  "en": "Villagers plant trees on the mountain for afforestation."
+  "ex": "오늘 방송을 놓쳐서 대신 녹화를 해요.",
+  "en": "I missed today's broadcast, so I record it instead."
  },
  "논": {
   "ex": "농부가 시골 논에서 벼를 키워요.",

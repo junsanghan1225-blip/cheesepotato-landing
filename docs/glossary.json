@@ -2661,6 +2661,24 @@
   "only": true
  },
  {
+  "ko": "녹",
+  "en": "rust",
+  "pos": "명사",
+  "only": true
+ },
+ {
+  "ko": "녹화",
+  "en": "video recording",
+  "pos": "명사",
+  "only": true,
+  "alt": [
+   "녹화하다",
+   "녹화해요",
+   "녹화한",
+   "녹화된"
+  ]
+ },
+ {
   "ko": "따르다",
   "en": "to follow; to conform",
   "alt": [
