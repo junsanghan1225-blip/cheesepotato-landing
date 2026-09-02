@@ -13,7 +13,7 @@
    어느 날 갑자기 다른 코드가 실려 왔다.
    이제 vendor/ 안에 받아 두고 CSP 로 바깥을 막는다. 버전을 올릴 때는
    tools/vendor.mjs 의 PIN 을 고치고 다시 돌린다. */
-import { createClient } from './vendor/supabase-js.js?v=16728a27';
+import { createClient } from './vendor/supabase-js.js?v=ece002a7';
 // 앱(package.json)과 같은 줄기를 쓴다. 갈리면 앱에서는 읽히는 파일이
 // 여기서는 안 읽히는(또는 그 반대) 일이 생긴다.
 /* 엑셀 라이브러리는 422KB — 이 판에서 가장 무거운 조각이다. 그런데 쓰는
@@ -25,23 +25,23 @@ import { createClient } from './vendor/supabase-js.js?v=16728a27';
    자국(?v=)은 tools/stamp.mjs 가 아래 줄에 알아서 붙인다 — 정적으로 쓰든
    동적으로 쓰든 같은 글자를 찾으므로 바꿔도 그대로 찍힌다. */
 let XLSX = null;
-const needXLSX = async () => (XLSX ??= await import('./vendor/xlsx.js?v=16728a27'));
+const needXLSX = async () => (XLSX ??= await import('./vendor/xlsx.js?v=ece002a7'));
 // 커리큘럼. 내용과 엔진을 갈라 두면 글을 고치다 화면을 깨지 않는다.
 // 갈래 목록(drawSections)·코스(drawCourses)·문제만 풀기(dqDraw) 를 열 때만
 // 받는다 — 배우기 갈래 목록도 안 본 사람에게 코스 71개 레슨을 다 물릴
 // 까닭이 없다. warmLearn() 이 배우기를 여는 순간 미리 불을 붙여 둔다.
 let COURSES = [], coursesP = null;
-const coursesNeed = () => (coursesP ??= import('./courses.js?v=16728a27').then((m) => { COURSES = m.COURSES; }));
-import { GLOSSARY, GLOSS_LANGS } from './glossary.js?v=16728a27';
-import { glossFind } from './gloss-find.js?v=16728a27';
+const coursesNeed = () => (coursesP ??= import('./courses.js?v=ece002a7').then((m) => { COURSES = m.COURSES; }));
+import { GLOSSARY, GLOSS_LANGS } from './glossary.js?v=ece002a7';
+import { glossFind } from './gloss-find.js?v=ece002a7';
 /* 문법 사전(뜻풀이 197개). 읽기 지문의 밑줄 문법 말풍선(rdNeed)과 예문
    만들기 화면(sbNeed) 양쪽이 쓴다 — 둘 중 먼저 여는 화면이 받아 두고,
    나중 화면은 그 약속(??=)을 그대로 쓴다. */
 let GRAMMAR = [], GRAMMAR_EN = {}, grammarP = null;
 const grammarNeed = () => (grammarP ??= Promise.all([
-  import('./grammar.js?v=16728a27'), import('./grammar-en.js?v=16728a27'),
+  import('./grammar.js?v=ece002a7'), import('./grammar-en.js?v=ece002a7'),
 ]).then(([a, b]) => { GRAMMAR = a.GRAMMAR; GRAMMAR_EN = b.GRAMMAR_EN; }));
-import { grammarScan } from './grammar-find.js?v=16728a27';
+import { grammarScan } from './grammar-find.js?v=ece002a7';
 // TOPIK 쓰기·듣기 문항. 읽기(topik.js·topik2.js)와 같은 tqNeedData() 로
 // 함께 받는다 — 유형 연습(topik) 갈래 하나가 세 기술을 다 쓰므로 따로
 // 가를 까닭이 없다. 값은 tqNeedData 정의부에서 채운다.
@@ -53,7 +53,7 @@ let TOPIKL_BY_EXAM = {}, TOPIKL_PICTURE_SLOTS = {};
    sbFind 를 쓰는데, 그쪽은 안 기다리고 그냥 부른다 — 답이 못 찾은
    인용 없이 나가는 것이 채팅이 멈추는 것보다 낫다. */
 let SB_CATS = [], SB_MORE = {}, SB_SEED = {}, SB_POINTS = [], sbDataP = null;
-const sbNeed = () => (sbDataP ??= import('./sentences.js?v=16728a27').then((m) => {
+const sbNeed = () => (sbDataP ??= import('./sentences.js?v=ece002a7').then((m) => {
   SB_CATS = m.SB_CATS; SB_MORE = m.SB_MORE; SB_SEED = m.SB_SEED;
   // 갈래마다 표현을 펼쳐 한 줄에 담는다 — SB_CATS 안의 점에는 갈래가 안
   // 달려 있어서(sbFind 가 표현 하나를 id 로 바로 찾으려면 이게 있어야 한다).
@@ -64,7 +64,7 @@ const sbNeed = () => (sbDataP ??= import('./sentences.js?v=16728a27').then((m) =
 // 숫자 게임의 읽기와 문제 만들기. 화면을 모르는 순수 계산이라 따로 뒀다.
 // 게임 목록에서 「숫자 읽기」를 시작할 때만 받는다 — XLSX 와 같은 자리다.
 let makeRound = null;
-const needNumbers = async () => (makeRound ??= (await import('./numbers.js?v=16728a27')).makeRound);
+const needNumbers = async () => (makeRound ??= (await import('./numbers.js?v=ece002a7')).makeRound);
 
 // 이 키는 공개돼도 되는 값이다. 이미 APK 안에 같은 것이 들어 있고,
 // 접근을 막는 건 키가 아니라 테이블에 걸린 RLS 다.
@@ -113,8 +113,8 @@ let tqDataP = null;
    유형 연습(topik) 갈래 하나가 이 넷을 다 쓰므로 갈라 봤자 요청만
    늘어난다. */
 const tqNeedData = () => (tqDataP ??= Promise.all([
-  import('./topik.js?v=16728a27'), import('./topik2.js?v=16728a27'),
-  import('./topik-writing.js?v=16728a27'), import('./topik-listening.js?v=16728a27'),
+  import('./topik.js?v=ece002a7'), import('./topik2.js?v=ece002a7'),
+  import('./topik-writing.js?v=ece002a7'), import('./topik-listening.js?v=ece002a7'),
 ]).then(([a, b, c, d]) => {
   TQ_DATA.I  = { reading: a.TOPIK_READING,  blueprint: a.TOPIK_BLUEPRINT,  slots: a.TOPIK_SLOTS };
   TQ_DATA.II = { reading: b.TOPIK2_READING, blueprint: b.TOPIK2_BLUEPRINT, slots: b.TOPIK2_SLOTS };
@@ -125,11 +125,11 @@ const tqNeedData = () => (tqDataP ??= Promise.all([
 let READING = null, rdP = null;
 // 지문의 밑줄 문법 말풍선이 GRAMMAR 를 쓰므로 같이 받아 둔다.
 const rdNeed = () => (rdP ??= Promise.all([
-  import('./reading.js?v=16728a27'), grammarNeed(),
+  import('./reading.js?v=ece002a7'), grammarNeed(),
 ]).then(([m]) => { READING = m.READING; }));
 
 let CONVO = null, cvP = null;
-const cvNeed = () => (cvP ??= import('./convo.js?v=16728a27').then((m) => { CONVO = m.CONVO; }));
+const cvNeed = () => (cvP ??= import('./convo.js?v=ece002a7').then((m) => { CONVO = m.CONVO; }));
 
 /* 배우기를 열면 다섯 다 미리 불을 붙인다. 기다리지 않는다 — 갈래 목록은
    이 자료가 없어도 그려지고, 사람이 갈래를 고르는 사이에 도착한다. */
@@ -527,14 +527,14 @@ let dictOpen = null;  // 지금 "더 보기"(예문·뜻풀이)를 펼쳐 둔 �
    평소엔 안 쓰는 522KB 를 첫 화면 모두에게 물릴 까닭이 없다. */
 let dictSensesP = null;
 const dictLoadSenses = () => (dictSensesP ??=
-  import('./glossary-senses.js?v=16728a27').then((m) => m.SENSES).catch(() => ({})));
+  import('./glossary-senses.js?v=ece002a7').then((m) => m.SENSES).catch(() => ({})));
 
 /* 예문. 국립국어원 자료엔 없어서 Gemini 로 새로 지은 것이다(있는 만큼만
    — docs/glossary-examples-gemini-prompt.md 참고). 뜻풀이와 같은 자리에서
    같이 받는다 — 펼치는 손짓 하나에 몰아 두는 편이 화면이 덜 복잡하다. */
 let dictExamplesP = null;
 const dictLoadExamples = () => (dictExamplesP ??=
-  import('./glossary-examples.js?v=16728a27').then((m) => m.EXAMPLES).catch(() => ({})));
+  import('./glossary-examples.js?v=ece002a7').then((m) => m.EXAMPLES).catch(() => ({})));
 
 function dictVisible() {
   const q = dictQuery.trim().toLowerCase();
@@ -5379,11 +5379,13 @@ const ntMemoLoad = () => {
   try {
     const c = JSON.parse(localStorage.getItem(NT_MEMO_CATS_KEY) || '[]');
     /* 예전에는 갈래가 이름 문자열뿐이었다. 아이콘이 붙으면서 {n, i} 로
-       바뀌었는데, 예전 것을 그대로 읽어 아이콘 없는 갈래로 둔다 —
-       이름이 곧 열쇠라(노트의 cat 이 이름을 가리킨다) 이름만 지키면 된다. */
+       바뀌었고, 색이 붙으면서 {n, i, col} 이 됐다 — 예전 것을 그대로
+       읽어 빈 아이콘·빈 색으로 둔다. 이름이 곧 열쇠라(노트의 cat 이
+       이름을 가리킨다) 이름만 지키면 된다. */
     ntMemoCats = Array.isArray(c)
-      ? c.map((x) => (typeof x === 'string' ? { n: x, i: '' }
-                     : (x && typeof x.n === 'string' ? { n: x.n, i: String(x.i || '') } : null)))
+      ? c.map((x) => (typeof x === 'string' ? { n: x, i: '', col: '' }
+                     : (x && typeof x.n === 'string'
+                        ? { n: x.n, i: String(x.i || ''), col: String(x.col || '') } : null)))
          .filter((x) => x && x.n.trim())
       : [];
   } catch (e) { ntMemoCats = []; }
@@ -5451,46 +5453,25 @@ const ntCatNames = () => ntMemoCats.map((c) => c.n);
 const ntCatFind = (n) => ntMemoCats.find((c) => c.n === n) || null;
 const ntCatLabel = (n) => { const c = ntCatFind(n); return c && c.i ? `${c.i} ${c.n}` : n; };
 
-function ntMemoCatAdd() {
-  const name = (prompt(t('새 갈래 이름', 'New category name')) || '').trim();
-  if (!name) return;
-  if (ntCatNames().includes(name)) { ntMemoCat = name; return ntMemoDraw(); }
-  ntMemoCats.push({ n: name, i: '' });
-  ntMemoCat = name;
-  ntMemoStore();
-  ntMemoDraw();
-}
-function ntMemoCatRename(old) {
-  const name = (prompt(t('갈래 이름 바꾸기', 'Rename category'), old) || '').trim();
-  if (!name || name === old) return;
-  if (ntCatNames().includes(name)) return alert(t('이미 있는 갈래예요.', 'That category already exists.'));
-  const hit = ntCatFind(old);
-  if (hit) hit.n = name;
-  ntMemo.forEach((m) => { if (m.cat === old) m.cat = name; });
-  ntMemoCat = name;
-  ntMemoStore();
-  ntMemoDraw();
-}
 /* 갈래를 지워도 **글은 안 지운다.** 갈래 없음으로 옮길 뿐이다 —
    폴더를 지웠다고 그 안의 글이 사라지면 아무도 폴더를 안 만든다. */
-function ntMemoCatDrop(name) {
-  const n = ntMemo.filter((m) => m.cat === name).length;
-  if (!confirm(t(`「${name}」 갈래를 지울까요? 안에 있는 메모 ${n}개는 「갈래 없음」으로 옮겨져요.`,
-                 `Delete the category "${name}"? Its ${n} note(s) move to "No category".`))) return;
-  ntMemoCats = ntMemoCats.filter((c) => c.n !== name);
-  ntMemo.forEach((m) => { if (m.cat === name) m.cat = ''; });
-  ntMemoCat = null;
+function ntCatDrop(cat) {
+  ntMemoCats = ntMemoCats.filter((c) => c.n !== cat.n);
+  ntMemo.forEach((m) => { if (m.cat === cat.n) m.cat = ''; });
+  if (ntMemoCat === cat.n) ntMemoCat = null;
   ntMemoStore();
+  ntCatPopClose();
   ntMemoDraw();
 }
 
 function ntMemoDrawCats() {
   const wrap = $('ntMemoCats');
   wrap.textContent = '';
-  const chip = (label, on, onClick, extra) => {
+  const chip = (label, on, onClick, extra, col) => {
     const b = document.createElement('button');
     b.type = 'button';
     b.className = 'nt-memo-cat' + (on ? ' on' : '') + (extra ? ` ${extra}` : '');
+    if (col) b.dataset.col = col;
     b.textContent = label;
     b.addEventListener('click', onClick);
     wrap.appendChild(b);
@@ -5500,27 +5481,132 @@ function ntMemoDrawCats() {
        () => { ntMemoCat = null; ntMemoDraw(); });
   ntMemoCats.forEach((c) => {
     const n = ntMemo.filter((m) => m.cat === c.n).length;
-    chip(`${c.i ? c.i + ' ' : ''}${c.n} ${n}`, ntMemoCat === c.n, () => { ntMemoCat = c.n; ntMemoDraw(); });
+    chip(`${c.i ? c.i + ' ' : ''}${c.n} ${n}`, ntMemoCat === c.n, () => { ntMemoCat = c.n; ntMemoDraw(); }, '', c.col);
   });
   const none = ntMemo.filter((m) => !m.cat).length;
   if (none && ntMemoCats.length) {
     chip(t(`갈래 없음 ${none}`, `No category ${none}`), ntMemoCat === '',
          () => { ntMemoCat = ''; ntMemoDraw(); });
   }
-  chip(t('+ 갈래', '+ Category'), false, ntMemoCatAdd, 'act');
-  /* 고른 갈래가 진짜 갈래일 때만 이름 바꾸기·지우기를 내놓는다. */
+  const add = chip(t('+ 갈래', '+ Category'), false, () => ntCatPopOpen(add, null), 'act');
+  add.dataset.catpop = '1';
+  /* 고른 갈래가 진짜 갈래일 때만 고치는 연필을 내놓는다. 이름·아이콘·
+     색·지우기를 판 하나로 모아서, 따로따로 있던 잔단추 셋을 없앤다. */
   if (ntMemoCat) {
-    const ic = chip(t('아이콘', 'Icon'), false, () => {
-      const c = ntCatFind(ntMemoCat);
-      if (!c) return;
-      nbEmoOpen(ic, (e) => { c.i = e; ntMemoStore(); ntMemoDraw(); },
-                c.i ? () => { c.i = ''; ntMemoStore(); ntMemoDraw(); } : null);
-    }, 'act');
-    ic.dataset.emo = '1';   // 바깥 클릭으로 고르개가 바로 닫히지 않게
-    chip(t('이름 바꾸기', 'Rename'), false, () => ntMemoCatRename(ntMemoCat), 'act');
-    chip(t('갈래 지우기', 'Delete category'), false, () => ntMemoCatDrop(ntMemoCat), 'act');
+    const cat = ntCatFind(ntMemoCat);
+    if (cat) {
+      const edit = document.createElement('button');
+      edit.type = 'button';
+      edit.className = 'nt-memo-cat-edit';
+      edit.dataset.catpop = '1';
+      edit.textContent = '✎';
+      edit.title = t('갈래 고치기', 'Edit category');
+      edit.setAttribute('aria-label', t('갈래 고치기', 'Edit category'));
+      edit.addEventListener('click', () => ntCatPopOpen(edit, cat));
+      wrap.appendChild(edit);
+    }
   }
 }
+
+/* ── 갈래 만들기·고치기 판 ─────────────────────────────────────
+   prompt() 는 안 예쁘지도 않고, 폰 OS 말과 사이트 말이 다르면 창
+   안에서 말이 섞여 나온다. 여기서는 이름·아이콘·색을 한 판에서
+   고치고, 지우기는 두 번 눌러야 되게 해서 잘못 지우는 일을 줄인다. */
+let ntCatPopCur;      // 지금 고치는 갈래(없으면 새로 만드는 중), 닫혀 있으면 undefined
+let ntCatPopIcon = '';
+let ntCatPopCol = '';
+let ntCatPopOnPick = null;   // 새로 만들 때, 그 갈래로 무엇을 할지(없으면 거르개를 그 갈래로)
+function ntCatPopClose() {
+  $('ntCatPop').hidden = true;
+  $('ntCatPopDel').classList.remove('arm');
+  ntCatPopCur = undefined;
+  ntCatPopOnPick = null;
+}
+function ntCatPopSwatches() {
+  $('ntCatPopIcon').textContent = ntCatPopIcon || '🏷️';
+  const sw = $('ntCatPopSw');
+  sw.textContent = '';
+  NB_BGS.forEach((c) => {
+    const b = document.createElement('button');
+    b.type = 'button';
+    b.className = 'nb-sw' + (ntCatPopCol === c.k ? ' on' : '');
+    b.style.background = c.k ? c.css : 'var(--surface-2)';
+    if (!c.k) b.style.borderStyle = 'dashed';
+    b.title = t(c.ko, c.en);
+    b.setAttribute('aria-label', t(c.ko, c.en));
+    b.addEventListener('click', () => { ntCatPopCol = c.k; ntCatPopSwatches(); });
+    sw.appendChild(b);
+  });
+}
+function ntCatPopOpen(anchor, cat, onPick) {
+  ntCatPopCur = cat || null;
+  ntCatPopOnPick = onPick || null;
+  ntCatPopIcon = cat ? cat.i : '';
+  ntCatPopCol = cat ? cat.col : '';
+  $('ntCatPopName').value = cat ? cat.n : '';
+  $('ntCatPopDel').hidden = !cat;
+  $('ntCatPopDel').classList.remove('arm');
+  $('ntCatPopDel').textContent = t('갈래 지우기', 'Delete category');
+  $('ntCatPopSave').textContent = cat ? t('저장', 'Save') : t('만들기', 'Create');
+  ntCatPopSwatches();
+  const box = $('ntCatPop');
+  box.hidden = false;
+  const r = anchor.getBoundingClientRect();
+  const p = box.getBoundingClientRect();
+  const top = r.bottom + 6 + p.height > innerHeight - 8 ? Math.max(8, r.top - p.height - 6) : r.bottom + 6;
+  box.style.top = `${top}px`;
+  box.style.left = `${Math.max(8, Math.min(innerWidth - p.width - 8, r.left))}px`;
+  $('ntCatPopName').focus();
+}
+$('ntCatPopIcon').addEventListener('click', () => {
+  nbEmoOpen($('ntCatPopIcon'), (e) => { ntCatPopIcon = e; ntCatPopSwatches(); },
+            ntCatPopIcon ? () => { ntCatPopIcon = ''; ntCatPopSwatches(); } : null);
+});
+$('ntCatPopName').addEventListener('keydown', (ev) => {
+  if (ev.key === 'Enter') { ev.preventDefault(); $('ntCatPopSave').click(); }
+});
+$('ntCatPopDel').addEventListener('click', () => {
+  if (!ntCatPopCur) return;
+  const btn = $('ntCatPopDel');
+  if (!btn.classList.contains('arm')) {
+    btn.classList.add('arm');
+    btn.textContent = t('정말요? 다시 누르면 지워요', 'Sure? Tap again to delete');
+    return;
+  }
+  ntCatDrop(ntCatPopCur);
+});
+$('ntCatPopSave').addEventListener('click', () => {
+  const name = $('ntCatPopName').value.trim();
+  if (!name) return $('ntCatPopName').focus();
+  const dup = ntCatFind(name);
+  if (dup && dup !== ntCatPopCur) { $('ntCatPopName').focus(); return; }
+  if (ntCatPopCur) {
+    const old = ntCatPopCur.n;
+    ntCatPopCur.n = name;
+    ntCatPopCur.i = ntCatPopIcon;
+    ntCatPopCur.col = ntCatPopCol;
+    if (old !== name) ntMemo.forEach((m) => { if (m.cat === old) m.cat = name; });
+    if (ntMemoCat === old) ntMemoCat = name;
+  } else {
+    ntMemoCats.push({ n: name, i: ntCatPopIcon, col: ntCatPopCol });
+    if (ntCatPopOnPick) ntCatPopOnPick(name); else ntMemoCat = name;
+  }
+  ntMemoStore();
+  ntCatPopClose();
+  ntMemoDraw();
+});
+document.addEventListener('click', (ev) => {
+  if (ntCatPopCur === undefined) return;
+  /* closest() 를 안 쓰는 까닭 — 색 단추를 누르면 그 자리에서 스와치를
+     다시 그리는데, 그러면 누른 단추 자신이 문서에서 떨어져 나가 버블링
+     이 도착했을 때 closest('#ntCatPop') 가 못 찾는다(이미 고아 노드라).
+     composedPath() 는 일이 일어난 그 순간의 조상 사슬을 그대로 들고
+     있어서, 지워진 뒤에도 옳게 안다. */
+  const path = ev.composedPath();
+  if (path.some((el) => el.id === 'ntCatPop' || el.id === 'nbEmo' || el?.dataset?.catpop)) return;
+  ntCatPopClose();
+});
+document.addEventListener('keydown', (ev) => { if (ev.key === 'Escape' && ntCatPopCur !== undefined) ntCatPopClose(); });
 
 function ntMemoCatOptions(sel, value) {
   sel.textContent = '';
@@ -6242,13 +6328,11 @@ $('ntMemoDocCat').addEventListener('change', () => {
   if (!m) return;
   const v = $('ntMemoDocCat').value;
   if (v === ' new') {
-    const name = (prompt(t('새 갈래 이름', 'New category name')) || '').trim();
-    if (!name) return ntMemoDrawDoc();
-    if (!ntCatNames().includes(name)) ntMemoCats.push({ n: name, i: '' });
-    m.cat = name;
-  } else {
-    m.cat = v;
+    ntMemoDrawDoc();   // 고르개를 먼저 원래 값으로 되돌린다 — 판을 닫아도 이상하게 안 남게
+    ntCatPopOpen($('ntMemoDocCat'), null, (name) => { m.cat = name; m.up = Date.now(); });
+    return;
   }
+  m.cat = v;
   m.up = Date.now();
   ntMemoStore();
   ntMemoDraw();
