@@ -18,6 +18,8 @@ node tools/build-grammar.mjs      # 글에서 찾아낼 문법 (예문 이름을
 node tools/build-pages.mjs        # 검색용 정적 쪽 (예문 자료를 고쳤으면 반드시)
 node tools/stamp.mjs              # 캐시 자국을 새로 찍는다 (자료·코드를 고쳤으면 반드시)
 node tools/check-data.mjs         # 자료 전체 크로스체크
+node tools/check-courses.mjs      # 코스·레슨 (레슨을 고쳤거나 더했으면 반드시)
+node tools/check-honorific.mjs    # 존댓말 활용 (hon: true 코스를 고쳤거나 더했으면 반드시)
 node tools/check-sentences.mjs    # 예문 표현
 node tools/check-topik.mjs        # TOPIK I
 node tools/check-topik2.mjs docs/topik2-all50.json   # TOPIK II
@@ -59,7 +61,7 @@ GitHub Pages 는 캐시 머리글을 우리가 못 정한다. `app.js` 를 그�
 | 파일 | 만드는 것 | 원본 |
 |---|---|---|
 | `topik2.js` | `tools/build-topik2.mjs` | `docs/topik2-all50.json` |
-| `sentence/` · `sitemap.xml` | `tools/build-pages.mjs` | `sentences*.js` |
+| `sentence/` · `compare/` · `course/` · `lesson/` · `topik-writing/` · `sitemap.xml` | `tools/build-pages.mjs` | `sentences*.js` · `courses*.js` · `topik-writing.js` |
 | `glossary.js` · `glossary-<말>.js` | `tools/build-glossary.mjs` | `docs/glossary.json` (+ `glossary-krdict.json`) |
 | `grammar.js` | `tools/build-grammar.mjs` | `sentences.js` 의 문법 이름 |
 | `docs/glossary-krdict.json` | `tools/build-krdict-glossary.mjs` | 국립국어원 내려받기 자료 |
