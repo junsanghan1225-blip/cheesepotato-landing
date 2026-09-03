@@ -1,24 +1,29 @@
 /*
  * 존댓말(-(으)시-·겸양) 활용 검사기
  *
- * 표를 손으로 채우다 보면 받침 규칙을 놓치기 쉽다 — '있음'이라고 적어
+ * 표를 손으로 채우다 보면 받침 규칙을 놓치기 쉽다 — 'yes'라고 적어
  * 놓고 정작 결과 칸에는 으를 안 붙이거나, ㄹ 받침인데 탈락을 안 시키는
  * 식이다. 이 검사기는 한글 자모를 직접 풀어서 받침을 계산하고, 존댓말
- * 코스(courses.js 의 hon: true)에 있는 「사전형 → 활용형」 표를 그 규칙과
- * 대조한다.
+ * 코스(courses.js 의 hon: true)에 있는 「Dictionary form → 활용형」 표를
+ * 그 규칙과 대조한다.
+ *
+ * 블록 속 글(h/md/q/why/head 등)은 cTx() 를 안 거치는 순수 문자열이라
+ * 화면 언어를 못 바꾼다(app.module.js readBlock·exBlock 확인) — 그래서
+ * 표의 머리글도 영어(Dictionary form/Plain/Honorific/Humble)로 적는다.
+ * 이 검사기가 찾는 문자열도 그 영어를 그대로 쓴다.
  *
  * 실행: node tools/check-honorific.mjs
  *
  * 잡아내는 것
- *   - 사전형→활용형 표에서 받침 규칙이 틀린 칸 (으 빠짐·덧붙음, ㄹ 안 탈락)
+ *   - Dictionary form→활용형 표에서 받침 규칙이 틀린 칸 (으 빠짐·덧붙음, ㄹ 안 탈락)
  *   - 표에 적힌 받침 설명이 실제 계산한 받침과 다른 경우
  *   - 드시다·계시다처럼 이미 -시-를 담은 불규칙 어간을 규칙대로 다시
  *     활용시킨 경우 (예: 드시다인데 '드시으세요'처럼 시가 겹치는 꼴)
- *   - '반말 → 높임말' 표(주체 높임)와 '반말 → 겸양어' 표(객체 높임·겸양)
- *     에서 불규칙 낱말의 짝이 틀리거나 빠진 경우
- *   - 맨 위 요약표('한눈에 보는 …')가 뒤 레슨에서 실제로 쓰는 불규칙
- *     낱말·겸양어를 못 담고 있는 경우 — 학습자가 처음 보는 표가 낡아
- *     있으면 안내가 아니라 오해가 된다.
+ *   - 'Plain → Honorific' 표(주체 높임)와 'Plain → Humble' 표(객체
+ *     높임·겸양)에서 불규칙 낱말의 짝이 틀리거나 빠진 경우
+ *   - 맨 위 요약표(h 에 'glance' 가 들어간 표)가 뒤 레슨에서 실제로 쓰는
+ *     불규칙 낱말·겸양어를 못 담고 있는 경우 — 학습자가 처음 보는 표가
+ *     낡아 있으면 안내가 아니라 오해가 된다.
  *
  * 새 존댓말 레슨을 더할 때(단계적으로 계속 늘어날 예정이다) 코스에
  * hon: true 만 붙이면 이 검사기가 자동으로 그 표까지 함께 본다.
@@ -89,9 +94,9 @@ function expectedForm(dictForm, family) {
 
 function batchimLabelMatches(label, info) {
   const s = String(label ?? '');
-  if (/받침이\s*ㄹ/.test(s)) return info.isRieul;
-  if (/없음/.test(s)) return !info.hasBatchim;
-  if (/있음/.test(s)) return info.hasBatchim && !info.isRieul;
+  if (/ㄹ/.test(s)) return info.isRieul;                     // 'ㄹ (drops)'
+  if (/^none$/i.test(s.trim())) return !info.hasBatchim;      // 'none'
+  if (/^yes/i.test(s.trim())) return info.hasBatchim && !info.isRieul;  // 'yes (ㄴ)' 등
   return true;   // 못 알아본 표기는 통과시킨다 — 오탐이 검사기를 안 믿게 만드는 것보다 낫다
 }
 
@@ -129,7 +134,7 @@ const HUMBLE_MAP = {
    plain·hon 칸 둘 다 '·' 로 여러 값을 담을 수 있다(먹다 · 마시다,
    여쭙다 · 여쭈다 같은 자리) — 그래서 양쪽 다 쪼개서 견준다. */
 function checkPairTable(b, at, headerName, map, usedWords) {
-  const plainCol = b.head.indexOf('반말');
+  const plainCol = b.head.indexOf('Plain');
   const honCol = b.head.indexOf(headerName);
   for (const [ri, row] of (b.rows ?? []).entries()) {
     const plainCell = String(row[plainCol] ?? '');
@@ -170,7 +175,7 @@ for (const c of HON_COURSES) {
       const at = `${c.id}/${l.id} 표 ${bi + 1}`;
 
       // ── 사전형 → 활용형 표: 받침 규칙 대조 ──────────────────
-      if (b.head?.[0] === '사전형') {
+      if (b.head?.[0] === 'Dictionary form') {
         tablesChecked++;
         for (const [ri, row] of (b.rows ?? []).entries()) {
           const dict = row[0];
@@ -209,16 +214,16 @@ for (const c of HON_COURSES) {
         }
       }
 
-      // ── 반말 → 높임말 / 반말 → 겸양어 목록 표: 짝이 맞는지 대조 ──
-      if (b.head?.includes('반말') && b.head?.includes('높임말')) {
-        checkPairTable(b, at, '높임말', IRREGULAR_MAP, usedIrregular);
+      // ── Plain → Honorific / Plain → Humble 목록 표: 짝이 맞는지 대조 ──
+      if (b.head?.includes('Plain') && b.head?.includes('Honorific')) {
+        checkPairTable(b, at, 'Honorific', IRREGULAR_MAP, usedIrregular);
       }
-      if (b.head?.includes('반말') && b.head?.includes('겸양어')) {
-        checkPairTable(b, at, '겸양어', HUMBLE_MAP, usedHumble);
+      if (b.head?.includes('Plain') && b.head?.includes('Humble')) {
+        checkPairTable(b, at, 'Humble', HUMBLE_MAP, usedHumble);
       }
 
-      // ── 요약표('한눈에 보는 …')가 담은 낱말 모으기 ─────────
-      if (/한눈에 보는/.test(b.h ?? '')) {
+      // ── 요약표('… at a glance')가 담은 낱말 모으기 ──────────
+      if (/glance/i.test(b.h ?? '')) {
         const flat = JSON.stringify(b.rows);
         for (const w of IRREGULAR_WORDS) if (flat.includes(w)) summaryIrregular.add(w);
         for (const w of HUMBLE_WORDS) if (flat.includes(w)) summaryHumble.add(w);
