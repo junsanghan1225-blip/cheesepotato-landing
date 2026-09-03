@@ -1,5 +1,5 @@
 /*
- * 존댓말(-(으)시-) 활용 검사기
+ * 존댓말(-(으)시-·겸양) 활용 검사기
  *
  * 표를 손으로 채우다 보면 받침 규칙을 놓치기 쉽다 — '있음'이라고 적어
  * 놓고 정작 결과 칸에는 으를 안 붙이거나, ㄹ 받침인데 탈락을 안 시키는
@@ -14,11 +14,11 @@
  *   - 표에 적힌 받침 설명이 실제 계산한 받침과 다른 경우
  *   - 드시다·계시다처럼 이미 -시-를 담은 불규칙 어간을 규칙대로 다시
  *     활용시킨 경우 (예: 드시다인데 '드시으세요'처럼 시가 겹치는 꼴)
- *   - '반말 → 높임말' 표에서 불규칙 낱말의 짝이 틀리거나 빠진 경우
- *     (먹다의 높임말은 드시다/잡수시다인데 다른 말이 적혀 있다든지)
+ *   - '반말 → 높임말' 표(주체 높임)와 '반말 → 겸양어' 표(객체 높임·겸양)
+ *     에서 불규칙 낱말의 짝이 틀리거나 빠진 경우
  *   - 맨 위 요약표('한눈에 보는 …')가 뒤 레슨에서 실제로 쓰는 불규칙
- *     낱말을 못 담고 있는 경우 — 학습자가 보는 첫 표가 낡아 있으면
- *     안내가 아니라 오해가 된다.
+ *     낱말·겸양어를 못 담고 있는 경우 — 학습자가 처음 보는 표가 낡아
+ *     있으면 안내가 아니라 오해가 된다.
  *
  * 새 존댓말 레슨을 더할 때(단계적으로 계속 늘어날 예정이다) 코스에
  * hon: true 만 붙이면 이 검사기가 자동으로 그 표까지 함께 본다.
@@ -69,7 +69,10 @@ function stemInfo(dictForm) {
    끝난 꼴이라, 이 문자열 자체가 정답 활용형의 꼬리다.
    긴 것부터 둔다 — endsWith 로 맞대 볼 때 짧은 게 먼저면 '셨습니다'가
    '습니다' 로도 걸릴 자리가 있다. */
-const FAMILIES = ['셨습니다', '십니까', '십니다', '셨어요', '실래요', '시겠어요', '실 거예요', '세요'];
+const FAMILIES = [
+  '셨습니다', '십니까', '십니다', '십시오', '십시다',
+  '셨어요', '실래요', '시겠어요', '실 거예요', '세요',
+];
 
 /* 사전형과 어미 이름으로 정답 활용형을 계산한다.
    이미 -시-로 끝나는 어간(드시다 등)은 그 시를 떼고 어미를 바로
@@ -92,8 +95,8 @@ function batchimLabelMatches(label, info) {
   return true;   // 못 알아본 표기는 통과시킨다 — 오탐이 검사기를 안 믿게 만드는 것보다 낫다
 }
 
-/* 반말 → 높임말이 통째로 바뀌는 불규칙 낱말. 여기 없는 낱말은 규칙
-   활용(어간 + -(으)시-)이 맞다는 뜻이라 검사 대상이 아니다. */
+/* 반말 → 높임말이 통째로 바뀌는 불규칙 낱말(주체 높임). 여기 없는
+   낱말은 규칙 활용(어간 + -(으)시-)이 맞다는 뜻이라 검사 대상이 아니다. */
 const IRREGULAR_MAP = {
   '먹다': ['드시다', '잡수시다'],
   '마시다': ['드시다'],
@@ -108,7 +111,41 @@ const IRREGULAR_MAP = {
   '밥': ['진지'],
   '식사': ['진지'],
 };
-const IRREGULAR_WORDS = [...new Set(Object.values(IRREGULAR_MAP).flat())];
+
+/* 반말 → 겸양어가 통째로 바뀌는 낱말(객체 높임 — 나를 낮춰서 상대나
+   웃어른을 높인다). -(으)시- 와는 다른 축이라 따로 관리한다. */
+const HUMBLE_MAP = {
+  '나': ['저'],
+  '우리': ['저희'],
+  '주다': ['드리다'],
+  '묻다': ['여쭙다', '여쭈다'],
+  '보다': ['뵙다'],
+  '만나다': ['뵙다'],
+  '데리고 가다': ['모시다'],
+  '데려가다': ['모시다'],
+};
+
+/* '반말 → 무엇' 짝 표를 대조하고, 실제로 쓴 낱말을 usedWords 에 모은다.
+   plain·hon 칸 둘 다 '·' 로 여러 값을 담을 수 있다(먹다 · 마시다,
+   여쭙다 · 여쭈다 같은 자리) — 그래서 양쪽 다 쪼개서 견준다. */
+function checkPairTable(b, at, headerName, map, usedWords) {
+  const plainCol = b.head.indexOf('반말');
+  const honCol = b.head.indexOf(headerName);
+  for (const [ri, row] of (b.rows ?? []).entries()) {
+    const plainCell = String(row[plainCol] ?? '');
+    const honCell = String(row[honCol] ?? '');
+    const honWords = honCell.split('·').map((s) => s.trim()).filter(Boolean);
+    for (const plain of plainCell.split('·').map((s) => s.trim())) {
+      const want = map[plain];
+      if (!want) continue;
+      const bad = honWords.filter((h) => !want.includes(h));
+      if (bad.length) {
+        problems.push(`${at} ${ri + 1}행: '${plain}' 의 ${headerName} 칸에는 ${want.join('/')} 가 와야 하는데 '${bad.join(', ')}' 로 적혀 있다`);
+      }
+    }
+    for (const w of honWords) usedWords.add(w);
+  }
+}
 
 const HON_COURSES = COURSES.filter((c) => c.hon);
 if (!HON_COURSES.length) {
@@ -116,8 +153,13 @@ if (!HON_COURSES.length) {
   process.exit(0);
 }
 
-const usedIrregular = new Set();       // 반말→높임말 표에서 실제로 쓴 불규칙 낱말
-const summaryIrregular = new Set();    // '한눈에 보는 …' 요약표에 적힌 불규칙 낱말
+const IRREGULAR_WORDS = [...new Set(Object.values(IRREGULAR_MAP).flat())];
+const HUMBLE_WORDS = [...new Set(Object.values(HUMBLE_MAP).flat())];
+
+const usedIrregular = new Set();      // '반말→높임말' 표에서 실제로 쓴 낱말
+const usedHumble = new Set();         // '반말→겸양어' 표에서 실제로 쓴 낱말
+const summaryIrregular = new Set();   // 요약표에 적힌 높임말
+const summaryHumble = new Set();      // 요약표에 적힌 겸양어
 let tablesChecked = 0;
 let cellsChecked = 0;
 
@@ -167,42 +209,41 @@ for (const c of HON_COURSES) {
         }
       }
 
-      // ── 반말 → 높임말 목록 표: 짝이 맞는지 대조 ─────────────
+      // ── 반말 → 높임말 / 반말 → 겸양어 목록 표: 짝이 맞는지 대조 ──
       if (b.head?.includes('반말') && b.head?.includes('높임말')) {
-        const plainCol = b.head.indexOf('반말');
-        const honCol = b.head.indexOf('높임말');
-        for (const [ri, row] of (b.rows ?? []).entries()) {
-          const plainCell = String(row[plainCol] ?? '');
-          const honCell = String(row[honCol] ?? '').trim();
-          for (const plain of plainCell.split('·').map((s) => s.trim())) {
-            const want = IRREGULAR_MAP[plain];
-            if (want && !want.includes(honCell)) {
-              problems.push(`${at} ${ri + 1}행: '${plain}' 의 높임말은 ${want.join('/')} 인데 '${honCell}' 로 적혀 있다`);
-            }
-          }
-          if (IRREGULAR_WORDS.includes(honCell)) usedIrregular.add(honCell);
-        }
+        checkPairTable(b, at, '높임말', IRREGULAR_MAP, usedIrregular);
+      }
+      if (b.head?.includes('반말') && b.head?.includes('겸양어')) {
+        checkPairTable(b, at, '겸양어', HUMBLE_MAP, usedHumble);
       }
 
-      // ── 요약표('한눈에 보는 …')가 담은 불규칙 낱말 모으기 ───
+      // ── 요약표('한눈에 보는 …')가 담은 낱말 모으기 ─────────
       if (/한눈에 보는/.test(b.h ?? '')) {
         const flat = JSON.stringify(b.rows);
         for (const w of IRREGULAR_WORDS) if (flat.includes(w)) summaryIrregular.add(w);
+        for (const w of HUMBLE_WORDS) if (flat.includes(w)) summaryHumble.add(w);
       }
     }
   }
 }
 
-// ── 요약표 완결성: 실제로 가르치는 불규칙 낱말이 요약표에도 있는가 ──
+// ── 요약표 완결성: 실제로 가르치는 낱말이 요약표에도 있는가 ──────
 for (const w of usedIrregular) {
   if (!summaryIrregular.has(w)) {
-    problems.push(`요약표('한눈에 보는 …')에 '${w}' 가 안 보인다 — 반말→높임말 표에서는 가르치는데 ` +
+    problems.push(`요약표('한눈에 보는 …')에 높임말 '${w}' 가 안 보인다 — 반말→높임말 표에서는 가르치는데 ` +
+      '맨 위 요약에는 빠져 있다. 학습자가 처음 보는 표가 낡아 있는 것이다.');
+  }
+}
+for (const w of usedHumble) {
+  if (!summaryHumble.has(w)) {
+    problems.push(`요약표('한눈에 보는 …')에 겸양어 '${w}' 가 안 보인다 — 반말→겸양어 표에서는 가르치는데 ` +
       '맨 위 요약에는 빠져 있다. 학습자가 처음 보는 표가 낡아 있는 것이다.');
   }
 }
 
 console.log(`존댓말 코스 ${HON_COURSES.length}개, 사전형→활용형 표 ${tablesChecked}개, 칸 ${cellsChecked}개 확인.`);
-console.log(`불규칙 낱말 — 쓰는 곳 ${usedIrregular.size}개 / 요약표에 있는 것 ${summaryIrregular.size}개.`);
+console.log(`높임말 — 쓰는 곳 ${usedIrregular.size}개 / 요약표 ${summaryIrregular.size}개.` +
+  `  겸양어 — 쓰는 곳 ${usedHumble.size}개 / 요약표 ${summaryHumble.size}개.`);
 
 if (problems.length) {
   console.error(`\n문제 ${problems.length}개:\n` + problems.join('\n'));

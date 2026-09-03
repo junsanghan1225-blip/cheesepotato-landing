@@ -2061,6 +2061,31 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://everykoreans.com/course/bg-d-05.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/lesson/bg-d-05-01.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/lesson/bg-d-05-02.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/lesson/bg-d-05-03.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/lesson/bg-d-05-04.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://everykoreans.com/course/im-02-02.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
