@@ -13,7 +13,7 @@
    어느 날 갑자기 다른 코드가 실려 왔다.
    이제 vendor/ 안에 받아 두고 CSP 로 바깥을 막는다. 버전을 올릴 때는
    tools/vendor.mjs 의 PIN 을 고치고 다시 돌린다. */
-import { createClient } from './vendor/supabase-js.js?v=393ac33f';
+import { createClient } from './vendor/supabase-js.js?v=a84624f4';
 // 앱(package.json)과 같은 줄기를 쓴다. 갈리면 앱에서는 읽히는 파일이
 // 여기서는 안 읽히는(또는 그 반대) 일이 생긴다.
 /* 엑셀 라이브러리는 422KB — 이 판에서 가장 무거운 조각이다. 그런데 쓰는
@@ -25,23 +25,23 @@ import { createClient } from './vendor/supabase-js.js?v=393ac33f';
    자국(?v=)은 tools/stamp.mjs 가 아래 줄에 알아서 붙인다 — 정적으로 쓰든
    동적으로 쓰든 같은 글자를 찾으므로 바꿔도 그대로 찍힌다. */
 let XLSX = null;
-const needXLSX = async () => (XLSX ??= await import('./vendor/xlsx.js?v=393ac33f'));
+const needXLSX = async () => (XLSX ??= await import('./vendor/xlsx.js?v=a84624f4'));
 // 커리큘럼. 내용과 엔진을 갈라 두면 글을 고치다 화면을 깨지 않는다.
 // 갈래 목록(drawSections)·코스(drawCourses)·문제만 풀기(dqDraw) 를 열 때만
 // 받는다 — 배우기 갈래 목록도 안 본 사람에게 코스 71개 레슨을 다 물릴
 // 까닭이 없다. warmLearn() 이 배우기를 여는 순간 미리 불을 붙여 둔다.
 let COURSES = [], coursesP = null;
-const coursesNeed = () => (coursesP ??= import('./courses.js?v=393ac33f').then((m) => { COURSES = m.COURSES; }));
-import { GLOSSARY, GLOSS_LANGS } from './glossary.js?v=393ac33f';
-import { glossFind } from './gloss-find.js?v=393ac33f';
+const coursesNeed = () => (coursesP ??= import('./courses.js?v=a84624f4').then((m) => { COURSES = m.COURSES; }));
+import { GLOSSARY, GLOSS_LANGS } from './glossary.js?v=a84624f4';
+import { glossFind } from './gloss-find.js?v=a84624f4';
 /* 문법 사전(뜻풀이 197개). 읽기 지문의 밑줄 문법 말풍선(rdNeed)과 예문
    만들기 화면(sbNeed) 양쪽이 쓴다 — 둘 중 먼저 여는 화면이 받아 두고,
    나중 화면은 그 약속(??=)을 그대로 쓴다. */
 let GRAMMAR = [], GRAMMAR_EN = {}, grammarP = null;
 const grammarNeed = () => (grammarP ??= Promise.all([
-  import('./grammar.js?v=393ac33f'), import('./grammar-en.js?v=393ac33f'),
+  import('./grammar.js?v=a84624f4'), import('./grammar-en.js?v=a84624f4'),
 ]).then(([a, b]) => { GRAMMAR = a.GRAMMAR; GRAMMAR_EN = b.GRAMMAR_EN; }));
-import { grammarScan } from './grammar-find.js?v=393ac33f';
+import { grammarScan } from './grammar-find.js?v=a84624f4';
 // TOPIK 쓰기·듣기 문항. 읽기(topik.js·topik2.js)와 같은 tqNeedData() 로
 // 함께 받는다 — 유형 연습(topik) 갈래 하나가 세 기술을 다 쓰므로 따로
 // 가를 까닭이 없다. 값은 tqNeedData 정의부에서 채운다.
@@ -53,7 +53,7 @@ let TOPIKL_BY_EXAM = {}, TOPIKL_PICTURE_SLOTS = {};
    sbFind 를 쓰는데, 그쪽은 안 기다리고 그냥 부른다 — 답이 못 찾은
    인용 없이 나가는 것이 채팅이 멈추는 것보다 낫다. */
 let SB_CATS = [], SB_MORE = {}, SB_SEED = {}, SB_POINTS = [], sbDataP = null;
-const sbNeed = () => (sbDataP ??= import('./sentences.js?v=393ac33f').then((m) => {
+const sbNeed = () => (sbDataP ??= import('./sentences.js?v=a84624f4').then((m) => {
   SB_CATS = m.SB_CATS; SB_MORE = m.SB_MORE; SB_SEED = m.SB_SEED;
   // 갈래마다 표현을 펼쳐 한 줄에 담는다 — SB_CATS 안의 점에는 갈래가 안
   // 달려 있어서(sbFind 가 표현 하나를 id 로 바로 찾으려면 이게 있어야 한다).
@@ -64,7 +64,7 @@ const sbNeed = () => (sbDataP ??= import('./sentences.js?v=393ac33f').then((m) =
 // 숫자 게임의 읽기와 문제 만들기. 화면을 모르는 순수 계산이라 따로 뒀다.
 // 게임 목록에서 「숫자 읽기」를 시작할 때만 받는다 — XLSX 와 같은 자리다.
 let makeRound = null;
-const needNumbers = async () => (makeRound ??= (await import('./numbers.js?v=393ac33f')).makeRound);
+const needNumbers = async () => (makeRound ??= (await import('./numbers.js?v=a84624f4')).makeRound);
 
 // 이 키는 공개돼도 되는 값이다. 이미 APK 안에 같은 것이 들어 있고,
 // 접근을 막는 건 키가 아니라 테이블에 걸린 RLS 다.
@@ -113,8 +113,8 @@ let tqDataP = null;
    유형 연습(topik) 갈래 하나가 이 넷을 다 쓰므로 갈라 봤자 요청만
    늘어난다. */
 const tqNeedData = () => (tqDataP ??= Promise.all([
-  import('./topik.js?v=393ac33f'), import('./topik2.js?v=393ac33f'),
-  import('./topik-writing.js?v=393ac33f'), import('./topik-listening.js?v=393ac33f'),
+  import('./topik.js?v=a84624f4'), import('./topik2.js?v=a84624f4'),
+  import('./topik-writing.js?v=a84624f4'), import('./topik-listening.js?v=a84624f4'),
 ]).then(([a, b, c, d]) => {
   TQ_DATA.I  = { reading: a.TOPIK_READING,  blueprint: a.TOPIK_BLUEPRINT,  slots: a.TOPIK_SLOTS };
   TQ_DATA.II = { reading: b.TOPIK2_READING, blueprint: b.TOPIK2_BLUEPRINT, slots: b.TOPIK2_SLOTS };
@@ -125,11 +125,11 @@ const tqNeedData = () => (tqDataP ??= Promise.all([
 let READING = null, rdP = null;
 // 지문의 밑줄 문법 말풍선이 GRAMMAR 를 쓰므로 같이 받아 둔다.
 const rdNeed = () => (rdP ??= Promise.all([
-  import('./reading.js?v=393ac33f'), grammarNeed(),
+  import('./reading.js?v=a84624f4'), grammarNeed(),
 ]).then(([m]) => { READING = m.READING; }));
 
 let CONVO = null, cvP = null;
-const cvNeed = () => (cvP ??= import('./convo.js?v=393ac33f').then((m) => { CONVO = m.CONVO; }));
+const cvNeed = () => (cvP ??= import('./convo.js?v=a84624f4').then((m) => { CONVO = m.CONVO; }));
 
 /* 배우기를 열면 다섯 다 미리 불을 붙인다. 기다리지 않는다 — 갈래 목록은
    이 자료가 없어도 그려지고, 사람이 갈래를 고르는 사이에 도착한다. */
@@ -527,14 +527,14 @@ let dictOpen = null;  // 지금 "더 보기"(예문·뜻풀이)를 펼쳐 둔 �
    평소엔 안 쓰는 522KB 를 첫 화면 모두에게 물릴 까닭이 없다. */
 let dictSensesP = null;
 const dictLoadSenses = () => (dictSensesP ??=
-  import('./glossary-senses.js?v=393ac33f').then((m) => m.SENSES).catch(() => ({})));
+  import('./glossary-senses.js?v=a84624f4').then((m) => m.SENSES).catch(() => ({})));
 
 /* 예문. 국립국어원 자료엔 없어서 Gemini 로 새로 지은 것이다(있는 만큼만
    — docs/glossary-examples-gemini-prompt.md 참고). 뜻풀이와 같은 자리에서
    같이 받는다 — 펼치는 손짓 하나에 몰아 두는 편이 화면이 덜 복잡하다. */
 let dictExamplesP = null;
 const dictLoadExamples = () => (dictExamplesP ??=
-  import('./glossary-examples.js?v=393ac33f').then((m) => m.EXAMPLES).catch(() => ({})));
+  import('./glossary-examples.js?v=a84624f4').then((m) => m.EXAMPLES).catch(() => ({})));
 
 function dictVisible() {
   const q = dictQuery.trim().toLowerCase();
@@ -5766,6 +5766,42 @@ const NB_BGS = [
   { k: 'red',    ko: '빨강',   en: 'Red',     css: 'rgba(196,61,52,.26)' },
 ];
 
+/* 마크다운 지름길. 「글」 블록에서 이 글자만 딱 치면 그 자리에서
+   종류가 바뀐다 — 노션·옵시디언과 같은 손놀림이다. 자체 구현이다(다른
+   라이브러리를 쓰지 않는다), 이 파일의 나머지 블록 편집기와 같다.
+
+   할 일([] )과 코드(``` )는 일부러 뺐다 — 대괄호와 백틱은 손이 자주
+   가는 글자라 그냥 치다가 잘못 바뀌기 쉽다. 그 둘은 여전히 「/」나
+   손잡이(⠿) 메뉴로 고른다.
+
+   긴 것부터 둔다 — 「### 」가 먼저 걸려야지 「# 」가 먼저 걸리면
+   나머지 # 두 개가 글자로 남는다(다만 전체 일치라 실제로 겹치진
+   않는다. 순서는 그래도 안전하게 둔다). */
+const NB_MD_SHORTCUTS = [
+  { re: /^### $/,  type: 'h3' },
+  { re: /^## $/,   type: 'h2' },
+  { re: /^# $/,    type: 'h1' },
+  { re: /^> $/,    type: 'quote' },
+  { re: /^[-*] $/, type: 'ul' },
+  { re: /^\d+\. $/, type: 'ol' },
+];
+/* 「글」 블록일 때만 본다 — 이미 종류가 정해진 블록 안에서 우연히
+   글자가 이 모양이 돼도 다시 안 바뀐다. */
+function nbMdCheck(el, m, b) {
+  if (b.t !== 'text') return;
+  const hit = NB_MD_SHORTCUTS.find((x) => x.re.test(el.textContent || ''));
+  if (!hit) return;
+  /* nbRender() 가 새 빈 칸에 포커스를 옮기면 지금 이 el 은 흐려진다(blur).
+     같은 b 를 그대로 종류만 바꿔 쓰는 자리라, el 의 blur 손잡이가
+     「b.s = 지금 el.innerHTML」을 다시 써 버리면 방금 비운 b.s 가 원래
+     글자("# " 따위)로 되돌아간다 — 실제로 겪은 버그다. 자료를 바꾸기
+     전에 미리 스스로 blur 를 흘려보내 그 손잡이를 먼저 태워 둔다. */
+  el.blur();
+  b.t = hit.type; b.s = '';
+  nbFocus = b.id;
+  nbSave(m);
+}
+
 const nbId = () => `b${Date.now().toString(36)}${Math.random().toString(36).slice(2, 5)}`;
 const nbNew = (t = 'text', s = '') => ({ id: nbId(), t, s, done: false, c: '', bg: '', cap: '' });
 
@@ -6052,6 +6088,11 @@ function nbWire(el, m, b) {
        다시 그리면 한글 조합이 끊긴다. */
     b.s = composing ? el.innerHTML : nbClean(el.innerHTML);
     ntMemoTouchNow();
+    /* #·-·>·숫자는 한글처럼 조합되는 글자가 아니라 매 키 입력이 바로
+       완성된 글자로 온다 — composing 중에 봐도 안전하지만, 그래도
+       조합이 막 끝난 다음(즉 composing=false)에만 본다. markdown
+       지름길이 도중에 발동해서 조합을 방해할 일을 아예 없앤다. */
+    if (!composing) nbMdCheck(el, m, b);
   });
   el.addEventListener('blur', () => { b.s = nbClean(el.innerHTML); ntMemoTouchNow(); });
 
@@ -6550,6 +6591,50 @@ function ntPrintBody(blocks) {
   flush();
   return out.join('');
 }
+
+/* ── 블록 편집기 단축키 사용법 ────────────────────────────────
+   markdown 지름길(nbMdCheck)과, 전부터 있었지만 화면 어디에도 안 적혀
+   있던 「/」 메뉴·Cmd/Ctrl+B/I/U 를 한자리에 모아 보여 준다. .nt-cat-pop
+   과 같은 뜬 상자 자리를 그대로 쓴다. */
+const NT_HELP_MAC = /Mac|iPhone|iPad/.test(navigator.platform || navigator.userAgent || '');
+const NT_HELP_ROWS = [
+  { key: '/',    ko: '빈 「글」 블록에서 종류 고르기',       en: 'Pick a block type (empty "Text" block)' },
+  { key: '# ',   ko: '큰 제목으로 바꾸기',                 en: 'Turn into Heading 1' },
+  { key: '## ',  ko: '중간 제목으로 바꾸기',               en: 'Turn into Heading 2' },
+  { key: '### ', ko: '작은 제목으로 바꾸기',               en: 'Turn into Heading 3' },
+  { key: '- ',   ko: '목록으로 바꾸기',                    en: 'Turn into a bulleted list' },
+  { key: '1. ',  ko: '번호 목록으로 바꾸기',               en: 'Turn into a numbered list' },
+  { key: '> ',   ko: '인용으로 바꾸기',                    en: 'Turn into a quote' },
+  { key: '⠿',    ko: '손잡이 — 옮기거나 종류·색 바꾸기',   en: 'Grip — drag to move, click for type & color' },
+  { key: NT_HELP_MAC ? '⌘B' : 'Ctrl+B', ko: '굵게',   en: 'Bold' },
+  { key: NT_HELP_MAC ? '⌘I' : 'Ctrl+I', ko: '기울임', en: 'Italic' },
+  { key: NT_HELP_MAC ? '⌘U' : 'Ctrl+U', ko: '밑줄',   en: 'Underline' },
+];
+function ntHelpOpen(anchor) {
+  $('ntHelpTitle').textContent = t('단축키로 빠르게 쓰기', 'Write faster with shortcuts');
+  $('ntHelpBody').innerHTML = NT_HELP_ROWS.map((r) =>
+    `<div class="nt-help-row"><span class="nt-help-key">${esc(r.key)}</span>` +
+    `<span class="nt-help-desc">${esc(t(r.ko, r.en))}</span></div>`).join('');
+  const box = $('ntHelpPop');
+  box.hidden = false;
+  const r = anchor.getBoundingClientRect();
+  const p = box.getBoundingClientRect();
+  const top = r.bottom + 6 + p.height > innerHeight - 8 ? Math.max(8, r.top - p.height - 6) : r.bottom + 6;
+  box.style.top = `${top}px`;
+  box.style.left = `${Math.max(8, Math.min(innerWidth - p.width - 8, r.left))}px`;
+}
+const ntHelpClose = () => { $('ntHelpPop').hidden = true; };
+$('ntMemoHelp').addEventListener('click', (ev) => {
+  if (!$('ntHelpPop').hidden) return ntHelpClose();
+  ntHelpOpen(ev.currentTarget);
+});
+document.addEventListener('click', (ev) => {
+  if ($('ntHelpPop').hidden) return;
+  const path = ev.composedPath();
+  if (path.some((el) => el.id === 'ntHelpPop' || el.id === 'ntMemoHelp')) return;
+  ntHelpClose();
+});
+document.addEventListener('keydown', (ev) => { if (ev.key === 'Escape') ntHelpClose(); });
 
 function ntPrintOpen() {
   const m = ntMemoCur();
