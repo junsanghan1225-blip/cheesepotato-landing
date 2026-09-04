@@ -13,7 +13,7 @@
    어느 날 갑자기 다른 코드가 실려 왔다.
    이제 vendor/ 안에 받아 두고 CSP 로 바깥을 막는다. 버전을 올릴 때는
    tools/vendor.mjs 의 PIN 을 고치고 다시 돌린다. */
-import { createClient } from './vendor/supabase-js.js?v=bd9c781c';
+import { createClient } from './vendor/supabase-js.js?v=0396ff07';
 // 앱(package.json)과 같은 줄기를 쓴다. 갈리면 앱에서는 읽히는 파일이
 // 여기서는 안 읽히는(또는 그 반대) 일이 생긴다.
 /* 엑셀 라이브러리는 422KB — 이 판에서 가장 무거운 조각이다. 그런데 쓰는
@@ -25,23 +25,23 @@ import { createClient } from './vendor/supabase-js.js?v=bd9c781c';
    자국(?v=)은 tools/stamp.mjs 가 아래 줄에 알아서 붙인다 — 정적으로 쓰든
    동적으로 쓰든 같은 글자를 찾으므로 바꿔도 그대로 찍힌다. */
 let XLSX = null;
-const needXLSX = async () => (XLSX ??= await import('./vendor/xlsx.js?v=bd9c781c'));
+const needXLSX = async () => (XLSX ??= await import('./vendor/xlsx.js?v=0396ff07'));
 // 커리큘럼. 내용과 엔진을 갈라 두면 글을 고치다 화면을 깨지 않는다.
 // 갈래 목록(drawSections)·코스(drawCourses)·문제만 풀기(dqDraw) 를 열 때만
 // 받는다 — 배우기 갈래 목록도 안 본 사람에게 코스 71개 레슨을 다 물릴
 // 까닭이 없다. warmLearn() 이 배우기를 여는 순간 미리 불을 붙여 둔다.
 let COURSES = [], coursesP = null;
-const coursesNeed = () => (coursesP ??= import('./courses.js?v=bd9c781c').then((m) => { COURSES = m.COURSES; }));
-import { GLOSSARY, GLOSS_LANGS } from './glossary.js?v=bd9c781c';
-import { glossFind } from './gloss-find.js?v=bd9c781c';
+const coursesNeed = () => (coursesP ??= import('./courses.js?v=0396ff07').then((m) => { COURSES = m.COURSES; }));
+import { GLOSSARY, GLOSS_LANGS } from './glossary.js?v=0396ff07';
+import { glossFind } from './gloss-find.js?v=0396ff07';
 /* 문법 사전(뜻풀이 197개). 읽기 지문의 밑줄 문법 말풍선(rdNeed)과 예문
    만들기 화면(sbNeed) 양쪽이 쓴다 — 둘 중 먼저 여는 화면이 받아 두고,
    나중 화면은 그 약속(??=)을 그대로 쓴다. */
 let GRAMMAR = [], GRAMMAR_EN = {}, grammarP = null;
 const grammarNeed = () => (grammarP ??= Promise.all([
-  import('./grammar.js?v=bd9c781c'), import('./grammar-en.js?v=bd9c781c'),
+  import('./grammar.js?v=0396ff07'), import('./grammar-en.js?v=0396ff07'),
 ]).then(([a, b]) => { GRAMMAR = a.GRAMMAR; GRAMMAR_EN = b.GRAMMAR_EN; }));
-import { grammarScan } from './grammar-find.js?v=bd9c781c';
+import { grammarScan } from './grammar-find.js?v=0396ff07';
 // TOPIK 쓰기·듣기 문항. 읽기(topik.js·topik2.js)와 같은 tqNeedData() 로
 // 함께 받는다 — 유형 연습(topik) 갈래 하나가 세 기술을 다 쓰므로 따로
 // 가를 까닭이 없다. 값은 tqNeedData 정의부에서 채운다.
@@ -53,7 +53,7 @@ let TOPIKL_BY_EXAM = {}, TOPIKL_PICTURE_SLOTS = {};
    sbFind 를 쓰는데, 그쪽은 안 기다리고 그냥 부른다 — 답이 못 찾은
    인용 없이 나가는 것이 채팅이 멈추는 것보다 낫다. */
 let SB_CATS = [], SB_MORE = {}, SB_SEED = {}, SB_POINTS = [], sbDataP = null;
-const sbNeed = () => (sbDataP ??= import('./sentences.js?v=bd9c781c').then((m) => {
+const sbNeed = () => (sbDataP ??= import('./sentences.js?v=0396ff07').then((m) => {
   SB_CATS = m.SB_CATS; SB_MORE = m.SB_MORE; SB_SEED = m.SB_SEED;
   // 갈래마다 표현을 펼쳐 한 줄에 담는다 — SB_CATS 안의 점에는 갈래가 안
   // 달려 있어서(sbFind 가 표현 하나를 id 로 바로 찾으려면 이게 있어야 한다).
@@ -64,7 +64,7 @@ const sbNeed = () => (sbDataP ??= import('./sentences.js?v=bd9c781c').then((m) =
 // 숫자 게임의 읽기와 문제 만들기. 화면을 모르는 순수 계산이라 따로 뒀다.
 // 게임 목록에서 「숫자 읽기」를 시작할 때만 받는다 — XLSX 와 같은 자리다.
 let makeRound = null;
-const needNumbers = async () => (makeRound ??= (await import('./numbers.js?v=bd9c781c')).makeRound);
+const needNumbers = async () => (makeRound ??= (await import('./numbers.js?v=0396ff07')).makeRound);
 
 // 이 키는 공개돼도 되는 값이다. 이미 APK 안에 같은 것이 들어 있고,
 // 접근을 막는 건 키가 아니라 테이블에 걸린 RLS 다.
@@ -113,8 +113,8 @@ let tqDataP = null;
    유형 연습(topik) 갈래 하나가 이 넷을 다 쓰므로 갈라 봤자 요청만
    늘어난다. */
 const tqNeedData = () => (tqDataP ??= Promise.all([
-  import('./topik.js?v=bd9c781c'), import('./topik2.js?v=bd9c781c'),
-  import('./topik-writing.js?v=bd9c781c'), import('./topik-listening.js?v=bd9c781c'),
+  import('./topik.js?v=0396ff07'), import('./topik2.js?v=0396ff07'),
+  import('./topik-writing.js?v=0396ff07'), import('./topik-listening.js?v=0396ff07'),
 ]).then(([a, b, c, d]) => {
   TQ_DATA.I  = { reading: a.TOPIK_READING,  blueprint: a.TOPIK_BLUEPRINT,  slots: a.TOPIK_SLOTS };
   TQ_DATA.II = { reading: b.TOPIK2_READING, blueprint: b.TOPIK2_BLUEPRINT, slots: b.TOPIK2_SLOTS };
@@ -125,11 +125,11 @@ const tqNeedData = () => (tqDataP ??= Promise.all([
 let READING = null, rdP = null;
 // 지문의 밑줄 문법 말풍선이 GRAMMAR 를 쓰므로 같이 받아 둔다.
 const rdNeed = () => (rdP ??= Promise.all([
-  import('./reading.js?v=bd9c781c'), grammarNeed(),
+  import('./reading.js?v=0396ff07'), grammarNeed(),
 ]).then(([m]) => { READING = m.READING; }));
 
 let CONVO = null, cvP = null;
-const cvNeed = () => (cvP ??= import('./convo.js?v=bd9c781c').then((m) => { CONVO = m.CONVO; }));
+const cvNeed = () => (cvP ??= import('./convo.js?v=0396ff07').then((m) => { CONVO = m.CONVO; }));
 
 /* 배우기를 열면 다섯 다 미리 불을 붙인다. 기다리지 않는다 — 갈래 목록은
    이 자료가 없어도 그려지고, 사람이 갈래를 고르는 사이에 도착한다. */
@@ -527,14 +527,14 @@ let dictOpen = null;  // 지금 "더 보기"(예문·뜻풀이)를 펼쳐 둔 �
    평소엔 안 쓰는 522KB 를 첫 화면 모두에게 물릴 까닭이 없다. */
 let dictSensesP = null;
 const dictLoadSenses = () => (dictSensesP ??=
-  import('./glossary-senses.js?v=bd9c781c').then((m) => m.SENSES).catch(() => ({})));
+  import('./glossary-senses.js?v=0396ff07').then((m) => m.SENSES).catch(() => ({})));
 
 /* 예문. 국립국어원 자료엔 없어서 Gemini 로 새로 지은 것이다(있는 만큼만
    — docs/glossary-examples-gemini-prompt.md 참고). 뜻풀이와 같은 자리에서
    같이 받는다 — 펼치는 손짓 하나에 몰아 두는 편이 화면이 덜 복잡하다. */
 let dictExamplesP = null;
 const dictLoadExamples = () => (dictExamplesP ??=
-  import('./glossary-examples.js?v=bd9c781c').then((m) => m.EXAMPLES).catch(() => ({})));
+  import('./glossary-examples.js?v=0396ff07').then((m) => m.EXAMPLES).catch(() => ({})));
 
 function dictVisible() {
   const q = dictQuery.trim().toLowerCase();
@@ -6936,6 +6936,165 @@ $('ntMemoPin').addEventListener('click', () => {
   ntMemoStore();
   ntMemoDraw();
 });
+
+/* ── 문법 불러오기 ─────────────────────────────────────────────
+   "수업할 때 특정 문법을 자주 쓰는데 노트로 불러올 수 없냐"는 제보로
+   만들었다. hangul·first-words 는 읽기·기본 표현 연습이지 문법 설명이
+   아니라 뺀다 — COURSES 의 나머지(문법 네 파일을 이어 붙인 것)가 전부
+   문법이다. 코스 자료(COURSES)는 늦게 불러오므로(coursesNeed) 찾아
+   보는 판을 열 때 한 번만 훑어 검색용 색인을 만들어 둔다. */
+let nbGrammarIndex = null;   // { courses, search: Map<lesson, 훑을 글자> }
+async function nbGrammarBuildIndex() {
+  if (nbGrammarIndex) return nbGrammarIndex;
+  await coursesNeed();
+  const courses = COURSES.filter((c) => c.id !== 'hangul' && c.id !== 'first-words');
+  const search = new Map();
+  courses.forEach((course) => {
+    (course.lessons || []).forEach((lesson) => {
+      /* 문법 용어(예: -았/었, -(으)ㄹ 거예요)로도 찾을 수 있게 레슨
+         안의 글까지 같이 훑는다 — 제목(영어)만 보면 한국어 문법 표현
+         그대로 검색할 길이 없다. */
+      const parts = [course.title, lesson.title];
+      (lesson.blocks || []).forEach((cb) => {
+        if (cb.h) parts.push(cb.h);
+        if (cb.md) parts.push(cb.md);
+        if (Array.isArray(cb.items)) cb.items.forEach((it) => {
+          if (it.ch) parts.push(it.ch);
+          if (it.rom) parts.push(it.rom);
+          if (it.tip) parts.push(it.tip);
+        });
+        if (Array.isArray(cb.rows)) cb.rows.forEach((row) => parts.push(row.join(' ')));
+        if (cb.q) parts.push(cb.q);
+      });
+      search.set(lesson, parts.join(' ').toLowerCase());
+    });
+  });
+  nbGrammarIndex = { courses, search };
+  return nbGrammarIndex;
+}
+/* 레슨 안의 「읽는 것」 블록만 노트 블록으로 옮긴다 — 「푸는 것」
+   (choice·type·order·pair·speak·listen·cloze)은 문제라서 참고 자료로
+   적어 둘 것이 아니다. 표·글자 카드는 노트에 그런 종류가 없어서(표는
+   4번 항목, 아직 없다) 목록·강조 칸으로 풀어 담는다. */
+function nbFromCourseBlock(cb) {
+  const out = [];
+  if (cb.t === 'text') {
+    if (cb.h) out.push(nbNew('h3', mdIn(cb.h)));
+    String(cb.md || '').split(/\n\n+/).forEach((p) => {
+      if (p.trim()) out.push(nbNew('text', mdIn(p.trim())));
+    });
+  } else if (cb.t === 'note') {
+    String(cb.md || '').split(/\n\n+/).forEach((p) => {
+      if (p.trim()) out.push(nbNew('call', mdIn(p.trim())));
+    });
+  } else if (cb.t === 'table') {
+    if (Array.isArray(cb.head) && cb.head.length) {
+      out.push(nbNew('text', `<strong>${cb.head.map((h) => esc(h)).join(' · ')}</strong>`));
+    }
+    (cb.rows || []).forEach((row) => out.push(nbNew('ul', row.map((c) => mdIn(c)).join(' — '))));
+  } else if (cb.t === 'chars') {
+    (cb.items || []).forEach((it) => {
+      const parts = [`<strong>${esc(it.ch)}</strong>`];
+      if (it.rom) parts.push(`<em>(${esc(it.rom)})</em>`);
+      if (it.tip) parts.push(`— ${mdIn(it.tip)}`);
+      out.push(nbNew('ul', parts.join(' ')));
+    });
+  }
+  return out;
+}
+function nbBlocksFromLesson(course, lesson) {
+  const out = [nbNew('h2', esc(lesson.title))];
+  (lesson.blocks || []).forEach((cb) => out.push(...nbFromCourseBlock(cb)));
+  return out;
+}
+
+let ntGrammarOpen = false;
+function ntGrammarClose() {
+  $('ntGrammarPop').hidden = true;
+  ntGrammarOpen = false;
+}
+function ntGrammarPosition() {
+  const box = $('ntGrammarPop');
+  const anchor = $('ntMemoGrammar');
+  const r = anchor.getBoundingClientRect();
+  const p = box.getBoundingClientRect();
+  const top = r.bottom + 6 + p.height > window.innerHeight - 8
+    ? Math.max(8, r.top - p.height - 6) : r.bottom + 6;
+  box.style.top = `${top}px`;
+  box.style.left = `${Math.max(8, Math.min(window.innerWidth - p.width - 8, r.left))}px`;
+}
+function ntGrammarRenderList(q) {
+  const box = $('ntGrammarList');
+  box.textContent = '';
+  const query = q.trim().toLowerCase();
+  const { courses, search } = nbGrammarIndex;
+  let any = false;
+  courses.forEach((course) => {
+    const lessons = (course.lessons || []).filter((l) => !query || (search.get(l) || '').includes(query));
+    if (!lessons.length) return;
+    any = true;
+    const h = document.createElement('div');
+    h.className = 'nt-gr-pop-course';
+    h.textContent = course.title;
+    box.appendChild(h);
+    lessons.forEach((l) => {
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'nt-gr-pop-lesson';
+      btn.textContent = l.title;
+      btn.addEventListener('click', () => ntGrammarInsert(course, l));
+      box.appendChild(btn);
+    });
+  });
+  if (!any) {
+    const e = document.createElement('div');
+    e.className = 'nt-gr-pop-empty';
+    e.textContent = t('맞는 문법이 없어요', 'No matching grammar');
+    box.appendChild(e);
+  }
+}
+async function ntGrammarOpenPop() {
+  const m = ntMemoCur();
+  if (!m) return;
+  ntGrammarOpen = true;
+  $('ntGrammarQ').value = '';
+  $('ntGrammarQ').placeholder = t('문법 찾기 (예: -았/었, 이/가)', 'Search grammar (e.g. -았/었, subject particle)');
+  const box = $('ntGrammarList');
+  box.textContent = '';
+  const loading = document.createElement('div');
+  loading.className = 'nt-gr-pop-empty';
+  loading.textContent = t('불러오는 중…', 'Loading…');
+  box.appendChild(loading);
+  $('ntGrammarPop').hidden = false;
+  ntGrammarPosition();
+  await nbGrammarBuildIndex();
+  if (!ntGrammarOpen) return;   // 그 사이 닫혔으면(딴 데 눌렀거나) 그만둔다
+  ntGrammarRenderList('');
+  ntGrammarPosition();   // 자료가 들어와 판 크기가 바뀌었을 수 있다
+  $('ntGrammarQ').focus();
+}
+function ntGrammarInsert(course, lesson) {
+  const m = ntMemoCur();
+  if (!m) return;
+  const blocks = nbBlocks(m);
+  const added = nbBlocksFromLesson(course, lesson);
+  if (!added.length) return;
+  blocks.push(...added);
+  nbFocus = added[added.length - 1].id;
+  nbAtEnd = true;
+  nbSave(m);
+  ntGrammarClose();
+  $('ntMemoSaved').textContent = t('문법을 불러왔어요', 'Grammar added');
+}
+$('ntMemoGrammar').addEventListener('click', ntGrammarOpenPop);
+$('ntGrammarClose').addEventListener('click', ntGrammarClose);
+$('ntGrammarQ').addEventListener('input', () => { if (nbGrammarIndex) ntGrammarRenderList($('ntGrammarQ').value); });
+document.addEventListener('click', (ev) => {
+  if (!ntGrammarOpen) return;
+  if (ev.target.closest('#ntGrammarPop') || ev.target.closest('#ntMemoGrammar')) return;
+  ntGrammarClose();
+});
+document.addEventListener('keydown', (ev) => { if (ev.key === 'Escape' && ntGrammarOpen) ntGrammarClose(); });
 
 /* ── 예쁘게 인쇄 · PDF로 저장 ─────────────────────────────────
    새 라이브러리를 안 들인다. 브라우저 인쇄 대화상자에는 어차피
