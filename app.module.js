@@ -13,7 +13,7 @@
    어느 날 갑자기 다른 코드가 실려 왔다.
    이제 vendor/ 안에 받아 두고 CSP 로 바깥을 막는다. 버전을 올릴 때는
    tools/vendor.mjs 의 PIN 을 고치고 다시 돌린다. */
-import { createClient } from './vendor/supabase-js.js?v=3471bff2';
+import { createClient } from './vendor/supabase-js.js?v=af770477';
 // 앱(package.json)과 같은 줄기를 쓴다. 갈리면 앱에서는 읽히는 파일이
 // 여기서는 안 읽히는(또는 그 반대) 일이 생긴다.
 /* 엑셀 라이브러리는 422KB — 이 판에서 가장 무거운 조각이다. 그런데 쓰는
@@ -25,23 +25,23 @@ import { createClient } from './vendor/supabase-js.js?v=3471bff2';
    자국(?v=)은 tools/stamp.mjs 가 아래 줄에 알아서 붙인다 — 정적으로 쓰든
    동적으로 쓰든 같은 글자를 찾으므로 바꿔도 그대로 찍힌다. */
 let XLSX = null;
-const needXLSX = async () => (XLSX ??= await import('./vendor/xlsx.js?v=3471bff2'));
+const needXLSX = async () => (XLSX ??= await import('./vendor/xlsx.js?v=af770477'));
 // 커리큘럼. 내용과 엔진을 갈라 두면 글을 고치다 화면을 깨지 않는다.
 // 갈래 목록(drawSections)·코스(drawCourses)·문제만 풀기(dqDraw) 를 열 때만
 // 받는다 — 배우기 갈래 목록도 안 본 사람에게 코스 71개 레슨을 다 물릴
 // 까닭이 없다. warmLearn() 이 배우기를 여는 순간 미리 불을 붙여 둔다.
 let COURSES = [], coursesP = null;
-const coursesNeed = () => (coursesP ??= import('./courses.js?v=3471bff2').then((m) => { COURSES = m.COURSES; }));
-import { GLOSSARY, GLOSS_LANGS } from './glossary.js?v=3471bff2';
-import { glossFind } from './gloss-find.js?v=3471bff2';
+const coursesNeed = () => (coursesP ??= import('./courses.js?v=af770477').then((m) => { COURSES = m.COURSES; }));
+import { GLOSSARY, GLOSS_LANGS } from './glossary.js?v=af770477';
+import { glossFind } from './gloss-find.js?v=af770477';
 /* 문법 사전(뜻풀이 197개). 읽기 지문의 밑줄 문법 말풍선(rdNeed)과 예문
    만들기 화면(sbNeed) 양쪽이 쓴다 — 둘 중 먼저 여는 화면이 받아 두고,
    나중 화면은 그 약속(??=)을 그대로 쓴다. */
 let GRAMMAR = [], GRAMMAR_EN = {}, grammarP = null;
 const grammarNeed = () => (grammarP ??= Promise.all([
-  import('./grammar.js?v=3471bff2'), import('./grammar-en.js?v=3471bff2'),
+  import('./grammar.js?v=af770477'), import('./grammar-en.js?v=af770477'),
 ]).then(([a, b]) => { GRAMMAR = a.GRAMMAR; GRAMMAR_EN = b.GRAMMAR_EN; }));
-import { grammarScan } from './grammar-find.js?v=3471bff2';
+import { grammarScan } from './grammar-find.js?v=af770477';
 // TOPIK 쓰기·듣기 문항. 읽기(topik.js·topik2.js)와 같은 tqNeedData() 로
 // 함께 받는다 — 유형 연습(topik) 갈래 하나가 세 기술을 다 쓰므로 따로
 // 가를 까닭이 없다. 값은 tqNeedData 정의부에서 채운다.
@@ -53,7 +53,7 @@ let TOPIKL_BY_EXAM = {}, TOPIKL_PICTURE_SLOTS = {};
    sbFind 를 쓰는데, 그쪽은 안 기다리고 그냥 부른다 — 답이 못 찾은
    인용 없이 나가는 것이 채팅이 멈추는 것보다 낫다. */
 let SB_CATS = [], SB_MORE = {}, SB_SEED = {}, SB_POINTS = [], sbDataP = null;
-const sbNeed = () => (sbDataP ??= import('./sentences.js?v=3471bff2').then((m) => {
+const sbNeed = () => (sbDataP ??= import('./sentences.js?v=af770477').then((m) => {
   SB_CATS = m.SB_CATS; SB_MORE = m.SB_MORE; SB_SEED = m.SB_SEED;
   // 갈래마다 표현을 펼쳐 한 줄에 담는다 — SB_CATS 안의 점에는 갈래가 안
   // 달려 있어서(sbFind 가 표현 하나를 id 로 바로 찾으려면 이게 있어야 한다).
@@ -64,7 +64,7 @@ const sbNeed = () => (sbDataP ??= import('./sentences.js?v=3471bff2').then((m) =
 // 숫자 게임의 읽기와 문제 만들기. 화면을 모르는 순수 계산이라 따로 뒀다.
 // 게임 목록에서 「숫자 읽기」를 시작할 때만 받는다 — XLSX 와 같은 자리다.
 let makeRound = null;
-const needNumbers = async () => (makeRound ??= (await import('./numbers.js?v=3471bff2')).makeRound);
+const needNumbers = async () => (makeRound ??= (await import('./numbers.js?v=af770477')).makeRound);
 
 // 이 키는 공개돼도 되는 값이다. 이미 APK 안에 같은 것이 들어 있고,
 // 접근을 막는 건 키가 아니라 테이블에 걸린 RLS 다.
@@ -113,8 +113,8 @@ let tqDataP = null;
    유형 연습(topik) 갈래 하나가 이 넷을 다 쓰므로 갈라 봤자 요청만
    늘어난다. */
 const tqNeedData = () => (tqDataP ??= Promise.all([
-  import('./topik.js?v=3471bff2'), import('./topik2.js?v=3471bff2'),
-  import('./topik-writing.js?v=3471bff2'), import('./topik-listening.js?v=3471bff2'),
+  import('./topik.js?v=af770477'), import('./topik2.js?v=af770477'),
+  import('./topik-writing.js?v=af770477'), import('./topik-listening.js?v=af770477'),
 ]).then(([a, b, c, d]) => {
   TQ_DATA.I  = { reading: a.TOPIK_READING,  blueprint: a.TOPIK_BLUEPRINT,  slots: a.TOPIK_SLOTS };
   TQ_DATA.II = { reading: b.TOPIK2_READING, blueprint: b.TOPIK2_BLUEPRINT, slots: b.TOPIK2_SLOTS };
@@ -125,11 +125,11 @@ const tqNeedData = () => (tqDataP ??= Promise.all([
 let READING = null, rdP = null;
 // 지문의 밑줄 문법 말풍선이 GRAMMAR 를 쓰므로 같이 받아 둔다.
 const rdNeed = () => (rdP ??= Promise.all([
-  import('./reading.js?v=3471bff2'), grammarNeed(),
+  import('./reading.js?v=af770477'), grammarNeed(),
 ]).then(([m]) => { READING = m.READING; }));
 
 let CONVO = null, cvP = null;
-const cvNeed = () => (cvP ??= import('./convo.js?v=3471bff2').then((m) => { CONVO = m.CONVO; }));
+const cvNeed = () => (cvP ??= import('./convo.js?v=af770477').then((m) => { CONVO = m.CONVO; }));
 
 /* 배우기를 열면 다섯 다 미리 불을 붙인다. 기다리지 않는다 — 갈래 목록은
    이 자료가 없어도 그려지고, 사람이 갈래를 고르는 사이에 도착한다. */
@@ -527,14 +527,14 @@ let dictOpen = null;  // 지금 "더 보기"(예문·뜻풀이)를 펼쳐 둔 �
    평소엔 안 쓰는 522KB 를 첫 화면 모두에게 물릴 까닭이 없다. */
 let dictSensesP = null;
 const dictLoadSenses = () => (dictSensesP ??=
-  import('./glossary-senses.js?v=3471bff2').then((m) => m.SENSES).catch(() => ({})));
+  import('./glossary-senses.js?v=af770477').then((m) => m.SENSES).catch(() => ({})));
 
 /* 예문. 국립국어원 자료엔 없어서 Gemini 로 새로 지은 것이다(있는 만큼만
    — docs/glossary-examples-gemini-prompt.md 참고). 뜻풀이와 같은 자리에서
    같이 받는다 — 펼치는 손짓 하나에 몰아 두는 편이 화면이 덜 복잡하다. */
 let dictExamplesP = null;
 const dictLoadExamples = () => (dictExamplesP ??=
-  import('./glossary-examples.js?v=3471bff2').then((m) => m.EXAMPLES).catch(() => ({})));
+  import('./glossary-examples.js?v=af770477').then((m) => m.EXAMPLES).catch(() => ({})));
 
 function dictVisible() {
   const q = dictQuery.trim().toLowerCase();
@@ -1020,6 +1020,7 @@ sb.auth.onAuthStateChange((_event, session) => {
     $('auPw2').value = '';
     loadWords();
     progressSync();   // 이 기기와 서버 기록을 지금 합쳐 둔다
+    notesSync();      // 노트도 같은 자리에서 합쳐 둔다
     // 로그인하려고 계정 화면에 있었다면 곧바로 단어장으로 넘겨준다.
     if (showing('authView')) open('wordbook');
   } else {
@@ -5356,25 +5357,30 @@ let ntMemoTimer = null;
 const ntMemoNewId = () => `m${Date.now().toString(36)}${Math.random().toString(36).slice(2, 6)}`;
 
 /* 예전 모양({id, text} 줄줄이)에서 문서로 옮긴다. 첫 줄을 제목으로 삼고
-   나머지를 본문에 둔다 — 적어 둔 것을 하나도 잃지 않는 것이 먼저다. */
+   나머지를 본문에 둔다 — 적어 둔 것을 하나도 잃지 않는 것이 먼저다.
+   localStorage 뿐 아니라 서버(notesSync)에서 온 자료도 이걸 거친다 —
+   자료가 어디서 왔든 같은 모양으로 다듬는다. delAt 이 있으면 지운
+   노트(다른 기기에 지운 사실을 전하려고 남겨 둔 자리표)다. */
+const ntMemoNorm = (x, i) => {
+  if (!x || typeof x !== 'object') return null;
+  if (typeof x.text === 'string' && x.title === undefined) {
+    const [head, ...rest] = String(x.text).split('\n');
+    return { id: x.id || ntMemoNewId(), title: head.slice(0, 120), body: rest.join('\n'),
+             cat: '', pin: false, at: x.at || Date.now() - i, up: x.at || Date.now() - i };
+  }
+  return {
+    id: x.id || ntMemoNewId(),
+    title: String(x.title ?? ''), body: String(x.body ?? ''),
+    cat: String(x.cat ?? ''), pin: !!x.pin, icon: String(x.icon ?? ''),
+    blocks: Array.isArray(x.blocks) ? x.blocks : null,
+    at: Number(x.at) || Date.now(), up: Number(x.up) || Number(x.at) || Date.now(),
+    delAt: x.delAt ? Number(x.delAt) : 0,
+  };
+};
 const ntMemoLoad = () => {
   try {
     const a = JSON.parse(localStorage.getItem(NT_MEMO_KEY) || '[]');
-    ntMemo = Array.isArray(a) ? a.map((x, i) => {
-      if (!x || typeof x !== 'object') return null;
-      if (typeof x.text === 'string' && x.title === undefined) {
-        const [head, ...rest] = String(x.text).split('\n');
-        return { id: x.id || ntMemoNewId(), title: head.slice(0, 120), body: rest.join('\n'),
-                 cat: '', pin: false, at: x.at || Date.now() - i, up: x.at || Date.now() - i };
-      }
-      return {
-        id: x.id || ntMemoNewId(),
-        title: String(x.title ?? ''), body: String(x.body ?? ''),
-        cat: String(x.cat ?? ''), pin: !!x.pin, icon: String(x.icon ?? ''),
-        blocks: Array.isArray(x.blocks) ? x.blocks : null,
-        at: Number(x.at) || Date.now(), up: Number(x.up) || Number(x.at) || Date.now(),
-      };
-    }).filter(Boolean) : [];
+    ntMemo = Array.isArray(a) ? a.map(ntMemoNorm).filter(Boolean) : [];
   } catch (e) { ntMemo = []; }
   try {
     const c = JSON.parse(localStorage.getItem(NT_MEMO_CATS_KEY) || '[]');
@@ -5401,14 +5407,47 @@ const ntMemoStore = () => {
 };
 ntMemoLoad();
 
+/* ── 서버 동기화 ───────────────────────────────────────────────
+   지금까지 노트는 이 브라우저에만 있었다(로그인해도 마찬가지) — 폰에서
+   적고 노트북을 열면 안 보였다. progressSync(설정 진행률)와 같은
+   자리(settings 표의 칸 하나)에 노트 배열 그대로를 담아 옮긴다.
+
+   합치는 규칙: 같은 id 가 양쪽에 있으면 up(고친 시각)이 늦은 쪽이
+   이긴다 — 지우기도 delAt/up 만 남긴 「자리표」라 같은 규칙으로 자연히
+   맞는다(더 늦게 지웠으면 지운 채로, 그 뒤에 다른 기기가 되살렸으면
+   살아있는 채로 남는다). 두 기기에서 «같은» 노트를 동시에 고치는
+   경우는 다루지 않는다 — progressSync 도 마찬가지고, 혼자 여러 기기를
+   번갈아 쓰는 이 기능의 쓰임에서는 거의 안 벌어진다. */
+async function notesSync() {
+  const { data: { session } } = await sb.auth.getSession();
+  if (!session) return;
+  const { data, error } = await sb.from('settings').select('notes').eq('user_id', session.user.id).maybeSingle();
+  if (error) return;   // db/add_notes_sync.sql 을 아직 안 돌렸으면 여기로 온다 — 조용히 넘어간다
+  const server = Array.isArray(data?.notes) ? data.notes.map(ntMemoNorm).filter(Boolean) : [];
+  const byId = new Map(ntMemo.map((m) => [m.id, m]));
+  for (const sm of server) {
+    const lm = byId.get(sm.id);
+    if (!lm || sm.up > lm.up) byId.set(sm.id, sm);
+  }
+  ntMemo = [...byId.values()];
+  ntMemoStore();
+  if (!$('ntWrap').classList.contains('hidden')) ntMemoDraw();
+  await sb.from('settings').upsert({ user_id: session.user.id, notes: ntMemo }, { onConflict: 'user_id' });
+}
+addEventListener('visibilitychange', () => { if (document.visibilityState === 'hidden') notesSync(); });
+
 const ntMemoFind = (id) => ntMemo.find((m) => m.id === id) || null;
 const ntMemoCur = () => ntMemoFind(ntMemoAt);
 const ntMemoName = (m) => (m.title.trim() || t('제목 없음', 'Untitled'));
+/* 지운 노트는 ntMemo 에서 안 빼고 delAt 만 찍어 둔다(서버 동기화가 다른
+   기기에도 지운 것을 전할 수 있게) — 그래서 화면에 보일 것을 셀 때는
+   항상 이걸로 거른다. ntMemo.length 를 직접 쓰면 지운 노트까지 센다. */
+const ntMemoLive = () => ntMemo.filter((m) => !m.delAt);
 
 /* 목록에 보일 것. 고정한 것을 위로 올리고, 그 안에서는 최근에 고친 순. */
 function ntMemoVisible() {
   const q = ntMemoQ.trim().toLowerCase();
-  const rows = ntMemo.filter((m) => {
+  const rows = ntMemoLive().filter((m) => {
     if (ntMemoCat !== null && (ntMemoCat === '' ? m.cat : m.cat !== ntMemoCat)) return false;
     if (!q) return true;
     return (m.title + '\n' + nbToText(nbBlocks(m))).toLowerCase().includes(q);
@@ -5477,13 +5516,14 @@ function ntMemoDrawCats() {
     wrap.appendChild(b);
     return b;
   };
-  chip(t(`전체 ${ntMemo.length}`, `All ${ntMemo.length}`), ntMemoCat === null,
+  const live = ntMemoLive();
+  chip(t(`전체 ${live.length}`, `All ${live.length}`), ntMemoCat === null,
        () => { ntMemoCat = null; ntMemoDraw(); });
   ntMemoCats.forEach((c) => {
-    const n = ntMemo.filter((m) => m.cat === c.n).length;
+    const n = live.filter((m) => m.cat === c.n).length;
     chip(`${c.i ? c.i + ' ' : ''}${c.n} ${n}`, ntMemoCat === c.n, () => { ntMemoCat = c.n; ntMemoDraw(); }, '', c.col);
   });
-  const none = ntMemo.filter((m) => !m.cat).length;
+  const none = live.filter((m) => !m.cat).length;
   if (none && ntMemoCats.length) {
     chip(t(`갈래 없음 ${none}`, `No category ${none}`), ntMemoCat === '',
          () => { ntMemoCat = ''; ntMemoDraw(); });
@@ -5652,14 +5692,15 @@ function ntMemoDrawList() {
     b.addEventListener('click', () => ntMemoOpen(m.id));
     box.appendChild(b);
   });
+  const liveCount = ntMemoLive().length;
   const empty = $('ntMemoEmpty');
   empty.hidden = !!rows.length;
-  empty.textContent = ntMemo.length
+  empty.textContent = liveCount
     ? t('여기에 맞는 메모가 없어요.', 'No notes match this.')
     : t('아직 쓴 메모가 없어요. 「새 메모」로 시작해 보세요.', 'No notes yet — start with "New note".');
-  $('ntMemoStat').textContent = t(`메모 ${ntMemo.length}개`,
-    `${ntMemo.length} note${ntMemo.length === 1 ? '' : 's'}`);
-  $('ntMemoDl').disabled = !ntMemo.length;
+  $('ntMemoStat').textContent = t(`메모 ${liveCount}개`,
+    `${liveCount} note${liveCount === 1 ? '' : 's'}`);
+  $('ntMemoDl').disabled = !liveCount;
 }
 
 /* ── 문서 ──────────────────────────────────────────────────── */
@@ -6796,7 +6837,13 @@ $('ntMemoDel').addEventListener('click', () => {
   if (!confirm(t(`「${ntMemoName(m)}」를 지울까요? 되돌릴 수 없어요.`,
                  `Delete "${ntMemoName(m)}"? This cannot be undone.`))) return;
   clearTimeout(ntMemoTimer); ntMemoTimer = null;
-  ntMemo = ntMemo.filter((x) => x.id !== m.id);
+  /* 배열에서 통째로 빼면 서버로 동기화할 때(notesSync) "지웠다"는 사실
+     자체가 사라진다 — 로그인해 둔 다른 기기는 이 노트가 계속 있는 줄
+     알고 되살려 놓는다. id 와 지운 시각만 남기고(사진이 든 블록은
+     특히 무거우니 나머지 칸은 비워 저장 공간을 돌려준다) delAt 로
+     표시해 둔다. 목록·갈래 수·내려받기는 ntMemoLive() 로 거른다. */
+  const now = Date.now();
+  Object.assign(m, { title: '', blocks: [], icon: '', cat: '', pin: false, delAt: now, up: now });
   ntMemoAt = null;
   ntMemoStore();
   $('ntMemo').classList.remove('on-doc');
@@ -6806,8 +6853,9 @@ $('ntMemoDel').addEventListener('click', () => {
    기기를 바꾸면 그냥 사라지는 것이 이 자료의 약점이다. */
 $('ntMemoDl').addEventListener('click', () => {
   if (ntMemoTimer) ntMemoSave();
-  if (!ntMemo.length) return;
-  const txt = ntMemo.map((m) => {
+  const live = ntMemoLive();
+  if (!live.length) return;
+  const txt = live.map((m) => {
     const head = `# ${ntMemoName(m)}` + (m.cat ? `  [${m.cat}]` : '');
     return `${head}\n\n${nbToText(nbBlocks(m))}`.trim();
   }).join('\n\n\n---\n\n\n');
@@ -7808,7 +7856,7 @@ async function openSection(id, quiet) {
       if (s.id === 'quiz') dqDraw();
       if (s.id === 'reading') drawReading();
       if (s.id === 'convo') drawConvo();
-      if (s.id === 'notes') ntMemoDraw();
+      if (s.id === 'notes') { ntMemoDraw(); notesSync(); }
       if (s.id === 'sentence') {
         await sbNeed();
         drawSentenceHead();
