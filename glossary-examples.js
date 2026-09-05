@@ -6235,5 +6235,165 @@ export const EXAMPLES = {
  "보라": {
   "ex": "봄이 오면 화단에 예쁜 보라 꽃이 피어나요.",
   "en": "When spring comes, pretty purple flowers bloom in the flower bed."
+ },
+ "보상": {
+  "ex": "열심히 일한 노력에 대한 합당한 보상을 받아요.",
+  "en": "I receive appropriate compensation for my hard work."
+ },
+ "보신": {
+  "ex": "어려운 상황에서 오직 자신의 몸을 지키는 보신에만 신경 써요.",
+  "en": "In difficult situations, they only care about self-protection."
+ },
+ "보안": {
+  "ex": "중요한 정보를 지키려고 컴퓨터의 보안을 철저히 해요.",
+  "en": "I maintain thorough computer security to protect important information."
+ },
+ "보온": {
+  "ex": "추운 겨울에는 음료의 보온을 위해 텀블러를 써요.",
+  "en": "In cold winter, I use a tumbler for heat insulation of beverages."
+ },
+ "보이": {
+  "ex": "호텔에 도착하자 친절한 벨보이가 짐을 옮겨줘요.",
+  "en": "Upon arriving at the hotel, a kind bellboy carries the luggage."
+ },
+ "보이다": {
+  "ex": "맑은 날에는 창밖으로 푸른 바다가 잘 보여요.",
+  "en": "On clear days, the blue sea is clearly seen outside the window."
+ },
+ "보잘것없다": {
+  "ex": "작고 보잘것없는 물건도 소중히 다뤄요.",
+  "en": "I treat even small and trifling items with care."
+ },
+ "보장": {
+  "ex": "이 제품은 완벽한 품질의 보장을 약속해요.",
+  "en": "This product promises a guarantee of perfect quality."
+ },
+ "보장하다": {
+  "ex": "회사는 직원들의 충분한 휴식 시간을 확실히 보장해요.",
+  "en": "The company firmly secures enough rest time for employees."
+ },
+ "보전": {
+  "ex": "후손들을 위해 아름다운 자연환경의 보전에 힘써요.",
+  "en": "We make efforts for the conservation of the beautiful natural environment for future generations."
+ },
+ "보존": {
+  "ex": "역사적인 옛 건물의 원형 보존을 위해 노력해요.",
+  "en": "We make efforts for the original preservation of historic old buildings."
+ },
+ "보존하다": {
+  "ex": "박물관에서는 귀중한 유물을 안전하게 보존해요.",
+  "en": "The museum safely preserves precious artifacts."
+ },
+ "보통": {
+  "ex": "저는 아침에 보통 일곱 시에 일어나요.",
+  "en": "I usually wake up at seven o'clock on an ordinary morning."
+ },
+ "보행": {
+  "ex": "골목길에서는 안전한 보행을 위해 좌우를 살펴요.",
+  "en": "In the alley, I look left and right for safe walking."
+ },
+ "보행자": {
+  "ex": "운전자는 횡단보도를 건너는 보행자를 항상 살펴요.",
+  "en": "Drivers always watch out for pedestrians crossing the crosswalk."
+ },
+ "보호": {
+  "ex": "소중한 숲과 야생동물의 보호에 앞장서요.",
+  "en": "We take the lead in the protection of precious forests and wildlife."
+ },
+ "보호자": {
+  "ex": "어린이는 병원에 갈 때 보호자와 함께 가요.",
+  "en": "Children go with a guardian when visiting the hospital."
+ },
+ "보호하다": {
+  "ex": "추운 날씨로부터 어린 반려식물을 따뜻하게 보호해요.",
+  "en": "I warmly protect the young companion plant from the cold weather."
+ },
+ "복": {
+  "ex": "새해에는 온 가족에게 큰 복이 가득하길 바라요.",
+  "en": "I hope the whole family is full of great fortune in the new year."
+ },
+ "복권": {
+  "ex": "재미 삼아 주말에 작은 복권 한 장을 사요.",
+  "en": "I buy a small lottery ticket on the weekend just for fun."
+ },
+ "복용": {
+  "ex": "약의 올바른 복용을 위해 설명서를 꼼꼼히 읽어요.",
+  "en": "I read the instructions carefully for the proper dosing of medicine."
+ },
+ "복용하다": {
+  "ex": "식사를 마친 후에 감기약을 규칙적으로 복용해요.",
+  "en": "I take a dose of cold medicine regularly after finishing meals."
+ },
+ "복원": {
+  "ex": "문화재 연구원들이 훼손된 옛 그림의 복원을 시작해요.",
+  "en": "Cultural property researchers begin the restoration of damaged old paintings."
+ },
+ "복잡하다": {
+  "ex": "출근 시간에는 지하철역이 사람들로 아주 복잡해요.",
+  "en": "The subway station is very crowded with people during rush hour."
+ },
+ "복장": {
+  "ex": "면접을 보러 갈 때는 단정한 복장을 갖춰요.",
+  "en": "I wear a neat attired appearance when going for an interview."
+ },
+ "복제": {
+  "ex": "컴퓨터 속 중요한 파일의 안전한 복제를 마쳐요.",
+  "en": "I finish the safe replication of important files in the computer."
+ },
+ "복제하다": {
+  "ex": "문서의 내용을 다른 폴더에 똑같이 복제해요.",
+  "en": "I replicate the content of the document identically into another folder."
+ },
+ "복합": {
+  "ex": "새로운 문화 공간은 예술과 쇼핑의 복합 공간이에요.",
+  "en": "The new cultural venue is a mixed space combining art and shopping."
+ },
+ "복합적": {
+  "ex": "이번 문제는 여러 원인이 얽힌 복합적 상황이에요.",
+  "en": "This problem is a complex situation entangled with multiple causes."
+ },
+ "본": {
+  "ex": "옷을 만들기 전에 종이 위에 바느질 본을 떠요.",
+  "en": "I trace a sewing pattern on paper before making clothes."
+ },
+ "본격화": {
+  "ex": "날씨가 풀리면서 봄맞이 공사가 본격화돼요.",
+  "en": "As the weather warms up, spring preparation construction goes into full swing."
+ },
+ "본관": {
+  "ex": "대학교의 중요한 행정 업무는 본관에서 처리해요.",
+  "en": "Important administrative tasks of the university are handled in the main building."
+ },
+ "본능": {
+  "ex": "강아지 치즈는 냄새를 맡으며 탐색하는 본능이 있어요.",
+  "en": "The puppy Cheese has an instinct to explore by sniffing."
+ },
+ "본능적": {
+  "ex": "위험한 순간에 사람들은 본능적 반응으로 몸을 피해요.",
+  "en": "In moments of danger, people avoid harm through an instinctive response."
+ },
+ "본디": {
+  "ex": "이 마을은 본디 조용하고 평화로운 곳이에요.",
+  "en": "This village is originally a quiet and peaceful place."
+ },
+ "본론": {
+  "ex": "간단한 인사를 마치고 회의의 본론으로 들어가요.",
+  "en": "After brief greetings, we get into the body of the meeting."
+ },
+ "볼": {
+  "ex": "내일 미술관에서 볼 멋진 전시가 기대돼요.",
+  "en": "I look forward to the wonderful exhibition to see at the art museum tomorrow."
+ },
+ "봄": {
+  "ex": "따뜻한 봄이 오면 공원에 예쁜 꽃이 피어요.",
+  "en": "When warm spring arrives, pretty flowers bloom in the park."
+ },
+ "봉사": {
+  "ex": "주말마다 지역 도서관에서 책을 정리하는 봉사를 해요.",
+  "en": "I do volunteer service organizing books at the local library every weekend."
+ },
+ "봉사자": {
+  "ex": "행사장 곳곳에서 친절한 자원 봉사자가 손님을 도와요.",
+  "en": "Kind volunteers assist guests throughout the event venue."
  }
 };
