@@ -7035,5 +7035,165 @@ export const EXAMPLES = {
  "사려": {
   "ex": "석진은 깊은 사려를 바탕으로 주변 사람들을 늘 배려해요.",
   "en": "Seokjin always cares for people around him based on deep thoughtfulness."
+ },
+ "사료": {
+  "ex": "농장에서 소들에게 영양가 높은 사료를 줘요.",
+  "en": "They give nutritious feed to the cows at the farm."
+ },
+ "사무": {
+  "ex": "컴퓨터 앞에 앉아 하루 종일 밀린 사무를 봐요.",
+  "en": "I sit in front of the computer and do the backlogged office work all day."
+ },
+ "사무실": {
+  "ex": "아침 아홉 시까지 회사 사무실로 출근해요.",
+  "en": "I go to work at the company office by nine in the morning."
+ },
+ "사물": {
+  "ex": "주변에 있는 여러 가지 사물의 이름을 한국어로 배워요.",
+  "en": "I learn the names of various objects around me in Korean."
+ },
+ "사물인터넷": {
+  "ex": "스마트폰으로 집 안의 전등을 켜는 사물인터넷 기술을 써요.",
+  "en": "I use Internet of Things technology to turn on the house lights with a smartphone."
+ },
+ "사실": {
+  "ex": "친구에게 숨김없이 있는 그대로의 사실을 말해요.",
+  "en": "I tell my friend the truth as it is without hiding anything."
+ },
+ "사실상": {
+  "ex": "이번 프로젝트는 오늘로 사실상 모두 끝나요.",
+  "en": "This project is virtually all finished as of today."
+ },
+ "사십": {
+  "ex": "이 책은 총 사십 쪽으로 이루어져 있어요.",
+  "en": "This book consists of a total of forty pages."
+ },
+ "사안": {
+  "ex": "회의 시간에 중요한 사안을 두고 함께 의논해요.",
+  "en": "We discuss an important issue together during the meeting."
+ },
+ "사업": {
+  "ex": "석진은 새로운 친환경 사업을 시작해요.",
+  "en": "Seokjin starts a new eco-friendly business."
+ },
+ "사용": {
+  "ex": "도서관에서는 휴대폰의 조용한 사용을 부탁해요.",
+  "en": "Please ensure quiet usage of mobile phones in the library."
+ },
+ "사용량": {
+  "ex": "여름철에는 에어컨 때문에 전기 사용량이 늘어나요.",
+  "en": "In summer, electricity consumption increases because of the air conditioner."
+ },
+ "사용자": {
+  "ex": "이 앱은 편리해서 많은 사용자에게 인기가 많아요.",
+  "en": "This app is convenient, so it is popular among many users."
+ },
+ "사용하다": {
+  "ex": "한국어 수업 시간에 연필과 공책을 사용해요.",
+  "en": "I use a pencil and a notebook during Korean class."
+ },
+ "사원": {
+  "ex": "신입 사원이 선배들에게 밝은 목소리로 인사해요.",
+  "en": "The new employee greets seniors in a bright voice."
+ },
+ "사위": {
+  "ex": "장모님이 오랜만에 집에 온 사위를 반갑게 맞아요.",
+  "en": "The mother-in-law warmly welcomes her son-in-law who visited after a long time."
+ },
+ "사유": {
+  "ex": "이 숲은 개인의 사유 토지라서 함부로 들어가면 안 돼요.",
+  "en": "This forest is under private ownership, so you must not enter without permission."
+ },
+ "사육": {
+  "ex": "농촌 마을에서 건강한 닭의 사육을 전문으로 해요.",
+  "en": "In the rural village, they specialize in the raising of healthy chickens."
+ },
+ "사이": {
+  "ex": "책상과 의자 사이에 떨어진 지우개를 주워요.",
+  "en": "I pick up the eraser dropped between the desk and the chair."
+ },
+ "사이다": {
+  "ex": "더운 날씨에 시원한 사이다 한 잔을 마셔요.",
+  "en": "I drink a cold glass of soda pop in the hot weather."
+ },
+ "사이즈": {
+  "ex": "신발 가게에서 제 발에 딱 맞는 사이즈를 찾아요.",
+  "en": "I find a size that fits my feet perfectly at the shoe store."
+ },
+ "사인": {
+  "ex": "서류 확인을 마치고 맨 아래에 제 사인을 해요.",
+  "en": "After finishing checking the document, I put my signature at the bottom."
+ },
+ "사자": {
+  "ex": "추모식에서 안타깝게 떠난 사자의 넋을 기려요.",
+  "en": "At the memorial ceremony, we honor the soul of the deceased who tragically passed away."
+ },
+ "사장": {
+  "ex": "회사의 사장은 직원들의 복지를 중요하게 여겨요.",
+  "en": "The president of the company values the welfare of the employees."
+ },
+ "사장님": {
+  "ex": "식당 사장님이 손님들에게 친절하게 인사해요.",
+  "en": "The restaurant owner kindly greets the customers."
+ },
+ "사정": {
+  "ex": "개인적인 사정으로 오늘 모임에 늦게 참석해요.",
+  "en": "I attend today's meeting late due to personal circumstances."
+ },
+ "사진": {
+  "ex": "친구들과 공원에서 예쁜 추억이 담긴 사진을 찍어요.",
+  "en": "I take photos filled with pretty memories with my friends in the park."
+ },
+ "사진관": {
+  "ex": "여권 사진을 새로 찍으려고 동네 사진관에 가요.",
+  "en": "I go to the neighborhood photo studio to take a new passport photo."
+ },
+ "사진사": {
+  "ex": "친절한 사진사가 카메라 앞에서 활짝 웃으라고 말해요.",
+  "en": "The kind photographer tells me to smile brightly in front of the camera."
+ },
+ "사진전": {
+  "ex": "주말에 미술관에서 열리는 유명 작가의 사진전을 봐요.",
+  "en": "I visit a photo exhibition of a famous artist held at the art museum on the weekend."
+ },
+ "사태": {
+  "ex": "폭우로 인해 산비탈에서 흙이 쏟아지는 사태가 일어나요.",
+  "en": "A landslide occurs where soil pours down the hillside due to heavy rain."
+ },
+ "사항": {
+  "ex": "안내문의 주의 사항을 꼼꼼하게 읽어요.",
+  "en": "I read the cautionary details on the notice thoroughly."
+ },
+ "사회": {
+  "ex": "우리는 서로 돕고 배려하는 따뜻한 사회를 만들어요.",
+  "en": "We build a warm society where people help and care for one another."
+ },
+ "사회보험": {
+  "ex": "국민의 안전한 삶을 위해 사회보험 혜택을 제공해요.",
+  "en": "They provide social insurance benefits for the safe life of citizens."
+ },
+ "사회성": {
+  "ex": "어릴 때 친구들과 뛰어놀며 자연스럽게 사회성을 길러요.",
+  "en": "Playing with friends in childhood naturally develops sociability."
+ },
+ "사회적": {
+  "ex": "기업들은 환경 보호를 위한 사회적 책임을 다해요.",
+  "en": "Companies fulfill their social responsibility for environmental protection."
+ },
+ "삭감": {
+  "ex": "회사의 불필요한 예산 삭감을 결정해요.",
+  "en": "They decide on the reduction of unnecessary company budgets."
+ },
+ "삭감하다": {
+  "ex": "낭비를 줄이기 위해 올해 지출 예산을 조금 삭감해요.",
+  "en": "We curtail the expenditure budget a bit this year to reduce waste."
+ },
+ "삭다": {
+  "ex": "오래된 나무 기둥이 비바람에 조금씩 삭아요.",
+  "en": "The old wooden pillar slowly molders in the rain and wind."
+ },
+ "삭제": {
+  "ex": "스마트폰에서 필요 없는 사진의 삭제를 마쳐요.",
+  "en": "I finish the deletion of unnecessary photos from my smartphone."
  }
 };

@@ -27,8 +27,8 @@
 
    **갈래 id 는 단계를 넘어 이어 붙인다.** 고급 1~22, 초급 23~47, 중급 48~73.
    화면에 보이는 번호는 no(그 단계 교육과정의 제 번호)다. */
-import { BEGINNER_CATS } from './sentences-beginner.js?v=b2796c9a';
-import { INTERMEDIATE_CATS } from './sentences-intermediate.js?v=b2796c9a';
+import { BEGINNER_CATS } from './sentences-beginner.js?v=f25b7e08';
+import { INTERMEDIATE_CATS } from './sentences-intermediate.js?v=f25b7e08';
 
 /* 갈래 emoji 는 「배우기 › 예문 만들기」 목록·상세 화면 양쪽에서 갈래를
    시각적으로 구분하는 데만 쓴다. 뜻풀이에 영향이 없는 장식이라 순서를
