@@ -6715,5 +6715,165 @@ export const EXAMPLES = {
  "붉다": {
   "ex": "가을이 되자 산의 단풍잎이 아주 붉어요.",
   "en": "As autumn arrives, the maple leaves on the mountain are very red."
+ },
+ "붉은빛": {
+  "ex": "저녁노을이 하늘을 아름다운 붉은빛으로 물들여요.",
+  "en": "The evening sunset dyes the sky in a beautiful red."
+ },
+ "붉은색": {
+  "ex": "석진은 눈에 잘 띄는 붉은색 셔츠를 입어요.",
+  "en": "Seokjin wears a noticeable red shirt."
+ },
+ "붓": {
+  "ex": "하얀 도화지 위에 부드러운 붓으로 그림을 그려요.",
+  "en": "I draw a picture on the white drawing paper with a soft brush."
+ },
+ "붓다": {
+  "ex": "라면을 먹고 잤더니 아침에 얼굴이 조금 부어요.",
+  "en": "I ate ramen before sleeping, so my face is a bit swollen in the morning."
+ },
+ "붕": {
+  "ex": "오토바이가 붕 소리를 내며 골목을 지나가요.",
+  "en": "The motorcycle passes through the alley with a humming sound."
+ },
+ "붕괴": {
+  "ex": "오랜 폭우로 오래된 흙담의 붕괴가 일어나요.",
+  "en": "The collapse of the old mud wall occurs due to prolonged heavy rain."
+ },
+ "붙다": {
+  "ex": "젖은 신발 밑창에 모래가 많이 붙어요.",
+  "en": "A lot of sand sticks to the bottom of the wet shoes."
+ },
+ "붙이다": {
+  "ex": "벽에 중요한 메모를 테이프로 꼭 붙여요.",
+  "en": "I stick important notes firmly on the wall with tape."
+ },
+ "붙임성": {
+  "ex": "리아는 붙임성이 좋아서 누구와도 금방 친해져요.",
+  "en": "Lia has an affable personality, so she easily becomes friends with anyone."
+ },
+ "블록": {
+  "ex": "동생이 방바닥에서 알록달록한 장난감 블록을 쌓아요.",
+  "en": "My younger sibling stacks colorful toy blocks on the room floor."
+ },
+ "비": {
+  "ex": "밖에는 아침부터 시원한 비가 내려요.",
+  "en": "Cool rain falls outside from the morning."
+ },
+ "비교": {
+  "ex": "두 제품의 가격과 품질에 대한 꼼꼼한 비교를 해요.",
+  "en": "I make a thorough comparison of the price and quality of the two products."
+ },
+ "비교적": {
+  "ex": "이번 한국어 시험은 이전보다 비교적 쉬워요.",
+  "en": "This Korean exam is comparatively easier than before."
+ },
+ "비교하다": {
+  "ex": "물건을 사기 전에 여러 가게의 가격을 비교해요.",
+  "en": "I compare prices across multiple stores before buying things."
+ },
+ "비누": {
+  "ex": "외출 후에는 향기로운 비누로 손을 깨끗이 씻어요.",
+  "en": "I wash my hands cleanly with fragrant soap after going out."
+ },
+ "비닐": {
+  "ex": "시장에서 산 과일을 투명한 비닐 봉지에 담아요.",
+  "en": "I put the fruit bought at the market into a transparent plastic bag."
+ },
+ "비다": {
+  "ex": "모두 외출해서 지금 집이 텅 비어 있어요.",
+  "en": "Everyone went out, so the house is completely empty right now."
+ },
+ "비단": {
+  "ex": "부드럽고 윤기가 나는 고급 비단으로 한복을 지어요.",
+  "en": "They make a hanbok out of soft and glossy high-quality silk."
+ },
+ "비례": {
+  "ex": "노력의 양에 비례해서 시험 성적이 올라가요.",
+  "en": "Exam grades go up in proportion to the amount of effort."
+ },
+ "비로소": {
+  "ex": "설명을 다 듣고 나서야 비로소 뜻을 이해해요.",
+  "en": "I finally understand the meaning only after hearing the whole explanation."
+ },
+ "비록": {
+  "ex": "비록 날씨는 춥지만 마음은 아주 따뜻해요.",
+  "en": "Even though the weather is cold, my heart is very warm."
+ },
+ "비리": {
+  "ex": "우리 회사는 어떠한 부정 비리도 엄격하게 금지해요.",
+  "en": "Our company strictly prohibits any illegal corruption."
+ },
+ "비리다": {
+  "ex": "생선 요리가 조금 식어서 맛이 비려요.",
+  "en": "The fish dish has cooled down a bit, so it tastes fishy."
+ },
+ "비밀": {
+  "ex": "친구와 둘만의 소중한 비밀을 마음속에 간직해요.",
+  "en": "I keep a precious secret between just my friend and me in my heart."
+ },
+ "비상": {
+  "ex": "건물에 문제가 생기자 비상벨이 울려요.",
+  "en": "The emergency bell rings as a problem occurs in the building."
+ },
+ "비슷하다": {
+  "ex": "준상과 저는 옷 입는 스타일이 아주 비슷해요.",
+  "en": "Junsang and I have very similar styles of dressing."
+ },
+ "비싸다": {
+  "ex": "백화점에 있는 옷들은 생각보다 많이 비싸요.",
+  "en": "The clothes in the department store are much more expensive than expected."
+ },
+ "비용": {
+  "ex": "여행을 준비하면서 숙박과 교통에 드는 비용을 계산해요.",
+  "en": "I calculate the expenses for lodging and transportation while preparing for the trip."
+ },
+ "비운": {
+  "ex": "소설 속 주인공은 안타까운 비운을 겪어요.",
+  "en": "The main character in the novel experiences unfortunate bad luck."
+ },
+ "비유": {
+  "ex": "선생님이 어려운 개념을 쉬운 비유로 설명해 줘요.",
+  "en": "The teacher explains difficult concepts using an easy analogy."
+ },
+ "비율": {
+  "ex": "우리 반은 남학생과 여학생의 비율이 거의 같아요.",
+  "en": "The ratio of male and female students in our class is almost the same."
+ },
+ "비중": {
+  "ex": "하루 일과 중에서 독서가 차지하는 비중이 아주 커요.",
+  "en": "Reading accounts for a very large weight of importance in my daily routine."
+ },
+ "비판": {
+  "ex": "근거 없는 비판보다는 따뜻한 조언을 해줘요.",
+  "en": "I give warm advice rather than unfounded criticism."
+ },
+ "비판하다": {
+  "ex": "친구의 작은 실수를 지나치게 비판하지 않아요.",
+  "en": "I do not overly criticize my friend's small mistakes."
+ },
+ "비하다": {
+  "ex": "작년 날씨에 비하면 올해는 훨씬 따뜻해요.",
+  "en": "Compared to last year's weather, this year is much warmer."
+ },
+ "비행": {
+  "ex": "날씨가 맑아서 안정적인 야간 비행이 가능해요.",
+  "en": "Because the weather is clear, stable night flying is possible."
+ },
+ "비행기": {
+  "ex": "방학 때 여행을 가려고 제주도행 비행기 표를 예매해요.",
+  "en": "I book an airplane ticket to Jeju Island to travel during vacation."
+ },
+ "빅데이터": {
+  "ex": "소비자 성향을 파악하기 위해 빅데이터 기술을 활용해요.",
+  "en": "We utilize big data technology to understand consumer preferences."
+ },
+ "빈": {
+  "ex": "회의실 안의 빈자리에 조용히 앉아요.",
+  "en": "I sit down quietly in an empty seat inside the meeting room."
+ },
+ "빈곤": {
+  "ex": "어려운 이웃들이 빈곤에서 벗어나도록 따뜻한 도움을 줘요.",
+  "en": "We offer warm support so that needy neighbors can escape poverty."
  }
 };
