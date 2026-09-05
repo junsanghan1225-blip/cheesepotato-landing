@@ -2739,6 +2739,12 @@
   "only": true
  },
  {
+  "ko": "법이다",
+  "en": "it's only natural (that); it's bound to be that way",
+  "pos": "품사 없음",
+  "only": true
+ },
+ {
   "ko": "녹",
   "en": "rust",
   "pos": "명사",
