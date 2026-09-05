@@ -5915,5 +5915,165 @@ export const EXAMPLES = {
  "방향": {
   "ex": "지도를 보며 지하철역이 있는 방향으로 걸어가요.",
   "en": "I look at the map and walk in the direction of the subway station."
+ },
+ "배": {
+  "ex": "점심을 많이 먹어서 배가 아주 불러요.",
+  "en": "I ate a lot for lunch, so my belly is very full."
+ },
+ "배경": {
+  "ex": "바다를 배경으로 친구들과 예쁜 사진을 찍어요.",
+  "en": "I take pretty pictures with my friends against the background of the sea."
+ },
+ "배다": {
+  "ex": "고기에 맛있는 양념이 골고루 잘 배요.",
+  "en": "The delicious seasoning permeates evenly into the meat."
+ },
+ "배달": {
+  "ex": "저녁에 집에서 따뜻한 피자 배달을 시켜요.",
+  "en": "I order hot pizza delivery at home in the evening."
+ },
+ "배려": {
+  "ex": "다른 사람을 향한 따뜻한 배려는 항상 중요해요.",
+  "en": "Warm consideration toward other people is always important."
+ },
+ "배려하다": {
+  "ex": "몸이 불편한 친구를 위해 자리를 양보하며 배려해요.",
+  "en": "I act thoughtfully by giving up my seat for a friend who feels unwell."
+ },
+ "배선": {
+  "ex": "안전을 위해 집 안의 전기 배선 상태를 점검해요.",
+  "en": "I inspect the condition of the electric wiring inside the house for safety."
+ },
+ "배송": {
+  "ex": "인터넷으로 주문한 옷의 빠른 배송을 기다려요.",
+  "en": "I wait for the fast delivery of the clothes ordered online."
+ },
+ "배송하다": {
+  "ex": "택배 기사님이 주문한 물건을 집 앞으로 안전하게 배송해요.",
+  "en": "The courier delivers the ordered package safely to the front of the house."
+ },
+ "배열": {
+  "ex": "도서관 책상 위에 책들을 가지런한 배열로 정리해요.",
+  "en": "I organize the books in a neat arrangement on the library desk."
+ },
+ "배우": {
+  "ex": "석진은 영화에 나오는 유명한 배우를 좋아해요.",
+  "en": "Seokjin likes the famous actor who appears in the movie."
+ },
+ "배우다": {
+  "ex": "한국 친구들과 이야기하려고 매일 한국어를 배워요.",
+  "en": "I learn Korean every day to talk with Korean friends."
+ },
+ "배제": {
+  "ex": "중요한 계획에서 사소한 감정의 배제가 필요해요.",
+  "en": "The exclusion of minor emotions is necessary in important plans."
+ },
+ "배제하다": {
+  "ex": "문제를 해결할 때 나쁜 가능성도 완전히 배제하지 않아요.",
+  "en": "When solving the problem, I do not completely rule out bad possibilities."
+ },
+ "배추": {
+  "ex": "시장에서 김치를 담그려고 신선한 배추를 사요.",
+  "en": "I buy fresh napa cabbage at the market to make kimchi."
+ },
+ "배출": {
+  "ex": "공기 정화 장치를 통해 유해 물질의 외부 배출을 줄여요.",
+  "en": "We reduce the emission of harmful substances to the outside through an air purification device."
+ },
+ "배출하다": {
+  "ex": "공장에서 깨끗하게 정화한 물만 밖으로 배출해요.",
+  "en": "The factory discharges only cleanly purified water to the outside."
+ },
+ "배탈": {
+  "ex": "찬 음료수를 너무 많이 마셔서 배탈이 나요.",
+  "en": "I drink too many cold beverages, so I get a stomach upset."
+ },
+ "배터리": {
+  "ex": "스마트폰의 배터리가 부족해서 충전기를 연결해요.",
+  "en": "The smartphone's battery is low, so I connect the charger."
+ },
+ "백성": {
+  "ex": "옛날 어진 임금님은 항상 백성을 아끼고 사랑해요.",
+  "en": "In ancient times, a wise king always cherished and loved his people."
+ },
+ "버려지다": {
+  "ex": "길가에 버려진 작은 상자를 발견해요.",
+  "en": "I find a small box discarded by the roadside."
+ },
+ "버리다": {
+  "ex": "방 청소를 하면서 오래된 영수증을 쓰레기통에 버려요.",
+  "en": "While cleaning my room, I throw away old receipts into the trash can."
+ },
+ "버스": {
+  "ex": "아침마다 학교에 가려고 정류장에서 버스를 타요.",
+  "en": "I take the bus at the bus stop every morning to go to school."
+ },
+ "버티다": {
+  "ex": "다리가 조금 아프지만 꿋꿋하게 잘 버텨요.",
+  "en": "My legs hurt a little, but I endure well steadily."
+ },
+ "번": {
+  "ex": "새로운 단어는 최소 세 번 이상 소리 내어 읽어요.",
+  "en": "I read new words out loud at least three times."
+ },
+ "번식": {
+  "ex": "봄이 오면 따뜻한 날씨 덕분에 식물의 번식이 활발해요.",
+  "en": "When spring comes, plant breeding is active thanks to the warm weather."
+ },
+ "번역": {
+  "ex": "어려운 한국어 소설을 쉬운 영어로 번역해요.",
+  "en": "I do a translation of a difficult Korean novel into simple English."
+ },
+ "번호": {
+  "ex": "친구에게 연락처 전화번호를 친절하게 알려줘요.",
+  "en": "I kindly tell my friend my contact phone number."
+ },
+ "벌": {
+  "ex": "특별한 날에 입을 멋진 정장 한 벌을 사요.",
+  "en": "I buy a set of nice formal suits to wear on a special day."
+ },
+ "벌다": {
+  "ex": "주말마다 아르바이트를 해서 용돈을 벌어요.",
+  "en": "I earn pocket money by working part-time every weekend."
+ },
+ "벌레": {
+  "ex": "풀숲에서 작은 벌레 한 마리가 기어가요.",
+  "en": "A small bug crawls in the grass."
+ },
+ "벌써": {
+  "ex": "이야기를 나누다 보니 벌써 저녁 시간이 다 돼요.",
+  "en": "While chatting, it is already dinner time so soon."
+ },
+ "벌이": {
+  "ex": "취직을 한 뒤로 매달 안정적인 벌이를 유지해요.",
+  "en": "After getting a job, I maintain steady moneymaking every month."
+ },
+ "벌이다": {
+  "ex": "마을 주민들이 동네를 깨끗하게 치우는 운동을 벌여요.",
+  "en": "The village residents kick off a campaign to clean up the neighborhood."
+ },
+ "범": {
+  "ex": "옛날이야기 그림책 속에서 용맹한 범이 나와요.",
+  "en": "A brave tiger appears in the old fairytale picture book."
+ },
+ "범위": {
+  "ex": "선생님이 다음 주 시험 범위를 칠판에 적어줘요.",
+  "en": "The teacher writes the scope of next week's exam on the board."
+ },
+ "범죄": {
+  "ex": "경찰관들이 안전한 사회를 위해 범죄를 예방해요.",
+  "en": "Police officers prevent crime for a safe society."
+ },
+ "법안": {
+  "ex": "시민의 편의를 높이기 위한 새로운 법안을 검토해요.",
+  "en": "They review a new bill to improve citizens' convenience."
+ },
+ "법이다": {
+  "ex": "열심히 연습하면 실력이 쑥쑥 느는 법이에요.",
+  "en": "If you practice hard, it is only natural that your skills improve rapidly."
+ },
+ "법적": {
+  "ex": "중요한 계약을 맺을 때는 법적 책임을 꼼꼼히 확인해요.",
+  "en": "When making an important contract, I carefully check the legal responsibilities."
  }
 };
