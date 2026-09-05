@@ -115,8 +115,8 @@
      Pretendard 는 통짜(2.0MB) 대신 조각난 쪽을 쓴다 — 브라우저가
      unicode-range 를 보고 화면에 실제로 나온 글자가 든 조각만 받는다.
      그래서 저장소는 무거워졌지만 학습자가 받는 양은 오히려 줄었다. -->
-<link rel="stylesheet" href="vendor/pretendard.css?v=b0bfb9a7">
-<link rel="stylesheet" href="vendor/pressstart2p.css?v=b0bfb9a7">
+<link rel="stylesheet" href="vendor/pretendard.css?v=9392173a">
+<link rel="stylesheet" href="vendor/pressstart2p.css?v=9392173a">
 <style>
 /* ══════════════════════════════════════════════════════════════
    치즈감자 — 랜딩
@@ -371,6 +371,29 @@ a:hover { color:var(--orange-mid); }
   .site-nav > .nav-link { display:none; }
   .hd-cta { display:none; }
 }
+
+/* 되돌아오게 하는 띠. 기본(review)은 차분한 색, 스트릭이 끊기려 할
+   때(urgent)만 주황으로 눈에 띄게 한다 — 둘 다 급하게 보이면 나중엔
+   아무것도 안 급해 보인다. */
+.nudge-bar {
+  display:flex; align-items:center; gap:12px; flex-wrap:wrap;
+  padding:11px var(--gut); background:var(--surface-2); border-bottom:1px solid var(--line-2);
+}
+.nudge-bar[hidden] { display:none; }
+.nudge-bar.urgent { background:#FFF4EA; border-bottom-color:rgba(255,138,61,.35); }
+:root[data-theme="dark"] .nudge-bar.urgent { background:#3A2A18; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .nudge-bar.urgent { background:#3A2A18; } }
+.nudge-txt { font-size:13.5px; font-weight:600; color:var(--ink-2); flex:1 1 auto; word-break:keep-all; }
+.nudge-go {
+  font:inherit; font-size:13px; font-weight:700; color:#fff; background:var(--orange);
+  border:none; border-radius:999px; padding:7px 16px; cursor:pointer; white-space:nowrap;
+}
+.nudge-go:hover { background:var(--orange-deep); }
+.nudge-x {
+  font-size:12px; color:var(--ink-3); background:none; border:none; cursor:pointer;
+  padding:4px 6px; border-radius:6px; flex:none;
+}
+.nudge-x:hover { color:var(--ink); background:rgba(var(--ink-rgb),.08); }
 
 /* 아주 좁은 폰(320px). 영어는 낱말이 길어서 이름표를 붙이면 머리띠가
    화면 밖으로 8px 밀려 나가 ☰ 가 잘렸다 — 하필 가장 많이 누르는 자리다.
@@ -869,7 +892,6 @@ button.btn-primary, button.btn-ghost { font-family:inherit; }
 }
 .gr-road-svg { position:absolute; inset:0; width:100%; height:100%; overflow:visible; }
 .gr-road-base { fill:none; stroke:#2E5C8A; stroke-width:9; stroke-linecap:round; stroke-linejoin:round; }
-:root:not([data-theme="light"]) .gr-road-base { stroke:#5B9BD8; }
 :root[data-theme="dark"] .gr-road-base { stroke:#5B9BD8; }
 @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .gr-road-base { stroke:#5B9BD8; } }
 
@@ -4868,6 +4890,16 @@ body.hlp-open { overflow:hidden; }
   </nav>
 </div></header>
 
+<!-- 되돌아오게 하는 띠. 로그인한 사람에게만, 스트릭이 끊기려 하거나
+     복습할 단어가 있을 때만 뜬다. 어느 화면(첫 화면·배우기·단어장…)에
+     있든 헤더 바로 밑에 보인다 — 특정 화면에 속한 것이 아니라서
+     app.module.js 가 view 와 상관없이 열고 닫는다. -->
+<div class="nudge-bar" id="nudgeBar" hidden>
+  <span class="nudge-txt" id="nudgeTxt"></span>
+  <button class="nudge-go" id="nudgeGo" type="button"></button>
+  <button class="nudge-x" id="nudgeX" type="button" aria-label="닫기">✕</button>
+</div>
+
 <!-- ── 사이드 메뉴 ─────────────────────────────────────────────
      헤더에 여섯 개가 늘어서 있으면 무엇이 중요한지 안 보인다. 자주
      쓰는 내 단어장과 다운로드만 남기고 나머지 화면은 여기로 모았다.
@@ -6974,9 +7006,9 @@ body.hlp-open { overflow:hidden; }
 <div id="hlpScrim" class="hlp-scrim"></div>
 <aside id="hlpPanel" class="hlp-panel" aria-label="한국어 도우미" aria-hidden="true"></aside>
 
-<script src="app.js?v=b0bfb9a7"></script>
-<script type="module" src="app.module.js?v=b0bfb9a7"></script>
+<script src="app.js?v=9392173a"></script>
+<script type="module" src="app.module.js?v=9392173a"></script>
 
-<script src="analytics.js?v=b0bfb9a7" defer></script>
+<script src="analytics.js?v=9392173a" defer></script>
 </body>
 </html>
