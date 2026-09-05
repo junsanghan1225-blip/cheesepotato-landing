@@ -7195,5 +7195,165 @@ export const EXAMPLES = {
  "삭제": {
   "ex": "스마트폰에서 필요 없는 사진의 삭제를 마쳐요.",
   "en": "I finish the deletion of unnecessary photos from my smartphone."
+ },
+ "삭제되다": {
+  "ex": "컴퓨터의 필요 없는 파일이 완전히 삭제돼요.",
+  "en": "Unnecessary files on the computer are completely deleted."
+ },
+ "삭제하다": {
+  "ex": "휴대폰에서 흔들린 사진을 바로 삭제해요.",
+  "en": "I delete blurry photos from my mobile phone right away."
+ },
+ "산": {
+  "ex": "주말에 친구들과 맑은 공기를 마시러 산에 올라가요.",
+  "en": "I hike up the mountain with friends on the weekend to breathe fresh air."
+ },
+ "산림": {
+  "ex": "푸른 산림을 보호하기 위해 나무를 많이 심어요.",
+  "en": "We plant many trees to protect the green forest."
+ },
+ "산소": {
+  "ex": "식물은 햇빛을 받아 우리에게 필요한 산소를 만들어요.",
+  "en": "Plants take in sunlight and produce the oxygen we need."
+ },
+ "산업": {
+  "ex": "이 도시는 첨단 정보 기술 산업이 아주 발달했어요.",
+  "en": "This city has a well-developed advanced information technology industry."
+ },
+ "산업재해": {
+  "ex": "공장에서는 안전 규칙을 지켜 산업재해를 예방해요.",
+  "en": "In the factory, we follow safety rules to prevent industrial accidents."
+ },
+ "산책": {
+  "ex": "날씨가 좋아서 저녁 식사 후에 가벼운 산책을 해요.",
+  "en": "The weather is good, so I take a light walk after dinner."
+ },
+ "산책하다": {
+  "ex": "귀여운 강아지 치즈와 함께 동네 공원을 산책해요.",
+  "en": "I stroll in the neighborhood park together with the cute puppy Cheese."
+ },
+ "살기": {
+  "ex": "어두운 골목길에서 서늘한 살기가 느껴져요.",
+  "en": "A cold and threatening mood is felt in the dark alley."
+ },
+ "살다": {
+  "ex": "저는 지금 서울의 조용한 동네에 살아요.",
+  "en": "I live in a quiet neighborhood in Seoul right now."
+ },
+ "살리다": {
+  "ex": "전통 한옥의 멋과 아름다움을 그대로 살려요.",
+  "en": "They preserve the classic beauty and stylishness of the traditional hanok intact."
+ },
+ "살지다": {
+  "ex": "가을이 되자 연못의 물고기들이 통통하게 살져요.",
+  "en": "As autumn arrives, the fish in the pond grow fat and fleshy."
+ },
+ "살짝": {
+  "ex": "친구를 놀라게 해주려고 등 뒤로 살짝 다가가요.",
+  "en": "I stealthily approach from behind my friend's back to surprise them."
+ },
+ "삶": {
+  "ex": "매일 감사하는 마음으로 보람찬 삶을 살아요.",
+  "en": "I live a rewarding life every day with a grateful heart."
+ },
+ "삶다": {
+  "ex": "아침 식사로 냄비에 달걀을 맛있게 삶아요.",
+  "en": "I boil eggs deliciously in a pot for breakfast."
+ },
+ "삼": {
+  "ex": "건강을 위해 따뜻한 물에 귀한 삼을 달여 마셔요.",
+  "en": "I decoct precious ginseng in warm water and drink it for my health."
+ },
+ "삼다": {
+  "ex": "석진은 이번 실패를 좋은 교훈으로 삼아요.",
+  "en": "Seokjin takes this failure as a good lesson."
+ },
+ "삼십": {
+  "ex": "도서관까지 여기서 걸어서 딱 삼십 분 걸려요.",
+  "en": "It takes exactly thirty minutes to walk to the library from here."
+ },
+ "삼촌": {
+  "ex": "주말에 다정한 삼촌이 집에 놀러 오셔서 선물을 줘요.",
+  "en": "My kind uncle visits my house on the weekend and gives me a gift."
+ },
+ "삼키다": {
+  "ex": "따뜻한 물과 함께 알약을 꿀꺽 삼켜요.",
+  "en": "I gulp and swallow the pill with warm water."
+ },
+ "삽": {
+  "ex": "마당에 꽃을 심으려고 튼튼한 삽으로 땅을 파요.",
+  "en": "I dig the ground with a sturdy shovel to plant flowers in the yard."
+ },
+ "상": {
+  "ex": "이번에 수확한 과일은 품질이 모두 상에 속해요.",
+  "en": "The fruits harvested this time are all of top quality."
+ },
+ "상가": {
+  "ex": "집 근처 상가에 가서 필요한 학용품을 사요.",
+  "en": "I go to the shopping complex near my house to buy necessary school supplies."
+ },
+ "상관": {
+  "ex": "군대에서 부하들은 상관의 지시를 충실히 따라요.",
+  "en": "In the military, subordinates faithfully follow the superior's instructions."
+ },
+ "상관없다": {
+  "ex": "메뉴는 무엇이든 다 좋으니 정말 상관없어요.",
+  "en": "Any menu is fine with me, so it really has no relation."
+ },
+ "상담": {
+  "ex": "진로 문제로 담임 선생님과 조용한 상담을 나눠요.",
+  "en": "I have a quiet consultation with my homeroom teacher regarding career paths."
+ },
+ "상당": {
+  "ex": "새 프로젝트를 준비하는 데 상당한 시간이 걸려요.",
+  "en": "It takes a considerable amount of time to prepare the new project."
+ },
+ "상당수": {
+  "ex": "우리 반 학생 중 상당수가 한국어 수업을 좋아해요.",
+  "en": "A substantial number of students in our class like Korean classes."
+ },
+ "상대": {
+  "ex": "서로 마주 보고 서서 다정하게 상대를 바라봐요.",
+  "en": "They stand facing each other and look warmly at one another."
+ },
+ "상사": {
+  "ex": "직속 상사에게 오늘 진행한 업무 내용을 보고해요.",
+  "en": "I report the details of the work done today to my immediate boss at work."
+ },
+ "상세히": {
+  "ex": "선생님이 어려운 시험 일정을 칠판에 상세히 적어줘요.",
+  "en": "The teacher writes down the difficult exam schedule in detail on the board."
+ },
+ "상승": {
+  "ex": "새 학기가 시작되자 학용품 가격의 상승이 나타나요.",
+  "en": "As the new semester begins, a rise in the prices of school supplies appears."
+ },
+ "상업": {
+  "ex": "이 항구 도시는 오랜 옛날부터 상업이 크게 번창해요.",
+  "en": "This port city has had thriving commerce since ancient times."
+ },
+ "상영": {
+  "ex": "영화관에서 저녁 여덟 시에 새 영화의 상영을 시작해요.",
+  "en": "The cinema begins the screening of the new movie at eight in the evening."
+ },
+ "상용": {
+  "ex": "이 표현은 한국 사람들이 일상에서 자주 쓰는 상용 어구예요.",
+  "en": "This expression is a common phrase frequently used by Koreans in everyday life."
+ },
+ "상용화": {
+  "ex": "새로운 친환경 에너지 기술의 상용화를 추진해요.",
+  "en": "We promote the commercialization of new eco-friendly energy technology."
+ },
+ "상용화되다": {
+  "ex": "자율주행 자동차 기술이 드디어 대중에게 상용화돼요.",
+  "en": "Autonomous vehicle technology finally becomes commercialized for the public."
+ },
+ "상인": {
+  "ex": "전통 시장의 친절한 상인이 과일을 넉넉하게 담아줘요.",
+  "en": "The kind merchant at the traditional market generously packs the fruit."
+ },
+ "상자": {
+  "ex": "선물로 받은 찻잔을 예쁜 상자에 담아요.",
+  "en": "I put the teacup received as a gift into a pretty box."
  }
 };
