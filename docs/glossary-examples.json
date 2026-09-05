@@ -6546,5 +6546,165 @@
  "북": {
   "ex": "음악 시간에 채를 들고 신나게 북을 쳐요.",
   "en": "I hold drumsticks and play the drum joyfully in music class."
+ },
+ "분": {
+  "ex": "저기 안경을 쓰신 분이 우리 한국어 선생님이에요.",
+  "en": "The person wearing glasses over there is our Korean teacher."
+ },
+ "분과": {
+  "ex": "학회에서 여러 전문 분과로 나누어 발표를 진행해요.",
+  "en": "The academic conference is divided into several specialized branches to conduct presentations."
+ },
+ "분리": {
+  "ex": "일과 개인 생활의 철저한 분리를 유지해요.",
+  "en": "I maintain a strict separation between work and personal life."
+ },
+ "분리배출": {
+  "ex": "환경 보호를 위해 플라스틱 병의 올바른 분리배출을 실천해요.",
+  "en": "I practice proper separate garbage collection of plastic bottles to protect the environment."
+ },
+ "분만": {
+  "ex": "병원에서 안전한 분만을 위해 최선을 다해요.",
+  "en": "The hospital does its best for safe childbirth."
+ },
+ "분명": {
+  "ex": "이 책은 분명 준상이 찾던 그 책이에요.",
+  "en": "This book is surely the one Junsang was looking for."
+ },
+ "분명히": {
+  "ex": "선생님의 설명을 들으니 내용이 분명히 이해돼요.",
+  "en": "Listening to the teacher's explanation, I clearly understand the content."
+ },
+ "분비": {
+  "ex": "운동을 하면 기분을 좋게 만드는 호르몬의 분비가 늘어나요.",
+  "en": "When you exercise, the secretion of hormones that make you feel good increases."
+ },
+ "분석": {
+  "ex": "자료에 대한 꼼꼼한 분석으로 원인을 찾아요.",
+  "en": "We find the cause through thorough analysis of the data."
+ },
+ "분석하다": {
+  "ex": "회의 시간에 지난달 매출 결과를 자세히 분석해요.",
+  "en": "We analyze last month's sales results in detail during the meeting."
+ },
+ "분실": {
+  "ex": "소지품 분실에 주의하며 지하철에서 내려요.",
+  "en": "I get off the subway while being careful about the loss of my belongings."
+ },
+ "분실물": {
+  "ex": "지하철 분실물 센터에서 잃어버린 우산을 찾아요.",
+  "en": "I find my lost umbrella at the subway lost article center."
+ },
+ "분야": {
+  "ex": "석진은 컴퓨터 프로그래밍 분야에 관심이 많아요.",
+  "en": "Seokjin is very interested in the field of computer programming."
+ },
+ "분양": {
+  "ex": "시골집에서 태어난 귀여운 강아지 치즈를 따뜻한 가정에 분양해요.",
+  "en": "I arrange the distribution of the cute puppy Cheese born at the country house to a warm home."
+ },
+ "분위기": {
+  "ex": "이 카페는 조용하고 아늑한 분위기가 마음에 들어요.",
+  "en": "I like this cafe's quiet and cozy mood."
+ },
+ "분출": {
+  "ex": "화산에서 뜨거운 용암의 분출이 시작돼요.",
+  "en": "The spurt of hot lava begins from the volcano."
+ },
+ "분해": {
+  "ex": "고장 난 시계의 정밀한 분해를 시도해요.",
+  "en": "I attempt the precise disassembly of the broken watch."
+ },
+ "분해되다": {
+  "ex": "친환경 종이컵은 땅속에서 자연스럽게 분해돼요.",
+  "en": "Eco-friendly paper cups are naturally decomposed in the ground."
+ },
+ "불": {
+  "ex": "외출하기 전에 방 안의 불을 모두 꺼요.",
+  "en": "I turn off all the lights in the room before going out."
+ },
+ "불공": {
+  "ex": "할머니가 절에 가서 가족의 건강을 위해 정성껏 불공을 드려요.",
+  "en": "My grandmother goes to the temple and devoutly offers a Buddhist prayer for the family's health."
+ },
+ "불공정": {
+  "ex": "우리는 사회의 불공정을 없애기 위해 함께 노력해요.",
+  "en": "We work together to eliminate inequity in society."
+ },
+ "불공정하다": {
+  "ex": "한쪽 편만 드는 규칙은 너무 불공정해요.",
+  "en": "A rule that favors only one side is too unfair."
+ },
+ "불과": {
+  "ex": "도서관까지 걸어서 불과 5분밖에 안 걸려요.",
+  "en": "It takes only 5 minutes to walk to the library."
+ },
+ "불구": {
+  "ex": "그 사람은 신체적 불구를 딛고 훌륭한 화가가 돼요.",
+  "en": "That person overcomes physical deformity and becomes a great painter."
+ },
+ "불구하다": {
+  "ex": "비가 오는 궂은 날씨에도 불구하고 공원에 산책을 나가요.",
+  "en": "I go out for a walk in the park regardless of the rainy, bad weather."
+ },
+ "불규칙": {
+  "ex": "한국어 공부를 할 때는 불규칙 동사 활용을 조심해요.",
+  "en": "I pay attention to the conjugation of irregular verbs when studying Korean."
+ },
+ "불균형": {
+  "ex": "식사를 거르면 영양의 불균형이 생기기 쉬워요.",
+  "en": "If you skip meals, it is easy to develop a nutritional imbalance."
+ },
+ "불다": {
+  "ex": "창밖에서 시원하고 상쾌한 바람이 불어요.",
+  "en": "A cool and refreshing wind blows outside the window."
+ },
+ "불리": {
+  "ex": "준비가 부족해서 시합에서 큰 불리를 겪어요.",
+  "en": "Due to insufficient preparation, we suffer a major disadvantage in the match."
+ },
+ "불리다": {
+  "ex": "리아는 학교에서 친절한 친구로 불려요.",
+  "en": "Lia is called a kind friend at school."
+ },
+ "불만": {
+  "ex": "서비스가 마음에 들지 않아서 손님이 불만을 나타내요.",
+  "en": "The customer shows dissatisfaction because they did not like the service."
+ },
+ "불매": {
+  "ex": "소비자들이 나쁜 기업의 제품에 대해 불매 운동을 벌여요.",
+  "en": "Consumers start a boycott against the products of unethical companies."
+ },
+ "불안": {
+  "ex": "중요한 시험을 앞두고 마음속에 약간의 불안이 생겨요.",
+  "en": "Ahead of an important exam, a little anxiety arises in my heart."
+ },
+ "불안하다": {
+  "ex": "혼자 어두운 길을 걸을 때는 조금 불안해요.",
+  "en": "I feel a bit anxious when walking alone on a dark street."
+ },
+ "불어": {
+  "ex": "주리는 대학교에서 전공으로 불어를 열심히 공부해요.",
+  "en": "Juri studies French hard as her major at university."
+ },
+ "불이다": {
+  "ex": "연기가 나는 곳을 보고 사람들이 불이다 하고 소리쳐요.",
+  "en": "Seeing where the smoke is coming from, people shout, 'Fire!'"
+ },
+ "불친절": {
+  "ex": "가게 직원의 불친절로 기분이 조금 상해요.",
+  "en": "I feel a bit upset because of the shop employee's unkindness."
+ },
+ "불편": {
+  "ex": "엘리베이터가 고장 나서 주민들이 큰 불편을 겪어요.",
+  "en": "The elevator is out of order, so residents experience great inconvenience."
+ },
+ "불편하다": {
+  "ex": "새로 산 구두가 발에 맞지 않아 걸을 때 불편해요.",
+  "en": "The newly bought shoes do not fit my feet, so they are uncomfortable when walking."
+ },
+ "붉다": {
+  "ex": "가을이 되자 산의 단풍잎이 아주 붉어요.",
+  "en": "As autumn arrives, the maple leaves on the mountain are very red."
  }
 }
