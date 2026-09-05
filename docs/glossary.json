@@ -2757,6 +2757,24 @@
   "only": true
  },
  {
+  "ko": "복권",
+  "en": "lottery ticket",
+  "pos": "명사",
+  "only": true
+ },
+ {
+  "ko": "본관",
+  "en": "main building",
+  "pos": "명사",
+  "only": true
+ },
+ {
+  "ko": "본디",
+  "en": "originally; from the start",
+  "pos": "명사",
+  "only": true
+ },
+ {
   "ko": "녹",
   "en": "rust",
   "pos": "명사",
