@@ -2787,6 +2787,18 @@
   "only": true
  },
  {
+  "ko": "비행",
+  "en": "flight; flying",
+  "pos": "명사",
+  "only": true
+ },
+ {
+  "ko": "빈",
+  "en": "empty (modifier form of 비다)",
+  "pos": "명사",
+  "only": true
+ },
+ {
   "ko": "녹",
   "en": "rust",
   "pos": "명사",
