@@ -13,7 +13,7 @@
    어느 날 갑자기 다른 코드가 실려 왔다.
    이제 vendor/ 안에 받아 두고 CSP 로 바깥을 막는다. 버전을 올릴 때는
    tools/vendor.mjs 의 PIN 을 고치고 다시 돌린다. */
-import { createClient } from './vendor/supabase-js.js?v=9392173a';
+import { createClient } from './vendor/supabase-js.js?v=5376ca45';
 // 앱(package.json)과 같은 줄기를 쓴다. 갈리면 앱에서는 읽히는 파일이
 // 여기서는 안 읽히는(또는 그 반대) 일이 생긴다.
 /* 엑셀 라이브러리는 422KB — 이 판에서 가장 무거운 조각이다. 그런데 쓰는
@@ -25,23 +25,23 @@ import { createClient } from './vendor/supabase-js.js?v=9392173a';
    자국(?v=)은 tools/stamp.mjs 가 아래 줄에 알아서 붙인다 — 정적으로 쓰든
    동적으로 쓰든 같은 글자를 찾으므로 바꿔도 그대로 찍힌다. */
 let XLSX = null;
-const needXLSX = async () => (XLSX ??= await import('./vendor/xlsx.js?v=9392173a'));
+const needXLSX = async () => (XLSX ??= await import('./vendor/xlsx.js?v=5376ca45'));
 // 커리큘럼. 내용과 엔진을 갈라 두면 글을 고치다 화면을 깨지 않는다.
 // 갈래 목록(drawSections)·코스(drawCourses)·문제만 풀기(dqDraw) 를 열 때만
 // 받는다 — 배우기 갈래 목록도 안 본 사람에게 코스 71개 레슨을 다 물릴
 // 까닭이 없다. warmLearn() 이 배우기를 여는 순간 미리 불을 붙여 둔다.
 let COURSES = [], coursesP = null;
-const coursesNeed = () => (coursesP ??= import('./courses.js?v=9392173a').then((m) => { COURSES = m.COURSES; }));
-import { GLOSSARY, GLOSS_LANGS } from './glossary.js?v=9392173a';
-import { glossFind } from './gloss-find.js?v=9392173a';
+const coursesNeed = () => (coursesP ??= import('./courses.js?v=5376ca45').then((m) => { COURSES = m.COURSES; }));
+import { GLOSSARY, GLOSS_LANGS } from './glossary.js?v=5376ca45';
+import { glossFind } from './gloss-find.js?v=5376ca45';
 /* 문법 사전(뜻풀이 197개). 읽기 지문의 밑줄 문법 말풍선(rdNeed)과 예문
    만들기 화면(sbNeed) 양쪽이 쓴다 — 둘 중 먼저 여는 화면이 받아 두고,
    나중 화면은 그 약속(??=)을 그대로 쓴다. */
 let GRAMMAR = [], GRAMMAR_EN = {}, grammarP = null;
 const grammarNeed = () => (grammarP ??= Promise.all([
-  import('./grammar.js?v=9392173a'), import('./grammar-en.js?v=9392173a'),
+  import('./grammar.js?v=5376ca45'), import('./grammar-en.js?v=5376ca45'),
 ]).then(([a, b]) => { GRAMMAR = a.GRAMMAR; GRAMMAR_EN = b.GRAMMAR_EN; }));
-import { grammarScan } from './grammar-find.js?v=9392173a';
+import { grammarScan } from './grammar-find.js?v=5376ca45';
 // TOPIK 쓰기·듣기 문항. 읽기(topik.js·topik2.js)와 같은 tqNeedData() 로
 // 함께 받는다 — 유형 연습(topik) 갈래 하나가 세 기술을 다 쓰므로 따로
 // 가를 까닭이 없다. 값은 tqNeedData 정의부에서 채운다.
@@ -53,7 +53,7 @@ let TOPIKL_BY_EXAM = {}, TOPIKL_PICTURE_SLOTS = {};
    sbFind 를 쓰는데, 그쪽은 안 기다리고 그냥 부른다 — 답이 못 찾은
    인용 없이 나가는 것이 채팅이 멈추는 것보다 낫다. */
 let SB_CATS = [], SB_MORE = {}, SB_SEED = {}, SB_POINTS = [], sbDataP = null;
-const sbNeed = () => (sbDataP ??= import('./sentences.js?v=9392173a').then((m) => {
+const sbNeed = () => (sbDataP ??= import('./sentences.js?v=5376ca45').then((m) => {
   SB_CATS = m.SB_CATS; SB_MORE = m.SB_MORE; SB_SEED = m.SB_SEED;
   // 갈래마다 표현을 펼쳐 한 줄에 담는다 — SB_CATS 안의 점에는 갈래가 안
   // 달려 있어서(sbFind 가 표현 하나를 id 로 바로 찾으려면 이게 있어야 한다).
@@ -64,7 +64,7 @@ const sbNeed = () => (sbDataP ??= import('./sentences.js?v=9392173a').then((m) =
 // 숫자 게임의 읽기와 문제 만들기. 화면을 모르는 순수 계산이라 따로 뒀다.
 // 게임 목록에서 「숫자 읽기」를 시작할 때만 받는다 — XLSX 와 같은 자리다.
 let makeRound = null;
-const needNumbers = async () => (makeRound ??= (await import('./numbers.js?v=9392173a')).makeRound);
+const needNumbers = async () => (makeRound ??= (await import('./numbers.js?v=5376ca45')).makeRound);
 
 // 이 키는 공개돼도 되는 값이다. 이미 APK 안에 같은 것이 들어 있고,
 // 접근을 막는 건 키가 아니라 테이블에 걸린 RLS 다.
@@ -113,8 +113,8 @@ let tqDataP = null;
    유형 연습(topik) 갈래 하나가 이 넷을 다 쓰므로 갈라 봤자 요청만
    늘어난다. */
 const tqNeedData = () => (tqDataP ??= Promise.all([
-  import('./topik.js?v=9392173a'), import('./topik2.js?v=9392173a'),
-  import('./topik-writing.js?v=9392173a'), import('./topik-listening.js?v=9392173a'),
+  import('./topik.js?v=5376ca45'), import('./topik2.js?v=5376ca45'),
+  import('./topik-writing.js?v=5376ca45'), import('./topik-listening.js?v=5376ca45'),
 ]).then(([a, b, c, d]) => {
   TQ_DATA.I  = { reading: a.TOPIK_READING,  blueprint: a.TOPIK_BLUEPRINT,  slots: a.TOPIK_SLOTS };
   TQ_DATA.II = { reading: b.TOPIK2_READING, blueprint: b.TOPIK2_BLUEPRINT, slots: b.TOPIK2_SLOTS };
@@ -125,11 +125,11 @@ const tqNeedData = () => (tqDataP ??= Promise.all([
 let READING = null, rdP = null;
 // 지문의 밑줄 문법 말풍선이 GRAMMAR 를 쓰므로 같이 받아 둔다.
 const rdNeed = () => (rdP ??= Promise.all([
-  import('./reading.js?v=9392173a'), grammarNeed(),
+  import('./reading.js?v=5376ca45'), grammarNeed(),
 ]).then(([m]) => { READING = m.READING; }));
 
 let CONVO = null, cvP = null;
-const cvNeed = () => (cvP ??= import('./convo.js?v=9392173a').then((m) => { CONVO = m.CONVO; }));
+const cvNeed = () => (cvP ??= import('./convo.js?v=5376ca45').then((m) => { CONVO = m.CONVO; }));
 
 /* 배우기를 열면 다섯 다 미리 불을 붙인다. 기다리지 않는다 — 갈래 목록은
    이 자료가 없어도 그려지고, 사람이 갈래를 고르는 사이에 도착한다. */
@@ -527,14 +527,14 @@ let dictOpen = null;  // 지금 "더 보기"(예문·뜻풀이)를 펼쳐 둔 �
    평소엔 안 쓰는 522KB 를 첫 화면 모두에게 물릴 까닭이 없다. */
 let dictSensesP = null;
 const dictLoadSenses = () => (dictSensesP ??=
-  import('./glossary-senses.js?v=9392173a').then((m) => m.SENSES).catch(() => ({})));
+  import('./glossary-senses.js?v=5376ca45').then((m) => m.SENSES).catch(() => ({})));
 
 /* 예문. 국립국어원 자료엔 없어서 Gemini 로 새로 지은 것이다(있는 만큼만
    — docs/glossary-examples-gemini-prompt.md 참고). 뜻풀이와 같은 자리에서
    같이 받는다 — 펼치는 손짓 하나에 몰아 두는 편이 화면이 덜 복잡하다. */
 let dictExamplesP = null;
 const dictLoadExamples = () => (dictExamplesP ??=
-  import('./glossary-examples.js?v=9392173a').then((m) => m.EXAMPLES).catch(() => ({})));
+  import('./glossary-examples.js?v=5376ca45').then((m) => m.EXAMPLES).catch(() => ({})));
 
 function dictVisible() {
   const q = dictQuery.trim().toLowerCase();
@@ -9717,14 +9717,17 @@ function dqEnd() {
      그래서 "한 번도 안 틀렸어요" 를 띄우면 고르기를 다섯 번 틀린
      사람에게도 그 말이 나간다. 다 맞혀야 넘어가므로 "다 풀었다" 는 참이다. */
   const missed = lsWrong.length;
+  /* 제목을 「한 판 끝!」 같은 상투적인 문구 대신 몇 문제를 풀었는지
+     숫자로 바로 보여준다 — 문제만 풀기는 원래 가볍게 훑는 자리라,
+     결과 화면도 그만큼 짧아야 한다. */
   $('lsBlocks').insertAdjacentHTML('beforeend',
     '<div class="ls-done">' +
-      '<div class="ls-done-big">🎉</div>' +
-      `<div class="ls-done-t">${esc(t('한 판 끝!', 'Round done!'))}</div>` +
-      `<p class="ls-done-s">${esc(missed
-        ? t(`${dqTotal}문제를 다 풀었어요. 빈칸에서 틀렸던 ${missed}개는 아래에서 다시 풀 수 있어요.`,
-            `${dqTotal} questions done. You can redo the ${missed} cloze answers you missed.`)
-        : t(`${dqTotal}문제를 다 풀었어요.`, `${dqTotal} questions done.`))}</p>` +
+      '<div class="ls-done-big">🧀</div>' +
+      `<div class="ls-done-t">${esc(t(`${dqTotal}문제 완료!`, `${dqTotal} questions done!`))}</div>` +
+      (missed
+        ? `<p class="ls-done-s">${esc(t(`빈칸에서 틀렸던 ${missed}개는 아래에서 다시 풀 수 있어요.`,
+            `You can redo the ${missed} cloze answers you missed.`))}</p>`
+        : '') +
       '<div class="ls-challenge-btns" style="margin-top:8px">' +
         (missed ? `<button type="button" class="btn-retro green" id="dqCh">⚡ ${esc(t('틀린 것만 1분', '60s on the misses'))}</button>` : '') +
         `<button type="button" class="btn-retro green" id="dqAgain">🔁 ${esc(t('한 판 더', 'One more'))}</button>` +
@@ -10188,7 +10191,11 @@ function exBlock(host, b, done) {
       if (solved) return; solved = true;
       /* ① 0.1초 만에 문장 완성 */
       blankEl.textContent = answer;
-      blankEl.classList.remove('hint'); blankEl.classList.add('reveal');
+      /* 클래스 이름을 'reveal' 로 뒀더니 스크롤 등장 효과의 전역
+         .reveal(opacity:0, 스크롤로 .in 이 붙어야 보임) 과 이름이 겹쳐서
+         정답이 채워져도 화면엔 투명하게 사라져 있었다 — 안 채워진
+         것처럼 보인 원인이 이거였다. 이름을 더 좁혀서 겹치지 않게 한다. */
+      blankEl.classList.remove('hint'); blankEl.classList.add('cloze-reveal');
       /* ② 정답 MP3 / TTS 자동 즉시 재생 (MP3 우선 + audioUrl 전달!) */
       say(fullSay, b.audio);
       /* ③ UI 후처리 */

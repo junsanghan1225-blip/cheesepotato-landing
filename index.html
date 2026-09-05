@@ -115,8 +115,8 @@
      Pretendard 는 통짜(2.0MB) 대신 조각난 쪽을 쓴다 — 브라우저가
      unicode-range 를 보고 화면에 실제로 나온 글자가 든 조각만 받는다.
      그래서 저장소는 무거워졌지만 학습자가 받는 양은 오히려 줄었다. -->
-<link rel="stylesheet" href="vendor/pretendard.css?v=9392173a">
-<link rel="stylesheet" href="vendor/pressstart2p.css?v=9392173a">
+<link rel="stylesheet" href="vendor/pretendard.css?v=5376ca45">
+<link rel="stylesheet" href="vendor/pressstart2p.css?v=5376ca45">
 <style>
 /* ══════════════════════════════════════════════════════════════
    치즈감자 — 랜딩
@@ -2660,6 +2660,11 @@ body.nt-full-open { overflow:hidden; }
   padding:26px; margin-bottom:26px;
 }
 .ex.ok { border-color:rgba(18,112,79,.45); background:#F7FBF8; }
+/* 어두운 모드에서는 이 옅은 배경이 그대로 남아 있는데 글자색(--ink)만
+   밝게 뒤집혀서, 정답을 맞힌 문제의 글이 거의 안 보이게 된다 — 흰
+   바탕에 크림색 글자인 셈이다. 배경도 같이 뒤집는다. */
+:root[data-theme="dark"] .ex.ok { border-color:rgba(63,191,143,.4); background:#1E2B22; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .ex.ok { border-color:rgba(63,191,143,.4); background:#1E2B22; } }
 .ex-tag { font-size:11px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--ink-3); margin-bottom:12px; }
 .ex-q { font-size:17.5px; font-weight:600; color:var(--ink); line-height:1.6; letter-spacing:-.02em; word-break:keep-all; }
 .ex-opts { display:grid; gap:9px; margin-top:18px; }
@@ -2669,10 +2674,18 @@ body.nt-full-open { overflow:hidden; }
   padding:15px 17px; font-size:16px; color:var(--ink); transition:border-color .14s, background .14s;
   word-break:keep-all;
 }
-.ex-opt:hover:not(:disabled) { border-color:rgba(var(--ink-rgb),.26); background:#fff; }
+.ex-opt:hover:not(:disabled) { border-color:rgba(var(--ink-rgb),.26); background:var(--surface); }
 .ex-opt:disabled { cursor:default; }
+/* 맞음·틀림 표시도 위와 같은 까닭으로 배경을 따로 뒤집어야 한다 —
+   .ex-opt 의 글자색(--ink)은 그대로 두고 밑에 깔리는 옅은 색만 바꾼다. */
 .ex-opt.right { border-color:var(--green); background:#EAF6F0; color:var(--ink); font-weight:600; }
 .ex-opt.wrong { border-color:var(--red); background:#FCEFEE; }
+:root[data-theme="dark"] .ex-opt.right { background:#1E2B22; }
+:root[data-theme="dark"] .ex-opt.wrong { background:#2E1A17; }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .ex-opt.right { background:#1E2B22; }
+  :root:not([data-theme="light"]) .ex-opt.wrong { background:#2E1A17; }
+}
 .ex-mark { margin-left:auto; font-size:15px; flex-shrink:0; }
 .ex-say {
   display:inline-flex; align-items:center; gap:9px; cursor:pointer;
@@ -4564,12 +4577,20 @@ body.hlp-open { overflow:hidden; }
   font-weight: 700;
   text-align: center;
 }
-.cloze-blank.reveal {
+/* 이름을 cloze-reveal 로 둔다 — 그냥 reveal 을 썼더니 스크롤 등장
+   효과가 쓰는 전역 .reveal(opacity:0, 스크롤로 .in 이 붙어야 보임)
+   클래스와 부딪혀서, 정답이 채워져도 투명해서 안 보이고 있었다. */
+.cloze-blank.cloze-reveal {
   background: #EAF6F0;
   color: var(--ink);
   border-bottom-color: var(--green);
   animation: pop 350ms ease-out;
 }
+/* 정답을 채운 빈칸 — 어두운 모드에서는 배경(#EAF6F0)이 그대로 남는데
+   글자색(--ink)만 밝게 뒤집혀서 정답 글자가 거의 안 보였다(옅은
+   민트색 위에 크림색 글자). 배경도 같이 어둡게 뒤집는다. */
+:root[data-theme="dark"] .cloze-blank.cloze-reveal { background: #1E2B22; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .cloze-blank.cloze-reveal { background: #1E2B22; } }
 .cloze-blank.hint {
   background: var(--tint);
   color: var(--ink-3);
@@ -4800,10 +4821,10 @@ body.hlp-open { overflow:hidden; }
   60%  { opacity: 1; transform: translateY(0) scale(1.02); }
   100% { opacity: 1; transform: translateY(0) scale(1); }
 }
-.cloze-blank.reveal { animation-duration: .1s !important; }
+.cloze-blank.cloze-reveal { animation-duration: .1s !important; }
 
 @media (prefers-reduced-motion: reduce) {
-  .combo-pop.show, .xp-float, .cloze-blank.reveal, .m-mastered, .cloze-ghost { animation: none !important; opacity: 1 !important; transform: none !important; filter: none !important; }
+  .combo-pop.show, .xp-float, .cloze-blank.cloze-reveal, .m-mastered, .cloze-ghost { animation: none !important; opacity: 1 !important; transform: none !important; filter: none !important; }
 }
 
 /* ── 갈래 사용법 안내 ────────────────────────────────────────────
@@ -7006,9 +7027,9 @@ body.hlp-open { overflow:hidden; }
 <div id="hlpScrim" class="hlp-scrim"></div>
 <aside id="hlpPanel" class="hlp-panel" aria-label="한국어 도우미" aria-hidden="true"></aside>
 
-<script src="app.js?v=9392173a"></script>
-<script type="module" src="app.module.js?v=9392173a"></script>
+<script src="app.js?v=5376ca45"></script>
+<script type="module" src="app.module.js?v=5376ca45"></script>
 
-<script src="analytics.js?v=9392173a" defer></script>
+<script src="analytics.js?v=5376ca45" defer></script>
 </body>
 </html>
