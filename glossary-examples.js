@@ -6875,5 +6875,165 @@ export const EXAMPLES = {
  "빈곤": {
   "ex": "어려운 이웃들이 빈곤에서 벗어나도록 따뜻한 도움을 줘요.",
   "en": "We offer warm support so that needy neighbors can escape poverty."
+ },
+ "빈집": {
+  "ex": "오랫동안 사람이 살지 않아 마을에 빈집이 늘어나요.",
+  "en": "Empty houses increase in the village because no one has lived there for a long time."
+ },
+ "빌다": {
+  "ex": "밤하늘의 밝은 보름달을 보며 마음속으로 소원을 빌어요.",
+  "en": "I make a wish in my heart looking at the bright full moon in the night sky."
+ },
+ "빌리다": {
+  "ex": "도서관에서 수업에 필요한 전공 책을 빌려요.",
+  "en": "I borrow the textbook needed for class from the library."
+ },
+ "빗": {
+  "ex": "화장대 위에 놓인 빗으로 머리를 정돈해요.",
+  "en": "I tidy my hair with the comb placed on the vanity table."
+ },
+ "빗다": {
+  "ex": "외출하기 전에 거울을 보며 머리를 단정하게 빗어요.",
+  "en": "I comb my hair neatly looking in the mirror before going out."
+ },
+ "빗물": {
+  "ex": "처마 밑으로 맑은 빗물이 똑똑 떨어져요.",
+  "en": "Clear rainwater drips drop by drop from under the eaves."
+ },
+ "빗자루": {
+  "ex": "마당에 떨어진 낙엽을 빗자루로 깨끗이 쓸어요.",
+  "en": "I sweep the fallen leaves in the yard cleanly with a broom."
+ },
+ "빛": {
+  "ex": "아침이 되자 창문 사이로 따스한 빛이 들어와요.",
+  "en": "As morning comes, warm light enters through the window."
+ },
+ "빛바래다": {
+  "ex": "오래된 앨범 속 사진이 세월이 흘러 노랗게 빛바래요.",
+  "en": "The photo in the old album loses color and turns yellow over time."
+ },
+ "빠뜨리다": {
+  "ex": "손이 미끄러져서 물속에 열쇠를 빠뜨려요.",
+  "en": "My hand slips, so I drop the key into the water."
+ },
+ "빠르다": {
+  "ex": "지하철은 버스보다 속도가 훨씬 빨라요.",
+  "en": "The subway is much faster than the bus."
+ },
+ "빡빡": {
+  "ex": "더러워진 프라이팬을 수세미로 빡빡 문질러 닦아요.",
+  "en": "I rub and clean the dirty frying pan scrapingly with a scrubber."
+ },
+ "빨간불": {
+  "ex": "신호등에 빨간불이 켜지면 횡단보도 앞에 멈춰 서요.",
+  "en": "When the red light turns on at the traffic light, I stop in front of the crosswalk."
+ },
+ "빨갛다": {
+  "ex": "가을이 되자 사과나무의 사과가 아주 빨개요.",
+  "en": "As autumn arrives, the apples on the apple tree are very red."
+ },
+ "빨다": {
+  "ex": "아기가 입에 손가락을 넣고 쪽쪽 빨아요.",
+  "en": "The baby puts a finger in their mouth and sucks on it."
+ },
+ "빨대": {
+  "ex": "시원한 아이스커피에 얇은 빨대를 꽂아서 마셔요.",
+  "en": "I put a thin drinking straw into the cold iced coffee and drink it."
+ },
+ "빨래": {
+  "ex": "주말 아침에 모아둔 빨래를 세탁기에 넣고 돌려요.",
+  "en": "I put the accumulated laundry into the washing machine on weekend mornings."
+ },
+ "빨리": {
+  "ex": "약속 시간에 늦지 않도록 발걸음을 빨리 움직여요.",
+  "en": "I move my steps quickly so as not to be late for the appointment."
+ },
+ "빨리다": {
+  "ex": "음료수가 빨대를 통해 위로 쏙쏙 빨려요.",
+  "en": "The beverage is smoothly sucked up through the straw."
+ },
+ "빵": {
+  "ex": "아침 식사로 고소한 우유와 부드러운 빵을 먹어요.",
+  "en": "I eat fragrant milk and soft bread for breakfast."
+ },
+ "뽑다": {
+  "ex": "화단에 무성하게 자란 잡초를 손으로 뽑아요.",
+  "en": "I pull out weeds overgrown in the flowerbed by hand."
+ },
+ "뿌리": {
+  "ex": "식물의 튼튼한 뿌리가 땅속 깊이 내려가요.",
+  "en": "The sturdy roots of the plant go deep underground."
+ },
+ "뿌리다": {
+  "ex": "하늘에서 하얀 가랑눈이 보슬보슬 뿌려요.",
+  "en": "White drizzle snow falls softly from the sky."
+ },
+ "뿐": {
+  "ex": "준상은 한국어뿐만 아니라 영어도 아주 유창해요.",
+  "en": "Junsang is fluent not only in Korean but also in English."
+ },
+ "사": {
+  "ex": "시장에서 사 온 신선한 과일을 냉장고에 넣어요.",
+  "en": "I put the fresh fruit I bought from the market into the refrigerator."
+ },
+ "사각": {
+  "ex": "신선한 사과를 한 입 베어 물자 사각 소리가 나요.",
+  "en": "As I take a bite of the fresh apple, it makes a munching sound."
+ },
+ "사각지대": {
+  "ex": "운전할 때는 거울에 보이지 않는 사각지대를 조심해요.",
+  "en": "When driving, watch out for the blind spot that cannot be seen in the mirror."
+ },
+ "사고": {
+  "ex": "눈길에서는 미끄럼 사고가 나지 않도록 조심해요.",
+  "en": "Be careful to avoid slipping accidents on snowy roads."
+ },
+ "사과": {
+  "ex": "아침마다 건강을 위해 빨간 사과 한 개를 먹어요.",
+  "en": "I eat one red apple every morning for my health."
+ },
+ "사과하다": {
+  "ex": "실수로 친구의 발을 밟아서 곧바로 사과해요.",
+  "en": "I accidentally step on my friend's foot and apologize right away."
+ },
+ "사기": {
+  "ex": "힘찬 응원 덕분에 경기 전 선수들의 사기가 크게 올라가요.",
+  "en": "Thanks to energetic cheering, the players' morale rises significantly before the match."
+ },
+ "사다": {
+  "ex": "퇴근길에 동네 마트에서 신선한 달걀을 사요.",
+  "en": "I buy fresh eggs at the neighborhood mart on my way home from work."
+ },
+ "사도": {
+  "ex": "그림책에서 사람들에게 가르침을 전하는 열두 사도의 모습을 봐요.",
+  "en": "I see the twelve apostles conveying teachings to the people in the picture book."
+ },
+ "사동": {
+  "ex": "한국어 문법 시간에 주어가 남에게 행동을 시키는 사동 표현을 배워요.",
+  "en": "We learn causative expressions where the subject makes someone act in Korean grammar class."
+ },
+ "사라지다": {
+  "ex": "아침 안개가 햇살에 천천히 사라져요.",
+  "en": "The morning fog slowly disappears in the sunlight."
+ },
+ "사람": {
+  "ex": "주말이 되자 공원에 산책하는 사람이 아주 많아요.",
+  "en": "When the weekend arrives, there are very many people walking in the park."
+ },
+ "사랑": {
+  "ex": "부모님의 따뜻한 사랑 덕분에 언제나 마음이 든든해요.",
+  "en": "I always feel reassured thanks to my parents' warm love."
+ },
+ "사랑방": {
+  "ex": "마을 주민들이 동네 사랑방에 모여 정답게 이야기를 나눠요.",
+  "en": "Village residents gather in the neighborhood community room and chat warmly."
+ },
+ "사랑스럽다": {
+  "ex": "꼬리를 살랑살랑 흔드는 강아지 치즈가 정말 사랑스러워요.",
+  "en": "The puppy Cheese wagging his tail gently is truly adorable."
+ },
+ "사려": {
+  "ex": "석진은 깊은 사려를 바탕으로 주변 사람들을 늘 배려해요.",
+  "en": "Seokjin always cares for people around him based on deep thoughtfulness."
  }
 };
