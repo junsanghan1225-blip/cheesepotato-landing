@@ -13,7 +13,7 @@
    어느 날 갑자기 다른 코드가 실려 왔다.
    이제 vendor/ 안에 받아 두고 CSP 로 바깥을 막는다. 버전을 올릴 때는
    tools/vendor.mjs 의 PIN 을 고치고 다시 돌린다. */
-import { createClient } from './vendor/supabase-js.js?v=5376ca45';
+import { createClient } from './vendor/supabase-js.js?v=90f55ffd';
 // 앱(package.json)과 같은 줄기를 쓴다. 갈리면 앱에서는 읽히는 파일이
 // 여기서는 안 읽히는(또는 그 반대) 일이 생긴다.
 /* 엑셀 라이브러리는 422KB — 이 판에서 가장 무거운 조각이다. 그런데 쓰는
@@ -25,23 +25,23 @@ import { createClient } from './vendor/supabase-js.js?v=5376ca45';
    자국(?v=)은 tools/stamp.mjs 가 아래 줄에 알아서 붙인다 — 정적으로 쓰든
    동적으로 쓰든 같은 글자를 찾으므로 바꿔도 그대로 찍힌다. */
 let XLSX = null;
-const needXLSX = async () => (XLSX ??= await import('./vendor/xlsx.js?v=5376ca45'));
+const needXLSX = async () => (XLSX ??= await import('./vendor/xlsx.js?v=90f55ffd'));
 // 커리큘럼. 내용과 엔진을 갈라 두면 글을 고치다 화면을 깨지 않는다.
 // 갈래 목록(drawSections)·코스(drawCourses)·문제만 풀기(dqDraw) 를 열 때만
 // 받는다 — 배우기 갈래 목록도 안 본 사람에게 코스 71개 레슨을 다 물릴
 // 까닭이 없다. warmLearn() 이 배우기를 여는 순간 미리 불을 붙여 둔다.
 let COURSES = [], coursesP = null;
-const coursesNeed = () => (coursesP ??= import('./courses.js?v=5376ca45').then((m) => { COURSES = m.COURSES; }));
-import { GLOSSARY, GLOSS_LANGS } from './glossary.js?v=5376ca45';
-import { glossFind } from './gloss-find.js?v=5376ca45';
+const coursesNeed = () => (coursesP ??= import('./courses.js?v=90f55ffd').then((m) => { COURSES = m.COURSES; }));
+import { GLOSSARY, GLOSS_LANGS } from './glossary.js?v=90f55ffd';
+import { glossFind } from './gloss-find.js?v=90f55ffd';
 /* 문법 사전(뜻풀이 197개). 읽기 지문의 밑줄 문법 말풍선(rdNeed)과 예문
    만들기 화면(sbNeed) 양쪽이 쓴다 — 둘 중 먼저 여는 화면이 받아 두고,
    나중 화면은 그 약속(??=)을 그대로 쓴다. */
 let GRAMMAR = [], GRAMMAR_EN = {}, grammarP = null;
 const grammarNeed = () => (grammarP ??= Promise.all([
-  import('./grammar.js?v=5376ca45'), import('./grammar-en.js?v=5376ca45'),
+  import('./grammar.js?v=90f55ffd'), import('./grammar-en.js?v=90f55ffd'),
 ]).then(([a, b]) => { GRAMMAR = a.GRAMMAR; GRAMMAR_EN = b.GRAMMAR_EN; }));
-import { grammarScan } from './grammar-find.js?v=5376ca45';
+import { grammarScan } from './grammar-find.js?v=90f55ffd';
 // TOPIK 쓰기·듣기 문항. 읽기(topik.js·topik2.js)와 같은 tqNeedData() 로
 // 함께 받는다 — 유형 연습(topik) 갈래 하나가 세 기술을 다 쓰므로 따로
 // 가를 까닭이 없다. 값은 tqNeedData 정의부에서 채운다.
@@ -53,7 +53,7 @@ let TOPIKL_BY_EXAM = {}, TOPIKL_PICTURE_SLOTS = {};
    sbFind 를 쓰는데, 그쪽은 안 기다리고 그냥 부른다 — 답이 못 찾은
    인용 없이 나가는 것이 채팅이 멈추는 것보다 낫다. */
 let SB_CATS = [], SB_MORE = {}, SB_SEED = {}, SB_POINTS = [], sbDataP = null;
-const sbNeed = () => (sbDataP ??= import('./sentences.js?v=5376ca45').then((m) => {
+const sbNeed = () => (sbDataP ??= import('./sentences.js?v=90f55ffd').then((m) => {
   SB_CATS = m.SB_CATS; SB_MORE = m.SB_MORE; SB_SEED = m.SB_SEED;
   // 갈래마다 표현을 펼쳐 한 줄에 담는다 — SB_CATS 안의 점에는 갈래가 안
   // 달려 있어서(sbFind 가 표현 하나를 id 로 바로 찾으려면 이게 있어야 한다).
@@ -64,7 +64,7 @@ const sbNeed = () => (sbDataP ??= import('./sentences.js?v=5376ca45').then((m) =
 // 숫자 게임의 읽기와 문제 만들기. 화면을 모르는 순수 계산이라 따로 뒀다.
 // 게임 목록에서 「숫자 읽기」를 시작할 때만 받는다 — XLSX 와 같은 자리다.
 let makeRound = null;
-const needNumbers = async () => (makeRound ??= (await import('./numbers.js?v=5376ca45')).makeRound);
+const needNumbers = async () => (makeRound ??= (await import('./numbers.js?v=90f55ffd')).makeRound);
 
 // 이 키는 공개돼도 되는 값이다. 이미 APK 안에 같은 것이 들어 있고,
 // 접근을 막는 건 키가 아니라 테이블에 걸린 RLS 다.
@@ -113,8 +113,8 @@ let tqDataP = null;
    유형 연습(topik) 갈래 하나가 이 넷을 다 쓰므로 갈라 봤자 요청만
    늘어난다. */
 const tqNeedData = () => (tqDataP ??= Promise.all([
-  import('./topik.js?v=5376ca45'), import('./topik2.js?v=5376ca45'),
-  import('./topik-writing.js?v=5376ca45'), import('./topik-listening.js?v=5376ca45'),
+  import('./topik.js?v=90f55ffd'), import('./topik2.js?v=90f55ffd'),
+  import('./topik-writing.js?v=90f55ffd'), import('./topik-listening.js?v=90f55ffd'),
 ]).then(([a, b, c, d]) => {
   TQ_DATA.I  = { reading: a.TOPIK_READING,  blueprint: a.TOPIK_BLUEPRINT,  slots: a.TOPIK_SLOTS };
   TQ_DATA.II = { reading: b.TOPIK2_READING, blueprint: b.TOPIK2_BLUEPRINT, slots: b.TOPIK2_SLOTS };
@@ -125,11 +125,11 @@ const tqNeedData = () => (tqDataP ??= Promise.all([
 let READING = null, rdP = null;
 // 지문의 밑줄 문법 말풍선이 GRAMMAR 를 쓰므로 같이 받아 둔다.
 const rdNeed = () => (rdP ??= Promise.all([
-  import('./reading.js?v=5376ca45'), grammarNeed(),
+  import('./reading.js?v=90f55ffd'), grammarNeed(),
 ]).then(([m]) => { READING = m.READING; }));
 
 let CONVO = null, cvP = null;
-const cvNeed = () => (cvP ??= import('./convo.js?v=5376ca45').then((m) => { CONVO = m.CONVO; }));
+const cvNeed = () => (cvP ??= import('./convo.js?v=90f55ffd').then((m) => { CONVO = m.CONVO; }));
 
 /* 배우기를 열면 다섯 다 미리 불을 붙인다. 기다리지 않는다 — 갈래 목록은
    이 자료가 없어도 그려지고, 사람이 갈래를 고르는 사이에 도착한다. */
@@ -527,14 +527,14 @@ let dictOpen = null;  // 지금 "더 보기"(예문·뜻풀이)를 펼쳐 둔 �
    평소엔 안 쓰는 522KB 를 첫 화면 모두에게 물릴 까닭이 없다. */
 let dictSensesP = null;
 const dictLoadSenses = () => (dictSensesP ??=
-  import('./glossary-senses.js?v=5376ca45').then((m) => m.SENSES).catch(() => ({})));
+  import('./glossary-senses.js?v=90f55ffd').then((m) => m.SENSES).catch(() => ({})));
 
 /* 예문. 국립국어원 자료엔 없어서 Gemini 로 새로 지은 것이다(있는 만큼만
    — docs/glossary-examples-gemini-prompt.md 참고). 뜻풀이와 같은 자리에서
    같이 받는다 — 펼치는 손짓 하나에 몰아 두는 편이 화면이 덜 복잡하다. */
 let dictExamplesP = null;
 const dictLoadExamples = () => (dictExamplesP ??=
-  import('./glossary-examples.js?v=5376ca45').then((m) => m.EXAMPLES).catch(() => ({})));
+  import('./glossary-examples.js?v=90f55ffd').then((m) => m.EXAMPLES).catch(() => ({})));
 
 function dictVisible() {
   const q = dictQuery.trim().toLowerCase();
@@ -9622,18 +9622,36 @@ function twToggleClock() {
 const DQ_MAX = 15;   // 한 판. 다 맞혀야 끝나므로 길면 끝을 못 보고 나간다.
 
 /* 그 급의 모든 레슨에서 문제 블록만. 어느 코스에서 왔는지 함께 들고
-   온다 — 문제만 이어지면 지금 무엇을 확인하는 중인지 알 수 없다. */
+   온다 — 문제만 이어지면 지금 무엇을 확인하는 중인지 알 수 없다.
+   key 는 레슨 안에서 이 블록의 자리를 가리키는 값이라, 코스 내용이
+   그대로면 다시 열어도 같은 문제를 같은 key 로 알아볼 수 있다 —
+   "이미 푼 문제 제외" 가 이 key 로 돌아간다. */
 function dqPool(level) {
   const out = [];
   COURSES.filter((c) => courseTier(c) === level).forEach((c) => {
     c.lessons.forEach((l) => {
-      l.blocks.filter(isEx).forEach((b) => out.push({ b, course: c, lesson: l }));
+      l.blocks.forEach((b, idx) => { if (isEx(b)) out.push({ b, course: c, lesson: l, key: `${l.id}#${idx}` }); });
     });
   });
   return out;
 }
 
+/* 이미 나온 문제는 이 급수를 다 돌기 전까지 다시 안 나오게 한다.
+   기기에 남기고(localStorage) 로그인 여부와 상관없이 쓴다 — 서버까지
+   맞출 만큼 무거운 자리가 아니다. 한 바퀴(그 급의 모든 문제)를 다
+   보면 자동으로 비우고 새로 돈다 — 안 그러면 다 본 뒤에는 낼 문제가
+   없어서 판이 하나도 안 만들어진다. */
+const dqSeenKey = (level) => `cp_dq_seen_${level}`;
+function dqLoadSeen(level) {
+  try { return new Set(JSON.parse(localStorage.getItem(dqSeenKey(level)) || '[]')); }
+  catch (e) { return new Set(); }
+}
+function dqSaveSeen(level, seen) {
+  try { localStorage.setItem(dqSeenKey(level), JSON.stringify([...seen])); } catch (e) {}
+}
+
 let dqQueue = [], dqTotal = 0, dqDone = 0, dqFrom = false;
+let dqSeen = new Set(), dqSeenLevel = null;
 
 async function dqDraw() {
   await coursesNeed();
@@ -9669,8 +9687,22 @@ function dqMeter() {
 }
 
 function dqStart() {
-  const pool = dqPool(learnLv.quiz).slice().sort(() => Math.random() - 0.5);
-  dqQueue = pool.slice(0, DQ_MAX);
+  const level = learnLv.quiz;
+  const pool = dqPool(level);
+  dqSeenLevel = level;
+  dqSeen = dqLoadSeen(level);
+  let unseen = pool.filter((x) => !dqSeen.has(x.key));
+  /* 이 급을 다 돌았으면(또는 처음이면) 한 바퀴 새로 시작한다. */
+  if (!unseen.length) { dqSeen = new Set(); unseen = pool.slice(); }
+  const queue = unseen.slice().sort(() => Math.random() - 0.5).slice(0, DQ_MAX);
+  if (queue.length < DQ_MAX) {
+    // 안 본 것만으로 한 판을 못 채우면(막 한 바퀴를 넘어갈 때) 나머지는
+    // 이미 본 것 중에서 채운다 — 그래도 판이 짧아지는 것보단 낫다.
+    const picked = new Set(queue.map((x) => x.key));
+    const rest = pool.filter((x) => !picked.has(x.key)).sort(() => Math.random() - 0.5);
+    queue.push(...rest.slice(0, DQ_MAX - queue.length));
+  }
+  dqQueue = queue;
   dqTotal = dqQueue.length; dqDone = 0;
   if (!dqTotal) return;
 
@@ -9698,6 +9730,8 @@ function dqNext() {
   if (!dqQueue.length) return dqEnd();
 
   const item = dqQueue.shift();
+  dqSeen.add(item.key);
+  dqSaveSeen(dqSeenLevel, dqSeen);
   const host = document.createElement('div');
   $('lsBlocks').appendChild(host);
   host.insertAdjacentHTML('beforeend', `<div class="dq-from">${esc(cTx(item.course.title))}</div>`);
