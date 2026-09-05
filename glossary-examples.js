@@ -6395,5 +6395,165 @@ export const EXAMPLES = {
  "봉사자": {
   "ex": "행사장 곳곳에서 친절한 자원 봉사자가 손님을 도와요.",
   "en": "Kind volunteers assist guests throughout the event venue."
+ },
+ "봉사하다": {
+  "ex": "주말마다 동네 복지관에서 이웃을 위해 봉사해요.",
+  "en": "I volunteer for neighbors at the neighborhood community center every weekend."
+ },
+ "봉사활동": {
+  "ex": "방학 동안 친구들과 함께 보람찬 봉사활동을 해요.",
+  "en": "I do rewarding volunteer activity with friends during vacation."
+ },
+ "봉투": {
+  "ex": "편지를 하얀 종이 봉투에 조심스럽게 넣어요.",
+  "en": "I carefully put the letter into the white paper envelope."
+ },
+ "부": {
+  "ex": "회사에서 새로 생긴 영업 부로 자리를 옮겨요.",
+  "en": "I move my seat to the newly established sales department at the company."
+ },
+ "부과": {
+  "ex": "규칙을 어긴 사람에게 벌금 부과가 내려져요.",
+  "en": "A fine imposition is placed on the person who broke the rule."
+ },
+ "부과되다": {
+  "ex": "기한을 넘기면 추가 요금이 부과돼요.",
+  "en": "An additional fee is imposed if you miss the deadline."
+ },
+ "부끄러움": {
+  "ex": "처음 만난 사람 앞에서는 약간의 부끄러움을 타요.",
+  "en": "I feel a bit of shyness in front of someone I meet for the first time."
+ },
+ "부끄럽다": {
+  "ex": "많은 사람 앞에서 이야기하려니 조금 부끄러워요.",
+  "en": "I feel a bit shy because I have to speak in front of many people."
+ },
+ "부녀회": {
+  "ex": "마을 부녀회에서 이웃을 위한 나눔 행사를 열어요.",
+  "en": "The village women's association holds a sharing event for neighbors."
+ },
+ "부담": {
+  "ex": "시험을 앞두고 마음에 큰 부담을 느껴요.",
+  "en": "I feel a heavy burden in my heart ahead of the exam."
+ },
+ "부드럽다": {
+  "ex": "새로 산 담요가 아주 부드러워요.",
+  "en": "The newly bought blanket is very soft."
+ },
+ "부디": {
+  "ex": "떠나는 친구에게 부디 건강하게 잘 지내라고 인사해요.",
+  "en": "I kindly say goodbye to my departing friend, wishing them to stay healthy."
+ },
+ "부러": {
+  "ex": "친구를 놀라게 해 주려고 부러 소리를 내지 않아요.",
+  "en": "I deliberately make no sound to surprise my friend."
+ },
+ "부러지다": {
+  "ex": "강한 바람에 마당에 있는 얇은 나뭇가지가 부러져요.",
+  "en": "A thin tree branch in the yard breaks in the strong wind."
+ },
+ "부류": {
+  "ex": "도서관 책들을 성격에 따라 같은 부류로 나눠요.",
+  "en": "I divide the library books into the same category according to their characteristics."
+ },
+ "부르다": {
+  "ex": "친구들과 노래방에서 신나는 노래를 함께 불러요.",
+  "en": "I sing an exciting song together with my friends at the karaoke room."
+ },
+ "부모": {
+  "ex": "세상의 모든 부모는 자식을 깊이 사랑해요.",
+  "en": "All parents in the world deeply love their children."
+ },
+ "부모님": {
+  "ex": "주말에는 고향에 계신 부모님께 전화를 드려요.",
+  "en": "I call my parents in my hometown on the weekend."
+ },
+ "부목": {
+  "ex": "다친 팔이 움직이지 않도록 단단한 부목을 대요.",
+  "en": "I apply a firm splint to keep the injured arm from moving."
+ },
+ "부분": {
+  "ex": "교재에서 이해하기 어려운 부분을 다시 읽어요.",
+  "en": "I reread the difficult part to understand in the textbook."
+ },
+ "부사": {
+  "ex": "선생님이 문장에서 동사를 꾸며주는 부사를 설명해요.",
+  "en": "The teacher explains the adverb that modifies a verb in a sentence."
+ },
+ "부산": {
+  "ex": "여름 휴가 때 기차를 타고 바다가 아름다운 부산에 가요.",
+  "en": "I take a train to Busan, where the sea is beautiful, for summer vacation."
+ },
+ "부상": {
+  "ex": "축구 경기 중에 가벼운 다리 부상을 입어요.",
+  "en": "I suffer a minor leg injury during a soccer game."
+ },
+ "부서": {
+  "ex": "석진은 회사에서 기획을 담당하는 부서에서 일해요.",
+  "en": "Seokjin works in the department in charge of planning at the company."
+ },
+ "부시다": {
+  "ex": "사용한 그릇을 깨끗한 물로 부셔요.",
+  "en": "I rinse out the used bowl with clean water."
+ },
+ "부양": {
+  "ex": "가족의 안정적인 부양을 위해 열심히 일해요.",
+  "en": "I work hard for the stable support of my family."
+ },
+ "부작용": {
+  "ex": "약을 먹기 전에 설명서에서 부작용을 확인해요.",
+  "en": "I check the side effects in the manual before taking medicine."
+ },
+ "부장": {
+  "ex": "부장님이 회의실에서 새로운 업무 계획을 전달해요.",
+  "en": "The department head delivers the new work plan in the meeting room."
+ },
+ "부정": {
+  "ex": "시험장에서 어떠한 부정 행위도 용납하지 않아요.",
+  "en": "No unlawfulness or cheating is tolerated in the examination hall."
+ },
+ "부정문": {
+  "ex": "한국어에서 '안'을 사용해 간단한 부정문을 만들어요.",
+  "en": "In Korean, we create simple negative sentences using 'an'."
+ },
+ "부정적": {
+  "ex": "어려운 상황에서도 너무 부정적 생각만 하지 않아요.",
+  "en": "I do not harbor only negative thoughts even in difficult situations."
+ },
+ "부족": {
+  "ex": "요즘 잠 부족으로 낮에 조금 피곤해요.",
+  "en": "I am a bit tired during the day due to a lack of sleep recently."
+ },
+ "부족하다": {
+  "ex": "아직 연습 시간이 많이 부족해요.",
+  "en": "The practice time is still very insufficient."
+ },
+ "부주의": {
+  "ex": "사소한 부주의로 길에서 물건을 떨어뜨려요.",
+  "en": "I drop an item on the street out of minor carelessness."
+ },
+ "부진": {
+  "ex": "날씨가 궂어서 시장의 과일 판매가 부진을 겪어요.",
+  "en": "Fruit sales at the market suffer sluggishness due to bad weather."
+ },
+ "부치다": {
+  "ex": "혼자서 이 큰 짐을 옮기기는 힘에 부쳐요.",
+  "en": "Moving this large luggage alone is beyond my capacity."
+ },
+ "부탁": {
+  "ex": "친구에게 이번 주말 일정에 대한 작은 부탁을 해요.",
+  "en": "I make a small request to my friend regarding this weekend's schedule."
+ },
+ "부탁하다": {
+  "ex": "바쁜 동료에게 회의 자료 정리를 정중히 부탁해요.",
+  "en": "I politely request a busy colleague to organize the meeting materials."
+ },
+ "부품": {
+  "ex": "고장 난 자전거를 고치려고 새로운 부품을 사요.",
+  "en": "I buy new components to fix my broken bicycle."
+ },
+ "북": {
+  "ex": "음악 시간에 채를 들고 신나게 북을 쳐요.",
+  "en": "I hold drumsticks and play the drum joyfully in music class."
  }
 };
