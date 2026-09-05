@@ -5586,5 +5586,165 @@
  "반려": {
   "ex": "귀여운 강아지 치즈는 제 삶의 든든한 반려예요.",
   "en": "The cute puppy Cheese is a dependable companion in my life."
+ },
+ "반려식물": {
+  "ex": "집에서 작은 반려식물에 물을 줘요.",
+  "en": "I water the small companion plant at home."
+ },
+ "반말": {
+  "ex": "친한 친구와 편하게 반말로 대화해요.",
+  "en": "I comfortably talk in informal speech with my close friend."
+ },
+ "반면": {
+  "ex": "수미는 노래를 잘 부르는 반면 춤은 서툴러요.",
+  "en": "Sumi is good at singing, whereas she is clumsy at dancing."
+ },
+ "반문": {
+  "ex": "친구의 엉뚱한 질문에 놀란 반문으로 답해요.",
+  "en": "I reply with a surprised question back to my friend's silly inquiry."
+ },
+ "반문하다": {
+  "ex": "친구가 무슨 뜻인지 몰라서 저에게 반문해요.",
+  "en": "My friend does not understand what it means, so they ask me back."
+ },
+ "반복": {
+  "ex": "한국어 단어는 꾸준한 반복 학습이 중요해요.",
+  "en": "Steady repetition is important when learning Korean vocabulary."
+ },
+ "반복되다": {
+  "ex": "매일 똑같은 일상이 지루하게 반복돼요.",
+  "en": "The same daily routine is boringly repeated every day."
+ },
+ "반복하다": {
+  "ex": "어려운 문장을 여러 번 소리 내어 반복해요.",
+  "en": "I repeat difficult sentences out loud several times."
+ },
+ "반응": {
+  "ex": "새로운 메뉴에 대한 손님들의 반응이 아주 좋아요.",
+  "en": "The customers' reaction to the new menu is very good."
+ },
+ "반장": {
+  "ex": "준상은 책임감이 강해서 우리 반의 반장을 맡아요.",
+  "en": "Junsang has a strong sense of responsibility, so he serves as our class head."
+ },
+ "반짝": {
+  "ex": "어둠 속에서 작은 불빛이 반짝 빛나요.",
+  "en": "A small light shines in a flash in the dark."
+ },
+ "반짝이다": {
+  "ex": "밤하늘에 수많은 별들이 아름답게 반짝여요.",
+  "en": "Countless stars shine beautifully in the night sky."
+ },
+ "반찬": {
+  "ex": "식탁 위에 맛있는 반찬이 가득해요.",
+  "en": "The dining table is full of delicious side dishes."
+ },
+ "받다": {
+  "ex": "생일에 친구들에게 따뜻한 축하를 받아요.",
+  "en": "I receive warm congratulations from my friends on my birthday."
+ },
+ "받침": {
+  "ex": "뜨거운 냄비 아래에 튼튼한 받침을 놓아요.",
+  "en": "I place a sturdy support under the hot pot."
+ },
+ "발": {
+  "ex": "하루 종일 걸어서 발이 조금 아파요.",
+  "en": "My feet hurt a little because I walked all day."
+ },
+ "발견": {
+  "ex": "도서관 구석에서 오래된 책의 발견으로 기뻐해요.",
+  "en": "I am delighted by the discovery of an old book in the corner of the library."
+ },
+ "발견되다": {
+  "ex": "공원 풀숲에서 잃어버린 열쇠가 발견돼요.",
+  "en": "The lost key is found in the bushes of the park."
+ },
+ "발견하다": {
+  "ex": "산책을 하다가 예쁜 꽃을 발견해요.",
+  "en": "I find pretty flowers while taking a walk."
+ },
+ "발길": {
+  "ex": "주말을 맞아 사람들의 발길이 공원으로 이어져요.",
+  "en": "Over the weekend, people's steps lead toward the park."
+ },
+ "발달": {
+  "ex": "이 도시는 교통의 발달로 살기 편해요.",
+  "en": "This city is convenient to live in thanks to the development of transportation."
+ },
+ "발령": {
+  "ex": "석진은 새로운 지사로 인사 발령을 받아요.",
+  "en": "Seokjin receives a personnel appointment to the new branch office."
+ },
+ "발맞추다": {
+  "ex": "친구와 속도를 발맞춰서 함께 걸어요.",
+  "en": "I keep pace with my friend and walk together."
+ },
+ "발명": {
+  "ex": "과학자의 새로운 발명이 사람들의 삶을 바꿔요.",
+  "en": "The scientist's new invention changes people's lives."
+ },
+ "발목": {
+  "ex": "계단을 내려오다가 발목을 살짝 삐어요.",
+  "en": "I slightly twist my ankle while coming down the stairs."
+ },
+ "발병": {
+  "ex": "환절기에는 감기의 발병을 조심해야 해요.",
+  "en": "You need to watch out for the occurrence of colds during changing seasons."
+ },
+ "발병률": {
+  "ex": "규칙적인 운동은 질병의 발병률을 낮춰요.",
+  "en": "Regular exercise lowers the incidence rate of illnesses."
+ },
+ "발사": {
+  "ex": "하늘 높이 우주선의 성공적인 발사를 지켜봐요.",
+  "en": "We watch the successful launch of the spacecraft high into the sky."
+ },
+ "발산": {
+  "ex": "운동을 하며 쌓인 스트레스의 발산을 도와요.",
+  "en": "Exercising helps the release of accumulated stress."
+ },
+ "발생": {
+  "ex": "갑작스러운 사고 발생으로 도로가 막혀요.",
+  "en": "The road is blocked due to the occurrence of a sudden accident."
+ },
+ "발생률": {
+  "ex": "안전 교육 덕분에 사고 발생률이 줄어요.",
+  "en": "Thanks to safety education, the occurrence rate of accidents decreases."
+ },
+ "발생하다": {
+  "ex": "갑자기 컴퓨터에 작은 문제가 발생해요.",
+  "en": "A small problem suddenly occurs on the computer."
+ },
+ "발음": {
+  "ex": "리아는 한국어 발음이 아주 정확해요.",
+  "en": "Lia's Korean pronunciation is very accurate."
+ },
+ "발음하다": {
+  "ex": "새로운 단어를 천천히 소리 내어 발음해요.",
+  "en": "I slowly pronounce the new word out loud."
+ },
+ "발전": {
+  "ex": "우리 회사는 기술의 빠른 발전으로 성장해요.",
+  "en": "Our company grows through the rapid development of technology."
+ },
+ "발전기": {
+  "ex": "정전이 되자 비상용 발전기가 바로 돌아가요.",
+  "en": "When the power goes out, the emergency electric generator runs right away."
+ },
+ "발전하다": {
+  "ex": "도시가 날마다 눈부시게 발전해요.",
+  "en": "The city develops remarkably day by day."
+ },
+ "발차": {
+  "ex": "기차의 정시 발차를 위해 승객들이 서둘러 탑승해요.",
+  "en": "Passengers board hurriedly for the train's on-time departure."
+ },
+ "발차기": {
+  "ex": "체육관에서 태권도 발차기를 힘차게 연습해요.",
+  "en": "I vigorously practice a Taekwondo kick at the gym."
+ },
+ "발표": {
+  "ex": "내일 수업 시간에 한국 문화에 대한 발표를 해요.",
+  "en": "I give a presentation on Korean culture in class tomorrow."
  }
 }
