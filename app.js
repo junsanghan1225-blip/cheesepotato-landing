@@ -1064,6 +1064,21 @@ ptId('navBtn').addEventListener('click', () => {
 });
 ptId('heroTestBtn').addEventListener('click', () => ptShow(true));
 
+/* 문법 로드맵 — 급수 단추를 누르면 그 급수의 목록 판만 보인다.
+   급수마다 판을 다 그려 두고 hidden 만 건다 — 자료가 여섯 급수뿐이라
+   요소를 새로 만들고 지우는 것보다 이 편이 간단하다. */
+document.querySelectorAll('.gr-road-btn').forEach((btn) => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.gr-road-btn').forEach((b) => {
+      const on = b === btn;
+      b.classList.toggle('on', on);
+      b.setAttribute('aria-selected', String(on));
+    });
+    const lv = btn.dataset.lv;
+    document.querySelectorAll('.gr-road-panel').forEach((p) => { p.hidden = p.dataset.lv !== lv; });
+  });
+});
+
 /* 한국어 / English
    원문(한국어)은 그대로 두고 data-en 에 영어를 달아 뒀다.
    영어를 못 붙인 곳은 자동으로 한국어가 남아 화면이 비지 않는다. */
