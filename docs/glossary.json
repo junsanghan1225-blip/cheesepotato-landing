@@ -2799,6 +2799,24 @@
   "only": true
  },
  {
+  "ko": "사료",
+  "en": "feed; fodder",
+  "pos": "명사",
+  "only": true
+ },
+ {
+  "ko": "사인",
+  "en": "signature",
+  "pos": "명사",
+  "only": true
+ },
+ {
+  "ko": "사원",
+  "en": "employee; staff",
+  "pos": "명사",
+  "only": true
+ },
+ {
   "ko": "녹",
   "en": "rust",
   "pos": "명사",
