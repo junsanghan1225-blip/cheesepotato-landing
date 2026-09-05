@@ -115,8 +115,8 @@
      Pretendard 는 통짜(2.0MB) 대신 조각난 쪽을 쓴다 — 브라우저가
      unicode-range 를 보고 화면에 실제로 나온 글자가 든 조각만 받는다.
      그래서 저장소는 무거워졌지만 학습자가 받는 양은 오히려 줄었다. -->
-<link rel="stylesheet" href="vendor/pretendard.css?v=28c959a7">
-<link rel="stylesheet" href="vendor/pressstart2p.css?v=28c959a7">
+<link rel="stylesheet" href="vendor/pretendard.css?v=b0bfb9a7">
+<link rel="stylesheet" href="vendor/pressstart2p.css?v=b0bfb9a7">
 <style>
 /* ══════════════════════════════════════════════════════════════
    치즈감자 — 랜딩
@@ -945,6 +945,9 @@ button.btn-primary, button.btn-ghost { font-family:inherit; }
   border-bottom:1.5px solid rgba(255,138,61,.4); padding-bottom:2px;
 }
 .wb-link:hover { border-bottom-color:var(--orange-deep); }
+/* wb-link 는 원래 <a> 몫이었다 — <button> 에 쓰는 자리(스트릭 구역)는
+   브라우저 기본 버튼 테두리·배경·글꼴을 지워야 같은 모양이 된다. */
+button.wb-link { background:none; border:none; border-bottom:1.5px solid rgba(255,138,61,.4); font:inherit; cursor:pointer; }
 .wb-card {
   background:var(--surface); border:1px solid var(--line-2); border-radius:var(--r-l);
   padding:26px 24px; max-width:320px; margin:0 auto;
@@ -961,6 +964,30 @@ button.btn-primary, button.btn-ghost { font-family:inherit; }
 }
 .wb-card-diff { display:flex; align-items:center; gap:3px; margin-top:16px; font-size:15px; }
 .wb-card-n { font-size:12px; font-weight:700; color:var(--ink-3); margin-left:5px; }
+
+/* ══ 매일 학습 스트릭 ═══════════════════════════════════════════
+   실제 배우기 화면(ls-streak)이 쓰는 것과 같은 모양(🔥 며칠 연속·
+   최장 기록)을 목업 카드로 옮겼다 — wb-card 와 같은 자리·크기. */
+.streak-mock {
+  background:var(--surface); border:1px solid var(--line-2); border-radius:var(--r-l);
+  padding:28px 24px; max-width:280px; margin:0 auto; text-align:center;
+}
+.streak-mock-fire { font-size:34px; line-height:1; }
+.streak-mock-num {
+  font-size:44px; font-weight:800; color:var(--ink); letter-spacing:-.03em;
+  margin-top:6px; font-variant-numeric:tabular-nums;
+}
+.streak-mock-num small { font-size:20px; font-weight:700; color:var(--ink-3); margin-left:3px; }
+.streak-mock-lbl { font-size:12.5px; font-weight:600; color:var(--ink-3); margin-top:2px; }
+.streak-mock-week { display:flex; justify-content:center; gap:6px; margin-top:18px; }
+.streak-mock-week span {
+  width:14px; height:14px; border-radius:50%; background:var(--line-2); display:block;
+}
+.streak-mock-week span.on { background:var(--orange); }
+.streak-mock-best {
+  font-size:12px; font-weight:600; color:var(--ink-3); margin-top:14px;
+  padding-top:14px; border-top:1px solid var(--line-2);
+}
 
 /* ══ 자주 묻는 것 ══════════════════════════════════════════════
    묻고 답하기가 대화형 엔진이 가장 잘 뽑아 쓰는 모양이다. details 로 둔
@@ -5201,6 +5228,41 @@ body.hlp-open { overflow:hidden; }
 
   <div class="divider"></div>
 
+  <!-- 매일 학습 스트릭. 배우기·읽기·복습 화면에는 이미 있던 기능인데
+       홈페이지에서는 한 번도 보여준 적이 없었다("스트릭을 홈에서 안
+       판다"는 지적). 로그인 상태의 실제 진도(lesson_progress 표)로
+       계산하는 진짜 기능이라, 목업 카드도 그 모양(🔥 며칠 연속·최장
+       기록) 그대로 옮겼다 — 단어장 구역의 wb-card 와 같은 자리다. */ -->
+  <div class="section" id="streak">
+   <div class="split split-2">
+    <div>
+      <div class="streak-mock">
+        <div class="streak-mock-fire">🔥</div>
+        <div class="streak-mock-num">7<small data-en="days">일</small></div>
+        <div class="streak-mock-lbl" data-en="day streak">연속 학습</div>
+        <div class="streak-mock-week">
+          <span class="on"></span><span class="on"></span><span class="on"></span>
+          <span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span>
+        </div>
+        <div class="streak-mock-best" data-en="Best: 21 days">최장 21일</div>
+      </div>
+    </div>
+    <div>
+      <div class="label" data-en="ALSO — DAILY STREAK">덤 — 매일 학습</div>
+      <p class="section-title" data-en="Every day you show up<br>gets counted">보인 하루하루가<br>다 기록됩니다</p>
+      <p class="section-sub" data-en="Duolingo-style streaks, but tied to real lessons you finished — not just opening the app.">레슨을 진짜로 끝낸 날만 채워지는 스트릭이에요. 앱만 열어 본 날은 안 셉니다.</p>
+      <ul class="wb-pts">
+        <li data-en="Finish one lesson and today counts — courses, TOPIK practice, reading all feed the same streak">레슨을 하나라도 끝내면 그날이 채워져요 — 코스·TOPIK 연습·읽기가 다 같은 스트릭에 들어갑니다</li>
+        <li data-en="Your best-ever streak is kept separately, as something to beat again">최장 기록도 따로 남아서, 다시 넘어설 이유가 생겨요</li>
+        <li data-en="Signed in, it lives on the server — switch phones or computers and the streak comes with you">로그인하면 서버에 남아서, 기기를 바꿔도 스트릭이 그대로 이어져요</li>
+      </ul>
+      <button type="button" class="wb-link" id="streakGoBtn" data-en="Start today's streak →">오늘 스트릭 시작하기 →</button>
+    </div>
+   </div>
+  </div>
+
+  <div class="divider"></div>
+
   <!-- 단어장 — 예전에는 이 판 전체였다. 지금은 배우다 만난 낱말을 담는
        자리라서 한 구역으로 내려왔다. -->
   <div class="section" id="wordbook">
@@ -6912,9 +6974,9 @@ body.hlp-open { overflow:hidden; }
 <div id="hlpScrim" class="hlp-scrim"></div>
 <aside id="hlpPanel" class="hlp-panel" aria-label="한국어 도우미" aria-hidden="true"></aside>
 
-<script src="app.js?v=28c959a7"></script>
-<script type="module" src="app.module.js?v=28c959a7"></script>
+<script src="app.js?v=b0bfb9a7"></script>
+<script type="module" src="app.module.js?v=b0bfb9a7"></script>
 
-<script src="analytics.js?v=28c959a7" defer></script>
+<script src="analytics.js?v=b0bfb9a7" defer></script>
 </body>
 </html>

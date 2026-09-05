@@ -32,6 +32,7 @@ document.getElementById('heroTopikBtn').addEventListener('click', () => goLearn(
    레딧이고, 앱을 받으러 온 것이 아니라 **여기서 한국어를 해 보려고**
    온다. 눌러 본 사람은 「해 보고 싶다」고 말한 것이니 그 자리로 보낸다. */
 document.getElementById('heroCardBtn').addEventListener('click', () => goLearn());
+document.getElementById('streakGoBtn').addEventListener('click', () => goLearn());
 
 /* 「무엇을 배우나」 여섯 장. data-go 에 적힌 자리로 보낸다.
    낱말 사전은 배우기 갈래가 아니라 따로 뗀 화면(dictionary)이다 —

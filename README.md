@@ -61,7 +61,7 @@ GitHub Pages 는 캐시 머리글을 우리가 못 정한다. `app.js` 를 그�
 | 파일 | 만드는 것 | 원본 |
 |---|---|---|
 | `topik2.js` | `tools/build-topik2.mjs` | `docs/topik2-all50.json` |
-| `sentence/` · `compare/` · `course/` · `lesson/` · `topik-writing/` · `sitemap.xml` | `tools/build-pages.mjs` | `sentences*.js` · `courses*.js` · `topik-writing.js` |
+| `sentence/` · `compare/` · `course/` · `lesson/` · `topik-writing/` · `blog/` · `sitemap.xml` | `tools/build-pages.mjs` | `sentences*.js` · `courses*.js` · `topik-writing.js` · `blog.js` |
 | `glossary.js` · `glossary-<말>.js` | `tools/build-glossary.mjs` | `docs/glossary.json` (+ `glossary-krdict.json`) |
 | `grammar.js` | `tools/build-grammar.mjs` | `sentences.js` 의 문법 이름 |
 | `docs/glossary-krdict.json` | `tools/build-krdict-glossary.mjs` | 국립국어원 내려받기 자료 |

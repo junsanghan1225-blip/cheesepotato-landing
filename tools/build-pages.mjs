@@ -25,12 +25,14 @@ import { dirname, join } from 'node:path';
 import { SB_CATS, SB_MORE } from '../sentences.js';
 import { COURSES } from '../courses.js';
 import { TW_ITEMS, TW_QS } from '../topik-writing.js';
+import { BLOG_POSTS } from '../blog.js';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const SITE = 'https://everykoreans.com';
 const OUT = join(ROOT, 'sentence');
 const OUT_COURSE = join(ROOT, 'course');
 const OUT_LESSON = join(ROOT, 'lesson');
+const OUT_BLOG = join(ROOT, 'blog');
 const OUT_TW = join(ROOT, 'topik-writing');
 const OUT_CMP = join(ROOT, 'compare');
 
@@ -166,7 +168,7 @@ function page({ url, title, desc, body, kind = 'article', jsonld }) {
 <div class="wrap">
 ${body}
 <div class="foot">
-  <a href="/">치즈감자</a> · <a href="/sentence/">문법 표현 전체</a> · <a href="/privacy.html">개인정보</a><br>
+  <a href="/">치즈감자</a> · <a href="/sentence/">문법 표현 전체</a> · <a href="/blog/">블로그</a> · <a href="/privacy.html">개인정보</a><br>
   한국어를 배우는 사람을 위한 단어장과 연습 · Learn Korean with CheesePotato<br>
   낱말 뜻풀이 출처: <a href="https://krdict.korean.go.kr">국립국어원 한국어기초사전</a>
   · <a href="https://creativecommons.org/licenses/by-sa/2.0/kr/">CC BY-SA 2.0 KR</a>
@@ -676,6 +678,61 @@ function twHub(items) {
   });
 }
 
+/* ── 블로그 ─────────────────────────────────────────────────── */
+/* 글은 blog.js 에 아직 하나도 없다 — 자리(구조)만 먼저 낸다. 목록 쪽은
+   글이 없어도 항상 굽는다("곧 올릴게요" 안내가 뜬다) — 그래야 나중에
+   글을 하나만 추가해도 바로 목록에 걸린다. */
+function blogPage(post) {
+  const title = `${post.title} | 치즈감자 블로그`;
+  const desc = clip(post.excerpt);
+  const body = [
+    `<nav class="crumb"><a href="/">치즈감자</a> › <a href="/blog/">블로그</a></nav>`,
+    `<p class="sub">${esc(post.date)}${post.updated && post.updated !== post.date ? ` · 고침 ${esc(post.updated)}` : ''}</p>`,
+    `<h1>${esc(post.title)}</h1>`,
+    post.body,
+  ].join('\n');
+
+  const jsonld = [
+    {
+      '@context': 'https://schema.org',
+      '@type': 'BlogPosting',
+      '@id': `${SITE}/blog/${post.id}.html`,
+      headline: post.title,
+      datePublished: post.date,
+      dateModified: post.updated || post.date,
+      description: post.excerpt,
+      inLanguage: 'ko',
+      author: { '@type': 'Organization', name: '치즈감자' },
+      isAccessibleForFree: true,
+    },
+    crumbLd([['치즈감자', '/'], ['블로그', '/blog/'], [post.title, null]]),
+  ];
+  return page({ url: `/blog/${post.id}.html`, title, desc, body, jsonld });
+}
+
+function blogHub(posts) {
+  const list = posts.length
+    ? '<ul class="pts">' + posts.map((p) =>
+        `<li><a href="/blog/${esc(p.id)}.html">${esc(p.title)}</a></li>`).join('') + '</ul>'
+    : '<p class="desc">아직 올린 글이 없습니다 — 곧 첫 글을 올릴게요.<br>No posts yet — the first one is coming soon.</p>';
+
+  const body = [
+    '<nav class="crumb"><a href="/">치즈감자</a> › 블로그</nav>',
+    '<h1>블로그</h1>',
+    '<p class="lead">한국어 공부, 문법, TOPIK 준비에 관한 글들입니다.<br>' +
+      'Notes on learning Korean, grammar, and TOPIK prep.</p>',
+    list,
+  ].join('\n');
+
+  return page({
+    url: '/blog/', kind: 'website',
+    title: '블로그 | 치즈감자',
+    desc: clip('한국어 공부, 문법, TOPIK 준비에 관한 치즈감자 블로그입니다.'),
+    body,
+    jsonld: [crumbLd([['치즈감자', '/'], ['블로그', '/blog/']])],
+  });
+}
+
 /* ── sitemap ────────────────────────────────────────────────── */
 function sitemap(urls) {
   return `<?xml version="1.0" encoding="UTF-8"?>
@@ -695,7 +752,7 @@ ${urls.map(({ loc, freq, pri }) =>
 /* ── 돌린다 ─────────────────────────────────────────────────── */
 /* 통째로 지우고 다시 쓴다. 표현을 지웠을 때 예전 쪽이 남아 검색에 걸리면
    앱에 없는 것을 보여 주게 된다. */
-for (const d of [OUT, OUT_COURSE, OUT_LESSON, OUT_TW, OUT_CMP]) {
+for (const d of [OUT, OUT_COURSE, OUT_LESSON, OUT_TW, OUT_CMP, OUT_BLOG]) {
   rmSync(d, { recursive: true, force: true });
   mkdirSync(d, { recursive: true });
 }
@@ -758,6 +815,19 @@ for (const it of TW_ITEMS) {
 writeFileSync(join(OUT_TW, 'index.html'), twHub(TW_ITEMS));
 urls.push({ loc: '/topik-writing/', freq: 'weekly', pri: '0.9' });
 
+/* ── 블로그 ─────────────────────────────────────────────────── */
+/* 글이 하나도 없어도(BLOG_POSTS = []) 목록 쪽은 늘 굽는다 — 안 그러면
+   나중에 글을 딱 하나 추가했을 때 목록이 아예 없어서 처음 한 번은
+   손으로 더 손대야 한다. */
+let nB = 0;
+for (const post of BLOG_POSTS) {
+  writeFileSync(join(OUT_BLOG, `${post.id}.html`), blogPage(post));
+  urls.push({ loc: `/blog/${post.id}.html`, freq: 'yearly', pri: '0.5' });
+  nB++;
+}
+writeFileSync(join(OUT_BLOG, 'index.html'), blogHub(BLOG_POSTS));
+urls.push({ loc: '/blog/', freq: 'weekly', pri: '0.6' });
+
 urls.push({ loc: '/privacy.html', freq: 'yearly', pri: '0.3' });
 writeFileSync(join(ROOT, 'sitemap.xml'), sitemap(urls));
 
@@ -766,4 +836,5 @@ console.log(`갈래 비교 ${nCmp}쪽 + 목록 1쪽 → compare/`);
 console.log(`코스 ${nC}쪽 + 목록 1쪽 → course/`);
 console.log(`레슨 ${nL}쪽 → lesson/`);
 console.log(`TOPIK 쓰기 ${nW}쪽 + 목록 1쪽 → topik-writing/`);
+console.log(`블로그 ${nB}쪽 + 목록 1쪽 → blog/`);
 console.log(`sitemap.xml 에 주소 ${urls.length}개.`);

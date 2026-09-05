@@ -13,7 +13,7 @@
    어느 날 갑자기 다른 코드가 실려 왔다.
    이제 vendor/ 안에 받아 두고 CSP 로 바깥을 막는다. 버전을 올릴 때는
    tools/vendor.mjs 의 PIN 을 고치고 다시 돌린다. */
-import { createClient } from './vendor/supabase-js.js?v=28c959a7';
+import { createClient } from './vendor/supabase-js.js?v=b0bfb9a7';
 // 앱(package.json)과 같은 줄기를 쓴다. 갈리면 앱에서는 읽히는 파일이
 // 여기서는 안 읽히는(또는 그 반대) 일이 생긴다.
 /* 엑셀 라이브러리는 422KB — 이 판에서 가장 무거운 조각이다. 그런데 쓰는
@@ -25,23 +25,23 @@ import { createClient } from './vendor/supabase-js.js?v=28c959a7';
    자국(?v=)은 tools/stamp.mjs 가 아래 줄에 알아서 붙인다 — 정적으로 쓰든
    동적으로 쓰든 같은 글자를 찾으므로 바꿔도 그대로 찍힌다. */
 let XLSX = null;
-const needXLSX = async () => (XLSX ??= await import('./vendor/xlsx.js?v=28c959a7'));
+const needXLSX = async () => (XLSX ??= await import('./vendor/xlsx.js?v=b0bfb9a7'));
 // 커리큘럼. 내용과 엔진을 갈라 두면 글을 고치다 화면을 깨지 않는다.
 // 갈래 목록(drawSections)·코스(drawCourses)·문제만 풀기(dqDraw) 를 열 때만
 // 받는다 — 배우기 갈래 목록도 안 본 사람에게 코스 71개 레슨을 다 물릴
 // 까닭이 없다. warmLearn() 이 배우기를 여는 순간 미리 불을 붙여 둔다.
 let COURSES = [], coursesP = null;
-const coursesNeed = () => (coursesP ??= import('./courses.js?v=28c959a7').then((m) => { COURSES = m.COURSES; }));
-import { GLOSSARY, GLOSS_LANGS } from './glossary.js?v=28c959a7';
-import { glossFind } from './gloss-find.js?v=28c959a7';
+const coursesNeed = () => (coursesP ??= import('./courses.js?v=b0bfb9a7').then((m) => { COURSES = m.COURSES; }));
+import { GLOSSARY, GLOSS_LANGS } from './glossary.js?v=b0bfb9a7';
+import { glossFind } from './gloss-find.js?v=b0bfb9a7';
 /* 문법 사전(뜻풀이 197개). 읽기 지문의 밑줄 문법 말풍선(rdNeed)과 예문
    만들기 화면(sbNeed) 양쪽이 쓴다 — 둘 중 먼저 여는 화면이 받아 두고,
    나중 화면은 그 약속(??=)을 그대로 쓴다. */
 let GRAMMAR = [], GRAMMAR_EN = {}, grammarP = null;
 const grammarNeed = () => (grammarP ??= Promise.all([
-  import('./grammar.js?v=28c959a7'), import('./grammar-en.js?v=28c959a7'),
+  import('./grammar.js?v=b0bfb9a7'), import('./grammar-en.js?v=b0bfb9a7'),
 ]).then(([a, b]) => { GRAMMAR = a.GRAMMAR; GRAMMAR_EN = b.GRAMMAR_EN; }));
-import { grammarScan } from './grammar-find.js?v=28c959a7';
+import { grammarScan } from './grammar-find.js?v=b0bfb9a7';
 // TOPIK 쓰기·듣기 문항. 읽기(topik.js·topik2.js)와 같은 tqNeedData() 로
 // 함께 받는다 — 유형 연습(topik) 갈래 하나가 세 기술을 다 쓰므로 따로
 // 가를 까닭이 없다. 값은 tqNeedData 정의부에서 채운다.
@@ -53,7 +53,7 @@ let TOPIKL_BY_EXAM = {}, TOPIKL_PICTURE_SLOTS = {};
    sbFind 를 쓰는데, 그쪽은 안 기다리고 그냥 부른다 — 답이 못 찾은
    인용 없이 나가는 것이 채팅이 멈추는 것보다 낫다. */
 let SB_CATS = [], SB_MORE = {}, SB_SEED = {}, SB_POINTS = [], sbDataP = null;
-const sbNeed = () => (sbDataP ??= import('./sentences.js?v=28c959a7').then((m) => {
+const sbNeed = () => (sbDataP ??= import('./sentences.js?v=b0bfb9a7').then((m) => {
   SB_CATS = m.SB_CATS; SB_MORE = m.SB_MORE; SB_SEED = m.SB_SEED;
   // 갈래마다 표현을 펼쳐 한 줄에 담는다 — SB_CATS 안의 점에는 갈래가 안
   // 달려 있어서(sbFind 가 표현 하나를 id 로 바로 찾으려면 이게 있어야 한다).
@@ -64,7 +64,7 @@ const sbNeed = () => (sbDataP ??= import('./sentences.js?v=28c959a7').then((m) =
 // 숫자 게임의 읽기와 문제 만들기. 화면을 모르는 순수 계산이라 따로 뒀다.
 // 게임 목록에서 「숫자 읽기」를 시작할 때만 받는다 — XLSX 와 같은 자리다.
 let makeRound = null;
-const needNumbers = async () => (makeRound ??= (await import('./numbers.js?v=28c959a7')).makeRound);
+const needNumbers = async () => (makeRound ??= (await import('./numbers.js?v=b0bfb9a7')).makeRound);
 
 // 이 키는 공개돼도 되는 값이다. 이미 APK 안에 같은 것이 들어 있고,
 // 접근을 막는 건 키가 아니라 테이블에 걸린 RLS 다.
@@ -113,8 +113,8 @@ let tqDataP = null;
    유형 연습(topik) 갈래 하나가 이 넷을 다 쓰므로 갈라 봤자 요청만
    늘어난다. */
 const tqNeedData = () => (tqDataP ??= Promise.all([
-  import('./topik.js?v=28c959a7'), import('./topik2.js?v=28c959a7'),
-  import('./topik-writing.js?v=28c959a7'), import('./topik-listening.js?v=28c959a7'),
+  import('./topik.js?v=b0bfb9a7'), import('./topik2.js?v=b0bfb9a7'),
+  import('./topik-writing.js?v=b0bfb9a7'), import('./topik-listening.js?v=b0bfb9a7'),
 ]).then(([a, b, c, d]) => {
   TQ_DATA.I  = { reading: a.TOPIK_READING,  blueprint: a.TOPIK_BLUEPRINT,  slots: a.TOPIK_SLOTS };
   TQ_DATA.II = { reading: b.TOPIK2_READING, blueprint: b.TOPIK2_BLUEPRINT, slots: b.TOPIK2_SLOTS };
@@ -125,11 +125,11 @@ const tqNeedData = () => (tqDataP ??= Promise.all([
 let READING = null, rdP = null;
 // 지문의 밑줄 문법 말풍선이 GRAMMAR 를 쓰므로 같이 받아 둔다.
 const rdNeed = () => (rdP ??= Promise.all([
-  import('./reading.js?v=28c959a7'), grammarNeed(),
+  import('./reading.js?v=b0bfb9a7'), grammarNeed(),
 ]).then(([m]) => { READING = m.READING; }));
 
 let CONVO = null, cvP = null;
-const cvNeed = () => (cvP ??= import('./convo.js?v=28c959a7').then((m) => { CONVO = m.CONVO; }));
+const cvNeed = () => (cvP ??= import('./convo.js?v=b0bfb9a7').then((m) => { CONVO = m.CONVO; }));
 
 /* 배우기를 열면 다섯 다 미리 불을 붙인다. 기다리지 않는다 — 갈래 목록은
    이 자료가 없어도 그려지고, 사람이 갈래를 고르는 사이에 도착한다. */
@@ -527,14 +527,14 @@ let dictOpen = null;  // 지금 "더 보기"(예문·뜻풀이)를 펼쳐 둔 �
    평소엔 안 쓰는 522KB 를 첫 화면 모두에게 물릴 까닭이 없다. */
 let dictSensesP = null;
 const dictLoadSenses = () => (dictSensesP ??=
-  import('./glossary-senses.js?v=28c959a7').then((m) => m.SENSES).catch(() => ({})));
+  import('./glossary-senses.js?v=b0bfb9a7').then((m) => m.SENSES).catch(() => ({})));
 
 /* 예문. 국립국어원 자료엔 없어서 Gemini 로 새로 지은 것이다(있는 만큼만
    — docs/glossary-examples-gemini-prompt.md 참고). 뜻풀이와 같은 자리에서
    같이 받는다 — 펼치는 손짓 하나에 몰아 두는 편이 화면이 덜 복잡하다. */
 let dictExamplesP = null;
 const dictLoadExamples = () => (dictExamplesP ??=
-  import('./glossary-examples.js?v=28c959a7').then((m) => m.EXAMPLES).catch(() => ({})));
+  import('./glossary-examples.js?v=b0bfb9a7').then((m) => m.EXAMPLES).catch(() => ({})));
 
 function dictVisible() {
   const q = dictQuery.trim().toLowerCase();
