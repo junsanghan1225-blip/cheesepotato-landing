@@ -2745,6 +2745,18 @@
   "only": true
  },
  {
+  "ko": "변경",
+  "en": "change; alteration",
+  "pos": "명사",
+  "only": true
+ },
+ {
+  "ko": "보도",
+  "en": "sidewalk; news report",
+  "pos": "명사",
+  "only": true
+ },
+ {
   "ko": "녹",
   "en": "rust",
   "pos": "명사",
