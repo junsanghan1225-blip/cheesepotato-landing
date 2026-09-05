@@ -2775,6 +2775,18 @@
   "only": true
  },
  {
+  "ko": "부정적",
+  "en": "negative",
+  "pos": "명사",
+  "only": true
+ },
+ {
+  "ko": "부산",
+  "en": "Busan (city)",
+  "pos": "명사",
+  "only": true
+ },
+ {
   "ko": "녹",
   "en": "rust",
   "pos": "명사",
