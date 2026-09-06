@@ -140,7 +140,7 @@ const crumbLd = (parts) => {
   };
 };
 
-function page({ url, title, desc, body, kind = 'article', jsonld }) {
+function page({ url, title, desc, body, kind = 'article', jsonld, extraCss = '' }) {
   return `<!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -162,7 +162,7 @@ function page({ url, title, desc, body, kind = 'article', jsonld }) {
 <meta name="twitter:description" content="${esc(desc)}">
 <meta name="twitter:image" content="${SITE}/logo.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">${[].concat(jsonld ?? []).map(ld).join('')}
-<style>${CSS}</style>
+<style>${CSS}${extraCss}</style>
 </head>
 <body>
 <div class="wrap">
@@ -681,15 +681,64 @@ function twHub(items) {
 /* ── 블로그 ─────────────────────────────────────────────────── */
 /* 글은 blog.js 에 아직 하나도 없다 — 자리(구조)만 먼저 낸다. 목록 쪽은
    글이 없어도 항상 굽는다("곧 올릴게요" 안내가 뜬다) — 그래야 나중에
-   글을 하나만 추가해도 바로 목록에 걸린다. */
+   글을 하나만 추가해도 바로 목록에 걸린다.
+
+   블로그만 더 쓰는 CSS. 다른 정적 쪽(표현·코스·TOPIK)과 골격(CSS 변수·
+   .crumb·.foot 등)은 그대로 나눠 쓰되, 목록은 알약(.pts) 대신 카드로,
+   본문은 사전 항목이 아니라 실제 글을 읽는 자리답게 줄 간격과 문단
+   간격을 넉넉히 잡는다. page() 의 extraCss 로만 들어가므로 표현·코스
+   쪽 무게는 그대로다. */
+const BLOG_CSS = `
+.blog-list{display:flex;flex-direction:column;gap:14px;padding:0;margin:24px 0 0;list-style:none}
+.blog-card{display:block;border:1px solid var(--line);border-radius:16px;background:var(--card);
+  padding:20px 22px;text-decoration:none;transition:border-color .15s,transform .15s,box-shadow .15s}
+.blog-card:hover{border-color:var(--brand);transform:translateY(-1px);box-shadow:0 6px 20px -12px rgba(0,0,0,.25)}
+.blog-card h2{font-size:19px;margin:2px 0 8px;letter-spacing:-.01em;color:var(--ink)}
+.blog-card p{margin:0;color:var(--dim);font-size:14.5px;line-height:1.6}
+.blog-empty{border:1px dashed var(--line);border-radius:16px;padding:44px 24px;text-align:center;
+  color:var(--dim);margin-top:24px}
+.blog-empty .emoji{font-size:34px;display:block;margin-bottom:10px}
+.blog-meta{display:flex;gap:8px;align-items:center;font-size:12.5px;color:var(--dim);
+  font-weight:600;letter-spacing:.01em;margin:0 0 4px;flex-wrap:wrap}
+.blog-meta .dot{opacity:.5;font-weight:400}
+.blog-back{display:inline-flex;align-items:center;gap:5px;font-size:13.5px;color:var(--dim);
+  text-decoration:none;margin-bottom:16px}
+.blog-back:hover{color:var(--ink)}
+.blog-article{font-size:17px;line-height:1.85}
+.blog-article p{margin:0 0 22px}
+.blog-article h2{font-size:22px;color:var(--ink);margin:38px 0 12px;letter-spacing:-.01em}
+.blog-article h3{font-size:18px;color:var(--ink);margin:28px 0 10px}
+.blog-article blockquote{margin:26px 0;padding:2px 20px;border-left:3px solid var(--brand);
+  color:var(--dim);font-style:italic}
+.blog-article ul,.blog-article ol{padding-left:22px;margin:0 0 22px}
+.blog-article li{margin:6px 0}
+.blog-article code{background:var(--soft);padding:2px 6px;border-radius:6px;font-size:.9em}
+.blog-article img{max-width:100%;border-radius:12px;margin:6px 0}
+`.trim();
+
+/* 한글 기준 대략 분당 500자 읽는다고 잡는다 — 정확할 필요는 없고,
+   "훑어볼지 앉아서 읽을지" 감만 잡히면 된다. */
+function readMins(html) {
+  const chars = String(html ?? '').replace(/<[^>]+>/g, '').replace(/\s+/g, '').length;
+  return Math.max(1, Math.round(chars / 500));
+}
+const fmtDateKo = (iso) => {
+  const m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(iso || '');
+  return m ? `${+m[1]}년 ${+m[2]}월 ${+m[3]}일` : (iso || '');
+};
 function blogPage(post) {
   const title = `${post.title} | 치즈감자 블로그`;
   const desc = clip(post.excerpt);
+  const mins = readMins(post.body);
   const body = [
+    `<a class="blog-back" href="/blog/">← 블로그</a>`,
     `<nav class="crumb"><a href="/">치즈감자</a> › <a href="/blog/">블로그</a></nav>`,
-    `<p class="sub">${esc(post.date)}${post.updated && post.updated !== post.date ? ` · 고침 ${esc(post.updated)}` : ''}</p>`,
     `<h1>${esc(post.title)}</h1>`,
-    post.body,
+    `<div class="blog-meta">${esc(fmtDateKo(post.date))}` +
+      (post.updated && post.updated !== post.date ? ` <span class="dot">·</span> 고침 ${esc(fmtDateKo(post.updated))}` : '') +
+      ` <span class="dot">·</span> ${mins}분 분량</div>`,
+    `<div class="blog-article">${post.body}</div>`,
+    `<a class="cta" href="/#learn">한국어 배우러 가기<span>Free Korean lessons, no sign-up needed</span></a>`,
   ].join('\n');
 
   const jsonld = [
@@ -707,14 +756,18 @@ function blogPage(post) {
     },
     crumbLd([['치즈감자', '/'], ['블로그', '/blog/'], [post.title, null]]),
   ];
-  return page({ url: `/blog/${post.id}.html`, title, desc, body, jsonld });
+  return page({ url: `/blog/${post.id}.html`, title, desc, body, jsonld, extraCss: BLOG_CSS });
 }
 
 function blogHub(posts) {
   const list = posts.length
-    ? '<ul class="pts">' + posts.map((p) =>
-        `<li><a href="/blog/${esc(p.id)}.html">${esc(p.title)}</a></li>`).join('') + '</ul>'
-    : '<p class="desc">아직 올린 글이 없습니다 — 곧 첫 글을 올릴게요.<br>No posts yet — the first one is coming soon.</p>';
+    ? '<ul class="blog-list">' + posts.map((p) =>
+        `<li><a class="blog-card" href="/blog/${esc(p.id)}.html">` +
+          `<div class="blog-meta">${esc(fmtDateKo(p.date))} <span class="dot">·</span> ${readMins(p.body)}분 분량</div>` +
+          `<h2>${esc(p.title)}</h2>` +
+          `<p>${esc(p.excerpt)}</p>` +
+        `</a></li>`).join('') + '</ul>'
+    : '<div class="blog-empty"><span class="emoji">🧀</span>아직 올린 글이 없습니다 — 곧 첫 글을 올릴게요.<br>No posts yet — the first one is coming soon.</div>';
 
   const body = [
     '<nav class="crumb"><a href="/">치즈감자</a> › 블로그</nav>',
@@ -730,6 +783,7 @@ function blogHub(posts) {
     desc: clip('한국어 공부, 문법, TOPIK 준비에 관한 치즈감자 블로그입니다.'),
     body,
     jsonld: [crumbLd([['치즈감자', '/'], ['블로그', '/blog/']])],
+    extraCss: BLOG_CSS,
   });
 }
 
