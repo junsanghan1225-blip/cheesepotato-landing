@@ -7675,5 +7675,165 @@ export const EXAMPLES = {
  "설계": {
   "ex": "건축가가 새 건물의 설계를 꼼꼼히 검토해요.",
   "en": "The architect carefully reviews the plan for the new building."
+ },
+ "설계되다": {
+  "ex": "새 공공 도서관은 이용자의 편의를 고려해 편리하게 설계돼요.",
+  "en": "The new public library is planned conveniently considering user convenience."
+ },
+ "설다": {
+  "ex": "밥에 물을 적게 넣었더니 쌀이 설어요.",
+  "en": "I put too little water in the rice, so the rice is unripe."
+ },
+ "설득": {
+  "ex": "준상의 진심 어린 설득 덕분에 친구의 마음이 움직여요.",
+  "en": "Thanks to Junsang's sincere persuasion, his friend's mind is moved."
+ },
+ "설레다": {
+  "ex": "오랜만에 여행을 떠날 생각에 마음이 설레요.",
+  "en": "My heart flutters at the thought of going on a trip after a long time."
+ },
+ "설령": {
+  "ex": "설령 비가 오더라도 우리는 계획대로 만나요.",
+  "en": "Even if it rains, we will meet as planned."
+ },
+ "설마": {
+  "ex": "설마 오늘 약속을 잊어버린 것은 아니지요?",
+  "en": "You really haven't forgotten today's appointment, have you?"
+ },
+ "설명": {
+  "ex": "선생님의 친절한 설명 덕분에 문제를 쉽게 이해해요.",
+  "en": "Thanks to the teacher's kind explanation, I understand the problem easily."
+ },
+ "설명하다": {
+  "ex": "새로 배운 한국어 단어의 뜻을 친구에게 차근차근 설명해요.",
+  "en": "I step-by-step explain the meaning of the newly learned Korean word to my friend."
+ },
+ "설비": {
+  "ex": "공장에 최신 냉난방 설비를 안전하게 갖춰요.",
+  "en": "They safely equip the factory with the latest heating and cooling facilities."
+ },
+ "설치": {
+  "ex": "거실 벽에 새로운 에어컨의 설치를 마쳐요.",
+  "en": "I finish the installation of the new air conditioner on the living room wall."
+ },
+ "설치다": {
+  "ex": "강아지 치즈가 마당에서 신나게 설치며 뛰어놀아요.",
+  "en": "The puppy Cheese runs around being unruly with excitement in the yard."
+ },
+ "설치되다": {
+  "ex": "교실마다 학생들을 위한 공기청정기가 새로 설치돼요.",
+  "en": "Air purifiers are newly installed in each classroom for the students."
+ },
+ "설탕": {
+  "ex": "따뜻한 커피에 달콤한 설탕 한 스푼을 넣어요.",
+  "en": "I add a spoonful of sweet sugar to my warm coffee."
+ },
+ "섬": {
+  "ex": "시골 창고에 수확한 쌀 한 섬을 쌓아둬요.",
+  "en": "They stack a straw sack of harvested rice in the country storehouse."
+ },
+ "섬유": {
+  "ex": "이 옷은 부드러운 천연 섬유로 만들어져서 피부에 좋아요.",
+  "en": "These clothes are made of soft natural fibers, so they are good for the skin."
+ },
+ "섭섭하다": {
+  "ex": "친한 친구가 멀리 이사를 가서 마음이 많이 섭섭해요.",
+  "en": "I feel very sorry and sad because my close friend is moving far away."
+ },
+ "섭취": {
+  "ex": "건강을 위해 매일 신선한 채소와 과일의 섭취를 늘려요.",
+  "en": "I increase the intake of fresh vegetables and fruits every day for my health."
+ },
+ "성격": {
+  "ex": "리아는 밝고 상냥한 성격을 지니고 있어요.",
+  "en": "Lia has a bright and sweet personality."
+ },
+ "성공": {
+  "ex": "꾸준한 노력 끝에 이번 시험에서 큰 성공을 거둬요.",
+  "en": "After steady efforts, I achieve great success on this exam."
+ },
+ "성과": {
+  "ex": "팀원들이 함께 힘을 모아 훌륭한 업무 성과를 내요.",
+  "en": "Team members join forces to produce an excellent work outcome."
+ },
+ "성과급": {
+  "ex": "연말에 높은 실적을 올려 회사로부터 성과급을 받아요.",
+  "en": "I receive performance-related pay from the company for high achievements at the end of the year."
+ },
+ "성능": {
+  "ex": "새로 나온 컴퓨터는 처리 속도와 성능이 아주 뛰어나요.",
+  "en": "The newly released computer has outstanding processing speed and performance."
+ },
+ "성분": {
+  "ex": "화장품을 고르기 전에 몸에 좋은 성분을 꼼꼼히 살펴요.",
+  "en": "Before choosing cosmetics, I carefully check the healthy ingredients."
+ },
+ "성실": {
+  "ex": "석진은 매사에 성실한 태도로 맡은 일을 해내요.",
+  "en": "Seokjin carries out his assigned duties with a sincere attitude in everything."
+ },
+ "성우": {
+  "ex": "유명한 성우가 애니메이션 주인공의 목소리를 연기해요.",
+  "en": "A famous voice actor plays the voice of the animation's main character."
+ },
+ "성의": {
+  "ex": "친구를 위해 정성을 담아 작은 선물을 성의로 준비해요.",
+  "en": "I prepare a small gift with sincerity and dedication for my friend."
+ },
+ "성장": {
+  "ex": "어린 나무가 따뜻한 햇살 아래에서 빠른 성장을 보여요.",
+  "en": "The young tree shows rapid growth under the warm sunlight."
+ },
+ "성장하다": {
+  "ex": "다양한 경험을 쌓으며 이전보다 훨씬 더 성장해요.",
+  "en": "I grow much more than before by accumulating diverse experiences."
+ },
+ "성질": {
+  "ex": "이 물질은 물에 잘 녹는 독특한 성질을 지녀요.",
+  "en": "This substance has the unique character of dissolving well in water."
+ },
+ "성패": {
+  "ex": "이번 프로젝트의 성패는 팀워크에 달려 있어요.",
+  "en": "The success or failure of this project depends on teamwork."
+ },
+ "성함": {
+  "ex": "서류 확인을 위해 손님의 성함을 정중하게 여쭤봐요.",
+  "en": "I politely ask for the guest's name to verify the document."
+ },
+ "세계": {
+  "ex": "방학 동안 여러 나라를 여행하며 넓은 세계를 경험해요.",
+  "en": "I experience the wide world while traveling to various countries during vacation."
+ },
+ "세금": {
+  "ex": "소득에 맞춰 정해진 세금을 기한 내에 성실히 내요.",
+  "en": "I faithfully pay the designated tax according to my income within the deadline."
+ },
+ "세다": {
+  "ex": "세월이 흐르며 할아버지의 머리가 하얗게 세요.",
+  "en": "As time passes, my grandfather's hair turns white."
+ },
+ "세밀하다": {
+  "ex": "화가의 세밀한 붓질로 완성된 그림을 감상해요.",
+  "en": "I appreciate the painting completed with the artist's detailed brushwork."
+ },
+ "세상": {
+  "ex": "눈을 뜨자 하얀 눈으로 덮인 아름다운 세상이 펼쳐져요.",
+  "en": "As I open my eyes, a beautiful world covered in white snow unfolds."
+ },
+ "세상일": {
+  "ex": "모든 세상일이 마음먹은 대로만 풀리지는 않아요.",
+  "en": "Not all ways of the world work out only as intended."
+ },
+ "세우다": {
+  "ex": "새해를 맞아 올해 꼭 지킬 목표와 계획을 세워요.",
+  "en": "Welcoming the new year, I set up goals and plans to surely keep this year."
+ },
+ "세월": {
+  "ex": "흐르는 세월 속에 추억들이 점점 깊어져요.",
+  "en": "Memories grow deeper with the passing years."
+ },
+ "세제": {
+  "ex": "더러워진 옷을 깨끗이 빨기 위해 세탁기에 세제를 넣어요.",
+  "en": "I put detergent into the washing machine to cleanly wash the dirty clothes."
  }
 };
