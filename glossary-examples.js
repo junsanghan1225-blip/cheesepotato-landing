@@ -7835,5 +7835,165 @@ export const EXAMPLES = {
  "세제": {
   "ex": "더러워진 옷을 깨끗이 빨기 위해 세탁기에 세제를 넣어요.",
   "en": "I put detergent into the washing machine to cleanly wash the dirty clothes."
+ },
+ "세척": {
+  "ex": "과일을 먹기 전에 깨끗한 물로 세척을 해요.",
+  "en": "I cleanse the fruit with clean water before eating it."
+ },
+ "세탁": {
+  "ex": "주말에는 밀린 옷들의 세탁을 한꺼번에 해요.",
+  "en": "I do the washing of backlogged clothes all at once on weekends."
+ },
+ "세탁기": {
+  "ex": "더러워진 옷을 세탁기에 넣고 작동 버튼을 눌러요.",
+  "en": "I put dirty clothes into the washing machine and press the start button."
+ },
+ "세탁소": {
+  "ex": "두꺼운 겨울 코트를 맡기러 동네 세탁소에 가요.",
+  "en": "I go to the neighborhood dry cleaner to drop off a thick winter coat."
+ },
+ "세포": {
+  "ex": "현미경을 통해 식물의 작은 세포를 관찰해요.",
+  "en": "I observe small plant cells through a microscope."
+ },
+ "센서": {
+  "ex": "현관에 들어서면 센서가 움직임을 감지해 불을 켜요.",
+  "en": "When I enter the front door, the sensor detects movement and turns on the light."
+ },
+ "센터": {
+  "ex": "한국어 학습에 대한 도움을 받으러 다문화 센터를 방문해요.",
+  "en": "I visit the multicultural center to receive help with Korean learning."
+ },
+ "셈": {
+  "ex": "물건을 사고 거스름돈이 맞는지 빠른 셈을 해봐요.",
+  "en": "I do a quick calculation to see if the change is correct after buying things."
+ },
+ "셋": {
+  "ex": "책상 위에 연필 셋 자루가 나란히 놓여 있어요.",
+  "en": "Three pencils are placed side by side on the desk."
+ },
+ "셔터": {
+  "ex": "가게 문을 닫을 시간이 되어 셔터를 천천히 내려요.",
+  "en": "It is time to close the shop, so I slowly lower the shutter."
+ },
+ "소": {
+  "ex": "만두를 빚으려고 고기와 두부로 맛있는 소를 만들어요.",
+  "en": "I make delicious filling with meat and tofu to wrap dumplings."
+ },
+ "소각": {
+  "ex": "쓰레기의 안전한 소각을 위해 지정된 장소로 보내요.",
+  "en": "We send the trash to designated places for safe incineration."
+ },
+ "소개": {
+  "ex": "첫 수업 시간에 친구들 앞에서 간단한 자기 소개를 해요.",
+  "en": "I give a brief self-introduction in front of friends during the first class."
+ },
+ "소금": {
+  "ex": "국에 간을 맞추려고 하얀 소금을 조금 넣어요.",
+  "en": "I add a little white salt to season the soup."
+ },
+ "소나기": {
+  "ex": "갑자기 하늘이 흐려지더니 시원한 소나기가 쏟아져요.",
+  "en": "The sky suddenly turns cloudy, and a cool shower pours down."
+ },
+ "소다": {
+  "ex": "냄비의 묵은 때를 지우려고 베이킹 소다를 뿌려요.",
+  "en": "I sprinkle baking soda to remove old stains from the pot."
+ },
+ "소득": {
+  "ex": "매달 정기적인 아르바이트를 통해 일정한 소득을 얻어요.",
+  "en": "I earn a regular income through regular part-time jobs every month."
+ },
+ "소리": {
+  "ex": "창밖에서 맑은 새들의 노랫소리가 들려와요.",
+  "en": "The sound of chirping birds singing is heard outside the window."
+ },
+ "소모": {
+  "ex": "무리한 운동은 체력의 지나친 소모를 불러와요.",
+  "en": "Excessive exercise causes undue consumption of physical stamina."
+ },
+ "소비": {
+  "ex": "계획적인 지출로 불필요한 과소비를 줄여요.",
+  "en": "I reduce unnecessary excessive consumption through planned spending."
+ },
+ "소비기한": {
+  "ex": "우유를 마시기 전에 포장지에 적힌 소비기한을 확인해요.",
+  "en": "I check the use-by date written on the carton before drinking milk."
+ },
+ "소비자": {
+  "ex": "새 제품이 나오자 많은 소비자의 관심이 집중돼요.",
+  "en": "As the new product is released, the attention of many consumers is focused on it."
+ },
+ "소비하다": {
+  "ex": "여름철에는 많은 양의 전기를 소비해요.",
+  "en": "We consume a large amount of electricity during summer."
+ },
+ "소식": {
+  "ex": "고향에 있는 가족들로부터 반가운 소식을 들어요.",
+  "en": "I hear pleasant news from my family back in my hometown."
+ },
+ "소용": {
+  "ex": "이 도구는 생활 속에서 여러 가지 소용이 닿아요.",
+  "en": "This tool has various practical uses in daily life."
+ },
+ "소용없다": {
+  "ex": "이미 지난 일을 후회해도 지금은 소용없어요.",
+  "en": "Even if you regret things that already passed, it is useless now."
+ },
+ "소원": {
+  "ex": "생일 케이크의 촛불을 끄며 마음속 소원을 빌어요.",
+  "en": "I blow out the candles on the birthday cake and make a wish in my heart."
+ },
+ "소유": {
+  "ex": "이 작은 집은 부모님의 단독 소유예요.",
+  "en": "This small house is under my parents' sole ownership."
+ },
+ "소유권": {
+  "ex": "계약이 끝나고 새로운 소유권을 정식으로 등록해요.",
+  "en": "The contract ends, and we officially register the new ownership."
+ },
+ "소유자": {
+  "ex": "경찰관이 분실물의 진짜 소유자를 찾아줘요.",
+  "en": "The police officer finds the real owner of the lost article."
+ },
+ "소음": {
+  "ex": "도서관에서는 다른 사람을 위해 소음을 줄여요.",
+  "en": "In the library, we reduce noise for the sake of other people."
+ },
+ "소재": {
+  "ex": "작가는 일상의 평범한 이야기에서 소설의 소재를 찾아요.",
+  "en": "The writer finds subject matter for novels in ordinary everyday stories."
+ },
+ "소중히": {
+  "ex": "친구가 준 손편지를 서랍 속에 소중히 보관해요.",
+  "en": "I valuably keep the handwritten letter given by my friend in the drawer."
+ },
+ "소풍": {
+  "ex": "날씨가 맑은 주말에 친구들과 공원으로 소풍을 가요.",
+  "en": "I go on a picnic to the park with friends on a sunny weekend."
+ },
+ "소형": {
+  "ex": "좁은 원룸에 딱 맞는 소형 냉장고를 사요.",
+  "en": "I buy a compact refrigerator that fits a small studio apartment perfectly."
+ },
+ "속": {
+  "ex": "가방 속에 든 책과 필통을 꺼내요.",
+  "en": "I take out the books and pencil case inside the bag."
+ },
+ "속다": {
+  "ex": "친구의 장난스러운 거짓말에 깜빡 속아요.",
+  "en": "I am completely deceived by my friend's playful lie."
+ },
+ "속담": {
+  "ex": "한국 문화를 배우면서 재미있는 옛 속담을 외워요.",
+  "en": "While learning Korean culture, I memorize interesting old proverbs."
+ },
+ "속도": {
+  "ex": "골목길에서는 자동차가 안전을 위해 속도를 줄여요.",
+  "en": "Cars reduce speed for safety in narrow alleys."
+ },
+ "속성": {
+  "ex": "불은 주변을 뜨겁게 태우는 기본 속성을 지녀요.",
+  "en": "Fire has the basic property of burning its surroundings hotly."
  }
 };
