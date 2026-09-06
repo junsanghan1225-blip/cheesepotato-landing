@@ -7355,5 +7355,165 @@ export const EXAMPLES = {
  "상자": {
   "ex": "선물로 받은 찻잔을 예쁜 상자에 담아요.",
   "en": "I put the teacup received as a gift into a pretty box."
+ },
+ "상태": {
+  "ex": "의사 선생님이 환자의 건강 상태를 꼼꼼히 확인해요.",
+  "en": "The doctor carefully checks the patient's health condition."
+ },
+ "상품": {
+  "ex": "가게에 진열된 품질 좋은 상품을 골라요.",
+  "en": "I choose a good product of high quality displayed in the shop."
+ },
+ "상호": {
+  "ex": "친구 사이에는 서로를 존중하는 상호 신뢰가 필요해요.",
+  "en": "Mutual trust respecting each other is necessary between friends."
+ },
+ "상호작용": {
+  "ex": "수업 시간에 학생들과 선생님의 활발한 상호작용이 이루어져요.",
+  "en": "Active interaction takes place between students and the teacher during class."
+ },
+ "상황": {
+  "ex": "비가 많이 와서 도로 상황이 좋지 않아요.",
+  "en": "The road condition is not good because it rains a lot."
+ },
+ "새": {
+  "ex": "문틈 새로 시원한 바람이 솔솔 들어와요.",
+  "en": "A cool breeze gently comes in through the gap in the door."
+ },
+ "새다": {
+  "ex": "오래된 지붕 틈으로 빗물이 조금씩 새요.",
+  "en": "Rainwater leaks little by little through the cracks in the old roof."
+ },
+ "새로": {
+  "ex": "새 학기를 맞이해서 공책과 필통을 새로 사요.",
+  "en": "I buy notebooks and a pencil case newly for the new semester."
+ },
+ "새롭다": {
+  "ex": "처음 배우는 한국어 표현들이 참 새롭고 재미있어요.",
+  "en": "The Korean expressions I learn for the first time are truly new and interesting."
+ },
+ "새벽": {
+  "ex": "아침 일찍 운동을 하려고 새벽 다섯 시에 일어나요.",
+  "en": "I wake up at five in the morning at dawn to exercise early."
+ },
+ "새우": {
+  "ex": "시장에서 싱싱한 새우를 사서 찌개를 끓여요.",
+  "en": "I buy fresh shrimp at the market and boil a stew."
+ },
+ "새우다": {
+  "ex": "내일 있을 시험을 준비하느라 밤을 하얗게 새워요.",
+  "en": "I stay up all night white preparing for tomorrow's exam."
+ },
+ "색": {
+  "ex": "가을이 되자 나뭇잎의 색이 알록달록하게 변해요.",
+  "en": "As autumn arrives, the color of the tree leaves changes colorfully."
+ },
+ "색깔": {
+  "ex": "저는 밝고 화사한 노란 색깔을 아주 좋아해요.",
+  "en": "I like the bright and radiant yellow color very much."
+ },
+ "색상": {
+  "ex": "새로 산 옷의 부드러운 색상이 마음에 쏙 들어요.",
+  "en": "I really like the soft hue of the newly bought clothes."
+ },
+ "생": {
+  "ex": "하루하루 최선을 다하며 보람찬 생을 가꿔요.",
+  "en": "I cultivate a rewarding living by doing my best day by day."
+ },
+ "생각": {
+  "ex": "주말에 무엇을 할지 좋은 생각을 떠올려요.",
+  "en": "I come up with a good idea of what to do on the weekend."
+ },
+ "생각하다": {
+  "ex": "어려운 문제의 답을 조용히 혼자 생각해요.",
+  "en": "I quietly think about the answer to the difficult problem by myself."
+ },
+ "생기": {
+  "ex": "봄이 오자 거리에 활기찬 생기가 돌아요.",
+  "en": "As spring comes, vibrant liveliness circulates in the streets."
+ },
+ "생기다": {
+  "ex": "집 근처에 크고 편리한 마트가 새로 생겨요.",
+  "en": "A large and convenient mart is newly formed near my house."
+ },
+ "생김새": {
+  "ex": "강아지 치즈는 귀여운 생김새로 인기가 많아요.",
+  "en": "The puppy Cheese is very popular for his cute appearance."
+ },
+ "생리": {
+  "ex": "과학 시간에 사람의 몸에 대한 기본 생리를 배워요.",
+  "en": "We learn the basic physiology of the human body in science class."
+ },
+ "생리적": {
+  "ex": "졸음은 피곤할 때 나타나는 자연스러운 생리적 현상이에요.",
+  "en": "Drowsiness is a natural physiological phenomenon that appears when tired."
+ },
+ "생물": {
+  "ex": "연못 속에는 눈에 보이지 않는 작은 생물이 살아요.",
+  "en": "Tiny living things that cannot be seen live in the pond."
+ },
+ "생물체": {
+  "ex": "지구상의 모든 생물체는 깨끗한 물을 필요로 해요.",
+  "en": "Every living body on Earth needs clean water."
+ },
+ "생산": {
+  "ex": "공장에서 친환경 자동차 부품의 생산을 시작해요.",
+  "en": "The factory begins the manufacture of eco-friendly automobile parts."
+ },
+ "생산량": {
+  "ex": "올해는 날씨가 좋아서 사과의 연간 생산량이 늘어나요.",
+  "en": "Annual apple output increases this year thanks to good weather."
+ },
+ "생산성": {
+  "ex": "새로운 기계를 도입해서 작업의 생산성을 높여요.",
+  "en": "We raise work productivity by introducing new machines."
+ },
+ "생산하다": {
+  "ex": "이 공장에서는 매일 신선한 빵을 생산해요.",
+  "en": "This factory produces fresh bread every day."
+ },
+ "생생하다": {
+  "ex": "어제 본 영화의 명장면이 아직도 기억에 생생해요.",
+  "en": "The memorable scene from the movie I watched yesterday is still fresh in my memory."
+ },
+ "생선": {
+  "ex": "저녁 식사로 노릇하게 구운 생선 한 마리를 먹어요.",
+  "en": "I eat one freshly grilled fish for dinner."
+ },
+ "생육": {
+  "ex": "식물의 건강한 생육을 위해 화분을 햇빛에 둬요.",
+  "en": "I place the flowerpot in the sunlight for the healthy rearing of the plant."
+ },
+ "생일": {
+  "ex": "친구의 생일에 줄 예쁜 카드를 정성껏 써요.",
+  "en": "I carefully write a pretty card to give on my friend's birthday."
+ },
+ "생존": {
+  "ex": "동물들은 거친 자연 속에서 생존을 위해 노력해요.",
+  "en": "Animals strive for survival in harsh nature."
+ },
+ "생체": {
+  "ex": "의사들이 연구실에서 생체 리듬의 변화를 관찰해요.",
+  "en": "Doctors observe changes in the rhythm of the living body in the laboratory."
+ },
+ "생태": {
+  "ex": "시장에서 싱싱한 생태를 사서 시원한 탕을 끓여요.",
+  "en": "I buy fresh pollack at the market and boil a refreshing soup."
+ },
+ "생태계": {
+  "ex": "숲을 보호해서 자연의 생태계를 건강하게 지켜요.",
+  "en": "We protect the forest to keep the natural ecosystem healthy."
+ },
+ "생활": {
+  "ex": "한국에서 유학하면서 즐거운 대학 생활을 보내요.",
+  "en": "I spend an enjoyable university life while studying abroad in Korea."
+ },
+ "생활비": {
+  "ex": "매달 나가는 식비와 교통비 등 생활비를 계산해요.",
+  "en": "I calculate living expenses such as food and transportation costs that go out every month."
+ },
+ "생활화": {
+  "ex": "건강을 위해 매일 물 마시는 습관의 생활화가 필요해요.",
+  "en": "The habituation of drinking water every day is necessary for health."
  }
 };
