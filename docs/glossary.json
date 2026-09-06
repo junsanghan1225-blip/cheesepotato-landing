@@ -2853,6 +2853,18 @@
   "only": true
  },
  {
+  "ko": "수행",
+  "en": "fulfillment; execution; carrying out",
+  "pos": "명사",
+  "only": true
+ },
+ {
+  "ko": "수정",
+  "en": "modification; amendment; correction",
+  "pos": "명사",
+  "only": true
+ },
+ {
   "ko": "녹",
   "en": "rust",
   "pos": "명사",
