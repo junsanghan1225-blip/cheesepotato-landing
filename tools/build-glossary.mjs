@@ -64,6 +64,34 @@ const POS_TAG = {
 /* 괄호로만 이루어진 풀이는 자리표다 — 「(무대응어휘)」 「(нет эквивалента)」. */
 const isBlank = (s) => !s || /^\s*[(（].*[)）]\s*$/.test(s);
 
+/* ── 뜻이 여럿인 낱말에서 우리가 고른 뜻과 같은 갈래를 고른다 ──────
+ *
+ * 실제로 걸렸던 것: 「먹다」의 krdict 뜻이 세 갈래였다 — ①귀먹다(안 들리게
+ * 되다) ②먹다(음식을 먹다) ③마시다. 예전 build 는 언어팩마다 그냥 **첫
+ * 번째로 빈 칸이 아닌 뜻**을 썼다. 영어는 우리가 손으로 쓴 「to eat」이
+ * 이겨서 안 걸렸지만, 다른 아홉 말은 krdict 순서를 그대로 따라가 ①번
+ * (「귀먹다」)이 나갔다 — 일본어로 「먹다」를 찾으면 「멀어지다」가 나오는
+ * 식이다. 「내일」「공기」「시장」처럼 뜻이 여럿인 낱말 수백 개가 같은 값이었다.
+ *
+ * 그래서 우리가 손으로 쓴 영어 뜻(ourEn)과 겹치는 낱말이 있는 krdict 뜻을
+ * 먼저 찾아, **그 갈래의 다른 말 번역**을 쓴다. 겹치는 게 하나도 없으면
+ * 어느 갈래인지 못 정하는 것이니 null 을 돌려주고, 부르는 쪽이 예전처럼
+ * 첫 번째 뜻으로 물러선다 — 아예 안 정하는 것이 잘못 정하는 것보다 낫다. */
+const STOPWORDS = new Set(['a', 'an', 'the', 'to', 'of', 'in', 'on', 'at', 'is', 'be', 'it', 'and', 'or', 'for', 'as', 'with', 'by']);
+const contentWords = (s) => String(s || '').toLowerCase().replace(/[^a-z ]/g, ' ').split(/\s+/).filter((w) => w.length > 1 && !STOPWORDS.has(w));
+
+function bestSense(defs, ourEn) {
+  const ourWords = contentWords(ourEn);
+  if (!ourWords.length) return null;
+  let best = null, bestScore = 0;
+  for (const d of defs) {
+    const words = contentWords(d.t?.en);
+    const score = ourWords.filter((w) => words.includes(w)).length;
+    if (score > bestScore) { bestScore = score; best = d; }
+  }
+  return best;
+}
+
 /* 로마자 표기법. 뜻풀이 자리에 읽는 법이 적힌 줄을 가려내려고 쓴다. */
 const CHO = ['g', 'kk', 'n', 'd', 'tt', 'r', 'm', 'b', 'pp', 's', 'ss', '', 'j', 'jj', 'ch', 'k', 't', 'p', 'h'];
 const JUNG = ['a', 'ae', 'ya', 'yae', 'eo', 'e', 'yeo', 'ye', 'o', 'wa', 'wae', 'oe', 'yo', 'u', 'wo', 'we', 'wi', 'yu', 'eu', 'ui', 'i'];
@@ -105,6 +133,7 @@ for (const w of krdictEarly.words || []) {
 
 /* ── 1. 우리가 쓴 것 ─────────────────────────────────────────── */
 const mine = read('docs/glossary.json');
+const mineEnByKo = new Map(mine.map((e) => [e.ko, e.en]));
 const table = {};
 /* 「사전이 이 낱말로 고른 뜻은 딴말이다」고 손으로 못 박은 것.
  *
@@ -144,7 +173,13 @@ for (const w of krdict.words || []) {
   /* 자리표는 뜻이 아니다. 자리표뿐인 줄은 없는 셈 친다 — 그래야 다음 뜻으로
      넘어간다. 「시」의 첫 뜻이 「(no equivalent expression)」이라고 해서 그
      낱말에 뜻이 없는 것은 아니다. */
-  const first = (L) => (w.defs.find((d) => d.t && !isBlank(d.t[L])) || {}).t?.[L] || '';
+  const matched = mineEnByKo.has(w.ko) ? bestSense(w.defs, mineEnByKo.get(w.ko)) : null;
+  const first = (L) => {
+    // 우리가 고른 갈래에 그 말 번역이 있으면 그것부터 쓴다. 그 갈래에
+    // 이 말만 비어 있으면(예: 자리표) 예전처럼 첫 번째 뜻으로 물러선다.
+    if (matched?.t && !isBlank(matched.t[L])) return matched.t[L];
+    return (w.defs.find((d) => d.t && !isBlank(d.t[L])) || {}).t?.[L] || '';
+  };
 
   /* 우리가 쓴 것이 이긴다. 학습자를 보고 고른 말이고 활용형까지 달려 있다. */
   if (!mineKeys.has(w.ko)) {
