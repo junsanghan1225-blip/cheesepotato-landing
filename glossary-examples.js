@@ -7995,5 +7995,165 @@ export const EXAMPLES = {
  "속성": {
   "ex": "불은 주변을 뜨겁게 태우는 기본 속성을 지녀요.",
   "en": "Fire has the basic property of burning its surroundings hotly."
+ },
+ "속수무책": {
+  "ex": "갑작스러운 폭우에 우리는 속수무책으로 서 있어요.",
+  "en": "We stand in helplessness in the face of sudden heavy rain."
+ },
+ "속이다": {
+  "ex": "친구를 속이지 않고 솔직하게 모든 것을 털어놓아요.",
+  "en": "I do not deceive my friend and confess everything honestly."
+ },
+ "손": {
+  "ex": "식사하기 전에 비누로 손을 깨끗이 씻어요.",
+  "en": "I wash my hands cleanly with soap before eating."
+ },
+ "손가락": {
+  "ex": "글씨를 오래 써서 손가락이 조금 아파요.",
+  "en": "My finger hurts a little because I wrote for a long time."
+ },
+ "손길": {
+  "ex": "어려운 이웃에게 따뜻한 도움의 손길을 내밀어요.",
+  "en": "I extend a warm helping hand to neighbors in need."
+ },
+ "손님": {
+  "ex": "가게에 들어오는 반가운 손님에게 밝게 인사해요.",
+  "en": "I greet brightly the pleasant guest coming into the shop."
+ },
+ "손대다": {
+  "ex": "박물관에 전시된 유리관에 함부로 손대지 않아요.",
+  "en": "I do not carelessly lay my hands on the glass cases displayed in the museum."
+ },
+ "손때": {
+  "ex": "오랫동안 아끼며 읽은 책에 따뜻한 손때가 묻어 있어요.",
+  "en": "The book I have read and cherished for a long time shows the warm trace of my touch."
+ },
+ "손목": {
+  "ex": "무거운 가방을 들다가 손목을 살짝 삐끗해요.",
+  "en": "I slightly sprain my wrist while carrying a heavy bag."
+ },
+ "손목시계": {
+  "ex": "시간을 확인하려고 예쁜 손목시계를 차요.",
+  "en": "I wear a pretty wristwatch to check the time."
+ },
+ "손바닥": {
+  "ex": "하늘에서 내리는 하얀 눈송이를 손바닥 위에 올려놓아요.",
+  "en": "I put white snowflakes falling from the sky onto my palm."
+ },
+ "손아랫사람": {
+  "ex": "선배로서 손아랫사람을 따뜻하게 아끼고 격려해요.",
+  "en": "As a senior, I warmly care for and encourage my juniors."
+ },
+ "손윗사람": {
+  "ex": "예절을 지켜 손윗사람에게 공손하게 인사해요.",
+  "en": "I politely greet my elders with proper etiquette."
+ },
+ "손해": {
+  "ex": "무리한 투자로 큰 금전적 손해를 입지 않도록 조심해요.",
+  "en": "I take care not to suffer large financial damage from reckless investment."
+ },
+ "송편": {
+  "ex": "추석 명절에 가족들과 옹기종기 모여 송편을 빚어요.",
+  "en": "We gather warmly with family on Chuseok to make half-moon rice cakes."
+ },
+ "쇼": {
+  "ex": "주말에 공원에서 열리는 재미있는 마술 쇼를 봐요.",
+  "en": "I watch an interesting magic show held in the park on the weekend."
+ },
+ "쇼핑": {
+  "ex": "친구와 함께 시내 백화점에서 즐거운 쇼핑을 해요.",
+  "en": "I enjoy fun shopping with a friend at the downtown department store."
+ },
+ "쇼핑몰": {
+  "ex": "다양한 옷가게와 식당이 모여 있는 대형 쇼핑몰에 가요.",
+  "en": "I go to a large shopping mall where various clothing stores and restaurants gather."
+ },
+ "수": {
+  "ex": "열심히 연습하면 한국어로 유창하게 말할 수 있어요.",
+  "en": "If you practice hard, you can speak Korean fluently."
+ },
+ "수가": {
+  "ex": "병원에서 치료를 받고 정해진 의료 수가를 확인해요.",
+  "en": "I receive treatment at the hospital and check the designated medical service charge."
+ },
+ "수거": {
+  "ex": "주민센터에서 헌 옷의 안전한 수거를 도와줘요.",
+  "en": "The community service center helps with the safe collection of old clothes."
+ },
+ "수거하다": {
+  "ex": "청소차가 마을 곳곳의 재활용 쓰레기를 수거해요.",
+  "en": "The garbage truck picks up recyclable waste throughout the town."
+ },
+ "수거함": {
+  "ex": "입지 않는 옷을 모아서 동네 의류 수거함에 넣어요.",
+  "en": "I collect unworn clothes and put them in the neighborhood clothing collection bin."
+ },
+ "수건": {
+  "ex": "세수를 마친 후에 보송보송한 수건으로 얼굴을 닦아요.",
+  "en": "After washing my face, I dry it with a soft towel."
+ },
+ "수고": {
+  "ex": "오늘 하루도 많은 일을 하느라 큰 수고를 겪어요.",
+  "en": "I take a lot of trouble doing so much work today as well."
+ },
+ "수고하다": {
+  "ex": "어려운 과제를 끝내느라 팀원 모두가 정말 수고해요.",
+  "en": "All team members really take the trouble to finish the difficult assignment."
+ },
+ "수년": {
+  "ex": "석진은 수년 동안 외국어를 꾸준히 공부해 와요.",
+  "en": "Seokjin has steadily studied foreign languages for a number of years."
+ },
+ "수다": {
+  "ex": "카페에서 친구와 시간 가는 줄 모르고 즐거운 수다를 떨어요.",
+  "en": "I engage in pleasant chatter with my friend at the cafe without noticing time passing."
+ },
+ "수단": {
+  "ex": "대중교통은 복잡한 도시에서 가장 편리한 이동 수단이에요.",
+  "en": "Public transportation is the most convenient means of travel in a crowded city."
+ },
+ "수도": {
+  "ex": "추운 겨울에 얼지 않도록 마당의 수도를 헝겊으로 감싸요.",
+  "en": "I wrap the yard water supply with cloth so it does not freeze in the cold winter."
+ },
+ "수돗물": {
+  "ex": "손을 씻으려고 밸브를 돌려 시원한 수돗물을 틀어요.",
+  "en": "I turn the valve to run cool tap water to wash my hands."
+ },
+ "수동": {
+  "ex": "이 기계는 자동 모드 대신 수동 방식으로 조작해요.",
+  "en": "This machine is operated in a manual way instead of automatic mode."
+ },
+ "수량": {
+  "ex": "주문서에 적힌 물품의 수량을 하나씩 꼼꼼하게 세어봐요.",
+  "en": "I carefully count the quantity of items written on the order sheet one by one."
+ },
+ "수리": {
+  "ex": "고장 난 자전거의 빠른 수리를 위해 가게에 맡겨요.",
+  "en": "I leave my broken bicycle at the shop for a quick repair."
+ },
+ "수많다": {
+  "ex": "밤하늘에 수많은 별들이 반짝여요.",
+  "en": "Numerous stars twinkle in the night sky."
+ },
+ "수면": {
+  "ex": "건강을 지키기 위해 매일 충분한 수면을 취해요.",
+  "en": "I get plenty of sleep every day to maintain good health."
+ },
+ "수명": {
+  "ex": "가전제품의 오랜 수명을 위해 정기적으로 먼지를 털어내요.",
+  "en": "I dust regularly for a long lifespan of household appliances."
+ },
+ "수모": {
+  "ex": "부당한 비난에도 흔들리지 않고 수모를 꿋꿋하게 이겨내요.",
+  "en": "I firmly overcome the humiliation without being shaken by unfair criticism."
+ },
+ "수박": {
+  "ex": "무더운 여름날에 냉장고에서 꺼낸 시원한 수박을 잘라 먹어요.",
+  "en": "On a sweltering summer day, I cut and eat cold watermelon taken out of the refrigerator."
+ },
+ "수백": {
+  "ex": "도서관 책장에 수백 권의 책이 가지런히 꽂혀 있어요.",
+  "en": "Hundreds of books are neatly arranged on the library bookshelf."
  }
 };
