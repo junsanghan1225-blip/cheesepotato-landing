@@ -2841,6 +2841,18 @@
   "only": true
  },
  {
+  "ko": "소개",
+  "en": "introduction",
+  "pos": "명사",
+  "only": true
+ },
+ {
+  "ko": "속성",
+  "en": "attributes; properties",
+  "pos": "명사",
+  "only": true
+ },
+ {
   "ko": "녹",
   "en": "rust",
   "pos": "명사",
