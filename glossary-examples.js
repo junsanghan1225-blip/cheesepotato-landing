@@ -8155,5 +8155,165 @@ export const EXAMPLES = {
  "수백": {
   "ex": "도서관 책장에 수백 권의 책이 가지런히 꽂혀 있어요.",
   "en": "Hundreds of books are neatly arranged on the library bookshelf."
+ },
+ "수분": {
+  "ex": "건조한 날씨에는 피부에 충분한 수분을 공급해요.",
+  "en": "I supply enough moisture to my skin in dry weather."
+ },
+ "수세": {
+  "ex": "축구 경기에서 우리 팀이 상대의 공격에 밀려 수세에 몰려요.",
+  "en": "In the soccer match, our team is pushed on the defense by the opponent's attacks."
+ },
+ "수소": {
+  "ex": "과학 시간에 가장 가벼운 기체인 수소의 특징을 배워요.",
+  "en": "We learn the characteristics of hydrogen, the lightest gas, in science class."
+ },
+ "수소문": {
+  "ex": "잃어버린 열쇠를 찾으려고 동네 주민들에게 수소문을 해요.",
+  "en": "I ask around among the neighborhood residents to find the lost key."
+ },
+ "수수": {
+  "ex": "가을 들판에서 붉게 익은 수수를 수확해요.",
+  "en": "They harvest ripe red sorghum in the autumn field."
+ },
+ "수수료": {
+  "ex": "은행에서 돈을 보낼 때 송금 수수료를 확인해요.",
+  "en": "I check the remittance fee when sending money from the bank."
+ },
+ "수업": {
+  "ex": "오전 아홉 시에 시작하는 한국어 수업에 들어가요.",
+  "en": "I go into the Korean class that starts at nine in the morning."
+ },
+ "수업료": {
+  "ex": "새 학기가 시작되기 전에 학원 수업료를 납부해요.",
+  "en": "I pay the academy tuition fee before the new semester begins."
+ },
+ "수영": {
+  "ex": "체력을 기르기 위해 매일 아침 수영을 배워요.",
+  "en": "I learn swimming every morning to build up my stamina."
+ },
+ "수영복": {
+  "ex": "바다로 물놀이를 가려고 편안한 수영복을 챙겨요.",
+  "en": "I pack a comfortable swimsuit to go swimming in the sea."
+ },
+ "수영장": {
+  "ex": "더운 여름에는 시원한 물이 가득한 수영장에 가요.",
+  "en": "In hot summer, I go to the swimming pool filled with cool water."
+ },
+ "수영하다": {
+  "ex": "주말마다 친구들과 함께 깊은 물에서 수영해요.",
+  "en": "I swim in the deep water together with friends every weekend."
+ },
+ "수온": {
+  "ex": "물놀이를 시작하기 전에 바다의 수온을 먼저 체크해요.",
+  "en": "I check the water temperature of the sea first before starting to swim."
+ },
+ "수요": {
+  "ex": "날씨가 더워지면서 시원한 음료에 대한 수요가 크게 늘어요.",
+  "en": "As the weather gets warmer, the demand for cool beverages increases greatly."
+ },
+ "수요일": {
+  "ex": "매주 수요일 오후에는 도서관에서 독서 동아리 모임이 있어요.",
+  "en": "There is a book club meeting in the library every Wednesday afternoon."
+ },
+ "수용": {
+  "ex": "공공 도로 확장을 위해 주변 토지의 수용 절차를 진행해요.",
+  "en": "They proceed with the expropriation procedure of surrounding land for public road expansion."
+ },
+ "수익": {
+  "ex": "열심히 가게를 운영해서 이번 달에 좋은 수익을 얻어요.",
+  "en": "I manage the shop hard and earn good returns this month."
+ },
+ "수정": {
+  "ex": "글을 다 쓴 후에 잘못된 문장의 수정을 거쳐요.",
+  "en": "After finishing writing, I go through the correction of wrong sentences."
+ },
+ "수제": {
+  "ex": "시장에서 정성이 가득 담긴 달콤한 수제 잼을 사요.",
+  "en": "I buy sweet handmade jam full of sincerity at the market."
+ },
+ "수제자": {
+  "ex": "석진은 도예 장인의 수제자로 인정받아요.",
+  "en": "Seokjin is recognized as the best pupil of the pottery master."
+ },
+ "수주": {
+  "ex": "우리 회사는 대형 건설 공사의 수주에 성공해요.",
+  "en": "Our company succeeds in receiving an order for a large construction project."
+ },
+ "수주하다": {
+  "ex": "기술력을 인정받아 해외 기업으로부터 큰 프로젝트를 수주해요.",
+  "en": "Recognized for technical skills, we receive an order for a large project from an overseas enterprise."
+ },
+ "수집": {
+  "ex": "주리는 어릴 때부터 각국의 예쁜 우표 수집을 좋아해요.",
+  "en": "Juri has liked the gathering of pretty stamps from various countries since childhood."
+ },
+ "수천": {
+  "ex": "봄 축제장에는 수천 명의 사람이 모여요.",
+  "en": "Thousands of people gather at the spring festival venue."
+ },
+ "수첩": {
+  "ex": "잊어버리지 않으려고 작은 수첩에 약속을 적어요.",
+  "en": "I write down appointments in a small pocket notebook so as not to forget."
+ },
+ "수출": {
+  "ex": "한국은 품질 좋은 전자제품을 세계 여러 나라로 수출해요.",
+  "en": "Korea exports high-quality electronic products to many countries worldwide."
+ },
+ "수칙": {
+  "ex": "실험실에 들어가기 전에 안전 수칙을 반드시 읽어요.",
+  "en": "I must read the safety rules before entering the laboratory."
+ },
+ "수행": {
+  "ex": "준상은 맡은 업무의 완벽한 수행을 위해 노력해요.",
+  "en": "Junsang makes efforts for the perfect fulfillment of his assigned tasks."
+ },
+ "수확": {
+  "ex": "가을이 오면 농부들이 밭에서 풍성한 채소의 수확을 기뻐해요.",
+  "en": "When autumn arrives, farmers rejoice at the harvest of abundant vegetables in the field."
+ },
+ "숙련": {
+  "ex": "오랜 기술 숙련을 통해 뛰어난 장인이 돼요.",
+  "en": "Through long skill mastery, one becomes an outstanding artisan."
+ },
+ "숙면": {
+  "ex": "피로를 풀기 위해 밤마다 편안한 숙면을 취해요.",
+  "en": "I get a sound sleep every night to relieve fatigue."
+ },
+ "숙이다": {
+  "ex": "선생님을 뵙고 반갑게 허리를 숙여 인사해요.",
+  "en": "I bend down to bow politely when seeing the teacher."
+ },
+ "숙제": {
+  "ex": "학교 수업이 끝나자마자 집으로 와서 숙제를 끝내요.",
+  "en": "As soon as school classes end, I come home and finish my homework."
+ },
+ "숙제하다": {
+  "ex": "저녁 식사 전까지 책상에 앉아 부지런히 숙제해요.",
+  "en": "I sit at my desk and do my homework diligently before dinner."
+ },
+ "순": {
+  "ex": "그 소문은 순 거짓말이니 믿지 마세요.",
+  "en": "That rumor is arrant lies, so please do not believe it."
+ },
+ "순간": {
+  "ex": "친구를 만난 그 순간 마음이 정말 기뻐요.",
+  "en": "The moment I met my friend, my heart felt truly joyful."
+ },
+ "순서": {
+  "ex": "놀이기구를 타려고 차례대로 순서를 기다려요.",
+  "en": "I wait for my turn in sequence to ride the amusement ride."
+ },
+ "순우리말": {
+  "ex": "선생님이 아름다운 순우리말 단어를 친절히 가르쳐줘요.",
+  "en": "The teacher kindly teaches beautiful native Korean words."
+ },
+ "순차": {
+  "ex": "줄을 선 사람들에게 순차로 번호표를 나눠줘요.",
+  "en": "They distribute numbered tickets in turn to people waiting in line."
+ },
+ "순차적": {
+  "ex": "문제를 해결하기 위해 순차적 단계에 따라 진행해요.",
+  "en": "We proceed according to sequential steps to solve the problem."
  }
 };
