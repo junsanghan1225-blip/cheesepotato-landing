@@ -3124,6 +3124,30 @@
   "only": true
  },
  {
+  "ko": "정도",
+  "en": "degree; extent; level",
+  "pos": "명사",
+  "only": true
+ },
+ {
+  "ko": "정작",
+  "en": "actually; in fact",
+  "pos": "부사",
+  "only": true
+ },
+ {
+  "ko": "정숙",
+  "en": "being quiet; silence",
+  "pos": "명사",
+  "only": true
+ },
+ {
+  "ko": "정적",
+  "en": "silence; stillness",
+  "pos": "명사",
+  "only": true
+ },
+ {
   "ko": "녹",
   "en": "rust",
   "pos": "명사",
