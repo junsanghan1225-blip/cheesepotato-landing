@@ -2566,7 +2566,8 @@
  },
  {
   "ko": "유리",
-  "en": "Yuri (a given name)",
+  "en": "glass",
+  "pos": "명사",
   "only": true
  },
  {
@@ -2963,6 +2964,30 @@
  {
   "ko": "원단",
   "en": "fabric; textile",
+  "pos": "명사",
+  "only": true
+ },
+ {
+  "ko": "유리하다",
+  "en": "favorable; advantageous",
+  "pos": "형용사",
+  "only": true
+ },
+ {
+  "ko": "유용하다",
+  "en": "useful",
+  "pos": "형용사",
+  "only": true
+ },
+ {
+  "ko": "유지",
+  "en": "keeping; maintaining",
+  "pos": "명사",
+  "only": true
+ },
+ {
+  "ko": "유사",
+  "en": "being similar",
   "pos": "명사",
   "only": true
  },
