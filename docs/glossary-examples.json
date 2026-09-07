@@ -11346,5 +11346,165 @@
  "이익": {
   "ex": "상점 운영을 통해 얻은 소중한 이익의 일부를 이웃을 위해 써요.",
   "en": "I use part of the valuable profit gained through store operation for the neighbors."
+ },
+ "이전": {
+  "ex": "수업을 시작하기 이전에 교재를 미리 책상 위에 준비해요.",
+  "en": "Before starting the class, I prepare the textbook on the desk in advance."
+ },
+ "이전하다": {
+  "ex": "회사가 교통이 더 편리한 새 건물로 사무실을 이전해요.",
+  "en": "The company moves its office to a new building with more convenient transportation."
+ },
+ "이점": {
+  "ex": "외국어를 배우면 다른 나라 친구를 사귀기 쉬운 이점이 있어요.",
+  "en": "Learning a foreign language has the advantage of making it easy to make friends from other countries."
+ },
+ "이제": {
+  "ex": "점심시간이 다 되었으니 이제 식당으로 출발해요.",
+  "en": "It is lunchtime now, so we head to the cafeteria from now on."
+ },
+ "이주": {
+  "ex": "새로운 삶의 터전을 찾아 따뜻한 남쪽 지역으로의 이주를 결심해요.",
+  "en": "I decide on a move to the warm southern region looking for a new ground for life."
+ },
+ "이주민": {
+  "ex": "마을 주민들이 낯선 곳에 새로 정착한 이주민을 따뜻하게 맞이해요.",
+  "en": "The town residents warmly welcome the immigrants newly settling in the unfamiliar place."
+ },
+ "이직": {
+  "ex": "자신의 전공을 더 잘 살릴 수 있는 직장으로 이직을 준비해요.",
+  "en": "I prepare for a change of job to a workplace where I can utilize my major better."
+ },
+ "이쪽": {
+  "ex": "복도가 좁으니 이쪽으로 한 줄로 나란히 서서 걸어요.",
+  "en": "The hallway is narrow, so let's stand in a single line on this side and walk."
+ },
+ "이처럼": {
+  "ex": "이처럼 매일 꾸준히 책을 읽으면 어휘력이 크게 늘어요.",
+  "en": "Like this, if you read books steadily every day, your vocabulary improves greatly."
+ },
+ "이치": {
+  "ex": "계절이 바뀌며 꽃이 피고 지는 것은 자연스러운 세상의 이치예요.",
+  "en": "Flowers blooming and falling as seasons change is a natural principle of the world."
+ },
+ "이틀": {
+  "ex": "주말 동안 이틀 내내 집에서 푹 쉬며 재충전해요.",
+  "en": "I rest fully at home for two days over the weekend to recharge."
+ },
+ "이하": {
+  "ex": "어린이 보호 구역에서는 시속 삼십 킬로미터 이하로 안전하게 운전해요.",
+  "en": "In the child protection zone, drive safely at 30 kilometers per hour and below."
+ },
+ "이해": {
+  "ex": "선생님의 쉬운 설명 덕분에 어려운 문법에 대한 이해가 깊어져요.",
+  "en": "Thanks to the teacher's easy explanation, comprehension of difficult grammar deepens."
+ },
+ "이후": {
+  "ex": "점심 식사 이후에 시원한 바람을 쐬며 학교 운동장을 산책해요.",
+  "en": "After lunch, I take a walk on the school athletic field getting fresh cool air."
+ },
+ "익다": {
+  "ex": "가을 햇살을 받아 밭의 감과 사과가 탐스럽게 익어요.",
+  "en": "Receiving autumn sunlight, persimmons and apples in the orchard ripen appetizingly."
+ },
+ "인가": {
+  "ex": "깊은 산길을 한참 걷다가 저 멀리 불빛이 보이는 작은 인가를 발견해요.",
+  "en": "After walking along the deep mountain trail for a while, I discover a small dwelling with visible lights far away."
+ },
+ "인간": {
+  "ex": "서로를 아끼고 존중하는 태도는 인간이 지켜야 할 기본 도리예요.",
+  "en": "Caring for and respecting one another is a fundamental duty that a human must observe."
+ },
+ "인공": {
+  "ex": "공원 한가운데에 시원한 물줄기가 쏟아지는 인공 폭포를 조성해요.",
+  "en": "They create a man-made waterfall with cool streaming water right in the middle of the park."
+ },
+ "인공위성": {
+  "ex": "날씨 정보를 정확히 수집하기 위해 우주로 새로운 인공위성을 발사해요.",
+  "en": "They launch a new artificial satellite into space to collect weather information accurately."
+ },
+ "인공지능": {
+  "ex": "스마트폰에서 질문에 바로 대답해 주는 편리한 인공지능 기능을 써요.",
+  "en": "I use convenient artificial intelligence features on the smartphone that instantly answer questions."
+ },
+ "인구": {
+  "ex": "일자리가 많은 대도시로 많은 인구가 집중돼요.",
+  "en": "A large population is concentrated into big cities with plenty of jobs."
+ },
+ "인권": {
+  "ex": "모든 사람이 차별받지 않고 존중받도록 기본 인권을 지켜요.",
+  "en": "We protect basic human rights so that all people are respected without discrimination."
+ },
+ "인기": {
+  "ex": "학교 앞 분식집은 떡볶이 맛으로 학생들에게 큰 인기를 얻어요.",
+  "en": "The snack bar in front of the school gains great popularity among students for its tteokbokki."
+ },
+ "인류": {
+  "ex": "문자의 발명은 인류의 지식 전달에 커다란 발전을 가져와요.",
+  "en": "The invention of writing brings massive advancement to the transmission of knowledge for mankind."
+ },
+ "인사": {
+  "ex": "아침마다 이웃 주민들에게 밝은 미소로 다정한 인사를 건네요.",
+  "en": "Every morning, I give friendly greetings with a bright smile to neighborhood residents."
+ },
+ "인사하다": {
+  "ex": "복도에서 마주친 선생님께 허리를 굽혀 공손하게 인사해요.",
+  "en": "I bow politely and greet the teacher whom I meet in the hallway."
+ },
+ "인상": {
+  "ex": "따뜻하게 웃는 친구의 밝은 얼굴이 참 좋은 인상을 줘요.",
+  "en": "The bright face of my warmly smiling friend gives a very good impression."
+ },
+ "인상착의": {
+  "ex": "경찰관이 잃어버린 아이를 찾기 위해 아이의 인상착의를 꼼꼼히 확인해요.",
+  "en": "The police officer carefully checks the child's signalment to find the missing child."
+ },
+ "인식": {
+  "ex": "환경 보호의 중요성에 대한 사람들의 올바른 인식이 필요해요.",
+  "en": "People's correct awareness of the importance of environmental protection is needed."
+ },
+ "인식하다": {
+  "ex": "문제가 발생하기 전에 위험 요소를 미리 스스로 인식해요.",
+  "en": "I perceive danger factors in advance by myself before problems occur."
+ },
+ "인용": {
+  "ex": "발표 자료를 작성할 때 유명한 학자의 책에서 짧은 인용을 넣어요.",
+  "en": "When writing presentation materials, I include a short quotation from a famous scholar's book."
+ },
+ "인원": {
+  "ex": "소풍에 참여할 학생들의 총 인원을 꼼꼼하게 점검해요.",
+  "en": "I carefully check the total number of persons among students participating in the picnic."
+ },
+ "인정": {
+  "ex": "어려운 이웃을 돕는 따뜻한 마을 주민들의 인정에 감동해요.",
+  "en": "I am touched by the humanity and warm feelings of the town residents who help struggling neighbors."
+ },
+ "인정받다": {
+  "ex": "맡은 일을 성실히 완수해서 동료들에게 뛰어난 실력을 인정받아요.",
+  "en": "I faithfully complete the assigned tasks and am recognized for outstanding skills by colleagues."
+ },
+ "인정하다": {
+  "ex": "토론에서 상대방의 논리적인 의견이 옳음을 솔직하게 인정해요.",
+  "en": "I frankly concede that the other person's logical opinion in the debate is correct."
+ },
+ "인주": {
+  "ex": "계약서에 도장을 찍으려고 붉은 인주를 골고루 묻혀요.",
+  "en": "I dab red stamp ink evenly to stamp the seal on the contract."
+ },
+ "인주시": {
+  "ex": "이야기 속 배경으로 등장하는 가상의 도시인 인주시를 그려봐요.",
+  "en": "I picture Inju city, the fictional city appearing as the backdrop of the story."
+ },
+ "인지": {
+  "ex": "스마트폰 화면을 터치할 때 주로 오른손 인지를 써요.",
+  "en": "I mainly use the index finger of my right hand when touching the smartphone screen."
+ },
+ "인지하다": {
+  "ex": "길을 걷다가 뒤에서 자전거가 다가오는 것을 금방 인지해요.",
+  "en": "While walking down the street, I quickly recognize that a bicycle is approaching from behind."
+ },
+ "인터넷": {
+  "ex": "궁금한 단어가 나오면 인터넷 검색을 통해 바로 찾아봐요.",
+  "en": "When an unfamiliar word comes up, I look it up right away through internet search."
  }
 }
