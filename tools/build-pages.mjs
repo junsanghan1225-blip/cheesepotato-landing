@@ -629,7 +629,10 @@ function twPage(it) {
         `<div class="fact"><b>${esc(k)}</b><span>${esc(v)}</span></div>`).join('') + '</div>' : '',
     '<h2>흔한 감점 요인 · Common deductions</h2><ul class="pts">' +
       it.deduct.map((d) => `<li>${esc(d)}</li>`).join('') + '</ul>',
-    `<a class="cta" href="/#learn/writing">직접 써 보기<span>Write it yourself — length and register checked as you type</span></a>`,
+    /* 문항 번호까지 붙여 보낸다(#learn/writing/51-1) — 목록으로 떨어지면
+       방금 읽은 이 문항을 다시 찾아야 한다. app.module.js 의 openLearnSub
+       가 이 번호를 받아 목록 대신 이 문항을 바로 연다. */
+    `<a class="cta" href="/#learn/writing/${esc(it.id)}">직접 써 보기<span>Write it yourself — length and register checked as you type</span></a>`,
   ].filter(Boolean).join('\n');
 
   const jsonld = [
