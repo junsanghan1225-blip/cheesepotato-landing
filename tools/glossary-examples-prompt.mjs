@@ -36,7 +36,12 @@ const SKIP = Math.max(0, parseInt(arg('skip', '0'), 10) || 0);
    "꼼꼼 챙겨요"처럼 「꼼꼼히」 없이 동사를 바로 꾸미는 어색한 문장만
    나왔다(사전은 부사로 등재했지만 실제로는 「꼼꼼히·꼼꼼하다」로만
    쓰인다) — 사람이 보고 골라낸 것이니 다시 주문서에 넣지 않는다. */
-const NO_EXAMPLE = new Set(['꼼꼼']);
+const NO_EXAMPLE = new Set([
+  '꼼꼼',
+  /* -잡니다(=-자고 합니다의 축약형)는 그 자체가 합쇼체 종결형이라
+     해요체로 끝나는 예문을 만들 수 없다 — 예문 없이 뜻풀이만 남긴다. */
+  '잡니다',
+]);
 
 let done = {};
 try { done = JSON.parse(readFileSync(join(ROOT, 'docs/glossary-examples.json'), 'utf8')); }
