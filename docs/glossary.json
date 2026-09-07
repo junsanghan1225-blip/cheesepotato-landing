@@ -3070,6 +3070,36 @@
   "only": true
  },
  {
+  "ko": "재다",
+  "en": "measure; weigh",
+  "pos": "동사",
+  "only": true
+ },
+ {
+  "ko": "재우다",
+  "en": "put (someone) to sleep (causative of 자다); pile",
+  "pos": "동사",
+  "only": true
+ },
+ {
+  "ko": "저의",
+  "en": "my (humble, contraction of 저 + 의)",
+  "pos": "명사",
+  "only": true
+ },
+ {
+  "ko": "저조",
+  "en": "being low; sluggish; lackluster (performance, results)",
+  "pos": "명사",
+  "only": true
+ },
+ {
+  "ko": "재원",
+  "en": "source of money; funds",
+  "pos": "명사",
+  "only": true
+ },
+ {
   "ko": "녹",
   "en": "rust",
   "pos": "명사",
