@@ -11195,5 +11195,165 @@ export const EXAMPLES = {
  "이곳": {
   "ex": "이곳은 조용해서 책을 읽거나 공부하기에 참 좋아요.",
   "en": "Here is quiet, so it is really great for reading books or studying."
+ },
+ "이끌다": {
+  "ex": "선생님이 학생들을 데리고 박물관으로 이끌어요.",
+  "en": "The teacher brings the students and leads them to the museum."
+ },
+ "이동": {
+  "ex": "수업 준비를 위해 다음 교실로의 빠른 이동을 시작해요.",
+  "en": "We begin a swift movement to the next classroom to prepare for class."
+ },
+ "이동하다": {
+  "ex": "점심을 먹으러 근처 식당으로 천천히 이동해요.",
+  "en": "We slowly move to a nearby restaurant to eat lunch."
+ },
+ "이들": {
+  "ex": "동아리에 새로 가입한 이들은 모두 한국어에 관심이 많아요.",
+  "en": "These people who newly joined the club are all very interested in Korean."
+ },
+ "이따": {
+  "ex": "수업이 다 끝난 후에 이따 도서관 앞에서 만나요.",
+  "en": "Let's meet in front of the library a little later after all classes are over."
+ },
+ "이때": {
+  "ex": "모두가 조용히 집중하고 있을 바로 이때 문이 스르륵 열려요.",
+  "en": "Right at this moment when everyone is quietly focusing, the door opens smoothly."
+ },
+ "이랑": {
+  "ex": "할아버지가 밭의 흙을 정성껏 모아 반듯한 이랑을 만드세요.",
+  "en": "My grandfather carefully gathers the field soil to make neat ridges."
+ },
+ "이러다": {
+  "ex": "서두르지 않고 계속 이러다가 기차 시간에 늦겠어요.",
+  "en": "If you keep doing this way without hurrying, you will be late for the train."
+ },
+ "이러하다": {
+  "ex": "우리가 이번 계획을 시작하게 된 배경은 이러해요.",
+  "en": "The background behind our starting this plan is like this."
+ },
+ "이렇게": {
+  "ex": "종이를 반으로 접은 뒤에 이렇게 가위로 반듯하게 오려요.",
+  "en": "After folding the paper in half, cut it neatly with scissors like this."
+ },
+ "이렇다": {
+  "ex": "사소한 일에 대해 이렇다 저렇다 따지지 않아요.",
+  "en": "I do not argue this way or that way over minor matters."
+ },
+ "이루": {
+  "ex": "친구의 갑작스러운 소식에 놀란 마음은 이루 다 말할 수 없어요.",
+  "en": "The surprised heart at my friend's sudden news cannot be told by any means."
+ },
+ "이루다": {
+  "ex": "학생들이 둥글게 모여 하나의 큰 원을 이뤄요.",
+  "en": "The students gather round and form one big circle."
+ },
+ "이르다": {
+  "ex": "오랜 시간 걸어서 마침내 산 정상에 이르러요.",
+  "en": "After walking for a long time, I finally reach the summit of the mountain."
+ },
+ "이름": {
+  "ex": "공책 맨 앞장에 제 한국어 이름을 정성껏 적어요.",
+  "en": "I carefully write my Korean name on the very front page of my notebook."
+ },
+ "이리": {
+  "ex": "날씨가 많이 추우니 이리 들어와서 따뜻한 차를 드세요.",
+  "en": "The weather is very cold, so please come this way and drink warm tea."
+ },
+ "이메일": {
+  "ex": "과제를 다 작성해서 선생님께 첨부 파일과 함께 이메일을 보내요.",
+  "en": "I finish writing the assignment and send an e-mail to the teacher along with the attached file."
+ },
+ "이미": {
+  "ex": "약속 장소에 도착하니 친구가 이미 와서 기다리고 있어요.",
+  "en": "When I arrive at the meeting place, my friend is already there waiting."
+ },
+ "이번": {
+  "ex": "이번 주말에는 가족들과 함께 가까운 공원으로 소풍을 가요.",
+  "en": "This weekend, I go on a picnic to a nearby park with my family."
+ },
+ "이분": {
+  "ex": "이분은 우리 학교에서 한국어를 가르치시는 훌륭한 선생님이세요.",
+  "en": "This lady is a wonderful teacher who teaches Korean at our school."
+ },
+ "이사": {
+  "ex": "새로운 동네로의 편안한 이사를 위해 짐을 차곡차곡 정리해요.",
+  "en": "I organize luggage neatly for a comfortable house-moving to a new neighborhood."
+ },
+ "이사하다": {
+  "ex": "학교와 가까운 편리한 아파트로 다음 주에 이사해요.",
+  "en": "I move house to a convenient apartment near the school next week."
+ },
+ "이산": {
+  "ex": "오랜 전쟁으로 인한 가족들의 아픈 이산의 역사를 배워요.",
+  "en": "We learn about the painful history of families' separation caused by long wars."
+ },
+ "이산화탄소": {
+  "ex": "지구 온난화를 막기 위해 일상에서 이산화탄소 배출을 줄여요.",
+  "en": "We reduce carbon dioxide emissions in daily life to prevent global warming."
+ },
+ "이십": {
+  "ex": "수업 시작 시간까지 아직 이십 분이나 여유가 있어요.",
+  "en": "There is still twenty minutes of plenty of time left until class starts."
+ },
+ "이야": {
+  "ex": "이야, 맑은 하늘에 뜬 커다란 무지개가 정말 예쁘네요.",
+  "en": "Wow, the huge rainbow floating in the clear sky is truly pretty."
+ },
+ "이야기": {
+  "ex": "할머니께서 들려주시는 재미있는 옛날이야기에 푹 빠져요.",
+  "en": "I am deeply absorbed in the interesting old story told by my grandmother."
+ },
+ "이야기하다": {
+  "ex": "카페에서 친구와 함께 지난 여행 추억에 대해 이야기해요.",
+  "en": "I speak with my friend about memories of past trips at the cafe."
+ },
+ "이어받다": {
+  "ex": "선배들의 훌륭한 전통과 열정을 그대로 이어받아요.",
+  "en": "We inherit the wonderful traditions and passion of our seniors as they are."
+ },
+ "이어지다": {
+  "ex": "좁은 골목길을 따라 아름다운 산책로가 길게 이어져요.",
+  "en": "A beautiful walking path is connected for a long distance along the narrow alley."
+ },
+ "이어폰": {
+  "ex": "지하철 안에서 조용히 음악을 들으려고 하얀 이어폰을 꽂아요.",
+  "en": "I plug in white earphones to listen to music quietly inside the subway."
+ },
+ "이왕": {
+  "ex": "이왕 시작한 한국어 공부이니 끝까지 열심히 배워봐요.",
+  "en": "Now that we have started studying Korean, let's learn hard until the end."
+ },
+ "이용": {
+  "ex": "편리하고 빠른 대중교통의 이용을 적극 권장해요.",
+  "en": "We actively recommend the use of convenient and fast public transportation."
+ },
+ "이용객": {
+  "ex": "주말을 맞아 공원에는 산책하는 이용객들로 가득해요.",
+  "en": "Welcoming the weekend, the park is full of visitors taking walks."
+ },
+ "이용료": {
+  "ex": "도서관 시설을 쓰기 전에 정해진 시설 이용료를 확인해요.",
+  "en": "I check the set facility fee before using the library facilities."
+ },
+ "이용자": {
+  "ex": "도서관 열람실에서는 다른 이용자들을 위해 조용히 해요.",
+  "en": "We keep quiet for other patrons in the library reading room."
+ },
+ "이용하다": {
+  "ex": "약속 장소에 늦지 않으려고 빠르고 정확한 지하철을 이용해요.",
+  "en": "I use the fast and punctual subway so as not to be late for the meeting."
+ },
+ "이웃": {
+  "ex": "엘리베이터에서 다정하게 마주치는 이웃 주민에게 밝게 인사해요.",
+  "en": "I greet warmly the neighbor resident whom I meet pleasantly in the elevator."
+ },
+ "이유": {
+  "ex": "오늘 모임에 조금 늦게 도착한 타당한 이유를 차분히 설명해요.",
+  "en": "I calmly explain the valid reason for arriving a bit late to the meeting today."
+ },
+ "이익": {
+  "ex": "상점 운영을 통해 얻은 소중한 이익의 일부를 이웃을 위해 써요.",
+  "en": "I use part of the valuable profit gained through store operation for the neighbors."
  }
 };
