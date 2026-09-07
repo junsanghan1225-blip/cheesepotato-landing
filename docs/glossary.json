@@ -3112,6 +3112,12 @@
   "only": true
  },
  {
+  "ko": "전면",
+  "en": "all-out; full-scale; front; facade",
+  "pos": "명사",
+  "only": true
+ },
+ {
   "ko": "녹",
   "en": "rust",
   "pos": "명사",
