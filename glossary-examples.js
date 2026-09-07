@@ -12151,5 +12151,165 @@ export const EXAMPLES = {
  "재": {
   "ex": "안전하게 운전하며 험하고 굽이진 높은 고개 재를 넘어가요.",
   "en": "I drive safely and go over the steep and winding high mountain pass."
+ },
+ "재개": {
+  "ex": "점검을 마치고 도서관 열람실의 정상 운영 재개를 알려요.",
+  "en": "After finishing inspection, we announce the resumption of normal operations of the library reading room."
+ },
+ "재개발": {
+  "ex": "낡은 주택가를 편리한 주거 공간으로 바꾸는 재개발을 추진해요.",
+  "en": "They promote redevelopment to transform the old residential area into a convenient living space."
+ },
+ "재고": {
+  "ex": "새로운 제안을 받아들여 이전 결정에 대한 재고를 요청해요.",
+  "en": "Accepting the new proposal, I request a reconsideration of the previous decision."
+ },
+ "재다": {
+  "ex": "옷을 만들기 전에 줄자로 어깨너비를 정확히 재요.",
+  "en": "I measure the shoulder width accurately with a tape measure before making clothes."
+ },
+ "재료": {
+  "ex": "맛있는 찌개를 끓이려고 신선한 요리 재료를 준비해요.",
+  "en": "I prepare fresh cooking ingredients to boil a delicious stew."
+ },
+ "재료비": {
+  "ex": "음식을 만들 때 들어간 신선한 채소의 재료비를 계산해요.",
+  "en": "I calculate the material cost of fresh vegetables used when making food."
+ },
+ "재미": {
+  "ex": "한국어 퀴즈를 풀며 언어를 배우는 쏠쏠한 재미를 느껴요.",
+  "en": "I feel the delightful fun of learning a language while solving Korean quizzes."
+ },
+ "재미있다": {
+  "ex": "어제 친구와 함께 본 한국 영화가 정말 재미있어요.",
+  "en": "The Korean movie I watched with a friend yesterday is really interesting."
+ },
+ "재배": {
+  "ex": "작은 텃밭에서 신선한 토마토의 유기농 재배를 시작해요.",
+  "en": "I start the organic cultivation of fresh tomatoes in a small vegetable garden."
+ },
+ "재배하다": {
+  "ex": "할머니께서 밭에서 싱싱한 배추와 무를 정성껏 재배하세요.",
+  "en": "My grandmother carefully cultivates fresh napa cabbages and radishes in the field."
+ },
+ "재산": {
+  "ex": "젊은 시절부터 꾸준히 읽은 책들은 저의 가장 소중한 재산이에요.",
+  "en": "The books read steadily since my youth are my most precious assets."
+ },
+ "재생": {
+  "ex": "버려진 폐지를 가공하여 깨끗한 종이로의 재생을 도와요.",
+  "en": "We help the recycling of discarded waste paper into clean paper."
+ },
+ "재우다": {
+  "ex": "어머니가 품에 안고 자장가를 부르며 어린 아기를 부드럽게 재워요.",
+  "en": "The mother gently puts the young baby to sleep while holding it in her arms and singing a lullaby."
+ },
+ "재원": {
+  "ex": "동아리 활동을 원활히 지원하기 위한 충분한 재원을 마련해요.",
+  "en": "We arrange sufficient funds to smoothly support club activities."
+ },
+ "재정": {
+  "ex": "합리적인 지출 계획을 세워 모임의 재정을 투명하게 관리해요.",
+  "en": "We establish a reasonable spending plan and manage the group's finances transparently."
+ },
+ "재조명": {
+  "ex": "역사 수업 시간에 잊힌 고대 문화의 가치에 대한 재조명을 시도해요.",
+  "en": "We attempt a re-examination of the value of forgotten ancient culture in history class."
+ },
+ "재조명하다": {
+  "ex": "학자들은 과거의 훌륭한 문학 작품을 현대적 관점에서 재조명해요.",
+  "en": "Scholars re-examine great literary works of the past from a modern perspective."
+ },
+ "재활": {
+  "ex": "다친 선수가 꾸준한 운동 치료를 통해 멋진 재활에 성공해요.",
+  "en": "The injured athlete succeeds in a wonderful comeback through steady exercise therapy."
+ },
+ "재활용": {
+  "ex": "지구를 깨끗하게 지키기 위해 생활용품의 재활용을 실천해요.",
+  "en": "I practice the recycling of household goods to keep the Earth clean."
+ },
+ "재활용품": {
+  "ex": "깨끗하게 씻은 플라스틱병을 재활용품 수거함에 분리해서 넣어요.",
+  "en": "I separate and put cleanly washed plastic bottles into the recyclable items bin."
+ },
+ "재활용하다": {
+  "ex": "다 쓴 상자를 버리지 않고 작은 수납함으로 재활용해요.",
+  "en": "I do not throw away used boxes and recycle them into small storage bins."
+ },
+ "저": {
+  "ex": "저도 주말에 친구들과 함께 도서관에 가고 싶어요.",
+  "en": "I also want to go to the library with friends on the weekend."
+ },
+ "저것": {
+  "ex": "저 멀리 언덕 위에 보이는 저것은 오래된 나무예요.",
+  "en": "That thing visible far over the hill is an old tree."
+ },
+ "저기": {
+  "ex": "저기 길모퉁이를 돌면 시원한 음료를 파는 카페가 나와요.",
+  "en": "If you turn that place at the corner of the street, a cafe selling cool beverages appears."
+ },
+ "저녁": {
+  "ex": "오늘 저녁에는 가족들과 함께 따뜻한 찌개를 끓여 먹어요.",
+  "en": "Tonight for dinner, I cook and eat warm stew with my family."
+ },
+ "저런": {
+  "ex": "길가에 핀 저런 작은 꽃도 자세히 보면 참 예뻐요.",
+  "en": "Even that kind of small flower blooming along the roadside is truly pretty if you look closely."
+ },
+ "저렴하다": {
+  "ex": "학교 앞 분식집은 음식 가격이 아주 저렴해요.",
+  "en": "The snack bar in front of the school has very cheap food prices."
+ },
+ "저만": {
+  "ex": "바구니 안에 저만한 크기의 작은 사과가 가득 담겨 있어요.",
+  "en": "The basket is filled with small apples of like that size."
+ },
+ "저의": {
+  "ex": "한국어를 유창하게 말하는 것이 저의 오랜 꿈이에요.",
+  "en": "Speaking Korean fluently is my long-cherished dream."
+ },
+ "저장": {
+  "ex": "컴퓨터로 작성한 중요한 문서를 안전하게 파일로 저장해요.",
+  "en": "I safely save important documents written on the computer as files for storage."
+ },
+ "저조": {
+  "ex": "비가 많이 와서 야외 행사 참여율이 다소 저조해요.",
+  "en": "It rained a lot, so participation in the outdoor event is somewhat lackluster."
+ },
+ "저쪽": {
+  "ex": "복도 끝 저쪽으로 걸어가면 조용한 스터디룸이 있어요.",
+  "en": "If you walk toward that side at the end of the hallway, there is a quiet study room."
+ },
+ "저하": {
+  "ex": "수면 부족은 집중력 저하의 주요 원인이 돼요.",
+  "en": "Lack of sleep becomes a major cause of a drop in concentration."
+ },
+ "저항": {
+  "ex": "거센 비바람의 강한 저항을 뚫고 앞으로 천천히 걸어가요.",
+  "en": "I walk forward slowly breaking through the strong resistance of heavy rain and wind."
+ },
+ "저해": {
+  "ex": "규칙적이지 않은 식습관은 건강한 성장의 저해를 가져와요.",
+  "en": "Irregular eating habits bring about the hindering of healthy growth."
+ },
+ "적": {
+  "ex": "저는 어릴 때 부산으로 가족 여행을 다녀온 적이 있어요.",
+  "en": "I have the experience of going on a family trip to Busan when I was young."
+ },
+ "적극": {
+  "ex": "선생님의 질문에 적극 손을 들어 답해요.",
+  "en": "I actively raise my hand and answer the teacher's question."
+ },
+ "적극적": {
+  "ex": "주리는 동아리 활동에 항상 적극적 태도로 참여해요.",
+  "en": "Juri always participates in club activities with an active attitude."
+ },
+ "적다": {
+  "ex": "수업을 들으며 중요한 핵심 내용을 공책에 꼼꼼히 적어요.",
+  "en": "While listening to the lecture, I write down important key points carefully in my notebook."
+ },
+ "적립": {
+  "ex": "가게에서 물건을 살 때마다 보너스 포인트의 적립을 잊지 않아요.",
+  "en": "I do not forget the saving of bonus points every time I buy goods at the shop."
  }
 };
