@@ -9586,5 +9586,165 @@
  "어색하다": {
   "ex": "처음 만난 사람과 단둘이 있으면 분위기가 조금 어색해요.",
   "en": "When I am alone with someone I meet for the first time, the atmosphere is a bit awkward."
+ },
+ "어서": {
+  "ex": "날씨가 쌀쌀하니 어서 따뜻한 방 안으로 들어오세요.",
+  "en": "The weather is chilly, so please come quickly into the warm room without delay."
+ },
+ "어수선하다": {
+  "ex": "이사를 앞두고 짐을 정리하느라 방 안이 몹시 어수선해요.",
+  "en": "The inside of the room is very messy as we organize luggage ahead of moving."
+ },
+ "어업": {
+  "ex": "바닷가 마을 주민들은 주로 신선한 생선을 잡는 어업에 종사해요.",
+  "en": "The coastal village residents are mostly engaged in fishery, catching fresh fish."
+ },
+ "어제": {
+  "ex": "어제 오후에 친구와 함께 시내 서점에 다녀와요.",
+  "en": "I went to the downtown bookstore with a friend yesterday afternoon."
+ },
+ "어젯밤": {
+  "ex": "어젯밤에 재미있는 소설책을 읽느라 늦게 잠들어요.",
+  "en": "I fell asleep late reading an interesting novel last night."
+ },
+ "어질다": {
+  "ex": "옛날이야기 속 임금님은 백성을 사랑하는 어진 마음을 지녀요.",
+  "en": "The king in the old tale has a kind-hearted and benevolent mind that loves the people."
+ },
+ "어쩌다": {
+  "ex": "바쁜 일상 속에서 어쩌다 한 번씩 옛 친구를 만나요.",
+  "en": "In my busy daily life, I do happen to meet old friends once in a while."
+ },
+ "어쩌면": {
+  "ex": "열심히 준비했으니 어쩌면 이번 시험에 합격할 수도 있어요.",
+  "en": "Since we prepared hard, perhaps we might pass this exam."
+ },
+ "어차피": {
+  "ex": "어차피 시작한 공부이니 끝까지 포기하지 않고 최선을 다해요.",
+  "en": "Since it is study already started after all, I do my best without giving up to the end."
+ },
+ "억": {
+  "ex": "문 모서리에 발을 부딪쳐서 억 소리를 내요.",
+  "en": "I bump my foot against the corner of the door and let out an 'argh'."
+ },
+ "억울하다": {
+  "ex": "하지도 않은 잘못으로 오해를 받아서 마음이 너무 억울해요.",
+  "en": "I feel very wronged because I was misunderstood for a mistake I didn't even commit."
+ },
+ "억제": {
+  "ex": "건강을 지키기 위해 단 음식을 지나치게 먹는 충동의 억제를 실천해요.",
+  "en": "To maintain health, I practice the suppression of the urge to eat overly sweet foods."
+ },
+ "억지": {
+  "ex": "자기주장만 앞세워 남에게 무리한 억지를 부리지 않아요.",
+  "en": "I do not impose groundless and unreasonable stubbornness on others by pushing only my own claims."
+ },
+ "언어": {
+  "ex": "외국 친구들과 자유롭게 대화하기 위해 새로운 언어를 배워요.",
+  "en": "I learn a new language to converse freely with foreign friends."
+ },
+ "언제": {
+  "ex": "우리 주말에 언제 만날지 약속 시간을 정해요.",
+  "en": "Let's decide what time we will meet this weekend."
+ },
+ "얹다": {
+  "ex": "따뜻한 밥 위에 맛있는 계란후라이를 하나 얹어요.",
+  "en": "I place one delicious fried egg on top of the warm rice."
+ },
+ "얻다": {
+  "ex": "선생님과의 대화를 통해 유익한 조언을 많이 얻어요.",
+  "en": "I receive a lot of beneficial advice through conversations with my teacher."
+ },
+ "얼": {
+  "ex": "우리 조상들의 숭고한 민족적 얼을 소중하게 계승해요.",
+  "en": "We valuably inherit the noble national spirit of our ancestors."
+ },
+ "얼굴": {
+  "ex": "아침에 일어나서 시원한 물로 얼굴을 깨끗이 씻어요.",
+  "en": "I wake up in the morning and wash my face cleanly with cool water."
+ },
+ "얼다": {
+  "ex": "기온이 영하로 내려가자 길가의 물웅덩이가 꽁꽁 얼어요.",
+  "en": "As the temperature drops below zero, the puddles along the street freeze solid."
+ },
+ "얼른": {
+  "ex": "수업이 시작되기 전에 얼른 교실 자리로 들어가 앉아요.",
+  "en": "I promptly go into my seat in the classroom and sit down before class begins."
+ },
+ "얼마": {
+  "ex": "이 신선하고 달콤한 사과는 가격이 얼마예요?",
+  "en": "How much is the price of this fresh and sweet apple?"
+ },
+ "얼어붙다": {
+  "ex": "한겨울의 매서운 추위에 호수의 수면이 꽁꽁 얼어붙어요.",
+  "en": "In the severe cold of midwinter, the surface of the lake is completely frozen."
+ },
+ "얽다": {
+  "ex": "할아버지의 옛 얼굴은 오랜 세월의 흉터로 조금 얽어요.",
+  "en": "My grandfather's old face is slightly pockmarked with scars from long ago."
+ },
+ "얽히다": {
+  "ex": "서랍 속에 넣어둔 이어폰 줄이 서로 복잡하게 얽혀요.",
+  "en": "The earphone cables kept in the drawer get tangled complicatedly with each other."
+ },
+ "엄청": {
+  "ex": "오늘 점심에 먹은 비빔밥이 엄청 맛있어요.",
+  "en": "The bibimbap I ate for lunch today is extremely delicious."
+ },
+ "엄청나다": {
+  "ex": "새로 지은 도서관은 책의 보유량이 정말 엄청나요.",
+  "en": "The newly built library has a truly enormous collection of books."
+ },
+ "업": {
+  "ex": "석진은 사람들을 가르치는 일을 평생의 업으로 삼아요.",
+  "en": "Seokjin takes teaching people as his lifelong occupation."
+ },
+ "업다": {
+  "ex": "다리가 아파 걷지 못하는 동생을 등에 편안하게 업어요.",
+  "en": "I comfortably carry my younger sibling on my back because their legs hurt and they cannot walk."
+ },
+ "업무": {
+  "ex": "오전 시간 동안 사무실에서 맡은 업무를 성실히 처리해요.",
+  "en": "I faithfully handle the assigned tasks in the office during the morning hours."
+ },
+ "업체": {
+  "ex": "행사에 필요한 음식을 믿을 만한 전문 업체에 맡겨요.",
+  "en": "We entrust the food needed for the event to a reliable specialized company."
+ },
+ "없다": {
+  "ex": "냉장고 안에 마실 시원한 우유가 하나도 없어요.",
+  "en": "There is no cold milk to drink inside the refrigerator at all."
+ },
+ "없애다": {
+  "ex": "방 안의 나쁜 냄새를 없애기 위해 창문을 활짝 열어요.",
+  "en": "I open the window wide to get rid of the bad odor in the room."
+ },
+ "없어지다": {
+  "ex": "아침 햇살이 비추자 짙게 끼었던 안개가 서서히 없어져요.",
+  "en": "As the morning sunlight shines, the thick fog gradually disappears."
+ },
+ "었으면": {
+  "ex": "어제 날씨가 조금만 더 따뜻했으면 좋았을 텐데요.",
+  "en": "I wish the weather had been just a little warmer yesterday."
+ },
+ "엉망": {
+  "ex": "바람이 심하게 불어서 머리 모양이 완전히 엉망이 돼요.",
+  "en": "The wind blows so hard that my hair becomes a complete mess."
+ },
+ "에너지": {
+  "ex": "아침밥을 든든하게 먹어서 하루를 시작할 활기찬 에너지를 얻어요.",
+  "en": "I eat a hearty breakfast to get energetic energy to start the day."
+ },
+ "에너지원": {
+  "ex": "햇빛과 바람은 환경을 해치지 않는 깨끗한 대체 에너지원이에요.",
+  "en": "Sunlight and wind are clean alternative sources of energy that do not harm the environment."
+ },
+ "에다": {
+  "ex": "한겨울의 매서운 찬 바람이 살을 에는 듯해요.",
+  "en": "The severe cold wind of midwinter feels like it is slicing through flesh."
+ },
+ "에어컨": {
+  "ex": "한여름 무더위를 식히려고 거실의 시원한 에어컨을 켜요.",
+  "en": "I turn on the cool air conditioner in the living room to beat the midsummer heat."
  }
 }
