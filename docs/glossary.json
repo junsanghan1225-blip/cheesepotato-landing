@@ -3118,6 +3118,12 @@
   "only": true
  },
  {
+  "ko": "전하다",
+  "en": "convey; give; hand; pass on",
+  "pos": "동사",
+  "only": true
+ },
+ {
   "ko": "녹",
   "en": "rust",
   "pos": "명사",
