@@ -3148,6 +3148,12 @@
   "only": true
  },
  {
+  "ko": "제도적",
+  "en": "institutional",
+  "pos": "명사",
+  "only": true
+ },
+ {
   "ko": "녹",
   "en": "rust",
   "pos": "명사",
