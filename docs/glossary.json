@@ -2961,6 +2961,12 @@
   "only": true
  },
  {
+  "ko": "원단",
+  "en": "fabric; textile",
+  "pos": "명사",
+  "only": true
+ },
+ {
   "ko": "녹",
   "en": "rust",
   "pos": "명사",
