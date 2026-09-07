@@ -9906,5 +9906,165 @@
  "연수": {
   "ex": "업무 능력을 키우기 위해 주말 연수에 참가해요.",
   "en": "I participate in weekend training to enhance work capabilities."
+ },
+ "연습": {
+  "ex": "한국어 발음을 정확히 하기 위해 매일 소리 내어 읽는 연습을 해요.",
+  "en": "I do reading practice out loud every day to pronounce Korean accurately."
+ },
+ "연습하다": {
+  "ex": "수업이 끝난 뒤에 교실에서 친구와 말하기를 연습해요.",
+  "en": "I practice speaking with my friend in the classroom after class ends."
+ },
+ "연안": {
+  "ex": "작은 고깃배들이 파도가 잔잔한 연안을 따라 천천히 움직여요.",
+  "en": "Small fishing boats move slowly along the coastal waters where the waves are calm."
+ },
+ "연장": {
+  "ex": "도서관에서 빌린 책의 대출 기간 연장을 신청해요.",
+  "en": "I apply for an extension of the loan period for the book borrowed from the library."
+ },
+ "연장하다": {
+  "ex": "과제를 마무리하기 위해 도서관 이용 시간을 한 시간 연장해요.",
+  "en": "I extend the library usage time by one hour to finish the assignment."
+ },
+ "연필": {
+  "ex": "공책에 부드러운 연필로 새로운 단어를 또박또박 써요.",
+  "en": "I write new words clearly in my notebook with a soft pencil."
+ },
+ "열": {
+  "ex": "상자 안에 사과 열 개가 가지런히 담겨 있어요.",
+  "en": "Ten apples are neatly packed in the box."
+ },
+ "열기": {
+  "ex": "한여름 한낮의 뜨거운 열기가 온몸으로 느껴져요.",
+  "en": "The hot heat of a midsummer midday is felt throughout my whole body."
+ },
+ "열다": {
+  "ex": "방 안의 공기를 바꾸려고 창문을 활짝 열어요.",
+  "en": "I open the window wide to freshen up the air in the room."
+ },
+ "열람": {
+  "ex": "도서관에서 귀중한 옛 문서의 열람을 신청해요.",
+  "en": "I request the reading of precious old documents at the library."
+ },
+ "열람실": {
+  "ex": "조용히 공부하려고 3층에 있는 제1열람실로 올라가요.",
+  "en": "I go up to the First Reading Room on the third floor to study quietly."
+ },
+ "열리다": {
+  "ex": "이번 주말에 학교 운동장에서 큰 축제가 열려요.",
+  "en": "A big festival is held on the school athletic field this weekend."
+ },
+ "열섬": {
+  "ex": "도심의 빌딩 숲 때문에 밤에도 기온이 내려가지 않는 열섬 현상이 나타나요.",
+  "en": "The heat island phenomenon occurs where temperatures do not drop at night because of the forest of buildings downtown."
+ },
+ "열쇠": {
+  "ex": "가방 안에서 현관문을 열 열쇠를 찾아요.",
+  "en": "I look for the key to open the front door in my bag."
+ },
+ "열심": {
+  "ex": "석진은 맡은 일에 항상 뜨거운 열심을 다해요.",
+  "en": "Seokjin always puts full dedication into his assigned tasks."
+ },
+ "열심히": {
+  "ex": "좋은 성적을 받기 위해 매일 도서관에서 열심히 공부해요.",
+  "en": "I study diligently in the library every day to get good grades."
+ },
+ "열차": {
+  "ex": "부산으로 가는 고속 열차를 타려고 승강장으로 내려가요.",
+  "en": "I go down to the platform to take the express train bound for Busan."
+ },
+ "영": {
+  "ex": "감기에 걸렸더니 오늘은 입맛이 영 없어요.",
+  "en": "I caught a cold, so I have no appetite today in the least."
+ },
+ "영상": {
+  "ex": "한국어 공부에 도움이 되는 재미있는 영상을 시청해요.",
+  "en": "I watch an entertaining video that is helpful for studying Korean."
+ },
+ "영세": {
+  "ex": "동네 골목에는 오랜 전통을 이어오는 영세 상점들이 많아요.",
+  "en": "There are many small-scale shops keeping up long traditions in the neighborhood alleys."
+ },
+ "영수증": {
+  "ex": "마트에서 장을 보고 계산원에게 영수증을 받아요.",
+  "en": "I grocery shop at the mart and receive the receipt from the cashier."
+ },
+ "영양": {
+  "ex": "건강을 지키기 위해 골고루 영양을 섭취해요.",
+  "en": "I take in balanced nutrition to maintain my health."
+ },
+ "영양가": {
+  "ex": "신선한 두부는 단백질과 영양가가 매우 풍부해요.",
+  "en": "Fresh tofu is very rich in protein and nutritional value."
+ },
+ "영양분": {
+  "ex": "식물이 잘 자라도록 화분 흙에 풍부한 영양분을 줘요.",
+  "en": "I give abundant nutrients to the pot soil so the plants grow well."
+ },
+ "영양제": {
+  "ex": "아침 식사를 마친 후에 비타민 영양제를 챙겨 먹어요.",
+  "en": "I take vitamin nutritional supplements after finishing breakfast."
+ },
+ "영업": {
+  "ex": "이 식당은 저녁 늦은 시간까지 정상적인 영업을 해요.",
+  "en": "This restaurant does normal business until late in the evening."
+ },
+ "영업시간": {
+  "ex": "방문하기 전에 카페의 주말 영업시간을 미리 확인해요.",
+  "en": "I check the cafe's weekend business hours in advance before visiting."
+ },
+ "영유아": {
+  "ex": "보건소에서 어린 영유아를 위한 정기 건강검진을 실시해요.",
+  "en": "The public health center conducts regular health checkups for young infants."
+ },
+ "영향": {
+  "ex": "선생님의 따뜻한 말씀이 제 생각에 큰 영향을 줘요.",
+  "en": "The teacher's warm words exert a big influence on my thoughts."
+ },
+ "영향력": {
+  "ex": "준상은 동아리 안에서 긍정적인 영향력을 발휘해요.",
+  "en": "Junsang exerts a positive power of influence within the club."
+ },
+ "영화": {
+  "ex": "주말 저녁에 친구와 함께 감동적인 영화를 봐요.",
+  "en": "I watch a touching movie with my friend on weekend evening."
+ },
+ "영화관": {
+  "ex": "새로 개봉한 영화를 보러 시내 중심의 영화관에 가요.",
+  "en": "I go to the movie theater downtown to watch the newly released movie."
+ },
+ "옆": {
+  "ex": "책상 옆에 놓인 작은 서랍장에서 공책을 꺼내요.",
+  "en": "I take out a notebook from the small chest of drawers beside the desk."
+ },
+ "옆방": {
+  "ex": "옆방에서 친구들이 조용히 도란도란 이야기를 나눠요.",
+  "en": "Friends are chatting quietly in the next room."
+ },
+ "옆집": {
+  "ex": "주말에 옆집 이웃에게 맛있는 떡을 나누어 줘요.",
+  "en": "I share delicious rice cakes with the house next door on the weekend."
+ },
+ "예": {
+  "ex": "선생님이 이해를 돕기 위해 쉬운 예를 들어 설명해요.",
+  "en": "The teacher explains by giving an easy example to aid understanding."
+ },
+ "예매": {
+  "ex": "인기 있는 공연이라 미리 인터넷으로 표 예매를 해요.",
+  "en": "It is a popular performance, so I make an advance ticket purchase on the internet."
+ },
+ "예매하다": {
+  "ex": "여행을 떠나기 전에 기차표를 미리 예매해요.",
+  "en": "I purchase the train tickets in advance before leaving for the trip."
+ },
+ "예방": {
+  "ex": "독감에 걸리지 않도록 손 씻기로 감기 예방을 철저히 해요.",
+  "en": "I thoroughly carry out cold prevention by washing hands to avoid catching the flu."
+ },
+ "예방하다": {
+  "ex": "매일 가벼운 운동을 하며 건강 문제를 미리 예방해요.",
+  "en": "I prevent health problems in advance by doing light exercise every day."
  }
 }
