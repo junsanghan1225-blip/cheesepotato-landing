@@ -3034,6 +3034,18 @@
   "only": true
  },
  {
+  "ko": "입지",
+  "en": "location; standing; position",
+  "pos": "명사",
+  "only": true
+ },
+ {
+  "ko": "자길래",
+  "en": "since (someone) suggested/proposed that... (contraction of -자고 하길래)",
+  "pos": "품사 없음",
+  "only": true
+ },
+ {
   "ko": "녹",
   "en": "rust",
   "pos": "명사",
