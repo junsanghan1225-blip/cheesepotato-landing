@@ -10395,5 +10395,165 @@ export const EXAMPLES = {
  "완성": {
   "ex": "친구들과 힘을 모아 멋진 그림 작품의 완성을 이뤄내요.",
   "en": "Joining forces with friends, we achieve the completion of a wonderful artwork."
+ },
+ "완성하다": {
+  "ex": "친구들과 힘을 모아 마침내 멋진 그림을 완성해요.",
+  "en": "Joining forces with friends, we finally complete a wonderful drawing."
+ },
+ "완전": {
+  "ex": "우리 팀은 계획의 완전을 위해 작은 세부 사항까지 점검해요.",
+  "en": "Our team checks even the small details for the completeness of the plan."
+ },
+ "완전히": {
+  "ex": "푹 자고 일어났더니 어제의 피로가 완전히 사라져요.",
+  "en": "After having a sound sleep, yesterday's fatigue completely disappears."
+ },
+ "완충": {
+  "ex": "택배 상자 안에 충격을 막아주는 완충 포장재를 넣어요.",
+  "en": "I put buffering packaging material that absorbs shock inside the delivery box."
+ },
+ "완치": {
+  "ex": "꾸준히 약을 먹고 푹 쉬어서 독감의 완치를 기다려요.",
+  "en": "I steadily take medicine and take a good rest, waiting for healing completely from the flu."
+ },
+ "완화": {
+  "ex": "스트레스 완화를 위해 따뜻한 차를 마시며 명상을 해요.",
+  "en": "I meditate while drinking warm tea for the easing of stress."
+ },
+ "완화하다": {
+  "ex": "가벼운 스트레칭으로 뻐근한 어깨의 긴장을 완화해요.",
+  "en": "I relieve the tension in my stiff shoulders with light stretching."
+ },
+ "왕": {
+  "ex": "역사 박물관에서 옛 나라를 다스렸던 어진 왕의 이야기를 들어요.",
+  "en": "I hear the story of the benevolent king who ruled the ancient country at the history museum."
+ },
+ "왕실": {
+  "ex": "드라마에서 화려하고 품격 있는 옛 왕실의 문화를 봐요.",
+  "en": "I watch the splendid and dignified old royal court culture in the drama."
+ },
+ "왜냐하면": {
+  "ex": "오늘은 일찍 집에 가요, 왜냐하면 가족 모임이 있거든요.",
+  "en": "I am going home early today, because there is a family gathering."
+ },
+ "왠지": {
+  "ex": "오늘따라 왠지 기분 좋은 일이 생길 것만 같아요.",
+  "en": "Somehow, it feels like something good will happen today."
+ },
+ "외곽": {
+  "ex": "주말에는 복잡한 도심을 벗어나 조용한 도시 외곽으로 드라이브를 떠나요.",
+  "en": "On weekends, I go for a drive to the quiet outskirts of the city away from the busy downtown."
+ },
+ "외국": {
+  "ex": "방학 동안 새로운 문화를 배우러 외국으로 여행을 가요.",
+  "en": "I go on a trip to a foreign country to learn new cultures during vacation."
+ },
+ "외국어": {
+  "ex": "세계 여러 나라의 친구들과 사귀려고 외국어를 열심히 배워요.",
+  "en": "I study foreign languages hard to make friends from various countries around the world."
+ },
+ "외국인": {
+  "ex": "길을 찾는 친절한 외국인 여행객에게 길을 알려줘요.",
+  "en": "I show the way to a kind foreigner tourist looking for directions."
+ },
+ "외근": {
+  "ex": "거래처 담당자를 만나러 오후에 잠시 외근을 나가요.",
+  "en": "I go out for working outside briefly in the afternoon to meet the client's representative."
+ },
+ "외다": {
+  "ex": "한국어 수업 시간에 배운 짧은 시를 소리 내어 외요.",
+  "en": "I memorize the short poem learned during Korean class out loud."
+ },
+ "외면": {
+  "ex": "건물의 외면을 깨끗하고 밝은 색 페인트로 칠해요.",
+  "en": "They paint the outer surface of the building with clean and bright paint."
+ },
+ "외부": {
+  "ex": "찬 바람이 들어오지 않도록 외부와 연결된 문을 닫아요.",
+  "en": "I close the door connected to the outside so that the cold wind does not blow in."
+ },
+ "외식": {
+  "ex": "금요일 저녁에는 가족들과 함께 맛있는 식당에서 외식을 해요.",
+  "en": "On Friday evenings, I have a meal in a restaurant together with my family at a delicious eatery."
+ },
+ "외우다": {
+  "ex": "내일 시험을 위해 교재에 나오는 새로운 단어를 외워요.",
+  "en": "I memorize new words appearing in the textbook for tomorrow's exam."
+ },
+ "외출": {
+  "ex": "날씨가 맑아서 친구를 만나러 가벼운 마음으로 외출을 해요.",
+  "en": "The weather is sunny, so I go on an outing with a light heart to meet a friend."
+ },
+ "외향": {
+  "ex": "새로 지은 도서관은 단정하고 깔끔한 외향을 지녀요.",
+  "en": "The newly built library has a neat and clean exterior."
+ },
+ "외향적": {
+  "ex": "리아는 성격이 외향적이라서 새로운 친구를 금방 사귀어요.",
+  "en": "Lia has an extroverted personality, so she makes new friends quickly."
+ },
+ "요": {
+  "ex": "바닥에 푹신한 요를 깔고 따뜻한 이불을 덮어요.",
+  "en": "I spread a soft sleeping mat on the floor and cover myself with a warm blanket."
+ },
+ "요구": {
+  "ex": "소비자들의 정당한 품질 개선 요구를 받아들여요.",
+  "en": "We accept the legitimate improvement demands of consumers."
+ },
+ "요구하다": {
+  "ex": "손님이 식당 직원에게 깨끗한 숟가락을 요구해요.",
+  "en": "The guest requests a clean spoon from the restaurant staff."
+ },
+ "요금": {
+  "ex": "버스를 타며 교통카드로 정해진 버스 요금을 내요.",
+  "en": "I pay the fixed bus fare with a transportation card when getting on the bus."
+ },
+ "요리": {
+  "ex": "주말 점심으로 신선한 채소를 넣은 맛있는 요리를 만들어요.",
+  "en": "I make a delicious dish with fresh vegetables for weekend lunch."
+ },
+ "요리하다": {
+  "ex": "친구를 집으로 초대해 따뜻한 파스타를 직접 요리해요.",
+  "en": "I invite a friend home and directly cook warm pasta."
+ },
+ "요만": {
+  "ex": "작은 상자 안에 요만한 크기의 귀여운 열쇠고리가 들어 있어요.",
+  "en": "A cute key ring of this much small size is inside the small box."
+ },
+ "요새": {
+  "ex": "요새 날씨가 부쩍 쌀쌀해져서 따뜻한 옷을 입어요.",
+  "en": "The weather has gotten much chillier nowadays, so I wear warm clothes."
+ },
+ "요소": {
+  "ex": "건강한 생활을 유지하는 데 규칙적인 운동은 아주 중요한 요소예요.",
+  "en": "Regular exercise is a very important factor in maintaining a healthy life."
+ },
+ "요인": {
+  "ex": "전문가들이 최근 물가 상승의 다양한 요인을 분석해요.",
+  "en": "Experts analyze various causes of the recent inflation."
+ },
+ "요일": {
+  "ex": "오늘이 무슨 요일인지 달력을 보며 확인해요.",
+  "en": "I check what day of the week it is today by looking at the calendar."
+ },
+ "요즘": {
+  "ex": "요즘 도서관에서 한국어 능력 시험을 준비하느라 바빠요.",
+  "en": "These days I am busy preparing for the Korean language proficiency test in the library."
+ },
+ "요청": {
+  "ex": "도서관에 새로운 한국어 학습 교재의 구매 요청을 보내요.",
+  "en": "I send a purchase request for new Korean study textbooks to the library."
+ },
+ "요청하다": {
+  "ex": "모르는 문제가 있어서 선생님께 친절한 설명을 요청해요.",
+  "en": "Because there is a question I do not know, I request a kind explanation from the teacher."
+ },
+ "욕": {
+  "ex": "화가 나더라도 다른 사람에게 나쁜 욕을 하지 않아요.",
+  "en": "Even when angry, I do not use bad abusive language against other people."
+ },
+ "욕구": {
+  "ex": "새로운 지식을 배우고자 하는 강한 욕구로 책을 열심히 읽어요.",
+  "en": "I read books diligently driven by a strong desire to learn new knowledge."
  }
 };
