@@ -10235,5 +10235,165 @@ export const EXAMPLES = {
  "오입": {
   "ex": "고전 소설 속 인물의 잘못된 오입이 집안의 큰 갈등을 불러와요.",
   "en": "In the classic novel, the character's wrong adultery brings about a big conflict in the family."
+ },
+ "오자": {
+  "ex": "글을 다 쓴 후에 잘못 쓴 오자가 없는지 꼼꼼히 확인해요.",
+  "en": "After finishing writing, I carefully check if there are any typos."
+ },
+ "오전": {
+  "ex": "오전 열 시에 시작하는 한국어 수업에 들어가요.",
+  "en": "I attend the Korean class that starts at 10 a.m."
+ },
+ "오지": {
+  "ex": "사람들의 발길이 닿지 않는 깊은 오지로 여행을 떠나요.",
+  "en": "I go on a trip to a remote backcountry area where few people set foot."
+ },
+ "오직": {
+  "ex": "어려운 순간에도 오직 목표만을 바라보며 열심히 달려가요.",
+  "en": "Even in difficult moments, I run hard looking solely at my goal."
+ },
+ "오차": {
+  "ex": "실험을 정확하게 진행해서 계산상의 오차를 줄여요.",
+  "en": "I carry out the experiment accurately to reduce errors in calculation."
+ },
+ "오해": {
+  "ex": "서로 대화를 나누며 마음에 쌓였던 작은 오해를 풀어요.",
+  "en": "We talk with each other and resolve the small misunderstanding that had built up."
+ },
+ "오후": {
+  "ex": "따뜻한 오후에 친구와 함께 공원에서 산책해요.",
+  "en": "I take a walk in the park with my friend on a warm afternoon."
+ },
+ "오히려": {
+  "ex": "비가 내리니 날씨가 덥지 않고 오히려 아주 시원해요.",
+  "en": "Because it rains, the weather is not hot but on the contrary very cool."
+ },
+ "옥상": {
+  "ex": "선선한 바람을 쐬러 건물 옥상으로 올라가요.",
+  "en": "I go up to the building rooftop to get some fresh, cool air."
+ },
+ "옥수수": {
+  "ex": "시장에서 갓 쪄낸 노랗고 달콤한 옥수수를 사 먹어요.",
+  "en": "I buy and eat freshly steamed, sweet yellow corn at the market."
+ },
+ "온": {
+  "ex": "가을이 되자 온 산이 알록달록한 단풍으로 물들어요.",
+  "en": "As autumn arrives, the entire mountain is dyed with colorful autumn foliage."
+ },
+ "온기": {
+  "ex": "추운 겨울날 따뜻한 차 한 잔에서 포근한 온기를 느껴요.",
+  "en": "On a cold winter day, I feel cozy warmth from a cup of warm tea."
+ },
+ "온난": {
+  "ex": "이 지역은 사계절 내내 온난한 기후를 유지해요.",
+  "en": "This region maintains a mild and temperate climate all year round."
+ },
+ "온난화": {
+  "ex": "지구 온난화를 막기 위해 환경 보호 활동에 적극적으로 참여해요.",
+  "en": "I actively participate in environmental protection activities to prevent global warming."
+ },
+ "온대": {
+  "ex": "우리나라는 사계절의 변화가 뚜렷한 온대 기후에 속해요.",
+  "en": "Our country belongs to a temperate zone climate with distinct four seasons."
+ },
+ "온도": {
+  "ex": "방 안의 온도를 쾌적하게 맞추려고 에어컨을 켜요.",
+  "en": "I turn on the air conditioner to set the room temperature comfortably."
+ },
+ "온돌": {
+  "ex": "따뜻한 온돌 방바닥에 누워 편안하게 휴식을 취해요.",
+  "en": "I lie down on the warm ondol underfloor-heated room floor and take a comfortable rest."
+ },
+ "온라인": {
+  "ex": "도서관에 가지 않고 온라인으로 원하는 강의를 편하게 들어요.",
+  "en": "I conveniently take the lectures I want online without going to the library."
+ },
+ "온실": {
+  "ex": "추운 겨울에도 유리 온실 안에서는 파릇파릇한 화초가 자라요.",
+  "en": "Even in cold winter, fresh green plants grow inside the glass greenhouse."
+ },
+ "온실가스": {
+  "ex": "대기 오염을 줄이기 위해 온실가스 배출을 줄여 나가요.",
+  "en": "We reduce greenhouse gas emissions to decrease air pollution."
+ },
+ "온통": {
+  "ex": "밤새 내린 눈으로 세상이 온통 하얗게 변해요.",
+  "en": "The world turns entirely white with the snow that fell overnight."
+ },
+ "올": {
+  "ex": "올봄에는 새로운 마음으로 다양한 도전을 시작해요.",
+  "en": "This spring, I begin various challenges with a fresh mindset."
+ },
+ "올라가다": {
+  "ex": "맑은 공기를 마시러 친구들과 함께 산 위로 올라가요.",
+  "en": "I go up the mountain with friends to breathe fresh air."
+ },
+ "올라서다": {
+  "ex": "넓은 경치를 한눈에 보려고 높은 전망대에 올라서요.",
+  "en": "I stand on the high observation deck to see the wide scenery at a glance."
+ },
+ "올리다": {
+  "ex": "선생님의 질문에 자신 있게 손을 번쩍 올려요.",
+  "en": "I raise my hand up confidently at the teacher's question."
+ },
+ "올림": {
+  "ex": "편지 맨 끝에 공손한 마음을 담아 '준상 올림'이라고 적어요.",
+  "en": "At the very end of the letter, I write 'Sincerely yours, Junsang' with a polite heart."
+ },
+ "올바르다": {
+  "ex": "어려운 상황에서도 늘 올바른 판단을 내리도록 노력해요.",
+  "en": "I try to always make proper decisions even in difficult situations."
+ },
+ "올해": {
+  "ex": "올해 목표는 한국어로 유창하게 대화하는 것이에요.",
+  "en": "My goal this year is to converse fluently in Korean."
+ },
+ "옮기다": {
+  "ex": "방을 넓게 쓰려고 책상을 창가 쪽으로 조심스럽게 옮겨요.",
+  "en": "I carefully move the desk toward the window to use the room more widely."
+ },
+ "옮다": {
+  "ex": "다른 사람에게 감기가 옮지 않도록 마스크를 꼭 써요.",
+  "en": "I make sure to wear a mask so that the cold does not shift to other people."
+ },
+ "옷": {
+  "ex": "외출하기 전에 날씨에 맞는 단정한 옷을 골라 입어요.",
+  "en": "Before going out, I choose and wear neat clothes suitable for the weather."
+ },
+ "옷차림": {
+  "ex": "면접을 보러 갈 때는 깔끔하고 단정한 옷차림을 준비해요.",
+  "en": "When going for an interview, I prepare a neat and tidy attired appearance."
+ },
+ "와이파이": {
+  "ex": "카페에 도착하자마자 스마트폰의 와이파이를 연결해요.",
+  "en": "As soon as I arrive at the cafe, I connect to the Wi-Fi on my smartphone."
+ },
+ "완공": {
+  "ex": "오랫동안 기다리던 새 도서관의 완공 소식을 들어요.",
+  "en": "I hear the news of the completion of construction of the long-awaited new library."
+ },
+ "완료": {
+  "ex": "오늘 해야 할 모든 과제의 완료를 확인해요.",
+  "en": "I check the completion of all the assignments I have to do today."
+ },
+ "완료되다": {
+  "ex": "홈페이지에서 신청서 제출이 정상적으로 완료돼요.",
+  "en": "The application submission is normally completed on the website."
+ },
+ "완벽": {
+  "ex": "행사를 차질 없이 진행하기 위해 완벽을 기해요.",
+  "en": "We aim for perfection to run the event without a hitch."
+ },
+ "완벽하다": {
+  "ex": "모든 준비가 완벽해서 계획대로 행사를 시작해요.",
+  "en": "All preparations are perfect, so we start the event as planned."
+ },
+ "완벽히": {
+  "ex": "새로 배운 어려운 문법을 연습을 통해 완벽히 이해해요.",
+  "en": "I completely understand the difficult new grammar I learned through practice."
+ },
+ "완성": {
+  "ex": "친구들과 힘을 모아 멋진 그림 작품의 완성을 이뤄내요.",
+  "en": "Joining forces with friends, we achieve the completion of a wonderful artwork."
  }
 };
