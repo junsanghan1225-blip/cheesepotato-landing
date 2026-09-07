@@ -2871,6 +2871,18 @@
   "only": true
  },
  {
+  "ko": "시집",
+  "en": "poetry collection; book of poems",
+  "pos": "명사",
+  "only": true
+ },
+ {
+  "ko": "시청",
+  "en": "city hall; watching",
+  "pos": "명사",
+  "only": true
+ },
+ {
   "ko": "녹",
   "en": "rust",
   "pos": "명사",
