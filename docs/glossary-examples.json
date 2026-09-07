@@ -8786,5 +8786,165 @@
  "실시간": {
   "ex": "스마트폰 앱을 통해 버스 도착 정보를 실시간으로 확인해요.",
   "en": "I check bus arrival information in real time through a smartphone app."
+ },
+ "실적": {
+  "ex": "열심히 노력한 덕분에 이번 분기에 좋은 실적을 올려요.",
+  "en": "Thanks to hard work, we achieve good results this quarter."
+ },
+ "실정": {
+  "ex": "옛 역사책에서 백성들의 삶을 힘들게 한 실정을 읽어요.",
+  "en": "I read in an ancient history book about the misgovernment that made the lives of the people difficult."
+ },
+ "실제": {
+  "ex": "책에서 본 내용과 실제 상황을 비교해 봐요.",
+  "en": "I compare the content seen in the book with the actual reality."
+ },
+ "실제로": {
+  "ex": "사진으로만 보던 서울타워를 실제로 보니 정말 멋져요.",
+  "en": "Seeing Seoul Tower in person, which I had only seen in pictures, is actually wonderful."
+ },
+ "실천": {
+  "ex": "계획을 세운 후에는 작은 것부터 실천으로 옮겨요.",
+  "en": "After making a plan, I put it into practice starting from small things."
+ },
+ "실패": {
+  "ex": "한 번의 실패에 좌절하지 않고 다시 도전해요.",
+  "en": "I do not get frustrated by one failure and try again."
+ },
+ "실패하다": {
+  "ex": "이번 실험에 실패하지만 원인을 찾아 다시 준비해요.",
+  "en": "Although we fail this experiment, we find the cause and prepare again."
+ },
+ "실효": {
+  "ex": "정해진 기한이 지나면 계약의 실효가 발생해요.",
+  "en": "When the set period passes, the invalidation of the contract occurs."
+ },
+ "실효성": {
+  "ex": "회의에서 새로 도입할 규칙의 실효성을 꼼꼼히 따져요.",
+  "en": "In the meeting, we thoroughly evaluate the effectiveness of the new rule to be introduced."
+ },
+ "싫다": {
+  "ex": "비 오는 날에 외출하는 것은 정말 싫어요.",
+  "en": "Going out on a rainy day is really distasteful to me."
+ },
+ "싫어하다": {
+  "ex": "석진은 시끄럽고 복잡한 장소를 싫어해요.",
+  "en": "Seokjin dislikes noisy and crowded places."
+ },
+ "심": {
+  "ex": "따뜻한 팥죽 속에 쫀득한 찹쌀 심을 넣어요.",
+  "en": "I put chewy glutinous rice dumplings into the warm red bean porridge."
+ },
+ "심각하다": {
+  "ex": "도로의 교통 체증 문제가 요즘 아주 심각해요.",
+  "en": "The problem of road traffic congestion is very serious these days."
+ },
+ "심다": {
+  "ex": "봄을 맞아 마당 화분에 예쁜 꽃을 심어요.",
+  "en": "Welcoming spring, I plant pretty flowers in the yard flowerpots."
+ },
+ "심리": {
+  "ex": "소비자들의 구매 심리를 파악하려고 설문 조사를 해요.",
+  "en": "We conduct a survey to understand the buying mentality of consumers."
+ },
+ "심리학": {
+  "ex": "사람의 마음을 이해하고 싶어서 대학교에서 심리학을 배워요.",
+  "en": "I study psychology at university because I want to understand people's minds."
+ },
+ "심사": {
+  "ex": "선생님들이 모여서 학생들의 미술 작품 심사를 진행해요.",
+  "en": "Teachers gather to conduct the evaluation of students' art works."
+ },
+ "심심하다": {
+  "ex": "주말에 약속이 없어서 집에서 조금 심심해요.",
+  "en": "I feel a bit bored at home because I have no plans on the weekend."
+ },
+ "심야": {
+  "ex": "심야 시간에 버스가 끊겨서 지하철 막차를 타요.",
+  "en": "The buses stop running at midnight, so I take the last subway train."
+ },
+ "심정": {
+  "ex": "어려운 시험을 앞둔 친구의 불안한 심정을 잘 이해해요.",
+  "en": "I understand well my friend's anxious feeling ahead of a difficult exam."
+ },
+ "심지": {
+  "ex": "향초에 불을 붙이려고 촛불 심지를 반듯하게 세워요.",
+  "en": "I straighten the candle wick to light the scented candle."
+ },
+ "심지어": {
+  "ex": "날씨가 너무 추워서 심지어 호수의 물까지 꽁꽁 얼어요.",
+  "en": "The weather is so cold that even the water of the lake freezes solid."
+ },
+ "심하다": {
+  "ex": "오늘은 미세먼지가 너무 심해서 마스크를 쓰고 나가요.",
+  "en": "The fine dust is so severe today that I go out wearing a mask."
+ },
+ "심해": {
+  "ex": "빛이 전혀 들지 않는 깊은 심해에 신기한 생물들이 살아요.",
+  "en": "Mysterious creatures live in the deep sea abyss where no light reaches."
+ },
+ "십": {
+  "ex": "한국어 시험을 시작하기 십 분 전에 교실에 도착해요.",
+  "en": "I arrive at the classroom ten minutes before the Korean exam starts."
+ },
+ "십상": {
+  "ex": "추운 날씨에 얇은 옷을 입으면 감기에 걸리기 십상이에요.",
+  "en": "If you wear thin clothes in cold weather, it is a prime match for catching a cold."
+ },
+ "싱싱하다": {
+  "ex": "아침 시장에서 사 온 채소가 아주 싱싱해요.",
+  "en": "The vegetables bought from the morning market are very fresh."
+ },
+ "싶다": {
+  "ex": "이번 주말에는 따뜻한 온천으로 여행을 가고 싶어요.",
+  "en": "I want to go on a trip to a warm hot spring this weekend."
+ },
+ "싸다": {
+  "ex": "내일 소풍에 가져갈 맛있는 김밥을 정성껏 싸요.",
+  "en": "I carefully pack delicious gimbap to take on the picnic tomorrow."
+ },
+ "싸우다": {
+  "ex": "사소한 오해로 친구와 크게 싸우지 않아요.",
+  "en": "I do not fight harshly with my friend over minor misunderstandings."
+ },
+ "싹": {
+  "ex": "화분에 심은 작은 씨앗에서 초록색 싹이 돋아나요.",
+  "en": "Green sprouts come up from the small seed planted in the flowerpot."
+ },
+ "쌀": {
+  "ex": "깨끗한 물로 쌀을 씻어서 밥솥에 안쳐요.",
+  "en": "I wash the rice with clean water and set it in the rice cooker."
+ },
+ "쌀가루": {
+  "ex": "고소한 떡을 만들기 위해 고운 쌀가루를 반죽해요.",
+  "en": "I knead fine rice powder to make delicious rice cakes."
+ },
+ "쌍": {
+  "ex": "결혼하는 친구에게 예쁜 찻잔 한 쌍을 선물해요.",
+  "en": "I give a pair of pretty teacups as a gift to a friend getting married."
+ },
+ "쌍둥이": {
+  "ex": "얼굴과 목소리가 똑 닮은 귀여운 쌍둥이 형제를 만나요.",
+  "en": "I meet cute twin brothers whose faces and voices look identical."
+ },
+ "쌓다": {
+  "ex": "마당 구석에 벽돌을 차곡차곡 높이 쌓아요.",
+  "en": "I pile up bricks neatly and high in the corner of the yard."
+ },
+ "쌓이다": {
+  "ex": "밤사이에 내린 하얀 눈이 길가에 소복하게 쌓여요.",
+  "en": "White snow that fell overnight is softly heaped along the roadside."
+ },
+ "썩": {
+  "ex": "새로 맞춘 옷의 디자인이 썩 마음에 들어요.",
+  "en": "I exceedingly like the design of the newly tailored clothes."
+ },
+ "썩다": {
+  "ex": "물기가 많은 곳에 둔 나무판자가 서서히 썩어요.",
+  "en": "The wooden plank placed in a damp area gradually decays."
+ },
+ "쏘다": {
+  "ex": "체육 시간에 과녁을 향해 조심스럽게 화살을 쏴요.",
+  "en": "I carefully shoot an arrow toward the target during physical education class."
  }
 }
