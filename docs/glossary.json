@@ -3010,6 +3010,18 @@
   "only": true
  },
  {
+  "ko": "이해",
+  "en": "understanding; comprehension",
+  "pos": "명사",
+  "only": true
+ },
+ {
+  "ko": "인상",
+  "en": "impression; raise; increase",
+  "pos": "명사",
+  "only": true
+ },
+ {
   "ko": "녹",
   "en": "rust",
   "pos": "명사",
