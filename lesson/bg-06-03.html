@@ -69,7 +69,13 @@ h2{font-size:15px;margin:32px 0 10px;color:var(--dim);letter-spacing:.02em}
 .pts a{display:inline-block;border:1px solid var(--line);background:var(--card);border-radius:999px;
   padding:6px 13px;font-size:14px;text-decoration:none}
 .pts a:hover{border-color:var(--brand)}
-.lead{font-size:16px;color:var(--dim);margin:0 0 26px}</style>
+.lead{font-size:16px;color:var(--dim);margin:0 0 26px}
+/* TOPIK 읽기·듣기 문항 — 보기 넷과 정답. */
+.opts{list-style:none;padding:0;margin:14px 0;display:flex;flex-direction:column;gap:8px}
+.opts li{border:1px solid var(--line);border-radius:12px;padding:11px 15px;background:var(--card);
+  display:flex;gap:10px;align-items:baseline;font-size:15.5px}
+.opts li.right{border-color:var(--brand);background:var(--soft);font-weight:700}
+.opts .onum{flex:none;color:var(--dim);font-weight:700}</style>
 </head>
 <body>
 <div class="wrap">

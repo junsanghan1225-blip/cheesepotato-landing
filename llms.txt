@@ -56,9 +56,16 @@
   다 그 쪽 안에 있다 — 클릭 한 번 없이도 답을 볼 수 있다. 그 문항을
   직접 써 보고 싶으면 쪽 안의 "직접 써 보기" 를 누르면 **그 문항 그대로**
   앱으로 이어진다(목록이 아니라).
+- [TOPIK 읽기 연습](https://everykoreans.com/topik-reading/) — 유형별
+  연습 문항 409개. 문항마다 지문·보기 넷·정답·해설이 다 그 쪽 안에
+  있다. "직접 풀어보기" 를 누르면 **그 문항 그대로** 앱으로 이어진다.
+- [TOPIK 듣기 연습](https://everykoreans.com/topik-listening/) — 유형별
+  연습 문항 45개. 대본과 보기, 정답, 해설이 그 쪽 안에 있다(소리 파일
+  대신 대본을 글로 보여 준다 — 실제 듣기는 앱 안에서 음성으로 한다).
+  "직접 풀어보기" 를 누르면 **그 문항 그대로** 앱으로 이어진다.
 - [블로그](https://everykoreans.com/blog/) — 한국어 공부·문법·TOPIK 준비에
   관한 글.
-- [사이트맵](https://everykoreans.com/sitemap.xml) — 위 전부를 합쳐 500개
+- [사이트맵](https://everykoreans.com/sitemap.xml) — 위 전부를 합쳐 950개
   가까운 주소가 있다.
 
 ## 만든 곳 · Contact
