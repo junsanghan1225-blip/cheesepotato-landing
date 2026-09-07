@@ -12462,5 +12462,165 @@
  "전통문화": {
   "ex": "박물관 체험 학습을 통해 우리나라의 소중한 전통문화를 배워요.",
   "en": "I learn about our country's precious traditional culture through museum experiential learning."
+ },
+ "전통시장": {
+  "ex": "명절이 다가오면 사람들로 북적이는 전통시장에서 차례 음식 재료를 사요.",
+  "en": "As the holiday approaches, I buy ritual food ingredients at the traditional market bustling with people."
+ },
+ "전통적": {
+  "ex": "한옥은 한국의 전통적 아름다움을 잘 보여줘요.",
+  "en": "Hanok shows the traditional beauty of Korea well."
+ },
+ "전파": {
+  "ex": "새로운 문화의 빠른 전파를 위해 다양한 행사를 열어요.",
+  "en": "We hold various events for the quick dissemination of new culture."
+ },
+ "전파되다": {
+  "ex": "따뜻한 미담이 인터넷을 통해 전국으로 널리 전파돼요.",
+  "en": "The heartwarming story is widely disseminated throughout the country via the internet."
+ },
+ "전하": {
+  "ex": "신하가 무릎을 꿇고 전하의 현명한 뜻을 받들어요.",
+  "en": "The subject kneels and respects his majesty's wise will."
+ },
+ "전하다": {
+  "ex": "친구의 생일을 축하하며 따뜻한 마음을 편지로 전해요.",
+  "en": "I convey my warm heart in a letter congratulating my friend on their birthday."
+ },
+ "전혀": {
+  "ex": "열심히 준비해서 시험이 전혀 어렵지 않아요.",
+  "en": "Because I prepared hard, the exam is not difficult at all."
+ },
+ "전화": {
+  "ex": "중요한 소식을 알리려고 친구에게 전화를 걸어요.",
+  "en": "I make a phone call to a friend to share important news."
+ },
+ "전화하다": {
+  "ex": "약속 장소에 도착해서 친구에게 바로 전화해요.",
+  "en": "I arrive at the meeting spot and call my friend right away."
+ },
+ "전환": {
+  "ex": "기분 전환을 위해 조용한 공원을 천천히 산책해요.",
+  "en": "I take a slow walk in the quiet park for a change of mood."
+ },
+ "전환되다": {
+  "ex": "수업 분위기가 토론 중심으로 활기차게 전환돼요.",
+  "en": "The class atmosphere livens up and shifts to focus on discussions."
+ },
+ "전환하다": {
+  "ex": "휴식을 위해 컴퓨터 모니터의 화면을 절전 모드로 전환해요.",
+  "en": "I switch the computer monitor screen to power-saving mode for a break."
+ },
+ "절": {
+  "ex": "조용한 산속에 있는 고즈넉한 절을 찾아가요.",
+  "en": "I visit a tranquil Buddhist temple located in the quiet mountain."
+ },
+ "절감": {
+  "ex": "종이를 아껴 쓰며 학용품 비용의 절감을 실천해요.",
+  "en": "I practice the reduction of school supply costs by saving paper."
+ },
+ "절다": {
+  "ex": "배추가 소금물에 하루 동안 푹 절어요.",
+  "en": "The cabbage becomes thoroughly soaked in salt water for a day."
+ },
+ "절대": {
+  "ex": "친구와의 약속은 무슨 일이 있어도 절대 잊지 않아요.",
+  "en": "I never forget the promise with my friend no matter what, with unwavering certainty."
+ },
+ "절반": {
+  "ex": "피자를 친구와 사이좋게 절반씩 나누어 먹어요.",
+  "en": "I share and eat half of the pizza each with my friend on friendly terms."
+ },
+ "절차": {
+  "ex": "도서관 카드를 만들기 위해 필요한 절차를 차근차근 밟아요.",
+  "en": "I step-by-step follow the necessary procedure to make a library card."
+ },
+ "젊다": {
+  "ex": "우리 동아리는 활기차고 젊은 기운으로 가득해요.",
+  "en": "Our club is full of lively and young energy."
+ },
+ "점": {
+  "ex": "서로 도우며 공부하는 것이 우리 반의 가장 좋은 점이에요.",
+  "en": "Studying while helping each other is the best aspect of our class."
+ },
+ "점검": {
+  "ex": "안전한 주행을 위해 자전거 타이어 상태의 점검을 마쳐요.",
+  "en": "I finish the inspection of the bicycle tire condition for safe riding."
+ },
+ "점수": {
+  "ex": "매일 꾸준히 복습해서 이번 시험에서 높은 점수를 받아요.",
+  "en": "I steadily review every day and get a high score on this exam."
+ },
+ "점심": {
+  "ex": "친구들과 학교 식당에서 따뜻한 점심을 먹어요.",
+  "en": "I eat a warm lunch with friends at the school cafeteria."
+ },
+ "점심시간": {
+  "ex": "즐거운 점심시간이 되자 교실 밖으로 신나게 나가요.",
+  "en": "When the pleasant lunch time arrives, I step outside the classroom excitedly."
+ },
+ "점점": {
+  "ex": "봄바람이 불어오니 날씨가 점점 따뜻해져요.",
+  "en": "As the spring breeze blows, the weather gets gradually warmer."
+ },
+ "접근": {
+  "ex": "도서관은 지하철역 바로 앞이라 대중교통 접근이 아주 편해요.",
+  "en": "The library is right in front of the subway station, so public transit access is very easy."
+ },
+ "접근하다": {
+  "ex": "복잡한 문제일수록 기본 원리에 충실하게 접근해요.",
+  "en": "The more complex a problem is, I approach it faithfully based on basic principles."
+ },
+ "접다": {
+  "ex": "편지를 다 쓴 후에 예쁘게 반으로 접어요.",
+  "en": "After finishing writing the letter, I fold it nicely in half."
+ },
+ "접목": {
+  "ex": "전통 음악과 현대 무용의 신선한 접목을 시도해요.",
+  "en": "We attempt a fresh graft of traditional music and modern dance."
+ },
+ "접목하다": {
+  "ex": "새로운 기술을 전통 공예에 잘 접목해요.",
+  "en": "They graft new technology well onto traditional crafts."
+ },
+ "접수": {
+  "ex": "안내 데스크에서 한국어 말하기 대회의 참가 접수를 받아요.",
+  "en": "They take registration for the Korean speaking contest at the information desk."
+ },
+ "접시": {
+  "ex": "식탁 위에 잘 익은 사과를 담은 하얀 접시를 올려요.",
+  "en": "I place a white plate with ripe apples on the dining table."
+ },
+ "젓가락": {
+  "ex": "식사하기 전에 식탁에 숟가락과 젓가락을 가지런히 놓아요.",
+  "en": "I neatly place the spoon and chopsticks on the table before eating."
+ },
+ "젓다": {
+  "ex": "따뜻한 찻물에 꿀을 넣고 숟가락으로 천천히 저어요.",
+  "en": "I put honey in the warm tea water and stir it slowly with a spoon."
+ },
+ "정겹다": {
+  "ex": "오랜만에 찾은 고향 골목길의 풍경이 참 정겨워요.",
+  "en": "The scenery of the hometown alley visited after a long time is truly sweet and heartwarming."
+ },
+ "정기": {
+  "ex": "우리 모임은 매월 첫째 주에 정기 모임을 열어요.",
+  "en": "Our club holds a periodic meeting on the first week of every month."
+ },
+ "정기적": {
+  "ex": "건강을 유지하기 위해 정기적 운동을 꾸준히 실천해요.",
+  "en": "I steadily practice periodic exercise to maintain my health."
+ },
+ "정년": {
+  "ex": "선생님께서 정년을 맞이하여 명예롭게 퇴임하세요.",
+  "en": "The teacher honorably retires upon reaching the retirement age."
+ },
+ "정당": {
+  "ex": "국회에서 여러 정당의 대표들이 모여 정책을 논의해요.",
+  "en": "Representatives of various political parties gather in the National Assembly to discuss policies."
+ },
+ "정당성": {
+  "ex": "공정한 규칙을 바탕으로 이번 결정의 타당한 정당성을 입증해요.",
+  "en": "Based on fair rules, we prove the valid justification of this decision."
  }
 }
