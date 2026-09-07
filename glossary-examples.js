@@ -11675,5 +11675,165 @@ export const EXAMPLES = {
  "잃어버리다": {
   "ex": "주머니에 넣어둔 작은 지갑을 길에서 잃어버려요.",
   "en": "I lose the small wallet kept in my pocket on the street."
+ },
+ "임": {
+  "ex": "옛 시조 속 화자는 그리운 임을 향해 애틋한 마음을 전해요.",
+  "en": "The speaker in the ancient poem conveys affectionate feelings toward their loved one."
+ },
+ "임대": {
+  "ex": "주인과 계약을 맺고 빈 사무실의 임대를 진행해요.",
+  "en": "I make a contract with the owner and proceed with the lending of the empty office."
+ },
+ "임대료": {
+  "ex": "매달 초에 상가의 정해진 임대료를 계좌로 입금해요.",
+  "en": "I deposit the set rent for the commercial shop into the account at the beginning of each month."
+ },
+ "임무": {
+  "ex": "팀원들이 각자 맡은 소중한 임무를 책임감 있게 완수해요.",
+  "en": "Team members responsibly complete their precious assigned missions."
+ },
+ "임원": {
+  "ex": "회사 경영을 이끄는 주요 임원들이 회의실에 모여요.",
+  "en": "Key executives leading company management gather in the conference room."
+ },
+ "임의": {
+  "ex": "정해진 규칙 없이 본인의 임의대로 순서를 바꾸지 않아요.",
+  "en": "I do not change the order arbitrarily according to one's own discretion without set rules."
+ },
+ "입": {
+  "ex": "식사 후에는 깨끗한 물로 입을 헹궈요.",
+  "en": "After meals, I rinse my mouth with clean water."
+ },
+ "입고": {
+  "ex": "주문한 새 책들이 서점 창고로 안전하게 입고돼요.",
+  "en": "The ordered new books are safely stocked in the bookstore warehouse."
+ },
+ "입구": {
+  "ex": "박물관 정문 입구에서 친구를 만나 함께 들어가요.",
+  "en": "I meet my friend at the front entrance of the museum and go in together."
+ },
+ "입다": {
+  "ex": "날씨가 쌀쌀해져서 따뜻하고 두꺼운 외투를 입어요.",
+  "en": "The weather gets chilly, so I put on a warm, thick coat."
+ },
+ "입력": {
+  "ex": "컴퓨터 화면에 정확한 사용자 정보를 차례대로 입력해요.",
+  "en": "I enter accurate user information sequentially on the computer screen."
+ },
+ "입맛": {
+  "ex": "새콤달콤한 나물을 먹으니 잃었던 입맛이 다시 돌아요.",
+  "en": "Eating sweet and sour seasoned greens brings back my lost appetite."
+ },
+ "입장": {
+  "ex": "공연 시작 십 분 전에 티켓을 보여주고 공연장에 입장해요.",
+  "en": "Ten minutes before the performance starts, I show the ticket and gain admission into the venue."
+ },
+ "입장료": {
+  "ex": "미술관 안내 데스크에서 학생 할인을 받아 입장료를 내요.",
+  "en": "I get a student discount and pay the admission fee at the museum information desk."
+ },
+ "입지": {
+  "ex": "지하철역과 가까워서 상가를 열기에 아주 좋은 입지예요.",
+  "en": "It is a very good location for opening a shop because it is close to the subway station."
+ },
+ "잇다": {
+  "ex": "선생님의 뜻을 이어 한국어 교육 연구를 계속해요.",
+  "en": "Continuing the teacher's intention, I continue the research in Korean language education."
+ },
+ "있다": {
+  "ex": "제 책상 위에는 재미있는 소설책 세 권이 있어요.",
+  "en": "There are three interesting novels on my desk."
+ },
+ "잉크": {
+  "ex": "프린터에 파란색 잉크를 새로 채워 넣어요.",
+  "en": "I fill the printer with new blue ink."
+ },
+ "잊다": {
+  "ex": "선생님께서 해주신 따뜻한 조언을 결코 잊지 않아요.",
+  "en": "I never forget the warm advice that my teacher gave me."
+ },
+ "잊어버리다": {
+  "ex": "바쁘게 나오느라 책상 위에 휴대폰을 깜빡 잊어버려요.",
+  "en": "Coming out in a rush, I completely forget my mobile phone on the desk."
+ },
+ "잎": {
+  "ex": "화분의 초록색 잎에 분무기로 물을 골고루 뿌려줘요.",
+  "en": "I spray water evenly on the green leaves of the flowerpot with a mist spray."
+ },
+ "잎사귀": {
+  "ex": "가을바람에 나뭇가지 끝의 노란 잎사귀가 흔들려요.",
+  "en": "The yellow leaf at the tip of the tree branch sways in the autumn wind."
+ },
+ "자": {
+  "ex": "종이 위에 반듯한 선을 그으려고 긴 자를 대요.",
+  "en": "I place a long ruler to draw a straight line on the paper."
+ },
+ "자격": {
+  "ex": "시험에 합격해서 장학금을 신청할 수 있는 자격을 얻어요.",
+  "en": "I pass the exam and obtain the capacity to apply for the scholarship."
+ },
+ "자격증": {
+  "ex": "방학 동안 열심히 공부해서 컴퓨터 관련 자격증을 따요.",
+  "en": "I study hard during the vacation and obtain a computer-related certificate."
+ },
+ "자극": {
+  "ex": "친구의 열정적인 학습 태도가 저에게 큰 자극이 돼요.",
+  "en": "My friend's passionate attitude toward learning serves as a great stimulation to me."
+ },
+ "자극적": {
+  "ex": "건강을 위해 너무 맵고 자극적 음식을 피해요.",
+  "en": "I avoid overly spicy and provocative foods for my health."
+ },
+ "자극하다": {
+  "ex": "새로운 환경과 경험은 학습에 대한 호기심을 크게 자극해요.",
+  "en": "New environments and experiences greatly stimulate curiosity about learning."
+ },
+ "자금": {
+  "ex": "새로운 동아리 활동을 원활히 운영하기 위해 운영 자금을 모아요.",
+  "en": "We raise operating funds to smoothly run new club activities."
+ },
+ "자기": {
+  "ex": "남을 탓하기 전에 먼저 자기 행동을 돌아봐요.",
+  "en": "Before blaming others, I look back on my own actions first."
+ },
+ "자기소개": {
+  "ex": "수업 첫 시간에 반 친구들 앞에서 짧은 자기소개를 해요.",
+  "en": "I do a short self-introduction in front of my classmates during the first class."
+ },
+ "자길래": {
+  "ex": "친구가 주말에 같이 도서관에 가자길래 흔쾌히 따라가요.",
+  "en": "Since my friend suggested that we go to the library together on the weekend, I readily go along."
+ },
+ "자꾸": {
+  "ex": "궁금한 내용이 있어서 질문이 머릿속에 자꾸 떠올라요.",
+  "en": "Because there is content I am curious about, questions repeatedly come to my mind."
+ },
+ "자다": {
+  "ex": "피로를 풀기 위해 밤마다 따뜻한 이불 속에서 푹 자요.",
+  "en": "I sleep soundly under the warm blanket every night to relieve fatigue."
+ },
+ "자동": {
+  "ex": "문 앞에 가까이 다가가면 유리문이 자동 센서로 열려요.",
+  "en": "When I approach the door, the glass door opens by automatic operation."
+ },
+ "자동차": {
+  "ex": "가족들과 주말 나들이를 가려고 깨끗한 자동차를 타요.",
+  "en": "I get into the clean car to go on a weekend outing with my family."
+ },
+ "자랑": {
+  "ex": "열심히 그린 예쁜 그림을 친구들에게 자랑해요.",
+  "en": "I show off the pretty drawing I drew hard to my friends."
+ },
+ "자랑스럽다": {
+  "ex": "어려운 시험을 끝까지 잘 마친 친구가 정말 자랑스러워요.",
+  "en": "I am truly proud of my friend who finished the difficult exam well to the end."
+ },
+ "자료": {
+  "ex": "발표 준비를 위해 도서관에서 유익한 참고 자료를 수집해요.",
+  "en": "I collect useful reference data from the library for presentation preparation."
+ },
+ "자리": {
+  "ex": "지하철에서 짐을 많이 든 어르신께 자리를 양보해요.",
+  "en": "I yield my seat on the subway to an elderly person carrying a lot of luggage."
  }
 };
