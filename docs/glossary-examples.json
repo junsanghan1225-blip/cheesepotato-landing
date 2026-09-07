@@ -11826,5 +11826,165 @@
  "자리": {
   "ex": "지하철에서 짐을 많이 든 어르신께 자리를 양보해요.",
   "en": "I yield my seat on the subway to an elderly person carrying a lot of luggage."
+ },
+ "자막": {
+  "ex": "한국어 듣기 연습을 위해 자막 없이 영화를 봐요.",
+  "en": "I watch movies without subtitles to practice Korean listening."
+ },
+ "자발적": {
+  "ex": "마을을 깨끗이 청소하는 일에 주민들의 자발적 참여가 이어져요.",
+  "en": "Spontaneous and voluntary participation of residents follows in cleaning up the town."
+ },
+ "자식": {
+  "ex": "부모님은 사랑과 정성으로 어린 자식을 보살펴요.",
+  "en": "Parents look after their young child with love and devotion."
+ },
+ "자신": {
+  "ex": "꾸준히 연습하면 말하기에 큰 자신을 얻을 수 있어요.",
+  "en": "If you practice steadily, you can gain great confidence in speaking."
+ },
+ "자아": {
+  "ex": "다양한 경험을 통해 성숙한 자아를 찾아가요.",
+  "en": "Through various experiences, I discover a mature ego."
+ },
+ "자연": {
+  "ex": "주말에는 맑은 공기와 푸른 숲이 있는 자연으로 떠나요.",
+  "en": "On the weekend, I leave for nature with fresh air and green forests."
+ },
+ "자연계": {
+  "ex": "과학 수업 시간에 자연계에 존재하는 여러 동식물의 조화를 배워요.",
+  "en": "In science class, we learn about the harmony of various animals and plants existing in the natural world."
+ },
+ "자연스럽다": {
+  "ex": "외국어 발음이 원어민처럼 아주 자연스러워요.",
+  "en": "The foreign language pronunciation is very natural like a native speaker."
+ },
+ "자원": {
+  "ex": "환경 보호를 위해 버려지는 재활용 자원을 소중히 모아요.",
+  "en": "We valuably collect recycled resources that are discarded to protect the environment."
+ },
+ "자유": {
+  "ex": "휴일에는 시간의 구속 없이 나만의 자유를 만끽해요.",
+  "en": "On holidays, I fully enjoy my own freedom without constraints of time."
+ },
+ "자유롭다": {
+  "ex": "동아리 모임에서 누구나 자유롭게 자기 생각을 말해요.",
+  "en": "Anyone speaks their thoughts freely in the club meeting."
+ },
+ "자율": {
+  "ex": "학교에서 학생들의 자율 규칙 준수를 적극적으로 권장해요.",
+  "en": "The school actively encourages students to observe self-regulation rules."
+ },
+ "자율적": {
+  "ex": "선생님의 지시 없이도 자율적 학습 태도로 예습을 해요.",
+  "en": "Even without teacher instructions, I preview lessons with an autonomous learning attitude."
+ },
+ "자율주행": {
+  "ex": "운전자의 조작 없이 스스로 달리는 최신 자율주행 차량을 구경해요.",
+  "en": "I look at the latest self-driving vehicle that runs by itself without driver operation."
+ },
+ "자음": {
+  "ex": "한글을 배울 때 모음과 함께 기본 자음을 또박또박 써요.",
+  "en": "When learning Hangeul, I write basic consonants clearly along with vowels."
+ },
+ "자재": {
+  "ex": "집을 짓기 위해 튼튼하고 안전한 건축 자재를 골라요.",
+  "en": "I select sturdy and safe building materials to build the house."
+ },
+ "자전": {
+  "ex": "도서관에서 한 인물의 삶을 솔직하게 기록한 자전 소설을 읽어요.",
+  "en": "I read an autobiographical novel that honestly records a person's life in the library."
+ },
+ "자전거": {
+  "ex": "날씨가 맑은 오후에 공원에서 친구와 시원하게 자전거를 타요.",
+  "en": "I ride a bicycle refreshingly with a friend in the park on a sunny afternoon."
+ },
+ "자제": {
+  "ex": "건강을 위해 늦은 밤 야식은 자제가 필요해요.",
+  "en": "For health, late-night snacks require self-restraint."
+ },
+ "자주": {
+  "ex": "한국어 실력을 늘리기 위해 한국 드라마를 자주 봐요.",
+  "en": "I often watch Korean dramas to improve my Korean skills."
+ },
+ "자진": {
+  "ex": "힘든 봉사활동에 솔선수범하여 자진 참여를 신청해요.",
+  "en": "I take the lead and sign up for voluntary participation in tough volunteer work."
+ },
+ "자체": {
+  "ex": "그 제안은 내용 자체만으로도 매우 긍정적인 평가를 받아요.",
+  "en": "That proposal receives very positive evaluation just with the content in itself."
+ },
+ "자치": {
+  "ex": "학생들이 스스로 학급의 일을 결정하는 학생 자치 활동에 참여해요.",
+  "en": "Students participate in student self-governing activities where they decide classroom matters on their own."
+ },
+ "자칫": {
+  "ex": "눈길에서는 발을 자칫 헛디뎌 넘어질 수 있으니 조심해요.",
+  "en": "On snowy roads, you can miss a step a bit and slip, so be careful."
+ },
+ "자판": {
+  "ex": "컴퓨터 화면을 보며 능숙하게 키보드 자판을 쳐요.",
+  "en": "Looking at the computer screen, I skillfully type on the keyboard."
+ },
+ "자판기": {
+  "ex": "갈증을 해소하려고 음료수 자판기에 동전을 넣어요.",
+  "en": "I insert coins into the beverage vending machine to quench my thirst."
+ },
+ "작": {
+  "ex": "미술관에서 유명한 화가의 대표 작을 감상해요.",
+  "en": "I appreciate the representative work of a famous painter at the art museum."
+ },
+ "작고": {
+  "ex": "옛 문학 거장의 갑작스러운 작고 소식을 듣고 안타까워해요.",
+  "en": "I feel regretful upon hearing the news of the sudden decease of the ancient literary master."
+ },
+ "작년": {
+  "ex": "작년에 친구들과 함께 다녀온 바다 여행이 기억나요.",
+  "en": "I remember the sea trip I went on with friends last year."
+ },
+ "작다": {
+  "ex": "이 신발은 제 발 크기보다 치수가 조금 작아요.",
+  "en": "These shoes are a little small in size compared to my foot size."
+ },
+ "작동": {
+  "ex": "전원 버튼을 누르자 세탁기의 정상적인 작동이 시작돼요.",
+  "en": "Pressing the power button starts the normal operation of the washing machine."
+ },
+ "작동하다": {
+  "ex": "기계의 빨간 스위치를 켜면 모터가 부드럽게 작동해요.",
+  "en": "When you turn on the machine's red switch, the motor operates smoothly."
+ },
+ "작물": {
+  "ex": "가을이 오면 밭에서 정성껏 가꾼 작물을 수확해요.",
+  "en": "When autumn comes, I harvest crops carefully cultivated in the field."
+ },
+ "작성": {
+  "ex": "도서관 회원 카드를 발급받기 위해 신청서의 작성을 마쳐요.",
+  "en": "I finish the filling in of the application form to be issued a library membership card."
+ },
+ "작성되다": {
+  "ex": "회의에서 논의된 모든 내용이 보고서에 상세히 작성돼요.",
+  "en": "All contents discussed in the meeting are drawn up in detail in the report."
+ },
+ "작성하다": {
+  "ex": "수업 과제로 이번 주말 계획을 공책에 작성해요.",
+  "en": "I write down this weekend's plan in my notebook as class homework."
+ },
+ "작업": {
+  "ex": "동료들과 힘을 모아 오늘 마무리해야 할 작업을 끝내요.",
+  "en": "Joining forces with colleagues, I finish the operation that needs to be wrapped up today."
+ },
+ "작업대": {
+  "ex": "공방 작업대 위에 여러 가지 목공 도구를 가지런히 놓아요.",
+  "en": "I place various woodworking tools neatly on the workshop worktable."
+ },
+ "작용": {
+  "ex": "규칙적인 운동은 스트레스 해소에 아주 긍정적인 작용을 해요.",
+  "en": "Regular exercise has a very positive effect on stress relief."
+ },
+ "작용하다": {
+  "ex": "서로에 대한 깊은 신뢰가 관계 발전에 큰 힘으로 작용해요.",
+  "en": "Deep trust in one another functions as a great force in relationship development."
  }
 }
