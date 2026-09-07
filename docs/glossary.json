@@ -2998,6 +2998,18 @@
   "only": true
  },
  {
+  "ko": "이왕",
+  "en": "already; now that; since",
+  "pos": "명사",
+  "only": true
+ },
+ {
+  "ko": "이리",
+  "en": "this way; here",
+  "pos": "명사",
+  "only": true
+ },
+ {
   "ko": "녹",
   "en": "rust",
   "pos": "명사",
