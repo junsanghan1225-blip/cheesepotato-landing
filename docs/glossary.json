@@ -3058,6 +3058,18 @@
   "only": true
  },
  {
+  "ko": "잡니다",
+  "en": "(formal) reportedly suggests/proposes that... (contraction of -자고 합니다)",
+  "pos": "품사 없음",
+  "only": true
+ },
+ {
+  "ko": "장기",
+  "en": "specialty; talent; long term",
+  "pos": "명사",
+  "only": true
+ },
+ {
   "ko": "녹",
   "en": "rust",
   "pos": "명사",
