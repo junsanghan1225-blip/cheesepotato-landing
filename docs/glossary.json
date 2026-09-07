@@ -2907,6 +2907,24 @@
   "only": true
  },
  {
+  "ko": "어떡하다",
+  "en": "what to do (about it)",
+  "pos": "품사 없음",
+  "only": true
+ },
+ {
+  "ko": "약물",
+  "en": "drug; medication",
+  "pos": "명사",
+  "only": true
+ },
+ {
+  "ko": "양",
+  "en": "amount; quantity",
+  "pos": "명사",
+  "only": true
+ },
+ {
   "ko": "녹",
   "en": "rust",
   "pos": "명사",
