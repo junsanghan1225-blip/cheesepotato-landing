@@ -10866,5 +10866,165 @@
  "윗사람": {
   "ex": "예절을 갖추어 윗사람에게 공손하게 인사해요.",
   "en": "I politely greet my seniors with proper etiquette."
+ },
+ "유급": {
+  "ex": "회사 규정에 따라 정당한 유급 휴가를 써요.",
+  "en": "I take a legitimate paid leave according to company policy."
+ },
+ "유도": {
+  "ex": "체력을 기르기 위해 체육관에서 유도를 배워요.",
+  "en": "I learn judo at the gym to build physical strength."
+ },
+ "유도하다": {
+  "ex": "선생님이 학생들의 활발한 토론 참여를 자연스럽게 유도해요.",
+  "en": "The teacher naturally encourages students' active participation in discussion."
+ },
+ "유리": {
+  "ex": "식탁 위에 투명하고 깨끗한 유리 컵을 놓아요.",
+  "en": "I place a transparent, clean glass cup on the dining table."
+ },
+ "유리병": {
+  "ex": "직접 만든 딸기잼을 작은 유리병에 담아요.",
+  "en": "I put homemade strawberry jam into a small glass bottle."
+ },
+ "유리창": {
+  "ex": "밖이 잘 보이도록 거실의 큰 유리창을 닦아요.",
+  "en": "I wipe the large window glass in the living room so I can see outside clearly."
+ },
+ "유리하다": {
+  "ex": "한국어를 미리 배워두면 취업 준비에 아주 유리해요.",
+  "en": "Learning Korean in advance is very advantageous for job preparation."
+ },
+ "유명": {
+  "ex": "그 식당은 맛있는 음식으로 동네에서 유명세를 타요.",
+  "en": "That restaurant becomes popular in the neighborhood for its delicious food."
+ },
+ "유물": {
+  "ex": "국립박물관에서 옛 선조들이 남긴 소중한 유물을 관람해요.",
+  "en": "I view precious relics left by ancient ancestors at the national museum."
+ },
+ "유발": {
+  "ex": "무리한 야근은 극심한 피로의 유발을 가져와요.",
+  "en": "Excessive overtime work causes the triggering of severe fatigue."
+ },
+ "유발하다": {
+  "ex": "건조한 겨울 날씨는 피부 가려움증을 유발해요.",
+  "en": "Dry winter weather causes itchy skin."
+ },
+ "유사": {
+  "ex": "두 단어의 유사한 점을 비교하며 차이점을 공부해요.",
+  "en": "I study the differences while comparing the similar points of the two words."
+ },
+ "유색": {
+  "ex": "재활용 분리수거를 위해 투명 페트병과 유색 페트병을 나눠요.",
+  "en": "I separate clear PET bottles and colored PET bottles for recycling."
+ },
+ "유연성": {
+  "ex": "매일 스트레칭을 꾸준히 해서 몸의 유연성을 길러요.",
+  "en": "I steadily stretch every day to develop body flexibility."
+ },
+ "유용": {
+  "ex": "사전 앱은 외국어를 배울 때 큰 유용을 지녀요.",
+  "en": "Dictionary apps have great usefulness when learning foreign languages."
+ },
+ "유용하다": {
+  "ex": "스마트폰의 번역 기능은 여행할 때 정말 유용해요.",
+  "en": "The translation function on smartphones is really useful when traveling."
+ },
+ "유월": {
+  "ex": "초여름이 시작되는 유월에는 시원한 옷을 입어요.",
+  "en": "In June when early summer begins, I wear cool clothes."
+ },
+ "유익": {
+  "ex": "도서관에서 유익한 지식을 얻으며 시간을 보내요.",
+  "en": "I spend time at the library gaining advantageous knowledge."
+ },
+ "유익하다": {
+  "ex": "선생님의 특강은 한국 문화 이해에 아주 유익해요.",
+  "en": "The teacher's special lecture is very beneficial for understanding Korean culture."
+ },
+ "유인": {
+  "ex": "우주 탐사를 위해 유인 우주선을 발사해요.",
+  "en": "They launch a manned spacecraft for space exploration."
+ },
+ "유입": {
+  "ex": "도심으로 새로운 인구의 유입이 늘어나요.",
+  "en": "The inflow of new population into the city center increases."
+ },
+ "유입되다": {
+  "ex": "창문을 열자 방 안으로 맑고 상쾌한 공기가 유입돼요.",
+  "en": "As I open the window, clean and refreshing air flows into the room."
+ },
+ "유전": {
+  "ex": "바다 한가운데에 위치한 거대한 해상 유전을 방문해요.",
+  "en": "We visit a massive offshore oilfield located in the middle of the sea."
+ },
+ "유전자": {
+  "ex": "과학 시간에 생물의 형질을 결정하는 유전자를 배워요.",
+  "en": "We learn about genes that determine the traits of living things in science class."
+ },
+ "유지": {
+  "ex": "건강의 유지를 위해 규칙적인 식사를 실천해요.",
+  "en": "I practice regular meals for maintaining health."
+ },
+ "유지되다": {
+  "ex": "냉장고 문을 잘 닫아서 내부 온도가 차갑게 유지돼요.",
+  "en": "Closing the refrigerator door properly keeps the internal temperature maintained cool."
+ },
+ "유지하다": {
+  "ex": "방 안을 항상 깨끗하고 쾌적하게 유지해요.",
+  "en": "I always maintain the room clean and pleasant."
+ },
+ "유출": {
+  "ex": "개인정보의 안전한 보호로 비밀 정보의 유출을 막아요.",
+  "en": "We prevent the spill of confidential information with safe protection of personal data."
+ },
+ "유치": {
+  "ex": "어린 동생이 흔들리던 유치를 뽑고 환하게 웃어요.",
+  "en": "My young sibling pulls out a loose milk tooth and smiles brightly."
+ },
+ "유치원": {
+  "ex": "아침마다 노란 통학버스를 타고 유치원에 가요.",
+  "en": "Every morning, the child takes the yellow school bus to kindergarten."
+ },
+ "유통": {
+  "ex": "신선한 농산물의 빠른 유통을 위해 산지에서 바로 배송해요.",
+  "en": "They ship directly from production sites for fast distribution of fresh agricultural products."
+ },
+ "유통기한": {
+  "ex": "우유를 사기 전에 포장지에 적힌 유통기한을 확인해요.",
+  "en": "Before buying milk, I check the sell-by date printed on the carton."
+ },
+ "유통되다": {
+  "ex": "환기를 위해 창문을 열어 실내에 신선한 공기가 유통돼요.",
+  "en": "Opening windows for ventilation circulates fresh air indoors."
+ },
+ "유통업": {
+  "ex": "소비자에게 물건을 전달하는 대형 유통업 회사에 취업해요.",
+  "en": "I get a job at a large distribution industry company that delivers goods to consumers."
+ },
+ "유포": {
+  "ex": "인터넷에 거짓 소문의 무분별한 유포를 삼가요.",
+  "en": "I refrain from the indiscriminate spread of false rumors on the internet."
+ },
+ "유포되다": {
+  "ex": "확인되지 않은 잘못된 소식이 인터넷을 통해 빠르게 유포돼요.",
+  "en": "Unverified false news is quickly circulated through the internet."
+ },
+ "유학": {
+  "ex": "새로운 언어와 문화를 깊이 배우기 위해 외국 유학을 떠나요.",
+  "en": "I leave for studying abroad in a foreign country to learn a new language and culture deeply."
+ },
+ "육": {
+  "ex": "오후 육 시가 되면 친구들과 저녁을 먹기로 해요.",
+  "en": "We decide to eat dinner with friends when it becomes six in the evening."
+ },
+ "육상": {
+  "ex": "섬과 내륙을 연결하는 육상 교통망을 새로 정비해요.",
+  "en": "They reorganize the overland transportation network connecting the island and the mainland."
+ },
+ "윤": {
+  "ex": "깨끗하게 닦은 가구 표면에서 반짝반짝 고운 윤이 나요.",
+  "en": "A pretty gloss shines brightly on the surface of the cleanly polished furniture."
  }
 }
