@@ -2943,6 +2943,12 @@
   "only": true
  },
  {
+  "ko": "온실",
+  "en": "greenhouse; heated room",
+  "pos": "명사",
+  "only": true
+ },
+ {
   "ko": "녹",
   "en": "rust",
   "pos": "명사",
