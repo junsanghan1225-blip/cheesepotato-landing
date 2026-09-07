@@ -3046,6 +3046,18 @@
   "only": true
  },
  {
+  "ko": "자제",
+  "en": "self-control; self-restraint",
+  "pos": "명사",
+  "only": true
+ },
+ {
+  "ko": "자연계",
+  "en": "natural world; nature",
+  "pos": "명사",
+  "only": true
+ },
+ {
   "ko": "녹",
   "en": "rust",
   "pos": "명사",
