@@ -13,7 +13,7 @@
    어느 날 갑자기 다른 코드가 실려 왔다.
    이제 vendor/ 안에 받아 두고 CSP 로 바깥을 막는다. 버전을 올릴 때는
    tools/vendor.mjs 의 PIN 을 고치고 다시 돌린다. */
-import { createClient } from './vendor/supabase-js.js?v=a81a5be3';
+import { createClient } from './vendor/supabase-js.js?v=855eb634';
 // 앱(package.json)과 같은 줄기를 쓴다. 갈리면 앱에서는 읽히는 파일이
 // 여기서는 안 읽히는(또는 그 반대) 일이 생긴다.
 /* 엑셀 라이브러리는 422KB — 이 판에서 가장 무거운 조각이다. 그런데 쓰는
@@ -25,23 +25,40 @@ import { createClient } from './vendor/supabase-js.js?v=a81a5be3';
    자국(?v=)은 tools/stamp.mjs 가 아래 줄에 알아서 붙인다 — 정적으로 쓰든
    동적으로 쓰든 같은 글자를 찾으므로 바꿔도 그대로 찍힌다. */
 let XLSX = null;
-const needXLSX = async () => (XLSX ??= await import('./vendor/xlsx.js?v=a81a5be3'));
+const needXLSX = async () => (XLSX ??= await import('./vendor/xlsx.js?v=855eb634'));
 // 커리큘럼. 내용과 엔진을 갈라 두면 글을 고치다 화면을 깨지 않는다.
 // 갈래 목록(drawSections)·코스(drawCourses)·문제만 풀기(dqDraw) 를 열 때만
 // 받는다 — 배우기 갈래 목록도 안 본 사람에게 코스 71개 레슨을 다 물릴
 // 까닭이 없다. warmLearn() 이 배우기를 여는 순간 미리 불을 붙여 둔다.
 let COURSES = [], coursesP = null;
-const coursesNeed = () => (coursesP ??= import('./courses.js?v=a81a5be3').then((m) => { COURSES = m.COURSES; }));
-import { GLOSSARY, GLOSS_LANGS } from './glossary.js?v=a81a5be3';
-import { glossFind } from './gloss-find.js?v=a81a5be3';
+const coursesNeed = () => (coursesP ??= import('./courses.js?v=855eb634').then((m) => { COURSES = m.COURSES; }));
+/* 낱말 뜻풀이 356KB. 예전에는 여기서 통째로 받았다 — tqGloss 가 동기라
+   지연 로딩이 안 된다고 보았기 때문이다. 그런데 tqGloss 를 부르는 자리를
+   다 세어 보니 여덟 곳이고 **전부 사람이 무언가를 누른 뒤**였다(사전
+   열기 · 지문 낱말 누르기 · 노트에서 단어 담기 · 도우미로 찾기). 첫
+   화면에는 한 번도 안 쓰인다. 그런데도 모든 방문자가 356KB 를 받아
+   파싱하고 있었다 — 홈만 보고 나갈 사람까지.
+   그래서 빈 채로 두고, 그 여덟 자리로 가는 길목에서 미리 불을 붙인다.
+   tqGloss 는 그대로 동기다 — 아직 안 왔으면 빈 뜻을 돌려주고, 부르는
+   쪽은 이미 "사전에 없는 말"을 다룰 줄 안다. */
+let GLOSSARY = {}, GLOSS_LANGS = {}, glossP = null;
+const glossNeed = () => (glossP ??= import('./glossary.js?v=855eb634').then((m) => {
+  GLOSSARY = m.GLOSSARY; GLOSS_LANGS = m.GLOSS_LANGS;
+  dictBuildEntries();
+}).catch((e) => {
+  // 실패한 약속을 쥐고 있으면 다음에 다시 눌러도 영영 안 받는다.
+  glossP = null;
+  throw e;
+}));
+import { glossFind } from './gloss-find.js?v=855eb634';
 /* 문법 사전(뜻풀이 197개). 읽기 지문의 밑줄 문법 말풍선(rdNeed)과 예문
    만들기 화면(sbNeed) 양쪽이 쓴다 — 둘 중 먼저 여는 화면이 받아 두고,
    나중 화면은 그 약속(??=)을 그대로 쓴다. */
 let GRAMMAR = [], GRAMMAR_EN = {}, grammarP = null;
 const grammarNeed = () => (grammarP ??= Promise.all([
-  import('./grammar.js?v=a81a5be3'), import('./grammar-en.js?v=a81a5be3'),
+  import('./grammar.js?v=855eb634'), import('./grammar-en.js?v=855eb634'),
 ]).then(([a, b]) => { GRAMMAR = a.GRAMMAR; GRAMMAR_EN = b.GRAMMAR_EN; }));
-import { grammarScan } from './grammar-find.js?v=a81a5be3';
+import { grammarScan } from './grammar-find.js?v=855eb634';
 // TOPIK 쓰기·듣기 문항. 읽기(topik.js·topik2.js)와 같은 tqNeedData() 로
 // 함께 받는다 — 유형 연습(topik) 갈래 하나가 세 기술을 다 쓰므로 따로
 // 가를 까닭이 없다. 값은 tqNeedData 정의부에서 채운다.
@@ -53,7 +70,7 @@ let TOPIKL_BY_EXAM = {}, TOPIKL_PICTURE_SLOTS = {};
    sbFind 를 쓰는데, 그쪽은 안 기다리고 그냥 부른다 — 답이 못 찾은
    인용 없이 나가는 것이 채팅이 멈추는 것보다 낫다. */
 let SB_CATS = [], SB_MORE = {}, SB_SEED = {}, SB_POINTS = [], sbDataP = null;
-const sbNeed = () => (sbDataP ??= import('./sentences.js?v=a81a5be3').then((m) => {
+const sbNeed = () => (sbDataP ??= import('./sentences.js?v=855eb634').then((m) => {
   SB_CATS = m.SB_CATS; SB_MORE = m.SB_MORE; SB_SEED = m.SB_SEED;
   // 갈래마다 표현을 펼쳐 한 줄에 담는다 — SB_CATS 안의 점에는 갈래가 안
   // 달려 있어서(sbFind 가 표현 하나를 id 로 바로 찾으려면 이게 있어야 한다).
@@ -64,7 +81,7 @@ const sbNeed = () => (sbDataP ??= import('./sentences.js?v=a81a5be3').then((m) =
 // 숫자 게임의 읽기와 문제 만들기. 화면을 모르는 순수 계산이라 따로 뒀다.
 // 게임 목록에서 「숫자 읽기」를 시작할 때만 받는다 — XLSX 와 같은 자리다.
 let makeRound = null;
-const needNumbers = async () => (makeRound ??= (await import('./numbers.js?v=a81a5be3')).makeRound);
+const needNumbers = async () => (makeRound ??= (await import('./numbers.js?v=855eb634')).makeRound);
 
 // 이 키는 공개돼도 되는 값이다. 이미 APK 안에 같은 것이 들어 있고,
 // 접근을 막는 건 키가 아니라 테이블에 걸린 RLS 다.
@@ -119,8 +136,8 @@ let tqDataP = null;
    유형 연습(topik) 갈래 하나가 이 넷을 다 쓰므로 갈라 봤자 요청만
    늘어난다. */
 const tqNeedData = () => (tqDataP ??= Promise.all([
-  import('./topik.js?v=a81a5be3'), import('./topik2.js?v=a81a5be3'),
-  import('./topik-writing.js?v=a81a5be3'), import('./topik-listening.js?v=a81a5be3'),
+  import('./topik.js?v=855eb634'), import('./topik2.js?v=855eb634'),
+  import('./topik-writing.js?v=855eb634'), import('./topik-listening.js?v=855eb634'),
 ]).then(([a, b, c, d]) => {
   TQ_DATA.I  = { reading: a.TOPIK_READING,  blueprint: a.TOPIK_BLUEPRINT,  slots: a.TOPIK_SLOTS };
   TQ_DATA.II = { reading: b.TOPIK2_READING, blueprint: b.TOPIK2_BLUEPRINT, slots: b.TOPIK2_SLOTS };
@@ -131,15 +148,18 @@ const tqNeedData = () => (tqDataP ??= Promise.all([
 let READING = null, rdP = null;
 // 지문의 밑줄 문법 말풍선이 GRAMMAR 를 쓰므로 같이 받아 둔다.
 const rdNeed = () => (rdP ??= Promise.all([
-  import('./reading.js?v=a81a5be3'), grammarNeed(),
+  import('./reading.js?v=855eb634'), grammarNeed(),
 ]).then(([m]) => { READING = m.READING; }));
 
 let CONVO = null, cvP = null;
-const cvNeed = () => (cvP ??= import('./convo.js?v=a81a5be3').then((m) => { CONVO = m.CONVO; }));
+const cvNeed = () => (cvP ??= import('./convo.js?v=855eb634').then((m) => { CONVO = m.CONVO; }));
 
-/* 배우기를 열면 다섯 다 미리 불을 붙인다. 기다리지 않는다 — 갈래 목록은
-   이 자료가 없어도 그려지고, 사람이 갈래를 고르는 사이에 도착한다. */
-const warmLearn = () => { tqNeedData(); rdNeed(); coursesNeed(); sbNeed(); cvNeed(); };
+/* 배우기를 열면 여섯 다 미리 불을 붙인다. 기다리지 않는다 — 갈래 목록은
+   이 자료가 없어도 그려지고, 사람이 갈래를 고르는 사이에 도착한다.
+   뜻풀이(glossNeed)도 여기 낀다: 지문에서 모르는 낱말을 누르는 일은
+   배우기 안에서만 벌어지고, 갈래를 고르고 문제를 읽는 데 몇 초는 걸려서
+   그 사이에 넉넉히 도착한다. */
+const warmLearn = () => { tqNeedData(); rdNeed(); coursesNeed(); sbNeed(); cvNeed(); glossNeed(); };
 
 // 게임 목록과 그 아래 게임들. 새 게임을 더하면 여기에도 넣는다.
 const GAME_VIEWS = ['games', 'claw', 'match', 'quiz', 'num'];
@@ -393,6 +413,10 @@ function visibleWords() {
      찾을 때는 지문에서 본 활용형("예뻤어요")이 먼저 떠오른다. 그대로
      찾으면 글자가 안 겹쳐 못 찾으므로, 지문 누른 꼴 → 표제어를 찾는
      glossFind 로 한 번 더 풀어서 그 표제어로도 걸리게 한다. */
+  /* 뜻풀이가 아직 안 왔으면 이 되짚기만 빠진다 — 글자 그대로 찾는 것은
+     그대로 되므로 찾기 자체는 멈추지 않는다. 대신 여기서 불을 붙여 두면
+     다음 글자를 칠 때쯤에는 도착해 있다. */
+  if (q) glossNeed().catch(() => {});
   const qHead = q && glossFind((k) => Object.prototype.hasOwnProperty.call(GLOSSARY, k), query.trim());
   const out = rows.filter((w) => {
     if (tagOn && w.tag !== tagOn) return false;
@@ -510,17 +534,18 @@ $('wbChips').addEventListener('click', (ev) => {
 // ══ 국어사전 ═════════════════════════════════════════════════
 // 첫 화면 "낱말·문법 사전" 카드가 예전엔 자료마당(엑셀 내려받기)으로
 // 보냈다 — 사전이라 적어 놓고 실제로 찾아볼 사전 화면이 없었다.
-// 새 자료를 안 받아 온다: glossary.js 는 이미 늘 받아 두는 파일이라
-// (tqGloss 가 동기로 써야 해서 지연 로딩을 안 한다), 여기서 표제어만
-// 한 번 추려 쓰면 된다.
 
 /* GLOSSARY 는 활용형까지 다 키로 들어 있다(「아침에」·「아침을」…).
-   사전 화면은 활용형이 아니라 표제어를 훑어보는 자리라 한 번만 추린다. */
-const DICT_ENTRIES = (() => {
+   사전 화면은 활용형이 아니라 표제어를 훑어보는 자리라 한 번만 추린다.
+   glossNeed() 가 자료를 받아 온 뒤에 한 번 부른다 — 표제어 4천 개를
+   추려 가나다순으로 세우는 일을, 사전을 열지도 않은 사람의 첫 화면에서
+   할 까닭이 없다. */
+let DICT_ENTRIES = [];
+function dictBuildEntries() {
   const byHead = new Map();
   Object.values(GLOSSARY).forEach((v) => { if (!byHead.has(v.head)) byHead.set(v.head, v); });
-  return [...byHead.values()].sort((a, b) => a.head.localeCompare(b.head, 'ko'));
-})();
+  DICT_ENTRIES = [...byHead.values()].sort((a, b) => a.head.localeCompare(b.head, 'ko'));
+}
 
 let dictQuery = '';
 let dictTag = null;   // null = 전체
@@ -533,14 +558,14 @@ let dictOpen = null;  // 지금 "더 보기"(예문·뜻풀이)를 펼쳐 둔 �
    평소엔 안 쓰는 522KB 를 첫 화면 모두에게 물릴 까닭이 없다. */
 let dictSensesP = null;
 const dictLoadSenses = () => (dictSensesP ??=
-  import('./glossary-senses.js?v=a81a5be3').then((m) => m.SENSES).catch(() => ({})));
+  import('./glossary-senses.js?v=855eb634').then((m) => m.SENSES).catch(() => ({})));
 
 /* 예문. 국립국어원 자료엔 없어서 Gemini 로 새로 지은 것이다(있는 만큼만
    — docs/glossary-examples-gemini-prompt.md 참고). 뜻풀이와 같은 자리에서
    같이 받는다 — 펼치는 손짓 하나에 몰아 두는 편이 화면이 덜 복잡하다. */
 let dictExamplesP = null;
 const dictLoadExamples = () => (dictExamplesP ??=
-  import('./glossary-examples.js?v=a81a5be3').then((m) => m.EXAMPLES).catch(() => ({})));
+  import('./glossary-examples.js?v=855eb634').then((m) => m.EXAMPLES).catch(() => ({})));
 
 function dictVisible() {
   const q = dictQuery.trim().toLowerCase();
@@ -618,6 +643,21 @@ async function dictDrawMore(head) {
 }
 
 function dictDraw() {
+  /* 사전 자료는 이 화면을 열 때 받는다(첫 화면에서는 안 받는다).
+     아직 없으면 받는 동안 안내만 띄우고, 도착하면 스스로 다시 부른다 —
+     그래야 들어오는 길(주소·단추·검색·칩)마다 따로 손댈 것이 없다. */
+  if (!DICT_ENTRIES.length) {
+    $('dictChips').innerHTML = '';
+    $('dictList').innerHTML = '';
+    $('dictNone').classList.add('hidden');
+    $('dictMore').style.display = 'none';
+    $('dictCount').textContent = t('사전을 불러오는 중…', 'Loading the dictionary…');
+    glossNeed().then(dictDraw).catch(() => {
+      $('dictCount').textContent = t('사전을 불러오지 못했어요. 새로고침해 보세요.',
+                                     'Could not load the dictionary — try refreshing.');
+    });
+    return;
+  }
   dictDrawChips();
   const active = dictQuery || dictTag;
   $('dictMore').style.display = 'none';
@@ -4130,6 +4170,19 @@ function tqWordify(el, text, mark) {
            그대로 가린다(모의고사 벽·시계는 안 건드린다) — 뜻만 열어 준다. */
         if (g.head) tqWPopOpen(span, g);
         else tqWPopClose();
+        /* 뜻풀이가 아직 안 왔을 수 있다(배우기를 열자마자 느린 연결에서
+           바로 누른 경우). 도착하면 한 번 더 찾아서 그때 채운다 — 그
+           사이에 학습자가 표시를 껐거나 손으로 뜻을 적었으면 건드리지
+           않는다. */
+        if (!g.head) glossNeed().then(() => {
+          const cur = tqUnknown.get(key);
+          if (!cur || cur.mean) return;
+          const late = tqGloss(key);
+          if (!late.head) return;
+          tqUnknown.set(key, { ...cur, word: late.head, mean: late.meaning, tag: late.tag });
+          tqUnkStore();
+          if (!$('tqUnk').classList.contains('hidden')) tqUnkDraw();
+        }).catch(() => {});
       }
       span.classList.toggle('on', tqUnknown.has(key));
       tqUnkStore();
@@ -4206,7 +4259,12 @@ let tqPackFor = '';
 
 async function tqLoadPack() {
   const L = tqMeanLang;
-  if (L === 'en' || L === 'ko' || !GLOSS_LANGS[L] || tqPackFor === L) return;
+  /* 영어·한국어를 쓰는 사람은 여기서 바로 돌아간다 — GLOSS_LANGS 를 보기
+     전에 걸러야 한다. 이 함수는 첫 화면에서도 한 번 불리는데, 위에서
+     걸러 내지 않으면 뜻풀이 356KB 를 도로 모두에게 물리게 된다. */
+  if (L === 'en' || L === 'ko' || tqPackFor === L) return;
+  await glossNeed().catch(() => {});
+  if (!GLOSS_LANGS[L] || tqPackFor === L) return;
   try {
     const mod = await import(GLOSS_LANGS[L]);
     /* 받는 사이에 학습자가 말을 바꿨을 수 있다. 그때 덮어쓰면 고른 말과
@@ -7002,6 +7060,8 @@ $('ntMemoWb').addEventListener('click', async () => {
     showErr(t('단어장에 담으려면 로그인이 필요해요.', 'Sign in to add words to your wordbook.'));
     return;
   }
+  // 뜻을 적어 두지 않았을 때만 사전을 뒤진다 — 그때만 받아 오면 된다.
+  if (!mean) await glossNeed().catch(() => {});
   const g = mean ? null : tqGloss(word);
   open('wordbook');
   openWordForm({
@@ -12189,10 +12249,11 @@ function hlpSetOpen(open) {
   $('hlpFab').setAttribute('aria-label', t(open ? '한국어 도우미 닫기' : '한국어 도우미 열기',
                                             open ? 'Close Korean helper' : 'Open Korean helper'));
   if (open) {
-    // 인용을 찾을 때 SB_POINTS·GRAMMAR 를 쓴다(hlpCites). 여기서 배우기를
-    // 한 번도 안 연 사람도 열 수 있는 자리라, 미리 불을 붙여만 둔다 —
-    // 기다리지 않는다. 타자 치는 동안 대개 도착한다.
-    sbNeed(); grammarNeed();
+    // 인용을 찾을 때 SB_POINTS·GRAMMAR 를, 낱말을 찾을 때 GLOSSARY 를
+    // 쓴다(hlpCites·hlpFindWord). 여기서 배우기를 한 번도 안 연 사람도 열
+    // 수 있는 자리라, 미리 불을 붙여만 둔다 — 기다리지 않는다. 타자 치는
+    // 동안 대개 도착한다.
+    sbNeed(); grammarNeed(); glossNeed();
     hlpRenderChrome();
     setTimeout(() => $('hlpInput')?.focus(), 60);
   } else {
