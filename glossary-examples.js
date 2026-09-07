@@ -11515,5 +11515,165 @@ export const EXAMPLES = {
  "인터넷": {
   "ex": "궁금한 단어가 나오면 인터넷 검색을 통해 바로 찾아봐요.",
   "en": "When an unfamiliar word comes up, I look it up right away through internet search."
+ },
+ "인테리어": {
+  "ex": "새로 이사한 방의 인테리어를 아늑한 소품으로 예쁘게 꾸며요.",
+  "en": "I decorate the interior of the newly moved room prettily with cozy props."
+ },
+ "인프라": {
+  "ex": "신도시에는 편리한 생활을 위한 다양한 교통 인프라가 잘 갖춰져요.",
+  "en": "Various transportation infrastructure for a convenient life is well established in the new town."
+ },
+ "인하": {
+  "ex": "소비자들의 부담을 줄이기 위해 가격의 인하를 결정해요.",
+  "en": "They decide on a price reduction to reduce the burden on consumers."
+ },
+ "인하다": {
+  "ex": "갑작스러운 폭설로 인하여 버스 운행이 잠시 지연돼요.",
+  "en": "Bus operations are briefly delayed due to the sudden heavy snow."
+ },
+ "인하되다": {
+  "ex": "할인 기간을 맞아 식료품의 가격이 대폭 인하돼요.",
+  "en": "Grocery prices are significantly reduced for the discount period."
+ },
+ "인하하다": {
+  "ex": "가게 주인은 손님을 모으려고 음식값을 조금 인하해요.",
+  "en": "The shop owner reduces the food prices a little to attract customers."
+ },
+ "일": {
+  "ex": "오늘 회사에서 맡은 중요한 일을 차근차근 끝내요.",
+  "en": "I step-by-step finish the important work assigned at the office today."
+ },
+ "일감": {
+  "ex": "공방에 주문이 늘어나서 일감이 아주 많아져요.",
+  "en": "Orders increase at the workshop, so pieces of work become very plentiful."
+ },
+ "일곱": {
+  "ex": "아침 일곱 시가 되면 알람 소리를 듣고 일어나요.",
+  "en": "When it becomes seven in the morning, I wake up hearing the alarm."
+ },
+ "일과": {
+  "ex": "저녁에 따뜻한 차를 마시며 오늘 하루의 일과를 마무리해요.",
+  "en": "I finish today's daily work while drinking warm tea in the evening."
+ },
+ "일기": {
+  "ex": "잠들기 전에 하루 동안 있었던 일을 작은 일기장에 일기로 써요.",
+  "en": "Before going to sleep, I write the day's events as a diary entry in a small journal."
+ },
+ "일기예보": {
+  "ex": "외출하기 전에 텔레비전에서 오늘의 일기예보를 확인해요.",
+  "en": "I check today's weather forecast on television before going out."
+ },
+ "일다": {
+  "ex": "바람이 불어오자 잔잔했던 강물에 작은 물결이 일어요.",
+  "en": "As the wind blows, small waves rise on the calm river water."
+ },
+ "일단": {
+  "ex": "시간이 촉박하니 일단 가까운 식당에서 간단히 먹어요.",
+  "en": "Time is pressing, so for now let's eat simply at a nearby restaurant."
+ },
+ "일로": {
+  "ex": "밖이 많이 추우니 일로 와서 따뜻한 난로를 쬐세요.",
+  "en": "It is very cold outside, so please come over here and warm yourself by the heater."
+ },
+ "일반": {
+  "ex": "이 도서관은 학생뿐만 아니라 일반 시민도 자유롭게 이용해요.",
+  "en": "This library is freely used by the general public as well as students."
+ },
+ "일부": {
+  "ex": "책의 내용 중 일부를 공책에 바르게 적어요.",
+  "en": "I write down a portion of the book's contents neatly in my notebook."
+ },
+ "일부러": {
+  "ex": "친구를 만나려고 수업이 끝난 뒤에 일부러 도서관에 들러요.",
+  "en": "I specially drop by the library after class to meet my friend."
+ },
+ "일상": {
+  "ex": "매일 아침 공원을 산책하는 것은 저의 소소한 일상이에요.",
+  "en": "Taking a walk in the park every morning is my simple everyday life."
+ },
+ "일시": {
+  "ex": "모임에 참석할 사람들에게 정확한 모임 일시를 알려줘요.",
+  "en": "I inform the people who will attend the gathering of the exact date and time."
+ },
+ "일쑤": {
+  "ex": "서두르다 보면 작은 실수를 저지르기 일쑤예요.",
+  "en": "When you rush, it is common to make minor mistakes."
+ },
+ "일어": {
+  "ex": "외국어 학원에서 쉬운 기초 일어 회화를 배워요.",
+  "en": "I learn easy basic Japanese conversation at the foreign language academy."
+ },
+ "일어나다": {
+  "ex": "매일 아침 일찍 일어나서 창문을 열고 환기를 해요.",
+  "en": "I get up early every morning and open the window to ventilate."
+ },
+ "일요일": {
+  "ex": "한 주를 편안하게 쉬는 일요일에는 집에서 책을 읽어요.",
+  "en": "On Sunday, taking a comfortable rest for the week, I read books at home."
+ },
+ "일으키다": {
+  "ex": "길에서 넘어진 아이의 손을 잡고 조심스럽게 일으켜요.",
+  "en": "I hold the hand of the child who fell on the street and carefully lift them up."
+ },
+ "일자": {
+  "ex": "프로젝트를 완성하기까지 남은 작업 일자를 계산해요.",
+  "en": "I calculate the remaining number of work days to complete the project."
+ },
+ "일자리": {
+  "ex": "지역 주민들을 위한 유익하고 새로운 일자리를 만들어요.",
+  "en": "They create beneficial and new jobs for local residents."
+ },
+ "일정": {
+  "ex": "공장에서는 매일 제품의 품질을 위한 일정 수준의 검사를 거쳐요.",
+  "en": "At the factory, products go through a fixed level of inspection for quality every day."
+ },
+ "일정하다": {
+  "ex": "건강을 위해 매일 일정한 시간에 잠자리에 들어요.",
+  "en": "For health, I go to bed at a regular time every day."
+ },
+ "일종": {
+  "ex": "이 전통 놀이는 일종의 팀 협력 게임이에요.",
+  "en": "This traditional game is a sort of team cooperation game."
+ },
+ "일주": {
+  "ex": "방학 동안 친구들과 함께 아름다운 제주도 일주 여행을 떠나요.",
+  "en": "During vacation, I leave for a traveling around tour of beautiful Jeju Island with friends."
+ },
+ "일주일": {
+  "ex": "시험이 끝나고 일주일 동안 푹 쉬며 재충전해요.",
+  "en": "After the exam ends, I take a good rest for a week to recharge."
+ },
+ "일찍": {
+  "ex": "아침 수업에 늦지 않으려고 평소보다 일찍 출발해요.",
+  "en": "I depart earlier than usual so as not to be late for the morning class."
+ },
+ "일층": {
+  "ex": "선생님의 칭찬을 듣고 나니 자신감이 일층 더 생겨요.",
+  "en": "After hearing the teacher's praise, I gain far more confidence."
+ },
+ "일하다": {
+  "ex": "평일 낮에는 사무실에서 동료들과 함께 열심히 일해요.",
+  "en": "I work hard with colleagues in the office during weekday afternoons."
+ },
+ "일회용": {
+  "ex": "환경을 보호하기 위해 일회용 컵 대신 개인 텀블러를 써요.",
+  "en": "I use a personal tumbler instead of disposable cups to protect the environment."
+ },
+ "읽기": {
+  "ex": "한국어 수업 시간에 교재의 지문 읽기 연습을 해요.",
+  "en": "I practice reading passages in the textbook during Korean class."
+ },
+ "읽다": {
+  "ex": "도서관에서 재미있는 소설책을 집중해서 읽어요.",
+  "en": "I read an entertaining novel with focus at the library."
+ },
+ "잃다": {
+  "ex": "어려운 상황에서도 희망과 자신감을 결코 잃지 않아요.",
+  "en": "Even in difficult situations, I never lose hope and confidence."
+ },
+ "잃어버리다": {
+  "ex": "주머니에 넣어둔 작은 지갑을 길에서 잃어버려요.",
+  "en": "I lose the small wallet kept in my pocket on the street."
  }
 };
