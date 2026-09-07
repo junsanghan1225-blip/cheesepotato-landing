@@ -2992,6 +2992,12 @@
   "only": true
  },
  {
+  "ko": "을래요",
+  "en": "will you...?; I will... (casual intention)",
+  "pos": "품사 없음",
+  "only": true
+ },
+ {
   "ko": "녹",
   "en": "rust",
   "pos": "명사",
