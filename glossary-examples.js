@@ -8475,5 +8475,165 @@ export const EXAMPLES = {
  "시내": {
   "ex": "주말에 옷을 사러 번화한 시내로 나가요.",
   "en": "I go out to the bustling downtown to buy clothes on the weekend."
+ },
+ "시대": {
+  "ex": "우리는 인터넷이 널리 보급된 현대 시대에 살아요.",
+  "en": "We live in a modern era where the internet is widely spread."
+ },
+ "시도": {
+  "ex": "새로운 언어를 배우는 것은 참 가치 있는 시도예요.",
+  "en": "Learning a new language is truly a valuable attempt."
+ },
+ "시도하다": {
+  "ex": "어려운 요리법에 처음으로 용기 내어 시도해요.",
+  "en": "I bravely try a difficult recipe for the first time."
+ },
+ "시력": {
+  "ex": "안경을 쓰지 않아도 눈의 시력이 아주 좋아요.",
+  "en": "My vision is very good even without wearing glasses."
+ },
+ "시민": {
+  "ex": "친절한 서울 시민들이 길을 잃은 여행객을 도와줘요.",
+  "en": "Kind citizens of Seoul help travelers who have lost their way."
+ },
+ "시범": {
+  "ex": "선생님이 학생들 앞에서 올바른 발음 시범을 보여줘요.",
+  "en": "The teacher gives a correct pronunciation demonstration in front of the students."
+ },
+ "시설": {
+  "ex": "도서관에 이용자를 위한 최신 편의 시설이 잘 갖춰져 있어요.",
+  "en": "The library is well equipped with up-to-date convenience facilities for users."
+ },
+ "시스템": {
+  "ex": "컴퓨터를 켜고 새로운 운영 시스템을 실행해요.",
+  "en": "I turn on the computer and run the new operating system."
+ },
+ "시외": {
+  "ex": "주말에는 복잡한 도심을 벗어나 시외로 나들이를 떠나요.",
+  "en": "On the weekend, I go on an outing to the suburbs away from the crowded city center."
+ },
+ "시원하다": {
+  "ex": "창문을 여니 불어오는 가을바람이 참 시원해요.",
+  "en": "As I open the window, the incoming autumn breeze is very refreshing."
+ },
+ "시월": {
+  "ex": "날씨가 선선해지는 시월에 친구들과 단풍 구경을 가요.",
+  "en": "I go viewing autumn foliage with friends in October when the weather turns cool."
+ },
+ "시작": {
+  "ex": "아침 일찍 힘찬 하루의 시작을 맞이해요.",
+  "en": "I welcome the start of an energetic day early in the morning."
+ },
+ "시작되다": {
+  "ex": "안내 방송이 나오고 곧이어 재미있는 영화가 시작돼요.",
+  "en": "The announcement is made, and the entertaining movie starts shortly after."
+ },
+ "시작하다": {
+  "ex": "오늘부터 매일 아침 가벼운 조깅을 시작해요.",
+  "en": "I begin jogging lightly every morning starting today."
+ },
+ "시장": {
+  "ex": "주말에 신선한 과일을 사러 활기찬 전통 시장에 가요.",
+  "en": "I go to the lively traditional market to buy fresh fruit on the weekend."
+ },
+ "시절": {
+  "ex": "사진첩을 보며 즐거웠던 학창 시절을 떠올려요.",
+  "en": "Looking at the photo album, I recall my joyful school days."
+ },
+ "시점": {
+  "ex": "이 프로젝트는 계획을 처음 세운 시점부터 꼼꼼히 검토해요.",
+  "en": "We thoroughly review this project starting from the very starting point of planning."
+ },
+ "시제": {
+  "ex": "한국어 문법 시간에 과거와 미래 시제를 정확히 익혀요.",
+  "en": "I accurately learn the past and future tenses in Korean grammar class."
+ },
+ "시즌": {
+  "ex": "가을 여행 시즌을 맞아 공원에 단풍을 보러 오는 사람이 많아요.",
+  "en": "Many people come to the park to see autumn leaves for the autumn travel season."
+ },
+ "시집": {
+  "ex": "도서관에서 마음이 따뜻해지는 얇은 시집을 한 권 빌려요.",
+  "en": "I borrow a slender book of poems that warms the heart from the library."
+ },
+ "시청": {
+  "ex": "서류를 발급받으려고 시내 중심가에 있는 시청을 찾아가요.",
+  "en": "I visit the city hall located downtown to get documents issued."
+ },
+ "시치다": {
+  "ex": "본격적인 바느질을 하기 전에 옷감의 모서리를 살짝 시쳐요.",
+  "en": "I lightly baste the edges of the cloth before doing full sewing."
+ },
+ "시치미": {
+  "ex": "장난을 치고도 모르는 척 천연덕스럽게 시치미를 떼요.",
+  "en": "After playing a prank, they feign innocence pretending not to know."
+ },
+ "시키다": {
+  "ex": "식당에서 점심 메뉴로 따뜻한 된장찌개를 시켜요.",
+  "en": "I order warm soybean paste stew for lunch at the restaurant."
+ },
+ "시험": {
+  "ex": "내일 있을 한국어 말하기 시험을 위해 밤늦게까지 복습해요.",
+  "en": "I review until late at night for tomorrow's Korean speaking exam."
+ },
+ "식다": {
+  "ex": "식탁 위에 놓인 따뜻한 국이 서서히 식어요.",
+  "en": "The warm soup placed on the dining table gradually cools down."
+ },
+ "식단": {
+  "ex": "건강을 위해 매일 신선한 채소 중심의 식단을 준비해요.",
+  "en": "I prepare a daily diet centered on fresh vegetables for my health."
+ },
+ "식당": {
+  "ex": "점심시간에 동료들과 함께 회사 근처 단골 식당으로 가요.",
+  "en": "I go to a regular cafeteria near the office with colleagues at lunchtime."
+ },
+ "식료품": {
+  "ex": "주말에 마트에 들러 일주일 동안 먹을 식료품을 사요.",
+  "en": "I stop by the mart on the weekend to buy food groceries for a week."
+ },
+ "식물": {
+  "ex": "햇빛이 잘 드는 베란다에서 초록빛 식물을 정성껏 키워요.",
+  "en": "I carefully grow green plants on the sunny veranda."
+ },
+ "식비": {
+  "ex": "매달 나가는 생활비 중에서 식비가 가장 큰 비중을 차지해요.",
+  "en": "Food expenses account for the largest proportion of the monthly living costs."
+ },
+ "식사": {
+  "ex": "저녁에 온 가족이 식탁에 모여 따뜻한 식사를 함께해요.",
+  "en": "The whole family gathers at the dining table in the evening to share a warm meal."
+ },
+ "식사량": {
+  "ex": "건강 관리를 위해 매끼 적당한 식사량을 지켜요.",
+  "en": "I maintain a moderate portion of food for each meal for health management."
+ },
+ "식습관": {
+  "ex": "아침밥을 거르지 않고 챙겨 먹는 좋은 식습관을 만들어요.",
+  "en": "I develop good eating habits of not skipping and eating breakfast."
+ },
+ "식용": {
+  "ex": "샐러드 위에 향긋하고 예쁜 식용 꽃잎을 얹어요.",
+  "en": "I put fragrant and pretty edible flower petals on top of the salad."
+ },
+ "식자": {
+  "ex": "학식이 높은 식자들은 사회의 중요한 문제에 관심을 기울여요.",
+  "en": "Learned men of deep knowledge pay close attention to important social issues."
+ },
+ "식탁": {
+  "ex": "저녁을 먹으려고 깨끗한 식탁 위에 숟가락과 젓가락을 놓아요.",
+  "en": "I place spoons and chopsticks on the clean dining table to eat dinner."
+ },
+ "식품": {
+  "ex": "동네 유기농 매장에서 믿을 수 있는 건강 식품을 골라요.",
+  "en": "I choose reliable healthy food at the neighborhood organic shop."
+ },
+ "식후": {
+  "ex": "의사의 안내대로 감기약을 식후 삼십 분에 복용해요.",
+  "en": "Following the doctor's instructions, I take the cold medicine thirty minutes after a meal."
+ },
+ "신규": {
+  "ex": "우리 스터디 모임에 열정적인 신규 회원이 새로 들어와요.",
+  "en": "An enthusiastic new member newly joins our study group."
  }
 };
