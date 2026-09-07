@@ -2901,6 +2901,12 @@
   "only": true
  },
  {
+  "ko": "았으면",
+  "en": "if only; I wish (that)",
+  "pos": "품사 없음",
+  "only": true
+ },
+ {
   "ko": "녹",
   "en": "rust",
   "pos": "명사",
