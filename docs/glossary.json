@@ -3022,6 +3022,18 @@
   "only": true
  },
  {
+  "ko": "일기",
+  "en": "diary; journal",
+  "pos": "명사",
+  "only": true
+ },
+ {
+  "ko": "일단",
+  "en": "first; to begin with; for now",
+  "pos": "명사",
+  "only": true
+ },
+ {
   "ko": "녹",
   "en": "rust",
   "pos": "명사",
