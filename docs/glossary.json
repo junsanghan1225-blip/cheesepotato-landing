@@ -2931,6 +2931,18 @@
   "only": true
  },
  {
+  "ko": "열리다",
+  "en": "to open; to be held; to take place",
+  "pos": "동사",
+  "only": true
+ },
+ {
+  "ko": "예",
+  "en": "example",
+  "pos": "명사",
+  "only": true
+ },
+ {
   "ko": "녹",
   "en": "rust",
   "pos": "명사",
