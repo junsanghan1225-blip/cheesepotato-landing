@@ -10715,5 +10715,165 @@ export const EXAMPLES = {
  "울": {
   "ex": "울 강아지 치즈가 꼬리를 흔들며 반갑게 맞이해요.",
   "en": "My puppy Cheese wags his tail and welcomes me warmly."
+ },
+ "울다": {
+  "ex": "슬픈 영화를 보다가 마지막 장면에서 눈물을 흘리며 울어요.",
+  "en": "While watching a sad movie, I cry shedding tears at the final scene."
+ },
+ "울리다": {
+  "ex": "수업 시작을 알리는 종소리가 복도에 크게 울려요.",
+  "en": "The bell informing the start of class rings loudly in the hallway."
+ },
+ "울상": {
+  "ex": "장난감을 잃어버린 아이가 금방이라도 울 것 같은 울상을 지어요.",
+  "en": "The child who lost a toy wears a tearful face as if about to cry at any moment."
+ },
+ "움": {
+  "ex": "추운 겨울을 이겨낸 나뭇가지에서 파릇파릇한 움이 터요.",
+  "en": "Fresh green buds sprout from the tree branches that overcame the cold winter."
+ },
+ "움직이다": {
+  "ex": "건강을 위해 식사 후에 가볍게 몸을 움직여요.",
+  "en": "I move my body lightly after meals for my health."
+ },
+ "웃다": {
+  "ex": "친구의 재미있는 농담을 듣고 환하게 웃어요.",
+  "en": "I smile brightly after hearing my friend's funny joke."
+ },
+ "웃음": {
+  "ex": "오랜만에 친구들과 만나 얼굴 가득 웃음을 띠어요.",
+  "en": "Meeting friends after a long time, I wear a smile all over my face."
+ },
+ "웃음소리": {
+  "ex": "놀이터에서 뛰어노는 아이들의 맑은 웃음소리가 들려요.",
+  "en": "I hear the clear laughter of children playing in the playground."
+ },
+ "원": {
+  "ex": "서점에서 마음에 드는 책을 만 원에 사요.",
+  "en": "I buy a book I like for 10,000 won at the bookstore."
+ },
+ "원단": {
+  "ex": "부드럽고 통풍이 잘되는 고급 원단으로 여름 옷을 만들어요.",
+  "en": "They make summer clothes with high-quality fabric that is soft and well-ventilated."
+ },
+ "원도심": {
+  "ex": "오랜 역사를 간직한 좁은 골목길을 보러 원도심을 걸어요.",
+  "en": "I walk through the old city center to see narrow alleys that hold long history."
+ },
+ "원래": {
+  "ex": "이 도서관은 원래 작은 마을 주민센터였어요.",
+  "en": "This library was originally a small town community center."
+ },
+ "원료": {
+  "ex": "맛있는 빵을 굽기 위해 신선하고 좋은 원료를 써요.",
+  "en": "We use good, fresh raw materials to bake delicious bread."
+ },
+ "원리": {
+  "ex": "선생님의 친절한 설명으로 기계의 작동 원리를 쉽게 이해해요.",
+  "en": "Thanks to the teacher's kind explanation, I easily understand the machine's operating principle."
+ },
+ "원인": {
+  "ex": "문제가 생긴 원인을 차근차근 밝혀내요.",
+  "en": "I step-by-step uncover the cause of the problem."
+ },
+ "원작자": {
+  "ex": "영화의 바탕이 된 인기 소설의 원작자를 직접 만나요.",
+  "en": "I directly meet the original author of the popular novel on which the movie is based."
+ },
+ "원칙": {
+  "ex": "어떤 상황에서도 약속 시간을 지키는 원칙을 지켜요.",
+  "en": "I keep the rule of being punctual under any circumstances."
+ },
+ "원통": {
+  "ex": "열심히 준비한 시험을 사소한 실수로 망쳐서 마음이 원통해요.",
+  "en": "I feel mortification in my heart because I messed up the hard-prepared exam due to a minor mistake."
+ },
+ "원통형": {
+  "ex": "필통은 가방에 넣기 편한 깔끔한 원통형 모양이에요.",
+  "en": "The pencil case has a neat cylindrical shape that is easy to put in a bag."
+ },
+ "원하다": {
+  "ex": "모두가 평화롭고 행복하게 살기를 진심으로 원해요.",
+  "en": "I sincerely wish for everyone to live peacefully and happily."
+ },
+ "원형": {
+  "ex": "오래된 유적의 훼손된 부분을 원래 원형대로 복원해요.",
+  "en": "They restore the damaged parts of the old relic to its original form."
+ },
+ "월": {
+  "ex": "새로운 학기는 매년 삼 월에 활기차게 시작해요.",
+  "en": "The new semester begins cheerfully every year in March."
+ },
+ "월급": {
+  "ex": "열심히 일한 대가로 매달 정해진 날에 월급을 받아요.",
+  "en": "I receive my paycheck on a fixed day every month in return for working hard."
+ },
+ "월세": {
+  "ex": "매달 초에 원룸 주택의 월세를 계좌로 보내요.",
+  "en": "I send the monthly rent for my studio apartment via bank account at the beginning of every month."
+ },
+ "월요일": {
+  "ex": "새로운 한 주가 시작되는 월요일 아침에 일찍 일어나요.",
+  "en": "I wake up early on Monday morning when a new week begins."
+ },
+ "웬": {
+  "ex": "창밖에서 웬 낯선 소리가 들려와요.",
+  "en": "I hear some strange noise from outside the window."
+ },
+ "위": {
+  "ex": "책상 위에 놓인 따뜻한 차 한 잔을 마셔요.",
+  "en": "I drink a cup of warm tea placed on top of the desk."
+ },
+ "위기": {
+  "ex": "어려운 위기를 친구들과 힘을 모아 극복해요.",
+  "en": "We join forces with friends to overcome difficult crises."
+ },
+ "위로": {
+  "ex": "힘들어하는 친구에게 따뜻한 위로의 말을 건네요.",
+  "en": "I offer warm words of comfort to a struggling friend."
+ },
+ "위성": {
+  "ex": "우주로 쏘아 올린 인공위성이 지구 주변을 돌아요.",
+  "en": "The artificial satellite launched into space orbits around the Earth."
+ },
+ "위주": {
+  "ex": "초보자를 위해 쉬운 실습 위주의 수업을 진행해요.",
+  "en": "We conduct a class focusing on easy hands-on practice for beginners."
+ },
+ "위축": {
+  "ex": "날씨가 추워지면 야외 활동의 위축이 나타나요.",
+  "en": "When the weather gets colder, shrinkage in outdoor activities appears."
+ },
+ "위축되다": {
+  "ex": "처음 서는 큰 무대 앞이라서 조금 위축돼요.",
+  "en": "I feel a bit shriveled because it is my first time standing in front of a big stage."
+ },
+ "위층": {
+  "ex": "엘리베이터를 타고 도서관 열람실이 있는 위층으로 올라가요.",
+  "en": "I take the elevator up to the upper floor where the library reading room is."
+ },
+ "위치": {
+  "ex": "지도를 보며 우리가 가야 할 식당의 위치를 확인해요.",
+  "en": "Looking at the map, I check the location of the restaurant we need to go to."
+ },
+ "위해": {
+  "ex": "건강을 위해 매일 아침 가볍게 공원을 달려요.",
+  "en": "For the sake of health, I jog lightly in the park every morning."
+ },
+ "위험": {
+  "ex": "공사 현장 주변은 안전사고의 위험이 있어요.",
+  "en": "There is a danger of safety accidents around the construction site."
+ },
+ "위협": {
+  "ex": "야생 동물의 갑작스러운 위협을 피해 안전한 곳으로 물러나요.",
+  "en": "I step back to a safe place away from the sudden threat of wild animals."
+ },
+ "위협하다": {
+  "ex": "거센 비바람이 마을 주민들의 안전을 위협해요.",
+  "en": "Heavy rain and winds threaten the safety of the village residents."
+ },
+ "윗사람": {
+  "ex": "예절을 갖추어 윗사람에게 공손하게 인사해요.",
+  "en": "I politely greet my seniors with proper etiquette."
  }
 };
