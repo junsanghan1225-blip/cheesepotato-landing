@@ -2883,6 +2883,18 @@
   "only": true
  },
  {
+  "ko": "신문",
+  "en": "newspaper",
+  "pos": "명사",
+  "only": true
+ },
+ {
+  "ko": "실기",
+  "en": "practical skill",
+  "pos": "명사",
+  "only": true
+ },
+ {
   "ko": "녹",
   "en": "rust",
   "pos": "명사",
