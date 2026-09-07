@@ -9426,5 +9426,165 @@
  "약": {
   "ex": "감기 기운이 있어서 식사 후에 따뜻한 물과 함께 약을 먹어요.",
   "en": "I feel a cold coming on, so I take medicine with warm water after meals."
+ },
+ "약국": {
+  "ex": "감기약을 사러 집 근처에 있는 약국으로 가요.",
+  "en": "I go to the pharmacy near my house to buy cold medicine."
+ },
+ "약다": {
+  "ex": "석진은 눈치가 빠르고 약아서 어려운 상황을 잘 넘겨요.",
+  "en": "Seokjin is quick-witted and clever, so he navigates difficult situations well."
+ },
+ "약물": {
+  "ex": "의사의 처방 없이 위험한 약물을 복용하지 않아요.",
+  "en": "I do not take dangerous medication without a doctor's prescription."
+ },
+ "약속": {
+  "ex": "내일 오후 두 시에 친구와 만나기로 약속을 잡아요.",
+  "en": "I make an appointment to meet a friend at two in the afternoon tomorrow."
+ },
+ "약속하다": {
+  "ex": "앞으로는 약속 시간에 늦지 않겠다고 친구와 약속해요.",
+  "en": "I promise my friend that I will not be late for appointments in the future."
+ },
+ "약자": {
+  "ex": "사회는 힘없고 어려운 약자를 따뜻하게 보호해야 해요.",
+  "en": "Society must warmly protect the weak and disadvantaged."
+ },
+ "약하다": {
+  "ex": "바람이 불자 작은 나뭇가지가 약하게 흔들려요.",
+  "en": "As the wind blows, the small tree branch sways weakly."
+ },
+ "약화": {
+  "ex": "오랫동안 비가 오지 않아 토양의 생명력 약화가 걱정돼요.",
+  "en": "Because it hasn't rained for a long time, the weakening of the soil's vitality is worrying."
+ },
+ "얇다": {
+  "ex": "여름에는 시원하고 통풍이 잘되는 얇은 옷을 입어요.",
+  "en": "In summer, I wear thin clothes that are cool and well-ventilated."
+ },
+ "양": {
+  "ex": "오늘 먹을 점심 식사의 적당한 양을 그릇에 담아요.",
+  "en": "I put an appropriate amount of lunch to eat today into a bowl."
+ },
+ "양념": {
+  "ex": "고소한 맛을 내기 위해 나물에 참기름 양념을 넣어요.",
+  "en": "I add sesame oil seasoning to the greens to make them flavorful."
+ },
+ "양도": {
+  "ex": "사용하지 않는 물건의 권리를 친구에게 양도해요.",
+  "en": "I make a transfer of rights to the unused items to my friend."
+ },
+ "양도되다": {
+  "ex": "오래된 가게의 운영권이 새로운 주인에게 정식으로 양도돼요.",
+  "en": "The operating rights of the old shop are officially handed over to the new owner."
+ },
+ "양말": {
+  "ex": "발이 차가워지지 않도록 두꺼운 겨울 양말을 신어요.",
+  "en": "I put on thick winter socks so my feet do not get cold."
+ },
+ "양보": {
+  "ex": "지하철에서 무거운 짐을 든 이웃에게 자리의 양보를 실천해요.",
+  "en": "I practice the yielding of my seat to neighbors carrying heavy bags on the subway."
+ },
+ "양식": {
+  "ex": "남쪽 바다에서 깨끗한 미역의 양식을 전문으로 해요.",
+  "en": "They specialize in the aquaculture of clean seaweed in the southern sea."
+ },
+ "양육": {
+  "ex": "부모님은 사랑과 정성으로 자녀의 양육에 힘써요.",
+  "en": "Parents make efforts for the rearing of their children with love and devotion."
+ },
+ "얘기": {
+  "ex": "카페에서 친구와 오랜만에 재미있는 옛날 얘기를 나눠요.",
+  "en": "I share interesting old stories with my friend at a cafe after a long time."
+ },
+ "어깨": {
+  "ex": "무거운 가방을 메고 오래 걸어서 어깨가 뻐근해요.",
+  "en": "My shoulder feels stiff after walking for a long time carrying a heavy bag."
+ },
+ "어느": {
+  "ex": "탁자 위의 두 권의 책 중 어느 것을 먼저 읽을지 고민해요.",
+  "en": "I wonder which of the two books on the table to read first."
+ },
+ "어느새": {
+  "ex": "책을 읽다 보니 어느새 밖이 어두워져요.",
+  "en": "While reading a book, it has already gotten dark outside so soon."
+ },
+ "어두": {
+  "ex": "한국어 발음 수업에서 단어의 어두 발음을 정확히 연습해요.",
+  "en": "I accurately practice the pronunciation at the beginning of words in Korean pronunciation class."
+ },
+ "어둡다": {
+  "ex": "해가 지자 방 안이 점점 캄캄하고 어두워요.",
+  "en": "As the sun sets, the inside of the room gets gradually pitch-dark and dark."
+ },
+ "어디": {
+  "ex": "주말에 가족들과 함께 어디로 놀러 갈지 이야기해요.",
+  "en": "We talk about where to go to have fun with family on the weekend."
+ },
+ "어디에서나": {
+  "ex": "스마트폰만 있으면 인터넷을 어디에서나 쉽게 쓸 수 있어요.",
+  "en": "As long as you have a smartphone, you can easily use the internet anywhere."
+ },
+ "어떡하다": {
+  "ex": "비가 쏟아지는데 우산이 없으니 어떡해요.",
+  "en": "It is pouring rain and I have no umbrella, so what should I do about it?"
+ },
+ "어떤": {
+  "ex": "도서관 서가에서 어떤 책을 읽을지 차근차근 골라요.",
+  "en": "I carefully pick out a certain book to read from the library bookshelf."
+ },
+ "어떻다": {
+  "ex": "오늘 점심으로 따뜻한 국수를 먹는 것은 어때요?",
+  "en": "How about having warm noodles for lunch today?"
+ },
+ "어려움": {
+  "ex": "친구들과 힘을 모아 과제를 하는 과정의 어려움을 이겨내요.",
+  "en": "We join forces with friends to overcome hardships in the process of doing the assignment."
+ },
+ "어렵다": {
+  "ex": "처음 배우는 한자 단어는 생각보다 조금 어려워요.",
+  "en": "Hanja words learned for the first time are slightly more difficult than expected."
+ },
+ "어르다": {
+  "ex": "울고 있는 아기를 품에 안고 다정하게 얼러요.",
+  "en": "I hold the crying baby in my arms and appease them warmly."
+ },
+ "어르신": {
+  "ex": "마을 경로당에서 이웃 어르신들께 공손하게 인사해요.",
+  "en": "I politely greet senior neighbors at the village senior center."
+ },
+ "어른": {
+  "ex": "예절을 지켜 어른 앞에서 바른 자세로 앉아요.",
+  "en": "I maintain etiquette and sit in a proper posture in front of an adult."
+ },
+ "어른스럽다": {
+  "ex": "준상은 나이에 비해 생각이 깊고 행동이 아주 어른스러워요.",
+  "en": "Junsang has deep thoughts and acts very mature for his age."
+ },
+ "어리다": {
+  "ex": "강아지 치즈는 아직 나이가 어려서 잠을 많이 자요.",
+  "en": "The puppy Cheese is still young, so he sleeps a lot."
+ },
+ "어림": {
+  "ex": "눈으로 방의 크기를 대략 어림해 봐요.",
+  "en": "I make a rough estimation of the size of the room with my eyes."
+ },
+ "어머": {
+  "ex": "어머, 길가에 핀 꽃이 정말 곱고 예쁘네요.",
+  "en": "Oh my goodness, the flowers blooming along the roadside are truly lovely and pretty."
+ },
+ "어머니": {
+  "ex": "주말에 어머니를 도와 주방에서 맛있는 요리를 해요.",
+  "en": "I help my mother and cook delicious food in the kitchen on the weekend."
+ },
+ "어미": {
+  "ex": "고양이 감자가 어미 고양이 곁에서 얌전히 쉬어요.",
+  "en": "The cat Gamja rests quietly beside its mother cat."
+ },
+ "어색하다": {
+  "ex": "처음 만난 사람과 단둘이 있으면 분위기가 조금 어색해요.",
+  "en": "When I am alone with someone I meet for the first time, the atmosphere is a bit awkward."
  }
 }
