@@ -12622,5 +12622,165 @@
  "정당성": {
   "ex": "공정한 규칙을 바탕으로 이번 결정의 타당한 정당성을 입증해요.",
   "en": "Based on fair rules, we prove the valid justification of this decision."
+ },
+ "정당하다": {
+  "ex": "자신의 권리를 정당하게 주장하며 당당하게 이야기해요.",
+  "en": "I speak confidently while claiming my rights in a justified manner."
+ },
+ "정도": {
+  "ex": "도서관까지 걸어서 십 분 정도 걸려요.",
+  "en": "It takes about ten minutes to walk to the library."
+ },
+ "정량": {
+  "ex": "건강을 위해 처방받은 약의 정량을 꼭 지켜서 복용해요.",
+  "en": "I strictly follow and take the right quantity of prescribed medicine for my health."
+ },
+ "정류장": {
+  "ex": "집 앞 버스 정류장에서 친구를 기다려요.",
+  "en": "I wait for my friend at the bus stop in front of my house."
+ },
+ "정리": {
+  "ex": "공부를 시작하기 전에 책상 위 서류의 깔끔한 정리를 마쳐요.",
+  "en": "I finish the neat organizing of documents on my desk before starting to study."
+ },
+ "정리되다": {
+  "ex": "어수선했던 방 안이 청소 후에 아주 깔끔하게 정리돼요.",
+  "en": "The cluttered room is very neatly organized after cleaning."
+ },
+ "정리하다": {
+  "ex": "수업이 끝난 뒤에 책상 위 공책과 필통을 깨끗이 정리해요.",
+  "en": "After class ends, I tidy up the notebooks and pencil case on the desk cleanly."
+ },
+ "정말": {
+  "ex": "오늘 친구와 함께 먹은 점심은 정말 맛있어요.",
+  "en": "The lunch I ate with my friend today is truly delicious."
+ },
+ "정문": {
+  "ex": "학교 정문 앞에서 만나 함께 도서관으로 걸어가요.",
+  "en": "We meet in front of the school main gate and walk together to the library."
+ },
+ "정밀": {
+  "ex": "기계의 정확한 작동을 위해 부품의 정밀 검사를 진행해요.",
+  "en": "We carry out a precision inspection of parts for the accurate operation of the machine."
+ },
+ "정밀하다": {
+  "ex": "이 시계는 부품들이 아주 작고 정밀해요.",
+  "en": "The parts of this watch are very small and precise."
+ },
+ "정보": {
+  "ex": "인터넷 검색을 통해 여행에 유익한 관광 정보를 찾아요.",
+  "en": "I look up useful sightseeing information for the trip through internet search."
+ },
+ "정부": {
+  "ex": "정부에서 환경 보호를 위한 새로운 정책을 발표해요.",
+  "en": "The government announces a new policy for environmental protection."
+ },
+ "정비": {
+  "ex": "안전한 주행을 위해 자전거의 정비를 꼼꼼히 받아요.",
+  "en": "I receive thorough servicing of my bicycle for safe riding."
+ },
+ "정산": {
+  "ex": "여행이 끝난 후에 친구들과 함께 쓴 경비의 정산을 마쳐요.",
+  "en": "After the trip ends, I finish the settlement and payment of expenses spent with friends."
+ },
+ "정서": {
+  "ex": "조용하고 감미로운 음악은 지친 마음의 정서 안정에 큰 도움이 돼요.",
+  "en": "Quiet and sweet music is very helpful for emotional stabilization of a tired mind."
+ },
+ "정서적": {
+  "ex": "자연 속에서 산책을 즐기며 깊은 정서적 안정을 느껴요.",
+  "en": "Enjoying walks in nature, I feel deep emotional calm."
+ },
+ "정성": {
+  "ex": "친구의 생일을 축하하며 따뜻한 정성을 담아 선물을 준비해요.",
+  "en": "I prepare a gift with a warm heart congratulating my friend on their birthday."
+ },
+ "정수": {
+  "ex": "깨끗하고 안전한 물을 마시기 위해 수돗물의 정수 과정을 거쳐요.",
+  "en": "Tap water goes through a water purification process to provide clean and safe drinking water."
+ },
+ "정수기": {
+  "ex": "시원한 물을 마시려고 컵을 들고 복도의 정수기로 가요.",
+  "en": "I hold a cup and go to the water purifier in the hallway to drink cold water."
+ },
+ "정숙": {
+  "ex": "모두가 집중해서 공부하는 도서관 열람실에서는 정숙을 지켜요.",
+  "en": "We maintain silence in the library reading room where everyone studies with focus."
+ },
+ "정신": {
+  "ex": "찬물로 세수를 하고 나니 번쩍 맑은 정신이 들어요.",
+  "en": "After washing my face with cold water, I suddenly feel a clear spirit."
+ },
+ "정신없다": {
+  "ex": "아침부터 과제를 마무리하느라 하루 종일 정신없어요.",
+  "en": "I am beside myself all day finishing assignments since morning."
+ },
+ "정원": {
+  "ex": "우리 집 앞마당 작은 정원에 향기로운 꽃이 가득 피어요.",
+  "en": "Fragrant flowers bloom fully in the small garden of our front yard."
+ },
+ "정작": {
+  "ex": "준비를 많이 했지만 정작 시험장에서는 조금 긴장돼요.",
+  "en": "I prepared a lot, but in fact, I feel a little nervous in the exam room."
+ },
+ "정장": {
+  "ex": "입학식 행사에 참석하기 위해 깔끔하고 단정한 정장을 입어요.",
+  "en": "I wear a neat and tidy suit to attend the entrance ceremony event."
+ },
+ "정적": {
+  "ex": "밤이 깊어지자 방 안에는 오직 고요한 정적만이 감돌아요.",
+  "en": "As night deepens, only quiet stillness lingers inside the room."
+ },
+ "정중하다": {
+  "ex": "처음 만난 어른께 예의를 갖추어 정중하게 인사해요.",
+  "en": "I greet the elder I met for the first time in a polite and courteous manner."
+ },
+ "정중히": {
+  "ex": "도움을 주신 이웃 분께 고개 숙여 정중히 감사 인사를 드려요.",
+  "en": "I bow and politely express my gratitude to the neighbor who helped."
+ },
+ "정책": {
+  "ex": "시민들의 편의를 높이기 위한 대중교통 할인 정책을 시행해요.",
+  "en": "They implement a public transportation discount policy to improve citizen convenience."
+ },
+ "정체": {
+  "ex": "동화 속에서 마침내 착한 마법사의 진짜 정체가 드러나요.",
+  "en": "In the fairy tale, the true identity of the kind wizard is finally revealed."
+ },
+ "정체성": {
+  "ex": "다양한 문화를 배우며 자신만의 뚜렷한 정체성을 형성해요.",
+  "en": "Learning diverse cultures, I form my own distinct identity."
+ },
+ "정하다": {
+  "ex": "주말에 친구들과 모일 약속 시간과 장소를 정해요.",
+  "en": "I decide the meeting time and place to gather with friends on the weekend."
+ },
+ "정해지다": {
+  "ex": "다음 주 동아리 모임 날짜가 금요일 오후로 정해져요.",
+  "en": "The date for next week's club meeting is set for Friday afternoon."
+ },
+ "정화": {
+  "ex": "공기청정기를 틀어 실내 공기의 빠른 정화를 도와요.",
+  "en": "I turn on the air purifier to help the quick purification of indoor air."
+ },
+ "정화하다": {
+  "ex": "강가에 수생 식물을 심어 더러워진 하천 물을 깨끗이 정화해요.",
+  "en": "They plant aquatic plants along the riverbank to purify polluted river water cleanly."
+ },
+ "정확": {
+  "ex": "실험 결과를 기록할 때는 수치의 정확을 기해요.",
+  "en": "When recording experiment results, I ensure the accuracy of the numerical figures."
+ },
+ "정확하다": {
+  "ex": "선생님의 문법 설명은 군더더기 없이 아주 정확해요.",
+  "en": "The teacher's grammar explanation is very exact without unnecessary fluff."
+ },
+ "정확히": {
+  "ex": "기차 출발 시간을 시계로 정확히 확인하고 승강장으로 가요.",
+  "en": "I check the train departure time accurately on the clock and head to the platform."
+ },
+ "젖": {
+  "ex": "어미 고양이가 아기 고양이들에게 따뜻하게 젖을 먹여요.",
+  "en": "The mother cat warmly feeds milk to her kittens."
  }
 }
