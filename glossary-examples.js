@@ -9275,5 +9275,165 @@ export const EXAMPLES = {
  "안전성": {
   "ex": "새로 개발한 기계의 안전성을 꼼꼼하게 점검해요.",
   "en": "We thoroughly inspect the safety of the newly developed machine."
+ },
+ "안전하다": {
+  "ex": "이 도로는 보행자가 걷기에 아주 안전해요.",
+  "en": "This road is very safe for pedestrians to walk on."
+ },
+ "안정": {
+  "ex": "따뜻한 차를 마시며 마음의 안정을 찾아요.",
+  "en": "I find stability and calm of mind while drinking warm tea."
+ },
+ "안정시키다": {
+  "ex": "깊은 숨을 쉬며 놀란 마음을 차분히 안정시켜요.",
+  "en": "I calmly stabilize my startled mind by taking deep breaths."
+ },
+ "안정적": {
+  "ex": "매달 규칙적인 수입이 있어 비교적 안정적 생활을 유지해요.",
+  "en": "I maintain a comparatively stable living with a regular monthly income."
+ },
+ "안타": {
+  "ex": "야구 경기에서 타자가 시원한 안타를 쳐요.",
+  "en": "The batter hits a crisp base hit in the baseball game."
+ },
+ "안타까워하다": {
+  "ex": "실수로 시험을 망친 친구를 보며 모두가 안타까워해요.",
+  "en": "Everyone feels sorry seeing a friend who accidentally messed up the exam."
+ },
+ "앉다": {
+  "ex": "다리가 아파서 공원 벤치에 편히 앉아요.",
+  "en": "My legs hurt, so I sit comfortably on the park bench."
+ },
+ "않다": {
+  "ex": "오늘은 날씨가 별로 춥지 않아요.",
+  "en": "The weather is not very cold today."
+ },
+ "알": {
+  "ex": "둥지 안에서 새가 낳은 작은 알을 발견해요.",
+  "en": "I discover small eggs laid by a bird inside the nest."
+ },
+ "알고리즘": {
+  "ex": "컴퓨터가 최단 경로를 빠르게 찾는 알고리즘을 사용해요.",
+  "en": "The computer uses an algorithm that quickly finds the shortest route."
+ },
+ "알다": {
+  "ex": "저는 도서관으로 가는 빠른 길을 잘 알아요.",
+  "en": "I know the fast way to the library well."
+ },
+ "알록달록": {
+  "ex": "봄 동산에 알록달록 예쁜 꽃들이 활짝 피어요.",
+  "en": "Pretty flowers bloom colorfully in full swing on the spring hill."
+ },
+ "알리다": {
+  "ex": "친구들에게 이번 주 모임 날짜와 시간을 미리 알려요.",
+  "en": "I let my friends know the date and time of this week's meeting in advance."
+ },
+ "알맞다": {
+  "ex": "빈칸에 들어갈 알맞은 단어를 골라요.",
+  "en": "I choose the suitable word to go into the blank."
+ },
+ "알아보다": {
+  "ex": "여행을 떠나기 전에 숙소 예약 정보를 자세히 알아봐요.",
+  "en": "I look into accommodation reservation details carefully before leaving for the trip."
+ },
+ "암": {
+  "ex": "새장 속에 귀여운 암 참새 한 마리가 있어요.",
+  "en": "There is one cute female sparrow inside the birdcage."
+ },
+ "암행어사": {
+  "ex": "옛날이야기 속 암행어사가 나쁜 관리를 혼내줘요.",
+  "en": "The secret royal inspector in the old tale scolds the corrupt official."
+ },
+ "았으면": {
+  "ex": "이번 주말에는 날씨가 맑았으면 좋겠어요.",
+  "en": "I wish the weather would be sunny this weekend."
+ },
+ "앙부일구": {
+  "ex": "박물관에서 조선 시대 해시계인 앙부일구를 관찰해요.",
+  "en": "I observe the Angbuilgu, a hemispherical sundial from the Joseon Dynasty, at the museum."
+ },
+ "앞": {
+  "ex": "도서관 정문 앞에서 친구를 만나기로 해요.",
+  "en": "I decide to meet my friend in front of the library's main gate."
+ },
+ "앞길": {
+  "ex": "밝은 미래를 향해 나아가는 친구의 앞길을 응원해요.",
+  "en": "I cheer on my friend's front path moving toward a bright future."
+ },
+ "앞뒤": {
+  "ex": "길을 건널 때는 앞뒤를 잘 살피며 조심스럽게 걸어요.",
+  "en": "When crossing the street, I walk carefully looking closely at the front and back."
+ },
+ "앞마당": {
+  "ex": "강아지 치즈가 넓은 앞마당을 신나게 뛰어다녀요.",
+  "en": "The puppy Cheese runs around excitedly in the wide front yard."
+ },
+ "앞서": {
+  "ex": "회의를 시작하기에 앞서 오늘의 안건을 먼저 소개해요.",
+  "en": "Earlier before starting the meeting, I first introduce today's agenda."
+ },
+ "앞서다": {
+  "ex": "우리 팀이 상대 팀보다 점수가 조금 앞서요.",
+  "en": "Our team leads the opponent slightly in points."
+ },
+ "앞세우다": {
+  "ex": "길을 잘 아는 친구를 앞세우고 산길을 따라 걸어요.",
+  "en": "We let our friend who knows the path well lead ahead and walk along the mountain trail."
+ },
+ "앞일": {
+  "ex": "내일 일어날 앞일은 아무도 정확히 알 수 없어요.",
+  "en": "No one can know for sure about the things to come tomorrow."
+ },
+ "앞장": {
+  "ex": "우리 반은 환경 보호를 위해 항상 앞장을 서요.",
+  "en": "Our class always takes the lead for environmental protection."
+ },
+ "앞장서다": {
+  "ex": "마을을 깨끗하게 청소하는 일에 주민들이 먼저 앞장서요.",
+  "en": "Residents are at the head first in cleaning up the town."
+ },
+ "애": {
+  "ex": "시험 결과가 나오지 않아 마음속으로 몹시 애를 태워요.",
+  "en": "Because the exam results have not come out, I burn with great worry in my heart."
+ },
+ "애쓰다": {
+  "ex": "어려운 한국어 발음을 정확하게 하려고 많이 애써요.",
+  "en": "I try hard to pronounce difficult Korean sounds accurately."
+ },
+ "앱": {
+  "ex": "스마트폰에 새로 나온 지도 앱을 설치해요.",
+  "en": "I install the newly released map app on my smartphone."
+ },
+ "앵커": {
+  "ex": "저녁 아홉 시 뉴스 앵커가 중요한 소식을 전달해요.",
+  "en": "The nine o'clock evening news anchor delivers important news."
+ },
+ "야간": {
+  "ex": "학교에서 늦은 시간까지 운영하는 야간 자율학습에 참여해요.",
+  "en": "I participate in the night self-study run until late at school."
+ },
+ "야근": {
+  "ex": "회사 업무가 많아서 오늘 밤에 불가피하게 야근을 해요.",
+  "en": "There is a lot of company work, so I unavoidably work overtime tonight."
+ },
+ "야근하다": {
+  "ex": "밀린 서류를 정리하느라 사무실에서 늦게까지 야근해요.",
+  "en": "I work overtime until late in the office to organize backlogged documents."
+ },
+ "야생": {
+  "ex": "깊은 산속에서 자유롭게 자라는 아름다운 야생화를 봐요.",
+  "en": "I see beautiful wild flowers growing in the wild deep in the mountains."
+ },
+ "야식": {
+  "ex": "밤늦게 공부하다가 출출해서 따뜻한 라면을 야식으로 먹어요.",
+  "en": "Feeling hungry while studying late at night, I eat warm ramen as a midnight snack."
+ },
+ "야외": {
+  "ex": "날씨가 화창해서 야외 공원에서 점심 도시락을 먹어요.",
+  "en": "The weather is sunny, so I eat lunch boxes outdoors in the park."
+ },
+ "약": {
+  "ex": "감기 기운이 있어서 식사 후에 따뜻한 물과 함께 약을 먹어요.",
+  "en": "I feel a cold coming on, so I take medicine with warm water after meals."
  }
 };
