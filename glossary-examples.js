@@ -12311,5 +12311,165 @@ export const EXAMPLES = {
  "적립": {
   "ex": "가게에서 물건을 살 때마다 보너스 포인트의 적립을 잊지 않아요.",
   "en": "I do not forget the saving of bonus points every time I buy goods at the shop."
+ },
+ "적용": {
+  "ex": "수업 시간에 배운 문법 원리의 실생활 적용을 연습해요.",
+  "en": "I practice the real-life application of the grammar principles learned in class."
+ },
+ "적용되다": {
+  "ex": "새 학기부터 도서관 이용에 관한 새로운 규칙이 적용돼요.",
+  "en": "The new rules regarding library use are applied starting from the new semester."
+ },
+ "적응": {
+  "ex": "새로운 학교 환경으로의 빠른 적응을 위해 친구들과 자주 대화해요.",
+  "en": "I talk often with friends for quick adaptation to the new school environment."
+ },
+ "적응하다": {
+  "ex": "처음에는 낯설었지만 이제는 한국 생활에 잘 적응해요.",
+  "en": "It was unfamiliar at first, but now I adjust well to life in Korea."
+ },
+ "적자": {
+  "ex": "가게 운영 비용이 늘어나서 이번 달에는 소폭의 적자를 기록해요.",
+  "en": "Operating costs of the store increased, so we record a small loss this month."
+ },
+ "적절하다": {
+  "ex": "상황에 맞는 적절한 표현을 골라 공손하게 말해요.",
+  "en": "I choose an appropriate expression suited to the situation and speak politely."
+ },
+ "적합": {
+  "ex": "이 지원자는 회사의 채용 기준에 적합 판정을 받아요.",
+  "en": "This applicant receives a suitability verdict matching the company's hiring criteria."
+ },
+ "적합하다": {
+  "ex": "이 책은 한국어를 처음 배우는 초보자에게 아주 적합해요.",
+  "en": "This book is very adequate for beginners learning Korean for the first time."
+ },
+ "전": {
+  "ex": "수업을 시작하기 전 책상 위를 깨끗이 정리해요.",
+  "en": "I tidy up the desk cleanly before starting class."
+ },
+ "전공": {
+  "ex": "대학교에서 한국어 교육을 전공으로 선택해 열심히 배워요.",
+  "en": "I choose Korean language education as my major at university and study hard."
+ },
+ "전구": {
+  "ex": "스탠드의 불이 어두워져서 새로운 밝은 전구로 갈아 끼워요.",
+  "en": "The desk lamp light got dim, so I replace it with a new, bright light bulb."
+ },
+ "전국": {
+  "ex": "봄이 오자 전국 각지에서 화려한 꽃 축제가 열려요.",
+  "en": "As spring arrives, splendid flower festivals are held nationwide."
+ },
+ "전국적": {
+  "ex": "이 행사는 큰 호응을 얻어 전국적 규모로 확대돼요.",
+  "en": "This event receives great acclaim and expands on a nationwide scale."
+ },
+ "전기": {
+  "ex": "에너지를 절약하기 위해 쓰지 않는 방의 전기 스위치를 꺼요.",
+  "en": "I turn off the electricity switches in unused rooms to save energy."
+ },
+ "전달": {
+  "ex": "선생님께서 알려주신 중요한 공지 사항의 전달을 도와요.",
+  "en": "I help with the delivery of important announcements given by the teacher."
+ },
+ "전란": {
+  "ex": "역사책을 통해 과거 참혹했던 전란의 아픔을 배워요.",
+  "en": "I learn about the pain of harsh war chaos in the past through history books."
+ },
+ "전략": {
+  "ex": "게임을 이기기 위해 팀원들과 함께 새로운 전략을 세워요.",
+  "en": "I establish a new battle strategy together with team members to win the game."
+ },
+ "전력": {
+  "ex": "여름철에는 에어컨 사용이 늘어 전력 소비가 급증해요.",
+  "en": "In the summer season, air conditioner use increases and electric power consumption surges."
+ },
+ "전망": {
+  "ex": "높은 산 전망대에 올라 탁 트인 도시 풍경의 전망을 감상해요.",
+  "en": "I go up to the high mountain observation deck and appreciate the view of the open city landscape."
+ },
+ "전면": {
+  "ex": "건물의 전면 유리를 깨끗하게 닦아 햇빛이 잘 들어와요.",
+  "en": "We wipe the front glass of the building cleanly so that sunlight comes in well."
+ },
+ "전문": {
+  "ex": "한국어 발음 교정은 석진 선생님의 가장 뛰어난 전문 분야예요.",
+  "en": "Korean pronunciation correction is Teacher Seokjin's most outstanding field of specialty."
+ },
+ "전문적": {
+  "ex": "어려운 과제를 해결하기 위해 전문가의 전문적 조언을 구해요.",
+  "en": "I seek professional advice from an expert to solve difficult tasks."
+ },
+ "전반": {
+  "ex": "한국어 교육의 전반에 걸친 기초 과정을 꼼꼼히 살펴봐요.",
+  "en": "I carefully examine the basic courses across the whole of Korean education."
+ },
+ "전방": {
+  "ex": "자전거를 탈 때는 항상 전방을 주시하며 안전하게 달려요.",
+  "en": "When riding a bicycle, I always look at the front and ride safely."
+ },
+ "전부": {
+  "ex": "오늘 해야 할 숙제를 도서관에서 전부 끝내요.",
+  "en": "I finish everything among today's homework at the library."
+ },
+ "전분": {
+  "ex": "요리의 국물을 걸쭉하게 만들기 위해 감자 전분을 조금 넣어요.",
+  "en": "I add a little potato starch to make the soup of the dish thick."
+ },
+ "전시": {
+  "ex": "미술관 복도에 학생들이 그린 멋진 그림 전시가 열려요.",
+  "en": "An exhibition of wonderful drawings painted by students is held in the museum hallway."
+ },
+ "전시실": {
+  "ex": "도슨트의 설명을 들으며 2층 제2전시실로 천천히 걸어가요.",
+  "en": "Listening to the docent's explanation, I walk slowly to the second exhibition hall on the 2nd floor."
+ },
+ "전시회": {
+  "ex": "주말에 친구와 함께 전통 도자기 전시회를 관람해요.",
+  "en": "I view a traditional pottery exhibition with a friend on the weekend."
+ },
+ "전액": {
+  "ex": "수업을 열심히 들은 덕분에 이번 학기 등록금 전액을 장학금으로 받아요.",
+  "en": "Thanks to studying hard in class, I receive the full amount of tuition this semester as a scholarship."
+ },
+ "전용": {
+  "ex": "복잡한 출퇴근 시간에 버스 전용 차로를 이용해 빠르게 이동해요.",
+  "en": "I travel fast using the dedicated bus lane during the crowded rush hour."
+ },
+ "전이": {
+  "ex": "새로운 환경을 맞이하며 계절의 자연스러운 전이를 느껴요.",
+  "en": "Facing the new environment, I feel the natural evolution of seasons."
+ },
+ "전자": {
+  "ex": "휴대폰을 통해 편리한 전자 결제 시스템을 이용해요.",
+  "en": "I use a convenient electronic payment system through my mobile phone."
+ },
+ "전자제품": {
+  "ex": "외출하기 전에 사용하지 않는 전자제품의 플러그를 뽑아요.",
+  "en": "I unplug unused electronic appliances before going out."
+ },
+ "전자책": {
+  "ex": "가벼운 태블릿을 들고 다니며 틈틈이 전자책을 읽어요.",
+  "en": "I carry a light tablet around and read e-books in my spare time."
+ },
+ "전적": {
+  "ex": "친구의 솔직한 고백을 듣고 전적 신뢰를 보내요.",
+  "en": "Hearing my friend's honest confession, I offer complete trust."
+ },
+ "전제": {
+  "ex": "서로를 존중한다는 기본 전제 아래에서 자유롭게 토론해요.",
+  "en": "We discuss freely under the basic condition that we respect each other."
+ },
+ "전체": {
+  "ex": "우리 반 학생 전체가 모여 밝은 미소로 단체 사진을 찍어요.",
+  "en": "The whole student body of our class gathers and takes a group photo with bright smiles."
+ },
+ "전통": {
+  "ex": "명절이 되면 한복을 입고 고유한 세배 전통을 지켜요.",
+  "en": "When holidays come, we wear hanbok and observe the unique traditional New Year's bow custom."
+ },
+ "전통문화": {
+  "ex": "박물관 체험 학습을 통해 우리나라의 소중한 전통문화를 배워요.",
+  "en": "I learn about our country's precious traditional culture through museum experiential learning."
  }
 };
