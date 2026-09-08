@@ -13431,5 +13431,165 @@ export const EXAMPLES = {
  "즉": {
   "ex": "내일은 공휴일, 즉 학교에 가지 않고 쉬는 날이에요.",
   "en": "Tomorrow is a public holiday, that is, a day off without going to school."
+ },
+ "즉각": {
+  "ex": "선생님의 질문을 듣고 즉각 손을 들어 대답해요.",
+  "en": "Hearing the teacher's question, I immediately raise my hand and answer."
+ },
+ "즉시": {
+  "ex": "수업이 끝나면 집으로 즉시 돌아가요.",
+  "en": "When class ends, I immediately return home."
+ },
+ "즐겁다": {
+  "ex": "친구들과 함께 한국어 퀴즈를 푸는 시간이 정말 즐거워요.",
+  "en": "The time solving Korean quizzes with friends is truly joyful."
+ },
+ "즐기다": {
+  "ex": "주말에는 공원에서 자전거를 타며 여유로운 시간을 즐겨요.",
+  "en": "On weekends, I enjoy relaxed time riding a bicycle in the park."
+ },
+ "증가": {
+  "ex": "한국어에 관심을 가지는 외국인 학생의 증가가 눈에 띄어요.",
+  "en": "The growth of foreign students interested in Korean is noticeable."
+ },
+ "증가하다": {
+  "ex": "방학 동안 책을 읽는 시간이 전보다 크게 증가해요.",
+  "en": "The time spent reading books increases significantly compared to before during vacation."
+ },
+ "증산": {
+  "ex": "식물의 잎에서 수분이 공기 중으로 빠져나가는 증산 작용을 관찰해요.",
+  "en": "We observe the transpiration action where moisture escapes into the air from plant leaves."
+ },
+ "증상": {
+  "ex": "목이 따갑고 열이 나는 가벼운 감기 증상이 나타나요.",
+  "en": "Mild cold symptoms such as a sore throat and fever appear."
+ },
+ "증진": {
+  "ex": "매일 꾸준한 운동으로 체력 증진을 도모해요.",
+  "en": "I seek the enhancement of physical stamina through steady daily exercise."
+ },
+ "지각": {
+  "ex": "아침에 늦잠을 자서 학교 지각을 면치 못해요.",
+  "en": "Because I overslept in the morning, I cannot avoid tardiness at school."
+ },
+ "지각하다": {
+  "ex": "교통이 복잡해서 약속 시간에 십 분 지각해요.",
+  "en": "Due to heavy traffic, I am ten minutes late for the appointment."
+ },
+ "지갑": {
+  "ex": "가방 안에서 교통카드를 꺼내려고 작은 지갑을 열어요.",
+  "en": "I open my small wallet to take out the transit card from my bag."
+ },
+ "지고": {
+  "ex": "어려운 상황에서도 지고한 도덕적 가치를 지켜가요.",
+  "en": "Even in difficult situations, I uphold supreme moral values."
+ },
+ "지구": {
+  "ex": "우리가 살고 있는 푸른 지구를 깨끗하게 보존해요.",
+  "en": "We keep the blue Earth where we live cleanly preserved."
+ },
+ "지금": {
+  "ex": "도서관에 갈 시간이니 지금 바로 출발해요.",
+  "en": "It is time to go to the library, so I depart right now."
+ },
+ "지나가다": {
+  "ex": "버스가 정류장 앞을 빠른 속도로 지나가요.",
+  "en": "The bus goes by the front of the bus stop at high speed."
+ },
+ "지나다": {
+  "ex": "봄이 지나고 어느덧 따뜻한 초여름이 찾아와요.",
+  "en": "Spring elapses and warm early summer arrives before we know it."
+ },
+ "지나다니다": {
+  "ex": "골목길 사이로 많은 사람들이 분주하게 지나다녀요.",
+  "en": "Many people pass by busily through the alleys."
+ },
+ "지나치다": {
+  "ex": "안내판을 못 보고 식당 입구를 그냥 지나쳐요.",
+  "en": "Without seeing the information sign, I just pass by the entrance of the restaurant."
+ },
+ "지난": {
+  "ex": "지난 주말에 친구와 함께 서울타워에 다녀왔어요.",
+  "en": "I went to Seoul Tower with a friend last weekend."
+ },
+ "지난달": {
+  "ex": "지난달에 시작한 한국어 강의를 성실히 들어요.",
+  "en": "I faithfully take the Korean lecture that started last month."
+ },
+ "지난주": {
+  "ex": "지난주에 도서관에서 빌린 책을 오늘 반납해요.",
+  "en": "I return the book borrowed from the library last week today."
+ },
+ "지내다": {
+  "ex": "새로운 반 친구들과 서로 도우며 사이좋게 지내요.",
+  "en": "I live on good terms helping one another with my new classmates."
+ },
+ "지느러미": {
+  "ex": "어항 속 금붕어가 투명한 지느러미를 흔들며 헤엄쳐요.",
+  "en": "The goldfish in the bowl swims shaking its transparent fins."
+ },
+ "지니다": {
+  "ex": "어려운 일 앞에서도 항상 긍정적인 마음을 지녀요.",
+  "en": "I always carry a positive mindset even in front of difficult tasks."
+ },
+ "지도": {
+  "ex": "길을 잃지 않으려고 스마트폰으로 동네 지도를 확인해요.",
+  "en": "I check the neighborhood map on my smartphone so as not to get lost."
+ },
+ "지루하다": {
+  "ex": "기다리는 시간이 너무 길어서 조금 지루해요.",
+  "en": "The waiting time is so long that it is a bit boring."
+ },
+ "지름": {
+  "ex": "자로 둥근 접시의 정확한 지름을 재요.",
+  "en": "I measure the accurate diameter of the round plate with a ruler."
+ },
+ "지방": {
+  "ex": "방학을 맞아 한적하고 조용한 지방 마을로 여행을 가요.",
+  "en": "Welcoming vacation, I travel to a quiet and secluded local area village."
+ },
+ "지방자치": {
+  "ex": "지역 주민들의 자율적인 참여로 지방자치가 발전해요.",
+  "en": "Local autonomy develops through the voluntary participation of local residents."
+ },
+ "지방자치단체": {
+  "ex": "지역 복지를 위해 해당 지방자치단체에서 지원 사업을 펼쳐요.",
+  "en": "The relevant local autonomous entity carries out support projects for local welfare."
+ },
+ "지상": {
+  "ex": "지하철역 계단을 올라와 밝은 지상으로 나와요.",
+  "en": "I climb the subway station stairs and come out aboveground to the bright area."
+ },
+ "지속": {
+  "ex": "좋은 생활 습관의 지속은 건강에 큰 도움이 돼요.",
+  "en": "The persistence of good lifestyle habits is very helpful for health."
+ },
+ "지속되다": {
+  "ex": "따뜻하고 맑은 봄 날씨가 며칠 동안 계속 지속돼요.",
+  "en": "Warm and clear spring weather lasts continuously for several days."
+ },
+ "지속적": {
+  "ex": "어휘력을 키우기 위해 지속적 독서를 실천해요.",
+  "en": "I practice continuous reading to build up vocabulary skills."
+ },
+ "지시": {
+  "ex": "선생님의 분명한 지시에 따라 활동을 시작해요.",
+  "en": "We start the activity following the teacher's clear instructions."
+ },
+ "지역": {
+  "ex": "우리 지역의 아름다운 관광 명소를 외국인 친구에게 소개해요.",
+  "en": "I introduce beautiful sightseeing spots in our area to my foreign friend."
+ },
+ "지연": {
+  "ex": "갑작스러운 눈 때문에 기차 출발 지연이 발생해요.",
+  "en": "A train departure delay occurs due to sudden snow."
+ },
+ "지연되다": {
+  "ex": "비행기 출발 시간이 기상 악화로 한 시간 지연돼요.",
+  "en": "The flight departure time is delayed by one hour due to bad weather."
+ },
+ "지우": {
+  "ex": "마음을 터놓고 이야기를 나눌 수 있는 진정한 지우를 만나요.",
+  "en": "I meet a true close friend with whom I can open my heart and talk."
  }
 };
