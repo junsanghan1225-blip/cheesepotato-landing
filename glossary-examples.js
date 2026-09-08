@@ -16311,5 +16311,165 @@ export const EXAMPLES = {
  "혼내다": {
   "ex": "선생님은 화를 내기보다 무엇이 잘못되었는지 차분히 혼내세요.",
   "en": "Rather than getting angry, the teacher calmly scolds and explains what went wrong."
+ },
+ "혼자": {
+  "ex": "조용한 도서관에서 혼자 책을 읽으며 시간을 보내요.",
+  "en": "I spend time reading books alone in the quiet library."
+ },
+ "혼잣말": {
+  "ex": "문제를 풀다가 저도 모르게 작은 소리로 혼잣말을 해요.",
+  "en": "While solving a problem, I talk to myself in a small voice without realizing it."
+ },
+ "홀가분하다": {
+  "ex": "어려운 시험을 다 끝내고 나니 마음이 아주 홀가분해요.",
+  "en": "Having finished the difficult exam, my mind feels very relieved and carefree."
+ },
+ "홀로": {
+  "ex": "주말 아침에 공원 벤치에 홀로 앉아 맑은 공기를 마셔요.",
+  "en": "On weekend morning, I sit alone on the park bench and breathe the fresh air."
+ },
+ "홈": {
+  "ex": "상자 뚜껑을 닫기 위해 모서리에 파인 작은 홈에 맞춰 끼워요.",
+  "en": "I fit it into the small groove cut into the corner to close the box lid."
+ },
+ "홈페이지": {
+  "ex": "도서관 홈페이지에 들어가서 새로 나온 책 목록을 확인해요.",
+  "en": "I visit the library website and check the list of newly arrived books."
+ },
+ "홍": {
+  "ex": "전통 한복의 화려하고 고운 붉은 홍 색깔이 눈길을 사로잡아요.",
+  "en": "The brilliant and fine red color of the traditional hanbok catches the eye."
+ },
+ "홍보": {
+  "ex": "학교 축제를 널리 알리기 위해 동아리원들과 포스터 홍보를 해요.",
+  "en": "I do poster promotion with club members to publicize the school festival widely."
+ },
+ "홍보하다": {
+  "ex": "우리가 직접 만든 한국어 학습 앱을 친구들에게 널리 홍보해요.",
+  "en": "We widely promote the Korean learning app we made directly to our friends."
+ },
+ "화": {
+  "ex": "사소한 일에 쉽게 화를 내지 않고 차분하게 생각해요.",
+  "en": "I do not get angry easily over minor matters and think calmly."
+ },
+ "화가": {
+  "ex": "미술관에서 유명한 화가가 그린 아름다운 풍경화를 감상해요.",
+  "en": "At the art museum, I admire a beautiful landscape painting drawn by a famous painter."
+ },
+ "화나다": {
+  "ex": "친구가 약속 시간에 연락도 없이 늦으면 조금 화나요.",
+  "en": "When a friend is late for an appointment without notice, I get a little angry."
+ },
+ "화면": {
+  "ex": "눈의 피로를 덜기 위해 컴퓨터 화면 밝기를 알맞게 조절해요.",
+  "en": "I properly adjust the computer screen brightness to reduce eye fatigue."
+ },
+ "화분": {
+  "ex": "햇빛이 잘 드는 창가에 파릇파릇한 화분을 올려놓아요.",
+  "en": "I place a fresh green potted plant on the sunny window sill."
+ },
+ "화석": {
+  "ex": "자연사 박물관에서 아주 오래전 공룡의 발자국 화석을 관찰해요.",
+  "en": "At the natural history museum, I observe footprint fossils of dinosaurs from long ago."
+ },
+ "화요일": {
+  "ex": "매주 화요일 오후에는 친구들과 함께 한국어 스터디를 해요.",
+  "en": "Every Tuesday afternoon, I do Korean study together with friends."
+ },
+ "화장": {
+  "ex": "외출하기 전에 거울을 보며 단정하고 깔끔하게 화장을 해요.",
+  "en": "Before going out, I look in the mirror and do neat and tidy make-up."
+ },
+ "화장실": {
+  "ex": "수업을 시작하기 전에 복도 끝에 있는 깨끗한 화장실에 다녀와요.",
+  "en": "Before class starts, I go to the clean restroom at the end of the hallway."
+ },
+ "화제": {
+  "ex": "새로 개봉한 영화가 사람들에게 큰 화제가 되고 있어요.",
+  "en": "The newly released movie is becoming a big topic among people."
+ },
+ "화폐": {
+  "ex": "박물관에서 옛날 사람들이 물건을 살 때 쓰던 다양한 화폐를 구경해요.",
+  "en": "At the museum, I look at various currencies that ancient people used when buying things."
+ },
+ "화학": {
+  "ex": "실험실에서 선생님과 함께 재미있는 기초 화학 실험을 해요.",
+  "en": "I do interesting basic chemistry experiments with the teacher in the laboratory."
+ },
+ "화해": {
+  "ex": "서로 오해를 풀고 다정하게 악수를 나누며 빠른 화해를 해요.",
+  "en": "Clearing up misunderstandings and shaking hands warmly, we achieve a swift reconciliation."
+ },
+ "확": {
+  "ex": "방문을 활짝 여니 시원한 가을바람이 방 안으로 확 들어와요.",
+  "en": "Opening the room door wide, a cool autumn breeze strongly blows into the room."
+ },
+ "확대": {
+  "ex": "글씨가 작아서 잘 안 보일 때는 돋보기로 화면의 확대를 해요.",
+  "en": "When text is too small to see, I use a magnifying glass to do screen enlargement."
+ },
+ "확대되다": {
+  "ex": "학생들의 요청에 따라 도서관 운영 시간이 저녁 늦게까지 확대돼요.",
+  "en": "Following students' requests, library operating hours are expanded until late evening."
+ },
+ "확대하다": {
+  "ex": "자세한 지도를 보기 위해 스마트폰 화면을 두 손가락으로 확대해요.",
+  "en": "I enlarge the smartphone screen with two fingers to see a detailed map."
+ },
+ "확률": {
+  "ex": "일기예보를 보니 오늘 오후에 소나기가 내릴 확률이 아주 높아요.",
+  "en": "Looking at the weather forecast, the probability of a rain shower this afternoon is very high."
+ },
+ "확보": {
+  "ex": "시험을 잘 치르기 위해 충분한 공부 시간의 확보가 필요해요.",
+  "en": "Securing sufficient study time is needed to do well on the exam."
+ },
+ "확보하다": {
+  "ex": "원활한 토론을 위해 넓고 조용한 세미나실을 미리 확보해요.",
+  "en": "We secure a spacious and quiet seminar room in advance for smooth discussions."
+ },
+ "확산": {
+  "ex": "좋은 독서 문화를 위해 지역 도서관의 독서 운동 확산에 동참해요.",
+  "en": "For a good reading culture, I participate in the spread of local libraries' reading campaign."
+ },
+ "확산되다": {
+  "ex": "친환경 생활 습관이 많은 사람들 사이로 빠르게 확산돼요.",
+  "en": "Eco-friendly lifestyle habits spread rapidly among many people."
+ },
+ "확신": {
+  "ex": "꾸준히 노력하면 반드시 좋은 결과를 얻을 것이라는 확신이 있어요.",
+  "en": "I have confidence that steady effort will definitely bring good results."
+ },
+ "확실하다": {
+  "ex": "기차 출발 시간이 오전 아홉 시라는 것은 아주 확실해요.",
+  "en": "It is very definite that the train departure time is 9:00 AM."
+ },
+ "확실히": {
+  "ex": "매일 꾸준히 연습하니 한국어 발음이 확실히 자연스러워져요.",
+  "en": "Practicing steadily every day, my Korean pronunciation definitely becomes natural."
+ },
+ "확인": {
+  "ex": "시험지를 제출하기 전에 푼 문제들의 최종 확인을 마쳐요.",
+  "en": "Before submitting the test paper, I finish the final verification of solved questions."
+ },
+ "확인하다": {
+  "ex": "외출하기 전에 가방 속에 지갑과 열쇠가 있는지 꼼꼼히 확인해요.",
+  "en": "Before going out, I carefully check if my wallet and keys are in my bag."
+ },
+ "확장": {
+  "ex": "더 많은 책을 보관하기 위해 도서관 서가의 확장을 계획해요.",
+  "en": "We plan an enlargement of the library bookshelves to store more books."
+ },
+ "확장되다": {
+  "ex": "교통 혼잡을 줄이기 위해 도심으로 향하는 도로가 넓게 확장돼요.",
+  "en": "The road heading toward downtown is broadened widely to reduce traffic congestion."
+ },
+ "확장하다": {
+  "ex": "학생들이 늘어나서 동아리 방의 공간을 옆방까지 확장해요.",
+  "en": "As student numbers increase, we expand the club room space into the adjacent room."
+ },
+ "확정": {
+  "ex": "다음 주에 떠날 현장 학습 장소의 최종 확정을 공지해요.",
+  "en": "We announce the final determination of the field trip location for next week."
  }
 };
