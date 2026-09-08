@@ -3280,6 +3280,12 @@
   "only": true
  },
  {
+  "ko": "틀다",
+  "en": "turn on (a device); twist",
+  "pos": "동사",
+  "only": true
+ },
+ {
   "ko": "녹",
   "en": "rust",
   "pos": "명사",
