@@ -14542,5 +14542,165 @@
  "출근": {
   "ex": "아침마다 지하철을 타고 회사로의 출근을 서둘러요.",
   "en": "Every morning, I take the subway and hurry my going to work at the office."
+ },
+ "출근길": {
+  "ex": "아침 출근길에는 지하철에 사람이 아주 많아요.",
+  "en": "There are very many people on the subway on the morning way to work."
+ },
+ "출력": {
+  "ex": "수업 과제로 제출할 발표 자료의 출력을 서둘러요.",
+  "en": "I hurry the printing of presentation materials to submit as class homework."
+ },
+ "출발": {
+  "ex": "기차 출발 십 분 전에 승강장에 도착해요.",
+  "en": "I arrive at the platform ten minutes before train departure."
+ },
+ "출발하다": {
+  "ex": "친구들과 약속한 시간에 맞춰 정류장에서 출발해요.",
+  "en": "I depart from the bus stop on time as promised with my friends."
+ },
+ "출시": {
+  "ex": "새로운 기능이 추가된 학습용 스마트폰 앱의 출시를 기다려요.",
+  "en": "I wait for the release of the learning smartphone app with new features added."
+ },
+ "출시되다": {
+  "ex": "편리하고 가벼운 신형 전자책 단말기가 시장에 새로 출시돼요.",
+  "en": "A convenient and light new e-book reader is newly launched in the market."
+ },
+ "출시하다": {
+  "ex": "소비자들의 편의를 높이기 위해 새로운 디자인의 학용품을 출시해요.",
+  "en": "They release stationery with a new design to enhance consumer convenience."
+ },
+ "출장": {
+  "ex": "다음 주에 중요한 업무 회의를 위해 부산으로 출장을 가요.",
+  "en": "I go on a business trip to Busan next week for an important business meeting."
+ },
+ "출처": {
+  "ex": "보고서를 작성할 때 인용한 자료의 명확한 출처를 표기해요.",
+  "en": "When writing a report, I indicate the clear source of cited data."
+ },
+ "출퇴근": {
+  "ex": "복잡한 출퇴근 시간을 피해 조금 일찍 집을 나서요.",
+  "en": "I leave home a little early to avoid crowded commuting hours."
+ },
+ "춥다": {
+  "ex": "겨울바람이 강하게 불어와서 밖이 참 추워요.",
+  "en": "The winter wind blows strongly, so it is truly cold outside."
+ },
+ "충": {
+  "ex": "역사책 속 훌륭한 장수들은 나라를 향한 깊은 충을 바쳐요.",
+  "en": "Great generals in history books dedicate deep loyalty toward their country."
+ },
+ "충격": {
+  "ex": "물건이 바닥에 떨어질 때 생기는 강한 충격을 조심해요.",
+  "en": "I watch out for the strong impact that occurs when an object falls to the floor."
+ },
+ "충고": {
+  "ex": "어려운 상황에서 선생님이 건네주신 따뜻한 충고를 귀담아들어요.",
+  "en": "I listen carefully to the warm advice given by the teacher in a difficult situation."
+ },
+ "충돌": {
+  "ex": "좁은 골목길에서 다른 사람과의 갑작스러운 충돌을 피해요.",
+  "en": "I avoid a sudden collision with others in the narrow alley."
+ },
+ "충분하다": {
+  "ex": "오늘 공부할 교재와 필기도구가 가방 안에 충분해요.",
+  "en": "The textbooks and stationery to study today are sufficient in my bag."
+ },
+ "충분히": {
+  "ex": "시험 전날에는 긴장을 풀고 밤에 잠을 충분히 자요.",
+  "en": "On the eve of the exam, I relax and sleep sufficiently at night."
+ },
+ "취미": {
+  "ex": "주말마다 공원에서 조용히 사진을 찍는 것이 제 취미예요.",
+  "en": "Taking photos quietly in the park every weekend is my hobby."
+ },
+ "취소": {
+  "ex": "갑작스러운 비 때문에 야외 소풍 계획의 취소를 알려요.",
+  "en": "Due to sudden rain, I announce the cancellation of the outdoor picnic plan."
+ },
+ "취소되다": {
+  "ex": "태풍으로 인해 오늘 오후에 예정되었던 축구 경기가 취소돼요.",
+  "en": "The soccer match scheduled for this afternoon is cancelled due to the typhoon."
+ },
+ "취업": {
+  "ex": "대학을 졸업한 후 원하는 분야로의 성공적인 취업을 준비해요.",
+  "en": "After graduating from university, I prepare for successful employment in my desired field."
+ },
+ "취하": {
+  "ex": "상대방과 오해를 풀고 공식 민원의 원만한 취하를 신청해요.",
+  "en": "Clearing misunderstandings with the other party, I apply for a smooth withdrawal of the official complaint."
+ },
+ "취하다": {
+  "ex": "공부를 열심히 한 뒤에는 편안한 의자에 앉아 잠시 휴식을 취해요.",
+  "en": "After studying hard, I sit on a comfortable chair and take a short rest."
+ },
+ "측": {
+  "ex": "양 측의 대표가 모여 원활한 행사 진행을 논의해요.",
+  "en": "Representatives from both sides gather to discuss smooth event operations."
+ },
+ "측우기": {
+  "ex": "박물관에서 조선 시대에 강우량을 재던 측우기를 관람해요.",
+  "en": "At the museum, I look at the cheugugi that measured rainfall during the Joseon dynasty."
+ },
+ "측정": {
+  "ex": "건강 검진을 위해 키와 몸무게의 정확한 측정을 받아요.",
+  "en": "I undergo accurate measurement of height and weight for the health checkup."
+ },
+ "측정하다": {
+  "ex": "온도계로 실내 온도를 측정하고 난방을 조절해요.",
+  "en": "I measure the indoor temperature with a thermometer and adjust the heating."
+ },
+ "층": {
+  "ex": "도서관 삼 층으로 올라가 조용한 열람실을 이용해요.",
+  "en": "I go up to the third floor of the library and use the quiet reading room."
+ },
+ "치": {
+  "ex": "약국에서 감기 증상을 완화하는 사흘 치의 약을 받아요.",
+  "en": "I receive three days' worth of medicine to relieve cold symptoms at the pharmacy."
+ },
+ "치다": {
+  "ex": "음악실에서 친구들과 함께 즐겁게 피아노를 쳐요.",
+  "en": "I play the piano joyfully together with friends in the music room."
+ },
+ "치료": {
+  "ex": "병원에 꾸준히 다니며 다친 손목의 치료를 받아요.",
+  "en": "I go to the clinic regularly and receive treatment for my injured wrist."
+ },
+ "치료제": {
+  "ex": "의사 선생님의 처방에 따라 알맞은 감기 치료제를 복용해요.",
+  "en": "I take an appropriate cold cure medicine according to the doctor's prescription."
+ },
+ "치매": {
+  "ex": "두뇌 활동과 꾸준한 운동은 노년기 치매 예방에 큰 도움이 돼요.",
+  "en": "Brain activity and steady exercise are very helpful in preventing dementia in old age."
+ },
+ "치솟다": {
+  "ex": "추운 겨울이 되자 따뜻한 외투의 인기가 하늘 높이 치솟아요.",
+  "en": "As cold winter arrives, the popularity of warm coats skyrockets sky-high."
+ },
+ "치아": {
+  "ex": "식사 후에는 칫솔질을 꼼꼼히 해서 치아 건강을 지켜요.",
+  "en": "After meals, I brush my teeth thoroughly to maintain tooth health."
+ },
+ "치우다": {
+  "ex": "식사를 마친 뒤 식탁 위의 그릇을 싱크대로 치워요.",
+  "en": "After finishing the meal, I move the dishes on the dining table to the sink."
+ },
+ "치즈": {
+  "ex": "따뜻하게 구운 식빵 위에 고소한 치즈를 올려 먹어요.",
+  "en": "I place savory cheese on warmly toasted bread and eat it."
+ },
+ "친구": {
+  "ex": "방과 후에 도서관에서 단짝 친구를 만나 함께 공부해요.",
+  "en": "After school, I meet my close friend at the library and study together."
+ },
+ "친숙": {
+  "ex": "매일 한국어 동화를 읽으니 한국어 문장이 아주 친숙하게 느껴져요.",
+  "en": "Reading Korean fairy tales every day, Korean sentences feel very familiar."
+ },
+ "친절": {
+  "ex": "길을 묻는 여행객에게 따뜻한 미소와 친절을 베풀어요.",
+  "en": "I offer a warm smile and kindness to the traveler asking for directions."
  }
 }
