@@ -13751,5 +13751,165 @@ export const EXAMPLES = {
  "질다": {
   "ex": "물을 너무 많이 붓고 밥을 지었더니 밥이 조금 질어요.",
   "en": "Because I added too much water when cooking rice, the rice is a bit wet."
+ },
+ "질문": {
+  "ex": "수업 중에 모르는 단어가 나오면 선생님께 질문을 해요.",
+  "en": "When an unfamiliar word appears during class, I ask a question to the teacher."
+ },
+ "질병": {
+  "ex": "손을 깨끗이 씻어서 감기 같은 질병을 예방해요.",
+  "en": "I wash my hands cleanly to prevent illnesses like colds."
+ },
+ "질서": {
+  "ex": "지하철을 탈 때는 줄을 서서 공공질서를 잘 지켜요.",
+  "en": "When getting on the subway, I line up and observe public order well."
+ },
+ "짐": {
+  "ex": "여행을 떠나기 전에 가방에 필요한 짐을 챙겨요.",
+  "en": "Before leaving for the trip, I pack the necessary luggage into my bag."
+ },
+ "짐작": {
+  "ex": "친구의 밝은 표정을 보고 좋은 일이 있음을 짐작해요.",
+  "en": "Seeing my friend's bright expression, I have an estimation that something good happened."
+ },
+ "짐작하다": {
+  "ex": "설명을 듣고 앞으로 일어날 상황을 미리 짐작해요.",
+  "en": "Hearing the explanation, I estimate the upcoming situation in advance."
+ },
+ "짐짓": {
+  "ex": "친구의 작은 실수를 보고도 짐짓 모르는 척 넘어가요.",
+  "en": "Even after seeing my friend's small mistake, I deliberately pretend not to notice and let it go."
+ },
+ "집": {
+  "ex": "수업이 끝나면 따뜻한 집으로 곧장 돌아가요.",
+  "en": "When class ends, I return straight to my warm house."
+ },
+ "집다": {
+  "ex": "바닥에 떨어진 연필을 손으로 조심스럽게 집어요.",
+  "en": "I carefully pick up the pencil fallen on the floor with my hand."
+ },
+ "집단": {
+  "ex": "학교에서 여러 학생이 모여 작은 학습 집단을 만들어요.",
+  "en": "At school, several students gather to form a small study group."
+ },
+ "집단적": {
+  "ex": "문제를 해결하기 위해 학생들의 집단적 지혜를 모아요.",
+  "en": "We gather the collective wisdom of students to solve the problem."
+ },
+ "집안": {
+  "ex": "명절에는 온 집안 식구들이 한자리에 모여요.",
+  "en": "During the holiday, the whole household gathers together in one place."
+ },
+ "집안일": {
+  "ex": "가족들과 함께 빨래와 설거지 같은 집안일을 나누어 해요.",
+  "en": "I share and do household chores like laundry and dishwashing with my family."
+ },
+ "집어넣다": {
+  "ex": "필통 속에 연필과 지우개를 가지런히 집어넣어요.",
+  "en": "I neatly put pencils and erasers in the pencil case."
+ },
+ "집주인": {
+  "ex": "이사하기 전에 친절한 집주인과 방 계약을 마쳐요.",
+  "en": "Before moving in, I finish the room contract with the kind landlord."
+ },
+ "집중": {
+  "ex": "도서관의 조용한 분위기 덕분에 공부에 집중이 잘돼요.",
+  "en": "Thanks to the quiet atmosphere of the library, concentration on studies goes well."
+ },
+ "집중력": {
+  "ex": "매일 꾸준히 책을 읽으며 학습 집중력을 높여요.",
+  "en": "I improve my learning focus by reading books steadily every day."
+ },
+ "집중적": {
+  "ex": "시험을 앞두고 부족한 과목을 집중적 복습으로 보완해요.",
+  "en": "Ahead of the exam, I supplement lacking subjects through intensive review."
+ },
+ "집중하다": {
+  "ex": "선생님의 문법 설명을 들으며 수업에 깊이 집중해요.",
+  "en": "Listening to the teacher's grammar explanation, I concentrate deeply on the class."
+ },
+ "짓": {
+  "ex": "남에게 피해를 주는 나쁜 짓은 절대 하지 않아요.",
+  "en": "I never do a bad act that harms others."
+ },
+ "짓다": {
+  "ex": "마당이 있는 예쁜 집을 짓기 위해 설계도를 그려요.",
+  "en": "I draw blueprints to make and build a pretty house with a yard."
+ },
+ "짙다": {
+  "ex": "아침 일찍 공원에 나가니 안개가 짙게 끼어 있어요.",
+  "en": "Going out to the park early in the morning, the fog is thick."
+ },
+ "짚": {
+  "ex": "시골 마을에서 마른 짚을 엮어 따뜻한 지붕을 얹어요.",
+  "en": "In the countryside village, they weave dry straw to put on a warm roof."
+ },
+ "짚다": {
+  "ex": "다리가 아픈 할아버지께서 튼튼한 지팡이를 짚고 걸으세요.",
+  "en": "My grandfather with aching legs walks using and pushing against a sturdy cane."
+ },
+ "짝": {
+  "ex": "신발장 앞에서 어제 산 양말 한 짝을 찾아요.",
+  "en": "In front of the shoe rack, I look for a piece of the pair of socks I bought yesterday."
+ },
+ "짠맛": {
+  "ex": "소금을 살짝 넣어 국물에 적당한 짠맛을 더해요.",
+  "en": "I add a pinch of salt to add a proper salty taste to the soup."
+ },
+ "짧다": {
+  "ex": "겨울에는 해가 일찍 져서 낮의 길이가 참 짧아요.",
+  "en": "In winter, the sun sets early, so the length of the day is truly short."
+ },
+ "쪽지": {
+  "ex": "친구의 책상 위에 짧은 응원 메시지를 적은 쪽지를 남겨요.",
+  "en": "I leave a note with a short cheering message on my friend's desk."
+ },
+ "쬐다": {
+  "ex": "쌀쌀한 날씨에 따뜻한 난로 불을 쬐며 몸을 녹여요.",
+  "en": "In chilly weather, I warm myself by the warm stove fire."
+ },
+ "쭉": {
+  "ex": "이 길을 따라 쭉 걸어가면 오른쪽에 지하철역이 나와요.",
+  "en": "If you walk straight along this road, the subway station appears on the right."
+ },
+ "찌": {
+  "ex": "호숫가에서 낚싯줄 끝에 달린 작은 찌의 움직임을 살펴봐요.",
+  "en": "At the lakeside, I watch the movement of the small fishing float attached to the end of the fishing line."
+ },
+ "찌개": {
+  "ex": "저녁 식사로 두부와 김치를 넣은 따뜻한 찌개를 끓여요.",
+  "en": "I cook a warm kimchi stew with tofu for dinner."
+ },
+ "찌꺼기": {
+  "ex": "커피를 내리고 남은 원두 찌꺼기를 모아 화분에 줘요.",
+  "en": "I collect the coffee residue left after brewing coffee and give it to the flowerpot."
+ },
+ "찌다": {
+  "ex": "방학 동안 운동을 쉬었더니 살이 조금 쪄요.",
+  "en": "Having taken a break from exercise during vacation, I gain a little weight."
+ },
+ "찌뿌둥하다": {
+  "ex": "비가 오려고 해서 그런지 온몸이 찌뿌둥해요.",
+  "en": "Perhaps because it is about to rain, I feel down and stiff all over my body."
+ },
+ "찌푸리다": {
+  "ex": "눈부신 햇빛 때문에 저절로 이마를 찌푸려요.",
+  "en": "I naturally frown my brow because of the glaring sunlight."
+ },
+ "찍": {
+  "ex": "종이를 가위로 찍 자르고 예쁘게 접어요.",
+  "en": "I snip swiftly through the paper with scissors and fold it nicely."
+ },
+ "찍다": {
+  "ex": "공원에서 예쁜 꽃을 배경으로 친구들과 함께 사진을 찍어요.",
+  "en": "I take photos together with friends against the backdrop of pretty flowers in the park."
+ },
+ "찢다": {
+  "ex": "상자를 뜯기 위해 단단한 테이프를 손으로 찢어요.",
+  "en": "I tear the tough tape with my hand to open the box."
+ },
+ "차": {
+  "ex": "식사 후에 조용한 카페에서 따뜻한 녹차 한 잔을 마셔요.",
+  "en": "After the meal, I drink a cup of warm green tea at a quiet cafe."
  }
 };
