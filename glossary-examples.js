@@ -14391,5 +14391,165 @@ export const EXAMPLES = {
  "촉구": {
   "ex": "깨끗한 환경을 만들기 위해 일회용품 사용 자제의 촉구를 이어가요.",
   "en": "We continue demanding the restraint of disposable product use to create a clean environment."
+ },
+ "촉구하다": {
+  "ex": "안전한 통학로를 만들기 위해 주민들이 신호등 설치를 촉구해요.",
+  "en": "Residents demand the installation of traffic lights to create a safe school commute route."
+ },
+ "촉매": {
+  "ex": "친구와의 따뜻한 대화는 배움에 대한 열정을 깨우는 좋은 촉매가 돼요.",
+  "en": "A warm conversation with a friend serves as a good catalyst awakening passion for learning."
+ },
+ "촉진": {
+  "ex": "원활한 소화 촉진을 위해 식사 후에 가볍게 산책을 해요.",
+  "en": "I take a light walk after meals for smooth acceleration of digestion."
+ },
+ "촉진하다": {
+  "ex": "다양한 참여형 활동은 학생들의 한국어 말하기를 적극 촉진해요.",
+  "en": "Diverse interactive activities actively promote students' Korean speaking."
+ },
+ "촬영": {
+  "ex": "동아리 홍보 영상의 촬영을 위해 학교 방송실에 모여요.",
+  "en": "We gather in the school broadcasting room for the shooting of the club promotional video."
+ },
+ "최근": {
+  "ex": "최근에는 건강을 생각해서 매일 아침 사과를 먹어요.",
+  "en": "Lately, I eat an apple every morning thinking of my health."
+ },
+ "최다": {
+  "ex": "우리 반 학생이 이번 학기에 도서관 최다 대출 기록을 세워요.",
+  "en": "A student in our class sets the record for the most library checkouts this semester."
+ },
+ "최대": {
+  "ex": "이 도서관 열람실은 최대 백 명까지 수용할 수 있어요.",
+  "en": "This library reading room can accommodate up to a maximum of 100 people."
+ },
+ "최대한": {
+  "ex": "수업 시간에 늦지 않도록 아침에 최대한 서둘러요.",
+  "en": "I hurry as much as possible in the morning so as not to be late for class."
+ },
+ "최선": {
+  "ex": "어려운 과제라도 끝까지 최선을 다해 완성해요.",
+  "en": "Even if it is a difficult task, I do my best until the end to complete it."
+ },
+ "최소": {
+  "ex": "하루에 최소 서른 개 이상의 단어를 꾸준히 외워요.",
+  "en": "I steadily memorize a minimum of at least thirty words a day."
+ },
+ "최소한": {
+  "ex": "건강을 지키기 위해 최소한 하루 일곱 시간은 자요.",
+  "en": "To protect my health, I sleep for at least the minimum of seven hours a day."
+ },
+ "최소화": {
+  "ex": "실수를 줄이기 위해 작업 과정에서 위험 요소의 최소화를 도모해요.",
+  "en": "We seek the minimization of risk factors during work processes to reduce mistakes."
+ },
+ "최소화하다": {
+  "ex": "발표할 때 긴장으로 인한 실수를 최소화하려고 연습해요.",
+  "en": "I practice to minimize mistakes caused by nervousness when presenting."
+ },
+ "최우선": {
+  "ex": "우리 학교는 학생들의 안전을 언제나 최우선으로 생각해요.",
+  "en": "Our school always considers students' safety as the highest priority."
+ },
+ "최적": {
+  "ex": "조용하고 햇빛이 잘 드는 이 방은 공부하기에 최적의 장소예요.",
+  "en": "This quiet and sunny room is the most optimal place for studying."
+ },
+ "최종": {
+  "ex": "문서를 제출하기 전에 마지막으로 최종 검토를 마쳐요.",
+  "en": "Before submitting the document, I finish the final review one last time."
+ },
+ "최종적": {
+  "ex": "모든 의견을 수렴한 뒤 최종적 결정을 내려요.",
+  "en": "After gathering all opinions, we make the final decision."
+ },
+ "최초": {
+  "ex": "한국어를 배우는 외국인 학생들을 위해 최초로 맞춤형 사전을 만들어요.",
+  "en": "They create a customized dictionary as the first of its kind for foreign students learning Korean."
+ },
+ "추": {
+  "ex": "저울 한쪽에 무거운 쇠 추를 올려놓고 무게를 달아요.",
+  "en": "I place a heavy iron weight on one side of the scale and weigh it."
+ },
+ "추가": {
+  "ex": "음식이 부족해서 식당 직원에게 밥 한 공기 추가를 부탁해요.",
+  "en": "The food is not enough, so I ask the restaurant staff for an addition of a bowl of rice."
+ },
+ "추격": {
+  "ex": "운동회 이어달리기에서 앞선 팀을 향해 빠른 추격을 펼쳐요.",
+  "en": "In the sports day relay, they launch a fast chase toward the leading team."
+ },
+ "추다": {
+  "ex": "축제 무대 위에서 신나는 음악에 맞춰 다 함께 춤을 춰요.",
+  "en": "On the festival stage, we all dance together to the exciting music."
+ },
+ "추석": {
+  "ex": "가을 추석 명절이 되면 온 가족이 모여 송편을 빚어요.",
+  "en": "When the autumn Chuseok holiday comes, the whole family gathers to make songpyeon."
+ },
+ "추억": {
+  "ex": "친구들과 함께 떠났던 여름 바다 여행은 잊지 못할 소중한 추억이에요.",
+  "en": "The summer sea trip I went on with friends is an unforgettable, precious memory."
+ },
+ "추워지다": {
+  "ex": "찬 바람이 불어오면서 날씨가 점점 추워져요.",
+  "en": "As the cold wind blows, the weather gradually grows cold."
+ },
+ "추이": {
+  "ex": "새로운 정책이 발표된 후 여론의 변화 추이를 살펴봐요.",
+  "en": "After the new policy was announced, we examine the progress trend of public opinion."
+ },
+ "추진": {
+  "ex": "학생 복지를 늘리기 위해 새로운 도서관 시설 개선의 추진을 시작해요.",
+  "en": "We start the pushing forward of new library facility improvements to increase student welfare."
+ },
+ "추진되다": {
+  "ex": "마을 환경을 가꾸는 공원 조성 사업이 순조롭게 추진돼요.",
+  "en": "The park development project to improve the village environment is propelled smoothly."
+ },
+ "추진하다": {
+  "ex": "동아리 회원들과 함께 새로운 한국어 스터디 모임을 적극 추진해요.",
+  "en": "I actively drive forward a new Korean study group together with club members."
+ },
+ "추천": {
+  "ex": "선생님의 따뜻한 추천 덕분에 좋은 책을 골라 읽어요.",
+  "en": "Thanks to the teacher's warm recommendation, I choose and read a good book."
+ },
+ "추천하다": {
+  "ex": "처음 한국어를 배우는 친구에게 이 쉬운 동화책을 추천해요.",
+  "en": "I recommend this easy fairy tale book to a friend learning Korean for the first time."
+ },
+ "추측": {
+  "ex": "그림의 표정만 보고 이야기의 결말을 조심스럽게 추측해요.",
+  "en": "Looking only at the expressions in the pictures, I carefully make a guess at the story's ending."
+ },
+ "축": {
+  "ex": "전통 제사를 지낼 때 정성을 담아 쓴 축을 공손하게 읽어요.",
+  "en": "When holding a traditional ancestral rite, I politely read the written prayer composed with devotion."
+ },
+ "축구": {
+  "ex": "주말 오후에 운동장에서 친구들과 땀을 흘리며 축구를 해요.",
+  "en": "On weekend afternoon, I sweat and play soccer with friends on the athletic field."
+ },
+ "축구장": {
+  "ex": "푸른 잔디가 깔린 넓은 축구장을 힘차게 달려요.",
+  "en": "I run vigorously across the spacious soccer field covered with green grass."
+ },
+ "축적": {
+  "ex": "매일 꾸준한 독서는 깊은 지식의 축적을 도와줘요.",
+  "en": "Steady daily reading helps the accumulation of profound knowledge."
+ },
+ "축제": {
+  "ex": "가을이 되면 학교 캠퍼스에서 다채로운 문화 축제가 열려요.",
+  "en": "When autumn comes, a colorful cultural festival is held on the school campus."
+ },
+ "축하": {
+  "ex": "시험에 당당히 합격한 친구에게 진심 어린 축하를 건네요.",
+  "en": "I extend heartfelt congratulations to my friend who proudly passed the exam."
+ },
+ "출근": {
+  "ex": "아침마다 지하철을 타고 회사로의 출근을 서둘러요.",
+  "en": "Every morning, I take the subway and hurry my going to work at the office."
  }
 };
