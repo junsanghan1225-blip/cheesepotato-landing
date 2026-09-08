@@ -13111,5 +13111,165 @@ export const EXAMPLES = {
  "종류별": {
   "ex": "재활용 쓰레기를 분리수거함에 종류별로 나누어 버려요.",
   "en": "I separate and throw away recyclable garbage by category into recycling bins."
+ },
+ "종이": {
+  "ex": "하얀 종이 위에 연필로 단어를 바르게 써요.",
+  "en": "I write words neatly with a pencil on white paper."
+ },
+ "종일": {
+  "ex": "휴일에는 도서관에서 온종일 책을 읽으며 보내요.",
+  "en": "On holidays, I spend the entire day reading books in the library."
+ },
+ "종잡다": {
+  "ex": "갑작스러운 날씨 변화의 원인을 종잡기 어려워요.",
+  "en": "It is difficult to figure out the cause of the sudden weather changes."
+ },
+ "종합": {
+  "ex": "각 팀의 의견을 종합하여 최종 계획을 세워요.",
+  "en": "We combine opinions from each team to make the final plan."
+ },
+ "좋다": {
+  "ex": "맑고 따뜻해서 산책하기에 날씨가 참 좋아요.",
+  "en": "It is clear and warm, so the weather is very nice for taking a walk."
+ },
+ "좋아": {
+  "ex": "좋아, 오늘 수업 끝나고 도서관 앞에서 만나자고 친구에게 말해요.",
+  "en": "I tell my friend, 'Okay, let's meet in front of the library after class today.'"
+ },
+ "좋아하다": {
+  "ex": "저는 휴일에 공원에서 조용히 산책하는 것을 좋아해요.",
+  "en": "I like taking a quiet walk in the park on holidays."
+ },
+ "좌": {
+  "ex": "길을 찾을 때 표지판의 좌 방향 화살표를 확인해요.",
+  "en": "When finding the way, I check the left direction arrow on the sign."
+ },
+ "좌석": {
+  "ex": "기차에 타서 표에 적힌 지정 좌석에 앉아요.",
+  "en": "I get on the train and sit in the designated seat written on the ticket."
+ },
+ "죄": {
+  "ex": "자신의 행동이 남에게 큰 죄가 되지 않도록 조심해요.",
+  "en": "I am careful so that my actions do not become a big fault to others."
+ },
+ "죄다": {
+  "ex": "신발 끈을 단단히 죄어 안전하게 걸어요.",
+  "en": "I tighten my shoelaces firmly and walk safely."
+ },
+ "죄송하다": {
+  "ex": "약속 시간에 조금 늦어서 친구에게 정말 죄송해요.",
+  "en": "I am truly sorry to my friend for being a little late for the appointment."
+ },
+ "주": {
+  "ex": "다음 주에 시작하는 한국어 특강을 신청해요.",
+  "en": "I sign up for the Korean special lecture starting next week."
+ },
+ "주거": {
+  "ex": "조용하고 깨끗한 쾌적한 주거 환경을 찾아요.",
+  "en": "I look for a pleasant and quiet housing environment."
+ },
+ "주고받다": {
+  "ex": "친구와 함께 한국어로 재미있는 문자를 주고받아요.",
+  "en": "I exchange fun text messages in Korean with my friend."
+ },
+ "주관": {
+  "ex": "이번 독서 토론 대회는 학생회의 주관으로 열려요.",
+  "en": "This reading debate competition is held under the hosting of the student council."
+ },
+ "주관적": {
+  "ex": "그 의견은 개인의 경험에 따른 주관적 생각이에요.",
+  "en": "That opinion is a subjective thought based on personal experience."
+ },
+ "주년": {
+  "ex": "학교는 올해 개교 오십 주년을 맞이해요.",
+  "en": "The school celebrates its 50th year anniversary this year."
+ },
+ "주다": {
+  "ex": "생일을 맞은 친구에게 예쁜 책을 선물로 줘요.",
+  "en": "I give a pretty book as a present to my friend on their birthday."
+ },
+ "주도": {
+  "ex": "리아가 이번 과제 모임의 활발한 주도를 맡아요.",
+  "en": "Lia takes active leading of this project study group."
+ },
+ "주로": {
+  "ex": "주말에는 주로 집 근처 공원에서 자전거를 타요.",
+  "en": "On weekends, I usually ride a bicycle in the park near my house."
+ },
+ "주름": {
+  "ex": "다리미로 구겨진 셔츠의 깊은 주름을 펴요.",
+  "en": "I smooth out deep wrinkles on the crumpled shirt with an iron."
+ },
+ "주름살": {
+  "ex": "할머니의 인자한 얼굴에 새겨진 따뜻한 주름살을 봐요.",
+  "en": "I look at the warm wrinkles carved on my grandmother's benevolent face."
+ },
+ "주말": {
+  "ex": "이번 주말에는 가족들과 함께 맛있는 음식을 먹어요.",
+  "en": "This weekend, I eat delicious food with my family."
+ },
+ "주머니": {
+  "ex": "외투 주머니 속에 차가워진 손을 쏙 넣어요.",
+  "en": "I slip my cold hands into the coat pocket."
+ },
+ "주먹": {
+  "ex": "의지를 다지며 가볍게 불끈 주먹을 쥐어요.",
+  "en": "I lightly clench my fist strengthening my determination."
+ },
+ "주목": {
+  "ex": "발표가 시작되자 청중들의 모든 시선과 주목이 집중돼요.",
+  "en": "When the presentation begins, all the attention of the audience is focused."
+ },
+ "주목받다": {
+  "ex": "새로 나온 독특한 디자인의 제품이 시장에서 큰 주목을 받아요.",
+  "en": "The newly released product with a unique design receives great attention in the market."
+ },
+ "주무": {
+  "ex": "해당 과의 주무 부서에서 서류 검토를 진행해요.",
+  "en": "The competent department in charge proceeds with document review."
+ },
+ "주문": {
+  "ex": "식당에 들어가서 메뉴판을 보고 음식 주문을 해요.",
+  "en": "I enter the restaurant, look at the menu, and make a food order."
+ },
+ "주문하다": {
+  "ex": "카페에서 따뜻한 아메리카노 한 잔을 주문해요.",
+  "en": "I order a cup of warm Americano at the cafe."
+ },
+ "주민": {
+  "ex": "동네 주민들이 함께 모여 마을 청소를 해요.",
+  "en": "Neighborhood residents gather together and clean the town."
+ },
+ "주민센터": {
+  "ex": "서류를 발급받으려고 집 근처 주민센터에 방문해요.",
+  "en": "I visit the community service center near my house to get documents issued."
+ },
+ "주변": {
+  "ex": "학교 주변에는 학생들이 이용하기 좋은 서점이 많아요.",
+  "en": "There are many bookstores good for students to use in the school vicinity."
+ },
+ "주부": {
+  "ex": "이웃 주부들이 모여 건강한 요리법을 함께 배워요.",
+  "en": "Neighborhood homemakers gather together to learn healthy recipes."
+ },
+ "주사": {
+  "ex": "독감을 예방하려고 병원에서 예방 주사를 맞아요.",
+  "en": "I get a preventive injection at the hospital to prevent the flu."
+ },
+ "주소": {
+  "ex": "택배를 받기 위해 정확한 집 주소를 적어요.",
+  "en": "I write down the exact home address to receive the delivery package."
+ },
+ "주시": {
+  "ex": "안전한 운전을 위해 신호등의 변화를 계속 주시해요.",
+  "en": "I keep a watchful eye on traffic light changes for safe driving."
+ },
+ "주요": {
+  "ex": "오늘 회의에서 다룰 주요 안건을 미리 확인해요.",
+  "en": "I check the main items on the agenda to be discussed at today's meeting in advance."
+ },
+ "주의": {
+  "ex": "복도가 미끄러우니 걸을 때 각별한 주의를 기울여요.",
+  "en": "The hallway is slippery, so pay special attention and caution when walking."
  }
 };
