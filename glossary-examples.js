@@ -15671,5 +15671,165 @@ export const EXAMPLES = {
  "필요성": {
   "ex": "환경 보호를 위한 재활용 실천의 중요성과 필요성을 배워요.",
   "en": "We learn the importance and necessity of recycling practices for environmental protection."
+ },
+ "필요하다": {
+  "ex": "한국어 작문 과제를 하기 위해 사전이 필요해요.",
+  "en": "I need a dictionary to do my Korean writing assignment."
+ },
+ "필자": {
+  "ex": "책을 읽으며 글에 담긴 필자의 따뜻한 시선을 느껴요.",
+  "en": "Reading the book, I feel the author's warm perspective contained in the writing."
+ },
+ "핑": {
+  "ex": "갑자기 일어났더니 어지러워서 눈앞이 핑 돌아요.",
+  "en": "Because I stood up suddenly, I feel dizzy and my vision spins round."
+ },
+ "핑계": {
+  "ex": "시간이 없다는 핑계를 대지 않고 매일 조금씩 복습해요.",
+  "en": "Without making an excuse of having no time, I review a little every day."
+ },
+ "하게체": {
+  "ex": "옛날 문학 작품에 나오는 예스러운 하게체 말투를 배워요.",
+  "en": "I learn the archaic hage-che speaking style appearing in old literature."
+ },
+ "하교": {
+  "ex": "수업을 모두 마치고 친구들과 즐거운 하교를 함께해요.",
+  "en": "Finishing all classes, I share a pleasant returning home from school with friends."
+ },
+ "하교하다": {
+  "ex": "오후 네 시에 수업이 끝나자마자 집으로 하교해요.",
+  "en": "As soon as class finishes at 4 PM, I return home from school."
+ },
+ "하나": {
+  "ex": "식탁 위에 놓인 맛있는 사과 하나를 집어 들어요.",
+  "en": "I pick up one delicious apple placed on the dining table."
+ },
+ "하나씩": {
+  "ex": "새로운 한국어 단어를 공책에 하나씩 정성껏 써요.",
+  "en": "I write new Korean words carefully one by one in my notebook."
+ },
+ "하늘": {
+  "ex": "가을이 되니 푸른 하늘이 유난히 높고 맑아 보여요.",
+  "en": "As autumn comes, the blue sky looks exceptionally high and clear."
+ },
+ "하다": {
+  "ex": "주말에는 공원에서 친구들과 가볍게 운동을 해요.",
+  "en": "On weekends, I lightly exercise with friends in the park."
+ },
+ "하도": {
+  "ex": "친구가 하도 재미있게 이야기해서 크게 웃어요.",
+  "en": "My friend speaks so excessively funnily that I laugh out loud."
+ },
+ "하루": {
+  "ex": "오늘 하루도 도서관에서 알차고 보람차게 보내요.",
+  "en": "I spend today a day fruitfully and rewardingly in the library again."
+ },
+ "하마": {
+  "ex": "동물원 연못에서 물을 뿜으며 헤엄치는 커다란 하마를 구경해요.",
+  "en": "At the zoo pond, I look at a huge hippopotamus swimming and blowing water."
+ },
+ "하마터면": {
+  "ex": "서둘러 뛰어가다가 하마터면 계단에서 넘어질 뻔해요.",
+  "en": "Running in a hurry, I almost nearly fall on the stairs."
+ },
+ "하얗다": {
+  "ex": "겨울밤에 내린 눈으로 온 세상이 하얗게 덮여요.",
+  "en": "With snow fallen on a winter night, the whole world is covered white."
+ },
+ "하여금": {
+  "ex": "선생님의 따뜻한 격려는 저로 하여금 큰 용기를 내게 해요.",
+  "en": "The teacher's warm encouragement has me summon great courage."
+ },
+ "하오": {
+  "ex": "따뜻한 햇살이 내리쬐는 나른한 하오에 차를 한잔 마셔요.",
+  "en": "In the drowsy afternoon bathed in warm sunlight, I drink a cup of tea."
+ },
+ "하자": {
+  "ex": "구입한 전자제품에 작은 하자가 있어서 새 상품으로 교환해요.",
+  "en": "Because there is a small defect in the purchased electronics, I exchange it for a new one."
+ },
+ "하지만": {
+  "ex": "시험이 조금 어려워요, 하지만 끝까지 최선을 다해 풀어요.",
+  "en": "The exam is a bit difficult, but I do my best until the end to solve it."
+ },
+ "하천": {
+  "ex": "마을 옆을 흐르는 맑고 깨끗한 하천을 따라 산책해요.",
+  "en": "I take a walk along the clear and clean river stream flowing beside the village."
+ },
+ "하필": {
+  "ex": "우산을 챙기지 않은 날에 하필 갑자기 소나기가 내려요.",
+  "en": "On a day I did not bring an umbrella, a sudden rain shower falls of all days."
+ },
+ "학": {
+  "ex": "물가에 우아하게 서 있는 다리가 긴 하얀 학을 바라봐요.",
+  "en": "I gaze at the white crane with long legs standing elegantly by the water."
+ },
+ "학교": {
+  "ex": "아침 일찍 가방을 메고 즐거운 마음으로 학교에 가요.",
+  "en": "Carrying a backpack early in the morning, I go to school with a joyful heart."
+ },
+ "학생": {
+  "ex": "교실에서 모든 학생이 집중해서 선생님의 수업을 들어요.",
+  "en": "In the classroom, every student listens attentively to the teacher's lesson."
+ },
+ "학생회": {
+  "ex": "우리 학교 학생회에서 신입생 환영 축제를 기획해요.",
+  "en": "Our school student council plans the freshman welcome festival."
+ },
+ "학생회관": {
+  "ex": "점심을 먹으러 식당과 동아리방이 있는 학생회관으로 가요.",
+  "en": "I head to the student center where cafeterias and club rooms are located to have lunch."
+ },
+ "학술": {
+  "ex": "교수님들과 학생들이 함께 모여 수준 높은 학술 발표회를 열어요.",
+  "en": "Professors and students gather together to hold a high-level academic symposium."
+ },
+ "학습": {
+  "ex": "단어장을 만들어 매일 꾸준한 어휘 학습을 이어가요.",
+  "en": "I make a vocabulary notebook and continue steady word learning every day."
+ },
+ "학습하다": {
+  "ex": "동영상 강의를 보면서 새로운 한국어 문법을 학습해요.",
+  "en": "Watching video lectures, I study new Korean grammar points."
+ },
+ "학업": {
+  "ex": "꿈을 이루기 위해 자신의 학업에 성실히 전념해요.",
+  "en": "To achieve my dreams, I diligently devote myself to my studies."
+ },
+ "학원": {
+  "ex": "외국어 실력을 키우려고 방과 후에 어학 학원에 다녀요.",
+  "en": "To improve foreign language skills, I attend a language academy after school."
+ },
+ "한": {
+  "ex": "시원한 생수 한 병을 가방에 넣고 산책을 나가요.",
+  "en": "I put a bottle of cold mineral water in my bag and go out for a walk."
+ },
+ "한강": {
+  "ex": "주말 저녁에 시원한 바람을 쐬러 한강 공원으로 가요.",
+  "en": "On weekend evenings, I head to Hangang River Park to catch a cool breeze."
+ },
+ "한결": {
+  "ex": "따뜻한 국물을 마시니 감기 기운이 한결 나아져요.",
+  "en": "Drinking warm soup makes my cold symptoms feel much better."
+ },
+ "한계": {
+  "ex": "포기하지 않고 꾸준히 노력하여 자신의 한계를 뛰어넘어요.",
+  "en": "Without giving up, I strive steadily and surpass my own limits."
+ },
+ "한구석": {
+  "ex": "방 한구석에 책상과 작은 책장을 단정하게 놓아요.",
+  "en": "I neatly arrange a desk and a small bookcase in a corner of the room."
+ },
+ "한국": {
+  "ex": "한국의 전통문화와 아름다운 사계절을 아주 좋아해요.",
+  "en": "I like Korea's traditional culture and beautiful four seasons very much."
+ },
+ "한국말": {
+  "ex": "매일 연습하니 한국말 실력이 날마다 쑥쑥 늘어요.",
+  "en": "Practicing every day, my Korean language skills improve rapidly day by day."
+ },
+ "한국어": {
+  "ex": "한국 친구들과 자유롭게 이야기하고 싶어서 한국어를 배워요.",
+  "en": "I learn the Korean language because I want to talk freely with Korean friends."
  }
 };
