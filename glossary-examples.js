@@ -13591,5 +13591,165 @@ export const EXAMPLES = {
  "지우": {
   "ex": "마음을 터놓고 이야기를 나눌 수 있는 진정한 지우를 만나요.",
   "en": "I meet a true close friend with whom I can open my heart and talk."
+ },
+ "지우개": {
+  "ex": "공책에 잘못 쓴 글씨를 부드러운 지우개로 깨끗이 지워요.",
+  "en": "I cleanly erase the wrongly written letters in the notebook with a soft eraser."
+ },
+ "지우다": {
+  "ex": "수업이 끝난 뒤에 칠판에 적힌 글씨를 분필 털이개로 지워요.",
+  "en": "After class ends, I erase the writing on the chalkboard with an eraser."
+ },
+ "지원": {
+  "ex": "동아리 활동을 원활히 하기 위해 학교의 적극적인 지원을 받아요.",
+  "en": "We receive active support from the school to carry out club activities smoothly."
+ },
+ "지원금": {
+  "ex": "새로운 문화 체험 활동을 위해 정부에서 나오는 지원금을 신청해요.",
+  "en": "I apply for the financial grant provided by the government for new cultural experience activities."
+ },
+ "지원자": {
+  "ex": "한국어 말하기 대회에 참여할 열정 넘치는 지원자를 모집해요.",
+  "en": "We recruit enthusiastic applicants to participate in the Korean speaking contest."
+ },
+ "지원하다": {
+  "ex": "어려운 환경에서 공부하는 학생들을 위해 장학 재단이 학비를 지원해요.",
+  "en": "The scholarship foundation supports tuition fees for students studying in difficult environments."
+ },
+ "지위": {
+  "ex": "사회적 지위와 상관없이 모든 사람을 항상 공평하게 존중해요.",
+  "en": "I always respect all people equally regardless of social status."
+ },
+ "지자체": {
+  "ex": "우리 동네 복지 향상을 위해 해당 지자체에서 다양한 프로그램을 운영해요.",
+  "en": "The local government runs various programs to improve welfare in our neighborhood."
+ },
+ "지적": {
+  "ex": "선생님의 애정 어린 지적을 겸허히 받아들이고 발음을 고쳐요.",
+  "en": "I humbly accept the teacher's affectionate pointing out and correct my pronunciation."
+ },
+ "지적하다": {
+  "ex": "발표 자료에서 잘못 표기된 맞춤법 오류를 조심스럽게 지적해요.",
+  "en": "I carefully point out spelling errors miswritten in the presentation materials."
+ },
+ "지천": {
+  "ex": "옛 신분 사회에서 겪던 지천의 설움을 역사 소설을 통해 읽어요.",
+  "en": "Through historical novels, I read about the sorrow of inferiority suffered in the past caste society."
+ },
+ "지출": {
+  "ex": "용돈 기입장을 꼼꼼히 쓰며 불필요한 과소비 지출을 줄여요.",
+  "en": "I write in my allowance ledger carefully to reduce unnecessary spending expenditure."
+ },
+ "지침": {
+  "ex": "도서관을 올바르게 이용하기 위해 게시판에 적힌 이용 지침을 읽어요.",
+  "en": "I read the usage guidelines written on the bulletin board to use the library properly."
+ },
+ "지켜보다": {
+  "ex": "선생님은 학생들이 스스로 문제를 해결할 수 있도록 조용히 지켜보세요.",
+  "en": "The teacher quietly observes so that students can solve problems on their own."
+ },
+ "지키다": {
+  "ex": "친구와 약속한 시간과 장소를 어기지 않고 꼭 지켜요.",
+  "en": "I definitely keep the time and place promised with my friend without breaking it."
+ },
+ "지하": {
+  "ex": "건물 지하에 있는 조용하고 아늑한 식당으로 내려가요.",
+  "en": "I go down to the quiet and cozy restaurant located in the building basement."
+ },
+ "지하수": {
+  "ex": "시골 마을에서는 깊은 땅속에서 끌어올린 깨끗한 지하수를 마셔요.",
+  "en": "In the countryside village, they drink clean groundwater drawn from deep underground."
+ },
+ "지하철": {
+  "ex": "아침 출근 시간에 늦지 않으려고 빠르고 편리한 지하철을 타요.",
+  "en": "I take the fast and convenient subway so as not to be late for the morning commute."
+ },
+ "지하철역": {
+  "ex": "도서관에서 나와 가까운 지하철역 출구로 천천히 걸어가요.",
+  "en": "I come out of the library and walk slowly to the nearby subway station exit."
+ },
+ "지현": {
+  "ex": "지현은 수업 시간에 항상 맨 앞자리에 앉아 열심히 공부해요.",
+  "en": "Jihyun always sits in the very front seat during class and studies hard."
+ },
+ "지혜": {
+  "ex": "어려운 문제에 부딪혔을 때 선조들의 깊은 지혜를 떠올려요.",
+  "en": "When encountering difficult problems, I recall the deep wisdom of our ancestors."
+ },
+ "직": {
+  "ex": "부서장의 막중한 직을 맡아 책임감 있게 업무를 수행해요.",
+  "en": "Taking on the heavy office of department head, I perform duties responsibly."
+ },
+ "직간접적": {
+  "ex": "선생님의 따뜻한 격려는 저의 성장에 많은 직간접적 영향을 미쳐요.",
+  "en": "The teacher's warm encouragement exerts a lot of direct or indirect influence on my growth."
+ },
+ "직물": {
+  "ex": "부드러운 감촉의 고급 천연 직물로 여름용 셔츠를 만들어요.",
+  "en": "They make summer shirts with high-grade natural fabric that has a soft touch."
+ },
+ "직업": {
+  "ex": "사람들의 건강을 돕는 의사는 참 보람차고 훌륭한 직업이에요.",
+  "en": "A doctor who helps people's health is a truly rewarding and wonderful occupation."
+ },
+ "직원": {
+  "ex": "안내 데스크의 친절한 직원이 도서관 이용 방법을 자세히 설명해 줘요.",
+  "en": "The kind employee at the information desk explains how to use the library in detail."
+ },
+ "직접": {
+  "ex": "인터넷으로 사지 않고 서점에 직접 가서 책을 골라요.",
+  "en": "I do not buy online and go to the bookstore directly in person to choose books."
+ },
+ "진단": {
+  "ex": "병원에 가서 의사 선생님께 건강 상태에 대한 꼼꼼한 진단을 받아요.",
+  "en": "I go to the clinic and receive a thorough diagnosis of my health condition from the doctor."
+ },
+ "진동": {
+  "ex": "수업 시간에 방해가 되지 않도록 휴대전화를 진동 모드로 바꿔요.",
+  "en": "I change my mobile phone to vibration mode so as not to disturb class."
+ },
+ "진료": {
+  "ex": "몸살감기 증상이 심해서 근처 이비인후과에서 진료를 받아요.",
+  "en": "Because my flu symptoms are severe, I receive clinic care at a nearby ENT clinic."
+ },
+ "진입": {
+  "ex": "골목길로 차량의 안전한 진입을 돕기 위해 천천히 서행해요.",
+  "en": "I drive slowly to assist the safe entry of vehicles into the alley."
+ },
+ "진입하다": {
+  "ex": "고속도로에 안전하게 진입하기 위해 방향지시등을 켜요.",
+  "en": "I turn on the turn signal to safely enter the highway."
+ },
+ "진작": {
+  "ex": "직원들의 사기 진작을 위해 작은 격려 행사를 열어요.",
+  "en": "We hold a small encouragement event for the boost of employees' morale."
+ },
+ "진중하다": {
+  "ex": "석진은 중요한 결정을 내릴 때 항상 깊이 생각하고 진중해요.",
+  "en": "Seokjin always thinks deeply and is prudent when making important decisions."
+ },
+ "진짜": {
+  "ex": "이 가죽 가방은 정교하게 만들어진 진짜 고급 가죽이에요.",
+  "en": "This leather bag is authentic high-quality leather crafted elaborately."
+ },
+ "진행": {
+  "ex": "사회자의 깔끔하고 매끄러운 진행 덕분에 행사가 잘 끝나요.",
+  "en": "Thanks to the host's neat and smooth progress, the event concludes well."
+ },
+ "진행되다": {
+  "ex": "회의는 미리 정해진 순서와 계획에 따라 차질 없이 진행돼요.",
+  "en": "The meeting proceeds without a hitch according to the prearranged order and plan."
+ },
+ "진행하다": {
+  "ex": "동아리 회장이 오늘 모임의 전체 순서를 차분하게 진행해요.",
+  "en": "The club president calmly progresses through the entire order of today's meeting."
+ },
+ "진화": {
+  "ex": "기술의 눈부신 진화로 스마트폰의 기능이 날로 발전해요.",
+  "en": "With the dazzling advancement of technology, smartphone functions improve by the day."
+ },
+ "질다": {
+  "ex": "물을 너무 많이 붓고 밥을 지었더니 밥이 조금 질어요.",
+  "en": "Because I added too much water when cooking rice, the rice is a bit wet."
  }
 };
