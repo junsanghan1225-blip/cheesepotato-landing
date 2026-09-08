@@ -15191,5 +15191,165 @@ export const EXAMPLES = {
  "특유": {
   "ex": "한옥에 들어서니 나무와 흙이 풍기는 특유의 편안한 향이 느껴져요.",
   "en": "Entering a hanok, I feel a uniquely peculiar and comfortable aroma given off by wood and soil."
+ },
+ "특이": {
+  "ex": "이 건물은 주변에서 볼 수 없는 특이한 구조를 지녀요.",
+  "en": "This building possesses an unusual structure not seen around."
+ },
+ "특이하다": {
+  "ex": "친구가 입은 옷의 독특한 색감이 아주 특이해요.",
+  "en": "The unique color tone of the clothes my friend is wearing is very unusual."
+ },
+ "특정": {
+  "ex": "수업 시간에 특정 주제를 정해 함께 토론해요.",
+  "en": "We set a specific topic and discuss together during class."
+ },
+ "특히": {
+  "ex": "다양한 과일 중에서도 특히 달콤한 사과를 좋아해요.",
+  "en": "Among diverse fruits, I especially like sweet apples."
+ },
+ "틀": {
+  "ex": "예쁜 모양의 빵을 굽기 위해 반죽을 별 모양 틀에 부어요.",
+  "en": "I pour dough into a star-shaped mold to bake nicely shaped bread."
+ },
+ "틀다": {
+  "ex": "더운 여름날 시원한 바람을 쐬려고 선풍기를 틀어요.",
+  "en": "I turn on the electric fan to enjoy cool breeze on a hot summer day."
+ },
+ "틀리다": {
+  "ex": "문제를 다시 천천히 읽고 틀린 부분을 바르게 고쳐요.",
+  "en": "I read the problem again slowly and correct the wrong part properly."
+ },
+ "틈": {
+  "ex": "문틈 사이로 따뜻한 봄바람이 솔솔 불어와요.",
+  "en": "A warm spring breeze gently blows in through the door crack."
+ },
+ "티": {
+  "ex": "하얀 도자기 표면에 묻은 작은 먼지와 티를 털어내요.",
+  "en": "I brush off small dust and dirt on the surface of the white porcelain."
+ },
+ "티켓": {
+  "ex": "주말에 볼 공연 티켓을 미리 인터넷으로 예매해요.",
+  "en": "I book the performance ticket in advance online to watch on the weekend."
+ },
+ "팀": {
+  "ex": "과제를 위해 친구들과 네 명씩 한 팀을 만들어요.",
+  "en": "We form a team of four with friends for the project assignment."
+ },
+ "팀원": {
+  "ex": "우리 조 팀원들이 모여 의견을 활발하게 나누어요.",
+  "en": "The team members of our group gather and actively share opinions."
+ },
+ "팀장": {
+  "ex": "친절한 팀장님이 새로운 업무 계획을 차근차근 설명해 줘요.",
+  "en": "The kind team leader step-by-step explains the new work plan."
+ },
+ "파": {
+  "ex": "된장찌개에 시원한 맛을 더하려고 송송 썬 파를 넣어요.",
+  "en": "I add chopped green onion to give a refreshing taste to the soybean paste stew."
+ },
+ "파견": {
+  "ex": "해외 봉사활동을 위해 대학생 봉사단의 현지 파견을 준비해요.",
+  "en": "We prepare the dispatching of the university volunteer corps locally for overseas volunteer activities."
+ },
+ "파괴": {
+  "ex": "자연의 아름다운 숲을 지키기 위해 환경 파괴를 막아요.",
+  "en": "We prevent environmental destruction to protect the beautiful forests of nature."
+ },
+ "파다": {
+  "ex": "꽃을 심기 위해 마당의 부드러운 흙을 깊게 파요.",
+  "en": "I dig deep into the soft soil of the yard to plant flowers."
+ },
+ "파도": {
+  "ex": "바닷가 모래사장에 하얗게 부서지는 시원한 파도를 바라봐요.",
+  "en": "I look at the refreshing waves crashing white on the seaside sandy beach."
+ },
+ "파랗다": {
+  "ex": "구름 한 점 없는 가을 하늘이 아주 맑고 파래요.",
+  "en": "The cloudless autumn sky is very clear and blue."
+ },
+ "파악": {
+  "ex": "문제를 해결하기 위해 현재 상황의 정확한 파악을 시도해요.",
+  "en": "I attempt an accurate understanding and figuring out of the current situation to solve the problem."
+ },
+ "파악하다": {
+  "ex": "선생님의 설명을 들으며 핵심 내용을 빠르게 파악해요.",
+  "en": "Listening to the teacher's explanation, I quickly grasp the key content."
+ },
+ "파편": {
+  "ex": "깨진 유리컵의 날카로운 파편을 조심스럽게 쓸어 담아요.",
+  "en": "I carefully sweep up the sharp fragments of the broken glass cup."
+ },
+ "판": {
+  "ex": "놀이터에서 친구들과 즐거운 놀이 한 판을 벌여요.",
+  "en": "I engage in a fun game scene and occasion with friends at the playground."
+ },
+ "판단": {
+  "ex": "결과를 서두르지 않고 여러 조건을 충분히 살펴본 뒤 올바른 판단을 내려요.",
+  "en": "Without rushing results, I make a right judgment after examining various conditions enough."
+ },
+ "판도": {
+  "ex": "새로운 기술의 등장으로 시장의 판도가 크게 바뀌어요.",
+  "en": "With the emergence of new technology, the market territory changes drastically."
+ },
+ "판매": {
+  "ex": "서점에서 유익한 한국어 학습 교재의 정식 판매를 시작해요.",
+  "en": "The bookstore starts the official selling of useful Korean study textbooks."
+ },
+ "판정": {
+  "ex": "심판이 공정하게 경기의 최종 판정을 내려요.",
+  "en": "The referee fairly delivers the final judgment and decision of the match."
+ },
+ "판정하다": {
+  "ex": "의사 선생님이 진료 결과를 보고 건강 상태를 정상으로 판정해요.",
+  "en": "The doctor looks at the medical exam results and judges the health condition as normal."
+ },
+ "팔": {
+  "ex": "무거운 짐을 들었더니 양쪽 팔이 조금 뻐근해요.",
+  "en": "Having lifted heavy luggage, both of my arms are a bit stiff."
+ },
+ "팔다": {
+  "ex": "동네 시장에서 싱싱한 과일과 채소를 저렴하게 팔아요.",
+  "en": "They sell fresh fruits and vegetables at affordable prices in the neighborhood market."
+ },
+ "팝": {
+  "ex": "영어 듣기 공부를 위해 신나는 외국 팝 음악을 들어요.",
+  "en": "I listen to exciting western pop music to study English listening."
+ },
+ "패": {
+  "ex": "바둑 대국에서 아쉽게 한 번의 패를 기록해요.",
+  "en": "In the Go match, I record a regretful defeat."
+ },
+ "패다": {
+  "ex": "가을 들판에 벼 이삭이 노랗게 알차게 패요.",
+  "en": "Grains of rice come out and head plenteously in yellow across autumn fields."
+ },
+ "패러다임": {
+  "ex": "디지털 시대가 열리며 교육 분야에도 새로운 패러다임이 형성돼요.",
+  "en": "As the digital era opens, a new paradigm is formed in the field of education as well."
+ },
+ "패션": {
+  "ex": "계절에 어울리는 깔끔하고 단정한 패션을 즐겨 입어요.",
+  "en": "I enjoy wearing neat and tidy fashion suited for the season."
+ },
+ "패턴": {
+  "ex": "매일 일정한 생활 패턴을 유지하며 규칙적으로 생활해요.",
+  "en": "I live regularly while maintaining a consistent daily lifestyle pattern."
+ },
+ "패하다": {
+  "ex": "경기에서 아쉽게 패했지만 서로를 격려하며 박수를 쳐요.",
+  "en": "Although we lost and were defeated in the game, we encourage each other and clap."
+ },
+ "퍼지다": {
+  "ex": "방 안에 향기로운 차 향기가 은은하게 퍼져요.",
+  "en": "The fragrant scent of tea softly spreads out inside the room."
+ },
+ "펑": {
+  "ex": "불꽃놀이가 시작되자 하늘 위에서 불꽃이 펑 터져요.",
+  "en": "When fireworks begin, sparks burst high in the sky with a boom."
+ },
+ "펑펑": {
+  "ex": "추운 겨울밤 하얀 눈이 하늘에서 펑펑 내려요.",
+  "en": "On a cold winter night, white snow falls abundantly with a pop-pop from the sky."
  }
 };
