@@ -278,13 +278,8 @@ $('auGoWb').addEventListener('click', () => open('wordbook'));
 // 로고를 누르면 어느 화면에 있든 홈으로 돌아온다.
 $('brandBtn').addEventListener('click', () => window.ptShow(false));
 
-// 헤더의 다운로드는 홈에 있는 자리를 가리킨다. 단어장이나 발음 테스트에서
-// 눌렀을 때 아무 데도 못 가지 않도록 홈을 먼저 연 뒤 내려간다.
-$('hdCta').addEventListener('click', (ev) => {
-  ev.preventDefault();
-  window.ptShow(false);
-  setTimeout(() => $('download')?.scrollIntoView({ behavior: 'smooth' }), 60);
-});
+// 헤더의 다운로드는 플레이스토어로 바로 연다 — href 가 이미 그 주소라
+// 손댈 게 없다(전에는 여기서 막고 홈의 소개 칸으로 내려보냈었다).
 
 // ── 오류 문구 ────────────────────────────────────────────────
 // 서버가 주는 말은 기술적이라 그대로 보여주지 않는다.
@@ -920,8 +915,7 @@ $('auLogout').addEventListener('click', signOut);
 $('wbRetry').addEventListener('click', loadWords);
 
 $('wbDl').addEventListener('click', () => {
-  window.ptShow(false);
-  setTimeout(() => $('download')?.scrollIntoView({ behavior: 'smooth' }), 60);
+  window.open('https://play.google.com/store/apps/details?id=com.cheesepotato.app', '_blank', 'noopener,noreferrer');
 });
 
 // ══ 진도 동기화 ══════════════════════════════════════════════
