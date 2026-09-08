@@ -16791,5 +16791,49 @@ export const EXAMPLES = {
  "흥미롭다": {
   "ex": "새로 나온 한국 역사 만화책의 줄거리가 정말 흥미로워요.",
   "en": "The plot of the newly published Korean history comic book is truly interesting."
+ },
+ "흥행": {
+  "ex": "이번 주말에 열리는 연극 공연의 성공적인 흥행을 기대해요.",
+  "en": "I look forward to a successful run of the play performance opening this weekend."
+ },
+ "흩다": {
+  "ex": "책상 위에 널려 있던 종이들을 바람이 사방으로 흩어요.",
+  "en": "The wind scatters papers lying on the desk in all directions."
+ },
+ "희다": {
+  "ex": "겨울이 오자 온 산과 들판이 하얗고 희게 변해요.",
+  "en": "As winter comes, whole mountains and fields turn bright and white."
+ },
+ "희망": {
+  "ex": "어려운 상황에서도 가슴속에 밝은 희망을 품어요.",
+  "en": "Even in difficult situations, I harbor bright hope in my heart."
+ },
+ "희망하다": {
+  "ex": "방학 동안 친구들과 함께 한국 문화 캠프 참여를 희망해요.",
+  "en": "I wish to participate in the Korean culture camp with friends during vacation."
+ },
+ "희소": {
+  "ex": "시중에서 쉽게 구할 수 없는 희소 가치가 있는 오래된 책을 모아요.",
+  "en": "I collect old books of scarcity value that cannot be obtained easily on the market."
+ },
+ "희소성": {
+  "ex": "손으로 직접 만든 도자기는 수량이 적어서 희소성이 아주 높아요.",
+  "en": "Handmade ceramics have very high rarity because of their small quantity."
+ },
+ "흰색": {
+  "ex": "여름에는 시원해 보이는 깔끔한 흰색 티셔츠를 자주 입어요.",
+  "en": "In summer, I often wear a neat white T-shirt that looks refreshing."
+ },
+ "힘": {
+  "ex": "친구들과 서로 격려하며 함께할 때 더 큰 힘이 생겨요.",
+  "en": "When encouraging each other and standing together with friends, greater strength arises."
+ },
+ "힘들다": {
+  "ex": "과제가 많아서 조금 힘들지만 끝까지 최선을 다해요.",
+  "en": "It is a bit hard because there are many assignments, but I do my best until the end."
+ },
+ "힘주다": {
+  "ex": "중요한 단어를 쓸 때 연필을 쥔 손가락에 살짝 힘을 줘요.",
+  "en": "When writing important words, I slightly strain and exert strength in my fingers holding the pencil."
  }
 };
