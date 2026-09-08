@@ -3,9 +3,15 @@
 ## 한 줄 요약
 
 **목소리 두 벌을 만들고, 한 달 $11 로 이 판의 소리를 전부 굽고, 구독을
-끊는다.** 38,791자이고 Creator 요금제 한 달치(100,000자)의 39% 다.
-파일은 영원히 남는다. (`node tools/tts-manifest.mjs --count` 로 언제든
-지금 값을 다시 뽑을 수 있다 — 자료가 늘면 이 수도 늘어난다.)
+끊는다.** 커리큘럼 쪽(course~writing)만 38,791자로 Creator 요금제
+한 달치(100,000자)의 39% 다. 파일은 영원히 남는다.
+(`node tools/tts-manifest.mjs --count` 로 언제든 지금 값을 다시 뽑을 수
+있다 — 자료가 늘면 이 수도 늘어난다.)
+
+**낱말 사전(4,209개)은 따로 간다.** 표제어만(`dict`) 10,316자로 한도의
+10%, 예문까지(`dictex`) 더하면 111,824자로 그것만으로 한도를 넘는다 —
+커리큘럼과 같은 달에 같이 구우면 못 끝낸다. 아래 "낱말 사전을 굽는 법"
+참고.
 
 ---
 
@@ -128,12 +134,44 @@ git add assets/audio && git commit && git push
 절반이다. 낱말 카드처럼 짧고 많은 것은 flash 로, 듣기 대본·읽기 지문처럼
 억양이 중요한 것은 `eleven_multilingual_v2` 로.
 
-**낱말 사전 5,000개** — 아직 목록에 안 넣었다. 낱말 하나가 평균 3자면
-15,000자이고, flash 로 구우면 7,500자어치다. 한도 안에 들어간다. 뜻만
-읽는 것보다 소리를 같이 듣는 편이 훨씬 오래 남는다.
-
 **느린 판** — 초급 학습자용으로 같은 글을 느리게 한 벌 더 굽는 것.
 글자가 두 배로 드니 `course` 처럼 짧고 중요한 것만.
+
+---
+
+## 낱말 사전을 굽는 법
+
+`tools/tts-manifest.mjs` 에 `dict`(표제어 4,209개, 10,316자)와
+`dictex`(예문 4,207개, 111,824자) 두 갈래를 더했다. 국어사전 화면에서
+낱말 옆·예문 옆에 🔊 단추가 이미 붙어 있다(`app.module.js` 의
+`dictDraw`/`dictDrawMore`) — 파일이 없으면 지금도 조용히 Web Speech 로
+넘어가니 이 단추 자체는 굽기 전에 올려도 안전하다.
+
+**둘을 한 달에 같이 못 굽는다.** 예문(`dictex`)이 111,824자라 Creator
+요금제 한 달치보다 크다. 순서를 나눈다.
+
+1. `dict`(표제어만, 10,316자) 먼저 — flash 로 구우면 5,158자어치다.
+   낱말장을 넘기면서 발음부터 듣는 게 뜻만 읽는 것보다 오래 남는다.
+   커리큘럼 쪽(course~writing, 38,791자)과 합쳐도 44,000자 안팎이라
+   한 달 안에 같이 끝난다.
+2. `dictex`(예문, 111,824자)는 다음 달 이후로 — flash 로도 55,912자라
+   그 달의 커리큘럼 몫과 또 안 겹치게 조절해야 한다. 필요하면
+   `--only dictex` 로 여러 달에 나눠 굽는다(이미 있는 파일은 건너뛰므로
+   중간에 멈췄다 이어 구워도 된다).
+
+```bash
+node tools/tts-manifest.mjs --only dict --write /tmp/tts-dict.jsonl
+node tools/tts-build.mjs --in /tmp/tts-dict.jsonl --model eleven_flash_v2_5 --dry   # 값 먼저 확인
+node tools/tts-build.mjs --in /tmp/tts-dict.jsonl --model eleven_flash_v2_5
+
+# 예문은 나중에, 필요하면 여러 번에 나눠
+node tools/tts-manifest.mjs --only dictex --write /tmp/tts-dictex.jsonl
+node tools/tts-build.mjs --in /tmp/tts-dictex.jsonl --model eleven_flash_v2_5
+```
+
+낱말 오디오는 `assets/audio/dict/<표제어 slug>.mp3`, 예문은
+`assets/audio/dict/<표제어 slug>-ex.mp3` 로 나온다 — 다른 갈래(`course`,
+`example`, …)와 파일명이 겹치지 않게 전용 폴더에 둔다.
 
 ---
 

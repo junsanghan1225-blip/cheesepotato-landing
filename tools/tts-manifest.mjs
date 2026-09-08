@@ -172,6 +172,31 @@ if (want('writing')) {
   }
 }
 
+/* ── 6. 낱말 사전 — 표제어와 예문 ────────────────────────────
+   표제어 하나는 짧아서 flash 모델로 구우면 값이 반이다(docs/tts-plan.md
+   "값을 더 뽑는 법" 참고) — 그래서 group 을 example/course 와 분리해
+   둔다. build 쪽에서 group 별 모델을 다르게 줄 수 있다.
+
+   예문은 이미 "example" 예문 게시판과 같은 값이라 억양이 중요하지만,
+   사전 예문은 훨씬 많고(4,200개대) 짧으므로 따로 "dictex" 로 둔다 —
+   섞으면 사전 쪽 물량 때문에 예문 게시판 쪽 구울 순서가 묻힌다. */
+if (want('dict') || want('dictex')) {
+  const { GLOSSARY } = await load('glossary.js');
+  const byHead = new Map();
+  Object.values(GLOSSARY).forEach((v) => { if (!byHead.has(v.head)) byHead.set(v.head, v); });
+
+  let EXAMPLES = {};
+  try { ({ EXAMPLES } = await load('glossary-examples.js')); } catch (e) { /* 아직 없을 수 있다 */ }
+
+  for (const v of byHead.values()) {
+    if (want('dict'))
+      add('dict', `dict/${audioSlug(v.head)}.mp3`, [{ voice: 'm', text: v.head }]);
+    const ex = EXAMPLES[v.head]?.ex;
+    if (want('dictex') && ex)
+      add('dictex', `dict/${audioSlug(v.head)}-ex.mp3`, [{ voice: 'm', text: ex }]);
+  }
+}
+
 /* ── 이름이 겹치면 나중 것이 앞 것을 덮는다 ────────────────
    audioSlug 가 64자에서 자르기 때문에 긴 문장 둘이 앞 64자가 같으면
    같은 파일이 된다. 조용히 덮이면 엉뚱한 문장이 재생되므로 짚어 둔다. */

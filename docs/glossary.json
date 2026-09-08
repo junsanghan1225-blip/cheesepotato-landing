@@ -2566,7 +2566,8 @@
  },
  {
   "ko": "유리",
-  "en": "Yuri (a given name)",
+  "en": "glass",
+  "pos": "명사",
   "only": true
  },
  {
@@ -2641,6 +2642,714 @@
    "시까지"
   ],
   "only": true
+ },
+ {
+  "ko": "곱다",
+  "en": "beautiful; lovely",
+  "pos": "형용사",
+  "only": true,
+  "alt": [
+   "고와요",
+   "고운",
+   "고와서",
+   "고왔다"
+  ]
+ },
+ {
+  "ko": "너",
+  "en": "you (to a friend or someone younger)",
+  "pos": "대명사",
+  "only": true
+ },
+ {
+  "ko": "느끼다",
+  "en": "feel; perceive; sense",
+  "pos": "동사",
+  "only": true,
+  "alt": [
+   "느껴요",
+   "느낀",
+   "느껴",
+   "느낍니다"
+  ]
+ },
+ {
+  "ko": "동사",
+  "en": "verb",
+  "pos": "명사",
+  "only": true
+ },
+ {
+  "ko": "동향",
+  "en": "trend; tendency; person from the same hometown",
+  "pos": "명사",
+  "only": true
+ },
+ {
+  "ko": "명사",
+  "en": "noun",
+  "pos": "명사",
+  "only": true
+ },
+ {
+  "ko": "문장",
+  "en": "sentence",
+  "pos": "명사",
+  "only": true
+ },
+ {
+  "ko": "무용",
+  "en": "dance",
+  "pos": "명사",
+  "only": true
+ },
+ {
+  "ko": "물리",
+  "en": "physics",
+  "pos": "명사",
+  "only": true
+ },
+ {
+  "ko": "물가",
+  "en": "prices; cost of living; waterside",
+  "pos": "명사",
+  "only": true
+ },
+ {
+  "ko": "미어지다",
+  "en": "be heart-broken; be torn (with grief); be worn out (fabric)",
+  "pos": "동사",
+  "only": true
+ },
+ {
+  "ko": "미진하다",
+  "en": "insufficient; unsatisfactory; not fully done",
+  "pos": "형용사",
+  "only": true
+ },
+ {
+  "ko": "발병",
+  "en": "occurrence of disease; outbreak",
+  "pos": "명사",
+  "only": true
+ },
+ {
+  "ko": "발전기",
+  "en": "electric generator; dynamo",
+  "pos": "명사",
+  "only": true
+ },
+ {
+  "ko": "법이다",
+  "en": "it's only natural (that); it's bound to be that way",
+  "pos": "품사 없음",
+  "only": true
+ },
+ {
+  "ko": "변경",
+  "en": "change; alteration",
+  "pos": "명사",
+  "only": true
+ },
+ {
+  "ko": "보도",
+  "en": "sidewalk; news report",
+  "pos": "명사",
+  "only": true
+ },
+ {
+  "ko": "복권",
+  "en": "lottery ticket",
+  "pos": "명사",
+  "only": true
+ },
+ {
+  "ko": "본관",
+  "en": "main building",
+  "pos": "명사",
+  "only": true
+ },
+ {
+  "ko": "본디",
+  "en": "originally; from the start",
+  "pos": "명사",
+  "only": true
+ },
+ {
+  "ko": "부정적",
+  "en": "negative",
+  "pos": "명사",
+  "only": true
+ },
+ {
+  "ko": "부산",
+  "en": "Busan (city)",
+  "pos": "명사",
+  "only": true
+ },
+ {
+  "ko": "비행",
+  "en": "flight; flying",
+  "pos": "명사",
+  "only": true
+ },
+ {
+  "ko": "빈",
+  "en": "empty (modifier form of 비다)",
+  "pos": "명사",
+  "only": true
+ },
+ {
+  "ko": "사료",
+  "en": "feed; fodder",
+  "pos": "명사",
+  "only": true
+ },
+ {
+  "ko": "사인",
+  "en": "signature",
+  "pos": "명사",
+  "only": true
+ },
+ {
+  "ko": "사원",
+  "en": "employee; staff",
+  "pos": "명사",
+  "only": true
+ },
+ {
+  "ko": "상사",
+  "en": "superior; boss (at work)",
+  "pos": "명사",
+  "only": true
+ },
+ {
+  "ko": "상당",
+  "en": "considerable; substantial",
+  "pos": "명사",
+  "only": true
+ },
+ {
+  "ko": "서울",
+  "en": "Seoul",
+  "pos": "명사",
+  "only": true
+ },
+ {
+  "ko": "선수",
+  "en": "athlete; player",
+  "pos": "명사",
+  "only": true
+ },
+ {
+  "ko": "소개",
+  "en": "introduction",
+  "pos": "명사",
+  "only": true
+ },
+ {
+  "ko": "속성",
+  "en": "attributes; properties",
+  "pos": "명사",
+  "only": true
+ },
+ {
+  "ko": "수행",
+  "en": "fulfillment; execution; carrying out",
+  "pos": "명사",
+  "only": true
+ },
+ {
+  "ko": "수정",
+  "en": "modification; amendment; correction",
+  "pos": "명사",
+  "only": true
+ },
+ {
+  "ko": "시내",
+  "en": "downtown",
+  "pos": "명사",
+  "only": true
+ },
+ {
+  "ko": "시집",
+  "en": "poetry collection; book of poems",
+  "pos": "명사",
+  "only": true
+ },
+ {
+  "ko": "시청",
+  "en": "city hall; watching",
+  "pos": "명사",
+  "only": true
+ },
+ {
+  "ko": "신문",
+  "en": "newspaper",
+  "pos": "명사",
+  "only": true
+ },
+ {
+  "ko": "실기",
+  "en": "practical skill",
+  "pos": "명사",
+  "only": true
+ },
+ {
+  "ko": "실패",
+  "en": "failure",
+  "pos": "명사",
+  "only": true
+ },
+ {
+  "ko": "았으면",
+  "en": "if only; I wish (that)",
+  "pos": "품사 없음",
+  "only": true
+ },
+ {
+  "ko": "어떡하다",
+  "en": "what to do (about it)",
+  "pos": "품사 없음",
+  "only": true
+ },
+ {
+  "ko": "약물",
+  "en": "drug; medication",
+  "pos": "명사",
+  "only": true
+ },
+ {
+  "ko": "양",
+  "en": "amount; quantity",
+  "pos": "명사",
+  "only": true
+ },
+ {
+  "ko": "었으면",
+  "en": "if only; I wish (that)",
+  "pos": "품사 없음",
+  "only": true
+ },
+ {
+  "ko": "열리다",
+  "en": "to open; to be held; to take place",
+  "pos": "동사",
+  "only": true
+ },
+ {
+  "ko": "예",
+  "en": "example",
+  "pos": "명사",
+  "only": true
+ },
+ {
+  "ko": "온실",
+  "en": "greenhouse; heated room",
+  "pos": "명사",
+  "only": true
+ },
+ {
+  "ko": "외향적",
+  "en": "outgoing; extroverted",
+  "pos": "명사",
+  "only": true
+ },
+ {
+  "ko": "우편",
+  "en": "mail",
+  "pos": "명사",
+  "only": true
+ },
+ {
+  "ko": "원단",
+  "en": "fabric; textile",
+  "pos": "명사",
+  "only": true
+ },
+ {
+  "ko": "유리하다",
+  "en": "favorable; advantageous",
+  "pos": "형용사",
+  "only": true
+ },
+ {
+  "ko": "유용하다",
+  "en": "useful",
+  "pos": "형용사",
+  "only": true
+ },
+ {
+  "ko": "유지",
+  "en": "keeping; maintaining",
+  "pos": "명사",
+  "only": true
+ },
+ {
+  "ko": "유사",
+  "en": "being similar",
+  "pos": "명사",
+  "only": true
+ },
+ {
+  "ko": "을래요",
+  "en": "will you...?; I will... (casual intention)",
+  "pos": "품사 없음",
+  "only": true
+ },
+ {
+  "ko": "이왕",
+  "en": "already; now that; since",
+  "pos": "명사",
+  "only": true
+ },
+ {
+  "ko": "이리",
+  "en": "this way; here",
+  "pos": "명사",
+  "only": true
+ },
+ {
+  "ko": "이해",
+  "en": "understanding; comprehension",
+  "pos": "명사",
+  "only": true
+ },
+ {
+  "ko": "인상",
+  "en": "impression; raise; increase",
+  "pos": "명사",
+  "only": true
+ },
+ {
+  "ko": "일기",
+  "en": "diary; journal",
+  "pos": "명사",
+  "only": true
+ },
+ {
+  "ko": "일단",
+  "en": "first; to begin with; for now",
+  "pos": "명사",
+  "only": true
+ },
+ {
+  "ko": "입지",
+  "en": "location; standing; position",
+  "pos": "명사",
+  "only": true
+ },
+ {
+  "ko": "자길래",
+  "en": "since (someone) suggested/proposed that... (contraction of -자고 하길래)",
+  "pos": "품사 없음",
+  "only": true
+ },
+ {
+  "ko": "자제",
+  "en": "self-control; self-restraint",
+  "pos": "명사",
+  "only": true
+ },
+ {
+  "ko": "자연계",
+  "en": "natural world; nature",
+  "pos": "명사",
+  "only": true
+ },
+ {
+  "ko": "잡니다",
+  "en": "(formal) reportedly suggests/proposes that... (contraction of -자고 합니다)",
+  "pos": "품사 없음",
+  "only": true
+ },
+ {
+  "ko": "장기",
+  "en": "specialty; talent; long term",
+  "pos": "명사",
+  "only": true
+ },
+ {
+  "ko": "재다",
+  "en": "measure; weigh",
+  "pos": "동사",
+  "only": true
+ },
+ {
+  "ko": "재우다",
+  "en": "put (someone) to sleep (causative of 자다); pile",
+  "pos": "동사",
+  "only": true
+ },
+ {
+  "ko": "저의",
+  "en": "my (humble, contraction of 저 + 의)",
+  "pos": "명사",
+  "only": true
+ },
+ {
+  "ko": "저조",
+  "en": "being low; sluggish; lackluster (performance, results)",
+  "pos": "명사",
+  "only": true
+ },
+ {
+  "ko": "재원",
+  "en": "source of money; funds",
+  "pos": "명사",
+  "only": true
+ },
+ {
+  "ko": "전달",
+  "en": "delivery; transmission",
+  "pos": "명사",
+  "only": true
+ },
+ {
+  "ko": "전자",
+  "en": "electron; electronic",
+  "pos": "명사",
+  "only": true
+ },
+ {
+  "ko": "전면",
+  "en": "all-out; full-scale; front; facade",
+  "pos": "명사",
+  "only": true
+ },
+ {
+  "ko": "전하다",
+  "en": "convey; give; hand; pass on",
+  "pos": "동사",
+  "only": true
+ },
+ {
+  "ko": "정도",
+  "en": "degree; extent; level",
+  "pos": "명사",
+  "only": true
+ },
+ {
+  "ko": "정작",
+  "en": "actually; in fact",
+  "pos": "부사",
+  "only": true
+ },
+ {
+  "ko": "정숙",
+  "en": "being quiet; silence",
+  "pos": "명사",
+  "only": true
+ },
+ {
+  "ko": "정적",
+  "en": "silence; stillness",
+  "pos": "명사",
+  "only": true
+ },
+ {
+  "ko": "제도적",
+  "en": "institutional",
+  "pos": "명사",
+  "only": true
+ },
+ {
+  "ko": "조사",
+  "en": "postpositional particle; survey; investigation",
+  "pos": "명사",
+  "only": true
+ },
+ {
+  "ko": "조기",
+  "en": "early (stage); croaker",
+  "pos": "명사",
+  "only": true
+ },
+ {
+  "ko": "조화",
+  "en": "harmony",
+  "pos": "명사",
+  "only": true
+ },
+ {
+  "ko": "주문",
+  "en": "order",
+  "pos": "명사",
+  "only": true
+ },
+ {
+  "ko": "주의",
+  "en": "caution; attention",
+  "pos": "명사",
+  "only": true
+ },
+ {
+  "ko": "주장",
+  "en": "assertion; claim",
+  "pos": "명사",
+  "only": true
+ },
+ {
+  "ko": "죽",
+  "en": "porridge",
+  "pos": "명사",
+  "only": true
+ },
+ {
+  "ko": "지각",
+  "en": "being late; tardiness; earth crust",
+  "pos": "명사",
+  "only": true
+ },
+ {
+  "ko": "지각하다",
+  "en": "be late",
+  "pos": "동사",
+  "only": true
+ },
+ {
+  "ko": "지시",
+  "en": "instruction; order; indication",
+  "pos": "명사",
+  "only": true
+ },
+ {
+  "ko": "지적",
+  "en": "criticism; pointing out; intelligence",
+  "pos": "명사",
+  "only": true
+ },
+ {
+  "ko": "지침",
+  "en": "guideline; dial",
+  "pos": "명사",
+  "only": true
+ },
+ {
+  "ko": "진동",
+  "en": "vibration; armhole",
+  "pos": "명사",
+  "only": true
+ },
+ {
+  "ko": "진화",
+  "en": "development; advancement; evolution",
+  "pos": "명사",
+  "only": true
+ },
+ {
+  "ko": "찌푸리다",
+  "en": "frown; scowl; be cloudy; be gloomy",
+  "pos": "동사",
+  "only": true
+ },
+ {
+  "ko": "척하다",
+  "en": "pretend to; act as if",
+  "pos": "품사 없음",
+  "only": true
+ },
+ {
+  "ko": "초록",
+  "en": "green",
+  "pos": "명사",
+  "only": true
+ },
+ {
+  "ko": "축구",
+  "en": "soccer; football",
+  "pos": "명사",
+  "only": true
+ },
+ {
+  "ko": "출력",
+  "en": "output; printing",
+  "pos": "명사",
+  "only": true
+ },
+ {
+  "ko": "치다",
+  "en": "hit; strike; play (an instrument); rain; snow; blow",
+  "pos": "동사",
+  "only": true
+ },
+ {
+  "ko": "통계",
+  "en": "statistics",
+  "pos": "명사",
+  "only": true
+ },
+ {
+  "ko": "틀다",
+  "en": "turn on (a device); twist",
+  "pos": "동사",
+  "only": true
+ },
+ {
+  "ko": "포기",
+  "en": "giving up; head (counter for plants)",
+  "pos": "명사",
+  "only": true
+ },
+ {
+  "ko": "풍력",
+  "en": "wind power; wind velocity",
+  "pos": "명사",
+  "only": true
+ },
+ {
+  "ko": "한숨",
+  "en": "sigh; a while (of sleep, rest)",
+  "pos": "명사",
+  "only": true
+ },
+ {
+  "ko": "행복",
+  "en": "happiness; pleasure; contentment",
+  "pos": "명사",
+  "only": true
+ },
+ {
+  "ko": "화제",
+  "en": "topic; subject; issue",
+  "pos": "명사",
+  "only": true
+ },
+ {
+  "ko": "환영",
+  "en": "welcome",
+  "pos": "명사",
+  "only": true
+ },
+ {
+  "ko": "환기",
+  "en": "ventilation; airing",
+  "pos": "명사",
+  "only": true
+ },
+ {
+  "ko": "흐리다",
+  "en": "be cloudy (weather); blur; adulterate",
+  "pos": "동사",
+  "only": true
+ },
+ {
+  "ko": "녹",
+  "en": "rust",
+  "pos": "명사",
+  "only": true
+ },
+ {
+  "ko": "녹화",
+  "en": "video recording; greening (planting trees)",
+  "pos": "명사",
+  "only": true,
+  "alt": [
+   "녹화하다",
+   "녹화해요",
+   "녹화한",
+   "녹화된"
+  ]
  },
  {
   "ko": "따르다",
@@ -2794,7 +3503,8 @@
  },
  {
   "ko": "도로",
-  "en": "road; street"
+  "en": "road; street",
+  "pos": "명사"
  },
  {
   "ko": "문화",
@@ -7381,10 +8091,6 @@
   "alt": [
    "일정하게"
   ]
- },
- {
-  "ko": "녹화",
-  "en": "greening; afforestation"
  },
  {
   "ko": "면적",
