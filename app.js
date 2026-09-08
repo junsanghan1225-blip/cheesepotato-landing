@@ -9,6 +9,32 @@
    아래 app.module.js 가 ptShow · applyLang 같은 것을 그냥 부르는 게
    그래서 된다. 인라인이었을 때와 규칙이 똑같으니 동작도 그대로다. */
 
+/* ── 갈라 둔 CSS 를 입힌다 ─────────────────────────────────────
+   app-views.css 는 화면 상자 안에서만 쓰는 규칙이라 첫 페인트에는 필요가
+   없다. index.html 이 media="print" 로 걸어 두어 받기만 하고 안 입히는
+   상태인데, 다 받아진 뒤에 all 로 바꿔 입힌다.
+
+   **다 받기 전에 all 로 바꾸면 안 된다** — 그 순간부터 첫 페인트를 막는
+   자리로 돌아가서, 갈라 둔 뜻이 없어진다. 그래서 sheet 가 생겼는지 보고
+   (이미 왔으면 바로) 아니면 load 를 기다린다. */
+(function () {
+  var el = document.getElementById('viewsCss');
+  if (!el) return;
+  var apply = function () { el.media = 'all'; };
+  if (el.sheet) apply();
+  else {
+    el.addEventListener('load', apply);
+    /* 못 받으면 그 화면들이 통째로 맨몸이 된다. 그때는 늦더라도 평범한
+       스타일시트로 한 번 더 걸어 본다 — 느린 것이 깨진 것보다 낫다. */
+    el.addEventListener('error', function () {
+      var again = document.createElement('link');
+      again.rel = 'stylesheet';
+      again.href = el.getAttribute('href');
+      document.head.appendChild(again);
+    });
+  }
+})();
+
 /* ── 첫 화면에서 갈래로 바로 ───────────────────────────────────
    예전 첫 화면에는 기울어지는 단어 카드와 대시보드 그림이 있었다. 판이
    단어장에서 한국어 학습으로 옮겨 가면서 그 구역이 통째로 빠졌고, 그것을
@@ -32,6 +58,7 @@ document.getElementById('heroTopikBtn').addEventListener('click', () => goLearn(
    레딧이고, 앱을 받으러 온 것이 아니라 **여기서 한국어를 해 보려고**
    온다. 눌러 본 사람은 「해 보고 싶다」고 말한 것이니 그 자리로 보낸다. */
 document.getElementById('heroCardBtn').addEventListener('click', () => goLearn());
+document.getElementById('streakGoBtn').addEventListener('click', () => goLearn());
 
 /* 「무엇을 배우나」 여섯 장. data-go 에 적힌 자리로 보낸다.
    낱말 사전은 배우기 갈래가 아니라 따로 뗀 화면(dictionary)이다 —

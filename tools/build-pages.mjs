@@ -25,14 +25,21 @@ import { dirname, join } from 'node:path';
 import { SB_CATS, SB_MORE } from '../sentences.js';
 import { COURSES } from '../courses.js';
 import { TW_ITEMS, TW_QS } from '../topik-writing.js';
+import { BLOG_POSTS } from '../blog.js';
+import { TOPIK_READING, TOPIK_BLUEPRINT } from '../topik.js';
+import { TOPIK2_READING, TOPIK2_BLUEPRINT } from '../topik2.js';
+import { TOPIKL_BY_EXAM } from '../topik-listening.js';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const SITE = 'https://everykoreans.com';
 const OUT = join(ROOT, 'sentence');
 const OUT_COURSE = join(ROOT, 'course');
 const OUT_LESSON = join(ROOT, 'lesson');
+const OUT_BLOG = join(ROOT, 'blog');
 const OUT_TW = join(ROOT, 'topik-writing');
 const OUT_CMP = join(ROOT, 'compare');
+const OUT_TR = join(ROOT, 'topik-reading');
+const OUT_TL = join(ROOT, 'topik-listening');
 
 const esc = (s) => String(s ?? '')
   .replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;')
@@ -99,6 +106,12 @@ h2{font-size:15px;margin:32px 0 10px;color:var(--dim);letter-spacing:.02em}
   padding:6px 13px;font-size:14px;text-decoration:none}
 .pts a:hover{border-color:var(--brand)}
 .lead{font-size:16px;color:var(--dim);margin:0 0 26px}
+/* TOPIK 읽기·듣기 문항 — 보기 넷과 정답. */
+.opts{list-style:none;padding:0;margin:14px 0;display:flex;flex-direction:column;gap:8px}
+.opts li{border:1px solid var(--line);border-radius:12px;padding:11px 15px;background:var(--card);
+  display:flex;gap:10px;align-items:baseline;font-size:15.5px}
+.opts li.right{border-color:var(--brand);background:var(--soft);font-weight:700}
+.opts .onum{flex:none;color:var(--dim);font-weight:700}
 `.trim();
 
 /* 쪽 하나를 조립한다. head 는 어느 쪽이나 같은 모양이라 여기 모아 둔다. */
@@ -138,7 +151,7 @@ const crumbLd = (parts) => {
   };
 };
 
-function page({ url, title, desc, body, kind = 'article', jsonld }) {
+function page({ url, title, desc, body, kind = 'article', jsonld, extraCss = '' }) {
   return `<!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -160,13 +173,13 @@ function page({ url, title, desc, body, kind = 'article', jsonld }) {
 <meta name="twitter:description" content="${esc(desc)}">
 <meta name="twitter:image" content="${SITE}/logo.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">${[].concat(jsonld ?? []).map(ld).join('')}
-<style>${CSS}</style>
+<style>${CSS}${extraCss}</style>
 </head>
 <body>
 <div class="wrap">
 ${body}
 <div class="foot">
-  <a href="/">치즈감자</a> · <a href="/sentence/">문법 표현 전체</a> · <a href="/privacy.html">개인정보</a><br>
+  <a href="/">치즈감자</a> · <a href="/sentence/">문법 표현 전체</a> · <a href="/blog/">블로그</a> · <a href="/privacy.html">개인정보</a><br>
   한국어를 배우는 사람을 위한 단어장과 연습 · Learn Korean with CheesePotato<br>
   낱말 뜻풀이 출처: <a href="https://krdict.korean.go.kr">국립국어원 한국어기초사전</a>
   · <a href="https://creativecommons.org/licenses/by-sa/2.0/kr/">CC BY-SA 2.0 KR</a>
@@ -627,7 +640,10 @@ function twPage(it) {
         `<div class="fact"><b>${esc(k)}</b><span>${esc(v)}</span></div>`).join('') + '</div>' : '',
     '<h2>흔한 감점 요인 · Common deductions</h2><ul class="pts">' +
       it.deduct.map((d) => `<li>${esc(d)}</li>`).join('') + '</ul>',
-    `<a class="cta" href="/#learn/writing">직접 써 보기<span>Write it yourself — length and register checked as you type</span></a>`,
+    /* 문항 번호까지 붙여 보낸다(#learn/writing/51-1) — 목록으로 떨어지면
+       방금 읽은 이 문항을 다시 찾아야 한다. app.module.js 의 openLearnSub
+       가 이 번호를 받아 목록 대신 이 문항을 바로 연다. */
+    `<a class="cta" href="/#learn/writing/${esc(it.id)}">직접 써 보기<span>Write it yourself — length and register checked as you type</span></a>`,
   ].filter(Boolean).join('\n');
 
   const jsonld = [
@@ -676,6 +692,302 @@ function twHub(items) {
   });
 }
 
+/* ── TOPIK 읽기 ─────────────────────────────────────────────── */
+/* 문항마다(409개) 제 주소를 가진 쪽을 낸다 — topik-writing/ 과 같은
+   생각이다. 지문·보기·정답·해설이 이미 쪽 안에 다 있어서, AI 답변
+   엔진이 클릭 한 번 없이도 이 쪽 하나로 완결된 답을 인용할 수 있다.
+   "직접 풀어보기" 는 문항 번호까지 들고 가서(#learn/topik/<시험>/
+   reading/<id>) 앱이 목록이 아니라 그 문제를 바로 열게 한다
+   (tqOpenOne, app.module.js) — topik-writing 을 고칠 때 알게 된 것과
+   같은 실수(목록으로 떨어뜨리기)를 처음부터 안 하려는 것이다. */
+const trTypeMap = (bp) => Object.fromEntries(bp.map((b) => [b.type, { ko: b.ko, en: b.en }]));
+const TR_TYPES = { I: trTypeMap(TOPIK_BLUEPRINT), II: trTypeMap(TOPIK2_BLUEPRINT) };
+const TR_ORDER = { I: [...new Set(TOPIK_BLUEPRINT.map((b) => b.type))],
+                   II: [...new Set(TOPIK2_BLUEPRINT.map((b) => b.type))] };
+/* II 는 우리가 매긴 난이도 구간이다(3~6급이 총점으로 갈리는 실제 시험과
+   달리 문항마다 급을 못 박을 수 없다) — app.module.js 의 TQ_EXAMS 와
+   같은 문구를 쓴다. */
+const trGradeTx = (exam, g) => (exam === 'I'
+  ? { ko: `${g}급`, en: `Level ${g}` }
+  : { ko: `${g}급 수준`, en: `Level ${g}` });
+
+function trPage(it) {
+  const tx = TR_TYPES[it.exam][it.type] || { ko: it.type, en: it.type };
+  const grade = trGradeTx(it.exam, it.grade);
+  const examName = `TOPIK ${it.exam}`;
+  const title = `TOPIK ${it.exam} 읽기 ${it.slot}번 연습 — ${it.topic} | 치즈감자`;
+  const desc = clip(`TOPIK ${it.exam} 읽기 ${it.slot}번 유형 연습 문항. ${tx.ko} — ${it.topic}. ` +
+    '기출이 아닌 창작 문항이고 정답과 해설이 함께 있습니다.');
+
+  const body = [
+    `<nav class="crumb"><a href="/">치즈감자</a> › <a href="/topik-reading/">TOPIK 읽기</a> › ${esc(examName)}</nav>`,
+    `<span class="badge">${esc(grade.ko)} · ${esc(tx.ko)}</span>`,
+    `<h1>${esc(it.topic)}</h1>`,
+    `<p class="sub">${esc(examName)} ${it.slot}번 · ${esc(tx.ko)} · ${esc(tx.en)}</p>`,
+    `<div class="ex">${esc(it.passage)}</div>`,
+    `<p class="desc">${esc(it.question)}</p>`,
+    '<ul class="opts">' + it.options.map((o, i) =>
+      `<li${i === it.answer ? ' class="right"' : ''}><span class="onum">${i + 1}</span>${esc(o)}</li>`).join('') + '</ul>',
+    '<h2>해설 · Explanation</h2>',
+    `<div class="ex">${esc(it.why)}</div>`,
+    `<a class="cta" href="/#learn/topik/${esc(it.exam)}/reading/${esc(it.id)}">이 문제 직접 풀어보기` +
+      `<span>Try it yourself — the same question, in the app</span></a>`,
+  ].join('\n');
+
+  const jsonld = [
+    {
+      '@context': 'https://schema.org',
+      '@type': 'LearningResource',
+      '@id': `${SITE}/topik-reading/${it.id}.html`,
+      name: `TOPIK ${it.exam} 읽기 ${it.slot}번 — ${it.topic}`,
+      description: it.question,
+      inLanguage: 'ko',
+      learningResourceType: 'exercise',
+      educationalLevel: grade.en,
+      teaches: `TOPIK ${it.exam} reading`,
+      isAccessibleForFree: true,
+    },
+    crumbLd([['치즈감자', '/'], ['TOPIK 읽기', '/topik-reading/'], [it.topic, null]]),
+  ];
+  return page({ url: `/topik-reading/${it.id}.html`, title, desc, body, jsonld });
+}
+
+function trHub() {
+  const groups = [['I', TOPIK_READING], ['II', TOPIK2_READING]];
+  const total = TOPIK_READING.length + TOPIK2_READING.length;
+  const sections = groups.map(([exam, items]) => {
+    const byType = {};
+    items.forEach((it) => (byType[it.type] = byType[it.type] || []).push(it));
+    const typeSections = TR_ORDER[exam].filter((k) => byType[k]).map((k) => {
+      const tx = TR_TYPES[exam][k];
+      const list = byType[k].slice().sort((a, b) => a.slot - b.slot);
+      return `<div class="cat"><h3>${esc(tx?.ko || k)}</h3><p>${esc(tx?.en || '')}</p><ul class="pts">` +
+        list.map((it) => `<li><a href="/topik-reading/${esc(it.id)}.html">${it.slot}번 · ${esc(it.topic)}</a></li>`).join('') +
+        '</ul></div>';
+    }).join('\n');
+    return `<h2>TOPIK ${exam} — ${items.length}문항</h2>${typeSections}`;
+  }).join('\n');
+
+  const body = [
+    '<nav class="crumb"><a href="/">치즈감자</a> › TOPIK 읽기</nav>',
+    `<h1>TOPIK 읽기 연습 문항 ${total}개</h1>`,
+    '<p class="lead">TOPIK I·II 읽기 유형별 연습 문항입니다. 문항마다 정답과 해설이 함께 있습니다.<br>' +
+      '<b>기출문제가 아니라 같은 유형으로 새로 쓴 창작 문항입니다.</b><br>' +
+      `${total} original TOPIK I/II reading practice questions, each with the answer explained.</p>`,
+    '<a class="cta" href="/#learn/topik/I/reading">TOPIK 읽기 열기<span>Open the reading practice</span></a>',
+    sections,
+  ].join('\n');
+
+  return page({
+    url: '/topik-reading/', kind: 'website',
+    title: `TOPIK 읽기 연습 문항 ${total}개 | 치즈감자`,
+    desc: clip(`TOPIK I·II 읽기 유형별 연습 문항 ${total}개. 정답과 해설까지. 기출이 아닌 창작 문항입니다.`),
+    body,
+    jsonld: [crumbLd([['치즈감자', '/'], ['TOPIK 읽기', '/topik-reading/']])],
+  });
+}
+
+/* ── TOPIK 듣기 ─────────────────────────────────────────────── */
+/* 대본을 그대로 글로 보여준다 — 실제 연습(app.module.js)은 대본을
+   답을 고른 뒤에야 펼치지만, 여기는 듣기 문제가 아니라 그 문제를 소개하는
+   읽는 쪽이다. 정적 쪽에 소리 파일이 없어서(mp3 대신 브라우저
+   음성합성을 쓴다) 대본이 이 쪽에서 유일하게 보여줄 수 있는 것이기도
+   하다. */
+const TL_WHO = { m: { ko: '남자', en: 'Man' }, w: { ko: '여자', en: 'Woman' }, n: { ko: '안내', en: 'Announcer' } };
+
+function tlPage(it) {
+  const bp = TOPIKL_BY_EXAM[it.exam].blueprint;
+  const tx = trTypeMap(bp)[it.type] || { ko: it.type, en: it.type };
+  const grade = trGradeTx(it.exam, it.grade);
+  const examName = `TOPIK ${it.exam}`;
+  const gist = it.script[0]?.text || it.q;
+  const title = `TOPIK ${it.exam} 듣기 ${it.slot}번 연습 — ${tx.ko} | 치즈감자`;
+  const desc = clip(`TOPIK ${it.exam} 듣기 ${it.slot}번 유형 연습 문항. ${tx.ko}. 대본과 정답, 해설이 함께 있습니다.`);
+
+  const script = it.script.map((l) => {
+    return `<div class="line${l.who === 'w' ? ' b' : ''}">` +
+      `<span class="who" aria-hidden="true">${l.who === 'w' ? '👩' : l.who === 'm' ? '👨' : '📢'}</span>` +
+      `<span class="bub">${esc(l.text)}</span></div>`;
+  }).join('\n  ');
+
+  const body = [
+    `<nav class="crumb"><a href="/">치즈감자</a> › <a href="/topik-listening/">TOPIK 듣기</a> › ${esc(examName)}</nav>`,
+    `<span class="badge">${esc(grade.ko)} · ${esc(tx.ko)}</span>`,
+    `<h1>${esc(gist.length > 40 ? gist.slice(0, 40) + '…' : gist)}</h1>`,
+    `<p class="sub">${esc(examName)} ${it.slot}번 · ${esc(tx.ko)} · ${esc(tx.en)} · 대본 · Script</p>`,
+    `<div class="dlg">\n  ${script}\n</div>`,
+    `<p class="desc" style="margin-top:20px">${esc(it.q)}</p>`,
+    '<ul class="opts">' + it.options.map((o, i) =>
+      `<li${i === it.answer ? ' class="right"' : ''}><span class="onum">${i + 1}</span>${esc(o)}</li>`).join('') + '</ul>',
+    '<h2>해설 · Explanation</h2>',
+    `<div class="ex">${esc(it.why)}</div>`,
+    `<a class="cta" href="/#learn/topik/${esc(it.exam)}/listening/${esc(it.id)}">이 문제 직접 풀어보기` +
+      `<span>Try it yourself — hear the audio and answer in the app</span></a>`,
+  ].join('\n');
+
+  const jsonld = [
+    {
+      '@context': 'https://schema.org',
+      '@type': 'LearningResource',
+      '@id': `${SITE}/topik-listening/${it.id}.html`,
+      name: `TOPIK ${it.exam} 듣기 ${it.slot}번 — ${tx.ko}`,
+      description: it.q,
+      inLanguage: 'ko',
+      learningResourceType: 'exercise',
+      educationalLevel: grade.en,
+      teaches: `TOPIK ${it.exam} listening`,
+      isAccessibleForFree: true,
+    },
+    crumbLd([['치즈감자', '/'], ['TOPIK 듣기', '/topik-listening/'], [`${it.slot}번`, null]]),
+  ];
+  return page({ url: `/topik-listening/${it.id}.html`, title, desc, body, jsonld });
+}
+
+function tlHub() {
+  const groups = [['I', TOPIKL_BY_EXAM.I], ['II', TOPIKL_BY_EXAM.II]];
+  const total = TOPIKL_BY_EXAM.I.items.length + TOPIKL_BY_EXAM.II.items.length;
+  const sections = groups.map(([exam, ex]) => {
+    const types = trTypeMap(ex.blueprint);
+    const order = [...new Set(ex.blueprint.map((b) => b.type))];
+    const byType = {};
+    ex.items.forEach((it) => (byType[it.type] = byType[it.type] || []).push(it));
+    const typeSections = order.filter((k) => byType[k]).map((k) => {
+      const list = byType[k].slice().sort((a, b) => a.slot - b.slot);
+      return `<div class="cat"><h3>${esc(types[k]?.ko || k)}</h3><p>${esc(types[k]?.en || '')}</p><ul class="pts">` +
+        list.map((it) => `<li><a href="/topik-listening/${esc(it.id)}.html">${it.slot}번</a></li>`).join('') +
+        '</ul></div>';
+    }).join('\n');
+    return `<h2>TOPIK ${exam} — ${ex.items.length}문항</h2>${typeSections}`;
+  }).join('\n');
+
+  const body = [
+    '<nav class="crumb"><a href="/">치즈감자</a> › TOPIK 듣기</nav>',
+    `<h1>TOPIK 듣기 연습 문항 ${total}개</h1>`,
+    '<p class="lead">TOPIK I·II 듣기 유형별 연습 문항입니다. 대본과 정답, 해설이 함께 있습니다.<br>' +
+      '<b>기출문제가 아니라 같은 유형으로 새로 쓴 창작 문항입니다.</b><br>' +
+      `${total} original TOPIK I/II listening practice questions with transcripts and answers explained.</p>`,
+    '<a class="cta" href="/#learn/topik/I/listening">TOPIK 듣기 열기<span>Open the listening practice</span></a>',
+    sections,
+  ].join('\n');
+
+  return page({
+    url: '/topik-listening/', kind: 'website',
+    title: `TOPIK 듣기 연습 문항 ${total}개 | 치즈감자`,
+    desc: clip(`TOPIK I·II 듣기 유형별 연습 문항 ${total}개. 대본과 정답, 해설까지. 기출이 아닌 창작 문항입니다.`),
+    body,
+    jsonld: [crumbLd([['치즈감자', '/'], ['TOPIK 듣기', '/topik-listening/']])],
+  });
+}
+
+/* ── 블로그 ─────────────────────────────────────────────────── */
+/* 글은 blog.js 에 아직 하나도 없다 — 자리(구조)만 먼저 낸다. 목록 쪽은
+   글이 없어도 항상 굽는다("곧 올릴게요" 안내가 뜬다) — 그래야 나중에
+   글을 하나만 추가해도 바로 목록에 걸린다.
+
+   블로그만 더 쓰는 CSS. 다른 정적 쪽(표현·코스·TOPIK)과 골격(CSS 변수·
+   .crumb·.foot 등)은 그대로 나눠 쓰되, 목록은 알약(.pts) 대신 카드로,
+   본문은 사전 항목이 아니라 실제 글을 읽는 자리답게 줄 간격과 문단
+   간격을 넉넉히 잡는다. page() 의 extraCss 로만 들어가므로 표현·코스
+   쪽 무게는 그대로다. */
+const BLOG_CSS = `
+.blog-list{display:flex;flex-direction:column;gap:14px;padding:0;margin:24px 0 0;list-style:none}
+.blog-card{display:block;border:1px solid var(--line);border-radius:16px;background:var(--card);
+  padding:20px 22px;text-decoration:none;transition:border-color .15s,transform .15s,box-shadow .15s}
+.blog-card:hover{border-color:var(--brand);transform:translateY(-1px);box-shadow:0 6px 20px -12px rgba(0,0,0,.25)}
+.blog-card h2{font-size:19px;margin:2px 0 8px;letter-spacing:-.01em;color:var(--ink)}
+.blog-card p{margin:0;color:var(--dim);font-size:14.5px;line-height:1.6}
+.blog-empty{border:1px dashed var(--line);border-radius:16px;padding:44px 24px;text-align:center;
+  color:var(--dim);margin-top:24px}
+.blog-empty .emoji{font-size:34px;display:block;margin-bottom:10px}
+.blog-meta{display:flex;gap:8px;align-items:center;font-size:12.5px;color:var(--dim);
+  font-weight:600;letter-spacing:.01em;margin:0 0 4px;flex-wrap:wrap}
+.blog-meta .dot{opacity:.5;font-weight:400}
+.blog-back{display:inline-flex;align-items:center;gap:5px;font-size:13.5px;color:var(--dim);
+  text-decoration:none;margin-bottom:16px}
+.blog-back:hover{color:var(--ink)}
+.blog-article{font-size:17px;line-height:1.85}
+.blog-article p{margin:0 0 22px}
+.blog-article h2{font-size:22px;color:var(--ink);margin:38px 0 12px;letter-spacing:-.01em}
+.blog-article h3{font-size:18px;color:var(--ink);margin:28px 0 10px}
+.blog-article blockquote{margin:26px 0;padding:2px 20px;border-left:3px solid var(--brand);
+  color:var(--dim);font-style:italic}
+.blog-article ul,.blog-article ol{padding-left:22px;margin:0 0 22px}
+.blog-article li{margin:6px 0}
+.blog-article code{background:var(--soft);padding:2px 6px;border-radius:6px;font-size:.9em}
+.blog-article img{max-width:100%;border-radius:12px;margin:6px 0}
+`.trim();
+
+/* 한글 기준 대략 분당 500자 읽는다고 잡는다 — 정확할 필요는 없고,
+   "훑어볼지 앉아서 읽을지" 감만 잡히면 된다. */
+function readMins(html) {
+  const chars = String(html ?? '').replace(/<[^>]+>/g, '').replace(/\s+/g, '').length;
+  return Math.max(1, Math.round(chars / 500));
+}
+const fmtDateKo = (iso) => {
+  const m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(iso || '');
+  return m ? `${+m[1]}년 ${+m[2]}월 ${+m[3]}일` : (iso || '');
+};
+function blogPage(post) {
+  const title = `${post.title} | 치즈감자 블로그`;
+  const desc = clip(post.excerpt);
+  const mins = readMins(post.body);
+  const body = [
+    `<a class="blog-back" href="/blog/">← 블로그</a>`,
+    `<nav class="crumb"><a href="/">치즈감자</a> › <a href="/blog/">블로그</a></nav>`,
+    `<h1>${esc(post.title)}</h1>`,
+    `<div class="blog-meta">${esc(fmtDateKo(post.date))}` +
+      (post.updated && post.updated !== post.date ? ` <span class="dot">·</span> 고침 ${esc(fmtDateKo(post.updated))}` : '') +
+      ` <span class="dot">·</span> ${mins}분 분량</div>`,
+    `<div class="blog-article">${post.body}</div>`,
+    `<a class="cta" href="/#learn">한국어 배우러 가기<span>Free Korean lessons, no sign-up needed</span></a>`,
+  ].join('\n');
+
+  const jsonld = [
+    {
+      '@context': 'https://schema.org',
+      '@type': 'BlogPosting',
+      '@id': `${SITE}/blog/${post.id}.html`,
+      headline: post.title,
+      datePublished: post.date,
+      dateModified: post.updated || post.date,
+      description: post.excerpt,
+      inLanguage: 'ko',
+      author: { '@type': 'Organization', name: '치즈감자' },
+      isAccessibleForFree: true,
+    },
+    crumbLd([['치즈감자', '/'], ['블로그', '/blog/'], [post.title, null]]),
+  ];
+  return page({ url: `/blog/${post.id}.html`, title, desc, body, jsonld, extraCss: BLOG_CSS });
+}
+
+function blogHub(posts) {
+  const list = posts.length
+    ? '<ul class="blog-list">' + posts.map((p) =>
+        `<li><a class="blog-card" href="/blog/${esc(p.id)}.html">` +
+          `<div class="blog-meta">${esc(fmtDateKo(p.date))} <span class="dot">·</span> ${readMins(p.body)}분 분량</div>` +
+          `<h2>${esc(p.title)}</h2>` +
+          `<p>${esc(p.excerpt)}</p>` +
+        `</a></li>`).join('') + '</ul>'
+    : '<div class="blog-empty"><span class="emoji">🧀</span>아직 올린 글이 없습니다 — 곧 첫 글을 올릴게요.<br>No posts yet — the first one is coming soon.</div>';
+
+  const body = [
+    '<nav class="crumb"><a href="/">치즈감자</a> › 블로그</nav>',
+    '<h1>블로그</h1>',
+    '<p class="lead">한국어 공부, 문법, TOPIK 준비에 관한 글들입니다.<br>' +
+      'Notes on learning Korean, grammar, and TOPIK prep.</p>',
+    list,
+  ].join('\n');
+
+  return page({
+    url: '/blog/', kind: 'website',
+    title: '블로그 | 치즈감자',
+    desc: clip('한국어 공부, 문법, TOPIK 준비에 관한 치즈감자 블로그입니다.'),
+    body,
+    jsonld: [crumbLd([['치즈감자', '/'], ['블로그', '/blog/']])],
+    extraCss: BLOG_CSS,
+  });
+}
+
 /* ── sitemap ────────────────────────────────────────────────── */
 function sitemap(urls) {
   return `<?xml version="1.0" encoding="UTF-8"?>
@@ -695,7 +1007,7 @@ ${urls.map(({ loc, freq, pri }) =>
 /* ── 돌린다 ─────────────────────────────────────────────────── */
 /* 통째로 지우고 다시 쓴다. 표현을 지웠을 때 예전 쪽이 남아 검색에 걸리면
    앱에 없는 것을 보여 주게 된다. */
-for (const d of [OUT, OUT_COURSE, OUT_LESSON, OUT_TW, OUT_CMP]) {
+for (const d of [OUT, OUT_COURSE, OUT_LESSON, OUT_TW, OUT_TR, OUT_TL, OUT_CMP, OUT_BLOG]) {
   rmSync(d, { recursive: true, force: true });
   mkdirSync(d, { recursive: true });
 }
@@ -758,6 +1070,39 @@ for (const it of TW_ITEMS) {
 writeFileSync(join(OUT_TW, 'index.html'), twHub(TW_ITEMS));
 urls.push({ loc: '/topik-writing/', freq: 'weekly', pri: '0.9' });
 
+/* ── TOPIK 읽기 ─────────────────────────────────────────────── */
+let nR = 0;
+for (const it of [...TOPIK_READING, ...TOPIK2_READING]) {
+  writeFileSync(join(OUT_TR, `${it.id}.html`), trPage(it));
+  urls.push({ loc: `/topik-reading/${it.id}.html`, freq: 'monthly', pri: '0.7' });
+  nR++;
+}
+writeFileSync(join(OUT_TR, 'index.html'), trHub());
+urls.push({ loc: '/topik-reading/', freq: 'weekly', pri: '0.9' });
+
+/* ── TOPIK 듣기 ─────────────────────────────────────────────── */
+let nTL = 0;
+for (const it of [...TOPIKL_BY_EXAM.I.items, ...TOPIKL_BY_EXAM.II.items]) {
+  writeFileSync(join(OUT_TL, `${it.id}.html`), tlPage(it));
+  urls.push({ loc: `/topik-listening/${it.id}.html`, freq: 'monthly', pri: '0.7' });
+  nTL++;
+}
+writeFileSync(join(OUT_TL, 'index.html'), tlHub());
+urls.push({ loc: '/topik-listening/', freq: 'weekly', pri: '0.9' });
+
+/* ── 블로그 ─────────────────────────────────────────────────── */
+/* 글이 하나도 없어도(BLOG_POSTS = []) 목록 쪽은 늘 굽는다 — 안 그러면
+   나중에 글을 딱 하나 추가했을 때 목록이 아예 없어서 처음 한 번은
+   손으로 더 손대야 한다. */
+let nB = 0;
+for (const post of BLOG_POSTS) {
+  writeFileSync(join(OUT_BLOG, `${post.id}.html`), blogPage(post));
+  urls.push({ loc: `/blog/${post.id}.html`, freq: 'yearly', pri: '0.5' });
+  nB++;
+}
+writeFileSync(join(OUT_BLOG, 'index.html'), blogHub(BLOG_POSTS));
+urls.push({ loc: '/blog/', freq: 'weekly', pri: '0.6' });
+
 urls.push({ loc: '/privacy.html', freq: 'yearly', pri: '0.3' });
 writeFileSync(join(ROOT, 'sitemap.xml'), sitemap(urls));
 
@@ -766,4 +1111,7 @@ console.log(`갈래 비교 ${nCmp}쪽 + 목록 1쪽 → compare/`);
 console.log(`코스 ${nC}쪽 + 목록 1쪽 → course/`);
 console.log(`레슨 ${nL}쪽 → lesson/`);
 console.log(`TOPIK 쓰기 ${nW}쪽 + 목록 1쪽 → topik-writing/`);
+console.log(`TOPIK 읽기 ${nR}쪽 + 목록 1쪽 → topik-reading/`);
+console.log(`TOPIK 듣기 ${nTL}쪽 + 목록 1쪽 → topik-listening/`);
+console.log(`블로그 ${nB}쪽 + 목록 1쪽 → blog/`);
 console.log(`sitemap.xml 에 주소 ${urls.length}개.`);

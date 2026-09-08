@@ -15,7 +15,7 @@
 export const DETAILED_GRAMMAR_COURSES = [
 
   // ════════════════════════════════════════════════
-  // 🟢 BEGINNER (초급) — 2강좌
+  // 🟢 BEGINNER (초급) — 5강좌
   // ════════════════════════════════════════════════
   {
     id: 'bg-d-01',
@@ -300,6 +300,796 @@ export const DETAILED_GRAMMAR_COURSES = [
 
           { t:'speak', say:'지금은 그냥 가고 싶은 마음이지만, 돈을 모으면 내년에는 꼭 갈 거예요.',
             q:'앞은 바람, 뒤는 계획입니다. 두 어미가 한 문장에 같이 나옵니다.' },
+        ],
+      },
+    ],
+  },
+
+  {
+    id: 'bg-d-03',
+    emoji: '🙇',
+    title: { ko:'초급 세밀: 존댓말 -(으)시- 사람에 맞게 바꾸기', en:'Beginner detail: honorific -(으)시-, matched to the person' },
+    tagline: { ko:'같은 문장도 누구 얘기냐에 따라 통째로 달라진다', en:'The same sentence changes completely depending on who it’s about' },
+    blurb: { ko:'“집에 가요”가 할머니 얘기가 되면 “할머니께서 집에 가세요”로 바뀝니다. 동사에 -(으)시-를 붙이는 규칙부터 드시다·계시다처럼 통째로 바뀌는 낱말까지, 기본 문장을 사람에 맞게 고치는 훈련입니다.',
+           en:'“집에 가요” becomes “할머니께서 집에 가세요” when it’s about your grandmother. From the rule for attaching -(으)시- to verbs, to words that change completely — like 드시다 (eat) and 계시다 (be) — this trains you to reshape a basic sentence to fit the person you’re talking about.' },
+    level: 'Beginner',
+    needs: 'bg-04',
+    hon: true,   // 존댓말 검사기(tools/check-honorific.mjs)가 이 표시로 코스를 골라 낸다
+    lessons: [
+      /* ── 1강 ──────────────────────────────────────────────
+         규칙 먼저: 받침 있고 없고로 -세요/-으세요 가 갈린다.
+         블록 속 글(h/md/q/why/head 등)은 cTx() 를 안 거치는 순수 문자열이라
+         언어를 못 바꾼다(app.module.js readBlock·exBlock 확인) — 그래서
+         영어로 적는다. 배우는 한국어 문장·답·보기는 그대로 한국어로 둔다. */
+      {
+        id: 'bg-d-03-01',
+        title: { ko:'1강. 웃어른이 주어면 -(으)세요', en:'1. When an elder is the subject: -(으)세요' },
+        minutes: 5,
+        blocks: [
+          /* 한눈에 보는 표를 맨 위에 둔다. 아래 걸음마다 나오는 규칙을
+             먼저 요약으로 보여 주고, 그다음 하나씩 풀어서 설명한다 —
+             전체 지도를 먼저 주면 이후 설명이 「그 표의 몇 번째 줄」로
+             바로 붙는다. */
+          { t:'table', h:'The honorific rules at a glance',
+            head:['What changes','The rule, with examples'],
+            rows:[
+              ['Verbs/adjectives with no batchim','stem + -세요  (가다→가**세요**, 오다→오**세요**, 바쁘다→바쁘**세요**)'],
+              ['Verbs/adjectives with a batchim','stem + -으세요  (앉다→앉**으세요**, 읽다→읽**으세요**)'],
+              ['Stems ending in ㄹ','ㄹ drops, then + -세요  (살다→사**세요**, 만들다→만드**세요**)'],
+              ['Verbs that change completely','먹다·마시다→드시다, 자다→주무시다, 있다(사람)→계시다, 말하다→말씀하시다, 아프다→편찮으시다'],
+              ['Nouns that change completely','이름→성함, 나이→연세, 집→댁, 생일→생신, 밥→진지'],
+              ['Particles','이/가→께서,  에게/한테→께'],
+            ]},
+
+          { t:'text', h:'What this expression does',
+            md:'When the **subject of the sentence is someone senior to you** (grandmother, teacher, boss, a customer), you add **-(으)시-** to the verb or adjective to honor that person.\n\n저는 집에 가요. (about me — unchanged)\n\n할머니께서 집에 가**세요**. (about Grandma — honored)' },
+
+          { t:'text', h:'How to build it — check the stem’s batchim',
+            md:'가**다** → 가 … **no** batchim → attach **-세요** → 가세요\n\n앉**다** → 앉 … **has** a batchim (ㄴ) → attach **-으세요** → 앉으세요\n\nThat one check decides everything else. The top two rows of the table above are exactly this rule.' },
+
+          { t:'table',
+            head:['Dictionary form','Batchim','-(으)세요'],
+            rows:[
+              ['가다 — to go','none','가**세요**'],
+              ['오다 — to come','none','오**세요**'],
+              ['바쁘다 — to be busy','none','바쁘**세요**'],
+              ['앉다 — to sit','yes (ㄴ)','앉**으세요**'],
+              ['읽다 — to read','yes (ㄱ)','읽**으세요**'],
+              ['살다 — to live','ㄹ (drops)','사**세요**'],
+            ]},
+
+          { t:'chars', wide:true, items:[
+            { ch:'할머니께서 지금 집에 가세요.', tip:'Grandma is going home now. — the honorific form of 저는 집에 가요' },
+            { ch:'사장님이 다음 주에 미국에서 오세요.', tip:'The boss is coming from the US next week.' },
+            { ch:'선생님께서 공원 벤치에 앉으세요.', tip:'The teacher is sitting on the park bench.' },
+            { ch:'할아버지께서 요즘 많이 바쁘세요.', tip:'Grandpa has been very busy lately.' },
+          ]},
+
+          { t:'note', md:'**Honoring yourself sounds odd.** -(으)시- is only used when the subject of the sentence is someone senior to you.\n\n저는 지금 가세요. (✕ — this honors “me”)\n\n저는 지금 가요. (○)\n\nIt’s also not usually used for friends or people your age or younger.' },
+
+          { t:'cloze', sentence:'할머니께서 공원 벤치에 [앉으세요].', answer:'앉으세요',
+            meaning:'Grandma is sitting on the park bench.',
+            options:['앉아요','앉으세요','앉았어요','앉을 거예요'],
+            keys:['앉으세요','앉아요','앉았어요','앉을 거예요'],
+            why:'The subject is 할머니 (Grandma), someone senior. 앉다 has the batchim ㄴ, so it takes -으세요.' },
+
+          { t:'cloze', sentence:'사장님이 다음 주에 미국에서 [오세요].', answer:'오세요',
+            meaning:'The boss is coming from the US next week.',
+            options:['와요','오세요','왔어요','올 거예요'],
+            keys:['오세요','와요','왔어요','올 거예요'],
+            why:'The subject is 사장님 (the boss), and 오다 has no batchim, so -세요 attaches directly.' },
+
+          { t:'type', q:'바쁘다 (to be busy) — “선생님께서 요즘 많이 ___.”',
+            answer:'바쁘세요',
+            keys:['바쁘세요','바빠요','바빴어요','바쁠 거예요'],
+            why:'바쁘다 has no batchim, so -세요 attaches directly to the stem 바쁘.' },
+
+          { t:'choice', q:'Which of these can correctly use -(으)세요?',
+            options:['저는 지금 가세요','친구가 지금 가세요','할머니께서 지금 가세요'], answer:2,
+            why:'-(으)시- is only used when the subject of the sentence is someone senior to you — not for yourself or a friend.' },
+
+          { t:'order', q:'Put together “할머니께서 공원 벤치에 앉으세요.”',
+            tokens:['할머니께서','공원 벤치에','앉으세요'], answer:['할머니께서','공원 벤치에','앉으세요'] },
+
+          { t:'speak', say:'할머니께서 지금 신문을 읽으세요.',
+            q:'When talking about someone senior, read -으세요 with a soft, gentle tone.' },
+        ],
+      },
+
+      /* ── 2강 ──────────────────────────────────────────────
+         규칙으로 안 되는 낱말들 — 통째로 바뀐다. */
+      {
+        id: 'bg-d-03-02',
+        title: { ko:'2강. 통째로 바뀌는 낱말 — 드시다·계시다', en:'2. Words that change completely — 드시다, 계시다' },
+        minutes: 5,
+        blocks: [
+          { t:'text', h:'What this expression does',
+            md:'A handful of words don’t take -(으)시- at all — instead, they **change into a completely different word**. Some are verbs, some are nouns.' },
+
+          { t:'table',
+            head:['Plain','Honorific','Meaning'],
+            rows:[
+              ['먹다 · 마시다','드시다','eat / drink'],
+              ['자다','주무시다','sleep'],
+              ['있다 (사람)','계시다','be (a person is)'],
+              ['말하다','말씀하시다','say, speak'],
+              ['아프다','편찮으시다','be sick'],
+              ['이름','성함','name'],
+              ['나이','연세','age'],
+              ['집','댁','house, home'],
+              ['생일','생신','birthday'],
+              ['밥 · 식사','진지','meal'],
+            ]},
+
+          { t:'chars', wide:true, items:[
+            { ch:'할아버지께서 진지를 드세요.', tip:'Grandpa is eating a meal. — the honorific form of 저는 밥을 먹어요' },
+            { ch:'할머니께서 방에서 주무세요.', tip:'Grandma is sleeping in her room.' },
+            { ch:'선생님, 성함이 어떻게 되세요?', tip:'Teacher, what is your name? — more polite than 이름이 뭐예요?' },
+            { ch:'할머니께서 지금 댁에 계세요.', tip:'Grandma is at home right now.' },
+          ]},
+
+          { t:'note', md:'**있다 splits into two.** When it means a person “exists,” use **계시다**. When it means “to have” something like time or money, keep the regular -(으)시- and use **있으시다**.\n\n할머니께서 방에 계세요. (○ — existence)\n\n선생님, 시간 있으세요? (○ — possession)\n\n선생님, 시간 계세요? (✕)' },
+
+          { t:'cloze', sentence:'할아버지께서 방에서 [주무세요].', answer:'주무세요',
+            meaning:'Grandpa is sleeping in his room.',
+            options:['자요','자세요','주무세요','주무셨어요'],
+            keys:['주무세요','자요','자세요','주무셨어요'],
+            why:'The honorific of 자다 changes completely to 주무시다. You don’t just attach -세요 to 자다, as in 자세요.' },
+
+          { t:'cloze', sentence:'할머니께서 지금 방에 [계세요].', answer:'계세요',
+            meaning:'Grandma is in her room right now.',
+            options:['있어요','있으세요','계세요','계셨어요'],
+            keys:['계세요','있어요','있으세요','계셨어요'],
+            why:'This means a person is present, so it becomes 계시다. 있으세요 is for things you have, like time or objects.' },
+
+          { t:'cloze', sentence:'선생님, [성함]이 어떻게 되세요?', answer:'성함',
+            meaning:'Teacher, what is your name?',
+            options:['이름','성함','연세','댁'],
+            keys:['성함','이름','연세','댁'],
+            why:'When asking someone senior their name, use 성함 instead of 이름.' },
+
+          { t:'type', q:'아프다 (honorific) — “할머니, 어디 ___?” (use the honorific of 아프다)',
+            answer:'편찮으세요',
+            keys:['편찮으세요','아프세요','아팠어요','편찮았어요'],
+            why:'The honorific of 아프다 changes completely to 편찮다, which has the batchim ㅎ, so it takes -으세요.' },
+
+          { t:'pair', q:'Match each plain word with its honorific form.',
+            pairs:[
+              ['먹다 · 마시다','드시다'],
+              ['자다','주무시다'],
+              ['있다 (사람)','계시다'],
+              ['이름','성함'],
+            ]},
+
+          { t:'speak', say:'할머니, 요즘 어떠세요? 진지는 잘 드세요?',
+            q:'These two honorific words often appear together in a greeting.' },
+        ],
+      },
+
+      /* ── 3강 ──────────────────────────────────────────────
+         실전: 기본 문장을 놓고 누구 얘기인지에 맞춰 통째로 바꿔 쓴다.
+         고르기만 하면 읽을 줄만 알게 된다. build 블록으로 직접 만들어 본다. */
+      {
+        id: 'bg-d-03-03',
+        title: { ko:'3강. 같은 문장, 다른 사람 — 바꿔 써 보기', en:'3. Same sentence, different person — rewrite it' },
+        minutes: 5,
+        blocks: [
+          { t:'text', h:'In real use, you rewrite the whole sentence',
+            md:'When you actually speak, first decide **who this is about**, then change **both the verb and the words** to match. Changing only one sounds off.' },
+
+          { t:'table',
+            head:['Basic sentence','When it’s about someone senior'],
+            rows:[
+              ['집에 가요.','할머니께서 집에 가세요.'],
+              ['밥을 먹어요.','할아버지께서 진지를 드세요.'],
+              ['이름이 뭐예요?','성함이 어떻게 되세요?'],
+              ['지금 집에 있어요.','지금 댁에 계세요.'],
+            ]},
+
+          { t:'chars', wide:true, items:[
+            { ch:'할머니께서 집에 가세요.', tip:'Plain: 집에 가요. — change the subject to 할머니 and attach -세요 to 가다' },
+            { ch:'할아버지께서 진지를 드세요.', tip:'Plain: 밥을 먹어요. — both 밥→진지 and 먹다→드시다 change' },
+            { ch:'사장님, 연세가 어떻게 되세요?', tip:'Plain: 나이가 몇 살이에요? — 나이 changes completely to 연세' },
+          ]},
+
+          { t:'note', md:'**Both parts need to change to sound natural.** If you only change the verb, as in “할아버지께서 밥을 드세요,” and leave the noun as is, you get a half-honored sentence. If a word changes completely, change that first.' },
+
+          { t:'cloze', sentence:'사장님께서 지금 사무실에 [계세요].', answer:'계세요',
+            meaning:'The boss is in the office right now.',
+            options:['있어요','있으세요','계세요','가세요'],
+            keys:['계세요','있어요','있으세요','가세요'],
+            why:'This means a person is present, so it becomes 계시다.' },
+
+          { t:'cloze', sentence:'할머니, [댁]이 어디세요?', answer:'댁',
+            meaning:'Grandma, where is your home?',
+            options:['집','댁','방','나라'],
+            keys:['댁','집','방','나라'],
+            why:'When talking about a senior person’s home, use 댁 instead of 집.' },
+
+          { t:'build', q:'Rewrite the basic sentence “집에 가요” as if it’s about your grandmother.',
+            answers:['할머니께서 집에 가세요.','할머니가 집에 가세요.'],
+            bank:['할머니께서','할머니가','집에','가세요','가요'],
+            must:['가세요'],
+            hint:'가다 has no batchim, so 가 + 세요' },
+
+          { t:'build', q:'Rewrite the basic sentence “밥을 먹어요” as if it’s about your grandfather.',
+            answers:['할아버지께서 진지를 드세요.','할아버지가 진지를 드세요.'],
+            bank:['할아버지께서','할아버지가','진지를','드세요','밥을','먹어요'],
+            must:['진지'],
+            hint:'밥 becomes 진지, and 먹다 changes completely to 드시다' },
+
+          { t:'speak', say:'할머니, 요즘 어떻게 지내세요? 건강은 괜찮으세요?',
+            q:'This is a phrase people actually use to ask how someone senior is doing.' },
+        ],
+      },
+    ],
+  },
+
+  {
+    id: 'bg-d-04',
+    emoji: '🎩',
+    title: { ko:'초급 세밀: 존댓말 넓히기 — 과거·격식체·묻고 권하기', en:'Beginner detail: broadening honorifics — past, formal, asking and offering' },
+    tagline: { ko:'세요 하나로는 못 담는 존댓말 표현들', en:'Honorific forms -(으)세요 alone can’t cover' },
+    blurb: { ko:'지나간 일은 -(으)셨어요, 뉴스·발표 같은 자리는 -(으)십니다, 묻고 권할 때는 -(으)실래요·-(으)시겠어요까지. -(으)세요 다음 단계로 존댓말 표현을 단계별로 넓힙니다.',
+           en:'Something that already happened takes -(으)셨어요. News and announcements take -(으)십니다. Asking or offering takes -(으)실래요 or -(으)시겠어요. This broadens honorific expressions step by step, past -(으)세요.' },
+    level: 'Beginner',
+    needs: 'bg-d-03',
+    hon: true,
+    lessons: [
+      /* ── 1강 ──────────────────────────────────────────────
+         -(으)세요의 과거. 세요→셨어요만 바꾸면 되는 걸 먼저 보여 준다. */
+      {
+        id: 'bg-d-04-01',
+        title: { ko:'1강. 지나간 일은 -(으)셨어요', en:'1. Something that already happened: -(으)셨어요' },
+        minutes: 5,
+        blocks: [
+          { t:'table', h:'The -(으)셨어요 rules at a glance',
+            head:['What changes','The rule, with examples'],
+            rows:[
+              ['Verbs/adjectives with no batchim','stem + -셨어요  (가다→가**셨어요**, 오다→오**셨어요**, 바쁘다→바쁘**셨어요**)'],
+              ['Verbs/adjectives with a batchim','stem + -으셨어요  (앉다→앉**으셨어요**, 읽다→읽**으셨어요**)'],
+              ['Stems ending in ㄹ','ㄹ drops, then + -셨어요  (살다→사**셨어요**, 만들다→만드**셨어요**)'],
+              ['Words that already change completely also take the past this way','드시다→드**셨어요**, 계시다→계**셨어요**, 주무시다→주무**셨어요**, 편찮으시다→편찮으**셨어요**'],
+            ]},
+
+          { t:'text', h:'What this expression does',
+            md:'**-(으)셨어요** is the past tense of -(으)세요. Use it when something the honored person did already happened.\n\n할머니께서 어제 집에 가**세요**. (✕ — sounds like something happening now)\n\n할머니께서 어제 집에 가**셨어요**. (○ — something that happened yesterday)' },
+
+          { t:'text', h:'How to build it — just swap 세요 for 셨어요',
+            md:'The rule for building -(으)세요 stays the same — you only swap the final **세요** for **셨어요**.\n\n가세요 → 가**셨어요**\n\n앉으세요 → 앉**으셨어요**\n\n드세요 → 드**셨어요** (드시다 changes the same way)' },
+
+          { t:'table',
+            head:['Dictionary form','Past honorific'],
+            rows:[
+              ['가다 — to go','가**셨어요**'],
+              ['읽다 — to read','읽**으셨어요**'],
+              ['살다 — to live','사**셨어요**'],
+              ['드시다 — to eat (hon.)','드**셨어요**'],
+              ['편찮으시다 — to be sick (hon.)','편찮으**셨어요**'],
+            ]},
+
+          { t:'chars', wide:true, items:[
+            { ch:'할머니께서 어제 병원에 가셨어요.', tip:'Grandma went to the hospital yesterday.' },
+            { ch:'할아버지께서 아까 진지를 드셨어요.', tip:'Grandpa ate a meal a while ago.' },
+            { ch:'선생님께서 지난주에 편찮으셨어요.', tip:'The teacher was sick last week.' },
+          ]},
+
+          { t:'note', md:'**Mixing up 세요 and 셨어요 changes the tense.** If there’s a word for a past time like “yesterday,” “a while ago,” or “last week,” it must be 셨어요.\n\n어제 오세요. (✕ — sounds like a command to come now, even though it says “yesterday”)\n\n어제 오**셨어요**. (○)' },
+
+          { t:'cloze', sentence:'할머니께서 어제 병원에 [가셨어요].', answer:'가셨어요',
+            meaning:'Grandma went to the hospital yesterday.',
+            options:['가세요','가셨어요','가실 거예요','가고 계세요'],
+            keys:['가셨어요','가세요','가실 거예요','가고 계세요'],
+            why:'There’s a past-time word, “어제” (yesterday), so the past honorific -셨어요 is used.' },
+
+          { t:'cloze', sentence:'할아버지께서 아까 진지를 [드셨어요].', answer:'드셨어요',
+            meaning:'Grandpa ate a meal a while ago.',
+            options:['드세요','드셨어요','드실 거예요','드시겠어요'],
+            keys:['드셨어요','드세요','드실 거예요','드시겠어요'],
+            why:'“아까” means “a little while ago” — already past. 드시다 takes 셨어요 the same way.' },
+
+          { t:'type', q:'읽다 — “할머니께서 지난주에 이 책을 다 ___.” Write the past honorific form.',
+            answer:'읽으셨어요',
+            keys:['읽으셨어요','읽으세요','읽으실 거예요','읽었어요'],
+            why:'There’s a batchim ㄱ, so -으셨어요 attaches.' },
+
+          { t:'choice', q:'Which one sounds natural after “어제” (yesterday)?',
+            options:['할머니께서 어제 집에 가세요','할머니께서 어제 집에 가셨어요','할머니께서 어제 집에 가실 거예요'], answer:1,
+            why:'“어제” is a past time word, so the past honorific -셨어요 is correct.' },
+
+          { t:'order', q:'Put together “할아버지께서 아까 진지를 드셨어요.”',
+            tokens:['할아버지께서','아까','진지를','드셨어요'], answer:['할아버지께서','아까','진지를','드셨어요'] },
+
+          { t:'speak', say:'할머니께서 어제 오랜만에 친구를 만나셨어요.',
+            q:'This is about the past, so make the 셨어요 clear as you read it.' },
+        ],
+      },
+
+      /* ── 2강 ──────────────────────────────────────────────
+         격식체 존댓말. -습니다/-ㅂ니다(격식) 와 -시-(존댓말)는 다른 축이라는
+         것부터 짚는다 — 그래야 사물존댓말(포장이세요? 류)도 자리를 잡는다. */
+      {
+        id: 'bg-d-04-02',
+        title: { ko:'2강. 뉴스·발표 자리는 -(으)십니다', en:'2. News and announcements: -(으)십니다' },
+        minutes: 5,
+        blocks: [
+          { t:'table', h:'The -(으)십니다 rules at a glance',
+            head:['What changes','The rule, with examples'],
+            rows:[
+              ['Verbs/adjectives with no batchim','stem + -십니다  (가다→가**십니다**, 오다→오**십니다**)'],
+              ['Verbs/adjectives with a batchim','stem + -으십니다  (앉다→앉**으십니다**, 읽다→읽**으십니다**)'],
+              ['Stems ending in ㄹ','ㄹ drops, then + -십니다  (살다→사**십니다**, 만들다→만드**십니다**)'],
+              ['Questions use -까 instead','가십니다 → 가**십니까**?  /  읽으십니다 → 읽으**십니까**?'],
+              ['Words that already change completely still work the same way','드시다→드**십니다**, 계시다→계**십니다**, 주무시다→주무**십니다**'],
+            ]},
+
+          { t:'text', h:'What this expression does',
+            md:'**-(으)십니다** is an honorific used in **more formal settings** than -(으)세요 — news, presentations, announcements, a company’s official occasions.\n\n할머니께서 집에 가**세요**. (everyday conversation)\n\n사장님께서 지금 도착하**십니다**. (a company announcement)' },
+
+          { t:'note', md:'**-습니다/-ㅂ니다 is formal, but it isn’t honorific.** For it to be honorific, -시- has to be there too.\n\n오늘 회의를 시작합니다. (formal: yes, honorific: no — the subject can be anyone)\n\n사장님께서 회의를 시작하**십니다**. (formal: yes, honorific: yes — the subject is someone senior)' },
+
+          { t:'table',
+            head:['Dictionary form','-(으)십니다'],
+            rows:[
+              ['가다 — to go','가**십니다**'],
+              ['앉다 — to sit','앉**으십니다**'],
+              ['살다 — to live','사**십니다**'],
+              ['드시다 — to eat (hon.)','드**십니다**'],
+              ['계시다 — to be (hon.)','계**십니다**'],
+            ]},
+
+          { t:'chars', wide:true, items:[
+            { ch:'사장님께서 지금 회의실에 계십니다.', tip:'The boss is in the meeting room right now. — a formal announcement' },
+            { ch:'잠시 후 부장님께서 도착하십니다.', tip:'The department head will arrive shortly.' },
+            { ch:'손님, 무엇을 드십니까?', tip:'Sir/Ma’am, what would you like to eat? — formal register, as at a restaurant' },
+          ]},
+
+          { t:'note', md:'**-시- doesn’t attach to things that aren’t people.** Attaching it to an object produces what’s often called “object honorification” — a mistake, even though it’s common.\n\n주문하신 커피 나오**셨습니다**. (✕ — the coffee isn’t a person)\n\n주문하신 커피 나왔습니다. (○)' },
+
+          { t:'cloze', sentence:'잠시 후 부장님께서 [도착하십니다].', answer:'도착하십니다',
+            meaning:'The department head will arrive shortly.',
+            options:['도착합니다','도착하십니다','도착하세요','도착하셨습니다'],
+            keys:['도착하십니다','도착합니다','도착하세요','도착하셨습니다'],
+            why:'The subject is 부장님 (someone senior), and this is a formal setting like an announcement, so -십니다 is correct. 도착합니다 isn’t honorific — it works for any subject.' },
+
+          { t:'cloze', sentence:'손님, 무엇을 [드십니까]?', answer:'드십니까',
+            meaning:'What would you like to eat, sir/ma’am?',
+            options:['먹습니까','드십니까','드세요','드셨습니까'],
+            keys:['드십니까','먹습니까','드세요','드셨습니까'],
+            why:'This is a question in a formal setting like a restaurant, so the question form -십니까 is used.' },
+
+          { t:'type', q:'앉다 — “이쪽으로 ___.” (announcing to a meeting room, in the formal honorific)',
+            answer:'앉으십니다',
+            keys:['앉으십니다','앉으세요','앉습니다','앉으셨습니다'],
+            why:'There’s a batchim ㄴ, so -으십니다 attaches.' },
+
+          { t:'choice', q:'Which sentence wrongly attaches an honorific to an object?',
+            options:['사장님께서 지금 오십니다','이 상품은 품절이십니다','손님, 이쪽으로 앉으십니다'], answer:1,
+            why:'“이 상품은 품절이십니다” attaches -시- to a product (an object), which is incorrect. “품절입니다” is correct.' },
+
+          { t:'order', q:'Put together “잠시 후 부장님께서 도착하십니다.”',
+            tokens:['잠시 후','부장님께서','도착하십니다'], answer:['잠시 후','부장님께서','도착하십니다'] },
+
+          { t:'speak', say:'손님 여러분, 잠시 후 열차가 도착합니다. 사장님께서는 지금 회의실에 계십니다.',
+            q:'The first sentence isn’t honorific (a train), the second is (the boss). Bring out that difference as you read.' },
+        ],
+      },
+
+      /* ── 3강 ──────────────────────────────────────────────
+         묻고 권하는 자리. 세 표현의 정중도 차이를 나란히 놓는다. */
+      {
+        id: 'bg-d-04-03',
+        title: { ko:'3강. 묻고 권할 때 — 실래요·시겠어요·실 거예요', en:'3. Asking and offering — 실래요, 시겠어요, 실 거예요' },
+        minutes: 5,
+        blocks: [
+          { t:'table', h:'Honorific offers, questions, and plans at a glance',
+            head:['Expression','Meaning and use','Example'],
+            rows:[
+              ['-(으)세요?','asking plainly','어디 가**세요**?'],
+              ['-(으)실래요?','offering casually, or asking their preference','같이 가**실래요**?'],
+              ['-(으)시겠어요?','offering or asking more politely (restaurants, service)','무엇을 드**시겠어요**?'],
+              ['-(으)실 거예요?','asking about a future plan','내일 오**실 거예요**?'],
+            ]},
+
+          { t:'text', h:'What this expression does',
+            md:'Besides -(으)세요?, there are several other ways to ask or offer something to someone senior. You pick one based on the setting.\n\nCasually, among friends → -(으)실래요?\n\nPolitely, as at a restaurant or in service → -(으)시겠어요?\n\nWhen asking about a plan → -(으)실 거예요?' },
+
+          { t:'table',
+            head:['Dictionary form','-(으)실래요?'],
+            rows:[
+              ['가다 — to go','가**실래요**?'],
+              ['앉다 — to sit','앉**으실래요**?'],
+              ['드시다 — to eat (hon.)','드**실래요**?'],
+            ]},
+
+          { t:'table',
+            head:['Dictionary form','-(으)시겠어요?'],
+            rows:[
+              ['가다 — to go','가**시겠어요**?'],
+              ['드시다 — to eat (hon.)','드**시겠어요**?'],
+              ['기다리다 — to wait','기다리**시겠어요**?'],
+            ]},
+
+          { t:'chars', wide:true, items:[
+            { ch:'커피 한 잔 하실래요?', tip:'Would you like a cup of coffee? — a casual offer' },
+            { ch:'손님, 무엇을 드시겠어요?', tip:'Sir/Ma’am, what would you like? — a polite offer (restaurant)' },
+            { ch:'내일 이 자리에 다시 오실 거예요?', tip:'Will you come back here tomorrow? — asking about a plan' },
+          ]},
+
+          { t:'note', md:'**-(으)실래요? asks their preference; -(으)시겠어요? is a notch more polite than that.** With a senior person you don’t know well, or a customer, -(으)시겠어요? is the safer choice.\n\n할머니, 이거 드**실래요**? (someone you’re close to)\n\n손님, 이거 드**시겠어요**? (someone you’re meeting for the first time)' },
+
+          { t:'cloze', sentence:'손님, 무엇을 [드시겠어요]?', answer:'드시겠어요',
+            meaning:'What would you like, sir/ma’am?',
+            options:['드실래요','드시겠어요','드세요','드셨어요'],
+            keys:['드시겠어요','드실래요','드세요','드셨어요'],
+            why:'Offering politely to a customer you’re meeting for the first time calls for -시겠어요. -실래요 is for people you’re closer to.' },
+
+          { t:'cloze', sentence:'할머니, 커피 한 잔 [하실래요]?', answer:'하실래요',
+            meaning:'Grandma, would you like a cup of coffee?',
+            options:['하세요','하실래요','하시겠어요','하셨어요'],
+            keys:['하실래요','하세요','하시겠어요','하셨어요'],
+            why:'This is a casual offer to a grandmother you’re close to, so -실래요 is natural.' },
+
+          { t:'type', q:'가다 — “내일 그 모임에 ___?” Write the honorific for asking about a plan.',
+            answer:'가실 거예요',
+            keys:['가실 거예요','가세요','가셨어요','가십니다'],
+            why:'This is asking about a future plan, so -실 거예요 is used.' },
+
+          { t:'choice', q:'What’s the most natural way to offer food to a customer you’re meeting for the first time?',
+            options:['뭐 먹을래요?','무엇을 드실래요?','무엇을 드시겠어요?'], answer:2,
+            why:'-시겠어요 is the most polite for someone you’re meeting for the first time. 드실래요 is for a somewhat closer relationship.' },
+
+          { t:'order', q:'Put together “손님, 무엇을 드시겠어요?”',
+            tokens:['손님,','무엇을','드시겠어요?'], answer:['손님,','무엇을','드시겠어요?'] },
+
+          { t:'speak', say:'차 한 잔 하실래요? 아니면 커피가 더 좋으세요?',
+            q:'This is an offer, so read it with a soft, rising tone.' },
+        ],
+      },
+
+      /* ── 4강 ──────────────────────────────────────────────
+         종합. bg-d-03 의 build 방식을 그대로 이어받아 어미까지 함께
+         고르게 한다 — 낱말만 바꾸던 것에서 어미까지 바꾸는 것으로 확장. */
+      {
+        id: 'bg-d-04-04',
+        title: { ko:'4강. 종합 실전 — 때와 자리에 맞게 골라 쓰기', en:'4. Putting it together — pick the right form for the moment' },
+        minutes: 5,
+        blocks: [
+          { t:'table', h:'The honorific endings covered so far',
+            head:['Situation','Ending','Example'],
+            rows:[
+              ['Everyday conversation, right now','-(으)세요','할머니께서 집에 가**세요**.'],
+              ['Everyday conversation, already happened','-(으)셨어요','할머니께서 어제 가**셨어요**.'],
+              ['A formal setting, right now','-(으)십니다','사장님께서 지금 오**십니다**.'],
+              ['Offering casually','-(으)실래요?','같이 가**실래요**?'],
+              ['Offering politely','-(으)시겠어요?','무엇을 드**시겠어요**?'],
+              ['Asking about a plan','-(으)실 거예요?','내일 오**실 거예요**?'],
+            ]},
+
+          { t:'text', h:'Three questions decide the ending',
+            md:'**① Who is this about?** — If it’s someone senior, -(으)시- goes in.\n\n**② When?** — Right now, keep it as is; already happened, add -셨-.\n\n**③ Where, and how formal?** — Everyday conversation: -어요. A formal setting: -ㅂ니다. Offering or asking: -실래요/-시겠어요/-실 거예요.' },
+
+          { t:'chars', wide:true, items:[
+            { ch:'할머니께서 어제 병원에 다녀오셨어요.', tip:'everyday conversation + already happened = -셨어요' },
+            { ch:'사장님께서 지금 회의실에 계십니다.', tip:'a formal setting + right now = -십니다' },
+            { ch:'이거 좀 드셔 보실래요?', tip:'a casual offer = -실래요' },
+          ]},
+
+          { t:'note', md:'**Changing only one part sounds off.** Always check both the word that changes completely (밥→진지, 먹다→드시다) and the ending (-세요/-셨어요/-십니다) together.\n\n할아버지께서 밥을 드**셨어요**. (✕ — the noun wasn’t changed)\n\n할아버지께서 진지를 드**셨어요**. (○)' },
+
+          { t:'cloze', sentence:'사장님께서 지금 사무실에 [계십니다].', answer:'계십니다',
+            meaning:'The boss is in the office right now (formal).',
+            options:['계세요','계십니다','계셨어요','계실 거예요'],
+            keys:['계십니다','계세요','계셨어요','계실 거예요'],
+            why:'Assuming a formal setting like news or an announcement, -십니다 is correct.' },
+
+          { t:'cloze', sentence:'할머니, 이거 좀 [드셔 보실래요]?', answer:'드셔 보실래요',
+            meaning:'Grandma, would you like to try this?',
+            options:['드셔 보세요','드셔 보실래요','드셔 보셨어요','드셔 보십니다'],
+            keys:['드셔 보실래요','드셔 보세요','드셔 보셨어요','드셔 보십니다'],
+            why:'This is a casual offer, so -실래요 is natural.' },
+
+          { t:'build', q:'Rewrite the basic sentence “어제 밥을 먹었어요” as if it’s about your grandfather, in the past honorific.',
+            answers:['할아버지께서 어제 진지를 드셨어요.','할아버지께서 어제 진지를 드셨습니다.'],
+            bank:['할아버지께서','어제','진지를','드셨어요','밥을','먹었어요'],
+            must:['진지','드셨'],
+            hint:'밥 becomes 진지, 먹다 changes completely to 드시다, and since it already happened yesterday, use -셨어요' },
+
+          { t:'build', q:'Rewrite the basic sentence “회의에 가요” as if it’s about the boss, as a formal announcement.',
+            answers:['사장님께서 회의에 가십니다.','사장님이 회의에 가십니다.'],
+            bank:['사장님께서','사장님이','회의에','가십니다','가요'],
+            must:['가십니다'],
+            hint:'This is a formal setting like a company announcement, so use -십니다' },
+
+          { t:'choice', q:'Which of these doesn’t fit its situation?',
+            options:['뉴스: 대통령께서 오늘 발표를 하십니다.','편의점 손님에게: 이 상품은 품절이세요.','친구 할머니께: 진지 드셨어요?'], answer:1,
+            why:'This attaches -시- to a product (an object) — object honorification. “품절입니다” is correct.' },
+
+          { t:'order', q:'Put together “할머니께서 어제 병원에 다녀오셨어요.”',
+            tokens:['할머니께서','어제','병원에','다녀오셨어요.'], answer:['할머니께서','어제','병원에','다녀오셨어요.'] },
+
+          { t:'speak', say:'할머니, 어제 병원에 다녀오셨어요? 오늘은 좀 어떠세요?',
+            q:'Two honorifics come one after another here — asking about the past, then the present.' },
+        ],
+      },
+    ],
+  },
+
+  {
+    id: 'bg-d-05',
+    emoji: '🙏',
+    title: { ko:'초급 세밀: 존댓말 마무리 — 명령·청유·겸양', en:'Beginner detail: finishing the honorifics — commands, suggestions, humility' },
+    tagline: { ko:'지시하고 함께 하자 하고, 나를 낮추는 마지막 조각들', en:'Directing, proposing together, and lowering yourself — the last pieces' },
+    blurb: { ko:'방송·서비스의 격식 명령 -(으)십시오, 여럿에게 함께 하자는 -(으)십시다, 그리고 드리다·여쭙다·뵙다·모시다처럼 나를 낮춰 상대를 높이는 겸양 표현까지 — 존댓말 시리즈를 마무리합니다.',
+           en:'The formal command -(으)십시오 used in announcements and service, the formal suggestion -(으)십시다 for addressing a group, and humble expressions like 드리다, 여쭙다, 뵙다, and 모시다 that lower yourself to honor someone else. This wraps up the honorific series.' },
+    level: 'Beginner',
+    needs: 'bg-d-04',
+    hon: true,
+    lessons: [
+      /* ── 1강 ──────────────────────────────────────────────
+         격식 명령. -(으)세요보다 세다는 것, 그래서 가족에겐 안 쓴다는
+         것부터 짚는다 — 규칙만 배우면 아무 데나 갖다 쓰게 된다. */
+      {
+        id: 'bg-d-05-01',
+        title: { ko:'1강. 방송·서비스의 격식 명령 -(으)십시오', en:'1. The formal command in announcements and service: -(으)십시오' },
+        minutes: 5,
+        blocks: [
+          { t:'table', h:'The -(으)십시오 rules at a glance',
+            head:['What changes','The rule, with examples'],
+            rows:[
+              ['Verbs with no batchim','stem + -십시오  (가다→가**십시오**, 오다→오**십시오**)'],
+              ['Verbs with a batchim','stem + -으십시오  (앉다→앉**으십시오**, 읽다→읽**으십시오**)'],
+              ['Stems ending in ㄹ','ㄹ drops, then + -십시오  (살다→사**십시오**, 만들다→만드**십시오**)'],
+              ['Words that already change completely work the same way','드시다→드**십시오**, 계시다→계**십시오**'],
+            ]},
+
+          { t:'text', h:'What this expression does',
+            md:'**-(으)십시오** is a stronger, more formal **command or instruction** than -(으)세요. It’s common in announcements, signs, and service settings.\n\n이쪽으로 앉으**세요**. (everyday conversation)\n\n이쪽으로 앉**으십시오**. (an announcement, or a service setting)' },
+
+          { t:'table',
+            head:['Dictionary form','-(으)십시오'],
+            rows:[
+              ['가다 — to go','가**십시오**'],
+              ['앉다 — to sit','앉**으십시오**'],
+              ['기다리다 — to wait','기다리**십시오**'],
+              ['드시다 — to eat (hon.)','드**십시오**'],
+            ]},
+
+          { t:'chars', wide:true, items:[
+            { ch:'안전벨트를 착용하십시오.', tip:'Please fasten your seatbelt. — an announcement' },
+            { ch:'잠시만 기다리십시오.', tip:'Please wait a moment. — a service setting' },
+            { ch:'이쪽으로 들어오십시오.', tip:'Please come in this way.' },
+          ]},
+
+          { t:'note', md:'**It’s direct, so it’s rarely used with people you’re close to.** With family or friends, -아/어 주세요 sounds more natural.\n\n엄마, 여기 앉으십시오. (✕ — much too stiff)\n\n엄마, 여기 앉으**세요**. (○)' },
+
+          { t:'cloze', sentence:'안전벨트를 [착용하십시오].', answer:'착용하십시오',
+            meaning:'Please fasten your seatbelt.',
+            options:['착용하세요','착용하십시오','착용하셨습니다','착용할 거예요'],
+            keys:['착용하십시오','착용하세요','착용하셨습니다','착용할 거예요'],
+            why:'This is a formal setting like an announcement, so -십시오 is natural.' },
+
+          { t:'cloze', sentence:'잠시만 [기다리십시오].', answer:'기다리십시오',
+            meaning:'Please wait a moment.',
+            options:['기다리세요','기다리십시오','기다리셨어요','기다릴래요'],
+            keys:['기다리십시오','기다리세요','기다리셨어요','기다릴래요'],
+            why:'This is a polite request in a service setting, so -십시오 is correct.' },
+
+          { t:'type', q:'앉다 — “이쪽으로 ___.” (write it with -십시오, as in an announcement)',
+            answer:'앉으십시오',
+            keys:['앉으십시오','앉으세요','앉으셨습니다','앉을 거예요'],
+            why:'There’s a batchim ㄴ, so -으십시오 attaches.' },
+
+          { t:'choice', q:'Which sounds more natural for a casual request to family?',
+            options:['엄마, 여기 앉으십시오.','엄마, 여기 앉으세요.'], answer:1,
+            why:'-십시오 fits settings like announcements or service. -세요 is natural with family.' },
+
+          { t:'order', q:'Put together “잠시만 기다리십시오.”',
+            tokens:['잠시만','기다리십시오.'], answer:['잠시만','기다리십시오.'] },
+
+          { t:'speak', say:'승객 여러분, 곧 출발합니다. 안전벨트를 착용하십시오.',
+            q:'Read it clearly, the way an announcement sounds.' },
+        ],
+      },
+
+      /* ── 2강 ──────────────────────────────────────────────
+         격식 청유. 문화적으로 조심할 자리라는 것까지 짚는다. */
+      {
+        id: 'bg-d-05-02',
+        title: { ko:'2강. 여럿에게 함께 하자는 -(으)십시다', en:'2. Proposing something to a group: -(으)십시다' },
+        minutes: 5,
+        blocks: [
+          { t:'table', h:'The -(으)십시다 rules at a glance',
+            head:['What changes','The rule, with examples'],
+            rows:[
+              ['Verbs with no batchim','stem + -십시다  (가다→가**십시다**, 시작하다→시작하**십시다**)'],
+              ['Verbs with a batchim','stem + -으십시다  (앉다→앉**으십시다**, 찍다→찍**으십시다**)'],
+              ['Stems ending in ㄹ','ㄹ drops, then + -십시다  (살다→사**십시다**, 만들다→만드**십시다**)'],
+            ]},
+
+          { t:'text', h:'What this expression does',
+            md:'**-(으)십시다** is the honorific of “let’s -합시다.” It’s used to formally propose doing something together in front of a group.\n\n같이 가**요**. (among friends)\n\n다 같이 사진을 찍**으십시다**. (a gathering or event)' },
+
+          { t:'table',
+            head:['Dictionary form','-(으)십시다'],
+            rows:[
+              ['시작하다 — to start','시작하**십시다**'],
+              ['찍다 — to take (a photo)','찍**으십시다**'],
+              ['일어나다 — to stand up','일어나**십시다**'],
+            ]},
+
+          { t:'chars', wide:true, items:[
+            { ch:'이제 회의를 시작하십시다.', tip:'Let’s begin the meeting now. — the meeting’s chair speaking' },
+            { ch:'다 같이 사진을 찍으십시다.', tip:'Let’s all take a picture together.' },
+            { ch:'모두 자리에서 일어나십시다.', tip:'Let’s all stand up. — an event host speaking' },
+          ]},
+
+          { t:'note', md:'**Be careful using this with just one senior person.** -(으)십시다 leads the other person into an action together, so it sounds natural when someone with a role (a host, a chair) says it to a group. For a single senior person, -(으)실까요? is softer.\n\n할머니, 같이 가십시다. (△ — feels like directing someone senior)\n\n할머니, 같이 가**실까요**? (○ — much softer)' },
+
+          { t:'cloze', sentence:'이제 회의를 [시작하십시다].', answer:'시작하십시다',
+            meaning:'Let’s begin the meeting now.',
+            options:['시작해요','시작하십시다','시작하세요','시작하셨습니다'],
+            keys:['시작하십시다','시작해요','시작하세요','시작하셨습니다'],
+            why:'The person leading the meeting is formally proposing this to the group, so -십시다 is correct.' },
+
+          { t:'cloze', sentence:'모두 자리에서 [일어나십시다].', answer:'일어나십시다',
+            meaning:'Let’s all stand up.',
+            options:['일어나요','일어나십시다','일어나세요','일어나셨어요'],
+            keys:['일어나십시다','일어나요','일어나세요','일어나셨어요'],
+            why:'This is leading a group at an event to do something together, so it’s -십시다.' },
+
+          { t:'type', q:'찍다 — “다 같이 사진을 ___.” Write the honorific for proposing an action.',
+            answer:'찍으십시다',
+            keys:['찍으십시다','찍어요','찍으세요','찍으셨어요'],
+            why:'There’s a batchim ㄱ, so -으십시다 attaches.' },
+
+          { t:'choice', q:'Which is softer when kindly proposing something to a single grandmother?',
+            options:['할머니, 같이 가십시다.','할머니, 같이 가실까요?'], answer:1,
+            why:'-십시다 feels like leading someone. For one senior person, -(으)실까요? is softer.' },
+
+          { t:'order', q:'Put together “이제 회의를 시작하십시다.”',
+            tokens:['이제','회의를','시작하십시다.'], answer:['이제','회의를','시작하십시다.'] },
+
+          { t:'speak', say:'자, 그럼 다 같이 박수를 치십시다!',
+            q:'Read it energetically, like an event host.' },
+        ],
+      },
+
+      /* ── 3강 ──────────────────────────────────────────────
+         겸양 — 지금까지와 다른 축. 주체를 높이는 게 아니라 나를 낮춘다.
+         드시다류(불규칙 존댓말 어간)와 짝을 지어 구분해 준다. */
+      {
+        id: 'bg-d-05-03',
+        title: { ko:'3강. 나를 낮추는 겸양 — 드리다·여쭙다·뵙다·모시다', en:'3. Humble words that lower yourself — 드리다, 여쭙다, 뵙다, 모시다' },
+        minutes: 5,
+        blocks: [
+          { t:'table', h:'Humble expressions at a glance',
+            head:['What changes','Example'],
+            rows:[
+              ['A word that lowers yourself','저는, 저희 (humble forms of 나, 우리)'],
+              ['주다, when giving to someone senior','드리다 — 선물을 드려요'],
+              ['묻다, when asking someone senior','여쭙다·여쭈다 — 여쭤볼게요'],
+              ['보다, when seeing someone senior','뵙다 — 내일 뵙겠습니다'],
+              ['데리고 가다, when accompanying someone senior','모시다 — 할머니를 모시고 가요'],
+            ]},
+
+          { t:'text', h:'What this expression does',
+            md:'-(으)시-, which you’ve learned so far, honors **the subject of the sentence** (someone senior). Humble expressions do the opposite: they **lower yourself, the speaker**, to indirectly honor the other person.\n\n할머니께서 저에게 선물을 **주세요**. (the subject is 할머니 — subject honorification)\n\n제가 할머니께 선물을 **드려요**. (the subject is “I,” but since the receiver is 할머니, a humble word is used)' },
+
+          { t:'table',
+            head:['Plain','Humble','Meaning'],
+            rows:[
+              ['나','저','I (humble)'],
+              ['우리','저희','we (humble)'],
+              ['주다','드리다','give (to someone honored)'],
+              ['묻다','여쭙다 · 여쭈다','ask (someone honored)'],
+              ['보다 · 만나다','뵙다','see/meet (someone honored)'],
+              ['데리고 가다','모시다','accompany, take along (someone honored)'],
+            ]},
+
+          { t:'chars', wide:true, items:[
+            { ch:'제가 저희 부모님을 소개해 드릴게요.', tip:'Let me introduce my parents. — both 저희 and 드리다 are humble forms' },
+            { ch:'선생님께 여쭤보고 다시 연락드릴게요.', tip:'I’ll ask the teacher and get back to you.' },
+            { ch:'내일 오후에 뵙겠습니다.', tip:'I will see you tomorrow afternoon. — a polite greeting' },
+            { ch:'할머니를 모시고 병원에 다녀왔어요.', tip:'I took Grandma to the hospital.' },
+          ]},
+
+          { t:'note', md:'**They honor different people.** -(으)시- honors the subject of the sentence; humble expressions honor the person on the receiving end (the object) or the listener.\n\n제가 할머니를 모시고 가세요. (✕ — the subject is “I,” but -세요 was attached)\n\n제가 할머니를 모시고 **가요**. (○ — 모시다 is already a humble word, so -시- isn’t added again)' },
+
+          { t:'cloze', sentence:'선생님, 제가 짐을 [들어 드릴게요].', answer:'들어 드릴게요',
+            meaning:'Teacher, let me carry your bag for you.',
+            options:['들어 줄게요','들어 드릴게요','들어 주세요','들어 드리세요'],
+            keys:['들어 드릴게요','들어 줄게요','들어 주세요','들어 드리세요'],
+            why:'This is done for someone senior, so 드리다 is used instead of 주다.' },
+
+          { t:'cloze', sentence:'내일 오후 두 시에 [뵙겠습니다].', answer:'뵙겠습니다',
+            meaning:'I will see you tomorrow at 2pm.',
+            options:['보겠습니다','뵙겠습니다','볼게요','뵈세요'],
+            keys:['뵙겠습니다','보겠습니다','볼게요','뵈세요'],
+            why:'This means meeting someone senior, so 뵙다 is used instead of 보다.' },
+
+          { t:'type', q:'묻다 (humble) — “잠시 후에 다시 ___.” (use 여쭙다)',
+            answer:'여쭤볼게요',
+            keys:['여쭤볼게요','물어볼게요','여쭙습니다','물으세요'],
+            why:'This is asking someone senior, so 여쭙다 is used.' },
+
+          { t:'choice', q:'Which one uses a humble expression correctly?',
+            options:['제가 할머니께 선물을 주세요.','제가 할머니께 선물을 드려요.','할머니께서 저에게 선물을 드려요.'], answer:1,
+            why:'I am giving something to someone senior, so 드리다 is correct. The first sentence wrongly attaches -세요 to “I” (the subject); the third has 할머니 giving, which should instead be -세요, not 드리다.' },
+
+          { t:'order', q:'Put together “선생님께 여쭤보고 다시 연락드릴게요.”',
+            tokens:['선생님께','여쭤보고','다시','연락드릴게요.'], answer:['선생님께','여쭤보고','다시','연락드릴게요.'] },
+
+          { t:'speak', say:'제가 할머니를 모시고 병원에 다녀오겠습니다.',
+            q:'Both 모시다 and -겠습니다 are polite here. Read it clearly.' },
+        ],
+      },
+
+      /* ── 4강 ──────────────────────────────────────────────
+         존댓말 시리즈 전체(bg-d-03~05) 종합. build 로 어미까지 골라
+         만들게 한다. */
+      {
+        id: 'bg-d-05-04',
+        title: { ko:'4강. 존댓말 종합 실전', en:'4. Honorifics, put together' },
+        minutes: 5,
+        blocks: [
+          { t:'table', h:'The whole honorific map',
+            head:['Situation','Expression','Example'],
+            rows:[
+              ['Everyday conversation, right now','-(으)세요','가**세요**'],
+              ['Everyday conversation, already happened','-(으)셨어요','가**셨어요**'],
+              ['A formal setting, right now','-(으)십니다','가**십니다**'],
+              ['A formal command or instruction','-(으)십시오','가**십시오**'],
+              ['A formal proposal to a group','-(으)십시다','가**십시다**'],
+              ['Offering casually','-(으)실래요?','가**실래요**?'],
+              ['Offering politely','-(으)시겠어요?','가**시겠어요**?'],
+              ['Lowering yourself to honor someone else','humble expressions','드리다·여쭙다·뵙다·모시다'],
+            ]},
+
+          { t:'text', h:'Four questions are all you need',
+            md:'**① Who is this about?** — If the subject is someone senior, -(으)시- goes in.\n\n**② When?** — Right now, keep it as is; already happened, add -셨-.\n\n**③ How formal is the setting?** — Everyday conversation: -어요. An announcement or service setting: -ㅂ니다/-십시오.\n\n**④ What am I doing for someone senior?** — Giving, asking, or meeting them calls for a humble expression (드리다, 여쭙다, 뵙다).' },
+
+          { t:'chars', wide:true, items:[
+            { ch:'할머니, 제가 짐을 들어 드릴게요.', tip:'humble (드리다) — what I’m doing is for Grandma' },
+            { ch:'손님 여러분, 곧 문이 닫힙니다. 안전선 밖으로 나와 주십시오.', tip:'a formal instruction (-십시오)' },
+            { ch:'자, 다 같이 시작해 보십시다.', tip:'a proposal (-십시다)' },
+          ]},
+
+          { t:'note', md:'**Subject honorification and humble expressions can appear in the same sentence.** If the subject is someone senior, use -시-. If I’m doing something for someone senior, use a humble word.\n\n제가 할머니를 모시고 병원에 **가요**. (the humble word 모시다 — I don’t also add -시-)\n\n할머니께서 병원에 **가세요**. (the subject is 할머니 — here it does take -시-)' },
+
+          { t:'cloze', sentence:'할머니, 제가 짐을 [들어 드릴게요].', answer:'들어 드릴게요',
+            meaning:'Grandma, let me carry your bag.',
+            options:['들어 줄게요','들어 드릴게요','들어 드세요','들어 가세요'],
+            keys:['들어 드릴게요','들어 줄게요','들어 드세요','들어 가세요'],
+            why:'This is done for someone senior, so 드리다 is used.' },
+
+          { t:'cloze', sentence:'승객 여러분, 안전벨트를 [착용하십시오].', answer:'착용하십시오',
+            meaning:'Passengers, please fasten your seatbelts.',
+            options:['착용하세요','착용하십시오','착용하셨습니다','착용하실래요'],
+            keys:['착용하십시오','착용하세요','착용하셨습니다','착용하실래요'],
+            why:'This is a formal setting like an announcement, so -십시오 is correct.' },
+
+          { t:'build', q:'Rewrite the basic sentence “같이 사진 찍어요” as an event host proposing it to the group.',
+            answers:['다 같이 사진을 찍으십시다.','같이 사진을 찍으십시다.'],
+            bank:['다','같이','사진을','찍으십시다','찍어요'],
+            must:['찍으십시다'],
+            hint:'This is someone leading an event, so use -으십시다' },
+
+          { t:'build', q:'Rewrite the basic sentence “선생님께 물어볼게요” using a humble expression.',
+            answers:['선생님께 여쭤볼게요.','선생님께 여쭈어볼게요.'],
+            bank:['선생님께','여쭤볼게요','여쭈어볼게요','물어볼게요'],
+            must:['여쭤'],
+            hint:'This is asking someone senior, so use 여쭙다 instead of 묻다' },
+
+          { t:'choice', q:'Which one doesn’t fit?',
+            options:['할머니를 모시고 병원에 다녀왔어요.','제가 할머니께 선물을 주세요.','선생님께 여쭤보고 다시 연락드릴게요.'], answer:1,
+            why:'The subject is “I,” but -세요 was attached. Since this is given to someone senior, “선물을 드려요” is correct.' },
+
+          { t:'order', q:'Put together “할머니, 제가 짐을 들어 드릴게요.”',
+            tokens:['할머니,','제가','짐을','들어 드릴게요.'], answer:['할머니,','제가','짐을','들어 드릴게요.'] },
+
+          { t:'speak', say:'제가 할머니를 모시고 병원에 다녀오겠습니다. 조심히 다녀오십시오.',
+            q:'A humble word (모시다) and a formal command (-십시오) appear one after another here.' },
         ],
       },
     ],
