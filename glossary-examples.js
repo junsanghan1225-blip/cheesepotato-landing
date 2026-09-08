@@ -16631,5 +16631,165 @@ export const EXAMPLES = {
  "효": {
   "ex": "부모님의 은혜를 깊이 생각하며 일상에서 공경과 효를 실천해요.",
   "en": "Thinking deeply of my parents' grace, I practice respect and filial duty in daily life."
+ },
+ "효과": {
+  "ex": "따뜻한 물을 자주 마시니 감기 증상 완화에 좋은 효과가 있어요.",
+  "en": "Drinking warm water often has a good effect on easing cold symptoms."
+ },
+ "효과적": {
+  "ex": "매일 꾸준히 단어를 외우는 것은 어휘력을 키우는 효과적 방법이에요.",
+  "en": "Memorizing words steadily every day is an effective way to build vocabulary."
+ },
+ "효용": {
+  "ex": "생활 속에서 유용하게 쓰이는 도구들의 다양한 효용을 배워요.",
+  "en": "I learn about the diverse usefulness of tools applied in daily life."
+ },
+ "효율": {
+  "ex": "시간 계획표를 잘 짜서 공부의 효율을 높여요.",
+  "en": "I plan a good timetable to increase the efficiency of my studying."
+ },
+ "효율성": {
+  "ex": "업무 과정을 단순하게 정리하여 일의 효율성을 개선해요.",
+  "en": "We simplify work processes to improve work efficiency."
+ },
+ "효율적": {
+  "ex": "중요한 내용부터 먼저 복습하며 효율적 시간 관리를 실천해요.",
+  "en": "I practice efficient time management by reviewing important contents first."
+ },
+ "후": {
+  "ex": "점심 식사 세 시간 후 도서관에서 친구를 다시 만나요.",
+  "en": "I meet my friend again at the library three hours after lunch."
+ },
+ "후기": {
+  "ex": "책을 다 읽은 뒤에 느낀 점을 담아 짧은 독서 후기를 작성해요.",
+  "en": "After reading the whole book, I write a short reading postscript with my impressions."
+ },
+ "후련하다": {
+  "ex": "오랫동안 고민하던 과제를 무사히 마치니 마음이 아주 후련해요.",
+  "en": "Having finished the assignment I worried about for long, my mind feels very relieved."
+ },
+ "후배": {
+  "ex": "학교에 새로 들어온 신입생 후배들에게 동아리를 친절히 안내해요.",
+  "en": "I kindly introduce the club to the new junior students entering the school."
+ },
+ "후속": {
+  "ex": "성공적인 행사 개최를 위해 후속 조치를 꼼꼼히 점검해요.",
+  "en": "We carefully inspect follow-up measures to ensure successful event hosting."
+ },
+ "후회": {
+  "ex": "지난 일에 대한 후회보다 앞으로의 목표에 집중해요.",
+  "en": "Rather than regret over past events, I focus on future goals."
+ },
+ "후회되다": {
+  "ex": "시간을 아끼지 않고 게으름을 피운 지난날이 조금 후회돼요.",
+  "en": "I feel a bit of regret over the past days when I was lazy without saving time."
+ },
+ "후회하다": {
+  "ex": "열심히 준비하지 않아서 시험을 망치고 크게 후회해요.",
+  "en": "I regret greatly having ruined the test because I did not prepare hard."
+ },
+ "훨씬": {
+  "ex": "안경을 깨끗이 닦고 나니 책의 글씨가 훨씬 잘 보여요.",
+  "en": "After wiping my glasses cleanly, the letters in the book are visible far better."
+ },
+ "훼손": {
+  "ex": "공공 도서관의 소중한 책들이 훼손되지 않도록 조심스럽게 다뤄요.",
+  "en": "I handle the precious books in the public library carefully so they do not suffer damage."
+ },
+ "훼손하다": {
+  "ex": "공원에 핀 아름다운 꽃을 훼손하지 않고 눈으로만 감상해요.",
+  "en": "I do not harm pretty flowers blooming in the park and appreciate them only with my eyes."
+ },
+ "휴": {
+  "ex": "휴, 무거운 짐을 마침내 내려놓고 깊은 숨을 쉬어요.",
+  "en": "Phew, I finally put down the heavy luggage and take a deep breath."
+ },
+ "휴가": {
+  "ex": "여름 휴가 기간에 가족들과 함께 푸른 바다로 여행을 떠나요.",
+  "en": "During the summer vacation break, I go on a trip to the blue sea with family."
+ },
+ "휴대": {
+  "ex": "가방에 가볍게 넣고 다닐 수 있는 휴대용 보조 배터리를 챙겨요.",
+  "en": "I pack a portable auxiliary battery that can be easily carried in my bag."
+ },
+ "휴대전화": {
+  "ex": "수업 시간에 방해가 되지 않도록 휴대전화 전원을 잠시 꺼둬요.",
+  "en": "I turn off my mobile phone power for a while so as not to disturb class."
+ },
+ "휴대폰": {
+  "ex": "집에 돌아오자마자 책상 위에 놓아둔 휴대폰을 충전해요.",
+  "en": "As soon as I return home, I charge the cellular phone placed on the desk."
+ },
+ "휴식": {
+  "ex": "열심히 공부한 후에는 창문을 열고 신선한 공기를 마시며 휴식을 취해요.",
+  "en": "After studying hard, I open the window, breathe fresh air, and take a rest."
+ },
+ "휴식처": {
+  "ex": "푸른 나무 그늘이 드리워진 공원 벤치는 시민들의 편안한 휴식처예요.",
+  "en": "The park bench shaded by green trees is a comfortable resting place for citizens."
+ },
+ "흐르다": {
+  "ex": "마을 앞을 맑고 깨끗한 시냇물이 졸졸 흘러요.",
+  "en": "Clear and clean stream water flows gently in front of the village."
+ },
+ "흐름": {
+  "ex": "이야기의 자연스러운 흐름을 따라 소설을 천천히 읽어 나가요.",
+  "en": "Following the natural flow of the story, I read through the novel slowly."
+ },
+ "흐리다": {
+  "ex": "오늘 하늘이 흐리고 비가 올 것 같아서 우산을 챙겨요.",
+  "en": "Because the sky is cloudy today and it looks like rain, I pack an umbrella."
+ },
+ "흑": {
+  "ex": "바둑판 위에서 검은 흑 돌과 흰 백 돌이 겨뤄요.",
+  "en": "Black stones and white stones compete on the Go board."
+ },
+ "흑자": {
+  "ex": "알뜰하게 용돈을 관리한 덕분에 이번 달 가계부는 흑자를 기록해요.",
+  "en": "Thanks to managing allowance frugally, this month's budget records a surplus."
+ },
+ "흔들다": {
+  "ex": "멀리서 걸어오는 친구를 발견하고 반갑게 손을 흔들어요.",
+  "en": "Spotting my friend walking from afar, I gladly wave my hand."
+ },
+ "흔적": {
+  "ex": "눈 내린 아침 하얀 마당 위에 작은 새의 발자국 흔적이 남아 있어요.",
+  "en": "On the white snowy morning yard, trace footprints of a small bird remain."
+ },
+ "흔히": {
+  "ex": "일상에서 흔히 쓰는 한국어 인사말부터 먼저 연습해요.",
+  "en": "I practice the Korean greetings commonly used in everyday life first."
+ },
+ "흙": {
+  "ex": "화분에 부드럽고 영양분이 풍부한 검은 흙을 가득 채워요.",
+  "en": "I fill the flowerpot full with soft and nutrient-rich dark soil."
+ },
+ "흙냄새": {
+  "ex": "비가 촉촉하게 내린 뒤 공원에서 상쾌한 흙냄새를 맡아요.",
+  "en": "After the rain falls moistly, I smell the refreshing earthy smell in the park."
+ },
+ "흡수": {
+  "ex": "피부에 좋은 수분 크림의 빠른 흡수를 위해 가볍게 두드려요.",
+  "en": "I tap lightly for quick absorption of moisturizing cream good for skin."
+ },
+ "흡수되다": {
+  "ex": "마른 흙 속으로 시원한 빗물이 부드럽게 흡수돼요.",
+  "en": "Cool rainwater is absorbed softly into the dry soil."
+ },
+ "흡수하다": {
+  "ex": "책을 읽으며 다양한 분야의 새로운 지식을 스펀지처럼 흡수해요.",
+  "en": "Reading books, I absorb new knowledge in diverse fields like a sponge."
+ },
+ "흥": {
+  "ex": "답답한 코를 휴지에 흥 풀고 나니 숨쉬기가 편해요.",
+  "en": "After blowing my stuffy nose with a honk into a tissue, breathing feels comfortable."
+ },
+ "흥미": {
+  "ex": "한국 문화에 대한 깊은 흥미를 느끼고 한국어 공부를 시작해요.",
+  "en": "Feeling deep interest in Korean culture, I start studying Korean."
+ },
+ "흥미롭다": {
+  "ex": "새로 나온 한국 역사 만화책의 줄거리가 정말 흥미로워요.",
+  "en": "The plot of the newly published Korean history comic book is truly interesting."
  }
 };
