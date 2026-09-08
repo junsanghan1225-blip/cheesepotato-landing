@@ -3316,6 +3316,18 @@
   "only": true
  },
  {
+  "ko": "환영",
+  "en": "welcome",
+  "pos": "명사",
+  "only": true
+ },
+ {
+  "ko": "환기",
+  "en": "ventilation; airing",
+  "pos": "명사",
+  "only": true
+ },
+ {
   "ko": "녹",
   "en": "rust",
   "pos": "명사",
