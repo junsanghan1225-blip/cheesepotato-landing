@@ -3286,6 +3286,12 @@
   "only": true
  },
  {
+  "ko": "포기",
+  "en": "giving up; head (counter for plants)",
+  "pos": "명사",
+  "only": true
+ },
+ {
   "ko": "녹",
   "en": "rust",
   "pos": "명사",
