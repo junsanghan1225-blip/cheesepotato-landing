@@ -3214,6 +3214,30 @@
   "only": true
  },
  {
+  "ko": "지적",
+  "en": "criticism; pointing out; intelligence",
+  "pos": "명사",
+  "only": true
+ },
+ {
+  "ko": "지침",
+  "en": "guideline; dial",
+  "pos": "명사",
+  "only": true
+ },
+ {
+  "ko": "진동",
+  "en": "vibration; armhole",
+  "pos": "명사",
+  "only": true
+ },
+ {
+  "ko": "진화",
+  "en": "development; advancement; evolution",
+  "pos": "명사",
+  "only": true
+ },
+ {
   "ko": "녹",
   "en": "rust",
   "pos": "명사",
