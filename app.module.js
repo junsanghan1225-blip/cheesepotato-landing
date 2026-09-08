@@ -3256,12 +3256,18 @@ function tlPick(i) {
   /* 답을 고른 다음에야 대본을 편다. 앞에 두면 듣기가 아니라 읽기가 된다. */
   $('tlScript').innerHTML =
     `<div class="tl-script-h">${esc(t('들은 내용', 'What you heard'))}</div>` +
-    q.script.map((l) => {
+    q.script.map((l, i) => {
       const w = TL_WHO[l.who] || TL_WHO.n;
       return `<div class="tl-line"><span class="tl-who ${l.who}">${esc(t(w.ko, w.en))}</span>` +
-             `<span>${esc(l.text)}</span></div>`;
+             `<span class="tl-text" data-li="${i}"></span></div>`;
     }).join('');
   $('tlScript').classList.remove('hidden');
+  /* 대본도 모르는 낱말을 눌러 표시할 수 있다 — 각 줄을 그 줄 글로만
+     wordTap 에 넘긴다(대사끼리는 서로 다른 문장이라 예문을 섞을 까닭이
+     없다). */
+  $('tlScript').querySelectorAll('.tl-text').forEach((el) => {
+    wordTap(el, q.script[+el.dataset.li].text);
+  });
 
   $('tlNext').textContent = tlIdx + 1 >= tlRound.length
     ? t('결과 보기', 'See the result') : t('다음', 'Next');
@@ -3325,21 +3331,29 @@ function tlEnd() {
   tlDrawBreak();
 
   $('tlWrongs').innerHTML = tlWrong.length
-    ? tlWrong.map(({ q, picked }) =>
-        '<div class="tq-wrong">' +
+    ? tlWrong.map(({ q, picked }, wi) =>
+        `<div class="tq-wrong" data-wi="${wi}">` +
           `<div class="tq-wrong-q">${esc(q.q)}</div>` +
           `<div class="tq-wrong-a">${esc(t('고른 것', 'You picked'))}: ${esc(q.options[picked])}</div>` +
           `<div class="tq-wrong-a">${esc(t('정답', 'Answer'))}: ${esc(q.options[q.answer])}</div>` +
           `<div class="tq-wrong-w">${esc(q.why)}</div>` +
           '<div style="margin-top:9px">' +
-            q.script.map((l) => {
+            q.script.map((l, li) => {
               const w = TL_WHO[l.who] || TL_WHO.n;
               return `<div class="tl-line"><span class="tl-who ${l.who}">${esc(t(w.ko, w.en))}</span>` +
-                     `<span>${esc(l.text)}</span></div>`;
+                     `<span class="tl-text" data-li="${li}"></span></div>`;
             }).join('') +
           '</div>' +
         '</div>').join('')
     : '';
+  /* 아래 대본도 마찬가지로 눌러 표시할 수 있게 — wi 로 그 문항을,
+     li 로 그 줄을 다시 찾아 wordTap 에 넘긴다. */
+  $('tlWrongs').querySelectorAll('.tq-wrong').forEach((wrap) => {
+    const q = tlWrong[+wrap.dataset.wi].q;
+    wrap.querySelectorAll('.tl-text').forEach((el) => {
+      wordTap(el, q.script[+el.dataset.li].text);
+    });
+  });
 
   $('tlAgain').textContent = t('다시 풀기', 'Try again');
   $('tlBack').textContent = t('목록으로', 'Back to the list');
@@ -4134,20 +4148,26 @@ function tqSentAt(text, at) {
 
 /* 글을 어절마다 누를 수 있는 조각으로 바꿔 담는다. 띄어쓰기와 줄바꿈은
    글자 그대로 남긴다 — 지문은 white-space:pre-line 이라 줄바꿈이 뜻을
-   나르고(안내문·순서 배열), 한 줄로 이어 붙으면 표가 표가 아니게 된다. */
-/* mark — 「밑줄 친 부분」을 묻는 유형(paraphrase · feeling)에서 그 부분.
-   자료에는 mark 칸으로 있었는데 화면이 이 칸을 안 썼다. 그래서 문제는
-   「밑줄 친 부분과 의미가 가장 비슷한 것」이라고 묻는데 지문에는 밑줄이
-   없었다 — 무엇을 묻는지 알 수 없는 문항이 되어 있었다. */
-function tqWordify(el, text, mark) {
-  el.textContent = '';
+   나르고(안내문·순서 배열), 한 줄로 이어 붙으면 표가 표가 아니게 된다.
+
+   TOPIK 문제 지문뿐 아니라 읽기 지문·쓰기 지문·듣기 대본이 다 이 하나를
+   쓴다 — 「모르는 낱말 표시」가 TOPIK 문제에만 있을 까닭이 없다. 문법
+   밑줄(rdGrammarify)처럼 글을 조각내 부르는 자리를 위해 full·base 를
+   따로 받는다 — 안 주면 text 자신이 원문이라, 예문을 자르는 tqSentAt 이
+   조각이 아니라 글 전체에서 문장 경계를 찾는다.
+
+   mark 는 TOPIK 문제의 「밑줄 친 부분」(paraphrase·feeling 유형)에서만
+   쓴다 — 자료에는 mark 칸으로 있었는데 화면이 이 칸을 안 써서, 「밑줄
+   친 부분과 의미가 가장 비슷한 것」이라고 묻는데 지문에는 밑줄이 없는
+   문항이 되어 있었다. */
+function wordTap(el, text, { mark = '', full = null, base = 0 } = {}) {
   const s = String(text ?? '');
   if (!s) return;
+  const wholeText = full != null ? full : s;
   /* 글자 위치로 잡는다. 밑줄 칠 곳이 「늦을지도 모른다」처럼 여러 어절에
      걸치므로 어절 단위로는 못 집는다. */
-  const mk = String(mark ?? '');
-  const mi = mk ? s.indexOf(mk) : -1;
-  const mj = mi + mk.length;
+  const mi = mark ? s.indexOf(mark) : -1;
+  const mj = mi + mark.length;
   /* 조각 하나를 밑줄 안팎으로 나눠 담는다. 밑줄은 어절 한가운데서 끝나기도
      한다 — 「늘기 마련이다.」의 마침표는 밑줄 밖이다. 어절째로 그으면
      실제 시험지와 달라진다.
@@ -4193,6 +4213,7 @@ function tqWordify(el, text, mark) {
     if (inMark) put(span, piece, here);
     else span.textContent = piece;
     span.title = t('모르는 낱말로 표시', 'Mark as unknown');
+    const absHere = base + here;
     span.addEventListener('click', () => {
       if (tqUnknown.has(key)) {
         tqUnknown.delete(key);
@@ -4202,7 +4223,7 @@ function tqWordify(el, text, mark) {
            활용형이 그대로 쌓이면 같은 말이 열 번 들어간다. 지문에서
            켜고 끄는 열쇠는 누른 꼴 그대로 두어야 다시 눌러 끌 수 있다. */
         const g = tqGloss(key);
-        tqUnknown.set(key, { word: g.head || key, ex: tqSentAt(s, here), mean: g.meaning, tag: g.tag });
+        tqUnknown.set(key, { word: g.head || key, ex: tqSentAt(wholeText, absHere), mean: g.meaning, tag: g.tag });
         /* 표시하는 그 손짓 하나로 뜻까지 본다 — 누르는 방법은 그대로 두고
            보이는 것만 는다. 사전에 없는 말이면 안 띄운다(없는 뜻을 지어내지
            않는다). 모의고사에서도 띄운다 — 모르는 낱말이 많으면 시간 안에
@@ -4227,13 +4248,20 @@ function tqWordify(el, text, mark) {
       span.classList.toggle('on', tqUnknown.has(key));
       tqUnkStore();
       /* 같은 낱말이 화면 안 다른 곳에도 있으면 같이 켜고 끈다.
-         하나만 칠해지면 「눌렀는데 왜 저기는 그대로지」가 된다. */
-      document.querySelectorAll('#tqPlay .tq-w, #tqOver .tq-w').forEach((o) => {
+         하나만 칠해지면 「눌렀는데 왜 저기는 그대로지」가 된다. 이제
+         TOPIK 문제뿐 아니라 읽기·쓰기·듣기도 같은 표시를 쓰므로 자리를
+         가리지 않고 화면 전체에서 찾는다. */
+      document.querySelectorAll('.tq-w').forEach((o) => {
         if (tqWordKey(o.textContent) === key) o.classList.toggle('on', tqUnknown.has(key));
       });
     });
     el.appendChild(span);
   }
+}
+
+function tqWordify(el, text, mark) {
+  el.textContent = '';
+  wordTap(el, text, { mark });
 }
 
 /* 어절을 고쳐 담는다. 형태소 분석은 안 한다 — tqWordify 위의 주석대로
@@ -7629,13 +7657,17 @@ const rdFind = (id) => Object.values(READING ?? {}).flatMap((g) => Object.values
    무엇을 짚고 무엇을 안 짚는지는 tools/build-grammar.mjs 머리말에 있다 —
    요약하면 **글자만 보고 못 가르는 것과 너무 자주 나오는 것은 안 짚는다.**
    지문의 반이 밑줄이면 짚어 준 것이 아니다. */
+/* 문법 밑줄과 「모르는 낱말」 표시를 함께 그린다. 문법 버튼(rd-g) 사이의
+   글은 wordTap 으로 마저 나눠 눌러 담을 수 있게 한다 — full·base 를
+   원문 전체와 그 조각이 시작하는 자리로 넘겨서, 예문을 자를 때(tqSentAt)
+   조각이 아니라 지문 전체에서 문장 경계를 찾게 한다. */
 function rdGrammarify(el, text) {
   el.textContent = '';
   let hits = [];
   try { hits = grammarScan(text, GRAMMAR); } catch (e) { /* 못 찾으면 그냥 글로 둔다 */ }
   let at = 0;
   for (const h of hits) {
-    if (h.from > at) el.appendChild(document.createTextNode(text.slice(at, h.from)));
+    if (h.from > at) wordTap(el, text.slice(at, h.from), { full: text, base: at });
     const b = document.createElement('button');
     b.type = 'button';
     b.className = 'rd-g';
@@ -7647,7 +7679,7 @@ function rdGrammarify(el, text) {
     el.appendChild(b);
     at = h.to;
   }
-  if (at < text.length) el.appendChild(document.createTextNode(text.slice(at)));
+  if (at < text.length) wordTap(el, text.slice(at), { full: text, base: at });
 }
 
 /* 문법 설명 한 칸. 영어 화면이면 영어로, 아직 안 옮긴 것은 한국어로
@@ -9521,7 +9553,7 @@ function twOpen(it) {
       (long ? `<button class="wb-out" id="twClock" type="button">⏱ ${t('시간 재기', 'Timer')}</button>` : '') +
     '</div>' +
 
-    `<div class="tw-passage">${esc(it.passage)}</div>` +
+    '<div class="tw-passage" id="twPassage"></div>' +
     /* 지문 듣기. assets/audio/write/ 에 문항 id 로 녹음이 다 있다(26문항
        전부) — 읽기 지문과 같은 자리(rd-say)를 재활용한다. */
     `<button type="button" class="rd-say" data-say="${esc(it.passage)}" data-audio="assets/audio/write/${esc(it.id)}.mp3">🔊 ${esc(t('지문 듣기', 'Listen to the passage'))}</button>` +
@@ -9550,6 +9582,10 @@ function twOpen(it) {
       `<button class="wb-out" id="twClear" type="button">${t('지우기', 'Clear')}</button>` +
     '</div>' +
     '<div id="twOut"></div>';
+
+  /* 지문도 읽기 지문·TOPIK 문제와 같은 「모르는 낱말」 표시를 쓴다 —
+     쓰기 지문이라고 모르는 낱말이 안 나오는 것은 아니다. */
+  wordTap($('twPassage'), it.passage);
 
   /* twDraw 는 twItem 이 있으면 그냥 돌아간다(언어를 바꿔도 쓰던 글을
      지키려고). 그래서 여기서 먼저 비우지 않으면 **나가기 버튼이 아무
