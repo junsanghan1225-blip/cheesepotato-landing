@@ -15511,5 +15511,165 @@ export const EXAMPLES = {
  "표정": {
   "ex": "친구의 밝은 얼굴 표정을 보니 저도 기분이 좋아져요.",
   "en": "Seeing my friend's bright facial expression, I feel good too."
+ },
+ "표준": {
+  "ex": "외국인을 위한 한국어 교재는 표준 발음을 기준으로 삼아요.",
+  "en": "Korean textbooks for foreigners use standard pronunciation as the criterion."
+ },
+ "표준화": {
+  "ex": "누구나 쉽게 배울 수 있도록 단어 표기의 표준화를 추진해요.",
+  "en": "We promote the standardization of word notations so that anyone can learn easily."
+ },
+ "표지": {
+  "ex": "새 공책 표지에 제 이름을 예쁘게 적어요.",
+  "en": "I write my name nicely on the cover of my new notebook."
+ },
+ "표지판": {
+  "ex": "길을 잃지 않으려고 길가에 서 있는 안내 표지판을 살펴봐요.",
+  "en": "I look at the information sign standing on the roadside so as not to get lost."
+ },
+ "표현": {
+  "ex": "자신의 솔직한 생각과 느낌을 알맞은 표현으로 전달해요.",
+  "en": "I deliver my honest thoughts and feelings in suitable expressions."
+ },
+ "표현하다": {
+  "ex": "고마운 분들께 감사한 마음을 편지로 표현해요.",
+  "en": "I express my grateful heart in a letter to those I am thankful to."
+ },
+ "푸다": {
+  "ex": "큰 숟가락으로 냄비에서 따뜻한 국물을 그릇에 퍼요.",
+  "en": "I scoop up warm soup from the pot into the bowl with a large spoon."
+ },
+ "푸른빛": {
+  "ex": "맑은 날 바닷가에 서서 아름다운 바다의 푸른빛을 감상해요.",
+  "en": "Standing at the seaside on a clear day, I admire the bluish color of the beautiful sea."
+ },
+ "푹": {
+  "ex": "피로를 풀기 위해 주말 밤에는 따뜻한 이불 속에서 푹 자요.",
+  "en": "To relieve fatigue, I sleep soundly under the warm blanket on weekend nights."
+ },
+ "풀": {
+  "ex": "종이 두 장을 단단하게 붙이려고 딱풀 풀을 골고루 발라요.",
+  "en": "I apply glue adhesive evenly to stick two sheets of paper firmly."
+ },
+ "풀다": {
+  "ex": "신발을 편하게 벗기 위해 꽉 묶인 신발 끈을 풀어요.",
+  "en": "I untie the tightly tied shoelaces to take off my shoes comfortably."
+ },
+ "풀리다": {
+  "ex": "오랫동안 고민하던 어려운 수학 문제가 드디어 잘 풀려요.",
+  "en": "The difficult math problem I struggled with for a long time is finally solved well."
+ },
+ "풀밭": {
+  "ex": "친구들과 함께 넓은 공원 풀밭에 돗자리를 펴고 앉아요.",
+  "en": "I spread a mat and sit on the spacious park meadow grass together with friends."
+ },
+ "품": {
+  "ex": "아기가 어머니의 따뜻한 품에 안겨 편안하게 잠들어요.",
+  "en": "The baby falls asleep comfortably held in the mother's warm embrace."
+ },
+ "품다": {
+  "ex": "어미 새가 둥지 안에서 소중한 알을 따뜻하게 품어요.",
+  "en": "The mother bird warmly broods and incubates the precious eggs in the nest."
+ },
+ "품사": {
+  "ex": "사전에서 단어를 찾을 때 명사나 동사 같은 품사를 확인해요.",
+  "en": "When looking up words in the dictionary, I check parts of speech such as nouns or verbs."
+ },
+ "품질": {
+  "ex": "이 공책은 종이의 품질이 아주 좋아서 글씨가 잘 써져요.",
+  "en": "This notebook has very good paper quality, so writing goes smoothly."
+ },
+ "풍": {
+  "ex": "식당 안을 전통 한옥 풍의 아늑한 분위기로 꾸며요.",
+  "en": "They decorate the inside of the restaurant with a cozy atmosphere of a traditional hanok look."
+ },
+ "풍경": {
+  "ex": "산 정상에 올라가서 아름다운 마을 풍경을 내려다봐요.",
+  "en": "Climbing to the mountain summit, I look down at the beautiful village scenery."
+ },
+ "풍력": {
+  "ex": "바람이 많이 부는 언덕 위에 친환경 풍력 발전기를 설치해요.",
+  "en": "They install eco-friendly wind power generators on the windy hill."
+ },
+ "프로": {
+  "ex": "리아는 어떤 어려운 일도 능숙하게 해내는 진정한 프로예요.",
+  "en": "Lia is a true professional who skillfully handles any difficult task."
+ },
+ "프로그램": {
+  "ex": "주말마다 도서관에서 진행하는 독서 교육 프로그램에 참여해요.",
+  "en": "I participate in the reading education program held at the library every weekend."
+ },
+ "프로젝트": {
+  "ex": "학기 말 과제로 친구들과 함께 환경 보호 프로젝트를 준비해요.",
+  "en": "I prepare an environmental protection project with friends as a term-end assignment."
+ },
+ "플라스틱": {
+  "ex": "환경을 위해 일회용 플라스틱 컵 대신 텀블러를 써요.",
+  "en": "I use a tumbler instead of disposable plastic cups for the environment."
+ },
+ "플래시": {
+  "ex": "어두운 밤길을 걸을 때 스마트폰의 밝은 플래시를 켜요.",
+  "en": "When walking on a dark night road, I turn on the bright flashlight of my smartphone."
+ },
+ "플랫폼": {
+  "ex": "한국어 학습자들을 위해 다양한 자료를 제공하는 온라인 플랫폼을 활용해요.",
+  "en": "I utilize an online platform that provides diverse materials for Korean learners."
+ },
+ "피": {
+  "ex": "손가락을 살짝 베여서 빨간 피가 조금 나요.",
+  "en": "I cut my finger slightly, so a little red blood comes out."
+ },
+ "피곤": {
+  "ex": "하루 종일 걸었더니 온몸에 무거운 피곤이 몰려와요.",
+  "en": "Having walked all day, heavy exhaustion rushes over my whole body."
+ },
+ "피곤하다": {
+  "ex": "늦게까지 시험공부를 했더니 오늘 아침에 참 피곤해요.",
+  "en": "Because I studied late for the exam, I feel truly tired this morning."
+ },
+ "피다": {
+  "ex": "따뜻한 봄이 되자 마당에 예쁜 개나리꽃이 활짝 피어요.",
+  "en": "As warm spring arrives, pretty forsythia flowers blossom fully in the yard."
+ },
+ "피동": {
+  "ex": "한국어 문법 시간에 주어가 남의 힘에 의해 움직이는 피동 표현을 배워요.",
+  "en": "In Korean grammar class, I learn passiveness expressions where the subject is acted upon by another force."
+ },
+ "피로": {
+  "ex": "따뜻한 물로 목욕을 하니 하루 동안 쌓인 피로가 싹 풀려요.",
+  "en": "Taking a bath in warm water, the fatigue accumulated throughout the day clears away completely."
+ },
+ "피부": {
+  "ex": "건조한 겨울철에는 로션을 발라 피부를 촉촉하게 유지해요.",
+  "en": "In dry winter, I apply lotion to keep my skin moisturized."
+ },
+ "피우다": {
+  "ex": "정성껏 물을 주고 화분에 예쁜 꽃을 피워요.",
+  "en": "Giving water attentively, I make pretty flowers bloom in the flowerpot."
+ },
+ "피하다": {
+  "ex": "뜨거운 한낮의 햇빛을 피하려고 나무 그늘 아래로 들어가요.",
+  "en": "To avoid the hot midday sunlight, I go under the shade of trees."
+ },
+ "필기": {
+  "ex": "선생님의 중요한 설명을 공책에 빠짐없이 필기해요.",
+  "en": "I write down the teacher's important explanations in my notebook without missing anything."
+ },
+ "필기도구": {
+  "ex": "수업을 듣기 전에 연필과 지우개 같은 필기도구를 책상 위에 꺼내요.",
+  "en": "Before attending class, I take out writing supplies like pencils and erasers on the desk."
+ },
+ "필수": {
+  "ex": "건강을 유지하기 위해 매일 규칙적인 수면은 필수예요.",
+  "en": "Regular daily sleep is an essential requirement to maintain health."
+ },
+ "필요": {
+  "ex": "문제를 해결하기 위해 친구들과 깊이 있는 대화의 필요를 느껴요.",
+  "en": "I feel the need for in-depth conversation with friends to solve the problem."
+ },
+ "필요성": {
+  "ex": "환경 보호를 위한 재활용 실천의 중요성과 필요성을 배워요.",
+  "en": "We learn the importance and necessity of recycling practices for environmental protection."
  }
 };
