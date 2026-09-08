@@ -3250,6 +3250,12 @@
   "only": true
  },
  {
+  "ko": "초록",
+  "en": "green",
+  "pos": "명사",
+  "only": true
+ },
+ {
   "ko": "녹",
   "en": "rust",
   "pos": "명사",
