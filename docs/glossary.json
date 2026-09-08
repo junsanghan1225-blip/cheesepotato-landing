@@ -3298,6 +3298,12 @@
   "only": true
  },
  {
+  "ko": "한숨",
+  "en": "sigh; a while (of sleep, rest)",
+  "pos": "명사",
+  "only": true
+ },
+ {
   "ko": "녹",
   "en": "rust",
   "pos": "명사",
