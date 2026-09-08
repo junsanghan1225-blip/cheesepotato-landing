@@ -3292,6 +3292,12 @@
   "only": true
  },
  {
+  "ko": "풍력",
+  "en": "wind power; wind velocity",
+  "pos": "명사",
+  "only": true
+ },
+ {
   "ko": "녹",
   "en": "rust",
   "pos": "명사",
