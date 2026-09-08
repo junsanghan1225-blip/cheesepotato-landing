@@ -14711,5 +14711,165 @@ export const EXAMPLES = {
  "친절": {
   "ex": "길을 묻는 여행객에게 따뜻한 미소와 친절을 베풀어요.",
   "en": "I offer a warm smile and kindness to the traveler asking for directions."
+ },
+ "친절하다": {
+  "ex": "길을 알려주는 동네 주민분이 아주 친절해요.",
+  "en": "The neighborhood resident giving directions is very kind."
+ },
+ "친척": {
+  "ex": "명절이 되면 오랜만에 친척 집을 방문해 인사를 드려요.",
+  "en": "When holidays come, I visit my relatives' house after a long time and greet them."
+ },
+ "친화": {
+  "ex": "우리 동아리는 구성원 간의 친화와 화합을 중요하게 여겨요.",
+  "en": "Our club values harmony and friendship among members."
+ },
+ "친화적": {
+  "ex": "선생님은 학생들과 친화적 관계를 유지하며 수업을 진행하세요.",
+  "en": "The teacher maintains a friendly relationship with students while conducting class."
+ },
+ "친환경": {
+  "ex": "지구를 지키기 위해 일회용품 대신 친환경 제품을 사용해요.",
+  "en": "I use eco-friendly products instead of disposables to protect the Earth."
+ },
+ "친환경적": {
+  "ex": "재활용이 가능한 종이 쇼핑백은 친환경적 포장 방식이에요.",
+  "en": "Recyclable paper shopping bags are an eco-friendly packaging method."
+ },
+ "칠": {
+  "ex": "목공예 작품의 표면에 반짝이는 옻 칠을 덧발라요.",
+  "en": "I apply a shiny lacquer coating over the surface of the woodworking craft."
+ },
+ "칠판": {
+  "ex": "선생님이 칠판 위에 오늘 배울 중요한 한국어 단어를 적으세요.",
+  "en": "The teacher writes important Korean words to learn today on the blackboard."
+ },
+ "침": {
+  "ex": "맛있는 음식 냄새를 맡으니 입안에 군침과 침이 절로 고여요.",
+  "en": "Smelling the delicious food aroma, saliva naturally fills my mouth."
+ },
+ "침대": {
+  "ex": "하루 일과를 마치고 포근한 침대에 누워 휴식을 취해요.",
+  "en": "Finishing the daily routine, I lie down on the cozy bed and rest."
+ },
+ "침묵": {
+  "ex": "중요한 질문을 받은 후 잠시 깊은 침묵 속에서 생각을 정리해요.",
+  "en": "After receiving an important question, I organize my thoughts in deep silence for a moment."
+ },
+ "침침하다": {
+  "ex": "불을 켜지 않아서 방 안이 어둡고 눈앞이 침침해요.",
+  "en": "Because I did not turn on the light, the room is dark and my vision is dim."
+ },
+ "침팬지": {
+  "ex": "동물원에서 나뭇가지를 도구로 능숙하게 사용하는 침팬지를 관찰해요.",
+  "en": "At the zoo, I observe a chimpanzee skillfully using a tree branch as a tool."
+ },
+ "침해": {
+  "ex": "다른 사람의 조용한 독서 권리에 대한 침해가 되지 않도록 주의해요.",
+  "en": "I am careful not to cause an intrusion on other people's right to quiet reading."
+ },
+ "칭찬": {
+  "ex": "과제를 성실히 완성해서 선생님께 아낌없는 칭찬을 받아요.",
+  "en": "I receive generous praise from the teacher for completing the assignment diligently."
+ },
+ "카드": {
+  "ex": "서점에서 책을 사고 지갑에서 결제용 카드를 꺼내요.",
+  "en": "I buy books at the bookstore and take out a payment card from my wallet."
+ },
+ "카메라": {
+  "ex": "소중한 추억을 사진으로 남기기 위해 가방에서 카메라를 꺼내요.",
+  "en": "I take out the camera from my bag to capture precious memories in photos."
+ },
+ "카페": {
+  "ex": "방과 후에 조용한 카페에 앉아 친구와 함께 과제를 해요.",
+  "en": "After school, I sit in a quiet cafe and do homework together with a friend."
+ },
+ "캠핑": {
+  "ex": "주말에 맑은 공기를 마시며 숲속으로 캠핑을 떠나요.",
+  "en": "I go camping in the forest breathing fresh air on the weekend."
+ },
+ "커지다": {
+  "ex": "매일 꾸준히 책을 읽으니 한국어에 대한 관심이 더욱 커져요.",
+  "en": "Reading books steadily every day, my interest in Korean gets much bigger."
+ },
+ "커피": {
+  "ex": "나른한 오후에 잠을 깨려고 따뜻한 원두커피 한 잔을 마셔요.",
+  "en": "In the drowsy afternoon, I drink a cup of warm brewed coffee to wake up."
+ },
+ "컴퓨터": {
+  "ex": "과제 보고서를 작성하기 위해 책상 위의 컴퓨터를 켜요.",
+  "en": "I turn on the computer on the desk to write the assignment report."
+ },
+ "컴퓨터실": {
+  "ex": "수업 시간에 코딩 실습을 하러 본관 삼 층 컴퓨터실로 이동해요.",
+  "en": "I move to the computer lab on the 3rd floor of the main building for coding practice during class."
+ },
+ "컵": {
+  "ex": "목이 말라서 식탁 위에 놓인 유리컵에 시원한 물을 따라요.",
+  "en": "Feeling thirsty, I pour cold water into the glass cup placed on the dining table."
+ },
+ "케이크": {
+  "ex": "친구의 생일을 축하하기 위해 달콤한 딸기 케이크를 사요.",
+  "en": "I buy a sweet strawberry cake to celebrate my friend's birthday."
+ },
+ "켜": {
+  "ex": "얇은 종이 반죽을 여러 켜로 겹쳐서 단단한 상자를 만들어요.",
+  "en": "They layer thin paper paste into several layers to make a sturdy box."
+ },
+ "켜다": {
+  "ex": "어두운 방을 밝히려고 성냥으로 작은 촛불을 켜요.",
+  "en": "I ignite and light a small candle with a match to brighten the dark room."
+ },
+ "켤레": {
+  "ex": "새 학기를 맞이해 편안하고 하얀 운동화 한 켤레를 사요.",
+  "en": "Welcoming the new semester, I buy a pair of comfortable white sneakers."
+ },
+ "코딩": {
+  "ex": "방학 동안 유용한 앱을 만들기 위해 기초 컴퓨터 코딩을 배워요.",
+  "en": "During vacation, I learn basic computer coding to create useful apps."
+ },
+ "코트": {
+  "ex": "찬 바람이 부는 겨울 날씨에 따뜻하고 긴 털 코트를 입어요.",
+  "en": "In cold, windy winter weather, I wear a warm and long fur coat."
+ },
+ "콘": {
+  "ex": "아이스크림 가게에서 바삭하고 달콤한 와플 콘을 골라요.",
+  "en": "I choose a crispy and sweet waffle cone at the ice cream shop."
+ },
+ "콘크리트": {
+  "ex": "건물을 튼튼하게 짓기 위해 단단한 콘크리트 벽을 세워요.",
+  "en": "They build sturdy concrete walls to construct the building durably."
+ },
+ "콘텐츠": {
+  "ex": "한국어를 재미있게 익힐 수 있는 다양한 교육용 디지털 콘텐츠를 제작해요.",
+  "en": "We produce diverse educational digital contents to learn Korean enjoyably."
+ },
+ "쾌적하다": {
+  "ex": "에어컨을 틀고 환기를 하니 실내 공기가 아주 쾌적해요.",
+  "en": "Turning on the air conditioner and ventilating makes the indoor air very pleasant."
+ },
+ "쿠션": {
+  "ex": "등을 편안하게 받치려고 소파 위에 푹신한 쿠션을 놓아요.",
+  "en": "I place a soft cushion on the couch to support my back comfortably."
+ },
+ "쿠폰": {
+  "ex": "서점에서 책을 결제할 때 십 퍼센트 할인 쿠폰을 사용해요.",
+  "en": "I use a 10% discount voucher when paying for books at the bookstore."
+ },
+ "쿵": {
+  "ex": "무거운 여행 가방이 바닥에 쿵 소리를 내며 떨어져요.",
+  "en": "The heavy suitcase falls to the floor making a thump sound."
+ },
+ "쿵쿵": {
+  "ex": "실내에서는 이웃을 배려해 발을 쿵쿵 구르며 뛰지 않아요.",
+  "en": "Indoors, I do not run stomping feet thumping out of consideration for neighbors."
+ },
+ "크기": {
+  "ex": "책을 넣기에 알맞은 가방의 크기를 꼼꼼히 확인해요.",
+  "en": "I carefully check the bag's size to see if it is suitable for holding books."
+ },
+ "크다": {
+  "ex": "정성껏 물을 주고 햇빛을 쬐어 주니 작은 화초가 쑥쑥 커요.",
+  "en": "Giving water attentively and basking it in sunlight, the small plant grows big rapidly."
  }
 };
