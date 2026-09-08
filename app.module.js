@@ -13,7 +13,7 @@
    어느 날 갑자기 다른 코드가 실려 왔다.
    이제 vendor/ 안에 받아 두고 CSP 로 바깥을 막는다. 버전을 올릴 때는
    tools/vendor.mjs 의 PIN 을 고치고 다시 돌린다. */
-import { createClient } from './vendor/supabase-js.js?v=9d3fb902';
+import { createClient } from './vendor/supabase-js.js?v=4d69f675';
 // 앱(package.json)과 같은 줄기를 쓴다. 갈리면 앱에서는 읽히는 파일이
 // 여기서는 안 읽히는(또는 그 반대) 일이 생긴다.
 /* 엑셀 라이브러리는 422KB — 이 판에서 가장 무거운 조각이다. 그런데 쓰는
@@ -25,13 +25,13 @@ import { createClient } from './vendor/supabase-js.js?v=9d3fb902';
    자국(?v=)은 tools/stamp.mjs 가 아래 줄에 알아서 붙인다 — 정적으로 쓰든
    동적으로 쓰든 같은 글자를 찾으므로 바꿔도 그대로 찍힌다. */
 let XLSX = null;
-const needXLSX = async () => (XLSX ??= await import('./vendor/xlsx.js?v=9d3fb902'));
+const needXLSX = async () => (XLSX ??= await import('./vendor/xlsx.js?v=4d69f675'));
 // 커리큘럼. 내용과 엔진을 갈라 두면 글을 고치다 화면을 깨지 않는다.
 // 갈래 목록(drawSections)·코스(drawCourses)·문제만 풀기(dqDraw) 를 열 때만
 // 받는다 — 배우기 갈래 목록도 안 본 사람에게 코스 71개 레슨을 다 물릴
 // 까닭이 없다. warmLearn() 이 배우기를 여는 순간 미리 불을 붙여 둔다.
 let COURSES = [], coursesP = null;
-const coursesNeed = () => (coursesP ??= import('./courses.js?v=9d3fb902').then((m) => { COURSES = m.COURSES; }));
+const coursesNeed = () => (coursesP ??= import('./courses.js?v=4d69f675').then((m) => { COURSES = m.COURSES; }));
 /* 낱말 뜻풀이 356KB. 예전에는 여기서 통째로 받았다 — tqGloss 가 동기라
    지연 로딩이 안 된다고 보았기 때문이다. 그런데 tqGloss 를 부르는 자리를
    다 세어 보니 여덟 곳이고 **전부 사람이 무언가를 누른 뒤**였다(사전
@@ -42,7 +42,7 @@ const coursesNeed = () => (coursesP ??= import('./courses.js?v=9d3fb902').then((
    tqGloss 는 그대로 동기다 — 아직 안 왔으면 빈 뜻을 돌려주고, 부르는
    쪽은 이미 "사전에 없는 말"을 다룰 줄 안다. */
 let GLOSSARY = {}, GLOSS_LANGS = {}, glossP = null;
-const glossNeed = () => (glossP ??= import('./glossary.js?v=9d3fb902').then((m) => {
+const glossNeed = () => (glossP ??= import('./glossary.js?v=4d69f675').then((m) => {
   GLOSSARY = m.GLOSSARY; GLOSS_LANGS = m.GLOSS_LANGS;
   dictBuildEntries();
 }).catch((e) => {
@@ -50,15 +50,15 @@ const glossNeed = () => (glossP ??= import('./glossary.js?v=9d3fb902').then((m) 
   glossP = null;
   throw e;
 }));
-import { glossFind } from './gloss-find.js?v=9d3fb902';
+import { glossFind } from './gloss-find.js?v=4d69f675';
 /* 문법 사전(뜻풀이 197개). 읽기 지문의 밑줄 문법 말풍선(rdNeed)과 예문
    만들기 화면(sbNeed) 양쪽이 쓴다 — 둘 중 먼저 여는 화면이 받아 두고,
    나중 화면은 그 약속(??=)을 그대로 쓴다. */
 let GRAMMAR = [], GRAMMAR_EN = {}, grammarP = null;
 const grammarNeed = () => (grammarP ??= Promise.all([
-  import('./grammar.js?v=9d3fb902'), import('./grammar-en.js?v=9d3fb902'),
+  import('./grammar.js?v=4d69f675'), import('./grammar-en.js?v=4d69f675'),
 ]).then(([a, b]) => { GRAMMAR = a.GRAMMAR; GRAMMAR_EN = b.GRAMMAR_EN; }));
-import { grammarScan } from './grammar-find.js?v=9d3fb902';
+import { grammarScan } from './grammar-find.js?v=4d69f675';
 // TOPIK 쓰기·듣기 문항. 읽기(topik.js·topik2.js)와 같은 tqNeedData() 로
 // 함께 받는다 — 유형 연습(topik) 갈래 하나가 세 기술을 다 쓰므로 따로
 // 가를 까닭이 없다. 값은 tqNeedData 정의부에서 채운다.
@@ -70,7 +70,7 @@ let TOPIKL_BY_EXAM = {}, TOPIKL_PICTURE_SLOTS = {};
    sbFind 를 쓰는데, 그쪽은 안 기다리고 그냥 부른다 — 답이 못 찾은
    인용 없이 나가는 것이 채팅이 멈추는 것보다 낫다. */
 let SB_CATS = [], SB_MORE = {}, SB_SEED = {}, SB_POINTS = [], sbDataP = null;
-const sbNeed = () => (sbDataP ??= import('./sentences.js?v=9d3fb902').then((m) => {
+const sbNeed = () => (sbDataP ??= import('./sentences.js?v=4d69f675').then((m) => {
   SB_CATS = m.SB_CATS; SB_MORE = m.SB_MORE; SB_SEED = m.SB_SEED;
   // 갈래마다 표현을 펼쳐 한 줄에 담는다 — SB_CATS 안의 점에는 갈래가 안
   // 달려 있어서(sbFind 가 표현 하나를 id 로 바로 찾으려면 이게 있어야 한다).
@@ -81,7 +81,7 @@ const sbNeed = () => (sbDataP ??= import('./sentences.js?v=9d3fb902').then((m) =
 // 숫자 게임의 읽기와 문제 만들기. 화면을 모르는 순수 계산이라 따로 뒀다.
 // 게임 목록에서 「숫자 읽기」를 시작할 때만 받는다 — XLSX 와 같은 자리다.
 let makeRound = null;
-const needNumbers = async () => (makeRound ??= (await import('./numbers.js?v=9d3fb902')).makeRound);
+const needNumbers = async () => (makeRound ??= (await import('./numbers.js?v=4d69f675')).makeRound);
 
 // 이 키는 공개돼도 되는 값이다. 이미 APK 안에 같은 것이 들어 있고,
 // 접근을 막는 건 키가 아니라 테이블에 걸린 RLS 다.
@@ -136,8 +136,8 @@ let tqDataP = null;
    유형 연습(topik) 갈래 하나가 이 넷을 다 쓰므로 갈라 봤자 요청만
    늘어난다. */
 const tqNeedData = () => (tqDataP ??= Promise.all([
-  import('./topik.js?v=9d3fb902'), import('./topik2.js?v=9d3fb902'),
-  import('./topik-writing.js?v=9d3fb902'), import('./topik-listening.js?v=9d3fb902'),
+  import('./topik.js?v=4d69f675'), import('./topik2.js?v=4d69f675'),
+  import('./topik-writing.js?v=4d69f675'), import('./topik-listening.js?v=4d69f675'),
 ]).then(([a, b, c, d]) => {
   TQ_DATA.I  = { reading: a.TOPIK_READING,  blueprint: a.TOPIK_BLUEPRINT,  slots: a.TOPIK_SLOTS };
   TQ_DATA.II = { reading: b.TOPIK2_READING, blueprint: b.TOPIK2_BLUEPRINT, slots: b.TOPIK2_SLOTS };
@@ -148,11 +148,11 @@ const tqNeedData = () => (tqDataP ??= Promise.all([
 let READING = null, rdP = null;
 // 지문의 밑줄 문법 말풍선이 GRAMMAR 를 쓰므로 같이 받아 둔다.
 const rdNeed = () => (rdP ??= Promise.all([
-  import('./reading.js?v=9d3fb902'), grammarNeed(),
+  import('./reading.js?v=4d69f675'), grammarNeed(),
 ]).then(([m]) => { READING = m.READING; }));
 
 let CONVO = null, cvP = null;
-const cvNeed = () => (cvP ??= import('./convo.js?v=9d3fb902').then((m) => { CONVO = m.CONVO; }));
+const cvNeed = () => (cvP ??= import('./convo.js?v=4d69f675').then((m) => { CONVO = m.CONVO; }));
 
 /* 배우기를 열면 여섯 다 미리 불을 붙인다. 기다리지 않는다 — 갈래 목록은
    이 자료가 없어도 그려지고, 사람이 갈래를 고르는 사이에 도착한다.
@@ -553,14 +553,14 @@ let dictOpen = null;  // 지금 "더 보기"(예문·뜻풀이)를 펼쳐 둔 �
    평소엔 안 쓰는 522KB 를 첫 화면 모두에게 물릴 까닭이 없다. */
 let dictSensesP = null;
 const dictLoadSenses = () => (dictSensesP ??=
-  import('./glossary-senses.js?v=9d3fb902').then((m) => m.SENSES).catch(() => ({})));
+  import('./glossary-senses.js?v=4d69f675').then((m) => m.SENSES).catch(() => ({})));
 
 /* 예문. 국립국어원 자료엔 없어서 Gemini 로 새로 지은 것이다(있는 만큼만
    — docs/glossary-examples-gemini-prompt.md 참고). 뜻풀이와 같은 자리에서
    같이 받는다 — 펼치는 손짓 하나에 몰아 두는 편이 화면이 덜 복잡하다. */
 let dictExamplesP = null;
 const dictLoadExamples = () => (dictExamplesP ??=
-  import('./glossary-examples.js?v=9d3fb902').then((m) => m.EXAMPLES).catch(() => ({})));
+  import('./glossary-examples.js?v=4d69f675').then((m) => m.EXAMPLES).catch(() => ({})));
 
 function dictVisible() {
   const q = dictQuery.trim().toLowerCase();
@@ -3102,8 +3102,9 @@ function tlDraw() {
   ]);
 
   const tx = tlTypeTx();
-  const card = (key, emoji, title, tag, blurb, n) =>
-    `<button class="lc-card lq-card" data-tl="${esc(key)}">` +
+  const card = (key, emoji, title, tag, blurb, n) => {
+    const rec = tlSetRead(tqExam, tqGrade, key);
+    return `<button class="lc-card lq-card" data-tl="${esc(key)}">` +
       '<div class="lc-top">' +
         `<div class="lc-mark">${emoji}</div>` +
         '<div style="min-width:0">' +
@@ -3113,8 +3114,11 @@ function tlDraw() {
         '</div>' +
       '</div>' +
       `<p class="lc-blurb">${esc(blurb)}</p>` +
-      `<div class="lq-meta"><span class="lq-chip">${esc(t(`${n}문항`, `${n} items`))}</span></div>` +
+      `<div class="lq-meta"><span class="lq-chip">${esc(t(`${n}문항`, `${n} items`))}</span>` +
+        (rec ? `<span class="lq-chip done">${esc(t(`${rec.s}/${rec.n} 풀었어요`, `Done ${rec.s}/${rec.n}`))}</span>` : '') +
+      '</div>' +
     '</button>';
+  };
 
   if (!rows.length) {
     $('tlList').innerHTML = `<div class="learn-empty">${esc(t('이 급수 듣기는 아직 채우는 중이에요.', 'Listening for this level is still being written.'))}</div>`;
@@ -3479,8 +3483,9 @@ function drawTopik() {
     { k: t('최고', 'Best'), v: `${gameBestRead(tqBestKey(tqGrade))} / ${rows.length}`, s: t('한 번에 다 풀었을 때', 'Full run, all questions') },
   ]);
 
-  const card = (key, emoji, title, tag, blurb, n, lv) =>
-    `<button class="lc-card lq-card" data-tq="${esc(key)}">` +
+  const card = (key, emoji, title, tag, blurb, n, lv) => {
+    const rec = tqSetRead(tqGrade, key);
+    return `<button class="lc-card lq-card" data-tq="${esc(key)}">` +
       '<div class="lc-top">' +
         `<div class="lc-mark">${emoji}</div>` +
         '<div style="min-width:0">' +
@@ -3490,8 +3495,11 @@ function drawTopik() {
         '</div>' +
       '</div>' +
       `<p class="lc-blurb">${esc(blurb)}</p>` +
-      `<div class="lq-meta"><span class="lq-chip">${esc(t(`${n}문제`, `${n} questions`))}</span></div>` +
+      `<div class="lq-meta"><span class="lq-chip">${esc(t(`${n}문제`, `${n} questions`))}</span>` +
+        (rec ? `<span class="lq-chip done">${esc(t(`${rec.s}/${rec.n} 풀었어요`, `Done ${rec.s}/${rec.n}`))}</span>` : '') +
+      '</div>' +
     '</button>';
+  };
 
   tqDrawRecord(byType);
   tqDrawLog();
@@ -9413,6 +9421,16 @@ function twSetWrite(id, pt, max) {
   try { localStorage.setItem(twSetKey(id), JSON.stringify({ pt, max })); } catch (e) {}
 }
 
+/* 「풀었다」 표시는 점수와 다르다. 53·54 는 규칙 채점이 없어서 twSetRead 가
+   늘 비어 있는데, 그렇다고 목록에서 안 푼 것처럼 보이면 목록의 값이
+   없어진다. 모범답안을 열어 본 순간을 "풀었다"로 친다 — 그게 이 문항에서
+   유일하게 남는, 끝까지 갔다는 신호다. 51·52 는 채점 기록이 있으면 그걸로
+   충분하니 따로 안 적는다. */
+const twSeenKey = (id) => `cp-tw-seen-${id}`;
+const twSeenRead = (id) => { try { return localStorage.getItem(twSeenKey(id)) === '1'; } catch (e) { return false; } };
+const twSeenWrite = (id) => { try { localStorage.setItem(twSeenKey(id), '1'); } catch (e) {} };
+const twIsDone = (id) => !!twSetRead(id) || twSeenRead(id);
+
 /* 기록판 — 51·52 번 진행률과 평균 점수. tqBar 를 그대로 쓴다(있는 값이
    s/n 이 아니라 pt/max 라 「초」 자리는 백분율로 맞춰 넘긴다). */
 function twDrawRecord() {
@@ -9462,15 +9480,18 @@ function twDraw() {
     const items = mine.filter((x) => x.q === g.q);
     if (!items.length) continue;
     html += `<div class="tw-sec-t">${esc(isEn() ? g.en : g.ko)} · ${g.pt}${t('점', ' pts')}</div>` +
-      items.map((it) =>
-        `<button class="tw-card" data-tw="${esc(it.id)}">` +
+      items.map((it) => {
+        const done = twIsDone(it.id);
+        return `<button class="tw-card" data-tw="${esc(it.id)}">` +
           '<div class="tw-card-top">' +
             `<span class="tw-no">${it.q}</span>` +
             `<span class="tw-pt">${it.min ? `${it.min}~${it.max}${t('자', ' chars')}` : t('빈칸 2곳', '2 blanks')}</span>` +
+            (done ? `<span class="lq-chip done">${esc(t('풀었어요', 'Done'))}</span>` : '') +
           '</div>' +
           `<div class="tw-card-t">${esc(it.title)}</div>` +
           `<div class="tw-card-s">${esc(it.cond)}</div>` +
-        '</button>').join('');
+        '</button>';
+      }).join('');
   }
   $('twList').innerHTML = html +
     `<p class="sb-none" style="margin-top:18px">${t(
@@ -9591,6 +9612,7 @@ function twSync() {
 function twReveal() {
   const it = twItem;
   if (!it) return;
+  twSeenWrite(it.id);
   let html = '';
   if (it.blanks) {
     html += it.blanks.map((b) =>
