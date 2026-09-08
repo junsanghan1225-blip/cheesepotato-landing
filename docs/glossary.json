@@ -3238,6 +3238,12 @@
   "only": true
  },
  {
+  "ko": "찌푸리다",
+  "en": "frown; scowl; be cloudy; be gloomy",
+  "pos": "동사",
+  "only": true
+ },
+ {
   "ko": "녹",
   "en": "rust",
   "pos": "명사",
