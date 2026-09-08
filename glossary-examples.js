@@ -13911,5 +13911,165 @@ export const EXAMPLES = {
  "차": {
   "ex": "식사 후에 조용한 카페에서 따뜻한 녹차 한 잔을 마셔요.",
   "en": "After the meal, I drink a cup of warm green tea at a quiet cafe."
+ },
+ "차갑다": {
+  "ex": "더운 여름에는 얼음이 든 차가운 물을 마셔요.",
+  "en": "In the hot summer, I drink cold water with ice."
+ },
+ "차고": {
+  "ex": "외출에서 돌아와 차를 집 옆 차고에 주차해요.",
+  "en": "Returning from the outing, I park the car in the garage next to the house."
+ },
+ "차곡차곡": {
+  "ex": "빨래를 개어 옷장 서랍에 차곡차곡 정리해요.",
+  "en": "I fold the laundry and organize it neatly in the closet drawer."
+ },
+ "차다": {
+  "ex": "주말 오후가 되자 도서관 열람실에 학생들의 자리가 가득 차요.",
+  "en": "As weekend afternoon comes, students' seats in the library reading room become full."
+ },
+ "차단": {
+  "ex": "눈부신 햇빛의 효과적인 차단을 위해 블라인드를 내려요.",
+  "en": "I pull down the blinds for the effective blocking of the dazzling sunlight."
+ },
+ "차단하다": {
+  "ex": "밤에는 편안한 숙면을 위해 방으로 들어오는 외부 소음을 차단해요.",
+  "en": "At night, I shut off external noise coming into the room for a comfortable, sound sleep."
+ },
+ "차도": {
+  "ex": "위험하니 차도로 걷지 않고 안전한 인도 안쪽으로 걸어요.",
+  "en": "Because it is dangerous, I do not walk on the roadway and walk inside the safe sidewalk."
+ },
+ "차라리": {
+  "ex": "버스를 기다리기보다 차라리 가까운 거리는 걸어서 가요.",
+  "en": "Rather than waiting for the bus, I would rather walk the short distance."
+ },
+ "차량": {
+  "ex": "출퇴근 시간에는 도로에 지나다니는 차량이 아주 많아요.",
+  "en": "During rush hour, there are a great many vehicles passing on the road."
+ },
+ "차례": {
+  "ex": "도서관 카드를 만들기 위해 안내된 신청 차례를 밟아요.",
+  "en": "I follow the guided application procedure to make a library card."
+ },
+ "차로": {
+  "ex": "자전거 전용 차로를 이용해 안전하고 편하게 달려요.",
+  "en": "I ride safely and comfortably using the dedicated bicycle road."
+ },
+ "차별": {
+  "ex": "우리는 출신이나 배경에 따른 어떠한 차별도 하지 않아요.",
+  "en": "We do not practice any discrimination based on origin or background."
+ },
+ "차분하다": {
+  "ex": "주리는 어려운 시험 앞에서도 늘 차분한 태도를 보여줘요.",
+  "en": "Juri always shows a calm attitude even in front of difficult exams."
+ },
+ "차세대": {
+  "ex": "환경을 보호하기 위한 친환경 차세대 에너지를 연구해요.",
+  "en": "They research eco-friendly next generation energy to protect the environment."
+ },
+ "차이": {
+  "ex": "두 단어의 미묘한 뜻 차이를 사전을 통해 비교해요.",
+  "en": "I compare subtle differences in meaning between the two words through the dictionary."
+ },
+ "차이다": {
+  "ex": "발끝에 돌멩이가 툭 차여서 저 멀리 굴러가요.",
+  "en": "A small stone is kicked by the tip of my foot and rolls far away."
+ },
+ "차질": {
+  "ex": "미리 철저히 준비해서 행사 진행에 아무런 차질이 없어요.",
+  "en": "Because we prepared thoroughly in advance, there is no setback in running the event."
+ },
+ "차차": {
+  "ex": "꾸준히 연습하면 어려운 문법도 차차 익숙해져요.",
+  "en": "If you practice steadily, difficult grammar will gradually become familiar too."
+ },
+ "착": {
+  "ex": "새로 산 스티커가 공책 표지에 착 달라붙어요.",
+  "en": "The newly bought sticker sticks stickily to the notebook cover."
+ },
+ "착용": {
+  "ex": "자전거를 탈 때는 안전을 위해 헬멧 착용을 잊지 않아요.",
+  "en": "When riding a bicycle, I do not forget the wear of a helmet for safety."
+ },
+ "찬": {
+  "ex": "식탁 위에 어머니께서 만들어 주신 맛있는 찬을 올려요.",
+  "en": "I place delicious side dishes made by my mother on the dining table."
+ },
+ "찬바람": {
+  "ex": "겨울이 다가오자 창밖에서 매서운 찬바람이 불어와요.",
+  "en": "As winter approaches, a piercing cold wind blows outside the window."
+ },
+ "참": {
+  "ex": "오늘 친구들과 함께 먹은 점심은 참 맛있어요.",
+  "en": "The lunch I ate with friends today is truly delicious."
+ },
+ "참가": {
+  "ex": "학교에서 열리는 한국어 말하기 대회의 참가를 신청해요.",
+  "en": "I apply for participation in the Korean speaking contest held at school."
+ },
+ "참가비": {
+  "ex": "문화 체험 활동에 참여하기 위해 소정의 참가비를 내요.",
+  "en": "I pay a small entry fee to participate in the cultural experience activity."
+ },
+ "참가자": {
+  "ex": "마라톤 대회가 시작되자 수많은 참가자가 힘차게 달려 나가요.",
+  "en": "When the marathon race begins, countless participants run out vigorously."
+ },
+ "참가하다": {
+  "ex": "방학 동안 대학에서 주최하는 한국 문화 캠프에 참가해요.",
+  "en": "During vacation, I participate in the Korean culture camp hosted by the university."
+ },
+ "참다": {
+  "ex": "졸음을 꾹 참으며 밤늦게까지 시험공부를 계속해요.",
+  "en": "I hold back my sleepiness and continue studying for the test until late at night."
+ },
+ "참석": {
+  "ex": "내일 오후에 열리는 동아리 정기 모임의 참석을 확인해요.",
+  "en": "I confirm attendance at the regular club meeting held tomorrow afternoon."
+ },
+ "참석하다": {
+  "ex": "친구의 생일을 축하해 주기 위해 저녁 모임에 참석해요.",
+  "en": "I attend the evening gathering to celebrate my friend's birthday."
+ },
+ "참여": {
+  "ex": "토론 수업에서는 모든 학생의 적극적인 참여가 중요해요.",
+  "en": "In discussion classes, active participation of all students is important."
+ },
+ "참여율": {
+  "ex": "재미있는 활동 덕분에 이번 행사의 학생 참여율이 아주 높아요.",
+  "en": "Thanks to interesting activities, student participation rate for this event is very high."
+ },
+ "참여하다": {
+  "ex": "마을을 깨끗이 가꾸는 주말 봉사활동에 기쁜 마음으로 참여해요.",
+  "en": "I gladly participate in weekend volunteer activities to keep the town clean."
+ },
+ "참외": {
+  "ex": "여름철에 노랗고 달콤한 참외를 깎아서 가족들과 나누어 먹어요.",
+  "en": "In summer, I peel yellow and sweet oriental melons to share and eat with family."
+ },
+ "창가": {
+  "ex": "따뜻한 햇살이 드는 카페 창가 자리에 앉아 차를 마셔요.",
+  "en": "I sit by the cafe window seat where warm sunlight enters and drink tea."
+ },
+ "창구": {
+  "ex": "은행에 들어가서 번호표를 뽑고 해당 업무 창구로 가요.",
+  "en": "I enter the bank, take a queue ticket, and go to the corresponding service window counter."
+ },
+ "창문": {
+  "ex": "방 안의 공기를 바꾸려고 아침마다 창문을 활짝 열어요.",
+  "en": "I open the window wide every morning to refresh the air inside the room."
+ },
+ "창밖": {
+  "ex": "비가 내리는 날에는 방 안에서 조용히 창밖을 바라봐요.",
+  "en": "On rainy days, I quietly look outside the window from inside the room."
+ },
+ "창의": {
+  "ex": "문제를 새로운 시각으로 바라보며 풍부한 창의를 발휘해요.",
+  "en": "Looking at problems from a new perspective, I demonstrate rich creativity."
+ },
+ "창작": {
+  "ex": "여름 방학 동안 나만의 이야기를 담은 단편 소설 창작에 도전해요.",
+  "en": "During summer vacation, I take on the creation of a short story containing my own story."
  }
 };
