@@ -3184,6 +3184,18 @@
   "only": true
  },
  {
+  "ko": "주장",
+  "en": "assertion; claim",
+  "pos": "명사",
+  "only": true
+ },
+ {
+  "ko": "죽",
+  "en": "porridge",
+  "pos": "명사",
+  "only": true
+ },
+ {
   "ko": "녹",
   "en": "rust",
   "pos": "명사",
