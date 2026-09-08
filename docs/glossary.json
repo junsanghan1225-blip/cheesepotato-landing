@@ -3256,6 +3256,12 @@
   "only": true
  },
  {
+  "ko": "축구",
+  "en": "soccer; football",
+  "pos": "명사",
+  "only": true
+ },
+ {
   "ko": "녹",
   "en": "rust",
   "pos": "명사",
