@@ -409,14 +409,20 @@
 .wb-main { flex:1; min-width:0; }
 .wb-word { font-size:17.5px; font-weight:700; color:var(--ink); letter-spacing:-.03em; word-break:break-word; }
 /* 낱말/예문 옆의 작은 소리 단추. .ex-say(지문 듣기용 큰 알약)를 그대로
-   쓰면 낱말 하나 옆에 검정 덩어리가 붙어 촌스럽다 — 아이콘 크기로 줄인다. */
+   쓰면 낱말 하나 옆에 검정 덩어리가 붙어 촌스럽다 — 아이콘 크기로 줄인다.
+   🔊 이모지는 기기마다 그려지는 모양·크기가 달라(어떤 기기에서는 아예
+   네모난 배경이 박혀 나온다) currentColor SVG(app.module.js 의
+   DICT_SAY_ICON)로 바꿨다 — 버튼 색을 그대로 물려받아 테마를 안 탄다. */
 .dict-say {
   display:inline-flex; align-items:center; justify-content:center;
-  width:22px; height:22px; margin-left:6px; vertical-align:middle;
-  background:none; border:none; padding:0; font-size:14px; line-height:1;
-  color:var(--ink-3); cursor:pointer; border-radius:999px;
+  width:24px; height:24px; margin-left:6px; vertical-align:middle;
+  background:var(--tint); border:none; padding:0; border-radius:999px;
+  color:var(--ink-3); cursor:pointer; flex-shrink:0;
+  transition:background .15s, color .15s;
 }
+.dict-say svg { width:13px; height:13px; }
 .dict-say:hover { color:var(--orange-deep); background:var(--surface-2); }
+.dict-say:active { transform:scale(.9); }
 .wb-mean { font-size:14px; color:var(--ink-2); margin-top:4px; word-break:break-word; }
 /* 뜻이 아직 없는 단어. 진짜 뜻과 헷갈리지 않게 흐리고 기울여 둔다. */
 .wb-nomean { color:var(--ink-3); font-style:italic; opacity:.75; }
