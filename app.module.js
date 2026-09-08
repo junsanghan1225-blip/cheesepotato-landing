@@ -13,7 +13,7 @@
    어느 날 갑자기 다른 코드가 실려 왔다.
    이제 vendor/ 안에 받아 두고 CSP 로 바깥을 막는다. 버전을 올릴 때는
    tools/vendor.mjs 의 PIN 을 고치고 다시 돌린다. */
-import { createClient } from './vendor/supabase-js.js?v=96cbeba4';
+import { createClient } from './vendor/supabase-js.js?v=88d092b8';
 // 앱(package.json)과 같은 줄기를 쓴다. 갈리면 앱에서는 읽히는 파일이
 // 여기서는 안 읽히는(또는 그 반대) 일이 생긴다.
 /* 엑셀 라이브러리는 422KB — 이 판에서 가장 무거운 조각이다. 그런데 쓰는
@@ -25,23 +25,40 @@ import { createClient } from './vendor/supabase-js.js?v=96cbeba4';
    자국(?v=)은 tools/stamp.mjs 가 아래 줄에 알아서 붙인다 — 정적으로 쓰든
    동적으로 쓰든 같은 글자를 찾으므로 바꿔도 그대로 찍힌다. */
 let XLSX = null;
-const needXLSX = async () => (XLSX ??= await import('./vendor/xlsx.js?v=96cbeba4'));
+const needXLSX = async () => (XLSX ??= await import('./vendor/xlsx.js?v=88d092b8'));
 // 커리큘럼. 내용과 엔진을 갈라 두면 글을 고치다 화면을 깨지 않는다.
 // 갈래 목록(drawSections)·코스(drawCourses)·문제만 풀기(dqDraw) 를 열 때만
 // 받는다 — 배우기 갈래 목록도 안 본 사람에게 코스 71개 레슨을 다 물릴
 // 까닭이 없다. warmLearn() 이 배우기를 여는 순간 미리 불을 붙여 둔다.
 let COURSES = [], coursesP = null;
-const coursesNeed = () => (coursesP ??= import('./courses.js?v=96cbeba4').then((m) => { COURSES = m.COURSES; }));
-import { GLOSSARY, GLOSS_LANGS } from './glossary.js?v=96cbeba4';
-import { glossFind } from './gloss-find.js?v=96cbeba4';
+const coursesNeed = () => (coursesP ??= import('./courses.js?v=88d092b8').then((m) => { COURSES = m.COURSES; }));
+/* 낱말 뜻풀이 356KB. 예전에는 여기서 통째로 받았다 — tqGloss 가 동기라
+   지연 로딩이 안 된다고 보았기 때문이다. 그런데 tqGloss 를 부르는 자리를
+   다 세어 보니 여덟 곳이고 **전부 사람이 무언가를 누른 뒤**였다(사전
+   열기 · 지문 낱말 누르기 · 노트에서 단어 담기 · 도우미로 찾기). 첫
+   화면에는 한 번도 안 쓰인다. 그런데도 모든 방문자가 356KB 를 받아
+   파싱하고 있었다 — 홈만 보고 나갈 사람까지.
+   그래서 빈 채로 두고, 그 여덟 자리로 가는 길목에서 미리 불을 붙인다.
+   tqGloss 는 그대로 동기다 — 아직 안 왔으면 빈 뜻을 돌려주고, 부르는
+   쪽은 이미 "사전에 없는 말"을 다룰 줄 안다. */
+let GLOSSARY = {}, GLOSS_LANGS = {}, glossP = null;
+const glossNeed = () => (glossP ??= import('./glossary.js?v=88d092b8').then((m) => {
+  GLOSSARY = m.GLOSSARY; GLOSS_LANGS = m.GLOSS_LANGS;
+  dictBuildEntries();
+}).catch((e) => {
+  // 실패한 약속을 쥐고 있으면 다음에 다시 눌러도 영영 안 받는다.
+  glossP = null;
+  throw e;
+}));
+import { glossFind } from './gloss-find.js?v=88d092b8';
 /* 문법 사전(뜻풀이 197개). 읽기 지문의 밑줄 문법 말풍선(rdNeed)과 예문
    만들기 화면(sbNeed) 양쪽이 쓴다 — 둘 중 먼저 여는 화면이 받아 두고,
    나중 화면은 그 약속(??=)을 그대로 쓴다. */
 let GRAMMAR = [], GRAMMAR_EN = {}, grammarP = null;
 const grammarNeed = () => (grammarP ??= Promise.all([
-  import('./grammar.js?v=96cbeba4'), import('./grammar-en.js?v=96cbeba4'),
+  import('./grammar.js?v=88d092b8'), import('./grammar-en.js?v=88d092b8'),
 ]).then(([a, b]) => { GRAMMAR = a.GRAMMAR; GRAMMAR_EN = b.GRAMMAR_EN; }));
-import { grammarScan } from './grammar-find.js?v=96cbeba4';
+import { grammarScan } from './grammar-find.js?v=88d092b8';
 // TOPIK 쓰기·듣기 문항. 읽기(topik.js·topik2.js)와 같은 tqNeedData() 로
 // 함께 받는다 — 유형 연습(topik) 갈래 하나가 세 기술을 다 쓰므로 따로
 // 가를 까닭이 없다. 값은 tqNeedData 정의부에서 채운다.
@@ -53,7 +70,7 @@ let TOPIKL_BY_EXAM = {}, TOPIKL_PICTURE_SLOTS = {};
    sbFind 를 쓰는데, 그쪽은 안 기다리고 그냥 부른다 — 답이 못 찾은
    인용 없이 나가는 것이 채팅이 멈추는 것보다 낫다. */
 let SB_CATS = [], SB_MORE = {}, SB_SEED = {}, SB_POINTS = [], sbDataP = null;
-const sbNeed = () => (sbDataP ??= import('./sentences.js?v=96cbeba4').then((m) => {
+const sbNeed = () => (sbDataP ??= import('./sentences.js?v=88d092b8').then((m) => {
   SB_CATS = m.SB_CATS; SB_MORE = m.SB_MORE; SB_SEED = m.SB_SEED;
   // 갈래마다 표현을 펼쳐 한 줄에 담는다 — SB_CATS 안의 점에는 갈래가 안
   // 달려 있어서(sbFind 가 표현 하나를 id 로 바로 찾으려면 이게 있어야 한다).
@@ -64,7 +81,7 @@ const sbNeed = () => (sbDataP ??= import('./sentences.js?v=96cbeba4').then((m) =
 // 숫자 게임의 읽기와 문제 만들기. 화면을 모르는 순수 계산이라 따로 뒀다.
 // 게임 목록에서 「숫자 읽기」를 시작할 때만 받는다 — XLSX 와 같은 자리다.
 let makeRound = null;
-const needNumbers = async () => (makeRound ??= (await import('./numbers.js?v=96cbeba4')).makeRound);
+const needNumbers = async () => (makeRound ??= (await import('./numbers.js?v=88d092b8')).makeRound);
 
 // 이 키는 공개돼도 되는 값이다. 이미 APK 안에 같은 것이 들어 있고,
 // 접근을 막는 건 키가 아니라 테이블에 걸린 RLS 다.
@@ -93,6 +110,12 @@ const $ = (id) => document.getElementById(id);
 const isEn = () => document.documentElement.lang === 'en';
 const t = (ko, en) => (isEn() ? en : ko);
 
+/* Clarity 맞춤 이벤트. analytics.js 는 "지금 어느 화면인가"만 찍는다 —
+   그것만으로는 사람들이 뭘 봤는지는 알아도 뭘 해냈는지는 안 보여서,
+   퍼널도 스마트 이벤트도 못 만든다. 핵심 행동(레슨 완료·가입·로그인·
+   단어 저장)마다 여기서 이름표를 하나씩 남긴다. */
+const track = (name) => { try { window.clarity && window.clarity('event', name); } catch (e) {} };
+
 // 한 번에 한 장만 보여준다. 상태를 각자 토글하면 두 개가 겹쳐 뜬다.
 const PANELS = ['wbAuth', 'wbLoading', 'wbListWrap', 'wbEmpty', 'wbError'];
 function panel(name) {
@@ -113,8 +136,8 @@ let tqDataP = null;
    유형 연습(topik) 갈래 하나가 이 넷을 다 쓰므로 갈라 봤자 요청만
    늘어난다. */
 const tqNeedData = () => (tqDataP ??= Promise.all([
-  import('./topik.js?v=96cbeba4'), import('./topik2.js?v=96cbeba4'),
-  import('./topik-writing.js?v=96cbeba4'), import('./topik-listening.js?v=96cbeba4'),
+  import('./topik.js?v=88d092b8'), import('./topik2.js?v=88d092b8'),
+  import('./topik-writing.js?v=88d092b8'), import('./topik-listening.js?v=88d092b8'),
 ]).then(([a, b, c, d]) => {
   TQ_DATA.I  = { reading: a.TOPIK_READING,  blueprint: a.TOPIK_BLUEPRINT,  slots: a.TOPIK_SLOTS };
   TQ_DATA.II = { reading: b.TOPIK2_READING, blueprint: b.TOPIK2_BLUEPRINT, slots: b.TOPIK2_SLOTS };
@@ -125,15 +148,18 @@ const tqNeedData = () => (tqDataP ??= Promise.all([
 let READING = null, rdP = null;
 // 지문의 밑줄 문법 말풍선이 GRAMMAR 를 쓰므로 같이 받아 둔다.
 const rdNeed = () => (rdP ??= Promise.all([
-  import('./reading.js?v=96cbeba4'), grammarNeed(),
+  import('./reading.js?v=88d092b8'), grammarNeed(),
 ]).then(([m]) => { READING = m.READING; }));
 
 let CONVO = null, cvP = null;
-const cvNeed = () => (cvP ??= import('./convo.js?v=96cbeba4').then((m) => { CONVO = m.CONVO; }));
+const cvNeed = () => (cvP ??= import('./convo.js?v=88d092b8').then((m) => { CONVO = m.CONVO; }));
 
-/* 배우기를 열면 다섯 다 미리 불을 붙인다. 기다리지 않는다 — 갈래 목록은
-   이 자료가 없어도 그려지고, 사람이 갈래를 고르는 사이에 도착한다. */
-const warmLearn = () => { tqNeedData(); rdNeed(); coursesNeed(); sbNeed(); cvNeed(); };
+/* 배우기를 열면 여섯 다 미리 불을 붙인다. 기다리지 않는다 — 갈래 목록은
+   이 자료가 없어도 그려지고, 사람이 갈래를 고르는 사이에 도착한다.
+   뜻풀이(glossNeed)도 여기 낀다: 지문에서 모르는 낱말을 누르는 일은
+   배우기 안에서만 벌어지고, 갈래를 고르고 문제를 읽는 데 몇 초는 걸려서
+   그 사이에 넉넉히 도착한다. */
+const warmLearn = () => { tqNeedData(); rdNeed(); coursesNeed(); sbNeed(); cvNeed(); glossNeed(); };
 
 // 게임 목록과 그 아래 게임들. 새 게임을 더하면 여기에도 넣는다.
 const GAME_VIEWS = ['games', 'claw', 'match', 'quiz', 'num'];
@@ -252,13 +278,8 @@ $('auGoWb').addEventListener('click', () => open('wordbook'));
 // 로고를 누르면 어느 화면에 있든 홈으로 돌아온다.
 $('brandBtn').addEventListener('click', () => window.ptShow(false));
 
-// 헤더의 다운로드는 홈에 있는 자리를 가리킨다. 단어장이나 발음 테스트에서
-// 눌렀을 때 아무 데도 못 가지 않도록 홈을 먼저 연 뒤 내려간다.
-$('hdCta').addEventListener('click', (ev) => {
-  ev.preventDefault();
-  window.ptShow(false);
-  setTimeout(() => $('download')?.scrollIntoView({ behavior: 'smooth' }), 60);
-});
+// 헤더의 다운로드는 플레이스토어로 바로 연다 — href 가 이미 그 주소라
+// 손댈 게 없다(전에는 여기서 막고 홈의 소개 칸으로 내려보냈었다).
 
 // ── 오류 문구 ────────────────────────────────────────────────
 // 서버가 주는 말은 기술적이라 그대로 보여주지 않는다.
@@ -387,6 +408,10 @@ function visibleWords() {
      찾을 때는 지문에서 본 활용형("예뻤어요")이 먼저 떠오른다. 그대로
      찾으면 글자가 안 겹쳐 못 찾으므로, 지문 누른 꼴 → 표제어를 찾는
      glossFind 로 한 번 더 풀어서 그 표제어로도 걸리게 한다. */
+  /* 뜻풀이가 아직 안 왔으면 이 되짚기만 빠진다 — 글자 그대로 찾는 것은
+     그대로 되므로 찾기 자체는 멈추지 않는다. 대신 여기서 불을 붙여 두면
+     다음 글자를 칠 때쯤에는 도착해 있다. */
+  if (q) glossNeed().catch(() => {});
   const qHead = q && glossFind((k) => Object.prototype.hasOwnProperty.call(GLOSSARY, k), query.trim());
   const out = rows.filter((w) => {
     if (tagOn && w.tag !== tagOn) return false;
@@ -504,17 +529,18 @@ $('wbChips').addEventListener('click', (ev) => {
 // ══ 국어사전 ═════════════════════════════════════════════════
 // 첫 화면 "낱말·문법 사전" 카드가 예전엔 자료마당(엑셀 내려받기)으로
 // 보냈다 — 사전이라 적어 놓고 실제로 찾아볼 사전 화면이 없었다.
-// 새 자료를 안 받아 온다: glossary.js 는 이미 늘 받아 두는 파일이라
-// (tqGloss 가 동기로 써야 해서 지연 로딩을 안 한다), 여기서 표제어만
-// 한 번 추려 쓰면 된다.
 
 /* GLOSSARY 는 활용형까지 다 키로 들어 있다(「아침에」·「아침을」…).
-   사전 화면은 활용형이 아니라 표제어를 훑어보는 자리라 한 번만 추린다. */
-const DICT_ENTRIES = (() => {
+   사전 화면은 활용형이 아니라 표제어를 훑어보는 자리라 한 번만 추린다.
+   glossNeed() 가 자료를 받아 온 뒤에 한 번 부른다 — 표제어 4천 개를
+   추려 가나다순으로 세우는 일을, 사전을 열지도 않은 사람의 첫 화면에서
+   할 까닭이 없다. */
+let DICT_ENTRIES = [];
+function dictBuildEntries() {
   const byHead = new Map();
   Object.values(GLOSSARY).forEach((v) => { if (!byHead.has(v.head)) byHead.set(v.head, v); });
-  return [...byHead.values()].sort((a, b) => a.head.localeCompare(b.head, 'ko'));
-})();
+  DICT_ENTRIES = [...byHead.values()].sort((a, b) => a.head.localeCompare(b.head, 'ko'));
+}
 
 let dictQuery = '';
 let dictTag = null;   // null = 전체
@@ -527,14 +553,14 @@ let dictOpen = null;  // 지금 "더 보기"(예문·뜻풀이)를 펼쳐 둔 �
    평소엔 안 쓰는 522KB 를 첫 화면 모두에게 물릴 까닭이 없다. */
 let dictSensesP = null;
 const dictLoadSenses = () => (dictSensesP ??=
-  import('./glossary-senses.js?v=96cbeba4').then((m) => m.SENSES).catch(() => ({})));
+  import('./glossary-senses.js?v=88d092b8').then((m) => m.SENSES).catch(() => ({})));
 
 /* 예문. 국립국어원 자료엔 없어서 Gemini 로 새로 지은 것이다(있는 만큼만
    — docs/glossary-examples-gemini-prompt.md 참고). 뜻풀이와 같은 자리에서
    같이 받는다 — 펼치는 손짓 하나에 몰아 두는 편이 화면이 덜 복잡하다. */
 let dictExamplesP = null;
 const dictLoadExamples = () => (dictExamplesP ??=
-  import('./glossary-examples.js?v=96cbeba4').then((m) => m.EXAMPLES).catch(() => ({})));
+  import('./glossary-examples.js?v=88d092b8').then((m) => m.EXAMPLES).catch(() => ({})));
 
 function dictVisible() {
   const q = dictQuery.trim().toLowerCase();
@@ -613,6 +639,21 @@ async function dictDrawMore(head) {
 }
 
 function dictDraw() {
+  /* 사전 자료는 이 화면을 열 때 받는다(첫 화면에서는 안 받는다).
+     아직 없으면 받는 동안 안내만 띄우고, 도착하면 스스로 다시 부른다 —
+     그래야 들어오는 길(주소·단추·검색·칩)마다 따로 손댈 것이 없다. */
+  if (!DICT_ENTRIES.length) {
+    $('dictChips').innerHTML = '';
+    $('dictList').innerHTML = '';
+    $('dictNone').classList.add('hidden');
+    $('dictMore').style.display = 'none';
+    $('dictCount').textContent = t('사전을 불러오는 중…', 'Loading the dictionary…');
+    glossNeed().then(dictDraw).catch(() => {
+      $('dictCount').textContent = t('사전을 불러오지 못했어요. 새로고침해 보세요.',
+                                     'Could not load the dictionary — try refreshing.');
+    });
+    return;
+  }
   dictDrawChips();
   const active = dictQuery || dictTag;
   $('dictMore').style.display = 'none';
@@ -847,6 +888,7 @@ $('wbForm').addEventListener('submit', async (ev) => {
     const { data, error } = await sb.auth.signUp({ email, password });
     btn.disabled = false;
     if (error) { showErr(signUpMsg(error)); return; }
+    track('가입완료');
     // 이메일 확인이 켜져 있으면 세션 없이 돌아온다. 그때는 메일을
     // 열어야 하므로 화면을 넘기지 않고 안내만 남긴다.
     if (!data.session) {
@@ -878,8 +920,7 @@ $('auLogout').addEventListener('click', signOut);
 $('wbRetry').addEventListener('click', loadWords);
 
 $('wbDl').addEventListener('click', () => {
-  window.ptShow(false);
-  setTimeout(() => $('download')?.scrollIntoView({ behavior: 'smooth' }), 60);
+  window.open('https://play.google.com/store/apps/details?id=com.cheesepotato.app', '_blank', 'noopener,noreferrer');
 });
 
 // ══ 진도 동기화 ══════════════════════════════════════════════
@@ -978,6 +1019,14 @@ function paintAuthNav(signedIn) {
 sb.auth.onAuthStateChange((_event, session) => {
   hideErr();
 
+  /* SIGNED_IN 은 진짜 "지금 로그인했다"(비번 로그인·구글 로그인 둘 다
+     여기로 온다) 는 순간에만 뜬다 — 이미 로그인해 둔 채로 새로고침한
+     INITIAL_SESSION 이나 TOKEN_REFRESHED 는 안 걸린다. 방금 가입해서
+     바로 세션이 온 경우도 SIGNED_IN 이 뜨는데, 그건 위 wbForm 제출
+     쪽의 '가입완료' 와 겹쳐 찍혀도 괜찮다 — 가입도 했고 로그인도 된
+     게 사실이다. */
+  if (_event === 'SIGNED_IN') track('로그인');
+
   // 헤더와 계정 화면을 상태에 맞춘다.
   paintAuthNav(!!session);
   $('auForms').classList.toggle('hidden', !!session);
@@ -1018,13 +1067,20 @@ sb.auth.onAuthStateChange((_event, session) => {
     // 열려 있던 단어 폼도 닫는다. 남겨두면 로그아웃한 채로 저장을 누르게 된다.
     $('wbForm2').classList.add('hidden');
     editingId = null;
+    nudgeClose();
+    $('nudgeBar').hidden = true;
   }
 
   if (session) {
     $('wbPw').value = '';
     $('auPw2').value = '';
-    loadWords();
+    /* 되돌아오게 하는 띠는 스트릭(loadProgress)·복습 개수(loadWords)
+       둘 다 있어야 정확히 판단된다 — 어느 쪽이 먼저 끝나든 그때마다
+       한 번씩 다시 본다(둘 다 끝나면 마지막 판단이 맞게 남는다). */
+    loadWords().then(checkNudge);
+    loadProgress().then(checkNudge);
     progressSync();   // 이 기기와 서버 기록을 지금 합쳐 둔다
+    notesSync();      // 노트도 같은 자리에서 합쳐 둔다
     // 로그인하려고 계정 화면에 있었다면 곧바로 단어장으로 넘겨준다.
     if (showing('authView')) open('wordbook');
   } else {
@@ -1317,6 +1373,7 @@ $('wfSave').addEventListener('click', async () => {
         user_id: session.user.id,
       });
       if (error) throw error;
+      track('단어저장');
     }
 
     // DB 가 새 경로를 가리킨 뒤에 예전 파일을 지운다. 순서를 바꾸면
@@ -2485,6 +2542,51 @@ function streak() {
   return n;
 }
 
+/* ── 되돌아오게 하는 띠 ───────────────────────────────────────
+   로그인한 사람에게만, 둘 중 하나가 있을 때만 뜬다 — 스트릭이 있는데
+   오늘 아직 안 했거나(급함, 주황), 그게 아니면 복습할 단어가 있을 때
+   (덜 급함, 차분한 색). 둘 다 있으면 스트릭 쪽이 이긴다 — 그날 하루를
+   넘기면 아예 사라지는 스트릭이 언제든 쌓이는 복습보다 급하다.
+   한 번 닫으면 오늘 안에는(sessionStorage) 같은 종류가 다시 안 뜬다. */
+const nudgeSafe = (fn, fallback) => { try { return fn(); } catch (e) { return fallback; } };
+const nudgeDismissKey = (kind) => `cp-nudge-x-${kind}-${dayKey(new Date())}`;
+let nudgeKind = null;   // 'streak' | 'due' | null(안 뜸)
+function nudgeClose() {
+  if (nudgeKind) nudgeSafe(() => sessionStorage.setItem(nudgeDismissKey(nudgeKind), '1'));
+  $('nudgeBar').hidden = true;
+  nudgeKind = null;
+}
+function nudgeShow(kind, text, goText, onGo) {
+  nudgeKind = kind;
+  $('nudgeBar').classList.toggle('urgent', kind === 'streak');
+  $('nudgeTxt').textContent = text;
+  $('nudgeGo').textContent = goText;
+  $('nudgeGo').onclick = () => { nudgeClose(); onGo(); };
+  $('nudgeBar').hidden = false;
+}
+function checkNudge() {
+  const n = streak();
+  const todayDone = doneDays.includes(dayKey(new Date()));
+  const dueCount = srsReady ? rows.filter((w) => w.due_at && new Date(w.due_at) <= new Date()).length : 0;
+  const dismissed = (kind) => nudgeSafe(() => sessionStorage.getItem(nudgeDismissKey(kind)) === '1', false);
+
+  if (n > 0 && !todayDone && !dismissed('streak')) {
+    return nudgeShow('streak',
+      t(`🔥 ${n}일 연속 — 오늘 안 하면 끊겨요!`, `🔥 ${n}-day streak — do today's lesson or it breaks!`),
+      t('공부하러 가기', 'Study now'),
+      () => open('learn'));
+  }
+  if (dueCount > 0 && !dismissed('due')) {
+    return nudgeShow('due',
+      t(`오늘 복습할 단어 ${dueCount}개가 있어요`, `${dueCount} word${dueCount === 1 ? '' : 's'} due for review today`),
+      t('복습하러 가기', 'Review now'),
+      () => { dueOn = true; open('wordbook'); render(); });
+  }
+  $('nudgeBar').hidden = true;
+  nudgeKind = null;
+}
+$('nudgeX').addEventListener('click', nudgeClose);
+
 const courseDone = (c) => c.lessons.filter((l) => doneSet.has(l.id)).length;
 
 /* ── 배우기 갈래 ────────────────────────────────────────────────
@@ -3005,8 +3107,9 @@ function tlDraw() {
   ]);
 
   const tx = tlTypeTx();
-  const card = (key, emoji, title, tag, blurb, n) =>
-    `<button class="lc-card lq-card" data-tl="${esc(key)}">` +
+  const card = (key, emoji, title, tag, blurb, n) => {
+    const rec = tlSetRead(tqExam, tqGrade, key);
+    return `<button class="lc-card lq-card" data-tl="${esc(key)}">` +
       '<div class="lc-top">' +
         `<div class="lc-mark">${emoji}</div>` +
         '<div style="min-width:0">' +
@@ -3016,8 +3119,11 @@ function tlDraw() {
         '</div>' +
       '</div>' +
       `<p class="lc-blurb">${esc(blurb)}</p>` +
-      `<div class="lq-meta"><span class="lq-chip">${esc(t(`${n}문항`, `${n} items`))}</span></div>` +
+      `<div class="lq-meta"><span class="lq-chip">${esc(t(`${n}문항`, `${n} items`))}</span>` +
+        (rec ? `<span class="lq-chip done">${esc(t(`${rec.s}/${rec.n} 풀었어요`, `Done ${rec.s}/${rec.n}`))}</span>` : '') +
+      '</div>' +
     '</button>';
+  };
 
   if (!rows.length) {
     $('tlList').innerHTML = `<div class="learn-empty">${esc(t('이 급수 듣기는 아직 채우는 중이에요.', 'Listening for this level is still being written.'))}</div>`;
@@ -3060,6 +3166,24 @@ function tlStart(key) {
      실제 시험이 쉬운 자리부터 나오므로 그 흐름이 곧 난이도 곡선이다. */
   tlRound = [...list].sort((a, b) => a.slot - b.slot);
   tlSet = key;
+  tlIdx = 0; tlScore = 0; tlWrong = [];
+  $('tlPick').classList.add('hidden');
+  $('tlOver').classList.add('hidden');
+  $('tlPlay').classList.remove('hidden');
+  $('tlPlayTitle').textContent = tlSetName;
+  $('tlQuit').textContent = t('그만두기', 'Quit');
+  tlDrawQ();
+}
+
+/* 문제 하나만 담아 연다 — tqOpenOne 과 같은 이유(topik-listening/ 정적
+   쪽의 "직접 풀어보기"가 목록이 아니라 방금 본 그 대본으로 바로
+   이어지게). 급수도 그 문제 것으로 맞춘다. */
+function tlOpenOne(item) {
+  tqGrade = item.grade;
+  const tx = tlTypeTx()[item.type];
+  tlSetName = tx ? t(tx.ko, tx.en) : item.type;
+  tlRound = [item];
+  tlSet = item.type;
   tlIdx = 0; tlScore = 0; tlWrong = [];
   $('tlPick').classList.add('hidden');
   $('tlOver').classList.add('hidden');
@@ -3364,8 +3488,9 @@ function drawTopik() {
     { k: t('최고', 'Best'), v: `${gameBestRead(tqBestKey(tqGrade))} / ${rows.length}`, s: t('한 번에 다 풀었을 때', 'Full run, all questions') },
   ]);
 
-  const card = (key, emoji, title, tag, blurb, n, lv) =>
-    `<button class="lc-card lq-card" data-tq="${esc(key)}">` +
+  const card = (key, emoji, title, tag, blurb, n, lv) => {
+    const rec = tqSetRead(tqGrade, key);
+    return `<button class="lc-card lq-card" data-tq="${esc(key)}">` +
       '<div class="lc-top">' +
         `<div class="lc-mark">${emoji}</div>` +
         '<div style="min-width:0">' +
@@ -3375,8 +3500,11 @@ function drawTopik() {
         '</div>' +
       '</div>' +
       `<p class="lc-blurb">${esc(blurb)}</p>` +
-      `<div class="lq-meta"><span class="lq-chip">${esc(t(`${n}문제`, `${n} questions`))}</span></div>` +
+      `<div class="lq-meta"><span class="lq-chip">${esc(t(`${n}문제`, `${n} questions`))}</span>` +
+        (rec ? `<span class="lq-chip done">${esc(t(`${rec.s}/${rec.n} 풀었어요`, `Done ${rec.s}/${rec.n}`))}</span>` : '') +
+      '</div>' +
     '</button>';
+  };
 
   tqDrawRecord(byType);
   tqDrawLog();
@@ -3891,6 +4019,26 @@ function tqStart(key, round = 1) {
   tqDraw();
 }
 
+/* 문제 하나만 담아 연다 — topik-reading/ 정적 쪽의 "직접 풀어보기" 가
+   목록이 아니라 방금 읽은 그 문제로 바로 이어지게 하려는 것이다(쓰기
+   문항을 #learn/writing/<id> 로 바로 연 것과 같은 이유). 급수도 그
+   문제 것으로 맞춘다 — 안 그러면 tqOf(tqGrade) 가 다른 급수를 걸러서
+   "문제가 없다"로 보일 수 있다. */
+function tqOpenOne(item) {
+  tqMock = false; tqStopClock();
+  $('tqOmr').classList.add('hidden');
+  window.cpTxtSize?.(false);
+  tqGrade = item.grade;
+  tqRound = [item];
+  tqIdx = 0; tqScore = 0; tqWrongs = []; tqBusy = false; tqSet = item.type; tqPicks = []; tqSaved = false;
+  const tx = tqTypeTx()[item.type];
+  tqTitle = t(`${tqE().gradeTx(tqGrade)} · ${tx ? tx.ko : ''}`, `${tqE().gradeTx(tqGrade)} · ${tx ? tx.en : ''}`);
+  $('tqWall').classList.add('hidden');
+  $('tqExamBody').classList.remove('hidden');
+  tqPanel('tqPlay');
+  tqDraw();
+}
+
 function tqMeta() {
   $('tqPlayTitle').textContent = tqTitle;
   $('tqQuit').textContent = t('← 그만두기', '← Quit');
@@ -4067,6 +4215,19 @@ function tqWordify(el, text, mark) {
            그대로 가린다(모의고사 벽·시계는 안 건드린다) — 뜻만 열어 준다. */
         if (g.head) tqWPopOpen(span, g);
         else tqWPopClose();
+        /* 뜻풀이가 아직 안 왔을 수 있다(배우기를 열자마자 느린 연결에서
+           바로 누른 경우). 도착하면 한 번 더 찾아서 그때 채운다 — 그
+           사이에 학습자가 표시를 껐거나 손으로 뜻을 적었으면 건드리지
+           않는다. */
+        if (!g.head) glossNeed().then(() => {
+          const cur = tqUnknown.get(key);
+          if (!cur || cur.mean) return;
+          const late = tqGloss(key);
+          if (!late.head) return;
+          tqUnknown.set(key, { ...cur, word: late.head, mean: late.meaning, tag: late.tag });
+          tqUnkStore();
+          if (!$('tqUnk').classList.contains('hidden')) tqUnkDraw();
+        }).catch(() => {});
       }
       span.classList.toggle('on', tqUnknown.has(key));
       tqUnkStore();
@@ -4143,7 +4304,12 @@ let tqPackFor = '';
 
 async function tqLoadPack() {
   const L = tqMeanLang;
-  if (L === 'en' || L === 'ko' || !GLOSS_LANGS[L] || tqPackFor === L) return;
+  /* 영어·한국어를 쓰는 사람은 여기서 바로 돌아간다 — GLOSS_LANGS 를 보기
+     전에 걸러야 한다. 이 함수는 첫 화면에서도 한 번 불리는데, 위에서
+     걸러 내지 않으면 뜻풀이 356KB 를 도로 모두에게 물리게 된다. */
+  if (L === 'en' || L === 'ko' || tqPackFor === L) return;
+  await glossNeed().catch(() => {});
+  if (!GLOSS_LANGS[L] || tqPackFor === L) return;
   try {
     const mod = await import(GLOSS_LANGS[L]);
     /* 받는 사이에 학습자가 말을 바꿨을 수 있다. 그때 덮어쓰면 고른 말과
@@ -5361,25 +5527,30 @@ let ntMemoTimer = null;
 const ntMemoNewId = () => `m${Date.now().toString(36)}${Math.random().toString(36).slice(2, 6)}`;
 
 /* 예전 모양({id, text} 줄줄이)에서 문서로 옮긴다. 첫 줄을 제목으로 삼고
-   나머지를 본문에 둔다 — 적어 둔 것을 하나도 잃지 않는 것이 먼저다. */
+   나머지를 본문에 둔다 — 적어 둔 것을 하나도 잃지 않는 것이 먼저다.
+   localStorage 뿐 아니라 서버(notesSync)에서 온 자료도 이걸 거친다 —
+   자료가 어디서 왔든 같은 모양으로 다듬는다. delAt 이 있으면 지운
+   노트(다른 기기에 지운 사실을 전하려고 남겨 둔 자리표)다. */
+const ntMemoNorm = (x, i) => {
+  if (!x || typeof x !== 'object') return null;
+  if (typeof x.text === 'string' && x.title === undefined) {
+    const [head, ...rest] = String(x.text).split('\n');
+    return { id: x.id || ntMemoNewId(), title: head.slice(0, 120), body: rest.join('\n'),
+             cat: '', pin: false, at: x.at || Date.now() - i, up: x.at || Date.now() - i };
+  }
+  return {
+    id: x.id || ntMemoNewId(),
+    title: String(x.title ?? ''), body: String(x.body ?? ''),
+    cat: String(x.cat ?? ''), pin: !!x.pin, icon: String(x.icon ?? ''),
+    blocks: Array.isArray(x.blocks) ? x.blocks : null,
+    at: Number(x.at) || Date.now(), up: Number(x.up) || Number(x.at) || Date.now(),
+    delAt: x.delAt ? Number(x.delAt) : 0,
+  };
+};
 const ntMemoLoad = () => {
   try {
     const a = JSON.parse(localStorage.getItem(NT_MEMO_KEY) || '[]');
-    ntMemo = Array.isArray(a) ? a.map((x, i) => {
-      if (!x || typeof x !== 'object') return null;
-      if (typeof x.text === 'string' && x.title === undefined) {
-        const [head, ...rest] = String(x.text).split('\n');
-        return { id: x.id || ntMemoNewId(), title: head.slice(0, 120), body: rest.join('\n'),
-                 cat: '', pin: false, at: x.at || Date.now() - i, up: x.at || Date.now() - i };
-      }
-      return {
-        id: x.id || ntMemoNewId(),
-        title: String(x.title ?? ''), body: String(x.body ?? ''),
-        cat: String(x.cat ?? ''), pin: !!x.pin, icon: String(x.icon ?? ''),
-        blocks: Array.isArray(x.blocks) ? x.blocks : null,
-        at: Number(x.at) || Date.now(), up: Number(x.up) || Number(x.at) || Date.now(),
-      };
-    }).filter(Boolean) : [];
+    ntMemo = Array.isArray(a) ? a.map(ntMemoNorm).filter(Boolean) : [];
   } catch (e) { ntMemo = []; }
   try {
     const c = JSON.parse(localStorage.getItem(NT_MEMO_CATS_KEY) || '[]');
@@ -5406,20 +5577,143 @@ const ntMemoStore = () => {
 };
 ntMemoLoad();
 
+/* ── 서버 동기화 ───────────────────────────────────────────────
+   지금까지 노트는 이 브라우저에만 있었다(로그인해도 마찬가지) — 폰에서
+   적고 노트북을 열면 안 보였다. progressSync(설정 진행률)와 같은
+   자리(settings 표의 칸 하나)에 노트 배열 그대로를 담아 옮긴다.
+
+   합치는 규칙: 같은 id 가 양쪽에 있으면 up(고친 시각)이 늦은 쪽이
+   이긴다 — 지우기도 delAt/up 만 남긴 「자리표」라 같은 규칙으로 자연히
+   맞는다(더 늦게 지웠으면 지운 채로, 그 뒤에 다른 기기가 되살렸으면
+   살아있는 채로 남는다). 두 기기에서 «같은» 노트를 동시에 고치는
+   경우는 다루지 않는다 — progressSync 도 마찬가지고, 혼자 여러 기기를
+   번갈아 쓰는 이 기능의 쓰임에서는 거의 안 벌어진다. */
+async function notesSync() {
+  const { data: { session } } = await sb.auth.getSession();
+  if (!session) return;
+  const { data, error } = await sb.from('settings').select('notes').eq('user_id', session.user.id).maybeSingle();
+  if (error) return;   // db/add_notes_sync.sql 을 아직 안 돌렸으면 여기로 온다 — 조용히 넘어간다
+  const server = Array.isArray(data?.notes) ? data.notes.map(ntMemoNorm).filter(Boolean) : [];
+  const byId = new Map(ntMemo.map((m) => [m.id, m]));
+  for (const sm of server) {
+    const lm = byId.get(sm.id);
+    if (!lm || sm.up > lm.up) byId.set(sm.id, sm);
+  }
+  ntMemo = [...byId.values()];
+  ntMemoStore();
+  if (!$('ntWrap').classList.contains('hidden')) ntMemoDraw();
+  await sb.from('settings').upsert({ user_id: session.user.id, notes: ntMemo }, { onConflict: 'user_id' });
+}
+addEventListener('visibilitychange', () => { if (document.visibilityState === 'hidden') notesSync(); });
+
 const ntMemoFind = (id) => ntMemo.find((m) => m.id === id) || null;
 const ntMemoCur = () => ntMemoFind(ntMemoAt);
 const ntMemoName = (m) => (m.title.trim() || t('제목 없음', 'Untitled'));
+/* 지운 노트는 ntMemo 에서 안 빼고 delAt 만 찍어 둔다(서버 동기화가 다른
+   기기에도 지운 것을 전할 수 있게) — 그래서 화면에 보일 것을 셀 때는
+   항상 이걸로 거른다. ntMemo.length 를 직접 쓰면 지운 노트까지 센다. */
+const ntMemoLive = () => ntMemo.filter((m) => !m.delAt);
 
 /* 목록에 보일 것. 고정한 것을 위로 올리고, 그 안에서는 최근에 고친 순. */
 function ntMemoVisible() {
   const q = ntMemoQ.trim().toLowerCase();
-  const rows = ntMemo.filter((m) => {
+  const rows = ntMemoLive().filter((m) => {
     if (ntMemoCat !== null && (ntMemoCat === '' ? m.cat : m.cat !== ntMemoCat)) return false;
     if (!q) return true;
     return (m.title + '\n' + nbToText(nbBlocks(m))).toLowerCase().includes(q);
   });
   return rows.sort((a, b) => (b.pin - a.pin) || (b.up - a.up));
 }
+
+/* ── 되돌리기(Ctrl/Cmd+Z) ─────────────────────────────────────
+   브라우저 기본 되돌리기는 한 contenteditable 칸 안에서만 도는데, 이
+   편집기는 블록을 나누거나 종류를 바꿀 때마다(그때마다 nbRender() 가
+   그 자리를 통째로 새로 그린다) 그 칸이 아예 다른 DOM 요소로 바뀐다 —
+   그러면 브라우저의 되돌리기 이력도 함께 끊긴다. 그래서 노트마다 스스로
+   지난 모양을 몇 장 들고 있다가 Ctrl+Z·Ctrl+Shift+Z 로 오간다(브라우저
+   기본 되돌리기는 여기서 막는다).
+
+   한 글자마다 한 장씩 찍으면 되돌리기를 한 번 눌러도 겨우 한 글자만
+   무른다 — 그래서 이미 있는 늦춰 쓰기(디바운스) 매듭에 얹는다. 구조가
+   바뀌는 손잡이(nbSave)는 그 자리에서 바로, 타이핑은 손을 뗀 뒤(늦춰
+   쓰기가 실제로 도는 순간)에 한 장 찍힌다 — 그래서 한 번 누르면 방금
+   고친 문단 하나만큼 무른다. */
+const NB_HIST_MAX = 60;
+let nbHistNoteId = null;   // 지금 되돌리기 목록이 어느 노트 것인지
+let nbHistBase = null;     // 마지막으로 챙겨 둔 모양(JSON 문자열)
+let nbHistUndo = [];       // 오래된 것이 앞
+let nbHistRedo = [];
+const nbHistSnapshot = (m) => JSON.stringify({ title: m.title, blocks: nbBlocks(m) });
+/* 노트를 열 때(또는 다른 노트로 옮길 때) 되돌리기 목록을 새로 시작한다
+   — 다른 노트의 되돌리기가 섞이면 안 된다. */
+function nbHistReset(m) {
+  nbHistNoteId = m ? m.id : null;
+  nbHistBase = m ? nbHistSnapshot(m) : null;
+  nbHistUndo = [];
+  nbHistRedo = [];
+}
+/* 자료가 바뀐 뒤 부른다. 지금 모양이 마지막으로 챙겨 둔 모양과 다르면
+   그 「마지막 모양」을 되돌리기 목록에 얹고, 새 모양을 기준으로 삼는다.
+   다시하기 목록은 새로 고치는 순간 버린다(어디서나 그렇다). */
+function nbHistCheckpoint(m) {
+  if (!m || m.id !== nbHistNoteId) return;   // nbHistReset 을 안 거쳤으면 무시(다른 노트일 수 있다)
+  const now = nbHistSnapshot(m);
+  if (now === nbHistBase) return;
+  nbHistUndo.push(nbHistBase);
+  if (nbHistUndo.length > NB_HIST_MAX) nbHistUndo.shift();
+  nbHistBase = now;
+  nbHistRedo = [];
+}
+function nbHistApply(json) {
+  const m = ntMemoCur();
+  if (!m) return;
+  /* nbRender() 가 블록 DOM 을 통째로 새로 그리므로, 지금 포커스가 어느
+     블록(또는 제목 칸)에 있었는지 미리 챙겨 뒀다가 되돌린 뒤에도 그
+     자리로 커서를 되돌려 놓는다 — 안 그러면 포커스가 문서 밖으로
+     빠져서, Ctrl+Z 를 한 번 더 눌러도(우리 판이 지금 포커스가 문서
+     안에 있는지로 가로챌지 정하므로) 안 먹는다. */
+  const activeRow = document.activeElement && document.activeElement.closest
+    ? document.activeElement.closest('#ntMemoBlocks .nb-row') : null;
+  const wasBlockId = activeRow ? activeRow.dataset.b : null;
+  const wasTitle = document.activeElement === $('ntMemoTitle');
+
+  const parsed = JSON.parse(json);
+  m.title = parsed.title;
+  m.blocks = parsed.blocks;
+  m.up = Date.now();
+  nbHistBase = json;
+  ntMemoStore();
+
+  if (!wasTitle) {
+    const stillThere = wasBlockId && m.blocks.some((b) => b.id === wasBlockId);
+    nbFocus = stillThere ? wasBlockId : (m.blocks[0] ? m.blocks[0].id : null);
+    nbAtEnd = true;
+  }
+  ntMemoDrawDoc();   // 제목 칸도 같이 되돌아가야 하니 문서 전체를 다시 그린다
+  ntMemoDrawList();
+  if (wasTitle) $('ntMemoTitle').focus();
+}
+function nbUndo() {
+  if (!nbHistUndo.length) return;
+  if (!ntMemoCur()) return;
+  nbHistRedo.push(nbHistBase);
+  nbHistApply(nbHistUndo.pop());
+}
+function nbRedo() {
+  if (!nbHistRedo.length) return;
+  if (!ntMemoCur()) return;
+  nbHistUndo.push(nbHistBase);
+  nbHistApply(nbHistRedo.pop());
+}
+/* 노트 화면 안(제목·블록)에 포커스가 있을 때만 가로챈다 — 다른 화면의
+   되돌리기(단어 고치기 따위)까지 여기서 먹어 버리면 안 된다. */
+document.addEventListener('keydown', (ev) => {
+  if (!(ev.metaKey || ev.ctrlKey) || ev.key.toLowerCase() !== 'z') return;
+  const doc = $('ntMemoDoc');
+  if (!doc || !doc.contains(document.activeElement)) return;
+  ev.preventDefault();
+  if (ev.shiftKey) nbRedo(); else nbUndo();
+});
 
 /* ── 저장(늦춰서) ──────────────────────────────────────────── */
 function ntMemoTouch() {
@@ -5440,6 +5734,7 @@ function ntMemoSave() {
     $('ntMemoSaved').textContent = t('저장됨', 'Saved');
   }
   ntMemoDrawList();
+  nbHistCheckpoint(ntMemoCur());
 }
 /* 화면을 떠나거나 탭을 닫을 때는 기다리지 않는다. */
 addEventListener('visibilitychange', () => { if (document.hidden && ntMemoTimer) ntMemoSave(); });
@@ -5482,13 +5777,14 @@ function ntMemoDrawCats() {
     wrap.appendChild(b);
     return b;
   };
-  chip(t(`전체 ${ntMemo.length}`, `All ${ntMemo.length}`), ntMemoCat === null,
+  const live = ntMemoLive();
+  chip(t(`전체 ${live.length}`, `All ${live.length}`), ntMemoCat === null,
        () => { ntMemoCat = null; ntMemoDraw(); });
   ntMemoCats.forEach((c) => {
-    const n = ntMemo.filter((m) => m.cat === c.n).length;
+    const n = live.filter((m) => m.cat === c.n).length;
     chip(`${c.i ? c.i + ' ' : ''}${c.n} ${n}`, ntMemoCat === c.n, () => { ntMemoCat = c.n; ntMemoDraw(); }, '', c.col);
   });
-  const none = ntMemo.filter((m) => !m.cat).length;
+  const none = live.filter((m) => !m.cat).length;
   if (none && ntMemoCats.length) {
     chip(t(`갈래 없음 ${none}`, `No category ${none}`), ntMemoCat === '',
          () => { ntMemoCat = ''; ntMemoDraw(); });
@@ -5549,6 +5845,7 @@ function ntCatPopOpen(anchor, cat, onPick) {
   ntCatPopIcon = cat ? cat.i : '';
   ntCatPopCol = cat ? cat.col : '';
   $('ntCatPopName').value = cat ? cat.n : '';
+  $('ntCatPopErr').hidden = true;
   $('ntCatPopDel').hidden = !cat;
   $('ntCatPopDel').classList.remove('arm');
   $('ntCatPopDel').textContent = t('갈래 지우기', 'Delete category');
@@ -5570,6 +5867,7 @@ $('ntCatPopIcon').addEventListener('click', () => {
 $('ntCatPopName').addEventListener('keydown', (ev) => {
   if (ev.key === 'Enter') { ev.preventDefault(); $('ntCatPopSave').click(); }
 });
+$('ntCatPopName').addEventListener('input', () => { $('ntCatPopErr').hidden = true; });
 $('ntCatPopDel').addEventListener('click', () => {
   if (!ntCatPopCur) return;
   const btn = $('ntCatPopDel');
@@ -5582,9 +5880,22 @@ $('ntCatPopDel').addEventListener('click', () => {
 });
 $('ntCatPopSave').addEventListener('click', () => {
   const name = $('ntCatPopName').value.trim();
-  if (!name) return $('ntCatPopName').focus();
+  const err = $('ntCatPopErr');
+  if (!name) {
+    err.textContent = t('이름을 적어 주세요', 'Enter a name');
+    err.hidden = false;
+    return $('ntCatPopName').focus();
+  }
   const dup = ntCatFind(name);
-  if (dup && dup !== ntCatPopCur) { $('ntCatPopName').focus(); return; }
+  if (dup && dup !== ntCatPopCur) {
+    /* 예전엔 여기서 그냥 조용히 입력칸에 포커스만 돌아갔다 — 만들기를
+       눌러도 아무 반응이 없어 보여서 "단추가 고장났다"는 제보로
+       이어졌다. 왜 안 만들어지는지 말해 준다. */
+    err.textContent = t('이미 있는 갈래예요', 'That category already exists');
+    err.hidden = false;
+    $('ntCatPopName').focus();
+    return;
+  }
   if (ntCatPopCur) {
     const old = ntCatPopCur.n;
     ntCatPopCur.n = name;
@@ -5657,20 +5968,22 @@ function ntMemoDrawList() {
     b.addEventListener('click', () => ntMemoOpen(m.id));
     box.appendChild(b);
   });
+  const liveCount = ntMemoLive().length;
   const empty = $('ntMemoEmpty');
   empty.hidden = !!rows.length;
-  empty.textContent = ntMemo.length
+  empty.textContent = liveCount
     ? t('여기에 맞는 메모가 없어요.', 'No notes match this.')
     : t('아직 쓴 메모가 없어요. 「새 메모」로 시작해 보세요.', 'No notes yet — start with "New note".');
-  $('ntMemoStat').textContent = t(`메모 ${ntMemo.length}개`,
-    `${ntMemo.length} note${ntMemo.length === 1 ? '' : 's'}`);
-  $('ntMemoDl').disabled = !ntMemo.length;
+  $('ntMemoStat').textContent = t(`메모 ${liveCount}개`,
+    `${liveCount} note${liveCount === 1 ? '' : 's'}`);
+  $('ntMemoDl').disabled = !liveCount;
 }
 
 /* ── 문서 ──────────────────────────────────────────────────── */
 function ntMemoOpen(id) {
   if (ntMemoTimer) ntMemoSave();
   ntMemoAt = id;
+  nbHistReset(ntMemoCur());
   $('ntMemo').classList.add('on-doc');
   ntMemoDraw();
   $('ntMemoTitle').focus();
@@ -5699,7 +6012,11 @@ function ntMemoDrawDoc() {
   $('ntMemoBack').textContent = t('← 목록', '← List');
   $('ntMemoQ').placeholder = t('메모 찾기', 'Search notes');
   $('ntMemoDl').textContent = t('내려받기', 'Download');
-  if (!m) return;
+  /* 지금 문서가 없어졌는데(지우기 따위) 전체화면이 켜져 있으면, 판은
+     no-doc 로 숨어도 body.nt-full-open 의 스크롤 잠금은 안 풀린다 —
+     화면엔 목록만 있는데 페이지가 안 움직이는 사고가 난다. 여기서
+     한 번에 끈다. */
+  if (!m) { if (ntFullOn) ntFullSet(false); return; }
   $('ntMemoTitle').value = m.title;
   $('ntMemoTitle').placeholder = t('제목', 'Title');
   nbRender();
@@ -5740,6 +6057,10 @@ function ntMemoDraw() {
      c  글자색, bg 바탕색 (없으면 빈 문자열)
    예전 노트(body 문자열)는 열 때 줄 단위로 블록으로 옮긴다. */
 
+/* 들여쓰기(Tab) 최대 단계. 한없이 들어가면 좁은 화면에서 글이 밀려
+   안 보이게 된다 — 노션도 딱 이만큼서 더는 안 들어간다. */
+const NB_IND_MAX = 4;
+const NB_IND_PX = 28;
 const NB_TYPES = [
   { t: 'text',  i: '¶',  ko: '글',        en: 'Text' },
   { t: 'h1',    i: 'H1', ko: '큰 제목',   en: 'Heading 1' },
@@ -5771,8 +6092,44 @@ const NB_BGS = [
   { k: 'red',    ko: '빨강',   en: 'Red',     css: 'rgba(196,61,52,.26)' },
 ];
 
+/* 마크다운 지름길. 「글」 블록에서 이 글자만 딱 치면 그 자리에서
+   종류가 바뀐다 — 노션·옵시디언과 같은 손놀림이다. 자체 구현이다(다른
+   라이브러리를 쓰지 않는다), 이 파일의 나머지 블록 편집기와 같다.
+
+   할 일([] )과 코드(``` )는 일부러 뺐다 — 대괄호와 백틱은 손이 자주
+   가는 글자라 그냥 치다가 잘못 바뀌기 쉽다. 그 둘은 여전히 「/」나
+   손잡이(⠿) 메뉴로 고른다.
+
+   긴 것부터 둔다 — 「### 」가 먼저 걸려야지 「# 」가 먼저 걸리면
+   나머지 # 두 개가 글자로 남는다(다만 전체 일치라 실제로 겹치진
+   않는다. 순서는 그래도 안전하게 둔다). */
+const NB_MD_SHORTCUTS = [
+  { re: /^### $/,  type: 'h3' },
+  { re: /^## $/,   type: 'h2' },
+  { re: /^# $/,    type: 'h1' },
+  { re: /^> $/,    type: 'quote' },
+  { re: /^[-*] $/, type: 'ul' },
+  { re: /^\d+\. $/, type: 'ol' },
+];
+/* 「글」 블록일 때만 본다 — 이미 종류가 정해진 블록 안에서 우연히
+   글자가 이 모양이 돼도 다시 안 바뀐다. */
+function nbMdCheck(el, m, b) {
+  if (b.t !== 'text') return;
+  const hit = NB_MD_SHORTCUTS.find((x) => x.re.test(el.textContent || ''));
+  if (!hit) return;
+  /* nbRender() 가 새 빈 칸에 포커스를 옮기면 지금 이 el 은 흐려진다(blur).
+     같은 b 를 그대로 종류만 바꿔 쓰는 자리라, el 의 blur 손잡이가
+     「b.s = 지금 el.innerHTML」을 다시 써 버리면 방금 비운 b.s 가 원래
+     글자("# " 따위)로 되돌아간다 — 실제로 겪은 버그다. 자료를 바꾸기
+     전에 미리 스스로 blur 를 흘려보내 그 손잡이를 먼저 태워 둔다. */
+  el.blur();
+  b.t = hit.type; b.s = '';
+  nbFocus = b.id;
+  nbSave(m);
+}
+
 const nbId = () => `b${Date.now().toString(36)}${Math.random().toString(36).slice(2, 5)}`;
-const nbNew = (t = 'text', s = '') => ({ id: nbId(), t, s, done: false, c: '', bg: '', cap: '' });
+const nbNew = (t = 'text', s = '') => ({ id: nbId(), t, s, done: false, c: '', bg: '', cap: '', ind: 0 });
 
 /* 내가 쓴 글이지만 저장소에서 그대로 innerHTML 로 들어가는 값이다.
    스크립트나 손잡이(onclick 따위)는 떼고 넣는다 — 남이 심을 길이
@@ -5822,18 +6179,19 @@ function nbFromText(body) {
 /* 블록을 글자로 되돌린다. 복사·내려받기·단어장 담기가 이걸 쓴다. */
 function nbToText(blocks) {
   return (blocks || []).map((b) => {
-    if (b.t === 'img') return b.cap ? `[${t('사진', 'Photo')}: ${b.cap}]` : `[${t('사진', 'Photo')}]`;
+    const pad = '  '.repeat(Math.min(b.ind || 0, NB_IND_MAX));   // 들여쓰기는 한 단계에 두 칸
+    if (b.t === 'img') return pad + (b.cap ? `[${t('사진', 'Photo')}: ${b.cap}]` : `[${t('사진', 'Photo')}]`);
     const s = nbPlain(b.s);
     if (b.t === 'hr') return '---';
-    if (b.t === 'h1') return `# ${s}`;
-    if (b.t === 'h2') return `## ${s}`;
-    if (b.t === 'h3') return `### ${s}`;
-    if (b.t === 'ul') return `- ${s}`;
-    if (b.t === 'ol') return `1. ${s}`;
-    if (b.t === 'todo') return `- [${b.done ? 'x' : ' '}] ${s}`;
-    if (b.t === 'quote') return `> ${s}`;
-    if (b.t === 'call') return `💡 ${s}`;
-    return s;
+    if (b.t === 'h1') return `${pad}# ${s}`;
+    if (b.t === 'h2') return `${pad}## ${s}`;
+    if (b.t === 'h3') return `${pad}### ${s}`;
+    if (b.t === 'ul') return `${pad}- ${s}`;
+    if (b.t === 'ol') return `${pad}1. ${s}`;
+    if (b.t === 'todo') return `${pad}- [${b.done ? 'x' : ' '}] ${s}`;
+    if (b.t === 'quote') return `${pad}> ${s}`;
+    if (b.t === 'call') return `${pad}💡 ${s}`;
+    return pad + s;
   }).join('\n');
 }
 
@@ -5873,6 +6231,7 @@ function nbRow(m, b, i) {
   row.className = `nb-row nb-${b.t}` + (b.done && b.t === 'todo' ? ' done' : '')
     + (b.c ? ` nb-c-${b.c}` : '') + (b.bg ? ` nb-b-${b.bg}` : '');
   row.dataset.b = b.id;
+  if (b.ind) row.style.marginLeft = `${Math.min(b.ind, NB_IND_MAX) * NB_IND_PX}px`;
 
   // 손잡이
   const gut = document.createElement('div');
@@ -6013,37 +6372,79 @@ function nbImgShrink(file) {
     img.src = url;
   });
 }
-async function nbImgPick(m, b, input) {
-  const file = input.files?.[0];
-  input.value = '';
-  if (!file) return;
+/* 사진 칸(b)에 file 을 앉힌다. 성공하면 참을 준다 — 실패하면 b 를
+   건드리지 않는다(호출한 쪽이 새로 만든 칸을 그때 버릴 수 있게). */
+async function nbImgSetFromFile(b, file) {
   if (!file.type.startsWith('image/')) {
     $('ntMemoSaved').textContent = t('사진 파일만 넣을 수 있어요', 'Images only');
-    return;
+    return false;
   }
   if (file.size > 15 * 1024 * 1024) {
     $('ntMemoSaved').textContent = t('사진이 너무 커요 (15MB까지)', 'Photo too large (max 15MB)');
-    return;
+    return false;
   }
   try {
     const url = await nbImgShrink(file);
     /* 줄여도 이만하면 저장 공간을 너무 먹는다 — 다른 사진을 권한다. */
     if (url.length > 900 * 1024) {
       $('ntMemoSaved').textContent = t('줄여도 너무 커요 — 다른 사진을 써 보세요', 'Still too large — try a different photo');
-      return;
+      return false;
     }
     b.s = url;
-    nbSave(m);
+    return true;
   } catch (e) {
     $('ntMemoSaved').textContent = t('사진을 못 읽었어요', "Couldn't read that photo");
+    return false;
   }
+}
+async function nbImgPick(m, b, input) {
+  const file = input.files?.[0];
+  input.value = '';
+  if (!file) return;
+  if (await nbImgSetFromFile(b, file)) nbSave(m);
+}
+/* 글 블록에 사진을 그대로 붙여넣을 때(Cmd/Ctrl+V) 쓴다 — 사진을 넣으려면
+   매번 「/」로 종류를 사진으로 바꾸고 파일 고르개까지 눌러야 하는 게
+   번거롭다는 제보로 만들었다. 빈 글 블록이면 그 자리에서 사진 칸으로
+   바뀌고, 이미 글이 있으면 지우지 않고 바로 아래에 새 사진 칸을 만든다. */
+async function nbImgFromClipboard(m, b, el, file) {
+  const blocks = nbBlocks(m);
+  const i = blocks.indexOf(b);
+  const reuse = b.t === 'text' && !nbPlain(el.innerHTML);
+  const target = reuse ? b : nbNew('img');
+  const ok = await nbImgSetFromFile(target, file);
+  if (!ok) return;
+  const url = target.s;
+  if (reuse) {
+    /* nbSave() 가 부를 nbRender() 는 지금 포커스가 가 있는 el 을 통째로
+       지운다 — 그러면 el 의 blur 손잡이가 뒤늦게 걸려 b.s 를 (아직
+       비어 있던) el.innerHTML 로 되돌려 버린다. 그 blur 를 먼저
+       흘려보낸 다음에 사진 주소를 앉힌다 — nbMdCheck 에서 겪은 것과
+       같은 버그다. */
+    el.blur();
+    b.t = 'img'; b.s = url; b.cap = '';
+  } else {
+    blocks.splice(i + 1, 0, target);
+  }
+  nbFocus = null;
+  nbSave(m);
 }
 
 /* 번호 목록의 번호. 바로 위가 번호 목록이면 이어서 센다. */
 function nbOrd(m, i) {
   const blocks = nbBlocks(m);
+  const ind = blocks[i].ind || 0;
   let n = 1;
-  for (let k = i - 1; k >= 0 && blocks[k].t === 'ol'; k--) n++;
+  /* 같은 들여쓰기 단계끼리만 센다 — 한 단계 더 들어간(중첩된) 목록은
+     건너뛰고, 한 단계 덜 들어간 데까지 올라가면 거기서 멈춘다(그
+     위는 이 목록이 아니다). */
+  for (let k = i - 1; k >= 0; k--) {
+    const bkInd = blocks[k].ind || 0;
+    if (bkInd < ind) break;
+    if (bkInd > ind) continue;
+    if (blocks[k].t !== 'ol') break;
+    n++;
+  }
   return n;
 }
 
@@ -6057,6 +6458,11 @@ function nbWire(el, m, b) {
        다시 그리면 한글 조합이 끊긴다. */
     b.s = composing ? el.innerHTML : nbClean(el.innerHTML);
     ntMemoTouchNow();
+    /* #·-·>·숫자는 한글처럼 조합되는 글자가 아니라 매 키 입력이 바로
+       완성된 글자로 온다 — composing 중에 봐도 안전하지만, 그래도
+       조합이 막 끝난 다음(즉 composing=false)에만 본다. markdown
+       지름길이 도중에 발동해서 조합을 방해할 일을 아예 없앤다. */
+    if (!composing) nbMdCheck(el, m, b);
   });
   el.addEventListener('blur', () => { b.s = nbClean(el.innerHTML); ntMemoTouchNow(); });
 
@@ -6077,12 +6483,21 @@ function nbWire(el, m, b) {
         return nbSave(m2);
       }
       const next = nbNew(['ul', 'ol', 'todo'].includes(b.t) ? b.t : 'text');
-      next.c = b.c; next.bg = b.bg;
+      next.c = b.c; next.bg = b.bg; next.ind = b.ind || 0;
       blocks.splice(i + 1, 0, next);
       nbFocus = next.id;
       return nbSave(m2);
     }
     if (ev.key === 'Backspace' && nbCaretAt0(el)) {
+      /* 들여쓴 줄이면 지우기·종류 되돌리기보다 내어쓰기가 먼저다 — 노션과
+         같다. 한 번에 확 밀리면(내어쓰기 없이 바로 글로 바뀌거나 지워지면)
+         한 단계씩 무르기가 안 된다. */
+      if (b.ind) {
+        ev.preventDefault();
+        b.ind -= 1;
+        nbFocus = b.id; nbAtEnd = false;
+        return nbSave(m2);
+      }
       if (['ul', 'ol', 'todo', 'quote', 'call', 'code', 'h1', 'h2', 'h3'].includes(b.t)) {
         ev.preventDefault();
         b.t = 'text'; b.done = false;
@@ -6095,6 +6510,19 @@ function nbWire(el, m, b) {
         nbFocus = (blocks[i - 1] || blocks[0]).id;
         return nbSave(m2);
       }
+    }
+    /* 들여쓰기(Tab)·내어쓰기(Shift+Tab). 바로 위 블록보다 한 단계 넘게는
+       못 들어간다 — 안 그러면 사이가 붕 뜬 들여쓰기가 생긴다. */
+    if (ev.key === 'Tab') {
+      ev.preventDefault();
+      if (ev.shiftKey) {
+        if (b.ind) { b.ind -= 1; nbFocus = b.id; nbAtEnd = true; nbSave(m2); }
+      } else {
+        const prevInd = i > 0 ? (blocks[i - 1].ind || 0) : -1;
+        const maxInd = Math.min(prevInd + 1, NB_IND_MAX);
+        if ((b.ind || 0) < maxInd) { b.ind = (b.ind || 0) + 1; nbFocus = b.id; nbAtEnd = true; nbSave(m2); }
+      }
+      return;
     }
     if (ev.key === 'ArrowUp' && i > 0 && nbCaretAt0(el)) {
       ev.preventDefault();
@@ -6112,6 +6540,13 @@ function nbWire(el, m, b) {
       b.s = nbClean(el.innerHTML);
       ntMemoTouchNow();
     }
+    /* Cmd/Ctrl+K 로 링크를 건다 — 고른 글자가 있어야 하고, 없다면
+       커서가 이미 걸린 링크 위일 때만(그 링크를 고치거나 없애려고) 연다. */
+    if ((ev.metaKey || ev.ctrlKey) && ev.key.toLowerCase() === 'k') {
+      ev.preventDefault();
+      const range = nbLinkTargetRange(el);
+      if (range) nbLinkOpen(el, range, b);
+    }
     /* 빈 글 블록에서 / 를 누르면 종류 고르개가 뜬다. */
     if (ev.key === '/' && !nbPlain(el.innerHTML)) {
       setTimeout(() => nbMenuOpen(el, m2, b, 'type'), 0);
@@ -6119,10 +6554,45 @@ function nbWire(el, m, b) {
   });
 
   /* 붙여넣기는 글자만 받는다 — 남의 쪽에서 통째로 끌고 오는 서식이
-     노트를 제 마음대로 칠하지 않게. */
+     노트를 제 마음대로 칠하지 않게. 다만 사진을 복사해 붙여넣은 경우는
+     예외 — 그건 글자가 없으니 그냥 두면 아무 일도 안 일어난 것처럼
+     보인다("사진을 넣을 수가 없어" 제보의 원인). */
   el.addEventListener('paste', (ev) => {
+    const cd = ev.clipboardData || window.clipboardData;
+    const imgItem = cd && [...cd.items || []].find((it) => it.kind === 'file' && it.type.startsWith('image/'));
+    if (imgItem) {
+      ev.preventDefault();
+      const file = imgItem.getAsFile();
+      const m2 = ntMemoCur();
+      if (file && m2) nbImgFromClipboard(m2, b, el, file);
+      return;
+    }
+    const txt = cd.getData('text/plain');
+    /* 순수 주소만 붙여넣으면 자동으로 링크가 된다(문장 속에 섞여 있으면
+       그냥 글자로 받는다 — 마음대로 서식을 입히면 오히려 성가시다).
+       고른 글자가 있으면 구글 문서·노션처럼 그 위에 링크를 걸고, 없으면
+       주소 자체를 누를 수 있는 글자로 넣는다. */
+    if (/^https?:\/\/\S+$/i.test(txt.trim())) {
+      const url = nbLinkNormalize(txt.trim());
+      if (url) {
+        ev.preventDefault();
+        const sel = getSelection();
+        if (sel && sel.rangeCount && !sel.getRangeAt(0).collapsed) {
+          document.execCommand('createLink', false, url);
+        } else {
+          document.execCommand('insertHTML', false,
+            `<a href="${url.replace(/"/g, '&quot;')}">${txt.trim().replace(/&/g, '&amp;').replace(/</g, '&lt;')}</a>`);
+        }
+        const node = getSelection().anchorNode;
+        const host = node && (node.nodeType === 3 ? node.parentElement : node);
+        const a = host && host.closest && host.closest('a[href]');
+        if (a) { a.target = '_blank'; a.rel = 'noopener noreferrer'; }
+        b.s = nbClean(el.innerHTML);
+        ntMemoTouchNow();
+        return;
+      }
+    }
     ev.preventDefault();
-    const txt = (ev.clipboardData || window.clipboardData).getData('text/plain');
     document.execCommand('insertText', false, txt);
   });
 }
@@ -6166,6 +6636,7 @@ function nbSave(m) {
   nbRender();
   $('ntMemoSaved').textContent = t('저장됨', 'Saved');
   ntMemoCount();
+  nbHistCheckpoint(m);
 }
 /* 글자를 칠 때는 다시 그리지 않는다(한글 조합이 끊긴다). 늦춰 저장만. */
 function ntMemoTouchNow() {
@@ -6179,6 +6650,7 @@ function ntMemoTouchNow() {
     ntMemoTimer = null;
     $('ntMemoSaved').textContent = t('저장됨', 'Saved');
     ntMemoDrawList();
+    nbHistCheckpoint(m);
   }, 600);
   ntMemoCount();
 }
@@ -6192,14 +6664,29 @@ function nbInsert(m, at, type = 'text') {
 
 /* ── 끌어 옮기기 ──────────────────────────────────────────── */
 let nbDragId = null;
+/* dataTransfer 에 「Files」가 있으면(바탕화면 등 바깥에서 끌어온 것)
+   드래그다. 우리 끼리 블록을 끌 때(nbDragId)는 이 종류가 없다. */
+const nbIsFileDrag = (ev) => !!(ev.dataTransfer && [...ev.dataTransfer.types || []].includes('Files'));
 function nbDropZone(row, m, b) {
   row.addEventListener('dragover', (ev) => {
+    if (nbIsFileDrag(ev)) { ev.preventDefault(); return; }
     if (!nbDragId || nbDragId === b.id) return;
     ev.preventDefault();
     row.classList.add('drag-over');
   });
   row.addEventListener('dragleave', () => row.classList.remove('drag-over'));
   row.addEventListener('drop', (ev) => {
+    /* 바깥에서 사진 파일을 끌어다 놓은 경우. 여기서 막지 않으면 브라우저가
+       이 탭을 그 파일로 통째로 옮겨 가 버린다(편집 중이던 노트가 눈앞에서
+       사라진 것처럼 보인다) — 반드시 preventDefault 부터 한다. */
+    if (nbIsFileDrag(ev)) {
+      ev.preventDefault();
+      row.classList.remove('drag-over');
+      const file = [...(ev.dataTransfer.files || [])].find((f) => f.type.startsWith('image/'));
+      if (file) nbImgFromClipboard(m, b, row.querySelector('.nb-txt'), file);
+      else $('ntMemoSaved').textContent = t('사진 파일만 끌어다 놓을 수 있어요', 'Only photo files can be dropped here');
+      return;
+    }
     if (!nbDragId || nbDragId === b.id) return;
     ev.preventDefault();
     row.classList.remove('drag-over');
@@ -6213,6 +6700,11 @@ function nbDropZone(row, m, b) {
     nbSave(m);
   });
 }
+/* 블록 줄 사이 틈이나 목록 쪽처럼, 위의 row 손잡이가 없는 자리에 사진을
+   떨어뜨려도 페이지가 그 파일로 튀어 나가지 않게 문서 전체에 한 번 더
+   막아 둔다(각 row 의 처리기가 먼저 붙잡으면 여기까진 안 온다). */
+document.addEventListener('dragover', (ev) => { if (nbIsFileDrag(ev)) ev.preventDefault(); });
+document.addEventListener('drop', (ev) => { if (nbIsFileDrag(ev)) ev.preventDefault(); });
 
 /* ── 메뉴 (종류·색·복제·지우기) ───────────────────────────── */
 let nbMenuAt = null;
@@ -6287,6 +6779,17 @@ function nbMenuOpen(anchor, m, b, only) {
     head(t('바탕색', 'Background'));
     swatches(NB_BGS, b.bg, (k) => { b.bg = k; nbMenuClose(); nbSave(m); });
     sep();
+    /* Tab·Shift+Tab 은 키보드가 있어야 편하다 — 폰 화면 키보드는 Tab이
+       없거나 포커스만 옮기는 경우가 많아서, 손잡이 메뉴에도 같은 일을
+       하는 단추를 둔다. 지금 물릴 수 없는 쪽(맨 위 단계에서 내어쓰기,
+       위 블록보다 더 들어갈 수 없을 때 들여쓰기)은 아예 안 보여준다. */
+    const blocksN = nbBlocks(m);
+    const iN = blocksN.indexOf(b);
+    const prevIndN = iN > 0 ? (blocksN[iN - 1].ind || 0) : -1;
+    const maxIndN = Math.min(prevIndN + 1, NB_IND_MAX);
+    if (b.ind) item('⇤', t('내어쓰기', 'Outdent'), () => { b.ind -= 1; nbMenuClose(); nbSave(m); });
+    if ((b.ind || 0) < maxIndN) item('⇥', t('들여쓰기', 'Indent'), () => { b.ind = (b.ind || 0) + 1; nbMenuClose(); nbSave(m); });
+    if (b.ind || (b.ind || 0) < maxIndN) sep();
     /* 블록 안에 이모지 넣기. 커서 자리에 꽂고, 커서가 없으면 뒤에 붙인다. */
     const emo = item('🙂', t('이모지 넣기', 'Insert emoji'), () => {
       const el = $('ntMemoBlocks').querySelector(`[data-b="${b.id}"] .nb-txt`);
@@ -6312,6 +6815,13 @@ function nbMenuOpen(anchor, m, b, only) {
       nbSave(m);
     });
     item('🗑', t('블록 지우기', 'Delete'), () => {
+      /* 노트 전체를 지울 때는 물어보면서, 블록 하나를 지울 때는 안 물어봤다
+         — 되돌릴 방법이 똑같이 없는데(되돌리기 없음, 서버 백업 없음)
+         내용이 든 블록은 그냥 사라져 버렸다. 빈 블록은 여전히 바로
+         지운다(백스페이스로 지울 때와 같다 — 그것까지 물어보면 성가시다). */
+      const hasContent = b.t === 'img' ? !!(b.s || b.cap) : !!nbPlain(b.s);
+      if (hasContent && !confirm(t('이 블록을 지울까요? 되돌릴 수 없어요.',
+                                    'Delete this block? This cannot be undone.'))) return;
       const blocks = nbBlocks(m);
       const i = blocks.findIndex((x) => x.id === b.id);
       blocks.splice(i, 1);
@@ -6337,7 +6847,13 @@ document.addEventListener('click', (ev) => {
   nbMenuClose();
 });
 document.addEventListener('keydown', (ev) => { if (ev.key === 'Escape' && nbMenuAt) nbMenuClose(); });
-window.addEventListener('scroll', () => { if (nbMenuAt) nbMenuClose(); }, true);
+/* 페이지가 스크롤돼 손잡이(anchor)가 움직이면 뜬 메뉴가 엉뚱한 자리에
+   남으니 닫는다. 그런데 이 메뉴 자신도 목록이 길면 overflow-y:auto 로
+   제 안에서 스크롤한다 — capture:true 로 window 에 걸어 두면 그 스크롤도
+   똑같이 걸려서, 메뉴를 내리려고 하는 순간 메뉴가 저 스스로를 닫아
+   버렸다(실제로 겪은 버그 — 목록 아래쪽 항목에 닿지도 못했다). 스크롤이
+   일어난 자리가 메뉴 자신이면 넘어간다. */
+window.addEventListener('scroll', (ev) => { if (nbMenuAt && ev.target !== $('nbMenu')) nbMenuClose(); }, true);
 
 $('ntMemoAddEnd').addEventListener('click', () => {
   const m = ntMemoCur();
@@ -6410,6 +6926,113 @@ $('ntMemoIcon').addEventListener('click', () => {
     m.icon ? () => { m.icon = ''; nbSave(m); ntMemoDrawDoc(); } : null);
 });
 
+/* ── 링크 걸기(Cmd/Ctrl+K) ───────────────────────────────────
+   주소가 http(s) 가 아니면(javascript: 따위) 막는다 — nbClean 이 저장
+   시점에 한 번 더 걸러내지만, 여기서도 미리 막아 둔다(방어를 겹친다). */
+function nbLinkNormalize(raw) {
+  const u = String(raw ?? '').trim();
+  if (!u) return '';
+  const withProto = /^[a-z][a-z0-9+.-]*:/i.test(u) ? u : `https://${u}`;
+  try {
+    const parsed = new URL(withProto);
+    return /^https?:$/.test(parsed.protocol) ? parsed.href : '';
+  } catch (e) { return ''; }
+}
+/* 지금 고른 자리(또는 커서가 놓인 링크)를 Range 로 돌려준다. 아무것도
+   고르지 않았고 링크 위도 아니면 null — 걸 자리가 없다. */
+function nbLinkTargetRange(el) {
+  const sel = getSelection();
+  if (!sel.rangeCount) return null;
+  const r = sel.getRangeAt(0);
+  if (!el.contains(r.commonAncestorContainer)) return null;
+  if (!r.collapsed) return r.cloneRange();
+  const node = r.startContainer;
+  const host = node.nodeType === 3 ? node.parentElement : node;
+  const a = host && host.closest && host.closest('a');
+  if (!a || !el.contains(a)) return null;
+  const full = document.createRange();
+  full.selectNodeContents(a);
+  return full;
+}
+let nbLinkRange = null;
+let nbLinkTarget = null;   // { el, b }
+function nbLinkClose() {
+  $('nbLinkPop').hidden = true;
+  nbLinkRange = null;
+  nbLinkTarget = null;
+}
+function nbLinkOpen(el, range, b) {
+  nbLinkRange = range.cloneRange();
+  nbLinkTarget = { el, b };
+  const host = range.startContainer.nodeType === 3 ? range.startContainer.parentElement : range.startContainer;
+  const a = host && host.closest && host.closest('a');
+  const cur = (a && el.contains(a) && a.textContent === range.toString()) ? (a.getAttribute('href') || '') : '';
+  const inp = $('nbLinkUrl');
+  inp.value = cur;
+  inp.placeholder = 'https://…';
+  $('nbLinkRemove').hidden = !cur;
+  $('nbLinkRemove').textContent = t('링크 없애기', 'Remove link');
+  $('nbLinkApply').textContent = t('적용', 'Apply');
+  const box = $('nbLinkPop');
+  box.hidden = false;
+  const r = range.getBoundingClientRect();
+  const p = box.getBoundingClientRect();
+  const top = r.bottom + 6 + p.height > window.innerHeight - 8
+    ? Math.max(8, r.top - p.height - 6) : r.bottom + 6;
+  box.style.top = `${top}px`;
+  box.style.left = `${Math.max(8, Math.min(window.innerWidth - p.width - 8, r.left))}px`;
+  inp.focus();
+  inp.select();
+}
+/* execCommand('createLink'/'unlink') 를 쓰려면 브라우저 선택 영역이
+   다시 그 Range 를 가리키고 있어야 한다 — 링크 판의 입력칸에 포커스가
+   가 있는 동안 선택은 이미 풀려 있으므로 여기서 되돌린다. */
+function nbLinkRestoreSel() {
+  const { el } = nbLinkTarget;
+  el.focus();
+  const sel = getSelection();
+  sel.removeAllRanges();
+  sel.addRange(nbLinkRange);
+}
+function nbLinkApply() {
+  if (!nbLinkRange || !nbLinkTarget) return;
+  const url = nbLinkNormalize($('nbLinkUrl').value);
+  if (!url) { $('nbLinkUrl').focus(); return; }
+  const { el, b } = nbLinkTarget;
+  nbLinkRestoreSel();
+  document.execCommand('createLink', false, url);
+  /* 방금 만든 <a> 를 찾아 새 창으로 열리게 다듬는다 — contenteditable
+     안에서는 그냥 눌러서는 안 따라가고 Cmd/Ctrl+클릭이라야 여는데, 그건
+     브라우저 기본이라 target·rel 만 붙여 두면 된다. */
+  const sel = getSelection();
+  const node = sel.anchorNode;
+  const host = node && (node.nodeType === 3 ? node.parentElement : node);
+  const a = host && host.closest && host.closest('a[href]');
+  if (a) { a.target = '_blank'; a.rel = 'noopener noreferrer'; }
+  b.s = nbClean(el.innerHTML);
+  ntMemoTouchNow();
+  nbLinkClose();
+}
+function nbLinkRemoveFn() {
+  if (!nbLinkRange || !nbLinkTarget) return;
+  const { el, b } = nbLinkTarget;
+  nbLinkRestoreSel();
+  document.execCommand('unlink');
+  b.s = nbClean(el.innerHTML);
+  ntMemoTouchNow();
+  nbLinkClose();
+}
+$('nbLinkApply').addEventListener('click', nbLinkApply);
+$('nbLinkRemove').addEventListener('click', nbLinkRemoveFn);
+$('nbLinkUrl').addEventListener('keydown', (ev) => {
+  if (ev.key === 'Enter') { ev.preventDefault(); nbLinkApply(); }
+  if (ev.key === 'Escape') { ev.preventDefault(); nbLinkClose(); }
+});
+document.addEventListener('click', (ev) => {
+  if (!nbLinkRange) return;
+  if (ev.target.closest('#nbLinkPop')) return;
+  nbLinkClose();
+});
 
 /* ── 문서 단추들 ───────────────────────────────────────────── */
 $('ntMemoNew').addEventListener('click', ntMemoNew);
@@ -6467,9 +7090,12 @@ $('ntMemoWb').addEventListener('click', async () => {
   const { word, mean } = ntMemoSplit(picked);
   const btn = $('ntMemoWb');
   if (!word) {
-    const was = btn.textContent;
+    /* innerHTML 로 담고 되돌린다 — 이 단추 속은 이제 SVG 다. textContent
+       로 담으면(예전 이모지 시절 코드) 빈 문자열을 담아 두었다가 그대로
+       되돌려서 그림이 통째로 사라지는 사고가 났다. */
+    const was = btn.innerHTML;
     btn.textContent = '?';
-    setTimeout(() => { btn.textContent = was; }, 1200);
+    setTimeout(() => { btn.innerHTML = was; }, 1200);
     return;
   }
   if (ntMemoTimer) ntMemoSave();
@@ -6479,6 +7105,8 @@ $('ntMemoWb').addEventListener('click', async () => {
     showErr(t('단어장에 담으려면 로그인이 필요해요.', 'Sign in to add words to your wordbook.'));
     return;
   }
+  // 뜻을 적어 두지 않았을 때만 사전을 뒤진다 — 그때만 받아 오면 된다.
+  if (!mean) await glossNeed().catch(() => {});
   const g = mean ? null : tqGloss(word);
   open('wordbook');
   openWordForm({
@@ -6495,6 +7123,165 @@ $('ntMemoPin').addEventListener('click', () => {
   ntMemoStore();
   ntMemoDraw();
 });
+
+/* ── 문법 불러오기 ─────────────────────────────────────────────
+   "수업할 때 특정 문법을 자주 쓰는데 노트로 불러올 수 없냐"는 제보로
+   만들었다. hangul·first-words 는 읽기·기본 표현 연습이지 문법 설명이
+   아니라 뺀다 — COURSES 의 나머지(문법 네 파일을 이어 붙인 것)가 전부
+   문법이다. 코스 자료(COURSES)는 늦게 불러오므로(coursesNeed) 찾아
+   보는 판을 열 때 한 번만 훑어 검색용 색인을 만들어 둔다. */
+let nbGrammarIndex = null;   // { courses, search: Map<lesson, 훑을 글자> }
+async function nbGrammarBuildIndex() {
+  if (nbGrammarIndex) return nbGrammarIndex;
+  await coursesNeed();
+  const courses = COURSES.filter((c) => c.id !== 'hangul' && c.id !== 'first-words');
+  const search = new Map();
+  courses.forEach((course) => {
+    (course.lessons || []).forEach((lesson) => {
+      /* 문법 용어(예: -았/었, -(으)ㄹ 거예요)로도 찾을 수 있게 레슨
+         안의 글까지 같이 훑는다 — 제목(영어)만 보면 한국어 문법 표현
+         그대로 검색할 길이 없다. */
+      const parts = [course.title, lesson.title];
+      (lesson.blocks || []).forEach((cb) => {
+        if (cb.h) parts.push(cb.h);
+        if (cb.md) parts.push(cb.md);
+        if (Array.isArray(cb.items)) cb.items.forEach((it) => {
+          if (it.ch) parts.push(it.ch);
+          if (it.rom) parts.push(it.rom);
+          if (it.tip) parts.push(it.tip);
+        });
+        if (Array.isArray(cb.rows)) cb.rows.forEach((row) => parts.push(row.join(' ')));
+        if (cb.q) parts.push(cb.q);
+      });
+      search.set(lesson, parts.join(' ').toLowerCase());
+    });
+  });
+  nbGrammarIndex = { courses, search };
+  return nbGrammarIndex;
+}
+/* 레슨 안의 「읽는 것」 블록만 노트 블록으로 옮긴다 — 「푸는 것」
+   (choice·type·order·pair·speak·listen·cloze)은 문제라서 참고 자료로
+   적어 둘 것이 아니다. 표·글자 카드는 노트에 그런 종류가 없어서(표는
+   4번 항목, 아직 없다) 목록·강조 칸으로 풀어 담는다. */
+function nbFromCourseBlock(cb) {
+  const out = [];
+  if (cb.t === 'text') {
+    if (cb.h) out.push(nbNew('h3', mdIn(cb.h)));
+    String(cb.md || '').split(/\n\n+/).forEach((p) => {
+      if (p.trim()) out.push(nbNew('text', mdIn(p.trim())));
+    });
+  } else if (cb.t === 'note') {
+    String(cb.md || '').split(/\n\n+/).forEach((p) => {
+      if (p.trim()) out.push(nbNew('call', mdIn(p.trim())));
+    });
+  } else if (cb.t === 'table') {
+    if (Array.isArray(cb.head) && cb.head.length) {
+      out.push(nbNew('text', `<strong>${cb.head.map((h) => esc(h)).join(' · ')}</strong>`));
+    }
+    (cb.rows || []).forEach((row) => out.push(nbNew('ul', row.map((c) => mdIn(c)).join(' — '))));
+  } else if (cb.t === 'chars') {
+    (cb.items || []).forEach((it) => {
+      const parts = [`<strong>${esc(it.ch)}</strong>`];
+      if (it.rom) parts.push(`<em>(${esc(it.rom)})</em>`);
+      if (it.tip) parts.push(`— ${mdIn(it.tip)}`);
+      out.push(nbNew('ul', parts.join(' ')));
+    });
+  }
+  return out;
+}
+function nbBlocksFromLesson(course, lesson) {
+  const out = [nbNew('h2', esc(lesson.title))];
+  (lesson.blocks || []).forEach((cb) => out.push(...nbFromCourseBlock(cb)));
+  return out;
+}
+
+let ntGrammarOpen = false;
+function ntGrammarClose() {
+  $('ntGrammarPop').hidden = true;
+  ntGrammarOpen = false;
+}
+function ntGrammarPosition() {
+  const box = $('ntGrammarPop');
+  const anchor = $('ntMemoGrammar');
+  const r = anchor.getBoundingClientRect();
+  const p = box.getBoundingClientRect();
+  const top = r.bottom + 6 + p.height > window.innerHeight - 8
+    ? Math.max(8, r.top - p.height - 6) : r.bottom + 6;
+  box.style.top = `${top}px`;
+  box.style.left = `${Math.max(8, Math.min(window.innerWidth - p.width - 8, r.left))}px`;
+}
+function ntGrammarRenderList(q) {
+  const box = $('ntGrammarList');
+  box.textContent = '';
+  const query = q.trim().toLowerCase();
+  const { courses, search } = nbGrammarIndex;
+  let any = false;
+  courses.forEach((course) => {
+    const lessons = (course.lessons || []).filter((l) => !query || (search.get(l) || '').includes(query));
+    if (!lessons.length) return;
+    any = true;
+    const h = document.createElement('div');
+    h.className = 'nt-gr-pop-course';
+    h.textContent = course.title;
+    box.appendChild(h);
+    lessons.forEach((l) => {
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'nt-gr-pop-lesson';
+      btn.textContent = l.title;
+      btn.addEventListener('click', () => ntGrammarInsert(course, l));
+      box.appendChild(btn);
+    });
+  });
+  if (!any) {
+    const e = document.createElement('div');
+    e.className = 'nt-gr-pop-empty';
+    e.textContent = t('맞는 문법이 없어요', 'No matching grammar');
+    box.appendChild(e);
+  }
+}
+async function ntGrammarOpenPop() {
+  const m = ntMemoCur();
+  if (!m) return;
+  ntGrammarOpen = true;
+  $('ntGrammarQ').value = '';
+  $('ntGrammarQ').placeholder = t('문법 찾기 (예: -았/었, 이/가)', 'Search grammar (e.g. -았/었, subject particle)');
+  const box = $('ntGrammarList');
+  box.textContent = '';
+  const loading = document.createElement('div');
+  loading.className = 'nt-gr-pop-empty';
+  loading.textContent = t('불러오는 중…', 'Loading…');
+  box.appendChild(loading);
+  $('ntGrammarPop').hidden = false;
+  ntGrammarPosition();
+  await nbGrammarBuildIndex();
+  if (!ntGrammarOpen) return;   // 그 사이 닫혔으면(딴 데 눌렀거나) 그만둔다
+  ntGrammarRenderList('');
+  ntGrammarPosition();   // 자료가 들어와 판 크기가 바뀌었을 수 있다
+  $('ntGrammarQ').focus();
+}
+function ntGrammarInsert(course, lesson) {
+  const m = ntMemoCur();
+  if (!m) return;
+  const blocks = nbBlocks(m);
+  const added = nbBlocksFromLesson(course, lesson);
+  if (!added.length) return;
+  blocks.push(...added);
+  nbFocus = added[added.length - 1].id;
+  nbAtEnd = true;
+  nbSave(m);
+  ntGrammarClose();
+  $('ntMemoSaved').textContent = t('문법을 불러왔어요', 'Grammar added');
+}
+$('ntMemoGrammar').addEventListener('click', ntGrammarOpenPop);
+$('ntGrammarClose').addEventListener('click', ntGrammarClose);
+$('ntGrammarQ').addEventListener('input', () => { if (nbGrammarIndex) ntGrammarRenderList($('ntGrammarQ').value); });
+document.addEventListener('click', (ev) => {
+  if (!ntGrammarOpen) return;
+  if (ev.target.closest('#ntGrammarPop') || ev.target.closest('#ntMemoGrammar')) return;
+  ntGrammarClose();
+});
+document.addEventListener('keydown', (ev) => { if (ev.key === 'Escape' && ntGrammarOpen) ntGrammarClose(); });
 
 /* ── 예쁘게 인쇄 · PDF로 저장 ─────────────────────────────────
    새 라이브러리를 안 들인다. 브라우저 인쇄 대화상자에는 어차피
@@ -6556,6 +7343,74 @@ function ntPrintBody(blocks) {
   return out.join('');
 }
 
+/* ── 블록 편집기 단축키 사용법 ────────────────────────────────
+   markdown 지름길(nbMdCheck)과, 전부터 있었지만 화면 어디에도 안 적혀
+   있던 「/」 메뉴·Cmd/Ctrl+B/I/U 를 한자리에 모아 보여 준다. .nt-cat-pop
+   과 같은 뜬 상자 자리를 그대로 쓴다. */
+const NT_HELP_MAC = /Mac|iPhone|iPad/.test(navigator.platform || navigator.userAgent || '');
+const NT_HELP_ROWS = [
+  { key: '/',    ko: '빈 「글」 블록에서 종류 고르기',       en: 'Pick a block type (empty "Text" block)' },
+  { key: '# ',   ko: '큰 제목으로 바꾸기',                 en: 'Turn into Heading 1' },
+  { key: '## ',  ko: '중간 제목으로 바꾸기',               en: 'Turn into Heading 2' },
+  { key: '### ', ko: '작은 제목으로 바꾸기',               en: 'Turn into Heading 3' },
+  { key: '- ',   ko: '목록으로 바꾸기',                    en: 'Turn into a bulleted list' },
+  { key: '1. ',  ko: '번호 목록으로 바꾸기',               en: 'Turn into a numbered list' },
+  { key: '> ',   ko: '인용으로 바꾸기',                    en: 'Turn into a quote' },
+  { key: '⠿',    ko: '손잡이 — 옮기거나 종류·색 바꾸기',   en: 'Grip — drag to move, click for type & color' },
+  { key: NT_HELP_MAC ? '⌘B' : 'Ctrl+B', ko: '굵게',   en: 'Bold' },
+  { key: NT_HELP_MAC ? '⌘I' : 'Ctrl+I', ko: '기울임', en: 'Italic' },
+  { key: NT_HELP_MAC ? '⌘U' : 'Ctrl+U', ko: '밑줄',   en: 'Underline' },
+];
+function ntHelpOpen(anchor) {
+  $('ntHelpTitle').textContent = t('단축키로 빠르게 쓰기', 'Write faster with shortcuts');
+  $('ntHelpBody').innerHTML = NT_HELP_ROWS.map((r) =>
+    `<div class="nt-help-row"><span class="nt-help-key">${esc(r.key)}</span>` +
+    `<span class="nt-help-desc">${esc(t(r.ko, r.en))}</span></div>`).join('');
+  const box = $('ntHelpPop');
+  box.hidden = false;
+  const r = anchor.getBoundingClientRect();
+  const p = box.getBoundingClientRect();
+  const top = r.bottom + 6 + p.height > innerHeight - 8 ? Math.max(8, r.top - p.height - 6) : r.bottom + 6;
+  box.style.top = `${top}px`;
+  box.style.left = `${Math.max(8, Math.min(innerWidth - p.width - 8, r.left))}px`;
+}
+const ntHelpClose = () => { $('ntHelpPop').hidden = true; };
+$('ntMemoHelp').addEventListener('click', (ev) => {
+  if (!$('ntHelpPop').hidden) return ntHelpClose();
+  ntHelpOpen(ev.currentTarget);
+});
+document.addEventListener('click', (ev) => {
+  if ($('ntHelpPop').hidden) return;
+  const path = ev.composedPath();
+  if (path.some((el) => el.id === 'ntHelpPop' || el.id === 'ntMemoHelp')) return;
+  ntHelpClose();
+});
+document.addEventListener('keydown', (ev) => { if (ev.key === 'Escape') ntHelpClose(); });
+
+/* ── 전체화면 집중 모드 ────────────────────────────────────────
+   .nt-memo-doc 에 자리만 바꾸는 클래스를 얹는다 — 문서를 옮기거나
+   다시 그리지 않으므로 열고 닫아도 쓰던 것을 잃지 않는다. 헤더·히어로·
+   노트 목록이 다 가려지고 제목·글만 남는다(집중). */
+let ntFullOn = false;
+/* 펼침·접힘 두 그림. 안쪽으로 모이는 꺾쇠(접힘)와 바깥으로 벌어지는
+   꺾쇠(펼침) — 다른 아이콘 자리와 같은 선 굵기(1.5)로 맞춘다. */
+const NT_ICON_MAXIMIZE = '<svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 3H4a1 1 0 0 0-1 1v3"/><path d="M13 3h3a1 1 0 0 1 1 1v3"/><path d="M7 17H4a1 1 0 0 1-1-1v-3"/><path d="M13 17h3a1 1 0 0 0 1-1v-3"/></svg>';
+const NT_ICON_MINIMIZE = '<svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7V4a1 1 0 0 1 1-1h3"/><path d="M16 7V4a1 1 0 0 0-1-1h-3"/><path d="M4 13v3a1 1 0 0 0 1 1h3"/><path d="M16 13v3a1 1 0 0 1-1 1h-3"/></svg>';
+function ntFullSet(on) {
+  ntFullOn = on;
+  $('ntMemoDoc').classList.toggle('nt-full', on);
+  document.body.classList.toggle('nt-full-open', on);
+  $('ntMemoFull').classList.toggle('on', on);
+  $('ntMemoFull').innerHTML = on ? NT_ICON_MINIMIZE : NT_ICON_MAXIMIZE;
+  $('ntMemoFull').title = on ? t('전체화면 끄기', 'Exit fullscreen') : t('전체화면으로 크게 쓰기', 'Write in fullscreen');
+  if (on) $('ntMemoTitle').focus();
+}
+$('ntMemoFull').addEventListener('click', () => ntFullSet(!ntFullOn));
+document.addEventListener('keydown', (ev) => { if (ev.key === 'Escape' && ntFullOn) ntFullSet(false); });
+/* 목록으로 나가거나 다른 노트를 고르면 전체화면도 접는다 — 켠 채로
+   다른 노트를 열면 「내가 지금 어디 있는지」가 헷갈린다. */
+$('ntMemoBack').addEventListener('click', () => ntFullSet(false));
+
 function ntPrintOpen() {
   const m = ntMemoCur();
   if (!m) return;
@@ -6585,11 +7440,11 @@ $('ntMemoCopy').addEventListener('click', async () => {
   const m = ntMemoCur();
   if (!m) return;
   const btn = $('ntMemoCopy');
-  const was = btn.textContent;
+  const was = btn.innerHTML;   // SVG 를 통째로 담아 두고 되돌린다 — 위 ntMemoWb 와 같은 까닭
   try {
     await navigator.clipboard.writeText(`${ntMemoName(m)}\n\n${nbToText(nbBlocks(m))}`.trim());
     btn.textContent = '✓';
-    setTimeout(() => { btn.textContent = was; }, 1400);
+    setTimeout(() => { btn.innerHTML = was; }, 1400);
   } catch (e) { /* 클립보드를 막아 둔 브라우저다. 조용히 넘어간다. */ }
 });
 $('ntMemoDup').addEventListener('click', () => {
@@ -6609,7 +7464,13 @@ $('ntMemoDel').addEventListener('click', () => {
   if (!confirm(t(`「${ntMemoName(m)}」를 지울까요? 되돌릴 수 없어요.`,
                  `Delete "${ntMemoName(m)}"? This cannot be undone.`))) return;
   clearTimeout(ntMemoTimer); ntMemoTimer = null;
-  ntMemo = ntMemo.filter((x) => x.id !== m.id);
+  /* 배열에서 통째로 빼면 서버로 동기화할 때(notesSync) "지웠다"는 사실
+     자체가 사라진다 — 로그인해 둔 다른 기기는 이 노트가 계속 있는 줄
+     알고 되살려 놓는다. id 와 지운 시각만 남기고(사진이 든 블록은
+     특히 무거우니 나머지 칸은 비워 저장 공간을 돌려준다) delAt 로
+     표시해 둔다. 목록·갈래 수·내려받기는 ntMemoLive() 로 거른다. */
+  const now = Date.now();
+  Object.assign(m, { title: '', blocks: [], icon: '', cat: '', pin: false, delAt: now, up: now });
   ntMemoAt = null;
   ntMemoStore();
   $('ntMemo').classList.remove('on-doc');
@@ -6619,8 +7480,9 @@ $('ntMemoDel').addEventListener('click', () => {
    기기를 바꾸면 그냥 사라지는 것이 이 자료의 약점이다. */
 $('ntMemoDl').addEventListener('click', () => {
   if (ntMemoTimer) ntMemoSave();
-  if (!ntMemo.length) return;
-  const txt = ntMemo.map((m) => {
+  const live = ntMemoLive();
+  if (!live.length) return;
+  const txt = live.map((m) => {
     const head = `# ${ntMemoName(m)}` + (m.cat ? `  [${m.cat}]` : '');
     return `${head}\n\n${nbToText(nbBlocks(m))}`.trim();
   }).join('\n\n\n---\n\n\n');
@@ -7621,7 +8483,7 @@ async function openSection(id, quiet) {
       if (s.id === 'quiz') dqDraw();
       if (s.id === 'reading') drawReading();
       if (s.id === 'convo') drawConvo();
-      if (s.id === 'notes') ntMemoDraw();
+      if (s.id === 'notes') { ntMemoDraw(); notesSync(); }
       if (s.id === 'sentence') {
         await sbNeed();
         drawSentenceHead();
@@ -7655,8 +8517,11 @@ async function openLearnSub(sub) {
 
   /* 옛 주소 #learn/writing 을 새 자리로 넘긴다. 쓰기가 별도 갈래였을 때
      찍은 정적 쪽과 밖에서 걸린 링크가 그 주소를 쓰고 있어서, 죽이면
-     검색으로 들어온 사람이 빈 화면을 본다. */
-  if (secId === 'writing') { secId = 'topik'; rest = ['II', 'writing']; }
+     검색으로 들어온 사람이 빈 화면을 본다.
+     문항 번호(#learn/writing/51-1)가 붙어 있으면 그 자리를 그대로 들고
+     간다 — topik-writing/ 정적 쪽에서 "직접 써 보기" 를 눌렀을 때
+     방금 읽던 문항이 아니라 목록으로 떨어지면, 그 사이 손이 식는다. */
+  if (secId === 'writing') { secId = 'topik'; rest = ['II', 'writing', ...(rest[0] ? [rest[0]] : [])]; }
 
   if (!LEARN_SECTIONS.some((x) => x.id === secId)) return;
 
@@ -7682,7 +8547,25 @@ async function openLearnSub(sub) {
          물러나 준다. TOPIK I 쓰기 주소를 받았을 때가 그렇다. */
       if (wantSkill && tqSkillsFor(tqExam).includes(wantSkill)) tqSkill = wantSkill;
       openSection('topik', true);
-      tqShowSkill(true);
+      /* 문항 하나까지 지정됐으면(#learn/writing/51-1 · #learn/topik/I/
+         reading/tr-001 · #learn/topik/II/listening/lII-04) 목록이 아니라
+         그 문항을 바로 연다 — topik-writing/·topik-reading/·
+         topik-listening/ 정적 쪽의 "직접 풀어보기"가 방금 읽던 문항
+         그대로 이어지게 하려는 것이다. tqShowSkill 이 자료를 받아 오길
+         기다린 뒤에야 찾을 수 있다. */
+      const wantItem = wantSkill ? rest[wantExam ? 2 : 1] : null;
+      await tqShowSkill(true);
+      if (wantItem && wantSkill === 'writing') {
+        const it = TW_ITEMS.find((x) => x.id === wantItem);
+        // 못 찾아도 조용히 목록에 남는다 — 지어낸 문항을 열 수는 없다.
+        if (it) { learnLv.writing = it.lv; twDraw(); twOpen(it); }
+      } else if (wantItem && wantSkill === 'reading') {
+        const it = tqE().reading.find((x) => x.id === wantItem);
+        if (it) tqOpenOne(it);
+      } else if (wantItem && wantSkill === 'listening') {
+        const it = tlE().items.find((x) => x.id === wantItem);
+        if (it) tlOpenOne(it);
+      }
       return;
     }
   }
@@ -8543,6 +9426,16 @@ function twSetWrite(id, pt, max) {
   try { localStorage.setItem(twSetKey(id), JSON.stringify({ pt, max })); } catch (e) {}
 }
 
+/* 「풀었다」 표시는 점수와 다르다. 53·54 는 규칙 채점이 없어서 twSetRead 가
+   늘 비어 있는데, 그렇다고 목록에서 안 푼 것처럼 보이면 목록의 값이
+   없어진다. 모범답안을 열어 본 순간을 "풀었다"로 친다 — 그게 이 문항에서
+   유일하게 남는, 끝까지 갔다는 신호다. 51·52 는 채점 기록이 있으면 그걸로
+   충분하니 따로 안 적는다. */
+const twSeenKey = (id) => `cp-tw-seen-${id}`;
+const twSeenRead = (id) => { try { return localStorage.getItem(twSeenKey(id)) === '1'; } catch (e) { return false; } };
+const twSeenWrite = (id) => { try { localStorage.setItem(twSeenKey(id), '1'); } catch (e) {} };
+const twIsDone = (id) => !!twSetRead(id) || twSeenRead(id);
+
 /* 기록판 — 51·52 번 진행률과 평균 점수. tqBar 를 그대로 쓴다(있는 값이
    s/n 이 아니라 pt/max 라 「초」 자리는 백분율로 맞춰 넘긴다). */
 function twDrawRecord() {
@@ -8592,15 +9485,18 @@ function twDraw() {
     const items = mine.filter((x) => x.q === g.q);
     if (!items.length) continue;
     html += `<div class="tw-sec-t">${esc(isEn() ? g.en : g.ko)} · ${g.pt}${t('점', ' pts')}</div>` +
-      items.map((it) =>
-        `<button class="tw-card" data-tw="${esc(it.id)}">` +
+      items.map((it) => {
+        const done = twIsDone(it.id);
+        return `<button class="tw-card" data-tw="${esc(it.id)}">` +
           '<div class="tw-card-top">' +
             `<span class="tw-no">${it.q}</span>` +
             `<span class="tw-pt">${it.min ? `${it.min}~${it.max}${t('자', ' chars')}` : t('빈칸 2곳', '2 blanks')}</span>` +
+            (done ? `<span class="lq-chip done">${esc(t('풀었어요', 'Done'))}</span>` : '') +
           '</div>' +
           `<div class="tw-card-t">${esc(it.title)}</div>` +
           `<div class="tw-card-s">${esc(it.cond)}</div>` +
-        '</button>').join('');
+        '</button>';
+      }).join('');
   }
   $('twList').innerHTML = html +
     `<p class="sb-none" style="margin-top:18px">${t(
@@ -8721,6 +9617,7 @@ function twSync() {
 function twReveal() {
   const it = twItem;
   if (!it) return;
+  twSeenWrite(it.id);
   let html = '';
   if (it.blanks) {
     html += it.blanks.map((b) =>
@@ -8881,18 +9778,36 @@ function twToggleClock() {
 const DQ_MAX = 15;   // 한 판. 다 맞혀야 끝나므로 길면 끝을 못 보고 나간다.
 
 /* 그 급의 모든 레슨에서 문제 블록만. 어느 코스에서 왔는지 함께 들고
-   온다 — 문제만 이어지면 지금 무엇을 확인하는 중인지 알 수 없다. */
+   온다 — 문제만 이어지면 지금 무엇을 확인하는 중인지 알 수 없다.
+   key 는 레슨 안에서 이 블록의 자리를 가리키는 값이라, 코스 내용이
+   그대로면 다시 열어도 같은 문제를 같은 key 로 알아볼 수 있다 —
+   "이미 푼 문제 제외" 가 이 key 로 돌아간다. */
 function dqPool(level) {
   const out = [];
   COURSES.filter((c) => courseTier(c) === level).forEach((c) => {
     c.lessons.forEach((l) => {
-      l.blocks.filter(isEx).forEach((b) => out.push({ b, course: c, lesson: l }));
+      l.blocks.forEach((b, idx) => { if (isEx(b)) out.push({ b, course: c, lesson: l, key: `${l.id}#${idx}` }); });
     });
   });
   return out;
 }
 
+/* 이미 나온 문제는 이 급수를 다 돌기 전까지 다시 안 나오게 한다.
+   기기에 남기고(localStorage) 로그인 여부와 상관없이 쓴다 — 서버까지
+   맞출 만큼 무거운 자리가 아니다. 한 바퀴(그 급의 모든 문제)를 다
+   보면 자동으로 비우고 새로 돈다 — 안 그러면 다 본 뒤에는 낼 문제가
+   없어서 판이 하나도 안 만들어진다. */
+const dqSeenKey = (level) => `cp_dq_seen_${level}`;
+function dqLoadSeen(level) {
+  try { return new Set(JSON.parse(localStorage.getItem(dqSeenKey(level)) || '[]')); }
+  catch (e) { return new Set(); }
+}
+function dqSaveSeen(level, seen) {
+  try { localStorage.setItem(dqSeenKey(level), JSON.stringify([...seen])); } catch (e) {}
+}
+
 let dqQueue = [], dqTotal = 0, dqDone = 0, dqFrom = false;
+let dqSeen = new Set(), dqSeenLevel = null;
 
 async function dqDraw() {
   await coursesNeed();
@@ -8928,8 +9843,22 @@ function dqMeter() {
 }
 
 function dqStart() {
-  const pool = dqPool(learnLv.quiz).slice().sort(() => Math.random() - 0.5);
-  dqQueue = pool.slice(0, DQ_MAX);
+  const level = learnLv.quiz;
+  const pool = dqPool(level);
+  dqSeenLevel = level;
+  dqSeen = dqLoadSeen(level);
+  let unseen = pool.filter((x) => !dqSeen.has(x.key));
+  /* 이 급을 다 돌았으면(또는 처음이면) 한 바퀴 새로 시작한다. */
+  if (!unseen.length) { dqSeen = new Set(); unseen = pool.slice(); }
+  const queue = unseen.slice().sort(() => Math.random() - 0.5).slice(0, DQ_MAX);
+  if (queue.length < DQ_MAX) {
+    // 안 본 것만으로 한 판을 못 채우면(막 한 바퀴를 넘어갈 때) 나머지는
+    // 이미 본 것 중에서 채운다 — 그래도 판이 짧아지는 것보단 낫다.
+    const picked = new Set(queue.map((x) => x.key));
+    const rest = pool.filter((x) => !picked.has(x.key)).sort(() => Math.random() - 0.5);
+    queue.push(...rest.slice(0, DQ_MAX - queue.length));
+  }
+  dqQueue = queue;
   dqTotal = dqQueue.length; dqDone = 0;
   if (!dqTotal) return;
 
@@ -8957,6 +9886,8 @@ function dqNext() {
   if (!dqQueue.length) return dqEnd();
 
   const item = dqQueue.shift();
+  dqSeen.add(item.key);
+  dqSaveSeen(dqSeenLevel, dqSeen);
   const host = document.createElement('div');
   $('lsBlocks').appendChild(host);
   host.insertAdjacentHTML('beforeend', `<div class="dq-from">${esc(cTx(item.course.title))}</div>`);
@@ -8970,20 +9901,24 @@ function dqNext() {
 
 function dqEnd() {
   lsMode = 'lesson';
+  track('문제만풀기완료');
   $('lsProg').style.width = '100%';
   /* 몇 개 틀렸는지는 **말하지 않는다.** lsWrong 에는 빈칸(cloze) 오답만
      담긴다 — 고르기·쓰기·배열·짝 맞추기는 틀려도 어디에도 안 남는다.
      그래서 "한 번도 안 틀렸어요" 를 띄우면 고르기를 다섯 번 틀린
      사람에게도 그 말이 나간다. 다 맞혀야 넘어가므로 "다 풀었다" 는 참이다. */
   const missed = lsWrong.length;
+  /* 제목을 「한 판 끝!」 같은 상투적인 문구 대신 몇 문제를 풀었는지
+     숫자로 바로 보여준다 — 문제만 풀기는 원래 가볍게 훑는 자리라,
+     결과 화면도 그만큼 짧아야 한다. */
   $('lsBlocks').insertAdjacentHTML('beforeend',
     '<div class="ls-done">' +
-      '<div class="ls-done-big">🎉</div>' +
-      `<div class="ls-done-t">${esc(t('한 판 끝!', 'Round done!'))}</div>` +
-      `<p class="ls-done-s">${esc(missed
-        ? t(`${dqTotal}문제를 다 풀었어요. 빈칸에서 틀렸던 ${missed}개는 아래에서 다시 풀 수 있어요.`,
-            `${dqTotal} questions done. You can redo the ${missed} cloze answers you missed.`)
-        : t(`${dqTotal}문제를 다 풀었어요.`, `${dqTotal} questions done.`))}</p>` +
+      '<div class="ls-done-big">🧀</div>' +
+      `<div class="ls-done-t">${esc(t(`${dqTotal}문제 완료!`, `${dqTotal} questions done!`))}</div>` +
+      (missed
+        ? `<p class="ls-done-s">${esc(t(`빈칸에서 틀렸던 ${missed}개는 아래에서 다시 풀 수 있어요.`,
+            `You can redo the ${missed} cloze answers you missed.`))}</p>`
+        : '') +
       '<div class="ls-challenge-btns" style="margin-top:8px">' +
         (missed ? `<button type="button" class="btn-retro green" id="dqCh">⚡ ${esc(t('틀린 것만 1분', '60s on the misses'))}</button>` : '') +
         `<button type="button" class="btn-retro green" id="dqAgain">🔁 ${esc(t('한 판 더', 'One more'))}</button>` +
@@ -9447,7 +10382,11 @@ function exBlock(host, b, done) {
       if (solved) return; solved = true;
       /* ① 0.1초 만에 문장 완성 */
       blankEl.textContent = answer;
-      blankEl.classList.remove('hint'); blankEl.classList.add('reveal');
+      /* 클래스 이름을 'reveal' 로 뒀더니 스크롤 등장 효과의 전역
+         .reveal(opacity:0, 스크롤로 .in 이 붙어야 보임) 과 이름이 겹쳐서
+         정답이 채워져도 화면엔 투명하게 사라져 있었다 — 안 채워진
+         것처럼 보인 원인이 이거였다. 이름을 더 좁혀서 겹치지 않게 한다. */
+      blankEl.classList.remove('hint'); blankEl.classList.add('cloze-reveal');
       /* ② 정답 MP3 / TTS 자동 즉시 재생 (MP3 우선 + audioUrl 전달!) */
       say(fullSay, b.audio);
       /* ③ UI 후처리 */
@@ -9561,7 +10500,16 @@ window.lsLeave = function () {
 async function finishLesson() {
   const idx = lsCourse.lessons.indexOf(lsLesson);
   const next = lsCourse.lessons[idx + 1] || null;
+  /* 코스의 마지막 레슨이면 다음 레슨이 없다. 그런데 존댓말 시리즈처럼
+     코스끼리 needs 로 이어진 자리는 여기서 목록으로 돌아가면 학습자가
+     스스로 다음 코스를 찾아 눌러야 한다 — 레슨은 이어지는데 코스 경계에서
+     끊기는 것이다. 이 코스를 needs 로 가리키는 코스가 있으면 그리로
+     바로 잇는다. 없으면(대부분의 코스) 예전처럼 목록으로 돌아간다. */
+  const nextCourse = !next ? COURSES.find((c) => c.needs === lsCourse.id) : null;
   const first = !doneSet.has(lsLesson.id);
+  // 처음 깬 레슨만 센다 — 같은 레슨을 복습 삼아 몇 번 더 도는 것까지
+  // 세면 "얼마나 많은 사람이 첫 레슨까지 가나" 라는 퍼널이 흐려진다.
+  if (first) track('레슨완료');
 
   doneSet.add(lsLesson.id);
 
@@ -9574,6 +10522,7 @@ async function finishLesson() {
         .upsert({ user_id: session.user.id, lesson_id: lsLesson.id, done_at: new Date().toISOString() },
                 { onConflict: 'user_id,lesson_id' });
       await loadProgress();
+      checkNudge();   // 오늘 레슨을 막 끝냈으니, 떠 있던 스트릭 경고라면 사라져야 한다
     } catch (e) { /* 표가 없거나 잠깐 끊긴 것 */ }
   }
 
@@ -9603,11 +10552,14 @@ async function finishLesson() {
   const bt = $('lsGoChallenge');
   if (bt) bt.addEventListener('click', startChallenge);
 
-  $('lsNext').textContent = next ? t('다음 레슨 →', 'Next lesson →') : t('코스 목록으로', 'Back to the course');
+  $('lsNext').textContent = next ? t('다음 레슨 →', 'Next lesson →')
+    : nextCourse ? t(`다음 코스: ${cTx(nextCourse.title)} →`, `Next course: ${cTx(nextCourse.title)} →`)
+    : t('코스 목록으로', 'Back to the course');
   $('lsNextBar').classList.remove('hidden');
   $('lsNext').onclick = () => {
     if (lsChallengeTimer) { clearInterval(lsChallengeTimer); lsChallengeTimer = 0; }
     if (next) startLesson(lsCourse, next);
+    else if (nextCourse) startLesson(nextCourse, nextCourse.lessons[0]);
     else backToCourses();
   };
   setTimeout(() => $('lsBlocks').lastElementChild?.scrollIntoView({ behavior:'smooth', block:'center' }), 120);
@@ -11377,10 +12329,11 @@ function hlpSetOpen(open) {
   $('hlpFab').setAttribute('aria-label', t(open ? '한국어 도우미 닫기' : '한국어 도우미 열기',
                                             open ? 'Close Korean helper' : 'Open Korean helper'));
   if (open) {
-    // 인용을 찾을 때 SB_POINTS·GRAMMAR 를 쓴다(hlpCites). 여기서 배우기를
-    // 한 번도 안 연 사람도 열 수 있는 자리라, 미리 불을 붙여만 둔다 —
-    // 기다리지 않는다. 타자 치는 동안 대개 도착한다.
-    sbNeed(); grammarNeed();
+    // 인용을 찾을 때 SB_POINTS·GRAMMAR 를, 낱말을 찾을 때 GLOSSARY 를
+    // 쓴다(hlpCites·hlpFindWord). 여기서 배우기를 한 번도 안 연 사람도 열
+    // 수 있는 자리라, 미리 불을 붙여만 둔다 — 기다리지 않는다. 타자 치는
+    // 동안 대개 도착한다.
+    sbNeed(); grammarNeed(); glossNeed();
     hlpRenderChrome();
     setTimeout(() => $('hlpInput')?.focus(), 60);
   } else {
