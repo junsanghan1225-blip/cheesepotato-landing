@@ -3196,6 +3196,24 @@
   "only": true
  },
  {
+  "ko": "지각",
+  "en": "being late; tardiness; earth crust",
+  "pos": "명사",
+  "only": true
+ },
+ {
+  "ko": "지각하다",
+  "en": "be late",
+  "pos": "동사",
+  "only": true
+ },
+ {
+  "ko": "지시",
+  "en": "instruction; order; indication",
+  "pos": "명사",
+  "only": true
+ },
+ {
   "ko": "녹",
   "en": "rust",
   "pos": "명사",
