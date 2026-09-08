@@ -3328,6 +3328,12 @@
   "only": true
  },
  {
+  "ko": "흐리다",
+  "en": "be cloudy (weather); blur; adulterate",
+  "pos": "동사",
+  "only": true
+ },
+ {
   "ko": "녹",
   "en": "rust",
   "pos": "명사",
