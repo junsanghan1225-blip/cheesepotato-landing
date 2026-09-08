@@ -15031,5 +15031,165 @@ export const EXAMPLES = {
  "텀블러": {
   "ex": "일회용 컵을 쓰지 않으려고 가방에 개인 텀블러를 챙겨 다녀요.",
   "en": "I carry a personal tumbler in my bag to avoid using disposable cups."
+ },
+ "텃밭": {
+  "ex": "집 앞 작은 텃밭에 신선한 상추와 토마토를 심어요.",
+  "en": "I plant fresh lettuce and tomatoes in the small vegetable garden in front of the house."
+ },
+ "테": {
+  "ex": "가볍고 편안한 검은색 안경 테를 새로 골라요.",
+  "en": "I newly choose light and comfortable black glasses frames."
+ },
+ "테두리": {
+  "ex": "달력의 오늘 날짜 테두리에 빨간펜으로 둥글게 선을 그어요.",
+  "en": "I draw a circle line with a red pen around the frame of today's date on the calendar."
+ },
+ "테이프": {
+  "ex": "상자가 열리지 않도록 투명 테이프를 꼼꼼하게 붙여요.",
+  "en": "I attach transparent tape carefully so that the box does not open."
+ },
+ "텔레비전": {
+  "ex": "저녁 식사를 마친 후에 거실에서 가족들과 함께 텔레비전을 봐요.",
+  "en": "After finishing dinner, I watch television together with my family in the living room."
+ },
+ "토양": {
+  "ex": "나무가 건강하게 자랄 수 있도록 화분에 영양분이 많은 토양을 채워요.",
+  "en": "I fill the flowerpot with nutrient-rich soil so that trees can grow healthily."
+ },
+ "토요일": {
+  "ex": "이번 주 토요일 오후에는 친구들과 함께 도서관에 가요.",
+  "en": "This Saturday afternoon, I go to the library together with my friends."
+ },
+ "통계": {
+  "ex": "수업 과제로 학생들의 독서 습관에 관한 통계 자료를 조사해요.",
+  "en": "I investigate statistical data regarding students' reading habits for class homework."
+ },
+ "통과": {
+  "ex": "열심히 연습한 덕분에 한국어 말하기 시험의 무난한 통과를 이뤄내요.",
+  "en": "Thanks to practicing hard, I achieve a smooth pass in the Korean speaking test."
+ },
+ "통기": {
+  "ex": "실내 공기를 상쾌하게 유지하기 위해 창문을 열어 통기를 시켜요.",
+  "en": "I open the window for ventilation and airing to keep indoor air refreshing."
+ },
+ "통기성": {
+  "ex": "여름용 운동복은 땀이 잘 마르는 뛰어난 통기성을 자랑해요.",
+  "en": "Summer sportswear boasts outstanding air permeability that dries sweat quickly."
+ },
+ "통일": {
+  "ex": "보고서 작성을 위해 글씨체의 모양과 크기 통일을 진행해요.",
+  "en": "I proceed with the unification of font style and size to write the report."
+ },
+ "통일하다": {
+  "ex": "발표 자료를 깔끔하게 보이려고 제목 디자인을 하나로 통일해요.",
+  "en": "I unify the title design into one to make presentation materials look neat."
+ },
+ "통장": {
+  "ex": "용돈을 아껴 쓰고 모은 돈을 저금하러 은행 통장을 만들어요.",
+  "en": "I make a bank account book to save allowance and deposit collected money."
+ },
+ "통증": {
+  "ex": "넘어져서 다친 무릎에 얼음찜질을 하니 통증이 서서히 가라앉아요.",
+  "en": "Putting an ice pack on my knee injured from falling, the pain gradually subsides."
+ },
+ "통째": {
+  "ex": "잘 익은 맛있는 사과를 껍질 통째로 깨끗이 씻어 먹어요.",
+  "en": "I cleanly wash and eat a delicious ripe apple whole with its skin."
+ },
+ "통치": {
+  "ex": "역사책을 통해 백성을 아끼던 어진 임금의 지혜로운 통치를 배워요.",
+  "en": "Through history books, I learn about the wise rule of a benevolent king who cared for his people."
+ },
+ "통하다": {
+  "ex": "창문을 양쪽으로 열어두니 시원한 바람이 방 안으로 잘 통해요.",
+  "en": "Keeping windows open on both sides, cool breezes circulate well into the room."
+ },
+ "통해": {
+  "ex": "책 읽기를 통해 다양한 지식과 지혜를 배워요.",
+  "en": "I learn diverse knowledge and wisdom through reading books."
+ },
+ "통화": {
+  "ex": "해외여행을 준비하며 현지에서 사용할 외국 통화로 환전해요.",
+  "en": "Preparing for overseas travel, I exchange money into foreign currency to use locally."
+ },
+ "통화하다": {
+  "ex": "멀리 사는 친구와 오랜만에 휴대전화로 반갑게 통화해요.",
+  "en": "I gladly talk over the telephone on mobile with a friend living far away after a long time."
+ },
+ "퇴근": {
+  "ex": "하루 업무를 모두 끝내고 가벼운 마음으로 퇴근을 준비해요.",
+  "en": "Finishing all daily tasks, I prepare for leaving work with a light heart."
+ },
+ "퇴근길": {
+  "ex": "저녁 퇴근길에 마트에 들러 맛있는 과일을 사요.",
+  "en": "On my way back from work in the evening, I stop by the grocery store to buy delicious fruits."
+ },
+ "퇴근하다": {
+  "ex": "회사원들이 저녁 여섯 시가 되자 사무실 정리를 마치고 퇴근해요.",
+  "en": "When 6 PM arrives, office workers finish organizing the office and leave work."
+ },
+ "투": {
+  "ex": "친구는 항상 다정하고 친절한 말투로 이야기해요.",
+  "en": "My friend always talks in a sweet and kind manner of speaking."
+ },
+ "투명": {
+  "ex": "내용물을 쉽게 알아볼 수 있는 깨끗한 투명 용기를 사용해요.",
+  "en": "I use clean transparent containers where contents can be recognized easily."
+ },
+ "투명성": {
+  "ex": "모임의 신뢰를 높이기 위해 회계 관리의 투명성을 지켜요.",
+  "en": "We maintain the transparency of accounting management to raise trust in the group."
+ },
+ "투명하다": {
+  "ex": "바닷물이 아주 맑고 투명해서 헤엄치는 물고기가 다 보여요.",
+  "en": "The seawater is so clear and transparent that swimming fish are all visible."
+ },
+ "투입": {
+  "ex": "새로운 동아리 활동의 원활한 운영을 위해 추가 자원의 투입을 결정해요.",
+  "en": "We decide on the throwing in and inserting of additional resources for smooth club operations."
+ },
+ "투자": {
+  "ex": "자기 계발을 위해 매일 책을 읽는 시간에 아낌없는 투자를 해요.",
+  "en": "I make generous investment into time reading books every day for self-development."
+ },
+ "툭": {
+  "ex": "나뭇가지에 매달려 있던 잘 익은 열매가 바닥으로 툭 떨어져요.",
+  "en": "The ripe fruit hanging on the tree branch falls to the ground with a pop."
+ },
+ "툭하면": {
+  "ex": "동생은 피곤할 때 툭하면 졸린 눈을 비벼요.",
+  "en": "When tired, my sibling easily and readily rubs sleepy eyes."
+ },
+ "트다": {
+  "ex": "겨울철 찬 바람 때문에 손등이 거칠어지고 빨갛게 터요.",
+  "en": "Due to cold winter wind, the back of my hands becomes rough and gets chapped red."
+ },
+ "트랙": {
+  "ex": "운동장 달리기 트랙을 따라 아침마다 가볍게 조깅을 해요.",
+  "en": "I lightly jog along the athletic field running track every morning."
+ },
+ "특별": {
+  "ex": "선생님은 학생들을 위해 특별 간식을 정성껏 준비하세요.",
+  "en": "The teacher carefully prepares special snacks for students."
+ },
+ "특산": {
+  "ex": "고향 지역의 유명한 특산 꿀을 친구에게 선물해요.",
+  "en": "I present famous regional specialty honey from my hometown to my friend."
+ },
+ "특산물": {
+  "ex": "제주도 여행을 마치고 돌아오며 달콤한 감귤 특산물을 사요.",
+  "en": "Returning from a trip to Jeju-do, I buy sweet tangerine regional specialty produce."
+ },
+ "특성": {
+  "ex": "한국어의 여러 문법적 특성을 예문을 통해 쉽게 익혀요.",
+  "en": "I easily learn various grammatical characteristics of Korean through example sentences."
+ },
+ "특수": {
+  "ex": "어두운 곳에서도 글씨가 잘 보이는 특수 야광 펜을 사용해요.",
+  "en": "I use a unique and special glowing pen whose writing is clearly visible even in dark places."
+ },
+ "특유": {
+  "ex": "한옥에 들어서니 나무와 흙이 풍기는 특유의 편안한 향이 느껴져요.",
+  "en": "Entering a hanok, I feel a uniquely peculiar and comfortable aroma given off by wood and soil."
  }
 };
