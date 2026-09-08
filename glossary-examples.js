@@ -12791,5 +12791,165 @@ export const EXAMPLES = {
  "젖": {
   "ex": "어미 고양이가 아기 고양이들에게 따뜻하게 젖을 먹여요.",
   "en": "The mother cat warmly feeds milk to her kittens."
+ },
+ "젖다": {
+  "ex": "갑자기 내린 소나기에 옷과 신발이 흠뻑 젖어요.",
+  "en": "My clothes and shoes get completely wet in the sudden shower."
+ },
+ "제": {
+  "ex": "이 가방은 제가 매일 도서관에 들고 다니는 책가방이에요.",
+  "en": "This bag is my school backpack that I carry to the library every day."
+ },
+ "제거": {
+  "ex": "창문에 붙은 낡은 스티커의 깔끔한 제거를 위해 물을 뿌려요.",
+  "en": "I spray water for the neat removal of old stickers on the window."
+ },
+ "제거하다": {
+  "ex": "과일을 깎아서 가운데에 있는 딱딱한 씨를 제거해요.",
+  "en": "I peel the fruit and eliminate the hard seeds in the middle."
+ },
+ "제공": {
+  "ex": "도서관에서 학생들을 위해 무료 와이파이 서비스를 제공해요.",
+  "en": "The library offers a free Wi-Fi service for students."
+ },
+ "제공하다": {
+  "ex": "식당에서 손님들에게 따뜻한 보리차를 무료로 제공해요.",
+  "en": "The restaurant provides warm barley tea to customers for free."
+ },
+ "제기되다": {
+  "ex": "회의 도중 새로운 안전 관리 방안의 필요성이 제기돼요.",
+  "en": "The need for a new safety management plan is raised during the meeting."
+ },
+ "제대": {
+  "ex": "군 복무를 건강하게 마치고 이번 달에 명예로운 제대를 해요.",
+  "en": "I finish military service in good health and receive an honorable discharge this month."
+ },
+ "제대로": {
+  "ex": "선생님의 설명을 듣고 문제를 제대로 이해해요.",
+  "en": "I understand the problem properly after listening to the teacher's explanation."
+ },
+ "제도": {
+  "ex": "시민들의 편리한 생활을 돕기 위해 새로운 복지 제도를 도입해요.",
+  "en": "They introduce a new welfare system to support convenient lives for citizens."
+ },
+ "제도적": {
+  "ex": "환경을 보호하기 위해 법과 제도적 지원을 강화해요.",
+  "en": "We strengthen legal and institutional support to protect the environment."
+ },
+ "제때": {
+  "ex": "건강을 유지하기 위해 끼니를 거르지 않고 제때 챙겨 먹어요.",
+  "en": "To maintain health, I eat my meals at the right time without skipping."
+ },
+ "제로": {
+  "ex": "오늘부터 에너지 낭비를 제로로 만들기 위해 노력해요.",
+  "en": "Starting today, we make efforts to bring energy waste down to zero."
+ },
+ "제목": {
+  "ex": "공책 맨 위에 오늘 읽은 책의 제목을 또박또박 써요.",
+  "en": "I write the title of the book I read today clearly at the top of my notebook."
+ },
+ "제발": {
+  "ex": "제발 내일 시험에는 아는 문제만 나왔으면 좋겠어요.",
+  "en": "Please, I wish only questions I know would appear on tomorrow's test."
+ },
+ "제법": {
+  "ex": "한국어를 배운 지 얼마 안 되었는데 제법 유창하게 말해요.",
+  "en": "It has not been long since I learned Korean, but I speak pretty much fluently."
+ },
+ "제시": {
+  "ex": "회의에서 문제 해결을 위한 효과적인 방법의 제시가 이어져요.",
+  "en": "The offer of effective methods for problem-solving follows in the meeting."
+ },
+ "제시하다": {
+  "ex": "선생님이 다음 과제를 위한 명확한 기준을 제시해요.",
+  "en": "The teacher presents clear criteria for the next assignment."
+ },
+ "제안": {
+  "ex": "친구의 재미있는 주말 여행 제안을 기쁘게 받아들여요.",
+  "en": "I gladly accept my friend's fun weekend trip suggestion."
+ },
+ "제어": {
+  "ex": "리모컨을 사용해 실내 온도의 편리한 제어를 해요.",
+  "en": "I carry out convenient control of indoor temperature using the remote control."
+ },
+ "제어하다": {
+  "ex": "버튼 하나로 기계의 작동 속도를 자유롭게 제어해요.",
+  "en": "I freely control the operating speed of the machine with a single button."
+ },
+ "제외": {
+  "ex": "모든 학생이 참여하도록 특별한 사유 없는 제외를 두지 않아요.",
+  "en": "We allow no exclusion without special reason so that all students participate."
+ },
+ "제외되다": {
+  "ex": "신청 기한이 지나서 이번 장학금 선발 명단에서 제외돼요.",
+  "en": "Because the deadline has passed, I am excluded from the scholarship selection list this time."
+ },
+ "제자": {
+  "ex": "선생님은 늘 아끼는 제자들에게 따뜻한 격려를 보내요.",
+  "en": "The teacher always sends warm encouragement to beloved students."
+ },
+ "제자리": {
+  "ex": "다 읽은 책은 서가의 제자리에 바르게 꽂아 둬요.",
+  "en": "I put the finished book back neatly in its original spot on the bookshelf."
+ },
+ "제작": {
+  "ex": "동아리 홍보를 위해 학생들과 함께 포스터 제작을 시작해요.",
+  "en": "We start the production of posters with students to promote the club."
+ },
+ "제작하다": {
+  "ex": "아이들을 위해 안전하고 튼튼한 나무 장난감을 제작해요.",
+  "en": "They produce safe and sturdy wooden toys for children."
+ },
+ "제정": {
+  "ex": "교통안전을 위해 학교 앞 새로운 규칙의 제정을 추진해요.",
+  "en": "They promote the enactment of new rules in front of the school for traffic safety."
+ },
+ "제조": {
+  "ex": "공장에서 첨단 기술을 활용해 안전한 의약품의 제조에 힘써요.",
+  "en": "The factory strives for the manufacturing of safe pharmaceutical products using cutting-edge technology."
+ },
+ "제조사": {
+  "ex": "전자제품을 구입하기 전에 신뢰할 수 있는 제조사를 꼼꼼히 확인해요.",
+  "en": "I carefully check a reliable manufacturer before purchasing electronic appliances."
+ },
+ "제주도": {
+  "ex": "여름 방학을 맞이해 푸른 바다가 아름다운 제주도로 여행을 가요.",
+  "en": "Welcoming summer vacation, I travel to Jeju-do Province with beautiful blue seas."
+ },
+ "제철": {
+  "ex": "남쪽 항구 도시에서 철을 녹여 강판을 만드는 제철 산업이 발달해요.",
+  "en": "The steelmaking industry, which melts iron to make steel plates, develops in the southern port city."
+ },
+ "제출": {
+  "ex": "수업이 끝나기 전에 선생님께 숙제 제출을 완료해요.",
+  "en": "I complete the submission of homework to the teacher before class ends."
+ },
+ "제출하다": {
+  "ex": "작성한 한국어 작문 과제를 마감일 전에 제출해요.",
+  "en": "I submit the written Korean essay assignment before the deadline."
+ },
+ "제품": {
+  "ex": "마트에서 친환경 인증을 받은 좋은 제품을 골라요.",
+  "en": "I choose good eco-certified products at the grocery store."
+ },
+ "제한": {
+  "ex": "도서관에서는 한 사람당 책 대출 권수의 제한이 있어요.",
+  "en": "There is a limit on the number of books loaned per person at the library."
+ },
+ "제한되다": {
+  "ex": "공사 중이라서 복도 통행이 일부 제한돼요.",
+  "en": "Passing through the hallway is partially limited due to construction."
+ },
+ "제한하다": {
+  "ex": "어린이들의 눈 건강을 위해 스마트폰 사용 시간을 하루 두 시간으로 제한해요.",
+  "en": "I limit smartphone usage to two hours a day for children's eye health."
+ },
+ "조": {
+  "ex": "수업 시간에 친구들과 네 명씩 한 조를 이루어 토론해요.",
+  "en": "We form a group of four with classmates during class and discuss."
+ },
+ "조각": {
+  "ex": "간식으로 달콤한 수박 한 조각을 맛있게 먹어요.",
+  "en": "I deliciously eat a sweet slice of watermelon as a snack."
  }
 };
