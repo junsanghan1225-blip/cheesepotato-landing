@@ -1519,6 +1519,25 @@
   background:var(--surface-2); color:var(--ink); font-family:inherit; resize:vertical;
 }
 .tw-in:focus { outline:none; border-color:var(--orange-mid); background:#fff; }
+
+/* 원고지(53·54번 긴 글 전용). 실제로 글자를 받는 textarea(.tw-grid-in)는
+   이 상자 전체를 덮은 채 투명하게 깔려 있고, 화면에 보이는 칸은 그
+   값을 옮겨 그린 것뿐이다. */
+.tw-grid-wrap {
+  position:relative; border:1px solid var(--line); border-radius:12px;
+  background:var(--surface-2); padding:8px; overflow-x:auto;
+}
+.tw-grid { display:flex; flex-direction:column; }
+.tw-grid-row { display:flex; }
+.tw-cell {
+  width:var(--tw-cs, 19px); height:var(--tw-cs, 19px); flex:none; box-sizing:border-box;
+  border:.5px solid var(--line-2); display:flex; align-items:center; justify-content:center;
+  font-size:calc(var(--tw-cs, 19px) * .68); line-height:1; color:var(--ink); font-family:inherit;
+}
+.tw-cell.cur { background:color-mix(in srgb, var(--orange) 28%, transparent); border-color:var(--orange-mid); }
+.tw-grid-in {
+  position:absolute; inset:8px; opacity:0; resize:none; border:0; padding:0;
+}
 .tw-blank-row { margin-top:16px; }
 .tw-blank-mark { font-size:15px; font-weight:700; color:var(--orange-deep); margin-bottom:6px; }
 
