@@ -26,9 +26,10 @@ export const GRAMMAR_COURSES = [
 {
   id: 'grammar-core',
   emoji: '뼈',
-  title: 'Building Sentences',
-  tagline: 'The machinery behind every Korean sentence.',
-  blurb: 'You can say a few phrases. Now learn how they are built — so you can make your own instead of repeating ones you memorised. Tenses, negation, particles, and joining clauses.',
+  title: { ko:'문장 뼈대', en:'Building Sentences' },
+  tagline: { ko:'모든 한국어 문장 뒤에 있는 장치.', en:'The machinery behind every Korean sentence.' },
+  blurb: { ko:'몇 마디는 이제 할 수 있습니다. 이제 그 문장이 어떻게 만들어지는지 배울 차례입니다 — 외운 문장만 반복하는 대신 직접 문장을 만들 수 있도록. 시제, 부정, 조사, 문장 연결까지 다룹니다.',
+           en:'You can say a few phrases. Now learn how they are built — so you can make your own instead of repeating ones you memorised. Tenses, negation, particles, and joining clauses.' },
   level: 'After First Words',
   // needs 를 일부러 비워 둔다. 순서상으로는 First Words 다음이지만, 이미
   // 말을 좀 하는 사람이 문법만 보러 오는 경우가 많다. 그런 사람에게
@@ -38,7 +39,7 @@ export const GRAMMAR_COURSES = [
   /* ── 1 ─────────────────────────────────────────────────── */
   {
     id: 'gr-01',
-    title: 'Verbs bend at the end',
+    title: { ko:'동사는 끝에서 변한다', en:'Verbs bend at the end' },
     minutes: 7,
     blocks: [
       { t:'text', md:'Every Korean verb and adjective in the dictionary ends in **다**: 가다 (go), 먹다 (eat), 예쁘다 (pretty).' },
@@ -82,7 +83,7 @@ export const GRAMMAR_COURSES = [
   /* ── 2 ─────────────────────────────────────────────────── */
   {
     id: 'gr-02',
-    title: 'Yesterday and tomorrow',
+    title: { ko:'어제와 내일', en:'Yesterday and tomorrow' },
     minutes: 7,
     blocks: [
       { t:'text', md:'Past tense uses the same ㅏ/ㅗ rule you just learned. Slot **았/었** in before 어요.' },
@@ -123,7 +124,7 @@ export const GRAMMAR_COURSES = [
   /* ── 3 ─────────────────────────────────────────────────── */
   {
     id: 'gr-03',
-    title: 'Two more registers',
+    title: { ko:'두 가지 말투 더', en:'Two more registers' },
     minutes: 6,
     blocks: [
       { t:'text', md:'해요 is the everyday polite form and it will carry you almost anywhere. But you will hear two others constantly, so you should recognise them.' },
@@ -164,7 +165,7 @@ export const GRAMMAR_COURSES = [
   /* ── 4 ─────────────────────────────────────────────────── */
   {
     id: 'gr-04',
-    title: 'Saying no: 안 and 못',
+    title: { ko:'부정하기: 안과 못', en:'Saying no: 안 and 못' },
     minutes: 6,
     blocks: [
       { t:'text', md:'Korean has two different “not”, and picking the wrong one changes what you are saying about yourself.' },
@@ -202,7 +203,7 @@ export const GRAMMAR_COURSES = [
   /* ── 5 ─────────────────────────────────────────────────── */
   {
     id: 'gr-05',
-    title: 'The three particles that do the work',
+    title: { ko:'일 다 하는 조사 세 개', en:'The three particles that do the work' },
     minutes: 8,
     blocks: [
       { t:'text', md:'English tells you who did what by **word order**. Korean tells you with little tags glued to each noun. That is why Korean word order can shuffle and the sentence still makes sense.' },
@@ -246,7 +247,7 @@ export const GRAMMAR_COURSES = [
   /* ── 6 ─────────────────────────────────────────────────── */
   {
     id: 'gr-06',
-    title: 'Where things are, where things happen',
+    title: { ko:'있는 곳과 일어나는 곳', en:'Where things are, where things happen' },
     minutes: 7,
     blocks: [
       { t:'text', md:'Two particles both translate as “at”, and choosing wrong is the most common mistake learners make for months. The rule is short.' },
@@ -285,7 +286,7 @@ export const GRAMMAR_COURSES = [
   /* ── 7 ─────────────────────────────────────────────────── */
   {
     id: 'gr-07',
-    title: 'Also, only, than, every',
+    title: { ko:'도, 만, 보다, 마다', en:'Also, only, than, every' },
     minutes: 7,
     blocks: [
       { t:'text', md:'These five short particles replace whole English words. They attach straight to the noun.' },
@@ -323,7 +324,7 @@ export const GRAMMAR_COURSES = [
   /* ── 8 ─────────────────────────────────────────────────── */
   {
     id: 'gr-08',
-    title: 'Joining two sentences',
+    title: { ko:'두 문장 잇기', en:'Joining two sentences' },
     minutes: 8,
     blocks: [
       { t:'text', md:'English joins sentences with separate words — *and, but, so*. Korean prefers to bend the first verb and glue the halves together. This is what makes speech sound fluent rather than chopped.' },

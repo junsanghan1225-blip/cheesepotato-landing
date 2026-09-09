@@ -172,6 +172,8 @@ function open(view) {
   if (!window.cpRouteBusy?.() && window.cpBlockLeave?.()) return;
   // 발음 테스트가 열려 있었다면 표시를 거둔다.
   $('navBtn').classList.remove('on');
+  // TOPIK 단추도 마찬가지 — 갈래 안에 있을 때만 openSection() 이 다시 켠다.
+  $('topikBtn').classList.remove('on');
 
   $('homeView').classList.toggle('hidden', view !== 'home');
   $('testView').classList.add('hidden');
@@ -3569,13 +3571,12 @@ function drawTopik() {
       '</div>';
     })();
 
-    $('tqList').innerHTML = holdCard +
-      /* 모의고사만은 급수를 안 가린다. 실제 TOPIK I 은 1급·2급이 한 장에
-         같이 나오는 시험이라 급수로 나누면 시험이 아니게 된다. 다만 1급을
-         골라 둔 학습자에게 말없이 2급 지문을 내밀면 속이는 것이므로,
-         급수 딱지와 소개글에 섞여 나온다고 적어 둔다. */
-      tqRoundCards(ex, span, mins, mockReady) +
-      card('all', '📖', t('전체 풀기', 'Full run'), t('유형을 섞어서 처음부터 끝까지', 'Every type, mixed'),
+    /* 모의고사만은 급수를 안 가린다. 실제 TOPIK I 은 1급·2급이 한 장에
+       같이 나오는 시험이라 급수로 나누면 시험이 아니게 된다. 다만 1급을
+       골라 둔 학습자에게 말없이 2급 지문을 내밀면 속이는 것이므로,
+       급수 딱지와 소개글에 섞여 나온다고 적어 둔다. */
+    const roundCards = tqRoundCards(ex, span, mins, mockReady);
+    const typeCards = card('all', '📖', t('전체 풀기', 'Full run'), t('유형을 섞어서 처음부터 끝까지', 'Every type, mixed'),
            t('이 급수 문제를 다 풀어 봅니다. 문제마다 바로 해설이 붙어요.', 'Every question at this level, with the answer explained as you go.'), rows.length) +
       tqTypeOrder().filter((k) => byType[k]).map((k) =>
         card(k, '🔎', t(tqTypeTx()[k].ko, tqTypeTx()[k].en),
@@ -3583,6 +3584,17 @@ function drawTopik() {
              t('한 유형만 모아 풀면 약한 곳이 빨리 드러납니다.', 'Drilling one type shows you what is weak.'),
              byType[k].length)
       ).join('');
+
+    /* 카드 열한 장이 소제목 없이 한 그리드에 쭉 이어지면 무엇이 모의고사고
+       무엇이 유형별 연습인지 안 보인다. 두 섹션으로 나눈다 — 모의고사가
+       아직 안 찼으면(mockReady 거짓) 그 섹션 자체를 건너뛴다. */
+    $('tqList').innerHTML =
+      (holdCard || roundCards
+        ? `<div class="tq-sec-h">${esc(t('모의고사', 'Mock exams'))}</div>` +
+          `<div class="lc-grid">${holdCard}${roundCards}</div>`
+        : '') +
+      `<div class="tq-sec-h">${esc(t('유형별 연습', 'Practice by type'))}</div>` +
+      `<div class="lc-grid">${typeCards}</div>`;
   }
   /* 사칭으로 보이지 않게 화면에 적어 둔다. 자료 파일에만 적어 두면
      그 파일을 읽는 사람만 알고 학습자는 모른다.
@@ -8497,6 +8509,8 @@ async function openSection(id, quiet) {
      글자는 갈래마다 …SyncLang 이 따로 맞춰 주므로 여기서 다시 그릴 까닭이 없다. */
   const already = lsecOpen === s.id;
   lsecOpen = s.id;
+  // 배우기와 나란히 뗀 TOPIK 단추. 갈래가 topik 일 때만 켠다.
+  $('topikBtn').classList.toggle('on', s.id === 'topik');
   /* 갈래도 주소에 남긴다. 안 남기면 새로고침했을 때 갈래 목록으로 튕기고,
      뒤로 가기가 배우기를 통째로 빠져나간다. */
   window.cpMark('learn', s.id);

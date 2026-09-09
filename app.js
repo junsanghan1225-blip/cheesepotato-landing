@@ -54,6 +54,8 @@ function goLearn(sub) {
 }
 document.getElementById('heroLearnBtn').addEventListener('click', () => goLearn());
 document.getElementById('heroTopikBtn').addEventListener('click', () => goLearn('topik'));
+// 사이드 메뉴에서 배우기와 나란히 뗀 TOPIK 단추. 동작은 heroTopikBtn 과 같다.
+document.getElementById('topikBtn').addEventListener('click', () => goLearn('topik'));
 /* 첫 화면 카드도 눌리는 자리다. 방문 기록을 보면 사람들이 오는 곳은
    레딧이고, 앱을 받으러 온 것이 아니라 **여기서 한국어를 해 보려고**
    온다. 눌러 본 사람은 「해 보고 싶다」고 말한 것이니 그 자리로 보낸다. */
