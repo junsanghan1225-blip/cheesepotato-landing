@@ -1092,14 +1092,22 @@ ptId('navBtn').addEventListener('click', () => {
 ptId('heroTestBtn').addEventListener('click', () => ptShow(true));
 
 /* 한국어 / English
-   원문(한국어)은 그대로 두고 data-en 에 영어를 달아 뒀다.
-   영어를 못 붙인 곳은 자동으로 한국어가 남아 화면이 비지 않는다. */
+   대부분은 원문(한국어)을 그대로 두고 data-en 에 영어를 달아 뒀다.
+   영어를 못 붙인 곳은 자동으로 한국어가 남아 화면이 비지 않는다.
+
+   첫 화면(히어로·한 문단 정의·통계 바)만 거꾸로다 — 원문이 영어이고
+   data-ko 에 한국어가 달려 있다. 기본이 영어인 게 대부분의 방문에
+   맞는데(위 initLang 참고), 원문과 기본이 다르면 화면을 그리자마자
+   initLang 이 innerHTML 을 바꿔치기해서 레이아웃이 한 번 더 밀린다 —
+   첫 화면 되풀이 방문자 CLS 가 그렇게 나빠졌었다. 원문을 기본과
+   맞춰 두면 그 바꿔치기가 통째로 없어진다. */
 let ptLang = 'ko';
 function applyLang(lang) {
   ptLang = lang;
-  document.querySelectorAll('[data-en]').forEach(el => {
-    // 첫 전환 때 한국어 원문을 보관해 둔다. 안 그러면 되돌릴 수 없다.
+  document.querySelectorAll('[data-en], [data-ko]').forEach(el => {
+    // 둘 중 원문이 아닌 쪽을 처음 볼 때 보관해 둔다. 안 그러면 되돌릴 수 없다.
     if (el.dataset.ko === undefined) el.dataset.ko = el.innerHTML;
+    if (el.dataset.en === undefined) el.dataset.en = el.innerHTML;
     el.innerHTML = lang === 'en' ? el.dataset.en : el.dataset.ko;
   });
   /* 눈에 보이는 이름표가 없는 칸(찾기 상자, 갈래 고르기)은 aria-label 로만
