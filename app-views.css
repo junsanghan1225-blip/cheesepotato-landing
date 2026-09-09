@@ -692,6 +692,12 @@
 
 /* ══ 배우기 : 코스 카탈로그 ════════════════════════════════════ */
 .lc-grid { display:grid; gap:16px; }
+/* TOPIK 목록 — 모의고사·유형별 연습을 소제목으로 나눈 섹션들.
+   섹션마다 .lc-grid 를 따로 두어 카드 수가 홀수여도 그 섹션 안에서만
+   마지막 칸이 넓어진다(위 .lc-grid 규칙). 섞어서 한 그리드에 두면
+   다른 섹션 카드 수 때문에 엉뚱한 카드가 넓어질 수 있다. */
+.tq-sections { display:flex; flex-direction:column; gap:28px; }
+.tq-sec-h { font-size:11px; font-weight:700; letter-spacing:.14em; color:var(--ink-3); text-transform:uppercase; margin-bottom:12px; }
 /* 풀다 만 회차. 카드 아래에 지우는 길을 작게 붙인다 — 카드와 같은 무게로
    두면 「이어서 풀기」와 「지우기」 가운데 무엇이 하려던 일인지 헷갈린다. */
 .tq-hold { display:grid; gap:8px; }
