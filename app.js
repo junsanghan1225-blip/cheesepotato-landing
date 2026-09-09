@@ -1147,6 +1147,52 @@ ptId('langBtn').addEventListener('click', () => {
   applyLang(saved || guess);
 })();
 
+/* ── confirm() · alert() 대신 <dialog> ─────────────────────────
+   window.confirm · window.alert 은 동기다. 뜨는 동안 자바스크립트가
+   그 자리에 멈춰 서서 다음 그림을 못 그린다 — 사람이 답을 고르기까지
+   걸리는 시간이 전부 「그 눌림 하나를 처리하는 시간」으로 잡힌다.
+   단어 지우기 같은 흔한 눌림 하나가 몇 초·몇십 초짜리 INP 로 찍히는
+   까닭이 이거였다.
+
+   <dialog> 는 열려 있어도 렌더링을 막지 않는다. showModal() 은 바로
+   돌아오고, 사람이 고른 뒤에야 close 이벤트로 안다 — 그래서 여기
+   askShow 는 Promise 를 돌려준다. 부르는 쪽은 await 로 받는다.
+
+   단추 하나(#askDlg 안 #askOk)는 <form method="dialog"> 안에 있어
+   눌리면 그 값(value="ok")을 returnValue 로 남기고 저 혼자 닫힌다 —
+   그래서 "확인"에는 따로 손잡이를 안 걸었다. "취소"와 바깥(배경)을
+   누른 경우만 아래서 손수 닫는다. */
+const askDlg = document.getElementById('askDlg');
+const askMsg = document.getElementById('askMsg');
+const askCancel = document.getElementById('askCancel');
+const askOk = document.getElementById('askOk');
+
+function askShow(message, cancelLabel) {
+  return new Promise((resolve) => {
+    askMsg.textContent = message;
+    askOk.textContent = ptLang === 'en' ? 'OK' : '확인';
+    askCancel.hidden = !cancelLabel;
+    askCancel.textContent = cancelLabel || '';
+    // 지난 번 답이 남아 있으면(예: Esc 로 닫혀 returnValue 가 안 바뀌면)
+    // 이번 답으로 잘못 읽는다. 열기 전에 늘 비워 둔다.
+    askDlg.returnValue = '';
+    askDlg.addEventListener('close', function onClose() {
+      askDlg.removeEventListener('close', onClose);
+      resolve(askDlg.returnValue === 'ok');
+    });
+    askDlg.showModal();
+  });
+}
+// 되묻기: "확인"·"취소" 둘 다 있고, 고른 것을 그대로 돌려준다.
+const confirmAsync = (message) => askShow(message, ptLang === 'en' ? 'Cancel' : '취소');
+// 알리기: "확인" 하나뿐이다. 돌려주는 값은 안 쓴다.
+const alertAsync = (message) => askShow(message, null);
+
+askCancel.addEventListener('click', () => askDlg.close('cancel'));
+// 카드 바깥(배경)을 눌러도 취소와 같다. 카드 자체를 누른 클릭은 폼까지
+// 올라오며 여기 안 닿으므로, 배경을 눌렀을 때만 target 이 dialog 자신이다.
+askDlg.addEventListener('click', (ev) => { if (ev.target === askDlg) askDlg.close('cancel'); });
+
 /* ── 어두운 모드 ─────────────────────────────────────────────
    langBtn 과 같은 틀이다. 기본은 기기 설정(prefers-color-scheme) 그대로
    따른다 — 그래서 사람이 단추를 누르기 전에는 :root 에 data-theme 를

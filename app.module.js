@@ -1421,8 +1421,8 @@ $('wfToggle').addEventListener('click', async () => {
 $('wfDelete').addEventListener('click', async () => {
   if (!editingId) return;
   const w = rows.find((r) => r.id === editingId);
-  if (!confirm(t(`"${w?.word ?? ''}" 를 지울까요? 되돌릴 수 없어요.`,
-                 `Delete "${w?.word ?? ''}"? This cannot be undone.`))) return;
+  if (!(await confirmAsync(t(`"${w?.word ?? ''}" 를 지울까요? 되돌릴 수 없어요.`,
+                             `Delete "${w?.word ?? ''}"? This cannot be undone.`)))) return;
   const { error } = await sb.from('words').delete().eq('id', editingId);
   if (error) return wfMsg('wfErr', t('지우지 못했어요.', 'Could not delete it.'));
   dropImage(w?.image_url);   // 단어가 사라졌으니 사진도 남길 이유가 없다
@@ -1687,10 +1687,10 @@ $('wbImp').addEventListener('change', async (ev) => {
   if (!session) return open('account');
 
   if (!/\.(xlsx|xls|csv)$/i.test(file.name)) {
-    return alert(t('엑셀(.xlsx, .xls) 또는 .csv 파일만 가져올 수 있어요.', 'Only .xlsx, .xls or .csv files.'));
+    return alertAsync(t('엑셀(.xlsx, .xls) 또는 .csv 파일만 가져올 수 있어요.', 'Only .xlsx, .xls or .csv files.'));
   }
   if (file.size > 3 * 1024 * 1024) {
-    return alert(t('파일이 너무 커요. 3MB 아래로 골라 주세요.', 'Please keep it under 3MB.'));
+    return alertAsync(t('파일이 너무 커요. 3MB 아래로 골라 주세요.', 'Please keep it under 3MB.'));
   }
 
   try {
@@ -1698,10 +1698,10 @@ $('wbImp').addEventListener('change', async (ev) => {
     const wb = XLSX.read(await file.arrayBuffer(), { type: 'array' });
     const parsed = parseRows(XLSX.utils.sheet_to_json(wb.Sheets[wb.SheetNames[0]], { header: 1 }));
     if (!parsed.length) {
-      return alert(t('단어를 찾지 못했어요. A열에 단어, B열에 뜻을 넣어 주세요.',
-                     'No words found. Put the word in column A and its meaning in column B.'));
+      return alertAsync(t('단어를 찾지 못했어요. A열에 단어, B열에 뜻을 넣어 주세요.',
+                          'No words found. Put the word in column A and its meaning in column B.'));
     }
-    if (!confirm(t(`${parsed.length}개 단어를 가져올까요?`, `Import ${parsed.length} words?`))) return;
+    if (!(await confirmAsync(t(`${parsed.length}개 단어를 가져올까요?`, `Import ${parsed.length} words?`)))) return;
 
     const { error } = await sb.from('words').insert(parsed.map((w) => ({
       word: w.w, meaning: w.m, difficulty: w.d,
@@ -1712,7 +1712,7 @@ $('wbImp').addEventListener('change', async (ev) => {
     if (error) throw error;
     await loadWords();
   } catch (e) {
-    alert(t('가져오지 못했어요. 잠시 후 다시 시도해 주세요.', 'Could not import. Please try again.'));
+    await alertAsync(t('가져오지 못했어요. 잠시 후 다시 시도해 주세요.', 'Could not import. Please try again.'));
   }
 });
 
@@ -4015,11 +4015,11 @@ function tqGoto(i) {
   tqDraw();
 }
 
-function tqSubmitAsk() {
+async function tqSubmitAsk() {
   const blank = tqRound.length - tqPicks.filter((v) => v != null).length;
   /* 안 푼 문항이 있으면 한 번 묻는다. 낸 답안지는 되돌릴 수 없다. */
-  if (blank && !confirm(t(`아직 ${blank}문항을 안 풀었어요. 그대로 제출할까요?`,
-                          `${blank} questions are still blank. Submit anyway?`))) return;
+  if (blank && !(await confirmAsync(t(`아직 ${blank}문항을 안 풀었어요. 그대로 제출할까요?`,
+                                      `${blank} questions are still blank. Submit anyway?`)))) return;
   tqFinish();
 }
 
@@ -5082,12 +5082,12 @@ function tqDrawLog() {
   box.classList.remove('hidden');
 }
 
-$('tqLog').addEventListener('click', (ev) => {
+$('tqLog').addEventListener('click', async (ev) => {
   const s = ev.target.closest('[data-share]');
   if (s) { tqShareRec(tqLogRows[Number(s.dataset.share)], s); return; }
   if (!ev.target.closest('[data-clear]')) return;
-  if (!confirm(t('모의고사 기록을 모두 지울까요? 되돌릴 수 없어요.',
-                 'Clear every mock exam record? This cannot be undone.'))) return;
+  if (!(await confirmAsync(t('모의고사 기록을 모두 지울까요? 되돌릴 수 없어요.',
+                             'Clear every mock exam record? This cannot be undone.')))) return;
   try {
     Object.values(TQ_EXAMS).forEach((ex) =>
       ex.grades.forEach((g) => localStorage.removeItem(tqMockKey(g))));
@@ -5325,10 +5325,10 @@ $('tlQuit').addEventListener('click', tlBackToPick);
 $('tlAgain').addEventListener('click', () => tlStart(
   tlRound.length === tlOf(tqGrade).length ? 'all' : (tlRound[0]?.type || 'all')));
 $('tlBack').addEventListener('click', tlBackToPick);
-$('tqList').addEventListener('click', (ev) => {
+$('tqList').addEventListener('click', async (ev) => {
   if (ev.target.closest('[data-tq-drop]')) {
-    if (!confirm(t('풀던 모의고사를 지울까요? 되돌릴 수 없어요.',
-                   'Discard the mock exam in progress? This cannot be undone.'))) return;
+    if (!(await confirmAsync(t('풀던 모의고사를 지울까요? 되돌릴 수 없어요.',
+                               'Discard the mock exam in progress? This cannot be undone.')))) return;
     tqHoldClear();
     drawTopik();
     return;
@@ -5421,7 +5421,7 @@ const tqHoldClear = () => { try { localStorage.removeItem(TQ_HOLD_KEY); } catch 
 
 /* 붙들어 둔 자리로 돌아간다. 자료가 바뀌어 없어진 문항이 있으면 되살리지
    않는다 — 한 문항이 빠진 채로 이어 풀면 번호가 밀려 성적표가 거짓이 된다. */
-function tqHoldResume() {
+async function tqHoldResume() {
   const h = tqHoldRead();
   if (!h) { drawTopik(); return; }
   tqExam = h.exam;
@@ -5433,8 +5433,8 @@ function tqHoldResume() {
   const round = h.ids.map((id) => byId.get(id));
   if (round.some((q) => !q)) {
     tqHoldClear();
-    alert(t('그 사이 문제가 바뀌어서 이어 풀 수 없어요. 새로 시작해 주세요.',
-            'The questions changed since then, so this run cannot be resumed. Please start a new one.'));
+    await alertAsync(t('그 사이 문제가 바뀌어서 이어 풀 수 없어요. 새로 시작해 주세요.',
+                       'The questions changed since then, so this run cannot be resumed. Please start a new one.'));
     drawTopik();
     return;
   }
@@ -5457,7 +5457,15 @@ function tqHoldResume() {
   tqDraw();
 }
 
-/* 나가겠느냐고만 묻는다. 저장은 어느 쪽이든 한다. */
+/* 나가겠느냐고만 묻는다. 저장은 어느 쪽이든 한다.
+
+   여기만 다른 confirm() 들과 달리 손 안 댔다 — window.cpBlockLeave 가
+   이 함수를 불러 그 자리에서 true/false 를 즉시 돌려받아야 라우터가
+   주소를 되돌릴지 정한다(app.js 의 라우팅, beforeunload 도 마찬가지).
+   askShow 로 바꾸면 답은 나중에(Promise 로) 오는데, 라우터는 이미
+   주소를 옮긴 뒤라 되돌릴 수 없다. 되묻는 동안 화면이 멈추는 대가를
+   여기서는 치른다 — 그래도 "그만두기"는 자주 누르는 자리가 아니라서
+   INP 전체에 주는 영향은 작다. */
 function tqAskQuit() {
   const ok = confirm(t('모의고사를 그만둘까요? 지금까지 푼 답과 남은 시간은 저장돼요 — 나중에 이어서 풀 수 있어요.',
                        'Leave the mock exam? Your answers and the time left are saved — you can pick it up later.'));
@@ -6852,14 +6860,14 @@ function nbMenuOpen(anchor, m, b, only) {
       nbMenuClose();
       nbSave(m);
     });
-    item('🗑', t('블록 지우기', 'Delete'), () => {
+    item('🗑', t('블록 지우기', 'Delete'), async () => {
       /* 노트 전체를 지울 때는 물어보면서, 블록 하나를 지울 때는 안 물어봤다
          — 되돌릴 방법이 똑같이 없는데(되돌리기 없음, 서버 백업 없음)
          내용이 든 블록은 그냥 사라져 버렸다. 빈 블록은 여전히 바로
          지운다(백스페이스로 지울 때와 같다 — 그것까지 물어보면 성가시다). */
       const hasContent = b.t === 'img' ? !!(b.s || b.cap) : !!nbPlain(b.s);
-      if (hasContent && !confirm(t('이 블록을 지울까요? 되돌릴 수 없어요.',
-                                    'Delete this block? This cannot be undone.'))) return;
+      if (hasContent && !(await confirmAsync(t('이 블록을 지울까요? 되돌릴 수 없어요.',
+                                                'Delete this block? This cannot be undone.')))) return;
       const blocks = nbBlocks(m);
       const i = blocks.findIndex((x) => x.id === b.id);
       blocks.splice(i, 1);
@@ -7496,11 +7504,11 @@ $('ntMemoDup').addEventListener('click', () => {
   ntMemoStore();
   ntMemoOpen(copy.id);
 });
-$('ntMemoDel').addEventListener('click', () => {
+$('ntMemoDel').addEventListener('click', async () => {
   const m = ntMemoCur();
   if (!m) return;
-  if (!confirm(t(`「${ntMemoName(m)}」를 지울까요? 되돌릴 수 없어요.`,
-                 `Delete "${ntMemoName(m)}"? This cannot be undone.`))) return;
+  if (!(await confirmAsync(t(`「${ntMemoName(m)}」를 지울까요? 되돌릴 수 없어요.`,
+                             `Delete "${ntMemoName(m)}"? This cannot be undone.`)))) return;
   clearTimeout(ntMemoTimer); ntMemoTimer = null;
   /* 배열에서 통째로 빼면 서버로 동기화할 때(notesSync) "지웠다"는 사실
      자체가 사라진다 — 로그인해 둔 다른 기기는 이 노트가 계속 있는 줄
@@ -11057,8 +11065,8 @@ async function downloadResource(id, btn) {
 
 async function deleteResource(id) {
   const row = libRows.find((r) => r.id === id);
-  const ok = confirm(t(`"${row?.title ?? ''}" 자료를 지울까요? 되돌릴 수 없어요.`,
-                       `Delete "${row?.title ?? ''}"? This cannot be undone.`));
+  const ok = await confirmAsync(t(`"${row?.title ?? ''}" 자료를 지울까요? 되돌릴 수 없어요.`,
+                                  `Delete "${row?.title ?? ''}"? This cannot be undone.`));
   if (!ok) return;
   const { error } = await sb.from('resources').delete().eq('id', id);
   if (error) return;

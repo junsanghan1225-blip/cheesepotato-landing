@@ -383,6 +383,18 @@
 .wb-ok { color:var(--green); font-size:13.5px; margin-top:14px; line-height:1.7; text-align:center; }
 .wb-note { font-size:13px; color:var(--ink-3); line-height:1.72; margin-top:20px; text-align:center; word-break:keep-all; }
 
+/* ── confirm() · alert() 대신 쓰는 <dialog> ────────────────────
+   app.js 의 askShow 가 연다. 화면 상자 안 어디서나(단어 지우기·모의고사
+   기록 지우기·노트 블록 지우기 …) 쓰이므로 여기(app-views.css)에 둔다. */
+#askDlg { border:0; padding:0; background:transparent; max-width:380px; width:calc(100% - 32px); border-radius:var(--r-xl); }
+#askDlg::backdrop { background:rgba(var(--ink-rgb),.42); -webkit-backdrop-filter:blur(2px); backdrop-filter:blur(2px); }
+#askDlg[open] { animation:cgUp .2s cubic-bezier(.22,.9,.3,1); }
+.ask-card { background:var(--surface); border-radius:var(--r-xl); padding:22px 20px 18px; box-shadow:0 18px 48px rgba(var(--ink-rgb),.22); }
+.ask-msg { margin:0 0 18px; color:var(--ink); font-size:15px; line-height:1.55; white-space:pre-line; }
+.ask-row { display:flex; gap:10px; justify-content:flex-end; }
+.ask-row button { min-width:84px; }
+#askCancel[hidden] { display:none; }
+
 /* ══ 내 단어장 ═════════════════════════════════════════════════ */
 .wb-top { display:flex; align-items:center; justify-content:space-between; margin-bottom:18px; padding-bottom:14px; border-bottom:1px solid var(--line-2); }
 .wb-count { font-size:12px; font-weight:600; letter-spacing:.1em; text-transform:uppercase; color:var(--ink-3); }
