@@ -249,9 +249,15 @@ h1,.rb-id h1,.rb-card h1,.rb-post h2,.blog-article h2{font-family:'Gamja Flower'
 .rb-join{border:2.5px solid var(--ink);box-shadow:3px 3px 0 var(--ink);transition:transform .15s}
 .rb-join:hover{transform:translateY(-2px);filter:none}
 
+/* 피드 한 줄 — 소제목·요약·태그가 다 들어차서 지저분해 보였다. 요약은
+   지우고 제목을 키워 태그만 남긴다. 줄 사이도 더 띄워 시원하게 둔다. */
+.rb-feed{gap:14px}
 .rb-post{border:2px solid var(--ink);border-radius:16px;box-shadow:3px 4px 0 rgba(58,46,34,.10)}
 .rb-post:hover{transform:translateX(2px)}
-.rb-post h2{font-size:19px}
+.rb-post .rb-body{padding:18px 22px 20px}
+.rb-post h2{font-size:25px;margin-top:8px}
+.rb-post .rb-ex{display:none}
+.rb-post .rb-tail{margin-top:13px}
 
 .rb-box{border:2.5px solid var(--ink);border-radius:18px 20px 16px 22px/20px 16px 22px 14px;
   box-shadow:4px 5px 0 rgba(58,46,34,.12)}
