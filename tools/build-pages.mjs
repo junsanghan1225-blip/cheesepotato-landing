@@ -151,7 +151,7 @@ const crumbLd = (parts) => {
   };
 };
 
-function page({ url, title, desc, body, kind = 'article', jsonld, extraCss = '' }) {
+function page({ url, title, desc, body, kind = 'article', jsonld, extraCss = '', extraHead = '' }) {
   return `<!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -172,7 +172,7 @@ function page({ url, title, desc, body, kind = 'article', jsonld, extraCss = '' 
 <meta name="twitter:title" content="${esc(title)}">
 <meta name="twitter:description" content="${esc(desc)}">
 <meta name="twitter:image" content="${SITE}/logo.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">${[].concat(jsonld ?? []).map(ld).join('')}
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">${extraHead}${[].concat(jsonld ?? []).map(ld).join('')}
 <style>${CSS}${extraCss}</style>
 </head>
 <body>
@@ -890,9 +890,8 @@ function tlHub() {
 }
 
 /* ── 블로그 ─────────────────────────────────────────────────── */
-/* 글은 blog.js 에 아직 하나도 없다 — 자리(구조)만 먼저 낸다. 목록 쪽은
-   글이 없어도 항상 굽는다("곧 올릴게요" 안내가 뜬다) — 그래야 나중에
-   글을 하나만 추가해도 바로 목록에 걸린다.
+/* 목록 쪽은 글이 없어도 항상 굽는다("곧 올릴게요" 안내가 뜬다) — 그래야
+   나중에 글을 하나만 추가해도 바로 목록에 걸린다.
 
    블로그만 더 쓰는 CSS. 다른 정적 쪽(표현·코스·TOPIK)과 골격(CSS 변수·
    .crumb·.foot 등)은 그대로 나눠 쓰되, 목록은 알약(.pts) 대신 카드로,
@@ -925,6 +924,20 @@ const BLOG_CSS = `
 .blog-article li{margin:6px 0}
 .blog-article code{background:var(--soft);padding:2px 6px;border-radius:6px;font-size:.9em}
 .blog-article img{max-width:100%;border-radius:12px;margin:6px 0}
+/* 갈래표. 누를 데가 아니라 이름표다 — 글이 다섯 편인데 갈래마다 쪽을
+   따로 내면 글 한 편짜리 쪽이 주소만 늘린다. 갈래는 「이어서 읽기」를
+   고르는 데 쓰고(같은 갈래 글을 먼저 보여 준다), 화면에는 이름만 낸다. */
+.blog-tags{display:flex;flex-wrap:wrap;gap:6px;padding:0;margin:12px 0 0;list-style:none}
+.blog-tags li{border:1px solid var(--line);background:var(--soft);border-radius:999px;
+  padding:3px 11px;font-size:12.5px;color:var(--dim);font-weight:600}
+.blog-card .blog-tags{margin-top:12px}
+/* 갈래표 바로 밑에 본문 첫 줄이 붙는다 — 이름표와 글이 한 덩어리로
+   보여서 읽기 시작하는 자리가 흐려진다. 여기서만 띄운다. */
+.blog-tags+.blog-article{margin-top:28px}
+.blog-more{font-size:15px;margin:46px 0 0;color:var(--dim);letter-spacing:.02em}
+.blog-more+.blog-list{margin-top:12px}
+.blog-feed{margin-top:28px;font-size:13px;color:var(--dim)}
+.blog-feed a{color:inherit}
 `.trim();
 
 /* 한글 기준 대략 분당 500자 읽는다고 잡는다 — 정확할 필요는 없고,
@@ -937,20 +950,66 @@ const fmtDateKo = (iso) => {
   const m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(iso || '');
   return m ? `${+m[1]}년 ${+m[2]}월 ${+m[3]}일` : (iso || '');
 };
-function blogPage(post) {
+
+const tagList = (tags) => (tags && tags.length)
+  ? '<ul class="blog-tags">' + tags.map((t) => `<li>${esc(t)}</li>`).join('') + '</ul>'
+  : '';
+
+/* 글 한 편의 머리글(날짜·고친 날·분량). 목록 카드와 본문 쪽이 같은 줄을
+   써야 목록에서 본 것과 눌러 들어간 쪽이 어긋나지 않는다. */
+function blogMeta(post) {
+  return `<div class="blog-meta">${esc(fmtDateKo(post.date))}` +
+    (post.updated && post.updated !== post.date
+      ? ` <span class="dot">·</span> 고침 ${esc(fmtDateKo(post.updated))}` : '') +
+    ` <span class="dot">·</span> ${readMins(post.body)}분 분량</div>`;
+}
+
+/* 목록 카드 하나. 목록 쪽과 글 아래 「이어서 읽기」가 같은 모양을 쓴다. */
+const blogCard = (p) =>
+  `<li><a class="blog-card" href="/blog/${esc(p.id)}.html">` +
+    blogMeta(p) +
+    `<h2>${esc(p.title)}</h2>` +
+    `<p>${esc(p.excerpt)}</p>` +
+    tagList(p.tags) +
+  `</a></li>`;
+
+/* 같은 갈래를 하나라도 나눠 가진 글을 먼저, 그다음 최신 순으로 채운다.
+   앞뒤 글(.near)로 이미 걸어 둔 것은 뺀다 — 같은 쪽에 같은 글이 두 번
+   뜨면 고르는 게 아니라 헷갈리는 자리가 된다. */
+function relatedPosts(post, all, skip, n = 3) {
+  const mine = new Set(post.tags || []);
+  const out = all.filter((p) => p.id !== post.id && !skip.has(p.id));
+  const score = (p) => (p.tags || []).filter((t) => mine.has(t)).length;
+  return out
+    .map((p, i) => ({ p, i, s: score(p) }))
+    .filter((x) => x.s > 0)
+    .sort((a, b) => b.s - a.s || a.i - b.i)
+    .slice(0, n)
+    .map((x) => x.p);
+}
+
+function blogPage(post, prev, next, related) {
   const title = `${post.title} | 치즈감자 블로그`;
   const desc = clip(post.excerpt);
-  const mins = readMins(post.body);
   const body = [
     `<a class="blog-back" href="/blog/">← 블로그</a>`,
     `<nav class="crumb"><a href="/">치즈감자</a> › <a href="/blog/">블로그</a></nav>`,
     `<h1>${esc(post.title)}</h1>`,
-    `<div class="blog-meta">${esc(fmtDateKo(post.date))}` +
-      (post.updated && post.updated !== post.date ? ` <span class="dot">·</span> 고침 ${esc(fmtDateKo(post.updated))}` : '') +
-      ` <span class="dot">·</span> ${mins}분 분량</div>`,
+    blogMeta(post),
+    tagList(post.tags),
     `<div class="blog-article">${post.body}</div>`,
     `<a class="cta" href="/#learn">한국어 배우러 가기<span>Free Korean lessons, no sign-up needed</span></a>`,
-  ].join('\n');
+    /* 앞뒤 글. 배열은 최신이 앞이므로 「이전 글」은 한 칸 뒤(더 오래된 것),
+       「다음 글」은 한 칸 앞(더 새것)이다. 표현·레슨 쪽과 같은 .near 를 쓴다. */
+    (prev || next) ? '<div class="near">' +
+      (prev ? `<a href="/blog/${esc(prev.id)}.html"><b>← 이전 글</b>${esc(prev.title)}</a>` : '') +
+      (next ? `<a href="/blog/${esc(next.id)}.html"><b>다음 글 →</b>${esc(next.title)}</a>` : '') +
+      '</div>' : '',
+    related.length
+      ? `<h2 class="blog-more">같은 갈래의 글</h2>` +
+        '<ul class="blog-list">' + related.map(blogCard).join('') + '</ul>'
+      : '',
+  ].filter(Boolean).join('\n');
 
   const jsonld = [
     {
@@ -963,21 +1022,27 @@ function blogPage(post) {
       description: post.excerpt,
       inLanguage: 'ko',
       author: { '@type': 'Organization', name: '치즈감자' },
+      publisher: { '@type': 'Organization', name: '치즈감자', url: SITE },
+      mainEntityOfPage: { '@type': 'WebPage', '@id': `${SITE}/blog/${post.id}.html` },
+      ...(post.tags && post.tags.length ? { keywords: post.tags.join(', ') } : {}),
       isAccessibleForFree: true,
     },
     crumbLd([['치즈감자', '/'], ['블로그', '/blog/'], [post.title, null]]),
   ];
-  return page({ url: `/blog/${post.id}.html`, title, desc, body, jsonld, extraCss: BLOG_CSS });
+  /* og:type 은 page() 가 기본으로 article 을 준다. 글에는 낸 날·고친 날을
+     함께 적는다 — 페이스북·카카오 미리보기와 검색이 같은 값을 읽는다. */
+  const extraHead =
+    `\n<meta property="article:published_time" content="${esc(post.date)}">` +
+    `\n<meta property="article:modified_time" content="${esc(post.updated || post.date)}">` +
+    (post.tags || []).map((t) => `\n<meta property="article:tag" content="${esc(t)}">`).join('') +
+    `\n<link rel="alternate" type="application/rss+xml" title="치즈감자 블로그" href="${SITE}/blog/rss.xml">`;
+
+  return page({ url: `/blog/${post.id}.html`, title, desc, body, jsonld, extraCss: BLOG_CSS, extraHead });
 }
 
 function blogHub(posts) {
   const list = posts.length
-    ? '<ul class="blog-list">' + posts.map((p) =>
-        `<li><a class="blog-card" href="/blog/${esc(p.id)}.html">` +
-          `<div class="blog-meta">${esc(fmtDateKo(p.date))} <span class="dot">·</span> ${readMins(p.body)}분 분량</div>` +
-          `<h2>${esc(p.title)}</h2>` +
-          `<p>${esc(p.excerpt)}</p>` +
-        `</a></li>`).join('') + '</ul>'
+    ? '<ul class="blog-list">' + posts.map(blogCard).join('') + '</ul>'
     : '<div class="blog-empty"><span class="emoji">🧀</span>아직 올린 글이 없습니다 — 곧 첫 글을 올릴게요.<br>No posts yet — the first one is coming soon.</div>';
 
   const body = [
@@ -986,16 +1051,80 @@ function blogHub(posts) {
     '<p class="lead">한국어 공부, 문법, TOPIK 준비에 관한 글들입니다.<br>' +
       'Notes on learning Korean, grammar, and TOPIK prep.</p>',
     list,
-  ].join('\n');
+    posts.length
+      ? '<p class="blog-feed">새 글을 구독하려면 <a href="/blog/rss.xml">RSS</a>. ' +
+        '<span class="dot">·</span> Subscribe by <a href="/blog/rss.xml">RSS</a>.</p>'
+      : '',
+  ].filter(Boolean).join('\n');
 
   return page({
     url: '/blog/', kind: 'website',
     title: '블로그 | 치즈감자',
     desc: clip('한국어 공부, 문법, TOPIK 준비에 관한 치즈감자 블로그입니다.'),
     body,
-    jsonld: [crumbLd([['치즈감자', '/'], ['블로그', '/blog/']])],
+    jsonld: [
+      crumbLd([['치즈감자', '/'], ['블로그', '/blog/']]),
+      ...(posts.length ? [{
+        '@context': 'https://schema.org',
+        '@type': 'Blog',
+        '@id': `${SITE}/blog/`,
+        name: '치즈감자 블로그',
+        inLanguage: 'ko',
+        publisher: { '@type': 'Organization', name: '치즈감자', url: SITE },
+        blogPost: posts.map((p) => ({
+          '@type': 'BlogPosting',
+          '@id': `${SITE}/blog/${p.id}.html`,
+          headline: p.title,
+          datePublished: p.date,
+          dateModified: p.updated || p.date,
+          description: p.excerpt,
+        })),
+      }] : []),
+    ],
     extraCss: BLOG_CSS,
+    extraHead: `\n<link rel="alternate" type="application/rss+xml" title="치즈감자 블로그" href="${SITE}/blog/rss.xml">`,
   });
+}
+
+/* RSS. 정적 사이트라 글이 올라온 것을 알릴 방법이 달리 없다 — 메일 주소를
+   받아 두는 것도 아니니, 구독하고 싶은 사람에게 줄 수 있는 것은 이것뿐이다.
+   본문을 통째로 싣는다(content:encoded). 요약만 실으면 읽는 이가 결국
+   사이트로 와야 하는데, 그러라고 만든 것이 아니다. */
+const rssDate = (iso) => {
+  /* 09:00 +09:00 으로 잡는다. RSS 는 시각까지 요구하는데 글에는 날짜만
+     적어 두므로, 한국 아침으로 고정해 두는 편이 시차로 하루가 밀리는
+     것보다 낫다. */
+  const d = new Date(`${iso}T09:00:00+09:00`);
+  return Number.isNaN(d.getTime()) ? '' : d.toUTCString();
+};
+const cdata = (s) => `<![CDATA[${String(s ?? '').replaceAll(']]>', ']]&gt;')}]]>`;
+
+function blogRss(posts) {
+  const items = posts.map((p) => [
+    '  <item>',
+    `    <title>${esc(p.title)}</title>`,
+    `    <link>${SITE}/blog/${p.id}.html</link>`,
+    `    <guid isPermaLink="true">${SITE}/blog/${p.id}.html</guid>`,
+    `    <pubDate>${rssDate(p.date)}</pubDate>`,
+    ...(p.tags || []).map((t) => `    <category>${esc(t)}</category>`),
+    `    <description>${cdata(p.excerpt)}</description>`,
+    `    <content:encoded>${cdata(p.body)}</content:encoded>`,
+    '  </item>',
+  ].join('\n')).join('\n');
+
+  return `<?xml version="1.0" encoding="UTF-8"?>
+<!-- 생성물 — tools/build-pages.mjs 가 blog.js 에서 굽는다. 손으로 고치지 말 것. -->
+<rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+  <title>치즈감자 블로그</title>
+  <link>${SITE}/blog/</link>
+  <atom:link href="${SITE}/blog/rss.xml" rel="self" type="application/rss+xml"/>
+  <description>한국어 공부, 문법, TOPIK 준비에 관한 치즈감자 블로그입니다.</description>
+  <language>ko</language>
+${posts.length ? `  <lastBuildDate>${rssDate(posts[0].updated || posts[0].date)}</lastBuildDate>\n` : ''}${items}
+</channel>
+</rss>
+`;
 }
 
 /* ── sitemap ────────────────────────────────────────────────── */
@@ -1105,13 +1234,24 @@ urls.push({ loc: '/topik-listening/', freq: 'weekly', pri: '0.9' });
    나중에 글을 딱 하나 추가했을 때 목록이 아예 없어서 처음 한 번은
    손으로 더 손대야 한다. */
 let nB = 0;
-for (const post of BLOG_POSTS) {
-  writeFileSync(join(OUT_BLOG, `${post.id}.html`), blogPage(post));
+BLOG_POSTS.forEach((post, i) => {
+  /* 배열은 최신이 앞이다. 그래서 「이전 글」(더 오래된 것)이 i + 1,
+     「다음 글」(더 새것)이 i - 1 이다. 뒤집어 걸면 화살표가 시간을
+     거꾸로 가리키는데, 눌러 보기 전에는 아무도 모른다. */
+  const next = BLOG_POSTS[i - 1];
+  const prev = BLOG_POSTS[i + 1];
+  const skip = new Set([prev, next].filter(Boolean).map((p) => p.id));
+  const html = blogPage(post, prev, next, relatedPosts(post, BLOG_POSTS, skip));
+  writeFileSync(join(OUT_BLOG, `${post.id}.html`), html);
   urls.push({ loc: `/blog/${post.id}.html`, freq: 'yearly', pri: '0.5' });
   nB++;
-}
+});
 writeFileSync(join(OUT_BLOG, 'index.html'), blogHub(BLOG_POSTS));
 urls.push({ loc: '/blog/', freq: 'weekly', pri: '0.6' });
+
+/* RSS 는 sitemap 에 안 넣는다. 사람이 읽는 쪽이 아니라 구독기가 읽는
+   파일이라 검색 결과에 뜰 일이 없고, 넣으면 중복된 내용으로 잡힌다. */
+writeFileSync(join(OUT_BLOG, 'rss.xml'), blogRss(BLOG_POSTS));
 
 urls.push({ loc: '/privacy.html', freq: 'yearly', pri: '0.3' });
 writeFileSync(join(ROOT, 'sitemap.xml'), sitemap(urls));
@@ -1123,5 +1263,5 @@ console.log(`레슨 ${nL}쪽 → lesson/`);
 console.log(`TOPIK 쓰기 ${nW}쪽 + 목록 1쪽 → topik-writing/`);
 console.log(`TOPIK 읽기 ${nR}쪽 + 목록 1쪽 → topik-reading/`);
 console.log(`TOPIK 듣기 ${nTL}쪽 + 목록 1쪽 → topik-listening/`);
-console.log(`블로그 ${nB}쪽 + 목록 1쪽 → blog/`);
+console.log(`블로그 ${nB}쪽 + 목록 1쪽 + rss.xml → blog/`);
 console.log(`sitemap.xml 에 주소 ${urls.length}개.`);
