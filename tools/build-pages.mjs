@@ -1089,6 +1089,59 @@ a.gcard:hover .glinkgo{color:var(--ink)}
 .rb-next{font-size:12px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;
   color:var(--dim);margin:30px 0 10px}
 @media(max-width:520px){.rb-card{padding:18px 17px 22px}.rb-card h1{font-size:23px}}
+
+/* ── "치즈감자 스티커북" 톤 ──────────────────────────────────
+   위 규칙은 그대로 두고 여기서 색·글꼴·테두리만 덮어쓴다. 구조를
+   손대지 않는 이유 — .gcard 의 클릭 덮개 트릭(위 .ggo 주석 참고)처럼
+   레이아웃에 물린 규칙이 많아서, 값만 바꾸는 편이 안전하다.
+   .ggo 에는 여기서도 filter·transform 을 걸지 않는다. */
+@import url('https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Gaegu:wght@400;700&display=swap');
+
+:root{--bg:#FBF3E3;--ink:#3A2E22;--dim:#8A6A42;--line:#E8D4B0;--card:#FFFDF7;--brand:#F2A93B;--soft:#FFF6E0;
+  --rb-deck:#FFF6E0;--rb-rail:#B08858;--rb-hair:#E8D4B0}
+@media(prefers-color-scheme:dark){:root{--bg:#2A2118;--ink:#F3ECDD;--dim:#C9B08A;--line:#5A4A38;--card:#332920;--brand:#F2A93B;--soft:#3A2E22;
+  --rb-deck:#3A2E22;--rb-rail:#C9B08A;--rb-hair:#5A4A38}}
+
+body{font-family:'Gaegu',Pretendard,-apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,"Apple SD Gothic Neo","Malgun Gothic",sans-serif}
+h1,.rb-id h1,.rb-card h1,.rb-post h2,.blog-article h2{font-family:'Gamja Flower',cursive;font-weight:400}
+.rb-id h1{font-size:26px}
+.rb-card h1{font-size:32px}
+
+.rb-banner{border:2.5px solid var(--ink);border-radius:26px 30px 22px 34px/30px 22px 34px 20px;
+  box-shadow:5px 6px 0 rgba(58,46,34,.14)}
+.rb-avatar{border:2.5px solid var(--ink)}
+.rb-join{border:2.5px solid var(--ink);box-shadow:3px 3px 0 var(--ink);transition:transform .15s}
+.rb-join:hover{transform:translateY(-2px);filter:none}
+
+.rb-post{border:2px solid var(--ink);border-radius:16px;box-shadow:3px 4px 0 rgba(58,46,34,.10)}
+.rb-post:hover{transform:translateX(2px)}
+.rb-post h2{font-size:19px}
+
+.rb-box{border:2.5px solid var(--ink);border-radius:18px 20px 16px 22px/20px 16px 22px 14px;
+  box-shadow:4px 5px 0 rgba(58,46,34,.12)}
+.rb-box h2{border-bottom:2px dashed var(--ink)}
+
+.rb-flair li{border:1.5px dashed var(--ink);background:var(--soft)}
+
+.rb-empty{border:2.5px dashed var(--ink);border-radius:22px;background:var(--soft)}
+.rb-empty .emoji{font-size:40px}
+
+.rb-card{border:2.5px solid var(--ink);border-radius:22px 26px 18px 28px/26px 18px 28px 16px;
+  box-shadow:5px 6px 0 rgba(58,46,34,.14)}
+
+.gcard{border:2.5px solid var(--ink);border-radius:16px;box-shadow:3px 4px 0 rgba(58,46,34,.12)}
+.gcat{font-family:'Gaegu';font-weight:700}
+
+.bex{border:1.5px solid var(--ink);border-left:4px solid var(--brand);border-radius:16px}
+.bnote{border:1.5px dashed var(--ink);border-radius:16px}
+
+.cta{border:2.5px solid var(--ink);border-radius:999px;box-shadow:4px 4px 0 var(--ink);
+  background:var(--brand);color:var(--ink);font-family:'Gaegu';font-weight:700;transition:transform .15s}
+.cta:hover{transform:translateY(-2px)}
+.cta span{opacity:.8}
+
+.blog-article img{border:2.5px solid var(--ink)}
+.bimg img{border:2.5px solid var(--ink)}
 `.trim();
 
 /* 목록 쪽만 넓게 쓴다. 글 읽는 쪽은 한 줄이 길어지면 눈이 되돌아올 자리를
