@@ -29,6 +29,8 @@ import { BLOG_POSTS } from '../blog.js';
 import { TOPIK_READING, TOPIK_BLUEPRINT } from '../topik.js';
 import { TOPIK2_READING, TOPIK2_BLUEPRINT } from '../topik2.js';
 import { TOPIKL_BY_EXAM } from '../topik-listening.js';
+import { readFileSync as readEn } from 'node:fs';
+import { createHash } from 'node:crypto';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const SITE = 'https://everykoreans.com';
@@ -40,6 +42,17 @@ const OUT_TW = join(ROOT, 'topik-writing');
 const OUT_CMP = join(ROOT, 'compare');
 const OUT_TR = join(ROOT, 'topik-reading');
 const OUT_TL = join(ROOT, 'topik-listening');
+
+/* 표현 290개의 영어 설명. app.module.js 는 이걸 grammar-en.js 로 읽어 화면에
+   쓰는데, **검색에 걸리는 정적 쪽에는 여태 한 줄도 안 실렸다.** 그래서
+   「neuni korean grammar」나 「nikka vs aseo」로 찾는 사람에게 우리 쪽은
+   영어가 한 글자도 없는 한국어 쪽이었다 — 뜻풀이를 290개 다 옮겨 놓고도.
+   여기서 붙인다. 없으면 한국어만 나가고 굽는 일은 그대로 된다. */
+let EN_BY_ID = new Map();
+try {
+  const arr = JSON.parse(readEn(join(ROOT, 'docs/grammar-en.json'), 'utf8'));
+  EN_BY_ID = new Map(arr.filter((x) => x?.id).map((x) => [x.id, x]));
+} catch { /* 없으면 한국어로 물러선다 */ }
 
 const esc = (s) => String(s ?? '')
   .replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;')
@@ -72,6 +85,9 @@ a{color:inherit}
 h1{font-size:30px;line-height:1.3;margin:12px 0 6px;letter-spacing:-.02em}
 .sub{color:var(--dim);font-size:14px;margin:0 0 18px}
 .desc{font-size:17px;margin:0 0 26px}
+/* 한국어 뜻풀이 아래 붙는 영어. 한국어가 먼저 읽히도록 한 단계 죽인다. */
+.desc.en{font-size:15.5px;color:var(--dim);margin:-18px 0 26px}
+.fact i{display:block;font-style:normal;font-size:13.5px;color:var(--dim);margin-top:3px}
 h2{font-size:15px;margin:32px 0 10px;color:var(--dim);letter-spacing:.02em}
 .facts{border:1px solid var(--line);border-radius:14px;overflow:hidden;background:var(--card)}
 /* 이름표를 두 말로 겹쳐 쓰니(「자주 함께 쓰는 말 / Often paired with」)
@@ -198,12 +214,27 @@ function pointPage(cat, p, prev, next) {
      「neuni korean grammar」로도 찾는다. 표현 이름은 어느 쪽에도 그대로
      걸리므로 앞에 두고, 뒤에 무엇을 다루는 쪽인지 영어로 붙인다. */
   const title = `${p.name} — Korean grammar: meaning & examples | 치즈감자`;
-  const desc = clip(`${p.name} · ${cat.en} — ${p.desc}`);
+  /* 검색 결과에 뜨는 줄은 **영어를 앞에 둔다.** 제목에 표현 이름이 그대로
+     들어 있어 한국어 검색어는 제목이 받는다. 이 줄까지 한국어면 영어로
+     찾은 사람은 결과에서 읽을 것이 하나도 없다. 영어가 없으면 한국어로. */
+  const en = EN_BY_ID.get(p.id);
+  const desc = clip(en?.desc ? `${p.name} · ${cat.en} — ${en.desc}` : `${p.name} · ${cat.en} — ${p.desc}`);
 
+  /* **한국어 칸에 영어가 이미 섞여 있는 것이 290개 중 112개다.**
+     README 는 「영어는 sentences.js 에 섞지 않고 docs/grammar-en.json 에
+     따로 둔다」고 하는데, 「주의할 점」에는 옛날에 옮긴 영어가 한국어 뒤에
+     그대로 붙어 있다. 그 자리에 영어를 또 붙이면 같은 말이 두 번 나온다.
+     자료를 고치는 것이 옳지만 섞인 글을 갈라내는 일은 따로 할 일이라,
+     여기서는 **이미 영어가 있으면 더 붙이지 않는다.** */
+  const hasEn = (v) => /[A-Za-z]{4,}/.test(String(v ?? ''));
+  const addEn = (koVal, enVal) => (enVal && !hasEn(koVal) ? enVal : null);
+
+  /* 칸마다 한국어 아래 영어를 붙인다. lang 을 적어 둬야 기계가 두 말이
+     섞인 쪽인 줄 안다 — 쪽 전체는 lang="ko" 다. */
   const facts = [
-    ['형태 / Form', more[0]],
-    ['자주 함께 쓰는 말 / Often paired with', more[1]],
-    ['주의할 점 / Watch out', more[2]],
+    ['형태 / Form', more[0], addEn(more[0], en?.form)],
+    ['자주 함께 쓰는 말 / Often paired with', more[1], null],
+    ['주의할 점 / Watch out', more[2], addEn(more[2], en?.care)],
   ].filter(([, v]) => v);
 
   const dlg = (p.dlg || []).map((line) => {
@@ -222,8 +253,10 @@ function pointPage(cat, p, prev, next) {
     `<h1>${esc(p.name)}</h1>`,
     `<p class="sub">${esc(cat.emoji ? cat.emoji + ' ' : '')}${esc(cat.ko)} · ${esc(cat.en)}</p>`,
     `<p class="desc">${esc(p.desc)}</p>`,
-    facts.length ? '<div class="facts">' + facts.map(([k, v]) =>
-      `<div class="fact"><b>${esc(k)}</b><span>${esc(v)}</span></div>`).join('') + '</div>' : '',
+    addEn(p.desc, en?.desc) ? `<p class="desc en" lang="en">${esc(en.desc)}</p>` : '',
+    facts.length ? '<div class="facts">' + facts.map(([k, v, e]) =>
+      `<div class="fact"><b>${esc(k)}</b><span>${esc(v)}` +
+      (e ? `<i lang="en">${esc(e)}</i>` : '') + '</span></div>').join('') + '</div>' : '',
     '<h2>예문 · Examples</h2>',
     `<div class="ex">${esc(p.ex)}</div>`,
     more[3] ? `<div class="ex">${esc(more[3])}</div>` : '',
@@ -249,8 +282,10 @@ function pointPage(cat, p, prev, next) {
       '@type': 'DefinedTerm',
       '@id': `${SITE}/sentence/${p.id}.html`,
       name: p.name,
+      /* description 은 하나만 받는다. 한국어를 두고, 영어는 별칭 자리에
+         함께 적어 둔다 — 두 말로 찾는 쪽이라는 것을 기계에 알린다. */
       description: p.desc,
-      inLanguage: 'ko',
+      inLanguage: en?.desc ? ['ko', 'en'] : 'ko',
       termCode: p.id,
       inDefinedTermSet: {
         '@type': 'DefinedTermSet',
@@ -258,6 +293,7 @@ function pointPage(cat, p, prev, next) {
         name: '한국어 문법 표현 · Korean grammar points',
       },
       ...(more[0] ? { alternateName: more[0] } : {}),
+      ...(en?.desc ? { disambiguatingDescription: en.desc } : {}),
     },
     /* 갈래 쪽은 /compare/ 에 있다. 다만 표현이 하나뿐인 갈래는 견줄 것이
        없어 안 만드므로(아래 생성 고리의 조건과 같아야 한다), 그럴 때는
@@ -1000,6 +1036,56 @@ const BLOG_CSS = `
 .blog-article li{margin:6px 0}
 .blog-article code{background:var(--soft);padding:2px 6px;border-radius:6px;font-size:.9em}
 .blog-article img{max-width:100%;border-radius:10px;margin:6px 0}
+.blog-article>*:first-child{margin-top:0}
+
+/* ── 글 속 블록 ── */
+/* 예문 한 칸. 한국어를 크게, 뜻을 아래에 흐리게. */
+.bex{background:var(--soft);border:1px solid var(--rb-hair);border-left:3px solid var(--brand);
+  border-radius:10px;padding:13px 16px;margin:0 0 22px}
+.bex>b{display:block;font-size:17px;font-weight:600;line-height:1.6}
+.bex span{display:block;margin-top:4px;font-size:14px;color:var(--dim);line-height:1.55}
+
+/* 문법 카드 — 글에서 표현 쪽으로 들어가는 문. 링크 하나로 통째로 눌린다. */
+.gcard{position:relative;display:block;text-decoration:none;border:1px solid var(--line);
+  border-radius:12px;background:var(--card);padding:15px 18px;margin:0 0 22px;
+  transition:border-color .12s,transform .12s}
+.gcard:hover{border-color:var(--brand);transform:translateY(-1px)}
+.gcard a{text-decoration:none}
+.gcat{display:block;font-size:11.5px;font-weight:700;letter-spacing:.03em;color:var(--dim)}
+.gcard>b{display:block;font-size:19px;margin:3px 0 0;letter-spacing:-.01em}
+.gdesc{display:block;margin-top:6px;font-size:15px;line-height:1.62;color:var(--ink)}
+.gnote{display:block;margin-top:8px;font-size:14px;line-height:1.6;color:var(--dim)}
+.gacts{display:flex;flex-wrap:wrap;align-items:center;gap:8px 14px;margin-top:13px}
+/* 앞의 것이 카드 전체를 덮는다 — 어디를 눌러도 예문 만들기로 간다. */
+.ggo{font-size:13.5px;font-weight:800;color:#2b2117;background:var(--brand);
+  border-radius:999px;padding:8px 15px;line-height:1.2}
+.ggo::after{content:'';position:absolute;inset:0;border-radius:12px}
+/* 여기에 filter 나 transform 을 걸지 마라. 둘 다 이 알약을 제 ::after 의
+   컨테이닝 블록으로 만들어, 덮개가 카드 전체가 아니라 알약 크기로
+   쪼그라든다 — 커서를 올린 순간 덮개가 커서 밑에서 사라지고 클릭이
+   카드로 빠진다. 화면으로는 멀쩡해 보여서 눌러 보기 전에는 모른다.
+   안쪽 그림자는 컨테이닝 블록을 만들지 않으므로 안전하다. */
+.gcard:hover .ggo{box-shadow:inset 0 0 0 999px rgba(0,0,0,.07)}
+/* 뒤의 것은 덮개 위로 띄운다. 안 그러면 눌리지 않는다. */
+.gsub{position:relative;z-index:1;font-size:13px;font-weight:600;color:var(--dim);
+  border-bottom:1px solid var(--rb-hair);padding-bottom:1px}
+.gsub:hover{color:var(--ink);border-color:var(--brand)}
+.glinkgo{display:block;margin-top:11px;font-size:13px;font-weight:700;color:var(--dim)}
+a.gcard:hover .glinkgo{color:var(--ink)}
+
+/* 사진. 폭을 넘기지 않게만 잡고 비율은 파일에 맡긴다. */
+.bimg{margin:0 0 24px}
+.bimg img{display:block;width:100%;height:auto;border-radius:12px;border:1px solid var(--line)}
+.bimg figcaption{margin-top:8px;font-size:13px;line-height:1.55;color:var(--dim)}
+
+/* 짚어 둘 것 — 본문에서 한 발 뺀 이야기. */
+.bnote{display:block;border:1px solid var(--rb-hair);background:var(--rb-deck);border-radius:10px;
+  padding:14px 17px;margin:0 0 22px;font-size:15px;line-height:1.68}
+.bnote>.bnt{display:block;font-size:12.5px;font-weight:800;letter-spacing:.04em;color:var(--dim);margin-bottom:5px}
+
+/* 대화문은 표현 쪽(.dlg/.line/.who/.bub)을 그대로 나눠 쓴다 — 글 안에서는
+   위아래 여백만 더 준다. */
+.blog-article .dlg{margin:0 0 24px}
 .rb-next{font-size:12px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;
   color:var(--dim);margin:30px 0 10px}
 @media(max-width:520px){.rb-card{padding:18px 17px 22px}.rb-card h1{font-size:23px}}
@@ -1008,6 +1094,142 @@ const BLOG_CSS = `
 /* 목록 쪽만 넓게 쓴다. 글 읽는 쪽은 한 줄이 길어지면 눈이 되돌아올 자리를
    잃으므로 좁은 채로 둔다 — 같은 BLOG_CSS 를 쓰되 폭만 여기서 가른다. */
 const BLOG_HUB_CSS = '\n@media(min-width:880px){.wrap{max-width:1060px}}';
+
+/* ── 글 속 블록 ─────────────────────────────────────────────
+   글 본문을 날 HTML 문자열로 두면 두 가지가 깨진다.
+
+   하나, **모델이 쓴 HTML 은 믿을 수 없다.** 블로그 글을 Gemini 에게
+   받는데(tools/blog-prompt.mjs), 태그 하나만 안 닫혀도 쪽 전체가 무너진다.
+   실제로 자료를 받아 보면 </p> 를 빠뜨리거나 <br/> 과 <br> 을 섞는다.
+
+   둘, **모델이 문법 설명을 지어낸다.** 「-는 바람에는 …라는 뜻입니다」를
+   그럴듯하게 써 놓는데, 우리에겐 이미 손으로 다듬은 뜻풀이가 290개 있다.
+   지어낸 설명을 실을 까닭이 없다.
+
+   그래서 본문을 **블록 배열**로 받는다. 글자는 전부 esc() 를 지나고,
+   허용하는 꾸밈은 **굵게** 하나뿐이다. 그리고 문법 카드(t:'gram')는
+   **id 만** 받아서 뜻풀이는 우리 sentences.js 에서 꺼내 붙인다 — 모델은
+   「어느 표현을 걸지」와 「왜 보라는지」만 정하고, 표현이 무슨 뜻인지는
+   우리 자료가 말한다.
+
+   손으로 쓴 예전 글은 body(HTML 문자열)를 그대로 쓴다. 둘 다 받는다. */
+const SB_BY_ID = new Map();
+for (const cat of SB_CATS) for (const p of cat.points) SB_BY_ID.set(p.id, { p, cat });
+
+/* 글자 안에서 허용하는 꾸밈은 **굵게** 하나뿐이다. esc() 를 먼저 지나므로
+   모델이 <script> 를 적어 보내도 글자로만 남는다. */
+const inline = (s) => esc(s).replace(/\*\*([^*]+)\*\*/g, '<b>$1</b>');
+
+function renderBlock(b, where) {
+  const bad = (why) => { throw new Error(`블로그 블록이 잘못됐다 (${where}): ${why}\n  ${JSON.stringify(b).slice(0, 160)}`); };
+  switch (b?.t) {
+    case 'p':
+      if (!b.text) bad('t:"p" 에 text 가 없다');
+      return `<p>${inline(b.text)}</p>`;
+
+    case 'h':
+      if (!b.text) bad('t:"h" 에 text 가 없다');
+      return `<h2>${inline(b.text)}</h2>`;
+
+    case 'quote':
+      if (!Array.isArray(b.lines) || !b.lines.length) bad('t:"quote" 에 lines 배열이 없다');
+      return `<blockquote>${b.lines.map(inline).join('<br>')}</blockquote>`;
+
+    case 'list':
+      if (!Array.isArray(b.items) || !b.items.length) bad('t:"list" 에 items 배열이 없다');
+      return `<${b.ordered ? 'ol' : 'ul'}>` + b.items.map((i) => `<li>${inline(i)}</li>`).join('') +
+        `</${b.ordered ? 'ol' : 'ul'}>`;
+
+    /* 예문 한 칸. 한국어를 크게, 영어 뜻을 아래에 흐리게 — 표현 쪽(.ex)과
+       같은 결이되 뜻을 함께 보여 준다. */
+    case 'ex':
+      if (!b.ko) bad('t:"ex" 에 ko 가 없다');
+      return `<div class="bex"><b>${inline(b.ko)}</b>${b.en ? `<span>${inline(b.en)}</span>` : ''}</div>`;
+
+    /* 대화문. 표현 쪽과 같은 규칙 — A 는 치즈, B 는 감자. */
+    case 'dlg': {
+      if (!Array.isArray(b.lines) || !b.lines.length) bad('t:"dlg" 에 lines 배열이 없다');
+      const rows = b.lines.map((line) => {
+        const m = /^([AB]):\s*(.+)$/.exec(line);
+        if (!m) bad(`대화문 줄은 "A: …" 나 "B: …" 여야 한다 — "${line}"`);
+        const who = m[1];
+        return `<div class="line ${who === 'A' ? 'a' : 'b'}">` +
+          `<span class="who" aria-hidden="true">${who === 'A' ? '🧀' : '🥔'}</span>` +
+          `<span class="bub">${inline(m[2])}</span></div>`;
+      }).join('');
+      return `<div class="dlg">${rows}</div>`;
+    }
+
+    /* 문법 카드 — 「문법마다 들어가서 볼 수 있게」 하는 자리다.
+       뜻풀이는 sentences.js 에서 꺼낸다. 없는 id 면 여기서 멈춘다 —
+       조용히 넘기면 글에 죽은 링크가 실린다.
+
+       **누르면 예문 만들기로 곧장 들어간다**(#learn/sentence/<id>).
+       읽다가 「아 이거 써 봐야겠다」 싶은 순간이 제일 짧은데, 거기서
+       표현 설명 쪽을 한 번 더 거치게 하면 그 순간이 식는다. 설명이 먼저
+       필요한 사람을 위해 아래에 표현 쪽으로 가는 줄을 따로 남긴다.
+
+       링크가 둘이라 카드 전체를 덮는 것은 앞의 것(예문 만들기)이고,
+       뒤의 것은 z-index 로 그 위에 띄운다 — 안 그러면 덮개에 가려
+       눌리지 않는다. */
+    case 'gram': {
+      if (!b.id) bad('t:"gram" 에 id 가 없다');
+      const hit = SB_BY_ID.get(b.id);
+      if (!hit) bad(`문법 표현 ${b.id} 이 sentences.js 에 없다`);
+      return `<div class="gcard">` +
+        `<span class="gcat">${esc(hit.cat.ko)}</span>` +
+        `<b>${esc(hit.p.name)}</b>` +
+        `<span class="gdesc">${esc(hit.p.desc)}</span>` +
+        (b.note ? `<span class="gnote">${inline(b.note)}</span>` : '') +
+        `<span class="gacts">` +
+          `<a class="ggo" href="/#learn/sentence/${esc(b.id)}">` +
+            `이 표현으로 문장 만들어 보기 →</a>` +
+          `<a class="gsub" href="/sentence/${esc(b.id)}.html">` +
+            `형태·주의할 점·예문 먼저 보기</a>` +
+        `</span>` +
+      `</div>`;
+    }
+
+    /* 사이트 안 다른 쪽으로 보내는 카드. 문법 표현이 아닌 것(코스·목록
+       쪽)을 걸 때 쓴다. 주소가 실재하는지는 tools/check-blog.mjs 가 본다. */
+    case 'link':
+      if (!b.href || !b.title) bad('t:"link" 에 href 나 title 이 없다');
+      if (!b.href.startsWith('/')) bad('t:"link" 의 href 는 사이트 안 주소(/ 로 시작)여야 한다');
+      return `<a class="gcard" href="${esc(b.href)}">` +
+        `<b>${esc(b.title)}</b>` +
+        (b.note ? `<span class="gnote">${inline(b.note)}</span>` : '') +
+        `<span class="glinkgo">보러 가기 →</span>` +
+      `</a>`;
+
+    /* 사진. 파일이 실재하는지는 tools/check-blog.mjs 가 본다 — 여기서
+       파일을 읽지는 않는다(굽는 일이 느려진다). alt 는 반드시 받는다. */
+    case 'img':
+      if (!b.src) bad('t:"img" 에 src 가 없다');
+      if (!b.alt) bad('t:"img" 에 alt 가 없다 — 눈으로 못 보는 사람에게 사진은 alt 가 전부다');
+      return `<figure class="bimg"><img src="${esc(b.src)}" alt="${esc(b.alt)}" loading="lazy"` +
+        (b.w && b.h ? ` width="${esc(String(b.w))}" height="${esc(String(b.h))}"` : '') + '>' +
+        (b.cap ? `<figcaption>${inline(b.cap)}</figcaption>` : '') + '</figure>';
+
+    /* 짚어 둘 것. 본문 흐름에서 한 발 뺀 이야기 — 「이건 시험에서는 다르다」
+       같은 것. */
+    case 'note':
+      if (!b.text) bad('t:"note" 에 text 가 없다');
+      return `<aside class="bnote">${b.title ? `<b class="bnt">${inline(b.title)}</b>` : ''}${inline(b.text)}</aside>`;
+
+    default:
+      bad(`모르는 블록 종류 t:${JSON.stringify(b?.t)}`);
+  }
+}
+
+/* 글 하나의 본문 HTML. blocks 가 있으면 그것을, 없으면 손으로 쓴 body 를.
+   분량 세기·RSS·쪽 굽기가 전부 이 하나를 쓴다 — 따로 계산하면 목록의
+   「3분」과 글 쪽의 「3분」이 어긋난다. */
+function postHtml(post) {
+  if (Array.isArray(post.blocks)) {
+    return post.blocks.map((b, i) => renderBlock(b, `${post.id} 의 ${i + 1}번째 블록`)).join('\n');
+  }
+  return post.body ?? '';
+}
 
 /* 한글 기준 대략 분당 500자 읽는다고 잡는다 — 정확할 필요는 없고,
    "훑어볼지 앉아서 읽을지" 감만 잡히면 된다. */
@@ -1052,7 +1274,7 @@ function postMeta(post) {
 /* 목록 줄 하나. 목록 쪽과 글 아래 「이어서 읽기」가 같은 모양을 쓴다. */
 const postRow = (p) =>
   `<li class="rb-post">` +
-    `<div class="rb-rail"><b>${readMins(p.body)}</b><span>분</span></div>` +
+    `<div class="rb-rail"><b>${readMins(postHtml(p))}</b><span>분</span></div>` +
     `<div class="rb-body">` +
       postMeta(p) +
       `<h2><a href="/blog/${esc(p.id)}.html">${esc(p.title)}</a></h2>` +
@@ -1086,7 +1308,7 @@ function blogPage(post, prev, next, related) {
       postMeta(post),
       `<h1>${esc(post.title)}</h1>`,
       flair(post.tags),
-      `<div class="blog-article">${post.body}</div>`,
+      `<div class="blog-article">${postHtml(post)}</div>`,
     `</article>`,
     `<a class="cta" href="/#learn">한국어 배우러 가기<span>Free Korean lessons, no sign-up needed</span></a>`,
     /* 앞뒤 글. 배열은 최신이 앞이므로 「이전 글」은 한 칸 뒤(더 오래된 것),
@@ -1250,7 +1472,7 @@ function blogRss(posts) {
     `    <pubDate>${rssDate(p.date)}</pubDate>`,
     ...(p.tags || []).map((t) => `    <category>${esc(t)}</category>`),
     `    <description>${cdata(p.excerpt)}</description>`,
-    `    <content:encoded>${cdata(p.body)}</content:encoded>`,
+    `    <content:encoded>${cdata(postHtml(p))}</content:encoded>`,
     '  </item>',
   ].join('\n')).join('\n');
 
@@ -1270,17 +1492,68 @@ ${posts.length ? `  <lastBuildDate>${rssDate(posts[0].updated || posts[0].date)}
 }
 
 /* ── sitemap ────────────────────────────────────────────────── */
+/* 쪽이 마지막으로 **정말** 바뀐 날.
+
+   구글은 changefreq 와 priority 를 안 읽는다(공식 문서에 그렇게 적혀
+   있다). 반대로 lastmod 는 읽는다 — 다시 기어올 자리를 고르는 데 쓴다.
+   993줄에 안 읽는 것 둘만 있고 읽는 것은 비어 있었다.
+
+   다만 **정확할 때만 읽는다.** 처음에는 원본 파일의 git 커밋 날을 쓰려
+   했는데 그게 안 됐다. tools/stamp.mjs 가 sentences.js 안의 `?v=` 를
+   다시 찍으면 그 파일의 커밋 날이 오늘로 뛴다 — 표현 290쪽의 내용은 한
+   글자도 안 바뀌었는데 사이트맵은 「오늘 290쪽이 바뀌었다」고 말하게 된다.
+   그런 사이트맵은 구글이 lastmod 를 통째로 안 믿는 쪽으로 간다.
+
+   그래서 **구운 쪽 자체의 바이트를 해시해서** 지난번과 다를 때만 날짜를
+   올린다. 자국(`?v=`)은 이 쪽들에 안 들어가므로(정적 쪽은 CSS 를 박아
+   넣는다) 자국을 다시 찍어도 해시가 안 흔들린다. 재는 것과 말하는 것이
+   같아진다.
+
+   docs/page-mod.json 이 그 기록이다. 지우면 전부 오늘로 다시 잡힌다 —
+   틀린 날짜가 되는 것은 아니고, 그저 그 전을 모르게 될 뿐이다. */
+const MOD_FILE = join(ROOT, 'docs/page-mod.json');
+const TODAY = new Date().toISOString().slice(0, 10);
+let modWas = {};
+try { modWas = JSON.parse(readEn(MOD_FILE, 'utf8')); } catch { /* 처음이면 빈 채로 */ }
+
+/* 주소를 구워 놓은 파일 자리로 되돌린다. sitemap() 이 맨 끝에 도는 덕에
+   이때는 993쪽이 이미 다 쓰여 있다. */
+function fileOf(loc) {
+  let q = loc.replace(/^\//, '');
+  if (!q) q = 'index.html';
+  if (q.endsWith('/')) q += 'index.html';
+  return join(ROOT, q);
+}
+
+function modOf(loc) {
+  let h;
+  try { h = createHash('sha1').update(readEn(fileOf(loc))).digest('hex').slice(0, 12); }
+  catch { return ''; }            // 파일이 없으면 그 줄에는 안 적는다
+  const was = modWas[loc];
+  const day = (was && was.h === h) ? was.d : TODAY;
+  modNow[loc] = { h, d: day };
+  return day;
+}
+const modNow = {};
+
 function sitemap(urls) {
   return `<?xml version="1.0" encoding="UTF-8"?>
 <!-- 생성물이다. node tools/build-pages.mjs 가 다시 쓴다.
 
      화면 전환은 해시(#learn 등)로 하므로 크롤러에게 index.html 은 한 쪽이다.
      그래서 표현마다 진짜 주소를 가진 정적 쪽을 뽑아 여기 건다. 없는 주소를
-     적어 두면 404 만 늘어나므로, 여기 있는 것은 전부 저장소에 실재한다. -->
+     적어 두면 404 만 늘어나므로, 여기 있는 것은 전부 저장소에 실재한다.
+
+     lastmod 는 그 쪽을 구운 결과가 지난번과 달라진 날이다(docs/page-mod.json).
+     원본 파일의 커밋 날이 아니다 — 자국을 다시 찍기만 해도 커밋 날이
+     뛰는데, 그러면 안 바뀐 쪽까지 「오늘 바뀌었다」가 된다. -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-${urls.map(({ loc, freq, pri }) =>
-  `  <url>\n    <loc>${SITE}${loc}</loc>\n    <changefreq>${freq}</changefreq>\n    <priority>${pri}</priority>\n  </url>`,
-).join('\n')}
+${urls.map(({ loc, freq, pri }) => {
+  const mod = modOf(loc);
+  return `  <url>\n    <loc>${SITE}${loc}</loc>\n` +
+    (mod ? `    <lastmod>${mod}</lastmod>\n` : '') +
+    `    <changefreq>${freq}</changefreq>\n    <priority>${pri}</priority>\n  </url>`;
+}).join('\n')}
 </urlset>
 `;
 }
@@ -1397,6 +1670,9 @@ writeFileSync(join(OUT_BLOG, 'rss.xml'), blogRss(BLOG_POSTS));
 
 urls.push({ loc: '/privacy.html', freq: 'yearly', pri: '0.3' });
 writeFileSync(join(ROOT, 'sitemap.xml'), sitemap(urls));
+/* sitemap() 이 돌면서 쪽마다 해시를 다시 쟀다. 그 기록을 남긴다 —
+   다음 번에 이것과 견줘 안 바뀐 쪽은 날짜를 그대로 둔다. */
+writeFileSync(MOD_FILE, JSON.stringify(modNow, null, 0) + '\n');
 
 console.log(`표현 ${n}쪽 + 목록 1쪽 → sentence/`);
 console.log(`갈래 비교 ${nCmp}쪽 + 목록 1쪽 → compare/`);
