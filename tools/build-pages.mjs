@@ -893,52 +893,121 @@ function tlHub() {
 /* 목록 쪽은 글이 없어도 항상 굽는다("곧 올릴게요" 안내가 뜬다) — 그래야
    나중에 글을 하나만 추가해도 바로 목록에 걸린다.
 
-   블로그만 더 쓰는 CSS. 다른 정적 쪽(표현·코스·TOPIK)과 골격(CSS 변수·
-   .crumb·.foot 등)은 그대로 나눠 쓰되, 목록은 알약(.pts) 대신 카드로,
-   본문은 사전 항목이 아니라 실제 글을 읽는 자리답게 줄 간격과 문단
-   간격을 넉넉히 잡는다. page() 의 extraCss 로만 들어가므로 표현·코스
-   쪽 무게는 그대로다. */
+   생김새는 **게시판(레딧) 꼴**을 따른다. 앞서 카드를 큼직하게 늘어놓던
+   모양은 글이 하나일 때는 멀쩡했지만 다섯 편이 되자 훑기가 나빴다 —
+   한 화면에 두 편밖에 안 들어오고, 어느 글이 무엇에 대한 것인지 알려면
+   요약을 다 읽어야 했다. 게시판 꼴은 줄을 촘촘히 쌓고, 왼쪽에 분량,
+   아래에 갈래표를 붙여 **눈으로 고르게** 한다.
+
+   다만 색과 말씨는 그대로 치즈감자다. 레딧의 회색 크롬을 흉내 내지 않고
+   기존 CSS 변수(--bg/--card/--brand/--soft)를 그대로 쓰되, 모서리를
+   16px 에서 10px 로 줄이고 여백을 좁혀 「읽는 쪽」이 아니라 「고르는 쪽」
+   처럼 보이게만 한다.
+
+   골격(CSS 변수·.crumb·.foot)은 다른 정적 쪽과 그대로 나눠 쓴다.
+   page() 의 extraCss 로만 들어가므로 표현·코스 쪽 무게는 안 변한다. */
 const BLOG_CSS = `
-.blog-list{display:flex;flex-direction:column;gap:14px;padding:0;margin:24px 0 0;list-style:none}
-.blog-card{display:block;border:1px solid var(--line);border-radius:16px;background:var(--card);
-  padding:20px 22px;text-decoration:none;transition:border-color .15s,transform .15s,box-shadow .15s}
-.blog-card:hover{border-color:var(--brand);transform:translateY(-1px);box-shadow:0 6px 20px -12px rgba(0,0,0,.25)}
-.blog-card h2{font-size:19px;margin:2px 0 8px;letter-spacing:-.01em;color:var(--ink)}
-.blog-card p{margin:0;color:var(--dim);font-size:14.5px;line-height:1.6}
-.blog-empty{border:1px dashed var(--line);border-radius:16px;padding:44px 24px;text-align:center;
-  color:var(--dim);margin-top:24px}
-.blog-empty .emoji{font-size:34px;display:block;margin-bottom:10px}
-.blog-meta{display:flex;gap:8px;align-items:center;font-size:12.5px;color:var(--dim);
-  font-weight:600;letter-spacing:.01em;margin:0 0 4px;flex-wrap:wrap}
-.blog-meta .dot{opacity:.5;font-weight:400}
+/* 게시판 쪽에서만 쓰는 색. 바탕과 카드 사이의 한 겹 — 레딧으로 치면
+   글 목록이 얹히는 그 회색 자리다. 크림색 바탕에 회색을 섞으면 탁해지니
+   기존 --soft 를 옅게 깐다. */
+:root{--rb-deck:#f6efe0;--rb-rail:#8a7c6a;--rb-hair:#e3d7c2}
+@media(prefers-color-scheme:dark){:root{--rb-deck:#141110;--rb-rail:#9b8e7d;--rb-hair:#3a3027}}
+
+.rb-banner{display:flex;align-items:center;gap:14px;flex-wrap:wrap;
+  border:1px solid var(--line);border-radius:12px;background:var(--card);padding:16px 18px;margin:0 0 16px}
+.rb-avatar{flex:none;width:52px;height:52px;border-radius:50%;background:var(--brand);
+  display:grid;place-items:center;font-size:26px;line-height:1}
+.rb-id{flex:1 1 220px;min-width:0}
+.rb-id h1{font-size:22px;margin:0;letter-spacing:-.02em;line-height:1.25}
+.rb-id p{margin:3px 0 0;font-size:13px;color:var(--dim);line-height:1.5}
+.rb-join{flex:none;background:var(--brand);color:#2b2117;text-decoration:none;font-weight:700;
+  font-size:14px;padding:9px 18px;border-radius:999px;white-space:nowrap}
+.rb-join:hover{filter:brightness(.95)}
+
+.rb-cols{display:grid;gap:16px;grid-template-columns:1fr;align-items:start}
+@media(min-width:880px){.rb-cols{grid-template-columns:minmax(0,1fr) 288px}}
+
+/* ── 글 줄 ── */
+.rb-feed{display:flex;flex-direction:column;gap:8px;padding:0;margin:0;list-style:none}
+.rb-post{position:relative;display:flex;gap:0;border:1px solid var(--line);border-radius:10px;
+  background:var(--card);overflow:hidden;transition:border-color .12s}
+.rb-post:hover{border-color:var(--brand)}
+/* 왼쪽 기둥. 레딧은 여기에 추천 화살표가 서는데, 우리에겐 셀 표가 없다.
+   없는 숫자를 지어 넣는 대신 **읽는 데 걸리는 시간**을 세운다 — 목록에서
+   고를 때 실제로 쓰는 정보이기도 하다. */
+.rb-rail{flex:none;width:56px;background:var(--rb-deck);border-right:1px solid var(--rb-hair);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1px;padding:14px 0;color:var(--rb-rail)}
+.rb-rail b{font-size:17px;font-weight:800;line-height:1;color:var(--ink)}
+.rb-rail span{font-size:11px;font-weight:600;letter-spacing:.02em}
+.rb-body{flex:1 1 auto;min-width:0;padding:12px 16px 13px}
+.rb-meta{display:flex;align-items:center;gap:6px;flex-wrap:wrap;font-size:12px;color:var(--dim);font-weight:600}
+.rb-meta .dot{opacity:.5;font-weight:400}
+.rb-meta .rb-who{font-weight:700;color:var(--ink)}
+.rb-post h2{font-size:17.5px;line-height:1.4;margin:5px 0 0;letter-spacing:-.01em;color:var(--ink)}
+.rb-post h2 a{text-decoration:none}
+/* 줄 전체를 누를 수 있게 제목 링크를 카드 위로 펼친다. 링크를 여러 개
+   두면 스크린리더가 같은 글을 세 번 읽는다 — 진짜 링크는 하나만 둔다. */
+.rb-post h2 a::after{content:'';position:absolute;inset:0}
+.rb-ex{margin:6px 0 0;font-size:14px;line-height:1.62;color:var(--dim);
+  display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.rb-tail{display:flex;align-items:center;gap:7px;flex-wrap:wrap;margin:10px 0 0}
+
+/* 갈래표. 누르는 데가 아니라 이름표다 — 글이 다섯 편인데 갈래마다 쪽을
+   따로 내면 글 한 편짜리 쪽이 주소만 늘린다. 갈래는 「같은 갈래의 글」을
+   고르는 데 쓰고(build-pages.mjs 의 relatedPosts), 화면에는 이름만 낸다. */
+.rb-flair{display:flex;flex-wrap:wrap;gap:6px;padding:0;margin:0;list-style:none}
+.rb-flair li{background:var(--soft);border:1px solid var(--rb-hair);border-radius:999px;
+  padding:2px 10px;font-size:11.5px;font-weight:700;color:var(--dim);letter-spacing:.01em}
+
+/* ── 오른쪽 기둥 ── */
+.rb-side{display:flex;flex-direction:column;gap:12px;min-width:0}
+.rb-box{border:1px solid var(--line);border-radius:10px;background:var(--card);overflow:hidden}
+.rb-box h2{font-size:12px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;
+  margin:0;padding:10px 14px;background:var(--rb-deck);border-bottom:1px solid var(--rb-hair);color:var(--dim)}
+.rb-box .in{padding:13px 14px;font-size:13.5px;line-height:1.62}
+.rb-box p{margin:0 0 10px}
+.rb-box p:last-child{margin-bottom:0}
+.rb-stats{display:flex;gap:18px;padding:12px 14px;border-bottom:1px solid var(--rb-hair)}
+.rb-stats div{min-width:0}
+.rb-stats b{display:block;font-size:17px;font-weight:800;line-height:1.2}
+.rb-stats span{font-size:11.5px;color:var(--dim);font-weight:600}
+.rb-rules{margin:0;padding:4px 14px 13px 0;list-style:none;counter-reset:r;font-size:13.5px;line-height:1.6}
+.rb-rules li{counter-increment:r;display:flex;gap:10px;padding:9px 0 0 14px;border-top:1px solid var(--rb-hair)}
+.rb-rules li:first-child{border-top:0;padding-top:4px}
+.rb-rules li::before{content:counter(r);flex:none;color:var(--rb-rail);font-weight:800;font-size:12.5px;padding-top:1px}
+.rb-links{margin:0;padding:0;list-style:none;font-size:13.5px}
+.rb-links li{border-top:1px solid var(--rb-hair)}
+.rb-links li:first-child{border-top:0}
+.rb-links a{display:block;padding:10px 14px;text-decoration:none}
+.rb-links a:hover{background:var(--rb-deck)}
+.rb-empty{border:1px dashed var(--line);border-radius:10px;padding:44px 24px;text-align:center;color:var(--dim)}
+.rb-empty .emoji{font-size:34px;display:block;margin-bottom:10px}
+
+/* ── 글 한 편 ── */
+.rb-card{border:1px solid var(--line);border-radius:10px;background:var(--card);padding:22px 26px 26px}
+.rb-card h1{font-size:27px;line-height:1.32;margin:8px 0 0;letter-spacing:-.02em}
+.rb-card .rb-flair{margin-top:11px}
 .blog-back{display:inline-flex;align-items:center;gap:5px;font-size:13.5px;color:var(--dim);
-  text-decoration:none;margin-bottom:16px}
+  text-decoration:none;margin-bottom:14px}
 .blog-back:hover{color:var(--ink)}
-.blog-article{font-size:17px;line-height:1.85}
+.blog-article{font-size:17px;line-height:1.85;margin-top:22px}
 .blog-article p{margin:0 0 22px}
-.blog-article h2{font-size:22px;color:var(--ink);margin:38px 0 12px;letter-spacing:-.01em}
+.blog-article h2{font-size:21px;color:var(--ink);margin:36px 0 12px;letter-spacing:-.01em}
 .blog-article h3{font-size:18px;color:var(--ink);margin:28px 0 10px}
-.blog-article blockquote{margin:26px 0;padding:2px 20px;border-left:3px solid var(--brand);
+.blog-article blockquote{margin:24px 0;padding:2px 20px;border-left:3px solid var(--brand);
   color:var(--dim);font-style:italic}
 .blog-article ul,.blog-article ol{padding-left:22px;margin:0 0 22px}
 .blog-article li{margin:6px 0}
 .blog-article code{background:var(--soft);padding:2px 6px;border-radius:6px;font-size:.9em}
-.blog-article img{max-width:100%;border-radius:12px;margin:6px 0}
-/* 갈래표. 누를 데가 아니라 이름표다 — 글이 다섯 편인데 갈래마다 쪽을
-   따로 내면 글 한 편짜리 쪽이 주소만 늘린다. 갈래는 「이어서 읽기」를
-   고르는 데 쓰고(같은 갈래 글을 먼저 보여 준다), 화면에는 이름만 낸다. */
-.blog-tags{display:flex;flex-wrap:wrap;gap:6px;padding:0;margin:12px 0 0;list-style:none}
-.blog-tags li{border:1px solid var(--line);background:var(--soft);border-radius:999px;
-  padding:3px 11px;font-size:12.5px;color:var(--dim);font-weight:600}
-.blog-card .blog-tags{margin-top:12px}
-/* 갈래표 바로 밑에 본문 첫 줄이 붙는다 — 이름표와 글이 한 덩어리로
-   보여서 읽기 시작하는 자리가 흐려진다. 여기서만 띄운다. */
-.blog-tags+.blog-article{margin-top:28px}
-.blog-more{font-size:15px;margin:46px 0 0;color:var(--dim);letter-spacing:.02em}
-.blog-more+.blog-list{margin-top:12px}
-.blog-feed{margin-top:28px;font-size:13px;color:var(--dim)}
-.blog-feed a{color:inherit}
+.blog-article img{max-width:100%;border-radius:10px;margin:6px 0}
+.rb-next{font-size:12px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;
+  color:var(--dim);margin:30px 0 10px}
+@media(max-width:520px){.rb-card{padding:18px 17px 22px}.rb-card h1{font-size:23px}}
 `.trim();
+
+/* 목록 쪽만 넓게 쓴다. 글 읽는 쪽은 한 줄이 길어지면 눈이 되돌아올 자리를
+   잃으므로 좁은 채로 둔다 — 같은 BLOG_CSS 를 쓰되 폭만 여기서 가른다. */
+const BLOG_HUB_CSS = '\n@media(min-width:880px){.wrap{max-width:1060px}}';
 
 /* 한글 기준 대략 분당 500자 읽는다고 잡는다 — 정확할 필요는 없고,
    "훑어볼지 앉아서 읽을지" 감만 잡히면 된다. */
@@ -951,27 +1020,46 @@ const fmtDateKo = (iso) => {
   return m ? `${+m[1]}년 ${+m[2]}월 ${+m[3]}일` : (iso || '');
 };
 
-const tagList = (tags) => (tags && tags.length)
-  ? '<ul class="blog-tags">' + tags.map((t) => `<li>${esc(t)}</li>`).join('') + '</ul>'
+/* 「4일 전」처럼 흐른 시간으로 적는 것이 게시판 꼴에는 맞다. 그런데 이
+   쪽은 **구워 두는 정적 파일**이라, 구울 때 계산해 박으면 다음 날부터
+   거짓말이 된다. 그래서 굽는 시점에는 진짜 날짜를 넣고, 보는 사람의
+   브라우저에서만 흐른 시간으로 바꾼다. 스크립트가 안 돌면 날짜가 그대로
+   남으므로 틀린 값이 뜨는 일은 없다. */
+const AGO_JS = `
+<script>
+(function(){var n=Date.now(),u=[[31536000,'년'],[2592000,'개월'],[604800,'주'],[86400,'일'],[3600,'시간'],[60,'분']];
+Array.prototype.forEach.call(document.querySelectorAll('time[datetime]'),function(t){
+var d=new Date(t.getAttribute('datetime')+'T09:00:00+09:00');if(isNaN(d))return;
+var s=Math.floor((n-d)/1000);if(s<0)return;t.title=t.textContent;
+for(var i=0;i<u.length;i++){if(s>=u[i][0]){t.textContent=Math.floor(s/u[i][0])+u[i][1]+' 전';return}}t.textContent='방금'})})();
+</script>`.trim();
+
+const timeTag = (iso) => `<time datetime="${esc(iso)}">${esc(fmtDateKo(iso))}</time>`;
+const flair = (tags) => (tags && tags.length)
+  ? '<ul class="rb-flair">' + tags.map((t) => `<li>${esc(t)}</li>`).join('') + '</ul>'
   : '';
 
-/* 글 한 편의 머리글(날짜·고친 날·분량). 목록 카드와 본문 쪽이 같은 줄을
-   써야 목록에서 본 것과 눌러 들어간 쪽이 어긋나지 않는다. */
-function blogMeta(post) {
-  return `<div class="blog-meta">${esc(fmtDateKo(post.date))}` +
+/* 글 머리에 서는 한 줄. 목록과 본문 쪽이 같은 줄을 써야 목록에서 본 것과
+   눌러 들어간 쪽이 어긋나지 않는다. */
+function postMeta(post) {
+  return '<div class="rb-meta"><span class="rb-who">🧀 치즈감자</span>' +
+    ` <span class="dot">·</span> ${timeTag(post.date)}` +
     (post.updated && post.updated !== post.date
-      ? ` <span class="dot">·</span> 고침 ${esc(fmtDateKo(post.updated))}` : '') +
-    ` <span class="dot">·</span> ${readMins(post.body)}분 분량</div>`;
+      ? ` <span class="dot">·</span> 고침 ${timeTag(post.updated)}` : '') +
+    '</div>';
 }
 
-/* 목록 카드 하나. 목록 쪽과 글 아래 「이어서 읽기」가 같은 모양을 쓴다. */
-const blogCard = (p) =>
-  `<li><a class="blog-card" href="/blog/${esc(p.id)}.html">` +
-    blogMeta(p) +
-    `<h2>${esc(p.title)}</h2>` +
-    `<p>${esc(p.excerpt)}</p>` +
-    tagList(p.tags) +
-  `</a></li>`;
+/* 목록 줄 하나. 목록 쪽과 글 아래 「이어서 읽기」가 같은 모양을 쓴다. */
+const postRow = (p) =>
+  `<li class="rb-post">` +
+    `<div class="rb-rail"><b>${readMins(p.body)}</b><span>분</span></div>` +
+    `<div class="rb-body">` +
+      postMeta(p) +
+      `<h2><a href="/blog/${esc(p.id)}.html">${esc(p.title)}</a></h2>` +
+      `<p class="rb-ex">${esc(p.excerpt)}</p>` +
+      (p.tags && p.tags.length ? `<div class="rb-tail">${flair(p.tags)}</div>` : '') +
+    `</div>` +
+  `</li>`;
 
 /* 같은 갈래를 하나라도 나눠 가진 글을 먼저, 그다음 최신 순으로 채운다.
    앞뒤 글(.near)로 이미 걸어 둔 것은 뺀다 — 같은 쪽에 같은 글이 두 번
@@ -994,10 +1082,12 @@ function blogPage(post, prev, next, related) {
   const body = [
     `<a class="blog-back" href="/blog/">← 블로그</a>`,
     `<nav class="crumb"><a href="/">치즈감자</a> › <a href="/blog/">블로그</a></nav>`,
-    `<h1>${esc(post.title)}</h1>`,
-    blogMeta(post),
-    tagList(post.tags),
-    `<div class="blog-article">${post.body}</div>`,
+    `<article class="rb-card">`,
+      postMeta(post),
+      `<h1>${esc(post.title)}</h1>`,
+      flair(post.tags),
+      `<div class="blog-article">${post.body}</div>`,
+    `</article>`,
     `<a class="cta" href="/#learn">한국어 배우러 가기<span>Free Korean lessons, no sign-up needed</span></a>`,
     /* 앞뒤 글. 배열은 최신이 앞이므로 「이전 글」은 한 칸 뒤(더 오래된 것),
        「다음 글」은 한 칸 앞(더 새것)이다. 표현·레슨 쪽과 같은 .near 를 쓴다. */
@@ -1006,9 +1096,10 @@ function blogPage(post, prev, next, related) {
       (next ? `<a href="/blog/${esc(next.id)}.html"><b>다음 글 →</b>${esc(next.title)}</a>` : '') +
       '</div>' : '',
     related.length
-      ? `<h2 class="blog-more">같은 갈래의 글</h2>` +
-        '<ul class="blog-list">' + related.map(blogCard).join('') + '</ul>'
+      ? `<h2 class="rb-next">같은 갈래의 글</h2>` +
+        '<ul class="rb-feed">' + related.map(postRow).join('') + '</ul>'
       : '',
+    AGO_JS,
   ].filter(Boolean).join('\n');
 
   const jsonld = [
@@ -1040,22 +1131,73 @@ function blogPage(post, prev, next, related) {
   return page({ url: `/blog/${post.id}.html`, title, desc, body, jsonld, extraCss: BLOG_CSS, extraHead });
 }
 
+/* 오른쪽 기둥에 세우는 것. 레딧으로 치면 소개·규칙 상자 자리다.
+   **셀 수 있는 것만 센다** — 방문자 수처럼 우리가 모르는 숫자는 안 적는다. */
+function blogSide(posts) {
+  const tags = new Map();
+  for (const p of posts) for (const t of (p.tags || [])) tags.set(t, (tags.get(t) || 0) + 1);
+  const oldest = posts[posts.length - 1];
+
+  /* 규칙 상자. 레딧의 「규칙」 자리인데, 남에게 거는 규칙이 아니라
+     이 블로그가 스스로 지키는 것을 적는다. 실제로 글을 쓸 때 지킨 것만
+     적는다 — 안 지킬 것을 걸어 두면 그게 제일 나쁘다. */
+  const rules = [
+    '광고를 쓰지 않는다. 사이트에 실제로 있는 것만 적는다.',
+    '연습 문항은 기출이 아니라 창작이라는 것을 그때마다 밝힌다.',
+    '자주 바뀌는 제도(접수·비자 기준)는 숫자를 옮겨 적지 않고 공식 안내로 보낸다.',
+    '없는 쪽은 걸지 않는다. 글 안의 링크는 전부 실재하는 주소다.',
+  ];
+
+  return [
+    '<aside class="rb-side">',
+    '<section class="rb-box">',
+      '<h2>블로그 정보</h2>',
+      `<div class="rb-stats">` +
+        `<div><b>${posts.length}</b><span>올린 글</span></div>` +
+        `<div><b>${tags.size}</b><span>갈래</span></div>` +
+        (oldest ? `<div><b>${esc(oldest.date.slice(0, 4))}.${esc(String(+oldest.date.slice(5, 7)))}</b><span>시작</span></div>` : '') +
+      `</div>`,
+      '<div class="in"><p>한국어를 배우다 막히는 자리에 대해 씁니다. 문법 하나를 ' +
+        '가려 쓰는 법, TOPIK 을 어디까지 준비할지 같은 것들입니다.</p>' +
+        '<p>Notes on learning Korean — grammar, TOPIK, and what actually gets you unstuck.</p></div>',
+    '</section>',
+    tags.size ? '<section class="rb-box"><h2>갈래</h2><div class="in">' +
+      '<ul class="rb-flair">' + [...tags.entries()]
+        .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0], 'ko'))
+        .map(([t, n]) => `<li>${esc(t)} ${n}</li>`).join('') +
+      '</ul></div></section>' : '',
+    '<section class="rb-box"><h2>이 블로그가 지키는 것</h2><ol class="rb-rules">' +
+      rules.map((r) => `<li>${esc(r)}</li>`).join('') + '</ol></section>',
+    '<section class="rb-box"><h2>둘러보기</h2><ul class="rb-links">' +
+      '<li><a href="/course/">코스 21개 · 레슨 82개</a></li>' +
+      '<li><a href="/sentence/">문법 표현 290개</a></li>' +
+      '<li><a href="/compare/">헷갈리는 표현 견주기 73갈래</a></li>' +
+      '<li><a href="/topik-reading/">TOPIK 읽기 연습</a></li>' +
+      (posts.length ? '<li><a href="/blog/rss.xml">RSS 로 새 글 받기</a></li>' : '') +
+      '</ul></section>',
+    '</aside>',
+  ].filter(Boolean).join('\n');
+}
+
 function blogHub(posts) {
-  const list = posts.length
-    ? '<ul class="blog-list">' + posts.map(blogCard).join('') + '</ul>'
-    : '<div class="blog-empty"><span class="emoji">🧀</span>아직 올린 글이 없습니다 — 곧 첫 글을 올릴게요.<br>No posts yet — the first one is coming soon.</div>';
+  const feed = posts.length
+    ? '<ul class="rb-feed">' + posts.map(postRow).join('') + '</ul>'
+    : '<div class="rb-empty"><span class="emoji">🧀</span>아직 올린 글이 없습니다 — 곧 첫 글을 올릴게요.<br>No posts yet — the first one is coming soon.</div>';
 
   const body = [
     '<nav class="crumb"><a href="/">치즈감자</a> › 블로그</nav>',
-    '<h1>블로그</h1>',
-    '<p class="lead">한국어 공부, 문법, TOPIK 준비에 관한 글들입니다.<br>' +
-      'Notes on learning Korean, grammar, and TOPIK prep.</p>',
-    list,
-    posts.length
-      ? '<p class="blog-feed">새 글을 구독하려면 <a href="/blog/rss.xml">RSS</a>. ' +
-        '<span class="dot">·</span> Subscribe by <a href="/blog/rss.xml">RSS</a>.</p>'
-      : '',
-  ].filter(Boolean).join('\n');
+    '<header class="rb-banner">',
+      '<div class="rb-avatar" aria-hidden="true">🧀</div>',
+      '<div class="rb-id"><h1>치즈감자 블로그</h1>' +
+        '<p>한국어 공부, 문법, TOPIK 준비에 관한 글 · Notes on learning Korean, grammar, and TOPIK prep</p></div>',
+      '<a class="rb-join" href="/#learn">한국어 배우러 가기</a>',
+    '</header>',
+    '<div class="rb-cols">',
+      `<main>${feed}</main>`,
+      blogSide(posts),
+    '</div>',
+    AGO_JS,
+  ].join('\n');
 
   return page({
     url: '/blog/', kind: 'website',
@@ -1081,7 +1223,7 @@ function blogHub(posts) {
         })),
       }] : []),
     ],
-    extraCss: BLOG_CSS,
+    extraCss: BLOG_CSS + BLOG_HUB_CSS,
     extraHead: `\n<link rel="alternate" type="application/rss+xml" title="치즈감자 블로그" href="${SITE}/blog/rss.xml">`,
   });
 }
