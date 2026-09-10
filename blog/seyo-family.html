@@ -128,12 +128,18 @@ h2{font-size:15px;margin:32px 0 10px;color:var(--dim);letter-spacing:.02em}
   display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
 .rb-tail{display:flex;align-items:center;gap:7px;flex-wrap:wrap;margin:10px 0 0}
 
-/* 갈래표. 누르는 데가 아니라 이름표다 — 글이 다섯 편인데 갈래마다 쪽을
-   따로 내면 글 한 편짜리 쪽이 주소만 늘린다. 갈래는 「같은 갈래의 글」을
-   고르는 데 쓰고(build-pages.mjs 의 relatedPosts), 화면에는 이름만 낸다. */
+/* 갈래표. 글이 열여섯 편으로 늘면서 갈래마다 쪽을 두는 값이 생겼다 —
+   /blog/tag/<slug>.html 로 걸러 볼 수 있다(build-pages.mjs 의 blogTagPage).
+   li 에 두던 배경·테두리·둥근 모서리는 그대로 두고, 안의 a 가 그 자리를
+   꽉 채워 눌리게 한다. */
 .rb-flair{display:flex;flex-wrap:wrap;gap:6px;padding:0;margin:0;list-style:none}
 .rb-flair li{background:var(--soft);border:1px solid var(--rb-hair);border-radius:999px;
-  padding:2px 10px;font-size:11.5px;font-weight:700;color:var(--dim);letter-spacing:.01em}
+  font-size:11.5px;font-weight:700;letter-spacing:.01em;overflow:hidden}
+.rb-flair a{display:block;padding:2px 10px;color:var(--dim);text-decoration:none}
+.rb-flair a:hover{color:var(--ink);background:var(--rb-deck)}
+.rb-flair li.on{background:var(--ink);border-color:var(--ink)}
+.rb-flair li.on a{color:var(--bg)}
+.rb-flair li.on a:hover{background:transparent}
 
 /* ── 오른쪽 기둥 ── */
 .rb-side{display:flex;flex-direction:column;gap:12px;min-width:0}
@@ -348,7 +354,7 @@ h1,.rb-id h1,.rb-card h1,.rb-post h2,.blog-article h2{font-family:'Gowun Batang'
 <article class="rb-card">
 <div class="rb-byline"><span class="rb-avatar-sm" aria-hidden="true">🧀</span><div class="rb-byline-info"><div class="rb-byline-name">치즈감자</div><div class="rb-byline-role">한국어를 가르치는 사람 · <time datetime="2026-09-13">2026년 9월 13일</time></div></div></div>
 <h1>시키기, 말리기, 허락하기 — -세요 식구들</h1>
-<ul class="rb-flair"><li>문법</li><li>초급</li></ul>
+<ul class="rb-flair"><li><a href="/blog/tag/grammar.html">문법</a></li><li><a href="/blog/tag/beginner.html">초급</a></li></ul>
 <div class="rb-share"><button type="button" class="share-btn" data-share><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>공유하기</button><button type="button" class="share-btn" data-copy><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>링크 복사</button><span class="share-toast" aria-live="polite"></span></div>
 <div class="blog-article"><p>한국어를 배우면 「-세요」부터 배웁니다. 그런데 정중하게 시키고, 말리고, 허락하고, 막는 말은 전부 다른 표현입니다. 모양이 비슷해서 자주 섞입니다.</p>
 <p>넷을 한자리에 모아 놓고 언제 쓰는지만 짚어 봅니다.</p>
@@ -377,7 +383,7 @@ h1,.rb-id h1,.rb-card h1,.rb-post h2,.blog-article h2{font-family:'Gowun Batang'
 </article>
 <a class="cta" href="/#learn">한국어 배우러 가기<span>Free Korean lessons, no sign-up needed</span></a>
 <div class="near"><a href="/blog/an-vs-mot.html"><b>← 이전 글</b>안 하는지 못 하는지 — 부정 표현 구분</a><a href="/blog/neunde-three-ways.html"><b>다음 글 →</b>-는데 하나로 세 가지를 한다</a></div>
-<h2 class="rb-next">같은 갈래의 글</h2><ul class="rb-feed"><li class="rb-post"><div class="rb-rail"><b>2</b><span>분</span></div><div class="rb-body"><div class="rb-meta"><span class="rb-who">🧀 치즈감자</span> <span class="dot">·</span> <time datetime="2026-09-15">2026년 9월 15일</time></div><h2><a href="/blog/wanting-in-korean.html">원하는 걸 말하는 법 — 고 싶다와 았으면 좋겠다</a></h2><p class="rb-ex">둘 다 「원한다」는 뜻이지만 내가 직접 할 수 있는 일인지, 내 힘 밖의 일인지에 따라 갈립니다. 남의 바람을 전할 때 쓰는 법도 다릅니다.</p><div class="rb-tail"><ul class="rb-flair"><li>문법</li><li>초급</li></ul></div></div></li><li class="rb-post"><div class="rb-rail"><b>2</b><span>분</span></div><div class="rb-body"><div class="rb-meta"><span class="rb-who">🧀 치즈감자</span> <span class="dot">·</span> <time datetime="2026-09-11">2026년 9월 11일</time></div><h2><a href="/blog/guessing-in-korean.html">짐작해서 말하기 — 겠어요, 거예요, 것 같다</a></h2><p class="rb-ex">「겠어요」·「거예요」·「것 같다」는 모두 짐작을 나타내지만 무엇을 보고 짐작했느냐에 따라 갈립니다. 그 기준을 정리했습니다.</p><div class="rb-tail"><ul class="rb-flair"><li>문법</li><li>초급</li></ul></div></div></li><li class="rb-post"><div class="rb-rail"><b>3</b><span>분</span></div><div class="rb-body"><div class="rb-meta"><span class="rb-who">🧀 치즈감자</span> <span class="dot">·</span> <time datetime="2026-09-10">2026년 9월 10일</time></div><h2><a href="/blog/why-in-korean-aseo-nikka.html">이유를 말하는 세 가지 — 아/어서, (으)니까, 때문에</a></h2><p class="rb-ex">셋 다 「때문에」로 번역되는데 아무 데나 바꿔 쓰면 어색해집니다. 뒤에 무슨 말이 오느냐만 보면 거의 갈립니다.</p><div class="rb-tail"><ul class="rb-flair"><li>문법</li><li>초급</li></ul></div></div></li></ul>
+<h2 class="rb-next">같은 갈래의 글</h2><ul class="rb-feed"><li class="rb-post"><div class="rb-rail"><b>2</b><span>분</span></div><div class="rb-body"><div class="rb-meta"><span class="rb-who">🧀 치즈감자</span> <span class="dot">·</span> <time datetime="2026-09-15">2026년 9월 15일</time></div><h2><a href="/blog/wanting-in-korean.html">원하는 걸 말하는 법 — 고 싶다와 았으면 좋겠다</a></h2><p class="rb-ex">둘 다 「원한다」는 뜻이지만 내가 직접 할 수 있는 일인지, 내 힘 밖의 일인지에 따라 갈립니다. 남의 바람을 전할 때 쓰는 법도 다릅니다.</p><div class="rb-tail"><ul class="rb-flair"><li><a href="/blog/tag/grammar.html">문법</a></li><li><a href="/blog/tag/beginner.html">초급</a></li></ul></div></div></li><li class="rb-post"><div class="rb-rail"><b>2</b><span>분</span></div><div class="rb-body"><div class="rb-meta"><span class="rb-who">🧀 치즈감자</span> <span class="dot">·</span> <time datetime="2026-09-11">2026년 9월 11일</time></div><h2><a href="/blog/guessing-in-korean.html">짐작해서 말하기 — 겠어요, 거예요, 것 같다</a></h2><p class="rb-ex">「겠어요」·「거예요」·「것 같다」는 모두 짐작을 나타내지만 무엇을 보고 짐작했느냐에 따라 갈립니다. 그 기준을 정리했습니다.</p><div class="rb-tail"><ul class="rb-flair"><li><a href="/blog/tag/grammar.html">문법</a></li><li><a href="/blog/tag/beginner.html">초급</a></li></ul></div></div></li><li class="rb-post"><div class="rb-rail"><b>3</b><span>분</span></div><div class="rb-body"><div class="rb-meta"><span class="rb-who">🧀 치즈감자</span> <span class="dot">·</span> <time datetime="2026-09-10">2026년 9월 10일</time></div><h2><a href="/blog/why-in-korean-aseo-nikka.html">이유를 말하는 세 가지 — 아/어서, (으)니까, 때문에</a></h2><p class="rb-ex">셋 다 「때문에」로 번역되는데 아무 데나 바꿔 쓰면 어색해집니다. 뒤에 무슨 말이 오느냐만 보면 거의 갈립니다.</p><div class="rb-tail"><ul class="rb-flair"><li><a href="/blog/tag/grammar.html">문법</a></li><li><a href="/blog/tag/beginner.html">초급</a></li></ul></div></div></li></ul>
 <h2 class="rb-next">댓글</h2>
 <script src="https://giscus.app/client.js"
   data-repo="junsanghan1225-blip/cheesepotato-landing"

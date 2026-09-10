@@ -988,12 +988,18 @@ const BLOG_CSS = `
   display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
 .rb-tail{display:flex;align-items:center;gap:7px;flex-wrap:wrap;margin:10px 0 0}
 
-/* 갈래표. 누르는 데가 아니라 이름표다 — 글이 다섯 편인데 갈래마다 쪽을
-   따로 내면 글 한 편짜리 쪽이 주소만 늘린다. 갈래는 「같은 갈래의 글」을
-   고르는 데 쓰고(build-pages.mjs 의 relatedPosts), 화면에는 이름만 낸다. */
+/* 갈래표. 글이 열여섯 편으로 늘면서 갈래마다 쪽을 두는 값이 생겼다 —
+   /blog/tag/<slug>.html 로 걸러 볼 수 있다(build-pages.mjs 의 blogTagPage).
+   li 에 두던 배경·테두리·둥근 모서리는 그대로 두고, 안의 a 가 그 자리를
+   꽉 채워 눌리게 한다. */
 .rb-flair{display:flex;flex-wrap:wrap;gap:6px;padding:0;margin:0;list-style:none}
 .rb-flair li{background:var(--soft);border:1px solid var(--rb-hair);border-radius:999px;
-  padding:2px 10px;font-size:11.5px;font-weight:700;color:var(--dim);letter-spacing:.01em}
+  font-size:11.5px;font-weight:700;letter-spacing:.01em;overflow:hidden}
+.rb-flair a{display:block;padding:2px 10px;color:var(--dim);text-decoration:none}
+.rb-flair a:hover{color:var(--ink);background:var(--rb-deck)}
+.rb-flair li.on{background:var(--ink);border-color:var(--ink)}
+.rb-flair li.on a{color:var(--bg)}
+.rb-flair li.on a:hover{background:transparent}
 
 /* ── 오른쪽 기둥 ── */
 .rb-side{display:flex;flex-direction:column;gap:12px;min-width:0}
@@ -1438,9 +1444,28 @@ const GISCUS_SCRIPT = `
   async>
 </script>`.trim();
 
+/* 갈래 이름 -> 주소에 쓸 영문 조각. /blog/tag/<slug>.html 이 된다.
+   없는 갈래를 쓰면 굽다가 멈춘다 — 조용히 로마자로 바꾸면 주소가
+   제멋대로 생긴다. 새 갈래를 쓰려면 여기에 먼저 하나 추가한다. */
+const TAG_SLUGS = {
+  '문법': 'grammar',
+  '초급': 'beginner',
+  '중급': 'intermediate',
+  'TOPIK': 'topik',
+  '준비': 'prep',
+  '한글': 'hangul',
+  '회화': 'conversation',
+};
+function tagSlug(tag) {
+  const slug = TAG_SLUGS[tag];
+  if (!slug) throw new Error(`갈래 "${tag}" 의 주소 조각이 TAG_SLUGS 에 없다 — tools/build-pages.mjs 에 추가할 것`);
+  return slug;
+}
+
 const timeTag = (iso) => `<time datetime="${esc(iso)}">${esc(fmtDateKo(iso))}</time>`;
 const flair = (tags) => (tags && tags.length)
-  ? '<ul class="rb-flair">' + tags.map((t) => `<li>${esc(t)}</li>`).join('') + '</ul>'
+  ? '<ul class="rb-flair">' + tags.map((t) =>
+      `<li><a href="/blog/tag/${tagSlug(t)}.html">${esc(t)}</a></li>`).join('') + '</ul>'
   : '';
 
 /* 글 머리에 서는 한 줄. 목록과 본문 쪽이 같은 줄을 써야 목록에서 본 것과
@@ -1555,7 +1580,7 @@ function blogPage(post, prev, next, related) {
 
 /* 오른쪽 기둥에 세우는 것. 레딧으로 치면 소개·규칙 상자 자리다.
    **셀 수 있는 것만 센다** — 방문자 수처럼 우리가 모르는 숫자는 안 적는다. */
-function blogSide(posts) {
+function blogSide(posts, activeTag) {
   const tags = new Map();
   for (const p of posts) for (const t of (p.tags || [])) tags.set(t, (tags.get(t) || 0) + 1);
   const oldest = posts[posts.length - 1];
@@ -1585,7 +1610,8 @@ function blogSide(posts) {
     tags.size ? '<section class="rb-box"><h2>갈래</h2><div class="in">' +
       '<ul class="rb-flair">' + [...tags.entries()]
         .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0], 'ko'))
-        .map(([t, n]) => `<li>${esc(t)} ${n}</li>`).join('') +
+        .map(([t, n]) => `<li${t === activeTag ? ' class="on"' : ''}>` +
+          `<a href="/blog/tag/${tagSlug(t)}.html">${esc(t)} ${n}</a></li>`).join('') +
       '</ul></div></section>' : '',
     '<section class="rb-box"><h2>이 블로그가 지키는 것</h2><ol class="rb-rules">' +
       rules.map((r) => `<li>${esc(r)}</li>`).join('') + '</ol></section>',
@@ -1643,6 +1669,58 @@ function blogHub(posts) {
           description: p.excerpt,
         })),
       }] : []),
+    ],
+    extraCss: BLOG_CSS + BLOG_HUB_CSS,
+    extraHead: `\n<link rel="alternate" type="application/rss+xml" title="치즈감자 블로그" href="${SITE}/blog/rss.xml">`,
+  });
+}
+
+/* 갈래 쪽 — /blog/tag/<slug>.html. 목록(blogHub)과 같은 틀을 쓰되 본문
+   목록만 그 갈래로 좁힌다. 오른쪽 기둥은 블로그 전체 정보를 그대로
+   보여주고(blogSide 는 언제나 전체 글로 통계를 낸다), 지금 보는 갈래만
+   .on 으로 강조한다 — 다른 갈래로 바로 옮겨 갈 수 있어야 한다. */
+function blogTagPage(tag, posts, allPosts) {
+  const slug = tagSlug(tag);
+  const feed = '<ul class="rb-feed">' + posts.map(postRow).join('') + '</ul>';
+
+  const body = [
+    `<nav class="crumb"><a href="/">치즈감자</a> › <a href="/blog/">블로그</a> › ${esc(tag)}</nav>`,
+    '<header class="rb-banner">',
+      '<div class="rb-avatar" aria-hidden="true">🧀</div>',
+      `<div class="rb-id"><h1>${esc(tag)} 글</h1>` +
+        `<p>치즈감자 블로그에서 「${esc(tag)}」로 묶은 글 ${posts.length}편입니다.</p></div>`,
+      '<a class="rb-join" href="/blog/">전체 글 보기</a>',
+    '</header>',
+    '<div class="rb-cols">',
+      `<main>${feed}</main>`,
+      blogSide(allPosts, tag),
+    '</div>',
+    AGO_JS,
+  ].join('\n');
+
+  return page({
+    url: `/blog/tag/${slug}.html`, kind: 'website',
+    title: `${tag} 글 | 치즈감자 블로그`,
+    desc: clip(`치즈감자 블로그에서 「${tag}」로 묶은 글 ${posts.length}편입니다.`),
+    body,
+    jsonld: [
+      crumbLd([['치즈감자', '/'], ['블로그', '/blog/'], [tag, null]]),
+      {
+        '@context': 'https://schema.org',
+        '@type': 'Blog',
+        '@id': `${SITE}/blog/tag/${slug}.html`,
+        name: `치즈감자 블로그 — ${tag}`,
+        inLanguage: 'ko',
+        publisher: { '@type': 'Organization', name: '치즈감자', url: SITE },
+        blogPost: posts.map((p) => ({
+          '@type': 'BlogPosting',
+          '@id': `${SITE}/blog/${p.id}.html`,
+          headline: p.title,
+          datePublished: p.date,
+          dateModified: p.updated || p.date,
+          description: p.excerpt,
+        })),
+      },
     ],
     extraCss: BLOG_CSS + BLOG_HUB_CSS,
     extraHead: `\n<link rel="alternate" type="application/rss+xml" title="치즈감자 블로그" href="${SITE}/blog/rss.xml">`,
@@ -1863,6 +1941,22 @@ BLOG_POSTS.forEach((post, i) => {
 writeFileSync(join(OUT_BLOG, 'index.html'), blogHub(BLOG_POSTS));
 urls.push({ loc: '/blog/', freq: 'weekly', pri: '0.6' });
 
+/* 갈래 쪽. BLOG_POSTS 순서(최신이 앞)를 그대로 따라가며 갈래별로 묶으므로
+   갈래 쪽 목록도 최신순으로 나온다. */
+const TAG_POSTS = new Map();
+for (const p of BLOG_POSTS) for (const t of (p.tags || [])) {
+  if (!TAG_POSTS.has(t)) TAG_POSTS.set(t, []);
+  TAG_POSTS.get(t).push(p);
+}
+let nBT = 0;
+if (TAG_POSTS.size) mkdirSync(join(OUT_BLOG, 'tag'), { recursive: true });
+for (const [tag, posts] of TAG_POSTS) {
+  const slug = tagSlug(tag);
+  writeFileSync(join(OUT_BLOG, 'tag', `${slug}.html`), blogTagPage(tag, posts, BLOG_POSTS));
+  urls.push({ loc: `/blog/tag/${slug}.html`, freq: 'weekly', pri: '0.5' });
+  nBT++;
+}
+
 /* RSS 는 sitemap 에 안 넣는다. 사람이 읽는 쪽이 아니라 구독기가 읽는
    파일이라 검색 결과에 뜰 일이 없고, 넣으면 중복된 내용으로 잡힌다. */
 writeFileSync(join(OUT_BLOG, 'rss.xml'), blogRss(BLOG_POSTS));
@@ -1880,5 +1974,5 @@ console.log(`레슨 ${nL}쪽 → lesson/`);
 console.log(`TOPIK 쓰기 ${nW}쪽 + 목록 1쪽 → topik-writing/`);
 console.log(`TOPIK 읽기 ${nR}쪽 + 목록 1쪽 → topik-reading/`);
 console.log(`TOPIK 듣기 ${nTL}쪽 + 목록 1쪽 → topik-listening/`);
-console.log(`블로그 ${nB}쪽 + 목록 1쪽 + rss.xml → blog/`);
+console.log(`블로그 ${nB}쪽 + 목록 1쪽 + 갈래 ${nBT}쪽 + rss.xml → blog/`);
 console.log(`sitemap.xml 에 주소 ${urls.length}개.`);
