@@ -1189,6 +1189,13 @@ function askShow(message, cancelLabel) {
 const confirmAsync = (message) => askShow(message, ptLang === 'en' ? 'Cancel' : '취소');
 // 알리기: "확인" 하나뿐이다. 돌려주는 값은 안 쓴다.
 const alertAsync = (message) => askShow(message, null);
+/* app.module.js 는 <script type="module"> 이라 이 classic 스크립트의
+   const 를 못 본다(var·함수 선언과 달리 window 에 안 실린다) — 그런데
+   app.module.js 안의 지우기 확인, 파일 가져오기 안내 등 많은 곳이
+   confirmAsync·alertAsync 를 그대로 부른다. window 에 올려 둬야
+   그 모듈에서도 같은 이름으로 찾을 수 있다. */
+window.confirmAsync = confirmAsync;
+window.alertAsync = alertAsync;
 
 askCancel.addEventListener('click', () => askDlg.close('cancel'));
 // 카드 바깥(배경)을 눌러도 취소와 같다. 카드 자체를 누른 클릭은 폼까지

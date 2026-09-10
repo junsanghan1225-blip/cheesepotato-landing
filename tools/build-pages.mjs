@@ -634,6 +634,16 @@ function twPage(it) {
     it.tasks ? '<h2>다뤄야 할 것 · Must cover</h2><ul class="pts">' +
       it.tasks.map((x) => `<li>${esc(x)}</li>`).join('') + '</ul>' : '',
     it.model ? `<h2>모범답안 · Model answer</h2><div class="ex">${esc(it.model).replace(/\n/g, '<br>')}</div>` : '',
+    /* 51·52번(빈칸형)은 model 대신 blanks 배열로 답을 담는다 — 빈칸마다
+       정답이 하나가 아니라 2~3개 표현이 모두 맞으므로, 화면(twReveal)과
+       똑같이 빈칸별 모범답안 목록 + 채점 포인트로 보여 준다. 이게 빠져
+       있으면 meta description 의 "모범답안이 함께 있습니다"가 51·52번
+       쪽에서는 거짓말이 된다(실제로 겪은 문제 — ChatGPT가 26쪽을 다
+       열어 보고 이 간극을 짚어냈다). */
+    it.blanks ? it.blanks.map((b) =>
+      `<h2>${esc(b.mark)} 모범답안 · Model answers</h2><ul class="pts">` +
+      b.answers.map((a) => `<li>${esc(a)}</li>`).join('') + '</ul>' +
+      `<p class="sub">${esc(b.point)}</p>`).join('\n') : '',
     it.points ? '<h2>무엇을 보는가 · What is scored</h2><div class="facts">' +
       [['내용 및 과제 수행', it.points.content], ['글의 전개 구조', it.points.structure],
        ['언어 사용', it.points.language]].map(([k, v]) =>
