@@ -28,11 +28,11 @@
    파일을 나눈 이유는 문법이 계속 늘어날 예정이라 한 파일에 두면
    고칠 곳을 찾기 어려워지기 때문이다.
    + 세분화된 뉘앙스 차이 문법 (초·중·고급 세부 코스)은 courses-grammar-detailed.js 에서 불러온다. */
-import { GRAMMAR_COURSES } from './courses-grammar.js?v=3f3aa3a8';
-import { DETAILED_GRAMMAR_COURSES } from './courses-grammar-detailed.js?v=3f3aa3a8';
-import { BEGINNER_GRAMMAR_COURSES } from './courses-grammar-beginner.js?v=3f3aa3a8';
+import { GRAMMAR_COURSES } from './courses-grammar.js?v=2854ada8';
+import { DETAILED_GRAMMAR_COURSES } from './courses-grammar-detailed.js?v=2854ada8';
+import { BEGINNER_GRAMMAR_COURSES } from './courses-grammar-beginner.js?v=2854ada8';
 // 초급 1단계 — 설계는 docs/curriculum-beginner.md
-import { BEGINNER_STAGE1_COURSES } from './courses-beginner-stage1.js?v=3f3aa3a8';
+import { BEGINNER_STAGE1_COURSES } from './courses-beginner-stage1.js?v=2854ada8';
 
 export const COURSES = [
 
@@ -44,16 +44,17 @@ export const COURSES = [
 {
   id: 'hangul',
   emoji: '가',
-  title: 'Read Korean',
-  tagline: 'The alphabet, from zero to reading real words.',
-  blurb: 'Hangul was invented on purpose, in one lifetime, to be learnable in a morning. Most people can read Korean out loud after this course — even without knowing what the words mean yet.',
+  title: { ko:'한글 읽기', en:'Read Korean' },
+  tagline: { ko:'자음·모음부터 실제 단어 읽기까지.', en:'The alphabet, from zero to reading real words.' },
+  blurb: { ko:'한글은 하루 만에 익힐 수 있도록 처음부터 설계된 글자입니다. 이 코스를 마치면 뜻은 몰라도 한국어를 소리 내어 읽을 수 있게 됩니다.',
+           en:'Hangul was invented on purpose, in one lifetime, to be learnable in a morning. Most people can read Korean out loud after this course — even without knowing what the words mean yet.' },
   level: 'Start here',
   lessons: [
 
   /* ── 1 ─────────────────────────────────────────────────── */
   {
     id: 'hangul-01',
-    title: 'An alphabet someone invented',
+    title: { ko:'누군가 만든 글자', en:'An alphabet someone invented' },
     minutes: 6,
     blocks: [
       { t:'text', md:'Most alphabets grew slowly over centuries. **Hangul did not.** It was designed in the 1440s, by a committee, with a written explanation of *why* each letter looks the way it does.' },
@@ -90,7 +91,7 @@ export const COURSES = [
   /* ── 2 ─────────────────────────────────────────────────── */
   {
     id: 'hangul-02',
-    title: 'Six vowels, two strokes',
+    title: { ko:'모음 여섯 개, 획 두 개', en:'Six vowels, two strokes' },
     minutes: 7,
     blocks: [
       { t:'text', md:'Vowels are built from three pieces: a **long line**, and a **short mark** that can sit on either side of it.' },
@@ -131,7 +132,7 @@ export const COURSES = [
   /* ── 3 ─────────────────────────────────────────────────── */
   {
     id: 'hangul-03',
-    title: 'Letters become blocks',
+    title: { ko:'글자가 블록이 되다', en:'Letters become blocks' },
     minutes: 8,
     blocks: [
       { t:'text', md:'Here is the part that makes Korean look hard and is actually the part that makes it easy.' },
@@ -174,7 +175,7 @@ export const COURSES = [
   /* ── 4 ─────────────────────────────────────────────────── */
   {
     id: 'hangul-04',
-    title: 'Five more consonants',
+    title: { ko:'자음 다섯 개 더', en:'Five more consonants' },
     minutes: 7,
     blocks: [
       { t:'text', md:'You now have enough to read a lot. Five more and you have almost the whole set.' },
@@ -214,7 +215,7 @@ export const COURSES = [
   /* ── 5 ─────────────────────────────────────────────────── */
   {
     id: 'hangul-05',
-    title: 'Adding a stroke, adding a y',
+    title: { ko:'획 하나, y 발음 하나', en:'Adding a stroke, adding a y' },
     minutes: 6,
     blocks: [
       { t:'text', md:'Remember the short mark on each vowel? **Double the mark and you add a “y” in front.** No new shapes to memorise.' },
@@ -250,7 +251,7 @@ export const COURSES = [
   /* ── 6 ─────────────────────────────────────────────────── */
   {
     id: 'hangul-06',
-    title: 'Harder and tenser',
+    title: { ko:'거센소리와 된소리', en:'Harder and tenser' },
     minutes: 7,
     blocks: [
       { t:'text', md:'Korean splits consonants three ways where English has two. This is the one place English speakers need real practice.' },
@@ -286,7 +287,7 @@ export const COURSES = [
   /* ── 7 ─────────────────────────────────────────────────── */
   {
     id: 'hangul-07',
-    title: 'The letter underneath',
+    title: { ko:'받침, 밑에 오는 글자', en:'The letter underneath' },
     minutes: 8,
     blocks: [
       { t:'text', md:'So far every block has been consonant + vowel. But a syllable can end in a consonant too, and it goes **underneath**. Korean calls it 받침 (*batchim*) — “the support”.' },
@@ -331,7 +332,7 @@ export const COURSES = [
   /* ── 8 ─────────────────────────────────────────────────── */
   {
     id: 'hangul-08',
-    title: 'Sounds that slide',
+    title: { ko:'소리가 넘어갈 때', en:'Sounds that slide' },
     minutes: 7,
     blocks: [
       { t:'text', md:'One last thing and you can read anything. When a block ends in a consonant and the **next block starts with ㅇ** (the silent placeholder), that consonant slides over into the empty seat.' },
@@ -368,7 +369,7 @@ export const COURSES = [
   /* ── 9 ─────────────────────────────────────────────────── */
   {
     id: 'hangul-09',
-    title: 'Read something real',
+    title: { ko:'진짜 글자 읽어보기', en:'Read something real' },
     minutes: 8,
     blocks: [
       { t:'text', md:'No new letters. Everything below uses only what you already know — and these are words you will actually meet on your first day in Korea.' },
@@ -402,7 +403,7 @@ export const COURSES = [
   /* ── 10 ────────────────────────────────────────────────── */
   {
     id: 'hangul-10',
-    title: 'Proof',
+    title: { ko:'증명', en:'Proof' },
     minutes: 6,
     blocks: [
       { t:'text', md:'A short test with no new material. If you get through this, you can read Korean out loud — and that was supposed to take months.' },
@@ -445,16 +446,17 @@ export const COURSES = [
 {
   id: 'first-words',
   emoji: '말',
-  title: 'First Words',
-  tagline: 'Enough Korean to get through a day.',
-  blurb: 'Greetings, ordering, prices, directions. Every sentence here is one you will use in your first week — said the polite way that works with anyone, anywhere.',
+  title: { ko:'첫 마디', en:'First Words' },
+  tagline: { ko:'하루를 버틸 만큼의 한국어.', en:'Enough Korean to get through a day.' },
+  blurb: { ko:'인사, 주문, 가격, 길찾기. 여기 나오는 문장은 전부 첫 주에 바로 쓰게 될 말이고, 누구에게나 통하는 존댓말로 되어 있습니다.',
+           en:'Greetings, ordering, prices, directions. Every sentence here is one you will use in your first week — said the polite way that works with anyone, anywhere.' },
   level: 'After Hangul',
   needs: 'hangul',
   lessons: [
 
   {
     id: 'fw-01',
-    title: 'Hello, thank you, sorry',
+    title: { ko:'안녕하세요, 감사합니다, 죄송합니다', en:'Hello, thank you, sorry' },
     minutes: 6,
     blocks: [
       { t:'text', md:'Three phrases carry an astonishing amount of weight in Korea. Get these right and people will help you with the rest.' },
@@ -481,7 +483,7 @@ export const COURSES = [
 
   {
     id: 'fw-02',
-    title: 'I am —',
+    title: { ko:'저는 ~예요', en:'I am —' },
     minutes: 7,
     blocks: [
       { t:'text', md:'Korean sentences end with the verb, and the most useful verb is **“to be”**. In polite everyday speech it is 예요 / 이에요.' },
@@ -515,7 +517,7 @@ export const COURSES = [
 
   {
     id: 'fw-03',
-    title: 'What is this?',
+    title: { ko:'이거 뭐예요?', en:'What is this?' },
     minutes: 6,
     blocks: [
       { t:'text', md:'The single most useful question when you cannot read a menu.' },
@@ -543,7 +545,7 @@ export const COURSES = [
 
   {
     id: 'fw-04',
-    title: 'Numbers you can survive on',
+    title: { ko:'생존 숫자', en:'Numbers you can survive on' },
     minutes: 8,
     blocks: [
       { t:'text', md:'Korean has **two** number systems. That sounds terrible and is actually fine, because they do different jobs and you can learn one at a time.' },
@@ -576,7 +578,7 @@ export const COURSES = [
 
   {
     id: 'fw-05',
-    title: 'How much? — buying things',
+    title: { ko:'얼마예요? — 물건 사기', en:'How much? — buying things' },
     minutes: 7,
     blocks: [
       { t:'text', md:'Two phrases and a number, and you can shop anywhere in the country.' },
@@ -605,7 +607,7 @@ export const COURSES = [
 
   {
     id: 'fw-06',
-    title: 'Where is it?',
+    title: { ko:'어디예요?', en:'Where is it?' },
     minutes: 7,
     blocks: [
       { t:'text', md:'You will need this before you need almost anything else.' },
@@ -635,7 +637,7 @@ export const COURSES = [
 
   {
     id: 'fw-07',
-    title: 'Yes, no, and “a little”',
+    title: { ko:'네, 아니요, 그리고 "조금"', en:'Yes, no, and “a little”' },
     minutes: 6,
     blocks: [
       { t:'text', md:'Answering is where beginners freeze. These four get you through it.' },
@@ -665,7 +667,7 @@ export const COURSES = [
 
   {
     id: 'fw-08',
-    title: 'A whole conversation',
+    title: { ko:'대화 한 편', en:'A whole conversation' },
     minutes: 8,
     blocks: [
       { t:'text', md:'Nothing new. Everything below is something you already learned — put together the way it actually happens in a café.' },

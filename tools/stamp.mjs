@@ -46,6 +46,9 @@ const ASSETS = [
      한쪽만 넣기 쉬운데, 빠진 쪽은 자국이 안 바뀌어 고쳐 올려도 예전
      문항이 그대로 나온다. */
   'topik.js', 'topik2.js', 'topik-writing.js', 'topik-listening.js',
+  // TOPIK 읽기 "문제 풀이 영상" id 목록. 영상 하나 추가할 때마다 이
+  // 파일도 바뀌므로 같이 자국을 찍어야 새 목록을 브라우저가 받는다.
+  'topik-video.js',
   /* 화면 상자 안에서만 쓰는 CSS. index.html 이 갈라 받는다(app-views.css
      머리말 참고) — 자국이 없으면 고쳐 올려도 예전 모양이 그대로 남는다. */
   'app-views.css',

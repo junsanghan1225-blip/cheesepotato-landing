@@ -13,7 +13,10 @@
    어느 날 갑자기 다른 코드가 실려 왔다.
    이제 vendor/ 안에 받아 두고 CSP 로 바깥을 막는다. 버전을 올릴 때는
    tools/vendor.mjs 의 PIN 을 고치고 다시 돌린다. */
-import { createClient } from './vendor/supabase-js.js?v=3f3aa3a8';
+import { createClient } from './vendor/supabase-js.js?v=2854ada8';
+// TOPIK 읽기 "문제 풀이 영상" 목록. 아주 작은 파일이라(id 목록뿐) 다른
+// 자료처럼 갈래를 열 때 지연 로딩하지 않고 그냥 처음부터 받는다.
+import { TQ_VIDEO_IDS } from './topik-video.js?v=2854ada8';
 // 앱(package.json)과 같은 줄기를 쓴다. 갈리면 앱에서는 읽히는 파일이
 // 여기서는 안 읽히는(또는 그 반대) 일이 생긴다.
 /* 엑셀 라이브러리는 422KB — 이 판에서 가장 무거운 조각이다. 그런데 쓰는
@@ -25,13 +28,13 @@ import { createClient } from './vendor/supabase-js.js?v=3f3aa3a8';
    자국(?v=)은 tools/stamp.mjs 가 아래 줄에 알아서 붙인다 — 정적으로 쓰든
    동적으로 쓰든 같은 글자를 찾으므로 바꿔도 그대로 찍힌다. */
 let XLSX = null;
-const needXLSX = async () => (XLSX ??= await import('./vendor/xlsx.js?v=3f3aa3a8'));
+const needXLSX = async () => (XLSX ??= await import('./vendor/xlsx.js?v=2854ada8'));
 // 커리큘럼. 내용과 엔진을 갈라 두면 글을 고치다 화면을 깨지 않는다.
 // 갈래 목록(drawSections)·코스(drawCourses)·문제만 풀기(dqDraw) 를 열 때만
 // 받는다 — 배우기 갈래 목록도 안 본 사람에게 코스 71개 레슨을 다 물릴
 // 까닭이 없다. warmLearn() 이 배우기를 여는 순간 미리 불을 붙여 둔다.
 let COURSES = [], coursesP = null;
-const coursesNeed = () => (coursesP ??= import('./courses.js?v=3f3aa3a8').then((m) => { COURSES = m.COURSES; }));
+const coursesNeed = () => (coursesP ??= import('./courses.js?v=2854ada8').then((m) => { COURSES = m.COURSES; }));
 /* 낱말 뜻풀이 356KB. 예전에는 여기서 통째로 받았다 — tqGloss 가 동기라
    지연 로딩이 안 된다고 보았기 때문이다. 그런데 tqGloss 를 부르는 자리를
    다 세어 보니 여덟 곳이고 **전부 사람이 무언가를 누른 뒤**였다(사전
@@ -42,7 +45,7 @@ const coursesNeed = () => (coursesP ??= import('./courses.js?v=3f3aa3a8').then((
    tqGloss 는 그대로 동기다 — 아직 안 왔으면 빈 뜻을 돌려주고, 부르는
    쪽은 이미 "사전에 없는 말"을 다룰 줄 안다. */
 let GLOSSARY = {}, GLOSS_LANGS = {}, glossP = null;
-const glossNeed = () => (glossP ??= import('./glossary.js?v=3f3aa3a8').then((m) => {
+const glossNeed = () => (glossP ??= import('./glossary.js?v=2854ada8').then((m) => {
   GLOSSARY = m.GLOSSARY; GLOSS_LANGS = m.GLOSS_LANGS;
   dictBuildEntries();
 }).catch((e) => {
@@ -50,15 +53,15 @@ const glossNeed = () => (glossP ??= import('./glossary.js?v=3f3aa3a8').then((m) 
   glossP = null;
   throw e;
 }));
-import { glossFind } from './gloss-find.js?v=3f3aa3a8';
+import { glossFind } from './gloss-find.js?v=2854ada8';
 /* 문법 사전(뜻풀이 197개). 읽기 지문의 밑줄 문법 말풍선(rdNeed)과 예문
    만들기 화면(sbNeed) 양쪽이 쓴다 — 둘 중 먼저 여는 화면이 받아 두고,
    나중 화면은 그 약속(??=)을 그대로 쓴다. */
 let GRAMMAR = [], GRAMMAR_EN = {}, grammarP = null;
 const grammarNeed = () => (grammarP ??= Promise.all([
-  import('./grammar.js?v=3f3aa3a8'), import('./grammar-en.js?v=3f3aa3a8'),
+  import('./grammar.js?v=2854ada8'), import('./grammar-en.js?v=2854ada8'),
 ]).then(([a, b]) => { GRAMMAR = a.GRAMMAR; GRAMMAR_EN = b.GRAMMAR_EN; }));
-import { grammarScan } from './grammar-find.js?v=3f3aa3a8';
+import { grammarScan } from './grammar-find.js?v=2854ada8';
 // TOPIK 쓰기·듣기 문항. 읽기(topik.js·topik2.js)와 같은 tqNeedData() 로
 // 함께 받는다 — 유형 연습(topik) 갈래 하나가 세 기술을 다 쓰므로 따로
 // 가를 까닭이 없다. 값은 tqNeedData 정의부에서 채운다.
@@ -70,7 +73,7 @@ let TOPIKL_BY_EXAM = {}, TOPIKL_PICTURE_SLOTS = {};
    sbFind 를 쓰는데, 그쪽은 안 기다리고 그냥 부른다 — 답이 못 찾은
    인용 없이 나가는 것이 채팅이 멈추는 것보다 낫다. */
 let SB_CATS = [], SB_MORE = {}, SB_SEED = {}, SB_POINTS = [], sbDataP = null;
-const sbNeed = () => (sbDataP ??= import('./sentences.js?v=3f3aa3a8').then((m) => {
+const sbNeed = () => (sbDataP ??= import('./sentences.js?v=2854ada8').then((m) => {
   SB_CATS = m.SB_CATS; SB_MORE = m.SB_MORE; SB_SEED = m.SB_SEED;
   // 갈래마다 표현을 펼쳐 한 줄에 담는다 — SB_CATS 안의 점에는 갈래가 안
   // 달려 있어서(sbFind 가 표현 하나를 id 로 바로 찾으려면 이게 있어야 한다).
@@ -81,7 +84,7 @@ const sbNeed = () => (sbDataP ??= import('./sentences.js?v=3f3aa3a8').then((m) =
 // 숫자 게임의 읽기와 문제 만들기. 화면을 모르는 순수 계산이라 따로 뒀다.
 // 게임 목록에서 「숫자 읽기」를 시작할 때만 받는다 — XLSX 와 같은 자리다.
 let makeRound = null;
-const needNumbers = async () => (makeRound ??= (await import('./numbers.js?v=3f3aa3a8')).makeRound);
+const needNumbers = async () => (makeRound ??= (await import('./numbers.js?v=2854ada8')).makeRound);
 
 // 이 키는 공개돼도 되는 값이다. 이미 APK 안에 같은 것이 들어 있고,
 // 접근을 막는 건 키가 아니라 테이블에 걸린 RLS 다.
@@ -136,8 +139,8 @@ let tqDataP = null;
    유형 연습(topik) 갈래 하나가 이 넷을 다 쓰므로 갈라 봤자 요청만
    늘어난다. */
 const tqNeedData = () => (tqDataP ??= Promise.all([
-  import('./topik.js?v=3f3aa3a8'), import('./topik2.js?v=3f3aa3a8'),
-  import('./topik-writing.js?v=3f3aa3a8'), import('./topik-listening.js?v=3f3aa3a8'),
+  import('./topik.js?v=2854ada8'), import('./topik2.js?v=2854ada8'),
+  import('./topik-writing.js?v=2854ada8'), import('./topik-listening.js?v=2854ada8'),
 ]).then(([a, b, c, d]) => {
   TQ_DATA.I  = { reading: a.TOPIK_READING,  blueprint: a.TOPIK_BLUEPRINT,  slots: a.TOPIK_SLOTS };
   TQ_DATA.II = { reading: b.TOPIK2_READING, blueprint: b.TOPIK2_BLUEPRINT, slots: b.TOPIK2_SLOTS };
@@ -148,11 +151,11 @@ const tqNeedData = () => (tqDataP ??= Promise.all([
 let READING = null, rdP = null;
 // 지문의 밑줄 문법 말풍선이 GRAMMAR 를 쓰므로 같이 받아 둔다.
 const rdNeed = () => (rdP ??= Promise.all([
-  import('./reading.js?v=3f3aa3a8'), grammarNeed(),
+  import('./reading.js?v=2854ada8'), grammarNeed(),
 ]).then(([m]) => { READING = m.READING; }));
 
 let CONVO = null, cvP = null;
-const cvNeed = () => (cvP ??= import('./convo.js?v=3f3aa3a8').then((m) => { CONVO = m.CONVO; }));
+const cvNeed = () => (cvP ??= import('./convo.js?v=2854ada8').then((m) => { CONVO = m.CONVO; }));
 
 /* 배우기를 열면 여섯 다 미리 불을 붙인다. 기다리지 않는다 — 갈래 목록은
    이 자료가 없어도 그려지고, 사람이 갈래를 고르는 사이에 도착한다.
@@ -164,6 +167,13 @@ const warmLearn = () => { tqNeedData(); rdNeed(); coursesNeed(); sbNeed(); cvNee
 // 게임 목록과 그 아래 게임들. 새 게임을 더하면 여기에도 넣는다.
 const GAME_VIEWS = ['games', 'claw', 'match', 'quiz', 'num'];
 
+/* 레슨 밖으로 나가면 복습 챌린지(1분 타이머)를 꺼 둔다. 안 그러면 다른
+   화면으로 옮겨도 setInterval 이 백그라운드에서 계속 돌면서 안 보이는
+   레슨의 lsChallengeLeft 를 깎고 있다 — 나갔다 돌아오면 이미 0초. */
+function lsLeave() {
+  if (lsChallengeTimer) { clearInterval(lsChallengeTimer); lsChallengeTimer = 0; }
+}
+
 /* 화면 전환. 'home' | 'wordbook' | 'account' 셋을 여기서 다룬다.
    발음 테스트는 위 고전 스크립트의 ptShow 가 주인이라 여기서는 닫기만 한다. */
 function open(view) {
@@ -172,6 +182,8 @@ function open(view) {
   if (!window.cpRouteBusy?.() && window.cpBlockLeave?.()) return;
   // 발음 테스트가 열려 있었다면 표시를 거둔다.
   $('navBtn').classList.remove('on');
+  // TOPIK 단추도 마찬가지 — 갈래 안에 있을 때만 openSection() 이 다시 켠다.
+  $('topikBtn').classList.remove('on');
 
   $('homeView').classList.toggle('hidden', view !== 'home');
   $('testView').classList.add('hidden');
@@ -553,14 +565,14 @@ let dictOpen = null;  // 지금 "더 보기"(예문·뜻풀이)를 펼쳐 둔 �
    평소엔 안 쓰는 522KB 를 첫 화면 모두에게 물릴 까닭이 없다. */
 let dictSensesP = null;
 const dictLoadSenses = () => (dictSensesP ??=
-  import('./glossary-senses.js?v=3f3aa3a8').then((m) => m.SENSES).catch(() => ({})));
+  import('./glossary-senses.js?v=2854ada8').then((m) => m.SENSES).catch(() => ({})));
 
 /* 예문. 국립국어원 자료엔 없어서 Gemini 로 새로 지은 것이다(있는 만큼만
    — docs/glossary-examples-gemini-prompt.md 참고). 뜻풀이와 같은 자리에서
    같이 받는다 — 펼치는 손짓 하나에 몰아 두는 편이 화면이 덜 복잡하다. */
 let dictExamplesP = null;
 const dictLoadExamples = () => (dictExamplesP ??=
-  import('./glossary-examples.js?v=3f3aa3a8').then((m) => m.EXAMPLES).catch(() => ({})));
+  import('./glossary-examples.js?v=2854ada8').then((m) => m.EXAMPLES).catch(() => ({})));
 
 function dictVisible() {
   const q = dictQuery.trim().toLowerCase();
@@ -3569,13 +3581,12 @@ function drawTopik() {
       '</div>';
     })();
 
-    $('tqList').innerHTML = holdCard +
-      /* 모의고사만은 급수를 안 가린다. 실제 TOPIK I 은 1급·2급이 한 장에
-         같이 나오는 시험이라 급수로 나누면 시험이 아니게 된다. 다만 1급을
-         골라 둔 학습자에게 말없이 2급 지문을 내밀면 속이는 것이므로,
-         급수 딱지와 소개글에 섞여 나온다고 적어 둔다. */
-      tqRoundCards(ex, span, mins, mockReady) +
-      card('all', '📖', t('전체 풀기', 'Full run'), t('유형을 섞어서 처음부터 끝까지', 'Every type, mixed'),
+    /* 모의고사만은 급수를 안 가린다. 실제 TOPIK I 은 1급·2급이 한 장에
+       같이 나오는 시험이라 급수로 나누면 시험이 아니게 된다. 다만 1급을
+       골라 둔 학습자에게 말없이 2급 지문을 내밀면 속이는 것이므로,
+       급수 딱지와 소개글에 섞여 나온다고 적어 둔다. */
+    const roundCards = tqRoundCards(ex, span, mins, mockReady);
+    const typeCards = card('all', '📖', t('전체 풀기', 'Full run'), t('유형을 섞어서 처음부터 끝까지', 'Every type, mixed'),
            t('이 급수 문제를 다 풀어 봅니다. 문제마다 바로 해설이 붙어요.', 'Every question at this level, with the answer explained as you go.'), rows.length) +
       tqTypeOrder().filter((k) => byType[k]).map((k) =>
         card(k, '🔎', t(tqTypeTx()[k].ko, tqTypeTx()[k].en),
@@ -3583,6 +3594,17 @@ function drawTopik() {
              t('한 유형만 모아 풀면 약한 곳이 빨리 드러납니다.', 'Drilling one type shows you what is weak.'),
              byType[k].length)
       ).join('');
+
+    /* 카드 열한 장이 소제목 없이 한 그리드에 쭉 이어지면 무엇이 모의고사고
+       무엇이 유형별 연습인지 안 보인다. 두 섹션으로 나눈다 — 모의고사가
+       아직 안 찼으면(mockReady 거짓) 그 섹션 자체를 건너뛴다. */
+    $('tqList').innerHTML =
+      (holdCard || roundCards
+        ? `<div class="tq-sec-h">${esc(t('모의고사', 'Mock exams'))}</div>` +
+          `<div class="lc-grid">${holdCard}${roundCards}</div>`
+        : '') +
+      `<div class="tq-sec-h">${esc(t('유형별 연습', 'Practice by type'))}</div>` +
+      `<div class="lc-grid">${typeCards}</div>`;
   }
   /* 사칭으로 보이지 않게 화면에 적어 둔다. 자료 파일에만 적어 두면
      그 파일을 읽는 사람만 알고 학습자는 모른다.
@@ -4818,6 +4840,8 @@ function tqDraw() {
   }
   tqWordify($('tqQuestion'), tqQuestionText(q));
   $('tqWhy').classList.add('hidden');
+  $('tqVideo').classList.add('hidden');
+  $('tqVideo').innerHTML = '';
   $('tqNext').classList.add('hidden');
 
   const box = $('tqChoices');
@@ -4895,6 +4919,20 @@ function tqPick(i, btn) {
     `<span class="tq-chip">${esc(right ? t('정답', 'Correct') : t('정답은 ' + (q.answer + 1) + '번', 'Answer: ' + (q.answer + 1)))}</span> ` +
     esc(q.why);
   $('tqWhy').classList.remove('hidden');
+
+  /* 문제 풀이 영상. preload 를 걸지 않는다 — 목록을 넘겨 보기만 해도
+     mp4 를 전부 받아 버리면 안 되니, 답을 고른 문항의 영상만 이때
+     비로소 태그가 생기면서 받기 시작한다. */
+  const videoBox = $('tqVideo');
+  if (TQ_VIDEO_IDS.has(q.id)) {
+    videoBox.innerHTML =
+      `<p class="tq-video-h">🎬 ${esc(t('문제 풀이 영상', 'Solution video'))}</p>` +
+      `<video controls preload="none" src="assets/video/topik-reading/${esc(q.id)}.mp4"></video>`;
+    videoBox.classList.remove('hidden');
+  } else {
+    videoBox.innerHTML = '';
+    videoBox.classList.add('hidden');
+  }
 
   tqIdx++;
   tqMeta();
@@ -8505,6 +8543,8 @@ async function openSection(id, quiet) {
      글자는 갈래마다 …SyncLang 이 따로 맞춰 주므로 여기서 다시 그릴 까닭이 없다. */
   const already = lsecOpen === s.id;
   lsecOpen = s.id;
+  // 배우기와 나란히 뗀 TOPIK 단추. 갈래가 topik 일 때만 켠다.
+  $('topikBtn').classList.toggle('on', s.id === 'topik');
   /* 갈래도 주소에 남긴다. 안 남기면 새로고침했을 때 갈래 목록으로 튕기고,
      뒤로 가기가 배우기를 통째로 빠져나간다. */
   window.cpMark('learn', s.id);
@@ -9413,6 +9453,99 @@ let twLeft = 0;          // 남은 초
    줄바꿈만 뺀다. 문단을 나눴다고 칸이 늘지는 않는다. */
 const twCount = (s) => String(s).replace(/[\r\n]/g, '').length;
 
+/* ── 원고지 ─────────────────────────────────────────────────
+   53·54 번(긴 글)에만 쓴다. 진짜 원고지처럼 글자 한 칸에 하나씩
+   보여 준다 — 문단(줄바꿈)이 시작될 때만 첫 칸을 비워 들여쓰고,
+   칸 폭을 넘어가서 저절로 줄이 바뀔 때는 들여쓰지 않는다.
+
+   실제로 글을 받는 <textarea>(#twText)는 그대로 두고 화면에서만
+   투명하게 만든다. 타이핑은 그 textarea 가 다 받고, 여기서는 그
+   값을 읽어서 칸으로 그려 줄 뿐이다 — 그래서 한글 자모 조합(IME),
+   붙여넣기, 되돌리기가 브라우저 기본 동작 그대로 살아 있다.
+
+   탭으로 커서를 옮기면 textarea 자체의 줄바꿈(픽셀 폭 기준)과
+   원고지의 줄바꿈(칸 수 기준)이 달라서 위치가 살짝 어긋날 수 있다.
+   순서대로 타이핑하는 보통의 쓰기 연습에는 문제없다. */
+const TW_GRID_COLS = 20;
+
+function twBuildGrid(text, cursorIndex) {
+  const columns = TW_GRID_COLS;
+  const rows = [];
+  let row = [];
+  let cursorRow = 0;
+  let cursorCol = 0;
+  let cursorFound = false;
+  let paragraphStart = true;
+
+  const flushRow = () => {
+    while (row.length < columns) row.push(null);
+    rows.push(row);
+    row = [];
+  };
+  const markCursor = (rawIndex) => {
+    if (!cursorFound && rawIndex === cursorIndex) {
+      cursorRow = rows.length;
+      cursorCol = row.length;
+      cursorFound = true;
+    }
+  };
+  const beginParagraphIfNeeded = () => {
+    if (paragraphStart) {
+      row.push(null);
+      paragraphStart = false;
+      if (row.length === columns) flushRow();
+    }
+  };
+
+  for (let i = 0; i < text.length; i++) {
+    beginParagraphIfNeeded();
+    markCursor(i);
+    const ch = text[i];
+    if (ch === '\n') {
+      flushRow();
+      paragraphStart = true;
+      continue;
+    }
+    row.push(ch);
+    if (row.length === columns) flushRow();
+  }
+  beginParagraphIfNeeded();
+  markCursor(text.length);
+  if (row.length > 0) flushRow();
+
+  return { rows, cursorRow, cursorCol };
+}
+
+function twRenderGrid() {
+  const box = $('twGrid');
+  if (!box) return;
+  const wrap = box.parentElement;
+  const ta = $('twText');
+  const text = ta.value;
+  const cursorIndex = document.activeElement === ta ? (ta.selectionStart ?? text.length) : -1;
+  const g = twBuildGrid(text, cursorIndex);
+
+  const minRows = twItem && twItem.max > 400 ? 38 : 18;
+  const rows = g.rows.slice();
+  const target = Math.max(minRows, rows.length + 2);
+  while (rows.length < target) rows.push(new Array(TW_GRID_COLS).fill(null));
+
+  // 칸 크기를 상자 너비에 맞춰 계산한다 — 좁은 화면에서 가로 스크롤이
+  // 생기지 않도록(가로 스크롤이 생기면 숨은 textarea가 화면 밖 칸까지
+  // 못 덮어서 탭으로 커서를 못 옮긴다).
+  const avail = wrap.clientWidth - 16; // .tw-grid-wrap padding 8px 양쪽
+  if (avail > 0) wrap.style.setProperty('--tw-cs', Math.floor(avail / TW_GRID_COLS) + 'px');
+
+  box.innerHTML = rows.map((r, ri) =>
+    '<div class="tw-grid-row">' +
+      r.map((ch, ci) => {
+        const isCursor = cursorIndex >= 0 && ri === g.cursorRow && ci === g.cursorCol;
+        return `<span class="tw-cell${isCursor ? ' cur' : ''}">${ch ? esc(ch) : ''}</span>`;
+      }).join('') +
+    '</div>'
+  ).join('');
+}
+
 /* ── 문체 검사 ───────────────────────────────────────────────
    AI 가 아니라 규칙이다. 논술에 해요체가 섞이면 무조건 감점이라
    규칙이 틀릴 일이 없다.
@@ -9527,7 +9660,10 @@ function twDraw() {
 
   const mine = TW_ITEMS.filter((x) => x.lv === learnLv.writing);
   twDrawRecord();
-  if (!mine.length) return void ($('twList').innerHTML = lvEmpty());
+  if (!mine.length) {
+    $('twList').innerHTML = `<div class="learn-empty">${esc(t('이 단계 쓰기 문항은 아직 채우는 중이에요.', 'Writing items for this level are still being written.'))}</div>`;
+    return;
+  }
 
   // 문항 번호별로 묶는다. 51 다섯 개가 흩어져 있으면 무엇이 무엇인지 모른다.
   let html = '';
@@ -9585,7 +9721,10 @@ function twOpen(it) {
     `<p class="tw-cond">${esc(it.cond)} · ${t('문체', 'Register')}: <b>${esc(twWant(it))}</b></p>` +
 
     (long
-      ? '<textarea id="twText" class="tw-in" rows="14" style="margin-top:16px"></textarea>' +
+      ? '<div class="tw-grid-wrap" style="margin-top:16px">' +
+          '<div class="tw-grid" id="twGrid"></div>' +
+          '<textarea id="twText" class="tw-in tw-grid-in"></textarea>' +
+        '</div>' +
         '<div class="tw-bar">' +
           '<span class="tw-n" id="twN">0</span>' +
           '<div class="tw-gauge"><div class="tw-gauge-f" id="twG" style="width:0%"></div></div>' +
@@ -9626,6 +9765,13 @@ function twOpen(it) {
   if (!long) $('twSubmit').addEventListener('click', twSubmit);
   $('twDesk').querySelectorAll('.tw-in').forEach((x) => x.addEventListener('input', twSync));
   if (long) $('twClock').addEventListener('click', twToggleClock);
+  /* 커서만 옮기고 글자는 안 바뀌는 경우(클릭·화살표 키·포커스)도
+     원고지의 깜빡이는 칸을 옮겨 줘야 하므로 twSync 와 별개로 듣는다. */
+  if (long) {
+    const ta = $('twText');
+    ['click', 'keyup', 'select', 'focus'].forEach((ev) => ta.addEventListener(ev, twRenderGrid));
+    ta.addEventListener('blur', twRenderGrid);
+  }
 
   twSync();
   window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -9649,6 +9795,7 @@ function twSync() {
     const cls = n > it.max ? 'over' : n >= it.min ? 'ok' : 'short';
     el.className = 'tw-n ' + cls;
     g.className = 'tw-gauge-f ' + (cls === 'short' ? '' : cls);
+    twRenderGrid();
   }
 
   const miss = twRegisterMiss(text, it.register);
