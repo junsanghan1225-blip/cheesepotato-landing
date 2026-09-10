@@ -1172,6 +1172,34 @@ h1,.rb-id h1,.rb-card h1,.rb-post h2,.blog-article h2{font-family:'Gowun Batang'
 
 .blog-article img{border:1px solid var(--line)}
 .bimg img{border:1px solid var(--line)}
+
+/* 나가는 버튼(← 블로그)이 흐린 글자라 눈에 안 띈다는 말을 들었다.
+   알약 배경 + 진한 글자로 눌러야 할 자리처럼 보이게 한다. */
+.blog-back{color:var(--ink);font-weight:700;background:var(--soft);
+  border:1px solid var(--line);border-radius:999px;padding:7px 14px 7px 12px}
+.blog-back:hover{background:var(--card);border-color:var(--rb-rail)}
+
+/* 오른쪽 기둥 — 정보·규칙·링크 상자가 세로로 길게 늘어져 무거워 보였다.
+   숫자로 두르는 원 대신 옅은 점으로, 칸마다 있던 가로줄은 지워 한
+   문단처럼 붙여 읽히게 줄인다. */
+.rb-stats{gap:22px;padding:13px 14px 12px}
+.rb-box .in{padding-top:11px}
+.rb-rules{padding:2px 14px 12px 0}
+.rb-rules li{gap:9px;padding:7px 0 0 0;border-top:0}
+.rb-rules li::before{content:'';width:5px;height:5px;border-radius:50%;
+  background:var(--rb-rail);margin-top:8px;padding:0}
+.rb-links a{padding:8px 14px}
+
+/* 글 공유 버튼 — byline 아래, 본문 위에 둔다. */
+.rb-share{display:flex;align-items:center;gap:8px;margin-top:18px;flex-wrap:wrap}
+.share-btn{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--line);
+  border-radius:999px;padding:7px 14px;font-size:13.5px;font-weight:600;color:var(--ink);
+  background:var(--card);cursor:pointer;transition:background .15s,border-color .15s;
+  font-family:inherit}
+.share-btn:hover{background:var(--soft);border-color:var(--rb-rail)}
+.share-btn svg{flex:none}
+.share-toast{font-size:12.5px;color:var(--dim);opacity:0;transition:opacity .2s}
+.share-toast.on{opacity:1}
 `.trim();
 
 /* 목록 쪽만 넓게 쓴다. 글 읽는 쪽은 한 줄이 길어지면 눈이 되돌아올 자리를
@@ -1339,6 +1367,55 @@ var s=Math.floor((n-d)/1000);if(s<0)return;t.title=t.textContent;
 for(var i=0;i<u.length;i++){if(s>=u[i][0]){t.textContent=Math.floor(s/u[i][0])+u[i][1]+' 전';return}}t.textContent='방금'})})();
 </script>`.trim();
 
+/* 공유 버튼 두 개. 공유하기는 될 때(모바일 대부분)는 navigator.share 를
+   쓰고, 안 되면(대개 데스크톱) 링크 복사로 대신한다 — 그래서 버튼은
+   하나만 있어도 되지만, 데스크톱에서 늘 보이는 복사 버튼을 하나 더 둔다. */
+const SHARE_JS = `
+<script>
+(function(){
+var wrap=document.querySelector('.rb-share');if(!wrap)return;
+var toast=wrap.querySelector('.share-toast');
+function flash(m){if(!toast)return;toast.textContent=m;toast.classList.add('on');
+  clearTimeout(flash._t);flash._t=setTimeout(function(){toast.classList.remove('on')},1800)}
+function copy(){
+  var url=location.href;
+  if(navigator.clipboard&&navigator.clipboard.writeText){
+    navigator.clipboard.writeText(url).then(function(){flash('링크를 복사했어요')},function(){flash('복사에 실패했어요')});
+  }else{
+    var ta=document.createElement('textarea');ta.value=url;ta.style.position='fixed';ta.style.opacity='0';
+    document.body.appendChild(ta);ta.select();
+    try{document.execCommand('copy');flash('링크를 복사했어요')}catch(e){flash('복사에 실패했어요')}
+    document.body.removeChild(ta);
+  }
+}
+var shareBtn=wrap.querySelector('[data-share]'),copyBtn=wrap.querySelector('[data-copy]');
+if(shareBtn)shareBtn.addEventListener('click',function(){
+  if(navigator.share){navigator.share({title:document.title,url:location.href}).catch(function(){})}
+  else{copy()}
+});
+if(copyBtn)copyBtn.addEventListener('click',copy);
+})();
+</script>`.trim();
+
+/* 글 머리에 두는 공유 줄. 공유하기 버튼은 navigator.share 가 없는
+   브라우저에서도 눌리긴 하므로(그때는 복사로 대신함) 늘 둘 다 보인다. */
+function shareRow() {
+  return '<div class="rb-share">' +
+    '<button type="button" class="share-btn" data-share>' +
+      '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" ' +
+        'stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/>' +
+        '<circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/>' +
+        '<line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>' +
+      '공유하기</button>' +
+    '<button type="button" class="share-btn" data-copy>' +
+      '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" ' +
+        'stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/>' +
+        '<path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>' +
+      '링크 복사</button>' +
+    '<span class="share-toast" aria-live="polite"></span>' +
+  '</div>';
+}
+
 const timeTag = (iso) => `<time datetime="${esc(iso)}">${esc(fmtDateKo(iso))}</time>`;
 const flair = (tags) => (tags && tags.length)
   ? '<ul class="rb-flair">' + tags.map((t) => `<li>${esc(t)}</li>`).join('') + '</ul>'
@@ -1406,6 +1483,7 @@ function blogPage(post, prev, next, related) {
       postByline(post),
       `<h1>${esc(post.title)}</h1>`,
       flair(post.tags),
+      shareRow(),
       `<div class="blog-article">${postHtml(post)}</div>`,
     `</article>`,
     `<a class="cta" href="/#learn">한국어 배우러 가기<span>Free Korean lessons, no sign-up needed</span></a>`,
@@ -1420,6 +1498,7 @@ function blogPage(post, prev, next, related) {
         '<ul class="rb-feed">' + related.map(postRow).join('') + '</ul>'
       : '',
     AGO_JS,
+    SHARE_JS,
   ].filter(Boolean).join('\n');
 
   const jsonld = [
@@ -1478,8 +1557,7 @@ function blogSide(posts) {
         (oldest ? `<div><b>${esc(oldest.date.slice(0, 4))}.${esc(String(+oldest.date.slice(5, 7)))}</b><span>시작</span></div>` : '') +
       `</div>`,
       '<div class="in"><p>한국어를 배우다 막히는 자리에 대해 씁니다. 문법 하나를 ' +
-        '가려 쓰는 법, TOPIK 을 어디까지 준비할지 같은 것들입니다.</p>' +
-        '<p>Notes on learning Korean — grammar, TOPIK, and what actually gets you unstuck.</p></div>',
+        '가려 쓰는 법, TOPIK 을 어디까지 준비할지 같은 것들입니다.</p></div>',
     '</section>',
     tags.size ? '<section class="rb-box"><h2>갈래</h2><div class="in">' +
       '<ul class="rb-flair">' + [...tags.entries()]

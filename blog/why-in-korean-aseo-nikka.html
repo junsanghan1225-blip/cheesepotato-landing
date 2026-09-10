@@ -311,7 +311,35 @@ h1,.rb-id h1,.rb-card h1,.rb-post h2,.blog-article h2{font-family:'Gowun Batang'
 .cta span{opacity:.7}
 
 .blog-article img{border:1px solid var(--line)}
-.bimg img{border:1px solid var(--line)}</style>
+.bimg img{border:1px solid var(--line)}
+
+/* 나가는 버튼(← 블로그)이 흐린 글자라 눈에 안 띈다는 말을 들었다.
+   알약 배경 + 진한 글자로 눌러야 할 자리처럼 보이게 한다. */
+.blog-back{color:var(--ink);font-weight:700;background:var(--soft);
+  border:1px solid var(--line);border-radius:999px;padding:7px 14px 7px 12px}
+.blog-back:hover{background:var(--card);border-color:var(--rb-rail)}
+
+/* 오른쪽 기둥 — 정보·규칙·링크 상자가 세로로 길게 늘어져 무거워 보였다.
+   숫자로 두르는 원 대신 옅은 점으로, 칸마다 있던 가로줄은 지워 한
+   문단처럼 붙여 읽히게 줄인다. */
+.rb-stats{gap:22px;padding:13px 14px 12px}
+.rb-box .in{padding-top:11px}
+.rb-rules{padding:2px 14px 12px 0}
+.rb-rules li{gap:9px;padding:7px 0 0 0;border-top:0}
+.rb-rules li::before{content:'';width:5px;height:5px;border-radius:50%;
+  background:var(--rb-rail);margin-top:8px;padding:0}
+.rb-links a{padding:8px 14px}
+
+/* 글 공유 버튼 — byline 아래, 본문 위에 둔다. */
+.rb-share{display:flex;align-items:center;gap:8px;margin-top:18px;flex-wrap:wrap}
+.share-btn{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--line);
+  border-radius:999px;padding:7px 14px;font-size:13.5px;font-weight:600;color:var(--ink);
+  background:var(--card);cursor:pointer;transition:background .15s,border-color .15s;
+  font-family:inherit}
+.share-btn:hover{background:var(--soft);border-color:var(--rb-rail)}
+.share-btn svg{flex:none}
+.share-toast{font-size:12.5px;color:var(--dim);opacity:0;transition:opacity .2s}
+.share-toast.on{opacity:1}</style>
 </head>
 <body>
 <div class="wrap">
@@ -321,6 +349,7 @@ h1,.rb-id h1,.rb-card h1,.rb-post h2,.blog-article h2{font-family:'Gowun Batang'
 <div class="rb-byline"><span class="rb-avatar-sm" aria-hidden="true">🧀</span><div class="rb-byline-info"><div class="rb-byline-name">치즈감자</div><div class="rb-byline-role">한국어를 가르치는 사람 · <time datetime="2026-09-10">2026년 9월 10일</time></div></div></div>
 <h1>이유를 말하는 세 가지 — 아/어서, (으)니까, 때문에</h1>
 <ul class="rb-flair"><li>문법</li><li>초급</li></ul>
+<div class="rb-share"><button type="button" class="share-btn" data-share><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>공유하기</button><button type="button" class="share-btn" data-copy><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>링크 복사</button><span class="share-toast" aria-live="polite"></span></div>
 <div class="blog-article"><p>「늦어서 죄송합니다」와 「늦었으니까 죄송합니다」. 앞은 자연스럽고 뒤는 어색합니다. 그런데 사전을 찾으면 둘 다 이유를 나타낸다고 나옵니다.</p>
 <p>이유 표현이 헷갈리는 것은 뜻이 비슷해서가 아니라, <b>뜻은 같은데 뒤에 올 수 있는 말이 다르기</b> 때문입니다. 그래서 뜻을 아무리 외워도 안 풀립니다.</p>
 <h2>뒤에 부탁이나 명령이 오면 (으)니까</h2>
@@ -356,6 +385,31 @@ Array.prototype.forEach.call(document.querySelectorAll('time[datetime]'),functio
 var d=new Date(t.getAttribute('datetime')+'T09:00:00+09:00');if(isNaN(d))return;
 var s=Math.floor((n-d)/1000);if(s<0)return;t.title=t.textContent;
 for(var i=0;i<u.length;i++){if(s>=u[i][0]){t.textContent=Math.floor(s/u[i][0])+u[i][1]+' 전';return}}t.textContent='방금'})})();
+</script>
+<script>
+(function(){
+var wrap=document.querySelector('.rb-share');if(!wrap)return;
+var toast=wrap.querySelector('.share-toast');
+function flash(m){if(!toast)return;toast.textContent=m;toast.classList.add('on');
+  clearTimeout(flash._t);flash._t=setTimeout(function(){toast.classList.remove('on')},1800)}
+function copy(){
+  var url=location.href;
+  if(navigator.clipboard&&navigator.clipboard.writeText){
+    navigator.clipboard.writeText(url).then(function(){flash('링크를 복사했어요')},function(){flash('복사에 실패했어요')});
+  }else{
+    var ta=document.createElement('textarea');ta.value=url;ta.style.position='fixed';ta.style.opacity='0';
+    document.body.appendChild(ta);ta.select();
+    try{document.execCommand('copy');flash('링크를 복사했어요')}catch(e){flash('복사에 실패했어요')}
+    document.body.removeChild(ta);
+  }
+}
+var shareBtn=wrap.querySelector('[data-share]'),copyBtn=wrap.querySelector('[data-copy]');
+if(shareBtn)shareBtn.addEventListener('click',function(){
+  if(navigator.share){navigator.share({title:document.title,url:location.href}).catch(function(){})}
+  else{copy()}
+});
+if(copyBtn)copyBtn.addEventListener('click',copy);
+})();
 </script>
 <div class="foot">
   <a href="/">치즈감자</a> · <a href="/sentence/">문법 표현 전체</a> · <a href="/blog/">블로그</a> · <a href="/privacy.html">개인정보</a><br>
