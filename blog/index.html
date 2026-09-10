@@ -179,15 +179,32 @@ h2{font-size:15px;margin:32px 0 10px;color:var(--dim);letter-spacing:.02em}
 .bex span{display:block;margin-top:4px;font-size:14px;color:var(--dim);line-height:1.55}
 
 /* 문법 카드 — 글에서 표현 쪽으로 들어가는 문. 링크 하나로 통째로 눌린다. */
-.gcard{display:block;text-decoration:none;border:1px solid var(--line);border-radius:12px;
-  background:var(--card);padding:15px 18px;margin:0 0 22px;transition:border-color .12s,transform .12s}
+.gcard{position:relative;display:block;text-decoration:none;border:1px solid var(--line);
+  border-radius:12px;background:var(--card);padding:15px 18px;margin:0 0 22px;
+  transition:border-color .12s,transform .12s}
 .gcard:hover{border-color:var(--brand);transform:translateY(-1px)}
+.gcard a{text-decoration:none}
 .gcat{display:block;font-size:11.5px;font-weight:700;letter-spacing:.03em;color:var(--dim)}
 .gcard>b{display:block;font-size:19px;margin:3px 0 0;letter-spacing:-.01em}
 .gdesc{display:block;margin-top:6px;font-size:15px;line-height:1.62;color:var(--ink)}
 .gnote{display:block;margin-top:8px;font-size:14px;line-height:1.6;color:var(--dim)}
-.ggo{display:block;margin-top:11px;font-size:13px;font-weight:700;color:var(--dim)}
-.gcard:hover .ggo{color:var(--ink)}
+.gacts{display:flex;flex-wrap:wrap;align-items:center;gap:8px 14px;margin-top:13px}
+/* 앞의 것이 카드 전체를 덮는다 — 어디를 눌러도 예문 만들기로 간다. */
+.ggo{font-size:13.5px;font-weight:800;color:#2b2117;background:var(--brand);
+  border-radius:999px;padding:8px 15px;line-height:1.2}
+.ggo::after{content:'';position:absolute;inset:0;border-radius:12px}
+/* 여기에 filter 나 transform 을 걸지 마라. 둘 다 이 알약을 제 ::after 의
+   컨테이닝 블록으로 만들어, 덮개가 카드 전체가 아니라 알약 크기로
+   쪼그라든다 — 커서를 올린 순간 덮개가 커서 밑에서 사라지고 클릭이
+   카드로 빠진다. 화면으로는 멀쩡해 보여서 눌러 보기 전에는 모른다.
+   안쪽 그림자는 컨테이닝 블록을 만들지 않으므로 안전하다. */
+.gcard:hover .ggo{box-shadow:inset 0 0 0 999px rgba(0,0,0,.07)}
+/* 뒤의 것은 덮개 위로 띄운다. 안 그러면 눌리지 않는다. */
+.gsub{position:relative;z-index:1;font-size:13px;font-weight:600;color:var(--dim);
+  border-bottom:1px solid var(--rb-hair);padding-bottom:1px}
+.gsub:hover{color:var(--ink);border-color:var(--brand)}
+.glinkgo{display:block;margin-top:11px;font-size:13px;font-weight:700;color:var(--dim)}
+a.gcard:hover .glinkgo{color:var(--ink)}
 
 /* 사진. 폭을 넘기지 않게만 잡고 비율은 파일에 맡긴다. */
 .bimg{margin:0 0 24px}
@@ -216,7 +233,7 @@ h2{font-size:15px;margin:32px 0 10px;color:var(--dim);letter-spacing:.02em}
 <a class="rb-join" href="/#learn">한국어 배우러 가기</a>
 </header>
 <div class="rb-cols">
-<main><ul class="rb-feed"><li class="rb-post"><div class="rb-rail"><b>2</b><span>분</span></div><div class="rb-body"><div class="rb-meta"><span class="rb-who">🧀 치즈감자</span> <span class="dot">·</span> <time datetime="2026-09-10">2026년 9월 10일</time></div><h2><a href="/blog/why-in-korean-aseo-nikka.html">이유를 말하는 세 가지 — 아/어서, (으)니까, 때문에</a></h2><p class="rb-ex">셋 다 「때문에」로 번역되는데 아무 데나 바꿔 쓰면 어색해집니다. 뒤에 무슨 말이 오느냐만 보면 거의 갈립니다.</p><div class="rb-tail"><ul class="rb-flair"><li>문법</li><li>초급</li></ul></div></div></li><li class="rb-post"><div class="rb-rail"><b>3</b><span>분</span></div><div class="rb-body"><div class="rb-meta"><span class="rb-who">🧀 치즈감자</span> <span class="dot">·</span> <time datetime="2026-09-10">2026년 9월 10일</time></div><h2><a href="/blog/eun-neun-vs-i-ga.html">은/는과 이/가 — 규칙 열 개 대신 질문 하나</a></h2><p class="rb-ex">한국어를 몇 년 한 사람도 끝까지 헷갈리는 자리입니다. 외울 규칙을 늘리는 대신, 문장을 쓸 때마다 스스로에게 던질 질문 하나로 정리했습니다.</p><div class="rb-tail"><ul class="rb-flair"><li>문법</li><li>초급</li></ul></div></div></li><li class="rb-post"><div class="rb-rail"><b>2</b><span>분</span></div><div class="rb-body"><div class="rb-meta"><span class="rb-who">🧀 치즈감자</span> <span class="dot">·</span> <time datetime="2026-09-09">2026년 9월 9일</time></div><h2><a href="/blog/read-hangul-in-a-morning.html">한글은 정말 한나절이면 읽나</a></h2><p class="rb-ex">「한글은 하루면 뗀다」는 말은 과장이 아닙니다. 다만 정확히 무엇이 하루 만에 되는지, 무엇은 안 되는지는 나눠서 말해야 합니다.</p><div class="rb-tail"><ul class="rb-flair"><li>한글</li><li>초급</li></ul></div></div></li><li class="rb-post"><div class="rb-rail"><b>3</b><span>분</span></div><div class="rb-body"><div class="rb-meta"><span class="rb-who">🧀 치즈감자</span> <span class="dot">·</span> <time datetime="2026-09-08">2026년 9월 8일</time></div><h2><a href="/blog/which-topik-level-do-you-need.html">TOPIK, 몇 급이 필요한지부터 정하기</a></h2><p class="rb-ex">급수를 골라서 시험을 보는 게 아닙니다. 시험 종류를 고르면 점수에 따라 급수가 나옵니다. 이 구조를 알고 목표를 정해야 공부가 끝납니다.</p><div class="rb-tail"><ul class="rb-flair"><li>TOPIK</li><li>준비</li></ul></div></div></li><li class="rb-post"><div class="rb-rail"><b>2</b><span>분</span></div><div class="rb-body"><div class="rb-meta"><span class="rb-who">🧀 치즈감자</span> <span class="dot">·</span> <time datetime="2026-09-07">2026년 9월 7일</time></div><h2><a href="/blog/when-to-use-banmal.html">존댓말과 반말 — 교재가 잘 안 알려 주는 부분</a></h2><p class="rb-ex">교재는 해요체만 가르치고 끝납니다. 실제로는 상대마다 말투를 갈라 써야 하고, 여기서 나오는 실수는 문법 실수보다 크게 남습니다.</p><div class="rb-tail"><ul class="rb-flair"><li>문법</li><li>회화</li></ul></div></div></li><li class="rb-post"><div class="rb-rail"><b>2</b><span>분</span></div><div class="rb-body"><div class="rb-meta"><span class="rb-who">🧀 치즈감자</span> <span class="dot">·</span> <time datetime="2026-09-06">2026년 9월 6일</time> <span class="dot">·</span> 고침 <time datetime="2026-09-10">2026년 9월 10일</time></div><h2><a href="/blog/topik-6-for-free.html">TOPIK 6급까지, 무료로 준비하는 법</a></h2><p class="rb-ex">학원비도 교재값도 없이 한글부터 TOPIK 6급 수준까지 준비하는 방법을 정리했습니다. 광고가 아니라, 이 사이트에 실제로 있는 것만 순서대로 썼습니다.</p><div class="rb-tail"><ul class="rb-flair"><li>TOPIK</li><li>준비</li></ul></div></div></li></ul></main>
+<main><ul class="rb-feed"><li class="rb-post"><div class="rb-rail"><b>3</b><span>분</span></div><div class="rb-body"><div class="rb-meta"><span class="rb-who">🧀 치즈감자</span> <span class="dot">·</span> <time datetime="2026-09-10">2026년 9월 10일</time></div><h2><a href="/blog/why-in-korean-aseo-nikka.html">이유를 말하는 세 가지 — 아/어서, (으)니까, 때문에</a></h2><p class="rb-ex">셋 다 「때문에」로 번역되는데 아무 데나 바꿔 쓰면 어색해집니다. 뒤에 무슨 말이 오느냐만 보면 거의 갈립니다.</p><div class="rb-tail"><ul class="rb-flair"><li>문법</li><li>초급</li></ul></div></div></li><li class="rb-post"><div class="rb-rail"><b>3</b><span>분</span></div><div class="rb-body"><div class="rb-meta"><span class="rb-who">🧀 치즈감자</span> <span class="dot">·</span> <time datetime="2026-09-10">2026년 9월 10일</time></div><h2><a href="/blog/eun-neun-vs-i-ga.html">은/는과 이/가 — 규칙 열 개 대신 질문 하나</a></h2><p class="rb-ex">한국어를 몇 년 한 사람도 끝까지 헷갈리는 자리입니다. 외울 규칙을 늘리는 대신, 문장을 쓸 때마다 스스로에게 던질 질문 하나로 정리했습니다.</p><div class="rb-tail"><ul class="rb-flair"><li>문법</li><li>초급</li></ul></div></div></li><li class="rb-post"><div class="rb-rail"><b>2</b><span>분</span></div><div class="rb-body"><div class="rb-meta"><span class="rb-who">🧀 치즈감자</span> <span class="dot">·</span> <time datetime="2026-09-09">2026년 9월 9일</time></div><h2><a href="/blog/read-hangul-in-a-morning.html">한글은 정말 한나절이면 읽나</a></h2><p class="rb-ex">「한글은 하루면 뗀다」는 말은 과장이 아닙니다. 다만 정확히 무엇이 하루 만에 되는지, 무엇은 안 되는지는 나눠서 말해야 합니다.</p><div class="rb-tail"><ul class="rb-flair"><li>한글</li><li>초급</li></ul></div></div></li><li class="rb-post"><div class="rb-rail"><b>3</b><span>분</span></div><div class="rb-body"><div class="rb-meta"><span class="rb-who">🧀 치즈감자</span> <span class="dot">·</span> <time datetime="2026-09-08">2026년 9월 8일</time></div><h2><a href="/blog/which-topik-level-do-you-need.html">TOPIK, 몇 급이 필요한지부터 정하기</a></h2><p class="rb-ex">급수를 골라서 시험을 보는 게 아닙니다. 시험 종류를 고르면 점수에 따라 급수가 나옵니다. 이 구조를 알고 목표를 정해야 공부가 끝납니다.</p><div class="rb-tail"><ul class="rb-flair"><li>TOPIK</li><li>준비</li></ul></div></div></li><li class="rb-post"><div class="rb-rail"><b>2</b><span>분</span></div><div class="rb-body"><div class="rb-meta"><span class="rb-who">🧀 치즈감자</span> <span class="dot">·</span> <time datetime="2026-09-07">2026년 9월 7일</time></div><h2><a href="/blog/when-to-use-banmal.html">존댓말과 반말 — 교재가 잘 안 알려 주는 부분</a></h2><p class="rb-ex">교재는 해요체만 가르치고 끝납니다. 실제로는 상대마다 말투를 갈라 써야 하고, 여기서 나오는 실수는 문법 실수보다 크게 남습니다.</p><div class="rb-tail"><ul class="rb-flair"><li>문법</li><li>회화</li></ul></div></div></li><li class="rb-post"><div class="rb-rail"><b>2</b><span>분</span></div><div class="rb-body"><div class="rb-meta"><span class="rb-who">🧀 치즈감자</span> <span class="dot">·</span> <time datetime="2026-09-06">2026년 9월 6일</time> <span class="dot">·</span> 고침 <time datetime="2026-09-10">2026년 9월 10일</time></div><h2><a href="/blog/topik-6-for-free.html">TOPIK 6급까지, 무료로 준비하는 법</a></h2><p class="rb-ex">학원비도 교재값도 없이 한글부터 TOPIK 6급 수준까지 준비하는 방법을 정리했습니다. 광고가 아니라, 이 사이트에 실제로 있는 것만 순서대로 썼습니다.</p><div class="rb-tail"><ul class="rb-flair"><li>TOPIK</li><li>준비</li></ul></div></div></li></ul></main>
 <aside class="rb-side">
 <section class="rb-box">
 <h2>블로그 정보</h2>

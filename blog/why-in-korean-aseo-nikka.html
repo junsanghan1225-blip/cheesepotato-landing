@@ -183,15 +183,32 @@ h2{font-size:15px;margin:32px 0 10px;color:var(--dim);letter-spacing:.02em}
 .bex span{display:block;margin-top:4px;font-size:14px;color:var(--dim);line-height:1.55}
 
 /* 문법 카드 — 글에서 표현 쪽으로 들어가는 문. 링크 하나로 통째로 눌린다. */
-.gcard{display:block;text-decoration:none;border:1px solid var(--line);border-radius:12px;
-  background:var(--card);padding:15px 18px;margin:0 0 22px;transition:border-color .12s,transform .12s}
+.gcard{position:relative;display:block;text-decoration:none;border:1px solid var(--line);
+  border-radius:12px;background:var(--card);padding:15px 18px;margin:0 0 22px;
+  transition:border-color .12s,transform .12s}
 .gcard:hover{border-color:var(--brand);transform:translateY(-1px)}
+.gcard a{text-decoration:none}
 .gcat{display:block;font-size:11.5px;font-weight:700;letter-spacing:.03em;color:var(--dim)}
 .gcard>b{display:block;font-size:19px;margin:3px 0 0;letter-spacing:-.01em}
 .gdesc{display:block;margin-top:6px;font-size:15px;line-height:1.62;color:var(--ink)}
 .gnote{display:block;margin-top:8px;font-size:14px;line-height:1.6;color:var(--dim)}
-.ggo{display:block;margin-top:11px;font-size:13px;font-weight:700;color:var(--dim)}
-.gcard:hover .ggo{color:var(--ink)}
+.gacts{display:flex;flex-wrap:wrap;align-items:center;gap:8px 14px;margin-top:13px}
+/* 앞의 것이 카드 전체를 덮는다 — 어디를 눌러도 예문 만들기로 간다. */
+.ggo{font-size:13.5px;font-weight:800;color:#2b2117;background:var(--brand);
+  border-radius:999px;padding:8px 15px;line-height:1.2}
+.ggo::after{content:'';position:absolute;inset:0;border-radius:12px}
+/* 여기에 filter 나 transform 을 걸지 마라. 둘 다 이 알약을 제 ::after 의
+   컨테이닝 블록으로 만들어, 덮개가 카드 전체가 아니라 알약 크기로
+   쪼그라든다 — 커서를 올린 순간 덮개가 커서 밑에서 사라지고 클릭이
+   카드로 빠진다. 화면으로는 멀쩡해 보여서 눌러 보기 전에는 모른다.
+   안쪽 그림자는 컨테이닝 블록을 만들지 않으므로 안전하다. */
+.gcard:hover .ggo{box-shadow:inset 0 0 0 999px rgba(0,0,0,.07)}
+/* 뒤의 것은 덮개 위로 띄운다. 안 그러면 눌리지 않는다. */
+.gsub{position:relative;z-index:1;font-size:13px;font-weight:600;color:var(--dim);
+  border-bottom:1px solid var(--rb-hair);padding-bottom:1px}
+.gsub:hover{color:var(--ink);border-color:var(--brand)}
+.glinkgo{display:block;margin-top:11px;font-size:13px;font-weight:700;color:var(--dim)}
+a.gcard:hover .glinkgo{color:var(--ink)}
 
 /* 사진. 폭을 넘기지 않게만 잡고 비율은 파일에 맡긴다. */
 .bimg{margin:0 0 24px}
@@ -224,25 +241,25 @@ h2{font-size:15px;margin:32px 0 10px;color:var(--dim);letter-spacing:.02em}
 <p>이것 하나가 셋을 가르는 가장 굵은 선입니다. 뒤에 「-세요」, 「-읍시다」, 「-지 마세요」가 오면 -아/어서는 못 씁니다.</p>
 <blockquote>비가 오니까 우산을 가져가세요. (○)<br>비가 와서 우산을 가져가세요. (×)</blockquote>
 <p>그래서 길에서 듣는 말, 가게에서 듣는 말은 거의 (으)니까입니다. 「위험하니까 뒤로 물러나 주세요」처럼요.</p>
-<a class="gcard" href="/sentence/32-2.html"><span class="gcat">이유와 원인을 나타낼 때</span><b>A/V-(으)니까 ①</b><span class="gdesc">이유를 말합니다. 뒤에 부탁·권유·명령이 올 수 있다는 점이 「-아/어서」와 다릅니다.</span><span class="gnote">부탁·권유·명령 앞에서 쓰는 자리를 예문으로 보면 빨리 붙습니다</span><span class="ggo">표현 쪽에서 예문·대화문까지 보기 →</span></a>
+<div class="gcard"><span class="gcat">이유와 원인을 나타낼 때</span><b>A/V-(으)니까 ①</b><span class="gdesc">이유를 말합니다. 뒤에 부탁·권유·명령이 올 수 있다는 점이 「-아/어서」와 다릅니다.</span><span class="gnote">부탁·권유·명령 앞에서 쓰는 자리를 예문으로 보면 빨리 붙습니다</span><span class="gacts"><a class="ggo" href="/#learn/sentence/32-2">이 표현으로 문장 만들어 보기 →</a><a class="gsub" href="/sentence/32-2.html">형태·주의할 점·예문 먼저 보기</a></span></div>
 <h2>사과하고 감사할 때는 아/어서</h2>
 <p>반대로 이 자리에서는 (으)니까가 어색합니다. 사과와 감사는 정해진 말투가 있어서, 여기서 (으)니까를 쓰면 따지는 것처럼 들립니다.</p>
 <div class="bex"><b>늦어서 죄송합니다.</b><span>Sorry for being late.</span></div>
 <div class="bex"><b>도와주셔서 감사합니다.</b><span>Thank you for helping me.</span></div>
 <p>이 두 문장은 통째로 외워 두는 편이 낫습니다. 한국에서 하루에 몇 번씩 쓰는 말인데, 여기서 틀리면 바로 티가 납니다.</p>
-<a class="gcard" href="/sentence/32-1.html"><span class="gcat">이유와 원인을 나타낼 때</span><b>A/V-아/어서 (이유)</b><span class="gdesc">그래서 이렇게 되었다는 뜻입니다. 가장 기본이 되는 이유 표현입니다.</span><span class="gnote">가장 먼저 익힐 이유 표현입니다. 예문부터 보세요</span><span class="ggo">표현 쪽에서 예문·대화문까지 보기 →</span></a>
+<div class="gcard"><span class="gcat">이유와 원인을 나타낼 때</span><b>A/V-아/어서 (이유)</b><span class="gdesc">그래서 이렇게 되었다는 뜻입니다. 가장 기본이 되는 이유 표현입니다.</span><span class="gnote">가장 먼저 익힐 이유 표현입니다. 예문부터 보세요</span><span class="gacts"><a class="ggo" href="/#learn/sentence/32-1">이 표현으로 문장 만들어 보기 →</a><a class="gsub" href="/sentence/32-1.html">형태·주의할 점·예문 먼저 보기</a></span></div>
 <h2>글에서 원인을 짚을 때는 때문에</h2>
 <p>때문에는 셋 중 가장 딱딱합니다. 그래서 말할 때보다 글에서 훨씬 자주 보입니다. 뉴스, 보고서, TOPIK 읽기 지문에서 만나는 것이 대부분 이것입니다.</p>
 <blockquote>눈 때문에 길이 막혔습니다.<br>값이 올랐기 때문에 사람들이 덜 삽니다.</blockquote>
 <aside class="bnote"><b class="bnt">자주 하는 실수</b>「저 때문에」는 되는데 「저이기 때문에」는 안 됩니다. 명사 뒤에는 <b>때문에</b>, 동사·형용사 뒤에는 <b>-기 때문에</b>입니다. 「이다」가 낄 자리가 아닙니다.</aside>
-<a class="gcard" href="/sentence/32-3.html"><span class="gcat">이유와 원인을 나타낼 때</span><b>N 때문에, A/V-기 때문에</b><span class="gdesc">그것이 원인이라고 분명히 짚습니다. 글에 자주 씁니다.</span><span class="gnote">TOPIK 읽기에서 자주 나오는 꼴이라 형태를 눈에 익혀 두면 좋습니다</span><span class="ggo">표현 쪽에서 예문·대화문까지 보기 →</span></a>
+<div class="gcard"><span class="gcat">이유와 원인을 나타낼 때</span><b>N 때문에, A/V-기 때문에</b><span class="gdesc">그것이 원인이라고 분명히 짚습니다. 글에 자주 씁니다.</span><span class="gnote">TOPIK 읽기에서 자주 나오는 꼴이라 형태를 눈에 익혀 두면 좋습니다</span><span class="gacts"><a class="ggo" href="/#learn/sentence/32-3">이 표현으로 문장 만들어 보기 →</a><a class="gsub" href="/sentence/32-3.html">형태·주의할 점·예문 먼저 보기</a></span></div>
 <h2>실제로는 이렇게 섞여 나옵니다</h2>
 <div class="dlg"><div class="line a"><span class="who" aria-hidden="true">🧀</span><span class="bub">오늘 왜 이렇게 늦었어요?</span></div><div class="line b"><span class="who" aria-hidden="true">🥔</span><span class="bub">길이 너무 막혀서요. 눈 때문에 버스가 안 왔어요.</span></div><div class="line a"><span class="who" aria-hidden="true">🧀</span><span class="bub">그럼 다음부터는 좀 일찍 나오세요.</span></div><div class="line b"><span class="who" aria-hidden="true">🥔</span><span class="bub">네, 늦어서 죄송합니다.</span></div></div>
 <p>짧은 대화 하나에 셋이 다 들어 있습니다. 이유를 대는 자리에는 -아/어서, 원인을 짚는 자리에는 때문에, 사과에는 다시 -아/어서입니다.</p>
 <h2>정리</h2>
 <ul><li>뒤에 <b>부탁·권유·명령</b>이 오면 → (으)니까</li><li><b>사과·감사</b>는 → 아/어서</li><li><b>글에서 원인</b>을 짚으면 → 때문에</li><li>헷갈리면 (으)니까가 가장 덜 어색합니다. 다만 사과에는 쓰지 마세요</li></ul>
 <p>규칙을 알아도 문장이 바로 나오지는 않습니다. 표현마다 자기 문장을 써서 확인받는 칸이 있으니, 위 세 가지로 각각 한 문장씩 써 보는 것이 가장 빠릅니다.</p>
-<a class="gcard" href="/compare/32.html"><b>이유와 원인을 나타낼 때 — 세 표현 견주기</b><span class="gnote">셋을 한 쪽에 놓고 형태와 주의할 점을 나란히 봅니다</span><span class="ggo">보러 가기 →</span></a></div>
+<a class="gcard" href="/compare/32.html"><b>이유와 원인을 나타낼 때 — 세 표현 견주기</b><span class="gnote">셋을 한 쪽에 놓고 형태와 주의할 점을 나란히 봅니다</span><span class="glinkgo">보러 가기 →</span></a></div>
 </article>
 <a class="cta" href="/#learn">한국어 배우러 가기<span>Free Korean lessons, no sign-up needed</span></a>
 <div class="near"><a href="/blog/eun-neun-vs-i-ga.html"><b>← 이전 글</b>은/는과 이/가 — 규칙 열 개 대신 질문 하나</a></div>

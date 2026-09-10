@@ -1010,15 +1010,32 @@ const BLOG_CSS = `
 .bex span{display:block;margin-top:4px;font-size:14px;color:var(--dim);line-height:1.55}
 
 /* 문법 카드 — 글에서 표현 쪽으로 들어가는 문. 링크 하나로 통째로 눌린다. */
-.gcard{display:block;text-decoration:none;border:1px solid var(--line);border-radius:12px;
-  background:var(--card);padding:15px 18px;margin:0 0 22px;transition:border-color .12s,transform .12s}
+.gcard{position:relative;display:block;text-decoration:none;border:1px solid var(--line);
+  border-radius:12px;background:var(--card);padding:15px 18px;margin:0 0 22px;
+  transition:border-color .12s,transform .12s}
 .gcard:hover{border-color:var(--brand);transform:translateY(-1px)}
+.gcard a{text-decoration:none}
 .gcat{display:block;font-size:11.5px;font-weight:700;letter-spacing:.03em;color:var(--dim)}
 .gcard>b{display:block;font-size:19px;margin:3px 0 0;letter-spacing:-.01em}
 .gdesc{display:block;margin-top:6px;font-size:15px;line-height:1.62;color:var(--ink)}
 .gnote{display:block;margin-top:8px;font-size:14px;line-height:1.6;color:var(--dim)}
-.ggo{display:block;margin-top:11px;font-size:13px;font-weight:700;color:var(--dim)}
-.gcard:hover .ggo{color:var(--ink)}
+.gacts{display:flex;flex-wrap:wrap;align-items:center;gap:8px 14px;margin-top:13px}
+/* 앞의 것이 카드 전체를 덮는다 — 어디를 눌러도 예문 만들기로 간다. */
+.ggo{font-size:13.5px;font-weight:800;color:#2b2117;background:var(--brand);
+  border-radius:999px;padding:8px 15px;line-height:1.2}
+.ggo::after{content:'';position:absolute;inset:0;border-radius:12px}
+/* 여기에 filter 나 transform 을 걸지 마라. 둘 다 이 알약을 제 ::after 의
+   컨테이닝 블록으로 만들어, 덮개가 카드 전체가 아니라 알약 크기로
+   쪼그라든다 — 커서를 올린 순간 덮개가 커서 밑에서 사라지고 클릭이
+   카드로 빠진다. 화면으로는 멀쩡해 보여서 눌러 보기 전에는 모른다.
+   안쪽 그림자는 컨테이닝 블록을 만들지 않으므로 안전하다. */
+.gcard:hover .ggo{box-shadow:inset 0 0 0 999px rgba(0,0,0,.07)}
+/* 뒤의 것은 덮개 위로 띄운다. 안 그러면 눌리지 않는다. */
+.gsub{position:relative;z-index:1;font-size:13px;font-weight:600;color:var(--dim);
+  border-bottom:1px solid var(--rb-hair);padding-bottom:1px}
+.gsub:hover{color:var(--ink);border-color:var(--brand)}
+.glinkgo{display:block;margin-top:11px;font-size:13px;font-weight:700;color:var(--dim)}
+a.gcard:hover .glinkgo{color:var(--ink)}
 
 /* 사진. 폭을 넘기지 않게만 잡고 비율은 파일에 맡긴다. */
 .bimg{margin:0 0 24px}
@@ -1109,18 +1126,32 @@ function renderBlock(b, where) {
 
     /* 문법 카드 — 「문법마다 들어가서 볼 수 있게」 하는 자리다.
        뜻풀이는 sentences.js 에서 꺼낸다. 없는 id 면 여기서 멈춘다 —
-       조용히 넘기면 글에 죽은 링크가 실린다. */
+       조용히 넘기면 글에 죽은 링크가 실린다.
+
+       **누르면 예문 만들기로 곧장 들어간다**(#learn/sentence/<id>).
+       읽다가 「아 이거 써 봐야겠다」 싶은 순간이 제일 짧은데, 거기서
+       표현 설명 쪽을 한 번 더 거치게 하면 그 순간이 식는다. 설명이 먼저
+       필요한 사람을 위해 아래에 표현 쪽으로 가는 줄을 따로 남긴다.
+
+       링크가 둘이라 카드 전체를 덮는 것은 앞의 것(예문 만들기)이고,
+       뒤의 것은 z-index 로 그 위에 띄운다 — 안 그러면 덮개에 가려
+       눌리지 않는다. */
     case 'gram': {
       if (!b.id) bad('t:"gram" 에 id 가 없다');
       const hit = SB_BY_ID.get(b.id);
       if (!hit) bad(`문법 표현 ${b.id} 이 sentences.js 에 없다`);
-      return `<a class="gcard" href="/sentence/${esc(b.id)}.html">` +
+      return `<div class="gcard">` +
         `<span class="gcat">${esc(hit.cat.ko)}</span>` +
         `<b>${esc(hit.p.name)}</b>` +
         `<span class="gdesc">${esc(hit.p.desc)}</span>` +
         (b.note ? `<span class="gnote">${inline(b.note)}</span>` : '') +
-        `<span class="ggo">표현 쪽에서 예문·대화문까지 보기 →</span>` +
-      `</a>`;
+        `<span class="gacts">` +
+          `<a class="ggo" href="/#learn/sentence/${esc(b.id)}">` +
+            `이 표현으로 문장 만들어 보기 →</a>` +
+          `<a class="gsub" href="/sentence/${esc(b.id)}.html">` +
+            `형태·주의할 점·예문 먼저 보기</a>` +
+        `</span>` +
+      `</div>`;
     }
 
     /* 사이트 안 다른 쪽으로 보내는 카드. 문법 표현이 아닌 것(코스·목록
@@ -1131,7 +1162,7 @@ function renderBlock(b, where) {
       return `<a class="gcard" href="${esc(b.href)}">` +
         `<b>${esc(b.title)}</b>` +
         (b.note ? `<span class="gnote">${inline(b.note)}</span>` : '') +
-        `<span class="ggo">보러 가기 →</span>` +
+        `<span class="glinkgo">보러 가기 →</span>` +
       `</a>`;
 
     /* 사진. 파일이 실재하는지는 tools/check-blog.mjs 가 본다 — 여기서
