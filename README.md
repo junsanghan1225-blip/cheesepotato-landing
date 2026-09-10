@@ -24,6 +24,7 @@ node tools/check-sentences.mjs    # 예문 표현
 node tools/check-topik.mjs        # TOPIK I
 node tools/check-topik2.mjs docs/topik2-all50.json   # TOPIK II
 node tools/check-glossary.mjs     # 낱말 뜻풀이
+node tools/check-blog.mjs         # 블로그 글 (글을 더했거나 고쳤으면 반드시)
 node tools/check-style.mjs docs/topik2-round2.json     # 출제·문법 (새 문항을 받았을 때)
 node tools/check-newwords.mjs docs/topik2-round2.json  # 처음 보는 낱말 (사람이 눈으로)
 node --check app.js && node --check app.module.js
@@ -61,7 +62,7 @@ GitHub Pages 는 캐시 머리글을 우리가 못 정한다. `app.js` 를 그�
 | 파일 | 만드는 것 | 원본 |
 |---|---|---|
 | `topik2.js` | `tools/build-topik2.mjs` | `docs/topik2-all50.json` |
-| `sentence/` · `compare/` · `course/` · `lesson/` · `topik-writing/` · `topik-reading/` · `topik-listening/` · `blog/` · `sitemap.xml` | `tools/build-pages.mjs` | `sentences*.js` · `courses*.js` · `topik-writing.js` · `topik.js` · `topik2.js` · `topik-listening.js` · `blog.js` |
+| `sentence/` · `compare/` · `course/` · `lesson/` · `topik-writing/` · `topik-reading/` · `topik-listening/` · `blog/`(`rss.xml` 포함) · `sitemap.xml` | `tools/build-pages.mjs` | `sentences*.js` · `courses*.js` · `topik-writing.js` · `topik.js` · `topik2.js` · `topik-listening.js` · `blog.js` |
 | `glossary.js` · `glossary-<말>.js` | `tools/build-glossary.mjs` | `docs/glossary.json` (+ `glossary-krdict.json`) |
 | `grammar.js` | `tools/build-grammar.mjs` | `sentences.js` 의 문법 이름 |
 | `docs/glossary-krdict.json` | `tools/build-krdict-glossary.mjs` | 국립국어원 내려받기 자료 |
@@ -150,6 +151,83 @@ node tools/build-krdict-glossary.mjs ~/Downloads/krdict
 ```
 
 영어 뜻풀이를 손으로 더 채우려면 `docs/glossary-gemini-prompt.md` 를 따른다.
+
+---
+
+## 블로그
+
+글은 `blog.js` 에 있고 `blog/` 밑은 생성물이다. 배열 순서가 화면 순서다 —
+최신이 앞이고, 앞뒤 글 이동도 이 순서를 따른다.
+
+### 본문은 HTML 이 아니라 블록이다
+
+예전에는 `body` 에 HTML 문자열을 넣었다. 손으로 쓸 때는 됐는데 **모델에게
+글을 받기 시작하니 안 됐다.** 태그 하나가 안 닫히면 쪽 전체가 무너지고,
+무엇보다 모델이 문법 뜻풀이를 그럴듯하게 지어냈다 — 우리에게는 손으로
+다듬은 뜻풀이가 이미 290개 있는데.
+
+그래서 본문을 **블록 배열**로 받는다.
+
+```js
+blocks: [
+  { t: 'p',    text: '문단. 꾸밈은 **굵게** 하나뿐이다' },
+  { t: 'h',    text: '소제목' },
+  { t: 'quote', lines: ['예문 한 줄', '또 한 줄'] },
+  { t: 'list', items: ['…', '…'], ordered: false },
+  { t: 'ex',   ko: '늦어서 죄송합니다.', en: 'Sorry for being late.' },
+  { t: 'dlg',  lines: ['A: …', 'B: …'] },
+  { t: 'gram', id: '32-2', note: '왜 지금 이걸 보라는지' },
+  { t: 'link', href: '/compare/32.html', title: '…', note: '…' },
+  { t: 'note', title: '자주 하는 실수', text: '…' },
+  { t: 'img',  src: '/assets/blog/….jpg', alt: '무엇이 찍혀 있는지', cap: '…' },
+]
+```
+
+글자는 전부 `esc()` 를 지난다. 모델이 `<script>` 를 적어 보내도 글자로만
+남는다. 손으로 쓴 예전 글의 `body` 도 그대로 받는다 — 둘 다 굽는다.
+
+**`gram` 은 id 만 받는다.** 표현 이름과 뜻풀이는 `sentences.js` 에서 꺼내
+붙이고, `note` 에는 「왜 지금 보라는지」만 적는다. 모델은 *어느* 표현을 걸지만
+정하고, 그 표현이 *무슨 뜻인지*는 우리 자료가 말한다. 없는 id 면
+`build-pages.mjs` 가 굽다가 멈춘다 — 조용히 넘기면 글에 죽은 링크가 실린다.
+
+### 글 하나 더 받기
+
+```bash
+node tools/blog-prompt.mjs beginner "이유를 말하는 세 가지" > /tmp/p.txt
+# /tmp/p.txt 를 통째로 Gemini 에 붙여 넣고, 받은 JSON 을 /tmp/got.json 로 저장
+node tools/blog-merge.mjs /tmp/got.json      # --dry 를 붙이면 찍어만 본다
+node tools/check-blog.mjs
+node tools/build-pages.mjs && node tools/stamp.mjs
+```
+
+`blog-prompt.mjs` 는 **그 급수까지의 표현 id 목록과 걸어도 되는 주소 목록을
+지시문 안에 통째로 넣는다.** 말로 「있는 것만 걸어라」라고 해 봐야 모델은
+`/blog/tags/grammar` 같은 있을 법한 주소를 아주 잘 지어낸다. 목록을 주면
+지어낼 자리가 없다.
+
+한 판에 글 하나만 시킨다. 두세 편을 한 번에 시키면 뒤로 갈수록 짧아지고
+말투가 흔들린다 — 읽기 지문에서 이미 겪은 일이다.
+
+`blog-merge.mjs` 는 **막을 것만** 본다(id 겹침·홑따옴표·모르는 블록). 나머지는
+넣은 뒤 `check-blog.mjs` 가 한자리에서 본다 — 두 군데서 같은 것을 보면
+한쪽만 고치게 된다.
+
+### 사진
+
+`assets/blog/` 에 둔다. **모델에게 사진을 시키지 않는다** — 남의 사진을 쓸
+수 없기 때문이다. 지시문은 사진이 있으면 좋겠는 자리에 「사진 자리」라는
+`note` 를 남기게 하고, 사람이 보고 채우거나 지운다. 크기·출처·`alt` 규칙은
+`assets/blog/00-README.txt` 에 있다.
+
+`check-blog.mjs` 가 파일이 실제로 있는지, `alt` 가 있는지(「사진」 같은 건
+`alt` 가 아니다), 300KB 를 넘는지 본다.
+
+### 시각 표시
+
+목록과 글 머리에 「4일 전」으로 뜨는데, **구울 때가 아니라 보는 사람
+브라우저에서** 바꾼다. 정적 파일이라 구울 때 계산해 박으면 다음 날부터
+거짓이 된다. 스크립트가 안 돌면 진짜 날짜가 그대로 남는다.
 
 ---
 

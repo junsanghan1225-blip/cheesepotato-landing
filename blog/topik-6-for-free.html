@@ -173,6 +173,39 @@ h2{font-size:15px;margin:32px 0 10px;color:var(--dim);letter-spacing:.02em}
 .blog-article li{margin:6px 0}
 .blog-article code{background:var(--soft);padding:2px 6px;border-radius:6px;font-size:.9em}
 .blog-article img{max-width:100%;border-radius:10px;margin:6px 0}
+.blog-article>*:first-child{margin-top:0}
+
+/* ── 글 속 블록 ── */
+/* 예문 한 칸. 한국어를 크게, 뜻을 아래에 흐리게. */
+.bex{background:var(--soft);border:1px solid var(--rb-hair);border-left:3px solid var(--brand);
+  border-radius:10px;padding:13px 16px;margin:0 0 22px}
+.bex>b{display:block;font-size:17px;font-weight:600;line-height:1.6}
+.bex span{display:block;margin-top:4px;font-size:14px;color:var(--dim);line-height:1.55}
+
+/* 문법 카드 — 글에서 표현 쪽으로 들어가는 문. 링크 하나로 통째로 눌린다. */
+.gcard{display:block;text-decoration:none;border:1px solid var(--line);border-radius:12px;
+  background:var(--card);padding:15px 18px;margin:0 0 22px;transition:border-color .12s,transform .12s}
+.gcard:hover{border-color:var(--brand);transform:translateY(-1px)}
+.gcat{display:block;font-size:11.5px;font-weight:700;letter-spacing:.03em;color:var(--dim)}
+.gcard>b{display:block;font-size:19px;margin:3px 0 0;letter-spacing:-.01em}
+.gdesc{display:block;margin-top:6px;font-size:15px;line-height:1.62;color:var(--ink)}
+.gnote{display:block;margin-top:8px;font-size:14px;line-height:1.6;color:var(--dim)}
+.ggo{display:block;margin-top:11px;font-size:13px;font-weight:700;color:var(--dim)}
+.gcard:hover .ggo{color:var(--ink)}
+
+/* 사진. 폭을 넘기지 않게만 잡고 비율은 파일에 맡긴다. */
+.bimg{margin:0 0 24px}
+.bimg img{display:block;width:100%;height:auto;border-radius:12px;border:1px solid var(--line)}
+.bimg figcaption{margin-top:8px;font-size:13px;line-height:1.55;color:var(--dim)}
+
+/* 짚어 둘 것 — 본문에서 한 발 뺀 이야기. */
+.bnote{display:block;border:1px solid var(--rb-hair);background:var(--rb-deck);border-radius:10px;
+  padding:14px 17px;margin:0 0 22px;font-size:15px;line-height:1.68}
+.bnote>.bnt{display:block;font-size:12.5px;font-weight:800;letter-spacing:.04em;color:var(--dim);margin-bottom:5px}
+
+/* 대화문은 표현 쪽(.dlg/.line/.who/.bub)을 그대로 나눠 쓴다 — 글 안에서는
+   위아래 여백만 더 준다. */
+.blog-article .dlg{margin:0 0 24px}
 .rb-next{font-size:12px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;
   color:var(--dim);margin:30px 0 10px}
 @media(max-width:520px){.rb-card{padding:18px 17px 22px}.rb-card h1{font-size:23px}}</style>

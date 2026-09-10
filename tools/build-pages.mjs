@@ -1000,6 +1000,39 @@ const BLOG_CSS = `
 .blog-article li{margin:6px 0}
 .blog-article code{background:var(--soft);padding:2px 6px;border-radius:6px;font-size:.9em}
 .blog-article img{max-width:100%;border-radius:10px;margin:6px 0}
+.blog-article>*:first-child{margin-top:0}
+
+/* ── 글 속 블록 ── */
+/* 예문 한 칸. 한국어를 크게, 뜻을 아래에 흐리게. */
+.bex{background:var(--soft);border:1px solid var(--rb-hair);border-left:3px solid var(--brand);
+  border-radius:10px;padding:13px 16px;margin:0 0 22px}
+.bex>b{display:block;font-size:17px;font-weight:600;line-height:1.6}
+.bex span{display:block;margin-top:4px;font-size:14px;color:var(--dim);line-height:1.55}
+
+/* 문법 카드 — 글에서 표현 쪽으로 들어가는 문. 링크 하나로 통째로 눌린다. */
+.gcard{display:block;text-decoration:none;border:1px solid var(--line);border-radius:12px;
+  background:var(--card);padding:15px 18px;margin:0 0 22px;transition:border-color .12s,transform .12s}
+.gcard:hover{border-color:var(--brand);transform:translateY(-1px)}
+.gcat{display:block;font-size:11.5px;font-weight:700;letter-spacing:.03em;color:var(--dim)}
+.gcard>b{display:block;font-size:19px;margin:3px 0 0;letter-spacing:-.01em}
+.gdesc{display:block;margin-top:6px;font-size:15px;line-height:1.62;color:var(--ink)}
+.gnote{display:block;margin-top:8px;font-size:14px;line-height:1.6;color:var(--dim)}
+.ggo{display:block;margin-top:11px;font-size:13px;font-weight:700;color:var(--dim)}
+.gcard:hover .ggo{color:var(--ink)}
+
+/* 사진. 폭을 넘기지 않게만 잡고 비율은 파일에 맡긴다. */
+.bimg{margin:0 0 24px}
+.bimg img{display:block;width:100%;height:auto;border-radius:12px;border:1px solid var(--line)}
+.bimg figcaption{margin-top:8px;font-size:13px;line-height:1.55;color:var(--dim)}
+
+/* 짚어 둘 것 — 본문에서 한 발 뺀 이야기. */
+.bnote{display:block;border:1px solid var(--rb-hair);background:var(--rb-deck);border-radius:10px;
+  padding:14px 17px;margin:0 0 22px;font-size:15px;line-height:1.68}
+.bnote>.bnt{display:block;font-size:12.5px;font-weight:800;letter-spacing:.04em;color:var(--dim);margin-bottom:5px}
+
+/* 대화문은 표현 쪽(.dlg/.line/.who/.bub)을 그대로 나눠 쓴다 — 글 안에서는
+   위아래 여백만 더 준다. */
+.blog-article .dlg{margin:0 0 24px}
 .rb-next{font-size:12px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;
   color:var(--dim);margin:30px 0 10px}
 @media(max-width:520px){.rb-card{padding:18px 17px 22px}.rb-card h1{font-size:23px}}
@@ -1008,6 +1041,128 @@ const BLOG_CSS = `
 /* 목록 쪽만 넓게 쓴다. 글 읽는 쪽은 한 줄이 길어지면 눈이 되돌아올 자리를
    잃으므로 좁은 채로 둔다 — 같은 BLOG_CSS 를 쓰되 폭만 여기서 가른다. */
 const BLOG_HUB_CSS = '\n@media(min-width:880px){.wrap{max-width:1060px}}';
+
+/* ── 글 속 블록 ─────────────────────────────────────────────
+   글 본문을 날 HTML 문자열로 두면 두 가지가 깨진다.
+
+   하나, **모델이 쓴 HTML 은 믿을 수 없다.** 블로그 글을 Gemini 에게
+   받는데(tools/blog-prompt.mjs), 태그 하나만 안 닫혀도 쪽 전체가 무너진다.
+   실제로 자료를 받아 보면 </p> 를 빠뜨리거나 <br/> 과 <br> 을 섞는다.
+
+   둘, **모델이 문법 설명을 지어낸다.** 「-는 바람에는 …라는 뜻입니다」를
+   그럴듯하게 써 놓는데, 우리에겐 이미 손으로 다듬은 뜻풀이가 290개 있다.
+   지어낸 설명을 실을 까닭이 없다.
+
+   그래서 본문을 **블록 배열**로 받는다. 글자는 전부 esc() 를 지나고,
+   허용하는 꾸밈은 **굵게** 하나뿐이다. 그리고 문법 카드(t:'gram')는
+   **id 만** 받아서 뜻풀이는 우리 sentences.js 에서 꺼내 붙인다 — 모델은
+   「어느 표현을 걸지」와 「왜 보라는지」만 정하고, 표현이 무슨 뜻인지는
+   우리 자료가 말한다.
+
+   손으로 쓴 예전 글은 body(HTML 문자열)를 그대로 쓴다. 둘 다 받는다. */
+const SB_BY_ID = new Map();
+for (const cat of SB_CATS) for (const p of cat.points) SB_BY_ID.set(p.id, { p, cat });
+
+/* 글자 안에서 허용하는 꾸밈은 **굵게** 하나뿐이다. esc() 를 먼저 지나므로
+   모델이 <script> 를 적어 보내도 글자로만 남는다. */
+const inline = (s) => esc(s).replace(/\*\*([^*]+)\*\*/g, '<b>$1</b>');
+
+function renderBlock(b, where) {
+  const bad = (why) => { throw new Error(`블로그 블록이 잘못됐다 (${where}): ${why}\n  ${JSON.stringify(b).slice(0, 160)}`); };
+  switch (b?.t) {
+    case 'p':
+      if (!b.text) bad('t:"p" 에 text 가 없다');
+      return `<p>${inline(b.text)}</p>`;
+
+    case 'h':
+      if (!b.text) bad('t:"h" 에 text 가 없다');
+      return `<h2>${inline(b.text)}</h2>`;
+
+    case 'quote':
+      if (!Array.isArray(b.lines) || !b.lines.length) bad('t:"quote" 에 lines 배열이 없다');
+      return `<blockquote>${b.lines.map(inline).join('<br>')}</blockquote>`;
+
+    case 'list':
+      if (!Array.isArray(b.items) || !b.items.length) bad('t:"list" 에 items 배열이 없다');
+      return `<${b.ordered ? 'ol' : 'ul'}>` + b.items.map((i) => `<li>${inline(i)}</li>`).join('') +
+        `</${b.ordered ? 'ol' : 'ul'}>`;
+
+    /* 예문 한 칸. 한국어를 크게, 영어 뜻을 아래에 흐리게 — 표현 쪽(.ex)과
+       같은 결이되 뜻을 함께 보여 준다. */
+    case 'ex':
+      if (!b.ko) bad('t:"ex" 에 ko 가 없다');
+      return `<div class="bex"><b>${inline(b.ko)}</b>${b.en ? `<span>${inline(b.en)}</span>` : ''}</div>`;
+
+    /* 대화문. 표현 쪽과 같은 규칙 — A 는 치즈, B 는 감자. */
+    case 'dlg': {
+      if (!Array.isArray(b.lines) || !b.lines.length) bad('t:"dlg" 에 lines 배열이 없다');
+      const rows = b.lines.map((line) => {
+        const m = /^([AB]):\s*(.+)$/.exec(line);
+        if (!m) bad(`대화문 줄은 "A: …" 나 "B: …" 여야 한다 — "${line}"`);
+        const who = m[1];
+        return `<div class="line ${who === 'A' ? 'a' : 'b'}">` +
+          `<span class="who" aria-hidden="true">${who === 'A' ? '🧀' : '🥔'}</span>` +
+          `<span class="bub">${inline(m[2])}</span></div>`;
+      }).join('');
+      return `<div class="dlg">${rows}</div>`;
+    }
+
+    /* 문법 카드 — 「문법마다 들어가서 볼 수 있게」 하는 자리다.
+       뜻풀이는 sentences.js 에서 꺼낸다. 없는 id 면 여기서 멈춘다 —
+       조용히 넘기면 글에 죽은 링크가 실린다. */
+    case 'gram': {
+      if (!b.id) bad('t:"gram" 에 id 가 없다');
+      const hit = SB_BY_ID.get(b.id);
+      if (!hit) bad(`문법 표현 ${b.id} 이 sentences.js 에 없다`);
+      return `<a class="gcard" href="/sentence/${esc(b.id)}.html">` +
+        `<span class="gcat">${esc(hit.cat.ko)}</span>` +
+        `<b>${esc(hit.p.name)}</b>` +
+        `<span class="gdesc">${esc(hit.p.desc)}</span>` +
+        (b.note ? `<span class="gnote">${inline(b.note)}</span>` : '') +
+        `<span class="ggo">표현 쪽에서 예문·대화문까지 보기 →</span>` +
+      `</a>`;
+    }
+
+    /* 사이트 안 다른 쪽으로 보내는 카드. 문법 표현이 아닌 것(코스·목록
+       쪽)을 걸 때 쓴다. 주소가 실재하는지는 tools/check-blog.mjs 가 본다. */
+    case 'link':
+      if (!b.href || !b.title) bad('t:"link" 에 href 나 title 이 없다');
+      if (!b.href.startsWith('/')) bad('t:"link" 의 href 는 사이트 안 주소(/ 로 시작)여야 한다');
+      return `<a class="gcard" href="${esc(b.href)}">` +
+        `<b>${esc(b.title)}</b>` +
+        (b.note ? `<span class="gnote">${inline(b.note)}</span>` : '') +
+        `<span class="ggo">보러 가기 →</span>` +
+      `</a>`;
+
+    /* 사진. 파일이 실재하는지는 tools/check-blog.mjs 가 본다 — 여기서
+       파일을 읽지는 않는다(굽는 일이 느려진다). alt 는 반드시 받는다. */
+    case 'img':
+      if (!b.src) bad('t:"img" 에 src 가 없다');
+      if (!b.alt) bad('t:"img" 에 alt 가 없다 — 눈으로 못 보는 사람에게 사진은 alt 가 전부다');
+      return `<figure class="bimg"><img src="${esc(b.src)}" alt="${esc(b.alt)}" loading="lazy"` +
+        (b.w && b.h ? ` width="${esc(String(b.w))}" height="${esc(String(b.h))}"` : '') + '>' +
+        (b.cap ? `<figcaption>${inline(b.cap)}</figcaption>` : '') + '</figure>';
+
+    /* 짚어 둘 것. 본문 흐름에서 한 발 뺀 이야기 — 「이건 시험에서는 다르다」
+       같은 것. */
+    case 'note':
+      if (!b.text) bad('t:"note" 에 text 가 없다');
+      return `<aside class="bnote">${b.title ? `<b class="bnt">${inline(b.title)}</b>` : ''}${inline(b.text)}</aside>`;
+
+    default:
+      bad(`모르는 블록 종류 t:${JSON.stringify(b?.t)}`);
+  }
+}
+
+/* 글 하나의 본문 HTML. blocks 가 있으면 그것을, 없으면 손으로 쓴 body 를.
+   분량 세기·RSS·쪽 굽기가 전부 이 하나를 쓴다 — 따로 계산하면 목록의
+   「3분」과 글 쪽의 「3분」이 어긋난다. */
+function postHtml(post) {
+  if (Array.isArray(post.blocks)) {
+    return post.blocks.map((b, i) => renderBlock(b, `${post.id} 의 ${i + 1}번째 블록`)).join('\n');
+  }
+  return post.body ?? '';
+}
 
 /* 한글 기준 대략 분당 500자 읽는다고 잡는다 — 정확할 필요는 없고,
    "훑어볼지 앉아서 읽을지" 감만 잡히면 된다. */
@@ -1052,7 +1207,7 @@ function postMeta(post) {
 /* 목록 줄 하나. 목록 쪽과 글 아래 「이어서 읽기」가 같은 모양을 쓴다. */
 const postRow = (p) =>
   `<li class="rb-post">` +
-    `<div class="rb-rail"><b>${readMins(p.body)}</b><span>분</span></div>` +
+    `<div class="rb-rail"><b>${readMins(postHtml(p))}</b><span>분</span></div>` +
     `<div class="rb-body">` +
       postMeta(p) +
       `<h2><a href="/blog/${esc(p.id)}.html">${esc(p.title)}</a></h2>` +
@@ -1086,7 +1241,7 @@ function blogPage(post, prev, next, related) {
       postMeta(post),
       `<h1>${esc(post.title)}</h1>`,
       flair(post.tags),
-      `<div class="blog-article">${post.body}</div>`,
+      `<div class="blog-article">${postHtml(post)}</div>`,
     `</article>`,
     `<a class="cta" href="/#learn">한국어 배우러 가기<span>Free Korean lessons, no sign-up needed</span></a>`,
     /* 앞뒤 글. 배열은 최신이 앞이므로 「이전 글」은 한 칸 뒤(더 오래된 것),
@@ -1250,7 +1405,7 @@ function blogRss(posts) {
     `    <pubDate>${rssDate(p.date)}</pubDate>`,
     ...(p.tags || []).map((t) => `    <category>${esc(t)}</category>`),
     `    <description>${cdata(p.excerpt)}</description>`,
-    `    <content:encoded>${cdata(p.body)}</content:encoded>`,
+    `    <content:encoded>${cdata(postHtml(p))}</content:encoded>`,
     '  </item>',
   ].join('\n')).join('\n');
 
