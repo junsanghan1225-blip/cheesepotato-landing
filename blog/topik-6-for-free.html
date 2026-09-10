@@ -277,10 +277,33 @@ h1,.rb-id h1,.rb-card h1,.rb-post h2,.blog-article h2{font-family:'Gowun Batang'
 
 .rb-card{border:1px solid var(--line);border-radius:10px;box-shadow:none;padding:36px 40px 40px}
 
-.gcard{border:1px solid var(--line);border-radius:10px;box-shadow:none}
+/* 문법 카드가 기능성 박스처럼 붕 떠 보인다는 말을 들었다. 흰 카드 +
+   테두리 대신 .bex 처럼 옅게 물든 바탕 + 왼쪽 포인트 선으로 바꿔
+   본문 흐름 속 한 문단처럼 보이게 한다. 안의 두 링크(.ggo 덮개 트릭)는
+   손대지 않는다. */
+.gcard{border:none;border-left:3px solid var(--brand);border-radius:0 10px 10px 0;
+  background:var(--soft);box-shadow:none}
+.gcard:hover{border-color:var(--brand)}
 
 .bex{border:1px solid var(--line);border-left:3px solid var(--brand);border-radius:8px}
 .bnote{border:1px solid var(--line);border-radius:8px}
+
+/* 인용구 — 왼쪽 테두리 하나짜리 각주였는데, 눈에 띄어야 할 문장이라
+   큰 세리프로 화면 가운데 끌어내 필그리 이듈처럼 키운다. */
+.blog-article blockquote{border:none;margin:36px auto;padding:0 8px;max-width:480px;
+  font-family:'Gowun Batang',serif;font-size:24px;line-height:1.6;font-style:normal;
+  color:var(--ink);text-align:center}
+
+/* 글 머리 — 작성자가 안 보이면 문서처럼 읽힌다. 아바타·이름·역할·날짜를
+   한 줄로 묶고, 제목 위아래로 여백을 넉넉히 줘 분위기를 만든다. */
+.rb-card{padding-top:44px}
+.rb-byline{display:flex;align-items:center;gap:12px;margin-bottom:18px}
+.rb-avatar-sm{flex:none;width:44px;height:44px;border-radius:50%;background:var(--soft);
+  display:grid;place-items:center;font-size:22px;line-height:1}
+.rb-byline-name{font-size:15px;font-weight:700}
+.rb-byline-role{font-size:13px;color:var(--dim);margin-top:2px}
+.rb-card h1{margin-top:0}
+.rb-card .rb-flair{margin:14px 0 28px;padding-bottom:28px;border-bottom:1px solid var(--line)}
 
 .cta{border:none;border-radius:10px;box-shadow:none;background:var(--ink);color:var(--bg);
   font-weight:600;transition:opacity .15s}
@@ -295,7 +318,7 @@ h1,.rb-id h1,.rb-card h1,.rb-post h2,.blog-article h2{font-family:'Gowun Batang'
 <a class="blog-back" href="/blog/">← 블로그</a>
 <nav class="crumb"><a href="/">치즈감자</a> › <a href="/blog/">블로그</a></nav>
 <article class="rb-card">
-<div class="rb-meta"><span class="rb-who">🧀 치즈감자</span> <span class="dot">·</span> <time datetime="2026-09-06">2026년 9월 6일</time> <span class="dot">·</span> 고침 <time datetime="2026-09-10">2026년 9월 10일</time></div>
+<div class="rb-byline"><span class="rb-avatar-sm" aria-hidden="true">🧀</span><div class="rb-byline-info"><div class="rb-byline-name">치즈감자</div><div class="rb-byline-role">한국어를 가르치는 사람 · <time datetime="2026-09-06">2026년 9월 6일</time> · 고침 <time datetime="2026-09-10">2026년 9월 10일</time></div></div></div>
 <h1>TOPIK 6급까지, 무료로 준비하는 법</h1>
 <ul class="rb-flair"><li>TOPIK</li><li>준비</li></ul>
 <div class="blog-article"><p>TOPIK 준비 학원 한 달 수강료가 몇십만 원인 경우가 흔합니다. 급수마다 교재도 따로 사야 하고요. 그런데 한글부터 TOPIK 6급 수준까지, 돈 한 푼 안 들이고 준비하는 게 실제로 가능합니다. 이 글은 광고가 아니라, 저희가 만들고 있는 사이트(치즈감자)에 실제로 있는 것만 순서대로 정리한 안내입니다.</p><h2>1단계 — 한글부터 문장까지</h2><p>한글을 하나도 모른다면 「Read Korean」 코스부터 시작합니다. 한글은 원래 한나절이면 읽을 수 있도록 설계된 글자라, 이 코스도 그 전제로 만들어졌습니다. 이어서 인사말·주문·길찾기 같은 생존 표현을 다루는 「First Words」, 그다음 시제·부정·조사처럼 문장을 실제로 만드는 원리를 다루는 「Building Sentences」로 넘어갑니다.</p><p>지금 초급·중급·고급을 합쳐 코스 21개, 레슨 82개가 있습니다. 꼭 순서대로 풀 필요는 없습니다 — 이미 말은 하는데 문법만 정리하러 오는 사람도 있으니까요.</p><h2>2단계 — 문법을 표현으로 익히기</h2><p>단순 암기만으로는 급수가 올라갈수록 한계가 옵니다. 「예문 만들기」에는 문법 표현 290개가 있고, 표현마다 뜻풀이·예문·대화문이 붙어 있습니다. 그리고 그 표현으로 직접 문장을 써 보고 확인받는 칸이 있어요 — 읽기만 하고 넘어가지 않게 만든 구조입니다.</p><h2>3단계 — 실전 유형으로 훈련하기</h2><p>TOPIK I·II의 읽기·듣기·쓰기 연습 문항이 512개 있습니다. <b>기출문제가 아니라 같은 유형으로 새로 만든 창작 문항</b>입니다 — 이 부분은 정직하게 밝혀 둡니다. 대신 문항마다 왜 그 답인지 설명이 붙어 있고, 쓰기는 모범답안과 채점 포인트까지 같이 봅니다. 시간을 재는 모의고사 형태로도 풀 수 있습니다.</p><h2>4단계 — 단어는 매일 조금씩</h2><p>국립국어원 뜻풀이를 담은 사전에 낱말 5,346개가 있고, 공부하다 모르는 낱말을 누르면 바로 뜻이 나옵니다. 외워야 할 단어는 내 단어장에 담아 두면 간격을 두고 다시 물어보는 복습 알림이 옵니다 — 한 번에 몰아서 외우고 잊어버리는 대신, 잊을 때쯤 다시 보게 하는 방식입니다.</p><h2>제일 어려운 건 꾸준히 하는 것</h2><p>사실 TOPIK 6급까지 가는 데 필요한 자료가 없어서 못 가는 사람은 별로 없습니다. 며칠 하다 마는 게 진짜 이유입니다. 그래서 로그인하면 연속 학습일이 남고, 스트릭이 끊기려 하거나 복습할 단어가 쌓이면 화면 위에 알려 줍니다. 진도는 기기를 바꿔도 그대로 이어집니다.</p><h2>정리</h2><p>한글 → 생존 표현 → 문장 만들기 → 문법 표현 290개 → TOPIK 유형 연습 → 단어 복습, 이 순서면 됩니다. 설치도 회원가입도 필요 없고, 로그인은 진도를 여러 기기에서 이어 보고 싶을 때만 하면 됩니다.</p></div>
