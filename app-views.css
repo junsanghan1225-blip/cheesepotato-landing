@@ -2376,6 +2376,9 @@
   display:inline-flex; align-items:center; gap:5px; padding:4px 9px; font-size:12px; font-weight:700;
   background:#FFF4EA; border:1px solid rgba(255,138,61,.3); border-radius:999px; color:var(--orange-deep);
 }
+.tq-video { margin-top:14px; }
+.tq-video-h { font-size:12.5px; font-weight:700; color:var(--ink-3); margin:0 0 8px; }
+.tq-video video { width:100%; display:block; border-radius:var(--r); background:#000; }
 .tq-note {
   margin-top:22px; font-size:12px; line-height:1.7; color:var(--ink-3);
   padding-left:12px; border-left:2px solid var(--line-2); word-break:keep-all;

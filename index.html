@@ -115,13 +115,13 @@
      Pretendard 는 통짜(2.0MB) 대신 조각난 쪽을 쓴다 — 브라우저가
      unicode-range 를 보고 화면에 실제로 나온 글자가 든 조각만 받는다.
      그래서 저장소는 무거워졌지만 학습자가 받는 양은 오히려 줄었다. -->
-<link rel="stylesheet" href="vendor/pretendard.css?v=5a28f9ab">
-<link rel="stylesheet" href="vendor/pressstart2p.css?v=5a28f9ab">
+<link rel="stylesheet" href="vendor/pretendard.css?v=05f58aa1">
+<link rel="stylesheet" href="vendor/pressstart2p.css?v=05f58aa1">
 <!-- 화면 상자 안에서만 쓰는 CSS 는 여기서 갈라 받는다. media="print" 라
      첫 페인트를 안 막고, 다 받아지면 app.js 가 media 를 all 로 바꾼다.
      자바스크립트가 없으면 <noscript> 쪽이 그냥 평범하게 걸린다. -->
-<link id="viewsCss" rel="stylesheet" href="app-views.css?v=5a28f9ab" media="print">
-<noscript><link rel="stylesheet" href="app-views.css?v=5a28f9ab"></noscript>
+<link id="viewsCss" rel="stylesheet" href="app-views.css?v=05f58aa1" media="print">
+<noscript><link rel="stylesheet" href="app-views.css?v=05f58aa1"></noscript>
 
 <style>
 /* ══════════════════════════════════════════════════════════════
@@ -2309,6 +2309,9 @@ body.hlp-open { overflow:hidden; }
               <p class="tq-question" id="tqQuestion"></p>
               <div class="tq-choices" id="tqChoices"></div>
               <div class="tq-why hidden" id="tqWhy"></div>
+              <!-- 문제 풀이 영상. 영상이 있는 문항에서만(topik-video.js
+                   참고) tqPick 이 채운다 — 없으면 빈 채로 hidden 이다. -->
+              <div class="tq-video hidden" id="tqVideo"></div>
               <div style="text-align:center; margin-top:18px;">
                 <button class="pt-next hidden" id="tqNext" type="button"></button>
               </div>
@@ -3801,9 +3804,9 @@ body.hlp-open { overflow:hidden; }
 <div id="hlpScrim" class="hlp-scrim"></div>
 <aside id="hlpPanel" class="hlp-panel" aria-label="한국어 도우미" aria-hidden="true"></aside>
 
-<script src="app.js?v=5a28f9ab"></script>
-<script type="module" src="app.module.js?v=5a28f9ab"></script>
+<script src="app.js?v=05f58aa1"></script>
+<script type="module" src="app.module.js?v=05f58aa1"></script>
 
-<script src="analytics.js?v=5a28f9ab" defer></script>
+<script src="analytics.js?v=05f58aa1" defer></script>
 </body>
 </html>
