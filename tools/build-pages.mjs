@@ -29,6 +29,7 @@ import { BLOG_POSTS } from '../blog.js';
 import { TOPIK_READING, TOPIK_BLUEPRINT } from '../topik.js';
 import { TOPIK2_READING, TOPIK2_BLUEPRINT } from '../topik2.js';
 import { TOPIKL_BY_EXAM } from '../topik-listening.js';
+import { readFileSync as readEn } from 'node:fs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const SITE = 'https://everykoreans.com';
@@ -40,6 +41,17 @@ const OUT_TW = join(ROOT, 'topik-writing');
 const OUT_CMP = join(ROOT, 'compare');
 const OUT_TR = join(ROOT, 'topik-reading');
 const OUT_TL = join(ROOT, 'topik-listening');
+
+/* 표현 290개의 영어 설명. app.module.js 는 이걸 grammar-en.js 로 읽어 화면에
+   쓰는데, **검색에 걸리는 정적 쪽에는 여태 한 줄도 안 실렸다.** 그래서
+   「neuni korean grammar」나 「nikka vs aseo」로 찾는 사람에게 우리 쪽은
+   영어가 한 글자도 없는 한국어 쪽이었다 — 뜻풀이를 290개 다 옮겨 놓고도.
+   여기서 붙인다. 없으면 한국어만 나가고 굽는 일은 그대로 된다. */
+let EN_BY_ID = new Map();
+try {
+  const arr = JSON.parse(readEn(join(ROOT, 'docs/grammar-en.json'), 'utf8'));
+  EN_BY_ID = new Map(arr.filter((x) => x?.id).map((x) => [x.id, x]));
+} catch { /* 없으면 한국어로 물러선다 */ }
 
 const esc = (s) => String(s ?? '')
   .replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;')
@@ -72,6 +84,9 @@ a{color:inherit}
 h1{font-size:30px;line-height:1.3;margin:12px 0 6px;letter-spacing:-.02em}
 .sub{color:var(--dim);font-size:14px;margin:0 0 18px}
 .desc{font-size:17px;margin:0 0 26px}
+/* 한국어 뜻풀이 아래 붙는 영어. 한국어가 먼저 읽히도록 한 단계 죽인다. */
+.desc.en{font-size:15.5px;color:var(--dim);margin:-18px 0 26px}
+.fact i{display:block;font-style:normal;font-size:13.5px;color:var(--dim);margin-top:3px}
 h2{font-size:15px;margin:32px 0 10px;color:var(--dim);letter-spacing:.02em}
 .facts{border:1px solid var(--line);border-radius:14px;overflow:hidden;background:var(--card)}
 /* 이름표를 두 말로 겹쳐 쓰니(「자주 함께 쓰는 말 / Often paired with」)
@@ -198,12 +213,27 @@ function pointPage(cat, p, prev, next) {
      「neuni korean grammar」로도 찾는다. 표현 이름은 어느 쪽에도 그대로
      걸리므로 앞에 두고, 뒤에 무엇을 다루는 쪽인지 영어로 붙인다. */
   const title = `${p.name} — Korean grammar: meaning & examples | 치즈감자`;
-  const desc = clip(`${p.name} · ${cat.en} — ${p.desc}`);
+  /* 검색 결과에 뜨는 줄은 **영어를 앞에 둔다.** 제목에 표현 이름이 그대로
+     들어 있어 한국어 검색어는 제목이 받는다. 이 줄까지 한국어면 영어로
+     찾은 사람은 결과에서 읽을 것이 하나도 없다. 영어가 없으면 한국어로. */
+  const en = EN_BY_ID.get(p.id);
+  const desc = clip(en?.desc ? `${p.name} · ${cat.en} — ${en.desc}` : `${p.name} · ${cat.en} — ${p.desc}`);
 
+  /* **한국어 칸에 영어가 이미 섞여 있는 것이 290개 중 112개다.**
+     README 는 「영어는 sentences.js 에 섞지 않고 docs/grammar-en.json 에
+     따로 둔다」고 하는데, 「주의할 점」에는 옛날에 옮긴 영어가 한국어 뒤에
+     그대로 붙어 있다. 그 자리에 영어를 또 붙이면 같은 말이 두 번 나온다.
+     자료를 고치는 것이 옳지만 섞인 글을 갈라내는 일은 따로 할 일이라,
+     여기서는 **이미 영어가 있으면 더 붙이지 않는다.** */
+  const hasEn = (v) => /[A-Za-z]{4,}/.test(String(v ?? ''));
+  const addEn = (koVal, enVal) => (enVal && !hasEn(koVal) ? enVal : null);
+
+  /* 칸마다 한국어 아래 영어를 붙인다. lang 을 적어 둬야 기계가 두 말이
+     섞인 쪽인 줄 안다 — 쪽 전체는 lang="ko" 다. */
   const facts = [
-    ['형태 / Form', more[0]],
-    ['자주 함께 쓰는 말 / Often paired with', more[1]],
-    ['주의할 점 / Watch out', more[2]],
+    ['형태 / Form', more[0], addEn(more[0], en?.form)],
+    ['자주 함께 쓰는 말 / Often paired with', more[1], null],
+    ['주의할 점 / Watch out', more[2], addEn(more[2], en?.care)],
   ].filter(([, v]) => v);
 
   const dlg = (p.dlg || []).map((line) => {
@@ -222,8 +252,10 @@ function pointPage(cat, p, prev, next) {
     `<h1>${esc(p.name)}</h1>`,
     `<p class="sub">${esc(cat.emoji ? cat.emoji + ' ' : '')}${esc(cat.ko)} · ${esc(cat.en)}</p>`,
     `<p class="desc">${esc(p.desc)}</p>`,
-    facts.length ? '<div class="facts">' + facts.map(([k, v]) =>
-      `<div class="fact"><b>${esc(k)}</b><span>${esc(v)}</span></div>`).join('') + '</div>' : '',
+    addEn(p.desc, en?.desc) ? `<p class="desc en" lang="en">${esc(en.desc)}</p>` : '',
+    facts.length ? '<div class="facts">' + facts.map(([k, v, e]) =>
+      `<div class="fact"><b>${esc(k)}</b><span>${esc(v)}` +
+      (e ? `<i lang="en">${esc(e)}</i>` : '') + '</span></div>').join('') + '</div>' : '',
     '<h2>예문 · Examples</h2>',
     `<div class="ex">${esc(p.ex)}</div>`,
     more[3] ? `<div class="ex">${esc(more[3])}</div>` : '',
@@ -249,8 +281,10 @@ function pointPage(cat, p, prev, next) {
       '@type': 'DefinedTerm',
       '@id': `${SITE}/sentence/${p.id}.html`,
       name: p.name,
+      /* description 은 하나만 받는다. 한국어를 두고, 영어는 별칭 자리에
+         함께 적어 둔다 — 두 말로 찾는 쪽이라는 것을 기계에 알린다. */
       description: p.desc,
-      inLanguage: 'ko',
+      inLanguage: en?.desc ? ['ko', 'en'] : 'ko',
       termCode: p.id,
       inDefinedTermSet: {
         '@type': 'DefinedTermSet',
@@ -258,6 +292,7 @@ function pointPage(cat, p, prev, next) {
         name: '한국어 문법 표현 · Korean grammar points',
       },
       ...(more[0] ? { alternateName: more[0] } : {}),
+      ...(en?.desc ? { disambiguatingDescription: en.desc } : {}),
     },
     /* 갈래 쪽은 /compare/ 에 있다. 다만 표현이 하나뿐인 갈래는 견줄 것이
        없어 안 만드므로(아래 생성 고리의 조건과 같아야 한다), 그럴 때는
