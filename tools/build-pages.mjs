@@ -1416,6 +1416,28 @@ function shareRow() {
   '</div>';
 }
 
+/* 댓글 — giscus(깃허브 Discussions 기반). 정적 사이트라 우리 서버가
+   없으니 댓글은 깃허브 계정으로 로그인해서 남기는 남의 서비스를 쓴다.
+   repo-id·category-id는 저장소에서 giscus 앱을 설치하고 Discussions를
+   켠 뒤 giscus.app 에서 받은 값이다 — 지어낸 값이 아니다. 글마다
+   주소(pathname)로 토론을 찾아 붙이므로 카드마다 따로 손댈 게 없다. */
+const GISCUS_SCRIPT = `
+<h2 class="rb-next">댓글</h2>
+<script src="https://giscus.app/client.js"
+  data-repo="junsanghan1225-blip/cheesepotato-landing"
+  data-repo-id="R_kgDOS8EVWA"
+  data-category-id="DIC_kwDOS8EVWM4DFUN3"
+  data-mapping="pathname"
+  data-strict="0"
+  data-reactions-enabled="1"
+  data-emit-metadata="0"
+  data-input-position="bottom"
+  data-theme="preferred_color_scheme"
+  data-lang="ko"
+  crossorigin="anonymous"
+  async>
+</script>`.trim();
+
 const timeTag = (iso) => `<time datetime="${esc(iso)}">${esc(fmtDateKo(iso))}</time>`;
 const flair = (tags) => (tags && tags.length)
   ? '<ul class="rb-flair">' + tags.map((t) => `<li>${esc(t)}</li>`).join('') + '</ul>'
@@ -1497,6 +1519,7 @@ function blogPage(post, prev, next, related) {
       ? `<h2 class="rb-next">같은 갈래의 글</h2>` +
         '<ul class="rb-feed">' + related.map(postRow).join('') + '</ul>'
       : '',
+    GISCUS_SCRIPT,
     AGO_JS,
     SHARE_JS,
   ].filter(Boolean).join('\n');
