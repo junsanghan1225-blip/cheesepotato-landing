@@ -277,10 +277,33 @@ h1,.rb-id h1,.rb-card h1,.rb-post h2,.blog-article h2{font-family:'Gowun Batang'
 
 .rb-card{border:1px solid var(--line);border-radius:10px;box-shadow:none;padding:36px 40px 40px}
 
-.gcard{border:1px solid var(--line);border-radius:10px;box-shadow:none}
+/* 문법 카드가 기능성 박스처럼 붕 떠 보인다는 말을 들었다. 흰 카드 +
+   테두리 대신 .bex 처럼 옅게 물든 바탕 + 왼쪽 포인트 선으로 바꿔
+   본문 흐름 속 한 문단처럼 보이게 한다. 안의 두 링크(.ggo 덮개 트릭)는
+   손대지 않는다. */
+.gcard{border:none;border-left:3px solid var(--brand);border-radius:0 10px 10px 0;
+  background:var(--soft);box-shadow:none}
+.gcard:hover{border-color:var(--brand)}
 
 .bex{border:1px solid var(--line);border-left:3px solid var(--brand);border-radius:8px}
 .bnote{border:1px solid var(--line);border-radius:8px}
+
+/* 인용구 — 왼쪽 테두리 하나짜리 각주였는데, 눈에 띄어야 할 문장이라
+   큰 세리프로 화면 가운데 끌어내 필그리 이듈처럼 키운다. */
+.blog-article blockquote{border:none;margin:36px auto;padding:0 8px;max-width:480px;
+  font-family:'Gowun Batang',serif;font-size:24px;line-height:1.6;font-style:normal;
+  color:var(--ink);text-align:center}
+
+/* 글 머리 — 작성자가 안 보이면 문서처럼 읽힌다. 아바타·이름·역할·날짜를
+   한 줄로 묶고, 제목 위아래로 여백을 넉넉히 줘 분위기를 만든다. */
+.rb-card{padding-top:44px}
+.rb-byline{display:flex;align-items:center;gap:12px;margin-bottom:18px}
+.rb-avatar-sm{flex:none;width:44px;height:44px;border-radius:50%;background:var(--soft);
+  display:grid;place-items:center;font-size:22px;line-height:1}
+.rb-byline-name{font-size:15px;font-weight:700}
+.rb-byline-role{font-size:13px;color:var(--dim);margin-top:2px}
+.rb-card h1{margin-top:0}
+.rb-card .rb-flair{margin:14px 0 28px;padding-bottom:28px;border-bottom:1px solid var(--line)}
 
 .cta{border:none;border-radius:10px;box-shadow:none;background:var(--ink);color:var(--bg);
   font-weight:600;transition:opacity .15s}
@@ -295,7 +318,7 @@ h1,.rb-id h1,.rb-card h1,.rb-post h2,.blog-article h2{font-family:'Gowun Batang'
 <a class="blog-back" href="/blog/">← 블로그</a>
 <nav class="crumb"><a href="/">치즈감자</a> › <a href="/blog/">블로그</a></nav>
 <article class="rb-card">
-<div class="rb-meta"><span class="rb-who">🧀 치즈감자</span> <span class="dot">·</span> <time datetime="2026-09-10">2026년 9월 10일</time></div>
+<div class="rb-byline"><span class="rb-avatar-sm" aria-hidden="true">🧀</span><div class="rb-byline-info"><div class="rb-byline-name">치즈감자</div><div class="rb-byline-role">한국어를 가르치는 사람 · <time datetime="2026-09-10">2026년 9월 10일</time></div></div></div>
 <h1>이유를 말하는 세 가지 — 아/어서, (으)니까, 때문에</h1>
 <ul class="rb-flair"><li>문법</li><li>초급</li></ul>
 <div class="blog-article"><p>「늦어서 죄송합니다」와 「늦었으니까 죄송합니다」. 앞은 자연스럽고 뒤는 어색합니다. 그런데 사전을 찾으면 둘 다 이유를 나타낸다고 나옵니다.</p>
