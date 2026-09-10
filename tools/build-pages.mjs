@@ -1090,70 +1090,63 @@ a.gcard:hover .glinkgo{color:var(--ink)}
   color:var(--dim);margin:30px 0 10px}
 @media(max-width:520px){.rb-card{padding:18px 17px 22px}.rb-card h1{font-size:23px}}
 
-/* ── "치즈감자 스티커북" 톤 ──────────────────────────────────
-   위 규칙은 그대로 두고 여기서 색·글꼴·테두리만 덮어쓴다. 구조를
-   손대지 않는 이유 — .gcard 의 클릭 덮개 트릭(위 .ggo 주석 참고)처럼
-   레이아웃에 물린 규칙이 많아서, 값만 바꾸는 편이 안전하다.
-   .ggo 에는 여기서도 filter·transform 을 걸지 않는다. */
-/* 감자꽃/개구는 손글씨 톤을 내려던 것이었는데 막상 보니 옛날 다이어리
-   글꼴처럼 낡아 보였다. 같은 손그림 스티커 느낌은 유지하되 더 요즘
-   느낌 나는 굵고 둥근 글꼴(구기)과 담백한 본문 글꼴(동글)로 바꾼다. */
-@import url('https://fonts.googleapis.com/css2?family=Gugi&family=Dongle:wght@400;700&display=swap');
+/* ── 에디토리얼/모던 톤 ──────────────────────────────────────
+   스티커북(굵은 테두리·밀린 그림자·통통한 글꼴) 방향을 "촌스럽다"는
+   말을 듣고 전면 폐기, 절제된 세리프 제목 + Pretendard 본문의 편집
+   느낌으로 다시 짠다. 목록을 태그만 남기고 정리한 것(.rb-ex 숨김 등)은
+   구조 개선이라 그대로 둔다. 아래도 여전히 값만 덮어쓰는 방식이다 —
+   .gcard 의 클릭 덮개 트릭 때문에 .ggo 에는 filter·transform 을
+   걸지 않는다. */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600;700&display=swap');
 
-:root{--bg:#FBF3E3;--ink:#3A2E22;--dim:#8A6A42;--line:#E8D4B0;--card:#FFFDF7;--brand:#F2A93B;--soft:#FFF6E0;
-  --rb-deck:#FFF6E0;--rb-rail:#B08858;--rb-hair:#E8D4B0}
-@media(prefers-color-scheme:dark){:root{--bg:#2A2118;--ink:#F3ECDD;--dim:#C9B08A;--line:#5A4A38;--card:#332920;--brand:#F2A93B;--soft:#3A2E22;
-  --rb-deck:#3A2E22;--rb-rail:#C9B08A;--rb-hair:#5A4A38}}
+:root{--bg:#FBF8F3;--ink:#26211B;--dim:#7A7168;--line:#E5DED2;--card:#FFFFFF;--brand:#B8763E;--soft:#F4EFE6;
+  --rb-deck:#F4EFE6;--rb-rail:#9C9184;--rb-hair:#E5DED2}
+@media(prefers-color-scheme:dark){:root{--bg:#17140F;--ink:#EDE8DF;--dim:#A79C8C;--line:#332C22;--card:#211D17;--brand:#D99A5C;--soft:#241F18;
+  --rb-deck:#241F18;--rb-rail:#8A8073;--rb-hair:#332C22}}
 
-/* 동글은 작은 크기에선 획이 가늘어 잘 안 보인다. 본문은 18px 안팎으로 키워 둔다. */
-body{font-family:'Dongle',Pretendard,-apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;
-  font-size:18px}
-.blog-article{font-size:19px}
-h1,.rb-id h1,.rb-card h1,.rb-post h2,.blog-article h2{font-family:'Gugi',sans-serif;font-weight:400}
+body{font-family:Pretendard,-apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,"Apple SD Gothic Neo","Malgun Gothic",sans-serif}
+h1,.rb-id h1,.rb-card h1,.rb-post h2,.blog-article h2{font-family:'Noto Serif KR',serif;font-weight:600;letter-spacing:-.01em}
 .rb-id h1{font-size:26px}
-.rb-card h1{font-size:32px}
+.rb-card h1{font-size:34px;line-height:1.4}
 
-.rb-banner{border:2.5px solid var(--ink);border-radius:26px 30px 22px 34px/30px 22px 34px 20px;
-  box-shadow:5px 6px 0 rgba(58,46,34,.14)}
-.rb-avatar{border:2.5px solid var(--ink)}
-.rb-join{border:2.5px solid var(--ink);box-shadow:3px 3px 0 var(--ink);transition:transform .15s}
-.rb-join:hover{transform:translateY(-2px);filter:none}
+.rb-banner{border:1px solid var(--line);border-radius:14px;box-shadow:none}
+.rb-avatar{border:none}
+.rb-join{border:none;box-shadow:none;background:var(--ink);color:var(--bg);transition:opacity .15s}
+.rb-join:hover{opacity:.82;transform:none;filter:none}
 
 /* 피드 한 줄 — 소제목·요약·태그가 다 들어차서 지저분해 보였다. 요약은
-   지우고 제목을 키워 태그만 남긴다. 줄 사이도 더 띄워 시원하게 둔다. */
-.rb-feed{gap:14px}
-.rb-post{border:2px solid var(--ink);border-radius:16px;box-shadow:3px 4px 0 rgba(58,46,34,.10)}
-.rb-post:hover{transform:translateX(2px)}
-.rb-post .rb-body{padding:18px 22px 20px}
-.rb-post h2{font-size:25px;margin-top:8px}
+   지우고 제목을 키워 태그만 남긴다. 카드 대신 밑줄로 가르는 목록꼴이라
+   더 정돈되어 보인다. */
+.rb-feed{gap:0}
+.rb-post{border:0;border-bottom:1px solid var(--line);border-radius:0;box-shadow:none}
+.rb-post:hover{transform:none;background:var(--soft)}
+.rb-post .rb-body{padding:26px 22px}
+.rb-post h2{font-size:23px;margin-top:8px;font-weight:600}
 .rb-post .rb-ex{display:none}
-.rb-post .rb-tail{margin-top:13px}
+.rb-post .rb-tail{margin-top:12px}
+.rb-rail{background:transparent;border-right:none}
 
-.rb-box{border:2.5px solid var(--ink);border-radius:18px 20px 16px 22px/20px 16px 22px 14px;
-  box-shadow:4px 5px 0 rgba(58,46,34,.12)}
-.rb-box h2{border-bottom:2px dashed var(--ink)}
+.rb-box{border:1px solid var(--line);border-radius:10px;box-shadow:none}
+.rb-box h2{border-bottom:1px solid var(--rb-hair);font-weight:700}
 
-.rb-flair li{border:1.5px dashed var(--ink);background:var(--soft)}
+.rb-flair li{border:1px solid var(--line);background:transparent;font-weight:500}
 
-.rb-empty{border:2.5px dashed var(--ink);border-radius:22px;background:var(--soft)}
-.rb-empty .emoji{font-size:40px}
+.rb-empty{border:1px solid var(--line);border-radius:10px;background:var(--soft)}
 
-.rb-card{border:2.5px solid var(--ink);border-radius:22px 26px 18px 28px/26px 18px 28px 16px;
-  box-shadow:5px 6px 0 rgba(58,46,34,.14)}
+.rb-card{border:1px solid var(--line);border-radius:10px;box-shadow:none;padding:36px 40px 40px}
 
-.gcard{border:2.5px solid var(--ink);border-radius:16px;box-shadow:3px 4px 0 rgba(58,46,34,.12)}
-.gcat{font-family:'Dongle';font-weight:700}
+.gcard{border:1px solid var(--line);border-radius:10px;box-shadow:none}
 
-.bex{border:1.5px solid var(--ink);border-left:4px solid var(--brand);border-radius:16px}
-.bnote{border:1.5px dashed var(--ink);border-radius:16px}
+.bex{border:1px solid var(--line);border-left:3px solid var(--brand);border-radius:8px}
+.bnote{border:1px solid var(--line);border-radius:8px}
 
-.cta{border:2.5px solid var(--ink);border-radius:999px;box-shadow:4px 4px 0 var(--ink);
-  background:var(--brand);color:var(--ink);font-family:'Dongle';font-weight:700;transition:transform .15s}
-.cta:hover{transform:translateY(-2px)}
-.cta span{opacity:.8}
+.cta{border:none;border-radius:10px;box-shadow:none;background:var(--ink);color:var(--bg);
+  font-weight:600;transition:opacity .15s}
+.cta:hover{transform:none;opacity:.85}
+.cta span{opacity:.7}
 
-.blog-article img{border:2.5px solid var(--ink)}
-.bimg img{border:2.5px solid var(--ink)}
+.blog-article img{border:1px solid var(--line)}
+.bimg img{border:1px solid var(--line)}
 `.trim();
 
 /* 목록 쪽만 넓게 쓴다. 글 읽는 쪽은 한 줄이 길어지면 눈이 되돌아올 자리를
