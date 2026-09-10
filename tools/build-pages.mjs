@@ -30,6 +30,7 @@ import { TOPIK_READING, TOPIK_BLUEPRINT } from '../topik.js';
 import { TOPIK2_READING, TOPIK2_BLUEPRINT } from '../topik2.js';
 import { TOPIKL_BY_EXAM } from '../topik-listening.js';
 import { readFileSync as readEn } from 'node:fs';
+import { createHash } from 'node:crypto';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const SITE = 'https://everykoreans.com';
@@ -1491,17 +1492,68 @@ ${posts.length ? `  <lastBuildDate>${rssDate(posts[0].updated || posts[0].date)}
 }
 
 /* ── sitemap ────────────────────────────────────────────────── */
+/* 쪽이 마지막으로 **정말** 바뀐 날.
+
+   구글은 changefreq 와 priority 를 안 읽는다(공식 문서에 그렇게 적혀
+   있다). 반대로 lastmod 는 읽는다 — 다시 기어올 자리를 고르는 데 쓴다.
+   993줄에 안 읽는 것 둘만 있고 읽는 것은 비어 있었다.
+
+   다만 **정확할 때만 읽는다.** 처음에는 원본 파일의 git 커밋 날을 쓰려
+   했는데 그게 안 됐다. tools/stamp.mjs 가 sentences.js 안의 `?v=` 를
+   다시 찍으면 그 파일의 커밋 날이 오늘로 뛴다 — 표현 290쪽의 내용은 한
+   글자도 안 바뀌었는데 사이트맵은 「오늘 290쪽이 바뀌었다」고 말하게 된다.
+   그런 사이트맵은 구글이 lastmod 를 통째로 안 믿는 쪽으로 간다.
+
+   그래서 **구운 쪽 자체의 바이트를 해시해서** 지난번과 다를 때만 날짜를
+   올린다. 자국(`?v=`)은 이 쪽들에 안 들어가므로(정적 쪽은 CSS 를 박아
+   넣는다) 자국을 다시 찍어도 해시가 안 흔들린다. 재는 것과 말하는 것이
+   같아진다.
+
+   docs/page-mod.json 이 그 기록이다. 지우면 전부 오늘로 다시 잡힌다 —
+   틀린 날짜가 되는 것은 아니고, 그저 그 전을 모르게 될 뿐이다. */
+const MOD_FILE = join(ROOT, 'docs/page-mod.json');
+const TODAY = new Date().toISOString().slice(0, 10);
+let modWas = {};
+try { modWas = JSON.parse(readEn(MOD_FILE, 'utf8')); } catch { /* 처음이면 빈 채로 */ }
+
+/* 주소를 구워 놓은 파일 자리로 되돌린다. sitemap() 이 맨 끝에 도는 덕에
+   이때는 993쪽이 이미 다 쓰여 있다. */
+function fileOf(loc) {
+  let q = loc.replace(/^\//, '');
+  if (!q) q = 'index.html';
+  if (q.endsWith('/')) q += 'index.html';
+  return join(ROOT, q);
+}
+
+function modOf(loc) {
+  let h;
+  try { h = createHash('sha1').update(readEn(fileOf(loc))).digest('hex').slice(0, 12); }
+  catch { return ''; }            // 파일이 없으면 그 줄에는 안 적는다
+  const was = modWas[loc];
+  const day = (was && was.h === h) ? was.d : TODAY;
+  modNow[loc] = { h, d: day };
+  return day;
+}
+const modNow = {};
+
 function sitemap(urls) {
   return `<?xml version="1.0" encoding="UTF-8"?>
 <!-- 생성물이다. node tools/build-pages.mjs 가 다시 쓴다.
 
      화면 전환은 해시(#learn 등)로 하므로 크롤러에게 index.html 은 한 쪽이다.
      그래서 표현마다 진짜 주소를 가진 정적 쪽을 뽑아 여기 건다. 없는 주소를
-     적어 두면 404 만 늘어나므로, 여기 있는 것은 전부 저장소에 실재한다. -->
+     적어 두면 404 만 늘어나므로, 여기 있는 것은 전부 저장소에 실재한다.
+
+     lastmod 는 그 쪽을 구운 결과가 지난번과 달라진 날이다(docs/page-mod.json).
+     원본 파일의 커밋 날이 아니다 — 자국을 다시 찍기만 해도 커밋 날이
+     뛰는데, 그러면 안 바뀐 쪽까지 「오늘 바뀌었다」가 된다. -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-${urls.map(({ loc, freq, pri }) =>
-  `  <url>\n    <loc>${SITE}${loc}</loc>\n    <changefreq>${freq}</changefreq>\n    <priority>${pri}</priority>\n  </url>`,
-).join('\n')}
+${urls.map(({ loc, freq, pri }) => {
+  const mod = modOf(loc);
+  return `  <url>\n    <loc>${SITE}${loc}</loc>\n` +
+    (mod ? `    <lastmod>${mod}</lastmod>\n` : '') +
+    `    <changefreq>${freq}</changefreq>\n    <priority>${pri}</priority>\n  </url>`;
+}).join('\n')}
 </urlset>
 `;
 }
@@ -1618,6 +1670,9 @@ writeFileSync(join(OUT_BLOG, 'rss.xml'), blogRss(BLOG_POSTS));
 
 urls.push({ loc: '/privacy.html', freq: 'yearly', pri: '0.3' });
 writeFileSync(join(ROOT, 'sitemap.xml'), sitemap(urls));
+/* sitemap() 이 돌면서 쪽마다 해시를 다시 쟀다. 그 기록을 남긴다 —
+   다음 번에 이것과 견줘 안 바뀐 쪽은 날짜를 그대로 둔다. */
+writeFileSync(MOD_FILE, JSON.stringify(modNow, null, 0) + '\n');
 
 console.log(`표현 ${n}쪽 + 목록 1쪽 → sentence/`);
 console.log(`갈래 비교 ${nCmp}쪽 + 목록 1쪽 → compare/`);

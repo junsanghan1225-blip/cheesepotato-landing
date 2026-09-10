@@ -65,6 +65,7 @@ GitHub Pages 는 캐시 머리글을 우리가 못 정한다. `app.js` 를 그�
 | `sentence/` · `compare/` · `course/` · `lesson/` · `topik-writing/` · `topik-reading/` · `topik-listening/` · `blog/`(`rss.xml` 포함) · `sitemap.xml` | `tools/build-pages.mjs` | `sentences*.js` · `courses*.js` · `topik-writing.js` · `topik.js` · `topik2.js` · `topik-listening.js` · `blog.js` |
 | `glossary.js` · `glossary-<말>.js` | `tools/build-glossary.mjs` | `docs/glossary.json` (+ `glossary-krdict.json`) |
 | `grammar.js` | `tools/build-grammar.mjs` | `sentences.js` 의 문법 이름 |
+| `docs/page-mod.json` | `tools/build-pages.mjs` | 구운 쪽의 해시와 날짜 (사이트맵 `lastmod` 용) |
 | `docs/glossary-krdict.json` | `tools/build-krdict-glossary.mjs` | 국립국어원 내려받기 자료 |
 | `favicon-32.png` · `icon-180.png` | `tools/build-icons.py` | `logo.png` |
 | `privacy.html` | `tools/build-privacy.js` | 앱 저장소의 `docs/privacy-policy.md` |
@@ -293,6 +294,33 @@ node tools/build-grammar.mjs && node tools/stamp.mjs
 **안 옮긴 것은 한국어로 물러선다.** 지어내 채우면 배우는 사람이 그 틀린 설명을
 그대로 외운다. 지금은 읽기 지문에 실제로 나오는 39개가 채워져 있다 —
 말풍선은 영어로 나가고, 나머지 251개는 예문 만들기 상세에서 아직 한국어다.
+
+---
+
+## 사이트맵의 `lastmod`
+
+구글은 사이트맵의 `changefreq` 와 `priority` 를 **안 읽는다**(공식 문서에
+그렇게 적혀 있다). 읽는 것은 `lastmod` 하나다 — 어디를 다시 기어올지
+고르는 데 쓴다. 993줄에 안 읽는 것 둘만 적혀 있고 읽는 것은 비어 있었다.
+
+다만 **정확할 때만 읽는다.** 처음에는 원본 파일의 git 커밋 날을 쓰려 했는데
+그게 안 됐다. `stamp.mjs` 가 `sentences.js` 안의 `?v=` 를 다시 찍으면 그
+파일의 커밋 날이 오늘로 뛴다 — 표현 290쪽의 내용은 한 글자도 안 바뀌었는데
+사이트맵은 「오늘 290쪽이 바뀌었다」고 말하게 된다. 그런 사이트맵을 몇 번
+보고 나면 구글은 그 사이트의 `lastmod` 를 통째로 안 믿는다.
+
+그래서 **구운 쪽 자체의 바이트를 해시해서** 지난번과 다를 때만 날짜를
+올린다. 기록은 `docs/page-mod.json` 이다. 정적 쪽에는 자국이 안 들어가므로
+(CSS 를 박아 넣는다) 자국을 다시 찍어도 해시가 안 흔들린다.
+
+확인해 본 것:
+
+- 자국만 다시 찍음 → 993쪽 날짜 그대로
+- 글 하나의 요약을 한 낱말 고침 → 그 글과 그 요약을 싣는 3쪽만 오늘로
+  (글 쪽·`/blog/` 목록·「같은 갈래의 글」로 그 카드를 싣는 글들)
+
+`docs/page-mod.json` 을 지우면 전부 오늘로 다시 잡힌다. 틀린 날짜가 되는
+것은 아니고 그 전을 모르게 될 뿐이다.
 
 ---
 
