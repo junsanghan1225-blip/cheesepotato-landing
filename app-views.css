@@ -470,6 +470,16 @@
 .dict-sense-list li:first-child { margin-top:0; }
 .dict-sense-ko { display:block; font-size:13.5px; color:var(--ink); line-height:1.6; word-break:keep-all; }
 .dict-sense-en { display:block; font-size:12.5px; color:var(--ink-3); margin-top:2px; }
+/* 글자가 같은 서로 다른 낱말(눈¹ 눈²)을 갈라 보여 주는 자리.
+   묶음 사이에 선을 하나 긋는 것으로 「여기서 낱말이 바뀐다」를 알린다 —
+   번호만으로는 죽 이어진 목록과 구별이 잘 안 된다. */
+.dict-homo-note { font-size:12px; color:var(--ink-3); margin:10px 0 0; }
+.dict-homo { margin-top:10px; padding-top:10px; border-top:1px solid var(--line); }
+.dict-homo:first-of-type { border-top:0; padding-top:0; }
+.dict-homo-head { margin:0 0 2px; font-size:13.5px; color:var(--ink); }
+.dict-homo-head sup { font-size:10px; margin-left:1px; color:var(--ink-3); }
+.dict-homo-pos { margin-left:6px; font-size:11.5px; color:var(--ink-3); font-weight:400; }
+.dict-homo .dict-sense-list { margin-top:4px; }
 
 .wb-state { text-align:center; padding:52px 20px; color:var(--ink-3); font-size:14.5px; line-height:1.8; word-break:keep-all; }
 .wb-spin { width:28px; height:28px; margin:0 auto 18px; border:2px solid var(--line); border-top-color:var(--orange); border-radius:50%; animation:wbSpin .8s linear infinite; }

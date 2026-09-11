@@ -43,27 +43,43 @@ function isRoman(ko, en) {
 
 const krdict = read('docs/glossary-krdict.json');
 
-/* 표제어 하나에 여러 항목(동음이의어)이 딸릴 수 있다 — 그 항목들의 defs
-   를 전부 한 줄로 모은다. 화면은 "몇 번째 항목인가"를 몰라도 되고,
-   순서대로 번호만 매기면 된다. */
+/* 표제어 하나에 여러 항목(동음이의어)이 딸린다 — 「눈01」(眼) 과 「눈02」(雪).
+ *
+ * 예전에는 그 항목들의 defs 를 **한 줄로 뭉쳐** 놓았다. 화면이 순서대로
+ * 번호만 매기면 된다고 보았기 때문이다. 그런데 그러면 학습자에게 눈(眼) 의
+ * 뜻 셋과 눈(雪) 의 뜻이 한 목록에 섞여 나가고, 어디까지가 한 낱말인지
+ * 알 길이 없어진다.
+ *
+ * 그래서 **항목을 덩이째 들고 있는다.** 뜻줄에 몇 번째 낱말인지와 그
+ * 낱말의 품사를 함께 적어 화면으로 넘긴다.
+ *
+ *     뜻이 한 덩이면   [뜻풀이, 영어]              ← 예전과 똑같다
+ *     여러 덩이면      [뜻풀이, 영어, 번호, 품사]
+ *
+ * 덩이가 하나뿐일 때 셋째·넷째 칸을 안 붙이는 것이 중요하다. 붙이면 할 말도
+ * 없이 파일만 커지고, 자국(?v=)이 바뀌어 학습자가 500KB 를 다시 받는다. */
 const byHead = new Map();
 for (const w of krdict.words) {
   if (!byHead.has(w.ko)) byHead.set(w.ko, []);
-  for (const d of w.defs || []) byHead.get(w.ko).push(d);
+  byHead.get(w.ko).push(w);
 }
 
 const out = {};
-let kept = 0, dropped = 0;
-byHead.forEach((defs, head) => {
+let kept = 0, dropped = 0, homo = 0;
+byHead.forEach((entries, head) => {
   const senses = [];
-  defs.forEach((d) => {
+  const many = entries.length > 1;      // 동음이의어가 갈려 있는가
+  if (many) homo++;
+  entries.forEach((entry, gi) => (entry.defs || []).forEach((d) => {
     const ko = (d.ko || '').trim();
     const en = (d.t && d.t.en || '').trim();
     if (isBlank(ko)) return;
-    if (en && !isBlank(en) && !isRoman(head, en)) senses.push([ko, en]);
-    else senses.push([ko, '']);   // 한국어 뜻만이라도 남긴다 — 영어가 없다고 통째로 버리면 절반을 잃는다
+    const useEn = en && !isBlank(en) && !isRoman(head, en) ? en : '';
+    /* 한국어 뜻만이라도 남긴다 — 영어가 없다고 통째로 버리면 절반을 잃는다 */
+    senses.push(many ? [ko, useEn, gi + 1, entry.pos || ''] : [ko, useEn]);
     kept++;
-  });
+  }));
+  const defs = entries.flatMap((e) => e.defs || []);
   /* 한 뜻뿐이면 "더 보기"에 새로 보여 줄 것이 없다 — 카드에 이미 그
      하나가 나가 있다. */
   if (senses.length > 1) out[head] = senses;
@@ -80,6 +96,11 @@ const body = `/* 국어사전 화면의 "뜻풀이 더 보기" 자료 — 생성
  * 영어가 없으면 빈 문자열이다(국립국어원 자료에 대응하는 영어가 없는
  * 경우다 — 지어내지 않고 빈 채로 둔다).
  *
+ * 한 글자에 동음이의어가 둘 이상이면 칸이 넷이 된다 —
+ * [한국어 뜻, 영어 뜻, 몇 번째 낱말인가, 그 낱말의 품사]. 「눈」의 앞
+ * 셋은 눈(眼) 이고 뒤엣것은 눈(雪) 이라는 것을 화면이 그 번호로 안다.
+ * 동음이의어가 없는 표제어는 칸이 둘 그대로다.
+ *
  * 국어사전 화면(#dictionary)이 열릴 때만 따로 받는다. glossary.js 처럼
  * 늘 받는 자리에는 넣지 않는다.
  */
@@ -88,3 +109,9 @@ export const SENSES = ${JSON.stringify(out)};
 
 writeFileSync(join(ROOT, 'glossary-senses.js'), body);
 console.log(`glossary-senses.js — 표제어 ${Object.keys(out).length}개 · 뜻 ${kept}개(뜻풀이 없어 뺀 것 ${dropped}개)`);
+const homoOut = Object.values(out).filter((ss) => ss.some((x) => x.length > 2)).length;
+console.log(`그중 동음이의어로 갈린 것 ${homoOut}개 — 화면이 낱말마다 따로 묶어 보여 준다.`);
+if (!homoOut) {
+  console.log('※ 갈린 것이 하나도 없다. docs/glossary-krdict.json 에 동형어 번호(sup)가');
+  console.log('  없다는 뜻이다 — 원본 폴더로 build-krdict-glossary.mjs 를 다시 돌려야 한다.');
+}

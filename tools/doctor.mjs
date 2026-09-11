@@ -80,6 +80,29 @@ function changedFiles() {
     try { git(['diff', '--name-only', `${base}...HEAD`]).split('\n').forEach((p) => p && set.add(p.trim())); }
     catch { base = null; }
   } else base = null;
+
+  /* 자국만 바뀐 파일은 「안 바뀐 것」으로 친다.
+   *
+   * stamp.mjs 는 index.html·app.module.js·sentences.js 같은 데에 ?v= 를
+   * 다시 박는다. 그러면 git 은 그 파일들이 바뀌었다고 하고, 여기서는
+   * 「sentences.js 를 고쳤는데 grammar.js 는 그대로다 → 다시 구워라」가
+   * 된다. **고친 적이 없는데 굽게 만든다.** 실제로 한 번 그랬다.
+   *
+   * 자국을 떼고 견줘서 같으면 내용은 그대로인 것이다. */
+  if (base) {
+    const V = /\?v=[0-9a-f]{8}/g;
+    for (const f of [...set]) {
+      if (!/\.(js|html|css)$/.test(f)) continue;
+      let now = '', was = '';
+      try { now = readFileSync(join(ROOT, f), 'utf8'); } catch { continue; }
+      if (!V.test(now)) continue;
+      V.lastIndex = 0;
+      try { was = git(['show', `${base}:${f}`]); } catch { continue; }
+      /* 끝의 줄바꿈은 떼고 견준다 — git() 이 trim 을 하므로 딸려 온 쪽만
+         줄바꿈이 없어 늘 다르다고 나온다. 한 번 그랬다. */
+      if (now.replace(V, '').trim() === was.replace(V, '').trim()) set.delete(f);
+    }
+  }
   return { files: set, base };
 }
 const { files: CHANGED, base: BASE } = changedFiles();

@@ -86,12 +86,35 @@ const langSeen = new Map();     // 어느 말이 몇 개나 있나
 const txt = (v) => (typeof v === 'string' ? v.trim() : '');
 const arr = (v) => (Array.isArray(v) ? v : v ? [v] : []);
 
+/* 동형어 번호를 뽑는다.
+ *
+ * 국립국어원 자료는 동음이의어를 **번호로 가른다.** 「눈01」(眼) 과
+ * 「눈02」(雪) 는 서로 다른 표제어다. 번호가 붙는 자리는 받는 파일마다
+ * 다르다 — 표제어에 「눈01」처럼 붙어 오기도 하고 sup_no 같은 칸에
+ * 따로 들어 있기도 하다. 둘 다 본다.
+ *
+ * **이 번호를 지우면 두 낱말이 한 칸에 합쳐진다.** 예전에 그렇게 했고,
+ * 그래서 「다리」칸에 「다리다」의 활용형이 들어가고 「차」의 품사가
+ * 접사(次) 로 적혔다. 자세한 것은 tools/check-homonym.mjs 머리말에 있다. */
+function supNo(node, word) {
+  const raw = txt(node.sup_no ?? node.supNo ?? node.sup ?? node.동형어 ?? node.homonym ?? node.homonym_num)
+    || (word.match(/(\d+)\s*$/) || ['', ''])[1];
+  if (!raw) return '';
+  const n = Number(raw);
+  /* 「00」은 동형어가 없다는 뜻이다 — 번호가 아니라 빈 자리다 */
+  return Number.isFinite(n) && n > 0 ? String(n) : '';
+}
+
 /* 한 표제어 덩이를 받아 필요한 것만 남긴다. */
 function take(node) {
   const word = txt(node.word ?? node.표제어 ?? node.lemma);
   if (!word) return;
   const bare = word.replace(/[^가-힣]/g, '');
   if (bare.length < 1) return;
+  const sup = supNo(node, word);
+  /* 열쇠에 번호를 함께 넣는다. 이 한 줄이 동음이의어를 갈라 놓는다.
+     번호가 없으면 예전과 똑같이 돈다 — 그 낱말은 동형어가 없다는 뜻이다. */
+  const key = sup ? `${bare}\u0000${sup}` : bare;
   /* 우리 자료에 안 닿는 표제어는 버린다. 이 한 줄이 5만 개를 몇 천 개로
      줄인다 — 학습자가 누를 수 없는 낱말에 자리를 내줄 까닭이 없다.
 
@@ -103,7 +126,7 @@ function take(node) {
   if (!heads.has(bare) && !(stem && heads.has(stem))) return;
 
   const pos = txt(node.pos ?? node.품사);
-  const row = out.get(bare) || { ko: bare, pos, defs: [] };
+  const row = out.get(key) || { ko: bare, sup, pos, defs: [] };
 
   for (const sense of arr(node.sense ?? node.sense_info ?? node.senseInfo ?? node.의미)) {
     const def = txt(sense.definition ?? sense.뜻풀이 ?? sense.def);
@@ -121,7 +144,7 @@ function take(node) {
     if (one.ko || Object.keys(one.t).length) row.defs.push(one);
   }
   if (!row.pos && pos) row.pos = pos;
-  if (row.defs.length) out.set(bare, row);
+  if (row.defs.length) out.set(key, row);
 }
 
 /* 열쇠 이름을 못 박지 않고 트리를 걷는다. 「word 를 가진 객체」를 만나면
@@ -151,7 +174,10 @@ for (const f of files) {
 }
 
 /* ── 3. 내보낸다 ────────────────────────────────────────────── */
-const rows = [...out.values()].sort((a, b) => a.ko.localeCompare(b.ko));
+/* 같은 글자끼리는 동형어 번호 차례로 놓는다 — 눈01 다음에 눈02.
+   화면이 그 차례대로 1·2 를 매긴다. */
+const rows = [...out.values()].sort((a, b) =>
+  a.ko.localeCompare(b.ko) || (Number(a.sup || 0) - Number(b.sup || 0)));
 const payload = {
   _출처: '국립국어원 「한국어기초사전」 https://krdict.korean.go.kr',
   _라이선스: 'CC BY-SA 2.0 KR https://creativecommons.org/licenses/by-sa/2.0/kr/',
@@ -163,7 +189,15 @@ const dest = new URL('../docs/glossary-krdict.json', import.meta.url);
 writeFileSync(dest, JSON.stringify(payload, null, 1) + '\n');
 
 const mb = (JSON.stringify(payload).length / 1024 / 1024).toFixed(1);
+const homo = new Map();
+for (const r of rows) homo.set(r.ko, (homo.get(r.ko) || 0) + 1);
+const homoN = [...homo.values()].filter((n) => n > 1).length;
 console.log(`\n표제어 ${rows.length}개를 docs/glossary-krdict.json 에 썼다 (${mb} MB).`);
+console.log(`그중 동음이의어로 갈린 글자 ${homoN}개 — 「눈」처럼 한 글자에 표제어가 둘 이상인 것.`);
+if (!homoN) {
+  console.log('⚠ 동형어 번호를 하나도 못 찾았다. 받은 자료에 번호가 어디 붙는지');
+  console.log('  (표제어에 「눈01」인지, sup_no 같은 칸인지) 파일 첫 40줄을 보여 주면 맞추겠다.');
+}
 if (langSeen.size) {
   console.log('담긴 말: ' + [...langSeen.entries()].sort((a, b) => b[1] - a[1])
     .map(([k, n]) => `${k} ${n}`).join(' · '));

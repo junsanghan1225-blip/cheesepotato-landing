@@ -13,10 +13,10 @@
    어느 날 갑자기 다른 코드가 실려 왔다.
    이제 vendor/ 안에 받아 두고 CSP 로 바깥을 막는다. 버전을 올릴 때는
    tools/vendor.mjs 의 PIN 을 고치고 다시 돌린다. */
-import { createClient } from './vendor/supabase-js.js?v=a7e1dfb9';
+import { createClient } from './vendor/supabase-js.js?v=3972ab5f';
 // TOPIK 읽기 "문제 풀이 영상" 목록. 아주 작은 파일이라(id 목록뿐) 다른
 // 자료처럼 갈래를 열 때 지연 로딩하지 않고 그냥 처음부터 받는다.
-import { TQ_VIDEO_IDS } from './topik-video.js?v=a7e1dfb9';
+import { TQ_VIDEO_IDS } from './topik-video.js?v=3972ab5f';
 // 앱(package.json)과 같은 줄기를 쓴다. 갈리면 앱에서는 읽히는 파일이
 // 여기서는 안 읽히는(또는 그 반대) 일이 생긴다.
 /* 엑셀 라이브러리는 422KB — 이 판에서 가장 무거운 조각이다. 그런데 쓰는
@@ -28,13 +28,13 @@ import { TQ_VIDEO_IDS } from './topik-video.js?v=a7e1dfb9';
    자국(?v=)은 tools/stamp.mjs 가 아래 줄에 알아서 붙인다 — 정적으로 쓰든
    동적으로 쓰든 같은 글자를 찾으므로 바꿔도 그대로 찍힌다. */
 let XLSX = null;
-const needXLSX = async () => (XLSX ??= await import('./vendor/xlsx.js?v=a7e1dfb9'));
+const needXLSX = async () => (XLSX ??= await import('./vendor/xlsx.js?v=3972ab5f'));
 // 커리큘럼. 내용과 엔진을 갈라 두면 글을 고치다 화면을 깨지 않는다.
 // 갈래 목록(drawSections)·코스(drawCourses)·문제만 풀기(dqDraw) 를 열 때만
 // 받는다 — 배우기 갈래 목록도 안 본 사람에게 코스 71개 레슨을 다 물릴
 // 까닭이 없다. warmLearn() 이 배우기를 여는 순간 미리 불을 붙여 둔다.
 let COURSES = [], coursesP = null;
-const coursesNeed = () => (coursesP ??= import('./courses.js?v=a7e1dfb9').then((m) => { COURSES = m.COURSES; }));
+const coursesNeed = () => (coursesP ??= import('./courses.js?v=3972ab5f').then((m) => { COURSES = m.COURSES; }));
 /* 낱말 뜻풀이 356KB. 예전에는 여기서 통째로 받았다 — tqGloss 가 동기라
    지연 로딩이 안 된다고 보았기 때문이다. 그런데 tqGloss 를 부르는 자리를
    다 세어 보니 여덟 곳이고 **전부 사람이 무언가를 누른 뒤**였다(사전
@@ -45,7 +45,7 @@ const coursesNeed = () => (coursesP ??= import('./courses.js?v=a7e1dfb9').then((
    tqGloss 는 그대로 동기다 — 아직 안 왔으면 빈 뜻을 돌려주고, 부르는
    쪽은 이미 "사전에 없는 말"을 다룰 줄 안다. */
 let GLOSSARY = {}, GLOSS_LANGS = {}, glossP = null;
-const glossNeed = () => (glossP ??= import('./glossary.js?v=a7e1dfb9').then((m) => {
+const glossNeed = () => (glossP ??= import('./glossary.js?v=3972ab5f').then((m) => {
   GLOSSARY = m.GLOSSARY; GLOSS_LANGS = m.GLOSS_LANGS;
   dictBuildEntries();
 }).catch((e) => {
@@ -53,15 +53,15 @@ const glossNeed = () => (glossP ??= import('./glossary.js?v=a7e1dfb9').then((m) 
   glossP = null;
   throw e;
 }));
-import { glossFind } from './gloss-find.js?v=a7e1dfb9';
+import { glossFind } from './gloss-find.js?v=3972ab5f';
 /* 문법 사전(뜻풀이 197개). 읽기 지문의 밑줄 문법 말풍선(rdNeed)과 예문
    만들기 화면(sbNeed) 양쪽이 쓴다 — 둘 중 먼저 여는 화면이 받아 두고,
    나중 화면은 그 약속(??=)을 그대로 쓴다. */
 let GRAMMAR = [], GRAMMAR_EN = {}, grammarP = null;
 const grammarNeed = () => (grammarP ??= Promise.all([
-  import('./grammar.js?v=a7e1dfb9'), import('./grammar-en.js?v=a7e1dfb9'),
+  import('./grammar.js?v=3972ab5f'), import('./grammar-en.js?v=3972ab5f'),
 ]).then(([a, b]) => { GRAMMAR = a.GRAMMAR; GRAMMAR_EN = b.GRAMMAR_EN; }));
-import { grammarScan } from './grammar-find.js?v=a7e1dfb9';
+import { grammarScan } from './grammar-find.js?v=3972ab5f';
 // TOPIK 쓰기·듣기 문항. 읽기(topik.js·topik2.js)와 같은 tqNeedData() 로
 // 함께 받는다 — 유형 연습(topik) 갈래 하나가 세 기술을 다 쓰므로 따로
 // 가를 까닭이 없다. 값은 tqNeedData 정의부에서 채운다.
@@ -73,7 +73,7 @@ let TOPIKL_BY_EXAM = {}, TOPIKL_PICTURE_SLOTS = {};
    sbFind 를 쓰는데, 그쪽은 안 기다리고 그냥 부른다 — 답이 못 찾은
    인용 없이 나가는 것이 채팅이 멈추는 것보다 낫다. */
 let SB_CATS = [], SB_MORE = {}, SB_SEED = {}, SB_POINTS = [], sbDataP = null;
-const sbNeed = () => (sbDataP ??= import('./sentences.js?v=a7e1dfb9').then((m) => {
+const sbNeed = () => (sbDataP ??= import('./sentences.js?v=3972ab5f').then((m) => {
   SB_CATS = m.SB_CATS; SB_MORE = m.SB_MORE; SB_SEED = m.SB_SEED;
   // 갈래마다 표현을 펼쳐 한 줄에 담는다 — SB_CATS 안의 점에는 갈래가 안
   // 달려 있어서(sbFind 가 표현 하나를 id 로 바로 찾으려면 이게 있어야 한다).
@@ -84,7 +84,7 @@ const sbNeed = () => (sbDataP ??= import('./sentences.js?v=a7e1dfb9').then((m) =
 // 숫자 게임의 읽기와 문제 만들기. 화면을 모르는 순수 계산이라 따로 뒀다.
 // 게임 목록에서 「숫자 읽기」를 시작할 때만 받는다 — XLSX 와 같은 자리다.
 let makeRound = null;
-const needNumbers = async () => (makeRound ??= (await import('./numbers.js?v=a7e1dfb9')).makeRound);
+const needNumbers = async () => (makeRound ??= (await import('./numbers.js?v=3972ab5f')).makeRound);
 
 // 이 키는 공개돼도 되는 값이다. 이미 APK 안에 같은 것이 들어 있고,
 // 접근을 막는 건 키가 아니라 테이블에 걸린 RLS 다.
@@ -139,8 +139,8 @@ let tqDataP = null;
    유형 연습(topik) 갈래 하나가 이 넷을 다 쓰므로 갈라 봤자 요청만
    늘어난다. */
 const tqNeedData = () => (tqDataP ??= Promise.all([
-  import('./topik.js?v=a7e1dfb9'), import('./topik2.js?v=a7e1dfb9'),
-  import('./topik-writing.js?v=a7e1dfb9'), import('./topik-listening.js?v=a7e1dfb9'),
+  import('./topik.js?v=3972ab5f'), import('./topik2.js?v=3972ab5f'),
+  import('./topik-writing.js?v=3972ab5f'), import('./topik-listening.js?v=3972ab5f'),
 ]).then(([a, b, c, d]) => {
   TQ_DATA.I  = { reading: a.TOPIK_READING,  blueprint: a.TOPIK_BLUEPRINT,  slots: a.TOPIK_SLOTS };
   TQ_DATA.II = { reading: b.TOPIK2_READING, blueprint: b.TOPIK2_BLUEPRINT, slots: b.TOPIK2_SLOTS };
@@ -151,11 +151,11 @@ const tqNeedData = () => (tqDataP ??= Promise.all([
 let READING = null, rdP = null;
 // 지문의 밑줄 문법 말풍선이 GRAMMAR 를 쓰므로 같이 받아 둔다.
 const rdNeed = () => (rdP ??= Promise.all([
-  import('./reading.js?v=a7e1dfb9'), grammarNeed(),
+  import('./reading.js?v=3972ab5f'), grammarNeed(),
 ]).then(([m]) => { READING = m.READING; }));
 
 let CONVO = null, cvP = null;
-const cvNeed = () => (cvP ??= import('./convo.js?v=a7e1dfb9').then((m) => { CONVO = m.CONVO; }));
+const cvNeed = () => (cvP ??= import('./convo.js?v=3972ab5f').then((m) => { CONVO = m.CONVO; }));
 
 /* 배우기를 열면 여섯 다 미리 불을 붙인다. 기다리지 않는다 — 갈래 목록은
    이 자료가 없어도 그려지고, 사람이 갈래를 고르는 사이에 도착한다.
@@ -565,14 +565,14 @@ let dictOpen = null;  // 지금 "더 보기"(예문·뜻풀이)를 펼쳐 둔 �
    평소엔 안 쓰는 522KB 를 첫 화면 모두에게 물릴 까닭이 없다. */
 let dictSensesP = null;
 const dictLoadSenses = () => (dictSensesP ??=
-  import('./glossary-senses.js?v=a7e1dfb9').then((m) => m.SENSES).catch(() => ({})));
+  import('./glossary-senses.js?v=3972ab5f').then((m) => m.SENSES).catch(() => ({})));
 
 /* 예문. 국립국어원 자료엔 없어서 Gemini 로 새로 지은 것이다(있는 만큼만
    — docs/glossary-examples-gemini-prompt.md 참고). 뜻풀이와 같은 자리에서
    같이 받는다 — 펼치는 손짓 하나에 몰아 두는 편이 화면이 덜 복잡하다. */
 let dictExamplesP = null;
 const dictLoadExamples = () => (dictExamplesP ??=
-  import('./glossary-examples.js?v=a7e1dfb9').then((m) => m.EXAMPLES).catch(() => ({})));
+  import('./glossary-examples.js?v=3972ab5f').then((m) => m.EXAMPLES).catch(() => ({})));
 
 function dictVisible() {
   const q = dictQuery.trim().toLowerCase();
@@ -649,13 +649,48 @@ async function dictDrawMore(head) {
     : '';
 
   const list = senses[head];
-  const senseHtml = list && list.length
-    ? '<ol class="dict-sense-list">' +
-      list.map(([ko, en]) =>
-        `<li><span class="dict-sense-ko">${esc(ko)}</span>` +
-        (en ? `<span class="dict-sense-en">${esc(en)}</span>` : '') + '</li>').join('') +
-      '</ol>'
-    : (exHtml ? '' : `<p class="dnote">${esc(t('이 표제어는 뜻이 하나예요.', 'This headword has only one sense.'))}</p>`);
+
+  /* 글자는 같지만 서로 다른 낱말인 것들이 있다 — 눈(眼) 과 눈(雪), 차(車) 와
+     차(茶). 예전에는 그 뜻을 한 목록에 죽 이어 붙여 놓아서, 학습자가 보기에
+     한 낱말에 뜻이 여섯 개인 것처럼 보였다. 어디까지가 한 낱말인지 알 길이
+     없었다.
+
+     자료의 셋째 칸이 몇 번째 낱말인지를 들고 있다 — [뜻, 영어, 번호, 품사].
+     칸이 둘뿐이면 그 표제어는 안 갈린 것이니 예전처럼 한 목록으로 그린다.
+     (아직 동형어 번호를 못 받은 자료가 그렇다. tools/check-homonym.mjs 참고) */
+  const groups = [];
+  for (const row of list || []) {
+    const n = row.length > 2 ? row[2] : 1;
+    let g = groups.find((x) => x.n === n);
+    if (!g) groups.push((g = { n, pos: row[3] || '', rows: [] }));
+    g.rows.push(row);
+  }
+
+  const senseList = (rows) => '<ol class="dict-sense-list">' +
+    rows.map(([ko, en]) =>
+      `<li><span class="dict-sense-ko">${esc(ko)}</span>` +
+      (en ? `<span class="dict-sense-en">${esc(en)}</span>` : '') + '</li>').join('') +
+    '</ol>';
+
+  let senseHtml;
+  if (!groups.length) {
+    senseHtml = exHtml ? '' : `<p class="dnote">${esc(t('이 표제어는 뜻이 하나예요.', 'This headword has only one sense.'))}</p>`;
+  } else if (groups.length === 1) {
+    senseHtml = senseList(groups[0].rows);
+  } else {
+    /* 갈라진 낱말마다 머리를 얹는다. 번호를 어깨에 다는 것은 사전이 쓰는
+       방식 그대로다 — 눈¹ · 눈². 품사가 있으면 함께 적는다. 그것만으로도
+       「하나는 명사고 하나는 접사」인 것이 보인다. */
+    senseHtml =
+      `<p class="dict-homo-note">${esc(t(
+        '글자는 같지만 서로 다른 낱말이에요.',
+        'Same spelling, different words.'))}</p>` +
+      groups.map((g) =>
+        `<div class="dict-homo">` +
+        `<p class="dict-homo-head"><b>${esc(head)}<sup>${g.n}</sup></b>` +
+        (g.pos ? `<span class="dict-homo-pos">${esc(g.pos)}</span>` : '') + '</p>' +
+        senseList(g.rows) + '</div>').join('');
+  }
 
   box.innerHTML = exHtml + senseHtml;
 }

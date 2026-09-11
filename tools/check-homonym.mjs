@@ -160,11 +160,14 @@ const rc = lint.report(
 
 if (!lint.accept) {
   console.log('\n뿌리를 고치려면 — 이 검사기는 증상만 센다');
-  console.log('  1. tools/build-krdict-glossary.mjs 의 `word.replace(/[^가-힣]/g, \'\')` 가');
-  console.log('     「눈01」의 동형어 번호를 지운다. 번호를 살려 열쇠로 쓰면 동음이의어가 안 합쳐진다.');
-  console.log('  2. 그러려면 국립국어원 「한국어기초사전」 내려받기 폴더가 있어야 한다.');
-  console.log('     node tools/build-krdict-glossary.mjs <내려받은_폴더>');
-  console.log('  3. 화면도 손봐야 한다 — 한 낱말에 뜻 묶음이 여럿이라는 것을 보여 줘야 하고,');
-  console.log('     지금은 뜻을 한 줄로 이어 붙여 「eye; snow」처럼 내보내고 있다.');
+  console.log('  굽는 코드와 화면은 이미 고쳐 두었다. 남은 것은 자료를 다시 굽는 일뿐이다.');
+  console.log('');
+  console.log('    node tools/build-krdict-glossary.mjs <국립국어원_내려받은_폴더>');
+  console.log('    node tools/build-glossary-senses.mjs');
+  console.log('    node tools/stamp.mjs');
+  console.log('');
+  console.log('  첫 줄이 동형어 번호를 살려 「눈01」과 「눈02」를 따로 담고, 둘째 줄이 그');
+  console.log('  묶음을 뜻줄에 적어 넘기고, 화면이 「눈¹ · 눈²」로 갈라 보여 준다.');
+  console.log('  원본 폴더가 없으면 아무것도 안 바뀐다 — 지금 자료에는 번호가 없다.');
 }
 process.exit(rc);
