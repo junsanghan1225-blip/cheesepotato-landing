@@ -40,6 +40,7 @@
  */
 import { loadCorpus } from './lib/corpus.mjs';
 import { isKnown } from './lib/dict.mjs';
+import { glossFind } from '../gloss-find.js';
 import { Lint } from './lib/lint.mjs';
 import { finalJong } from './lib/hangul.mjs';
 
@@ -81,7 +82,25 @@ for (const [k, n] of joined) {
   if (n >= 5 && s >= 1 && s <= 2 && n >= s * 5) HABIT.set(k, { want: 'joined', a: n, b: s });
 }
 
-const spacedOut = (k, pairs) => pairs.get(k);
+/* 붙여 쓴 것도 낱말이고 떼어 쓴 조각도 낱말이면, 둘은 **서로 다른 말이다.**
+ *
+ *     방 안에   방(房) 안
+ *     방안에    방안(方案)
+ *
+ * 글자만 보고는 못 가른다. 못 가르는 것은 안 짚는다 — 여기서 「방안에」를
+ * 「방 안에」로 고치라고 하면 계획을 방으로 만든다. 동음이의어를 갈라
+ * 주려면 자료에 동형어 번호가 있어야 하는데 지금은 지워져 있다
+ * (tools/check-homonym.mjs 참고). */
+function bothReadingsReal(joined) {
+  /* 조사가 붙은 채로는 사전에 안 닿는다 — 「방안에」는 없고 「방안」이 있다.
+     gloss-find.js 가 그 떼기를 이미 한다. 우리가 또 만들 까닭이 없다. */
+  if (!glossFind(isKnown, joined)) return false;         // 붙인 꼴이 말이 되는가
+  for (let i = 1; i < joined.length; i++) {              // 떼어 쓴 꼴도 말이 되는가
+    if (isKnown(joined.slice(0, i)) && glossFind(isKnown, joined.slice(i))) return true;
+  }
+  return false;
+}
+
 
 for (const r of corpus) {
   if (r.word) continue;
@@ -89,6 +108,7 @@ for (const r of corpus) {
   for (const w of new Set(r.text.match(/[가-힣]+/g) || [])) {
     const h = HABIT.get(w);
     if (!h || h.want !== 'spaced') continue;
+    if (bothReadingsReal(w)) continue;
     lint.add('우리 글과 다르게 붙여 썼다', 'warn', r, {
       found: w, want: null,
       why: `딴 데서는 띄어 쓴 것이 ${h.a}번, 붙여 쓴 것이 ${h.b}번이다`,
@@ -99,6 +119,7 @@ for (const r of corpus) {
     const k = m[1] + m[2];
     const h = HABIT.get(k);
     if (!h || h.want !== 'joined') continue;
+    if (bothReadingsReal(k)) continue;
     lint.add('우리 글과 다르게 띄어 썼다', 'warn', r, {
       found: `${m[1]} ${m[2]}`, want: k,
       why: `딴 데서는 붙여 쓴 것이 ${h.a}번, 띄어 쓴 것이 ${h.b}번이다`,

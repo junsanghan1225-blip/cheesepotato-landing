@@ -19,6 +19,7 @@
 import { existsSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { GLOSSARY } from '../../glossary.js';
+import { SENSES } from '../../glossary-senses.js';
 import { ROOT } from './corpus.mjs';
 
 /* 표제어. GLOSSARY 의 열쇠에는 「아침에」·「아침을」 같은 활용형도 있고,
@@ -52,13 +53,47 @@ export const bigDictLoaded = () =>
 
 export const isKnown = (w) => knownWords().has(w);
 
+/* 뜻풀이 한 줄이 무슨 갈래인가. 국립국어원 뜻풀이는 갈래를 글 끝에 적는다 —
+   「‘무리를 이룬 사람’의 뜻을 더하는 접미사.」 */
+export function senseKind(def) {
+  if (/접미사\.|접두사\.|접사\./.test(def)) return '접사';
+  if (/어미\./.test(def)) return '어미';
+  if (/조사\./.test(def)) return '조사';
+  if (/의존 명사/.test(def)) return '의존명사';
+  return '낱말';
+}
+
+/* 한 표제어 칸에 갈래가 다른 뜻이 섞인 것 = 동음이의어가 합쳐진 자리.
+ *
+ * 「차」 한 칸에 접미사(次) 와 명사(茶) 가 같이 있다. 그러면 그 칸의 pos 는
+ * 둘 중 먼저 온 것일 뿐이라 **아무 말도 아니다.** check-homonym.mjs 가
+ * 이것을 세고, 아래 isNoun 이 이것을 피한다. */
+let _mixed = null;
+export function mixedPos() {
+  if (_mixed) return _mixed;
+  _mixed = new Set();
+  for (const [w, ss] of Object.entries(SENSES)) {
+    if (!Array.isArray(ss) || ss.length < 2) continue;
+    const kinds = new Set(ss.map((s) => senseKind(String(Array.isArray(s) ? s[0] : s))));
+    if (kinds.size > 1) _mixed.add(w);
+  }
+  return _mixed;
+}
+
 /* 명사인가 — 조사 검사는 명사 뒤에서만 뜻이 있다.
-   모르면 null. 「알 수 없다」와 「명사가 아니다」는 다르다. */
+   모르면 null. 「알 수 없다」와 「명사가 아니다」는 다르다.
+ *
+ * **동음이의어가 합쳐진 칸의 pos 는 안 믿는다.** 국립국어원 자료의 동형어
+ * 번호가 사전을 굽는 자리에서 지워지는 바람에, 「차01」(次·접사) 과
+ * 「차02」(車) 가 한 칸에 들어가고 pos 는 앞엣것만 남았다. 그 pos 를 믿고
+ * 「이건 명사가 아니다」라고 하면 멀쩡한 조사 검사가 통째로 빗나간다.
+ * 자세한 것은 tools/check-homonym.mjs 머리말에 적어 두었다. */
 export function isNoun(w) {
   const e = GLOSSARY[w];
   if (!e) return null;
   const head = GLOSSARY[e.head] || e;
   if (!head.pos) return null;
+  if (mixedPos().has(e.head || w)) return null;   // 합쳐진 칸 — 모른다
   return /명사|대명사|수사/.test(head.pos);
 }
 
