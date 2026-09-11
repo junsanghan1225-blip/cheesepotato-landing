@@ -234,7 +234,19 @@ window.cpOpen = function (view, sub) {
   if (view === 'account') loadAccount();
   if (view === 'library') loadLibrary();
   if (view === 'dashboard') loadDashboard();
-  if (view === 'dictionary') dictDraw();
+  /* 사전 정적 쪽(dictionary/*.html)의 "직접 찾아보기" 가 낱말까지 들고
+     온다(#dictionary/안녕하세요) — 목록만 열면 방금 읽은 그 낱말을 다시
+     검색해야 한다. sub 는 해시에서 그대로 온 조각이라 아직 퍼센트 인코딩
+     상태다(topik-writing 처럼 영문·숫자뿐인 자리표와 달리 낱말은 한글
+     이라 인코딩된 채로 온다) — 여기서 한 번 풀어 검색창에 채운다. */
+  if (view === 'dictionary') {
+    if (sub) {
+      dictQuery = decodeURIComponent(sub);
+      dictShown = DICT_PAGE;
+      $('dictSearch').value = dictQuery;   // 검색칸에도 채워야 빈칸에 결과만 뜬 것처럼 안 보인다
+    }
+    dictDraw();
+  }
   /* 배우기는 헤더 버튼이 open() 말고 진도 읽기와 갈래 그리기를 더 한다.
      그 둘이 빠지면 갈래 카드가 하나도 없는 빈 배우기가 열린다.
      먼저 그려 두고 진도를 받아 다시 그린다 — 네트워크를 기다리는 동안

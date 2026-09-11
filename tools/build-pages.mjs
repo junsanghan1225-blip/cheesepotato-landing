@@ -29,6 +29,9 @@ import { BLOG_POSTS } from '../blog.js';
 import { TOPIK_READING, TOPIK_BLUEPRINT } from '../topik.js';
 import { TOPIK2_READING, TOPIK2_BLUEPRINT } from '../topik2.js';
 import { TOPIKL_BY_EXAM } from '../topik-listening.js';
+import { GLOSSARY } from '../glossary.js';
+import { SENSES } from '../glossary-senses.js';
+import { EXAMPLES } from '../glossary-examples.js';
 import { readFileSync as readEn } from 'node:fs';
 import { createHash } from 'node:crypto';
 
@@ -42,6 +45,7 @@ const OUT_TW = join(ROOT, 'topik-writing');
 const OUT_CMP = join(ROOT, 'compare');
 const OUT_TR = join(ROOT, 'topik-reading');
 const OUT_TL = join(ROOT, 'topik-listening');
+const OUT_DICT = join(ROOT, 'dictionary');
 
 /* 표현 290개의 영어 설명. app.module.js 는 이걸 grammar-en.js 로 읽어 화면에
    쓰는데, **검색에 걸리는 정적 쪽에는 여태 한 줄도 안 실렸다.** 그래서
@@ -922,6 +926,119 @@ function tlHub() {
     desc: clip(`TOPIK I·II 듣기 유형별 연습 문항 ${total}개. 대본과 정답, 해설까지. 기출이 아닌 창작 문항입니다.`),
     body,
     jsonld: [crumbLd([['치즈감자', '/'], ['TOPIK 듣기', '/topik-listening/']])],
+  });
+}
+
+/* ── 사전 ───────────────────────────────────────────────────── */
+/* topik-writing 을 고치며 배운 것을 그대로 적용한다 — 표제어마다 제 주소를
+   가진 쪽 하나. 지금은 낱말 5,346개(정확히는 GLOSSARY 를 head 로 묶은
+   4,209개 — 「5,346」은 활용형까지 센 찾기용 꼴 수다, docs/glossary.json
+   참고)가 오직 #dictionary 화면 하나로만 있어서 크롤러에게는 안 보인다.
+   문법 표현·TOPIK 문항은 진작 다 정적 쪽을 얻었는데 낱말만 빠져 있었다.
+
+   내용은 GLOSSARY(표제어·품사·영어 뜻) + SENSES(뜻풀이가 여럿인 말만,
+   2,391개) + EXAMPLES(예문 하나, 4,207개)를 그대로 쓴다 — 앱의 사전
+   화면(dictDrawMore)이 보여주는 것과 똑같다. */
+const DICT_HEADS = [...new Map(
+  Object.values(GLOSSARY).map((v) => [v.head, v])
+).values()].sort((a, b) => a.head.localeCompare(b.head, 'ko'));
+
+/* 한글 초성 — 사전 목록을 가나다순으로 나눌 자리표다. */
+const CHO = ['ㄱ','ㄲ','ㄴ','ㄷ','ㄸ','ㄹ','ㅁ','ㅂ','ㅃ','ㅅ','ㅆ','ㅇ','ㅈ','ㅉ','ㅊ','ㅋ','ㅌ','ㅍ','ㅎ'];
+function choOf(head) {
+  const code = head.codePointAt(0) - 0xAC00;
+  if (code < 0 || code > 11171) return head[0] || '#';   // 한글이 아니면(드묾) 그 글자 그대로
+  return CHO[Math.floor(code / (21 * 28))];
+}
+
+function wordPage(entry, prev, next) {
+  const { head, pos, en } = entry;
+  const firstEn = (en || '').split(';')[0].trim();
+  /* 「hello in Korean」처럼 거꾸로(영어→한국어) 찾는 사람이 실제로 많다.
+     제목 앞자리를 그 검색에 맞춘다 — 한국어 표제어는 어차피 본문 h1 과
+     제목 뒷자리에 그대로 있어 한국어 쪽 검색도 놓치지 않는다. */
+  const title = firstEn
+    ? `${head} — "${esc(firstEn)}" in Korean | 치즈감자`
+    : `${head} 뜻 — 한국어 낱말 사전 | 치즈감자`;
+  const senses = SENSES[head];
+  const example = EXAMPLES[head];
+  const headTag = pos ? `${head}(${pos})` : head;   // 품사가 없는 표제어(감탄사류)엔 빈 괄호를 안 붙인다
+  const desc = clip(senses?.length
+    ? `${headTag} — ${senses[0][0]}${senses[0][1] ? ` (${senses[0][1]})` : ''}`
+    : `${headTag} — ${en || '한국어 낱말'}`);
+
+  const body = [
+    `<nav class="crumb"><a href="/">치즈감자</a> › <a href="/dictionary/">사전</a> › ${esc(head)}</nav>`,
+    pos ? `<span class="badge">${esc(pos)}</span>` : '',
+    `<h1>${esc(head)}</h1>`,
+    firstEn ? `<p class="sub" lang="en">${esc(firstEn)}</p>` : '',
+    '<h2>뜻풀이 · Meaning</h2>',
+    senses?.length
+      ? '<div class="facts">' + senses.map(([ko, enS], i) =>
+          `<div class="fact"><b>${i + 1}</b><span>${esc(ko)}${enS ? `<i lang="en">${esc(enS)}</i>` : ''}</span></div>`
+        ).join('') + '</div>'
+      : `<p class="desc">${esc(en || t2(pos))}</p>`,
+    example ? '<h2>예문 · Example</h2>' +
+      `<div class="ex">${esc(example.ex)}<i lang="en">${esc(example.en)}</i></div>` : '',
+    `<a class="cta" href="/#dictionary/${encodeURIComponent(head)}">사전에서 발음 듣고 단어장에 담기` +
+      `<span>Hear it pronounced and save "${esc(head)}" to your wordbook</span></a>`,
+    (prev || next) ? '<div class="near">' +
+      (prev ? `<a href="/dictionary/${encodeURIComponent(prev.head)}.html"><b>← 이전</b>${esc(prev.head)}</a>` : '') +
+      (next ? `<a href="/dictionary/${encodeURIComponent(next.head)}.html"><b>다음 →</b>${esc(next.head)}</a>` : '') +
+      '</div>' : '',
+  ].filter(Boolean).join('\n');
+
+  const jsonld = [
+    {
+      '@context': 'https://schema.org',
+      '@type': 'DefinedTerm',
+      '@id': `${SITE}/dictionary/${encodeURIComponent(head)}.html`,
+      name: head,
+      description: senses?.length ? senses[0][0] : (en || undefined),
+      inDefinedTermSet: `${SITE}/dictionary/`,
+      inLanguage: 'ko',
+    },
+    crumbLd([['치즈감자', '/'], ['사전', '/dictionary/'], [head, null]]),
+  ];
+  return page({
+    url: `/dictionary/${encodeURIComponent(head)}.html`,
+    title, desc, body, jsonld,
+    extraCss: '.ex i{display:block;color:var(--dim);font-size:14px;font-style:normal;margin-top:4px}',
+  });
+}
+/* 뜻풀이도 예문도 없는 극소수(품사만 있는 표제어) 를 위한 마지막 버팀목.
+   빈 쪽을 내느니 품사라도 적힌 문장 하나를 낸다. */
+function t2(pos) { return pos ? `${pos}.` : '한국어 낱말입니다.'; }
+
+function wordHub(heads) {
+  const groups = new Map();
+  heads.forEach((h) => {
+    const c = choOf(h.head);
+    if (!groups.has(c)) groups.set(c, []);
+    groups.get(c).push(h);
+  });
+  const sections = [...groups.entries()].map(([cho, list]) =>
+    `<div class="cat"><h3>${esc(cho)}</h3><ul class="pts">` +
+    list.map((h) => `<li><a href="/dictionary/${encodeURIComponent(h.head)}.html">${esc(h.head)}</a></li>`).join('') +
+    '</ul></div>'
+  ).join('\n');
+  const n = heads.length.toLocaleString('ko-KR');
+
+  const body = [
+    '<nav class="crumb"><a href="/">치즈감자</a> › 사전</nav>',
+    `<h1>한국어 낱말 사전 — ${n}개</h1>`,
+    '<p class="lead">국립국어원 한국어기초사전 뜻풀이를 담은 낱말입니다. 표제어마다 뜻풀이와 예문이 있고, 앱 사전에서 발음을 듣고 단어장에 담을 수 있습니다.<br>' +
+      `${n} Korean words with meanings and example sentences, from the National Institute of Korean Language's basic dictionary.</p>`,
+    '<a class="cta" href="/#dictionary">사전 열기<span>Search the full dictionary in the app</span></a>',
+    sections,
+  ].join('\n');
+
+  return page({
+    url: '/dictionary/', kind: 'website',
+    title: `한국어 낱말 사전 ${n}개 — 뜻풀이·예문 | 치즈감자`,
+    desc: clip(`한국어 낱말 ${n}개의 뜻풀이와 예문. 국립국어원 한국어기초사전 CC BY-SA 2.0 KR.`),
+    body,
+    jsonld: [crumbLd([['치즈감자', '/'], ['사전', '/dictionary/']])],
   });
 }
 
@@ -1838,7 +1955,7 @@ ${urls.map(({ loc, freq, pri }) => {
 /* ── 돌린다 ─────────────────────────────────────────────────── */
 /* 통째로 지우고 다시 쓴다. 표현을 지웠을 때 예전 쪽이 남아 검색에 걸리면
    앱에 없는 것을 보여 주게 된다. */
-for (const d of [OUT, OUT_COURSE, OUT_LESSON, OUT_TW, OUT_TR, OUT_TL, OUT_CMP, OUT_BLOG]) {
+for (const d of [OUT, OUT_COURSE, OUT_LESSON, OUT_TW, OUT_TR, OUT_TL, OUT_DICT, OUT_CMP, OUT_BLOG]) {
   rmSync(d, { recursive: true, force: true });
   mkdirSync(d, { recursive: true });
 }
@@ -1921,6 +2038,22 @@ for (const it of [...TOPIKL_BY_EXAM.I.items, ...TOPIKL_BY_EXAM.II.items]) {
 writeFileSync(join(OUT_TL, 'index.html'), tlHub());
 urls.push({ loc: '/topik-listening/', freq: 'weekly', pri: '0.9' });
 
+/* ── 사전 ───────────────────────────────────────────────────── */
+let nDict = 0;
+DICT_HEADS.forEach((entry, i) => {
+  /* 파일 이름은 표제어를 그대로 쓴다(assets/audio/dict/*.mp3 와 같은
+     관행) — 한글 파일 이름은 이 저장소에서 이미 잘 돌아간다. 주소(URL)
+     쪽만 encodeURIComponent 를 쓴다: 사이트맵 <loc> 은 스펙상 아스키가
+     아닌 글자를 퍼센트 인코딩해야 하고, 웹서버는 요청받은 인코딩된
+     주소를 풀어 이 파일을 그대로 찾아낸다. */
+  writeFileSync(join(OUT_DICT, `${entry.head}.html`),
+    wordPage(entry, DICT_HEADS[i - 1], DICT_HEADS[i + 1]));
+  urls.push({ loc: `/dictionary/${encodeURIComponent(entry.head)}.html`, freq: 'yearly', pri: '0.5' });
+  nDict++;
+});
+writeFileSync(join(OUT_DICT, 'index.html'), wordHub(DICT_HEADS));
+urls.push({ loc: '/dictionary/', freq: 'monthly', pri: '0.8' });
+
 /* ── 블로그 ─────────────────────────────────────────────────── */
 /* 글이 하나도 없어도(BLOG_POSTS = []) 목록 쪽은 늘 굽는다 — 안 그러면
    나중에 글을 딱 하나 추가했을 때 목록이 아예 없어서 처음 한 번은
@@ -1974,5 +2107,6 @@ console.log(`레슨 ${nL}쪽 → lesson/`);
 console.log(`TOPIK 쓰기 ${nW}쪽 + 목록 1쪽 → topik-writing/`);
 console.log(`TOPIK 읽기 ${nR}쪽 + 목록 1쪽 → topik-reading/`);
 console.log(`TOPIK 듣기 ${nTL}쪽 + 목록 1쪽 → topik-listening/`);
+console.log(`사전 ${nDict}쪽 + 목록 1쪽 → dictionary/`);
 console.log(`블로그 ${nB}쪽 + 목록 1쪽 + 갈래 ${nBT}쪽 + rss.xml → blog/`);
 console.log(`sitemap.xml 에 주소 ${urls.length}개.`);
