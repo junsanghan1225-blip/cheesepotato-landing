@@ -1069,7 +1069,11 @@ button.wb-link { background:none; border:none; border-bottom:1.5px solid rgba(25
   font-weight:700;
 }
 .dl-section .dl-btn:hover { background:#FFA76B; border-color:#FFA76B; color:#1B1512; }
-.dl-coming { position:relative; margin-top:16px; font-size:12.5px; color:rgba(251,248,241,.42); }
+.dl-coming {
+  position:relative; display:inline-block; margin-top:16px; font-size:12.5px;
+  color:rgba(251,248,241,.42); text-decoration:underline; text-underline-offset:3px;
+}
+.dl-coming:hover { color:rgba(251,248,241,.7); }
 
 /* ══ 푸터 ══════════════════════════════════════════════════════ */
 .footer {
@@ -2171,7 +2175,13 @@ body.hlp-open { overflow:hidden; }
     <div class="dl-title" data-en="Start today">지금 바로 시작하세요</div>
     <div class="dl-sub" data-en="Build your own wordbook for free<br>and study smarter">무료로 나만의 단어장을 만들고<br>더 스마트하게 언어를 공부하세요</div>
     <a class="dl-btn" href="https://play.google.com/store/apps/details?id=com.cheesepotato.app" target="_blank" rel="noopener noreferrer" data-en="▶ Get it on Google Play">▶ Google Play 다운로드</a>
-    <div class="dl-coming"><span data-en="🍎 iOS version coming soon">🍎 iOS 버전 출시 예정</span></div>
+    <!-- 예전엔 그냥 글자였다. Clarity 히트맵을 보니 다운로드 단추 바로
+         아래라서 그런지 여기를 누르는 사람이 꽤 있었는데(죽은 클릭 —
+         눌러도 아무 일도 안 일어남), 누르면 뭔가 반응이 있을 거라 기대한
+         것이다. 이제 진짜로 메일을 연다 — iOS 판을 기다리는 사람 수를
+         가늠할 신호도 겸한다. -->
+    <a class="dl-coming" href="mailto:junsanghan1225@gmail.com?subject=iOS%20%EB%B2%84%EC%A0%84%20%EC%95%8C%EB%A6%BC%20%EC%8B%A0%EC%B2%AD&body=iOS%20%EB%B2%84%EC%A0%84%EC%9D%B4%20%EB%82%98%EC%98%A4%EB%A9%B4%20%EC%95%8C%EB%A0%A4%EC%A3%BC%EC%84%B8%EC%9A%94.%0A%EC%82%AC%EC%9A%A9%20%EA%B8%B0%EA%B8%B0:%20"
+       data-en="🍎 iOS version coming soon — tap to get notified">🍎 iOS 버전 출시 예정 — 누르면 나올 때 알려드려요</a>
   </div>
 
   <!-- 푸터 -->
