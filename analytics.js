@@ -28,7 +28,7 @@
     '': '홈', 'download': '내려받기', 'learn': '배우기', 'num': '숫자',
     'games': '놀이', 'lesson': '레슨', 'quiz': '단어 시험', 'test': '발음 시험',
     'wordbook': '내 단어장', 'library': '자료마당', 'dash': '내 정보',
-    'auth': '로그인', 'claw': '인형뽑기', 'match': '짝 맞추기',
+    'auth': '로그인',
   };
   function mark() {
     var h = (location.hash || '').replace(/^#/, '').split('?')[0];

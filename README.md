@@ -332,7 +332,7 @@ node tools/build-grammar.mjs && node tools/stamp.mjs
 ```
 #                       홈
 #wordbook #account #library #dashboard #test
-#games #claw #match #quiz #num
+#games #quiz #num
 #learn                  배우기 (갈래 고르기)
 #learn/topik            배우기 › TOPIK 유형 연습
 #learn/courses          배우기 › 코스로 배우기
