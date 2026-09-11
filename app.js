@@ -936,6 +936,8 @@ function ptShow(toTest) {
   // 퀴즈 시계가 돌고 있었다면 멈춘다. 아래 모듈 스크립트가
   // 나중에 실행되므로 있으면 부르는 식으로만 손댄다.
   if (window.qzStop) window.qzStop();
+  // 홈으로 오면 오늘의 단어 카드를 채운다. 마찬가지로 있으면만 부른다.
+  if (!toTest && window.wotdRender) window.wotdRender();
   const b = ptId('navBtn');
   // 아이콘은 🎙 로 둔다. 헤더에 있을 때는 ✕ 로 바꿔 "누르면 닫힌다" 를
   // 알렸지만, 메뉴 안에서는 고르는 순간 메뉴가 닫혀 그 ✕ 를 볼 일이
