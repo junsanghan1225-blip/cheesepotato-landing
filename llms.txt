@@ -14,9 +14,12 @@
 - **문법 표현 290개** — 표현마다 뜻풀이·예문·대화문이 붙고, 내 문장을 직접
   써서 확인받는 칸이 있다. (290 grammar points with meanings, examples and
   dialogues)
-- **TOPIK 연습 문항 480개** — TOPIK I 듣기 26·읽기 209, TOPIK II 듣기 19·
-  읽기 200·쓰기 26. 시계와 답안지가 붙은 모의고사도 있다.
-  (480 TOPIK-style practice questions)
+- **TOPIK 연습 문항 512개** — TOPIK I 듣기 26·읽기 209, TOPIK II 듣기 19·
+  읽기 200·쓰기 58(51번 20·52번 17·53번 11·54번 10). 시계와 답안지가
+  붙은 모의고사도 있다. 쓰기 문항마다 모범답안과 채점 포인트, 흔한
+  감점 요인이 함께 있다.
+  (512 TOPIK-style practice questions, including 58 original writing
+  tasks each with a model answer and scoring notes)
 - **읽기 지문 54편** — 짧은 글과 긴 글. 읽고 나서 내용을 직접 써 본다.
   (54 reading passages)
 - **낱말 5,346개 · 문법 항목 197개** — 뜻풀이는 국립국어원 한국어기초사전에서
@@ -52,7 +55,7 @@
 - [코스 목록](https://everykoreans.com/course/) — 레슨 82개, 하나하나 제
   주소를 가진 쪽이다.
 - [TOPIK 쓰기 연습](https://everykoreans.com/topik-writing/) — 51~54번
-  유형 문항 26개. 문항마다 지문·모범답안·채점 포인트·흔한 감점 요인이
+  유형 문항 58개. 문항마다 지문·모범답안·채점 포인트·흔한 감점 요인이
   다 그 쪽 안에 있다 — 클릭 한 번 없이도 답을 볼 수 있다. 그 문항을
   직접 써 보고 싶으면 쪽 안의 "직접 써 보기" 를 누르면 **그 문항 그대로**
   앱으로 이어진다(목록이 아니라).
@@ -64,8 +67,10 @@
   대신 대본을 글로 보여 준다 — 실제 듣기는 앱 안에서 음성으로 한다).
   "직접 풀어보기" 를 누르면 **그 문항 그대로** 앱으로 이어진다.
 - [블로그](https://everykoreans.com/blog/) — 한국어 공부·문법·TOPIK 준비에
-  관한 글.
-- [사이트맵](https://everykoreans.com/sitemap.xml) — 위 전부를 합쳐 950개
+  관한 글 5편. 은/는과 이/가 가려 쓰기, 한글을 한나절에 읽는 이유,
+  TOPIK 급수 고르기, 존댓말과 반말. 새 글은
+  [RSS](https://everykoreans.com/blog/rss.xml) 로도 받는다.
+- [사이트맵](https://everykoreans.com/sitemap.xml) — 위 전부를 합쳐 990개
   가까운 주소가 있다.
 
 ## 만든 곳 · Contact

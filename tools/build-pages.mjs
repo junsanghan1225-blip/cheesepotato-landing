@@ -29,6 +29,8 @@ import { BLOG_POSTS } from '../blog.js';
 import { TOPIK_READING, TOPIK_BLUEPRINT } from '../topik.js';
 import { TOPIK2_READING, TOPIK2_BLUEPRINT } from '../topik2.js';
 import { TOPIKL_BY_EXAM } from '../topik-listening.js';
+import { readFileSync as readEn } from 'node:fs';
+import { createHash } from 'node:crypto';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const SITE = 'https://everykoreans.com';
@@ -40,6 +42,17 @@ const OUT_TW = join(ROOT, 'topik-writing');
 const OUT_CMP = join(ROOT, 'compare');
 const OUT_TR = join(ROOT, 'topik-reading');
 const OUT_TL = join(ROOT, 'topik-listening');
+
+/* 표현 290개의 영어 설명. app.module.js 는 이걸 grammar-en.js 로 읽어 화면에
+   쓰는데, **검색에 걸리는 정적 쪽에는 여태 한 줄도 안 실렸다.** 그래서
+   「neuni korean grammar」나 「nikka vs aseo」로 찾는 사람에게 우리 쪽은
+   영어가 한 글자도 없는 한국어 쪽이었다 — 뜻풀이를 290개 다 옮겨 놓고도.
+   여기서 붙인다. 없으면 한국어만 나가고 굽는 일은 그대로 된다. */
+let EN_BY_ID = new Map();
+try {
+  const arr = JSON.parse(readEn(join(ROOT, 'docs/grammar-en.json'), 'utf8'));
+  EN_BY_ID = new Map(arr.filter((x) => x?.id).map((x) => [x.id, x]));
+} catch { /* 없으면 한국어로 물러선다 */ }
 
 const esc = (s) => String(s ?? '')
   .replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;')
@@ -72,6 +85,9 @@ a{color:inherit}
 h1{font-size:30px;line-height:1.3;margin:12px 0 6px;letter-spacing:-.02em}
 .sub{color:var(--dim);font-size:14px;margin:0 0 18px}
 .desc{font-size:17px;margin:0 0 26px}
+/* 한국어 뜻풀이 아래 붙는 영어. 한국어가 먼저 읽히도록 한 단계 죽인다. */
+.desc.en{font-size:15.5px;color:var(--dim);margin:-18px 0 26px}
+.fact i{display:block;font-style:normal;font-size:13.5px;color:var(--dim);margin-top:3px}
 h2{font-size:15px;margin:32px 0 10px;color:var(--dim);letter-spacing:.02em}
 .facts{border:1px solid var(--line);border-radius:14px;overflow:hidden;background:var(--card)}
 /* 이름표를 두 말로 겹쳐 쓰니(「자주 함께 쓰는 말 / Often paired with」)
@@ -151,7 +167,7 @@ const crumbLd = (parts) => {
   };
 };
 
-function page({ url, title, desc, body, kind = 'article', jsonld, extraCss = '' }) {
+function page({ url, title, desc, body, kind = 'article', jsonld, extraCss = '', extraHead = '' }) {
   return `<!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -172,7 +188,7 @@ function page({ url, title, desc, body, kind = 'article', jsonld, extraCss = '' 
 <meta name="twitter:title" content="${esc(title)}">
 <meta name="twitter:description" content="${esc(desc)}">
 <meta name="twitter:image" content="${SITE}/logo.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">${[].concat(jsonld ?? []).map(ld).join('')}
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">${extraHead}${[].concat(jsonld ?? []).map(ld).join('')}
 <style>${CSS}${extraCss}</style>
 </head>
 <body>
@@ -198,12 +214,27 @@ function pointPage(cat, p, prev, next) {
      「neuni korean grammar」로도 찾는다. 표현 이름은 어느 쪽에도 그대로
      걸리므로 앞에 두고, 뒤에 무엇을 다루는 쪽인지 영어로 붙인다. */
   const title = `${p.name} — Korean grammar: meaning & examples | 치즈감자`;
-  const desc = clip(`${p.name} · ${cat.en} — ${p.desc}`);
+  /* 검색 결과에 뜨는 줄은 **영어를 앞에 둔다.** 제목에 표현 이름이 그대로
+     들어 있어 한국어 검색어는 제목이 받는다. 이 줄까지 한국어면 영어로
+     찾은 사람은 결과에서 읽을 것이 하나도 없다. 영어가 없으면 한국어로. */
+  const en = EN_BY_ID.get(p.id);
+  const desc = clip(en?.desc ? `${p.name} · ${cat.en} — ${en.desc}` : `${p.name} · ${cat.en} — ${p.desc}`);
 
+  /* **한국어 칸에 영어가 이미 섞여 있는 것이 290개 중 112개다.**
+     README 는 「영어는 sentences.js 에 섞지 않고 docs/grammar-en.json 에
+     따로 둔다」고 하는데, 「주의할 점」에는 옛날에 옮긴 영어가 한국어 뒤에
+     그대로 붙어 있다. 그 자리에 영어를 또 붙이면 같은 말이 두 번 나온다.
+     자료를 고치는 것이 옳지만 섞인 글을 갈라내는 일은 따로 할 일이라,
+     여기서는 **이미 영어가 있으면 더 붙이지 않는다.** */
+  const hasEn = (v) => /[A-Za-z]{4,}/.test(String(v ?? ''));
+  const addEn = (koVal, enVal) => (enVal && !hasEn(koVal) ? enVal : null);
+
+  /* 칸마다 한국어 아래 영어를 붙인다. lang 을 적어 둬야 기계가 두 말이
+     섞인 쪽인 줄 안다 — 쪽 전체는 lang="ko" 다. */
   const facts = [
-    ['형태 / Form', more[0]],
-    ['자주 함께 쓰는 말 / Often paired with', more[1]],
-    ['주의할 점 / Watch out', more[2]],
+    ['형태 / Form', more[0], addEn(more[0], en?.form)],
+    ['자주 함께 쓰는 말 / Often paired with', more[1], null],
+    ['주의할 점 / Watch out', more[2], addEn(more[2], en?.care)],
   ].filter(([, v]) => v);
 
   const dlg = (p.dlg || []).map((line) => {
@@ -222,8 +253,10 @@ function pointPage(cat, p, prev, next) {
     `<h1>${esc(p.name)}</h1>`,
     `<p class="sub">${esc(cat.emoji ? cat.emoji + ' ' : '')}${esc(cat.ko)} · ${esc(cat.en)}</p>`,
     `<p class="desc">${esc(p.desc)}</p>`,
-    facts.length ? '<div class="facts">' + facts.map(([k, v]) =>
-      `<div class="fact"><b>${esc(k)}</b><span>${esc(v)}</span></div>`).join('') + '</div>' : '',
+    addEn(p.desc, en?.desc) ? `<p class="desc en" lang="en">${esc(en.desc)}</p>` : '',
+    facts.length ? '<div class="facts">' + facts.map(([k, v, e]) =>
+      `<div class="fact"><b>${esc(k)}</b><span>${esc(v)}` +
+      (e ? `<i lang="en">${esc(e)}</i>` : '') + '</span></div>').join('') + '</div>' : '',
     '<h2>예문 · Examples</h2>',
     `<div class="ex">${esc(p.ex)}</div>`,
     more[3] ? `<div class="ex">${esc(more[3])}</div>` : '',
@@ -249,8 +282,10 @@ function pointPage(cat, p, prev, next) {
       '@type': 'DefinedTerm',
       '@id': `${SITE}/sentence/${p.id}.html`,
       name: p.name,
+      /* description 은 하나만 받는다. 한국어를 두고, 영어는 별칭 자리에
+         함께 적어 둔다 — 두 말로 찾는 쪽이라는 것을 기계에 알린다. */
       description: p.desc,
-      inLanguage: 'ko',
+      inLanguage: en?.desc ? ['ko', 'en'] : 'ko',
       termCode: p.id,
       inDefinedTermSet: {
         '@type': 'DefinedTermSet',
@@ -258,6 +293,7 @@ function pointPage(cat, p, prev, next) {
         name: '한국어 문법 표현 · Korean grammar points',
       },
       ...(more[0] ? { alternateName: more[0] } : {}),
+      ...(en?.desc ? { disambiguatingDescription: en.desc } : {}),
     },
     /* 갈래 쪽은 /compare/ 에 있다. 다만 표현이 하나뿐인 갈래는 견줄 것이
        없어 안 만드므로(아래 생성 고리의 조건과 같아야 한다), 그럴 때는
@@ -634,6 +670,16 @@ function twPage(it) {
     it.tasks ? '<h2>다뤄야 할 것 · Must cover</h2><ul class="pts">' +
       it.tasks.map((x) => `<li>${esc(x)}</li>`).join('') + '</ul>' : '',
     it.model ? `<h2>모범답안 · Model answer</h2><div class="ex">${esc(it.model).replace(/\n/g, '<br>')}</div>` : '',
+    /* 51·52번(빈칸형)은 model 대신 blanks 배열로 답을 담는다 — 빈칸마다
+       정답이 하나가 아니라 2~3개 표현이 모두 맞으므로, 화면(twReveal)과
+       똑같이 빈칸별 모범답안 목록 + 채점 포인트로 보여 준다. 이게 빠져
+       있으면 meta description 의 "모범답안이 함께 있습니다"가 51·52번
+       쪽에서는 거짓말이 된다(실제로 겪은 문제 — ChatGPT가 26쪽을 다
+       열어 보고 이 간극을 짚어냈다). */
+    it.blanks ? it.blanks.map((b) =>
+      `<h2>${esc(b.mark)} 모범답안 · Model answers</h2><ul class="pts">` +
+      b.answers.map((a) => `<li>${esc(a)}</li>`).join('') + '</ul>' +
+      `<p class="sub">${esc(b.point)}</p>`).join('\n') : '',
     it.points ? '<h2>무엇을 보는가 · What is scored</h2><div class="facts">' +
       [['내용 및 과제 수행', it.points.content], ['글의 전개 구조', it.points.structure],
        ['언어 사용', it.points.language]].map(([k, v]) =>
@@ -880,42 +926,427 @@ function tlHub() {
 }
 
 /* ── 블로그 ─────────────────────────────────────────────────── */
-/* 글은 blog.js 에 아직 하나도 없다 — 자리(구조)만 먼저 낸다. 목록 쪽은
-   글이 없어도 항상 굽는다("곧 올릴게요" 안내가 뜬다) — 그래야 나중에
-   글을 하나만 추가해도 바로 목록에 걸린다.
+/* 목록 쪽은 글이 없어도 항상 굽는다("곧 올릴게요" 안내가 뜬다) — 그래야
+   나중에 글을 하나만 추가해도 바로 목록에 걸린다.
 
-   블로그만 더 쓰는 CSS. 다른 정적 쪽(표현·코스·TOPIK)과 골격(CSS 변수·
-   .crumb·.foot 등)은 그대로 나눠 쓰되, 목록은 알약(.pts) 대신 카드로,
-   본문은 사전 항목이 아니라 실제 글을 읽는 자리답게 줄 간격과 문단
-   간격을 넉넉히 잡는다. page() 의 extraCss 로만 들어가므로 표현·코스
-   쪽 무게는 그대로다. */
+   생김새는 **게시판(레딧) 꼴**을 따른다. 앞서 카드를 큼직하게 늘어놓던
+   모양은 글이 하나일 때는 멀쩡했지만 다섯 편이 되자 훑기가 나빴다 —
+   한 화면에 두 편밖에 안 들어오고, 어느 글이 무엇에 대한 것인지 알려면
+   요약을 다 읽어야 했다. 게시판 꼴은 줄을 촘촘히 쌓고, 왼쪽에 분량,
+   아래에 갈래표를 붙여 **눈으로 고르게** 한다.
+
+   다만 색과 말씨는 그대로 치즈감자다. 레딧의 회색 크롬을 흉내 내지 않고
+   기존 CSS 변수(--bg/--card/--brand/--soft)를 그대로 쓰되, 모서리를
+   16px 에서 10px 로 줄이고 여백을 좁혀 「읽는 쪽」이 아니라 「고르는 쪽」
+   처럼 보이게만 한다.
+
+   골격(CSS 변수·.crumb·.foot)은 다른 정적 쪽과 그대로 나눠 쓴다.
+   page() 의 extraCss 로만 들어가므로 표현·코스 쪽 무게는 안 변한다. */
 const BLOG_CSS = `
-.blog-list{display:flex;flex-direction:column;gap:14px;padding:0;margin:24px 0 0;list-style:none}
-.blog-card{display:block;border:1px solid var(--line);border-radius:16px;background:var(--card);
-  padding:20px 22px;text-decoration:none;transition:border-color .15s,transform .15s,box-shadow .15s}
-.blog-card:hover{border-color:var(--brand);transform:translateY(-1px);box-shadow:0 6px 20px -12px rgba(0,0,0,.25)}
-.blog-card h2{font-size:19px;margin:2px 0 8px;letter-spacing:-.01em;color:var(--ink)}
-.blog-card p{margin:0;color:var(--dim);font-size:14.5px;line-height:1.6}
-.blog-empty{border:1px dashed var(--line);border-radius:16px;padding:44px 24px;text-align:center;
-  color:var(--dim);margin-top:24px}
-.blog-empty .emoji{font-size:34px;display:block;margin-bottom:10px}
-.blog-meta{display:flex;gap:8px;align-items:center;font-size:12.5px;color:var(--dim);
-  font-weight:600;letter-spacing:.01em;margin:0 0 4px;flex-wrap:wrap}
-.blog-meta .dot{opacity:.5;font-weight:400}
+/* 게시판 쪽에서만 쓰는 색. 바탕과 카드 사이의 한 겹 — 레딧으로 치면
+   글 목록이 얹히는 그 회색 자리다. 크림색 바탕에 회색을 섞으면 탁해지니
+   기존 --soft 를 옅게 깐다. */
+:root{--rb-deck:#f6efe0;--rb-rail:#8a7c6a;--rb-hair:#e3d7c2}
+@media(prefers-color-scheme:dark){:root{--rb-deck:#141110;--rb-rail:#9b8e7d;--rb-hair:#3a3027}}
+
+.rb-banner{display:flex;align-items:center;gap:14px;flex-wrap:wrap;
+  border:1px solid var(--line);border-radius:12px;background:var(--card);padding:16px 18px;margin:0 0 16px}
+.rb-avatar{flex:none;width:52px;height:52px;border-radius:50%;background:var(--brand);
+  display:grid;place-items:center;font-size:26px;line-height:1}
+.rb-id{flex:1 1 220px;min-width:0}
+.rb-id h1{font-size:22px;margin:0;letter-spacing:-.02em;line-height:1.25}
+.rb-id p{margin:3px 0 0;font-size:13px;color:var(--dim);line-height:1.5}
+.rb-join{flex:none;background:var(--brand);color:#2b2117;text-decoration:none;font-weight:700;
+  font-size:14px;padding:9px 18px;border-radius:999px;white-space:nowrap}
+.rb-join:hover{filter:brightness(.95)}
+
+.rb-cols{display:grid;gap:16px;grid-template-columns:1fr;align-items:start}
+@media(min-width:880px){.rb-cols{grid-template-columns:minmax(0,1fr) 288px}}
+
+/* ── 글 줄 ── */
+.rb-feed{display:flex;flex-direction:column;gap:8px;padding:0;margin:0;list-style:none}
+.rb-post{position:relative;display:flex;gap:0;border:1px solid var(--line);border-radius:10px;
+  background:var(--card);overflow:hidden;transition:border-color .12s}
+.rb-post:hover{border-color:var(--brand)}
+/* 왼쪽 기둥. 레딧은 여기에 추천 화살표가 서는데, 우리에겐 셀 표가 없다.
+   없는 숫자를 지어 넣는 대신 **읽는 데 걸리는 시간**을 세운다 — 목록에서
+   고를 때 실제로 쓰는 정보이기도 하다. */
+.rb-rail{flex:none;width:56px;background:var(--rb-deck);border-right:1px solid var(--rb-hair);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1px;padding:14px 0;color:var(--rb-rail)}
+.rb-rail b{font-size:17px;font-weight:800;line-height:1;color:var(--ink)}
+.rb-rail span{font-size:11px;font-weight:600;letter-spacing:.02em}
+.rb-body{flex:1 1 auto;min-width:0;padding:12px 16px 13px}
+.rb-meta{display:flex;align-items:center;gap:6px;flex-wrap:wrap;font-size:12px;color:var(--dim);font-weight:600}
+.rb-meta .dot{opacity:.5;font-weight:400}
+.rb-meta .rb-who{font-weight:700;color:var(--ink)}
+.rb-post h2{font-size:17.5px;line-height:1.4;margin:5px 0 0;letter-spacing:-.01em;color:var(--ink)}
+.rb-post h2 a{text-decoration:none}
+/* 줄 전체를 누를 수 있게 제목 링크를 카드 위로 펼친다. 링크를 여러 개
+   두면 스크린리더가 같은 글을 세 번 읽는다 — 진짜 링크는 하나만 둔다. */
+.rb-post h2 a::after{content:'';position:absolute;inset:0}
+.rb-ex{margin:6px 0 0;font-size:14px;line-height:1.62;color:var(--dim);
+  display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.rb-tail{display:flex;align-items:center;gap:7px;flex-wrap:wrap;margin:10px 0 0}
+
+/* 갈래표. 글이 열여섯 편으로 늘면서 갈래마다 쪽을 두는 값이 생겼다 —
+   /blog/tag/<slug>.html 로 걸러 볼 수 있다(build-pages.mjs 의 blogTagPage).
+   li 에 두던 배경·테두리·둥근 모서리는 그대로 두고, 안의 a 가 그 자리를
+   꽉 채워 눌리게 한다. */
+.rb-flair{display:flex;flex-wrap:wrap;gap:6px;padding:0;margin:0;list-style:none}
+.rb-flair li{background:var(--soft);border:1px solid var(--rb-hair);border-radius:999px;
+  font-size:11.5px;font-weight:700;letter-spacing:.01em;overflow:hidden}
+.rb-flair a{display:block;padding:2px 10px;color:var(--dim);text-decoration:none}
+.rb-flair a:hover{color:var(--ink);background:var(--rb-deck)}
+.rb-flair li.on{background:var(--ink);border-color:var(--ink)}
+.rb-flair li.on a{color:var(--bg)}
+.rb-flair li.on a:hover{background:transparent}
+
+/* ── 오른쪽 기둥 ── */
+.rb-side{display:flex;flex-direction:column;gap:12px;min-width:0}
+.rb-box{border:1px solid var(--line);border-radius:10px;background:var(--card);overflow:hidden}
+.rb-box h2{font-size:12px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;
+  margin:0;padding:10px 14px;background:var(--rb-deck);border-bottom:1px solid var(--rb-hair);color:var(--dim)}
+.rb-box .in{padding:13px 14px;font-size:13.5px;line-height:1.62}
+.rb-box p{margin:0 0 10px}
+.rb-box p:last-child{margin-bottom:0}
+.rb-stats{display:flex;gap:18px;padding:12px 14px;border-bottom:1px solid var(--rb-hair)}
+.rb-stats div{min-width:0}
+.rb-stats b{display:block;font-size:17px;font-weight:800;line-height:1.2}
+.rb-stats span{font-size:11.5px;color:var(--dim);font-weight:600}
+.rb-rules{margin:0;padding:4px 14px 13px 0;list-style:none;counter-reset:r;font-size:13.5px;line-height:1.6}
+.rb-rules li{counter-increment:r;display:flex;gap:10px;padding:9px 0 0 14px;border-top:1px solid var(--rb-hair)}
+.rb-rules li:first-child{border-top:0;padding-top:4px}
+.rb-rules li::before{content:counter(r);flex:none;color:var(--rb-rail);font-weight:800;font-size:12.5px;padding-top:1px}
+.rb-links{margin:0;padding:0;list-style:none;font-size:13.5px}
+.rb-links li{border-top:1px solid var(--rb-hair)}
+.rb-links li:first-child{border-top:0}
+.rb-links a{display:block;padding:10px 14px;text-decoration:none}
+.rb-links a:hover{background:var(--rb-deck)}
+.rb-empty{border:1px dashed var(--line);border-radius:10px;padding:44px 24px;text-align:center;color:var(--dim)}
+.rb-empty .emoji{font-size:34px;display:block;margin-bottom:10px}
+
+/* ── 글 한 편 ── */
+.rb-card{border:1px solid var(--line);border-radius:10px;background:var(--card);padding:22px 26px 26px}
+.rb-card h1{font-size:27px;line-height:1.32;margin:8px 0 0;letter-spacing:-.02em}
+.rb-card .rb-flair{margin-top:11px}
 .blog-back{display:inline-flex;align-items:center;gap:5px;font-size:13.5px;color:var(--dim);
-  text-decoration:none;margin-bottom:16px}
+  text-decoration:none;margin-bottom:14px}
 .blog-back:hover{color:var(--ink)}
-.blog-article{font-size:17px;line-height:1.85}
+.blog-article{font-size:17px;line-height:1.85;margin-top:22px}
 .blog-article p{margin:0 0 22px}
-.blog-article h2{font-size:22px;color:var(--ink);margin:38px 0 12px;letter-spacing:-.01em}
+.blog-article h2{font-size:21px;color:var(--ink);margin:36px 0 12px;letter-spacing:-.01em}
 .blog-article h3{font-size:18px;color:var(--ink);margin:28px 0 10px}
-.blog-article blockquote{margin:26px 0;padding:2px 20px;border-left:3px solid var(--brand);
+.blog-article blockquote{margin:24px 0;padding:2px 20px;border-left:3px solid var(--brand);
   color:var(--dim);font-style:italic}
 .blog-article ul,.blog-article ol{padding-left:22px;margin:0 0 22px}
 .blog-article li{margin:6px 0}
 .blog-article code{background:var(--soft);padding:2px 6px;border-radius:6px;font-size:.9em}
-.blog-article img{max-width:100%;border-radius:12px;margin:6px 0}
+.blog-article img{max-width:100%;border-radius:10px;margin:6px 0}
+.blog-article>*:first-child{margin-top:0}
+
+/* ── 글 속 블록 ── */
+/* 예문 한 칸. 한국어를 크게, 뜻을 아래에 흐리게. */
+.bex{background:var(--soft);border:1px solid var(--rb-hair);border-left:3px solid var(--brand);
+  border-radius:10px;padding:13px 16px;margin:0 0 22px}
+.bex>b{display:block;font-size:17px;font-weight:600;line-height:1.6}
+.bex span{display:block;margin-top:4px;font-size:14px;color:var(--dim);line-height:1.55}
+
+/* 문법 카드 — 글에서 표현 쪽으로 들어가는 문. 링크 하나로 통째로 눌린다. */
+.gcard{position:relative;display:block;text-decoration:none;border:1px solid var(--line);
+  border-radius:12px;background:var(--card);padding:15px 18px;margin:0 0 22px;
+  transition:border-color .12s,transform .12s}
+.gcard:hover{border-color:var(--brand);transform:translateY(-1px)}
+.gcard a{text-decoration:none}
+.gcat{display:block;font-size:11.5px;font-weight:700;letter-spacing:.03em;color:var(--dim)}
+.gcard>b{display:block;font-size:19px;margin:3px 0 0;letter-spacing:-.01em}
+.gdesc{display:block;margin-top:6px;font-size:15px;line-height:1.62;color:var(--ink)}
+.gnote{display:block;margin-top:8px;font-size:14px;line-height:1.6;color:var(--dim)}
+.gacts{display:flex;flex-wrap:wrap;align-items:center;gap:8px 14px;margin-top:13px}
+/* 앞의 것이 카드 전체를 덮는다 — 어디를 눌러도 예문 만들기로 간다. */
+.ggo{font-size:13.5px;font-weight:800;color:#2b2117;background:var(--brand);
+  border-radius:999px;padding:8px 15px;line-height:1.2}
+.ggo::after{content:'';position:absolute;inset:0;border-radius:12px}
+/* 여기에 filter 나 transform 을 걸지 마라. 둘 다 이 알약을 제 ::after 의
+   컨테이닝 블록으로 만들어, 덮개가 카드 전체가 아니라 알약 크기로
+   쪼그라든다 — 커서를 올린 순간 덮개가 커서 밑에서 사라지고 클릭이
+   카드로 빠진다. 화면으로는 멀쩡해 보여서 눌러 보기 전에는 모른다.
+   안쪽 그림자는 컨테이닝 블록을 만들지 않으므로 안전하다. */
+.gcard:hover .ggo{box-shadow:inset 0 0 0 999px rgba(0,0,0,.07)}
+/* 뒤의 것은 덮개 위로 띄운다. 안 그러면 눌리지 않는다. */
+.gsub{position:relative;z-index:1;font-size:13px;font-weight:600;color:var(--dim);
+  border-bottom:1px solid var(--rb-hair);padding-bottom:1px}
+.gsub:hover{color:var(--ink);border-color:var(--brand)}
+.glinkgo{display:block;margin-top:11px;font-size:13px;font-weight:700;color:var(--dim)}
+a.gcard:hover .glinkgo{color:var(--ink)}
+
+/* 사진. 폭을 넘기지 않게만 잡고 비율은 파일에 맡긴다. */
+.bimg{margin:0 0 24px}
+.bimg img{display:block;width:100%;height:auto;border-radius:12px;border:1px solid var(--line)}
+.bimg figcaption{margin-top:8px;font-size:13px;line-height:1.55;color:var(--dim)}
+
+/* 짚어 둘 것 — 본문에서 한 발 뺀 이야기. */
+.bnote{display:block;border:1px solid var(--rb-hair);background:var(--rb-deck);border-radius:10px;
+  padding:14px 17px;margin:0 0 22px;font-size:15px;line-height:1.68}
+.bnote>.bnt{display:block;font-size:12.5px;font-weight:800;letter-spacing:.04em;color:var(--dim);margin-bottom:5px}
+
+/* 대화문은 표현 쪽(.dlg/.line/.who/.bub)을 그대로 나눠 쓴다 — 글 안에서는
+   위아래 여백만 더 준다. */
+.blog-article .dlg{margin:0 0 24px}
+.rb-next{font-size:12px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;
+  color:var(--dim);margin:30px 0 10px}
+@media(max-width:520px){.rb-card{padding:18px 17px 22px}.rb-card h1{font-size:23px}}
+
+/* ── 에디토리얼/모던 톤 ──────────────────────────────────────
+   스티커북(굵은 테두리·밀린 그림자·통통한 글꼴) 방향을 "촌스럽다"는
+   말을 듣고 전면 폐기, 절제된 세리프 제목 + Pretendard 본문의 편집
+   느낌으로 다시 짠다. 목록을 태그만 남기고 정리한 것(.rb-ex 숨김 등)은
+   구조 개선이라 그대로 둔다. 아래도 여전히 값만 덮어쓰는 방식이다 —
+   .gcard 의 클릭 덮개 트릭 때문에 .ggo 에는 filter·transform 을
+   걸지 않는다. */
+/* Noto Serif KR 도 무겁다는 말을 들었다. 시안 넷을 만들어 보였고
+   Gowun Batang(더 가볍고 따뜻한 모던 세리프)으로 정했다. */
+@import url('https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&display=swap');
+
+:root{--bg:#FBF8F3;--ink:#26211B;--dim:#7A7168;--line:#E5DED2;--card:#FFFFFF;--brand:#B8763E;--soft:#F4EFE6;
+  --rb-deck:#F4EFE6;--rb-rail:#9C9184;--rb-hair:#E5DED2}
+@media(prefers-color-scheme:dark){:root{--bg:#17140F;--ink:#EDE8DF;--dim:#A79C8C;--line:#332C22;--card:#211D17;--brand:#D99A5C;--soft:#241F18;
+  --rb-deck:#241F18;--rb-rail:#8A8073;--rb-hair:#332C22}}
+
+body{font-family:Pretendard,-apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,"Apple SD Gothic Neo","Malgun Gothic",sans-serif}
+h1,.rb-id h1,.rb-card h1,.rb-post h2,.blog-article h2{font-family:'Gowun Batang',serif;font-weight:700;letter-spacing:-.01em}
+.rb-id h1{font-size:26px}
+.rb-card h1{font-size:34px;line-height:1.45}
+
+.rb-banner{border:1px solid var(--line);border-radius:14px;box-shadow:none}
+.rb-avatar{border:none}
+.rb-join{border:none;box-shadow:none;background:var(--ink);color:var(--bg);transition:opacity .15s}
+.rb-join:hover{opacity:.82;transform:none;filter:none}
+
+/* 피드 한 줄 — 소제목·요약·태그가 다 들어차서 지저분해 보였다. 요약은
+   지우고 제목을 키워 태그만 남긴다. 카드 대신 밑줄로 가르는 목록꼴이라
+   더 정돈되어 보인다. */
+.rb-feed{gap:0}
+.rb-post{border:0;border-bottom:1px solid var(--line);border-radius:0;box-shadow:none}
+.rb-post:hover{transform:none;background:var(--soft)}
+.rb-post .rb-body{padding:26px 22px}
+.rb-post h2{font-size:23px;margin-top:8px;font-weight:600}
+.rb-post .rb-ex{display:none}
+.rb-post .rb-tail{margin-top:12px}
+.rb-rail{background:transparent;border-right:none}
+
+.rb-box{border:1px solid var(--line);border-radius:10px;box-shadow:none}
+.rb-box h2{border-bottom:1px solid var(--rb-hair);font-weight:700}
+
+.rb-flair li{border:1px solid var(--line);background:transparent;font-weight:500}
+
+.rb-empty{border:1px solid var(--line);border-radius:10px;background:var(--soft)}
+
+.rb-card{border:1px solid var(--line);border-radius:10px;box-shadow:none;padding:36px 40px 40px}
+
+/* 문법 카드가 기능성 박스처럼 붕 떠 보인다는 말을 들었다. 흰 카드 +
+   테두리 대신 .bex 처럼 옅게 물든 바탕 + 왼쪽 포인트 선으로 바꿔
+   본문 흐름 속 한 문단처럼 보이게 한다. 안의 두 링크(.ggo 덮개 트릭)는
+   손대지 않는다. */
+.gcard{border:none;border-left:3px solid var(--brand);border-radius:0 10px 10px 0;
+  background:var(--soft);box-shadow:none}
+.gcard:hover{border-color:var(--brand)}
+
+.bex{border:1px solid var(--line);border-left:3px solid var(--brand);border-radius:8px}
+.bnote{border:1px solid var(--line);border-radius:8px}
+
+/* 인용구 — 왼쪽 테두리 하나짜리 각주였는데, 눈에 띄어야 할 문장이라
+   큰 세리프로 화면 가운데 끌어내 필그리 이듈처럼 키운다. */
+.blog-article blockquote{border:none;margin:36px auto;padding:0 8px;max-width:480px;
+  font-family:'Gowun Batang',serif;font-size:24px;line-height:1.6;font-style:normal;
+  color:var(--ink);text-align:center}
+
+/* 글 머리 — 작성자가 안 보이면 문서처럼 읽힌다. 아바타·이름·역할·날짜를
+   한 줄로 묶고, 제목 위아래로 여백을 넉넉히 줘 분위기를 만든다. */
+.rb-card{padding-top:44px}
+.rb-byline{display:flex;align-items:center;gap:12px;margin-bottom:18px}
+.rb-avatar-sm{flex:none;width:44px;height:44px;border-radius:50%;background:var(--soft);
+  display:grid;place-items:center;font-size:22px;line-height:1}
+.rb-byline-name{font-size:15px;font-weight:700}
+.rb-byline-role{font-size:13px;color:var(--dim);margin-top:2px}
+.rb-card h1{margin-top:0}
+.rb-card .rb-flair{margin:14px 0 28px;padding-bottom:28px;border-bottom:1px solid var(--line)}
+
+.cta{border:none;border-radius:10px;box-shadow:none;background:var(--ink);color:var(--bg);
+  font-weight:600;transition:opacity .15s}
+.cta:hover{transform:none;opacity:.85}
+.cta span{opacity:.7}
+
+.blog-article img{border:1px solid var(--line)}
+.bimg img{border:1px solid var(--line)}
+
+/* 나가는 버튼(← 블로그)이 흐린 글자라 눈에 안 띈다는 말을 들었다.
+   알약 배경 + 진한 글자로 눌러야 할 자리처럼 보이게 한다. */
+.blog-back{color:var(--ink);font-weight:700;background:var(--soft);
+  border:1px solid var(--line);border-radius:999px;padding:7px 14px 7px 12px}
+.blog-back:hover{background:var(--card);border-color:var(--rb-rail)}
+
+/* 오른쪽 기둥 — 정보·규칙·링크 상자가 세로로 길게 늘어져 무거워 보였다.
+   숫자로 두르는 원 대신 옅은 점으로, 칸마다 있던 가로줄은 지워 한
+   문단처럼 붙여 읽히게 줄인다. */
+.rb-stats{gap:22px;padding:13px 14px 12px}
+.rb-box .in{padding-top:11px}
+.rb-rules{padding:2px 14px 12px 0}
+.rb-rules li{gap:9px;padding:7px 0 0 0;border-top:0}
+.rb-rules li::before{content:'';width:5px;height:5px;border-radius:50%;
+  background:var(--rb-rail);margin-top:8px;padding:0}
+.rb-links a{padding:8px 14px}
+
+/* 글 공유 버튼 — byline 아래, 본문 위에 둔다. */
+.rb-share{display:flex;align-items:center;gap:8px;margin-top:18px;flex-wrap:wrap}
+.share-btn{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--line);
+  border-radius:999px;padding:7px 14px;font-size:13.5px;font-weight:600;color:var(--ink);
+  background:var(--card);cursor:pointer;transition:background .15s,border-color .15s;
+  font-family:inherit}
+.share-btn:hover{background:var(--soft);border-color:var(--rb-rail)}
+.share-btn svg{flex:none}
+.share-toast{font-size:12.5px;color:var(--dim);opacity:0;transition:opacity .2s}
+.share-toast.on{opacity:1}
 `.trim();
+
+/* 목록 쪽만 넓게 쓴다. 글 읽는 쪽은 한 줄이 길어지면 눈이 되돌아올 자리를
+   잃으므로 좁은 채로 둔다 — 같은 BLOG_CSS 를 쓰되 폭만 여기서 가른다. */
+const BLOG_HUB_CSS = '\n@media(min-width:880px){.wrap{max-width:1060px}}';
+
+/* ── 글 속 블록 ─────────────────────────────────────────────
+   글 본문을 날 HTML 문자열로 두면 두 가지가 깨진다.
+
+   하나, **모델이 쓴 HTML 은 믿을 수 없다.** 블로그 글을 Gemini 에게
+   받는데(tools/blog-prompt.mjs), 태그 하나만 안 닫혀도 쪽 전체가 무너진다.
+   실제로 자료를 받아 보면 </p> 를 빠뜨리거나 <br/> 과 <br> 을 섞는다.
+
+   둘, **모델이 문법 설명을 지어낸다.** 「-는 바람에는 …라는 뜻입니다」를
+   그럴듯하게 써 놓는데, 우리에겐 이미 손으로 다듬은 뜻풀이가 290개 있다.
+   지어낸 설명을 실을 까닭이 없다.
+
+   그래서 본문을 **블록 배열**로 받는다. 글자는 전부 esc() 를 지나고,
+   허용하는 꾸밈은 **굵게** 하나뿐이다. 그리고 문법 카드(t:'gram')는
+   **id 만** 받아서 뜻풀이는 우리 sentences.js 에서 꺼내 붙인다 — 모델은
+   「어느 표현을 걸지」와 「왜 보라는지」만 정하고, 표현이 무슨 뜻인지는
+   우리 자료가 말한다.
+
+   손으로 쓴 예전 글은 body(HTML 문자열)를 그대로 쓴다. 둘 다 받는다. */
+const SB_BY_ID = new Map();
+for (const cat of SB_CATS) for (const p of cat.points) SB_BY_ID.set(p.id, { p, cat });
+
+/* 글자 안에서 허용하는 꾸밈은 **굵게** 하나뿐이다. esc() 를 먼저 지나므로
+   모델이 <script> 를 적어 보내도 글자로만 남는다. */
+const inline = (s) => esc(s).replace(/\*\*([^*]+)\*\*/g, '<b>$1</b>');
+
+function renderBlock(b, where) {
+  const bad = (why) => { throw new Error(`블로그 블록이 잘못됐다 (${where}): ${why}\n  ${JSON.stringify(b).slice(0, 160)}`); };
+  switch (b?.t) {
+    case 'p':
+      if (!b.text) bad('t:"p" 에 text 가 없다');
+      return `<p>${inline(b.text)}</p>`;
+
+    case 'h':
+      if (!b.text) bad('t:"h" 에 text 가 없다');
+      return `<h2>${inline(b.text)}</h2>`;
+
+    case 'quote':
+      if (!Array.isArray(b.lines) || !b.lines.length) bad('t:"quote" 에 lines 배열이 없다');
+      return `<blockquote>${b.lines.map(inline).join('<br>')}</blockquote>`;
+
+    case 'list':
+      if (!Array.isArray(b.items) || !b.items.length) bad('t:"list" 에 items 배열이 없다');
+      return `<${b.ordered ? 'ol' : 'ul'}>` + b.items.map((i) => `<li>${inline(i)}</li>`).join('') +
+        `</${b.ordered ? 'ol' : 'ul'}>`;
+
+    /* 예문 한 칸. 한국어를 크게, 영어 뜻을 아래에 흐리게 — 표현 쪽(.ex)과
+       같은 결이되 뜻을 함께 보여 준다. */
+    case 'ex':
+      if (!b.ko) bad('t:"ex" 에 ko 가 없다');
+      return `<div class="bex"><b>${inline(b.ko)}</b>${b.en ? `<span>${inline(b.en)}</span>` : ''}</div>`;
+
+    /* 대화문. 표현 쪽과 같은 규칙 — A 는 치즈, B 는 감자. */
+    case 'dlg': {
+      if (!Array.isArray(b.lines) || !b.lines.length) bad('t:"dlg" 에 lines 배열이 없다');
+      const rows = b.lines.map((line) => {
+        const m = /^([AB]):\s*(.+)$/.exec(line);
+        if (!m) bad(`대화문 줄은 "A: …" 나 "B: …" 여야 한다 — "${line}"`);
+        const who = m[1];
+        return `<div class="line ${who === 'A' ? 'a' : 'b'}">` +
+          `<span class="who" aria-hidden="true">${who === 'A' ? '🧀' : '🥔'}</span>` +
+          `<span class="bub">${inline(m[2])}</span></div>`;
+      }).join('');
+      return `<div class="dlg">${rows}</div>`;
+    }
+
+    /* 문법 카드 — 「문법마다 들어가서 볼 수 있게」 하는 자리다.
+       뜻풀이는 sentences.js 에서 꺼낸다. 없는 id 면 여기서 멈춘다 —
+       조용히 넘기면 글에 죽은 링크가 실린다.
+
+       **누르면 예문 만들기로 곧장 들어간다**(#learn/sentence/<id>).
+       읽다가 「아 이거 써 봐야겠다」 싶은 순간이 제일 짧은데, 거기서
+       표현 설명 쪽을 한 번 더 거치게 하면 그 순간이 식는다. 설명이 먼저
+       필요한 사람을 위해 아래에 표현 쪽으로 가는 줄을 따로 남긴다.
+
+       링크가 둘이라 카드 전체를 덮는 것은 앞의 것(예문 만들기)이고,
+       뒤의 것은 z-index 로 그 위에 띄운다 — 안 그러면 덮개에 가려
+       눌리지 않는다. */
+    case 'gram': {
+      if (!b.id) bad('t:"gram" 에 id 가 없다');
+      const hit = SB_BY_ID.get(b.id);
+      if (!hit) bad(`문법 표현 ${b.id} 이 sentences.js 에 없다`);
+      return `<div class="gcard">` +
+        `<span class="gcat">${esc(hit.cat.ko)}</span>` +
+        `<b>${esc(hit.p.name)}</b>` +
+        `<span class="gdesc">${esc(hit.p.desc)}</span>` +
+        (b.note ? `<span class="gnote">${inline(b.note)}</span>` : '') +
+        `<span class="gacts">` +
+          `<a class="ggo" href="/#learn/sentence/${esc(b.id)}">` +
+            `이 표현으로 문장 만들어 보기 →</a>` +
+          `<a class="gsub" href="/sentence/${esc(b.id)}.html">` +
+            `형태·주의할 점·예문 먼저 보기</a>` +
+        `</span>` +
+      `</div>`;
+    }
+
+    /* 사이트 안 다른 쪽으로 보내는 카드. 문법 표현이 아닌 것(코스·목록
+       쪽)을 걸 때 쓴다. 주소가 실재하는지는 tools/check-blog.mjs 가 본다. */
+    case 'link':
+      if (!b.href || !b.title) bad('t:"link" 에 href 나 title 이 없다');
+      if (!b.href.startsWith('/')) bad('t:"link" 의 href 는 사이트 안 주소(/ 로 시작)여야 한다');
+      return `<a class="gcard" href="${esc(b.href)}">` +
+        `<b>${esc(b.title)}</b>` +
+        (b.note ? `<span class="gnote">${inline(b.note)}</span>` : '') +
+        `<span class="glinkgo">보러 가기 →</span>` +
+      `</a>`;
+
+    /* 사진. 파일이 실재하는지는 tools/check-blog.mjs 가 본다 — 여기서
+       파일을 읽지는 않는다(굽는 일이 느려진다). alt 는 반드시 받는다. */
+    case 'img':
+      if (!b.src) bad('t:"img" 에 src 가 없다');
+      if (!b.alt) bad('t:"img" 에 alt 가 없다 — 눈으로 못 보는 사람에게 사진은 alt 가 전부다');
+      return `<figure class="bimg"><img src="${esc(b.src)}" alt="${esc(b.alt)}" loading="lazy"` +
+        (b.w && b.h ? ` width="${esc(String(b.w))}" height="${esc(String(b.h))}"` : '') + '>' +
+        (b.cap ? `<figcaption>${inline(b.cap)}</figcaption>` : '') + '</figure>';
+
+    /* 짚어 둘 것. 본문 흐름에서 한 발 뺀 이야기 — 「이건 시험에서는 다르다」
+       같은 것. */
+    case 'note':
+      if (!b.text) bad('t:"note" 에 text 가 없다');
+      return `<aside class="bnote">${b.title ? `<b class="bnt">${inline(b.title)}</b>` : ''}${inline(b.text)}</aside>`;
+
+    default:
+      bad(`모르는 블록 종류 t:${JSON.stringify(b?.t)}`);
+  }
+}
+
+/* 글 하나의 본문 HTML. blocks 가 있으면 그것을, 없으면 손으로 쓴 body 를.
+   분량 세기·RSS·쪽 굽기가 전부 이 하나를 쓴다 — 따로 계산하면 목록의
+   「3분」과 글 쪽의 「3분」이 어긋난다. */
+function postHtml(post) {
+  if (Array.isArray(post.blocks)) {
+    return post.blocks.map((b, i) => renderBlock(b, `${post.id} 의 ${i + 1}번째 블록`)).join('\n');
+  }
+  return post.body ?? '';
+}
 
 /* 한글 기준 대략 분당 500자 읽는다고 잡는다 — 정확할 필요는 없고,
    "훑어볼지 앉아서 읽을지" 감만 잡히면 된다. */
@@ -927,20 +1358,196 @@ const fmtDateKo = (iso) => {
   const m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(iso || '');
   return m ? `${+m[1]}년 ${+m[2]}월 ${+m[3]}일` : (iso || '');
 };
-function blogPage(post) {
+
+/* 「4일 전」처럼 흐른 시간으로 적는 것이 게시판 꼴에는 맞다. 그런데 이
+   쪽은 **구워 두는 정적 파일**이라, 구울 때 계산해 박으면 다음 날부터
+   거짓말이 된다. 그래서 굽는 시점에는 진짜 날짜를 넣고, 보는 사람의
+   브라우저에서만 흐른 시간으로 바꾼다. 스크립트가 안 돌면 날짜가 그대로
+   남으므로 틀린 값이 뜨는 일은 없다. */
+const AGO_JS = `
+<script>
+(function(){var n=Date.now(),u=[[31536000,'년'],[2592000,'개월'],[604800,'주'],[86400,'일'],[3600,'시간'],[60,'분']];
+Array.prototype.forEach.call(document.querySelectorAll('time[datetime]'),function(t){
+var d=new Date(t.getAttribute('datetime')+'T09:00:00+09:00');if(isNaN(d))return;
+var s=Math.floor((n-d)/1000);if(s<0)return;t.title=t.textContent;
+for(var i=0;i<u.length;i++){if(s>=u[i][0]){t.textContent=Math.floor(s/u[i][0])+u[i][1]+' 전';return}}t.textContent='방금'})})();
+</script>`.trim();
+
+/* 공유 버튼 두 개. 공유하기는 될 때(모바일 대부분)는 navigator.share 를
+   쓰고, 안 되면(대개 데스크톱) 링크 복사로 대신한다 — 그래서 버튼은
+   하나만 있어도 되지만, 데스크톱에서 늘 보이는 복사 버튼을 하나 더 둔다. */
+const SHARE_JS = `
+<script>
+(function(){
+var wrap=document.querySelector('.rb-share');if(!wrap)return;
+var toast=wrap.querySelector('.share-toast');
+function flash(m){if(!toast)return;toast.textContent=m;toast.classList.add('on');
+  clearTimeout(flash._t);flash._t=setTimeout(function(){toast.classList.remove('on')},1800)}
+function copy(){
+  var url=location.href;
+  if(navigator.clipboard&&navigator.clipboard.writeText){
+    navigator.clipboard.writeText(url).then(function(){flash('링크를 복사했어요')},function(){flash('복사에 실패했어요')});
+  }else{
+    var ta=document.createElement('textarea');ta.value=url;ta.style.position='fixed';ta.style.opacity='0';
+    document.body.appendChild(ta);ta.select();
+    try{document.execCommand('copy');flash('링크를 복사했어요')}catch(e){flash('복사에 실패했어요')}
+    document.body.removeChild(ta);
+  }
+}
+var shareBtn=wrap.querySelector('[data-share]'),copyBtn=wrap.querySelector('[data-copy]');
+if(shareBtn)shareBtn.addEventListener('click',function(){
+  if(navigator.share){navigator.share({title:document.title,url:location.href}).catch(function(){})}
+  else{copy()}
+});
+if(copyBtn)copyBtn.addEventListener('click',copy);
+})();
+</script>`.trim();
+
+/* 글 머리에 두는 공유 줄. 공유하기 버튼은 navigator.share 가 없는
+   브라우저에서도 눌리긴 하므로(그때는 복사로 대신함) 늘 둘 다 보인다. */
+function shareRow() {
+  return '<div class="rb-share">' +
+    '<button type="button" class="share-btn" data-share>' +
+      '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" ' +
+        'stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/>' +
+        '<circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/>' +
+        '<line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>' +
+      '공유하기</button>' +
+    '<button type="button" class="share-btn" data-copy>' +
+      '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" ' +
+        'stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/>' +
+        '<path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>' +
+      '링크 복사</button>' +
+    '<span class="share-toast" aria-live="polite"></span>' +
+  '</div>';
+}
+
+/* 댓글 — giscus(깃허브 Discussions 기반). 정적 사이트라 우리 서버가
+   없으니 댓글은 깃허브 계정으로 로그인해서 남기는 남의 서비스를 쓴다.
+   repo-id·category-id는 저장소에서 giscus 앱을 설치하고 Discussions를
+   켠 뒤 giscus.app 에서 받은 값이다 — 지어낸 값이 아니다. 글마다
+   주소(pathname)로 토론을 찾아 붙이므로 카드마다 따로 손댈 게 없다. */
+const GISCUS_SCRIPT = `
+<h2 class="rb-next">댓글</h2>
+<script src="https://giscus.app/client.js"
+  data-repo="junsanghan1225-blip/cheesepotato-landing"
+  data-repo-id="R_kgDOS8EVWA"
+  data-category-id="DIC_kwDOS8EVWM4DFUN3"
+  data-mapping="pathname"
+  data-strict="0"
+  data-reactions-enabled="1"
+  data-emit-metadata="0"
+  data-input-position="bottom"
+  data-theme="preferred_color_scheme"
+  data-lang="ko"
+  crossorigin="anonymous"
+  async>
+</script>`.trim();
+
+/* 갈래 이름 -> 주소에 쓸 영문 조각. /blog/tag/<slug>.html 이 된다.
+   없는 갈래를 쓰면 굽다가 멈춘다 — 조용히 로마자로 바꾸면 주소가
+   제멋대로 생긴다. 새 갈래를 쓰려면 여기에 먼저 하나 추가한다. */
+const TAG_SLUGS = {
+  '문법': 'grammar',
+  '초급': 'beginner',
+  '중급': 'intermediate',
+  'TOPIK': 'topik',
+  '준비': 'prep',
+  '한글': 'hangul',
+  '회화': 'conversation',
+};
+function tagSlug(tag) {
+  const slug = TAG_SLUGS[tag];
+  if (!slug) throw new Error(`갈래 "${tag}" 의 주소 조각이 TAG_SLUGS 에 없다 — tools/build-pages.mjs 에 추가할 것`);
+  return slug;
+}
+
+const timeTag = (iso) => `<time datetime="${esc(iso)}">${esc(fmtDateKo(iso))}</time>`;
+const flair = (tags) => (tags && tags.length)
+  ? '<ul class="rb-flair">' + tags.map((t) =>
+      `<li><a href="/blog/tag/${tagSlug(t)}.html">${esc(t)}</a></li>`).join('') + '</ul>'
+  : '';
+
+/* 글 머리에 서는 한 줄. 목록과 본문 쪽이 같은 줄을 써야 목록에서 본 것과
+   눌러 들어간 쪽이 어긋나지 않는다. */
+function postMeta(post) {
+  return '<div class="rb-meta"><span class="rb-who">🧀 치즈감자</span>' +
+    ` <span class="dot">·</span> ${timeTag(post.date)}` +
+    (post.updated && post.updated !== post.date
+      ? ` <span class="dot">·</span> 고침 ${timeTag(post.updated)}` : '') +
+    '</div>';
+}
+
+/* 목록 줄 하나. 목록 쪽과 글 아래 「이어서 읽기」가 같은 모양을 쓴다. */
+const postRow = (p) =>
+  `<li class="rb-post">` +
+    `<div class="rb-rail"><b>${readMins(postHtml(p))}</b><span>분</span></div>` +
+    `<div class="rb-body">` +
+      postMeta(p) +
+      `<h2><a href="/blog/${esc(p.id)}.html">${esc(p.title)}</a></h2>` +
+      `<p class="rb-ex">${esc(p.excerpt)}</p>` +
+      (p.tags && p.tags.length ? `<div class="rb-tail">${flair(p.tags)}</div>` : '') +
+    `</div>` +
+  `</li>`;
+
+/* 같은 갈래를 하나라도 나눠 가진 글을 먼저, 그다음 최신 순으로 채운다.
+   앞뒤 글(.near)로 이미 걸어 둔 것은 뺀다 — 같은 쪽에 같은 글이 두 번
+   뜨면 고르는 게 아니라 헷갈리는 자리가 된다. */
+function relatedPosts(post, all, skip, n = 3) {
+  const mine = new Set(post.tags || []);
+  const out = all.filter((p) => p.id !== post.id && !skip.has(p.id));
+  const score = (p) => (p.tags || []).filter((t) => mine.has(t)).length;
+  return out
+    .map((p, i) => ({ p, i, s: score(p) }))
+    .filter((x) => x.s > 0)
+    .sort((a, b) => b.s - a.s || a.i - b.i)
+    .slice(0, n)
+    .map((x) => x.p);
+}
+
+/* 글 한 편의 머리 — 목록 줄(postMeta)보다 무게를 준다. 누가 썼는지
+   보이지 않으면 문서처럼 읽힌다. 이름·역할·날짜를 한 줄에 모은다. */
+function postByline(post) {
+  return '<div class="rb-byline">' +
+    '<span class="rb-avatar-sm" aria-hidden="true">🧀</span>' +
+    '<div class="rb-byline-info">' +
+      '<div class="rb-byline-name">치즈감자</div>' +
+      '<div class="rb-byline-role">한국어를 가르치는 사람' +
+        ` · ${timeTag(post.date)}` +
+        (post.updated && post.updated !== post.date ? ` · 고침 ${timeTag(post.updated)}` : '') +
+      '</div>' +
+    '</div>' +
+  '</div>';
+}
+
+function blogPage(post, prev, next, related) {
   const title = `${post.title} | 치즈감자 블로그`;
   const desc = clip(post.excerpt);
-  const mins = readMins(post.body);
   const body = [
     `<a class="blog-back" href="/blog/">← 블로그</a>`,
     `<nav class="crumb"><a href="/">치즈감자</a> › <a href="/blog/">블로그</a></nav>`,
-    `<h1>${esc(post.title)}</h1>`,
-    `<div class="blog-meta">${esc(fmtDateKo(post.date))}` +
-      (post.updated && post.updated !== post.date ? ` <span class="dot">·</span> 고침 ${esc(fmtDateKo(post.updated))}` : '') +
-      ` <span class="dot">·</span> ${mins}분 분량</div>`,
-    `<div class="blog-article">${post.body}</div>`,
+    `<article class="rb-card">`,
+      postByline(post),
+      `<h1>${esc(post.title)}</h1>`,
+      flair(post.tags),
+      shareRow(),
+      `<div class="blog-article">${postHtml(post)}</div>`,
+    `</article>`,
     `<a class="cta" href="/#learn">한국어 배우러 가기<span>Free Korean lessons, no sign-up needed</span></a>`,
-  ].join('\n');
+    /* 앞뒤 글. 배열은 최신이 앞이므로 「이전 글」은 한 칸 뒤(더 오래된 것),
+       「다음 글」은 한 칸 앞(더 새것)이다. 표현·레슨 쪽과 같은 .near 를 쓴다. */
+    (prev || next) ? '<div class="near">' +
+      (prev ? `<a href="/blog/${esc(prev.id)}.html"><b>← 이전 글</b>${esc(prev.title)}</a>` : '') +
+      (next ? `<a href="/blog/${esc(next.id)}.html"><b>다음 글 →</b>${esc(next.title)}</a>` : '') +
+      '</div>' : '',
+    related.length
+      ? `<h2 class="rb-next">같은 갈래의 글</h2>` +
+        '<ul class="rb-feed">' + related.map(postRow).join('') + '</ul>'
+      : '',
+    GISCUS_SCRIPT,
+    AGO_JS,
+    SHARE_JS,
+  ].filter(Boolean).join('\n');
 
   const jsonld = [
     {
@@ -953,29 +1560,90 @@ function blogPage(post) {
       description: post.excerpt,
       inLanguage: 'ko',
       author: { '@type': 'Organization', name: '치즈감자' },
+      publisher: { '@type': 'Organization', name: '치즈감자', url: SITE },
+      mainEntityOfPage: { '@type': 'WebPage', '@id': `${SITE}/blog/${post.id}.html` },
+      ...(post.tags && post.tags.length ? { keywords: post.tags.join(', ') } : {}),
       isAccessibleForFree: true,
     },
     crumbLd([['치즈감자', '/'], ['블로그', '/blog/'], [post.title, null]]),
   ];
-  return page({ url: `/blog/${post.id}.html`, title, desc, body, jsonld, extraCss: BLOG_CSS });
+  /* og:type 은 page() 가 기본으로 article 을 준다. 글에는 낸 날·고친 날을
+     함께 적는다 — 페이스북·카카오 미리보기와 검색이 같은 값을 읽는다. */
+  const extraHead =
+    `\n<meta property="article:published_time" content="${esc(post.date)}">` +
+    `\n<meta property="article:modified_time" content="${esc(post.updated || post.date)}">` +
+    (post.tags || []).map((t) => `\n<meta property="article:tag" content="${esc(t)}">`).join('') +
+    `\n<link rel="alternate" type="application/rss+xml" title="치즈감자 블로그" href="${SITE}/blog/rss.xml">`;
+
+  return page({ url: `/blog/${post.id}.html`, title, desc, body, jsonld, extraCss: BLOG_CSS, extraHead });
+}
+
+/* 오른쪽 기둥에 세우는 것. 레딧으로 치면 소개·규칙 상자 자리다.
+   **셀 수 있는 것만 센다** — 방문자 수처럼 우리가 모르는 숫자는 안 적는다. */
+function blogSide(posts, activeTag) {
+  const tags = new Map();
+  for (const p of posts) for (const t of (p.tags || [])) tags.set(t, (tags.get(t) || 0) + 1);
+  const oldest = posts[posts.length - 1];
+
+  /* 규칙 상자. 레딧의 「규칙」 자리인데, 남에게 거는 규칙이 아니라
+     이 블로그가 스스로 지키는 것을 적는다. 실제로 글을 쓸 때 지킨 것만
+     적는다 — 안 지킬 것을 걸어 두면 그게 제일 나쁘다. */
+  const rules = [
+    '광고를 쓰지 않는다. 사이트에 실제로 있는 것만 적는다.',
+    '연습 문항은 기출이 아니라 창작이라는 것을 그때마다 밝힌다.',
+    '자주 바뀌는 제도(접수·비자 기준)는 숫자를 옮겨 적지 않고 공식 안내로 보낸다.',
+    '없는 쪽은 걸지 않는다. 글 안의 링크는 전부 실재하는 주소다.',
+  ];
+
+  return [
+    '<aside class="rb-side">',
+    '<section class="rb-box">',
+      '<h2>블로그 정보</h2>',
+      `<div class="rb-stats">` +
+        `<div><b>${posts.length}</b><span>올린 글</span></div>` +
+        `<div><b>${tags.size}</b><span>갈래</span></div>` +
+        (oldest ? `<div><b>${esc(oldest.date.slice(0, 4))}.${esc(String(+oldest.date.slice(5, 7)))}</b><span>시작</span></div>` : '') +
+      `</div>`,
+      '<div class="in"><p>한국어를 배우다 막히는 자리에 대해 씁니다. 문법 하나를 ' +
+        '가려 쓰는 법, TOPIK 을 어디까지 준비할지 같은 것들입니다.</p></div>',
+    '</section>',
+    tags.size ? '<section class="rb-box"><h2>갈래</h2><div class="in">' +
+      '<ul class="rb-flair">' + [...tags.entries()]
+        .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0], 'ko'))
+        .map(([t, n]) => `<li${t === activeTag ? ' class="on"' : ''}>` +
+          `<a href="/blog/tag/${tagSlug(t)}.html">${esc(t)} ${n}</a></li>`).join('') +
+      '</ul></div></section>' : '',
+    '<section class="rb-box"><h2>이 블로그가 지키는 것</h2><ol class="rb-rules">' +
+      rules.map((r) => `<li>${esc(r)}</li>`).join('') + '</ol></section>',
+    '<section class="rb-box"><h2>둘러보기</h2><ul class="rb-links">' +
+      '<li><a href="/course/">코스 21개 · 레슨 82개</a></li>' +
+      '<li><a href="/sentence/">문법 표현 290개</a></li>' +
+      '<li><a href="/compare/">헷갈리는 표현 견주기 73갈래</a></li>' +
+      '<li><a href="/topik-reading/">TOPIK 읽기 연습</a></li>' +
+      (posts.length ? '<li><a href="/blog/rss.xml">RSS 로 새 글 받기</a></li>' : '') +
+      '</ul></section>',
+    '</aside>',
+  ].filter(Boolean).join('\n');
 }
 
 function blogHub(posts) {
-  const list = posts.length
-    ? '<ul class="blog-list">' + posts.map((p) =>
-        `<li><a class="blog-card" href="/blog/${esc(p.id)}.html">` +
-          `<div class="blog-meta">${esc(fmtDateKo(p.date))} <span class="dot">·</span> ${readMins(p.body)}분 분량</div>` +
-          `<h2>${esc(p.title)}</h2>` +
-          `<p>${esc(p.excerpt)}</p>` +
-        `</a></li>`).join('') + '</ul>'
-    : '<div class="blog-empty"><span class="emoji">🧀</span>아직 올린 글이 없습니다 — 곧 첫 글을 올릴게요.<br>No posts yet — the first one is coming soon.</div>';
+  const feed = posts.length
+    ? '<ul class="rb-feed">' + posts.map(postRow).join('') + '</ul>'
+    : '<div class="rb-empty"><span class="emoji">🧀</span>아직 올린 글이 없습니다 — 곧 첫 글을 올릴게요.<br>No posts yet — the first one is coming soon.</div>';
 
   const body = [
     '<nav class="crumb"><a href="/">치즈감자</a> › 블로그</nav>',
-    '<h1>블로그</h1>',
-    '<p class="lead">한국어 공부, 문법, TOPIK 준비에 관한 글들입니다.<br>' +
-      'Notes on learning Korean, grammar, and TOPIK prep.</p>',
-    list,
+    '<header class="rb-banner">',
+      '<div class="rb-avatar" aria-hidden="true">🧀</div>',
+      '<div class="rb-id"><h1>치즈감자 블로그</h1>' +
+        '<p>한국어 공부, 문법, TOPIK 준비에 관한 글 · Notes on learning Korean, grammar, and TOPIK prep</p></div>',
+      '<a class="rb-join" href="/#learn">한국어 배우러 가기</a>',
+    '</header>',
+    '<div class="rb-cols">',
+      `<main>${feed}</main>`,
+      blogSide(posts),
+    '</div>',
+    AGO_JS,
   ].join('\n');
 
   return page({
@@ -983,23 +1651,186 @@ function blogHub(posts) {
     title: '블로그 | 치즈감자',
     desc: clip('한국어 공부, 문법, TOPIK 준비에 관한 치즈감자 블로그입니다.'),
     body,
-    jsonld: [crumbLd([['치즈감자', '/'], ['블로그', '/blog/']])],
-    extraCss: BLOG_CSS,
+    jsonld: [
+      crumbLd([['치즈감자', '/'], ['블로그', '/blog/']]),
+      ...(posts.length ? [{
+        '@context': 'https://schema.org',
+        '@type': 'Blog',
+        '@id': `${SITE}/blog/`,
+        name: '치즈감자 블로그',
+        inLanguage: 'ko',
+        publisher: { '@type': 'Organization', name: '치즈감자', url: SITE },
+        blogPost: posts.map((p) => ({
+          '@type': 'BlogPosting',
+          '@id': `${SITE}/blog/${p.id}.html`,
+          headline: p.title,
+          datePublished: p.date,
+          dateModified: p.updated || p.date,
+          description: p.excerpt,
+        })),
+      }] : []),
+    ],
+    extraCss: BLOG_CSS + BLOG_HUB_CSS,
+    extraHead: `\n<link rel="alternate" type="application/rss+xml" title="치즈감자 블로그" href="${SITE}/blog/rss.xml">`,
   });
 }
 
+/* 갈래 쪽 — /blog/tag/<slug>.html. 목록(blogHub)과 같은 틀을 쓰되 본문
+   목록만 그 갈래로 좁힌다. 오른쪽 기둥은 블로그 전체 정보를 그대로
+   보여주고(blogSide 는 언제나 전체 글로 통계를 낸다), 지금 보는 갈래만
+   .on 으로 강조한다 — 다른 갈래로 바로 옮겨 갈 수 있어야 한다. */
+function blogTagPage(tag, posts, allPosts) {
+  const slug = tagSlug(tag);
+  const feed = '<ul class="rb-feed">' + posts.map(postRow).join('') + '</ul>';
+
+  const body = [
+    `<nav class="crumb"><a href="/">치즈감자</a> › <a href="/blog/">블로그</a> › ${esc(tag)}</nav>`,
+    '<header class="rb-banner">',
+      '<div class="rb-avatar" aria-hidden="true">🧀</div>',
+      `<div class="rb-id"><h1>${esc(tag)} 글</h1>` +
+        `<p>치즈감자 블로그에서 「${esc(tag)}」로 묶은 글 ${posts.length}편입니다.</p></div>`,
+      '<a class="rb-join" href="/blog/">전체 글 보기</a>',
+    '</header>',
+    '<div class="rb-cols">',
+      `<main>${feed}</main>`,
+      blogSide(allPosts, tag),
+    '</div>',
+    AGO_JS,
+  ].join('\n');
+
+  return page({
+    url: `/blog/tag/${slug}.html`, kind: 'website',
+    title: `${tag} 글 | 치즈감자 블로그`,
+    desc: clip(`치즈감자 블로그에서 「${tag}」로 묶은 글 ${posts.length}편입니다.`),
+    body,
+    jsonld: [
+      crumbLd([['치즈감자', '/'], ['블로그', '/blog/'], [tag, null]]),
+      {
+        '@context': 'https://schema.org',
+        '@type': 'Blog',
+        '@id': `${SITE}/blog/tag/${slug}.html`,
+        name: `치즈감자 블로그 — ${tag}`,
+        inLanguage: 'ko',
+        publisher: { '@type': 'Organization', name: '치즈감자', url: SITE },
+        blogPost: posts.map((p) => ({
+          '@type': 'BlogPosting',
+          '@id': `${SITE}/blog/${p.id}.html`,
+          headline: p.title,
+          datePublished: p.date,
+          dateModified: p.updated || p.date,
+          description: p.excerpt,
+        })),
+      },
+    ],
+    extraCss: BLOG_CSS + BLOG_HUB_CSS,
+    extraHead: `\n<link rel="alternate" type="application/rss+xml" title="치즈감자 블로그" href="${SITE}/blog/rss.xml">`,
+  });
+}
+
+/* RSS. 정적 사이트라 글이 올라온 것을 알릴 방법이 달리 없다 — 메일 주소를
+   받아 두는 것도 아니니, 구독하고 싶은 사람에게 줄 수 있는 것은 이것뿐이다.
+   본문을 통째로 싣는다(content:encoded). 요약만 실으면 읽는 이가 결국
+   사이트로 와야 하는데, 그러라고 만든 것이 아니다. */
+const rssDate = (iso) => {
+  /* 09:00 +09:00 으로 잡는다. RSS 는 시각까지 요구하는데 글에는 날짜만
+     적어 두므로, 한국 아침으로 고정해 두는 편이 시차로 하루가 밀리는
+     것보다 낫다. */
+  const d = new Date(`${iso}T09:00:00+09:00`);
+  return Number.isNaN(d.getTime()) ? '' : d.toUTCString();
+};
+const cdata = (s) => `<![CDATA[${String(s ?? '').replaceAll(']]>', ']]&gt;')}]]>`;
+
+function blogRss(posts) {
+  const items = posts.map((p) => [
+    '  <item>',
+    `    <title>${esc(p.title)}</title>`,
+    `    <link>${SITE}/blog/${p.id}.html</link>`,
+    `    <guid isPermaLink="true">${SITE}/blog/${p.id}.html</guid>`,
+    `    <pubDate>${rssDate(p.date)}</pubDate>`,
+    ...(p.tags || []).map((t) => `    <category>${esc(t)}</category>`),
+    `    <description>${cdata(p.excerpt)}</description>`,
+    `    <content:encoded>${cdata(postHtml(p))}</content:encoded>`,
+    '  </item>',
+  ].join('\n')).join('\n');
+
+  return `<?xml version="1.0" encoding="UTF-8"?>
+<!-- 생성물 — tools/build-pages.mjs 가 blog.js 에서 굽는다. 손으로 고치지 말 것. -->
+<rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+  <title>치즈감자 블로그</title>
+  <link>${SITE}/blog/</link>
+  <atom:link href="${SITE}/blog/rss.xml" rel="self" type="application/rss+xml"/>
+  <description>한국어 공부, 문법, TOPIK 준비에 관한 치즈감자 블로그입니다.</description>
+  <language>ko</language>
+${posts.length ? `  <lastBuildDate>${rssDate(posts[0].updated || posts[0].date)}</lastBuildDate>\n` : ''}${items}
+</channel>
+</rss>
+`;
+}
+
 /* ── sitemap ────────────────────────────────────────────────── */
+/* 쪽이 마지막으로 **정말** 바뀐 날.
+
+   구글은 changefreq 와 priority 를 안 읽는다(공식 문서에 그렇게 적혀
+   있다). 반대로 lastmod 는 읽는다 — 다시 기어올 자리를 고르는 데 쓴다.
+   993줄에 안 읽는 것 둘만 있고 읽는 것은 비어 있었다.
+
+   다만 **정확할 때만 읽는다.** 처음에는 원본 파일의 git 커밋 날을 쓰려
+   했는데 그게 안 됐다. tools/stamp.mjs 가 sentences.js 안의 `?v=` 를
+   다시 찍으면 그 파일의 커밋 날이 오늘로 뛴다 — 표현 290쪽의 내용은 한
+   글자도 안 바뀌었는데 사이트맵은 「오늘 290쪽이 바뀌었다」고 말하게 된다.
+   그런 사이트맵은 구글이 lastmod 를 통째로 안 믿는 쪽으로 간다.
+
+   그래서 **구운 쪽 자체의 바이트를 해시해서** 지난번과 다를 때만 날짜를
+   올린다. 자국(`?v=`)은 이 쪽들에 안 들어가므로(정적 쪽은 CSS 를 박아
+   넣는다) 자국을 다시 찍어도 해시가 안 흔들린다. 재는 것과 말하는 것이
+   같아진다.
+
+   docs/page-mod.json 이 그 기록이다. 지우면 전부 오늘로 다시 잡힌다 —
+   틀린 날짜가 되는 것은 아니고, 그저 그 전을 모르게 될 뿐이다. */
+const MOD_FILE = join(ROOT, 'docs/page-mod.json');
+const TODAY = new Date().toISOString().slice(0, 10);
+let modWas = {};
+try { modWas = JSON.parse(readEn(MOD_FILE, 'utf8')); } catch { /* 처음이면 빈 채로 */ }
+
+/* 주소를 구워 놓은 파일 자리로 되돌린다. sitemap() 이 맨 끝에 도는 덕에
+   이때는 993쪽이 이미 다 쓰여 있다. */
+function fileOf(loc) {
+  let q = loc.replace(/^\//, '');
+  if (!q) q = 'index.html';
+  if (q.endsWith('/')) q += 'index.html';
+  return join(ROOT, q);
+}
+
+function modOf(loc) {
+  let h;
+  try { h = createHash('sha1').update(readEn(fileOf(loc))).digest('hex').slice(0, 12); }
+  catch { return ''; }            // 파일이 없으면 그 줄에는 안 적는다
+  const was = modWas[loc];
+  const day = (was && was.h === h) ? was.d : TODAY;
+  modNow[loc] = { h, d: day };
+  return day;
+}
+const modNow = {};
+
 function sitemap(urls) {
   return `<?xml version="1.0" encoding="UTF-8"?>
 <!-- 생성물이다. node tools/build-pages.mjs 가 다시 쓴다.
 
      화면 전환은 해시(#learn 등)로 하므로 크롤러에게 index.html 은 한 쪽이다.
      그래서 표현마다 진짜 주소를 가진 정적 쪽을 뽑아 여기 건다. 없는 주소를
-     적어 두면 404 만 늘어나므로, 여기 있는 것은 전부 저장소에 실재한다. -->
+     적어 두면 404 만 늘어나므로, 여기 있는 것은 전부 저장소에 실재한다.
+
+     lastmod 는 그 쪽을 구운 결과가 지난번과 달라진 날이다(docs/page-mod.json).
+     원본 파일의 커밋 날이 아니다 — 자국을 다시 찍기만 해도 커밋 날이
+     뛰는데, 그러면 안 바뀐 쪽까지 「오늘 바뀌었다」가 된다. -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-${urls.map(({ loc, freq, pri }) =>
-  `  <url>\n    <loc>${SITE}${loc}</loc>\n    <changefreq>${freq}</changefreq>\n    <priority>${pri}</priority>\n  </url>`,
-).join('\n')}
+${urls.map(({ loc, freq, pri }) => {
+  const mod = modOf(loc);
+  return `  <url>\n    <loc>${SITE}${loc}</loc>\n` +
+    (mod ? `    <lastmod>${mod}</lastmod>\n` : '') +
+    `    <changefreq>${freq}</changefreq>\n    <priority>${pri}</priority>\n  </url>`;
+}).join('\n')}
 </urlset>
 `;
 }
@@ -1095,16 +1926,46 @@ urls.push({ loc: '/topik-listening/', freq: 'weekly', pri: '0.9' });
    나중에 글을 딱 하나 추가했을 때 목록이 아예 없어서 처음 한 번은
    손으로 더 손대야 한다. */
 let nB = 0;
-for (const post of BLOG_POSTS) {
-  writeFileSync(join(OUT_BLOG, `${post.id}.html`), blogPage(post));
+BLOG_POSTS.forEach((post, i) => {
+  /* 배열은 최신이 앞이다. 그래서 「이전 글」(더 오래된 것)이 i + 1,
+     「다음 글」(더 새것)이 i - 1 이다. 뒤집어 걸면 화살표가 시간을
+     거꾸로 가리키는데, 눌러 보기 전에는 아무도 모른다. */
+  const next = BLOG_POSTS[i - 1];
+  const prev = BLOG_POSTS[i + 1];
+  const skip = new Set([prev, next].filter(Boolean).map((p) => p.id));
+  const html = blogPage(post, prev, next, relatedPosts(post, BLOG_POSTS, skip));
+  writeFileSync(join(OUT_BLOG, `${post.id}.html`), html);
   urls.push({ loc: `/blog/${post.id}.html`, freq: 'yearly', pri: '0.5' });
   nB++;
-}
+});
 writeFileSync(join(OUT_BLOG, 'index.html'), blogHub(BLOG_POSTS));
 urls.push({ loc: '/blog/', freq: 'weekly', pri: '0.6' });
 
+/* 갈래 쪽. BLOG_POSTS 순서(최신이 앞)를 그대로 따라가며 갈래별로 묶으므로
+   갈래 쪽 목록도 최신순으로 나온다. */
+const TAG_POSTS = new Map();
+for (const p of BLOG_POSTS) for (const t of (p.tags || [])) {
+  if (!TAG_POSTS.has(t)) TAG_POSTS.set(t, []);
+  TAG_POSTS.get(t).push(p);
+}
+let nBT = 0;
+if (TAG_POSTS.size) mkdirSync(join(OUT_BLOG, 'tag'), { recursive: true });
+for (const [tag, posts] of TAG_POSTS) {
+  const slug = tagSlug(tag);
+  writeFileSync(join(OUT_BLOG, 'tag', `${slug}.html`), blogTagPage(tag, posts, BLOG_POSTS));
+  urls.push({ loc: `/blog/tag/${slug}.html`, freq: 'weekly', pri: '0.5' });
+  nBT++;
+}
+
+/* RSS 는 sitemap 에 안 넣는다. 사람이 읽는 쪽이 아니라 구독기가 읽는
+   파일이라 검색 결과에 뜰 일이 없고, 넣으면 중복된 내용으로 잡힌다. */
+writeFileSync(join(OUT_BLOG, 'rss.xml'), blogRss(BLOG_POSTS));
+
 urls.push({ loc: '/privacy.html', freq: 'yearly', pri: '0.3' });
 writeFileSync(join(ROOT, 'sitemap.xml'), sitemap(urls));
+/* sitemap() 이 돌면서 쪽마다 해시를 다시 쟀다. 그 기록을 남긴다 —
+   다음 번에 이것과 견줘 안 바뀐 쪽은 날짜를 그대로 둔다. */
+writeFileSync(MOD_FILE, JSON.stringify(modNow, null, 0) + '\n');
 
 console.log(`표현 ${n}쪽 + 목록 1쪽 → sentence/`);
 console.log(`갈래 비교 ${nCmp}쪽 + 목록 1쪽 → compare/`);
@@ -1113,5 +1974,5 @@ console.log(`레슨 ${nL}쪽 → lesson/`);
 console.log(`TOPIK 쓰기 ${nW}쪽 + 목록 1쪽 → topik-writing/`);
 console.log(`TOPIK 읽기 ${nR}쪽 + 목록 1쪽 → topik-reading/`);
 console.log(`TOPIK 듣기 ${nTL}쪽 + 목록 1쪽 → topik-listening/`);
-console.log(`블로그 ${nB}쪽 + 목록 1쪽 → blog/`);
+console.log(`블로그 ${nB}쪽 + 목록 1쪽 + 갈래 ${nBT}쪽 + rss.xml → blog/`);
 console.log(`sitemap.xml 에 주소 ${urls.length}개.`);
