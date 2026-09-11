@@ -922,8 +922,6 @@ function ptShow(toTest) {
   ptId('libraryView').classList.add('hidden');
   ptId('dashView').classList.add('hidden');
   ptId('gamesView').classList.add('hidden');
-  ptId('clawView').classList.add('hidden');
-  ptId('matchView').classList.add('hidden');
   ptId('quizView').classList.add('hidden');
   ptId('numView').classList.add('hidden');
   ptId('learnView').classList.add('hidden');
@@ -935,10 +933,11 @@ function ptShow(toTest) {
   ptId('libBtn').classList.remove('on');
   ptId('dashBtn').classList.remove('on');
   ptId('gameBtn').classList.remove('on');
-  // 집게나 퀴즈 시계가 돌고 있었다면 멈춘다. 아래 모듈 스크립트가
+  // 퀴즈 시계가 돌고 있었다면 멈춘다. 아래 모듈 스크립트가
   // 나중에 실행되므로 있으면 부르는 식으로만 손댄다.
-  if (window.clawStop) window.clawStop();
   if (window.qzStop) window.qzStop();
+  // 홈으로 오면 오늘의 단어 카드를 채운다. 마찬가지로 있으면만 부른다.
+  if (!toTest && window.wotdRender) window.wotdRender();
   const b = ptId('navBtn');
   // 아이콘은 🎙 로 둔다. 헤더에 있을 때는 ✕ 로 바꿔 "누르면 닫힌다" 를
   // 알렸지만, 메뉴 안에서는 고르는 순간 메뉴가 닫혀 그 ✕ 를 볼 일이
@@ -972,7 +971,7 @@ const SLUG_VIEW = {
   dictionary: 'dictionary',
   learn: 'learn', test: 'test', games: 'games',
   // 게임 한 판과 레슨은 도중부터 열 수 없다. 주소로 들어오면 한 단계 위를 연다.
-  claw: 'games', match: 'games', quiz: 'games', num: 'num', lesson: 'learn',
+  quiz: 'games', num: 'num', lesson: 'learn',
 };
 
 /* ══ 시험지 글자 크기 ═══════════════════════════════════════════
@@ -1029,7 +1028,7 @@ window.cpTxtSize = function (on) {
 const VIEW_SLUG = {
   home: '', test: 'test', wordbook: 'wordbook', account: 'account',
   library: 'library', dashboard: 'dashboard', dictionary: 'dictionary', games: 'games',
-  claw: 'claw', match: 'match', quiz: 'quiz', num: 'num', learn: 'learn', lesson: 'lesson',
+  quiz: 'quiz', num: 'num', learn: 'learn', lesson: 'lesson',
 };
 let routeBusy = false;
 /* 마지막으로 주소에 남긴 자리. 떠나기를 막았을 때 되돌릴 곳이다. */

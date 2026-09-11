@@ -13,10 +13,10 @@
    어느 날 갑자기 다른 코드가 실려 왔다.
    이제 vendor/ 안에 받아 두고 CSP 로 바깥을 막는다. 버전을 올릴 때는
    tools/vendor.mjs 의 PIN 을 고치고 다시 돌린다. */
-import { createClient } from './vendor/supabase-js.js?v=a7e1dfb9';
+import { createClient } from './vendor/supabase-js.js?v=04eab4b8';
 // TOPIK 읽기 "문제 풀이 영상" 목록. 아주 작은 파일이라(id 목록뿐) 다른
 // 자료처럼 갈래를 열 때 지연 로딩하지 않고 그냥 처음부터 받는다.
-import { TQ_VIDEO_IDS } from './topik-video.js?v=a7e1dfb9';
+import { TQ_VIDEO_IDS } from './topik-video.js?v=04eab4b8';
 // 앱(package.json)과 같은 줄기를 쓴다. 갈리면 앱에서는 읽히는 파일이
 // 여기서는 안 읽히는(또는 그 반대) 일이 생긴다.
 /* 엑셀 라이브러리는 422KB — 이 판에서 가장 무거운 조각이다. 그런데 쓰는
@@ -28,13 +28,13 @@ import { TQ_VIDEO_IDS } from './topik-video.js?v=a7e1dfb9';
    자국(?v=)은 tools/stamp.mjs 가 아래 줄에 알아서 붙인다 — 정적으로 쓰든
    동적으로 쓰든 같은 글자를 찾으므로 바꿔도 그대로 찍힌다. */
 let XLSX = null;
-const needXLSX = async () => (XLSX ??= await import('./vendor/xlsx.js?v=a7e1dfb9'));
+const needXLSX = async () => (XLSX ??= await import('./vendor/xlsx.js?v=04eab4b8'));
 // 커리큘럼. 내용과 엔진을 갈라 두면 글을 고치다 화면을 깨지 않는다.
 // 갈래 목록(drawSections)·코스(drawCourses)·문제만 풀기(dqDraw) 를 열 때만
 // 받는다 — 배우기 갈래 목록도 안 본 사람에게 코스 71개 레슨을 다 물릴
 // 까닭이 없다. warmLearn() 이 배우기를 여는 순간 미리 불을 붙여 둔다.
 let COURSES = [], coursesP = null;
-const coursesNeed = () => (coursesP ??= import('./courses.js?v=a7e1dfb9').then((m) => { COURSES = m.COURSES; }));
+const coursesNeed = () => (coursesP ??= import('./courses.js?v=04eab4b8').then((m) => { COURSES = m.COURSES; }));
 /* 낱말 뜻풀이 356KB. 예전에는 여기서 통째로 받았다 — tqGloss 가 동기라
    지연 로딩이 안 된다고 보았기 때문이다. 그런데 tqGloss 를 부르는 자리를
    다 세어 보니 여덟 곳이고 **전부 사람이 무언가를 누른 뒤**였다(사전
@@ -45,7 +45,7 @@ const coursesNeed = () => (coursesP ??= import('./courses.js?v=a7e1dfb9').then((
    tqGloss 는 그대로 동기다 — 아직 안 왔으면 빈 뜻을 돌려주고, 부르는
    쪽은 이미 "사전에 없는 말"을 다룰 줄 안다. */
 let GLOSSARY = {}, GLOSS_LANGS = {}, glossP = null;
-const glossNeed = () => (glossP ??= import('./glossary.js?v=a7e1dfb9').then((m) => {
+const glossNeed = () => (glossP ??= import('./glossary.js?v=04eab4b8').then((m) => {
   GLOSSARY = m.GLOSSARY; GLOSS_LANGS = m.GLOSS_LANGS;
   dictBuildEntries();
 }).catch((e) => {
@@ -53,15 +53,48 @@ const glossNeed = () => (glossP ??= import('./glossary.js?v=a7e1dfb9').then((m) 
   glossP = null;
   throw e;
 }));
-import { glossFind } from './gloss-find.js?v=a7e1dfb9';
+import { glossFind } from './gloss-find.js?v=04eab4b8';
+/* 홈 화면 "오늘의 단어" 카드. 표제어·품사·짧은 뜻풀이 3개만 든
+   작은 자료라(사전 전체 356KB 와 달리) 홈에 들어오면 바로 받는다 —
+   빈 카드로 몇 초 떠 있는 것보다 낫다. */
+let WOTD_POOL = [], wotdP = null;
+const wotdNeed = () => (wotdP ??= import('./wotd.js?v=04eab4b8').then((m) => {
+  WOTD_POOL = m.WOTD_POOL;
+}).catch((e) => { wotdP = null; throw e; }));
+/* 그날의 낱말을 고른다. 한국 자정을 기준으로 하루씩 넘어가게
+   KST(UTC+9)로 옮겨서 날짜를 센다 — 방문자마다 시간대가 다른데
+   서버 없이 다 같은 낱말을 보여주려면 기준이 하나로 고정돼야 한다.
+   날짜가 같으면 누가 언제 열어도 같은 낱말이 나오고, 사전이 늘어도
+   말뭉치 길이가 바뀔 뿐 그날 하루 안에서는 흔들리지 않는다. */
+function wotdIndex(len) {
+  const kstDay = Math.floor((Date.now() + 9 * 3600 * 1000) / 86400000);
+  return ((kstDay % len) + len) % len;
+}
+async function wotdRender() {
+  const card = $('wotdCard');
+  if (!card) return;
+  try {
+    await wotdNeed();
+  } catch (e) { return; }   // 못 받았으면 자리(정적 기본값)를 그대로 둔다
+  if (!WOTD_POOL.length) return;
+  const [head, pos, gloss] = WOTD_POOL[wotdIndex(WOTD_POOL.length)];
+  $('wotdWord').textContent = head;
+  $('wotdPos').textContent = pos;
+  $('wotdPos').classList.toggle('hidden', !pos);
+  $('wotdGloss').textContent = gloss;
+  $('wotdGoBtn').href = `/dictionary/${encodeURIComponent(head)}.html`;
+}
+// app.js 의 ptShow(고전 스크립트 쪽 홈 전환)가 부른다 — 모듈이 나중에
+// 실행되므로 전역에 걸어 두고 있으면만 부르는 식으로 이어받는다.
+window.wotdRender = wotdRender;
 /* 문법 사전(뜻풀이 197개). 읽기 지문의 밑줄 문법 말풍선(rdNeed)과 예문
    만들기 화면(sbNeed) 양쪽이 쓴다 — 둘 중 먼저 여는 화면이 받아 두고,
    나중 화면은 그 약속(??=)을 그대로 쓴다. */
 let GRAMMAR = [], GRAMMAR_EN = {}, grammarP = null;
 const grammarNeed = () => (grammarP ??= Promise.all([
-  import('./grammar.js?v=a7e1dfb9'), import('./grammar-en.js?v=a7e1dfb9'),
+  import('./grammar.js?v=04eab4b8'), import('./grammar-en.js?v=04eab4b8'),
 ]).then(([a, b]) => { GRAMMAR = a.GRAMMAR; GRAMMAR_EN = b.GRAMMAR_EN; }));
-import { grammarScan } from './grammar-find.js?v=a7e1dfb9';
+import { grammarScan } from './grammar-find.js?v=04eab4b8';
 // TOPIK 쓰기·듣기 문항. 읽기(topik.js·topik2.js)와 같은 tqNeedData() 로
 // 함께 받는다 — 유형 연습(topik) 갈래 하나가 세 기술을 다 쓰므로 따로
 // 가를 까닭이 없다. 값은 tqNeedData 정의부에서 채운다.
@@ -73,7 +106,7 @@ let TOPIKL_BY_EXAM = {}, TOPIKL_PICTURE_SLOTS = {};
    sbFind 를 쓰는데, 그쪽은 안 기다리고 그냥 부른다 — 답이 못 찾은
    인용 없이 나가는 것이 채팅이 멈추는 것보다 낫다. */
 let SB_CATS = [], SB_MORE = {}, SB_SEED = {}, SB_POINTS = [], sbDataP = null;
-const sbNeed = () => (sbDataP ??= import('./sentences.js?v=a7e1dfb9').then((m) => {
+const sbNeed = () => (sbDataP ??= import('./sentences.js?v=04eab4b8').then((m) => {
   SB_CATS = m.SB_CATS; SB_MORE = m.SB_MORE; SB_SEED = m.SB_SEED;
   // 갈래마다 표현을 펼쳐 한 줄에 담는다 — SB_CATS 안의 점에는 갈래가 안
   // 달려 있어서(sbFind 가 표현 하나를 id 로 바로 찾으려면 이게 있어야 한다).
@@ -84,7 +117,7 @@ const sbNeed = () => (sbDataP ??= import('./sentences.js?v=a7e1dfb9').then((m) =
 // 숫자 게임의 읽기와 문제 만들기. 화면을 모르는 순수 계산이라 따로 뒀다.
 // 게임 목록에서 「숫자 읽기」를 시작할 때만 받는다 — XLSX 와 같은 자리다.
 let makeRound = null;
-const needNumbers = async () => (makeRound ??= (await import('./numbers.js?v=a7e1dfb9')).makeRound);
+const needNumbers = async () => (makeRound ??= (await import('./numbers.js?v=04eab4b8')).makeRound);
 
 // 이 키는 공개돼도 되는 값이다. 이미 APK 안에 같은 것이 들어 있고,
 // 접근을 막는 건 키가 아니라 테이블에 걸린 RLS 다.
@@ -139,8 +172,8 @@ let tqDataP = null;
    유형 연습(topik) 갈래 하나가 이 넷을 다 쓰므로 갈라 봤자 요청만
    늘어난다. */
 const tqNeedData = () => (tqDataP ??= Promise.all([
-  import('./topik.js?v=a7e1dfb9'), import('./topik2.js?v=a7e1dfb9'),
-  import('./topik-writing.js?v=a7e1dfb9'), import('./topik-listening.js?v=a7e1dfb9'),
+  import('./topik.js?v=04eab4b8'), import('./topik2.js?v=04eab4b8'),
+  import('./topik-writing.js?v=04eab4b8'), import('./topik-listening.js?v=04eab4b8'),
 ]).then(([a, b, c, d]) => {
   TQ_DATA.I  = { reading: a.TOPIK_READING,  blueprint: a.TOPIK_BLUEPRINT,  slots: a.TOPIK_SLOTS };
   TQ_DATA.II = { reading: b.TOPIK2_READING, blueprint: b.TOPIK2_BLUEPRINT, slots: b.TOPIK2_SLOTS };
@@ -151,11 +184,11 @@ const tqNeedData = () => (tqDataP ??= Promise.all([
 let READING = null, rdP = null;
 // 지문의 밑줄 문법 말풍선이 GRAMMAR 를 쓰므로 같이 받아 둔다.
 const rdNeed = () => (rdP ??= Promise.all([
-  import('./reading.js?v=a7e1dfb9'), grammarNeed(),
+  import('./reading.js?v=04eab4b8'), grammarNeed(),
 ]).then(([m]) => { READING = m.READING; }));
 
 let CONVO = null, cvP = null;
-const cvNeed = () => (cvP ??= import('./convo.js?v=a7e1dfb9').then((m) => { CONVO = m.CONVO; }));
+const cvNeed = () => (cvP ??= import('./convo.js?v=04eab4b8').then((m) => { CONVO = m.CONVO; }));
 
 /* 배우기를 열면 여섯 다 미리 불을 붙인다. 기다리지 않는다 — 갈래 목록은
    이 자료가 없어도 그려지고, 사람이 갈래를 고르는 사이에 도착한다.
@@ -165,7 +198,7 @@ const cvNeed = () => (cvP ??= import('./convo.js?v=a7e1dfb9').then((m) => { CONV
 const warmLearn = () => { tqNeedData(); rdNeed(); coursesNeed(); sbNeed(); cvNeed(); glossNeed(); };
 
 // 게임 목록과 그 아래 게임들. 새 게임을 더하면 여기에도 넣는다.
-const GAME_VIEWS = ['games', 'claw', 'match', 'quiz', 'num'];
+const GAME_VIEWS = ['games', 'quiz', 'num'];
 
 /* 레슨 밖으로 나가면 복습 챌린지(1분 타이머)를 꺼 둔다. 안 그러면 다른
    화면으로 옮겨도 setInterval 이 백그라운드에서 계속 돌면서 안 보이는
@@ -193,8 +226,6 @@ function open(view) {
   $('dictView').classList.toggle('hidden', view !== 'dictionary');
   $('dashView').classList.toggle('hidden', view !== 'dashboard');
   $('gamesView').classList.toggle('hidden', view !== 'games');
-  $('clawView').classList.toggle('hidden', view !== 'claw');
-  $('matchView').classList.toggle('hidden', view !== 'match');
   $('quizView').classList.toggle('hidden', view !== 'quiz');
   $('numView').classList.toggle('hidden', view !== 'num');
   $('learnView').classList.toggle('hidden', view !== 'learn');
@@ -213,9 +244,7 @@ function open(view) {
   // 메뉴에서 게임이 꺼져 보이면 길을 잃는다.
   $('gameBtn').classList.toggle('on', GAME_VIEWS.includes(view));
 
-  /* 나가면 돌던 것을 멈춘다. 집게는 안 보이는 화면에서 매 프레임 돌고,
-     퀴즈 시계는 돌아왔을 때 이미 끝나 있게 만든다. */
-  if (view !== 'claw') clawStop();
+  /* 나가면 돌던 것을 멈춘다. 퀴즈 시계는 돌아왔을 때 이미 끝나 있게 만든다. */
   if (view !== 'quiz') qzStop();
   /* TOPIK 을 풀며 표시해 둔 낱말이 있으면 단어장 맨 위에 내건다.
      여기 두면 단추로 들어오든 메뉴로 들어오든 주소로 들어오든 다 걸린다. */
@@ -223,6 +252,8 @@ function open(view) {
   /* 배우기·레슨에 들어오면 시험지와 지문을 미리 부른다. 기다리지 않는다 —
      사람이 갈래를 고르는 사이에 도착한다. */
   if (view === 'learn' || view === 'lesson') warmLearn();
+  // 다른 화면에서 홈으로 되돌아왔을 때도 오늘의 단어를 채운다.
+  if (view === 'home') wotdRender();
   window.scrollTo({ top: 0, behavior: 'auto' });
   window.cpMark(view);
 }
@@ -290,7 +321,7 @@ $('gameBtn').addEventListener('click', (e) => {
      (머리띠로 다시 옮기면 side-parent 가 아니게 되어 예전처럼 움직인다.) */
   if (e.currentTarget.classList.contains('side-parent')) return;
   // 게임 하나에 들어가 있으면 한 단계 위는 홈이 아니라 목록이다.
-  if (showing('clawView') || showing('matchView') || showing('quizView') || showing('numView')) return open('games');
+  if (showing('quizView') || showing('numView')) return open('games');
   open(showing('gamesView') ? 'home' : 'games');
 });
 $('dashGoLogin').addEventListener('click', () => open('account'));
@@ -577,14 +608,14 @@ let dictOpen = null;  // 지금 "더 보기"(예문·뜻풀이)를 펼쳐 둔 �
    평소엔 안 쓰는 522KB 를 첫 화면 모두에게 물릴 까닭이 없다. */
 let dictSensesP = null;
 const dictLoadSenses = () => (dictSensesP ??=
-  import('./glossary-senses.js?v=a7e1dfb9').then((m) => m.SENSES).catch(() => ({})));
+  import('./glossary-senses.js?v=04eab4b8').then((m) => m.SENSES).catch(() => ({})));
 
 /* 예문. 국립국어원 자료엔 없어서 Gemini 로 새로 지은 것이다(있는 만큼만
    — docs/glossary-examples-gemini-prompt.md 참고). 뜻풀이와 같은 자리에서
    같이 받는다 — 펼치는 손짓 하나에 몰아 두는 편이 화면이 덜 복잡하다. */
 let dictExamplesP = null;
 const dictLoadExamples = () => (dictExamplesP ??=
-  import('./glossary-examples.js?v=a7e1dfb9').then((m) => m.EXAMPLES).catch(() => ({})));
+  import('./glossary-examples.js?v=04eab4b8').then((m) => m.EXAMPLES).catch(() => ({})));
 
 function dictVisible() {
   const q = dictQuery.trim().toLowerCase();
@@ -1083,8 +1114,6 @@ sb.auth.onAuthStateChange((_event, session) => {
     if (tqMock && tqSignedIn && !tqTick && tqLeft > 0) tqRunClock();
     tqDraw();
   }
-  if (showing('clawView')) clawStart();
-  if (showing('matchView')) mtStart();
   if (showing('quizView')) qzStart();
 
   // 자료마당의 삭제 버튼은 로그인 상태에 따라 붙었다 떨어진다.
@@ -1186,14 +1215,6 @@ function syncLang() {
   $('libDesc').placeholder = t('한 줄 설명 (선택)', 'One-line description (optional)');
   $('libReportDetail').placeholder = t('덧붙일 말 (선택)', 'Anything to add (optional)');
   // 게임의 안내와 버튼. 문제·답은 사람이 넣은 단어라 번역하지 않는다.
-  if (showing('clawView')) {
-    clawSyncStatic();
-    if (clawDone) clawSyncOver();
-  }
-  if (showing('matchView')) {
-    mtSyncStatic();
-    if (mtDone) mtSyncOver();
-  }
   if (showing('quizView')) {
     qzSyncStatic();
     if (qzDone) qzSyncOver();
@@ -11233,133 +11254,12 @@ async function deleteResource(id) {
   renderLibrary();
 }
 
-/* ══ 게임 : 인형뽑기 ═══════════════════════════════════════════
-   뜻을 하나 보여 주고, 그 뜻에 맞는 단어를 쓴 인형을 뽑게 한다.
-
-   ── 내 단어장 단어로만 논다 ──────────────────────────────────
-   그래서 로그인이 필요하다. 아무 단어나 내면 그냥 심심풀이지만, 내가
-   저장해 둔 단어가 나오면 노는 것이 곧 복습이 된다. 로그인 전에는
-   무엇이 기다리는지 알려 주고 로그인으로 보낸다.
-
-   ── 왜 캔버스가 아닌가 ───────────────────────────────────────
-   인형 이름은 사람이 넣은 글이다. DOM 이면 textContent 로 넣어 끝이고
-   글자 크기·줄바꿈·화면 낭독까지 브라우저가 해 준다. 캔버스로 그리면
-   그 전부를 손으로 다시 만들어야 한다. */
-
-const CLAW_ROUNDS = 5;
-const CLAW_DOLLS  = 4;
-// 집게가 오가는 범위와 속도(% / 프레임). 인형은 이 안에 놓는다.
-const CLAW_MIN = 10, CLAW_MAX = 90, CLAW_SPEED = 0.85;
-// 앞뒤. 0 이 앞(나에게 가까운 줄), 1 이 뒤. 한쪽 끝에서 끝까지 약 1.2초.
-const CLAW_ZSPEED = 0.014;
-/* 유리장 안쪽 깊이(px). z(0~1) 를 여기에 곱해 translateZ 로 넣는다.
-   좁은 화면에서는 CSS 가 이 값을 줄이므로(뒷줄이 너무 멀어지지 않게)
-   상수로 들고 있으면 어긋난다 — 뒷벽보다 인형이 뒤에 서는 꼴이 된다.
-   그래서 그때그때 CSS 에서 읽는다. */
-function clawDepth() {
-  const v = parseFloat(getComputedStyle($('clawMachine')).getPropertyValue('--depth'));
-  return v || 210;
-}
-// 인형이 놓이는 두 줄의 깊이. 둘 다 바닥에 서므로 높이는 하나뿐이다.
-const CLAW_ROW_Z = [0, 1];
-/* 바닥에서 띄우는 높이. 크게 잡으면 인형이 바닥에 선 게 아니라
-   떠 있는 것으로 보인다. 그림자가 잘리지 않을 만큼만 남긴다. */
-const CLAW_FLOOR_Y = 8;
-const CLAW_RAIL_TOP = 26;     // 레일 높이(면 안에서)
-const CLAW_HEAD_H = 30;       // 집게 머리 높이
-// 출구 자리. CSS 의 .chute 와 같은 곳을 가리켜야 한다.
-const CLAW_EXIT_X = 12, CLAW_EXIT_Z = 0;
-const CLAW_BEST_KEY = 'clawBest';
-/* 잡히는 거리. 가로는 인형 사이가 25% 안팎이라 9% 면 인형 위에서는
-   넉넉히 잡히고 사이에서는 헛집는다. 0 에 가깝게 두면 실력이 아니라
-   운이 된다. 깊이는 줄이 앞뒤 둘뿐이라 넉넉히 0.4 를 준다 — 손잡이를
-   끝까지 밀지 않아도 그 줄로 읽힌다. */
-const CLAW_CATCH = 9, CLAW_ZCATCH = 0.4;
-/* 인형 한 마리의 높이(몸 + 이름표). 집게가 얼마나 내려가야 닿는지,
-   들어 올렸을 때 어디에 매달리는지를 이 값으로 잰다.
-
-   화면 폭에 따라 인형 크기가 달라지므로 상수로 두면 좁은 화면에서
-   집게가 허공에서 멈춘다. 그래서 판에 놓인 것을 직접 잰다. */
-const CLAW_DOLL_H = 98;   // 못 재면 쓰는 값
-function clawDollH() {
-  const d = $('clawStage').querySelector('.doll');
-  return d ? d.offsetHeight : CLAW_DOLL_H;
-}
-
-let clawPool = [];       // [{word, meaning}] — 내 단어장에서 온 것
-let clawRound = 0, clawScore = 0;
-let clawTarget = null;
-let clawBusy = false;    // 집는 중 — 두 번 눌리면 두 번 내려간다
-let clawDone = false;
-let clawRaf = 0;
-let clawX = 50, clawZ = 0;                  // 가로(%) 와 깊이(0 앞 ~ 1 뒤)
-let clawDx = 0, clawDz = 0;                 // 누르고 있는 방향
-
-// 한 번에 하나만 보여 준다. 각자 토글하면 두 개가 겹쳐 뜬다.
-const CLAW_PANELS = ['clawLoading', 'clawNeedLogin', 'clawFew', 'clawErr', 'clawPlay', 'clawOver'];
-function clawPanel(name) {
-  CLAW_PANELS.forEach((k) => $(k).classList.toggle('hidden', k !== name));
-}
-
-/* ── 집게 움직임 ─────────────────────────────────────────────
-   저절로 오가지 않는다. ◀▶ 를 누르고 있는 동안만 움직이고, 놓으면
-   그 자리에 선다 — 진짜 오락실 기계가 그렇다. 조준이 쉬워진 만큼
-   승부는 온전히 "이 뜻의 단어가 무엇인가" 로 넘어간다. */
-const CLAW_ARROWS = { '-1,0': 'clawLeft', '1,0': 'clawRight', '0,-1': 'clawDown', '0,1': 'clawUp' };
-
-/** 집게를 지금 좌표에 놓는다. 깊이는 translateZ 하나로 끝이고,
- *  얼마나 작아 보일지는 원근이 정한다. */
-function clawPlace() {
-  const tz = -(clawDepth() * clawZ) + 'px';
-  $('clawUnit').style.left = clawX + '%';
-  $('clawUnit').style.setProperty('--tz', tz);
-  $('clawRail').style.setProperty('--tz', tz);
-}
-
-function clawTick() {
-  if (!clawDx && !clawDz) { clawRaf = 0; return; }   // 놓으면 루프도 같이 끝난다
-  clawX = Math.min(CLAW_MAX, Math.max(CLAW_MIN, clawX + clawDx * CLAW_SPEED));
-  clawZ = Math.min(1, Math.max(0, clawZ + clawDz * CLAW_ZSPEED));
-  clawPlace();
-  clawRaf = requestAnimationFrame(clawTick);
-}
-
-function clawStop() {
-  clawDx = 0; clawDz = 0;
-  if (clawRaf) cancelAnimationFrame(clawRaf);
-  clawRaf = 0;
-  $('clawStick').className = 'stick';
-  Object.values(CLAW_ARROWS).forEach((id) => $(id).classList.remove('on'));
-}
-// 위 고전 스크립트의 ptShow 가 화면을 넘길 때 부른다.
-window.clawStop = clawStop;
-
-/**
- * dx: -1 왼쪽 · 1 오른쪽 / dz: -1 앞으로 · 1 뒤로.
- *
- * 한 번에 한 방향만 간다. 대각선까지 받으면 버튼 넷으로는 낼 수 없는
- * 입력이라 키보드로 하는 사람과 손가락으로 하는 사람의 조작이 갈린다.
- */
-function clawHold(dx, dz) {
-  if (clawBusy || clawDone || $('clawPlay').classList.contains('hidden')) return;
-  if (clawDx === dx && clawDz === dz) return;
-  clawDx = dx; clawDz = dz;
-  $('clawStick').className = 'stick ' + (dx < 0 ? 'l' : dx > 0 ? 'r' : dz > 0 ? 'u' : 'd');
-  // 한쪽을 누른 채 다른 쪽을 누르면 방향은 바뀌는데 눌린 표시가 둘 다
-  // 남는다. 먼저 다 지우고 새로 켠다.
-  const on = CLAW_ARROWS[dx + ',' + dz];
-  Object.values(CLAW_ARROWS).forEach((id) => $(id).classList.toggle('on', id === on));
-  if (!clawRaf) clawRaf = requestAnimationFrame(clawTick);
-}
-
-/* ── 단어 모으기 (게임 셋이 함께 쓴다) ───────────────────────
+/* ── 단어 모으기 (스피드 퀴즈가 쓰고, gameBest/gameShuffle 은 TOPIK
+   복습 채점도 같이 쓴다) ─────────────────────────────────────
    왜 이렇게 됐는지를 돌려준다. 못 놀 때 "안 됩니다" 만 뜨면 로그인을
    해야 하는지, 단어를 더 넣어야 하는지, 잠시 뒤 다시 오면 되는지
    알 수 없다. 돌려주는 값은 'NeedLogin' | 'Few' | 'Err' | 'Play' 이고,
-   부르는 쪽이 제 화면 이름(clawFew, quizFew …)에 붙여 쓴다.
-
-   게임마다 필요한 단어 수가 다르다(짝 맞추기는 여섯 쌍). 그래서
-   최소 개수를 밖에서 받는다. */
+   부르는 쪽이 제 화면 이름(quizFew …)에 붙여 쓴다. */
 let gameWords = [];
 async function gameLoadWords(min) {
   try {
@@ -11402,486 +11302,6 @@ function gameBest(key, score) {
 function gameBestRead(key) {
   try { return parseInt(localStorage.getItem(key), 10) || 0; } catch (e) { return 0; }
 }
-
-async function clawLoadPool() {
-  const where = await gameLoadWords(CLAW_DOLLS);
-  if (where === 'Play') clawPool = gameWords;
-  return 'claw' + where;
-}
-
-/* 한 판에 놓을 인형 수. 좁은 화면에서는 셋만 놓는다.
-   360px 에서 넷을 놓으면 인형 중심 사이가 74px 밖에 안 되어
-   "perseverance" 같은 이름표가 단어 중간에서 끊긴다. 못 읽는 이름표는
-   게임을 망가뜨리지만, 셋 중에 고르는 것은 조금 쉬워질 뿐이다.
-   (단어가 넷 이상 있어야 한다는 조건은 그대로 둔다 — 화면을 돌리거나
-   창을 늘렸을 때 갑자기 못 놀게 되면 그게 더 이상하다.) */
-const clawCount = () => (matchMedia('(max-width:759px)').matches ? 3 : CLAW_DOLLS);
-
-// ── 한 판 깔기 ───────────────────────────────────────────────
-function clawDeal() {
-  const idx = [...clawPool.keys()];
-  for (let i = idx.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [idx[i], idx[j]] = [idx[j], idx[i]];
-  }
-
-  const want = clawCount();
-  const pick = [];
-  for (const i of idx) {
-    const w = clawPool[i];
-    // 같은 이름표가 둘이면 어느 것을 뽑아도 맞아 버려 문제가 성립하지 않는다.
-    if (pick.some((p) => p.word === w.word)) continue;
-    pick.push(w);
-    if (pick.length === want) break;
-  }
-
-  clawTarget = pick[Math.floor(Math.random() * pick.length)];
-
-  /* 가로로 고르게 벌려 놓고 앞줄·뒷줄을 번갈아 준다.
-     같은 x 에 앞뒤로 겹쳐 놓으면 뒤엣것의 이름표가 앞 인형 몸에 가려
-     안 읽힌다. 지그재그로 두면 다 읽히고, 무더기도 더 그럴듯해진다.
-
-     맨 왼쪽을 뒷줄에 주는 것은 앞쪽 왼편이 출구 자리라서다. */
-  const n = pick.length;
-  const lo = CLAW_MIN + 2, hi = CLAW_MAX - 2;
-  const step = n > 1 ? (hi - lo) / (n - 1) : 0;
-  const machine = $('clawMachine');
-  const stage = $('clawStage');
-  const depth = clawDepth();
-  machine.querySelectorAll('.doll').forEach((d) => d.remove());
-
-  pick.forEach((w, i) => {
-    const at = { x: n > 1 ? lo + step * i : 50, row: i % 2 === 0 ? 1 : 0 };
-    const el = document.createElement('div');
-    el.className = 'doll';
-    el.style.left = at.x + '%';
-    el.style.bottom = CLAW_FLOOR_Y + 'px';
-    // 깊이만 준다. 크기도 위치도 원근이 알아서 맞춘다.
-    el.style.setProperty('--tz', -(depth * CLAW_ROW_Z[at.row]) + 'px');
-    el.dataset.z = CLAW_ROW_Z[at.row];
-    el.dataset.row = at.row;
-    // 치즈와 감자를 번갈아 놓는다. 같은 것만 넷이면 무더기가 심심하다.
-    el.innerHTML =
-      '<div class="doll-body ' + (i % 2 ? 'potato' : 'cheese') + '">' +
-        '<i class="doll-dot a"></i><i class="doll-dot b"></i>' +
-        '<i class="doll-blush l"></i><i class="doll-blush r"></i>' +
-        '<span class="doll-face"><i class="doll-eye"></i><i class="doll-eye"></i></span>' +
-        '<span class="doll-mouth"></span>' +
-      '</div><span class="doll-tag"></span><i class="doll-shade"></i>';
-    // 사람이 넣은 글이다. innerHTML 로 넣으면 내 단어가 태그가 된다.
-    el.querySelector('.doll-tag').textContent = w.word;
-    // 무대 안에 넣어야 같은 원근을 받는다. 기계에 바로 붙이면
-    // 유리 바깥에 평면으로 떠 버린다.
-    stage.appendChild(el);
-  });
-}
-
-// ── 집기 ─────────────────────────────────────────────────────
-function clawGo() {
-  if (clawBusy || clawDone) return;
-  clawBusy = true;
-  clawStop();
-  $('clawGrab').disabled = true;
-  clawSay('', '');
-  clawScreen('', t('내려갑니다', 'LOWERING'));
-
-  const machine = $('clawMachine');
-  const unit = $('clawUnit');
-
-  /* 가로와 깊이를 함께 본다. 각 축을 저마다의 허용 거리로 나눠서 재면
-     "가로로는 멀지만 깊이로는 딱" 같은 애매한 경우가 한 값으로 정리된다. */
-  let hit = null, best = Infinity;
-  for (const el of machine.querySelectorAll('.doll')) {
-    const dx = (parseFloat(el.style.left) - clawX) / CLAW_CATCH;
-    const dz = (parseFloat(el.dataset.z) - clawZ) / CLAW_ZCATCH;
-    const d = dx * dx + dz * dz;
-    if (d < best) { best = d; hit = el; }
-  }
-  if (best > 1) hit = null;                          // 둘 다 안 닿으면 빈손
-
-  /* 줄 길이는 깊이와 상관없다. 집게와 인형이 같은 Z 면 위에 있으므로
-     그 면 안에서만 재면 되고, 화면에서 얼마나 짧아 보일지는 원근이
-     알아서 줄인다. 예전에는 이걸 손으로 보정하느라 식이 길었다. */
-  const h = machine.clientHeight;
-  const cord = $('clawCord');
-  const dollH = clawDollH();
-  const reach = h - CLAW_RAIL_TOP - CLAW_HEAD_H - CLAW_FLOOR_Y - dollH;
-
-  cord.style.height = reach + 'px';                   // 내려간다
-  setTimeout(() => {                                  // 오므린다
-    unit.classList.add('shut');
-    if (hit) hit.style.left = clawX + '%';
-  }, 470);
-  setTimeout(() => {                                  // 올라온다
-    cord.style.height = CLAW_RAIL_TOP + 'px';
-    if (hit) hit.style.bottom = (h - CLAW_RAIL_TOP - CLAW_HEAD_H - dollH) + 'px';
-  }, 700);
-  setTimeout(() => clawJudge(hit), 1260);
-}
-
-/**
- * 뽑은 인형을 출구까지 옮겨 떨어뜨린다.
- *
- * 집자마자 사라지게 두면 "뽑았다" 는 실감이 안 난다. 기계가 손님 앞으로
- * 물건을 날라다 주는 그 몇 초가 인형뽑기의 값이다.
- */
-function clawDeliver(doll) {
-  $('clawUnit').classList.add('carry');
-  clawX = CLAW_EXIT_X; clawZ = CLAW_EXIT_Z;
-  clawPlace();
-  doll.style.left = CLAW_EXIT_X + '%';
-
-  // 인형도 집게를 따라 앞으로 나온다 — 같은 Z 에 있어야 매달린 것으로 보인다.
-  doll.style.setProperty('--tz', '0px');
-
-  setTimeout(() => {
-    $('clawUnit').classList.remove('shut');           // 놓는다
-    doll.style.bottom = '10px';
-    // 크기는 transform 전체가 아니라 --s 로만 건드린다. 통째로 덮으면
-    // 깊이(--tz)까지 지워져 인형이 순간 튄다.
-    doll.style.setProperty('--s', '.45');
-    doll.classList.add('won');                        // 구멍으로 사라진다
-  }, 620);
-}
-
-function clawJudge(hit) {
-  const answer = clawTarget.word;
-  const got = hit ? hit.querySelector('.doll-tag').textContent : null;
-
-  if (got === answer) {
-    clawScore++;
-    clawDeliver(hit);
-    clawSay('good', t('맞았어요! 🎉', 'Got it! 🎉'));
-    clawScreen('win', 'WINNER!');
-  } else if (got) {
-    clawSay('bad', t(`아쉬워요 — 정답은 “${answer}” 였어요.`,
-                     `So close — the answer was “${answer}”.`));
-    clawScreen('miss', 'TRY AGAIN');
-  } else {
-    // 양옆만 맞추고 앞뒤를 안 맞춘 경우가 대부분이다. 그 얘기를 해 준다.
-    clawSay('bad', t('빈손이에요. 양옆뿐 아니라 앞뒤(▲▼)도 인형에 맞춰 보세요.',
-                     'Empty claw — match the depth (▲▼) too, not just left and right.'));
-    clawScreen('miss', 'MISSED');
-  }
-  clawPills();
-
-  // 맞았으면 출구까지 옮겨 떨어뜨리는 시간을 더 준다. 그 장면이
-  // 이 게임의 상이라 잘라 먹으면 뽑은 맛이 안 난다.
-  setTimeout(() => {
-    $('clawUnit').classList.remove('shut');
-    if (clawRound >= CLAW_ROUNDS) clawFinish();
-    else clawNext();
-  }, got === answer ? 2100 : 1500);
-}
-
-// ── 판 넘기기 ────────────────────────────────────────────────
-function clawNext() {
-  clawRound++;
-  // 출구까지 실어 나른 뒤라면 집게가 왼쪽 구석에 서 있다. 가운데로
-  // 되돌려 어느 줄이든 같은 거리에서 시작하게 한다.
-  $('clawUnit').classList.remove('carry');
-  clawX = 50; clawZ = 0;
-  clawPlace();
-  clawDeal();
-  clawPills();
-  $('clawTarget').textContent = clawTarget.meaning;
-  clawSay('', '');
-  clawScreen('', 'READY');
-  clawBusy = false;
-  $('clawGrab').disabled = false;
-}
-
-function clawFinish() {
-  clawDone = true;
-  clawStop();
-  // 최고 기록은 이 기기에만 남긴다. 서버에 표를 하나 더 두고 지킬 만큼
-  // 중한 값이 아니고, 로그인 없이도 다음에 볼 수 있으면 그만이다.
-  try {
-    if (clawScore > (parseInt(localStorage.getItem(CLAW_BEST_KEY), 10) || 0)) {
-      localStorage.setItem(CLAW_BEST_KEY, String(clawScore));
-    }
-  } catch (e) { /* 저장을 막아 둔 브라우저 — 기록만 없을 뿐 게임은 멀쩡하다 */ }
-  clawSyncBest();    // 방금 세운 기록이 그 자리에서 보여야 한다
-  clawPanel('clawOver');
-  clawSyncOver();
-}
-
-async function clawStart() {
-  clawStop();
-  clawDone = false; clawBusy = true;
-  clawRound = 0; clawScore = 0;
-  clawX = 50; clawZ = 0;
-  $('clawUnit').classList.remove('shut', 'carry');
-  clawPlace();
-  $('clawCord').style.height = CLAW_RAIL_TOP + 'px';
-  $('clawGrab').disabled = true;
-  clawSay('', '');
-  clawScreen('', 'READY');
-  clawSyncStatic();
-
-  /* 판을 시작할 때마다 다시 읽는다. 한 번 읽어 두면 앱에서 방금 넣은
-     단어가 안 나오고, 그 사이 세션이 끊겨도 계속 놀 수 있는 것처럼
-     보인다. 조회 한 번 값이라 아낄 이유가 없다. */
-  clawPanel('clawLoading');
-  const where = await clawLoadPool();
-  // 로그인이 필요하거나, 단어가 모자라거나, 못 읽었다.
-  if (where !== 'clawPlay') { clawPanel(where); return; }
-
-  clawPanel('clawPlay');
-  clawNext();
-}
-
-// ── 글 ───────────────────────────────────────────────────────
-function clawSay(kind, text) {
-  const el = $('clawMsg');
-  el.className = 'claw-msg' + (kind ? ' ' + kind : '');
-  el.textContent = text;
-}
-
-function clawPills() {
-  $('clawRound').textContent = `${Math.min(clawRound, CLAW_ROUNDS)} / ${CLAW_ROUNDS}`;
-  $('clawScore').textContent = `🧀 ${clawScore}`;
-}
-
-/** 전광판. kind 는 '' | 'win' | 'miss'. */
-function clawScreen(kind, text) {
-  $('clawScreen').className = 'cab-screen' + (kind ? ' ' + kind : '');
-  $('clawScreenTxt').textContent = text;
-}
-
-function clawSyncBest() {
-  let best = 0;
-  try { best = parseInt(localStorage.getItem(CLAW_BEST_KEY), 10) || 0; } catch (e) {}
-  const el = $('clawBest');
-  el.classList.toggle('hidden', best <= 0);
-  el.textContent = t(`최고 ${best} / ${CLAW_ROUNDS}`, `Best ${best} / ${CLAW_ROUNDS}`);
-}
-
-/* 판과 무관하게 언어만 따라가는 글. applyLang 은 [data-en] 의 innerHTML 을
-   통째로 바꾸므로 여기 글에는 data-en 을 달 수 없다. */
-function clawSyncStatic() {
-  $('clawBackTxt').textContent = t('게임', 'Games');
-  $('clawAskLabel').textContent = t('이 뜻을 가진 단어를 뽑으세요', 'Grab the word for this meaning');
-  $('clawAgain').textContent = t('다시 하기', 'Play again');
-  $('clawToGames').textContent = t('다른 게임 보기', 'Other games');
-  $('clawNote').textContent = t('◀ ▶ ▲ ▼ 로 앞뒤·양옆을 맞추고 LOWER CLAW 를 누르세요. 뽑은 인형은 출구로 나옵니다.',
-                                'Line it up with ◀ ▶ ▲ ▼, then press LOWER CLAW. What you catch drops out the chute.');
-  clawSyncBest();
-}
-
-function clawSyncOver() {
-  const all = clawScore === CLAW_ROUNDS;
-  $('clawOverEmoji').textContent = all ? '🏆' : clawScore >= 3 ? '🧸' : '🥔';
-  $('clawOverScore').textContent = `${clawScore} / ${CLAW_ROUNDS}`;
-  $('clawOverLine').textContent = all
-    ? t('전부 뽑았어요. 단어가 손에 붙었네요.', 'A clean sweep — those words are yours.')
-    : clawScore >= 3
-      ? t('잘하고 있어요. 한 판 더 해볼까요?', 'Nicely done. One more round?')
-      : t('괜찮아요. 틀린 단어일수록 오래 남아요.', 'No worries — the ones you miss are the ones you remember.');
-}
-
-$('gcClaw').addEventListener('click', () => { open('claw'); clawStart(); });
-$('clawGoLogin').addEventListener('click', () => open('account'));
-$('clawGoLib').addEventListener('click', () => { open('library'); loadLibrary(); });
-$('clawRetry').addEventListener('click', () => clawStart());
-$('clawBack').addEventListener('click', () => open('games'));
-$('clawToGames').addEventListener('click', () => open('games'));
-$('clawAgain').addEventListener('click', () => clawStart());
-$('clawGrab').addEventListener('click', clawGo);
-$('clawStart').addEventListener('click', () => clawStart());
-
-/* ── 조작 ────────────────────────────────────────────────────
-   누르고 있는 동안 움직이고 놓으면 선다. pointer 이벤트 하나로 마우스와
-   손가락을 같이 받는다. pointerleave·pointercancel 까지 놓아 주지 않으면
-   버튼 밖에서 손을 떼었을 때 집게가 계속 달린다. */
-Object.entries(CLAW_ARROWS).forEach(([dir, id]) => {
-  const [dx, dz] = dir.split(',').map(Number);
-  const el = $(id);
-  el.addEventListener('pointerdown', (e) => { e.preventDefault(); clawHold(dx, dz); });
-  ['pointerup', 'pointerleave', 'pointercancel'].forEach((k) => el.addEventListener(k, clawStop));
-});
-// 창을 벗어나면 손을 뗀 것으로 본다(탭 전환 등).
-addEventListener('blur', clawStop);
-
-// 위/아래 키는 앞뒤다. ▲ 가 뒤(멀어짐)인 것은 화면에서 위가 안쪽이라서다.
-const CLAW_KEYS = { ArrowLeft: [-1, 0], ArrowRight: [1, 0], ArrowUp: [0, 1], ArrowDown: [0, -1] };
-
-addEventListener('keydown', (e) => {
-  if (!showing('clawView') || $('clawPlay').classList.contains('hidden')) return;
-  if (e.target.closest('input, textarea, select')) return;
-  const dir = CLAW_KEYS[e.key];
-  if (dir) { e.preventDefault(); clawHold(dir[0], dir[1]); return; }
-  if (e.code === 'Space') {
-    // 버튼에 초점이 있으면 브라우저가 이미 누름으로 바꿔 준다. 두 번 집지 않는다.
-    if (e.target.closest('button')) return;
-    e.preventDefault();
-    clawGo();
-  }
-});
-addEventListener('keyup', (e) => { if (CLAW_KEYS[e.key]) clawStop(); });
-
-/* ══ 게임 : 짝 맞추기 ══════════════════════════════════════════
-   여섯 쌍, 열두 장. 단어 카드와 뜻 카드를 짝지어 뒤집는다.
-
-   점수는 맞힌 수가 아니라 **뒤집은 횟수**다. 열두 장이니 언젠가는
-   다 맞는다 — 재미는 "몇 번 만에 끝냈나" 에 있고, 적을수록 잘한 것이다.
-   그래서 최고 기록도 가장 작은 값을 남긴다. */
-
-const MT_PAIRS = 6;
-const MT_BEST_KEY = 'matchBest';
-
-let mtCards = [], mtOpen = [];
-let mtLeft = 0, mtFlips = 0, mtBusy = false, mtDone = false;
-
-const MT_PANELS = ['matchLoading', 'matchNeedLogin', 'matchFew', 'matchErr', 'matchPlay', 'matchOver'];
-function mtPanel(name) { MT_PANELS.forEach((k) => $(k).classList.toggle('hidden', k !== name)); }
-
-async function mtStart() {
-  mtDone = false; mtBusy = true; mtFlips = 0; mtOpen = [];
-  mtSyncStatic();
-  mtPanel('matchLoading');
-  // 판마다 다시 읽는다. 앱에서 방금 넣은 단어가 안 나오면 고장으로 보인다.
-  const where = await gameLoadWords(MT_PAIRS);
-  if (where !== 'Play') { mtPanel('match' + where); return; }
-  mtPanel('matchPlay');
-  mtDeal();
-}
-
-function mtDeal() {
-  const pick = [];
-  for (const w of gameShuffle(gameWords)) {
-    // 같은 단어가 두 쌍이면 어느 것과 맞춰도 맞아 버린다.
-    if (pick.some((p) => p.word === w.word || p.meaning === w.meaning)) continue;
-    pick.push(w);
-    if (pick.length === MT_PAIRS) break;
-  }
-
-  const cards = [];
-  pick.forEach((w, i) => {
-    cards.push({ pair: i, kind: 'word', text: w.word });
-    cards.push({ pair: i, kind: 'mean', text: w.meaning });
-  });
-  mtCards = gameShuffle(cards);
-  mtLeft = pick.length;
-
-  const grid = $('matchGrid');
-  grid.textContent = '';
-  mtCards.forEach((c) => {
-    const b = document.createElement('button');
-    b.type = 'button';
-    b.className = 'mt-card';
-    b.innerHTML = '<span class="mt-inner">' +
-      '<span class="mt-face mt-back">🧀</span>' +
-      '<span class="mt-face mt-front"></span></span>';
-    const front = b.querySelector('.mt-front');
-    if (c.kind === 'mean') front.classList.add('mean');
-    // 사람이 넣은 글이다. innerHTML 로 넣으면 내 단어가 태그가 된다.
-    front.textContent = c.text;
-    b.addEventListener('click', () => mtFlip(c));
-    c.el = b;
-    grid.appendChild(b);
-  });
-
-  mtBusy = false;
-  mtSay('', '');
-  mtCount();
-}
-
-function mtFlip(c) {
-  if (mtBusy || mtDone || c.done || mtOpen.includes(c)) return;
-  c.el.classList.add('open');
-  mtOpen.push(c);
-  if (mtOpen.length < 2) return;
-
-  mtFlips++;
-  const [a, b] = mtOpen;
-
-  if (a.pair === b.pair) {
-    a.done = b.done = true;
-    a.el.classList.add('done'); b.el.classList.add('done');
-    a.el.disabled = b.el.disabled = true;
-    mtOpen = [];
-    mtLeft--;
-    mtSay('good', t('짝을 찾았어요!', 'Pair found!'));
-    mtCount();
-    if (mtLeft === 0) setTimeout(mtFinish, 800);
-    return;
-  }
-
-  // 틀린 짝은 잠깐 보여 주고 덮는다. 바로 덮으면 무엇이었는지 못 본다.
-  mtBusy = true;
-  mtSay('bad', t('짝이 아니에요.', 'Not a pair.'));
-  mtCount();
-  setTimeout(() => {
-    a.el.classList.remove('open');
-    b.el.classList.remove('open');
-    mtOpen = []; mtBusy = false;
-    mtSay('', '');
-  }, 900);
-}
-
-function mtFinish() {
-  mtDone = true;
-  try {
-    const had = parseInt(localStorage.getItem(MT_BEST_KEY), 10) || 0;
-    // 적을수록 잘한 것이라 최솟값을 남긴다.
-    if (!had || mtFlips < had) localStorage.setItem(MT_BEST_KEY, String(mtFlips));
-  } catch (e) { /* 저장을 막아 둔 브라우저 — 기록만 없을 뿐 게임은 멀쩡하다 */ }
-  mtSyncBest();      // 방금 세운 기록이 그 자리에서 보여야 한다
-  mtPanel('matchOver');
-  mtSyncOver();
-}
-
-function mtSyncBest() {
-  const best = gameBestRead(MT_BEST_KEY);
-  $('matchBest').classList.toggle('hidden', best <= 0);
-  $('matchBest').textContent = t(`최소 ${best}번`, `Best ${mtTurn(best)}`);
-}
-
-function mtSay(kind, text) {
-  const el = $('matchMsg');
-  el.className = 'claw-msg' + (kind ? ' ' + kind : '');
-  el.textContent = text;
-}
-
-// 영어는 하나일 때 s 가 빠진다. "1 pairs left" 는 눈에 걸린다.
-const mtPair = (n) => (n === 1 ? '1 pair' : `${n} pairs`);
-const mtTurn = (n) => (n === 1 ? '1 turn' : `${n} turns`);
-
-function mtCount() {
-  $('matchLeft').textContent = t(`${mtLeft}쌍 남았어요`, `${mtPair(mtLeft)} left`);
-  $('matchLabel').textContent = t(`같은 뜻끼리 짝지으세요 · 뒤집은 횟수 ${mtFlips}`,
-                                  `Match each word with its meaning · ${mtTurn(mtFlips)}`);
-}
-
-function mtSyncStatic() {
-  $('matchBackTxt').textContent = t('게임', 'Games');
-  $('matchAgain').textContent = t('다시 하기', 'Play again');
-  $('matchToGames').textContent = t('다른 게임 보기', 'Other games');
-  $('matchNote').textContent = t('카드를 눌러 뒤집으세요. 단어는 내 단어장에서 옵니다.',
-                                 'Tap a card to turn it over. The words come from your wordbook.');
-  mtSyncBest();
-  if (!$('matchPlay').classList.contains('hidden')) mtCount();
-}
-
-function mtSyncOver() {
-  const perfect = mtFlips === MT_PAIRS;   // 한 번도 안 틀렸다
-  $('matchOverEmoji').textContent = perfect ? '🏆' : mtFlips <= MT_PAIRS * 2 ? '🃏' : '🥔';
-  $('matchOverScore').textContent = t(`${mtFlips}번`, mtTurn(mtFlips));
-  $('matchOverLine').textContent = perfect
-    ? t('한 번도 안 틀렸어요. 다 외우고 있었네요.', 'Not one wrong turn — you knew them all.')
-    : mtFlips <= MT_PAIRS * 2
-      ? t('좋아요. 다음엔 더 줄여 볼까요?', 'Nice. Think you can do it in fewer?')
-      : t('괜찮아요. 헤맨 카드일수록 오래 남아요.', 'The ones you hunted for are the ones that stick.');
-}
-
-$('gcMatch').addEventListener('click', () => { open('match'); mtStart(); });
-$('matchGoLogin').addEventListener('click', () => open('account'));
-$('matchGoLib').addEventListener('click', () => { open('library'); loadLibrary(); });
-$('matchRetry').addEventListener('click', () => mtStart());
-$('matchBack').addEventListener('click', () => open('games'));
-$('matchToGames').addEventListener('click', () => open('games'));
-$('matchAgain').addEventListener('click', () => mtStart());
 
 /* ══ 게임 : 스피드 퀴즈 ════════════════════════════════════════
    60초 동안 뜻을 보고 단어를 고른다.
@@ -12584,3 +12004,9 @@ if (params.get('error')) {
    loadAccount / loadLibrary / loadDashboard 가 다 있다. 바로 위의 구글 복귀가
    화면을 정했으면 그쪽이 이미 주소에 남겼으므로 같은 화면이 다시 열릴 뿐이다. */
 window.cpStart();
+/* 주소 없이 그냥 들어온 사람(가장 흔한 경우)은 cpStart 가 아무 화면도
+   안 연다 — homeView 는 애초에 정적 HTML에서부터 보이는 중이라 open()
+   도 ptShow() 도 안 거친다. 그래서 여기서 한 번 더, 지금 홈이 보이고
+   있는지만 보고 채운다. 이미 다른 길로 채워졌어도 다시 불러 봤자
+   같은 결과라 해될 게 없다. */
+if (!$('homeView').classList.contains('hidden')) wotdRender();
