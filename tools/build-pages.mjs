@@ -943,6 +943,20 @@ const DICT_HEADS = [...new Map(
   Object.values(GLOSSARY).map((v) => [v.head, v])
 ).values()].sort((a, b) => a.head.localeCompare(b.head, 'ko'));
 
+/* ── 오늘의 단어 자료 ────────────────────────────────────────────
+   홈 화면 "오늘의 단어" 카드가 읽는 조그만 자료다. 사전 전체(GLOSSARY,
+   363KB)를 그냥 불러오면 낱말 하나 보여주자고 큰 파일을 통째로 받는
+   꼴이라, 표제어·품사·짧은 뜻풀이 하나만 추려 따로 낸다.
+
+   뜻풀이 고르는 규칙은 wordPage() 의 본문과 같다(뜻풀이가 있으면 그
+   첫 뜻, 없으면 영어 뜻) — 사전 쪽에서 본 낱말과 홈에서 본 낱말의
+   뜻이 다르면 안 된다. */
+function wotdGloss(entry) {
+  const senses = SENSES[entry.head];
+  if (senses?.length) return senses[0][0];
+  return entry.en || t2(entry.pos);
+}
+
 /* 한글 초성 — 사전 목록을 가나다순으로 나눌 자리표다. */
 const CHO = ['ㄱ','ㄲ','ㄴ','ㄷ','ㄸ','ㄹ','ㅁ','ㅂ','ㅃ','ㅅ','ㅆ','ㅇ','ㅈ','ㅉ','ㅊ','ㅋ','ㅌ','ㅍ','ㅎ'];
 function choOf(head) {
@@ -2054,6 +2068,13 @@ DICT_HEADS.forEach((entry, i) => {
 writeFileSync(join(OUT_DICT, 'index.html'), wordHub(DICT_HEADS));
 urls.push({ loc: '/dictionary/', freq: 'monthly', pri: '0.8' });
 
+/* 오늘의 단어 자료. 사이트맵에는 안 넣는다 — 쪽이 아니라 홈 화면이
+   읽는 자료 파일이다(sentences.js·courses.js 와 같은 자리). */
+writeFileSync(join(ROOT, 'wotd.js'),
+  `/* 생성물 — tools/build-pages.mjs 가 굽는다. 손으로 고치지 말 것.\n` +
+  `   홈 화면 "오늘의 단어" 카드가 읽는다(app.module.js 의 wotdNeed). */\n` +
+  `export const WOTD_POOL = ${JSON.stringify(DICT_HEADS.map((e) => [e.head, e.pos || '', wotdGloss(e)]))};\n`);
+
 /* ── 블로그 ─────────────────────────────────────────────────── */
 /* 글이 하나도 없어도(BLOG_POSTS = []) 목록 쪽은 늘 굽는다 — 안 그러면
    나중에 글을 딱 하나 추가했을 때 목록이 아예 없어서 처음 한 번은
@@ -2107,6 +2128,6 @@ console.log(`레슨 ${nL}쪽 → lesson/`);
 console.log(`TOPIK 쓰기 ${nW}쪽 + 목록 1쪽 → topik-writing/`);
 console.log(`TOPIK 읽기 ${nR}쪽 + 목록 1쪽 → topik-reading/`);
 console.log(`TOPIK 듣기 ${nTL}쪽 + 목록 1쪽 → topik-listening/`);
-console.log(`사전 ${nDict}쪽 + 목록 1쪽 → dictionary/`);
+console.log(`사전 ${nDict}쪽 + 목록 1쪽 → dictionary/, 오늘의 단어 자료 ${DICT_HEADS.length}개 → wotd.js`);
 console.log(`블로그 ${nB}쪽 + 목록 1쪽 + 갈래 ${nBT}쪽 + rss.xml → blog/`);
 console.log(`sitemap.xml 에 주소 ${urls.length}개.`);
