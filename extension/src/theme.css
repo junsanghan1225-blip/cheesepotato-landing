@@ -1,0 +1,130 @@
+/* 사이트와 같은 색·모양. index.html 의 토큰을 그대로 가져왔다.
+ *
+ * 익스텐션과 사이트를 오가는 사람에게 두 곳이 다른 물건으로 보이면 안 된다.
+ * 색을 새로 고르지 않고 베낀 까닭이 그것이다 — 사이트가 색을 바꾸면 여기도
+ * 같이 바꾼다(자동으로 따라가지는 않는다. 여기는 CSS 라 구울 것이 없다).
+ *
+ * ── 글꼴은 안 싣는다 ────────────────────────────────────────
+ * 사이트 본문은 Pretendard 를 쓰지만 vendor/pretendard 가 3.1MB 다. 이걸
+ * 실으면 익스텐션이 두 배가 넘게 무거워진다. 정적 쪽이 이미 같은 까닭으로
+ * 기기 글꼴을 쓰기로 했고(README 「검색에 걸리게 하는 것」), 여기도 그
+ * 판단을 따른다. 팝업은 하루에도 수십 번 여는 것이라 즉시 그려지는 편이
+ * 낫다. */
+
+:root {
+  --bg:        #F2EEE4;
+  --bg-rgb:    242,238,228;
+  --surface:   #FFFFFF;
+  --surface-2: #FBF8F1;
+  --tint:      #FDF0E2;
+  --ink-bg:    #1B1512;
+
+  --ink:   #1B1512;
+  --ink-2: #4E3E31;
+  --ink-3: #8C7A66;
+  --ink-rgb: 27,21,18;
+
+  --orange:      #FF914D;
+  --orange-mid:  #E1682B;
+  --orange-deep: #C4551C;
+  --yellow:      #F0C24B;
+  --green:       #12704F;
+  --red:         #C43D34;
+
+  --line:   rgba(var(--ink-rgb),.11);
+  --line-2: rgba(var(--ink-rgb),.06);
+
+  --r-s: 8px; --r: 12px; --r-l: 18px; --r-xl: 26px;
+
+  color-scheme: light dark;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg:        #17130F;
+    --bg-rgb:    23,19,15;
+    --surface:   #221C17;
+    --surface-2: #1C1712;
+    --tint:      #2E2015;
+    --ink-bg:    #2A2119;
+
+    --ink:   #F2EAE0;
+    --ink-2: #CBB8A6;
+    --ink-3: #9C8973;
+    --ink-rgb: 242,234,224;
+
+    --orange:      #FF9E5C;
+    --orange-mid:  #FF8A47;
+    --orange-deep: #FFA05E;
+    --green:       #3FBF8F;
+    --red:         #E1594E;
+  }
+}
+:root[data-theme="dark"] {
+  --bg:        #17130F;
+  --bg-rgb:    23,19,15;
+  --surface:   #221C17;
+  --surface-2: #1C1712;
+  --tint:      #2E2015;
+  --ink-bg:    #2A2119;
+
+  --ink:   #F2EAE0;
+  --ink-2: #CBB8A6;
+  --ink-3: #9C8973;
+  --ink-rgb: 242,234,224;
+
+  --orange:      #FF9E5C;
+  --orange-mid:  #FF8A47;
+  --orange-deep: #FFA05E;
+  --green:       #3FBF8F;
+  --red:         #E1594E;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Malgun Gothic',
+                 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif; }
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: var(--orange-deep); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+button {
+  font: inherit; color: inherit; cursor: pointer;
+  background: none; border: 0;
+}
+
+/* 눌러서 옮겨 다니는 사람이 지금 어디 있는지 보이게. 익스텐션 팝업은
+   좁아서 마우스 없이 쓰는 사람이 적지 않다. */
+:focus-visible { outline: 2px solid var(--orange-mid); outline-offset: 2px; border-radius: 4px; }
+
+/* ── 여러 화면이 같이 쓰는 조각 ──────────────────────────────── */
+
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 6px;
+  padding: 8px 14px; border-radius: 999px; font-size: 13px; font-weight: 600;
+  background: var(--ink); color: var(--bg);
+  transition: transform .12s cubic-bezier(.22,1,.36,1), opacity .12s;
+}
+.btn:hover { opacity: .88; }
+.btn:active { transform: scale(.97); }
+.btn.ghost { background: transparent; color: var(--ink-2); border: 1px solid var(--line); }
+.btn.ghost:hover { background: rgba(var(--ink-rgb),.05); opacity: 1; }
+.btn.warm { background: var(--orange-mid); color: #fff; }
+
+/* 급수 딱지. 사이트의 초급·중급·고급 색을 그대로 쓴다. */
+.lv {
+  display: inline-block; padding: 2px 8px; border-radius: 999px;
+  font-size: 11px; font-weight: 700; letter-spacing: .02em;
+}
+.lv.beginner     { background: rgba(18,112,79,.13);  color: var(--green); }
+.lv.intermediate { background: rgba(225,104,43,.14); color: var(--orange-deep); }
+.lv.advanced     { background: rgba(196,61,52,.13);  color: var(--red); }
+
+.muted { color: var(--ink-3); }
+.ko { word-break: keep-all; }

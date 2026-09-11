@@ -1,0 +1,6 @@
+{
+  "name":       { "message": "Cheesepotato — Korean dictionary & grammar" },
+  "desc":       { "message": "Select Korean on any page to see the word's meaning, an example and the grammar inside the sentence. Offline, no sign-up." },
+  "cmdPopup":   { "message": "Open Cheesepotato" },
+  "cmdGrammar": { "message": "Underline known grammar on this page" }
+}

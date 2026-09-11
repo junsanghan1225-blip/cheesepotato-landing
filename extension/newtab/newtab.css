@@ -1,0 +1,109 @@
+/* 새 탭. 하루에 수십 번 열리는 쪽이라 조용해야 한다 —
+   눈에 띄려고 만든 쪽이 아니라 눈에 익어야 하는 쪽이다. */
+
+body { min-height: 100vh; display: flex; flex-direction: column; }
+
+.bar {
+  display: flex; align-items: center; gap: 12px;
+  padding: 16px 20px; flex-wrap: wrap;
+}
+.brand {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-weight: 700; font-size: 14px; color: var(--ink); text-decoration: none;
+}
+.brand:hover { text-decoration: none; opacity: .8; }
+.bar-r { margin-left: auto; display: flex; gap: 6px; align-items: center; }
+.pill {
+  padding: 6px 12px; border-radius: 999px; font-size: 12.5px; font-weight: 600;
+  color: var(--ink-2); background: transparent; border: 1px solid transparent;
+  text-decoration: none;
+}
+.pill:hover { background: rgba(var(--ink-rgb),.06); text-decoration: none; }
+#reviewBtn { color: #fff; background: var(--orange-mid); }
+#reviewBtn:hover { background: var(--orange-deep); }
+
+main {
+  flex: 1; display: flex; align-items: center; justify-content: center;
+  padding: 12px 20px 40px;
+}
+
+.card {
+  width: 100%; max-width: 620px;
+  background: var(--surface); border: 1px solid var(--line);
+  border-radius: var(--r-xl); padding: 34px 34px 26px;
+  box-shadow: 0 2px 20px rgba(var(--ink-rgb),.05);
+  animation: rise .22s cubic-bezier(.22,1,.36,1);
+}
+@keyframes rise { from { opacity: 0; transform: translateY(8px) } }
+
+.skel { width: 100%; max-width: 620px; height: 300px;
+  border-radius: var(--r-xl); background: var(--surface); border: 1px solid var(--line); }
+
+.top { display: flex; align-items: center; gap: 9px; margin-bottom: 14px; flex-wrap: wrap; }
+.cat { font-size: 12px; font-weight: 600; color: var(--ink-3); }
+
+.name {
+  font-size: 30px; font-weight: 800; letter-spacing: -.01em;
+  word-break: keep-all; line-height: 1.28;
+}
+.name .pos { font-size: 13px; font-weight: 600; color: var(--ink-3); margin-left: 9px; }
+.desc { margin-top: 9px; color: var(--ink-2); font-size: 15px; word-break: keep-all; }
+
+.ex {
+  margin-top: 20px; padding: 15px 17px; background: var(--tint);
+  border-radius: var(--r-l); position: relative;
+}
+.ex .ko { font-size: 17px; font-weight: 600; padding-right: 34px; }
+.ex .en { margin-top: 5px; color: var(--ink-2); font-size: 13.5px; }
+.ex .say { position: absolute; top: 12px; right: 12px; }
+
+.ic {
+  width: 30px; height: 30px; display: grid; place-items: center; border-radius: 9px;
+  border: 1px solid var(--line); font-size: 14px; line-height: 1; flex: none;
+  transition: background .15s, border-color .15s;
+}
+.ic:hover { background: rgba(255,145,77,.18); border-color: var(--orange); }
+.ic.on { background: var(--green); border-color: var(--green); color: #fff; }
+
+.kv { margin-top: 16px; display: grid; grid-template-columns: auto 1fr; gap: 6px 14px; font-size: 14px; }
+.kv dt { color: var(--ink-3); font-weight: 600; font-size: 12.5px; padding-top: 2px; white-space: nowrap; }
+.kv dd { word-break: keep-all; color: var(--ink-2); }
+
+details { margin-top: 14px; border-top: 1px solid var(--line-2); padding-top: 11px; }
+summary { cursor: pointer; font-size: 13px; font-weight: 600; color: var(--ink-2); list-style: none; }
+summary::-webkit-details-marker { display: none; }
+summary::before { content: '▸ '; color: var(--ink-3); }
+details[open] summary::before { content: '▾ '; }
+details .body { margin-top: 9px; font-size: 14px; color: var(--ink-2); word-break: keep-all; }
+.dlg { margin-top: 9px; display: grid; gap: 5px; font-size: 14.5px; }
+.dlg div { padding: 8px 12px; background: var(--surface-2); border-radius: var(--r); }
+
+.acts { display: flex; gap: 8px; margin-top: 24px; flex-wrap: wrap; align-items: center; }
+.acts .grow { margin-left: auto; }
+
+.foot { padding: 0 20px 22px; text-align: center; font-size: 12px; color: var(--ink-3); }
+
+/* ── 복습판 ──────────────────────────────────────────────── */
+#stage .rv { width: 100%; max-width: 620px; background: var(--surface);
+  border: 1px solid var(--line); border-radius: var(--r-xl); padding: 30px 34px 26px; }
+.rv-bar { height: 3px; background: var(--line); border-radius: 999px; overflow: hidden; }
+.rv-fill { height: 100%; background: var(--orange-mid); transition: width .25s; }
+.rv-count { margin-top: 9px; font-size: 12px; color: var(--ink-3); }
+.rv-head { display: flex; align-items: center; gap: 12px; margin-top: 14px; }
+.rv-word { font-size: 34px; font-weight: 800; word-break: keep-all; }
+.rv-box { margin-top: 4px; font-size: 12px; color: var(--ink-3); }
+.rv-gloss { font-size: 18px; margin-top: 16px; word-break: break-word; }
+.rv-pos { font-size: 12px; color: var(--ink-3); margin-top: 3px; }
+.rv-ex { margin-top: 14px; padding: 13px 15px; background: var(--tint);
+  border-radius: var(--r-l); font-size: 15px; cursor: pointer; }
+.rv-en { margin-top: 4px; font-size: 13px; color: var(--ink-2); }
+.rv-link { display: inline-block; margin-top: 12px; font-size: 13px; font-weight: 600; }
+.rv-acts { display: flex; gap: 8px; margin-top: 22px; }
+.rv-empty { font-size: 19px; font-weight: 700; }
+.rv-note { margin-top: 7px; color: var(--ink-3); font-size: 13.5px; word-break: keep-all; }
+
+@media (max-width: 560px) {
+  .card, #stage .rv { padding: 24px 20px 20px; }
+  .name { font-size: 25px; }
+  .rv-word { font-size: 28px; }
+}
