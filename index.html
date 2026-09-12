@@ -115,13 +115,13 @@
      Pretendard 는 통짜(2.0MB) 대신 조각난 쪽을 쓴다 — 브라우저가
      unicode-range 를 보고 화면에 실제로 나온 글자가 든 조각만 받는다.
      그래서 저장소는 무거워졌지만 학습자가 받는 양은 오히려 줄었다. -->
-<link rel="stylesheet" href="vendor/pretendard.css?v=71874546">
-<link rel="stylesheet" href="vendor/pressstart2p.css?v=71874546">
+<link rel="stylesheet" href="vendor/pretendard.css?v=30a41b9d">
+<link rel="stylesheet" href="vendor/pressstart2p.css?v=30a41b9d">
 <!-- 화면 상자 안에서만 쓰는 CSS 는 여기서 갈라 받는다. media="print" 라
      첫 페인트를 안 막고, 다 받아지면 app.js 가 media 를 all 로 바꾼다.
      자바스크립트가 없으면 <noscript> 쪽이 그냥 평범하게 걸린다. -->
-<link id="viewsCss" rel="stylesheet" href="app-views.css?v=71874546" media="print">
-<noscript><link rel="stylesheet" href="app-views.css?v=71874546"></noscript>
+<link id="viewsCss" rel="stylesheet" href="app-views.css?v=30a41b9d" media="print">
+<noscript><link rel="stylesheet" href="app-views.css?v=30a41b9d"></noscript>
 
 <style>
 /* ══════════════════════════════════════════════════════════════
@@ -1252,6 +1252,14 @@ body.nt-full-open { overflow:hidden; }
   padding:7px 9px; border-radius:6px; cursor:pointer;
 }
 .nb-menu button:hover, .nb-menu button.on { background:rgba(var(--ink-rgb),.07); }
+/* 블록 종류 한 줄 — 종류 이름(넓게 차지)과 「예시」 단추(작게, 오른쪽)를
+   나란히 둔다. 예시 단추는 자리표시글과 달리 진짜 값을 칸에 채운다. */
+.nb-menu-row { display:flex; align-items:center; gap:2px; }
+.nb-menu-row .nb-menu-type { flex:1 1 auto; width:auto; min-width:0; }
+.nb-menu-row .nb-menu-sample {
+  flex:none; width:auto; padding:5px 8px; font-size:11px; color:var(--ink-3);
+}
+.nb-menu-row .nb-menu-sample:hover { background:rgba(var(--ink-rgb),.09); color:var(--ink-2); }
 /* 색 고르개는 동그라미를 늘어놓는다 — 이름보다 색이 빠르다. */
 .nb-swatches { display:flex; flex-wrap:wrap; gap:6px; padding:4px 9px 8px; }
 .nb-sw.on { outline:2px solid var(--orange); outline-offset:2px; }
@@ -3602,9 +3610,9 @@ body.hlp-open { overflow:hidden; }
 <div id="hlpScrim" class="hlp-scrim"></div>
 <aside id="hlpPanel" class="hlp-panel" aria-label="한국어 도우미" aria-hidden="true"></aside>
 
-<script src="app.js?v=71874546"></script>
-<script type="module" src="app.module.js?v=71874546"></script>
+<script src="app.js?v=30a41b9d"></script>
+<script type="module" src="app.module.js?v=30a41b9d"></script>
 
-<script src="analytics.js?v=71874546" defer></script>
+<script src="analytics.js?v=30a41b9d" defer></script>
 </body>
 </html>
