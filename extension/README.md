@@ -59,10 +59,16 @@ node tools/build-store-shots.mjs     # 1280×800 다섯 장 × 두 말
 - `store/shots/<말>/` — 그림. **저장소에 없다**(`.gitignore`). 진짜
   익스텐션을 크롬에 올려 찍으므로, 화면을 고치면 다시 돌려 찍을 것.
 
-개인정보 처리방침 주소로 `https://everykoreans.com/privacy.html` 를 내는데,
-**그 쪽에는 지금 익스텐션 이야기가 없다.** 안드로이드 앱의 방침을 구운
-것이다(`tools/build-privacy.js`, 원본은 앱 저장소). 올리기 전에 원본에 절을
-더하고 다시 구울 것 — 안 그러면 심사에서 걸린다.
+개인정보 처리방침 주소로 `https://everykoreans.com/privacy.html` 를 낸다. 그
+쪽은 익스텐션을 함께 다룬다 — 무엇을 모으지 않는지, 권한 셋이 왜 필요한지,
+인터넷을 쓰는 단 하나의 경우가 적혀 있다.
+
+**고칠 때는 앱 저장소의 원본을 고치고 다시 구울 것.** `privacy.html` 은
+생성물이라 손으로 고치면 다음에 구울 때 지워진다.
+
+```bash
+CHEESEPOTATO_APP=../cheesepotatoapp node tools/build-privacy.js
+```
 
 ---
 
