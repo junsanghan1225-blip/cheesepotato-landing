@@ -1074,7 +1074,26 @@
 /* 강조 칸(콜아웃). 노션의 그것 — 아이콘 하나에 옅은 바탕. */
 .nb-call .nb-inline { background:var(--tint); border-radius:var(--r); padding:9px 12px 9px 10px; }
 .nb-call .nb-mark { padding-top:4px; font-size:15px; }
+/* 문형(howto). 강조 칸과 같은 얹힌 모양이지만 색을 갈라 — "동사·형용사에
+   어떻게 붙는지"를 보여주는 자리라는 걸 색으로도 구별한다. */
+.nb-howto .nb-inline { background:rgba(74,125,181,.12); border-radius:var(--r); padding:9px 12px 9px 10px; }
+.nb-howto .nb-mark { padding-top:4px; font-size:15px; }
+.nb-howto .nb-txt { font-weight:600; }
 .nb-hr { height:1px; background:var(--line); margin:12px 6px; border-radius:1px; }
+
+/* 문답(Q&A). 치즈(질문)는 왼쪽, 감자(답)는 오른쪽 — 블로그 글의
+   대화문과 같은 자리 배치를 노트 안에서도 쓴다. */
+.nb-qa { display:flex; flex-direction:column; gap:8px; padding:4px 6px; }
+.nb-qa-line { display:flex; align-items:flex-end; gap:8px; }
+.nb-qa-a { flex-direction:row-reverse; }
+.nb-qa-who { flex:none; font-size:20px; line-height:1; padding-bottom:6px; }
+.nb-qa-bub {
+  flex:1 1 auto; min-width:0; max-width:78%; padding:9px 13px; border-radius:16px;
+  font-size:14.5px; line-height:1.65;
+}
+.nb-qa-q .nb-qa-bub { background:var(--surface-2); border:1px solid var(--line); border-bottom-left-radius:4px; }
+.nb-qa-a .nb-qa-bub { background:var(--tint); border:1px solid rgba(255,145,77,.28); border-bottom-right-radius:4px; }
+.nb-qa-bub:focus { background-color:var(--surface); box-shadow:0 0 0 2px rgba(var(--ink-rgb),.15); }
 
 /* 사진 칸. 빈 칸은 눌러서 고르는 자리, 채운 칸은 사진 + 바꾸기. 설명
    칸은 사진 밑에 작게 — 인용구처럼 덧붙이는 말이라 본문보다 옅다. */
@@ -1167,6 +1186,18 @@
   word-break:keep-all;
 }
 .ntp-call-i { flex:none; font-size:15px; line-height:1.5; }
+.ntp-howto {
+  display:flex; gap:9px; align-items:flex-start; border-radius:10px; padding:11px 14px; margin:0 0 12px;
+  word-break:keep-all; background:#E9F0F7; font-weight:600;
+}
+.ntp-howto-i { flex:none; font-size:15px; line-height:1.5; }
+.ntp-qa { display:flex; flex-direction:column; gap:6px; margin:0 0 14px; }
+.ntp-qa-q, .ntp-qa-a {
+  max-width:80%; padding:8px 12px; border-radius:12px; word-break:keep-all;
+  border:1px solid #E4DACB;
+}
+.ntp-qa-q { align-self:flex-start; background:#F7F3EC; border-bottom-left-radius:3px; }
+.ntp-qa-a { align-self:flex-end; background:#FDE7D6; border-bottom-right-radius:3px; }
 .ntp-code {
   font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:12.5px; line-height:1.6;
   background:#F1EBE3; border:1px solid #E4DACB; border-radius:8px; padding:10px 12px; margin:0 0 12px;
