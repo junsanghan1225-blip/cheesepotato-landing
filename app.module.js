@@ -13,10 +13,10 @@
    어느 날 갑자기 다른 코드가 실려 왔다.
    이제 vendor/ 안에 받아 두고 CSP 로 바깥을 막는다. 버전을 올릴 때는
    tools/vendor.mjs 의 PIN 을 고치고 다시 돌린다. */
-import { createClient } from './vendor/supabase-js.js?v=04eab4b8';
+import { createClient } from './vendor/supabase-js.js?v=1abec0d4';
 // TOPIK 읽기 "문제 풀이 영상" 목록. 아주 작은 파일이라(id 목록뿐) 다른
 // 자료처럼 갈래를 열 때 지연 로딩하지 않고 그냥 처음부터 받는다.
-import { TQ_VIDEO_IDS } from './topik-video.js?v=04eab4b8';
+import { TQ_VIDEO_IDS } from './topik-video.js?v=1abec0d4';
 // 앱(package.json)과 같은 줄기를 쓴다. 갈리면 앱에서는 읽히는 파일이
 // 여기서는 안 읽히는(또는 그 반대) 일이 생긴다.
 /* 엑셀 라이브러리는 422KB — 이 판에서 가장 무거운 조각이다. 그런데 쓰는
@@ -28,13 +28,13 @@ import { TQ_VIDEO_IDS } from './topik-video.js?v=04eab4b8';
    자국(?v=)은 tools/stamp.mjs 가 아래 줄에 알아서 붙인다 — 정적으로 쓰든
    동적으로 쓰든 같은 글자를 찾으므로 바꿔도 그대로 찍힌다. */
 let XLSX = null;
-const needXLSX = async () => (XLSX ??= await import('./vendor/xlsx.js?v=04eab4b8'));
+const needXLSX = async () => (XLSX ??= await import('./vendor/xlsx.js?v=1abec0d4'));
 // 커리큘럼. 내용과 엔진을 갈라 두면 글을 고치다 화면을 깨지 않는다.
 // 갈래 목록(drawSections)·코스(drawCourses)·문제만 풀기(dqDraw) 를 열 때만
 // 받는다 — 배우기 갈래 목록도 안 본 사람에게 코스 71개 레슨을 다 물릴
 // 까닭이 없다. warmLearn() 이 배우기를 여는 순간 미리 불을 붙여 둔다.
 let COURSES = [], coursesP = null;
-const coursesNeed = () => (coursesP ??= import('./courses.js?v=04eab4b8').then((m) => { COURSES = m.COURSES; }));
+const coursesNeed = () => (coursesP ??= import('./courses.js?v=1abec0d4').then((m) => { COURSES = m.COURSES; }));
 /* 낱말 뜻풀이 356KB. 예전에는 여기서 통째로 받았다 — tqGloss 가 동기라
    지연 로딩이 안 된다고 보았기 때문이다. 그런데 tqGloss 를 부르는 자리를
    다 세어 보니 여덟 곳이고 **전부 사람이 무언가를 누른 뒤**였다(사전
@@ -45,7 +45,7 @@ const coursesNeed = () => (coursesP ??= import('./courses.js?v=04eab4b8').then((
    tqGloss 는 그대로 동기다 — 아직 안 왔으면 빈 뜻을 돌려주고, 부르는
    쪽은 이미 "사전에 없는 말"을 다룰 줄 안다. */
 let GLOSSARY = {}, GLOSS_LANGS = {}, glossP = null;
-const glossNeed = () => (glossP ??= import('./glossary.js?v=04eab4b8').then((m) => {
+const glossNeed = () => (glossP ??= import('./glossary.js?v=1abec0d4').then((m) => {
   GLOSSARY = m.GLOSSARY; GLOSS_LANGS = m.GLOSS_LANGS;
   dictBuildEntries();
 }).catch((e) => {
@@ -53,12 +53,12 @@ const glossNeed = () => (glossP ??= import('./glossary.js?v=04eab4b8').then((m) 
   glossP = null;
   throw e;
 }));
-import { glossFind } from './gloss-find.js?v=04eab4b8';
+import { glossFind } from './gloss-find.js?v=1abec0d4';
 /* 홈 화면 "오늘의 단어" 카드. 표제어·품사·짧은 뜻풀이 3개만 든
    작은 자료라(사전 전체 356KB 와 달리) 홈에 들어오면 바로 받는다 —
    빈 카드로 몇 초 떠 있는 것보다 낫다. */
 let WOTD_POOL = [], wotdP = null;
-const wotdNeed = () => (wotdP ??= import('./wotd.js?v=04eab4b8').then((m) => {
+const wotdNeed = () => (wotdP ??= import('./wotd.js?v=1abec0d4').then((m) => {
   WOTD_POOL = m.WOTD_POOL;
 }).catch((e) => { wotdP = null; throw e; }));
 /* 그날의 낱말을 고른다. 한국 자정을 기준으로 하루씩 넘어가게
@@ -92,9 +92,9 @@ window.wotdRender = wotdRender;
    나중 화면은 그 약속(??=)을 그대로 쓴다. */
 let GRAMMAR = [], GRAMMAR_EN = {}, grammarP = null;
 const grammarNeed = () => (grammarP ??= Promise.all([
-  import('./grammar.js?v=04eab4b8'), import('./grammar-en.js?v=04eab4b8'),
+  import('./grammar.js?v=1abec0d4'), import('./grammar-en.js?v=1abec0d4'),
 ]).then(([a, b]) => { GRAMMAR = a.GRAMMAR; GRAMMAR_EN = b.GRAMMAR_EN; }));
-import { grammarScan } from './grammar-find.js?v=04eab4b8';
+import { grammarScan } from './grammar-find.js?v=1abec0d4';
 // TOPIK 쓰기·듣기 문항. 읽기(topik.js·topik2.js)와 같은 tqNeedData() 로
 // 함께 받는다 — 유형 연습(topik) 갈래 하나가 세 기술을 다 쓰므로 따로
 // 가를 까닭이 없다. 값은 tqNeedData 정의부에서 채운다.
@@ -106,7 +106,7 @@ let TOPIKL_BY_EXAM = {}, TOPIKL_PICTURE_SLOTS = {};
    sbFind 를 쓰는데, 그쪽은 안 기다리고 그냥 부른다 — 답이 못 찾은
    인용 없이 나가는 것이 채팅이 멈추는 것보다 낫다. */
 let SB_CATS = [], SB_MORE = {}, SB_SEED = {}, SB_POINTS = [], sbDataP = null;
-const sbNeed = () => (sbDataP ??= import('./sentences.js?v=04eab4b8').then((m) => {
+const sbNeed = () => (sbDataP ??= import('./sentences.js?v=1abec0d4').then((m) => {
   SB_CATS = m.SB_CATS; SB_MORE = m.SB_MORE; SB_SEED = m.SB_SEED;
   // 갈래마다 표현을 펼쳐 한 줄에 담는다 — SB_CATS 안의 점에는 갈래가 안
   // 달려 있어서(sbFind 가 표현 하나를 id 로 바로 찾으려면 이게 있어야 한다).
@@ -117,7 +117,7 @@ const sbNeed = () => (sbDataP ??= import('./sentences.js?v=04eab4b8').then((m) =
 // 숫자 게임의 읽기와 문제 만들기. 화면을 모르는 순수 계산이라 따로 뒀다.
 // 게임 목록에서 「숫자 읽기」를 시작할 때만 받는다 — XLSX 와 같은 자리다.
 let makeRound = null;
-const needNumbers = async () => (makeRound ??= (await import('./numbers.js?v=04eab4b8')).makeRound);
+const needNumbers = async () => (makeRound ??= (await import('./numbers.js?v=1abec0d4')).makeRound);
 
 // 이 키는 공개돼도 되는 값이다. 이미 APK 안에 같은 것이 들어 있고,
 // 접근을 막는 건 키가 아니라 테이블에 걸린 RLS 다.
@@ -172,8 +172,8 @@ let tqDataP = null;
    유형 연습(topik) 갈래 하나가 이 넷을 다 쓰므로 갈라 봤자 요청만
    늘어난다. */
 const tqNeedData = () => (tqDataP ??= Promise.all([
-  import('./topik.js?v=04eab4b8'), import('./topik2.js?v=04eab4b8'),
-  import('./topik-writing.js?v=04eab4b8'), import('./topik-listening.js?v=04eab4b8'),
+  import('./topik.js?v=1abec0d4'), import('./topik2.js?v=1abec0d4'),
+  import('./topik-writing.js?v=1abec0d4'), import('./topik-listening.js?v=1abec0d4'),
 ]).then(([a, b, c, d]) => {
   TQ_DATA.I  = { reading: a.TOPIK_READING,  blueprint: a.TOPIK_BLUEPRINT,  slots: a.TOPIK_SLOTS };
   TQ_DATA.II = { reading: b.TOPIK2_READING, blueprint: b.TOPIK2_BLUEPRINT, slots: b.TOPIK2_SLOTS };
@@ -184,11 +184,11 @@ const tqNeedData = () => (tqDataP ??= Promise.all([
 let READING = null, rdP = null;
 // 지문의 밑줄 문법 말풍선이 GRAMMAR 를 쓰므로 같이 받아 둔다.
 const rdNeed = () => (rdP ??= Promise.all([
-  import('./reading.js?v=04eab4b8'), grammarNeed(),
+  import('./reading.js?v=1abec0d4'), grammarNeed(),
 ]).then(([m]) => { READING = m.READING; }));
 
 let CONVO = null, cvP = null;
-const cvNeed = () => (cvP ??= import('./convo.js?v=04eab4b8').then((m) => { CONVO = m.CONVO; }));
+const cvNeed = () => (cvP ??= import('./convo.js?v=1abec0d4').then((m) => { CONVO = m.CONVO; }));
 
 /* 배우기를 열면 여섯 다 미리 불을 붙인다. 기다리지 않는다 — 갈래 목록은
    이 자료가 없어도 그려지고, 사람이 갈래를 고르는 사이에 도착한다.
@@ -608,14 +608,14 @@ let dictOpen = null;  // 지금 "더 보기"(예문·뜻풀이)를 펼쳐 둔 �
    평소엔 안 쓰는 522KB 를 첫 화면 모두에게 물릴 까닭이 없다. */
 let dictSensesP = null;
 const dictLoadSenses = () => (dictSensesP ??=
-  import('./glossary-senses.js?v=04eab4b8').then((m) => m.SENSES).catch(() => ({})));
+  import('./glossary-senses.js?v=1abec0d4').then((m) => m.SENSES).catch(() => ({})));
 
 /* 예문. 국립국어원 자료엔 없어서 Gemini 로 새로 지은 것이다(있는 만큼만
    — docs/glossary-examples-gemini-prompt.md 참고). 뜻풀이와 같은 자리에서
    같이 받는다 — 펼치는 손짓 하나에 몰아 두는 편이 화면이 덜 복잡하다. */
 let dictExamplesP = null;
 const dictLoadExamples = () => (dictExamplesP ??=
-  import('./glossary-examples.js?v=04eab4b8').then((m) => m.EXAMPLES).catch(() => ({})));
+  import('./glossary-examples.js?v=1abec0d4').then((m) => m.EXAMPLES).catch(() => ({})));
 
 function dictVisible() {
   const q = dictQuery.trim().toLowerCase();
@@ -6188,8 +6188,10 @@ const NB_TYPES = [
   { t: 'todo',  i: '☑',  ko: '할 일',     en: 'To-do' },
   { t: 'quote', i: '❝',  ko: '인용',      en: 'Quote' },
   { t: 'call',  i: '💡', ko: '강조 칸',   en: 'Callout' },
+  { t: 'howto', i: '📐', ko: '문형',      en: 'How to' },
   { t: 'code',  i: '</>',ko: '코드',      en: 'Code' },
   { t: 'img',   i: '🖼️', ko: '사진',      en: 'Image' },
+  { t: 'qa',    i: '💬', ko: 'Q&A',       en: 'Q&A' },
   { t: 'hr',    i: '—',  ko: '구분선',    en: 'Divider' },
 ];
 const NB_COLORS = [
@@ -6298,6 +6300,10 @@ function nbToText(blocks) {
   return (blocks || []).map((b) => {
     const pad = '  '.repeat(Math.min(b.ind || 0, NB_IND_MAX));   // 들여쓰기는 한 단계에 두 칸
     if (b.t === 'img') return pad + (b.cap ? `[${t('사진', 'Photo')}: ${b.cap}]` : `[${t('사진', 'Photo')}]`);
+    /* 문답(qa)은 칸이 s(질문)·a(답) 둘이라 한 줄로 안 되고, 여기서만
+       두 줄을 낸다 — 검색·미리보기·복사가 이 함수를 그대로 쓰므로
+       답이 통째로 빠지면 그 세 자리에서 다 빠진다. */
+    if (b.t === 'qa') return `${pad}Q: ${nbPlain(b.s)}\n${pad}A: ${nbPlain(b.a || '')}`;
     const s = nbPlain(b.s);
     if (b.t === 'hr') return '---';
     if (b.t === 'h1') return `${pad}# ${s}`;
@@ -6308,6 +6314,7 @@ function nbToText(blocks) {
     if (b.t === 'todo') return `${pad}- [${b.done ? 'x' : ' '}] ${s}`;
     if (b.t === 'quote') return `${pad}> ${s}`;
     if (b.t === 'call') return `${pad}💡 ${s}`;
+    if (b.t === 'howto') return `${pad}📐 ${s}`;
     return pad + s;
   }).join('\n');
 }
@@ -6325,6 +6332,10 @@ const nbFind = (m, id) => nbBlocks(m).findIndex((b) => b.id === id);
 /* ── 그리기 ───────────────────────────────────────────────── */
 let nbFocus = null;   // 다시 그린 뒤 커서를 돌려놓을 블록 id
 let nbAtEnd = true;   // 그 블록의 끝으로 보낼지
+/* 문답(qa) 블록은 칸이 둘이라 어느 쪽(s=질문·a=답)으로 갈지 따로
+   기억해 둔다 — null 이면(다른 블록에서 화살표로 넘어온 경우 등)
+   첫 칸(질문)으로 간다, 그게 화면에서 위쪽이라 자연스럽다. */
+let nbFocusField = null;
 
 function nbRender() {
   const m = ntMemoCur();
@@ -6336,10 +6347,14 @@ function nbRender() {
   $('ntMemoAddEnd').textContent = t('+ 블록 더하기', '+ Add a block');
 
   if (nbFocus) {
-    const el = box.querySelector(`[data-b="${nbFocus}"] .nb-txt`);
+    const sel = nbFocusField
+      ? `[data-b="${nbFocus}"] [data-f="${nbFocusField}"]`
+      : `[data-b="${nbFocus}"] .nb-txt`;
+    const el = box.querySelector(sel);
     if (el) nbCaret(el, nbAtEnd);
     nbFocus = null;
     nbAtEnd = true;
+    nbFocusField = null;
   }
 }
 
@@ -6424,13 +6439,51 @@ function nbRow(m, b, i) {
     return row;
   }
 
+  /* 문답(Q&A). 칸이 하나가 아니라 둘(질문 s · 답 a)이라 사진 칸처럼
+     일반 글 칸 흐름 밖에 따로 그린다 — 치즈(질문)·감자(답) 말풍선으로,
+     사이트 블로그 글의 대화문과 같은 결이다. */
+  if (b.t === 'qa') {
+    const wrap = document.createElement('div');
+    wrap.className = 'nb-qa';
+
+    const qLine = document.createElement('div');
+    qLine.className = 'nb-qa-line nb-qa-q';
+    const qWho = document.createElement('span');
+    qWho.className = 'nb-qa-who'; qWho.textContent = '🧀'; qWho.setAttribute('aria-hidden', 'true');
+    const qTxt = document.createElement('div');
+    qTxt.className = 'nb-qa-bub nb-txt';
+    qTxt.contentEditable = 'true'; qTxt.spellcheck = false;
+    qTxt.dataset.ph = t('질문', 'Question'); qTxt.dataset.f = 's';
+    qTxt.innerHTML = nbClean(b.s || '');
+    nbWireQA(qTxt, m, b, 's', 'a');
+    qLine.append(qWho, qTxt);
+
+    const aLine = document.createElement('div');
+    aLine.className = 'nb-qa-line nb-qa-a';
+    const aTxt = document.createElement('div');
+    aTxt.className = 'nb-qa-bub nb-txt';
+    aTxt.contentEditable = 'true'; aTxt.spellcheck = false;
+    aTxt.dataset.ph = t('대답', 'Answer'); aTxt.dataset.f = 'a';
+    aTxt.innerHTML = nbClean(b.a || '');
+    nbWireQA(aTxt, m, b, 'a', null);
+    const aWho = document.createElement('span');
+    aWho.className = 'nb-qa-who'; aWho.textContent = '🥔'; aWho.setAttribute('aria-hidden', 'true');
+    aLine.append(aTxt, aWho);
+
+    wrap.append(qLine, aLine);
+    main.appendChild(wrap);
+    row.appendChild(main);
+    nbDropZone(row, m, b);
+    return row;
+  }
+
   const inline = document.createElement('div');
   inline.className = 'nb-inline';
 
-  if (b.t === 'ul' || b.t === 'ol' || b.t === 'call') {
+  if (b.t === 'ul' || b.t === 'ol' || b.t === 'call' || b.t === 'howto') {
     const mark = document.createElement('div');
     mark.className = 'nb-mark';
-    mark.textContent = b.t === 'ul' ? '•' : b.t === 'ol' ? `${nbOrd(m, i)}.` : '💡';
+    mark.textContent = b.t === 'ul' ? '•' : b.t === 'ol' ? `${nbOrd(m, i)}.` : b.t === 'howto' ? '📐' : '💡';
     inline.appendChild(mark);
   }
   if (b.t === 'todo') {
@@ -6466,6 +6519,7 @@ const nbPh = (t0) => ({
   h1: t('큰 제목', 'Heading 1'), h2: t('중간 제목', 'Heading 2'), h3: t('작은 제목', 'Heading 3'),
   ul: t('목록', 'List item'), ol: t('목록', 'List item'), todo: t('할 일', 'To-do'),
   quote: t('인용', 'Quote'), call: t('강조할 말', 'Callout'), code: t('코드', 'Code'),
+  howto: t('동사·형용사에 어떻게 붙는지 (예: 동사 + -는 바람에)', 'How it attaches (e.g. Verb + -는 바람에)'),
 }[t0] || '');
 
 /* 사진은 넣기 전에 줄인다. 단어장 사진(shrinkImage, 1280px)보다 더
@@ -6615,7 +6669,7 @@ function nbWire(el, m, b) {
         nbFocus = b.id; nbAtEnd = false;
         return nbSave(m2);
       }
-      if (['ul', 'ol', 'todo', 'quote', 'call', 'code', 'h1', 'h2', 'h3'].includes(b.t)) {
+      if (['ul', 'ol', 'todo', 'quote', 'call', 'howto', 'code', 'h1', 'h2', 'h3'].includes(b.t)) {
         ev.preventDefault();
         b.t = 'text'; b.done = false;
         nbFocus = b.id; nbAtEnd = false;
@@ -6711,6 +6765,65 @@ function nbWire(el, m, b) {
     }
     ev.preventDefault();
     document.execCommand('insertText', false, txt);
+  });
+}
+
+/* 문답(qa) 블록의 말풍선 하나를 잇는다. nbWire 를 그대로 안 쓰는 것은
+   Enter 의 뜻이 다르기 때문이다 — 일반 블록에서 Enter 는 "다음 블록"
+   이지만, 질문 칸에서 Enter 는 "답 칸으로"고 답 칸에서 Enter 라야
+   비로소 다음 블록을 만든다. 그 밖의 손놀림(굵게·붙여넣기·Tab·화살표로
+   블록 넘나들기)은 문답 안에서까지는 안 지원한다 — 말풍선 둘짜리
+   작은 칸이라 거기까지는 안 써도 될 거라 보았다. */
+function nbWireQA(el, m, b, field, nextField) {
+  let composing = false;
+  el.addEventListener('compositionstart', () => { composing = true; });
+  el.addEventListener('compositionend', () => { composing = false; b[field] = nbClean(el.innerHTML); ntMemoTouchNow(); });
+  el.addEventListener('input', () => {
+    b[field] = composing ? el.innerHTML : nbClean(el.innerHTML);
+    ntMemoTouchNow();
+  });
+  el.addEventListener('blur', () => { b[field] = nbClean(el.innerHTML); ntMemoTouchNow(); });
+  el.addEventListener('keydown', (ev) => {
+    if (composing) return;
+    if (ev.key === 'Enter' && !ev.shiftKey) {
+      ev.preventDefault();
+      b[field] = nbClean(el.innerHTML);
+      const m2 = ntMemoCur();
+      if (!m2) return;
+      if (nextField) {
+        nbFocus = b.id; nbFocusField = nextField;
+        return nbSave(m2);
+      }
+      /* 답 칸에서 Enter — 다음 블록(글)을 새로 만든다. 일반 블록의
+         Enter 와 같은 결이다. */
+      const blocks = nbBlocks(m2);
+      const i = blocks.indexOf(b);
+      const next = nbNew('text');
+      blocks.splice(i + 1, 0, next);
+      nbFocus = next.id;
+      return nbSave(m2);
+    }
+    if (ev.key === 'Backspace' && !nbPlain(el.innerHTML) && nbCaretAt0(el)) {
+      /* 질문 칸이 비어 있는데 지우면 이 블록째 지운다(둘 다 비었을 때만
+         — 답에 뭔가 남아 있으면 실수로 질문만 지웠을 수 있으니 둔다).
+         답 칸이 비어 있으면 질문 칸으로 돌아간다. */
+      const m2 = ntMemoCur();
+      if (!m2) return;
+      if (field === 's' && !nbPlain(b.a || '')) {
+        ev.preventDefault();
+        const blocks = nbBlocks(m2);
+        const i = blocks.indexOf(b);
+        if (blocks.length > 1) {
+          blocks.splice(i, 1);
+          nbFocus = (blocks[i - 1] || blocks[0]).id;
+          nbSave(m2);
+        }
+      } else if (field === 'a') {
+        ev.preventDefault();
+        nbFocus = b.id; nbFocusField = 's'; nbAtEnd = true;
+        nbRender();
+      }
+    }
   });
 }
 
@@ -6879,9 +6992,11 @@ function nbMenuOpen(anchor, m, b, only) {
 
   head(t('블록 종류', 'Turn into'));
   NB_TYPES.forEach((ty) => item(ty.i, t(ty.ko, ty.en), () => {
-    /* 사진 칸과 글 칸은 s 가 다른 것을 담는다(주소 vs 글자) — 종류가
-       그 경계를 넘으면 헌 값이 다음 칸에서 그대로 깨진 채 쓰이니 비운다. */
+    /* 사진 칸은 s 에 주소를, 문답 칸은 s·a 에 질문·답을 담는다 — 다른
+       종류(글자 하나만 쓰는 칸)와 그 경계를 넘으면 헌 값이 다음 칸에서
+       그대로 깨진 채 쓰이니 비운다. */
     if ((ty.t === 'img') !== (b.t === 'img')) { b.s = ''; b.cap = ''; }
+    if ((ty.t === 'qa') !== (b.t === 'qa')) { b.s = ''; b.a = ''; }
     b.t = ty.t;
     if (ty.t !== 'todo') b.done = false;
     nbFocus = ty.t === 'hr' || ty.t === 'img' ? null : b.id;
@@ -6936,7 +7051,9 @@ function nbMenuOpen(anchor, m, b, only) {
          — 되돌릴 방법이 똑같이 없는데(되돌리기 없음, 서버 백업 없음)
          내용이 든 블록은 그냥 사라져 버렸다. 빈 블록은 여전히 바로
          지운다(백스페이스로 지울 때와 같다 — 그것까지 물어보면 성가시다). */
-      const hasContent = b.t === 'img' ? !!(b.s || b.cap) : !!nbPlain(b.s);
+      const hasContent = b.t === 'img' ? !!(b.s || b.cap)
+        : b.t === 'qa' ? !!(nbPlain(b.s) || nbPlain(b.a || ''))
+        : !!nbPlain(b.s);
       if (hasContent && !(await confirmAsync(t('이 블록을 지울까요? 되돌릴 수 없어요.',
                                                 'Delete this block? This cannot be undone.')))) return;
       const blocks = nbBlocks(m);
@@ -7243,43 +7360,50 @@ $('ntMemoPin').addEventListener('click', () => {
 
 /* ── 문법 불러오기 ─────────────────────────────────────────────
    "수업할 때 특정 문법을 자주 쓰는데 노트로 불러올 수 없냐"는 제보로
-   만들었다. hangul·first-words 는 읽기·기본 표현 연습이지 문법 설명이
-   아니라 뺀다 — COURSES 의 나머지(문법 네 파일을 이어 붙인 것)가 전부
-   문법이다. 코스 자료(COURSES)는 늦게 불러오므로(coursesNeed) 찾아
-   보는 판을 열 때 한 번만 훑어 검색용 색인을 만들어 둔다. */
-let nbGrammarIndex = null;   // { courses, search: Map<lesson, 훑을 글자> }
+   만들었다. 처음에는 COURSES(코스 레슨)에서 끌어왔는데, 레슨 제목이
+   더러 다국어 객체({ko,en})라 그대로 textContent 에 넣으면
+   "[object Object]"로 보이는 문제가 잦았고, 레슨 하나에 여러 문법이
+   섞여 있어 골라 담아도 지저분했다. SB_POINTS(예문 만들기의 문법
+   표현 290개, sentences.js)는 표현 하나하나가 이름·뜻풀이를 이미
+   문자열로 갖춘 원자 단위라 이 문제가 없다 — 그쪽에서 끌어온다. */
+let nbGrammarIndex = null;   // { cats, search: Map<point, 훑을 글자> }
 async function nbGrammarBuildIndex() {
   if (nbGrammarIndex) return nbGrammarIndex;
-  await coursesNeed();
-  const courses = COURSES.filter((c) => c.id !== 'hangul' && c.id !== 'first-words');
+  await sbNeed();
   const search = new Map();
-  courses.forEach((course) => {
-    (course.lessons || []).forEach((lesson) => {
-      /* 문법 용어(예: -았/었, -(으)ㄹ 거예요)로도 찾을 수 있게 레슨
-         안의 글까지 같이 훑는다 — 제목(영어)만 보면 한국어 문법 표현
-         그대로 검색할 길이 없다. */
-      const parts = [course.title, lesson.title];
-      (lesson.blocks || []).forEach((cb) => {
-        if (cb.h) parts.push(cb.h);
-        if (cb.md) parts.push(cb.md);
-        if (Array.isArray(cb.items)) cb.items.forEach((it) => {
-          if (it.ch) parts.push(it.ch);
-          if (it.rom) parts.push(it.rom);
-          if (it.tip) parts.push(it.tip);
-        });
-        if (Array.isArray(cb.rows)) cb.rows.forEach((row) => parts.push(row.join(' ')));
-        if (cb.q) parts.push(cb.q);
-      });
-      search.set(lesson, parts.join(' ').toLowerCase());
-    });
+  SB_POINTS.forEach((p) => {
+    /* 이름·뜻풀이·갈래 이름(한/영)까지 같이 훑는다 — 표현 이름만 보면
+       "이유"처럼 뜻으로 찾는 검색이 안 걸린다. */
+    /* id 로 키를 건다 — cat.points 안의 점과 SB_POINTS 의 점은 서로
+       다른 객체(SB_POINTS 는 {...p, cat} 로 새로 만든 사본)라, 객체
+       그 자체를 키로 쓰면 아래 목록 그리기에서 늘 못 찾는다(빈 검색어
+       일 때만 우연히 맞는 것처럼 보인다 — ''.includes('') 라서). */
+    search.set(p.id, `${p.name} ${p.desc} ${p.cat.ko} ${p.cat.en}`.toLowerCase());
   });
-  nbGrammarIndex = { courses, search };
+  nbGrammarIndex = { cats: SB_CATS, search };
   return nbGrammarIndex;
 }
-/* 레슨 안의 「읽는 것」 블록만 노트 블록으로 옮긴다 — 「푸는 것」
-   (choice·type·order·pair·speak·listen·cloze)은 문제라서 참고 자료로
-   적어 둘 것이 아니다. 표·글자 카드는 노트에 그런 종류가 없어서(표는
-   4번 항목, 아직 없다) 목록·강조 칸으로 풀어 담는다. */
+/* 표현 하나를 노트 블록으로 옮긴다. 제목(갈래 이모지 + 이름)과
+   뜻풀이는 늘 있고, SB_MORE(형태·자주 쓰는 말·주의할 점·예문)가
+   있으면 덧붙인다. 형태는 "동사나 형용사에 어떻게 붙는지"를 보여주는
+   자리라 howto 블록으로 담고, 예문은 quote 로 다시 두드러지게 한다. */
+function nbBlocksFromPoint(cat, p) {
+  const out = [nbNew('h3', `${cat.emoji ? esc(cat.emoji) + ' ' : ''}${esc(p.name)}`)];
+  out.push(nbNew('text', esc(p.desc)));
+  const more = SB_MORE[p.id];
+  if (more) {
+    if (more[0]) out.push(nbNew('howto', esc(more[0])));
+    if (more[2]) out.push(nbNew('call', esc(more[2])));
+    if (more[3]) out.push(nbNew('quote', esc(more[3])));
+  }
+  return out;
+}
+
+/* 예전에 COURSES(코스 레슨)에서 끌어오던 자리. 지금 문법 불러오기는
+   위 nbBlocksFromPoint(SB_POINTS 기반)를 쓰지만, 레슨 전체를 노트로
+   옮기는 이 변환 자체는 다른 데서 여전히 쓸모가 있어 남겨 둔다 —
+   레슨 안의 「읽는 것」 블록만 옮기고 「푸는 것」(choice·type·order·
+   pair·speak·listen·cloze)은 문제라서 뺀다. */
 function nbFromCourseBlock(cb) {
   const out = [];
   if (cb.t === 'text') {
@@ -7331,22 +7455,22 @@ function ntGrammarRenderList(q) {
   const box = $('ntGrammarList');
   box.textContent = '';
   const query = q.trim().toLowerCase();
-  const { courses, search } = nbGrammarIndex;
+  const { cats, search } = nbGrammarIndex;
   let any = false;
-  courses.forEach((course) => {
-    const lessons = (course.lessons || []).filter((l) => !query || (search.get(l) || '').includes(query));
-    if (!lessons.length) return;
+  cats.forEach((cat) => {
+    const points = (cat.points || []).filter((p) => !query || (search.get(p.id) || '').includes(query));
+    if (!points.length) return;
     any = true;
     const h = document.createElement('div');
     h.className = 'nt-gr-pop-course';
-    h.textContent = course.title;
+    h.textContent = `${cat.emoji ? cat.emoji + ' ' : ''}${cat.ko}`;
     box.appendChild(h);
-    lessons.forEach((l) => {
+    points.forEach((p) => {
       const btn = document.createElement('button');
       btn.type = 'button';
       btn.className = 'nt-gr-pop-lesson';
-      btn.textContent = l.title;
-      btn.addEventListener('click', () => ntGrammarInsert(course, l));
+      btn.textContent = p.name;
+      btn.addEventListener('click', () => ntGrammarInsert(cat, p));
       box.appendChild(btn);
     });
   });
@@ -7377,11 +7501,11 @@ async function ntGrammarOpenPop() {
   ntGrammarPosition();   // 자료가 들어와 판 크기가 바뀌었을 수 있다
   $('ntGrammarQ').focus();
 }
-function ntGrammarInsert(course, lesson) {
+function ntGrammarInsert(cat, p) {
   const m = ntMemoCur();
   if (!m) return;
   const blocks = nbBlocks(m);
-  const added = nbBlocksFromLesson(course, lesson);
+  const added = nbBlocksFromPoint(cat, p);
   if (!added.length) return;
   blocks.push(...added);
   nbFocus = added[added.length - 1].id;
@@ -7427,6 +7551,19 @@ function ntPrintBody(blocks) {
       return;
     }
     if (b.t === 'hr') { flush(); out.push('<hr class="ntp-hr">'); return; }
+    /* 문답(qa)은 칸이 둘(s=질문, a=답)이라 아래의 "s 하나만 본다" 는
+       빈 줄 검사보다 먼저 따로 본다 — 안 그러면 질문을 안 쓰고 답만
+       쓴 카드가 통째로 사라진다. */
+    if (b.t === 'qa') {
+      flush();
+      const q = nbPlain(b.s || ''), a = nbPlain(b.a || '');
+      if (!q && !a) return;
+      out.push(`<div class="ntp-qa">` +
+        (q ? `<div class="ntp-qa-q">${nbClean(b.s)}</div>` : '') +
+        (a ? `<div class="ntp-qa-a">${nbClean(b.a)}</div>` : '') +
+      `</div>`);
+      return;
+    }
     /* 빈 줄은 학생 나눠줄 자료엔 안 남긴다 — 쓰다 만 빈 목록칸·빈 문단이
        그대로 찍히면 인쇄물이 지저분해진다. 실제 노트(화면)는 안 바뀐다,
        인쇄판을 만들 때만 거른다. */
@@ -7453,6 +7590,7 @@ function ntPrintBody(blocks) {
       out.push(`<div class="ntp-call ${bgCls}"><span class="ntp-call-i">💡</span><span${cls}>${html}</span></div>`);
       return;
     }
+    if (b.t === 'howto') { out.push(`<div class="ntp-howto"><span class="ntp-howto-i">📐</span><span${cls}>${html}</span></div>`); return; }
     if (b.t === 'code') { out.push(`<pre class="ntp-code">${html}</pre>`); return; }
     out.push(`<p${cls}>${html}</p>`);
   });
