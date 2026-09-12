@@ -29,7 +29,8 @@ node tools/build-extension.mjs      # 사이트 자료 → extension/data/ (2.6M
 웹 스토어에 올릴 꾸러미는 이 디렉터리를 통째로 zip 하면 된다.
 
 ```bash
-node tools/build-extension.mjs && (cd extension && zip -qr ../cheesepotato.zip . -x '*.DS_Store')
+node tools/build-extension.mjs && node tools/check-extension.mjs \
+  && (cd extension && zip -qr ../cheesepotato.zip . -x '*.DS_Store' 'README.md')
 ```
 
 ### 사전을 고쳤으면 다시 구울 것
