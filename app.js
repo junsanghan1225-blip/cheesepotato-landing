@@ -926,6 +926,7 @@ function ptShow(toTest) {
   ptId('numView').classList.add('hidden');
   ptId('learnView').classList.add('hidden');
   ptId('lessonView').classList.add('hidden');
+  ptId('leveltestView').classList.add('hidden');
   ptId('learnBtn')?.classList.remove('on');
   if (window.lsLeave) window.lsLeave();   // 레슨 안에서 듣던 것 정리
   ptId('wbBtn').classList.remove('on');
@@ -972,6 +973,8 @@ const SLUG_VIEW = {
   learn: 'learn', test: 'test', games: 'games',
   // 게임 한 판과 레슨은 도중부터 열 수 없다. 주소로 들어오면 한 단계 위를 연다.
   quiz: 'games', num: 'num', lesson: 'learn',
+  // 레벨 테스트. test 는 발음 테스트가 이미 쓰고 있어 따로 이름을 둔다.
+  leveltest: 'leveltest',
 };
 
 /* ══ 시험지 글자 크기 ═══════════════════════════════════════════
@@ -1028,7 +1031,7 @@ window.cpTxtSize = function (on) {
 const VIEW_SLUG = {
   home: '', test: 'test', wordbook: 'wordbook', account: 'account',
   library: 'library', dashboard: 'dashboard', dictionary: 'dictionary', games: 'games',
-  quiz: 'quiz', num: 'num', learn: 'learn', lesson: 'lesson',
+  quiz: 'quiz', num: 'num', learn: 'learn', lesson: 'lesson', leveltest: 'leveltest',
 };
 let routeBusy = false;
 /* 마지막으로 주소에 남긴 자리. 떠나기를 막았을 때 되돌릴 곳이다. */

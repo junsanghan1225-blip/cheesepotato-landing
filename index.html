@@ -115,13 +115,13 @@
      Pretendard 는 통짜(2.0MB) 대신 조각난 쪽을 쓴다 — 브라우저가
      unicode-range 를 보고 화면에 실제로 나온 글자가 든 조각만 받는다.
      그래서 저장소는 무거워졌지만 학습자가 받는 양은 오히려 줄었다. -->
-<link rel="stylesheet" href="vendor/pretendard.css?v=30a41b9d">
-<link rel="stylesheet" href="vendor/pressstart2p.css?v=30a41b9d">
+<link rel="stylesheet" href="vendor/pretendard.css?v=3c7ccb13">
+<link rel="stylesheet" href="vendor/pressstart2p.css?v=3c7ccb13">
 <!-- 화면 상자 안에서만 쓰는 CSS 는 여기서 갈라 받는다. media="print" 라
      첫 페인트를 안 막고, 다 받아지면 app.js 가 media 를 all 로 바꾼다.
      자바스크립트가 없으면 <noscript> 쪽이 그냥 평범하게 걸린다. -->
-<link id="viewsCss" rel="stylesheet" href="app-views.css?v=30a41b9d" media="print">
-<noscript><link rel="stylesheet" href="app-views.css?v=30a41b9d"></noscript>
+<link id="viewsCss" rel="stylesheet" href="app-views.css?v=3c7ccb13" media="print">
+<noscript><link rel="stylesheet" href="app-views.css?v=3c7ccb13"></noscript>
 
 <style>
 /* ══════════════════════════════════════════════════════════════
@@ -2015,6 +2015,36 @@ body.hlp-open { overflow:hidden; }
 
   <div class="divider"></div>
 
+  <!-- 레벨 테스트. 위 로드맵이 "이 사이트가 어떻게 나뉘는지" 를 보여줬으니,
+       바로 이어서 "그럼 나는 그중 어디인지" 를 답해 주는 자리를 둔다.
+       문법 9문제(초·중·고급 각 3개) + 짧은 설문 두 개로 시작할 코스
+       하나를 가리켜 준다 — 새 코스를 만드는 대신 기존 코스 중 하나를
+       추천하는 가장 단순한 방식이다. -->
+  <div class="section" id="leveltest">
+   <div class="split split-2">
+    <div>
+      <div class="label" data-en="LEVEL CHECK">레벨 테스트</div>
+      <p class="section-title" data-en="Find your level,<br>start the right course">내 레벨 확인하고<br>맞는 코스로 시작</p>
+      <p class="section-sub" data-en="A short grammar quiz plus two quick questions — then we point you to where to start.">문법 문제 9개와 짧은 설문 두 개면 충분해요. 끝나면 시작하기 좋은 코스를 알려드립니다.</p>
+      <ul class="wb-pts">
+        <li data-en="9 grammar questions across beginner, intermediate and advanced">초급·중급·고급 문법 문제 9개</li>
+        <li data-en="Two quick questions about your goal and study time">목적·학습 시간을 묻는 설문 두 개</li>
+        <li data-en="No sign-in needed — about 2 minutes">로그인 없이, 약 2분이면 끝나요</li>
+      </ul>
+      <button type="button" class="wb-link" id="leveltestGoBtn" data-en="Start the level test →">레벨 테스트 시작하기 →</button>
+    </div>
+    <div>
+      <div class="wb-card" id="leveltestCard">
+        <div class="wb-card-tag" data-en="LEVEL CHECK">레벨 테스트</div>
+        <div class="wb-card-word">🧪 9문제 · 약 2분</div>
+        <div class="wb-card-mean" data-en="Grammar quiz + a short survey → a course to start with">문법 감각을 보고 시작할 코스를 알려드려요</div>
+      </div>
+    </div>
+   </div>
+  </div>
+
+  <div class="divider"></div>
+
   <!-- 매일 학습 스트릭. 배우기·읽기·복습 화면에는 이미 있던 기능인데
        홈페이지에서는 한 번도 보여준 적이 없었다("스트릭을 홈에서 안
        판다"는 지적). 로그인 상태의 실제 진도(lesson_progress 표)로
@@ -2985,6 +3015,87 @@ body.hlp-open { overflow:hidden; }
 
 </div><!-- /numView -->
 
+<!-- ── 레벨 테스트 ──────────────────────────────────────────────
+     문법 9문제(초·중·고급 각 3개, 예문 만들기 SB_POINTS 에서 뽑는다) +
+     설문 두 개(목적·학습 시간) → 시작하기 좋은 코스 하나를 추천한다.
+     새 코스를 짓지 않고 기존 COURSES 중 하나를 가리키는 가장 단순한
+     방식이다. 로그인도 단어장도 안 쓴다. -->
+<div id="leveltestView" class="hidden">
+  <div class="claw-wrap">
+
+    <div class="claw-bar">
+      <button class="claw-back" id="ltBack" type="button">← <span id="ltBackTxt">홈</span></button>
+    </div>
+
+    <div id="ltPlay" class="hidden">
+      <div class="qz-top">
+        <div class="qz-time"><span class="qz-time-fill" id="ltFill"></span></div>
+        <div class="qz-meta">
+          <span class="qz-clock" id="ltCount">0 / 9</span>
+        </div>
+      </div>
+
+      <div class="claw-ask">
+        <span class="claw-ask-label" id="ltAskLabel"></span>
+        <strong class="claw-ask-word" id="ltAsk">…</strong>
+      </div>
+
+      <div class="qz-choices" id="ltChoices"></div>
+      <p class="claw-msg" id="ltMsg"></p>
+    </div>
+
+    <div id="ltSurvey" class="hidden">
+      <div class="claw-ask">
+        <span class="claw-ask-label" id="ltSurveyIntro"></span>
+        <strong class="claw-ask-word">📝</strong>
+      </div>
+      <div class="pt-lv-row" style="margin-top:20px;">
+        <p class="claw-ask-label" id="ltSurveyGoalLabel"></p>
+        <div class="diff-seg lt-seg" role="radiogroup" id="ltSurveyGoal"></div>
+      </div>
+      <div class="pt-lv-row" style="margin-top:20px;">
+        <p class="claw-ask-label" id="ltSurveyTimeLabel"></p>
+        <div class="diff-seg lt-seg" role="radiogroup" id="ltSurveyTime"></div>
+      </div>
+      <div style="text-align:center; margin-top:22px;">
+        <button class="pt-next" id="ltSurveyGo" type="button" disabled></button>
+      </div>
+    </div>
+
+    <div id="ltOver" class="hidden">
+      <div class="claw-over">
+        <div class="claw-over-emoji" id="ltOverEmoji">🧪</div>
+        <div class="claw-over-score" id="ltOverScore">0</div>
+        <p class="claw-over-line" id="ltOverLine"></p>
+
+        <button class="lc-card lt-rec-card hidden" id="ltRecCard" type="button">
+          <div class="lc-top">
+            <div class="lc-mark" id="ltRecEmoji"></div>
+            <div style="min-width:0">
+              <div class="lc-lv" id="ltRecLv"></div>
+              <div class="lc-title" id="ltRecTitle"></div>
+              <div class="lc-tag" id="ltRecTagline"></div>
+            </div>
+          </div>
+          <p class="claw-note" id="ltRecCta"></p>
+        </button>
+
+        <div class="claw-over-btns">
+          <button class="pt-next" id="ltAgain" type="button"></button>
+          <button class="pt-next" id="ltSeeAll" type="button"></button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="footer">
+    <div class="footer-brand" data-en="Every Koreans">에브리 코리안즈</div>
+    <div class="footer-info">© 2026 치즈감자 · <a href="privacy.html" data-en="Privacy policy">개인정보처리방침</a></div>
+  </div>
+
+</div><!-- /leveltestView -->
+
 <!-- ── 자료마당 ────────────────────────────────────────────────
      올린 파일을 그대로 보관하지 않는다. 브라우저에서 앱과 같은
      파서로 읽어 단어/뜻만 뽑아 저장하고, 받을 때 그 목록으로 xlsx 를
@@ -3610,9 +3721,9 @@ body.hlp-open { overflow:hidden; }
 <div id="hlpScrim" class="hlp-scrim"></div>
 <aside id="hlpPanel" class="hlp-panel" aria-label="한국어 도우미" aria-hidden="true"></aside>
 
-<script src="app.js?v=30a41b9d"></script>
-<script type="module" src="app.module.js?v=30a41b9d"></script>
+<script src="app.js?v=3c7ccb13"></script>
+<script type="module" src="app.module.js?v=3c7ccb13"></script>
 
-<script src="analytics.js?v=30a41b9d" defer></script>
+<script src="analytics.js?v=3c7ccb13" defer></script>
 </body>
 </html>
