@@ -7,6 +7,14 @@ tts/
 # 자료가 저장소에 두 벌이 된다. 두 벌이 되면 어느 쪽이 진짜인지 묻게 된다.
 extension/data/
 
+# 웹 스토어에 올릴 그림. tools/build-store-shots.mjs 가 진짜 익스텐션을
+# 크롬에 올려 찍는다. 1280×800 열 장이 판마다 쌓이면 저장소가 그림
+# 창고가 된다 — 글(listing.md)과 찍는 도구만 넣고 결과는 안 넣는다.
+extension/store/shots/
+
+# 그림 찍는 도구가 쓰는 playwright. 다른 도구는 다 바깥 꾸러미 없이 돈다.
+node_modules
+
 # 웹 스토어에 올릴 꾸러미. `zip` 한 줄로 언제든 다시 나온다.
 # 뿌리에 만들든 extension/ 안에 만들든 걸리게 둘 다 적어 둔다 —
 # 한쪽만 적어 두었더니 README 가 시키는 자리가 딴 쪽이었다.
