@@ -99,6 +99,14 @@ button {
   background: none; border: 0;
 }
 
+/* el.hidden = true 가 먹게 한다.
+   `[hidden]` 은 브라우저 기본 스타일시트가 display:none 으로 주는 것이라
+   **우리가 display 를 적어 둔 것에 진다.** `.btn { display:inline-flex }`
+   때문에 복습판의 「몰라요·알아요」가 뜻을 뒤집기 전부터 보이고 있었다 —
+   답이 먼저 보이면 그건 복습이 아니라 읽기다. 화면에서는 「가려 두었는데
+   왜 보이지」로만 보여서 알아채기 어려운 종류였다. */
+[hidden] { display: none !important; }
+
 /* 눌러서 옮겨 다니는 사람이 지금 어디 있는지 보이게. 익스텐션 팝업은
    좁아서 마우스 없이 쓰는 사람이 적지 않다. */
 :focus-visible { outline: 2px solid var(--orange-mid); outline-offset: 2px; border-radius: 4px; }

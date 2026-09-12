@@ -45,6 +45,25 @@ node tools/check-extension.mjs             # 위의 것 + manifest·쪽이 없�
 멀쩡히 돌아가고 예전 뜻을 정확하게 보여 준다. `stamp.mjs` 를 빼먹었을 때와
 같은 종류의 사고다.
 
+### 웹 스토어에 올릴 것
+
+글과 그림이 `store/` 에 있다.
+
+```bash
+npm i -D playwright                  # 한 번만
+node tools/build-store-shots.mjs     # 1280×800 다섯 장 × 두 말
+```
+
+- `store/listing.md` — 이름·짧은 설명·자세한 설명(한국어·영어), 권한 소명,
+  자료 취급 답안. 대시보드에 그대로 옮겨 붙인다.
+- `store/shots/<말>/` — 그림. **저장소에 없다**(`.gitignore`). 진짜
+  익스텐션을 크롬에 올려 찍으므로, 화면을 고치면 다시 돌려 찍을 것.
+
+개인정보 처리방침 주소로 `https://everykoreans.com/privacy.html` 를 내는데,
+**그 쪽에는 지금 익스텐션 이야기가 없다.** 안드로이드 앱의 방침을 구운
+것이다(`tools/build-privacy.js`, 원본은 앱 저장소). 올리기 전에 원본에 절을
+더하고 다시 구울 것 — 안 그러면 심사에서 걸린다.
+
 ---
 
 ## 안에 무엇이 있나
