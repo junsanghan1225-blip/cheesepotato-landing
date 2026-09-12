@@ -1071,13 +1071,15 @@
 
 .nb-quote .nb-inline { border-left:3px solid var(--orange); padding-left:11px; }
 .nb-quote .nb-txt { color:var(--ink-2); }
-/* 강조 칸(콜아웃). 노션의 그것 — 아이콘 하나에 옅은 바탕. */
-.nb-call .nb-inline { background:var(--tint); border-radius:var(--r); padding:9px 12px 9px 10px; }
-.nb-call .nb-mark { padding-top:4px; font-size:15px; }
+/* 강조 칸(콜아웃). 노션의 그것 — 아이콘 하나에 옅은 바탕.
+   아이콘은 padding-top 으로 눈대중 맞추지 않고 align-items:center 로
+   글의 줄 수에 상관없이 칸 한가운데에 오도록 한다. */
+.nb-call .nb-inline { background:var(--tint); border-radius:var(--r); padding:9px 12px 9px 10px; align-items:center; }
+.nb-call .nb-mark { padding-top:0; font-size:15px; }
 /* 문형(howto). 강조 칸과 같은 얹힌 모양이지만 색을 갈라 — "동사·형용사에
    어떻게 붙는지"를 보여주는 자리라는 걸 색으로도 구별한다. */
-.nb-howto .nb-inline { background:rgba(74,125,181,.12); border-radius:var(--r); padding:9px 12px 9px 10px; }
-.nb-howto .nb-mark { padding-top:4px; font-size:15px; }
+.nb-howto .nb-inline { background:rgba(74,125,181,.12); border-radius:var(--r); padding:9px 12px 9px 10px; align-items:center; }
+.nb-howto .nb-mark { padding-top:0; font-size:15px; }
 .nb-howto .nb-txt { font-weight:600; }
 .nb-hr { height:1px; background:var(--line); margin:12px 6px; border-radius:1px; }
 

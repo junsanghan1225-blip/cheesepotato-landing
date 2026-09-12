@@ -172,7 +172,7 @@ export const BEGINNER_CATS = [
     { id: "26-5", lv: "beginner", name: "N의",
       desc: "누구의 것인지 나타냅니다.",
       ex: "이건 동생의 우산이에요.",
-      more: ["N + 의 · 소리는 [에]",
+      more: ["N + 의",
              "제 · 네 · 우리",
              "「나의」는 「내」, 「저의」는 「제」로 줄여 쓰는 편이 훨씬 자연스럽습니다. It is much more natural to shorten 「나의」 to 「내」, and 「저의」 to 「제」.",
              "한국의 겨울은 정말 추워요."],
