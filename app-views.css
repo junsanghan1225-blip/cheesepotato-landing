@@ -2619,6 +2619,10 @@
 .claw-over-score { margin-top:10px; font-size:44px; font-weight:800; color:var(--ink); letter-spacing:-.03em; }
 .claw-over-line { margin-top:10px; font-size:15px; color:var(--ink-2); word-break:keep-all; }
 .claw-over-btns { display:flex; flex-wrap:wrap; gap:10px; justify-content:center; margin-top:24px; }
+/* 레벨 테스트 결과의 추천 코스 — .claw-over 는 가운데 정렬인데 .lc-card
+   내용(제목·태그라인)은 원래 왼쪽 정렬이라 그대로 둔다. 폭만 좁혀 가운데
+   앉힌다. */
+.lt-rec-card { display:block; width:100%; max-width:420px; margin:20px auto 0; text-align:left; }
 
 @media (min-width:760px) {
   .game-grid { grid-template-columns:repeat(2, minmax(0,1fr)); }
@@ -2926,6 +2930,9 @@
   color:var(--ink);
   box-shadow:0 1px 3px rgba(var(--ink-rgb),.12);
 }
+/* 레벨 테스트 설문 — numLv 의 초·중·고급 세 글자와 달리 "드라마·K-pop"
+   처럼 길고 넷이라, 한 줄에 다 못 들어가면 줄바꿈한다. */
+.diff-seg.lt-seg { flex-wrap:wrap; justify-content:center; }
 
 /* ── Cloze 마스터리 레벨 배지 ── */
 .mastery-badge {
