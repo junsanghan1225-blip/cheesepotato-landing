@@ -1,0 +1,57 @@
+{
+  "manifest_version": 3,
+  "name": "__MSG_name__",
+  "short_name": "치즈감자",
+  "description": "__MSG_desc__",
+  "version": "1.0.0",
+  "default_locale": "en",
+  "minimum_chrome_version": "116",
+  "homepage_url": "https://everykoreans.com/",
+
+  "icons": {
+    "16": "icons/icon-16.png",
+    "32": "icons/icon-32.png",
+    "48": "icons/icon-48.png",
+    "128": "icons/icon-128.png"
+  },
+
+  "permissions": ["storage", "contextMenus"],
+
+  "background": { "service_worker": "src/sw.js", "type": "module" },
+
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content/content.js"],
+      "css": ["content/content.css"],
+      "run_at": "document_idle",
+      "all_frames": false
+    }
+  ],
+
+  "action": {
+    "default_popup": "popup/popup.html",
+    "default_title": "치즈감자",
+    "default_icon": {
+      "16": "icons/icon-16.png",
+      "32": "icons/icon-32.png",
+      "48": "icons/icon-48.png",
+      "128": "icons/icon-128.png"
+    }
+  },
+
+  "chrome_url_overrides": { "newtab": "newtab/newtab.html" },
+
+  "options_ui": { "page": "options/options.html", "open_in_tab": true },
+
+  "commands": {
+    "_execute_action": {
+      "suggested_key": { "default": "Alt+K" },
+      "description": "__MSG_cmdPopup__"
+    },
+    "grammar-underline": {
+      "suggested_key": { "default": "Alt+G" },
+      "description": "__MSG_cmdGrammar__"
+    }
+  }
+}

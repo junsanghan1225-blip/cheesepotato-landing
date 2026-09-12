@@ -1,0 +1,55 @@
+.wrap { max-width: 680px; margin: 0 auto; padding: 40px 22px 64px; }
+
+.top { display: flex; align-items: center; gap: 14px; margin-bottom: 26px; }
+h1 { font-size: 22px; font-weight: 800; letter-spacing: -.01em; }
+.sub { color: var(--ink-3); font-size: 13.5px; margin-top: 2px; word-break: keep-all; }
+
+.card {
+  background: var(--surface); border: 1px solid var(--line);
+  border-radius: var(--r-l); padding: 20px 22px; margin-top: 14px;
+}
+h2 { font-size: 14px; font-weight: 700; margin-bottom: 4px; }
+.note { color: var(--ink-3); font-size: 13px; margin-bottom: 13px; word-break: keep-all; line-height: 1.6; }
+
+.opts { display: flex; flex-wrap: wrap; gap: 7px; }
+.opt {
+  padding: 7px 13px; border-radius: 999px; font-size: 13px; font-weight: 600;
+  border: 1px solid var(--line); color: var(--ink-2); background: transparent;
+}
+.opt:hover { background: rgba(var(--ink-rgb),.05); }
+.opt[aria-pressed="true"] {
+  background: var(--ink); color: var(--bg); border-color: var(--ink);
+}
+
+select {
+  padding: 8px 12px; font-size: 13.5px; border-radius: 999px;
+  background: var(--surface); color: var(--ink); border: 1px solid var(--line);
+}
+
+.check { display: flex; align-items: flex-start; gap: 9px; margin-top: 11px; cursor: pointer; }
+.check input { margin-top: 3px; accent-color: var(--orange-mid); flex: none; }
+.check span { font-size: 13.5px; color: var(--ink-2); word-break: keep-all; }
+
+.row-btns { display: flex; gap: 8px; flex-wrap: wrap; }
+.btn.danger { color: var(--red); border-color: rgba(196,61,52,.3); }
+.btn.danger:hover { background: rgba(196,61,52,.1); }
+
+.keys { display: grid; grid-template-columns: auto 1fr; gap: 7px 16px; font-size: 13.5px; }
+.keys dt { font-weight: 700; white-space: nowrap; }
+.keys dd { color: var(--ink-2); word-break: keep-all; }
+kbd {
+  font: inherit; font-size: 12px; font-weight: 700; padding: 2px 7px;
+  border: 1px solid var(--line); border-bottom-width: 2px;
+  border-radius: 6px; background: var(--surface-2);
+}
+
+.foot {
+  margin-top: 26px; padding-top: 18px; border-top: 1px solid var(--line);
+  font-size: 12.5px; color: var(--ink-3); line-height: 1.75; word-break: keep-all;
+}
+.foot a { font-weight: 600; }
+
+.toast { position: fixed; left: 50%; bottom: 22px; transform: translateX(-50%);
+  background: var(--ink); color: var(--bg); padding: 9px 17px; border-radius: 999px;
+  font-size: 13px; font-weight: 600; animation: fade 2.4s forwards; pointer-events: none; }
+@keyframes fade { 0%,75% { opacity: 1 } 100% { opacity: 0 } }

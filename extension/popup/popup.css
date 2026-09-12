@@ -1,0 +1,87 @@
+/* 툴바 팝업. 크롬이 정한 최대 크기가 800×600 이고, 그보다 작아야 화면
+   구석에서도 잘린 데 없이 뜬다. */
+body { width: 380px; height: 540px; display: flex; flex-direction: column; overflow: hidden; }
+
+.tabs {
+  display: flex; gap: 2px; padding: 8px 8px 0;
+  border-bottom: 1px solid var(--line); background: var(--surface);
+}
+.tab {
+  padding: 9px 13px; font-size: 13px; font-weight: 600; color: var(--ink-3);
+  border-bottom: 2px solid transparent; border-radius: var(--r-s) var(--r-s) 0 0;
+}
+.tab:hover { color: var(--ink-2); background: rgba(var(--ink-rgb),.04); }
+.tab[aria-selected="true"] { color: var(--ink); border-bottom-color: var(--orange-mid); }
+.tab.gear { margin-left: auto; font-size: 15px; padding: 9px 10px; }
+
+.pane { flex: 1; min-height: 0; display: flex; flex-direction: column; }
+.pane[hidden] { display: none; }
+
+.search, .bookbar { padding: 12px 14px; display: flex; gap: 8px; }
+input[type="search"] {
+  flex: 1; min-width: 0; padding: 9px 13px; font-size: 14px;
+  background: var(--surface); color: var(--ink);
+  border: 1px solid var(--line); border-radius: 999px;
+}
+input[type="search"]:focus { outline: none; border-color: var(--orange); }
+.bookbar .btn { padding: 8px 12px; font-size: 12px; white-space: nowrap; }
+
+.out { flex: 1; min-height: 0; overflow: auto; padding: 0 14px 14px; }
+
+.hint { color: var(--ink-3); font-size: 13px; padding: 22px 4px; text-align: center;
+  word-break: keep-all; line-height: 1.65; }
+
+.w { padding: 12px 0; border-top: 1px solid var(--line-2); }
+.w:first-child { border-top: 0; }
+.w-head { display: flex; align-items: baseline; gap: 7px; }
+.w-word { font-size: 17px; font-weight: 700; word-break: keep-all; }
+.w-pos, .w-from { font-size: 11px; color: var(--ink-3); }
+.w-acts { margin-left: auto; display: flex; gap: 5px; }
+.w-gloss { margin-top: 2px; color: var(--ink-2); font-size: 13.5px; word-break: break-word; }
+.w-ex { margin-top: 7px; padding: 8px 11px; background: var(--surface-2);
+  border-radius: var(--r); font-size: 13px; cursor: pointer; }
+.w-en { margin-top: 3px; color: var(--ink-3); font-size: 12px; }
+.w-links { margin-top: 7px; display: flex; gap: 12px; font-size: 12px; font-weight: 600; }
+
+.ic { width: 26px; height: 26px; display: grid; place-items: center; border-radius: 8px;
+  border: 1px solid var(--line); font-size: 13px; line-height: 1; flex: none; }
+.ic:hover { background: rgba(255,145,77,.18); border-color: var(--orange); }
+.ic.on { background: var(--green); border-color: var(--green); color: #fff; }
+.ic.del:hover { background: rgba(196,61,52,.15); border-color: var(--red); color: var(--red); }
+
+.gsect { margin-top: 12px; padding-top: 11px; border-top: 1px solid var(--line); }
+.tag { display: inline-block; font-size: 10px; font-weight: 700; letter-spacing: .04em;
+  color: var(--orange-deep); background: rgba(255,145,77,.16);
+  border-radius: 999px; padding: 2px 7px; }
+.gname { font-weight: 700; margin-top: 5px; word-break: keep-all; }
+.gdesc { font-size: 12.5px; color: var(--ink-2); margin-top: 2px; word-break: keep-all; }
+
+/* 상자를 점으로. 여섯 칸 가운데 몇 번째인지 한눈에 보인다. */
+.boxes { display: inline-flex; gap: 3px; margin-left: 2px; vertical-align: middle; }
+.boxes i { width: 5px; height: 5px; border-radius: 50%; background: var(--line); }
+.boxes i.on { background: var(--orange); }
+.due { font-size: 11px; color: var(--orange-deep); font-weight: 700; }
+
+/* ── 복습판 (src/review.js 가 그린다) ───────────────────── */
+.rv { flex: 1; min-height: 0; overflow: auto; padding: 16px 18px; }
+.rv-bar { height: 3px; background: var(--line); border-radius: 999px; overflow: hidden; }
+.rv-fill { height: 100%; background: var(--orange-mid); transition: width .25s; }
+.rv-count { margin-top: 8px; font-size: 11.5px; color: var(--ink-3); }
+.rv-head { display: flex; align-items: center; gap: 10px; margin-top: 12px; }
+.rv-word { font-size: 27px; font-weight: 800; word-break: keep-all; }
+.rv-box { margin-top: 3px; font-size: 11.5px; color: var(--ink-3); }
+.rv-gloss { font-size: 16px; margin-top: 14px; word-break: break-word; }
+.rv-pos { font-size: 11.5px; color: var(--ink-3); margin-top: 3px; }
+.rv-ex { margin-top: 12px; padding: 11px 13px; background: var(--tint);
+  border-radius: var(--r); font-size: 14px; cursor: pointer; }
+.rv-en { margin-top: 4px; font-size: 12.5px; color: var(--ink-2); }
+.rv-link { display: inline-block; margin-top: 10px; font-size: 12.5px; font-weight: 600; }
+.rv-acts { display: flex; gap: 7px; margin-top: 18px; }
+.rv-acts .btn { flex: 1; }
+.rv-empty { font-size: 17px; font-weight: 700; margin-top: 8px; }
+.rv-note { margin-top: 6px; color: var(--ink-3); font-size: 13px; word-break: keep-all; }
+
+.toast { position: fixed; left: 50%; bottom: 14px; transform: translateX(-50%);
+  background: var(--ink); color: var(--bg); padding: 7px 14px; border-radius: 999px;
+  font-size: 12.5px; font-weight: 600; animation: fade 2.2s forwards; pointer-events: none; }
+@keyframes fade { 0%,75% { opacity: 1 } 100% { opacity: 0 } }

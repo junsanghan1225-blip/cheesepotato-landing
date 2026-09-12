@@ -70,6 +70,8 @@ GitHub Pages 는 캐시 머리글을 우리가 못 정한다. `app.js` 를 그�
 | `favicon-32.png` · `icon-180.png` | `tools/build-icons.py` | `logo.png` |
 | `privacy.html` | `tools/build-privacy.js` | 앱 저장소의 `docs/privacy-policy.md` |
 | `vendor/` | `tools/vendor.mjs` | 바깥 라이브러리 |
+| `extension/data/` | `tools/build-extension.mjs` | 사전·문법·표현 (저장소에는 안 넣는다 — 아래 「크롬 익스텐션」) |
+| `extension/icons/` | `tools/build-icons.py` | `logo.png` |
 
 ---
 
@@ -231,6 +233,38 @@ node tools/build-pages.mjs && node tools/stamp.mjs
 거짓이 된다. 스크립트가 안 돌면 진짜 날짜가 그대로 남는다.
 
 ---
+
+## 크롬 익스텐션
+
+`extension/` 에 있다. 사이트의 사전·문법·표현을 **읽던 쪽 위로** 가져가는
+물건이다 — 한국어 기사를 읽다가 막혔을 때 사이트로 건너오지 않고 그
+자리에서 뜻을 본다.
+
+자세한 것은 `extension/README.md`. 여기서는 저장소를 만지는 사람이 알아야
+할 것만 적는다.
+
+**`extension/data/` 는 저장소에 없다.** 굽고 써야 한다.
+
+```bash
+node tools/build-extension.mjs            # 사이트 자료 → extension/data/ (2.6MB)
+node tools/check-extension.mjs            # 꾸릴 수 있는 꼴인지 (자료가 낡았는지도 함께 본다)
+```
+
+다른 생성물과 달리 저장소에 안 넣는 까닭은, 이것이 GitHub Pages 가 내주는
+것이 아니라 **익스텐션을 꾸릴 때만 쓰는 사본**이어서다. 넣어 두면 같은
+사전 2.6MB 가 저장소에 두 벌이 되고, 두 벌이 되면 어느 쪽이 진짜인지 묻게
+된다.
+
+**`glossary.js` · `sentences*.js` · `grammar.js` 를 고쳤으면 다시 구울 것.**
+안 구우면 사이트와 익스텐션이 다른 뜻을 내준다 — 그것도 틀린 줄 모르는
+채로. 익스텐션은 멀쩡히 돌아가고 예전 뜻을 정확하게 보여 준다. `stamp.mjs`
+를 빼먹었을 때와 같은 종류의 사고다.
+
+익스텐션은 찾는 규칙을 새로 짜지 않는다. `gloss-find.js` 와
+`grammar-find.js` 를 **그대로 가져다 쓴다** — 사이트에서 「먹었습니다」가
+「먹다」로 담기면 익스텐션에서도 그렇게 담긴다. 재는 쪽과 하는 쪽이
+갈라지면 숫자가 일을 안 하고 위로를 한다는 것을, 뜻풀이 덮는 비율에서 한
+번 겪었다.
 
 ## 글 속의 문법
 

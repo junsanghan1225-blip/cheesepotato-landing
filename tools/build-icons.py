@@ -30,13 +30,24 @@ SIZES = {
 # Organization 로고를 112px 이상으로 요구한다. 그 둘은 사람이 우리 쪽을
 # 열 때 받는 것이 아니라 그쪽 서버가 따로 받아 가므로 첫 화면과 무관하다.
 
+# 크롬 익스텐션이 쓰는 네 크기. 크롬이 정한 규격이다 — 16 은 주소창 옆,
+# 32 는 윈도, 48 은 익스텐션 관리 쪽, 128 은 웹 스토어다. 없는 크기는
+# 크롬이 있는 것에서 줄여 쓰는데, 16px 로 줄이는 일을 크롬에 맡기면
+# 로고의 가는 테두리가 뭉개진다. 네 크기를 다 넣는 편이 낫다.
+EXT_SIZES = {f'extension/icons/icon-{n}.png': n for n in (16, 32, 48, 128)}
+
 src = Image.open('logo.png').convert('RGBA')
-for name, n in SIZES.items():
+for name, n in {**SIZES, **EXT_SIZES}.items():
     im = src.resize((n, n), Image.LANCZOS)
     # 색을 256가지로 줄인다. 원본은 42,000가지를 쓰는데 그건 사진 이야기고,
     # 로고는 몇 가지 색과 테두리뿐이다. 256px 짜리가 76KB → 14KB 로 준다.
     # 실제로 보이는 크기(28~112px)에서 재 보면 색 차이가 평균 1/255 이라
     # 눈으로는 구분이 안 된다. 이 로고에는 투명한 자리가 아예 없어서
     # (알파가 전부 255) 팔레트로 바꿔도 잃을 것이 없다.
-    im.quantize(colors=256, method=Image.FASTOCTREE).save(name, optimize=True)
+    # 익스텐션 아이콘은 팔레트로 안 줄인다. 크롬이 주소창 옆에 그릴 때
+    # 배경 위에 알파로 섞어 그리는데, 팔레트로 바꾸면 그 가장자리가
+    # 계단처럼 남는다. 어차피 쪽마다 받는 그림이 아니라 한 번 설치되는
+    # 것이라 크기를 아낄 자리가 아니다.
+    (im if name.startswith('extension/') else
+     im.quantize(colors=256, method=Image.FASTOCTREE)).save(name, optimize=True)
     print(f'{name} — {n}×{n}')

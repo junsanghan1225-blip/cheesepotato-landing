@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>치즈감자</title>
+<link rel="stylesheet" href="../src/theme.css">
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<nav class="tabs" role="tablist">
+  <button class="tab" data-tab="find"   role="tab"></button>
+  <button class="tab" data-tab="book"   role="tab"></button>
+  <button class="tab" data-tab="review" role="tab"></button>
+  <button class="tab gear" id="optBtn" title="설정" aria-label="설정">⚙</button>
+</nav>
+
+<section id="find" class="pane">
+  <div class="search">
+    <input id="q" type="search" autocomplete="off" spellcheck="false" enterkeyhint="search">
+  </div>
+  <div id="findOut" class="out"></div>
+</section>
+
+<section id="book" class="pane" hidden>
+  <div class="bookbar">
+    <input id="filter" type="search" autocomplete="off" spellcheck="false">
+    <button id="exportBtn" class="btn ghost"></button>
+  </div>
+  <div id="bookOut" class="out"></div>
+</section>
+
+<section id="review" class="pane" hidden>
+  <div id="rv" class="rv"></div>
+</section>
+
+<script type="module" src="popup.js"></script>
+</body>
+</html>
