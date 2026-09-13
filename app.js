@@ -61,10 +61,11 @@ document.getElementById('topikBtn').addEventListener('click', () => goLearn('top
 document.getElementById('heroCardBtn').addEventListener('click', () => goLearn());
 document.getElementById('streakGoBtn').addEventListener('click', () => goLearn());
 
-/* 레벨 테스트도 같은 길로 들어온다 — cpOpen 이 아직 안 왔으면 페이지
-   중간 구역의 단추(leveltestGoBtn)를 대신 눌러 준다. */
+/* 레벨 테스트는 팝업(<dialog>)이라 화면 전환이 아니다 — app.module.js 가
+   window.ltOpen 을 걸어 둔다. 아직 안 왔으면 페이지 중간 구역의 단추
+   (leveltestGoBtn, app.module.js 가 직접 연다)를 대신 눌러 준다. */
 function goLevelTest() {
-  if (window.cpOpen) return window.cpOpen('leveltest');
+  if (window.ltOpen) return window.ltOpen();
   document.getElementById('leveltestGoBtn').click();
 }
 document.getElementById('heroLevelTestBtn').addEventListener('click', () => goLevelTest());
@@ -933,7 +934,6 @@ function ptShow(toTest) {
   ptId('numView').classList.add('hidden');
   ptId('learnView').classList.add('hidden');
   ptId('lessonView').classList.add('hidden');
-  ptId('leveltestView').classList.add('hidden');
   ptId('learnBtn')?.classList.remove('on');
   if (window.lsLeave) window.lsLeave();   // 레슨 안에서 듣던 것 정리
   ptId('wbBtn').classList.remove('on');
@@ -980,9 +980,9 @@ const SLUG_VIEW = {
   learn: 'learn', test: 'test', games: 'games',
   // 게임 한 판과 레슨은 도중부터 열 수 없다. 주소로 들어오면 한 단계 위를 연다.
   quiz: 'games', num: 'num', lesson: 'learn',
-  // 레벨 테스트. test 는 발음 테스트가 이미 쓰고 있어 따로 이름을 둔다.
-  leveltest: 'leveltest',
 };
+/* 레벨 테스트는 <dialog> 팝업(#ltDlg)이라 화면 갈아 끼우기(SLUG_VIEW)에
+   안 낀다 — 지금 있는 화면 위에 뜨고 닫으면 그 화면 그대로다. */
 
 /* ══ 시험지 글자 크기 ═══════════════════════════════════════════
    모의고사 안에서만 쓴다. 60~70분을 들여다보는 화면이라 여기가 필요한
@@ -1038,7 +1038,7 @@ window.cpTxtSize = function (on) {
 const VIEW_SLUG = {
   home: '', test: 'test', wordbook: 'wordbook', account: 'account',
   library: 'library', dashboard: 'dashboard', dictionary: 'dictionary', games: 'games',
-  quiz: 'quiz', num: 'num', learn: 'learn', lesson: 'lesson', leveltest: 'leveltest',
+  quiz: 'quiz', num: 'num', learn: 'learn', lesson: 'lesson',
 };
 let routeBusy = false;
 /* 마지막으로 주소에 남긴 자리. 떠나기를 막았을 때 되돌릴 곳이다. */
