@@ -269,12 +269,40 @@ CHEESEPOTATO_APP=../cheesepotatoapp node tools/build-privacy.js
 
 ---
 
-## 그림
+## 그림 (Graphic assets)
 
-`node tools/build-store-shots.mjs` → `shots/<말>/*.png`, 1280×800 다섯 장.
-저장소에는 안 넣는다(`.gitignore`) — 도구로 언제든 다시 나온다.
+```bash
+npm i -D playwright                  # 한 번만
+node tools/build-store-shots.mjs     # 스크린샷 열 장 + 프로모 타일 넷
+python3 tools/build-icons.py         # 스토어 아이콘 (둘레를 비운 128)
+```
 
-| 파일 | 무엇을 보이나 |
+`extension/store/assets/` 에 나온다. **저장소에는 안 넣는다**(`.gitignore`) —
+도구로 언제든 다시 나오고, 1280×800 짜리가 판마다 쌓이면 저장소가 그림
+창고가 된다.
+
+### 대시보드의 어느 칸에 무엇을 넣나
+
+| 대시보드 칸 | 규격 | 넣을 파일 |
+|---|---|---|
+| **Store icon** ＊ | 128×128 | `assets/icon-128.png` |
+| **Localized screenshots** ＊ | 1280×800 · 24비트 PNG | `assets/ko/shots/` 다섯 장 |
+| **Global screenshots** ＊ | 1280×800 · 24비트 PNG | `assets/en/shots/` 다섯 장 |
+| Small promo tile | 440×280 | `assets/<말>/promo/small-440x280.png` |
+| Marquee promo tile | 1400×560 | `assets/<말>/promo/marquee-1400x560.png` |
+| Promo video | YouTube 주소 | 없다(비워 둔다) |
+
+**Localized 와 Global 이 갈리는 까닭.** Localized 는 그 말로 스토어를 보는
+사람에게, Global 은 그 밖의 모두에게 간다. `default_locale` 이 `en` 이므로
+**Global 자리에 영어 것을 넣고, 한국어 목록의 Localized 자리에 한국어
+것을 넣는다.** 거꾸로 넣으면 한국인이 영어 그림을 본다.
+
+프로모 타일은 필수가 아니다. 다만 **없으면 스토어 추천 자리에 아예 안
+실린다.** 넣는 편이 낫다.
+
+### 그림이 보여 주는 것
+
+| 파일 | 무엇을 |
 |---|---|
 | `1-select` | 글에서 낱말을 끌어 뜻·예문·문법이 한 말풍선에 |
 | `2-grammar` | Alt+G 로 그은 밑줄과, 눌렀을 때 나오는 문법 |
@@ -282,4 +310,19 @@ CHEESEPOTATO_APP=../cheesepotatoapp node tools/build-privacy.js
 | `4-review` | 간격 반복 복습 |
 | `5-offline` | 설정 — 뜻풀이 말과 「인터넷을 안 쓴다」 |
 
-스토어는 알파가 없는 PNG 를 받는다. 틀에 바탕색을 깔아 두어 그대로 맞는다.
+### 규격에서 막혔던 것 둘
+
+**크기가 정확해야 한다.** 처음에는 2배(2560×1600)로 찍어 두었는데 스토어는
+1280×800 또는 640×400 만 받는다. 지금은 화면을 2배로 찍고 1280×800 틀에
+줄여 앉힌다 — 규격도 맞고 글자도 또렷하다.
+
+**스크린샷과 프로모 타일에는 알파가 없어야 한다.** 틀에 바탕색을 깔아
+두어서 통째로 찍으면 투명한 자리가 없다. **아이콘은 예외**라 둘레를
+투명하게 둔다 — 스토어가 밝은 바탕에도 어두운 바탕에도 올려 놓으므로,
+여백을 희게 칠하면 어두운 쪽에서 흰 네모가 된다.
+
+**아이콘은 두 벌이다.** 익스텐션 안에 들어가는 `extension/icons/icon-128.png`
+는 그림이 128칸을 꽉 채우고(크롬이 제 자리에서 알아서 띄운다), 스토어에
+올리는 `assets/icon-128.png` 는 그림을 96으로 줄이고 둘레 16을 비운다 —
+크롬의 아이콘 지침이다. 목록에서 남의 아이콘과 나란히 놓였을 때 우리
+것만 커 보이지 않게 하려는 것이다.

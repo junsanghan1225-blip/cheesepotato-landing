@@ -12,19 +12,29 @@
  * 않는다 — 그리면 화면이 바뀌어도 그림은 안 바뀌고, 스토어의 그림과
  * 받아서 켠 화면이 다른 물건이 된다.
  *
+ * ── 크기와 알파 ────────────────────────────────────────────
+ * 스토어가 받는 것은 **정확히** 1280×800(또는 640×400)이고, 스크린샷과
+ * 프로모 타일은 **알파가 없어야** 한다. 처음에는 2배(2560×1600)로 찍어
+ * 두었는데 그건 규격 밖이라 업로드 칸에서 막힌다.
+ *
+ * 그래서 두 겹으로 찍는다. 화면 자체는 2배로 찍고(글자가 또렷하다),
+ * 그걸 1280×800 틀 안에 **줄여 앉힌다.** 틀을 찍는 쪽은 1배라 나오는
+ * 파일이 정확히 1280×800 이 된다. 줄여 앉히는 일을 브라우저가 하므로
+ * 2배로 찍은 또렷함이 그대로 남는다 — 1배로 찍어 그대로 쓰는 것보다 낫다.
+ *
  * ── 찍은 것은 저장소에 안 넣는다 ────────────────────────────
  * extension/data/ 와 같은 까닭이다. 이 도구로 언제든 다시 나오고,
  * PNG 다섯 장이 판마다 쌓이면 저장소가 그림 창고가 된다.
  */
-import { writeFile, mkdir, rm } from 'node:fs/promises';
+import { writeFile, readFile, mkdir, rm } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
-import { dirname, join } from 'node:path';
+import { dirname, join, relative } from 'node:path';
 import { tmpdir } from 'node:os';
 import { mkdtempSync } from 'node:fs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const EXT = join(ROOT, 'extension');
-const OUT = join(EXT, 'store', 'shots');
+const OUT = join(EXT, 'store', 'assets');
 
 let chromium;
 try { ({ chromium } = await import('playwright')); }
@@ -36,6 +46,11 @@ catch {
 /* 웹 스토어가 받는 크기. 1280×800 이 큰 쪽이고, 작은 쪽(640×400)은
    요즘 목록에서 흐릿하게 나온다. */
 const W = 1280, H = 800;
+
+/* 프로모 타일. 스토어 목록과 추천 자리에 쓰인다 — 필수는 아니지만 없으면
+   추천 자리에 아예 안 실린다. 크기가 못 박혀 있다. */
+const SMALL = { w: 440, h: 280 };
+const MARQUEE = { w: 1400, h: 560 };
 
 /* 읽다가 막히는 자리를 보여 줄 글. 어느 신문·블로그를 흉내 내지 않는다 —
    스토어 그림에 남의 상표가 들어가면 심사에서 걸리고, 무엇보다 그건
@@ -126,6 +141,60 @@ const CROP = {
      남는 아래를 그대로 찍으면 허연 띠가 그림의 3할이 된다. */
   popup:   { x: 0, y: 0, width: 380, height: 476 },
 };
+
+/* 작은 타일 440×280. 목록에서 엄지손톱만 하게 뜨므로 글이 적어야 한다.
+   화면 사진을 넣을 자리가 아니다 — 넣으면 무엇인지 알아볼 수 없는 얼룩이
+   된다. 로고·이름·한 줄만 둔다. */
+const smallTile = (name, line, logo, lang) => `<!doctype html><html lang="${lang}"><meta charset="utf-8">
+<style>
+ *{margin:0;padding:0;box-sizing:border-box}
+ body{width:${SMALL.w}px;height:${SMALL.h}px;overflow:hidden;
+      background:linear-gradient(155deg,#FDF0E2 0%,#F2EEE4 62%,#EDE6D8 100%);
+      font-family:-apple-system,'Segoe UI','Malgun Gothic','Noto Sans KR',sans-serif;
+      color:#1B1512;display:flex;flex-direction:column;justify-content:center;
+      padding:0 30px;word-break:keep-all}
+ img{width:54px;height:54px;border-radius:13px;margin-bottom:15px}
+ h1{font-size:27px;font-weight:800;letter-spacing:-.025em;line-height:1.2}
+ p{margin-top:8px;font-size:14px;line-height:1.45;color:#4E3E31}
+ .rule{width:38px;height:3px;background:#FF914D;border-radius:2px;margin-top:14px}
+</style>
+<body>
+<img src="data:image/png;base64,${logo}">
+<h1>${name}</h1>
+<p>${line}</p>
+<div class="rule"></div>
+</body></html>`;
+
+/* 마퀴 1400×560. 추천 자리에 크게 걸리는 것이라 화면을 보여 줄 만하다.
+   글은 왼쪽에 두고 화면 사진은 오른쪽에서 **틀 밖으로 흘려 보낸다** —
+   가장자리에서 잘리면 «더 있다»로 읽힌다. */
+const marqueeTile = (name, head, line, logo, png, lang) => `<!doctype html><html lang="${lang}"><meta charset="utf-8">
+<style>
+ *{margin:0;padding:0;box-sizing:border-box}
+ body{width:${MARQUEE.w}px;height:${MARQUEE.h}px;overflow:hidden;position:relative;
+      background:linear-gradient(115deg,#FDF0E2 0%,#F2EEE4 45%,#EDE6D8 100%);
+      font-family:-apple-system,'Segoe UI','Malgun Gothic','Noto Sans KR',sans-serif;
+      color:#1B1512;word-break:keep-all}
+ .txt{position:absolute;left:74px;top:0;bottom:0;width:600px;
+      display:flex;flex-direction:column;justify-content:center}
+ .brand{display:flex;align-items:center;gap:11px;margin-bottom:20px}
+ .brand img{width:38px;height:38px;border-radius:10px}
+ .brand span{font-size:17px;font-weight:700;letter-spacing:-.02em}
+ h1{font-size:45px;font-weight:800;letter-spacing:-.03em;line-height:1.18}
+ p{margin-top:15px;font-size:18px;line-height:1.55;color:#4E3E31}
+ .shot{position:absolute;right:-52px;top:50%;transform:translateY(-50%);
+       width:720px;border-radius:16px;overflow:hidden;background:#fff;
+       box-shadow:0 22px 60px rgba(27,21,18,.22),0 0 0 1px rgba(27,21,18,.07)}
+ .shot img{display:block;width:100%}
+</style>
+<body>
+<div class="txt">
+  <div class="brand"><img src="data:image/png;base64,${logo}"><span>${name}</span></div>
+  <h1>${head}</h1>
+  <p>${line}</p>
+</div>
+<div class="shot"><img src="data:image/png;base64,${png}"></div>
+</body></html>`;
 
 const b64 = (buf) => Buffer.from(buf).toString('base64');
 
@@ -263,19 +332,49 @@ async function run(lang) {
   await op.evaluate(() => document.querySelector('select')?.focus());
   shots['5-offline'] = await op.screenshot({ clip: CROP.options });
 
-  /* ── 틀에 앉히기 ─────────────────────────────────────────── */
-  const stage = await ctx.newPage();
-  await stage.setViewportSize({ width: W, height: H });
-  for (const s of SHOTS(t)) {
-    await stage.setContent(frame(s.head, s.sub, b64(shots[s.id]), s.w, lang));
-    await stage.waitForTimeout(320);
-    /* 스토어는 알파가 없는 PNG 를 받는다 — 틀에 바탕색을 깔아 두어서
-       여기서 통째로 찍으면 투명한 자리가 없다. */
-    await writeFile(join(dir, `${s.id}.png`),
-      await stage.screenshot({ clip: { x: 0, y: 0, width: W, height: H } }));
-    console.log(`  ${lang}/${s.id}.png`);
-  }
+  /* ── 틀에 앉히기 ─────────────────────────────────────────
+     여기서부터는 익스텐션이 필요 없다. **1배짜리 창을 따로 연다** —
+     나오는 파일이 정확히 1280×800 이라야 스토어가 받는다. 2배로 찍어 둔
+     화면을 그 안에 줄여 앉히므로 또렷함은 그대로다. */
   await ctx.close();
+
+  const plain = await chromium.launch({
+    executablePath: process.env.CHROME_PATH || undefined,
+    args: ['--no-sandbox', '--force-color-profile=srgb'],
+  });
+  const logo = b64(await readFile(join(EXT, 'icons', 'icon-128.png')));
+
+  const shoot = async (html, w, h, path) => {
+    const page = await plain.newPage({ viewport: { width: w, height: h }, deviceScaleFactor: 1 });
+    await page.setContent(html);
+    await page.waitForTimeout(340);
+    /* 틀에 바탕색을 깔아 두었으므로 통째로 찍으면 투명한 자리가 없다 —
+       스토어는 알파가 있는 PNG 를 안 받는다. */
+    await writeFile(path, await page.screenshot({ clip: { x: 0, y: 0, width: w, height: h } }));
+    await page.close();
+    console.log(`  ${relative(EXT, path)}`);
+  };
+
+  await mkdir(join(dir, 'shots'), { recursive: true });
+  for (const s of SHOTS(t)) {
+    await shoot(frame(s.head, s.sub, b64(shots[s.id]), s.w, lang),
+      W, H, join(dir, 'shots', `${s.id}.png`));
+  }
+
+  await mkdir(join(dir, 'promo'), { recursive: true });
+  const name = t('치즈감자', 'Cheesepotato');
+  await shoot(smallTile(name,
+    t('읽던 쪽에서 바로 뜻과 문법을', 'Meaning and grammar, right where you read'),
+    logo, lang), SMALL.w, SMALL.h, join(dir, 'promo', 'small-440x280.png'));
+
+  await shoot(marqueeTile(name,
+    t('끌면 뜻이 뜬다', 'Select it, see it'),
+    t('아무 쪽에서나 한국어를 끌면 낱말 뜻과 예문, 그 문장에 든 문법까지. 낱말 4,209개가 익스텐션 안에 들어 있어 인터넷 없이 됩니다.',
+      'Select Korean anywhere for the meaning, an example, and the grammar inside the sentence. All 4,209 words live inside the extension — no internet needed.'),
+    logo, b64(shots['1-select']), lang),
+    MARQUEE.w, MARQUEE.h, join(dir, 'promo', 'marquee-1400x560.png'));
+
+  await plain.close();
 }
 
 await rm(OUT, { recursive: true, force: true });
@@ -283,4 +382,5 @@ for (const lang of ['ko', 'en']) {
   console.log(`${lang} —`);
   await run(lang);
 }
-console.log(`\n${W}×${H} 열 장. extension/store/shots/ 에 있다.`);
+console.log(`\n스크린샷 ${W}×${H} 열 장 · 작은 타일 ${SMALL.w}×${SMALL.h} 둘 ·`
+  + ` 마퀴 ${MARQUEE.w}×${MARQUEE.h} 둘. extension/store/assets/ 에 있다.`);

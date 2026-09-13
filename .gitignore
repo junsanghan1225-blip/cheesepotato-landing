@@ -10,7 +10,7 @@ extension/data/
 # 웹 스토어에 올릴 그림. tools/build-store-shots.mjs 가 진짜 익스텐션을
 # 크롬에 올려 찍는다. 1280×800 열 장이 판마다 쌓이면 저장소가 그림
 # 창고가 된다 — 글(listing.md)과 찍는 도구만 넣고 결과는 안 넣는다.
-extension/store/shots/
+extension/store/assets/
 
 # 그림 찍는 도구가 쓰는 playwright. 다른 도구는 다 바깥 꾸러미 없이 돈다.
 node_modules
