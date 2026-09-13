@@ -115,13 +115,13 @@
      Pretendard 는 통짜(2.0MB) 대신 조각난 쪽을 쓴다 — 브라우저가
      unicode-range 를 보고 화면에 실제로 나온 글자가 든 조각만 받는다.
      그래서 저장소는 무거워졌지만 학습자가 받는 양은 오히려 줄었다. -->
-<link rel="stylesheet" href="vendor/pretendard.css?v=51c8147c">
-<link rel="stylesheet" href="vendor/pressstart2p.css?v=51c8147c">
+<link rel="stylesheet" href="vendor/pretendard.css?v=2b9f90e7">
+<link rel="stylesheet" href="vendor/pressstart2p.css?v=2b9f90e7">
 <!-- 화면 상자 안에서만 쓰는 CSS 는 여기서 갈라 받는다. media="print" 라
      첫 페인트를 안 막고, 다 받아지면 app.js 가 media 를 all 로 바꾼다.
      자바스크립트가 없으면 <noscript> 쪽이 그냥 평범하게 걸린다. -->
-<link id="viewsCss" rel="stylesheet" href="app-views.css?v=51c8147c" media="print">
-<noscript><link rel="stylesheet" href="app-views.css?v=51c8147c"></noscript>
+<link id="viewsCss" rel="stylesheet" href="app-views.css?v=2b9f90e7" media="print">
+<noscript><link rel="stylesheet" href="app-views.css?v=2b9f90e7"></noscript>
 
 <style>
 /* ══════════════════════════════════════════════════════════════
@@ -3016,11 +3016,20 @@ body.hlp-open { overflow:hidden; }
      설문 두 개(목적·학습 시간) → 시작하기 좋은 코스 하나를 추천한다.
      새 코스를 짓지 않고 기존 COURSES 중 하나를 가리키는 가장 단순한
      방식이다. 로그인도 단어장도 안 쓴다. -->
-<div id="leveltestView" class="hidden">
-  <div class="claw-wrap">
+<!-- 레벨 테스트 팝업. 화면을 통째로 갈아 끼우던 것을 그만두고 <dialog>
+     (app.js 의 askShow 가 쓰는 것과 같은 방식)로 어디서든 뜨는 팝업으로
+     바꿨다 — 홈이든 다른 화면이든 지금 보던 곳 위에 뜨고, 닫으면 그
+     자리 그대로다. -->
+<dialog id="ltDlg" class="lt-dlg">
+  <div class="lt-card">
+    <button class="lt-close" id="ltClose" type="button" aria-label="닫기">✕</button>
 
-    <div class="claw-bar">
-      <button class="claw-back" id="ltBack" type="button">← <span id="ltBackTxt">홈</span></button>
+    <div id="ltPurpose">
+      <div class="claw-ask">
+        <span class="claw-ask-label" id="ltPurposeLabel"></span>
+        <strong class="claw-ask-word">🧪</strong>
+      </div>
+      <div class="lt-purpose-grid" id="ltPurposeGrid"></div>
     </div>
 
     <div id="ltPlay" class="hidden">
@@ -3035,6 +3044,11 @@ body.hlp-open { overflow:hidden; }
         <span class="claw-ask-label" id="ltAskLabel"></span>
         <strong class="claw-ask-word" id="ltAsk">…</strong>
       </div>
+
+      <!-- 듣기 목적일 때만 보인다. 대본은 글로 안 보여주고 소리로만
+           낸다(app.module.js 의 tlSpeak) — 다시 듣고 싶을 때 누른다.
+           글자는 app.module.js 가 채운다(언어 따라 바뀌어야 해서). -->
+      <button type="button" class="claw-note lt-replay hidden" id="ltReplay"></button>
 
       <div class="qz-choices" id="ltChoices"></div>
       <p class="claw-msg" id="ltMsg"></p>
@@ -3084,13 +3098,7 @@ body.hlp-open { overflow:hidden; }
     </div>
 
   </div>
-
-  <div class="footer">
-    <div class="footer-brand" data-en="Every Koreans">에브리 코리안즈</div>
-    <div class="footer-info">© 2026 치즈감자 · <a href="privacy.html" data-en="Privacy policy">개인정보처리방침</a></div>
-  </div>
-
-</div><!-- /leveltestView -->
+</dialog>
 
 <!-- ── 자료마당 ────────────────────────────────────────────────
      올린 파일을 그대로 보관하지 않는다. 브라우저에서 앱과 같은
@@ -3717,9 +3725,9 @@ body.hlp-open { overflow:hidden; }
 <div id="hlpScrim" class="hlp-scrim"></div>
 <aside id="hlpPanel" class="hlp-panel" aria-label="한국어 도우미" aria-hidden="true"></aside>
 
-<script src="app.js?v=51c8147c"></script>
-<script type="module" src="app.module.js?v=51c8147c"></script>
+<script src="app.js?v=2b9f90e7"></script>
+<script type="module" src="app.module.js?v=2b9f90e7"></script>
 
-<script src="analytics.js?v=51c8147c" defer></script>
+<script src="analytics.js?v=2b9f90e7" defer></script>
 </body>
 </html>
