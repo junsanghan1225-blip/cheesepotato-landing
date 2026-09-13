@@ -51,6 +51,9 @@ const ASSETS = [
   // TOPIK 읽기 "문제 풀이 영상" id 목록. 영상 하나 추가할 때마다 이
   // 파일도 바뀌므로 같이 자국을 찍어야 새 목록을 브라우저가 받는다.
   'topik-video.js',
+  // 레벨 테스트의 자체 제작 문제(전체·읽기·쓰기·듣기 목적). TOPIK 목적만
+  // 위 topik.js 등 기존 자료를 그대로 쓴다.
+  'leveltest-overall.js', 'leveltest-reading.js', 'leveltest-writing.js', 'leveltest-listening.js',
   /* 화면 상자 안에서만 쓰는 CSS. index.html 이 갈라 받는다(app-views.css
      머리말 참고) — 자국이 없으면 고쳐 올려도 예전 모양이 그대로 남는다. */
   'app-views.css',
