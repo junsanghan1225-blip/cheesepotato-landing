@@ -13,10 +13,10 @@
    어느 날 갑자기 다른 코드가 실려 왔다.
    이제 vendor/ 안에 받아 두고 CSP 로 바깥을 막는다. 버전을 올릴 때는
    tools/vendor.mjs 의 PIN 을 고치고 다시 돌린다. */
-import { createClient } from './vendor/supabase-js.js?v=3972ab5f';
+import { createClient } from './vendor/supabase-js.js?v=9faa261a';
 // TOPIK 읽기 "문제 풀이 영상" 목록. 아주 작은 파일이라(id 목록뿐) 다른
 // 자료처럼 갈래를 열 때 지연 로딩하지 않고 그냥 처음부터 받는다.
-import { TQ_VIDEO_IDS } from './topik-video.js?v=3972ab5f';
+import { TQ_VIDEO_IDS } from './topik-video.js?v=9faa261a';
 // 앱(package.json)과 같은 줄기를 쓴다. 갈리면 앱에서는 읽히는 파일이
 // 여기서는 안 읽히는(또는 그 반대) 일이 생긴다.
 /* 엑셀 라이브러리는 422KB — 이 판에서 가장 무거운 조각이다. 그런데 쓰는
@@ -28,13 +28,13 @@ import { TQ_VIDEO_IDS } from './topik-video.js?v=3972ab5f';
    자국(?v=)은 tools/stamp.mjs 가 아래 줄에 알아서 붙인다 — 정적으로 쓰든
    동적으로 쓰든 같은 글자를 찾으므로 바꿔도 그대로 찍힌다. */
 let XLSX = null;
-const needXLSX = async () => (XLSX ??= await import('./vendor/xlsx.js?v=3972ab5f'));
+const needXLSX = async () => (XLSX ??= await import('./vendor/xlsx.js?v=9faa261a'));
 // 커리큘럼. 내용과 엔진을 갈라 두면 글을 고치다 화면을 깨지 않는다.
 // 갈래 목록(drawSections)·코스(drawCourses)·문제만 풀기(dqDraw) 를 열 때만
 // 받는다 — 배우기 갈래 목록도 안 본 사람에게 코스 71개 레슨을 다 물릴
 // 까닭이 없다. warmLearn() 이 배우기를 여는 순간 미리 불을 붙여 둔다.
 let COURSES = [], coursesP = null;
-const coursesNeed = () => (coursesP ??= import('./courses.js?v=3972ab5f').then((m) => { COURSES = m.COURSES; }));
+const coursesNeed = () => (coursesP ??= import('./courses.js?v=9faa261a').then((m) => { COURSES = m.COURSES; }));
 /* 낱말 뜻풀이 356KB. 예전에는 여기서 통째로 받았다 — tqGloss 가 동기라
    지연 로딩이 안 된다고 보았기 때문이다. 그런데 tqGloss 를 부르는 자리를
    다 세어 보니 여덟 곳이고 **전부 사람이 무언가를 누른 뒤**였다(사전
@@ -45,7 +45,7 @@ const coursesNeed = () => (coursesP ??= import('./courses.js?v=3972ab5f').then((
    tqGloss 는 그대로 동기다 — 아직 안 왔으면 빈 뜻을 돌려주고, 부르는
    쪽은 이미 "사전에 없는 말"을 다룰 줄 안다. */
 let GLOSSARY = {}, GLOSS_LANGS = {}, glossP = null;
-const glossNeed = () => (glossP ??= import('./glossary.js?v=3972ab5f').then((m) => {
+const glossNeed = () => (glossP ??= import('./glossary.js?v=9faa261a').then((m) => {
   GLOSSARY = m.GLOSSARY; GLOSS_LANGS = m.GLOSS_LANGS;
   dictBuildEntries();
 }).catch((e) => {
@@ -53,15 +53,15 @@ const glossNeed = () => (glossP ??= import('./glossary.js?v=3972ab5f').then((m) 
   glossP = null;
   throw e;
 }));
-import { glossFind } from './gloss-find.js?v=3972ab5f';
+import { glossFind } from './gloss-find.js?v=9faa261a';
 /* 문법 사전(뜻풀이 197개). 읽기 지문의 밑줄 문법 말풍선(rdNeed)과 예문
    만들기 화면(sbNeed) 양쪽이 쓴다 — 둘 중 먼저 여는 화면이 받아 두고,
    나중 화면은 그 약속(??=)을 그대로 쓴다. */
 let GRAMMAR = [], GRAMMAR_EN = {}, grammarP = null;
 const grammarNeed = () => (grammarP ??= Promise.all([
-  import('./grammar.js?v=3972ab5f'), import('./grammar-en.js?v=3972ab5f'),
+  import('./grammar.js?v=9faa261a'), import('./grammar-en.js?v=9faa261a'),
 ]).then(([a, b]) => { GRAMMAR = a.GRAMMAR; GRAMMAR_EN = b.GRAMMAR_EN; }));
-import { grammarScan } from './grammar-find.js?v=3972ab5f';
+import { grammarScan } from './grammar-find.js?v=9faa261a';
 // TOPIK 쓰기·듣기 문항. 읽기(topik.js·topik2.js)와 같은 tqNeedData() 로
 // 함께 받는다 — 유형 연습(topik) 갈래 하나가 세 기술을 다 쓰므로 따로
 // 가를 까닭이 없다. 값은 tqNeedData 정의부에서 채운다.
@@ -73,7 +73,7 @@ let TOPIKL_BY_EXAM = {}, TOPIKL_PICTURE_SLOTS = {};
    sbFind 를 쓰는데, 그쪽은 안 기다리고 그냥 부른다 — 답이 못 찾은
    인용 없이 나가는 것이 채팅이 멈추는 것보다 낫다. */
 let SB_CATS = [], SB_MORE = {}, SB_SEED = {}, SB_POINTS = [], sbDataP = null;
-const sbNeed = () => (sbDataP ??= import('./sentences.js?v=3972ab5f').then((m) => {
+const sbNeed = () => (sbDataP ??= import('./sentences.js?v=9faa261a').then((m) => {
   SB_CATS = m.SB_CATS; SB_MORE = m.SB_MORE; SB_SEED = m.SB_SEED;
   // 갈래마다 표현을 펼쳐 한 줄에 담는다 — SB_CATS 안의 점에는 갈래가 안
   // 달려 있어서(sbFind 가 표현 하나를 id 로 바로 찾으려면 이게 있어야 한다).
@@ -84,7 +84,7 @@ const sbNeed = () => (sbDataP ??= import('./sentences.js?v=3972ab5f').then((m) =
 // 숫자 게임의 읽기와 문제 만들기. 화면을 모르는 순수 계산이라 따로 뒀다.
 // 게임 목록에서 「숫자 읽기」를 시작할 때만 받는다 — XLSX 와 같은 자리다.
 let makeRound = null;
-const needNumbers = async () => (makeRound ??= (await import('./numbers.js?v=3972ab5f')).makeRound);
+const needNumbers = async () => (makeRound ??= (await import('./numbers.js?v=9faa261a')).makeRound);
 
 // 이 키는 공개돼도 되는 값이다. 이미 APK 안에 같은 것이 들어 있고,
 // 접근을 막는 건 키가 아니라 테이블에 걸린 RLS 다.
@@ -139,8 +139,8 @@ let tqDataP = null;
    유형 연습(topik) 갈래 하나가 이 넷을 다 쓰므로 갈라 봤자 요청만
    늘어난다. */
 const tqNeedData = () => (tqDataP ??= Promise.all([
-  import('./topik.js?v=3972ab5f'), import('./topik2.js?v=3972ab5f'),
-  import('./topik-writing.js?v=3972ab5f'), import('./topik-listening.js?v=3972ab5f'),
+  import('./topik.js?v=9faa261a'), import('./topik2.js?v=9faa261a'),
+  import('./topik-writing.js?v=9faa261a'), import('./topik-listening.js?v=9faa261a'),
 ]).then(([a, b, c, d]) => {
   TQ_DATA.I  = { reading: a.TOPIK_READING,  blueprint: a.TOPIK_BLUEPRINT,  slots: a.TOPIK_SLOTS };
   TQ_DATA.II = { reading: b.TOPIK2_READING, blueprint: b.TOPIK2_BLUEPRINT, slots: b.TOPIK2_SLOTS };
@@ -151,11 +151,11 @@ const tqNeedData = () => (tqDataP ??= Promise.all([
 let READING = null, rdP = null;
 // 지문의 밑줄 문법 말풍선이 GRAMMAR 를 쓰므로 같이 받아 둔다.
 const rdNeed = () => (rdP ??= Promise.all([
-  import('./reading.js?v=3972ab5f'), grammarNeed(),
+  import('./reading.js?v=9faa261a'), grammarNeed(),
 ]).then(([m]) => { READING = m.READING; }));
 
 let CONVO = null, cvP = null;
-const cvNeed = () => (cvP ??= import('./convo.js?v=3972ab5f').then((m) => { CONVO = m.CONVO; }));
+const cvNeed = () => (cvP ??= import('./convo.js?v=9faa261a').then((m) => { CONVO = m.CONVO; }));
 
 /* 배우기를 열면 여섯 다 미리 불을 붙인다. 기다리지 않는다 — 갈래 목록은
    이 자료가 없어도 그려지고, 사람이 갈래를 고르는 사이에 도착한다.
@@ -565,14 +565,14 @@ let dictOpen = null;  // 지금 "더 보기"(예문·뜻풀이)를 펼쳐 둔 �
    평소엔 안 쓰는 522KB 를 첫 화면 모두에게 물릴 까닭이 없다. */
 let dictSensesP = null;
 const dictLoadSenses = () => (dictSensesP ??=
-  import('./glossary-senses.js?v=3972ab5f').then((m) => m.SENSES).catch(() => ({})));
+  import('./glossary-senses.js?v=9faa261a').then((m) => m.SENSES).catch(() => ({})));
 
 /* 예문. 국립국어원 자료엔 없어서 Gemini 로 새로 지은 것이다(있는 만큼만
    — docs/glossary-examples-gemini-prompt.md 참고). 뜻풀이와 같은 자리에서
    같이 받는다 — 펼치는 손짓 하나에 몰아 두는 편이 화면이 덜 복잡하다. */
 let dictExamplesP = null;
 const dictLoadExamples = () => (dictExamplesP ??=
-  import('./glossary-examples.js?v=3972ab5f').then((m) => m.EXAMPLES).catch(() => ({})));
+  import('./glossary-examples.js?v=9faa261a').then((m) => m.EXAMPLES).catch(() => ({})));
 
 function dictVisible() {
   const q = dictQuery.trim().toLowerCase();
@@ -695,6 +695,39 @@ async function dictDrawMore(head) {
   box.innerHTML = exHtml + senseHtml;
 }
 
+/* 카드의 한 줄 뜻.
+ *
+ * 글자가 같아도 서로 다른 낱말인 것들이 있다. 예전에는 그 뜻을 한 줄에
+ * 이어 붙여 「eye; snow」로 내보냈다. 학습자는 그것이 **한 낱말의 두 뜻인지
+ * 두 낱말인지 알 수가 없다.** 「다리 = leg」만 보고는 다리(橋) 를 못 찾는다.
+ *
+ * 자료에 낱말별 뜻(hom)이 있으면 갈라서 그린다 — 눈¹ eye · 눈² snow.
+ * 번호는 사전 차례 그대로다. 영어 뜻이 없는 낱말(「차」의 접사 次)은
+ * 카드에서 빼되 **번호는 건너뛴다** — 그래야 「더 보기」의 차² 와 카드의
+ * 차² 가 같은 낱말을 가리킨다.
+ *
+ * hom 이 없으면 예전과 똑같이 한 줄이다. 동형어 번호를 못 받은 자료가 그렇다. */
+function dictMeanHtml(v, g) {
+  const tag = (pos) => pos
+    ? `<span class="wb-tag" style="color:${tagHue(pos)}">${esc(t(pos, TAG_EN[pos] ?? pos))}</span>` : '';
+
+  const hom = Array.isArray(v.hom) ? v.hom : null;
+  const shown = hom ? hom.map(([en, pos], i) => [en, pos, i + 1]).filter(([en]) => en) : [];
+  if (shown.length >= 2) {
+    return '<div class="wb-mean wb-mean-hom">' +
+      shown.map(([en, pos, n]) =>
+        '<span class="dict-hom-one">' +
+          `<b>${esc(v.head)}<sup>${n}</sup></b> ${esc(en)}` +
+          (pos ? `<i class="dict-hom-pos">${esc(t(pos, TAG_EN[pos] ?? pos))}</i>` : '') +
+        '</span>').join('') +
+      '</div>';
+  }
+  return (g.meaning
+    ? `<div class="wb-mean">${esc(g.meaning)}</div>`
+    : `<div class="wb-mean wb-nomean">${esc(t('뜻풀이 준비 중', 'Definition not ready yet'))}</div>`) +
+    tag(v.pos);
+}
+
 function dictDraw() {
   /* 사전 자료는 이 화면을 열 때 받는다(첫 화면에서는 안 받는다).
      아직 없으면 받는 동안 안내만 띄우고, 도착하면 스스로 다시 부른다 —
@@ -750,10 +783,7 @@ function dictDraw() {
         `<div class="wb-word">${esc(v.head)}` +
           `<button class="dict-say" type="button" aria-label="${esc(t('발음 듣기', 'Play pronunciation'))}" data-say="${esc(v.head)}" data-audio="assets/audio/dict/${esc(audioSlug(v.head))}.mp3">${DICT_SAY_ICON}</button>` +
         '</div>' +
-        (g.meaning
-          ? `<div class="wb-mean">${esc(g.meaning)}</div>`
-          : `<div class="wb-mean wb-nomean">${esc(t('뜻풀이 준비 중', 'Definition not ready yet'))}</div>`) +
-        (v.pos ? `<span class="wb-tag" style="color:${tagHue(v.pos)}">${esc(t(v.pos, TAG_EN[v.pos] ?? v.pos))}</span>` : '') +
+        dictMeanHtml(v, g) +
         `<button class="dict-more" type="button" data-dict-toggle="${esc(v.head)}">${esc(isOpen ? t('접기', 'Hide') : t('더 보기', 'More'))}</button>` +
         (isOpen ? '<div class="dict-senses"></div>' : '') +
       '</div>' +
@@ -9498,11 +9528,22 @@ const twCount = (s) => String(s).replace(/[\r\n]/g, '').length;
    값을 읽어서 칸으로 그려 줄 뿐이다 — 그래서 한글 자모 조합(IME),
    붙여넣기, 되돌리기가 브라우저 기본 동작 그대로 살아 있다.
 
-   탭으로 커서를 옮기면 textarea 자체의 줄바꿈(픽셀 폭 기준)과
-   원고지의 줄바꿈(칸 수 기준)이 달라서 위치가 살짝 어긋날 수 있다.
-   순서대로 타이핑하는 보통의 쓰기 연습에는 문제없다. */
+   **여기에 오래 있던 흠이 하나 있었다.** 투명한 textarea 가 원고지를
+   통째로 덮고 있으므로 칸을 눌러도 클릭은 전부 textarea 로 갔다. 그런데
+   textarea 의 줄바꿈은 픽셀 폭이 정하고 원고지의 줄바꿈은 칸 수가 정한다.
+   둘이 다르니 **엉뚱한 자리에 커서가 섰다.** 위아래 화살표도 마찬가지라,
+   결국 좌우 화살표로 한 칸씩 밀고 가는 수밖에 없었다.
+
+   그래서 칸마다 「여기를 누르면 커서가 몇 번째 글자로 가는지」를 함께
+   들고 있는다(caret). 클릭은 원고지가 받아서 textarea 의 커서를 그 자리로
+   옮긴다. 글자를 받는 일은 그대로 textarea 가 한다 — 한글 자모 조합(IME),
+   붙여넣기, 되돌리기가 브라우저 기본 동작 그대로 살아 있어야 한다. */
 const TW_GRID_COLS = 20;
 
+/* 칸 하나 = { ch: 보이는 글자, caret: 눌렀을 때 커서가 갈 자리 }.
+   빈 칸에도 caret 이 있다 — 들여쓰기 칸을 누르면 그 문단 첫 글자 앞으로,
+   줄 끝의 남은 칸을 누르면 그 줄 끝으로, 글이 끝난 뒤의 칸을 누르면
+   글 맨 끝으로 간다. 「눌렀는데 아무 데도 안 간다」가 없어야 한다. */
 function twBuildGrid(text, cursorIndex) {
   const columns = TW_GRID_COLS;
   const rows = [];
@@ -9512,8 +9553,10 @@ function twBuildGrid(text, cursorIndex) {
   let cursorFound = false;
   let paragraphStart = true;
 
-  const flushRow = () => {
-    while (row.length < columns) row.push(null);
+  const cell = (ch, caret) => ({ ch, caret });
+  /* 줄을 남은 칸으로 채워 닫는다. 그 빈 칸들을 누르면 caret 자리로 간다 */
+  const flushRow = (caret) => {
+    while (row.length < columns) row.push(cell('', caret));
     rows.push(row);
     row = [];
   };
@@ -9524,29 +9567,30 @@ function twBuildGrid(text, cursorIndex) {
       cursorFound = true;
     }
   };
-  const beginParagraphIfNeeded = () => {
+  const beginParagraphIfNeeded = (at) => {
     if (paragraphStart) {
-      row.push(null);
+      row.push(cell('', at));
       paragraphStart = false;
-      if (row.length === columns) flushRow();
+      if (row.length === columns) flushRow(at);
     }
   };
 
   for (let i = 0; i < text.length; i++) {
-    beginParagraphIfNeeded();
+    beginParagraphIfNeeded(i);
     markCursor(i);
     const ch = text[i];
     if (ch === '\n') {
-      flushRow();
+      /* 줄바꿈 앞이 그 줄의 끝이다 — 남은 칸을 누르면 거기로 간다 */
+      flushRow(i);
       paragraphStart = true;
       continue;
     }
-    row.push(ch);
-    if (row.length === columns) flushRow();
+    row.push(cell(ch, i));
+    if (row.length === columns) flushRow(i + 1);
   }
-  beginParagraphIfNeeded();
+  beginParagraphIfNeeded(text.length);
   markCursor(text.length);
-  if (row.length > 0) flushRow();
+  if (row.length > 0) flushRow(text.length);
 
   return { rows, cursorRow, cursorCol };
 }
@@ -9563,7 +9607,6 @@ function twRenderGrid() {
   const minRows = twItem && twItem.max > 400 ? 38 : 18;
   const rows = g.rows.slice();
   const target = Math.max(minRows, rows.length + 2);
-  while (rows.length < target) rows.push(new Array(TW_GRID_COLS).fill(null));
 
   // 칸 크기를 상자 너비에 맞춰 계산한다 — 좁은 화면에서 가로 스크롤이
   // 생기지 않도록(가로 스크롤이 생기면 숨은 textarea가 화면 밖 칸까지
@@ -9571,14 +9614,46 @@ function twRenderGrid() {
   const avail = wrap.clientWidth - 16; // .tw-grid-wrap padding 8px 양쪽
   if (avail > 0) wrap.style.setProperty('--tw-cs', Math.floor(avail / TW_GRID_COLS) + 'px');
 
+  /* 글 끝 뒤로 덧대는 빈 줄도 누를 수 있어야 한다 — 커서는 글 맨 끝으로 */
+  const endCaret = text.length;
+  while (rows.length < target) rows.push(new Array(TW_GRID_COLS).fill(null));
+
   box.innerHTML = rows.map((r, ri) =>
     '<div class="tw-grid-row">' +
-      r.map((ch, ci) => {
+      r.map((c, ci) => {
         const isCursor = cursorIndex >= 0 && ri === g.cursorRow && ci === g.cursorCol;
-        return `<span class="tw-cell${isCursor ? ' cur' : ''}">${ch ? esc(ch) : ''}</span>`;
+        const caret = c && c.caret != null ? c.caret : endCaret;
+        const ch = c ? c.ch : '';
+        return `<span class="tw-cell${isCursor ? ' cur' : ''}" data-i="${caret}">${ch ? esc(ch) : ''}</span>`;
       }).join('') +
     '</div>'
   ).join('');
+}
+
+/* 원고지를 눌러 커서를 옮긴다.
+   textarea 는 pointer-events 를 꺼 두었으므로 클릭이 여기로 온다. */
+function twCaretTo(i) {
+  const ta = $('twText');
+  if (!ta) return;
+  const n = Math.max(0, Math.min(ta.value.length, i));
+  ta.focus();
+  ta.setSelectionRange(n, n);
+  twRenderGrid();
+}
+
+/* 위아래 화살표는 **칸 기준**으로 움직인다.
+   textarea 에 맡기면 픽셀 줄 기준이라 원고지와 다른 데로 간다 —
+   한 줄 위로 눌렀는데 세 칸 옆으로 가는 식이었다. */
+function twMoveRow(delta) {
+  const ta = $('twText');
+  if (!ta) return false;
+  const g = twBuildGrid(ta.value, ta.selectionStart ?? 0);
+  const r = g.cursorRow + delta;
+  if (r < 0 || r >= g.rows.length) return false;
+  const cell = g.rows[r][Math.min(g.cursorCol, g.rows[r].length - 1)];
+  if (!cell || cell.caret == null) return false;
+  twCaretTo(cell.caret);
+  return true;
 }
 
 /* ── 문체 검사 ───────────────────────────────────────────────
@@ -9774,7 +9849,7 @@ function twOpen(it) {
     `<div class="tw-warn" id="twW"></div>` +
 
     '<div class="tw-acts">' +
-      (long ? '' : `<button class="btn-retro" id="twSubmit" type="button">${t('제출하기', 'Submit')}</button>`) +
+      `<button class="btn-retro" id="twSubmit" type="button">${t(long ? '채점하기' : '제출하기', long ? 'Score it' : 'Submit')}</button>` +
       `<button class="btn-retro green" id="twShow" type="button">${t('모범답안 보기', 'Show a model answer')}</button>` +
       `<button class="wb-out" id="twClear" type="button">${t('지우기', 'Clear')}</button>` +
     '</div>' +
@@ -9797,7 +9872,8 @@ function twOpen(it) {
   $('twDesk').querySelector('.rd-say')?.addEventListener('click', (ev) => {
     say(ev.currentTarget.dataset.say, ev.currentTarget.dataset.audio);
   });
-  if (!long) $('twSubmit').addEventListener('click', twSubmit);
+  $('twSubmit').addEventListener('click', long ? twDrawGrade : twSubmit);
+  if (long) twTaskDone = new Set();   // 문항을 새로 열면 짚어 둔 것도 비운다
   $('twDesk').querySelectorAll('.tw-in').forEach((x) => x.addEventListener('input', twSync));
   if (long) $('twClock').addEventListener('click', twToggleClock);
   /* 커서만 옮기고 글자는 안 바뀌는 경우(클릭·화살표 키·포커스)도
@@ -9806,6 +9882,21 @@ function twOpen(it) {
     const ta = $('twText');
     ['click', 'keyup', 'select', 'focus'].forEach((ev) => ta.addEventListener(ev, twRenderGrid));
     ta.addEventListener('blur', twRenderGrid);
+
+    /* 칸을 누르면 그 자리로 커서가 간다. 칸 사이 빈 곳을 눌렀으면
+       글 맨 끝으로 — 아무 일도 안 일어나는 것보다 낫다. */
+    $('twGrid').addEventListener('pointerdown', (ev) => {
+      const cell = ev.target.closest('.tw-cell');
+      ev.preventDefault();            // textarea 가 포커스를 뺏어 가지 않게
+      twCaretTo(cell ? Number(cell.dataset.i) : ta.value.length);
+    });
+
+    /* 위아래 화살표만 가로챈다. 좌우·글자·IME 는 textarea 가 하던 대로 */
+    ta.addEventListener('keydown', (ev) => {
+      if (ev.key !== 'ArrowUp' && ev.key !== 'ArrowDown') return;
+      if (ev.shiftKey || ev.altKey || ev.metaKey || ev.ctrlKey) return;
+      if (twMoveRow(ev.key === 'ArrowUp' ? -1 : 1)) ev.preventDefault();
+    });
   }
 
   twSync();
@@ -9847,6 +9938,258 @@ function twSync() {
     w.innerHTML = `<b>${t(`문체가 어긋난 문장 ${miss.length}개`, `${miss.length} sentence(s) in the wrong register`)}</b><br>` +
       miss.slice(0, 3).map((m) => `· ${esc(m.sen.slice(-24))} — ${esc(m.why)}`).join('<br>');
   }
+}
+
+/* ── 53·54 번 채점 ──────────────────────────────────────────────
+ *
+ * 51·52 번은 빈칸이라 답을 맞춰 보면 점수가 나온다. 53·54 번은 글이라
+ * 그럴 수가 없어서 여태 점수가 아예 없었다. 「모범답안 보기」 말고는
+ * 자기 글이 몇 점짜리인지 알 길이 없었다.
+ *
+ * ── 여기서 안 하는 일 ──
+ *
+ * **내용을 채점하지 않는다.** 「좋은 습관이 삶에 미치는 영향을 제대로
+ * 썼는가」는 뜻을 읽어야 아는 일이고, 규칙으로는 못 한다. 낱말이 겹치는지
+ * 세어서 점수를 매길 수는 있지만 그것은 **점수처럼 보이는 숫자일 뿐이다.**
+ * 학습자는 그 숫자를 믿고 자기 글이 좋은 줄 안다. 틀린 뜻을 내주느니 빈
+ * 칸을 내주는 것과 같은 까닭으로, 여기서는 세부 과제를 **목록으로 내주고
+ * 사람이 짚게 한다.**
+ *
+ * ── 기계가 재는 것 ──
+ *
+ *   분량      200자를 못 채우면 감점이다. 세면 끝난다
+ *   문체      -(느)ㄴ다체에 해요체가 섞였는가. twRegisterMiss 가 이미 한다
+ *   문단      54번은 서론·본론·결론으로 나뉘어야 한다. 세면 된다
+ *   연결 표현  같은 어미만 되풀이하면 언어 사용 점수가 깎인다. 가짓수를 센다
+ *
+ * 이 넷은 자료의 deduct(감점 사유)에 적힌 것과 그대로 겹친다. 사람이
+ * 채점해도 제일 먼저 보는 것들이라 그렇다.
+ *
+ * ── 배점 ──
+ *
+ * 공개된 TOPIK II 쓰기 채점 기준을 따랐다. 바뀌면 이 표만 고치면 된다. */
+const TW_RUBRIC = {
+  53: { content: 7,  structure: 7,  language: 16 },
+  54: { content: 12, structure: 12, language: 26 },
+};
+
+/* 글을 이어 주는 표현. 가짓수를 세려는 것이지 옳고 그름을 보려는 것이
+   아니므로, 흔히 쓰는 것만 적으면 된다. */
+const TW_LINKS = [
+  '그러나', '그런데', '하지만', '반면에', '반면', '그러므로', '따라서', '그래서',
+  '또한', '게다가', '더구나', '뿐만 아니라', '한편', '물론', '즉', '다시 말해',
+  '예를 들어', '이처럼', '이와 같이', '첫째', '둘째', '셋째', '먼저', '우선',
+  '마지막으로', '결국', '요컨대', '왜냐하면', '때문에', '무엇보다', '실제로',
+  '이러한', '이에 따라', '그 결과', '특히', '이어서',
+];
+/* 53번은 자료를 설명하는 글이라 쓰는 표현이 따로 있다.
+ *
+ * **이 목록은 지어내지 않고 자료에 실린 모범답안에서 뽑았다.** 처음에는
+ * 머릿속으로 적었다가 상(29점) 답안을 넣어 보고 알았다 — 「그 뒤를 이었다」
+ * 같은 긴 꼴만 적어 두어서, 「1위를 차지하였고 · 2위에 올랐다 · 이어」로
+ * 쓴 진짜 답안이 하나도 안 걸렸다.
+ *
+ * 글감 낱말(비율·가구)은 일부러 안 넣는다. 그것은 자료를 설명하는 표현이
+ * 아니라 그 문항의 주제라, 넣으면 주제만 베껴 써도 점수가 붙는다. */
+const TW_DATA_LINKS = [
+  '에 따르면', '조사 결과', '조사하', '조사되', '나타났', '나타나',
+  '차지', '위를 차지', '위에 올랐', '뒤를 이', '이어', '순으로',
+  '증가하', '감소하', '늘어났', '줄어들', '가장 높', '가장 낮',
+  '것으로 보이', '전망', '%p', '포인트', '배로', '에 그쳤',
+];
+
+let twTaskDone = new Set();   // 내용 점검에서 사람이 짚은 세부 과제
+
+/* 글을 재서 점수와 까닭을 낸다. 화면을 안 건드리므로 따로 시험할 수 있다. */
+function twGrade(text, it) {
+  const R = TW_RUBRIC[it.q] || TW_RUBRIC[54];
+  const n = twCount(text);
+  const sens = twSentences(text);
+  const paras = String(text).split(/\n\s*\n|\n/).map((x) => x.trim()).filter(Boolean);
+  const notes = { content: [], structure: [], language: [] };
+
+  /* ── 내용 — 사람이 짚은 만큼만 ── */
+  const tasks = it.tasks || [];
+  const done = tasks.filter((_, i) => twTaskDone.has(i)).length;
+  const content = tasks.length ? Math.round((R.content * done) / tasks.length) : 0;
+  notes.content.push(tasks.length
+    ? t(`세부 과제 ${tasks.length}개 가운데 ${done}개를 짚었어요.`, `${done} of ${tasks.length} sub-tasks ticked.`)
+    : t('세부 과제가 없는 문항이에요.', 'This item has no sub-tasks.'));
+
+  /* ── 전개 구조 ──
+   *
+   * **53번과 54번은 재는 것이 다르다.** 처음에 둘 다 「문단을 나눴는가」로
+   * 쟀다가, 자료에 실린 모범답안으로 시험해 보고서야 알았다 — 53번 상(29점)
+   * 답안이 문단 하나짜리라 감점을 맞았다. 53번은 자료를 설명하는 글이라
+   * 원래 한 문단으로 쓴다. 자료의 points.structure 도 문단이 아니라
+   * 「개요 → 변화 → 원인 차례로 이어지고 연결 표지를 썼는가」라고 적혀 있다.
+   * 규칙을 짓기 전에 자료에 뭐라고 적혀 있는지부터 읽었어야 했다. */
+  let structure = R.structure;
+  const links = (list) => list.filter((k) => text.includes(k));
+  if (it.q === 54) {
+    if (paras.length < 3) {
+      const cut = Math.round(R.structure * 0.5);
+      structure -= cut;
+      notes.structure.push(t(
+        `문단이 ${paras.length}개예요 — 서론·본론·결론으로 나누세요.`,
+        `Only ${paras.length} paragraph(s) — split into intro, body, conclusion.`) + ` (−${cut})`);
+    } else {
+      notes.structure.push(t(`문단 ${paras.length}개로 나뉘었어요.`, `${paras.length} paragraphs.`));
+    }
+    /* 한 문단이 통째로 글을 차지하면 나눈 것이 아니다 */
+    const longest = Math.max(...paras.map((x) => twCount(x)), 0);
+    if (paras.length >= 3 && n > 0 && longest / n > 0.7) {
+      const cut = Math.round(R.structure * 0.25);
+      structure -= cut;
+      notes.structure.push(t('한 문단이 글의 7할을 넘어요 — 고르게 나누세요.',
+        'One paragraph holds over 70% of the text.') + ` (−${cut})`);
+    }
+  } else {
+    /* 53번 — 차례와 연결 표지를 본다 */
+    const order = links(TW_LINKS);
+    const data = links(TW_DATA_LINKS);
+    if (order.length < 2) {
+      const cut = Math.round(R.structure * 0.35);
+      structure -= cut;
+      notes.structure.push(t(`차례를 잇는 표현이 ${order.length}가지예요 — 「먼저·그 뒤를 이어·이처럼」처럼 쓰세요.`,
+        `Only ${order.length} ordering expression(s).`) + ` (−${cut})`);
+    } else {
+      notes.structure.push(t(`차례를 잇는 표현 ${order.length}가지를 썼어요.`, `${order.length} ordering expressions.`));
+    }
+    if (data.length < 3) {
+      const cut = Math.round(R.structure * 0.35);
+      structure -= cut;
+      notes.structure.push(t(`자료를 설명하는 표현이 ${data.length}가지예요 — 「-에 따르면·것으로 나타났다·차지했다」.`,
+        `Only ${data.length} data-describing expression(s).`) + ` (−${cut})`);
+    } else {
+      notes.structure.push(t(`자료 설명 표현 ${data.length}가지: ${data.slice(0, 5).join(' · ')}`,
+        `${data.length} data-describing expressions.`));
+    }
+  }
+
+  /* ── 언어 사용 ── */
+  let language = R.language;
+  /* 분량 — 자료의 deduct 가 「가장 흔한 감점」이라고 적어 둔 것 */
+  if (n < it.min) {
+    const short = (it.min - n) / it.min;
+    const cut = Math.round(R.language * Math.min(0.5, short * 1.2));
+    language -= cut;
+    notes.language.push(t(`${n}자 — ${it.min}자에 ${it.min - n}자 모자라요.`,
+      `${n} chars — ${it.min - n} short of ${it.min}.`) + ` (−${cut})`);
+  } else if (n > it.max) {
+    const cut = Math.round(R.language * 0.1);
+    language -= cut;
+    notes.language.push(t(`${n}자 — ${it.max}자를 넘었어요.`, `${n} chars — over ${it.max}.`) + ` (−${cut})`);
+  } else {
+    notes.language.push(t(`${n}자 — 분량이 맞아요.`, `${n} chars — length is right.`));
+  }
+  /* 문체 */
+  const miss = twRegisterMiss(text, it.register);
+  if (miss.length) {
+    const cut = Math.round(R.language * Math.min(0.4, (miss.length / Math.max(1, sens.length)) * 1.5));
+    language -= cut;
+    notes.language.push(t(`문체가 어긋난 문장 ${miss.length}개 (${twWant(it)})`,
+      `${miss.length} sentence(s) in the wrong register`) + ` (−${cut})`);
+  } else if (sens.length) {
+    notes.language.push(t(`문체가 끝까지 ${twWant(it)}로 일관돼요.`, `Register is consistent.`));
+  }
+  /* 연결 표현 가짓수 — 자료의 deduct 가 「언어 사용 점수가 깎이는 가장 큰
+     이유」라고 적어 둔 것이다. 몇 개를 몇 번 썼는지가 아니라 **몇 가지**를
+     썼는지를 센다. 같은 「그래서」를 열 번 써도 한 가지다. */
+  const pool = it.q === 53 ? TW_LINKS.concat(TW_DATA_LINKS) : TW_LINKS;
+  const used = pool.filter((k) => text.includes(k));
+  const wantLinks = it.q === 54 ? 6 : 4;
+  if (used.length < wantLinks) {
+    const cut = Math.round(R.language * 0.2 * (1 - used.length / wantLinks));
+    language -= cut;
+    notes.language.push(t(`이어 주는 표현이 ${used.length}가지예요 — ${wantLinks}가지는 쓰세요.`,
+      `Only ${used.length} distinct connectives — aim for ${wantLinks}.`) + (cut ? ` (−${cut})` : ''));
+  } else {
+    notes.language.push(t(`이어 주는 표현 ${used.length}가지: ${used.slice(0, 6).join(' · ')}`,
+      `${used.length} distinct connectives.`));
+  }
+
+  const clamp = (x, m) => Math.max(0, Math.min(m, x));
+  const parts = [
+    { key: 'content',   ko: '내용 및 과제 수행', en: 'Content',   got: clamp(content, R.content),     max: R.content,   auto: false, notes: notes.content },
+    { key: 'structure', ko: '글의 전개 구조',    en: 'Structure', got: clamp(structure, R.structure), max: R.structure, auto: true,  notes: notes.structure },
+    { key: 'language',  ko: '언어 사용',         en: 'Language',  got: clamp(language, R.language),   max: R.language,  auto: true,  notes: notes.language },
+  ];
+  return {
+    parts,
+    total: parts.reduce((a, x) => a + x.got, 0),
+    max: parts.reduce((a, x) => a + x.max, 0),
+    chars: n, paras: paras.length, links: used.length, miss: miss.length,
+  };
+}
+
+/* 채점표를 그린다. 내용 점검은 눌러서 켜고 끄면 점수가 바로 다시 매겨진다. */
+function twDrawGrade() {
+  const it = twItem;
+  if (!it) return;
+  const text = $('twText')?.value || '';
+  if (!text.trim()) {
+    $('twOut').innerHTML = `<p class="tw-warn hit">${esc(t('먼저 글을 쓰세요.', 'Write something first.'))}</p>`;
+    return;
+  }
+  const g = twGrade(text, it);
+  const band = (it.samples || []).slice().sort((a, b) => b.total - a.total)
+    .find((s) => g.total >= s.total);
+
+  $('twOut').innerHTML =
+    `<div class="tw-sec-t">${esc(t('채점표', 'Score sheet'))}</div>` +
+    '<div class="tw-score">' +
+      `<span class="tw-score-n">${g.total}</span><span class="tw-score-m">/ ${g.max}${esc(t('점', ''))}</span>` +
+      (band ? `<span class="tw-score-band">${esc(t(`모범답안 「${band.level}」 수준(${band.total}점) 언저리`, `Around the "${band.level}" sample (${band.total})`))}</span>` : '') +
+    '</div>' +
+    g.parts.map((pt) =>
+      '<div class="tw-score-row">' +
+        '<div class="tw-score-k">' +
+          `<b>${esc(isEn() ? pt.en : pt.ko)}</b>` +
+          `<span>${pt.got} / ${pt.max}</span>` +
+          (pt.auto ? '' : `<i class="tw-score-hand">${esc(t('사람이 짚는 칸', 'you tick these'))}</i>`) +
+        '</div>' +
+        '<ul class="tw-score-why">' + pt.notes.map((x) => `<li>${esc(x)}</li>`).join('') + '</ul>' +
+        (pt.key === 'content' && (it.tasks || []).length
+          ? '<ul class="tw-task-check">' + it.tasks.map((task, i) =>
+              `<li><label><input type="checkbox" data-tw-task="${i}"${twTaskDone.has(i) ? ' checked' : ''}> ${esc(task)}</label></li>`).join('') + '</ul>'
+          : '') +
+      '</div>').join('') +
+    (it.deduct ? `<div class="tw-sec-t">${esc(t('사람이 채점할 때 깎는 것', 'What a human grader deducts'))}</div>` +
+      '<ul class="tw-score-why">' + it.deduct.map((x) => `<li>${esc(x)}</li>`).join('') + '</ul>' : '') +
+    `<p class="tw-score-note">${esc(t(
+      '내용이 좋은지는 기계가 못 봅니다. 분량·문체·문단·표현만 재고, 세부 과제는 위에서 직접 짚으세요. 진짜 시험은 사람이 채점합니다.',
+      'A machine cannot judge content. This measures length, register, paragraphs and connectives only — tick the sub-tasks yourself. The real exam is graded by people.'))}</p>`;
+
+  /* 짚을 때마다 판을 통째로 다시 그리면 **누른 상자가 사라졌다 새로 생긴다.**
+     키보드로 짚던 자리를 잃고, 연달아 누르면 눌린 것이 튄다. 숫자만 고친다. */
+  $('twOut').querySelectorAll('[data-tw-task]').forEach((box) => {
+    box.addEventListener('change', () => {
+      const i = Number(box.dataset.twTask);
+      if (box.checked) twTaskDone.add(i); else twTaskDone.delete(i);
+      twPatchScore();
+    });
+  });
+}
+
+/* 내용 칸만 다시 세어 숫자를 갈아 끼운다. */
+function twPatchScore() {
+  const it = twItem;
+  const out = $('twOut');
+  if (!it || !out) return;
+  const g = twGrade($('twText')?.value || '', it);
+  const nEl = out.querySelector('.tw-score-n');
+  if (nEl) nEl.textContent = String(g.total);
+  out.querySelectorAll('.tw-score-row').forEach((row, i) => {
+    const pt = g.parts[i];
+    if (!pt) return;
+    const span = row.querySelector('.tw-score-k span');
+    if (span) span.textContent = `${pt.got} / ${pt.max}`;
+    if (pt.key === 'content') {
+      const why = row.querySelector('.tw-score-why li');
+      if (why) why.textContent = pt.notes[0];
+    }
+  });
 }
 
 /* ── 모범답안 ──────────────────────────────────────────────── */

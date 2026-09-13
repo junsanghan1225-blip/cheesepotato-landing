@@ -131,6 +131,38 @@ for (const w of krdictEarly.words || []) {
   if (pos) krPos.set(w.ko, pos);
 }
 
+/* 동음이의어 — 한 글자에 표제어가 둘 이상인 것.
+ *
+ * 「눈01」(眼) 과 「눈02」(雪) 는 서로 다른 낱말이다. 카드에 뜻을 한 줄로
+ * 이어 붙이면 「eye; snow」가 되고, 학습자는 그것이 한 낱말의 두 뜻인지
+ * 두 낱말인지 알 수가 없다. 「다리 = leg」만 보고 다리(橋) 를 못 찾는다.
+ *
+ * 그래서 낱말마다 뜻을 따로 실어 보낸다. 화면이 「눈¹ eye · 눈² snow」로
+ * 갈라 그린다.
+ *
+ * **번호는 사전 차례 그대로 둔다.** 뜻이 영어로 안 적힌 낱말(「차」의 접사
+ * 次 가 그렇다)도 자리를 차지한 채 넘긴다. 빼고 번호를 다시 매기면 「더 보기」
+ * 에 보이는 차² 와 카드의 차² 가 서로 다른 낱말을 가리키게 된다.
+ *
+ * 지금 자료에는 동형어 번호가 없어 이 표가 언제나 비어 있다. 원본 폴더로
+ * build-krdict-glossary.mjs 를 다시 돌려야 채워진다 — check-homonym.mjs 참고. */
+function attachHomonyms(table, krdict, pickEn) {
+  const byKo = new Map();
+  for (const w of krdict.words || []) {
+    if (!byKo.has(w.ko)) byKo.set(w.ko, []);
+    byKo.get(w.ko).push(w);
+  }
+  let n = 0;
+  for (const [ko, list] of byKo) {
+    if (list.length < 2 || !table[ko]) continue;
+    /* 칸이 둘인 배열로 담는다 — [영어 뜻, 품사]. 낱말 수천 개에 열쇠
+       이름을 붙이면 파일이 눈에 띄게 커진다 */
+    table[ko].hom = list.map((w) => [pickEn(w), POS_TAG[w.pos] || '']);
+    n++;
+  }
+  return n;
+}
+
 /* ── 1. 우리가 쓴 것 ─────────────────────────────────────────── */
 const mine = read('docs/glossary.json');
 const mineEnByKo = new Map(mine.map((e) => [e.ko, e.en]));
@@ -201,6 +233,15 @@ for (const w of krdict.words || []) {
 }
 
 /* ── 3. 내보낸다 ────────────────────────────────────────────── */
+/* 동음이의어를 낱말마다 갈라 싣는다. 위 루프가 table 을 다 채운 뒤라야
+   우리가 손으로 쓴 표제어(mineKeys) 에도 붙는다. */
+const pickEn = (w) => {
+  const d = (w.defs || []).find((x) => x.t && !isBlank(x.t.en));
+  const en = d?.t?.en || '';
+  return en && !isRoman(w.ko, en) ? en : '';
+};
+const homN = attachHomonyms(table, krdict, pickEn);
+
 const CREDIT = krdict.words?.length
   ? ` *\n * 뜻풀이 일부는 국립국어원 「한국어기초사전」(https://krdict.korean.go.kr)에서\n` +
     ` * 왔다. CC BY-SA 2.0 KR — https://creativecommons.org/licenses/by-sa/2.0/kr/\n`
@@ -246,6 +287,8 @@ export const G = ${j(packs[L])};
 const kb = (f) => (readFileSync(join(ROOT, f)).length / 1024).toFixed(0);
 console.log(`glossary.js — 찾을 수 있는 꼴 ${Object.keys(table).length}개 (${kb('glossary.js')}KB)`);
 console.log(`  우리가 쓴 것 ${mineKeys.size} · 사전에서 온 것 ${fromDict}`);
+console.log(`  동음이의어로 갈라 실은 표제어 ${homN}개 — 카드가 「눈¹ eye · 눈² snow」로 그린다.`);
+if (!homN) console.log('  (지금 자료에는 동형어 번호가 없다 — build-krdict-glossary.mjs 를 원본 폴더로 다시 돌려야 한다)');
 console.log(`  걸러 낸 것 — 어미·조사·접사 ${dropped.pos} · 읽는 법만 적힌 것 ${dropped.roman} · 영어가 없는 것 ${dropped.blank} · 우리가 딴말로 못 박은 것 ${dropped.only}`);
 console.log(`  품사 태그 붙은 것 ${Object.values(table).filter((v) => v.pos).length}개 — 모의고사에서 낱말을 표시해 단어장에 담을 때 자동으로 붙는다.`);
 console.log('언어팩 ' + OTHER.map((L) => `${L} ${Object.keys(packs[L]).length}개(${kb(`glossary-${L}.js`)}KB)`).join(' · '));
