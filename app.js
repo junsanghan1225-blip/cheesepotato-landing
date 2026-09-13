@@ -52,15 +52,22 @@ function goLearn(sub) {
   if (window.cpOpen) return window.cpOpen('learn', sub);
   document.getElementById('learnBtn').click();
 }
-document.getElementById('heroLearnBtn').addEventListener('click', () => goLearn());
-document.getElementById('heroTopikBtn').addEventListener('click', () => goLearn('topik'));
-// 사이드 메뉴에서 배우기와 나란히 뗀 TOPIK 단추. 동작은 heroTopikBtn 과 같다.
+// 사이드 메뉴의 TOPIK 단추. 히어로에는 이제 레벨 테스트 하나만 두고,
+// TOPIK 연습은 ☰ 메뉴로 들어간다.
 document.getElementById('topikBtn').addEventListener('click', () => goLearn('topik'));
 /* 첫 화면 카드도 눌리는 자리다. 방문 기록을 보면 사람들이 오는 곳은
    레딧이고, 앱을 받으러 온 것이 아니라 **여기서 한국어를 해 보려고**
    온다. 눌러 본 사람은 「해 보고 싶다」고 말한 것이니 그 자리로 보낸다. */
 document.getElementById('heroCardBtn').addEventListener('click', () => goLearn());
 document.getElementById('streakGoBtn').addEventListener('click', () => goLearn());
+
+/* 레벨 테스트도 같은 길로 들어온다 — cpOpen 이 아직 안 왔으면 페이지
+   중간 구역의 단추(leveltestGoBtn)를 대신 눌러 준다. */
+function goLevelTest() {
+  if (window.cpOpen) return window.cpOpen('leveltest');
+  document.getElementById('leveltestGoBtn').click();
+}
+document.getElementById('heroLevelTestBtn').addEventListener('click', () => goLevelTest());
 
 /* 「무엇을 배우나」 여섯 장. data-go 에 적힌 자리로 보낸다.
    낱말 사전은 배우기 갈래가 아니라 따로 뗀 화면(dictionary)이다 —
@@ -1093,7 +1100,6 @@ window.cpStart = function () {
 ptId('navBtn').addEventListener('click', () => {
   ptShow(ptId('testView').classList.contains('hidden'));
 });
-ptId('heroTestBtn').addEventListener('click', () => ptShow(true));
 
 /* 한국어 / English
    대부분은 원문(한국어)을 그대로 두고 data-en 에 영어를 달아 뒀다.
