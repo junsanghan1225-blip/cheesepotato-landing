@@ -172,6 +172,11 @@ h2{font-size:15px;margin:32px 0 10px;color:var(--dim);letter-spacing:.02em}
 .blog-back{display:inline-flex;align-items:center;gap:5px;font-size:13.5px;color:var(--dim);
   text-decoration:none;margin-bottom:14px}
 .blog-back:hover{color:var(--ink)}
+/* 다른 말로 쓴 판으로 가는 줄. 번역 단추가 아니라 「그 말로 쓴 글이
+   따로 있다」는 안내라, 단추가 아니라 줄로 둔다. */
+.blog-alt{display:inline-block;margin:10px 0 0;font-size:13.5px;font-weight:700;
+  color:var(--dim);text-decoration:none;border-bottom:1px solid var(--rb-hair);padding-bottom:1px}
+.blog-alt:hover{color:var(--ink);border-color:var(--brand)}
 .blog-article{font-size:17px;line-height:1.85;margin-top:22px}
 .blog-article p{margin:0 0 22px}
 .blog-article h2{font-size:21px;color:var(--ink);margin:36px 0 12px;letter-spacing:-.01em}
@@ -349,8 +354,8 @@ h1,.rb-id h1,.rb-card h1,.rb-post h2,.blog-article h2{font-family:'Gowun Batang'
 </head>
 <body>
 <div class="wrap">
-<a class="blog-back" href="/blog/">← Blog</a>
-<nav class="crumb"><a href="/">CheesePotato</a> › <a href="/blog/">Blog</a></nav>
+<a class="blog-back" href="/blog/tag/english.html">← Blog</a>
+<nav class="crumb"><a href="/">CheesePotato</a> › <a href="/blog/tag/english.html">Blog</a></nav>
 <article class="rb-card">
 <div class="rb-byline"><span class="rb-avatar-sm" aria-hidden="true">🧀</span><div class="rb-byline-info"><div class="rb-byline-name">CheesePotato</div><div class="rb-byline-role">We teach Korean · <time datetime="2026-09-14">2026년 9월 14일</time></div></div></div>
 <h1>How to Learn Korean: the order that actually works</h1>
@@ -401,7 +406,7 @@ h1,.rb-id h1,.rb-card h1,.rb-post h2,.blog-article h2{font-family:'Gowun Batang'
 <a class="gcard" href="/sentence/"><b>All 290 grammar points</b><span class="gnote">Each one has its meaning, form, what to watch out for, examples and a dialogue — and a box to write your own sentence</span><span class="glinkgo">Open it →</span></a></div>
 </article>
 <a class="cta" href="/#learn">Start learning Korean<span>Free lessons and practice — no sign-up needed</span></a>
-<div class="near"><a href="/blog/reasons-intermediate.html"><b>← Previous</b>이유를 말하는 법, 중급 편 — 거든요, 느라고, 바람에, 탓에</a></div>
+<div class="near"><a href="/blog/reasons-intermediate.html"><b>← Previous</b>이유를 말하는 법, 중급 편 — 거든요, 느라고, 바람에, 탓에</a><a href="/blog/eun-neun-vs-i-ga-english.html"><b>Next →</b>은/는 vs 이/가: one question instead of ten rules</a></div>
 <h2 class="rb-next">Comments</h2>
 <script src="https://giscus.app/client.js"
   data-repo="junsanghan1225-blip/cheesepotato-landing"

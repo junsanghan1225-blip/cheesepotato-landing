@@ -66,6 +66,19 @@ for (const p of BLOG_POSTS) {
 
   if (!Array.isArray(p.tags) || !p.tags.length) bad.push(`${at} — tags 가 없다. 「같은 갈래의 글」이 안 걸린다`);
 
+  /* 다른 말로 쓴 짝. **한쪽만 걸면 안 된다** — hreflang 은 서로를 가리켜야
+     구글이 인정하고, 한쪽만 걸린 짝은 통째로 무시된다. 화면에서는 전환
+     줄이 한쪽에만 떠서 눌러 보기 전에는 모른다. */
+  if (p.alt) {
+    const other = BLOG_POSTS.find((x) => x.id === p.alt);
+    if (!other) bad.push(`${at} — alt 「${p.alt}」 라는 글이 없다`);
+    else if (other.alt !== p.id) {
+      bad.push(`${at} — 짝이 한쪽만 걸렸다. ${other.id} 에도 alt: '${p.id}' 를 달아야 한다`);
+    } else if ((other.lang || 'ko') === (p.lang || 'ko')) {
+      bad.push(`${at} — 짝(${other.id})이 같은 말이다. alt 는 다른 말로 쓴 판을 가리킨다`);
+    }
+  }
+
   if (!Array.isArray(p.blocks) && !p.body) bad.push(`${at} — blocks 도 body 도 없다`);
   if (!Array.isArray(p.blocks)) continue;      // 손으로 쓴 예전 글
 

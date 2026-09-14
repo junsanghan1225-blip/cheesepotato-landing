@@ -90,6 +90,9 @@ const render = (p) => [
      영어인데 쪽은 <html lang="ko"> 로 나간다 — 구글이 영어 검색 결과에
      잘 안 올리고, 낭독기가 영어 문장을 한국어 발음으로 읽는다. */
   ...(p.lang && p.lang !== 'ko' ? [`    lang: ${q(p.lang)},`] : []),
+  /* 같은 글의 다른 말 판을 가리킨다. 이 칸이 빠지면 hreflang 도 화면의
+     전환 줄도 안 붙어서, 두 판이 서로를 모르는 남남이 된다. */
+  ...(p.alt ? [`    alt: ${q(p.alt)},`] : []),
   `    title: ${q(p.title)},`,
   `    date: ${q(p.date)},`,
   `    updated: ${q(p.updated || p.date)},`,
