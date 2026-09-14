@@ -26,12 +26,18 @@ const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const { SB_CATS } = await import(pathToFileURL(path.join(ROOT, 'sentences.js')).href);
 const { BLOG_POSTS } = await import(pathToFileURL(path.join(ROOT, 'blog.js')).href);
 
-const [LV, ...rest] = process.argv.slice(2);
+const argv = process.argv.slice(2);
+/* --en 을 붙이면 영어로 쓴 글을 받는다. 「how to learn Korean」처럼
+   영어로 찾는 사람에게 닿으려면 글 자체가 영어여야 한다 — 한국어 글은
+   영어 검색어에 안 걸린다. 받은 JSON 에 lang:"en" 이 실려 오고,
+   blog-merge.mjs 가 그 칸을 옮기면 쪽이 <html lang="en"> 으로 나간다. */
+const EN = argv.includes('--en');
+const [LV, ...rest] = argv.filter((a) => a !== '--en');
 const TOPIC = rest.join(' ').trim();
 const LV_KO = { beginner: '초급', intermediate: '중급', advanced: '고급' };
 
 if (!LV_KO[LV] || !TOPIC) {
-  console.error('쓰기: node tools/blog-prompt.mjs beginner|intermediate|advanced "글 주제"');
+  console.error('쓰기: node tools/blog-prompt.mjs [--en] beginner|intermediate|advanced "글 주제"');
   process.exit(1);
 }
 
@@ -167,4 +173,21 @@ JSON 객체 **하나**로만 답해라. 설명·머리말을 붙이지 마라.
   주제를 잘 담은 것으로. 위에 이미 있는 것과 겹치면 안 된다.
 * \`tags\` 는 2개.
 * 블록은 **18~30개**. 첫 블록은 반드시 \`p\` 다 — 소제목으로 시작하지 마라.
-* 글 전체가 한국어로 1,200~2,000자쯤 되게. 읽는 데 3~4분 걸리는 분량이다.`);
+* 글 전체가 한국어로 1,200~2,000자쯤 되게. 읽는 데 3~4분 걸리는 분량이다.
+${EN ? `
+## 이 글은 **영어로** 쓴다
+
+* 위의 말투 규칙은 그대로다 — 광고 문구 없이, 느낌표 없이, 아는 것만.
+* JSON 에 \`"lang": "en"\` 을 **반드시** 넣어라. 이게 빠지면 영어 글이
+  한국어 쪽으로 나간다.
+* \`title\` 과 \`excerpt\` 도 영어다. \`tags\` 는 \`["English", …]\` 로 —
+  한국어 갈래를 붙이면 영어 글 아래에 한국어 알약이 뜨고, 그 갈래 쪽에서
+  한국어 글과 섞인다.
+* 한국어 낱말과 예문은 **한글 그대로** 쓴다. 로마자로 적지 마라 —
+  「annyeonghaseyo」는 배우는 사람에게 도움이 안 되고 우리 사전과도 안 맞는다.
+  한국어를 인용할 때는 「 」 를 쓴다.
+* \`gram\` 카드의 뜻풀이는 영어 자료(docs/grammar-en.json)에서 자동으로
+  붙는다. \`note\` 만 영어로 쓰면 된다.
+* 영어권 학습자가 실제로 검색하는 말을 제목과 첫 문단에 넣어라 —
+  「how to learn Korean」, 「Korean grammar」, 「TOPIK」 같은 것.
+  다만 억지로 끼워 넣지는 마라. 읽히지 않는 글은 순위도 못 지킨다.` : ''}`);

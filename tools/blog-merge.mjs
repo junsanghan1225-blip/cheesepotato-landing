@@ -52,10 +52,9 @@ for (const p of posts) {
   for (const [i, b] of (p?.blocks ?? []).entries()) {
     if (!KNOWN.has(b?.t)) stop.push(`${at} — ${i + 1}번째 블록이 모르는 종류다: ${JSON.stringify(b?.t)}`);
   }
-  /* 홑따옴표로 감싸 넣으므로 안에 있으면 코드가 깨진다. 역슬래시도 같다. */
-  const flat = JSON.stringify(p);
-  if (flat.includes("'")) stop.push(`${at} — 홑따옴표가 들었다. 「 」 로 바꿔라`);
-  if (flat.includes('\\\\')) stop.push(`${at} — 역슬래시가 들었다`);
+  /* 홑따옴표와 역슬래시는 q() 가 이스케이프한다. 예전에는 여기서 막았는데,
+     영어로 쓴 글은 don't · you'll 처럼 홑따옴표가 문장마다 나온다 —
+     막으면 영어 글을 아예 못 넣는다. 제대로 빠져나가게 하는 쪽이 맞다. */
 }
 
 if (stop.length) {
@@ -72,7 +71,10 @@ if (at < 0) { console.error('blog.js 에서 BLOG_POSTS 를 못 찾았다'); proc
 
 /* 손으로 쓴 글과 같은 모양으로 찍는다. JSON.stringify 의 겹따옴표 대신
    홑따옴표를 쓰는 것이 이 저장소 관례라, 키와 값을 직접 찍는다. */
-const q = (s) => `'${String(s)}'`;
+/* 홑따옴표로 감싼 JS 문자열로 찍는다(저장소 관례). 역슬래시를 먼저,
+   그다음 홑따옴표를 빠져나가게 한다 — 순서를 바꾸면 우리가 넣은
+   역슬래시를 또 빠져나가게 해서 \\' 가 된다. */
+const q = (s) => `'${String(s).replaceAll('\\', '\\\\').replaceAll("'", "\\'")}'`;
 const blockLine = (b) => {
   const parts = Object.entries(b).map(([k, v]) => {
     if (Array.isArray(v)) return `${k}: [${v.map(q).join(', ')}]`;
@@ -84,6 +86,10 @@ const blockLine = (b) => {
 const render = (p) => [
   '  {',
   `    id: ${q(p.id)},`,
+  /* 영어로 쓴 글은 lang: 'en' 을 달고 온다. 이 칸을 안 옮기면 글은
+     영어인데 쪽은 <html lang="ko"> 로 나간다 — 구글이 영어 검색 결과에
+     잘 안 올리고, 낭독기가 영어 문장을 한국어 발음으로 읽는다. */
+  ...(p.lang && p.lang !== 'ko' ? [`    lang: ${q(p.lang)},`] : []),
   `    title: ${q(p.title)},`,
   `    date: ${q(p.date)},`,
   `    updated: ${q(p.updated || p.date)},`,

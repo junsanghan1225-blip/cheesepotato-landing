@@ -171,9 +171,16 @@ const crumbLd = (parts) => {
   };
 };
 
-function page({ url, title, desc, body, kind = 'article', jsonld, extraCss = '', extraHead = '' }) {
+/* 쪽의 말. 여태 전부 한국어(ko)였다 — 화면에서 말을 가르고 주소는 하나뿐
+   이라 그랬다. 블로그에 영어로 쓴 글이 생기면서 처음으로 갈렸다.
+
+   **lang 을 안 갈면 영어 글을 한국어 쪽이라고 말하는 셈이다.** 구글은
+   그 쪽을 영어 검색 결과에 잘 안 올리고, 화면 낭독기는 영어 문장을
+   한국어 발음으로 읽는다. */
+function page({ url, title, desc, body, kind = 'article', jsonld, extraCss = '', extraHead = '', lang = 'ko' }) {
+  const en = lang === 'en';
   return `<!DOCTYPE html>
-<html lang="ko">
+<html lang="${lang}">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -183,8 +190,8 @@ function page({ url, title, desc, body, kind = 'article', jsonld, extraCss = '',
 <meta property="og:type" content="${kind}">
 <meta property="og:url" content="${SITE}${url}">
 <meta property="og:site_name" content="치즈감자">
-<meta property="og:locale" content="ko_KR">
-<meta property="og:locale:alternate" content="en_US">
+<meta property="og:locale" content="${en ? 'en_US' : 'ko_KR'}">
+<meta property="og:locale:alternate" content="${en ? 'ko_KR' : 'en_US'}">
 <meta property="og:title" content="${esc(title)}">
 <meta property="og:description" content="${esc(desc)}">
 <meta property="og:image" content="${SITE}/logo.png">
@@ -1368,7 +1375,7 @@ for (const cat of SB_CATS) for (const p of cat.points) SB_BY_ID.set(p.id, { p, c
    모델이 <script> 를 적어 보내도 글자로만 남는다. */
 const inline = (s) => esc(s).replace(/\*\*([^*]+)\*\*/g, '<b>$1</b>');
 
-function renderBlock(b, where) {
+function renderBlock(b, where, lang = 'ko') {
   const bad = (why) => { throw new Error(`블로그 블록이 잘못됐다 (${where}): ${why}\n  ${JSON.stringify(b).slice(0, 160)}`); };
   switch (b?.t) {
     case 'p':
@@ -1424,16 +1431,21 @@ function renderBlock(b, where) {
       if (!b.id) bad('t:"gram" 에 id 가 없다');
       const hit = SB_BY_ID.get(b.id);
       if (!hit) bad(`문법 표현 ${b.id} 이 sentences.js 에 없다`);
+      /* 영어 글에서는 뜻풀이도 영어로. docs/grammar-en.json 에 290개가
+         다 있으므로 지어낼 일이 없다 — 없으면 한국어로 물러선다. */
+      const isEn = lang === 'en';
+      const enOne = isEn ? EN_BY_ID.get(b.id) : null;
       return `<div class="gcard">` +
-        `<span class="gcat">${esc(hit.cat.ko)}</span>` +
+        `<span class="gcat">${esc(isEn ? hit.cat.en : hit.cat.ko)}</span>` +
         `<b>${esc(hit.p.name)}</b>` +
-        `<span class="gdesc">${esc(hit.p.desc)}</span>` +
+        `<span class="gdesc"${enOne?.desc ? ' lang="en"' : ''}>` +
+          `${esc(enOne?.desc || hit.p.desc)}</span>` +
         (b.note ? `<span class="gnote">${inline(b.note)}</span>` : '') +
         `<span class="gacts">` +
           `<a class="ggo" href="/#learn/sentence/${esc(b.id)}">` +
-            `이 표현으로 문장 만들어 보기 →</a>` +
+            `${isEn ? 'Write your own sentence with this →' : '이 표현으로 문장 만들어 보기 →'}</a>` +
           `<a class="gsub" href="/sentence/${esc(b.id)}.html">` +
-            `형태·주의할 점·예문 먼저 보기</a>` +
+            `${isEn ? 'Form, examples and what to watch out for' : '형태·주의할 점·예문 먼저 보기'}</a>` +
         `</span>` +
       `</div>`;
     }
@@ -1446,7 +1458,7 @@ function renderBlock(b, where) {
       return `<a class="gcard" href="${esc(b.href)}">` +
         `<b>${esc(b.title)}</b>` +
         (b.note ? `<span class="gnote">${inline(b.note)}</span>` : '') +
-        `<span class="glinkgo">보러 가기 →</span>` +
+        `<span class="glinkgo">${lang === 'en' ? 'Open it →' : '보러 가기 →'}</span>` +
       `</a>`;
 
     /* 사진. 파일이 실재하는지는 tools/check-blog.mjs 가 본다 — 여기서
@@ -1474,7 +1486,8 @@ function renderBlock(b, where) {
    「3분」과 글 쪽의 「3분」이 어긋난다. */
 function postHtml(post) {
   if (Array.isArray(post.blocks)) {
-    return post.blocks.map((b, i) => renderBlock(b, `${post.id} 의 ${i + 1}번째 블록`)).join('\n');
+    const lang = post.lang === 'en' ? 'en' : 'ko';
+    return post.blocks.map((b, i) => renderBlock(b, `${post.id} 의 ${i + 1}번째 블록`, lang)).join('\n');
   }
   return post.body ?? '';
 }
@@ -1558,8 +1571,10 @@ function shareRow() {
    repo-id·category-id는 저장소에서 giscus 앱을 설치하고 Discussions를
    켠 뒤 giscus.app 에서 받은 값이다 — 지어낸 값이 아니다. 글마다
    주소(pathname)로 토론을 찾아 붙이므로 카드마다 따로 손댈 게 없다. */
-const GISCUS_SCRIPT = `
-<h2 class="rb-next">댓글</h2>
+/* 댓글 상자. 영어 글에서는 머리글도 giscus 자신의 말도 영어로 — 영어로
+   읽어 내려온 사람 앞에 한국어 댓글 상자가 서면 자기 자리가 아닌 줄 안다. */
+const giscus = (lang = 'ko') => `
+<h2 class="rb-next">${lang === 'en' ? 'Comments' : '댓글'}</h2>
 <script src="https://giscus.app/client.js"
   data-repo="junsanghan1225-blip/cheesepotato-landing"
   data-repo-id="R_kgDOS8EVWA"
@@ -1570,7 +1585,7 @@ const GISCUS_SCRIPT = `
   data-emit-metadata="0"
   data-input-position="bottom"
   data-theme="preferred_color_scheme"
-  data-lang="ko"
+  data-lang="${lang}"
   crossorigin="anonymous"
   async>
 </script>`.trim();
@@ -1586,6 +1601,11 @@ const TAG_SLUGS = {
   '준비': 'prep',
   '한글': 'hangul',
   '회화': 'conversation',
+  /* 영어로 쓴 글. 갈래 이름을 한국어로 붙이면 영어 글 아래에 한국어
+     알약이 뜨고, 그 갈래 쪽에 한국어 글과 섞여 걸린다 — 영어로 찾아온
+     사람에게는 둘 다 읽을 것이 아니다. 따로 둔다. */
+  'English': 'english',
+  'Roadmap': 'roadmap',
 };
 function tagSlug(tag) {
   const slug = TAG_SLUGS[tag];
@@ -1639,24 +1659,42 @@ function relatedPosts(post, all, skip, n = 3) {
 /* 글 한 편의 머리 — 목록 줄(postMeta)보다 무게를 준다. 누가 썼는지
    보이지 않으면 문서처럼 읽힌다. 이름·역할·날짜를 한 줄에 모은다. */
 function postByline(post) {
+  const en = post.lang === 'en';
   return '<div class="rb-byline">' +
     '<span class="rb-avatar-sm" aria-hidden="true">🧀</span>' +
     '<div class="rb-byline-info">' +
-      '<div class="rb-byline-name">치즈감자</div>' +
-      '<div class="rb-byline-role">한국어를 가르치는 사람' +
+      `<div class="rb-byline-name">${en ? 'CheesePotato' : '치즈감자'}</div>` +
+      `<div class="rb-byline-role">${en ? 'We teach Korean' : '한국어를 가르치는 사람'}` +
         ` · ${timeTag(post.date)}` +
-        (post.updated && post.updated !== post.date ? ` · 고침 ${timeTag(post.updated)}` : '') +
+        (post.updated && post.updated !== post.date
+          ? ` · ${en ? 'updated' : '고침'} ${timeTag(post.updated)}` : '') +
       '</div>' +
     '</div>' +
   '</div>';
 }
 
+/* 영어로 쓴 글의 쪽 둘레. 영어 글에 한국어 껍데기를 두르면 읽는 사람은
+   자기 쪽이 아닌 데 온 줄 알고 나간다. 글만 옮기고 빵부스러기·단추·
+   맺음말을 한국어로 두면 반만 옮긴 것이다. */
+const BLOG_UI = {
+  ko: { back: '← 블로그', site: '치즈감자', blog: '블로그',
+        cta: ['한국어 배우러 가기', 'Free Korean lessons, no sign-up needed'],
+        prev: '← 이전 글', next: '다음 글 →', more: '같은 갈래의 글',
+        suffix: '치즈감자 블로그' },
+  en: { back: '← Blog', site: 'CheesePotato', blog: 'Blog',
+        cta: ['Start learning Korean', 'Free lessons and practice — no sign-up needed'],
+        prev: '← Previous', next: 'Next →', more: 'More on this',
+        suffix: 'CheesePotato Blog' },
+};
+
 function blogPage(post, prev, next, related) {
-  const title = `${post.title} | 치즈감자 블로그`;
+  const lang = post.lang === 'en' ? 'en' : 'ko';
+  const t = BLOG_UI[lang];
+  const title = `${post.title} | ${t.suffix}`;
   const desc = clip(post.excerpt);
   const body = [
-    `<a class="blog-back" href="/blog/">← 블로그</a>`,
-    `<nav class="crumb"><a href="/">치즈감자</a> › <a href="/blog/">블로그</a></nav>`,
+    `<a class="blog-back" href="/blog/">${t.back}</a>`,
+    `<nav class="crumb"><a href="/">${esc(t.site)}</a> › <a href="/blog/">${esc(t.blog)}</a></nav>`,
     `<article class="rb-card">`,
       postByline(post),
       `<h1>${esc(post.title)}</h1>`,
@@ -1664,18 +1702,18 @@ function blogPage(post, prev, next, related) {
       shareRow(),
       `<div class="blog-article">${postHtml(post)}</div>`,
     `</article>`,
-    `<a class="cta" href="/#learn">한국어 배우러 가기<span>Free Korean lessons, no sign-up needed</span></a>`,
+    `<a class="cta" href="/#learn">${esc(t.cta[0])}<span>${esc(t.cta[1])}</span></a>`,
     /* 앞뒤 글. 배열은 최신이 앞이므로 「이전 글」은 한 칸 뒤(더 오래된 것),
        「다음 글」은 한 칸 앞(더 새것)이다. 표현·레슨 쪽과 같은 .near 를 쓴다. */
     (prev || next) ? '<div class="near">' +
-      (prev ? `<a href="/blog/${esc(prev.id)}.html"><b>← 이전 글</b>${esc(prev.title)}</a>` : '') +
-      (next ? `<a href="/blog/${esc(next.id)}.html"><b>다음 글 →</b>${esc(next.title)}</a>` : '') +
+      (prev ? `<a href="/blog/${esc(prev.id)}.html"><b>${esc(t.prev)}</b>${esc(prev.title)}</a>` : '') +
+      (next ? `<a href="/blog/${esc(next.id)}.html"><b>${esc(t.next)}</b>${esc(next.title)}</a>` : '') +
       '</div>' : '',
     related.length
-      ? `<h2 class="rb-next">같은 갈래의 글</h2>` +
+      ? `<h2 class="rb-next">${esc(t.more)}</h2>` +
         '<ul class="rb-feed">' + related.map(postRow).join('') + '</ul>'
       : '',
-    GISCUS_SCRIPT,
+    giscus(lang),
     AGO_JS,
     SHARE_JS,
   ].filter(Boolean).join('\n');
@@ -1689,14 +1727,14 @@ function blogPage(post, prev, next, related) {
       datePublished: post.date,
       dateModified: post.updated || post.date,
       description: post.excerpt,
-      inLanguage: 'ko',
+      inLanguage: lang,
       author: { '@type': 'Organization', name: '치즈감자' },
       publisher: { '@type': 'Organization', name: '치즈감자', url: SITE },
       mainEntityOfPage: { '@type': 'WebPage', '@id': `${SITE}/blog/${post.id}.html` },
       ...(post.tags && post.tags.length ? { keywords: post.tags.join(', ') } : {}),
       isAccessibleForFree: true,
     },
-    crumbLd([['치즈감자', '/'], ['블로그', '/blog/'], [post.title, null]]),
+    crumbLd([[t.site, '/'], [t.blog, '/blog/'], [post.title, null]]),
   ];
   /* og:type 은 page() 가 기본으로 article 을 준다. 글에는 낸 날·고친 날을
      함께 적는다 — 페이스북·카카오 미리보기와 검색이 같은 값을 읽는다. */
@@ -1706,7 +1744,7 @@ function blogPage(post, prev, next, related) {
     (post.tags || []).map((t) => `\n<meta property="article:tag" content="${esc(t)}">`).join('') +
     `\n<link rel="alternate" type="application/rss+xml" title="치즈감자 블로그" href="${SITE}/blog/rss.xml">`;
 
-  return page({ url: `/blog/${post.id}.html`, title, desc, body, jsonld, extraCss: BLOG_CSS, extraHead });
+  return page({ url: `/blog/${post.id}.html`, title, desc, body, jsonld, extraCss: BLOG_CSS, extraHead, lang });
 }
 
 /* 오른쪽 기둥에 세우는 것. 레딧으로 치면 소개·규칙 상자 자리다.
