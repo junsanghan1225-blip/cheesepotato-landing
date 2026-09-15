@@ -46,6 +46,7 @@ const OUT_CMP = join(ROOT, 'compare');
 const OUT_TR = join(ROOT, 'topik-reading');
 const OUT_TL = join(ROOT, 'topik-listening');
 const OUT_DICT = join(ROOT, 'dictionary');
+const OUT_EN = join(ROOT, 'en');
 
 /* 표현 290개의 영어 설명. app.module.js 는 이걸 grammar-en.js 로 읽어 화면에
    쓰는데, **검색에 걸리는 정적 쪽에는 여태 한 줄도 안 실렸다.** 그래서
@@ -189,7 +190,7 @@ function page({ url, title, desc, body, kind = 'article', jsonld, extraCss = '',
 <link rel="canonical" href="${SITE}${url}">
 <meta property="og:type" content="${kind}">
 <meta property="og:url" content="${SITE}${url}">
-<meta property="og:site_name" content="치즈감자">
+<meta property="og:site_name" content="${en ? 'CheesePotato' : '치즈감자'}">
 <meta property="og:locale" content="${en ? 'en_US' : 'ko_KR'}">
 <meta property="og:locale:alternate" content="${en ? 'ko_KR' : 'en_US'}">
 <meta property="og:title" content="${esc(title)}">
@@ -205,11 +206,15 @@ function page({ url, title, desc, body, kind = 'article', jsonld, extraCss = '',
 <body>
 <div class="wrap">
 ${body}
-<div class="foot">
+<div class="foot">${en ? `
+  <a href="/en/">CheesePotato</a> · <a href="/sentence/">All grammar points</a> · <a href="/blog/tag/english.html">Blog</a> · <a href="/privacy.html">Privacy</a><br>
+  A free wordbook and practice site for people learning Korean<br>
+  Word definitions from <a href="https://krdict.korean.go.kr">National Institute of Korean Language</a>
+  · <a href="https://creativecommons.org/licenses/by-sa/2.0/kr/">CC BY-SA 2.0 KR</a>` : `
   <a href="/">치즈감자</a> · <a href="/sentence/">문법 표현 전체</a> · <a href="/blog/">블로그</a> · <a href="/privacy.html">개인정보</a><br>
   한국어를 배우는 사람을 위한 단어장과 연습 · Learn Korean with CheesePotato<br>
   낱말 뜻풀이 출처: <a href="https://krdict.korean.go.kr">국립국어원 한국어기초사전</a>
-  · <a href="https://creativecommons.org/licenses/by-sa/2.0/kr/">CC BY-SA 2.0 KR</a>
+  · <a href="https://creativecommons.org/licenses/by-sa/2.0/kr/">CC BY-SA 2.0 KR</a>`}
 </div>
 </div>
 </body>
@@ -1986,6 +1991,175 @@ ${posts.length ? `  <lastBuildDate>${rssDate(posts[0].updated || posts[0].date)}
 `;
 }
 
+const courseById = new Map(COURSES.map((c) => [c.id, c]));
+
+/* ── 영문 첫 쪽 (/en/) ──────────────────────────────────────────
+   「how to learn Korean」류 영어 검색어는 홈(index.html) 하나로는 안
+   걸린다 — 화면은 브라우저 언어를 보고 영어로 뜨지만 **주소가 하나뿐이라
+   hreflang 을 못 건다**(index.html 의 옛 주석이 그 이유를 적어 뒀다).
+   블로그에서 한 것과 같은 해법이다 — 말마다 제 주소를 낸다.
+
+   이 쪽은 홈의 복사판이 아니다. 홈은 앱 그 자체(해시 라우팅 SPA)라
+   손대기 위험하고, 크게 고치면 화면이 깨질 자리다. 여기는 **크롤러 앞에
+   세우는 랜딩 쪽** — 읽을 거리를 담고, 실제 코스·표현·TOPIK 쪽으로
+   보내는 다리다. sentence/·course/ 같은 다른 정적 쪽들과 같은 자리다.
+
+   스크립트가 하나도 없다. giscus 도, 상대 시각 계산도 필요 없는 쪽이라
+   CSP 를 script-src 'none' 으로 걸 수 있다 — 「en-theme.js 로 분리한다」
+   보다 나은 답은 애초에 스크립트가 필요 없게 만드는 것이다. */
+const EN_CSP = `<meta http-equiv="Content-Security-Policy" content="
+  default-src 'self';
+  script-src 'none';
+  style-src 'self' 'unsafe-inline';
+  img-src 'self';
+  base-uri 'self';
+  form-action 'self';
+  object-src 'none';
+  frame-src 'none';
+">`;
+
+const EN_CSS = `
+.en-hero{margin:6px 0 8px}
+.en-lead{font-size:17px;color:var(--dim);margin:0 0 28px;max-width:60ch}
+.en-stats{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin:0 0 30px}
+@media(min-width:560px){.en-stats{grid-template-columns:repeat(4,1fr)}}
+.en-stats div{border:1px solid var(--line);border-radius:12px;background:var(--card);padding:14px 15px}
+.en-stats b{display:block;font-size:22px;font-weight:800;letter-spacing:-.01em;line-height:1.15}
+.en-stats span{display:block;font-size:12.5px;color:var(--dim);margin-top:3px;line-height:1.4}
+.en-cards{display:flex;flex-direction:column;gap:10px;margin:0 0 30px;padding:0;list-style:none}
+.en-cards a{display:block;border:1px solid var(--line);border-radius:12px;background:var(--card);
+  padding:14px 17px;text-decoration:none;transition:border-color .12s}
+.en-cards a:hover{border-color:var(--brand)}
+.en-cards b{display:block;font-size:16.5px;letter-spacing:-.01em}
+.en-cards span{display:block;font-size:13.5px;color:var(--dim);margin-top:3px}
+.en-faq{border:1px solid var(--line);border-radius:12px;background:var(--card);overflow:hidden;margin:0 0 30px}
+.en-faq details{border-top:1px solid var(--line)}
+.en-faq details:first-child{border-top:0}
+.en-faq summary{padding:14px 17px;font-weight:600;font-size:15.5px;cursor:pointer;list-style:none}
+.en-faq summary::-webkit-details-marker{display:none}
+.en-faq summary::before{content:'+';display:inline-block;width:1em;color:var(--brand);font-weight:800}
+.en-faq details[open] summary::before{content:'–'}
+.en-faq p{margin:0 17px 15px;font-size:14.5px;line-height:1.65;color:var(--dim)}
+`.trim();
+
+/* 코스 셋(한글·첫 마디·문장 뼈대) — 완전 초보가 실제로 밟는 순서다.
+   전체 21개를 다 나열하면(존댓말 세밀 코스 등은 제목이 한국어뿐이라)
+   영문 쪽에 한국어 제목이 섞여 어수선해진다. 이 셋만 영어 제목·설명이
+   갖춰져 있고, 나머지 코스는 /course/ 에서 마저 보게 한다. */
+const EN_START = [
+  { id: 'hangul', emoji: '가', desc: 'The alphabet, from zero to reading real words.' },
+  { id: 'first-words', emoji: '말', desc: 'Survival Korean — greetings, ordering, numbers, directions.' },
+  { id: 'grammar-core', emoji: '뼈', desc: 'Tense, negation, and the particles behind every sentence.' },
+];
+
+/* 답은 화면에도 그대로 보이고 FAQPage 에도 똑같이 실린다. 구글은 눈에
+   안 보이는 답을 구조화 데이터로만 얹어 두는 것을 안 좋게 본다 — 실제로
+   보이는 내용과 어긋나면 안 된다. */
+const EN_FAQ = [
+  ['Is CheesePotato free?',
+   'Yes. Courses, grammar points, TOPIK practice, and the dictionary are all free with no sign-up. Signing in only matters if you want your progress to follow you to another device, or want to take a full timed mock exam.'],
+  ['Are the TOPIK questions real past exam questions?',
+   `No. The ${'{{N_TOPIK}}'} practice questions are original items written to match the real exam's format and difficulty. CheesePotato is not affiliated with NIIED, the institute that administers TOPIK.`],
+  ['Where should a complete beginner start?',
+   'Read Korean if you can’t read Hangul yet, then First Words for survival phrases, then Building Sentences for tense, negation, and particles. After that the grammar points can be studied in any order.'],
+  ['Does it cover TOPIK writing, the essay questions?',
+   'Yes. There are 58 writing tasks covering questions 51 through 54, each with a model answer and the points examiners look for.'],
+  ['Is there a mobile app?',
+   'There’s an Android wordbook app for reviewing saved words, but it’s a companion to the website, not a replacement for it.'],
+  ['How is the dictionary different from a translation app?',
+   `It only covers words that actually appear in CheesePotato's own lessons and practice passages, with definitions licensed from Korea's National Institute of Korean Language — not machine translation.`],
+];
+
+function enHomePage({ points, courses, lessons, topik, dict }) {
+  const fmt = (n) => n.toLocaleString('en-US');
+  const faq = EN_FAQ.map(([q, a]) => [q, a.replace('{{N_TOPIK}}', String(topik))]);
+
+  const stats = [
+    [fmt(points), 'Grammar points, each with meaning, examples, and a box to write your own sentence'],
+    [`${courses} · ${lessons}`, 'Courses · lessons, beginner to advanced'],
+    [fmt(topik), 'TOPIK-style practice questions — original items, not past papers'],
+    [fmt(dict), 'Dictionary words with definitions and an example sentence'],
+  ];
+
+  const body = [
+    `<nav class="crumb"><a href="/en/">CheesePotato</a> › English</nav>`,
+    `<span class="badge">Free · No sign-up</span>`,
+    `<h1 class="en-hero">Learn Korean — free, from Hangul to TOPIK level 6</h1>`,
+    `<p class="en-lead">A website for learning Korean, from the Hangul letters through TOPIK level 6. ` +
+      `Runs in the browser — no install, and nothing below requires an account to try.</p>`,
+    '<div class="en-stats">' + stats.map(([n, s]) => `<div><b>${esc(n)}</b><span>${esc(s)}</span></div>`).join('') + '</div>',
+    `<a class="cta" href="/#learn">Start learning<span>Opens the course picker in the app</span></a>`,
+
+    `<h2>Where to start</h2>`,
+    '<ul class="en-cards">' + EN_START.map((c) => {
+      const hit = courseById.get(c.id);
+      return `<li><a href="/course/${c.id}.html"><b>${esc(c.emoji)} ${esc(hit.title.en)}</b>` +
+        `<span>${esc(c.desc)} — ${hit.lessons.length} lessons</span></a></li>`;
+    }).join('') + '</ul>',
+
+    `<h2>What's on this site</h2>`,
+    '<ul class="en-cards">' + [
+      [`/sentence/`, `Grammar points (${points})`, 'Meaning, form, examples, a dialogue, and a box to write your own sentence for each'],
+      [`/compare/`, `Confusable expressions, compared`, 'Grammar that translates the same into English but isn’t interchangeable, side by side'],
+      [`/topik-reading/`, `TOPIK reading practice`, 'Sorted by question type, with the passage, four options, and the reasoning on the page'],
+      [`/topik-listening/`, `TOPIK listening practice`, 'Script, options, and answer — the audio itself is in the app'],
+      [`/topik-writing/`, `TOPIK writing practice`, 'Questions 51–54, each with a model answer and scoring notes'],
+      [`/dictionary/`, `Dictionary (${fmt(dict)} words)`, 'Only words that actually appear in this site’s own lessons and passages'],
+      [`/blog/tag/english.html`, `Blog`, 'Notes on learning Korean, grammar, and TOPIK prep, in English'],
+    ].map(([href, t, s]) => `<li><a href="${href}"><b>${esc(t)}</b><span>${esc(s)}</span></a></li>`).join('') + '</ul>',
+
+    `<h2>Frequently asked questions</h2>`,
+    '<div class="en-faq">' + faq.map(([q, a]) =>
+      `<details><summary>${esc(q)}</summary><p>${esc(a)}</p></details>`).join('') + '</div>',
+
+    `<a class="cta" href="/#learn">Start learning<span>Opens the course picker in the app</span></a>`,
+  ].join('\n');
+
+  const jsonld = [
+    {
+      '@context': 'https://schema.org', '@type': 'ItemList', '@id': `${SITE}/en/#courses`,
+      name: 'Where to start learning Korean on CheesePotato',
+      itemListElement: EN_START.map((c, i) => {
+        const hit = courseById.get(c.id);
+        return {
+          '@type': 'ListItem', position: i + 1,
+          item: {
+            '@type': 'Course', '@id': `${SITE}/course/${c.id}.html`,
+            name: hit.title.en, description: c.desc,
+            provider: { '@type': 'Organization', name: 'CheesePotato', url: SITE },
+            isAccessibleForFree: true,
+            hasCourseInstance: { '@type': 'CourseInstance', courseMode: 'online', courseWorkload: `PT${hit.lessons.length * 6}M` },
+          },
+        };
+      }),
+    },
+    {
+      '@context': 'https://schema.org', '@type': 'FAQPage', '@id': `${SITE}/en/#faq`,
+      inLanguage: 'en',
+      mainEntity: faq.map(([q, a]) => ({
+        '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a },
+      })),
+    },
+    crumbLd([['CheesePotato', '/en/']]),
+  ];
+
+  /* 짝(/) 과 상호 참조. 세 줄 다 필요하다 — 자기 자신을 포함한
+     전체 집합을 각 쪽이 다 적어야 구글이 짝으로 인정한다. x-default 는
+     이 쪽(en) 이다 — 앱 기본 언어가 영어라서다. */
+  const extraHead = EN_CSP +
+    `\n<link rel="alternate" hreflang="en" href="${SITE}/en/">` +
+    `\n<link rel="alternate" hreflang="ko" href="${SITE}/">` +
+    `\n<link rel="alternate" hreflang="x-default" href="${SITE}/en/">`;
+
+  return page({
+    url: '/en/', kind: 'website', lang: 'en',
+    title: 'Learn Korean Free — Hangul to TOPIK 6 | CheesePotato',
+    desc: clip(`Free Korean lessons, Hangul to TOPIK level 6: ${points} grammar points, ` +
+      `${courses} courses, ${topik} TOPIK practice questions, a ${fmt(dict)}-word dictionary. No sign-up.`),
+    body, jsonld, extraCss: EN_CSS, extraHead,
+  });
+}
+
 /* ── sitemap ────────────────────────────────────────────────── */
 /* 쪽이 마지막으로 **정말** 바뀐 날.
 
@@ -2041,13 +2215,20 @@ function sitemap(urls) {
 
      lastmod 는 그 쪽을 구운 결과가 지난번과 달라진 날이다(docs/page-mod.json).
      원본 파일의 커밋 날이 아니다 — 자국을 다시 찍기만 해도 커밋 날이
-     뛰는데, 그러면 안 바뀐 쪽까지 「오늘 바뀌었다」가 된다. -->
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-${urls.map(({ loc, freq, pri }) => {
+     뛰는데, 그러면 안 바뀐 쪽까지 「오늘 바뀌었다」가 된다.
+
+     xmlns:xhtml 은 같은 내용을 다른 말로 쓴 쪽끼리 묶는 자리다(홈 ↔ /en/,
+     영어로 쓴 블로그 글 ↔ 한국어 원글). 쪽 안에도 hreflang 링크를 이미
+     박아 두는데, 사이트맵에도 같은 것을 적으면 구글이 크롤링하기도 전에
+     짝을 안다 — 보조 신호다. 짝이 없는 쪽(대부분)은 그냥 <url> 만 낸다. -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+${urls.map(({ loc, freq, pri, alt }) => {
   const mod = modOf(loc);
+  const xhtml = (alt || []).map(({ hreflang, href }) =>
+    `\n    <xhtml:link rel="alternate" hreflang="${hreflang}" href="${SITE}${href}"/>`).join('');
   return `  <url>\n    <loc>${SITE}${loc}</loc>\n` +
     (mod ? `    <lastmod>${mod}</lastmod>\n` : '') +
-    `    <changefreq>${freq}</changefreq>\n    <priority>${pri}</priority>\n  </url>`;
+    `    <changefreq>${freq}</changefreq>\n    <priority>${pri}</priority>${xhtml}\n  </url>`;
 }).join('\n')}
 </urlset>
 `;
@@ -2056,13 +2237,18 @@ ${urls.map(({ loc, freq, pri }) => {
 /* ── 돌린다 ─────────────────────────────────────────────────── */
 /* 통째로 지우고 다시 쓴다. 표현을 지웠을 때 예전 쪽이 남아 검색에 걸리면
    앱에 없는 것을 보여 주게 된다. */
-for (const d of [OUT, OUT_COURSE, OUT_LESSON, OUT_TW, OUT_TR, OUT_TL, OUT_DICT, OUT_CMP, OUT_BLOG]) {
+for (const d of [OUT, OUT_COURSE, OUT_LESSON, OUT_TW, OUT_TR, OUT_TL, OUT_DICT, OUT_CMP, OUT_BLOG, OUT_EN]) {
   rmSync(d, { recursive: true, force: true });
   mkdirSync(d, { recursive: true });
 }
 
 const urls = [
-  { loc: '/', freq: 'weekly', pri: '1.0' },
+  /* x-default 는 /en/ 을 가리킨다. 첫 화면 자체의 기본 언어가 영어라서다
+     (app.js 의 initLang — 브라우저가 한국어가 아니면 영어로 연다). 말을
+     안 밝힌 방문자에게는 영어 쪽이 실제로 맞는 판이다. */
+  { loc: '/', freq: 'weekly', pri: '1.0', alt: [
+    { hreflang: 'ko', href: '/' }, { hreflang: 'en', href: '/en/' }, { hreflang: 'x-default', href: '/en/' },
+  ] },
   { loc: '/sentence/', freq: 'weekly', pri: '0.9' },
 ];
 let n = 0;
@@ -2176,7 +2362,15 @@ BLOG_POSTS.forEach((post, i) => {
   const skip = new Set([prev, next].filter(Boolean).map((p) => p.id));
   const html = blogPage(post, prev, next, relatedPosts(post, BLOG_POSTS, skip));
   writeFileSync(join(OUT_BLOG, `${post.id}.html`), html);
-  urls.push({ loc: `/blog/${post.id}.html`, freq: 'yearly', pri: '0.5' });
+  const pairedWith = altOf(post);
+  urls.push({
+    loc: `/blog/${post.id}.html`, freq: 'yearly', pri: '0.5',
+    ...(pairedWith ? { alt: [
+      { hreflang: post.lang === 'en' ? 'en' : 'ko', href: `/blog/${post.id}.html` },
+      { hreflang: pairedWith.lang === 'en' ? 'en' : 'ko', href: `/blog/${pairedWith.id}.html` },
+      { hreflang: 'x-default', href: `/blog/${post.lang === 'en' ? post.id : pairedWith.id}.html` },
+    ] } : {}),
+  });
   nB++;
 });
 writeFileSync(join(OUT_BLOG, 'index.html'), blogHub(BLOG_POSTS));
@@ -2202,6 +2396,21 @@ for (const [tag, posts] of TAG_POSTS) {
    파일이라 검색 결과에 뜰 일이 없고, 넣으면 중복된 내용으로 잡힌다. */
 writeFileSync(join(OUT_BLOG, 'rss.xml'), blogRss(BLOG_POSTS));
 
+/* 영문 첫 쪽. 다른 모든 쪽이 구워진 다음에 돈다 — n(표현)·nC(코스)·
+   nL(레슨)·nR+nTL+nW(TOPIK)·DICT_HEADS.length(사전) 전부 이 시점에
+   실제 값이다. 통계를 손으로 다시 세지 않고 그대로 재사용한다 — 숫자가
+   둘로 갈릴 일이 없다. */
+mkdirSync(OUT_EN, { recursive: true });
+writeFileSync(join(OUT_EN, 'index.html'), enHomePage({
+  points: n, courses: nC, lessons: nL, topik: nR + nTL + nW, dict: DICT_HEADS.length,
+}));
+urls.push({
+  loc: '/en/', freq: 'weekly', pri: '0.95',
+  alt: [
+    { hreflang: 'en', href: '/en/' }, { hreflang: 'ko', href: '/' }, { hreflang: 'x-default', href: '/en/' },
+  ],
+});
+
 urls.push({ loc: '/privacy.html', freq: 'yearly', pri: '0.3' });
 writeFileSync(join(ROOT, 'sitemap.xml'), sitemap(urls));
 /* sitemap() 이 돌면서 쪽마다 해시를 다시 쟀다. 그 기록을 남긴다 —
@@ -2217,4 +2426,5 @@ console.log(`TOPIK 읽기 ${nR}쪽 + 목록 1쪽 → topik-reading/`);
 console.log(`TOPIK 듣기 ${nTL}쪽 + 목록 1쪽 → topik-listening/`);
 console.log(`사전 ${nDict}쪽 + 목록 1쪽 → dictionary/, 오늘의 단어 자료 ${DICT_HEADS.length}개 → wotd.js`);
 console.log(`블로그 ${nB}쪽 + 목록 1쪽 + 갈래 ${nBT}쪽 + rss.xml → blog/`);
+console.log(`영문 첫 쪽 1쪽 → en/`);
 console.log(`sitemap.xml 에 주소 ${urls.length}개.`);
