@@ -32,6 +32,10 @@ import { TOPIKL_BY_EXAM } from '../topik-listening.js';
 import { GLOSSARY } from '../glossary.js';
 import { SENSES } from '../glossary-senses.js';
 import { EXAMPLES } from '../glossary-examples.js';
+import { G as G_JA } from '../glossary-ja.js';
+import { G as G_VI } from '../glossary-vi.js';
+import { G as G_ZH } from '../glossary-zh.js';
+import { G as G_ES } from '../glossary-es.js';
 import { readFileSync as readEn } from 'node:fs';
 import { createHash } from 'node:crypto';
 
@@ -988,6 +992,12 @@ function wordPage(entry, prev, next) {
     ? `${headTag} — ${senses[0][0]}${senses[0][1] ? ` (${senses[0][1]})` : ''}`
     : `${headTag} — ${en || '한국어 낱말'}`);
 
+  const mDefs = [];
+  if (G_JA[head]) mDefs.push(['ja', '🇯🇵 日本語', G_JA[head].split('。')[0]]);
+  if (G_VI[head]) mDefs.push(['vi', '🇻🇳 Tiếng Việt', G_VI[head].split(',')[0].trim()]);
+  if (G_ZH[head]) mDefs.push(['zh', '🇨🇳 中文', G_ZH[head].split('，')[0].trim()]);
+  if (G_ES[head]) mDefs.push(['es', '🇪🇸 Español', G_ES[head].split(',')[0].trim()]);
+
   const body = [
     `<nav class="crumb"><a href="/">치즈감자</a> › <a href="/dictionary/">사전</a> › ${esc(head)}</nav>`,
     pos ? `<span class="badge">${esc(pos)}</span>` : '',
@@ -999,6 +1009,10 @@ function wordPage(entry, prev, next) {
           `<div class="fact"><b>${i + 1}</b><span>${esc(ko)}${enS ? `<i lang="en">${esc(enS)}</i>` : ''}</span></div>`
         ).join('') + '</div>'
       : `<p class="desc">${esc(en || t2(pos))}</p>`,
+    mDefs.length ? '<h2>다른 언어 뜻풀이 · In Other Languages</h2>' +
+      '<div class="facts">' + mDefs.map(([code, label, val]) =>
+        `<div class="fact"><b>${label}</b><span lang="${code}">${esc(val)}</span></div>`
+      ).join('') + '</div>' : '',
     example ? '<h2>예문 · Example</h2>' +
       `<div class="ex">${esc(example.ex)}<i lang="en">${esc(example.en)}</i></div>` : '',
     `<a class="cta" href="/#dictionary/${encodeURIComponent(head)}">사전에서 발음 듣고 단어장에 담기` +
@@ -1017,7 +1031,7 @@ function wordPage(entry, prev, next) {
       name: head,
       description: senses?.length ? senses[0][0] : (en || undefined),
       inDefinedTermSet: `${SITE}/dictionary/`,
-      inLanguage: 'ko',
+      inLanguage: ['ko', 'en'],
     },
     crumbLd([['치즈감자', '/'], ['사전', '/dictionary/'], [head, null]]),
   ];
@@ -1025,6 +1039,7 @@ function wordPage(entry, prev, next) {
     url: `/dictionary/${encodeURIComponent(head)}.html`,
     title, desc, body, jsonld,
     extraCss: '.ex i{display:block;color:var(--dim);font-size:14px;font-style:normal;margin-top:4px}',
+    extraHead: mDefs.length ? `\n<meta name="keywords" content="${esc(head)}, ${esc(firstEn || head)}${mDefs.map(([, , v]) => `, ${esc(v)}`).join('')}">` : '',
   });
 }
 /* 뜻풀이도 예문도 없는 극소수(품사만 있는 표제어) 를 위한 마지막 버팀목.
@@ -2042,10 +2057,17 @@ function sitemap(urls) {
      lastmod 는 그 쪽을 구운 결과가 지난번과 달라진 날이다(docs/page-mod.json).
      원본 파일의 커밋 날이 아니다 — 자국을 다시 찍기만 해도 커밋 날이
      뛰는데, 그러면 안 바뀐 쪽까지 「오늘 바뀌었다」가 된다. -->
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
 ${urls.map(({ loc, freq, pri }) => {
   const mod = modOf(loc);
+  const isHome = loc === '/' || loc === '/en/';
+  const altLinks = isHome ? [
+    '    <xhtml:link rel="alternate" hreflang="ko" href="' + SITE + '/"/>',
+    '    <xhtml:link rel="alternate" hreflang="en" href="' + SITE + '/en/"/>',
+    '    <xhtml:link rel="alternate" hreflang="x-default" href="' + SITE + '/en/"/>',
+  ].join('\n') + '\n' : '';
   return `  <url>\n    <loc>${SITE}${loc}</loc>\n` +
+    altLinks +
     (mod ? `    <lastmod>${mod}</lastmod>\n` : '') +
     `    <changefreq>${freq}</changefreq>\n    <priority>${pri}</priority>\n  </url>`;
 }).join('\n')}
@@ -2063,6 +2085,7 @@ for (const d of [OUT, OUT_COURSE, OUT_LESSON, OUT_TW, OUT_TR, OUT_TL, OUT_DICT, 
 
 const urls = [
   { loc: '/', freq: 'weekly', pri: '1.0' },
+  { loc: '/en/', freq: 'weekly', pri: '1.0' },
   { loc: '/sentence/', freq: 'weekly', pri: '0.9' },
 ];
 let n = 0;

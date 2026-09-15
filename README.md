@@ -62,7 +62,7 @@ GitHub Pages 는 캐시 머리글을 우리가 못 정한다. `app.js` 를 그�
 | 파일 | 만드는 것 | 원본 |
 |---|---|---|
 | `topik2.js` | `tools/build-topik2.mjs` | `docs/topik2-all50.json` |
-| `sentence/` · `compare/` · `course/` · `lesson/` · `topik-writing/` · `topik-reading/` · `topik-listening/` · `blog/`(`rss.xml` 포함) · `sitemap.xml` | `tools/build-pages.mjs` | `sentences*.js` · `courses*.js` · `topik-writing.js` · `topik.js` · `topik2.js` · `topik-listening.js` · `blog.js` |
+| `sentence/` · `compare/` · `course/` · `lesson/` · `topik-writing/` · `topik-reading/` · `topik-listening/` · `dictionary/` · `wotd.js` · `blog/`(`rss.xml` 포함) · `sitemap.xml` | `tools/build-pages.mjs` | `sentences*.js` · `courses*.js` · `topik-writing.js` · `topik.js` · `topik2.js` · `topik-listening.js` · `glossary*.js` · `blog.js` |
 | `glossary.js` · `glossary-<말>.js` | `tools/build-glossary.mjs` | `docs/glossary.json` (+ `glossary-krdict.json`) |
 | `grammar.js` | `tools/build-grammar.mjs` | `sentences.js` 의 문법 이름 |
 | `docs/page-mod.json` | `tools/build-pages.mjs` | 구운 쪽의 해시와 날짜 (사이트맵 `lastmod` 용) |

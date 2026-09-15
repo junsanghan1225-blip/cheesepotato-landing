@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+
+<!-- ── Content Security Policy (CSP) ────────────────────────── -->
+<meta http-equiv="Content-Security-Policy" content="
+  default-src 'self';
+  script-src 'self' https://www.clarity.ms https://*.clarity.ms;
+  style-src 'self' 'unsafe-inline';
+  font-src 'self';
+  img-src 'self' data: blob: https://tjgoevtvobvmlyefgxel.supabase.co https://*.clarity.ms https://c.bing.com;
+  media-src 'self' https://tjgoevtvobvmlyefgxel.supabase.co;
+  connect-src 'self' https://tjgoevtvobvmlyefgxel.supabase.co wss://tjgoevtvobvmlyefgxel.supabase.co https://*.clarity.ms https://c.bing.com;
+  base-uri 'self';
+  form-action 'self';
+  object-src 'none';
+  frame-src 'none';
+">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Learn Korean Free — Hangul, Grammar & TOPIK Practice | Every Koreans</title>
+<meta name="description" content="Free online Korean learning platform from Hangul alphabet to TOPIK 6. 21 courses, 82 lessons, 290 grammar points, 480 TOPIK questions. No signup or app installation needed.">
+<link rel="canonical" href="https://everykoreans.com/en/">
+<link rel="alternate" hreflang="ko" href="https://everykoreans.com/">
+<link rel="alternate" hreflang="en" href="https://everykoreans.com/en/">
+<link rel="alternate" hreflang="x-default" href="https://everykoreans.com/en/">
+
+<!-- ── Structured Data (JSON-LD) ────────────────────────────── -->
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://everykoreans.com/#org","name":"Every Koreans","alternateName":"Every Koreans (Cheesepotato)","url":"https://everykoreans.com/en/","logo":"https://everykoreans.com/logo.png","email":"junsanghan1225@gmail.com"},{"@type":"WebSite","@id":"https://everykoreans.com/en/#site","url":"https://everykoreans.com/en/","name":"Every Koreans","alternateName":["Every Koreans","Cheesepotato"],"description":"Learn Korean free online. From Hangul letters to TOPIK level 6. 21 courses, 82 lessons, 290 grammar points, 480 practice questions, 54 reading passages, and a 5,346-word dictionary.","inLanguage":["en","ko"],"publisher":{"@id":"https://everykoreans.com/#org"},"isFamilyFriendly":true},{"@type":"EducationalOrganization","@id":"https://everykoreans.com/en/#school","name":"Every Koreans","url":"https://everykoreans.com/en/","description":"Free Korean learning platform offering TOPIK I & II practice, step-by-step courses, grammar points, and reading exercises.","parentOrganization":{"@id":"https://everykoreans.com/#org"}}]}</script>
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"ItemList","name":"What You Learn on Every Koreans","numberOfItems":7,"itemListOrder":"https://schema.org/ItemListOrderAscending","itemListElement":[{"@type":"ListItem","position":1,"item":{"@type":"Course","@id":"https://everykoreans.com/en/#courses","name":"Learn by Course","alternateName":"Step-by-step Korean courses","description":"From Hangul alphabet letters to greetings and complex sentences. 21 courses across 82 lessons split into beginner, intermediate, and advanced.","provider":{"@id":"https://everykoreans.com/#org"},"inLanguage":"ko","isAccessibleForFree":true,"teaches":["Hangul alphabet","Korean pronunciation","Basic Korean grammar","Daily conversation"],"educationalLevel":"Beginner to Advanced","url":"https://everykoreans.com/#learn/courses","hasCourseInstance":{"@type":"CourseInstance","courseMode":"online","courseWorkload":"21 courses, 82 lessons","inLanguage":"ko"}}},{"@type":"ListItem","position":2,"item":{"@type":"Course","@id":"https://everykoreans.com/en/#topik","name":"TOPIK Practice","alternateName":"TOPIK I & II exam prep","description":"Listening, reading, and writing questions matching real TOPIK format. 480 practice questions with timed mock exams and answer explanations.","provider":{"@id":"https://everykoreans.com/#org"},"inLanguage":"ko","isAccessibleForFree":true,"teaches":["TOPIK listening","TOPIK reading","TOPIK writing"],"educationalLevel":"TOPIK I (levels 1-2), TOPIK II (levels 3-6)","url":"https://everykoreans.com/#learn/topik","hasCourseInstance":{"@type":"CourseInstance","courseMode":"online","courseWorkload":"480 practice questions","inLanguage":"ko"}}},{"@type":"ListItem","position":3,"item":{"@type":"Course","@id":"https://everykoreans.com/en/#sentence","name":"Sentence Builder & Grammar","alternateName":"290 Korean grammar patterns","description":"290 grammar points with clear English explanations, examples, and dialogues. Compose and verify your own sentences.","provider":{"@id":"https://everykoreans.com/#org"},"inLanguage":"ko","isAccessibleForFree":true,"teaches":["Korean grammar patterns","Sentence composition"],"educationalLevel":"Beginner to Advanced","url":"https://everykoreans.com/#learn/sentence","hasCourseInstance":{"@type":"CourseInstance","courseMode":"online","courseWorkload":"290 grammar points","inLanguage":"ko"}}},{"@type":"ListItem","position":4,"item":{"@type":"Course","@id":"https://everykoreans.com/en/#reading","name":"Read and Write Back","alternateName":"Korean reading comprehension","description":"54 short and long passages with interactive grammar tooltips and vocabulary definitions. Write back to check your comprehension.","provider":{"@id":"https://everykoreans.com/#org"},"inLanguage":"ko","isAccessibleForFree":true,"teaches":["Korean reading","Korean writing"],"educationalLevel":"Beginner to Advanced","url":"https://everykoreans.com/#learn/reading","hasCourseInstance":{"@type":"CourseInstance","courseMode":"online","courseWorkload":"54 passages","inLanguage":"ko"}}},{"@type":"ListItem","position":5,"item":{"@type":"Course","@id":"https://everykoreans.com/en/#quiz","name":"Speed Drills & Practice","alternateName":"Interactive Korean quizzes","description":"Rapid-fire practice drills, Korean number reading game, and speed quizzes.","provider":{"@id":"https://everykoreans.com/#org"},"inLanguage":"ko","isAccessibleForFree":true,"teaches":["Korean vocabulary","Number pronunciation"],"educationalLevel":"Beginner to Advanced","url":"https://everykoreans.com/#learn/quiz","hasCourseInstance":{"@type":"CourseInstance","courseMode":"online","courseWorkload":"Drills and 2 mini-games","inLanguage":"ko"}}},{"@type":"ListItem","position":6,"item":{"@type":"Course","@id":"https://everykoreans.com/en/#library","name":"Vocabulary & Grammar Dictionary","alternateName":"National Institute of Korean Language Dictionary","description":"5,346 words with definitions from the National Institute of Korean Language and 197 grammar entries. Tap any word to see its meaning.","provider":{"@id":"https://everykoreans.com/#org"},"inLanguage":"ko","isAccessibleForFree":true,"teaches":["Korean vocabulary","Grammar reference"],"educationalLevel":"All levels","url":"https://everykoreans.com/#learn/library","hasCourseInstance":{"@type":"CourseInstance","courseMode":"online","courseWorkload":"5,346 words, 197 grammar entries","inLanguage":"ko"}}},{"@type":"ListItem","position":7,"item":{"@type":"Course","@id":"https://everykoreans.com/en/#convo","name":"Conversation Practice","alternateName":"Situational Korean dialogues","description":"Real-life situations like cafes and hospitals. The computer speaks, and you reply in your own words without multiple-choice crutches.","provider":{"@id":"https://everykoreans.com/#org"},"inLanguage":"ko","isAccessibleForFree":true,"teaches":["Korean conversation","Speaking responses"],"educationalLevel":"Beginner to Advanced","url":"https://everykoreans.com/#learn/convo","hasCourseInstance":{"@type":"CourseInstance","courseMode":"online","courseWorkload":"Situational role-play scenarios","inLanguage":"ko"}}}]}</script>
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","@id":"https://everykoreans.com/en/#faq","mainEntity":[{"@type":"Question","name":"What is Every Koreans?","acceptedAnswer":{"@type":"Answer","text":"Every Koreans is a 100% free Korean learning website covering everything from the Hangul alphabet to TOPIK level 6. It features 21 courses, 82 lessons, 290 grammar points, 480 TOPIK questions, 54 reading passages, and a 5,346-word dictionary. It runs directly in your browser with zero installation."}},{"@type":"Question","name":"Is it really free? Do I need to register?","acceptedAnswer":{"@type":"Answer","text":"Yes, it is completely free and you can start immediately without signing up. Courses, TOPIK drills, reading exercises, and the dictionary are accessible right away. Creating an account is only needed if you want to sync your study progress across devices or record full mock exams."}},{"@type":"Question","name":"I am a complete beginner. Where should I start?","acceptedAnswer":{"@type":"Answer","text":"Start with 'Learn by Course' in the Beginner section. The first course teaches the Hangul alphabet step-by-step with authentic audio for every character. You do not need to know any Korean beforehand."}},{"@type":"Question","name":"What is the difference between TOPIK I and TOPIK II?","acceptedAnswer":{"@type":"Answer","text":"TOPIK I tests levels 1-2 and consists of 30 Listening and 40 Reading questions. TOPIK II tests levels 3-6 and consists of 50 Listening, 50 Reading, and 4 Writing tasks. TOPIK I has no writing section. On Every Koreans, questions are separated accordingly."}},{"@type":"Question","name":"How does TOPIK listening practice work?","acceptedAnswer":{"@type":"Answer","text":"You listen to the audio track and choose from four options. The transcript only opens after you submit your answer, ensuring realistic listening training. Once submitted, a detailed speaker-tagged transcript appears explaining what you heard."}},{"@type":"Question","name":"Are these official past exam questions?","acceptedAnswer":{"@type":"Answer","text":"No. All questions on Every Koreans are original questions created in accordance with the official TOPIK format, length, and difficulty. They are not past papers and are not affiliated with NIIED."}},{"@type":"Question","name":"Where do the word definitions come from?","acceptedAnswer":{"@type":"Answer","text":"Our 5,346 vocabulary definitions are sourced from the National Institute of Korean Language Basic Korean Dictionary under CC BY-SA 2.0 KR. The 197 grammar entries are written by Every Koreans."}},{"@type":"Question","name":"Does it work on smartphones?","acceptedAnswer":{"@type":"Answer","text":"Yes! Because most learners study on mobile devices, the platform is designed mobile-first. A companion Android wordbook app is also available on Google Play."}}]}</script>
+
+<!-- Open Graph & Social Cards -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://everykoreans.com/en/">
+<meta property="og:site_name" content="Every Koreans">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="ko_KR">
+<meta property="og:title" content="Learn Korean Free — Hangul, Grammar & TOPIK Practice | Every Koreans">
+<meta property="og:description" content="Free online Korean learning platform from Hangul to TOPIK 6. 21 courses, 290 grammar points, 480 TOPIK questions. No signup required.">
+<meta property="og:image" content="https://everykoreans.com/logo.png">
+<meta property="og:image:alt" content="Every Koreans logo">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Learn Korean Free — Hangul, Grammar & TOPIK Practice | Every Koreans">
+<meta name="twitter:description" content="Free online Korean learning platform from Hangul to TOPIK 6. 21 courses, 290 grammar points, 480 TOPIK questions. No signup required.">
+<meta name="twitter:image" content="https://everykoreans.com/logo.png">
+
+<meta name="theme-color" content="#F2EEE4" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#17130F" media="(prefers-color-scheme: dark)">
+
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="apple-touch-icon" href="/icon-180.png">
+
+<link rel="stylesheet" href="/vendor/pretendard.css?v=7e40a8a5">
+<link rel="stylesheet" href="/vendor/pressstart2p.css?v=7e40a8a5">
+<link id="viewsCss" rel="stylesheet" href="/app-views.css?v=7e40a8a5" media="print">
+<noscript><link rel="stylesheet" href="/app-views.css?v=7e40a8a5"></noscript>
+
+<style>
+:root {
+  --bg: #F2EEE4;
+  --bg-rgb: 242,238,228;
+  --surface: #FFFFFF;
+  --surface-2: #FBF8F1;
+  --tint: #FDF0E2;
+  --ink-bg: #1B1512;
+  --ink: #1B1512;
+  --ink-2: #4E3E31;
+  --ink-3: #8C7A66;
+  --ink-rgb: 27,21,18;
+  --orange: #FF914D;
+  --orange-mid: #E1682B;
+  --orange-deep: #C4551C;
+  --yellow: #F0C24B;
+  --green: #12704F;
+  --red: #C43D34;
+  --line: rgba(var(--ink-rgb),.11);
+  --line-2: rgba(var(--ink-rgb),.06);
+  --r-s: 8px; --r: 12px; --r-l: 18px; --r-xl: 26px;
+  --max: 1200px;
+  --gut: 22px;
+  --sec: 76px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #17130F;
+    --bg-rgb: 23,19,15;
+    --surface: #221C17;
+    --surface-2: #1C1712;
+    --tint: #2E2015;
+    --ink-bg: #2A2119;
+    --ink: #F2EAE0;
+    --ink-2: #CBB8A6;
+    --ink-3: #9C8973;
+    --ink-rgb: 242,234,224;
+    --orange: #FF9E5C;
+    --orange-mid: #FF8A47;
+    --orange-deep: #FFA05E;
+    --green: #3FBF8F;
+    --red: #E1594E;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #17130F;
+  --bg-rgb: 23,19,15;
+  --surface: #221C17;
+  --surface-2: #1C1712;
+  --tint: #2E2015;
+  --ink-bg: #2A2119;
+  --ink: #F2EAE0;
+  --ink-2: #CBB8A6;
+  --ink-3: #9C8973;
+  --ink-rgb: 242,234,224;
+  --orange: #FF9E5C;
+  --orange-mid: #FF8A47;
+  --orange-deep: #FFA05E;
+  --green: #3FBF8F;
+  --red: #E1594E;
+}
+
+* { box-sizing:border-box; margin:0; padding:0; font-family:'Pretendard Variable','Pretendard',-apple-system,BlinkMacSystemFont,sans-serif; }
+html { scroll-behavior:smooth; scroll-padding-top:80px; }
+body { background:var(--bg); color:var(--ink-2); -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility; letter-spacing:-.011em; }
+a { color:var(--orange-deep); text-decoration:none; }
+a:hover { color:var(--orange-mid); }
+::selection { background:#FFD9B8; color:#1B1512; }
+
+.site-hd { position:sticky; top:0; z-index:90; background:rgba(var(--bg-rgb),.88); backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px); border-bottom:1px solid var(--line); }
+.site-hd-in { max-width:var(--max); margin:0 auto; padding:0 var(--gut); height:68px; display:flex; align-items:center; justify-content:space-between; }
+.brand { display:inline-flex; align-items:center; gap:10px; color:var(--ink); font-weight:800; font-size:18px; letter-spacing:-.02em; text-decoration:none; }
+.brand img { border-radius:8px; display:block; }
+.site-nav { display:flex; align-items:center; gap:4px; }
+.nav-link { display:inline-flex; align-items:center; justify-content:center; gap:7px; background:none; border:none; cursor:pointer; color:var(--ink-2); font-size:14px; font-weight:500; min-height:44px; padding:0 12px; border-radius:var(--r-s); transition:background .18s, color .18s; }
+.nav-link:hover { background:rgba(var(--ink-rgb),.05); color:var(--ink); }
+.nav-link.on { background:rgba(var(--ink-rgb),.07); color:var(--ink); font-weight:600; }
+.nav-ico { font-size:14px; line-height:1; }
+.lang-btn { height:44px; padding:0 13px; margin-left:6px; font-size:12px; font-weight:700; letter-spacing:.08em; border-radius:var(--r-s); border:1px solid var(--line); background:transparent; color:var(--ink-2); cursor:pointer; transition:background .16s, border-color .16s; display:inline-flex; align-items:center; justify-content:center; }
+.lang-btn:hover { background:rgba(var(--ink-rgb),.05); border-color:rgba(var(--ink-rgb),.2); }
+.hd-cta { display:inline-flex; align-items:center; background:var(--ink-bg); color:#fff; font-size:14px; font-weight:600; letter-spacing:-.01em; padding:10px 17px; border-radius:var(--r-s); margin-left:8px; transition:background .18s; }
+.hd-cta:hover { background:#33261E; color:#fff; }
+
+@media (max-width:759px) {
+  .site-hd-in { height:56px; padding:0 16px; }
+  .brand span { display:none; }
+  .site-nav > .nav-link { display:none; }
+  .hd-cta { display:none; }
+}
+
+.hero { padding:56px var(--gut) 32px; max-width:var(--max); margin:0 auto; }
+.hero-in { display:flex; flex-direction:column; gap:36px; }
+.hero-badge { display:inline-block; font-size:12px; font-weight:700; letter-spacing:.04em; text-transform:uppercase; color:var(--orange-deep); background:var(--tint); border:1px solid rgba(255,145,77,.28); border-radius:999px; padding:4px 12px; margin-bottom:14px; }
+.hero h1 { font-size:clamp(36px, 5.2vw, 54px); font-weight:800; line-height:1.15; letter-spacing:-.035em; color:var(--ink); }
+.hero-en { font-size:13px; font-weight:700; letter-spacing:.16em; color:var(--ink-3); margin-top:6px; }
+.hero-sub { font-size:18px; line-height:1.6; color:var(--ink-2); margin-top:16px; max-width:560px; }
+.btn-row { display:flex; gap:12px; margin-top:24px; flex-wrap:wrap; }
+.btn-primary { background:var(--orange); color:#fff; font-size:16px; font-weight:700; padding:14px 24px; border-radius:var(--r); border:none; cursor:pointer; text-decoration:none; display:inline-flex; align-items:center; transition:background .18s, transform .12s; }
+.btn-primary:hover { background:var(--orange-deep); transform:translateY(-1px); color:#fff; }
+.btn-sec { background:var(--surface); color:var(--ink); font-size:16px; font-weight:600; padding:14px 22px; border-radius:var(--r); border:1px solid var(--line); cursor:pointer; text-decoration:none; display:inline-flex; align-items:center; transition:background .18s; }
+.btn-sec:hover { background:var(--surface-2); }
+
+.hero-stage { position:relative; max-width:340px; margin:20px auto 0; }
+.hero-card { background:var(--surface); border:1px solid var(--line); border-radius:var(--r-xl); padding:32px 28px; text-align:center; box-shadow:0 20px 40px -15px rgba(var(--ink-rgb),.1); }
+.hero-word { font-size:32px; font-weight:800; color:var(--ink); letter-spacing:-.02em; }
+.hero-meaning { font-size:15px; color:var(--ink-3); margin-top:8px; }
+.hero-diff { display:flex; justify-content:center; gap:8px; margin-top:18px; font-size:20px; }
+
+.lede-wrap { max-width:var(--max); margin:20px auto 0; padding:0 var(--gut); }
+.lede { background:var(--surface); border:1px solid var(--line); border-radius:var(--r-l); padding:26px 28px; font-size:16.5px; line-height:1.8; color:var(--ink-2); }
+.lede b { color:var(--ink); font-weight:700; }
+
+.stat-row-4 { max-width:var(--max); margin:36px auto; padding:0 var(--gut); display:grid; grid-template-columns:repeat(4,1fr); background:var(--surface); border-radius:var(--r-l); border:1px solid var(--line); overflow:hidden; }
+.stat-item { padding:24px 16px; text-align:center; border-left:1px solid var(--line-2); }
+.stat-item:first-child { border-left:none; }
+.stat-num { font-size:36px; font-weight:800; color:var(--ink); letter-spacing:-.03em; }
+.stat-label { font-size:13.5px; font-weight:600; color:var(--ink-3); margin-top:4px; }
+
+.section { max-width:var(--max); margin:var(--sec) auto; padding:0 var(--gut); }
+.label { font-size:12px; font-weight:800; letter-spacing:.12em; color:var(--orange-deep); margin-bottom:8px; text-transform:uppercase; }
+.section-title { font-size:32px; font-weight:800; letter-spacing:-.03em; color:var(--ink); line-height:1.2; }
+.section-sub { font-size:16px; color:var(--ink-3); margin-top:8px; margin-bottom:32px; }
+
+.way-grid { display:grid; grid-template-columns:1fr; gap:16px; }
+@media (min-width:760px) {
+  .hero-in { display:grid; grid-template-columns:1.1fr .9fr; align-items:center; }
+  .way-grid { grid-template-columns:repeat(2,1fr); }
+  :root { --gut:40px; --sec:100px; }
+}
+@media (min-width:1060px) {
+  .way-grid { grid-template-columns:repeat(3,1fr); }
+}
+
+.way { background:var(--surface); border:1px solid var(--line); border-radius:var(--r-l); padding:26px 24px; text-align:left; cursor:pointer; text-decoration:none; display:flex; flex-direction:column; transition:transform .16s, border-color .16s, box-shadow .16s; }
+.way:hover { transform:translateY(-2px); border-color:var(--orange); box-shadow:0 12px 28px -10px rgba(var(--ink-rgb),.12); }
+.way-em { font-size:28px; line-height:1; margin-bottom:14px; }
+.way-t { font-size:19px; font-weight:700; color:var(--ink); letter-spacing:-.015em; }
+.way-d { font-size:14.5px; line-height:1.65; color:var(--ink-3); margin-top:8px; flex:1; }
+.way-n { display:inline-block; margin-top:16px; font-size:12px; font-weight:700; color:var(--orange-deep); background:var(--tint); padding:3px 9px; border-radius:999px; align-self:flex-start; }
+
+.faq-list { margin-top:24px; border-top:1px solid var(--line); }
+.faq-i { border-bottom:1px solid var(--line-2); }
+.faq-i > summary { list-style:none; cursor:pointer; padding:20px 36px 20px 0; position:relative; font-size:16.5px; font-weight:700; color:var(--ink); letter-spacing:-.01em; }
+.faq-i > summary::-webkit-details-marker { display:none; }
+.faq-i > summary::after { content:'+'; position:absolute; right:8px; top:50%; transform:translateY(-50%); font-size:22px; font-weight:400; color:var(--ink-3); }
+.faq-i[open] > summary::after { content:'−'; }
+.faq-i > p { margin:0; padding:0 36px 20px 0; font-size:15px; line-height:1.8; color:var(--ink-3); }
+.faq-i > p b { color:var(--ink); font-weight:700; }
+
+.dl-section { background:var(--ink-bg); padding:var(--sec) var(--gut); text-align:center; color:#fff; position:relative; }
+.dl-t { font-size:clamp(28px, 4vw, 38px); font-weight:800; letter-spacing:-.025em; }
+.dl-sub { font-size:16px; color:#CBB8A6; margin-top:10px; margin-bottom:28px; }
+.dl-btn { display:inline-flex; align-items:center; gap:8px; background:var(--orange); color:#fff; font-size:16px; font-weight:700; padding:14px 28px; border-radius:var(--r); text-decoration:none; transition:background .18s; }
+.dl-btn:hover { background:var(--orange-deep); color:#fff; }
+
+.footer { max-width:var(--max); margin:0 auto; padding:40px var(--gut) 60px; font-size:13.5px; color:var(--ink-3); line-height:1.8; }
+.footer a { color:inherit; text-decoration:underline; }
+.footer a:hover { color:var(--ink); }
+.footer-brand { font-size:16px; font-weight:700; color:var(--ink); margin-bottom:6px; }
+</style>
+</head>
+<body>
+
+<!-- Header -->
+<header class="site-hd"><div class="site-hd-in">
+  <a class="brand" href="/en/">
+    <img src="/logo-256.png" alt="Every Koreans logo" width="36" height="36">
+    <span>Every Koreans</span>
+  </a>
+  <nav class="site-nav">
+    <a class="nav-link" href="/#learn/courses"><span class="nav-ico">📚</span><span>Courses</span></a>
+    <a class="nav-link" href="/sentence/"><span class="nav-ico">✍️</span><span>Grammar</span></a>
+    <a class="nav-link" href="/#learn/topik"><span class="nav-ico">🎯</span><span>TOPIK</span></a>
+    <a class="nav-link" href="/dictionary/"><span class="nav-ico">🔎</span><span>Dictionary</span></a>
+    <a class="nav-link" href="/blog/"><span class="nav-ico">📝</span><span>Blog</span></a>
+    <button class="lang-btn" id="themeBtn" type="button" aria-label="Toggle theme">🌙</button>
+    <a class="lang-btn" href="/" aria-label="한국어 버전으로 전환" title="한국어 버전">KR</a>
+    <a class="hd-cta" href="/#learn/courses">Start Learning</a>
+  </nav>
+</div></header>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="hero-in">
+    <div class="hero-copy">
+      <div class="hero-badge">Free Korean Learning · TOPIK I &amp; II Prep</div>
+      <h1>Every Koreans</h1>
+      <p class="hero-en">CHEESEPOTATO</p>
+      <p class="hero-sub">Korean from the first alphabet letter to TOPIK 6.<br>Directly in your browser — zero install, no registration needed.</p>
+      <div class="btn-row">
+        <a class="btn-primary" href="/#learn/courses">Start Learning Free →</a>
+        <a class="btn-sec" href="/#learn/topik">TOPIK Practice →</a>
+      </div>
+    </div>
+    <div class="hero-stage">
+      <div class="hero-card">
+        <div class="hero-word">안녕하세요</div>
+        <div class="hero-meaning">Hello — the first phrase you learn</div>
+        <div class="hero-diff"><span>🧀</span><span>🥔</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Overview Lede -->
+<div class="lede-wrap">
+  <p class="lede"><b>Every Koreans (Cheesepotato) is a free website for learning Korean</b>, from the Hangul alphabet through TOPIK Level 6. It holds <b>21 structured courses across 82 lessons</b>, <b>290 grammar points</b> with clear English explanations and dialogues, <b>480 original TOPIK-style practice questions</b> covering listening, reading, and writing for TOPIK I and II, <b>54 reading passages</b> with instant grammar tooltips, and a <b>5,346-word dictionary</b> powered by Korea's National Institute of Korean Language. Everything runs right in your browser with no installation and no account required.</p>
+</div>
+
+<!-- Stats -->
+<div class="stat-row-4">
+  <div class="stat-item"><div class="stat-num">21</div><div class="stat-label">Courses · 82 lessons</div></div>
+  <div class="stat-item"><div class="stat-num">290</div><div class="stat-label">Grammar patterns</div></div>
+  <div class="stat-item"><div class="stat-num">480</div><div class="stat-label">TOPIK questions</div></div>
+  <div class="stat-item"><div class="stat-num">Free</div><div class="stat-label">No sign-up needed</div></div>
+</div>
+
+<!-- Learning Ways -->
+<section class="section">
+  <div class="label">WHAT YOU LEARN</div>
+  <h2 class="section-title">Seven ways in, one language</h2>
+  <p class="section-sub">Start anywhere. Each section is a complete learning path on its own.</p>
+
+  <div class="way-grid">
+    <a class="way" href="/#learn/courses">
+      <div class="way-em">📚</div>
+      <h3 class="way-t">Step-by-Step Courses</h3>
+      <p class="way-d">Hangul alphabet letters, then daily greetings, then sentences. 21 courses across 82 lessons divided into beginner, intermediate, and advanced.</p>
+      <span class="way-n">21 Courses · 82 Lessons</span>
+    </a>
+
+    <a class="way" href="/#learn/topik">
+      <div class="way-em">🎯</div>
+      <h3 class="way-t">TOPIK Exam Practice</h3>
+      <p class="way-d">Select TOPIK I or II, then practice listening, reading, or writing. Detailed answer explanations for every question, plus full mock tests with real exam timers.</p>
+      <span class="way-n">480 Practice Items</span>
+    </a>
+
+    <a class="way" href="/sentence/">
+      <div class="way-em">✍️</div>
+      <h3 class="way-t">Sentence Builder &amp; Grammar</h3>
+      <p class="way-d">290 grammar points with clear English descriptions, conjugation formulas, sample dialogues, and interactive sentence composition.</p>
+      <span class="way-n">290 Grammar Points</span>
+    </a>
+
+    <a class="way" href="/#learn/reading">
+      <div class="way-em">📝</div>
+      <h3 class="way-t">Read and Write Back</h3>
+      <p class="way-d">54 short and long reading passages. Tap any unfamiliar word to view its definition, click underlined grammar for instant popups, and write responses back.</p>
+      <span class="way-n">54 Passages</span>
+    </a>
+
+    <a class="way" href="/#learn/quiz">
+      <div class="way-em">⚡</div>
+      <h3 class="way-t">Speed Drills &amp; Quizzes</h3>
+      <p class="way-d">Fast-paced drills and educational mini-games including Korean number reading (Sino &amp; Native Korean numbers) and speed vocabulary quizzes.</p>
+      <span class="way-n">Drills &amp; Mini-games</span>
+    </a>
+
+    <a class="way" href="/dictionary/">
+      <div class="way-em">🔎</div>
+      <h3 class="way-t">Vocabulary Dictionary</h3>
+      <p class="way-d">5,346 words with authoritative definitions from the National Institute of Korean Language and 197 grammar entries. Audio pronunciations included.</p>
+      <span class="way-n">5,346 Words</span>
+    </a>
+  </div>
+</section>
+
+<!-- FAQ Section -->
+<section class="section" id="faq">
+  <div class="label">FREQUENTLY ASKED QUESTIONS</div>
+  <h2 class="section-title">Everything you need to know</h2>
+  <div class="faq-list">
+    <details class="faq-i">
+      <summary>What is Every Koreans?</summary>
+      <p>Every Koreans is a 100% free Korean learning website covering everything from the Hangul alphabet to TOPIK level 6. It features 21 courses, 82 lessons, 290 grammar points, 480 TOPIK questions, 54 reading passages, and a 5,346-word dictionary. It runs directly in your browser with zero installation.</p>
+    </details>
+    <details class="faq-i">
+      <summary>Is it really free? Do I need to register?</summary>
+      <p>Yes, it is completely free and you can start immediately without signing up. Courses, TOPIK drills, reading exercises, and the dictionary are accessible right away. Creating an account is only needed if you want to sync your study progress across devices or record full mock exams.</p>
+    </details>
+    <details class="faq-i">
+      <summary>I am a complete beginner. Where should I start?</summary>
+      <p>Start with 'Learn by Course' in the Beginner section. The first course teaches the Hangul alphabet step-by-step with authentic audio for every character. You do not need to know any Korean beforehand.</p>
+    </details>
+    <details class="faq-i">
+      <summary>What is the difference between TOPIK I and TOPIK II?</summary>
+      <p>TOPIK I tests levels 1-2 and consists of 30 Listening and 40 Reading questions. TOPIK II tests levels 3-6 and consists of 50 Listening, 50 Reading, and 4 Writing tasks. TOPIK I has no writing section. On Every Koreans, questions are separated accordingly.</p>
+    </details>
+    <details class="faq-i">
+      <summary>How does TOPIK listening practice work?</summary>
+      <p>You listen to the audio track and choose from four options. The transcript only opens after you submit your answer, ensuring realistic listening training. Once submitted, a detailed speaker-tagged transcript appears explaining what you heard.</p>
+    </details>
+    <details class="faq-i">
+      <summary>Are these official past exam questions?</summary>
+      <p>No. All questions on Every Koreans are original questions created in accordance with the official TOPIK format, length, and difficulty. They are not past papers and are not affiliated with NIIED.</p>
+    </details>
+    <details class="faq-i">
+      <summary>Where do the word definitions come from?</summary>
+      <p>Our 5,346 vocabulary definitions are sourced from the National Institute of Korean Language Basic Korean Dictionary under CC BY-SA 2.0 KR. The 197 grammar entries are written by Every Koreans.</p>
+    </details>
+    <details class="faq-i">
+      <summary>Does it work on smartphones?</summary>
+      <p>Yes! Because most learners study on mobile devices, the platform is designed mobile-first. A companion Android wordbook app is also available on Google Play.</p>
+    </details>
+  </div>
+</section>
+
+<!-- Download & App Section -->
+<section class="dl-section">
+  <h2 class="dl-t">Learn Korean Anytime, Anywhere</h2>
+  <p class="dl-sub">Use on your laptop, tablet, or mobile browser — or download the Android companion app.</p>
+  <a class="dl-btn" href="https://play.google.com/store/apps/details?id=com.cheesepotato.app" target="_blank" rel="noopener noreferrer">
+    <span>⬇ Get the Android App</span>
+  </a>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="footer-brand">Every Koreans (Cheesepotato)</div>
+  <div class="footer-info">
+    © 2026 Every Koreans · <a href="/">한국어 (Korean Version)</a> · <a href="/sentence/">Grammar Points</a> · <a href="/compare/">Grammar Comparisons</a> · <a href="/blog/">Blog</a> · <a href="/privacy.html">Privacy Policy</a> · <a href="mailto:junsanghan1225@gmail.com">Contact</a>
+  </div>
+  <div class="footer-info" style="margin-top:6px">
+    Vocabulary definitions source: <a href="https://krdict.korean.go.kr" target="_blank" rel="noopener noreferrer">National Institute of Korean Language Basic Korean Dictionary</a>
+    · <a href="https://creativecommons.org/licenses/by-sa/2.0/kr/" target="_blank" rel="noopener noreferrer">CC BY-SA 2.0 KR</a>
+  </div>
+</footer>
+
+<script src="/en/en-theme.js"></script>
+
+</body>
+</html>

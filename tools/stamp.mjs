@@ -65,7 +65,7 @@ const ASSETS = [
 /* 자국이 박히는 파일. index.html 의 script·link 와, 모듈끼리 부르는 import. */
 /* glossary.js 도 자국을 박는 자리다 — 그 안의 GLOSS_LANGS 가 언어팩 주소를
    들고 있다. 생성물이라 build-glossary 를 돌린 뒤에 stamp 를 돌려야 한다. */
-const HOSTS = ['index.html', 'app.module.js', 'courses.js', 'sentences.js', 'glossary.js',
+const HOSTS = ['index.html', 'en/index.html', 'app.module.js', 'courses.js', 'sentences.js', 'glossary.js',
                'grammar-find.js'];
 
 const V = /\?v=[0-9a-f]{8}/g;
@@ -82,8 +82,9 @@ const stamp = hash.digest('hex').slice(0, 8);
 function restamp(text) {
   let out = bare(text);
   for (const f of ASSETS) {
-    // index.html 의 src="app.js" · href="vendor/…css"
+    // index.html / en/index.html 의 src="app.js" · href="vendor/…css" · href="/vendor/…css"
     out = out.replaceAll(`"${f}"`, `"${f}?v=${stamp}"`);
+    out = out.replaceAll(`"/${f}"`, `"/${f}?v=${stamp}"`);
     // 모듈끼리 부르는 import … from './topik.js'
     out = out.replaceAll(`'./${f}'`, `'./${f}?v=${stamp}'`);
   }
