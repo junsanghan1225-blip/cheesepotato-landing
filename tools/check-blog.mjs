@@ -35,6 +35,13 @@ const exists = (href) => {
   return fs.existsSync(path.join(ROOT, q));
 };
 
+/* 길이는 글자 수가 아니라 **눈에 보이는 폭**으로 잰다. 한글 한 자는
+   라틴 글자 두 개쯤의 폭을 먹는다. 글자 수로 재면 영어로 쓴 글이 한국어
+   글보다 훨씬 짧아야 통과한다 — 화면에서는 잘리지도 않는데 줄이라고
+   하게 된다. 한글·한자·전각은 2, 나머지는 1 로 센다. */
+const WIDE = /[\u1100-\u11FF\u3000-\u303F\u4E00-\u9FFF\uAC00-\uD7AF\uFF00-\uFF60]/;
+const width = (t) => [...String(t ?? '')].reduce((n, c) => n + (WIDE.test(c) ? 2 : 1), 0);
+
 const ISO = /^\d{4}-\d{2}-\d{2}$/;
 
 for (const p of BLOG_POSTS) {
@@ -51,13 +58,26 @@ for (const p of BLOG_POSTS) {
   }
 
   if (!p.title) bad.push(`${at} — title 이 없다`);
-  else if (p.title.length > 45) note.push(`${at} — 제목이 ${p.title.length}자다. 목록에서 두 줄로 접힌다`);
+  else if (width(p.title) > 90) note.push(`${at} — 제목이 길다(폭 ${width(p.title)}/90). 목록에서 두 줄로 접힌다`);
 
   if (!p.excerpt) bad.push(`${at} — excerpt 가 없다`);
-  else if (p.excerpt.length > 160) note.push(`${at} — 요약이 ${p.excerpt.length}자다. 검색 결과에서 잘린다`);
-  else if (p.excerpt.length < 40) note.push(`${at} — 요약이 ${p.excerpt.length}자로 짧다`);
+  else if (width(p.excerpt) > 320) note.push(`${at} — 요약이 길다(폭 ${width(p.excerpt)}/320). 검색 결과에서 잘린다`);
+  else if (width(p.excerpt) < 80) note.push(`${at} — 요약이 짧다(폭 ${width(p.excerpt)})`);
 
   if (!Array.isArray(p.tags) || !p.tags.length) bad.push(`${at} — tags 가 없다. 「같은 갈래의 글」이 안 걸린다`);
+
+  /* 다른 말로 쓴 짝. **한쪽만 걸면 안 된다** — hreflang 은 서로를 가리켜야
+     구글이 인정하고, 한쪽만 걸린 짝은 통째로 무시된다. 화면에서는 전환
+     줄이 한쪽에만 떠서 눌러 보기 전에는 모른다. */
+  if (p.alt) {
+    const other = BLOG_POSTS.find((x) => x.id === p.alt);
+    if (!other) bad.push(`${at} — alt 「${p.alt}」 라는 글이 없다`);
+    else if (other.alt !== p.id) {
+      bad.push(`${at} — 짝이 한쪽만 걸렸다. ${other.id} 에도 alt: '${p.id}' 를 달아야 한다`);
+    } else if ((other.lang || 'ko') === (p.lang || 'ko')) {
+      bad.push(`${at} — 짝(${other.id})이 같은 말이다. alt 는 다른 말로 쓴 판을 가리킨다`);
+    }
+  }
 
   if (!Array.isArray(p.blocks) && !p.body) bad.push(`${at} — blocks 도 body 도 없다`);
   if (!Array.isArray(p.blocks)) continue;      // 손으로 쓴 예전 글
