@@ -62,7 +62,7 @@ GitHub Pages 는 캐시 머리글을 우리가 못 정한다. `app.js` 를 그�
 | 파일 | 만드는 것 | 원본 |
 |---|---|---|
 | `topik2.js` | `tools/build-topik2.mjs` | `docs/topik2-all50.json` |
-| `sentence/` · `compare/` · `course/` · `lesson/` · `topik-writing/` · `topik-reading/` · `topik-listening/` · `blog/`(`rss.xml` 포함) · `sitemap.xml` | `tools/build-pages.mjs` | `sentences*.js` · `courses*.js` · `topik-writing.js` · `topik.js` · `topik2.js` · `topik-listening.js` · `blog.js` |
+| `sentence/` · `compare/` · `course/` · `lesson/` · `topik-writing/` · `topik-reading/` · `topik-listening/` · `dictionary/` · `blog/`(`rss.xml` 포함) · `en/` · `sitemap.xml` | `tools/build-pages.mjs` | `sentences*.js` · `courses*.js` · `topik-writing.js` · `topik.js` · `topik2.js` · `topik-listening.js` · `glossary.js` · `blog.js` |
 | `glossary.js` · `glossary-<말>.js` | `tools/build-glossary.mjs` | `docs/glossary.json` (+ `glossary-krdict.json`) |
 | `grammar.js` | `tools/build-grammar.mjs` | `sentences.js` 의 문법 이름 |
 | `docs/page-mod.json` | `tools/build-pages.mjs` | 구운 쪽의 해시와 날짜 (사이트맵 `lastmod` 용) |
@@ -155,6 +155,42 @@ node tools/build-krdict-glossary.mjs ~/Downloads/krdict
 ```
 
 영어 뜻풀이를 손으로 더 채우려면 `docs/glossary-gemini-prompt.md` 를 따른다.
+
+---
+
+## 영문 첫 쪽 (`/en/`)
+
+홈(`index.html`)은 언어가 하나뿐인 주소다 — `data-en`/`data-ko` 단추로
+같은 자리에서 화면만 뒤집는다. 그래서 「how to learn Korean」류 영어
+검색어는 여태 안 걸렸다. 화면은 브라우저 언어를 보고 영어로 뜨지만,
+**주소가 하나뿐이라 `hreflang` 을 못 걸었다** — 갈 영어 주소가 없었다.
+
+**홈을 고친 게 아니라 옆에 하나를 더 냈다.** `/en/` 은 앱의 복사판이
+아니다. 홈은 해시 라우팅 SPA 라 손대면 화면이 깨질 위험이 크고, 굳이
+포크할 이유도 없다 — 이미 브라우저 언어를 보고 영어로 뜬다. `/en/` 은
+**크롤러 앞에 세우는 랜딩 쪽**이다. `sentence/`·`course/` 같은 다른 정적
+쪽과 같은 자리 — `build-pages.mjs` 의 `enHomePage()` 가 굽고,
+`docs/page-mod.json`·`sitemap.xml` 에 똑같이 걸린다.
+
+- **`hreflang` 은 둘 다에 self 를 포함한 전체 집합을 적는다** — `/` 에도
+  `/en/` 에도 `ko`·`en`·`x-default` 세 줄이 다 있다. 한쪽만 적으면 구글이
+  짝으로 안 본다. `x-default` 는 `/en/` 이다 — 앱 기본 언어가 영어라서다
+  (`app.js` 의 `initLang`).
+- **사이트맵에도 같은 짝을 `xhtml:link` 로 적는다.** 크롤링하기 전에도
+  구글이 짝을 알 수 있는 보조 신호다. 블로그의 언어 짝(`eun-neun-vs-i-ga`
+  ↔ `eun-neun-vs-i-ga-english`)도 같은 방식으로 걸려 있다.
+- **스크립트가 없다.** 상대 시각도, 댓글도 필요 없는 쪽이라
+  `Content-Security-Policy: script-src 'none'` 을 걸 수 있다 — 따로
+  분리할 스크립트 파일 자체가 필요 없게 만드는 편이 분리하는 것보다
+  안전하다. FAQ 아코디언은 `<details>`/`<summary>` 로만 만든다.
+- **코스는 3개만 싣는다**(한글 읽기·첫 마디·문장 뼈대). 코스가 총 21개
+  있지만 나머지는 제목이 한국어뿐이거나 영어뿐이라, 다 나열하면 영문
+  쪽에 한국어 제목이 섞여 어수선해진다. 이 셋만 영어 제목·설명이
+  갖춰진 완전 초보 순서다 — 나머지는 `/course/` 에서 마저 본다.
+- **통계는 손으로 다시 세지 않는다.** `enHomePage()` 는 다른 모든 쪽을
+  다 구운 다음 맨 끝에 돈다 — 표현·코스·레슨·TOPIK·사전 개수를 이미
+  구워 둔 결과에서 그대로 받아 쓴다. 숫자가 이 쪽과 다른 쪽에서 둘로
+  갈릴 일이 없다.
 
 ---
 

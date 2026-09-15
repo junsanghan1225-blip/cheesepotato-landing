@@ -7,13 +7,21 @@
 
      lastmod 는 그 쪽을 구운 결과가 지난번과 달라진 날이다(docs/page-mod.json).
      원본 파일의 커밋 날이 아니다 — 자국을 다시 찍기만 해도 커밋 날이
-     뛰는데, 그러면 안 바뀐 쪽까지 「오늘 바뀌었다」가 된다. -->
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+     뛰는데, 그러면 안 바뀐 쪽까지 「오늘 바뀌었다」가 된다.
+
+     xmlns:xhtml 은 같은 내용을 다른 말로 쓴 쪽끼리 묶는 자리다(홈 ↔ /en/,
+     영어로 쓴 블로그 글 ↔ 한국어 원글). 쪽 안에도 hreflang 링크를 이미
+     박아 두는데, 사이트맵에도 같은 것을 적으면 구글이 크롤링하기도 전에
+     짝을 안다 — 보조 신호다. 짝이 없는 쪽(대부분)은 그냥 <url> 만 낸다. -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://everykoreans.com/</loc>
-    <lastmod>2026-09-14</lastmod>
+    <lastmod>2026-09-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://everykoreans.com/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://everykoreans.com/en/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://everykoreans.com/en/"/>
   </url>
   <url>
     <loc>https://everykoreans.com/sentence/</loc>
@@ -26972,13 +26980,16 @@
   </url>
   <url>
     <loc>https://everykoreans.com/blog/eun-neun-vs-i-ga-english.html</loc>
-    <lastmod>2026-09-14</lastmod>
+    <lastmod>2026-09-15</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://everykoreans.com/blog/eun-neun-vs-i-ga-english.html"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://everykoreans.com/blog/eun-neun-vs-i-ga.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://everykoreans.com/blog/eun-neun-vs-i-ga-english.html"/>
   </url>
   <url>
     <loc>https://everykoreans.com/blog/how-to-learn-korean.html</loc>
-    <lastmod>2026-09-14</lastmod>
+    <lastmod>2026-09-15</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -27053,6 +27064,9 @@
     <lastmod>2026-09-14</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://everykoreans.com/blog/eun-neun-vs-i-ga.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://everykoreans.com/blog/eun-neun-vs-i-ga-english.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://everykoreans.com/blog/eun-neun-vs-i-ga-english.html"/>
   </url>
   <url>
     <loc>https://everykoreans.com/blog/read-hangul-in-a-morning.html</loc>
@@ -27086,19 +27100,19 @@
   </url>
   <url>
     <loc>https://everykoreans.com/blog/tag/english.html</loc>
-    <lastmod>2026-09-14</lastmod>
+    <lastmod>2026-09-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://everykoreans.com/blog/tag/grammar-en.html</loc>
-    <lastmod>2026-09-14</lastmod>
+    <lastmod>2026-09-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://everykoreans.com/blog/tag/roadmap.html</loc>
-    <lastmod>2026-09-14</lastmod>
+    <lastmod>2026-09-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -27143,6 +27157,15 @@
     <lastmod>2026-09-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/en/</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://everykoreans.com/en/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://everykoreans.com/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://everykoreans.com/en/"/>
   </url>
   <url>
     <loc>https://everykoreans.com/privacy.html</loc>
