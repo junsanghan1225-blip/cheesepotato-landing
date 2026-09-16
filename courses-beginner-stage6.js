@@ -10,6 +10,7 @@
 
    ── 코스 구성 ───────────────────────────────────────────────
    - bg-27: 열쇠 하나였다 — -(으)ㄴ / -는 / -(으)ㄹ (3강)
+   - bg-28: 격식 -ㅂ/습니다 (2강)
    ══════════════════════════════════════════════════════════════ */
 
 export const BEGINNER_STAGE6_COURSES = [
@@ -237,6 +238,165 @@ export const BEGINNER_STAGE6_COURSES = [
         why:'Present modifier is 듣는: 지금 듣는 노래가 뭐예요?' },
 
       { t:'speak', say:'제가 어제 산 책이 정말 재미있어요.', q:'Read aloud with confidence, using your brand-new relative clause:' },
+    ],
+  },
+
+  ],
+},
+
+/* ═══════════════════════════════════════════════════════════════
+   bg-28 — 격식 -ㅂ/습니다
+   공적인 자리, 발표, 뉴스, 안내 방송에서 쓰이는 격식체(합쇼체).
+   -ㅂ/습니다(평서), -ㅂ/습니까(의문), -(으)십시오(명령).
+   ═══════════════════════════════════════════════════════════════ */
+{
+  id: 'bg-28',
+  emoji: '🎙️',
+  title: { ko:'격식 -ㅂ/습니다', en:'Formal Register: -ㅂ/습니다' },
+  tagline: { ko:'공적인 자리와 공식 방송에서의 격식 있는 한국어', en:'Polite formal speech for announcements, news, and presentations.' },
+  blurb: { ko:'학습자가 익혀 온 일상적 해요체(-아/어요)를 넘어, 뉴스·발표·면접·안내 방송 등 공적인 자리에서 쓰이는 격식체(합쇼체)의 평서문(-ㅂ/습니다), 의문문(-ㅂ/습니까), 명령문(-(으)십시오)을 배웁니다.',
+           en:'Beyond everyday conversation (-아/어요), discover the formal register (합쇼체) used in news, presentations, interviews, and public broadcasts: statements (-ㅂ/습니다), questions (-ㅂ/습니까), and formal commands (-(으)십시오).' },
+  level: 'Beginner',
+  needs: 'bg-27',
+  lessons: [
+
+  /* ── 1 ─────────────────────────────────────────────────── */
+  {
+    id: 'bg-28-01',
+    title: { ko:'1강. 언제 쓰는지부터: -ㅂ/습니다 와 -ㅂ/습니까?', en:'Lesson 1. Setting the Stage: Formal Statements & Questions' },
+    minutes: 7,
+    blocks: [
+      { t:'text', md:'Throughout Stages 1 through 5, you learned **해요체** (*-아/어요*). It is warm, natural, and standard for everyday conversation.\n\nNow, meet **합쇼체 (격식체 / Formal Register)**: **-ㅂ니다 / -습니다**.\n\n**Is 격식체 "more polite" than 해요체?**\n**Not at all!** They are not higher or lower in politeness. **They belong to completely different settings**:\n\n- **격식체 (Formal Register)**: Used in public, official, impersonal settings — TV news, presentations, job interviews, the military, airport and subway announcements, and business meetings.\n- **해요체 (Informal Polite)**: Used in daily, personal settings — talking with coworkers, restaurant staff, friends, and casual polite chats.' },
+
+      { t:'note', md:'**How to Conjugate -ㅂ/습니다 (Statements) & -ㅂ/습니까? (Questions)**\n\nThe rule is completely determined by whether the stem ends in a vowel or a consonant (batchim):\n\n- **Stem without batchim** → **-ㅂ니다** / **-ㅂ니까?** *(가다 → 갑니다 / 갑니까?)*\n- **Stem with batchim** → **-습니다** / **-습니까?** *(먹다 → 먹습니다 / 먹습니까?)*\n- **ㄹ irregular** → drop `ㄹ` and add **-ㅂ니다** *(살다 → 삽니다, 만들다 → 만듭니다)*\n- **Noun + 이에요/예요** → **-(이)ㅂ니다** *(학생입니다, 의사입니다)*' },
+
+      { t:'table', head:['Type','Word','Statement (-ㅂ/습니다)','Question (-ㅂ/습니까?)','English Meaning'], rows:[
+        ['No batchim','가다 (to go)','**갑니다**','**갑니까?**','Goes / Does [one] go?'],
+        ['No batchim','하다 (to do)','**합니다**','**합니까?**','Does / Does [one] do?'],
+        ['With batchim','먹다 (to eat)','**먹습니다**','**먹습니까?**','Eats / Does [one] eat?'],
+        ['With batchim','좋다 (good)','**좋습니다**','**좋습니까?**','Good / Is it good?'],
+        ['ㄹ irregular','살다 (to live)','**삽니다**','**삽니까?**','Lives / Does [one] live?'],
+        ['Noun','학생 (student)','**학생입니다**','**학생입니까?**','Am/is student / Is [one] a student?'],
+      ]},
+
+      { t:'note', md:'**Pronunciation Tip: -ㅂ니다 sounds like [ㅁ니다]!**\n\nWhen `ㅂ` comes directly before `ㄴ`, it nasalizes into an [m] sound. That’s why **갑니다** is pronounced as [감니다], and **합니다** is pronounced as [함니다]!' },
+
+      { t:'chars', wide:true, items:[
+        { ch:'처음 뵙겠습니다. 만나서 반갑습니다.', tip:'Nice to meet you for the first time. (Formal interview / meeting)' },
+        { ch:'지금 뉴스를 시작하겠습니다.', tip:'We will now begin the news broadcast.' },
+        { ch:'질문이 있습니까?', tip:'Do you have any questions? (Formal presentation Q&A)' },
+      ]},
+
+      { t:'choice', q:'Which setting is MOST appropriate for using 격식체 (-ㅂ/습니다) rather than 해요체 (-아/어요)?',
+        options:['A formal job interview or business presentation','Ordering an iced americano at a neighborhood cafe','Chatting casually over lunch with a coworker','Sending a quick text message to a friend'], answer:0,
+        why:'격식체 (-ㅂ/습니다) is used in public, formal situations like interviews and presentations. Cafes, casual lunches, and text chats use conversational 해요체 (-아/어요).' },
+
+      { t:'choice', q:'How do you say "I am a university student" in the formal register?',
+        options:['대학생입니다.','대학생이에요.','대학생이야.','대학생입니까.'], answer:0,
+        why:'In the formal register, Noun + -입니다: 대학생입니다. (대학생이에요 is conversational 해요체, 대학생이야 is casual 반말, and 입니까 is a question).' },
+
+      { t:'choice', q:'In a presentation Q&A, how do you formally ask: "Do you have any questions?" from 있다?',
+        options:['질문이 있습니까?','질문이 있어요?','질문이 있습니까.','질문이 있나요?'], answer:0,
+        why:'For stems with batchim, the formal question ending is -습니까?: 질문이 있습니까? (있어요? is conversational, 있습니까. lacks a question mark).' },
+
+      { t:'cloze', sentence:'처음 뵙겠습니다. 만나서 [반갑습니다].', answer:'반갑습니다',
+        options:['반갑습니다','반갑어요','반가워요','반갑니다'],
+        meaning:'Nice to meet you for the first time. (Standard formal greeting)',
+        why:'반갑다 has batchim ㅂ, which retains its consonant before -습니다: 반갑- + -습니다 = 반갑습니다.' },
+
+      { t:'order', q:'Put in order: "I like Korean food." (Formal statement)',
+        tokens:['저는','한국','음식을','좋아합니다.'], answer:['저는','한국','음식을','좋아합니다.'] },
+
+      { t:'pair', q:'Match the informal polite (해요체) form with its formal (합쇼체) equivalent:', pairs:[
+        ['가요', '갑니다'],
+        ['먹어요', '먹습니다'],
+        ['해요', '합니다'],
+        ['학생이에요', '학생입니다'],
+      ]},
+
+      { t:'correct', wrong:'저는 서울에 살습니다.',
+        answers:['저는 서울에 삽니다.','저는 서울에 삽니다'],
+        hint:'For ㄹ-stem verbs like 살다, the ㄹ drops before -ㅂ니다: 살다 → 삽니다',
+        why:'ㄹ irregular: 살다 drops ㄹ when meeting -ㅂ니다, becoming 삽니다: 저는 서울에 삽니다.' },
+
+      { t:'translate', q:'Translate to formal Korean (-ㅂ/습니다): "We will start the presentation now."',
+        answers:['지금 발표를 시작하겠습니다.','지금 발표를 시작하겠습니다'],
+        hint:'지금, 발표를 시작하다 → 시작하겠습니다' },
+
+      { t:'speak', say:'처음 뵙겠습니다. 만나서 반갑습니다.', q:'Read aloud with crisp, polite formal pronunciation [반갑씀니다]:' },
+    ],
+  },
+
+  /* ── 2 ─────────────────────────────────────────────────── */
+  {
+    id: 'bg-28-02',
+    title: { ko:'2강. -(으)십시오 와 해요체 ↔ 격식체 전환', en:'Lesson 2. Formal Commands & Register Switching' },
+    minutes: 8,
+    blocks: [
+      { t:'text', md:'In daily life, you learned to make requests or give polite directions with **-(으)세요** (*“여기에 앉으세요”*).\n\nIn public transit, airport broadcasts, official signs, and formal service, you will encounter the **formal imperative: -(으)십시오**:\n\n- **Stem without batchim** → **-십시오** *(타다 → 타십시오 = Please board)*\n- **Stem with batchim** → **-으십시오** *(앉다 → 앉으십시오 = Please take a seat)*\n- **Formal Prohibition** → **-지 마십시오** *(사진을 찍지 마십시오 = Please do not take photos)*' },
+
+      { t:'table', head:['Situation / Usage','Conversational (-아/어요 / -세요)','Formal Public (-ㅂ/습니다 / -(으)십시오)'], rows:[
+        ['Introduce oneself','저는 마이클이에요.','**저는 마이클입니다.**'],
+        ['Ask destination','어디에 가요?','**어디에 갑니까?**'],
+        ['Compliment food','정말 맛있어요.','**정말 맛있습니다.**'],
+        ['Tell someone to sit','여기에 앉으세요.','**자리에 앉으십시오.**'],
+        ['Prohibit entering','들어오지 마세요.','**들어오지 마십시오.**'],
+      ]},
+
+      { t:'note', md:'**Mastering the Switch!**\n\nA fluent Korean speaker knows when to flip the switch between conversational warmth (**해요체**) and public dignity (**격식체**).\n\n- Presenting slides to an audience: *“오늘 발표를 시작하겠습니다.”* (Formal)\n- Chatting with attendees during coffee break: *“커피 드시면서 이야기해요.”* (Conversational)' },
+
+      { t:'chars', wide:true, items:[
+        { ch:'출입문이 닫힙니다. 뒤로 물러서 주십시오.', tip:'Subway announcement: The doors are closing. Please step back.' },
+        { ch:'좌석에 앉아 주십시오.', tip:'Flight broadcast: Please be seated.' },
+        { ch:'박물관 안에서는 사진을 찍지 마십시오.', tip:'Museum sign: Please do not take photographs inside the museum.' },
+      ]},
+
+      { t:'choice', q:'You hear a subway announcement: "The doors are closing. Please step back." Which command form is used?',
+        options:['뒤로 물러서십시오.','뒤로 물러서세요.','뒤로 물러서요.','뒤로 물러서라.'], answer:0,
+        why:'Official public transit announcements use the formal command -(으)십시오: 뒤로 물러서십시오. (-세요 is conversational polite, -라 is plain non-honorific).' },
+
+      { t:'choice', q:'How would a museum sign formally say "Please do not touch"?',
+        options:['만지지 마십시오.','만지지 마세요.','만지지 않아요.','만지지 못해요.'], answer:0,
+        why:'Formal public prohibitions use -지 마십시오: 만지지 마십시오. (-지 마세요 is conversational polite).' },
+
+      { t:'choice', q:'How do you convert the conversational question "한국 음식을 좋아해요?" into the formal register?',
+        options:['한국 음식을 좋아합니까?','한국 음식을 좋아합니다.','한국 음식을 좋아하세요?','한국 음식을 좋아하십시오?'], answer:0,
+        why:'A question in the formal register ends with -ㅂ니까?: 한국 음식을 좋아합니까? (좋아합니다 is a statement, 좋아하세요 is conversational polite).' },
+
+      { t:'cloze', sentence:'안내 방송: "잠시 후 비행기가 착륙합니다. 자리에 [앉으십시오]."', answer:'앉으십시오',
+        options:['앉으십시오','앉으세요','앉아십시오','앉읍니다'],
+        meaning:'Announcement: "The airplane will land shortly. Please be seated."',
+        why:'Formal command for a verb with batchim (앉다) takes -으십시오: 앉- + -으십시오 = 앉으십시오.' },
+
+      { t:'order', q:'Put in order: "Please do not take photos inside the library." (Formal notice)',
+        tokens:['도서관에서는','사진을','찍지','마십시오.'], answer:['도서관에서는','사진을','찍지','마십시오.'] },
+
+      { t:'pair', q:'Match the conversational sentence with its formal counterpart:', pairs:[
+        ['어제 친구를 만났어요.', '어제 친구를 만났습니다.'],
+        ['지금 어디에 가요?', '지금 어디에 갑니까?'],
+        ['여기에 이름을 쓰세요.', '여기에 이름을 쓰십시오.'],
+        ['사진을 찍지 마세요.', '사진을 찍지 마십시오.'],
+      ]},
+
+      { t:'correct', wrong:'안내 방송: 자리에 앉으세요.',
+        answers:['안내 방송: 자리에 앉으십시오.','안내 방송: 자리에 앉으십시오'],
+        hint:'Public official announcements use -(으)십시오 instead of -세요: 앉다 → 앉으십시오',
+        why:'Public announcements use the formal imperative -(으)십시오: 자리에 앉으십시오.' },
+
+      { t:'correct', wrong:'뉴스 앵커: 날씨가 아주 좋아요.',
+        answers:['뉴스 앵커: 날씨가 아주 좋습니다.','뉴스 앵커: 날씨가 아주 좋습니다'],
+        hint:'News anchors speak in formal register -ㅂ/습니다: 좋다 → 좋습니다',
+        why:'News broadcasts use formal -습니다: 날씨가 아주 좋습니다.' },
+
+      { t:'translate', q:'Convert into formal register: "저는 미국 사람이에요." (I am American.)',
+        answers:['저는 미국 사람입니다.','저는 미국 사람입니다'],
+        hint:'저는 미국 사람 + 입니다' },
+
+      { t:'translate', q:'Formal public notice: "Please do not enter." (들어오다 + -지 말다)',
+        answers:['들어오지 마십시오.','들어오지 마십시오'],
+        hint:'들어오다 → 들어오지 마십시오' },
+
+      { t:'speak', say:'출입문이 닫힙니다. 뒤로 물러서 주십시오.', q:'Read aloud like a subway announcer with clear, crisp formal tone:' },
     ],
   },
 
