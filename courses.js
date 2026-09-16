@@ -42,6 +42,8 @@ import { BEGINNER_STAGE1_COURSES } from './courses-beginner-stage1.js?v=4145c8b4
 import { BEGINNER_STAGE2_COURSES } from './courses-beginner-stage2.js?v=4145c8b4';
 // 초급 3단계 — 이어 말하기
 import { BEGINNER_STAGE3_COURSES } from './courses-beginner-stage3.js?v=4145c8b4';
+// 초급 4단계 — 상대에게
+import { BEGINNER_STAGE4_COURSES } from './courses-beginner-stage4.js?v=4145c8b4';
 
 export const COURSES = [
 
@@ -757,6 +759,9 @@ export const COURSES = [
 
 // 초급 3단계 — courses-beginner-stage3.js (나열·대조, 이유, 조건·동시·선택, 배경)
 ...BEGINNER_STAGE3_COURSES,
+
+// 초급 4단계 — courses-beginner-stage4.js (부탁, 허락·의무, 금지, 능력, 제안)
+...BEGINNER_STAGE4_COURSES,
 
 /* 이/가 와 은/는 — 초급 **맨 뒤**가 제자리다. 처음부터 대조하면 문장
    하나 만들 때마다 멈춘다 (docs/curriculum-beginner.md §2 원칙 ②). */
