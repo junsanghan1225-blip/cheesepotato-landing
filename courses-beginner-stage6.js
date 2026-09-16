@@ -13,6 +13,7 @@
    - bg-28: 격식 -ㅂ/습니다 (2강)
    - bg-29: 높임 -(으)시- · 께 · 께서 (3강)
    - bg-30: 반응 -네요 · -군요 · -지요 (3강)
+   - bg-31: 남은 조사 ① 사람과 방향 (3강)
    ══════════════════════════════════════════════════════════════ */
 
 export const BEGINNER_STAGE6_COURSES = [
@@ -843,6 +844,223 @@ export const BEGINNER_STAGE6_COURSES = [
         hint:'내일 회의가 2시 + 지요? / 죠?' },
 
       { t:'speak', say:'오늘 날씨가 참 따뜻하고 좋지요?', q:'Read aloud seeking agreement with a warm smile:' },
+    ],
+  },
+
+  ],
+},
+
+/* ═══════════════════════════════════════════════════════════════
+   bg-31 — 남은 조사 ① 사람과 방향
+   사람을 향하는 방향(에게/한테, 에게서/한테서)과
+   장소 방향·수단·도구·변화를 나타내는 (으)로 조사의 완벽 정복.
+   ═══════════════════════════════════════════════════════════════ */
+{
+  id: 'bg-31',
+  emoji: '👥',
+  title: { ko:'남은 조사 ① 사람과 방향', en:'Particles ①: People & Direction' },
+  tagline: { ko:'사람을 향할 때와 방향·도구를 가리킬 때 쓰는 필수 조사', en:'Essential particles for giving/receiving with people and indicating direction or tools.' },
+  blurb: { ko:'사람에게 주고받는 방향(에게/한테 vs 에게서/한테서)과 이동 방향·교통수단·도구·변화를 나타내는 (으)로 조사의 문어체/구어체 구분 및 ㄹ 받침 예외 규칙을 완벽하게 익힙니다.',
+           en:'Master interpersonal direction particles (에게/한테 vs. 에게서/한테서) and the versatile (으)로 particle for destination, means/transport, and transformation, including the critical ㄹ-batchim exception.' },
+  level: 'Beginner',
+  needs: 'bg-30',
+  lessons: [
+
+  /* ── 1 ─────────────────────────────────────────────────── */
+  {
+    id: 'bg-31-01',
+    title: { ko:'1강. 에게 와 한테: 사람에게', en:'Lesson 1. 에게 & 한테: Giving / Towards People' },
+    minutes: 7,
+    blocks: [
+      { t:'text', md:'In course `bg-29`, you learned that when doing something for an honored elder (like parents or teachers), you use the honorific particle **께** (*선생님께 편지를 드렸어요*).\n\nNow, what about friends, coworkers, siblings, and ordinary people?\n\nYou use **에게** or **한테** (*“to / towards someone”*)!\n\n- Giving a gift: *“친구**한테** 선물을 줬어요.”* *(I gave a gift to my friend.)*\n- Sending a message: *“동생**에게** 문자를 보냈어요.”* *(I sent a text to my younger sibling.)*\n\nBoth mean **exactly the same thing** grammatically. The only difference is **style and register**!' },
+
+      { t:'note', md:'**Written vs. Spoken Register:**\n\n- **에게**: **Written / Formal register (문어체)**. Common in literature, news articles, formal business emails, and official notices.\n- **한테**: **Everyday Spoken register (구어체)**. What native speakers use 99% of the time in daily conversation with friends, family, and colleagues!\n\nBoth attach directly to the person noun without any batchim changes:\n- **친구** + 한테 = **친구한테**\n- **동생** + 에게 = **동생에게**\n- **민수** + 한테 = **민수한테**' },
+
+      { t:'table', head:['Recipient','Particle','Style / Context','Example Sentence'], rows:[
+        ['Honored Elder (선생님)','**께**','Honorific (높임)','선생님**께** 여쭤보세요.'],
+        ['Friend / Peer (문어체)','**에게**','Formal / Written','친구**에게** 편지를 씁니다.'],
+        ['Friend / Peer (구어체)','**한테**','Spoken / Everyday','친구**한테** 카톡 보냈어.'],
+        ['Younger (동생)','**한테 / 에게**','Neutral / Casual','동생**한테** 용돈을 줬어요.'],
+      ]},
+
+      { t:'chars', wide:true, items:[
+        { ch:'친구한테 선물을 줬어요.', tip:'I gave a gift to a friend. (Spoken, natural)' },
+        { ch:'동생에게 문자를 보냈어요.', tip:'I sent a text to my sibling. (Written/formal)' },
+        { ch:'누구한테 전화했어요?', tip:'Who did you call? (Everyday question)' },
+      ]},
+
+      { t:'choice', q:'You are chatting casually with a friend and want to say: "I gave a present to Minsoo." Which sentence sounds most natural in everyday speech?',
+        options:['민수한테 선물을 줬어요.','민수에게 선물을 주셨어요.','민수께 선물을 드렸어요.','민수를 선물을 줬어요.'], answer:0,
+        why:'한테 is the standard everyday spoken particle for peers (민수한테 선물을 줬어요). 께 is reserved for honored elders, and 에게 is formal written style.' },
+
+      { t:'choice', q:'How do 에게 and 한테 differ in Korean?',
+        options:['They share the exact same meaning, but 에게 is formal/written while 한테 is everyday spoken','에게 is only used for past tense, while 한테 is for present tense','에게 is for animals, while 한테 is only for human superiors','에게 requires a batchim, while 한테 attaches after vowels'], answer:0,
+        why:'Both mean "to (a person)", but 에게 is formal/written while 한테 is natural spoken Korean.' },
+
+      { t:'choice', q:'Choose the correct pair of particles to fill in the blanks respectfully and naturally: "부모님(__) 선물을 드리고, 동생(__) 간식을 줬어요."',
+        options:['께 / 한테','한테 / 께','에게 / 께서','한테서 / 께'], answer:0,
+        why:'Parents are honored elders requiring 께, while younger sibling takes casual 한테 (or 에게): 부모님께 / 동생한테.' },
+
+      { t:'cloze', sentence:'방과 후에 친구[한테] 전화를 걸었어요.', answer:'한테',
+        options:['한테','한테서','으로','에서'],
+        meaning:'After school, I made a phone call to my friend.',
+        why:'Calling "to" a person in everyday speech takes 한테 (or 에게).' },
+
+      { t:'order', q:'Put in order: "I gave a birthday present to my friend."',
+        tokens:['친구한테','생일','선물을','줬어요.'], answer:['친구한테','생일','선물을','줬어요.'] },
+
+      { t:'pair', q:'Match the recipient with the most fitting particle:', pairs:[
+        ['To grandmother (honorific)', '할머니께'],
+        ['To a friend (everyday spoken)', '친구한테'],
+        ['To readers (formal written)', '독자에게'],
+        ['To my younger brother', '남동생한테'],
+      ]},
+
+      { t:'correct', wrong:'친구와 대화할 때: 선생님한테 이 책을 드려요.',
+        answers:['선생님께 이 책을 드려요.','선생님께 이 책을 드려요'],
+        hint:'For honored elders like teachers, replace 한테 with the honorific particle 께.',
+        why:'Teachers require the honorific particle 께: 선생님께 이 책을 드려요.' },
+
+      { t:'translate', q:'Spoken: "I gave a present to my friend."',
+        answers:['친구한테 선물을 줬어요.','친구한테 선물을 줬어요','친구에게 선물을 줬어요.','친구에게 선물을 줬어요'],
+        must:['선물을','줬어요'],
+        hint:'친구 + 한테 / 에게 + 선물을 줬어요' },
+
+      { t:'speak', say:'생일에 친구한테 멋진 선물을 줬어요.', q:'Read aloud naturally as if sharing a story with a friend:' },
+    ],
+  },
+
+  /* ── 2 ─────────────────────────────────────────────────── */
+  {
+    id: 'bg-31-02',
+    title: { ko:'2강. 에게서 와 한테서: 사람에게서(받다)', en:'Lesson 2. 에게서 & 한테서: From People (Source)' },
+    minutes: 7,
+    blocks: [
+      { t:'text', md:'In Lesson 1, you learned how to direct actions **TOWARDS** someone using **에게 / 한테** (*giving, sending, calling*).\n\nNow, what happens when you **RECEIVE** something **FROM** someone?\n\nYou add **-서** to create **에게서** and **한테서** (*“from someone”*)!\n\n- Receiving a gift: *“친구**한테서** 선물을 받았어요.”* *(I received a gift from a friend.)*\n- Hearing news: *“민수**한테서** 소식을 들었어요.”* *(I heard the news from Minsoo.)*\n\nThe same register rule applies:\n- **에게서**: Written / formal style\n- **한테서**: Everyday spoken style' },
+
+      { t:'note', md:'**Direction Contrast: TO vs. FROM**\n\nAlways pay attention to the main verb!\n\n1. **GIVING / SENDING / TOWARDS (에게 / 한테)**:\n   - *주다 (to give), 보내다 (to send), 전화하다 (to call), 가르치다 (to teach)*\n   - 동생**한테** 주다 = give **to** sibling\n\n2. **RECEIVING / LEARNING / FROM (에게서 / 한테서)**:\n   - *받다 (to receive), 듣다 (to hear), 배우다 (to learn), 빌리다 (to borrow)*\n   - 동생**한테서** 받다 = receive **from** sibling\n\n*(Tip: In rapid daily conversation, Koreans often shorten 한테서 to just 한테 when the verb already means receiving like 받다, but 한테서 is the precise, unambiguous standard form!)*' },
+
+      { t:'table', head:['Type','Particle','Key Verbs','Example Sentence'], rows:[
+        ['**TO (Recipient)**','**에게 / 한테**','주다, 보내다, 쓰다','친구**한테** 선물을 줬어요.'],
+        ['**FROM (Source)**','**에게서 / 한테서**','받다, 듣다, 배우다','친구**한테서** 선물을 받았어요.'],
+        ['**FROM (Honorific)**','**께로부터 / 께**','받다, 듣다, 물려받다','선생님**께** 가르침을 받았어요.'],
+      ]},
+
+      { t:'chars', wide:true, items:[
+        { ch:'친구한테서 선물을 받았어요.', tip:'I received a present from a friend. (Receiving)' },
+        { ch:'민수한테서 그 이야기를 들었어요.', tip:'I heard that story from Minsoo. (Hearing info)' },
+        { ch:'누구한테서 한국어를 배웠어요?', tip:'Who did you learn Korean from? (Learning source)' },
+      ]},
+
+      { t:'choice', q:'Complete the sentence: "I borrowed this book from a friend yesterday." (어제 친구(__) 이 책을 빌렸어요.)',
+        options:['한테서','한테','으로','에서'], answer:0,
+        why:'Borrowing or receiving something from a person takes 한테서 (or 에게서): 친구한테서 빌렸어요.' },
+
+      { t:'choice', q:'Compare the two sentences:\n1. 친구한테 편지를 보냈어요.\n2. 친구한테서 편지를 받았어요.\nWhat is the difference?',
+        options:['Sentence 1 is sending TO a friend; Sentence 2 is receiving FROM a friend','Sentence 1 is past tense; Sentence 2 is present tense','Sentence 1 is honorific; Sentence 2 is casual banmal','Sentence 1 means with a friend; Sentence 2 means against a friend'], answer:0,
+        why:'-한테 indicates the recipient (sent to), whereas -한테서 indicates the source (received from).' },
+
+      { t:'choice', q:'Which verb pairs naturally with 에게서 / 한테서 (from a person)?',
+        options:['소식을 들었어요 (heard news)','문자를 보냈어요 (sent text)','선물을 주었어요 (gave gift)','인사를 드렸어요 (greeted)'], answer:0,
+        why:'Hearing information, receiving, borrowing, and learning originate from a source: 소식을 들었어요.' },
+
+      { t:'cloze', sentence:'지난주에 친구[한테서] 반가운 편지를 받았어요.', answer:'한테서',
+        options:['한테서','한테','에게','으로'],
+        meaning:'Last week, I received a welcome letter from a friend.',
+        why:'Receiving from a person takes the source particle 한테서 (or 에게서).' },
+
+      { t:'order', q:'Put in order: "I heard that story from Minsoo."',
+        tokens:['민수한테서','그','이야기를','들었어요.'], answer:['민수한테서','그','이야기를','들었어요.'] },
+
+      { t:'pair', q:'Match the particle with its directional meaning and verb:', pairs:[
+        ['Giving TO a friend', '친구한테 주다'],
+        ['Receiving FROM a friend', '친구한테서 받다'],
+        ['Giving TO teacher (honor)', '선생님께 드리다'],
+        ['Arriving AT school', '학교에 도착하다'],
+      ]},
+
+      { t:'correct', wrong:'선물을 받은 상황: 친구한테 선물을 받았어요. (명확하게 구분할 때)',
+        answers:['친구한테서 선물을 받았어요.','친구한테서 선물을 받았어요','친구에게서 선물을 받았어요.','친구에게서 선물을 받았어요'],
+        hint:'To make the source "from" completely explicit, attach -서 to 한테: 한테서.',
+        why:'The source marker for persons is 한테서 / 에게서: 친구한테서 선물을 받았어요.' },
+
+      { t:'translate', q:'Spoken: "I received a letter from my friend."',
+        answers:['친구한테서 편지를 받았어요.','친구한테서 편지를 받았어요','친구에게서 편지를 받았어요.','친구에게서 편지를 받았어요'],
+        must:['편지를','받았어요'],
+        hint:'친구 + 한테서 / 에게서 + 편지를 받았어요' },
+
+      { t:'speak', say:'어제 친구한테서 반가운 연락을 받았어요.', q:'Read aloud warmly sharing good news:' },
+    ],
+  },
+
+  /* ── 3 ─────────────────────────────────────────────────── */
+  {
+    id: 'bg-31-03',
+    title: { ko:'3강. 으로: 방향과 수단', en:'Lesson 3. (으)로: Direction, Means, & Transformation' },
+    minutes: 8,
+    blocks: [
+      { t:'text', md:'The versatile particle **-(으)로** is one of the most useful tools in Korean. It fulfills **three major functions**:\n\n1. **Direction (“toward”)**:\n   - *“오른쪽**으로** 가세요.”* *(Please go toward the right.)*\n   - *“집**으로** 돌아가요.”* *(I am heading toward home.)*\n   *(Unlike **에**, which pinpoints the exact static destination, **(으)로** emphasizes heading in that direction.)*\n\n2. **Means / Tool / Transportation (“by / with / using”)**:\n   - *“버스**로** 가요.”* *(I go by bus.)*\n   - *“연필**로** 써요.”* *(I write with a pencil.)*\n   - *“한국어**로** 말해요.”* *(I speak in Korean.)*\n\n3. **Transformation / Result (“into”)**:\n   - *“물이 얼음**으로** 변해요.”* *(Water turns into ice.)*' },
+
+      { t:'note', md:'**Conjugation: The Crucial ㄹ-Batchim Exception!**\n\n- **No Batchim (Vowel ending)** → **-로**\n  - 학교 → **학교로** *(toward school)*\n  - 버스 → **버스로** *(by bus)*\n  - 뒤 → **뒤로** *(to the back)*\n\n- **With Batchim (Consonant ending)** → **-으로**\n  - 손 → **손으로** *(with hands)*\n  - 오른쪽 → **오른쪽으로** *(to the right)*\n  - 젓가락 → **젓가락으로** *(with chopsticks)*\n\n- **⚡ THE EXCEPTION: Words ending in ㄹ batchim take -로!**\n  - Pronouncing `ㄹ + 으` is awkward, so `ㄹ` behaves just like a vowel!\n  - 지하철 + 로 → **지하철로** (❌ 지하철으로)\n  - 연필 + 로 → **연필로** (❌ 연필으로)\n  - 서울 + 로 → **서울로** (❌ 서울으로)' },
+
+      { t:'table', head:['Category','Word Type','Base Word','With (으)로','Meaning'], rows:[
+        ['Transport / Tool','Vowel Ending','버스 (bus)','**버스로**','by bus'],
+        ['Transport / Tool','Normal Batchim','손 (hand)','**손으로**','with one’s hands'],
+        ['Transport / Tool','**ㄹ Batchim**','지하철 (subway)','**지하철로** *(not 지하철으로)*','by subway'],
+        ['Tool / Writing','**ㄹ Batchim**','연필 (pencil)','**연필로** *(not 연필으로)*','with a pencil'],
+        ['Direction','Normal Batchim','오른쪽 (right)','**오른쪽으로**','to the right'],
+        ['Direction','**ㄹ Batchim**','서울 (Seoul)','**서울로** *(not 서울으로)*','towards Seoul'],
+      ]},
+
+      { t:'chars', wide:true, items:[
+        { ch:'오른쪽으로 가세요.', tip:'Please go to the right. (Direction)' },
+        { ch:'지하철로 출근해요.', tip:'I commute by subway. (ㄹ-batchim means)' },
+        { ch:'한국어로 말해 보세요.', tip:'Try speaking in Korean. (Language as tool)' },
+      ]},
+
+      { t:'choice', q:'How do you combine 지하철 (subway) with -(으)로 to say "by subway"?',
+        options:['지하철로','지하철으로','지하철에','지하철에게'], answer:0,
+        why:'Nouns ending in ㄹ batchim take -로 (not -으로): 지하철로!' },
+
+      { t:'choice', q:'You are writing a letter and want to say: "I wrote it with a pencil." Which form is correct for 연필 (pencil)?',
+        options:['연필로 썼어요.','연필으로 썼어요.','연필에게 썼어요.','연필을 썼어요.'], answer:0,
+        why:'연필 ends in ㄹ batchim, so it takes -로 without 으: 연필로 썼어요.' },
+
+      { t:'choice', q:'Giving directions on the street: "Please go to the right." What is the correct Korean expression?',
+        options:['오른쪽으로 가세요.','오른쪽로 가세요.','오른쪽에 가세요.','오른쪽에게 가세요.'], answer:0,
+        why:'오른쪽 ends in consonant ㄱ, so it takes -으로: 오른쪽으로 가세요.' },
+
+      { t:'cloze', sentence:'회사에 버스나 [지하철로] 출근해요.', answer:'지하철로',
+        options:['지하철로','지하철으로','지하철에','지하철에서'],
+        meaning:'I commute to work by bus or by subway.',
+        why:'Transportation method for a word ending in ㄹ takes -로: 지하철로.' },
+
+      { t:'order', q:'Put in order: "Please go straight ahead."',
+        tokens:['앞으로','똑바로','가세요.'], answer:['앞으로','똑바로','가세요.'] },
+
+      { t:'pair', q:'Match each noun with its correctly attached -(으)로 form:', pairs:[
+        ['지하철 (ㄹ batchim)', '지하철로'],
+        ['연필 (ㄹ batchim)', '연필로'],
+        ['오른쪽 (consonant)', '오른쪽으로'],
+        ['버스 (vowel)', '버스로'],
+      ]},
+
+      { t:'correct', wrong:'ㄹ 받침 오류: 서울으로 이사했어요.',
+        answers:['서울로 이사했어요.','서울로 이사했어요'],
+        hint:'Nouns ending with the batchim ㄹ take -로, not -으로: 서울로.',
+        why:'ㄹ batchim nouns take -로: 서울로 이사했어요.' },
+
+      { t:'translate', q:'Direction: "Please go to the right."',
+        answers:['오른쪽으로 가세요.','오른쪽으로 가세요'],
+        must:['오른쪽으로','가세요'],
+        hint:'오른쪽 + 으로 + 가세요' },
+
+      { t:'translate', q:'Means: "I eat noodles with chopsticks."',
+        answers:['젓가락으로 라면을 먹어요.','젓가락으로 라면을 먹어요','젓가락으로 면을 먹어요.','젓가락으로 면을 먹어요'],
+        must:['젓가락으로','먹어요'],
+        hint:'젓가락 + 으로 + 라면을 / 면을 + 먹어요' },
+
+      { t:'speak', say:'저는 매일 아침에 지하철로 출근해요.', q:'Read aloud naturally focusing on the smooth pronunciation of 지하철로:' },
     ],
   },
 
