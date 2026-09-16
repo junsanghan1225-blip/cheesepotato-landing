@@ -2811,6 +2811,8 @@ const COURSE_CURRICULUM_TAG = {
   'bg-32':           { ko:'견주기·범위',   en:'Comparison & Range' },
   'bg-33':           { ko:'나열·선택·보조', en:'Listing & Selection' },
   'bg-34':           { ko:'명사형 전성',   en:'Nominalization' },
+  // 초급 보충 — docs/curriculum-beginner.md §8
+  'bg-35':           { ko:'단위명사',     en:'Counters' },
 };
 const BEGINNER_ROADMAP = [
   {
@@ -2903,6 +2905,15 @@ const BEGINNER_ROADMAP = [
       { ko:'N이/가 vs N은/는 초점과 대조 심층 구분', en:'Subject vs topic particles: focus and contrast' },
     ],
     courses:['bg-04'],
+  },
+  {
+    id:'extra',
+    tag:{ ko:'초급 보충', en:'Supplementary' },
+    title:{ ko:'실생활 필수 표현', en:'Essential Real-life Expressions' },
+    points:[
+      { ko:'단위명사와 몇: 사물(개)·사람(명/분)·동물(마리)·음료/책/나이(잔·병·권·살)', en:'Counters & "몇": items, people, animals, drinks, books, and age' },
+    ],
+    courses:['bg-35'],
   },
   {
     id:'next',
