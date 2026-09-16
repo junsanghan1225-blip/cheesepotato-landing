@@ -2796,6 +2796,12 @@ const COURSE_CURRICULUM_TAG = {
   'bg-19':           { ko:'금지',         en:'Prohibition' },
   'bg-20':           { ko:'능력·가능',    en:'Can & cannot' },
   'bg-21':           { ko:'제안·약속',    en:'Together & promises' },
+  // 초급 5단계 — docs/curriculum-beginner.md
+  'bg-22':           { ko:'경험',         en:'Experiences' },
+  'bg-23':           { ko:'목적·결심',    en:'Purpose & plans' },
+  'bg-24':           { ko:'추측',         en:'Conjectures' },
+  'bg-25':           { ko:'바람·조언',    en:'Hopes & advice' },
+  'bg-26':           { ko:'변화·부사',    en:'Change & manner' },
 };
 const BEGINNER_ROADMAP = [
   {
@@ -2853,6 +2859,17 @@ const BEGINNER_ROADMAP = [
     courses:['bg-17','bg-18','bg-19','bg-20','bg-21'],
   },
   {
+    id:'stage5',
+    tag:{ ko:'5단계. 마음을 담기', en:'Stage 5: Thoughts & Experiences' },
+    title:{ ko:'경험·의도·추측·바람', en:'Experiences, purpose, and hopes' },
+    points:[
+      { ko:'-아/어 보다 & -(으)ㄴ 적이 있다/없다로 경험 나누기', en:'Share experiences with -아/어 보다 & -(으)ㄴ 적이 있다/없다' },
+      { ko:'-(으)러(이동 목적) vs -(으)려고(일반 의도) & -기로 하다(결심)', en:'Purpose (-(으)러 vs -(으)려고) and firm decisions (-기로 하다)' },
+      { ko:'-(으)ㄴ/-는/-(으)ㄹ 것 같다(3시제 추측) & -았/었으면 좋겠다(바람)', en:'Conjectures in three tenses and wishes (-았/었으면 좋겠다)' },
+    ],
+    courses:['bg-22','bg-23','bg-24','bg-25','bg-26'],
+  },
+  {
     id:'deep',
     tag:{ ko:'초급 심화', en:'Deep dive' },
     title:{ ko:'조사의 미묘한 뉘앙스', en:'Subtle particle nuances' },
@@ -2864,10 +2881,10 @@ const BEGINNER_ROADMAP = [
   {
     id:'next',
     tag:{ ko:'다음 빌드', en:'Coming next' },
-    title:{ ko:'초급 5~6단계 본편 확장', en:'Stages 5–6 coming next' },
+    title:{ ko:'초급 6단계: 다듬기', en:'Stage 6: Finishing touches' },
     points:[
-      { ko:'5단계: 마음 담기 (해 봤어요, 하려고 가요, 그런 것 같아요)', en:'Stage 5: Intentions, experiences, and conjecture' },
-      { ko:'6단계: 다듬기 (격식 -ㅂ니다, 존댓말 -(으)시-, 관형형 -(으)ㄴ/-는/-(으)ㄹ의 비밀)', en:'Stage 6: Formal register, honorific -(으)시-, and the noun-modifying system' },
+      { ko:'열쇠 하나였다: -(으)ㄴ / -는 / -(으)ㄹ 관형형의 정체', en:'The master key: The noun-modifying system revealed' },
+      { ko:'격식 -ㅂ/습니까, 높임 -(으)시-, 반응 표현, 남은 조사 총정리', en:'Formal register, honorifics, reaction markers, and remaining particles' },
     ],
     courses:[],
   },
