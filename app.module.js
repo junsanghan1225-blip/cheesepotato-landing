@@ -9456,7 +9456,7 @@ $('llRows').addEventListener('click', (ev) => {
   if (!b) return;
   startLesson(lsCourse, lsCourse.lessons.find((l) => l.id === b.dataset.lesson));
 });
-const isEx = (b) => ['choice','listen','type','order','pair','speak','cloze','build'].includes(b.t);
+const isEx = (b) => ['choice','listen','type','order','pair','speak','cloze','build','translate','correct'].includes(b.t);
 
 function startLesson(course, lesson) {
   lsCourse = course; lsLesson = lesson;
@@ -10383,7 +10383,8 @@ function exBlock(host, b, done) {
 
   const tag = { choice:t('고르기','Choose'), listen:t('듣기','Listen'), type:t('쓰기','Type'),
                 order:t('배열','Arrange'), pair:t('짝 맞추기','Match'), speak:t('말하기','Speak'),
-                cloze:t('빈칸','Cloze'), build:t('문장 만들기','Build a sentence') }[b.t];
+                cloze:t('빈칸','Cloze'), build:t('문장 만들기','Build a sentence'),
+                translate:t('번역하기','Translate'), correct:t('오류 찾기','Find the error') }[b.t];
   const head = `<div class="ex-tag">${tag}</div>` + (b.q ? `<div class="ex-q">${md(b.q)}</div>` : '');
 
   const solve = () => { wrap.classList.add('ok'); done(); };
@@ -10538,9 +10539,14 @@ function exBlock(host, b, done) {
      있어서 하나만 받으면 맞는 문장을 틀렸다고 한다.
 
      must 는 반드시 들어가야 할 조각이다. 이게 있으면 "틀렸어요" 대신
-     「~가 없어요」 라고 짚어 줄 수 있다. 그 한 줄이 이 블록의 값어치다. */
-  if (b.t === 'build') {
-    wrap.innerHTML = head +
+     「~가 없어요」 라고 짚어 줄 수 있다. 그 한 줄이 이 블록의 값어치다.
+
+     translate 와 correct 는 같은 채점기를 쓴다 — 은행(bank) 없이 빈손에서
+     쓰게 하면 번역이고, 틀린 문장(wrong)을 얹어 고치게 하면 오류 찾기다. */
+  if (b.t === 'build' || b.t === 'translate' || b.t === 'correct') {
+    const wrongHtml = (b.t === 'correct' && b.wrong)
+      ? `<div class="ex-wrong">${esc(b.wrong)}</div>` : '';
+    wrap.innerHTML = head + wrongHtml +
       '<input class="ex-in ex-build-in" type="text" autocomplete="off" autocapitalize="off" spellcheck="false">' +
       (b.bank ? '<div class="ex-bank">' + shuffled(b.bank).map((w) =>
         `<button class="ex-chip" type="button" data-w="${esc(w)}">${esc(w)}</button>`).join('') + '</div>' : '') +

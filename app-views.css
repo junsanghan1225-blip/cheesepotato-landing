@@ -1733,6 +1733,13 @@
    보기에서 고르는 것과 달리 빈손에서 문장을 짜는 자리라, 틀렸을 때
    무엇이 틀렸는지 한 줄로 말해 줘야 한다. 빨간 테두리만 깜빡이면
    학습자는 같은 문장을 다시 친다. */
+/* 오류 찾기(correct) — 틀린 문장을 보여 주는 자리. 취소선을 그어서
+   "이 모양 그대로 베끼면 안 된다" 는 것을 한눈에 알게 한다. */
+.ex-wrong {
+  text-align:center; font-size:18px; font-weight:600; color:var(--red);
+  text-decoration:line-through; text-decoration-thickness:2px;
+  background:var(--surface-2); border-radius:var(--r-lg); padding:14px 18px; margin-bottom:4px;
+}
 .ex-bank { display:flex; flex-wrap:wrap; gap:8px; margin-top:12px; justify-content:center; }
 .ex-chip {
   cursor:pointer; padding:9px 14px; font-size:16px;

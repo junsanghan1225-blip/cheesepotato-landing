@@ -1078,7 +1078,6 @@ export const DETAILED_GRAMMAR_COURSES = [
           { t:'build', q:'Rewrite the basic sentence “선생님께 물어볼게요” using a humble expression.',
             answers:['선생님께 여쭤볼게요.','선생님께 여쭈어볼게요.'],
             bank:['선생님께','여쭤볼게요','여쭈어볼게요','물어볼게요'],
-            must:['여쭤'],
             hint:'This is asking someone senior, so use 여쭙다 instead of 묻다' },
 
           { t:'choice', q:'Which one doesn’t fit?',
