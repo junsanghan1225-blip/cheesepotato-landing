@@ -14,6 +14,7 @@
    - bg-29: 높임 -(으)시- · 께 · 께서 (3강)
    - bg-30: 반응 -네요 · -군요 · -지요 (3강)
    - bg-31: 남은 조사 ① 사람과 방향 (3강)
+   - bg-32: 남은 조사 ② 견주기와 범위 (3강)
    ══════════════════════════════════════════════════════════════ */
 
 export const BEGINNER_STAGE6_COURSES = [
@@ -1061,6 +1062,223 @@ export const BEGINNER_STAGE6_COURSES = [
         hint:'젓가락 + 으로 + 라면을 / 면을 + 먹어요' },
 
       { t:'speak', say:'저는 매일 아침에 지하철로 출근해요.', q:'Read aloud naturally focusing on the smooth pronunciation of 지하철로:' },
+    ],
+  },
+
+  ],
+},
+
+/* ═══════════════════════════════════════════════════════════════
+   bg-32 — 남은 조사 ② 견주기와 범위
+   정도 비교(보다)와 방식 비교(처럼),
+   시작과 끝(부터~까지) 및 마감 시한(까지),
+   오직의 두 갈래(만 vs 반드시 부정의 밖에) 완벽 정복.
+   ═══════════════════════════════════════════════════════════════ */
+{
+  id: 'bg-32',
+  emoji: '⚖️',
+  title: { ko:'남은 조사 ② 견주기와 범위', en:'Particles ②: Comparison & Range' },
+  tagline: { ko:'둘을 견주고 범위를 정하며 오직 하나를 한정하는 핵심 조사', en:'Essential particles for comparing, setting ranges, and expressing limits.' },
+  blurb: { ko:'정도 비교(보다)와 비유적 비교(처럼)의 차이, 시간·공간의 시작과 끝(부터~까지) 및 마감 시한(~까지), 긍정/부정 어디에나 쓰이는 만과 부정문에서만 오직을 뜻하는 밖에의 엄격한 문법 규칙을 마스터합니다.',
+           en:'Master degree comparison (보다) vs. similitude (처럼), range endpoints (부터~까지) and deadlines (까지), and the crucial restriction particles (만 vs. the strictly negative 밖에).' },
+  level: 'Beginner',
+  needs: 'bg-31',
+  lessons: [
+
+  /* ── 1 ─────────────────────────────────────────────────── */
+  {
+    id: 'bg-32-01',
+    title: { ko:'1강. 보다 와 처럼: 두 가지 비교', en:'Lesson 1. 보다 vs. 처럼: Two Ways to Compare' },
+    minutes: 7,
+    blocks: [
+      { t:'text', md:'In English, we use words like *“than”* and *“like / as”* to make comparisons. In Korean, two key particles handle these comparisons, but they operate in completely different ways:\n\n1. **보다 (“Than...”) — Degree Comparison**:\n   - Compares **measure, speed, size, or quality** along a scale (*more / less*).\n   - Often paired with **더** (*more*):\n     - *“비행기가 기차**보다** 더 빨라요.”* *(Airplanes are faster than trains.)*\n     - *“형이 저**보다** 키가 커요.”* *(My older brother is taller than me.)*\n     - *“어제**보다** 오늘이 더 따뜻해요.”* *(Today is warmer than yesterday.)*\n\n2. **처럼 (“Like / As...”) — Similitude & Manner Comparison**:\n   - Compares **resemblance, appearance, or manner** (*like an angel, like a Korean speaker*).\n   - Very similar in meaning to **같이** (*like*):\n     - *“천사**처럼** 착해요.”* *(Kind like an angel.)*\n     - *“한국 사람**처럼** 한국어를 잘해요.”* *(Speaks Korean like a Korean person.)*' },
+
+      { t:'note', md:'**The Classic Learner Mistake: Swapping 보다 and 처럼!**\n\n- Saying *“저**처럼** 키가 커요”* means *“He is tall **like me**”* (both of us are tall, sharing the trait).\n- Saying *“저**보다** 키가 커요”* means *“He is taller **than me**”* (comparing height on a scale).\n\nWhenever you are saying something is **more / less than** something else, always choose **보다**!' },
+
+      { t:'table', head:['Type','Particle','Key Meaning','Example Sentence'], rows:[
+        ['**Degree (정도)**','**보다**','*than...* (scale / amount)','KTX가 버스**보다** 빨라요.'],
+        ['**Manner (모양·방식)**','**처럼**','*like / as...* (resemblance)','바람**처럼** 빠르게 달려요.'],
+        ['**Degree (정도)**','**보다**','*than...* (comparison)','어제**보다** 오늘 더 바빠요.'],
+        ['**Manner (모양·방식)**','**처럼**','*like / as...* (role model)','가수**처럼** 노래를 잘해요.'],
+      ]},
+
+      { t:'chars', wide:true, items:[
+        { ch:'비행기가 기차보다 빨라요.', tip:'Airplanes are faster than trains. (Degree: 보다)' },
+        { ch:'천사처럼 마음이 착해요.', tip:'Kind-hearted like an angel. (Manner: 처럼)' },
+        { ch:'어제보다 오늘이 더 따뜻해요.', tip:'Today is warmer than yesterday. (Time degree)' },
+      ]},
+
+      { t:'choice', q:'You want to compare temperatures: "Today is colder than yesterday." Which sentence is correct?',
+        options:['오늘이 어제보다 더 추워요.','오늘이 어제처럼 더 추워요.','오늘이 어제에게 더 추워요.','오늘이 어제부터 더 추워요.'], answer:0,
+        why:'Comparing degrees on a scale (colder than yesterday) requires 보다: 어제보다 더 추워요. 처럼 means "like/as", not "than".' },
+
+      { t:'choice', q:'You want to praise a friend’s fluency: "You speak Korean like a Korean person." Which particle fits best?',
+        options:['한국 사람처럼 한국어를 잘해요.','한국 사람보다 한국어를 잘해요.','한국 사람에게 한국어를 잘해요.','한국 사람으로 한국어를 잘해요.'], answer:0,
+        why:'Comparing resemblance or manner ("like a Korean person") takes 처럼: 한국 사람처럼.' },
+
+      { t:'choice', q:'What is the difference between "형보다 커요" and "형처럼 커요"?',
+        options:['형보다 커요 means taller than older brother; 형처럼 커요 means tall like older brother','형보다 커요 means shorter; 형처럼 커요 means taller','형보다 커요 is polite honorific; 형처럼 커요 is casual banmal','형보다 커요 is past tense; 형처럼 커요 is future tense'], answer:0,
+        why:'-보다 expresses degree ("taller than"), while -처럼 expresses resemblance in appearance or manner ("tall like").' },
+
+      { t:'cloze', sentence:'기차가 버스[보다] 훨씬 더 빨라요.', answer:'보다',
+        options:['보다','처럼','에게','으로'],
+        meaning:'Trains are much faster than buses.',
+        why:'Comparing speeds on a scale (faster than) takes 보다.' },
+
+      { t:'order', q:'Put in order: "You speak Korean fluently like a Korean person."',
+        tokens:['한국','사람처럼','한국어를','유창하게','해요.'], answer:['한국','사람처럼','한국어를','유창하게','해요.'] },
+
+      { t:'pair', q:'Match each sentence with the nuance of its comparison:', pairs:[
+        ['비행기가 기차보다 빨라요', 'Speed comparison (than)'],
+        ['천사처럼 착해요', 'Manner / resemblance (like)'],
+        ['어제보다 오늘 더 바빠요', 'Degree of busyness (than)'],
+        ['가수처럼 노래해요', 'Singing style (like)'],
+      ]},
+
+      { t:'correct', wrong:'키를 비교할 때: 동생이 저처럼 키가 더 커요.',
+        answers:['동생이 저보다 키가 더 커요.','동생이 저보다 키가 더 커요'],
+        hint:'When comparing degree with "더" (taller than me), use 보다 instead of 처럼: 저보다.',
+        why:'Degree comparison requires 보다: 동생이 저보다 키가 더 커요.' },
+
+      { t:'translate', q:'Degree: "Today is colder than yesterday."',
+        answers:['어제보다 오늘이 더 추워요.','어제보다 오늘이 더 추워요','오늘이 어제보다 더 추워요.','오늘이 어제보다 더 추워요'],
+        must:['어제보다','더','추워요'],
+        hint:'어제 + 보다 + 오늘이 + 더 + 추워요' },
+
+      { t:'speak', say:'어제보다 날씨가 훨씬 따뜻하고 좋아요.', q:'Read aloud comparing today’s weather with yesterday:' },
+    ],
+  },
+
+  /* ── 2 ─────────────────────────────────────────────────── */
+  {
+    id: 'bg-32-02',
+    title: { ko:'2강. 부터 ~ 까지: 범위의 시작과 끝', en:'Lesson 2. 부터 ~ 까지: Start to Finish' },
+    minutes: 7,
+    blocks: [
+      { t:'text', md:'When speaking about schedules, working hours, travel routes, or study plans, you need to mark the **start** and the **end** of a range.\n\nThat’s where the dynamic duo **부터** and **까지** come in!\n\n1. **부터 (“From... / Starting from”)**:\n   - Marks the starting point in time, sequence, or number.\n   - *“아침 9시**부터** 일해요.”* *(I work starting from 9 AM.)*\n   - *“1페이지**부터** 읽으세요.”* *(Please read starting from page 1.)*\n\n2. **까지 (“Until / To / By”)**:\n   - Marks the ending boundary in time, space, or sequence.\n   - *“오후 6시**까지** 일해요.”* *(I work until 6 PM.)*\n   - *“서울에서 부산**까지** 기차로 가요.”* *(I go from Seoul to Busan by train.)*\n\n3. **Paired Together: [A]부터 [B]까지 (“From A to B”)**:\n   - *“월요일**부터** 금요일**까지** 출근해요.”* *(I go to work from Monday to Friday.)*' },
+
+      { t:'note', md:'**Standalone 까지 as a Deadline (“By...”)**\n\nWhen **까지** is used alone with a future time, it frequently expresses a **strict deadline**:\n\n- *“내일**까지** 숙제를 내세요.”* *(Submit homework **by tomorrow**.)*\n- *“5시**까지** 사무실로 오세요.”* *(Please come to the office **by 5 PM**.)*\n\nBoth **부터** and **까지** attach directly to nouns with **no batchim changes**!' },
+
+      { t:'table', head:['Range Type','Starting Point (부터)','Ending Point (까지)','Full Phrase Meaning'], rows:[
+        ['Daily Schedule','**9시부터**','**6시까지**','From 9 AM to 6 PM'],
+        ['Days of Week','**월요일부터**','**금요일까지**','From Monday to Friday'],
+        ['Page / Sequence','**1쪽부터**','**10쪽까지**','From page 1 to page 10'],
+        ['Deadline (마감)','—','**내일까지**','By tomorrow (deadline)'],
+      ]},
+
+      { t:'chars', wide:true, items:[
+        { ch:'월요일부터 금요일까지 일해요.', tip:'I work from Monday to Friday. (Time range)' },
+        { ch:'내일까지 서류를 보내 주세요.', tip:'Please send the document by tomorrow. (Deadline)' },
+        { ch:'점심시간은 12시부터 1시까지예요.', tip:'Lunch hour is from 12 to 1. (Everyday schedule)' },
+      ]},
+
+      { t:'choice', q:'Your office working hours are 9:00 AM to 6:00 PM. How do you describe this daily schedule in Korean?',
+        options:['9시부터 6시까지 일해요.','9시까지 6시부터 일해요.','9시처럼 6시보다 일해요.','9시에게 6시로 일해요.'], answer:0,
+        why:'부터 marks the starting point (9시부터) and 까지 marks the ending point (6시까지): 9시부터 6시까지 일해요.' },
+
+      { t:'choice', q:'Your teacher sets a deadline: "Please submit your homework by tomorrow." Which sentence is correct?',
+        options:['내일까지 숙제를 내세요.','내일부터 숙제를 내세요.','내일보다 숙제를 내세요.','내일처럼 숙제를 내세요.'], answer:0,
+        why:'까지 indicates a deadline ("by a certain time"): 내일까지 숙제를 내세요. (내일부터 means starting tomorrow).' },
+
+      { t:'choice', q:'Which particle pair correctly completes the sentence: "도서관은 아침 9시(__) 저녁 10시(__) 열어요."?',
+        options:['부터 / 까지','까지 / 부터','보다 / 처럼','에서 / 으로'], answer:0,
+        why:'Start to end time range takes 부터 (from) and 까지 (to): 9시부터 10시까지.' },
+
+      { t:'cloze', sentence:'점심시간은 12시부터 1시[까지]예요.', answer:'까지',
+        options:['까지','부터','보다','처럼'],
+        meaning:'Lunch time is from 12:00 to 1:00.',
+        why:'The ending boundary of a time interval takes 까지: 12시부터 1시까지.' },
+
+      { t:'order', q:'Put in order: "I commute to work from Monday to Friday."',
+        tokens:['월요일부터','금요일까지','회사에','출근해요.'], answer:['월요일부터','금요일까지','회사에','출근해요.'] },
+
+      { t:'pair', q:'Match each expression with its role in a sentence:', pairs:[
+        ['9시부터', 'Starting time (from 9:00)'],
+        ['6시까지', 'Ending time (until 6:00)'],
+        ['내일까지', 'Deadline (by tomorrow)'],
+        ['어제보다', 'Comparison baseline (than yesterday)'],
+      ]},
+
+      { t:'correct', wrong:'시간 순서 오류: 6시까지 9시부터 일해요.',
+        answers:['9시부터 6시까지 일해요.','9시부터 6시까지 일해요'],
+        hint:'Place the starting time first with 부터, followed by the ending time with 까지: 9시부터 6시까지.',
+        why:'Range starts with 부터 and ends with 까지: 9시부터 6시까지 일해요.' },
+
+      { t:'translate', q:'Schedule: "I work from Monday to Friday."',
+        answers:['월요일부터 금요일까지 일해요.','월요일부터 금요일까지 일해요'],
+        must:['월요일부터','금요일까지','일해요'],
+        hint:'월요일 + 부터 + 금요일 + 까지 + 일해요' },
+
+      { t:'speak', say:'점심시간은 12시부터 1시까지입니다.', q:'Read aloud announcing schedule clearly and naturally:' },
+    ],
+  },
+
+  /* ── 3 ─────────────────────────────────────────────────── */
+  {
+    id: 'bg-32-03',
+    title: { ko:'3강. 만 과 밖에: "오직" 두 가지 방법', en:'Lesson 3. 만 vs. 밖에: Two Ways to Say "Only"' },
+    minutes: 8,
+    blocks: [
+      { t:'text', md:'Both **만** and **밖에** translate to *“only / just / nothing but”* in English, but they are **the single biggest grammatical trap for Korean learners**!\n\nMaster this one core rule, and you will never make this mistake again:\n\n1. **만 (Neutral “Only / Just”) — AFFIRMATIVE & NEGATIVE**:\n   - Works freely anywhere! You can use it with **both positive and negative verbs**:\n     - *“물**만** 마셔요.”* *(I only drink water. — Affirmative)*\n     - *“사과**만** 안 먹었어요.”* *(Only the apple was not eaten. — Negative)*\n     - *“지갑에 천 원**만** 있어요.”* *(I have only 1,000 won.)*\n\n2. **밖에 (Restricted “Nothing but / Only”) — STRICTLY NEGATIVE ONLY!**:\n   - **밖에 literally means “outside of / other than”**.\n   - Therefore, it **MUST ALWAYS be followed by a negative predicate (없다, 안, 못, 모르다)**!\n     - *“지갑에 천 원**밖에 없어요**.”* *(Outside of 1,000 won, I have nothing = I only have 1,000 won.)*\n     - *“사과**밖에 안 먹었어요**.”* *(I ate nothing except apples.)*\n     - *“한국어는 인사말**밖에 몰라요**.”* *(I know nothing of Korean other than greetings.)*' },
+
+      { t:'note', md:'**🚨 FATAL GRAMMAR ERROR: Never use 밖에 with an affirmative verb!**\n\n- ❌ *천 원밖에 있어요.* (**IMPOSSIBLE IN KOREAN!**)\n- ❌ *사과밖에 먹었어요.* (**IMPOSSIBLE IN KOREAN!**)\n\nIf the ending verb is affirmative (*있어요, 먹었어요, 알아요*), you **MUST USE 만**:\n- *천 원**만** 있어요.* (O)\n- *사과**만** 먹었어요.* (O)\n\nIf the ending verb is negative (*없어요, 안 먹었어요, 몰라요*), you can use **밖에** to emphasize scarcity:\n- *천 원**밖에** 없어요.* (O)' },
+
+      { t:'table', head:['Pattern','Ending Verb','Example Sentence','Validity'], rows:[
+        ['**Noun + 만**','Affirmative (있어요)','사과**만** 있어요.','✅ **Natural & Correct**'],
+        ['**Noun + 만**','Negative (없어요)','사과**만** 없어요.','✅ **Natural & Correct**'],
+        ['**Noun + 밖에**','Negative (없어요)','사과**밖에** 없어요.','✅ **Natural & Correct** *(Only apples left)*'],
+        ['**Noun + 밖에**','Affirmative (있어요)','사과**밖에** 있어요.','❌ **FORBIDDEN GRAMMAR ERROR**'],
+      ]},
+
+      { t:'chars', wide:true, items:[
+        { ch:'지갑에 천 원밖에 없어요.', tip:'I have only 1,000 won left. (밖에 + 없어요: Negative)' },
+        { ch:'시간이 5분만 있어요.', tip:'I have only 5 minutes. (만 + 있어요: Affirmative)' },
+        { ch:'물밖에 안 마셨어요.', tip:'I drank nothing but water. (밖에 + 안 마셨어요: Negative)' },
+      ]},
+
+      { t:'choice', q:'Which sentence contains an IMPOSSIBLE grammatical error in Korean?',
+        options:['지갑에 천 원밖에 있어요.','지갑에 천 원만 있어요.','지갑에 천 원밖에 없어요.','지갑에 천 원이 있어요.'], answer:0,
+        why:'밖에 can NEVER be paired with an affirmative verb like 있어요! It must always be followed by negative verbs like 없어요: 천 원밖에 없어요.' },
+
+      { t:'choice', q:'You want to say: "I only drank water today." The verb is positive (마셨어요). Which particle MUST you use?',
+        options:['오늘 물만 마셨어요.','오늘 물밖에 마셨어요.','오늘 물보다 마셨어요.','오늘 물처럼 마셨어요.'], answer:0,
+        why:'Positive affirmative verbs cannot take 밖에. You must use 만: 물만 마셨어요. (To use 밖에, the verb must be negative: 물밖에 안 마셨어요).' },
+
+      { t:'choice', q:'Complete the sentence expressing that you have very little money left: "지금 지갑에 오백 원(__) 없어요."',
+        options:['밖에','만','보다','처럼'], answer:0,
+        why:'Coupled with the negative verb 없어요, 밖에 emphasizes that there is nothing other than 500 won: 오백 원밖에 없어요.' },
+
+      { t:'cloze', sentence:'기차가 떠날 때까지 시간이 5분[밖에] 안 남았어요.', answer:'밖에',
+        options:['밖에','만','보다','처럼'],
+        meaning:'There are only 5 minutes left until the train departs.',
+        why:'Paired with the negative 안 남았어요 to express scarcity, use 밖에.' },
+
+      { t:'order', q:'Put in order: "I currently have only 1,000 won on hand."',
+        tokens:['지금','수중에','천','원밖에','없어요.'], answer:['지금','수중에','천','원밖에','없어요.'] },
+
+      { t:'pair', q:'Match each sentence with its grammatical characteristic:', pairs:[
+        ['물만 마셔요', '만 with affirmative verb'],
+        ['물밖에 안 마셔요', '밖에 with negative verb'],
+        ['천 원만 있어요', '만 with positive existence'],
+        ['천 원밖에 없어요', '밖에 with negative existence'],
+      ]},
+
+      { t:'correct', wrong:'초급 최다 실수: 회의 전까지 시간이 5분밖에 있어요.',
+        answers:['회의 전까지 시간이 5분밖에 없어요.','회의 전까지 시간이 5분밖에 없어요','회의 전까지 시간이 5분만 있어요.','회의 전까지 시간이 5분만 있어요'],
+        hint:'밖에 can never take positive 있어요! Change to negative 없어요 (5분밖에 없어요) or use 만 (5분만 있어요).',
+        why:'밖에 requires negative verbs: 시간이 5분밖에 없어요 (or 시간이 5분만 있어요).' },
+
+      { t:'correct', wrong:'긍정문 오류: 오늘 아침에 사과밖에 먹었어요.',
+        answers:['오늘 아침에 사과만 먹었어요.','오늘 아침에 사과만 먹었어요','오늘 아침에 사과밖에 안 먹었어요.','오늘 아침에 사과밖에 안 먹었어요'],
+        hint:'Affirmative verbs (먹었어요) take 만: 사과만 먹었어요 (or 사과밖에 안 먹었어요).',
+        why:'Positive 먹었어요 takes 만: 사과만 먹었어요.' },
+
+      { t:'translate', q:'Negative limit: "I have only 1,000 won in my wallet."',
+        answers:['지갑에 천 원밖에 없어요.','지갑에 천 원밖에 없어요','지갑에 천 원만 있어요.','지갑에 천 원만 있어요'],
+        must:['지갑에','천'],
+        hint:'지갑에 + 천 원밖에 없어요 / 천 원만 있어요' },
+
+      { t:'speak', say:'지금 지갑에 만 원밖에 없어요.', q:'Read aloud expressing that you only have 10,000 won with natural intonation:' },
     ],
   },
 
