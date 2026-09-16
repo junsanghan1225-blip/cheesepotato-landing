@@ -2790,6 +2790,12 @@ const COURSE_CURRICULUM_TAG = {
   'bg-14':           { ko:'이유',         en:'Reasons' },
   'bg-15':           { ko:'조건·동시',    en:'If & while' },
   'bg-16':           { ko:'배경',         en:'Background' },
+  // 초급 4단계 — docs/curriculum-beginner.md
+  'bg-17':           { ko:'권유·부탁',    en:'Commands & requests' },
+  'bg-18':           { ko:'허락·의무',    en:'Permission & must' },
+  'bg-19':           { ko:'금지',         en:'Prohibition' },
+  'bg-20':           { ko:'능력·가능',    en:'Can & cannot' },
+  'bg-21':           { ko:'제안·약속',    en:'Together & promises' },
 };
 const BEGINNER_ROADMAP = [
   {
@@ -2836,6 +2842,17 @@ const BEGINNER_ROADMAP = [
     courses:['bg-13','bg-14','bg-15','bg-16'],
   },
   {
+    id:'stage4',
+    tag:{ ko:'4단계. 상대에게', en:'Stage 4: Toward the listener' },
+    title:{ ko:'부탁·허락·제안·약속', en:'Requests, permission, and suggestions' },
+    points:[
+      { ko:'-(으)세요(명령과 존칭 두 얼굴) & -아/어 주세요(부탁)', en:'-(으)세요 (imperative & honorific) and -아/어 주세요 (favors)' },
+      { ko:'-아/어도 되다(허락) vs -아/어야 되다(의무) & -지 마세요(금지)', en:'-아/어도 되다 (may I?) vs -아/어야 되다 (must) and -지 마세요 (prohibition)' },
+      { ko:'-(으)ㄹ 수 있다/없다(능력·가능) & 4색 의도(-(으)ㄹ까요/ㅂ시다/ㄹ게요/ㄹ래요)', en:'-(으)ㄹ 수 있다/없다 (ability) and four intention endings' },
+    ],
+    courses:['bg-17','bg-18','bg-19','bg-20','bg-21'],
+  },
+  {
     id:'deep',
     tag:{ ko:'초급 심화', en:'Deep dive' },
     title:{ ko:'조사의 미묘한 뉘앙스', en:'Subtle particle nuances' },
@@ -2847,10 +2864,10 @@ const BEGINNER_ROADMAP = [
   {
     id:'next',
     tag:{ ko:'다음 빌드', en:'Coming next' },
-    title:{ ko:'초급 4~6단계 본편 확장', en:'Stages 4–6 coming next' },
+    title:{ ko:'초급 5~6단계 본편 확장', en:'Stages 5–6 coming next' },
     points:[
-      { ko:'4단계: 상대에게 (-(으)세요, 부탁, 허락, 금지, 제안)', en:'Stage 4: Requests, permission, prohibition, and suggestions' },
-      { ko:'5~6단계: 마음 담기(경험·의도), 격식과 관형형(-은/-는/-을)의 비밀', en:'Stages 5–6: Intentions, experiences, honorifics, and the noun-modifying forms' },
+      { ko:'5단계: 마음 담기 (해 봤어요, 하려고 가요, 그런 것 같아요)', en:'Stage 5: Intentions, experiences, and conjecture' },
+      { ko:'6단계: 다듬기 (격식 -ㅂ니다, 존댓말 -(으)시-, 관형형 -(으)ㄴ/-는/-(으)ㄹ의 비밀)', en:'Stage 6: Formal register, honorific -(으)시-, and the noun-modifying system' },
     ],
     courses:[],
   },
