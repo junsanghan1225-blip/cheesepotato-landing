@@ -15,6 +15,7 @@
    - bg-30: 반응 -네요 · -군요 · -지요 (3강)
    - bg-31: 남은 조사 ① 사람과 방향 (3강)
    - bg-32: 남은 조사 ② 견주기와 범위 (3강)
+   - bg-33: 남은 조사 ③ 나열과 선택 (3강)
    ══════════════════════════════════════════════════════════════ */
 
 export const BEGINNER_STAGE6_COURSES = [
@@ -1279,6 +1280,216 @@ export const BEGINNER_STAGE6_COURSES = [
         hint:'지갑에 + 천 원밖에 없어요 / 천 원만 있어요' },
 
       { t:'speak', say:'지금 지갑에 만 원밖에 없어요.', q:'Read aloud expressing that you only have 10,000 won with natural intonation:' },
+    ],
+  },
+
+  ],
+},
+
+/* ═══════════════════════════════════════════════════════════════
+   bg-33 — 남은 조사 ③ 나열과 선택
+   동반(with)과 나열(and)을 겸하는 하고·(이)랑·와/과,
+   선택(or)과 수량 강조(as much as)의 (이)나,
+   필수 보조사 도(also)·마다(every)·의(possessive) 완벽 정복.
+   ═══════════════════════════════════════════════════════════════ */
+{
+  id: 'bg-33',
+  emoji: '🔗',
+  title: { ko:'남은 조사 ③ 나열과 선택', en:'Particles ③: Listing & Selection' },
+  tagline: { ko:'단어와 단어를 잇고 선택과 부가 의미를 더하는 필수 조사', en:'Essential particles for connecting words, offering choices, and adding nuance.' },
+  blurb: { ko:'동반(with)과 나열(and)을 모두 겸하는 하고·(이)랑·와/과의 문어체/구어체 구분, 선택(or)과 수량 강조(as much as)의 두 갈래를 지닌 (이)나, 그리고 자주 쓰이는 도·마다·의의 실전 쓰임과 생략 규칙을 익힙니다.',
+           en:'Master companion and listing connectors (하고, (이)랑, 와/과), the dual-purpose choice and quantity emphasis particle (이)나, and ubiquitous essentials: 도 (also), 마다 (every), and possessive 의 with its spoken omission patterns.' },
+  level: 'Beginner',
+  needs: 'bg-32',
+  lessons: [
+
+  /* ── 1 ─────────────────────────────────────────────────── */
+  {
+    id: 'bg-33-01',
+    title: { ko:'1강. 하고 · (이)랑 · 와/과: 동반과 나열, 한 강에서 같이', en:'Lesson 1. 하고 · (이)랑 · 와/과: Together & Listing' },
+    minutes: 7,
+    blocks: [
+      { t:'text', md:'In Korean, **the exact same connector particle** performs **two different roles**:\n\n1. **Companion (“Together with someone”)**:\n   - *“친구**하고** 영화를 봤어요.”* *(I watched a movie **with** a friend.)*\n   - *“동생**이랑** 밥을 먹어요.”* *(I eat **with** my sibling.)*\n   - *“선생님**과** 상담했어요.”* *(I had a meeting **with** my teacher.)*\n\n2. **Listing Nouns (“And / As well as”)**:\n   - *“밥**하고** 김치를 먹었어요.”* *(I ate rice **and** kimchi.)*\n   - *“커피**랑** 빵을 샀어요.”* *(I bought coffee **and** bread.)*\n   - *“한국**과** 미국”* *(Korea **and** America)*\n\nBecause the grammar and particle forms are **100% identical**, you learn them together as one unified tool!' },
+
+      { t:'note', md:'**Register & Batchim Rules:**\n\n- **하고 (Everyday Spoken — Universal)**:\n  - Attaches directly to **any noun**, with or without batchim! (친구하고, 밥하고)\n\n- **(이)랑 (Casual Spoken — Friendly)**:\n  - Vowel ending → **-랑** (*친구랑, 커피랑*)\n  - Batchim ending → **-이랑** (*밥이랑, 선생님이랑*)\n\n- **와 / 과 (Formal Written — 문어체)**:\n  - Vowel ending → **-와** (*친구와, 사과와*)\n  - Batchim ending → **-과** (*학생과, 한국과*)' },
+
+      { t:'table', head:['Connector','Register / Style','Batchim Rule','Example (With / And)'], rows:[
+        ['**하고**','Everyday Spoken (구어)','No change (모두 결합)','친구**하고** 놀았어요. / 빵**하고** 우유'],
+        ['**(이)랑**','Casual Spoken (친근한 구어)','자음: **-이랑** / 모음: **-랑**','동생**이랑** 갔어요. / 커피**랑** 케이크'],
+        ['**와 / 과**','Formal Written (문어·격식)','자음: **-과** / 모음: **-와**','선생님**과** 대화 / 책**과** 연필'],
+      ]},
+
+      { t:'chars', wide:true, items:[
+        { ch:'친구하고 영화를 봤어요.', tip:'I watched a movie with a friend. (하고: Companion)' },
+        { ch:'커피랑 빵을 주문했어요.', tip:'I ordered coffee and bread. (랑: Casual listing)' },
+        { ch:'학생과 선생님의 대화', tip:'Conversation between student and teacher. (과: Formal)' },
+      ]},
+
+      { t:'choice', q:'In a formal business essay or news article, which particle should you attach to 학생 (student, batchim ends in ㅇ) to mean "students and teachers"?',
+        options:['학생과 선생님','학생와 선생님','학생이랑 선생님','학생하고 선생님'], answer:0,
+        why:'In formal written Korean (문어체), nouns with batchim take 과: 학생과 선생님. (와 is for vowel endings, and 하고/이랑 are spoken register).' },
+
+      { t:'choice', q:'You are chatting casually with a close friend about your lunch: "I ate rice and soup." What is the natural casual spoken phrasing for 밥 (rice)?',
+        options:['밥이랑 국을 먹었어요.','밥랑 국을 먹었어요.','밥와 국을 먹었어요.','밥에게 국을 먹었어요.'], answer:0,
+        why:'밥 ends in consonant ㅂ, so casual spoken (이)랑 becomes -이랑: 밥이랑 국을 먹었어요.' },
+
+      { t:'choice', q:'What are the two different roles that "친구하고" can have in a sentence?',
+        options:['Companion (with a friend) and Listing (a friend and someone else)','Past tense and future tense','Giving to a friend and receiving from a friend','Honorific speech and casual banmal'], answer:0,
+        why:'하고, (이)랑, and 와/과 serve both as companion ("with") and noun listing ("and").' },
+
+      { t:'cloze', sentence:'어제 백화점에서 바지[하고] 셔츠를 샀어요.', answer:'하고',
+        options:['하고','으로','에게','부터'],
+        meaning:'Yesterday at the department store, I bought pants and a shirt.',
+        why:'Listing two nouns (pants and a shirt) takes 하고 (or 와/과, 이랑).' },
+
+      { t:'order', q:'Put in order: "I watched a movie with a friend on the weekend."',
+        tokens:['주말에','친구하고','영화를','봤어요.'], answer:['주말에','친구하고','영화를','봤어요.'] },
+
+      { t:'pair', q:'Match each noun with its correct formal written connector (와/과):', pairs:[
+        ['학생 (consonant)', '학생과'],
+        ['선생님 (consonant)', '선생님과'],
+        ['친구 (vowel)', '친구와'],
+        ['사과 (vowel)', '사과와'],
+      ]},
+
+      { t:'correct', wrong:'문어체 받침 오류: 선생님와 면담을 진행했습니다.',
+        answers:['선생님과 면담을 진행했습니다.','선생님과 면담을 진행했습니다'],
+        hint:'For nouns ending in a batchim (선생님), use 과 instead of 와: 선생님과.',
+        why:'Batchim nouns take 과 in formal written style: 선생님과 면담을 진행했습니다.' },
+
+      { t:'translate', q:'Spoken: "I watched a movie with my friend."',
+        answers:['친구하고 영화를 봤어요.','친구하고 영화를 봤어요','친구랑 영화를 봤어요.','친구랑 영화를 봤어요'],
+        must:['영화를','봤어요'],
+        hint:'친구 + 하고 / 랑 + 영화를 봤어요' },
+
+      { t:'speak', say:'주말에 친구하고 같이 맛있는 밥을 먹었어요.', q:'Read aloud warmly describing a weekend meal with a friend:' },
+    ],
+  },
+
+  /* ── 2 ─────────────────────────────────────────────────── */
+  {
+    id: 'bg-33-02',
+    title: { ko:'2강. (이)나: 선택과 수량 강조, 두 가지 다른 쓰임', en:'Lesson 2. (이)나: Choice ("Or") vs. Quantity ("As much as")' },
+    minutes: 7,
+    blocks: [
+      { t:'text', md:'The particle **(이)나** has **two very distinct lives** depending on where it appears in a sentence:\n\n1. **Choice (“Or / Either... or”)**:\n   - Positioned between two nouns to suggest options (*“either A or B is fine”*):\n   - *“커피**나** 차 드세요.”* *(Please have coffee **or** tea.)*\n   - *“주말에는 영화**나** 독서를 해요.”* *(On weekends I watch movies **or** read.)*\n   - *“밥**이나** 빵을 먹을까요?”* *(Shall we eat rice **or** bread?)*\n\n2. **Quantity Emphasis (“As many as... / A whopping...!”)**:\n   - Attached to a **counter or quantity number** (*3 cups, 10 hours, 5 people*).\n   - Conveys **surprise or amazement that the amount is greater than expected**:\n   - *“커피를 세 잔**이나** 마셨어요!”* *(I drank **as many as three whole cups** of coffee!)*\n   - *“어제 10시간**이나** 잤어요.”* *(I slept a whopping **10 hours**!)*' },
+
+      { t:'note', md:'**How to Distinguish at a Glance:**\n\n- **Between two nouns?** → **Choice (“or”)**\n  - Vowel ending: **-나** (*커피나 차, 영화나 운동*)\n  - Batchim ending: **-이나** (*밥이나 빵, 책이나 잡지*)\n\n- **Attached to a number / counter?** → **Quantity Emphasis (“as many as”)**\n  - *3잔**이나** (3 whole cups!), 5개**나** (as many as 5!), 10명**이나** (10 whole people!)*' },
+
+      { t:'table', head:['Use Case','Role','Context / Placement','Example Sentence'], rows:[
+        ['**Choice (선택)**','*or*','Between nouns (either option)','물**이나** 주스 주세요. (Water or juice)'],
+        ['**Quantity (수량 강조)**','*as many as*','After number / counter','세 잔**이나** 마셨어요. (3 whole cups!)'],
+        ['**Choice (선택)**','*or*','Between nouns (free choice)','토요일**이나** 일요일 (Saturday or Sunday)'],
+        ['**Quantity (수량 강조)**','*as long as*','After duration / time','10시간**이나** 잤어요. (A whole 10 hours!)'],
+      ]},
+
+      { t:'chars', wide:true, items:[
+        { ch:'커피나 차 한잔할까요?', tip:'Shall we have coffee or tea? (Choice: 나)' },
+        { ch:'어제 10시간이나 잤어요.', tip:'I slept a whopping 10 hours! (Quantity: 이나)' },
+        { ch:'사과를 5개나 먹었어요.', tip:'I ate as many as 5 apples! (Quantity: 나)' },
+      ]},
+
+      { t:'choice', q:'Your coworker asks what you want to drink. You say: "Please give me water or juice." Which particle attaches to 물 (water, ends in batchim)?',
+        options:['물이나 주스 주세요.','물나 주스 주세요.','물과 주스 주세요.','물하고 주스 주세요.'], answer:0,
+        why:'물 ends in consonant ㄹ, so the choice particle is -이나: 물이나 주스 주세요. (물과 / 물하고 mean "water AND juice").' },
+
+      { t:'choice', q:'A friend says: "어제 커피를 세 잔이나 마셨어요!" What is the nuance of 세 잔이나?',
+        options:['Emphasizing surprise at how many cups were drunk (as many as 3 cups)','Offering a choice between three cups or two cups','Saying they only drank three cups and wanted more','Stating that they could not drink three cups'], answer:0,
+        why:'When (이)나 attaches after a number and counter (세 잔), it emphasizes that the quantity is unexpectedly large: "a whopping three cups!"' },
+
+      { t:'choice', q:'Choose the sentence where (이)나 expresses CHOICE ("or"):',
+        options:['주말에 영화나 볼까요?','어제 사과를 5개나 먹었어요.','지하철을 두 시간이나 탔어요.','손님이 50명이나 왔어요.'], answer:0,
+        why:'영화나 볼까요 suggests an option among leisure activities ("Shall we watch a movie or something?"). The others all emphasize high numbers.' },
+
+      { t:'cloze', sentence:'어제 너무 피곤해서 10시간[이나] 잤어요.', answer:'이나',
+        options:['이나','나','밖에','만'],
+        meaning:'Yesterday I was so tired that I slept as many as 10 hours.',
+        why:'10시간 ends in consonant ㄴ, so the quantity emphasis particle is -이나: 10시간이나.' },
+
+      { t:'order', q:'Put in order: "If you are thirsty, please drink water or juice."',
+        tokens:['목이','마르면','물이나','주스를','드세요.'], answer:['목이','마르면','물이나','주스를','드세요.'] },
+
+      { t:'pair', q:'Match each sentence with its correct (이)나 function:', pairs:[
+        ['물이나 차를 마셔요', 'Choice (water or tea)'],
+        ['커피를 4잔이나 마셨어요', 'Quantity emphasis (4 cups)'],
+        ['토요일이나 일요일에 만나요', 'Choice (Saturday or Sunday)'],
+        ['100명이나 참석했어요', 'Quantity emphasis (100 people)'],
+      ]},
+
+      { t:'correct', wrong:'받침 오류: 점심에 밥나 라면을 먹을 거예요.',
+        answers:['점심에 밥이나 라면을 먹을 거예요.','점심에 밥이나 라면을 먹을 거예요'],
+        hint:'밥 ends in a batchim (ㅂ), so attach -이나 for choice: 밥이나.',
+        why:'Nouns with batchim take -이나: 밥이나 라면을 먹을 거예요.' },
+
+      { t:'translate', q:'Choice: "Please drink water or juice."',
+        answers:['물이나 주스를 드세요.','물이나 주스를 드세요','물이나 주스 마시세요.','물이나 주스 마시세요'],
+        must:['물이나'],
+        hint:'물 + 이나 + 주스를 + 드세요' },
+
+      { t:'speak', say:'어제 너무 피곤해서 10시간이나 잤어요.', q:'Read aloud with an amazed, expressive tone emphasizing 10시간이나:' },
+    ],
+  },
+
+  /* ── 3 ─────────────────────────────────────────────────── */
+  {
+    id: 'bg-33-03',
+    title: { ko:'3강. 도 · 마다 · 의: 자주 쓰는 나머지 셋', en:'Lesson 3. 도, 마다, & 의: Also, Every, & Possessive' },
+    minutes: 7,
+    blocks: [
+      { t:'text', md:'Three final particles will complete your essential beginner grammar toolkit:\n\n1. **도 (“Also / Too / Even”)**:\n   - Expresses inclusion (*“me too, this too”*).\n   - *“저**도** 학생이에요.”* *(I am also a student.)*\n   - *“이것**도** 주세요.”* *(Please give me this too.)*\n\n2. **마다 (“Every / Each”)**:\n   - Marks recurring frequency or individual uniqueness without exception (*every day, each person*):\n   - *“주말**마다** 운동을 해요.”* *(Every weekend I exercise.)*\n   - *“나라**마다** 문화가 달라요.”* *(Culture differs by every country.)*\n   - *“사람**마다** 생각이 달라요.”* *(Every person thinks differently.)*\n\n3. **의 (“Possessive ’s / Of”)**:\n   - Marks ownership or affiliation: *“선생님**의** 책”* *(The teacher’s book)*.\n   - Pronounced **[에]** when used as a possessive marker!' },
+
+      { t:'note', md:'**Two Must-Know Secrets:**\n\n1. **도 REPLACES Subject & Object Markers!**\n   - Never say *“저**는도**”* or *“사과**를도**”*!\n   - `저 + 는 + 도` → **저도** (O)\n   - `사과 + 를 + 도` → **사과도** (O)\n\n2. **의 is ALMOST ALWAYS DROPPED in Spoken Korean!**\n   - While English requires *“my friend”* or *“teacher’s car”*, Koreans simply say:\n     - *“선생님**의** 책”* → *“**선생님 책**”*\n     - *“저**의** 친구”* → *“**제 친구**”*\n     - *“우리**의** 나라”* → *“**우리나라**”*\n   - You will hear **의** in formal writing, speeches, and poetry, but daily speech drops it freely!' },
+
+      { t:'table', head:['Particle','Core Meaning','Special Grammatical Trait','Example Sentence'], rows:[
+        ['**도**','*also / too*','Replaces 은/는, 이/가, 을/를','저**도** 커피를 마셔요.'],
+        ['**마다**','*every / each*','Attaches directly (no batchim change)','주말**마다** 공원에 가요.'],
+        ['**의**','*possessive (’s)*','Pronounced [에], often omitted in speech','선생님**의** 책 (선생님 책)'],
+      ]},
+
+      { t:'chars', wide:true, items:[
+        { ch:'저도 한국어를 공부해요.', tip:'I also study Korean. (도: Also/too)' },
+        { ch:'주말마다 공원에서 산책해요.', tip:'I stroll in the park every weekend. (마다: Every)' },
+        { ch:'선생님의 따뜻한 말씀', tip:'Teacher’s warm words. (의: Possessive, spoken as [에])' },
+      ]},
+
+      { t:'choice', q:'You want to say: "I am also a student." Which sentence follows the correct particle replacement rule for 도?',
+        options:['저도 학생이에요.','저는도 학생이에요.','제가도 학생이에요.','저를도 학생이에요.'], answer:0,
+        why:'도 replaces topic/subject markers (은/는, 이/가). You cannot combine them into 저는도: 저도 학생이에요.' },
+
+      { t:'choice', q:'How is the possessive particle 의 typically handled in everyday conversational Korean?',
+        options:['It is pronounced [에], and is almost always omitted in casual speech (e.g. 제 친구, 선생님 책)','It must always be pronounced [의] with strong emphasis','It can only be used with inanimate objects','It changes to -로 when speaking casually'], answer:0,
+        why:'Possessive 의 is pronounced [에] in speech, and native speakers almost always omit it in everyday conversation (우리 집, 제 친구).' },
+
+      { t:'choice', q:'Complete the sentence expressing a regular weekend routine: "저는 주말(__) 산에 가요."',
+        options:['마다','도','의','보다'], answer:0,
+        why:'마다 expresses regular recurring intervals ("every weekend"): 주말마다 산에 가요.' },
+
+      { t:'cloze', sentence:'나라[마다] 인사하는 방법이 달라요.', answer:'마다',
+        options:['마다','도','의','보다'],
+        meaning:'In every country, the way of greeting is different.',
+        why:'마다 means "every / each": 나라마다 (in each/every country).' },
+
+      { t:'order', q:'Put in order: "I also thought that movie was really fun."',
+        tokens:['저도','그','영화가','정말','재미있었어요.'], answer:['저도','그','영화가','정말','재미있었어요.'] },
+
+      { t:'pair', q:'Match each sentence with the particle’s meaning:', pairs:[
+        ['저도 갈게요', '도 (Inclusion: also / too)'],
+        ['아침마다 조깅해요', '마다 (Frequency: every morning)'],
+        ['한국의 수도는 서울이에요', '의 (Possessive / association)'],
+        ['친구와 대화해요', '와 (Companion / listing)'],
+      ]},
+
+      { t:'correct', wrong:'조사 중복 오류: 저는도 한국 음식을 아주 좋아해요.',
+        answers:['저도 한국 음식을 아주 좋아해요.','저도 한국 음식을 아주 좋아해요'],
+        hint:'도 completely replaces 는: 저도.',
+        why:'Do not combine 는 and 도 together. Use 저도: 저도 한국 음식을 아주 좋아해요.' },
+
+      { t:'translate', q:'Inclusion: "I also study Korean."',
+        answers:['저도 한국어를 공부해요.','저도 한국어를 공부해요','저도 한국어 공부해요.','저도 한국어 공부해요'],
+        must:['저도'],
+        hint:'저 + 도 + 한국어를 + 공부해요' },
+
+      { t:'speak', say:'주말마다 친구들과 함께 즐겁게 운동해요.', q:'Read aloud describing a pleasant weekly routine with friendly rhythm:' },
     ],
   },
 
