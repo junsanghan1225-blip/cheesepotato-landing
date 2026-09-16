@@ -2808,6 +2808,7 @@ const COURSE_CURRICULUM_TAG = {
   'bg-29':           { ko:'높임·존칭',     en:'Honorifics' },
   'bg-30':           { ko:'반응·감탄',     en:'Reactions' },
   'bg-31':           { ko:'사람·방향 조사', en:'People & Direction' },
+  'bg-32':           { ko:'견주기·범위',   en:'Comparison & Range' },
 };
 const BEGINNER_ROADMAP = [
   {
@@ -2886,8 +2887,9 @@ const BEGINNER_ROADMAP = [
       { ko:'높임 -(으)시- 어미의 비밀과 께/께서 조사로 완성하는 예우', en:'Subject honorific -(으)시- and honorific particles 께/께서' },
       { ko:'반응 3총사: 감탄(-네요) · 깨달음(-군요) · 확인(-지요/-죠) 가려 쓰기', en:'Reaction trio: exclamations (-네요), realizations (-군요), and confirmation (-지요)' },
       { ko:'남은 조사: 사람에게(에게/한테 vs 에게서/한테서) & 방향·수단((으)로)', en:'Remaining particles: giving/receiving (에게/한테) & direction/means ((으)로)' },
+      { ko:'남은 조사: 정도·비유 비교(보다/처럼) · 범위(부터~까지) · 한정(만 vs 밖에)', en:'Remaining particles: comparison (보다/처럼), range (부터~까지), restriction (만 vs. 밖에)' },
     ],
-    courses:['bg-27','bg-28','bg-29','bg-30','bg-31'],
+    courses:['bg-27','bg-28','bg-29','bg-30','bg-31','bg-32'],
   },
   {
     id:'deep',
@@ -2904,7 +2906,7 @@ const BEGINNER_ROADMAP = [
     title:{ ko:'초급 6단계 후반부', en:'Stage 6: Finishing touches' },
     points:[
       { ko:'은/는 vs 이/가 가려 쓰기 (심화 주제)', en:'Topic vs subject particles deep dive' },
-      { ko:'남은 조사 총정리(견주기·범위·나열) 및 명사형 전성어미(-기/-음)', en:'Remaining particles (comparison, range, listing) and noun nominalizers (-기 / -음)' },
+      { ko:'남은 조사 총정리(나열·선택) 및 명사형 전성어미(-기/-음)', en:'Remaining particles (listing, selection) and noun nominalizers (-기 / -음)' },
     ],
     courses:[],
   },
