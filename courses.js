@@ -46,6 +46,8 @@ import { BEGINNER_STAGE3_COURSES } from './courses-beginner-stage3.js?v=4145c8b4
 import { BEGINNER_STAGE4_COURSES } from './courses-beginner-stage4.js?v=4145c8b4';
 // 초급 5단계 — 마음을 담기
 import { BEGINNER_STAGE5_COURSES } from './courses-beginner-stage5.js?v=4145c8b4';
+// 초급 6단계 — 다듬기
+import { BEGINNER_STAGE6_COURSES } from './courses-beginner-stage6.js?v=4145c8b4';
 
 export const COURSES = [
 
@@ -767,6 +769,9 @@ export const COURSES = [
 
 // 초급 5단계 — courses-beginner-stage5.js (경험, 목적·결심, 추측, 바람, 변화·부사)
 ...BEGINNER_STAGE5_COURSES,
+
+// 초급 6단계 — courses-beginner-stage6.js (관형형 클라이맥스: bg-27)
+...BEGINNER_STAGE6_COURSES,
 
 /* 이/가 와 은/는 — 초급 **맨 뒤**가 제자리다. 처음부터 대조하면 문장
    하나 만들 때마다 멈춘다 (docs/curriculum-beginner.md §2 원칙 ②). */

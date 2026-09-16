@@ -2802,6 +2802,8 @@ const COURSE_CURRICULUM_TAG = {
   'bg-24':           { ko:'추측',         en:'Conjectures' },
   'bg-25':           { ko:'바람·조언',    en:'Hopes & advice' },
   'bg-26':           { ko:'변화·부사',    en:'Change & manner' },
+  // 초급 6단계 — docs/curriculum-beginner.md
+  'bg-27':           { ko:'관형형의 비밀', en:'The Master Key' },
 };
 const BEGINNER_ROADMAP = [
   {
@@ -2870,6 +2872,16 @@ const BEGINNER_ROADMAP = [
     courses:['bg-22','bg-23','bg-24','bg-25','bg-26'],
   },
   {
+    id:'stage6',
+    tag:{ ko:'6단계. 다듬기', en:'Stage 6: Polish' },
+    title:{ ko:'관형형의 비밀과 문장의 완성', en:'The Master Key: Noun modifiers & refinement' },
+    points:[
+      { ko:'열쇠 하나였다: -(으)ㄴ / -는 / -(으)ㄹ로 밝혀지는 8개 문법의 진짜 정체', en:'The Master Key: The true identity behind 8 familiar grammar patterns' },
+      { ko:'세상 모든 명사 꾸미기: 과거·현재·미래 관계절 자유자재 생성', en:'Modifying any noun freely: past, present, and future relative clauses' },
+    ],
+    courses:['bg-27'],
+  },
+  {
     id:'deep',
     tag:{ ko:'초급 심화', en:'Deep dive' },
     title:{ ko:'조사의 미묘한 뉘앙스', en:'Subtle particle nuances' },
@@ -2881,10 +2893,10 @@ const BEGINNER_ROADMAP = [
   {
     id:'next',
     tag:{ ko:'다음 빌드', en:'Coming next' },
-    title:{ ko:'초급 6단계: 다듬기', en:'Stage 6: Finishing touches' },
+    title:{ ko:'초급 6단계 후반부', en:'Stage 6: Finishing touches' },
     points:[
-      { ko:'열쇠 하나였다: -(으)ㄴ / -는 / -(으)ㄹ 관형형의 정체', en:'The master key: The noun-modifying system revealed' },
-      { ko:'격식 -ㅂ/습니까, 높임 -(으)시-, 반응 표현, 남은 조사 총정리', en:'Formal register, honorifics, reaction markers, and remaining particles' },
+      { ko:'격식 -ㅂ/습니까, 높임 -(으)시- · 께 · 께서, 반응 -네요/-군요/-지요', en:'Formal register, honorifics, and emotional reaction endings' },
+      { ko:'남은 조사 총정리(사람·방향·견주기·범위·나열) 및 명사형 전성어미(-기/-음)', en:'Remaining particles and noun nominalizers (-기 / -음)' },
     ],
     courses:[],
   },
