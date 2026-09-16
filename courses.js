@@ -18,6 +18,11 @@
      { t:'order',  q, tokens:[…], answer:[…] }                 · 어순 배열
      { t:'pair',   q?, pairs:[[좌,우],…] }                     · 짝 맞추기
      { t:'speak',  say:'안녕하세요', rom?, q? }                 · 소리 내어 읽기(발음 채점 재사용)
+     { t:'cloze',  sentence:'저는 학생[이에요].', answer:'이에요',
+                   options:[…], keys?:[…], meaning, audio?, why? }  · 문장 속 빈칸 채우기
+     { t:'build',  q, answers:[…], bank?:[…], must?:[…], hint?, why? }  · 단어은행 조합해 문장 통째로 쓰기
+     { t:'translate', q:'I am a student.', answers:[…], hint?, why? }   · 은행 없이 빈손 번역(build 와 같은 채점기)
+     { t:'correct', q?, wrong:'제가 학생은 이에요.', answers:[…], hint?, why? }  · 틀린 문장을 보여 주고 고쳐 쓰게 함
 
    ── 손대기 전에 ────────────────────────────────────────────
    lesson.id 는 진도(lesson_progress)의 열쇠다. **바꾸면 그 레슨을

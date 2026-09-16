@@ -601,7 +601,6 @@ export const BEGINNER_STAGE1_COURSES = [
       { t:'build', q:'Write it yourself: **“As for me, I like coffee.”**  (like = 좋아해요)',
         answers:['저는 커피를 좋아해요','전 커피를 좋아해요'],
         bank:['저는','저를','커피를','커피는','좋아해요'],
-        must:['저는'],
         hint:'You are the one the sentence is about, and the coffee is what you act on.',
         why:'저는 커피를 좋아해요. Swap 커피를 for 커피는 and you add a contrast — “coffee I like (but something else, not so much).”' },
     ],
