@@ -11,6 +11,7 @@
    ── 코스 구성 ───────────────────────────────────────────────
    - bg-27: 열쇠 하나였다 — -(으)ㄴ / -는 / -(으)ㄹ (3강)
    - bg-28: 격식 -ㅂ/습니다 (2강)
+   - bg-29: 높임 -(으)시- · 께 · 께서 (3강)
    ══════════════════════════════════════════════════════════════ */
 
 export const BEGINNER_STAGE6_COURSES = [
@@ -397,6 +398,231 @@ export const BEGINNER_STAGE6_COURSES = [
         hint:'들어오다 → 들어오지 마십시오' },
 
       { t:'speak', say:'출입문이 닫힙니다. 뒤로 물러서 주십시오.', q:'Read aloud like a subway announcer with clear, crisp formal tone:' },
+    ],
+  },
+
+  ],
+},
+
+/* ═══════════════════════════════════════════════════════════════
+   bg-29 — 높임 -(으)시- · 께 · 께서
+   주체를 정중히 높이는 선어말어미 -(으)시-와
+   높임 조사 께(에게)·께서(이/가)의 조화로운 결합.
+   ═══════════════════════════════════════════════════════════════ */
+{
+  id: 'bg-29',
+  emoji: '🙇',
+  title: { ko:'높임 -(으)시- · 께 · 께서', en:'Honorifics: -(으)시- · 께 · 께서' },
+  tagline: { ko:'주어와 대상을 정중하게 예우하는 한국어', en:'Honoring the subject and recipient with graceful precision.' },
+  blurb: { ko:'-(으)세요의 진짜 정체인 주체 높임 어미 -(으)시-를 밝히고, 높임 조사 께(에게)와 께서(이/가)를 함께 익혀 웃어른이나 고객, 상사를 공손하게 예우하는 문장을 완성합니다.',
+           en:'Discover the secret behind -(으)세요: the subject honorific infix -(으)시-. Master the honorific particles 께 (to/for) and 께서 (subject marker) to speak with natural respect in family, school, and work settings.' },
+  level: 'Beginner',
+  needs: 'bg-28',
+  lessons: [
+
+  /* ── 1 ─────────────────────────────────────────────────── */
+  {
+    id: 'bg-29-01',
+    title: { ko:'1강. "앉으세요"의 진짜 정체: -(으)시-', en:'Lesson 1. The Secret of -(으)세요: The Infix -(으)시-' },
+    minutes: 7,
+    blocks: [
+      { t:'text', md:'Remember back in Stage 4 (`bg-17`) when you learned **-(으)세요**? We noticed that while it is often used as a polite request (*“Please sit down”*), it also appears in statements like *“선생님이 가세요”* (*The teacher is going*).\n\n**Here is the secret you have been waiting for:**\n\n**-(으)세요** is actually made of two distinct parts:\n**-(으)시-** *(honorific infix honoring the subject)* + **-어요** *(conversational polite ending)*!\n\n- *가- + -시- + -어요 → 가셔요 → **가세요***\n- *앉- + -으시- + -어요 → 앉으셔요 → **앉으세요***' },
+
+      { t:'note', md:'**When do you attach -(으)시-?**\n\nWhenever the **SUBJECT of the sentence** (the person performing the action) is someone you honor or respect:\n- Grandparents, parents, teachers, bosses, older relatives, customers, and guests.\n\n**Golden Rule**: You **NEVER** use `-(으)시-` on yourself! (*“제가 가세요”* ❌)' },
+
+      { t:'table', head:['Verb / Adjective','Stem End','Honorific Present (-(으)세요)','Formal Honorific (-(으)십니다)','Example Sentence'], rows:[
+        ['가다 (to go)','No batchim','**가세요**','**가십니다**','선생님이 학교에 **가세요**.'],
+        ['오다 (to come)','No batchim','**오세요**','**오십니다**','할머니가 집에 **오세요**.'],
+        ['읽다 (to read)','With batchim','**읽으세요**','**읽으십니다**','어머니가 신문을 **읽으세요**.'],
+        ['닫다 (to close)','With batchim','**닫으세요**','**닫으십니다**','아버지가 문을 **닫으세요**.'],
+        ['좋다 (good)','With batchim','**좋으세요**','**좋으십니다**','기분이 **좋으세요**?'],
+        ['바쁘다 (busy)','No batchim','**바쁘세요**','**바쁘십니다**','요즘 많이 **바쁘세요**?'],
+      ]},
+
+      { t:'note', md:'**Connecting to Stage 6 (bg-28)!**\n\nNotice how in the formal register (`-ㅂ/습니다`), `-(으)시-` neatly snaps in: `-(으)시- + -ㅂ니다` → **-(으)십니다** (question: **-(으)십니까?**).\n\n- *“사장님이 지금 회의를 **하십니다**.”* (The CEO is in a meeting right now.)' },
+
+      { t:'chars', wide:true, items:[
+        { ch:'선생님이 교실에 오세요.', tip:'The teacher comes into the classroom.' },
+        { ch:'어머니가 책을 읽으세요.', tip:'Mother is reading a book.' },
+        { ch:'사장님이 지금 회의를 하십니다.', tip:'The CEO is conducting a meeting right now. (Formal)' },
+      ]},
+
+      { t:'choice', q:'Which sentence correctly honors the teacher as the subject reading a book?',
+        options:['선생님이 책을 읽으세요.','선생님이 책을 읽어요.','선생님이 책을 읽으십시오.','선생님이 책을 읽었어요?'], answer:0,
+        why:'When the subject is an honored person like a teacher, use -(으)세요: 읽- + -으세요 = 읽으세요. (읽어요 does not honor the teacher, and 읽으십시오 is an imperative command to the listener).' },
+
+      { t:'choice', q:'Can you attach -(으)시- to describe your own action? For example: "제가 내일 집에 가세요."',
+        options:['No, never honor yourself; say 제가 가요 or 제가 갑니다.','Yes, it makes you sound exceptionally polite to elders.','Yes, but only if you are speaking to younger people.','No, you must replace it with 제가 가십시오.'], answer:0,
+        why:'-(으)시- honors the person performing the action. You never elevate yourself in Korean; always say 제가 가요 or 제가 갑니다.' },
+
+      { t:'choice', q:'How do you ask your professor formally: "Are you busy tomorrow?" using 바쁘다?',
+        options:['내일 바쁘십니까?','내일 바쁩니까?','내일 바쁘세요?','내일 바쁩니까요?'], answer:0,
+        why:'Formal honorific question: 바쁘- + -시- + -ㅂ니까? = 바쁘십니까? (바쁩니까 lacks the subject honorific -(으)시-, and 바쁘세요 is conversational informal polite).' },
+
+      { t:'cloze', sentence:'어머니께서 거실에서 책을 [읽으세요].', answer:'읽으세요',
+        options:['읽으세요','읽어요','읽으십시오','읽으시어요'],
+        meaning:'Mother is reading a book in the living room.',
+        why:'읽다 has batchim, so attach -으세요: 읽- + -으세요 = 읽으세요.' },
+
+      { t:'order', q:'Put in order: "The CEO is holding a meeting right now." (Formal register)',
+        tokens:['사장님이','지금','회의를','하십니다.'], answer:['사장님이','지금','회의를','하십니다.'] },
+
+      { t:'pair', q:'Match the plain verb form with its subject-honorific form:', pairs:[
+        ['가요 (goes)', '가세요'],
+        ['읽어요 (reads)', '읽으세요'],
+        ['해요 (does)', '하세요'],
+        ['닫아요 (closes)', '닫으세요'],
+      ]},
+
+      { t:'correct', wrong:'제가 내일 도서관에 가세요.',
+        answers:['제가 내일 도서관에 가요.','제가 내일 도서관에 가요','제가 내일 도서관에 갑니다.','제가 내일 도서관에 갑니다'],
+        hint:'Never use -(으)세요 on yourself! Use 가요 or 갑니다: 제가 내일 도서관에 가요.',
+        why:'You cannot honor yourself with -(으)시-. Use 가요 or 갑니다: 제가 내일 도서관에 가요.' },
+
+      { t:'translate', q:'The teacher comes to the classroom.',
+        answers:['선생님이 교실에 오세요.','선생님이 교실에 오세요'],
+        hint:'선생님이, 교실에 오다 → 오세요' },
+
+      { t:'speak', say:'어머니께서 거실에서 책을 읽으세요.', q:'Read aloud naturally honoring mother with -으세요:' },
+    ],
+  },
+
+  /* ── 2 ─────────────────────────────────────────────────── */
+  {
+    id: 'bg-29-02',
+    title: { ko:'2강. 께 와 께서: 조사도 높아진다', en:'Lesson 2. Honorific Particles: 께 and 께서' },
+    minutes: 8,
+    blocks: [
+      { t:'text', md:'In Korean, when you honor someone, you don’t just change the verb ending. **The small particles attached to them upgrade to VIP status as well!**\n\n- **께서**: Replaces **이/가** (subject marker) for honored subjects.\n  - *친구**가** 왔어요* → *할머니**께서** 오셨어요*\n  - If you want to mark the topic (like **은/는**), you use **께서는**! (*“선생님**께서는** 친절하세요”*)\n\n- **께**: Replaces **에게 / 한테** (*“to / for someone”*) when addressing or giving to an honored recipient.\n  - *친구**한테** 줬어요* → *선생님**께** 드렸어요*' },
+
+      { t:'table', head:['Role','Everyday Particle','Honorific Particle','Example Sentence'], rows:[
+        ['Subject (주어)','**이 / 가**','**께서**','할머니**께서** 오세요. (Grandmother is coming.)'],
+        ['Topic (주제)','**은 / 는**','**께서는**','선생님**께서는** 바쁘세요. (The teacher is busy.)'],
+        ['Recipient (받는 사람)','**에게 / 한테**','**께**','부모님**께** 편지를 드렸어요. (Wrote letter to parents.)'],
+        ['Asking (질문)','**한테 물어봐요**','**께 여쭤봐요**','교수님**께** 여쭤보세요. (Ask the professor.)'],
+      ]},
+
+      { t:'note', md:'**CRITICAL RULE: Harmonic Agreement (짝 맞추기)!**\n\nA very common learner mistake is using `께서` on the subject, but forgetting `-(으)시-` on the verb:\n\n- *할머니께서 집에 와요.* ❌ *(Feels mismatched and incomplete!)*\n- *할머니께서 집에 **오세요**.* ⭕\n\n**께서 and -(으)시- move as an inseparable pair!** Whenever you write `께서`, make sure the verb wears its honorific `-(으)시-`!' },
+
+      { t:'chars', wide:true, items:[
+        { ch:'할머니께서 집에 오세요.', tip:'Grandmother is coming home. (께서 + 오세요)' },
+        { ch:'선생님께 선물을 드렸어요.', tip:'I gave a gift to the teacher. (께 = to teacher)' },
+        { ch:'아버지께서 신문을 읽으세요.', tip:'Father is reading the newspaper. (께서 + 읽으세요)' },
+      ]},
+
+      { t:'choice', q:'Which particle correctly replaces 한테/에게 when writing a letter "to my parents"?',
+        options:['부모님께 편지를 썼어요.','부모님께서 편지를 썼어요.','부모님이 편지를 썼어요.','부모님한테서 편지를 썼어요.'], answer:0,
+        why:'The honorific equivalent of 에게/한테 (to an honored recipient) is 께: 부모님께 편지를 썼어요. (께서 is a subject marker).' },
+
+      { t:'choice', q:'Which sentence exhibits correct harmonic agreement between subject particle and verb?',
+        options:['할머니께서 오세요.','할머니께서 와요.','할머니가 오세요만.','할머니께 오셨어요.'], answer:0,
+        why:'께서 and the honorific verb ending -(으)세요 must match as a pair: 할머니께서 오세요. (할머니께서 와요 has an unhonored verb).' },
+
+      { t:'choice', q:'How do you say "The professor is kind" using the honorific topic marker?',
+        options:['교수님께서는 친절하세요.','교수님께는 친절해요.','교수님께서 친절해요.','교수님이 친절하네요.'], answer:0,
+        why:'The honorific topic marker is 께서는 paired with 친절하세요: 교수님께서는 친절하세요.' },
+
+      { t:'cloze', sentence:'내일 스승의 날이라서 선생님[께] 카네이션을 드릴 거예요.', answer:'께',
+        options:['께','께서','한테서','에게서'],
+        meaning:'Tomorrow is Teacher’s Day, so I will give a carnation to the teacher.',
+        why:'Giving to an honored recipient uses the honorific dative particle 께: 선생님께.' },
+
+      { t:'order', q:'Put in order: "Father is reading a book in the living room."',
+        tokens:['아버지께서','거실에서','책을','읽으세요.'], answer:['아버지께서','거실에서','책을','읽으세요.'] },
+
+      { t:'pair', q:'Match everyday particle expressions with their honorific counterparts:', pairs:[
+        ['친구가 와요', '할머니께서 오세요'],
+        ['친구한테 줘요', '선생님께 드려요'],
+        ['선생님은 바빠요', '선생님께서는 바쁘세요'],
+        ['엄마가 읽어요', '어머니께서 읽으세요'],
+      ]},
+
+      { t:'correct', wrong:'선생님께서 교실에 와요.',
+        answers:['선생님께서 교실에 오세요.','선생님께서 교실에 오세요','선생님께서 교실에 오십니다.','선생님께서 교실에 오십니다'],
+        hint:'께서 must pair with -(으)시- on the verb! Change 와요 to 오세요.',
+        why:'Harmonic agreement: 께서 pairs with an honorific verb ending: 선생님께서 교실에 오세요.' },
+
+      { t:'translate', q:'I gave a gift to my grandmother.',
+        answers:['할머니께 선물을 드렸어요.','할머니께 선물을 드렸어요'],
+        hint:'할머니께, 선물, 드리다 → 드렸어요' },
+
+      { t:'speak', say:'선생님께 감사 편지를 드렸어요.', q:'Read aloud with polite respect towards your teacher:' },
+    ],
+  },
+
+  /* ── 3 ─────────────────────────────────────────────────── */
+  {
+    id: 'bg-29-03',
+    title: { ko:'3강. 종합: -(으)시- · 께서 · 께 한 번에 쓰기', en:'Lesson 3. Integration: Harmonizing All Honorifics in Real Life' },
+    minutes: 8,
+    blocks: [
+      { t:'text', md:'Now that you know the three pillars of honorific grammar:\n\n1. **-(으)시-**: Verb infix that honors the subject performing the action.\n2. **께서**: Upgraded subject particle (*이/가*).\n3. **께**: Upgraded recipient particle (*에게/한테*).\n\nLet’s put all three together in real-world scenarios: **at home with family, at school with professors, and at work!**' },
+
+      { t:'table', head:['Context','Korean Sentence','Breakdown of Honorifics','English Meaning'], rows:[
+        ['Family','어머니**께서** 할머니**께** 전화를 하세요.','어머니께서 (Subject) + 할머니께 (Recipient) + 하세요 (Verb)','Mother is calling grandmother.'],
+        ['School','학생들이 교수님**께** 질문을 드려요.','교수님께 (Recipient) + 드려요 (Humble action)','Students ask questions to the professor.'],
+        ['Workplace','부장님**께서** 팀원들에게 설명**하세요**.','부장님께서 (Subject) + 팀원들에게 + 설명하세요 (Verb)','The manager explains to the team members.'],
+        ['Hospitality','손님**께서** 직원**에게** 메뉴를 물어보세요.','손님께서 (Customer) + 물어보세요 (Verb)','The guest asks the staff for the menu.'],
+      ]},
+
+      { t:'note', md:'**Notice Who Gives and Who Receives!**\n\nWhen **Mother (respected)** calls **Grandmother (even more respected)**:\n*“어머니**께서** 할머니**께** 전화를 하세요.”*\n\n- Mother is the subject doing the call → **어머니께서**\n- Grandmother is the recipient receiving the call → **할머니께**\n- The verb honors mother’s action → **하세요**\n\nEverything snaps together with crystalline clarity!' },
+
+      { t:'chars', wide:true, items:[
+        { ch:'어머니께서 할머니께 전화를 하세요.', tip:'Mother is calling grandmother. (께서 + 께 + -세요)' },
+        { ch:'선생님께서 학생들에게 책을 읽어 주세요.', tip:'The teacher reads a book for the students. (께서 + -세요)' },
+        { ch:'부장님께서 저희에게 말씀하십니다.', tip:'The department head speaks to us. (Formal workplace)' },
+      ]},
+
+      { t:'choice', q:'In the sentence "어머니께서 할머니께 선물을 드렸어요", why is 께 used for 할머니?',
+        options:['Because grandmother is the respected recipient receiving the gift','Because grandmother is the subject performing the action','Because mother is giving something to herself','Because 께 is a casual particle for immediate family'], answer:0,
+        why:'할머니 is the honored recipient receiving the gift, so the honorific dative particle 께 is used.' },
+
+      { t:'choice', q:'Which sentence naturally combines 께서 and -(으)세요 in a workplace setting?',
+        options:['사장님께서 지금 회의실에 들어가세요.','사장님께서 지금 회의실에 들어가요.','사장님이 지금 회의실에 들어가라.','사장님께 지금 회의실에 들어가세요.'], answer:0,
+        why:'사장님 is honored as the subject with 께서, and the verb takes -세요: 사장님께서 지금 회의실에 들어가세요.' },
+
+      { t:'choice', q:'You want to say "The teacher explains to the students." Which sentence is correct?',
+        options:['선생님께서 학생들에게 설명하세요.','선생님이 학생들께 설명해요.','선생님께 학생들이 설명하세요.','선생님께서 학생들에게 설명해라.'], answer:0,
+        why:'The teacher is the respected subject (선생님께서), students are ordinary recipients (학생들에게), and the teacher’s action is honored (설명하세요).' },
+
+      { t:'cloze', sentence:'어머니[께서] 할머니께 안부 전화를 하세요.', answer:'께서',
+        options:['께서','께','한테','에서'],
+        meaning:'Mother is making a greeting call to grandmother.',
+        why:'Mother is the respected subject making the phone call: 어머니께서.' },
+
+      { t:'order', q:'Put in order: "Mother is calling grandmother on the phone."',
+        tokens:['어머니께서','할머니께','전화를','하세요.'], answer:['어머니께서','할머니께','전화를','하세요.'] },
+
+      { t:'build', q:'Build the sentence: "Father is reading a book in the living room."',
+        answers:['아버지께서 거실에서 책을 읽으세요.','아버지께서 거실에서 책을 읽으세요'],
+        bank:['아버지께서','거실에서','책을','읽으세요.','읽어요.','아버지가','할머니께'],
+        must:['아버지께서','읽으세요'],
+        hint:'아버지께서, 거실에서 책을 읽으세요',
+        why:'Subject honorific 께서 pairs with 읽으세요: 아버지께서 거실에서 책을 읽으세요.' },
+
+      { t:'correct', wrong:'어머니가 할머니에게 전화를 해요.',
+        answers:['어머니께서 할머니께 전화를 하세요.','어머니께서 할머니께 전화를 하세요'],
+        hint:'Upgrade all three: 어머니가 → 어머니께서, 할머니에게 → 할머니께, 해요 → 하세요.',
+        why:'Honorific agreement: 어머니께서 할머니께 전화를 하세요.' },
+
+      { t:'correct', wrong:'선생님께서 교실에서 책을 읽어요.',
+        answers:['선생님께서 교실에서 책을 읽으세요.','선생님께서 교실에서 책을 읽으세요'],
+        hint:'께서 requires an honorific verb: 읽다 → 읽으세요',
+        why:'Harmonic agreement: 선생님께서 교실에서 책을 읽으세요.' },
+
+      { t:'translate', q:'Mother is calling grandmother.',
+        answers:['어머니께서 할머니께 전화를 하세요.','어머니께서 할머니께 전화를 하세요'],
+        must:['어머니께서','할머니께','전화를'],
+        hint:'어머니께서, 할머니께, 전화를 하세요',
+        why:'Both subject (께서) and recipient (께) are honored: 어머니께서 할머니께 전화를 하세요.' },
+
+      { t:'translate', q:'The teacher reads a book for the students.',
+        answers:['선생님께서 학생들에게 책을 읽어 주세요.','선생님께서 학생들에게 책을 읽어 주세요'],
+        must:['선생님께서','읽어','주세요'],
+        hint:'선생님께서, 학생들에게, 읽어 주세요',
+        why:'Teacher is honored subject (선생님께서 + 읽어 주세요), students are general recipients (학생들에게).' },
+
+      { t:'speak', say:'어머니께서 할머니께 안부 전화를 하세요.', q:'Read aloud naturally with warm, respectful intonation:' },
     ],
   },
 
