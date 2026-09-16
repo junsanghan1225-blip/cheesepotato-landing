@@ -231,4 +231,220 @@ export const BEGINNER_EXTRA_COURSES = [
   ],
 },
 
+
+/* ═══════════════════════════════════════════════════════════════
+   bg-36 — 의문사 10개
+   사물·사람·장소(뭐, 누구, 어디), 때·까닭·방법(언제, 왜, 어떻게),
+   가격과 미묘한 한정 의문사 4종(얼마, 무슨, 어떤, 어느)의
+   뉘앙스 구분을 완벽하게 마스터합니다.
+   ═══════════════════════════════════════════════════════════════ */
+{
+  id: 'bg-36',
+  emoji: '❓',
+  title: { ko:'의문사 10개', en:'10 Essential Question Words' },
+  tagline: { ko:'원하는 것을 정확히 묻고 답하는 한국어 10대 핵심 의문사 완벽 정복', en:'Master the 10 essential Korean question words to ask and answer anything.' },
+  blurb: { ko:'사물·사람·장소의 기본 셋(뭐, 누구, 어디)부터 시간·이유·방법(언제, 왜, 어떻게), 그리고 가격(얼마)과 초급 학습자가 가장 헷갈려하는 종류·성질·선택 의문사(무슨, 어떤, 어느)의 실전 뉘앙스 차이를 체계적으로 정복합니다.',
+           en:'Master the 10 core Korean question words: foundational nouns (뭐, 누구, 어디), circumstances and reasons (언제, 왜, 어떻게), and nuanced determiners (얼마, 무슨, 어떤, 어느).' },
+  level: 'Beginner',
+  needs: 'bg-35',
+  lessons: [
+
+  /* ── 1 ─────────────────────────────────────────────────── */
+  {
+    id: 'bg-36-01',
+    title: { ko:'1강. 뭐·누구·어디: 가장 기본적인 세 의문사', en:'Lesson 1. 뭐 · 누구 · 어디: Things, People, & Places' },
+    minutes: 7,
+    blocks: [
+      { t:'text', md:'Asking questions is the fastest way to start real conversations in Korean! Let’s master the three most fundamental question words that stand in for objects, people, and places:\n\n1. **뭐 (What)**:\n   - A natural everyday contraction of **무엇** (*what*):\n   - *“이거 **뭐**예요?”* *(What is this?)*\n   - *“점심에 **뭐** 먹을래요?”* *(What do you want to eat for lunch?)*\n   - *(When paired with the object particle 을/를, 무엇을 often contracts to 뭘: “**뭘** 마실래요?”)*\n\n2. **누구 (Who)**:\n   - Used to ask about a person’s identity:\n   - *“저 사람 **누구**예요?”* *(Who is that person?)*\n   - *“주말에 **누구**를 만났어요?”* *(Whom did you meet over the weekend?)*\n\n3. **어디 (Where)**:\n   - Used to ask about places, locations, and destinations:\n   - *“화장실이 **어디**예요?”* *(Where is the restroom?)*\n   - *“지금 **어디**에 가요?”* *(Where are you going right now?)*\n   - *“**어디**에서 살아요?”* *(Where do you live?)*' },
+
+      { t:'note', md:'**⚡ CRITICAL GRAMMAR RULE: 누구 + 가 = 누가!**\n\nWhen the subject particle **-가** attaches to **누구** (*who*), it **NEVER** stays as *누구가*. Instead, it always contracts into **누가**:\n\n- **누가** 왔어요? *(Who came? — NOT 누구가!)*\n- **누가** 한국어를 가르쳐요? *(Who teaches Korean?)*\n- *Rule of thumb: As a topic/object use 누구 (누구는, 누구를), but as a subject use **누가**!*' },
+
+      { t:'table', head:['Question Word','Meaning','Subject / Object Form','Example Question'], rows:[
+        ['**뭐 (무엇)**','What','**뭘 (무엇을)**','이거 **뭐**예요? / 점심에 **뭘** 먹어요?'],
+        ['**누구**','Who','**누가 (누구+가)**','저 사람 **누구**예요? / 지금 **누가** 왔어요?'],
+        ['**어디**','Where','**어디에 / 어디에서**','화장실이 **어디**예요? / **어디**에 가요?'],
+      ]},
+
+      { t:'chars', wide:true, items:[
+        { ch:'이거 뭐예요?', tip:'What is this? (뭐 = what)' },
+        { ch:'지금 누가 왔어요?', tip:'Who came just now? (누구 + 가 = 누가)' },
+        { ch:'화장실이 어디예요?', tip:'Where is the restroom? (어디 = where)' },
+      ]},
+
+      { t:'choice', q:'You hear a knock on your door and want to ask: "Who came / Who is it?" Which subject form of 누구 is grammatically correct?',
+        options:['지금 누가 왔어요?','지금 누구가 왔어요?','지금 누구는 왔어요?','지금 누고가 왔어요?'], answer:0,
+        why:'When the subject particle 가 attaches to 누구, it must contract into 누가: 지금 누가 왔어요? (누구가 is ungrammatical).' },
+
+      { t:'choice', q:'You point to an unfamiliar Korean dish on the menu and ask the waiter: "What is this?"',
+        options:['이거 뭐예요?','이거 어디예요?','이거 누구예요?','이거 언제예요?'], answer:0,
+        why:'To ask "what" something is, use 뭐: 이거 뭐예요? (어디 is where, 누구 is who, 언제 is when).' },
+
+      { t:'choice', q:'You need to find the subway station in a new city. How do you politely ask a passerby: "Where is the subway station?"',
+        options:['지하철역이 어디예요?','지하철역이 누구예요?','지하철역이 뭐예요?','지하철역이 왜예요?'], answer:0,
+        why:'어디 asks for a location or destination: 지하철역이 어디예요?' },
+
+      { t:'cloze', sentence:'점심시간에 친구하고 [뭐] 먹을 거예요?', answer:'뭐',
+        options:['뭐','누구','어디','언제'],
+        meaning:'What are you going to eat with your friend during lunchtime?',
+        why:'To ask "what" item/food will be eaten, use 뭐: 뭐 먹을 거예요?' },
+
+      { t:'order', q:'Put in order: "Excuse me, where is the restroom?"',
+        tokens:['실례지만','화장실이','어디예요?'], answer:['실례지만','화장실이','어디예요?'] },
+
+      { t:'pair', q:'Match each English question concept with its correct Korean question form:', pairs:[
+        ['What is this?', '이거 뭐예요?'],
+        ['Who is that?', '저 사람 누구예요?'],
+        ['Who came? (Subject)', '누가 왔어요?'],
+        ['Where is it?', '어디예요?'],
+      ]},
+
+      { t:'correct', wrong:'주격 조사 오류: 문 밖에 지금 누구가 서 있어요.',
+        answers:['문 밖에 지금 누가 서 있어요.','문 밖에 지금 누가 서 있어요'],
+        hint:'누구 + 가 always contracts into 누가.',
+        why:'When the subject particle 가 attaches to 누구, it must contract into 누가: 문 밖에 지금 누가 서 있어요.' },
+
+      { t:'translate', q:'Ordering: "What will you drink?"',
+        answers:['뭐 마실래요?','뭐 마실래요'],
+        must:['뭐','마실래요'],
+        hint:'뭐 + 마실래요?' },
+
+      { t:'speak', say:'저 사람 누구예요? 우리 한국어 선생님이에요.', q:'Read aloud naturally asking who someone is and answering warmly:' },
+    ],
+  },
+
+  /* ── 2 ─────────────────────────────────────────────────── */
+  {
+    id: 'bg-36-02',
+    title: { ko:'2강. 언제·왜·어떻게: 때, 까닭, 방법 묻기', en:'Lesson 2. 언제 · 왜 · 어떻게: Time, Reasons, & Methods' },
+    minutes: 7,
+    blocks: [
+      { t:'text', md:'Now let’s explore the three words that ask about circumstances, reasons, and procedures:\n\n1. **언제 (When)**:\n   - Inquires about time, dates, or days:\n   - *“생일이 **언제**예요?”* *(When is your birthday?)*\n   - *“**언제** 한국에 왔어요?”* *(When did you come to Korea?)*\n   - *(Notice: 언제 already holds temporal meaning, so you do NOT add the particle 에 to it — just say **언제**, never 언제에!)*\n\n2. **왜 (Why)**:\n   - Asks for reasons and motives:\n   - *“**왜** 한국어를 배워요?”* *(Why do you study Korean?)*\n   - Natural responses use reason connectors you already mastered: **-아/어서**, **-(으)니까**, or **-기 때문에**! (*“한국 노래가 좋아서 배워요.”*)\n\n3. **어떻게 (How / In what way)**:\n   - Inquires about methods, means of transportation, or procedures:\n   - *“회사에 **어떻게** 가요?”* *(How do you go to work?)*\n   - Natural responses pair with the means particle **(으)로** (learned in bg-31!): *“지하철**로** 가요.”* *(I go by subway.)*' },
+
+      { t:'note', md:'**Two Common Friendly Social Idioms with 어떻게**\n\nBeyond asking for physical directions or transportation, **어떻게** is constantly used in daily conversational greetings:\n- *“요즘 **어떻게** 지내요?”* *(How have you been doing lately?)*\n- *“이 문제에 대해 **어떻게** 생각해요?”* *(How/what do you think about this issue?)*' },
+
+      { t:'table', head:['Question Word','Meaning','Typical Answer Pattern','Dialogue Example'], rows:[
+        ['**언제**','When','Time / Date (금요일에, 내일)','생일이 **언제**예요? — 내일이에요.'],
+        ['**왜**','Why','Reason (-아/어서, -(으)니까)','**왜** 늦었어요? — 차가 막혀서 늦었어요.'],
+        ['**어떻게**','How (Method)','Means ((으)로, 걸어서)','학교에 **어떻게** 가요? — 지하철로 가요.'],
+      ]},
+
+      { t:'chars', wide:true, items:[
+        { ch:'생일이 언제예요?', tip:'When is your birthday? (언제 = when)' },
+        { ch:'왜 한국어를 배워요?', tip:'Why do you learn Korean? (왜 = why)' },
+        { ch:'학교에 어떻게 가요?', tip:'How do you go to school? (어떻게 = how)' },
+      ]},
+
+      { t:'choice', q:'Your friend arrives late to a meeting. How do you ask for the reason: "Why are you late?"',
+        options:['왜 늦었어요?','언제 늦었어요?','어디 늦었어요?','어떻게 늦었어요?'], answer:0,
+        why:'왜 asks for reasons and causes: 왜 늦었어요? (언제 is when, 어디 is where, 어떻게 is how).' },
+
+      { t:'choice', q:'A friend asks you: "회사에 어떻게 가요?" How do you answer naturally using the means particle (으)로?',
+        options:['지하철로 가요.','지하철에 가요.','지하철을 가요.','지하철에서 가요.'], answer:0,
+        why:'Questions with 어떻게 (how/by what means) pair naturally with the means/instrument particle (으)로: 지하철로 가요.' },
+
+      { t:'choice', q:'How do you ask about the schedule: "When does the Korean class start?"',
+        options:['수업이 언제 시작해요?','수업이 왜 시작해요?','수업이 누구 시작해요?','수업이 어디 시작해요?'], answer:0,
+        why:'언제 asks for timing or schedule: 수업이 언제 시작해요? (Do not add 에 to 언제).' },
+
+      { t:'cloze', sentence:'한국에는 [언제] 여행을 갈 거예요?', answer:'언제',
+        options:['언제','어디','누구','왜'],
+        meaning:'When are you going to go on a trip to Korea?',
+        why:'To ask about the timing or date of a planned trip, use 언제: 언제 여행을 갈 거예요?' },
+
+      { t:'order', q:'Put in order: "Why did you come to Korea?"',
+        tokens:['한국에','왜','오셨어요?'], answer:['한국에','왜','오셨어요?'] },
+
+      { t:'pair', q:'Match each question word with its primary conversational function:', pairs:[
+        ['언제', 'Timing / Schedule (When)'],
+        ['왜', 'Reason / Motive (Why)'],
+        ['어떻게', 'Method / Means (How)'],
+        ['지하철로', 'Means reply to 어떻게'],
+      ]},
+
+      { t:'correct', wrong:'조사 중복 오류: 친구 생일이 언제에 있어요?',
+        answers:['친구 생일이 언제예요?','친구 생일이 언제예요','친구 생일이 언제 있어요?','친구 생일이 언제 있어요'],
+        hint:'언제 already has temporal meaning; do not attach 에 directly to it: 생일이 언제예요?',
+        why:'언제 does not take the particle 에: 친구 생일이 언제예요? (or 언제 있어요?).' },
+
+      { t:'translate', q:'Commuting: "How do you go to school?"',
+        answers:['학교에 어떻게 가요?','학교에 어떻게 가요'],
+        must:['학교에','어떻게','가요'],
+        hint:'학교에 + 어떻게 + 가요?' },
+
+      { t:'speak', say:'회사에 어떻게 가요? 저는 매일 지하철로 출근해요.', q:'Read aloud naturally inquiring about transportation and answering:' },
+    ],
+  },
+
+  /* ── 3 ─────────────────────────────────────────────────── */
+  {
+    id: 'bg-36-03',
+    title: { ko:'3강. 얼마·무슨·어떤·어느: 헷갈리는 의문사 대조', en:'Lesson 3. 얼마 · 무슨 · 어떤 · 어느: Nuanced Determiners' },
+    minutes: 8,
+    blocks: [
+      { t:'text', md:'Now let’s master the final cluster of question words: **얼마** (*price/amount*) and the three tricky determiners **무슨 vs. 어떤 vs. 어느**:\n\n1. **얼마 (Price / Amount / Quantity)**:\n   - Directly asks for cost or amount:\n   - *“이거 **얼마**예요?”* *(How much is this?)*\n   - *“시간이 **얼마나** 걸려요?”* *(How much time does it take?)*\n\n2. **무슨 + Noun (Category / Broad Open What)**:\n   - Inquires about a broad category or type without any limited pre-set choices:\n   - Frequent collocations: **무슨 음식** *(what food)*, **무슨 일** *(what matter/issue)*, **무슨 색깔** *(what color)*, **무슨 음악** *(what music)*:\n   - *“**무슨** 음식을 좋아해요?”* *(What food do you like?)*\n\n3. **어떤 + Noun (Characteristics / Traits / Nature)**:\n   - Focuses on the qualities, personality, appearance, or feelings of a noun:\n   - Frequent collocations: **어떤 사람** *(what kind of person)*, **어떤 느낌** *(what kind of feeling)*, **어떤 스타일** *(what style)*:\n   - *“민수 씨는 **어떤** 사람이에요?”* *(What kind of person is Minsu? — He is kind!)*\n\n4. **어느 + Noun (Which — from a Defined / Limited Set)**:\n   - Used when selecting from a specific, limited set of candidates (countries, specific items, directions):\n   - Frequent collocations: **어느 나라** *(which country — among the nations)*, **어느 것** *(which one)*, **어느 쪽** *(which direction)*:\n   - *“**어느** 나라에서 오셨어요?”* *(Which country did you come from?)*' },
+
+      { t:'note', md:'**⚡ THE QUICK DECISION MATRIX: 무슨 vs. 어떤 vs. 어느**\n\n- **무슨 + N**: Open Category! (*무슨 음식, 무슨 음악, 무슨 일*)\n- **어떤 + N**: Personality & Quality! (*어떤 사람, 어떤 느낌, 어떤 옷*)\n- **어느 + N**: Selection from choices! (*어느 나라, 어느 것, 어느 쪽*)' },
+
+      { t:'table', head:['Question Word','Role / Meaning','Typical Collocations','Example Sentence'], rows:[
+        ['**얼마**','Price / Amount','얼마예요, 얼마나','이 커피 **얼마**예요? (How much is this?)'],
+        ['**무슨**','What kind (Open category)','무슨 음식, 무슨 일, 무슨 색','**무슨** 음식을 제일 좋아해요?'],
+        ['**어떤**','What kind (Traits & nature)','어떤 사람, 어떤 스타일, 어떤 느낌','민수 씨는 **어떤** 사람이에요?'],
+        ['**어느**','Which (From defined choices)','어느 나라, 어느 것, 어느 계절','**어느** 나라에서 오셨어요?'],
+      ]},
+
+      { t:'chars', wide:true, items:[
+        { ch:'이 티셔츠 얼마예요?', tip:'How much is this T-shirt? (얼마 = price)' },
+        { ch:'무슨 음식을 좋아해요?', tip:'What food do you like? (무슨 = category)' },
+        { ch:'민수 씨는 어떤 사람이에요?', tip:'What kind of person is Minsu? (어떤 = trait)' },
+        { ch:'어느 나라에서 오셨어요?', tip:'Which country did you come from? (어느 = which)' },
+      ]},
+
+      { t:'choice', q:'You meet a new friend from overseas and want to ask: "Which country did you come from?" Which question determiner is proper?',
+        options:['어느 나라에서 왔어요?','무슨 나라에서 왔어요?','어떤 나라에서 왔어요?','얼마 나라에서 왔어요?'], answer:0,
+        why:'When selecting from a defined set of existing entities like countries, use 어느: 어느 나라에서 왔어요? (무슨 is for open categories, 어떤 is for traits, 얼마 is for price).' },
+
+      { t:'choice', q:'You want to ask a friend about their favorite food categories in general: "What kind of food do you like?"',
+        options:['무슨 음식을 좋아해요?','어느 음식을 좋아해요?','얼마 음식을 좋아해요?','누구 음식을 좋아해요?'], answer:0,
+        why:'To ask about general categories of items without a limited list, use 무슨: 무슨 음식을 좋아해요?' },
+
+      { t:'choice', q:'You are asking about a new colleague’s personality and character traits: "What kind of person is he?"',
+        options:['어떤 사람이에요?','무슨 사람이에요?','어느 사람이에요?','얼마 사람이에요?'], answer:0,
+        why:'To ask about personal qualities, traits, or nature, 어떤 is the natural choice: 어떤 사람이에요?' },
+
+      { t:'cloze', sentence:'가게에서 물건 가격을 물어봤어요: "이거 [얼마]예요?"', answer:'얼마',
+        options:['얼마','무슨','어떤','어느'],
+        meaning:'I asked for the price of the item at the store: "How much is this?"',
+        why:'To ask for price, use 얼마: 얼마예요?' },
+
+      { t:'order', q:'Put in order: "What kind of movie do you want to see today?"',
+        tokens:['오늘','무슨','영화를','보고','싶어요?'], answer:['오늘','무슨','영화를','보고','싶어요?'] },
+
+      { t:'pair', q:'Match each question phrase with its communicative focus:', pairs:[
+        ['이거 얼마예요?', 'Asking price (How much)'],
+        ['무슨 음식', 'Open category (What food)'],
+        ['어떤 사람', 'Personality / Trait (What kind of person)'],
+        ['어느 나라', 'Selection from set (Which country)'],
+      ]},
+
+      { t:'correct', wrong:'의문사 오용: 친구에게 무슨 나라에서 왔어요 하고 물었어요.',
+        answers:['친구에게 어느 나라에서 왔어요 하고 물었어요.','친구에게 어느 나라에서 왔어요 하고 물었어요'],
+        hint:'Choosing from world nations requires 어느: 어느 나라.',
+        why:'Selecting from existing countries requires the selection determiner 어느: 어느 나라에서 왔어요?' },
+
+      { t:'translate', q:'Shopping: "Excuse me, how much is this apple?"',
+        answers:['이 사과 얼마예요?','이 사과 얼마예요'],
+        must:['사과','얼마예요'],
+        hint:'이 사과 + 얼마예요?' },
+
+      { t:'translate', q:'Preferences: "What food do you like?"',
+        answers:['무슨 음식을 좋아해요?','무슨 음식을 좋아해요'],
+        must:['무슨','음식을','좋아해요'],
+        hint:'무슨 + 음식을 + 좋아해요?' },
+
+      { t:'speak', say:'어느 나라에서 오셨어요? 저는 한국에서 왔어요.', q:'Read aloud naturally inquiring about nationality and stating origin:' },
+    ],
+  },
+
+  ],
+},
 ];

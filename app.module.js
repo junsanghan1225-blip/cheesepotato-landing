@@ -2813,6 +2813,7 @@ const COURSE_CURRICULUM_TAG = {
   'bg-34':           { ko:'명사형 전성',   en:'Nominalization' },
   // 초급 보충 — docs/curriculum-beginner.md §8
   'bg-35':           { ko:'단위명사',     en:'Counters' },
+  'bg-36':           { ko:'의문사',       en:'Question Words' },
 };
 const BEGINNER_ROADMAP = [
   {
@@ -2912,8 +2913,9 @@ const BEGINNER_ROADMAP = [
     title:{ ko:'실생활 필수 표현', en:'Essential Real-life Expressions' },
     points:[
       { ko:'단위명사와 몇: 사물(개)·사람(명/분)·동물(마리)·음료/책/나이(잔·병·권·살)', en:'Counters & "몇": items, people, animals, drinks, books, and age' },
+      { ko:'의문사 10개: 뭐·누구·어디 / 언제·왜·어떻게 / 얼마·무슨·어떤·어느 뉘앙스 정복', en:'10 question words: things/people/places, time/reasons/how, and price/determiners' },
     ],
-    courses:['bg-35'],
+    courses:['bg-35','bg-36'],
   },
   {
     id:'next',
