@@ -16,6 +16,7 @@
    - bg-31: 남은 조사 ① 사람과 방향 (3강)
    - bg-32: 남은 조사 ② 견주기와 범위 (3강)
    - bg-33: 남은 조사 ③ 나열과 선택 (3강)
+   - bg-34: 명사로 만들기 -기 · -음/ㅁ (2강)
    ══════════════════════════════════════════════════════════════ */
 
 export const BEGINNER_STAGE6_COURSES = [
@@ -1490,6 +1491,157 @@ export const BEGINNER_STAGE6_COURSES = [
         hint:'저 + 도 + 한국어를 + 공부해요' },
 
       { t:'speak', say:'주말마다 친구들과 함께 즐겁게 운동해요.', q:'Read aloud describing a pleasant weekly routine with friendly rhythm:' },
+    ],
+  },
+
+  ],
+},
+
+/* ═══════════════════════════════════════════════════════════════
+   bg-34 — 명사로 만들기 -기 · -음/ㅁ
+   일반적 행위·활동을 명사로 만드는 -기(읽기/쓰기/듣기/말하기)와
+   완료된 사실·상태 및 고유 명사를 빚는 -(으)ㅁ/ㅁ 완벽 정복.
+   초급 1~6단계 전 커리큘럼의 대단원을 완성하는 마지막 코스.
+   ═══════════════════════════════════════════════════════════════ */
+{
+  id: 'bg-34',
+  emoji: '🏷️',
+  title: { ko:'명사로 만들기 -기 · -음/ㅁ', en:'Nominalization: -기 & -(으)ㅁ' },
+  tagline: { ko:'동사와 형용사를 명사로 빚어내는 두 가지 비결', en:'Two fundamental ways to transform verbs and adjectives into nouns.' },
+  blurb: { ko:'받침 무관하게 일반적인 행동과 활동을 명사로 만드는 -기(읽기/쓰기/듣기/말하기)와, 완료된 사실·상태 및 고유 명사를 형성하는 -(으)ㅁ/ㅁ의 쓰임새 및 미묘한 뉘앙스 차이를 마스터합니다. 초급 1~6단계 전 커리큘럼의 대단원을 완성하는 마지막 강좌입니다.',
+           en:'Master the two essential nominalization patterns in Korean: dynamic activity marker -기 (as in TOPIK’s reading, writing, listening, speaking) and stative/abstract nominalizer -(으)ㅁ. The grand finale completing the entire 1~6 stage beginner curriculum.' },
+  level: 'Beginner',
+  needs: 'bg-33',
+  lessons: [
+
+  /* ── 1 ─────────────────────────────────────────────────── */
+  {
+    id: 'bg-34-01',
+    title: { ko:'1강. -기: 일반적인 행위·활동을 명사로', en:'Lesson 1. -기: Turning Actions into Noun Activities' },
+    minutes: 7,
+    blocks: [
+      { t:'text', md:'Have you ever noticed the names of the four sections on the TOPIK Korean exam?\n\n- **읽다** (to read) → **읽기** *(Reading)*\n- **쓰다** (to write) → **쓰기** *(Writing)*\n- **듣다** (to listen) → **듣기** *(Listening)*\n- **말하다** (to speak) → **말하기** *(Speaking)*\n\nYou’ve actually been using the nominalizer **-기** all along!\n\nAttaching **-기** turns any verb into an **activity, process, or action concept** (*“the act of doing...”*).' },
+
+      { t:'note', md:'**The Simplest Rule in Korean Grammar!**\n\nUnlike most Korean endings, **-기 has zero exceptions and zero batchim changes**! Simply take the verb stem and attach **-기**:\n\n- 가다 → **가기** *(going)*\n- 먹다 → **먹기** *(eating)*\n- 보다 → **보기** *(watching)*\n- 살다 → **살기** *(living)*\n\n**Everyday Collocations with -기:**\n- **~하기를 좋아하다 / 싫어하다** *(like / dislike doing)*: 등산**하기**를 좋아해요.\n- **~하기 쉽다 / 어렵다** *(easy / hard to do)*: 이 책은 읽**기** 쉬워요.\n- **~하기 시작하다** *(start doing)*: 운동**하기**를 시작했어요.\n- **~하기 좋다** *(good for doing)*: 날씨가 산책하**기** 좋아요.' },
+
+      { t:'table', head:['Base Verb','With -기','Meaning as a Noun','Everyday Pattern'], rows:[
+        ['읽다 (to read)','**읽기**','reading','읽**기** 쉬워요 (easy to read)'],
+        ['쓰다 (to write)','**쓰기**','writing','글쓰**기** 연습 (writing practice)'],
+        ['듣다 (to listen)','**듣기**','listening','음악 듣**기** (listening to music)'],
+        ['말하다 (to speak)','**말하기**','speaking','한국어 말하**기** (speaking Korean)'],
+        ['등산하다 (to hike)','**등산하기**','hiking','등산하**기**를 좋아해요 (like hiking)'],
+      ]},
+
+      { t:'chars', wide:true, items:[
+        { ch:'이 책은 읽기 쉬워요.', tip:'This book is easy to read. (읽기 + 쉽다)' },
+        { ch:'저는 요리하기를 좋아해요.', tip:'I like cooking. (요리하기 + 좋아하다)' },
+        { ch:'한국어 말하기 연습을 해요.', tip:'I practice Korean speaking. (말하기: Speaking)' },
+      ]},
+
+      { t:'choice', q:'Which Korean exam section name comes directly from the verb 쓰다 (to write)?',
+        options:['쓰기','쓰음','쓰임','쓰는'], answer:0,
+        why:'Verb stem 쓰- + -기 creates the noun 쓰기 (Writing section in TOPIK).' },
+
+      { t:'choice', q:'You want to express your hobby: "I like hiking on weekends." How do you nominalize 등산하다 (to hike)?',
+        options:['등산하기를 좋아해요.','등산함을 좋아해요.','등산은을 좋아해요.','등산으로 좋아해요.'], answer:0,
+        why:'General hobbies and ongoing activities take -기: 등산하기를 좋아해요.' },
+
+      { t:'choice', q:'A friend asks if Korean pronunciation is hard. You say: "It is hard to practice." How do you say it?',
+        options:['연습하기 어려워요.','연습함 어려워요.','연습해서 어려워요.','연습한 어려워요.'], answer:0,
+        why:'"Easy/hard to do" uses the pattern [Verb stem] + -기 쉽다/어렵다: 연습하기 어려워요.' },
+
+      { t:'cloze', sentence:'오늘 날씨가 밖에서 산책하[기] 참 좋아요.', answer:'기',
+        options:['기','음','ㅁ','게'],
+        meaning:'The weather today is really nice for taking a walk outside.',
+        why:'The pattern ~하기 좋다 (good for doing) attaches -기 to the stem: 산책하기 좋아요.' },
+
+      { t:'order', q:'Put in order: "I really like hiking on weekends."',
+        tokens:['저는','주말에','등산하기를','정말','좋아해요.'], answer:['저는','주말에','등산하기를','정말','좋아해요.'] },
+
+      { t:'pair', q:'Match each verb with its nominalized -기 form:', pairs:[
+        ['읽다 (to read)', '읽기 (reading)'],
+        ['쓰다 (to write)', '쓰기 (writing)'],
+        ['듣다 (to listen)', '듣기 (listening)'],
+        ['말하다 (to speak)', '말하기 (speaking)'],
+      ]},
+
+      { t:'correct', wrong:'불필요한 모음 추가: 이 책은 글씨가 커서 읽이기 쉬워요.',
+        answers:['이 책은 글씨가 커서 읽기 쉬워요.','이 책은 글씨가 커서 읽기 쉬워요'],
+        hint:'-기 attaches directly to the stem 읽- without any filler vowel: 읽기.',
+        why:'-기 attaches directly to the stem: 읽기 쉬워요.' },
+
+      { t:'translate', q:'Hobby: "I like cooking."',
+        answers:['요리하기를 좋아해요.','요리하기를 좋아해요','요리하기 좋아해요.','요리하기 좋아해요'],
+        must:['요리하기'],
+        hint:'요리하다 → 요리하기 + 를 + 좋아해요' },
+
+      { t:'speak', say:'한국어는 배우기 재미있고 말하기 즐거워요.', q:'Read aloud celebrating your Korean learning journey with a bright smile:' },
+    ],
+  },
+
+  /* ── 2 ─────────────────────────────────────────────────── */
+  {
+    id: 'bg-34-02',
+    title: { ko:'2강. -음/ㅁ: 완료된 사실·상태를 명사로', en:'Lesson 2. -(으)ㅁ/ㅁ: Completed Facts, States, & Abstract Nouns' },
+    minutes: 7,
+    blocks: [
+      { t:'text', md:'In Lesson 1, you learned **-기** for dynamic, ongoing activities (*“reading, cooking, hiking”*).\n\nNow meet the second nominalizer: **-(으)ㅁ / -ㅁ**!\n\nWhile `-기` describes a live action in motion, **`-(으)ㅁ` captures a completed fact, an established status, or a static concept**:\n\n- **Where you see -(으)ㅁ in daily Korean life**:\n  - Official forms, surveys, and checklists: *“참석**함** / 불참**함**”* *(Attending / Absent)*\n  - Status options: *“있**음** / 없**음**”* *(Present / None)*\n  - End of memos: *“회의 끝**남**”* *(Meeting ended)*' },
+
+      { t:'note', md:'**Batchim Rules & Standalone Dictionary Words!**\n\n- **No Batchim (Vowel ending)** → **-ㅁ**\n  - 자다 (to sleep) → **잠** *(sleep)*\n  - 꾸다 (to dream) → **꿈** *(dream)*\n  - 크다 (to be big) → **큼** *(largeness / big)*\n\n- **With Batchim (Consonant ending)** → **-음**\n  - 믿다 (to believe) → **믿음** *(faith / belief)*\n  - 죽다 (to die) → **죽음** *(death)*\n  - 있다 (to exist) → **있음** *(presence)*\n  - 없다 (to not exist) → **없음** *(none)*\n  - 돕다 (to help, ㅂ irregular) → **도움** *(help)*\n  - 기쁘다 (to be glad) → **기쁨** *(joy)*\n  - 슬프다 (to be sad) → **슬픔** *(sorrow)*\n\nNotice how many words like **잠, 꿈, 믿음, 기쁨, 슬픔, 도움** became standalone everyday nouns!' },
+
+      { t:'table', head:['Base Verb / Adj','With -기 (Activity)','With -(으)ㅁ (Fact / Abstract)','English Noun Meaning'], rows:[
+        ['믿다 (to believe)','믿기 (the act of believing)','**믿음**','faith, belief, trust'],
+        ['자다 (to sleep)','자기 (going to sleep)','**잠**','sleep (noun)'],
+        ['돕다 (to help)','돕기 (helping someone)','**도움**','help, assistance'],
+        ['슬프다 (to be sad)','슬프기 (being sad)','**슬픔**','sorrow, sadness'],
+        ['있다 (to exist)','있기 (staying there)','**있음**','present, available (on forms)'],
+        ['없다 (to lack)','없기 (not having)','**없음**','none, absent (on forms)'],
+      ]},
+
+      { t:'chars', wide:true, items:[
+        { ch:'도움이 필요해요.', tip:'I need help. (도움 ← 돕다)' },
+        { ch:'설문지: 있음 / 없음', tip:'Survey: Present / None (있음 / 없음)' },
+        { ch:'따뜻한 믿음을 가져요.', tip:'Have warm faith and trust. (믿음 ← 믿다)' },
+      ]},
+
+      { t:'choice', q:'How does the verb 믿다 (to believe/trust) transform into the noun meaning "faith / trust"?',
+        options:['믿음','믿기','믿는','믿음이'], answer:0,
+        why:'Consonant ending 믿- takes -음 to create the abstract noun 믿음 (faith/belief).' },
+
+      { t:'choice', q:'On a formal official survey form checking whether you have a driver’s license, what are the standard options for "Yes / No"?',
+        options:['있음 / 없음','있기 / 없기','있어서 / 없어서','있고 / 없고'], answer:0,
+        why:'Official documents and forms standardly use -(으)ㅁ for recorded statuses: 있음 / 없음.' },
+
+      { t:'choice', q:'Which of the following common Korean nouns was created by attaching -ㅁ to the verb 돕다 (ㅂ irregular)?',
+        options:['도움','돕기','도와','도움이'], answer:0,
+        why:'돕다 (ㅂ irregular) becomes 도우 + ㅁ = 도움 (help/assistance).' },
+
+      { t:'cloze', sentence:'힘들 때 친구에게서 큰 [도움]을 받았어요.', answer:'도움',
+        options:['도움','돕기','돕는','도와'],
+        meaning:'When times were tough, I received great help from a friend.',
+        why:'The noun meaning "help / assistance" is 도움 (from 돕다).' },
+
+      { t:'order', q:'Put in order: "I received a lot of warm help from my friend."',
+        tokens:['친구에게서','따뜻한','도움을','많이','받았어요.'], answer:['친구에게서','따뜻한','도움을','많이','받았어요.'] },
+
+      { t:'pair', q:'Match each base word with its established -(으)ㅁ noun:', pairs:[
+        ['믿다 (to believe)', '믿음 (faith)'],
+        ['자다 (to sleep)', '잠 (sleep)'],
+        ['돕다 (to help)', '도움 (help)'],
+        ['슬프다 (to be sad)', '슬픔 (sadness)'],
+      ]},
+
+      { t:'correct', wrong:'오타 교정: 공식 서류 체크란: 있슴 / 없슴',
+        answers:['공식 서류 체크란: 있음 / 없음','공식 서류 체크란: 있음 / 없음.'],
+        hint:'Standard spelling uses -(으)ㅁ, not -슴: 있음 / 없음.',
+        why:'The correct standard Korean spelling is 있음 / 없음 (never 있슴 / 없슴).' },
+
+      { t:'translate', q:'Source: "I received help from my friend."',
+        answers:['친구에게서 도움을 받았어요.','친구에게서 도움을 받았어요','친구한테서 도움을 받았어요.','친구한테서 도움을 받았어요'],
+        must:['도움을','받았어요'],
+        hint:'친구에게서 / 친구한테서 + 도움을 + 받았어요' },
+
+      { t:'speak', say:'친구에게서 따뜻한 사랑과 도움을 받았어요.', q:'Read aloud expressing heartfelt gratitude for a friend’s support:' },
     ],
   },
 
