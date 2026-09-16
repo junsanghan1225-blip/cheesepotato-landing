@@ -97,6 +97,7 @@ const norm2 = (s) => String(s).trim().replace(/\s+/g, ' ').replace(/[.!?~]+$/, '
 
 const BLOCK_TYPES = new Set([
   'text', 'note', 'chars', 'table', 'choice', 'listen', 'type', 'order', 'pair', 'speak', 'cloze', 'build',
+  'translate', 'correct',
 ]);
 
 /* 화면이 실제로 읽는 밭 이름. 여기 없는 이름으로 글을 써 두면 화면은
@@ -110,6 +111,8 @@ const BLOCK_KEYS = new Set([
   'say', 'rom', 'audio', 'sentence', 'meaning',
   // 문장 만들기(build) — 허용 답 여럿, 낱말 은행, 꼭 들어갈 조각, 힌트
   'answers', 'bank', 'must', 'hint',
+  // 오류 찾기(correct) — 고쳐야 할 틀린 문장
+  'wrong',
 ]);
 
 const problems = [];
@@ -192,12 +195,17 @@ for (const c of COURSES) {
 
       if (b.t === 'pair' && !b.pairs?.length) problems.push(`${at}: pairs 없음`);
 
-      /* 문장 만들기.
+      /* 문장 만들기(build), 번역하기(translate), 오류 찾기(correct).
          answers 가 비면 무엇을 쳐도 안 맞는다 — 학습자가 레슨 끝에서
          막힌다. must 조각은 answers 안에 실제로 들어 있어야 한다.
          안 그러면 정답을 쳐도 「~가 없어요」 가 뜬다. */
-      if (b.t === 'build') {
-        if (!b.q) problems.push(`${at}: q 없음 — 무엇을 만들라는 건지 알 수 없다`);
+      if (b.t === 'build' || b.t === 'translate' || b.t === 'correct') {
+        if (b.t === 'build' || b.t === 'translate') {
+          if (!b.q) problems.push(`${at}: q 없음 — 무엇을 만들/번역하라는 건지 알 수 없다`);
+        }
+        if (b.t === 'correct') {
+          if (!b.wrong) problems.push(`${at}: wrong 없음 — 틀린 문장이 무엇인지 알 수 없다`);
+        }
         if (!b.answers?.length) problems.push(`${at}: answers 없음 — 무엇을 쳐도 안 맞는다`);
         const flat = (x) => String(x).replace(/\s/g, '').replace(/[.!?~]+$/, '');
         for (const m of b.must ?? []) {
