@@ -2806,6 +2806,7 @@ const COURSE_CURRICULUM_TAG = {
   'bg-27':           { ko:'관형형의 비밀', en:'The Master Key' },
   'bg-28':           { ko:'격식 표현',     en:'Formal register' },
   'bg-29':           { ko:'높임·존칭',     en:'Honorifics' },
+  'bg-30':           { ko:'반응·감탄',     en:'Reactions' },
 };
 const BEGINNER_ROADMAP = [
   {
@@ -2882,8 +2883,9 @@ const BEGINNER_ROADMAP = [
       { ko:'세상 모든 명사 꾸미기: 과거·현재·미래 관계절 자유자재 생성', en:'Modifying any noun freely: past, present, and future relative clauses' },
       { ko:'격식체(-ㅂ/습니다, -ㅂ/습니까, -(으)십시오): 뉴스·발표·안내 방송 정복', en:'Formal register: statements, questions, and public commands' },
       { ko:'높임 -(으)시- 어미의 비밀과 께/께서 조사로 완성하는 예우', en:'Subject honorific -(으)시- and honorific particles 께/께서' },
+      { ko:'반응 3총사: 감탄(-네요) · 깨달음(-군요) · 확인(-지요/-죠) 가려 쓰기', en:'Reaction trio: exclamations (-네요), realizations (-군요), and confirmation (-지요)' },
     ],
-    courses:['bg-27','bg-28','bg-29'],
+    courses:['bg-27','bg-28','bg-29','bg-30'],
   },
   {
     id:'deep',
@@ -2899,7 +2901,7 @@ const BEGINNER_ROADMAP = [
     tag:{ ko:'다음 빌드', en:'Coming next' },
     title:{ ko:'초급 6단계 후반부', en:'Stage 6: Finishing touches' },
     points:[
-      { ko:'반응 -네요/-군요/-지요 및 은/는 vs 이/가 가려 쓰기', en:'Reaction endings and particle distinctions' },
+      { ko:'은/는 vs 이/가 가려 쓰기 (심화 주제)', en:'Topic vs subject particles deep dive' },
       { ko:'남은 조사 총정리(사람·방향·견주기·범위·나열) 및 명사형 전성어미(-기/-음)', en:'Remaining particles and noun nominalizers (-기 / -음)' },
     ],
     courses:[],
