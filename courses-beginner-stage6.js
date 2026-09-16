@@ -12,6 +12,7 @@
    - bg-27: 열쇠 하나였다 — -(으)ㄴ / -는 / -(으)ㄹ (3강)
    - bg-28: 격식 -ㅂ/습니다 (2강)
    - bg-29: 높임 -(으)시- · 께 · 께서 (3강)
+   - bg-30: 반응 -네요 · -군요 · -지요 (3강)
    ══════════════════════════════════════════════════════════════ */
 
 export const BEGINNER_STAGE6_COURSES = [
@@ -623,6 +624,225 @@ export const BEGINNER_STAGE6_COURSES = [
         why:'Teacher is honored subject (선생님께서 + 읽어 주세요), students are general recipients (학생들에게).' },
 
       { t:'speak', say:'어머니께서 할머니께 안부 전화를 하세요.', q:'Read aloud naturally with warm, respectful intonation:' },
+    ],
+  },
+
+  ],
+},
+
+/* ═══════════════════════════════════════════════════════════════
+   bg-30 — 반응 -네요 · -군요 · -지요
+   감탄(-네요), 깨달음(-군요), 확인(-지요/-죠)의
+   미묘한 뉘앙스를 가려 쓰는 한국어 반응 표현 마스터.
+   ═══════════════════════════════════════════════════════════════ */
+{
+  id: 'bg-30',
+  emoji: '💡',
+  title: { ko:'반응 -네요 · -군요 · -지요', en:'Reactions: -네요 · -군요 · -지요' },
+  tagline: { ko:'감탄·깨달음·확인의 뉘앙스를 담아내는 반응 어미', en:'Exclamations, realizations, and seeking confirmation.' },
+  blurb: { ko:'직접 겪고 감탄할 때(-네요), 새로 알게 된 사실에 깨달음을 나타낼 때(-군요), 상대방에게 이미 아는 사실을 확인할 때(-지요/-죠) 쓰이는 세 가지 핵심 반응 어미의 미묘한 뉘앙스를 마스터합니다.',
+           en:'Master the subtle nuances of Korean reaction endings: spontaneous exclamation from personal experience (-네요), realization upon learning new information (-군요), and seeking agreement or confirmation (-지요/-죠).' },
+  level: 'Beginner',
+  needs: 'bg-29',
+  lessons: [
+
+  /* ── 1 ─────────────────────────────────────────────────── */
+  {
+    id: 'bg-30-01',
+    title: { ko:'1강. -네요: 지금 막 느낀 것에 대한 감탄', en:'Lesson 1. -네요: Spontaneous Direct Exclamation' },
+    minutes: 7,
+    blocks: [
+      { t:'text', md:'Have you noticed Koreans saying **맛있네요!**, **춥네요!**, or **예쁘네요!** in the moment?\n\n**-네요** is used when you **directly experience or perceive something right now**, and make an immediate, spontaneous exclamation!\n\n- Taking a sip of hot coffee: *“이 커피 정말 **맛있네요**!”* *(Wow, this coffee is really delicious!)*\n- Stepping outside into the winter chill: *“오늘 진짜 **춥네요**.”* *(Brr, it’s really cold today!)*\n- Seeing a friend’s new outfit: *“옷이 정말 **예쁘네요**!”* *(Your outfit looks so lovely!)*\n\nIt shares your genuine, live feeling with the listener in a warm, polite tone.' },
+
+      { t:'note', md:'**Ultra-Simple Conjugation!**\n\nUnlike many endings you’ve learned, **-네요** never changes based on batchim or vowel harmony! Simply take the stem and attach **-네요**:\n\n- **가다** → **가네요** *(They are going!)*\n- **먹다** → **먹네요** *(You eat so well!)*\n- **크다** → **크네요** *(It’s so big!)*\n- **작다** → **작네요** *(It’s quite small!)*\n- **Past tense**: stem + **-았/었네요** *(어제 비가 많이 왔네요 = It really rained a lot yesterday!)*\n- **Noun**: Noun + **-(이)네요** *(벌써 금요일이네요 = It’s already Friday!)*' },
+
+      { t:'table', head:['Type','Word','Real-Time Reaction with -네요','English Meaning'], rows:[
+        ['Adjective','맛있다 (delicious)','**정말 맛있네요!**','Wow, it’s really delicious!'],
+        ['Adjective','춥다 (cold, ㅂ irreg)','**오늘 진짜 춥네요.**','Brr, it’s really cold today.'],
+        ['Verb','잘하다 (to do well)','**한국어 정말 잘하시네요!**','Wow, you speak Korean so well!'],
+        ['Past','오다 (to come / rain)','**비가 많이 왔네요.**','Oh, it rained a lot!'],
+        ['Noun','금요일 (Friday)','**벌써 금요일이네요!**','Oh, it’s already Friday!'],
+      ]},
+
+      { t:'chars', wide:true, items:[
+        { ch:'이 커피 정말 맛있네요!', tip:'Wow, this coffee is really delicious! (Direct taste)' },
+        { ch:'오늘 바람이 많이 부네요.', tip:'It’s so windy today. (Feeling the breeze outside)' },
+        { ch:'벌써 주말이네요!', tip:'It’s already the weekend! (Looking at calendar)' },
+      ]},
+
+      { t:'choice', q:'You take a bite of food at a restaurant and are pleasantly surprised. How do you react in the moment?',
+        options:['이 음식 정말 맛있네요!','이 음식 정말 맛있지요?','이 음식 정말 맛있군요.','이 음식 정말 맛있으세요.'], answer:0,
+        why:'-네요 expresses a spontaneous live exclamation from direct personal experience: 맛있네요! (-지요 asks for agreement, -군요 expresses reasoned realization, and 맛있으세요 honors the listener).' },
+
+      { t:'choice', q:'You step out the front door and feel freezing wind on your face. What is the most natural reaction?',
+        options:['오늘 날씨가 정말 춥네요.','오늘 날씨가 정말 춥죠?','오늘 날씨가 정말 추웠군요.','오늘 날씨가 정말 춥겠습니다.'], answer:0,
+        why:'Reacting spontaneously to immediate sensory input takes -네요: 오늘 날씨가 정말 춥네요.' },
+
+      { t:'choice', q:'You see a friend wearing a brand-new jacket. How do you compliment them warmly?',
+        options:['새 옷이 정말 예쁘네요!','새 옷이 정말 예쁘군요?','새 옷이 정말 예쁩니까.','새 옷이 정말 예쁘죠?'], answer:0,
+        why:'Complimenting something you directly see with pleasant surprise takes -네요: 새 옷이 정말 예쁘네요!' },
+
+      { t:'cloze', sentence:'달력을 보니까 벌써 [금요일이네요]!', answer:'금요일이네요',
+        options:['금요일이네요','금요일이군요','금요일이죠','금요일이에요'],
+        meaning:'Looking at the calendar, wow, it’s already Friday!',
+        why:'Noun with batchim takes -이네요 for a spontaneous realization: 금요일이네요!' },
+
+      { t:'order', q:'Put in order: "Wow, you speak Korean really well!"',
+        tokens:['한국어를','정말','잘하시네요!'], answer:['한국어를','정말','잘하시네요!'] },
+
+      { t:'pair', q:'Match situations with the natural -네요 reaction:', pairs:[
+        ['Tasting delicious pizza', '정말 맛있네요!'],
+        ['Feeling winter wind outside', '날씨가 참 춥네요.'],
+        ['Looking at clock at 11 PM', '벌써 시간이 늦었네요.'],
+        ['Hearing good Korean speech', '한국어 정말 잘하시네요!'],
+      ]},
+
+      { t:'correct', wrong:'커피를 마시고: 이 커피가 참 맛있는네요!',
+        answers:['이 커피가 참 맛있네요!','이 커피가 참 맛있네요'],
+        hint:'Simply attach -네요 directly to the stem 맛있-: 맛있네요!',
+        why:'-네요 attaches directly to the stem: 이 커피가 참 맛있네요!' },
+
+      { t:'translate', q:'React upon tasting: "This coffee is really delicious!"',
+        answers:['이 커피 정말 맛있네요!','이 커피 정말 맛있네요'],
+        hint:'이 커피, 정말, 맛있다 → 맛있네요!' },
+
+      { t:'speak', say:'이 커피 정말 향도 좋고 맛있네요!', q:'Read aloud with spontaneous delight:' },
+    ],
+  },
+
+  /* ── 2 ─────────────────────────────────────────────────── */
+  {
+    id: 'bg-30-02',
+    title: { ko:'2강. -군요: 새로 알게 된 사실에 대한 깨달음', en:'Lesson 2. -군요: Realization & Acknowledging New Info' },
+    minutes: 7,
+    blocks: [
+      { t:'text', md:'In Lesson 1, you learned **-네요** for direct sensory surprise (*“Brr, it’s cold!”*).\n\nNow meet **-군요**: used when you **learn a new fact or hear information**, and acknowledge it with realization: *“Ah, I see! / So that\'s how it is!”*\n\n- A colleague mentions they are taking the day off: *“아, 오늘 휴가**시군요**.”* *(Ah, so you\'re on vacation today!)*\n- A friend mentions they’ve lived in Seoul for 10 years: *“서울에 오래 사셨**군요**.”* *(Ah, so you’ve lived in Seoul a long time!)*\n\nWhile `-네요` is an outward, bubbly exclamation, **`-군요` feels a bit more reflective, gentle, and dignified**, often spoken like a calm acknowledgement: *“아, 그렇군요!”* *(Ah, I see!)*' },
+
+      { t:'note', md:'**What about -는군요?**\n\nYou might occasionally notice `-는군요` on action verbs in the present tense (*가다 → 가는군요, 먹다 → 먹는군요*).\n\n**Don\'t worry about memorizing a separate rule!** It means the exact same thing as `-군요` on adjectives (*크다 → 크군요*). Simply recognize both as the same realization marker!' },
+
+      { t:'table', head:['Situation','Sentence with -군요','Source of Info','English Meaning'], rows:[
+        ['Hearing news','**아, 그렇군요!**','Listener explanation','Ah, I see! (Got it!)'],
+        ['Hearing a plan','내일 부산에 **가시는군요**.','Coworker’s itinerary','Ah, so you’re going to Busan tomorrow.'],
+        ['Looking at weather app','오늘 서울이 **영하 10도군요**.','Checking forecast','Ah, so it’s -10°C today in Seoul.'],
+        ['Seeing time on clock','벌써 시간이 이렇게 **됐군요**.','Checking clock quietly','Ah, the time has gotten so late.'],
+      ]},
+
+      { t:'chars', wide:true, items:[
+        { ch:'아, 그렇군요! 몰랐어요.', tip:'Ah, I see! I didn’t know that. (Universal response)' },
+        { ch:'한국에 오래 사셨군요.', tip:'Ah, so you’ve lived in Korea for a long time. (Hearing background)' },
+        { ch:'오늘 정말 바쁘시군요.', tip:'Ah, I see you are very busy today. (Hearing someone’s schedule)' },
+      ]},
+
+      { t:'choice', q:'Your colleague explains why the office is quiet: "Today is a company holiday." How do you naturally acknowledge this new information?',
+        options:['아, 오늘 회사 휴일이군요!','아, 오늘 회사 휴일이죠?','아, 오늘 회사 휴일이네요?','아, 오늘 회사 휴일이십시오.'], answer:0,
+        why:'Acknowledging newly learned information calmly takes -군요: 아, 오늘 회사 휴일이군요! (-죠 asks for confirmation, -네요 is sensory exclamation).' },
+
+      { t:'choice', q:'A friend tells you: "I learned Korean at Seoul National University for two years." What is the best realization response?',
+        options:['한국어를 열심히 공부하셨군요.','한국어를 열심히 공부하셨지요?','한국어를 열심히 공부하세요.','한국어를 열심히 공부하셨습니까?'], answer:0,
+        why:'Realizing and acknowledging their past effort based on their story takes -군요: 한국어를 열심히 공부하셨군요.' },
+
+      { t:'choice', q:'What is the main nuance difference between -네요 and -군요?',
+        options:['-네요 is live direct sensory reaction, while -군요 is realization upon hearing or discovering new facts','-네요 is for questions, while -군요 is only for formal news broadcasts','-네요 is casual banmal, while -군요 is an imperative command','-네요 is past tense, while -군요 is future tense'], answer:0,
+        why:'-네요 expresses direct live sensory surprise, whereas -군요 expresses reasoned realization or acknowledging new information.' },
+
+      { t:'cloze', sentence:'이야기를 듣고: "아, 그런 사정이 [있었군요]."', answer:'있었군요',
+        options:['있었군요','있었지요','있었네요','있으셨습니까'],
+        meaning:'After listening: "Ah, so that kind of situation existed, I see."',
+        why:'Reflecting upon hearing someone\'s explanation takes -았/었군요: 있었군요.' },
+
+      { t:'order', q:'Put in order: "Ah, so you lived in Korea for a long time!"',
+        tokens:['아,','한국에','오래','사셨군요!'], answer:['아,','한국에','오래','사셨군요!'] },
+
+      { t:'pair', q:'Match the everyday reaction phrase with its nuanced meaning:', pairs:[
+        ['아, 그렇군요!', 'Ah, I see! (Acknowledging info)'],
+        ['정말 맛있네요!', 'Wow, delicious! (Direct taste)'],
+        ['오늘 많이 바쁘시군요.', 'Ah, you’re busy today. (Hearing schedule)'],
+        ['바람이 정말 차네요.', 'The wind is so chilly! (Feeling air)'],
+      ]},
+
+      { t:'correct', wrong:'상대방 설명을 듣고: 아, 정말 그렇네요?',
+        answers:['아, 정말 그렇군요!','아, 정말 그렇군요'],
+        hint:'When calmly acknowledging someone’s explanation, use 그렇군요: 그렇다 → 그렇군요',
+        why:'Acknowledging explanation uses 그렇군요: 아, 정말 그렇군요!' },
+
+      { t:'translate', q:'Response to explanation: "Ah, so that’s how it is! (I see!)"',
+        answers:['아, 그렇군요!','아, 그렇군요'],
+        hint:'아, 그렇다 → 그렇군요' },
+
+      { t:'speak', say:'아, 그런 사정이 있었군요. 몰랐어요.', q:'Read aloud with thoughtful, understanding intonation:' },
+    ],
+  },
+
+  /* ── 3 ─────────────────────────────────────────────────── */
+  {
+    id: 'bg-30-03',
+    title: { ko:'3강. -지요(-죠): 이미 아는 걸 확인하기', en:'Lesson 3. -지요 (-죠): Seeking Agreement & Confirmation' },
+    minutes: 8,
+    blocks: [
+      { t:'text', md:'In Lessons 1 and 2, you learned `-네요` (sensory surprise) and `-군요` (new realization).\n\nWhat if you **already know the fact**, and you simply want to **confirm it with the listener or seek their agreement** (*“Right?”, “Isn’t it?”, “You know, don’t you?”*)?\n\nThat is the realm of **-지요** (contracted into **-죠** in speech)!\n\n- Walking in pleasant sunshine together: *“오늘 날씨 참 좋**죠**?”* *(The weather is really nice today, right?)*\n- Checking tomorrow’s schedule: *“내일 회의 2시**지요**?”* *(Tomorrow’s meeting is at 2 PM, right?)*\n- Answering in agreement: *“네, 그렇**지요**!”* *(Yes, exactly / of course!)*' },
+
+      { t:'table', head:['Ending','Core Nuance','When to Use','Example Sentence'], rows:[
+        ['**-네요**','Direct Exclamation','Experiencing something in real time','오늘 날씨가 참 **춥네요**! (Brr, so cold!)'],
+        ['**-군요**','New Realization','Learning info or discovering a fact','서울이 영하 10도**군요**. (Ah, so it’s -10°C.)'],
+        ['**-지요 (-죠)**','Confirmation / Agreement','Believing listener already agrees','오늘 날씨 참 **춥죠**? (It’s cold, isn’t it?)'],
+      ]},
+
+      { t:'note', md:'**Everyday Contraction: -지요 → -죠**\n\nIn spoken Korean, **-지요** is almost always contracted to **-죠**:\n\n- *좋지요? → **좋죠?***\n- *맞지요? → **맞죠?*** *(That’s right, isn’t it?)*\n- *맛있지요? → **맛있죠?***\n- *그렇지요? → **그렇죠?***\n\nBoth forms are completely polite and natural!' },
+
+      { t:'chars', wide:true, items:[
+        { ch:'오늘 날씨가 정말 좋지요?', tip:'The weather is so nice today, isn’t it? (Seeking agreement)' },
+        { ch:'한국어 공부 재미있죠?', tip:'Studying Korean is fun, right? (Expecting agreement)' },
+        { ch:'네, 맞아요. 그렇습니다.', tip:'Yes, that’s right. (Affirmative confirmation)' },
+      ]},
+
+      { t:'choice', q:'You and a coworker are eating a delicious lunch together. You want to ask for their agreement: "Delicious, isn\'t it?"',
+        options:['이 식당 음식 맛있죠?','이 식당 음식 맛있군요?','이 식당 음식 맛있네요?','이 식당 음식 맛있으세요?'], answer:0,
+        why:'-죠 (-지요) seeks agreement on something you expect the listener to share: 맛있죠? (-네요 is a personal exclamation, -군요 is new realization).' },
+
+      { t:'choice', q:'You want to double-check with a classmate: "Tomorrow’s exam is at 10 AM, right?"',
+        options:['내일 시험이 10시지요?','내일 시험이 10시네요!','내일 시험이 10시군요.','내일 시험이 10시십시오.'], answer:0,
+        why:'Double-checking known information takes -지요 / -죠: 10시지요?' },
+
+      { t:'choice', q:'Look at the three sentences about a movie. Which one expresses: "The movie was fun, wasn\'t it?" (seeking agreement)',
+        options:['영화 재미있었죠?','영화 재미있었네요!','영화 재미있었군요.','영화 재미있으세요.'], answer:0,
+        why:'Seeking agreement uses past -았/었죠?: 영화 재미있었죠?' },
+
+      { t:'cloze', sentence:'날씨가 참 맑아요. "오늘 하늘이 정말 [푸르죠]?"', answer:'푸르죠',
+        options:['푸르죠','푸르네요','푸르군요','푸르세요'],
+        meaning:'The weather is so clear. "The sky is so blue today, isn\'t it?"',
+        why:'Seeking agreement from the listener takes -죠: 푸르- + -죠 = 푸르죠?' },
+
+      { t:'order', q:'Put in order: "Studying Korean is fun, isn\'t it?"',
+        tokens:['한국어','공부','정말','재미있죠?'], answer:['한국어','공부','정말','재미있죠?'] },
+
+      { t:'pair', q:'Match each intention with the appropriate reaction ending:', pairs:[
+        ['Direct personal surprise', '-네요 (맛있네요!)'],
+        ['Learning new information', '-군요 (그렇군요!)'],
+        ['Seeking confirmation/agreement', '-지요 / -죠 (좋죠?)'],
+        ['Formal public statement', '-습니다 (감사합니다)'],
+      ]},
+
+      { t:'correct', wrong:'친구에게 동의를 구할 때: 오늘 날씨 정말 좋네요?',
+        answers:['오늘 날씨 정말 좋지요?','오늘 날씨 정말 좋지요','오늘 날씨 정말 좋죠?','오늘 날씨 정말 좋죠'],
+        hint:'When seeking agreement from the listener ("isn\'t it?"), use -지요? or -죠?: 좋지요?',
+        why:'Seeking agreement takes -지요? / -죠?: 오늘 날씨 정말 좋지요?' },
+
+      { t:'correct', wrong:'약속 시간을 재확인할 때: 내일 2시에 만나는군요?',
+        answers:['내일 2시에 만나지요?','내일 2시에 만나지요','내일 2시에 만나죠?','내일 2시에 만나죠'],
+        hint:'To confirm a planned schedule with someone ("right?"), use 만나지요? or 만나죠?',
+        why:'Confirming an existing fact takes -지요 / -죠: 내일 2시에 만나지요?' },
+
+      { t:'translate', q:'Seeking agreement: "The weather is really nice today, isn\'t it?"',
+        answers:['오늘 날씨 정말 좋지요?','오늘 날씨 정말 좋지요','오늘 날씨 정말 좋죠?','오늘 날씨 정말 좋죠'],
+        must:['오늘','날씨','정말'],
+        hint:'오늘 날씨 정말 좋다 → 좋지요? / 좋죠?' },
+
+      { t:'translate', q:'Confirming schedule: "Tomorrow\'s meeting is at 2 PM, right?"',
+        answers:['내일 회의가 2시지요?','내일 회의가 2시지요','내일 회의가 2시죠?','내일 회의가 2시죠'],
+        must:['내일','회의가','2시'],
+        hint:'내일 회의가 2시 + 지요? / 죠?' },
+
+      { t:'speak', say:'오늘 날씨가 참 따뜻하고 좋지요?', q:'Read aloud seeking agreement with a warm smile:' },
     ],
   },
 
