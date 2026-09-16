@@ -109,6 +109,9 @@ export const BEGINNER_STAGE1_COURSES = [
         must:['학생이에요'],
         hint:'Start with 저는. Then the noun with the right ending — 학생 ends in a consonant.',
         why:'저는 학생이에요. 전 is a shortened 저는 and is also fine in speech.' },
+
+      { t:'speak', say:'저는 학생이에요.', rom:'jeo-neun hak-saeng-i-e-yo',
+        q:'Say it out loud: “I am a student.”' },
     ],
   },
 
@@ -166,6 +169,9 @@ export const BEGINNER_STAGE1_COURSES = [
         must:['가 아니에요'],
         hint:'The noun before 아니에요 takes 이/가 — and 의사 ends in a vowel.',
         why:'저는 의사가 아니에요. 의사**는** 아니에요 is possible too, but it adds a contrast — “*a doctor* I am not, though maybe something else.”' },
+
+      { t:'speak', say:'저는 의사가 아니에요.', rom:'jeo-neun ui-sa-ga a-ni-e-yo',
+        q:'Say it out loud: “I am not a doctor.”' },
     ],
   },
 
@@ -237,6 +243,9 @@ export const BEGINNER_STAGE1_COURSES = [
         must:['없어요'],
         hint:'The thing that does not exist takes 이/가 — and 돈 ends in a consonant.',
         why:'돈이 없어요. Adding 저는 at the front is fine and slightly more explicit.' },
+
+      { t:'speak', say:'저는 지금 집에 있어요.', rom:'jeo-neun ji-geum jib-e iss-eo-yo',
+        q:'Say it out loud: “I am at home right now.”' },
     ],
   },
 
@@ -296,6 +305,9 @@ export const BEGINNER_STAGE1_COURSES = [
         must:['집에서'],
         hint:'Working is something you *do*, so which one — 에 or 에서? And 하다 becomes 해요.',
         why:'집에서 일해요. 집에 일해요 would be the classic mistake — 에 marks where something *is*, not where it happens.' },
+
+      { t:'speak', say:'저는 집에서 공부해요.', rom:'jeo-neun jib-e-seo gong-bu-hae-yo',
+        q:'Say it out loud: “I study at home.”' },
     ],
   },
 
@@ -344,6 +356,9 @@ export const BEGINNER_STAGE1_COURSES = [
         must:['시에'],
         hint:'A clock time takes 에. And remember 만나요 does the inviting all by itself.',
         why:'일곱 시에 만나요. The plain 해요 form said warmly is the everyday way to suggest something — no extra word needed.' },
+
+      { t:'speak', say:'우리 일곱 시에 만나요.', rom:'u-ri il-gop si-e man-na-yo',
+        q:'Say it out loud: “Let’s meet at seven.”' },
     ],
   },
 
@@ -422,6 +437,9 @@ export const BEGINNER_STAGE1_COURSES = [
         must:['카페에서'],
         hint:'Studying is an action — so 에 or 에서? And 공부하다 becomes what?',
         why:'카페에서 공부해요. Two things at once here: the action place takes 에서, and 하다 always becomes 해요.' },
+
+      { t:'speak', say:'저는 매일 운동해요.', rom:'jeo-neun mae-il un-dong-hae-yo',
+        q:'Say it out loud: “I exercise every day.”' },
     ],
   },
 
@@ -475,6 +493,9 @@ export const BEGINNER_STAGE1_COURSES = [
         must:['가요'],
         hint:'Korean does not reorder words to ask. Say it as a statement and let your voice do the asking.',
         why:'어디 가요? Both 어디 가요 and 어디에 가요 are natural; the 에 is often dropped in speech.' },
+
+      { t:'speak', say:'우리 같이 커피 마셔요!', rom:'u-ri gat-i keo-pi ma-syeo-yo',
+        q:'Say it out loud warmly as an invitation: “Let’s have coffee together!”' },
     ],
   },
 
@@ -553,6 +574,9 @@ export const BEGINNER_STAGE1_COURSES = [
         must:['책을'],
         hint:'The book is the thing being read — so it takes the object tag. 책 ends in a consonant.',
         why:'저는 매일 책을 읽어요. Dropping 저는 is perfectly natural in Korean when it is obvious who you mean.' },
+
+      { t:'speak', say:'저는 매일 책을 읽어요.', rom:'jeo-neun mae-il chaeg-eul ilg-eo-yo',
+        q:'Say it out loud: “I read a book every day.”' },
     ],
   },
 
@@ -603,6 +627,9 @@ export const BEGINNER_STAGE1_COURSES = [
         bank:['저는','저를','커피를','커피는','좋아해요'],
         hint:'You are the one the sentence is about, and the coffee is what you act on.',
         why:'저는 커피를 좋아해요. Swap 커피를 for 커피는 and you add a contrast — “coffee I like (but something else, not so much).”' },
+
+      { t:'speak', say:'저는 커피를 좋아해요.', rom:'jeo-neun keo-pi-reul joh-a-hae-yo',
+        q:'Say it out loud: “As for me, I like coffee.”' },
     ],
   },
 
@@ -672,6 +699,9 @@ export const BEGINNER_STAGE1_COURSES = [
         must:['안 마셔요'],
         hint:'안 goes directly in front of the verb — and the coffee is what you act on.',
         why:'저는 커피를 안 마셔요. Using 못 here would say you are *unable* to drink coffee, which is a different claim.' },
+
+      { t:'speak', say:'오늘은 학교에 안 가요.', rom:'o-neul-eun hak-gyo-e an ga-yo',
+        q:'Say it out loud: “I’m not going to school today.”' },
     ],
   },
 
@@ -722,6 +752,9 @@ export const BEGINNER_STAGE1_COURSES = [
         must:['못 먹어요'],
         hint:'Your body refusing is not a choice — which of 안 / 못 is that?',
         why:'저는 매운 음식을 못 먹어요. 안 먹어요 would tell people you simply don’t care for spicy food.' },
+
+      { t:'speak', say:'저는 매운 음식을 못 먹어요.', rom:'jeo-neun mae-un eum-sig-eul mot meog-eo-yo',
+        q:'Say it out loud: “I can’t eat spicy food.”' },
     ],
   },
 
@@ -772,6 +805,9 @@ export const BEGINNER_STAGE1_COURSES = [
         must:['안 먹어요'],
         hint:'Being vegetarian is a decision you made, not something stopping you.',
         why:'고기를 안 먹어요. If you said 못 먹어요, people would assume an allergy or illness — and would worry rather than just cook something else.' },
+
+      { t:'speak', say:'저는 고기를 안 먹어요.', rom:'jeo-neun go-gi-reul an meog-eo-yo',
+        q:'Say it out loud: “I don’t eat meat.”' },
     ],
   },
 
@@ -852,6 +888,9 @@ export const BEGINNER_STAGE1_COURSES = [
         must:['아파요'],
         hint:'The head is the thing doing the hurting, so it takes 이/가. And 아프다 loses its ㅡ.',
         why:'머리가 아파요. This is the sentence you will use at a pharmacy — worth having ready.' },
+
+      { t:'speak', say:'머리가 아파요.', rom:'meo-ri-ga a-pa-yo',
+        q:'Say it out loud: “My head hurts.”' },
     ],
   },
 
@@ -912,6 +951,9 @@ export const BEGINNER_STAGE1_COURSES = [
         must:['더워요'],
         hint:'오늘 is one of the time words that take no 에. And 덥다 turns its ㅂ into 우.',
         why:'오늘 너무 더워요. Adding 은 to 오늘 sets today apart from other days — both are natural.' },
+
+      { t:'speak', say:'오늘 너무 더워요.', rom:'o-neul neo-mu deow-eo-yo',
+        q:'Say it out loud: “It’s so hot today.”' },
     ],
   },
 
