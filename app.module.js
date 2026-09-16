@@ -2805,6 +2805,7 @@ const COURSE_CURRICULUM_TAG = {
   // 초급 6단계 — docs/curriculum-beginner.md
   'bg-27':           { ko:'관형형의 비밀', en:'The Master Key' },
   'bg-28':           { ko:'격식 표현',     en:'Formal register' },
+  'bg-29':           { ko:'높임·존칭',     en:'Honorifics' },
 };
 const BEGINNER_ROADMAP = [
   {
@@ -2880,8 +2881,9 @@ const BEGINNER_ROADMAP = [
       { ko:'열쇠 하나였다: -(으)ㄴ / -는 / -(으)ㄹ로 밝혀지는 8개 문법의 진짜 정체', en:'The Master Key: The true identity behind 8 familiar grammar patterns' },
       { ko:'세상 모든 명사 꾸미기: 과거·현재·미래 관계절 자유자재 생성', en:'Modifying any noun freely: past, present, and future relative clauses' },
       { ko:'격식체(-ㅂ/습니다, -ㅂ/습니까, -(으)십시오): 뉴스·발표·안내 방송 정복', en:'Formal register: statements, questions, and public commands' },
+      { ko:'높임 -(으)시- 어미의 비밀과 께/께서 조사로 완성하는 예우', en:'Subject honorific -(으)시- and honorific particles 께/께서' },
     ],
-    courses:['bg-27','bg-28'],
+    courses:['bg-27','bg-28','bg-29'],
   },
   {
     id:'deep',
@@ -2897,7 +2899,7 @@ const BEGINNER_ROADMAP = [
     tag:{ ko:'다음 빌드', en:'Coming next' },
     title:{ ko:'초급 6단계 후반부', en:'Stage 6: Finishing touches' },
     points:[
-      { ko:'높임 -(으)시- · 께 · 께서, 반응 -네요/-군요/-지요', en:'Honorifics and emotional reaction endings' },
+      { ko:'반응 -네요/-군요/-지요 및 은/는 vs 이/가 가려 쓰기', en:'Reaction endings and particle distinctions' },
       { ko:'남은 조사 총정리(사람·방향·견주기·범위·나열) 및 명사형 전성어미(-기/-음)', en:'Remaining particles and noun nominalizers (-기 / -음)' },
     ],
     courses:[],
