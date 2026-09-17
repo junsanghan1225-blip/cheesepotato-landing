@@ -18,6 +18,11 @@
      { t:'order',  q, tokens:[…], answer:[…] }                 · 어순 배열
      { t:'pair',   q?, pairs:[[좌,우],…] }                     · 짝 맞추기
      { t:'speak',  say:'안녕하세요', rom?, q? }                 · 소리 내어 읽기(발음 채점 재사용)
+     { t:'cloze',  sentence:'저는 학생[이에요].', answer:'이에요',
+                   options:[…], keys?:[…], meaning, audio?, why? }  · 문장 속 빈칸 채우기
+     { t:'build',  q, answers:[…], bank?:[…], must?:[…], hint?, why? }  · 단어은행 조합해 문장 통째로 쓰기
+     { t:'translate', q:'I am a student.', answers:[…], hint?, why? }   · 은행 없이 빈손 번역(build 와 같은 채점기)
+     { t:'correct', q?, wrong:'제가 학생은 이에요.', answers:[…], hint?, why? }  · 틀린 문장을 보여 주고 고쳐 쓰게 함
 
    ── 손대기 전에 ────────────────────────────────────────────
    lesson.id 는 진도(lesson_progress)의 열쇠다. **바꾸면 그 레슨을
@@ -28,11 +33,23 @@
    파일을 나눈 이유는 문법이 계속 늘어날 예정이라 한 파일에 두면
    고칠 곳을 찾기 어려워지기 때문이다.
    + 세분화된 뉘앙스 차이 문법 (초·중·고급 세부 코스)은 courses-grammar-detailed.js 에서 불러온다. */
-import { GRAMMAR_COURSES } from './courses-grammar.js?v=08ba6d9f';
-import { DETAILED_GRAMMAR_COURSES } from './courses-grammar-detailed.js?v=08ba6d9f';
-import { BEGINNER_GRAMMAR_COURSES } from './courses-grammar-beginner.js?v=08ba6d9f';
+import { GRAMMAR_COURSES } from './courses-grammar.js?v=4145c8b4';
+import { DETAILED_GRAMMAR_COURSES } from './courses-grammar-detailed.js?v=4145c8b4';
+import { BEGINNER_GRAMMAR_COURSES } from './courses-grammar-beginner.js?v=4145c8b4';
 // 초급 1단계 — 설계는 docs/curriculum-beginner.md
-import { BEGINNER_STAGE1_COURSES } from './courses-beginner-stage1.js?v=08ba6d9f';
+import { BEGINNER_STAGE1_COURSES } from './courses-beginner-stage1.js?v=4145c8b4';
+// 초급 2단계 — 시간을 얹기
+import { BEGINNER_STAGE2_COURSES } from './courses-beginner-stage2.js?v=4145c8b4';
+// 초급 3단계 — 이어 말하기
+import { BEGINNER_STAGE3_COURSES } from './courses-beginner-stage3.js?v=4145c8b4';
+// 초급 4단계 — 상대에게
+import { BEGINNER_STAGE4_COURSES } from './courses-beginner-stage4.js?v=4145c8b4';
+// 초급 5단계 — 마음을 담기
+import { BEGINNER_STAGE5_COURSES } from './courses-beginner-stage5.js?v=4145c8b4';
+// 초급 6단계 — 다듬기
+import { BEGINNER_STAGE6_COURSES } from './courses-beginner-stage6.js?v=4145c8b4';
+// 초급 보충 — 110개 문법 목록에 없지만 실전에 꼭 필요한 것 (§8)
+import { BEGINNER_EXTRA_COURSES } from './courses-beginner-extra.js?v=4145c8b4';
 
 export const COURSES = [
 
@@ -742,6 +759,24 @@ export const COURSES = [
    배열 순서가 곧 카드 순서라 가르치는 차례대로 둔다. -아/어요(bg-d-01)가
    먼저 와야 하다 동사와 불규칙이 말이 되므로 세밀 코스 뒤에 붙인다. */
 ...BEGINNER_STAGE1_COURSES,
+
+// 초급 2단계 — courses-beginner-stage2.js (과거, 진행, 시간, ㄷ/르 불규칙)
+...BEGINNER_STAGE2_COURSES,
+
+// 초급 3단계 — courses-beginner-stage3.js (나열·대조, 이유, 조건·동시·선택, 배경)
+...BEGINNER_STAGE3_COURSES,
+
+// 초급 4단계 — courses-beginner-stage4.js (부탁, 허락·의무, 금지, 능력, 제안)
+...BEGINNER_STAGE4_COURSES,
+
+// 초급 5단계 — courses-beginner-stage5.js (경험, 목적·결심, 추측, 바람, 변화·부사)
+...BEGINNER_STAGE5_COURSES,
+
+// 초급 6단계 — courses-beginner-stage6.js (관형형 클라이맥스: bg-27)
+...BEGINNER_STAGE6_COURSES,
+
+// 초급 보충 — courses-beginner-extra.js (단위명사와 몇)
+...BEGINNER_EXTRA_COURSES,
 
 /* 이/가 와 은/는 — 초급 **맨 뒤**가 제자리다. 처음부터 대조하면 문장
    하나 만들 때마다 멈춘다 (docs/curriculum-beginner.md §2 원칙 ②). */

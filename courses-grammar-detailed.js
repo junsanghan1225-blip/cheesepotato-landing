@@ -20,73 +20,75 @@ export const DETAILED_GRAMMAR_COURSES = [
   {
     id: 'bg-d-01',
     emoji: '🇰🇷',
-    title: '초급 세밀: -아요 / -어요 바르게 쓰기',
-    tagline: '모음에 따라 달라지는 어미 자동 구분',
-    blurb: '하다·먹다·가다 동사의 모음(ㅏ/ㅗ vs 그 외)을 보고 -아요 / -어요를 정확히 고르는 8문제 훈련입니다.',
+    title: { ko:'초급 세밀: -아요 / -어요 바르게 쓰기', en:'Conjugation: -아요 / -어요' },
+    tagline: { ko:'모음에 따라 달라지는 어미 자동 구분', en:'The vowel harmony rule that shapes everyday verbs.' },
+    blurb: { ko:'하다·먹다·가다 동사의 모음(ㅏ/ㅗ vs 그 외)을 보고 -아요 / -어요를 정확히 고르는 훈련입니다.',
+             en:'Look at the last vowel of the stem — ㅏ/ㅗ vs. everything else — and pick between -아요 and -어요.' },
     level: 'Beginner',
-    needs: 'grammar-core',
+    needs: 'bg-06',
     lessons: [
       {
         id: 'bg-d-01-01',
-        title: '1강. ㅏ/ㅗ 동사 뒤에는 -아요',
+        title: { ko:'1강. ㅏ/ㅗ 동사 뒤에는 -아요', en:'Lesson 1. ㅏ and ㅗ verbs take -아요' },
         minutes: 4,
         blocks: [
-          { t:'text', md:'### 💡 -아요 / -어요 핵심 규칙\n1. **동사 어간 마지막 모음이 ㅏ 또는 ㅗ** 이면 → **-아요**\n2. 그 외 모든 모음 (ㅓ, ㅜ, ㅡ, ㅣ 등) 이면 → **-어요**\n3. `하다` 동사는 예외적으로 `해요` 로 불규칙 변화합니다.' },
+          { t:'text', md:'### 💡 The Core Rule for -아요 / -어요\n1. If the **last vowel of the verb stem is ㅏ or ㅗ** → **-아요**\n2. For **all other vowels** (ㅓ, ㅜ, ㅡ, ㅣ, etc.) → **-어요**\n3. `하다` verbs are the special exception: they always become **해요**.' },
 
           { t:'cloze', sentence:'오늘 학교에 [가요].', answer:'가요',
             meaning:'I go to school today.',
             options:['갔어요','가요','가아요','가고 싶어요'],
             keys:['가요','갔어요','가아요','가고 싶어요'],
-            why:'어간 가 의 모음이 ㅏ 라 -아요 를 붙이는데, 가 + 아요 는 **가아요** 가 아니라 **가요** 로 줄어듭니다. 같은 모음이 겹치면 하나로 합쳐져요.' },
+            why:'The stem 가 ends in ㅏ, so it takes -아요. But 가 + 아요 contracts into **가요** rather than 가아요 — identical vowels merge.' },
 
           { t:'cloze', sentence:'어제 친구를 [만났어요].', answer:'만났어요',
             meaning:'I met a friend yesterday.',
             options:['만나요','만났어요','만나았어요','만날 거예요'],
             keys:['만났어요','만나요','만나았어요','만날 거예요'],
-            why:'“어제” 라서 지난 일입니다. 만나 + 았어요 는 **만나았어요** 가 아니라 **만났어요** 로 줄어들어요.' },
+            why:'“어제” means yesterday (past tense). 만나 + 았어요 contracts into **만났어요** instead of 만나았어요.' },
 
           { t:'cloze', sentence:'주말에 게임을 [해요].', answer:'해요',
             meaning:'I play games on weekends.',
             options:['했어요','할 거예요','해요','하고 싶어요'],
             keys:['해요','했어요','할 거예요','하고 싶어요'],
-            why:'하다 는 규칙을 따르지 않고 늘 **해요** 가 됩니다. 나머지 셋도 다 쓰는 말이지만 각각 지난 일 · 앞일 · 바람이에요.' },
+            why:'하다 is irregular and always becomes **해요**. The other three mean past (했어요), future (할 거예요), and desire (하고 싶어요).' },
 
           { t:'speak', say:'나는 오늘 친구를 만나고 영화를 봐요.', rom:'na-neun o-neul chin-gu-reul man-na-go yeong-hwa-reul bwa-yo',
-            q:'자연스러운 리듬으로 한 번 읽어 보세요.' },
+            q:'Read out loud in a natural rhythm: “I meet a friend and watch a movie today.”' },
         ],
       },
       {
         id: 'bg-d-01-02',
-        title: '2강. 그 외 모음은 전부 -어요',
+        title: { ko:'2강. 그 외 모음은 전부 -어요', en:'Lesson 2. All other vowels take -어요' },
         minutes: 4,
         blocks: [
-          { t:'text', md:'### 💡 -어요를 쓰는 대표 동사\n- 먹다 (ㅓ) → 먹어요\n- 배우다 (ㅜ) → 배워요\n- 읽다 (ㅣ) → 읽어요\n- 기다리다 (ㅣ) → 기다려요\n모음 ㅏ/ㅗ 가 **아니라면** 전부 -어요 라고 생각하면 됩니다!' },
+          { t:'text', md:'### 💡 Verbs That Take -어요\n- 먹다 (ㅓ) → **먹어요**\n- 배우다 (ㅜ) → **배워요**\n- 읽다 (ㅣ) → **읽어요**\n- 기다리다 (ㅣ) → **기다려요**\n\nIf the last vowel is **not ㅏ or ㅗ**, it takes **-어요**.' },
 
           { t:'cloze', sentence:'점심으로 김밥을 [먹어요].', answer:'먹어요',
             meaning:'I eat kimbap for lunch.',
             options:['먹아요','먹어요','먹었어요','먹을 거예요'],
             keys:['먹어요','먹아요','먹었어요','먹을 거예요'],
-            why:'어간 먹 의 모음은 ㅓ 이므로 -어요 입니다. **먹아요** 는 ㅏ/ㅗ 일 때 쓰는 어미를 잘못 붙인 형태예요.' },
+            why:'The stem 먹 has the vowel ㅓ, so it takes -어요 → **먹어요**. 먹아요 wrongly applies the ㅏ/ㅗ ending.' },
 
           { t:'cloze', sentence:'한국어를 열심히 [배워요].', answer:'배워요',
             meaning:'I study Korean hard.',
             options:['배우어요','배워요','배웠어요','배우고 싶어요'],
             keys:['배워요','배우어요','배웠어요','배우고 싶어요'],
-            why:'어간 배우 의 모음은 ㅜ 라 -어요 를 붙이는데, 우 + 어 는 **워** 로 합쳐집니다. **배우어요** 는 줄이지 않은 형태라 실제로는 쓰지 않아요.' },
+            why:'The stem 배우 has ㅜ, so with -어요, ㅜ + 어 merges into **워** → **배워요**.' },
 
           { t:'cloze', sentence:'책을 조용히 [읽어요].', answer:'읽어요',
             meaning:'I read a book quietly.',
             options:['읽아요','읽었어요','읽어요','읽을 거예요'],
             keys:['읽어요','읽아요','읽었어요','읽을 거예요'],
-            why:'어간 읽 의 모음은 **ㅣ** 입니다. ㅏ/ㅗ 가 아니므로 -어요 를 붙여 읽어요 가 돼요.' },
+            why:'The stem 읽 has the vowel **ㅣ**. Since it is not ㅏ or ㅗ, -어요 attaches to make **읽어요**.' },
 
           { t:'cloze', sentence:'버스를 30분 동안 [기다려요].', answer:'기다려요',
             meaning:'I wait for the bus for 30 minutes.',
             options:['기다리어요','기다려요','기다렸어요','기다릴 거예요'],
             keys:['기다려요','기다리어요','기다렸어요','기다릴 거예요'],
-            why:'끝 리 의 모음 ㅣ 에 어요 가 붙어 **려** 로 줄어듭니다. **기다리어요** 는 줄이기 전 모습이라 말할 때는 쓰지 않아요.' },
+            why:'기다리 ends in ㅣ. Combined with 어요, ㅣ + 어 contracts into **여** → **기다려요**.' },
 
-          { t:'speak', say:'나는 매일 학교에서 한국어를 배우고 책을 읽어요.', q:'-어요 동사 3개를 자연스럽게 연결해 보세요.' },
+          { t:'speak', say:'나는 매일 학교에서 한국어를 배우고 책을 읽어요.', rom:'na-neun mae-il hak-gyo-e-seo han-gug-eo-reul bae-u-go chaeg-eul ilg-eo-yo',
+            q:'Read out loud connecting the three -어요 verbs naturally.' },
         ],
       },
     ],
@@ -95,32 +97,31 @@ export const DETAILED_GRAMMAR_COURSES = [
   {
     id: 'bg-d-02',
     emoji: '🕒',
-    title: '초급 세밀: -고 싶다 / -을 거예요 뉘앙스 구분',
-    tagline: '단순 희망 vs 확정된 미래 계획',
-    blurb: '하고 싶은 막연한 소원 vs 내일 반드시 할 계획. 두 표현을 언제 써야 하는지 문맥으로 구분하는 훈련입니다.',
+    title: { ko:'초급 세밀: -고 싶다 / -(으)ㄹ 거예요 뉘앙스', en:'Nuance: -고 싶다 vs. -(으)ㄹ 거예요' },
+    tagline: { ko:'단순 희망 vs 확정된 미래 계획', en:'Wishes vs. confirmed future plans.' },
+    blurb: { ko:'하고 싶은 막연한 소원 vs 내일 반드시 할 계획. 두 표현을 언제 써야 하는지 문맥으로 구분하는 훈련입니다.',
+             en:'A wish in your heart vs. a scheduled plan. Learn to pick the right one from context clues.' },
     level: 'Beginner',
-    needs: 'bg-d-01',
+    needs: 'bg-10',
     lessons: [
       /* ── 1강 ──────────────────────────────────────────────
-         한 표현을 끝까지 붙든다. 규칙 한 덩어리 던지고 바로 문제로 가면
-         맞히기는 해도 남지 않는다. 뜻 → 만드는 법 두 단계 → 표 → 예문 →
-         함정 순서로 가고, 문제는 그다음이다. */
+         한 표현을 끝까지 붙든다. 뜻 → 만드는 법 두 단계 → 표 → 예문 → 함정 순서. */
       {
         id: 'bg-d-02-01',
-        title: '1강. 마음속 바람 -고 싶다',
+        title: { ko:'1강. 마음속 바람 -고 싶다', en:'Lesson 1. A wish in your heart: -고 싶다' },
         minutes: 5,
         blocks: [
-          { t:'text', h:'무슨 말을 하는 표현인가',
-            md:'**-고 싶다** 는 내 **마음속 바람**을 말합니다.\n\n일정표에 적힌 일이 아니라, 아직 정해지지 않았지만 하고 싶은 일이에요. 그래서 “언젠가”, “나중에”, “한 번쯤” 같은 말과 잘 붙습니다.' },
+          { t:'text', h:'What does this express?',
+            md:'**-고 싶다** expresses a **wish in your heart**.\n\nNot a locked calendar event, but something you want to do: “I want to…” It pairs naturally with words like “someday” (언젠가), “later” (나중에), or “sometime” (한 번쯤).' },
 
-          { t:'text', h:'1단계 — 사전형에서 다를 뗀다',
-            md:'가**다** → 가\n먹**다** → 먹\n\n남은 앞부분이 **어간**입니다. 한국어의 모든 어미는 여기에 붙어요.' },
+          { t:'text', h:'Step 1 — Drop 다 from the dictionary form',
+            md:'가**다** → 가\n먹**다** → 먹\n\nThe part left behind is the **stem**. Every Korean ending attaches here.' },
 
-          { t:'text', h:'2단계 — 어간에 고 싶어요를 붙인다',
-            md:'가 + **고 싶어요** → 가고 싶어요\n먹 + **고 싶어요** → 먹고 싶어요\n\n받침이 있든 없든 모양이 하나도 안 바뀝니다. 초급 표현 중에 제일 쉬운 축에 드는 이유예요.' },
+          { t:'text', h:'Step 2 — Attach -고 싶어요 to the stem',
+            md:'가 + **고 싶어요** → 가고 싶어요\n먹 + **고 싶어요** → 먹고 싶어요\n\nNo vowel harmony, no 받침 rules: it never changes shape. That makes it one of the friendliest patterns in Korean.' },
 
           { t:'table',
-            head:['사전형','어간','-고 싶어요'],
+            head:['Dictionary','Stem','-고 싶어요'],
             rows:[
               ['가다 — to go','가','가**고 싶어요**'],
               ['먹다 — to eat','먹','먹**고 싶어요**'],
@@ -130,176 +131,169 @@ export const DETAILED_GRAMMAR_COURSES = [
             ]},
 
           { t:'chars', wide:true, items:[
-            { ch:'언젠가 제주도에 가고 싶어요.', tip:'I want to go to Jeju someday. — 날짜는 안 정했다' },
+            { ch:'언젠가 제주도에 가고 싶어요.', tip:'I want to go to Jeju someday. — no date set yet' },
             { ch:'따뜻한 국물이 먹고 싶어요.', tip:'I feel like having something warm and soupy.' },
             { ch:'그 영화 꼭 보고 싶어요.', tip:'I really want to see that film.' },
             { ch:'한국에서 한 달쯤 살고 싶어요.', tip:'I want to live in Korea for about a month.' },
             { ch:'저는 한국어를 더 잘하고 싶어요.', tip:'I want to get better at Korean.' },
           ]},
 
-          { t:'note', md:'**남의 바람에는 못 씁니다.** 내가 아니라 다른 사람이 원할 때는 **-고 싶어하다** 로 바뀝니다.\n\n동생이 가고 싶**어해요**. (○)\n동생이 가고 싶어요. (✕)\n\n한국어는 남의 속마음을 단정해 말하지 않습니다. 그래서 어미를 하나 더 씌워 “그렇게 보인다”로 물러서요.' },
+          { t:'note', md:'**Do not use this for other people’s wishes.** When someone else wants to do something, use **-고 싶어하다**:\n\n동생이 가고 싶**어해요**. (○)\n동생이 가고 싶어요. (✕)\n\nKorean avoids stating another person’s inner feelings directly — it steps back and says “they appear to want to”.' },
 
-          { t:'text', h:'쓰는 자리와 안 쓰는 자리',
-            md:'**쓴다** — 아직 안 정했는데 마음이 그쪽으로 갈 때.\n오늘 좀 쉬**고 싶어요**.\n\n**안 쓴다** — 이미 정해진 일을 알릴 때. 그때는 -(으)ㄹ 거예요 입니다.\n세 시에 출발하고 싶어요. (✕ 약속이 잡혔는데 바람처럼 들린다)\n세 시에 출발**할 거예요**. (○)\n\n**안 쓴다** — 남의 마음을 말할 때. -고 싶어하다 로 갑니다.' },
+          { t:'text', h:'When to use and when not to use',
+            md:'**Use it** — when you haven’t decided, but your heart leans that way:\n오늘 좀 쉬**고 싶어요**. (I want to rest today.)\n\n**Don’t use it** — for confirmed schedules. That’s -(으)ㄹ 거예요:\n세 시에 출발하고 싶어요. (✕ Sounds like a wish when you already have an appointment)\n세 시에 출발**할 거예요**. (○ I am going to leave at 3.)\n\n**Don’t use it** — for other people’s minds. Switch to -고 싶어하다.' },
 
-          /* 보기는 전부 실제로 쓰는 말로 둔다. 없는 말을 섞으면 뜻을 안 보고
-             생김새만 보고 고르게 된다 — 그건 문법 공부가 아니라 오타 찾기다.
-             넷 다 맞는 말이되 뜻이 다르면, 고르려고 뜻을 읽어야 한다. */
           { t:'cloze', sentence:'나중에 세계 여행을 [가고 싶어요].', answer:'가고 싶어요',
             meaning:'I want to travel the world someday.',
             options:['갈 거예요','가고 싶어요','가려고 해요','가기로 했어요'],
             keys:['가고 싶어요','갈 거예요','가려고 해요','가기로 했어요'],
-            why:'넷 다 쓰는 말입니다. **갈 거예요** 는 일정이 잡혔다, **가려고 해요** 는 마음을 먹었다, **가기로 했어요** 는 정해서 약속했다는 뜻이에요. “나중에” 는 아무것도 안 정한 상태라 바람 쪽입니다.' },
+            why:'“나중에” (someday / later) shows nothing is fixed yet — it is purely a wish, so **가고 싶어요**. 갈 거예요 means a plan is set, 가려고 해요 means intending to, and 가기로 했어요 means scheduled/decided.' },
 
           { t:'cloze', sentence:'오늘 저녁에는 피자를 [먹고 싶어요].', answer:'먹고 싶어요',
             meaning:'I feel like eating pizza tonight.',
             options:['먹을 거예요','먹으려고 해요','먹고 싶어요','먹기로 했어요'],
             keys:['먹고 싶어요','먹을 거예요','먹으려고 해요','먹기로 했어요'],
-            why:'주문을 넣었으면 **먹을 거예요**, 가족과 정했으면 **먹기로 했어요** 입니다. 여기서는 “피자가 당긴다” 는 마음뿐이라 -고 싶어요.' },
+            why:'If you already ordered it, you would say **먹을 거예요**. Here it’s just a craving in your mind, so **먹고 싶어요**.' },
 
-          /* 고르기만 하면 읽을 줄만 알게 된다. 한 번은 손으로 써 봐야 한다. */
-          { t:'type', q:'배우다 (to learn) — “한국 요리를 ___ .” 바람으로 바꿔 쓰세요.',
+          { t:'type', q:'배우다 (to learn) — “한국 요리를 ___ .” Make it a wish: “I want to learn…”',
             answer:'배우고 싶어요',
             keys:['배우고 싶어요','배울 거예요','배우려고 해요','배우기로 했어요'],
-            why:'어간 배우 에 고 싶어요 를 그대로 붙입니다. 받침을 따지지 않아요.' },
+            why:'Attach -고 싶어요 directly to the stem 배우. No stem change needed.' },
 
-          { t:'choice', q:'동생도 같이 가기를 바라고 있어요. 알맞은 것은?',
+          { t:'choice', q:'Your younger sibling also wants to go. Which one is correct?',
             options:['동생도 가고 싶어요','동생도 가고 싶어해요','동생도 가려고 해요'], answer:1,
-            why:'**가려고 해요** 도 맞는 말이지만 “가기로 마음먹었다” 는 뜻이라 바람과 다릅니다. 남의 바람을 말할 때는 -고 싶어하다 입니다.' },
+            why:'When talking about someone else’s wish, use **-고 싶어하다** → 가고 싶어해요.' },
 
-          { t:'speak', say:'저는 언젠가 제주도에 가서 한 달쯤 살고 싶어요.',
-            q:'바람을 말하는 문장이라 끝을 조금 부드럽게 놓아 보세요.' },
+          { t:'speak', say:'저는 언젠가 제주도에 가서 한 달쯤 살고 싶어요.', rom:'jeo-neun eon-jen-ga je-ju-do-e ga-seo han dal-jjeum sal-go sip-eo-yo',
+            q:'Read out loud warmly: “Someday I want to go to Jeju and live there for about a month.”' },
         ],
       },
 
       /* ── 2강 ────────────────────────────────────────────── */
       {
         id: 'bg-d-02-02',
-        title: '2강. 정해진 일정 -(으)ㄹ 거예요',
+        title: { ko:'2강. 정해진 일정 -(으)ㄹ 거예요', en:'Lesson 2. Scheduled plans: -(으)ㄹ 거예요' },
         minutes: 5,
         blocks: [
-          { t:'text', h:'무슨 말을 하는 표현인가',
-            md:'**-(으)ㄹ 거예요** 는 **이미 정해 둔 일**을 말합니다.\n\n마음이 아니라 일정입니다. 표를 끊었거나, 약속을 잡았거나, 하기로 마음을 굳힌 일이에요. “내일”, “다음 주”, “세 시에” 처럼 때를 가리키는 말과 붙습니다.' },
+          { t:'text', h:'What does this express?',
+            md:'**-(으)ㄹ 거예요** expresses a **scheduled or confirmed plan**.\n\nNot just a wish, but a locked plan: you bought the ticket, made the appointment, or firmly resolved to do it. It pairs with specific time words like “tomorrow” (내일), “next week” (다음 주), or “at 3:00” (세 시에).' },
 
-          { t:'text', h:'1단계 — 어간에 받침이 있는지 본다',
-            md:'만나**다** → 만나 … 받침 **없음**\n읽**다** → 읽 … 받침 **있음** (ㄱ)\n\n이 한 가지만 보면 다음 단계가 정해집니다.' },
+          { t:'text', h:'Step 1 — Check for a final consonant (받침)',
+            md:'만나**다** → 만나 … **no 받침**\n읽**다** → 읽 … **has 받침** (ㄱ)\n\nThis single check determines everything.' },
 
-          { t:'text', h:'2단계 — 받침이 있으면 을, 없으면 ㄹ',
-            md:'받침 없음 → 어간 + **ㄹ 거예요**\n만나 + ㄹ 거예요 → 만날 거예요\n\n받침 있음 → 어간 + **을 거예요**\n읽 + 을 거예요 → 읽을 거예요' },
+          { t:'text', h:'Step 2 — No 받침 → -ㄹ 거예요 / Has 받침 → -을 거예요',
+            md:'No 받침 → stem + **ㄹ 거예요**\n만나 + ㄹ 거예요 → **만날 거예요**\n\nHas 받침 → stem + **을 거예요**\n읽 + 을 거예요 → **읽을 거예요**' },
 
           { t:'table',
-            head:['사전형','어간','받침','-(으)ㄹ 거예요'],
+            head:['Dictionary','Stem','받침','-(으)ㄹ 거예요'],
             rows:[
-              ['만나다 — to meet','만나','없음','만나**ㄹ** → 만날 거예요'],
-              ['보다 — to watch','보','없음','보**ㄹ** → 볼 거예요'],
-              ['읽다 — to read','읽','있음 (ㄱ)','읽**을** 거예요'],
-              ['먹다 — to eat','먹','있음 (ㄱ)','먹**을** 거예요'],
-              ['살다 — to live','살','받침이 ㄹ','살 거예요'],
+              ['만나다 — to meet','만나라','none','만나**ㄹ** → 만날 거예요'],
+              ['보다 — to watch','보','none','보**ㄹ** → 볼 거예요'],
+              ['읽다 — to read','읽','has ㄱ','읽**을** 거예요'],
+              ['먹다 — to eat','먹','has ㄱ','먹**을** 거예요'],
+              ['살다 — to live','살','ends in ㄹ','살 거예요 (ㄹ stays as is)'],
             ]},
 
           { t:'chars', wide:true, items:[
-            { ch:'내일 오전 열 시에 친구를 만날 거예요.', tip:'I am meeting a friend at 10 tomorrow. — 약속이 잡혔다' },
+            { ch:'내일 오전 열 시에 친구를 만날 거예요.', tip:'I am meeting a friend at 10 tomorrow. — appointment made' },
             { ch:'이번 주말에는 집에서 영화를 볼 거예요.', tip:'I am going to watch films at home this weekend.' },
             { ch:'올해는 책을 오십 권 읽을 거예요.', tip:'I am going to read fifty books this year.' },
             { ch:'점심은 학교 앞에서 먹을 거예요.', tip:'I will eat lunch in front of the school.' },
             { ch:'다음 달부터 서울에서 살 거예요.', tip:'I am going to live in Seoul from next month.' },
           ]},
 
-          { t:'note', md:'**어간 받침이 ㄹ 이면 을을 또 붙이지 않습니다.**\n\n살다 → 살 거예요 (○) / 살을 거예요 (✕)\n만들다 → 만들 거예요 (○)\n\n이미 ㄹ 이 있으니 그대로 두는 것입니다.' },
+          { t:'note', md:'**If the stem already ends in ㄹ, do not add 을.**\n\n살다 → 살 거예요 (○) / 살을 거예요 (✕)\n만들다 → 만들 거예요 (○)\n\nBecause ㄹ is already there, leave it as is.' },
 
-          { t:'text', h:'쓰는 자리와 안 쓰는 자리',
-            md:'**쓴다** — 때가 정해졌거나, 표를 끊었거나, 이미 마음을 굳혔을 때.\n다음 주에 이사**할 거예요**.\n\n**안 쓴다** — 아직 아무것도 안 정했을 때. 그때는 -고 싶어요 입니다.\n\n**곁들여 알아 둘 것** — **-(으)려고 해요** 는 “그럴 생각이다”, **-기로 했어요** 는 “그렇게 정했다” 입니다. 셋 다 앞일을 말하지만 굳기의 정도가 다릅니다.' },
+          { t:'text', h:'When to use and when not to use',
+            md:'**Use it** — when the time is set, tickets are booked, or the plan is firm:\n다음 주에 이사**할 거예요**.\n\n**Don’t use it** — when nothing is decided yet. Use -고 싶어요 instead.\n\n**Related patterns** — **-(으)려고 해요** means “planning/thinking of”, and **-기로 했어요** means “decided on”. All three look ahead, but with different levels of firmness.' },
 
           { t:'cloze', sentence:'내일 오전 10시에 친구를 [만날 거예요].', answer:'만날 거예요',
             meaning:'I am going to meet a friend tomorrow at 10 AM.',
             options:['만나고 싶어요','만날 거예요','만나려고 해요','만났어요'],
             keys:['만날 거예요','만나고 싶어요','만나려고 해요','만났어요'],
-            why:'**만났어요** 는 지난 일, **만나고 싶어요** 는 바람, **만나려고 해요** 는 생각 중입니다. “내일 10시” 로 약속이 잡혔으니 -ㄹ 거예요.' },
+            why:'“내일 10시” (tomorrow at 10) sets an exact appointment → **만날 거예요**. 만났어요 is past tense, 만나고 싶어요 is just a wish, and 만나려고 해요 means thinking of it.' },
 
           { t:'cloze', sentence:'다음 달부터 서울에서 [살 거예요].', answer:'살 거예요',
             meaning:'I am going to live in Seoul from next month.',
             options:['살고 싶어요','살 거예요','살려고 해요','살았어요'],
             keys:['살 거예요','살고 싶어요','살려고 해요','살았어요'],
-            why:'“다음 달부터” 라고 때를 못 박았습니다. 어간 살 의 받침이 이미 ㄹ 이라 을 을 더 붙이지 않고 살 거예요 입니다.' },
+            why:'“다음 달부터” (from next month) sets a specific timeline. The stem 살 already ends in ㄹ, so it attaches directly: **살 거예요**.' },
 
-          /* 받침 규칙은 고르기로 안 익는다. 어간을 보고 직접 만들어 봐야 한다. */
-          { t:'type', q:'읽다 (to read) — “올해는 책을 오십 권 ___ .” 받침을 보고 만들어 쓰세요.',
+          { t:'type', q:'읽다 (to read) — “올해는 책을 오십 권 ___ .” Conjugate into -(으)ㄹ 거예요.',
             answer:'읽을 거예요',
             keys:['읽을 거예요','읽고 싶어요','읽으려고 해요','읽었어요'],
-            why:'읽 은 받침 ㄱ 이 있으므로 을 거예요 를 붙입니다. 받침이 없었다면 ㄹ 거예요 였어요.' },
+            why:'읽 has a 받침 (ㄱ), so attach **을 거예요** → 읽을 거예요.' },
 
-          { t:'pair', q:'사전형과 -(으)ㄹ 거예요 형태를 짝지어 보세요.',
+          { t:'pair', q:'Match each dictionary verb with its -(으)ㄹ 거예요 form.',
             pairs:[
-              ['만나다 (받침 없음)','만날 거예요'],
+              ['만나다 (no 받침)','만날 거예요'],
               ['읽다 (받침 ㄱ)','읽을 거예요'],
               ['살다 (받침 ㄹ)','살 거예요'],
               ['먹다 (받침 ㄱ)','먹을 거예요'],
             ]},
 
-          { t:'order', q:'“내일 친구를 만날 거예요.” 를 만들어 보세요.',
+          { t:'order', q:'Build “I am going to meet a friend tomorrow.”',
             tokens:['내일','친구를','만날 거예요'], answer:['내일','친구를','만날 거예요'] },
 
-          { t:'speak', say:'다음 주 월요일에 서울역에서 기차를 타고 부산에 갈 거예요.',
-            q:'정해진 일정이라 또박또박 끊어 읽어 보세요.' },
+          { t:'speak', say:'다음 주 월요일에 서울역에서 기차를 타고 부산에 갈 거예요.', rom:'da-eum ju wol-yo-il-e seoul-yeog-e-seo gi-cha-reul ta-go bu-san-e gal geo-ye-yo',
+            q:'Say it out loud with clear pacing: “Next Monday, I am taking the train from Seoul Station to Busan.”' },
         ],
       },
 
-      /* ── 3강 ──────────────────────────────────────────────
-         코스 이름이 “뉘앙스 구분” 인데 정작 둘을 나란히 놓고 고르는 자리가
-         없었다. 따로 배우면 각각은 알아도 갈림길에서 멈춘다. */
+      /* ── 3강 ────────────────────────────────────────────── */
       {
         id: 'bg-d-02-03',
-        title: '3강. 둘 중 무엇을 쓸까',
+        title: { ko:'3강. 둘 중 무엇을 쓸까', en:'Lesson 3. Choosing between the two' },
         minutes: 4,
         blocks: [
-          { t:'text', h:'갈림길은 하나뿐이다',
-            md:'**정해졌나, 아직인가.**\n\n표를 끊었으면 -(으)ㄹ 거예요, 아직 마음뿐이면 -고 싶어요. 문장 안의 때를 가리키는 말이 거의 항상 답을 알려 줍니다.' },
+          { t:'text', h:'The single deciding question',
+            md:'**Is it decided, or still just in your heart?**\n\nIf the ticket is bought or appointment booked, use **-(으)ㄹ 거예요**. If it’s still just a wish, use **-고 싶어요**. The time word in the sentence almost always gives away the answer.' },
 
           { t:'table',
-            head:['문장 속 단서','고르는 표현','보기'],
+            head:['Clue in sentence','Chosen pattern','Example'],
             rows:[
-              ['언젠가 · 나중에 · 한 번쯤','-고 싶어요','언젠가 가**고 싶어요**'],
-              ['내일 · 다음 주 · 세 시에','-(으)ㄹ 거예요','내일 **갈 거예요**'],
-              ['표를 샀어요 · 약속했어요','-(으)ㄹ 거예요','벌써 **갈 거예요**'],
-              ['그냥 마음이 그래요','-고 싶어요','그냥 쉬**고 싶어요**'],
+              ['언젠가 · 나중에 · 한 번쯤 (someday)','-고 싶어요','언젠가 가**고 싶어요**'],
+              ['내일 · 다음 주 · 세 시에 (specific time)','-(으)ㄹ 거예요','내일 **갈 거예요**'],
+              ['표를 샀어요 · 약속했어요 (booked)','-(으)ㄹ 거예요','벌써 **갈 거예요**'],
+              ['그냥 마음이 그래요 (just feel like it)','-고 싶어요','그냥 쉬**고 싶어요**'],
             ]},
 
           { t:'chars', wide:true, items:[
-            { ch:'언젠가 유럽에 가고 싶어요.', tip:'Someday I want to go to Europe. — 계획 없음' },
-            { ch:'다음 달에 유럽에 갈 거예요.', tip:'I am going to Europe next month. — 표를 끊었다' },
-            { ch:'한국 음식을 배우고 싶어요.', tip:'I want to learn Korean cooking. — 바람' },
-            { ch:'토요일에 요리 수업에 갈 거예요.', tip:'I am going to a cooking class on Saturday. — 등록했다' },
+            { ch:'언젠가 유럽에 가고 싶어요.', tip:'Someday I want to go to Europe. — no fixed plan' },
+            { ch:'다음 달에 유럽에 갈 거예요.', tip:'I am going to Europe next month. — ticket purchased' },
+            { ch:'한국 음식을 배우고 싶어요.', tip:'I want to learn Korean cooking. — wish' },
+            { ch:'토요일에 요리 수업에 갈 거예요.', tip:'I am going to a cooking class on Saturday. — registered' },
           ]},
 
-          { t:'note', md:'**둘 다 자연스러운 자리도 있습니다.**\n\n“주말에 쉬고 싶어요” 와 “주말에 쉴 거예요” 는 둘 다 맞습니다. 앞은 바람이고 뒤는 선언이에요. 틀린 것이 아니라 **말하는 사람의 태도**가 다른 것입니다.' },
+          { t:'note', md:'**Sometimes both are completely natural.**\n\n“주말에 쉬고 싶어요” and “주말에 쉴 거예요” are both valid. The first is a wish (“I want to rest”), and the second is a decision (“I am going to rest”). It’s about **the speaker’s attitude**.' },
 
           { t:'cloze', sentence:'아직 아무것도 안 정했지만 언젠가 유럽에 [가고 싶어요].', answer:'가고 싶어요',
             meaning:'Nothing is decided yet, but someday I want to go to Europe.',
             options:['갈 거예요','가고 싶어요','갔을 거예요','가고 싶어해요'],
             keys:['가고 싶어요','갈 거예요','갔을 거예요','가고 싶어해요'],
-            why:'“아직 아무것도 안 정했지만” 이 단서입니다. 일정이 없으니 바람 쪽이에요.' },
+            why:'“아직 아무것도 안 정했지만” (nothing is decided yet) is the clue — with no set schedule, it is a wish: **가고 싶어요**.' },
 
           { t:'cloze', sentence:'비행기표를 벌써 샀어요. 다음 달에 유럽에 [갈 거예요].', answer:'갈 거예요',
             meaning:'I already bought the ticket. I am going to Europe next month.',
             options:['가고 싶어요','갈 거예요','가고 싶어해요','가는 거예요'],
             keys:['갈 거예요','가고 싶어요','가고 싶어해요','가는 거예요'],
-            why:'표를 샀고 달까지 정해졌습니다. 마음이 아니라 일정이므로 -ㄹ 거예요.' },
+            why:'The ticket is bought and month is set. It is a scheduled plan, so **갈 거예요**.' },
 
           { t:'cloze', sentence:'친구가 한국에 유학을 [가고 싶어해요].', answer:'가고 싶어해요',
             meaning:'My friend wants to go study in Korea.',
             options:['가고 싶어요','갈 거예요','가고 싶어해요','가고 싶습니다'],
             keys:['가고 싶어해요','가고 싶어요','갈 거예요','가고 싶습니다'],
-            why:'주어가 친구입니다. 남의 바람이므로 -고 싶어하다 로 물러서서 말합니다.' },
+            why:'The subject is a friend (third person). For someone else’s desire, use **-고 싶어하다**.' },
 
-          { t:'pair', q:'상황과 표현을 짝지어 보세요.',
+          { t:'pair', q:'Match each situation with the matching expression.',
             pairs:[
-              ['아직 정하지 않은 바람','-고 싶어요'],
-              ['날짜까지 잡힌 일정','-(으)ㄹ 거예요'],
-              ['다른 사람의 바람','-고 싶어해요'],
+              ['An undecided wish','-고 싶어요'],
+              ['A scheduled plan with a date','-(으)ㄹ 거예요'],
+              ['Another person’s wish','-고 싶어해요'],
             ]},
 
-          { t:'speak', say:'지금은 그냥 가고 싶은 마음이지만, 돈을 모으면 내년에는 꼭 갈 거예요.',
-            q:'앞은 바람, 뒤는 계획입니다. 두 어미가 한 문장에 같이 나옵니다.' },
+          { t:'speak', say:'지금은 그냥 가고 싶은 마음이지만, 돈을 모으면 내년에는 꼭 갈 거예요.', rom:'ji-geum-eun geu-nyang ga-go sip-eun ma-eum-i-ji-man, don-eul mo-eu-myeon nae-nyeon-e-neun kkok gal geo-ye-yo',
+            q:'First half is a wish, second half is a firm plan: “Right now it is just a wish, but when I save money, I will definitely go next year.”' },
         ],
       },
     ],
@@ -313,7 +307,7 @@ export const DETAILED_GRAMMAR_COURSES = [
     blurb: { ko:'“집에 가요”가 할머니 얘기가 되면 “할머니께서 집에 가세요”로 바뀝니다. 동사에 -(으)시-를 붙이는 규칙부터 드시다·계시다처럼 통째로 바뀌는 낱말까지, 기본 문장을 사람에 맞게 고치는 훈련입니다.',
            en:'“집에 가요” becomes “할머니께서 집에 가세요” when it’s about your grandmother. From the rule for attaching -(으)시- to verbs, to words that change completely — like 드시다 (eat) and 계시다 (be) — this trains you to reshape a basic sentence to fit the person you’re talking about.' },
     level: 'Beginner',
-    needs: 'bg-04',
+    needs: 'bg-irr-02',
     hon: true,   // 존댓말 검사기(tools/check-honorific.mjs)가 이 표시로 코스를 골라 낸다
     lessons: [
       /* ── 1강 ──────────────────────────────────────────────
@@ -1078,7 +1072,6 @@ export const DETAILED_GRAMMAR_COURSES = [
           { t:'build', q:'Rewrite the basic sentence “선생님께 물어볼게요” using a humble expression.',
             answers:['선생님께 여쭤볼게요.','선생님께 여쭈어볼게요.'],
             bank:['선생님께','여쭤볼게요','여쭈어볼게요','물어볼게요'],
-            must:['여쭤'],
             hint:'This is asking someone senior, so use 여쭙다 instead of 묻다' },
 
           { t:'choice', q:'Which one doesn’t fit?',
