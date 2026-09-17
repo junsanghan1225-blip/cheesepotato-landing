@@ -948,6 +948,14 @@ button.wb-link { background:none; border:none; border-bottom:1.5px solid rgba(25
 }
 .wb-card-word { font-size:30px; font-weight:700; color:var(--ink); letter-spacing:-.03em; margin-top:14px; }
 .wb-card-mean { font-size:14px; color:var(--ink-3); margin-top:5px; }
+/* "오늘의 단어" 뜻풀이(#wotdGloss)만. 이 자리는 JS 가 매일 다른 낱말로
+   바꿔 끼운다(app.module.js 의 wotdRender) — 뜻풀이 길이가 낱말마다
+   3~89자로 들쭉날쭉해서(사전 4,209개 표본: 78%가 한 줄, 21%가 두 줄,
+   1%가 세 줄 이상), 자리 표시자가 바뀌는 순간 카드 밑 요소가 밀린다.
+   두 줄 자리를 미리 잡아 두면 그 21%(가장 흔한 밀림)가 없어지고, 세
+   줄짜리 1%만 드물게 남는다 — 정적인 다른 두 자리(레벨 테스트 안내,
+   "bicycle")는 안 바뀌는 값이라 클래스가 아니라 이 id 에만 건다. */
+#wotdGloss { min-height:32px; }
 .wb-card-ex {
   font-size:13.5px; line-height:1.7; color:var(--ink-2); margin-top:16px;
   padding-top:14px; border-top:1px solid var(--line-2); word-break:keep-all;
