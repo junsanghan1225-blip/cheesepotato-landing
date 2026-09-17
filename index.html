@@ -17,24 +17,45 @@
      을 쓰고 있어서인데, CSS 는 코드를 실행하지 못하고 밖으로 내보낼 길도
      img-src 와 connect-src 로 이미 막혀 있어 급이 다르다.
 
-     허용한 바깥은 딱 둘이다 — 우리 Supabase 한 대와 Clarity(방문 기록).
-     esm.sh · jsdelivr · 구글 폰트는 vendor/ 로 들여와서 목록에서 빠졌다.
+     허용한 바깥은 셋이다 — 우리 Supabase 한 대, Clarity(방문 기록),
+     그리고 구글 애즈 전환 추적(ads.js). esm.sh · jsdelivr · 구글 폰트는
+     vendor/ 로 들여와서 목록에서 빠졌다.
+
+     **구글을 들인 값이 얼마인지는 알고 있어야 한다.** googletagmanager.com
+     을 script-src 에 넣는 순간, 그 계정을 쥔 사람은 이 사이트에서 무슨
+     자바스크립트든 돌릴 수 있다 — 여기에는 로그인이 있으므로 그건 계정과
+     같은 무게다. 그래서 두 가지를 지킨다. (1) 태그 관리자(GTM) 컨테이너는
+     쓰지 않는다. 그건 화면에서 아무 코드나 얹으라고 만든 물건이다. 전환
+     번호를 직접 부르는 gtag.js 만 쓴다. (2) 구글 애즈 계정에 2단계 인증을
+     걸고, 대행사에 계정을 통째로 넘기지 않는다.
+
+     frame-src 가 'none' 에서 td.doubleclick.net 하나로 풀렸다. 전환 하나가
+     찍힐 때 구글이 쿠키를 맞추려고 그 주소로 보이지 않는 틀을 하나 연다.
+     막아도 전환 자체는 googleadservices.com 으로 따로 가서 세어지지만,
+     콘솔이 거부 기록으로 뒤덮여 진짜 오류가 묻힌다.
+
+     img-src 의 google.com · google.co.kr 은 전환 확인 신호가 나가는
+     자리다. 구글은 보는 사람의 나라 주소(google.co.jp · google.de …)로도
+     같은 신호를 보내는데, CSP 에는 와일드카드 최상위 도메인을 못 적어서
+     전부 적을 수가 없다. 그쪽은 막힌다 — 전환 집계는 멀쩡하고 리마케팅
+     목록만 덜 모인다. 나라를 넓혀 광고를 돌릴 때 그 나라 주소를 이 줄에
+     더할 것.
 
      ※ <meta> 로 거는 CSP 는 frame-ancestors 와 report-uri 를 못 쓴다.
        그 둘은 진짜 HTTP 헤더여야 하는데 GitHub Pages 는 헤더를 못 붙인다.
        클릭재킹까지 막으려면 앞에 Cloudflare 같은 것을 세워야 한다. -->
 <meta http-equiv="Content-Security-Policy" content="
   default-src 'self';
-  script-src 'self' https://www.clarity.ms https://*.clarity.ms;
+  script-src 'self' https://www.clarity.ms https://*.clarity.ms https://www.googletagmanager.com https://www.googleadservices.com https://googleads.g.doubleclick.net;
   style-src 'self' 'unsafe-inline';
   font-src 'self';
-  img-src 'self' data: blob: https://tjgoevtvobvmlyefgxel.supabase.co https://*.clarity.ms https://c.bing.com;
+  img-src 'self' data: blob: https://tjgoevtvobvmlyefgxel.supabase.co https://*.clarity.ms https://c.bing.com https://www.googletagmanager.com https://www.googleadservices.com https://googleads.g.doubleclick.net https://www.google.com https://www.google.co.kr;
   media-src 'self' https://tjgoevtvobvmlyefgxel.supabase.co;
-  connect-src 'self' https://tjgoevtvobvmlyefgxel.supabase.co wss://tjgoevtvobvmlyefgxel.supabase.co https://*.clarity.ms https://c.bing.com;
+  connect-src 'self' https://tjgoevtvobvmlyefgxel.supabase.co wss://tjgoevtvobvmlyefgxel.supabase.co https://*.clarity.ms https://c.bing.com https://www.googletagmanager.com https://www.googleadservices.com https://googleads.g.doubleclick.net https://www.google.com;
   base-uri 'self';
   form-action 'self';
+  frame-src https://td.doubleclick.net;
   object-src 'none';
-  frame-src 'none';
 ">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 
@@ -115,13 +136,13 @@
      Pretendard 는 통짜(2.0MB) 대신 조각난 쪽을 쓴다 — 브라우저가
      unicode-range 를 보고 화면에 실제로 나온 글자가 든 조각만 받는다.
      그래서 저장소는 무거워졌지만 학습자가 받는 양은 오히려 줄었다. -->
-<link rel="stylesheet" href="vendor/pretendard.css?v=08ba6d9f">
-<link rel="stylesheet" href="vendor/pressstart2p.css?v=08ba6d9f">
+<link rel="stylesheet" href="vendor/pretendard.css?v=ccc91796">
+<link rel="stylesheet" href="vendor/pressstart2p.css?v=ccc91796">
 <!-- 화면 상자 안에서만 쓰는 CSS 는 여기서 갈라 받는다. media="print" 라
      첫 페인트를 안 막고, 다 받아지면 app.js 가 media 를 all 로 바꾼다.
      자바스크립트가 없으면 <noscript> 쪽이 그냥 평범하게 걸린다. -->
-<link id="viewsCss" rel="stylesheet" href="app-views.css?v=08ba6d9f" media="print">
-<noscript><link rel="stylesheet" href="app-views.css?v=08ba6d9f"></noscript>
+<link id="viewsCss" rel="stylesheet" href="app-views.css?v=ccc91796" media="print">
+<noscript><link rel="stylesheet" href="app-views.css?v=ccc91796"></noscript>
 
 <style>
 /* ══════════════════════════════════════════════════════════════
@@ -3731,9 +3752,11 @@ body.hlp-open { overflow:hidden; }
 <div id="hlpScrim" class="hlp-scrim"></div>
 <aside id="hlpPanel" class="hlp-panel" aria-label="한국어 도우미" aria-hidden="true"></aside>
 
-<script src="app.js?v=08ba6d9f"></script>
-<script type="module" src="app.module.js?v=08ba6d9f"></script>
+<script src="app.js?v=ccc91796"></script>
+<script type="module" src="app.module.js?v=ccc91796"></script>
 
-<script src="analytics.js?v=08ba6d9f" defer></script>
+<script src="analytics.js?v=ccc91796" defer></script>
+<!-- 구글 애즈 전환 추적. ads.js 의 ADS_ID 가 비어 있으면 아무것도 안 한다. -->
+<script src="ads.js?v=ccc91796" defer></script>
 </body>
 </html>
