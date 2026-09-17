@@ -2063,6 +2063,7 @@ for (const d of [OUT, OUT_COURSE, OUT_LESSON, OUT_TW, OUT_TR, OUT_TL, OUT_DICT, 
 
 const urls = [
   { loc: '/', freq: 'weekly', pri: '1.0' },
+  { loc: '/en/', freq: 'weekly', pri: '1.0' },
   { loc: '/sentence/', freq: 'weekly', pri: '0.9' },
 ];
 let n = 0;
@@ -2201,6 +2202,28 @@ for (const [tag, posts] of TAG_POSTS) {
 /* RSS 는 sitemap 에 안 넣는다. 사람이 읽는 쪽이 아니라 구독기가 읽는
    파일이라 검색 결과에 뜰 일이 없고, 넣으면 중복된 내용으로 잡힌다. */
 writeFileSync(join(OUT_BLOG, 'rss.xml'), blogRss(BLOG_POSTS));
+
+/* ── 홈 첫 쪽의 블로그 미리보기 ───────────────────────────────
+   index.html 은 손으로 고치는 쪽이지만 이 목록만은 예외다 — 글을 더할 때마다
+   손으로 맞추는 걸 잊으면 홈에 낡은 글이 남는다. 순서는 BLOG_POSTS 배열
+   순서를 그대로 따른다(맨 위 두 편이 영어 글로 고정돼 있는 것도 포함) —
+   blog/index.html 이 이미 이 순서로 나가고 있어서, 홈만 다른 기준(날짜순)을
+   쓰면 두 쪽이 서로 다른 「최신」을 말하게 된다. */
+{
+  const teaseItems = BLOG_POSTS.slice(0, 3).map((p) => {
+    const d = new Date(`${p.date}T00:00:00Z`);
+    const label = `${d.getUTCMonth() + 1}월 ${d.getUTCDate()}일`;
+    return `<a class="blog-tease-item" href="blog/${p.id}.html">` +
+      `<span class="blog-tease-date">${label}</span>` +
+      `<span class="blog-tease-title">${esc(p.title)}</span></a>`;
+  }).join('');
+  const idxPath = join(ROOT, 'index.html');
+  const idxSrc = readEn(idxPath, 'utf8');
+  const marker = /(<!-- BLOG_TEASE_START -->)[\s\S]*?(<!-- BLOG_TEASE_END -->)/;
+  if (!marker.test(idxSrc)) throw new Error('index.html 에서 BLOG_TEASE_START/END 마커를 못 찾았다');
+  const idxNext = idxSrc.replace(marker, `$1<div class="blog-tease-list">${teaseItems}</div>$2`);
+  if (idxNext !== idxSrc) writeFileSync(idxPath, idxNext);
+}
 
 urls.push({ loc: '/privacy.html', freq: 'yearly', pri: '0.3' });
 writeFileSync(join(ROOT, 'sitemap.xml'), sitemap(urls));

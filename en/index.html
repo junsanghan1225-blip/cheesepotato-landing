@@ -1,0 +1,3769 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+
+<!-- ── 무엇을 불러올 수 있는지 못박기 (CSP) ────────────────────────
+     이 사이트에는 로그인이 있다. 그러니 우리 페이지 안에서 남의
+     자바스크립트가 한 줄이라도 돌면 그날로 계정이 털린다. CSP 는 「여기
+     적힌 데서 온 것만 실행한다」는 선언이고, 브라우저가 대신 지켜 준다.
+
+     script-src 에 'unsafe-inline' 이 없는 게 핵심이다. 그래서 누가 어떤
+     구멍으로든 <script> 를 심어 넣어도 브라우저가 실행을 거부한다.
+     그러려면 우리 스크립트도 인라인이면 안 돼서, 예전에 index.html 안에
+     박혀 있던 덩이들을 app.js · app.module.js · analytics.js 로 뺐다.
+
+     style-src 에는 'unsafe-inline' 이 남아 있다. 화면 곳곳에 style="…"
+     을 쓰고 있어서인데, CSS 는 코드를 실행하지 못하고 밖으로 내보낼 길도
+     img-src 와 connect-src 로 이미 막혀 있어 급이 다르다.
+
+     허용한 바깥은 딱 둘이다 — 우리 Supabase 한 대와 Clarity(방문 기록).
+     esm.sh · jsdelivr · 구글 폰트는 vendor/ 로 들여와서 목록에서 빠졌다.
+
+     ※ <meta> 로 거는 CSP 는 frame-ancestors 와 report-uri 를 못 쓴다.
+       그 둘은 진짜 HTTP 헤더여야 하는데 GitHub Pages 는 헤더를 못 붙인다.
+       클릭재킹까지 막으려면 앞에 Cloudflare 같은 것을 세워야 한다. -->
+<meta http-equiv="Content-Security-Policy" content="
+  default-src 'self';
+  script-src 'self' https://www.clarity.ms https://*.clarity.ms;
+  style-src 'self' 'unsafe-inline';
+  font-src 'self';
+  img-src 'self' data: blob: https://tjgoevtvobvmlyefgxel.supabase.co https://*.clarity.ms https://c.bing.com;
+  media-src 'self' https://tjgoevtvobvmlyefgxel.supabase.co;
+  connect-src 'self' https://tjgoevtvobvmlyefgxel.supabase.co wss://tjgoevtvobvmlyefgxel.supabase.co https://*.clarity.ms https://c.bing.com;
+  base-uri 'self';
+  form-action 'self';
+  object-src 'none';
+  frame-src 'none';
+">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- 제목과 설명을 두 말로 쓴다. 이 사이트를 찾을 사람은 한국어를 **배우는**
+     사람이고, 브라우저가 한국어가 아니면 화면도 영어로 뜬다. 그런데
+     검색과 공유 미리보기만 한국어로 나가서, 정작 대상이 검색으로는 못 닿고
+     있었다.
+
+     ※ hreflang 은 이제 건다. /en/ 이 생겨서다(tools/build-en-home.mjs 가
+       이 쪽의 data-en 을 읽어 굽는다). x-default 는 영어 쪽 — blog/ 의
+       언어 짝과 같은 이유로, 이 사이트의 기본이 영어라서다(app.js 의
+       initLang). 이 세 줄은 en/index.html 에도 글자 그대로 들어간다 —
+       구글은 양쪽에서 서로를 가리켜야 짝으로 믿는다. -->
+<title>Cheesepotato — Free Korean Learning &amp; TOPIK Practice</title>
+<meta name="description" content="Free Korean learning — Hangul to TOPIK 6. 49 courses, 153 lessons, 290 grammar points, 512 TOPIK questions, 54 passages, 5,358 words. No install, no sign-up.">
+<link rel="canonical" href="https://everykoreans.com/en/">
+<link rel="alternate" hreflang="ko" href="https://everykoreans.com/">
+<link rel="alternate" hreflang="en" href="https://everykoreans.com/en/">
+<link rel="alternate" hreflang="x-default" href="https://everykoreans.com/en/">
+
+<!-- ── 구조화 자료 (JSON-LD) ────────────────────────────────────
+     여태 이 쪽에는 이게 **하나도 없었다.** 문법 표현 291쪽에는 넣어 두고
+     정작 가장 중요한 첫 쪽을 빠뜨렸다.
+
+     검색 엔진과 대화형 엔진(ChatGPT·Perplexity·AI 개요)이 「이 사이트가
+     무엇이냐」를 사람이 쓴 문장에서 짐작하는 대신 여기서 읽어 간다.
+     특히 FAQPage 는 대화형 엔진이 가장 잘 뽑아 쓰는 모양이다.
+
+     ※ FAQPage 의 글자는 화면의 <details> 와 **한 글자도 다르면 안 된다.**
+       다르면 둘 중 하나가 거짓이 되고, 검색 엔진이 그걸 먼저 알아본다.
+       tools/check-geo.mjs 가 둘을 맞춰 본다.
+
+     ※ CSP 에 'unsafe-inline' 이 없어도 막히지 않는다. type 이 자바스크립트
+       MIME 이 아니면 브라우저가 실행할 것으로 치지 않아 script-src 검사를
+       아예 안 거친다. -->
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://everykoreans.com/#org","name":"Every Koreans","alternateName":"에브리 코리안즈","url":"https://everykoreans.com/","logo":"https://everykoreans.com/logo.png","email":"junsanghan1225@gmail.com"},{"@type":"WebSite","@id":"https://everykoreans.com/#site","url":"https://everykoreans.com/","name":"Cheesepotato","alternateName":["치즈감자","Every Koreans"],"description":"A free website for learning Korean, from the Hangul letters to TOPIK level 6. 49 courses, 153 lessons, 290 grammar points, 512 TOPIK practice questions, 54 reading passages, 5,358 dictionary words.","inLanguage":["ko","en"],"publisher":{"@id":"https://everykoreans.com/#org"},"isFamilyFriendly":true},{"@type":"EducationalOrganization","@id":"https://everykoreans.com/#school","name":"Cheesepotato","url":"https://everykoreans.com/","description":"A website for learning Korean, offering free TOPIK I/II listening, reading and writing practice, plus grammar and reading study.","parentOrganization":{"@id":"https://everykoreans.com/#org"}}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"ItemList","name":"What you learn at Cheesepotato","numberOfItems":7,"itemListOrder":"https://schema.org/ItemListOrderAscending","itemListElement":[{"@type":"ListItem","position":1,"item":{"@type":"Course","@id":"https://everykoreans.com/#courses","name":"Learn by course","alternateName":"Learn Korean by course","description":"A Korean course that starts from the Hangul letters and moves through greetings and sentences. 49 courses across beginner, intermediate and advanced, 153 lessons.","provider":{"@id":"https://everykoreans.com/#org"},"inLanguage":"en","isAccessibleForFree":true,"teaches":["Hangul","Korean pronunciation","Basic Korean grammar","Korean conversation"],"educationalLevel":"Beginner to Advanced","url":"https://everykoreans.com/en/#learn/courses","hasCourseInstance":{"@type":"CourseInstance","courseMode":"online","courseWorkload":"49 courses, 153 lessons","inLanguage":"en"}}},{"@type":"ListItem","position":2,"item":{"@type":"Course","@id":"https://everykoreans.com/#topik","name":"TOPIK-style practice","alternateName":"TOPIK practice","description":"Practice TOPIK I and II listening, reading and writing in the same structure as the real exam. 512 practice questions, plus mock papers with a timer and answer sheet. Original items, not past papers.","provider":{"@id":"https://everykoreans.com/#org"},"inLanguage":"en","isAccessibleForFree":true,"teaches":["TOPIK listening","TOPIK reading","TOPIK writing"],"educationalLevel":"TOPIK I (levels 1-2), TOPIK II (levels 3-6)","url":"https://everykoreans.com/en/#learn/topik","hasCourseInstance":{"@type":"CourseInstance","courseMode":"online","courseWorkload":"512 practice questions","inLanguage":"en"}}},{"@type":"ListItem","position":3,"item":{"@type":"Course","@id":"https://everykoreans.com/#sentence","name":"Build a sentence","alternateName":"Build a Korean sentence","description":"290 grammar points, each with a meaning, examples and a dialogue, and a box to write your own sentence and get it checked.","provider":{"@id":"https://everykoreans.com/#org"},"inLanguage":"en","isAccessibleForFree":true,"teaches":["Korean grammar points","Korean composition"],"educationalLevel":"Beginner to Advanced","url":"https://everykoreans.com/en/#learn/sentence","hasCourseInstance":{"@type":"CourseInstance","courseMode":"online","courseWorkload":"290 grammar points","inLanguage":"en"}}},{"@type":"ListItem","position":4,"item":{"@type":"Course","@id":"https://everykoreans.com/#reading","name":"Read and write","alternateName":"Korean reading and writing","description":"Read 54 short and long passages and write about what you read.","provider":{"@id":"https://everykoreans.com/#org"},"inLanguage":"en","isAccessibleForFree":true,"teaches":["Korean reading","Korean writing"],"educationalLevel":"Beginner to Advanced","url":"https://everykoreans.com/en/#learn/reading","hasCourseInstance":{"@type":"CourseInstance","courseMode":"online","courseWorkload":"54 passages","inLanguage":"en"}}},{"@type":"ListItem","position":5,"item":{"@type":"Course","@id":"https://everykoreans.com/#quiz","name":"Practice drills","alternateName":"Korean practice drills","description":"Pull questions straight out of the lessons and keep going. Also has a number-reading and a speed-quiz game.","provider":{"@id":"https://everykoreans.com/#org"},"inLanguage":"en","isAccessibleForFree":true,"teaches":["Korean vocabulary","Korean grammar"],"educationalLevel":"Beginner to Advanced","url":"https://everykoreans.com/en/#learn/quiz","hasCourseInstance":{"@type":"CourseInstance","courseMode":"online","courseWorkload":"Drills and 2 games","inLanguage":"en"}}},{"@type":"ListItem","position":6,"item":{"@type":"Course","@id":"https://everykoreans.com/#library","name":"Word & grammar dictionary","alternateName":"Korean dictionary","description":"5,358 words with definitions from the National Institute of Korean Language, plus 197 grammar entries. Tap an unknown word while studying to see it right away.","provider":{"@id":"https://everykoreans.com/#org"},"inLanguage":"en","isAccessibleForFree":true,"teaches":["Korean vocabulary","Korean grammar"],"educationalLevel":"All levels","url":"https://everykoreans.com/en/#learn/library","hasCourseInstance":{"@type":"CourseInstance","courseMode":"online","courseWorkload":"5,358 words, 197 grammar entries","inLanguage":"en"}}},{"@type":"ListItem","position":7,"item":{"@type":"Course","@id":"https://everykoreans.com/#convo","name":"Conversation practice","alternateName":"Practice a Korean conversation","description":"In real-life situations like a café or a clinic, the other side speaks first and you answer in your own words, with no options given.","provider":{"@id":"https://everykoreans.com/#org"},"inLanguage":"en","isAccessibleForFree":true,"teaches":["Korean conversation","Korean composition"],"educationalLevel":"Beginner to Advanced","url":"https://everykoreans.com/en/#learn/convo","hasCourseInstance":{"@type":"CourseInstance","courseMode":"online","courseWorkload":"Situational role-play scenarios","inLanguage":"en"}}}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","@id":"https://everykoreans.com/en/#faq","mainEntity":[{"@type":"Question","name":"What is Cheesepotato?","acceptedAnswer":{"@type":"Answer","text":"Cheesepotato is a free website for learning Korean, covering everything from the Hangul letters to TOPIK level 6. It has 21 courses across 82 lessons, 290 grammar points, 480 TOPIK-style practice questions, 54 reading passages and a 5,346-word dictionary. It runs in a browser — there is nothing to install."}},{"@type":"Question","name":"Is it really free? Do I need an account?","acceptedAnswer":{"@type":"Answer","text":"Yes, it is free, and you can start without an account. Courses, TOPIK practice, reading and the dictionary all open straight away. Signing in only matters if you want your progress kept across devices, or for the full mock exams."}},{"@type":"Question","name":"I am starting Korean from zero. Where do I begin?","acceptedAnswer":{"@type":"Answer","text":"Start with 코스로 배우기 (Learn by course) at the beginner level. The first course teaches the Hangul letters one at a time — you tap a letter and hear it. You do not need to know any Korean before you begin."}},{"@type":"Question","name":"What is the difference between TOPIK I and TOPIK II?","acceptedAnswer":{"@type":"Answer","text":"TOPIK I covers levels 1–2 and has two sections: listening (30 questions) and reading (40). TOPIK II covers levels 3–6 and has three: listening (50), reading (50) and writing (4). There is no writing section in TOPIK I. Cheesepotato splits its practice the same way, so TOPIK I shows only listening and reading."}},{"@type":"Question","name":"How does the listening practice work?","acceptedAnswer":{"@type":"Answer","text":"You hear the audio and pick one of four answers. The transcript stays hidden until you have answered — if you could read along while choosing, it would be a reading test, not a listening one. After you answer, the script opens with each speaker marked, so you can see exactly what you missed."}},{"@type":"Question","name":"Are these real past TOPIK papers?","acceptedAnswer":{"@type":"Answer","text":"No. Every question on Cheesepotato is written from scratch to follow the TOPIK format and difficulty. They are not past papers, and the site is not affiliated with NIIED, the institute that runs TOPIK."}},{"@type":"Question","name":"Where do the word meanings come from?","acceptedAnswer":{"@type":"Answer","text":"From the Basic Korean Dictionary published by the National Institute of Korean Language (국립국어원), used under CC BY-SA 2.0 KR. That covers 5,346 words. The grammar entries — 197 of them — are written for this site."}},{"@type":"Question","name":"Does it work on a phone?","acceptedAnswer":{"@type":"Answer","text":"Yes. The site is built for phones as much as for desktops — that is where most people study. There is also an Android app for the wordbook part, with an iOS version on the way."}}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Cheesepotato Wordbook","applicationCategory":"EducationalApplication","operatingSystem":"Android","inLanguage":["ko","en"],"description":"The Cheesepotato wordbook app. Take a photo and AI fills in the word, meaning and an example sentence; review by flipping through cards.","publisher":{"@id":"https://everykoreans.com/#org"},"offers":{"@type":"Offer","price":"0","priceCurrency":"KRW"},"installUrl":"https://play.google.com/store/apps/details?id=com.cheesepotato.app","downloadUrl":"https://play.google.com/store/apps/details?id=com.cheesepotato.app"}</script>
+
+<!-- 카카오톡·디스코드·트위터에 주소를 붙여넣으면 제목도 그림도 안 떴다.
+     og: 와 twitter: 태그가 하나도 없었기 때문이다. 앱을 받게 하려고 만든
+     사이트인데 링크가 맨몸으로 돌아다니고 있었다. -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://everykoreans.com/en/">
+<meta property="og:site_name" content="치즈감자">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="ko_KR">
+<meta property="og:title" content="Cheesepotato — Free Korean Learning &amp; TOPIK Practice">
+<meta property="og:description" content="Free Korean learning — Hangul to TOPIK 6. 49 courses, 153 lessons, 290 grammar points, 512 TOPIK questions, 54 passages, 5,358 words. No install, no sign-up.">
+<meta property="og:image" content="https://everykoreans.com/logo.png">
+<meta property="og:image:alt" content="치즈감자">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Cheesepotato — Free Korean Learning &amp; TOPIK Practice">
+<meta name="twitter:description" content="Free Korean learning — Hangul to TOPIK 6. 49 courses, 153 lessons, 290 grammar points, 512 TOPIK questions, 54 passages, 5,358 words. No install, no sign-up.">
+<meta name="twitter:image" content="https://everykoreans.com/logo.png">
+<!-- 시스템이 어두운 모드면 처음부터 어두운 색으로 뜬다. 사이트 안 단추로
+     직접 바꾼 것(data-theme)은 app.js 의 paintThemeBtn 이 이 칸 content 를
+     실시간으로 고쳐 준다 — media 만으로는 그 수동 전환을 못 잡는다. -->
+<meta name="theme-color" content="#F2EEE4" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#17130F" media="(prefers-color-scheme: dark)">
+
+<!-- PWA. 홈 화면에 담고(설치) 오프라인에서도 열리게 한다 — sw.js 가
+     실제 동작을 한다(app.js 맨 아래에서 등록). -->
+<link rel="manifest" href="manifest.json">
+
+<!-- 탭 아이콘. 없으면 브라우저가 /favicon.ico 를 알아서 찾다가 404 를 받는다.
+     실제로 그러고 있었다. logo.png 는 600×600 248KB 라 줄인 것을 따로 둔다
+     (tools/build-icons.py 가 만든다).
+
+     화면에 보이는 로고 셋도 logo-256.png(14KB)를 쓴다 — 가장 큰 것이 2배
+     화면에서 112px 인데 600×600 을 받고 있었다. logo.png 는 og:image 와
+     JSON-LD 의 Organization.logo 로만 남는다. 그 둘은 카카오톡·구글 서버가
+     따로 받아 가는 것이라 첫 화면 무게와 상관이 없다. -->
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="apple-touch-icon" href="icon-180.png">
+
+<!-- 글꼴 두 벌. 예전에는 jsdelivr 와 구글에서 받아 왔는데, 남의 서버에서
+     오는 것을 우리 페이지에 넣는 통로는 적을수록 좋아서 저장소로 들여왔다.
+     tools/vendor.mjs 가 만든다.
+
+     Pretendard 는 통짜(2.0MB) 대신 조각난 쪽을 쓴다 — 브라우저가
+     unicode-range 를 보고 화면에 실제로 나온 글자가 든 조각만 받는다.
+     그래서 저장소는 무거워졌지만 학습자가 받는 양은 오히려 줄었다. -->
+<link rel="stylesheet" href="vendor/pretendard.css?v=b52bf12b">
+<link rel="stylesheet" href="vendor/pressstart2p.css?v=b52bf12b">
+<!-- 화면 상자 안에서만 쓰는 CSS 는 여기서 갈라 받는다. media="print" 라
+     첫 페인트를 안 막고, 다 받아지면 app.js 가 media 를 all 로 바꾼다.
+     자바스크립트가 없으면 <noscript> 쪽이 그냥 평범하게 걸린다. -->
+<link id="viewsCss" rel="stylesheet" href="app-views.css?v=b52bf12b" media="print">
+<noscript><link rel="stylesheet" href="app-views.css?v=b52bf12b"></noscript>
+
+<style>
+/* ══════════════════════════════════════════════════════════════
+   치즈감자 — 랜딩
+
+   설계 방향: 절제된 편집 디자인.
+   바탕은 순백이 아니라 따뜻한 본(bone) 톤, 색은 아껴 쓰고, 위계는
+   그림자가 아니라 글자 크기와 여백으로 만든다. 카드에 두꺼운 3D
+   그림자를 겹치면 화면이 시끄러워지고 폰 앱 목업처럼 보인다.
+
+   색은 앱과 같은 오렌지 계열을 그대로 쓴다. 달라진 건 "얼마나
+   쓰는가"다 — 큰 면을 오렌지로 채우지 않고 강조에만 쓴다.
+   ══════════════════════════════════════════════════════════════ */
+
+:root {
+  /* 바탕 */
+  --bg:        #F2EEE4;   /* 페이지 */
+  /* 머리띠가 반투명(rgba(var(--bg-rgb),.82))으로 뒤에 지나가는 내용을
+     비쳐 보이게 쓴다 — 세 자리만 따로 둔다. */
+  --bg-rgb:    242,238,228;
+  --surface:   #FFFFFF;   /* 카드 */
+  --surface-2: #FBF8F1;   /* 옅은 카드 */
+  --tint:      #FDF0E2;   /* 강조 블록 */
+  --ink-bg:    #1B1512;   /* 어두운 띠 */
+
+  /* 글자 */
+  --ink:   #1B1512;
+  --ink-2: #4E3E31;
+  --ink-3: #8C7A66;
+  /* rgba(var(--ink-rgb), …) 꼴로 여기저기 쓰는 테두리·hover 옅은 칠이 어두운
+     모드에서도 맞게 뒤집히도록 세 자리만 따로 둔다. rgba(var(--ink-rgb),.05)
+     로 쓰면 이 값을 그대로 삼는다. */
+  --ink-rgb: 27,21,18;
+
+  /* 브랜드 — 앱과 같은 값 */
+  --orange:      #FF914D;
+  --orange-mid:  #E1682B;
+  --orange-deep: #C4551C;
+  --yellow:      #F0C24B;
+  /* 초록·빨강은 앱보다 한 단계 어둡게 잡았다. 본 톤 바탕에서는 밝은
+     초록(#1D9E75)이 12~13px 글자로 쓰이면 대비가 3:1 아래로 떨어진다. */
+  --green:       #12704F;
+  --red:         #C43D34;
+
+  /* 선 */
+  --line:  rgba(var(--ink-rgb),.11);
+  --line-2:rgba(var(--ink-rgb),.06);
+
+  --r-s: 8px; --r: 12px; --r-l: 18px; --r-xl: 26px;
+  --max: 1200px;
+  --gut: 22px;
+
+  /* 리듬 */
+  --sec: 76px;
+}
+
+/* ── 어두운 모드 ──────────────────────────────────────────────
+   기기 설정(prefers-color-scheme)을 기본으로 따른다. themeBtn 을 눌러
+   사람이 직접 고르면 :root 에 data-theme 를 붙여 기기 설정을 덮는다
+   (localStorage 'theme' 에 적어 다음에도 그대로 — app.js 의 langBtn 과
+   같은 틀이다). 토큰만 뒤집으면 되므로 여기 둘, [data-theme="dark"] 둘
+   말고는 손댈 곳이 없다 — 색은 전부 var(--…) 아니면 rgba(var(--ink-rgb),…)
+   로 쓰고 있어서다. */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg:        #17130F;
+    --bg-rgb:    23,19,15;
+    --surface:   #221C17;
+    --surface-2: #1C1712;
+    --tint:      #2E2015;
+    --ink-bg:    #2A2119;
+
+    --ink:   #F2EAE0;
+    --ink-2: #CBB8A6;
+    --ink-3: #9C8973;
+    --ink-rgb: 242,234,224;
+
+    --orange:      #FF9E5C;
+    --orange-mid:  #FF8A47;
+    --orange-deep: #FFA05E;
+    --green:       #3FBF8F;
+    --red:         #E1594E;
+  }
+}
+:root[data-theme="dark"] {
+  --bg:        #17130F;
+  --bg-rgb:    23,19,15;
+  --surface:   #221C17;
+  --surface-2: #1C1712;
+  --tint:      #2E2015;
+  --ink-bg:    #2A2119;
+
+  --ink:   #F2EAE0;
+  --ink-2: #CBB8A6;
+  --ink-3: #9C8973;
+  --ink-rgb: 242,234,224;
+
+  --orange:      #FF9E5C;
+  --orange-mid:  #FF8A47;
+  --orange-deep: #FFA05E;
+  --green:       #3FBF8F;
+  --red:         #E1594E;
+}
+
+* { box-sizing:border-box; margin:0; padding:0;
+    font-family:'Pretendard Variable','Pretendard',-apple-system,BlinkMacSystemFont,sans-serif; }
+
+html { scroll-behavior:smooth; scroll-padding-top:80px; }
+
+body {
+  background:var(--bg);
+  color:var(--ink-2);
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+  /* 자간을 조금 조인다. 기본값(0)으로 두면 글이 헐거워 보인다 — 제목만
+     -.03em 씩 조여 놓고 본문은 그대로라 둘의 결이 따로 놀았다.
+     한글은 음절이 네모라 라틴처럼 많이 조이면 답답해진다. -.011em 은
+     눈에 "좁혔다"고 띄지 않으면서 글줄이 한 덩어리로 앉는 선이다.
+     대문자 라벨(.16em 따위)은 제 값을 갖고 있어 여기 영향을 안 받는다. */
+  letter-spacing:-.011em;
+}
+
+a { color:var(--orange-deep); text-decoration:none; }
+a:hover { color:var(--orange-mid); }
+
+::selection { background:#FFD9B8; color:#1B1512; }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) ::selection { background:#5A3B1F; color:#F2EAE0; }
+}
+:root[data-theme="dark"] ::selection { background:#5A3B1F; color:#F2EAE0; }
+
+/* 키보드로 옮겨 다니는 사람에게만 테두리를 보여준다. */
+:focus-visible { outline:2px solid var(--orange-mid); outline-offset:3px; border-radius:4px; }
+
+.hidden { display:none !important; }
+
+.lp { width:100%; }
+
+/* ── 안쪽 폭 ───────────────────────────────────────────────────
+   배경은 화면 끝까지 가고 글만 이 폭에 모인다. */
+.section { max-width:var(--max); margin:0 auto; padding:var(--sec) var(--gut); }
+.divider { max-width:var(--max); margin:0 auto; height:1px; background:var(--line-2); }
+.split { display:grid; gap:36px; align-items:center; }
+
+/* ══ 헤더 ══════════════════════════════════════════════════════
+   테두리는 스크롤을 내렸을 때만 생긴다(.scrolled). 맨 위에서는
+   선이 없어야 화면이 트여 보인다. */
+.site-hd {
+  position:sticky; top:0; z-index:60;
+  /* 예전엔 라이트 배경색(242,238,228)을 그대로 박아 뒀다 — 어두운 모드에서
+     내용은 다 뒤집히는데 머리띠만 크림색 반투명으로 남아 있었다. */
+  background:rgba(var(--bg-rgb),.82);
+  backdrop-filter:blur(14px) saturate(1.4);
+  border-bottom:1px solid transparent;
+  transition:border-color .25s, background .25s;
+}
+.site-hd.scrolled { border-bottom-color:var(--line); background:rgba(var(--bg-rgb),.94); }
+.site-hd-in {
+  max-width:var(--max); margin:0 auto; padding:0 var(--gut);
+  height:64px; display:flex; align-items:center; justify-content:space-between; gap:14px;
+}
+.brand {
+  /* 로고도 누르면 첫 화면으로 가는 단추다. 그림이 28px 이라 누르는 자리가
+     28×28 이었다. 위아래 여백으로 44px 를 만든다 — 그림 크기는 그대로. */
+  display:flex; align-items:center; gap:9px; min-height:44px;
+  background:none; border:none; padding:0 2px; cursor:pointer;
+  color:var(--ink); font-size:16px; font-weight:700; letter-spacing:-.03em;
+}
+.brand img { width:28px; height:28px; border-radius:7px; object-fit:cover; }
+.site-nav { display:flex; align-items:center; gap:2px; }
+
+/* 머리띠 단추. 폰에서 39×35px 이라 손끝보다 작았다 — 사이트에서 가장 많이
+   누르는 자리인데도. 높이를 44px 로 올린다. 좁은 화면에서는 글자가 숨고
+   그림글자만 남으므로 최소 너비도 같이 준다. */
+.nav-link {
+  display:inline-flex; align-items:center; justify-content:center; gap:7px;
+  background:none; border:none; cursor:pointer;
+  color:var(--ink-2); font-size:14px; font-weight:500;
+  min-height:44px; padding:0 12px; border-radius:var(--r-s);
+  /* 이징을 사이트 전체가 쓰는 곡선(.22,1,.36,1)으로 맞춘다 — 어떤 곳은
+     기본 ease, 어떤 곳은 이 곡선이라 눌렀을 때 결이 제각각이었다. */
+  transition:background .18s cubic-bezier(.22,1,.36,1), color .18s cubic-bezier(.22,1,.36,1);
+}
+.nav-link:hover { background:rgba(var(--ink-rgb),.05); color:var(--ink); }
+.nav-link.on { background:rgba(var(--ink-rgb),.07); color:var(--ink); font-weight:600; }
+.nav-ico { font-size:14px; line-height:1; }
+
+.lang-btn {
+  height:44px; padding:0 13px; margin-left:6px;
+  font-size:12px; font-weight:700; letter-spacing:.08em;
+  border-radius:var(--r-s); border:1px solid var(--line);
+  background:transparent; color:var(--ink-2); cursor:pointer;
+  transition:background .16s, border-color .16s;
+}
+.lang-btn:hover { background:rgba(var(--ink-rgb),.05); border-color:rgba(var(--ink-rgb),.2); }
+
+.hd-cta {
+  display:inline-flex; align-items:center;
+  background:var(--ink-bg); color:#fff;
+  font-size:14px; font-weight:600; letter-spacing:-.01em;
+  padding:10px 17px; border-radius:var(--r-s); margin-left:8px;
+  transition:background .18s;
+}
+.hd-cta:hover { background:#33261E; color:#fff; }
+
+@media (max-width:759px) {
+  .site-hd-in { height:56px; padding:0 16px; }
+  .brand span { display:none; }
+  /* 한때는 이름표만 조그맣게 남기고 그림글자를 뺐다 — 바로 옆 아이콘
+     단추(🌙·KO·☰)와 결이 안 맞고 조잡해 보였기 때문이다. 그런데 배우기·
+     단어장·로그인 셋 다 사이드 메뉴에도 그대로 있다(로그인도 이제
+     #sideAuthBtn 으로 옮겨 붙였다). 좁은 머리띠에 같은 것을 두 벌 두느니
+     아예 여기서는 지우고 ☰ 하나로 정리한다 — 실제로도 ☰ 이 가장 많이
+     눌리는 자리였다. */
+  .site-nav > .nav-link { display:none; }
+  .hd-cta { display:none; }
+}
+
+/* 되돌아오게 하는 띠. 기본(review)은 차분한 색, 스트릭이 끊기려 할
+   때(urgent)만 주황으로 눈에 띄게 한다 — 둘 다 급하게 보이면 나중엔
+   아무것도 안 급해 보인다. */
+.nudge-bar {
+  display:flex; align-items:center; gap:12px; flex-wrap:wrap;
+  padding:11px var(--gut); background:var(--surface-2); border-bottom:1px solid var(--line-2);
+}
+.nudge-bar[hidden] { display:none; }
+.nudge-bar.urgent { background:#FFF4EA; border-bottom-color:rgba(255,138,61,.35); }
+:root[data-theme="dark"] .nudge-bar.urgent { background:#3A2A18; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .nudge-bar.urgent { background:#3A2A18; } }
+.nudge-txt { font-size:13.5px; font-weight:600; color:var(--ink-2); flex:1 1 auto; word-break:keep-all; }
+.nudge-go {
+  font:inherit; font-size:13px; font-weight:700; color:#fff; background:var(--orange);
+  border:none; border-radius:999px; padding:7px 16px; cursor:pointer; white-space:nowrap;
+}
+.nudge-go:hover { background:var(--orange-deep); }
+.nudge-x {
+  font-size:12px; color:var(--ink-3); background:none; border:none; cursor:pointer;
+  padding:4px 6px; border-radius:6px; flex:none;
+}
+.nudge-x:hover { color:var(--ink); background:rgba(var(--ink-rgb),.08); }
+
+/* 아주 좁은 폰(320px). 영어는 낱말이 길어서 이름표를 붙이면 머리띠가
+   화면 밖으로 8px 밀려 나가 ☰ 가 잘렸다 — 하필 가장 많이 누르는 자리다.
+   이름표를 도로 지우는 대신 여백을 조인다. 이름이 보이는 편이 낫다. */
+@media (max-width:359px) {
+  .site-hd-in { padding:0 10px; }
+  .nav-link { padding:0 3px; min-width:44px; }
+  .lang-btn { padding:0 9px; margin-left:3px; }
+  .menu-btn { margin-left:4px; }
+}
+
+/* ══ 사이드 메뉴 ═══════════════════════════════════════════════
+   위 미디어쿼리 뒤에 오지만 겹치는 선택자는 전부 `.side-list` 로
+   한 단계 더 좁혔다. 좁은 화면에서 `.nav-link .nav-txt` 를 숨기는
+   규칙이 메뉴 안 글자까지 지우면 아이콘만 남는다. */
+
+.menu-btn {
+  display:inline-flex; align-items:center; justify-content:center;
+  width:44px; height:44px; margin-left:8px;
+  border:1px solid var(--line); border-radius:var(--r-s);
+  background:transparent; cursor:pointer;
+  transition:background .16s, border-color .16s;
+}
+.menu-btn:hover { background:rgba(var(--ink-rgb),.05); border-color:rgba(var(--ink-rgb),.2); }
+/* 선 두 개로 만든다. 세 줄보다 조용하고, 열면 그대로 ✕ 가 된다. */
+.menu-bars { position:relative; display:block; width:16px; height:9px; }
+.menu-bars i {
+  position:absolute; left:0; width:100%; height:1.5px; border-radius:1px;
+  background:var(--ink);
+  transition:transform .3s cubic-bezier(.32,.72,0,1);
+}
+.menu-bars i:nth-child(1) { top:0; }
+.menu-bars i:nth-child(2) { bottom:0; }
+.menu-btn.open .menu-bars i:nth-child(1) { transform:translateY(3.75px) rotate(45deg); }
+.menu-btn.open .menu-bars i:nth-child(2) { transform:translateY(-3.75px) rotate(-45deg); }
+
+/* 헤더(z-index 60) 보다 위에 온다. 메뉴가 열린 동안 헤더 버튼이
+   눌리면 뒤에서 화면이 바뀌어 있어 혼란스럽다. */
+.nav-scrim {
+  position:fixed; inset:0; z-index:70;
+  background:rgba(var(--ink-rgb),.34);
+  backdrop-filter:blur(2px);
+  opacity:0; visibility:hidden;
+  transition:opacity .3s, visibility .3s;
+}
+.nav-scrim.on { opacity:1; visibility:visible; }
+
+.side-nav {
+  position:fixed; top:0; right:0; z-index:80;
+  width:min(330px, 86vw); height:100dvh;
+  display:flex; flex-direction:column;
+  background:var(--surface-2);
+  border-left:1px solid var(--line);
+  box-shadow:-30px 0 60px -34px rgba(var(--ink-rgb),.4);
+  /* 닫혀 있을 때 visibility 까지 감추지 않으면 화면 밖 버튼에
+     탭 키가 들어간다. */
+  transform:translateX(100%); visibility:hidden;
+  transition:transform .38s cubic-bezier(.32,.72,0,1), visibility .38s;
+  overscroll-behavior:contain;
+}
+.side-nav.on { transform:none; visibility:visible; }
+
+.side-hd {
+  flex:0 0 auto; height:64px;
+  display:flex; align-items:center; justify-content:space-between;
+  padding:0 16px 0 24px;
+  border-bottom:1px solid var(--line-2);
+}
+.side-eyebrow {
+  font-size:11px; font-weight:700; letter-spacing:.16em;
+  text-transform:uppercase; color:var(--ink-3);
+}
+/* 메뉴 안 갈래 이름표(배우기 · 연습·놀이 · 내 활동). 위 side-eyebrow 와
+   같은 톤이지만 훨씬 작게 — 메뉴 제목과 헷갈리면 안 된다. 안 눌리는
+   글자일 뿐이라 side-item 처럼 단추 모양을 안 준다. */
+.side-sec-h {
+  padding:0 12px; margin:16px 0 4px;
+  font-size:10.5px; font-weight:700; letter-spacing:.12em;
+  text-transform:uppercase; color:var(--ink-3);
+}
+.side-sec-h:first-child { margin-top:0; }
+.side-close {
+  width:44px; height:44px; display:inline-flex; align-items:center; justify-content:center;
+  border:none; background:none; border-radius:var(--r-s); cursor:pointer;
+  color:var(--ink-3); font-size:15px; line-height:1;
+  transition:background .16s, color .16s;
+}
+.side-close:hover { background:rgba(var(--ink-rgb),.05); color:var(--ink); }
+
+.side-list {
+  flex:1 1 auto; overflow-y:auto;
+  display:flex; flex-direction:column; gap:2px;
+  padding:16px 14px;
+}
+
+.side-list .nav-link {
+  width:100%; justify-content:flex-start; gap:13px;
+  padding:12px; border-radius:var(--r);
+  font-size:15px; letter-spacing:-.01em;
+  transition:background .16s, color .16s;
+}
+/* 열릴 때 한 줄씩 따라 들어온다. 한꺼번에 나타나는 것보다 차분하다.
+   늦추기는 opacity·transform 에만 걸어야 한다 — 배경색까지 늦추면
+   열어 둔 뒤 마우스를 올렸을 때 반응이 굼떠 보인다.
+
+   묶음(.side-group)이 생겨서 .nav-link 가 더 이상 나란한 형제가 아니다.
+   바로 아래 자식을 기준으로 세야 순서가 안 어긋난다. */
+.side-list > .nav-link, .side-list > .side-group, .side-list > .side-sec-h {
+  opacity:0; transform:translateX(16px);
+  transition:opacity .34s ease var(--d, 0s),
+             transform .34s cubic-bezier(.32,.72,0,1) var(--d, 0s);
+}
+.side-nav.on .side-list > .nav-link,
+.side-nav.on .side-list > .side-group,
+.side-nav.on .side-list > .side-sec-h { opacity:1; transform:none; }
+.side-nav.on .side-list > *:nth-child(1) { --d:.05s; }
+.side-nav.on .side-list > *:nth-child(2) { --d:.09s; }
+.side-nav.on .side-list > *:nth-child(3) { --d:.13s; }
+.side-nav.on .side-list > *:nth-child(4) { --d:.17s; }
+
+/* ── 펼쳐지는 묶음 ─────────────────────────────────────────
+   0fr → 1fr 로 늘린다. max-height 로 하면 어림잡은 높이를 적어 둬야
+   하고, 갈래가 하나 늘면 거기서 잘린다. 이쪽은 내용이 정하는 대로
+   열린다. */
+.side-sub {
+  display:grid; grid-template-rows:0fr;
+  transition:grid-template-rows .3s cubic-bezier(.32,.72,0,1);
+}
+/* min-height:0 이 있어야 격자 칸이 0 까지 줄어든다 — 없으면 내용 높이가
+   바닥이 되어 접어도 안 접힌다.
+   **위아래 여백은 여기 두면 안 된다.** 여백은 접혀도 남아서 닫힌 자리에
+   8px 짜리 빈 줄이 생긴다. 그래서 여백은 항목에 준다. */
+.side-sub-in { overflow:hidden; min-height:0; }
+.side-group.open > .side-sub { grid-template-rows:1fr; }
+
+/* 펼침 표시. 평소 › 였다가 열리면 아래를 가리킨다. 다른 줄의 › 는
+   짚었을 때만 스며드는데, 이건 「눌러서 펼치는 자리」라는 표시라 늘
+   보여야 한다. */
+.side-list .side-parent::after { opacity:.5; transform:none; transition:transform .26s, opacity .16s; }
+/* .side-list 를 앞에 붙여 특이도를 한 단계 올린다. 아래쪽의
+   `.side-list .nav-link:hover::after { transform:none }` 과 특이도가 같으면
+   나중에 오는 그쪽이 이겨서, **누른 뒤 마우스가 얹혀 있는 동안 화살표가
+   도로 눕는다.** 누르면 마우스는 항상 그 자리에 있으므로 늘 그렇게 된다.
+   `.on` 도 마찬가지라(게임에 들어가 있으면 붙는다) 같이 넘어야 한다. */
+.side-list .side-group.open > .side-parent::after { transform:rotate(90deg); opacity:.8; }
+.side-group.open > .side-parent { background:rgba(var(--ink-rgb),.045); color:var(--ink); }
+.side-group.open > .side-parent .nav-ico { background:var(--tint); border-color:rgba(255,145,77,.32); }
+
+.side-item {
+  display:flex; align-items:center; gap:10px; width:100%;
+  background:none; border:0; cursor:pointer; font-family:inherit;
+  text-align:left; color:var(--ink-3);
+  font-size:14px; letter-spacing:-.01em; line-height:1.3;
+  padding:11px 12px 11px 20px; border-radius:var(--r);
+  transition:background .16s, color .16s;
+}
+/* 부모와 이어져 보이도록 왼쪽에 실선을 긋는다. 들여쓰기만으로는
+   좁은 화면에서 묶음인지 아닌지 잘 안 보인다. */
+.side-sub-in { padding:0 0 0 22px; position:relative; }
+.side-sub-in > .side-item:first-child { margin-top:2px; }
+.side-sub-in > .side-item:last-child { margin-bottom:6px; }
+.side-sub-in::before {
+  content:''; position:absolute; left:23px; top:4px; bottom:8px;
+  width:1.5px; background:var(--line-2); border-radius:2px;
+}
+.side-item:hover { background:rgba(var(--ink-rgb),.045); color:var(--ink); }
+.side-item:focus-visible { outline:2px solid var(--orange); outline-offset:-2px; }
+.side-item.on { color:var(--ink); font-weight:600; background:var(--tint); }
+.side-item-ico { flex:0 0 auto; font-size:15px; line-height:1; width:18px; text-align:center; }
+
+/* 좁은 화면 규칙(.nav-link{flex-direction:column})이 머리띠용인데 여기까지
+   따라와서, 폰에서 메뉴 한 줄이 111px 짜리 세로 덩어리가 되어 있었다.
+   여섯 줄이면 화면을 꽉 채운다. 사이드는 늘 가로줄이다. */
+.side-list .nav-link { flex-direction:row; }
+/* 이름표도 같은 규칙에 9.5px 로 쪼그라들어 있었다. 여기는 읽으라고 둔
+   글자다. (.nav-link .nav-txt 보다 한 단계 좁혀야 이긴다) */
+.side-list .nav-link .nav-txt {
+  display:inline; font-size:15px; font-weight:500; line-height:1.3; letter-spacing:-.01em;
+}
+.side-list .nav-ico {
+  flex:0 0 auto; width:34px; height:34px; border-radius:10px;
+  display:inline-flex; align-items:center; justify-content:center;
+  font-size:16px;
+  background:var(--surface); border:1px solid var(--line-2);
+  transition:background .16s, border-color .16s;
+}
+/* 오른쪽 홑화살괄호. 평소에는 없고 짚었을 때만 스며든다. */
+.side-list .nav-link::after {
+  content:'›'; margin-left:auto; padding-left:8px;
+  color:var(--ink-3); font-size:17px; line-height:1;
+  opacity:0; transform:translateX(-4px);
+  transition:opacity .16s, transform .16s;
+}
+.side-list .nav-link:hover { background:rgba(var(--ink-rgb),.045); color:var(--ink); }
+.side-list .nav-link:hover .nav-ico { background:var(--tint); border-color:rgba(255,145,77,.32); }
+.side-list .nav-link:hover::after { opacity:.65; transform:none; }
+.side-list .nav-link.on { background:var(--tint); color:var(--ink); font-weight:600; }
+.side-list .nav-link.on .nav-ico { background:var(--surface); border-color:rgba(255,145,77,.42); }
+.side-list .nav-link.on::after { opacity:.65; transform:none; }
+
+.side-foot { flex:0 0 auto; padding:16px 20px 22px; border-top:1px solid var(--line-2); }
+.side-cta {
+  display:flex; align-items:center; justify-content:center;
+  background:var(--ink-bg); color:#fff;
+  font-size:14.5px; font-weight:600; letter-spacing:-.01em;
+  padding:13px 16px; border-radius:var(--r);
+  transition:background .18s;
+}
+.side-cta:hover { background:#33261E; color:#fff; }
+.side-note { margin-top:11px; text-align:center; font-size:11.5px; color:var(--ink-3); }
+
+/* 메뉴가 열린 동안 뒤 페이지가 같이 굴러가면 어디를 보고 있었는지 잃는다. */
+body.nav-open { overflow:hidden; }
+
+/* 미끄러지는 걸 꺼 둔 사람에게는 그냥 나타났다 사라지게 한다. */
+@media (prefers-reduced-motion:reduce) {
+  .side-nav, .nav-scrim, .side-list .nav-link, .menu-bars i { transition-duration:.01ms; }
+  .side-list .nav-link { transform:none; }
+}
+
+/* ══ 공통 조판 ═════════════════════════════════════════════════ */
+
+/* 눈썹 라벨. 알약 배지 대신 대문자 자간으로 처리한다 —
+   작은 색 알약이 섹션마다 붙으면 시선을 잡아먹는다. */
+.label {
+  display:inline-block; margin-bottom:20px;
+  font-size:11.5px; font-weight:700; letter-spacing:.16em; text-transform:uppercase;
+  color:var(--orange-deep);
+}
+.label::before {
+  content:''; display:block; width:26px; height:2px;
+  background:var(--orange); margin-bottom:12px; border-radius:2px;
+}
+
+/* 큰 글씨일수록 자간을 더 조인다 — 34px 를 본문과 같은 자간으로 두면
+   글자 사이가 벌어져 보인다. 시각 보정이라 크기마다 값이 다르다. */
+.section-title {
+  color:var(--ink);
+  font-size:clamp(27px, 5.2vw, 34px);
+  font-weight:700; line-height:1.14; letter-spacing:-.042em;
+  margin-bottom:14px; word-break:keep-all;
+}
+.section-sub {
+  font-size:15.5px; line-height:1.72; color:var(--ink-2);
+  margin-bottom:34px; word-break:keep-all; max-width:52ch;
+}
+
+/* ══ 히어로 ════════════════════════════════════════════════════
+   예전에는 오렌지 그라디언트를 화면 가득 깔았다. 강렬하지만 아래
+   내용과 톤이 끊기고, 큰 화면에서는 색만 남는다. 바탕을 본 톤으로
+   두고 글자 크기로 세게 나간다. 오렌지는 강조에만 쓴다. */
+.hero {
+  position:relative; overflow:hidden;
+  padding:64px var(--gut) 8px;
+  text-align:left;
+}
+/* 아주 옅은 온기 — 있는지 모를 정도로만. */
+.hero::before {
+  content:''; position:absolute; inset:0;
+  background:radial-gradient(110% 80% at 82% 8%, rgba(255,145,77,.14), transparent 62%);
+  pointer-events:none;
+}
+.hero-in { position:relative; max-width:var(--max); margin:0 auto; }
+
+.hero-logo {
+  width:56px; height:56px; border-radius:14px; object-fit:cover;
+  display:block; margin-bottom:24px;
+  border:1px solid var(--line);
+}
+.hero-badge {
+  display:inline-block; margin-bottom:18px;
+  font-size:11.5px; font-weight:700; letter-spacing:.16em; text-transform:uppercase;
+  color:var(--orange-deep);
+}
+.hero h1 {
+  color:var(--ink);
+  font-size:clamp(46px, 13vw, 62px);
+  font-weight:700; line-height:.96; letter-spacing:-.058em;
+  margin:0 0 14px;
+}
+.hero-en {
+  font-size:11px; font-weight:600; letter-spacing:.34em;
+  color:var(--ink-3); margin:0 0 22px;
+}
+.hero-sub {
+  font-size:17px; line-height:1.72; color:var(--ink-2);
+  margin:0 0 32px; max-width:44ch; word-break:keep-all;
+}
+
+.btn-row { display:flex; gap:10px; flex-wrap:wrap; padding-bottom:36px; }
+
+/* 버튼은 평면이다. 두께 6px 짜리 하드 섀도는 게임 UI 처럼 보인다. */
+.btn-primary, .dl-btn, .pt-next {
+  display:inline-flex; align-items:center; justify-content:center; gap:8px;
+  background:var(--ink-bg); color:#fff;
+  font-size:15px; font-weight:600; letter-spacing:-.01em;
+  padding:14px 24px; border-radius:var(--r-s); border:1px solid var(--ink-bg);
+  cursor:pointer;
+  transition:background .18s cubic-bezier(.22,1,.36,1), border-color .18s cubic-bezier(.22,1,.36,1), transform .12s cubic-bezier(.22,1,.36,1);
+}
+.btn-primary:hover, .dl-btn:hover, .pt-next:hover { background:#33261E; border-color:#33261E; color:#fff; }
+.btn-primary:active, .dl-btn:active, .pt-next:active { transform:translateY(1px); }
+
+.btn-ghost, .pt-ghost {
+  display:inline-flex; align-items:center; justify-content:center; gap:7px;
+  background:transparent; color:var(--ink);
+  font-size:15px; font-weight:500;
+  padding:14px 22px; border-radius:var(--r-s); border:1px solid var(--line);
+  cursor:pointer; transition:background .18s, border-color .18s;
+}
+.btn-ghost:hover, .pt-ghost:hover { background:rgba(var(--ink-rgb),.045); border-color:rgba(var(--ink-rgb),.22); color:var(--ink); }
+
+/* 떠 있는 단어 카드 */
+.hero-stage { position:relative; height:210px; perspective:1100px; }
+.hero-stack {
+  position:absolute; left:0; top:6px; width:252px; height:158px;
+  transform-style:preserve-3d; animation:float3d 7s ease-in-out infinite;
+}
+.hero-stack .back1 { position:absolute; inset:0; background:#EFE7D8; border-radius:var(--r-l); transform:translateZ(-52px) translateX(24px) translateY(18px); }
+.hero-stack .back2 { position:absolute; inset:0; background:#F8EFE2; border-radius:var(--r-l); transform:translateZ(-26px) translateX(12px) translateY(9px); }
+/* 첫 화면에서 가장 크고 눈에 띄는 카드다. 그래서 사람들이 눌렀는데
+   아무 일도 안 났다(방문 기록의 죽은 클릭). 테두리와 그림자를 두른
+   313×196 짜리 카드를 눌러 볼 생각을 안 하는 쪽이 이상하다.
+   눌리는 자리로 만들고, 손가락 모양과 살짝 뜨는 움직임으로 그렇다고
+   알린다. */
+.hero-stack .front {
+  position:absolute; inset:0; background:var(--surface);
+  border:1px solid var(--line); border-radius:var(--r-l);
+  padding:22px; box-shadow:0 22px 48px -28px rgba(var(--ink-rgb),.3);
+  cursor:pointer; text-align:left; width:100%; font:inherit; color:inherit;
+  transition:transform .2s cubic-bezier(.22,1,.36,1), box-shadow .2s;
+}
+@media (hover:hover) {
+  .hero-stack .front:hover {
+    transform:translateY(-4px);
+    box-shadow:0 30px 56px -28px rgba(var(--ink-rgb),.36);
+    border-color:rgba(255,145,77,.45);
+  }
+}
+.hero-stack .front:focus-visible { outline:2px solid var(--orange); outline-offset:3px; }
+/* 이제 이 카드는 누르는 자리다. 움직이는 것을 꺼 둔 사람에게 눌러야 할
+   것이 계속 떠다니면 겨누기가 어렵다 — 카드만 세워 둔다. */
+@media (prefers-reduced-motion:reduce) {
+  .hero-stack { animation:none; }
+  .hero-stack .front { transition:none; }
+  .chip1, .chip2 { animation:none; }
+}
+.hero-word { font-size:25px; font-weight:700; color:var(--ink); letter-spacing:-.035em; }
+.hero-meaning { font-size:14px; color:var(--ink-3); margin-top:6px; }
+.hero-diff { display:flex; gap:4px; margin-top:14px; font-size:14px; }
+.chip1 { position:absolute; top:-22px; left:-18px; font-size:36px; animation:floatChip1 5s ease-in-out infinite; }
+.chip2 { position:absolute; bottom:-16px; right:-14px; font-size:32px; animation:floatChip2 5.6s ease-in-out infinite .5s; }
+.hero-shadow { display:none; }
+
+/* ══ 통계 ══════════════════════════════════════════════════════
+   오렌지 블록 세 개 대신 헤어라인으로 나눈 표. 인쇄물 느낌. */
+.stat-row {
+  max-width:var(--max); margin:0 auto;
+  display:grid; grid-template-columns:repeat(3,1fr);
+  border-top:1px solid var(--line); border-bottom:1px solid var(--line);
+}
+.stat-item { padding:26px var(--gut); text-align:left; }
+.stat-item + .stat-item { border-left:1px solid var(--line-2); }
+.stat-num {
+  font-size:30px; font-weight:700; color:var(--ink);
+  letter-spacing:-.04em; font-variant-numeric:tabular-nums;
+}
+.stat-label {
+  font-size:11.5px; font-weight:600; letter-spacing:.1em; text-transform:uppercase;
+  color:var(--ink-3); margin-top:7px;
+}
+
+/* button 으로 쓸 때 글꼴이 안 물려받는 브라우저가 있다. a 였다가 button 이
+   되면서(첫 화면 단추가 주소가 아니라 갈래를 여는 자리가 되었다) 필요해졌다. */
+button.btn-primary, button.btn-ghost { font-family:inherit; }
+
+/* 화면에는 안 보이고 낭독기만 읽는 글. 표 제목처럼 눈으로는 앞뒤 문맥이
+   보이지만 소리로 들을 때는 안 보이는 것에 쓴다. */
+.sr-only {
+  position:absolute; width:1px; height:1px; padding:0; margin:-1px;
+  overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap; border:0;
+}
+
+/* ══ 한 문단 정의 ══════════════════════════════════════════════
+   검색 엔진과 대화형 엔진이 **혼자 떼어 놔도 말이 되는 문장**을 인용한다.
+   그래서 이 문단만 본문보다 크게 두고 굵게 짚은 숫자를 넣었다. 사람에게도
+   「여기가 뭐 하는 데인지」를 한 번에 알려 주는 자리다. */
+.lede-wrap { max-width:var(--max); margin:0 auto; padding:0 var(--gut); }
+.lede {
+  margin:44px 0; padding:26px 30px;
+  background:var(--tint); border-left:3px solid var(--orange);
+  border-radius:0 var(--r) var(--r) 0;
+  font-size:17px; line-height:1.85; color:var(--ink-2);
+  word-break:keep-all;
+}
+.lede b { color:var(--ink); font-weight:700; }
+
+.stat-row-4 { grid-template-columns:repeat(4,1fr); }
+
+/* ══ 무엇을 배우나 ═════════════════════════════════════════════
+   여섯 장을 카드가 아니라 **누르는 자리**로 뒀다. 첫 화면에서 가장 많이
+   눌리는 것이 ☰ 메뉴였다 — 사람들은 읽으러 온 게 아니라 해 보러 온다.
+   그러니 설명을 읽고 나서 갈 곳을 다시 찾게 하면 안 된다. */
+.way-grid {
+  display:grid; gap:1px; margin-top:38px;
+  background:var(--line-2); border:1px solid var(--line-2); border-radius:var(--r-l);
+  overflow:hidden;
+}
+/* **단추는 속을 세로 가운데로 모은다.** 그리드가 한 줄의 카드를 같은
+   높이로 늘려 놓으면, 설명이 짧은 카드만 속이 24px 아래로 밀려서 같은
+   줄인데 아이콘과 제목 높이가 어긋났다 — 사전 카드는 설명이 넉 줄이라
+   제자리였고 읽기·놀이 카드는 두 줄이라 내려앉아 있었다.
+   flex 로 바꿔 위에서부터 쌓는다. align-items 는 stretch 그대로 둔다 —
+   flex-start 로 하면 설명 글이 제 너비만큼만 차지해 줄바꿈이 달라진다.
+   알약 딱지만 align-self 로 따로 세운다. */
+.way {
+  display:flex; flex-direction:column; align-items:stretch;
+  width:100%; text-align:left; cursor:pointer;
+  background:var(--surface); border:0; padding:28px 26px 26px;
+  font-family:inherit; transition:background .2s cubic-bezier(.22,1,.36,1);
+}
+.way:hover { background:var(--tint); }
+.way:hover .way-em { border-color:rgba(255,138,61,.35); transform:translateY(-1px); }
+.way:focus-visible { outline:2px solid var(--orange); outline-offset:-2px; }
+/* 맨 이모지 대신 옅은 배지에 담는다 — .lc-mark 와 같은 자리다. 낱개
+   글자보다 자리가 잡혀 보이고, 누르는 곳이라는 신호도 더 또렷해진다. */
+.way-em {
+  width:46px; height:46px; display:grid; place-items:center;
+  font-size:21px; line-height:1; margin-bottom:16px;
+  background:var(--tint); border:1px solid var(--line-2); border-radius:14px;
+  transition:transform .2s cubic-bezier(.22,1,.36,1), border-color .2s;
+}
+.way-t {
+  font-size:19px; font-weight:700; color:var(--ink);
+  letter-spacing:-.03em; margin:0 0 9px;
+}
+.way-d {
+  font-size:14px; line-height:1.7; color:var(--ink-3);
+  margin:0 0 16px; word-break:keep-all;
+}
+.way-n {
+  /* 부모가 flex 라 그냥 두면 카드 너비만큼 늘어난다 — 알약이 아니라 띠가
+     된다. 여기서만 제 크기로 세운다. 딱지는 늘 맨 아래에 붙어 줄이 맞는다. */
+  align-self:flex-start; margin-top:auto;
+  display:inline-block; font-size:11.5px; font-weight:700; letter-spacing:.06em;
+  color:var(--orange-deep); background:#FFF4EA;
+  border:1px solid rgba(255,138,61,.28); border-radius:999px; padding:4px 11px;
+}
+
+/* ══ TOPIK 표 ══════════════════════════════════════════════════
+   표로 둔 이유 — 사람이 훑기도 좋지만 대화형 엔진이 뽑아 쓰기도 좋다.
+   「TOPIK I 에 쓰기가 몇 문항이냐」에 「시험에 없음」이라고 답할 수 있는
+   모양이어야 한다. 빈칸으로 두면 아직 안 만든 것처럼 읽힌다. */
+.tbl-wrap { margin-top:34px; overflow-x:auto; -webkit-overflow-scrolling:touch; }
+.tq-tbl {
+  width:100%; min-width:520px; border-collapse:collapse;
+  font-variant-numeric:tabular-nums;
+}
+.tq-tbl th, .tq-tbl td {
+  padding:16px 14px; text-align:center; border-bottom:1px solid var(--line-2);
+}
+.tq-tbl thead th {
+  font-size:12px; font-weight:700; letter-spacing:.08em; text-transform:uppercase;
+  color:var(--ink-3); border-bottom:1px solid var(--line);
+}
+.tq-tbl tbody th {
+  text-align:left; font-size:16px; font-weight:600; color:var(--ink-2);
+  white-space:nowrap;
+}
+.tq-tbl tbody th b { font-size:19px; font-weight:800; color:var(--ink); }
+.tq-tbl tbody td { font-size:21px; font-weight:700; color:var(--ink); }
+.tq-tbl td.none { font-size:12.5px; font-weight:600; color:var(--ink-3); }
+.tq-tbl tbody td:last-child { font-size:13.5px; font-weight:600; color:var(--ink-3); }
+
+.tq-pts { list-style:none; display:grid; gap:14px; margin-top:32px; }
+.tq-pts li {
+  position:relative; padding-left:20px;
+  font-size:14.5px; line-height:1.8; color:var(--ink-3); word-break:keep-all;
+}
+.tq-pts li::before {
+  content:''; position:absolute; left:0; top:.75em;
+  width:7px; height:7px; border-radius:50%; background:var(--orange);
+}
+.tq-pts b { color:var(--ink-2); font-weight:700; }
+
+/* ══ 문법 로드맵 ═══════════════════════════════════════════════
+   지하철 노선도 느낌 — 계단처럼 꺾이는 선 하나에 역(정류장) 셋을
+   찍는다. 눌러도 다른 데로 안 넘어간다 — 늘 떠 있는 말풍선 안내일
+   뿐이라 <a> 가 아니라 그냥 <div>/<li> 다. 넓은 화면은 .gr-road
+   (SVG 선 + 절대좌표 역), 좁은 화면은 .gr-road-list(세로 목록)로
+   갈아 낀다 — 선 그림은 폭이 줄면 카드끼리 겹친다. */
+.gr-road { position:relative; width:100%; aspect-ratio:1150/320; margin-top:44px; }
+.gr-road-line-tag {
+  position:absolute; top:-30px; left:0; font-size:11.5px; font-weight:700;
+  color:var(--ink-3); letter-spacing:.04em;
+}
+.gr-road-svg { position:absolute; inset:0; width:100%; height:100%; overflow:visible; }
+.gr-road-base { fill:none; stroke:#2E5C8A; stroke-width:9; stroke-linecap:round; stroke-linejoin:round; }
+:root[data-theme="dark"] .gr-road-base { stroke:#5B9BD8; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .gr-road-base { stroke:#5B9BD8; } }
+
+.gr-road-stop { position:absolute; transform:translate(-50%, -50%); z-index:2; }
+/* 지하철 역 표시 — 흰 배경에 급수 색 테두리, 가운데 글자. 노선도의
+   동그란 역 기호를 그대로 흉내 낸다. */
+.gr-road-pin {
+  display:flex; align-items:center; justify-content:center;
+  width:46px; height:46px; margin:0 auto; border-radius:50%;
+  background:var(--surface); border:5px solid #4A7DB5;
+  box-shadow:0 4px 10px -3px rgba(0,0,0,.35);
+}
+.gr-road-pin-in { color:var(--ink); font-weight:800; font-size:15px; }
+.gr-road-card {
+  position:absolute; left:50%; transform:translateX(-50%);
+  width:max-content; max-width:170px; text-align:center;
+  background:var(--surface); border:1px solid var(--line-2); border-radius:var(--r-s);
+  box-shadow:0 10px 24px -12px rgba(0,0,0,.3);
+  padding:10px 13px; display:flex; flex-direction:column; gap:3px;
+}
+/* 말풍선 꼬리 — 역 쪽을 가리키는 작은 삼각형. */
+.gr-road-card::after {
+  content:''; position:absolute; left:50%; margin-left:-6px;
+  border:6px solid transparent; width:0; height:0;
+}
+.gr-road-stop.above .gr-road-card { bottom:calc(100% + 14px); }
+.gr-road-stop.above .gr-road-card::after { top:100%; border-top-color:var(--surface); }
+.gr-road-stop.below .gr-road-card { top:calc(100% + 14px); }
+.gr-road-stop.below .gr-road-card::after { bottom:100%; border-bottom-color:var(--surface); }
+.gr-road-card b { font-size:13.5px; color:var(--ink); }
+.gr-road-card > span:not(.gr-road-nums) { font-size:11.5px; color:var(--ink-3); word-break:keep-all; }
+.gr-road-nums { font-size:11px; font-weight:600; color:var(--orange-deep); word-break:keep-all; }
+/* 단계마다 다른 테두리 색 — 눈으로 단계를 바로 가른다. .gr-road-stop
+   (선 그림)과 .gr-road-list li(좁은 화면 목록) 둘 다에 쓰므로
+   .gr-road-stop 을 앞에 안 붙인다. */
+.lv1 .gr-road-pin { border-color:#4A7DB5; }
+.lv3 .gr-road-pin { border-color:var(--orange); }
+.lv5 .gr-road-pin { border-color:#8B5CF6; }
+
+/* 좁은 화면용 세로 목록. 기본은 숨김 — 미디어 쿼리로 넓은/좁은 화면
+   그림을 서로 바꿔 보인다. */
+.gr-road-list { display:none; list-style:none; margin-top:28px; }
+@media (max-width:760px) {
+  .gr-road { display:none; }
+  .gr-road-list { display:flex; flex-direction:column; gap:12px; }
+}
+.gr-road-list li {
+  display:flex; align-items:center; gap:14px;
+  background:var(--surface); border:1px solid var(--line-2); border-radius:var(--r);
+  padding:12px 16px;
+}
+.gr-road-list .gr-road-pin { flex:none; margin:0; box-shadow:none; }
+.gr-road-list .gr-road-card {
+  position:static; transform:none; width:auto; max-width:none; text-align:left;
+  background:none; border:none; box-shadow:none; padding:0; flex:1 1 auto;
+}
+.gr-road-list .gr-road-card::after { display:none; }
+.gr-road-note { font-size:12.5px; color:var(--ink-3); margin-top:24px; line-height:1.7; }
+
+/* ══ 단어장 (덤) ═══════════════════════════════════════════════
+   예전에는 이 판 전체였다. 지금은 한 구역이라 조판도 그만큼만 준다. */
+.split-2 { grid-template-columns:1fr; }
+@media (min-width:860px) { .split-2 { grid-template-columns:1.15fr .85fr; } }
+.wb-pts { list-style:none; display:grid; gap:11px; margin:24px 0 26px; }
+.wb-pts li {
+  position:relative; padding-left:18px;
+  font-size:14px; line-height:1.7; color:var(--ink-3); word-break:keep-all;
+}
+.wb-pts li::before { content:'·'; position:absolute; left:4px; color:var(--orange); font-weight:700; }
+.wb-link {
+  display:inline-block; font-size:14.5px; font-weight:700;
+  color:var(--orange-deep); text-decoration:none;
+  border-bottom:1.5px solid rgba(255,138,61,.4); padding-bottom:2px;
+}
+.wb-link:hover { border-bottom-color:var(--orange-deep); }
+/* wb-link 는 원래 <a> 몫이었다 — <button> 에 쓰는 자리(스트릭 구역)는
+   브라우저 기본 버튼 테두리·배경·글꼴을 지워야 같은 모양이 된다. */
+button.wb-link { background:none; border:none; border-bottom:1.5px solid rgba(255,138,61,.4); font:inherit; cursor:pointer; }
+.wb-card {
+  background:var(--surface); border:1px solid var(--line-2); border-radius:var(--r-l);
+  padding:26px 24px; max-width:320px; margin:0 auto;
+}
+.wb-card-tag {
+  display:inline-block; font-size:11px; font-weight:700; letter-spacing:.06em;
+  color:var(--orange-deep); background:#FFF4EA; border-radius:999px; padding:3px 10px;
+}
+.wb-card-word { font-size:30px; font-weight:700; color:var(--ink); letter-spacing:-.03em; margin-top:14px; }
+.wb-card-mean { font-size:14px; color:var(--ink-3); margin-top:5px; }
+/* "오늘의 단어" 뜻풀이(#wotdGloss)만. 이 자리는 JS 가 매일 다른 낱말로
+   바꿔 끼운다(app.module.js 의 wotdRender) — 뜻풀이 길이가 낱말마다
+   3~89자로 들쭉날쭉해서(사전 4,209개 표본: 78%가 한 줄, 21%가 두 줄,
+   1%가 세 줄 이상), 자리 표시자가 바뀌는 순간 카드 밑 요소가 밀린다.
+   두 줄 자리를 미리 잡아 두면 그 21%(가장 흔한 밀림)가 없어지고, 세
+   줄짜리 1%만 드물게 남는다 — 정적인 다른 두 자리(레벨 테스트 안내,
+   "bicycle")는 안 바뀌는 값이라 클래스가 아니라 이 id 에만 건다. */
+#wotdGloss { min-height:32px; }
+.wb-card-ex {
+  font-size:13.5px; line-height:1.7; color:var(--ink-2); margin-top:16px;
+  padding-top:14px; border-top:1px solid var(--line-2); word-break:keep-all;
+}
+.wb-card-diff { display:flex; align-items:center; gap:3px; margin-top:16px; font-size:15px; }
+.wb-card-n { font-size:12px; font-weight:700; color:var(--ink-3); margin-left:5px; }
+
+/* ══ 매일 학습 스트릭 ═══════════════════════════════════════════
+   실제 배우기 화면(ls-streak)이 쓰는 것과 같은 모양(🔥 며칠 연속·
+   최장 기록)을 목업 카드로 옮겼다 — wb-card 와 같은 자리·크기. */
+.streak-mock {
+  background:var(--surface); border:1px solid var(--line-2); border-radius:var(--r-l);
+  padding:28px 24px; max-width:280px; margin:0 auto; text-align:center;
+}
+.streak-mock-fire { font-size:34px; line-height:1; }
+.streak-mock-num {
+  font-size:44px; font-weight:800; color:var(--ink); letter-spacing:-.03em;
+  margin-top:6px; font-variant-numeric:tabular-nums;
+}
+.streak-mock-num small { font-size:20px; font-weight:700; color:var(--ink-3); margin-left:3px; }
+.streak-mock-lbl { font-size:12.5px; font-weight:600; color:var(--ink-3); margin-top:2px; }
+.streak-mock-week { display:flex; justify-content:center; gap:6px; margin-top:18px; }
+.streak-mock-week span {
+  width:14px; height:14px; border-radius:50%; background:var(--line-2); display:block;
+}
+.streak-mock-week span.on { background:var(--orange); }
+.streak-mock-best {
+  font-size:12px; font-weight:600; color:var(--ink-3); margin-top:14px;
+  padding-top:14px; border-top:1px solid var(--line-2);
+}
+
+/* ══ 자주 묻는 것 ══════════════════════════════════════════════
+   묻고 답하기가 대화형 엔진이 가장 잘 뽑아 쓰는 모양이다. details 로 둔
+   것은 접어 두려는 것이지만, **접혀 있어도 안의 글자는 문서에 그대로
+   들어 있다** — 크롤러는 열지 않고도 읽는다. */
+.faq-list {
+  margin-top:34px; border-top:1px solid var(--line);
+}
+.faq-i { border-bottom:1px solid var(--line-2); }
+.faq-i > summary {
+  list-style:none; cursor:pointer; padding:22px 40px 22px 0; position:relative;
+  font-size:16.5px; font-weight:600; color:var(--ink); letter-spacing:-.01em;
+  word-break:keep-all;
+}
+.faq-i > summary::-webkit-details-marker { display:none; }
+.faq-i > summary::after {
+  content:'+'; position:absolute; right:8px; top:50%; transform:translateY(-50%);
+  font-size:22px; font-weight:400; color:var(--ink-3); transition:transform .2s;
+}
+.faq-i[open] > summary::after { content:'−'; }
+.faq-i > summary:hover { color:var(--orange-deep); }
+.faq-i > summary:focus-visible { outline:2px solid var(--orange); outline-offset:2px; border-radius:4px; }
+.faq-i > p {
+  margin:0; padding:0 40px 24px 0;
+  font-size:15px; line-height:1.85; color:var(--ink-3); word-break:keep-all;
+}
+.faq-i > p b { color:var(--ink-2); font-weight:700; }
+
+/* 블로그 미리보기. footer 의 블로그 링크는 크롤러용(주석 참고)이고, 이건
+   사람용이다 — 글 18편이 쌓였는데 홈에서 실제로 눌러 볼 자리가 없었다.
+   목록은 손으로 안 고친다 — build-pages.mjs 가 BLOG_TEASE_START/END 사이를
+   blog.js 최신 3편으로 다시 쓴다(node tools/build-pages.mjs). */
+.blog-tease-list { display:flex; flex-direction:column; gap:2px; }
+.blog-tease-item {
+  display:flex; align-items:baseline; gap:14px; padding:16px 4px;
+  border-bottom:1px solid var(--line-2); text-decoration:none; color:inherit;
+}
+.blog-tease-item:last-child { border-bottom:none; }
+.blog-tease-item:hover .blog-tease-title { color:var(--orange-deep); }
+.blog-tease-date { flex:none; font-size:13px; color:var(--ink-3); font-variant-numeric:tabular-nums; }
+.blog-tease-title { flex:1; font-size:15.5px; font-weight:600; word-break:keep-all; }
+.blog-tease-more { display:inline-block; margin-top:14px; font-size:14px; font-weight:600; color:var(--orange-deep); text-decoration:none; }
+.blog-tease-more:hover { text-decoration:underline; }
+
+@media (max-width:759px) {
+  .lede { font-size:15.5px; padding:22px 20px; margin:32px 0; }
+  .stat-row-4 { grid-template-columns:repeat(2,1fr); }
+  .stat-row-4 .stat-item:nth-child(3) { border-left:0; }
+  .stat-row-4 .stat-item:nth-child(n+3) { border-top:1px solid var(--line-2); }
+  .way-t { font-size:17.5px; }
+  .faq-i > summary { font-size:15.5px; padding-right:34px; }
+  .faq-i > p { font-size:14.5px; padding-right:10px; }
+  /* 좁은 화면에서 표를 옆으로 밀게 두면 「쓰기」와 「급수」 칸이 잘린 채로
+     남는다. 옆으로 밀 수 있다는 것을 모르는 사람이 대부분이고, 하필 여기가
+     이 판의 간판이라 안 보이면 안 된다. 칸이 짧으니 접어서 다 보인다. */
+  .tq-tbl { min-width:0; }
+  .tq-tbl th, .tq-tbl td { padding:12px 5px; }
+  .tq-tbl tbody th { font-size:14px; }
+  .tq-tbl tbody th b { font-size:16px; }
+  .tq-tbl tbody td { font-size:18px; }
+  .tq-tbl thead th { font-size:10.5px; letter-spacing:.02em; }
+  .tq-tbl td.none { font-size:10.5px; line-height:1.4; word-break:keep-all; }
+  .tq-tbl tbody td:last-child { font-size:11.5px; white-space:nowrap; }
+}
+@media (min-width:760px) {
+  .way-grid { grid-template-columns:repeat(2,1fr); }
+  /* 카드가 홀수면 마지막 줄에 하나만 남아 빈 칸이 생긴다(.lc-grid 와
+     같은 문제, 같은 고침). 짝수면 nth-child 가 안 맞아 그냥 지나간다. */
+  .way-grid > .way:nth-child(2n+1):last-child { grid-column:1 / -1; }
+}
+@media (min-width:1060px) {
+  .way-grid { grid-template-columns:repeat(3,1fr); }
+  .way-grid > .way:nth-child(2n+1):last-child { grid-column:auto; }
+  .way-grid > .way:nth-child(3n+1):last-child { grid-column:1 / -1; }
+}
+
+/* ══ 다운로드 띠 ═══════════════════════════════════════════════
+   화면 끝까지 가는 어두운 띠. 페이지 끝에 무게를 준다. */
+.dl-section {
+  background:var(--ink-bg); padding:var(--sec) var(--gut);
+  text-align:center; position:relative; overflow:hidden;
+}
+.dl-section::before {
+  content:''; position:absolute; inset:0;
+  background:radial-gradient(90% 120% at 50% 0%, rgba(255,145,77,.16), transparent 60%);
+  pointer-events:none;
+}
+.dl-logo-wrap { position:relative; }
+.dl-logo { width:54px; height:54px; border-radius:14px; object-fit:cover; margin:0 auto 26px; display:block; border:1px solid rgba(255,255,255,.16); }
+.dl-title {
+  position:relative; color:#FBF8F1;
+  font-size:clamp(26px, 5.4vw, 34px); font-weight:700;
+  letter-spacing:-.04em; line-height:1.18; word-break:keep-all;
+}
+.dl-sub { position:relative; font-size:15.5px; color:rgba(251,248,241,.66); line-height:1.75; margin-top:14px; word-break:keep-all; }
+/* 오렌지 위에 흰 글자는 대비가 2.2:1 밖에 안 나온다. 페이지에서 가장
+   중요한 버튼이라 읽히는 쪽을 고른다 — 오렌지 바탕에 먹색 글자는
+   6:1 을 넘고, 어두운 띠 위에서 오히려 또렷하다. */
+.dl-section .dl-btn {
+  position:relative; margin-top:30px;
+  /* color 는 항상 어두운 잉크 그대로 — 주황 칠 위의 글자라 밝은 모드
+     var(--ink) 는 맞았지만, 어두운 모드에서 var(--ink) 가 밝은 색으로
+     뒤집히면 밝은 주황 위에 밝은 글자가 된다. */
+  background:var(--orange); border-color:var(--orange); color:#1B1512;
+  font-weight:700;
+}
+.dl-section .dl-btn:hover { background:#FFA76B; border-color:#FFA76B; color:#1B1512; }
+.dl-coming {
+  position:relative; display:inline-block; margin-top:16px; font-size:12.5px;
+  color:rgba(251,248,241,.42); text-decoration:underline; text-underline-offset:3px;
+}
+.dl-coming:hover { color:rgba(251,248,241,.7); }
+
+/* ══ 푸터 ══════════════════════════════════════════════════════ */
+.footer {
+  max-width:var(--max); margin:0 auto;
+  padding:40px var(--gut) 52px;
+}
+.footer-brand {
+  font-size:14px; font-weight:700; color:var(--ink); letter-spacing:-.02em;
+  padding-bottom:18px; margin-bottom:18px; border-bottom:1px solid var(--line-2);
+}
+.footer-info { font-size:12.5px; color:var(--ink-3); line-height:1.8; }
+/* 바닥글 링크는 14px 높이라 손가락으로 겨냥이 안 됐다. 줄 사이를 넓히지
+   않으려고 세로 여백 대신 inline-block 높이로 늘린다. */
+.footer-info a { display:inline-block; min-height:32px; line-height:32px; color:var(--ink-3); text-decoration:underline; text-underline-offset:3px; }
+.footer-info a:hover { color:var(--orange-deep); }
+.au-tab.on { background:var(--surface); color:var(--ink); box-shadow:0 1px 3px rgba(var(--ink-rgb),.08); }
+.wb-view-btn.on { background:var(--surface); color:var(--ink); box-shadow:0 1px 3px rgba(var(--ink-rgb),.1); }
+.wb-chip.on { background:var(--ink-bg); border-color:var(--ink-bg); color:#fff; }
+
+/* ── 내 계정 ─────────────────────────────────────────────────── */
+/* 로그인 폼은 좁아야 읽기 좋지만 계정 화면은 넣을 것이 많다.
+   같은 상자를 쓰면 계정 쪽이 360px 에 갇혀 텅 비어 보인다. */
+#auBody { max-width:960px; }
+.nt-memo-cat.on { background:var(--orange); border-color:var(--orange); color:#fff; }
+.nt-memo-cat[data-col].on { border-color:transparent; color:#fff; }
+.nt-memo-cat[data-col="gray"].on   { background:#8C7A66; }
+.nt-memo-cat[data-col="orange"].on { background:var(--orange); }
+.nt-memo-cat[data-col="yellow"].on { background:#C99A2E; }
+.nt-memo-cat[data-col="green"].on  { background:var(--green); }
+.nt-memo-cat[data-col="red"].on    { background:var(--red); }
+
+/* 갈래 만들기·고치기 판. 이모지 고르개(.nb-emo)와 같은 결의 뜬창이다. */
+.nt-cat-pop {
+  position:fixed; z-index:98; width:min(252px, calc(100vw - 24px));
+  background:var(--surface); border:1px solid var(--line); border-radius:var(--r);
+  box-shadow:0 18px 44px -18px rgba(var(--ink-rgb),.42); padding:10px;
+}
+.nt-cat-pop[hidden] { display:none; }
+.nt-cat-pop-name {
+  width:100%; font:inherit; font-size:14px; font-weight:700; color:var(--ink);
+  background:var(--surface-2); border:1px solid var(--line); border-radius:var(--r-s);
+  padding:8px 10px; margin-bottom:9px;
+}
+.nt-cat-pop-name:focus { outline:none; border-color:var(--orange); }
+/* 이름을 안 적었거나 이미 있는 이름일 때 쓴다 — 예전엔 그냥 입력칸에
+   포커스만 돌아가고 아무 말도 없어서, 안 눌리는 줄 알고 다시 눌러도
+   똑같아 "버튼이 고장났다"는 제보로 이어졌다. */
+.nt-cat-pop-err { font-size:11.5px; color:var(--red); margin:-4px 0 9px; }
+.nt-cat-pop-err[hidden] { display:none; }
+.nt-cat-pop-row { display:flex; align-items:center; gap:8px; margin-bottom:10px; }
+.nt-cat-pop-icon {
+  flex:none; width:34px; height:34px; font-size:16px; line-height:1;
+  background:var(--surface-2); border:1px solid var(--line); border-radius:var(--r-s); cursor:pointer;
+  display:inline-flex; align-items:center; justify-content:center; color:var(--ink-3);
+}
+.nt-cat-pop-icon:hover { border-color:rgba(var(--ink-rgb),.24); color:var(--ink); }
+.nt-cat-pop .nb-swatches { padding:0; flex:1 1 auto; }
+.nt-cat-pop-acts { display:flex; align-items:center; }
+.nt-cat-pop-del {
+  font:inherit; font-size:11.5px; font-weight:600; color:var(--ink-3); background:none; border:none;
+  cursor:pointer; padding:6px 4px; margin-right:auto;
+}
+.nt-cat-pop-del:hover, .nt-cat-pop-del.arm { color:var(--red); }
+.nt-cat-pop-save {
+  font:inherit; font-size:12.5px; font-weight:700; color:#fff; background:var(--orange);
+  border:none; border-radius:var(--r-s); padding:7px 16px; cursor:pointer;
+}
+.nt-cat-pop-save:hover { background:var(--orange-deep); }
+
+/* 링크 걸기(Cmd/Ctrl+K). .nt-cat-pop 과 같은 뜬 상자 자리를 그대로
+   쓴다 — 다만 손잡이(anchor)가 블록이 아니라 고른 글자 자리(Range)라,
+   여는 곳에서 그 자리의 bounding rect 를 넘겨준다. */
+.nb-link-pop {
+  position:fixed; z-index:99; width:min(280px, calc(100vw - 24px));
+  background:var(--surface); border:1px solid var(--line); border-radius:var(--r);
+  box-shadow:0 18px 44px -18px rgba(var(--ink-rgb),.42); padding:10px;
+}
+.nb-link-pop[hidden] { display:none; }
+.nb-link-pop-input {
+  width:100%; font:inherit; font-size:13.5px; color:var(--ink);
+  background:var(--surface-2); border:1px solid var(--line); border-radius:var(--r-s);
+  padding:8px 10px; margin-bottom:9px;
+}
+.nb-link-pop-input:focus { outline:none; border-color:var(--orange); }
+.nb-link-pop-acts { display:flex; align-items:center; }
+.nb-link-pop-del {
+  font:inherit; font-size:11.5px; font-weight:600; color:var(--ink-3); background:none; border:none;
+  cursor:pointer; padding:6px 4px; margin-right:auto;
+}
+.nb-link-pop-del:hover { color:var(--red); }
+.nb-link-pop-del[hidden] { display:none; }
+.nb-link-pop-save {
+  font:inherit; font-size:12.5px; font-weight:700; color:#fff; background:var(--orange);
+  border:none; border-radius:var(--r-s); padding:7px 16px; cursor:pointer;
+}
+.nb-link-pop-save:hover { background:var(--orange-deep); }
+
+/* 문법 불러오기 판. 검색칸 + 스크롤되는 결과 목록 — 다른 뜬 판들보다
+   할 일이 많아서(코스가 늦게 불러와질 수 있다) 자기 열고닫기 상태를
+   따로 들고 있다(ntGrammarOpen). */
+.nt-gr-pop {
+  position:fixed; z-index:99; width:min(380px, calc(100vw - 24px));
+  max-height:min(70vh, 480px); display:flex; flex-direction:column;
+  background:var(--surface); border:1px solid var(--line); border-radius:var(--r);
+  box-shadow:0 18px 44px -18px rgba(var(--ink-rgb),.42); padding:10px;
+}
+.nt-gr-pop[hidden] { display:none; }
+.nt-gr-pop-h { display:flex; align-items:center; gap:6px; margin-bottom:8px; flex:none; }
+.nt-gr-pop-q {
+  flex:1; min-width:0; font:inherit; font-size:13.5px; color:var(--ink);
+  background:var(--surface-2); border:1px solid var(--line); border-radius:var(--r-s);
+  padding:8px 10px;
+}
+.nt-gr-pop-q:focus { outline:none; border-color:var(--orange); }
+.nt-gr-pop-x {
+  flex:none; width:26px; height:26px; border:none; background:none; color:var(--ink-3);
+  cursor:pointer; border-radius:6px; font-size:12px;
+}
+.nt-gr-pop-x:hover { color:var(--ink); background:rgba(var(--ink-rgb),.08); }
+.nt-gr-pop-list { overflow-y:auto; flex:1 1 auto; min-height:0; }
+
+/* 블록 편집기 단축키 사용법 풀이. 뜯어보면 .nt-cat-pop 과 같은 뜬 상자
+   자리(fixed + 손잡이 옆에 붙이기)를 그대로 쓴다 — 다른 틀을 새로
+   만들면 화면마다 뜬 상자가 다르게 움직이게 된다. */
+.nt-help-pop {
+  position:fixed; z-index:98; width:min(300px, calc(100vw - 24px));
+  background:var(--surface); border:1px solid var(--line); border-radius:var(--r);
+  box-shadow:0 18px 44px -18px rgba(var(--ink-rgb),.42); padding:14px 16px;
+}
+.nt-help-pop[hidden] { display:none; }
+.nt-help-t { font-size:14px; font-weight:700; color:var(--ink); margin-bottom:9px; }
+.nt-help-body { display:flex; flex-direction:column; gap:7px; }
+.nt-memo-item.on { border-color:var(--orange); background:var(--tint); }
+.nt-memo-doc.hidden, .nt-memo-none.hidden { display:none; }
+body.nt-full-open { overflow:hidden; }
+.nt-memo-act.on { color:var(--orange-deep); background:var(--tint); }
+.nb-tick.on { background:var(--orange); border-color:var(--orange); }
+:root[data-theme="dark"] .nb-c-blue .nb-txt { color:#8FB6E4; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .nb-c-blue .nb-txt { color:#8FB6E4; } }
+.nt-memo-icon.none { font-size:13px; font-weight:600; opacity:0; transition:opacity .14s; }
+.nt-memo-doc:hover .nt-memo-icon.none { opacity:1; }
+
+/* 이모지 고르개 */
+.nb-emo {
+  position:fixed; z-index:97; width:min(320px, calc(100vw - 24px)); max-height:min(58vh, 340px);
+  overflow-y:auto; background:var(--surface); border:1px solid var(--line);
+  border-radius:var(--r); box-shadow:0 18px 44px -18px rgba(var(--ink-rgb),.42); padding:8px;
+}
+.nb-emo[hidden] { display:none; }
+
+/* ══ 노트를 예쁘게 인쇄 · PDF로 저장 ═══════════════════════════════
+   화면에는 늘 숨어 있다가, 인쇄할 때만 다른 모든 것을 대신해서 나온다
+   (body.nt-printing 이 붙었을 때만). --ink 같은 테마 변수는 안 쓴다 —
+   어두운 모드에서 인쇄해도 종이는 늘 흰 종이라, 테마를 따라가면 흰
+   글자가 흰 종이 위에 앉는 사고가 난다. 색은 여기 안에서 못 박아 둔다. */
+#ntPrintView { display:none; }
+@page { size:A4; margin:16mm 15mm; }
+@media print {
+  body.nt-printing > *:not(#ntPrintView) { display:none !important; }
+  body.nt-printing #ntPrintView { display:block !important; }
+}
+#ntPrintView {
+  max-width:720px; margin:0 auto; font-family:inherit; color:#2A2118; line-height:1.7;
+}
+
+/* 종류 고르개 · 블록 메뉴. 화면 위에 떠서 자리를 코드가 잡는다. */
+.nb-menu {
+  position:fixed; z-index:96; min-width:212px; max-height:min(62vh, 420px); overflow-y:auto;
+  background:var(--surface); border:1px solid var(--line); border-radius:var(--r);
+  box-shadow:0 18px 44px -18px rgba(var(--ink-rgb),.42); padding:6px;
+}
+.nb-menu[hidden] { display:none; }
+.nb-menu button {
+  display:flex; align-items:center; gap:9px; width:100%; text-align:left;
+  font:inherit; font-size:13.5px; color:var(--ink); background:none; border:none;
+  padding:7px 9px; border-radius:6px; cursor:pointer;
+}
+.nb-menu button:hover, .nb-menu button.on { background:rgba(var(--ink-rgb),.07); }
+/* 블록 종류 한 줄 — 종류 이름(넓게 차지)과 「예시」 단추(작게, 오른쪽)를
+   나란히 둔다. 예시 단추는 자리표시글과 달리 진짜 값을 칸에 채운다. */
+.nb-menu-row { display:flex; align-items:center; gap:2px; }
+.nb-menu-row .nb-menu-type { flex:1 1 auto; width:auto; min-width:0; }
+.nb-menu-row .nb-menu-sample {
+  flex:none; width:auto; padding:5px 8px; font-size:11px; color:var(--ink-3);
+}
+.nb-menu-row .nb-menu-sample:hover { background:rgba(var(--ink-rgb),.09); color:var(--ink-2); }
+/* 색 고르개는 동그라미를 늘어놓는다 — 이름보다 색이 빠르다. */
+.nb-swatches { display:flex; flex-wrap:wrap; gap:6px; padding:4px 9px 8px; }
+.nb-sw.on { outline:2px solid var(--orange); outline-offset:2px; }
+.sb-like.on { color:var(--orange-deep); border-color:rgba(255,138,61,.45); background:#FFF4EA; }
+#sbName { width:150px; flex-shrink:0; }
+#sbText { width:100%; resize:vertical; min-height:64px; line-height:1.65; }
+@keyframes bkIn { from { opacity:0; transform:translateY(10px); } to { opacity:1; transform:none; } }
+/* 어두운 모드에서는 이 옅은 배경이 그대로 남아 있는데 글자색(--ink)만
+   밝게 뒤집혀서, 정답을 맞힌 문제의 글이 거의 안 보이게 된다 — 흰
+   바탕에 크림색 글자인 셈이다. 배경도 같이 뒤집는다. */
+:root[data-theme="dark"] .ex.ok { border-color:rgba(63,191,143,.4); background:#1E2B22; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .ex.ok { border-color:rgba(63,191,143,.4); background:#1E2B22; } }
+:root[data-theme="dark"] .ex-opt.right { background:#1E2B22; }
+:root[data-theme="dark"] .ex-opt.wrong { background:#2E1A17; }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .ex-opt.right { background:#1E2B22; }
+  :root:not([data-theme="light"]) .ex-opt.wrong { background:#2E1A17; }
+}
+
+/* ── 한국어 도우미 ──────────────────────────────────────────────
+   side-nav(메뉴 서랍)와 같은 틀 — transform + visibility 로 여닫고,
+   .on 이 붙을 때만 탭·클릭이 걸린다. 모바일 기본은 아래에서 올라오는
+   시트, 760px 부터 오른쪽에 붙는 서랍으로 바뀐다. */
+.hlp-fab {
+  position:fixed; right:18px; bottom:18px; z-index:82;
+  width:54px; height:54px; border-radius:50%; border:none;
+  background:var(--ink-bg); color:#fff; font-size:24px; line-height:1;
+  display:flex; align-items:center; justify-content:center; cursor:pointer;
+  box-shadow:0 10px 26px rgba(var(--ink-rgb),.3); transition:transform .16s;
+}
+.hlp-fab:hover { transform:translateY(-2px); }
+.hlp-fab.hidden { display:none; }
+
+.hlp-scrim {
+  position:fixed; inset:0; z-index:83;
+  background:rgba(var(--ink-rgb),.34); backdrop-filter:blur(2px);
+  opacity:0; visibility:hidden; transition:opacity .28s, visibility .28s;
+}
+.hlp-scrim.on { opacity:1; visibility:visible; }
+
+.hlp-panel {
+  position:fixed; z-index:84; left:0; right:0; bottom:0; top:auto;
+  max-height:82vh; display:flex; flex-direction:column;
+  background:var(--surface-2); border-radius:var(--r-xl) var(--r-xl) 0 0;
+  border-top:1px solid var(--line);
+  box-shadow:0 -20px 50px -20px rgba(var(--ink-rgb),.35);
+  transform:translateY(100%); visibility:hidden;
+  transition:transform .34s cubic-bezier(.32,.72,0,1), visibility .34s;
+  overscroll-behavior:contain;
+}
+.hlp-panel.on { transform:none; visibility:visible; }
+body.hlp-open { overflow:hidden; }
+
+@media (min-width:760px) {
+  .hlp-fab { right:24px; bottom:24px; }
+  .hlp-panel {
+    left:auto; top:0; bottom:0; height:100dvh; max-height:none;
+    width:min(400px, 92vw);
+    border-radius:0; border-top:none; border-left:1px solid var(--line);
+    box-shadow:-30px 0 60px -34px rgba(var(--ink-rgb),.4);
+    transform:translateX(100%);
+  }
+  .hlp-panel.on { transform:none; }
+}
+.tl-play.on { background:var(--ink-2); box-shadow:none; }
+.rd-card.on { border-color:rgba(255,145,77,.45); }
+.rd-g:hover, .rd-g.on { background:var(--tint); border-bottom-style:solid; }
+
+/* 말풍선. 지문 위에 겹쳐 뜨므로 fixed 로 두고 자리는 코드가 잡는다 —
+   지문 안에 넣으면 첫 줄에서 잘리고, 스크롤에 딸려 흐른다. */
+.rd-g-pop {
+  position:fixed; z-index:60; width:max-content; max-width:min(300px, calc(100vw - 24px));
+  background:var(--ink-bg); color:#fff; border-radius:12px; padding:11px 13px 10px;
+  box-shadow:0 10px 30px rgba(var(--ink-rgb),.24); word-break:keep-all;
+}
+.rd-g-pop[hidden] { display:none; }
+.rd-g-name { font-size:14px; font-weight:700; letter-spacing:-.02em; }
+.rd-g-desc { font-size:12.5px; line-height:1.65; color:rgba(255,255,255,.78); margin:5px 0 0; }
+/* 말풍선 바탕은 밝은 모드든 어두운 모드든 늘 어둡다(--ink-bg). 그래서
+   이 단추는 늘 흰 알약이다 — 그런데 글자만 --ink 를 따라가서, 어두운
+   모드에서는 흰 단추에 흰 글자(1.19:1)가 되어 안 보였다.
+   바탕이 고정이면 글자도 고정이어야 한다. */
+.rd-g-go {
+  margin-top:9px; font:inherit; font-size:12px; font-weight:600; cursor:pointer;
+  color:#1B1512; background:#fff; border:0; border-radius:999px; padding:5px 11px;
+}
+.rd-g-go:hover { background:#FFE9D6; }
+/* 꼬리. 말풍선이 어느 낱말을 가리키는지 이것 하나로 안다. */
+.rd-g-tail {
+  position:absolute; left:0; width:10px; height:10px; background:var(--ink-bg);
+  transform:rotate(45deg);
+}
+.rd-g-pop.up   .rd-g-tail { bottom:-5px; }
+.rd-g-pop.down .rd-g-tail { top:-5px; }
+.cv-cat.on { background:var(--orange); border-color:var(--orange); color:#fff; }
+
+/* ── 모르는 낱말 표시 ─────────────────────────────────────────
+   지문을 읽다 막히는 낱말을 눌러 두면 다 푼 뒤에도 낱말 목록에 모아
+   남는다. 사전에 있는 말이면 누르는 그 자리에서 뜻도 같이 뜬다(말풍선은
+   tqWPop, app.module.js 참고) — 모의고사에서도 마찬가지다. 모르는 낱말이
+   많으면 시간 안에 못 풀어서 점수가 시간 관리 실력만 재게 되기 때문이다.
+   모의고사의 벽·시계는 그대로 두고 뜻만 열어 준다.
+
+   글자 크기와 줄 간격은 손대지 않는다. 지문은 읽으라고 있는 것이라
+   낱말마다 테두리가 생기면 읽기가 먼저 망가진다. 눌러야 비로소
+   표시가 남는다. */
+/* 낱말 말풍선 속. 바탕이 어두운 알약(rd-g-pop)이라 글자는 흰 쪽이다. */
+.tq-wp-head { display:flex; align-items:center; gap:8px; flex-wrap:wrap; }
+.tq-wp-tag {
+  font-size:10.5px; font-weight:700; letter-spacing:.06em; text-transform:uppercase;
+  color:#FFD9B8; background:rgba(255,255,255,.13); border-radius:999px; padding:2px 8px;
+}
+.tq-wp-tag[hidden] { display:none; }
+/* 눌러 표시한 낱말.
+
+   예전에는 #FFE2C7 이라는 **밝은 살구색을 박아** 두었다. 어두운 모드에서는
+   글자가 #F2EAE0(거의 흰색)이라 그 위에 얹히면 명암비가 1.2:1 — 눌러 놓고도
+   글자가 안 보였다. 지문을 읽다 막힌 낱말을 짚는 자리인데 짚는 순간 사라진
+   셈이다.
+
+   반투명 주황으로 바꾼다. 밑에 깔린 바탕과 섞이므로 밝은 모드에서는 예전과
+   거의 같은 살구색이 되고(≈#FFDECA), 어두운 모드에서는 따뜻한 갈색이 되어
+   흰 글자와 7:1 넘게 벌어진다. 지문·보기·성적표처럼 바탕이 다른 자리에
+   같은 표시가 얹혀도 저절로 맞는다. */
+.tq-w.on { background:rgba(255,145,77,.32); box-shadow:inset 0 -2px 0 var(--orange); }
+.tq-bd-num.none b { font-weight:500; color:var(--ink-3); }
+
+/* ══ 스크롤 리빌 ═══════════════════════════════════════════════
+   예전에는 44px 씩 밀어 올리고 3D 로 회전시켰다. 화려하지만
+   읽으려는 사람 앞에서 내용이 계속 움직인다. 조용하게 줄인다.
+
+   그다음에도 .7~.9초에 카드마다 .1초씩 밀려서, 목록 끝 카드는 다
+   나타나기까지 1초 넘게 걸렸다 — 느린 모션은 고급스러운 게 아니라
+   굼떠 보인다. 거리를 줄이고(눈이 쫓을 일이 적어진다) 시간을 줄여
+   또렷하게 끝나게 한다. 밀리는 간격은 app.js 에서 같이 줄였다. */
+.reveal { opacity:0; transform:translateY(10px); transition:opacity .46s cubic-bezier(.22,1,.36,1), transform .46s cubic-bezier(.22,1,.36,1); transition-delay:var(--d,0s); }
+.reveal.in { opacity:1; transform:none; }
+.reveal-deep { opacity:0; transform:translateY(16px); transition:opacity .58s cubic-bezier(.22,1,.36,1), transform .58s cubic-bezier(.22,1,.36,1); transition-delay:var(--d,0s); }
+.reveal-deep.in { opacity:1; transform:none; }
+
+/* ══ 움직임 ════════════════════════════════════════════════════ */
+@keyframes float3d { 0%,100% { transform:translateY(0) rotateX(6deg) rotateY(-8deg); } 50% { transform:translateY(-9px) rotateX(8deg) rotateY(-5deg); } }
+@keyframes floatChip1 { 0%,100% { transform:translateZ(52px) translateY(0) rotate(-7deg); } 50% { transform:translateZ(52px) translateY(-7px) rotate(-4deg); } }
+@keyframes floatChip2 { 0%,100% { transform:translateZ(36px) translateY(0) rotate(5deg); } 50% { transform:translateZ(36px) translateY(-9px) rotate(8deg); } }
+@keyframes emojiFloat { 0%,100% { transform:translateY(0) rotate(-4deg); } 50% { transform:translateY(-7px) rotate(3deg); } }
+@keyframes langFlip { 0%,42% { transform:rotateY(0deg); } 58%,100% { transform:rotateY(180deg); } }
+@keyframes ringDash { from { stroke-dashoffset:157; } to { stroke-dashoffset:50; } }
+@keyframes barGrow { from { transform:scaleY(0); } to { transform:scaleY(1); } }
+@keyframes micPulse { 0% { box-shadow:0 0 0 0 rgba(214,72,63,.45); } 100% { box-shadow:0 0 0 22px rgba(214,72,63,0); } }
+@keyframes aiScan { 0% { left:-60%; } 58%,100% { left:112%; } }
+@keyframes aiDrop { 0%,42% { transform:translateY(-3px); opacity:.35; } 60% { transform:translateY(3px); opacity:1; } 100% { transform:translateY(-3px); opacity:.35; } }
+@keyframes ptDot { 0%,100% { opacity:.3; transform:translateY(0); } 50% { opacity:1; transform:translateY(-4px); } }
+@keyframes wbSpin { to { transform:rotate(360deg); } }
+
+/* 움직임을 줄여 달라고 설정한 사람에게는 전부 멈춘다. */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior:auto; }
+  *, *::before, *::after {
+    animation-duration:.001ms !important; animation-iteration-count:1 !important;
+    transition-duration:.001ms !important;
+  }
+  .reveal, .reveal-deep { opacity:1 !important; transform:none !important; }
+}
+
+/* ══════════════════════════════════════════════════════════════
+   데스크톱
+   반드시 위 기본값 뒤에 와야 한다. 앞에 두면 덮인다.
+   ══════════════════════════════════════════════════════════════ */
+/* 좁은 화면 — 이 블록도 기본값 뒤에 있어야 한다. */
+@media (max-width:759px) {
+  /* 카드를 살짝 안으로 들인다. 칩(🧀)이 translateZ 로 떠 있어 원근에
+     확대되는데, 그대로 두면 왼쪽 끝이 hero 의 overflow:hidden 에 잘린다. */
+  .hero-stack { left:16px; width:232px; height:148px; }
+  .hero-word { font-size:23px; }
+  .chip1 { font-size:32px; }
+  .chip2 { font-size:29px; }
+}
+
+@media (min-width:760px) {
+  :root { --gut:40px; --sec:104px; }
+
+  .section-title { font-size:clamp(34px, 4.2vw, 46px); letter-spacing:-.042em; }
+  .section-sub { font-size:17px; margin-bottom:44px; }
+
+  /* 히어로 : 글 왼쪽, 카드 오른쪽 */
+  .hero { padding:92px var(--gut) 40px; }
+  .hero-in { display:grid; grid-template-columns:1.06fr .94fr; gap:56px; align-items:center; }
+  .hero-logo { display:none; }        /* 헤더에 이미 로고가 있다 */
+  .hero h1 { font-size:clamp(62px, 7.4vw, 88px); }
+  .hero-sub { font-size:19px; margin-bottom:36px; }
+  .btn-row { padding-bottom:0; }
+  .hero-stage { height:300px; }
+  .hero-stack { left:auto; right:8px; width:308px; height:194px; }
+  .hero-word { font-size:31px; }
+  .hero-meaning { font-size:15px; }
+
+  .stat-item { padding:32px var(--gut); }
+  .stat-num { font-size:38px; }
+
+  /* 두 칸 배치 */
+  .split { grid-template-columns:.88fr 1.12fr; gap:64px; }
+  .split .section-sub { margin-bottom:0; }
+
+  .ai-shot { width:176px; height:176px; font-size:74px; }
+  .ai-card { width:300px; padding:24px; }
+  .ai-word { font-size:28px; }
+
+  .feat-list { grid-template-columns:1fr 1fr; column-gap:44px; }
+  .feat-item { padding:30px 4px; }
+  .feat-text-title { font-size:17.5px; }
+
+  .char-cards { grid-template-columns:1fr 1fr; gap:20px; }
+  .char-card { padding:32px; }
+  .char-emoji { font-size:68px; }
+  .char-name { font-size:22px; }
+
+  .dash-body { padding:26px; }
+  .lang-inner { padding:40px 44px; gap:36px; }
+  .cube-persp, .cube { width:104px; height:104px; }
+  .lang-title { font-size:23px; }
+  .lang-desc { font-size:15px; }
+
+  .footer { display:flex; align-items:baseline; justify-content:space-between; gap:24px; padding:44px var(--gut) 64px; }
+  .footer-brand { padding:0; margin:0; border:none; }
+
+  /* 발음 · 계정 · 단어장 */
+  .pt-hero { padding:92px var(--gut) 64px; }
+  .pt-hero h2 { font-size:clamp(40px, 4.6vw, 52px); }
+  .pt-hero p { font-size:17px; }
+  .pt-body { padding:56px var(--gut) var(--sec); }
+  .pt-card { padding:38px; }
+  .pt-target { font-size:29px; }
+  .pt-mic { width:86px; height:86px; font-size:33px; }
+  .pt-score-n { font-size:76px; }
+  .pt-level { font-size:22px; }
+  .pt-diff { font-size:22px; line-height:1.95; }
+  .wb-thumb { width:70px; height:70px; }
+  .wb-word { font-size:19px; }
+  /* 본문이 760px 라 4열로 나누면 카드가 158px 까지 좁아진다.
+     사진과 단어가 같이 들어가려면 200px 은 있어야 해서 3열로 둔다. */
+  .wb-list.grid { grid-template-columns:repeat(3, minmax(0,1fr)); gap:16px; }
+  .wb-list.grid .wb-thumb, .wb-list.grid .wb-noimg { height:140px; }
+  .wb-list.grid .wb-word { font-size:18px; }
+}
+
+@media (min-width:1200px) {
+  :root { --sec:128px; }
+  .hero { padding:116px var(--gut) 52px; }
+  .hero-in { gap:76px; }
+  .feat-list { column-gap:64px; }
+}
+
+/* 사이드 메뉴 · 게임 — 좁은 화면.
+   미디어쿼리는 스타일시트 맨 아래에 둔다. 위에 두면 뒤에 오는
+   기본값에 조용히 덮인다. */
+@media (max-width:759px) {
+  .side-nav { width:min(304px, 88vw); }
+  .side-hd { height:56px; padding-left:20px; }
+  .side-list { padding:14px 12px; }
+  /* 헤더에서는 아이콘만 남기지만 메뉴 안에서는 글자가 본체다. */
+  .side-list .nav-link { padding:12px; }
+  .side-list .nav-ico { font-size:16px; }
+
+  .game-card { padding:24px; }
+
+  /* 스피드 퀴즈 — 좁은 화면 */
+  .qz-choice { padding:15px 16px; font-size:15px; border-radius:16px; }
+}
+
+/* ══ Clozemaster Vibe · 레트로 빈칸 게임 ══════════════════════ */
+/* 여기 있던 @import 는 사실 한 번도 안 먹었다. CSS 규칙상 @import 는
+   다른 규칙보다 앞에 와야 하는데 이건 2400줄쯤 뒤였고, 자리를 어긴
+   @import 는 브라우저가 그냥 버린다(cssRules 에도 안 들어온다). 그래서
+   레트로 게임 글씨는 여태 --px-font 의 두 번째인 ui-monospace 로 나오고
+   있었다. 이제 <head> 의 vendor/pressstart2p.css 가 제대로 싣는다. */
+:root {
+  --px-font: 'Press Start 2P', ui-monospace, Menlo, monospace;
+  --retro-bg: #1a1228;
+  --retro-ink: #f7e9d3;
+  --retro-accent: #ff4d8d;
+  --retro-good: #4ade80;
+  --retro-yellow: #fde047;
+  --retro-blue: #60a5fa;
+  --retro-border: #0b0812;
+}
+
+/* ── 콤보 팝업 픽셀 텍스트 ────────────────────── */
+.combo-pop {
+  position: fixed; left: 50%; top: 38%;
+  transform: translate(-50%, -50%) scale(.6);
+  font-family: var(--px-font);
+  color: #fff; -webkit-text-stroke: 2px #000;
+  text-shadow: 3px 3px 0 #000, 6px 6px 0 rgba(255,77,141,.4);
+  font-size: clamp(22px);
+  letter-spacing: 2px;
+  pointer-events: none; z-index: 100;
+  opacity: 0;
+}
+.combo-pop.show {
+  animation: comboRise 1.1s cubic-bezier(.2,1.6,.3,1) forwards;
+}
+@keyframes comboRise {
+  0%   { opacity: 0; transform: translate(-50%, -30%) scale(.4); }
+  20%  { opacity: 1; transform: translate(-50%, -50%) scale(1.15); }
+  60%  { opacity: 1; transform: translate(-50%, -65%) scale(1); }
+  100% { opacity: 0; transform: translate(-50%, -95%) scale(.9); }
+}
+@keyframes xpUp {
+  0% { opacity:0; transform: translateY(0) scale(.8); }
+  20% { opacity:1; transform: translateY(-10px) scale(1.1); }
+  100%{ opacity:0; transform: translateY(-48px) scale(.95); }
+}
+/* 정답을 채운 빈칸 — 어두운 모드에서는 배경(#EAF6F0)이 그대로 남는데
+   글자색(--ink)만 밝게 뒤집혀서 정답 글자가 거의 안 보였다(옅은
+   민트색 위에 크림색 글자). 배경도 같이 어둡게 뒤집는다. */
+:root[data-theme="dark"] .cloze-blank.cloze-reveal { background: #1E2B22; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .cloze-blank.cloze-reveal { background: #1E2B22; } }
+@keyframes pop {
+  0% { transform: scale(.7); }
+  60%{ transform: scale(1.12); }
+  100%{ transform: scale(1); }
+}
+@keyframes crownBob {
+  0%,100% { transform:translateY(0) rotate(-3deg); }
+  50%     { transform:translateY(-2px) rotate(3deg); }
+}
+@keyframes ghostIn {
+  0%   { opacity: 0; transform: translateY(-2px) scale(.96); filter: blur(2px); }
+  60%  { opacity: 1; transform: translateY(0) scale(1.02); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .combo-pop.show, .xp-float, .cloze-blank.cloze-reveal, .m-mastered, .cloze-ghost { animation: none !important; opacity: 1 !important; transform: none !important; filter: none !important; }
+}
+
+/* ── 갈래 사용법 안내 ────────────────────────────────────────────
+   갈래를 처음 열었을 때 한 번만 뜬다. 두 번째부터는 제목 옆 ? 로만 연다.
+   들어올 때마다 뜨면 세 번째 방문에는 읽지 않고 닫는 버튼이 되고,
+   그러면 정작 처음 온 사람에게도 「닫는 것」으로 배워진다. */
+.cg-back {
+  position: fixed; inset: 0; z-index: 90; display: flex; align-items: flex-end; justify-content: center;
+  background: rgba(var(--ink-rgb),.42); -webkit-backdrop-filter: blur(2px); backdrop-filter: blur(2px);
+  padding: 16px; animation: cgFade .16s ease-out;
+}
+@keyframes cgFade { from { opacity: 0; } to { opacity: 1; } }
+.cg-card {
+  background: var(--surface); border-radius: var(--r-xl); width: 100%; max-width: 460px;
+  padding: 26px 24px 20px; box-shadow: 0 18px 48px rgba(var(--ink-rgb),.22);
+  max-height: 86vh; overflow-y: auto; animation: cgUp .2s cubic-bezier(.22,.9,.3,1);
+}
+@keyframes cgUp { from { transform: translateY(14px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+@media (min-width: 640px) { .cg-back { align-items: center; } }</style>
+</head>
+<body>
+<!-- 사이트 헤더. 페이지를 나누지 않고 화면만 바꾼다. -->
+<header class="site-hd"><div class="site-hd-in">
+  <button class="brand" id="brandBtn" type="button" aria-label="홈으로">
+    <img src="logo-256.png" alt="" width="28" height="28"><span>치즈감자</span>
+  </button>
+  <nav class="site-nav">
+    <!-- 배우기가 이 사이트의 본체다. 헤더에서 가장 먼저 온다. -->
+    <button class="nav-link" id="learnBtn" type="button" aria-label="배우기 열기">
+      <span class="nav-ico">📖</span><span class="nav-txt" data-en="Learn">Learn</span>
+    </button>
+    <!-- 머리띠에서는 「Wordbook」이다. 「My wordbook」으로 두면 320px 짜리
+         영어 화면에서 머리띠가 넘친다. 옆 메뉴는 자리가 넉넉해서 거기서는
+         「My wordbook」을 그대로 쓴다. -->
+    <button class="nav-link" id="wbBtn" type="button" aria-label="Open my wordbook">
+      <span class="nav-ico">📚</span><span class="nav-txt" data-en="Wordbook">Wordbook</span>
+    </button>
+    <!-- 로그인 여부에 따라 글이 바뀌므로 data-en 대신 JS 가 관리한다. -->
+    <button class="nav-link" id="authBtn" type="button" aria-label="로그인">
+      <span class="nav-ico">👤</span><span class="nav-txt">로그인</span>
+    </button>
+    <!-- 글자 크기 단추는 모의고사 화면(#tqPlay)으로 옮겼다. -->
+    <button class="lang-btn" id="themeBtn" type="button" aria-label="어두운 모드로 바꾸기">🌙</button>
+    <button class="lang-btn" id="langBtn" type="button" aria-label="Switch to English">EN</button>
+    <a class="hd-cta" href="https://play.google.com/store/apps/details?id=com.cheesepotato.app" target="_blank" rel="noopener noreferrer" id="hdCta" data-en="Download">Download</a>
+    <button class="menu-btn" id="menuBtn" type="button"
+            aria-label="메뉴 열기" aria-expanded="false" aria-controls="sideNav">
+      <span class="menu-bars"><i></i><i></i></span>
+    </button>
+  </nav>
+</div></header>
+
+<!-- 되돌아오게 하는 띠. 로그인한 사람에게만, 스트릭이 끊기려 하거나
+     복습할 단어가 있을 때만 뜬다. 어느 화면(첫 화면·배우기·단어장…)에
+     있든 헤더 바로 밑에 보인다 — 특정 화면에 속한 것이 아니라서
+     app.module.js 가 view 와 상관없이 열고 닫는다. -->
+<div class="nudge-bar" id="nudgeBar" hidden>
+  <span class="nudge-txt" id="nudgeTxt"></span>
+  <button class="nudge-go" id="nudgeGo" type="button"></button>
+  <button class="nudge-x" id="nudgeX" type="button" aria-label="닫기">✕</button>
+</div>
+
+<!-- ── 사이드 메뉴 ─────────────────────────────────────────────
+     헤더에 여섯 개가 늘어서 있으면 무엇이 중요한지 안 보인다. 자주
+     쓰는 내 단어장과 다운로드만 남기고 나머지 화면은 여기로 모았다.
+
+     버튼은 **옮기기만 했다**. id 와 class 가 그대로여야 ptShow /
+     open / syncLang 이 예전처럼 찾아 쓴다. -->
+<div class="nav-scrim" id="navScrim"></div>
+<aside class="side-nav" id="sideNav" aria-label="메뉴" aria-hidden="true">
+  <div class="side-hd">
+    <span class="side-eyebrow" data-en="Menu">Menu</span>
+    <button class="side-close" id="sideClose" type="button" aria-label="메뉴 닫기">✕</button>
+  </div>
+
+  <div class="side-list" id="sideList">
+    <!-- 배우기와 내 단어장은 헤더에도 있다. 그런데 좁은 화면에서는
+         `.nav-link .nav-txt` 가 숨어서 아이콘만 남는다 — 📖 📚 만 보고
+         무엇인지 아는 사람은 이미 아는 사람뿐이다. 여기에는 글자가
+         늘 붙으므로 처음 온 사람이 이름으로 찾아갈 수 있다.
+
+         **동작을 베끼지 않고 헤더 단추를 그대로 누른다.** 손잡이를 두 벌
+         만들어 두면 언젠가 한쪽만 고쳐서 둘이 다르게 움직인다. -->
+    <!-- 배우기와 게임은 안에 갈래가 여럿이라 펼친다. 누르면 그 갈래 목록
+         화면으로 가는 대신 여기서 바로 고르게 한다 — 어차피 그 화면이
+         이 목록과 같은 것을 보여 주므로, 한 번 더 그리게 할 이유가 없다.
+         (머리띠의 📖 배우기 는 그대로 목록 화면으로 간다.) -->
+    <!-- 일곱 개가 한 줄로 죽 늘어서 있으면 무엇이 무엇과 딸린 것인지
+         안 보인다. 세 갈래(배우기·놀이·내 활동)로 나눠 이름표를 붙였다.
+         이름표는 눈으로 가르는 것일 뿐 눌리지 않는다 — 실제로 여닫는
+         것은 여전히 .side-group(배우기·게임) 뿐이다. -->
+    <div class="side-sec-h" data-en="Learn">Learn</div>
+    <div class="side-group" data-group="learn">
+      <button class="nav-link side-parent" type="button"
+              aria-expanded="false" aria-controls="sideSubLearn">
+        <span class="nav-ico">📖</span><span class="nav-txt" data-en="Learn">Learn</span>
+      </button>
+      <div class="side-sub" id="sideSubLearn">
+       <div class="side-sub-in" role="group" aria-label="Learn sections">
+        <button class="side-item" type="button" data-open="learn/courses">
+          <span class="side-item-ico">📚</span><span data-en="Learn by course">Learn by course</span>
+        </button>
+        <button class="side-item" type="button" data-open="learn/reading">
+          <span class="side-item-ico">📝</span><span data-en="Read and write it back">Read and write it back</span>
+        </button>
+        <button class="side-item" type="button" data-open="learn/quiz">
+          <span class="side-item-ico">⚡</span><span data-en="Just the questions">Just the questions</span>
+        </button>
+        <button class="side-item" type="button" data-open="learn/sentence">
+          <span class="side-item-ico">✍️</span><span data-en="Build a sentence">Build a sentence</span>
+        </button>
+        <button class="side-item" type="button" data-open="learn/notes">
+          <span class="side-item-ico">🗒️</span><span data-en="My notes">My notes</span>
+        </button>
+       </div>
+      </div>
+    </div>
+    <!-- TOPIK 은 원래 배우기 하위 갈래였다. 카드 열한 개짜리 독립 기능인데
+         '배우기' 서랍 여섯 개 중 하나로만 묻혀 있어 눈에 안 띄었다 —
+         여기서는 배우기와 나란한 1단 항목으로 뗀다. 화면 자체는 그대로
+         #learn/topik 이다(view='learn', lsecOpen='topik') — app.module.js
+         의 open()/openSection() 에서 이 단추를 따로 켠다. -->
+    <button class="nav-link" id="topikBtn" type="button" aria-label="TOPIK 유형 연습 열기">
+      <span class="nav-ico">🎯</span><span class="nav-txt" data-en="TOPIK practice">TOPIK practice</span>
+    </button>
+    <button class="nav-link" id="dictBtn" type="button" aria-label="국어사전 열기">
+      <span class="nav-ico">🔎</span><span class="nav-txt" data-en="Dictionary">Dictionary</span>
+    </button>
+
+    <div class="side-sec-h" data-en="Practice">Practice</div>
+    <div class="side-group" data-group="games">
+      <!-- id 는 gameBtn 그대로다. 다른 곳에서 이 id 로 게임 목록을 연다. -->
+      <button class="nav-link side-parent" id="gameBtn" type="button"
+              aria-expanded="false" aria-controls="sideSubGames">
+        <span class="nav-ico">🎮</span><span class="nav-txt" data-en="Games">Games</span>
+      </button>
+      <div class="side-sub" id="sideSubGames">
+       <div class="side-sub-in" role="group" aria-label="Games">
+        <!-- 게임은 제 단추를 대신 누른다. 그쪽이 화면을 열고 판까지
+             깔아 주므로, 여기서 다시 만들면 언젠가 둘이 어긋난다. -->
+        <button class="side-item" type="button" data-nav-to="gcNum">
+          <span class="side-item-ico">🔢</span><span data-en="Read the number">Read the number</span>
+        </button>
+        <button class="side-item" type="button" data-nav-to="gcQuiz">
+          <span class="side-item-ico">⏱</span><span data-en="Speed quiz">Speed quiz</span>
+        </button>
+       </div>
+      </div>
+    </div>
+    <button class="nav-link" id="navBtn" type="button" aria-label="발음 테스트 열기">
+      <span class="nav-ico">🎙</span><span class="nav-txt" data-en="Pronunciation test">Pronunciation test</span>
+    </button>
+
+    <div class="side-sec-h" data-en="My activity">My activity</div>
+    <!-- 로그인/계정. 머리띠의 authBtn 이 폰에서는 숨으므로 여기가 유일한
+         길이다. 아이콘·이름은 로그인 상태가 바뀔 때 authBtn 과 함께
+         맞춘다(app.module.js paintAuthNav) — 손잡이만 여기 것, 동작은
+         제 단추를 그대로 대신 누른다. -->
+    <button class="nav-link" id="sideAuthBtn" type="button" data-nav-to="authBtn" aria-label="로그인">
+      <span class="nav-ico">👤</span><span class="nav-txt" data-en="Sign in">Sign in</span>
+    </button>
+    <button class="nav-link" type="button" data-nav-to="wbBtn" aria-label="내 단어장 열기">
+      <span class="nav-ico">📚</span><span class="nav-txt" data-en="My wordbook">My wordbook</span>
+    </button>
+    <button class="nav-link" id="dashBtn" type="button" aria-label="대시보드 열기">
+      <span class="nav-ico">📊</span><span class="nav-txt" data-en="Dashboard">Dashboard</span>
+    </button>
+    <button class="nav-link" id="libBtn" type="button" aria-label="자료마당 열기">
+      <span class="nav-ico">📄</span><span class="nav-txt" data-en="Library">Library</span>
+    </button>
+  </div>
+
+  <div class="side-foot">
+    <!-- 헤더의 다운로드는 좁은 화면에서 숨는다. 여기 하나 더 둬서
+         폰으로 온 사람도 받을 곳을 잃지 않는다. -->
+    <a class="side-cta" href="https://play.google.com/store/apps/details?id=com.cheesepotato.app" target="_blank" rel="noopener noreferrer" id="sideCta" data-en="⬇ Download">⬇ Download</a>
+    <p class="side-note" data-en="Free · Android">Free · Android</p>
+  </div>
+</aside>
+
+<div class="lp">
+
+<div id="homeView">
+
+  <!-- Hero.
+       예전에는 「Vocabulary Learning App」이었다. 지금 이 판이 실제로 하는
+       일은 한국어를 가르치는 것이고, 단어장은 그 안에서 만난 낱말을 담는
+       자리로 내려갔다. 첫 화면이 그렇게 말해야 한다. -->
+  <div class="hero">
+   <div class="hero-in">
+    <div class="hero-copy">
+      <img class="hero-logo" src="logo-256.png" alt="치즈감자 로고" width="56" height="56">
+      <div class="hero-badge" data-ko="무료 한국어 학습 · TOPIK I·II 대비">Free Korean learning · TOPIK I & II</div>
+      <h1>치즈감자</h1>
+      <p class="hero-en">CHEESEPOTATO</p>
+      <p class="hero-sub" data-ko="한글 낱자부터 TOPIK 까지.<br>설치도 회원가입도 없이 브라우저에서 바로.">Korean from the first letter to TOPIK.<br>In your browser — no install, no sign-up.</p>
+      <!-- 히어로는 이제 레벨 테스트 하나로 단순화한다. 한국어 배우기·
+           TOPIK 연습·발음 테스트는 위 ☰ 메뉴(learnBtn·topikBtn·navBtn)로
+           여전히 들어갈 수 있다 — 지운 것은 이 지름길 단추들뿐이다. -->
+      <div class="btn-row">
+        <button class="btn-primary" id="heroLevelTestBtn" type="button" data-ko="레벨 테스트 →">Level test →</button>
+      </div>
+    </div>
+    <div class="hero-stage">
+      <div class="hero-stack">
+        <div class="back1"></div>
+        <div class="back2"></div>
+        <button class="front" id="heroCardBtn" type="button" aria-label="Open Learn">
+          <div class="hero-word">안녕하세요</div>
+          <div class="hero-meaning" data-ko="안녕하세요 — 가장 먼저 배우는 말">Hello — the first thing you learn</div>
+          <div class="hero-diff"><span>🧀</span><span>🥔</span></div>
+        </button>
+        <div class="chip1">🧀</div>
+        <div class="chip2">🥔</div>
+      </div>
+      <div class="hero-shadow"></div>
+    </div>
+   </div>
+  </div>
+
+  <!-- 한 문단 정의.
+       검색 엔진과 대화형 엔진(ChatGPT·Perplexity·AI 개요)은 **혼자 떼어
+       놓아도 말이 되는 문장**을 인용한다. 「학습에 필요한 모든 기능」 같은
+       말은 어디에도 안 실린다. 무엇이 몇 개 있는지 숫자로 적어 둔 이 한
+       문단이 이 쪽에서 가장 많이 인용될 자리다. 숫자는 전부 자료 파일을
+       세어서 넣었다 — 틀린 숫자는 인용되면 안 넣느니만 못하다. -->
+  <div class="lede-wrap">
+    <p class="lede" data-ko="<b>치즈감자는 한국어를 무료로 배우는 학습 사이트</b>입니다. 한글 낱자부터 TOPIK 6급까지, <b>코스 21개·레슨 82개</b>, 뜻풀이와 예문·대화문을 갖춘 <b>문법 표현 290개</b>, TOPIK I·II 의 듣기·읽기·쓰기를 아우르는 <b>연습 문항 480개</b>, <b>읽기 지문 54편</b>, 국립국어원 뜻풀이를 담은 <b>낱말 5,346개</b>를 담고 있습니다. 설치도 회원가입도 없이 브라우저에서 바로 씁니다."><b>Cheesepotato is a free website for learning Korean</b>, from the Hangul letters through TOPIK level 6. It holds <b>21 courses across 82 lessons</b>, <b>290 grammar points</b> with meanings, examples and dialogues, <b>480 TOPIK-style practice questions</b> covering listening, reading and writing for TOPIK I and II, <b>54 reading passages</b>, and a <b>5,346-word dictionary</b> using definitions from Korea's National Institute of Korean Language. Everything runs in the browser with no install and no sign-up.</p>
+  </div>
+
+  <!-- 통계 바 -->
+  <div class="stat-row stat-row-4">
+    <div class="stat-item"><div class="stat-num">21</div><div class="stat-label" data-ko="코스 · 레슨 82">Courses · 82 lessons</div></div>
+    <div class="stat-item"><div class="stat-num">290</div><div class="stat-label" data-ko="문법 표현">Grammar points</div></div>
+    <div class="stat-item"><div class="stat-num">480</div><div class="stat-label" data-ko="TOPIK 문항">TOPIK questions</div></div>
+    <div class="stat-item"><div class="stat-num" data-ko="무료">Free</div><div class="stat-label" data-ko="회원가입 없이">No sign-up needed</div></div>
+  </div>
+
+  <!-- 무엇을 배우나 -->
+  <div class="section" id="learn-what">
+    <div class="label">WHAT YOU LEARN</div>
+    <p class="section-title" data-en="Seven ways in,<br>one language">Seven ways in,<br>one language</p>
+    <p class="section-sub" data-en="Start anywhere. Each one is a full path on its own.">Start anywhere. Each one is a full path on its own.</p>
+
+    <div class="way-grid">
+      <button class="way" type="button" data-go="learn">
+        <div class="way-em">📚</div>
+        <h3 class="way-t" data-en="Learn by course">Learn by course</h3>
+        <p class="way-d" data-en="Hangul letters, then greetings, then sentences. 21 courses across 82 lessons, split into beginner, intermediate and advanced.">Hangul letters, then greetings, then sentences. 21 courses across 82 lessons, split into beginner, intermediate and advanced.</p>
+        <span class="way-n">21 코스 · 82 레슨</span>
+      </button>
+
+      <button class="way" type="button" data-go="topik">
+        <div class="way-em">📖</div>
+        <h3 class="way-t" data-en="TOPIK practice">TOPIK practice</h3>
+        <p class="way-d" data-en="Pick TOPIK I or II, then listening, reading or writing. Wrong answers explain themselves. Full mock papers with a timer and an answer sheet.">Pick TOPIK I or II, then listening, reading or writing. Wrong answers explain themselves. Full mock papers with a timer and an answer sheet.</p>
+        <span class="way-n">480 문항</span>
+      </button>
+
+      <button class="way" type="button" data-go="sentence">
+        <div class="way-em">✍️</div>
+        <h3 class="way-t" data-en="Build a sentence">Build a sentence</h3>
+        <p class="way-d" data-en="290 grammar points, each with a meaning, an example and a dialogue — and a box where you write your own sentence and get it checked.">290 grammar points, each with a meaning, an example and a dialogue — and a box where you write your own sentence and get it checked.</p>
+        <span class="way-n">290 표현</span>
+      </button>
+
+      <button class="way" type="button" data-go="reading">
+        <div class="way-em">📝</div>
+        <h3 class="way-t" data-en="Read and write it back">Read and write it back</h3>
+        <p class="way-d" data-en="54 passages, short and long. Read one, then write back what it said — the way a real test asks you to.">54 passages, short and long. Read one, then write back what it said — the way a real test asks you to.</p>
+        <span class="way-n">54 지문</span>
+      </button>
+
+      <button class="way" type="button" data-go="games">
+        <div class="way-em">⚡</div>
+        <h3 class="way-t" data-en="Drills and games">Drills and games</h3>
+        <p class="way-d" data-en="Questions pulled out of the lessons, plus number reading and a speed quiz.">Questions pulled out of the lessons, plus number reading and a speed quiz.</p>
+        <span class="way-n" data-en="2 games">2 games</span>
+      </button>
+
+      <button class="way" type="button" data-go="glossary">
+        <div class="way-em">🔎</div>
+        <h3 class="way-t" data-en="Dictionary">Dictionary</h3>
+        <p class="way-d" data-en="Tap any word while you study to see its meaning. 5,346 words with definitions from the National Institute of Korean Language, and 197 grammar entries.">Tap any word while you study to see its meaning. 5,346 words with definitions from the National Institute of Korean Language, and 197 grammar entries.</p>
+        <span class="way-n">5,346 낱말</span>
+      </button>
+
+      <button class="way" type="button" data-go="convo">
+        <div class="way-em">💬</div>
+        <h3 class="way-t" data-en="Practice a conversation">Practice a conversation</h3>
+        <p class="way-d" data-en="Someone speaks to you in a real situation — a cafe, a hospital — and you answer in your own words. No multiple choice.">Someone speaks to you in a real situation — a cafe, a hospital — and you answer in your own words. No multiple choice.</p>
+        <span class="way-n" data-en="Real situations">Real situations</span>
+      </button>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- TOPIK — 지금 이 판의 간판이라 표로 또렷하게 둔다.
+       표는 사람도 훑기 좋고 대화형 엔진도 뽑아 쓰기 좋다. -->
+  <div class="section" id="topik">
+    <div class="label">TOPIK</div>
+    <p class="section-title" data-en="TOPIK I and II,<br>split the way the real exam is">TOPIK I and II,<br>split the way the real exam is</p>
+    <p class="section-sub" data-en="Pick the exam first, then the skill. TOPIK I has no writing section — because the real exam does not.">Pick the exam first, then the skill. TOPIK I has no writing section — because the real exam does not.</p>
+
+    <div class="tbl-wrap">
+      <table class="tq-tbl">
+        <caption class="sr-only">치즈감자의 TOPIK 연습 문항 수</caption>
+        <thead>
+          <tr>
+            <th scope="col"></th>
+            <th scope="col" data-en="Listening">Listening</th>
+            <th scope="col" data-en="Reading">Reading</th>
+            <th scope="col" data-en="Writing">Writing</th>
+            <th scope="col" data-en="Levels">Levels</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">TOPIK <b>I</b></th>
+            <td>26</td><td>209</td>
+            <td class="none" data-en="not in the exam">not in the exam</td>
+            <td data-en="Levels 1–2">Levels 1–2</td>
+          </tr>
+          <tr>
+            <th scope="row">TOPIK <b>II</b></th>
+            <td>19</td><td>200</td><td>58</td>
+            <td data-en="Levels 3–6">Levels 3–6</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <ul class="tq-pts">
+      <li data-en="<b>Wrong answers explain themselves.</b> Every question carries a written reason, not just a mark."><b>Wrong answers explain themselves.</b> Every question carries a written reason, not just a mark.</li>
+      <li data-en="<b>Mock papers run like the real thing</b> — a timer, an answer sheet you can move around, and a report at the end."><b>Mock papers run like the real thing</b> — a timer, an answer sheet you can move around, and a report at the end.</li>
+      <li data-en="<b>Listening plays audio and hides the script</b> until you have answered. Seeing the words while you choose makes it a reading test."><b>Listening plays audio and hides the script</b> until you have answered. Seeing the words while you choose makes it a reading test.</li>
+      <li data-en="<b>These are original practice items, not past papers.</b> They follow the TOPIK format and are not affiliated with NIIED."><b>These are original practice items, not past papers.</b> They follow the TOPIK format and are not affiliated with NIIED.</li>
+    </ul>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- 문법 로드맵. 초급·중급·고급마다 배울 문법 개수 · 필요한 낱말
+       수를 오르막길 그림 위에 얹었다(참고 이미지의 도로 느낌). 누르면
+       다른 데로 넘어가지 않는다 — 그냥 말풍선처럼 늘 떠 있는 안내다.
+
+       문법 개수는 「예문 만들기」(sentences.js, SB_CATS)가 갖고 있는
+       표현마다의 lv(beginner/intermediate/advanced) 를 세어서 적은
+       실제 숫자다(112 · 93 · 85, 합쳐서 이 페이지 다른 곳에서도 쓰는
+       290). 처음엔 코스로 배우기(courses.js)의 19개 문법 코스만 세어
+       급수마다 1~3개로 너무 적어 보였다 — 예문 만들기 쪽 표현까지
+       더하니 실제로 가르치는 양에 가깝다. 급수 나누기(1~2급/3~4급/
+       5~6급) 자체는 이 사이트가 공식으로 매긴 것이 아니라 편집자가
+       고른 대략적인 기준이다.
+
+       낱말 수는 다르다 — 우리 사전(glossary.js, 5,346개)은 급수별로
+       안 나뉘어 있어서 우리 자료에서 셀 수가 없다. 그래서 TOPIK 준비
+       자료에 흔히 인용되는 대략적인 필요 어휘량을 대신 적고 "약"이라고
+       분명히 밝힌다 — 우리가 잰 숫자인 척하지 않는다("틀린 숫자보다
+       안 적는 게 낫다"는 이 파일의 다른 곳과 같은 원칙).
+
+       표현이 늘어나면(계속 늘어날 예정) 이 숫자도 손으로 맞춰야 한다 —
+       옆의 통계 문단·FAQ 숫자와 마찬가지로 이 페이지 전체가 이미
+       그렇게 손으로 유지된다. -->
+  <div class="section" id="roadmap">
+    <div class="label">GRAMMAR ROADMAP</div>
+    <p class="section-title" data-en="What you need,<br>step by step">What you need,<br>step by step</p>
+    <p class="section-sub" data-en="How much grammar and vocabulary each step takes.">How much grammar and vocabulary each step takes.</p>
+
+    <div class="gr-road" aria-label="초급부터 고급까지, 지하철 노선도 느낌의 로드맵">
+      <div class="gr-road-line-tag" data-en="🚇 GRAMMAR LINE">🚇 GRAMMAR LINE</div>
+      <svg class="gr-road-svg" viewBox="0 0 1150 320" preserveAspectRatio="none" aria-hidden="true">
+        <path class="gr-road-base" d="M90,240 L290,240 L430,160 L720,160 L860,80 L1060,80" />
+      </svg>
+
+      <div class="gr-road-stop lv1 above" style="left:16.5%; top:75%">
+        <span class="gr-road-pin"><span class="gr-road-pin-in">초</span></span>
+        <span class="gr-road-card">
+          <b data-en="Beginner (~Level 1–2)">Beginner (~Level 1–2)</b>
+          <span data-en="Basic, everyday sentences">Basic, everyday sentences</span>
+          <span class="gr-road-nums"><span data-en="112 grammar points">112 grammar points</span> · <span data-en="~800–2,000 words (typical estimate)">~800–2,000 words (typical estimate)</span></span>
+        </span>
+      </div>
+      <div class="gr-road-stop lv3 below" style="left:50%; top:50%">
+        <span class="gr-road-pin"><span class="gr-road-pin-in">중</span></span>
+        <span class="gr-road-card">
+          <b data-en="Intermediate (~Level 3–4)">Intermediate (~Level 3–4)</b>
+          <span data-en="Reasons, guesses, honorifics">Reasons, guesses, honorifics</span>
+          <span class="gr-road-nums"><span data-en="93 grammar points">93 grammar points</span> · <span data-en="~3,000–4,000 words (typical estimate)">~3,000–4,000 words (typical estimate)</span></span>
+        </span>
+      </div>
+      <div class="gr-road-stop lv5 below" style="left:83.5%; top:25%">
+        <span class="gr-road-pin"><span class="gr-road-pin-in">고</span></span>
+        <span class="gr-road-card">
+          <b data-en="Advanced (~Level 5–6)">Advanced (~Level 5–6)</b>
+          <span data-en="Formal register, written style">Formal register, written style</span>
+          <span class="gr-road-nums"><span data-en="85 grammar points">85 grammar points</span> · <span data-en="5,000+ words (typical estimate)">5,000+ words (typical estimate)</span></span>
+        </span>
+      </div>
+    </div>
+
+    <!-- 좁은 화면(모바일)에서는 오르막길 그림 대신 세로 목록으로
+         바꾼다 — 길 그림은 가로 폭이 줄면 카드끼리 겹친다. 내용은
+         위 길 그림과 똑같다(자료를 두 번 적는 대신, 화면 폭에 따라
+         하나만 보이게 CSS 로 가른다). -->
+    <ol class="gr-road-list">
+      <li class="lv1"><span class="gr-road-pin"><span class="gr-road-pin-in">초</span></span><span class="gr-road-card"><b data-en="Beginner (~Level 1–2)">Beginner (~Level 1–2)</b><span data-en="Basic, everyday sentences">Basic, everyday sentences</span><span class="gr-road-nums"><span data-en="112 grammar points">112 grammar points</span> · <span data-en="~800–2,000 words (typical estimate)">~800–2,000 words (typical estimate)</span></span></span></li>
+      <li class="lv3"><span class="gr-road-pin"><span class="gr-road-pin-in">중</span></span><span class="gr-road-card"><b data-en="Intermediate (~Level 3–4)">Intermediate (~Level 3–4)</b><span data-en="Reasons, guesses, honorifics">Reasons, guesses, honorifics</span><span class="gr-road-nums"><span data-en="93 grammar points">93 grammar points</span> · <span data-en="~3,000–4,000 words (typical estimate)">~3,000–4,000 words (typical estimate)</span></span></span></li>
+      <li class="lv5"><span class="gr-road-pin"><span class="gr-road-pin-in">고</span></span><span class="gr-road-card"><b data-en="Advanced (~Level 5–6)">Advanced (~Level 5–6)</b><span data-en="Formal register, written style">Formal register, written style</span><span class="gr-road-nums"><span data-en="85 grammar points">85 grammar points</span> · <span data-en="5,000+ words (typical estimate)">5,000+ words (typical estimate)</span></span></span></li>
+    </ol>
+
+    <p class="gr-road-note" data-en="Grammar counts are exact — from the grammar points in Build a sentence (290 in total, tagged beginner/intermediate/advanced). Word counts are typical estimates cited for TOPIK prep — not a count from our own dictionary, which holds 5,346 words but is not split by level. Level grouping is an approximate, editor-made guide, not an official TOPIK grading.">Grammar counts are exact — from the grammar points in Build a sentence (290 in total, tagged beginner/intermediate/advanced). Word counts are typical estimates cited for TOPIK prep — not a count from our own dictionary, which holds 5,346 words but is not split by level. Level grouping is an approximate, editor-made guide, not an official TOPIK grading.</p>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- 레벨 테스트. 위 로드맵이 "이 사이트가 어떻게 나뉘는지" 를 보여줬으니,
+       바로 이어서 "그럼 나는 그중 어디인지" 를 답해 주는 자리를 둔다.
+       문법 9문제(초·중·고급 각 3개) + 짧은 설문 두 개로 시작할 코스
+       하나를 가리켜 준다 — 새 코스를 만드는 대신 기존 코스 중 하나를
+       추천하는 가장 단순한 방식이다. -->
+  <div class="section" id="leveltest">
+   <div class="split split-2">
+    <div>
+      <div class="label" data-en="LEVEL CHECK">LEVEL CHECK</div>
+      <p class="section-title" data-en="Find your level,<br>start the right place">Find your level,<br>start the right place</p>
+      <p class="section-sub" data-en="Pick what you want to check, answer 5 short questions — then we point you to where to start.">Pick what you want to check, answer 5 short questions — then we point you to where to start.</p>
+      <ul class="wb-pts">
+        <li data-en="Pick a focus — overall, TOPIK, reading, writing or listening">Pick a focus — overall, TOPIK, reading, writing or listening</li>
+        <li data-en="Just 5 questions, picked at random each time">Just 5 questions, picked at random each time</li>
+        <li data-en="No sign-in needed — about a minute">No sign-in needed — about a minute</li>
+      </ul>
+      <button type="button" class="wb-link" id="leveltestGoBtn" data-en="Start the level test →">Start the level test →</button>
+    </div>
+    <div>
+      <div class="wb-card" id="leveltestCard">
+        <div class="wb-card-tag" data-en="LEVEL CHECK">LEVEL CHECK</div>
+        <div class="wb-card-word">문제 5개 · 약 1분</div>
+        <div class="wb-card-mean" data-en="5 questions in the area you pick → where to start">5 questions in the area you pick → where to start</div>
+      </div>
+    </div>
+   </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- 매일 학습 스트릭. 배우기·읽기·복습 화면에는 이미 있던 기능인데
+       홈페이지에서는 한 번도 보여준 적이 없었다("스트릭을 홈에서 안
+       판다"는 지적). 로그인 상태의 실제 진도(lesson_progress 표)로
+       계산하는 진짜 기능이라, 목업 카드도 그 모양(🔥 며칠 연속·최장
+       기록) 그대로 옮겼다 — 단어장 구역의 wb-card 와 같은 자리다. */ -->
+  <div class="section" id="streak">
+   <div class="split split-2">
+    <div>
+      <div class="streak-mock">
+        <div class="streak-mock-fire">🔥</div>
+        <div class="streak-mock-num">7<small data-en="days">days</small></div>
+        <div class="streak-mock-lbl" data-en="day streak">day streak</div>
+        <div class="streak-mock-week">
+          <span class="on"></span><span class="on"></span><span class="on"></span>
+          <span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span>
+        </div>
+        <div class="streak-mock-best" data-en="Best: 21 days">Best: 21 days</div>
+      </div>
+    </div>
+    <div>
+      <div class="label" data-en="ALSO — DAILY STREAK">ALSO — DAILY STREAK</div>
+      <p class="section-title" data-en="Every day you show up<br>gets counted">Every day you show up<br>gets counted</p>
+      <p class="section-sub" data-en="Duolingo-style streaks, but tied to real lessons you finished — not just opening the app.">Duolingo-style streaks, but tied to real lessons you finished — not just opening the app.</p>
+      <ul class="wb-pts">
+        <li data-en="Finish one lesson and today counts — courses, TOPIK practice, reading all feed the same streak">Finish one lesson and today counts — courses, TOPIK practice, reading all feed the same streak</li>
+        <li data-en="Your best-ever streak is kept separately, as something to beat again">Your best-ever streak is kept separately, as something to beat again</li>
+        <li data-en="Signed in, it lives on the server — switch phones or computers and the streak comes with you">Signed in, it lives on the server — switch phones or computers and the streak comes with you</li>
+      </ul>
+      <button type="button" class="wb-link" id="streakGoBtn" data-en="Start today's streak →">Start today's streak →</button>
+    </div>
+   </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- 단어장 — 예전에는 이 판 전체였다. 지금은 배우다 만난 낱말을 담는
+       자리라서 한 구역으로 내려왔다. -->
+  <div class="section" id="wordbook">
+   <div class="split split-2">
+    <div>
+      <div class="label" data-en="ALSO — WORDBOOK">ALSO — WORDBOOK</div>
+      <p class="section-title" data-en="Words you meet<br>on the way">Words you meet<br>on the way</p>
+      <p class="section-sub" data-en="The wordbook is not the point any more — the Korean is. But the words you look up while you study are worth keeping, so the app holds them.">The wordbook is not the point any more — the Korean is. But the words you look up while you study are worth keeping, so the app holds them.</p>
+      <ul class="wb-pts">
+        <li data-en="Snap a photo and AI fills in the word, meaning and an example sentence">Snap a photo and AI fills in the word, meaning and an example sentence</li>
+        <li data-en="Swipe through cards — hard words left, memorized words right">Swipe through cards — hard words left, memorized words right</li>
+        <li data-en="A D-day countdown and a chart of what you have memorized">A D-day countdown and a chart of what you have memorized</li>
+      </ul>
+      <a class="wb-link" href="https://play.google.com/store/apps/details?id=com.cheesepotato.app" target="_blank" rel="noopener noreferrer" data-en="Get the app →">Get the app →</a>
+    </div>
+    <div>
+      <div class="wb-card">
+        <div class="wb-card-tag" data-en="noun">noun</div>
+        <div class="wb-card-word">자전거</div>
+        <div class="wb-card-mean" data-en="bicycle">bicycle</div>
+        <div class="wb-card-ex">학교까지 자전거를 타고 가요.</div>
+        <div class="wb-card-diff"><span>🧀</span><span>🧀</span><span>🥔</span><span class="wb-card-n">× 7</span></div>
+      </div>
+    </div>
+   </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- 오늘의 단어. 로그인 없이도 보이는 낱말 카드다 — 사전 4,209개 중
+       하루에 하나씩, 한국 날짜 기준으로 골라 보여준다(app.module.js 의
+       wotdRender, 자료는 wotd.js). 아래 마크업의 값은 JS 가 아직
+       안 왔을 때도 뭔가 뜨도록 둔 정적 기본값이고, 실제로는 매일 바뀐다.
+       카드 자리는 단어장 구역의 wb-card 를 그대로 재사용한다. -->
+  <div class="section" id="wotd">
+   <div class="split split-2">
+    <div>
+      <div class="label" data-en="ALSO — WORD OF THE DAY">ALSO — WORD OF THE DAY</div>
+      <p class="section-title" data-en="One new word,<br>every day you visit">One new word,<br>every day you visit</p>
+      <p class="section-sub" data-en="4,209 dictionary words, one a day. Same word for everyone that day, no sign-in needed.">4,209 dictionary words, one a day. Same word for everyone that day, no sign-in needed.</p>
+      <ul class="wb-pts">
+        <li data-en="Tap through for the full meaning, an example sentence and pronunciation">Tap through for the full meaning, an example sentence and pronunciation</li>
+        <li data-en="Signed in, save it to your wordbook in one tap">Signed in, save it to your wordbook in one tap</li>
+        <li data-en="Comes back tomorrow with a different word — no streak to keep, just drop by">Comes back tomorrow with a different word — no streak to keep, just drop by</li>
+      </ul>
+      <a class="wb-link" id="wotdGoBtn" href="/dictionary/" data-en="See today's word →">See today's word →</a>
+    </div>
+    <div>
+      <div class="wb-card" id="wotdCard">
+        <div class="wb-card-tag" id="wotdPos" data-en="noun">noun</div>
+        <div class="wb-card-word" id="wotdWord">사전</div>
+        <div class="wb-card-mean" id="wotdGloss">낱말을 모아 뜻을 풀어 놓은 책.</div>
+      </div>
+    </div>
+   </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- 자주 묻는 것.
+       대화형 엔진이 가장 잘 뽑아 쓰는 모양이 묻고 답하기다. 사람들이 실제로
+       물어보는 말을 그대로 제목에 쓰고, 답은 혼자 떼어 놔도 말이 되게 적는다.
+       아래 JSON-LD 의 FAQPage 와 글자가 같아야 한다 — 다르면 둘 중 하나가
+       거짓이 되고, 그걸 검색 엔진이 먼저 알아본다. -->
+  <div class="section" id="faq">
+    <div class="label">FAQ</div>
+    <p class="section-title" data-en="Questions people ask">Questions people ask</p>
+
+    <div class="faq-list">
+      <details class="faq-i">
+        <summary data-en="What is Cheesepotato?">What is Cheesepotato?</summary>
+        <p data-en="Cheesepotato is a free website for learning Korean, covering everything from the Hangul letters to TOPIK level 6. It has 21 courses across 82 lessons, 290 grammar points, 480 TOPIK-style practice questions, 54 reading passages and a 5,346-word dictionary. It runs in a browser — there is nothing to install.">Cheesepotato is a free website for learning Korean, covering everything from the Hangul letters to TOPIK level 6. It has 21 courses across 82 lessons, 290 grammar points, 480 TOPIK-style practice questions, 54 reading passages and a 5,346-word dictionary. It runs in a browser — there is nothing to install.</p>
+      </details>
+
+      <details class="faq-i">
+        <summary data-en="Is it really free? Do I need an account?">Is it really free? Do I need an account?</summary>
+        <p data-en="Yes, it is free, and you can start without an account. Courses, TOPIK practice, reading and the dictionary all open straight away. Signing in only matters if you want your progress kept across devices, or for the full mock exams.">Yes, it is free, and you can start without an account. Courses, TOPIK practice, reading and the dictionary all open straight away. Signing in only matters if you want your progress kept across devices, or for the full mock exams.</p>
+      </details>
+
+      <details class="faq-i">
+        <summary data-en="I am starting Korean from zero. Where do I begin?">I am starting Korean from zero. Where do I begin?</summary>
+        <p data-en="Start with 코스로 배우기 (Learn by course) at the beginner level. The first course teaches the Hangul letters one at a time — you tap a letter and hear it. You do not need to know any Korean before you begin.">Start with 코스로 배우기 (Learn by course) at the beginner level. The first course teaches the Hangul letters one at a time — you tap a letter and hear it. You do not need to know any Korean before you begin.</p>
+      </details>
+
+      <details class="faq-i">
+        <summary data-en="What is the difference between TOPIK I and TOPIK II?">What is the difference between TOPIK I and TOPIK II?</summary>
+        <p data-en="TOPIK I covers levels 1–2 and has two sections: listening (30 questions) and reading (40). TOPIK II covers levels 3–6 and has three: listening (50), reading (50) and writing (4). There is no writing section in TOPIK I. Cheesepotato splits its practice the same way, so TOPIK I shows only listening and reading.">TOPIK I covers levels 1–2 and has two sections: listening (30 questions) and reading (40). TOPIK II covers levels 3–6 and has three: listening (50), reading (50) and writing (4). There is no writing section in TOPIK I. Cheesepotato splits its practice the same way, so TOPIK I shows only listening and reading.</p>
+      </details>
+
+      <details class="faq-i">
+        <summary data-en="How does the listening practice work?">How does the listening practice work?</summary>
+        <p data-en="You hear the audio and pick one of four answers. The transcript stays hidden until you have answered — if you could read along while choosing, it would be a reading test, not a listening one. After you answer, the script opens with each speaker marked, so you can see exactly what you missed.">You hear the audio and pick one of four answers. The transcript stays hidden until you have answered — if you could read along while choosing, it would be a reading test, not a listening one. After you answer, the script opens with each speaker marked, so you can see exactly what you missed.</p>
+      </details>
+
+      <details class="faq-i">
+        <summary data-en="Are these real past TOPIK papers?">Are these real past TOPIK papers?</summary>
+        <p data-en="No. Every question on Cheesepotato is written from scratch to follow the TOPIK format and difficulty. They are not past papers, and the site is not affiliated with NIIED, the institute that runs TOPIK.">No. Every question on Cheesepotato is written from scratch to follow the TOPIK format and difficulty. They are not past papers, and the site is not affiliated with NIIED, the institute that runs TOPIK.</p>
+      </details>
+
+      <details class="faq-i">
+        <summary data-en="Where do the word meanings come from?">Where do the word meanings come from?</summary>
+        <p data-en="From the Basic Korean Dictionary published by the National Institute of Korean Language (국립국어원), used under CC BY-SA 2.0 KR. That covers 5,346 words. The grammar entries — 197 of them — are written for this site.">From the Basic Korean Dictionary published by the National Institute of Korean Language (국립국어원), used under CC BY-SA 2.0 KR. That covers 5,346 words. The grammar entries — 197 of them — are written for this site.</p>
+      </details>
+
+      <details class="faq-i">
+        <summary data-en="Does it work on a phone?">Does it work on a phone?</summary>
+        <p data-en="Yes. The site is built for phones as much as for desktops — that is where most people study. There is also an Android app for the wordbook part, with an iOS version on the way.">Yes. The site is built for phones as much as for desktops — that is where most people study. There is also an Android app for the wordbook part, with an iOS version on the way.</p>
+      </details>
+    </div>
+  </div>
+
+  <!-- 블로그 미리보기. build-pages.mjs 가 아래 START/END 사이만 다시 쓴다 —
+       나머지(라벨·더 보기 단추)는 손으로 고쳐도 된다. -->
+  <div class="section" id="blogTease">
+    <div class="label">BLOG</div>
+    <p class="section-title" data-en="From the blog">From the blog</p>
+    <!-- BLOG_TEASE_START --><div class="blog-tease-list"><a class="blog-tease-item" href="blog/eun-neun-vs-i-ga-english.html"><span class="blog-tease-date">9월 14일</span><span class="blog-tease-title">은/는 vs 이/가: one question instead of ten rules</span></a><a class="blog-tease-item" href="blog/how-to-learn-korean.html"><span class="blog-tease-date">9월 14일</span><span class="blog-tease-title">How to Learn Korean: the order that actually works</span></a><a class="blog-tease-item" href="blog/reasons-intermediate.html"><span class="blog-tease-date">9월 20일</span><span class="blog-tease-title">이유를 말하는 법, 중급 편 — 거든요, 느라고, 바람에, 탓에</span></a></div><!-- BLOG_TEASE_END -->
+    <a class="blog-tease-more" href="blog/" data-en="See all posts →">See all posts →</a>
+  </div>
+
+  <!-- 다운로드 -->
+  <div class="dl-section" id="download">
+    <div class="dl-logo-wrap"><img class="dl-logo" src="logo-256.png" alt="치즈감자" width="54" height="54"></div>
+    <div class="dl-title" data-en="Start today">Start today</div>
+    <div class="dl-sub" data-en="Build your own wordbook for free<br>and study smarter">Build your own wordbook for free<br>and study smarter</div>
+    <a class="dl-btn" href="https://play.google.com/store/apps/details?id=com.cheesepotato.app" target="_blank" rel="noopener noreferrer" data-en="▶ Get it on Google Play">▶ Get it on Google Play</a>
+    <!-- 예전엔 그냥 글자였다. Clarity 히트맵을 보니 다운로드 단추 바로
+         아래라서 그런지 여기를 누르는 사람이 꽤 있었는데(죽은 클릭 —
+         눌러도 아무 일도 안 일어남), 누르면 뭔가 반응이 있을 거라 기대한
+         것이다. 이제 진짜로 메일을 연다 — iOS 판을 기다리는 사람 수를
+         가늠할 신호도 겸한다. -->
+    <a class="dl-coming" href="mailto:junsanghan1225@gmail.com?subject=iOS%20%EB%B2%84%EC%A0%84%20%EC%95%8C%EB%A6%BC%20%EC%8B%A0%EC%B2%AD&body=iOS%20%EB%B2%84%EC%A0%84%EC%9D%B4%20%EB%82%98%EC%98%A4%EB%A9%B4%20%EC%95%8C%EB%A0%A4%EC%A3%BC%EC%84%B8%EC%9A%94.%0A%EC%82%AC%EC%9A%A9%20%EA%B8%B0%EA%B8%B0:%20"
+       data-en="🍎 iOS version coming soon — tap to get notified">🍎 iOS version coming soon — tap to get notified</a>
+  </div>
+
+  <!-- 푸터 -->
+  <div class="footer">
+    <div class="footer-brand" data-en="Every Koreans">Every Koreans</div>
+    <!-- sentence/·blog/ 로 가는 링크를 여기 둔다. sitemap 에도 적어 두었지만,
+         어느 쪽에서도 이어지지 않는 쪽은 크롤러가 늦게 보고 늦게 믿는다.
+         홈에서 한 번 걸리면 290쪽(문법 표현)·글(블로그)이 거기서부터
+         따라 발견된다. 블로그는 다른 정적 쪽(course/·sentence/…) 밑에는
+         이미 붙어 있었는데 정작 홈에는 없었다. -->
+    <div class="footer-info">© 2026 치즈감자 · <a href="sentence/" data-en="Korean grammar points">Korean grammar points</a> · <a href="blog/" data-en="Blog">Blog</a> · <a href="privacy.html" data-en="Privacy policy">Privacy policy</a> · <a href="mailto:junsanghan1225@gmail.com">junsanghan1225@gmail.com</a></div>
+    <!-- CC BY-SA 는 출처를 밝히라고 한다. 자료 파일 머리에만 적어 두면 그
+         파일을 여는 사람만 알고 학습자는 모른다. 뜻풀이를 화면에서 보는
+         사람이 여기서 볼 수 있어야 표시한 것이 된다. -->
+    <div class="footer-info" style="margin-top:6px">
+      <span data-en="Word meanings from the">Word meanings from the</span>
+      <a href="https://krdict.korean.go.kr" target="_blank" rel="noopener noreferrer">국립국어원 한국어기초사전</a>
+      · <a href="https://creativecommons.org/licenses/by-sa/2.0/kr/" target="_blank" rel="noopener noreferrer">CC BY-SA 2.0 KR</a>
+    </div>
+  </div>
+
+</div><!-- /homeView -->
+
+<!-- ── 배우기 : 코스 카탈로그 ──────────────────────────────────
+     내용은 courses.js 에 있고 여기서는 그리기만 한다. -->
+<div id="learnView" class="hidden">
+
+  <div class="pt-hero">
+    <div class="pt-badge">LEARN KOREAN</div>
+    <h2 data-en="Start reading Korean<br>this morning">Start reading Korean<br>this morning</h2>
+    <p data-en="Hangul was designed to be learnable in a day. Short lessons, one thing at a time, and you check yourself as you go.">Hangul was designed to be learnable in a day. Short lessons, one thing at a time, and you check yourself as you go.</p>
+  </div>
+
+  <div class="pt-body" style="max-width:1000px;">
+
+    <!-- 배우기 첫 화면 : 갈래 고르기.
+         예전에는 코스 카드가 바로 여기 있었다. 퀴즈와 예문 만들기가
+         들어오면서 한 층을 얹고 코스를 그 아래로 내렸다. -->
+    <div id="lsecList" class="lc-grid"></div>
+
+    <!-- 갈래 하나를 고르면 그 안이 열린다 -->
+    <div id="lsecWrap" class="hidden">
+      <div class="bd-sec-title">
+        <h3 id="lsecTitle"></h3>
+        <!-- 안내를 다시 볼 길. 안내는 처음 한 번만 저절로 뜨므로, 이것이
+             없으면 무심코 닫은 사람은 두 번 다시 못 본다. -->
+        <button class="lsec-help hidden" id="lsecHelp" type="button" aria-label="사용법 보기">?</button>
+        <button class="wb-out" id="lsecBack" type="button" data-en="← Learn">← Learn</button>
+      </div>
+
+      <!-- 갈래 : 코스 -->
+      <div id="lcWrap" class="hidden">
+        <div class="learn-head">
+          <div id="lcLevel"></div>
+          <p id="lcIntro" class="learn-copy"></p>
+          <div id="lcSummary" class="learn-summary"></div>
+        </div>
+        <div id="lcRoadmap" class="roadmap-grid"></div>
+        <div id="lcList" class="lc-grid"></div>
+
+        <!-- 코스를 고르면 레슨 목록이 여기 열린다 -->
+        <div id="llWrap" class="hidden" style="margin-top:32px;">
+          <div class="bd-sec-title">
+            <h3 id="llTitle"></h3>
+            <button class="wb-out" id="llBack" type="button" data-en="← All courses">← All courses</button>
+          </div>
+          <div class="bd"><div id="llRows"></div></div>
+        </div>
+      </div>
+
+      <!-- 갈래 : TOPIK 유형 연습 -->
+      <div id="tqWrap" class="hidden">
+        <!-- 시험(TOPIK I·II)과 갈래(듣기·읽기·쓰기)를 고르는 줄. 갈래 셋이
+             한 지붕 아래 살기 때문에 이 줄만 셋 위에 공통으로 선다.
+             시험은 한 번 고르면 몇 달을 안 바꾸는 것이고 갈래는 한 자리에서
+             오가는 것이라, 파고들게 하지 않고 둘 다 늘 보이게 뒀다. -->
+        <div id="tqSkillBar"></div>
+
+        <div id="tqBodyRead">
+        <div id="tqPick">
+          <div class="learn-head">
+            <div id="tqLevel"></div>
+            <p id="tqIntro" class="learn-copy"></p>
+            <div id="tqSummary" class="learn-summary"></div>
+          </div>
+          <!-- 모의고사·유형별 연습을 한 그리드에 죽 늘어놓았더니 카드 열한
+               장이 구분 없이 이어져 정신없었다. drawTopik() 이 소제목과
+               함께 섹션별 .lc-grid 를 따로 채운다 — 여기서는 감싸는
+               자리만 둔다. -->
+          <div id="tqList" class="tq-sections"></div>
+          <div class="tq-rec hidden" id="tqRecord"></div>
+          <!-- 지금까지 본 모의고사를 한자리에 모은다. 성적표는 판이 끝난
+               그 자리에서만 보이던 터라, 지난 회를 다시 보려면 다시 푸는
+               수밖에 없었다. -->
+          <div class="tq-log hidden" id="tqLog"></div>
+          <p class="tq-note" id="tqNote"></p>
+        </div>
+
+        <div id="tqPlay" class="hidden">
+          <div class="bd-sec-title">
+            <h3 id="tqPlayTitle"></h3>
+            <div class="tq-hd-btns">
+              <!-- 글자 크기. 모의고사는 60~70분을 들여다보는 화면이라
+                   여기가 필요한 자리다. 유형 연습에서는 감춘다
+                   (app.module.js 의 tqStart / tqStartMock). -->
+              <div class="txt-size hidden" id="tqTxtSize" role="group"
+                   aria-label="Exam text size">
+                <button class="txt-btn" id="txtDown" type="button" aria-label="Smaller text">가−</button>
+                <button class="txt-btn" id="txtUp" type="button" aria-label="Larger text">가+</button>
+              </div>
+              <!-- 지금 회차를 그대로 여는 주소를 복사한다. 학생에게 넘기면
+                   같은 회차를 자기 답안지로 푼다. -->
+              <button class="wb-out" id="tqHandoff" type="button"></button>
+              <button class="wb-out" id="tqQuit" type="button"></button>
+            </div>
+          </div>
+          <!-- 모의고사에서는 본문 옆에 답안지가 선다. 실제 시험은 OMR 을
+               보면서 왔다 갔다 하며 푼다 — 한 문항씩 앞으로만 가는 것은
+               연습기이지 시험이 아니다.
+               넓은 화면에서는 오른쪽 기둥, 좁은 화면에서는 아래 고정 바. -->
+          <div class="tq-exam" id="tqExam">
+            <div class="tq-exam-main">
+             <div id="tqExamBody">
+              <div class="qz-top">
+                <div class="qz-time"><span class="qz-time-fill" id="tqFill"></span></div>
+                <div class="qz-meta">
+                  <span class="qz-clock" id="tqCount">0 / 0</span>
+                  <span class="qz-score" id="tqScore">0</span>
+                </div>
+              </div>
+              <div class="tq-passage hidden" id="tqPassage"></div>
+              <!-- 59번 「문장이 들어갈 자리」에서 넣을 문장. 지문 아래, 발문 위에
+                   둔다 — 지문을 읽고 이 문장을 받아 든 다음 자리를 고르는 차례다. -->
+              <div class="tq-insert hidden" id="tqInsert"></div>
+              <p class="tq-question" id="tqQuestion"></p>
+              <div class="tq-choices" id="tqChoices"></div>
+              <div class="tq-why hidden" id="tqWhy"></div>
+              <!-- 문제 풀이 영상. 영상이 있는 문항에서만(topik-video.js
+                   참고) tqPick 이 채운다 — 없으면 빈 채로 hidden 이다. -->
+              <div class="tq-video hidden" id="tqVideo"></div>
+              <div style="text-align:center; margin-top:18px;">
+                <button class="pt-next hidden" id="tqNext" type="button"></button>
+              </div>
+             </div>
+
+              <!-- 로그인 벽. 문제를 몇 개 풀어 본 다음에 나온다 — 무엇을
+                   얻는지 보기도 전에 막으면 그냥 나간다. -->
+              <div class="tq-wall hidden" id="tqWall">
+                <div class="wb-state">
+                  <div style="font-size:40px; margin-bottom:8px;">🔒</div>
+                  <p class="tq-wall-t" id="tqWallTitle"></p>
+                  <p class="tq-wall-s" id="tqWallSub"></p>
+                  <div><button class="pt-next" id="tqGoLogin" type="button"></button></div>
+                  <div><button class="wb-out" id="tqWallBack" type="button" style="margin-top:12px"></button></div>
+                </div>
+              </div>
+            </div>
+
+            <aside class="tq-omr hidden" id="tqOmr">
+              <!-- 접혀 있을 때도 보이는 줄. 좁은 화면에서는 이것이 아래 고정 바가 된다. -->
+              <button class="tq-omr-bar" id="tqOmrBar" type="button">
+                <span class="tq-clock-wrap" id="tqClockWrap"></span>
+                <span class="tq-omr-sum" id="tqOmrSum"></span>
+                <span class="tq-omr-caret" aria-hidden="true">▲</span>
+              </button>
+              <div class="tq-omr-body" id="tqOmrBody">
+                <div class="tq-omr-grid" id="tqOmrGrid"></div>
+                <button class="tq-omr-submit" id="tqSubmit" type="button"></button>
+              </div>
+            </aside>
+          </div>
+        </div>
+
+        <div id="tqOver" class="hidden">
+          <div class="claw-over">
+            <div class="claw-over-emoji" id="tqOverEmoji">📖</div>
+            <div class="claw-over-score" id="tqOverScore">0</div>
+            <p class="claw-over-line" id="tqOverLine"></p>
+            <!-- 성적표. 모의고사를 끝냈을 때만 나온다 — 문항별 정오표,
+                 구간·갈래별 성적, 걸린 시간, 회차 추이. -->
+            <div class="tq-sheet hidden" id="tqSheet"></div>
+            <div class="tq-bd hidden" id="tqBreak"></div>
+            <!-- 풀면서 눌러 표시해 둔 낱말. 푸는 중에는 뜻을 안 보여
+                 주므로(그러면 시험이 시험이 아니게 된다) 여기가 처음
+                 모아서 보는 자리다. -->
+            <div class="tq-unk hidden" id="tqUnk"></div>
+            <div class="tq-wrongs" id="tqWrongs"></div>
+            <div class="claw-over-btns">
+              <!-- 모의고사를 끝냈을 때만 보인다. 유형별 연습 점수를 공유하면
+                   받는 쪽은 무슨 점수인지 알 수가 없다. -->
+              <button class="pt-next hidden" id="tqShare" type="button"></button>
+              <button class="pt-next" id="tqAgain" type="button"></button>
+              <button class="pt-next" id="tqBack" type="button"></button>
+            </div>
+          </div>
+        </div>
+        </div><!-- /tqBodyRead -->
+
+        <!-- 듣기. 한 문항 = 한 MP3 (assets/audio/listen/<id>.mp3) 이고,
+             파일이 없으면 브라우저 목소리가 대본을 읽는다. say() 와 같은
+             폴백이라 파일만 채우면 코드를 안 고쳐도 바뀐다. -->
+        <div id="tqBodyListen" class="hidden">
+          <div id="tlPick">
+            <div class="learn-head">
+              <div id="tlLevel"></div>
+              <p id="tlIntro" class="learn-copy"></p>
+              <div id="tlSummary" class="learn-summary"></div>
+            </div>
+            <div id="tlList" class="lc-grid"></div>
+            <div class="tq-rec hidden" id="tlRecord"></div>
+            <p class="tq-note" id="tlNote"></p>
+          </div>
+
+          <div id="tlPlay" class="hidden">
+            <div class="bd-sec-title">
+              <h3 id="tlPlayTitle"></h3>
+              <div class="tq-hd-btns">
+                <button class="wb-out" id="tlQuit" type="button"></button>
+              </div>
+            </div>
+            <div class="qz-top">
+              <div class="qz-time"><span class="qz-time-fill" id="tlFill"></span></div>
+              <div class="qz-meta">
+                <span class="qz-clock" id="tlCount">0 / 0</span>
+                <span class="qz-score" id="tlScore">0</span>
+              </div>
+            </div>
+            <div class="tl-audio">
+              <button class="tl-play" id="tlSay" type="button"></button>
+              <span class="tl-plays" id="tlPlays"></span>
+            </div>
+            <p class="tq-question" id="tlQuestion"></p>
+            <div class="tq-choices" id="tlChoices"></div>
+            <div class="tq-why hidden" id="tlWhy"></div>
+            <!-- 대본은 **답을 고른 뒤에만** 펼친다. 고르는 동안 보이면
+                 듣기가 아니라 읽기가 된다. -->
+            <div class="tl-script hidden" id="tlScript"></div>
+            <div style="text-align:center; margin-top:18px;">
+              <button class="pt-next hidden" id="tlNext" type="button"></button>
+            </div>
+          </div>
+
+          <div id="tlOver" class="hidden">
+            <div class="claw-over">
+              <div class="claw-over-emoji">🎧</div>
+              <div class="claw-over-score" id="tlOverScore">0</div>
+              <p class="claw-over-line" id="tlOverLine"></p>
+              <div class="tq-bd hidden" id="tlBreak"></div>
+              <div class="tq-wrongs" id="tlWrongs"></div>
+              <div class="claw-over-btns">
+                <button class="pt-next" id="tlAgain" type="button"></button>
+                <button class="pt-next" id="tlBack" type="button"></button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 쓰기. TOPIK II 에만 있다 — 실제 시험에 TOPIK I 쓰기가 없다.
+             예전에는 배우기의 별도 갈래였고 주소가 #learn/writing 이었다.
+             그 주소는 정적 쪽에 걸려 있어 openLearnSub 가 여기로 넘긴다. -->
+        <div id="tqBodyWrite" class="hidden">
+          <div class="learn-head">
+            <div id="twLevel"></div>
+            <p id="twIntro" class="learn-copy"></p>
+            <div id="twSummary" class="learn-summary"></div>
+          </div>
+          <div id="twList"></div>
+          <div class="tq-rec hidden" id="twRecord"></div>
+          <div id="twDesk" class="hidden"></div>
+        </div>
+      </div>
+
+      <!-- 갈래 : 예문 만들기 -->
+      <!-- 갈래 : 문제만 풀기.
+           레슨에서 문제 블록만 뽑아 이어서 푼다. 안은 app.module.js 가 채운다. -->
+      <!-- TOPIK 쓰기 판은 tqBodyWrite 로 옮겼다 (TOPIK 갈래 안). -->
+
+      <div id="dqWrap" class="hidden">
+        <div class="learn-head">
+          <div id="dqLevel"></div>
+          <p id="dqIntro" class="learn-copy"></p>
+          <div id="dqSummary" class="learn-summary"></div>
+        </div>
+        <div id="dqBody"></div>
+      </div>
+
+      <div id="sbWrap" class="hidden">
+        <div class="learn-head">
+          <div id="sbLevel"></div>
+          <p id="sbIntro" class="learn-copy"></p>
+          <div id="sbSummary" class="learn-summary"></div>
+        </div>
+        <!-- 내 노트로 건너가는 자리. 메모장 자체는 별도 갈래(ntWrap)로
+             옮겼다 — 예문을 보다 적고 싶을 때 여기서 바로 넘어간다. -->
+        <button type="button" id="sbToNotes" class="sb-to-notes"></button>
+        <div id="sbBrowse">
+          <input id="sbQ" class="sb-q" type="search" autocomplete="off" aria-label="Search expressions">
+          <div id="sbCats"></div>
+        </div>
+        <div id="sbDetail" class="hidden"></div>
+      </div>
+
+      <!-- 갈래 : 읽기 연습 ─────────────────────────────────────
+           읽고 이해한 것을 자기 말로 다시 쓰는 자리. TOPIK 유형 연습은
+           보기 넷에서 고르는데, 그건 이해했는지를 재기에는 좋아도
+           이해한 것을 꺼내는 연습은 안 된다.
+
+           길이와 급수를 따로 고른다 — 쉬운 글을 길게 읽고 싶은 사람과
+           어려운 글을 짧게 한 편만 보고 싶은 사람이 둘 다 있다. -->
+      <div id="rdWrap" class="hidden">
+        <div class="learn-head">
+          <div id="rdLen"></div>
+          <div id="rdLevel"></div>
+          <p id="rdIntro" class="learn-copy"></p>
+          <div id="rdSummary" class="learn-summary"></div>
+        </div>
+        <div id="rdList"></div>
+      </div>
+
+      <!-- 갈래 : 내 노트 ───────────────────────────────────────
+           로그인 없이 브라우저에만 남는 개인 노트. 표현마다 딸린
+           게시판(남도 보는 예문 자리)과는 완전히 별개다 — 여기는
+           나만 보고, 급수·표현에도 안 묶인다. -->
+      <div id="ntWrap" class="hidden">
+        <div class="learn-head">
+          <p id="ntIntro" class="learn-copy"></p>
+        </div>
+        <!-- 두 칸짜리 노트 앱이다. 왼쪽은 갈래·찾기·문서 목록, 오른쪽은
+             지금 펼친 문서(제목 + 본문 + 서식 단추). 좁은 화면에서는 한
+             칸만 보이고 목록 ↔ 문서로 오간다(nt-memo.on-doc). -->
+        <div id="ntMemo" class="nt-memo">
+          <div class="nt-memo-side">
+            <div class="nt-memo-side-h">
+              <button type="button" id="ntMemoNew" class="nt-memo-new"></button>
+            </div>
+            <input id="ntMemoQ" class="nt-memo-q" type="search" autocomplete="off">
+            <div id="ntMemoCats" class="nt-memo-cats"></div>
+            <div id="ntMemoList" class="nt-memo-list"></div>
+            <p id="ntMemoEmpty" class="nt-memo-empty" hidden></p>
+            <div class="nt-memo-side-f">
+              <button type="button" id="ntMemoDl" class="nt-memo-tool"></button>
+              <span id="ntMemoStat" class="nt-memo-stat"></span>
+            </div>
+          </div>
+
+          <div class="nt-memo-doc" id="ntMemoDoc">
+            <div class="nt-memo-doc-h">
+              <button type="button" id="ntMemoBack" class="nt-memo-back"></button>
+              <select id="ntMemoDocCat" class="nt-memo-sel"></select>
+              <span class="nt-memo-doc-acts">
+                <button type="button" id="ntMemoFull" class="nt-memo-act" title="전체화면으로 크게 쓰기"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 3H4a1 1 0 0 0-1 1v3"/><path d="M13 3h3a1 1 0 0 1 1 1v3"/><path d="M7 17H4a1 1 0 0 1-1-1v-3"/><path d="M13 17h3a1 1 0 0 0 1-1v-3"/></svg></button>
+                <button type="button" id="ntMemoHelp" class="nt-memo-act" title="단축키 사용법"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="5" width="16" height="10" rx="1.5"/><line x1="5" y1="8.2" x2="5.01" y2="8.2"/><line x1="8" y1="8.2" x2="8.01" y2="8.2"/><line x1="11" y1="8.2" x2="11.01" y2="8.2"/><line x1="14" y1="8.2" x2="14.01" y2="8.2"/><line x1="5.5" y1="11.5" x2="13.5" y2="11.5"/></svg></button>
+                <button type="button" id="ntMemoGrammar" class="nt-memo-act" title="문법 불러오기"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 5.3C8.6 4 6.1 3.5 3 4v10.2c3.1-.5 5.6 0 7 1.3"/><path d="M10 5.3c1.4-1.3 3.9-1.8 7-1.3v10.2c-3.1-.5-5.6 0-7 1.3"/><line x1="10" y1="5.3" x2="10" y2="15.5"/></svg></button>
+                <button type="button" id="ntMemoWb" class="nt-memo-act" title="단어장에 담기"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 3h10a1 1 0 0 1 1 1v13l-6-3.5L4 17V4a1 1 0 0 1 1-1z"/></svg></button>
+                <button type="button" id="ntMemoPin" class="nt-memo-act" title="고정"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 18s6-5.5 6-10a6 6 0 0 0-12 0c0 4.5 6 10 6 10z"/><circle cx="10" cy="8" r="2"/></svg></button>
+                <button type="button" id="ntMemoPrint" class="nt-memo-act" title="예쁘게 인쇄·PDF로 저장"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 8V3h8v5"/><rect x="3" y="8" width="14" height="7" rx="1.5"/><path d="M6 13h8v4H6z"/></svg></button>
+                <button type="button" id="ntMemoCopy" class="nt-memo-act" title="복사"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="7" y="7" width="10" height="10" rx="1.5"/><path d="M13 7V4a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h3"/></svg></button>
+                <button type="button" id="ntMemoDup" class="nt-memo-act" title="복제"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="10" height="10" rx="1.5"/><path d="M15 11v6M12 14h6"/></svg></button>
+                <button type="button" id="ntMemoDel" class="nt-memo-act nt-memo-act-del" title="지우기"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6h12"/><path d="M8 6V4a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2"/><path d="M6 6l1 10a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1l1-10"/><line x1="8.5" y1="9" x2="8.5" y2="14"/><line x1="11.5" y1="9" x2="11.5" y2="14"/></svg></button>
+              </span>
+            </div>
+            <button type="button" id="ntMemoIcon" class="nt-memo-icon"></button>
+            <input id="ntMemoTitle" class="nt-memo-title" type="text" maxlength="120" data-clarity-mask="true">
+            <!-- 블록(섹션)들이 쌓이는 자리. 한 덩이가 한 블록이고, 블록마다
+                 종류(제목·목록·할 일·인용·강조 칸…)와 색을 따로 가진다.
+                 왼쪽에 마우스를 얹으면 + 와 손잡이(⠿)가 나온다. -->
+            <div id="ntMemoBlocks" class="nb-list" data-clarity-mask="true"></div>
+            <button type="button" id="ntMemoAddEnd" class="nb-add-end"></button>
+            <div class="nt-memo-doc-f">
+              <span id="ntMemoSaved" class="nt-memo-saved"></span>
+              <span id="ntMemoCount" class="nt-memo-count"></span>
+            </div>
+          </div>
+
+          <div class="nt-memo-none" id="ntMemoNone"></div>
+        </div>
+      </div>
+
+      <!-- 갈래 : 회화 연습 ─────────────────────────────────────
+           상황극 대본을 따라가며 자기 대답을 직접 만들어보는 자리.
+           읽기와 같은 두 겹 채점(내용 점수 + 모범 답안)을 쓰되, 한 판이
+           아니라 턴을 하나씩 밟아 나간다 — convo.js 머리말 참고. -->
+      <div id="cvWrap" class="hidden">
+        <div class="learn-head">
+          <div id="cvLevel"></div>
+          <div id="cvCats"></div>
+          <p id="cvIntro" class="learn-copy"></p>
+          <div id="cvSummary" class="learn-summary"></div>
+        </div>
+        <div id="cvList"></div>
+      </div>
+
+      <!-- 아직 안 채운 갈래 -->
+      <div id="lsecSoon" class="hidden">
+        <div class="wb-state">
+          <div style="font-size:40px; margin-bottom:8px;">🥔</div>
+          <span id="lsecSoonTxt"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div class="footer-brand" data-en="Every Koreans">Every Koreans</div>
+    <div class="footer-info">© 2026 치즈감자 · <a href="privacy.html" data-en="Privacy policy">Privacy policy</a></div>
+  </div>
+
+</div><!-- /learnView -->
+
+<!-- ── 배우기 : 레슨 ──────────────────────────────────────────── -->
+<div id="lessonView" class="hidden">
+  <div class="ls-bar"><div class="ls-bar-in">
+    <button class="ls-x" id="lsExit" type="button" aria-label="레슨 나가기">✕</button>
+    <div class="ls-track"><div class="ls-prog" id="lsProg" style="width:0%"></div></div>
+    <span class="ls-count" id="lsCount"></span>
+  </div></div>
+
+  <!-- 게임 HUD · Clozemaster Vibe -->
+  <div class="ls-hud" id="lsHud" style="display:none">
+    <div class="hud-hp" id="hudHp">
+      <span class="hrt" data-i="0">💖</span>
+      <span class="hrt" data-i="1">💖</span>
+      <span class="hrt" data-i="2">💖</span>
+    </div>
+    <div class="hud-xp">XP<b id="hudXp">0</b></div>
+    <div class="hud-combo">COMBO<b id="hudCombo">0</b></div>
+  </div>
+
+  <div class="ls-body">
+    <div class="ls-kicker" id="lsKicker"></div>
+    <h1 class="ls-h1" id="lsTitle"></h1>
+    <div id="lsBlocks"></div>
+  </div>
+
+  <div class="ls-next hidden" id="lsNextBar"><div class="ls-next-in">
+    <button class="pt-next" id="lsNext" type="button"></button>
+  </div></div>
+</div><!-- /lessonView -->
+
+<!-- 콤보 팝업 (전역) -->
+<div class="combo-pop" id="comboPop" aria-hidden="true"></div>
+
+<!-- ── 발음 레벨 테스트 ───────────────────────────────────── -->
+<div id="testView" class="hidden">
+
+  <div class="pt-hero">
+    <div class="pt-badge">PRONUNCIATION LEVEL</div>
+    <h2 data-en="Read it aloud.<br>We score your pronunciation.">Read it aloud.<br>We score your pronunciation.</h2>
+    <p data-en="Read the passage out loud and we compare it<br>character by character to tell you your level.">Read the passage out loud and we compare it<br>character by character to tell you your level.</p>
+  </div>
+
+  <div class="pt-body">
+
+    <!-- 시작 -->
+    <div id="ptCover">
+      <div class="label">HOW IT WORKS</div>
+      <p class="section-title" data-en="Read one passage<br>out loud. That is it.">Read one passage<br>out loud. That is it.</p>
+      <p class="section-sub" data-en="Pick a level and we hand you one passage at random.<br>No sign-up, no install.">Pick a level and we hand you one passage at random.<br>No sign-up, no install.</p>
+      <div class="pt-card">
+        <div class="pt-lv-row">
+          <div class="diff-seg pt-lv" role="radiogroup" aria-label="난이도">
+            <label><input type="radio" name="ptLvA" value="easy"><span data-en="Easy">Easy</span></label>
+            <label><input type="radio" name="ptLvA" value="normal" checked><span data-en="Normal">Normal</span></label>
+            <label><input type="radio" name="ptLvA" value="hard"><span data-en="Hard">Hard</span></label>
+          </div>
+          <p class="pt-lv-desc" id="ptLvDesc"></p>
+        </div>
+        <div class="pt-mic-wrap">
+          <button class="pt-next" id="ptStart" data-en="Get a passage →">Get a passage →</button>
+        </div>
+      </div>
+      <p class="section-sub" style="margin:18px 0 0; font-size:12px;" data-en="Needs microphone access. Recognition happens in your browser, and nothing you say is stored.">Needs microphone access. Recognition happens in your browser, and nothing you say is stored.</p>
+    </div>
+
+    <!-- 읽기 -->
+    <div id="ptPlay" class="hidden">
+      <div class="pt-card">
+        <!-- 읽다가도 바꿀 수 있게 여기에도 둔다. 값은 시작 화면 토글과
+             하나로 묶여 있어 서로 어긋나지 않는다. -->
+        <div class="pt-lv-row" style="margin-bottom:20px;">
+          <div class="diff-seg pt-lv" role="radiogroup" aria-label="난이도">
+            <label><input type="radio" name="ptLvB" value="easy"><span data-en="Easy">Easy</span></label>
+            <label><input type="radio" name="ptLvB" value="normal" checked><span data-en="Normal">Normal</span></label>
+            <label><input type="radio" name="ptLvB" value="hard"><span data-en="Hard">Hard</span></label>
+          </div>
+        </div>
+        <p class="pt-say" data-en="Read this out loud">Read this out loud</p>
+        <p class="pt-target" id="ptTarget"></p>
+
+        <div class="pt-mic-wrap">
+          <button class="pt-mic" id="ptMic" aria-label="녹음 시작">🎙</button>
+          <p class="pt-hint" id="ptHint">마이크를 누르고 읽기 시작하세요</p>
+        </div>
+
+        <div class="pt-live hidden" id="ptLiveWrap">
+          <div class="pt-heard-lbl" data-en="What we hear">What we hear</div>
+          <div class="pt-live-txt" id="ptLive"></div>
+        </div>
+
+        <div class="pt-mic-wrap">
+          <button class="pt-ghost" id="ptSkip" data-en="Try another passage">Try another passage</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 결과 -->
+    <div id="ptDone" class="hidden">
+      <div class="pt-card">
+        <div class="pt-score">
+          <span class="pt-score-n" id="ptFinal">0</span>
+          <span class="pt-score-d" data-en="pts">pts</span>
+        </div>
+        <div class="pt-level" id="ptLevelName"></div>
+        <p class="pt-verdict" id="ptVerdict"></p>
+        <!-- 점수 기준은 세 단계가 같다. 어느 지문이었는지 적어 둬야
+             90점이 어디서 나온 90점인지 알 수 있다. -->
+        <div class="pt-lv-tag"><span data-en="Passage">Passage</span> · <span id="ptLvTag"></span> · <span id="ptCount"></span></div>
+
+        <div class="pt-heard">
+          <div class="pt-heard-lbl" data-en="Where it differed">Where it differed</div>
+          <div class="pt-diff" id="ptDiff"></div>
+        </div>
+
+        <div class="pt-heard" style="margin-top:10px;">
+          <div class="pt-heard-lbl" data-en="What we heard">What we heard</div>
+          <div class="pt-heard-txt" id="ptHeard"></div>
+        </div>
+
+        <!-- AI 짐작. "진단"이라 하지 않는 이유는, 이 판단이 실제 소리가
+             아니라 음성인식기가 옮긴 텍스트만 보고 나온 것이기 때문이다. -->
+        <div class="pt-ai hidden" id="ptAi">
+          <div class="pt-heard-lbl">🤖 <span data-en="What AI guesses happened">What AI guesses happened</span></div>
+
+          <div id="ptAiLoad" class="hidden">
+            <div class="pt-ai-dots"><span></span><span></span><span></span></div>
+          </div>
+
+          <div id="ptAiOut" class="hidden">
+            <p class="pt-ai-verdict" id="ptAiVerdict"></p>
+            <div class="pt-ai-list" id="ptAiList"></div>
+          </div>
+
+          <div id="ptAiLogin" class="hidden">
+            <p class="pt-ai-note" data-en="Sign in and AI will guess why it came out that way.">Sign in and AI will guess why it came out that way.</p>
+            <button class="pt-ghost" id="ptAiLoginBtn" type="button" data-en="Sign in">Sign in</button>
+          </div>
+
+          <div id="ptAiLimit" class="hidden">
+            <p class="pt-ai-note" data-en="You have used up today's AI guesses. The score above is unaffected.">You have used up today's AI guesses. The score above is unaffected.</p>
+          </div>
+        </div>
+
+        <div class="pt-mic-wrap">
+          <button class="pt-next" id="ptShare" data-en="Share result">Share result</button>
+          <button class="pt-ghost" id="ptAgain" data-en="Try another passage">Try another passage</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 지원 안 될 때 -->
+    <div id="ptUnsupported" class="hidden">
+      <div class="pt-warn">
+        <span data-en="&lt;b&gt;This browser does not support speech recognition.&lt;/b&gt;&lt;br&gt;Open it in Chrome or Edge and it will work right away. On iPhone, use the latest Safari."><b>This browser does not support speech recognition.</b><br>Open it in Chrome or Edge and it will work right away. On iPhone, use the latest Safari.</span>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="footer">
+    <div class="footer-brand" data-en="Every Koreans">Every Koreans</div>
+    <div class="footer-info">© 2026 치즈감자 · <span data-en="Just for fun">Just for fun</span> · <a href="privacy.html" data-en="Privacy policy">Privacy policy</a></div>
+  </div>
+
+</div><!-- /testView -->
+
+
+<!-- ── 대시보드 ────────────────────────────────────────────────
+     앱 DashboardScreen 과 같은 지표를 같은 계산으로 보여준다.
+     숫자가 두 곳에서 다르면 어느 쪽이 맞는지 알 수 없게 된다. -->
+<div id="dashView" class="hidden">
+
+  <div class="pt-hero">
+    <div class="pt-badge">DASHBOARD</div>
+    <h2 data-en="How your study<br>is going">How your study<br>is going</h2>
+    <p id="dashSub" data-en="The same numbers the app shows, here in your browser.">The same numbers the app shows, here in your browser.</p>
+  </div>
+
+  <div class="pt-body" style="max-width:900px;">
+
+    <div id="dashNeedLogin" class="hidden">
+      <div class="wb-state">
+        <div style="font-size:40px; margin-bottom:8px;">🔒</div>
+        <span data-en="Sign in to see your study numbers.">Sign in to see your study numbers.</span>
+        <div><button class="pt-next" id="dashGoLogin" type="button" data-en="Go to sign in">Go to sign in</button></div>
+      </div>
+    </div>
+
+    <div id="dashLoading" class="hidden">
+      <div class="wb-state"><div class="wb-spin"></div><span data-en="Loading…">Loading…</span></div>
+    </div>
+
+    <div id="dashEmpty" class="hidden">
+      <div class="wb-state">
+        <div style="font-size:44px; margin-bottom:8px;">🥔</div>
+        <span data-en="No words yet — the numbers appear once you start.">No words yet — the numbers appear once you start.</span>
+        <div><button class="pt-next" id="dashGoLib" type="button" data-en="Get a starter list">Get a starter list</button></div>
+      </div>
+    </div>
+
+    <div id="dashError" class="hidden">
+      <div class="wb-state">
+        <span data-en="Could not load your numbers.">Could not load your numbers.</span>
+        <div><button class="pt-next" id="dashRetry" type="button" data-en="Try again">Try again</button></div>
+      </div>
+    </div>
+
+    <div id="dashBody" class="hidden"></div>
+  </div>
+
+  <div class="footer">
+    <div class="footer-brand" data-en="Every Koreans">Every Koreans</div>
+    <div class="footer-info">© 2026 치즈감자 · <a href="privacy.html" data-en="Privacy policy">Privacy policy</a></div>
+  </div>
+
+</div><!-- /dashView -->
+
+<!-- ── 게임 목록 ───────────────────────────────────────────────
+     게임은 앞으로 늘어난다. 여기는 고르는 곳이고, 게임 하나하나는
+     자기 화면을 따로 갖는다. 새 게임을 더할 때 카드 하나와 화면
+     하나만 만들면 되고 이 목록의 짜임은 안 건드린다. -->
+<div id="gamesView" class="hidden">
+
+  <div class="pt-hero">
+    <div class="pt-badge">GAMES</div>
+    <h2 data-en="Play with<br>your words">Play with<br>your words</h2>
+    <p data-en="Your own wordbook becomes the game. Sign in and the words you saved show up here.">Your own wordbook becomes the game. Sign in and the words you saved show up here.</p>
+  </div>
+
+  <div class="pt-body" style="max-width:900px;">
+    <div class="game-grid">
+
+      <!-- 이 게임만 로그인도 단어장도 필요 없다. 문제를 그때그때 만들어
+           내므로 처음 온 사람도 바로 놀 수 있다. -->
+      <button class="game-card" id="gcNum" type="button">
+        <span class="game-card-ico">🔢</span>
+        <span class="game-card-name" data-en="Read the number">Read the number</span>
+        <span class="game-card-desc" data-en="Three o'clock is 세 시, but thirty minutes is 삼십 분. Two readings, pick the right one. No sign-in needed.">Three o'clock is 세 시, but thirty minutes is 삼십 분. Two readings, pick the right one. No sign-in needed.</span>
+        <span class="game-card-go" data-en="Play →">Play →</span>
+      </button>
+
+      <button class="game-card" id="gcQuiz" type="button">
+        <span class="game-card-ico">⏱</span>
+        <span class="game-card-name" data-en="Speed quiz">Speed quiz</span>
+        <span class="game-card-desc" data-en="Sixty seconds, four choices at a time. How many can you get?">Sixty seconds, four choices at a time. How many can you get?</span>
+        <span class="game-card-go" data-en="Play →">Play →</span>
+      </button>
+
+    </div>
+  </div>
+
+  <div class="footer">
+    <div class="footer-brand" data-en="Every Koreans">Every Koreans</div>
+    <div class="footer-info">© 2026 치즈감자 · <a href="privacy.html" data-en="Privacy policy">Privacy policy</a></div>
+  </div>
+
+</div><!-- /gamesView -->
+
+<!-- ── 게임 : 스피드 퀴즈 ──────────────────────────────────────
+     60초 동안 뜻을 보고 단어를 고른다. 시간이 주인공이라 남은 시간이
+     화면에서 계속 줄어드는 것이 보여야 한다. -->
+<div id="quizView" class="hidden">
+  <div class="claw-wrap">
+
+    <div class="claw-bar">
+      <button class="claw-back" id="quizBack" type="button">← <span id="quizBackTxt">게임</span></button>
+      <span class="claw-pill hidden" id="quizBest"></span>
+    </div>
+
+    <div id="quizLoading" class="hidden">
+      <div class="wb-state"><div class="wb-spin"></div><span data-en="Loading…">Loading…</span></div>
+    </div>
+
+    <div id="quizNeedLogin" class="hidden">
+      <div class="wb-state">
+        <div style="font-size:40px; margin-bottom:8px;">🔒</div>
+        <span data-en="Sign in to play with the words in your own wordbook.">Sign in to play with the words in your own wordbook.</span>
+        <div><button class="pt-next" id="quizGoLogin" type="button" data-en="Go to sign in">Go to sign in</button></div>
+      </div>
+    </div>
+
+    <div id="quizFew" class="hidden">
+      <div class="wb-state">
+        <div style="font-size:44px; margin-bottom:8px;">🥔</div>
+        <span data-en="You need at least four words to play. Grab a starter list and come back.">You need at least four words to play. Grab a starter list and come back.</span>
+        <div><button class="pt-next" id="quizGoLib" type="button" data-en="Get a starter list">Get a starter list</button></div>
+      </div>
+    </div>
+
+    <div id="quizErr" class="hidden">
+      <div class="wb-state">
+        <span data-en="Could not load your words.">Could not load your words.</span>
+        <div><button class="pt-next" id="quizRetry" type="button" data-en="Try again">Try again</button></div>
+      </div>
+    </div>
+
+    <div id="quizPlay" class="hidden">
+      <div class="qz-top">
+        <div class="qz-time"><span class="qz-time-fill" id="quizFill"></span></div>
+        <div class="qz-meta">
+          <span class="qz-clock" id="quizClock">60</span>
+          <span class="qz-score" id="quizScore">0</span>
+        </div>
+      </div>
+
+      <div class="claw-ask">
+        <span class="claw-ask-label" id="quizLabel">이 뜻을 가진 단어는?</span>
+        <strong class="claw-ask-word" id="quizTarget">…</strong>
+      </div>
+
+      <div class="qz-choices" id="quizChoices"></div>
+      <p class="claw-msg" id="quizMsg"></p>
+      <p class="claw-note" id="quizNote"></p>
+    </div>
+
+    <div id="quizOver" class="hidden">
+      <div class="claw-over">
+        <div class="claw-over-emoji" id="quizOverEmoji">⏱</div>
+        <div class="claw-over-score" id="quizOverScore">0</div>
+        <p class="claw-over-line" id="quizOverLine"></p>
+        <div class="claw-over-btns">
+          <button class="pt-next" id="quizAgain" type="button">다시 하기</button>
+          <button class="pt-next" id="quizToGames" type="button">다른 게임 보기</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="footer">
+    <div class="footer-brand" data-en="Every Koreans">Every Koreans</div>
+    <div class="footer-info">© 2026 치즈감자 · <a href="privacy.html" data-en="Privacy policy">Privacy policy</a></div>
+  </div>
+
+</div><!-- /quizView -->
+
+<!-- ── 게임 : 숫자 읽기 ──────────────────────────────────────
+     로그인도 단어장도 안 쓴다. numbers.js 가 문제를 만들어 준다. -->
+<div id="numView" class="hidden">
+  <div class="claw-wrap">
+
+    <div class="claw-bar">
+      <button class="claw-back" id="numBack" type="button">← <span id="numBackTxt">게임</span></button>
+      <span class="claw-pill hidden" id="numBest"></span>
+    </div>
+
+    <div id="numSetup" class="hidden">
+      <div class="claw-ask">
+        <span class="claw-ask-label" id="numSetupLabel"></span>
+        <strong class="claw-ask-word">🔢</strong>
+      </div>
+      <div class="pt-lv-row" style="margin-top:18px;">
+        <div class="diff-seg num-lv" role="radiogroup" id="numLv"></div>
+        <div class="pt-lv-desc" id="numLvDesc"></div>
+      </div>
+      <div style="text-align:center; margin-top:22px;">
+        <button class="pt-next" id="numGo" type="button"></button>
+      </div>
+      <p class="claw-note" id="numSetupNote"></p>
+    </div>
+
+    <div id="numPlay" class="hidden">
+      <div class="qz-top">
+        <div class="qz-time"><span class="qz-time-fill" id="numFill"></span></div>
+        <div class="qz-meta">
+          <span class="qz-clock" id="numCount">0 / 12</span>
+          <span class="qz-score" id="numScore">0</span>
+        </div>
+      </div>
+
+      <div class="claw-ask">
+        <span class="claw-ask-label" id="numAskLabel"></span>
+        <strong class="claw-ask-word num-digits" id="numAsk">…</strong>
+      </div>
+
+      <div class="num-two" id="numChoices"></div>
+      <p class="claw-msg" id="numMsg"></p>
+      <div class="num-why hidden" id="numWhy"></div>
+    </div>
+
+    <div id="numOver" class="hidden">
+      <div class="claw-over">
+        <div class="claw-over-emoji" id="numOverEmoji">🔢</div>
+        <div class="claw-over-score" id="numOverScore">0</div>
+        <p class="claw-over-line" id="numOverLine"></p>
+        <div class="num-wrongs" id="numWrongs"></div>
+        <div class="claw-over-btns">
+          <button class="pt-next" id="numAgain" type="button"></button>
+          <button class="pt-next" id="numToGames" type="button"></button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="footer">
+    <div class="footer-brand" data-en="Every Koreans">Every Koreans</div>
+    <div class="footer-info">© 2026 치즈감자 · <a href="privacy.html" data-en="Privacy policy">Privacy policy</a></div>
+  </div>
+
+</div><!-- /numView -->
+
+<!-- ── 레벨 테스트 ──────────────────────────────────────────────
+     문법 9문제(초·중·고급 각 3개, 예문 만들기 SB_POINTS 에서 뽑는다) +
+     설문 두 개(목적·학습 시간) → 시작하기 좋은 코스 하나를 추천한다.
+     새 코스를 짓지 않고 기존 COURSES 중 하나를 가리키는 가장 단순한
+     방식이다. 로그인도 단어장도 안 쓴다. -->
+<!-- 레벨 테스트 팝업. 화면을 통째로 갈아 끼우던 것을 그만두고 <dialog>
+     (app.js 의 askShow 가 쓰는 것과 같은 방식)로 어디서든 뜨는 팝업으로
+     바꿨다 — 홈이든 다른 화면이든 지금 보던 곳 위에 뜨고, 닫으면 그
+     자리 그대로다. -->
+<dialog id="ltDlg" class="lt-dlg">
+  <div class="lt-card">
+    <button class="lt-close" id="ltClose" type="button" aria-label="닫기">✕</button>
+
+    <div id="ltPurpose">
+      <div class="claw-ask">
+        <span class="claw-ask-label" id="ltPurposeLabel"></span>
+      </div>
+      <div class="lt-purpose-grid" id="ltPurposeGrid"></div>
+    </div>
+
+    <div id="ltPlay" class="hidden">
+      <div class="qz-top">
+        <div class="qz-time"><span class="qz-time-fill" id="ltFill"></span></div>
+        <div class="qz-meta">
+          <span class="qz-clock" id="ltCount">0 / 5</span>
+        </div>
+      </div>
+
+      <div class="claw-ask">
+        <span class="claw-ask-label" id="ltAskLabel"></span>
+        <strong class="claw-ask-word" id="ltAsk">…</strong>
+      </div>
+
+      <!-- 듣기 목적일 때만 보인다. 대본은 글로 안 보여주고 소리로만
+           낸다(app.module.js 의 tlSpeak) — 다시 듣고 싶을 때 누른다.
+           글자는 app.module.js 가 채운다(언어 따라 바뀌어야 해서). -->
+      <button type="button" class="claw-note lt-replay hidden" id="ltReplay"></button>
+
+      <div class="qz-choices" id="ltChoices"></div>
+      <p class="claw-msg" id="ltMsg"></p>
+    </div>
+
+    <div id="ltSurvey" class="hidden">
+      <div class="claw-ask">
+        <span class="claw-ask-label" id="ltSurveyIntro"></span>
+      </div>
+      <div class="pt-lv-row" style="margin-top:20px;">
+        <p class="claw-ask-label" id="ltSurveyGoalLabel"></p>
+        <div class="diff-seg lt-seg" role="radiogroup" id="ltSurveyGoal"></div>
+      </div>
+      <div class="pt-lv-row" style="margin-top:20px;">
+        <p class="claw-ask-label" id="ltSurveyTimeLabel"></p>
+        <div class="diff-seg lt-seg" role="radiogroup" id="ltSurveyTime"></div>
+      </div>
+      <div style="text-align:center; margin-top:22px;">
+        <button class="pt-next" id="ltSurveyGo" type="button" disabled></button>
+      </div>
+    </div>
+
+    <div id="ltOver" class="hidden">
+      <div class="claw-over">
+        <div class="claw-over-emoji" id="ltOverEmoji">🧪</div>
+        <div class="claw-over-score" id="ltOverScore">0</div>
+        <p class="claw-over-line" id="ltOverLine"></p>
+
+        <button class="lc-card lt-rec-card hidden" id="ltRecCard" type="button">
+          <div class="lc-top">
+            <div class="lc-mark" id="ltRecEmoji"></div>
+            <div style="min-width:0">
+              <div class="lc-lv" id="ltRecLv"></div>
+              <div class="lc-title" id="ltRecTitle"></div>
+              <div class="lc-tag" id="ltRecTagline"></div>
+            </div>
+          </div>
+          <p class="claw-note" id="ltRecCta"></p>
+        </button>
+
+        <div class="claw-over-btns">
+          <button class="pt-next" id="ltAgain" type="button"></button>
+          <button class="pt-next" id="ltSeeAll" type="button"></button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</dialog>
+
+<!-- ── 자료마당 ────────────────────────────────────────────────
+     올린 파일을 그대로 보관하지 않는다. 브라우저에서 앱과 같은
+     파서로 읽어 단어/뜻만 뽑아 저장하고, 받을 때 그 목록으로 xlsx 를
+     새로 만든다. 그래서 받는 파일은 항상 앱이 읽을 수 있고,
+     올릴 수 있는 것은 단어 목록뿐이다. -->
+<div id="libraryView" class="hidden">
+
+  <div class="pt-hero">
+    <div class="pt-badge">LIBRARY</div>
+    <h2 data-en="Word lists,<br>ready to import">Word lists,<br>ready to import</h2>
+    <p data-en="Download a list and import it in the app — Wordbook → Import. Sign in to share your own.">Download a list and import it in the app — Wordbook → Import. Sign in to share your own.</p>
+  </div>
+
+  <div class="pt-body" style="max-width:1160px;">
+
+    <!-- 공식 자료 : 저장소에 함께 올라가는 파일이라 항상 받을 수 있다 -->
+    <div class="bd-sec-title">
+      <h3 data-en="Official files">Official files</h3>
+      <span class="bd-sec-note" data-en="Made by us. Always available.">Made by us. Always available.</span>
+    </div>
+
+    <div class="bd">
+      <div class="bd-head">
+        <span data-en="File">File</span><span data-en="Words">Words</span><span data-en="Download">Download</span>
+      </div>
+
+      <div class="bd-row">
+        <div class="bd-main">
+          <div class="bd-cat" data-en="Template">Template</div>
+          <div class="bd-title" data-en="Blank template">Blank template</div>
+          <div class="bd-desc" data-en="The exact layout the app reads: word in column A, meaning in B, difficulty 1-3 in C.">The exact layout the app reads: word in column A, meaning in B, difficulty 1-3 in C.</div>
+        </div>
+        <div class="bd-meta">3</div>
+        <div class="bd-actions"><a class="bd-dl" href="samples/template.xlsx" download>⬇ <span data-en="Get">Get</span></a></div>
+      </div>
+
+      <div class="bd-row">
+        <div class="bd-main">
+          <div class="bd-cat" data-en="English">English</div>
+          <div class="bd-title" data-en="English basics 100">English basics 100</div>
+          <div class="bd-desc" data-en="Everyday nouns and verbs to start with.">Everyday nouns and verbs to start with.</div>
+        </div>
+        <div class="bd-meta">100</div>
+        <div class="bd-actions"><a class="bd-dl" href="samples/english-basic.xlsx" download>⬇ <span data-en="Get">Get</span></a></div>
+      </div>
+
+      <div class="bd-row">
+        <div class="bd-main">
+          <div class="bd-cat" data-en="English">English</div>
+          <div class="bd-title" data-en="Middle school essentials 100">Middle school essentials 100</div>
+          <div class="bd-desc" data-en="Words that keep showing up in middle school textbooks.">Words that keep showing up in middle school textbooks.</div>
+        </div>
+        <div class="bd-meta">100</div>
+        <div class="bd-actions"><a class="bd-dl" href="samples/english-middle.xlsx" download>⬇ <span data-en="Get">Get</span></a></div>
+      </div>
+
+      <div class="bd-row">
+        <div class="bd-main">
+          <div class="bd-cat">TOEIC</div>
+          <div class="bd-title" data-en="TOEIC business 80">TOEIC business 80</div>
+          <div class="bd-desc" data-en="Contracts, invoices, payroll — the vocabulary the test keeps asking about.">Contracts, invoices, payroll — the vocabulary the test keeps asking about.</div>
+        </div>
+        <div class="bd-meta">80</div>
+        <div class="bd-actions"><a class="bd-dl" href="samples/english-toeic.xlsx" download>⬇ <span data-en="Get">Get</span></a></div>
+      </div>
+
+      <div class="bd-row">
+        <div class="bd-main">
+          <div class="bd-cat" data-en="Korean">Korean</div>
+          <div class="bd-title" data-en="Korean basics 80">Korean basics 80</div>
+          <div class="bd-desc" data-en="For learners of Korean — Korean word, English meaning.">For learners of Korean — Korean word, English meaning.</div>
+        </div>
+        <div class="bd-meta">80</div>
+        <div class="bd-actions"><a class="bd-dl" href="samples/korean-basic.xlsx" download>⬇ <span data-en="Get">Get</span></a></div>
+      </div>
+
+      <div class="bd-row">
+        <div class="bd-main">
+          <div class="bd-cat" data-en="Phrases">Phrases</div>
+          <div class="bd-title" data-en="Everyday English phrases 50">Everyday English phrases 50</div>
+          <div class="bd-desc" data-en="Whole sentences you can say as they are.">Whole sentences you can say as they are.</div>
+        </div>
+        <div class="bd-meta">50</div>
+        <div class="bd-actions"><a class="bd-dl" href="samples/english-phrases.xlsx" download>⬇ <span data-en="Get">Get</span></a></div>
+      </div>
+    </div>
+
+    <!-- 모두의 자료 : 사용자가 올린 것 -->
+    <div class="bd-sec-title">
+      <h3 data-en="Shared by everyone">Shared by everyone</h3>
+      <button class="pt-next" id="libUploadBtn" type="button" style="padding:11px 18px; font-size:14px;" data-en="Share a list">Share a list</button>
+    </div>
+
+    <!-- 올리기 : 로그인 안내 -->
+    <div id="libNeedLogin" class="hidden">
+      <div class="wb-state" style="padding:28px 20px;">
+        <span data-en="Sign in to share a word list.">Sign in to share a word list.</span>
+        <div><button class="pt-next" id="libGoLogin" type="button" data-en="Go to sign in">Go to sign in</button></div>
+      </div>
+    </div>
+
+    <!-- 올리기 : 폼 -->
+    <div id="libForm" class="hidden">
+      <div class="up-panel">
+        <div class="up-row">
+          <label class="up-file" id="libDrop">
+            <input type="file" id="libFile" accept=".xlsx,.xls,.csv">
+            <span id="libFileLabel" data-en="Choose an .xlsx or .csv file">Choose an .xlsx or .csv file</span>
+          </label>
+          <div class="up-found hidden" id="libFound"></div>
+          <input data-clarity-mask="true" class="wb-input" id="libTitle" type="text" maxlength="60" placeholder="제목" style="margin-bottom:0;">
+          <input data-clarity-mask="true" class="wb-input" id="libDesc" type="text" maxlength="200" placeholder="한 줄 설명 (선택)" style="margin-bottom:0;">
+          <select class="up-sel" id="libCat" aria-label="Category">
+            <option value="영어">영어</option>
+            <option value="한국어">한국어</option>
+            <option value="일본어">일본어</option>
+            <option value="중국어">중국어</option>
+            <option value="시험">시험</option>
+            <option value="표현">표현</option>
+            <option value="기타">기타</option>
+          </select>
+          <p class="up-hint" data-en="Only the words are stored — the file itself is not kept. Please upload only lists you have the right to share.">Only the words are stored — the file itself is not kept. Please upload only lists you have the right to share.</p>
+          <div style="display:flex; gap:8px; flex-wrap:wrap;">
+            <button class="pt-next" id="libSubmit" type="button" style="flex:1; min-width:140px;" data-en="Share">Share</button>
+            <button class="pt-ghost" id="libCancel" type="button" data-en="Cancel">Cancel</button>
+          </div>
+          <div class="wb-err hidden" id="libErr"></div>
+          <div class="wb-ok hidden" id="libOk"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 신고 : 문제를 발견한 사람이 알릴 수 있어야 한다.
+         자동으로 감추지는 않는다 — 계정 몇 개로 멀쩡한 자료를 내리는
+         데 쓰이기 때문이다. 세어서 관리자에게 보여주고 판단은 사람이 한다. -->
+    <div id="libReport" class="hidden">
+      <div class="up-panel">
+        <div class="up-row">
+          <div class="rp-on" id="libReportOn"></div>
+          <select class="up-sel" id="libReason" aria-label="Reason for report">
+            <option value="저작권"   data-en="Copyright — this is a paid/published word list">Copyright — this is a paid/published word list</option>
+            <option value="부적절"   data-en="Inappropriate content">Inappropriate content</option>
+            <option value="스팸"     data-en="Spam or advertising">Spam or advertising</option>
+            <option value="오류"     data-en="Many wrong meanings">Many wrong meanings</option>
+            <option value="기타"     data-en="Something else">Something else</option>
+          </select>
+          <input data-clarity-mask="true" class="wb-input" id="libReportDetail" type="text" maxlength="300" placeholder="덧붙일 말 (선택)" style="margin-bottom:0;">
+          <p class="up-hint" data-en="We review every report and remove what should not be here. The uploader is never told who reported it.">We review every report and remove what should not be here. The uploader is never told who reported it.</p>
+          <div style="display:flex; gap:8px; flex-wrap:wrap;">
+            <button class="pt-next" id="libReportSend" type="button" style="flex:1; min-width:140px;" data-en="Send report">Send report</button>
+            <button class="pt-ghost" id="libReportCancel" type="button" data-en="Cancel">Cancel</button>
+          </div>
+          <div class="wb-err hidden" id="libReportErr"></div>
+          <div class="wb-ok hidden" id="libReportOk"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="bd">
+      <div class="bd-head">
+        <span data-en="File">File</span><span data-en="Words">Words</span><span data-en="Download">Download</span>
+      </div>
+      <div id="libList"></div>
+    </div>
+
+    <div id="libLoading"><div class="wb-state"><div class="wb-spin"></div><span data-en="Loading…">Loading…</span></div></div>
+    <div id="libEmpty" class="hidden"><div class="wb-state" data-en="No shared lists yet. Be the first.">No shared lists yet. Be the first.</div></div>
+    <div id="libError" class="hidden">
+      <div class="wb-state">
+        <span data-en="Could not load the list.">Could not load the list.</span>
+        <div><button class="pt-next" id="libRetry" type="button" data-en="Try again">Try again</button></div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="footer">
+    <div class="footer-brand" data-en="Every Koreans">Every Koreans</div>
+    <div class="footer-info">© 2026 치즈감자 · <a href="privacy.html" data-en="Privacy policy">Privacy policy</a></div>
+  </div>
+
+</div><!-- /libraryView -->
+
+<!-- ── 국어사전 ─────────────────────────────────────────────────
+     첫 화면 "낱말·문법 사전" 카드가 예전엔 자료마당(엑셀 내려받기)으로
+     보냈다 — 정작 사전이라 부를 만한 화면이 없었다. glossary.js 에 이미
+     있는 자료(GLOSSARY, 표제어 4,047개)를 그대로 찾아보는 화면을 새로
+     만든다. 새로 받아 오는 자료는 없다 — 있는 것을 찾아보게 할 뿐이다.
+
+     처음엔 안내문과 큰 목록을 다 보여 줬는데, 검색하러 온 사람에게는
+     군더더기다. 찾아보는 화면이니 검색창이 첫눈에 가장 크게 보이면
+     된다 — 결과는 입력하거나 품사를 고른 뒤에만 그린다(dictDraw 의
+     빈 상태 참고). -->
+<div id="dictView" class="hidden">
+
+  <div class="pt-body dict-body" style="max-width:640px;">
+    <h2 class="dict-h" data-en="Korean dictionary">Korean dictionary</h2>
+
+    <div class="wb-tools">
+      <input class="wb-search" id="dictSearch" type="search" placeholder="단어 · 뜻 검색" autocomplete="off">
+    </div>
+    <div class="wb-chips" id="dictChips"></div>
+    <span class="wb-count" id="dictCount"></span>
+
+    <div class="wb-list" id="dictList"></div>
+    <div class="wb-none hidden" id="dictNone"></div>
+    <button class="btn-retro" id="dictMore" type="button" style="margin-top:16px; display:none;"></button>
+
+    <p class="tq-note" style="margin-top:28px;" data-en="From the Basic Korean Dictionary published by the National Institute of Korean Language (국립국어원), used under CC BY-SA 2.0 KR.">From the Basic Korean Dictionary published by the National Institute of Korean Language (국립국어원), used under CC BY-SA 2.0 KR.</p>
+  </div>
+
+  <div class="footer">
+    <div class="footer-brand" data-en="Every Koreans">Every Koreans</div>
+    <div class="footer-info">© 2026 치즈감자 · <a href="privacy.html" data-en="Privacy policy">Privacy policy</a></div>
+  </div>
+
+</div><!-- /dictView -->
+
+<!-- ── 로그인 · 회원가입 ───────────────────────────────────────
+     폼을 단어장 안에 넣어 뒀더니 "로그인하려면 단어장부터 들어가야"
+     하는 이상한 순서가 됐다. 계정 화면을 따로 뗀다.
+
+     제목·버튼·안내문은 탭에 따라 글이 바뀌므로 data-en 을 달지 않고
+     자바스크립트가 통째로 관리한다. 둘을 섞으면 언어를 바꿀 때
+     applyLang 이 예전 글로 되돌려 놓는다. -->
+<div data-clarity-mask="true" id="authView" class="hidden">
+
+  <div class="pt-hero">
+    <h2 id="auTitle">로그인</h2>
+    <p data-en="One account works for both the app and the web.">One account works for both the app and the web.</p>
+  </div>
+
+  <div class="pt-body" id="auBody">
+
+      <!-- 로그인 폼만 좁게. 계정 화면은 아래에서 폭을 다 쓴다 —
+           둘을 같은 상자에 넣으면 계정 쪽이 360px 에 갇힌다. -->
+      <div id="auForms" class="wb-login">
+      <div class="au-tabs">
+        <button class="au-tab on" id="auTabIn" type="button" data-en="Sign in">Sign in</button>
+        <button class="au-tab" id="auTabUp" type="button" data-en="Sign up">Sign up</button>
+      </div>
+
+      <button class="wb-gbtn" id="wbGoogle" type="button">
+        <svg viewBox="0 0 48 48" aria-hidden="true"><path fill="#EA4335" d="M24 9.5c3.54 0 6.7 1.22 9.2 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg>
+        <span data-en="Continue with Google">Continue with Google</span>
+      </button>
+
+      <div class="wb-or"><span data-en="or">or</span></div>
+
+      <form id="wbForm">
+        <input class="wb-input" id="wbEmail" type="email" autocomplete="email" placeholder="이메일" required>
+        <input class="wb-input" id="wbPw" type="password" autocomplete="current-password" placeholder="비밀번호" required>
+
+        <!-- 회원가입일 때만 펼친다 -->
+        <div id="auUpOnly" class="hidden">
+          <input class="wb-input" id="auPw2" type="password" autocomplete="new-password" placeholder="비밀번호 확인">
+          <div class="au-rules" id="auRules"></div>
+        </div>
+
+        <button class="pt-next" id="wbSubmit" type="submit" style="width:100%; justify-content:center; margin-top:10px;">로그인</button>
+      </form>
+
+      <div class="wb-err hidden" id="wbErr"></div>
+      <div class="wb-ok hidden" id="auOk"></div>
+
+      <p class="wb-note" id="auNote"></p>
+      </div><!-- /auForms -->
+
+      <!-- 이미 로그인한 사람이 계정 화면에 들어왔을 때.
+           프로필과 학습 설정을 여기 모은다 — 계정에 관한 것을 보러 온
+           사람이 다시 다른 곳으로 옮겨 다니지 않게. -->
+      <div id="auSignedIn" class="hidden">
+
+        <div class="ac-head">
+          <div class="ac-ava" id="acAva">🧀</div>
+          <div class="ac-who">
+            <div data-clarity-mask="true" class="ac-name" id="acName"></div>
+            <div class="ac-mail" id="auWho"></div>
+          </div>
+        </div>
+
+        <div class="ac-row">
+          <button class="pt-next" id="auGoWb" type="button" data-en="My wordbook">My wordbook</button>
+          <button class="pt-ghost" id="auGoDash" type="button" data-en="Dashboard">Dashboard</button>
+        </div>
+
+        <div class="ac-grid">
+        <!-- 프로필 -->
+        <div class="up-panel">
+          <div class="up-row">
+            <div class="dcard-t" data-en="Profile">Profile</div>
+            <div>
+              <div class="wf-lbl" data-en="Name">Name</div>
+              <input data-clarity-mask="true" class="wb-input" id="acNameIn" type="text" maxlength="30" placeholder="이름" style="margin-bottom:0;">
+            </div>
+            <div>
+              <div class="wf-lbl" data-en="Photo">Photo</div>
+              <label class="up-file" id="acPhotoLabel">
+                <input type="file" id="acPhoto" accept="image/*">
+                <span id="acPhotoTxt" data-en="Choose a photo">Choose a photo</span>
+              </label>
+              <div id="acAvaWrap" class="hidden" style="display:flex; align-items:center; gap:12px; margin-top:12px;">
+                <img id="acPreview" alt="" style="width:64px; height:64px; border-radius:50%; object-fit:cover;">
+                <button class="wb-out" id="acPhotoClear" type="button" data-en="Remove photo">Remove photo</button>
+              </div>
+            </div>
+            <button class="pt-next" id="acSave" type="button" style="width:100%;" data-en="Save profile">Save profile</button>
+            <div class="wb-err hidden" id="acErr"></div>
+            <div class="wb-ok hidden" id="acOk"></div>
+          </div>
+        </div>
+
+        <!-- 학습 설정 -->
+        <div class="up-panel">
+          <div class="up-row">
+            <div class="dcard-t" data-en="Study settings">Study settings</div>
+            <div id="setLoading" class="hidden">
+              <div class="wb-state" style="padding:24px;"><div class="wb-spin"></div></div>
+            </div>
+            <div id="setError" class="hidden">
+              <div class="wb-state" style="padding:20px;">
+                <span data-en="Could not load your settings.">Could not load your settings.</span>
+                <div><button class="pt-ghost" id="setRetry" type="button" data-en="Try again">Try again</button></div>
+              </div>
+            </div>
+            <div id="setBody" class="hidden">
+              <div class="up-row">
+                <div>
+                  <div class="wf-lbl" data-en="Wordbook name">Wordbook name</div>
+                  <input data-clarity-mask="true" class="wb-input" id="stTitle" type="text" maxlength="40" placeholder="예) 토익 단어장" style="margin-bottom:0;">
+                </div>
+                <div>
+                  <div class="wf-lbl" id="lblStStudy" data-en="Language you are learning">Language you are learning</div>
+                  <select class="up-sel" aria-labelledby="lblStStudy" id="stStudy"></select>
+                  <input data-clarity-mask="true" class="wb-input hidden" id="stStudyOther" type="text" maxlength="20" placeholder="직접 입력" style="margin:10px 0 0;">
+                </div>
+                <div>
+                  <div class="wf-lbl" id="lblStNative" data-en="Your own language">Your own language</div>
+                  <select class="up-sel" aria-labelledby="lblStNative" id="stNative"></select>
+                  <input data-clarity-mask="true" class="wb-input hidden" id="stNativeOther" type="text" maxlength="20" placeholder="직접 입력" style="margin:10px 0 0;">
+                </div>
+                <div class="dgrid2b">
+                  <div>
+                    <div class="wf-lbl" id="lblStGoal" data-en="Words per day">Words per day</div>
+                    <input class="wb-input" aria-labelledby="lblStGoal" id="stGoal" type="number" min="1" max="200" style="margin-bottom:0;">
+                  </div>
+                  <div>
+                    <div class="wf-lbl" id="lblStDays" data-en="Study period (days)">Study period (days)</div>
+                    <input class="wb-input" aria-labelledby="lblStDays" id="stDays" type="number" min="1" max="365" style="margin-bottom:0;">
+                  </div>
+                </div>
+                <p class="up-hint" id="stCalc"></p>
+                <button class="pt-next" id="stSave" type="button" style="width:100%;" data-en="Save settings">Save settings</button>
+                <div class="wb-err hidden" id="stErr"></div>
+                <div class="wb-ok hidden" id="stOk"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        </div><!-- /ac-grid -->
+
+        <div class="ac-foot">
+          <button class="wb-out" id="auLogout" type="button" data-en="Sign out">Sign out</button>
+          <span class="dnote" data-en="Deleting your account is done in the app — Settings → Delete account.">Deleting your account is done in the app — Settings → Delete account.</span>
+        </div>
+      </div><!-- /auSignedIn -->
+  </div>
+
+  <div class="footer">
+    <div class="footer-brand" data-en="Every Koreans">Every Koreans</div>
+    <div class="footer-info">© 2026 치즈감자 · <a href="privacy.html" data-en="Privacy policy">Privacy policy</a></div>
+  </div>
+
+</div><!-- /authView -->
+
+<!-- ── 내 단어장 ──────────────────────────────────────────────
+     앱에 저장한 단어를 그대로 읽어 온다. 여기서는 고치거나 지울 수 없다 —
+     쓰는 곳이 두 군데가 되면 어느 쪽이 맞는지 다투게 된다. -->
+<div id="wordbookView" class="hidden">
+
+  <div class="pt-hero">
+    <h2 data-en="My wordbook">My wordbook</h2>
+    <p data-en="The words you saved in the app, right here in your browser.">The words you saved in the app, right here in your browser.</p>
+  </div>
+
+  <div class="pt-body">
+
+    <!-- TOPIK 을 풀며 표시해 둔 낱말이 남아 있을 때. 구글 로그인은 페이지를
+         통째로 다시 불러오므로 결과 화면이 사라진다 — 표시해 둔 것을
+         localStorage 에 남겨 두었다가 여기서 다시 건넨다.
+         아래 칸들(wbAuth·wbListWrap·wbEmpty…) 은 한 번에 하나만 보이는
+         패널이라, 이 줄은 그 바깥에 둔다. 단어가 0개인 새 계정은
+         wbEmpty 가 뜨는데 그때도 이 줄은 보여야 한다. -->
+    <div class="wb-pending hidden" id="wbPending"></div>
+
+    <!-- 로그인하지 않았을 때. 폼은 계정 화면에 따로 있다. -->
+    <div id="wbAuth" class="hidden">
+      <div class="wb-state">
+        <div style="font-size:40px; margin-bottom:8px;">🔒</div>
+        <span data-en="Sign in to see the words you saved.">Sign in to see the words you saved.</span>
+        <div><button class="pt-next" id="wbGoLogin" type="button" data-en="Go to sign in">Go to sign in</button></div>
+      </div>
+    </div>
+
+    <!-- 불러오는 중 -->
+    <div id="wbLoading" class="hidden">
+      <div class="wb-state">
+        <div class="wb-spin"></div>
+        <span data-en="Loading your words…">Loading your words…</span>
+      </div>
+    </div>
+
+    <!-- 목록 -->
+    <div id="wbListWrap" class="hidden">
+      <div class="wb-top">
+        <span class="wb-count" id="wbCount"></span>
+        <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
+          <button class="wb-add" id="wbAddBtn" type="button" data-en="+ Add word">+ Add word</button>
+          <label class="wb-x" id="wbImpLabel">
+            <input type="file" id="wbImp" accept=".xlsx,.xls,.csv">
+            <span data-en="⬆ Import">⬆ Import</span>
+          </label>
+          <button class="wb-x" id="wbExp" type="button" data-en="⬇ Export">⬇ Export</button>
+        </div>
+      </div>
+
+      <!-- 추가와 수정이 같은 폼을 쓴다. 항목이 같은데 두 벌을 두면
+           한쪽만 고치는 일이 생긴다. -->
+      <div id="wbForm2" class="hidden">
+        <div class="up-panel">
+          <div class="up-row">
+            <div class="rp-on" id="wbFormTitle"></div>
+            <input data-clarity-mask="true" class="wb-input" id="wfWord" type="text" maxlength="200" placeholder="단어" style="margin-bottom:0;">
+            <input data-clarity-mask="true" class="wb-input" id="wfMean" type="text" maxlength="300" placeholder="뜻" style="margin-bottom:0;">
+            <input data-clarity-mask="true" class="wb-input" id="wfEx" type="text" maxlength="300" placeholder="예문 (선택)" style="margin-bottom:0;">
+            <select class="up-sel" id="wfTag" aria-label="Word tag"></select>
+
+            <div>
+              <div class="wf-lbl" data-en="Difficulty">Difficulty</div>
+              <div class="wb-chips" id="wfDiff" style="margin-bottom:0;"></div>
+            </div>
+
+            <div>
+              <div class="wf-lbl" data-en="Photo (optional)">Photo (optional)</div>
+              <label class="up-file" id="wfPhotoLabel">
+                <input type="file" id="wfPhoto" accept="image/*">
+                <span id="wfPhotoTxt" data-en="Choose a photo">Choose a photo</span>
+              </label>
+              <img id="wfPreview" class="hidden" alt="" style="width:100%; max-height:200px; object-fit:cover; border-radius:12px; margin-top:10px;">
+            </div>
+
+            <div style="display:flex; gap:8px; flex-wrap:wrap;">
+              <button class="pt-next" id="wfSave" type="button" style="flex:1; min-width:130px;" data-en="Save">Save</button>
+              <button class="pt-ghost" id="wfCancel" type="button" data-en="Cancel">Cancel</button>
+            </div>
+            <div style="display:flex; gap:14px; flex-wrap:wrap; align-items:center;">
+              <button class="wb-out" id="wfToggle" type="button"></button>
+              <button class="wb-out" id="wfDelete" type="button" style="color:var(--red);" data-en="Delete this word">Delete this word</button>
+            </div>
+            <div class="wb-err hidden" id="wfErr"></div>
+            <div class="wb-ok hidden" id="wfOk"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="wb-tools">
+        <input class="wb-search" id="wbSearch" type="search" placeholder="단어 · 뜻 검색">
+        <!-- 정렬 항목은 앱 WordbookScreen 의 SortType 과 같게 맞춘다 -->
+        <select class="wb-sort" id="wbSort" aria-label="Sort by">
+          <option value="newest"       data-en="Newest first">Newest first</option>
+          <option value="oldest"       data-en="Oldest first">Oldest first</option>
+          <option value="remembered"   data-en="Memorized first">Memorized first</option>
+          <option value="most_viewed"  data-en="Most viewed">Most viewed</option>
+          <option value="least_viewed" data-en="Least viewed">Least viewed</option>
+        </select>
+        <div class="wb-view">
+          <button class="wb-view-btn on" id="wbViewList" type="button" aria-label="목록으로 보기">☰</button>
+          <button class="wb-view-btn"    id="wbViewGrid" type="button" aria-label="바둑판으로 보기">⊞</button>
+        </div>
+      </div>
+
+      <!-- 품사·암기 상태 칩. 내용은 자바스크립트가 만든다 -->
+      <div class="wb-chips" id="wbChips"></div>
+
+      <div data-clarity-mask="true" class="wb-list" id="wbList"></div>
+      <div class="wb-none hidden" id="wbNone"></div>
+    </div>
+
+    <!-- 아직 단어가 없을 때 -->
+    <div id="wbEmpty" class="hidden">
+      <div class="wb-state">
+        <div style="font-size:44px; margin-bottom:8px;">🧀</div>
+        <span data-en="No words yet.&lt;br&gt;Bake your first one in the app.">No words yet.<br>Bake your first one in the app.</span>
+        <div><button class="pt-next" id="wbDl" type="button" data-en="⬇ Get the app">⬇ Get the app</button></div>
+      </div>
+    </div>
+
+    <!-- 못 불러왔을 때 -->
+    <div id="wbError" class="hidden">
+      <div class="wb-state">
+        <div style="font-size:40px; margin-bottom:8px;">😵</div>
+        <span data-en="Could not load your words.&lt;br&gt;Check your connection and try again.">Could not load your words.<br>Check your connection and try again.</span>
+        <div><button class="pt-next" id="wbRetry" type="button" data-en="Try again">Try again</button></div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="footer">
+    <div class="footer-brand" data-en="Every Koreans">Every Koreans</div>
+    <div class="footer-info">© 2026 치즈감자 · <a href="privacy.html" data-en="Privacy policy">Privacy policy</a></div>
+  </div>
+
+</div><!-- /wordbookView -->
+
+</div>
+
+<!-- 갈래 사용법. 속은 app.module.js 가 채운다 — 갈래마다 글이 다르고
+     한국어·영어 두 벌이라 여기 적어 두면 두 곳을 맞춰야 한다. -->
+<div id="cgWrap" class="cg-back hidden" role="dialog" aria-modal="true" aria-labelledby="cgTitle">
+  <div class="cg-card" id="cgCard"></div>
+</div>
+
+<!-- confirm() · alert() 대신 쓰는 자리.
+     그 둘은 동기라서 뜨는 동안 렌더링을 통째로 멈춘다 — 사람이 답을
+     고르기까지 걸리는 시간이 전부 「그 눌림 하나의 처리 시간」으로 잡혀서,
+     지우기 단추 하나가 INP(다음 그림까지 걸리는 시간) 를 몇 초·몇십 초로
+     부풀린다. <dialog> 는 열려 있는 동안에도 다음 프레임을 그릴 수 있어서
+     그 문제가 없다. 속은 app.js 의 askShow 가 채운다. -->
+<dialog id="askDlg">
+  <form method="dialog" class="ask-card">
+    <p class="ask-msg" id="askMsg"></p>
+    <div class="ask-row">
+      <button type="button" class="btn-ghost" id="askCancel"></button>
+      <button type="submit" class="btn-primary" id="askOk" value="ok"></button>
+    </div>
+  </form>
+</dialog>
+
+<!-- 읽기 연습에서 문법을 눌렀을 때 뜨는 말풍선. 지문 위에 겹쳐야 해서
+     지문 안이 아니라 여기 둔다 — 안에 넣으면 첫 줄에서 잘린다.
+     속은 app.module.js 가 채운다. -->
+<div id="rdGPop" class="rd-g-pop" role="dialog" aria-live="polite" hidden>
+  <div class="rd-g-name" id="rdGName"></div>
+  <p class="rd-g-desc" id="rdGDesc"></p>
+  <button type="button" class="rd-g-go" id="rdGGo"></button>
+  <span class="rd-g-tail" id="rdGTail" aria-hidden="true"></span>
+</div>
+
+<!-- 노트 블록: 종류 고르개(/ 메뉴)와 블록 손잡이 메뉴. 화면 맨 바깥에
+     두는 까닭은 rdGPop 과 같다 — 갈래 화면 안에 넣으면 그 갈래를 나갈 때
+     hidden 이 걸려 사라지고, 안쪽에 두면 잘려 보인다. -->
+<div id="nbMenu" class="nb-menu" role="menu" hidden></div>
+<!-- 이모지 고르개. 노트 아이콘·갈래 아이콘·블록 안에 넣기가 모두 이걸 쓴다. -->
+<div id="nbEmo" class="nb-emo" role="dialog" hidden></div>
+
+<!-- 링크 걸기(Cmd/Ctrl+K). 속은 정적이다 — 문구만 app.module.js 가 채운다. -->
+<div id="nbLinkPop" class="nb-link-pop" role="dialog" hidden>
+  <input type="url" id="nbLinkUrl" class="nb-link-pop-input" spellcheck="false">
+  <div class="nb-link-pop-acts">
+    <button type="button" id="nbLinkRemove" class="nb-link-pop-del" hidden></button>
+    <button type="button" id="nbLinkApply" class="nb-link-pop-save"></button>
+  </div>
+</div>
+
+<!-- 문법 불러오기. 수업할 때 자주 쓰는 문법을 노트에 바로 삽입하려고
+     만들었다. 속은 app.module.js 가 채운다(코스 자료가 늦게 불러와지므로
+     정적으로 못 적어 둔다). -->
+<div id="ntGrammarPop" class="nt-gr-pop" role="dialog" hidden>
+  <div class="nt-gr-pop-h">
+    <input type="text" id="ntGrammarQ" class="nt-gr-pop-q" spellcheck="false">
+    <button type="button" id="ntGrammarClose" class="nt-gr-pop-x" aria-label="Close">✕</button>
+  </div>
+  <div id="ntGrammarList" class="nt-gr-pop-list"></div>
+</div>
+
+<!-- 갈래 만들기·고치기. prompt() 창은 안 예쁘고 폰 브라우저에서는
+     말도 안 섞여 나온다 — 여기서 이름·아이콘·색을 한자리에서 고른다. -->
+<div id="ntCatPop" class="nt-cat-pop" role="dialog" hidden>
+  <input id="ntCatPopName" class="nt-cat-pop-name" type="text" maxlength="24" data-clarity-mask="true">
+  <div id="ntCatPopErr" class="nt-cat-pop-err" hidden></div>
+  <div class="nt-cat-pop-row">
+    <button type="button" id="ntCatPopIcon" class="nt-cat-pop-icon" data-emo="1" data-catpop="1"></button>
+    <div id="ntCatPopSw" class="nb-swatches"></div>
+  </div>
+  <div class="nt-cat-pop-acts">
+    <button type="button" id="ntCatPopDel" class="nt-cat-pop-del" hidden></button>
+    <button type="button" id="ntCatPopSave" class="nt-cat-pop-save"></button>
+  </div>
+</div>
+
+<!-- 노트 블록 편집기 단축키 사용법. 채워 넣는 것은 ntHelpOpen() (app.module.js) —
+     한글/영문을 그때그때 고르려고 여기서는 빈 틀만 둔다. -->
+<div id="ntHelpPop" class="nt-help-pop" role="dialog" hidden>
+  <div class="nt-help-t" id="ntHelpTitle"></div>
+  <div id="ntHelpBody" class="nt-help-body"></div>
+</div>
+
+<!-- 노트를 예쁘게 인쇄·PDF로 저장하는 자리. 화면에서는 늘 숨어 있다가
+     인쇄할 때만(@media print) 다른 모든 것을 대신해서 나타난다. 속은
+     ntPrintOpen() 이 찍을 때마다 새로 채운다. -->
+<div id="ntPrintView"></div>
+
+<!-- TOPIK 지문에서 낱말을 눌렀을 때 뜻을 보여 주는 말풍선.
+     읽기의 문법 말풍선(rdGPop)과 같은 자리·같은 모양이라 스타일을 같이
+     쓴다. 화면 맨 바깥에 두는 까닭도 같다 — 갈래 화면 안에 넣으면
+     그 갈래를 나갈 때 hidden 이 걸려 사라진다. -->
+<div id="tqWPop" class="rd-g-pop" role="dialog" aria-live="polite" hidden>
+  <div class="tq-wp-head">
+    <span class="rd-g-name" id="tqWPopWord"></span>
+    <span class="tq-wp-tag" id="tqWPopTag" hidden></span>
+  </div>
+  <p class="rd-g-desc" id="tqWPopMean"></p>
+  <span class="rd-g-tail" id="tqWPopTail" aria-hidden="true"></span>
+</div>
+
+<!-- 한국어 도우미. 어느 화면에서든 뜬다 — 갈래 화면(learnView 등)
+     안에 두면 그 갈래를 나갈 때 open() 이 hidden 을 걸어 사라진다.
+     docs/ai-sidebar-plan.md 1단계: 0층 조회만, 로그인 필요 없음.
+     속은 app.module.js 가 채운다. -->
+<button id="hlpFab" class="hlp-fab" type="button" aria-label="한국어 도우미 열기">🧀</button>
+<div id="hlpScrim" class="hlp-scrim"></div>
+<aside id="hlpPanel" class="hlp-panel" aria-label="한국어 도우미" aria-hidden="true"></aside>
+
+<script src="app.js?v=b52bf12b"></script>
+<script type="module" src="app.module.js?v=b52bf12b"></script>
+
+<script src="analytics.js?v=b52bf12b" defer></script>
+</body>
+</html>

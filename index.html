@@ -44,12 +44,17 @@
      검색과 공유 미리보기만 한국어로 나가서, 정작 대상이 검색으로는 못 닿고
      있었다.
 
-     ※ hreflang 은 안 건다. 언어를 주소가 아니라 화면에서 갈라 영어 쪽
-       주소가 따로 없기 때문이다. 없는 주소를 hreflang 으로 적으면 구글이
-       그 줄을 통째로 버린다. 영어 주소를 따로 낼 때 함께 붙일 것. -->
+     ※ hreflang 은 이제 건다. /en/ 이 생겨서다(tools/build-en-home.mjs 가
+       이 쪽의 data-en 을 읽어 굽는다). x-default 는 영어 쪽 — blog/ 의
+       언어 짝과 같은 이유로, 이 사이트의 기본이 영어라서다(app.js 의
+       initLang). 이 세 줄은 en/index.html 에도 글자 그대로 들어간다 —
+       구글은 양쪽에서 서로를 가리켜야 짝으로 믿는다. -->
 <title>치즈감자 — 무료 한국어 학습과 TOPIK 연습 | Learn Korean Free</title>
 <meta name="description" content="한글 낱자부터 TOPIK 6급까지 무료로 배우는 한국어 학습 사이트. 코스 21개·레슨 82개, 문법 표현 290개, TOPIK I·II 듣기·읽기·쓰기 연습 문항 480개, 읽기 지문 54편, 국립국어원 뜻풀이 낱말 5,346개. 설치·회원가입 없이 브라우저에서 바로.">
 <link rel="canonical" href="https://everykoreans.com/">
+<link rel="alternate" hreflang="ko" href="https://everykoreans.com/">
+<link rel="alternate" hreflang="en" href="https://everykoreans.com/en/">
+<link rel="alternate" hreflang="x-default" href="https://everykoreans.com/en/">
 
 <!-- ── 구조화 자료 (JSON-LD) ────────────────────────────────────
      여태 이 쪽에는 이게 **하나도 없었다.** 문법 표현 291쪽에는 넣어 두고
@@ -115,13 +120,13 @@
      Pretendard 는 통짜(2.0MB) 대신 조각난 쪽을 쓴다 — 브라우저가
      unicode-range 를 보고 화면에 실제로 나온 글자가 든 조각만 받는다.
      그래서 저장소는 무거워졌지만 학습자가 받는 양은 오히려 줄었다. -->
-<link rel="stylesheet" href="vendor/pretendard.css?v=08ba6d9f">
-<link rel="stylesheet" href="vendor/pressstart2p.css?v=08ba6d9f">
+<link rel="stylesheet" href="vendor/pretendard.css?v=b52bf12b">
+<link rel="stylesheet" href="vendor/pressstart2p.css?v=b52bf12b">
 <!-- 화면 상자 안에서만 쓰는 CSS 는 여기서 갈라 받는다. media="print" 라
      첫 페인트를 안 막고, 다 받아지면 app.js 가 media 를 all 로 바꾼다.
      자바스크립트가 없으면 <noscript> 쪽이 그냥 평범하게 걸린다. -->
-<link id="viewsCss" rel="stylesheet" href="app-views.css?v=08ba6d9f" media="print">
-<noscript><link rel="stylesheet" href="app-views.css?v=08ba6d9f"></noscript>
+<link id="viewsCss" rel="stylesheet" href="app-views.css?v=b52bf12b" media="print">
+<noscript><link rel="stylesheet" href="app-views.css?v=b52bf12b"></noscript>
 
 <style>
 /* ══════════════════════════════════════════════════════════════
@@ -1013,6 +1018,22 @@ button.wb-link { background:none; border:none; border-bottom:1.5px solid rgba(25
   font-size:15px; line-height:1.85; color:var(--ink-3); word-break:keep-all;
 }
 .faq-i > p b { color:var(--ink-2); font-weight:700; }
+
+/* 블로그 미리보기. footer 의 블로그 링크는 크롤러용(주석 참고)이고, 이건
+   사람용이다 — 글 18편이 쌓였는데 홈에서 실제로 눌러 볼 자리가 없었다.
+   목록은 손으로 안 고친다 — build-pages.mjs 가 BLOG_TEASE_START/END 사이를
+   blog.js 최신 3편으로 다시 쓴다(node tools/build-pages.mjs). */
+.blog-tease-list { display:flex; flex-direction:column; gap:2px; }
+.blog-tease-item {
+  display:flex; align-items:baseline; gap:14px; padding:16px 4px;
+  border-bottom:1px solid var(--line-2); text-decoration:none; color:inherit;
+}
+.blog-tease-item:last-child { border-bottom:none; }
+.blog-tease-item:hover .blog-tease-title { color:var(--orange-deep); }
+.blog-tease-date { flex:none; font-size:13px; color:var(--ink-3); font-variant-numeric:tabular-nums; }
+.blog-tease-title { flex:1; font-size:15.5px; font-weight:600; word-break:keep-all; }
+.blog-tease-more { display:inline-block; margin-top:14px; font-size:14px; font-weight:600; color:var(--orange-deep); text-decoration:none; }
+.blog-tease-more:hover { text-decoration:underline; }
 
 @media (max-width:759px) {
   .lede { font-size:15.5px; padding:22px 20px; margin:32px 0; }
@@ -1928,7 +1949,7 @@ body.hlp-open { overflow:hidden; }
           </tr>
           <tr>
             <th scope="row">TOPIK <b>II</b></th>
-            <td>19</td><td>200</td><td>26</td>
+            <td>19</td><td>200</td><td>58</td>
             <td data-en="Levels 3–6">3~6급</td>
           </tr>
         </tbody>
@@ -2193,6 +2214,15 @@ body.hlp-open { overflow:hidden; }
         <p data-en="Yes. The site is built for phones as much as for desktops — that is where most people study. There is also an Android app for the wordbook part, with an iOS version on the way.">됩니다. 대부분이 휴대폰으로 공부하기 때문에 처음부터 그쪽을 기준으로 만들었어요. 단어장 쪽은 안드로이드 앱도 있고 iOS 는 준비 중입니다.</p>
       </details>
     </div>
+  </div>
+
+  <!-- 블로그 미리보기. build-pages.mjs 가 아래 START/END 사이만 다시 쓴다 —
+       나머지(라벨·더 보기 단추)는 손으로 고쳐도 된다. -->
+  <div class="section" id="blogTease">
+    <div class="label">BLOG</div>
+    <p class="section-title" data-en="From the blog">새로 올라온 글</p>
+    <!-- BLOG_TEASE_START --><div class="blog-tease-list"><a class="blog-tease-item" href="blog/eun-neun-vs-i-ga-english.html"><span class="blog-tease-date">9월 14일</span><span class="blog-tease-title">은/는 vs 이/가: one question instead of ten rules</span></a><a class="blog-tease-item" href="blog/how-to-learn-korean.html"><span class="blog-tease-date">9월 14일</span><span class="blog-tease-title">How to Learn Korean: the order that actually works</span></a><a class="blog-tease-item" href="blog/reasons-intermediate.html"><span class="blog-tease-date">9월 20일</span><span class="blog-tease-title">이유를 말하는 법, 중급 편 — 거든요, 느라고, 바람에, 탓에</span></a></div><!-- BLOG_TEASE_END -->
+    <a class="blog-tease-more" href="blog/" data-en="See all posts →">모든 글 보기 →</a>
   </div>
 
   <!-- 다운로드 -->
@@ -3731,9 +3761,9 @@ body.hlp-open { overflow:hidden; }
 <div id="hlpScrim" class="hlp-scrim"></div>
 <aside id="hlpPanel" class="hlp-panel" aria-label="한국어 도우미" aria-hidden="true"></aside>
 
-<script src="app.js?v=08ba6d9f"></script>
-<script type="module" src="app.module.js?v=08ba6d9f"></script>
+<script src="app.js?v=b52bf12b"></script>
+<script type="module" src="app.module.js?v=b52bf12b"></script>
 
-<script src="analytics.js?v=08ba6d9f" defer></script>
+<script src="analytics.js?v=b52bf12b" defer></script>
 </body>
 </html>

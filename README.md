@@ -15,9 +15,14 @@ npx --yes http-server . -p 5500
 
 ```bash
 node tools/build-grammar.mjs      # 글에서 찾아낼 문법 (예문 이름을 고쳤으면 반드시)
-node tools/build-pages.mjs        # 검색용 정적 쪽 (예문 자료를 고쳤으면 반드시)
+node tools/build-pages.mjs        # 검색용 정적 쪽 (예문 자료를 고쳤으면 반드시) — index.html 의 블로그
+                                   # 미리보기도 이때 다시 쓴다
+node tools/build-en-home.mjs      # en/index.html (index.html 을 고쳤으면 반드시)
+node tools/build-pages.mjs        # en/index.html 이 방금 생겼으니 사이트맵 lastmod 를 잡으러 한 번 더
 node tools/stamp.mjs              # 캐시 자국을 새로 찍는다 (자료·코드를 고쳤으면 반드시)
 node tools/check-data.mjs         # 자료 전체 크로스체크
+node tools/check-geo.mjs          # 첫 쪽 구조화 자료 · FAQ · 숫자
+node tools/check-en-home.mjs      # en/index.html · hreflang 짝
 node tools/check-courses.mjs      # 코스·레슨 (레슨을 고쳤거나 더했으면 반드시)
 node tools/check-honorific.mjs    # 존댓말 활용 (hon: true 코스를 고쳤거나 더했으면 반드시)
 node tools/check-sentences.mjs    # 예문 표현
@@ -63,6 +68,7 @@ GitHub Pages 는 캐시 머리글을 우리가 못 정한다. `app.js` 를 그�
 |---|---|---|
 | `topik2.js` | `tools/build-topik2.mjs` | `docs/topik2-all50.json` |
 | `sentence/` · `compare/` · `course/` · `lesson/` · `topik-writing/` · `topik-reading/` · `topik-listening/` · `blog/`(`rss.xml` 포함) · `sitemap.xml` | `tools/build-pages.mjs` | `sentences*.js` · `courses*.js` · `topik-writing.js` · `topik.js` · `topik2.js` · `topik-listening.js` · `blog.js` |
+| `en/index.html` | `tools/build-en-home.mjs` | `index.html` 의 `data-en` (첫 쪽 영어판 — hreflang 짝) |
 | `glossary.js` · `glossary-<말>.js` | `tools/build-glossary.mjs` | `docs/glossary.json` (+ `glossary-krdict.json`) |
 | `grammar.js` | `tools/build-grammar.mjs` | `sentences.js` 의 문법 이름 |
 | `docs/page-mod.json` | `tools/build-pages.mjs` | 구운 쪽의 해시와 날짜 (사이트맵 `lastmod` 용) |
