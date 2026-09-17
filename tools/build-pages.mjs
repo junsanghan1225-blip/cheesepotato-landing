@@ -206,7 +206,7 @@ function page({ url, title, desc, body, kind = 'article', jsonld, extraCss = '',
 <div class="wrap">
 ${body}
 <div class="foot">
-  <a href="/">치즈감자</a> · <a href="/sentence/">문법 표현 전체</a> · <a href="/blog/">블로그</a> · <a href="/privacy.html">개인정보</a><br>
+  <a href="/">치즈감자</a> · <a href="/sentence/">문법 표현 전체</a> · <a href="/blog/">블로그</a> · <a href="/privacy.html">개인정보</a> · <a href="/credits.html">자료와 만든 방법</a><br>
   한국어를 배우는 사람을 위한 단어장과 연습 · Learn Korean with CheesePotato<br>
   낱말 뜻풀이 출처: <a href="https://krdict.korean.go.kr">국립국어원 한국어기초사전</a>
   · <a href="https://creativecommons.org/licenses/by-sa/2.0/kr/">CC BY-SA 2.0 KR</a>
@@ -1311,6 +1311,8 @@ h1,.rb-id h1,.rb-card h1,.rb-post h2,.blog-article h2{font-family:'Gowun Batang'
   display:grid;place-items:center;font-size:22px;line-height:1}
 .rb-byline-name{font-size:15px;font-weight:700}
 .rb-byline-role{font-size:13px;color:var(--dim);margin-top:2px}
+.rb-byline-ai{font-size:12px;color:var(--dim);margin-top:3px;opacity:.85}
+.rb-byline-ai a{color:inherit;text-decoration:underline;text-underline-offset:2px}
 .rb-card h1{margin-top:0}
 .rb-card .rb-flair{margin:14px 0 28px;padding-bottom:28px;border-bottom:1px solid var(--line)}
 
@@ -1663,7 +1665,12 @@ function relatedPosts(post, all, skip, n = 3) {
 }
 
 /* 글 한 편의 머리 — 목록 줄(postMeta)보다 무게를 준다. 누가 썼는지
-   보이지 않으면 문서처럼 읽힌다. 이름·역할·날짜를 한 줄에 모은다. */
+   보이지 않으면 문서처럼 읽힌다. 이름·역할·날짜를 한 줄에 모은다.
+
+   **AI 가 썼다는 것을 여기서 밝힌다.** 이 글들은 지시문을 Gemini 에 넣어
+   초안을 받고 사람이 고친 것이다(blog-prompt.mjs). 읽는 사람은 화면에 뜬
+   한국어가 맞는 말인지 가릴 수 없으니, 그건 밝히는 쪽이 맞다. 이름 옆에
+   조그맣게 붙여 두고, 자세한 것은 credits.html 로 보낸다. */
 function postByline(post) {
   const en = post.lang === 'en';
   return '<div class="rb-byline">' +
@@ -1675,6 +1682,9 @@ function postByline(post) {
         (post.updated && post.updated !== post.date
           ? ` · ${en ? 'updated' : '고침'} ${timeTag(post.updated)}` : '') +
       '</div>' +
+      `<div class="rb-byline-ai">${en
+        ? 'Drafted by AI, reviewed by a person · <a href="/credits.html">how this was made</a>'
+        : 'AI 가 초안을 쓰고 사람이 고쳤습니다 · <a href="/credits.html">만든 방법</a>'}</div>` +
     '</div>' +
   '</div>';
 }
@@ -2203,6 +2213,7 @@ for (const [tag, posts] of TAG_POSTS) {
 writeFileSync(join(OUT_BLOG, 'rss.xml'), blogRss(BLOG_POSTS));
 
 urls.push({ loc: '/privacy.html', freq: 'yearly', pri: '0.3' });
+urls.push({ loc: '/credits.html', freq: 'yearly', pri: '0.3' });
 writeFileSync(join(ROOT, 'sitemap.xml'), sitemap(urls));
 /* sitemap() 이 돌면서 쪽마다 해시를 다시 쟀다. 그 기록을 남긴다 —
    다음 번에 이것과 견줘 안 바뀐 쪽은 날짜를 그대로 둔다. */
