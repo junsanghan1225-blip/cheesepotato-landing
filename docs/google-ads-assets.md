@@ -12,48 +12,131 @@
 
 ---
 
+## 어떻게 짜는가 — 문장보다 조합이 먼저다
+
+구글은 여기 적은 것 가운데 **셋을 골라 「A ｜ B ｜ C」로 붙여** 내보낸다.
+그래서 한 줄 한 줄을 다듬는 것보다 **어느 셋이 붙어도 말이 되는가**가 훨씬
+중요하다. 같은 말을 하는 열다섯 개를 넣으면 어떤 조합이 나와도 같은 광고가
+된다.
+
+칸마다 맡은 일을 다르게 둔다.
+
+| 자리 | 하는 일 | 아래 묶음 |
+| --- | --- | --- |
+| 첫째 | **이게 뭔지** 말한다 | ① |
+| 둘째 | **왜 다른지** 말한다 | ② ③ |
+| 셋째 | **왜 지금인지** 말한다 | ④ ⑥ ⑦ |
+
+그래서 묶음마다 서넛씩 채운다. 한 묶음만 잔뜩 넣으면 그 묶음끼리 붙어서
+「무료 · 공짜 · 돈 안 듦」 같은 광고가 나간다.
+
+**고정(pin)은 한 칸만.** ① 묶음에서 하나를 골라 첫째 자리에 고정하면 「이게
+뭔지」는 늘 보장되고, 나머지 두 칸은 구글이 알아서 실험한다. 세 칸을 다
+고정하면 실험이 아예 없어져서 광고 효력 점수가 떨어진다.
+
+### 광고그룹마다 말투를 바꾼다
+
+**TOPIK 그룹에는 놀이터 말투를 쓰지 않는다.** 시험이 두 달 남은 사람에게
+「놀이터」라고 하면 미덥지 않다. 그쪽은 ① ⑤ ⑥ 으로만 채운다. 놀이터
+말투(②)는 「learn korean free」 · 「how to self study korean」처럼 **아직
+정하지 못한 사람**이 치는 검색어에서 힘을 쓴다.
+
+---
+
 ## 헤드라인 (30자)
 
-검색 캠페인의 반응형 검색광고와 P-Max 의 자산 그룹이 같은 칸을 쓴다.
-그대로 옮겨 쓸 수 있다.
+### ① 이게 뭔지 — 검색어를 그대로 되비춘다
+
+관련성 점수에 바로 걸리는 자리다. **다섯은 있어야 한다.**
 
 | 글자 | 글 |
 | --- | --- |
-| 24 | `Learn Korean Free Online` |
-| 25 | `Free TOPIK Practice Tests` |
-| 24 | `Hangul to TOPIK 6 — Free` |
-| 28 | `480 TOPIK Practice Questions` |
-| 22 | `No Signup. Just Start.` |
-| 25 | `Korean Grammar, Explained` |
-| 28 | `Study Korean in Your Browser` |
-| 22 | `21 Free Korean Courses` |
-| 24 | `Read Hangul in a Morning` |
-| 21 | `TOPIK I & II Practice` |
+| 18 | `Learn Korean, Free` |
+| 24 | `Free TOPIK Practice Test` |
+| 24 | `Learn Hangul Free Online` |
+| 24 | `Korean Grammar Explained` |
 | 22 | `Free Korean Dictionary` |
-| 23 | `Practice Korean Writing` |
-| 27 | `Learn Korean, No App Needed` |
 | 23 | `Korean Reading Practice` |
-| 22 | `Start Korean From Zero` |
+
+### ② 놀이터 — 이 광고의 정체
+
+한국어를 배우는 자리는 대개 학원이거나 앱이다. 둘 다 **끝내야 할 것**을
+준다. 이 사이트는 그렇지 않다 — 놀이 화면이 있고, 스피드 퀴즈가 있고,
+사전이 있고, 남이 쓴 문장을 구경하는 게시판이 있다. 들어와서 한 칸
+열어 보고 나가도 되는 곳이다. 그걸 그대로 말한다.
+
+| 글자 | 글 |
+| --- | --- |
+| 23 | `A Playground for Korean` |
+| 23 | `Come In and Poke Around` |
+| 24 | `Korean, With No Homework` |
+| 22 | `No Streaks. No Grades.` |
+| 29 | `Nothing to Finish. Just Play.` |
+| 23 | `Start Anywhere. Really.` |
+| 27 | `Games, Drills, a Dictionary` |
+
+### ③ 사이트가 이미 쓴 말
+
+**지어낸 것보다 이쪽이 낫다.** 블로그에 있던 문장을 그대로 가져왔다. 광고를
+누르고 들어온 사람이 같은 말을 다시 만나므로 어긋나는 느낌이 없다.
+
+| 글자 | 글 | 어디서 왔나 |
+| --- | --- | --- |
+| 27 | `One Question, Not Ten Rules` | 「은/는 vs 이/가」 글의 부제 |
+| 30 | `Hangul Was Designed to Be Easy` | 「한글은 정말 한나절이면 읽나」 |
+| 27 | `The Letters Show Your Mouth` | 같은 글 — ㄱ은 혀뿌리, ㅁ은 입 |
+| 20 | `Hangul in 10 Lessons` | Read Korean 코스가 레슨 10개다 |
+
+### ④ 문턱이 없다 — 놀이터는 문이 열려 있다
+
+| 글자 | 글 |
+| --- | --- |
+| 26 | `No Signup. No App. No Fee.` |
+| 18 | `No Trial. No Card.` |
+| 19 | `Nothing to Download` |
+| 24 | `Korean Without a Paywall` |
+
+### ⑤ 숫자 — 놀이터가 넓다는 증거
+
+| 글자 | 글 |
+| --- | --- |
+| 24 | `480 TOPIK Questions Free` |
+| 24 | `290 Grammar Points, Free` |
+| 24 | `5,358 Korean Words, Free` |
+
+### ⑥ 물음 — 머릿속에서 답하게 만든다
+
+| 글자 | 글 |
+| --- | --- |
+| 24 | `Can You Read Hangul Yet?` |
+| 28 | `Still Guessing at Particles?` |
+| 19 | `Ready for TOPIK II?` |
+
+### ⑦ 들어오게 한다
+
+| 글자 | 글 |
+| --- | --- |
+| 23 | `Open It. Start Reading.` |
+| 21 | `Pick a Room, Any Room` |
 
 ## 긴 헤드라인 (90자) — P-Max 만
 
 | 글자 | 글 |
 | --- | --- |
-| 48 | `Learn Korean free — from Hangul to TOPIK level 6` |
-| 50 | `480 TOPIK practice questions, free in your browser` |
-| 47 | `Free Korean lessons, grammar and TOPIK practice` |
-| 51 | `No install, no signup — start your first lesson now` |
-| 47 | `21 Korean courses, 290 grammar points, all free` |
+| 65 | `A playground for Korean — games, drills, grammar and a dictionary` |
+| 62 | `Wander in, try a quiz, read a story, leave. Nothing to finish.` |
+| 68 | `Hangul to TOPIK level 6, free, with no signup and nothing to install` |
+| 69 | `No streaks, no grades, no card — just Korean you can mess around with` |
 
 ## 설명 (90자)
 
 | 글자 | 글 |
 | --- | --- |
-| 75 | `Hangul to TOPIK level 6, free. 21 courses and 480 TOPIK practice questions.` |
-| 79 | `No install, no signup. Open it in your browser and start your first lesson now.` |
-| 74 | `Practice TOPIK I and II listening, reading and writing with 480 questions.` |
-| 77 | `290 grammar points with examples, 54 reading passages, 5,358 words. All free.` |
-| 74 | `Built for phones. Study Korean on the bus, free, with nothing to download.` |
+| 76 | `Not a course you have to finish. Wander in, try a quiz, read a story, leave.` |
+| 76 | `Games, TOPIK drills, a dictionary and a sentence board. All free, no signup.` |
+| 78 | `Hangul to TOPIK 6. Open a room, poke around, close the tab. Nothing is graded.` |
+| 75 | `No streaks to keep, no card to enter. Just Korean you can mess around with.` |
+| 76 | `480 TOPIK questions, 290 grammar points, 5,358 words. Free, in your browser.` |
 
 ---
 
