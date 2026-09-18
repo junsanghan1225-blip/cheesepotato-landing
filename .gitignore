@@ -9,3 +9,7 @@ extension/data/
 
 # 익스텐션 꾸러미
 extension/*.zip
+
+# tools/build-ad-images.mjs 가 쓰는 playwright. 이 도구 하나만 남의 것을 쓴다 —
+# 구운 그림(assets/ads/)은 저장소에 두므로, 여기가 비어 있어도 광고는 멀쩡하다.
+node_modules/

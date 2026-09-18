@@ -17,7 +17,7 @@
  * 자국은 **내용에서 뽑는다.** 날짜나 회차로 찍으면 안 바뀐 파일까지 새로
  * 받게 되고, 손으로 올리는 값이면 잊어버린다.
  */
-import { readFileSync, writeFileSync } from 'node:fs';
+import { existsSync, readFileSync, writeFileSync } from 'node:fs';
 import { createHash } from 'node:crypto';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
@@ -26,7 +26,7 @@ const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 
 /* 자국을 찍을 파일. 브라우저가 주소로 받아 가는 것만 넣는다. */
 const ASSETS = [
-  'app.js', 'app.module.js', 'analytics.js',
+  'app.js', 'app.module.js', 'analytics.js', 'ads.js',
   'courses.js', 'courses-grammar.js', 'courses-grammar-beginner.js',
   'glossary.js', 'gloss-find.js',
   /* 국어사전 화면(#dictionary)의 "더 보기" 자료(뜻풀이·예문). glossary.js
@@ -67,8 +67,11 @@ const ASSETS = [
 /* 자국이 박히는 파일. index.html 의 script·link 와, 모듈끼리 부르는 import. */
 /* glossary.js 도 자국을 박는 자리다 — 그 안의 GLOSS_LANGS 가 언어팩 주소를
    들고 있다. 생성물이라 build-glossary 를 돌린 뒤에 stamp 를 돌려야 한다. */
-const HOSTS = ['index.html', 'app.module.js', 'courses.js', 'sentences.js', 'glossary.js',
-               'grammar-find.js'];
+/* en/index.html 은 아직 없다 — 영어 주소를 따로 낼 때를 보고 미리 적어
+   둔 자리다. 없는 파일에서 멈추면 자국을 아예 못 찍으므로 건너뛴다.
+   (실제로 그 상태였다: 이 도구가 ENOENT 로 죽고 있었다.) */
+const HOSTS = ['index.html', 'en/index.html', 'app.module.js', 'courses.js', 'sentences.js', 'glossary.js',
+               'grammar-find.js'].filter((f) => existsSync(join(ROOT, f)));
 
 const V = /\?v=[0-9a-f]{8}/g;
 const read = (f) => readFileSync(join(ROOT, f), 'utf8');
@@ -84,7 +87,7 @@ const stamp = hash.digest('hex').slice(0, 8);
 function restamp(text) {
   let out = bare(text);
   for (const f of ASSETS) {
-    // index.html 의 src="app.js" · href="vendor/…css" · href="/vendor/…css"
+    // index.html / en/index.html 의 src="app.js" · href="vendor/…css" · href="/vendor/…css"
     out = out.replaceAll(`"${f}"`, `"${f}?v=${stamp}"`);
     out = out.replaceAll(`"/${f}"`, `"/${f}?v=${stamp}"`);
     // 모듈끼리 부르는 import … from './topik.js'

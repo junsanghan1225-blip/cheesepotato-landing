@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>자료와 만든 방법 — 치즈감자</title>
+<meta name="description" content="치즈감자의 학습 자료를 무엇으로 어떻게 만들었는지 — 어디까지가 AI 가 지은 것이고 어디부터가 사람이 쓴 것인지 항목별로 적었습니다.">
+<!-- privacy.html 과 같다 — 스크립트가 한 줄도 없으니 아예 못 돌게 못박고,
+     글꼴도 저장소 안에서 가져온다. 이 낱장에는 방문 기록도 광고 측정도
+     붙이지 않는다. 「무엇을 어떻게 만들었나」를 읽으러 온 사람을 뒤따라
+     다니는 것은 이 글이 하는 말과 어긋난다. -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'none'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; base-uri 'self'; form-action 'none'; object-src 'none'; frame-src 'none'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<link rel="stylesheet" href="vendor/pretendard.css">
+<style>
+:root {
+  --bg:#F2EEE4; --surface:#fff; --tint:#FDF0E2;
+  --ink:#1B1512; --ink-2:#4E3E31; --ink-3:#8C7A66;
+  --orange:#FF914D; --orange-deep:#C4551C;
+  --line:rgba(27,21,18,.11); --line-2:rgba(27,21,18,.06);
+}
+* { box-sizing:border-box; margin:0; padding:0; font-family:'Pretendard Variable','Pretendard',-apple-system,BlinkMacSystemFont,sans-serif; }
+body { background:var(--bg); color:var(--ink-2); -webkit-font-smoothing:antialiased; line-height:1.75; }
+a { color:var(--orange-deep); }
+a:hover { color:var(--orange); }
+::selection { background:#FFD9B8; color:var(--ink); }
+:focus-visible { outline:2px solid var(--orange-deep); outline-offset:3px; border-radius:4px; }
+
+.hd { position:sticky; top:0; z-index:10; background:rgba(242,238,228,.9); backdrop-filter:blur(12px); border-bottom:1px solid var(--line); }
+.hd-in { max-width:820px; margin:0 auto; padding:0 22px; height:60px; display:flex; align-items:center; gap:10px; }
+.hd a { display:flex; align-items:center; gap:9px; color:var(--ink); font-weight:700; font-size:16px; letter-spacing:-.03em; text-decoration:none; }
+.hd img { width:26px; height:26px; border-radius:7px; }
+
+main { max-width:820px; margin:0 auto; padding:56px 22px 96px; }
+
+h1 { font-size:clamp(30px,6vw,42px); font-weight:700; color:var(--ink); letter-spacing:-.045em; line-height:1.14; margin-bottom:10px; word-break:keep-all; }
+h1 + p { color:var(--ink-3); font-size:14.5px; }
+h2 { font-size:clamp(22px,4vw,27px); font-weight:700; color:var(--ink); letter-spacing:-.035em; margin:56px 0 16px; padding-top:26px; border-top:1px solid var(--line); word-break:keep-all; }
+h3 { font-size:17px; font-weight:700; color:var(--ink); letter-spacing:-.02em; margin:30px 0 10px; word-break:keep-all; }
+p { margin:14px 0; font-size:15.5px; word-break:keep-all; }
+strong { color:var(--ink); font-weight:700; }
+code { background:var(--tint); border:1px solid var(--line-2); border-radius:5px; padding:2px 6px; font-size:13.5px; font-family:ui-monospace,SFMono-Regular,Menlo,monospace; color:var(--orange-deep); word-break:break-all; }
+ul { margin:14px 0 14px 4px; padding-left:18px; }
+li { margin:8px 0; font-size:15.5px; word-break:keep-all; }
+li::marker { color:var(--orange); }
+hr { border:none; border-top:1px solid var(--line-2); margin:44px 0; }
+blockquote { margin:18px 0; padding:14px 18px; background:var(--tint); border-left:3px solid var(--orange); border-radius:0 10px 10px 0; font-size:14.5px; color:var(--ink-2); word-break:keep-all; }
+
+.tw { overflow-x:auto; margin:18px 0; border:1px solid var(--line); border-radius:12px; background:var(--surface); }
+table { border-collapse:collapse; width:100%; min-width:420px; }
+th, td { padding:12px 14px; text-align:left; font-size:14px; border-bottom:1px solid var(--line-2); word-break:keep-all; }
+th { background:var(--tint); color:var(--ink); font-weight:700; font-size:12.5px; letter-spacing:.02em; white-space:nowrap; }
+tr:last-child td { border-bottom:none; }
+
+.back { display:inline-block; margin-top:56px; padding:12px 20px; border:1px solid var(--line); border-radius:8px; color:var(--ink); text-decoration:none; font-size:14.5px; font-weight:600; }
+.back:hover { background:rgba(27,21,18,.05); color:var(--ink); }
+
+@media (prefers-reduced-motion: reduce) { * { transition-duration:.001ms !important; } }
+</style>
+</head>
+<body>
+<header class="hd"><div class="hd-in">
+  <a href="/"><img src="logo.png" alt=""><span>치즈감자</span></a>
+</div></header>
+<main>
+<h1>자료와 만든 방법</h1>
+<p>최종 수정일: 2026년 9월 17일</p>
+
+<blockquote>치즈감자의 학습 자료 <strong>대부분은 AI(Google Gemini)가 초안을 쓰고
+사람이 읽어 고친 것</strong>입니다. 어느 자료가 그런지, 어느 자료가 아닌지를
+아래에 하나씩 적었습니다.</blockquote>
+
+<h2>왜 이걸 적어 두나</h2>
+
+<p>한국어를 배우러 온 사람은 화면에 뜬 문장이 <strong>맞는 한국어인지</strong>를
+알 길이 없습니다. 그게 이 사이트를 쓰는 사람과 만든 사람 사이의 가장 큰
+정보 차이입니다. 그러니 무엇으로 만들었는지는 밝히는 것이 맞습니다.</p>
+
+<p>AI 가 지었다는 것이 틀렸다는 뜻은 아닙니다. 다만 <strong>사람이 쓴 글과
+같은 것으로 여기지는 마시라는 뜻</strong>입니다. 아래 표에서 「AI 초안 · 사람
+검토」라고 적힌 것은 기계가 먼저 쓰고 사람이 읽어 고쳤다는 말이고, 사람이
+못 잡은 것이 남아 있을 수 있습니다. 이상한 문장을 보시면
+<a href="mailto:junsanghan1225@gmail.com">알려 주세요</a> — 고치겠습니다.</p>
+
+<h2>자료별로</h2>
+
+<h3>사전</h3>
+<div class="tw"><table><thead><tr><th>자료</th><th>어떻게 만들었나</th></tr></thead><tbody>
+<tr><td><strong>낱말 뜻풀이</strong> 5,000여 개</td><td><strong>국립국어원</strong> 한국어기초사전을 그대로 가져왔습니다. CC BY-SA 2.0 KR. AI 가 손대지 않았습니다.</td></tr>
+<tr><td><strong>낱말 예문</strong></td><td><strong>AI 가 새로 지었습니다.</strong> 국립국어원 자료에는 예문이 없어서(뜻풀이와 번역만 있습니다) 낱말마다 따로 지어 붙였습니다.</td></tr>
+<tr><td><strong>문법 항목</strong> 197개</td><td>「예문 만들기」의 문법 표현에서 뽑아 만든 것입니다. 아래 「문법」 칸을 보세요.</td></tr>
+</tbody></table></div>
+
+<h3>TOPIK 연습 문항</h3>
+<p><strong>기출문제가 아닙니다.</strong> 전부 TOPIK 의 형식과 난이도만 따라 새로
+만든 문항이고, TOPIK 을 주관하는 국립국제교육원과 관계가 없습니다.</p>
+<div class="tw"><table><thead><tr><th>자료</th><th>어떻게 만들었나</th></tr></thead><tbody>
+<tr><td><strong>TOPIK II 읽기</strong></td><td>AI 초안 · 사람 검토</td></tr>
+<tr><td><strong>TOPIK 듣기</strong></td><td>AI 초안 · 사람 검토. 소리는 기계 음성(TTS)입니다 — 사람이 녹음한 것이 아닙니다.</td></tr>
+<tr><td><strong>TOPIK II 쓰기</strong> 51 · 52번</td><td>AI 초안 · 사람 검토</td></tr>
+<tr><td><strong>TOPIK II 쓰기</strong> 53 · 54번</td><td><strong>사람이 직접 썼습니다.</strong></td></tr>
+<tr><td><strong>TOPIK I 읽기</strong></td><td>AI 초안 · 사람 검토</td></tr>
+</tbody></table></div>
+
+<h3>배우기</h3>
+<div class="tw"><table><thead><tr><th>자료</th><th>어떻게 만들었나</th></tr></thead><tbody>
+<tr><td><strong>코스와 레슨</strong></td><td><strong>무엇을 어떤 차례로 가르칠지는 사람이 짰습니다.</strong> 초급부터 고급까지 다 그렇습니다. 레슨 본문은 AI 초안 · 사람 검토입니다.</td></tr>
+<tr><td><strong>문법 표현</strong> 290개 (뜻풀이 · 형태 · 주의할 점)</td><td>AI 초안 · 사람 검토. <strong>영어 설명은 AI 가 옮긴 것</strong>입니다.</td></tr>
+<tr><td><strong>읽기 지문</strong> 54편</td><td>AI 초안 · 사람 검토</td></tr>
+<tr><td><strong>회화 시나리오</strong></td><td>AI 초안 · 사람 검토</td></tr>
+<tr><td><strong>레벨 테스트 문항</strong></td><td>AI 초안 · 사람 검토</td></tr>
+<tr><td><strong>문장 게시판의 첫 예문</strong></td><td>AI 가 지었습니다. 게시판이 비어 보이지 않게 미리 넣어 둔 것이고, 그 아래 글은 배우는 사람들이 쓴 것입니다.</td></tr>
+</tbody></table></div>
+
+<h3>블로그</h3>
+<p>블로그 글은 <strong>AI 초안 · 사람 검토</strong>입니다. 글마다 발치에도 같은
+말을 적어 두었습니다.</p>
+
+<h3>소리</h3>
+<p><strong>듣기 문항의 소리는 기계 음성(TTS)입니다.</strong> 사람이 녹음한 것이
+아닙니다. 그래서 실제 시험의 성우 발음과는 다를 수 있습니다.</p>
+
+<h2>화면에서 그 자리에 도는 AI</h2>
+
+<p>위엣것들은 <strong>미리 만들어 둔</strong> 자료입니다. 아래 셋은 누를 때마다
+그 자리에서 AI 가 답을 만드는 기능이고, 화면에도 AI 라고 적혀 있습니다.</p>
+
+<ul>
+<li><strong>발음 짐작</strong> — 왜 그렇게 들렸는지 AI 가 짚어 줍니다. 「진단」이라 하지 않는 까닭은 이것이 실제 소리가 아니라 받아쓴 글자를 보고 하는 짐작이기 때문입니다.</li>
+<li><strong>한국어 도우미</strong> — 물으면 AI 가 답합니다.</li>
+<li><strong>사진으로 단어 만들기</strong>(앱) — 찍은 사진을 보고 AI 가 단어 · 뜻 · 예문을 채웁니다.</li>
+</ul>
+
+<p>이 셋이 무엇을 어디로 보내는지는
+<a href="privacy.html">개인정보처리방침</a>의 4항에 적어 두었습니다.</p>
+
+<h2>틀린 것을 찾으셨다면</h2>
+
+<p>기계가 쓴 글에는 사람이 못 걸러낸 것이 남습니다. 어색한 문장, 틀린 뜻풀이,
+답이 이상한 문항을 보시면 <a href="mailto:junsanghan1225@gmail.com">junsanghan1225@gmail.com</a>
+으로 알려 주세요. 어느 화면 어느 문항인지만 적어 주시면 됩니다.</p>
+
+<a class="back" href="/">← 치즈감자로 돌아가기</a>
+</main>
+</body>
+</html>
