@@ -1,4 +1,5 @@
 <!DOCTYPE html><html lang="ko"><head><meta charset="UTF-8">
+<link rel="stylesheet" href="/vendor/pretendard.css">
 <!-- 구글 애즈에 올릴 그림의 판. tools/build-ad-images.mjs 가 이 쪽을 열어
      칸마다 사진을 찍는다. 손으로 열어 봐도 된다 — 그대로 보인다.
 
@@ -23,6 +24,17 @@ body{background:#888}
 #port{width:960px;height:1200px}      #port  img{width:720px}
 #logo1{width:1200px;height:1200px}    #logo1 img{width:940px}
 #logo4{width:1200px;height:300px}     #logo4 img{height:232px}
+
+/* 글자가 든 정사각. 가로 판은 캔바에서 만들고 이 치수만 여기서 굽는다.
+   **여백을 넉넉히 둔다** — 구글은 이 그림을 지면마다 다른 비율로 잘라 쓴다.
+   가장자리까지 글자를 채우면 잘려서 말이 깨진다. 사방 104px 을 비워 두면
+   정사각이 가로나 세로로 잘려도 글자가 살아남는다. */
+#sqtext{width:1200px;height:1200px;flex-direction:column;justify-content:center;
+        align-items:center;gap:20px;padding:104px}
+#sqtext .line{font-family:'Pretendard Variable','Pretendard',sans-serif;
+  font-weight:900;font-size:132px;line-height:.94;letter-spacing:-.045em;
+  color:var(--ink);text-align:center;white-space:nowrap}
+#sqtext img{width:576px;margin-top:6px}
 </style></head><body>
 
 <div class="shot" id="land"><img class="mascot" alt=""></div>
@@ -30,6 +42,13 @@ body{background:#888}
 <div class="shot" id="port"><img class="mascot" alt=""></div>
 <div class="shot" id="logo1"><img class="mascot" alt=""></div>
 <div class="shot" id="logo4"><img class="mascot" alt=""></div>
+
+<div class="shot" id="sqtext">
+  <div class="line">PLEASE LEARN</div>
+  <div class="line">KOREAN WITH</div>
+  <div class="line">MEEEEEE</div>
+  <img class="mascot" alt="">
+</div>
 
 <script src="/tools/ad-images-cutout.js"></script>
 </body></html>

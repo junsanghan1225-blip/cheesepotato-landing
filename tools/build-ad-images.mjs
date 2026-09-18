@@ -44,6 +44,7 @@ const SHOTS = [
   ['port',  'portrait-960x1200.png',       false],
   ['logo1', 'logo-square-1200x1200.png',   false],
   ['logo4', 'logo-wide-1200x300.png',      false],
+  ['sqtext','square-text-1200x1200.png',    false],
 ];
 const MIME = { '.html':'text/html', '.css':'text/css', '.js':'text/javascript',
                '.png':'image/png', '.woff2':'font/woff2', '.woff':'font/woff' };
