@@ -106,7 +106,7 @@
 
 | 글자 | 글 |
 | --- | --- |
-| 24 | `512 TOPIK Questions Free` |
+| 24 | `917 TOPIK Questions Free` |
 | 24 | `290 Grammar Points, Free` |
 | 24 | `5,358 Korean Words, Free` |
 
@@ -156,9 +156,9 @@
 | --- | --- |
 | 78 | `Wander in and poke around — or start at lesson 1 and go to TOPIK 6. Both work.` |
 | 74 | `Games and quizzes on top, 49 courses in order underneath. Free, no signup.` |
-| 75 | `49 courses, 512 TOPIK questions, 5,358 words. Open one, or follow the path.` |
+| 75 | `49 courses, 917 TOPIK questions, 5,358 words. Open one, or follow the path.` |
 | 75 | `Open like a playground, built like a course. Nothing to install or pay for.` |
-| 76 | `512 TOPIK questions, 290 grammar points, 5,358 words. Free, in your browser.` |
+| 76 | `917 TOPIK questions, 290 grammar points, 5,358 words. Free, in your browser.` |
 
 ---
 
@@ -355,7 +355,7 @@ AI 가 손대지 않고 그대로 쓴다.
 - [ ] **한글·한자·가나가 한 자라도 보이면 그 장면을 지운다** (영어만 가기로 했다)
 - [ ] 없는 화면(가짜 앱 UI)을 지어내지 않았나
 - [ ] 우리가 안 가진 것을 말하지 않나 (선생님, 수업, 자격증, 가격)
-- [ ] 숫자가 사이트에 적힌 것과 같은가 — 코스 49 · 레슨 153 · 문항 512
+- [ ] 숫자가 사이트에 적힌 것과 같은가 — 코스 49 · 레슨 153 · 문항 917
 - [ ] 글자가 화면 가장자리에 붙어 있지 않나 (지면마다 잘려 나간다)
 
 ## 사이트링크
@@ -369,12 +369,12 @@ AI 가 손대지 않고 그대로 쓴다.
 
 **설명의 숫자는 그 쪽이 스스로 말하는 숫자와 같게 적었다.** 사이트링크는 그
 쪽으로 바로 들어가므로, 눌러서 들어간 사람이 같은 숫자를 다시 만나야 한다.
-첫 화면의 합계(코스 49개·문항 512개)와는 쪼갠 값이라 다르게 보이는 것이
-맞다 — 읽기 409 · 듣기 45 · 쓰기 58 을 합치면 512 다.
+첫 화면의 합계(코스 49개·문항 917개)와는 쪼갠 값이라 다르게 보이는 것이
+맞다 — 읽기 814(TOPIK I 209 + II 605) · 듣기 45 · 쓰기 58 을 합치면 917 이다.
 
 | 표시 (25) | 설명 1 (35) | 설명 2 (35) | 주소 |
 | --- | --- | --- | --- |
-| `TOPIK Reading Practice` | `409 practice questions` | `TOPIK I and II, all free` | `/topik-reading/` |
+| `TOPIK Reading Practice` | `814 practice questions` | `TOPIK I and II, all free` | `/topik-reading/` |
 | `TOPIK Listening` | `45 questions with scripts` | `Script opens after you answer` | `/topik-listening/` |
 | `TOPIK II Writing` | `58 prompts for 51 to 54` | `With model answers` | `/topik-writing/` |
 | `Korean Grammar` | `290 grammar points explained` | `Examples and dialogues` | `/sentence/` |
@@ -405,7 +405,7 @@ AI 가 손대지 않고 그대로 쓴다.
 | 코스 | 49개 |
 | 레슨 | 153강 |
 | 문법 표현 | 290개 |
-| TOPIK 문항 | 512개 (읽기 409 + 듣기 45 + 쓰기 58) |
+| TOPIK 문항 | 917개 (읽기 814 + 듣기 45 + 쓰기 58) |
 | 읽기 지문 | 54편 |
 | 낱말 | 5,358개 |
 
