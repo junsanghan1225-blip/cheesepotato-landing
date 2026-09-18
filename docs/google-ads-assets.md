@@ -245,6 +245,85 @@ node tools/build-ad-images.mjs
 
 ---
 
+## 영상 (Create a video · 베타)
+
+구글 애즈가 올려 둔 자산으로 여러 장면짜리 영상을 지어 준다. 다섯 걸음이다 —
+자료 고르기 → 브리프 → 서사 → 그림판 → 검토.
+
+### 1. 자료 고르기
+
+| 칸 | 넣을 것 |
+| --- | --- |
+| 창작 자료 | **「Select a group」** — 우리가 올린 자산 그룹을 고른다 |
+| 화면 비율 | **가로(16:9) · 세로(9:16) · 정사각(1:1) 을 각각 한 판씩** |
+| 추가 이미지 | `assets/ads/` 의 그림들 |
+
+**「Enter a website URL」은 쓰지 않는다.** 그쪽을 고르면 사이트에서 그림을
+긁어 오는데, 이 사이트는 글자로 짜여 있어서 쓸 만한 그림이 로고밖에 없다.
+올려 둔 자산을 고르는 편이 결과가 낫다.
+
+**세로(9:16)를 꼭 만든다.** 유튜브와 디스커버의 지면 대부분이 세로다. 가로만
+만들면 그 자리에 광고가 안 나간다.
+
+### 2. 「Describe your video」 에 넣을 글
+
+이 칸이 결과를 가장 많이 바꾼다. 무엇을 보여 줄지보다 **무엇을 하지 말지**를
+적는 것이 더 중요하다 — 아래 「위험」을 볼 것.
+
+```
+A calm, friendly ad for a free Korean-learning website.
+
+Look: warm cream background (#F2EEE4) with a soft orange accent (#FF914D).
+Clean, modern, uncluttered. Rounded shapes. Never neon, never cluttered.
+
+Show, in this order: the cheese-and-potato mascot pair; Hangul letters
+appearing one stroke at a time; a lesson; a practice question; a dictionary
+entry; then the mascots again with the text "everykoreans.com".
+
+Tone: a playground you can wander into, with a real course underneath.
+Not a cram school. Not a game with streaks and badges.
+
+Do NOT invent Korean text. If Korean writing appears, it may only be:
+한글, 한국어, 안녕하세요, 감사합니다. No other Korean characters.
+Do NOT generate fake app screens or user interfaces.
+No human faces, no stock-photo students, no classrooms.
+No Korean flags, no K-pop imagery, no city skylines, no food close-ups.
+No prices. No numbers except those in the supplied assets.
+No spoken voice-over — music and on-screen text only.
+```
+
+칸이 짧으면 앞의 두 단락과 `Do NOT invent Korean text` 줄만 남긴다.
+
+### 3. 브리프 · 서사 · 그림판
+
+이 세 걸음은 구글이 초안을 지어 주고 우리가 고치는 자리다. 화면에 얹을 글은
+위 헤드라인 목록에서 가져다 쓴다 — 짧고 한 줄인 것이 낫다.
+
+| 자리 | 쓸 만한 것 |
+| --- | --- |
+| 첫 장면 | `Learn Korean, Free` |
+| 가운데 | `Follow It or Wander It` · `A Playground With a Syllabus` |
+| 끝 장면 | `No Signup. No App. No Fee.` + `everykoreans.com` |
+
+### ⚠️ 위험 — 한글이 깨진다
+
+**영상을 만드는 AI 는 한글을 제대로 못 쓴다.** 글자가 뭉개지거나, 있지도 않은
+자모 조합이 나오거나, 한자나 가짜 글자가 섞인다. 다른 광고라면 넘어갈 일인데
+**한국어를 가르치는 광고에서 한글이 깨져 있으면 그 자체로 광고가 거짓말이
+된다.** 배우려는 사람은 그게 틀린 글자인지 가릴 수 없으니 더 나쁘다.
+
+그래서 그림판(4번) 단계에서 **한 장면씩 다 본다.** 볼 것:
+
+- [ ] 한글이 한 자라도 나오면 **읽을 수 있는 실제 낱말인가**
+- [ ] 없는 자모 조합이나 가짜 글자가 섞이지 않았나
+- [ ] 없는 화면(가짜 앱 UI)을 지어내지 않았나
+- [ ] 우리가 안 가진 것을 말하지 않나 (선생님, 수업, 자격증, 가격)
+- [ ] 숫자가 사이트에 적힌 것과 같은가
+
+**한글이 조금이라도 이상하면 그 장면은 지우고 글자 없는 장면으로 바꾼다.**
+영어 글자만 쓰는 편이 안전하다 — 어차피 겨냥하는 사람은 한국어를 아직
+못 읽는 사람이다.
+
 ## 사이트링크
 
 검색광고에서 가장 값싼 성과 개선이다. 광고를 크게 만들고, 들어오는 사람을
