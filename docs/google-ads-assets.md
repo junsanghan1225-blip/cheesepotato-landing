@@ -247,15 +247,53 @@ node tools/build-ad-images.mjs
 ## 사이트링크
 
 검색광고에서 가장 값싼 성과 개선이다. 광고를 크게 만들고, 들어오는 사람을
-자기가 찾던 쪽으로 바로 보낸다.
+자기가 찾던 쪽으로 바로 보낸다. 칸이 여섯이면 여섯을 다 채운다.
 
-| 이름 (25자) | 설명 1 (35자) | 설명 2 (35자) | 주소 |
+**주소는 해시(`/#learn/…`)가 아니라 구워 둔 실제 쪽으로 보낸다.** 자바스크립트
+없이 바로 열리고, 광고 심사의 크롤러도 내용을 본다. 여덟 개 다 실제로 있는
+쪽이다.
+
+**설명의 숫자는 그 쪽이 스스로 말하는 숫자와 같게 적었다.** 첫 화면에 적힌
+숫자(코스 21개·문항 480개)와 다르다 — 구운 쪽이 더 많고, 그게 맞는
+숫자다(아래 「숫자가 어긋난다」 참고). 사이트링크는 그 쪽으로 바로 들어가므로
+그 쪽 숫자를 따라야 한다.
+
+| 표시 (25) | 설명 1 (35) | 설명 2 (35) | 주소 |
 | --- | --- | --- | --- |
-| `TOPIK Practice` | `480 questions, I and II` | `Listening, reading, writing` | `https://everykoreans.com/#learn/topik` |
-| `Korean Grammar` | `290 grammar points` | `With examples and dialogues` | `https://everykoreans.com/sentence/` |
-| `Learn Hangul` | `Start from the alphabet` | `Tap a letter to hear it` | `https://everykoreans.com/#learn/courses` |
-| `Korean Dictionary` | `5,358 words with meanings` | `From the NIKL dictionary` | `https://everykoreans.com/#learn/library` |
-| `Reading Practice` | `54 passages, all levels` | `Read, then write it back` | `https://everykoreans.com/blog/` |
+| `TOPIK Reading Practice` | `409 practice questions` | `TOPIK I and II, all free` | `/topik-reading/` |
+| `TOPIK Listening` | `45 questions with scripts` | `Script opens after you answer` | `/topik-listening/` |
+| `TOPIK II Writing` | `58 prompts for 51 to 54` | `With model answers` | `/topik-writing/` |
+| `Korean Grammar` | `290 grammar points explained` | `Examples and dialogues` | `/sentence/` |
+| `Korean Dictionary` | `4,209 words with meanings` | `From the NIKL dictionary` | `/dictionary/` |
+| `Korean Courses` | `49 courses, 153 lessons` | `Start from the alphabet` | `/course/` |
+| `Confusing Word Pairs` | `73 pairs compared side by side` | `Which one do you actually use?` | `/compare/` |
+| `Korean Blog` | `How Korean actually works` | `Short reads, no signup` | `/blog/` |
+
+여섯 칸에 넣을 것을 고르라면 위에서 여섯 — TOPIK 셋, 문법, 사전, 코스다.
+**TOPIK 광고그룹에서는** 듣기·읽기·쓰기 셋을 앞에 두고, 「learn korean free」
+쪽 광고그룹에서는 코스·문법·사전을 앞에 둔다. 같은 여섯을 넣어도 차례를
+바꾸면 눌리는 것이 바뀐다.
+
+`Confusing Word Pairs` 는 남이 잘 안 가진 것이다 — 「은/는과 이/가 어느
+것을 쓰나」로 헤매는 사람이 많고, 그 73갈래가 그 자리에 있다.
+
+`/lesson/` 은 쓰지 않는다. 쪽은 153개 있는데 목록 쪽이 없어서 `/lesson/`
+으로 보내면 빈손이 된다.
+
+### ⚠️ 숫자가 어긋난다
+
+구운 쪽과 첫 화면이 다른 숫자를 말하고 있다. **구운 쪽이 맞다** — 자료에서
+세어 박는 것이고, 첫 화면은 손으로 적어 둔 것이라 자료가 늘 때 안 따라갔다.
+
+| | 첫 화면 | 구운 쪽 |
+| --- | --- | --- |
+| 코스 | 21개 | **49개** |
+| 레슨 | 82강 | **153강** |
+| TOPIK 문항 | 480개 | **512개** (읽기 409 + 듣기 45 + 쓰기 58) |
+
+`node tools/check-geo.mjs` 가 레슨과 쓰기 문항을 짚어 주고 있었다. **실제보다
+적게 적은 것이라 광고 심사에는 안 걸리지만**, 더 있는 것을 덜 말하고 있는
+셈이다. 첫 화면을 고치면 광고 문구의 숫자도 같이 올릴 수 있다.
 
 ## 그 밖의 에셋
 
