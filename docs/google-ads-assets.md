@@ -306,6 +306,33 @@ No spoken voice-over — music and on-screen English text only.
 | 가운데 | `Follow It or Wander It` · `A Playground With a Syllabus` |
 | 끝 장면 | `No Signup. No App. No Fee.` + `everykoreans.com` |
 
+### 추가 이미지 — 진짜 화면을 넣는다
+
+`assets/ads/shots/` 에 실제 사이트 화면 여덟 장을 찍어 두었다. **AI 에게 줄
+재료가 적으면 없는 것을 지어낸다** — 가짜 앱 화면, 깨진 한글, 우리가 안
+가진 기능. 진짜 화면을 넣어 두면 그럴 여지가 준다.
+
+| 파일 | 무엇 |
+| --- | --- |
+| `01-home-en.png` | 첫 화면, 영어 |
+| `02-home-ways.png` | 배우기 갈래 카드 |
+| `03-lesson.png` | 레슨 한 쪽 |
+| `03-topik-reading.png` | TOPIK 읽기 문항과 해설 |
+| `04-grammar.png` | 문법 표현 |
+| `05-dictionary.png` | 사전 항목 |
+| `06-compare.png` | 비슷한 표현 비교 |
+| `07-blog-en.png` | 블로그, 영어 |
+| `08-course-list.png` | 코스 목록 |
+| `09-topik-listening.png` | TOPIK 듣기 목록 |
+
+찍은 방법: 브라우저 언어를 `en-US` 로 두고 1200×750 으로 열어 그대로
+찍었다. 그래서 첫 화면과 블로그는 영어로 뜬다. 레슨·문항·사전은 **가르치는
+내용 자체가 한국어**라 한국어로 보이는데, 그건 진짜 글자라 깨질 일이 없다 —
+AI 가 그린 한글과 다른 점이 그것이다.
+
+**영상에서 이 그림을 AI 가 다시 그려 놓으면 그 장면은 버린다.** 그대로
+쓰이거나 안 쓰이거나여야 한다.
+
 ### 왜 영어만 쓰나
 
 **영상을 만드는 AI 는 한글을 제대로 못 쓴다.** 글자가 뭉개지거나, 있지도
