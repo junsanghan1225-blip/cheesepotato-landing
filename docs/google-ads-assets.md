@@ -95,7 +95,8 @@
 | 글자 | 글 |
 | --- | --- |
 | 27 | `Hangul to TOPIK 6, In Order` |
-| 20 | `21 Courses, In Order` |
+| 20 | `49 Courses, In Order` |
+| 23 | `49 Courses, 153 Lessons` |
 | 23 | `A Real Curriculum, Free` |
 | 19 | `Built Like a Course` |
 | 27 | `Every Lesson Has a Next One` |
@@ -105,7 +106,7 @@
 
 | 글자 | 글 |
 | --- | --- |
-| 24 | `480 TOPIK Questions Free` |
+| 24 | `512 TOPIK Questions Free` |
 | 24 | `290 Grammar Points, Free` |
 | 24 | `5,358 Korean Words, Free` |
 
@@ -143,7 +144,7 @@
 | --- | --- |
 | 69 | `Open like a playground, built like a course — Hangul to TOPIK level 6` |
 | 69 | `Wander in and poke around, or start at lesson 1 and follow it through` |
-| 61 | `Games and a dictionary on top, 21 courses in order underneath` |
+| 61 | `Games and a dictionary on top, 49 courses in order underneath` |
 | 68 | `Hangul to TOPIK level 6, free, with no signup and nothing to install` |
 
 ## 설명 (90자)
@@ -154,10 +155,10 @@
 | 글자 | 글 |
 | --- | --- |
 | 78 | `Wander in and poke around — or start at lesson 1 and go to TOPIK 6. Both work.` |
-| 74 | `Games and quizzes on top, 21 courses in order underneath. Free, no signup.` |
-| 75 | `21 courses, 480 TOPIK questions, 5,358 words. Open one, or follow the path.` |
+| 74 | `Games and quizzes on top, 49 courses in order underneath. Free, no signup.` |
+| 75 | `49 courses, 512 TOPIK questions, 5,358 words. Open one, or follow the path.` |
 | 75 | `Open like a playground, built like a course. Nothing to install or pay for.` |
-| 76 | `480 TOPIK questions, 290 grammar points, 5,358 words. Free, in your browser.` |
+| 76 | `512 TOPIK questions, 290 grammar points, 5,358 words. Free, in your browser.` |
 
 ---
 
@@ -253,10 +254,10 @@ node tools/build-ad-images.mjs
 없이 바로 열리고, 광고 심사의 크롤러도 내용을 본다. 여덟 개 다 실제로 있는
 쪽이다.
 
-**설명의 숫자는 그 쪽이 스스로 말하는 숫자와 같게 적었다.** 첫 화면에 적힌
-숫자(코스 21개·문항 480개)와 다르다 — 구운 쪽이 더 많고, 그게 맞는
-숫자다(아래 「숫자가 어긋난다」 참고). 사이트링크는 그 쪽으로 바로 들어가므로
-그 쪽 숫자를 따라야 한다.
+**설명의 숫자는 그 쪽이 스스로 말하는 숫자와 같게 적었다.** 사이트링크는 그
+쪽으로 바로 들어가므로, 눌러서 들어간 사람이 같은 숫자를 다시 만나야 한다.
+첫 화면의 합계(코스 49개·문항 512개)와는 쪼갠 값이라 다르게 보이는 것이
+맞다 — 읽기 409 · 듣기 45 · 쓰기 58 을 합치면 512 다.
 
 | 표시 (25) | 설명 1 (35) | 설명 2 (35) | 주소 |
 | --- | --- | --- | --- |
@@ -280,20 +281,23 @@ node tools/build-ad-images.mjs
 `/lesson/` 은 쓰지 않는다. 쪽은 153개 있는데 목록 쪽이 없어서 `/lesson/`
 으로 보내면 빈손이 된다.
 
-### ⚠️ 숫자가 어긋난다
+### 숫자는 맞춰 두었다
 
-구운 쪽과 첫 화면이 다른 숫자를 말하고 있다. **구운 쪽이 맞다** — 자료에서
-세어 박는 것이고, 첫 화면은 손으로 적어 둔 것이라 자료가 늘 때 안 따라갔다.
+첫 화면이 옛 숫자(코스 21개·레슨 82개·TOPIK 문항 480개)를 들고 있던 것을
+실제 값으로 고쳤다. `node tools/check-geo.mjs` 가 자료에서 세어 견주므로,
+자료가 늘면 그 도구가 먼저 알려 준다.
 
-| | 첫 화면 | 구운 쪽 |
-| --- | --- | --- |
-| 코스 | 21개 | **49개** |
-| 레슨 | 82강 | **153강** |
-| TOPIK 문항 | 480개 | **512개** (읽기 409 + 듣기 45 + 쓰기 58) |
+| | 값 |
+| --- | --- |
+| 코스 | 49개 |
+| 레슨 | 153강 |
+| 문법 표현 | 290개 |
+| TOPIK 문항 | 512개 (읽기 409 + 듣기 45 + 쓰기 58) |
+| 읽기 지문 | 54편 |
+| 낱말 | 5,358개 |
 
-`node tools/check-geo.mjs` 가 레슨과 쓰기 문항을 짚어 주고 있었다. **실제보다
-적게 적은 것이라 광고 심사에는 안 걸리지만**, 더 있는 것을 덜 말하고 있는
-셈이다. 첫 화면을 고치면 광고 문구의 숫자도 같이 올릴 수 있다.
+**광고 문구의 숫자를 고칠 때는 첫 화면도 같이 본다.** 광고가 랜딩보다 크게
+말하면 심사에서 걸리고, 작게 말하면 있는 것을 덜 파는 셈이다.
 
 ## 그 밖의 에셋
 

@@ -9,8 +9,8 @@
 
 ## 담고 있는 것 · What is here
 
-- **코스 21개 · 레슨 82개** — 한글 낱자에서 시작해 인사말, 문장으로.
-  초급·중급·고급. (21 courses, 82 lessons, beginner to advanced)
+- **코스 49개 · 레슨 153개** — 한글 낱자에서 시작해 인사말, 문장으로.
+  초급·중급·고급. (49 courses, 153 lessons, beginner to advanced)
 - **문법 표현 290개** — 표현마다 뜻풀이·예문·대화문이 붙고, 내 문장을 직접
   써서 확인받는 칸이 있다. (290 grammar points with meanings, examples and
   dialogues)
@@ -52,7 +52,7 @@
   가진 쪽이 290개 있다. 뜻풀이·예문·대화문이 그 안에 있다.
 - [갈래 비교](https://everykoreans.com/compare/) — 헷갈리는 표현끼리
   견주어 보는 쪽 73개. 「-는데 vs -지만」처럼 뜻이 겹치는 문법을 나눠 본다.
-- [코스 목록](https://everykoreans.com/course/) — 레슨 82개, 하나하나 제
+- [코스 목록](https://everykoreans.com/course/) — 레슨 153개, 하나하나 제
   주소를 가진 쪽이다.
 - [TOPIK 쓰기 연습](https://everykoreans.com/topik-writing/) — 51~54번
   유형 문항 58개. 문항마다 지문·모범답안·채점 포인트·흔한 감점 요인이
