@@ -81,6 +81,15 @@
     var list = document.querySelectorAll('img.mascot');
     for (var n = 0; n < list.length; n++) list[n].src = url;
 
+    /* 깎은 것을 그대로 내놓는다. build-ad-images.mjs 가 이것을 받아
+       assets/ads/mascots.png 로 쓴다 — 캔바에서 쓸 투명 png 다.
+
+       사진을 찍어서 뽑지 않는 까닭: 칸을 찍으면 뒤에 깔린 바탕이 같이
+       찍힌다. omitBackground 는 쪽 자체에 바탕이 없을 때만 듣는데, 이
+       판은 칸이 보이게 body 에 회색을 깔아 두었다. 캔버스에서 바로
+       가져오면 그 문제가 아예 없고 원본 해상도로 무손실이다. */
+    window.__mascotPng = url;
+
     /* build-ad-images.mjs 가 이 자국을 기다린다 */
     document.documentElement.setAttribute('data-mascot', 'ready');
   };

@@ -2,97 +2,34 @@
 <!-- 구글 애즈에 올릴 그림의 판. tools/build-ad-images.mjs 가 이 쪽을 열어
      칸마다 사진을 찍는다. 손으로 열어 봐도 된다 — 그대로 보인다.
 
+     **글자를 안 넣는다.** 문구는 캔바에서 얹기로 했다. 여기서 굽는 것은
+     바탕과 마스코트뿐이고, 그래서 어느 지면에 잘려 나가도 말이 깨질 것이
+     없다. 마스코트만 따로 뽑은 투명 png(mascots.png)도 같이 나온다 —
+     캔바에서는 그쪽을 쓰면 바탕을 마음대로 고를 수 있다.
+
      ※ 주소는 저장소 뿌리에서 본 것이다. 뿌리에서 서버를 띄우고
-       /tools/ad-images.html 로 열어야 글꼴과 로고가 붙는다. -->
-<link rel="stylesheet" href="/vendor/pretendard.css">
+       /tools/ad-images.html 로 열어야 로고가 붙는다. -->
 <style>
-:root{--bg:#F2EEE4;--tint:#FDF0E2;--ink:#1B1512;--ink-2:#4E3E31;--ink-3:#8C7A66;
-      --orange:#FF914D;--orange-deep:#C4551C;--line:rgba(27,21,18,.11)}
-*{box-sizing:border-box;margin:0;padding:0;
-  font-family:'Pretendard Variable','Pretendard',-apple-system,sans-serif}
+:root{--bg:#F2EEE4;--tint:#FDF0E2;--ink:#1B1512;--orange:#FF914D}
+*{box-sizing:border-box;margin:0;padding:0}
 body{background:#888}
-.shot{background:var(--bg);position:relative;overflow:hidden;display:flex}
+.shot{background:var(--bg);display:flex;align-items:center;justify-content:center;overflow:hidden}
+.shot img{display:block}
 
-/* 획을 더하면 소리가 세진다 — ㄱ→ㅋ, ㄴ→ㄷ→ㅌ, ㅁ→ㅂ→ㅍ.
-   놀이처럼 보이지만 규칙이고, 블로그의 「한글은 정말 한나절이면 읽나」가
-   하는 이야기 그대로다. 글자 없이도 「한국어」와 「체계」가 같이 읽힌다. */
-.ladder{display:flex;flex-direction:column;justify-content:center;gap:var(--g)}
-.row{display:flex;align-items:center;gap:var(--g)}
-.ltr{width:var(--s);height:var(--s);border-radius:calc(var(--s)*.22);
-     background:#fff;border:1px solid var(--line);
-     display:flex;align-items:center;justify-content:center;
-     font-size:calc(var(--s)*.62);font-weight:600;color:var(--ink);line-height:1;
-     box-shadow:0 calc(var(--s)*.03) calc(var(--s)*.08) rgba(27,21,18,.05)}
-.ltr.on{background:var(--orange);border-color:var(--orange);color:#fff}
-.arw{width:calc(var(--s)*.5);height:calc(var(--s)*.5);flex:none;position:relative}
-.arw::after{content:'';position:absolute;top:50%;left:10%;width:70%;height:calc(var(--s)*.055);
-  background:var(--ink-3);opacity:.5;transform:translateY(-50%);border-radius:2px}
-.arw::before{content:'';position:absolute;top:50%;right:8%;width:calc(var(--s)*.16);height:calc(var(--s)*.16);
-  border-top:calc(var(--s)*.055) solid var(--ink-3);border-right:calc(var(--s)*.055) solid var(--ink-3);
-  opacity:.5;transform:translateY(-50%) rotate(45deg)}
-
-.mascot{position:absolute;pointer-events:none}
-.wm{position:absolute;display:flex;align-items:center;gap:.5em;color:var(--ink);
-    font-weight:700;letter-spacing:-.03em}
-.wm small{color:var(--ink-3);font-weight:500;letter-spacing:0}
-
-/* 가로 1.91:1 — 구글이 권하는 치수 */
-#land{width:1200px;height:628px;--s:104px;--g:22px;align-items:center;padding:0 72px}
-#land .ladder{flex:none}
-#land .mascot{right:56px;bottom:52px;width:452px}
-#land .wm{left:72px;bottom:44px;font-size:26px}
-
-/* 정사각 1:1 */
-#sq{width:1200px;height:1200px;--s:150px;--g:30px;
-    flex-direction:column;align-items:center;justify-content:center;gap:40px;padding:80px}
-#sq .mascot{position:static;width:520px;margin-bottom:8px}
-#sq .wm{position:static;font-size:40px;margin-top:20px}
-
-/* 세로 4:5 — 넣으면 지면이 늘어난다 */
-#port{width:960px;height:1200px;--s:132px;--g:26px;
-      flex-direction:column;align-items:center;justify-content:center;gap:46px;padding:70px}
-#port .mascot{position:static;width:460px}
-#port .wm{position:static;font-size:36px}
-
-/* 로고 칸은 그림 칸과 따로다 — 1:1 과 4:1 을 받는다 */
-#logo1{width:1200px;height:1200px;align-items:center;justify-content:center}
-#logo1 img{width:940px}
-#logo4{width:1200px;height:300px;align-items:center;justify-content:center;gap:34px}
-#logo4 img{width:232px}
-#logo4 .t{font-size:82px;font-weight:700;color:var(--ink);letter-spacing:-.04em}
+/* 마스코트를 가운데에 넉넉한 여백과 함께 둔다. 구글은 이 그림을 지면에
+   맞춰 제멋대로 잘라 쓰므로, 가장자리에 붙여 두면 발이 잘린다. */
+#land{width:1200px;height:628px}      #land  img{height:480px}
+#sq{width:1200px;height:1200px}       #sq    img{width:820px}
+#port{width:960px;height:1200px}      #port  img{width:720px}
+#logo1{width:1200px;height:1200px}    #logo1 img{width:940px}
+#logo4{width:1200px;height:300px}     #logo4 img{height:232px}
 </style></head><body>
 
-<div class="shot" id="land">
-  <div class="ladder">
-    <div class="row"><div class="ltr">ㄱ</div><div class="arw"></div><div class="ltr on">ㅋ</div></div>
-    <div class="row"><div class="ltr">ㄴ</div><div class="arw"></div><div class="ltr">ㄷ</div><div class="arw"></div><div class="ltr on">ㅌ</div></div>
-    <div class="row"><div class="ltr">ㅁ</div><div class="arw"></div><div class="ltr">ㅂ</div><div class="arw"></div><div class="ltr on">ㅍ</div></div>
-  </div>
-  <img class="mascot" alt="">
-  <div class="wm">치즈감자 <small>everykoreans.com</small></div>
-</div>
-
-<div class="shot" id="sq">
-  <img class="mascot" alt="">
-  <div class="ladder">
-    <div class="row"><div class="ltr">ㅁ</div><div class="arw"></div><div class="ltr">ㅂ</div><div class="arw"></div><div class="ltr on">ㅍ</div></div>
-    <div class="row"><div class="ltr">ㄴ</div><div class="arw"></div><div class="ltr">ㄷ</div><div class="arw"></div><div class="ltr on">ㅌ</div></div>
-  </div>
-  <div class="wm">치즈감자 <small>everykoreans.com</small></div>
-</div>
-
-<div class="shot" id="port">
-  <img class="mascot" alt="">
-  <div class="ladder">
-    <div class="row"><div class="ltr">ㄱ</div><div class="arw"></div><div class="ltr on">ㅋ</div></div>
-    <div class="row"><div class="ltr">ㄴ</div><div class="arw"></div><div class="ltr">ㄷ</div><div class="arw"></div><div class="ltr on">ㅌ</div></div>
-    <div class="row"><div class="ltr">ㅁ</div><div class="arw"></div><div class="ltr">ㅂ</div><div class="arw"></div><div class="ltr on">ㅍ</div></div>
-  </div>
-  <div class="wm">치즈감자 <small>everykoreans.com</small></div>
-</div>
-
+<div class="shot" id="land"><img class="mascot" alt=""></div>
+<div class="shot" id="sq"><img class="mascot" alt=""></div>
+<div class="shot" id="port"><img class="mascot" alt=""></div>
 <div class="shot" id="logo1"><img class="mascot" alt=""></div>
-<div class="shot" id="logo4"><img class="mascot" alt=""><div class="t">치즈감자</div></div>
+<div class="shot" id="logo4"><img class="mascot" alt=""></div>
 
 <script src="/tools/ad-images-cutout.js"></script>
 </body></html>

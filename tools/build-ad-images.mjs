@@ -27,7 +27,7 @@
  */
 import { chromium } from 'playwright';
 import { createServer } from 'node:http';
-import { readFile } from 'node:fs/promises';
+import { readFile, writeFile } from 'node:fs/promises';
 import { existsSync, mkdirSync } from 'node:fs';
 import { extname, join, normalize } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -35,12 +35,15 @@ import { dirname } from 'node:path';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const OUT = join(ROOT, 'assets', 'ads');
+/* 글자는 안 굽는다 — 문구는 캔바에서 얹는다. 여기서 나오는 것은 바탕과
+   마스코트뿐이다. mascots.png 는 바탕이 없는 투명 png 로, 캔바에서 이것을
+   쓰면 바탕을 마음대로 고를 수 있다. */
 const SHOTS = [
-  ['land',  'landscape-1200x628.png'],
-  ['sq',    'square-1200x1200.png'],
-  ['port',  'portrait-960x1200.png'],
-  ['logo1', 'logo-square-1200x1200.png'],
-  ['logo4', 'logo-wide-1200x300.png'],
+  ['land',  'landscape-1200x628.png',      false],
+  ['sq',    'square-1200x1200.png',        false],
+  ['port',  'portrait-960x1200.png',       false],
+  ['logo1', 'logo-square-1200x1200.png',   false],
+  ['logo4', 'logo-wide-1200x300.png',      false],
 ];
 const MIME = { '.html':'text/html', '.css':'text/css', '.js':'text/javascript',
                '.png':'image/png', '.woff2':'font/woff2', '.woff':'font/woff' };
@@ -82,6 +85,17 @@ for (const [id, file] of SHOTS) {
   console.log(`  ${file}  ${Math.round(b.width)}×${Math.round(b.height)}`);
 }
 
+/* 바탕 없는 마스코트. 칸을 찍는 대신 깎은 캔버스를 그대로 받는다 —
+   까닭은 tools/ad-images-cutout.js 의 그 자리에 적어 두었다. */
+const dataUrl = await page.evaluate(() => window.__mascotPng);
+const png = Buffer.from(dataUrl.split(',')[1], 'base64');
+await writeFile(join(OUT, 'mascots.png'), png);
+const size = await page.evaluate(() => {
+  const i = document.querySelector('img.mascot');
+  return [i.naturalWidth, i.naturalHeight];
+});
+console.log(`  mascots.png  ${size[0]}×${size[1]}  (바탕 없음)`);
+
 await browser.close();
 server.close();
-console.log(`그림 ${SHOTS.length}장 → assets/ads/`);
+console.log(`그림 ${SHOTS.length + 1}장 → assets/ads/  (칸 ${SHOTS.length}개 + 바탕 없는 마스코트)`);
