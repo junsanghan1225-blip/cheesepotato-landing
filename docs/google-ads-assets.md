@@ -273,26 +273,27 @@ node tools/build-ad-images.mjs
 ```
 A calm, friendly ad for a free Korean-learning website.
 
+ALL ON-SCREEN TEXT MUST BE IN ENGLISH. Do not draw any Korean, Chinese or
+Japanese characters anywhere in this video, not even as decoration.
+
 Look: warm cream background (#F2EEE4) with a soft orange accent (#FF914D).
 Clean, modern, uncluttered. Rounded shapes. Never neon, never cluttered.
 
-Show, in this order: the cheese-and-potato mascot pair; Hangul letters
-appearing one stroke at a time; a lesson; a practice question; a dictionary
-entry; then the mascots again with the text "everykoreans.com".
+Show, in this order: the cheese-and-potato mascot pair; simple shapes and
+arrows suggesting letters being built step by step; a lesson; a practice
+question; then the mascots again with the text "everykoreans.com".
 
 Tone: a playground you can wander into, with a real course underneath.
 Not a cram school. Not a game with streaks and badges.
 
-Do NOT invent Korean text. If Korean writing appears, it may only be:
-한글, 한국어, 안녕하세요, 감사합니다. No other Korean characters.
 Do NOT generate fake app screens or user interfaces.
 No human faces, no stock-photo students, no classrooms.
 No Korean flags, no K-pop imagery, no city skylines, no food close-ups.
 No prices. No numbers except those in the supplied assets.
-No spoken voice-over — music and on-screen text only.
+No spoken voice-over — music and on-screen English text only.
 ```
 
-칸이 짧으면 앞의 두 단락과 `Do NOT invent Korean text` 줄만 남긴다.
+칸이 짧으면 앞의 두 단락만 남긴다. **둘째 단락은 절대 빼지 않는다.**
 
 ### 3. 브리프 · 서사 · 그림판
 
@@ -305,24 +306,30 @@ No spoken voice-over — music and on-screen text only.
 | 가운데 | `Follow It or Wander It` · `A Playground With a Syllabus` |
 | 끝 장면 | `No Signup. No App. No Fee.` + `everykoreans.com` |
 
-### ⚠️ 위험 — 한글이 깨진다
+### 왜 영어만 쓰나
 
-**영상을 만드는 AI 는 한글을 제대로 못 쓴다.** 글자가 뭉개지거나, 있지도 않은
-자모 조합이 나오거나, 한자나 가짜 글자가 섞인다. 다른 광고라면 넘어갈 일인데
-**한국어를 가르치는 광고에서 한글이 깨져 있으면 그 자체로 광고가 거짓말이
-된다.** 배우려는 사람은 그게 틀린 글자인지 가릴 수 없으니 더 나쁘다.
+**영상을 만드는 AI 는 한글을 제대로 못 쓴다.** 글자가 뭉개지거나, 있지도
+않은 자모 조합이 나오거나, 한자나 가짜 글자가 섞인다. 다른 광고라면 넘어갈
+일인데 **한국어를 가르치는 광고에서 한글이 깨져 있으면 그 자체로 광고가
+거짓말이 된다.** 배우려는 사람은 그게 틀린 글자인지 가릴 수 없으니 더 나쁘다.
 
-그래서 그림판(4번) 단계에서 **한 장면씩 다 본다.** 볼 것:
+그래서 **화면 글자를 영어로만 간다.** 잃는 것도 별로 없다 — 겨냥하는 사람은
+한국어를 아직 못 읽는 사람이고, 광고에서 읽어야 하는 것은 「무엇을 해 주는
+곳인가」뿐이다.
 
-- [ ] 한글이 한 자라도 나오면 **읽을 수 있는 실제 낱말인가**
-- [ ] 없는 자모 조합이나 가짜 글자가 섞이지 않았나
+한글을 꼭 보여 주고 싶으면 **AI 가 그리게 하지 말고 진짜 그림을 넣는다.**
+`tools/ad-images.html` 에서 실제 글자로 된 판을 구워 「추가 이미지」로 올리면
+AI 가 손대지 않고 그대로 쓴다.
+
+### 그림판에서 볼 것
+
+4번 걸음에서 한 장면씩 다 본다.
+
+- [ ] **한글·한자·가나가 한 자라도 보이면 그 장면을 지운다** (영어만 가기로 했다)
 - [ ] 없는 화면(가짜 앱 UI)을 지어내지 않았나
 - [ ] 우리가 안 가진 것을 말하지 않나 (선생님, 수업, 자격증, 가격)
-- [ ] 숫자가 사이트에 적힌 것과 같은가
-
-**한글이 조금이라도 이상하면 그 장면은 지우고 글자 없는 장면으로 바꾼다.**
-영어 글자만 쓰는 편이 안전하다 — 어차피 겨냥하는 사람은 한국어를 아직
-못 읽는 사람이다.
+- [ ] 숫자가 사이트에 적힌 것과 같은가 — 코스 49 · 레슨 153 · 문항 512
+- [ ] 글자가 화면 가장자리에 붙어 있지 않나 (지면마다 잘려 나간다)
 
 ## 사이트링크
 
