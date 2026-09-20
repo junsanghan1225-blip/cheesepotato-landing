@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>치즈감자 여행 한국어 포켓 가이드 | Travel Korean Pocket Brochure</title>
+  <link rel="icon" href="favicon.ico">
+  <style>
+    :root {
+      --ink: #0f172a;
+      --ink-2: #334155;
+      --ink-3: #64748b;
+      --border: #cbd5e1;
+      --surface: #ffffff;
+      --surface-2: #f8fafc;
+      --surface-3: #f1f5f9;
+      --orange: #ea580c;
+      --orange-bg: #fff7ed;
+      --orange-border: #fdba74;
+      --radius: 12px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Pretendard", "Apple SD Gothic Neo", "Segoe UI", Roboto, sans-serif;
+      background: #f1f5f9; color: var(--ink); line-height: 1.5;
+      padding-bottom: 60px;
+    }
+
+    /* ── 상단 네비 & PDF 인쇄 버튼 (화면 전용) ───────── */
+    .top-actions {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(255, 255, 255, 0.94);
+      -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border); padding: 12px 24px;
+    }
+    .top-actions-inner {
+      max-width: 1040px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap;
+    }
+    .top-brand {
+      display: flex; align-items: center; gap: 8px; font-weight: 800; font-size: 15px; color: var(--ink);
+    }
+    .top-btns {
+      display: flex; align-items: center; gap: 10px;
+    }
+    .btn-print {
+      display: inline-flex; align-items: center; gap: 6px; padding: 9px 18px;
+      border-radius: 999px; border: none; background: var(--orange); color: #fff;
+      font-size: 14px; font-weight: 700; cursor: pointer;
+      box-shadow: 0 4px 14px rgba(234, 88, 12, 0.3); transition: all .15s ease;
+    }
+    .btn-print:hover { background: #c2410c; transform: translateY(-1px); }
+    .btn-link {
+      display: inline-flex; align-items: center; gap: 6px; padding: 9px 16px;
+      border-radius: 999px; border: 1.5px solid var(--border); background: #fff;
+      font-size: 13.5px; font-weight: 600; color: var(--ink-2); text-decoration: none;
+      transition: all .15s ease;
+    }
+    .btn-link:hover { border-color: var(--orange); color: var(--orange); }
+
+    /* ── 팜플렛 문서 본체 (A4 규격) ────────────────── */
+    .brochure-wrap {
+      max-width: 1000px; margin: 28px auto 0; padding: 0 16px;
+    }
+    .brochure-sheet {
+      background: #fff; border: 1px solid var(--border); border-radius: 18px;
+      box-shadow: 0 10px 32px rgba(0, 0, 0, 0.05); padding: 40px 44px;
+    }
+
+    /* 팜플렛 머리말 */
+    .sheet-header {
+      text-align: center; border-bottom: 2px solid var(--ink); padding-bottom: 22px; margin-bottom: 28px;
+    }
+    .sheet-badges {
+      display: flex; align-items: center; justify-content: center; gap: 8px; margin-bottom: 10px;
+    }
+    .badge-tag {
+      font-size: 11px; font-weight: 800; letter-spacing: 0.5px; padding: 3px 8px;
+      border-radius: 6px; background: var(--orange-bg); color: var(--orange);
+      border: 1px solid var(--orange-border); text-transform: uppercase;
+    }
+    .badge-brand {
+      font-size: 11px; font-weight: 700; color: var(--ink-3);
+    }
+    .sheet-title {
+      font-size: 28px; font-weight: 900; letter-spacing: -0.8px; color: var(--ink); margin-bottom: 6px;
+    }
+    .sheet-subtitle {
+      font-size: 14.5px; color: var(--ink-2); font-weight: 500; word-break: keep-all;
+    }
+
+    /* 치즈 & 감자 선생님 꿀팁 박스 */
+    .teacher-tips {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 26px;
+    }
+    .tip-box {
+      padding: 14px 16px; border-radius: 12px; border: 1.5px solid var(--border);
+      background: var(--surface-2); font-size: 12.5px; line-height: 1.55; word-break: keep-all;
+    }
+    .tip-box.cheese {
+      border-color: #fed7aa; background: #fffbeb;
+    }
+    .tip-box.potato {
+      border-color: #ddd6fe; background: #faf5ff;
+    }
+    .tip-head {
+      font-weight: 800; font-size: 13px; margin-bottom: 4px; display: flex; align-items: center; gap: 6px;
+    }
+    .tip-box.cheese .tip-head { color: #b45309; }
+    .tip-box.potato .tip-head { color: #6d28d9; }
+
+    /* ── 7대 테마 섹션 그리드 ───────────────────────── */
+    .sections-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 20px;
+    }
+
+    .theme-card {
+      border: 1.5px solid var(--border); border-radius: 14px; background: #fff;
+      overflow: hidden; display: flex; flex-direction: column;
+      break-inside: avoid; page-break-inside: avoid;
+    }
+
+    .theme-header {
+      background: var(--surface-3); border-bottom: 1.5px solid var(--border);
+      padding: 12px 16px; display: flex; align-items: center; justify-content: space-between;
+    }
+    .theme-title {
+      font-size: 15.5px; font-weight: 800; color: var(--ink); display: flex; align-items: center; gap: 8px;
+    }
+    .theme-en {
+      font-size: 11.5px; font-weight: 600; color: var(--ink-3);
+    }
+
+    .theme-body {
+      padding: 16px; display: flex; flex-direction: column; gap: 14px; flex: 1;
+    }
+
+    /* 필수 구문 목록 */
+    .phrases-block h4, .words-block h4 {
+      font-size: 11.5px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.5px;
+      color: var(--ink-3); margin-bottom: 8px; display: flex; align-items: center; gap: 4px;
+    }
+    .phrase-item {
+      padding: 8px 0; border-bottom: 1px dashed var(--border);
+    }
+    .phrase-item:last-child { border-bottom: none; padding-bottom: 0; }
+    .pi-ko {
+      font-size: 15px; font-weight: 800; color: var(--ink); line-height: 1.35;
+    }
+    .pi-pron {
+      font-size: 11.5px; font-weight: 600; color: var(--orange); margin: 2px 0;
+    }
+    .pi-en {
+      font-size: 12px; color: var(--ink-2); font-weight: 500;
+    }
+
+    /* 단어장 박스 */
+    .words-block {
+      background: var(--surface-2); border: 1px solid var(--border); border-radius: 10px;
+      padding: 12px; margin-top: auto;
+    }
+    .words-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 6px 10px;
+    }
+    .word-item {
+      font-size: 12px; line-height: 1.35;
+    }
+    .word-ko { font-weight: 700; color: var(--ink); }
+    .word-en { color: var(--ink-3); font-size: 11px; }
+
+    /* 팜플렛 꼬리말 */
+    .sheet-footer {
+      margin-top: 32px; padding-top: 18px; border-top: 1.5px solid var(--border);
+      display: flex; align-items: center; justify-content: space-between; font-size: 12px; color: var(--ink-3);
+    }
+
+    /* ── @media print 인쇄 및 PDF 저장 전용 스타일 ──── */
+    @media print {
+      body { background: #fff; padding: 0; }
+      .no-print { display: none !important; }
+      .brochure-wrap { max-width: 100%; margin: 0; padding: 0; }
+      .brochure-sheet {
+        border: none; box-shadow: none; border-radius: 0; padding: 0;
+      }
+      .sections-grid { gap: 16px; }
+      .theme-card {
+        border: 1px solid #94a3b8; page-break-inside: avoid; break-inside: avoid;
+      }
+      .theme-header { background: #f8fafc; border-bottom: 1px solid #94a3b8; }
+      .words-block { background: #f8fafc; border: 1px solid #cbd5e1; }
+      @page {
+        size: A4;
+        margin: 12mm 12mm;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .brochure-sheet { padding: 24px 18px; }
+      .sections-grid { grid-template-columns: 1fr; }
+      .teacher-tips { grid-template-columns: 1fr; }
+      .sheet-title { font-size: 22px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 상단 컨트롤 (웹 화면에서만 노출, PDF 인쇄 시 자동 숨김) -->
+  <header class="top-actions no-print">
+    <div class="top-actions-inner">
+      <div class="top-brand">
+        <span>🧀🥔</span>
+        <span>치즈감자 여행 한국어 포켓 팜플렛</span>
+      </div>
+      <div class="top-btns">
+        <a href="record-travel.html" class="btn-link">🎙️ 직접 녹음하기</a>
+        <button type="button" class="btn-print" onclick="window.print()">
+          🖨️ PDF 다운로드 / 인쇄하기
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <div class="brochure-wrap">
+    <div class="brochure-sheet">
+
+      <!-- 헤더 -->
+      <div class="sheet-header">
+        <div class="sheet-badges">
+          <span class="badge-tag">POCKET GUIDE</span>
+          <span class="badge-brand">CheesePotato · everykoreans.com</span>
+        </div>
+        <h1 class="sheet-title">🇰🇷 여행 한국어 생존 가이드 & 단어장</h1>
+        <p class="sheet-subtitle">비행기 안에서 가볍게 읽고, 여행지에서 접어 들고 다니며 바로 써먹는 7대 실전 상황집</p>
+      </div>
+
+      <!-- 치즈 & 감자 선생님 여행 팁 -->
+      <div class="teacher-tips">
+        <div class="tip-box cheese">
+          <div class="tip-head">🧀 치즈 선생님의 상냥한 여행 꿀팁</div>
+          <div>"식당에서 직원을 부를 땐 가볍게 <b>‘여기요~’</b> 하거나 테이블의 벨을 누르시면 돼요! 물과 기본 반찬은 대부분 무료로 리필된답니다 💛"</div>
+        </div>
+        <div class="tip-box potato">
+          <div class="tip-head">🥔 감자 선생님의 확실한 여행 꿀팁</div>
+          <div>"대중교통 환승할 땐 내릴 때도 반드시 카드를 찍어라! 택시를 탈 땐 주소를 한국어로 지도 앱에 띄워 기사님께 바로 보여주는 게 가장 확실하다 ⚡"</div>
+        </div>
+      </div>
+
+      <!-- 7개 테마 섹션 그리드 -->
+      <div class="sections-grid" id="sectionsGrid"></div>
+
+      <!-- 푸터 -->
+      <div class="sheet-footer">
+        <span>🧀🥔 Cheesepotato (치즈감자) · Free Korean Learning for Everyone</span>
+        <span>https://everykoreans.com</span>
+      </div>
+
+    </div>
+  </div>
+
+  <script type="module">
+    import { TRAVEL_CATEGORIES, TRAVEL_PHRASES, TRAVEL_VOCAB } from './travel-data.js';
+
+    const container = document.getElementById('sectionsGrid');
+
+    TRAVEL_CATEGORIES.forEach((cat) => {
+      const phrases = TRAVEL_PHRASES.filter(p => p.cat === cat.id);
+      const words = TRAVEL_VOCAB[cat.id] || [];
+
+      const card = document.createElement('div');
+      card.className = 'theme-card';
+
+      // 상단 헤더
+      const head = `
+        <div class="theme-header">
+          <div class="theme-title">
+            <span>${cat.emoji}</span>
+            <span>${cat.ko}</span>
+          </div>
+          <span class="theme-en">${cat.en}</span>
+        </div>
+      `;
+
+      // 구문 목록 HTML
+      const phrasesHtml = phrases.map(p => `
+        <div class="phrase-item">
+          <div class="pi-ko">${p.ko}</div>
+          <div class="pi-pron">${p.pron}</div>
+          <div class="pi-en">${p.en}</div>
+        </div>
+      `).join('');
+
+      // 필수 단어 목록 HTML
+      const wordsHtml = words.map(w => `
+        <div class="word-item">
+          <span class="word-ko">${w.ko}</span>
+          <span class="word-en">(${w.en})</span>
+        </div>
+      `).join('');
+
+      card.innerHTML = `
+        ${head}
+        <div class="theme-body">
+          <div class="phrases-block">
+            <h4>🗣️ 실전 핵심 구문</h4>
+            ${phrasesHtml}
+          </div>
+          <div class="words-block">
+            <h4>📚 필수 단어 (Vocabulary)</h4>
+            <div class="words-grid">
+              ${wordsHtml}
+            </div>
+          </div>
+        </div>
+      `;
+
+      container.appendChild(card);
+    });
+  </script>
+</body>
+</html>

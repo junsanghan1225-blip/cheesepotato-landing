@@ -15,6 +15,67 @@ export const TRAVEL_CATEGORIES = [
   { id: 'help',  emoji: '🚨', ko: '약국 & 긴급상황',   en: 'Pharmacy & Emergency',    desc: '약국 증상 설명, 분실물, 도움 요청' },
 ];
 
+/* 각 상황별 꼭 알아야 하는 필수 어휘 (Vocabulary) */
+export const TRAVEL_VOCAB = {
+  air: [
+    { ko: '여권', en: 'Passport', pron: 'yeogwon' },
+    { ko: '짐 / 수하물', en: 'Luggage / Baggage', pron: 'jim / suhamul' },
+    { ko: '유심 카드', en: 'SIM card', pron: 'yusim kadeu' },
+    { ko: '환전소', en: 'Currency exchange', pron: 'hwanjeonso' },
+    { ko: '공항철도', en: 'Airport railroad (AREX)', pron: 'gonghang-cheoldo' },
+    { ko: '입국 심사', en: 'Immigration / Entry review', pron: 'ipguk simsa' },
+  ],
+  trans: [
+    { ko: '교통카드 (티머니)', en: 'Transit card (T-money)', pron: 'gyotong kadeu' },
+    { ko: '충전', en: 'Top-up / Recharge', pron: 'chungjeon' },
+    { ko: '지하철역', en: 'Subway station', pron: 'jihacheol-yeok' },
+    { ko: '출구', en: 'Exit', pron: 'chulgu' },
+    { ko: '화장실', en: 'Restroom / Toilet', pron: 'hwajangsil' },
+    { ko: '택시', en: 'Taxi', pron: 'taeksi' },
+  ],
+  hotel: [
+    { ko: '체크인 / 체크아웃', en: 'Check-in / Check-out', pron: 'chekeu-in / chekeu-aut' },
+    { ko: '짐 보관', en: 'Luggage storage', pron: 'jim bogwan' },
+    { ko: '와이파이', en: 'Wi-Fi', pron: 'waipai' },
+    { ko: '수건', en: 'Towel', pron: 'sugeon' },
+    { ko: '방 (객실)', en: 'Room', pron: 'bang' },
+    { ko: '에어컨 / 난방', en: 'Air conditioner / Heating', pron: 'eeokeon / nanbang' },
+  ],
+  dine: [
+    { ko: '메뉴판', en: 'Menu', pron: 'menyupan' },
+    { ko: '물', en: 'Water', pron: 'mul' },
+    { ko: '반찬', en: 'Side dishes', pron: 'banchan' },
+    { ko: '앞치마', en: 'Apron', pron: 'apchima' },
+    { ko: '맵다 (덜 맵게)', en: 'Spicy (Less spicy)', pron: 'maepda (deol maepge)' },
+    { ko: '포장 (테이크아웃)', en: 'To-go / Takeout', pron: 'pojang' },
+    { ko: '계산 / 영수증', en: 'Bill / Receipt', pron: 'gyesan / yeongsujeung' },
+  ],
+  shop: [
+    { ko: '얼마', en: 'How much', pron: 'eolma' },
+    { ko: '입어보다', en: 'Try on', pron: 'ibeoboda' },
+    { ko: '사이즈 / 색상', en: 'Size / Color', pron: 'saijeu / saeksang' },
+    { ko: '봉투', en: 'Plastic bag', pron: 'bongtu' },
+    { ko: '할인 / 행사 (1+1)', en: 'Discount / Buy 1 Get 1', pron: 'harin / haengsa' },
+    { ko: '면세 (택스프리)', en: 'Tax free / Refund', pron: 'myeonse (taekseupeuri)' },
+  ],
+  tour: [
+    { ko: '입장권 / 표', en: 'Ticket', pron: 'ipjang-gwon / pyo' },
+    { ko: '성인 / 어린이', en: 'Adult / Child', pron: 'seong-in / eorini' },
+    { ko: '사진', en: 'Photo', pron: 'sajin' },
+    { ko: '한복', en: 'Hanbok (Traditional dress)', pron: 'hanbok' },
+    { ko: '추천', en: 'Recommendation', pron: 'chucheon' },
+    { ko: '지도', en: 'Map', pron: 'jido' },
+  ],
+  help: [
+    { ko: '약국', en: 'Pharmacy', pron: 'yakguk' },
+    { ko: '두통약 / 소화제', en: 'Headache / Digestive medicine', pron: 'dutongyak / sohwaje' },
+    { ko: '밴드 / 소독약', en: 'Bandage / Antiseptic', pron: 'baendeu / sodokyak' },
+    { ko: '지갑 / 핸드폰', en: 'Wallet / Phone', pron: 'jigap / haendeupon' },
+    { ko: '경찰서', en: 'Police station', pron: 'gyeongchalseo' },
+    { ko: '도와주세요', en: 'Please help me', pron: 'dowajuseyo' },
+  ],
+};
+
 export const TRAVEL_PHRASES = [
   // ── 1. 공항 & 입국 (Airport & Arrival) ──────────────────────
   {
