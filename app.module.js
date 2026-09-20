@@ -13,10 +13,10 @@
    어느 날 갑자기 다른 코드가 실려 왔다.
    이제 vendor/ 안에 받아 두고 CSP 로 바깥을 막는다. 버전을 올릴 때는
    tools/vendor.mjs 의 PIN 을 고치고 다시 돌린다. */
-import { createClient } from './vendor/supabase-js.js?v=4145c8b4';
+import { createClient } from './vendor/supabase-js.js?v=617149bc';
 // TOPIK 읽기 "문제 풀이 영상" 목록. 아주 작은 파일이라(id 목록뿐) 다른
 // 자료처럼 갈래를 열 때 지연 로딩하지 않고 그냥 처음부터 받는다.
-import { TQ_VIDEO_IDS } from './topik-video.js?v=4145c8b4';
+import { TQ_VIDEO_IDS } from './topik-video.js?v=617149bc';
 // 앱(package.json)과 같은 줄기를 쓴다. 갈리면 앱에서는 읽히는 파일이
 // 여기서는 안 읽히는(또는 그 반대) 일이 생긴다.
 /* 엑셀 라이브러리는 422KB — 이 판에서 가장 무거운 조각이다. 그런데 쓰는
@@ -28,13 +28,13 @@ import { TQ_VIDEO_IDS } from './topik-video.js?v=4145c8b4';
    자국(?v=)은 tools/stamp.mjs 가 아래 줄에 알아서 붙인다 — 정적으로 쓰든
    동적으로 쓰든 같은 글자를 찾으므로 바꿔도 그대로 찍힌다. */
 let XLSX = null;
-const needXLSX = async () => (XLSX ??= await import('./vendor/xlsx.js?v=4145c8b4'));
+const needXLSX = async () => (XLSX ??= await import('./vendor/xlsx.js?v=617149bc'));
 // 커리큘럼. 내용과 엔진을 갈라 두면 글을 고치다 화면을 깨지 않는다.
 // 갈래 목록(drawSections)·코스(drawCourses)·문제만 풀기(dqDraw) 를 열 때만
 // 받는다 — 배우기 갈래 목록도 안 본 사람에게 코스 71개 레슨을 다 물릴
 // 까닭이 없다. warmLearn() 이 배우기를 여는 순간 미리 불을 붙여 둔다.
 let COURSES = [], coursesP = null;
-const coursesNeed = () => (coursesP ??= import('./courses.js?v=4145c8b4').then((m) => { COURSES = m.COURSES; }));
+const coursesNeed = () => (coursesP ??= import('./courses.js?v=617149bc').then((m) => { COURSES = m.COURSES; }));
 /* 낱말 뜻풀이 356KB. 예전에는 여기서 통째로 받았다 — tqGloss 가 동기라
    지연 로딩이 안 된다고 보았기 때문이다. 그런데 tqGloss 를 부르는 자리를
    다 세어 보니 여덟 곳이고 **전부 사람이 무언가를 누른 뒤**였다(사전
@@ -45,7 +45,7 @@ const coursesNeed = () => (coursesP ??= import('./courses.js?v=4145c8b4').then((
    tqGloss 는 그대로 동기다 — 아직 안 왔으면 빈 뜻을 돌려주고, 부르는
    쪽은 이미 "사전에 없는 말"을 다룰 줄 안다. */
 let GLOSSARY = {}, GLOSS_LANGS = {}, glossP = null;
-const glossNeed = () => (glossP ??= import('./glossary.js?v=4145c8b4').then((m) => {
+const glossNeed = () => (glossP ??= import('./glossary.js?v=617149bc').then((m) => {
   GLOSSARY = m.GLOSSARY; GLOSS_LANGS = m.GLOSS_LANGS;
   dictBuildEntries();
 }).catch((e) => {
@@ -53,12 +53,12 @@ const glossNeed = () => (glossP ??= import('./glossary.js?v=4145c8b4').then((m) 
   glossP = null;
   throw e;
 }));
-import { glossFind } from './gloss-find.js?v=4145c8b4';
+import { glossFind } from './gloss-find.js?v=617149bc';
 /* 홈 화면 "오늘의 단어" 카드. 표제어·품사·짧은 뜻풀이 3개만 든
    작은 자료라(사전 전체 356KB 와 달리) 홈에 들어오면 바로 받는다 —
    빈 카드로 몇 초 떠 있는 것보다 낫다. */
 let WOTD_POOL = [], wotdP = null;
-const wotdNeed = () => (wotdP ??= import('./wotd.js?v=4145c8b4').then((m) => {
+const wotdNeed = () => (wotdP ??= import('./wotd.js?v=617149bc').then((m) => {
   WOTD_POOL = m.WOTD_POOL;
 }).catch((e) => { wotdP = null; throw e; }));
 /* 그날의 낱말을 고른다. 한국 자정을 기준으로 하루씩 넘어가게
@@ -92,9 +92,9 @@ window.wotdRender = wotdRender;
    나중 화면은 그 약속(??=)을 그대로 쓴다. */
 let GRAMMAR = [], GRAMMAR_EN = {}, grammarP = null;
 const grammarNeed = () => (grammarP ??= Promise.all([
-  import('./grammar.js?v=4145c8b4'), import('./grammar-en.js?v=4145c8b4'),
+  import('./grammar.js?v=617149bc'), import('./grammar-en.js?v=617149bc'),
 ]).then(([a, b]) => { GRAMMAR = a.GRAMMAR; GRAMMAR_EN = b.GRAMMAR_EN; }));
-import { grammarScan } from './grammar-find.js?v=4145c8b4';
+import { grammarScan } from './grammar-find.js?v=617149bc';
 // TOPIK 쓰기·듣기 문항. 읽기(topik.js·topik2.js)와 같은 tqNeedData() 로
 // 함께 받는다 — 유형 연습(topik) 갈래 하나가 세 기술을 다 쓰므로 따로
 // 가를 까닭이 없다. 값은 tqNeedData 정의부에서 채운다.
@@ -106,7 +106,7 @@ let TOPIKL_BY_EXAM = {}, TOPIKL_PICTURE_SLOTS = {};
    sbFind 를 쓰는데, 그쪽은 안 기다리고 그냥 부른다 — 답이 못 찾은
    인용 없이 나가는 것이 채팅이 멈추는 것보다 낫다. */
 let SB_CATS = [], SB_MORE = {}, SB_SEED = {}, SB_POINTS = [], sbDataP = null;
-const sbNeed = () => (sbDataP ??= import('./sentences.js?v=4145c8b4').then((m) => {
+const sbNeed = () => (sbDataP ??= import('./sentences.js?v=617149bc').then((m) => {
   SB_CATS = m.SB_CATS; SB_MORE = m.SB_MORE; SB_SEED = m.SB_SEED;
   // 갈래마다 표현을 펼쳐 한 줄에 담는다 — SB_CATS 안의 점에는 갈래가 안
   // 달려 있어서(sbFind 가 표현 하나를 id 로 바로 찾으려면 이게 있어야 한다).
@@ -117,7 +117,7 @@ const sbNeed = () => (sbDataP ??= import('./sentences.js?v=4145c8b4').then((m) =
 // 숫자 게임의 읽기와 문제 만들기. 화면을 모르는 순수 계산이라 따로 뒀다.
 // 게임 목록에서 「숫자 읽기」를 시작할 때만 받는다 — XLSX 와 같은 자리다.
 let makeRound = null;
-const needNumbers = async () => (makeRound ??= (await import('./numbers.js?v=4145c8b4')).makeRound);
+const needNumbers = async () => (makeRound ??= (await import('./numbers.js?v=617149bc')).makeRound);
 
 // 이 키는 공개돼도 되는 값이다. 이미 APK 안에 같은 것이 들어 있고,
 // 접근을 막는 건 키가 아니라 테이블에 걸린 RLS 다.
@@ -172,8 +172,8 @@ let tqDataP = null;
    유형 연습(topik) 갈래 하나가 이 넷을 다 쓰므로 갈라 봤자 요청만
    늘어난다. */
 const tqNeedData = () => (tqDataP ??= Promise.all([
-  import('./topik.js?v=4145c8b4'), import('./topik2.js?v=4145c8b4'),
-  import('./topik-writing.js?v=4145c8b4'), import('./topik-listening.js?v=4145c8b4'),
+  import('./topik.js?v=617149bc'), import('./topik2.js?v=617149bc'),
+  import('./topik-writing.js?v=617149bc'), import('./topik-listening.js?v=617149bc'),
 ]).then(([a, b, c, d]) => {
   TQ_DATA.I  = { reading: a.TOPIK_READING,  blueprint: a.TOPIK_BLUEPRINT,  slots: a.TOPIK_SLOTS };
   TQ_DATA.II = { reading: b.TOPIK2_READING, blueprint: b.TOPIK2_BLUEPRINT, slots: b.TOPIK2_SLOTS };
@@ -184,11 +184,11 @@ const tqNeedData = () => (tqDataP ??= Promise.all([
 let READING = null, rdP = null;
 // 지문의 밑줄 문법 말풍선이 GRAMMAR 를 쓰므로 같이 받아 둔다.
 const rdNeed = () => (rdP ??= Promise.all([
-  import('./reading.js?v=4145c8b4'), grammarNeed(),
+  import('./reading.js?v=617149bc'), grammarNeed(),
 ]).then(([m]) => { READING = m.READING; }));
 
 let CONVO = null, cvP = null;
-const cvNeed = () => (cvP ??= import('./convo.js?v=4145c8b4').then((m) => { CONVO = m.CONVO; }));
+const cvNeed = () => (cvP ??= import('./convo.js?v=617149bc').then((m) => { CONVO = m.CONVO; }));
 
 /* 배우기를 열면 여섯 다 미리 불을 붙인다. 기다리지 않는다 — 갈래 목록은
    이 자료가 없어도 그려지고, 사람이 갈래를 고르는 사이에 도착한다.
@@ -608,14 +608,14 @@ let dictOpen = null;  // 지금 "더 보기"(예문·뜻풀이)를 펼쳐 둔 �
    평소엔 안 쓰는 522KB 를 첫 화면 모두에게 물릴 까닭이 없다. */
 let dictSensesP = null;
 const dictLoadSenses = () => (dictSensesP ??=
-  import('./glossary-senses.js?v=4145c8b4').then((m) => m.SENSES).catch(() => ({})));
+  import('./glossary-senses.js?v=617149bc').then((m) => m.SENSES).catch(() => ({})));
 
 /* 예문. 국립국어원 자료엔 없어서 Gemini 로 새로 지은 것이다(있는 만큼만
    — docs/glossary-examples-gemini-prompt.md 참고). 뜻풀이와 같은 자리에서
    같이 받는다 — 펼치는 손짓 하나에 몰아 두는 편이 화면이 덜 복잡하다. */
 let dictExamplesP = null;
 const dictLoadExamples = () => (dictExamplesP ??=
-  import('./glossary-examples.js?v=4145c8b4').then((m) => m.EXAMPLES).catch(() => ({})));
+  import('./glossary-examples.js?v=617149bc').then((m) => m.EXAMPLES).catch(() => ({})));
 
 function dictVisible() {
   const q = dictQuery.trim().toLowerCase();
@@ -6285,20 +6285,25 @@ function ntMemoDraw() {
 const NB_IND_MAX = 4;
 const NB_IND_PX = 28;
 const NB_TYPES = [
-  { t: 'text',  i: '¶',  ko: '글',        en: 'Text' },
-  { t: 'h1',    i: 'H1', ko: '큰 제목',   en: 'Heading 1' },
-  { t: 'h2',    i: 'H2', ko: '중간 제목', en: 'Heading 2' },
-  { t: 'h3',    i: 'H3', ko: '작은 제목', en: 'Heading 3' },
-  { t: 'ul',    i: '•',  ko: '목록',      en: 'Bulleted list' },
-  { t: 'ol',    i: '1.', ko: '번호 목록', en: 'Numbered list' },
-  { t: 'todo',  i: '☑',  ko: '할 일',     en: 'To-do' },
-  { t: 'quote', i: '❝',  ko: '인용',      en: 'Quote' },
-  { t: 'call',  i: '💡', ko: '강조 칸',   en: 'Callout' },
-  { t: 'howto', i: '📐', ko: '문형',      en: 'How to' },
-  { t: 'code',  i: '</>',ko: '코드',      en: 'Code' },
-  { t: 'img',   i: '🖼️', ko: '사진',      en: 'Image' },
-  { t: 'qa',    i: '💬', ko: 'Q&A',       en: 'Q&A' },
-  { t: 'hr',    i: '—',  ko: '구분선',    en: 'Divider' },
+  { t: 'text',   i: '¶',   ko: '글',        en: 'Text' },
+  { t: 'h1',     i: 'H1',  ko: '큰 제목',   en: 'Heading 1' },
+  { t: 'h2',     i: 'H2',  ko: '중간 제목', en: 'Heading 2' },
+  { t: 'h3',     i: 'H3',  ko: '작은 제목', en: 'Heading 3' },
+  { t: 'ul',     i: '•',   ko: '목록',      en: 'Bulleted list' },
+  { t: 'ol',     i: '1.',  ko: '번호 목록', en: 'Numbered list' },
+  { t: 'todo',   i: '☑',   ko: '할 일',     en: 'To-do' },
+  { t: 'quote',  i: '❝',   ko: '인용',      en: 'Quote' },
+  { t: 'call',   i: '💡',  ko: '강조 칸',   en: 'Callout' },
+  { t: 'warn',   i: '⚠️',  ko: '주의',      en: 'Warning' },
+  { t: 'tip',    i: '📌',  ko: '팁',        en: 'Tip' },
+  { t: 'ex',     i: '✏️',  ko: '예문',      en: 'Example' },
+  { t: 'vocab',  i: '🏷️',  ko: '단어 카드', en: 'Word card' },
+  { t: 'toggle', i: '▶',   ko: '접이식',    en: 'Toggle' },
+  { t: 'howto',  i: '📐',  ko: '문형',      en: 'How to' },
+  { t: 'qa',     i: '💬',  ko: 'Q&A',       en: 'Q&A' },
+  { t: 'code',   i: '</>', ko: '코드',      en: 'Code' },
+  { t: 'img',    i: '🖼️',  ko: '사진',      en: 'Image' },
+  { t: 'hr',     i: '—',   ko: '구분선',    en: 'Divider' },
 ];
 const NB_COLORS = [
   { k: '',       ko: '기본',   en: 'Default', css: 'transparent' },
@@ -6321,20 +6326,20 @@ const NB_BGS = [
    종류가 바뀐다 — 노션·옵시디언과 같은 손놀림이다. 자체 구현이다(다른
    라이브러리를 쓰지 않는다), 이 파일의 나머지 블록 편집기와 같다.
 
-   할 일([] )과 코드(``` )는 일부러 뺐다 — 대괄호와 백틱은 손이 자주
-   가는 글자라 그냥 치다가 잘못 바뀌기 쉽다. 그 둘은 여전히 「/」나
-   손잡이(⠿) 메뉴로 고른다.
-
    긴 것부터 둔다 — 「### 」가 먼저 걸려야지 「# 」가 먼저 걸리면
-   나머지 # 두 개가 글자로 남는다(다만 전체 일치라 실제로 겹치진
-   않는다. 순서는 그래도 안전하게 둔다). */
+   나머지 # 두 개가 글자로 남는다. */
 const NB_MD_SHORTCUTS = [
   { re: /^### $/,  type: 'h3' },
   { re: /^## $/,   type: 'h2' },
   { re: /^# $/,    type: 'h1' },
   { re: /^> $/,    type: 'quote' },
+  { re: /^\[\] $/, type: 'todo' },
+  { re: /^\[ \] $/, type: 'todo' },
   { re: /^[-*] $/, type: 'ul' },
   { re: /^\d+\. $/, type: 'ol' },
+  { re: /^! $/,    type: 'warn' },
+  { re: /^\? $/,   type: 'tip' },
+  { re: /^--- $/,  type: 'hr' },
 ];
 /* 「글」 블록일 때만 본다 — 이미 종류가 정해진 블록 안에서 우연히
    글자가 이 모양이 돼도 다시 안 바뀐다. */
@@ -6406,10 +6411,10 @@ function nbToText(blocks) {
   return (blocks || []).map((b) => {
     const pad = '  '.repeat(Math.min(b.ind || 0, NB_IND_MAX));   // 들여쓰기는 한 단계에 두 칸
     if (b.t === 'img') return pad + (b.cap ? `[${t('사진', 'Photo')}: ${b.cap}]` : `[${t('사진', 'Photo')}]`);
-    /* 문답(qa)은 칸이 s(질문)·a(답) 둘이라 한 줄로 안 되고, 여기서만
-       두 줄을 낸다 — 검색·미리보기·복사가 이 함수를 그대로 쓰므로
-       답이 통째로 빠지면 그 세 자리에서 다 빠진다. */
     if (b.t === 'qa') return `${pad}Q: ${nbPlain(b.s)}\n${pad}A: ${nbPlain(b.a || '')}`;
+    if (b.t === 'vocab') return `${pad}[${t('단어', 'Word')}] ${nbPlain(b.s)}: ${nbPlain(b.a || '')}`;
+    if (b.t === 'ex') return `${pad}[${t('예문', 'Example')}] ${nbPlain(b.s)}\n${pad}  ↳ ${nbPlain(b.a || '')}`;
+    if (b.t === 'toggle') return `${pad}▶ ${nbPlain(b.s)}\n${pad}  ${nbPlain(b.a || '')}`;
     const s = nbPlain(b.s);
     if (b.t === 'hr') return '---';
     if (b.t === 'h1') return `${pad}# ${s}`;
@@ -6420,6 +6425,8 @@ function nbToText(blocks) {
     if (b.t === 'todo') return `${pad}- [${b.done ? 'x' : ' '}] ${s}`;
     if (b.t === 'quote') return `${pad}> ${s}`;
     if (b.t === 'call') return `${pad}💡 ${s}`;
+    if (b.t === 'warn') return `${pad}⚠️ ${s}`;
+    if (b.t === 'tip') return `${pad}📌 ${s}`;
     if (b.t === 'howto') return `${pad}📐 ${s}`;
     return pad + s;
   }).join('\n');
@@ -6583,13 +6590,143 @@ function nbRow(m, b, i) {
     return row;
   }
 
+  /* 어휘/단어 카드 (vocab). 표제어(s)와 뜻풀이(a)를 예쁜 카드로 묶는다. */
+  if (b.t === 'vocab') {
+    const wrap = document.createElement('div');
+    wrap.className = 'nb-vocab-card';
+
+    const top = document.createElement('div');
+    top.className = 'nb-vocab-top';
+    const tag = document.createElement('span');
+    tag.className = 'nb-vocab-tag';
+    tag.textContent = '🏷️ ' + t('단어', 'Word');
+    const word = document.createElement('div');
+    word.className = 'nb-vocab-word nb-txt';
+    word.contentEditable = 'true';
+    word.spellcheck = false;
+    word.dataset.ph = t('단어 / 발음 (예: 기억나다)', 'Word / Pronunciation');
+    word.dataset.f = 's';
+    word.innerHTML = nbClean(b.s || '');
+    nbWireQA(word, m, b, 's', 'a');
+    top.append(tag, word);
+
+    const bot = document.createElement('div');
+    bot.className = 'nb-vocab-bot';
+    const def = document.createElement('div');
+    def.className = 'nb-vocab-def nb-txt';
+    def.contentEditable = 'true';
+    def.spellcheck = false;
+    def.dataset.ph = t('품사, 뜻풀이 또는 메모 (예: 동사. 머릿속에 떠오르다)', 'Part of speech, definition or notes');
+    def.dataset.f = 'a';
+    def.innerHTML = nbClean(b.a || '');
+    nbWireQA(def, m, b, 'a', null);
+    bot.appendChild(def);
+
+    wrap.append(top, bot);
+    main.appendChild(wrap);
+    row.appendChild(main);
+    nbDropZone(row, m, b);
+    return row;
+  }
+
+  /* 예문 (ex). 한국어 문장(s)과 번역/해석(a)을 상하로 깔끔하게 정렬한다. */
+  if (b.t === 'ex') {
+    const wrap = document.createElement('div');
+    wrap.className = 'nb-ex-box';
+
+    const koLine = document.createElement('div');
+    koLine.className = 'nb-ex-ko-line';
+    const koMark = document.createElement('span');
+    koMark.className = 'nb-ex-mark';
+    koMark.textContent = '🇰🇷';
+    const koTxt = document.createElement('div');
+    koTxt.className = 'nb-ex-ko nb-txt';
+    koTxt.contentEditable = 'true';
+    koTxt.spellcheck = false;
+    koTxt.dataset.ph = t('한국어 예문 (예: 비가 와서 우산을 썼어요.)', 'Korean sentence');
+    koTxt.dataset.f = 's';
+    koTxt.innerHTML = nbClean(b.s || '');
+    nbWireQA(koTxt, m, b, 's', 'a');
+    koLine.append(koMark, koTxt);
+
+    const trLine = document.createElement('div');
+    trLine.className = 'nb-ex-tr-line';
+    const trMark = document.createElement('span');
+    trMark.className = 'nb-ex-mark-sub';
+    trMark.textContent = '↳';
+    const trTxt = document.createElement('div');
+    trTxt.className = 'nb-ex-tr nb-txt';
+    trTxt.contentEditable = 'true';
+    trTxt.spellcheck = false;
+    trTxt.dataset.ph = t('해석 / 번역 (예: It rained, so I used an umbrella.)', 'Translation / Meaning');
+    trTxt.dataset.f = 'a';
+    trTxt.innerHTML = nbClean(b.a || '');
+    nbWireQA(trTxt, m, b, 'a', null);
+    trLine.append(trMark, trTxt);
+
+    wrap.append(koLine, trLine);
+    main.appendChild(wrap);
+    row.appendChild(main);
+    nbDropZone(row, m, b);
+    return row;
+  }
+
+  /* 접이식 토글 (toggle). 질문/제목(s)과 숨길 내용/정답(a) */
+  if (b.t === 'toggle') {
+    const wrap = document.createElement('div');
+    wrap.className = 'nb-toggle-box' + (b.open ? ' open' : '');
+
+    const headLine = document.createElement('div');
+    headLine.className = 'nb-toggle-h';
+    const tglBtn = document.createElement('button');
+    tglBtn.type = 'button';
+    tglBtn.className = 'nb-toggle-arrow';
+    tglBtn.textContent = b.open ? '▼' : '▶';
+    tglBtn.setAttribute('aria-label', t('토글 열기/닫기', 'Toggle open/close'));
+    tglBtn.addEventListener('click', () => {
+      b.open = !b.open;
+      ntMemoTouchNow();
+      nbRender();
+    });
+
+    const sumTxt = document.createElement('div');
+    sumTxt.className = 'nb-toggle-sum nb-txt';
+    sumTxt.contentEditable = 'true';
+    sumTxt.spellcheck = false;
+    sumTxt.dataset.ph = t('토글 제목 / 질문 (항상 보임)', 'Toggle title / Question');
+    sumTxt.dataset.f = 's';
+    sumTxt.innerHTML = nbClean(b.s || '');
+    nbWireQA(sumTxt, m, b, 's', 'a');
+    headLine.append(tglBtn, sumTxt);
+
+    const bodyWrap = document.createElement('div');
+    bodyWrap.className = 'nb-toggle-body';
+    if (!b.open) bodyWrap.hidden = true;
+
+    const dtlTxt = document.createElement('div');
+    dtlTxt.className = 'nb-toggle-dtl nb-txt';
+    dtlTxt.contentEditable = 'true';
+    dtlTxt.spellcheck = false;
+    dtlTxt.dataset.ph = t('숨겨질 내용 / 정답 (펼치면 보임)', 'Hidden content / Answer');
+    dtlTxt.dataset.f = 'a';
+    dtlTxt.innerHTML = nbClean(b.a || '');
+    nbWireQA(dtlTxt, m, b, 'a', null);
+    bodyWrap.appendChild(dtlTxt);
+
+    wrap.append(headLine, bodyWrap);
+    main.appendChild(wrap);
+    row.appendChild(main);
+    nbDropZone(row, m, b);
+    return row;
+  }
+
   const inline = document.createElement('div');
   inline.className = 'nb-inline';
 
-  if (b.t === 'ul' || b.t === 'ol' || b.t === 'call' || b.t === 'howto') {
+  if (b.t === 'ul' || b.t === 'ol' || b.t === 'call' || b.t === 'howto' || b.t === 'warn' || b.t === 'tip') {
     const mark = document.createElement('div');
     mark.className = 'nb-mark';
-    mark.textContent = b.t === 'ul' ? '•' : b.t === 'ol' ? `${nbOrd(m, i)}.` : b.t === 'howto' ? '📐' : '💡';
+    mark.textContent = b.t === 'ul' ? '•' : b.t === 'ol' ? `${nbOrd(m, i)}.` : b.t === 'howto' ? '📐' : b.t === 'warn' ? '⚠️' : b.t === 'tip' ? '📌' : '💡';
     inline.appendChild(mark);
   }
   if (b.t === 'todo') {
@@ -6625,6 +6762,8 @@ const nbPh = (t0) => ({
   h1: t('큰 제목', 'Heading 1'), h2: t('중간 제목', 'Heading 2'), h3: t('작은 제목', 'Heading 3'),
   ul: t('목록', 'List item'), ol: t('목록', 'List item'), todo: t('할 일', 'To-do'),
   quote: t('인용', 'Quote'), call: t('강조할 말', 'Callout'), code: t('코드', 'Code'),
+  warn: t('주의할 점이나 자주 하는 실수 (예: -아서/어서 뒤에는 명령문 금지)', 'Watch out (e.g. No imperatives with -아서/어서)'),
+  tip: t('학습 팁이나 보충 설명 (예: 회화에서는 보통 줄여서 말해요)', 'Study tip or additional note'),
   howto: t('동사·형용사에 어떻게 붙는지 (예: 동사 + -는 바람에)', 'How it attaches (e.g. Verb + -는 바람에)'),
 }[t0] || '');
 
@@ -6642,13 +6781,29 @@ const NB_SAMPLE = (t0) => ({
   todo: t('오늘 배운 문법 복습하기', "Review today's grammar"),
   quote: t('한국의 겨울은 정말 추워요.', 'Korean winters are really cold.'),
   call: t('「나의」는 「내」로 줄여 쓰는 게 더 자연스러워요.', "It's more natural to shorten 「나의」 to 「내」."),
+  warn: t('주의: 「안 되다」와 「안되다」는 띄어쓰기에 따라 뜻이 달라져요.', 'Watch out: 「안 되다」 and 「안되다」 have different meanings based on spacing.'),
+  tip: t('팁: 비슷한 표현으로 「-기 때문에」를 함께 알아두면 좋아요.', 'Tip: It is great to learn the similar expression 「-기 때문에」 together.'),
   howto: t('A/V + 아서/어서', 'A/V + 아서/어서'),
   code: t('먹다 → 먹어요', '먹다 → 먹어요'),
 }[t0] ?? null);
-const NB_SAMPLE_QA = () => ({
-  s: t('이 표현은 언제 써요?', 'When do you use this expression?'),
-  a: t('친한 사이에서 편하게 말할 때 써요.', 'You use it casually between close friends.'),
-});
+const NB_SAMPLE_TWO = (t0) => ({
+  qa: {
+    s: t('이 표현은 언제 써요?', 'When do you use this expression?'),
+    a: t('친한 사이에서 편하게 말할 때 써요.', 'You use it casually between close friends.'),
+  },
+  vocab: {
+    s: t('기억나다 [기엉나다]', '기억나다 [to remember]'),
+    a: t('동사. 잊었던 생각이나 사실이 머릿속에 다시 떠오르다.', 'Verb. To recall or remember something previously forgotten.'),
+  },
+  ex: {
+    s: t('한국 친구 덕분에 한국어 실력이 많이 늘었어요.', '한국 친구 덕분에 한국어 실력이 많이 늘었어요.'),
+    a: t('Thanks to my Korean friend, my Korean skills have improved a lot.', 'Thanks to my Korean friend, my Korean skills have improved a lot.'),
+  },
+  toggle: {
+    s: t('복습 퀴즈: \'바람을 쐬다\'는 무슨 뜻일까요?', 'Review Quiz: What does \'바람을 쐬다\' mean?'),
+    a: t('정답: 기분을 전환하기 위해 바깥에 나가 신선한 공기를 마시다.', 'Answer: To go outside and get some fresh air to refresh oneself.'),
+  },
+}[t0] ?? null);
 
 /* 사진은 넣기 전에 줄인다. 단어장 사진(shrinkImage, 1280px)보다 더
    줄인다 — 노트 사진은 브라우저 저장 공간(localStorage)에 글자로
@@ -6797,7 +6952,7 @@ function nbWire(el, m, b) {
         nbFocus = b.id; nbAtEnd = false;
         return nbSave(m2);
       }
-      if (['ul', 'ol', 'todo', 'quote', 'call', 'howto', 'code', 'h1', 'h2', 'h3'].includes(b.t)) {
+      if (['ul', 'ol', 'todo', 'quote', 'call', 'warn', 'tip', 'howto', 'code', 'h1', 'h2', 'h3'].includes(b.t)) {
         ev.preventDefault();
         b.t = 'text'; b.done = false;
         nbFocus = b.id; nbAtEnd = false;
@@ -7124,9 +7279,16 @@ function nbMenuOpen(anchor, m, b, only) {
      그대로 깨진 채 쓰이니 비운다. */
   const switchType = (ty) => {
     if ((ty.t === 'img') !== (b.t === 'img')) { b.s = ''; b.cap = ''; }
-    if ((ty.t === 'qa') !== (b.t === 'qa')) { b.s = ''; b.a = ''; }
+    const isTwoField = (t) => ['qa', 'vocab', 'ex', 'toggle'].includes(t);
+    if (!isTwoField(ty.t) && isTwoField(b.t)) {
+      b.s = b.s || b.a || '';
+      delete b.a;
+    } else if (isTwoField(ty.t) && !isTwoField(b.t)) {
+      b.a = '';
+    }
     b.t = ty.t;
     if (ty.t !== 'todo') b.done = false;
+    if (ty.t === 'toggle') b.open = true;
   };
   NB_TYPES.forEach((ty) => {
     const row = document.createElement('div');
@@ -7148,7 +7310,7 @@ function nbMenuOpen(anchor, m, b, only) {
       nbSave(m);
     });
     row.appendChild(btn);
-    const sample = ty.t === 'qa' ? NB_SAMPLE_QA() : NB_SAMPLE(ty.t);
+    const sample = ['qa', 'vocab', 'ex', 'toggle'].includes(ty.t) ? NB_SAMPLE_TWO(ty.t) : NB_SAMPLE(ty.t);
     if (sample) {
       const sm = document.createElement('button');
       sm.type = 'button';
@@ -7158,10 +7320,15 @@ function nbMenuOpen(anchor, m, b, only) {
       sm.addEventListener('click', (ev) => {
         ev.stopPropagation();
         switchType(ty);
-        if (ty.t === 'qa') { b.s = esc(sample.s); b.a = esc(sample.a); }
-        else { b.s = esc(sample); }
+        if (['qa', 'vocab', 'ex', 'toggle'].includes(ty.t)) {
+          b.s = esc(sample.s);
+          b.a = esc(sample.a);
+          if (ty.t === 'toggle') b.open = true;
+        } else {
+          b.s = esc(sample);
+        }
         nbFocus = b.id;
-        nbFocusField = ty.t === 'qa' ? 's' : null;
+        nbFocusField = ['qa', 'vocab', 'ex', 'toggle'].includes(ty.t) ? 's' : null;
         nbAtEnd = true;
         nbMenuClose();
         nbSave(m);
@@ -7731,6 +7898,27 @@ function ntPrintBody(blocks) {
       `</div>`);
       return;
     }
+    if (b.t === 'vocab') {
+      flush();
+      const w = nbPlain(b.s || ''), m = nbPlain(b.a || '');
+      if (!w && !m) return;
+      out.push(`<div class="ntp-vocab"><div class="ntp-vocab-w">🏷️ ${nbClean(b.s)}</div>${m ? `<div class="ntp-vocab-m">${nbClean(b.a)}</div>` : ''}</div>`);
+      return;
+    }
+    if (b.t === 'ex') {
+      flush();
+      const ko = nbPlain(b.s || ''), tr = nbPlain(b.a || '');
+      if (!ko && !tr) return;
+      out.push(`<div class="ntp-ex"><div class="ntp-ex-ko">🇰🇷 ${nbClean(b.s)}</div>${tr ? `<div class="ntp-ex-tr">↳ ${nbClean(b.a)}</div>` : ''}</div>`);
+      return;
+    }
+    if (b.t === 'toggle') {
+      flush();
+      const sum = nbPlain(b.s || ''), dtl = nbPlain(b.a || '');
+      if (!sum && !dtl) return;
+      out.push(`<details class="ntp-toggle" open><summary class="ntp-toggle-s">${nbClean(b.s)}</summary><div class="ntp-toggle-b">${nbClean(b.a || '')}</div></details>`);
+      return;
+    }
     /* 빈 줄은 학생 나눠줄 자료엔 안 남긴다 — 쓰다 만 빈 목록칸·빈 문단이
        그대로 찍히면 인쇄물이 지저분해진다. 실제 노트(화면)는 안 바뀐다,
        인쇄판을 만들 때만 거른다. */
@@ -7757,6 +7945,14 @@ function ntPrintBody(blocks) {
       out.push(`<div class="ntp-call ${bgCls}"><span class="ntp-call-i">💡</span><span${cls}>${html}</span></div>`);
       return;
     }
+    if (b.t === 'warn') {
+      out.push(`<div class="ntp-warn"><span class="ntp-warn-i">⚠️</span><span${cls}>${html}</span></div>`);
+      return;
+    }
+    if (b.t === 'tip') {
+      out.push(`<div class="ntp-tip"><span class="ntp-tip-i">📌</span><span${cls}>${html}</span></div>`);
+      return;
+    }
     if (b.t === 'howto') { out.push(`<div class="ntp-howto"><span class="ntp-howto-i">📐</span><span${cls}>${html}</span></div>`); return; }
     if (b.t === 'code') { out.push(`<pre class="ntp-code">${html}</pre>`); return; }
     out.push(`<p${cls}>${html}</p>`);
@@ -7777,7 +7973,13 @@ const NT_HELP_ROWS = [
   { key: '### ', ko: '작은 제목으로 바꾸기',               en: 'Turn into Heading 3' },
   { key: '- ',   ko: '목록으로 바꾸기',                    en: 'Turn into a bulleted list' },
   { key: '1. ',  ko: '번호 목록으로 바꾸기',               en: 'Turn into a numbered list' },
+  { key: '[] ',  ko: '할 일 체크박스로 바꾸기',             en: 'Turn into a to-do item' },
   { key: '> ',   ko: '인용으로 바꾸기',                    en: 'Turn into a quote' },
+  { key: '! ',   ko: '주의 블록으로 바꾸기',               en: 'Turn into a warning block' },
+  { key: '? ',   ko: '팁 블록으로 바꾸기',                 en: 'Turn into a tip block' },
+  { key: '--- ', ko: '구분선으로 바꾸기',                  en: 'Turn into a divider' },
+  { key: 'Tab',  ko: '들여쓰기 (최대 4단계)',              en: 'Indent (up to 4 levels)' },
+  { key: 'Shift+Tab', ko: '내어쓰기',                       en: 'Outdent' },
   { key: '⠿',    ko: '손잡이 — 옮기거나 종류·색 바꾸기',   en: 'Grip — drag to move, click for type & color' },
   { key: NT_HELP_MAC ? '⌘B' : 'Ctrl+B', ko: '굵게',   en: 'Bold' },
   { key: NT_HELP_MAC ? '⌘I' : 'Ctrl+I', ko: '기울임', en: 'Italic' },
@@ -12053,10 +12255,10 @@ $('ltPurposeGrid').addEventListener('click', (ev) => {
    빠지고, 고쳐 올려도 브라우저가 예전 문제를 계속 들고 있게 된다. */
 let LT_CUSTOM = { overall: [], reading: [], writing: [], listening: [] };
 let ltCustomOverallP = null, ltCustomReadingP = null, ltCustomWritingP = null, ltCustomListeningP = null;
-const ltCustomOverallNeed = () => (ltCustomOverallP ??= import('./leveltest-overall.js?v=4145c8b4').then((m) => { LT_CUSTOM.overall = m.LT_CUSTOM_OVERALL; }));
-const ltCustomReadingNeed = () => (ltCustomReadingP ??= import('./leveltest-reading.js?v=4145c8b4').then((m) => { LT_CUSTOM.reading = m.LT_CUSTOM_READING; }));
-const ltCustomWritingNeed = () => (ltCustomWritingP ??= import('./leveltest-writing.js?v=4145c8b4').then((m) => { LT_CUSTOM.writing = m.LT_CUSTOM_WRITING; }));
-const ltCustomListeningNeed = () => (ltCustomListeningP ??= import('./leveltest-listening.js?v=4145c8b4').then((m) => { LT_CUSTOM.listening = m.LT_CUSTOM_LISTENING; }));
+const ltCustomOverallNeed = () => (ltCustomOverallP ??= import('./leveltest-overall.js?v=617149bc').then((m) => { LT_CUSTOM.overall = m.LT_CUSTOM_OVERALL; }));
+const ltCustomReadingNeed = () => (ltCustomReadingP ??= import('./leveltest-reading.js?v=617149bc').then((m) => { LT_CUSTOM.reading = m.LT_CUSTOM_READING; }));
+const ltCustomWritingNeed = () => (ltCustomWritingP ??= import('./leveltest-writing.js?v=617149bc').then((m) => { LT_CUSTOM.writing = m.LT_CUSTOM_WRITING; }));
+const ltCustomListeningNeed = () => (ltCustomListeningP ??= import('./leveltest-listening.js?v=617149bc').then((m) => { LT_CUSTOM.listening = m.LT_CUSTOM_LISTENING; }));
 const LT_CUSTOM_NEED = {
   overall: ltCustomOverallNeed, reading: ltCustomReadingNeed,
   writing: ltCustomWritingNeed, listening: ltCustomListeningNeed,
