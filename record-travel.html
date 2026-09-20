@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>여행 한국어 오디오 녹음 스튜디오 | CheesePotato Travel Recorder</title>
+  <link rel="icon" href="favicon.ico">
+  <!-- JSZip for batch download -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+  <style>
+    :root {
+      --bg: #f8fafc;
+      --surface: #ffffff;
+      --surface-2: #f1f5f9;
+      --border: #e2e8f0;
+      --border-focus: #f59e0b;
+      --ink: #0f172a;
+      --ink-2: #475569;
+      --ink-3: #94a3b8;
+      --orange: #f59e0b;
+      --orange-deep: #d97706;
+      --orange-tint: rgba(245, 158, 11, 0.08);
+      --red: #ef4444;
+      --red-tint: rgba(239, 68, 68, 0.1);
+      --green: #10b981;
+      --green-tint: rgba(16, 185, 129, 0.1);
+      --radius: 14px;
+      --shadow: 0 4px 20px -4px rgba(0, 0, 0, 0.06);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Pretendard", "Segoe UI", Roboto, sans-serif;
+      background: var(--bg); color: var(--ink); line-height: 1.5; padding-bottom: 80px;
+    }
+
+    /* ── 헤더 & 안내바 ───────────────────────── */
+    .studio-hd {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(255, 255, 255, 0.92);
+      -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border); padding: 14px 24px;
+    }
+    .hd-inner {
+      max-width: 1080px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap;
+    }
+    .hd-brand {
+      display: flex; align-items: center; gap: 10px;
+    }
+    .hd-brand span.logo { font-size: 26px; }
+    .hd-title h1 { font-size: 18px; font-weight: 800; color: var(--ink); }
+    .hd-title p { font-size: 12px; color: var(--ink-3); }
+
+    .hd-stats {
+      display: flex; align-items: center; gap: 12px;
+    }
+    .stat-badge {
+      display: flex; align-items: center; gap: 6px;
+      padding: 6px 12px; border-radius: 999px; background: var(--surface-2);
+      font-size: 13px; font-weight: 700; color: var(--ink-2);
+    }
+    .stat-badge b { color: var(--orange-deep); }
+    .btn-zip {
+      display: flex; align-items: center; gap: 6px;
+      padding: 8px 16px; border-radius: 999px; border: none;
+      background: var(--orange); color: #fff; font-size: 13.5px; font-weight: 700;
+      cursor: pointer; transition: all .15s ease; box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3);
+    }
+    .btn-zip:hover:not(:disabled) { background: var(--orange-deep); transform: translateY(-1px); }
+    .btn-zip:disabled { opacity: 0.5; cursor: not-allowed; box-shadow: none; }
+
+    /* ── 메인 컨테이너 ───────────────────────── */
+    .studio-main {
+      max-width: 1080px; margin: 24px auto; padding: 0 20px;
+    }
+
+    /* 마이크 권한 안내 바 */
+    .mic-banner {
+      display: flex; align-items: center; justify-content: space-between;
+      background: var(--surface); border: 1.5px solid var(--border); border-radius: var(--radius);
+      padding: 14px 18px; margin-bottom: 20px; box-shadow: var(--shadow);
+    }
+    .mic-info { display: flex; align-items: center; gap: 10px; font-size: 13.5px; color: var(--ink-2); }
+    .mic-visualizer {
+      width: 140px; height: 14px; background: var(--surface-2); border-radius: 999px;
+      overflow: hidden; position: relative;
+    }
+    .mic-bar {
+      height: 100%; width: 0%; background: var(--green); border-radius: 999px;
+      transition: width 0.05s ease;
+    }
+
+    /* ── 카테고리 탭 ─────────────────────────── */
+    .cat-tabs {
+      display: flex; gap: 8px; overflow-x: auto; padding-bottom: 12px; margin-bottom: 20px;
+      scrollbar-width: thin;
+    }
+    .cat-tab {
+      display: flex; align-items: center; gap: 6px; padding: 8px 16px;
+      background: var(--surface); border: 1.5px solid var(--border); border-radius: 999px;
+      font-size: 13.5px; font-weight: 600; color: var(--ink-2); cursor: pointer;
+      white-space: nowrap; transition: all .15s ease;
+    }
+    .cat-tab:hover { border-color: var(--orange); }
+    .cat-tab.active {
+      background: var(--orange); border-color: var(--orange); color: #fff;
+      box-shadow: 0 4px 12px rgba(245, 158, 11, 0.25);
+    }
+
+    /* ── 구문 목록 그리드 ─────────────────────── */
+    .phrases-grid {
+      display: grid; gap: 16px;
+    }
+    .phrase-card {
+      background: var(--surface); border: 1.5px solid var(--border);
+      border-radius: var(--radius); padding: 22px; box-shadow: var(--shadow);
+      display: flex; flex-direction: column; gap: 14px; transition: border-color .15s ease;
+    }
+    .phrase-card.recorded {
+      border-color: rgba(16, 185, 129, 0.4); background: linear-gradient(180deg, #ffffff 0%, rgba(16, 185, 129, 0.02) 100%);
+    }
+
+    .card-top {
+      display: flex; align-items: center; justify-content: space-between; gap: 10px;
+    }
+    .card-id-badge {
+      font-family: ui-monospace, monospace; font-size: 11.5px; font-weight: 700;
+      color: var(--ink-3); background: var(--surface-2); padding: 3px 8px; border-radius: 6px;
+    }
+    .status-pill {
+      font-size: 12px; font-weight: 700; padding: 3px 10px; border-radius: 999px;
+    }
+    .status-pill.unrecorded { background: var(--surface-2); color: var(--ink-3); }
+    .status-pill.recorded { background: var(--green-tint); color: var(--green); }
+
+    .card-body {
+      display: flex; flex-direction: column; gap: 6px;
+    }
+    .ko-text {
+      font-size: 24px; font-weight: 800; color: var(--ink); line-height: 1.35;
+      letter-spacing: -0.5px; word-break: keep-all;
+    }
+    .pron-text {
+      font-size: 13.5px; color: var(--orange-deep); font-weight: 600;
+    }
+    .en-text {
+      font-size: 15px; color: var(--ink-2); font-weight: 500;
+    }
+    .tip-text {
+      font-size: 12.5px; color: var(--ink-3); margin-top: 4px;
+    }
+
+    /* ── 녹음 제어 컨트롤 ────────────────────── */
+    .card-ctrls {
+      display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-top: 4px;
+      padding-top: 14px; border-top: 1px solid var(--border);
+    }
+    .btn-action {
+      display: inline-flex; align-items: center; gap: 6px; padding: 9px 16px;
+      border-radius: 10px; border: 1.5px solid var(--border); background: var(--surface);
+      font-size: 13.5px; font-weight: 700; color: var(--ink); cursor: pointer;
+      transition: all .15s ease;
+    }
+    .btn-action:hover { border-color: rgba(var(--ink), 0.3); transform: translateY(-1px); }
+
+    .btn-rec {
+      border-color: var(--red); color: var(--red); background: var(--red-tint);
+    }
+    .btn-rec:hover { background: rgba(239, 68, 68, 0.16); }
+    .btn-rec.recording {
+      background: var(--red); color: #fff; animation: pulseRec 1.2s infinite ease-in-out;
+    }
+
+    .btn-play {
+      border-color: var(--orange); color: var(--orange-deep); background: var(--orange-tint);
+    }
+    .btn-play:hover { background: rgba(245, 158, 11, 0.16); }
+
+    .btn-download {
+      border-color: var(--green); color: var(--green); background: var(--green-tint);
+    }
+    .btn-download:hover { background: rgba(16, 185, 129, 0.16); }
+
+    .btn-delete {
+      color: var(--ink-3); font-size: 12.5px; border: none; background: transparent; padding: 6px 10px;
+    }
+    .btn-delete:hover { color: var(--red); }
+
+    @keyframes pulseRec {
+      0% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.5); }
+      70% { box-shadow: 0 0 0 10px rgba(239, 68, 68, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0); }
+    }
+
+    @media (max-width: 600px) {
+      .ko-text { font-size: 20px; }
+      .card-ctrls { gap: 8px; }
+      .btn-action { padding: 8px 12px; font-size: 12.5px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 상단 네비게이션 & 통계 -->
+  <header class="studio-hd">
+    <div class="hd-inner">
+      <div class="hd-brand">
+        <span class="logo">🎙️</span>
+        <div class="hd-title">
+          <h1>여행 한국어 녹음 스튜디오</h1>
+          <p>마이크로 한국어 표현을 직접 녹음하고 저장하세요</p>
+        </div>
+      </div>
+
+      <div class="hd-stats">
+        <div class="stat-badge">
+          진행률: <span id="statDone">0</span> / <span id="statTotal">43</span> (<b id="statPct">0%</b>)
+        </div>
+        <button type="button" class="btn-zip" id="btnZipAll" disabled>
+          📦 전체 녹음 ZIP 다운로드
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="studio-main">
+
+    <!-- 마이크 볼륨 모니터링 배너 -->
+    <div class="mic-banner">
+      <div class="mic-info">
+        <span id="micIcon">🎤</span>
+        <span id="micStatus">마이크 사용을 준비 중입니다...</span>
+      </div>
+      <div class="mic-visualizer">
+        <div class="mic-bar" id="micLevel"></div>
+      </div>
+    </div>
+
+    <!-- 카테고리 탭 -->
+    <div class="cat-tabs" id="catTabs">
+      <button type="button" class="cat-tab active" data-cat="all">🌟 전체 보기 (43)</button>
+    </div>
+
+    <!-- 구문 카드 그리드 -->
+    <div class="phrases-grid" id="phrasesGrid"></div>
+
+  </main>
+
+  <script type="module">
+    import { TRAVEL_CATEGORIES, TRAVEL_PHRASES } from './travel-data.js';
+
+    // ── IndexedDB 설정 (새로고침해도 녹음 파일 보존) ─────────────────
+    const DB_NAME = 'CheesePotato_Travel_Audio';
+    const STORE_NAME = 'recordings';
+    let db;
+
+    function openDB() {
+      return new Promise((resolve, reject) => {
+        const req = indexedDB.open(DB_NAME, 1);
+        req.onupgradeneeded = (ev) => {
+          const d = ev.target.result;
+          if (!d.objectStoreNames.contains(STORE_NAME)) {
+            d.createObjectStore(STORE_NAME, { keyPath: 'id' });
+          }
+        };
+        req.onsuccess = () => { db = req.result; resolve(db); };
+        req.onerror = () => reject(req.error);
+      });
+    }
+
+    function saveAudioDB(id, blob) {
+      return new Promise((resolve, reject) => {
+        const tx = db.transaction(STORE_NAME, 'readwrite');
+        const st = tx.objectStore(STORE_NAME);
+        st.put({ id, blob, updatedAt: Date.now() });
+        tx.oncomplete = () => resolve();
+        tx.onerror = () => reject(tx.error);
+      });
+    }
+
+    function getAudioDB(id) {
+      return new Promise((resolve, reject) => {
+        const tx = db.transaction(STORE_NAME, 'readonly');
+        const st = tx.objectStore(STORE_NAME);
+        const req = st.get(id);
+        req.onsuccess = () => resolve(req.result ? req.result.blob : null);
+        req.onerror = () => reject(req.error);
+      });
+    }
+
+    function deleteAudioDB(id) {
+      return new Promise((resolve, reject) => {
+        const tx = db.transaction(STORE_NAME, 'readwrite');
+        const st = tx.objectStore(STORE_NAME);
+        st.delete(id);
+        tx.oncomplete = () => resolve();
+        tx.onerror = () => reject(tx.error);
+      });
+    }
+
+    function getAllAudioDB() {
+      return new Promise((resolve, reject) => {
+        const tx = db.transaction(STORE_NAME, 'readonly');
+        const st = tx.objectStore(STORE_NAME);
+        const req = st.getAll();
+        req.onsuccess = () => resolve(req.result || []);
+        req.onerror = () => reject(req.error);
+      });
+    }
+
+    // ── 오디오 녹음 및 스트림 상태 ─────────────────────────────
+    let mediaStream = null;
+    let mediaRecorder = null;
+    let activeRecordId = null;
+    let audioChunks = [];
+    let audioContext = null;
+    let analyser = null;
+    let currentCat = 'all';
+
+    // 캐시된 녹음 Blob 객체 { [id]: Blob }
+    const recordedBlobs = new Map();
+
+    async function initMicrophone() {
+      try {
+        mediaStream = await navigator.mediaDevices.getUserMedia({ audio: true });
+        document.getElementById('micStatus').textContent = '마이크가 연결되었습니다. 녹음 준비 완료!';
+        document.getElementById('micIcon').textContent = '🎙️';
+
+        // 볼륨 시각화
+        audioContext = new (window.AudioContext || window.webkitAudioContext)();
+        analyser = audioContext.createAnalyser();
+        analyser.fftSize = 64;
+        const src = audioContext.createMediaStreamSource(mediaStream);
+        src.connect(analyser);
+
+        const dataArray = new Uint8Array(analyser.frequencyBinCount);
+        const levelBar = document.getElementById('micLevel');
+
+        function updateMeter() {
+          analyser.getByteFrequencyData(dataArray);
+          let sum = 0;
+          for (let i = 0; i < dataArray.length; i++) sum += dataArray[i];
+          const avg = sum / dataArray.length;
+          const pct = Math.min(100, (avg / 128) * 100);
+          levelBar.style.width = pct + '%';
+          requestAnimationFrame(updateMeter);
+        }
+        updateMeter();
+      } catch (err) {
+        document.getElementById('micStatus').textContent = '마이크 접근 권한이 필요합니다. 브라우저에서 마이크를 허용해 주세요.';
+        document.getElementById('micIcon').textContent = '⚠️';
+        console.warn('Microphone error:', err);
+      }
+    }
+
+    // ── 카테고리 탭 렌더링 ────────────────────────────────────
+    function renderTabs() {
+      const container = document.getElementById('catTabs');
+      TRAVEL_CATEGORIES.forEach((cat) => {
+        const count = TRAVEL_PHRASES.filter(p => p.cat === cat.id).length;
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'cat-tab';
+        btn.dataset.cat = cat.id;
+        btn.textContent = `${cat.emoji} ${cat.ko} (${count})`;
+        btn.addEventListener('click', () => {
+          document.querySelectorAll('.cat-tab').forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          currentCat = cat.id;
+          renderPhrases();
+        });
+        container.appendChild(btn);
+      });
+    }
+
+    // ── 구문 카드 렌더링 ──────────────────────────────────────
+    function renderPhrases() {
+      const grid = document.getElementById('phrasesGrid');
+      grid.innerHTML = '';
+
+      const list = currentCat === 'all'
+        ? TRAVEL_PHRASES
+        : TRAVEL_PHRASES.filter(p => p.cat === currentCat);
+
+      list.forEach((p) => {
+        const hasAudio = recordedBlobs.has(p.id);
+
+        const card = document.createElement('div');
+        card.className = `phrase-card${hasAudio ? ' recorded' : ''}`;
+        card.id = `card-${p.id}`;
+
+        card.innerHTML = `
+          <div class="card-top">
+            <span class="card-id-badge">${p.id}</span>
+            <span class="status-pill ${hasAudio ? 'recorded' : 'unrecorded'}" id="pill-${p.id}">
+              ${hasAudio ? '✓ 녹음 완료' : '미녹음'}
+            </span>
+          </div>
+
+          <div class="card-body">
+            <div class="ko-text">${p.ko}</div>
+            <div class="pron-text">${p.pron}</div>
+            <div class="en-text">${p.en}</div>
+            ${p.tip ? `<div class="tip-text">💡 ${p.tip}</div>` : ''}
+          </div>
+
+          <div class="card-ctrls">
+            <button type="button" class="btn-action btn-rec" id="btnRec-${p.id}">
+              🔴 녹음 시작
+            </button>
+            <button type="button" class="btn-action btn-play" id="btnPlay-${p.id}" ${hasAudio ? '' : 'style="display:none;"'}>
+              ▶️ 들어보기
+            </button>
+            <button type="button" class="btn-action btn-download" id="btnDown-${p.id}" ${hasAudio ? '' : 'style="display:none;"'}>
+              💾 다운로드 (.mp3)
+            </button>
+            <button type="button" class="btn-delete" id="btnDel-${p.id}" ${hasAudio ? '' : 'style="display:none;"'}>
+              🗑️ 삭제
+            </button>
+          </div>
+        `;
+
+        // 버튼 이벤트 바인딩
+        const recBtn = card.querySelector(`#btnRec-${p.id}`);
+        const playBtn = card.querySelector(`#btnPlay-${p.id}`);
+        const downBtn = card.querySelector(`#btnDown-${p.id}`);
+        const delBtn = card.querySelector(`#btnDel-${p.id}`);
+
+        recBtn.addEventListener('click', () => toggleRecord(p.id, recBtn));
+        playBtn.addEventListener('click', () => playAudio(p.id));
+        downBtn.addEventListener('click', () => downloadAudio(p.id));
+        delBtn.addEventListener('click', () => deleteAudio(p.id));
+
+        grid.appendChild(card);
+      });
+
+      updateStats();
+    }
+
+    // ── 녹음 토글 ─────────────────────────────────────────────
+    function toggleRecord(id, btn) {
+      if (activeRecordId === id) {
+        // 녹음 중지
+        stopRecording();
+      } else {
+        // 녹음 시작
+        if (activeRecordId) stopRecording();
+        startRecording(id, btn);
+      }
+    }
+
+    function startRecording(id, btn) {
+      if (!mediaStream) {
+        alert('마이크 사용 권한이 필요합니다.');
+        return;
+      }
+
+      activeRecordId = id;
+      audioChunks = [];
+
+      // webm 또는 ogg/mp4 브라우저 지원 코덱
+      let mimeType = 'audio/webm';
+      if (MediaRecorder.isTypeSupported('audio/webm;codecs=opus')) {
+        mimeType = 'audio/webm;codecs=opus';
+      } else if (MediaRecorder.isTypeSupported('audio/mp4')) {
+        mimeType = 'audio/mp4';
+      }
+
+      mediaRecorder = new MediaRecorder(mediaStream, { mimeType });
+
+      mediaRecorder.ondataavailable = (ev) => {
+        if (ev.data.size > 0) audioChunks.push(ev.data);
+      };
+
+      mediaRecorder.onstop = async () => {
+        const audioBlob = new Blob(audioChunks, { type: mimeType });
+        recordedBlobs.set(id, audioBlob);
+        await saveAudioDB(id, audioBlob);
+
+        // UI 갱신
+        const card = document.getElementById(`card-${id}`);
+        if (card) {
+          card.classList.add('recorded');
+          card.querySelector(`#pill-${id}`).className = 'status-pill recorded';
+          card.querySelector(`#pill-${id}`).textContent = '✓ 녹음 완료';
+          card.querySelector(`#btnPlay-${id}`).style.display = 'inline-flex';
+          card.querySelector(`#btnDown-${id}`).style.display = 'inline-flex';
+          card.querySelector(`#btnDel-${id}`).style.display = 'inline-block';
+        }
+        updateStats();
+      };
+
+      mediaRecorder.start();
+      btn.classList.add('recording');
+      btn.textContent = '⏹️ 녹음 중지';
+    }
+
+    function stopRecording() {
+      if (mediaRecorder && mediaRecorder.state !== 'inactive') {
+        mediaRecorder.stop();
+      }
+      if (activeRecordId) {
+        const btn = document.getElementById(`btnRec-${activeRecordId}`);
+        if (btn) {
+          btn.classList.remove('recording');
+          btn.textContent = '🔴 다시 녹음';
+        }
+      }
+      activeRecordId = null;
+    }
+
+    // ── 오디오 재생 ───────────────────────────────────────────
+    function playAudio(id) {
+      const blob = recordedBlobs.get(id);
+      if (!blob) return;
+      const url = URL.createObjectURL(blob);
+      const audio = new Audio(url);
+      audio.play();
+    }
+
+    // ── 개별 파일 다운로드 ────────────────────────────────────
+    function downloadAudio(id) {
+      const blob = recordedBlobs.get(id);
+      if (!blob) return;
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `${id}.mp3`;
+      a.click();
+      URL.revokeObjectURL(url);
+    }
+
+    // ── 녹음 삭제 ─────────────────────────────────────────────
+    async function deleteAudio(id) {
+      if (!confirm(`[${id}] 녹음 파일을 삭제하시겠습니까?`)) return;
+      recordedBlobs.delete(id);
+      await deleteAudioDB(id);
+
+      const card = document.getElementById(`card-${id}`);
+      if (card) {
+        card.classList.remove('recorded');
+        card.querySelector(`#pill-${id}`).className = 'status-pill unrecorded';
+        card.querySelector(`#pill-${id}`).textContent = '미녹음';
+        card.querySelector(`#btnPlay-${id}`).style.display = 'none';
+        card.querySelector(`#btnDown-${id}`).style.display = 'none';
+        card.querySelector(`#btnDel-${id}`).style.display = 'none';
+        card.querySelector(`#btnRec-${id}`).textContent = '🔴 녹음 시작';
+      }
+      updateStats();
+    }
+
+    // ── 전체 ZIP 다운로드 ─────────────────────────────────────
+    document.getElementById('btnZipAll').addEventListener('click', async () => {
+      if (typeof JSZip === 'undefined') {
+        alert('JSZip 라이브러리를 불러오는 중입니다. 잠시 후 다시 시도해 주세요.');
+        return;
+      }
+      const zip = new JSZip();
+      const folder = zip.folder('travel-audio');
+
+      for (const [id, blob] of recordedBlobs.entries()) {
+        folder.file(`${id}.mp3`, blob);
+      }
+
+      const zipBtn = document.getElementById('btnZipAll');
+      zipBtn.disabled = true;
+      zipBtn.textContent = '⏳ ZIP 생성 중...';
+
+      const content = await zip.generateAsync({ type: 'blob' });
+      const url = URL.createObjectURL(content);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `cheesepotato-travel-audio-${new Date().toISOString().slice(0, 10)}.zip`;
+      a.click();
+      URL.revokeObjectURL(url);
+
+      zipBtn.disabled = false;
+      zipBtn.textContent = '📦 전체 녹음 ZIP 다운로드';
+    });
+
+    // ── 통계 갱신 ─────────────────────────────────────────────
+    function updateStats() {
+      const total = TRAVEL_PHRASES.length;
+      const done = recordedBlobs.size;
+      const pct = Math.round((done / total) * 100);
+
+      document.getElementById('statTotal').textContent = total;
+      document.getElementById('statDone').textContent = done;
+      document.getElementById('statPct').textContent = pct + '%';
+
+      document.getElementById('btnZipAll').disabled = done === 0;
+    }
+
+    // ── 초기화 실행 ───────────────────────────────────────────
+    async function init() {
+      await openDB();
+      const savedList = await getAllAudioDB();
+      savedList.forEach(item => recordedBlobs.set(item.id, item.blob));
+
+      renderTabs();
+      renderPhrases();
+      initMicrophone();
+    }
+
+    init();
+  </script>
+</body>
+</html>
