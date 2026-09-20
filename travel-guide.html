@@ -17,6 +17,12 @@
       --orange: #ea580c;
       --orange-bg: #fff7ed;
       --orange-border: #fdba74;
+      --green: #10b981;
+      --green-bg: #ecfdf5;
+      --green-border: #a7f3d0;
+      --purple: #8b5cf6;
+      --purple-bg: #f5f3ff;
+      --purple-border: #ddd6fe;
       --radius: 12px;
     }
 
@@ -27,53 +33,73 @@
       padding-bottom: 60px;
     }
 
-    /* ── 상단 네비 & PDF 인쇄 버튼 (화면 전용) ───────── */
+    /* ── 상단 네비 & 컨트롤 (화면 전용) ──────────────── */
     .top-actions {
       position: sticky; top: 0; z-index: 100;
       background: rgba(255, 255, 255, 0.94);
       -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);
-      border-bottom: 1px solid var(--border); padding: 12px 24px;
+      border-bottom: 1px solid var(--border); padding: 12px 20px;
     }
     .top-actions-inner {
-      max-width: 1040px; margin: 0 auto;
-      display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap;
+      max-width: 1060px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between; gap: 14px; flex-wrap: wrap;
     }
     .top-brand {
       display: flex; align-items: center; gap: 8px; font-weight: 800; font-size: 15px; color: var(--ink);
     }
     .top-btns {
-      display: flex; align-items: center; gap: 10px;
+      display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
     }
+
+    /* 난이도 모드 선택 세그먼트 */
+    .level-filter {
+      display: flex; align-items: center; gap: 4px; background: var(--surface-3);
+      padding: 4px; border-radius: 999px; border: 1px solid var(--border);
+    }
+    .btn-lvl {
+      border: none; background: transparent; padding: 6px 12px; border-radius: 999px;
+      font-size: 12.5px; font-weight: 700; color: var(--ink-2); cursor: pointer;
+      transition: all .15s ease;
+    }
+    .btn-lvl:hover { color: var(--ink); }
+    .btn-lvl.active {
+      background: #fff; color: var(--ink); box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+    }
+    .btn-lvl.active.lvl-all { color: var(--ink); }
+    .btn-lvl.active.lvl-easy { color: #059669; }
+    .btn-lvl.active.lvl-std { color: #d97706; }
+    .btn-lvl.active.lvl-pro { color: #7c3aed; }
+
     .btn-print {
-      display: inline-flex; align-items: center; gap: 6px; padding: 9px 18px;
+      display: inline-flex; align-items: center; gap: 6px; padding: 8px 16px;
       border-radius: 999px; border: none; background: var(--orange); color: #fff;
-      font-size: 14px; font-weight: 700; cursor: pointer;
-      box-shadow: 0 4px 14px rgba(234, 88, 12, 0.3); transition: all .15s ease;
+      font-size: 13.5px; font-weight: 700; cursor: pointer;
+      box-shadow: 0 4px 12px rgba(234, 88, 12, 0.25); transition: all .15s ease;
     }
     .btn-print:hover { background: #c2410c; transform: translateY(-1px); }
     .btn-link {
-      display: inline-flex; align-items: center; gap: 6px; padding: 9px 16px;
+      display: inline-flex; align-items: center; gap: 6px; padding: 8px 14px;
       border-radius: 999px; border: 1.5px solid var(--border); background: #fff;
-      font-size: 13.5px; font-weight: 600; color: var(--ink-2); text-decoration: none;
+      font-size: 13px; font-weight: 600; color: var(--ink-2); text-decoration: none;
       transition: all .15s ease;
     }
     .btn-link:hover { border-color: var(--orange); color: var(--orange); }
 
     /* ── 팜플렛 문서 본체 (A4 규격) ────────────────── */
     .brochure-wrap {
-      max-width: 1000px; margin: 28px auto 0; padding: 0 16px;
+      max-width: 1040px; margin: 24px auto 0; padding: 0 16px;
     }
     .brochure-sheet {
       background: #fff; border: 1px solid var(--border); border-radius: 18px;
-      box-shadow: 0 10px 32px rgba(0, 0, 0, 0.05); padding: 40px 44px;
+      box-shadow: 0 10px 32px rgba(0, 0, 0, 0.05); padding: 36px 40px;
     }
 
     /* 팜플렛 머리말 */
     .sheet-header {
-      text-align: center; border-bottom: 2px solid var(--ink); padding-bottom: 22px; margin-bottom: 28px;
+      text-align: center; border-bottom: 2px solid var(--ink); padding-bottom: 20px; margin-bottom: 24px;
     }
     .sheet-badges {
-      display: flex; align-items: center; justify-content: center; gap: 8px; margin-bottom: 10px;
+      display: flex; align-items: center; justify-content: center; gap: 8px; margin-bottom: 8px;
     }
     .badge-tag {
       font-size: 11px; font-weight: 800; letter-spacing: 0.5px; padding: 3px 8px;
@@ -84,26 +110,34 @@
       font-size: 11px; font-weight: 700; color: var(--ink-3);
     }
     .sheet-title {
-      font-size: 28px; font-weight: 900; letter-spacing: -0.8px; color: var(--ink); margin-bottom: 6px;
+      font-size: 27px; font-weight: 900; letter-spacing: -0.8px; color: var(--ink); margin-bottom: 6px;
     }
     .sheet-subtitle {
-      font-size: 14.5px; color: var(--ink-2); font-weight: 500; word-break: keep-all;
+      font-size: 14px; color: var(--ink-2); font-weight: 500; word-break: keep-all;
     }
+
+    /* 난이도 안내 바 */
+    .level-guide-bar {
+      display: flex; align-items: center; justify-content: center; gap: 16px; flex-wrap: wrap;
+      margin: 14px 0 0; padding: 10px 14px; background: var(--surface-2); border-radius: 10px;
+      font-size: 12px; color: var(--ink-2); border: 1px solid var(--border);
+    }
+    .lg-item { display: flex; align-items: center; gap: 6px; font-weight: 600; }
+    .lg-dot { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
+    .lg-dot.easy { background: var(--green); }
+    .lg-dot.std { background: var(--orange); }
+    .lg-dot.pro { background: var(--purple); }
 
     /* 치즈 & 감자 선생님 꿀팁 박스 */
     .teacher-tips {
-      display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 26px;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 24px;
     }
     .tip-box {
-      padding: 14px 16px; border-radius: 12px; border: 1.5px solid var(--border);
-      background: var(--surface-2); font-size: 12.5px; line-height: 1.55; word-break: keep-all;
+      padding: 13px 15px; border-radius: 12px; border: 1.5px solid var(--border);
+      background: var(--surface-2); font-size: 12.5px; line-height: 1.5; word-break: keep-all;
     }
-    .tip-box.cheese {
-      border-color: #fed7aa; background: #fffbeb;
-    }
-    .tip-box.potato {
-      border-color: #ddd6fe; background: #faf5ff;
-    }
+    .tip-box.cheese { border-color: #fed7aa; background: #fffbeb; }
+    .tip-box.potato { border-color: #ddd6fe; background: #faf5ff; }
     .tip-head {
       font-weight: 800; font-size: 13px; margin-bottom: 4px; display: flex; align-items: center; gap: 6px;
     }
@@ -123,10 +157,10 @@
 
     .theme-header {
       background: var(--surface-3); border-bottom: 1.5px solid var(--border);
-      padding: 12px 16px; display: flex; align-items: center; justify-content: space-between;
+      padding: 11px 15px; display: flex; align-items: center; justify-content: space-between;
     }
     .theme-title {
-      font-size: 15.5px; font-weight: 800; color: var(--ink); display: flex; align-items: center; gap: 8px;
+      font-size: 15px; font-weight: 800; color: var(--ink); display: flex; align-items: center; gap: 8px;
     }
     .theme-en {
       font-size: 11.5px; font-weight: 600; color: var(--ink-3);
@@ -142,18 +176,32 @@
       color: var(--ink-3); margin-bottom: 8px; display: flex; align-items: center; gap: 4px;
     }
     .phrase-item {
-      padding: 8px 0; border-bottom: 1px dashed var(--border);
+      padding: 10px 0; border-bottom: 1px dashed var(--border);
     }
     .phrase-item:last-child { border-bottom: none; padding-bottom: 0; }
-    .pi-ko {
-      font-size: 15px; font-weight: 800; color: var(--ink); line-height: 1.35;
+    .phrase-title-row {
+      font-size: 11.5px; font-weight: 700; color: var(--ink-3); margin-bottom: 4px;
     }
-    .pi-pron {
-      font-size: 11.5px; font-weight: 600; color: var(--orange); margin: 2px 0;
+
+    /* 3단계 표현 박스 */
+    .tier-stack {
+      display: flex; flex-direction: column; gap: 5px;
     }
-    .pi-en {
-      font-size: 12px; color: var(--ink-2); font-weight: 500;
+    .tier-row {
+      display: flex; align-items: flex-start; gap: 8px; font-size: 13.5px;
     }
+    .tier-badge {
+      flex: none; font-size: 10px; font-weight: 800; padding: 2px 6px; border-radius: 4px;
+      margin-top: 2px; text-transform: uppercase;
+    }
+    .tier-badge.easy { background: var(--green-bg); color: var(--green); border: 1px solid var(--green-border); }
+    .tier-badge.std { background: var(--orange-bg); color: var(--orange); border: 1px solid var(--orange-border); }
+    .tier-badge.pro { background: var(--purple-bg); color: var(--purple); border: 1px solid var(--purple-border); }
+
+    .tier-content { flex: 1; min-width: 0; }
+    .tier-ko { font-weight: 800; color: var(--ink); line-height: 1.35; }
+    .tier-pron { font-size: 11px; color: var(--orange); font-weight: 600; margin-top: 1px; }
+    .tier-en { font-size: 11.5px; color: var(--ink-2); font-weight: 500; }
 
     /* 단어장 박스 */
     .words-block {
@@ -171,7 +219,7 @@
 
     /* 팜플렛 꼬리말 */
     .sheet-footer {
-      margin-top: 32px; padding-top: 18px; border-top: 1.5px solid var(--border);
+      margin-top: 30px; padding-top: 16px; border-top: 1.5px solid var(--border);
       display: flex; align-items: center; justify-content: space-between; font-size: 12px; color: var(--ink-3);
     }
 
@@ -183,7 +231,7 @@
       .brochure-sheet {
         border: none; box-shadow: none; border-radius: 0; padding: 0;
       }
-      .sections-grid { gap: 16px; }
+      .sections-grid { gap: 14px; }
       .theme-card {
         border: 1px solid #94a3b8; page-break-inside: avoid; break-inside: avoid;
       }
@@ -191,31 +239,42 @@
       .words-block { background: #f8fafc; border: 1px solid #cbd5e1; }
       @page {
         size: A4;
-        margin: 12mm 12mm;
+        margin: 10mm 10mm;
       }
     }
 
     @media (max-width: 768px) {
-      .brochure-sheet { padding: 24px 18px; }
+      .brochure-sheet { padding: 22px 16px; }
       .sections-grid { grid-template-columns: 1fr; }
       .teacher-tips { grid-template-columns: 1fr; }
       .sheet-title { font-size: 22px; }
+      .top-actions-inner { flex-direction: column; align-items: flex-start; }
+      .top-btns { width: 100%; justify-content: space-between; }
     }
   </style>
 </head>
 <body>
 
-  <!-- 상단 컨트롤 (웹 화면에서만 노출, PDF 인쇄 시 자동 숨김) -->
+  <!-- 상단 컨트롤 바 (웹 화면에서만 노출, PDF 인쇄 시 자동 숨김) -->
   <header class="top-actions no-print">
     <div class="top-actions-inner">
       <div class="top-brand">
         <span>🧀🥔</span>
         <span>치즈감자 여행 한국어 포켓 팜플렛</span>
       </div>
+
       <div class="top-btns">
+        <!-- 난이도 필터 세그먼트 버튼 -->
+        <div class="level-filter" id="levelFilter">
+          <button type="button" class="btn-lvl lvl-all active" data-lvl="all">🌟 3단계 전체</button>
+          <button type="button" class="btn-lvl lvl-easy" data-lvl="easy">🟢 쉬운 버전</button>
+          <button type="button" class="btn-lvl lvl-std" data-lvl="std">🟡 보통 버전</button>
+          <button type="button" class="btn-lvl lvl-pro" data-lvl="pro">🟣 정확한 버전</button>
+        </div>
+
         <a href="record-travel.html" class="btn-link">🎙️ 직접 녹음하기</a>
         <button type="button" class="btn-print" onclick="window.print()">
-          🖨️ PDF 다운로드 / 인쇄하기
+          🖨️ PDF 다운로드 / 인쇄
         </button>
       </div>
     </div>
@@ -230,19 +289,26 @@
           <span class="badge-tag">POCKET GUIDE</span>
           <span class="badge-brand">CheesePotato · everykoreans.com</span>
         </div>
-        <h1 class="sheet-title">🇰🇷 여행 한국어 생존 가이드 & 단어장</h1>
-        <p class="sheet-subtitle">비행기 안에서 가볍게 읽고, 여행지에서 접어 들고 다니며 바로 써먹는 7대 실전 상황집</p>
+        <h1 class="sheet-title">🇰🇷 여행 한국어 3단계 생존 가이드 & 단어장</h1>
+        <p class="sheet-subtitle">비행기 안에서 가볍게 읽고, 여행지에서 접어 들고 다니며 상황에 맞게 꺼내 쓰는 7대 실전집</p>
+
+        <!-- 난이도 가이드 설명 -->
+        <div class="level-guide-bar">
+          <span class="lg-item"><span class="lg-dot easy"></span> <b>쉬운 버전:</b> 단어 위주, 가장 짧고 빠른 생존 표현</span>
+          <span class="lg-item"><span class="lg-dot std"></span> <b>보통 버전:</b> 일상에서 가장 자연스러운 추천 존댓말</span>
+          <span class="lg-item"><span class="lg-dot pro"></span> <b>정확한 버전:</b> 격식 있고 정중한 완벽한 문장</span>
+        </div>
       </div>
 
-      <!-- 치즈 & 감자 선생님 여행 팁 -->
+      <!-- 치즈 & 감자 선생님 여행 꿀팁 -->
       <div class="teacher-tips">
         <div class="tip-box cheese">
           <div class="tip-head">🧀 치즈 선생님의 상냥한 여행 꿀팁</div>
-          <div>"식당에서 직원을 부를 땐 가볍게 <b>‘여기요~’</b> 하거나 테이블의 벨을 누르시면 돼요! 물과 기본 반찬은 대부분 무료로 리필된답니다 💛"</div>
+          <div>"한국어가 서툴 땐 <b>‘쉬운 버전’</b>으로 핵심 단어 뒤에 <b>‘~요’</b>만 붙여도 한국 분들이 찰떡같이 알아들으세요! 물과 반찬은 대부분 무료 리필이니 편하게 말씀하세요 💛"</div>
         </div>
         <div class="tip-box potato">
           <div class="tip-head">🥔 감자 선생님의 확실한 여행 꿀팁</div>
-          <div>"대중교통 환승할 땐 내릴 때도 반드시 카드를 찍어라! 택시를 탈 땐 주소를 한국어로 지도 앱에 띄워 기사님께 바로 보여주는 게 가장 확실하다 ⚡"</div>
+          <div>"대중교통 환승할 땐 내릴 때도 반드시 카드를 찍어라! 택시 탈 땐 지도의 한국어 주소를 보여주고, 정중하게 말하고 싶다면 <b>‘정확한 버전’</b>을 연습해둬라 ⚡"</div>
         </div>
       </div>
 
@@ -261,61 +327,127 @@
   <script type="module">
     import { TRAVEL_CATEGORIES, TRAVEL_PHRASES, TRAVEL_VOCAB } from './travel-data.js';
 
-    const container = document.getElementById('sectionsGrid');
+    let currentLvl = 'all';
 
-    TRAVEL_CATEGORIES.forEach((cat) => {
-      const phrases = TRAVEL_PHRASES.filter(p => p.cat === cat.id);
-      const words = TRAVEL_VOCAB[cat.id] || [];
+    function renderGuide() {
+      const container = document.getElementById('sectionsGrid');
+      container.innerHTML = '';
 
-      const card = document.createElement('div');
-      card.className = 'theme-card';
+      TRAVEL_CATEGORIES.forEach((cat) => {
+        const phrases = TRAVEL_PHRASES.filter(p => p.cat === cat.id);
+        const words = TRAVEL_VOCAB[cat.id] || [];
 
-      // 상단 헤더
-      const head = `
-        <div class="theme-header">
-          <div class="theme-title">
-            <span>${cat.emoji}</span>
-            <span>${cat.ko}</span>
+        const card = document.createElement('div');
+        card.className = 'theme-card';
+
+        // 상단 헤더
+        const head = `
+          <div class="theme-header">
+            <div class="theme-title">
+              <span>${cat.emoji}</span>
+              <span>${cat.ko}</span>
+            </div>
+            <span class="theme-en">${cat.en}</span>
           </div>
-          <span class="theme-en">${cat.en}</span>
-        </div>
-      `;
+        `;
 
-      // 구문 목록 HTML
-      const phrasesHtml = phrases.map(p => `
-        <div class="phrase-item">
-          <div class="pi-ko">${p.ko}</div>
-          <div class="pi-pron">${p.pron}</div>
-          <div class="pi-en">${p.en}</div>
-        </div>
-      `).join('');
+        // 구문 목록 HTML
+        const phrasesHtml = phrases.map(p => {
+          let rowsHtml = '';
 
-      // 필수 단어 목록 HTML
-      const wordsHtml = words.map(w => `
-        <div class="word-item">
-          <span class="word-ko">${w.ko}</span>
-          <span class="word-en">(${w.en})</span>
-        </div>
-      `).join('');
+          if (currentLvl === 'all') {
+            rowsHtml = `
+              <div class="tier-stack">
+                <div class="tier-row">
+                  <span class="tier-badge easy">쉬움</span>
+                  <div class="tier-content">
+                    <div class="tier-ko">${p.easy.ko}</div>
+                    <div class="tier-pron">${p.easy.pron}</div>
+                    <div class="tier-en">${p.easy.en}</div>
+                  </div>
+                </div>
+                <div class="tier-row">
+                  <span class="tier-badge std">보통</span>
+                  <div class="tier-content">
+                    <div class="tier-ko">${p.std.ko}</div>
+                    <div class="tier-pron">${p.std.pron}</div>
+                    <div class="tier-en">${p.std.en}</div>
+                  </div>
+                </div>
+                <div class="tier-row">
+                  <span class="tier-badge pro">정확</span>
+                  <div class="tier-content">
+                    <div class="tier-ko">${p.pro.ko}</div>
+                    <div class="tier-pron">${p.pro.pron}</div>
+                    <div class="tier-en">${p.pro.en}</div>
+                  </div>
+                </div>
+              </div>
+            `;
+          } else {
+            const item = p[currentLvl];
+            const badgeName = currentLvl === 'easy' ? '쉬운 표현' : currentLvl === 'std' ? '보통 표현' : '정확한 표현';
+            rowsHtml = `
+              <div class="tier-stack">
+                <div class="tier-row">
+                  <span class="tier-badge ${currentLvl}">${badgeName}</span>
+                  <div class="tier-content">
+                    <div class="tier-ko" style="font-size:15px;">${item.ko}</div>
+                    <div class="tier-pron" style="font-size:12px;">${item.pron}</div>
+                    <div class="tier-en" style="font-size:12.5px;">${item.en}</div>
+                  </div>
+                </div>
+              </div>
+            `;
+          }
 
-      card.innerHTML = `
-        ${head}
-        <div class="theme-body">
-          <div class="phrases-block">
-            <h4>🗣️ 실전 핵심 구문</h4>
-            ${phrasesHtml}
+          return `
+            <div class="phrase-item">
+              <div class="phrase-title-row">${p.title}</div>
+              ${rowsHtml}
+            </div>
+          `;
+        }).join('');
+
+        // 필수 단어 목록 HTML
+        const wordsHtml = words.map(w => `
+          <div class="word-item">
+            <span class="word-ko">${w.ko}</span>
+            <span class="word-en">(${w.en})</span>
           </div>
-          <div class="words-block">
-            <h4>📚 필수 단어 (Vocabulary)</h4>
-            <div class="words-grid">
-              ${wordsHtml}
+        `).join('');
+
+        card.innerHTML = `
+          ${head}
+          <div class="theme-body">
+            <div class="phrases-block">
+              <h4>🗣️ 실전 구문 (${currentLvl === 'all' ? '3단계 비교' : currentLvl.toUpperCase()})</h4>
+              ${phrasesHtml}
+            </div>
+            <div class="words-block">
+              <h4>📚 필수 단어 (Vocabulary)</h4>
+              <div class="words-grid">
+                ${wordsHtml}
+              </div>
             </div>
           </div>
-        </div>
-      `;
+        `;
 
-      container.appendChild(card);
+        container.appendChild(card);
+      });
+    }
+
+    // 난이도 필터 버튼 이벤트
+    document.querySelectorAll('.btn-lvl').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.btn-lvl').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        currentLvl = btn.dataset.lvl;
+        renderGuide();
+      });
     });
+
+    renderGuide();
   </script>
 </body>
 </html>
