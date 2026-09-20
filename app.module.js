@@ -13,10 +13,10 @@
    어느 날 갑자기 다른 코드가 실려 왔다.
    이제 vendor/ 안에 받아 두고 CSP 로 바깥을 막는다. 버전을 올릴 때는
    tools/vendor.mjs 의 PIN 을 고치고 다시 돌린다. */
-import { createClient } from './vendor/supabase-js.js?v=5e13c78f';
+import { createClient } from './vendor/supabase-js.js?v=d8f78f04';
 // TOPIK 읽기 "문제 풀이 영상" 목록. 아주 작은 파일이라(id 목록뿐) 다른
 // 자료처럼 갈래를 열 때 지연 로딩하지 않고 그냥 처음부터 받는다.
-import { TQ_VIDEO_IDS } from './topik-video.js?v=5e13c78f';
+import { TQ_VIDEO_IDS } from './topik-video.js?v=d8f78f04';
 // 앱(package.json)과 같은 줄기를 쓴다. 갈리면 앱에서는 읽히는 파일이
 // 여기서는 안 읽히는(또는 그 반대) 일이 생긴다.
 /* 엑셀 라이브러리는 422KB — 이 판에서 가장 무거운 조각이다. 그런데 쓰는
@@ -28,13 +28,13 @@ import { TQ_VIDEO_IDS } from './topik-video.js?v=5e13c78f';
    자국(?v=)은 tools/stamp.mjs 가 아래 줄에 알아서 붙인다 — 정적으로 쓰든
    동적으로 쓰든 같은 글자를 찾으므로 바꿔도 그대로 찍힌다. */
 let XLSX = null;
-const needXLSX = async () => (XLSX ??= await import('./vendor/xlsx.js?v=5e13c78f'));
+const needXLSX = async () => (XLSX ??= await import('./vendor/xlsx.js?v=d8f78f04'));
 // 커리큘럼. 내용과 엔진을 갈라 두면 글을 고치다 화면을 깨지 않는다.
 // 갈래 목록(drawSections)·코스(drawCourses)·문제만 풀기(dqDraw) 를 열 때만
 // 받는다 — 배우기 갈래 목록도 안 본 사람에게 코스 71개 레슨을 다 물릴
 // 까닭이 없다. warmLearn() 이 배우기를 여는 순간 미리 불을 붙여 둔다.
 let COURSES = [], coursesP = null;
-const coursesNeed = () => (coursesP ??= import('./courses.js?v=5e13c78f').then((m) => { COURSES = m.COURSES; }));
+const coursesNeed = () => (coursesP ??= import('./courses.js?v=d8f78f04').then((m) => { COURSES = m.COURSES; }));
 /* 낱말 뜻풀이 356KB. 예전에는 여기서 통째로 받았다 — tqGloss 가 동기라
    지연 로딩이 안 된다고 보았기 때문이다. 그런데 tqGloss 를 부르는 자리를
    다 세어 보니 여덟 곳이고 **전부 사람이 무언가를 누른 뒤**였다(사전
@@ -45,7 +45,7 @@ const coursesNeed = () => (coursesP ??= import('./courses.js?v=5e13c78f').then((
    tqGloss 는 그대로 동기다 — 아직 안 왔으면 빈 뜻을 돌려주고, 부르는
    쪽은 이미 "사전에 없는 말"을 다룰 줄 안다. */
 let GLOSSARY = {}, GLOSS_LANGS = {}, glossP = null;
-const glossNeed = () => (glossP ??= import('./glossary.js?v=5e13c78f').then((m) => {
+const glossNeed = () => (glossP ??= import('./glossary.js?v=d8f78f04').then((m) => {
   GLOSSARY = m.GLOSSARY; GLOSS_LANGS = m.GLOSS_LANGS;
   dictBuildEntries();
 }).catch((e) => {
@@ -53,12 +53,12 @@ const glossNeed = () => (glossP ??= import('./glossary.js?v=5e13c78f').then((m) 
   glossP = null;
   throw e;
 }));
-import { glossFind } from './gloss-find.js?v=5e13c78f';
+import { glossFind } from './gloss-find.js?v=d8f78f04';
 /* 홈 화면 "오늘의 단어" 카드. 표제어·품사·짧은 뜻풀이 3개만 든
    작은 자료라(사전 전체 356KB 와 달리) 홈에 들어오면 바로 받는다 —
    빈 카드로 몇 초 떠 있는 것보다 낫다. */
 let WOTD_POOL = [], wotdP = null;
-const wotdNeed = () => (wotdP ??= import('./wotd.js?v=5e13c78f').then((m) => {
+const wotdNeed = () => (wotdP ??= import('./wotd.js?v=d8f78f04').then((m) => {
   WOTD_POOL = m.WOTD_POOL;
 }).catch((e) => { wotdP = null; throw e; }));
 /* 그날의 낱말을 고른다. 한국 자정을 기준으로 하루씩 넘어가게
@@ -92,9 +92,9 @@ window.wotdRender = wotdRender;
    나중 화면은 그 약속(??=)을 그대로 쓴다. */
 let GRAMMAR = [], GRAMMAR_EN = {}, grammarP = null;
 const grammarNeed = () => (grammarP ??= Promise.all([
-  import('./grammar.js?v=5e13c78f'), import('./grammar-en.js?v=5e13c78f'),
+  import('./grammar.js?v=d8f78f04'), import('./grammar-en.js?v=d8f78f04'),
 ]).then(([a, b]) => { GRAMMAR = a.GRAMMAR; GRAMMAR_EN = b.GRAMMAR_EN; }));
-import { grammarScan } from './grammar-find.js?v=5e13c78f';
+import { grammarScan } from './grammar-find.js?v=d8f78f04';
 // TOPIK 쓰기·듣기 문항. 읽기(topik.js·topik2.js)와 같은 tqNeedData() 로
 // 함께 받는다 — 유형 연습(topik) 갈래 하나가 세 기술을 다 쓰므로 따로
 // 가를 까닭이 없다. 값은 tqNeedData 정의부에서 채운다.
@@ -106,7 +106,7 @@ let TOPIKL_BY_EXAM = {}, TOPIKL_PICTURE_SLOTS = {};
    sbFind 를 쓰는데, 그쪽은 안 기다리고 그냥 부른다 — 답이 못 찾은
    인용 없이 나가는 것이 채팅이 멈추는 것보다 낫다. */
 let SB_CATS = [], SB_MORE = {}, SB_SEED = {}, SB_POINTS = [], sbDataP = null;
-const sbNeed = () => (sbDataP ??= import('./sentences.js?v=5e13c78f').then((m) => {
+const sbNeed = () => (sbDataP ??= import('./sentences.js?v=d8f78f04').then((m) => {
   SB_CATS = m.SB_CATS; SB_MORE = m.SB_MORE; SB_SEED = m.SB_SEED;
   // 갈래마다 표현을 펼쳐 한 줄에 담는다 — SB_CATS 안의 점에는 갈래가 안
   // 달려 있어서(sbFind 가 표현 하나를 id 로 바로 찾으려면 이게 있어야 한다).
@@ -117,7 +117,7 @@ const sbNeed = () => (sbDataP ??= import('./sentences.js?v=5e13c78f').then((m) =
 // 숫자 게임의 읽기와 문제 만들기. 화면을 모르는 순수 계산이라 따로 뒀다.
 // 게임 목록에서 「숫자 읽기」를 시작할 때만 받는다 — XLSX 와 같은 자리다.
 let makeRound = null;
-const needNumbers = async () => (makeRound ??= (await import('./numbers.js?v=5e13c78f')).makeRound);
+const needNumbers = async () => (makeRound ??= (await import('./numbers.js?v=d8f78f04')).makeRound);
 
 // 이 키는 공개돼도 되는 값이다. 이미 APK 안에 같은 것이 들어 있고,
 // 접근을 막는 건 키가 아니라 테이블에 걸린 RLS 다.
@@ -172,8 +172,8 @@ let tqDataP = null;
    유형 연습(topik) 갈래 하나가 이 넷을 다 쓰므로 갈라 봤자 요청만
    늘어난다. */
 const tqNeedData = () => (tqDataP ??= Promise.all([
-  import('./topik.js?v=5e13c78f'), import('./topik2.js?v=5e13c78f'),
-  import('./topik-writing.js?v=5e13c78f'), import('./topik-listening.js?v=5e13c78f'),
+  import('./topik.js?v=d8f78f04'), import('./topik2.js?v=d8f78f04'),
+  import('./topik-writing.js?v=d8f78f04'), import('./topik-listening.js?v=d8f78f04'),
 ]).then(([a, b, c, d]) => {
   TQ_DATA.I  = { reading: a.TOPIK_READING,  blueprint: a.TOPIK_BLUEPRINT,  slots: a.TOPIK_SLOTS };
   TQ_DATA.II = { reading: b.TOPIK2_READING, blueprint: b.TOPIK2_BLUEPRINT, slots: b.TOPIK2_SLOTS };
@@ -184,11 +184,11 @@ const tqNeedData = () => (tqDataP ??= Promise.all([
 let READING = null, rdP = null;
 // 지문의 밑줄 문법 말풍선이 GRAMMAR 를 쓰므로 같이 받아 둔다.
 const rdNeed = () => (rdP ??= Promise.all([
-  import('./reading.js?v=5e13c78f'), grammarNeed(),
+  import('./reading.js?v=d8f78f04'), grammarNeed(),
 ]).then(([m]) => { READING = m.READING; }));
 
 let CONVO = null, cvP = null;
-const cvNeed = () => (cvP ??= import('./convo.js?v=5e13c78f').then((m) => { CONVO = m.CONVO; }));
+const cvNeed = () => (cvP ??= import('./convo.js?v=d8f78f04').then((m) => { CONVO = m.CONVO; }));
 
 /* 배우기를 열면 여섯 다 미리 불을 붙인다. 기다리지 않는다 — 갈래 목록은
    이 자료가 없어도 그려지고, 사람이 갈래를 고르는 사이에 도착한다.
@@ -608,14 +608,14 @@ let dictOpen = null;  // 지금 "더 보기"(예문·뜻풀이)를 펼쳐 둔 �
    평소엔 안 쓰는 522KB 를 첫 화면 모두에게 물릴 까닭이 없다. */
 let dictSensesP = null;
 const dictLoadSenses = () => (dictSensesP ??=
-  import('./glossary-senses.js?v=5e13c78f').then((m) => m.SENSES).catch(() => ({})));
+  import('./glossary-senses.js?v=d8f78f04').then((m) => m.SENSES).catch(() => ({})));
 
 /* 예문. 국립국어원 자료엔 없어서 Gemini 로 새로 지은 것이다(있는 만큼만
    — docs/glossary-examples-gemini-prompt.md 참고). 뜻풀이와 같은 자리에서
    같이 받는다 — 펼치는 손짓 하나에 몰아 두는 편이 화면이 덜 복잡하다. */
 let dictExamplesP = null;
 const dictLoadExamples = () => (dictExamplesP ??=
-  import('./glossary-examples.js?v=5e13c78f').then((m) => m.EXAMPLES).catch(() => ({})));
+  import('./glossary-examples.js?v=d8f78f04').then((m) => m.EXAMPLES).catch(() => ({})));
 
 function dictVisible() {
   const q = dictQuery.trim().toLowerCase();
@@ -2719,6 +2719,15 @@ const LEARN_SECTIONS = [
              en: 'Answer for yourself, inside a real situation' },
     blurb: { ko: '카페·병원 같은 상황에서 상대 말에 직접 대답해 봅니다. 보기 넷 중 고르는 게 아니에요.',
              en: 'Someone speaks to you in a real situation — cafe, hospital — and you answer in your own words.' },
+  },
+  {
+    id: 'travel', emoji: '✈️', ready: true, pane: 'tvWrap',
+    lv:    { ko: '여행',            en: 'TRAVEL' },
+    title: { ko: '여행 한국어',      en: 'Travel Korean' },
+    tag:   { ko: '공항·교통·숙소·식당·쇼핑 3단계 실전 회화',
+             en: 'Essential 3-tier survival phrases for Korea' },
+    blurb: { ko: '쉬운 말, 보통 말, 정확한 말 3단계로 바로 써먹는 실전 여행 한국어와 필수 단어를 익힙니다.',
+             en: 'Learn survival phrases across Easy, Standard, and Accurate levels with essential vocab.' },
   },
 ];
 
@@ -9054,6 +9063,183 @@ function cvDoneBlock(c) {
   return box;
 }
 
+/* ── 여행 한국어 (Travel Korean) ───────────────────────────────
+   공항·교통·숙소·식당·쇼핑·관광·긴급 7대 상황별
+   쉬운 말 / 보통 말 / 정확한 말 3단계 실전 구문과 필수 단어장. */
+let TRAVEL_CATEGORIES = null;
+let TRAVEL_PHRASES = null;
+let TRAVEL_VOCAB = null;
+let tvP = null;
+const tvNeed = () => (tvP ??= import('./travel-data.js').then((m) => {
+  TRAVEL_CATEGORIES = m.TRAVEL_CATEGORIES;
+  TRAVEL_PHRASES = m.TRAVEL_PHRASES;
+  TRAVEL_VOCAB = m.TRAVEL_VOCAB;
+}));
+
+let tvLvl = 'std'; // 'easy' | 'std' | 'pro' | 'all'
+let tvCat = 'all'; // 'all' | 'air' | 'trans' | 'hotel' | 'dine' | 'shop' | 'tour' | 'help'
+
+async function drawTravel() {
+  await tvNeed();
+  if (!$('tvWrap') || $('tvWrap').classList.contains('hidden')) return;
+
+  $('tvIntro').textContent = t(
+    '공항 도착부터 식당 주문, 길 찾기까지 — 실전 여행 한국어를 쉬운 말, 보통 말, 정확한 말 3단계로 바로 익혀보세요.',
+    'From airport arrival to dining & directions — master practical travel Korean across Easy, Standard, and Accurate levels.'
+  );
+
+  // 1. 상단 난이도 토글 버튼 바 (#tvLevel)
+  const lvlBox = $('tvLevel');
+  lvlBox.textContent = '';
+  const lvls = [
+    { id: 'easy', ko: '🟢 쉬운 버전 (단어)', en: '🟢 Easy (Keywords)' },
+    { id: 'std',  ko: '🟡 보통 버전 (존댓말)', en: '🟡 Standard (Polite)' },
+    { id: 'pro',  ko: '🟣 정확한 버전 (격식)', en: '🟣 Accurate (Formal)' },
+    { id: 'all',  ko: '📋 3단계 전체', en: '📋 All 3 Tiers' },
+  ];
+  const segWrap = document.createElement('div');
+  segWrap.className = 'diff-seg';
+  lvls.forEach((l) => {
+    const btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = `seg-btn${tvLvl === l.id ? ' active' : ''}`;
+    btn.textContent = t(l.ko, l.en);
+    btn.addEventListener('click', () => {
+      tvLvl = l.id;
+      drawTravel();
+    });
+    segWrap.appendChild(btn);
+  });
+  lvlBox.appendChild(segWrap);
+
+  // 2. 카테고리 탭 (#tvCats)
+  const catBox = $('tvCats');
+  catBox.textContent = '';
+  const allTab = document.createElement('button');
+  allTab.type = 'button';
+  allTab.className = `tv-cat-btn${tvCat === 'all' ? ' active' : ''}`;
+  allTab.textContent = t(`🌟 전체 (${TRAVEL_PHRASES.length})`, `🌟 All (${TRAVEL_PHRASES.length})`);
+  allTab.addEventListener('click', () => { tvCat = 'all'; drawTravel(); });
+  catBox.appendChild(allTab);
+
+  TRAVEL_CATEGORIES.forEach((c) => {
+    const count = TRAVEL_PHRASES.filter((p) => p.cat === c.id).length;
+    const b = document.createElement('button');
+    b.type = 'button';
+    b.className = `tv-cat-btn${tvCat === c.id ? ' active' : ''}`;
+    b.textContent = `${c.emoji} ${t(c.ko, c.en)} (${count})`;
+    b.addEventListener('click', () => { tvCat = c.id; drawTravel(); });
+    catBox.appendChild(b);
+  });
+
+  // 3. 구문 목록 (#tvList)
+  const listBox = $('tvList');
+  listBox.textContent = '';
+
+  const list = tvCat === 'all' ? TRAVEL_PHRASES : TRAVEL_PHRASES.filter((p) => p.cat === tvCat);
+
+  list.forEach((p) => {
+    const card = document.createElement('div');
+    card.className = 'tv-card';
+
+    // 활성화된 버전 텍스트
+    const curItem = tvLvl === 'all' ? p.std : (p[tvLvl] || p.std);
+    const badgeTxt = tvLvl === 'easy' ? t('쉬운 말', 'Easy') : tvLvl === 'std' ? t('보통 말', 'Standard') : tvLvl === 'pro' ? t('정확한 말', 'Accurate') : t('기본', 'Standard');
+    const badgeCls = tvLvl === 'all' ? 'std' : tvLvl;
+
+    const top = document.createElement('div');
+    top.className = 'tv-card-top';
+    top.innerHTML = `<span class="tv-card-title">${esc(p.title)}</span><span class="tv-card-badge ${badgeCls}">${esc(badgeTxt)}</span>`;
+    card.appendChild(top);
+
+    // 전체 비교 모드 vs 단일 모드
+    if (tvLvl === 'all') {
+      const stack = document.createElement('div');
+      stack.style.cssText = 'display:flex; flex-direction:column; gap:6px; margin:4px 0;';
+      [
+        { key: 'easy', ko: '쉬움', item: p.easy },
+        { key: 'std',  ko: '보통', item: p.std },
+        { key: 'pro',  ko: '정확', item: p.pro },
+      ].forEach((row) => {
+        const r = document.createElement('div');
+        r.style.cssText = 'display:flex; align-items:flex-start; gap:8px; font-size:13px;';
+        r.innerHTML = `<span class="tv-card-badge ${row.key}" style="flex:none; margin-top:2px;">${row.ko}</span>` +
+                      `<div style="flex:1; min-width:0;"><b style="color:var(--ink);">${esc(row.item.ko)}</b> <span style="font-size:11px; color:var(--orange-deep);">${esc(row.item.pron)}</span><div style="font-size:11.5px; color:var(--ink-2);">${esc(row.item.en)}</div></div>`;
+        stack.appendChild(r);
+      });
+      card.appendChild(stack);
+    } else {
+      const koEl = document.createElement('div');
+      koEl.className = 'tv-ko-line';
+      koEl.textContent = curItem.ko;
+
+      const pronEl = document.createElement('div');
+      pronEl.className = 'tv-pron-line';
+      pronEl.textContent = curItem.pron;
+
+      const enEl = document.createElement('div');
+      enEl.className = 'tv-en-line';
+      enEl.textContent = curItem.en;
+
+      card.append(koEl, pronEl, enEl);
+    }
+
+    if (p.tip) {
+      const tipEl = document.createElement('div');
+      tipEl.style.cssText = 'font-size:12px; color:var(--ink-3); margin-top:2px;';
+      tipEl.textContent = `💡 ${p.tip}`;
+      card.appendChild(tipEl);
+    }
+
+    // 카드 하단: 듣기 버튼 & 단어장 추가 버튼
+    const btm = document.createElement('div');
+    btm.className = 'tv-card-bottom';
+
+    const audioBtn = document.createElement('button');
+    audioBtn.type = 'button';
+    audioBtn.className = 'tv-btn-audio';
+    audioBtn.innerHTML = `<span>🔊</span><span>${esc(t('듣기', 'Listen'))}</span>`;
+    audioBtn.addEventListener('click', () => {
+      tlSpeak(curItem.ko);
+    });
+
+    const addWbBtn = document.createElement('button');
+    addWbBtn.type = 'button';
+    addWbBtn.className = 'tv-btn-wb';
+    addWbBtn.textContent = t('+ 단어장 담기', '+ Save word');
+    addWbBtn.addEventListener('click', () => {
+      addWord({ word: curItem.ko, mean: curItem.en, pos: t('구문', 'phrase'), lv: 1 });
+      toast(t(`「${curItem.ko}」을(를) 단어장에 담았어요.`, `Saved “${curItem.ko}” to wordbook.`));
+    });
+
+    btm.append(audioBtn, addWbBtn);
+    card.appendChild(btm);
+
+    listBox.appendChild(card);
+  });
+
+  // 4. 해당 카테고리의 필수 단어장 박스
+  const vocabCat = tvCat === 'all' ? 'dine' : tvCat;
+  const words = TRAVEL_VOCAB[vocabCat] || [];
+  if (words.length) {
+    const vSec = document.createElement('div');
+    vSec.className = 'tv-vocab-section';
+    const catObj = TRAVEL_CATEGORIES.find((c) => c.id === vocabCat);
+    vSec.innerHTML = `<div class="tv-vocab-title"><span>📚</span><span>${esc(catObj ? t(catObj.ko, catObj.en) : '')} ${esc(t('필수 단어장', 'Key Vocabulary'))}</span></div>`;
+
+    const chips = document.createElement('div');
+    chips.className = 'tv-vocab-chips';
+    words.forEach((w) => {
+      const chip = document.createElement('div');
+      chip.className = 'tv-vocab-chip';
+      chip.innerHTML = `<b>${esc(w.ko)}</b><span>(${esc(w.en)})</span>`;
+      chips.appendChild(chip);
+    });
+    vSec.appendChild(chips);
+    listBox.appendChild(vSec);
+  }
+}
+
 /* ── 갈래 사용법 안내 ──────────────────────────────────────────
    갈래마다 「무엇을 하는 곳이고 어떻게 쓰는지」를 세 걸음으로 적는다.
 
@@ -9065,6 +9251,17 @@ function cvDoneBlock(c) {
    스크롤해 가며 읽는 사람은 없다. 꼭 짚어야 하는데 걸음이 아닌 것(모의고사를
    도중에 나가면 기록이 안 남는다 같은 것)은 warn 에 따로 적는다. */
 const GUIDES = {
+  travel: {
+    emoji: '✈️',
+    steps: [
+      { ko: ['상황 고르기', '공항·교통·식당·쇼핑 등 지금 마주친 여행 상황을 탭하세요.'],
+        en: ['Pick a situation', 'Tap the situation you are facing right now — airport, transit, dining, etc.'] },
+      { ko: ['난이도 버전 선택', '생초보는 쉬운 말(단어), 기본은 보통 말, 격식은 정확한 말을 골라 연습하세요.'],
+        en: ['Choose your level', 'Pick Easy for keywords, Standard for polite conversation, or Accurate for formal Korean.'] },
+      { ko: ['소리 듣고 바로 말하기', '소리를 듣고 따라 말해보세요. 팜플렛을 다운로드해 여행 중에 들고 다닐 수도 있어요.'],
+        en: ['Listen and speak', 'Listen to native pronunciation. You can also download the PDF brochure to take with you.'] },
+    ],
+  },
   courses: {
     emoji: '📚',
     steps: [
@@ -9238,6 +9435,7 @@ async function openSection(id, quiet) {
       if (s.id === 'quiz') dqDraw();
       if (s.id === 'reading') drawReading();
       if (s.id === 'convo') drawConvo();
+      if (s.id === 'travel') drawTravel();
       if (s.id === 'notes') { ntMemoDraw(); notesSync(); }
       if (s.id === 'sentence') {
         await sbNeed();
@@ -12393,10 +12591,10 @@ $('ltPurposeGrid').addEventListener('click', (ev) => {
    빠지고, 고쳐 올려도 브라우저가 예전 문제를 계속 들고 있게 된다. */
 let LT_CUSTOM = { overall: [], reading: [], writing: [], listening: [] };
 let ltCustomOverallP = null, ltCustomReadingP = null, ltCustomWritingP = null, ltCustomListeningP = null;
-const ltCustomOverallNeed = () => (ltCustomOverallP ??= import('./leveltest-overall.js?v=5e13c78f').then((m) => { LT_CUSTOM.overall = m.LT_CUSTOM_OVERALL; }));
-const ltCustomReadingNeed = () => (ltCustomReadingP ??= import('./leveltest-reading.js?v=5e13c78f').then((m) => { LT_CUSTOM.reading = m.LT_CUSTOM_READING; }));
-const ltCustomWritingNeed = () => (ltCustomWritingP ??= import('./leveltest-writing.js?v=5e13c78f').then((m) => { LT_CUSTOM.writing = m.LT_CUSTOM_WRITING; }));
-const ltCustomListeningNeed = () => (ltCustomListeningP ??= import('./leveltest-listening.js?v=5e13c78f').then((m) => { LT_CUSTOM.listening = m.LT_CUSTOM_LISTENING; }));
+const ltCustomOverallNeed = () => (ltCustomOverallP ??= import('./leveltest-overall.js?v=d8f78f04').then((m) => { LT_CUSTOM.overall = m.LT_CUSTOM_OVERALL; }));
+const ltCustomReadingNeed = () => (ltCustomReadingP ??= import('./leveltest-reading.js?v=d8f78f04').then((m) => { LT_CUSTOM.reading = m.LT_CUSTOM_READING; }));
+const ltCustomWritingNeed = () => (ltCustomWritingP ??= import('./leveltest-writing.js?v=d8f78f04').then((m) => { LT_CUSTOM.writing = m.LT_CUSTOM_WRITING; }));
+const ltCustomListeningNeed = () => (ltCustomListeningP ??= import('./leveltest-listening.js?v=d8f78f04').then((m) => { LT_CUSTOM.listening = m.LT_CUSTOM_LISTENING; }));
 const LT_CUSTOM_NEED = {
   overall: ltCustomOverallNeed, reading: ltCustomReadingNeed,
   writing: ltCustomWritingNeed, listening: ltCustomListeningNeed,

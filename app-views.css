@@ -3368,3 +3368,96 @@
   margin-left: 8px; margin-right: auto; align-self: center;
 }
 .lsec-help:hover { color: var(--orange-deep); border-color: var(--orange); }
+
+/* ── 여행 한국어 (Travel Korean) 섹션 스타일 ─────────────── */
+.tv-hd-bar {
+  display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap;
+  margin-bottom: 12px;
+}
+.tv-ext-links { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.tv-ext-btn {
+  display: inline-flex; align-items: center; gap: 6px; padding: 7px 14px;
+  background: var(--surface); border: 1.5px solid var(--line); border-radius: var(--r);
+  font-size: 13px; font-weight: 700; color: var(--ink-2); text-decoration: none;
+  transition: all .16s ease;
+}
+.tv-ext-btn:hover { border-color: var(--orange); color: var(--orange-deep); transform: translateY(-1px); }
+
+.tv-cats-bar {
+  display: flex; gap: 8px; overflow-x: auto; padding: 8px 0 14px; margin-top: 8px;
+  scrollbar-width: thin;
+}
+.tv-cat-btn {
+  display: inline-flex; align-items: center; gap: 6px; padding: 8px 16px;
+  background: var(--surface); border: 1.5px solid var(--line); border-radius: 999px;
+  font-size: 13px; font-weight: 700; color: var(--ink-2); cursor: pointer;
+  white-space: nowrap; transition: all .16s ease;
+}
+.tv-cat-btn:hover { border-color: var(--orange); }
+.tv-cat-btn.active {
+  background: var(--orange); border-color: var(--orange); color: #fff;
+  box-shadow: 0 4px 12px rgba(255, 145, 77, 0.25);
+}
+
+.tv-content-list {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 16px; margin-top: 18px;
+}
+.tv-card {
+  background: var(--surface); border: 1.5px solid var(--line); border-radius: var(--r-l);
+  padding: 20px; display: flex; flex-direction: column; gap: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,.02); transition: border-color .16s ease;
+}
+.tv-card:hover { border-color: rgba(255, 145, 77, 0.5); }
+.tv-card-top {
+  display: flex; align-items: center; justify-content: space-between; gap: 8px;
+}
+.tv-card-title { font-size: 12px; font-weight: 700; color: var(--ink-3); }
+.tv-card-badge {
+  font-size: 10.5px; font-weight: 800; padding: 2px 6px; border-radius: 4px;
+}
+.tv-card-badge.easy { background: rgba(18, 112, 79, 0.08); color: var(--green); }
+.tv-card-badge.std { background: rgba(255, 145, 77, 0.12); color: var(--orange-deep); }
+.tv-card-badge.pro { background: rgba(139, 92, 246, 0.1); color: #7c3aed; }
+
+.tv-ko-line {
+  font-size: 20px; font-weight: 800; color: var(--ink); line-height: 1.35; word-break: keep-all;
+}
+.tv-pron-line { font-size: 13px; font-weight: 600; color: var(--orange-deep); margin-top: 2px; }
+.tv-en-line { font-size: 13.5px; color: var(--ink-2); line-height: 1.4; }
+
+.tv-card-bottom {
+  display: flex; align-items: center; justify-content: space-between; gap: 10px;
+  margin-top: 6px; padding-top: 12px; border-top: 1px solid var(--line-2);
+}
+.tv-btn-audio {
+  display: inline-flex; align-items: center; gap: 6px; padding: 7px 12px;
+  border-radius: var(--r); border: 1.5px solid var(--line); background: var(--surface);
+  font-size: 12.5px; font-weight: 700; color: var(--ink); cursor: pointer;
+  transition: all .15s ease;
+}
+.tv-btn-audio:hover { border-color: var(--orange); color: var(--orange-deep); }
+.tv-btn-wb {
+  border: none; background: transparent; font-size: 12px; font-weight: 700;
+  color: var(--ink-3); cursor: pointer; padding: 6px 8px;
+}
+.tv-btn-wb:hover { color: var(--ink); }
+
+/* 하단 상황별 필수 단어장 박스 */
+.tv-vocab-section {
+  grid-column: 1 / -1; background: var(--surface-2); border: 1.5px solid var(--line-2);
+  border-radius: var(--r-l); padding: 18px 20px; margin-top: 10px;
+}
+.tv-vocab-title {
+  font-size: 13.5px; font-weight: 800; color: var(--ink); margin-bottom: 12px;
+  display: flex; align-items: center; gap: 6px;
+}
+.tv-vocab-chips {
+  display: flex; flex-wrap: wrap; gap: 8px;
+}
+.tv-vocab-chip {
+  background: var(--surface); border: 1px solid var(--line); border-radius: 8px;
+  padding: 6px 12px; font-size: 12.5px;
+}
+.tv-vocab-chip b { color: var(--ink); }
+.tv-vocab-chip span { color: var(--ink-3); font-size: 11.5px; margin-left: 4px; }

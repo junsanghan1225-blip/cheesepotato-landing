@@ -24,6 +24,7 @@
       --purple-bg: #f5f3ff;
       --purple-border: #ddd6fe;
       --radius: 12px;
+      --shadow: 0 4px 20px -4px rgba(0, 0, 0, 0.06);
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -33,12 +34,12 @@
       padding-bottom: 60px;
     }
 
-    /* ── 상단 네비 & 컨트롤 (화면 전용) ──────────────── */
+    /* ── 상단 고정 네비 (화면 전용) ────────────────── */
     .top-actions {
       position: sticky; top: 0; z-index: 100;
-      background: rgba(255, 255, 255, 0.94);
-      -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);
-      border-bottom: 1px solid var(--border); padding: 12px 20px;
+      background: rgba(255, 255, 255, 0.95);
+      -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border); padding: 12px 24px;
     }
     .top-actions-inner {
       max-width: 1060px; margin: 0 auto;
@@ -47,34 +48,16 @@
     .top-brand {
       display: flex; align-items: center; gap: 8px; font-weight: 800; font-size: 15px; color: var(--ink);
     }
+    .top-brand span.logo { font-size: 20px; }
     .top-btns {
       display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
     }
 
-    /* 난이도 모드 선택 세그먼트 */
-    .level-filter {
-      display: flex; align-items: center; gap: 4px; background: var(--surface-3);
-      padding: 4px; border-radius: 999px; border: 1px solid var(--border);
-    }
-    .btn-lvl {
-      border: none; background: transparent; padding: 6px 12px; border-radius: 999px;
-      font-size: 12.5px; font-weight: 700; color: var(--ink-2); cursor: pointer;
-      transition: all .15s ease;
-    }
-    .btn-lvl:hover { color: var(--ink); }
-    .btn-lvl.active {
-      background: #fff; color: var(--ink); box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
-    }
-    .btn-lvl.active.lvl-all { color: var(--ink); }
-    .btn-lvl.active.lvl-easy { color: #059669; }
-    .btn-lvl.active.lvl-std { color: #d97706; }
-    .btn-lvl.active.lvl-pro { color: #7c3aed; }
-
     .btn-print {
-      display: inline-flex; align-items: center; gap: 6px; padding: 8px 16px;
+      display: inline-flex; align-items: center; gap: 6px; padding: 8px 18px;
       border-radius: 999px; border: none; background: var(--orange); color: #fff;
       font-size: 13.5px; font-weight: 700; cursor: pointer;
-      box-shadow: 0 4px 12px rgba(234, 88, 12, 0.25); transition: all .15s ease;
+      box-shadow: 0 4px 14px rgba(234, 88, 12, 0.28); transition: all .15s ease;
     }
     .btn-print:hover { background: #c2410c; transform: translateY(-1px); }
     .btn-link {
@@ -85,9 +68,42 @@
     }
     .btn-link:hover { border-color: var(--orange); color: var(--orange); }
 
+    /* ── 메인 대형 세그먼트 토글 바 (화면 전용) ───────── */
+    .toggle-section {
+      max-width: 1040px; margin: 24px auto 0; padding: 0 16px;
+    }
+    .toggle-card {
+      background: var(--surface); border: 1.5px solid var(--border); border-radius: 16px;
+      padding: 18px 22px; box-shadow: var(--shadow);
+      display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap;
+    }
+    .toggle-label {
+      display: flex; flex-direction: column; gap: 2px;
+    }
+    .toggle-label h3 { font-size: 15px; font-weight: 800; color: var(--ink); }
+    .toggle-label p { font-size: 12px; color: var(--ink-3); }
+
+    .segmented-control {
+      display: flex; align-items: center; background: var(--surface-3);
+      padding: 5px; border-radius: 12px; border: 1px solid var(--border); gap: 4px;
+    }
+    .seg-btn {
+      display: flex; align-items: center; gap: 6px; border: none; background: transparent;
+      padding: 8px 16px; border-radius: 9px; font-size: 13px; font-weight: 700;
+      color: var(--ink-2); cursor: pointer; transition: all .18s ease; white-space: nowrap;
+    }
+    .seg-btn:hover { color: var(--ink); }
+    .seg-btn.active {
+      background: #fff; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    }
+    .seg-btn.active.is-easy { color: #059669; }
+    .seg-btn.active.is-std { color: #ea580c; }
+    .seg-btn.active.is-pro { color: #7c3aed; }
+    .seg-btn.active.is-all { color: var(--ink); }
+
     /* ── 팜플렛 문서 본체 (A4 규격) ────────────────── */
     .brochure-wrap {
-      max-width: 1040px; margin: 24px auto 0; padding: 0 16px;
+      max-width: 1040px; margin: 18px auto 0; padding: 0 16px;
     }
     .brochure-sheet {
       background: #fff; border: 1px solid var(--border); border-radius: 18px;
@@ -116,17 +132,13 @@
       font-size: 14px; color: var(--ink-2); font-weight: 500; word-break: keep-all;
     }
 
-    /* 난이도 안내 바 */
-    .level-guide-bar {
-      display: flex; align-items: center; justify-content: center; gap: 16px; flex-wrap: wrap;
-      margin: 14px 0 0; padding: 10px 14px; background: var(--surface-2); border-radius: 10px;
-      font-size: 12px; color: var(--ink-2); border: 1px solid var(--border);
+    /* 난이도 안내 배너 */
+    .mode-status-banner {
+      display: flex; align-items: center; justify-content: center; gap: 8px;
+      margin-top: 14px; padding: 10px 16px; border-radius: 10px; font-size: 12.5px; font-weight: 600;
+      background: var(--surface-2); border: 1px solid var(--border);
     }
-    .lg-item { display: flex; align-items: center; gap: 6px; font-weight: 600; }
-    .lg-dot { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
-    .lg-dot.easy { background: var(--green); }
-    .lg-dot.std { background: var(--orange); }
-    .lg-dot.pro { background: var(--purple); }
+    .mode-status-banner b { font-weight: 800; }
 
     /* 치즈 & 감자 선생님 꿀팁 박스 */
     .teacher-tips {
@@ -170,38 +182,82 @@
       padding: 16px; display: flex; flex-direction: column; gap: 14px; flex: 1;
     }
 
-    /* 필수 구문 목록 */
+    /* 필수 구문 블록 */
     .phrases-block h4, .words-block h4 {
       font-size: 11.5px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.5px;
       color: var(--ink-3); margin-bottom: 8px; display: flex; align-items: center; gap: 4px;
     }
     .phrase-item {
-      padding: 10px 0; border-bottom: 1px dashed var(--border);
+      padding: 12px 0; border-bottom: 1px dashed var(--border);
+      display: flex; flex-direction: column; gap: 6px;
     }
     .phrase-item:last-child { border-bottom: none; padding-bottom: 0; }
-    .phrase-title-row {
-      font-size: 11.5px; font-weight: 700; color: var(--ink-3); margin-bottom: 4px;
+
+    /* 구문 헤더 & 미니 토글 */
+    .pi-top {
+      display: flex; align-items: center; justify-content: space-between; gap: 8px;
+    }
+    .pi-title {
+      font-size: 12px; font-weight: 700; color: var(--ink-3);
     }
 
-    /* 3단계 표현 박스 */
-    .tier-stack {
-      display: flex; flex-direction: column; gap: 5px;
+    /* 구문별 인라인 미니 토글 (화면 전용) */
+    .item-toggle {
+      display: flex; align-items: center; background: var(--surface-2); border: 1px solid var(--border);
+      border-radius: 6px; padding: 2px; gap: 2px;
     }
-    .tier-row {
-      display: flex; align-items: flex-start; gap: 8px; font-size: 13.5px;
+    .it-btn {
+      border: none; background: transparent; font-size: 10.5px; font-weight: 700;
+      padding: 2px 6px; border-radius: 4px; color: var(--ink-3); cursor: pointer;
+      transition: all .12s ease;
     }
-    .tier-badge {
-      flex: none; font-size: 10px; font-weight: 800; padding: 2px 6px; border-radius: 4px;
+    .it-btn:hover { color: var(--ink); }
+    .it-btn.active.easy { background: var(--green-bg); color: #059669; font-weight: 800; }
+    .it-btn.active.std { background: var(--orange-bg); color: #ea580c; font-weight: 800; }
+    .it-btn.active.pro { background: var(--purple-bg); color: #7c3aed; font-weight: 800; }
+
+    /* 단일 버전 노출 스타일 */
+    .single-tier-view {
+      display: flex; flex-direction: column; gap: 2px;
+    }
+    .stv-badge {
+      align-self: flex-start; font-size: 10px; font-weight: 800; padding: 1px 6px;
+      border-radius: 4px; text-transform: uppercase; margin-bottom: 3px;
+    }
+    .stv-badge.easy { background: var(--green-bg); color: var(--green); border: 1px solid var(--green-border); }
+    .stv-badge.std { background: var(--orange-bg); color: var(--orange); border: 1px solid var(--orange-border); }
+    .stv-badge.pro { background: var(--purple-bg); color: var(--purple); border: 1px solid var(--purple-border); }
+
+    .stv-ko {
+      font-size: 16px; font-weight: 800; color: var(--ink); line-height: 1.35;
+    }
+    .stv-pron {
+      font-size: 12px; color: var(--orange); font-weight: 600;
+    }
+    .stv-en {
+      font-size: 12.5px; color: var(--ink-2); font-weight: 500;
+    }
+
+    /* 3단계 전체 비교 노출 스타일 */
+    .all-tier-stack {
+      display: flex; flex-direction: column; gap: 6px; background: var(--surface-2);
+      border-radius: 8px; padding: 8px 10px; border: 1px solid var(--border);
+    }
+    .all-tier-row {
+      display: flex; align-items: flex-start; gap: 8px; font-size: 13px;
+    }
+    .atr-badge {
+      flex: none; font-size: 9.5px; font-weight: 800; padding: 1px 5px; border-radius: 3px;
       margin-top: 2px; text-transform: uppercase;
     }
-    .tier-badge.easy { background: var(--green-bg); color: var(--green); border: 1px solid var(--green-border); }
-    .tier-badge.std { background: var(--orange-bg); color: var(--orange); border: 1px solid var(--orange-border); }
-    .tier-badge.pro { background: var(--purple-bg); color: var(--purple); border: 1px solid var(--purple-border); }
+    .atr-badge.easy { background: var(--green-bg); color: var(--green); border: 1px solid var(--green-border); }
+    .atr-badge.std { background: var(--orange-bg); color: var(--orange); border: 1px solid var(--orange-border); }
+    .atr-badge.pro { background: var(--purple-bg); color: var(--purple); border: 1px solid var(--purple-border); }
 
-    .tier-content { flex: 1; min-width: 0; }
-    .tier-ko { font-weight: 800; color: var(--ink); line-height: 1.35; }
-    .tier-pron { font-size: 11px; color: var(--orange); font-weight: 600; margin-top: 1px; }
-    .tier-en { font-size: 11.5px; color: var(--ink-2); font-weight: 500; }
+    .atr-content { flex: 1; min-width: 0; }
+    .atr-ko { font-weight: 800; color: var(--ink); line-height: 1.3; }
+    .atr-pron { font-size: 10.5px; color: var(--orange); font-weight: 600; }
+    .atr-en { font-size: 11px; color: var(--ink-2); font-weight: 500; }
 
     /* 단어장 박스 */
     .words-block {
@@ -248,37 +304,54 @@
       .sections-grid { grid-template-columns: 1fr; }
       .teacher-tips { grid-template-columns: 1fr; }
       .sheet-title { font-size: 22px; }
-      .top-actions-inner { flex-direction: column; align-items: flex-start; }
-      .top-btns { width: 100%; justify-content: space-between; }
+      .toggle-card { flex-direction: column; align-items: flex-start; }
+      .segmented-control { width: 100%; overflow-x: auto; }
+      .seg-btn { flex: 1; justify-content: center; }
     }
   </style>
 </head>
 <body>
 
-  <!-- 상단 컨트롤 바 (웹 화면에서만 노출, PDF 인쇄 시 자동 숨김) -->
+  <!-- 상단 네비 바 (화면 전용) -->
   <header class="top-actions no-print">
     <div class="top-actions-inner">
       <div class="top-brand">
-        <span>🧀🥔</span>
+        <span class="logo">🧀🥔</span>
         <span>치즈감자 여행 한국어 포켓 팜플렛</span>
       </div>
-
       <div class="top-btns">
-        <!-- 난이도 필터 세그먼트 버튼 -->
-        <div class="level-filter" id="levelFilter">
-          <button type="button" class="btn-lvl lvl-all active" data-lvl="all">🌟 3단계 전체</button>
-          <button type="button" class="btn-lvl lvl-easy" data-lvl="easy">🟢 쉬운 버전</button>
-          <button type="button" class="btn-lvl lvl-std" data-lvl="std">🟡 보통 버전</button>
-          <button type="button" class="btn-lvl lvl-pro" data-lvl="pro">🟣 정확한 버전</button>
-        </div>
-
-        <a href="record-travel.html" class="btn-link">🎙️ 직접 녹음하기</a>
+        <a href="record-travel.html" class="btn-link">🎙️ 직접 녹음 스튜디오</a>
         <button type="button" class="btn-print" onclick="window.print()">
-          🖨️ PDF 다운로드 / 인쇄
+          🖨️ 현재 버전 PDF 다운로드 / 인쇄
         </button>
       </div>
     </div>
   </header>
+
+  <!-- ── 큼직한 메인 세그먼트 토글 바 (화면 전용) ── -->
+  <div class="toggle-section no-print">
+    <div class="toggle-card">
+      <div class="toggle-label">
+        <h3>난이도 버전 선택 (Difficulty Toggle)</h3>
+        <p>내 한국어 실력에 맞는 버전을 탭하면 모든 구문이 실시간으로 전환됩니다</p>
+      </div>
+
+      <div class="segmented-control" id="mainSegControl">
+        <button type="button" class="seg-btn is-easy" data-lvl="easy">
+          🟢 쉬운 버전 (단어 위주)
+        </button>
+        <button type="button" class="seg-btn is-std active" data-lvl="std">
+          🟡 보통 버전 (자연스러운 존댓말)
+        </button>
+        <button type="button" class="seg-btn is-pro" data-lvl="pro">
+          🟣 정확한 버전 (정중한 격식체)
+        </button>
+        <button type="button" class="seg-btn is-all" data-lvl="all">
+          📋 3단계 전체 비교
+        </button>
+      </div>
+    </div>
+  </div>
 
   <div class="brochure-wrap">
     <div class="brochure-sheet">
@@ -289,14 +362,13 @@
           <span class="badge-tag">POCKET GUIDE</span>
           <span class="badge-brand">CheesePotato · everykoreans.com</span>
         </div>
-        <h1 class="sheet-title">🇰🇷 여행 한국어 3단계 생존 가이드 & 단어장</h1>
+        <h1 class="sheet-title">🇰🇷 여행 한국어 생존 가이드 & 단어장</h1>
         <p class="sheet-subtitle">비행기 안에서 가볍게 읽고, 여행지에서 접어 들고 다니며 상황에 맞게 꺼내 쓰는 7대 실전집</p>
 
-        <!-- 난이도 가이드 설명 -->
-        <div class="level-guide-bar">
-          <span class="lg-item"><span class="lg-dot easy"></span> <b>쉬운 버전:</b> 단어 위주, 가장 짧고 빠른 생존 표현</span>
-          <span class="lg-item"><span class="lg-dot std"></span> <b>보통 버전:</b> 일상에서 가장 자연스러운 추천 존댓말</span>
-          <span class="lg-item"><span class="lg-dot pro"></span> <b>정확한 버전:</b> 격식 있고 정중한 완벽한 문장</span>
+        <!-- 현재 활성 모드 표시 배너 -->
+        <div class="mode-status-banner" id="modeStatusBanner">
+          <span>선택된 모드:</span>
+          <b id="modeStatusText">🟡 보통 버전 (Standard) — 일상에서 가장 추천하는 자연스러운 존댓말</b>
         </div>
       </div>
 
@@ -327,11 +399,28 @@
   <script type="module">
     import { TRAVEL_CATEGORIES, TRAVEL_PHRASES, TRAVEL_VOCAB } from './travel-data.js';
 
-    let currentLvl = 'all';
+    // 기본 난이도: 'std' (보통 버전)
+    let globalLvl = 'std';
+
+    // 각 문장 항목별 개별 오버라이드 맵 { [phraseId]: 'easy' | 'std' | 'pro' }
+    const itemOverrides = new Map();
+
+    const MODE_DESCS = {
+      easy: '🟢 쉬운 버전 (Easy) — 단어 위주, 당장 입에서 나오는 가장 짧고 빠른 생존 표현',
+      std:  '🟡 보통 버전 (Standard) — 일상에서 가장 추천하는 자연스러운 존댓말',
+      pro:  '🟣 정확한 버전 (Accurate) — 격식 있고 정중한 완벽한 문장',
+      all:  '📋 3단계 전체 비교 (All Tiers) — 쉬움 / 보통 / 정확을 한눈에 나란히 비교 학습',
+    };
+
+    function updateModeBanner() {
+      const banner = document.getElementById('modeStatusText');
+      if (banner) banner.textContent = MODE_DESCS[globalLvl] || '';
+    }
 
     function renderGuide() {
       const container = document.getElementById('sectionsGrid');
       container.innerHTML = '';
+      updateModeBanner();
 
       TRAVEL_CATEGORIES.forEach((cat) => {
         const phrases = TRAVEL_PHRASES.filter(p => p.cat === cat.id);
@@ -340,7 +429,7 @@
         const card = document.createElement('div');
         card.className = 'theme-card';
 
-        // 상단 헤더
+        // 카드 상단 헤더
         const head = `
           <div class="theme-header">
             <div class="theme-title">
@@ -352,62 +441,55 @@
         `;
 
         // 구문 목록 HTML
-        const phrasesHtml = phrases.map(p => {
-          let rowsHtml = '';
+        const phrasesBlock = document.createElement('div');
+        phrasesBlock.className = 'phrases-block';
+        phrasesBlock.innerHTML = `<h4>🗣️ 실전 구문</h4>`;
 
-          if (currentLvl === 'all') {
-            rowsHtml = `
-              <div class="tier-stack">
-                <div class="tier-row">
-                  <span class="tier-badge easy">쉬움</span>
-                  <div class="tier-content">
-                    <div class="tier-ko">${p.easy.ko}</div>
-                    <div class="tier-pron">${p.easy.pron}</div>
-                    <div class="tier-en">${p.easy.en}</div>
-                  </div>
-                </div>
-                <div class="tier-row">
-                  <span class="tier-badge std">보통</span>
-                  <div class="tier-content">
-                    <div class="tier-ko">${p.std.ko}</div>
-                    <div class="tier-pron">${p.std.pron}</div>
-                    <div class="tier-en">${p.std.en}</div>
-                  </div>
-                </div>
-                <div class="tier-row">
-                  <span class="tier-badge pro">정확</span>
-                  <div class="tier-content">
-                    <div class="tier-ko">${p.pro.ko}</div>
-                    <div class="tier-pron">${p.pro.pron}</div>
-                    <div class="tier-en">${p.pro.en}</div>
-                  </div>
-                </div>
-              </div>
-            `;
-          } else {
-            const item = p[currentLvl];
-            const badgeName = currentLvl === 'easy' ? '쉬운 표현' : currentLvl === 'std' ? '보통 표현' : '정확한 표현';
-            rowsHtml = `
-              <div class="tier-stack">
-                <div class="tier-row">
-                  <span class="tier-badge ${currentLvl}">${badgeName}</span>
-                  <div class="tier-content">
-                    <div class="tier-ko" style="font-size:15px;">${item.ko}</div>
-                    <div class="tier-pron" style="font-size:12px;">${item.pron}</div>
-                    <div class="tier-en" style="font-size:12.5px;">${item.en}</div>
-                  </div>
-                </div>
-              </div>
-            `;
-          }
+        phrases.forEach(p => {
+          const itemDiv = document.createElement('div');
+          itemDiv.className = 'phrase-item';
+          itemDiv.id = `pi-${p.id}`;
 
-          return `
-            <div class="phrase-item">
-              <div class="phrase-title-row">${p.title}</div>
-              ${rowsHtml}
+          // 현재 이 문장에 적용할 레벨 (개별 오버라이드가 있으면 우선, 없으면 글로벌 레벨)
+          const activeLvl = (globalLvl === 'all')
+            ? 'all'
+            : (itemOverrides.get(p.id) || globalLvl);
+
+          // 상단 제목 및 개별 미니 토글 바
+          const topRow = document.createElement('div');
+          topRow.className = 'pi-top';
+          topRow.innerHTML = `
+            <span class="pi-title">${p.title}</span>
+            <div class="item-toggle no-print" id="toggle-${p.id}">
+              <button type="button" class="it-btn easy${activeLvl === 'easy' ? ' active' : ''}" data-lvl="easy">쉬움</button>
+              <button type="button" class="it-btn std${activeLvl === 'std' ? ' active' : ''}" data-lvl="std">보통</button>
+              <button type="button" class="it-btn pro${activeLvl === 'pro' ? ' active' : ''}" data-lvl="pro">정확</button>
             </div>
           `;
-        }).join('');
+
+          // 본문 콘텐츠 (단일 모드 vs 전체 비교 모드)
+          const contentDiv = document.createElement('div');
+          contentDiv.className = 'pi-content';
+          contentDiv.id = `content-${p.id}`;
+
+          renderItemContent(contentDiv, p, activeLvl);
+
+          // 미니 토글 버튼 이벤트 바인딩
+          topRow.querySelectorAll('.it-btn').forEach(btn => {
+            btn.addEventListener('click', (ev) => {
+              ev.stopPropagation();
+              const chosenLvl = btn.dataset.lvl;
+              itemOverrides.set(p.id, chosenLvl);
+              topRow.querySelectorAll('.it-btn').forEach(b => b.classList.remove('active'));
+              btn.classList.add('active');
+              renderItemContent(contentDiv, p, chosenLvl);
+            });
+          });
+
+          itemDiv.appendChild(topRow);
+          itemDiv.appendChild(contentDiv);
+          phrasesBlock.appendChild(itemDiv);
+        });
 
         // 필수 단어 목록 HTML
         const wordsHtml = words.map(w => `
@@ -417,32 +499,79 @@
           </div>
         `).join('');
 
-        card.innerHTML = `
-          ${head}
-          <div class="theme-body">
-            <div class="phrases-block">
-              <h4>🗣️ 실전 구문 (${currentLvl === 'all' ? '3단계 비교' : currentLvl.toUpperCase()})</h4>
-              ${phrasesHtml}
-            </div>
-            <div class="words-block">
-              <h4>📚 필수 단어 (Vocabulary)</h4>
-              <div class="words-grid">
-                ${wordsHtml}
-              </div>
+        const wordsBlock = `
+          <div class="words-block">
+            <h4>📚 필수 단어 (Vocabulary)</h4>
+            <div class="words-grid">
+              ${wordsHtml}
             </div>
           </div>
         `;
 
+        const body = document.createElement('div');
+        body.className = 'theme-body';
+        body.appendChild(phrasesBlock);
+        body.insertAdjacentHTML('beforeend', wordsBlock);
+
+        card.innerHTML = head;
+        card.appendChild(body);
         container.appendChild(card);
       });
     }
 
-    // 난이도 필터 버튼 이벤트
-    document.querySelectorAll('.btn-lvl').forEach((btn) => {
+    // 개별 구문의 본문 렌더링 헬퍼
+    function renderItemContent(el, p, lvl) {
+      if (lvl === 'all') {
+        el.innerHTML = `
+          <div class="all-tier-stack">
+            <div class="all-tier-row">
+              <span class="atr-badge easy">쉬움</span>
+              <div class="atr-content">
+                <div class="atr-ko">${p.easy.ko}</div>
+                <div class="atr-pron">${p.easy.pron}</div>
+                <div class="atr-en">${p.easy.en}</div>
+              </div>
+            </div>
+            <div class="all-tier-row">
+              <span class="atr-badge std">보통</span>
+              <div class="atr-content">
+                <div class="atr-ko">${p.std.ko}</div>
+                <div class="atr-pron">${p.std.pron}</div>
+                <div class="atr-en">${p.std.en}</div>
+              </div>
+            </div>
+            <div class="all-tier-row">
+              <span class="atr-badge pro">정확</span>
+              <div class="atr-content">
+                <div class="atr-ko">${p.pro.ko}</div>
+                <div class="atr-pron">${p.pro.pron}</div>
+                <div class="atr-en">${p.pro.en}</div>
+              </div>
+            </div>
+          </div>
+        `;
+      } else {
+        const item = p[lvl] || p.std;
+        const badgeName = lvl === 'easy' ? '쉬운 표현' : lvl === 'std' ? '보통 표현' : '정확한 표현';
+        el.innerHTML = `
+          <div class="single-tier-view">
+            <span class="stv-badge ${lvl}">${badgeName}</span>
+            <div class="stv-ko">${item.ko}</div>
+            <div class="stv-pron">${item.pron}</div>
+            <div class="stv-en">${item.en}</div>
+          </div>
+        `;
+      }
+    }
+
+    // ── 메인 세그먼트 토글 이벤트 ─────────────────────────────
+    document.querySelectorAll('#mainSegControl .seg-btn').forEach(btn => {
       btn.addEventListener('click', () => {
-        document.querySelectorAll('.btn-lvl').forEach(b => b.classList.remove('active'));
+        document.querySelectorAll('#mainSegControl .seg-btn').forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
-        currentLvl = btn.dataset.lvl;
+        globalLvl = btn.dataset.lvl;
+        // 글로벌 토글 시 개별 오버라이드 리셋
+        itemOverrides.clear();
         renderGuide();
       });
     });

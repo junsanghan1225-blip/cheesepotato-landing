@@ -115,13 +115,13 @@
      Pretendard 는 통짜(2.0MB) 대신 조각난 쪽을 쓴다 — 브라우저가
      unicode-range 를 보고 화면에 실제로 나온 글자가 든 조각만 받는다.
      그래서 저장소는 무거워졌지만 학습자가 받는 양은 오히려 줄었다. -->
-<link rel="stylesheet" href="vendor/pretendard.css?v=5e13c78f">
-<link rel="stylesheet" href="vendor/pressstart2p.css?v=5e13c78f">
+<link rel="stylesheet" href="vendor/pretendard.css?v=d8f78f04">
+<link rel="stylesheet" href="vendor/pressstart2p.css?v=d8f78f04">
 <!-- 화면 상자 안에서만 쓰는 CSS 는 여기서 갈라 받는다. media="print" 라
      첫 페인트를 안 막고, 다 받아지면 app.js 가 media 를 all 로 바꾼다.
      자바스크립트가 없으면 <noscript> 쪽이 그냥 평범하게 걸린다. -->
-<link id="viewsCss" rel="stylesheet" href="app-views.css?v=5e13c78f" media="print">
-<noscript><link rel="stylesheet" href="app-views.css?v=5e13c78f"></noscript>
+<link id="viewsCss" rel="stylesheet" href="app-views.css?v=d8f78f04" media="print">
+<noscript><link rel="stylesheet" href="app-views.css?v=d8f78f04"></noscript>
 
 <style>
 /* ══════════════════════════════════════════════════════════════
@@ -2600,6 +2600,24 @@ body.hlp-open { overflow:hidden; }
         <div id="cvList"></div>
       </div>
 
+      <!-- ── 배우기 : 여행 한국어 ───────────────────────────────────
+           공항·교통·숙소·식당·쇼핑·관광·긴급 7대 상황별
+           쉬운 말 / 보통 말 / 정확한 말 3단계 실전 구문과 필수 단어장. -->
+      <div id="tvWrap" class="hidden">
+        <div class="learn-head">
+          <div class="tv-hd-bar">
+            <div id="tvLevel" class="tv-level-row"></div>
+            <div class="tv-ext-links">
+              <a href="travel-guide.html" target="_blank" class="tv-ext-btn">📄 포켓 팜플렛 / PDF</a>
+              <a href="record-travel.html" target="_blank" class="tv-ext-btn">🎙️ 직접 녹음 스튜디오</a>
+            </div>
+          </div>
+          <p id="tvIntro" class="learn-copy"></p>
+          <div id="tvCats" class="tv-cats-bar"></div>
+        </div>
+        <div id="tvList" class="tv-content-list"></div>
+      </div>
+
       <!-- 아직 안 채운 갈래 -->
       <div id="lsecSoon" class="hidden">
         <div class="wb-state">
@@ -3733,9 +3751,9 @@ body.hlp-open { overflow:hidden; }
 <div id="hlpScrim" class="hlp-scrim"></div>
 <aside id="hlpPanel" class="hlp-panel" aria-label="한국어 도우미" aria-hidden="true"></aside>
 
-<script src="app.js?v=5e13c78f"></script>
-<script type="module" src="app.module.js?v=5e13c78f"></script>
+<script src="app.js?v=d8f78f04"></script>
+<script type="module" src="app.module.js?v=d8f78f04"></script>
 
-<script src="analytics.js?v=5e13c78f" defer></script>
+<script src="analytics.js?v=d8f78f04" defer></script>
 </body>
 </html>
