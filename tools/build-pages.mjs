@@ -1606,12 +1606,14 @@ const TAG_SLUGS = {
   '준비': 'prep',
   '한글': 'hangul',
   '회화': 'conversation',
+  '여행': 'travel',
   /* 영어로 쓴 글. 갈래 이름을 한국어로 붙이면 영어 글 아래에 한국어
      알약이 뜨고, 그 갈래 쪽에 한국어 글과 섞여 걸린다 — 영어로 찾아온
      사람에게는 둘 다 읽을 것이 아니다. 따로 둔다. */
   'English': 'english',
   'Roadmap': 'roadmap',
   'Grammar': 'grammar-en',
+  'Travel': 'travel-en',
 };
 function tagSlug(tag) {
   const slug = TAG_SLUGS[tag];

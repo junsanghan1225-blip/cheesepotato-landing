@@ -3383,6 +3383,60 @@
 }
 .tv-ext-btn:hover { border-color: var(--orange); color: var(--orange-deep); transform: translateY(-1px); }
 
+/* ── 7대 상황별 메인 그리드 카드 ──────────────────────── */
+.tv-cat-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 16px; margin-top: 18px;
+}
+.tv-cat-card {
+  background: var(--surface); border: 2px solid var(--line); border-radius: var(--r-xl);
+  padding: 24px 22px; cursor: pointer; text-align: left; font-family: inherit;
+  display: flex; flex-direction: column; justify-content: space-between;
+  transition: all .2s ease; box-shadow: 0 4px 14px rgba(0,0,0,.02);
+}
+.tv-cat-card:hover {
+  transform: translateY(-3px); border-color: var(--orange);
+  box-shadow: 0 14px 28px -6px rgba(255, 145, 77, 0.22);
+}
+.tv-cat-top-row {
+  display: flex; align-items: center; justify-content: space-between; gap: 10px;
+}
+.tv-cat-icon {
+  font-size: 30px; width: 54px; height: 54px; border-radius: 16px;
+  background: var(--surface-2); display: flex; align-items: center; justify-content: center;
+}
+.tv-cat-count {
+  font-size: 11.5px; font-weight: 700; color: var(--orange-deep);
+  background: rgba(255, 145, 77, 0.12); padding: 3px 8px; border-radius: 6px;
+}
+.tv-cat-title {
+  font-size: 18px; font-weight: 800; color: var(--ink); margin-top: 14px;
+}
+.tv-cat-desc {
+  font-size: 13px; color: var(--ink-3); margin-top: 4px; line-height: 1.45; word-break: keep-all;
+}
+.tv-cat-foot {
+  display: flex; align-items: center; justify-content: space-between;
+  margin-top: 18px; padding-top: 12px; border-top: 1px solid var(--line-2);
+  font-size: 12.5px; font-weight: 700; color: var(--orange-deep);
+}
+
+/* 상황 상세 화면 상단 바 */
+.tv-detail-top {
+  display: flex; align-items: center; justify-content: space-between; gap: 14px; flex-wrap: wrap;
+  margin-bottom: 16px; padding-bottom: 14px; border-bottom: 1.5px solid var(--line-2);
+}
+.tv-back-btn {
+  display: inline-flex; align-items: center; gap: 6px; padding: 8px 14px;
+  border-radius: var(--r); border: 1.5px solid var(--line); background: var(--surface);
+  font-size: 13px; font-weight: 700; color: var(--ink-2); cursor: pointer; font-family: inherit;
+  transition: all .15s ease;
+}
+.tv-back-btn:hover { border-color: var(--orange); color: var(--orange-deep); }
+.tv-detail-title {
+  font-size: 20px; font-weight: 900; color: var(--ink); display: flex; align-items: center; gap: 8px;
+}
+
 .tv-cats-bar {
   display: flex; gap: 8px; overflow-x: auto; padding: 8px 0 14px; margin-top: 8px;
   scrollbar-width: thin;
