@@ -1047,108 +1047,149 @@
 /* 글 칸. 종류에 따라 크기와 굵기만 달라지고 자리는 하나다. */
 .nb-txt {
   width:100%; outline:none; font:inherit; color:var(--ink);
-  font-size:15px; line-height:1.85; padding:3px 7px; border-radius:5px;
+  font-size:15px; line-height:1.65; padding:2px 6px; border-radius:5px;
   word-break:keep-all; overflow-wrap:anywhere; white-space:pre-wrap;
   transition:background .12s ease;
 }
 .nb-txt:empty::before { content:attr(data-ph); color:var(--ink-3); opacity:.55; }
 .nb-txt:focus { background:rgba(var(--ink-rgb),.035); }
 
-.nb-h1 .nb-txt { font-size:24px; font-weight:700; letter-spacing:-.035em; line-height:1.4; margin-top:8px; margin-bottom:2px; }
-.nb-h2 .nb-txt { font-size:19px; font-weight:700; letter-spacing:-.03em; line-height:1.45; margin-top:6px; margin-bottom:2px; }
-.nb-h3 .nb-txt { font-size:16.5px; font-weight:700; letter-spacing:-.02em; line-height:1.5; margin-top:4px; }
+.nb-h1 .nb-txt { font-size:22px; font-weight:700; letter-spacing:-.035em; line-height:1.35; margin-top:14px; margin-bottom:3px; }
+.nb-h2 .nb-txt { font-size:18px; font-weight:700; letter-spacing:-.03em; line-height:1.4; margin-top:10px; margin-bottom:2px; }
+.nb-h3 .nb-txt { font-size:16px; font-weight:700; letter-spacing:-.02em; line-height:1.45; margin-top:7px; margin-bottom:2px; }
 .nb-code .nb-txt {
-  font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:13.5px; line-height:1.7;
-  background:var(--surface-2); border:1px solid var(--line-2); border-radius:var(--r-s); padding:10px 12px;
+  font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:13.5px; line-height:1.65;
+  background:var(--surface-2); border:1px solid var(--line-2); border-radius:var(--r-s); padding:10px 14px; margin:4px 0;
 }
 /* 목록·할 일은 앞에 표가 붙는다. 표는 글자와 같은 줄 높이에 맞춘다. */
-.nb-mark { flex:none; width:20px; padding-top:6px; text-align:center; color:var(--ink-3); font-size:14px; line-height:1; user-select:none; }
-.nb-inline { display:flex; align-items:flex-start; }
+.nb-mark { flex:none; width:22px; text-align:center; color:var(--ink-3); font-size:14px; line-height:1.65; user-select:none; }
+.nb-inline { display:flex; align-items:flex-start; width:100%; }
 .nb-tick {
-  flex:none; margin:7px 0 0; width:16px; height:16px; border-radius:4px; cursor:pointer; padding:0;
+  flex:none; margin:4px 6px 0 2px; width:16px; height:16px; border-radius:4px; cursor:pointer; padding:0;
   border:1.5px solid var(--line); background:var(--surface);
   display:inline-flex; align-items:center; justify-content:center; font-size:10px; color:#fff; line-height:1;
 }
 .nb-todo.done .nb-txt { color:var(--ink-3); text-decoration:line-through; }
 
-.nb-quote .nb-inline { border-left:3px solid var(--orange); padding-left:11px; }
-.nb-quote .nb-txt { color:var(--ink-2); }
-/* 강조 칸(콜아웃). 노션의 그것 — 아이콘 하나에 옅은 바탕.
-   아이콘은 padding-top 으로 눈대중 맞추지 않고 align-items:center 로
-   글의 줄 수에 상관없이 칸 한가운데에 오도록 한다. */
-.nb-call .nb-inline { background:var(--tint); border-radius:var(--r); padding:9px 12px 9px 10px; align-items:center; }
-.nb-call .nb-mark { padding-top:0; font-size:15px; }
-/* 문형(howto). 강조 칸과 같은 얹힌 모양이지만 색을 갈라 — "동사·형용사에
-   어떻게 붙는지"를 보여주는 자리라는 걸 색으로도 구별한다. */
-.nb-howto .nb-inline { background:rgba(74,125,181,.12); border-radius:var(--r); padding:9px 12px 9px 10px; align-items:center; }
-.nb-howto .nb-mark { padding-top:0; font-size:15px; }
+.nb-quote .nb-inline { border-left:3px solid var(--orange); padding:2px 0 2px 12px; margin:3px 0; }
+.nb-quote .nb-txt { color:var(--ink-2); line-height:1.65; font-style:italic; }
+
+/* 강조 칸·문형·주의·팁 공통 래퍼: 100% 폭, 일관된 패딩과 상단 정렬 */
+.nb-call .nb-inline, .nb-howto .nb-inline, .nb-warn .nb-inline, .nb-tip .nb-inline {
+  width:100%; border-radius:var(--r); padding:8px 12px; margin:3px 0;
+  align-items:flex-start; gap:4px;
+}
+.nb-call .nb-mark, .nb-howto .nb-mark, .nb-warn .nb-mark, .nb-tip .nb-mark {
+  flex:none; width:22px; font-size:15px; line-height:1.65; padding-top:0; text-align:center;
+}
+.nb-call .nb-txt, .nb-howto .nb-txt, .nb-warn .nb-txt, .nb-tip .nb-txt {
+  padding:0 4px; line-height:1.65; font-size:14.5px;
+}
+
+.nb-call .nb-inline { background:var(--tint); border:1px solid rgba(255,145,77,.2); }
+.nb-howto .nb-inline { background:rgba(74,125,181,.10); border:1px solid rgba(74,125,181,.22); }
 .nb-howto .nb-txt { font-weight:600; }
 
-/* 주의(warn). 문법 오류나 주의할 점. 옅은 붉은/주황 톤 테두리와 배경 */
-.nb-warn .nb-inline {
-  background:rgba(225,89,78,.10); border:1px solid rgba(225,89,78,.25);
-  border-radius:var(--r); padding:9px 12px 9px 10px; align-items:center;
-}
-.nb-warn .nb-mark { padding-top:0; font-size:15px; }
+.nb-warn .nb-inline { background:rgba(225,89,78,.09); border:1px solid rgba(225,89,78,.24); }
 .nb-warn .nb-txt { font-weight:500; }
 
-/* 팁(tip). 학습 팁이나 보충 설명. 옅은 청록 톤 테두리와 배경 */
-.nb-tip .nb-inline {
-  background:rgba(63,191,143,.10); border:1px solid rgba(63,191,143,.25);
-  border-radius:var(--r); padding:9px 12px 9px 10px; align-items:center;
-}
-.nb-tip .nb-mark { padding-top:0; font-size:15px; }
+.nb-tip .nb-inline { background:rgba(63,191,143,.09); border:1px solid rgba(63,191,143,.24); }
 .nb-tip .nb-txt { font-weight:500; }
 
-/* 단어 카드(vocab). 단어 표제어와 뜻풀이를 분리해 정리하는 카드 */
+/* 단어 카드(vocab) */
 .nb-vocab-card {
-  background:var(--surface-2); border:1px solid var(--line); border-radius:var(--r);
-  padding:10px 14px; margin:4px 0; transition:border-color .18s, box-shadow .18s;
+  width:100%; background:var(--surface-2); border:1px solid var(--line-2); border-radius:var(--r);
+  padding:8px 12px; margin:3px 0; transition:border-color .18s, background .18s;
 }
-.nb-vocab-card:focus-within {
-  border-color:var(--orange-mid); background:var(--surface);
-  box-shadow:0 0 0 2px rgba(var(--ink-rgb),.06);
-}
-.nb-vocab-top { display:flex; align-items:center; gap:8px; margin-bottom:4px; }
+.nb-vocab-card:focus-within { border-color:var(--orange-mid); background:var(--surface); }
+.nb-vocab-top { display:flex; align-items:center; gap:7px; margin-bottom:3px; }
 .nb-vocab-tag {
-  flex:none; font-size:11px; font-weight:700; color:var(--orange-deep);
-  background:rgba(255,145,77,.14); padding:2px 7px; border-radius:4px; letter-spacing:.02em; user-select:none;
+  flex:none; font-size:10.5px; font-weight:700; color:var(--orange-deep);
+  background:rgba(255,145,77,.14); padding:1px 6px; border-radius:4px; letter-spacing:.02em; user-select:none;
 }
-.nb-vocab-word { font-size:16px; font-weight:700; color:var(--ink); padding:2px 0; }
-.nb-vocab-bot { border-top:1px dashed var(--line-2); padding-top:5px; margin-top:3px; }
-.nb-vocab-def { font-size:13.5px; color:var(--ink-2); line-height:1.6; padding:2px 0; }
+.nb-vocab-word { font-size:15.5px; font-weight:700; color:var(--ink); line-height:1.4; padding:0; }
+.nb-vocab-bot { border-top:1px dashed var(--line-2); padding-top:4px; margin-top:2px; }
+.nb-vocab-def { font-size:13.5px; color:var(--ink-2); line-height:1.55; padding:0; }
 
-/* 예문(ex). 한국어 문장과 번역문 */
+/* 예문(ex) */
 .nb-ex-box {
-  border-left:3.5px solid var(--green); background:rgba(63,191,143,.07);
-  border-radius:0 var(--r) var(--r) 0; padding:9px 13px; margin:4px 0;
+  width:100%; border-left:3px solid var(--green); background:rgba(63,191,143,.06);
+  border-radius:0 var(--r-s) var(--r-s) 0; padding:7px 11px; margin:3px 0;
 }
-.nb-ex-ko-line, .nb-ex-tr-line { display:flex; align-items:flex-start; gap:8px; }
-.nb-ex-mark { flex:none; font-size:13px; padding-top:4px; user-select:none; }
-.nb-ex-mark-sub { flex:none; font-size:13px; color:var(--ink-3); padding-top:2px; user-select:none; }
-.nb-ex-ko { font-size:15px; font-weight:600; color:var(--ink); line-height:1.65; padding:1px 0; }
-.nb-ex-tr { font-size:13.5px; color:var(--ink-2); line-height:1.55; padding:1px 0; }
+.nb-ex-ko-line, .nb-ex-tr-line { display:flex; align-items:flex-start; gap:6px; }
+.nb-ex-mark { flex:none; font-size:13px; line-height:1.6; user-select:none; }
+.nb-ex-mark-sub { flex:none; font-size:12px; color:var(--ink-3); line-height:1.5; user-select:none; }
+.nb-ex-ko { font-size:14.5px; font-weight:600; color:var(--ink); line-height:1.6; padding:0; }
+.nb-ex-tr { font-size:13px; color:var(--ink-2); line-height:1.5; padding:0; }
 
-/* 접이식 토글(toggle). 퀴즈나 정답 가리기 */
+/* 접이식 토글(toggle) */
 .nb-toggle-box {
-  background:var(--surface-2); border:1px solid var(--line-2); border-radius:var(--r);
-  padding:7px 11px; margin:3px 0; transition:background .15s, border-color .15s;
+  width:100%; background:var(--surface-2); border:1px solid var(--line-2); border-radius:var(--r);
+  padding:6px 10px; margin:3px 0; transition:border-color .15s, background .15s;
 }
 .nb-toggle-box.open { border-color:var(--line); background:var(--surface); }
-.nb-toggle-h { display:flex; align-items:center; gap:6px; }
+.nb-toggle-h { display:flex; align-items:flex-start; gap:4px; }
 .nb-toggle-arrow {
   flex:none; width:22px; height:22px; border:none; background:transparent; cursor:pointer;
   color:var(--ink-3); font-size:10px; display:inline-flex; align-items:center; justify-content:center;
-  border-radius:4px; transition:background .15s, color .15s; user-select:none;
+  border-radius:4px; margin-top:1px; transition:background .15s, color .15s; user-select:none;
 }
 .nb-toggle-arrow:hover { background:rgba(var(--ink-rgb),.08); color:var(--ink); }
-.nb-toggle-sum { font-size:14.5px; font-weight:600; color:var(--ink); padding:2px 0; }
-.nb-toggle-body {
-  border-top:1px solid var(--line-2); margin-top:6px; padding-top:7px; padding-left:28px;
-}
-.nb-toggle-dtl { font-size:14px; color:var(--ink-2); line-height:1.65; padding:2px 0; }
+.nb-toggle-sum { font-size:14.5px; font-weight:600; color:var(--ink); line-height:1.6; padding:0 4px; }
+.nb-toggle-body { border-top:1px solid var(--line-2); margin-top:5px; padding:5px 4px 2px 26px; }
+.nb-toggle-dtl { font-size:13.5px; color:var(--ink-2); line-height:1.55; padding:0; }
 
-.nb-hr { height:1px; background:var(--line); margin:12px 6px; border-radius:1px; }
+/* 단어장 블록(wb). 치즈감자 단어장 카드 스타일 */
+.nb-wb-card {
+  width:100%; background:var(--surface); border:1px solid var(--line); border-radius:var(--r);
+  padding:12px 14px; margin:4px 0; box-shadow:0 1px 4px rgba(var(--bg-rgb),.05);
+  transition:border-color .18s, box-shadow .18s;
+}
+.nb-wb-card:focus-within {
+  border-color:var(--orange-mid);
+  box-shadow:0 0 0 2px rgba(255,145,77,.16);
+}
+.nb-wb-head {
+  display:flex; align-items:center; justify-content:space-between; gap:8px; margin-bottom:6px;
+}
+.nb-wb-badges { display:flex; align-items:center; gap:6px; }
+.nb-wb-badge-main {
+  font-size:11px; font-weight:700; color:var(--orange-deep);
+  background:rgba(255,145,77,.14); padding:2px 8px; border-radius:999px;
+  letter-spacing:.02em; user-select:none;
+}
+.nb-wb-pos {
+  font-size:11px; font-weight:600; color:var(--ink-3);
+  border:1px solid var(--line-2); border-radius:4px; padding:1px 6px;
+  background:var(--surface-2); outline:none; line-height:1.4;
+}
+.nb-wb-pos:empty::before { content:attr(data-ph); color:var(--ink-3); opacity:.6; }
+.nb-wb-pos:focus { border-color:var(--orange); color:var(--ink); background:var(--surface); }
+.nb-wb-add-btn {
+  flex:none; display:inline-flex; align-items:center; gap:4px;
+  font-size:11.5px; font-weight:600; color:var(--orange-deep);
+  background:transparent; border:1px solid rgba(255,145,77,.3);
+  border-radius:var(--r-s); padding:3px 8px; cursor:pointer;
+  transition:background .15s, border-color .15s; user-select:none;
+}
+.nb-wb-add-btn:hover {
+  background:rgba(255,145,77,.12); border-color:var(--orange-mid);
+}
+.nb-wb-word {
+  font-size:20px; font-weight:700; color:var(--ink); letter-spacing:-.02em;
+  line-height:1.35; padding:1px 0; margin-bottom:2px;
+}
+.nb-wb-mean {
+  font-size:14px; color:var(--ink-2); line-height:1.5; padding:1px 0; margin-bottom:4px;
+}
+.nb-wb-ex-wrap {
+  border-top:1px solid var(--line-2); padding-top:6px; margin-top:6px;
+}
+.nb-wb-ex {
+  font-size:13px; color:var(--ink-3); line-height:1.5; padding:1px 0; font-style:italic;
+}
+
+.nb-hr { height:1px; background:var(--line); margin:14px 4px; border-radius:1px; }
 
 /* 문답(Q&A). 치즈(질문)는 왼쪽, 감자(답)는 오른쪽 — 블로그 글의
    대화문과 같은 자리 배치를 노트 안에서도 쓴다. */
@@ -1275,6 +1316,24 @@
 }
 .ntp-vocab-w { font-weight:700; color:#1B1512; margin-bottom:3px; }
 .ntp-vocab-m { font-size:13px; color:#4A4038; line-height:1.5; }
+.ntp-wb {
+  background:#FFFBF8; border:1px solid #FFD3B8; border-radius:8px; padding:10px 14px; margin:0 0 12px;
+}
+.ntp-wb-head { display:flex; align-items:center; gap:6px; margin-bottom:4px; }
+.ntp-wb-badge {
+  font-size:10.5px; font-weight:700; color:#B85A1E; background:#FDE7D6;
+  padding:2px 7px; border-radius:999px;
+}
+.ntp-wb-tag {
+  font-size:10px; font-weight:600; color:#8C7A66; background:#F1EBE3;
+  padding:1px 6px; border-radius:4px;
+}
+.ntp-wb-w { font-size:16px; font-weight:800; color:#1B1512; margin-bottom:2px; }
+.ntp-wb-m { font-size:13px; color:#4A4038; line-height:1.5; }
+.ntp-wb-ex {
+  font-size:12px; color:#8C7A66; font-style:italic; border-top:1px dashed #FFD3B8;
+  padding-top:4px; margin-top:5px;
+}
 .ntp-ex {
   border-left:3.5px solid #12704F; background:#F0F8F4; border-radius:0 8px 8px 0; padding:8px 12px; margin:0 0 12px;
 }

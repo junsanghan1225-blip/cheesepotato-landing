@@ -33,23 +33,23 @@
    파일을 나눈 이유는 문법이 계속 늘어날 예정이라 한 파일에 두면
    고칠 곳을 찾기 어려워지기 때문이다.
    + 세분화된 뉘앙스 차이 문법 (초·중·고급 세부 코스)은 courses-grammar-detailed.js 에서 불러온다. */
-import { GRAMMAR_COURSES } from './courses-grammar.js?v=b9d7a942';
-import { DETAILED_GRAMMAR_COURSES } from './courses-grammar-detailed.js?v=b9d7a942';
-import { BEGINNER_GRAMMAR_COURSES } from './courses-grammar-beginner.js?v=b9d7a942';
+import { GRAMMAR_COURSES } from './courses-grammar.js?v=59dfe0b0';
+import { DETAILED_GRAMMAR_COURSES } from './courses-grammar-detailed.js?v=59dfe0b0';
+import { BEGINNER_GRAMMAR_COURSES } from './courses-grammar-beginner.js?v=59dfe0b0';
 // 초급 1단계 — 설계는 docs/curriculum-beginner.md
-import { BEGINNER_STAGE1_COURSES } from './courses-beginner-stage1.js?v=b9d7a942';
+import { BEGINNER_STAGE1_COURSES } from './courses-beginner-stage1.js?v=59dfe0b0';
 // 초급 2단계 — 시간을 얹기
-import { BEGINNER_STAGE2_COURSES } from './courses-beginner-stage2.js?v=b9d7a942';
+import { BEGINNER_STAGE2_COURSES } from './courses-beginner-stage2.js?v=59dfe0b0';
 // 초급 3단계 — 이어 말하기
-import { BEGINNER_STAGE3_COURSES } from './courses-beginner-stage3.js?v=b9d7a942';
+import { BEGINNER_STAGE3_COURSES } from './courses-beginner-stage3.js?v=59dfe0b0';
 // 초급 4단계 — 상대에게
-import { BEGINNER_STAGE4_COURSES } from './courses-beginner-stage4.js?v=b9d7a942';
+import { BEGINNER_STAGE4_COURSES } from './courses-beginner-stage4.js?v=59dfe0b0';
 // 초급 5단계 — 마음을 담기
-import { BEGINNER_STAGE5_COURSES } from './courses-beginner-stage5.js?v=b9d7a942';
+import { BEGINNER_STAGE5_COURSES } from './courses-beginner-stage5.js?v=59dfe0b0';
 // 초급 6단계 — 다듬기
-import { BEGINNER_STAGE6_COURSES } from './courses-beginner-stage6.js?v=b9d7a942';
+import { BEGINNER_STAGE6_COURSES } from './courses-beginner-stage6.js?v=59dfe0b0';
 // 초급 보충 — 110개 문법 목록에 없지만 실전에 꼭 필요한 것 (§8)
-import { BEGINNER_EXTRA_COURSES } from './courses-beginner-extra.js?v=b9d7a942';
+import { BEGINNER_EXTRA_COURSES } from './courses-beginner-extra.js?v=59dfe0b0';
 
 export const COURSES = [
 
