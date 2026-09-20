@@ -1026,17 +1026,18 @@
    바뀌면 조합이 끊겨 「각」이 「ㄱ가」로 흩어진다. 치는 동안에는 자료만
    고치고, 다시 그리는 것은 블록을 더하거나 종류를 바꿀 때뿐이다. */
 .nb-list { display:flex; flex-direction:column; gap:1px; margin-top:2px; }
-.nb-row { display:flex; align-items:flex-start; gap:2px; border-radius:6px; padding:1px 0; }
+.nb-row { display:flex; align-items:flex-start; gap:2px; border-radius:6px; padding:2px 0; transition:background .15s ease; }
 .nb-row.drag-over { box-shadow:inset 0 2px 0 var(--orange); }
 .nb-row.dragging { opacity:.4; }
 
 /* 왼쪽 손잡이. 얹어야 나온다 — 늘 보이면 글보다 단추가 먼저 보인다. */
-.nb-gut { display:flex; align-items:center; gap:0; flex:none; width:44px; padding-top:3px; opacity:0; transition:opacity .12s; }
+.nb-gut { display:flex; align-items:center; gap:0; flex:none; width:44px; padding-top:4px; opacity:0; transition:opacity .15s ease; }
 .nb-row:hover .nb-gut, .nb-row:focus-within .nb-gut { opacity:1; }
 .nb-gut button {
   width:21px; height:24px; border:none; background:none; cursor:pointer; padding:0;
   color:var(--ink-3); font-size:14px; line-height:1; border-radius:5px;
   display:inline-flex; align-items:center; justify-content:center;
+  transition:background .12s, color .12s;
 }
 .nb-gut button:hover { background:rgba(var(--ink-rgb),.08); color:var(--ink); }
 .nb-grip { cursor:grab; }
@@ -1046,15 +1047,16 @@
 /* 글 칸. 종류에 따라 크기와 굵기만 달라지고 자리는 하나다. */
 .nb-txt {
   width:100%; outline:none; font:inherit; color:var(--ink);
-  font-size:15px; line-height:1.85; padding:3px 6px; border-radius:5px;
+  font-size:15px; line-height:1.85; padding:3px 7px; border-radius:5px;
   word-break:keep-all; overflow-wrap:anywhere; white-space:pre-wrap;
+  transition:background .12s ease;
 }
 .nb-txt:empty::before { content:attr(data-ph); color:var(--ink-3); opacity:.55; }
-.nb-txt:focus { background:rgba(var(--ink-rgb),.03); }
+.nb-txt:focus { background:rgba(var(--ink-rgb),.035); }
 
-.nb-h1 .nb-txt { font-size:24px; font-weight:700; letter-spacing:-.035em; line-height:1.4; margin-top:8px; }
-.nb-h2 .nb-txt { font-size:19px; font-weight:700; letter-spacing:-.03em; line-height:1.45; margin-top:6px; }
-.nb-h3 .nb-txt { font-size:16.5px; font-weight:700; letter-spacing:-.02em; line-height:1.5; }
+.nb-h1 .nb-txt { font-size:24px; font-weight:700; letter-spacing:-.035em; line-height:1.4; margin-top:8px; margin-bottom:2px; }
+.nb-h2 .nb-txt { font-size:19px; font-weight:700; letter-spacing:-.03em; line-height:1.45; margin-top:6px; margin-bottom:2px; }
+.nb-h3 .nb-txt { font-size:16.5px; font-weight:700; letter-spacing:-.02em; line-height:1.5; margin-top:4px; }
 .nb-code .nb-txt {
   font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:13.5px; line-height:1.7;
   background:var(--surface-2); border:1px solid var(--line-2); border-radius:var(--r-s); padding:10px 12px;
@@ -1081,6 +1083,71 @@
 .nb-howto .nb-inline { background:rgba(74,125,181,.12); border-radius:var(--r); padding:9px 12px 9px 10px; align-items:center; }
 .nb-howto .nb-mark { padding-top:0; font-size:15px; }
 .nb-howto .nb-txt { font-weight:600; }
+
+/* 주의(warn). 문법 오류나 주의할 점. 옅은 붉은/주황 톤 테두리와 배경 */
+.nb-warn .nb-inline {
+  background:rgba(225,89,78,.10); border:1px solid rgba(225,89,78,.25);
+  border-radius:var(--r); padding:9px 12px 9px 10px; align-items:center;
+}
+.nb-warn .nb-mark { padding-top:0; font-size:15px; }
+.nb-warn .nb-txt { font-weight:500; }
+
+/* 팁(tip). 학습 팁이나 보충 설명. 옅은 청록 톤 테두리와 배경 */
+.nb-tip .nb-inline {
+  background:rgba(63,191,143,.10); border:1px solid rgba(63,191,143,.25);
+  border-radius:var(--r); padding:9px 12px 9px 10px; align-items:center;
+}
+.nb-tip .nb-mark { padding-top:0; font-size:15px; }
+.nb-tip .nb-txt { font-weight:500; }
+
+/* 단어 카드(vocab). 단어 표제어와 뜻풀이를 분리해 정리하는 카드 */
+.nb-vocab-card {
+  background:var(--surface-2); border:1px solid var(--line); border-radius:var(--r);
+  padding:10px 14px; margin:4px 0; transition:border-color .18s, box-shadow .18s;
+}
+.nb-vocab-card:focus-within {
+  border-color:var(--orange-mid); background:var(--surface);
+  box-shadow:0 0 0 2px rgba(var(--ink-rgb),.06);
+}
+.nb-vocab-top { display:flex; align-items:center; gap:8px; margin-bottom:4px; }
+.nb-vocab-tag {
+  flex:none; font-size:11px; font-weight:700; color:var(--orange-deep);
+  background:rgba(255,145,77,.14); padding:2px 7px; border-radius:4px; letter-spacing:.02em; user-select:none;
+}
+.nb-vocab-word { font-size:16px; font-weight:700; color:var(--ink); padding:2px 0; }
+.nb-vocab-bot { border-top:1px dashed var(--line-2); padding-top:5px; margin-top:3px; }
+.nb-vocab-def { font-size:13.5px; color:var(--ink-2); line-height:1.6; padding:2px 0; }
+
+/* 예문(ex). 한국어 문장과 번역문 */
+.nb-ex-box {
+  border-left:3.5px solid var(--green); background:rgba(63,191,143,.07);
+  border-radius:0 var(--r) var(--r) 0; padding:9px 13px; margin:4px 0;
+}
+.nb-ex-ko-line, .nb-ex-tr-line { display:flex; align-items:flex-start; gap:8px; }
+.nb-ex-mark { flex:none; font-size:13px; padding-top:4px; user-select:none; }
+.nb-ex-mark-sub { flex:none; font-size:13px; color:var(--ink-3); padding-top:2px; user-select:none; }
+.nb-ex-ko { font-size:15px; font-weight:600; color:var(--ink); line-height:1.65; padding:1px 0; }
+.nb-ex-tr { font-size:13.5px; color:var(--ink-2); line-height:1.55; padding:1px 0; }
+
+/* 접이식 토글(toggle). 퀴즈나 정답 가리기 */
+.nb-toggle-box {
+  background:var(--surface-2); border:1px solid var(--line-2); border-radius:var(--r);
+  padding:7px 11px; margin:3px 0; transition:background .15s, border-color .15s;
+}
+.nb-toggle-box.open { border-color:var(--line); background:var(--surface); }
+.nb-toggle-h { display:flex; align-items:center; gap:6px; }
+.nb-toggle-arrow {
+  flex:none; width:22px; height:22px; border:none; background:transparent; cursor:pointer;
+  color:var(--ink-3); font-size:10px; display:inline-flex; align-items:center; justify-content:center;
+  border-radius:4px; transition:background .15s, color .15s; user-select:none;
+}
+.nb-toggle-arrow:hover { background:rgba(var(--ink-rgb),.08); color:var(--ink); }
+.nb-toggle-sum { font-size:14.5px; font-weight:600; color:var(--ink); padding:2px 0; }
+.nb-toggle-body {
+  border-top:1px solid var(--line-2); margin-top:6px; padding-top:7px; padding-left:28px;
+}
+.nb-toggle-dtl { font-size:14px; color:var(--ink-2); line-height:1.65; padding:2px 0; }
+
 .nb-hr { height:1px; background:var(--line); margin:12px 6px; border-radius:1px; }
 
 /* 문답(Q&A). 치즈(질문)는 왼쪽, 감자(답)는 오른쪽 — 블로그 글의
@@ -1193,6 +1260,31 @@
   word-break:keep-all; background:#E9F0F7; font-weight:600;
 }
 .ntp-howto-i { flex:none; font-size:15px; line-height:1.5; }
+.ntp-warn {
+  display:flex; gap:9px; align-items:flex-start; border-radius:10px; padding:11px 14px; margin:0 0 12px;
+  word-break:keep-all; background:#FCEEEB; border:1px solid #E8C7C2;
+}
+.ntp-warn-i { flex:none; font-size:15px; line-height:1.5; }
+.ntp-tip {
+  display:flex; gap:9px; align-items:flex-start; border-radius:10px; padding:11px 14px; margin:0 0 12px;
+  word-break:keep-all; background:#E8F7F0; border:1px solid #C4E8D6;
+}
+.ntp-tip-i { flex:none; font-size:15px; line-height:1.5; }
+.ntp-vocab {
+  background:#F7F3EC; border:1px solid #E4DACB; border-radius:8px; padding:9px 12px; margin:0 0 12px;
+}
+.ntp-vocab-w { font-weight:700; color:#1B1512; margin-bottom:3px; }
+.ntp-vocab-m { font-size:13px; color:#4A4038; line-height:1.5; }
+.ntp-ex {
+  border-left:3.5px solid #12704F; background:#F0F8F4; border-radius:0 8px 8px 0; padding:8px 12px; margin:0 0 12px;
+}
+.ntp-ex-ko { font-weight:600; color:#1B1512; margin-bottom:2px; }
+.ntp-ex-tr { font-size:13px; color:#4A4038; font-style:italic; }
+.ntp-toggle {
+  background:#F7F3EC; border:1px solid #E4DACB; border-radius:8px; padding:8px 12px; margin:0 0 12px;
+}
+.ntp-toggle-s { font-weight:700; cursor:pointer; color:#1B1512; }
+.ntp-toggle-b { margin-top:6px; font-size:13.5px; color:#4A4038; line-height:1.5; }
 .ntp-qa { display:flex; flex-direction:column; gap:6px; margin:0 0 14px; }
 .ntp-qa-q, .ntp-qa-a {
   max-width:80%; padding:8px 12px; border-radius:12px; word-break:keep-all;
