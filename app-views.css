@@ -2781,6 +2781,19 @@
    내용(제목·태그라인)은 원래 왼쪽 정렬이라 그대로 둔다. 폭만 좁혀 가운데
    앉힌다. */
 .lt-rec-card { display:block; width:100%; max-width:420px; margin:20px auto 0; text-align:left; }
+/* 다음 코스 힌트 — 시작 코스 카드 아래에 작게 표시 */
+.lt-rec-next {
+  display:flex; align-items:center; gap:8px;
+  max-width:420px; margin:8px auto 0; padding:8px 12px;
+  background:var(--surface-2); border:1px solid var(--line-2); border-radius:var(--r);
+  font-size:13px; color:var(--ink-2); cursor:pointer; text-align:left;
+  transition:background .15s, border-color .15s; word-break:keep-all;
+}
+.lt-rec-next:hover { background:var(--tint); border-color:var(--orange); color:var(--ink); }
+.lt-rec-next-label { flex:none; font-size:11px; font-weight:700; color:var(--orange-deep);
+  background:rgba(255,145,77,.14); padding:2px 6px; border-radius:4px; }
+.lt-rec-next-title { flex:1; min-width:0; }
+.lt-rec-next-arrow { flex:none; font-size:12px; color:var(--ink-3); }
 
 /* 레벨 테스트 팝업 — #askDlg 와 같은 <dialog> 방식. 화면을 갈아 끼우지
    않고 지금 보던 곳 위에 뜬다.
