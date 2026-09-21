@@ -3437,6 +3437,59 @@
   font-size: 20px; font-weight: 900; color: var(--ink); display: flex; align-items: center; gap: 8px;
 }
 
+/* ── 여행 한국어 세련된 난이도 세그먼트 토글 ──────────────── */
+.tv-level-row {
+  display: flex; align-items: center; justify-content: flex-start;
+  margin: 6px 0 16px;
+}
+.tv-seg-control {
+  display: inline-flex; align-items: center; gap: 4px;
+  background: var(--surface-2); border: 1.5px solid var(--line-2);
+  border-radius: var(--r-xl); padding: 5px;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.04);
+  user-select: none; max-width: 100%; overflow-x: auto;
+  scrollbar-width: none;
+}
+.tv-seg-control::-webkit-scrollbar { display: none; }
+
+.tv-seg-btn {
+  display: inline-flex; align-items: center; gap: 7px;
+  border: none; background: transparent; outline: none;
+  font-family: inherit; font-size: 13.5px; font-weight: 700;
+  color: var(--ink-3); padding: 8px 16px; border-radius: var(--r);
+  cursor: pointer; transition: all .18s cubic-bezier(.16, 1, .3, 1);
+  white-space: nowrap; line-height: 1.3;
+}
+.tv-seg-btn:hover {
+  color: var(--ink); background: rgba(var(--ink-rgb), .04);
+}
+.tv-seg-btn.active {
+  background: var(--surface);
+  color: var(--ink); font-weight: 800;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.04);
+}
+.tv-seg-btn.active.is-easy { color: #059669; }
+.tv-seg-btn.active.is-std { color: var(--orange-deep); }
+.tv-seg-btn.active.is-pro { color: #7c3aed; }
+.tv-seg-btn.active.is-all { color: var(--ink); }
+
+.tv-seg-ico {
+  font-size: 13px; line-height: 1; flex-shrink: 0;
+  display: inline-flex; align-items: center; justify-content: center;
+}
+.tv-seg-txt {
+  letter-spacing: -0.01em;
+}
+
+@media (max-width: 640px) {
+  .tv-seg-control {
+    width: 100%; display: flex;
+  }
+  .tv-seg-btn {
+    flex: 1; justify-content: center; padding: 7px 8px; font-size: 12px; gap: 4px;
+  }
+}
+
 .tv-cats-bar {
   display: flex; gap: 8px; overflow-x: auto; padding: 8px 0 14px; margin-top: 8px;
   scrollbar-width: thin;
