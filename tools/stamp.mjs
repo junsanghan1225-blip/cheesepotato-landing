@@ -40,7 +40,7 @@ const ASSETS = [
   'glossary-ja.js', 'glossary-zh.js', 'glossary-vi.js', 'glossary-ru.js',
   'glossary-es.js', 'glossary-fr.js', 'glossary-ar.js', 'glossary-mn.js',
   'glossary-id.js',
-  'courses-grammar-detailed.js', 'numbers.js', 'reading.js', 'convo.js',
+  'courses-grammar-detailed.js', 'numbers.js', 'reading.js', 'convo.js', 'travel-data.js',
   'courses-beginner-stage1.js', 'courses-beginner-stage2.js', 'courses-beginner-stage3.js',
   'courses-beginner-stage4.js', 'courses-beginner-stage5.js', 'courses-beginner-stage6.js',
   'courses-beginner-extra.js',
