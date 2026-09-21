@@ -224,7 +224,7 @@ export const TRAVEL_PHRASES = [
     title: '체크아웃 하기',
     easy: { ko: '체크아웃이요.', pron: 'Chekeu-aut-iyo.', en: 'Check-out.' },
     std:  { ko: '체크아웃할게요.', pron: 'Chekeu-aut-halgeyo.', en: 'I’d like to check out.' },
-    pro:  { ko: '302호 체크아웃하겠습니다. 잘 묵고 갑니다.', pron: 'Sambaegi-ho chekeu-aut-hagesseumnida. Jal mukgo gamnida.', en: 'Checking out of room 302. Thank you for the wonderful stay.' },
+    pro:  { ko: '302호 체크아웃하겠습니다.', pron: 'Sambaegi-ho chekeu-aut-hagesseumnida.', en: 'Checking out of room 302.' },
     tip: '숙소를 떠날 때 키를 반납하며 건네는 말입니다.',
   },
 
@@ -266,7 +266,7 @@ export const TRAVEL_PHRASES = [
     title: '물 리필 요청',
     easy: { ko: '물이요 / 물 주세요.', pron: 'Mul-iyo / Mul juseyo.', en: 'Water, please.' },
     std:  { ko: '물 좀 더 주세요.', pron: 'Mul jom deo juseyo.', en: 'More water, please.' },
-    pro:  { ko: '여기 시원한 물 한 통만 더 부탁드릴게요.', pron: 'Yeogi siwonhan mul han tongman deo butakdeurilgeyo.', en: 'Excuse me, could we please have another bottle of cold water?' },
+    pro:  { ko: '물 한 잔만 더 주시겠어요?', pron: 'Mul han janman deo jusigesseoyo?', en: 'Could I please have another glass of water?' },
     tip: '식사 중 물이나 기본 반찬을 더 요청할 때 씁니다.',
   },
   {
@@ -290,7 +290,7 @@ export const TRAVEL_PHRASES = [
     title: '계산하기 & 영수증',
     easy: { ko: '계산이요.', pron: 'Gyesan-iyo.', en: 'Check, please.' },
     std:  { ko: '계산할게요. 영수증은 버려주세요.', pron: 'Gyesanhalgeyo. Yeongsujeung-eun beoryeojuseyo.', en: 'Check, please. You can throw away the receipt.' },
-    pro:  { ko: '식사 다 했습니다, 계산 부탁드립니다. 영수증은 괜찮습니다.', pron: 'Siksa da haesseumnida, gyesan butakdeurimnida. Yeongsujeung-eun gwaenchanhseumnida.', en: 'We are finished dining, check please. No need for the receipt.' },
+    pro:  { ko: '계산 좀 부탁드릴게요. 영수증은 됐습니다.', pron: 'Gyesan jom butakdeurilgeyo. Yeongsujeung-eun dwaesseumnida.', en: 'Check, please. No need for the receipt.' },
     tip: '식사를 마치고 결제할 때 쓰는 깔끔한 표현입니다.',
   },
 
@@ -300,7 +300,7 @@ export const TRAVEL_PHRASES = [
     title: '가격 묻기',
     easy: { ko: '얼마예요?', pron: 'Eolmayeyo?', en: 'How much?' },
     std:  { ko: '이거 얼마예요?', pron: 'Igeo eolmayeyo?', en: 'How much is this?' },
-    pro:  { ko: '죄송한데 이 상품 가격이 어떻게 되나요?', pron: 'Joesonghande i sangpum gagyeogi eotteoke doenayo?', en: 'Excuse me, could you let me know the price of this item?' },
+    pro:  { ko: '죄송한데 혹시 이거 얼마예요?', pron: 'Joesonghande hoksi igeo eolmayeyo?', en: 'Excuse me, how much is this by any chance?' },
     tip: '가격을 물어볼 때 쓰는 가장 대표적인 질문입니다.',
   },
   {
@@ -322,7 +322,7 @@ export const TRAVEL_PHRASES = [
   {
     id: 'tv-shop-04', cat: 'shop',
     title: '비닐봉투 거절',
-    easy: { ko: '봉투 안 요.', pron: 'Bongtu an-yo.', en: 'No bag.' },
+    easy: { ko: '봉투는 괜찮아요.', pron: 'Bongtu-neun gwaenchanhayo.', en: 'I am okay without a bag.' },
     std:  { ko: '봉투는 필요 없어요.', pron: 'Bongtu-neun piryo eopseoyo.', en: 'I don’t need a plastic bag.' },
     pro:  { ko: '그냥 들고 갈게요, 봉투는 안 주셔도 됩니다.', pron: 'Geunyang deulgo galgeyo, bongtu-neun an jusyeodo doemnida.', en: 'I will just carry it, no bag needed, thank you.' },
     tip: '편의점이나 마트 계산대에서 비닐봉투가 필요 없을 때 말합니다.',
@@ -392,7 +392,7 @@ export const TRAVEL_PHRASES = [
     title: '비상약 구매 요청',
     easy: { ko: '두통약 / 소화제 주세요.', pron: 'Dutongyak / Sohwaje juseyo.', en: 'Headache / digestion medicine.' },
     std:  { ko: '두통약(소화제) 하나 주세요.', pron: 'Dutongyak hana juseyo.', en: 'Please give me headache medicine (digestive medicine).' },
-    pro:  { ko: '머리가 아파서(속이 안 좋아서) 그러는데 잘 듣는 약 하나 부탁드립니다.', pron: 'Meoriga apaseo geureoneunde jal deunneun yak hana butakdeurimnida.', en: 'I have a headache (upset stomach), could you recommend an effective medicine?' },
+    pro:  { ko: '머리가 아파서 그러는데 괜찮은 약 하나만 주시겠어요?', pron: 'Meoriga apaseo geureoneunde gwaenchanheun yak hanaman jusigesseoyo?', en: 'I have a headache, could you give me a good medicine for it?' },
     tip: '약국에서 가장 많이 찾는 비상약을 요청할 때 씁니다.',
   },
   {

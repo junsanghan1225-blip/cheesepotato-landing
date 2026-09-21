@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>여행 한국어 오디오 녹음 스튜디오 | CheesePotato Travel Recorder</title>
+  <title>여행 한국어 오디오 녹음 스튜디오 (3단계 버전별) | CheesePotato Travel Recorder</title>
   <link rel="icon" href="favicon.ico">
   <!-- JSZip for batch download -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
@@ -18,12 +18,16 @@
       --ink-2: #475569;
       --ink-3: #94a3b8;
       --orange: #f59e0b;
-      --orange-deep: #d97706;
-      --orange-tint: rgba(245, 158, 11, 0.08);
+      --orange-deep: #ea580c;
+      --orange-tint: rgba(234, 88, 12, 0.08);
       --red: #ef4444;
       --red-tint: rgba(239, 68, 68, 0.1);
       --green: #10b981;
+      --green-deep: #059669;
       --green-tint: rgba(16, 185, 129, 0.1);
+      --purple: #8b5cf6;
+      --purple-deep: #7c3aed;
+      --purple-tint: rgba(139, 92, 246, 0.1);
       --radius: 14px;
       --shadow: 0 4px 20px -4px rgba(0, 0, 0, 0.06);
     }
@@ -37,53 +41,53 @@
     /* ── 헤더 & 안내바 ───────────────────────── */
     .studio-hd {
       position: sticky; top: 0; z-index: 100;
-      background: rgba(255, 255, 255, 0.92);
-      -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);
-      border-bottom: 1px solid var(--border); padding: 14px 24px;
+      background: rgba(255, 255, 255, 0.94);
+      -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border); padding: 12px 24px;
     }
     .hd-inner {
-      max-width: 1080px; margin: 0 auto;
-      display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap;
+      max-width: 1100px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between; gap: 14px; flex-wrap: wrap;
     }
     .hd-brand {
       display: flex; align-items: center; gap: 10px;
     }
     .hd-brand span.logo { font-size: 26px; }
-    .hd-title h1 { font-size: 18px; font-weight: 800; color: var(--ink); }
-    .hd-title p { font-size: 12px; color: var(--ink-3); }
+    .hd-title h1 { font-size: 17px; font-weight: 800; color: var(--ink); }
+    .hd-title p { font-size: 11.5px; color: var(--ink-3); }
 
     .hd-stats {
-      display: flex; align-items: center; gap: 12px;
+      display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
     }
     .stat-badge {
       display: flex; align-items: center; gap: 6px;
       padding: 6px 12px; border-radius: 999px; background: var(--surface-2);
-      font-size: 13px; font-weight: 700; color: var(--ink-2);
+      font-size: 12.5px; font-weight: 700; color: var(--ink-2);
     }
     .stat-badge b { color: var(--orange-deep); }
     .btn-zip {
       display: flex; align-items: center; gap: 6px;
       padding: 8px 16px; border-radius: 999px; border: none;
-      background: var(--orange); color: #fff; font-size: 13.5px; font-weight: 700;
-      cursor: pointer; transition: all .15s ease; box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3);
+      background: var(--orange-deep); color: #fff; font-size: 13px; font-weight: 700;
+      cursor: pointer; transition: all .15s ease; box-shadow: 0 4px 12px rgba(234, 88, 12, 0.3);
     }
-    .btn-zip:hover:not(:disabled) { background: var(--orange-deep); transform: translateY(-1px); }
+    .btn-zip:hover:not(:disabled) { transform: translateY(-1px); }
     .btn-zip:disabled { opacity: 0.5; cursor: not-allowed; box-shadow: none; }
 
     /* ── 메인 컨테이너 ───────────────────────── */
     .studio-main {
-      max-width: 1080px; margin: 24px auto; padding: 0 20px;
+      max-width: 1100px; margin: 20px auto; padding: 0 20px;
     }
 
     /* 마이크 권한 안내 바 */
     .mic-banner {
       display: flex; align-items: center; justify-content: space-between;
       background: var(--surface); border: 1.5px solid var(--border); border-radius: var(--radius);
-      padding: 14px 18px; margin-bottom: 20px; box-shadow: var(--shadow);
+      padding: 12px 18px; margin-bottom: 16px; box-shadow: var(--shadow);
     }
-    .mic-info { display: flex; align-items: center; gap: 10px; font-size: 13.5px; color: var(--ink-2); }
+    .mic-info { display: flex; align-items: center; gap: 10px; font-size: 13px; color: var(--ink-2); }
     .mic-visualizer {
-      width: 140px; height: 14px; background: var(--surface-2); border-radius: 999px;
+      width: 140px; height: 12px; background: var(--surface-2); border-radius: 999px;
       overflow: hidden; position: relative;
     }
     .mic-bar {
@@ -91,21 +95,62 @@
       transition: width 0.05s ease;
     }
 
+    /* ── 필터 및 토글 컨트롤 바 ───────────────── */
+    .filters-bar {
+      display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap;
+      margin-bottom: 16px; background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 12px 16px; box-shadow: var(--shadow);
+    }
+    .tier-toggle-wrap {
+      display: flex; align-items: center; gap: 8px; flex-wrap: wrap;
+    }
+    .toggle-label {
+      font-size: 12px; font-weight: 800; color: var(--ink-3); text-transform: uppercase;
+    }
+    .tier-seg {
+      display: inline-flex; align-items: center; gap: 3px; background: var(--surface-2);
+      border: 1px solid var(--border); border-radius: 10px; padding: 3px;
+    }
+    .tier-btn {
+      display: inline-flex; align-items: center; gap: 5px; border: none; background: transparent;
+      padding: 6px 12px; border-radius: 7px; font-size: 12.5px; font-weight: 700;
+      color: var(--ink-3); cursor: pointer; transition: all .14s ease;
+    }
+    .tier-btn:hover { color: var(--ink); }
+    .tier-btn.active {
+      background: var(--surface); color: var(--ink);
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08); font-weight: 800;
+    }
+    .tier-btn.active.is-easy { color: var(--green-deep); }
+    .tier-btn.active.is-std { color: var(--orange-deep); }
+    .tier-btn.active.is-pro { color: var(--purple-deep); }
+    .tier-btn.active.is-all { color: var(--ink); }
+
+    .tier-stats-chips {
+      display: flex; align-items: center; gap: 8px; font-size: 12px; font-weight: 700;
+    }
+    .tier-stat-chip {
+      padding: 3px 8px; border-radius: 6px;
+    }
+    .tier-stat-chip.easy { background: var(--green-tint); color: var(--green-deep); }
+    .tier-stat-chip.std { background: var(--orange-tint); color: var(--orange-deep); }
+    .tier-stat-chip.pro { background: var(--purple-tint); color: var(--purple-deep); }
+
     /* ── 카테고리 탭 ─────────────────────────── */
     .cat-tabs {
-      display: flex; gap: 8px; overflow-x: auto; padding-bottom: 12px; margin-bottom: 20px;
+      display: flex; gap: 8px; overflow-x: auto; padding-bottom: 8px; margin-bottom: 18px;
       scrollbar-width: thin;
     }
     .cat-tab {
-      display: flex; align-items: center; gap: 6px; padding: 8px 16px;
+      display: flex; align-items: center; gap: 6px; padding: 7px 14px;
       background: var(--surface); border: 1.5px solid var(--border); border-radius: 999px;
-      font-size: 13.5px; font-weight: 600; color: var(--ink-2); cursor: pointer;
+      font-size: 13px; font-weight: 600; color: var(--ink-2); cursor: pointer;
       white-space: nowrap; transition: all .15s ease;
     }
-    .cat-tab:hover { border-color: var(--orange); }
+    .cat-tab:hover { border-color: var(--orange-deep); }
     .cat-tab.active {
-      background: var(--orange); border-color: var(--orange); color: #fff;
-      box-shadow: 0 4px 12px rgba(245, 158, 11, 0.25);
+      background: var(--orange-deep); border-color: var(--orange-deep); color: #fff;
+      box-shadow: 0 4px 12px rgba(234, 88, 12, 0.25);
     }
 
     /* ── 구문 목록 그리드 ─────────────────────── */
@@ -114,89 +159,119 @@
     }
     .phrase-card {
       background: var(--surface); border: 1.5px solid var(--border);
-      border-radius: var(--radius); padding: 22px; box-shadow: var(--shadow);
+      border-radius: var(--radius); padding: 20px 22px; box-shadow: var(--shadow);
       display: flex; flex-direction: column; gap: 14px; transition: border-color .15s ease;
     }
-    .phrase-card.recorded {
-      border-color: rgba(16, 185, 129, 0.4); background: linear-gradient(180deg, #ffffff 0%, rgba(16, 185, 129, 0.02) 100%);
+    .phrase-card.all-recorded {
+      border-color: rgba(16, 185, 129, 0.4);
+      background: linear-gradient(180deg, #ffffff 0%, rgba(16, 185, 129, 0.02) 100%);
     }
 
     .card-top {
       display: flex; align-items: center; justify-content: space-between; gap: 10px;
     }
     .card-id-badge {
-      font-family: ui-monospace, monospace; font-size: 11.5px; font-weight: 700;
-      color: var(--ink-3); background: var(--surface-2); padding: 3px 8px; border-radius: 6px;
+      font-family: ui-monospace, monospace; font-size: 11px; font-weight: 700;
+      color: var(--ink-3); background: var(--surface-2); padding: 2px 7px; border-radius: 5px;
     }
-    .status-pill {
-      font-size: 12px; font-weight: 700; padding: 3px 10px; border-radius: 999px;
-    }
-    .status-pill.unrecorded { background: var(--surface-2); color: var(--ink-3); }
-    .status-pill.recorded { background: var(--green-tint); color: var(--green); }
-
-    .card-body {
-      display: flex; flex-direction: column; gap: 6px;
-    }
-    .ko-text {
-      font-size: 24px; font-weight: 800; color: var(--ink); line-height: 1.35;
-      letter-spacing: -0.5px; word-break: keep-all;
-    }
-    .pron-text {
-      font-size: 13.5px; color: var(--orange-deep); font-weight: 600;
-    }
-    .en-text {
-      font-size: 15px; color: var(--ink-2); font-weight: 500;
-    }
-    .tip-text {
-      font-size: 12.5px; color: var(--ink-3); margin-top: 4px;
+    .card-title-text {
+      font-size: 15px; font-weight: 800; color: var(--ink);
     }
 
-    /* ── 녹음 제어 컨트롤 ────────────────────── */
-    .card-ctrls {
-      display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-top: 4px;
-      padding-top: 14px; border-top: 1px solid var(--border);
+    /* ── 3개 버전별 행 (Row) 디자인 ────────────── */
+    .tiers-container {
+      display: flex; flex-direction: column; gap: 10px;
+    }
+    .tier-row {
+      background: var(--surface-2); border: 1.5px solid var(--border);
+      border-radius: 10px; padding: 12px 14px; display: flex;
+      align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap;
+      transition: all .16s ease;
+    }
+    .tier-row.recorded {
+      background: #fff; border-color: rgba(16, 185, 129, 0.35);
+      box-shadow: 0 2px 8px rgba(16, 185, 129, 0.06);
+    }
+    .tier-row.active-recording {
+      border-color: var(--red); background: rgba(239, 68, 68, 0.03);
+    }
+    .tier-row.focus-tier {
+      border-color: var(--orange-deep);
+    }
+
+    .tier-left {
+      display: flex; align-items: flex-start; gap: 12px; flex: 1; min-width: 240px;
+    }
+    .tier-tag {
+      font-size: 10.5px; font-weight: 800; padding: 3px 7px; border-radius: 5px; flex-shrink: 0;
+      margin-top: 2px; text-transform: uppercase;
+    }
+    .tier-tag.easy { background: var(--green-tint); color: var(--green-deep); border: 1px solid rgba(16,185,129,.2); }
+    .tier-tag.std { background: var(--orange-tint); color: var(--orange-deep); border: 1px solid rgba(234,88,12,.2); }
+    .tier-tag.pro { background: var(--purple-tint); color: var(--purple-deep); border: 1px solid rgba(139,92,246,.2); }
+
+    .tier-content {
+      display: flex; flex-direction: column; gap: 2px;
+    }
+    .tier-ko {
+      font-size: 18px; font-weight: 800; color: var(--ink); line-height: 1.3;
+    }
+    .tier-pron {
+      font-size: 12px; font-weight: 600; color: var(--orange-deep);
+    }
+    .tier-en {
+      font-size: 12.5px; color: var(--ink-2);
+    }
+
+    /* ── 각 행별 오디오 컨트롤 ────────────────── */
+    .tier-ctrls {
+      display: flex; align-items: center; gap: 6px; flex-shrink: 0;
     }
     .btn-action {
-      display: inline-flex; align-items: center; gap: 6px; padding: 9px 16px;
-      border-radius: 10px; border: 1.5px solid var(--border); background: var(--surface);
-      font-size: 13.5px; font-weight: 700; color: var(--ink); cursor: pointer;
-      transition: all .15s ease;
+      display: inline-flex; align-items: center; gap: 5px; padding: 7px 13px;
+      border-radius: 8px; border: 1px solid var(--border); background: var(--surface);
+      font-size: 12.5px; font-weight: 700; color: var(--ink); cursor: pointer;
+      transition: all .14s ease;
     }
-    .btn-action:hover { border-color: rgba(var(--ink), 0.3); transform: translateY(-1px); }
+    .btn-action:hover { border-color: var(--ink-3); transform: translateY(-1px); }
 
     .btn-rec {
       border-color: var(--red); color: var(--red); background: var(--red-tint);
     }
-    .btn-rec:hover { background: rgba(239, 68, 68, 0.16); }
+    .btn-rec:hover { background: rgba(239, 68, 68, 0.18); }
     .btn-rec.recording {
       background: var(--red); color: #fff; animation: pulseRec 1.2s infinite ease-in-out;
     }
 
     .btn-play {
-      border-color: var(--orange); color: var(--orange-deep); background: var(--orange-tint);
+      border-color: var(--orange-deep); color: var(--orange-deep); background: var(--orange-tint);
     }
-    .btn-play:hover { background: rgba(245, 158, 11, 0.16); }
+    .btn-play:hover { background: rgba(234, 88, 12, 0.16); }
 
     .btn-download {
-      border-color: var(--green); color: var(--green); background: var(--green-tint);
+      border-color: var(--green-deep); color: var(--green-deep); background: var(--green-tint);
     }
     .btn-download:hover { background: rgba(16, 185, 129, 0.16); }
 
     .btn-delete {
-      color: var(--ink-3); font-size: 12.5px; border: none; background: transparent; padding: 6px 10px;
+      color: var(--ink-3); font-size: 11.5px; border: none; background: transparent; padding: 6px 8px; cursor: pointer;
     }
     .btn-delete:hover { color: var(--red); }
 
+    .tip-text {
+      font-size: 12px; color: var(--ink-3); margin-top: 2px;
+    }
+
     @keyframes pulseRec {
       0% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.5); }
-      70% { box-shadow: 0 0 0 10px rgba(239, 68, 68, 0); }
+      70% { box-shadow: 0 0 0 8px rgba(239, 68, 68, 0); }
       100% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0); }
     }
 
-    @media (max-width: 600px) {
-      .ko-text { font-size: 20px; }
-      .card-ctrls { gap: 8px; }
-      .btn-action { padding: 8px 12px; font-size: 12.5px; }
+    @media (max-width: 700px) {
+      .tier-row { flex-direction: column; align-items: stretch; gap: 10px; }
+      .tier-ctrls { justify-content: flex-start; }
+      .tier-ko { font-size: 17px; }
     }
   </style>
 </head>
@@ -209,7 +284,7 @@
         <span class="logo">🎙️</span>
         <div class="hd-title">
           <h1>여행 한국어 녹음 스튜디오</h1>
-          <p>마이크로 한국어 표현을 직접 녹음하고 저장하세요</p>
+          <p>쉬움 · 보통 · 정확 3단계 버전별 개별 녹음</p>
         </div>
       </div>
 
@@ -221,7 +296,7 @@
           📄 팜플렛 / PDF 보기
         </a>
         <div class="stat-badge">
-          진행률: <span id="statDone">0</span> / <span id="statTotal">43</span> (<b id="statPct">0%</b>)
+          전체: <span id="statDone">0</span> / <span id="statTotal">129</span> (<b id="statPct">0%</b>)
         </div>
         <button type="button" class="btn-zip" id="btnZipAll" disabled>
           📦 전체 녹음 ZIP 다운로드
@@ -243,9 +318,28 @@
       </div>
     </div>
 
+    <!-- ── 난이도 버전 필터 및 통계 바 ─────────────── -->
+    <div class="filters-bar">
+      <div class="tier-toggle-wrap">
+        <span class="toggle-label">녹음 모드:</span>
+        <div class="tier-seg" id="tierSeg">
+          <button type="button" class="tier-btn active is-all" data-mode="all">📋 3단계 전체 (129)</button>
+          <button type="button" class="tier-btn is-easy" data-mode="easy">🟢 쉬운 버전만 (43)</button>
+          <button type="button" class="tier-btn is-std" data-mode="std">🟡 보통 버전만 (43)</button>
+          <button type="button" class="tier-btn is-pro" data-mode="pro">🟣 정확한 버전만 (43)</button>
+        </div>
+      </div>
+
+      <div class="tier-stats-chips">
+        <span class="tier-stat-chip easy">🟢 쉬움: <b id="statEasy">0/43</b></span>
+        <span class="tier-stat-chip std">🟡 보통: <b id="statStd">0/43</b></span>
+        <span class="tier-stat-chip pro">🟣 정확: <b id="statPro">0/43</b></span>
+      </div>
+    </div>
+
     <!-- 카테고리 탭 -->
     <div class="cat-tabs" id="catTabs">
-      <button type="button" class="cat-tab active" data-cat="all">🌟 전체 보기 (43)</button>
+      <button type="button" class="cat-tab active" data-cat="all">🌟 전체 상황 (43)</button>
     </div>
 
     <!-- 구문 카드 그리드 -->
@@ -256,8 +350,8 @@
   <script type="module">
     import { TRAVEL_CATEGORIES, TRAVEL_PHRASES } from './travel-data.js';
 
-    // ── IndexedDB 설정 (새로고침해도 녹음 파일 보존) ─────────────────
-    const DB_NAME = 'CheesePotato_Travel_Audio';
+    // ── IndexedDB 설정 (새로고침해도 버전별 녹음 파일 영구 보존) ──
+    const DB_NAME = 'CheesePotato_Travel_Audio_Tiers';
     const STORE_NAME = 'recordings';
     let db;
 
@@ -285,26 +379,6 @@
       });
     }
 
-    function getAudioDB(id) {
-      return new Promise((resolve, reject) => {
-        const tx = db.transaction(STORE_NAME, 'readonly');
-        const st = tx.objectStore(STORE_NAME);
-        const req = st.get(id);
-        req.onsuccess = () => resolve(req.result ? req.result.blob : null);
-        req.onerror = () => reject(req.error);
-      });
-    }
-
-    function deleteAudioDB(id) {
-      return new Promise((resolve, reject) => {
-        const tx = db.transaction(STORE_NAME, 'readwrite');
-        const st = tx.objectStore(STORE_NAME);
-        st.delete(id);
-        tx.oncomplete = () => resolve();
-        tx.onerror = () => reject(tx.error);
-      });
-    }
-
     function getAllAudioDB() {
       return new Promise((resolve, reject) => {
         const tx = db.transaction(STORE_NAME, 'readonly');
@@ -315,49 +389,66 @@
       });
     }
 
-    // ── 오디오 녹음 및 스트림 상태 ─────────────────────────────
-    let mediaStream = null;
+    function deleteAudioDB(id) {
+      return new Promise((resolve, reject) => {
+        const tx = db.transaction(STORE_NAME, 'readwrite');
+        const st = tx.objectStore(STORE_NAME);
+        const req = st.delete(id);
+        tx.oncomplete = () => resolve();
+        tx.onerror = () => reject(tx.error);
+      });
+    }
+
+    // ── 상태 관리 ─────────────────────────────────────────────
+    let recordedBlobs = new Map(); // key: `${p.id}_${tier}` (e.g. 'air-01_easy', 'air-01_std', 'air-01_pro')
+    let currentCat = 'all';
+    let currentTierMode = 'all'; // 'all' | 'easy' | 'std' | 'pro'
     let mediaRecorder = null;
-    let activeRecordId = null;
     let audioChunks = [];
+    let activeRecordSlotId = null; // e.g. 'air-01_easy'
+    let mediaStream = null;
     let audioContext = null;
     let analyser = null;
-    let currentCat = 'all';
 
-    // 캐시된 녹음 Blob 객체 { [id]: Blob }
-    const recordedBlobs = new Map();
-
+    // ── 마이크 초기화 및 볼륨 감지 ─────────────────────────────
     async function initMicrophone() {
+      const statusEl = document.getElementById('micStatus');
+      const micIcon = document.getElementById('micIcon');
       try {
         mediaStream = await navigator.mediaDevices.getUserMedia({ audio: true });
-        document.getElementById('micStatus').textContent = '마이크가 연결되었습니다. 녹음 준비 완료!';
-        document.getElementById('micIcon').textContent = '🎙️';
+        statusEl.textContent = '마이크가 연결되었습니다. 녹음할 준비가 되었습니다.';
+        statusEl.style.color = 'var(--green-deep)';
+        micIcon.textContent = '🎙️';
 
-        // 볼륨 시각화
         audioContext = new (window.AudioContext || window.webkitAudioContext)();
         analyser = audioContext.createAnalyser();
-        analyser.fftSize = 64;
-        const src = audioContext.createMediaStreamSource(mediaStream);
-        src.connect(analyser);
+        const source = audioContext.createMediaStreamSource(mediaStream);
+        source.connect(analyser);
+        analyser.fftSize = 256;
 
-        const dataArray = new Uint8Array(analyser.frequencyBinCount);
-        const levelBar = document.getElementById('micLevel');
-
-        function updateMeter() {
-          analyser.getByteFrequencyData(dataArray);
-          let sum = 0;
-          for (let i = 0; i < dataArray.length; i++) sum += dataArray[i];
-          const avg = sum / dataArray.length;
-          const pct = Math.min(100, (avg / 128) * 100);
-          levelBar.style.width = pct + '%';
-          requestAnimationFrame(updateMeter);
-        }
-        updateMeter();
+        visualizeMic();
       } catch (err) {
-        document.getElementById('micStatus').textContent = '마이크 접근 권한이 필요합니다. 브라우저에서 마이크를 허용해 주세요.';
-        document.getElementById('micIcon').textContent = '⚠️';
-        console.warn('Microphone error:', err);
+        statusEl.textContent = '마이크 접근 권한이 필요합니다. 브라우저 주소창에서 권한을 허용해 주세요.';
+        statusEl.style.color = 'var(--red)';
+        micIcon.textContent = '⚠️';
       }
+    }
+
+    function visualizeMic() {
+      const bar = document.getElementById('micLevel');
+      const dataArray = new Uint8Array(analyser.frequencyBinCount);
+
+      function loop() {
+        requestAnimationFrame(loop);
+        if (!analyser) return;
+        analyser.getByteFrequencyData(dataArray);
+        let sum = 0;
+        for (let i = 0; i < dataArray.length; i++) sum += dataArray[i];
+        const avg = sum / dataArray.length;
+        const pct = Math.min(100, Math.round((avg / 128) * 100));
+        bar.style.width = pct + '%';
+      }
+      loop();
     }
 
     // ── 카테고리 탭 렌더링 ────────────────────────────────────
@@ -380,7 +471,7 @@
       });
     }
 
-    // ── 구문 카드 렌더링 ──────────────────────────────────────
+    // ── 구문 카드 렌더링 (3개 버전 각각 개별 녹음 슬롯) ──────────
     function renderPhrases() {
       const grid = document.getElementById('phrasesGrid');
       grid.innerHTML = '';
@@ -390,70 +481,82 @@
         : TRAVEL_PHRASES.filter(p => p.cat === currentCat);
 
       list.forEach((p) => {
-        const hasAudio = recordedBlobs.has(p.id);
-
         const card = document.createElement('div');
-        card.className = `phrase-card${hasAudio ? ' recorded' : ''}`;
         card.id = `card-${p.id}`;
+
+        const tiers = [
+          { key: 'easy', koName: '쉬움', item: p.easy, tagCls: 'easy' },
+          { key: 'std',  koName: '보통', item: p.std,  tagCls: 'std' },
+          { key: 'pro',  koName: '정확', item: p.pro,  tagCls: 'pro' },
+        ];
+
+        // 3개 다 녹음되었는지 확인
+        const allRecorded = tiers.every(t => recordedBlobs.has(`${p.id}_${t.key}`));
+        card.className = `phrase-card${allRecorded ? ' all-recorded' : ''}`;
+
+        // 필터 모드에 따라 노출할 티어 결정
+        const visibleTiers = currentTierMode === 'all'
+          ? tiers
+          : tiers.filter(t => t.key === currentTierMode);
+
+        const rowsHtml = visibleTiers.map(t => {
+          const slotId = `${p.id}_${t.key}`;
+          const hasAudio = recordedBlobs.has(slotId);
+          return `
+            <div class="tier-row${hasAudio ? ' recorded' : ''}" id="row-${slotId}">
+              <div class="tier-left">
+                <span class="tier-tag ${t.tagCls}">${t.koName}</span>
+                <div class="tier-content">
+                  <div class="tier-ko">${t.item.ko}</div>
+                  <div class="tier-pron">${t.item.pron}</div>
+                  <div class="tier-en">${t.item.en}</div>
+                </div>
+              </div>
+
+              <div class="tier-ctrls">
+                <button type="button" class="btn-action btn-rec" id="btnRec-${slotId}">
+                  ${hasAudio ? '🔄 다시 녹음' : '🔴 녹음'}
+                </button>
+                <button type="button" class="btn-action btn-play" id="btnPlay-${slotId}" ${hasAudio ? '' : 'style="display:none;"'}>
+                  ▶️ 듣기
+                </button>
+                <button type="button" class="btn-action btn-download" id="btnDown-${slotId}" ${hasAudio ? '' : 'style="display:none;"'}>
+                  💾
+                </button>
+                <button type="button" class="btn-delete" id="btnDel-${slotId}" ${hasAudio ? '' : 'style="display:none;"'} title="녹음 삭제">
+                  🗑️
+                </button>
+              </div>
+            </div>
+          `;
+        }).join('');
 
         card.innerHTML = `
           <div class="card-top">
             <span class="card-id-badge">${p.id}</span>
-            <span class="status-pill ${hasAudio ? 'recorded' : 'unrecorded'}" id="pill-${p.id}">
-              ${hasAudio ? '✓ 녹음 완료' : '미녹음'}
-            </span>
+            <div class="card-title-text">${p.title}</div>
           </div>
 
-          <div class="card-body">
-            <div style="font-size:12px; font-weight:700; color:var(--ink-3); margin-bottom:2px;">${p.title}</div>
-            <div class="ko-text">${p.std.ko}</div>
-            <div class="pron-text">${p.std.pron}</div>
-            <div class="en-text">${p.std.en}</div>
-
-            <div style="margin-top:10px; padding:10px; background:var(--surface-2); border-radius:8px; display:flex; flex-direction:column; gap:6px; font-size:12.5px;">
-              <div style="display:flex; gap:6px; align-items:center;">
-                <span style="font-size:10px; font-weight:800; background:#ecfdf5; color:#059669; padding:1px 5px; border-radius:4px;">쉬움</span>
-                <b>${p.easy.ko}</b> <span style="color:var(--ink-3); font-size:11.5px;">(${p.easy.en})</span>
-              </div>
-              <div style="display:flex; gap:6px; align-items:center;">
-                <span style="font-size:10px; font-weight:800; background:#fff7ed; color:#ea580c; padding:1px 5px; border-radius:4px;">보통</span>
-                <b>${p.std.ko}</b> <span style="color:var(--ink-3); font-size:11.5px;">(${p.std.en})</span>
-              </div>
-              <div style="display:flex; gap:6px; align-items:center;">
-                <span style="font-size:10px; font-weight:800; background:#f5f3ff; color:#7c3aed; padding:1px 5px; border-radius:4px;">정확</span>
-                <b>${p.pro.ko}</b> <span style="color:var(--ink-3); font-size:11.5px;">(${p.pro.en})</span>
-              </div>
-            </div>
-
-            ${p.tip ? `<div class="tip-text">💡 ${p.tip}</div>` : ''}
+          <div class="tiers-container">
+            ${rowsHtml}
           </div>
 
-          <div class="card-ctrls">
-            <button type="button" class="btn-action btn-rec" id="btnRec-${p.id}">
-              🔴 녹음 시작
-            </button>
-            <button type="button" class="btn-action btn-play" id="btnPlay-${p.id}" ${hasAudio ? '' : 'style="display:none;"'}>
-              ▶️ 들어보기
-            </button>
-            <button type="button" class="btn-action btn-download" id="btnDown-${p.id}" ${hasAudio ? '' : 'style="display:none;"'}>
-              💾 다운로드 (.mp3)
-            </button>
-            <button type="button" class="btn-delete" id="btnDel-${p.id}" ${hasAudio ? '' : 'style="display:none;"'}>
-              🗑️ 삭제
-            </button>
-          </div>
+          ${p.tip ? `<div class="tip-text">💡 ${p.tip}</div>` : ''}
         `;
 
-        // 버튼 이벤트 바인딩
-        const recBtn = card.querySelector(`#btnRec-${p.id}`);
-        const playBtn = card.querySelector(`#btnPlay-${p.id}`);
-        const downBtn = card.querySelector(`#btnDown-${p.id}`);
-        const delBtn = card.querySelector(`#btnDel-${p.id}`);
+        // 각 행의 버튼들에 이벤트 바인딩
+        visibleTiers.forEach(t => {
+          const slotId = `${p.id}_${t.key}`;
+          const recBtn = card.querySelector(`#btnRec-${slotId}`);
+          const playBtn = card.querySelector(`#btnPlay-${slotId}`);
+          const downBtn = card.querySelector(`#btnDown-${slotId}`);
+          const delBtn = card.querySelector(`#btnDel-${slotId}`);
 
-        recBtn.addEventListener('click', () => toggleRecord(p.id, recBtn));
-        playBtn.addEventListener('click', () => playAudio(p.id));
-        downBtn.addEventListener('click', () => downloadAudio(p.id));
-        delBtn.addEventListener('click', () => deleteAudio(p.id));
+          recBtn.addEventListener('click', () => toggleRecord(slotId, recBtn, p.id));
+          playBtn.addEventListener('click', () => playAudio(slotId));
+          downBtn.addEventListener('click', () => downloadAudio(slotId, `${p.id}_${t.key}_${t.item.ko}`));
+          delBtn.addEventListener('click', () => deleteAudio(slotId, p.id));
+        });
 
         grid.appendChild(card);
       });
@@ -462,27 +565,24 @@
     }
 
     // ── 녹음 토글 ─────────────────────────────────────────────
-    function toggleRecord(id, btn) {
-      if (activeRecordId === id) {
-        // 녹음 중지
+    function toggleRecord(slotId, btn, phraseId) {
+      if (activeRecordSlotId === slotId) {
         stopRecording();
       } else {
-        // 녹음 시작
-        if (activeRecordId) stopRecording();
-        startRecording(id, btn);
+        if (activeRecordSlotId) stopRecording();
+        startRecording(slotId, btn, phraseId);
       }
     }
 
-    function startRecording(id, btn) {
+    function startRecording(slotId, btn, phraseId) {
       if (!mediaStream) {
         alert('마이크 사용 권한이 필요합니다.');
         return;
       }
 
-      activeRecordId = id;
+      activeRecordSlotId = slotId;
       audioChunks = [];
 
-      // webm 또는 ogg/mp4 브라우저 지원 코덱
       let mimeType = 'audio/webm';
       if (MediaRecorder.isTypeSupported('audio/webm;codecs=opus')) {
         mimeType = 'audio/webm;codecs=opus';
@@ -498,44 +598,55 @@
 
       mediaRecorder.onstop = async () => {
         const audioBlob = new Blob(audioChunks, { type: mimeType });
-        recordedBlobs.set(id, audioBlob);
-        await saveAudioDB(id, audioBlob);
+        recordedBlobs.set(slotId, audioBlob);
+        await saveAudioDB(slotId, audioBlob);
 
         // UI 갱신
-        const card = document.getElementById(`card-${id}`);
-        if (card) {
-          card.classList.add('recorded');
-          card.querySelector(`#pill-${id}`).className = 'status-pill recorded';
-          card.querySelector(`#pill-${id}`).textContent = '✓ 녹음 완료';
-          card.querySelector(`#btnPlay-${id}`).style.display = 'inline-flex';
-          card.querySelector(`#btnDown-${id}`).style.display = 'inline-flex';
-          card.querySelector(`#btnDel-${id}`).style.display = 'inline-block';
+        const row = document.getElementById(`row-${slotId}`);
+        if (row) {
+          row.classList.add('recorded');
+          row.classList.remove('active-recording');
+          row.querySelector(`#btnPlay-${slotId}`).style.display = 'inline-flex';
+          row.querySelector(`#btnDown-${slotId}`).style.display = 'inline-flex';
+          row.querySelector(`#btnDel-${slotId}`).style.display = 'inline-block';
         }
+
+        // 3개 버전 완료 여부 체크
+        const card = document.getElementById(`card-${phraseId}`);
+        if (card) {
+          const allTiers = ['easy', 'std', 'pro'].every(k => recordedBlobs.has(`${phraseId}_${k}`));
+          if (allTiers) card.classList.add('all-recorded');
+        }
+
         updateStats();
       };
 
       mediaRecorder.start();
+      const row = document.getElementById(`row-${slotId}`);
+      if (row) row.classList.add('active-recording');
       btn.classList.add('recording');
-      btn.textContent = '⏹️ 녹음 중지';
+      btn.textContent = '⏹️ 중지';
     }
 
     function stopRecording() {
       if (mediaRecorder && mediaRecorder.state !== 'inactive') {
         mediaRecorder.stop();
       }
-      if (activeRecordId) {
-        const btn = document.getElementById(`btnRec-${activeRecordId}`);
+      if (activeRecordSlotId) {
+        const btn = document.getElementById(`btnRec-${activeRecordSlotId}`);
+        const row = document.getElementById(`row-${activeRecordSlotId}`);
         if (btn) {
           btn.classList.remove('recording');
-          btn.textContent = '🔴 다시 녹음';
+          btn.textContent = '🔄 다시 녹음';
         }
+        if (row) row.classList.remove('active-recording');
       }
-      activeRecordId = null;
+      activeRecordSlotId = null;
     }
 
     // ── 오디오 재생 ───────────────────────────────────────────
-    function playAudio(id) {
-      const blob = recordedBlobs.get(id);
+    function playAudio(slotId) {
+      const blob = recordedBlobs.get(slotId);
       if (!blob) return;
       const url = URL.createObjectURL(blob);
       const audio = new Audio(url);
@@ -543,58 +654,71 @@
     }
 
     // ── 개별 파일 다운로드 ────────────────────────────────────
-    function downloadAudio(id) {
-      const blob = recordedBlobs.get(id);
+    function downloadAudio(slotId, fileName) {
+      const blob = recordedBlobs.get(slotId);
       if (!blob) return;
       const url = URL.createObjectURL(blob);
       const a = document.createElement('a');
       a.href = url;
-      a.download = `${id}.mp3`;
+      a.download = `${fileName.replace(/\s+/g, '_')}.webm`;
       a.click();
       URL.revokeObjectURL(url);
     }
 
     // ── 녹음 삭제 ─────────────────────────────────────────────
-    async function deleteAudio(id) {
-      if (!confirm(`[${id}] 녹음 파일을 삭제하시겠습니까?`)) return;
-      recordedBlobs.delete(id);
-      await deleteAudioDB(id);
+    async function deleteAudio(slotId, phraseId) {
+      if (!confirm(`녹음 파일을 삭제하시겠습니까?`)) return;
+      recordedBlobs.delete(slotId);
+      await deleteAudioDB(slotId);
 
-      const card = document.getElementById(`card-${id}`);
-      if (card) {
-        card.classList.remove('recorded');
-        card.querySelector(`#pill-${id}`).className = 'status-pill unrecorded';
-        card.querySelector(`#pill-${id}`).textContent = '미녹음';
-        card.querySelector(`#btnPlay-${id}`).style.display = 'none';
-        card.querySelector(`#btnDown-${id}`).style.display = 'none';
-        card.querySelector(`#btnDel-${id}`).style.display = 'none';
-        card.querySelector(`#btnRec-${id}`).textContent = '🔴 녹음 시작';
+      const row = document.getElementById(`row-${slotId}`);
+      if (row) {
+        row.classList.remove('recorded');
+        row.querySelector(`#btnPlay-${slotId}`).style.display = 'none';
+        row.querySelector(`#btnDown-${slotId}`).style.display = 'none';
+        row.querySelector(`#btnDel-${slotId}`).style.display = 'none';
+        row.querySelector(`#btnRec-${slotId}`).textContent = '🔴 녹음';
       }
+
+      const card = document.getElementById(`card-${phraseId}`);
+      if (card) card.classList.remove('all-recorded');
+
       updateStats();
     }
 
-    // ── 전체 ZIP 다운로드 ─────────────────────────────────────
+    // ── 전체 ZIP 다운로드 (버전별 폴더로 깔끔 분류) ─────────────
     document.getElementById('btnZipAll').addEventListener('click', async () => {
       if (typeof JSZip === 'undefined') {
         alert('JSZip 라이브러리를 불러오는 중입니다. 잠시 후 다시 시도해 주세요.');
         return;
       }
       const zip = new JSZip();
-      const folder = zip.folder('travel-audio');
+      const rootFolder = zip.folder('cheesepotato-travel-audio');
+      const easyFolder = rootFolder.folder('easy');
+      const stdFolder  = rootFolder.folder('std');
+      const proFolder  = rootFolder.folder('pro');
 
-      for (const [id, blob] of recordedBlobs.entries()) {
-        folder.file(`${id}.mp3`, blob);
+      for (const [slotId, blob] of recordedBlobs.entries()) {
+        const [phraseId, tier] = slotId.split('_');
+        const phrase = TRAVEL_PHRASES.find(p => p.id === phraseId);
+        const text = phrase && phrase[tier] ? phrase[tier].ko.replace(/[\s\?\,\.\!]+/g, '_') : '';
+        const filename = `${phraseId}_${text || 'phrase'}.webm`;
+
+        if (tier === 'easy') easyFolder.file(filename, blob);
+        else if (tier === 'std') stdFolder.file(filename, blob);
+        else if (tier === 'pro') proFolder.file(filename, blob);
+        else rootFolder.file(`${slotId}.webm`, blob);
       }
 
       const zipBtn = document.getElementById('btnZipAll');
       zipBtn.disabled = true;
-      zipBtn.textContent = '⏳ ZIP 생성 중...';
+      zipBtn.textContent = '⏳ ZIP 압축 생성 중...';
 
       const content = await zip.generateAsync({ type: 'blob' });
       const url = URL.createObjectURL(content);
       const a = document.createElement('a');
       a.href = url;
-      a.download = `cheesepotato-travel-audio-${new Date().toISOString().slice(0, 10)}.zip`;
+      a.download = `cheesepotato-travel-audio-3tiers-${new Date().toISOString().slice(0, 10)}.zip`;
       a.click();
       URL.revokeObjectURL(url);
 
@@ -604,16 +728,42 @@
 
     // ── 통계 갱신 ─────────────────────────────────────────────
     function updateStats() {
-      const total = TRAVEL_PHRASES.length;
-      const done = recordedBlobs.size;
-      const pct = Math.round((done / total) * 100);
+      const phraseCount = TRAVEL_PHRASES.length; // 43
+      const totalSlots = phraseCount * 3; // 129
 
-      document.getElementById('statTotal').textContent = total;
-      document.getElementById('statDone').textContent = done;
+      let easyDone = 0;
+      let stdDone = 0;
+      let proDone = 0;
+
+      TRAVEL_PHRASES.forEach(p => {
+        if (recordedBlobs.has(`${p.id}_easy`)) easyDone++;
+        if (recordedBlobs.has(`${p.id}_std`)) stdDone++;
+        if (recordedBlobs.has(`${p.id}_pro`)) proDone++;
+      });
+
+      const totalDone = easyDone + stdDone + proDone;
+      const pct = Math.round((totalDone / totalSlots) * 100);
+
+      document.getElementById('statTotal').textContent = totalSlots;
+      document.getElementById('statDone').textContent = totalDone;
       document.getElementById('statPct').textContent = pct + '%';
 
-      document.getElementById('btnZipAll').disabled = done === 0;
+      document.getElementById('statEasy').textContent = `${easyDone}/${phraseCount}`;
+      document.getElementById('statStd').textContent = `${stdDone}/${phraseCount}`;
+      document.getElementById('statPro').textContent = `${proDone}/${phraseCount}`;
+
+      document.getElementById('btnZipAll').disabled = totalDone === 0;
     }
+
+    // ── 상단 모드 필터 세그먼트 이벤트 ────────────────────────
+    document.querySelectorAll('#tierSeg .tier-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('#tierSeg .tier-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        currentTierMode = btn.dataset.mode;
+        renderPhrases();
+      });
+    });
 
     // ── 초기화 실행 ───────────────────────────────────────────
     async function init() {
