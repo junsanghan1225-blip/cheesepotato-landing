@@ -40,3 +40,22 @@
   window.addEventListener('hashchange', mark);
   mark();
 })();
+
+/* 다시 오는가 — 쓸모를 재는 가장 정직한 숫자다. 마지막으로 온 날만
+   이 기기에 적어 두고(밖으로는 안 나간다), 「첫 방문 / 재방문」과
+   몇 날 만에 왔는지를 딱지로 단다. 저장소가 막힌 브라우저면 그냥 넘어간다. */
+(function () {
+  try {
+    var KEY = 'cp_last_visit', today = new Date().toISOString().slice(0, 10);
+    var last = localStorage.getItem(KEY);
+    var gap = last ? Math.round((Date.parse(today) - Date.parse(last)) / 864e5) : null;
+    var kind = last === null ? '첫방문' : gap === 0 ? '같은날' : '재방문';
+    var bucket = gap === null ? '-' : gap <= 1 ? '1일' : gap <= 7 ? '1주' : gap <= 30 ? '1달' : '1달+';
+    if (window.clarity) {
+      window.clarity('set', '방문', kind);
+      window.clarity('set', '지난방문', bucket);
+      if (kind === '재방문') window.clarity('event', '재방문');
+    }
+    localStorage.setItem(KEY, today);
+  } catch (e) {}
+})();
