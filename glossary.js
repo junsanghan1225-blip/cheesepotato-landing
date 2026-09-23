@@ -18,13 +18,13 @@ export const GLOSSARY = {"아침":{"head":"아침","en":"morning; breakfast","po
 /* 말 → 그 말이 든 파일. 화면이 필요할 때만 불러온다.
    문자열을 그대로 적어 두어야 tools/stamp.mjs 가 자국을 찍는다. */
 export const GLOSS_LANGS = {
-  ja: './glossary-ja.js?v=4303df4c',
-  zh: './glossary-zh.js?v=4303df4c',
-  vi: './glossary-vi.js?v=4303df4c',
-  ru: './glossary-ru.js?v=4303df4c',
-  es: './glossary-es.js?v=4303df4c',
-  fr: './glossary-fr.js?v=4303df4c',
-  ar: './glossary-ar.js?v=4303df4c',
-  mn: './glossary-mn.js?v=4303df4c',
-  id: './glossary-id.js?v=4303df4c',
+  ja: './glossary-ja.js?v=81b55bab',
+  zh: './glossary-zh.js?v=81b55bab',
+  vi: './glossary-vi.js?v=81b55bab',
+  ru: './glossary-ru.js?v=81b55bab',
+  es: './glossary-es.js?v=81b55bab',
+  fr: './glossary-fr.js?v=81b55bab',
+  ar: './glossary-ar.js?v=81b55bab',
+  mn: './glossary-mn.js?v=81b55bab',
+  id: './glossary-id.js?v=81b55bab',
 };
