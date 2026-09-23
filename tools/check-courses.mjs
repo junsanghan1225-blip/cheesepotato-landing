@@ -157,6 +157,10 @@ for (const c of COURSES) {
           problems.push(`${at}: 굵게 표시(**)가 짝이 안 맞는다 — 뒤가 통째로 굵어진다`);
       });
 
+      /* 글자 그대로의 역슬래시-n. 모델이 JSON 을 한 번 더 이스케이프해서 보내면
+         줄바꿈 대신 「\n」 두 글자가 화면에 찍힌다 — 중급 코스 8개에서 62군데가
+         그렇게 들어왔다. */
+      if (JSON.stringify(b).includes('\\\\n')) problems.push(`${at}: 글에 줄바꿈 대신 「\\n」 두 글자가 있다 — 화면에 그대로 찍힌다`);
       if ((b.t === 'text' || b.t === 'note') && !b.md) problems.push(`${at}: md 없음`);
       if (b.t === 'chars' && !b.items?.length) problems.push(`${at}: items 없음`);
 
