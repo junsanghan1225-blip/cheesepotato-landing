@@ -3653,3 +3653,60 @@
 #learnView.topik-mode .pt-hero,
 #learnView.topik-mode #lsecBack { display:none; }
 #learnView.topik-mode .pt-body { padding-top:28px; }
+
+/* ══ 내 코스 (배우기 첫 화면 맨 위) ════════════════════════════ */
+.my-card {
+  grid-column:1/-1; background:var(--surface); border:1.5px solid var(--orange);
+  border-radius:var(--r-xl); padding:22px 24px; display:flex; flex-direction:column; gap:12px;
+  box-shadow:0 18px 40px -30px rgba(var(--ink-rgb),.45);
+}
+.my-card.my-empty { background:var(--tint); }
+.my-head { display:flex; align-items:flex-start; justify-content:space-between; gap:12px; }
+.my-kicker { font-size:11.5px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--orange-deep); }
+.my-title { font-size:22px; font-weight:700; color:var(--ink); letter-spacing:-.035em; margin-top:4px; }
+.my-title small { font-size:13px; font-weight:600; color:var(--ink-3); letter-spacing:0; margin-left:4px; }
+.my-sub { font-size:14.5px; color:var(--ink-2); line-height:1.6; word-break:keep-all; }
+.my-road { display:flex; gap:6px; }
+.my-step {
+  flex:1; text-align:center; font-size:12px; font-weight:700; padding:5px 0; border-radius:8px;
+  background:rgba(var(--ink-rgb),.06); color:var(--ink-3); font-variant-numeric:tabular-nums;
+}
+.my-step.past { background:rgba(255,145,77,.22); color:var(--orange-deep); }
+.my-step.now { background:var(--orange); color:#fff; }
+.my-meter { display:flex; align-items:center; gap:12px; }
+.my-meter .lc-bar { flex:1; }
+.my-next {
+  display:flex; flex-direction:column; gap:4px; text-align:left; width:100%; cursor:pointer;
+  background:var(--ink-bg, #1c1714); color:#fff; border:none; border-radius:16px; padding:16px 18px;
+  transition:transform .2s cubic-bezier(.22,1,.36,1);
+}
+.my-next:hover { transform:translateY(-1px); }
+.my-next.done { background:var(--tint); color:var(--ink); cursor:default; }
+.my-next-k { font-size:11.5px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; opacity:.7; }
+.my-next-t { font-size:17px; font-weight:700; letter-spacing:-.02em; word-break:keep-all; }
+.my-next-c { font-size:13px; opacity:.75; word-break:keep-all; }
+.my-sec { font-size:12.5px; font-weight:700; color:var(--ink-3); margin-top:4px; }
+.my-chips { display:flex; flex-wrap:wrap; gap:8px; }
+.my-chip {
+  border:1px solid var(--line); background:var(--surface-2, var(--surface)); color:var(--ink-2);
+  border-radius:999px; padding:8px 14px; font-size:13.5px; cursor:pointer; text-align:left; word-break:keep-all;
+}
+.my-chip.wide { align-self:flex-start; }
+.my-chip:hover { border-color:rgba(var(--ink-rgb),.3); color:var(--ink); }
+.my-cta {
+  align-self:flex-start; background:var(--orange); color:#fff; border:none; border-radius:999px;
+  padding:11px 18px; font-size:14.5px; font-weight:700; cursor:pointer;
+}
+.my-link { background:none; border:none; color:var(--ink-3); font-size:13px; text-decoration:underline; cursor:pointer; padding:4px 0; }
+.my-link.block { align-self:flex-start; }
+@media (max-width:600px) {
+  .my-card { padding:18px; gap:10px; }
+  .my-title { font-size:19px; }
+  .my-road { gap:4px; }
+  .my-next-t { font-size:16px; }
+}
+/* 레벨이 정해진 사람에게 휴대폰에서 「오늘 아침에 한국어를」 머리글은 할 일이
+   없다 — 「내 코스」가 첫 화면에 바로 오게 접는다. */
+@media (max-width:600px) {
+  #learnView.has-level .pt-hero { display:none; }
+}
