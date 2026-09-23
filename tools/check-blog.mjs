@@ -140,6 +140,15 @@ for (const p of BLOG_POSTS) {
 /* 갈래가 갈리면 「같은 갈래의 글」이 서로를 못 찾는다. 한 번만 쓰인 갈래를
    짚어 준다 — 「문법」과 「문법정리」로 갈렸을 때 여기서 보인다. */
 const tally = new Map();
+/* 영어 글이 짧으면 영어 검색에서 밀린다 — 같은 검색어의 윗자리 글은 대개 천 단어 안팎이다.
+   막을 일은 아니라 짚어만 둔다. 셈은 블록의 글자만(주소·id 빼고) 영어 낱말 기준. */
+const WORDS_EN = 800;
+for (const p of BLOG_POSTS) {
+  if (p.lang !== 'en' || !p.blocks) continue;
+  const txt = p.blocks.map((b) => [b.text, b.en, b.note, b.title, b.cap, ...(b.items || []), ...(b.lines || [])].filter(Boolean).join(' ')).join(' ');
+  const n = (txt.match(/[A-Za-z][A-Za-z'’-]*/g) || []).length;
+  if (n < WORDS_EN) note.push(`${p.id} — 영어 글이 ${n}낱말이다 (${WORDS_EN} 밑). 영어 검색에서 밀린다`);
+}
 for (const p of BLOG_POSTS) for (const t of (p.tags || [])) tally.set(t, (tally.get(t) || 0) + 1);
 const lone = [...tally.entries()].filter(([, n]) => n === 1).map(([t]) => t);
 if (lone.length) note.push(`한 편에만 쓰인 갈래: ${lone.join(' · ')} — 다른 글과 갈린 것은 아닌지`);

@@ -3,6 +3,7 @@
 
    쓰기: node tools/blog-merge.mjs 받은것.json
          node tools/blog-merge.mjs 받은것.json --dry   (넣지 않고 보기만)
+         node tools/blog-merge.mjs 받은것.json --replace   (이미 있는 글을 통째로 바꾼다)
 
    BLOG_POSTS 를 통째로 다시 찍지 않고 여는 대괄호 바로 뒤에 끼운다.
    위에 왜 이런 모양인지가 길게 적혀 있는데 다시 찍으면 그게 날아가고,
@@ -21,6 +22,10 @@ const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const FILE = path.join(ROOT, 'blog.js');
 const args = process.argv.slice(2);
 const DRY = args.includes('--dry');
+/* --replace: 이미 있는 글을 통째로 바꾼다(영어 글 늘리기 같은 때). id · lang · alt ·
+   date · tags 는 원래 글 것을 지킨다 — 이게 바뀌면 주소와 hreflang 짝이 깨진다.
+   updated 만 오늘로 찍는다. */
+const REPLACE = args.includes('--replace');
 const SRC = args.find((a) => !a.startsWith('--'));
 
 if (!SRC) {
@@ -46,7 +51,8 @@ const stop = [];
 for (const p of posts) {
   const at = p?.id ?? '(id 없음)';
   if (!p?.id || !/^[a-z0-9][a-z0-9-]*$/.test(p.id)) stop.push(`${at} — id 는 소문자·숫자·하이픈만`);
-  else if (have.has(p.id)) stop.push(`${at} — 이미 있는 id 다`);
+  else if (!REPLACE && have.has(p.id)) stop.push(`${at} — 이미 있는 id 다 (바꾸려면 --replace)`);
+  else if (REPLACE && !have.has(p.id)) stop.push(`${at} — --replace 인데 없는 id 다`);
   if (!p?.title) stop.push(`${at} — title 이 없다`);
   if (!Array.isArray(p?.blocks) || !p.blocks.length) stop.push(`${at} — blocks 배열이 없다`);
   for (const [i, b] of (p?.blocks ?? []).entries()) {
@@ -106,6 +112,29 @@ const render = (p) => [
   '  },',
   '',
 ].join(NL);
+
+if (REPLACE) {
+  const today = new Date().toISOString().slice(0, 10);
+  let next = src;
+  for (const p of posts) {
+    const old = BLOG_POSTS.find((x) => x.id === p.id);
+    const keep = { ...p, id: old.id, lang: old.lang, alt: old.alt, date: old.date, tags: old.tags, updated: today };
+    /* blog-merge 가 찍은 모양만 바꾼다: 「  {」 줄 + 「    id: '…',」 로 시작해 「  },」 줄로 끝난다.
+       블록 줄은 여섯 칸 들여써서 「  },」 와 안 헷갈린다. 손으로 쓴 글이라 모양이 다르면 멈춘다. */
+    const head = `  {${NL}    id: ${q(old.id)},${NL}`;
+    const s0 = next.indexOf(head);
+    const s1 = s0 < 0 ? -1 : next.indexOf(`${NL}  },${NL}`, s0);
+    if (s0 < 0 || s1 < 0) { console.error(`${p.id} — blog.js 에서 이 글의 자리를 못 찾았다 (손으로 쓴 글이면 손으로 바꿀 것)`); process.exit(1); }
+    const block = render(keep);
+    if (DRY) { console.log(block); continue; }
+    next = next.slice(0, s0) + block + next.slice(s1 + `${NL}  },${NL}`.length);
+  }
+  if (DRY) process.exit(0);
+  fs.writeFileSync(FILE, next);
+  console.log(`글 ${posts.length}편을 바꿨다 — ${posts.map((p) => p.id).join(', ')}`);
+  console.log('다음: node tools/check-blog.mjs && node tools/build-pages.mjs && node tools/stamp.mjs');
+  process.exit(0);
+}
 
 const out = posts.map(render).join('');
 if (DRY) { console.log(out); process.exit(0); }
