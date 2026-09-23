@@ -135,6 +135,21 @@ for (const p of BLOG_POSTS) {
   }
 
   if (!grams) note.push(`${at} — 문법 카드가 하나도 없다. 글에서 표현 쪽으로 들어갈 데가 없다`);
+
+  if (p.lang === 'en' && Array.isArray(p.blocks)) {
+    let t = '';
+    for (const b of p.blocks) {
+      if (b.text) t += ' ' + b.text;
+      if (b.en) t += ' ' + b.en;
+      if (b.lines) t += ' ' + b.lines.join(' ');
+      if (b.items) t += ' ' + b.items.join(' ');
+      if (b.rows) t += ' ' + b.rows.flat().join(' ');
+    }
+    const words = t.trim().split(/\s+/).filter(Boolean).length;
+    if (words < 800) {
+      note.push(`${at} — 영어 본문이 짧다 (${words}낱말/800). 검색에서 밀린다`);
+    }
+  }
 }
 
 /* 갈래가 갈리면 「같은 갈래의 글」이 서로를 못 찾는다. 한 번만 쓰인 갈래를

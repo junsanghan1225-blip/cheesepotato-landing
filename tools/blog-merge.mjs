@@ -21,6 +21,7 @@ const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const FILE = path.join(ROOT, 'blog.js');
 const args = process.argv.slice(2);
 const DRY = args.includes('--dry');
+const REPLACE = args.includes('--replace');
 const SRC = args.find((a) => !a.startsWith('--'));
 
 if (!SRC) {
@@ -46,7 +47,22 @@ const stop = [];
 for (const p of posts) {
   const at = p?.id ?? '(id 없음)';
   if (!p?.id || !/^[a-z0-9][a-z0-9-]*$/.test(p.id)) stop.push(`${at} — id 는 소문자·숫자·하이픈만`);
-  else if (have.has(p.id)) stop.push(`${at} — 이미 있는 id 다`);
+  else if (!REPLACE && have.has(p.id)) stop.push(`${at} — 이미 있는 id 다`);
+  else if (REPLACE && !have.has(p.id)) stop.push(`${at} — 바꿀 글이 없다 (없는 id)`);
+
+  if (REPLACE) {
+    const old = BLOG_POSTS.find((x) => x.id === p.id);
+    if (old) {
+      p.lang = old.lang;
+      p.alt = old.alt;
+      p.date = old.date;
+      p.tags = old.tags;
+      p.updated = new Date().toISOString().slice(0, 10);
+      if (!p.title) p.title = old.title;
+      if (!p.excerpt) p.excerpt = old.excerpt;
+    }
+  }
+
   if (!p?.title) stop.push(`${at} — title 이 없다`);
   if (!Array.isArray(p?.blocks) || !p.blocks.length) stop.push(`${at} — blocks 배열이 없다`);
   for (const [i, b] of (p?.blocks ?? []).entries()) {
@@ -107,9 +123,25 @@ const render = (p) => [
   '',
 ].join(NL);
 
-const out = posts.map(render).join('');
-if (DRY) { console.log(out); process.exit(0); }
+if (DRY) {
+  for (const p of posts) console.log(render(p));
+  process.exit(0);
+}
 
-fs.writeFileSync(FILE, src.slice(0, at + OPEN.length) + out + src.slice(at + OPEN.length));
-console.log(`글 ${posts.length}편을 blog.js 맨 앞에 넣었다 — ${posts.map((p) => p.id).join(', ')}`);
+if (REPLACE) {
+  let updatedSrc = src;
+  for (const p of posts) {
+    const re = new RegExp(`([ \\t]*\\{[\\r\\n]+[ \\t]*id:\\s*['"]${p.id}['"][\\s\\S]*?[\\r\\n]+[ \\t]*\\},?[\\r\\n]*)`);
+    if (!re.test(updatedSrc)) {
+      console.error(`blog.js 에서 ${p.id} 블록을 못 찾았다`);
+      process.exit(1);
+    }
+    updatedSrc = updatedSrc.replace(re, render(p));
+  }
+  fs.writeFileSync(FILE, updatedSrc);
+  console.log(`글 ${posts.length}편을 blog.js 에 바꿔 넣었다 — ${posts.map((p) => p.id).join(', ')}`);
+} else {
+  fs.writeFileSync(FILE, src.slice(0, at + OPEN.length) + out + src.slice(at + OPEN.length));
+  console.log(`글 ${posts.length}편을 blog.js 맨 앞에 넣었다 — ${posts.map((p) => p.id).join(', ')}`);
+}
 console.log('다음: node tools/check-blog.mjs && node tools/build-pages.mjs && node tools/stamp.mjs');
