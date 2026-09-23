@@ -1,0 +1,33 @@
+# 올리기 전 검사를 사람이 기억해서 돌리지 않게 한다.
+# 자국(stamp)을 빼먹거나 첫 쪽 숫자가 낡는 일이 실제로 main 에 나갔다.
+name: check
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: 자국
+        run: node tools/stamp.mjs --check
+      - name: 문법
+        run: node --check app.js && node --check app.module.js
+      - name: 자료
+        run: |
+          set -e
+          for c in check-geo check-data check-courses check-honorific check-sentences \
+                   check-topik check-glossary check-blog check-dom check-convo \
+                   check-numbers check-reading check-listening check-seeds check-pron \
+                   check-glossary-examples; do
+            echo "::group::$c"
+            node tools/$c.mjs
+            echo "::endgroup::"
+          done
+          node tools/check-topik2.mjs docs/topik2-all50.json
