@@ -192,14 +192,15 @@ for (const [name, n] of Object.entries(real)) {
    때 제목을 같이 고치는 것을 잊기 때문에, 세어서 맞춰 본다. */
 const KO_NUM = ['','한','두','세','네','다섯','여섯','일곱','여덟','아홉','열'];
 const EN_NUM = ['','One','Two','Three','Four','Five','Six','Seven','Eight','Nine','Ten'];
-const wayCount = (html.match(/class="way"/g) || []).length;
+/* 카드를 묶음(.way-group-h)으로 나눈 뒤로는 제목의 수가 묶음 수다(「세 갈래」). */
+const wayCount = (html.match(/class="way-group-h"/g) || []).length || (html.match(/class="way"/g) || []).length;
 const titleKo = (html.match(/한국어로 들어가는<br>(\S+?) 갈래/) || [])[1];
 const titleEn = (html.match(/data-en="(\w+) ways in,/) || [])[1];
 if (wayCount) {
   if (titleKo && titleKo !== KO_NUM[wayCount])
-    err(`「${titleKo} 갈래」라고 적었는데 카드는 ${wayCount}장이다 (「${KO_NUM[wayCount]} 갈래」여야 한다)`);
+    err(`「${titleKo} 갈래」라고 적었는데 카드(묶음)는 ${wayCount}이다 (「${KO_NUM[wayCount]} 갈래」여야 한다)`);
   if (titleEn && titleEn.toLowerCase() !== (EN_NUM[wayCount] || '').toLowerCase())
-    err(`영어 제목이 "${titleEn} ways" 인데 카드는 ${wayCount}장이다 ("${EN_NUM[wayCount]} ways")`);
+    err(`영어 제목이 "${titleEn} ways" 인데 카드(묶음)는 ${wayCount}이다 ("${EN_NUM[wayCount]} ways")`);
 }
 
 /* ── 3.7 찍어 낸 쪽의 빵부스러기 ──────────────────────────────

@@ -71,13 +71,17 @@ function goLevelTest() {
 }
 document.getElementById('heroLevelTestBtn').addEventListener('click', () => goLevelTest());
 
-/* 「무엇을 배우나」 여섯 장. data-go 에 적힌 자리로 보낸다.
+/* 「무엇을 배우나」 카드(세 묶음). data-go 에 적힌 자리로 보낸다.
    낱말 사전은 배우기 갈래가 아니라 따로 뗀 화면(dictionary)이다 —
    예전엔 자료마당(엑셀 내려받기)으로 보냈는데, 「사전」이라 적어 놓고
    막상 눌러 보면 찾아볼 사전 화면이 없이 엑셀 파일 목록만 나왔다. */
 const WAY_GO = {
   learn:    () => goLearn(),
   topik:    () => goLearn('topik'),
+  topikListening: () => goLearn('topik/listening'),
+  topikReading:   () => goLearn('topik/reading'),
+  topikWriting:   () => goLearn('topik/II/writing'),
+  travel:   () => goLearn('travel'),
   sentence: () => goLearn('sentence'),
   reading:  () => goLearn('reading'),
   convo:    () => goLearn('convo'),

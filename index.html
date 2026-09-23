@@ -115,13 +115,13 @@
      Pretendard 는 통짜(2.0MB) 대신 조각난 쪽을 쓴다 — 브라우저가
      unicode-range 를 보고 화면에 실제로 나온 글자가 든 조각만 받는다.
      그래서 저장소는 무거워졌지만 학습자가 받는 양은 오히려 줄었다. -->
-<link rel="stylesheet" href="vendor/pretendard.css?v=5860a8a6">
-<link rel="stylesheet" href="vendor/pressstart2p.css?v=5860a8a6">
+<link rel="stylesheet" href="vendor/pretendard.css?v=74c8d470">
+<link rel="stylesheet" href="vendor/pressstart2p.css?v=74c8d470">
 <!-- 화면 상자 안에서만 쓰는 CSS 는 여기서 갈라 받는다. media="print" 라
      첫 페인트를 안 막고, 다 받아지면 app.js 가 media 를 all 로 바꾼다.
      자바스크립트가 없으면 <noscript> 쪽이 그냥 평범하게 걸린다. -->
-<link id="viewsCss" rel="stylesheet" href="app-views.css?v=5860a8a6" media="print">
-<noscript><link rel="stylesheet" href="app-views.css?v=5860a8a6"></noscript>
+<link id="viewsCss" rel="stylesheet" href="app-views.css?v=74c8d470" media="print">
+<noscript><link rel="stylesheet" href="app-views.css?v=74c8d470"></noscript>
 
 <style>
 /* ══════════════════════════════════════════════════════════════
@@ -784,6 +784,11 @@ button.btn-primary, button.btn-ghost { font-family:inherit; }
   font-family:inherit; transition:background .2s cubic-bezier(.22,1,.36,1);
 }
 .way:hover { background:var(--tint); }
+.way-group-h {
+  font-size:15px; font-weight:700; color:var(--ink-2); letter-spacing:-.01em;
+  margin:40px 0 -24px;
+}
+.way-group-h:first-of-type { margin-top:34px; }
 .way:hover .way-em { border-color:rgba(255,138,61,.35); transform:translateY(-1px); }
 .way:focus-visible { outline:2px solid var(--orange); outline-offset:-2px; }
 /* 맨 이모지 대신 옅은 배지에 담는다 — .lc-mark 와 같은 자리다. 낱개
@@ -1042,8 +1047,11 @@ button.wb-link { background:none; border:none; border-bottom:1.5px solid rgba(25
 }
 @media (min-width:1060px) {
   .way-grid { grid-template-columns:repeat(3,1fr); }
+  /* 네 장짜리 묶음은 3칸에 넣으면 한 장이 혼자 남는다 — 2×2 로 둔다. */
+  .way-grid.g4 { grid-template-columns:repeat(2,1fr); }
   .way-grid > .way:nth-child(2n+1):last-child { grid-column:auto; }
   .way-grid > .way:nth-child(3n+1):last-child { grid-column:1 / -1; }
+  .way-grid.g4 > .way:last-child { grid-column:auto; }
 }
 
 /* ══ 다운로드 띠 ═══════════════════════════════════════════════
@@ -1892,57 +1900,81 @@ body.hlp-open { overflow:hidden; }
   <!-- 무엇을 배우나 -->
   <div class="section" id="learn-what">
     <div class="label">WHAT YOU LEARN</div>
-    <p class="section-title" data-en="Seven ways in,<br>one language">한국어로 들어가는<br>일곱 갈래</p>
-    <p class="section-sub" data-en="Start anywhere. Each one is a full path on its own.">아무 데서나 시작해도 됩니다. 하나하나가 그 자체로 끝까지 가는 길이에요.</p>
+    <p class="section-title" data-en="Three ways in,<br>one language">한국어로 들어가는<br>세 갈래</p>
+    <p class="section-sub" data-en="Learn step by step, prepare for TOPIK, or practise one skill. Start anywhere.">차근차근 배우거나, TOPIK 을 준비하거나, 읽기·말하기만 연습하거나. 아무 데서나 시작해도 됩니다.</p>
 
-    <div class="way-grid">
+    <!-- 일곱 장이 한 판에 섞여 있으면 시험 준비하러 온 사람과 말하기만 하러 온
+         사람이 제 것을 못 찾는다. ☰ 메뉴와 같은 세 갈래로 나눈다.
+         TOPIK 은 영역마다 한 장씩 — 누르면 그 영역으로 바로 들어간다. -->
+    <h3 class="way-group-h" data-en="Learn step by step">📚 차근차근 배우기</h3>
+    <div class="way-grid g4">
       <button class="way" type="button" data-go="learn">
         <div class="way-em">📚</div>
         <h3 class="way-t" data-en="Learn by course">코스로 배우기</h3>
         <p class="way-d" data-en="Hangul letters, then greetings, then sentences. 97 courses across 345 lessons, split into beginner, intermediate and advanced.">한글 낱자에서 시작해 인사말, 그다음 문장으로. 코스 97개·레슨 345개를 초급·중급·고급으로 나눠 뒀어요.</p>
         <span class="way-n">97 코스 · 345 레슨</span>
       </button>
-
-      <button class="way" type="button" data-go="topik">
-        <div class="way-em">📖</div>
-        <h3 class="way-t" data-en="TOPIK practice">TOPIK 유형 연습</h3>
-        <p class="way-d" data-en="Pick TOPIK I or II, then listening, reading or writing. Wrong answers explain themselves. Full mock papers with a timer and an answer sheet.">TOPIK I·II 를 고르고 듣기·읽기·쓰기로 들어갑니다. 틀리면 왜 그런지 바로 알려 줘요. 시계와 답안지가 붙은 모의고사도 있습니다.</p>
-        <span class="way-n">917 문항</span>
-      </button>
-
       <button class="way" type="button" data-go="sentence">
         <div class="way-em">✍️</div>
         <h3 class="way-t" data-en="Build a sentence">예문 만들기</h3>
         <p class="way-d" data-en="290 grammar points, each with a meaning, an example and a dialogue — and a box where you write your own sentence and get it checked.">문법 표현 290개마다 뜻풀이·예문·대화문이 붙어 있고, 내 문장을 직접 써서 확인받는 칸이 있어요.</p>
         <span class="way-n">290 표현</span>
       </button>
-
-      <button class="way" type="button" data-go="reading">
-        <div class="way-em">📝</div>
-        <h3 class="way-t" data-en="Read and write it back">읽고 써 보기</h3>
-        <p class="way-d" data-en="54 passages, short and long. Read one, then write back what it said — the way a real test asks you to.">짧은 글과 긴 글 54편. 읽고 나서 무슨 내용이었는지 직접 써 봅니다. 실제 시험이 묻는 방식이에요.</p>
-        <span class="way-n">54 지문</span>
-      </button>
-
       <button class="way" type="button" data-go="games">
         <div class="way-em">⚡</div>
         <h3 class="way-t" data-en="Drills and games">문제 풀기 · 놀이</h3>
         <p class="way-d" data-en="Questions pulled out of the lessons, plus number reading and a speed quiz.">레슨에서 문제만 뽑아 이어서 풀거나, 숫자 읽기·스피드 퀴즈로 놉니다.</p>
         <span class="way-n" data-en="2 games">놀이 2가지</span>
       </button>
-
       <button class="way" type="button" data-go="glossary">
         <div class="way-em">🔎</div>
         <h3 class="way-t" data-en="Dictionary">낱말 · 문법 사전</h3>
         <p class="way-d" data-en="Tap any word while you study to see its meaning. 7,970 words with definitions from the National Institute of Korean Language, and 197 grammar entries.">공부하다 모르는 낱말을 누르면 뜻이 나옵니다. 국립국어원 뜻풀이를 담은 낱말 7,970개와 문법 항목 197개.</p>
         <span class="way-n">7,970 낱말</span>
       </button>
+    </div>
 
+    <h3 class="way-group-h" data-en="TOPIK exam prep">🎯 TOPIK 시험 준비</h3>
+    <div class="way-grid">
+      <button class="way" type="button" data-go="topikListening">
+        <div class="way-em">🎧</div>
+        <h3 class="way-t" data-en="TOPIK listening">TOPIK 듣기</h3>
+        <p class="way-d" data-en="Listen, then pick one of four. The script opens only after you answer. TOPIK I and II.">소리를 듣고 넷 중에서 고릅니다. 대본은 답을 고른 뒤에야 열려요. TOPIK I·II 모두.</p>
+        <span class="way-n" data-en="45 questions">45 문항</span>
+      </button>
+      <button class="way" type="button" data-go="topikReading">
+        <div class="way-em">📖</div>
+        <h3 class="way-t" data-en="TOPIK reading">TOPIK 읽기</h3>
+        <p class="way-d" data-en="The same question types as the exam; a wrong answer tells you why. Timed mock papers with an answer sheet live here too.">시험과 같은 유형으로 풀고, 틀리면 왜 그런지 바로 알려 줘요. 시계와 답안지가 붙은 모의고사도 여기서.</p>
+        <span class="way-n" data-en="814 questions">814 문항</span>
+      </button>
+      <button class="way" type="button" data-go="topikWriting">
+        <div class="way-em">✍️</div>
+        <h3 class="way-t" data-en="TOPIK writing">TOPIK 쓰기</h3>
+        <p class="way-d" data-en="TOPIK II questions 51–54, from sentence gaps to the 600-character essay, checked against the scoring points.">TOPIK II 51~54번. 문장 완성부터 600자 논술까지 직접 쓰고 채점 기준에 맞춰 봅니다.</p>
+        <span class="way-n" data-en="58 questions">58 문항</span>
+      </button>
+    </div>
+
+    <h3 class="way-group-h" data-en="Reading · writing · speaking">🗣️ 읽기 · 쓰기 · 말하기</h3>
+    <div class="way-grid">
+      <button class="way" type="button" data-go="reading">
+        <div class="way-em">📝</div>
+        <h3 class="way-t" data-en="Read and write it back">읽고 써 보기</h3>
+        <p class="way-d" data-en="54 passages, short and long. Read one, then write back what it said — the way a real test asks you to.">짧은 글과 긴 글 54편. 읽고 나서 무슨 내용이었는지 직접 써 봅니다. 실제 시험이 묻는 방식이에요.</p>
+        <span class="way-n">54 지문</span>
+      </button>
       <button class="way" type="button" data-go="convo">
         <div class="way-em">💬</div>
         <h3 class="way-t" data-en="Practice a conversation">회화 연습</h3>
         <p class="way-d" data-en="Someone speaks to you in a real situation — a cafe, a hospital — and you answer in your own words. No multiple choice.">카페·병원 같은 상황에서 상대가 말을 걸어요. 보기 넷 없이 자기 말로 직접 대답해 봅니다.</p>
         <span class="way-n" data-en="Real situations">상황극 연습</span>
+      </button>
+      <button class="way" type="button" data-go="travel">
+        <div class="way-em">✈️</div>
+        <h3 class="way-t" data-en="Travel Korean">여행 한국어</h3>
+        <p class="way-d" data-en="Phrases for airports, transport, hotels, restaurants and shops — in easy, standard and accurate versions, with audio.">공항·교통·숙소·식당·쇼핑에서 바로 쓰는 말. 쉬운 말·보통 말·정확한 말 3단계로, 소리도 들을 수 있어요.</p>
+        <span class="way-n" data-en="43 phrases">43 표현</span>
       </button>
     </div>
   </div>
@@ -3818,9 +3850,9 @@ body.hlp-open { overflow:hidden; }
 <div id="hlpScrim" class="hlp-scrim"></div>
 <aside id="hlpPanel" class="hlp-panel" aria-label="한국어 도우미" aria-hidden="true"></aside>
 
-<script src="app.js?v=5860a8a6"></script>
-<script type="module" src="app.module.js?v=5860a8a6"></script>
+<script src="app.js?v=74c8d470"></script>
+<script type="module" src="app.module.js?v=74c8d470"></script>
 
-<script src="analytics.js?v=5860a8a6" defer></script>
+<script src="analytics.js?v=74c8d470" defer></script>
 </body>
 </html>
