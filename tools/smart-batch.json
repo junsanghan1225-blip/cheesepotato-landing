@@ -1,0 +1,986 @@
+[
+  {
+    "ko": "시민",
+    "en": "citizen",
+    "alt": [
+      "인주시민"
+    ]
+  },
+  {
+    "ko": "재개발",
+    "en": "redevelopment"
+  },
+  {
+    "ko": "경쟁",
+    "en": "competition"
+  },
+  {
+    "ko": "제조",
+    "en": "production; manufacturing"
+  },
+  {
+    "ko": "계약",
+    "en": "contract; agreement"
+  },
+  {
+    "ko": "항공",
+    "en": "aviation; air"
+  },
+  {
+    "ko": "투자",
+    "en": "investment"
+  },
+  {
+    "ko": "특산물",
+    "en": "specialty; regional product"
+  },
+  {
+    "ko": "선택",
+    "en": "choice; selection"
+  },
+  {
+    "ko": "편향",
+    "en": "inclination; tendency"
+  },
+  {
+    "ko": "중고",
+    "en": "being secondhand"
+  },
+  {
+    "ko": "달빛",
+    "en": "moonlight"
+  },
+  {
+    "ko": "목구멍",
+    "en": "throat"
+  },
+  {
+    "ko": "입구",
+    "en": "entrance; entry"
+  },
+  {
+    "ko": "집주인",
+    "en": "landlord; landlady"
+  },
+  {
+    "ko": "입고",
+    "en": "warehousing; storage in warehouse"
+  },
+  {
+    "ko": "사기",
+    "en": "morale; fighting spirit"
+  },
+  {
+    "ko": "영화관",
+    "en": "movie theater"
+  },
+  {
+    "ko": "화요일",
+    "en": "Tuesday"
+  },
+  {
+    "ko": "흰색",
+    "en": "white"
+  },
+  {
+    "ko": "물속",
+    "en": "underwater"
+  },
+  {
+    "ko": "배우",
+    "en": "actor; actress"
+  },
+  {
+    "ko": "편이다",
+    "en": "-n pyeonida"
+  },
+  {
+    "ko": "실력",
+    "en": "ability; capability"
+  },
+  {
+    "ko": "감싸다",
+    "en": "to wrap; to cover",
+    "alt": [
+      "감싸"
+    ]
+  },
+  {
+    "ko": "한결",
+    "en": "better; more"
+  },
+  {
+    "ko": "지치다",
+    "en": "to be exhausted; to be tired",
+    "alt": [
+      "지친"
+    ]
+  },
+  {
+    "ko": "확인",
+    "en": "check; affirmation"
+  },
+  {
+    "ko": "최대",
+    "en": "the largest; the most"
+  },
+  {
+    "ko": "관광",
+    "en": "tourism"
+  },
+  {
+    "ko": "정기",
+    "en": "being periodic"
+  },
+  {
+    "ko": "점검",
+    "en": "inspection; check"
+  },
+  {
+    "ko": "시력",
+    "en": "sight; vision"
+  },
+  {
+    "ko": "소설",
+    "en": "soseol"
+  },
+  {
+    "ko": "교통안전",
+    "en": "traffic safety"
+  },
+  {
+    "ko": "원인",
+    "en": "cause; factor"
+  },
+  {
+    "ko": "참가자",
+    "en": "participant"
+  },
+  {
+    "ko": "내야",
+    "en": "infield"
+  },
+  {
+    "ko": "제공",
+    "en": "offer; supply"
+  },
+  {
+    "ko": "성인",
+    "en": "adult"
+  },
+  {
+    "ko": "선발",
+    "en": "selection"
+  },
+  {
+    "ko": "부모",
+    "en": "parents"
+  },
+  {
+    "ko": "무렵",
+    "en": "around; about"
+  },
+  {
+    "ko": "문학",
+    "en": "literature"
+  },
+  {
+    "ko": "활용",
+    "en": "use; utilization"
+  },
+  {
+    "ko": "정리",
+    "en": "organizing"
+  },
+  {
+    "ko": "대거",
+    "en": "great number; large number"
+  },
+  {
+    "ko": "색상",
+    "en": "color; hue"
+  },
+  {
+    "ko": "작동",
+    "en": "operation"
+  },
+  {
+    "ko": "세척",
+    "en": "cleaning; cleansing"
+  },
+  {
+    "ko": "단열",
+    "en": "insulation"
+  },
+  {
+    "ko": "태양",
+    "en": "sun"
+  },
+  {
+    "ko": "최소한",
+    "en": "the minimum; being the least"
+  },
+  {
+    "ko": "활기",
+    "en": "vitality; energy"
+  },
+  {
+    "ko": "위로",
+    "en": "consolation; comfort"
+  },
+  {
+    "ko": "최적",
+    "en": "the most suitable; being optimal"
+  },
+  {
+    "ko": "정신",
+    "en": "spirit; mind"
+  },
+  {
+    "ko": "스티로폼",
+    "en": "styrofoam"
+  },
+  {
+    "ko": "단지",
+    "en": "danji; pot"
+  },
+  {
+    "ko": "잎사귀",
+    "en": "leaf"
+  },
+  {
+    "ko": "철저히",
+    "en": "perfectly; immaculately"
+  },
+  {
+    "ko": "편견",
+    "en": "prejudice; bias"
+  },
+  {
+    "ko": "리듬",
+    "en": "rhythm"
+  },
+  {
+    "ko": "해외",
+    "en": "foreign country; overseas"
+  },
+  {
+    "ko": "은퇴",
+    "en": "retirement"
+  },
+  {
+    "ko": "보관",
+    "en": "safekeeping; custody"
+  },
+  {
+    "ko": "전반",
+    "en": "whole"
+  },
+  {
+    "ko": "집중",
+    "en": "concentration"
+  },
+  {
+    "ko": "발목",
+    "en": "ankle"
+  },
+  {
+    "ko": "손때",
+    "en": "trace of one's touch"
+  },
+  {
+    "ko": "상용화",
+    "en": "commercialization"
+  },
+  {
+    "ko": "성과",
+    "en": "result; outcome"
+  },
+  {
+    "ko": "결함",
+    "en": "flaw; fault"
+  },
+  {
+    "ko": "수가",
+    "en": "service charge"
+  },
+  {
+    "ko": "세금",
+    "en": "tax"
+  },
+  {
+    "ko": "범죄",
+    "en": "crime"
+  },
+  {
+    "ko": "마패",
+    "en": "mapae"
+  },
+  {
+    "ko": "중앙",
+    "en": "middle"
+  },
+  {
+    "ko": "심리",
+    "en": "mentality"
+  },
+  {
+    "ko": "현재",
+    "en": "present; now"
+  },
+  {
+    "ko": "에서",
+    "en": "eseo"
+  },
+  {
+    "ko": "제주도",
+    "en": "Jeju-do Province"
+  },
+  {
+    "ko": "조용하다",
+    "en": "to quiet",
+    "alt": [
+      "조용한"
+    ]
+  },
+  {
+    "ko": "회비",
+    "en": "membership fee; dues"
+  },
+  {
+    "ko": "상영",
+    "en": "screening; showing"
+  },
+  {
+    "ko": "늦가을",
+    "en": "late fall"
+  },
+  {
+    "ko": "한자리",
+    "en": "same place; same seat"
+  },
+  {
+    "ko": "며칠",
+    "en": "date"
+  },
+  {
+    "ko": "마트",
+    "en": "mart"
+  },
+  {
+    "ko": "거울",
+    "en": "mirror"
+  },
+  {
+    "ko": "몸속",
+    "en": "inside the body"
+  },
+  {
+    "ko": "지도",
+    "en": "map"
+  },
+  {
+    "ko": "밥상",
+    "en": "dining table"
+  },
+  {
+    "ko": "수건",
+    "en": "towel"
+  },
+  {
+    "ko": "베란다",
+    "en": "veranda"
+  },
+  {
+    "ko": "문의",
+    "en": "inquiry"
+  },
+  {
+    "ko": "구멍",
+    "en": "hole; pit"
+  },
+  {
+    "ko": "봉투",
+    "en": "envelope"
+  },
+  {
+    "ko": "방학",
+    "en": "vacation"
+  },
+  {
+    "ko": "텀블러",
+    "en": "tumbler"
+  },
+  {
+    "ko": "종일",
+    "en": "the entire day"
+  },
+  {
+    "ko": "환불",
+    "en": "refund; money back"
+  },
+  {
+    "ko": "예매",
+    "en": "advance purchase"
+  },
+  {
+    "ko": "방해",
+    "en": "distraction; getting in one's way"
+  },
+  {
+    "ko": "착용",
+    "en": "wear"
+  },
+  {
+    "ko": "이전",
+    "en": "previous time; before"
+  },
+  {
+    "ko": "예방",
+    "en": "prevention"
+  },
+  {
+    "ko": "보호자",
+    "en": "guardian"
+  },
+  {
+    "ko": "상담",
+    "en": "consultation; counseling"
+  },
+  {
+    "ko": "대출",
+    "en": "loan; lending"
+  },
+  {
+    "ko": "관람객",
+    "en": "visitor; spectator"
+  },
+  {
+    "ko": "포함",
+    "en": "inclusion; containment"
+  },
+  {
+    "ko": "쓰기",
+    "en": "writing"
+  },
+  {
+    "ko": "제작",
+    "en": "production"
+  },
+  {
+    "ko": "대체",
+    "en": "alternation; substitution"
+  },
+  {
+    "ko": "연말",
+    "en": "end of the year"
+  },
+  {
+    "ko": "촬영",
+    "en": "shooting"
+  },
+  {
+    "ko": "모바일",
+    "en": "mobile"
+  },
+  {
+    "ko": "신규",
+    "en": "being new"
+  },
+  {
+    "ko": "유물",
+    "en": "relic; remains"
+  },
+  {
+    "ko": "아예",
+    "en": "from the outset"
+  },
+  {
+    "ko": "다니",
+    "en": "-ndani"
+  },
+  {
+    "ko": "동력",
+    "en": "power"
+  },
+  {
+    "ko": "비율",
+    "en": "ratio; proportion"
+  },
+  {
+    "ko": "이곳",
+    "en": "here"
+  },
+  {
+    "ko": "태풍",
+    "en": "typhoon"
+  },
+  {
+    "ko": "구청",
+    "en": "gu office"
+  },
+  {
+    "ko": "재활용품",
+    "en": "recyclable item"
+  },
+  {
+    "ko": "신선식품",
+    "en": "fresh food"
+  },
+  {
+    "ko": "기부",
+    "en": "donation; contribution"
+  },
+  {
+    "ko": "수익",
+    "en": "earnings; return"
+  },
+  {
+    "ko": "흔히",
+    "en": "often; commonly"
+  },
+  {
+    "ko": "소각",
+    "en": "incineration"
+  },
+  {
+    "ko": "보온",
+    "en": "heat insulation; keeping warm"
+  },
+  {
+    "ko": "방안",
+    "en": "plan; scheme"
+  },
+  {
+    "ko": "옥수수",
+    "en": "corn; ear of corn"
+  },
+  {
+    "ko": "시도",
+    "en": "try; attempt"
+  },
+  {
+    "ko": "머릿속",
+    "en": "in one's head"
+  },
+  {
+    "ko": "조절",
+    "en": "control"
+  },
+  {
+    "ko": "저항",
+    "en": "resistance"
+  },
+  {
+    "ko": "흡수",
+    "en": "absorption; intake"
+  },
+  {
+    "ko": "혁신",
+    "en": "innovation; reform"
+  },
+  {
+    "ko": "접목하다",
+    "en": "to graft",
+    "alt": [
+      "접목한"
+    ]
+  },
+  {
+    "ko": "사용자",
+    "en": "user; consumer"
+  },
+  {
+    "ko": "현대인",
+    "en": "modern people; today&apos"
+  },
+  {
+    "ko": "바람직하다",
+    "en": "to desirable"
+  },
+  {
+    "ko": "방어",
+    "en": "defense"
+  },
+  {
+    "ko": "대청마루",
+    "en": "daecheongmaru"
+  },
+  {
+    "ko": "데도",
+    "en": "-ndedo"
+  },
+  {
+    "ko": "냉장",
+    "en": "refrigeration"
+  },
+  {
+    "ko": "특유",
+    "en": "uniqueness; peculiarity"
+  },
+  {
+    "ko": "발생하다",
+    "en": "to occur; generate",
+    "alt": [
+      "발생한"
+    ]
+  },
+  {
+    "ko": "훼손",
+    "en": "damage; harm"
+  },
+  {
+    "ko": "시치미",
+    "en": "feigned innocence; dissimulation"
+  },
+  {
+    "ko": "소금",
+    "en": "salt"
+  },
+  {
+    "ko": "고령",
+    "en": "old age; advanced age"
+  },
+  {
+    "ko": "인테리어",
+    "en": "interior decoration"
+  },
+  {
+    "ko": "이유",
+    "en": "reason; cause"
+  },
+  {
+    "ko": "손바닥",
+    "en": "palm"
+  },
+  {
+    "ko": "소중히",
+    "en": "valuably"
+  },
+  {
+    "ko": "섭섭하다",
+    "en": "to sorry; regrettable"
+  },
+  {
+    "ko": "페이지",
+    "en": "page"
+  },
+  {
+    "ko": "불안하다",
+    "en": "to uneasy; anxious"
+  },
+  {
+    "ko": "청춘",
+    "en": "youth"
+  },
+  {
+    "ko": "너머",
+    "en": "beyond; over"
+  },
+  {
+    "ko": "적자",
+    "en": "loss; being in the red"
+  },
+  {
+    "ko": "수주",
+    "en": "receiving an order"
+  },
+  {
+    "ko": "차질",
+    "en": "problem; setback"
+  },
+  {
+    "ko": "생산성",
+    "en": "productivity"
+  },
+  {
+    "ko": "손해",
+    "en": "damage"
+  },
+  {
+    "ko": "영업",
+    "en": "business"
+  },
+  {
+    "ko": "농가",
+    "en": "farming family"
+  },
+  {
+    "ko": "개체",
+    "en": "individual; entity"
+  },
+  {
+    "ko": "수용",
+    "en": "expropriation"
+  },
+  {
+    "ko": "자진",
+    "en": "volunteering"
+  },
+  {
+    "ko": "단속",
+    "en": "crackdown; control"
+  },
+  {
+    "ko": "임대료",
+    "en": "rent"
+  },
+  {
+    "ko": "확률",
+    "en": "probability; chance"
+  },
+  {
+    "ko": "위협",
+    "en": "threat; menace"
+  },
+  {
+    "ko": "동료",
+    "en": "coworker; colleague"
+  },
+  {
+    "ko": "육상",
+    "en": "overland"
+  },
+  {
+    "ko": "공격",
+    "en": "attack; raid"
+  },
+  {
+    "ko": "비밀",
+    "en": "secret; covertness"
+  },
+  {
+    "ko": "만약",
+    "en": "supposing"
+  },
+  {
+    "ko": "차별",
+    "en": "discrimination; distinction"
+  },
+  {
+    "ko": "수돗물",
+    "en": "tap water"
+  },
+  {
+    "ko": "언제",
+    "en": "when; what time"
+  },
+  {
+    "ko": "대학",
+    "en": "university; college"
+  },
+  {
+    "ko": "동호회",
+    "en": "club"
+  },
+  {
+    "ko": "메시지",
+    "en": "message"
+  },
+  {
+    "ko": "상가",
+    "en": "shopping complex; shopping mall"
+  },
+  {
+    "ko": "걷기",
+    "en": "walking"
+  },
+  {
+    "ko": "가도",
+    "en": "street; road"
+  },
+  {
+    "ko": "잘못",
+    "en": "fault; mistake"
+  },
+  {
+    "ko": "여러분",
+    "en": "everyone; everybody"
+  },
+  {
+    "ko": "바지",
+    "en": "pants"
+  },
+  {
+    "ko": "보기",
+    "en": "example"
+  },
+  {
+    "ko": "과자",
+    "en": "snack"
+  },
+  {
+    "ko": "미끄럼틀",
+    "en": "slide"
+  },
+  {
+    "ko": "자판기",
+    "en": "vending machine"
+  },
+  {
+    "ko": "요일",
+    "en": "day of the week"
+  },
+  {
+    "ko": "개수",
+    "en": "number"
+  },
+  {
+    "ko": "검은색",
+    "en": "black"
+  },
+  {
+    "ko": "동전",
+    "en": "coin"
+  },
+  {
+    "ko": "회의",
+    "en": "meeting; conference"
+  },
+  {
+    "ko": "치고",
+    "en": "chigo"
+  },
+  {
+    "ko": "산책",
+    "en": "walk; stroll"
+  },
+  {
+    "ko": "청소기",
+    "en": "vacuum cleaner"
+  },
+  {
+    "ko": "조작",
+    "en": "forgery"
+  },
+  {
+    "ko": "바늘",
+    "en": "needle"
+  },
+  {
+    "ko": "손목",
+    "en": "wrist"
+  },
+  {
+    "ko": "공기청정기",
+    "en": "air cleaner"
+  },
+  {
+    "ko": "수영복",
+    "en": "swimsuit; bathing suit"
+  },
+  {
+    "ko": "둘째",
+    "en": "second"
+  },
+  {
+    "ko": "입장",
+    "en": "admission; entrance"
+  },
+  {
+    "ko": "답답하다",
+    "en": "to stifling; suffocating",
+    "alt": [
+      "답답한"
+    ]
+  },
+  {
+    "ko": "안과",
+    "en": "ophthalmology; department of ophthalmology"
+  },
+  {
+    "ko": "신입",
+    "en": "newcomer"
+  },
+  {
+    "ko": "분양",
+    "en": "distribution"
+  },
+  {
+    "ko": "대표",
+    "en": "representative"
+  },
+  {
+    "ko": "이주민",
+    "en": "immigrant; emigrant"
+  },
+  {
+    "ko": "가입",
+    "en": "joining; signing up"
+  },
+  {
+    "ko": "조건",
+    "en": "condition; term"
+  },
+  {
+    "ko": "이용료",
+    "en": "charge; fee"
+  },
+  {
+    "ko": "내년",
+    "en": "next year"
+  },
+  {
+    "ko": "비로소",
+    "en": "not till then"
+  },
+  {
+    "ko": "방치",
+    "en": "negligence"
+  },
+  {
+    "ko": "그늘",
+    "en": "shade"
+  },
+  {
+    "ko": "비상",
+    "en": "emergency; contingency"
+  },
+  {
+    "ko": "진단",
+    "en": "diagnosis"
+  },
+  {
+    "ko": "화폐",
+    "en": "currency; money"
+  },
+  {
+    "ko": "다섯",
+    "en": "five"
+  },
+  {
+    "ko": "유용하다",
+    "en": "to misuse; divert",
+    "alt": [
+      "유용한"
+    ]
+  },
+  {
+    "ko": "고급",
+    "en": "high quality; high grade"
+  },
+  {
+    "ko": "일과",
+    "en": "daily work"
+  },
+  {
+    "ko": "일자리",
+    "en": "job"
+  },
+  {
+    "ko": "구직자",
+    "en": "job seeker"
+  },
+  {
+    "ko": "부상",
+    "en": "injury"
+  },
+  {
+    "ko": "여부",
+    "en": "yes or no; whether or not"
+  },
+  {
+    "ko": "제대",
+    "en": "discharge"
+  }
+]
