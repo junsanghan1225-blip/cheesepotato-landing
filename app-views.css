@@ -704,6 +704,8 @@
 
 /* ══ 배우기 : 코스 카탈로그 ════════════════════════════════════ */
 .lc-grid { display:grid; gap:16px; }
+.lsec-group { grid-column:1/-1; margin:20px 0 -4px; font-size:15px; font-weight:800; letter-spacing:-0.01em; color:var(--ink-2, inherit); opacity:.8; }
+.lsec-group:first-child { margin-top:0; }
 /* TOPIK 목록 — 모의고사·유형별 연습을 소제목으로 나눈 섹션들.
    섹션마다 .lc-grid 를 따로 두어 카드 수가 홀수여도 그 섹션 안에서만
    마지막 칸이 넓어진다(위 .lc-grid 규칙). 섞어서 한 그리드에 두면
