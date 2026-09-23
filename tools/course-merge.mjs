@@ -39,22 +39,25 @@ if (bad.length) { console.error('■ 못 붙임\n  ' + bad.join('\n  ')); proces
 
 /* 파일에서 그 코스의 lessons 배열 끝을 찾아 그 앞에 끼워 넣는다.
    객체를 다시 찍어 내면 손으로 다듬어 둔 줄바꿈과 주석이 다 날아간다. */
-const p = new URL('../courses-grammar-detailed.js', import.meta.url).pathname;
+import { fileURLToPath } from 'url';
+const p = fileURLToPath(new URL('../courses-grammar-detailed.js', import.meta.url));
 let file = fs.readFileSync(p, 'utf8');
 const at = file.indexOf(`id: '${course.id}'`) >= 0
   ? file.indexOf(`id: '${course.id}'`) : file.indexOf(`id: "${course.id}"`);
 if (at < 0) throw new Error('코스를 파일에서 못 찾았다');
 /* 이 코스 뒤로 나오는 첫 「  ], 」 가 lessons 배열의 끝이다. */
-const end = file.indexOf('\n    ],\n', at);
-if (end < 0) throw new Error('lessons 배열 끝을 못 찾았다');
+const nl = file.includes('\r\n') ? '\r\n' : '\n';
+const m = file.slice(at).match(/\r?\n    \],\r?\n/);
+if (!m) throw new Error('lessons 배열 끝을 못 찾았다');
+const end = at + m.index;
 
 const body = rows.map((l) =>
-  '      {\n' +
-  `        id: ${JSON.stringify(l.id)}, title: ${JSON.stringify(l.title)}, minutes: ${l.minutes ?? 4},\n` +
-  '        blocks: [\n' +
-  l.blocks.map((b) => '          ' + JSON.stringify(b) + ',').join('\n') + '\n' +
-  '        ],\n' +
-  '      },').join('\n');
+  `      {${nl}` +
+  `        id: ${JSON.stringify(l.id)}, title: ${JSON.stringify(l.title)}, minutes: ${l.minutes ?? 4},${nl}` +
+  `        blocks: [${nl}` +
+  l.blocks.map((b) => '          ' + JSON.stringify(b) + ',').join(nl) + nl +
+  `        ],${nl}` +
+  '      },').join(nl);
 
-fs.writeFileSync(p, file.slice(0, end + 1) + body + '\n' + file.slice(end + 1));
+fs.writeFileSync(p, file.slice(0, end + (file[end] === '\r' ? 2 : 1)) + body + nl + file.slice(end + (file[end] === '\r' ? 2 : 1)));
 console.log(`${course.id} 에 레슨 ${rows.length}개 붙임 — ${rows.map((l) => l.id).join(', ')}`);
