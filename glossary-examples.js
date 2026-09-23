@@ -828,10 +828,6 @@ export const EXAMPLES = {
   "ex": "과일의 겉껍질을 깨끗이 벗겨요.",
   "en": "Peel the outer skin of the fruit clean."
  },
- "게다": {
-  "ex": "수미는 노래를 잘하고 게다 춤도 잘 춰요.",
-  "en": "Sumi sings well, and additionally, she dances well."
- },
  "게다가": {
   "ex": "오늘 날씨가 춥고 게다가 바람도 많이 불어요.",
   "en": "Today is cold, and in addition, it is very windy."
@@ -2792,10 +2788,6 @@ export const EXAMPLES = {
   "ex": "버스가 멈추자 승강장에 내려서요.",
   "en": "As the bus stops, I step down onto the platform."
  },
- "내리": {
-  "ex": "어제부터 사흘 내리 비가 와요.",
-  "en": "It has been raining for three days in a row since yesterday."
- },
  "내리다": {
   "ex": "이번 정류장에서 버스를 내려요.",
   "en": "I get off the bus at this stop."
@@ -3743,10 +3735,6 @@ export const EXAMPLES = {
  "대학생": {
   "ex": "지영이는 열심히 공부하는 성실한 대학생이에요.",
   "en": "Jiyoung is a diligent college student who studies hard."
- },
- "대해": {
-  "ex": "커다란 배가 끝없이 넓은 대해를 가르며 나아가요.",
-  "en": "A large ship moves forward cutting through the endless expanse of water."
  },
  "대형": {
   "ex": "주말에 가족들과 장을 보러 대형 마트에 가요.",
@@ -5343,10 +5331,6 @@ export const EXAMPLES = {
  "미생물": {
   "ex": "현미경으로 작은 미생물을 관찰해요.",
   "en": "I observe small microorganisms through a microscope."
- },
- "미세": {
-  "ex": "과학자들이 물질의 미세 구조를 관찰해요.",
-  "en": "Scientists observe the minute structure of substances."
  },
  "미세먼지": {
   "ex": "봄에는 공기 중에 미세먼지가 많아서 마스크를 써요.",
@@ -7427,10 +7411,6 @@ export const EXAMPLES = {
  "생각하다": {
   "ex": "어려운 문제의 답을 조용히 혼자 생각해요.",
   "en": "I quietly think about the answer to the difficult problem by myself."
- },
- "생기": {
-  "ex": "봄이 오자 거리에 활기찬 생기가 돌아요.",
-  "en": "As spring comes, vibrant liveliness circulates in the streets."
  },
  "생기다": {
   "ex": "집 근처에 크고 편리한 마트가 새로 생겨요.",
@@ -10244,10 +10224,6 @@ export const EXAMPLES = {
   "ex": "오전 열 시에 시작하는 한국어 수업에 들어가요.",
   "en": "I attend the Korean class that starts at 10 a.m."
  },
- "오지": {
-  "ex": "사람들의 발길이 닿지 않는 깊은 오지로 여행을 떠나요.",
-  "en": "I go on a trip to a remote backcountry area where few people set foot."
- },
  "오직": {
   "ex": "어려운 순간에도 오직 목표만을 바라보며 열심히 달려가요.",
   "en": "Even in difficult moments, I run hard looking solely at my goal."
@@ -11240,10 +11216,6 @@ export const EXAMPLES = {
   "ex": "사소한 일에 대해 이렇다 저렇다 따지지 않아요.",
   "en": "I do not argue this way or that way over minor matters."
  },
- "이루": {
-  "ex": "친구의 갑작스러운 소식에 놀란 마음은 이루 다 말할 수 없어요.",
-  "en": "The surprised heart at my friend's sudden news cannot be told by any means."
- },
  "이루다": {
   "ex": "학생들이 둥글게 모여 하나의 큰 원을 이뤄요.",
   "en": "The students gather round and form one big circle."
@@ -11703,10 +11675,6 @@ export const EXAMPLES = {
  "입": {
   "ex": "식사 후에는 깨끗한 물로 입을 헹궈요.",
   "en": "After meals, I rinse my mouth with clean water."
- },
- "입고": {
-  "ex": "주문한 새 책들이 서점 창고로 안전하게 입고돼요.",
-  "en": "The ordered new books are safely stocked in the bookstore warehouse."
  },
  "입구": {
   "ex": "박물관 정문 입구에서 친구를 만나 함께 들어가요.",

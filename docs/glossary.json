@@ -1252,7 +1252,6 @@
    "가야",
    "가기",
    "가는",
-   "가지",
    "가거나"
   ]
  },
@@ -3204,7 +3203,7 @@
  },
  {
   "ko": "전면",
-  "en": "all-out; full-scale; front; facade",
+  "en": "all-out; full-scale",
   "pos": "명사",
   "only": true
  },
@@ -6126,7 +6125,8 @@
   "en": "to wear; to put on",
   "alt": [
    "입습니다",
-   "입어"
+   "입어",
+   "입고"
   ]
  },
  {
@@ -9992,7 +9992,7 @@
  },
  {
   "ko": "기사",
-  "en": "article; engineer; driver"
+  "en": "article; engineer"
  },
  {
   "ko": "기본",
@@ -10266,7 +10266,7 @@
  },
  {
   "ko": "대하다",
-  "en": "to face; to treat; regarding",
+  "en": "to face; to treat",
   "alt": [
    "대한",
    "대해",
@@ -10279,7 +10279,7 @@
  },
  {
   "ko": "천",
-  "en": "cloth; fabric; thousand"
+  "en": "cloth; fabric"
  },
  {
   "ko": "동",
@@ -10287,7 +10287,7 @@
  },
  {
   "ko": "도",
-  "en": "degree; province; also"
+  "en": "degree; province"
  },
  {
   "ko": "텅",
@@ -10298,7 +10298,7 @@
  },
  {
   "ko": "회",
-  "en": "time; round; session"
+  "en": "time; round"
  },
  {
   "ko": "깊숙이",
@@ -10739,10 +10739,6 @@
   ]
  },
  {
-  "ko": "입고",
-  "en": "warehousing; storage in warehouse"
- },
- {
   "ko": "사기",
   "en": "morale; fighting spirit"
  },
@@ -10765,10 +10761,6 @@
  {
   "ko": "배우",
   "en": "actor; actress"
- },
- {
-  "ko": "편이다",
-  "en": "-n pyeonida"
  },
  {
   "ko": "실력",
@@ -11170,10 +11162,6 @@
  {
   "ko": "아예",
   "en": "from the outset"
- },
- {
-  "ko": "다니",
-  "en": "-ndani"
  },
  {
   "ko": "동력",
@@ -11912,10 +11900,6 @@
   ]
  },
  {
-  "ko": "만하다",
-  "en": "-l manhada"
- },
- {
   "ko": "거니",
   "en": "-geoni",
   "alt": [
@@ -11935,7 +11919,7 @@
  },
  {
   "ko": "법",
-  "en": "law; way; method"
+  "en": "law; way"
  },
  {
   "ko": "싶어지다",
@@ -12475,7 +12459,7 @@
  },
  {
   "ko": "갓",
-  "en": "just; newly; freshly"
+  "en": "just; newly"
  },
  {
   "ko": "불순물",
@@ -13498,7 +13482,7 @@
  },
  {
   "ko": "장",
-  "en": "chapter; sheet; market"
+  "en": "chapter; sheet"
  },
  {
   "ko": "코",
@@ -13510,7 +13494,7 @@
  },
  {
   "ko": "해",
-  "en": "sun; year; harm"
+  "en": "sun; year"
  },
  {
   "ko": "각",
@@ -14678,7 +14662,7 @@
  },
  {
   "ko": "알맹이",
-  "en": "kernel; grain; substance"
+  "en": "kernel; grain"
  },
  {
   "ko": "물약",
@@ -14686,7 +14670,7 @@
  },
  {
   "ko": "통",
-  "en": "container; bottle; tub"
+  "en": "container; bottle"
  },
  {
   "ko": "칼",
@@ -14770,7 +14754,7 @@
  },
  {
   "ko": "구두",
-  "en": "shoes; dress shoes; oral"
+  "en": "shoes; dress shoes"
  },
  {
   "ko": "부서지다",
@@ -15059,7 +15043,7 @@
  },
  {
   "ko": "톡톡히",
-  "en": "duly; solidly; generously"
+  "en": "duly; solidly"
  },
  {
   "ko": "냉방비",
@@ -15151,7 +15135,7 @@
  },
  {
   "ko": "틈새",
-  "en": "crack; gap; niche"
+  "en": "crack; gap"
  },
  {
   "ko": "표시제",
@@ -15885,7 +15869,7 @@
  },
  {
   "ko": "짜다",
-  "en": "to knit; to weave; to organize",
+  "en": "to knit; to weave",
   "alt": [
    "짜서",
    "짜주셨던"
@@ -15956,7 +15940,7 @@
  },
  {
   "ko": "인물",
-  "en": "person; figure; character"
+  "en": "person; figure"
  },
  {
   "ko": "단축하다",
@@ -16577,7 +16561,7 @@
  },
  {
   "ko": "장수",
-  "en": "longevity; long life; merchant"
+  "en": "longevity; long life"
  },
  {
   "ko": "미담",
@@ -17206,7 +17190,7 @@
  },
  {
   "ko": "자루",
-  "en": "handle; sack; counter"
+  "en": "handle; sack"
  },
  {
   "ko": "반질반질",
@@ -17350,14 +17334,14 @@
  },
  {
   "ko": "금",
-  "en": "crack; fissure; gold",
+  "en": "crack; fissure",
   "alt": [
    "금이"
   ]
  },
  {
   "ko": "철",
-  "en": "season; iron; steel"
+  "en": "season; iron"
  },
  {
   "ko": "어린아이",
@@ -18477,7 +18461,7 @@
  },
  {
   "ko": "주식",
-  "en": "stock; shares; staple food"
+  "en": "stock; shares"
  },
  {
   "ko": "질투",
