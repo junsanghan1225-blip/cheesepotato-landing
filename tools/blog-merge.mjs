@@ -64,10 +64,12 @@ if (stop.length) {
 }
 
 /* blog.js 의 여는 대괄호 바로 뒤에 끼운다. 최신이 앞이라 맨 앞이다. */
-const OPEN = 'export const BLOG_POSTS = [\n';
 const src = fs.readFileSync(FILE, 'utf8');
-const at = src.indexOf(OPEN);
-if (at < 0) { console.error('blog.js 에서 BLOG_POSTS 를 못 찾았다'); process.exit(1); }
+const match = src.match(/export const BLOG_POSTS = \[\r?\n/);
+if (!match) { console.error('blog.js 에서 BLOG_POSTS 를 못 찾았다'); process.exit(1); }
+const at = match.index;
+const OPEN = match[0];
+const NL = OPEN.includes('\r\n') ? '\r\n' : '\n';
 
 /* 손으로 쓴 글과 같은 모양으로 찍는다. JSON.stringify 의 겹따옴표 대신
    홑따옴표를 쓰는 것이 이 저장소 관례라, 키와 값을 직접 찍는다. */
@@ -103,7 +105,7 @@ const render = (p) => [
   '    ],',
   '  },',
   '',
-].join('\n');
+].join(NL);
 
 const out = posts.map(render).join('');
 if (DRY) { console.log(out); process.exit(0); }
