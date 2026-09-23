@@ -1102,7 +1102,7 @@ export const DETAILED_GRAMMAR_COURSES = [
     lessons: [
       {
         id: 'im-02-02-01',
-        title: '1강. -느라고의 3가지 핵심 조건',
+        title: { ko: '1강. -느라고의 3가지 핵심 조건', en: 'Lesson 1. The three conditions for -느라고' },
         minutes: 4,
         blocks: [
           { t:'text', md:'### 💡 -느라고 핵심 규칙 3가지\n1. **앞뒤 문장 주체가 동일**: 무조건 "내가 A 하느라 내가 B 를 못했다"\n2. **의도적 집중**: 내가 스스로 시간을 쏟은 행위 (공부, 게임, 드라마, 운동...)\n3. **뒷 문장은 무조건 부정적 결과**: "늦었다 / 못했다 / 까먹었다 / 아프다" 등\n✅ 맞는 예: 어제 시험 공부를 하느라 잠을 못 잤어요\n❌ 틀린 예: (갑자기 비가 오느라) — 비는 내 의지가 아니라 돌발상황이므로 바람에!' },
@@ -1129,7 +1129,7 @@ export const DETAILED_GRAMMAR_COURSES = [
         ],
       },
       {
-        id: "im-02-02-02", title: "2강. 꼴 만들기", minutes: 4,
+        id: "im-02-02-02", title: { ko: "2강. 꼴 만들기", en: "Lesson 2. Building the forms" }, minutes: 4,
         blocks: [
           {"t":"text","h":"-느라고 형태 결합 규칙","md":"**-느라고**는 동사 어간에 결합하며, **받침 유무에 상관없이** 그대로 붙입니다.\n\n단, **ㄹ 받침**으로 끝나는 동사는 **ㄹ이 탈락**합니다. 이때 떨어지는 것은 **ㄹ 하나뿐**이고 음절이 통째로 사라지지는 않습니다."},
           {"t":"table","head":["사전형","어간","-느라고"],"rows":[["먹다 — to eat","먹","먹**느라고**"],["보다 — to watch","보","보**느라고**"],["살다 — to live (ㄹ 탈락)","살 → 사","사**느라고**"],["만들다 — to make (ㄹ 탈락)","만들 → 만드","만드**느라고**"]]},
@@ -1144,7 +1144,7 @@ export const DETAILED_GRAMMAR_COURSES = [
         ],
       },
       {
-        id: "im-02-02-03", title: "3강. 헷갈리는 짝과 가르기", minutes: 5,
+        id: "im-02-02-03", title: { ko: "3강. 헷갈리는 짝과 가르기", en: "Lesson 3. Telling it apart from look-alikes" }, minutes: 5,
         blocks: [
           {"t":"text","h":"-느라고 와 -는 바람에 가르기","md":"둘 다 나쁜 결과에 쓰지만 **원인이 다릅니다.**\n\n* **-느라고** — 내가 스스로 시간과 정신을 쏟은 행위. 주체가 나입니다.\n* **-는 바람에** — 내가 어쩌지 못하는 갑작스러운 일. 주체가 내가 아니어도 됩니다."},
           {"t":"table","head":["구분","-느라고","-는 바람에"],"rows":[["원인","내가 어떤 일에 집중함","뜻밖의 사건이나 바깥 상황"],["주체","앞뒤가 같아야 함 (나)","제한 없음 (비·기계·남)"],["맞는 예","운전**하느라고** 전화를 못 받았어요","비가 오**는 바람에** 옷이 젖었어요"],["안 되는 예","비가 오느라고 (✕)","공부하는 바람에 (어색)"]]},
@@ -1159,7 +1159,7 @@ export const DETAILED_GRAMMAR_COURSES = [
         ],
       },
       {
-        id: "im-02-02-04", title: "4강. 실제 상황에서 쓰기", minutes: 5,
+        id: "im-02-02-04", title: { ko: "4강. 실제 상황에서 쓰기", en: "Lesson 4. Using it in real situations" }, minutes: 5,
         blocks: [
           {"t":"text","h":"늦었을 때 사정을 말하기","md":"회사나 집에서 **늦었거나 못 끝냈을 때**, 무엇에 매달려 있었는지를 -느라고 로 말합니다.\n\n변명처럼 들리지 않으려면 뒤에 **미안한 마음**을 같이 붙이는 것이 좋습니다."},
           {"t":"chars","wide":true,"items":[{"ch":"죄송합니다. 보고서를 쓰느라고 메일을 이제야 봤습니다.","tip":"Sorry — I was writing a report, so I only just saw your email. — 회사"},{"ch":"아기 밥을 챙겨 주느라고 전화를 못 받았어요.","tip":"I was feeding the baby, so I missed your call. — 집"},{"ch":"짐을 나르느라고 답장이 늦었어요.","tip":"I was carrying boxes, so I replied late. — 이사"}]},
@@ -1186,7 +1186,7 @@ export const DETAILED_GRAMMAR_COURSES = [
     lessons: [
       {
         id: 'im-02-03-01',
-        title: '1강. -는 바람에 vs -느라고 100% 구분법',
+        title: { ko: '1강. -는 바람에 vs -느라고 100% 구분법', en: 'Lesson 1. Telling -는 바람에 and -느라고 apart' },
         minutes: 4,
         blocks: [
           { t:'text', md:'### 💡 -는 바람에 핵심 + 느라고와 비교\n| 구분 | -느라고 | -는 바람에 |\n|---|---|---|\n| 원인 | **내가 스스로 한 의도적 행위** | **내 뜻과 상관없는 돌발사건** (날씨·사고·기계오류·남의 행동) |\n| 주체 | 앞뒤 주체가 같아야 함 | 앞뒤 주체가 **달라도 됨** |\n| 공통 | 둘 다 뒷 문장은 **무조건 부정적 결과** |\n✅ 비가 오느라고 ❌ (비는 내 행위 아님) → 비가 오**는 바람에** ✅\n✅ 시험공부 하는 바람에 ❌ (시험공부는 내 행위) → 시험공부 **하느라고** ✅' },
@@ -1219,7 +1219,7 @@ export const DETAILED_GRAMMAR_COURSES = [
         ],
       },
       {
-        id: "im-02-03-02", title: "2강. 꼴 만들기", minutes: 4,
+        id: "im-02-03-02", title: { ko: "2강. 꼴 만들기", en: "Lesson 2. Building the forms" }, minutes: 4,
         blocks: [
           {"t":"text","h":"-는 바람에 형태 결합 규칙","md":"**-는 바람에**는 동사 어간 뒤에 붙으며, **받침 유무와 상관없이** 언제나 **-는 바람에** 를 씁니다.\n\n단, **ㄹ 받침** 동사는 **ㄹ이 탈락**합니다. 이때도 떨어지는 것은 **ㄹ 하나뿐** 이라 음절은 남습니다."},
           {"t":"table","head":["사전형","어간","-는 바람에"],"rows":[["오다 — to come","오","오**는 바람에**"],["늦다 — to be late","늦","늦**는 바람에**"],["밀리다 — to be delayed","밀리","밀리**는 바람에**"],["불다 — to blow (ㄹ 탈락)","불 → 부","부**는 바람에**"],["만들다 — to make (ㄹ 탈락)","만들 → 만드","만드**는 바람에**"]]},
@@ -1234,7 +1234,7 @@ export const DETAILED_GRAMMAR_COURSES = [
         ],
       },
       {
-        id: "im-02-03-03", title: "3강. 헷갈리는 짝과 가르기", minutes: 5,
+        id: "im-02-03-03", title: { ko: "3강. 헷갈리는 짝과 가르기", en: "Lesson 3. Telling it apart from look-alikes" }, minutes: 5,
         blocks: [
           {"t":"text","h":"-는 바람에 와 -아/어서 가르기","md":"둘 다 원인과 결과를 잇지만 쓰임이 다릅니다.\n\n* **-는 바람에** — 뜻밖의 돌발 상황. 뒤에는 **나쁜 결과만** 옵니다.\n* **-아/어서** — 흔한 이유. 뒤에 좋은 일도 나쁜 일도 옵니다."},
           {"t":"table","head":["구분","-는 바람에","-아/어서"],"rows":[["상황","갑작스럽고 뜻밖의 일","여느 이유, 자연스러운 차례"],["결과","**나쁜 결과만** (손해·차질)","좋은 것·나쁜 것 다 됨"],["맞는 예","비가 오**는 바람에** 행사가 취소됐어요","비가 와**서** 우산을 썼어요"],["안 되는 예","친구를 만나는 바람에 기분이 좋았어요 (✕)","친구를 만나서 기분이 좋았어요 (○)"]]},
@@ -1249,7 +1249,7 @@ export const DETAILED_GRAMMAR_COURSES = [
         ],
       },
       {
-        id: "im-02-03-04", title: "4강. 실제 상황에서 쓰기", minutes: 5,
+        id: "im-02-03-04", title: { ko: "4강. 실제 상황에서 쓰기", en: "Lesson 4. Using it in real situations" }, minutes: 5,
         blocks: [
           {"t":"text","h":"어쩔 수 없었다고 말하기","md":"약속에 늦거나 일을 못 끝냈을 때, **내가 일부러 그런 것이 아니라 어쩔 수 없는 일이 벌어졌다** 는 것을 -는 바람에 로 밝힙니다.\n\n그래서 사과와 같이 쓰면 변명이 아니라 사정 설명으로 들립니다."},
           {"t":"chars","wide":true,"items":[{"ch":"신호등이 고장 나는 바람에 길이 온통 뒤엉켰어요.","tip":"The traffic lights broke down and the road was a mess."},{"ch":"아이가 우유를 쏟는 바람에 식탁을 다시 닦았어요.","tip":"My child spilled the milk, so I wiped the table again. — 집"},{"ch":"인쇄기가 종이를 씹는 바람에 자료가 한 부 모자랐어요.","tip":"The printer jammed, so we were one copy short. — 회사"}]},
@@ -1277,7 +1277,7 @@ export const DETAILED_GRAMMAR_COURSES = [
     lessons: [
       {
         id: 'im-03-01-01',
-        title: '1강. 추측 강도 3단계 맵',
+        title: { ko: '1강. 추측 강도 3단계 맵', en: 'Lesson 1. Three strengths of guessing' },
         minutes: 4,
         blocks: [
           { t:'text', md:'### 💡 추측 강도 레벨 업\n1. **Level 1. -ㄹ/을 것 같다 (50~60%)** — 단순 내 생각 "그럴 것 같은데?" 아무 근거 없이 막연하게 추측\n2. **Level 2. -나 보다 / -는가 보다 (70~80%)** — **눈으로 본 것/직접 관찰**한 근거가 있는 추측. "밖을 보니 우산 쓰는 사람 많네? 비가 오나 보다"\n3. **Level 3. -겠군요 / -겠네요 (90~95%)** — 소리·냄새·상황 종합적으로 **거의 확신**하는 추측. "비 소리가 들려! 비가 오겠군요"' },
@@ -1304,7 +1304,7 @@ export const DETAILED_GRAMMAR_COURSES = [
         ],
       },
       {
-        id: "im-03-01-02", title: "2강. 꼴 만들기", minutes: 4,
+        id: "im-03-01-02", title: { ko: "2강. 꼴 만들기", en: "Lesson 2. Building the forms" }, minutes: 4,
         blocks: [
           {"t":"text","h":"추측 표현의 결합 규칙","md":"세 표현은 **품사**와 **받침**에 따라 붙는 모양이 다릅니다.\n\n* **-(으)ㄹ 것 같다** — 받침이 없으면 **-ㄹ**, 있으면 **-을**\n* **-나 보다 / -(으)ㄴ가 보다** — 동사는 **-나 보다**, 형용사는 **-(으)ㄴ가 보다**\n* **-겠군요** — 품사를 가리지 않고 어간에 그대로"},
           {"t":"table","head":["사전형","-(으)ㄹ 것 같아요","-나 봐요 / -(으)ㄴ가 봐요","-겠군요"],"rows":[["오다 — to come (동사)","올 것 같아요","오**나 봐요**","오**겠군요**"],["먹다 — to eat (동사)","먹**을 것 같아요**","먹**나 봐요**","먹**겠군요**"],["바쁘다 — to be busy (형용사)","바쁠 것 같아요","바쁜**가 봐요**","바쁘**겠군요**"],["적다 — to be few (형용사)","적**을 것 같아요**","적은**가 봐요**","적**겠군요**"]]},
@@ -1319,7 +1319,7 @@ export const DETAILED_GRAMMAR_COURSES = [
         ],
       },
       {
-        id: "im-03-01-03", title: "3강. 헷갈리는 짝과 가르기", minutes: 5,
+        id: "im-03-01-03", title: { ko: "3강. 헷갈리는 짝과 가르기", en: "Lesson 3. Telling it apart from look-alikes" }, minutes: 5,
         blocks: [
           {"t":"text","h":"-나 보다 와 -겠군요 가르기","md":"둘 다 근거가 있는 추측이지만 **근거가 어디서 왔는지**가 다릅니다.\n\n* **-나 보다** — 눈으로 본 것만 놓고 미루어 짐작. 확신은 중간쯤.\n* **-겠군요** — 사정을 듣고 앞뒤를 맞춰 거의 틀림없다고 여김. 공감이 함께 실립니다."},
           {"t":"table","head":["구분","-나 보다","-겠군요"],"rows":[["근거","눈에 보이는 것 하나","들은 사정과 앞뒤 상황"],["확신","그래 보인다 정도","틀림없다"],["보기","불이 켜진 걸 보니 **있나 봐요**","밤을 새우셨다니 **피곤하시겠군요**"],["말맛","혼잣말처럼 짐작","상대의 사정에 맞장구"]]},
@@ -1334,7 +1334,7 @@ export const DETAILED_GRAMMAR_COURSES = [
         ],
       },
       {
-        id: "im-03-01-04", title: "4강. 실제 상황에서 쓰기", minutes: 5,
+        id: "im-03-01-04", title: { ko: "4강. 실제 상황에서 쓰기", en: "Lesson 4. Using it in real situations" }, minutes: 5,
         blocks: [
           {"t":"text","h":"짐작하고 맞장구치기","md":"회사·가게·집에서 눈에 보이는 것을 두고 짐작하거나, 상대의 이야기를 듣고 맞장구칩니다.\n\n**근거가 무엇이냐**에 따라 어미를 고르면 말이 자연스러워집니다."},
           {"t":"chars","wide":true,"items":[{"ch":"팀장님 표정이 안 좋으신 걸 보니 회의가 어려웠나 봐요.","tip":"Judging by the manager's face, the meeting must have been rough. — 회사에서 본 것"},{"ch":"손님, 먼 길 오시느라 고생 많으셨겠군요.","tip":"You must have had a long trip here. — 듣고 공감"},{"ch":"하늘이 흐린 걸 보니 곧 비가 올 것 같아요.","tip":"With the sky this grey, I think it will rain soon. — 앞일 짐작"}]},
@@ -1361,7 +1361,7 @@ export const DETAILED_GRAMMAR_COURSES = [
     lessons: [
       {
         id: 'im-03-02-01',
-        title: '1강. 듣고 놀랐을 때 써야 할 딱 1가지',
+        title: { ko: '1강. 듣고 놀랐을 때 써야 할 딱 1가지', en: 'Lesson 1. The one ending for surprise at what you hear' },
         minutes: 4,
         blocks: [
           { t:'text', md:'### 💡 반응형 어미 4종 완벽 가이드\n| 어미 | 뉘앙스 | 언제 써? |\n|---|---|---|\n| -다니! (놀람) | 😱 충격·경악·믿을 수 없음 | 상대방의 말을 **처음 듣고 입이 떡 벌어질 때** |\n| -잖아! (상기) | 😤 뭘 잊고 있냐고 일깨워 줄 때 | 상대방이 이미 알고 있었는데 잊고 있을 때 "잖아 우리가 약속했잖아!" |\n| -네요 (감상) | 😌 자기 혼자 감탄하는 느낌 | 자기가 직접 보고 느낀 개인적 감상. "오늘 날씨 좋네요~" |\n| -군요 (깨달음) | 💡 아하! 이제 알겠다 | 방금 상황 보고 **새로운 사실을 깨달았을 때** |' },
@@ -1394,7 +1394,7 @@ export const DETAILED_GRAMMAR_COURSES = [
         ],
       },
       {
-        id: "im-03-02-02", title: "2강. 꼴 만들기", minutes: 4,
+        id: "im-03-02-02", title: { ko: "2강. 꼴 만들기", en: "Lesson 2. Building the forms" }, minutes: 4,
         blocks: [
           {"t":"text","h":"반응 어미의 결합 규칙","md":"반응 어미는 **품사**에 따라 붙는 모양이 달라집니다.\n\n* **-다니** — 동사는 **-ㄴ다니 / -는다니**, 형용사는 **-다니**\n* **-잖아 · -네요** — 동사·형용사 어간에 그대로\n* **-군요** — 동사는 **-는군요**, 형용사는 **-군요**"},
           {"t":"table","head":["사전형","-다니 (놀람)","-잖아 (상기)","-네요 (감상)","-군요 (깨달음)"],"rows":[["가다 — to go","간**다니**","가**잖아**","가**네요**","가**는군요**"],["먹다 — to eat","먹는**다니**","먹**잖아**","먹**네요**","먹**는군요**"],["크다 — to be big","크**다니**","크**잖아**","크**네요**","크**군요**"],["바쁘다 — to be busy","바쁘**다니**","바쁘**잖아**","바쁘**네요**","바쁘**군요**"]]},
@@ -1409,7 +1409,7 @@ export const DETAILED_GRAMMAR_COURSES = [
         ],
       },
       {
-        id: "im-03-02-03", title: "3강. 헷갈리는 짝과 가르기", minutes: 5,
+        id: "im-03-02-03", title: { ko: "3강. 헷갈리는 짝과 가르기", en: "Lesson 3. Telling it apart from look-alikes" }, minutes: 5,
         blocks: [
           {"t":"text","h":"-네요 와 -군요 가르기","md":"둘 다 새로 안 것을 말하지만 **어떻게 알았는지** 가 다릅니다.\n\n* **-네요** — 내가 직접 보고 겪은 순간의 느낌.\n* **-군요** — 남의 말이나 상황을 통해 머리로 알아챈 것."},
           {"t":"table","head":["구분","-네요","-군요"],"rows":[["어떻게 알았나","직접 보고 듣고 느껴서","말을 듣거나 상황을 보고 알아채서"],["말맛","혼잣말 같은 부드러운 감탄","아하 하고 고개를 끄덕이는 납득"],["보기","직접 맛보고 「정말 맛있**네요**!」","말을 듣고 「아, 그래서 늦었**군요**!」"],["어울리는 자리","눈앞의 날씨·맛·풍경","설명을 듣고 사정을 알았을 때"]]},
@@ -1424,7 +1424,7 @@ export const DETAILED_GRAMMAR_COURSES = [
         ],
       },
       {
-        id: "im-03-02-04", title: "4강. 실제 상황에서 쓰기", minutes: 5,
+        id: "im-03-02-04", title: { ko: "4강. 실제 상황에서 쓰기", en: "Lesson 4. Using it in real situations" }, minutes: 5,
         blocks: [
           {"t":"text","h":"자리에 맞는 반응 고르기","md":"회사·가게·이웃과의 대화에서 놀람·상기·깨달음·감상을 가려 씁니다.\n\n같은 소식에도 **어떤 어미를 쓰느냐**에 따라 반가움으로도, 따지는 말로도 들립니다."},
           {"t":"chars","wide":true,"items":[{"ch":"손님, 이쪽 자리가 볕이 잘 들어서 훨씬 따뜻하네요.","tip":"This seat gets more sun, so it is much warmer. — 가게에서 느낀 감상"},{"ch":"김 대리, 오늘까지 서류 내야 한다고 미리 말했잖아!","tip":"I told you the papers were due today! — 잊은 것을 일깨움"},{"ch":"주말마다 산에 다니시는군요!","tip":"So you go hiking every weekend. — 듣고 알아챔"}]},
@@ -1454,7 +1454,7 @@ export const DETAILED_GRAMMAR_COURSES = [
     lessons: [
       {
         id: 'ad-01-01-01',
-        title: '1강. 관형절의 3형식 시간 뉘앙스',
+        title: { ko: '1강. 관형절의 3형식 시간 뉘앙스', en: 'Lesson 1. Time nuance in the three noun-modifier forms' },
         minutes: 4,
         blocks: [
           { t:'text', md:'### 💡 관형절의 V + ㄴ/는/던/ㄹ\n| 형태 | 시간 관점 | 뉘앙스 |\n|---|---|---|\n| **-는** | **현재 반복·진행·사실** | 평범한 일반적 사실. (매일 만나는 친구) |\n| **-던** | **과거 회고·습관·지금과 다름** | 옛날에 자주 했었는데 지금은 아닐 수도. 추억이 느껴지는 어미. (예전에 자주 만나던 친구) |\n| **-(으)ㄹ** | **미래 예정·가능성** | 앞으로 할 일. (내일 만날 친구) |\n\n⚠️ 주의! 단순 과거 "했었다"는 **-ㄴ** 을 써요. (어제 만난 친구)' },
@@ -1487,7 +1487,7 @@ export const DETAILED_GRAMMAR_COURSES = [
         ],
       },
       {
-        id: "ad-01-01-02", title: "2강. 꼴 만들기", minutes: 4,
+        id: "ad-01-01-02", title: { ko: "2강. 꼴 만들기", en: "Lesson 2. Building the forms" }, minutes: 4,
         blocks: [
           {"t":"text","h":"동사의 관형사형 어미 결합 규칙","md":"관형절을 만들 때 동사 어간 뒤에 **-는**(현재), **-던**(과거 회고), **-(으)ㄹ**(미래 예정)을 붙입니다.\n\n어간의 받침과 **ㄹ 탈락**에 주의해서 붙여야 합니다."},
           {"t":"table","head":["사전형","현재 -는","과거 회고 -던","미래 예정 -(으)ㄹ"],"rows":[["살다 — to live (ㄹ)","사**는**","살**던**","살"],["만들다 — to make (ㄹ)","만드**는**","만들**던**","만들"],["읽다 — to read (받침)","읽**는**","읽**던**","읽**을**"],["보내다 — to send (받침 없음)","보내**는**","보내**던**","보낼"]]},
@@ -1502,7 +1502,7 @@ export const DETAILED_GRAMMAR_COURSES = [
         ],
       },
       {
-        id: "ad-01-01-03", title: "3강. 헷갈리는 짝과 가르기", minutes: 5,
+        id: "ad-01-01-03", title: { ko: "3강. 헷갈리는 짝과 가르기", en: "Lesson 3. Telling it apart from look-alikes" }, minutes: 5,
         blocks: [
           {"t":"text","h":"-던 과 -았/었던 가르기","md":"둘 다 지난 일을 돌아보지만 **끝났는지 여부**가 다릅니다.\n\n* **-던** — 하다가 만 일, 되풀이하던 일. 아직 이어질 수도 있습니다.\n* **-았/었던** — 완전히 끝나 지금과 끊어진 일."},
           {"t":"table","head":["구분","-던","-았/었던"],"rows":[["성격","하던 중이거나 되풀이하던 일","다 끝나 지금과 끊어진 일"],["지금은","이어질 수도 있음","확실히 다름"],["보기","마시**던** 커피 (아직 남아 있음)","마셨**던** 커피 (다 마셨음)"],["보기","다니**던** 회사 (다닐 수도 있음)","다녔**던** 회사 (지금은 그만둠)"]]},
@@ -1517,7 +1517,7 @@ export const DETAILED_GRAMMAR_COURSES = [
         ],
       },
       {
-        id: "ad-01-01-04", title: "4강. 실제 상황에서 쓰기", minutes: 5,
+        id: "ad-01-01-04", title: { ko: "4강. 실제 상황에서 쓰기", en: "Lesson 4. Using it in real situations" }, minutes: 5,
         blocks: [
           {"t":"text","h":"업무 문서와 보도문에서 쓰기","md":"보고서·공문·보도문에서는 **언제의 일인지**를 관형절 하나로 가릅니다.\n\n문장 안의 때를 가리키는 말(지금·기존에·다음 달)을 먼저 찾으면 어느 어미를 쓸지 바로 정해집니다."},
           {"t":"chars","wide":true,"items":[{"ch":"보도자료: 정부가 추진하는 새 정책을 두고 논의가 이어지고 있습니다.","tip":"Press release: Debate continues over the new policy the government is pushing. — 현재 -는"},{"ch":"공문: 다음 달 열릴 학술 대회에 많은 참여를 바랍니다.","tip":"Notice: We hope for wide participation in next month's conference. — 미래 -(으)ㄹ"},{"ch":"회의록: 지난 분기에 다루었던 안건은 마무리되었습니다.","tip":"Minutes: The item taken up last quarter has been wrapped up. — 끝난 일 -았/었던"}]},
@@ -1545,7 +1545,7 @@ export const DETAILED_GRAMMAR_COURSES = [
     lessons: [
       {
         id: 'ad-02-01-01',
-        title: '1강. 화법 4종과 적절한 사용 상황',
+        title: { ko: '1강. 화법 4종과 적절한 사용 상황', en: 'Lesson 1. Four speech styles and when to use them' },
         minutes: 4,
         blocks: [
           { t:'text', md:'### 💡 격식도 4단계 화법 매칭표\n| 레벨 | 화법 | 끝말 | 언제 써? |\n|---|---|---|---|\n| Lv1 친절·평범 | **해요체** | -아요/어요/해요 | 일상 대부분 · 가게 · 직장 상사 이외 대인 관계 |\n| Lv2 가장 격식 | **합쇼체** | -ㅂ니다/습니다 | 신문·방송·보고서·회의 공식석상 |\n| Lv3 반말 | **해라체** | -아/어/해 · -ㄴ다 | 친구 사이 · 가족 · 끼리끼리 문자 · 일기 |\n| Lv4 옛날 어른 | **하오체** | -오/소 · -시오 | 요즘은 거의 안 쓰나 옛 드라마·관공서 키오스크에서 종종 출현 |' },
@@ -1578,7 +1578,7 @@ export const DETAILED_GRAMMAR_COURSES = [
         ],
       },
       {
-        id: "ad-02-01-02", title: "2강. 꼴 만들기", minutes: 4,
+        id: "ad-02-01-02", title: { ko: "2강. 꼴 만들기", en: "Lesson 2. Building the forms" }, minutes: 4,
         blocks: [
           {"t":"text","h":"네 화법의 종결어미 꼴","md":"화법마다 문장을 맺는 어미가 다릅니다. 어간의 **받침**과 **ㄹ 탈락**에 따라 꼴이 갈리니 표로 익혀 두세요."},
           {"t":"table","head":["사전형","해요체","합쇼체","해라체","하오체"],"rows":[["가다 — to go","가요","갑니다","간다","가오"],["먹다 — to eat","먹어요","먹습니다","먹는다","먹소"],["만들다 — to make (ㄹ)","만들어요","만듭니다","만든다","만드오"],["좋다 — to be good (형용사)","좋아요","좋습니다","좋다","좋소"]]},
@@ -1593,7 +1593,7 @@ export const DETAILED_GRAMMAR_COURSES = [
         ],
       },
       {
-        id: "ad-02-01-03", title: "3강. 헷갈리는 짝과 가르기", minutes: 5,
+        id: "ad-02-01-03", title: { ko: "3강. 헷갈리는 짝과 가르기", en: "Lesson 3. Telling it apart from look-alikes" }, minutes: 5,
         blocks: [
           {"t":"text","h":"해라체와 합쇼체 가르기","md":"둘 다 격식 있는 자리에 쓰지만 **듣는 사람이 앞에 있는지**로 갈립니다.\n\n* **해라체** — 신문·책·논문. 읽는 사람이 정해져 있지 않은 글.\n* **합쇼체** — 뉴스 진행·발표·회의. 듣는 사람을 눈앞에 두고 하는 말."},
           {"t":"table","head":["자리","화법","보기"],"rows":[["신문 기사와 사설","해라체","늘고 **있다**, 발표했**다**"],["뉴스 진행과 발표","합쇼체","늘고 **있습니다**, 발표했**습니다**"],["회사에서 나누는 말","해요체","늘고 **있어요**, 발표했**어요**"],["안내문과 표지판","하오체·해라체","출입을 금하**오**, 쓰레기를 버리지 **마라**"]]},
@@ -1608,7 +1608,7 @@ export const DETAILED_GRAMMAR_COURSES = [
         ],
       },
       {
-        id: "ad-02-01-04", title: "4강. 실제 상황에서 쓰기", minutes: 5,
+        id: "ad-02-01-04", title: { ko: "4강. 실제 상황에서 쓰기", en: "Lesson 4. Using it in real situations" }, minutes: 5,
         blocks: [
           {"t":"text","h":"자리에 맞는 화법 고르기","md":"같은 말이라도 **누구에게, 어디에서** 하느냐에 따라 맺음이 달라집니다.\n\n사내 보고·동료와의 대화·책 서술·옛 사극 대사를 놓고 알맞은 화법을 골라 봅니다."},
           {"t":"chars","wide":true,"items":[{"ch":"사내 보고: 이번 분기 매출이 지난달보다 15% 늘었습니다.","tip":"Report: Sales rose 15% from last month. — 합쇼체"},{"ch":"사극 대사: 이보시오, 거기 아무도 없소?","tip":"Historical drama: Hello there, is anyone about? — 하오체"},{"ch":"책 서술: 사람은 누구나 행복을 원한다.","tip":"Book: Everyone wants to be happy. — 해라체"}]},
