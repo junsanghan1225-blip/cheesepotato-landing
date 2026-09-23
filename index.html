@@ -115,13 +115,13 @@
      Pretendard 는 통짜(2.0MB) 대신 조각난 쪽을 쓴다 — 브라우저가
      unicode-range 를 보고 화면에 실제로 나온 글자가 든 조각만 받는다.
      그래서 저장소는 무거워졌지만 학습자가 받는 양은 오히려 줄었다. -->
-<link rel="stylesheet" href="vendor/pretendard.css?v=55378792">
-<link rel="stylesheet" href="vendor/pressstart2p.css?v=55378792">
+<link rel="stylesheet" href="vendor/pretendard.css?v=61bfbb1e">
+<link rel="stylesheet" href="vendor/pressstart2p.css?v=61bfbb1e">
 <!-- 화면 상자 안에서만 쓰는 CSS 는 여기서 갈라 받는다. media="print" 라
      첫 페인트를 안 막고, 다 받아지면 app.js 가 media 를 all 로 바꾼다.
      자바스크립트가 없으면 <noscript> 쪽이 그냥 평범하게 걸린다. -->
-<link id="viewsCss" rel="stylesheet" href="app-views.css?v=55378792" media="print">
-<noscript><link rel="stylesheet" href="app-views.css?v=55378792"></noscript>
+<link id="viewsCss" rel="stylesheet" href="app-views.css?v=61bfbb1e" media="print">
+<noscript><link rel="stylesheet" href="app-views.css?v=61bfbb1e"></noscript>
 
 <style>
 /* ══════════════════════════════════════════════════════════════
@@ -1632,6 +1632,12 @@ body.hlp-open { overflow:hidden; }
     <!-- 배우기가 이 사이트의 본체다. 헤더에서 가장 먼저 온다. -->
     <button class="nav-link" id="learnBtn" type="button" aria-label="배우기 열기">
       <span class="nav-ico">📖</span><span class="nav-txt" data-en="Learn">배우기</span>
+    </button>
+    <!-- TOPIK 은 배우기 안의 갈래가 아니라 따로 선 곳이다. 시험을 준비하러 온
+         사람이 배우기를 거쳐 찾아 들어가지 않게 머리띠에 바로 둔다.
+         화면은 #learn/topik 그대로다(옆 메뉴의 topikBtn 과 같은 곳). -->
+    <button class="nav-link" id="topikHdBtn" type="button" aria-label="TOPIK 연습 열기" data-en-aria="Open TOPIK practice">
+      <span class="nav-ico">🎯</span><span class="nav-txt">TOPIK</span>
     </button>
     <!-- 머리띠에서는 「Wordbook」이다. 「My wordbook」으로 두면 320px 짜리
          영어 화면에서 머리띠가 넘친다. 옆 메뉴는 자리가 넉넉해서 거기서는
@@ -3775,9 +3781,9 @@ body.hlp-open { overflow:hidden; }
 <div id="hlpScrim" class="hlp-scrim"></div>
 <aside id="hlpPanel" class="hlp-panel" aria-label="한국어 도우미" aria-hidden="true"></aside>
 
-<script src="app.js?v=55378792"></script>
-<script type="module" src="app.module.js?v=55378792"></script>
+<script src="app.js?v=61bfbb1e"></script>
+<script type="module" src="app.module.js?v=61bfbb1e"></script>
 
-<script src="analytics.js?v=55378792" defer></script>
+<script src="analytics.js?v=61bfbb1e" defer></script>
 </body>
 </html>

@@ -3647,3 +3647,9 @@
   :root .side-sec-h, :root .side-eyebrow { font-size:11.5px; }
   :root .side-note { font-size:12.5px; }
 }
+
+/* TOPIK 은 배우기와 따로 선 화면이다 — 배우기 머리글과 「← 배우기」를 내린다.
+   (화면 틀은 #learn/topik 그대로 쓴다. 정적 쪽과 밖의 링크가 그 주소를 쓴다.) */
+#learnView.topik-mode .pt-hero,
+#learnView.topik-mode #lsecBack { display:none; }
+#learnView.topik-mode .pt-body { padding-top:28px; }
