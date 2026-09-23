@@ -54,7 +54,7 @@ function goLearn(sub) {
 }
 // 사이드 메뉴의 TOPIK 단추. 히어로에는 이제 레벨 테스트 하나만 두고,
 // TOPIK 연습은 ☰ 메뉴로 들어간다.
-document.getElementById('topikBtn').addEventListener('click', () => goLearn('topik'));
+/* 옆 메뉴의 topikBtn 은 이제 side-item 이라 data-open 으로 열린다(아래 메뉴 처리). */
 document.getElementById('topikHdBtn').addEventListener('click', () => goLearn('topik'));
 /* 첫 화면 카드도 눌리는 자리다. 방문 기록을 보면 사람들이 오는 곳은
    레딧이고, 앱을 받으러 온 것이 아니라 **여기서 한국어를 해 보려고**
@@ -1276,14 +1276,16 @@ const menuBtn = ptId('menuBtn');
 function sideMark() {
   const here = location.hash.replace(/^#/, '');
   let hit = null;
-  document.querySelectorAll('#sideList .side-item').forEach((el) => {
+  const items = [...document.querySelectorAll('#sideList .side-item')];
+  /* learn/topik 은 learn/topik/II/listening 도 제 것으로 친다.
+     갈래 안에서 더 파고들어도 표시가 유지되어야 한다. 다만 더 꼭 맞는 항목
+     (learn/topik/reading)이 있으면 그것 하나만 켠다 — 둘이 같이 켜지면 어디인지 모른다. */
+  for (const el of items) {
     const path = el.dataset.open || '';
-    /* learn/topik 은 learn/topik/II/listening 도 제 것으로 친다.
-       갈래 안에서 더 파고들어도 표시가 유지되어야 한다. */
-    const on = !!path && (here === path || here.startsWith(path + '/'));
-    el.classList.toggle('on', on);
-    if (on) hit = el;
-  });
+    const m = !!path && (here === path || here.startsWith(path + '/'));
+    if (m && (!hit || path.length > (hit.dataset.open || '').length)) hit = el;
+  }
+  items.forEach((el) => el.classList.toggle('on', el === hit));
   document.querySelectorAll('#sideList .side-group').forEach((g) => {
     /* 이미 사람이 펼쳐 둔 것은 접지 않는다. 표시할 자리가 그 안에 있을
        때만 펼친다. */
