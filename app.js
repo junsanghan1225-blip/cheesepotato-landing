@@ -55,6 +55,7 @@ function goLearn(sub) {
 // 사이드 메뉴의 TOPIK 단추. 히어로에는 이제 레벨 테스트 하나만 두고,
 // TOPIK 연습은 ☰ 메뉴로 들어간다.
 document.getElementById('topikBtn').addEventListener('click', () => goLearn('topik'));
+document.getElementById('topikHdBtn').addEventListener('click', () => goLearn('topik'));
 /* 첫 화면 카드도 눌리는 자리다. 방문 기록을 보면 사람들이 오는 곳은
    레딧이고, 앱을 받으러 온 것이 아니라 **여기서 한국어를 해 보려고**
    온다. 눌러 본 사람은 「해 보고 싶다」고 말한 것이니 그 자리로 보낸다. */

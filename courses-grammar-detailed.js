@@ -1624,4 +1624,48 @@ export const DETAILED_GRAMMAR_COURSES = [
     ],
   },
 
+  // ════════════════════════════════════════════════
+  // 🟡 중급 갈래 코스 (docs/curriculum-upper.md) — 예문 만들기 갈래 하나 = 코스 하나
+  // ════════════════════════════════════════════════
+  {
+    id: 'im-c48',
+    emoji: '🔮',
+    title: { ko: '중급 48: 추측과 예상', en: 'Intermediate 48: Guessing and expecting' },
+    tagline: { ko: '보이는 것 · 미루어 짐작하는 것 · 걱정하는 것', en: 'What you see, what you infer, what you worry about' },
+    blurb: { ko: '-아/어 보이다, -(으)ㄴ/는 모양이다, -(으)ㄹ 텐데 … 눈으로 본 인상인지, 흔적을 보고 미루어 짐작하는지에 따라 말이 갈립니다.',
+             en: 'Looks like, seems that, must be… Korean picks a different ending depending on whether you saw it yourself or are inferring from clues.' },
+    level: 'Intermediate',
+    needs: 'im-03-02',
+    lessons: [
+      {
+        id: 'im-c48-01',
+        title: { ko: '1강. 보이는 대로 vs 미루어 짐작 (-아/어 보이다 · -는 모양이다)', en: 'Lesson 1. What you see vs what you infer' },
+        minutes: 5,
+        blocks: [
+          { t:'text', md:'### 두 가지 「~인 것 같다」\n\n**-아/어 보이다** — 지금 **눈으로 본 인상**을 그대로 말합니다.\n> 오늘 좀 피곤해 **보여요**. (얼굴을 보고)\n\n**-(으)ㄴ/는 모양이다** — 눈앞의 **흔적**을 보고 **미루어 짐작**합니다. 주로 남의 일에 씁니다.\n> 불이 꺼진 걸 보니 아무도 없는 **모양이에요**. (불 꺼진 것 → 사람이 없다고 짐작)\n\n가르는 질문 하나: **그 모습을 직접 보고 있나, 아니면 다른 단서로 추리하나?**' },
+          { t:'cloze', sentence:'새로 산 가방이 정말 [비싸 보여요].', answer:'비싸 보여요',
+            meaning:'Your new bag looks really expensive.',
+            options:['비싸 보여요','비싼 모양이에요','비쌀 텐데요','비싸거든요'],
+            keys:['비싸 보여요','비싼 모양이에요','비쌀 텐데요','비싸거든요'],
+            why:'가방을 **눈으로 보고** 받은 인상이므로 -아/어 보이다.' },
+          { t:'cloze', sentence:'민수 씨가 계속 하품을 하네요. 어젯밤에 잠을 못 [잔 모양이에요].', answer:'잔 모양이에요',
+            meaning:'Minsu keeps yawning. He must not have slept last night.',
+            options:['잔 모양이에요','자 보여요','자거든요','잘 텐데요'],
+            keys:['잔 모양이에요','자 보여요','자거든요','잘 텐데요'],
+            why:'잠을 못 잔 것은 직접 본 게 아니라 **하품이라는 단서**로 짐작한 것 → -(으)ㄴ 모양이다. 지난 일이라 「잔」.' },
+          { t:'cloze', sentence:'길에 우산 쓴 사람이 많은 걸 보니 비가 [오는 모양이에요].', answer:'오는 모양이에요',
+            meaning:'Lots of people have umbrellas — it must be raining.',
+            options:['오는 모양이에요','와 보여요','올걸요','오거든요'],
+            keys:['오는 모양이에요','와 보여요','올걸요','오거든요'],
+            why:'「-(으)ㄴ/는 걸 보니」 뒤에는 짐작을 붙이는 게 자연스럽습니다. 지금 일이라 「오는」.' },
+          { t:'choice', q:'친구 얼굴이 빨개요. 직접 보면서 하는 말로 알맞은 것은?',
+            options:['얼굴이 빨개 보여요. 괜찮아요?','얼굴이 빨간 모양이에요. 괜찮아요?','얼굴이 빨갈걸요. 괜찮아요?'], answer:0,
+            why:'눈앞의 친구에게 **보이는 대로** 말할 때는 -아/어 보이다. 「모양이다」는 단서로 추리할 때라 눈앞의 상대에게는 어색합니다.' },
+          { t:'note', md:'**자주 하는 실수** — 「-는 모양이다」를 **나 자신**에게 쓰지 않습니다.\n\n❌ 제가 배가 고픈 모양이에요.\n✅ 배가 고파요. / (남을 보고) 배가 고픈 모양이에요.\n\n내 상태는 짐작할 필요가 없으니까요.' },
+          { t:'speak', say:'가게에 사람이 많은 걸 보니 여기 음식이 맛있는 모양이에요.', q:'줄 선 가게 앞에서 친구에게 말하듯 자연스럽게 말해 보세요.' },
+        ],
+      },
+    ],
+  },
+
 ];
