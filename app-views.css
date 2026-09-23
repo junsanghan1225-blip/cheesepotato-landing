@@ -3595,7 +3595,7 @@
   #lsecList .lc-card { padding:16px 18px; border-radius:18px; }
   #lsecList .lc-top { gap:14px; align-items:center; }
   #lsecList .lc-mark { width:44px; height:44px; border-radius:13px; font-size:22px; }
-  #lsecList .lc-lv { font-size:10px; }
+  #lsecList .lc-lv { font-size:11px; }
   #lsecList .lc-title { font-size:17.5px; margin-top:3px; }
   #lsecList .lc-tag { font-size:13.5px; margin-top:2px; line-height:1.45; }
   #lsecList .lc-blurb { display:none; }
@@ -3609,7 +3609,41 @@
      한 줄 세 칸으로 줄이고 보조 설명은 뺀다 — 숫자만 봐도 뜻이 선다. */
   .learn-summary { grid-template-columns:repeat(3, 1fr); gap:8px; margin-top:12px; }
   .learn-stat { padding:10px 10px; border-radius:12px; }
-  .learn-stat-k { font-size:9.5px; letter-spacing:.08em; }
+  .learn-stat-k { font-size:10.5px; letter-spacing:.06em; }
   .learn-stat-v { font-size:18px; margin-top:3px; }
   .learn-stat-s { display:none; }
+}
+
+/* ══ 휴대폰 — 레슨 화면 ═══════════════════════════════════════
+   레슨 글이 16.5px · 줄간격 1.85 로 넓게 잡혀 있어, 휴대폰에서는 설명
+   한 단락이 화면을 넘기고 문제까지 한참을 내려가야 했다. 글자 크기는
+   거의 그대로 두고 줄간격과 상자 안쪽 여백만 줄인다. */
+@media (max-width:600px) {
+  .ls-bar-in { padding:10px var(--gut); gap:12px; }
+  .ls-body { padding-top:20px; padding-bottom:110px; }
+  .ls-h1 { font-size:26px; margin:8px 0 20px; }
+  .bk { margin-bottom:20px; }
+  .bk-h { font-size:18px; }
+  .bk-p { font-size:16px; line-height:1.7; }
+  .bk-p + .bk-p { margin-top:10px; }
+  .bk-note { padding:14px 16px; line-height:1.65; }
+
+  /* 도우미 단추가 예문 카드의 🔊 단추를 덮었다. 레슨 중에는 내린다. */
+  body:has(#lessonView:not(.hidden)) .hlp-fab { display:none; }
+}
+
+/* ══ 휴대폰 — 작은 글자 ═══════════════════════════════════════
+   휴대폰에서 12px 밑으로 내려가는 글이 화면마다 수십 군데 있었다
+   (예문 만들기의 표현 번호만 112군데). 대문자로 띄워 쓴 딱지(COURSES ·
+   CHOOSE 같은 것)는 모양으로 읽히므로 조금만 올리고, 사람이 실제로 읽는
+   글(번호·설명·표·메타)은 12.5px 이상으로 올린다. */
+@media (max-width:600px) {
+  .sb-pt-n { font-size:13px; }
+  .sb-cat-n { font-size:12px; }
+  .lc-lv, .ls-kicker, .ex-tag, .roadmap-k, .bd-cat, .tq-sec-h { font-size:11.5px; }
+  :root .roadmap-m, :root .lq-chip, :root .bd-meta, :root .tq-note, :root .wb-card-tag, :root .wb-card-n, :root .stat-label, :root .way-n { font-size:12.5px; }
+  .ls-hud .hud-xp, .ls-hud .hud-combo { font-size:11px; }
+  :root table th, :root table td { font-size:12.5px; }
+  :root .side-sec-h, :root .side-eyebrow { font-size:11.5px; }
+  :root .side-note { font-size:12.5px; }
 }
