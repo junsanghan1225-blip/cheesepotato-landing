@@ -6,6 +6,7 @@
    넣어 준다. 코스를 섞어 시키면 그 맥락이 끊긴다. */
 import { COURSES } from '../courses.js';
 
+const tx = (v) => (v && typeof v === 'object' ? v.ko : v);   // 제목이 {ko,en} 인 코스도 있다
 const TARGET = 4;   // 코스당 레슨 수. 가장 잘 채워진 초급 코스(bg-d-02)가 셋이다.
 
 const list = COURSES.filter((c) => c.level === 'Intermediate' || c.level === 'Advanced');
@@ -14,7 +15,7 @@ const c = list.find((x) => x.id === id);
 if (!c) {
   console.log('채울 코스\n');
   list.forEach((x) => console.log(
-    `  ${x.id.padEnd(10)} ${x.level.padEnd(13)} 강 ${x.lessons.length} / ${TARGET}   ${x.title}`));
+    `  ${x.id.padEnd(10)} ${x.level.padEnd(13)} 강 ${x.lessons.length} / ${TARGET}   ${tx(x.title)}`));
   console.log(`\n쓰는 법:  node tools/course-prompt.mjs ${list[0].id}`);
   process.exit(0);
 }
@@ -25,17 +26,17 @@ for (let i = c.lessons.length + 1; i <= TARGET; i++) nextIds.push(`${c.id}-${Str
 
 /* 이미 있는 레슨을 통째로 보여 준다. 제목만 주면 같은 설명을 다시 쓴다. */
 const done = c.lessons.map((l, i) =>
-  `### ${i + 1}강 — ${l.title}  (${l.minutes}분, 블록 ${l.blocks.length}개)\n\n` +
+  `### ${i + 1}강 — ${tx(l.title)}  (${l.minutes}분, 블록 ${l.blocks.length}개)\n\n` +
   l.blocks.map((b) => '  ' + JSON.stringify(b)).join('\n')
 ).join('\n\n');
 
 console.log(`한국어 학습 앱의 **레슨 데이터**를 만들어 주세요.
-코스 「${c.title}」에 ${need}강을 더 붙입니다.
+코스 「${tx(c.title)}」에 ${need}강을 더 붙입니다.
 
 ## 이 코스가 무엇인가
 
-  한 줄 소개   ${c.tagline}
-  자세히       ${c.blurb}
+  한 줄 소개   ${tx(c.tagline)}
+  자세히       ${tx(c.blurb)}
   단계         ${c.level === 'Intermediate' ? '중급' : '고급'}
   앞 코스      ${c.needs}
 
