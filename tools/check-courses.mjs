@@ -435,6 +435,15 @@ console.log(!headIds ? '이전 커밋 견주기 건너뜀'
   : idsIntact ? `이전 커밋 레슨 id ${headIds.size}개 전부 살아 있음`
   : '이전 커밋 대비 레슨 id 유실 있음 — 아래 참고');
 
+/* 앱은 courses-lite.js 를 받는다(중·고급 레슨 본문을 뺀 목록). 코스를 고치고 이걸
+   다시 안 구우면 앱의 목록·문제 수가 옛것으로 남는다 — 틀린 줄도 모르고. */
+{
+  const { lite } = await import('./build-courses-lite.mjs');
+  const { COURSES: onDisk } = await import('../courses-lite.js');
+  if (JSON.stringify(onDisk) !== JSON.stringify(lite()))
+    problems.push('courses-lite.js 가 courses.js 와 다르다 — node tools/build-courses-lite.mjs 를 돌리고 함께 커밋할 것');
+}
+
 if (problems.length) {
   console.error(`\n문제 ${problems.length}개:\n` + problems.join('\n'));
   process.exit(1);

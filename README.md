@@ -70,6 +70,7 @@ GitHub Pages 는 캐시 머리글을 우리가 못 정한다. `app.js` 를 그�
 | `sentence/` · `compare/` · `course/` · `lesson/` · `topik-writing/` · `topik-reading/` · `topik-listening/` · `blog/`(`rss.xml` 포함) · `sitemap.xml` | `tools/build-pages.mjs` | `sentences*.js` · `courses*.js` · `topik-writing.js` · `topik.js` · `topik2.js` · `topik-listening.js` · `blog.js` |
 | `glossary.js` · `glossary-<말>.js` | `tools/build-glossary.mjs` | `docs/glossary.json` (+ `glossary-krdict.json`) |
 | `grammar.js` | `tools/build-grammar.mjs` | `sentences.js` 의 문법 이름 |
+| `courses-lite.js` | `tools/build-courses-lite.mjs` | `courses.js` — 앱이 받는 코스 목록. 중·고급 레슨 본문을 빼서 1.5MB → 0.4MB. **코스를 고쳤으면 반드시** (낡으면 `check-courses` 가 멈춘다) |
 | `docs/page-mod.json` | `tools/build-pages.mjs` | 구운 쪽의 해시와 날짜 (사이트맵 `lastmod` 용) |
 | `docs/glossary-krdict.json` | `tools/build-krdict-glossary.mjs` | 국립국어원 내려받기 자료 |
 | `favicon-32.png` · `icon-180.png` | `tools/build-icons.py` | `logo.png` |
@@ -485,7 +486,12 @@ node tools/build-grammar.mjs && node tools/stamp.mjs
 더하면 거기에도 넣을 것** — 안 넣으면 「내 코스」의 길에 안 나온다. 중·고급은
 `level` 로 저절로 들어간다.
 
-**레벨테스트(전체)** 는 계단식이다. L3 에서 시작해 맞히면 한 레벨 위, 틀리면 한 레벨
+**레벨테스트는 목적마다 다 계단식이다.** 「전체」·「쓰기」는 우리 레벨(L0~L7) 사다리를,
+TOPIK·읽기·듣기는 TOPIK 문항 은행(문항마다 `grade`)의 급수(1~6급) 사다리를 오르내리고,
+급수 결과는 `LT_GRADE_TO_LEVEL` 로 우리 레벨에 옮긴다. 「내 코스」 레벨은 「전체」 결과로
+정하고, 다른 목적은 레벨이 아직 없을 때만 채운다.
+
+**「전체」** 는 L3 에서 시작해 맞히면 한 레벨 위, 틀리면 한 레벨
 아래에서 다음 문제를 낸다(최대 10문제, 경계를 찾으면 일찍 끝). 맞힌 수가 틀린 수보다
 많은 레벨 중 가장 높은 것의 **바로 위**가 공부할 레벨이다. 문제는
 `leveltest-overall.js` 에 레벨마다 8개 — 한 레벨을 두세 번 물어야 경계가 서므로
