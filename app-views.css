@@ -3710,3 +3710,21 @@
 @media (max-width:600px) {
   #learnView.has-level .pt-hero { display:none; }
 }
+
+/* 「내 코스」 갈래 화면 */
+.my-page { display:flex; flex-direction:column; gap:10px; }
+.my-page .my-card { box-shadow:none; }
+.my-sec-lg { font-size:15px; color:var(--ink-2); margin-top:18px; }
+.my-rows { display:flex; flex-direction:column; border:1px solid var(--line); border-radius:16px; overflow:hidden; background:var(--surface); }
+.my-row {
+  display:flex; align-items:center; gap:12px; width:100%; text-align:left; cursor:pointer;
+  background:none; border:0; border-top:1px solid var(--line-2); padding:13px 16px; font-family:inherit;
+}
+.my-row:first-child { border-top:0; }
+.my-row:hover { background:var(--tint); }
+.my-row-e { font-size:18px; width:26px; text-align:center; flex-shrink:0; }
+.my-row-t { flex:1; min-width:0; font-size:14.5px; color:var(--ink); word-break:keep-all; }
+.my-row-n { font-size:12.5px; font-weight:700; color:var(--ink-3); font-variant-numeric:tabular-nums; white-space:nowrap; }
+.my-row.done .my-row-n { color:var(--green, #12704f); }
+.my-rows.soon .my-row-t { color:var(--ink-3); }
+.my-page .my-link.block { display:none; }   /* 이미 이 화면이다 */
