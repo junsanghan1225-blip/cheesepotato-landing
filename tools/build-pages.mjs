@@ -2211,7 +2211,37 @@ writeFileSync(join(OUT_BLOG, 'rss.xml'), blogRss(BLOG_POSTS));
 
 urls.push({ loc: '/privacy.html', freq: 'yearly', pri: '0.3' });
 for (const loc of ['/pricing.html', '/terms.html', '/refund.html']) urls.push({ loc, freq: 'yearly', pri: '0.3' });
-writeFileSync(join(ROOT, 'sitemap.xml'), sitemap(urls));
+/* 사이트맵을 갈래마다 따로 쓴다. 한 파일(7,500여 개)이면 Search Console 이
+   「색인 안 됨」을 갈래별로 못 나눠 보여 준다 — 사전이 문제인지 블로그가 문제인지
+   모른다. sitemap.xml 은 이 파일들을 가리키는 목록(sitemapindex)이 된다 —
+   Search Console 에 이미 낸 주소 그대로라 다시 낼 것이 없다.
+   각 파일을 Search Console 사이트맵 화면에서 눌러 보면 그 갈래의 색인 수가 나온다. */
+const SITEMAP_GROUPS = [
+  ['dictionary', (loc) => loc.startsWith('/dictionary/')],
+  ['topik',      (loc) => /^\/topik-(reading|writing|listening)\//.test(loc)],
+  ['learn',      (loc) => /^\/(sentence|compare|course|lesson)\//.test(loc)],
+  ['blog',       (loc) => loc.startsWith('/blog/')],
+  ['main',       () => true],                 // 첫 쪽 · 여행 · 약관 등 나머지
+];
+const smFiles = [];
+{
+  const left = [...urls];
+  for (const [name, test] of SITEMAP_GROUPS) {
+    const mine = left.filter((u) => test(u.loc));
+    if (!mine.length) continue;
+    for (const u of mine) left.splice(left.indexOf(u), 1);
+    const file = `sitemap-${name}.xml`;
+    writeFileSync(join(ROOT, file), sitemap(mine));
+    const mods = mine.map((u) => modOf(u.loc)).filter(Boolean).sort();
+    smFiles.push({ file, n: mine.length, mod: mods[mods.length - 1] });
+  }
+}
+writeFileSync(join(ROOT, 'sitemap.xml'), `<?xml version="1.0" encoding="UTF-8"?>
+<!-- 생성물이다. node tools/build-pages.mjs 가 다시 쓴다. 갈래별 사이트맵의 목록. -->
+<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+${smFiles.map((f) => `  <sitemap>\n    <loc>${SITE}/${f.file}</loc>\n${f.mod ? `    <lastmod>${f.mod}</lastmod>\n` : ''}  </sitemap>`).join('\n')}
+</sitemapindex>
+`);
 /* sitemap() 이 돌면서 쪽마다 해시를 다시 쟀다. 그 기록을 남긴다 —
    다음 번에 이것과 견줘 안 바뀐 쪽은 날짜를 그대로 둔다. */
 writeFileSync(MOD_FILE, JSON.stringify(modNow, null, 0) + '\n');
@@ -2225,4 +2255,4 @@ console.log(`TOPIK 읽기 ${nR}쪽 + 목록 1쪽 → topik-reading/`);
 console.log(`TOPIK 듣기 ${nTL}쪽 + 목록 1쪽 → topik-listening/`);
 console.log(`사전 ${nDict}쪽 + 목록 1쪽 → dictionary/, 오늘의 단어 자료 ${DICT_HEADS.length}개 → wotd.js`);
 console.log(`블로그 ${nB}쪽 + 목록 1쪽 + 갈래 ${nBT}쪽 + rss.xml → blog/`);
-console.log(`sitemap.xml 에 주소 ${urls.length}개.`);
+console.log(`sitemap.xml 에 주소 ${urls.length}개 — ${smFiles.map((f) => `${f.file} ${f.n}`).join(' · ')}.`);
