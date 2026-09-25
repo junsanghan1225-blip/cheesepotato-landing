@@ -59,6 +59,7 @@ ${[['판매자 · Seller', SELLER.name], ['대표자', SELLER.owner], ['사업�
   .filter(([, v]) => v).map(([k, v]) => `${k}: ${v}`).join('<br>')}<br>
 결제·세금 처리 · Merchant of Record: Paddle.com Market Ltd.
 </div>
+<p class="seller" style="border:0;margin-top:8px;padding-top:0"><a href="/pricing.html">가격 · Pricing</a> · <a href="/terms.html">이용약관 · Terms</a> · <a href="/refund.html">환불 규정 · Refunds</a> · <a href="/privacy.html">개인정보처리방침 · Privacy</a></p>
 <a class="back" href="/">← 홈으로</a>
 </main>
 </body>
