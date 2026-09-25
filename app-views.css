@@ -3864,3 +3864,7 @@
 .tq-sq .tq-passage, .tq-sq .tq-insert { margin-bottom:12px; }
 .tq-sq-end { text-align:center; padding:10px 0 30px; }
 @media (max-width:480px) { .tq-sq { padding:15px 13px 13px; border-radius:14px; } }
+
+/* 레벨테스트 결과 공유 단추 · 설치 안내 띠 */
+.lt-share { margin:16px 0 6px; }
+.install-bar { background:var(--tint); }
