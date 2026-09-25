@@ -230,8 +230,17 @@
   --red:         #E1594E;
 }
 
+/* 본문은 폰에 든 한글 글꼴, 제목만 Pretendard.
+   Pretendard 는 92조각짜리 가변 글꼴이라 조각이 올 때마다 화면을 다시 재고,
+   한글을 그 조각들로 짜 맞추는 데 품이 든다. 느린 폰으로 재 보니 첫 화면 레이아웃이
+   5.1초 → 1.1초로 줄었다(Clarity 실측 INP 770ms · CLS 0.25 의 원인). 지문·레슨·문제처럼
+   긴 본문은 기본 글꼴(아이폰 Apple SD 산돌고딕 Neo, 안드로이드 Noto Sans CJK)로 두고,
+   사이트의 얼굴인 제목에만 Pretendard 를 남긴다. */
 * { box-sizing:border-box; margin:0; padding:0;
-    font-family:'Pretendard Variable','Pretendard',-apple-system,BlinkMacSystemFont,sans-serif; }
+    font-family:-apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo','Noto Sans KR','Noto Sans CJK KR','Malgun Gothic','Segoe UI',Roboto,sans-serif; }
+:is(h1, h2, h3, .section-title, .brand, .way-t, .stat-num, .lc-title, .cl-gt, .my-title, .pro-h, .lt-title),
+:is(h1, h2, h3, .section-title, .brand, .way-t, .stat-num, .lc-title, .cl-gt, .my-title, .pro-h, .lt-title) * {
+    font-family:'Pretendard Variable','Pretendard',-apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo','Noto Sans KR',sans-serif; }
 
 html { scroll-behavior:smooth; scroll-padding-top:80px; }
 
