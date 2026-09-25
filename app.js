@@ -56,6 +56,9 @@ function goLearn(sub) {
 // TOPIK 연습은 ☰ 메뉴로 들어간다.
 /* 옆 메뉴의 topikBtn 은 이제 side-item 이라 data-open 으로 열린다(아래 메뉴 처리). */
 document.getElementById('topikHdBtn').addEventListener('click', () => goLearn('topik'));
+/* 내 코스 — 머리띠와 첫 화면 히어로 두 곳에서 연다. */
+document.getElementById('myHdBtn').addEventListener('click', () => goLearn('mine'));
+document.getElementById('heroMyBtn').addEventListener('click', () => goLearn('mine'));
 /* 첫 화면 카드도 눌리는 자리다. 방문 기록을 보면 사람들이 오는 곳은
    레딧이고, 앱을 받으러 온 것이 아니라 **여기서 한국어를 해 보려고**
    온다. 눌러 본 사람은 「해 보고 싶다」고 말한 것이니 그 자리로 보낸다. */

@@ -39,7 +39,7 @@
 ">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <!-- 구글 태그 관리자. 구글이 주는 인라인 코드조각은 CSP 가 막아서 gtm.js 로 뺐다. -->
-<script src="gtm.js?v=2fa5a746" async></script>
+<script src="gtm.js?v=a368d1f6" async></script>
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <!-- 제목과 설명을 두 말로 쓴다. 이 사이트를 찾을 사람은 한국어를 **배우는**
@@ -118,13 +118,13 @@
      Pretendard 는 통짜(2.0MB) 대신 조각난 쪽을 쓴다 — 브라우저가
      unicode-range 를 보고 화면에 실제로 나온 글자가 든 조각만 받는다.
      그래서 저장소는 무거워졌지만 학습자가 받는 양은 오히려 줄었다. -->
-<link rel="stylesheet" href="vendor/pretendard.css?v=2fa5a746">
-<link rel="stylesheet" href="vendor/pressstart2p.css?v=2fa5a746">
+<link rel="stylesheet" href="vendor/pretendard.css?v=a368d1f6">
+<link rel="stylesheet" href="vendor/pressstart2p.css?v=a368d1f6">
 <!-- 화면 상자 안에서만 쓰는 CSS 는 여기서 갈라 받는다. media="print" 라
      첫 페인트를 안 막고, 다 받아지면 app.js 가 media 를 all 로 바꾼다.
      자바스크립트가 없으면 <noscript> 쪽이 그냥 평범하게 걸린다. -->
-<link id="viewsCss" rel="stylesheet" href="app-views.css?v=2fa5a746" media="print">
-<noscript><link rel="stylesheet" href="app-views.css?v=2fa5a746"></noscript>
+<link id="viewsCss" rel="stylesheet" href="app-views.css?v=a368d1f6" media="print">
+<noscript><link rel="stylesheet" href="app-views.css?v=a368d1f6"></noscript>
 
 <style>
 /* ══════════════════════════════════════════════════════════════
@@ -341,6 +341,15 @@ a:hover { color:var(--orange-mid); }
      눌리는 자리였다. */
   .site-nav > .nav-link { display:none; }
   .hd-cta { display:none; }
+}
+/* 태블릿 폭. 머리띠 단추가 다섯(배우기·내 코스·TOPIK·단어장·로그인)이 되면서
+   영어 화면에서 「My course」·「Sign in」이 두 줄로 꺾이고 ☰ 가 밀려났다.
+   이름표는 한 줄로 묶고, 다운로드 단추는 ☰ 메뉴에도 있으니 여기서 뺀다. */
+@media (min-width:760px) and (max-width:1023px) {
+  .site-nav .nav-txt, .brand span { white-space:nowrap; }
+  .hd-cta { display:none; }
+  .site-hd-in { padding:0 20px; }
+  .site-nav > .nav-link { padding:0 8px; gap:5px; }
 }
 
 /* 되돌아오게 하는 띠. 기본(review)은 차분한 색, 스트릭이 끊기려 할
@@ -1646,6 +1655,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <button class="nav-link" id="learnBtn" type="button" aria-label="배우기 열기">
       <span class="nav-ico">📖</span><span class="nav-txt" data-en="Learn">배우기</span>
     </button>
+    <!-- 내 코스 — 레벨에 맞춘 한 사람만의 길. 배우기 안 갈래(#learn/mine)지만
+         배우기를 거쳐 찾아 들어가면 있는 줄도 모른다. 머리띠에 바로 둔다. -->
+    <button class="nav-link" id="myHdBtn" type="button" aria-label="내 코스 열기" data-en-aria="Open my course">
+      <span class="nav-ico">🧭</span><span class="nav-txt" data-en="My course">내 코스</span>
+    </button>
     <!-- TOPIK 은 배우기 안의 갈래가 아니라 따로 선 곳이다. 시험을 준비하러 온
          사람이 배우기를 거쳐 찾아 들어가지 않게 머리띠에 바로 둔다.
          화면은 #learn/topik 그대로다(옆 메뉴의 topikBtn 과 같은 곳). -->
@@ -1868,6 +1882,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
            여전히 들어갈 수 있다 — 지운 것은 이 지름길 단추들뿐이다. -->
       <div class="btn-row">
         <button class="btn-primary" id="heroLevelTestBtn" type="button" data-ko="레벨 테스트 →">Level test →</button>
+        <button class="btn-ghost" id="heroMyBtn" type="button" data-ko="🧭 내 코스">🧭 My course</button>
       </div>
     </div>
     <div class="hero-stage">
@@ -3861,9 +3876,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <div id="hlpScrim" class="hlp-scrim"></div>
 <aside id="hlpPanel" class="hlp-panel" aria-label="한국어 도우미" aria-hidden="true"></aside>
 
-<script src="app.js?v=2fa5a746"></script>
-<script type="module" src="app.module.js?v=2fa5a746"></script>
+<script src="app.js?v=a368d1f6"></script>
+<script type="module" src="app.module.js?v=a368d1f6"></script>
 
-<script src="analytics.js?v=2fa5a746" defer></script>
+<script src="analytics.js?v=a368d1f6" defer></script>
 </body>
 </html>
