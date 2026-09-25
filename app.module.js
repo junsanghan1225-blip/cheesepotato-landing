@@ -13,10 +13,10 @@
    어느 날 갑자기 다른 코드가 실려 왔다.
    이제 vendor/ 안에 받아 두고 CSP 로 바깥을 막는다. 버전을 올릴 때는
    tools/vendor.mjs 의 PIN 을 고치고 다시 돌린다. */
-import { createClient } from './vendor/supabase-js.js?v=2dda20a5';
+import { createClient } from './vendor/supabase-js.js?v=c206b543';
 // TOPIK 읽기 "문제 풀이 영상" 목록. 아주 작은 파일이라(id 목록뿐) 다른
 // 자료처럼 갈래를 열 때 지연 로딩하지 않고 그냥 처음부터 받는다.
-import { TQ_VIDEO_IDS } from './topik-video.js?v=2dda20a5';
+import { TQ_VIDEO_IDS } from './topik-video.js?v=c206b543';
 // 앱(package.json)과 같은 줄기를 쓴다. 갈리면 앱에서는 읽히는 파일이
 // 여기서는 안 읽히는(또는 그 반대) 일이 생긴다.
 /* 엑셀 라이브러리는 422KB — 이 판에서 가장 무거운 조각이다. 그런데 쓰는
@@ -28,7 +28,7 @@ import { TQ_VIDEO_IDS } from './topik-video.js?v=2dda20a5';
    자국(?v=)은 tools/stamp.mjs 가 아래 줄에 알아서 붙인다 — 정적으로 쓰든
    동적으로 쓰든 같은 글자를 찾으므로 바꿔도 그대로 찍힌다. */
 let XLSX = null;
-const needXLSX = async () => (XLSX ??= await import('./vendor/xlsx.js?v=2dda20a5'));
+const needXLSX = async () => (XLSX ??= await import('./vendor/xlsx.js?v=c206b543'));
 // 커리큘럼. 내용과 엔진을 갈라 두면 글을 고치다 화면을 깨지 않는다.
 // 갈래 목록(drawSections)·코스(drawCourses)·문제만 풀기(dqDraw) 를 열 때만
 // 받는다 — 배우기 갈래 목록도 안 본 사람에게 코스 71개 레슨을 다 물릴
@@ -36,9 +36,9 @@ const needXLSX = async () => (XLSX ??= await import('./vendor/xlsx.js?v=2dda20a5
 let COURSES = [], coursesP = null;
 /* 앱은 courses.js 대신 courses-lite.js 를 받는다 — 중·고급 레슨 본문을 뺀 목록이다
    (tools/build-courses-lite.mjs). 본문은 그 레슨을 열 때 upperBlocksNeed() 가 채운다. */
-const coursesNeed = () => (coursesP ??= import('./courses-lite.js?v=2dda20a5').then((m) => { COURSES = m.COURSES; }));
+const coursesNeed = () => (coursesP ??= import('./courses-lite.js?v=c206b543').then((m) => { COURSES = m.COURSES; }));
 let upperP = null;
-const upperBlocksNeed = () => (upperP ??= coursesNeed().then(() => import('./courses-grammar-detailed.js?v=2dda20a5')).then((m) => {
+const upperBlocksNeed = () => (upperP ??= coursesNeed().then(() => import('./courses-grammar-detailed.js?v=c206b543')).then((m) => {
   const byId = new Map(m.DETAILED_GRAMMAR_COURSES.flatMap((c) => c.lessons.map((l) => [l.id, l.blocks])));
   for (const c of COURSES) for (const l of c.lessons) if (!l.blocks && byId.has(l.id)) { l.blocks = byId.get(l.id); delete l.lazy; }
 }));
@@ -53,7 +53,7 @@ const blocksNeed = async (course) => { if (course.lessons.some((l) => !l.blocks)
    tqGloss 는 그대로 동기다 — 아직 안 왔으면 빈 뜻을 돌려주고, 부르는
    쪽은 이미 "사전에 없는 말"을 다룰 줄 안다. */
 let GLOSSARY = {}, GLOSS_LANGS = {}, glossP = null;
-const glossNeed = () => (glossP ??= import('./glossary.js?v=2dda20a5').then((m) => {
+const glossNeed = () => (glossP ??= import('./glossary.js?v=c206b543').then((m) => {
   GLOSSARY = m.GLOSSARY; GLOSS_LANGS = m.GLOSS_LANGS;
   dictBuildEntries();
 }).catch((e) => {
@@ -61,12 +61,12 @@ const glossNeed = () => (glossP ??= import('./glossary.js?v=2dda20a5').then((m) 
   glossP = null;
   throw e;
 }));
-import { glossFind } from './gloss-find.js?v=2dda20a5';
+import { glossFind } from './gloss-find.js?v=c206b543';
 /* 홈 화면 "오늘의 단어" 카드. 표제어·품사·짧은 뜻풀이 3개만 든
    작은 자료라(사전 전체 356KB 와 달리) 홈에 들어오면 바로 받는다 —
    빈 카드로 몇 초 떠 있는 것보다 낫다. */
 let WOTD_POOL = [], wotdP = null;
-const wotdNeed = () => (wotdP ??= import('./wotd.js?v=2dda20a5').then((m) => {
+const wotdNeed = () => (wotdP ??= import('./wotd.js?v=c206b543').then((m) => {
   WOTD_POOL = m.WOTD_POOL;
 }).catch((e) => { wotdP = null; throw e; }));
 /* 그날의 낱말을 고른다. 한국 자정을 기준으로 하루씩 넘어가게
@@ -100,9 +100,9 @@ window.wotdRender = wotdRender;
    나중 화면은 그 약속(??=)을 그대로 쓴다. */
 let GRAMMAR = [], GRAMMAR_EN = {}, grammarP = null;
 const grammarNeed = () => (grammarP ??= Promise.all([
-  import('./grammar.js?v=2dda20a5'), import('./grammar-en.js?v=2dda20a5'),
+  import('./grammar.js?v=c206b543'), import('./grammar-en.js?v=c206b543'),
 ]).then(([a, b]) => { GRAMMAR = a.GRAMMAR; GRAMMAR_EN = b.GRAMMAR_EN; }));
-import { grammarScan } from './grammar-find.js?v=2dda20a5';
+import { grammarScan } from './grammar-find.js?v=c206b543';
 // TOPIK 쓰기·듣기 문항. 읽기(topik.js·topik2.js)와 같은 tqNeedData() 로
 // 함께 받는다 — 유형 연습(topik) 갈래 하나가 세 기술을 다 쓰므로 따로
 // 가를 까닭이 없다. 값은 tqNeedData 정의부에서 채운다.
@@ -114,7 +114,7 @@ let TOPIKL_BY_EXAM = {}, TOPIKL_PICTURE_SLOTS = {};
    sbFind 를 쓰는데, 그쪽은 안 기다리고 그냥 부른다 — 답이 못 찾은
    인용 없이 나가는 것이 채팅이 멈추는 것보다 낫다. */
 let SB_CATS = [], SB_MORE = {}, SB_SEED = {}, SB_POINTS = [], sbDataP = null;
-const sbNeed = () => (sbDataP ??= import('./sentences.js?v=2dda20a5').then((m) => {
+const sbNeed = () => (sbDataP ??= import('./sentences.js?v=c206b543').then((m) => {
   SB_CATS = m.SB_CATS; SB_MORE = m.SB_MORE; SB_SEED = m.SB_SEED;
   // 갈래마다 표현을 펼쳐 한 줄에 담는다 — SB_CATS 안의 점에는 갈래가 안
   // 달려 있어서(sbFind 가 표현 하나를 id 로 바로 찾으려면 이게 있어야 한다).
@@ -125,7 +125,7 @@ const sbNeed = () => (sbDataP ??= import('./sentences.js?v=2dda20a5').then((m) =
 // 숫자 게임의 읽기와 문제 만들기. 화면을 모르는 순수 계산이라 따로 뒀다.
 // 게임 목록에서 「숫자 읽기」를 시작할 때만 받는다 — XLSX 와 같은 자리다.
 let makeRound = null;
-const needNumbers = async () => (makeRound ??= (await import('./numbers.js?v=2dda20a5')).makeRound);
+const needNumbers = async () => (makeRound ??= (await import('./numbers.js?v=c206b543')).makeRound);
 
 // 이 키는 공개돼도 되는 값이다. 이미 APK 안에 같은 것이 들어 있고,
 // 접근을 막는 건 키가 아니라 테이블에 걸린 RLS 다.
@@ -197,8 +197,8 @@ let tqDataP = null;
    유형 연습(topik) 갈래 하나가 이 넷을 다 쓰므로 갈라 봤자 요청만
    늘어난다. */
 const tqNeedData = () => (tqDataP ??= Promise.all([
-  import('./topik.js?v=2dda20a5'), import('./topik2.js?v=2dda20a5'),
-  import('./topik-writing.js?v=2dda20a5'), import('./topik-listening.js?v=2dda20a5'),
+  import('./topik.js?v=c206b543'), import('./topik2.js?v=c206b543'),
+  import('./topik-writing.js?v=c206b543'), import('./topik-listening.js?v=c206b543'),
 ]).then(([a, b, c, d]) => {
   TQ_DATA.I  = { reading: a.TOPIK_READING,  blueprint: a.TOPIK_BLUEPRINT,  slots: a.TOPIK_SLOTS };
   TQ_DATA.II = { reading: b.TOPIK2_READING, blueprint: b.TOPIK2_BLUEPRINT, slots: b.TOPIK2_SLOTS };
@@ -209,11 +209,11 @@ const tqNeedData = () => (tqDataP ??= Promise.all([
 let READING = null, rdP = null;
 // 지문의 밑줄 문법 말풍선이 GRAMMAR 를 쓰므로 같이 받아 둔다.
 const rdNeed = () => (rdP ??= Promise.all([
-  import('./reading.js?v=2dda20a5'), grammarNeed(),
+  import('./reading.js?v=c206b543'), grammarNeed(),
 ]).then(([m]) => { READING = m.READING; }));
 
 let CONVO = null, cvP = null;
-const cvNeed = () => (cvP ??= import('./convo.js?v=2dda20a5').then((m) => { CONVO = m.CONVO; }));
+const cvNeed = () => (cvP ??= import('./convo.js?v=c206b543').then((m) => { CONVO = m.CONVO; }));
 
 /* 배우기를 열면 여섯 다 미리 불을 붙인다. 기다리지 않는다 — 갈래 목록은
    이 자료가 없어도 그려지고, 사람이 갈래를 고르는 사이에 도착한다.
@@ -646,14 +646,14 @@ let dictOpen = null;  // 지금 "더 보기"(예문·뜻풀이)를 펼쳐 둔 �
    평소엔 안 쓰는 522KB 를 첫 화면 모두에게 물릴 까닭이 없다. */
 let dictSensesP = null;
 const dictLoadSenses = () => (dictSensesP ??=
-  import('./glossary-senses.js?v=2dda20a5').then((m) => m.SENSES).catch(() => ({})));
+  import('./glossary-senses.js?v=c206b543').then((m) => m.SENSES).catch(() => ({})));
 
 /* 예문. 국립국어원 자료엔 없어서 Gemini 로 새로 지은 것이다(있는 만큼만
    — docs/glossary-examples-gemini-prompt.md 참고). 뜻풀이와 같은 자리에서
    같이 받는다 — 펼치는 손짓 하나에 몰아 두는 편이 화면이 덜 복잡하다. */
 let dictExamplesP = null;
 const dictLoadExamples = () => (dictExamplesP ??=
-  import('./glossary-examples.js?v=2dda20a5').then((m) => m.EXAMPLES).catch(() => ({})));
+  import('./glossary-examples.js?v=c206b543').then((m) => m.EXAMPLES).catch(() => ({})));
 
 function dictVisible() {
   const q = dictQuery.trim().toLowerCase();
@@ -8361,31 +8361,6 @@ async function drawSentenceHead() {
     { k: t('목표', 'Goal'), v: learnLevelText(level), s: t('외운 문장이 아니라 내 문장 만들기', 'Make your own sentence, not a memorised one') },
   ]);
 }
-function drawCourseRoadmap(level, rows) {
-  if (level !== 'beginner') {
-    $('lcRoadmap').innerHTML = '';
-    $('lcRoadmap').classList.add('hidden');
-    return;
-  }
-  $('lcRoadmap').classList.remove('hidden');
-  $('lcRoadmap').innerHTML = BEGINNER_ROADMAP.map((part) => {
-    const linked = part.courses.map((id) => rows.find((c) => c.id === id)).filter(Boolean);
-    const done = linked.reduce((a, c) => a + courseDone(c), 0);
-    const total = linked.reduce((a, c) => a + c.lessons.length, 0);
-    const meter = total ? `${done} / ${total}` : t('빌드 예정', 'Planned');
-    const foot = linked.length
-      ? t(`${linked.map((c) => cTx(c.title)).join(' · ')} 로 바로 이어집니다.`, `Flows into ${linked.map((c) => cTx(c.title)).join(' · ')}.`)
-      : t('사용자가 준 초급 커리큘럼을 따라 다음 단위로 계속 넓힐 예정입니다.', 'This will expand next using your beginner curriculum outline.');
-    return (
-      `<div class="roadmap-card">` +
-        `<div class="roadmap-top"><div><div class="roadmap-k">${esc(t(part.tag.ko, part.tag.en))}</div><div class="roadmap-t">${esc(t(part.title.ko, part.title.en))}</div></div><div class="roadmap-m">${esc(meter)}</div></div>` +
-        `<div class="roadmap-points">${part.points.map((p) => `<div class="roadmap-p">${esc(t(p.ko, p.en))}</div>`).join('')}</div>` +
-        `<div class="roadmap-foot">${esc(foot)}</div>` +
-      `</div>`
-    );
-  }).join('');
-}
-
 async function drawSections() {
   await coursesNeed();
   const card = (s) => {
@@ -9171,7 +9146,7 @@ let TRAVEL_CATEGORIES = null;
 let TRAVEL_PHRASES = null;
 let TRAVEL_VOCAB = null;
 let tvP = null;
-const tvNeed = () => (tvP ??= import('./travel-data.js?v=2dda20a5').then((m) => {
+const tvNeed = () => (tvP ??= import('./travel-data.js?v=c206b543').then((m) => {
   TRAVEL_CATEGORIES = m.TRAVEL_CATEGORIES;
   TRAVEL_PHRASES = m.TRAVEL_PHRASES;
   TRAVEL_VOCAB = m.TRAVEL_VOCAB;
@@ -9716,6 +9691,7 @@ function backToSections() {
   window.cpMark('learn');
   $('lsecWrap').classList.add('hidden');
   $('llWrap').classList.add('hidden');
+  $('lcWrap').classList.remove('cl-open');
   $('lsecList').classList.remove('hidden');
   drawSections();
 }
@@ -9752,6 +9728,7 @@ $('lsecWrap').addEventListener('change', async (ev) => {
   if (section === 'courses') {
     lsCourse = null;
     $('llWrap').classList.add('hidden');
+    $('lcWrap').classList.remove('cl-open');
     drawCourses();
   } else if (section === 'writing') {
     // 급을 바꾸면 열어 둔 문항은 다른 급 것이라 놓는다
@@ -10167,56 +10144,60 @@ async function drawCourses() {
   const rows = levelCourses(level);
   const allLessons = rows.reduce((a, c) => a + c.lessons.length, 0);
   const doneLessons = rows.reduce((a, c) => a + courseDone(c), 0);
-  const exCount = rows.reduce((a, c) => a + c.lessons.reduce((n, l) => n + lessonExN(l), 0), 0);
   $('lcLevel').innerHTML = renderLevelSwitch('courses');
-  $('lcIntro').textContent = ({
-    beginner: t('읽기와 첫 문장을 가장 먼저 잡습니다. 한글, 생존 표현, 문장 뼈대를 여기서 끝냅니다.', 'Start with Hangul, survival phrases, and the bones of Korean sentences.'),
-    intermediate: t('이유, 추측, 돌발 상황처럼 말맛이 달라지는 지점을 중급 코스로 묶었습니다.', 'Intermediate focuses on cause, guesswork, and the turns that make Korean feel natural.'),
-    advanced: t('반응 표현, 격식, 미묘한 차이를 가르는 고급 문법을 한곳에 모았습니다.', 'Advanced gathers the grammar that separates nuance, register, and reaction.'),
-  })[level];
-  $('lcSummary').innerHTML = renderLearnSummary([
-    { k: t('코스', 'Courses'), v: rows.length, s: t('현재 단계에서 열어 볼 길', 'Available paths in this level') },
-    { k: t('레슨', 'Lessons'), v: doneLessons, s: `${allLessons} ${t('개 중 완료', 'completed total')}` },
-    { k: t('문제', 'Exercises'), v: exCount, s: t('설명 속에 섞여 있는 연습 문제', 'Exercises mixed into the lessons') },
-  ]);
-  drawCourseRoadmap(level, rows);
+  /* 숫자 세 칸 대신 진도 한 줄. 코스·레슨·문제 수를 나란히 세우면 볼 것만 늘고
+     정작 「내가 어디까지 했나」는 안 보였다. */
+  const pctAll = allLessons ? Math.round((doneLessons / allLessons) * 100) : 0;
+  $('lcSummary').innerHTML =
+    '<div class="cl-sum">' +
+      `<div class="cl-sum-t">${esc(t(`코스 ${rows.length}개 · 레슨 ${allLessons}개`, `${rows.length} courses · ${allLessons} lessons`))}</div>` +
+      `<div class="cl-bar"><i style="width:${pctAll}%"></i></div>` +
+      `<div class="cl-sum-n">${esc(t(`${doneLessons}개 끝냄`, `${doneLessons} done`))}</div>` +
+    '</div>';
   if (!rows.length) {
     $('lcList').innerHTML = `<div class="learn-empty">${esc(t('이 단계 코스는 곧 채울게요.', 'Courses for this level are coming soon.'))}</div>`;
     return;
   }
-  $('lcList').innerHTML = rows.map((c) => {
-    const n = courseDone(c), all = c.lessons.length;
-    const pct = Math.round((n / all) * 100);
-    const need = c.needs ? COURSES.find((x) => x.id === c.needs) : null;
-    /* 순서는 알려 주되 막지는 않는다.
-       예전에는 앞 코스를 절반 해야 다음이 열렸는데, 코스가 열한 개로 늘고
-       뒤쪽 아홉 개가 한 줄로 엮이면서 화면이 자물쇠로 뒤덮였다. 그러면
-       무엇을 배우는 곳인지 보이지 않는다.
-       그리고 여기 오는 사람이 다 초보가 아니다 — 이미 말은 하는데 문법만
-       정리하러 오는 사람에게 자물쇠를 보여 주면 그냥 나간다. 같은 이유로
-       grammar-core 는 처음부터 needs 를 비워 뒀다. */
-    const early = !!(need && courseDone(need) < Math.ceil(need.lessons.length / 2));
-    return (
-      `<button class="lc-card" data-course="${c.id}">` +
-        '<div class="lc-top">' +
-          `<div class="lc-mark">${esc(c.emoji)}</div>` +
-          '<div style="min-width:0">' +
-            `<div class="lc-lv">${esc(courseLabel(c))}</div>` +
-            `<div class="lc-title">${esc(cTx(c.title))}</div>` +
-            `<div class="lc-tag">${esc(cTx(c.tagline))}</div>` +
-          '</div>' +
-        '</div>' +
-        `<p class="lc-blurb">${esc(cTx(c.blurb))}</p>` +
-        (early
-          ? `<div class="lc-order">${t(`순서로는 ‘${esc(cTx(need.title))}’ 다음이에요. 먼저 열어 봐도 괜찮아요.`,
-                                       `Meant to come after ‘${esc(cTx(need.title))}’ — open it early if you like.`)}</div>`
-          : '') +
-        '<div class="lc-meter">' +
-          `<div class="lc-bar"><div class="lc-fill" style="width:${pct}%"></div></div>` +
-          `<span class="lc-num">${n} / ${all}</span>` +
-        '</div>' +
-      '</button>'
-    );
+  /* 코스 목록 — 예전엔 코스마다 큰 카드(분류·제목·한 줄 소개·설명·「이 코스 다음」
+     안내·진도)였고, 그 위에 단계별 로드맵 카드가 또 있었다. 초급 43개가 세로
+     11,000px 를 넘어서 무엇부터 할지가 안 보였다. 로드맵의 단계를 목록의 묶음
+     제목으로 쓰고, 코스는 한 줄(그림 · 제목 · 한 줄 소개 · 진도)로 줄인다.
+     목록 순서가 곧 권하는 순서이고, 막지는 않는다(앞 코스를 안 해도 열린다). */
+  const groups = level === 'beginner'
+    ? BEGINNER_ROADMAP.map((p) => ({
+        k: t(p.tag.ko, p.tag.en), title: t(p.title.ko, p.title.en),
+        list: p.courses.map((id) => rows.find((c) => c.id === id)).filter(Boolean),
+      }))
+    : [{ k: '', title: '', list: rows }];
+  const placed = new Set(groups.flatMap((g) => g.list.map((c) => c.id)));
+  const rest = rows.filter((c) => !placed.has(c.id));
+  if (rest.length) groups.push({ k: '', title: t('그 밖의 코스', 'More courses'), list: rest });
+  // 「이어서」 — 권하는 순서에서 아직 안 끝낸 첫 코스. 하나만 짚는다.
+  const nextId = groups.flatMap((g) => g.list).find((c) => courseDone(c) < c.lessons.length)?.id;
+  const row = (c) => {
+    const n = courseDone(c), all = c.lessons.length, done = n >= all;
+    return `<button type="button" class="cl-row${done ? ' done' : ''}${c.id === nextId ? ' next' : ''}" data-course="${esc(c.id)}">` +
+      `<span class="cl-e">${esc(c.emoji || '📘')}</span>` +
+      '<span class="cl-main">' +
+        `<span class="cl-t">${esc(cTx(c.title))}</span>` +
+        `<span class="cl-s">${esc(cTx(c.tagline))}</span>` +
+      '</span>' +
+      (c.id === nextId ? `<span class="cl-pill">${esc(t('이어서', 'Up next'))}</span>` : '') +
+      `<span class="cl-n">${done ? '✓' : `${n}/${all}`}</span>` +
+    '</button>';
+  };
+  $('lcList').innerHTML = groups.filter((g) => g.list.length).map((g) => {
+    const gd = g.list.reduce((a, c) => a + courseDone(c), 0);
+    const ga = g.list.reduce((a, c) => a + c.lessons.length, 0);
+    return '<section class="cl-g">' +
+      (g.title
+        ? '<div class="cl-gh">' +
+            `<div>${g.k ? `<div class="cl-gk">${esc(g.k)}</div>` : ''}<div class="cl-gt">${esc(g.title)}</div></div>` +
+            `<div class="cl-gn">${gd} / ${ga}</div>` +
+          '</div>'
+        : '') +
+      `<div class="cl-list">${g.list.map(row).join('')}</div>` +
+    '</section>';
   }).join('');
 }
 
@@ -10230,7 +10211,10 @@ function openCourse(c) {
   lsCourse = c;
   drawLessonRows();
   $('llWrap').classList.remove('hidden');
-  $('llWrap').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  /* 코스를 열면 그 코스만 보인다 — 목록을 위에 둔 채 아래로 내려 보내면
+     어디가 어디인지 헷갈렸다. 「← 코스 목록」이 되돌린다. */
+  $('lcWrap').classList.add('cl-open');
+  window.scrollTo({ top: 0 });
 }
 
 /* 목록만 다시 그린다. 언어를 바꿀 때도 쓰는데, 그때 화면이 튀면
@@ -10239,6 +10223,7 @@ function drawLessonRows() {
   const c = lsCourse;
   if (!c) return;
   $('llTitle').textContent = cTx(c.title);
+  $('llBlurb').textContent = cTx(c.blurb || c.tagline || '');
   $('llRows').innerHTML = c.lessons.map((l, i) => {
     const done = doneSet.has(l.id);
     return (
@@ -10256,6 +10241,7 @@ function drawLessonRows() {
 
 $('llBack').addEventListener('click', () => {
   $('llWrap').classList.add('hidden');
+  $('lcWrap').classList.remove('cl-open');
   window.scrollTo({ top: 0, behavior: 'smooth' });
 });
 
@@ -13050,10 +13036,10 @@ $('ltPurposeGrid').addEventListener('click', (ev) => {
    빠지고, 고쳐 올려도 브라우저가 예전 문제를 계속 들고 있게 된다. */
 let LT_CUSTOM = { overall: [], reading: [], writing: [], listening: [] };
 let ltCustomOverallP = null, ltCustomReadingP = null, ltCustomWritingP = null, ltCustomListeningP = null;
-const ltCustomOverallNeed = () => (ltCustomOverallP ??= import('./leveltest-overall.js?v=2dda20a5').then((m) => { LT_CUSTOM.overall = m.LT_CUSTOM_OVERALL; }));
-const ltCustomReadingNeed = () => (ltCustomReadingP ??= import('./leveltest-reading.js?v=2dda20a5').then((m) => { LT_CUSTOM.reading = m.LT_CUSTOM_READING; }));
-const ltCustomWritingNeed = () => (ltCustomWritingP ??= import('./leveltest-writing.js?v=2dda20a5').then((m) => { LT_CUSTOM.writing = m.LT_CUSTOM_WRITING; }));
-const ltCustomListeningNeed = () => (ltCustomListeningP ??= import('./leveltest-listening.js?v=2dda20a5').then((m) => { LT_CUSTOM.listening = m.LT_CUSTOM_LISTENING; }));
+const ltCustomOverallNeed = () => (ltCustomOverallP ??= import('./leveltest-overall.js?v=c206b543').then((m) => { LT_CUSTOM.overall = m.LT_CUSTOM_OVERALL; }));
+const ltCustomReadingNeed = () => (ltCustomReadingP ??= import('./leveltest-reading.js?v=c206b543').then((m) => { LT_CUSTOM.reading = m.LT_CUSTOM_READING; }));
+const ltCustomWritingNeed = () => (ltCustomWritingP ??= import('./leveltest-writing.js?v=c206b543').then((m) => { LT_CUSTOM.writing = m.LT_CUSTOM_WRITING; }));
+const ltCustomListeningNeed = () => (ltCustomListeningP ??= import('./leveltest-listening.js?v=c206b543').then((m) => { LT_CUSTOM.listening = m.LT_CUSTOM_LISTENING; }));
 const LT_CUSTOM_NEED = {
   overall: ltCustomOverallNeed, reading: ltCustomReadingNeed,
   writing: ltCustomWritingNeed, listening: ltCustomListeningNeed,
