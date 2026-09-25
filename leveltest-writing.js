@@ -7,7 +7,7 @@
 
    - options 는 꼭 4개. answer 는 그중 정답의 자리(0부터 시작).
    - 이 배열에 몇 개를 넣어도 된다 — 테스트할 때마다 이 중에서
-     무작위로 5개만 뽑는다(app.module.js 의 ltMakeCustomRound).
+     레벨을 오르내리며 10문제까지 고른다(app.module.js 의 ltAdaptNext). lv 는 2~7.
    ═══════════════════════════════════════════════════════════════ */
 export const LT_CUSTOM_WRITING = [
   {
