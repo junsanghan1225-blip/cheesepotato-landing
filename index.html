@@ -40,7 +40,7 @@
 ">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <!-- 구글 태그 관리자. 구글이 주는 인라인 코드조각은 CSP 가 막아서 gtm.js 로 뺐다. -->
-<script src="gtm.js?v=bd754d5e" async></script>
+<script src="gtm.js?v=e7f6027d" async></script>
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <!-- 제목과 설명을 두 말로 쓴다. 이 사이트를 찾을 사람은 한국어를 **배우는**
@@ -119,13 +119,13 @@
      Pretendard 는 통짜(2.0MB) 대신 조각난 쪽을 쓴다 — 브라우저가
      unicode-range 를 보고 화면에 실제로 나온 글자가 든 조각만 받는다.
      그래서 저장소는 무거워졌지만 학습자가 받는 양은 오히려 줄었다. -->
-<link rel="stylesheet" href="vendor/pretendard.css?v=bd754d5e">
-<link rel="stylesheet" href="vendor/pressstart2p.css?v=bd754d5e">
+<link rel="stylesheet" href="vendor/pretendard.css?v=e7f6027d">
+<link rel="stylesheet" href="vendor/pressstart2p.css?v=e7f6027d">
 <!-- 화면 상자 안에서만 쓰는 CSS 는 여기서 갈라 받는다. media="print" 라
      첫 페인트를 안 막고, 다 받아지면 app.js 가 media 를 all 로 바꾼다.
      자바스크립트가 없으면 <noscript> 쪽이 그냥 평범하게 걸린다. -->
-<link id="viewsCss" rel="stylesheet" href="app-views.css?v=bd754d5e" media="print">
-<noscript><link rel="stylesheet" href="app-views.css?v=bd754d5e"></noscript>
+<link id="viewsCss" rel="stylesheet" href="app-views.css?v=e7f6027d" media="print">
+<noscript><link rel="stylesheet" href="app-views.css?v=e7f6027d"></noscript>
 
 <style>
 /* ══════════════════════════════════════════════════════════════
@@ -2423,6 +2423,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               </div>
               <!-- 지금 회차를 그대로 여는 주소를 복사한다. 학생에게 넘기면
                    같은 회차를 자기 답안지로 푼다. -->
+              <!-- 푸는 방식 — 한 문제씩(넘기기) · 시험지처럼 스크롤. 모의고사에서만 보인다. -->
+              <div class="tq-view hidden" id="tqView" role="radiogroup" aria-label="푸는 방식" data-en-aria="Layout">
+                <button type="button" data-tqview="page" data-en="One at a time">한 문제씩</button>
+                <button type="button" data-tqview="scroll" data-en="Scroll">스크롤</button>
+              </div>
               <button class="wb-out" id="tqHandoff" type="button"></button>
               <button class="wb-out" id="tqQuit" type="button"></button>
             </div>
@@ -2451,10 +2456,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               <!-- 문제 풀이 영상. 영상이 있는 문항에서만(topik-video.js
                    참고) tqPick 이 채운다 — 없으면 빈 채로 hidden 이다. -->
               <div class="tq-video hidden" id="tqVideo"></div>
+              <!-- 한 문제씩 모드의 넘기기. 좌우로 밀어도 넘어간다(tqSwipe). -->
+              <div class="tq-pager hidden" id="tqPager">
+                <button class="wb-out" id="tqPrevQ" type="button" data-en="← Previous">← 이전</button>
+                <button class="wb-out" id="tqNextQ" type="button" data-en="Next →">다음 →</button>
+              </div>
               <div style="text-align:center; margin-top:18px;">
                 <button class="pt-next hidden" id="tqNext" type="button"></button>
               </div>
              </div>
+             <!-- 스크롤 모드 — 모든 문항을 시험지처럼 늘어놓는다(tqDrawScroll). -->
+             <div id="tqScroll" class="tq-scroll hidden"></div>
 
               <!-- 로그인 벽. 문제를 몇 개 풀어 본 다음에 나온다 — 무엇을
                    얻는지 보기도 전에 막으면 그냥 나간다. -->
@@ -3889,9 +3901,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <div id="hlpScrim" class="hlp-scrim"></div>
 <aside id="hlpPanel" class="hlp-panel" aria-label="한국어 도우미" aria-hidden="true"></aside>
 
-<script src="app.js?v=bd754d5e"></script>
-<script type="module" src="app.module.js?v=bd754d5e"></script>
+<script src="app.js?v=e7f6027d"></script>
+<script type="module" src="app.module.js?v=e7f6027d"></script>
 
-<script src="analytics.js?v=bd754d5e" defer></script>
+<script src="analytics.js?v=e7f6027d" defer></script>
 </body>
 </html>
