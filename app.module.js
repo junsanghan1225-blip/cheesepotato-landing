@@ -13,14 +13,14 @@
    어느 날 갑자기 다른 코드가 실려 왔다.
    이제 vendor/ 안에 받아 두고 CSP 로 바깥을 막는다. 버전을 올릴 때는
    tools/vendor.mjs 의 PIN 을 고치고 다시 돌린다. */
-import { createClient } from './vendor/supabase-js.js?v=2612b1c1';
+import { createClient } from './vendor/supabase-js.js?v=2ed77cef';
 // TOPIK 읽기 "문제 풀이 영상" 목록. 아주 작은 파일이라(id 목록뿐) 다른
 // 자료처럼 갈래를 열 때 지연 로딩하지 않고 그냥 처음부터 받는다.
-import { TQ_VIDEO_IDS } from './topik-video.js?v=2612b1c1';
+import { TQ_VIDEO_IDS } from './topik-video.js?v=2ed77cef';
 // 코스 아이콘 — 이모지 대신 선 아이콘(course-icons.js 머리말)
 // 구독(Paddle) — billing.js 머리말
-import { BILLING, billingLive, isPro, proInfo, loadPro, openCheckout, waitPro } from './billing.js?v=2612b1c1';
-import { courseIcon } from './course-icons.js?v=2612b1c1';
+import { BILLING, billingLive, isPro, proInfo, loadPro, openCheckout, waitPro } from './billing.js?v=2ed77cef';
+import { courseIcon } from './course-icons.js?v=2ed77cef';
 // 앱(package.json)과 같은 줄기를 쓴다. 갈리면 앱에서는 읽히는 파일이
 // 여기서는 안 읽히는(또는 그 반대) 일이 생긴다.
 /* 엑셀 라이브러리는 422KB — 이 판에서 가장 무거운 조각이다. 그런데 쓰는
@@ -32,7 +32,7 @@ import { courseIcon } from './course-icons.js?v=2612b1c1';
    자국(?v=)은 tools/stamp.mjs 가 아래 줄에 알아서 붙인다 — 정적으로 쓰든
    동적으로 쓰든 같은 글자를 찾으므로 바꿔도 그대로 찍힌다. */
 let XLSX = null;
-const needXLSX = async () => (XLSX ??= await import('./vendor/xlsx.js?v=2612b1c1'));
+const needXLSX = async () => (XLSX ??= await import('./vendor/xlsx.js?v=2ed77cef'));
 // 커리큘럼. 내용과 엔진을 갈라 두면 글을 고치다 화면을 깨지 않는다.
 // 갈래 목록(drawSections)·코스(drawCourses)·문제만 풀기(dqDraw) 를 열 때만
 // 받는다 — 배우기 갈래 목록도 안 본 사람에게 코스 71개 레슨을 다 물릴
@@ -40,9 +40,9 @@ const needXLSX = async () => (XLSX ??= await import('./vendor/xlsx.js?v=2612b1c1
 let COURSES = [], coursesP = null;
 /* 앱은 courses.js 대신 courses-lite.js 를 받는다 — 중·고급 레슨 본문을 뺀 목록이다
    (tools/build-courses-lite.mjs). 본문은 그 레슨을 열 때 upperBlocksNeed() 가 채운다. */
-const coursesNeed = () => (coursesP ??= import('./courses-lite.js?v=2612b1c1').then((m) => { COURSES = m.COURSES; }));
+const coursesNeed = () => (coursesP ??= import('./courses-lite.js?v=2ed77cef').then((m) => { COURSES = m.COURSES; }));
 let upperP = null;
-const upperBlocksNeed = () => (upperP ??= coursesNeed().then(() => import('./courses-grammar-detailed.js?v=2612b1c1')).then((m) => {
+const upperBlocksNeed = () => (upperP ??= coursesNeed().then(() => import('./courses-grammar-detailed.js?v=2ed77cef')).then((m) => {
   const byId = new Map(m.DETAILED_GRAMMAR_COURSES.flatMap((c) => c.lessons.map((l) => [l.id, l.blocks])));
   for (const c of COURSES) for (const l of c.lessons) if (!l.blocks && byId.has(l.id)) { l.blocks = byId.get(l.id); delete l.lazy; }
 }));
@@ -57,7 +57,7 @@ const blocksNeed = async (course) => { if (course.lessons.some((l) => !l.blocks)
    tqGloss 는 그대로 동기다 — 아직 안 왔으면 빈 뜻을 돌려주고, 부르는
    쪽은 이미 "사전에 없는 말"을 다룰 줄 안다. */
 let GLOSSARY = {}, GLOSS_LANGS = {}, glossP = null;
-const glossNeed = () => (glossP ??= import('./glossary.js?v=2612b1c1').then((m) => {
+const glossNeed = () => (glossP ??= import('./glossary.js?v=2ed77cef').then((m) => {
   GLOSSARY = m.GLOSSARY; GLOSS_LANGS = m.GLOSS_LANGS;
   dictBuildEntries();
 }).catch((e) => {
@@ -65,12 +65,12 @@ const glossNeed = () => (glossP ??= import('./glossary.js?v=2612b1c1').then((m) 
   glossP = null;
   throw e;
 }));
-import { glossFind } from './gloss-find.js?v=2612b1c1';
+import { glossFind } from './gloss-find.js?v=2ed77cef';
 /* 홈 화면 "오늘의 단어" 카드. 표제어·품사·짧은 뜻풀이 3개만 든
    작은 자료라(사전 전체 356KB 와 달리) 홈에 들어오면 바로 받는다 —
    빈 카드로 몇 초 떠 있는 것보다 낫다. */
 let WOTD_POOL = [], wotdP = null;
-const wotdNeed = () => (wotdP ??= import('./wotd.js?v=2612b1c1').then((m) => {
+const wotdNeed = () => (wotdP ??= import('./wotd.js?v=2ed77cef').then((m) => {
   WOTD_POOL = m.WOTD_POOL;
 }).catch((e) => { wotdP = null; throw e; }));
 /* 그날의 낱말을 고른다. 한국 자정을 기준으로 하루씩 넘어가게
@@ -104,9 +104,9 @@ window.wotdRender = wotdRender;
    나중 화면은 그 약속(??=)을 그대로 쓴다. */
 let GRAMMAR = [], GRAMMAR_EN = {}, grammarP = null;
 const grammarNeed = () => (grammarP ??= Promise.all([
-  import('./grammar.js?v=2612b1c1'), import('./grammar-en.js?v=2612b1c1'),
+  import('./grammar.js?v=2ed77cef'), import('./grammar-en.js?v=2ed77cef'),
 ]).then(([a, b]) => { GRAMMAR = a.GRAMMAR; GRAMMAR_EN = b.GRAMMAR_EN; }));
-import { grammarScan } from './grammar-find.js?v=2612b1c1';
+import { grammarScan } from './grammar-find.js?v=2ed77cef';
 // TOPIK 쓰기·듣기 문항. 읽기(topik.js·topik2.js)와 같은 tqNeedData() 로
 // 함께 받는다 — 유형 연습(topik) 갈래 하나가 세 기술을 다 쓰므로 따로
 // 가를 까닭이 없다. 값은 tqNeedData 정의부에서 채운다.
@@ -118,7 +118,7 @@ let TOPIKL_BY_EXAM = {}, TOPIKL_PICTURE_SLOTS = {};
    sbFind 를 쓰는데, 그쪽은 안 기다리고 그냥 부른다 — 답이 못 찾은
    인용 없이 나가는 것이 채팅이 멈추는 것보다 낫다. */
 let SB_CATS = [], SB_MORE = {}, SB_SEED = {}, SB_POINTS = [], sbDataP = null;
-const sbNeed = () => (sbDataP ??= import('./sentences.js?v=2612b1c1').then((m) => {
+const sbNeed = () => (sbDataP ??= import('./sentences.js?v=2ed77cef').then((m) => {
   SB_CATS = m.SB_CATS; SB_MORE = m.SB_MORE; SB_SEED = m.SB_SEED;
   // 갈래마다 표현을 펼쳐 한 줄에 담는다 — SB_CATS 안의 점에는 갈래가 안
   // 달려 있어서(sbFind 가 표현 하나를 id 로 바로 찾으려면 이게 있어야 한다).
@@ -129,7 +129,7 @@ const sbNeed = () => (sbDataP ??= import('./sentences.js?v=2612b1c1').then((m) =
 // 숫자 게임의 읽기와 문제 만들기. 화면을 모르는 순수 계산이라 따로 뒀다.
 // 게임 목록에서 「숫자 읽기」를 시작할 때만 받는다 — XLSX 와 같은 자리다.
 let makeRound = null;
-const needNumbers = async () => (makeRound ??= (await import('./numbers.js?v=2612b1c1')).makeRound);
+const needNumbers = async () => (makeRound ??= (await import('./numbers.js?v=2ed77cef')).makeRound);
 
 // 이 키는 공개돼도 되는 값이다. 이미 APK 안에 같은 것이 들어 있고,
 // 접근을 막는 건 키가 아니라 테이블에 걸린 RLS 다.
@@ -174,6 +174,7 @@ const TRACK_EN = {
   '문제만풀기완료': 'drill_complete', '단어저장': 'word_save',
   '로그인': 'login', '가입완료': 'sign_up',
   '모의고사스크롤': 'mock_view_scroll', '모의고사한문제씩': 'mock_view_page',
+  '피드백보냄': 'feedback', '피드백봄': 'feedback_view',
   '레벨결과공유': 'level_share', '공유링크로옴': 'share_visit', '설치안내봄': 'install_prompt_view', '설치함': 'app_install', '설치안함': 'app_install_dismiss',
   '구독화면': 'pro_view', '구독시작': 'begin_checkout', '구독완료': 'pro_subscribe',
 };
@@ -204,8 +205,8 @@ let tqDataP = null;
    유형 연습(topik) 갈래 하나가 이 넷을 다 쓰므로 갈라 봤자 요청만
    늘어난다. */
 const tqNeedData = () => (tqDataP ??= Promise.all([
-  import('./topik.js?v=2612b1c1'), import('./topik2.js?v=2612b1c1'),
-  import('./topik-writing.js?v=2612b1c1'), import('./topik-listening.js?v=2612b1c1'),
+  import('./topik.js?v=2ed77cef'), import('./topik2.js?v=2ed77cef'),
+  import('./topik-writing.js?v=2ed77cef'), import('./topik-listening.js?v=2ed77cef'),
 ]).then(([a, b, c, d]) => {
   TQ_DATA.I  = { reading: a.TOPIK_READING,  blueprint: a.TOPIK_BLUEPRINT,  slots: a.TOPIK_SLOTS };
   TQ_DATA.II = { reading: b.TOPIK2_READING, blueprint: b.TOPIK2_BLUEPRINT, slots: b.TOPIK2_SLOTS };
@@ -216,11 +217,11 @@ const tqNeedData = () => (tqDataP ??= Promise.all([
 let READING = null, rdP = null;
 // 지문의 밑줄 문법 말풍선이 GRAMMAR 를 쓰므로 같이 받아 둔다.
 const rdNeed = () => (rdP ??= Promise.all([
-  import('./reading.js?v=2612b1c1'), grammarNeed(),
+  import('./reading.js?v=2ed77cef'), grammarNeed(),
 ]).then(([m]) => { READING = m.READING; }));
 
 let CONVO = null, cvP = null;
-const cvNeed = () => (cvP ??= import('./convo.js?v=2612b1c1').then((m) => { CONVO = m.CONVO; }));
+const cvNeed = () => (cvP ??= import('./convo.js?v=2ed77cef').then((m) => { CONVO = m.CONVO; }));
 
 /* 배우기를 열면 여섯 다 미리 불을 붙인다. 기다리지 않는다 — 갈래 목록은
    이 자료가 없어도 그려지고, 사람이 갈래를 고르는 사이에 도착한다.
@@ -653,14 +654,14 @@ let dictOpen = null;  // 지금 "더 보기"(예문·뜻풀이)를 펼쳐 둔 �
    평소엔 안 쓰는 522KB 를 첫 화면 모두에게 물릴 까닭이 없다. */
 let dictSensesP = null;
 const dictLoadSenses = () => (dictSensesP ??=
-  import('./glossary-senses.js?v=2612b1c1').then((m) => m.SENSES).catch(() => ({})));
+  import('./glossary-senses.js?v=2ed77cef').then((m) => m.SENSES).catch(() => ({})));
 
 /* 예문. 국립국어원 자료엔 없어서 Gemini 로 새로 지은 것이다(있는 만큼만
    — docs/glossary-examples-gemini-prompt.md 참고). 뜻풀이와 같은 자리에서
    같이 받는다 — 펼치는 손짓 하나에 몰아 두는 편이 화면이 덜 복잡하다. */
 let dictExamplesP = null;
 const dictLoadExamples = () => (dictExamplesP ??=
-  import('./glossary-examples.js?v=2612b1c1').then((m) => m.EXAMPLES).catch(() => ({})));
+  import('./glossary-examples.js?v=2ed77cef').then((m) => m.EXAMPLES).catch(() => ({})));
 
 function dictVisible() {
   const q = dictQuery.trim().toLowerCase();
@@ -9293,7 +9294,7 @@ let TRAVEL_CATEGORIES = null;
 let TRAVEL_PHRASES = null;
 let TRAVEL_VOCAB = null;
 let tvP = null;
-const tvNeed = () => (tvP ??= import('./travel-data.js?v=2612b1c1').then((m) => {
+const tvNeed = () => (tvP ??= import('./travel-data.js?v=2ed77cef').then((m) => {
   TRAVEL_CATEGORIES = m.TRAVEL_CATEGORIES;
   TRAVEL_PHRASES = m.TRAVEL_PHRASES;
   TRAVEL_VOCAB = m.TRAVEL_VOCAB;
@@ -11973,6 +11974,7 @@ async function finishLesson() {
         </div>` : '') +
     '</div>');
 
+  if (first) fbMount($('lsBlocks').lastElementChild, 'lesson');
   /* 1분 챌린지 버튼 이벤트 (DOM에 있을 때만 붙인다) */
   const bt = $('lsGoChallenge');
   if (bt) bt.addEventListener('click', startChallenge);
@@ -13204,10 +13206,10 @@ $('ltPurposeGrid').addEventListener('click', (ev) => {
    빠지고, 고쳐 올려도 브라우저가 예전 문제를 계속 들고 있게 된다. */
 let LT_CUSTOM = { overall: [], reading: [], writing: [], listening: [] };
 let ltCustomOverallP = null, ltCustomReadingP = null, ltCustomWritingP = null, ltCustomListeningP = null;
-const ltCustomOverallNeed = () => (ltCustomOverallP ??= import('./leveltest-overall.js?v=2612b1c1').then((m) => { LT_CUSTOM.overall = m.LT_CUSTOM_OVERALL; }));
-const ltCustomReadingNeed = () => (ltCustomReadingP ??= import('./leveltest-reading.js?v=2612b1c1').then((m) => { LT_CUSTOM.reading = m.LT_CUSTOM_READING; }));
-const ltCustomWritingNeed = () => (ltCustomWritingP ??= import('./leveltest-writing.js?v=2612b1c1').then((m) => { LT_CUSTOM.writing = m.LT_CUSTOM_WRITING; }));
-const ltCustomListeningNeed = () => (ltCustomListeningP ??= import('./leveltest-listening.js?v=2612b1c1').then((m) => { LT_CUSTOM.listening = m.LT_CUSTOM_LISTENING; }));
+const ltCustomOverallNeed = () => (ltCustomOverallP ??= import('./leveltest-overall.js?v=2ed77cef').then((m) => { LT_CUSTOM.overall = m.LT_CUSTOM_OVERALL; }));
+const ltCustomReadingNeed = () => (ltCustomReadingP ??= import('./leveltest-reading.js?v=2ed77cef').then((m) => { LT_CUSTOM.reading = m.LT_CUSTOM_READING; }));
+const ltCustomWritingNeed = () => (ltCustomWritingP ??= import('./leveltest-writing.js?v=2ed77cef').then((m) => { LT_CUSTOM.writing = m.LT_CUSTOM_WRITING; }));
+const ltCustomListeningNeed = () => (ltCustomListeningP ??= import('./leveltest-listening.js?v=2ed77cef').then((m) => { LT_CUSTOM.listening = m.LT_CUSTOM_LISTENING; }));
 const LT_CUSTOM_NEED = {
   overall: ltCustomOverallNeed, reading: ltCustomReadingNeed,
   writing: ltCustomWritingNeed, listening: ltCustomListeningNeed,
@@ -13743,6 +13745,8 @@ async function ltFinish() {
   ltLast = level != null ? { level, purpose: ltPurpose, grade: ltAd?.kind === 'grade' ? ltAd.grade : null } : null;
   $('ltShare').classList.toggle('hidden', !ltLast);
   $('ltShare').textContent = t('📤 내 레벨 공유하기', '📤 Share my level');
+  $('ltFb').textContent = '';
+  if (level != null) fbMount($('ltFb'), 'leveltest', level);
   $('ltAgain').textContent = t('다시 하기', 'Take it again');
   $('ltSeeAll').textContent = t('전체 목록 보기', 'See the full list');
   ltPanel('ltOver');
@@ -14366,3 +14370,59 @@ try {
   });
   addEventListener('appinstalled', () => { $('installBar').hidden = true; });
 })();
+
+
+/* ══ 한 줄 피드백 ═══════════════════════════════════════════════
+   「무엇을 만들까」를 학생 답으로 정하려고 묻는다. 레슨을 처음 끝냈을 때와 레벨테스트
+   결과에서만, 그것도 **이 기기에서 7일에 한 번**만 — 매번 물으면 아무도 안 읽는다.
+   답은 Supabase feedback 표(db/add_feedback.sql, 쓰기만 되고 읽기는 대시보드에서만)와
+   GA4 이벤트(feedback · fb_choice) 두 곳에 남긴다. 표가 아직 없어도 GA 에는 남는다. */
+const FB_KEY = 'cp_fb_at';
+const FB_CHOICES = [
+  { id: 'practice', ko: '연습 문제가 더 많았으면', en: 'More practice questions' },
+  { id: 'speaking', ko: '말하기 · 발음 연습', en: 'Speaking and pronunciation' },
+  { id: 'topik',    ko: 'TOPIK 준비', en: 'TOPIK prep' },
+  { id: 'easier',   ko: '설명이 더 쉬웠으면', en: 'Simpler explanations' },
+  { id: 'other',    ko: '다른 것 (적어 주세요)', en: 'Something else (tell us)' },
+];
+function fbMount(host, place, level = null) {
+  if (!host) return;
+  try { if (Date.now() - Number(localStorage.getItem(FB_KEY) || 0) < 7 * 864e5) return; localStorage.setItem(FB_KEY, String(Date.now())); } catch (e) { return; }
+  const box = document.createElement('div');
+  box.className = 'fb-card';
+  box.innerHTML =
+    `<div class="fb-q">${esc(t('지금 가장 필요한 건 뭐예요?', 'What would help you most right now?'))}</div>` +
+    `<div class="fb-sub">${esc(t('한 번만 눌러 주세요 — 다음에 만들 것을 이걸로 정해요.', 'One tap — we decide what to build next from this.'))}</div>` +
+    `<div class="fb-opts">${FB_CHOICES.map((c) => `<button type="button" class="fb-opt" data-fb="${c.id}">${esc(t(c.ko, c.en))}</button>`).join('')}</div>` +
+    `<div class="fb-more hidden"><textarea class="fb-text" maxlength="500" rows="2" placeholder="${esc(t('자유롭게 적어 주세요 (안 적어도 돼요)', 'Anything you want to add (optional)'))}"></textarea>` +
+    `<button type="button" class="pt-next fb-send">${esc(t('보내기', 'Send'))}</button></div>`;
+  host.appendChild(box);
+  track('피드백봄');
+  let choice = null;
+  const send = async () => {
+    const body = box.querySelector('.fb-text').value.trim().slice(0, 500) || null;
+    box.innerHTML = `<div class="fb-thanks">${esc(t('고마워요! 🧀 꼭 반영할게요.', 'Thank you! 🧀 We read every one.'))}</div>`;
+    track('피드백보냄');
+    try { (window.dataLayer = window.dataLayer || []).push({ event: 'feedback_choice', fb_choice: choice, fb_place: place }); } catch (e) {}
+    try { window.clarity && window.clarity('set', '피드백', choice); } catch (e) {}
+    try {
+      const { data: { session } } = await sb.auth.getSession();
+      await sb.from('feedback').insert({
+        user_id: session?.user?.id ?? null, place, choice, body,
+        level: level ?? ltLoadLevel()?.lv ?? null, lang: isEn() ? 'en' : 'ko', path: location.hash || '/',
+      });
+    } catch (e) { /* 표가 아직 없으면 GA 쪽 기록만 남는다 */ }
+  };
+  box.addEventListener('click', (ev) => {
+    const o = ev.target.closest('[data-fb]');
+    if (o) {
+      choice = o.dataset.fb;
+      box.querySelectorAll('.fb-opt').forEach((b) => b.classList.toggle('on', b === o));
+      // 고르면 바로 보낼 수 있게 — 적을 칸은 덤이다(「다른 것」이면 칸에 커서를 둔다)
+      box.querySelector('.fb-more').classList.remove('hidden');
+      if (choice === 'other') box.querySelector('.fb-text').focus();
+      return;
+    }
+    if (ev.target.closest('.fb-send') && choice) send();
+  });
+}

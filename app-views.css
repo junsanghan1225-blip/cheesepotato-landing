@@ -3868,3 +3868,17 @@
 /* 레벨테스트 결과 공유 단추 · 설치 안내 띠 */
 .lt-share { margin:16px 0 6px; }
 .install-bar { background:var(--tint); }
+
+/* ══ 한 줄 피드백 (fbMount) ═══════════════════════════════════ */
+.fb-card { margin:18px auto 4px; max-width:520px; text-align:left; padding:16px 16px 14px; border-radius:16px; background:var(--tint); border:1px solid rgba(255,138,61,.25); }
+.fb-q { font-size:15.5px; font-weight:750; color:var(--ink); letter-spacing:-.02em; }
+.fb-sub { font-size:12.5px; color:var(--ink-3); margin:3px 0 12px; }
+.fb-opts { display:flex; flex-wrap:wrap; gap:7px; }
+.fb-opt { font-family:inherit; font-size:13.5px; font-weight:600; color:var(--ink-2); background:var(--surface); border:1px solid var(--line); border-radius:999px; padding:8px 13px; cursor:pointer; }
+.fb-opt:hover { border-color:rgba(255,138,61,.5); }
+.fb-opt.on { background:var(--orange); border-color:var(--orange); color:#fff; }
+.fb-more { display:flex; flex-direction:column; gap:8px; margin-top:12px; }
+.fb-more.hidden { display:none; }
+.fb-text { font-family:inherit; font-size:14px; padding:10px 12px; border-radius:12px; border:1px solid var(--line); background:var(--surface); color:var(--ink); resize:vertical; }
+.fb-send { align-self:flex-end; }
+.fb-thanks { font-size:14.5px; font-weight:650; color:var(--ink); text-align:center; padding:6px 0; }
