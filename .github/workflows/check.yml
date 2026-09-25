@@ -18,7 +18,7 @@ jobs:
       - name: 자국
         run: node tools/stamp.mjs --check
       - name: 문법
-        run: node --check app.js && node --check app.module.js
+        run: node --check app.js && node --check app.module.js && node --check gtm.js
       - name: 자료
         run: |
           set -e
