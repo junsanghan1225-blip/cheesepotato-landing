@@ -16,9 +16,9 @@ const PRICE = { monthly: '$4.99', yearly: '$39' };
 const EMAIL = 'junsanghan1225@gmail.com';
 const UPDATED = '2026-09-25';
 const SELLER = {
-  name: 'everykoreans (치즈감자)',
+  name: '에브리코리안즈 (everykoreans · 치즈감자)',
   owner: '',        // 대표자
-  bizNo: '',        // 사업자등록번호
+  bizNo: '202-43-01897',   // 사업자등록번호
   mailOrder: '',    // 통신판매업 신고번호
   address: '',
 };
