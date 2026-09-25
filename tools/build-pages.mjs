@@ -2125,6 +2125,12 @@ for (const it of TW_ITEMS) {
   nW++;
 }
 writeFileSync(join(OUT_TW, 'index.html'), twHub(TW_ITEMS));
+/* AI 쓰기 채점(supabase/functions/grade-writing)이 읽는 채점 기준. 서버는 브라우저가 보낸
+   기준을 믿지 않고 이 파일을 직접 받아 온다. 53·54번만(51·52 는 규칙 채점). */
+writeFileSync(join(OUT_TW, 'items.json'), JSON.stringify(
+  TW_ITEMS.filter((x) => x.q === 53 || x.q === 54)
+    .map(({ id, q, title, passage, data, tasks, cond, min, max, register, points, deduct, model, samples }) =>
+      ({ id, q, title, passage, data, tasks, cond, min, max, register, points, deduct, model, samples }))));
 urls.push({ loc: '/topik-writing/', freq: 'weekly', pri: '0.9' });
 
 /* ── TOPIK 읽기 ─────────────────────────────────────────────── */

@@ -24,7 +24,7 @@ jobs:
           set -e
           for c in check-geo check-data check-courses check-honorific check-sentences \
                    check-topik check-glossary check-blog check-dom check-convo \
-                   check-numbers check-reading check-listening check-seeds check-pron check-leveltest \
+                   check-numbers check-reading check-listening check-seeds check-pron check-leveltest check-writing check-eps \
                    check-glossary-examples; do
             echo "::group::$c"
             node tools/$c.mjs

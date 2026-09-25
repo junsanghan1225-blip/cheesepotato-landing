@@ -72,6 +72,7 @@ const pricing = page('pricing.html', '가격 · Pricing', '치즈감자 Pro 구�
 <strong>치즈감자 Pro</strong> 를 구독하면 아래가 더 열립니다.</p>
 <ul>
 <li>TOPIK 모의고사 전 회차와 성적 기록</li>
+<li>TOPIK 쓰기 53·54번 AI 채점 하루 30번 (무료는 하루 2번)</li>
 <li>AI 발음 진단 · 한국어 도우미를 하루에 더 많이</li>
 <li>앞으로 나올 Pro 기능 전부</li>
 </ul>
@@ -85,7 +86,7 @@ const pricing = page('pricing.html', '가격 · Pricing', '치즈감자 Pro 구�
 <hr>
 <h2>English</h2>
 <p>Courses, grammar, the dictionary, the level test and TOPIK practice questions on CheesePotato are <strong>free</strong>.
-<strong>CheesePotato Pro</strong> adds every TOPIK mock round with your score history, more AI pronunciation feedback and Korean-helper questions each day, and every Pro feature we add next.</p>
+<strong>CheesePotato Pro</strong> adds every TOPIK mock round with your score history, AI scoring for TOPIK writing Q53–54 (30 a day; 2 a day free), more AI pronunciation feedback and Korean-helper questions each day, and every Pro feature we add next.</p>
 <p><strong>${PRICE.monthly} / month</strong> or <strong>${PRICE.yearly} / year</strong>, renewing automatically. Cancel anytime and keep access until the end of the period you paid for. Full refund within 14 days of your first payment, no questions asked (<a href="/refund.html">refund policy</a>). Prices are in US dollars; sales tax or VAT may be added depending on your country.</p>
 <p class="seller" style="border:0;margin-top:0;padding-top:0">최종 수정 · Last updated: ${UPDATED}</p>
 `);
