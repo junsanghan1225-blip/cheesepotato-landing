@@ -226,15 +226,16 @@ ${body}
 function pointPage(cat, p, prev, next) {
   const more = SB_MORE[p.id] || ['', '', '', ''];
   const lv = tier(p);
-  /* 제목을 두 말로 쓴다. 이 사이트를 찾는 사람은 「-느니 뜻」으로도 찾고
-     「neuni korean grammar」로도 찾는다. 표현 이름은 어느 쪽에도 그대로
-     걸리므로 앞에 두고, 뒤에 무엇을 다루는 쪽인지 영어로 붙인다. */
-  const title = `${p.name} — Korean grammar: meaning & examples | 치즈감자`;
-  /* 검색 결과에 뜨는 줄은 **영어를 앞에 둔다.** 제목에 표현 이름이 그대로
-     들어 있어 한국어 검색어는 제목이 받는다. 이 줄까지 한국어면 영어로
-     찾은 사람은 결과에서 읽을 것이 하나도 없다. 영어가 없으면 한국어로. */
+  /* 제목을 두 말로 쓰되 **한국어를 앞에** 둔다. Search Console(2026-09)을 보면 이 쪽들로
+     들어오는 검색어는 거의 한국어였다 — 「기로서니」 7.7위 · 「ㄴ에」 5.6위 · 「서술체」 7.2위,
+     그리고 「아무거나 뜻」 · 「기 나름이다 grammar」처럼 「뜻」 · 「grammar」를 붙여 친다.
+     그런데 결과에 보이는 제목·설명이 영어뿐이라 1쪽에 있으면서도 CTR 이 0~2% 였다.
+     「뜻 · 예문 · 문법」은 사람들이 실제로 붙여 치는 말이라 결과에서 굵게 걸린다.
+     뒤의 「Korean grammar」는 영어로 찾는 학습자 몫으로 남긴다. */
+  const title = `${p.name} 뜻과 예문 · 문법 정리 — Korean grammar | 치즈감자`;
+  /* 설명도 한국어 뜻풀이를 앞에, 영어를 뒤에. 영어로 찾은 사람도 뒤쪽에서 읽을 것이 있다. */
   const en = EN_BY_ID.get(p.id);
-  const desc = clip(en?.desc ? `${p.name} · ${cat.en} — ${en.desc}` : `${p.name} · ${cat.en} — ${p.desc}`);
+  const desc = clip(`${p.name} 뜻: ${p.desc} 예문과 대화로 익혀요.` + (en?.desc ? ` ${en.desc}` : ''), 160);
 
   /* **한국어 칸에 영어가 이미 섞여 있는 것이 290개 중 112개다.**
      README 는 「영어는 sentences.js 에 섞지 않고 docs/grammar-en.json 에
