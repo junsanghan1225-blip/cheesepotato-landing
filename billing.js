@@ -17,14 +17,18 @@
    안 열린다. 두 벌을 따로 적고 ENV 하나로 고른다.
    가격 id 는 비밀이 아니다(결제 창 주소에도 보인다). 비밀인 API key ·
    웹훅 secret 은 여기 절대 넣지 않는다 — secret 은 Supabase secrets 에만. */
-const ENV = 'sandbox';   // 'sandbox'(시험) → 심사 끝나고 실제 토큰을 넣으면 'production'
+/* 샌드박스를 건너뛰고 실제 계정으로 간다(docs/billing-setup.md 7번).
+   Paddle 심사(Website approval)가 끝나고, Supabase 쪽(SQL · 웹훅)을 마친 뒤에
+   'production' 으로 바꾼다 — 그 순간 결제가 켜지고 모의고사 2회차부터 잠긴다.
+   'sandbox' 인 동안은 그쪽 토큰이 비어 있어서 아무것도 안 잠긴다. */
+const ENV = 'sandbox';
 const ENVS = {
   sandbox: {
     clientToken: '',     // sandbox-vendors.paddle.com → Developer tools → Authentication → Client-side tokens (test_…)
     prices: { monthly: '', yearly: '' },
   },
   production: {
-    clientToken: '',     // vendors.paddle.com → 같은 자리 (live_…)
+    clientToken: 'live_cafafee5ce730333aeb232d6af0',   // vendors.paddle.com → 같은 자리. 공개해도 되는 토큰(결제 창만 연다)
     prices: {
       monthly: 'pri_01m3bahxs5dj2p0p1c4hs8kjfg',   // $4.99 / 1 month
       yearly:  'pri_01m3bajxkc6xe6exr5had9g33r',   // $39 / 1 year
