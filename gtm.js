@@ -8,7 +8,14 @@
    **태그를 새로 걸 때** — GTM 안에서 GA4·구글 애즈 말고 다른 곳으로 가는
    태그를 걸면, 그 주소를 index.html 의 CSP 에도 더해야 한다. 안 그러면
    GTM 미리보기에서는 「실행됨」인데 실제로는 아무것도 안 나간다.
-   「맞춤 HTML」 태그와 「맞춤 자바스크립트」 변수는 CSP 가 막는다. */
+   「맞춤 HTML」 태그와 「맞춤 자바스크립트」 변수는 CSP 가 막는다.
+
+   **이 사이트가 흘리는 이벤트** — 화면이 바뀔 때 cp_screen(아래), 그리고
+   app.module.js 의 track() 이 핵심 행동마다 영어 이름으로 흘린다
+   (TRACK_EN 표: level_test_start · level_test_complete · lesson_start ·
+   lesson_complete · my_course_lesson · my_course_pick_level ·
+   recommended_course_click · all_courses_click · drill_complete · word_save ·
+   login · sign_up). GTM 에서 「맞춤 이벤트」 트리거로 받는다. */
 
 (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
