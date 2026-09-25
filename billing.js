@@ -13,14 +13,34 @@
    않는다.** 잠가 놓고 결제할 길이 없으면 그냥 막힌 사이트가 된다.
    붙이는 순서는 docs/billing-setup.md. */
 
+/* 샌드박스(시험)와 실제 계정은 상품·가격·토큰이 서로 다르다 — 섞으면 결제 창이
+   안 열린다. 두 벌을 따로 적고 ENV 하나로 고른다.
+   가격 id 는 비밀이 아니다(결제 창 주소에도 보인다). 비밀인 API key ·
+   웹훅 secret 은 여기 절대 넣지 않는다 — secret 은 Supabase secrets 에만. */
+/* 샌드박스를 건너뛰고 실제 계정으로 간다(docs/billing-setup.md 7번).
+   Paddle 심사(Website approval)가 끝나고, Supabase 쪽(SQL · 웹훅)을 마친 뒤에
+   'production' 으로 바꾼다 — 그 순간 결제가 켜지고 모의고사 2회차부터 잠긴다.
+   'sandbox' 인 동안은 그쪽 토큰이 비어 있어서 아무것도 안 잠긴다. */
+const ENV = 'sandbox';
+const ENVS = {
+  sandbox: {
+    clientToken: '',     // sandbox-vendors.paddle.com → Developer tools → Authentication → Client-side tokens (test_…)
+    prices: { monthly: '', yearly: '' },
+  },
+  production: {
+    clientToken: 'live_cafafee5ce730333aeb232d6af0',   // vendors.paddle.com → 같은 자리. 공개해도 되는 토큰(결제 창만 연다)
+    prices: {
+      monthly: 'pri_01m3bahxs5dj2p0p1c4hs8kjfg',   // $4.99 / 1 month
+      yearly:  'pri_01m3bajxkc6xe6exr5had9g33r',   // $39 / 1 year
+    },
+  },
+};
+
 export const BILLING = {
   provider: 'paddle',
-  env: 'sandbox',        // 'sandbox'(시험) → 심사 끝나면 'production'
-  clientToken: '',       // Paddle → Developer tools → Authentication → Client-side tokens (test_… / live_…)
-  prices: {
-    monthly: '',         // Paddle → Catalog → 상품 → 가격 id (pri_…)
-    yearly: '',
-  },
+  env: ENV,
+  clientToken: ENVS[ENV].clientToken,
+  prices: ENVS[ENV].prices,
   // 화면에 보이는 값. Paddle 의 가격을 바꾸면 여기도 같이 바꾼다.
   show: { monthly: '$4.99', yearly: '$39', yearlyPerMonth: '$3.25' },
 };
