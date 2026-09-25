@@ -3786,7 +3786,14 @@
   .cl-e { width:34px; height:34px; font-size:17px; }
   .cl-t { font-size:14.5px; }
 }
-/* 코스를 연 동안은 그 코스의 레슨만 — 단계 고르기·목록은 접는다. */
-#lcWrap.cl-open > .learn-head, #lcWrap.cl-open > #lcList { display:none; }
-.ll-blurb { font-size:14px; color:var(--ink-3); line-height:1.7; margin:-4px 2px 14px; word-break:keep-all; }
 .ll-t, .ll-m { display:block; }
+/* 펼친 코스 — 줄 바로 밑에 레슨. 들여 써서 어느 코스의 레슨인지 보이게 한다. */
+.cl-chev { font-size:20px; line-height:1; color:var(--ink-3); flex-shrink:0; transition:transform .2s; }
+.cl-row.open .cl-chev { transform:rotate(90deg); color:var(--orange-deep); }
+.cl-row.open { background:var(--tint); }
+.cl-row { scroll-margin-top:84px; }
+.cl-lessons { background:var(--surface-2); border-top:1px solid var(--line-2); padding:4px 16px 8px 68px; }
+.cl-lessons .ll-row { padding:12px 4px; }
+.cl-lessons .ll-row:last-child { border-bottom:0; }
+.cl-lessons .ll-t { font-size:14.5px; }
+@media (max-width:480px) { .cl-lessons { padding:2px 12px 6px 22px; } }
