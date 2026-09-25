@@ -6,7 +6,7 @@
    배포(대시보드): Edge Functions → Deploy a new function → 이름 grade-writing → 이 파일을 붙여 넣기.
                    Verify JWT 는 **켜 둔다**(paddle-webhook 과 반대). 
    비밀: GEMINI_API_KEY (다른 AI 함수가 이미 쓰고 있으면 그대로), 선택 GEMINI_MODEL.
-   표: db/add_ai_usage.sql 을 먼저 돌린다. 구독자 판별은 db/add_subscriptions.sql 의 is_pro().
+   표: db/add_writing_usage.sql 을 먼저 돌린다. 구독자 판별은 db/add_subscriptions.sql 의 is_pro().
 
    **채점 기준은 브라우저가 보내는 것을 믿지 않는다.** 문항(지문 · 과제 · 채점 포인트 · 모범답안 ·
    예시 답안)은 사이트의 topik-writing/items.json(빌드가 topik-writing.js 에서 뽑음)을 서버가 직접 받아 온다 — 누가 기준을 바꿔 보내
@@ -59,7 +59,7 @@ Deno.serve(async (req) => {
 
   const { data: pro } = await admin.rpc('is_pro', { uid: user.id });
   const limit = pro ? LIMIT.pro : LIMIT.free;
-  const { data: used, error: ue } = await admin.rpc('ai_usage_bump', { uid: user.id, k: 'grade-writing' });
+  const { data: used, error: ue } = await admin.rpc('writing_usage_bump', { uid: user.id });
   if (ue) { console.error(ue); return json({ error: 'server' }, 500); }
   if (used > limit) return json({ error: 'daily_limit', limit, pro: !!pro }, 429);
 
@@ -137,7 +137,7 @@ ${answer}
   } catch (e) {
     console.error(e);
     // AI 쪽 실패는 학생 탓이 아니다 — 센 횟수를 되돌린다
-    await admin.from('ai_usage').update({ n: used - 1 }).eq('user_id', user.id).eq('kind', 'grade-writing')
+    await admin.from('writing_usage').update({ n: used - 1 }).eq('user_id', user.id)
       .eq('day', new Date(Date.now() + 9 * 36e5).toISOString().slice(0, 10));
     return json({ error: 'ai' }, 502);
   } finally { clearTimeout(timer); }
