@@ -13,14 +13,30 @@
    않는다.** 잠가 놓고 결제할 길이 없으면 그냥 막힌 사이트가 된다.
    붙이는 순서는 docs/billing-setup.md. */
 
+/* 샌드박스(시험)와 실제 계정은 상품·가격·토큰이 서로 다르다 — 섞으면 결제 창이
+   안 열린다. 두 벌을 따로 적고 ENV 하나로 고른다.
+   가격 id 는 비밀이 아니다(결제 창 주소에도 보인다). 비밀인 API key ·
+   웹훅 secret 은 여기 절대 넣지 않는다 — secret 은 Supabase secrets 에만. */
+const ENV = 'sandbox';   // 'sandbox'(시험) → 심사 끝나고 실제 토큰을 넣으면 'production'
+const ENVS = {
+  sandbox: {
+    clientToken: '',     // sandbox-vendors.paddle.com → Developer tools → Authentication → Client-side tokens (test_…)
+    prices: { monthly: '', yearly: '' },
+  },
+  production: {
+    clientToken: '',     // vendors.paddle.com → 같은 자리 (live_…)
+    prices: {
+      monthly: 'pri_01m3bahxs5dj2p0p1c4hs8kjfg',   // $4.99 / 1 month
+      yearly:  'pri_01m3bajxkc6xe6exr5had9g33r',   // $39 / 1 year
+    },
+  },
+};
+
 export const BILLING = {
   provider: 'paddle',
-  env: 'sandbox',        // 'sandbox'(시험) → 심사 끝나면 'production'
-  clientToken: '',       // Paddle → Developer tools → Authentication → Client-side tokens (test_… / live_…)
-  prices: {
-    monthly: '',         // Paddle → Catalog → 상품 → 가격 id (pri_…)
-    yearly: '',
-  },
+  env: ENV,
+  clientToken: ENVS[ENV].clientToken,
+  prices: ENVS[ENV].prices,
   // 화면에 보이는 값. Paddle 의 가격을 바꾸면 여기도 같이 바꾼다.
   show: { monthly: '$4.99', yearly: '$39', yearlyPerMonth: '$3.25' },
 };
