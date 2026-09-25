@@ -13,12 +13,14 @@
    어느 날 갑자기 다른 코드가 실려 왔다.
    이제 vendor/ 안에 받아 두고 CSP 로 바깥을 막는다. 버전을 올릴 때는
    tools/vendor.mjs 의 PIN 을 고치고 다시 돌린다. */
-import { createClient } from './vendor/supabase-js.js?v=73886020';
+import { createClient } from './vendor/supabase-js.js?v=6f0a5b87';
 // TOPIK 읽기 "문제 풀이 영상" 목록. 아주 작은 파일이라(id 목록뿐) 다른
 // 자료처럼 갈래를 열 때 지연 로딩하지 않고 그냥 처음부터 받는다.
-import { TQ_VIDEO_IDS } from './topik-video.js?v=73886020';
+import { TQ_VIDEO_IDS } from './topik-video.js?v=6f0a5b87';
 // 코스 아이콘 — 이모지 대신 선 아이콘(course-icons.js 머리말)
-import { courseIcon } from './course-icons.js?v=73886020';
+// 구독(Paddle) — billing.js 머리말
+import { BILLING, billingLive, isPro, proInfo, loadPro, openCheckout, waitPro } from './billing.js?v=6f0a5b87';
+import { courseIcon } from './course-icons.js?v=6f0a5b87';
 // 앱(package.json)과 같은 줄기를 쓴다. 갈리면 앱에서는 읽히는 파일이
 // 여기서는 안 읽히는(또는 그 반대) 일이 생긴다.
 /* 엑셀 라이브러리는 422KB — 이 판에서 가장 무거운 조각이다. 그런데 쓰는
@@ -30,7 +32,7 @@ import { courseIcon } from './course-icons.js?v=73886020';
    자국(?v=)은 tools/stamp.mjs 가 아래 줄에 알아서 붙인다 — 정적으로 쓰든
    동적으로 쓰든 같은 글자를 찾으므로 바꿔도 그대로 찍힌다. */
 let XLSX = null;
-const needXLSX = async () => (XLSX ??= await import('./vendor/xlsx.js?v=73886020'));
+const needXLSX = async () => (XLSX ??= await import('./vendor/xlsx.js?v=6f0a5b87'));
 // 커리큘럼. 내용과 엔진을 갈라 두면 글을 고치다 화면을 깨지 않는다.
 // 갈래 목록(drawSections)·코스(drawCourses)·문제만 풀기(dqDraw) 를 열 때만
 // 받는다 — 배우기 갈래 목록도 안 본 사람에게 코스 71개 레슨을 다 물릴
@@ -38,9 +40,9 @@ const needXLSX = async () => (XLSX ??= await import('./vendor/xlsx.js?v=73886020
 let COURSES = [], coursesP = null;
 /* 앱은 courses.js 대신 courses-lite.js 를 받는다 — 중·고급 레슨 본문을 뺀 목록이다
    (tools/build-courses-lite.mjs). 본문은 그 레슨을 열 때 upperBlocksNeed() 가 채운다. */
-const coursesNeed = () => (coursesP ??= import('./courses-lite.js?v=73886020').then((m) => { COURSES = m.COURSES; }));
+const coursesNeed = () => (coursesP ??= import('./courses-lite.js?v=6f0a5b87').then((m) => { COURSES = m.COURSES; }));
 let upperP = null;
-const upperBlocksNeed = () => (upperP ??= coursesNeed().then(() => import('./courses-grammar-detailed.js?v=73886020')).then((m) => {
+const upperBlocksNeed = () => (upperP ??= coursesNeed().then(() => import('./courses-grammar-detailed.js?v=6f0a5b87')).then((m) => {
   const byId = new Map(m.DETAILED_GRAMMAR_COURSES.flatMap((c) => c.lessons.map((l) => [l.id, l.blocks])));
   for (const c of COURSES) for (const l of c.lessons) if (!l.blocks && byId.has(l.id)) { l.blocks = byId.get(l.id); delete l.lazy; }
 }));
@@ -55,7 +57,7 @@ const blocksNeed = async (course) => { if (course.lessons.some((l) => !l.blocks)
    tqGloss 는 그대로 동기다 — 아직 안 왔으면 빈 뜻을 돌려주고, 부르는
    쪽은 이미 "사전에 없는 말"을 다룰 줄 안다. */
 let GLOSSARY = {}, GLOSS_LANGS = {}, glossP = null;
-const glossNeed = () => (glossP ??= import('./glossary.js?v=73886020').then((m) => {
+const glossNeed = () => (glossP ??= import('./glossary.js?v=6f0a5b87').then((m) => {
   GLOSSARY = m.GLOSSARY; GLOSS_LANGS = m.GLOSS_LANGS;
   dictBuildEntries();
 }).catch((e) => {
@@ -63,12 +65,12 @@ const glossNeed = () => (glossP ??= import('./glossary.js?v=73886020').then((m) 
   glossP = null;
   throw e;
 }));
-import { glossFind } from './gloss-find.js?v=73886020';
+import { glossFind } from './gloss-find.js?v=6f0a5b87';
 /* 홈 화면 "오늘의 단어" 카드. 표제어·품사·짧은 뜻풀이 3개만 든
    작은 자료라(사전 전체 356KB 와 달리) 홈에 들어오면 바로 받는다 —
    빈 카드로 몇 초 떠 있는 것보다 낫다. */
 let WOTD_POOL = [], wotdP = null;
-const wotdNeed = () => (wotdP ??= import('./wotd.js?v=73886020').then((m) => {
+const wotdNeed = () => (wotdP ??= import('./wotd.js?v=6f0a5b87').then((m) => {
   WOTD_POOL = m.WOTD_POOL;
 }).catch((e) => { wotdP = null; throw e; }));
 /* 그날의 낱말을 고른다. 한국 자정을 기준으로 하루씩 넘어가게
@@ -102,9 +104,9 @@ window.wotdRender = wotdRender;
    나중 화면은 그 약속(??=)을 그대로 쓴다. */
 let GRAMMAR = [], GRAMMAR_EN = {}, grammarP = null;
 const grammarNeed = () => (grammarP ??= Promise.all([
-  import('./grammar.js?v=73886020'), import('./grammar-en.js?v=73886020'),
+  import('./grammar.js?v=6f0a5b87'), import('./grammar-en.js?v=6f0a5b87'),
 ]).then(([a, b]) => { GRAMMAR = a.GRAMMAR; GRAMMAR_EN = b.GRAMMAR_EN; }));
-import { grammarScan } from './grammar-find.js?v=73886020';
+import { grammarScan } from './grammar-find.js?v=6f0a5b87';
 // TOPIK 쓰기·듣기 문항. 읽기(topik.js·topik2.js)와 같은 tqNeedData() 로
 // 함께 받는다 — 유형 연습(topik) 갈래 하나가 세 기술을 다 쓰므로 따로
 // 가를 까닭이 없다. 값은 tqNeedData 정의부에서 채운다.
@@ -116,7 +118,7 @@ let TOPIKL_BY_EXAM = {}, TOPIKL_PICTURE_SLOTS = {};
    sbFind 를 쓰는데, 그쪽은 안 기다리고 그냥 부른다 — 답이 못 찾은
    인용 없이 나가는 것이 채팅이 멈추는 것보다 낫다. */
 let SB_CATS = [], SB_MORE = {}, SB_SEED = {}, SB_POINTS = [], sbDataP = null;
-const sbNeed = () => (sbDataP ??= import('./sentences.js?v=73886020').then((m) => {
+const sbNeed = () => (sbDataP ??= import('./sentences.js?v=6f0a5b87').then((m) => {
   SB_CATS = m.SB_CATS; SB_MORE = m.SB_MORE; SB_SEED = m.SB_SEED;
   // 갈래마다 표현을 펼쳐 한 줄에 담는다 — SB_CATS 안의 점에는 갈래가 안
   // 달려 있어서(sbFind 가 표현 하나를 id 로 바로 찾으려면 이게 있어야 한다).
@@ -127,7 +129,7 @@ const sbNeed = () => (sbDataP ??= import('./sentences.js?v=73886020').then((m) =
 // 숫자 게임의 읽기와 문제 만들기. 화면을 모르는 순수 계산이라 따로 뒀다.
 // 게임 목록에서 「숫자 읽기」를 시작할 때만 받는다 — XLSX 와 같은 자리다.
 let makeRound = null;
-const needNumbers = async () => (makeRound ??= (await import('./numbers.js?v=73886020')).makeRound);
+const needNumbers = async () => (makeRound ??= (await import('./numbers.js?v=6f0a5b87')).makeRound);
 
 // 이 키는 공개돼도 되는 값이다. 이미 APK 안에 같은 것이 들어 있고,
 // 접근을 막는 건 키가 아니라 테이블에 걸린 RLS 다.
@@ -171,6 +173,7 @@ const TRACK_EN = {
   '추천코스클릭': 'recommended_course_click', '전체목록클릭': 'all_courses_click',
   '문제만풀기완료': 'drill_complete', '단어저장': 'word_save',
   '로그인': 'login', '가입완료': 'sign_up',
+  '구독화면': 'pro_view', '구독시작': 'begin_checkout', '구독완료': 'pro_subscribe',
 };
 const track = (name) => {
   try { window.clarity && window.clarity('event', name); } catch (e) {}
@@ -199,8 +202,8 @@ let tqDataP = null;
    유형 연습(topik) 갈래 하나가 이 넷을 다 쓰므로 갈라 봤자 요청만
    늘어난다. */
 const tqNeedData = () => (tqDataP ??= Promise.all([
-  import('./topik.js?v=73886020'), import('./topik2.js?v=73886020'),
-  import('./topik-writing.js?v=73886020'), import('./topik-listening.js?v=73886020'),
+  import('./topik.js?v=6f0a5b87'), import('./topik2.js?v=6f0a5b87'),
+  import('./topik-writing.js?v=6f0a5b87'), import('./topik-listening.js?v=6f0a5b87'),
 ]).then(([a, b, c, d]) => {
   TQ_DATA.I  = { reading: a.TOPIK_READING,  blueprint: a.TOPIK_BLUEPRINT,  slots: a.TOPIK_SLOTS };
   TQ_DATA.II = { reading: b.TOPIK2_READING, blueprint: b.TOPIK2_BLUEPRINT, slots: b.TOPIK2_SLOTS };
@@ -211,11 +214,11 @@ const tqNeedData = () => (tqDataP ??= Promise.all([
 let READING = null, rdP = null;
 // 지문의 밑줄 문법 말풍선이 GRAMMAR 를 쓰므로 같이 받아 둔다.
 const rdNeed = () => (rdP ??= Promise.all([
-  import('./reading.js?v=73886020'), grammarNeed(),
+  import('./reading.js?v=6f0a5b87'), grammarNeed(),
 ]).then(([m]) => { READING = m.READING; }));
 
 let CONVO = null, cvP = null;
-const cvNeed = () => (cvP ??= import('./convo.js?v=73886020').then((m) => { CONVO = m.CONVO; }));
+const cvNeed = () => (cvP ??= import('./convo.js?v=6f0a5b87').then((m) => { CONVO = m.CONVO; }));
 
 /* 배우기를 열면 여섯 다 미리 불을 붙인다. 기다리지 않는다 — 갈래 목록은
    이 자료가 없어도 그려지고, 사람이 갈래를 고르는 사이에 도착한다.
@@ -648,14 +651,14 @@ let dictOpen = null;  // 지금 "더 보기"(예문·뜻풀이)를 펼쳐 둔 �
    평소엔 안 쓰는 522KB 를 첫 화면 모두에게 물릴 까닭이 없다. */
 let dictSensesP = null;
 const dictLoadSenses = () => (dictSensesP ??=
-  import('./glossary-senses.js?v=73886020').then((m) => m.SENSES).catch(() => ({})));
+  import('./glossary-senses.js?v=6f0a5b87').then((m) => m.SENSES).catch(() => ({})));
 
 /* 예문. 국립국어원 자료엔 없어서 Gemini 로 새로 지은 것이다(있는 만큼만
    — docs/glossary-examples-gemini-prompt.md 참고). 뜻풀이와 같은 자리에서
    같이 받는다 — 펼치는 손짓 하나에 몰아 두는 편이 화면이 덜 복잡하다. */
 let dictExamplesP = null;
 const dictLoadExamples = () => (dictExamplesP ??=
-  import('./glossary-examples.js?v=73886020').then((m) => m.EXAMPLES).catch(() => ({})));
+  import('./glossary-examples.js?v=6f0a5b87').then((m) => m.EXAMPLES).catch(() => ({})));
 
 function dictVisible() {
   const q = dictQuery.trim().toLowerCase();
@@ -1158,6 +1161,7 @@ sb.auth.onAuthStateChange((_event, session) => {
      자리에서 바로 반영한다 — 벽에 막혀 있다가 로그인하고 돌아오면
      그 문항이 열려 있어야 한다. */
   tqSignedIn = !!session;
+  proRefresh(session);
   /* 「로그인하고 담기」를 누르고 돌아왔을 수 있다. 표시해 둔 낱말이
      있으면 단어장 맨 위에 다시 내건다. */
   wbPendingDraw();
@@ -3922,17 +3926,23 @@ function tqRoundCards(ex, span, mins, mockReady) {
     const mine = log.filter((x) => x.exam === tqExam && (x.round || 1) === r);
     const top = mine.length ? Math.max(...mine.map((x) => Math.round((x.score / x.n) * 100))) : null;
     rows.push({ r, n: list.length, genres, top, tries: mine.length,
-                locked: r > TQ_FREE_ROUNDS && !tqSignedIn });
+                /* 결제를 붙이면(billingLive) 2회차부터는 구독자 것. 붙이기 전에는
+                   예전처럼 로그인만 하면 열린다 — 잠가 놓고 결제할 길이 없으면 안 된다. */
+                locked: r > TQ_FREE_ROUNDS && (billingLive() ? !isPro() : !tqSignedIn) });
   }
 
   return rows.map((x) => {
+    const proLock = billingLive() && tqSignedIn;
     const tag = x.locked
-      ? t('로그인하면 열려요', 'Sign in to unlock')
+      ? (proLock ? t('구독하면 열려요', 'Unlock with Pro') : t('로그인하면 열려요', 'Sign in to unlock'))
       : t(`${span} · ${mins}분`, `${span} · ${mins} min`);
     /* 갈래 이름을 다 적으면 카드가 글자로 찬다. 넷까지만 보이고 나머지는 수로. */
     const gs = x.genres.slice(0, 4).map((g) => tqGenreTx(g));
     const more = x.genres.length - gs.length;
-    const blurb = x.locked
+    const blurb = x.locked && proLock
+      ? t('1회는 무료예요. 모든 회차와 성적 기록은 치즈감자 Pro 에서 열립니다.',
+          'Round 1 is free. Every round, with your score history, comes with CheesePotato Pro.')
+      : x.locked
       ? t('한 회는 그냥 풀어 볼 수 있어요. 그다음 회차부터는 로그인하면 열립니다 — 기록이 남아야 회차끼리 견줄 수 있어서예요.',
           'The first round is free. Signing in opens the rest — records need an account before rounds can be compared.')
       : t(`실제 시험 차례대로 ${x.n}문항. 여러 급수가 한 장에 섞여 나오고, 푸는 동안에는 답을 알려 주지 않아요. 끝나면 성적표가 나옵니다.`,
@@ -5613,7 +5623,7 @@ $('tqList').addEventListener('click', async (ev) => {
   if (key === 'resume') { tqHoldResume(); return; }
   /* 잠긴 회차는 로그인 화면으로 보낸다. 아무 일도 안 일어나면 고장으로
      보이고, 카드에 적힌 「로그인하면 열려요」가 빈말이 된다. */
-  if (key === 'lock') { open('account'); return; }
+  if (key === 'lock') { if (billingLive() && tqSignedIn) proOpen('mock'); else open('account'); return; }
   if (key.startsWith('mock:')) { tqStart('mock', Number(key.slice(5))); return; }
   tqStart(key);
 });
@@ -9148,7 +9158,7 @@ let TRAVEL_CATEGORIES = null;
 let TRAVEL_PHRASES = null;
 let TRAVEL_VOCAB = null;
 let tvP = null;
-const tvNeed = () => (tvP ??= import('./travel-data.js?v=73886020').then((m) => {
+const tvNeed = () => (tvP ??= import('./travel-data.js?v=6f0a5b87').then((m) => {
   TRAVEL_CATEGORIES = m.TRAVEL_CATEGORIES;
   TRAVEL_PHRASES = m.TRAVEL_PHRASES;
   TRAVEL_VOCAB = m.TRAVEL_VOCAB;
@@ -13059,10 +13069,10 @@ $('ltPurposeGrid').addEventListener('click', (ev) => {
    빠지고, 고쳐 올려도 브라우저가 예전 문제를 계속 들고 있게 된다. */
 let LT_CUSTOM = { overall: [], reading: [], writing: [], listening: [] };
 let ltCustomOverallP = null, ltCustomReadingP = null, ltCustomWritingP = null, ltCustomListeningP = null;
-const ltCustomOverallNeed = () => (ltCustomOverallP ??= import('./leveltest-overall.js?v=73886020').then((m) => { LT_CUSTOM.overall = m.LT_CUSTOM_OVERALL; }));
-const ltCustomReadingNeed = () => (ltCustomReadingP ??= import('./leveltest-reading.js?v=73886020').then((m) => { LT_CUSTOM.reading = m.LT_CUSTOM_READING; }));
-const ltCustomWritingNeed = () => (ltCustomWritingP ??= import('./leveltest-writing.js?v=73886020').then((m) => { LT_CUSTOM.writing = m.LT_CUSTOM_WRITING; }));
-const ltCustomListeningNeed = () => (ltCustomListeningP ??= import('./leveltest-listening.js?v=73886020').then((m) => { LT_CUSTOM.listening = m.LT_CUSTOM_LISTENING; }));
+const ltCustomOverallNeed = () => (ltCustomOverallP ??= import('./leveltest-overall.js?v=6f0a5b87').then((m) => { LT_CUSTOM.overall = m.LT_CUSTOM_OVERALL; }));
+const ltCustomReadingNeed = () => (ltCustomReadingP ??= import('./leveltest-reading.js?v=6f0a5b87').then((m) => { LT_CUSTOM.reading = m.LT_CUSTOM_READING; }));
+const ltCustomWritingNeed = () => (ltCustomWritingP ??= import('./leveltest-writing.js?v=6f0a5b87').then((m) => { LT_CUSTOM.writing = m.LT_CUSTOM_WRITING; }));
+const ltCustomListeningNeed = () => (ltCustomListeningP ??= import('./leveltest-listening.js?v=6f0a5b87').then((m) => { LT_CUSTOM.listening = m.LT_CUSTOM_LISTENING; }));
 const LT_CUSTOM_NEED = {
   overall: ltCustomOverallNeed, reading: ltCustomReadingNeed,
   writing: ltCustomWritingNeed, listening: ltCustomListeningNeed,
@@ -13631,6 +13641,7 @@ function aiPanel(name) {
 }
 
 $('ptAiLoginBtn').addEventListener('click', () => open('account'));
+$('ptAiPro').addEventListener('click', () => proOpen('ai'));
 
 window.ptAiGuess = async (target, heard, score) => {
   // 만점이면 고칠 게 없다. 호출을 쓸 이유가 없다.
@@ -13659,7 +13670,11 @@ window.ptAiGuess = async (target, heard, score) => {
     });
     const body = await res.json().catch(() => null);
 
-    if (res.status === 429 || body?.error === 'daily_limit') { aiPanel('ptAiLimit'); return; }
+    if (res.status === 429 || body?.error === 'daily_limit') {
+      aiPanel('ptAiLimit');
+      $('ptAiPro').classList.toggle('hidden', !(billingLive() && !isPro()));
+      return;
+    }
     if (!res.ok || !body?.verdict) throw new Error('bad response');
 
     $('ptAiVerdict').textContent = body.verdict;
@@ -13885,6 +13900,7 @@ async function hlpAskAI(q, cites) {
     let reply;
     if (res.status === 429 || out?.error === 'daily_limit') {
       reply = t('오늘 AI 도우미에게 물어볼 수 있는 횟수를 다 썼어요. 내일 다시 써 주세요.', "You've used today's AI questions — try again tomorrow.");
+      if (billingLive() && !isPro()) reply += t(' 치즈감자 Pro 는 하루에 더 많이 물어볼 수 있어요 — 내 계정에서 구독할 수 있어요.', ' CheesePotato Pro gives you more each day — subscribe from your account.');
     } else if (!res.ok || out?.grounded === undefined) {
       reply = t('지금은 답할 수 없어요. 잠시 후 다시 시도해 주세요.', "Couldn't get an answer right now — try again in a moment.");
     } else if (!out.grounded || !out.answer) {
@@ -13987,3 +14003,105 @@ window.cpStart();
    있는지만 보고 채운다. 이미 다른 길로 채워졌어도 다시 불러 봤자
    같은 결과라 해될 게 없다. */
 if (!$('homeView').classList.contains('hidden')) wotdRender();
+
+
+/* ══ 구독 (치즈감자 Pro) ═════════════════════════════════════
+   결제 로직은 billing.js, 여기는 화면만. 팝업 하나(proDlg)를 어디서든 연다.
+   from 은 어디서 열었는지 — Clarity·GA 로 「무엇 때문에 구독 화면을 봤나」를 센다. */
+const PRO_FEATURES = [
+  { ko: 'TOPIK 모의고사 전 회차와 성적 기록', en: 'Every TOPIK mock round, with your score history' },
+  { ko: 'AI 발음 진단 · 한국어 도우미를 하루에 더 많이', en: 'More AI pronunciation feedback and Korean helper questions each day' },
+  { ko: '앞으로 나올 Pro 기능 전부', en: 'Every Pro feature we add next' },
+];
+let proFrom = '';
+let proPlan = 'yearly';
+
+async function proRefresh(session) {
+  await loadPro(sb, session).catch(() => false);
+  proPaintAccount();
+}
+
+function proBody() {
+  const me = proInfo();
+  if (isPro()) {
+    const until = me?.current_period_end ? new Date(me.current_period_end).toLocaleDateString(isEn() ? 'en' : 'ko') : '';
+    return '<div class="pro-kicker">CheesePotato Pro</div>' +
+      `<h3 class="pro-h">${esc(t('구독 중이에요 🎉', "You're on Pro 🎉"))}</h3>` +
+      `<p class="pro-sub">${esc(until ? t(`다음 결제일 ${until}`, `Renews ${until}`) : t('고마워요!', 'Thank you!'))}</p>` +
+      (me?.manage_url ? `<a class="pt-ghost pro-manage" href="${esc(me.manage_url)}" target="_blank" rel="noopener">${esc(t('구독 관리 · 해지', 'Manage or cancel'))}</a>` : '');
+  }
+  const card = (plan, price, per, note) =>
+    `<button type="button" class="pro-plan${proPlan === plan ? ' on' : ''}" data-pro-plan="${plan}" aria-pressed="${proPlan === plan}">` +
+      `<span class="pro-plan-n">${esc(plan === 'yearly' ? t('1년', 'Yearly') : t('한 달', 'Monthly'))}</span>` +
+      `<span class="pro-plan-p">${esc(price)}<small>${esc(per)}</small></span>` +
+      (note ? `<span class="pro-plan-note">${esc(note)}</span>` : '') +
+    '</button>';
+  const live = billingLive();
+  return '<div class="pro-kicker">CheesePotato Pro</div>' +
+    `<h3 class="pro-h">${esc(t('시험까지 막힘 없이', 'Go all the way to the exam'))}</h3>` +
+    `<ul class="pro-list">${PRO_FEATURES.map((f) => `<li>${esc(t(f.ko, f.en))}</li>`).join('')}</ul>` +
+    `<p class="pro-free">${esc(t('코스 · 문법 · 사전 · 레벨테스트는 앞으로도 무료예요.', 'Courses, grammar, the dictionary and the level test stay free.'))}</p>` +
+    '<div class="pro-plans">' +
+      card('yearly', BILLING.show.yearly, t(' / 년', ' / year'), t(`한 달 ${BILLING.show.yearlyPerMonth}꼴 · 35% 싸요`, `${BILLING.show.yearlyPerMonth}/mo · save 35%`)) +
+      card('monthly', BILLING.show.monthly, t(' / 월', ' / month'), '') +
+    '</div>' +
+    `<button type="button" class="pro-go" id="proGo"${live ? '' : ' disabled'}>${esc(live ? t('구독하기', 'Subscribe') : t('곧 열려요', 'Coming soon'))}</button>` +
+    `<p class="pro-fine">${esc(t('언제든 해지할 수 있어요. 결제는 Paddle 이 처리합니다.', 'Cancel anytime. Payments are handled by Paddle.'))} ` +
+      `<a href="/terms.html" target="_blank" rel="noopener">${esc(t('이용약관', 'Terms'))}</a> · ` +
+      `<a href="/refund.html" target="_blank" rel="noopener">${esc(t('환불 규정', 'Refunds'))}</a></p>`;
+}
+function proDraw() { $('proBody').innerHTML = proBody(); }
+function proOpen(from = '') {
+  proFrom = from;
+  proDraw();
+  $('proDlg').showModal();
+  track('구독화면');
+  tag('구독화면출처', from || '-');
+}
+window.cpPro = proOpen;
+$('proClose').addEventListener('click', () => $('proDlg').close());
+$('proDlg').addEventListener('click', (ev) => { if (ev.target === $('proDlg')) $('proDlg').close(); });
+$('proBody').addEventListener('click', async (ev) => {
+  const p = ev.target.closest('[data-pro-plan]');
+  if (p) { proPlan = p.dataset.proPlan; proDraw(); return; }
+  if (!ev.target.closest('#proGo')) return;
+  const { data: { session } } = await sb.auth.getSession();
+  // 누가 결제했는지 알아야 구독을 붙일 수 있다 — 로그인이 먼저다.
+  if (!session) { $('proDlg').close(); open('account'); return; }
+  track('구독시작');
+  try {
+    await openCheckout(proPlan, session, {
+      lang: isEn() ? 'en' : 'ko',
+      done: async () => {
+        track('구독완료');
+        $('proDlg').close();
+        await waitPro(sb, session);
+        proPaintAccount();
+        if (!$('proDlg').open) { proDraw(); $('proDlg').showModal(); }
+      },
+    });
+    $('proDlg').close();   // Paddle 결제 창이 위에 뜬다 — 우리 창은 닫는다
+  } catch (e) {
+    $('proGo').textContent = t('결제 창을 못 열었어요. 잠시 후 다시 눌러 주세요.', 'Could not open checkout. Try again in a moment.');
+  }
+});
+
+/* 내 계정 화면의 구독 줄. 결제를 안 붙였으면 아무것도 안 보인다. */
+function proPaintAccount() {
+  const el = $('acPro');
+  if (!el) return;
+  if (!billingLive()) { el.innerHTML = ''; return; }
+  el.innerHTML = isPro()
+    ? `<div class="ac-pro-row"><span>⭐ ${esc(t('치즈감자 Pro 구독 중', 'CheesePotato Pro'))}</span><button type="button" class="pt-ghost" data-pro-open>${esc(t('구독 정보', 'Details'))}</button></div>`
+    : `<div class="ac-pro-row"><span>${esc(t('모의고사 전 회차 · AI 더 많이', 'All mock rounds · more AI'))}</span><button type="button" class="pt-next" data-pro-open>${esc(t('Pro 알아보기', 'See Pro'))}</button></div>`;
+}
+$('acPro').addEventListener('click', (ev) => { if (ev.target.closest('[data-pro-open]')) proOpen('account'); });
+
+/* 가격 쪽(pricing.html)의 단추는 /?pro=1 로 온다 — 들어오자마자 팝업을 연다. */
+try {
+  const q = new URLSearchParams(location.search);
+  if (q.has('pro')) {
+    history.replaceState(null, '', location.pathname + location.hash);
+    proOpen('pricing');
+  }
+} catch (e) {}

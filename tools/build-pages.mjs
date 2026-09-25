@@ -206,7 +206,7 @@ function page({ url, title, desc, body, kind = 'article', jsonld, extraCss = '',
 <div class="wrap">
 ${body}
 <div class="foot">
-  <a href="/">치즈감자</a> · <a href="/sentence/">문법 표현 전체</a> · <a href="/blog/">블로그</a> · <a href="/privacy.html">개인정보</a><br>
+  <a href="/">치즈감자</a> · <a href="/sentence/">문법 표현 전체</a> · <a href="/blog/">블로그</a> · <a href="/privacy.html">개인정보</a> · <a href="/terms.html">이용약관</a><br>
   한국어를 배우는 사람을 위한 단어장과 연습 · Learn Korean with CheesePotato<br>
   낱말 뜻풀이 출처: <a href="https://krdict.korean.go.kr">국립국어원 한국어기초사전</a>
   · <a href="https://creativecommons.org/licenses/by-sa/2.0/kr/">CC BY-SA 2.0 KR</a>
@@ -2205,6 +2205,7 @@ for (const [tag, posts] of TAG_POSTS) {
 writeFileSync(join(OUT_BLOG, 'rss.xml'), blogRss(BLOG_POSTS));
 
 urls.push({ loc: '/privacy.html', freq: 'yearly', pri: '0.3' });
+for (const loc of ['/pricing.html', '/terms.html', '/refund.html']) urls.push({ loc, freq: 'yearly', pri: '0.3' });
 writeFileSync(join(ROOT, 'sitemap.xml'), sitemap(urls));
 /* sitemap() 이 돌면서 쪽마다 해시를 다시 쟀다. 그 기록을 남긴다 —
    다음 번에 이것과 견줘 안 바뀐 쪽은 날짜를 그대로 둔다. */

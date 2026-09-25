@@ -26,7 +26,7 @@ const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 
 /* 자국을 찍을 파일. 브라우저가 주소로 받아 가는 것만 넣는다. */
 const ASSETS = [
-  'app.js', 'app.module.js', 'analytics.js', 'gtm.js', 'course-icons.js',
+  'app.js', 'app.module.js', 'analytics.js', 'gtm.js', 'course-icons.js', 'billing.js',
   'courses.js', 'courses-lite.js', 'courses-grammar.js', 'courses-grammar-beginner.js',
   'glossary.js', 'gloss-find.js',
   /* 국어사전 화면(#dictionary)의 "더 보기" 자료(뜻풀이·예문). glossary.js
