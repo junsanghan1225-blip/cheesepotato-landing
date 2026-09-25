@@ -30,6 +30,19 @@
     'wordbook': '내 단어장', 'library': '자료마당', 'dash': '내 정보',
     'auth': '로그인',
   };
+  /* 문법·블로그·사전 같은 만들어 둔 쪽(tools/build-pages.mjs)에서도 이 파일이 돈다.
+     거기엔 # 이 없으니 주소의 첫 칸으로 딱지를 단다 — 「검색으로 온 사람이 어느 갈래
+     쪽에서 들어왔나」를 Clarity 에서 걸러 보려고. */
+  var PAGE = {
+    'sentence': '문법쪽', 'blog': '블로그쪽', 'dictionary': '사전쪽', 'course': '코스쪽',
+    'lesson': '레슨쪽', 'compare': '비교쪽', 'topik-reading': 'TOPIK쪽',
+    'topik-writing': 'TOPIK쪽', 'topik-listening': 'TOPIK쪽',
+  };
+  var seg = location.pathname.replace(/^\/+/, '').split('/')[0];
+  if (seg && seg !== 'index.html') {
+    try { window.clarity && window.clarity('set', '화면', Object.prototype.hasOwnProperty.call(PAGE, seg) ? PAGE[seg] : '기타쪽'); } catch (e) {}
+    return;
+  }
   function mark() {
     var h = (location.hash || '').replace(/^#/, '').split('?')[0];
     /* 모르는 해시는 그대로 흘리지 않는다 — 남이 주소에 아무 말이나 넣어
