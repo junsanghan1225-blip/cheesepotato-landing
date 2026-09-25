@@ -3781,6 +3781,14 @@
 }
 .cl-row.next { background:linear-gradient(90deg, rgba(255,138,61,.08), transparent 70%); }
 .cl-row.next .cl-e { border-color:rgba(255,138,61,.4); }
+/* 선 아이콘(course-icons.js). 색은 여기서 — 평소엔 짙은 갈색, 이어서 할 코스와
+   다 끝낸 코스만 색을 준다. 한글 글자 표시(가·말·뼈)는 .ci-txt. */
+.cl-e, .my-row-e { color:var(--ink-2); }
+.cl-e svg { width:20px; height:20px; display:block; }
+.my-row-e svg { width:18px; height:18px; display:block; margin:0 auto; }
+.ci-txt { font-size:17px; font-weight:700; line-height:1; }
+.cl-row.next .cl-e { color:var(--orange-deep); }
+.cl-row.done .cl-e { color:var(--green, #12704f); }
 @media (max-width:480px) {
   .cl-row { padding:12px 13px; gap:12px; }
   .cl-e { width:34px; height:34px; font-size:17px; }
