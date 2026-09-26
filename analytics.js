@@ -36,7 +36,7 @@
   var PAGE = {
     'sentence': '문법쪽', 'blog': '블로그쪽', 'dictionary': '사전쪽', 'course': '코스쪽',
     'lesson': '레슨쪽', 'compare': '비교쪽', 'topik-reading': 'TOPIK쪽',
-    'topik-writing': 'TOPIK쪽', 'topik-listening': 'TOPIK쪽',
+    'topik-writing': 'TOPIK쪽', 'topik-listening': 'TOPIK쪽', 'eps-topik': 'EPS쪽',
   };
   var seg = location.pathname.replace(/^\/+/, '').split('/')[0];
   if (seg && seg !== 'index.html') {
