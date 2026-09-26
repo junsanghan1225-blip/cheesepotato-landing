@@ -13,14 +13,14 @@
    어느 날 갑자기 다른 코드가 실려 왔다.
    이제 vendor/ 안에 받아 두고 CSP 로 바깥을 막는다. 버전을 올릴 때는
    tools/vendor.mjs 의 PIN 을 고치고 다시 돌린다. */
-import { createClient } from './vendor/supabase-js.js?v=bd40aecb';
+import { createClient } from './vendor/supabase-js.js?v=c79e516f';
 // TOPIK 읽기 "문제 풀이 영상" 목록. 아주 작은 파일이라(id 목록뿐) 다른
 // 자료처럼 갈래를 열 때 지연 로딩하지 않고 그냥 처음부터 받는다.
-import { TQ_VIDEO_IDS } from './topik-video.js?v=bd40aecb';
+import { TQ_VIDEO_IDS } from './topik-video.js?v=c79e516f';
 // 코스 아이콘 — 이모지 대신 선 아이콘(course-icons.js 머리말)
 // 구독(Paddle) — billing.js 머리말
-import { BILLING, billingLive, isPro, proInfo, loadPro, openCheckout, waitPro } from './billing.js?v=bd40aecb';
-import { courseIcon } from './course-icons.js?v=bd40aecb';
+import { BILLING, billingLive, isPro, proInfo, loadPro, openCheckout, waitPro } from './billing.js?v=c79e516f';
+import { courseIcon } from './course-icons.js?v=c79e516f';
 // 앱(package.json)과 같은 줄기를 쓴다. 갈리면 앱에서는 읽히는 파일이
 // 여기서는 안 읽히는(또는 그 반대) 일이 생긴다.
 /* 엑셀 라이브러리는 422KB — 이 판에서 가장 무거운 조각이다. 그런데 쓰는
@@ -32,7 +32,7 @@ import { courseIcon } from './course-icons.js?v=bd40aecb';
    자국(?v=)은 tools/stamp.mjs 가 아래 줄에 알아서 붙인다 — 정적으로 쓰든
    동적으로 쓰든 같은 글자를 찾으므로 바꿔도 그대로 찍힌다. */
 let XLSX = null;
-const needXLSX = async () => (XLSX ??= await import('./vendor/xlsx.js?v=bd40aecb'));
+const needXLSX = async () => (XLSX ??= await import('./vendor/xlsx.js?v=c79e516f'));
 // 커리큘럼. 내용과 엔진을 갈라 두면 글을 고치다 화면을 깨지 않는다.
 // 갈래 목록(drawSections)·코스(drawCourses)·문제만 풀기(dqDraw) 를 열 때만
 // 받는다 — 배우기 갈래 목록도 안 본 사람에게 코스 71개 레슨을 다 물릴
@@ -40,9 +40,9 @@ const needXLSX = async () => (XLSX ??= await import('./vendor/xlsx.js?v=bd40aecb
 let COURSES = [], coursesP = null;
 /* 앱은 courses.js 대신 courses-lite.js 를 받는다 — 중·고급 레슨 본문을 뺀 목록이다
    (tools/build-courses-lite.mjs). 본문은 그 레슨을 열 때 upperBlocksNeed() 가 채운다. */
-const coursesNeed = () => (coursesP ??= import('./courses-lite.js?v=bd40aecb').then((m) => { COURSES = m.COURSES; }));
+const coursesNeed = () => (coursesP ??= import('./courses-lite.js?v=c79e516f').then((m) => { COURSES = m.COURSES; }));
 let upperP = null;
-const upperBlocksNeed = () => (upperP ??= coursesNeed().then(() => import('./courses-grammar-detailed.js?v=bd40aecb')).then((m) => {
+const upperBlocksNeed = () => (upperP ??= coursesNeed().then(() => import('./courses-grammar-detailed.js?v=c79e516f')).then((m) => {
   const byId = new Map(m.DETAILED_GRAMMAR_COURSES.flatMap((c) => c.lessons.map((l) => [l.id, l.blocks])));
   for (const c of COURSES) for (const l of c.lessons) if (!l.blocks && byId.has(l.id)) { l.blocks = byId.get(l.id); delete l.lazy; }
 }));
@@ -57,7 +57,7 @@ const blocksNeed = async (course) => { if (course.lessons.some((l) => !l.blocks)
    tqGloss 는 그대로 동기다 — 아직 안 왔으면 빈 뜻을 돌려주고, 부르는
    쪽은 이미 "사전에 없는 말"을 다룰 줄 안다. */
 let GLOSSARY = {}, GLOSS_LANGS = {}, glossP = null;
-const glossNeed = () => (glossP ??= import('./glossary.js?v=bd40aecb').then((m) => {
+const glossNeed = () => (glossP ??= import('./glossary.js?v=c79e516f').then((m) => {
   GLOSSARY = m.GLOSSARY; GLOSS_LANGS = m.GLOSS_LANGS;
   dictBuildEntries();
 }).catch((e) => {
@@ -65,12 +65,12 @@ const glossNeed = () => (glossP ??= import('./glossary.js?v=bd40aecb').then((m) 
   glossP = null;
   throw e;
 }));
-import { glossFind } from './gloss-find.js?v=bd40aecb';
+import { glossFind } from './gloss-find.js?v=c79e516f';
 /* 홈 화면 "오늘의 단어" 카드. 표제어·품사·짧은 뜻풀이 3개만 든
    작은 자료라(사전 전체 356KB 와 달리) 홈에 들어오면 바로 받는다 —
    빈 카드로 몇 초 떠 있는 것보다 낫다. */
 let WOTD_POOL = [], wotdP = null;
-const wotdNeed = () => (wotdP ??= import('./wotd.js?v=bd40aecb').then((m) => {
+const wotdNeed = () => (wotdP ??= import('./wotd.js?v=c79e516f').then((m) => {
   WOTD_POOL = m.WOTD_POOL;
 }).catch((e) => { wotdP = null; throw e; }));
 /* 그날의 낱말을 고른다. 한국 자정을 기준으로 하루씩 넘어가게
@@ -104,9 +104,9 @@ window.wotdRender = wotdRender;
    나중 화면은 그 약속(??=)을 그대로 쓴다. */
 let GRAMMAR = [], GRAMMAR_EN = {}, grammarP = null;
 const grammarNeed = () => (grammarP ??= Promise.all([
-  import('./grammar.js?v=bd40aecb'), import('./grammar-en.js?v=bd40aecb'),
+  import('./grammar.js?v=c79e516f'), import('./grammar-en.js?v=c79e516f'),
 ]).then(([a, b]) => { GRAMMAR = a.GRAMMAR; GRAMMAR_EN = b.GRAMMAR_EN; }));
-import { grammarScan } from './grammar-find.js?v=bd40aecb';
+import { grammarScan } from './grammar-find.js?v=c79e516f';
 // TOPIK 쓰기·듣기 문항. 읽기(topik.js·topik2.js)와 같은 tqNeedData() 로
 // 함께 받는다 — 유형 연습(topik) 갈래 하나가 세 기술을 다 쓰므로 따로
 // 가를 까닭이 없다. 값은 tqNeedData 정의부에서 채운다.
@@ -118,7 +118,7 @@ let TOPIKL_BY_EXAM = {}, TOPIKL_PICTURE_SLOTS = {};
    sbFind 를 쓰는데, 그쪽은 안 기다리고 그냥 부른다 — 답이 못 찾은
    인용 없이 나가는 것이 채팅이 멈추는 것보다 낫다. */
 let SB_CATS = [], SB_MORE = {}, SB_SEED = {}, SB_POINTS = [], sbDataP = null;
-const sbNeed = () => (sbDataP ??= import('./sentences.js?v=bd40aecb').then((m) => {
+const sbNeed = () => (sbDataP ??= import('./sentences.js?v=c79e516f').then((m) => {
   SB_CATS = m.SB_CATS; SB_MORE = m.SB_MORE; SB_SEED = m.SB_SEED;
   // 갈래마다 표현을 펼쳐 한 줄에 담는다 — SB_CATS 안의 점에는 갈래가 안
   // 달려 있어서(sbFind 가 표현 하나를 id 로 바로 찾으려면 이게 있어야 한다).
@@ -129,7 +129,7 @@ const sbNeed = () => (sbDataP ??= import('./sentences.js?v=bd40aecb').then((m) =
 // 숫자 게임의 읽기와 문제 만들기. 화면을 모르는 순수 계산이라 따로 뒀다.
 // 게임 목록에서 「숫자 읽기」를 시작할 때만 받는다 — XLSX 와 같은 자리다.
 let makeRound = null;
-const needNumbers = async () => (makeRound ??= (await import('./numbers.js?v=bd40aecb')).makeRound);
+const needNumbers = async () => (makeRound ??= (await import('./numbers.js?v=c79e516f')).makeRound);
 
 // 이 키는 공개돼도 되는 값이다. 이미 APK 안에 같은 것이 들어 있고,
 // 접근을 막는 건 키가 아니라 테이블에 걸린 RLS 다.
@@ -207,8 +207,8 @@ let tqDataP = null;
    유형 연습(topik) 갈래 하나가 이 넷을 다 쓰므로 갈라 봤자 요청만
    늘어난다. */
 const tqNeedData = () => (tqDataP ??= Promise.all([
-  import('./topik.js?v=bd40aecb'), import('./topik2.js?v=bd40aecb'),
-  import('./topik-writing.js?v=bd40aecb'), import('./topik-listening.js?v=bd40aecb'),
+  import('./topik.js?v=c79e516f'), import('./topik2.js?v=c79e516f'),
+  import('./topik-writing.js?v=c79e516f'), import('./topik-listening.js?v=c79e516f'),
 ]).then(([a, b, c, d]) => {
   TQ_DATA.I  = { reading: a.TOPIK_READING,  blueprint: a.TOPIK_BLUEPRINT,  slots: a.TOPIK_SLOTS };
   TQ_DATA.II = { reading: b.TOPIK2_READING, blueprint: b.TOPIK2_BLUEPRINT, slots: b.TOPIK2_SLOTS };
@@ -219,11 +219,11 @@ const tqNeedData = () => (tqDataP ??= Promise.all([
 let READING = null, rdP = null;
 // 지문의 밑줄 문법 말풍선이 GRAMMAR 를 쓰므로 같이 받아 둔다.
 const rdNeed = () => (rdP ??= Promise.all([
-  import('./reading.js?v=bd40aecb'), grammarNeed(),
+  import('./reading.js?v=c79e516f'), grammarNeed(),
 ]).then(([m]) => { READING = m.READING; }));
 
 let CONVO = null, cvP = null;
-const cvNeed = () => (cvP ??= import('./convo.js?v=bd40aecb').then((m) => { CONVO = m.CONVO; }));
+const cvNeed = () => (cvP ??= import('./convo.js?v=c79e516f').then((m) => { CONVO = m.CONVO; }));
 
 /* 배우기를 열면 여섯 다 미리 불을 붙인다. 기다리지 않는다 — 갈래 목록은
    이 자료가 없어도 그려지고, 사람이 갈래를 고르는 사이에 도착한다.
@@ -656,14 +656,14 @@ let dictOpen = null;  // 지금 "더 보기"(예문·뜻풀이)를 펼쳐 둔 �
    평소엔 안 쓰는 522KB 를 첫 화면 모두에게 물릴 까닭이 없다. */
 let dictSensesP = null;
 const dictLoadSenses = () => (dictSensesP ??=
-  import('./glossary-senses.js?v=bd40aecb').then((m) => m.SENSES).catch(() => ({})));
+  import('./glossary-senses.js?v=c79e516f').then((m) => m.SENSES).catch(() => ({})));
 
 /* 예문. 국립국어원 자료엔 없어서 Gemini 로 새로 지은 것이다(있는 만큼만
    — docs/glossary-examples-gemini-prompt.md 참고). 뜻풀이와 같은 자리에서
    같이 받는다 — 펼치는 손짓 하나에 몰아 두는 편이 화면이 덜 복잡하다. */
 let dictExamplesP = null;
 const dictLoadExamples = () => (dictExamplesP ??=
-  import('./glossary-examples.js?v=bd40aecb').then((m) => m.EXAMPLES).catch(() => ({})));
+  import('./glossary-examples.js?v=c79e516f').then((m) => m.EXAMPLES).catch(() => ({})));
 
 function dictVisible() {
   const q = dictQuery.trim().toLowerCase();
@@ -9305,7 +9305,7 @@ let TRAVEL_CATEGORIES = null;
 let TRAVEL_PHRASES = null;
 let TRAVEL_VOCAB = null;
 let tvP = null;
-const tvNeed = () => (tvP ??= import('./travel-data.js?v=bd40aecb').then((m) => {
+const tvNeed = () => (tvP ??= import('./travel-data.js?v=c79e516f').then((m) => {
   TRAVEL_CATEGORIES = m.TRAVEL_CATEGORIES;
   TRAVEL_PHRASES = m.TRAVEL_PHRASES;
   TRAVEL_VOCAB = m.TRAVEL_VOCAB;
@@ -10962,6 +10962,7 @@ function twDraw() {
             `<span class="tw-no">${it.q}</span>` +
             `<span class="tw-pt">${it.min ? `${it.min}~${it.max}${t('자', ' chars')}` : t('빈칸 2곳', '2 blanks')}</span>` +
             (done ? `<span class="lq-chip done">${esc(t('풀었어요', 'Done'))}</span>` : '') +
+            (!done && twHasDraft(it) ? `<span class="lq-chip">${esc(t('쓰는 중', 'Draft'))}</span>` : '') +
           '</div>' +
           `<div class="tw-card-t">${esc(it.title)}</div>` +
           `<div class="tw-card-s">${esc(it.cond)}</div>` +
@@ -11039,8 +11040,11 @@ function twOpen(it) {
      일도 안 한다.** 실제로 그랬다 — 문항을 열면 목록으로 못 돌아갔다. */
   $('twBack').addEventListener('click', () => { twItem = null; twDraw(); });
   $('twClear').addEventListener('click', () => {
+    const had = [...$('twDesk').querySelectorAll('.tw-in')].some((x) => x.value.trim().length > 30);
+    if (had && !confirm(t('쓴 글을 모두 지울까요?', 'Erase everything you wrote?'))) return;
     $('twDesk').querySelectorAll('.tw-in').forEach((x) => { x.value = ''; });
     $('twOut').innerHTML = '';
+    twDraftSave(true);
     twSync();
   });
   $('twShow').addEventListener('click', twReveal);
@@ -11048,7 +11052,7 @@ function twOpen(it) {
     say(ev.currentTarget.dataset.say, ev.currentTarget.dataset.audio);
   });
   if (!long) $('twSubmit').addEventListener('click', twSubmit);
-  $('twDesk').querySelectorAll('.tw-in').forEach((x) => x.addEventListener('input', twSync));
+  $('twDesk').querySelectorAll('.tw-in').forEach((x) => x.addEventListener('input', () => { twSync(); twDraftSave(); }));
   if (long) $('twClock').addEventListener('click', twToggleClock);
   if (long) $('twAi').addEventListener('click', twAiGrade);
   /* 커서만 옮기고 글자는 안 바뀌는 경우(클릭·화살표 키·포커스)도
@@ -11061,9 +11065,39 @@ function twOpen(it) {
     $('twGrid').addEventListener('click', twGridTap);
   }
 
+  if (twDraftLoad(it)) {
+    $('twOut').innerHTML = `<p class="tw-restored">✎ ${t('지난번에 쓰던 글을 불러왔어요. 새로 쓰려면 「지우기」를 누르세요.',
+                                                          'Restored what you were writing last time. Press Clear to start fresh.')}</p>`;
+  }
   twSync();
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
+
+/* 쓰던 글을 문항마다 이 브라우저에 남긴다. 600자를 쓰다가 실수로 뒤로 가기를
+   누르거나 창을 닫으면 통째로 날아갔다. 입력이 멈추고 0.4초 뒤에 적는다. */
+const twDraftKey = (it) => `cp-tw-draft-${it.id}`;
+let twDraftT = 0;
+function twDraftSave(now) {
+  const it = twItem;
+  if (!it) return;
+  clearTimeout(twDraftT);
+  const put = () => {
+    const vals = [...($('twDesk')?.querySelectorAll('.tw-in') || [])].map((x) => x.value);
+    try {
+      if (vals.some((v) => v.trim())) localStorage.setItem(twDraftKey(it), JSON.stringify(vals));
+      else localStorage.removeItem(twDraftKey(it));
+    } catch (e) {}
+  };
+  if (now) put(); else twDraftT = setTimeout(put, 400);
+}
+function twDraftLoad(it) {
+  let vals = null;
+  try { vals = JSON.parse(localStorage.getItem(twDraftKey(it)) || 'null'); } catch (e) {}
+  if (!Array.isArray(vals) || !vals.some((v) => typeof v === 'string' && v.trim())) return false;
+  [...$('twDesk').querySelectorAll('.tw-in')].forEach((x, i) => { if (typeof vals[i] === 'string') x.value = vals[i]; });
+  return true;
+}
+const twHasDraft = (it) => { try { return !!localStorage.getItem(twDraftKey(it)); } catch (e) { return false; } };
 
 /* 쓰는 동안 도는 것 — 글자 수와 문체. */
 function twSync() {
@@ -13354,10 +13388,10 @@ $('ltPurposeGrid').addEventListener('click', (ev) => {
    빠지고, 고쳐 올려도 브라우저가 예전 문제를 계속 들고 있게 된다. */
 let LT_CUSTOM = { overall: [], reading: [], writing: [], listening: [] };
 let ltCustomOverallP = null, ltCustomReadingP = null, ltCustomWritingP = null, ltCustomListeningP = null;
-const ltCustomOverallNeed = () => (ltCustomOverallP ??= import('./leveltest-overall.js?v=bd40aecb').then((m) => { LT_CUSTOM.overall = m.LT_CUSTOM_OVERALL; }));
-const ltCustomReadingNeed = () => (ltCustomReadingP ??= import('./leveltest-reading.js?v=bd40aecb').then((m) => { LT_CUSTOM.reading = m.LT_CUSTOM_READING; }));
-const ltCustomWritingNeed = () => (ltCustomWritingP ??= import('./leveltest-writing.js?v=bd40aecb').then((m) => { LT_CUSTOM.writing = m.LT_CUSTOM_WRITING; }));
-const ltCustomListeningNeed = () => (ltCustomListeningP ??= import('./leveltest-listening.js?v=bd40aecb').then((m) => { LT_CUSTOM.listening = m.LT_CUSTOM_LISTENING; }));
+const ltCustomOverallNeed = () => (ltCustomOverallP ??= import('./leveltest-overall.js?v=c79e516f').then((m) => { LT_CUSTOM.overall = m.LT_CUSTOM_OVERALL; }));
+const ltCustomReadingNeed = () => (ltCustomReadingP ??= import('./leveltest-reading.js?v=c79e516f').then((m) => { LT_CUSTOM.reading = m.LT_CUSTOM_READING; }));
+const ltCustomWritingNeed = () => (ltCustomWritingP ??= import('./leveltest-writing.js?v=c79e516f').then((m) => { LT_CUSTOM.writing = m.LT_CUSTOM_WRITING; }));
+const ltCustomListeningNeed = () => (ltCustomListeningP ??= import('./leveltest-listening.js?v=c79e516f').then((m) => { LT_CUSTOM.listening = m.LT_CUSTOM_LISTENING; }));
 const LT_CUSTOM_NEED = {
   overall: ltCustomOverallNeed, reading: ltCustomReadingNeed,
   writing: ltCustomWritingNeed, listening: ltCustomListeningNeed,
@@ -14594,7 +14628,7 @@ function fbMount(host, place, level = null) {
    openSection 이 epsDraw 를 부른다. let · const 면 그때 「초기화 전 접근」으로 죽는다. */
 var EPS = null;
 var epsP = null;
-function epsNeed() { return (epsP ??= import('./eps.js?v=bd40aecb').then((m) => { EPS = m; })); }
+function epsNeed() { return (epsP ??= import('./eps.js?v=c79e516f').then((m) => { EPS = m; })); }
 const EPS_SECS = ['reading', 'listening'];
 const EPS_MOCK_SEC = 70 * 60;
 const EPS_NUM = ['①', '②', '③', '④'];
@@ -14643,9 +14677,10 @@ async function epsDraw() {
   if (!host) return;
   await epsNeed();
   if (epsRun && !epsRun.done) return epsDrawQ();
-  if (epsRun && epsRun.done && epsRun.kind === 'mock') return epsDrawResult();
+  if (epsRun && epsRun.done) return epsDrawResult();
   epsRun = null;
   clearInterval(epsTick);
+  const saved = epsSaved();
 
   const mockRow = (r) => {
     const best = epsBestRead('mock-' + r);
@@ -14672,6 +14707,15 @@ async function epsDraw() {
         'Practise the Employment Permit System (EPS) Korean test in the same format as the real one — daily life, the workplace, industrial safety and Korean culture. Every answer is explained in Korean and English.')}</p>` +
       `<div class="eps-facts"><span>${t('읽기 25', 'Reading 25')}</span><span>${t('듣기 25', 'Listening 25')}</span><span>${t('200점', '200 points')}</span><span>${t('70분', '70 min')}</span></div>` +
     '</div>' +
+    (saved
+      ? '<div class="eps-resume">' +
+          `<div><b>${esc(epsMockTitle(saved.key))} ${t('풀던 중', 'in progress')}</b>` +
+          `<span>${t(`${saved.picks.filter((x) => x != null).length} / ${saved.items.length} 고름 · 남은 시간`, `${saved.picks.filter((x) => x != null).length} / ${saved.items.length} answered · time left`)} ` +
+          `${String(Math.floor(saved.left / 60)).padStart(2, '0')}:${String(saved.left % 60).padStart(2, '0')}</span></div>` +
+          `<button class="pt-next" id="epsResume" type="button">${t('이어서 풀기', 'Resume')}</button>` +
+          `<button class="wb-out" id="epsDrop" type="button">${t('버리기', 'Discard')}</button>` +
+        '</div>'
+      : '') +
     `<h3 class="eps-sub">${t('모의고사', 'Mock tests')}</h3>` +
     `<div class="eps-cards">${mockRow(1)}${mockRow(2)}</div>` +
     `<h3 class="eps-sub">${t('유형별 연습', 'Practice by question type')}</h3>` +
@@ -14684,19 +14728,49 @@ async function epsDraw() {
     ` <a href="/eps-topik/">${t('문항 전체 목록 →', 'All questions →')}</a></p>`;
 }
 
+/* 모의고사를 풀던 자리를 이 브라우저에 남긴다. 50문항 · 70분짜리를 풀다가 새로고침이나
+   실수로 창을 닫으면 처음부터 다시 해야 했다. 문항은 id 로만 적고(자료가 바뀌어도 안전하게)
+   남은 시간도 같이 적는다 — 닫아 둔 동안에는 시계가 서 있다. */
+const EPS_SAVE = 'cp-eps-mock';
+function epsSave() {
+  const r = epsRun;
+  if (!r || r.kind !== 'mock' || r.done) return;
+  try {
+    localStorage.setItem(EPS_SAVE, JSON.stringify({ key: r.key, ids: r.items.map((x) => x.id), picks: r.picks,
+      plays: r.plays, ord: r.ord, left: r.left, i: r.i }));
+  } catch (e) {}
+}
+const epsSaveDrop = () => { try { localStorage.removeItem(EPS_SAVE); } catch (e) {} };
+function epsSaved() {
+  try {
+    const v = JSON.parse(localStorage.getItem(EPS_SAVE) || 'null');
+    if (!v || !Array.isArray(v.ids)) return null;
+    const items = v.ids.map((id) => EPS.EPS_ITEMS.find((x) => x.id === id));
+    return items.every(Boolean) ? { ...v, items } : null;
+  } catch (e) { return null; }
+}
+const epsMockTitle = (key) => t(`모의고사 ${key.split('-')[1]}회`, `Mock test ${key.split('-')[1]}`);
+
+/* kind: 'mock' | 'practice'. 연습은 opt.items 로 문항을 직접 줄 수도 있다(틀린 문제 다시).
+   그때는 key 가 없어서 최고 기록을 안 건드린다. */
 function epsStart(kind, opt) {
   clearInterval(epsTick);
   if (kind === 'mock') {
-    const items = epsMockItems(opt.round);
-    epsRun = { kind, key: 'mock-' + opt.round, title: t(`모의고사 ${opt.round}회`, `Mock test ${opt.round}`),
+    const items = opt.resume ? opt.resume.items : epsMockItems(opt.round);
+    const key = opt.resume ? opt.resume.key : 'mock-' + opt.round;
+    epsRun = { kind, key, title: epsMockTitle(key), src: { kind, opt: { round: Number(key.split('-')[1]) } },
                items, i: 0, picks: new Array(items.length).fill(null), plays: new Array(items.length).fill(0),
                ord: items.map(epsOrder), left: EPS_MOCK_SEC, done: false };
+    if (opt.resume) Object.assign(epsRun, { picks: opt.resume.picks, plays: opt.resume.plays, ord: opt.resume.ord,
+                                            left: opt.resume.left, i: opt.resume.i || 0 });
     epsTick = setInterval(epsClock, 1000);
-    track('EPS모의시작');
+    if (!opt.resume) track('EPS모의시작');
+    epsSave();
   } else {
-    const items = epsByType(opt.sec, opt.type);
-    const tx = EPS.EPS_TYPES[opt.sec][opt.type];
-    epsRun = { kind, key: `type-${opt.sec}-${opt.type}`, title: t(tx.ko, tx.en),
+    const items = opt.items || epsByType(opt.sec, opt.type);
+    const tx = opt.items ? null : EPS.EPS_TYPES[opt.sec][opt.type];
+    epsRun = { kind, key: opt.items ? null : `type-${opt.sec}-${opt.type}`, src: { kind, opt },
+               title: tx ? t(tx.ko, tx.en) : t('틀린 문제 다시', 'Retry the misses'),
                items, i: 0, picks: new Array(items.length).fill(null), plays: new Array(items.length).fill(0),
                ord: items.map(epsOrder), done: false };
     if (opt.at > 0) epsRun.i = opt.at;
@@ -14718,6 +14792,7 @@ function epsClock() {
   const r = epsRun;
   if (!r || r.kind !== 'mock' || r.done) { clearInterval(epsTick); return; }
   r.left = Math.max(0, r.left - 1);
+  if (r.left % 5 === 0) epsSave();
   epsClockPaint();
   if (r.left === 0) epsSubmit(true);
 }
@@ -14783,6 +14858,7 @@ function epsDrawQ(autoplay) {
           `<button class="pt-next eps-submit" id="epsSubmit" type="button">${t('제출하기', 'Submit')}</button>`
         : (reveal ? `<button class="pt-next" id="epsNext" type="button">${r.i < r.items.length - 1 ? t('다음', 'Next') + ' →' : t('결과 보기', 'See result')}</button>` : '')) +
     '</div>' +
+    `<p class="eps-keys">${t('키보드: 1~4 고르기 · ← → 옮기기 · R 다시 듣기', 'Keys: 1–4 choose · ← → move · R replay')}</p>` +
     (mock
       ? '<div class="eps-sheet">' + r.items.map((x, k) =>
           `<button type="button" class="eps-sq${r.picks[k] != null ? ' done' : ''}${k === r.i ? ' now' : ''}${k === 25 ? ' brk' : ''}" data-eps-go="${k}">${k + 1}</button>`).join('') + '</div>'
@@ -14816,6 +14892,8 @@ function epsSubmit(timeUp) {
   clearInterval(epsTick);
   tlStop();
   r.done = true;
+  r.timeUp = !!timeUp;
+  epsSaveDrop();
   const right = r.items.filter((x, k) => r.picks[k] === x.answer).length;
   const score = right * 4;
   const had = Number(epsBestRead(r.key) || 0);
@@ -14824,39 +14902,63 @@ function epsSubmit(timeUp) {
   epsDrawResult();
 }
 
+/* 연습이 끝나면 점수와 틀린 문제를 보여 준다. 문항 주소(#learn/eps/<id>)로 중간부터
+   들어왔으면 앞쪽은 안 풀었으니, 점수는 **푼 문제만** 센다. 다 풀었을 때만 최고 기록에 남긴다. */
+function epsPracticeEnd() {
+  const r = epsRun;
+  tlStop();
+  r.done = true;
+  const answered = r.picks.filter((x) => x != null).length;
+  const right = r.items.filter((x, k) => r.picks[k] === x.answer).length;
+  if (r.key && answered === r.items.length) {
+    const had = /^(\d+)\/(\d+)$/.exec(epsBestRead(r.key) || '');
+    if (!had || +had[1] / +had[2] < right / r.items.length) epsBestWrite(r.key, `${right}/${r.items.length}`);
+  }
+  epsDrawResult();
+}
+
 function epsDrawResult() {
   const r = epsRun;
   const host = $('epsBody');
+  const mock = r.kind === 'mock';
   const right = (k) => r.picks[k] === r.items[k].answer;
-  const bySec = (sec) => { const ks = r.items.map((x, k) => k).filter((k) => r.items[k].sec === sec); return [ks.filter(right).length, ks.length]; };
-  const score = r.items.filter((x, k) => right(k)).length * 4;
+  const ks = r.items.map((x, k) => k).filter((k) => mock || r.picks[k] != null);   // 연습은 푼 것만
+  const nRight = ks.filter(right).length;
+  const bySec = (sec) => { const xs = ks.filter((k) => r.items[k].sec === sec); return [xs.filter(right).length, xs.length]; };
   const [rr, rn] = bySec('reading');
   const [lr, ln] = bySec('listening');
   const types = [];
-  for (const sec of EPS_SECS) for (const type of Object.keys(EPS.EPS_TYPES[sec])) {
-    const ks = r.items.map((x, k) => k).filter((k) => r.items[k].sec === sec && r.items[k].type === type);
-    if (ks.length) types.push({ sec, type, ok: ks.filter(right).length, n: ks.length });
+  if (mock) for (const sec of EPS_SECS) for (const type of Object.keys(EPS.EPS_TYPES[sec])) {
+    const xs = ks.filter((k) => r.items[k].sec === sec && r.items[k].type === type);
+    if (xs.length) types.push({ sec, type, ok: xs.filter(right).length, n: xs.length });
   }
-  const wrongs = r.items.map((x, k) => k).filter((k) => !right(k));
+  const wrongs = ks.filter((k) => !right(k));
+  const pct = ks.length ? nRight / ks.length : 0;
   host.innerHTML =
     '<div class="claw-over">' +
-      '<div class="claw-over-emoji">🏭</div>' +
-      `<div class="claw-over-score">${score}<small> / 200</small></div>` +
-      `<p class="claw-over-line">${t(`읽기 ${rr * 4}점(${rr}/${rn}) · 듣기 ${lr * 4}점(${lr}/${ln})`,
-                                      `Reading ${rr * 4} (${rr}/${rn}) · Listening ${lr * 4} (${lr}/${ln})`)}</p>` +
-      '<div class="eps-bd">' + types.map((x) => {
+      `<div class="claw-over-emoji">${pct >= 0.9 ? '🏆' : pct >= 0.6 ? '🎉' : '🌱'}</div>` +
+      (mock
+        ? `<div class="claw-over-score">${nRight * 4}<small> / 200</small></div>` +
+          `<p class="claw-over-line">${r.timeUp ? t('⏱ 시간이 다 되어 제출했어요. ', '⏱ Time was up. ') : ''}` +
+            `${t(`읽기 ${rr * 4}점(${rr}/${rn}) · 듣기 ${lr * 4}점(${lr}/${ln})`,
+                 `Reading ${rr * 4} (${rr}/${rn}) · Listening ${lr * 4} (${lr}/${ln})`)}</p>`
+        : `<div class="claw-over-score">${nRight}<small> / ${ks.length}</small></div>` +
+          `<p class="claw-over-line">${esc(r.title)}</p>`) +
+      (types.length ? '<div class="eps-bd">' + types.map((x) => {
         const tx = EPS.EPS_TYPES[x.sec][x.type];
         return `<div class="eps-bd-row"><span>${epsSecTx(x.sec)} · ${esc(t(tx.ko, tx.en))}</span><b class="${x.ok === x.n ? 'ok' : x.ok / x.n < 0.5 ? 'low' : ''}">${x.ok}/${x.n}</b></div>`;
-      }).join('') + '</div>' +
+      }).join('') + '</div>' : '') +
       '<div class="claw-over-btns">' +
-        `<button class="pt-next" id="epsAgain" type="button">${t('다시 풀기', 'Try again')}</button>` +
+        (wrongs.length ? `<button class="pt-next" id="epsRetry" type="button">${t(`틀린 ${wrongs.length}문제 다시`, `Retry ${wrongs.length} missed`)}</button>` : '') +
+        `<button class="pt-next" id="epsAgain" type="button">${t('처음부터 다시', 'Start over')}</button>` +
         `<button class="pt-next" id="epsHome" type="button">${t('EPS 처음으로', 'EPS home')}</button>` +
       '</div>' +
     '</div>' +
     (wrongs.length
       ? `<h3 class="eps-sub">${t(`틀린 문제 ${wrongs.length}개`, `${wrongs.length} to review`)}</h3>` +
         wrongs.map((k) => `<div class="eps-q eps-review">${epsQHtml(r.items[k], k + 1, r.picks[k], true, r.ord[k])}</div>`).join('')
-      : `<p class="eps-note">${t('전부 맞혔어요! 🎉', 'All correct! 🎉')}</p>`);
+      : `<p class="eps-note" style="text-align:center">${t('전부 맞혔어요! 🎉', 'All correct! 🎉')}</p>`);
+  r.wrongs = wrongs.map((k) => r.items[k]);
   /* 다시 듣기 — 틀린 듣기 문제에도 소리가 있어야 왜 틀렸는지 안다. */
   host.querySelectorAll('.eps-review').forEach((el, j) => {
     const it = r.items[wrongs[j]];
@@ -14866,49 +14968,72 @@ function epsDrawResult() {
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
-/* 연습은 한 판이 끝나면 점수만 남기고 처음 화면으로. */
-function epsPracticeEnd() {
+function epsPick(k) {
   const r = epsRun;
-  const right = r.items.filter((x, k) => r.picks[k] === x.answer).length;
-  const had = /^(\d+)\/(\d+)$/.exec(epsBestRead(r.key) || '');
-  if (!had || +had[1] / +had[2] < right / r.items.length) epsBestWrite(r.key, `${right}/${r.items.length}`);
-  epsRun = null;
-  epsDraw();
-  const host = $('epsBody');
-  host.insertAdjacentHTML('afterbegin',
-    `<div class="eps-done">✅ ${t(`${r.title} — ${r.items.length}문제 중 ${right}개 맞혔어요.`, `${r.title} — ${right} of ${r.items.length} correct.`)}</div>`);
-  window.scrollTo({ top: 0, behavior: 'smooth' });
+  if (!r || r.done) return;
+  if (r.kind === 'practice' && r.picks[r.i] != null) return;
+  r.picks[r.i] = k;
+  tlStop();
+  epsSave();
+  epsDrawQ();
+}
+function epsMove(d) {
+  const r = epsRun;
+  if (!r || r.done) return;
+  tlStop();
+  if (d > 0 && r.i >= r.items.length - 1) { if (r.kind === 'practice' && r.picks[r.i] != null) epsPracticeEnd(); return; }
+  if (d > 0 && r.kind === 'practice' && r.picks[r.i] == null) return;   // 연습은 고른 뒤에 넘어간다
+  r.i = Math.min(r.items.length - 1, Math.max(0, r.i + d));
+  epsSave();
+  epsDrawQ(true);
+  window.scrollTo({ top: 0 });
 }
 
 $('epsBody')?.addEventListener('click', (ev) => {
   const el = ev.target;
   const mock = el.closest('[data-eps-mock]');
-  if (mock) return epsStart('mock', { round: Number(mock.dataset.epsMock) });
+  if (mock) {
+    const saved = epsSaved();
+    if (saved && !confirm(t('풀던 모의고사가 있어요. 버리고 새로 시작할까요?', 'You have a mock test in progress. Discard it and start a new one?'))) return;
+    return epsStart('mock', { round: Number(mock.dataset.epsMock) });
+  }
   const row = el.closest('[data-eps-type]');
   if (row) return epsStart('practice', { sec: row.dataset.epsSec, type: row.dataset.epsType });
+  const id0 = el.closest('button')?.id;
+  if (id0 === 'epsResume') { const v = epsSaved(); if (v) epsStart('mock', { resume: v }); return; }
+  if (id0 === 'epsDrop') {
+    if (confirm(t('풀던 모의고사를 버릴까요?', 'Discard the mock test in progress?'))) { epsSaveDrop(); epsDraw(); }
+    return;
+  }
   const r = epsRun;
   if (!r) return;
   const pick = el.closest('[data-eps-pick]');
-  if (pick && !r.done) {
-    if (r.kind === 'practice' && r.picks[r.i] != null) return;
-    r.picks[r.i] = Number(pick.dataset.epsPick);
-    tlStop();
-    epsDrawQ();
-    return;
-  }
+  if (pick) return epsPick(Number(pick.dataset.epsPick));
   const go = el.closest('[data-eps-go]');
-  if (go) { r.i = Number(go.dataset.epsGo); tlStop(); epsDrawQ(true); window.scrollTo({ top: 0 }); return; }
-  const id = el.closest('button')?.id;
+  if (go) { tlStop(); r.i = Number(go.dataset.epsGo); epsSave(); epsDrawQ(true); window.scrollTo({ top: 0 }); return; }
+  const id = id0;
   if (id === 'epsExit') {
-    if (r.kind === 'mock' && !r.done && !confirm(t('모의고사를 그만둘까요? 고른 답은 사라져요.', 'Leave the mock test? Your answers will be lost.'))) return;
-    clearInterval(epsTick); tlStop(); epsRun = null; epsDraw();
-  } else if (id === 'epsPrev') { r.i = Math.max(0, r.i - 1); tlStop(); epsDrawQ(true); window.scrollTo({ top: 0 }); }
-  else if (id === 'epsNext') {
-    tlStop();
-    if (r.i < r.items.length - 1) { r.i++; epsDrawQ(true); window.scrollTo({ top: 0 }); }
-    else if (r.kind === 'practice') epsPracticeEnd();
-  }
+    /* 모의고사는 나가도 이 브라우저에 남는다 — 처음 화면에서 이어서 풀 수 있다. */
+    clearInterval(epsTick); tlStop(); epsSave(); epsRun = null; epsDraw();
+  } else if (id === 'epsPrev') epsMove(-1);
+  else if (id === 'epsNext') epsMove(1);
   else if (id === 'epsSubmit') epsSubmit(false);
-  else if (id === 'epsAgain') { const round = Number(r.key.split('-')[1]); epsStart('mock', { round }); window.scrollTo({ top: 0 }); }
+  else if (id === 'epsRetry') { epsStart('practice', { items: r.wrongs }); }
+  else if (id === 'epsAgain') { epsStart(r.src.kind, r.src.opt); }
   else if (id === 'epsHome') { epsRun = null; epsDraw(); }
 });
+
+/* PC 에서는 키보드로: 1~4 고르기 · ← → 옮기기 · Enter 다음 · R 다시 듣기.
+   EPS 화면이 보일 때만, 글을 쓰는 칸에 있을 때는 건드리지 않는다. */
+document.addEventListener('keydown', (ev) => {
+  const r = epsRun;
+  if (!r || r.done || ev.ctrlKey || ev.metaKey || ev.altKey) return;
+  if ($('epsWrap')?.classList.contains('hidden') || $('learnView')?.classList.contains('hidden')) return;
+  if (ev.target.closest?.('input, textarea, select, [contenteditable]') || document.querySelector('dialog[open]')) return;
+  const n = '1234'.indexOf(ev.key);
+  if (n >= 0) { ev.preventDefault(); epsPick(r.ord[r.i][n]); }
+  else if (ev.key === 'ArrowRight' || ev.key === 'Enter') { ev.preventDefault(); epsMove(1); }
+  else if (ev.key === 'ArrowLeft' && r.kind === 'mock') { ev.preventDefault(); epsMove(-1); }
+  else if ((ev.key === 'r' || ev.key === 'R' || ev.key === 'ㄱ') && $('epsPlay') && !$('epsPlay').disabled) { ev.preventDefault(); $('epsPlay').click(); }
+});
+
