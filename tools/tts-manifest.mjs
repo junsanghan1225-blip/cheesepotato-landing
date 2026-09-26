@@ -145,6 +145,21 @@ if (want('listen')) {
   }
 }
 
+/* ── 3-2. EPS-TOPIK 듣기 대본 ─────────────────────────────
+   TOPIK 듣기와 같은 규칙 — 한 문항 = 한 파일. 대본은 '남: …' · '여: …' ·
+   '안내: …' 꼴의 문자열이다. 화면(app.module.js 의 epsSay)이 eps/<id>.mp3 를
+   먼저 찾고, 없으면 브라우저 목소리로 읽는다. */
+if (want('eps')) {
+  const { EPS_ITEMS } = await load('eps.js');
+  for (const q of EPS_ITEMS) {
+    if (q.sec !== 'listening' || !q.script) continue;
+    add('eps', `eps/${q.id}.mp3`, q.script.map((s) => {
+      const m = /^(남|여|안내)\s*:\s*/.exec(s);
+      return { voice: m && m[1] === '여' ? 'w' : 'm', text: m ? s.slice(m[0].length) : s, narration: !!m && m[1] === '안내' };
+    }));
+  }
+}
+
 /* ── 4. 읽기 지문 ───────────────────────────────────────────
    읽고 쓰는 갈래라 소리가 꼭 필요하진 않지만, 읽으면서 같이 들으면
    낭독 연습이 된다. 글자 수가 가장 많은 묶음이라 예산을 볼 때 여기를
