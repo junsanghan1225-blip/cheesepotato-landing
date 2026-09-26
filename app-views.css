@@ -1733,8 +1733,13 @@
   font-size:calc(var(--tw-cs, 19px) * .68); line-height:1; color:var(--ink); font-family:inherit;
 }
 .tw-cell.cur { background:color-mix(in srgb, var(--orange) 28%, transparent); border-color:var(--orange-mid); }
+.tw-cell { cursor:text; }
+/* 커서 칸 하나 크기로 그 칸 위에 올라가 있다(twRenderGrid). 글자 크기 16px 은
+   iOS 가 입력칸을 누를 때 화면을 확대하지 않게 하려는 것. */
 .tw-grid-in {
-  position:absolute; inset:8px; opacity:0; resize:none; border:0; padding:0;
+  position:absolute; top:8px; left:8px; width:var(--tw-cs, 19px); height:var(--tw-cs, 19px);
+  opacity:0; resize:none; border:0; padding:0; margin:0; overflow:hidden;
+  font-size:16px; line-height:1; min-height:0; caret-color:transparent;
 }
 .tw-blank-row { margin-top:16px; }
 .tw-blank-mark { font-size:15px; font-weight:700; color:var(--orange-deep); margin-bottom:6px; }
@@ -3896,3 +3901,60 @@
 .tw-fixes b { color:var(--ink); }
 .tw-fixes span { display:block; font-size:12.5px; color:var(--ink-3); margin-top:2px; }
 .tw-ai-next { font-size:14px; font-weight:650; color:var(--ink); margin:12px 0 6px; }
+
+/* ── EPS-TOPIK (app.module.js 맨 끝) ──────────────────────────── */
+.eps-kick { font-size:12px; font-weight:800; letter-spacing:.08em; color:var(--orange-deep); }
+.eps-h { font-size:22px; font-weight:800; color:var(--ink); margin:6px 0 10px; letter-spacing:-.02em; word-break:keep-all; }
+.eps-facts { display:flex; flex-wrap:wrap; gap:8px; margin-top:14px; }
+.eps-facts span { font-size:13px; font-weight:700; color:var(--ink-2); background:var(--surface-2); border:1px solid var(--line); border-radius:999px; padding:5px 12px; }
+.eps-sub { font-size:16px; font-weight:800; color:var(--ink); margin:28px 0 12px; }
+.eps-cards { display:grid; grid-template-columns:1fr 1fr; gap:10px; }
+.eps-card {
+  display:flex; flex-direction:column; gap:4px; text-align:left; cursor:pointer;
+  padding:16px; border:1px solid var(--line); border-radius:14px; background:var(--surface-2); color:var(--ink); font-family:inherit;
+}
+.eps-card:hover { border-color:var(--orange-mid); }
+.eps-card b { font-size:16px; }
+.eps-card span { font-size:12.5px; color:var(--ink-2); }
+.eps-card em { font-style:normal; font-size:12.5px; font-weight:700; color:var(--orange-deep); margin-top:4px; }
+.eps-group { border:1px solid var(--line); border-radius:14px; overflow:hidden; margin-bottom:12px; }
+.eps-group-h { font-size:13px; font-weight:800; color:var(--ink-2); padding:10px 14px; background:var(--surface-2); border-bottom:1px solid var(--line); }
+.eps-row {
+  display:flex; align-items:center; justify-content:space-between; gap:10px; width:100%;
+  padding:13px 14px; background:none; border:0; border-top:1px solid var(--line-2); cursor:pointer;
+  font-family:inherit; color:var(--ink); text-align:left;
+}
+.eps-group-h + .eps-row { border-top:0; }
+.eps-row:hover { background:var(--surface-2); }
+.eps-row-t { font-size:15px; font-weight:600; }
+.eps-row-n { font-size:12.5px; color:var(--ink-3); font-variant-numeric:tabular-nums; white-space:nowrap; }
+.eps-note { font-size:12.5px; color:var(--ink-3); line-height:1.7; margin-top:20px; word-break:keep-all; }
+.eps-done { margin-bottom:16px; padding:12px 14px; border-radius:12px; border:1px solid var(--green); color:var(--green); font-size:14px; font-weight:700; }
+
+.eps-top { display:flex; align-items:center; gap:10px; margin-bottom:12px; }
+.eps-title { flex:1; font-size:14px; font-weight:800; color:var(--ink); min-width:0; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+.eps-clock { font-size:14px; font-weight:800; color:var(--ink-2); font-variant-numeric:tabular-nums; }
+.eps-clock.low { color:var(--red); }
+.eps-count { font-size:12.5px; color:var(--ink-3); margin:8px 0 16px; font-variant-numeric:tabular-nums; }
+.eps-tag { font-size:12px; font-weight:700; color:var(--orange-deep); margin-bottom:12px; }
+.eps-q .tl-audio { margin-bottom:16px; }
+.eps-pic { font-size:84px; line-height:1; text-align:center; margin:6px 0 18px; }
+.eps-passage { white-space:pre-line; }
+.eps-en { color:var(--ink-3); font-size:13.5px; }
+.eps-nav { display:flex; flex-wrap:wrap; gap:10px; justify-content:center; margin-top:20px; }
+.eps-nav .eps-submit { background:var(--ink); }
+.eps-sheet { display:grid; grid-template-columns:repeat(10, 1fr); gap:5px; margin-top:22px; }
+.eps-sq {
+  aspect-ratio:1; min-width:0; border:1px solid var(--line); border-radius:7px; background:var(--surface-2);
+  font-size:12px; font-weight:700; color:var(--ink-3); cursor:pointer; font-family:inherit; padding:0;
+}
+.eps-sq.done { background:color-mix(in srgb, var(--orange) 22%, transparent); color:var(--ink); border-color:var(--orange-mid); }
+.eps-sq.now { outline:2px solid var(--ink); outline-offset:1px; }
+.eps-sq.brk { grid-column-start:1; }
+.eps-bd { max-width:420px; margin:18px auto 0; text-align:left; }
+.eps-bd-row { display:flex; justify-content:space-between; gap:10px; padding:8px 2px; border-bottom:1px solid var(--line-2); font-size:14px; color:var(--ink-2); }
+.eps-bd-row b { font-variant-numeric:tabular-nums; color:var(--ink); }
+.eps-bd-row b.ok { color:var(--green); }
+.eps-bd-row b.low { color:var(--red); }
+.claw-over-score small { font-size:18px; color:var(--ink-3); font-weight:700; }
+.eps-review { border-top:1px solid var(--line); padding-top:20px; margin-top:20px; }

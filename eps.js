@@ -1181,7 +1181,7 @@ export const EPS_ITEMS = [
       "작년에 한국에 입국했습니다."
     ],
     "answer": 2,
-    "why": "이번 주말 계획을 묻는 질문에는 미래 계획을 나타내는 3번이 맞습니다.",
+    "why": "이번 주말 계획을 묻는 질문에는 앞으로의 계획을 나타내는 「-(으)려고 해요」 대답이 맞습니다.",
     "why_en": "Option 3 answers with plans for the upcoming weekend."
   },
   {

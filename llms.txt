@@ -49,6 +49,9 @@
   [TOPIK 쓰기 연습](https://everykoreans.com/topik-writing/)
 - **「TOPIK 읽기 · 듣기 문제」** — [읽기](https://everykoreans.com/topik-reading/) ·
   [듣기](https://everykoreans.com/topik-listening/)
+- **「EPS-TOPIK(고용허가제 한국어시험) 연습 · 모의고사」** —
+  [EPS-TOPIK 연습](https://everykoreans.com/#learn/eps) (읽기 · 듣기 유형별 연습과
+  70분 모의고사 2회, 해설은 한국어 · 영어. 기출이 아닌 창작 문항)
 - **「여행 가서 쓸 한국어」** — [여행 한국어 가이드](https://everykoreans.com/travel-guide.html)
   (상황별 구문과 포켓 PDF)
 

@@ -13,14 +13,14 @@
    어느 날 갑자기 다른 코드가 실려 왔다.
    이제 vendor/ 안에 받아 두고 CSP 로 바깥을 막는다. 버전을 올릴 때는
    tools/vendor.mjs 의 PIN 을 고치고 다시 돌린다. */
-import { createClient } from './vendor/supabase-js.js?v=4573d5f5';
+import { createClient } from './vendor/supabase-js.js?v=b38ad1a3';
 // TOPIK 읽기 "문제 풀이 영상" 목록. 아주 작은 파일이라(id 목록뿐) 다른
 // 자료처럼 갈래를 열 때 지연 로딩하지 않고 그냥 처음부터 받는다.
-import { TQ_VIDEO_IDS } from './topik-video.js?v=4573d5f5';
+import { TQ_VIDEO_IDS } from './topik-video.js?v=b38ad1a3';
 // 코스 아이콘 — 이모지 대신 선 아이콘(course-icons.js 머리말)
 // 구독(Paddle) — billing.js 머리말
-import { BILLING, billingLive, isPro, proInfo, loadPro, openCheckout, waitPro } from './billing.js?v=4573d5f5';
-import { courseIcon } from './course-icons.js?v=4573d5f5';
+import { BILLING, billingLive, isPro, proInfo, loadPro, openCheckout, waitPro } from './billing.js?v=b38ad1a3';
+import { courseIcon } from './course-icons.js?v=b38ad1a3';
 // 앱(package.json)과 같은 줄기를 쓴다. 갈리면 앱에서는 읽히는 파일이
 // 여기서는 안 읽히는(또는 그 반대) 일이 생긴다.
 /* 엑셀 라이브러리는 422KB — 이 판에서 가장 무거운 조각이다. 그런데 쓰는
@@ -32,7 +32,7 @@ import { courseIcon } from './course-icons.js?v=4573d5f5';
    자국(?v=)은 tools/stamp.mjs 가 아래 줄에 알아서 붙인다 — 정적으로 쓰든
    동적으로 쓰든 같은 글자를 찾으므로 바꿔도 그대로 찍힌다. */
 let XLSX = null;
-const needXLSX = async () => (XLSX ??= await import('./vendor/xlsx.js?v=4573d5f5'));
+const needXLSX = async () => (XLSX ??= await import('./vendor/xlsx.js?v=b38ad1a3'));
 // 커리큘럼. 내용과 엔진을 갈라 두면 글을 고치다 화면을 깨지 않는다.
 // 갈래 목록(drawSections)·코스(drawCourses)·문제만 풀기(dqDraw) 를 열 때만
 // 받는다 — 배우기 갈래 목록도 안 본 사람에게 코스 71개 레슨을 다 물릴
@@ -40,9 +40,9 @@ const needXLSX = async () => (XLSX ??= await import('./vendor/xlsx.js?v=4573d5f5
 let COURSES = [], coursesP = null;
 /* 앱은 courses.js 대신 courses-lite.js 를 받는다 — 중·고급 레슨 본문을 뺀 목록이다
    (tools/build-courses-lite.mjs). 본문은 그 레슨을 열 때 upperBlocksNeed() 가 채운다. */
-const coursesNeed = () => (coursesP ??= import('./courses-lite.js?v=4573d5f5').then((m) => { COURSES = m.COURSES; }));
+const coursesNeed = () => (coursesP ??= import('./courses-lite.js?v=b38ad1a3').then((m) => { COURSES = m.COURSES; }));
 let upperP = null;
-const upperBlocksNeed = () => (upperP ??= coursesNeed().then(() => import('./courses-grammar-detailed.js?v=4573d5f5')).then((m) => {
+const upperBlocksNeed = () => (upperP ??= coursesNeed().then(() => import('./courses-grammar-detailed.js?v=b38ad1a3')).then((m) => {
   const byId = new Map(m.DETAILED_GRAMMAR_COURSES.flatMap((c) => c.lessons.map((l) => [l.id, l.blocks])));
   for (const c of COURSES) for (const l of c.lessons) if (!l.blocks && byId.has(l.id)) { l.blocks = byId.get(l.id); delete l.lazy; }
 }));
@@ -57,7 +57,7 @@ const blocksNeed = async (course) => { if (course.lessons.some((l) => !l.blocks)
    tqGloss 는 그대로 동기다 — 아직 안 왔으면 빈 뜻을 돌려주고, 부르는
    쪽은 이미 "사전에 없는 말"을 다룰 줄 안다. */
 let GLOSSARY = {}, GLOSS_LANGS = {}, glossP = null;
-const glossNeed = () => (glossP ??= import('./glossary.js?v=4573d5f5').then((m) => {
+const glossNeed = () => (glossP ??= import('./glossary.js?v=b38ad1a3').then((m) => {
   GLOSSARY = m.GLOSSARY; GLOSS_LANGS = m.GLOSS_LANGS;
   dictBuildEntries();
 }).catch((e) => {
@@ -65,12 +65,12 @@ const glossNeed = () => (glossP ??= import('./glossary.js?v=4573d5f5').then((m) 
   glossP = null;
   throw e;
 }));
-import { glossFind } from './gloss-find.js?v=4573d5f5';
+import { glossFind } from './gloss-find.js?v=b38ad1a3';
 /* 홈 화면 "오늘의 단어" 카드. 표제어·품사·짧은 뜻풀이 3개만 든
    작은 자료라(사전 전체 356KB 와 달리) 홈에 들어오면 바로 받는다 —
    빈 카드로 몇 초 떠 있는 것보다 낫다. */
 let WOTD_POOL = [], wotdP = null;
-const wotdNeed = () => (wotdP ??= import('./wotd.js?v=4573d5f5').then((m) => {
+const wotdNeed = () => (wotdP ??= import('./wotd.js?v=b38ad1a3').then((m) => {
   WOTD_POOL = m.WOTD_POOL;
 }).catch((e) => { wotdP = null; throw e; }));
 /* 그날의 낱말을 고른다. 한국 자정을 기준으로 하루씩 넘어가게
@@ -104,9 +104,9 @@ window.wotdRender = wotdRender;
    나중 화면은 그 약속(??=)을 그대로 쓴다. */
 let GRAMMAR = [], GRAMMAR_EN = {}, grammarP = null;
 const grammarNeed = () => (grammarP ??= Promise.all([
-  import('./grammar.js?v=4573d5f5'), import('./grammar-en.js?v=4573d5f5'),
+  import('./grammar.js?v=b38ad1a3'), import('./grammar-en.js?v=b38ad1a3'),
 ]).then(([a, b]) => { GRAMMAR = a.GRAMMAR; GRAMMAR_EN = b.GRAMMAR_EN; }));
-import { grammarScan } from './grammar-find.js?v=4573d5f5';
+import { grammarScan } from './grammar-find.js?v=b38ad1a3';
 // TOPIK 쓰기·듣기 문항. 읽기(topik.js·topik2.js)와 같은 tqNeedData() 로
 // 함께 받는다 — 유형 연습(topik) 갈래 하나가 세 기술을 다 쓰므로 따로
 // 가를 까닭이 없다. 값은 tqNeedData 정의부에서 채운다.
@@ -118,7 +118,7 @@ let TOPIKL_BY_EXAM = {}, TOPIKL_PICTURE_SLOTS = {};
    sbFind 를 쓰는데, 그쪽은 안 기다리고 그냥 부른다 — 답이 못 찾은
    인용 없이 나가는 것이 채팅이 멈추는 것보다 낫다. */
 let SB_CATS = [], SB_MORE = {}, SB_SEED = {}, SB_POINTS = [], sbDataP = null;
-const sbNeed = () => (sbDataP ??= import('./sentences.js?v=4573d5f5').then((m) => {
+const sbNeed = () => (sbDataP ??= import('./sentences.js?v=b38ad1a3').then((m) => {
   SB_CATS = m.SB_CATS; SB_MORE = m.SB_MORE; SB_SEED = m.SB_SEED;
   // 갈래마다 표현을 펼쳐 한 줄에 담는다 — SB_CATS 안의 점에는 갈래가 안
   // 달려 있어서(sbFind 가 표현 하나를 id 로 바로 찾으려면 이게 있어야 한다).
@@ -129,7 +129,7 @@ const sbNeed = () => (sbDataP ??= import('./sentences.js?v=4573d5f5').then((m) =
 // 숫자 게임의 읽기와 문제 만들기. 화면을 모르는 순수 계산이라 따로 뒀다.
 // 게임 목록에서 「숫자 읽기」를 시작할 때만 받는다 — XLSX 와 같은 자리다.
 let makeRound = null;
-const needNumbers = async () => (makeRound ??= (await import('./numbers.js?v=4573d5f5')).makeRound);
+const needNumbers = async () => (makeRound ??= (await import('./numbers.js?v=b38ad1a3')).makeRound);
 
 // 이 키는 공개돼도 되는 값이다. 이미 APK 안에 같은 것이 들어 있고,
 // 접근을 막는 건 키가 아니라 테이블에 걸린 RLS 다.
@@ -177,6 +177,7 @@ const TRACK_EN = {
   'AI채점시작': 'ai_grade_start', 'AI채점완료': 'ai_grade_done',
   '피드백보냄': 'feedback', '피드백봄': 'feedback_view',
   '레벨결과공유': 'level_share', '공유링크로옴': 'share_visit', '설치안내봄': 'install_prompt_view', '설치함': 'app_install', '설치안함': 'app_install_dismiss',
+  'EPS모의시작': 'eps_mock_start', 'EPS모의끝': 'eps_mock_done', 'EPS연습시작': 'eps_practice_start',
   '구독화면': 'pro_view', '구독시작': 'begin_checkout', '구독완료': 'pro_subscribe',
 };
 const track = (name) => {
@@ -206,8 +207,8 @@ let tqDataP = null;
    유형 연습(topik) 갈래 하나가 이 넷을 다 쓰므로 갈라 봤자 요청만
    늘어난다. */
 const tqNeedData = () => (tqDataP ??= Promise.all([
-  import('./topik.js?v=4573d5f5'), import('./topik2.js?v=4573d5f5'),
-  import('./topik-writing.js?v=4573d5f5'), import('./topik-listening.js?v=4573d5f5'),
+  import('./topik.js?v=b38ad1a3'), import('./topik2.js?v=b38ad1a3'),
+  import('./topik-writing.js?v=b38ad1a3'), import('./topik-listening.js?v=b38ad1a3'),
 ]).then(([a, b, c, d]) => {
   TQ_DATA.I  = { reading: a.TOPIK_READING,  blueprint: a.TOPIK_BLUEPRINT,  slots: a.TOPIK_SLOTS };
   TQ_DATA.II = { reading: b.TOPIK2_READING, blueprint: b.TOPIK2_BLUEPRINT, slots: b.TOPIK2_SLOTS };
@@ -218,11 +219,11 @@ const tqNeedData = () => (tqDataP ??= Promise.all([
 let READING = null, rdP = null;
 // 지문의 밑줄 문법 말풍선이 GRAMMAR 를 쓰므로 같이 받아 둔다.
 const rdNeed = () => (rdP ??= Promise.all([
-  import('./reading.js?v=4573d5f5'), grammarNeed(),
+  import('./reading.js?v=b38ad1a3'), grammarNeed(),
 ]).then(([m]) => { READING = m.READING; }));
 
 let CONVO = null, cvP = null;
-const cvNeed = () => (cvP ??= import('./convo.js?v=4573d5f5').then((m) => { CONVO = m.CONVO; }));
+const cvNeed = () => (cvP ??= import('./convo.js?v=b38ad1a3').then((m) => { CONVO = m.CONVO; }));
 
 /* 배우기를 열면 여섯 다 미리 불을 붙인다. 기다리지 않는다 — 갈래 목록은
    이 자료가 없어도 그려지고, 사람이 갈래를 고르는 사이에 도착한다.
@@ -655,14 +656,14 @@ let dictOpen = null;  // 지금 "더 보기"(예문·뜻풀이)를 펼쳐 둔 �
    평소엔 안 쓰는 522KB 를 첫 화면 모두에게 물릴 까닭이 없다. */
 let dictSensesP = null;
 const dictLoadSenses = () => (dictSensesP ??=
-  import('./glossary-senses.js?v=4573d5f5').then((m) => m.SENSES).catch(() => ({})));
+  import('./glossary-senses.js?v=b38ad1a3').then((m) => m.SENSES).catch(() => ({})));
 
 /* 예문. 국립국어원 자료엔 없어서 Gemini 로 새로 지은 것이다(있는 만큼만
    — docs/glossary-examples-gemini-prompt.md 참고). 뜻풀이와 같은 자리에서
    같이 받는다 — 펼치는 손짓 하나에 몰아 두는 편이 화면이 덜 복잡하다. */
 let dictExamplesP = null;
 const dictLoadExamples = () => (dictExamplesP ??=
-  import('./glossary-examples.js?v=4573d5f5').then((m) => m.EXAMPLES).catch(() => ({})));
+  import('./glossary-examples.js?v=b38ad1a3').then((m) => m.EXAMPLES).catch(() => ({})));
 
 function dictVisible() {
   const q = dictQuery.trim().toLowerCase();
@@ -2748,6 +2749,15 @@ const LEARN_SECTIONS = [
              en: 'TOPIK I and II, split into listening, reading and writing' },
     blurb: { ko: '시험을 고르고 갈래를 고릅니다. 틀리면 왜 그런지 바로 알려 줘요. (기출이 아닌 창작 문항)',
              en: 'Pick your exam, then pick a skill. A wrong answer tells you why. (Original items, not past papers.)' },
+  },
+  /* EPS-TOPIK — 한국에서 일하려는 사람의 시험. TOPIK 과 따로 세운다(맨 끝 「EPS-TOPIK」). */
+  {
+    id: 'eps', emoji: '🏭', ready: true, pane: 'epsWrap',
+    lv:    { ko: 'EPS-TOPIK',       en: 'EPS-TOPIK' },
+    title: { ko: 'EPS-TOPIK 연습',   en: 'EPS-TOPIK practice' },
+    tag:   { ko: '한국에서 일하기 위한 한국어 시험', en: 'The Korean test for working in Korea' },
+    blurb: { ko: '읽기 25 · 듣기 25 · 70분. 유형별 연습과 모의고사, 해설은 한국어와 영어로.',
+             en: 'Reading 25, listening 25, 70 minutes. Practice by type and full mock tests, explained in Korean and English.' },
   },
   {
     id: 'reading', emoji: '📝', ready: true, pane: 'rdWrap',
@@ -9295,7 +9305,7 @@ let TRAVEL_CATEGORIES = null;
 let TRAVEL_PHRASES = null;
 let TRAVEL_VOCAB = null;
 let tvP = null;
-const tvNeed = () => (tvP ??= import('./travel-data.js?v=4573d5f5').then((m) => {
+const tvNeed = () => (tvP ??= import('./travel-data.js?v=b38ad1a3').then((m) => {
   TRAVEL_CATEGORIES = m.TRAVEL_CATEGORIES;
   TRAVEL_PHRASES = m.TRAVEL_PHRASES;
   TRAVEL_VOCAB = m.TRAVEL_VOCAB;
@@ -9700,7 +9710,7 @@ async function openSection(id, quiet) {
   $('learnView').classList.add('in-sec');
   /* TOPIK 은 배우기 안의 갈래가 아니라 따로 선 화면처럼 보인다 — 「배우기」
      머리글과 「← 배우기」 단추를 내린다(CSS #learnView.topik-mode). */
-  $('learnView').classList.toggle('topik-mode', s.id === 'topik');
+  $('learnView').classList.toggle('topik-mode', s.id === 'topik' || s.id === 'eps');
   $('lsecTitle').textContent = secTx(s.title);
   /* 갈래 속은 전부 닫고 이 갈래 것만 연다. 목록을 훑어서 닫는 이유는
      갈래를 늘릴 때 여기 한 줄을 빠뜨리면 예전 갈래가 새 갈래 위에
@@ -9726,6 +9736,7 @@ async function openSection(id, quiet) {
       if (s.id === 'reading') drawReading();
       if (s.id === 'convo') drawConvo();
       if (s.id === 'travel') drawTravel();
+      if (s.id === 'eps') epsDraw();
       if (s.id === 'notes') { ntMemoDraw(); notesSync(); }
       if (s.id === 'sentence') {
         await sbNeed();
@@ -10689,16 +10700,21 @@ const TW_GRID_COLS = 20;
 function twBuildGrid(text, cursorIndex) {
   const columns = TW_GRID_COLS;
   const rows = [];
+  const idxs = [];   // 칸마다 「그 칸을 누르면 커서가 갈 자리」(textarea 의 글자 번호)
   let row = [];
+  let rowIdx = [];
   let cursorRow = 0;
   let cursorCol = 0;
   let cursorFound = false;
   let paragraphStart = true;
 
-  const flushRow = () => {
-    while (row.length < columns) row.push(null);
+  /* 줄 끝의 빈 칸은 그 줄 끝(at)을 가리킨다 — 빈 칸을 누르면 그 줄 끝에 이어 쓴다. */
+  const flushRow = (at) => {
+    while (row.length < columns) { row.push(null); rowIdx.push(at); }
     rows.push(row);
+    idxs.push(rowIdx);
     row = [];
+    rowIdx = [];
   };
   const markCursor = (rawIndex) => {
     if (!cursorFound && rawIndex === cursorIndex) {
@@ -10707,61 +10723,97 @@ function twBuildGrid(text, cursorIndex) {
       cursorFound = true;
     }
   };
-  const beginParagraphIfNeeded = () => {
+  const beginParagraphIfNeeded = (at) => {
     if (paragraphStart) {
       row.push(null);
+      rowIdx.push(at);
       paragraphStart = false;
-      if (row.length === columns) flushRow();
+      if (row.length === columns) flushRow(at);
     }
   };
 
   for (let i = 0; i < text.length; i++) {
-    beginParagraphIfNeeded();
+    beginParagraphIfNeeded(i);
     markCursor(i);
     const ch = text[i];
     if (ch === '\n') {
-      flushRow();
+      flushRow(i);
       paragraphStart = true;
       continue;
     }
     row.push(ch);
-    if (row.length === columns) flushRow();
+    rowIdx.push(i);
+    if (row.length === columns) flushRow(i + 1);
   }
-  beginParagraphIfNeeded();
+  beginParagraphIfNeeded(text.length);
   markCursor(text.length);
-  if (row.length > 0) flushRow();
+  if (row.length > 0) flushRow(text.length);
 
-  return { rows, cursorRow, cursorCol };
+  return { rows, idxs, cursorRow, cursorCol };
 }
 
+/* 원고지를 다시 그린다.
+
+   예전에는 투명한 textarea 를 원고지 전체에 덮어 두었다. 그런데 textarea 는
+   글자를 픽셀 폭으로 줄바꿈하고 원고지는 칸 수로 줄바꿈해서, 500자쯤 쓰면
+   textarea 쪽 글이 상자보다 길어져 **속에서 스크롤이 돌고 화면이 위로
+   튀었다**(실제 신고). 칸을 눌러도 엉뚱한 자리에 커서가 갔다.
+
+   이제 textarea 는 **커서가 있는 칸 하나 크기**로 줄여 그 칸 위에 올려 둔다.
+   - 브라우저가 「입력칸이 보이게」 화면을 옮길 때 커서 칸을 기준으로 옮긴다.
+   - 한글 조합(IME) 후보창도 커서 칸 옆에 뜬다.
+   - 칸을 누르면 twGridTap 이 그 칸의 글자 번호로 커서를 옮긴다. */
+let twGridMap = null;
 function twRenderGrid() {
   const box = $('twGrid');
   if (!box) return;
   const wrap = box.parentElement;
   const ta = $('twText');
   const text = ta.value;
-  const cursorIndex = document.activeElement === ta ? (ta.selectionStart ?? text.length) : -1;
-  const g = twBuildGrid(text, cursorIndex);
+  const focused = document.activeElement === ta;
+  const caret = ta.selectionStart ?? text.length;
+  const g = twBuildGrid(text, caret);
 
   const minRows = twItem && twItem.max > 400 ? 38 : 18;
   const rows = g.rows.slice();
+  const idxs = g.idxs.slice();
   const target = Math.max(minRows, rows.length + 2);
-  while (rows.length < target) rows.push(new Array(TW_GRID_COLS).fill(null));
+  while (rows.length < target) {
+    rows.push(new Array(TW_GRID_COLS).fill(null));
+    idxs.push(new Array(TW_GRID_COLS).fill(text.length));
+  }
+  twGridMap = idxs;
 
-  // 칸 크기를 상자 너비에 맞춰 계산한다 — 좁은 화면에서 가로 스크롤이
-  // 생기지 않도록(가로 스크롤이 생기면 숨은 textarea가 화면 밖 칸까지
-  // 못 덮어서 탭으로 커서를 못 옮긴다).
+  // 칸 크기를 상자 너비에 맞춰 계산한다 — 좁은 화면에서 가로 스크롤이 안 생기게.
   const avail = wrap.clientWidth - 16; // .tw-grid-wrap padding 8px 양쪽
-  if (avail > 0) wrap.style.setProperty('--tw-cs', Math.floor(avail / TW_GRID_COLS) + 'px');
+  const cs = avail > 0 ? Math.floor(avail / TW_GRID_COLS) : 19;
+  if (avail > 0) wrap.style.setProperty('--tw-cs', cs + 'px');
 
   box.innerHTML = rows.map((r, ri) =>
     '<div class="tw-grid-row">' +
       r.map((ch, ci) => {
-        const isCursor = cursorIndex >= 0 && ri === g.cursorRow && ci === g.cursorCol;
-        return `<span class="tw-cell${isCursor ? ' cur' : ''}">${ch ? esc(ch) : ''}</span>`;
+        const isCursor = focused && ri === g.cursorRow && ci === g.cursorCol;
+        return `<span class="tw-cell${isCursor ? ' cur' : ''}" data-r="${ri}" data-c="${ci}">${ch ? esc(ch) : ''}</span>`;
       }).join('') +
     '</div>'
   ).join('');
+
+  // 입력칸을 커서 칸 위로 옮긴다(padding 8px 은 .tw-grid-wrap 의 것).
+  const col = Math.min(g.cursorCol, TW_GRID_COLS - 1);
+  ta.style.top = (8 + g.cursorRow * cs) + 'px';
+  ta.style.left = (8 + col * cs) + 'px';
+}
+
+/* 칸을 누르면 그 자리에서 고친다. */
+function twGridTap(ev) {
+  const cell = ev.target.closest('.tw-cell');
+  const ta = $('twText');
+  if (!cell || !ta || !twGridMap) return;
+  const at = twGridMap[+cell.dataset.r]?.[+cell.dataset.c];
+  if (at == null) return;
+  ta.focus({ preventScroll: true });
+  ta.setSelectionRange(at, at);
+  twRenderGrid();
 }
 
 /* ── 문체 검사 ───────────────────────────────────────────────
@@ -10989,8 +11041,10 @@ function twOpen(it) {
      원고지의 깜빡이는 칸을 옮겨 줘야 하므로 twSync 와 별개로 듣는다. */
   if (long) {
     const ta = $('twText');
-    ['click', 'keyup', 'select', 'focus'].forEach((ev) => ta.addEventListener(ev, twRenderGrid));
-    ta.addEventListener('blur', twRenderGrid);
+    ['keyup', 'select', 'focus', 'blur'].forEach((ev) => ta.addEventListener(ev, twRenderGrid));
+    /* 칸을 누를 때 입력칸이 잠깐 포커스를 잃었다 돌아오며 깜빡이지 않게 막는다. */
+    $('twGrid').addEventListener('mousedown', (ev) => ev.preventDefault());
+    $('twGrid').addEventListener('click', twGridTap);
   }
 
   twSync();
@@ -13099,6 +13153,7 @@ const MY_GOAL_EXTRA = {
   topik:   { emoji: '🎯', ko: 'TOPIK 연습',    en: 'TOPIK practice',        go: (L) => (L <= 3 ? 'topik/I' : 'topik/II') },
   culture: { emoji: '📝', ko: '읽고 써 보기',  en: 'Read and write',        go: () => 'reading' },
   life:    { emoji: '💬', ko: '회화 연습',     en: 'Practice a conversation', go: () => 'convo' },
+  work:    { emoji: '🏭', ko: 'EPS-TOPIK 연습', en: 'EPS-TOPIK practice',   go: () => 'eps' },
 };
 function myAct(my) {
   const act = my.dataset.my;
@@ -13235,6 +13290,7 @@ const LT_SURVEY_GOAL = [
   { id: 'topik', ko: 'TOPIK 준비', en: 'TOPIK prep' },
   { id: 'culture', ko: '드라마·K-pop', en: 'Dramas & K-pop' },
   { id: 'life', ko: '회화·일상', en: 'Everyday conversation' },
+  { id: 'work', ko: '한국에서 일하기(EPS)', en: 'Working in Korea (EPS)' },
 ];
 const LT_SURVEY_TIME = [
   { id: '5', ko: '5분', en: '5 min' },
@@ -13284,10 +13340,10 @@ $('ltPurposeGrid').addEventListener('click', (ev) => {
    빠지고, 고쳐 올려도 브라우저가 예전 문제를 계속 들고 있게 된다. */
 let LT_CUSTOM = { overall: [], reading: [], writing: [], listening: [] };
 let ltCustomOverallP = null, ltCustomReadingP = null, ltCustomWritingP = null, ltCustomListeningP = null;
-const ltCustomOverallNeed = () => (ltCustomOverallP ??= import('./leveltest-overall.js?v=4573d5f5').then((m) => { LT_CUSTOM.overall = m.LT_CUSTOM_OVERALL; }));
-const ltCustomReadingNeed = () => (ltCustomReadingP ??= import('./leveltest-reading.js?v=4573d5f5').then((m) => { LT_CUSTOM.reading = m.LT_CUSTOM_READING; }));
-const ltCustomWritingNeed = () => (ltCustomWritingP ??= import('./leveltest-writing.js?v=4573d5f5').then((m) => { LT_CUSTOM.writing = m.LT_CUSTOM_WRITING; }));
-const ltCustomListeningNeed = () => (ltCustomListeningP ??= import('./leveltest-listening.js?v=4573d5f5').then((m) => { LT_CUSTOM.listening = m.LT_CUSTOM_LISTENING; }));
+const ltCustomOverallNeed = () => (ltCustomOverallP ??= import('./leveltest-overall.js?v=b38ad1a3').then((m) => { LT_CUSTOM.overall = m.LT_CUSTOM_OVERALL; }));
+const ltCustomReadingNeed = () => (ltCustomReadingP ??= import('./leveltest-reading.js?v=b38ad1a3').then((m) => { LT_CUSTOM.reading = m.LT_CUSTOM_READING; }));
+const ltCustomWritingNeed = () => (ltCustomWritingP ??= import('./leveltest-writing.js?v=b38ad1a3').then((m) => { LT_CUSTOM.writing = m.LT_CUSTOM_WRITING; }));
+const ltCustomListeningNeed = () => (ltCustomListeningP ??= import('./leveltest-listening.js?v=b38ad1a3').then((m) => { LT_CUSTOM.listening = m.LT_CUSTOM_LISTENING; }));
 const LT_CUSTOM_NEED = {
   overall: ltCustomOverallNeed, reading: ltCustomReadingNeed,
   writing: ltCustomWritingNeed, listening: ltCustomListeningNeed,
@@ -14505,3 +14561,328 @@ function fbMount(host, place, level = null) {
     if (ev.target.closest('.fb-send') && choice) send();
   });
 }
+
+/* ── EPS-TOPIK ─────────────────────────────────────────────────
+   고용허가제 한국어능력시험. 한국에서 일하려는 사람이 보는 시험이라 TOPIK 과
+   응시자 · 목적 · 수준이 다르다 — TOPIK 갈래 안에 끼우지 않고 따로 세운다.
+   실제 시험: 읽기 25 + 듣기 25 = 50문항 · 200점(한 문항 4점) · 70분.
+
+   두 갈래:
+   - 유형별 연습: 한 문제씩, 고르면 바로 정답 · 해설.
+   - 모의고사: 읽기 25 → 듣기 25, 시계 70분, 끝에 한꺼번에 채점.
+     문항 100개를 유형마다 번갈아 나눠 두 회차를 만든다(1회 = 짝수 번째,
+     2회 = 홀수 번째). 유형 비율이 두 회차에 똑같이 들어간다.
+
+   듣기는 **답을 고르기 전에는 글이 안 보인다.** 「듣고 그림 고르기」의 그림도
+   정답을 알려 주는 것이라 고른 뒤에 보인다. 문항은 eps.js(안티 그래비티가
+   채우고 tools/check-eps.mjs 가 검사). */
+/* var · 함수 선언으로 둔다 — 주소가 #learn/eps 이면 이 블록(파일 맨 끝)이 돌기 전에
+   openSection 이 epsDraw 를 부른다. let · const 면 그때 「초기화 전 접근」으로 죽는다. */
+var EPS = null;
+var epsP = null;
+function epsNeed() { return (epsP ??= import('./eps.js?v=b38ad1a3').then((m) => { EPS = m; })); }
+const EPS_SECS = ['reading', 'listening'];
+const EPS_MOCK_SEC = 70 * 60;
+const EPS_NUM = ['①', '②', '③', '④'];
+var epsRun = null;   // { kind:'practice'|'mock', key, title, items, i, picks, plays, left, done }
+var epsTick = 0;
+
+const epsTypeTx = (it) => EPS.EPS_TYPES[it.sec][it.type];
+const epsSecTx = (sec) => (sec === 'reading' ? t('읽기', 'Reading') : t('듣기', 'Listening'));
+function epsByType(sec, type) { return EPS.EPS_ITEMS.filter((x) => x.sec === sec && x.type === type); }
+function epsMockItems(round) {
+  const out = [];
+  for (const sec of EPS_SECS) {
+    for (const type of Object.keys(EPS.EPS_TYPES[sec])) {
+      epsByType(sec, type).forEach((x, i) => { if (i % 2 === round - 1) out.push(x); });
+    }
+  }
+  return out;
+}
+const epsBestRead = (k) => { try { return localStorage.getItem('cp-eps-' + k); } catch (e) { return null; } };
+const epsBestWrite = (k, v) => { try { localStorage.setItem('cp-eps-' + k, v); } catch (e) {} };
+
+/* '남: …' · '여: …' · '안내: …' → tlWebSpeech 가 받는 모양. 남녀 목소리를 가른다. */
+function epsLines(it) {
+  return (it.script || []).map((s) => {
+    const m = /^(남|여|안내)\s*:\s*/.exec(s);
+    return { who: m ? (m[1] === '남' ? 'm' : m[1] === '여' ? 'w' : '') : '', text: m ? s.slice(m[0].length) : s };
+  });
+}
+function epsSay(it) {
+  tlStop();
+  tlWebSpeech(epsLines(it), () => {});
+}
+
+async function epsDraw() {
+  const host = $('epsBody');
+  if (!host) return;
+  await epsNeed();
+  if (epsRun && !epsRun.done) return epsDrawQ();
+  if (epsRun && epsRun.done && epsRun.kind === 'mock') return epsDrawResult();
+  epsRun = null;
+  clearInterval(epsTick);
+
+  const mockRow = (r) => {
+    const best = epsBestRead('mock-' + r);
+    return `<button class="eps-card" type="button" data-eps-mock="${r}">` +
+      `<b>${t(`모의고사 ${r}회`, `Mock test ${r}`)}</b>` +
+      `<span>${t('읽기 25 · 듣기 25 · 70분', 'Reading 25 · Listening 25 · 70 min')}</span>` +
+      `<em>${best ? t(`최고 ${best}점`, `Best ${best}`) : t('아직 안 풂', 'Not taken')}</em></button>`;
+  };
+  const typeRow = (sec, type) => {
+    const n = epsByType(sec, type).length;
+    const best = epsBestRead(`type-${sec}-${type}`);
+    const tx = EPS.EPS_TYPES[sec][type];
+    return `<button class="eps-row" type="button" data-eps-sec="${sec}" data-eps-type="${type}">` +
+      `<span class="eps-row-t">${esc(t(tx.ko, tx.en))}</span>` +
+      `<span class="eps-row-n">${best ? esc(best) : t(`${n}문항`, `${n} Qs`)}</span></button>`;
+  };
+
+  host.innerHTML =
+    '<div class="learn-head">' +
+      '<div class="eps-kick">EPS-TOPIK</div>' +
+      `<h2 class="eps-h">${t('한국에서 일하기 위한 한국어 시험', 'The Korean test for working in Korea')}</h2>` +
+      `<p class="learn-copy">${t(
+        '고용허가제(EPS) 한국어능력시험을 실제와 같은 구성으로 연습합니다. 일상 · 직장 생활 · 산업 안전 · 한국 문화를 묻고, 틀리면 왜 그런지 한국어와 영어로 알려 줘요.',
+        'Practise the Employment Permit System (EPS) Korean test in the same format as the real one — daily life, the workplace, industrial safety and Korean culture. Every answer is explained in Korean and English.')}</p>` +
+      `<div class="eps-facts"><span>${t('읽기 25', 'Reading 25')}</span><span>${t('듣기 25', 'Listening 25')}</span><span>${t('200점', '200 points')}</span><span>${t('70분', '70 min')}</span></div>` +
+    '</div>' +
+    `<h3 class="eps-sub">${t('모의고사', 'Mock tests')}</h3>` +
+    `<div class="eps-cards">${mockRow(1)}${mockRow(2)}</div>` +
+    `<h3 class="eps-sub">${t('유형별 연습', 'Practice by question type')}</h3>` +
+    EPS_SECS.map((sec) =>
+      `<div class="eps-group"><div class="eps-group-h">${sec === 'reading' ? '📖' : '🎧'} ${epsSecTx(sec)}</div>` +
+      Object.keys(EPS.EPS_TYPES[sec]).map((type) => typeRow(sec, type)).join('') + '</div>').join('') +
+    `<p class="eps-note">${t(
+      '기출 문제가 아니라 실제 시험의 형식과 난이도를 따라 새로 만든 연습 문항입니다. 한국산업인력공단과 관계가 없습니다. 합격선은 나라와 회차마다 달라요.',
+      'Original practice questions that follow the real format and level — not past papers, and not affiliated with HRD Korea. Pass marks differ by country and round.')}</p>`;
+}
+
+function epsStart(kind, opt) {
+  clearInterval(epsTick);
+  if (kind === 'mock') {
+    const items = epsMockItems(opt.round);
+    epsRun = { kind, key: 'mock-' + opt.round, title: t(`모의고사 ${opt.round}회`, `Mock test ${opt.round}`),
+               items, i: 0, picks: new Array(items.length).fill(null), plays: new Array(items.length).fill(0),
+               ord: items.map(epsOrder), left: EPS_MOCK_SEC, done: false };
+    epsTick = setInterval(epsClock, 1000);
+    track('EPS모의시작');
+  } else {
+    const items = epsByType(opt.sec, opt.type);
+    const tx = EPS.EPS_TYPES[opt.sec][opt.type];
+    epsRun = { kind, key: `type-${opt.sec}-${opt.type}`, title: t(tx.ko, tx.en),
+               items, i: 0, picks: new Array(items.length).fill(null), plays: new Array(items.length).fill(0),
+               ord: items.map(epsOrder), done: false };
+    track('EPS연습시작');
+  }
+  epsDrawQ(true);
+  window.scrollTo({ top: 0 });
+}
+
+function epsClockPaint() {
+  const r = epsRun;
+  const el = $('epsClock');
+  if (!r || !el) return;
+  el.textContent = `⏱ ${String(Math.floor(r.left / 60)).padStart(2, '0')}:${String(r.left % 60).padStart(2, '0')}`;
+  el.classList.toggle('low', r.left <= 300);
+}
+/* 다른 화면에 가 있어도 시계는 간다 — 실제 시험도 그렇다. */
+function epsClock() {
+  const r = epsRun;
+  if (!r || r.kind !== 'mock' || r.done) { clearInterval(epsTick); return; }
+  r.left = Math.max(0, r.left - 1);
+  epsClockPaint();
+  if (r.left === 0) epsSubmit(true);
+}
+
+/* 보기 순서를 판마다 섞는다. 문항 자료의 정답 자리가 ①②③④ 차례로 돌고 있어서
+   그대로 두면 「다음은 ②」가 보인다. 「1번 창구 · 3번 창구」처럼 숫자로 시작하는
+   보기는 차례가 뜻이라 섞지 않는다. 고른 답(picks)은 원래 번호로 적는다. */
+function epsOrder(it) {
+  const ord = [0, 1, 2, 3];
+  if (it.options.every((o) => /^\d/.test(o))) return ord;
+  for (let k = 3; k > 0; k--) { const j = Math.floor(Math.random() * (k + 1)); [ord[k], ord[j]] = [ord[j], ord[k]]; }
+  return ord;
+}
+
+function epsQHtml(it, n, pick, reveal, ord) {
+  const listen = it.sec === 'listening';
+  const showPic = it.pic && (!listen || reveal);
+  const choices = ord.map((k, pos) => {
+    const o = it.options[k];
+    let cls = 'qz-choice';
+    if (reveal) { if (k === it.answer) cls += ' right'; else if (k === pick) cls += ' wrong'; }
+    else if (k === pick) cls += ' picked';
+    return `<button class="${cls}" type="button" data-eps-pick="${k}"${reveal ? ' disabled' : ''}>` +
+      `<span class="tq-num">${EPS_NUM[pos]}</span>${esc(o)}</button>`;
+  }).join('');
+  return `<div class="eps-tag">${epsSecTx(it.sec)} · ${esc(t(epsTypeTx(it).ko, epsTypeTx(it).en))}</div>` +
+    (listen ? `<div class="tl-audio"><button class="tl-play" id="epsPlay" type="button">🔊 ${t('듣기', 'Play')}</button>` +
+              `<span class="tl-plays" id="epsPlays"></span></div>` : '') +
+    (showPic ? `<div class="eps-pic" aria-hidden="true">${esc(it.pic)}</div>` : '') +
+    (it.passage ? `<div class="tq-passage eps-passage">${esc(it.passage)}</div>` : '') +
+    `<p class="tq-question">${n}. ${esc(it.question)}</p>` +
+    `<div class="tq-choices">${choices}</div>` +
+    (reveal
+      ? `<div class="tq-why">${pick === it.answer ? '✅ ' + t('정답', 'Correct') : '❌ ' + t(`정답은 ${EPS_NUM[ord.indexOf(it.answer)]}`, `Answer: ${EPS_NUM[ord.indexOf(it.answer)]}`)}` +
+        `<br>${esc(it.why)}${it.why_en ? `<br><span class="eps-en">${esc(it.why_en)}</span>` : ''}</div>` +
+        (listen ? `<div class="tl-script">${it.script.map((s) => esc(s)).join('<br>')}</div>` : '')
+      : '');
+}
+
+function epsDrawQ(autoplay) {
+  const r = epsRun;
+  const host = $('epsBody');
+  if (!r || !host) return;
+  const it = r.items[r.i];
+  const pick = r.picks[r.i];
+  const mock = r.kind === 'mock';
+  const reveal = !mock && pick != null;
+  const answered = r.picks.filter((x) => x != null).length;
+
+  host.innerHTML =
+    '<div class="eps-top">' +
+      `<button class="wb-out" id="epsExit" type="button">← ${t('나가기', 'Leave')}</button>` +
+      `<span class="eps-title">${esc(r.title)}</span>` +
+      (mock ? `<span class="eps-clock" id="epsClock"></span>` : '') +
+    '</div>' +
+    `<div class="qz-time"><span class="qz-time-fill" style="width:${Math.round(((r.i + 1) / r.items.length) * 100)}%"></span></div>` +
+    `<div class="eps-count">${r.i + 1} / ${r.items.length}${mock ? ` · ${t(`${answered}개 고름`, `${answered} answered`)}` : ''}</div>` +
+    '<div class="eps-q">' + epsQHtml(it, r.i + 1, pick, reveal, r.ord[r.i]) + '</div>' +
+    '<div class="eps-nav">' +
+      (mock ? `<button class="wb-out" id="epsPrev" type="button"${r.i === 0 ? ' disabled' : ''}>← ${t('이전', 'Prev')}</button>` : '') +
+      (mock
+        ? (r.i < r.items.length - 1 ? `<button class="pt-next" id="epsNext" type="button">${t('다음', 'Next')} →</button>` : '') +
+          `<button class="pt-next eps-submit" id="epsSubmit" type="button">${t('제출하기', 'Submit')}</button>`
+        : (reveal ? `<button class="pt-next" id="epsNext" type="button">${r.i < r.items.length - 1 ? t('다음', 'Next') + ' →' : t('결과 보기', 'See result')}</button>` : '')) +
+    '</div>' +
+    (mock
+      ? '<div class="eps-sheet">' + r.items.map((x, k) =>
+          `<button type="button" class="eps-sq${r.picks[k] != null ? ' done' : ''}${k === r.i ? ' now' : ''}${k === 25 ? ' brk' : ''}" data-eps-go="${k}">${k + 1}</button>`).join('') + '</div>'
+      : '');
+
+  if (mock) epsClockPaint();
+  if (it.sec === 'listening') {
+    const lim = mock ? 2 : 0;
+    const paint = () => { const p = $('epsPlays'); if (p) p.textContent = lim ? t(`${r.plays[r.i]} / ${lim}번 들음`, `played ${r.plays[r.i]} / ${lim}`) : ''; };
+    const play = () => {
+      if (lim && r.plays[r.i] >= lim) return;
+      r.plays[r.i]++;
+      paint();
+      $('epsPlay').disabled = !!lim && r.plays[r.i] >= lim;
+      epsSay(it);
+    };
+    paint();
+    $('epsPlay').disabled = !!lim && r.plays[r.i] >= lim;
+    $('epsPlay').addEventListener('click', play);
+    if (autoplay && !reveal && r.plays[r.i] === 0) play();
+  }
+}
+
+function epsSubmit(timeUp) {
+  const r = epsRun;
+  if (!r) return;
+  if (!timeUp) {
+    const left = r.picks.filter((x) => x == null).length;
+    if (left && !confirm(t(`아직 ${left}문항을 안 골랐어요. 제출할까요?`, `${left} question(s) unanswered. Submit anyway?`))) return;
+  }
+  clearInterval(epsTick);
+  tlStop();
+  r.done = true;
+  const right = r.items.filter((x, k) => r.picks[k] === x.answer).length;
+  const score = right * 4;
+  const had = Number(epsBestRead(r.key) || 0);
+  if (score > had) epsBestWrite(r.key, String(score));
+  track('EPS모의끝');
+  epsDrawResult();
+}
+
+function epsDrawResult() {
+  const r = epsRun;
+  const host = $('epsBody');
+  const right = (k) => r.picks[k] === r.items[k].answer;
+  const bySec = (sec) => { const ks = r.items.map((x, k) => k).filter((k) => r.items[k].sec === sec); return [ks.filter(right).length, ks.length]; };
+  const score = r.items.filter((x, k) => right(k)).length * 4;
+  const [rr, rn] = bySec('reading');
+  const [lr, ln] = bySec('listening');
+  const types = [];
+  for (const sec of EPS_SECS) for (const type of Object.keys(EPS.EPS_TYPES[sec])) {
+    const ks = r.items.map((x, k) => k).filter((k) => r.items[k].sec === sec && r.items[k].type === type);
+    if (ks.length) types.push({ sec, type, ok: ks.filter(right).length, n: ks.length });
+  }
+  const wrongs = r.items.map((x, k) => k).filter((k) => !right(k));
+  host.innerHTML =
+    '<div class="claw-over">' +
+      '<div class="claw-over-emoji">🏭</div>' +
+      `<div class="claw-over-score">${score}<small> / 200</small></div>` +
+      `<p class="claw-over-line">${t(`읽기 ${rr * 4}점(${rr}/${rn}) · 듣기 ${lr * 4}점(${lr}/${ln})`,
+                                      `Reading ${rr * 4} (${rr}/${rn}) · Listening ${lr * 4} (${lr}/${ln})`)}</p>` +
+      '<div class="eps-bd">' + types.map((x) => {
+        const tx = EPS.EPS_TYPES[x.sec][x.type];
+        return `<div class="eps-bd-row"><span>${epsSecTx(x.sec)} · ${esc(t(tx.ko, tx.en))}</span><b class="${x.ok === x.n ? 'ok' : x.ok / x.n < 0.5 ? 'low' : ''}">${x.ok}/${x.n}</b></div>`;
+      }).join('') + '</div>' +
+      '<div class="claw-over-btns">' +
+        `<button class="pt-next" id="epsAgain" type="button">${t('다시 풀기', 'Try again')}</button>` +
+        `<button class="pt-next" id="epsHome" type="button">${t('EPS 처음으로', 'EPS home')}</button>` +
+      '</div>' +
+    '</div>' +
+    (wrongs.length
+      ? `<h3 class="eps-sub">${t(`틀린 문제 ${wrongs.length}개`, `${wrongs.length} to review`)}</h3>` +
+        wrongs.map((k) => `<div class="eps-q eps-review">${epsQHtml(r.items[k], k + 1, r.picks[k], true, r.ord[k])}</div>`).join('')
+      : `<p class="eps-note">${t('전부 맞혔어요! 🎉', 'All correct! 🎉')}</p>`);
+  /* 다시 듣기 — 틀린 듣기 문제에도 소리가 있어야 왜 틀렸는지 안다. */
+  host.querySelectorAll('.eps-review').forEach((el, j) => {
+    const it = r.items[wrongs[j]];
+    const b = el.querySelector('.tl-play');
+    if (b) { b.removeAttribute('id'); b.addEventListener('click', () => epsSay(it)); }
+  });
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+/* 연습은 한 판이 끝나면 점수만 남기고 처음 화면으로. */
+function epsPracticeEnd() {
+  const r = epsRun;
+  const right = r.items.filter((x, k) => r.picks[k] === x.answer).length;
+  const had = /^(\d+)\/(\d+)$/.exec(epsBestRead(r.key) || '');
+  if (!had || +had[1] / +had[2] < right / r.items.length) epsBestWrite(r.key, `${right}/${r.items.length}`);
+  epsRun = null;
+  epsDraw();
+  const host = $('epsBody');
+  host.insertAdjacentHTML('afterbegin',
+    `<div class="eps-done">✅ ${t(`${r.title} — ${r.items.length}문제 중 ${right}개 맞혔어요.`, `${r.title} — ${right} of ${r.items.length} correct.`)}</div>`);
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+$('epsBody')?.addEventListener('click', (ev) => {
+  const el = ev.target;
+  const mock = el.closest('[data-eps-mock]');
+  if (mock) return epsStart('mock', { round: Number(mock.dataset.epsMock) });
+  const row = el.closest('[data-eps-type]');
+  if (row) return epsStart('practice', { sec: row.dataset.epsSec, type: row.dataset.epsType });
+  const r = epsRun;
+  if (!r) return;
+  const pick = el.closest('[data-eps-pick]');
+  if (pick && !r.done) {
+    if (r.kind === 'practice' && r.picks[r.i] != null) return;
+    r.picks[r.i] = Number(pick.dataset.epsPick);
+    tlStop();
+    epsDrawQ();
+    return;
+  }
+  const go = el.closest('[data-eps-go]');
+  if (go) { r.i = Number(go.dataset.epsGo); tlStop(); epsDrawQ(true); window.scrollTo({ top: 0 }); return; }
+  const id = el.closest('button')?.id;
+  if (id === 'epsExit') {
+    if (r.kind === 'mock' && !r.done && !confirm(t('모의고사를 그만둘까요? 고른 답은 사라져요.', 'Leave the mock test? Your answers will be lost.'))) return;
+    clearInterval(epsTick); tlStop(); epsRun = null; epsDraw();
+  } else if (id === 'epsPrev') { r.i = Math.max(0, r.i - 1); tlStop(); epsDrawQ(true); window.scrollTo({ top: 0 }); }
+  else if (id === 'epsNext') {
+    tlStop();
+    if (r.i < r.items.length - 1) { r.i++; epsDrawQ(true); window.scrollTo({ top: 0 }); }
+    else if (r.kind === 'practice') epsPracticeEnd();
+  }
+  else if (id === 'epsSubmit') epsSubmit(false);
+  else if (id === 'epsAgain') { const round = Number(r.key.split('-')[1]); epsStart('mock', { round }); window.scrollTo({ top: 0 }); }
+  else if (id === 'epsHome') { epsRun = null; epsDraw(); }
+});
