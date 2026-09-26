@@ -1,0 +1,68 @@
+{
+ "built": "2026-09-26",
+ "groups": [
+  {
+   "id": "eps",
+   "ko": "EPS-TOPIK 듣기",
+   "en": "EPS-TOPIK listening",
+   "note": "한 문항에 여러 줄이면 줄마다 녹음합니다. 내보낼 때 한 파일로 이어 붙여요. 「여」 줄은 여자 목소리가 좋아요 — 문제가 「여자는 무엇을…」을 묻기도 해요.",
+   "none": 50,
+   "tts": 0,
+   "mine": 0
+  },
+  {
+   "id": "listen",
+   "ko": "TOPIK 듣기",
+   "en": "TOPIK listening",
+   "note": "줄마다 녹음하면 내보낼 때 이어 붙입니다. 「여」 줄은 여자 목소리가 좋아요.",
+   "none": 45,
+   "tts": 0,
+   "mine": 0
+  },
+  {
+   "id": "course",
+   "ko": "코스 소리 · 글자 카드",
+   "en": "Course sounds",
+   "note": "레슨에서 누르면 나오는 소리예요. 또박또박, 보통 빠르기로.",
+   "none": 375,
+   "tts": 209,
+   "mine": 0
+  },
+  {
+   "id": "writing",
+   "ko": "TOPIK 쓰기 지문",
+   "en": "TOPIK writing passages",
+   "note": "안내문 · 설명문을 읽는 톤으로.",
+   "none": 32,
+   "tts": 26,
+   "mine": 0
+  },
+  {
+   "id": "dict",
+   "ko": "사전 낱말 · 예문",
+   "en": "Dictionary words & examples",
+   "note": "가나다 순이에요 — 지난번 「나태」까지 하셨어요. 낱말 다음에 그 낱말의 예문이 이어서 나옵니다.",
+   "none": 5119,
+   "tts": 3542,
+   "mine": 1317
+  },
+  {
+   "id": "example",
+   "ko": "예문 만들기 예문",
+   "en": "Grammar examples",
+   "note": "",
+   "none": 1,
+   "tts": 288,
+   "mine": 0
+  },
+  {
+   "id": "reading",
+   "ko": "읽기 지문",
+   "en": "Reading passages",
+   "note": "긴 글이라 한 번에 읽기 어려우면 끊어 읽어도 됩니다(끝부분 잡음만 조심).",
+   "none": 0,
+   "tts": 54,
+   "mine": 0
+  }
+ ]
+}

@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>치즈감자 녹음소</title>
+<link rel="icon" href="favicon-32.png">
+<!-- 치즈감자 녹음소 — 사이트에서 소리가 나는 자리를 한곳에 모아, 사람 목소리로 녹음한다.
+
+     무엇을 녹음할지는 record/*.json(node tools/record-list.mjs 가 만든다)에서 읽는다.
+     녹음은 이 브라우저(IndexedDB)에 쌓이고, 「ZIP 내보내기」를 누르면 사이트에 그대로
+     넣을 수 있는 모양(assets/audio/…mp3)으로 묶어 준다. 사용법은 docs/recording.md.
+
+     - 녹음은 곧바로 MP3 로 굽는다 — 앞뒤 빈 소리를 자르고, 크기를 고르게 맞춘다.
+     - 여러 줄짜리(듣기 대화)는 줄마다 녹음하고, 내보낼 때 한 파일로 이어 붙인다.
+     - 녹음 단추를 누르는 「딸깍」이 들어가지 않게 처음 0.08초와 끝 0.12초를 버린다. -->
+<style>
+:root {
+  --bg:#F6F3EC; --card:#FFFFFF; --soft:#F1EDE3; --line:#E4DED1; --ink:#1E1B16; --ink2:#5B554A; --ink3:#9A9385;
+  --or:#E8762C; --or-soft:#FBE7D8; --green:#1F8A5B; --green-soft:#DDF1E7; --red:#C8412F; --red-soft:#F8E0DC; --blue:#2F6FD1;
+}
+@media (prefers-color-scheme: dark) {
+  :root { --bg:#161411; --card:#211E1A; --soft:#2A2621; --line:#38332C; --ink:#F2EEE6; --ink2:#C3BCAF; --ink3:#8A8376;
+          --or:#F08A45; --or-soft:#3A2A1E; --green:#4CC08A; --green-soft:#1D3328; --red:#EE6A57; --red-soft:#3A221E; --blue:#6FA0F0; }
+}
+* { box-sizing:border-box; }
+body { margin:0; background:var(--bg); color:var(--ink); font-family:-apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif; }
+button { font-family:inherit; }
+.hd { position:sticky; top:0; z-index:5; background:color-mix(in srgb, var(--bg) 92%, transparent); backdrop-filter:blur(8px); border-bottom:1px solid var(--line); }
+.hd-in { max-width:980px; margin:0 auto; padding:10px 16px; display:flex; align-items:center; gap:12px; flex-wrap:wrap; }
+.hd h1 { font-size:17px; margin:0; font-weight:800; }
+.meter { flex:1; min-width:120px; max-width:260px; height:8px; border-radius:99px; background:var(--soft); overflow:hidden; }
+.meter i { display:block; height:100%; width:0; background:var(--green); transition:width .05s; }
+.meter.hot i { background:var(--red); }
+.btn { border:1px solid var(--line); background:var(--card); color:var(--ink); border-radius:10px; padding:9px 14px; font-size:14px; font-weight:700; cursor:pointer; }
+.btn:disabled { opacity:.45; cursor:default; }
+.btn.pri { background:var(--or); color:#fff; border-color:var(--or); }
+.btn.dark { background:var(--ink); color:var(--bg); border-color:var(--ink); }
+main { max-width:980px; margin:0 auto; padding:16px; }
+.tabs { display:flex; gap:8px; overflow-x:auto; padding-bottom:6px; }
+.tab { flex:none; border:1px solid var(--line); background:var(--card); border-radius:12px; padding:9px 12px; cursor:pointer; text-align:left; color:var(--ink); }
+.tab b { display:block; font-size:14px; }
+.tab span { font-size:12px; color:var(--ink3); }
+.tab.on { border-color:var(--or); box-shadow:0 0 0 2px var(--or-soft); }
+.note { font-size:13px; color:var(--ink2); line-height:1.6; margin:10px 2px 0; }
+.bar { display:flex; align-items:center; gap:10px; flex-wrap:wrap; margin:14px 0 10px; font-size:13px; color:var(--ink2); }
+.bar label { display:flex; align-items:center; gap:5px; cursor:pointer; }
+.bar .grow { flex:1; }
+.prog { height:6px; border-radius:99px; background:var(--soft); overflow:hidden; margin-bottom:14px; }
+.prog i { display:block; height:100%; background:var(--green); width:0; }
+.stage { background:var(--card); border:1px solid var(--line); border-radius:18px; padding:22px 20px; }
+.meta { display:flex; gap:8px; align-items:center; flex-wrap:wrap; font-size:12.5px; color:var(--ink3); margin-bottom:14px; }
+.pill { border-radius:99px; padding:3px 9px; font-weight:700; font-size:12px; }
+.pill.none { background:var(--red-soft); color:var(--red); }
+.pill.tts { background:var(--soft); color:var(--ink2); }
+.pill.done { background:var(--green-soft); color:var(--green); }
+.lines { display:flex; flex-direction:column; gap:10px; }
+.line { display:flex; gap:10px; align-items:flex-start; padding:10px 12px; border-radius:12px; border:1px solid transparent; cursor:pointer; }
+.line.cur { border-color:var(--or); background:var(--or-soft); }
+.line.rec .who::after { content:' ✓'; color:var(--green); }
+.who { flex:none; min-width:40px; font-size:13px; font-weight:800; color:var(--ink3); padding-top:6px; }
+.who.w { color:#C0508A; } .who.m { color:var(--blue); } .who.n { color:var(--ink2); }
+.say { font-size:26px; line-height:1.55; font-weight:600; word-break:keep-all; }
+.lines.one .say { font-size:34px; }
+.lines.long .say { font-size:19px; line-height:1.8; }
+.hint { margin-top:12px; font-size:13px; color:var(--or); font-weight:700; }
+.ctl { display:flex; gap:10px; align-items:center; justify-content:center; flex-wrap:wrap; margin-top:22px; }
+.rec { width:84px; height:84px; border-radius:50%; border:0; background:var(--red); color:#fff; font-size:15px; font-weight:800; cursor:pointer; box-shadow:0 6px 18px rgba(200,65,47,.35); }
+.rec.on { animation:pulse 1s infinite; background:#8E1F12; }
+@keyframes pulse { 50% { box-shadow:0 0 0 12px rgba(200,65,47,.18); } }
+.keys { text-align:center; font-size:12px; color:var(--ink3); margin-top:12px; line-height:1.7; }
+kbd { border:1px solid var(--line); border-bottom-width:2px; border-radius:5px; padding:0 5px; font-size:11.5px; background:var(--soft); }
+.msg { text-align:center; min-height:20px; margin-top:10px; font-size:13.5px; font-weight:700; }
+.msg.bad { color:var(--red); } .msg.ok { color:var(--green); }
+.list { margin-top:18px; background:var(--card); border:1px solid var(--line); border-radius:14px; max-height:340px; overflow:auto; }
+.row { display:flex; gap:10px; align-items:center; padding:8px 12px; border-top:1px solid var(--line); font-size:14px; cursor:pointer; }
+.row:first-child { border-top:0; }
+.row.cur { background:var(--or-soft); }
+.row .dot { width:9px; height:9px; border-radius:50%; flex:none; background:var(--line); }
+.row .dot.none { background:var(--red); } .row .dot.tts { background:var(--ink3); } .row .dot.done { background:var(--green); }
+.row .tx { flex:1; min-width:0; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+.row .n { color:var(--ink3); font-size:12px; font-variant-numeric:tabular-nums; }
+.gate { max-width:560px; margin:40px auto; background:var(--card); border:1px solid var(--line); border-radius:18px; padding:26px; line-height:1.7; }
+.gate h2 { margin:0 0 8px; }
+.hidden { display:none !important; }
+@media (max-width:600px) { .say { font-size:22px; } .lines.one .say { font-size:28px; } .stage { padding:18px 14px; } }
+</style>
+</head>
+<body>
+<div class="hd"><div class="hd-in">
+  <h1>🎙️ 치즈감자 녹음소</h1>
+  <div class="meter" id="meter" title="마이크 크기"><i></i></div>
+  <span id="saved" style="font-size:12.5px;color:var(--ink3)"></span>
+  <button class="btn pri" id="exportBtn" type="button" disabled>📦 ZIP 내보내기</button>
+</div></div>
+
+<div class="gate" id="gate">
+  <h2>시작하기</h2>
+  <p>마이크를 켜면 바로 녹음할 수 있어요. 녹음은 <b>이 브라우저에 저장</b>되니 창을 닫아도 남아 있어요
+     (같은 컴퓨터 · 같은 브라우저에서 이어서 하세요).</p>
+  <p style="font-size:13.5px;color:var(--ink2)">조용한 방에서, 마이크와 입 사이 한 뼘. 이어폰 마이크보다 컴퓨터에 꽂는 마이크나 폰이 낫습니다.</p>
+  <button class="btn pri" id="micBtn" type="button">🎙️ 마이크 켜기</button>
+  <p class="msg bad" id="gateMsg"></p>
+</div>
+
+<main id="app" class="hidden">
+  <div class="tabs" id="tabs"></div>
+  <p class="note" id="note"></p>
+  <div class="bar">
+    <label><input type="checkbox" id="optTodo" checked> 아직 안 한 것만</label>
+    <label><input type="checkbox" id="optTts"> 기계 목소리 있는 것도</label>
+    <label><input type="checkbox" id="optNext" checked> 멈추면 다음으로</label>
+    <label><input type="checkbox" id="optPlay"> 멈추면 들려주기</label>
+    <span class="grow"></span>
+    <span id="count"></span>
+  </div>
+  <div class="prog"><i id="progBar"></i></div>
+
+  <div class="stage" id="stage">
+    <div class="meta" id="meta"></div>
+    <div class="lines" id="lines"></div>
+    <div class="hint hidden" id="hint"></div>
+    <div class="ctl">
+      <button class="btn" id="prevBtn" type="button">← 이전</button>
+      <button class="btn" id="playBtn" type="button" disabled>▶ 들어보기</button>
+      <button class="rec" id="recBtn" type="button">녹음</button>
+      <button class="btn" id="oldBtn" type="button">🤖 지금 소리</button>
+      <button class="btn dark" id="nextBtn" type="button">다음 →</button>
+    </div>
+    <p class="msg" id="msg"></p>
+    <p class="keys"><kbd>Space</kbd> 녹음 시작/멈춤 · <kbd>Enter</kbd> 다음 · <kbd>←</kbd> 이전 · <kbd>P</kbd> 들어보기 · <kbd>Del</kbd> 이 녹음 지우기</p>
+  </div>
+  <div class="list" id="list"></div>
+</main>
+
+<script src="vendor/lame.min.js"></script>
+<script src="vendor/jszip.min.js"></script>
+<script>
+(() => {
+'use strict';
+const $ = (id) => document.getElementById(id);
+const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+const WHO = { m: '남', w: '여', n: '안내' };
+const MULTI = new Set(['eps', 'listen']);          // 누가 말하는지 보여 줄 갈래
+const LS = (k, v) => { try { if (v === undefined) return localStorage.getItem('cp-rec-' + k); localStorage.setItem('cp-rec-' + k, v); } catch (e) { return null; } };
+
+/* ── 저장소(IndexedDB) ─────────────────────────────────────
+   clips: 「out|줄번호」 → { blob(mp3), at }
+   sent : out → 내보낸 때(한 번 내보낸 것은 다음 ZIP 에 안 넣는다) */
+let db;
+const idb = () => new Promise((ok, no) => {
+  const r = indexedDB.open('cp-recorder', 1);
+  r.onupgradeneeded = () => { r.result.createObjectStore('clips'); r.result.createObjectStore('sent'); };
+  r.onsuccess = () => ok(r.result);
+  r.onerror = () => no(r.error);
+});
+const tx = (store, mode, fn) => new Promise((ok, no) => {
+  const t = db.transaction(store, mode); const s = t.objectStore(store);
+  const req = fn(s); t.oncomplete = () => ok(req?.result); t.onerror = () => no(t.error);
+});
+const clipKeys = new Set();   // 녹음이 있는 「out|줄」
+const sent = new Map();       // out → 내보낸 때
+async function loadKeys() {
+  (await tx('clips', 'readonly', (s) => s.getAllKeys())).forEach((k) => clipKeys.add(k));
+  const ks = await tx('sent', 'readonly', (s) => s.getAllKeys());
+  const vs = await tx('sent', 'readonly', (s) => s.getAll());
+  ks.forEach((k, i) => sent.set(k, vs[i]));
+}
+
+/* ── 목록 ─────────────────────────────────────────────────── */
+let index = null, group = null, items = [], view = [], pos = 0, line = 0;
+const cache = {};
+const isDone = (it) => it.parts.every((_, k) => clipKeys.has(`${it.out}|${k}`));
+const lineDone = (it, k) => clipKeys.has(`${it.out}|${k}`);
+
+async function openGroup(id, keepPos) {
+  group = index.groups.find((g) => g.id === id);
+  LS('group', id);
+  items = cache[id] ||= await (await fetch(`record/${id}.json?t=${index.built}`)).json();
+  $('note').textContent = group.note || '';
+  drawTabs();
+  filter(keepPos);
+}
+function filter(keepPos) {
+  const todo = $('optTodo').checked, tts = $('optTts').checked;
+  const cur = view[pos]?.out;
+  view = items.filter((it) => (tts || it.st === 'none') && (!todo || !isDone(it) || it.out === cur));
+  pos = Math.max(0, keepPos && cur ? view.findIndex((x) => x.out === cur) : 0);
+  if (!keepPos) {
+    const saved = LS('pos-' + group.id);
+    const at = saved ? view.findIndex((x) => x.out === saved) : -1;
+    pos = at >= 0 ? at : Math.max(0, view.findIndex((x) => !isDone(x)));
+  }
+  line = firstTodoLine(view[pos]);
+  draw();
+}
+const firstTodoLine = (it) => { if (!it) return 0; const k = it.parts.findIndex((_, j) => !lineDone(it, j)); return k < 0 ? 0 : k; };
+
+function drawTabs() {
+  $('tabs').innerHTML = index.groups.map((g) => {
+    return `<button class="tab${g.id === group?.id ? ' on' : ''}" type="button" data-g="${g.id}"><b>${esc(g.ko)}</b>` +
+      `<span>${g.none ? `없음 ${g.none.toLocaleString()}` : '없는 것 없음'}${g.tts ? ` · 기계 ${g.tts.toLocaleString()}` : ''}</span></button>`;
+  }).join('');
+}
+
+function draw() {
+  const it = view[pos];
+  const doneN = items.filter(isDone).length;
+  $('count').textContent = `${group.ko} · 녹음함 ${doneN.toLocaleString()} / ${items.length.toLocaleString()}`;
+  $('progBar').style.width = (items.length ? (doneN / items.length) * 100 : 0) + '%';
+  const pend = pendingExport().length;
+  $('exportBtn').disabled = !pend;
+  $('exportBtn').textContent = `📦 ZIP 내보내기${pend ? ` (${pend.toLocaleString()})` : ''}`;
+  $('saved').textContent = clipKeys.size ? `이 브라우저에 ${clipKeys.size.toLocaleString()}개 저장됨` : '';
+  if (!it) {
+    $('meta').innerHTML = '';
+    $('lines').innerHTML = '<div class="say" style="font-size:20px">이 묶음은 다 했어요 🎉</div>';
+    $('list').innerHTML = '';
+    ['recBtn', 'playBtn', 'oldBtn'].forEach((b) => ($(b).disabled = true));
+    return;
+  }
+  $('recBtn').disabled = false;
+  LS('pos-' + group.id, it.out);
+  const done = isDone(it);
+  $('meta').innerHTML = `<span>${pos + 1} / ${view.length}</span>` +
+    `<span class="pill ${done ? 'done' : it.st}">${done ? '녹음함' : it.st === 'none' ? '소리 없음' : '기계 목소리'}</span>` +
+    (it.kind === 'ex' ? '<span class="pill tts">예문</span>' : '') +
+    `<span style="font-family:ui-monospace,monospace">${esc(it.out)}</span>`;
+  const long = it.parts.some((p) => p.t.length > 60);
+  $('lines').className = 'lines' + (it.parts.length === 1 && !long ? ' one' : '') + (long ? ' long' : '');
+  $('lines').innerHTML = it.parts.map((p, k) =>
+    `<div class="line${k === line ? ' cur' : ''}${lineDone(it, k) ? ' rec' : ''}" data-line="${k}">` +
+      (MULTI.has(group.id) ? `<span class="who ${p.v}">${WHO[p.v] || ''}</span>` : '') +
+      `<div class="say">${esc(p.t)}</div></div>`).join('');
+  $('hint').classList.toggle('hidden', !it.hint);
+  $('hint').textContent = it.hint || '';
+  $('playBtn').disabled = !lineDone(it, line);
+  $('oldBtn').disabled = it.st !== 'tts';
+  drawList();
+}
+function drawList() {
+  const from = Math.max(0, pos - 5), to = Math.min(view.length, from + 60);
+  $('list').innerHTML = view.slice(from, to).map((it, j) => {
+    const k = from + j, d = isDone(it);
+    return `<div class="row${k === pos ? ' cur' : ''}" data-pos="${k}"><span class="dot ${d ? 'done' : it.st}"></span>` +
+      `<span class="tx">${esc(it.parts.map((p) => p.t).join(' / '))}</span><span class="n">${k + 1}</span></div>`;
+  }).join('');
+}
+
+function go(d) {
+  const it = view[pos];
+  if (d > 0 && it && line < it.parts.length - 1) { line++; return draw(); }
+  if (d < 0 && line > 0) { line--; return draw(); }
+  pos = Math.min(view.length - 1, Math.max(0, pos + d));
+  const nit = view[pos];
+  line = d < 0 && nit ? nit.parts.length - 1 : firstTodoLine(nit);
+  draw();
+}
+
+/* ── 마이크 · 녹음 ──────────────────────────────────────────
+   MediaRecorder 대신 소리 조각(PCM)을 직접 모은다 — 그래야 곧바로 자르고
+   크기를 맞추고 MP3 로 구울 수 있다(브라우저마다 다른 webm/mp4 를 풀 필요가 없다). */
+let ctx, chunks = null, recAt = 0;
+async function micOn() {
+  const stream = await navigator.mediaDevices.getUserMedia({
+    audio: { channelCount: 1, echoCancellation: false, noiseSuppression: true, autoGainControl: false },
+  });
+  ctx = new (window.AudioContext || window.webkitAudioContext)();
+  const src = ctx.createMediaStreamSource(stream);
+  const proc = ctx.createScriptProcessor(4096, 1, 1);
+  const an = ctx.createAnalyser(); an.fftSize = 1024;
+  src.connect(an); src.connect(proc); proc.connect(ctx.destination);
+  proc.onaudioprocess = (e) => { if (chunks) chunks.push(new Float32Array(e.inputBuffer.getChannelData(0))); };
+  const buf = new Float32Array(an.fftSize);
+  const m = $('meter');
+  (function loop() {
+    an.getFloatTimeDomainData(buf);
+    let pk = 0; for (const v of buf) pk = Math.max(pk, Math.abs(v));
+    m.firstElementChild.style.width = Math.min(100, pk * 140) + '%';
+    m.classList.toggle('hot', pk > 0.97);
+    requestAnimationFrame(loop);
+  })();
+}
+function recStart() {
+  if (!ctx || chunks || !view[pos]) return;
+  if (ctx.state === 'suspended') ctx.resume();
+  chunks = []; recAt = performance.now();
+  $('recBtn').classList.add('on'); $('recBtn').textContent = '멈춤';
+  say('');
+}
+async function recStop() {
+  if (!chunks) return;
+  const got = chunks; chunks = null;
+  $('recBtn').classList.remove('on'); $('recBtn').textContent = '녹음';
+  const sr = ctx.sampleRate;
+  let pcm = concat(got);
+  pcm = pcm.subarray(Math.round(sr * 0.08), Math.max(0, pcm.length - Math.round(sr * 0.12)));
+  const clean = trimNorm(pcm, sr);
+  if (!clean) return say('소리가 거의 안 잡혔어요. 마이크를 확인하고 다시 해 주세요.', 'bad');
+  if (clean.peakIn > 0.985) say('소리가 너무 커서 찢어졌을 수 있어요. 조금 떨어져서 다시 해 보세요.', 'bad');
+  const blob = await mp3(clean.pcm, sr);
+  const it = view[pos], key = `${it.out}|${line}`;
+  await tx('clips', 'readwrite', (s) => s.put({ blob, at: Date.now() }, key));
+  clipKeys.add(key);
+  sent.delete(it.out); tx('sent', 'readwrite', (s) => s.delete(it.out));
+  if (clean.peakIn <= 0.985) say(`저장했어요 · ${(clean.pcm.length / sr).toFixed(1)}초`, 'ok');
+  if ($('optPlay').checked) await play(blob);
+  if ($('optNext').checked) go(1); else draw();
+}
+function concat(list) {
+  const n = list.reduce((a, c) => a + c.length, 0), out = new Float32Array(n);
+  let o = 0; for (const c of list) { out.set(c, o); o += c.length; }
+  return out;
+}
+/* 앞뒤 빈 소리를 자르고(앞 0.15초 · 뒤 0.3초는 남긴다) 가장 큰 소리를 0.9 에 맞춘다. */
+function trimNorm(pcm, sr) {
+  const win = Math.max(1, Math.round(sr * 0.01)), n = Math.floor(pcm.length / win);
+  if (n < 5) return null;
+  const rms = new Float32Array(n); let max = 0, peakIn = 0;
+  for (let i = 0; i < n; i++) {
+    let s = 0; for (let j = i * win; j < (i + 1) * win; j++) { s += pcm[j] * pcm[j]; peakIn = Math.max(peakIn, Math.abs(pcm[j])); }
+    rms[i] = Math.sqrt(s / win); max = Math.max(max, rms[i]);
+  }
+  if (max < 0.004) return null;
+  const th = Math.max(0.003, max * 0.08);
+  let a = 0; while (a < n && rms[a] < th) a++;
+  let b = n - 1; while (b > a && rms[b] < th) b--;
+  const s = Math.max(0, a * win - Math.round(sr * 0.15)), e = Math.min(pcm.length, (b + 1) * win + Math.round(sr * 0.3));
+  const out = pcm.slice(s, e);
+  let pk = 0; for (const v of out) pk = Math.max(pk, Math.abs(v));
+  const g = Math.min(8, 0.9 / (pk || 1));
+  const fade = Math.round(sr * 0.01);
+  for (let i = 0; i < out.length; i++) {
+    let f = g;
+    if (i < fade) f *= i / fade; else if (i > out.length - fade) f *= (out.length - i) / fade;
+    out[i] *= f;
+  }
+  return { pcm: out, peakIn };
+}
+/* MP3 로 굽기 — 한 채널 64kbps. 44.1k·48k 가 아니면 48k 로 바꿔서. */
+async function mp3(pcm, sr) {
+  if (![48000, 44100, 32000, 24000, 22050, 16000].includes(sr)) {
+    const off = new OfflineAudioContext(1, Math.ceil(pcm.length * 48000 / sr), 48000);
+    const b = off.createBuffer(1, pcm.length, sr); b.copyToChannel(pcm, 0);
+    const s = off.createBufferSource(); s.buffer = b; s.connect(off.destination); s.start();
+    pcm = (await off.startRendering()).getChannelData(0); sr = 48000;
+  }
+  const enc = new lamejs.Mp3Encoder(1, sr, 64);
+  const i16 = new Int16Array(pcm.length);
+  for (let i = 0; i < pcm.length; i++) { const v = Math.max(-1, Math.min(1, pcm[i])); i16[i] = v < 0 ? v * 0x8000 : v * 0x7fff; }
+  const out = [];
+  for (let i = 0; i < i16.length; i += 1152) { const b = enc.encodeBuffer(i16.subarray(i, i + 1152)); if (b.length) out.push(new Uint8Array(b)); }
+  const e = enc.flush(); if (e.length) out.push(new Uint8Array(e));
+  return new Blob(out, { type: 'audio/mpeg' });
+}
+
+let playing = null;
+function play(src) {
+  return new Promise((ok) => {
+    if (playing) { playing.pause(); playing = null; }
+    const url = typeof src === 'string' ? src : URL.createObjectURL(src);
+    const a = new Audio(url); playing = a;
+    a.onended = a.onerror = () => { if (typeof src !== 'string') URL.revokeObjectURL(url); ok(); };
+    a.play().catch(() => ok());
+  });
+}
+async function playLine() {
+  const it = view[pos]; if (!it || !lineDone(it, line)) return;
+  const c = await tx('clips', 'readonly', (s) => s.get(`${it.out}|${line}`));
+  if (c) play(c.blob);
+}
+async function delLine() {
+  const it = view[pos]; if (!it || !lineDone(it, line)) return;
+  const key = `${it.out}|${line}`;
+  await tx('clips', 'readwrite', (s) => s.delete(key));
+  clipKeys.delete(key);
+  say('이 줄 녹음을 지웠어요.'); draw();
+}
+function say(t, cls) { $('msg').textContent = t; $('msg').className = 'msg' + (cls ? ' ' + cls : ''); }
+
+/* ── 내보내기 ───────────────────────────────────────────────
+   다 녹음했고 아직 안 내보낸 것만 묶는다. ZIP 안의 경로가 저장소 경로 그대로라
+   저장소 맨 위에서 풀면 제자리에 들어간다. 이번 묶음 목록을
+   assets/audio/recorded/<때>.txt 로 같이 넣는다 — tools/record-list.mjs 가 이것을 보고
+   「사람이 녹음함」으로 친다. */
+function pendingExport() {
+  const outs = new Map();
+  for (const k of clipKeys) { const [out, n] = k.split('|'); outs.set(out, Math.max(outs.get(out) ?? -1, +n)); }
+  const all = Object.values(cache).flat();
+  const byOut = new Map(all.map((x) => [x.out, x]));
+  return [...outs.keys()].filter((out) => {
+    if (sent.has(out)) return false;
+    const it = byOut.get(out);
+    return it ? isDone(it) : true;   // 목록을 아직 안 연 갈래는 있는 대로
+  });
+}
+async function exportZip() {
+  // 안 열어 본 갈래의 목록도 받아 둔다 — 그래야 여러 줄짜리가 덜 녹음된 채로 나가지 않는다.
+  await Promise.all(index.groups.map(async (g) => {
+    cache[g.id] ||= await (await fetch(`record/${g.id}.json?t=${index.built}`)).json();
+  }));
+  const outs = pendingExport();
+  if (!outs.length) return;
+  $('exportBtn').disabled = true;
+  const all = Object.values(cache).flat();
+  const byOut = new Map(all.map((x) => [x.out, x]));
+  const dec = ctx || new (window.AudioContext || window.webkitAudioContext)();
+  const zip = new JSZip();
+  let i = 0;
+  for (const out of outs) {
+    $('exportBtn').textContent = `묶는 중… ${++i}/${outs.length}`;
+    const n = byOut.get(out)?.parts.length ?? 1;
+    const blobs = [];
+    for (let k = 0; k < n; k++) {
+      const c = await tx('clips', 'readonly', (s) => s.get(`${out}|${k}`));
+      if (c) blobs.push(c.blob);
+    }
+    let blob = blobs[0];
+    if (blobs.length > 1) {
+      // 줄 사이 0.5초를 두고 이어 붙인 뒤 다시 굽는다
+      const bufs = [];
+      for (const b of blobs) bufs.push(await dec.decodeAudioData(await b.arrayBuffer()));
+      const sr = bufs[0].sampleRate, gap = Math.round(sr * 0.5);
+      const pcm = new Float32Array(bufs.reduce((a, b) => a + b.length, 0) + gap * (bufs.length - 1));
+      let o = 0; bufs.forEach((b, j) => { pcm.set(b.getChannelData(0), o); o += b.length + (j < bufs.length - 1 ? gap : 0); });
+      blob = await mp3(pcm, sr);
+    }
+    zip.file(`assets/audio/${out}`, blob);
+  }
+  // 초까지 — 같은 분에 두 번 내보내도 목록 파일 이름이 안 겹치게
+  const stamp = new Date().toISOString().replace(/[-:]/g, '').replace('T', '-').slice(0, 15);
+  zip.file(`assets/audio/recorded/${stamp}.txt`, outs.join('\n') + '\n');
+  const file = await zip.generateAsync({ type: 'blob' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(file); a.download = `cheesepotato-녹음-${stamp}.zip`; a.click();
+  setTimeout(() => URL.revokeObjectURL(a.href), 5000);
+  const now = Date.now();
+  await tx('sent', 'readwrite', (s) => { outs.forEach((o) => s.put(now, o)); });
+  outs.forEach((o) => sent.set(o, now));
+  say(`${outs.length.toLocaleString()}개를 ZIP 으로 내보냈어요. 올리는 법은 안내를 보세요.`, 'ok');
+  draw();
+}
+
+/* ── 이벤트 ─────────────────────────────────────────────── */
+$('micBtn').addEventListener('click', async () => {
+  try {
+    await micOn();
+    $('gate').classList.add('hidden'); $('app').classList.remove('hidden');
+    await openGroup(LS('group') && index.groups.some((g) => g.id === LS('group')) ? LS('group') : index.groups[0].id);
+  } catch (e) { $('gateMsg').textContent = '마이크를 못 켰어요 — 주소창의 🔒 에서 마이크를 허용해 주세요. (' + (e.message || e) + ')'; }
+});
+$('tabs').addEventListener('click', (e) => { const b = e.target.closest('[data-g]'); if (b && !chunks) openGroup(b.dataset.g); });
+$('lines').addEventListener('click', (e) => { const l = e.target.closest('[data-line]'); if (l && !chunks) { line = +l.dataset.line; draw(); } });
+$('list').addEventListener('click', (e) => { const r = e.target.closest('[data-pos]'); if (r && !chunks) { pos = +r.dataset.pos; line = firstTodoLine(view[pos]); draw(); } });
+$('recBtn').addEventListener('click', () => (chunks ? recStop() : recStart()));
+$('playBtn').addEventListener('click', playLine);
+$('oldBtn').addEventListener('click', () => { const it = view[pos]; if (it) play('assets/audio/' + it.out); });
+$('prevBtn').addEventListener('click', () => go(-1));
+$('nextBtn').addEventListener('click', () => go(1));
+$('exportBtn').addEventListener('click', exportZip);
+['optTodo', 'optTts'].forEach((id) => $(id).addEventListener('change', () => { LS(id, $(id).checked ? '1' : '0'); drawTabs(); filter(true); }));
+['optNext', 'optPlay'].forEach((id) => $(id).addEventListener('change', () => LS(id, $(id).checked ? '1' : '0')));
+['optTodo', 'optTts', 'optNext', 'optPlay'].forEach((id) => { const v = LS(id); if (v != null) $(id).checked = v === '1'; });
+/* 누른 단추 · 고른 칸에서 초점을 뗀다. 안 떼면 Space · Enter 가 그 단추를 한 번 더 누른다. */
+document.addEventListener('click', (e) => { const b = e.target.closest('button, input'); if (b) setTimeout(() => b.blur(), 0); });
+document.addEventListener('keydown', (e) => {
+  if ($('app').classList.contains('hidden')) return;
+  if (e.code === 'Space') { e.preventDefault(); if (!e.repeat) (chunks ? recStop() : recStart()); }
+  else if (chunks) return;
+  else if (e.key === 'Enter') { e.preventDefault(); go(1); }
+  else if (e.key === 'ArrowLeft') go(-1);
+  else if (e.key === 'ArrowRight') go(1);
+  else if (e.key === 'p' || e.key === 'P' || e.key === 'ㅔ') playLine();
+  else if (e.key === 'Delete' || e.key === 'Backspace') delLine();
+});
+window.addEventListener('beforeunload', (e) => { if (chunks) { e.preventDefault(); e.returnValue = ''; } });
+
+(async () => {
+  try {
+    db = await idb(); await loadKeys();
+    index = await (await fetch('record/index.json?t=' + Date.now())).json();
+    if (navigator.storage?.persist) navigator.storage.persist();   // 브라우저가 녹음을 함부로 안 지우게
+  } catch (e) { $('gateMsg').textContent = '목록을 못 읽었어요: ' + (e.message || e); }
+})();
+})();
+</script>
+</body>
+</html>
