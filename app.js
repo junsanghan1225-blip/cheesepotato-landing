@@ -84,6 +84,7 @@ const WAY_GO = {
   topikListening: () => goLearn('topik/listening'),
   topikReading:   () => goLearn('topik/reading'),
   topikWriting:   () => goLearn('topik/II/writing'),
+  eps:      () => goLearn('eps'),
   travel:   () => goLearn('travel'),
   sentence: () => goLearn('sentence'),
   reading:  () => goLearn('reading'),
