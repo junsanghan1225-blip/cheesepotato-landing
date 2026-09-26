@@ -29,6 +29,7 @@ import { BLOG_POSTS } from '../blog.js';
 import { TOPIK_READING, TOPIK_BLUEPRINT } from '../topik.js';
 import { TOPIK2_READING, TOPIK2_BLUEPRINT } from '../topik2.js';
 import { TOPIKL_BY_EXAM } from '../topik-listening.js';
+import { EPS_ITEMS, EPS_TYPES } from '../eps.js';
 import { GLOSSARY } from '../glossary.js';
 import { SENSES } from '../glossary-senses.js';
 import { EXAMPLES } from '../glossary-examples.js';
@@ -45,6 +46,7 @@ const OUT_TW = join(ROOT, 'topik-writing');
 const OUT_CMP = join(ROOT, 'compare');
 const OUT_TR = join(ROOT, 'topik-reading');
 const OUT_TL = join(ROOT, 'topik-listening');
+const OUT_EPS = join(ROOT, 'eps-topik');
 const OUT_DICT = join(ROOT, 'dictionary');
 
 /* 표현 290개의 영어 설명. app.module.js 는 이걸 grammar-en.js 로 읽어 화면에
@@ -939,6 +941,113 @@ function tlHub() {
     desc: clip(`TOPIK I·II 듣기 유형별 연습 문항 ${total}개. 대본과 정답, 해설까지. 기출이 아닌 창작 문항입니다.`),
     body,
     jsonld: [crumbLd([['치즈감자', '/'], ['TOPIK 듣기', '/topik-listening/']])],
+  });
+}
+
+/* ── EPS-TOPIK ──────────────────────────────────────────────
+   문항마다 제 주소. 찾는 사람은 베트남 · 네팔 · 인도네시아 등에서 「EPS TOPIK practice
+   test」「EPS-TOPIK reading question」처럼 **영어로** 찾는 일이 많다 — 제목과 설명에
+   영어를 같이 둔다. 해설도 why(한국어) · why_en(영어)을 둘 다 싣는다.
+   듣기는 TOPIK 듣기 쪽과 같은 이유로 대본을 보여 준다(여기는 문제를 소개하는 읽는 쪽이다).
+   「듣고 그림 고르기」의 그림은 정답이라 보기 아래, 해설 자리에 둔다. */
+const EPS_SEC = { reading: { ko: '읽기', en: 'Reading' }, listening: { ko: '듣기', en: 'Listening' } };
+const EPS_WHO = { '남': '👨', '여': '👩', '안내': '📢' };
+const epsNo = (it) => Number(it.id.slice(-3));
+
+function epsPage(it) {
+  const sec = EPS_SEC[it.sec];
+  const tx = EPS_TYPES[it.sec][it.type];
+  const n = epsNo(it);
+  const gistSrc = it.sec === 'listening' ? it.script[0].replace(/^(남|여|안내)\s*:\s*/, '') : (it.passage || it.question);
+  const gist = String(gistSrc).replace(/\s+/g, ' ');
+  const h1 = gist.length > 40 ? gist.slice(0, 40) + '…' : gist;
+  const title = `EPS-TOPIK ${sec.ko} 연습 ${n} — ${tx.ko} · EPS-TOPIK ${sec.en} practice | 치즈감자`;
+  const desc = clip(`EPS-TOPIK ${sec.ko} 연습 문항 · ${tx.ko}. 정답과 해설(한국어 · 영어). ` +
+    `Free EPS-TOPIK ${sec.en.toLowerCase()} practice question (${tx.en}) with the answer explained in Korean and English.`);
+
+  const script = it.sec === 'listening'
+    ? '<div class="dlg">\n  ' + it.script.map((l) => {
+        const m = /^(남|여|안내)\s*:\s*/.exec(l);
+        return `<div class="line${m && m[1] === '여' ? ' b' : ''}"><span class="who" aria-hidden="true">${m ? EPS_WHO[m[1]] : '🗣️'}</span>` +
+          `<span class="bub">${esc(m ? l.slice(m[0].length) : l)}</span></div>`;
+      }).join('\n  ') + '\n</div>'
+    : '';
+  const picTop = it.pic && it.sec === 'reading' ? `<div class="eps-pic" aria-hidden="true">${esc(it.pic)}</div>` : '';
+  const picAns = it.pic && it.sec === 'listening' ? `<div class="eps-pic" aria-hidden="true">${esc(it.pic)}</div>` : '';
+
+  const body = [
+    `<nav class="crumb"><a href="/">치즈감자</a> › <a href="/eps-topik/">EPS-TOPIK</a> › ${esc(sec.ko)}</nav>`,
+    `<span class="badge">EPS-TOPIK · ${esc(sec.ko)} · ${esc(tx.ko)}</span>`,
+    `<h1>${esc(h1)}</h1>`,
+    `<p class="sub">${esc(sec.ko)} ${n} · ${esc(tx.ko)} · ${esc(tx.en)}${it.sec === 'listening' ? ' · 대본 · Script' : ''}</p>`,
+    picTop,
+    script,
+    it.passage ? `<div class="ex">${esc(it.passage)}</div>` : '',
+    `<p class="desc"${it.sec === 'listening' ? ' style="margin-top:20px"' : ''}>${esc(it.question)}</p>`,
+    '<ul class="opts">' + it.options.map((o, i) =>
+      `<li${i === it.answer ? ' class="right"' : ''}><span class="onum">${i + 1}</span>${esc(o)}</li>`).join('') + '</ul>',
+    '<h2>해설 · Explanation</h2>',
+    picAns,
+    `<div class="ex">${esc(it.why)}${it.why_en ? `<br><span lang="en" style="color:var(--dim)">${esc(it.why_en)}</span>` : ''}</div>`,
+    `<a class="cta" href="/#learn/eps/${esc(it.id)}">이 문제 직접 풀어보기` +
+      `<span>Try it yourself — ${it.sec === 'listening' ? 'hear the audio and answer' : 'answer it'} in the app, then take a 70-minute mock test</span></a>`,
+  ].filter(Boolean).join('\n');
+
+  const jsonld = [
+    {
+      '@context': 'https://schema.org',
+      '@type': 'LearningResource',
+      '@id': `${SITE}/eps-topik/${it.id}.html`,
+      name: `EPS-TOPIK ${sec.ko} ${n} — ${tx.ko}`,
+      description: it.question,
+      inLanguage: 'ko',
+      learningResourceType: 'exercise',
+      educationalLevel: 'EPS-TOPIK (TOPIK I level)',
+      teaches: `EPS-TOPIK ${sec.en.toLowerCase()}`,
+      isAccessibleForFree: true,
+    },
+    crumbLd([['치즈감자', '/'], ['EPS-TOPIK', '/eps-topik/'], [`${sec.ko} ${n}`, null]]),
+  ];
+  return page({ url: `/eps-topik/${it.id}.html`, title, desc, body, jsonld,
+    extraCss: '.eps-pic{font-size:72px;line-height:1;text-align:center;margin:10px 0 14px}' });
+}
+
+function epsHub() {
+  const total = EPS_ITEMS.length;
+  const sections = ['reading', 'listening'].map((secId) => {
+    const items = EPS_ITEMS.filter((x) => x.sec === secId);
+    const typeSections = Object.keys(EPS_TYPES[secId]).map((type) => {
+      const list = items.filter((x) => x.type === type);
+      if (!list.length) return '';
+      const tx = EPS_TYPES[secId][type];
+      return `<div class="cat"><h3>${esc(tx.ko)}</h3><p>${esc(tx.en)}</p><ul class="pts">` +
+        list.map((it) => {
+          const g = String(it.sec === 'listening' ? it.script[0].replace(/^(남|여|안내)\s*:\s*/, '') : (it.passage || it.options[it.answer])).replace(/\s+/g, ' ');
+          return `<li><a href="/eps-topik/${esc(it.id)}.html">${epsNo(it)} · ${esc(g.length > 22 ? g.slice(0, 22) + '…' : g)}</a></li>`;
+        }).join('') + '</ul></div>';
+    }).join('\n');
+    return `<h2>${EPS_SEC[secId].ko} · ${EPS_SEC[secId].en} — ${items.length}문항</h2>${typeSections}`;
+  }).join('\n');
+
+  const body = [
+    '<nav class="crumb"><a href="/">치즈감자</a> › EPS-TOPIK</nav>',
+    `<h1>EPS-TOPIK 연습 문제 ${total}개 · 무료 모의고사</h1>`,
+    '<p class="lead">고용허가제 한국어능력시험(EPS-TOPIK)을 실제와 같은 구성으로 연습합니다. ' +
+      '읽기 25 + 듣기 25 = 50문항 · 200점 · 70분. 일상 · 직장 생활 · 산업 안전 · 한국 문화를 묻고, 문항마다 정답과 해설(한국어 · 영어)이 있습니다.<br>' +
+      '<b>기출문제가 아니라 같은 형식으로 새로 쓴 창작 문항이며, 한국산업인력공단과 관계가 없습니다.</b><br>' +
+      `Free EPS-TOPIK practice for people preparing to work in Korea: ${total} original reading and listening questions ` +
+      'with answers explained in Korean and English, plus 70-minute mock tests (25 reading + 25 listening, 200 points) you can take in the browser — no sign-up.</p>',
+    '<a class="cta" href="/#learn/eps">EPS-TOPIK 모의고사 보기<span>Take a free 70-minute mock test — reading 25, listening 25</span></a>',
+    sections,
+  ].join('\n');
+
+  return page({
+    url: '/eps-topik/', kind: 'website',
+    title: `EPS-TOPIK 연습 문제 ${total}개 · 무료 모의고사 — Free EPS-TOPIK practice test | 치즈감자`,
+    desc: clip(`EPS-TOPIK 읽기 · 듣기 연습 문제 ${total}개와 70분 모의고사. 해설은 한국어 · 영어. ` +
+      'Free EPS-TOPIK practice test with answers explained in English.'),
+    body,
+    jsonld: [crumbLd([['치즈감자', '/'], ['EPS-TOPIK', '/eps-topik/']])],
   });
 }
 
@@ -2064,7 +2173,7 @@ ${urls.map(({ loc, freq, pri }) => {
 /* ── 돌린다 ─────────────────────────────────────────────────── */
 /* 통째로 지우고 다시 쓴다. 표현을 지웠을 때 예전 쪽이 남아 검색에 걸리면
    앱에 없는 것을 보여 주게 된다. */
-for (const d of [OUT, OUT_COURSE, OUT_LESSON, OUT_TW, OUT_TR, OUT_TL, OUT_DICT, OUT_CMP, OUT_BLOG]) {
+for (const d of [OUT, OUT_COURSE, OUT_LESSON, OUT_TW, OUT_TR, OUT_TL, OUT_EPS, OUT_DICT, OUT_CMP, OUT_BLOG]) {
   rmSync(d, { recursive: true, force: true });
   mkdirSync(d, { recursive: true });
 }
@@ -2153,6 +2262,16 @@ for (const it of [...TOPIKL_BY_EXAM.I.items, ...TOPIKL_BY_EXAM.II.items]) {
 writeFileSync(join(OUT_TL, 'index.html'), tlHub());
 urls.push({ loc: '/topik-listening/', freq: 'weekly', pri: '0.9' });
 
+/* ── EPS-TOPIK ──────────────────────────────────────────────── */
+let nEps = 0;
+for (const it of EPS_ITEMS) {
+  writeFileSync(join(OUT_EPS, `${it.id}.html`), epsPage(it));
+  urls.push({ loc: `/eps-topik/${it.id}.html`, freq: 'monthly', pri: '0.7' });
+  nEps++;
+}
+writeFileSync(join(OUT_EPS, 'index.html'), epsHub());
+urls.push({ loc: '/eps-topik/', freq: 'weekly', pri: '0.9' });
+
 /* ── 사전 ───────────────────────────────────────────────────── */
 let nDict = 0;
 DICT_HEADS.forEach((entry, i) => {
@@ -2225,7 +2344,7 @@ for (const loc of ['/pricing.html', '/terms.html', '/refund.html']) urls.push({ 
    각 파일을 Search Console 사이트맵 화면에서 눌러 보면 그 갈래의 색인 수가 나온다. */
 const SITEMAP_GROUPS = [
   ['dictionary', (loc) => loc.startsWith('/dictionary/')],
-  ['topik',      (loc) => /^\/topik-(reading|writing|listening)\//.test(loc)],
+  ['topik',      (loc) => /^\/(topik-(reading|writing|listening)|eps-topik)\//.test(loc)],
   ['learn',      (loc) => /^\/(sentence|compare|course|lesson)\//.test(loc)],
   ['blog',       (loc) => loc.startsWith('/blog/')],
   ['main',       () => true],                 // 첫 쪽 · 여행 · 약관 등 나머지
@@ -2260,6 +2379,7 @@ console.log(`레슨 ${nL}쪽 → lesson/`);
 console.log(`TOPIK 쓰기 ${nW}쪽 + 목록 1쪽 → topik-writing/`);
 console.log(`TOPIK 읽기 ${nR}쪽 + 목록 1쪽 → topik-reading/`);
 console.log(`TOPIK 듣기 ${nTL}쪽 + 목록 1쪽 → topik-listening/`);
+console.log(`EPS-TOPIK ${nEps}쪽 + 목록 1쪽 → eps-topik/`);
 console.log(`사전 ${nDict}쪽 + 목록 1쪽 → dictionary/, 오늘의 단어 자료 ${DICT_HEADS.length}개 → wotd.js`);
 console.log(`블로그 ${nB}쪽 + 목록 1쪽 + 갈래 ${nBT}쪽 + rss.xml → blog/`);
 console.log(`sitemap.xml 에 주소 ${urls.length}개 — ${smFiles.map((f) => `${f.file} ${f.n}`).join(' · ')}.`);
