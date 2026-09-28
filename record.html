@@ -84,6 +84,30 @@ kbd { border:1px solid var(--line); border-bottom-width:2px; border-radius:5px; 
 .gate { max-width:560px; margin:40px auto; background:var(--card); border:1px solid var(--line); border-radius:18px; padding:26px; line-height:1.7; }
 .gate h2 { margin:0 0 8px; }
 .hidden { display:none !important; }
+.seg { display:inline-flex; background:var(--soft); border:1px solid var(--line); border-radius:10px; padding:3px; gap:2px; }
+.seg button { border:0; background:none; padding:6px 12px; border-radius:7px; font-size:13px; font-weight:700; color:var(--ink2); cursor:pointer; }
+.seg button.on { background:var(--card); color:var(--ink); box-shadow:0 1px 3px rgba(0,0,0,.08); }
+#find { border:1px solid var(--line); background:var(--card); color:var(--ink); border-radius:10px; padding:7px 11px; font-size:14px; min-width:180px; font-family:inherit; }
+.work { display:grid; grid-template-columns:minmax(0,1fr) 320px; gap:16px; align-items:start; }
+.work .list { margin-top:0; max-height:calc(100vh - 190px); position:sticky; top:78px; }
+@media (max-width:900px) { .work { grid-template-columns:1fr; } .work .list { position:static; max-height:360px; margin-top:4px; } }
+.line { align-items:center; }
+.line .lst { flex:none; width:22px; height:22px; border-radius:50%; border:2px solid var(--line); display:inline-flex; align-items:center; justify-content:center; font-size:12px; font-weight:900; color:#fff; }
+.line.rec .lst { background:var(--green); border-color:var(--green); }
+.line .say { flex:1; min-width:0; }
+.line .mini { flex:none; display:flex; gap:4px; }
+.mini button { border:1px solid var(--line); background:var(--card); color:var(--ink2); border-radius:8px; width:34px; height:34px; font-size:14px; cursor:pointer; }
+.mini button:hover { border-color:var(--or); color:var(--ink); }
+.recbar { margin-top:18px; text-align:center; padding:10px; border-radius:12px; background:var(--red-soft); color:var(--red); font-weight:800; font-size:14px; }
+.rec { width:auto; min-width:150px; height:64px; border-radius:999px; padding:0 26px; font-size:18px; }
+.rec.redo { background:var(--ink); box-shadow:none; }
+.after { display:flex; gap:8px; justify-content:center; flex-wrap:wrap; margin-top:12px; }
+.after.off { visibility:hidden; }
+.opts { display:flex; gap:14px; justify-content:center; flex-wrap:wrap; margin-top:14px; font-size:13px; color:var(--ink2); }
+.opts label { display:flex; gap:5px; align-items:center; cursor:pointer; }
+.row .rbtn { flex:none; border:1px solid var(--line); background:var(--card); border-radius:7px; width:30px; height:28px; font-size:12px; cursor:pointer; color:var(--ink2); }
+.row .rbtn:hover { border-color:var(--or); color:var(--ink); }
+.list-h { position:sticky; top:0; background:var(--card); padding:9px 12px; font-size:12px; font-weight:800; color:var(--ink3); border-bottom:1px solid var(--line); z-index:1; }
 @media (max-width:600px) { .say { font-size:22px; } .lines.one .say { font-size:28px; } .stage { padding:18px 14px; } }
 </style>
 </head>
@@ -109,30 +133,45 @@ kbd { border:1px solid var(--line); border-bottom-width:2px; border-radius:5px; 
   <div class="tabs" id="tabs"></div>
   <p class="note" id="note"></p>
   <div class="bar">
-    <label><input type="checkbox" id="optTodo" checked> 아직 안 한 것만</label>
-    <label><input type="checkbox" id="optTts"> 기계 목소리 있는 것도</label>
-    <label><input type="checkbox" id="optNext" checked> 멈추면 다음으로</label>
-    <label><input type="checkbox" id="optPlay"> 멈추면 들려주기</label>
+    <div class="seg" id="seg" role="tablist" aria-label="보기">
+      <button type="button" data-mode="all">전체</button>
+      <button type="button" data-mode="todo">안 한 것</button>
+      <button type="button" data-mode="done">한 것</button>
+    </div>
+    <input type="search" id="find" placeholder="🔎 찾기 (예: 나태)" autocomplete="off">
     <span class="grow"></span>
     <span id="count"></span>
   </div>
   <div class="prog"><i id="progBar"></i></div>
 
-  <div class="stage" id="stage">
-    <div class="meta" id="meta"></div>
-    <div class="lines" id="lines"></div>
-    <div class="hint hidden" id="hint"></div>
-    <div class="ctl">
-      <button class="btn" id="prevBtn" type="button">← 이전</button>
-      <button class="btn" id="playBtn" type="button" disabled>▶ 들어보기</button>
-      <button class="rec" id="recBtn" type="button">녹음</button>
-      <button class="btn" id="oldBtn" type="button">🤖 지금 소리</button>
-      <button class="btn dark" id="nextBtn" type="button">다음 →</button>
+  <div class="work">
+    <div class="stage" id="stage">
+      <div class="meta" id="meta"></div>
+      <div class="lines" id="lines"></div>
+      <div class="hint hidden" id="hint"></div>
+
+      <div class="recbar hidden" id="recState">● 녹음 중 <b id="recSec">0.0</b>초 — 다 읽었으면 <kbd>Space</kbd> 또는 ■ 멈춤</div>
+      <div class="ctl">
+        <button class="btn" id="prevBtn" type="button">← 이전</button>
+        <button class="rec" id="recBtn" type="button">● 녹음</button>
+        <button class="btn dark" id="nextBtn" type="button">다음 →</button>
+      </div>
+      <div class="after" id="after">
+        <button class="btn" id="playBtn" type="button">▶ 들어보기</button>
+        <button class="btn" id="redoBtn" type="button">↺ 다시 녹음</button>
+        <button class="btn" id="delBtn" type="button">🗑 지우기</button>
+        <button class="btn" id="oldBtn" type="button">🤖 지금 소리</button>
+      </div>
+      <p class="msg" id="msg"></p>
+      <div class="opts">
+        <label><input type="checkbox" id="optNext" checked> 멈추면 다음으로</label>
+        <label><input type="checkbox" id="optPlay"> 멈추면 들려주기</label>
+        <label><input type="checkbox" id="optTts"> 기계 목소리 있는 것도 보기</label>
+      </div>
+      <p class="keys"><kbd>Space</kbd> 녹음/멈춤 · <kbd>R</kbd> 다시 녹음 · <kbd>P</kbd> 들어보기 · <kbd>←</kbd><kbd>→</kbd> 이전/다음 · <kbd>Del</kbd> 지우기</p>
     </div>
-    <p class="msg" id="msg"></p>
-    <p class="keys"><kbd>Space</kbd> 녹음 시작/멈춤 · <kbd>Enter</kbd> 다음 · <kbd>←</kbd> 이전 · <kbd>P</kbd> 들어보기 · <kbd>Del</kbd> 이 녹음 지우기</p>
+    <div class="list" id="list" aria-label="녹음할 목록"></div>
   </div>
-  <div class="list" id="list"></div>
 </main>
 
 <script src="vendor/lame.min.js"></script>
@@ -183,16 +222,28 @@ async function openGroup(id, keepPos) {
   drawTabs();
   filter(keepPos);
 }
+/* 보기: 전체 · 안 한 것 · 한 것. 기본은 「전체」 — 예전에는 「안 한 것만」이 기본이라 녹음을 마친 줄이
+   목록에서 사라져서, 하나를 골라 다시 녹음할 길이 없었다. 「다음 →」은 안 한 것으로 건너뛴다. */
+let mode = LS('mode') || 'all';
+const norm = (x) => String(x).replace(/\s+/g, '');
 function filter(keepPos) {
-  const todo = $('optTodo').checked, tts = $('optTts').checked;
+  const tts = $('optTts').checked, q = norm($('find').value);
   const cur = view[pos]?.out;
-  view = items.filter((it) => (tts || it.st === 'none') && (!todo || !isDone(it) || it.out === cur));
-  pos = Math.max(0, keepPos && cur ? view.findIndex((x) => x.out === cur) : 0);
-  if (!keepPos) {
+  view = items.filter((it) => {
+    if (!tts && it.st !== 'none') return false;
+    const d = isDone(it);
+    if (mode === 'todo' && d && it.out !== cur) return false;
+    if (mode === 'done' && !d && it.out !== cur) return false;
+    if (q && !norm(it.parts.map((p) => p.t).join(' ')).includes(q) && !it.out.includes(q)) return false;
+    return true;
+  });
+  let at = keepPos && cur ? view.findIndex((x) => x.out === cur) : -1;
+  if (at < 0 && !keepPos && !q) {
     const saved = LS('pos-' + group.id);
-    const at = saved ? view.findIndex((x) => x.out === saved) : -1;
-    pos = at >= 0 ? at : Math.max(0, view.findIndex((x) => !isDone(x)));
+    at = saved ? view.findIndex((x) => x.out === saved) : -1;
+    if (at < 0) at = view.findIndex((x) => !isDone(x));
   }
+  pos = Math.max(0, at);
   line = firstTodoLine(view[pos]);
   draw();
 }
@@ -203,50 +254,78 @@ function drawTabs() {
     return `<button class="tab${g.id === group?.id ? ' on' : ''}" type="button" data-g="${g.id}"><b>${esc(g.ko)}</b>` +
       `<span>${g.none ? `없음 ${g.none.toLocaleString()}` : '없는 것 없음'}${g.tts ? ` · 기계 ${g.tts.toLocaleString()}` : ''}</span></button>`;
   }).join('');
+  $('seg').querySelectorAll('[data-mode]').forEach((b) => b.classList.toggle('on', b.dataset.mode === mode));
 }
 
 function draw() {
   const it = view[pos];
   const doneN = items.filter(isDone).length;
-  $('count').textContent = `${group.ko} · 녹음함 ${doneN.toLocaleString()} / ${items.length.toLocaleString()}`;
+  $('count').textContent = `녹음함 ${doneN.toLocaleString()} / ${items.length.toLocaleString()}`;
   $('progBar').style.width = (items.length ? (doneN / items.length) * 100 : 0) + '%';
   const pend = pendingExport().length;
   $('exportBtn').disabled = !pend;
   $('exportBtn').textContent = `📦 ZIP 내보내기${pend ? ` (${pend.toLocaleString()})` : ''}`;
   $('saved').textContent = clipKeys.size ? `이 브라우저에 ${clipKeys.size.toLocaleString()}개 저장됨` : '';
+  const recOn = !!chunks;
+  $('recState').classList.toggle('hidden', !recOn);
   if (!it) {
     $('meta').innerHTML = '';
-    $('lines').innerHTML = '<div class="say" style="font-size:20px">이 묶음은 다 했어요 🎉</div>';
-    $('list').innerHTML = '';
-    ['recBtn', 'playBtn', 'oldBtn'].forEach((b) => ($(b).disabled = true));
+    $('lines').innerHTML = `<div class="say" style="font-size:20px">${$('find').value ? '찾는 것이 없어요.' : mode === 'done' ? '아직 녹음한 것이 없어요.' : '이 묶음은 다 했어요 🎉'}</div>`;
+    $('hint').classList.add('hidden');
+    drawList();
+    ['recBtn', 'playBtn', 'redoBtn', 'delBtn', 'oldBtn'].forEach((b) => ($(b).disabled = true));
+    $('after').classList.add('off');
     return;
   }
-  $('recBtn').disabled = false;
   LS('pos-' + group.id, it.out);
-  const done = isDone(it);
+  const done = isDone(it), cur = lineDone(it, line);
   $('meta').innerHTML = `<span>${pos + 1} / ${view.length}</span>` +
-    `<span class="pill ${done ? 'done' : it.st}">${done ? '녹음함' : it.st === 'none' ? '소리 없음' : '기계 목소리'}</span>` +
+    `<span class="pill ${done ? 'done' : it.st}">${done ? '✓ 녹음함' : it.st === 'none' ? '소리 없음' : '기계 목소리'}</span>` +
     (it.kind === 'ex' ? '<span class="pill tts">예문</span>' : '') +
-    `<span style="font-family:ui-monospace,monospace">${esc(it.out)}</span>`;
+    (it.parts.length > 1 ? `<span>줄 ${line + 1} / ${it.parts.length}</span>` : '');
   const long = it.parts.some((p) => p.t.length > 60);
-  $('lines').className = 'lines' + (it.parts.length === 1 && !long ? ' one' : '') + (long ? ' long' : '');
-  $('lines').innerHTML = it.parts.map((p, k) =>
-    `<div class="line${k === line ? ' cur' : ''}${lineDone(it, k) ? ' rec' : ''}" data-line="${k}">` +
+  const multi = it.parts.length > 1;
+  $('lines').className = 'lines' + (!multi && !long ? ' one' : '') + (long ? ' long' : '');
+  $('lines').innerHTML = it.parts.map((p, k) => {
+    const d = lineDone(it, k);
+    return `<div class="line${k === line ? ' cur' : ''}${d ? ' rec' : ''}" data-line="${k}">` +
+      (multi ? `<span class="lst">${d ? '✓' : ''}</span>` : '') +
       (MULTI.has(group.id) ? `<span class="who ${p.v}">${WHO[p.v] || ''}</span>` : '') +
-      `<div class="say">${esc(p.t)}</div></div>`).join('');
+      `<div class="say">${esc(p.t)}</div>` +
+      (multi ? `<span class="mini">${d ? `<button type="button" data-act="play" data-line="${k}" title="들어보기">▶</button>` : ''}` +
+               `<button type="button" data-act="redo" data-line="${k}" title="${d ? '다시 녹음' : '녹음'}">${d ? '↺' : '●'}</button></span>` : '') +
+    '</div>';
+  }).join('');
   $('hint').classList.toggle('hidden', !it.hint);
   $('hint').textContent = it.hint || '';
-  $('playBtn').disabled = !lineDone(it, line);
-  $('oldBtn').disabled = it.st !== 'tts';
+  $('recBtn').disabled = false;
+  $('recBtn').textContent = recOn ? '■ 멈춤' : cur ? '↺ 다시 녹음' : '● 녹음';
+  $('recBtn').classList.toggle('redo', !recOn && cur);
+  $('after').classList.toggle('off', !cur && it.st !== 'tts');
+  $('playBtn').disabled = !cur; $('redoBtn').disabled = !cur; $('delBtn').disabled = !cur;
+  $('playBtn').classList.toggle('hidden', !cur); $('redoBtn').classList.toggle('hidden', !cur); $('delBtn').classList.toggle('hidden', !cur);
+  $('oldBtn').classList.toggle('hidden', it.st !== 'tts'); $('oldBtn').disabled = it.st !== 'tts';
   drawList();
 }
+/* 목록은 전부 그리되(수천 줄이면 지금 자리 앞뒤만), 줄마다 ▶ · ↺ 단추를 단다 — 하나를 골라
+   바로 듣고 바로 다시 녹음한다. 지금 줄이 목록 안에서 보이게 스크롤을 맞춘다. */
 function drawList() {
-  const from = Math.max(0, pos - 5), to = Math.min(view.length, from + 60);
-  $('list').innerHTML = view.slice(from, to).map((it, j) => {
-    const k = from + j, d = isDone(it);
-    return `<div class="row${k === pos ? ' cur' : ''}" data-pos="${k}"><span class="dot ${d ? 'done' : it.st}"></span>` +
-      `<span class="tx">${esc(it.parts.map((p) => p.t).join(' / '))}</span><span class="n">${k + 1}</span></div>`;
-  }).join('');
+  const N = view.length, span = 400;
+  const from = N > span ? Math.max(0, Math.min(pos - 100, N - span)) : 0, to = Math.min(N, from + span);
+  $('list').innerHTML = `<div class="list-h">${mode === 'all' ? '전체' : mode === 'todo' ? '안 한 것' : '한 것'} ${N.toLocaleString()}개` +
+    (from > 0 || to < N ? ` · ${from + 1}~${to}번 보는 중` : '') + '</div>' +
+    view.slice(from, to).map((it, j) => {
+      const k = from + j, d = isDone(it);
+      return `<div class="row${k === pos ? ' cur' : ''}" data-pos="${k}"><span class="dot ${d ? 'done' : it.st}"></span>` +
+        `<span class="tx">${esc(it.parts.map((p) => p.t).join(' / '))}</span>` +
+        (d ? `<button type="button" class="rbtn" data-act="play" data-pos="${k}" title="들어보기">▶</button>` : '') +
+        `<button type="button" class="rbtn" data-act="redo" data-pos="${k}" title="${d ? '다시 녹음' : '녹음'}">${d ? '↺' : '●'}</button></div>`;
+    }).join('');
+  const row = $('list').querySelector('.row.cur');
+  if (row) {
+    const L = $('list');
+    if (row.offsetTop < L.scrollTop + 40 || row.offsetTop > L.scrollTop + L.clientHeight - 40) L.scrollTop = row.offsetTop - L.clientHeight / 3;
+  }
 }
 
 function go(d) {
@@ -258,11 +337,20 @@ function go(d) {
   line = d < 0 && nit ? nit.parts.length - 1 : firstTodoLine(nit);
   draw();
 }
+/* 「다음 →」· 녹음 뒤 저절로 넘어가기: 지금 문항의 안 한 줄 → 다음 안 한 문항. 다 했으면 한 칸 뒤로. */
+function goNextTodo() {
+  const it = view[pos];
+  if (it) { const k = it.parts.findIndex((_, j) => j > line && !lineDone(it, j)); if (k >= 0) { line = k; return draw(); } }
+  const n = view.findIndex((x, j) => j > pos && !isDone(x));
+  if (n >= 0) { pos = n; line = firstTodoLine(view[pos]); return draw(); }
+  go(1);
+}
+function select(p, l) { pos = p; line = l ?? firstTodoLine(view[pos]); draw(); }
 
 /* ── 마이크 · 녹음 ──────────────────────────────────────────
    MediaRecorder 대신 소리 조각(PCM)을 직접 모은다 — 그래야 곧바로 자르고
    크기를 맞추고 MP3 로 구울 수 있다(브라우저마다 다른 webm/mp4 를 풀 필요가 없다). */
-let ctx, chunks = null, recAt = 0;
+let ctx, chunks = null, recAt = 0, recTimer = 0;
 async function micOn() {
   const stream = await navigator.mediaDevices.getUserMedia({
     audio: { channelCount: 1, echoCancellation: false, noiseSuppression: true, autoGainControl: false },
@@ -287,18 +375,23 @@ function recStart() {
   if (!ctx || chunks || !view[pos]) return;
   if (ctx.state === 'suspended') ctx.resume();
   chunks = []; recAt = performance.now();
-  $('recBtn').classList.add('on'); $('recBtn').textContent = '멈춤';
+  $('recBtn').classList.add('on'); $('recBtn').textContent = '■ 멈춤';
+  $('recBtn').classList.remove('redo');
+  $('recState').classList.remove('hidden');
+  recTimer = setInterval(() => { $('recSec').textContent = ((performance.now() - recAt) / 1000).toFixed(1); }, 100);
   say('');
 }
 async function recStop() {
   if (!chunks) return;
   const got = chunks; chunks = null;
-  $('recBtn').classList.remove('on'); $('recBtn').textContent = '녹음';
+  clearInterval(recTimer);
+  $('recBtn').classList.remove('on');
+  $('recState').classList.add('hidden');
   const sr = ctx.sampleRate;
   let pcm = concat(got);
   pcm = pcm.subarray(Math.round(sr * 0.08), Math.max(0, pcm.length - Math.round(sr * 0.12)));
   const clean = trimNorm(pcm, sr);
-  if (!clean) return say('소리가 거의 안 잡혔어요. 마이크를 확인하고 다시 해 주세요.', 'bad');
+  if (!clean) { draw(); return say('소리가 거의 안 잡혔어요. 마이크를 확인하고 다시 해 주세요.', 'bad'); }
   if (clean.peakIn > 0.985) say('소리가 너무 커서 찢어졌을 수 있어요. 조금 떨어져서 다시 해 보세요.', 'bad');
   const blob = await mp3(clean.pcm, sr);
   const it = view[pos], key = `${it.out}|${line}`;
@@ -307,7 +400,7 @@ async function recStop() {
   sent.delete(it.out); tx('sent', 'readwrite', (s) => s.delete(it.out));
   if (clean.peakIn <= 0.985) say(`저장했어요 · ${(clean.pcm.length / sr).toFixed(1)}초`, 'ok');
   if ($('optPlay').checked) await play(blob);
-  if ($('optNext').checked) go(1); else draw();
+  if ($('optNext').checked) goNextTodo(); else draw();
 }
 function concat(list) {
   const n = list.reduce((a, c) => a + c.length, 0), out = new Float32Array(n);
@@ -366,13 +459,19 @@ function play(src) {
     a.play().catch(() => ok());
   });
 }
-async function playLine() {
-  const it = view[pos]; if (!it || !lineDone(it, line)) return;
-  const c = await tx('clips', 'readonly', (s) => s.get(`${it.out}|${line}`));
-  if (c) play(c.blob);
+async function playLine(p = pos, l = line) {
+  const it = view[p]; if (!it) return;
+  /* 문항 전체를 들을 때(목록의 ▶)는 녹음한 줄을 차례로 */
+  const lines = l == null ? it.parts.map((_, k) => k).filter((k) => lineDone(it, k)) : [l];
+  for (const k of lines) {
+    if (!lineDone(it, k)) continue;
+    const c = await tx('clips', 'readonly', (s) => s.get(`${it.out}|${k}`));
+    if (c) await play(c.blob);
+  }
 }
 async function delLine() {
   const it = view[pos]; if (!it || !lineDone(it, line)) return;
+  if (!confirm('이 녹음을 지울까요?')) return;
   const key = `${it.out}|${line}`;
   await tx('clips', 'readwrite', (s) => s.delete(key));
   clipKeys.delete(key);
@@ -452,26 +551,57 @@ $('micBtn').addEventListener('click', async () => {
   } catch (e) { $('gateMsg').textContent = '마이크를 못 켰어요 — 주소창의 🔒 에서 마이크를 허용해 주세요. (' + (e.message || e) + ')'; }
 });
 $('tabs').addEventListener('click', (e) => { const b = e.target.closest('[data-g]'); if (b && !chunks) openGroup(b.dataset.g); });
-$('lines').addEventListener('click', (e) => { const l = e.target.closest('[data-line]'); if (l && !chunks) { line = +l.dataset.line; draw(); } });
-$('list').addEventListener('click', (e) => { const r = e.target.closest('[data-pos]'); if (r && !chunks) { pos = +r.dataset.pos; line = firstTodoLine(view[pos]); draw(); } });
+$('lines').addEventListener('click', (e) => {
+  if (chunks) return;
+  const act = e.target.closest('[data-act]');
+  const l = e.target.closest('[data-line]');
+  if (!l) return;
+  line = +l.dataset.line;
+  if (act?.dataset.act === 'play') { draw(); playLine(); }
+  else if (act?.dataset.act === 'redo') { draw(); recStart(); }
+  else draw();
+});
+$('list').addEventListener('click', (e) => {
+  if (chunks) return;
+  const r = e.target.closest('[data-pos]'); if (!r) return;
+  const act = e.target.closest('[data-act]');
+  const p = +r.dataset.pos;
+  if (act?.dataset.act === 'play') { select(p); playLine(p, null); }
+  else if (act?.dataset.act === 'redo') { select(p, isDone(view[p]) ? 0 : undefined); recStart(); }
+  else select(p);
+});
+$('seg').addEventListener('click', (e) => {
+  const b = e.target.closest('[data-mode]'); if (!b || chunks) return;
+  mode = b.dataset.mode; LS('mode', mode); drawTabs(); filter(true);
+});
+let findT = 0;
+$('find').addEventListener('input', () => { clearTimeout(findT); findT = setTimeout(() => filter(false), 180); });
 $('recBtn').addEventListener('click', () => (chunks ? recStop() : recStart()));
-$('playBtn').addEventListener('click', playLine);
+$('redoBtn').addEventListener('click', () => { if (!chunks) recStart(); });
+$('playBtn').addEventListener('click', () => playLine());
+$('delBtn').addEventListener('click', delLine);
 $('oldBtn').addEventListener('click', () => { const it = view[pos]; if (it) play('assets/audio/' + it.out); });
-$('prevBtn').addEventListener('click', () => go(-1));
-$('nextBtn').addEventListener('click', () => go(1));
+$('prevBtn').addEventListener('click', () => { if (!chunks) go(-1); });
+$('nextBtn').addEventListener('click', () => { if (!chunks) goNextTodo(); });
 $('exportBtn').addEventListener('click', exportZip);
-['optTodo', 'optTts'].forEach((id) => $(id).addEventListener('change', () => { LS(id, $(id).checked ? '1' : '0'); drawTabs(); filter(true); }));
+$('optTts').addEventListener('change', () => { LS('optTts', $('optTts').checked ? '1' : '0'); filter(true); });
 ['optNext', 'optPlay'].forEach((id) => $(id).addEventListener('change', () => LS(id, $(id).checked ? '1' : '0')));
-['optTodo', 'optTts', 'optNext', 'optPlay'].forEach((id) => { const v = LS(id); if (v != null) $(id).checked = v === '1'; });
-/* 누른 단추 · 고른 칸에서 초점을 뗀다. 안 떼면 Space · Enter 가 그 단추를 한 번 더 누른다. */
-document.addEventListener('click', (e) => { const b = e.target.closest('button, input'); if (b) setTimeout(() => b.blur(), 0); });
+['optTts', 'optNext', 'optPlay'].forEach((id) => { const v = LS(id); if (v != null) $(id).checked = v === '1'; });
+/* 누른 단추 · 체크 칸에서 초점을 뗀다(안 떼면 Space · Enter 가 그것을 한 번 더 누른다). 찾기 칸은 빼고. */
+document.addEventListener('click', (e) => {
+  const b = e.target.closest('button, input[type=checkbox]');
+  if (b) setTimeout(() => b.blur(), 0);
+});
 document.addEventListener('keydown', (e) => {
   if ($('app').classList.contains('hidden')) return;
+  if (e.target === $('find')) { if (e.key === 'Enter' || e.key === 'Escape') $('find').blur(); return; }
   if (e.code === 'Space') { e.preventDefault(); if (!e.repeat) (chunks ? recStop() : recStart()); }
   else if (chunks) return;
-  else if (e.key === 'Enter') { e.preventDefault(); go(1); }
+  else if (e.key === 'Enter' || e.key === 'ArrowRight') { e.preventDefault(); goNextTodo(); }
   else if (e.key === 'ArrowLeft') go(-1);
-  else if (e.key === 'ArrowRight') go(1);
+  else if (e.key === 'ArrowDown') { e.preventDefault(); go(1); }
+  else if (e.key === 'ArrowUp') { e.preventDefault(); go(-1); }
+  else if (e.key === 'r' || e.key === 'R' || e.key === 'ㄱ') recStart();
   else if (e.key === 'p' || e.key === 'P' || e.key === 'ㅔ') playLine();
   else if (e.key === 'Delete' || e.key === 'Backspace') delLine();
 });
