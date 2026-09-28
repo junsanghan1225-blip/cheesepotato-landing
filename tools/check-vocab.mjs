@@ -117,6 +117,16 @@ for (const f of files) {
   });
 }
 
+/* 화면 자료(vocab-topik1.js, tools/build-vocab.mjs 생성물)가 원본과 맞나 — 원본만 고치고 안 구우면
+   화면에는 예전 낱말이 그대로 남는다. 낱말 수(B · A급)와 표제어 차례로 본다. */
+const BUILT = path.join(ROOT, 'vocab-topik1.js');
+if (fs.existsSync(BUILT) && files.includes('topik1.json')) {
+  const src = JSON.parse(fs.readFileSync(path.join(DIR, 'topik1.json'), 'utf8')).filter((w) => w.grade === 'B' || w.grade === 'A');
+  const heads = [...fs.readFileSync(BUILT, 'utf8').matchAll(/^\{.*?"h":("(?:[^"\\]|\\.)*")/gm)].map((m) => JSON.parse(m[1]));
+  if (heads.length !== src.length || heads.some((h, i) => h !== src[i].head))
+    err.push(`vocab-topik1.js 가 원본과 다르다(구운 것 ${heads.length} · 원본 B급 이상 ${src.length}) — node tools/build-vocab.mjs`);
+}
+
 const kv = (o) => Object.entries(o).map(([k, v]) => `${k} ${v}`).join(' · ') || '-';
 console.log(`낱말 자료 ${stat.n}개 (${files.length}개 파일)`);
 console.log(`  등급 ${kv(stat.grade)} | 급수 ${kv(stat.level)}`);

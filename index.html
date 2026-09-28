@@ -40,7 +40,7 @@
 ">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <!-- 구글 태그 관리자. 구글이 주는 인라인 코드조각은 CSP 가 막아서 gtm.js 로 뺐다. -->
-<script src="gtm.js?v=550fb023" async></script>
+<script src="gtm.js?v=06339c8b" async></script>
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <!-- 제목과 설명을 두 말로 쓴다. 이 사이트를 찾을 사람은 한국어를 **배우는**
@@ -119,13 +119,13 @@
      Pretendard 는 통짜(2.0MB) 대신 조각난 쪽을 쓴다 — 브라우저가
      unicode-range 를 보고 화면에 실제로 나온 글자가 든 조각만 받는다.
      그래서 저장소는 무거워졌지만 학습자가 받는 양은 오히려 줄었다. -->
-<link rel="stylesheet" href="vendor/pretendard.css?v=550fb023">
-<link rel="stylesheet" href="vendor/pressstart2p.css?v=550fb023">
+<link rel="stylesheet" href="vendor/pretendard.css?v=06339c8b">
+<link rel="stylesheet" href="vendor/pressstart2p.css?v=06339c8b">
 <!-- 화면 상자 안에서만 쓰는 CSS 는 여기서 갈라 받는다. media="print" 라
      첫 페인트를 안 막고, 다 받아지면 app.js 가 media 를 all 로 바꾼다.
      자바스크립트가 없으면 <noscript> 쪽이 그냥 평범하게 걸린다. -->
-<link id="viewsCss" rel="stylesheet" href="app-views.css?v=550fb023" media="print">
-<noscript><link rel="stylesheet" href="app-views.css?v=550fb023"></noscript>
+<link id="viewsCss" rel="stylesheet" href="app-views.css?v=06339c8b" media="print">
+<noscript><link rel="stylesheet" href="app-views.css?v=06339c8b"></noscript>
 
 <style>
 /* ══════════════════════════════════════════════════════════════
@@ -1822,8 +1822,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
     </div>
 
-    <button class="nav-link" id="dictBtn" type="button" aria-label="국어사전 열기">
-      <span class="nav-ico">🔎</span><span class="nav-txt" data-en="Dictionary">국어사전</span>
+    <!-- 국어사전과 외우기를 합친 「단어」(#words). id 는 dictBtn 그대로 — 예전 이름으로 여는 곳이 있다. -->
+    <button class="nav-link" id="dictBtn" type="button" aria-label="단어 열기" data-en-aria="Open words">
+      <span class="nav-ico">🔎</span><span class="nav-txt" data-en="Words">단어</span>
     </button>
 
     <div class="side-sec-h" data-en="Practice">연습 · 놀이</div>
@@ -1970,8 +1971,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </button>
       <button class="way" type="button" data-go="glossary">
         <div class="way-em">🔎</div>
-        <h3 class="way-t" data-en="Dictionary">낱말 · 문법 사전</h3>
-        <p class="way-d" data-en="Tap any word while you study to see its meaning. 7,970 words with definitions from the National Institute of Korean Language, and 197 grammar entries.">공부하다 모르는 낱말을 누르면 뜻이 나옵니다. 국립국어원 뜻풀이를 담은 낱말 7,970개와 문법 항목 197개.</p>
+        <h3 class="way-t" data-en="Words">단어 — 찾고 외우기</h3>
+        <p class="way-d" data-en="Learn the TOPIK I essentials ten a day, with review that brings words back before you forget. Search 7,970 words with definitions from the National Institute of Korean Language.">TOPIK I 필수 낱말을 하루 10개씩 외우고, 잊기 전에 복습으로 다시 만나요. 국립국어원 뜻풀이 낱말 7,970개도 여기서 찾습니다.</p>
         <span class="way-n">7,970 낱말</span>
       </button>
     </div>
@@ -3525,6 +3526,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 </div><!-- /dictView -->
 
+<!-- ── 단어 (#words) ── 찾기 · 외우기 · 복습 · 별표 · 기록. 안은 words.js 가 그린다(docs/vocab-plan.md 2단계). -->
+<div id="wordsView" class="hidden">
+  <div class="pt-body wd-wrap">
+    <div id="wordsRoot"></div>
+  </div>
+  <div class="footer">
+    <div class="footer-brand" data-en="Every Koreans">에브리 코리안즈</div>
+    <div class="footer-info">© 2026 치즈감자 · <a href="privacy.html" data-en="Privacy policy">개인정보처리방침</a> · <a href="pricing.html" data-en="Pricing">가격</a> · <a href="terms.html" data-en="Terms">이용약관</a> · <a href="refund.html" data-en="Refunds">환불 규정</a></div>
+  </div>
+</div><!-- /wordsView -->
+
 <!-- ── 로그인 · 회원가입 ───────────────────────────────────────
      폼을 단어장 안에 넣어 뒀더니 "로그인하려면 단어장부터 들어가야"
      하는 이상한 순서가 됐다. 계정 화면을 따로 뗀다.
@@ -3935,9 +3947,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <div id="hlpScrim" class="hlp-scrim"></div>
 <aside id="hlpPanel" class="hlp-panel" aria-label="한국어 도우미" aria-hidden="true"></aside>
 
-<script src="app.js?v=550fb023"></script>
-<script type="module" src="app.module.js?v=550fb023"></script>
+<script src="app.js?v=06339c8b"></script>
+<script type="module" src="app.module.js?v=06339c8b"></script>
 
-<script src="analytics.js?v=550fb023" defer></script>
+<script src="analytics.js?v=06339c8b" defer></script>
 </body>
 </html>

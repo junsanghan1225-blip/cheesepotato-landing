@@ -90,7 +90,7 @@ const WAY_GO = {
   reading:  () => goLearn('reading'),
   convo:    () => goLearn('convo'),
   games:    () => window.cpOpen && window.cpOpen('games'),
-  glossary: () => window.cpOpen && window.cpOpen('dictionary'),
+  glossary: () => window.cpOpen && window.cpOpen('words'),
 };
 document.querySelectorAll('.way[data-go]').forEach((b) => {
   b.addEventListener('click', () => { const f = WAY_GO[b.dataset.go]; if (f) f(); });
@@ -937,6 +937,7 @@ function ptShow(toTest) {
   ptId('wordbookView').classList.add('hidden');
   ptId('authView').classList.add('hidden');
   ptId('libraryView').classList.add('hidden');
+  ptId('wordsView').classList.add('hidden');
   ptId('dashView').classList.add('hidden');
   ptId('gamesView').classList.add('hidden');
   ptId('quizView').classList.add('hidden');
@@ -985,7 +986,7 @@ function ptShow(toTest) {
    빈 페이지가 된다. */
 const SLUG_VIEW = {
   wordbook: 'wordbook', account: 'account', library: 'library', dashboard: 'dashboard',
-  dictionary: 'dictionary',
+  dictionary: 'dictionary', words: 'words',
   learn: 'learn', test: 'test', games: 'games',
   // 게임 한 판과 레슨은 도중부터 열 수 없다. 주소로 들어오면 한 단계 위를 연다.
   quiz: 'games', num: 'num', lesson: 'learn',
@@ -1046,7 +1047,7 @@ window.cpTxtSize = function (on) {
 
 const VIEW_SLUG = {
   home: '', test: 'test', wordbook: 'wordbook', account: 'account',
-  library: 'library', dashboard: 'dashboard', dictionary: 'dictionary', games: 'games',
+  library: 'library', dashboard: 'dashboard', dictionary: 'dictionary', words: 'words', games: 'games',
   quiz: 'quiz', num: 'num', learn: 'learn', lesson: 'lesson',
 };
 let routeBusy = false;
