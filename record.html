@@ -58,7 +58,6 @@ main { max-width:980px; margin:0 auto; padding:16px; }
 .lines { display:flex; flex-direction:column; gap:10px; }
 .line { display:flex; gap:10px; align-items:flex-start; padding:10px 12px; border-radius:12px; border:1px solid transparent; cursor:pointer; }
 .line.cur { border-color:var(--or); background:var(--or-soft); }
-.line.rec .who::after { content:' ✓'; color:var(--green); }
 .who { flex:none; min-width:40px; font-size:13px; font-weight:800; color:var(--ink3); padding-top:6px; }
 .who.w { color:#C0508A; } .who.m { color:var(--blue); } .who.n { color:var(--ink2); }
 .say { font-size:26px; line-height:1.55; font-weight:600; word-break:keep-all; }
@@ -66,8 +65,8 @@ main { max-width:980px; margin:0 auto; padding:16px; }
 .lines.long .say { font-size:19px; line-height:1.8; }
 .hint { margin-top:12px; font-size:13px; color:var(--or); font-weight:700; }
 .ctl { display:flex; gap:10px; align-items:center; justify-content:center; flex-wrap:wrap; margin-top:22px; }
-.rec { width:84px; height:84px; border-radius:50%; border:0; background:var(--red); color:#fff; font-size:15px; font-weight:800; cursor:pointer; box-shadow:0 6px 18px rgba(200,65,47,.35); }
-.rec.on { animation:pulse 1s infinite; background:#8E1F12; }
+.ctl #recBtn { width:84px; height:84px; border-radius:50%; border:0; background:var(--red); color:#fff; font-size:15px; font-weight:800; cursor:pointer; box-shadow:0 6px 18px rgba(200,65,47,.35); }
+.ctl #recBtn.on { animation:pulse 1s infinite; background:#8E1F12; }
 @keyframes pulse { 50% { box-shadow:0 0 0 12px rgba(200,65,47,.18); } }
 .keys { text-align:center; font-size:12px; color:var(--ink3); margin-top:12px; line-height:1.7; }
 kbd { border:1px solid var(--line); border-bottom-width:2px; border-radius:5px; padding:0 5px; font-size:11.5px; background:var(--soft); }
@@ -93,14 +92,18 @@ kbd { border:1px solid var(--line); border-bottom-width:2px; border-radius:5px; 
 @media (max-width:900px) { .work { grid-template-columns:1fr; } .work .list { position:static; max-height:360px; margin-top:4px; } }
 .line { align-items:center; }
 .line .lst { flex:none; width:22px; height:22px; border-radius:50%; border:2px solid var(--line); display:inline-flex; align-items:center; justify-content:center; font-size:12px; font-weight:900; color:#fff; }
-.line.rec .lst { background:var(--green); border-color:var(--green); }
+/* 녹음을 마친 줄. 이름을 got 으로 — 예전엔 rec 이라 큰 녹음 단추(.rec)의 모양(빨간 알약 · 높이 64px)이 줄에 씌워져
+   글자가 넘쳐 겹쳤다. */
+.line.got .lst { background:var(--green); border-color:var(--green); }
+.line.got { background:var(--green-soft); }
+.line.got.cur { background:var(--or-soft); }
 .line .say { flex:1; min-width:0; }
 .line .mini { flex:none; display:flex; gap:4px; }
 .mini button { border:1px solid var(--line); background:var(--card); color:var(--ink2); border-radius:8px; width:34px; height:34px; font-size:14px; cursor:pointer; }
 .mini button:hover { border-color:var(--or); color:var(--ink); }
 .recbar { margin-top:18px; text-align:center; padding:10px; border-radius:12px; background:var(--red-soft); color:var(--red); font-weight:800; font-size:14px; }
-.rec { width:auto; min-width:150px; height:64px; border-radius:999px; padding:0 26px; font-size:18px; }
-.rec.redo { background:var(--ink); box-shadow:none; }
+.ctl #recBtn { width:auto; min-width:150px; height:64px; border-radius:999px; padding:0 26px; font-size:18px; }
+.ctl #recBtn.redo { background:var(--ink); box-shadow:none; }
 .after { display:flex; gap:8px; justify-content:center; flex-wrap:wrap; margin-top:12px; }
 .after.off { visibility:hidden; }
 .opts { display:flex; gap:14px; justify-content:center; flex-wrap:wrap; margin-top:14px; font-size:13px; color:var(--ink2); }
@@ -288,7 +291,7 @@ function draw() {
   $('lines').className = 'lines' + (!multi && !long ? ' one' : '') + (long ? ' long' : '');
   $('lines').innerHTML = it.parts.map((p, k) => {
     const d = lineDone(it, k);
-    return `<div class="line${k === line ? ' cur' : ''}${d ? ' rec' : ''}" data-line="${k}">` +
+    return `<div class="line${k === line ? ' cur' : ''}${d ? ' got' : ''}" data-line="${k}">` +
       (multi ? `<span class="lst">${d ? '✓' : ''}</span>` : '') +
       (MULTI.has(group.id) ? `<span class="who ${p.v}">${WHO[p.v] || ''}</span>` : '') +
       `<div class="say">${esc(p.t)}</div>` +
