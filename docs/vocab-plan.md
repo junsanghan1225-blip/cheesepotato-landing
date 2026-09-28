@@ -250,6 +250,15 @@
 | TOPIK I 목록 쪽(주제별) | 사이트맵에 들어감 |
 | 녹음 파일을 고른 저장소로 옮김(`__AUDIO_BASE__` 한 줄) | 사전 · 읽기 · 듣기 · 여행 소리가 남 |
 
+**3단계 진행 기록**
+- 2026-09-28 · **낱말 쪽 보강 + 목록 쪽.** TOPIK I 1,930개의 `/dictionary/낱말.html` 을 보강 쪽으로(영어 검색 제목
+  `먹다 (meokda) — "to eat" in Korean: meaning, examples, conjugation` · 로마자 · 활용 5꼴 · 우리 예문 · 비슷한 말/반대말/높임말 ·
+  같은 주제 낱말 · 미니 퀴즈(<details>) · DefinedTerm + FAQ + Breadcrumb · 「단어장 무료로 외우기」). 사전에 없던 490개는 쪽을 새로.
+  사전 뜻풀이는 영어 뜻과 겹치는 것만(같은 꼴 다른 낱말 — 「먹다 = be deaf」 — 을 거름).
+  `/topik1-words/` 주제 17쪽 + 목록 쪽(사이트맵 dictionary 갈래). 활용 · 로마자는 `tools/ko-conj.mjs`, 정답표 `check-conj`(CI).
+  활용에서 -(으)세요 는 뺐다(「걸리세요」처럼 어색한 낱말을 가리기 전까지). 녹음 옮기기는 이미 끝(Supabase).
+  남은 확인: 서치 콘솔에서 dictionary 사이트맵 색인 수 · 새 쪽 노출(몇 주~몇 달).
+
 ### 4단계 — 2차 기능 · 「영어로 찾기」
 받아쓰기 · 짝 맞추기 · 시험 보기 / 「Korean word for ___」 1,000쪽.
 
