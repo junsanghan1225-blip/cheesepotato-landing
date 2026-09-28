@@ -1203,11 +1203,11 @@
   font-size:13px; color:var(--ink-3); line-height:1.5; padding:1px 0; font-style:italic;
 }
 
-.nb-hr { height:1px; background:var(--line); margin:14px 4px; border-radius:1px; }
+.nb-hr-line { height:1px; background:var(--line); margin:14px 6px; border-radius:1px; }
 
 /* 문답(Q&A). 치즈(질문)는 왼쪽, 감자(답)는 오른쪽 — 블로그 글의
    대화문과 같은 자리 배치를 노트 안에서도 쓴다. */
-.nb-qa { display:flex; flex-direction:column; gap:8px; padding:4px 6px; }
+.nb-qa-box { display:flex; flex-direction:column; gap:8px; padding:4px 6px; }
 .nb-qa-line { display:flex; align-items:flex-end; gap:8px; }
 .nb-qa-a { flex-direction:row-reverse; }
 .nb-qa-who { flex:none; font-size:20px; line-height:1; padding-bottom:6px; }
