@@ -11,7 +11,7 @@
 
    AUDIO_REMOTE 가 비어 있으면 바깥 저장소를 안 쓴다(사이트에 있는 사본만). 파일을 다 올린 뒤에 주소를 넣는다.
    넣은 뒤에도 바깥에 없는 파일은 사이트 사본으로, 그것도 없으면 브라우저 목소리로 물러선다(app.module.js 의 audioSrcs). */
-export const AUDIO_REMOTE = '';   // 'https://tjgoevtvobvmlyefgxel.supabase.co/storage/v1/object/public/audio/'
+export const AUDIO_REMOTE = 'https://tjgoevtvobvmlyefgxel.supabase.co/storage/v1/object/public/audio/';
 
 export const audioKey = (path) => String(path).split('/')
   .map((s) => encodeURIComponent(s).replace(/%/g, '!').replace(/~/g, '!7E'))
