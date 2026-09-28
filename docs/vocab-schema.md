@@ -22,6 +22,8 @@
   },
   "pron": "[먹따]",             // 소리가 글자와 다를 때만 (도구가 채울 예정)
   "hanja": "",                  // 한자어면
+  "std": 1,                     // 국립국어원 표준 교육과정 급수(있으면, 도구가 채움)
+  "hint": "밥을 먹다",           // 표준 교육과정 길잡이말(짝말, 있으면)
   "grade": "C",                 // C 씨앗 → B → A
   "src": ["krdict", "cheesepotato"]
 }
@@ -30,7 +32,8 @@
 ## 등급
 | | 채울 것 |
 |---|---|
-| **C** 씨앗 | id · head · pos · level · purposes · en (예문은 있으면) |
+| **C** 씨앗 | id · head · pos · level · purposes (en · 예문은 있으면) |
+| — | en 은 B 부터 필수 |
 | **B** | + topics 하나 이상 · examples 하나 이상(en 번역 포함) |
 | **A** | + examples 둘 이상 · en_simple |
 
@@ -38,12 +41,14 @@
 - **id 는 한 번 정하면 바꾸지 않는다** — 학생 기록 · 주소가 id 에 붙는다.
 - 예문은 **새로 쓴다**(드라마 · 노래 · 기출 문장을 옮기지 않는다). 초급 낱말의 예문은 초급 문법으로.
 - 영어 뜻은 **학습자가 쓰는 말**로 짧게. 사전식 설명을 늘어놓지 않는다.
-- `freq` · `src` 는 도구가 채운다 — 손대지 않는다.
+- `freq` · `src` · `std` · `hint` 는 도구가 채운다 — 손대지 않는다.
+- **출처:** 급수 · 길잡이말은 국립국어원 「국제 통용 한국어 표준 교육과정」(공공누리 1유형) — 화면에 출처를 적는다.
 - 분류(topics · purposes)를 새로 만들어야 하면 **taxonomy 에 먼저 더하고**(운영자 확인), 그다음 쓴다.
 
 ## 파일
 | 파일 | 무엇 | 만드는 것 |
 |---|---|---|
 | `vocab/taxonomy.json` | 목적 10 · 주제 17 × 약 80 (초안) | 사람 |
-| `vocab/data/topik1.json` | TOPIK I 필수 후보 | 씨앗: `node tools/vocab-seed.mjs` → 안 그래비티가 채움 |
+| `vocab/data/topik1.json` | TOPIK I 필수 1,998 | 씨앗: `node tools/vocab-seed.mjs` → 안 그래비티가 채움 |
+| `docs/vocab/std-2017.json` | 표준 교육과정 어휘 10,080(1~6급) | `node tools/vocab-std.mjs <엑셀>` |
 | `docs/vocab/topik1-candidates.json` | 후보 초안(빈도) | `node tools/vocab-draft.mjs` |

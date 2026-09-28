@@ -68,7 +68,10 @@ for (const f of files) {
     else w.purposes.forEach((p) => { if (!PURPOSES.has(p)) err.push(`${at} — 목적 「${p}」 가 taxonomy 에 없다`); });
     if (!Array.isArray(w.topics)) err.push(`${at} — topics 는 배열`);
     else w.topics.forEach((t) => { if (!TOPICS.has(t)) err.push(`${at} — 주제 「${t}」 가 taxonomy 에 없다(「대분류/소분류」 꼴)`); });
-    if (typeof w.en !== 'string' || !w.en.trim()) err.push(`${at} — en(영어 뜻)이 비었다`);
+    /* 씨앗(C)에는 영어 뜻이 없을 수 있다 — 표준 목록에만 있고 우리 사전에 없는 낱말. B 부터는 꼭. */
+    if (typeof w.en !== 'string') err.push(`${at} — en(영어 뜻)은 글자`);
+    else if (!w.en.trim()) (w.grade === 'C' ? (stat.enless = (stat.enless || 0) + 1) : err.push(`${at} — ${w.grade}급은 en(영어 뜻)이 있어야`));
+    if (w.std != null && !(Number.isInteger(w.std) && w.std >= 1 && w.std <= 6)) err.push(`${at} — std(표준 급수)는 1~6`);
     if (!Array.isArray(w.examples)) err.push(`${at} — examples 는 배열`);
     else w.examples.forEach((x, j) => {
       if (!x || typeof x.ko !== 'string' || !x.ko.trim()) { err.push(`${at} — 예문 ${j + 1} 에 ko 가 없다`); return; }
@@ -100,7 +103,7 @@ const kv = (o) => Object.entries(o).map(([k, v]) => `${k} ${v}`).join(' · ') ||
 console.log(`낱말 자료 ${stat.n}개 (${files.length}개 파일)`);
 console.log(`  등급 ${kv(stat.grade)} | 급수 ${kv(stat.level)}`);
 console.log(`  목적 ${kv(stat.purpose)}`);
-console.log(`  주제 없음 ${stat.topicless} · 예문 없음 ${stat.exless}`);
+console.log(`  주제 없음 ${stat.topicless} · 예문 없음 ${stat.exless} · 영어 뜻 없음 ${stat.enless || 0}`);
 if (warn.length) console.log(`\n짚어 둘 것 ${warn.length}건` + (warn.length > 15 ? ' (앞 15)' : '') + '\n  · ' + warn.slice(0, 15).join('\n  · '));
 if (err.length) { console.error(`\n고쳐야 할 것 ${err.length}건\n  ✗ ` + err.slice(0, 40).join('\n  ✗ ')); process.exit(1); }
 console.log('\n이상 없음');
