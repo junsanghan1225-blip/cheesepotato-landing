@@ -1342,6 +1342,22 @@ a.gcard:hover .glinkgo{color:var(--ink)}
 .bimg img{display:block;width:100%;height:auto;border-radius:12px;border:1px solid var(--line)}
 .bimg figcaption{margin-top:8px;font-size:13px;line-height:1.55;color:var(--dim)}
 
+/* 실물 문서 — 종이처럼 흰 바탕 · 가는 칸선, 짚을 칸은 번호 딱지. */
+.bdoc{margin:0 0 26px}
+.bdoc-paper{background:#fffdf8;color:#2b2117;border:1px solid var(--rb-hair);border-radius:6px;padding:18px 18px 12px;
+  box-shadow:0 2px 0 var(--rb-hair),0 8px 22px rgba(60,40,20,.08)}
+.bdoc-t{text-align:center;font-size:19px;font-weight:800;letter-spacing:.2em;margin-bottom:2px}
+.bdoc-s{text-align:center;font-size:12px;color:#8a7c6a;margin-bottom:10px}
+.bdoc table{width:100%;border-collapse:collapse;font-size:14.5px;margin-top:8px}
+.bdoc th,.bdoc td{border:1px solid #d9ccb6;padding:8px 10px;text-align:left;vertical-align:top;line-height:1.55;word-break:keep-all}
+.bdoc th{width:34%;background:#f6efe0;font-weight:700;white-space:nowrap}
+.bdoc tr.hit td{background:#fff3e2}
+.dnum{display:inline-flex;align-items:center;justify-content:center;width:19px;height:19px;border-radius:50%;
+  background:#C4551C;color:#fff;font-size:11.5px;font-weight:800;margin-right:6px;vertical-align:1px;flex:none}
+.bdoc-tips{list-style:none;padding:0;margin:14px 0 0;display:flex;flex-direction:column;gap:9px}
+.bdoc-tips li{display:flex;gap:4px;font-size:15px;line-height:1.65}
+@media(max-width:520px){.bdoc th{white-space:normal;width:38%}.bdoc-paper{padding:14px 10px 8px}.bdoc table{font-size:13.5px}}
+
 /* 짚어 둘 것 — 본문에서 한 발 뺀 이야기. */
 .bnote{display:block;border:1px solid var(--rb-hair);background:var(--rb-deck);border-radius:10px;
   padding:14px 17px;margin:0 0 22px;font-size:15px;line-height:1.68}
@@ -1596,6 +1612,27 @@ function renderBlock(b, where, lang = 'ko') {
       if (!b.text) bad('t:"note" 에 text 가 없다');
       return `<aside class="bnote">${b.title ? `<b class="bnt">${inline(b.title)}</b>` : ''}${inline(b.text)}</aside>`;
 
+    /* 실물 문서(근로계약서 · 급여명세서 · 월세 계약서 · 문진표 …). 종이 모양 그대로
+       칸과 값을 보여 주고, 짚어야 할 칸에 번호를 붙여 아래에 설명한다 —
+       「이 칸에서 무엇을 확인하나」가 이 블록의 알맹이다.
+       { t:'doc', title:'근로계약서', sub:'(예시 — 지어낸 값)', rows:[{ k:'임금', v:'월 2,100,000원', tip:'최저임금 이상인지 본다' }, …] } */
+    case 'doc': {
+      if (!b.title) bad('t:"doc" 에 title 이 없다');
+      if (!Array.isArray(b.rows) || b.rows.length < 3) bad('t:"doc" 에 rows 가 셋 이상 있어야 한다');
+      let n = 0;
+      const tips = [];
+      const rows = b.rows.map((r) => {
+        if (!r || !r.k || r.v == null) bad('t:"doc" 의 줄마다 k(칸 이름)와 v(값)가 있어야 한다');
+        const mark = r.tip ? `<span class="dnum">${++n}</span>` : '';
+        if (r.tip) tips.push(`<li><span class="dnum">${n}</span><span><b>${inline(r.k)}</b> — ${inline(r.tip)}</span></li>`);
+        return `<tr${r.tip ? ' class="hit"' : ''}><th>${mark}${inline(r.k)}</th><td>${inline(String(r.v))}</td></tr>`;
+      }).join('');
+      return `<figure class="bdoc"><div class="bdoc-paper"><div class="bdoc-t">${inline(b.title)}</div>` +
+        (b.sub ? `<div class="bdoc-s">${inline(b.sub)}</div>` : '') +
+        `<table>${rows}</table></div>` +
+        (tips.length ? `<ol class="bdoc-tips">${tips.join('')}</ol>` : '') + '</figure>';
+    }
+
     default:
       bad(`모르는 블록 종류 t:${JSON.stringify(b?.t)}`);
   }
@@ -1725,6 +1762,11 @@ const TAG_SLUGS = {
   /* 영어로 쓴 글. 갈래 이름을 한국어로 붙이면 영어 글 아래에 한국어
      알약이 뜨고, 그 갈래 쪽에 한국어 글과 섞여 걸린다 — 영어로 찾아온
      사람에게는 둘 다 읽을 것이 아니다. 따로 둔다. */
+  /* 한국에서 사는 순간(실물 문서 · 생활 대화)과 교과서 말 vs 진짜 말. */
+  '생활': 'life',
+  '진짜 말': 'real-korean',
+  'Life in Korea': 'life-en',
+  'Real Korean': 'real-korean-en',
   'English': 'english',
   'Roadmap': 'roadmap',
   'Grammar': 'grammar-en',
