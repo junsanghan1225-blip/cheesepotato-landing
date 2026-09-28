@@ -21,9 +21,9 @@ const X = XM.default || XM;
 const wb = X.read(fs.readFileSync(src));
 const rows = X.utils.sheet_to_json(wb.Sheets['어휘'], { header: 1, defval: '' }).slice(1).filter((r) => r[3]);
 
-/* 「가격02」의 뒤 번호는 동형어 번호다. 「계속02/계속01」처럼 둘이 붙은 줄도 있다 — 앞 것을 쓴다.
+/* 「가격02」의 뒤 번호는 동형어 번호다. 「계속02/계속01」 · 「마흔02∙마흔」처럼 둘이 붙은 줄도 있다 — 앞 것을 쓴다.
    품사는 「부사/명사」 · 「관형사∙명사」처럼 둘이 붙기도 한다 — 앞 것. 「의존명사」는 우리 표기 「의존 명사」로. */
-const head = (h) => String(h).split('/')[0].replace(/[0-9]+$/, '').trim();
+const head = (h) => String(h).split(/[/∙·‧・]/)[0].trim().replace(/[0-9]+$/, '').trim();
 const pos = (p) => {
   const one = String(p).trim().split(/[/∙·‧.・]/)[0].trim();
   return one === '의존명사' ? '의존 명사' : one === '줄어든말' ? '' : one;
