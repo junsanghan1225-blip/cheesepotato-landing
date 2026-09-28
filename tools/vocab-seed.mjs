@@ -33,10 +33,12 @@ const stdBy = new Map(std.words.map(([h, g, p, hint], i) => [h, { g, p, hint, i 
 const freq = new Map(cand.words.map((c) => [c.head, c]));
 
 /* 뽑기 */
+/* 우리 사전이 조사 「에다(가)」를 동사 「에다(살을 에다)」로 잘못 짚은 것 — 초급 낱말이 아니다. */
+const SKIP = new Set(['에다']);
 const pick = new Map();
 for (const [h, s] of stdBy) if (s.g === 1 || s.g === 2) pick.set(h, { h, level: s.g, std: s.g });
 for (const c of cand.words) {
-  if (pick.has(c.head) || c.pos === '품사 없음') continue;       // 어미 조각은 낱말이 아니다
+  if (pick.has(c.head) || c.pos === '품사 없음' || SKIP.has(c.head)) continue;       // 어미 조각은 낱말이 아니다
   const s = stdBy.get(c.head);
   if (s && s.g >= 3) continue;                                   // 표준에서 3급 이상 — TOPIK II 몫
   pick.set(c.head, { h: c.head, level: c.level, std: null });

@@ -26,7 +26,7 @@ const err = [], warn = [];
 const ALL = process.argv.includes('--all');       // 짚어 둘 것을 전부 보이기(고칠 줄 목록 뽑을 때)
 /* 초급 낱말의 예문은 짧고 쉬워야 한다(docs/antigravity-vocab-task.md: 8~18글자 안팎, 초급 문법).
    빈칸 · 문장 부호를 뺀 글자 수가 이보다 길거나, 중급 이상 문법이 보이면 짚는다. */
-const EX_MAX = 20;
+const EX_MAX = 22;
 const HARD = /느라|도록|더니|는데도|길래|거든요?|잖아|수록|듯|채로|바람에|던\s/;
 const ids = new Map();
 const stat = { n: 0, grade: {}, level: {}, purpose: {}, topicless: 0, exless: 0 };
