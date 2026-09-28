@@ -50,7 +50,8 @@ const OUT_TR = join(ROOT, 'topik-reading');
 const OUT_TL = join(ROOT, 'topik-listening');
 const OUT_EPS = join(ROOT, 'eps-topik');
 const OUT_DICT = join(ROOT, 'dictionary');
-const OUT_VL = join(ROOT, 'topik1-words');   // TOPIK I 낱말 목록 쪽(주제별) — docs/vocab-plan.md 3단계
+const OUT_VL = join(ROOT, 'topik1-words');
+const OUT_EW = join(ROOT, 'korean-word-for');   // 「Korean word for ___」 — 영어로 찾는 쪽(docs/vocab-plan.md 4단계)   // TOPIK I 낱말 목록 쪽(주제별) — docs/vocab-plan.md 3단계
 
 /* 표현 290개의 영어 설명. app.module.js 는 이걸 grammar-en.js 로 읽어 화면에
    쓰는데, **검색에 걸리는 정적 쪽에는 여태 한 줄도 안 실렸다.** 그래서
@@ -1309,6 +1310,96 @@ function vocabListHub() {
   });
 }
 
+/* ── 영어로 찾기: 「Korean word for eat」 · 「how to say hospital in Korean」 ──────────────────
+   TOPIK I 낱말의 **첫 영어 뜻**(쉬운 뜻 · 사전 뜻의 첫 토막)만 열쇠로 쓴다 — 뒤쪽 뜻까지 쓰면
+   「drink → 뜨겁다」처럼 엉뚱한 짝이 생긴다. 한 영어 낱말에 한국어가 여럿이면 다 싣고, 차이는 지어내지 않고
+   있는 사실만 적는다(높임말이면 무엇의 높임말인지 · 급수 · 품사 · 예문). 자주 나오는 차례로 1,000개. */
+const EW_MAX = 1000;
+const ewKey = (x) => String(x).toLowerCase().replace(/\(.*?\)/g, '').replace(/^(to be |to |be |a |an |the )/, '')
+  .replace(/[^a-z' -]/g, '').replace(/\s+/g, ' ').trim();
+const ewSlug = (k) => k.replace(/'/g, '').replace(/[\s]+/g, '-');
+const EW = (() => {
+  const map = new Map();
+  VOCAB.forEach((w, i) => {
+    const keys = new Set([String(w.s || '').split(/[/;,]/)[0], String(w.e).split(/[;,]/)[0]].map(ewKey)
+      .filter((k) => k && k.length >= 2 && k.split(' ').length <= 3 && /[aeiouy]/.test(k)));
+    for (const k of keys) { if (!map.has(k)) map.set(k, []); map.get(k).push(i); }
+  });
+  const bySlug = new Map();
+  for (const [k, list] of [...map.entries()].sort((a, b) => a[1][0] - b[1][0])) {
+    const slug = ewSlug(k);
+    if (!bySlug.has(slug) && bySlug.size < EW_MAX) bySlug.set(slug, { key: k, words: list.map((i) => VOCAB[i]) });
+  }
+  return bySlug;
+})();
+/* 이 낱말이 다른 낱말의 높임말이면 그 낱말. (vocab 의 rel.hon 은 「먹다 → 드시다」 쪽으로 적혀 있다.) */
+const HON_OF = new Map();
+VOCAB.forEach((w) => (w.r?.hon || []).forEach((h) => { if (!HON_OF.has(h)) HON_OF.set(h, w.h); }));
+const POS_EN = { 동사: 'verb', 형용사: 'adjective', 명사: 'noun', 부사: 'adverb', 대명사: 'pronoun', 수사: 'number', 관형사: 'determiner', 감탄사: 'interjection', '의존 명사': 'bound noun', 조사: 'particle' };
+
+function engPage(slug, { key, words }) {
+  const top = words[0], rom = romanize(top.h) || '';
+  const n = words.length;
+  const url = `/korean-word-for/${slug}.html`;
+  const title = n > 1
+    ? `"${key}" in Korean — ${top.h} (${rom}) and ${n - 1} more way${n > 2 ? 's' : ''} to say it | 치즈감자`
+    : `"${key}" in Korean — ${top.h} (${rom}) with examples | 치즈감자`;
+  const desc = clip(`How to say "${key}" in Korean: ${words.map((w) => `${w.h} (${romanize(w.h) || ''})`).join(', ')}. ` +
+    `Meaning, pronunciation, example sentences${n > 1 ? ' and which one to use' : ''}.`);
+  const card = (w, i) => {
+    const r = romanize(w.h) || '';
+    const hon = HON_OF.get(w.h);
+    const notes = [
+      `TOPIK ${w.l} · ${POS_EN[w.p] || w.p}`,
+      hon ? `honorific form of <a href="${dictHref(hon)}">${esc(hon)}</a> — use it for elders and customers` : '',
+      w.r?.hon?.length ? `honorific: ${w.r.hon.map((x) => (PAGE_SET.has(x) ? `<a href="${dictHref(x)}">${esc(x)}</a>` : esc(x))).join(', ')}` : '',
+    ].filter(Boolean).join(' · ');
+    return `<div class="ewc"><div class="ewh"><span class="ewn">${i + 1}</span><a href="${dictHref(w.h)}"><b>${esc(w.h)}</b></a> <i>${esc(r)}</i></div>` +
+      `<p class="ewe" lang="en">${esc(w.e)}</p><p class="note">${notes}</p>` +
+      (w.x[0] ? `<div class="ex">${esc(w.x[0][0])}<i lang="en">${esc(w.x[0][1])}</i></div>` : '') + '</div>';
+  };
+  const body = [
+    `<nav class="crumb"><a href="/">치즈감자</a> › <a href="/korean-word-for/">Korean word for…</a> › ${esc(key)}</nav>`,
+    `<h1 lang="en">How to say “${esc(key)}” in Korean</h1>`,
+    `<p class="lead" lang="en">The most common Korean word for “${esc(key)}” is <b>${esc(top.h)}</b> (${esc(rom)})` +
+      (n > 1 ? `. There ${n === 2 ? 'is one more word' : `are ${n - 1} more words`} with a similar meaning — compare them below.` : '.') +
+      ` 「${esc(key)}」는 한국어로 <b>${esc(top.h)}</b>.</p>`,
+    words.map(card).join(''),
+    `<a class="cta" href="/#words/w/${encodeURIComponent(top.h)}">Learn ${esc(top.h)} free — flashcards, audio and review →<span>「${esc(top.h)}」 단어장으로 무료로 외우기</span></a>`,
+    '<p class="note">Words and levels: TOPIK I essentials (National Institute of Korean Language standard curriculum, KOGL Type 1) · examples: Cheesepotato</p>',
+  ].join('\n');
+  const jsonld = [
+    { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: [
+      { '@type': 'Question', name: `How do you say "${key}" in Korean?`,
+        acceptedAnswer: { '@type': 'Answer', text: `${top.h} (${rom})${n > 1 ? `. Other words: ${words.slice(1).map((w) => `${w.h} (${romanize(w.h) || ''})`).join(', ')}` : ''}. Example: ${top.x[0]?.[0] || ''} — ${top.x[0]?.[1] || ''}` } },
+    ] },
+    crumbLd([['치즈감자', '/'], ['Korean word for…', '/korean-word-for/'], [key, null]]),
+  ];
+  return page({ url, title, desc, body, jsonld, lang: 'en', extraCss: EW_CSS });
+}
+const EW_CSS = '.ewc{border:1px solid var(--line);border-radius:14px;padding:14px 16px;margin:12px 0;background:var(--card)}' +
+  '.ewh{font-size:22px}.ewh i{font-size:15px;color:var(--dim)}.ewn{display:inline-grid;place-items:center;width:24px;height:24px;border-radius:50%;background:var(--soft);font-size:12px;margin-right:6px;vertical-align:middle}' +
+  '.ewe{margin:6px 0 2px;font-size:16px}.ex i{display:block;color:var(--dim);font-size:14px;font-style:normal;margin-top:4px}.note{font-size:13px;color:var(--dim)}';
+
+function engHub() {
+  const list = [...EW.entries()].sort((a, b) => a[1].key.localeCompare(b[1].key));
+  const groups = new Map();
+  list.forEach(([slug, v]) => { const c = v.key[0].toUpperCase(); if (!groups.has(c)) groups.set(c, []); groups.get(c).push([slug, v]); });
+  const body = [
+    '<nav class="crumb"><a href="/">치즈감자</a> › Korean word for…</nav>',
+    `<h1 lang="en">Korean word for… — ${EW.size.toLocaleString('en-US')} everyday English words in Korean</h1>`,
+    '<p class="lead" lang="en">Look up how to say an English word in Korean. Each page gives the Korean word, romanization, an example sentence, and — when Korean has more than one word — how they differ.</p>',
+    [...groups.entries()].map(([c, items]) => `<div class="cat"><h3>${esc(c)}</h3><ul class="pts">` +
+      items.map(([slug, v]) => `<li><a href="/korean-word-for/${slug}.html">${esc(v.key)}</a></li>`).join('') + '</ul></div>').join('\n'),
+  ].join('\n');
+  return page({
+    url: '/korean-word-for/', kind: 'website', lang: 'en',
+    title: `Korean Word For… — ${EW.size.toLocaleString('en-US')} English Words in Korean with Examples | 치즈감자`,
+    desc: clip(`How to say ${EW.size.toLocaleString('en-US')} everyday English words in Korean — Korean word, romanization, examples, and the difference when there are several.`),
+    body, jsonld: [crumbLd([['치즈감자', '/'], ['Korean word for…', '/korean-word-for/']])],
+  });
+}
+
 /* 뜻풀이도 예문도 없는 극소수(품사만 있는 표제어) 를 위한 마지막 버팀목.
    빈 쪽을 내느니 품사라도 적힌 문장 하나를 낸다. */
 function t2(pos) { return pos ? `${pos}.` : '한국어 낱말입니다.'; }
@@ -2510,6 +2601,17 @@ for (const tp of VOCAB_TOPICS) {
 writeFileSync(join(OUT_VL, 'index.html'), vocabListHub());
 urls.push({ loc: '/topik1-words/', freq: 'monthly', pri: '0.9' });
 
+/* ── Korean word for … ──────────────────────────────────── */
+/* 열쇠(영어 낱말)가 자료를 따라 바뀌므로, 사라진 열쇠의 쪽이 남지 않게 폴더를 새로 세운다. */
+rmSync(OUT_EW, { recursive: true, force: true });
+mkdirSync(OUT_EW, { recursive: true });
+for (const [slug, v] of EW) {
+  writeFileSync(join(OUT_EW, `${slug}.html`), engPage(slug, v));
+  urls.push({ loc: `/korean-word-for/${slug}.html`, freq: 'monthly', pri: '0.6' });
+}
+writeFileSync(join(OUT_EW, 'index.html'), engHub());
+urls.push({ loc: '/korean-word-for/', freq: 'monthly', pri: '0.8' });
+
 /* 오늘의 단어 자료. 사이트맵에는 안 넣는다 — 쪽이 아니라 홈 화면이
    읽는 자료 파일이다(sentences.js·courses.js 와 같은 자리). */
 writeFileSync(join(ROOT, 'wotd.js'),
@@ -2565,7 +2667,7 @@ for (const loc of ['/pricing.html', '/terms.html', '/refund.html']) urls.push({ 
    Search Console 에 이미 낸 주소 그대로라 다시 낼 것이 없다.
    각 파일을 Search Console 사이트맵 화면에서 눌러 보면 그 갈래의 색인 수가 나온다. */
 const SITEMAP_GROUPS = [
-  ['dictionary', (loc) => /^\/(dictionary|topik1-words)\//.test(loc)],
+  ['dictionary', (loc) => /^\/(dictionary|topik1-words|korean-word-for)\//.test(loc)],
   ['topik',      (loc) => /^\/(topik-(reading|writing|listening)|eps-topik)\//.test(loc)],
   ['learn',      (loc) => /^\/(sentence|compare|course|lesson)\//.test(loc)],
   ['blog',       (loc) => loc.startsWith('/blog/')],
@@ -2602,6 +2704,6 @@ console.log(`TOPIK 쓰기 ${nW}쪽 + 목록 1쪽 → topik-writing/`);
 console.log(`TOPIK 읽기 ${nR}쪽 + 목록 1쪽 → topik-reading/`);
 console.log(`TOPIK 듣기 ${nTL}쪽 + 목록 1쪽 → topik-listening/`);
 console.log(`EPS-TOPIK ${nEps}쪽 + 목록 1쪽 → eps-topik/`);
-console.log(`사전 ${nDict}쪽 + 목록 1쪽 → dictionary/ (TOPIK I 보강 쪽 ${VOCAB.length}) · TOPIK I 낱말 목록 ${nVl}쪽 + 목록 1쪽 → topik1-words/, 오늘의 단어 자료 ${DICT_HEADS.length}개 → wotd.js`);
+console.log(`사전 ${nDict}쪽 + 목록 1쪽 → dictionary/ (TOPIK I 보강 쪽 ${VOCAB.length}) · TOPIK I 낱말 목록 ${nVl}쪽 + 목록 1쪽 → topik1-words/ · 영어로 찾기 ${EW.size}쪽 → korean-word-for/, 오늘의 단어 자료 ${DICT_HEADS.length}개 → wotd.js`);
 console.log(`블로그 ${nB}쪽 + 목록 1쪽 + 갈래 ${nBT}쪽 + rss.xml → blog/`);
 console.log(`sitemap.xml 에 주소 ${urls.length}개 — ${smFiles.map((f) => `${f.file} ${f.n}`).join(' · ')}.`);

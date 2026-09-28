@@ -4256,3 +4256,25 @@ div.wd-card:hover { transform:none; }
 .wd-tprog button { display:grid; grid-template-columns:1fr auto; gap:6px 10px; align-items:center; padding:12px 14px; cursor:pointer; text-align:left; font:inherit; color:var(--ink); border:1px solid var(--line); border-radius:var(--r); background:var(--surface); }
 .wd-tprog em { font-style:normal; font-size:13px; color:var(--ink-2); }
 .wd-tprog .wd-bar { grid-column:1 / -1; }
+/* 받아쓰기 · 짝 맞추기 */
+.wd-mode:nth-child(4) { --h:330; } .wd-mode:nth-child(5) { --h:45; } .wd-mode:nth-child(6) { --h:265; }
+.wd-center { text-align:center; }
+.wd-listen {
+  width:96px; height:96px; border-radius:50%; border:none; cursor:pointer; display:grid; place-items:center;
+  background:linear-gradient(180deg, var(--orange), var(--orange-mid)); color:#1B1512;
+  box-shadow:0 10px 26px color-mix(in srgb, var(--orange) 40%, transparent); transition:transform .1s;
+}
+.wd-listen svg { width:40px; height:40px; }
+.wd-listen:active { transform:scale(.94); }
+.wd-match { display:grid; grid-template-columns:repeat(3, 1fr); gap:8px; }
+@media (min-width:640px){ .wd-match { grid-template-columns:repeat(4, 1fr); } }
+.wd-tile {
+  min-height:78px; padding:10px; font-size:15px; line-height:1.3; cursor:pointer; overflow-wrap:anywhere;
+  border:1.5px solid var(--line); border-radius:var(--r-l); background:var(--surface); color:var(--ink);
+  transition:transform .1s, border-color .15s, background .15s;
+}
+.wd-tile.ko { font-size:20px; font-weight:800; }
+.wd-tile:active { transform:scale(.96); }
+.wd-tile.sel { border-color:var(--orange); background:var(--tint); box-shadow:0 0 0 3px color-mix(in srgb, var(--orange) 22%, transparent); }
+.wd-tile.bad { border-color:var(--red); animation:wdShake .35s ease; }
+.wd-tile.gone { min-height:78px; border-radius:var(--r-l); background:color-mix(in srgb, var(--green) 10%, transparent); animation:wdIn .25s ease; }
