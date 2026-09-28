@@ -185,6 +185,11 @@
   **어휘 · 문법 등급 목록**은 공공누리 **제1유형(출처표시)** — 출처를 밝히면 상업적 이용 · 변형 가능.
   (https://www.korean.go.kr/front/reportData/reportDataView.do?mn_id=207&report_seq=932 — 받을 때 그 쪽의
   공공누리 표시를 한 번 더 확인하고, 쓰는 자리에 「출처: 국립국어원」을 적는다.) 이 목록의 등급으로 후보의 급수를 맞춘다.
+- 2026-09-28 · **낱말 자료 모양 · 검사기 · 씨앗** — `docs/vocab-schema.md`, `vocab/taxonomy.json`(목적 10 · 주제 17 × 약
+  80, 초안 — 운영자 확인), `tools/check-vocab.mjs`(CI 에 넣음), `tools/vocab-seed.mjs` → `vocab/data/topik1.json`
+  씨앗 1,352개(C급). 안 그래비티 첫 묶음 지시문: `docs/antigravity-vocab-task.md`(앞 500개 → B급).
+- **남은 0단계:** 공공 어휘 등급 목록 파일 — Claude 작업 환경에서 국립국어원 사이트가 막혀 있어 **운영자가 받아
+  채팅에 첨부**한다. 받으면 후보 급수를 맞추고 1,800개까지 채운다.
 
 | 누가 | 일 | 끝 |
 |---|---|---|
