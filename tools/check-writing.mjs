@@ -47,7 +47,24 @@ for (const it of TW_ITEMS) {
     sm.forEach((s) => {
       if (!(s.total >= 0 && s.total <= max)) err.push(`${at} — 예시 ${s.level} 점수 ${s.total} 가 0~${max} 밖`);
       if (!s.text || !s.why) err.push(`${at} — 예시 ${s.level} 에 text · why 가 있어야`);
+      /* 영역별 점수(scores)가 실제 배점 안이고 더하면 total 이어야 한다 — AI 채점이
+         이 숫자로 눈높이를 맞추므로, 합이 안 맞으면 채점도 어긋난다. */
+      const cap = it.q === 53 ? { content: 7, structure: 7, language: 16 } : { content: 12, structure: 12, language: 26 };
+      if (s.scores) {
+        let sum = 0;
+        for (const k of Object.keys(cap)) {
+          const v = s.scores[k];
+          if (!(v >= 0 && v <= cap[k])) err.push(`${at} — 예시 ${s.level} scores.${k} ${v} 가 0~${cap[k]} 밖`);
+          sum += Number(v) || 0;
+        }
+        if (sum !== s.total) err.push(`${at} — 예시 ${s.level} 영역 점수 합 ${sum} ≠ total ${s.total}`);
+      } else warn.push(`${at} — 예시 ${s.level} 에 scores(영역별 점수)가 없다`);
+      /* 「하」는 보통 분량 미달이다. why 에 「132자」처럼 글자 수를 적었다면 실제와 맞아야 한다. */
+      const said = /(\d{2,3})자/.exec(s.why || '');
+      if (said && s.text && Math.abs(Number(said[1]) - cnt(s.text)) > 15) warn.push(`${at} — 예시 ${s.level} 해설은 ${said[1]}자라는데 실제 ${cnt(s.text)}자`);
     });
+    /* 예시가 너무 짧거나 길면 눈높이 예시가 안 된다. 「상」은 분량을 채워야 한다. */
+    if (sm[0] && sm[0].level === '상' && cnt(sm[0].text) < lo) err.push(`${at} — 예시 상이 ${cnt(sm[0].text)}자 (${lo}자 이상이어야)`);
     if (sm.length >= 3 && !(sm[0].total > sm[1].total && sm[1].total > sm[2].total)) err.push(`${at} — 예시 점수가 상 > 중 > 하 가 아니다`);
     if (it.register === 'plain' && /습니다|해요[.\s]/.test(it.model ?? '')) warn.push(`${at} — -(느)ㄴ다체 문항인데 모범답안에 -습니다/-해요가 보인다`);
   }
