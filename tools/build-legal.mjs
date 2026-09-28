@@ -43,6 +43,22 @@ ${style}
 .plans { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:14px; margin:22px 0; }
 .plan { background:var(--surface); border:1px solid var(--line); border-radius:18px; padding:22px; }
 .plan b { display:block; font-size:30px; color:var(--ink); letter-spacing:-.03em; margin:4px 0; }
+.plan { position:relative; line-height:1.6; }
+.plan small { color:var(--ink-3); font-size:12.5px; }
+.plan.best { border:2px solid #C4551C; }
+.plan .tag { position:absolute; top:-11px; left:18px; background:#C4551C; color:#fff; font-size:12px; font-weight:700; padding:2px 10px; border-radius:99px; }
+.buy { margin:6px 0 10px; }
+.promise { font-size:14px; color:#1D7A55; margin:12px 0 0; line-height:1.7; }
+.promise span { color:var(--ink-3); font-size:13px; }
+.cmp { width:100%; border-collapse:collapse; margin:14px 0 8px; font-size:14.5px; background:var(--surface); border-radius:14px; overflow:hidden; border:1px solid var(--line); }
+.cmp th, .cmp td { padding:11px 12px; border-bottom:1px solid var(--line-2); text-align:left; vertical-align:top; word-break:keep-all; }
+.cmp thead th { font-size:13px; color:var(--ink-3); font-weight:700; background:var(--tint); }
+.cmp tbody th { font-weight:600; color:var(--ink); width:48%; }
+.cmp td { color:var(--ink-2); width:26%; }
+.cmp .pro { color:var(--ink); }
+.cmp thead .pro { color:#C4551C; }
+.cmp tr:last-child th, .cmp tr:last-child td { border-bottom:0; }
+@media (max-width:520px) { .cmp { font-size:13.5px; } .cmp th, .cmp td { padding:9px 8px; } .cmp tbody th { width:44%; } }
 .cta { display:inline-block; margin-top:8px; padding:13px 22px; border-radius:12px; background:#C4551C; color:#fff !important; font-weight:700; text-decoration:none; }
 .seller { font-size:13px; color:var(--ink-3); border-top:1px solid var(--line); margin-top:48px; padding-top:18px; line-height:1.8; }
 </style>
@@ -66,29 +82,61 @@ ${[['판매자 · Seller', SELLER.name], ['대표자', SELLER.owner], ['사업�
 </html>
 `;
 
-const pricing = page('pricing.html', '가격 · Pricing', '치즈감자 Pro 구독 가격입니다. Pricing for CheesePotato Pro.', `
+/* 가격 쪽. 사는 사람이 가장 먼저 묻는 것 — 「무료로 뭐가 되고, 돈을 내면 뭐가 더 되나」 —
+   를 표 하나로 답한다. 환불 약속은 구독 단추 바로 옆에 둔다(약속이 있어도 안 보이면 없는 것과 같다).
+   표의 줄은 실제로 되는 것만 적는다. 숫자를 바꾸면 app.module.js 의 PRO_FEATURES 와
+   supabase/functions/grade-writing 의 LIMIT 도 같이 바꾼다. */
+const ROWS = [
+  ['코스 97개 · 레슨 345개 · 문법 표현 290개 · 사전', 'Courses, lessons, grammar points, dictionary', '✓', '✓'],
+  ['레벨테스트 · 내 코스', 'Level test · My course', '✓', '✓'],
+  ['TOPIK 유형별 연습 문제 917개', 'TOPIK practice questions by type (917)', '✓', '✓'],
+  ['EPS-TOPIK 연습 · 모의고사', 'EPS-TOPIK practice and mock tests', '✓', '✓'],
+  ['TOPIK 모의고사', 'TOPIK mock tests', '1회차', '<b>전 회차 + 회차별 성적 추이</b>'],
+  ['TOPIK 쓰기 53·54번 AI 채점', 'AI scoring for TOPIK writing Q53–54', '하루 2번 (로그인)', '<b>하루 30번</b>'],
+  ['AI 발음 진단 · 한국어 도우미', 'AI pronunciation feedback · Korean helper', '기본 횟수', '<b>하루 더 많이</b>'],
+  ['앞으로 나올 Pro 기능', 'Every Pro feature we add next', '—', '✓'],
+];
+const EN_CELL = { '1회차': 'Round 1', '하루 2번 (로그인)': '2 a day (signed in)', '기본 횟수': 'Standard',
+  '<b>전 회차 + 회차별 성적 추이</b>': '<b>Every round + score history</b>', '<b>하루 30번</b>': '<b>30 a day</b>',
+  '<b>하루 더 많이</b>': '<b>More each day</b>' };
+const table = (en) => `<table class="cmp"><thead><tr><th></th><th>${en ? 'Free' : '무료'}</th><th class="pro">Pro</th></tr></thead><tbody>` +
+  ROWS.map(([ko, e, f, p]) => `<tr><th>${en ? e : ko}</th><td>${en ? (EN_CELL[f] || f) : f}</td><td class="pro">${en ? (EN_CELL[p] || p) : p}</td></tr>`).join('') +
+  '</tbody></table>';
+
+const pricing = page('pricing.html', '가격 · Pricing', '치즈감자 Pro 구독 가격 — 무료와 Pro 비교. Pricing for CheesePotato Pro: free vs Pro.', `
 <h1>가격 · Pricing</h1>
-<p>치즈감자의 코스 · 문법 표현 · 사전 · 레벨테스트 · TOPIK 연습 문제는 <strong>무료</strong>입니다.
-<strong>치즈감자 Pro</strong> 를 구독하면 아래가 더 열립니다.</p>
-<ul>
-<li>TOPIK 모의고사 전 회차와 성적 기록</li>
-<li>TOPIK 쓰기 53·54번 AI 채점 하루 30번 (무료는 하루 2번)</li>
-<li>AI 발음 진단 · 한국어 도우미를 하루에 더 많이</li>
-<li>앞으로 나올 Pro 기능 전부</li>
-</ul>
+<p>치즈감자는 <strong>대부분 무료</strong>입니다. 시험 준비를 끝까지 하고 싶을 때 <strong>치즈감자 Pro</strong> 를 더하세요.</p>
 <div class="plans">
-  <div class="plan">한 달 · Monthly<b>${PRICE.monthly}</b>매달 자동 갱신 · billed monthly</div>
-  <div class="plan">1년 · Yearly<b>${PRICE.yearly}</b>매년 자동 갱신 · billed yearly (≈35% off)</div>
+  <div class="plan best"><span class="tag">추천 · Best value</span>1년 · Yearly<b>${PRICE.yearly}</b>한 달 $3.25꼴 · 35% 싸요<br><small>매년 자동 갱신 · billed yearly</small></div>
+  <div class="plan">한 달 · Monthly<b>${PRICE.monthly}</b>부담 없이 한 달부터<br><small>매달 자동 갱신 · billed monthly</small></div>
 </div>
-<p>언제든 해지할 수 있고, 해지해도 이미 낸 기간 끝까지 쓸 수 있습니다. 처음 결제한 뒤 14일 안에는 이유를 묻지 않고 전액 환불합니다(<a href="/refund.html">환불 규정</a>).
-표시 가격은 미국 달러 기준이며, 나라에 따라 부가세가 더해질 수 있습니다.</p>
-<a class="cta" href="/?pro=1">Pro 구독하기 · Subscribe</a>
+<div class="buy">
+  <a class="cta" href="/?pro=1">Pro 구독하기 · Subscribe</a>
+  <p class="promise">✓ 처음 결제한 뒤 <strong>14일 안에는 이유를 묻지 않고 전액 환불</strong> · ✓ 언제든 해지, 낸 기간 끝까지 사용<br>
+  <span>Full refund within 14 days, no questions asked · Cancel anytime</span></p>
+</div>
+
+<h2>무료와 Pro · Free vs Pro</h2>
+${table(false)}
+
+<h2>자주 묻는 것</h2>
+<h3>해지는 어떻게 하나요?</h3>
+<p>내 계정 → 구독 정보 → 「구독 관리 · 해지」에서 바로 할 수 있습니다. 해지해도 이미 낸 기간이 끝날 때까지 Pro 를 씁니다.</p>
+<h3>환불은요?</h3>
+<p>처음 결제한 뒤 14일 안이면 이유를 묻지 않고 전액 돌려 드립니다. 연 구독이 자동 갱신된 뒤 14일 안에 알려 주셔도 갱신분을 전액 환불합니다(<a href="/refund.html">환불 규정</a>).</p>
+<h3>어떻게 결제하나요?</h3>
+<p>결제 · 세금 · 영수증은 판매 대행사 Paddle 이 처리합니다. 카드, 그리고 나라에 따라 PayPal 등으로 낼 수 있습니다. 표시 가격은 미국 달러 기준이며 나라에 따라 부가세가 더해질 수 있습니다.</p>
+<h3>무료 기능이 줄어들 수도 있나요?</h3>
+<p>아니요. 위 표에서 무료로 적힌 것은 Pro 가 생겨도 그대로 무료입니다.</p>
+
 <hr>
 <h2>English</h2>
-<p>Courses, grammar, the dictionary, the level test and TOPIK practice questions on CheesePotato are <strong>free</strong>.
-<strong>CheesePotato Pro</strong> adds every TOPIK mock round with your score history, AI scoring for TOPIK writing Q53–54 (30 a day; 2 a day free), more AI pronunciation feedback and Korean-helper questions each day, and every Pro feature we add next.</p>
-<p><strong>${PRICE.monthly} / month</strong> or <strong>${PRICE.yearly} / year</strong>, renewing automatically. Cancel anytime and keep access until the end of the period you paid for. Full refund within 14 days of your first payment, no questions asked (<a href="/refund.html">refund policy</a>). Prices are in US dollars; sales tax or VAT may be added depending on your country.</p>
-<p class="seller" style="border:0;margin-top:0;padding-top:0">최종 수정 · Last updated: ${UPDATED}</p>
+<p>Most of CheesePotato is <strong>free</strong>. Add <strong>CheesePotato Pro</strong> when you want to prepare all the way to the exam:
+<strong>${PRICE.yearly} / year</strong> (about $3.25 a month, save 35%) or <strong>${PRICE.monthly} / month</strong>, renewing automatically.</p>
+${table(true)}
+<p>Cancel anytime from your account and keep Pro until the end of the period you paid for. <strong>Full refund within 14 days of your first payment, no questions asked</strong> (<a href="/refund.html">refund policy</a>). Payments, tax and receipts are handled by Paddle; prices are in US dollars and VAT or sales tax may be added depending on your country. Everything marked free above stays free.</p>
+<a class="cta" href="/?pro=1">Subscribe to Pro</a>
+<p class="seller" style="border:0;margin-top:18px;padding-top:0">최종 수정 · Last updated: ${UPDATED}</p>
 `);
 
 const terms = page('terms.html', '이용약관 · Terms of Service', '치즈감자 이용약관입니다. Terms of Service for CheesePotato.', `

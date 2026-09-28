@@ -3977,3 +3977,11 @@
 .eps-keys { display:none; text-align:center; font-size:12px; color:var(--ink-3); margin-top:12px; }
 @media (hover:hover) and (pointer:fine) { .eps-keys { display:block; } }
 .tw-restored { margin-top:14px; font-size:13.5px; color:var(--ink-2); padding:10px 13px; border-radius:10px; background:var(--surface-2); border:1px dashed var(--line); }
+
+/* Pro 를 알리는 한 줄(모의고사 성적표 · AI 채점 마지막 회). 팝업이 아니라 결과 속 조용한 줄. */
+.pro-nudge { display:flex; align-items:center; gap:12px; flex-wrap:wrap; justify-content:center; text-align:left;
+  margin:16px auto 4px; max-width:560px; padding:12px 14px; border-radius:14px;
+  border:1px solid var(--orange-mid); background:color-mix(in srgb, var(--orange) 9%, transparent); }
+.pro-nudge span { flex:1; min-width:200px; font-size:14px; line-height:1.6; color:var(--ink-2); word-break:keep-all; }
+.pro-nudge .pt-next { flex:none; }
+.pro-refund { margin-top:10px; text-align:center; font-size:13px; font-weight:700; color:var(--green); }
