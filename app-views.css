@@ -4139,3 +4139,6 @@
 .wd-tprog button { display:grid; grid-template-columns:1fr auto; gap:4px 10px; align-items:center; padding:10px 12px; cursor:pointer; text-align:left; font:inherit; color:var(--ink); border:1px solid var(--line); border-radius:var(--r); background:var(--surface); }
 .wd-tprog em { font-style:normal; font-size:13px; color:var(--ink-2); }
 .wd-tprog .wd-bar { grid-column:1 / -1; }
+#wdMine .wd-count { margin:16px 0 8px; }
+#wdMine > .wd-btn { margin-bottom:4px; }
+.wd-addall { margin-top:12px; }
