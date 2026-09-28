@@ -29,6 +29,8 @@ const ASSETS = [
   'app.js', 'app.module.js', 'analytics.js', 'gtm.js', 'course-icons.js', 'billing.js', 'audio-key.js',
   'courses.js', 'courses-lite.js', 'courses-grammar.js', 'courses-grammar-beginner.js',
   'glossary.js', 'gloss-find.js',
+  /* 「단어」 화면(#words) — 화면 코드와 자료(tools/build-vocab.mjs 생성물). 그 화면을 열 때만 받는다. */
+  'words.js', 'vocab-topik1.js',
   /* 국어사전 화면(#dictionary)의 "더 보기" 자료(뜻풀이·예문). glossary.js
      처럼 늘 받는 파일이 아니라 그 화면을 열 때만 따로 받는다. */
   'glossary-senses.js', 'glossary-examples.js',

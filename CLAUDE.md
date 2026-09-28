@@ -55,6 +55,7 @@
   | `sentence/` `course/` `lesson/` `topik-*/` `eps-topik/` `dictionary/` `blog/` `compare/` `sitemap*.xml` `wotd.js` | 자료 `*.js` · `blog.js` → `node tools/build-pages.mjs` |
   | `pricing.html` `terms.html` `refund.html` | `node tools/build-legal.mjs` |
   | `record/*.json` | `node tools/record-list.mjs` |
+  | `vocab-topik1.js` | `vocab/data/topik1.json` → `node tools/build-vocab.mjs` |
 - **검사:** 올리기 전에 CI 와 같은 검사를 돌린다(`.github/workflows/check.yml` 의 목록).
   `node --check app.js && node --check app.module.js`, `node tools/check-*.mjs`.
   첫 쪽 · `llms.txt` 의 숫자(문항 수 등)가 바뀌면 `check-geo` 가 알려 준다.
@@ -63,7 +64,8 @@
 
 ## 5. 지금 상태 (2026-09-28)
 
-- **진행 중인 큰 일: 「단어」 섹션** — 계획은 `docs/vocab-plan.md`(1~7층, 운영자와 합의). 지금 **0단계(준비)**.
+- **진행 중인 큰 일: 「단어」 섹션** — 계획은 `docs/vocab-plan.md`(1~7층, 운영자와 합의). TOPIK I 자료 1,930개(B급) 끝,
+  지금 **2단계(화면)** — 2-1 `#words` 화면(`words.js`), 다음 2-2 내 단어장 연동. 자료를 고치면 `node tools/build-vocab.mjs`.
   이 계획에 없는 것은 하지 않고 「다음에」 칸에 적는다. 녹음 파일을 옮길 곳은 `docs/storage-guide.md`
   (추천: 지금 Supabase Storage → 전송량이 늘면 Cloudflare R2, AWS 는 안 씀).
 
