@@ -33,8 +33,13 @@ const stdBy = new Map(std.words.map(([h, g, p, hint], i) => [h, { g, p, hint, i 
 const freq = new Map(cand.words.map((c) => [c.head, c]));
 
 /* 뽑기 */
-/* 우리 사전이 조사 「에다(가)」를 동사 「에다(살을 에다)」로 잘못 짚은 것 — 초급 낱말이 아니다. */
-const SKIP = new Set(['에다']);
+/* 빈도로 뽑은 「우리 자료에서 더한 낱말」 중 낱말이 아닌 것 — 다시 돌려도 들어오지 않게.
+   우리 사전이 활용형 조각을 다른 낱말로 잘못 짚은 것(에다 ← 에다가 · 타 ← 타요 · 작고 ← 작고),
+   문항 속 사람 이름, 문법 용어, TOPIK I 에 맞지 않는 낱말. (2026-09-28, 1 · 2묶음 검토) */
+const SKIP = new Set(('에다 지 민수 뚜언 지현 링링 누 외다 기로 보 찍 탄 만난 문어체 격식체 노 신어 의문사 고치 놀 분만 ' +
+  '살기 이랑 타 쉬 관형형 높임 래요 마 살지다 시제 앵커 윗잇몸 작고 탕 혀끝 혀뿌리 가도 깨달음 믿기다 주무 청유 최다 ' +
+  '맞이 보이 분과 사도 신기 일층 드릴 개씩 분씩 시민극장 시민회관 낫 도색 임의 작 항 거저 아야 순우리말 감탄하다 ' +
+  '정중히 플래시').split(' '));
 const pick = new Map();
 for (const [h, s] of stdBy) if (s.g === 1 || s.g === 2) pick.set(h, { h, level: s.g, std: s.g });
 for (const c of cand.words) {
