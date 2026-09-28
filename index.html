@@ -40,7 +40,7 @@
 ">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <!-- 구글 태그 관리자. 구글이 주는 인라인 코드조각은 CSP 가 막아서 gtm.js 로 뺐다. -->
-<script src="gtm.js?v=06339c8b" async></script>
+<script src="gtm.js?v=7a1bfc58" async></script>
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <!-- 제목과 설명을 두 말로 쓴다. 이 사이트를 찾을 사람은 한국어를 **배우는**
@@ -119,13 +119,13 @@
      Pretendard 는 통짜(2.0MB) 대신 조각난 쪽을 쓴다 — 브라우저가
      unicode-range 를 보고 화면에 실제로 나온 글자가 든 조각만 받는다.
      그래서 저장소는 무거워졌지만 학습자가 받는 양은 오히려 줄었다. -->
-<link rel="stylesheet" href="vendor/pretendard.css?v=06339c8b">
-<link rel="stylesheet" href="vendor/pressstart2p.css?v=06339c8b">
+<link rel="stylesheet" href="vendor/pretendard.css?v=7a1bfc58">
+<link rel="stylesheet" href="vendor/pressstart2p.css?v=7a1bfc58">
 <!-- 화면 상자 안에서만 쓰는 CSS 는 여기서 갈라 받는다. media="print" 라
      첫 페인트를 안 막고, 다 받아지면 app.js 가 media 를 all 로 바꾼다.
      자바스크립트가 없으면 <noscript> 쪽이 그냥 평범하게 걸린다. -->
-<link id="viewsCss" rel="stylesheet" href="app-views.css?v=06339c8b" media="print">
-<noscript><link rel="stylesheet" href="app-views.css?v=06339c8b"></noscript>
+<link id="viewsCss" rel="stylesheet" href="app-views.css?v=7a1bfc58" media="print">
+<noscript><link rel="stylesheet" href="app-views.css?v=7a1bfc58"></noscript>
 
 <style>
 /* ══════════════════════════════════════════════════════════════
@@ -1679,8 +1679,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- 머리띠에서는 「Wordbook」이다. 「My wordbook」으로 두면 320px 짜리
          영어 화면에서 머리띠가 넘친다. 옆 메뉴는 자리가 넉넉해서 거기서는
          「My wordbook」을 그대로 쓴다. -->
-    <button class="nav-link" id="wbBtn" type="button" aria-label="내 단어장 열기" data-en-aria="Open my wordbook">
-      <span class="nav-ico">📚</span><span class="nav-txt" data-en="Wordbook">내 단어장</span>
+    <!-- 머리띠의 이 자리는 「단어」다 — 내 단어장은 단어 화면 안의 탭이 됐다(docs/vocab-plan.md 3층).
+         id 는 wbBtn 그대로 둔다: 여러 곳이 이 id 로 켜고 끈다. -->
+    <button class="nav-link" id="wbBtn" type="button" aria-label="단어 열기" data-en-aria="Open words">
+      <span class="nav-ico">🔤</span><span class="nav-txt" data-en="Words">단어</span>
     </button>
     <!-- 로그인 여부에 따라 글이 바뀌므로 data-en 대신 JS 가 관리한다. -->
     <button class="nav-link" id="authBtn" type="button" aria-label="로그인">
@@ -1743,6 +1745,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
          이름표는 눈으로 가르는 것일 뿐 눌리지 않는다 — 실제로 여닫는
          것은 여전히 .side-group(배우기·게임) 뿐이다. -->
     <div class="side-sec-h" data-en="Learn">배우기</div>
+    <!-- 국어사전과 외우기를 합친 「단어」(#words) — 배우기 맨 위에 둔다. id 는 dictBtn 그대로(예전 이름으로 여는 곳이 있다). -->
+    <button class="nav-link" id="dictBtn" type="button" aria-label="단어 열기" data-en-aria="Open words">
+      <span class="nav-ico">🔤</span><span class="nav-txt" data-en="Words — search &amp; learn">단어 — 찾고 외우기</span>
+    </button>
     <div class="side-group open" data-group="learn">
       <button class="nav-link side-parent" type="button"
               aria-expanded="true" aria-controls="sideSubLearn">
@@ -1822,10 +1828,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
     </div>
 
-    <!-- 국어사전과 외우기를 합친 「단어」(#words). id 는 dictBtn 그대로 — 예전 이름으로 여는 곳이 있다. -->
-    <button class="nav-link" id="dictBtn" type="button" aria-label="단어 열기" data-en-aria="Open words">
-      <span class="nav-ico">🔎</span><span class="nav-txt" data-en="Words">단어</span>
-    </button>
 
     <div class="side-sec-h" data-en="Practice">연습 · 놀이</div>
     <div class="side-group" data-group="games">
@@ -1859,7 +1861,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <button class="nav-link" id="sideAuthBtn" type="button" data-nav-to="authBtn" aria-label="로그인">
       <span class="nav-ico">👤</span><span class="nav-txt" data-en="Sign in">로그인</span>
     </button>
-    <button class="nav-link" type="button" data-nav-to="wbBtn" aria-label="내 단어장 열기">
+    <!-- 단어 화면의 「내 단어장」 탭으로 곧장 간다(app.module.js sideMineBtn). -->
+    <button class="nav-link" id="sideMineBtn" type="button" aria-label="내 단어장 열기" data-en-aria="Open my wordbook">
       <span class="nav-ico">📚</span><span class="nav-txt" data-en="My wordbook">내 단어장</span>
     </button>
     <button class="nav-link" id="dashBtn" type="button" aria-label="대시보드 열기">
@@ -3947,9 +3950,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <div id="hlpScrim" class="hlp-scrim"></div>
 <aside id="hlpPanel" class="hlp-panel" aria-label="한국어 도우미" aria-hidden="true"></aside>
 
-<script src="app.js?v=06339c8b"></script>
-<script type="module" src="app.module.js?v=06339c8b"></script>
+<script src="app.js?v=7a1bfc58"></script>
+<script type="module" src="app.module.js?v=7a1bfc58"></script>
 
-<script src="analytics.js?v=06339c8b" defer></script>
+<script src="analytics.js?v=7a1bfc58" defer></script>
 </body>
 </html>

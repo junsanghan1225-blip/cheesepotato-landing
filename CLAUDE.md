@@ -65,7 +65,8 @@
 ## 5. 지금 상태 (2026-09-28)
 
 - **진행 중인 큰 일: 「단어」 섹션** — 계획은 `docs/vocab-plan.md`(1~7층, 운영자와 합의). TOPIK I 자료 1,930개(B급) 끝,
-  지금 **2단계(화면)** — 2-1 `#words` 화면(`words.js`), 다음 2-2 내 단어장 연동. 자료를 고치면 `node tools/build-vocab.mjs`.
+  **2단계(화면 `#words` · `words.js` · 내 단어장 연동) 끝** — 다음은 3단계(검색 유입 · 낱말 쪽 보강). 자료를 고치면
+  `node tools/build-vocab.mjs`. 외우기 기록은 `settings.vocab`, 담은 낱말은 `words`(+ `vocab_id` · `source`).
   이 계획에 없는 것은 하지 않고 「다음에」 칸에 적는다. 녹음 파일을 옮길 곳은 `docs/storage-guide.md`
   (추천: 지금 Supabase Storage → 전송량이 늘면 Cloudflare R2, AWS 는 안 씀).
 
