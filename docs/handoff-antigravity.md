@@ -39,17 +39,10 @@ node tools/build-pages.mjs && node tools/stamp.mjs
 
 ## 2. 음성 파일을 git 밖으로 (개선안 7번)
 
-`assets/audio/` 가 174MB 다(dict 113MB · read 30MB · write 7MB …).
-코드는 준비해 두었다 — **모든 음성 주소가 `AUDIO_BASE` 하나를 지난다**
-(`app.module.js`, 기본값 `assets/audio/`). 옮기는 일은 이렇다.
-
-1. Supabase 에 공개 버킷 `audio` 를 만든다.
-2. `assets/audio/` 밑을 **같은 경로 그대로** 올린다
-   (`dict/…`, `read/…`, `listen/…`, `travel/…` …). 파일 이름에 한글이 있으니
-   올린 뒤 하나를 브라우저로 직접 열어 확인할 것.
-3. `app.js` 맨 앞에 한 줄:
-   `window.__AUDIO_BASE__ = 'https://tjgoevtvobvmlyefgxel.supabase.co/storage/v1/object/public/audio/';`
-   (CSP 의 `media-src` 에 이미 이 주소가 있다.)
+**→ 순서가 바뀌었다. `docs/storage-guide.md` 의 「운영자가 고른 것」을 따른다.**
+Supabase 는 한글 파일 이름을 안 받아서 「같은 경로 그대로 올리기」가 안 된다 — 이름을 `audio-key.js` 규칙으로
+바꿔 올리는 `tools/upload-audio.mjs` 를 쓰고, 사이트 쪽은 `audio-key.js` 의 `AUDIO_REMOTE` 한 줄로 켠다.
+(예전의 `window.__AUDIO_BASE__` 방식은 없앴다.) 아래 4번은 그대로.
 4. 사전·읽기·듣기·여행에서 소리가 나는지 본 뒤에 `assets/audio/` 를 저장소에서
    지운다. 지워도 git 기록에는 남으므로, 저장소 크기까지 줄이려면 따로
    `git filter-repo` 가 필요하다(급하지 않다 — 더 커지지 않게 막는 게 먼저).

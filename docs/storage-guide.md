@@ -28,9 +28,29 @@
 3. **AWS 는 쓰지 않는다.** 할 수 있는 것은 많지만 우리에게 필요한 것(파일 보관 · 내주기)에 비해 설정이 복잡하고,
    전송 요금이 붙는다.
 
+## 운영자가 고른 것: **Supabase Storage** (2026-09-28)
+
+**Supabase 는 파일 이름에 한글을 안 받는다**(영문 · 숫자 · 일부 기호만). 우리 녹음은 `dict/먹다.mp3` 처럼 한글
+이름이 많아서, 올릴 때 이름을 바꾸고 사이트도 같은 규칙으로 찾는다 — 규칙은 `audio-key.js` 한 곳에 있다.
+(`dict/먹다.mp3` → `dict/!EB!A8!B9!EB!8B!A4.mp3`)
+
+**옮기는 순서**
+1. **운영자** — Supabase → Storage → **New bucket** → 이름 `audio`, **Public bucket 켬** → Create.
+2. **운영자 컴퓨터**(저장소 폴더, PowerShell):
+   ```powershell
+   git pull origin main
+   node tools/upload-audio.mjs --dry                 # 몇 개 · 몇 MB 인지 (열쇠 없이)
+   $env:SUPABASE_SERVICE_KEY = "…"                  # Project Settings → API → service_role. 대화에 붙이지 말 것
+   node tools/upload-audio.mjs                       # 올린다. 끊기면 다시 돌리면 이어서
+   ```
+   끝에 나오는 주소를 브라우저로 열어 소리가 나면 된다.
+3. **Claude** — `audio-key.js` 의 `AUDIO_REMOTE` 에 주소를 넣고 머지. 사이트는 **바깥 → 사이트 사본 → 브라우저
+   목소리** 차례로 찾으므로, 빠진 파일이 있어도 소리가 끊기지 않는다.
+4. 한두 주 지켜본 뒤 문제가 없으면 `assets/audio/` 를 저장소에서 지우는 것을 운영자와 정한다.
+
 ## 옮길 때 지킬 것 (어느 쪽이든)
 
-- **같은 경로 그대로** 올린다(`dict/먹다.mp3`, `read/…`, `listen/…`, `eps/…`, `travel/…`). 한글 파일 이름이 많으니
+- 경로 구조는 그대로(`dict/…`, `read/…`, `listen/…`, `eps/…`, `travel/…`), 이름만 `audio-key.js` 규칙으로.
   올린 뒤 하나를 브라우저로 직접 열어 소리가 나는지 본다.
 - **저장소 열쇠(service key · API key)는 대화 · 코드에 적지 않는다.** 올리는 일은 운영자 컴퓨터에서.
 - 사이트에서 사전 · 읽기 · 듣기 · 여행 소리가 다 나는 것을 확인한 **뒤에야** `assets/audio/` 를 저장소에서 지운다.
