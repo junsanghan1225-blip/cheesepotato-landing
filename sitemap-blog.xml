@@ -10,6 +10,66 @@
      뛰는데, 그러면 안 바뀐 쪽까지 「오늘 바뀌었다」가 된다. -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://everykoreans.com/blog/textbook-vs-real-korean-english.html</loc>
+    <lastmod>2026-09-28</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/blog/korean-apologies-strength-english.html</loc>
+    <lastmod>2026-09-28</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/blog/how-to-say-no-in-korean-english.html</loc>
+    <lastmod>2026-09-28</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/blog/korean-reactions-heol-daebak-english.html</loc>
+    <lastmod>2026-09-28</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/blog/gwaenchanayo-meanings-english.html</loc>
+    <lastmod>2026-09-28</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/blog/lets-eat-sometime-korean-english.html</loc>
+    <lastmod>2026-09-28</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/blog/when-to-use-banmal-vs-jondaetmal-english.html</loc>
+    <lastmod>2026-09-28</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/blog/korean-texting-abbreviations-english.html</loc>
+    <lastmod>2026-09-28</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/blog/kakaotalk-korean-texting-english.html</loc>
+    <lastmod>2026-09-28</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/blog/korean-titles-unni-oppa-sunbae-english.html</loc>
+    <lastmod>2026-09-28</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://everykoreans.com/blog/topik-writing-54-structure-english.html</loc>
     <lastmod>2026-09-28</lastmod>
     <changefreq>yearly</changefreq>
@@ -182,6 +242,12 @@
     <lastmod>2026-09-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/blog/tag/real-korean-en.html</loc>
+    <lastmod>2026-09-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   <url>
     <loc>https://everykoreans.com/blog/tag/english.html</loc>

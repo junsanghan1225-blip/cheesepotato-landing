@@ -23,6 +23,11 @@ const POS = new Set(['명사', '대명사', '수사', '동사', '형용사', '�
 const GRADES = new Set(['A', 'B', 'C']);
 
 const err = [], warn = [];
+const ALL = process.argv.includes('--all');       // 짚어 둘 것을 전부 보이기(고칠 줄 목록 뽑을 때)
+/* 초급 낱말의 예문은 짧고 쉬워야 한다(docs/antigravity-vocab-task.md: 8~18글자 안팎, 초급 문법).
+   빈칸 · 문장 부호를 뺀 글자 수가 이보다 길거나, 중급 이상 문법이 보이면 짚는다. */
+const EX_MAX = 20;
+const HARD = /느라|도록|더니|는데도|길래|거든요?|잖아|수록|듯|채로|바람에|던\s/;
 const ids = new Map();
 const stat = { n: 0, grade: {}, level: {}, purpose: {}, topicless: 0, exless: 0 };
 
@@ -43,6 +48,14 @@ function hasHead(ko, head) {
       if (s.slice(i, i + front.length) === front && cho(s[i + front.length]) === last) return true;
     }
     if (stem.length >= 2 && s.includes(stem.slice(0, -1))) return true;
+    /* 르 불규칙: 앞 글자에 받침 ㄹ 이 붙고 라 · 러 가 온다 — 빠르다 → 빨라, 부르다 → 불러. */
+    if (stem.endsWith('르') && front) {
+      const p = front.slice(-1).charCodeAt(0) - 0xac00;
+      if (p >= 0 && p < 11172 && p % 28 === 0) {
+        const ll = front.slice(0, -1) + String.fromCharCode(0xac00 + p + 8);
+        if (s.includes(ll + '라') || s.includes(ll + '러')) return true;
+      }
+    }
   }
   return false;
 }
@@ -77,6 +90,11 @@ for (const f of files) {
       if (!x || typeof x.ko !== 'string' || !x.ko.trim()) { err.push(`${at} — 예문 ${j + 1} 에 ko 가 없다`); return; }
       if (w.grade !== 'C' && !String(x.en || '').trim()) err.push(`${at} — 예문 ${j + 1} 에 영어 번역(en)이 없다`);
       if (!hasHead(x.ko, w.head)) warn.push(`${at} — 예문 ${j + 1} 에 표제어가 안 보인다: ${x.ko.slice(0, 30)}`);
+      if (w.level <= 2 && w.grade !== 'C') {
+        const len = x.ko.replace(/[\s.,!?~…「」'"]/g, '').length;
+        if (len > EX_MAX) warn.push(`${at} — 예문 ${j + 1} 이 길다(${len}자 · 초급은 18자 안팎): ${x.ko}`);
+        else if (HARD.test(x.ko + ' ')) warn.push(`${at} — 예문 ${j + 1} 문법이 초급보다 어렵다: ${x.ko}`);
+      }
     });
     if (w.rel != null && (typeof w.rel !== 'object' || Array.isArray(w.rel))) err.push(`${at} — rel 은 객체`);
     else for (const [k, v] of Object.entries(w.rel || {})) {
@@ -104,6 +122,7 @@ console.log(`낱말 자료 ${stat.n}개 (${files.length}개 파일)`);
 console.log(`  등급 ${kv(stat.grade)} | 급수 ${kv(stat.level)}`);
 console.log(`  목적 ${kv(stat.purpose)}`);
 console.log(`  주제 없음 ${stat.topicless} · 예문 없음 ${stat.exless} · 영어 뜻 없음 ${stat.enless || 0}`);
-if (warn.length) console.log(`\n짚어 둘 것 ${warn.length}건` + (warn.length > 15 ? ' (앞 15)' : '') + '\n  · ' + warn.slice(0, 15).join('\n  · '));
+const shown = ALL ? warn : warn.slice(0, 15);
+if (warn.length) console.log(`\n짚어 둘 것 ${warn.length}건` + (shown.length < warn.length ? ' (앞 15 · 전부: --all)' : '') + '\n  · ' + shown.join('\n  · '));
 if (err.length) { console.error(`\n고쳐야 할 것 ${err.length}건\n  ✗ ` + err.slice(0, 40).join('\n  ✗ ')); process.exit(1); }
 console.log('\n이상 없음');
