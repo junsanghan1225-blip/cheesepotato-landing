@@ -45,7 +45,7 @@ const posts = Array.isArray(got) ? got : [got];
 const { BLOG_POSTS } = await import(pathToFileURL(FILE).href);
 const have = new Set(BLOG_POSTS.map((p) => p.id));
 
-const KNOWN = new Set(['p', 'h', 'quote', 'list', 'ex', 'dlg', 'gram', 'link', 'note', 'img']);
+const KNOWN = new Set(['p', 'h', 'quote', 'list', 'ex', 'dlg', 'gram', 'link', 'note', 'img', 'doc']);
 const stop = [];
 
 for (const p of posts) {
@@ -83,14 +83,15 @@ const NL = OPEN.includes('\r\n') ? '\r\n' : '\n';
    그다음 홑따옴표를 빠져나가게 한다 — 순서를 바꾸면 우리가 넣은
    역슬래시를 또 빠져나가게 해서 \\' 가 된다. */
 const q = (s) => `'${String(s).replaceAll('\\', '\\\\').replaceAll("'", "\\'")}'`;
-const blockLine = (b) => {
-  const parts = Object.entries(b).map(([k, v]) => {
-    if (Array.isArray(v)) return `${k}: [${v.map(q).join(', ')}]`;
-    if (typeof v === 'boolean' || typeof v === 'number') return `${k}: ${v}`;
-    return `${k}: ${q(v)}`;
-  });
-  return `      { ${parts.join(', ')} },`;
+/* 값 하나를 JS 로 찍는다. 문서 블록(doc)의 rows 처럼 배열 안에 객체가 오면 그것도
+   풀어서 찍는다 — 예전에는 배열 안을 전부 문자열로 여겨 「[object Object]」가 됐다. */
+const lit = (v) => {
+  if (Array.isArray(v)) return `[${v.map(lit).join(', ')}]`;
+  if (v && typeof v === 'object') return `{ ${Object.entries(v).map(([k, x]) => `${k}: ${lit(x)}`).join(', ')} }`;
+  if (typeof v === 'boolean' || typeof v === 'number') return String(v);
+  return q(v);
 };
+const blockLine = (b) => `      { ${Object.entries(b).map(([k, v]) => `${k}: ${lit(v)}`).join(', ')} },`;
 const render = (p) => [
   '  {',
   `    id: ${q(p.id)},`,
