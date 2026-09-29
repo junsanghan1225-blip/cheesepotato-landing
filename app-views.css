@@ -4786,3 +4786,8 @@ div.wd-card:hover { transform:none; }
   .lu-old { display:none; } .lu-new { opacity:1; transform:none; animation:none; } .lu-sp { display:none; }
 }
 @media (max-width:600px) { .lu-t { font-size:22px; } .lu-pair svg { width:72px; height:72px; } }
+
+/* 레벨업 화면의 공유 — 클립 아이콘 + 「공유」, 작고 조용하게 */
+.lu-share { display:inline-flex; align-items:center; gap:6px; padding:8px 16px; border:1px solid var(--line); border-radius:999px;
+  background:var(--surface); color:var(--ink-2); font:inherit; font-size:14px; font-weight:700; cursor:pointer; }
+.lu-share:hover { border-color:var(--orange); color:var(--ink); }
