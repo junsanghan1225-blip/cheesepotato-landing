@@ -52,7 +52,7 @@
 - **생성물은 손으로 고치지 않는다** — 원본을 고치고 도구를 돌린다.
   | 생성물 | 원본 → 도구 |
   |---|---|
-  | `sentence/` `course/` `lesson/` `topik-*/` `eps-topik/` `dictionary/` `topik1-words/` `korean-word-for/` `blog/` `compare/` `sitemap*.xml` `wotd.js` | 자료 `*.js` · `blog.js` · `vocab-topik1.js` → `node tools/build-pages.mjs` |
+  | `sentence/` `course/` `lesson/` `topik-*/` `eps-topik/` `dictionary/` `topik1-words/` `topik2-words/` `korean-word-for/` `blog/` `compare/` `sitemap*.xml` `wotd.js` | 자료 `*.js` · `blog.js` · `vocab-topik1.js` → `node tools/build-pages.mjs` |
   | `pricing.html` `terms.html` `refund.html` | `node tools/build-legal.mjs` |
   | `record/*.json` | `node tools/record-list.mjs` |
   | `vocab-topik1.js` · `vocab-topik2.js` · `vocab-topik2-ex/`(TOPIK II 예문 조각, 500개씩) | `vocab/data/topik1.json` · `topik2.json`(B급 이상만) → `node tools/build-vocab.mjs` |
