@@ -2814,52 +2814,6 @@
 .lt-rec-next-title { flex:1; min-width:0; }
 .lt-rec-next-arrow { flex:none; font-size:12px; color:var(--ink-3); }
 
-/* 레벨 테스트 결과 미니 로드맵 트랙 */
-.lt-roadmap-wrap {
-  max-width:420px; margin:16px auto 0; padding:12px 10px;
-  background:var(--surface-2); border:1px solid var(--line-2);
-  border-radius:var(--r); text-align:left;
-}
-.lt-roadmap-head {
-  display:flex; align-items:center; justify-content:space-between;
-  font-size:11px; font-weight:700; color:var(--ink-3); margin-bottom:8px;
-}
-.lt-roadmap-tag {
-  font-size:10px; font-weight:700; color:var(--orange-deep);
-  background:rgba(255,145,77,.12); padding:1px 5px; border-radius:3px;
-}
-.lt-roadmap-track {
-  display:grid; grid-template-columns:repeat(5, 1fr); gap:4px;
-}
-.lt-roadmap-step {
-  display:flex; flex-direction:column; align-items:center; text-align:center;
-  padding:6px 2px; border-radius:6px; font-size:10.5px; color:var(--ink-3);
-  background:var(--surface); border:1px solid var(--line-1); transition:all .15s;
-}
-.lt-roadmap-step.is-pass {
-  color:var(--ink-2); background:rgba(var(--ink-rgb),.03); border-color:transparent;
-}
-.lt-roadmap-step.is-pass .lt-step-dot {
-  background:var(--line-2); color:var(--ink-2);
-}
-.lt-roadmap-step.is-current {
-  color:var(--orange-deep); font-weight:700;
-  background:var(--tint); border-color:var(--orange);
-  box-shadow:0 2px 8px rgba(255,145,77,.18);
-}
-.lt-roadmap-step.is-current .lt-step-dot {
-  background:var(--orange); color:#fff;
-}
-.lt-step-dot {
-  width:18px; height:18px; border-radius:50%;
-  display:flex; align-items:center; justify-content:center;
-  font-size:9.5px; font-weight:800; margin-bottom:3px;
-  background:var(--line-1); color:var(--ink-3);
-}
-.lt-step-name {
-  line-height:1.2; word-break:keep-all;
-}
-
 /* 레벨 테스트 팝업 — #askDlg 와 같은 <dialog> 방식. 화면을 갈아 끼우지
    않고 지금 보던 곳 위에 뜬다.
    margin:auto 는 꼭 있어야 한다 — <dialog> 는 원래 브라우저 기본 스타일이
@@ -2949,64 +2903,10 @@
 .lt-purpose-title { display:block; font-size:16.5px; font-weight:800; color:var(--ink); }
 .lt-purpose-sub { display:block; font-size:12.5px; color:var(--ink-3); margin-top:4px; line-height:1.45; word-break:keep-all; }
 
-/* ── 치즈 선생님 vs 감자 선생님 선택 시스템 ─────────────── */
-.lt-teacher-wrap {
-  max-width:520px; margin:20px auto 0; text-align:left;
-}
-.lt-teacher-title {
-  font-size:12px; font-weight:800; color:var(--ink-3); letter-spacing:.4px;
-  text-transform:uppercase; margin-bottom:8px; display:flex; align-items:center; justify-content:space-between;
-}
-.lt-teacher-grid {
-  display:grid; grid-template-columns:1fr 1fr; gap:10px;
-}
-.lt-teacher-btn {
-  display:flex; align-items:center; gap:10px; padding:12px 14px;
-  border-radius:var(--r-l); border:2px solid var(--line); background:var(--surface);
-  cursor:pointer; font-family:inherit; transition:all .18s ease; text-align:left;
-}
-.lt-teacher-btn:hover {
-  transform:translateY(-2px); border-color:rgba(var(--ink-rgb), .28);
-}
-.lt-teacher-btn.active.is-cheese {
-  border-color:#f59e0b; background:rgba(245, 158, 11, .07);
-  box-shadow:0 4px 18px rgba(245, 158, 11, .22);
-}
-.lt-teacher-btn.active.is-potato {
-  border-color:#8b5cf6; background:rgba(139, 92, 246, .07);
-  box-shadow:0 4px 18px rgba(139, 92, 246, .22);
-}
-.lt-teacher-emoji {
-  font-size:28px; flex:none; line-height:1;
-}
-.lt-teacher-meta {
-  min-width:0;
-}
-.lt-teacher-name {
-  font-size:14.5px; font-weight:800; color:var(--ink); line-height:1.2;
-}
-.lt-teacher-badge {
-  font-size:11px; color:var(--ink-3); margin-top:3px; word-break:keep-all; line-height:1.2;
-}
-
-/* 선생님 말풍선 대사 카드 */
-.lt-teacher-bubble {
-  margin-top:12px; padding:14px 18px; border-radius:var(--r-l);
-  background:var(--surface-2); border:1.5px solid var(--line-2);
-  position:relative; font-size:14px; line-height:1.6; color:var(--ink);
-  word-break:keep-all; animation:cgUp .2s cubic-bezier(.22,.9,.3,1);
-}
-.lt-teacher-bubble-head {
-  display:flex; align-items:center; gap:6px; font-size:12px; font-weight:800; margin-bottom:4px;
-}
-.lt-teacher-bubble-head.is-cheese { color:#d97706; }
-.lt-teacher-bubble-head.is-potato { color:#7c3aed; }
-
 @media (max-width:600px) {
   .lt-card { padding:26px 18px 22px; }
   .lt-card .claw-ask-word { font-size:19px; }
   .lt-purpose-grid { grid-template-columns:1fr; }
-  .lt-teacher-grid { grid-template-columns:1fr; }
 }
 
 @media (min-width:760px) {
@@ -4740,4 +4640,101 @@ div.wd-card:hover { transform:none; }
   .td-title { font-size:18px; }
   .td-slots { grid-template-columns:1fr; gap:8px; }
   .td-slot { padding:12px; align-items:center; }
+}
+
+/* ══ 레벨테스트 — 테스트 전에 묻는 것(#ltSetup) · 결과의 레벨 분석 · 계획 · Pro (운영자 설계 2026-09-29) ══ */
+.lt-back { display:block; background:none; border:none; padding:4px 0; margin-bottom:8px; font:inherit; font-size:13.5px; font-weight:700; color:var(--ink-3); cursor:pointer; }
+.lt-back:hover { color:var(--ink); }
+.lt-dots { display:flex; gap:6px; justify-content:center; max-width:180px; margin:0 auto 18px; }
+.lt-dots i { flex:1; height:5px; border-radius:3px; background:color-mix(in srgb, var(--ink) 10%, transparent); }
+.lt-dots i.on { background:var(--orange); }
+.lt-q { font-size:24px; font-weight:800; letter-spacing:-.035em; line-height:1.3; color:var(--ink); text-align:center; word-break:keep-all; }
+.lt-q-sub { margin-top:8px; font-size:14.5px; line-height:1.55; color:var(--ink-2); text-align:center; word-break:keep-all; }
+.lt-tracks { display:grid; grid-template-columns:1fr 1fr; gap:12px; max-width:560px; margin:24px auto 0; }
+.lt-track {
+  display:flex; flex-direction:column; align-items:center; gap:6px; padding:22px 16px 20px; text-align:center;
+  border-radius:var(--r-xl); border:2px solid var(--line); background:var(--surface); color:var(--ink); font:inherit; cursor:pointer;
+  transition:border-color .16s, transform .16s, box-shadow .16s;
+}
+.lt-track:hover, .lt-track.on { border-color:var(--orange); transform:translateY(-2px); box-shadow:0 12px 24px -10px rgba(255,145,77,.3); }
+.lt-track-ic svg { display:block; width:84px; height:84px; }
+.lt-track-t { font-size:18px; font-weight:800; letter-spacing:-.02em; }
+.lt-track-s { font-size:13px; line-height:1.45; color:var(--ink-3); word-break:keep-all; }
+.lt-textlink { display:block; margin:18px auto 0; background:none; border:none; font:inherit; font-size:13.5px; color:var(--ink-3); text-decoration:underline; cursor:pointer; }
+.lt-textlink:hover { color:var(--ink); }
+.lt-date { display:flex; flex-direction:column; align-items:center; gap:10px; margin-top:22px; }
+.lt-date input[type=date] {
+  min-width:220px; padding:12px 16px; border-radius:var(--r-l); border:2px solid var(--line);
+  background:var(--surface); color:var(--ink); font:inherit; font-size:17px; font-weight:700;
+}
+.lt-date input[type=date]:focus { outline:none; border-color:var(--orange); }
+.lt-dday { min-height:1.4em; font-size:15px; font-weight:800; color:var(--orange-deep); }
+.lt-acts { display:flex; flex-direction:column; align-items:center; gap:4px; margin-top:22px; }
+.lt-acts .pt-next:disabled { opacity:.45; cursor:not-allowed; }
+.lt-acts .lt-textlink { margin-top:8px; }
+.lt-fine { margin-top:14px; font-size:12px; color:var(--ink-3); text-align:center; word-break:keep-all; }
+.lt-opts { display:grid; gap:10px; max-width:440px; margin:22px auto 0; }
+.lt-opt {
+  display:flex; flex-direction:column; gap:3px; padding:15px 18px; text-align:left;
+  border-radius:var(--r-l); border:2px solid var(--line); background:var(--surface); color:var(--ink); font:inherit; cursor:pointer;
+  transition:border-color .15s, transform .15s;
+}
+.lt-opt:hover, .lt-opt.on { border-color:var(--orange); transform:translateY(-1px); }
+.lt-opt-t { font-size:16px; font-weight:800; }
+.lt-opt-s { font-size:13px; color:var(--ink-3); word-break:keep-all; }
+/* 내 수준 — 끌어서 고르기. 채운 곳(--p)은 app.module.js ltSelfPaint 가 맞춘다. */
+.lt-self { display:flex; flex-direction:column; align-items:center; gap:4px; max-width:440px; margin:18px auto 0; padding:18px 18px 12px; border-radius:var(--r-xl); background:var(--surface-2); }
+.lt-self-ic svg { display:block; width:96px; height:96px; }
+.lt-self-n { font-size:18px; font-weight:800; letter-spacing:-.02em; color:var(--ink); text-align:center; }
+.lt-self-d { min-height:2.9em; font-size:14px; line-height:1.45; color:var(--ink-2); text-align:center; word-break:keep-all; }
+.lt-range {
+  -webkit-appearance:none; appearance:none; width:100%; height:10px; margin:12px 0 6px; border-radius:5px; cursor:pointer; touch-action:none;
+  background:linear-gradient(to right, var(--orange) 0 var(--p, 30%), color-mix(in srgb, var(--ink) 12%, transparent) var(--p, 30%) 100%);
+}
+.lt-range::-webkit-slider-thumb { -webkit-appearance:none; appearance:none; width:30px; height:30px; border-radius:50%; background:#fff; border:3px solid var(--orange); box-shadow:0 4px 12px -2px rgba(var(--ink-rgb),.35); }
+.lt-range::-moz-range-thumb { width:26px; height:26px; border-radius:50%; background:#fff; border:3px solid var(--orange); box-shadow:0 4px 12px -2px rgba(var(--ink-rgb),.35); }
+.lt-range:focus-visible { outline:3px solid rgba(255,145,77,.45); outline-offset:4px; }
+.lt-range-ends { display:flex; justify-content:space-between; width:100%; font-size:12px; color:var(--ink-3); }
+/* 결과 — 레벨 분석(TOPIK 길). 합격선 눈금 위에 내 점수가 어디 있는지. */
+.lt-report { max-width:440px; margin:0 auto 18px; padding:18px 18px 14px; border-radius:var(--r-xl); background:var(--surface-2); border:1px solid var(--line); text-align:left; }
+.lt-rep-k { font-size:11.5px; font-weight:800; letter-spacing:.14em; text-transform:uppercase; color:var(--orange-deep); }
+.lt-rep-score { display:flex; align-items:baseline; flex-wrap:wrap; gap:8px; margin-top:4px; }
+.lt-rep-score b { font-size:44px; font-weight:800; line-height:1; letter-spacing:-.04em; color:var(--ink); }
+.lt-rep-score span { font-size:13.5px; font-weight:600; color:var(--ink-2); }
+.lt-rep-scale { position:relative; height:12px; margin:24px 0 6px; border-radius:6px; background:color-mix(in srgb, var(--ink) 10%, transparent); }
+.lt-rep-fill { position:absolute; left:0; top:0; bottom:0; border-radius:6px; background:var(--orange); }
+.lt-rep-cut { position:absolute; top:-4px; bottom:-4px; width:2px; background:var(--ink); opacity:.55; transform:translateX(-1px); }
+.lt-rep-cut em { position:absolute; bottom:calc(100% + 2px); left:50%; transform:translateX(-50%); font-style:normal; font-size:11px; font-weight:800; color:var(--ink-2); white-space:nowrap; }
+.lt-rep-gap { margin-top:10px; font-size:13.5px; font-weight:700; color:var(--orange-deep); }
+.lt-rep-rows { display:grid; gap:8px; margin-top:12px; }
+.lt-rep-row { display:grid; grid-template-columns:44px 1fr auto; align-items:center; gap:10px; font-size:13.5px; color:var(--ink-2); }
+.lt-rep-row i { display:block; height:8px; border-radius:4px; overflow:hidden; background:color-mix(in srgb, var(--ink) 10%, transparent); }
+.lt-rep-row i b { display:block; height:100%; min-width:3px; border-radius:4px; background:var(--ink-2); }
+.lt-rep-row em { font-style:normal; font-weight:800; color:var(--ink); font-variant-numeric:tabular-nums; }
+.lt-rep-sw { margin-top:10px; font-size:13.5px; font-weight:700; color:var(--ink); }
+.lt-rep-fine { margin-top:8px; font-size:12px; line-height:1.5; color:var(--ink-3); }
+/* 결과 — 레벨 이름(크게)과 급수 · 레벨 한 줄 */
+.claw-over-score .lt-lv-n { display:block; font-size:34px; line-height:1.15; }
+.claw-over-score .lt-lv-s { display:block; margin-top:6px; font-size:15px; font-weight:700; letter-spacing:0; color:var(--ink-2); }
+@media (max-width:600px) { .claw-over-score .lt-lv-n { font-size:29px; } }
+/* 결과 — 계획 · Pro */
+.lt-plan { max-width:420px; margin:14px auto 0; padding:12px 16px; border-radius:var(--r-l); background:var(--tint); text-align:left; }
+.lt-plan p { font-size:14px; line-height:1.55; color:var(--ink); word-break:keep-all; }
+.lt-plan p + p { margin-top:6px; }
+.lt-pro { max-width:420px; margin:14px auto 0; padding:18px; border-radius:var(--r-xl); background:var(--ink-bg, #1c1714); color:#fff; text-align:left; }
+.lt-pro-k { font-size:11px; font-weight:800; letter-spacing:.14em; text-transform:uppercase; color:var(--orange); }
+.lt-pro-t { margin-top:4px; font-size:19px; font-weight:800; letter-spacing:-.02em; }
+.lt-pro-s { margin-top:6px; font-size:13.5px; line-height:1.55; opacity:.82; word-break:keep-all; }
+.lt-pro-go { margin-top:12px; padding:10px 18px; border:none; border-radius:999px; background:var(--orange); color:#fff; font:inherit; font-size:14.5px; font-weight:800; cursor:pointer; }
+.lt-pro-go:hover { filter:brightness(1.05); }
+/* 「오늘」 카드의 시험까지 남은 날 */
+.td-dday { display:inline-flex; align-items:center; padding:5px 11px; border-radius:999px; background:var(--ink-bg, #1c1714); color:#fff; font-size:12.5px; font-weight:800; letter-spacing:.02em; }
+@media (max-width:600px) {
+  .lt-q { font-size:21px; }
+  .lt-tracks { grid-template-columns:1fr; }
+  .lt-track { display:grid; grid-template-columns:56px 1fr; align-items:center; column-gap:14px; row-gap:2px; padding:16px; text-align:left; }
+  .lt-track-ic { grid-row:span 2; }
+  .lt-track-ic svg { width:56px; height:56px; }
+  .lt-track-t { font-size:17px; }
+  .lt-self-ic svg { width:80px; height:80px; }
 }

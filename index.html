@@ -40,7 +40,7 @@
 ">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <!-- 구글 태그 관리자. 구글이 주는 인라인 코드조각은 CSP 가 막아서 gtm.js 로 뺐다. -->
-<script src="gtm.js?v=f977742e" async></script>
+<script src="gtm.js?v=b3031ee2" async></script>
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <!-- 제목과 설명을 두 말로 쓴다. 이 사이트를 찾을 사람은 한국어를 **배우는**
@@ -119,13 +119,13 @@
      Pretendard 는 통짜(2.0MB) 대신 조각난 쪽을 쓴다 — 브라우저가
      unicode-range 를 보고 화면에 실제로 나온 글자가 든 조각만 받는다.
      그래서 저장소는 무거워졌지만 학습자가 받는 양은 오히려 줄었다. -->
-<link rel="stylesheet" href="vendor/pretendard.css?v=f977742e">
-<link rel="stylesheet" href="vendor/pressstart2p.css?v=f977742e">
+<link rel="stylesheet" href="vendor/pretendard.css?v=b3031ee2">
+<link rel="stylesheet" href="vendor/pressstart2p.css?v=b3031ee2">
 <!-- 화면 상자 안에서만 쓰는 CSS 는 여기서 갈라 받는다. media="print" 라
      첫 페인트를 안 막고, 다 받아지면 app.js 가 media 를 all 로 바꾼다.
      자바스크립트가 없으면 <noscript> 쪽이 그냥 평범하게 걸린다. -->
-<link id="viewsCss" rel="stylesheet" href="app-views.css?v=f977742e" media="print">
-<noscript><link rel="stylesheet" href="app-views.css?v=f977742e"></noscript>
+<link id="viewsCss" rel="stylesheet" href="app-views.css?v=b3031ee2" media="print">
+<noscript><link rel="stylesheet" href="app-views.css?v=b3031ee2"></noscript>
 
 <style>
 /* ══════════════════════════════════════════════════════════════
@@ -3249,7 +3249,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="lt-card">
     <button class="lt-close" id="ltClose" type="button" aria-label="닫기">✕</button>
 
-    <div id="ltPurpose">
+    <!-- 테스트 전에 묻는 것(운영자 설계 2026-09-29, docs/level-plan.md 「레벨테스트 흐름」) —
+         TOPIK / 일반 → 시험 날짜 또는 목적 · 공부 시간 → 내 수준(끌어서). 글은 전부 app.module.js ltSetupShow 가 채운다. -->
+    <div id="ltSetup" class="hidden"></div>
+
+    <!-- 읽기 · 듣기 · 쓰기만 따로 재는 판 — 첫 물음 아래 작은 링크로 온다. -->
+    <div id="ltPurpose" class="hidden">
+      <button type="button" class="lt-back" id="ltPurposeBack"></button>
       <div class="claw-ask">
         <span class="claw-ask-label" id="ltPurposeLabel"></span>
       </div>
@@ -3278,30 +3284,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <p class="claw-msg" id="ltMsg"></p>
     </div>
 
-    <div id="ltSurvey" class="hidden">
-      <div class="claw-ask">
-        <span class="claw-ask-label" id="ltSurveyIntro"></span>
-      </div>
-      <div class="pt-lv-row" style="margin-top:20px;">
-        <p class="claw-ask-label" id="ltSurveyGoalLabel"></p>
-        <div class="diff-seg lt-seg" role="radiogroup" id="ltSurveyGoal"></div>
-      </div>
-      <div class="pt-lv-row" style="margin-top:20px;">
-        <p class="claw-ask-label" id="ltSurveyTimeLabel"></p>
-        <div class="diff-seg lt-seg" role="radiogroup" id="ltSurveyTime"></div>
-      </div>
-      <div style="text-align:center; margin-top:22px;">
-        <button class="pt-next" id="ltSurveyGo" type="button" disabled></button>
-      </div>
-    </div>
-
     <div id="ltOver" class="hidden">
       <div class="claw-over">
+        <!-- TOPIK 길: 레벨 분석(예상 점수 · 영역별 · 강한 곳 / 채울 곳)이 맨 위 — 분석 → 레벨 → 시작할 곳 → Pro 차례 -->
+        <div id="ltReport" class="lt-report hidden"></div>
         <div class="claw-over-emoji" id="ltOverEmoji">🧪</div>
         <div class="claw-over-score" id="ltOverScore">0</div>
         <p class="claw-over-line" id="ltOverLine"></p>
-
-        <div id="ltTeacherWrap" class="lt-teacher-wrap"></div>
+        <!-- 생각한 수준과 견주기 · 시험까지(D-day) · 하루 공부 시간으로 이 레벨을 끝낼 때까지 -->
+        <div id="ltPlan" class="lt-plan hidden"></div>
 
         <button class="lc-card lt-rec-card hidden" id="ltRecCard" type="button">
           <div class="lc-top">
@@ -3314,6 +3305,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           </div>
           <p class="claw-note" id="ltRecCta"></p>
         </button>
+        <!-- 구독(Pro) 안내 — 누르면 Pro 창. 결제 승인 전에는 그 창이 「곧 열려요」로 보인다. -->
+        <div id="ltProBox" class="lt-pro hidden"></div>
 
         <!-- 결과 공유 — 레벨이 적힌 정사각형 이미지 + 레벨테스트로 바로 가는 링크 (ltShareCard) -->
         <button class="pro-go lt-share hidden" id="ltShare" type="button"></button>
@@ -3969,9 +3962,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <div id="hlpScrim" class="hlp-scrim"></div>
 <aside id="hlpPanel" class="hlp-panel" aria-label="한국어 도우미" aria-hidden="true"></aside>
 
-<script src="app.js?v=f977742e"></script>
-<script type="module" src="app.module.js?v=f977742e"></script>
+<script src="app.js?v=b3031ee2"></script>
+<script type="module" src="app.module.js?v=b3031ee2"></script>
 
-<script src="analytics.js?v=f977742e" defer></script>
+<script src="analytics.js?v=b3031ee2" defer></script>
 </body>
 </html>
