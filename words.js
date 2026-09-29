@@ -301,25 +301,50 @@ export function wordsInit(D) {
     `<span class="wd-mean">${esc(mean(w) || '')}</span>${extra}</button>`;
 
   /* 오늘 — 할 일 하나만 크게: 오늘의 새 낱말 10개와 시작 단추. 복습할 것이 있으면 그 위에 한 줄. */
+  /* 「오늘」 — 과정(TOPIK I · II)을 가리지 않고 날마다 낱말 10개를 소개한다(운영자 방향, 2026-09-29).
+     TOPIK I 5개 + TOPIK II 5개를 번갈아, 아직 안 외운 것 중 자주 나오는 앞쪽에서 날짜를 씨앗으로 고른다(같은 날은 같은 10개).
+     고른 것은 그날 동안 붙잡아 둔다 — 외운 낱말을 빼고 다시 고르면 외우는 도중에 목록이 바뀐다. 과정별 차례 공부는 「외우기」 탭. */
+  const TODAY_KEY = 'cp-words-today';
+  function todayWords() {
+    const d = today();
+    try {
+      const k = JSON.parse(localStorage.getItem(TODAY_KEY) || 'null');
+      if (k?.d === d) { const ws = k.ids.map((id) => byId.get(id)).filter(Boolean); if (ws.length) return ws; }
+    } catch (e) {}
+    let seed = d * 2654435761 >>> 0;
+    const rnd = () => { seed = (seed + 0x6D2B79F5) >>> 0; let x = seed; x = Math.imul(x ^ (x >>> 15), x | 1); x ^= x + Math.imul(x ^ (x >>> 7), x | 61); return ((x ^ (x >>> 14)) >>> 0) / 4294967296; };
+    const pick = (list, n, head) => {
+      const pool = list.filter((w) => !learned(idOf(w))).slice(0, head), out = [];
+      while (out.length < n && pool.length) out.push(pool.splice(Math.floor(rnd() * pool.length), 1)[0]);
+      return out;
+    };
+    const two = TRACKS.topik2.length ? 5 : 0;
+    const a = pick(TRACKS.topik1, SESSION - two, 400), b = pick(TRACKS.topik2, two, 600);
+    const ws = [];
+    for (let i = 0; i < Math.max(a.length, b.length); i++) { if (a[i]) ws.push(a[i]); if (b[i]) ws.push(b[i]); }
+    try { localStorage.setItem(TODAY_KEY, JSON.stringify({ d, ids: ws.map(idOf) })); } catch (e) {}
+    return ws;
+  }
   function drawHome() {
     const d = due();
-    const nx = nextSession();
-    const total = VOCAB.length, got = VOCAB.filter((w) => learned(idOf(w))).length;
-    const first = !Object.keys(S.w).length;
-    const next = nx == null ? [] : chunk(VOCAB)[nx];
+    const ws = todayWords();
+    const got = ws.filter((w) => learned(idOf(w))).length, all = got === ws.length && ws.length;
     return `<div class="wd-today">
       ${d.length ? `<button type="button" class="wd-due" data-act="review"><span>${esc(t('오늘 복습', 'Review today'))}</span><b>${d.length}</b><em>${esc(t('먼저 하기 →', 'Do first →'))}</em></button>` : ''}
       <div class="wd-focus">
-        ${TRACKS.topik2.length ? `<button type="button" class="wd-focus-track" data-act="track" data-track="${S.track === 'topik1' ? 'topik2' : 'topik1'}">${trackName(S.track)} <em>${esc(t('바꾸기', 'switch'))}</em></button>` : ''}
-        <p class="wd-focus-k">${esc(nx == null ? t(`${trackName(S.track)} 필수를 다 봤어요!`, `You have seen every ${trackName(S.track)} word!`) : t(`오늘의 새 낱말 ${SESSION}개`, `Today’s ${SESSION} new words`))}</p>
-        ${next.length ? `<div class="wd-peek">${next.map((w) => `<button type="button" class="wd-peek-w" data-word="${esc(w.h)}">${esc(w.h)}</button>`).join('')}</div>` : ''}
-        ${nx == null ? '' : `<button type="button" class="wd-btn wd-btn-big" data-act="session" data-topic="all" data-n="${nx}">${esc(first ? t('시작하기', 'Start') : t('이어서 외우기', 'Continue'))} →</button>`}
-        <p class="wd-focus-p">${esc(t(`${trackName(S.track)} 필수 ${got.toLocaleString()} / ${total.toLocaleString()}`, `${trackName(S.track)} essentials ${got.toLocaleString()} / ${total.toLocaleString()}`))}</p>
-        ${bar(got, total)}
+        <p class="wd-focus-k">${esc(all ? t('오늘의 낱말을 다 외웠어요!', 'You learned all of today’s words!') : t(`오늘의 낱말 ${ws.length}개`, `Today’s ${ws.length} words`))}</p>
+        ${ws.length ? `<div class="wd-peek">${ws.map((w) => `<button type="button" class="wd-peek-w${learned(idOf(w)) ? ' ok' : ''}" data-word="${esc(w.h)}">${esc(w.h)}<small>${esc(t(`${w.l}급`, `Lv ${w.l}`))}</small></button>`).join('')}</div>` : ''}
+        ${ws.length ? `<button type="button" class="wd-btn wd-btn-big" data-act="today">${esc(all ? t('다시 보기', 'Review them') : got ? t('이어서 외우기', 'Continue') : t('시작하기', 'Start'))} →</button>` : ''}
+        <p class="wd-focus-p">${esc(all ? t('내일 새 낱말 10개가 나와요 · 더 외우려면 「외우기」', 'New words tomorrow · more in “Learn”')
+          : t(`${got} / ${ws.length} 외움 · 날마다 바뀌어요 · TOPIK I · II 섞어서`, `${got} / ${ws.length} learned · changes daily · TOPIK I & II mixed`))}</p>
+        ${bar(got, ws.length)}
       </div>
     </div>`;
   }
 
+  /* 외우기 탭의 보기 — 주제별(기본) · 목적별. 이 브라우저에만 기억한다. */
+  let group = 'topic';
+  try { group = localStorage.getItem('cp-words-group') === 'goal' ? 'goal' : 'topic'; } catch (e) {}
   /* 과정 고르기 — TOPIK II 가 채워진 뒤에만 보인다. */
   const trackBar = () => (TRACKS.topik2.length ? `<div class="wd-track" role="group" aria-label="${esc(t('과정', 'Level'))}">${['topik1', 'topik2'].map((k) =>
     `<button type="button" class="wd-chip${S.track === k ? ' on' : ''}" data-act="track" data-track="${k}">${trackName(k)} <small>${TRACKS[k].length.toLocaleString()}</small></button>`).join('')}</div>` : '');
@@ -335,21 +360,27 @@ export function wordsInit(D) {
         <b>${esc(t(tp.ko, tp.en))}</b>
         <span class="wd-meta">${esc(t(`${list.length}개 · 세션 ${Math.ceil(list.length / SESSION)}`, `${list.length} words · ${Math.ceil(list.length / SESSION)} sessions`))}</span>${bar(g, list.length)}</button>`;
     }).join('');
-    /* 목적별 — 10개(한 세션)가 안 되는 목적은 아직 싣지 않는다. */
+    /* 목적별 — 10개(한 세션)가 안 되는 목적은 아직 싣지 않는다. 주제 카드와 같은 모양, 토글로 둘 중 하나만 보인다. */
     const purps = Object.keys(PURP_LOOK).map((k) => {
       const id = `p:${k}`, pp = purpOf(id), list = listFor(id);
       if (!pp || list.length < SESSION) return '';
-      /* 카드가 아니라 작은 알약 — 주제별 카드를 아래로 밀어내지 않게(운영자 요청: 첫 화면 덜어내기). */
-      return `<button type="button" class="wd-chip wd-purp" data-act="topic" data-topic="${esc(id)}"><span aria-hidden="true">${look(id)[0]}</span>${esc(t(pp.ko, pp.en))} <small>${list.length.toLocaleString()}</small></button>`;
+      const g = list.filter((w) => learned(idOf(w))).length;
+      const [ico, h] = look(id);
+      return `<button type="button" class="wd-topic" style="--h:${h}" data-act="topic" data-topic="${esc(id)}">
+        <span class="wd-topic-ico" aria-hidden="true">${ico}</span>
+        <b>${esc(t(pp.ko, pp.en))}</b>
+        <span class="wd-meta">${esc(t(`${list.length}개 · TOPIK I · II`, `${list.length} words · TOPIK I & II`))}</span>${bar(g, list.length)}</button>`;
     }).join('');
+    const byGoal = purps && group === 'goal';
     return trackBar() + `<button type="button" class="wd-topic wd-topic-main" style="--h:25" data-act="topic" data-topic="all">
         <span class="wd-topic-ico" aria-hidden="true">🏆</span>
         <b>${esc(t(`${trackName(S.track)} 필수 — 자주 나오는 차례로`, `${trackName(S.track)} essentials — most frequent first`))}</b>
         <span class="wd-meta">${esc(t(`${all.toLocaleString()}개 · 세션 ${Math.ceil(all / SESSION)}`, `${all.toLocaleString()} words · ${Math.ceil(all / SESSION)} sessions`))}</span>${bar(got, all)}</button>
-      ${purps ? `<h3 class="wd-h3">${esc(t('목적별 — TOPIK I · II 함께', 'By goal — TOPIK I & II'))}</h3>
-      <div class="wd-purps">${purps}</div>` : ''}
-      <h3 class="wd-h3">${esc(t('주제별', 'By topic'))}</h3>
-      <div class="wd-topics">${cards}</div>
+      ${purps ? `<div class="wd-group" role="group" aria-label="${esc(t('보기', 'View'))}">
+        <button type="button" class="wd-chip${byGoal ? '' : ' on'}" data-act="group" data-group="topic">${esc(t('주제별', 'By topic'))}</button>
+        <button type="button" class="wd-chip${byGoal ? ' on' : ''}" data-act="group" data-group="goal">${esc(t('목적별', 'By goal'))}</button>
+      </div>` : `<h3 class="wd-h3">${esc(t('주제별', 'By topic'))}</h3>`}
+      <div class="wd-topics">${byGoal ? purps : cards}</div>
       <h3 class="wd-h3">${esc(t('게임으로 연습', 'Practice with games'))}</h3>
       <div class="wd-games">
         <button type="button" class="wd-game" data-act="game-quiz"><b>⏱ ${esc(t('스피드 퀴즈', 'Speed quiz'))}</b><span>${esc(t('60초 동안 뜻 보고 고르기', '60 seconds, pick the word'))}</span></button>
@@ -872,6 +903,8 @@ export function wordsInit(D) {
     if (act === 'track') { setTrack(a.dataset.track); return draw(); }
     if (act === 'dir') { S.dir = a.dataset.dir; save(); return draw(); }
     if (act === 'go') return startRun(view.pick.words, a.dataset.mode, view.pick.from);
+    if (act === 'group') { group = a.dataset.group === 'goal' ? 'goal' : 'topic'; try { localStorage.setItem('cp-words-group', group); } catch (e) {} return draw(); }
+    if (act === 'today') { const ws = todayWords(); view = { tab: 'pick', pick: { words: ws, from: null, title: t(`오늘의 낱말 ${ws.length}개`, `Today’s ${ws.length} words`), back: 'data-tab="home"' } }; mark('today'); return draw(); }
     if (act === 'review') { const d = due().slice(0, 30); view = { tab: 'pick', pick: { words: d, from: null, title: t(`복습 ${d.length}개`, `Review ${d.length}`), back: 'data-tab="home"' } }; mark('review'); return draw(); }
     if (act === 'starstudy') { const d = starIds().map((id) => byId.get(id)).filter(Boolean); view = { tab: 'pick', pick: { words: d, from: null, title: t(`별표 ${d.length}개`, `Starred ${d.length}`), back: 'data-tab="star"' } }; return draw(); }
     if (act === 'star') {
