@@ -35,6 +35,11 @@ import { SENSES } from '../glossary-senses.js';
 import { EXAMPLES } from '../glossary-examples.js';
 import { VOCAB, VOCAB_TOPICS } from '../vocab-topik1.js';
 import { VOCAB as VOCAB2 } from '../vocab-topik2.js';   // TOPIK II — 안 그래비티가 채운 B급만(묶음마다 늘어난다)
+/* TOPIK II 예문은 vocab-topik2-ex/<n>.js 에 500개씩 따로 있다(tools/build-vocab.mjs) — 쪽을 굽기 전에 제자리에 붙인다. */
+for (let k = 0; k * 500 < VOCAB2.length; k++) {
+  const { EX } = await import(`../vocab-topik2-ex/${k}.js`);
+  EX.forEach((x, j) => { VOCAB2[k * 500 + j].x = x; });
+}
 import { conjugate, romanize } from './ko-conj.mjs';
 import { readFileSync as readEn } from 'node:fs';
 import { createHash } from 'node:crypto';

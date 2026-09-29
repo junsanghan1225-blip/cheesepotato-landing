@@ -139,6 +139,13 @@ for (const name of ['topik1', 'topik2']) {
   const heads = [...fs.readFileSync(BUILT, 'utf8').matchAll(/^\{.*?"h":("(?:[^"\\]|\\.)*")/gm)].map((m) => JSON.parse(m[1]));
   if (heads.length !== src.length || heads.some((h, k) => h !== src[k].head))
     err.push(`vocab-${name}.js 가 원본과 다르다(구운 것 ${heads.length} · 원본 B급 이상 ${src.length}) — node tools/build-vocab.mjs`);
+  /* TOPIK II 예문 조각(500개씩) — 모자라면 뒤쪽 낱말의 예문이 화면에서 영영 비어 있다. */
+  const exDir = path.join(ROOT, `vocab-${name}-ex`);
+  if (fs.existsSync(exDir)) {
+    const need = Math.ceil(src.length / 500);
+    for (let k = 0; k < need; k++) if (!fs.existsSync(path.join(exDir, `${k}.js`)))
+      err.push(`vocab-${name}-ex/${k}.js 가 없다(예문 조각 ${need}개가 있어야 한다) — node tools/build-vocab.mjs`);
+  }
 }
 
 const kv = (o) => Object.entries(o).map(([k, v]) => `${k} ${v}`).join(' · ') || '-';
