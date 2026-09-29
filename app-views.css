@@ -4591,3 +4591,26 @@ div.wd-card:hover { transform:none; }
 .wd-sheet-save { width:100%; margin-top:18px; }
 .wd-toast { position:fixed; z-index:130; left:50%; bottom:calc(28px + env(safe-area-inset-bottom)); transform:translateX(-50%); padding:12px 18px; border-radius:999px;
   background:#1B1512; color:#FBF5EC; font-size:14px; font-weight:700; box-shadow:0 10px 24px -10px rgba(27,21,18,.6); animation:wdFade .2s ease; white-space:nowrap; }
+
+/* 사이트 안의 작은 창(브라우저 prompt · confirm 대신) */
+.wd-dlg-bg { position:fixed; inset:0; z-index:140; background:rgba(27,21,18,.45); animation:wdFade .15s ease; }
+.wd-dlg { position:fixed; z-index:141; left:50%; top:50%; transform:translate(-50%, -50%); width:min(400px, calc(100% - 32px)); box-sizing:border-box;
+  padding:22px; border-radius:22px; background:var(--surface); box-shadow:0 24px 60px -20px rgba(27,21,18,.5); animation:wdPop .2s cubic-bezier(.22,1,.36,1); }
+@keyframes wdPop { from { opacity:0; transform:translate(-50%, -46%) scale(.96); } to { opacity:1; transform:translate(-50%, -50%); } }
+.wd-dlg-t { display:block; font-size:18px; font-weight:800; color:var(--ink); }
+.wd-dlg-m { margin:8px 0 0; font-size:14px; line-height:1.55; color:var(--ink-2); }
+.wd-dlg-in { width:100%; box-sizing:border-box; height:48px; margin-top:14px; padding:0 14px; font:inherit; font-size:16px; color:var(--ink);
+  border:1.5px solid var(--line); border-radius:12px; background:var(--surface-2); }
+.wd-dlg-in:focus { outline:none; border-color:var(--orange); background:var(--surface); }
+.wd-dlg-b { display:flex; justify-content:flex-end; gap:8px; margin-top:18px; }
+.wd-dlg-b .wd-btn { min-width:88px; }
+.wd-btn.danger { background:var(--red); color:#fff; border-color:var(--red); }
+
+/* ▶ 공부하기 — 플레이 단추(운영자 요청: 「카드 · 외우기로 공부하기」가 어색하다) */
+.wd-play { display:inline-flex; align-items:center; gap:10px; height:50px; padding:0 22px 0 8px; border:0; border-radius:999px; cursor:pointer;
+  background:var(--orange); color:#1B1512; font:inherit; font-size:16px; font-weight:800; box-shadow:0 8px 18px -10px rgba(196,85,28,.7); transition:transform .12s; }
+.wd-play:active { transform:scale(.96); }
+.wd-play-i { display:grid; place-items:center; width:36px; height:36px; border-radius:50%; background:#1B1512; color:var(--orange); }
+.wd-play-i .wd-i { width:16px; height:16px; margin-left:2px; }
+.wd-play.ghost { background:var(--surface); color:var(--ink); border:1px solid var(--line); box-shadow:none; }
+.wd-play.ghost .wd-play-i { background:var(--orange); color:#1B1512; }
