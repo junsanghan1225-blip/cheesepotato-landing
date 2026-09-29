@@ -4823,3 +4823,30 @@ div.wd-card:hover { transform:none; }
 .lt-topik { text-align:left; margin:4px 0 14px; }
 .lt-topik .tq-question { font-size:15.5px; }
 .lt-card .qz-choices.lt-tq-ch .qz-choice { font-weight:500; font-size:15.5px; line-height:1.6; }
+
+/* 결과 색 정리(운영자 지적: 난장판) — 바탕은 옅은 한 톤, 주황은 단추 · 숫자에만 */
+.lt-adv { margin-top:14px; padding-top:12px; border-top:1px solid var(--line); }
+.lt-adv-h { font-size:14px; font-weight:800; color:var(--ink); }
+.lt-adv ol { margin:8px 0 0; padding-left:20px; display:grid; gap:4px; font-size:14px; line-height:1.5; color:var(--ink-2); }
+.lt-adv-go { margin-top:12px; padding:10px 16px; border:none; border-radius:999px; background:var(--orange); color:#fff; font:inherit; font-size:14px; font-weight:800; cursor:pointer; }
+.lt-rep-row i b { background:var(--ink-3); }
+.lt-plan { background:none; padding:4px 0; text-align:center; }
+.lt-plan p { font-size:13.5px; color:var(--ink-2); }
+.lt-pro { background:var(--surface-2); color:var(--ink); border:1px solid var(--line); }
+.lt-pro-k { color:var(--orange-deep); }
+.lt-pro-s { opacity:1; color:var(--ink-2); }
+
+/* 결과 레벨 아이콘 — 톡 튀어나와 살짝 떠 있고, 아래 그림자가 따라 숨 쉰다(입체감, 운영자 요청). 막대는 차오른다. */
+.claw-over-emoji.lvl-big { position:relative; display:inline-block; }
+.claw-over-emoji.lvl-big svg { position:relative; z-index:1; filter:drop-shadow(0 10px 14px rgba(var(--ink-rgb),.16));
+  animation:lvPop .6s cubic-bezier(.2,1.4,.4,1) both, lvFloat 3.2s ease-in-out .6s infinite; }
+.claw-over-emoji.lvl-big::after { content:''; position:absolute; left:50%; bottom:-6px; width:70%; height:12px; margin-left:-35%;
+  border-radius:50%; background:rgba(var(--ink-rgb),.14); filter:blur(3px); animation:lvShadow 3.2s ease-in-out .6s infinite; }
+@keyframes lvPop { 0% { opacity:0; transform:scale(.4) translateY(12px); } 100% { opacity:1; transform:scale(1) translateY(0); } }
+@keyframes lvFloat { 0%, 100% { transform:translateY(0); } 50% { transform:translateY(-8px); } }
+@keyframes lvShadow { 0%, 100% { transform:scaleX(1); opacity:1; } 50% { transform:scaleX(.8); opacity:.6; } }
+.lt-rep-fill, .lt-rep-row i b, .lvp-bar i { animation:barGrow .9s cubic-bezier(.22,1,.36,1) both; transform-origin:left; }
+@keyframes barGrow { from { transform:scaleX(0); } to { transform:scaleX(1); } }
+@media (prefers-reduced-motion: reduce) {
+  .claw-over-emoji.lvl-big svg, .claw-over-emoji.lvl-big::after, .lt-rep-fill, .lt-rep-row i b, .lvp-bar i { animation:none; }
+}
