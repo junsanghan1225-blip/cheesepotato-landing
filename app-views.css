@@ -4882,3 +4882,15 @@ div.wd-card:hover { transform:none; }
 .lt-rep-fine { text-align:center; }
 .lt-areas { grid-template-columns:1fr 1fr; }
 @media (max-width:600px) { .lt-report { padding:16px; } .lt-area { padding:10px 12px; } .lt-area > b { font-size:22px; } }
+
+/* 레슨 — 하트 · XP · 콤보 판 대신 위 진행률 막대 하나만(운영자: 진행률로 깔끔하게). 뜨는 「+10 XP」 · 「COMBO!」 도 끈다. */
+.ls-hud, .xp-float, .combo-pop { display:none !important; }
+.ls-track { height:10px; border-radius:6px; }
+.ls-count { font-size:13px; color:var(--ink-2); }
+/* 새 블록은 살짝 떠오르며 나타난다 — 툭 튀어나오지 않게 */
+#lsBlocks > * { animation:lsIn .45s cubic-bezier(.22,1,.36,1) both; }
+@keyframes lsIn { from { opacity:0; transform:translateY(14px); } to { opacity:1; transform:none; } }
+@media (prefers-reduced-motion: reduce) { #lsBlocks > * { animation:none; } }
+/* 진행률 막대는 사이트 머리띠(위에 붙어 있음, 폰 57 · PC 65px) 바로 아래에 붙는다 — top:0 이면 머리띠 뒤로 숨는다 */
+.ls-bar { top:65px; }
+@media (max-width:759px) { .ls-bar { top:57px; } }
