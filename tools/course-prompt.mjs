@@ -1,5 +1,7 @@
-/* 중급·고급 코스 레슨 지시문 뽑기.  node tools/course-prompt.mjs im-02-02
+/* 코스 레슨 지시문 뽑기.  node tools/course-prompt.mjs im-02-02   (초급: node tools/course-prompt.mjs bg-11)
    인자 없이 돌리면 채울 코스 목록이 나온다.
+   초급 L2 · L3 코스(레벨 계획 6층 ① — 초급 레슨이 얇다, 코스마다 1 ~ 3강)도 같은 길로 채운다.
+   초급은 설명을 **영어**로 쓴다(이미 있는 초급 레슨이 그렇다 — 학습자가 한국어 설명을 못 읽는다).
 
    코스마다 따로 뽑는다. 한 코스의 레슨들은 같은 문법을 단계로 쌓는 것이라
    1강이 무엇을 했는지 알아야 2강을 쓸 수 있다 — 그 1강을 지시문에 통째로
@@ -9,7 +11,13 @@ import { COURSES } from '../courses.js';
 const tx = (v) => (v && typeof v === 'object' ? v.ko : v);   // 제목이 {ko,en} 인 코스도 있다
 const TARGET = 4;   // 코스당 레슨 수. 가장 잘 채워진 초급 코스(bg-d-02)가 셋이다.
 
-const list = COURSES.filter((c) => c.level === 'Intermediate' || c.level === 'Advanced');
+/* 초급은 「내 코스」의 L2 · L3 코스만(app.module.js MY_LEVEL_COURSES) — L0 · L1 은 영어로 쓴 입문 코스라 모양이 다르다. */
+const BEGINNER_FILL = ['bg-05', 'bg-06', 'bg-d-01', 'bg-07', 'bg-08', 'bg-09', 'bg-irr-01',
+  'bg-10', 'bg-d-02', 'bg-11', 'bg-12', 'bg-irr-02', 'bg-d-03', 'bg-d-04', 'bg-d-05'];
+const list = [
+  ...BEGINNER_FILL.map((id) => COURSES.find((c) => c.id === id)).filter(Boolean),
+  ...COURSES.filter((c) => c.level === 'Intermediate' || c.level === 'Advanced'),
+];
 const id = process.argv[2];
 const c = list.find((x) => x.id === id);
 if (!c) {
@@ -21,6 +29,8 @@ if (!c) {
 }
 
 const need = TARGET - c.lessons.length;
+const beg = c.level === 'Beginner';
+if (need <= 0) { console.log(`${c.id} 는 이미 ${c.lessons.length}강 — 더 채울 것 없음`); process.exit(0); }
 const nextIds = [];
 for (let i = c.lessons.length + 1; i <= TARGET; i++) nextIds.push(`${c.id}-${String(i).padStart(2, '0')}`);
 
@@ -37,7 +47,7 @@ console.log(`한국어 학습 앱의 **레슨 데이터**를 만들어 주세요
 
   한 줄 소개   ${tx(c.tagline)}
   자세히       ${tx(c.blurb)}
-  단계         ${c.level === 'Intermediate' ? '중급' : '고급'}
+  단계         ${beg ? '초급' : c.level === 'Intermediate' ? '중급' : '고급'}
   앞 코스      ${c.needs}
 
 ## 이미 있는 레슨 (다시 쓰지 마세요)
@@ -53,13 +63,11 @@ ${nextIds.map((x, i) => `  ${c.lessons.length + i + 1}강  id: "${x}"`).join('\n
 
 ## 레슨 짜임 — 이 차례로 쌓아 주세요
 
-  ${c.lessons.length + 1}강  **꼴 만들기** — 이 문법을 어떻게 붙이는가.
-      받침·불규칙·품사에 따라 어떻게 갈리는지 표로 보이고 손에 익힙니다.
-  ${c.lessons.length + 2}강  **헷갈리는 짝과 가르기** — 비슷해서 자꾸 섞이는 표현과 나란히 놓고
-      「이때는 이것, 저때는 저것」을 상황으로 가릅니다. 1강에서 규칙을 배웠어도
-      실제로 틀리는 자리가 여기입니다.
-  ${c.lessons.length + 3}강  **실제 상황에서 쓰기** — 회사·집·가게에서 그대로 쓸 만한 문장으로
-      직접 만들어 보게 합니다. 배운 것을 꺼내 쓰는 단계입니다.
+${[
+  '**꼴 만들기** — 이 문법을 어떻게 붙이는가.\n      받침·불규칙·품사에 따라 어떻게 갈리는지 표로 보이고 손에 익힙니다.',
+  '**헷갈리는 짝과 가르기** — 비슷해서 자꾸 섞이는 표현과 나란히 놓고\n      「이때는 이것, 저때는 저것」을 상황으로 가릅니다. 1강에서 규칙을 배웠어도\n      실제로 틀리는 자리가 여기입니다.',
+  '**실제 상황에서 쓰기** — ' + (beg ? '카페·학교·친구와의 대화' : '회사·집·가게') + '에서 그대로 쓸 만한 문장으로\n      직접 만들어 보게 합니다. 배운 것을 꺼내 쓰는 단계입니다.',
+].slice(0, need).map((x, i) => `  ${c.lessons.length + i + 1}강  ${x}`).join('\n')}
 
 레슨 하나에 **블록 9~12개**, \`minutes\` 는 4 또는 5.
 
@@ -124,12 +132,14 @@ ${nextIds.map((x, i) => `  ${c.lessons.length + i + 1}강  id: "${x}"`).join('\n
 
 - 예문은 **해요체**로 씁니다. 학습자가 그대로 쓸 말이라야 합니다.
 - **한자를 쓰지 마세요.** 한글과 숫자로만.
-- 영어는 \`chars\` 의 \`tip\`, \`cloze\` 의 \`meaning\`, 표의 「가다 — to go」처럼
-  **뜻을 달아 주는 자리에만** 씁니다. 설명문을 영어로 쓰지 마세요.
+${beg
+  ? '- **초급이라 설명은 영어로** 씁니다 — `text` · `note` 의 md, `choice` · `type` 의 `q`, `why`, `chars` 의 `tip`.\n  예문 · 보기 · 표 안의 한국어는 한국어 그대로. **이미 있는 레슨의 말투를 그대로 따르세요**(위 예시의 설명은 한국어지만 초급은 영어).\n- 낱말은 그 코스 수준(초급)에서 벗어나지 않게 — 어려운 낱말 때문에 문법 연습이 막히면 안 됩니다.'
+  : '- 영어는 \`chars\` 의 \`tip\`, \`cloze\` 의 \`meaning\`, 표의 「가다 — to go」처럼\n  **뜻을 달아 주는 자리에만** 씁니다. 설명문을 영어로 쓰지 마세요.'}
 - \`why\` 는 **왜 그것이 답인지** 를 말합니다. 나머지 보기가 왜 아닌지도
   한 조각 붙이면 좋습니다. 「정답은 2번입니다」 같은 말은 쓰지 마세요.
 - ${c.level === 'Advanced'
     ? '고급이라 뉴스·사설·업무 문서처럼 격식 있는 자리의 문장을 섞어 주세요.'
+    : beg ? '초급이라 인사 · 가게 · 학교 · 친구처럼 첫 몇 달에 겪는 상황으로 씁니다.'
     : '중급이라 회사·가게·이웃처럼 일상에서 겪는 상황으로 씁니다.'}
 
 ## 출력 형식
@@ -138,7 +148,7 @@ ${nextIds.map((x, i) => `  ${c.lessons.length + i + 1}강  id: "${x}"`).join('\n
 
 \`\`\`
 [
-  { "id": "${nextIds[0]}", "title": "${c.lessons.length + 1}강. …", "minutes": 4, "blocks": [ … ] },
+  { "id": "${nextIds[0]}", "title": ${beg ? `{ "ko": "${c.lessons.length + 1}강. …", "en": "Lesson ${c.lessons.length + 1}. …" }` : `"${c.lessons.length + 1}강. …"`}, "minutes": ${beg ? 5 : 4}, "blocks": [ … ] },
   …
 ]
 \`\`\`
