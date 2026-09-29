@@ -66,7 +66,9 @@
 
 - **진행 중인 큰 일: 「단어」 섹션** — 계획은 `docs/vocab-plan.md`(1~7층, 운영자와 합의). TOPIK I 자료 1,930개(B급) 끝,
   **2단계(화면 `#words` · `words.js` · 내 단어장 연동) 끝, 3단계(낱말 쪽 보강 · `/topik1-words/`) · 4단계(받아쓰기 · 짝 맞추기 · 시험 · `/korean-word-for/`) 끝** — 지금 **5단계(자료 확장)**: TOPIK II 씨앗 8,183개(`vocab/data/topik2.json`, `tools/vocab-seed-topik2.mjs`),
-  안 그래비티가 500개씩 채운다(`docs/antigravity-vocab-topik2-task.md`) — 들어오면 검토.
+  안 그래비티가 500개씩 채운다(`docs/antigravity-vocab-topik2-task.md`) — 들어오면 검토. **13묶음까지 끝(6,500), 14묶음은 안티 주간 사용량 때문에 멈춤** —
+  돌아오면 `vocab-topik2-b14` 부터(지난번엔 빈 브랜치만 올라왔다 — 커밋이 있는지 먼저 본다).
+- **레벨 계획**(`docs/level-plan.md`): 1 ~ 5층 합의 끝, 6 · 7층 초안 — 레벨업 화면은 운영자 스케치를 받아 만든다.
   화면 구성(배치)은 운영자가 직접 보고 방향을 준다 — 그 전에는 배치를 크게 바꾸지 않는다.
   자료를 고치면 `node tools/build-vocab.mjs && node tools/build-pages.mjs`. 활용 · 로마자는 `tools/ko-conj.mjs`(정답표 `check-conj`). 외우기 기록은 `settings.vocab`, 담은 낱말은 `words`(+ `vocab_id` · `source`).
   이 계획에 없는 것은 하지 않고 「다음에」 칸에 적는다. 녹음 파일을 옮길 곳은 `docs/storage-guide.md`
