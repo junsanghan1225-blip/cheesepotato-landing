@@ -3700,7 +3700,7 @@
 .my-words-t { font-size:14.5px; font-weight:800; }
 .my-words-n { font-size:13px; color:var(--ink-2); white-space:nowrap; }
 .my-words-n b { font-size:20px; color:var(--ink); }
-.my-words .lc-bar { display:block; height:8px; border-radius:4px; overflow:hidden; background:color-mix(in srgb, var(--ink) 9%, transparent); }
+.my-words .lc-bar { display:block; flex:none; height:8px; border-radius:4px; overflow:hidden; background:color-mix(in srgb, var(--ink) 9%, transparent); }
 .my-words .lc-fill { display:block; height:100%; min-width:4px; border-radius:4px; background:var(--orange); }
 .my-words-stats { display:grid; grid-template-columns:repeat(4, 1fr); gap:8px; }
 .my-words-stats span { display:flex; flex-direction:column; gap:1px; padding:8px 10px; border-radius:12px; background:var(--surface-2); font-size:11.5px; color:var(--ink-2); }
