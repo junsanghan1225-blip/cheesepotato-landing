@@ -160,7 +160,12 @@ export function wordsInit(D) {
   const topicOf = (id) => TOPICS.find((x) => x.id === id);
   const inTopic = (w, id) => w.t.some((x) => x.split('/')[0] === id);
   const chunk = (list) => { const out = []; for (let i = 0; i < list.length; i += SESSION) out.push(list.slice(i, i + SESSION)); return out; };
-  const listFor = (topic) => (topic === 'all' ? VOCAB : VOCAB.filter((w) => inTopic(w, topic)));
+  /* 목적별 단어장(EPS · 생활 · 직장 …) — 「p:<목적>」 꼴의 주제로 다룬다. 목적은 급수를 가리지 않으니 두 과정을 다 본다
+     (TOPIK I 먼저 · 자주 나오는 차례). 표시는 안 그래비티가 채울 때 단 purposes(u) 그대로. */
+  const PURP_LOOK = { eps: ['🏭', 30], life: ['🏡', 150], work: ['💼', 215], medical: ['🏥', 350], campus: ['🎓', 225], travel: ['✈️', 195], kculture: ['🎬', 320] };
+  const isPurp = (id) => String(id).startsWith('p:');
+  const purpOf = (id) => (D.PURPOSES || []).find((x) => `p:${x.id}` === id);
+  const listFor = (topic) => (topic === 'all' ? VOCAB : isPurp(topic) ? ALL.filter((w) => w.u.includes(topic.slice(2))) : VOCAB.filter((w) => inTopic(w, topic)));
   const sayWord = (h) => D.say(h, D.audioFor(h));
   const icon = D.ICON;
 
@@ -256,7 +261,12 @@ export function wordsInit(D) {
     society: ['🏛️', 170], body: ['🩺', 350], work: ['💼', 215], nature: ['🌿', 130], tech: ['📱', 240],
     culture: ['🎎', 330], function: ['🧩', 280],
   };
-  const look = (id) => TOPIC_LOOK[id] || ['📘', 25];
+  const look = (id) => (isPurp(id) ? PURP_LOOK[id.slice(2)] : TOPIC_LOOK[id]) || ['📘', 25];
+  /* 주제 · 목적 · 과정 전체의 이름 하나로 — 세션 제목과 주제 화면이 같이 쓴다. */
+  const topicName = (topic) => {
+    const tp = topic === 'all' ? null : isPurp(topic) ? purpOf(topic) : topicOf(topic);
+    return tp ? t(tp.ko, tp.en) : t(`${trackName(S.track)} 필수`, `${trackName(S.track)} essentials`);
+  };
   const SEARCH_ICON = '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="2.2"/><path d="M20 20l-4-4" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>';
   /* 둥근 진도 — conic-gradient 한 겹. 숫자는 가운데에. */
   const ring = (n, of, label) => {
@@ -323,10 +333,19 @@ export function wordsInit(D) {
         <b>${esc(t(tp.ko, tp.en))}</b>
         <span class="wd-meta">${esc(t(`${list.length}개 · 세션 ${Math.ceil(list.length / SESSION)}`, `${list.length} words · ${Math.ceil(list.length / SESSION)} sessions`))}</span>${bar(g, list.length)}</button>`;
     }).join('');
+    /* 목적별 — 10개(한 세션)가 안 되는 목적은 아직 싣지 않는다. */
+    const purps = Object.keys(PURP_LOOK).map((k) => {
+      const id = `p:${k}`, pp = purpOf(id), list = listFor(id);
+      if (!pp || list.length < SESSION) return '';
+      /* 카드가 아니라 작은 알약 — 주제별 카드를 아래로 밀어내지 않게(운영자 요청: 첫 화면 덜어내기). */
+      return `<button type="button" class="wd-chip wd-purp" data-act="topic" data-topic="${esc(id)}"><span aria-hidden="true">${look(id)[0]}</span>${esc(t(pp.ko, pp.en))} <small>${list.length.toLocaleString()}</small></button>`;
+    }).join('');
     return trackBar() + `<button type="button" class="wd-topic wd-topic-main" style="--h:25" data-act="topic" data-topic="all">
         <span class="wd-topic-ico" aria-hidden="true">🏆</span>
         <b>${esc(t(`${trackName(S.track)} 필수 — 자주 나오는 차례로`, `${trackName(S.track)} essentials — most frequent first`))}</b>
         <span class="wd-meta">${esc(t(`${all.toLocaleString()}개 · 세션 ${Math.ceil(all / SESSION)}`, `${all.toLocaleString()} words · ${Math.ceil(all / SESSION)} sessions`))}</span>${bar(got, all)}</button>
+      ${purps ? `<h3 class="wd-h3">${esc(t('목적별 — TOPIK I · II 함께', 'By goal — TOPIK I & II'))}</h3>
+      <div class="wd-purps">${purps}</div>` : ''}
       <h3 class="wd-h3">${esc(t('주제별', 'By topic'))}</h3>
       <div class="wd-topics">${cards}</div>
       <h3 class="wd-h3">${esc(t('게임으로 연습', 'Practice with games'))}</h3>
@@ -338,10 +357,9 @@ export function wordsInit(D) {
 
   function drawTopic(topic) {
     const ss = chunk(listFor(topic));
-    const tp = topic === 'all' ? null : topicOf(topic);
-    const name = tp ? t(tp.ko, tp.en) : t(`${trackName(S.track)} 필수`, `${trackName(S.track)} essentials`);
+    const name = topicName(topic);
     return `<button type="button" class="wd-back" data-tab="learn">← ${esc(t('주제', 'Topics'))}</button>
-      <h3 class="wd-h3 wd-h3-big">${tp ? look(tp.id)[0] : '🏆'} ${esc(name)}</h3>
+      <h3 class="wd-h3 wd-h3-big">${topic === 'all' ? '🏆' : look(topic)[0]} ${esc(name)}</h3>
       <div class="wd-sessions">${ss.map((s, i) => {
         const g = s.filter((w) => learned(idOf(w))).length;
         return `<button type="button" class="wd-sess${g === s.length ? ' done' : g ? ' part' : ''}" data-act="session" data-topic="${esc(topic)}" data-n="${i}">
@@ -369,7 +387,27 @@ export function wordsInit(D) {
         <button type="button" class="wd-chip${S.dir === 'en' ? ' on' : ''}" data-act="dir" data-dir="en">${esc(t('뜻 → 한국어', 'Meaning → Korean'))}</button>
       </div>
       <div class="wd-list">${words.map((w) => wordRow(w, learned(idOf(w)) ? '<span class="wd-ok">✓</span>' : '')).join('')}</div>
+      ${words.some((w) => byHead.get(w.h) === w) ? `<button type="button" class="wd-btn ghost wd-share" data-act="share">🔗 ${esc(t('이 낱말들을 링크로 보내기', 'Share these words as a link'))}</button>` : ''}
       ${view.pick.from ? `<button type="button" class="wd-btn ghost wd-addall" data-act="addall">${esc(t(`이 ${words.length}개 모두 내 단어장에 담기`, `Save all ${words.length} to my wordbook`))}</button>` : ''}`;
+  }
+
+  /* 낱말 묶음 공유 — 목록에 있는 낱말만 주소에 싣는다(#words/set/<낱말>.<낱말>…). 받은 사람은 로그인 없이 그 묶음을 바로 공부한다.
+     서버에 아무것도 남기지 않는다 — 주소가 곧 묶음이다. 주소가 너무 길어지지 않게 SET_MAX 개까지. */
+  const SET_MAX = 60;
+  async function shareSet(btn) {
+    const heads = view.pick.words.filter((w) => byHead.get(w.h) === w).slice(0, SET_MAX).map((w) => w.h);
+    const url = `${location.origin}/#words/set/${heads.map(encodeURIComponent).join('.')}`;
+    const title = t(`치즈감자 낱말 ${heads.length}개`, `${heads.length} Korean words — 치즈감자`);
+    D.track('단어공유');
+    try { if (navigator.share) { await navigator.share({ title, url }); return; } } catch (e) { if (e?.name === 'AbortError') return; }
+    try { await navigator.clipboard.writeText(url); btn.textContent = t('✓ 링크를 복사했어요', '✓ Link copied'); }
+    catch (e) { prompt(t('이 링크를 복사하세요', 'Copy this link'), url); }
+  }
+  function openSet(raw) {
+    const words = [...new Set(raw.split('.').map((x) => { try { return decodeURIComponent(x); } catch (e) { return ''; } }))]
+      .map((h) => byHead.get(h)).filter(Boolean).slice(0, SET_MAX);
+    if (!words.length) { view = { tab: 'home' }; return; }
+    view = { tab: 'pick', pick: { words, from: null, title: t(`받은 낱말 ${words.length}개`, `Shared set — ${words.length} words`), back: 'data-tab="home"' } };
   }
 
   /* 담을 모양 — 원본 낱말 id(vocab_id)와 담은 곳을 같이 적는다(docs/vocab-plan.md 5층 「내 단어장 연동」). */
@@ -791,9 +829,8 @@ export function wordsInit(D) {
     const ss = chunk(listFor(topic));
     const words = ss[n];
     if (!words) return;
-    const tp = topic === 'all' ? null : topicOf(topic);
     view = { tab: 'pick', pick: { words, from: { topic, n },
-      title: `${tp ? t(tp.ko, tp.en) : t(`${trackName(S.track)} 필수`, `${trackName(S.track)} essentials`)} · ${t(`세션 ${n + 1}`, `Session ${n + 1}`)}`,
+      title: `${topicName(topic)} · ${t(`세션 ${n + 1}`, `Session ${n + 1}`)}`,
       back: `data-act="topic" data-topic="${esc(topic)}"` } };
     query = '';
     mark(`topic/${topic}/${n + 1}`);
@@ -844,6 +881,7 @@ export function wordsInit(D) {
     }
     if (act === 'add') { const h = a.dataset.h; return D.saveWords([toSave(h)], a); }
     if (act === 'addall') return D.saveWords(view.pick.words.map((w) => toSave(w.h)), a);
+    if (act === 'share') return shareSet(a);
     if (act === 'mystudy') { view = { tab: 'pick', pick: { words: mineWords, from: null, title: t(`내 단어장 ${mineWords.length}개`, `My wordbook — ${mineWords.length}`), back: 'data-tab="mine"' } }; return draw(); }
     if (act === 'login') return D.openAccount();
     if (act === 'quit') { if (!run?.cur || confirm(t('공부를 그만할까요? 푼 것은 기록돼요.', 'Stop now? What you answered is saved.'))) { run = null; view = { tab: 'home' }; mark(''); draw(); } return; }
@@ -912,7 +950,7 @@ export function wordsInit(D) {
     if (Math.abs(dx) > 70) { ev.preventDefault(); rate(dx > 0 ? 'know' : 'no'); }
   });
 
-  /* 주소 → 화면. sub: '' | learn | review | star | stats | topic/<id>[/<n>] | w/<낱말> | search/<검색어> */
+  /* 주소 → 화면. sub: '' | learn | review | star | stats | topic/<id>[/<n> | /topik1 | /topik2] | w/<낱말> | search/<검색어> | set/<낱말>.<낱말>… */
   function show(sub) {
     const [a, b, c] = String(sub || '').split('/');
     run = null; query = ''; sel = -1;
@@ -926,8 +964,11 @@ export function wordsInit(D) {
         return;
       }
       else if (a === 'search' && b) { query = decodeURIComponent(b); view = { tab: 'home' }; }
+      else if (a === 'set' && b) openSet(b);
       else if (a === 'topic' && b) {
-        if (c) { openSession(b, Math.max(0, +c - 1)); return; }
+        /* 정적 목록 쪽(/topik1-words/ · /topik2-words/)은 과정을 붙여 보낸다 — 지금 고른 과정과 달라도 그 목록이 열리게. */
+        if (c === 'topik1' || c === 'topik2') setTrack(c);
+        else if (c) { openSession(b, Math.max(0, +c - 1)); return; }
         view = { tab: 'topic', topic: b };
       } else if (['learn', 'review', 'star', 'stats', 'mine'].includes(a)) view = { tab: a };
       else view = { tab: 'home' };

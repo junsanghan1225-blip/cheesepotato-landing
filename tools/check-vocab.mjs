@@ -2,6 +2,7 @@
 /* 「단어」 섹션 낱말 자료 검사 — vocab/data/*.json (모양: docs/vocab-schema.md)
  *
  *   node tools/check-vocab.mjs
+ *   node tools/check-vocab.mjs --base origin/main   안 그래비티 묶음을 받았을 때 — main 과 견줘 지킬 칸을 봤는지 본다
  *
  * 수천 개를 500개씩 넣을 때 품질이 흐트러지지 않게 막는 문이다(docs/vocab-plan.md 7층).
  * 「고쳐야 할 것」이 하나라도 있으면 실패한다. 「짚어 둘 것」은 실패는 아니지만 사람이 본다.
@@ -145,6 +146,38 @@ for (const name of ['topik1', 'topik2']) {
     const need = Math.ceil(src.length / 500);
     for (let k = 0; k < need; k++) if (!fs.existsSync(path.join(exDir, `${k}.js`)))
       err.push(`vocab-${name}-ex/${k}.js 가 없다(예문 조각 ${need}개가 있어야 한다) — node tools/build-vocab.mjs`);
+  }
+}
+
+/* --base <git 주소> — 묶음 검토. 안 그래비티가 거듭 어긴 것(급수 · 출처 · 채워진 영어 뜻 · 이미 B 인 줄 · 이번 묶음 밖의 C 줄)을
+   main 과 줄마다 견준다(docs/antigravity-vocab-topik2-task.md). 바뀐 곳은 「고쳐야 할 것」, 반대말 · 비슷한 말은 사람이 보게 뽑는다. */
+const bi = process.argv.indexOf('--base');
+if (bi > 0) {
+  const ref = process.argv[bi + 1];
+  const { execFileSync } = await import('node:child_process');
+  const KEEP = ['id', 'head', 'level', 'freq', 'src', 'std', 'hint'];
+  for (const f of files) {
+    let base;
+    try { base = JSON.parse(execFileSync('git', ['show', `${ref}:vocab/data/${f}`], { cwd: ROOT, encoding: 'utf8', maxBuffer: 1 << 26 })); }
+    catch (e) { continue; }   // main 에 없는 새 파일
+    const now = JSON.parse(fs.readFileSync(path.join(DIR, f), 'utf8'));
+    if (now.length !== base.length) { err.push(`${f}: 줄 수가 바뀌었다(${base.length} → ${now.length}) — 줄을 더하거나 빼지 않는다`); continue; }
+    const bad = {}, put = (k, h) => (bad[k] ||= []).push(h);
+    const fresh = [];
+    now.forEach((w, i) => {
+      const p = base[i];
+      for (const k of KEEP) if (JSON.stringify(p[k]) !== JSON.stringify(w[k])) put(k, p.head);
+      if (p.en && p.en !== w.en) put('en(채워진 것)', p.head);
+      if (p.grade !== 'C' && JSON.stringify(p) !== JSON.stringify(w)) put('이미 B 인 줄', p.head);
+      else if (p.grade === 'C' && w.grade === 'C' && JSON.stringify(p) !== JSON.stringify(w)) put('C 로 남은 줄', p.head);
+      if (p.grade === 'C' && w.grade !== 'C') fresh.push(w);
+    });
+    for (const [k, hs] of Object.entries(bad)) err.push(`${f}: ${k} 을(를) ${hs.length}곳 바꿨다 — ${hs.slice(0, 8).join(' · ')}${hs.length > 8 ? ' …' : ''}`);
+    const rel = (k) => fresh.filter((w) => w.rel?.[k]?.length).map((w) => `${w.head}${k === 'ant' ? '↔' : '='}${w.rel[k].join('/')}`);
+    for (const w of fresh) for (const k of ['syn', 'ant']) for (const x of w.rel?.[k] || [])
+      if (x === w.head || !/^[가-힣 ]+$/.test(x)) err.push(`${f}: ${w.head} 의 ${k} 에 「${x}」 — 표제어 자신 · 한글 아닌 것은 넣지 않는다`);
+    console.log(`\n[묶음 검토 ${f}] ${ref} 에 견줘 B급이 된 줄 ${fresh.length}개` +
+      (fresh.length ? `\n  반대말 ${rel('ant').length}: ${rel('ant').join('  ')}\n  비슷한 말 ${rel('syn').length}: ${rel('syn').join('  ')}` : ''));
   }
 }
 

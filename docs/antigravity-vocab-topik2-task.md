@@ -84,6 +84,7 @@ git checkout main && git pull origin main
 git checkout -b vocab-topik2-bN          # N = 묶음 번호
 # C 줄 앞 500개 채우기 — 한 줄에 낱말 하나 모양을 지킨다
 node tools/check-vocab.mjs --all          # 「고쳐야 할 것」 0 · 「길다」 0
+node tools/check-vocab.mjs --base origin/main   # 지킬 칸(level · src · hint · 채워진 en · 다른 줄)을 건드렸으면 여기서 걸린다 — 0 이어야 한다
 git add vocab/data/topik2.json
 git commit -m "vocab: TOPIK II batch N to grade B"
 git pull origin main

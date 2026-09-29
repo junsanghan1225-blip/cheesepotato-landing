@@ -4126,7 +4126,10 @@ div.wd-card:hover { transform:none; }
 .wd-mode:nth-child(1) { --h:25; } .wd-mode:nth-child(2) { --h:150; } .wd-mode:nth-child(3) { --h:220; }
 @media (max-width:560px){ .wd-modes { grid-template-columns:1fr; } }
 .wd-dir { display:flex; gap:6px; flex-wrap:wrap; margin:14px 0 16px; }
-.wd-addall { margin-top:12px; }
+.wd-addall, .wd-share { margin-top:12px; }
+/* 목적별 단어장 — 알약 한 줄(넘치면 다음 줄). 주제 카드보다 가볍게. */
+.wd-purps { display:flex; flex-wrap:wrap; gap:8px; }
+.wd-purp span { margin-right:4px; }
 
 /* 목록 */
 .wd-list { display:flex; flex-direction:column; border:1px solid var(--line); border-radius:var(--r-l); background:var(--surface); overflow:hidden; margin-top:12px; }
