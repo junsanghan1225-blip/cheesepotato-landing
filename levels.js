@@ -61,6 +61,10 @@ export const cheeseLevel = (g) => { const [, ko, desc, icon] = CHEESE[Math.max(0
 export const CHEESE_OF_LEVEL = [0, 0, 1, 1, 2, 2, 3, 5];
 export function myLevelBadge(rec) {
   if (!rec || rec.lv == null) return null;
-  if (rec.goal === 'topik') { const g = CHEESE_OF_LEVEL[rec.lv] ?? 0; return { kind: 'cheese', step: g, ...cheeseLevel(g) }; }
+  /* TOPIK 길 — 레벨테스트가 급수를 쟀으면(rec.grade, 넘은 급수) 그것이 첫 치즈다. 옛 기록은 코스 레벨에서 옮긴다. */
+  if (rec.goal === 'topik') {
+    const g = Number.isFinite(rec.grade) ? Math.max(0, Math.min(6, rec.grade)) : (CHEESE_OF_LEVEL[rec.lv] ?? 0);
+    return { kind: 'cheese', step: g, ...cheeseLevel(g) };
+  }
   return { kind: 'potato', step: rec.lv, ...potatoLevel(rec.lv) };
 }
