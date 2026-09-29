@@ -4097,13 +4097,21 @@ div.wd-card:hover { transform:none; }
 
 /* 외우기 — 주제 카드(주제마다 색) */
 .wd-topics { display:grid; grid-template-columns:repeat(auto-fill, minmax(210px, 1fr)); gap:10px; }
+/* 폰 — 주제 카드 2칸 · 작게. 한 칸씩이면 17장이 끝없이 이어진다. */
+@media (max-width:560px){
+  .wd-topics { grid-template-columns:1fr 1fr; gap:8px; }
+  .wd-topics .wd-topic { padding:12px; gap:4px; }
+  .wd-topics .wd-topic b { font-size:15px; }
+  .wd-topics .wd-topic-ico { width:34px; height:34px; border-radius:10px; }
+  .wd-topics .wd-meta { font-size:12px; }
+}
 .wd-topic, .wd-sess, .wd-mode {
   --h:25; position:relative; display:flex; flex-direction:column; gap:6px; text-align:left; padding:16px; cursor:pointer; color:var(--ink);
   border:1px solid var(--line); border-radius:var(--r-l); font:inherit;
   background:var(--surface); transition:border-color .15s;
 }
 .wd-topic:hover, .wd-sess:hover, .wd-mode:hover { border-color:rgba(var(--ink-rgb),.28); }
-.wd-topic b, .wd-sess b, .wd-mode b { font-size:16px; }
+.wd-topic b, .wd-mode b { font-size:16px; }
 .wd-topic-ico {
   width:40px; height:40px; border-radius:12px; display:grid; place-items:center; font-size:21px;
   background:color-mix(in srgb, hsl(var(--h) 80% 60%) 22%, var(--surface));
@@ -4112,26 +4120,50 @@ div.wd-card:hover { transform:none; }
 .wd-topic-main b { flex:1 1 60%; font-size:17px; }
 .wd-topic-main .wd-meta { flex:1 1 100%; }
 .wd-topic-main .wd-bar { flex:1 1 100%; }
-.wd-sub, .wd-meta, .wd-sess span, .wd-mode span { font-size:13px; color:var(--ink-2); line-height:1.45; }
-.wd-sessions { display:grid; grid-template-columns:repeat(auto-fill, minmax(160px, 1fr)); gap:8px; }
-.wd-sess { --h:140; background:var(--surface); padding:14px; }
+.wd-sub, .wd-meta, .wd-mode span { font-size:13px; color:var(--ink-2); line-height:1.45; }
+.wd-sessions { display:grid; grid-template-columns:repeat(auto-fill, minmax(300px, 1fr)); gap:6px; }
+/* 세션 한 줄 — 번호 · 낱말 미리보기(한 줄에서 자름) · 푼 만큼. */
+.wd-sess { --h:140; flex-direction:row; align-items:center; gap:12px; padding:10px 14px; border-radius:14px; min-width:0; }
 .wd-sess-n {
-  width:30px; height:30px; border-radius:50%; display:grid; place-items:center; font-size:13px !important; font-weight:800;
-  background:color-mix(in srgb, var(--ink) 7%, transparent); color:var(--ink) !important;
+  flex:none; width:28px; height:28px; border-radius:50%; display:grid; place-items:center; font-size:13px; font-weight:800;
+  background:color-mix(in srgb, var(--ink) 7%, transparent); color:var(--ink);
 }
+.wd-sess-n .wd-i { width:16px; height:16px; stroke-width:2.4; }
+.wd-sess-w { flex:1; min-width:0; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; font-size:14px; color:var(--ink); }
+.wd-sess-c { flex:none; font-size:12px; font-weight:700; color:var(--ink-2); }
 .wd-sess.part .wd-sess-n { background:color-mix(in srgb, var(--orange) 25%, var(--surface)); }
-.wd-sess.done { background:color-mix(in srgb, var(--green) 8%, var(--surface)); }
-.wd-sess.done .wd-sess-n { background:var(--green); color:#fff !important; }
+.wd-sess.done .wd-sess-n { background:var(--green); color:#fff; }
+.wd-sess.done .wd-sess-w { color:var(--ink-2); }
 .wd-modes { display:grid; grid-template-columns:repeat(3, 1fr); gap:10px; }
 .wd-mode:nth-child(1) { --h:25; } .wd-mode:nth-child(2) { --h:150; } .wd-mode:nth-child(3) { --h:220; }
-@media (max-width:560px){ .wd-modes { grid-template-columns:1fr; } }
-.wd-dir { display:flex; gap:6px; flex-wrap:wrap; margin:14px 0 16px; }
-.wd-addall, .wd-share { margin-top:12px; }
+@media (max-width:560px){ .wd-modes { grid-template-columns:1fr 1fr; } }
+.wd-addall { margin-top:12px; }
 /* 「오늘」 낱말 알약의 급수 · 외운 표시 */
 .wd-peek-w small { margin-left:6px; font-size:11px; font-weight:600; color:var(--ink-2); }
 .wd-peek-w.ok { opacity:.55; }
-.wd-share { display:inline-flex; align-items:center; gap:8px; }
-.wd-share-ico { width:18px; height:18px; flex:none; }
+/* 선 아이콘(words.js IC) — 크기만 자리마다, 색은 글자 색. */
+.wd-i { width:20px; height:20px; flex:none; vertical-align:-4px; }
+.wd-topic-ico { color:color-mix(in srgb, hsl(var(--h) 65% 42%) 80%, var(--ink)); font-size:0; }
+.wd-topic-ico .wd-i { width:22px; height:22px; }
+.wd-word-ico .wd-i { width:22px; height:22px; color:color-mix(in srgb, hsl(var(--h) 65% 42%) 80%, var(--ink)); }
+.wd-h3-ico { display:inline-grid; place-items:center; width:36px; height:36px; margin-right:10px; border-radius:11px; vertical-align:-6px;
+  color:color-mix(in srgb, hsl(var(--h) 65% 42%) 80%, var(--ink)); background:color-mix(in srgb, hsl(var(--h) 80% 60%) 22%, var(--surface)); }
+.wd-game b { display:flex; align-items:center; gap:8px; }
+.wd-h3 > .wd-i { margin-right:6px; color:var(--orange); }
+.wd-big-ico .wd-i { width:52px; height:52px; stroke-width:1.6; color:var(--orange); }
+.wd-ok .wd-i { width:16px; height:16px; stroke-width:2.6; color:var(--green); }
+/* 낱말 묶음 화면 */
+.wd-pick-set { display:flex; flex-wrap:wrap; align-items:center; gap:8px 12px; margin:4px 0 12px; font-size:13px; color:var(--ink-2); }
+.wd-seg { display:inline-flex; gap:2px; padding:3px; border:1px solid var(--line); border-radius:999px; background:var(--surface-2); }
+.wd-seg button { border:0; background:none; font:inherit; font-size:13px; padding:6px 12px; border-radius:999px; color:var(--ink-2); cursor:pointer; }
+.wd-seg button.on { background:var(--surface); color:var(--ink); font-weight:700; box-shadow:0 1px 2px rgba(0,0,0,.08); }
+.wd-mode { gap:4px; padding:14px; }
+.wd-mode .wd-i { width:22px; height:22px; margin-bottom:4px; color:var(--orange); }
+.wd-pick-n { margin:22px 0 8px; font-size:13px; font-weight:700; color:var(--ink-2); }
+.wd-pick-foot { display:flex; flex-wrap:wrap; gap:6px 18px; margin-top:14px; }
+.wd-link { display:inline-flex; align-items:center; gap:6px; border:0; background:none; padding:6px 0; font:inherit; font-size:14px; font-weight:600; color:var(--ink-2); cursor:pointer; }
+.wd-link:hover { color:var(--ink); }
+.wd-link .wd-i { width:17px; height:17px; }
 
 /* 목록 */
 .wd-list { display:flex; flex-direction:column; border:1px solid var(--line); border-radius:var(--r-l); background:var(--surface); overflow:hidden; margin-top:12px; }
