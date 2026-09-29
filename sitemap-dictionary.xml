@@ -6965,6 +6965,11 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://everykoreans.com/dictionary/%EB%84%88%EA%B7%B8%EB%9F%BD%EB%8B%A4.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://everykoreans.com/dictionary/%EB%84%88%EB%A8%B8.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
@@ -6975,12 +6980,22 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://everykoreans.com/dictionary/%EB%84%88%EB%AC%B4%EB%82%98.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://everykoreans.com/dictionary/%EB%84%88%ED%9D%AC.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://everykoreans.com/dictionary/%EB%84%89.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EB%84%89%EB%84%89%ED%95%98%EB%8B%A4.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -7020,6 +7035,11 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://everykoreans.com/dictionary/%EB%84%93%EC%96%B4%EC%A7%80%EB%8B%A4.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://everykoreans.com/dictionary/%EB%84%93%EC%9D%B4.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
@@ -7031,6 +7051,11 @@
   </url>
   <url>
     <loc>https://everykoreans.com/dictionary/%EB%84%93%ED%9E%88%EB%8B%A4.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EB%84%98%EA%B2%A8%EC%A3%BC%EB%8B%A4.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -7050,7 +7075,17 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://everykoreans.com/dictionary/%EB%84%98%EC%96%B4%EB%9C%A8%EB%A6%AC%EB%8B%A4.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://everykoreans.com/dictionary/%EB%84%98%EC%96%B4%EC%84%9C%EB%8B%A4.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EB%84%98%EC%96%B4%EC%98%A4%EB%8B%A4.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -7075,6 +7110,16 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://everykoreans.com/dictionary/%EB%84%A4%EB%AA%A8.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EB%84%A4%ED%8B%B0%EC%A6%8C.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://everykoreans.com/dictionary/%EB%84%A5%ED%83%80%EC%9D%B4.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
@@ -7090,12 +7135,22 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://everykoreans.com/dictionary/%EB%85%80%EC%84%9D.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://everykoreans.com/dictionary/%EB%85%84.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://everykoreans.com/dictionary/%EB%85%84%EB%8C%80.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EB%85%84%EB%8F%84.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -7156,6 +7211,11 @@
   </url>
   <url>
     <loc>https://everykoreans.com/dictionary/%EB%85%B8%EB%9E%AB%EC%86%8C%EB%A6%AC.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EB%85%B8%EB%A0%A4%EB%B3%B4%EB%8B%A4.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -7245,6 +7305,11 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://everykoreans.com/dictionary/%EB%85%B9%EC%9D%B4%EB%8B%A4.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://everykoreans.com/dictionary/%EB%85%B9%EC%A1%B0.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
@@ -7275,6 +7340,11 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://everykoreans.com/dictionary/%EB%85%BC%EB%A6%AC.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://everykoreans.com/dictionary/%EB%85%BC%EB%A6%AC%EC%A0%81.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
@@ -7295,6 +7365,11 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://everykoreans.com/dictionary/%EB%85%BC%EC%9F%81.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://everykoreans.com/dictionary/%EB%86%80.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
@@ -7311,6 +7386,16 @@
   </url>
   <url>
     <loc>https://everykoreans.com/dictionary/%EB%86%80%EB%9E%8C.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EB%86%80%EB%9E%8D%EB%8B%A4.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EB%86%80%EB%A6%AC%EB%8B%A4.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -7385,6 +7470,11 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://everykoreans.com/dictionary/%EB%86%8D%EC%82%AC%EC%9D%BC.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://everykoreans.com/dictionary/%EB%86%8D%EC%82%B0%EB%AC%BC.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
@@ -7450,12 +7540,22 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://everykoreans.com/dictionary/%EB%86%93%EC%95%84%EB%91%90%EB%8B%A4.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://everykoreans.com/dictionary/%EB%86%93%EC%9D%B4%EB%8B%A4.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://everykoreans.com/dictionary/%EB%86%93%EC%B9%98%EB%8B%A4.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EB%86%94%EB%91%90%EB%8B%A4.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -7491,6 +7591,11 @@
   </url>
   <url>
     <loc>https://everykoreans.com/dictionary/%EB%88%84%EB%82%98.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EB%88%84%EB%8B%98.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -7545,7 +7650,22 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://everykoreans.com/dictionary/%EB%88%88%EA%B0%90%EB%8B%A4.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://everykoreans.com/dictionary/%EB%88%88%EA%B8%B8.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EB%88%88%EB%8F%99%EC%9E%90.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EB%88%88%EB%9C%A8%EB%8B%A4.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -7595,6 +7715,11 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://everykoreans.com/dictionary/%EB%88%88%EC%8D%B9.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://everykoreans.com/dictionary/%EB%88%88%EC%95%9E.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
@@ -7610,6 +7735,11 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://everykoreans.com/dictionary/%EB%88%95%ED%9E%88%EB%8B%A4.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://everykoreans.com/dictionary/%EB%89%98%EB%8B%A4.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
@@ -7620,12 +7750,22 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://everykoreans.com/dictionary/%EB%8A%90%EA%B8%8B%ED%95%98%EB%8B%A4.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://everykoreans.com/dictionary/%EB%8A%90%EA%BB%B4%EC%A7%80%EB%8B%A4.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://everykoreans.com/dictionary/%EB%8A%90%EB%81%BC%EB%8B%A4.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EB%8A%90%EB%81%BC%ED%95%98%EB%8B%A4.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -7675,6 +7815,11 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://everykoreans.com/dictionary/%EB%8A%98%EC%9D%B4%EB%8B%A4.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://everykoreans.com/dictionary/%EB%8A%99%EB%8B%A4.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
@@ -7705,7 +7850,27 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://everykoreans.com/dictionary/%EB%8A%A6%EA%B2%A8%EC%9A%B8.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://everykoreans.com/dictionary/%EB%8A%A6%EB%8B%A4.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EB%8A%A6%EB%B4%84.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EB%8A%A6%EC%96%B4%EC%A7%80%EB%8B%A4.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EB%8A%A6%EC%97%AC%EB%A6%84.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -7725,7 +7890,22 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://everykoreans.com/dictionary/%EB%8B%98.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://everykoreans.com/dictionary/%EB%8B%A4.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EB%8B%A4%EA%B0%80%EA%B0%80%EB%8B%A4.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EB%8B%A4%EA%B0%80%EC%84%9C%EB%8B%A4.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -7736,6 +7916,11 @@
   </url>
   <url>
     <loc>https://everykoreans.com/dictionary/%EB%8B%A4%EA%B3%B5%EC%84%B1.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EB%8B%A4%EB%85%80%EA%B0%80%EB%8B%A4.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -7825,6 +8010,11 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://everykoreans.com/dictionary/%EB%8B%A4%EB%AC%BC%EB%8B%A4.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://everykoreans.com/dictionary/%EB%8B%A4%EB%B0%A9.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
@@ -7841,6 +8031,16 @@
   </url>
   <url>
     <loc>https://everykoreans.com/dictionary/%EB%8B%A4%EC%84%AF%EC%A7%B8.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EB%8B%A4%EC%86%8C.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EB%8B%A4%EC%88%98.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -7925,6 +8125,11 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://everykoreans.com/dictionary/%EB%8B%A4%ED%88%AC%EB%8B%A4.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://everykoreans.com/dictionary/%EB%8B%A4%ED%88%BC.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
@@ -7936,6 +8141,11 @@
   </url>
   <url>
     <loc>https://everykoreans.com/dictionary/%EB%8B%A4%ED%96%89.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EB%8B%A4%ED%96%89%EC%8A%A4%EB%9F%BD%EB%8B%A4.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -7961,6 +8171,11 @@
   </url>
   <url>
     <loc>https://everykoreans.com/dictionary/%EB%8B%A6%EB%8B%A4.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EB%8B%A8.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -8005,6 +8220,11 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://everykoreans.com/dictionary/%EB%8B%A8%EB%8F%85.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://everykoreans.com/dictionary/%EB%8B%A8%EB%A7%90%EA%B8%B0.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
@@ -8041,6 +8261,11 @@
   </url>
   <url>
     <loc>https://everykoreans.com/dictionary/%EB%8B%A8%EC%88%9C%ED%95%98%EB%8B%A4.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EB%8B%A8%EC%88%9C%ED%9E%88.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -8185,12 +8410,22 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://everykoreans.com/dictionary/%EB%8B%AC%EB%9E%98%EB%8B%A4.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://everykoreans.com/dictionary/%EB%8B%AC%EB%9F%AC.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://everykoreans.com/dictionary/%EB%8B%AC%EB%A0%A4%EA%B0%80%EB%8B%A4.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EB%8B%AC%EB%A0%A4%EB%93%A4%EB%8B%A4.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -8221,6 +8456,16 @@
   </url>
   <url>
     <loc>https://everykoreans.com/dictionary/%EB%8B%AC%EB%B9%9B.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EB%8B%AC%EC%84%B1.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EB%8B%AC%EC%95%84%EB%82%98%EB%8B%A4.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -8260,6 +8505,11 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://everykoreans.com/dictionary/%EB%8B%B4.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://everykoreans.com/dictionary/%EB%8B%B4%EA%B7%B8%EB%8B%A4.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
@@ -8290,6 +8540,11 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://everykoreans.com/dictionary/%EB%8B%B4%EB%B0%B1%ED%95%98%EB%8B%A4.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://everykoreans.com/dictionary/%EB%8B%B4%EB%B2%BC%EB%9D%BD.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
@@ -8310,6 +8565,16 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://everykoreans.com/dictionary/%EB%8B%B4%EC%9A%94.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EB%8B%B4%EC%9E%84.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://everykoreans.com/dictionary/%EB%8B%B4%EC%9E%A5.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
@@ -8321,6 +8586,11 @@
   </url>
   <url>
     <loc>https://everykoreans.com/dictionary/%EB%8B%B5%EB%8B%B5%ED%95%98%EB%8B%A4.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EB%8B%B5%EB%B3%80.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -8361,6 +8631,11 @@
   </url>
   <url>
     <loc>https://everykoreans.com/dictionary/%EB%8B%B9%EB%8F%84.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EB%8B%B9%EB%B6%84%EA%B0%84.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -8430,6 +8705,11 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://everykoreans.com/dictionary/%EB%8C%80%EA%B0%95.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://everykoreans.com/dictionary/%EB%8C%80%EA%B0%9C.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
@@ -8455,7 +8735,17 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://everykoreans.com/dictionary/%EB%8C%80%EA%B8%B0%EC%97%85.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://everykoreans.com/dictionary/%EB%8C%80%EB%82%98%EB%AC%B4.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EB%8C%80%EB%82%AE.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -8476,6 +8766,11 @@
   </url>
   <url>
     <loc>https://everykoreans.com/dictionary/%EB%8C%80%EB%8B%A8%ED%95%98%EB%8B%A4.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EB%8C%80%EB%8B%A8%ED%9E%88.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -8575,6 +8870,11 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://everykoreans.com/dictionary/%EB%8C%80%EC%83%81%EC%9E%90.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://everykoreans.com/dictionary/%EB%8C%80%EC%8B%A0.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
@@ -8651,6 +8951,11 @@
   </url>
   <url>
     <loc>https://everykoreans.com/dictionary/%EB%8C%80%EC%A4%91%EB%AA%A9%EC%9A%95%ED%83%95.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EB%8C%80%EC%A4%91%EB%AC%B8%ED%99%94.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -8770,7 +9075,17 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://everykoreans.com/dictionary/%EB%8C%90.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://everykoreans.com/dictionary/%EB%8D%94.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EB%8D%94%EA%B5%AC%EB%82%98.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -8785,12 +9100,32 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://everykoreans.com/dictionary/%EB%8D%94%EB%9F%BD%ED%9E%88%EB%8B%A4.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EB%8D%94%EB%B6%88%EB%8B%A4.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://everykoreans.com/dictionary/%EB%8D%94%EC%97%86%EB%8B%A4.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://everykoreans.com/dictionary/%EB%8D%94%EC%9A%B1.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EB%8D%94%EC%9A%B1%EB%8D%94.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EB%8D%94%EC%9A%B1%EC%9D%B4.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -8816,6 +9151,11 @@
   </url>
   <url>
     <loc>https://everykoreans.com/dictionary/%EB%8D%95%EB%B6%84.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EB%8D%95%ED%83%9D.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -8856,6 +9196,16 @@
   </url>
   <url>
     <loc>https://everykoreans.com/dictionary/%EB%8D%A7%EB%B6%99%EB%8B%A4.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EB%8D%A7%EB%B6%99%EC%9D%B4%EB%8B%A4.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EB%8D%A9%EC%96%B4%EB%A6%AC.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -8905,6 +9255,11 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://everykoreans.com/dictionary/%EB%8D%B0%EC%9A%B0%EB%8B%A4.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://everykoreans.com/dictionary/%EB%8D%B0%EC%9D%B4%ED%84%B0.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
@@ -8931,6 +9286,16 @@
   </url>
   <url>
     <loc>https://everykoreans.com/dictionary/%EB%8F%84%EA%B8%88.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EB%8F%84%EB%82%9C.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EB%8F%84%EB%8C%80%EC%B2%B4.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -8985,12 +9350,32 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://everykoreans.com/dictionary/%EB%8F%84%EB%A6%AC%EC%96%B4.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://everykoreans.com/dictionary/%EB%8F%84%EB%A7%88.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://everykoreans.com/dictionary/%EB%8F%84%EB%A7%9D.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://everykoreans.com/dictionary/%EB%8F%84%EB%A7%9D%EA%B0%80%EB%8B%A4.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EB%8F%84%EB%A7%9D%EC%B9%98%EB%8B%A4.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EB%8F%84%EB%AC%B4%EC%A7%80.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -9100,6 +9485,11 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://everykoreans.com/dictionary/%EB%8F%85.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://everykoreans.com/dictionary/%EB%8F%85%EA%B0%90.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
@@ -9170,6 +9560,11 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://everykoreans.com/dictionary/%EB%8F%85%ED%95%98%EB%8B%A4.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://everykoreans.com/dictionary/%EB%8F%88.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
@@ -9220,12 +9615,22 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://everykoreans.com/dictionary/%EB%8F%8C%EB%A0%A4%EB%B3%B4%EB%82%B4%EB%8B%A4.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://everykoreans.com/dictionary/%EB%8F%8C%EB%A0%A4%EC%A3%BC%EB%8B%A4.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://everykoreans.com/dictionary/%EB%8F%8C%EB%A6%AC%EB%8B%A4.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EB%8F%8C%EB%A9%A9%EC%9D%B4.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -9291,6 +9696,16 @@
   </url>
   <url>
     <loc>https://everykoreans.com/dictionary/%EB%8F%99%EA%B7%B8%EB%9E%97%EB%8B%A4.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EB%8F%99%EA%B8%B0.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EB%8F%99%EB%82%A8%EC%95%84.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -9370,6 +9785,11 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://everykoreans.com/dictionary/%EB%8F%99%EC%84%9C%EB%82%A8%EB%B6%81.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://everykoreans.com/dictionary/%EB%8F%99%EC%8B%9C.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
@@ -9386,6 +9806,16 @@
   </url>
   <url>
     <loc>https://everykoreans.com/dictionary/%EB%8F%99%EC%96%91.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EB%8F%99%EC%96%91%EC%9D%B8.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EB%8F%99%EC%98%81%EC%83%81.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -9450,6 +9880,11 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://everykoreans.com/dictionary/%EB%8F%99%ED%8F%AC.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://everykoreans.com/dictionary/%EB%8F%99%ED%96%89.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
@@ -9480,6 +9915,11 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://everykoreans.com/dictionary/%EB%8F%99%ED%99%94%EC%B1%85.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://everykoreans.com/dictionary/%EB%8F%BC%EC%A7%80.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
@@ -9506,6 +9946,16 @@
   </url>
   <url>
     <loc>https://everykoreans.com/dictionary/%EB%90%98%EB%8F%8C%EB%8B%A4.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EB%90%98%EB%8F%8C%EB%A6%AC%EB%8B%A4.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EB%90%98%EB%8F%8C%EC%95%84%EA%B0%80%EB%8B%A4.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -9585,7 +10035,27 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://everykoreans.com/dictionary/%EB%91%90%EB%93%9C%EB%9F%AC%EC%A7%80%EB%8B%A4.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EB%91%90%EB%93%9C%EB%A6%AC%EB%8B%A4.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://everykoreans.com/dictionary/%EB%91%90%EB%A0%A4%EC%9B%80.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EB%91%90%EB%A0%A4%EC%9B%8C%ED%95%98%EB%8B%A4.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EB%91%90%EB%A0%B5%EB%8B%A4.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -9596,6 +10066,11 @@
   </url>
   <url>
     <loc>https://everykoreans.com/dictionary/%EB%91%90%EB%A5%B4%EB%8B%A4.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EB%91%90%EB%A6%AC%EB%B2%88%EA%B1%B0%EB%A6%AC%EB%8B%A4.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -9635,12 +10110,22 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://everykoreans.com/dictionary/%EB%91%98%EB%9F%AC%EB%B3%B4%EB%8B%A4.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://everykoreans.com/dictionary/%EB%91%98%EB%9F%AC%EC%8B%B8%EB%8B%A4.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://everykoreans.com/dictionary/%EB%91%98%EB%9F%AC%EC%8B%B8%EC%9D%B4%EB%8B%A4.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EB%91%98%EB%A0%88.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -9665,7 +10150,22 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://everykoreans.com/dictionary/%EB%92%A4%EB%8A%A6%EB%8B%A4.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://everykoreans.com/dictionary/%EB%92%A4%EB%8D%AE%EC%9D%B4%EB%8B%A4.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EB%92%A4%EB%94%B0%EB%A5%B4%EB%8B%A4.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EB%92%A4%EB%96%A8%EC%96%B4%EC%A7%80%EB%8B%A4.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -9695,6 +10195,11 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://everykoreans.com/dictionary/%EB%92%A4%EC%A7%80%EB%8B%A4.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://everykoreans.com/dictionary/%EB%92%A4%EC%A7%91%EB%8B%A4.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
@@ -9715,7 +10220,27 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://everykoreans.com/dictionary/%EB%92%A4%ED%8E%B8.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EB%92%B7%EA%B3%A8%EB%AA%A9.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://everykoreans.com/dictionary/%EB%92%B7%EB%A7%90.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EB%92%B7%EB%AA%A8%EC%8A%B5.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EB%92%B7%EB%AC%B8.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -9736,6 +10261,11 @@
   </url>
   <url>
     <loc>https://everykoreans.com/dictionary/%EB%92%B7%EC%A7%90.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EB%93%9C%EB%82%98%EB%93%A4%EB%8B%A4.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -9761,6 +10291,11 @@
   </url>
   <url>
     <loc>https://everykoreans.com/dictionary/%EB%93%9C%EB%9D%BC%EC%9D%B4%EC%96%B4.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EB%93%9C%EB%9D%BC%EC%9D%B4%ED%81%B4%EB%A6%AC%EB%8B%9D.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -9830,6 +10365,11 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://everykoreans.com/dictionary/%EB%93%A4%EB%A0%A4%EC%98%A4%EB%8B%A4.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://everykoreans.com/dictionary/%EB%93%A4%EB%A0%A4%EC%A3%BC%EB%8B%A4.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
@@ -9865,6 +10405,11 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://everykoreans.com/dictionary/%EB%93%A4%EC%97%AC%EB%8B%A4%EB%B3%B4%EB%8B%A4.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://everykoreans.com/dictionary/%EB%93%A4%EC%97%AC%EB%8B%A4%EB%B3%B4%EC%9D%B4%EB%8B%A4.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
@@ -9876,6 +10421,11 @@
   </url>
   <url>
     <loc>https://everykoreans.com/dictionary/%EB%93%A4%EC%9D%B4%EB%A7%88%EC%8B%9C%EB%8B%A4.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EB%93%A4%ED%82%A4%EB%8B%A4.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -9915,6 +10465,11 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://everykoreans.com/dictionary/%EB%93%B1%EA%B8%B0.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://everykoreans.com/dictionary/%EB%93%B1%EB%A1%9D.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
@@ -9945,6 +10500,11 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://everykoreans.com/dictionary/%EB%93%B1%EC%9E%A5.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://everykoreans.com/dictionary/%EB%93%B1%ED%8C%90.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
@@ -9970,6 +10530,11 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://everykoreans.com/dictionary/%EB%94%B0%EB%8B%98.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://everykoreans.com/dictionary/%EB%94%B0%EB%8B%A4.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
@@ -9986,6 +10551,11 @@
   </url>
   <url>
     <loc>https://everykoreans.com/dictionary/%EB%94%B0%EB%9D%BC%EA%B0%80%EB%8B%A4.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EB%94%B0%EB%9D%BC%EB%8B%A4%EB%8B%88%EB%8B%A4.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -10055,6 +10625,11 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://everykoreans.com/dictionary/%EB%94%B4.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://everykoreans.com/dictionary/%EB%94%B8.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
@@ -10075,7 +10650,17 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://everykoreans.com/dictionary/%EB%95%85%EB%B0%94%EB%8B%A5.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://everykoreans.com/dictionary/%EB%95%85%EC%86%8D.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EB%95%85%EC%BD%A9.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -10100,6 +10685,11 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://everykoreans.com/dictionary/%EB%95%8C%EB%A6%AC%EB%8B%A4.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://everykoreans.com/dictionary/%EB%95%8C%EB%AC%B8.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
@@ -10116,6 +10706,11 @@
   </url>
   <url>
     <loc>https://everykoreans.com/dictionary/%EB%96%A0%EB%82%98%EB%8B%A4.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EB%96%A0%EB%82%98%EC%98%A4%EB%8B%A4.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -10200,6 +10795,11 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://everykoreans.com/dictionary/%EB%98%90%EB%8B%A4%EC%8B%9C.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://everykoreans.com/dictionary/%EB%98%90%ED%95%9C.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
@@ -10235,12 +10835,22 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://everykoreans.com/dictionary/%EB%98%A5.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://everykoreans.com/dictionary/%EB%9A%9C.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://everykoreans.com/dictionary/%EB%9A%9C%EA%BB%91.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EB%9A%9C%EB%A0%B7%ED%95%98%EB%8B%A4.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -10285,6 +10895,11 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://everykoreans.com/dictionary/%EB%9B%B0%EC%96%B4%EB%82%98%EC%98%A4%EB%8B%A4.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://everykoreans.com/dictionary/%EB%9B%B0%EC%96%B4%EB%82%B4%EB%A6%AC%EB%8B%A4.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
@@ -10296,6 +10911,16 @@
   </url>
   <url>
     <loc>https://everykoreans.com/dictionary/%EB%9B%B0%EC%96%B4%EB%86%80%EB%8B%A4.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EB%9B%B0%EC%96%B4%EB%8B%A4%EB%8B%88%EB%8B%A4.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EB%9B%B0%EC%96%B4%EB%93%A4%EB%8B%A4.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -10345,7 +10970,17 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://everykoreans.com/dictionary/%EB%9C%BB%EB%8C%80%EB%A1%9C.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://everykoreans.com/dictionary/%EB%9C%BB%EB%B0%96.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EB%9C%BB%EB%B0%96%EC%97%90.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -10395,6 +11030,11 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://everykoreans.com/dictionary/%EB%9F%89.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://everykoreans.com/dictionary/%EB%9F%AC%EC%8B%9C%EC%95%84.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
@@ -10421,6 +11061,11 @@
   </url>
   <url>
     <loc>https://everykoreans.com/dictionary/%EB%A0%88%EC%9D%B4%EC%A0%80.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EB%A0%8C%EC%A6%88.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -10455,7 +11100,17 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://everykoreans.com/dictionary/%EB%A6%AC%EB%AA%A8%EC%BB%A8.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://everykoreans.com/dictionary/%EB%A6%AC%EB%B3%B8.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EB%A6%AC%ED%84%B0.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -10485,6 +11140,11 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://everykoreans.com/dictionary/%EB%A7%88%EA%B5%AC.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://everykoreans.com/dictionary/%EB%A7%88%EB%83%A5.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
@@ -10501,6 +11161,21 @@
   </url>
   <url>
     <loc>https://everykoreans.com/dictionary/%EB%A7%88%EB%8C%80.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EB%A7%88%EB%94%94.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EB%A7%88%EB%95%85%ED%95%98%EB%8B%A4.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EB%A7%88%EB%95%85%ED%9E%88.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -10565,6 +11240,11 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://everykoreans.com/dictionary/%EB%A7%88%EC%95%BD.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://everykoreans.com/dictionary/%EB%A7%88%EC%9A%B0%EC%8A%A4.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
@@ -10621,6 +11301,16 @@
   </url>
   <url>
     <loc>https://everykoreans.com/dictionary/%EB%A7%88%EC%A0%80.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EB%A7%88%EC%A3%BC.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EB%A7%88%EC%A3%BC%EC%B9%98%EB%8B%A4.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -10740,6 +11430,11 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://everykoreans.com/dictionary/%EB%A7%89%EC%97%B0%ED%95%98%EB%8B%A4.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://everykoreans.com/dictionary/%EB%A7%89%EC%B0%A8.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
@@ -10800,6 +11495,11 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://everykoreans.com/dictionary/%EB%A7%8C%EB%A7%8C%ED%95%98%EB%8B%A4.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://everykoreans.com/dictionary/%EB%A7%8C%EC%84%B1.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
@@ -10810,7 +11510,17 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://everykoreans.com/dictionary/%EB%A7%8C%EC%9B%90.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://everykoreans.com/dictionary/%EB%A7%8C%EC%9D%BC.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EB%A7%8C%EC%A0%90.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -10870,6 +11580,11 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://everykoreans.com/dictionary/%EB%A7%90%EA%B8%B0.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://everykoreans.com/dictionary/%EB%A7%90%EB%81%94%ED%95%98%EB%8B%A4.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
@@ -10886,6 +11601,11 @@
   </url>
   <url>
     <loc>https://everykoreans.com/dictionary/%EB%A7%90%EB%8B%A4.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EB%A7%90%EB%8B%A4%ED%88%BC.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -10925,6 +11645,11 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://everykoreans.com/dictionary/%EB%A7%90%EC%97%86%EC%9D%B4.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://everykoreans.com/dictionary/%EB%A7%90%ED%88%AC.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
@@ -10941,6 +11666,21 @@
   </url>
   <url>
     <loc>https://everykoreans.com/dictionary/%EB%A7%91%EB%8B%A4.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EB%A7%98.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EB%A7%98%EA%BB%8F.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EB%A7%98%EB%8C%80%EB%A1%9C.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -10970,6 +11710,16 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://everykoreans.com/dictionary/%EB%A7%9D%EA%B0%80%EC%A7%80%EB%8B%A4.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EB%A7%9D%EC%84%A4%EC%9D%B4%EB%8B%A4.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://everykoreans.com/dictionary/%EB%A7%9D%EC%9B%90%EA%B2%BD.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
@@ -10981,6 +11731,11 @@
   </url>
   <url>
     <loc>https://everykoreans.com/dictionary/%EB%A7%9D%EC%B9%98%EB%8B%A4.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EB%A7%9D%ED%95%98%EB%8B%A4.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -11035,7 +11790,17 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://everykoreans.com/dictionary/%EB%A7%9E%EC%B6%A4%EB%B2%95.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://everykoreans.com/dictionary/%EB%A7%9E%EC%B6%A4%ED%98%95.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EB%A7%9E%ED%9E%88%EB%8B%A4.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -11106,6 +11871,11 @@
   </url>
   <url>
     <loc>https://everykoreans.com/dictionary/%EB%A7%A4%EB%A7%A4.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EB%A7%A4%EB%B2%88.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -11195,12 +11965,22 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://everykoreans.com/dictionary/%EB%A7%A4%EC%B2%B4.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://everykoreans.com/dictionary/%EB%A7%A4%ED%91%9C%EC%86%8C.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://everykoreans.com/dictionary/%EB%A7%A5%EC%A3%BC.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EB%A7%A8.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -11221,6 +12001,11 @@
   </url>
   <url>
     <loc>https://everykoreans.com/dictionary/%EB%A7%B9%EA%B7%B8%EB%A1%9C%EB%B8%8C.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EB%A7%BA%EB%8B%A4.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -11250,7 +12035,17 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://everykoreans.com/dictionary/%EB%A8%B8%EB%A6%AC%EC%B9%BC.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://everykoreans.com/dictionary/%EB%A8%B8%EB%A6%BF%EC%86%8D.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EB%A8%B8%EB%AC%B4%EB%A5%B4%EB%8B%A4.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -11260,7 +12055,17 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://everykoreans.com/dictionary/%EB%A8%B8%EB%AD%87%EA%B1%B0%EB%A6%AC%EB%8B%A4.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://everykoreans.com/dictionary/%EB%A8%B9%EA%B1%B0%EB%A6%AC.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EB%A8%B9%EA%B3%A0%EC%82%B4%EB%8B%A4.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -11296,6 +12101,11 @@
   </url>
   <url>
     <loc>https://everykoreans.com/dictionary/%EB%A8%B9%EC%9E%87%EA%B0%90.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EB%A8%B9%ED%9E%88%EB%8B%A4.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -11350,6 +12160,11 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://everykoreans.com/dictionary/%EB%A9%8B%EB%8C%80%EB%A1%9C.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://everykoreans.com/dictionary/%EB%A9%8B%EC%9E%88%EB%8B%A4.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
@@ -11365,7 +12180,17 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://everykoreans.com/dictionary/%EB%A9%8D%EB%A9%8D.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://everykoreans.com/dictionary/%EB%A9%8D%ED%95%98%EB%8B%88.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EB%A9%8E%EB%8B%A4.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -11410,6 +12235,11 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://everykoreans.com/dictionary/%EB%A9%94%EC%9A%B0%EB%8B%A4.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://everykoreans.com/dictionary/%EB%A9%94%EC%9D%BC.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
@@ -11440,12 +12270,22 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://everykoreans.com/dictionary/%EB%A9%B0%EB%8A%90%EB%A6%AC.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://everykoreans.com/dictionary/%EB%A9%B0%EC%B9%A0.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://everykoreans.com/dictionary/%EB%A9%B4.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EB%A9%B4%EB%8B%B4.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -11490,6 +12330,11 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://everykoreans.com/dictionary/%EB%A9%B4%ED%95%98%EB%8B%A4.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://everykoreans.com/dictionary/%EB%A9%B4%ED%97%88.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
@@ -11526,6 +12371,11 @@
   </url>
   <url>
     <loc>https://everykoreans.com/dictionary/%EB%AA%85%EC%83%81.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EB%AA%85%EC%98%88.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -11660,6 +12510,11 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://everykoreans.com/dictionary/%EB%AA%A8%EC%97%AC%EB%93%A4%EB%8B%A4.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://everykoreans.com/dictionary/%EB%AA%A8%EC%9C%BC%EB%8B%A4.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
@@ -11710,6 +12565,16 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://everykoreans.com/dictionary/%EB%AA%A8%EC%B2%98%EB%9F%BC.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EB%AA%A8%ED%97%98.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://everykoreans.com/dictionary/%EB%AA%A9.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
@@ -11755,12 +12620,27 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://everykoreans.com/dictionary/%EB%AA%A9%EB%A7%88%EB%A5%B4%EB%8B%A4.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EB%AA%A9%EC%82%AC.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://everykoreans.com/dictionary/%EB%AA%A9%EC%86%8C%EB%A6%AC.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://everykoreans.com/dictionary/%EB%AA%A9%EC%88%98.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EB%AA%A9%EC%88%A8.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -11820,12 +12700,37 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://everykoreans.com/dictionary/%EB%AA%AB.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://everykoreans.com/dictionary/%EB%AA%B0%EB%8B%A4.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://everykoreans.com/dictionary/%EB%AA%B0%EB%9D%BC%EB%B3%B4%EB%8B%A4.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://everykoreans.com/dictionary/%EB%AA%B0%EB%9E%98.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EB%AA%B0%EB%A0%A4%EB%93%A4%EB%8B%A4.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EB%AA%B0%EB%A0%A4%EC%98%A4%EB%8B%A4.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EB%AA%B0%EB%A6%AC%EB%8B%A4.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -11836,6 +12741,11 @@
   </url>
   <url>
     <loc>https://everykoreans.com/dictionary/%EB%AA%B8.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EB%AA%B8%EB%A7%A4.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -11880,12 +12790,27 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://everykoreans.com/dictionary/%EB%AA%BB%EB%82%98%EB%8B%A4.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://everykoreans.com/dictionary/%EB%AA%BB%EB%8B%A4.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://everykoreans.com/dictionary/%EB%AA%BB%EB%90%98%EB%8B%A4.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://everykoreans.com/dictionary/%EB%AA%BB%EC%83%9D%EA%B8%B0%EB%8B%A4.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EB%AA%BB%EC%A7%80%EC%95%8A%EB%8B%A4.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -11896,6 +12821,11 @@
   </url>
   <url>
     <loc>https://everykoreans.com/dictionary/%EB%AA%BD%EA%B3%A8.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EB%AA%BD%EB%95%85.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -11935,7 +12865,17 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://everykoreans.com/dictionary/%EB%AC%B4%EA%B4%80%ED%95%98%EB%8B%A4.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://everykoreans.com/dictionary/%EB%AC%B4%EA%B6%81%ED%99%94.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EB%AC%B4%EA%B8%B0.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -11971,6 +12911,11 @@
   </url>
   <url>
     <loc>https://everykoreans.com/dictionary/%EB%AC%B4%EB%8D%A4.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EB%AC%B4%EB%8D%A5%EB%8B%A4.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -12110,6 +13055,11 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://everykoreans.com/dictionary/%EB%AC%B4%EC%9D%98%EB%AF%B8.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://everykoreans.com/dictionary/%EB%AC%B4%EC%9D%B8.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
@@ -12126,6 +13076,16 @@
   </url>
   <url>
     <loc>https://everykoreans.com/dictionary/%EB%AC%B4%EC%A1%B0%EA%B1%B4.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EB%AC%B4%EC%A7%80%EA%B0%9C.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EB%AC%B4%EC%B1%85%EC%9E%84.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -12175,6 +13135,11 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://everykoreans.com/dictionary/%EB%AC%B6%EC%9D%B4%EB%8B%A4.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://everykoreans.com/dictionary/%EB%AC%B8.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
@@ -12186,6 +13151,16 @@
   </url>
   <url>
     <loc>https://everykoreans.com/dictionary/%EB%AC%B8%EA%B5%AC%EC%A0%90.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EB%AC%B8%EB%93%9D.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EB%AC%B8%EB%AA%85.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -12310,12 +13285,27 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://everykoreans.com/dictionary/%EB%AC%BC%EA%B0%90.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://everykoreans.com/dictionary/%EB%AC%BC%EA%B1%B4.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://everykoreans.com/dictionary/%EB%AC%BC%EA%B2%B0.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://everykoreans.com/dictionary/%EB%AC%BC%EA%B3%A0%EA%B8%B0.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EB%AC%BC%EA%B8%B0.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -12331,6 +13321,11 @@
   </url>
   <url>
     <loc>https://everykoreans.com/dictionary/%EB%AC%BC%EB%8B%A4.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EB%AC%BC%EB%93%A4%EB%8B%A4.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -12505,7 +13500,17 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://everykoreans.com/dictionary/%EB%AF%B8%EB%8B%88.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://everykoreans.com/dictionary/%EB%AF%B8%EB%8B%B4.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EB%AF%B8%EB%94%94%EC%96%B4.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -12516,6 +13521,11 @@
   </url>
   <url>
     <loc>https://everykoreans.com/dictionary/%EB%AF%B8%EB%9E%98%ED%98%95.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EB%AF%B8%EB%A0%A8.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -12620,6 +13630,11 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://everykoreans.com/dictionary/%EB%AF%B8%EC%9B%80.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://everykoreans.com/dictionary/%EB%AF%B8%EC%9B%8C%ED%95%98%EB%8B%A4.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
@@ -12636,6 +13651,11 @@
   </url>
   <url>
     <loc>https://everykoreans.com/dictionary/%EB%AF%B8%EC%A0%81.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EB%AF%B8%EC%A7%80%EA%B7%BC%ED%95%98%EB%8B%A4.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -12666,6 +13686,11 @@
   </url>
   <url>
     <loc>https://everykoreans.com/dictionary/%EB%AF%B8%ED%8C%85.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EB%AF%B8%ED%98%BC.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -12701,6 +13726,16 @@
   </url>
   <url>
     <loc>https://everykoreans.com/dictionary/%EB%AF%BC%EC%9B%90.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EB%AF%BC%EC%A1%B1.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EB%AF%BC%EC%A3%BC%EC%A3%BC%EC%9D%98.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -12791,6 +13826,11 @@
   </url>
   <url>
     <loc>https://everykoreans.com/dictionary/%EB%B0%94.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EB%B0%94%EA%B0%80%EC%A7%80.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -12890,6 +13930,11 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://everykoreans.com/dictionary/%EB%B0%94%EB%9E%98%EB%8B%A4%EC%A3%BC%EB%8B%A4.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://everykoreans.com/dictionary/%EB%B0%94%EB%A1%9C.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
@@ -12911,6 +13956,11 @@
   </url>
   <url>
     <loc>https://everykoreans.com/dictionary/%EB%B0%94%EC%81%98%EB%8B%A4.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EB%B0%94%EC%8B%B9.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -12975,6 +14025,11 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://everykoreans.com/dictionary/%EB%B0%95%EC%8A%A4.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://everykoreans.com/dictionary/%EB%B0%95%EC%A5%90.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
@@ -12995,6 +14050,11 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://everykoreans.com/dictionary/%EB%B0%95%ED%9E%88%EB%8B%A4.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://everykoreans.com/dictionary/%EB%B0%96.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
@@ -13011,6 +14071,16 @@
   </url>
   <url>
     <loc>https://everykoreans.com/dictionary/%EB%B0%98%EA%B0%91%EB%8B%A4.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EB%B0%98%EA%B0%92.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EB%B0%98%EA%B8%B0%EB%8B%A4.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -13155,6 +14225,16 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://everykoreans.com/dictionary/%EB%B0%98%EC%84%B1.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EB%B0%98%EC%98%81.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://everykoreans.com/dictionary/%EB%B0%98%EC%98%81%ED%95%98%EB%8B%A4.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
@@ -13191,6 +14271,16 @@
   </url>
   <url>
     <loc>https://everykoreans.com/dictionary/%EB%B0%98%EC%A7%9D.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EB%B0%98%EC%A7%9D%EA%B1%B0%EB%A6%AC%EB%8B%A4.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EB%B0%98%EC%A7%9D%EB%B0%98%EC%A7%9D.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -13295,7 +14385,22 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://everykoreans.com/dictionary/%EB%B0%9C%EA%BF%88%EC%B9%98.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EB%B0%9C%EB%81%9D.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://everykoreans.com/dictionary/%EB%B0%9C%EB%8B%AC.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EB%B0%9C%EB%93%B1.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -13380,6 +14485,11 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://everykoreans.com/dictionary/%EB%B0%9C%EC%9E%90%EA%B5%AD.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://everykoreans.com/dictionary/%EB%B0%9C%EC%A0%84.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
@@ -13405,6 +14515,11 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://everykoreans.com/dictionary/%EB%B0%9C%ED%86%B1.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://everykoreans.com/dictionary/%EB%B0%9C%ED%8B%80.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
@@ -13421,6 +14536,11 @@
   </url>
   <url>
     <loc>https://everykoreans.com/dictionary/%EB%B0%9C%ED%91%9C%ED%95%98%EB%8B%A4.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EB%B0%9C%ED%91%9C%ED%9A%8C.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -13445,6 +14565,11 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://everykoreans.com/dictionary/%EB%B0%9D%ED%98%80%EB%82%B4%EB%8B%A4.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://everykoreans.com/dictionary/%EB%B0%9D%ED%98%80%EC%A7%80%EB%8B%A4.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
@@ -13461,6 +14586,11 @@
   </url>
   <url>
     <loc>https://everykoreans.com/dictionary/%EB%B0%9F%EB%8B%A4.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EB%B0%9F%ED%9E%88%EB%8B%A4.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -13510,7 +14640,17 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://everykoreans.com/dictionary/%EB%B0%A4%EC%83%88%EC%9A%B0%EB%8B%A4.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://everykoreans.com/dictionary/%EB%B0%A4%EC%83%89.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EB%B0%A4%EC%A4%91.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -13521,6 +14661,11 @@
   </url>
   <url>
     <loc>https://everykoreans.com/dictionary/%EB%B0%A5%EA%B7%B8%EB%A6%87.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EB%B0%A5%EB%A7%9B.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -13551,6 +14696,11 @@
   </url>
   <url>
     <loc>https://everykoreans.com/dictionary/%EB%B0%A9%EA%B8%88.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EB%B0%A9%EB%A9%B4.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -13730,6 +14880,11 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://everykoreans.com/dictionary/%EB%B0%B0%EA%BC%BD.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://everykoreans.com/dictionary/%EB%B0%B0%EB%82%AD.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
@@ -13775,6 +14930,11 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://everykoreans.com/dictionary/%EB%B0%B0%EB%B6%80%EB%A5%B4%EB%8B%A4.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://everykoreans.com/dictionary/%EB%B0%B0%EC%84%A0.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
@@ -13816,6 +14976,11 @@
   </url>
   <url>
     <loc>https://everykoreans.com/dictionary/%EB%B0%B0%EC%9A%B0%EB%8B%A4.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EB%B0%B0%EC%9A%B0%EC%9E%90.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -13935,6 +15100,11 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://everykoreans.com/dictionary/%EB%B1%89%EB%8B%A4.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://everykoreans.com/dictionary/%EB%B1%89%EC%96%B4%EB%82%B4%EB%8B%A4.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
@@ -14000,12 +15170,22 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://everykoreans.com/dictionary/%EB%B2%88%EA%B0%88%EB%8B%A4.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://everykoreans.com/dictionary/%EB%B2%88%EA%B0%9C.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://everykoreans.com/dictionary/%EB%B2%88%EA%B1%B0%EB%A1%9C%EC%9B%80.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EB%B2%88%EA%B1%B0%EB%A1%AD%EB%8B%A4.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -14055,6 +15235,11 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://everykoreans.com/dictionary/%EB%B2%88%ED%99%94%ED%95%98%EB%8B%A4.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://everykoreans.com/dictionary/%EB%B2%8C.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
@@ -14070,12 +15255,27 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://everykoreans.com/dictionary/%EB%B2%8C%EB%96%A1.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://everykoreans.com/dictionary/%EB%B2%8C%EB%A0%88.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://everykoreans.com/dictionary/%EB%B2%8C%EB%A6%AC%EB%8B%A4.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://everykoreans.com/dictionary/%EB%B2%8C%EC%8D%A8.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EB%B2%8C%EC%96%B4%EC%A7%80%EB%8B%A4.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -14100,6 +15300,11 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://everykoreans.com/dictionary/%EB%B2%94%EC%9D%B8.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://everykoreans.com/dictionary/%EB%B2%94%EC%A3%84.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
@@ -14116,6 +15321,11 @@
   </url>
   <url>
     <loc>https://everykoreans.com/dictionary/%EB%B2%95%EC%95%88.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EB%B2%95%EC%9B%90.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -14190,6 +15400,11 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://everykoreans.com/dictionary/%EB%B2%A0%ED%92%80%EB%8B%A4.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://everykoreans.com/dictionary/%EB%B2%A4%EC%B9%98.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
@@ -14201,6 +15416,11 @@
   </url>
   <url>
     <loc>https://everykoreans.com/dictionary/%EB%B2%A8%ED%8A%B8.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EB%B2%BC.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -14246,6 +15466,16 @@
   </url>
   <url>
     <loc>https://everykoreans.com/dictionary/%EB%B3%80%EA%B2%BD%EB%90%98%EB%8B%A4.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EB%B3%80%EB%8D%95%EC%8A%A4%EB%9F%BD%EB%8B%A4.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EB%B3%80%EB%8F%99.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -14315,6 +15545,11 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://everykoreans.com/dictionary/%EB%B3%84%EB%8B%A4%EB%A5%B4%EB%8B%A4.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://everykoreans.com/dictionary/%EB%B3%84%EB%8F%84.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
@@ -14351,6 +15586,11 @@
   </url>
   <url>
     <loc>https://everykoreans.com/dictionary/%EB%B3%91.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EB%B3%91%EB%93%A4%EB%8B%A4.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -14520,12 +15760,32 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://everykoreans.com/dictionary/%EB%B3%B4%EB%A6%AC%EC%B0%A8.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EB%B3%B4%EB%AC%BC.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EB%B3%B4%EC%82%B4%ED%94%BC%EB%8B%A4.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://everykoreans.com/dictionary/%EB%B3%B4%EC%83%81.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://everykoreans.com/dictionary/%EB%B3%B4%EC%84%9D.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EB%B3%B4%EC%88%98.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -14556,6 +15816,11 @@
   </url>
   <url>
     <loc>https://everykoreans.com/dictionary/%EB%B3%B4%EC%98%A8.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EB%B3%B4%EC%99%84.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -14630,6 +15895,11 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://everykoreans.com/dictionary/%EB%B3%B4%EC%B6%A9.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://everykoreans.com/dictionary/%EB%B3%B4%ED%86%B5.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
@@ -14696,6 +15966,11 @@
   </url>
   <url>
     <loc>https://everykoreans.com/dictionary/%EB%B3%B5%EC%82%AC%EA%B8%B0.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EB%B3%B5%EC%88%98.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -14775,6 +16050,11 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://everykoreans.com/dictionary/%EB%B3%B6%EC%9D%8C.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://everykoreans.com/dictionary/%EB%B3%B6%EC%9D%8C%EB%B0%A5.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
@@ -14825,7 +16105,17 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://everykoreans.com/dictionary/%EB%B3%B8%EB%B6%80.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://everykoreans.com/dictionary/%EB%B3%B8%EC%9D%B8.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EB%B3%B8%EC%A7%88.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -14930,7 +16220,17 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://everykoreans.com/dictionary/%EB%B6%80%EA%B7%BC.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://everykoreans.com/dictionary/%EB%B6%80%EB%81%84%EB%9F%AC%EC%9B%80.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EB%B6%80%EB%81%84%EB%9F%AC%EC%9B%8C%ED%95%98%EB%8B%A4.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -14946,6 +16246,16 @@
   </url>
   <url>
     <loc>https://everykoreans.com/dictionary/%EB%B6%80%EB%8B%B4.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EB%B6%80%EB%8B%B4%EC%8A%A4%EB%9F%BD%EB%8B%A4.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EB%B6%80%EB%8C%80.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -14966,6 +16276,11 @@
   </url>
   <url>
     <loc>https://everykoreans.com/dictionary/%EB%B6%80%EB%94%94.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EB%B6%80%EB%94%AA%EC%B9%98%EB%8B%A4.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -15040,6 +16355,11 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://everykoreans.com/dictionary/%EB%B6%80%EB%B6%84%EC%A0%81.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://everykoreans.com/dictionary/%EB%B6%80%EC%82%AC.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
@@ -15075,6 +16395,11 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://everykoreans.com/dictionary/%EB%B6%80%EC%88%98%EB%8B%A4.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://everykoreans.com/dictionary/%EB%B6%80%EC%8B%9C%EB%8B%A4.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
@@ -15091,6 +16416,11 @@
   </url>
   <url>
     <loc>https://everykoreans.com/dictionary/%EB%B6%80%EC%97%AC.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EB%B6%80%EC%9C%84.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -15135,6 +16465,11 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://everykoreans.com/dictionary/%EB%B6%80%EC%A0%95%ED%99%95.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://everykoreans.com/dictionary/%EB%B6%80%EC%A1%B1.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
@@ -15155,12 +16490,22 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://everykoreans.com/dictionary/%EB%B6%80%EC%A7%80%EB%9F%B0%ED%9E%88.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://everykoreans.com/dictionary/%EB%B6%80%EC%A7%84.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://everykoreans.com/dictionary/%EB%B6%80%EC%B1%84.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EB%B6%80%EC%B2%98.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -15225,6 +16570,11 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://everykoreans.com/dictionary/%EB%B6%81%EB%AF%B8.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://everykoreans.com/dictionary/%EB%B6%81%EB%B6%80.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
@@ -15241,6 +16591,11 @@
   </url>
   <url>
     <loc>https://everykoreans.com/dictionary/%EB%B6%84%EA%B3%BC.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EB%B6%84%EB%85%B8.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -15325,6 +16680,11 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://everykoreans.com/dictionary/%EB%B6%84%EC%88%98.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://everykoreans.com/dictionary/%EB%B6%84%EC%8B%9D.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
@@ -15375,6 +16735,11 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://everykoreans.com/dictionary/%EB%B6%84%ED%8F%AC.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://everykoreans.com/dictionary/%EB%B6%84%ED%95%84.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
@@ -15405,6 +16770,21 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://everykoreans.com/dictionary/%EB%B6%88%EA%B0%80.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EB%B6%88%EA%B0%80%EB%8A%A5.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EB%B6%88%EA%B0%80%ED%94%BC%ED%95%98%EB%8B%A4.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://everykoreans.com/dictionary/%EB%B6%88%EA%B3%A0%EA%B8%B0.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
@@ -15426,6 +16806,11 @@
   </url>
   <url>
     <loc>https://everykoreans.com/dictionary/%EB%B6%88%EA%B3%BC.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EB%B6%88%EA%B5%90.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -15456,6 +16841,11 @@
   </url>
   <url>
     <loc>https://everykoreans.com/dictionary/%EB%B6%88%EB%8B%A4.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EB%B6%88%EB%9F%AC%EC%9D%BC%EC%9C%BC%ED%82%A4%EB%8B%A4.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -15535,6 +16925,11 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://everykoreans.com/dictionary/%EB%B6%88%EC%96%B4%EC%98%A4%EB%8B%A4.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://everykoreans.com/dictionary/%EB%B6%88%EC%99%84%EC%A0%84.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
@@ -15550,7 +16945,22 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://everykoreans.com/dictionary/%EB%B6%88%EC%9D%B4%EC%9D%B5.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EB%B6%88%EC%B6%A9%EB%B6%84.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://everykoreans.com/dictionary/%EB%B6%88%EC%B9%9C%EC%A0%88.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EB%B6%88%EC%BE%8C.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -15580,7 +16990,27 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://everykoreans.com/dictionary/%EB%B6%88%ED%8F%89%EB%93%B1.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EB%B6%88%ED%95%84%EC%9A%94.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://everykoreans.com/dictionary/%EB%B6%88%ED%95%84%EC%9A%94%ED%95%98%EB%8B%A4.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EB%B6%88%ED%96%89.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EB%B6%88%ED%99%95%EC%8B%A4.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -15630,6 +17060,11 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://everykoreans.com/dictionary/%EB%B6%99%EB%93%A4%EB%8B%A4.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://everykoreans.com/dictionary/%EB%B6%99%EC%9D%B4%EB%8B%A4.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
@@ -15641,6 +17076,11 @@
   </url>
   <url>
     <loc>https://everykoreans.com/dictionary/%EB%B6%99%EC%9E%A1%EB%8B%A4.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EB%B6%99%EC%9E%A1%ED%9E%88%EB%8B%A4.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -15670,6 +17110,11 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://everykoreans.com/dictionary/%EB%B9%84%EA%B2%B0.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://everykoreans.com/dictionary/%EB%B9%84%EA%B4%80%EC%A0%81.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
@@ -15686,6 +17131,21 @@
   </url>
   <url>
     <loc>https://everykoreans.com/dictionary/%EB%B9%84%EA%B5%90%ED%95%98%EB%8B%A4.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EB%B9%84%EA%B7%B9.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EB%B9%84%EA%B8%B0%EB%8B%A4.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EB%B9%84%EB%82%9C.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -15735,6 +17195,16 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://everykoreans.com/dictionary/%EB%B9%84%EB%A1%AF%EB%90%98%EB%8B%A4.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EB%B9%84%EB%A1%AF%ED%95%98%EB%8B%A4.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://everykoreans.com/dictionary/%EB%B9%84%EB%A3%8C.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
@@ -15750,6 +17220,16 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://everykoreans.com/dictionary/%EB%B9%84%EB%A7%8C.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EB%B9%84%EB%AA%85.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://everykoreans.com/dictionary/%EB%B9%84%EB%B0%80.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
@@ -15761,6 +17241,11 @@
   </url>
   <url>
     <loc>https://everykoreans.com/dictionary/%EB%B9%84%EB%B0%94%EB%9E%8C.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EB%B9%84%EB%B2%95.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -15790,6 +17275,11 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://everykoreans.com/dictionary/%EB%B9%84%EC%83%81%ED%95%98%EB%8B%A4.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://everykoreans.com/dictionary/%EB%B9%84%EC%8A%A4%EB%93%AC%ED%9E%88.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
@@ -15815,7 +17305,17 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://everykoreans.com/dictionary/%EB%B9%84%EC%9A%B0%EB%8B%A4.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://everykoreans.com/dictionary/%EB%B9%84%EC%9A%B4.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EB%B9%84%EC%9B%83%EB%8B%A4.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -15840,6 +17340,16 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://everykoreans.com/dictionary/%EB%B9%84%EC%B6%94%EB%8B%A4.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EB%B9%84%EC%B9%98%EB%8B%A4.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://everykoreans.com/dictionary/%EB%B9%84%EC%B9%98%EB%90%98%EB%8B%A4.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
@@ -15856,6 +17366,11 @@
   </url>
   <url>
     <loc>https://everykoreans.com/dictionary/%EB%B9%84%ED%83%88%EC%A7%80%EB%8B%A4.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EB%B9%84%ED%8B%80%EA%B1%B0%EB%A6%AC%EB%8B%A4.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -15970,7 +17485,17 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://everykoreans.com/dictionary/%EB%B9%97%EB%B0%A9%EC%9A%B8.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://everykoreans.com/dictionary/%EB%B9%97%EC%9E%90%EB%A3%A8.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EB%B9%9A.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -15981,6 +17506,11 @@
   </url>
   <url>
     <loc>https://everykoreans.com/dictionary/%EB%B9%9B.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EB%B9%9B%EA%B9%94.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -16010,7 +17540,17 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://everykoreans.com/dictionary/%EB%B9%A0%EC%A0%B8%EB%82%98%EC%98%A4%EB%8B%A4.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://everykoreans.com/dictionary/%EB%B9%A0%EC%A7%80%EB%8B%A4.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EB%B9%A0%EC%A7%90%EC%97%86%EC%9D%B4.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -16090,12 +17630,22 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://everykoreans.com/dictionary/%EB%B9%BC%EB%86%93%EB%8B%A4.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://everykoreans.com/dictionary/%EB%B9%BC%EB%8B%A4.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://everykoreans.com/dictionary/%EB%B9%BC%EC%95%97%EA%B8%B0%EB%8B%A4.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EB%B9%BC%EC%95%97%EB%8B%A4.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -16111,6 +17661,11 @@
   </url>
   <url>
     <loc>https://everykoreans.com/dictionary/%EB%BA%8F%EB%8B%A4.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EB%BA%A8.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -16150,6 +17705,11 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://everykoreans.com/dictionary/%EB%BD%91%ED%9E%88%EB%8B%A4.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://everykoreans.com/dictionary/%EB%BF%8C%EB%93%AF%ED%95%98%EB%8B%A4.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
@@ -16161,6 +17721,11 @@
   </url>
   <url>
     <loc>https://everykoreans.com/dictionary/%EB%BF%8C%EB%A6%AC%EB%8B%A4.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EB%BF%8C%EB%A6%AC%EC%B9%98%EB%8B%A4.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -16225,6 +17790,11 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://everykoreans.com/dictionary/%EC%82%AC%EA%B3%A0%EB%B0%A9%EC%8B%9D.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://everykoreans.com/dictionary/%EC%82%AC%EA%B3%BC.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
@@ -16265,6 +17835,11 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://everykoreans.com/dictionary/%EC%82%AC%EB%83%A5.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://everykoreans.com/dictionary/%EC%82%AC%EB%83%A5%ED%95%98%EB%8B%A4.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
@@ -16286,6 +17861,11 @@
   </url>
   <url>
     <loc>https://everykoreans.com/dictionary/%EC%82%AC%EB%8F%99.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EC%82%AC%EB%93%A4%EC%9D%B4%EB%8B%A4.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -16335,12 +17915,27 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://everykoreans.com/dictionary/%EC%82%AC%EB%A1%9C%EC%9E%A1%EB%8B%A4.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://everykoreans.com/dictionary/%EC%82%AC%EB%A3%8C.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://everykoreans.com/dictionary/%EC%82%AC%EB%A6%BD.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://everykoreans.com/dictionary/%EC%82%AC%EB%A7%89.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EC%82%AC%EB%A7%9D.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -16360,12 +17955,22 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://everykoreans.com/dictionary/%EC%82%AC%EB%AC%B4%EC%A7%81.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://everykoreans.com/dictionary/%EC%82%AC%EB%AC%BC.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://everykoreans.com/dictionary/%EC%82%AC%EB%AC%BC%EC%9D%B8%ED%84%B0%EB%84%B7.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EC%82%AC%EB%B0%A9.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -16421,6 +18026,16 @@
   </url>
   <url>
     <loc>https://everykoreans.com/dictionary/%EC%82%AC%EC%97%85%EA%B0%80.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EC%82%AC%EC%97%85%EC%9E%90.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EC%82%AC%EC%97%B0.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -16490,6 +18105,16 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://everykoreans.com/dictionary/%EC%82%AC%EC%9D%B4%EB%B2%84.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EC%82%AC%EC%9D%B4%EC%A2%8B%EB%8B%A4.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://everykoreans.com/dictionary/%EC%82%AC%EC%9D%B4%EC%A6%88.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
@@ -16555,7 +18180,17 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://everykoreans.com/dictionary/%EC%82%AC%EC%A7%84%EC%B2%A9.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://everykoreans.com/dictionary/%EC%82%AC%EC%B4%8C.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EC%82%AC%EC%B6%98%EA%B8%B0.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -16566,6 +18201,16 @@
   </url>
   <url>
     <loc>https://everykoreans.com/dictionary/%EC%82%AC%ED%83%9C.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EC%82%AC%ED%88%AC%EB%A6%AC.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EC%82%AC%ED%91%9C.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -16581,6 +18226,11 @@
   </url>
   <url>
     <loc>https://everykoreans.com/dictionary/%EC%82%AC%ED%9A%8C%EB%B3%B4%ED%97%98.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EC%82%AC%ED%9A%8C%EC%83%9D%ED%99%9C.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -16680,6 +18330,11 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://everykoreans.com/dictionary/%EC%82%B0%EB%B6%88.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://everykoreans.com/dictionary/%EC%82%B0%EB%B9%84%ED%83%88.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
@@ -16696,6 +18351,11 @@
   </url>
   <url>
     <loc>https://everykoreans.com/dictionary/%EC%82%B0%EC%86%8C.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EC%82%B0%EC%86%8D.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -16760,12 +18420,27 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://everykoreans.com/dictionary/%EC%82%B4%EB%A6%BC.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://everykoreans.com/dictionary/%EC%82%B4%EC%95%84%EA%B0%80%EB%8B%A4.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://everykoreans.com/dictionary/%EC%82%B4%EC%95%84%EB%82%98%EB%8B%A4.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EC%82%B4%EC%95%84%EB%82%A8%EB%8B%A4.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EC%82%B4%EC%95%84%EC%98%A4%EB%8B%A4.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -16890,7 +18565,27 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://everykoreans.com/dictionary/%EC%83%81%EA%B4%80%EC%97%86%EC%9D%B4.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EC%83%81%EA%B8%88.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://everykoreans.com/dictionary/%EC%83%81%EB%8B%B4.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EC%83%81%EB%8B%B4%EC%8B%A4.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EC%83%81%EB%8B%B4%EC%9B%90.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -16910,6 +18605,16 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://everykoreans.com/dictionary/%EC%83%81%EB%8B%B9%ED%95%98%EB%8B%A4.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EC%83%81%EB%8B%B9%ED%9E%88.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://everykoreans.com/dictionary/%EC%83%81%EB%8C%80.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
@@ -16920,7 +18625,37 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://everykoreans.com/dictionary/%EC%83%81%EB%8C%80%EC%A0%81.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EC%83%81%EB%8C%80%ED%8E%B8.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EC%83%81%EB%A5%98.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EC%83%81%EB%B0%98%EA%B8%B0.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://everykoreans.com/dictionary/%EC%83%81%EC%82%AC.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EC%83%81%EC%83%81.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EC%83%81%EC%83%81%EB%A0%A5.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -17050,6 +18785,11 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://everykoreans.com/dictionary/%EC%83%81%ED%95%98.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://everykoreans.com/dictionary/%EC%83%81%ED%95%98%EB%8B%A4.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
@@ -17080,6 +18820,16 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://everykoreans.com/dictionary/%EC%83%88%EA%B8%B0%EB%8B%A4.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EC%83%88%EB%81%BC.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://everykoreans.com/dictionary/%EC%83%88%EB%8B%A4.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
@@ -17101,6 +18851,11 @@
   </url>
   <url>
     <loc>https://everykoreans.com/dictionary/%EC%83%88%EB%B2%BD.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EC%83%88%EC%82%BC.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -17136,6 +18891,11 @@
   </url>
   <url>
     <loc>https://everykoreans.com/dictionary/%EC%83%89%EA%B9%94.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EC%83%89%EB%8B%A4%EB%A5%B4%EB%8B%A4.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -17180,7 +18940,17 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://everykoreans.com/dictionary/%EC%83%9D%EA%B2%A8%EB%82%98%EB%8B%A4.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://everykoreans.com/dictionary/%EC%83%9D%EA%B3%84.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EC%83%9D%EA%B8%B0.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -17201,6 +18971,11 @@
   </url>
   <url>
     <loc>https://everykoreans.com/dictionary/%EC%83%9D%EB%8F%99%EA%B0%90.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EC%83%9D%EB%9E%B5.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -17241,6 +19016,11 @@
   </url>
   <url>
     <loc>https://everykoreans.com/dictionary/%EC%83%9D%EB%AC%BC%EC%B2%B4.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EC%83%9D%EB%B0%A9%EC%86%A1.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -17440,6 +19220,11 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://everykoreans.com/dictionary/%EC%84%9C%EB%9F%BD%EB%8B%A4.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://everykoreans.com/dictionary/%EC%84%9C%EB%A1%9C.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
@@ -17510,6 +19295,11 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://everykoreans.com/dictionary/%EC%84%9C%EC%96%91%EC%9D%B8.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://everykoreans.com/dictionary/%EC%84%9C%EC%98%88.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
@@ -17531,6 +19321,11 @@
   </url>
   <url>
     <loc>https://everykoreans.com/dictionary/%EC%84%9C%EC%9E%AC.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EC%84%9C%EC%A0%81.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -17566,6 +19361,11 @@
   </url>
   <url>
     <loc>https://everykoreans.com/dictionary/%EC%84%9E%EB%8B%A4.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EC%84%9E%EC%9D%B4%EB%8B%A4.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -17695,12 +19495,27 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://everykoreans.com/dictionary/%EC%84%A0%EC%A0%84.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://everykoreans.com/dictionary/%EC%84%A0%EC%A0%95.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://everykoreans.com/dictionary/%EC%84%A0%EC%A1%B0.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EC%84%A0%EC%A7%84.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EC%84%A0%EC%A7%84%EA%B5%AD.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -17746,6 +19561,11 @@
   </url>
   <url>
     <loc>https://everykoreans.com/dictionary/%EC%84%A0%ED%96%89%EB%90%98%EB%8B%A4.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EC%84%A0%ED%98%B8.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -17805,6 +19625,11 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://everykoreans.com/dictionary/%EC%84%A4%EB%A6%BD.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://everykoreans.com/dictionary/%EC%84%A4%EB%A7%88.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
@@ -17841,6 +19666,11 @@
   </url>
   <url>
     <loc>https://everykoreans.com/dictionary/%EC%84%A4%EC%82%AC.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EC%84%A4%EC%A0%95.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -17891,6 +19721,11 @@
   </url>
   <url>
     <loc>https://everykoreans.com/dictionary/%EC%84%AD%EC%84%AD%ED%95%98%EB%8B%A4.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EC%84%AD%EC%94%A8.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -17950,6 +19785,11 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://everykoreans.com/dictionary/%EC%84%B1%EB%A6%BD.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://everykoreans.com/dictionary/%EC%84%B1%EB%AA%85.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
@@ -17961,6 +19801,11 @@
   </url>
   <url>
     <loc>https://everykoreans.com/dictionary/%EC%84%B1%EB%B6%84.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EC%84%B1%EC%88%99.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -18000,6 +19845,11 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://everykoreans.com/dictionary/%EC%84%B1%EC%A0%81%ED%91%9C.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://everykoreans.com/dictionary/%EC%84%B1%EC%A7%88.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
@@ -18035,6 +19885,16 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://everykoreans.com/dictionary/%EC%84%B8%EA%B3%84%EC%A0%81.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EC%84%B8%EA%B3%84%ED%99%94.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://everykoreans.com/dictionary/%EC%84%B8%EA%B7%A0.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
@@ -18055,6 +19915,16 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://everykoreans.com/dictionary/%EC%84%B8%EB%8C%80.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EC%84%B8%EB%A0%A5.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://everykoreans.com/dictionary/%EC%84%B8%EB%A0%A8%EB%90%98%EB%8B%A4.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
@@ -18066,6 +19936,16 @@
   </url>
   <url>
     <loc>https://everykoreans.com/dictionary/%EC%84%B8%EB%A1%9C%ED%86%A0%EB%8B%8C.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EC%84%B8%EB%AA%A8.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EC%84%B8%EB%AF%B8%EB%82%98.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -18250,6 +20130,11 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://everykoreans.com/dictionary/%EC%86%8C%EA%B7%B9%EC%A0%81.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://everykoreans.com/dictionary/%EC%86%8C%EA%B8%88.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
@@ -18261,6 +20146,16 @@
   </url>
   <url>
     <loc>https://everykoreans.com/dictionary/%EC%86%8C%EB%82%98%EA%B8%B0.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EC%86%8C%EB%82%98%EB%AC%B4.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EC%86%8C%EB%85%80.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -18300,6 +20195,11 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://everykoreans.com/dictionary/%EC%86%8C%EB%A6%AC%EC%B9%98%EB%8B%A4.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://everykoreans.com/dictionary/%EC%86%8C%EB%A7%A4.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
@@ -18325,12 +20225,22 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://everykoreans.com/dictionary/%EC%86%8C%EB%AC%B8%EB%82%98%EB%8B%A4.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://everykoreans.com/dictionary/%EC%86%8C%EB%B0%A9%EA%B4%80.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://everykoreans.com/dictionary/%EC%86%8C%EB%B0%A9%EC%84%9C.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EC%86%8C%EB%B0%A9%EC%B0%A8.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -18376,6 +20286,16 @@
   </url>
   <url>
     <loc>https://everykoreans.com/dictionary/%EC%86%8C%EC%86%A1.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EC%86%8C%EC%88%98.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EC%86%8C%EC%8A%A4.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -18480,6 +20400,11 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://everykoreans.com/dictionary/%EC%86%8C%EC%A7%80%ED%92%88.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://everykoreans.com/dictionary/%EC%86%8C%ED%86%B5.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
@@ -18510,6 +20435,11 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://everykoreans.com/dictionary/%EC%86%8C%ED%99%80%ED%95%98%EB%8B%A4.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://everykoreans.com/dictionary/%EC%86%8C%ED%99%94.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
@@ -18525,6 +20455,11 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://everykoreans.com/dictionary/%EC%86%8D%EB%88%88%EC%8D%B9.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://everykoreans.com/dictionary/%EC%86%8D%EB%8B%A4.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
@@ -18536,6 +20471,11 @@
   </url>
   <url>
     <loc>https://everykoreans.com/dictionary/%EC%86%8D%EB%8F%84.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EC%86%8D%EB%A7%88%EC%9D%8C.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -18576,6 +20516,11 @@
   </url>
   <url>
     <loc>https://everykoreans.com/dictionary/%EC%86%8D%EC%B6%9C%ED%95%98%EB%8B%A4.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EC%86%8D%ED%95%98%EB%8B%A4.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -18705,12 +20650,27 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://everykoreans.com/dictionary/%EC%86%90%EC%9E%A1%EB%8B%A4.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EC%86%90%EC%9E%A1%EC%9D%B4.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://everykoreans.com/dictionary/%EC%86%90%EC%A3%BC.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://everykoreans.com/dictionary/%EC%86%90%EC%A7%88.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EC%86%90%ED%86%B1.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -18725,7 +20685,17 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://everykoreans.com/dictionary/%EC%86%94%EC%A7%81%ED%95%98%EB%8B%A4.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://everykoreans.com/dictionary/%EC%86%94%EC%A7%81%ED%95%A8.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EC%86%94%EC%A7%81%ED%9E%88.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -18750,6 +20720,11 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://everykoreans.com/dictionary/%EC%86%A1%EC%95%84%EC%A7%80.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://everykoreans.com/dictionary/%EC%86%A1%EC%9D%B4.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
@@ -18761,6 +20736,11 @@
   </url>
   <url>
     <loc>https://everykoreans.com/dictionary/%EC%86%A5.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EC%87%A0.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -18885,12 +20865,27 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://everykoreans.com/dictionary/%EC%88%98%EB%8F%84%EA%B6%8C.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EC%88%98%EB%8F%84%EA%BC%AD%EC%A7%80.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://everykoreans.com/dictionary/%EC%88%98%EB%8F%97%EB%AC%BC.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://everykoreans.com/dictionary/%EC%88%98%EB%8F%99.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EC%88%98%EB%8F%99%EC%A0%81.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -18915,12 +20910,22 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://everykoreans.com/dictionary/%EC%88%98%EB%A6%AC%EB%B9%84.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://everykoreans.com/dictionary/%EC%88%98%EB%A6%AC%ED%95%98%EB%8B%A4.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://everykoreans.com/dictionary/%EC%88%98%EB%A7%89.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EC%88%98%EB%A7%8C.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -18975,12 +20980,22 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://everykoreans.com/dictionary/%EC%88%98%EC%82%AC.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://everykoreans.com/dictionary/%EC%88%98%EC%82%B0%EB%AC%BC.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://everykoreans.com/dictionary/%EC%88%98%EC%82%B0%EC%97%85.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EC%88%98%EC%83%81.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -19010,7 +21025,17 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://everykoreans.com/dictionary/%EC%88%98%EC%86%8D.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://everykoreans.com/dictionary/%EC%88%98%EC%88%98.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EC%88%98%EC%88%98%EA%BB%98%EB%81%BC.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -19021,6 +21046,11 @@
   </url>
   <url>
     <loc>https://everykoreans.com/dictionary/%EC%88%98%EC%88%A0.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EC%88%98%EC%8B%9C%EB%A1%9C.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -19041,6 +21071,11 @@
   </url>
   <url>
     <loc>https://everykoreans.com/dictionary/%EC%88%98%EC%97%85%EB%A3%8C.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EC%88%98%EC%97%86%EC%9D%B4.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -19106,6 +21141,11 @@
   </url>
   <url>
     <loc>https://everykoreans.com/dictionary/%EC%88%98%EC%9E%85.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EC%88%98%EC%9E%85%ED%92%88.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -19260,6 +21300,11 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://everykoreans.com/dictionary/%EC%88%99%EB%85%80.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://everykoreans.com/dictionary/%EC%88%99%EB%A0%A8.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
@@ -19360,6 +21405,16 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://everykoreans.com/dictionary/%EC%88%9C%EC%9C%84.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EC%88%9C%EC%A7%84.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://everykoreans.com/dictionary/%EC%88%9C%EC%B0%A8.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
@@ -19395,6 +21450,11 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://everykoreans.com/dictionary/%EC%88%A0%EB%B3%91.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://everykoreans.com/dictionary/%EC%88%A0%EC%9E%90%EB%A6%AC.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
@@ -19426,6 +21486,16 @@
   </url>
   <url>
     <loc>https://everykoreans.com/dictionary/%EC%88%A8%EB%B0%94%EA%BC%AD%EC%A7%88.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EC%88%A8%EC%86%8C%EB%A6%AC.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EC%88%A8%EC%A7%80%EB%8B%A4.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -19496,6 +21566,11 @@
   </url>
   <url>
     <loc>https://everykoreans.com/dictionary/%EC%8A%88%ED%8D%BC%EB%A7%88%EC%BC%93.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EC%8A%A4%EB%8B%98.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -19585,6 +21660,11 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://everykoreans.com/dictionary/%EC%8A%A4%EC%BC%80%EC%A4%84.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://everykoreans.com/dictionary/%EC%8A%A4%EC%BF%A8%EC%A1%B4.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
@@ -19616,6 +21696,11 @@
   </url>
   <url>
     <loc>https://everykoreans.com/dictionary/%EC%8A%A4%ED%86%A0%EB%A6%AC%ED%85%94%EB%A7%81.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EC%8A%A4%ED%8A%9C%EB%94%94%EC%98%A4.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -19725,7 +21810,22 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://everykoreans.com/dictionary/%EC%8A%B9%EB%82%99.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EC%8A%B9%EB%A6%AC.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://everykoreans.com/dictionary/%EC%8A%B9%EB%AC%B4%EC%9B%90.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EC%8A%B9%EC%9A%A9%EC%B0%A8.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -19746,6 +21846,11 @@
   </url>
   <url>
     <loc>https://everykoreans.com/dictionary/%EC%8A%B9%EC%B0%A8%EB%82%9C.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EC%8A%B9%ED%8C%A8.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -19800,6 +21905,11 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://everykoreans.com/dictionary/%EC%8B%9C%EA%B8%88%EC%B9%98.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://everykoreans.com/dictionary/%EC%8B%9C%EA%B8%89.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
@@ -19850,7 +21960,17 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://everykoreans.com/dictionary/%EC%8B%9C%EB%8B%AC%EB%A6%AC%EB%8B%A4.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://everykoreans.com/dictionary/%EC%8B%9C%EB%8C%80.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EC%8B%9C%EB%8C%81.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -19861,6 +21981,11 @@
   </url>
   <url>
     <loc>https://everykoreans.com/dictionary/%EC%8B%9C%EB%8F%84%ED%95%98%EB%8B%A4.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EC%8B%9C%EB%93%A4%EB%8B%A4.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -19881,6 +22006,11 @@
   </url>
   <url>
     <loc>https://everykoreans.com/dictionary/%EC%8B%9C%EB%A6%AC%EB%8B%A4.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EC%8B%9C%EB%A6%AC%EC%A6%88.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -19906,6 +22036,11 @@
   </url>
   <url>
     <loc>https://everykoreans.com/dictionary/%EC%8B%9C%EB%B2%94.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EC%8B%9C%EB%B6%80%EB%AA%A8.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -19965,6 +22100,16 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://everykoreans.com/dictionary/%EC%8B%9C%EC%9D%B8.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EC%8B%9C%EC%9D%BC.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://everykoreans.com/dictionary/%EC%8B%9C%EC%9E%91.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
@@ -20020,7 +22165,22 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://everykoreans.com/dictionary/%EC%8B%9C%EC%A7%91%EA%B0%80%EB%8B%A4.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://everykoreans.com/dictionary/%EC%8B%9C%EC%B2%AD.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EC%8B%9C%EC%B2%AD%EB%A5%A0.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EC%8B%9C%EC%B2%AD%EC%9E%90.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -20036,6 +22196,16 @@
   </url>
   <url>
     <loc>https://everykoreans.com/dictionary/%EC%8B%9C%ED%82%A4%EB%8B%A4.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EC%8B%9C%ED%95%A9.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EC%8B%9C%ED%96%89.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -20135,6 +22305,11 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://everykoreans.com/dictionary/%EC%8B%9D%EC%9A%95.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://everykoreans.com/dictionary/%EC%8B%9D%EC%9A%A9.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
@@ -20181,6 +22356,11 @@
   </url>
   <url>
     <loc>https://everykoreans.com/dictionary/%EC%8B%9D%ED%9E%88%EB%8B%A4.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EC%8B%A0.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -20255,6 +22435,11 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://everykoreans.com/dictionary/%EC%8B%A0%EB%A7%9B.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://everykoreans.com/dictionary/%EC%8B%A0%EB%AC%B8.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
@@ -20290,7 +22475,17 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://everykoreans.com/dictionary/%EC%8B%A0%EB%B9%84.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://everykoreans.com/dictionary/%EC%8B%A0%EC%82%AC.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EC%8B%A0%EC%83%81%ED%92%88.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -20325,6 +22520,16 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://everykoreans.com/dictionary/%EC%8B%A0%EC%84%B8.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EC%8B%A0%EC%84%B8%EB%8C%80.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://everykoreans.com/dictionary/%EC%8B%A0%EC%86%8C%EC%9E%AC.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
@@ -20341,6 +22546,11 @@
   </url>
   <url>
     <loc>https://everykoreans.com/dictionary/%EC%8B%A0%EC%86%8D%ED%9E%88.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EC%8B%A0%EC%95%99.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -20451,6 +22661,11 @@
   </url>
   <url>
     <loc>https://everykoreans.com/dictionary/%EC%8B%A0%ED%98%BC%EC%97%AC%ED%96%89.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/dictionary/%EC%8B%A0%ED%99%94.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
