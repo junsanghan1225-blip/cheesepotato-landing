@@ -762,7 +762,7 @@ export function wordsInit(D) {
     const [ico, hue] = look(w.t[0]?.split('/')[0]);
     return `<div class="wd-word" style="--h:${hue}">
       <div class="wd-word-top">
-        <div class="wd-word-h"><span class="wd-word-ico" aria-hidden="true">${ico}</span><b>${esc(w.h)}</b><button type="button" class="dict-say wd-say-big" data-say="${esc(w.h)}" aria-label="${esc(t('발음 듣기', 'Play'))}">${icon}</button>
+        <div class="wd-word-h"><b>${esc(w.h)}</b><button type="button" class="dict-say wd-say-big" data-say="${esc(w.h)}" aria-label="${esc(t('발음 듣기', 'Play'))}">${icon}</button>
           <button type="button" class="wd-star${isStar(id) ? ' on' : ''}" data-act="star" data-id="${esc(id)}" aria-label="${esc(t('별표', 'Star'))}">${isStar(id) ? '★' : '☆'}</button></div>
         <div class="wd-word-meta"><span class="wd-tagpill">TOPIK ${w.l}${esc(t('급', ''))}</span><span class="wd-tagpill">${esc(w.p || '')}</span><span class="wd-rom">${esc(roman(w.h))}</span>${learned(id) ? `<span class="wd-tagpill ok">✓ ${esc(t('외움', 'Learned'))}</span>` : ''}</div>
         <p class="wd-word-en">${esc(w.e)}</p>
