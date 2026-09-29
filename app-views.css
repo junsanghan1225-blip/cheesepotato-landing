@@ -4753,3 +4753,36 @@ div.wd-card:hover { transform:none; }
 .lvp-note { font-size:12.5px; color:var(--ink-2); line-height:1.45; word-break:keep-all; }
 .lvp-go { align-self:flex-start; background:var(--orange); color:#fff; border:none; border-radius:999px; padding:8px 14px; font:inherit; font-size:13.5px; font-weight:800; cursor:pointer; }
 .lvp.sm { padding:10px 12px; gap:6px; }
+
+/* ══ 승급 테스트 · 레벨업 (#ltUp — app.module.js luRender) ══ */
+.lu { display:flex; flex-direction:column; align-items:center; text-align:center; gap:8px; max-width:460px; margin:0 auto; padding:8px 0 4px; }
+.lu-k { font-size:11.5px; font-weight:800; letter-spacing:.14em; text-transform:uppercase; color:var(--orange-deep); }
+.lu-t { font-size:26px; font-weight:800; letter-spacing:-.035em; line-height:1.25; color:var(--ink); word-break:keep-all; }
+.lu-s { font-size:14.5px; line-height:1.6; color:var(--ink-2); word-break:keep-all; }
+.lu-warn { font-size:13px; color:var(--orange-deep); font-weight:700; word-break:keep-all; }
+.lu-pair { display:flex; align-items:center; gap:14px; margin:6px 0 4px; }
+.lu-pair svg { display:block; width:88px; height:88px; }
+.lu-pair b { font-size:22px; color:var(--ink-3); }
+.lu-pair.one svg { width:100px; height:100px; opacity:.85; }
+.lu-acts { display:flex; flex-direction:column; align-items:center; gap:8px; margin-top:14px; }
+.lu-next { width:100%; margin-top:10px; text-align:left; display:flex; flex-direction:column; gap:6px; }
+.lu-next-h { font-size:12.5px; font-weight:800; color:var(--ink-3); }
+.lu-row { display:grid; grid-template-columns:34px 1fr auto; align-items:center; gap:10px; padding:10px 12px; border:1px solid var(--line); border-radius:var(--r-l); background:var(--surface); color:var(--ink); font:inherit; cursor:pointer; text-align:left; }
+.lu-row:hover { border-color:var(--orange); }
+.lu-row b { font-size:14.5px; word-break:keep-all; }
+.lu-row em { font-style:normal; font-size:12.5px; color:var(--ink-3); }
+/* 감자가 자라는 순간 — 옛 감자가 작아지며 사라지고, 새 감자가 튀어 오르고, 불꽃이 퍼진다 */
+.lu-stage { position:relative; width:170px; height:170px; margin:4px auto 6px; }
+.lu-stage .lu-old, .lu-stage .lu-new { position:absolute; inset:0; display:grid; place-items:center; }
+.lu-stage svg { width:150px; height:150px; }
+.lu-old { animation:luOld .7s cubic-bezier(.4,0,.2,1) forwards; }
+.lu-new { opacity:0; transform:scale(.2); animation:luNew .8s cubic-bezier(.2,1.4,.4,1) .55s forwards; }
+.lu-sp { position:absolute; left:50%; top:50%; width:10px; height:10px; margin:-5px; border-radius:50%; background:var(--orange); opacity:0; animation:luSp .9s ease-out .75s forwards; }
+.lu-sp.s2 { background:#FFD24D; --a:60deg; } .lu-sp.s3 { --a:120deg; } .lu-sp.s4 { background:#FFD24D; --a:180deg; } .lu-sp.s5 { --a:240deg; } .lu-sp.s6 { background:#FFD24D; --a:300deg; }
+@keyframes luOld { 0% { opacity:1; transform:scale(1); } 60% { transform:scale(1.08); } 100% { opacity:0; transform:scale(.3); } }
+@keyframes luNew { 0% { opacity:0; transform:scale(.2); } 70% { opacity:1; transform:scale(1.15); } 100% { opacity:1; transform:scale(1); } }
+@keyframes luSp { 0% { opacity:1; transform:rotate(var(--a, 0deg)) translateY(0) scale(1); } 100% { opacity:0; transform:rotate(var(--a, 0deg)) translateY(-86px) scale(.4); } }
+@media (prefers-reduced-motion: reduce) {
+  .lu-old { display:none; } .lu-new { opacity:1; transform:none; animation:none; } .lu-sp { display:none; }
+}
+@media (max-width:600px) { .lu-t { font-size:22px; } .lu-pair svg { width:72px; height:72px; } }
