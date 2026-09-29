@@ -564,6 +564,7 @@ export function wordsInit(D) {
       <div class="wd-pick-hd">${view.pick.folder ? `<span class="wd-folder-ico c${S.fd[view.pick.folder]?.c || 0}">${FOLDER_SVG}</span>` : ''}<h3 class="wd-h3 wd-h3-big">${esc(title)}</h3>
         ${view.pick.folder ? `<span class="wd-pick-tools"><button type="button" class="wd-link" data-act="frename">${ico('edit')}${esc(t('이름', 'Rename'))}</button><button type="button" class="wd-link" data-act="fdel">${ico('trash')}${esc(t('지우기', 'Delete'))}</button></span>` : ''}</div>
       ${view.pick.folder && !words.length ? `<p class="wd-none">${esc(t('아직 비어 있어요. 낱말 화면이나 세션에서 「+ 내 단어장」을 눌러 이 폴더를 고르세요.', 'Empty for now. Tap “+ My wordbook” on a word or session and pick this folder.'))}</p>` : ''}
+      ${view.pick.intro ? `<p class="wd-pick-ask">${esc(t('미리보기 끝! 이제 어떻게 공부할까요?', 'Preview done — how do you want to study?'))}</p>` : ''}
       <div class="wd-pick-set">
         <span>${esc(t('문제 방향', 'Question side'))}</span>
         <div class="wd-seg" role="group" aria-label="${esc(t('문제 방향', 'Question side'))}">
@@ -1011,7 +1012,7 @@ export function wordsInit(D) {
       <div class="wd-word-act">
         ${miss.length ? `<button type="button" class="wd-btn ghost" data-act="again">${esc(t(`틀린 ${miss.length}개 다시`, `Redo ${miss.length} missed`))}</button>` : ''}
         ${next != null ? `<button type="button" class="wd-btn" data-act="session" data-topic="${esc(r.from.topic)}" data-n="${next}">${esc(t('다음 세션', 'Next session'))}</button>` : ''}
-        <button type="button" class="wd-btn ghost" data-tab="home">${esc(t('오늘 화면으로', 'Back to Today'))}</button>
+        ${r.from && r.from.topic != null ? `<button type="button" class="wd-btn ghost" data-act="topic" data-topic="${esc(r.from.topic)}">${esc(t('로드맵으로', 'Back to the map'))}</button>` : `<button type="button" class="wd-btn ghost" data-tab="home">${esc(t('오늘 화면으로', 'Back to Today'))}</button>`}
       </div>
       ${miss.length ? `<div class="wd-list">${miss.map((w) => wordRow(w)).join('')}</div>` : ''}
     </div>`;
@@ -1097,6 +1098,7 @@ export function wordsInit(D) {
     else if (view.tab === 'learn') body = drawLearn();
     else if (view.tab === 'topic') body = drawTopic(view.topic);
     else if (view.tab === 'pick') body = drawPick();
+    else if (view.tab === 'intro') body = drawIntro();
     else if (view.tab === 'study') body = drawStudy();
     else if (view.tab === 'review') body = drawReview();
     else if (view.tab === 'star') body = drawStar();
@@ -1107,8 +1109,9 @@ export function wordsInit(D) {
     const hadFocus = document.activeElement?.id === 'wdQ';
     const pos = hadFocus ? document.activeElement.selectionStart : null;
     root.innerHTML = shell(body) + (sheet ? drawSheet() : '') + (dlg ? drawDlg() : '');
+    if (view.tab === 'intro' && view.intro.said !== view.intro.i) { view.intro.said = view.intro.i; sayWord(view.intro.words[view.intro.i].h); }
     if (dlg) { const inp = root.querySelector('#wdDlgIn'); if (inp) { inp.focus(); inp.select(); } else root.querySelector('.wd-dlg [data-act="dlgok"]')?.focus(); }
-    root.classList.toggle('wd-studying', view.tab === 'study');
+    root.classList.toggle('wd-studying', view.tab === 'study' || view.tab === 'intro');
     if (hadFocus) { const q = root.querySelector('#wdQ'); q.focus(); try { q.setSelectionRange(pos, pos); } catch (e) {} }
     const ty = root.querySelector('#wdType');
     if (ty && !ty.disabled) ty.focus();
@@ -1131,15 +1134,45 @@ export function wordsInit(D) {
     body.innerHTML = query.trim() ? drawSearch() : (view.tab === 'study' ? drawStudy() : drawHome());
   }
 
+  /* 세션 열기 — 먼저 새 낱말을 카드로 한 장씩 미리 보여 주고(운영자 요청: 천천히 소개한 뒤에), 다 보면 「이제 어떻게 공부할까요?」
+     (공부 방식 셋), 공부가 끝나면 끝 화면의 「로드맵으로」로 돌아가 다음 역. 미리보기는 「건너뛰기」로 넘길 수 있다. */
+  const sessionPick = (topic, n, words, intro) => ({ tab: 'pick', pick: { words, from: { topic, n }, intro,
+    title: `${topicName(topic)} · ${t(`세션 ${n + 1}`, `Session ${n + 1}`)}`,
+    back: `data-act="topic" data-topic="${esc(topic)}"` } });
   function openSession(topic, n) {
     const ss = chunk(listFor(topic));
     const words = ss[n];
     if (!words) return;
-    view = { tab: 'pick', pick: { words, from: { topic, n },
-      title: `${topicName(topic)} · ${t(`세션 ${n + 1}`, `Session ${n + 1}`)}`,
-      back: `data-act="topic" data-topic="${esc(topic)}"` } };
+    view = { tab: 'intro', intro: { words, i: 0, topic, n, said: -1 } };
     query = '';
     mark(`topic/${topic}/${n + 1}`);
+    window.scrollTo({ top: 0 });
+    draw();
+  }
+  function drawIntro() {
+    const it = view.intro, w = it.words[it.i], last = it.i === it.words.length - 1;
+    needEx(w);
+    return `<div class="wd-study-hd">
+        <button type="button" class="wd-x" data-act="topic" data-topic="${esc(it.topic)}" aria-label="${esc(t('로드맵으로', 'Back to the map'))}">✕</button>
+        <span class="wd-segs wd-segs-hd" aria-hidden="true">${it.words.map((_, j) => `<i class="${j <= it.i ? 'on' : ''}"></i>`).join('')}</span>
+        <button type="button" class="wd-link" data-act="introskip">${esc(t('건너뛰기', 'Skip'))}</button></div>
+      <p class="wd-intro-k">${esc(topicName(it.topic))} · ${esc(t(`세션 ${it.n + 1} 새 낱말`, `Session ${it.n + 1} — new words`))} <b>${it.i + 1} / ${it.words.length}</b></p>
+      <div class="wd-intro">
+        <span class="wd-card-meta">${esc([w.l ? t(`${w.l}급`, `Lv ${w.l}`) : '', w.p || ''].filter(Boolean).join(' · '))}</span>
+        <div class="wd-intro-w"><b>${esc(w.h)}</b><button type="button" class="wd-intro-say" data-say="${esc(w.h)}" aria-label="${esc(t('발음 듣기', 'Play'))}">${ico('sound')}</button></div>
+        <span class="wd-intro-rom">${esc(roman(w.h))}</span>
+        <p class="wd-intro-m">${esc(w.e)}</p>
+        ${w.x[0] ? `<div class="wd-intro-x"><p>${esc(w.x[0][0])}<button type="button" class="wd-intro-say sm" data-say="${esc(w.x[0][0])}" aria-label="${esc(t('예문 듣기', 'Play example'))}">${ico('sound')}</button></p><small>${esc(w.x[0][1])}</small></div>` : ''}
+      </div>
+      <div class="wd-intro-nav">
+        <button type="button" class="wd-btn ghost" data-act="introprev"${it.i ? '' : ' disabled'}>← ${esc(t('이전', 'Back'))}</button>
+        <button type="button" class="wd-btn wd-btn-big" data-act="intronext">${esc(last ? t('다 봤어요 — 공부 방법 고르기', 'Done — choose how to study') : t('다음', 'Next'))} →</button>
+      </div>`;
+  }
+  function introStep(d) {
+    const it = view.intro;
+    if (d > 0 && it.i === it.words.length - 1) { view = sessionPick(it.topic, it.n, it.words, true); window.scrollTo({ top: 0 }); return draw(); }
+    it.i = Math.max(0, Math.min(it.words.length - 1, it.i + d));
     draw();
   }
   function openWord(h) {
@@ -1225,6 +1258,9 @@ export function wordsInit(D) {
       const stop = () => { run = null; view = { tab: 'home' }; mark(''); draw(); };
       return run?.cur ? ask({ title: t('공부를 그만할까요?', 'Stop now?'), msg: t('푼 것은 기록돼요.', 'What you answered is saved.'), ok: t('그만하기', 'Stop'), done: stop }) : stop();
     }
+    if (act === 'intronext') return introStep(1);
+    if (act === 'introprev') return introStep(-1);
+    if (act === 'introskip') { const it = view.intro; view = sessionPick(it.topic, it.n, it.words, true); return draw(); }
     if (act === 'dlgx') { dlg = null; return draw(); }
     if (act === 'dlgok') { const v = root.querySelector('#wdDlgIn')?.value.trim() ?? ''; const cb = dlg?.done; dlg = null; return cb ? cb(v) : draw(); }
     if (act === 'flip') { if (run) { run.flip = !run.flip; if (run.flip) sayIf(run.cur.w); draw(); } return; }
@@ -1272,6 +1308,10 @@ export function wordsInit(D) {
   });
   /* 공부 판의 손가락 · 글쇠. 글을 치는 칸 안에서는 가로채지 않는다(Enter 제외 — 그건 form 이 받는다). */
   document.addEventListener('keydown', (ev) => {
+    if (view.tab === 'intro' && !root.closest('.hidden') && !ev.target.matches?.('input, textarea') && !dlg) {
+      if (ev.key === 'ArrowRight' || ev.key === 'Enter') { ev.preventDefault(); return introStep(1); }
+      if (ev.key === 'ArrowLeft') { ev.preventDefault(); return introStep(-1); }
+    }
     if (!run || view.tab !== 'study' || root.closest('.hidden') || ev.metaKey || ev.ctrlKey || ev.altKey) return;
     const typing = ev.target.matches?.('input, textarea');
     if (typing && ev.key !== 'Enter') return;
