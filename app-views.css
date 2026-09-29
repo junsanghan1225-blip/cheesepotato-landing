@@ -4818,3 +4818,8 @@ div.wd-card:hover { transform:none; }
 .lt-groups span { position:absolute; top:0; padding-top:5px; border-top:2px solid var(--line); text-align:center; font-size:12px; font-weight:800; color:var(--ink-2); }
 .lt-groups .g1 { left:5px; width:calc((100% - 30px) * .2 + 20px); }
 .lt-groups .g2 { left:calc(15px + (100% - 30px) * .4 - 10px); width:calc((100% - 30px) * .6 + 20px); }
+
+/* 레벨테스트의 TOPIK 문항 — 연습 화면과 같은 발문 · 지문 상자(.tq-question · .tq-passage)를 쓴다 */
+.lt-topik { text-align:left; margin:4px 0 14px; }
+.lt-topik .tq-question { font-size:15.5px; }
+.lt-card .qz-choices.lt-tq-ch .qz-choice { font-weight:500; font-size:15.5px; line-height:1.6; }
