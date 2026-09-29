@@ -4164,6 +4164,35 @@ div.wd-card:hover { transform:none; }
 .wd-link { display:inline-flex; align-items:center; gap:6px; border:0; background:none; padding:6px 0; font:inherit; font-size:14px; font-weight:600; color:var(--ink-2); cursor:pointer; }
 .wd-link:hover { color:var(--ink); }
 .wd-link .wd-i { width:17px; height:17px; }
+/* 낱말 묶음 PDF(인쇄) — #ntPrintView 안에서만, 인쇄할 때만 보인다(index.html 노트 인쇄와 같은 자리).
+   종이는 늘 흰색이라 테마 색 변수를 쓰지 않고 색을 못 박는다. */
+.wdp { color:#2A2118; font-size:12.5px; line-height:1.5; }
+@media print { body.nt-printing { background:#fff !important; } }
+.wdp-hd { display:flex; justify-content:space-between; font-size:11px; color:#8A7B6A; border-bottom:2px solid #F08A3E; padding-bottom:6px; }
+.wdp-brand { font-weight:800; color:#F08A3E; letter-spacing:.02em; }
+.wdp-title { font-size:24px; margin:14px 0 2px; font-weight:800; }
+.wdp-sub { margin:0 0 12px; font-size:11.5px; color:#8A7B6A; }
+.wdp-t { width:100%; border-collapse:collapse; }
+.wdp-t th { text-align:left; font-size:10.5px; font-weight:700; color:#8A7B6A; border-bottom:1px solid #D9CFC2; padding:4px 6px; }
+.wdp-t td { border-bottom:1px solid #EFE8DE; padding:7px 6px; vertical-align:top; }
+.wdp-t tr { break-inside:avoid; }
+.wdp-n { width:22px; color:#B3A696; font-size:11px; }
+.wdp-w { width:26%; }
+.wdp-w b { display:block; font-size:16px; }
+.wdp-w i { display:block; font-style:normal; font-size:10.5px; color:#8A7B6A; }
+.wdp-w small { font-size:10px; color:#B3A696; }
+.wdp-m { width:24%; }
+.wdp-x small { display:block; font-size:10.5px; color:#8A7B6A; }
+.wdp-c { width:24px; text-align:center; }
+.wdp-c span { display:inline-block; width:12px; height:12px; border:1.5px solid #C9BCAB; border-radius:3px; }
+.wdp-quiz { break-before:page; }
+.wdp-quiz h2 { font-size:20px; margin:0 0 2px; }
+.wdp-quiz ol { margin:12px 0 0; padding-left:22px; columns:2; column-gap:28px; }
+.wdp-quiz li { break-inside:avoid; margin:0 0 12px; }
+.wdp-quiz li span { display:block; font-size:12px; }
+.wdp-quiz li em { display:block; height:22px; border-bottom:1px solid #C9BCAB; }
+.wdp-ans { margin-top:18px; font-size:9.5px; color:#B3A696; }
+.wdp-ft { margin-top:16px; padding-top:6px; border-top:1px solid #EFE8DE; font-size:10px; color:#8A7B6A; word-break:break-all; }
 
 /* 목록 */
 .wd-list { display:flex; flex-direction:column; border:1px solid var(--line); border-radius:var(--r-l); background:var(--surface); overflow:hidden; margin-top:12px; }
@@ -4347,3 +4376,96 @@ div.wd-card:hover { transform:none; }
 .wd-group .wd-chip { border:0; }
 .wd-focus-track { background:none; border:1px solid var(--line); border-radius:999px; padding:4px 12px; font:inherit; font-size:13px; font-weight:800; color:var(--ink); cursor:pointer; margin-bottom:10px; }
 .wd-focus-track em { font-style:normal; font-weight:600; color:var(--orange-deep); margin-left:4px; }
+
+/* ══ 단어 — 「오늘」 · 주제 표지 · 로드맵 (2026-09-29 운영자 레퍼런스 → 치즈감자 색) ══════════════
+   여백을 넓게, 큰 글씨 하나 · 숫자 몇 개 · 카드 하나로 할 일이 분명하게. 어두운 카드는 사이트의 「어두운 띠」(--ink-bg),
+   포인트는 치즈 주황. */
+.wd-hello { margin:6px 0 18px; }
+.wd-hello-k { margin:0 0 6px; font-size:26px; font-weight:800; letter-spacing:-.02em; color:var(--ink); }
+.wd-hello-p { margin:0 0 10px; font-size:14px; color:var(--ink-2); }
+.wd-hello-p b { font-size:15px; color:var(--ink); }
+.wd-hello-p small { font-size:13px; color:var(--ink-3); }
+.wd-hello .wd-bar { max-width:420px; }
+
+.wd-day { position:relative; overflow:hidden; margin:0 0 8px; padding:24px 24px 20px; border-radius:var(--r-xl);
+  background:var(--ink-bg); color:#FBF5EC; }
+.wd-day::after { content:''; position:absolute; right:-60px; top:-60px; width:220px; height:220px; border-radius:50%;
+  background:radial-gradient(circle, rgba(255,145,77,.35), rgba(255,145,77,0) 70%); pointer-events:none; }
+.wd-day-k { font-size:12.5px; font-weight:700; letter-spacing:.03em; color:var(--orange); }
+.wd-day-w { display:flex; flex-wrap:wrap; align-items:baseline; gap:4px 12px; margin:8px 0 4px; padding:0; border:0; background:none; color:inherit; font:inherit; cursor:pointer; text-align:left; }
+.wd-day-w b { font-size:40px; font-weight:800; letter-spacing:-.02em; line-height:1.1; }
+.wd-day-w span { font-size:15px; color:rgba(251,245,236,.6); }
+.wd-day-m { margin:0 0 18px; font-size:16px; color:rgba(251,245,236,.85); }
+.wd-day-btns { display:flex; flex-wrap:wrap; gap:10px; position:relative; z-index:1; }
+.wd-day-say, .wd-day-go { display:inline-flex; align-items:center; gap:8px; height:46px; padding:0 18px; border-radius:14px; font:inherit; font-size:15px; font-weight:700; cursor:pointer; }
+.wd-day-say.dict-say { width:auto; height:46px; min-width:0; margin:0; border-radius:14px; }
+.wd-day-say.dict-say svg { width:18px; height:18px; }
+.wd-day-say.dict-say:hover { background:rgba(251,245,236,.16); color:#FBF5EC; }
+.wd-day-say { border:1px solid rgba(251,245,236,.25); background:rgba(251,245,236,.08); color:#FBF5EC; }
+.wd-day-say svg { width:18px; height:18px; }
+.wd-day-go { flex:1 1 200px; justify-content:center; border:0; background:var(--orange); color:#1B1512; }
+.wd-day-go .wd-i { width:18px; height:18px; stroke-width:2.2; }
+.wd-day-rest { display:flex; flex-wrap:wrap; gap:6px; margin-top:16px; position:relative; z-index:1; }
+.wd-day-rest button { padding:5px 10px; border-radius:999px; border:1px solid rgba(251,245,236,.18); background:none; color:rgba(251,245,236,.75); font:inherit; font-size:13px; cursor:pointer; }
+.wd-day-rest button.on { border-color:var(--orange); color:#FBF5EC; }
+.wd-day-rest button.ok { color:rgba(251,245,236,.35); text-decoration:line-through; }
+
+.wd-sec-hd { display:flex; align-items:baseline; justify-content:space-between; }
+.wd-more { display:inline-flex; align-items:center; gap:2px; border:0; background:none; font:inherit; font-size:13px; font-weight:700; color:var(--ink-2); cursor:pointer; }
+.wd-more .wd-i { width:16px; height:16px; }
+.wd-themes { display:grid; grid-template-columns:repeat(4, 1fr); gap:10px; }
+@media (max-width:760px){ .wd-themes { grid-template-columns:1fr 1fr; } }
+.wd-theme { --h:25; display:flex; flex-direction:column; gap:6px; text-align:left; padding:16px; border:1px solid var(--line); border-radius:var(--r-l); background:var(--surface); color:var(--ink); font:inherit; cursor:pointer; }
+.wd-theme:hover { border-color:rgba(var(--ink-rgb),.28); }
+.wd-theme b { font-size:15px; margin-top:6px; }
+
+/* 주제 표지 */
+.wd-cover { --h:25; margin:4px 0 22px; padding:26px 24px 22px; border-radius:var(--r-xl); border:1px solid var(--line);
+  background:linear-gradient(180deg, color-mix(in srgb, hsl(var(--h) 80% 60%) 14%, var(--surface)), var(--surface) 70%); }
+.wd-cover-ico { display:grid; place-items:center; width:54px; height:54px; border-radius:16px;
+  background:color-mix(in srgb, hsl(var(--h) 80% 60%) 24%, var(--surface)); color:color-mix(in srgb, hsl(var(--h) 65% 42%) 80%, var(--ink)); }
+.wd-cover-ico .wd-i { width:28px; height:28px; }
+.wd-cover-t { margin:16px 0 18px; font-size:34px; font-weight:800; letter-spacing:-.03em; line-height:1.15; color:var(--ink); }
+.wd-cover-nums { display:grid; grid-template-columns:repeat(3, 1fr); gap:10px; margin:0 0 20px; }
+.wd-cover-nums b { display:block; font-size:28px; font-weight:800; letter-spacing:-.02em; color:var(--ink); }
+.wd-cover-nums b small { font-size:15px; color:var(--ink-3); font-weight:700; }
+.wd-cover-nums span { font-size:12.5px; color:var(--ink-2); }
+.wd-cover-btns .wd-btn-big { display:inline-flex; align-items:center; justify-content:center; gap:8px; width:100%; max-width:360px; }
+.wd-cover-btns .wd-i { width:18px; height:18px; stroke-width:2.2; }
+.wd-cover-done { margin:0; font-weight:800; color:var(--green); }
+.wd-cover-d { margin:14px 0 0; font-size:13.5px; line-height:1.6; color:var(--ink-2); }
+
+/* 로드맵 — 구간(깃발) 머리 + 펴면 세로 노선 위에 역 */
+.wd-map { display:flex; flex-direction:column; gap:10px; }
+.wd-stage { border:1px solid var(--line); border-radius:var(--r-l); background:var(--surface); overflow:hidden; }
+.wd-stage-hd { display:flex; align-items:center; gap:10px; width:100%; padding:14px 16px; border:0; background:none; font:inherit; color:var(--ink); cursor:pointer; text-align:left; }
+.wd-stage-hd b { font-size:15px; }
+.wd-stage-hd small { font-size:12.5px; color:var(--ink-3); }
+.wd-flag { display:grid; place-items:center; width:30px; height:30px; border-radius:9px; background:color-mix(in srgb, var(--orange) 16%, var(--surface)); color:var(--orange-deep); flex:none; }
+.wd-flag .wd-i { width:17px; height:17px; }
+.wd-stage.clear .wd-flag { background:var(--green); color:#fff; }
+.wd-stage-dots { display:flex; gap:4px; margin-left:auto; }
+.wd-stage-dots i { width:7px; height:7px; border-radius:50%; background:color-mix(in srgb, var(--ink) 14%, transparent); }
+.wd-stage-dots i.on { background:var(--green); }
+.wd-stage-dots i.cur { background:var(--orange); box-shadow:0 0 0 3px color-mix(in srgb, var(--orange) 28%, transparent); }
+.wd-stage-n { flex:none; min-width:38px; text-align:right; font-size:12.5px; font-weight:700; color:var(--ink-2); }
+@media (max-width:560px){ .wd-stage-hd small { display:none; } .wd-stage-dots i { width:6px; height:6px; gap:3px; } }
+
+.wd-line { position:relative; list-style:none; margin:0; padding:4px 16px 16px; }
+.wd-line::before { content:''; position:absolute; left:35px; top:0; bottom:26px; width:4px; border-radius:2px; background:color-mix(in srgb, var(--ink) 10%, transparent); }
+.wd-stop { position:relative; }
+.wd-stop button { display:flex; align-items:center; gap:14px; width:100%; padding:8px 8px 8px 0; border:0; background:none; font:inherit; color:var(--ink); cursor:pointer; text-align:left; border-radius:12px; }
+.wd-stop button:hover .wd-stop-t b { text-decoration:underline; text-underline-offset:3px; }
+.wd-dot { position:relative; z-index:1; flex:none; display:grid; place-items:center; width:40px; height:40px; border-radius:50%;
+  font-size:14px; font-weight:800; background:var(--surface); border:3px solid color-mix(in srgb, var(--ink) 16%, var(--surface)); color:var(--ink-3); }
+.wd-dot .wd-i { width:18px; height:18px; stroke-width:2.6; }
+.wd-stop.done .wd-dot { background:var(--green); border-color:var(--green); color:#fff; }
+.wd-stop.part .wd-dot { border-color:color-mix(in srgb, var(--orange) 55%, var(--surface)); color:var(--ink); }
+.wd-stop.cur .wd-dot { width:48px; height:48px; margin-left:-4px; margin-right:-4px; background:var(--orange); border-color:#fff; color:#1B1512; font-size:16px;
+  box-shadow:0 0 0 4px color-mix(in srgb, var(--orange) 30%, transparent), 0 8px 18px -6px rgba(225,104,43,.6); }
+.wd-stop-t { flex:1; min-width:0; display:flex; flex-direction:column; gap:2px; }
+.wd-stop-t b { font-size:15px; display:flex; align-items:center; gap:8px; }
+.wd-stop-t b em { font-style:normal; font-size:11px; font-weight:800; padding:2px 8px; border-radius:999px; background:var(--orange); color:#1B1512; }
+.wd-stop-t small { font-size:13px; color:var(--ink-2); overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+.wd-stop.done .wd-stop-t b, .wd-stop.done .wd-stop-t small { color:var(--ink-3); }
+.wd-stop-c { flex:none; font-size:12px; font-weight:700; color:var(--orange-deep); }
