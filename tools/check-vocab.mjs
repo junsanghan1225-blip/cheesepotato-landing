@@ -27,6 +27,7 @@ const ALL = process.argv.includes('--all');       // 짚어 둘 것을 전부 �
 /* 초급 낱말의 예문은 짧고 쉬워야 한다(docs/antigravity-vocab-task.md: 8~18글자 안팎, 초급 문법).
    빈칸 · 문장 부호를 뺀 글자 수가 이보다 길거나, 중급 이상 문법이 보이면 짚는다. */
 const EX_MAX = 22;
+const EX_MAX2 = 32;   // 3~6급 예문 상한
 const HARD = /느라|도록|더니|는데도|길래|거든요?|잖아|수록|듯|채로|바람에|던\s/;
 const ids = new Map();
 const stat = { n: 0, grade: {}, level: {}, purpose: {}, topicless: 0, exless: 0 };
@@ -94,7 +95,13 @@ for (const f of files) {
         const len = x.ko.replace(/[\s.,!?~…「」'"]/g, '').length;
         if (len > EX_MAX) warn.push(`${at} — 예문 ${j + 1} 이 길다(${len}자 · 초급은 18자 안팎): ${x.ko}`);
         else if (HARD.test(x.ko + ' ')) warn.push(`${at} — 예문 ${j + 1} 문법이 초급보다 어렵다: ${x.ko}`);
+      } else if (w.grade !== 'C') {
+        /* TOPIK II(3~6급)는 중고급 문법 · 글말을 쓰되, 낱말 하나를 배우는 문장이라 길이는 막는다
+           (docs/antigravity-vocab-topik2-task.md: 30글자 안팎). */
+        const len = x.ko.replace(/[\s.,!?~…「」'"]/g, '').length;
+        if (len > EX_MAX2) warn.push(`${at} — 예문 ${j + 1} 이 길다(${len}자 · 중고급은 30자 안팎): ${x.ko}`);
       }
+      if (w.hanja && !/^[㐀-鿿豈-﫿]+$/.test(w.hanja)) err.push(`${at} — hanja 는 한자만(${w.hanja})`);
     });
     if (w.rel != null && (typeof w.rel !== 'object' || Array.isArray(w.rel))) err.push(`${at} — rel 은 객체`);
     else for (const [k, v] of Object.entries(w.rel || {})) {

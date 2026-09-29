@@ -204,6 +204,7 @@ export function wordsInit(D) {
   let view = { tab: 'home' };   // home | learn | topic | pick | study | review | star | stats | word | search
   let query = '', sel = -1, lastHits = [];
   let run = null;               // 공부 중인 판
+  let tick = null;              // 짝 맞추기 시계
 
   function mark(sub) { D.mark(sub || ''); }
   function recent() { try { return JSON.parse(localStorage.getItem(RECENT) || '[]'); } catch (e) { return []; } }
@@ -231,7 +232,6 @@ export function wordsInit(D) {
     culture: ['🎎', 330], function: ['🧩', 280],
   };
   const look = (id) => TOPIC_LOOK[id] || ['📘', 25];
-  const TAB_ICON = { home: '☀️', learn: '🧠', review: '🔁', mine: '📚', star: '⭐', stats: '📈' };
   const SEARCH_ICON = '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="2.2"/><path d="M20 20l-4-4" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>';
   /* 둥근 진도 — conic-gradient 한 겹. 숫자는 가운데에. */
   const ring = (n, of, label) => {
@@ -241,28 +241,17 @@ export function wordsInit(D) {
 
   function shell(body) {
     const tabOn = view.tab === 'topic' || view.tab === 'pick' ? 'learn' : view.tab;
-    const got = VOCAB.filter((w) => learned(idOf(w))).length, sk = streak();
     return `<div class="wd-top">
       <div class="wd-hero">
-        <div class="wd-hero-row">
-          <div>
-            <h2 class="wd-h">${esc(t('단어', 'Words'))}</h2>
-            <p class="wd-hero-sub">${esc(t('찾고, 외우고, 잊기 전에 다시 만나요', 'Look it up, learn it, meet it again before you forget'))}</p>
-          </div>
-          <div class="wd-pills">
-            <span class="wd-pill" title="${esc(t('연속 일수', 'Day streak'))}">🔥 <b>${sk}</b></span>
-            <span class="wd-pill" title="${esc(t('외운 낱말', 'Words learned'))}">✓ <b>${got.toLocaleString()}</b></span>
-          </div>
-        </div>
+        <h2 class="wd-h">${esc(t('단어', 'Words'))}</h2>
         <label class="wd-searchbox">${SEARCH_ICON}
           <input class="wd-search" id="wdQ" type="search" autocomplete="off" spellcheck="false" enterkeyhint="search"
             aria-label="${esc(t('낱말 찾기', 'Search words'))}"
             placeholder="${esc(t('먹었어요 · eat · meokda · ㅅㄹ', 'Try 먹었어요, eat, meokda, ㅅㄹ'))}" value="${esc(query)}">
         </label>
-        <p class="wd-hero-hint">${esc(t('활용형 · 영어 · 로마자 · 초성 · 오타까지 찾아요', 'Finds conjugations, English, romanization, initials — even typos'))}</p>
       </div>
       <nav class="wd-tabs" role="tablist">${tabs().map(([k, l]) =>
-        `<button type="button" role="tab" class="wd-tab${tabOn === k ? ' on' : ''}" data-tab="${k}" aria-selected="${tabOn === k}"><i aria-hidden="true">${TAB_ICON[k]}</i>${esc(l)}</button>`).join('')}
+        `<button type="button" role="tab" class="wd-tab${tabOn === k ? ' on' : ''}" data-tab="${k}" aria-selected="${tabOn === k}">${esc(l)}</button>`).join('')}
       </nav>
     </div>
     <div class="wd-body" id="wdBody">${body}</div>
@@ -292,26 +281,7 @@ export function wordsInit(D) {
           ${nx == null ? '' : `<button type="button" class="wd-btn wd-btn-big" data-act="session" data-topic="all" data-n="${nx}">${esc(first ? t('시작하기', 'Start') : t('이어서 외우기', 'Continue'))} →</button>`}
         </div>
       </div>
-      <div class="wd-cards">
-        <button type="button" class="wd-card wd-card-rev${d.length ? ' hot' : ''}" ${d.length ? 'data-act="review"' : 'data-tab="review"'}>
-          <span class="wd-card-ico">🔁</span>
-          <span class="wd-card-k">${esc(t('오늘 복습', 'Review today'))}</span>
-          <span class="wd-card-n">${d.length}</span>
-          <span class="wd-card-p">${esc(d.length ? t('먼저 하면 더 오래 남아요 →', 'Do these first — they stick longer →') : t('복습할 낱말이 없어요', 'Nothing due'))}</span>
-        </button>
-        <button type="button" class="wd-card" data-tab="learn">
-          <span class="wd-card-ico">🧭</span>
-          <span class="wd-card-k">${esc(t('주제별로 외우기', 'Learn by topic'))}</span>
-          <span class="wd-card-n">${TOPICS.length}</span>
-          <span class="wd-card-p">${esc(t('음식 · 교통 · 가족 … →', 'Food, transport, family… →'))}</span>
-        </button>
-        <button type="button" class="wd-card" data-tab="star">
-          <span class="wd-card-ico">⭐</span>
-          <span class="wd-card-k">${esc(t('별표', 'Starred'))}</span>
-          <span class="wd-card-n">${starIds().length}</span>
-          <span class="wd-card-p">${esc(t('어려운 낱말만 모아서 →', 'Just the hard ones →'))}</span>
-        </button>
-      </div>
+      ${d.length ? `<button type="button" class="wd-due" data-act="review"><span>${esc(t('오늘 복습', 'Review today'))}</span><b>${d.length}</b><em>${esc(t('시작 →', 'Start →'))}</em></button>` : ''}
       ${rc.length ? `<div class="wd-recent"><span>${esc(t('최근 본 낱말', 'Recently viewed'))}</span>${rc.map((h) => `<button type="button" class="wd-chip" data-word="${esc(h)}">${esc(h)}</button>`).join('')}</div>` : ''}
     </div>`;
   }
@@ -325,7 +295,7 @@ export function wordsInit(D) {
       const [ico, h] = look(tp.id);
       return `<button type="button" class="wd-topic" style="--h:${h}" data-act="topic" data-topic="${esc(tp.id)}">
         <span class="wd-topic-ico" aria-hidden="true">${ico}</span>
-        <b>${esc(t(tp.ko, tp.en))}</b><span class="wd-sub">${esc(tp.subs.slice(0, 4).map((s) => t(s.ko, s.en)).join(' · '))}</span>
+        <b>${esc(t(tp.ko, tp.en))}</b>
         <span class="wd-meta">${esc(t(`${list.length}개 · 세션 ${Math.ceil(list.length / SESSION)}`, `${list.length} words · ${Math.ceil(list.length / SESSION)} sessions`))}</span>${bar(g, list.length)}</button>`;
     }).join('');
     return `<button type="button" class="wd-topic wd-topic-main" style="--h:25" data-act="topic" data-topic="all">
@@ -360,6 +330,9 @@ export function wordsInit(D) {
         <button type="button" class="wd-mode" data-act="go" data-mode="card"><b>${esc(t('카드', 'Cards'))}</b><span>${esc(t('뒤집어 보며 「알아요 · 헷갈려요 · 몰라요」', 'Flip and rate: know / unsure / don’t know'))}</span></button>
         <button type="button" class="wd-mode" data-act="go" data-mode="learn"><b>${esc(t('외우기', 'Learn'))}</b><span>${esc(t('보기 고르기 → 익숙해지면 직접 쓰기', 'Multiple choice, then type it yourself'))}</span></button>
         <button type="button" class="wd-mode" data-act="go" data-mode="write"><b>${esc(t('쓰기', 'Write'))}</b><span>${esc(t('뜻을 보고 한국어로 쳐 보기', 'See the meaning, type the Korean'))}</span></button>
+        <button type="button" class="wd-mode" data-act="go" data-mode="dict"><b>${esc(t('받아쓰기', 'Dictation'))}</b><span>${esc(t('소리를 듣고 한국어로 쓰기', 'Listen, then type what you hear'))}</span></button>
+        <button type="button" class="wd-mode" data-act="go" data-mode="match"><b>${esc(t('짝 맞추기', 'Match'))}</b><span>${esc(t('낱말과 뜻을 짝지어 — 시간을 재요', 'Pair words and meanings against the clock'))}</span></button>
+        ${words.length >= 2 ? `<button type="button" class="wd-mode" data-act="go" data-mode="test"><b>${esc(t('시험 보기', 'Test'))}</b><span>${esc(t('유형을 섞은 문제로 점수 내기', 'Mixed questions, scored at the end'))}</span></button>` : ''}
       </div>
       <div class="wd-dir" role="group" aria-label="${esc(t('방향', 'Direction'))}">
         <button type="button" class="wd-chip${S.dir === 'ko' ? ' on' : ''}" data-act="dir" data-dir="ko">${esc(t('한국어 → 뜻', 'Korean → meaning'))}</button>
@@ -422,8 +395,7 @@ export function wordsInit(D) {
     const [ico, hue] = look(w.t[0]?.split('/')[0]);
     return `<div class="wd-word" style="--h:${hue}">
       <div class="wd-word-top">
-        <span class="wd-word-ico" aria-hidden="true">${ico}</span>
-        <div class="wd-word-h"><b>${esc(w.h)}</b><button type="button" class="dict-say wd-say-big" data-say="${esc(w.h)}" aria-label="${esc(t('발음 듣기', 'Play'))}">${icon}</button>
+        <div class="wd-word-h"><span class="wd-word-ico" aria-hidden="true">${ico}</span><b>${esc(w.h)}</b><button type="button" class="dict-say wd-say-big" data-say="${esc(w.h)}" aria-label="${esc(t('발음 듣기', 'Play'))}">${icon}</button>
           <button type="button" class="wd-star${isStar(id) ? ' on' : ''}" data-act="star" data-id="${esc(id)}" aria-label="${esc(t('별표', 'Star'))}">${isStar(id) ? '★' : '☆'}</button></div>
         <div class="wd-word-meta"><span class="wd-tagpill">TOPIK ${w.l}${esc(t('급', ''))}</span><span class="wd-tagpill">${esc(w.p || '')}</span><span class="wd-rom">${esc(roman(w.h))}</span>${learned(id) ? `<span class="wd-tagpill ok">✓ ${esc(t('외움', 'Learned'))}</span>` : ''}</div>
         <p class="wd-word-en">${esc(w.e)}</p>
@@ -506,19 +478,40 @@ export function wordsInit(D) {
   /* ── 공부 판 ───────────────────────────────────────────── */
   function startRun(words, mode, from) {
     if (!words.length) return;
-    run = { mode, from, words, dir: S.dir, i: 0, flip: false, res: {}, q: [], cur: null, fb: null };
+    run = { mode, from, words, dir: S.dir, i: 0, flip: false, res: {}, q: [], cur: null, fb: null, answered: 0, score: 0 };
     if (mode === 'card') run.q = words.map((w) => ({ w }));
-    else run.q = words.map((w) => ({ w, stage: mode === 'write' ? 1 : 0, miss: 0 }));
-    run.total = words.length;
-    run.cur = run.q.shift();
-    if (mode !== 'card') makeChoices();
+    else if (mode === 'test') run.q = makeTest(words);
+    else if (mode !== 'match') run.q = words.map((w) => ({ w, stage: mode === 'learn' ? 0 : 1, miss: 0, dict: mode === 'dict' }));
+    run.total = mode === 'test' ? run.q.length : words.length;
+    if (mode === 'match') run.match = makeMatch(words);
+    else { run.cur = run.q.shift(); if (mode !== 'card') makeChoices(); }
     view = { tab: 'study' };
     D.track(from === 'review' ? '단어복습시작' : '단어세션시작');
     draw();
+    window.scrollTo({ top: 0 });   // 방식 단추가 아래쪽에 있어서, 안 올리면 판의 머리(✕ · 진도 · 시계)가 화면 밖에서 시작한다
+  }
+  /* 시험 보기 — 유형을 섞은 문제(뜻 고르기 · 낱말 고르기 · 쓰기 · 받아쓰기). 낱말이 적으면 한 낱말이 두 유형으로
+     나온다. 한 번씩만 묻고(틀려도 다시 넣지 않는다) 끝에 점수를 낸다. */
+  function makeTest(words) {
+    const kinds = ['mc-ko', 'mc-en', 'type', 'dict'];
+    const n = words.length >= 10 ? 20 : Math.max(words.length * 2, 4);
+    const items = [];
+    for (let i = 0; i < n; i++) {
+      const w = words[i % words.length], k = kinds[(i + Math.floor(i / words.length)) % 4];
+      items.push({ w, stage: k.startsWith('mc') ? 0 : 1, dir: k === 'mc-en' ? 'en' : 'ko', dict: k === 'dict', miss: 0, test: true });
+    }
+    return items.sort(() => Math.random() - 0.5);
+  }
+  /* 짝 맞추기 — 낱말 6개(12칸). 시간을 잰다. 외우기 기록(상자)은 건드리지 않는다 — 보고 맞히는 놀이라서. */
+  function makeMatch(words) {
+    const pick = words.length > 6 ? [...words].sort(() => Math.random() - 0.5).slice(0, 6) : words;
+    const tiles = pick.flatMap((w) => [{ k: idOf(w), text: w.h, ko: true }, { k: idOf(w), text: mean(w), ko: false }])
+      .sort(() => Math.random() - 0.5);
+    return { pick, tiles, sel: -1, gone: new Set(), bad: null, miss: 0, t0: Date.now(), end: 0 };
   }
   function makeChoices() {
     const c = run.cur;
-    if (!c || c.stage !== 0) return;
+    if (!c || c.stage !== 0 || c.opts) return;
     const w = c.w;
     const same = VOCAB.filter((x) => x !== w && x.p === w.p && mean(x) !== mean(w) && x.h !== w.h);
     const pool = same.length >= 3 ? same : VOCAB.filter((x) => x !== w && mean(x) !== mean(w));
@@ -527,10 +520,57 @@ export function wordsInit(D) {
     c.opts = [w, ...pick].sort(() => Math.random() - 0.5);
   }
   /* 진도는 「끝낸 낱말 수」로 센다 — 틀려서 다시 넣은 차례까지 세면 막대가 뒤로 간다. */
-  const doneCount = () => Object.keys(run.res).length;
+  const doneCount = () => (run.mode === 'test' ? run.answered : Object.keys(run.res).length);
+
+  function drawMatch() {
+    const m = run.match;
+    const secs = ((m.end || Date.now()) - m.t0) / 1000;
+    const head = `<div class="wd-study-hd"><button type="button" class="wd-x" data-act="quit" aria-label="${esc(t('그만하기', 'Quit'))}">✕</button>
+      ${bar(m.gone.size / 2, m.pick.length)}<span class="wd-n" id="wdTimer">${secs.toFixed(1)}${esc(t('초', 's'))}</span></div>`;
+    if (m.end) {
+      const key = 'cp-words-match-best';
+      let best = null;
+      try { best = JSON.parse(localStorage.getItem(key) || 'null'); } catch (e) {}
+      const isBest = m.newBest;
+      return `<div class="wd-done"><b class="wd-big">${isBest ? '🏆' : '⚡'}</b>
+        <h3>${esc(t(`${secs.toFixed(1)}초!`, `${secs.toFixed(1)} s!`))}</h3>
+        <p>${esc(isBest ? t('새 최고 기록이에요!', 'New personal best!') : best ? t(`최고 기록 ${best.toFixed(1)}초`, `Best: ${best.toFixed(1)} s`) : '')}${m.miss ? esc(t(` · 틀린 짝 ${m.miss}번`, ` · ${m.miss} wrong tries`)) : ''}</p>
+        <div class="wd-word-act">
+          <button type="button" class="wd-btn" data-act="rematch">${esc(t('한 번 더', 'Play again'))}</button>
+          <button type="button" class="wd-btn ghost" data-tab="home">${esc(t('오늘 화면으로', 'Back to Today'))}</button>
+        </div></div>`;
+    }
+    return head + `<p class="wd-lead wd-center">${esc(t('낱말과 뜻을 짝지어 누르세요', 'Tap a word, then its meaning'))}</p>
+      <div class="wd-match">${m.tiles.map((x, i) => m.gone.has(i) ? '<span class="wd-tile gone"></span>'
+        : `<button type="button" class="wd-tile${x.ko ? ' ko' : ''}${m.sel === i ? ' sel' : ''}${m.bad && m.bad.includes(i) ? ' bad' : ''}" data-act="tile" data-i="${i}">${esc(x.text)}</button>`).join('')}</div>`;
+  }
+  function tapTile(i) {
+    const m = run.match;
+    if (!m || m.end || m.gone.has(i)) return;
+    m.bad = null;
+    if (m.sel < 0 || m.sel === i) { m.sel = m.sel === i ? -1 : i; return draw(); }
+    const a = m.tiles[m.sel], b = m.tiles[i];
+    if (a.k === b.k && a.ko !== b.ko) {
+      m.gone.add(m.sel); m.gone.add(i);
+      if ((a.ko ? a : b).text) sayWord((a.ko ? a : b).text);
+    } else { m.miss++; m.bad = [m.sel, i]; }
+    m.sel = -1;
+    if (m.gone.size === m.tiles.length) {
+      m.end = Date.now();
+      const secs = (m.end - m.t0) / 1000;
+      S.days[today()] = (S.days[today()] || 0) + m.pick.length; save();
+      try {
+        const key = 'cp-words-match-best', best = JSON.parse(localStorage.getItem(key) || 'null');
+        if (m.pick.length >= 6 && (best == null || secs < best)) { localStorage.setItem(key, JSON.stringify(secs)); m.newBest = true; }
+      } catch (e) {}
+      D.track('단어세션끝');
+    }
+    draw();
+  }
 
   function drawStudy() {
     const r = run;
+    if (r.mode === 'match') return drawMatch();
     if (!r.cur) return drawDone();
     const w = r.cur.w, id = idOf(w);
     const head = `<div class="wd-study-hd"><button type="button" class="wd-x" data-act="quit" aria-label="${esc(t('그만하기', 'Quit'))}">✕</button>
@@ -553,17 +593,23 @@ export function wordsInit(D) {
         </div>`;
     }
     const c = r.cur, fb = r.fb;
+    const dir = c.dir || r.dir;
     if (c.stage === 0) {
-      const prompt = r.dir === 'ko' ? `<b class="wd-big">${esc(w.h)}</b>` : `<b class="wd-big wd-big-en">${esc(mean(w))}</b>`;
+      const prompt = dir === 'ko' ? `<b class="wd-big">${esc(w.h)}</b>` : `<b class="wd-big wd-big-en">${esc(mean(w))}</b>`;
       return head + `<div class="wd-q">${prompt}<span class="wd-pos">${esc(w.p || '')}</span></div>
         <div class="wd-opts">${c.opts.map((o, i) => {
           const cls = fb ? (o === w ? ' right' : fb.pick === i ? ' wrong' : '') : '';
-          return `<button type="button" class="wd-opt${cls}" data-act="opt" data-i="${i}" ${fb ? 'disabled' : ''}><kbd>${i + 1}</kbd>${esc(r.dir === 'ko' ? mean(o) : o.h)}</button>`;
+          return `<button type="button" class="wd-opt${cls}" data-act="opt" data-i="${i}" ${fb ? 'disabled' : ''}><kbd>${i + 1}</kbd>${esc(dir === 'ko' ? mean(o) : o.h)}</button>`;
         }).join('')}</div>
         ${fb && !fb.ok ? `<button type="button" class="wd-btn" data-act="next">${esc(t('다음', 'Next'))} ↵</button>` : ''}`;
     }
-    return head + `<div class="wd-q"><b class="wd-big wd-big-en">${esc(mean(w))}</b><span class="wd-pos">${esc(w.p || '')}${w.e !== mean(w) ? ' · ' + esc(w.e) : ''}</span></div>
-      <form class="wd-type" data-act="type">
+    /* 받아쓰기는 뜻 대신 소리가 문제다 — 뜻은 답한 뒤에 보인다. */
+    const q = c.dict
+      ? `<div class="wd-q"><button type="button" class="wd-listen" data-say="${esc(w.h)}" aria-label="${esc(t('다시 듣기', 'Play again'))}">${icon}</button>
+          <span class="wd-pos">${fb ? esc(mean(w)) : esc(t('듣고 한국어로 쓰세요 · 눌러서 다시 듣기', 'Listen and type it in Korean · tap to replay'))}</span></div>`
+      : `<div class="wd-q"><b class="wd-big wd-big-en">${esc(mean(w))}</b><span class="wd-pos">${esc(w.p || '')}${w.e !== mean(w) ? ' · ' + esc(w.e) : ''}</span></div>`;
+    return head + q + `
+<form class="wd-type" data-act="type">
         <input id="wdType" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" lang="ko"
           aria-label="${esc(t('한국어로 쓰기', 'Type in Korean'))}" placeholder="${esc(t('한국어로 쓰세요', 'Type it in Korean'))}" ${fb ? 'disabled' : ''} value="${esc(fb?.said || '')}">
         ${fb ? '' : `<button type="submit" class="wd-btn">${esc(t('확인', 'Check'))}</button>`}
@@ -578,11 +624,12 @@ export function wordsInit(D) {
     const r = run;
     const miss = r.words.filter((w) => r.res[idOf(w)] && r.res[idOf(w)] !== 'know');
     const next = r.from && r.from.topic != null ? nextSession(r.from.topic) : null;
+    const pct = r.total ? Math.round((r.score / r.total) * 100) : 0;
     return `<div class="wd-done">
-      <b class="wd-big">🎉</b>
-      <h3>${esc(t('세션 끝!', 'Session done!'))}</h3>
-      <p>${esc(t(`${r.words.length}개 중 ${r.words.length - miss.length}개를 바로 알았어요.`, `You knew ${r.words.length - miss.length} of ${r.words.length} right away.`))}
-        ${esc(t('헷갈린 낱말은 내일 다시 불러 드려요.', 'The tricky ones come back tomorrow.'))}</p>
+      <b class="wd-big">${r.mode === 'test' ? (pct >= 90 ? '🏆' : pct >= 70 ? '🎉' : '💪') : '🎉'}</b>
+      <h3>${esc(r.mode === 'test' ? t(`${r.score} / ${r.total} · ${pct}점`, `${r.score} / ${r.total} · ${pct}%`) : t('세션 끝!', 'Session done!'))}</h3>
+      <p>${esc(r.mode === 'test' ? t(`시험 끝! 틀린 낱말 ${miss.length}개는 내일 다시 불러 드려요.`, `Test done! The ${miss.length} you missed come back tomorrow.`)
+        : t(`${r.words.length}개 중 ${r.words.length - miss.length}개를 바로 알았어요. 헷갈린 낱말은 내일 다시 불러 드려요.`, `You knew ${r.words.length - miss.length} of ${r.words.length} right away. The tricky ones come back tomorrow.`))}</p>
       <div class="wd-word-act">
         ${miss.length ? `<button type="button" class="wd-btn ghost" data-act="again">${esc(t(`틀린 ${miss.length}개 다시`, `Redo ${miss.length} missed`))}</button>` : ''}
         ${next != null ? `<button type="button" class="wd-btn" data-act="session" data-topic="${esc(r.from.topic)}" data-n="${next}">${esc(t('다음 세션', 'Next session'))}</button>` : ''}
@@ -609,13 +656,31 @@ export function wordsInit(D) {
     if (!c || c.stage !== 0 || run.fb) return;
     const ok = c.opts[i] === c.w;
     run.fb = { ok, pick: i };
+    if (c.test) {
+      testMark(c, ok);
+      draw();
+      if (ok) setTimeout(() => { if (run && run.fb && run.cur === c) { run.cur = null; run.fb = null; advanceKeep(); } }, 700);
+      return;
+    }
     if (ok) { c.stage = 1; run.q.push(c); }
     else { c.miss++; run.q.splice(Math.min(3, run.q.length), 0, c); }
     if (ok) { sayIf(c.w); draw(); setTimeout(() => { if (run && run.fb && run.cur === c) { run.cur = null; run.fb = null; advanceKeep(); } }, 700); }
     else draw();
   }
   /* 맞힌 보기 문제는 같은 낱말을 쓰기로 다시 넣었으므로(위 push) 지금 자리를 비우고 넘어간다. */
-  function advanceKeep() { run.flip = false; run.cur = run.q.shift() || null; if (run.cur) makeChoices(); else D.track('단어세션끝'); draw(); }
+  function advanceKeep() {
+    run.flip = false; run.cur = run.q.shift() || null;
+    if (run.cur) makeChoices();
+    else { if (run.mode === 'test') testGrade(); D.track('단어세션끝'); }
+    draw();
+  }
+  /* 시험: 문제마다 적고, 끝에 낱말마다 한 번 채점한다(한 낱말이 두 문제로 나와도 기록은 한 번). */
+  function testMark(c, ok) {
+    run.answered++; if (ok) run.score++;
+    const id = idOf(c.w);
+    run.res[id] = run.res[id] === 'no' || !ok ? 'no' : 'know';
+  }
+  function testGrade() { for (const [id, how] of Object.entries(run.res)) grade(id, how); }
   function sayIf(w) { if (run.dir === 'ko' || run.mode !== 'card') sayWord(w.h); }
   function answerType(said) {
     const c = run.cur;
@@ -625,7 +690,8 @@ export function wordsInit(D) {
     const near = !exact && a.length > 1 && dist(jamo(a), jamo(h), 1) <= 1;
     const ok = exact || near;
     run.fb = { ok, near, said };
-    if (!ok) { c.miss++; run.q.splice(Math.min(3, run.q.length), 0, c); }
+    if (c.test) testMark(c, ok);
+    else if (!ok) { c.miss++; run.q.splice(Math.min(3, run.q.length), 0, c); }
     else finishWord(c);
     sayWord(c.w.h);
     draw();
@@ -667,6 +733,17 @@ export function wordsInit(D) {
     if (hadFocus) { const q = root.querySelector('#wdQ'); q.focus(); try { q.setSelectionRange(pos, pos); } catch (e) {} }
     const ty = root.querySelector('#wdType');
     if (ty && !ty.disabled) ty.focus();
+    /* 받아쓰기 문제는 나오자마자 한 번 들려준다. */
+    if (run?.cur?.dict && !run.cur.played && !run.fb) { run.cur.played = true; sayWord(run.cur.w.h); }
+    /* 짝 맞추기 시계 — 판 전체를 다시 그리지 않고 숫자만 바꾼다. */
+    clearInterval(tick);
+    if (run?.match && !run.match.end && view.tab === 'study') {
+      tick = setInterval(() => {
+        const el = root.querySelector('#wdTimer');
+        if (!el || !run?.match || run.match.end) return clearInterval(tick);
+        el.textContent = ((Date.now() - run.match.t0) / 1000).toFixed(1) + t('초', 's');
+      }, 200);
+    }
   }
   /* 검색 결과만 다시 그린다 — 글자를 칠 때마다 전체를 다시 그리면 IME 조합이 끊긴다. */
   function drawResults() {
@@ -734,6 +811,8 @@ export function wordsInit(D) {
     if (act === 'quit') { if (!run?.cur || confirm(t('공부를 그만할까요? 푼 것은 기록돼요.', 'Stop now? What you answered is saved.'))) { run = null; view = { tab: 'home' }; mark(''); draw(); } return; }
     if (act === 'flip') { if (run) { run.flip = !run.flip; if (run.flip) sayIf(run.cur.w); draw(); } return; }
     if (act === 'rate') return rate(a.dataset.how);
+    if (act === 'tile') return tapTile(+a.dataset.i);
+    if (act === 'rematch') return startRun(run.words, 'match', run.from);
     if (act === 'opt') return answerOpt(+a.dataset.i);
     if (act === 'next') return nextAfterFb();
     if (act === 'giveup') return answerType('');

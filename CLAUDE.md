@@ -52,7 +52,7 @@
 - **생성물은 손으로 고치지 않는다** — 원본을 고치고 도구를 돌린다.
   | 생성물 | 원본 → 도구 |
   |---|---|
-  | `sentence/` `course/` `lesson/` `topik-*/` `eps-topik/` `dictionary/` `blog/` `compare/` `sitemap*.xml` `wotd.js` | 자료 `*.js` · `blog.js` → `node tools/build-pages.mjs` |
+  | `sentence/` `course/` `lesson/` `topik-*/` `eps-topik/` `dictionary/` `topik1-words/` `korean-word-for/` `blog/` `compare/` `sitemap*.xml` `wotd.js` | 자료 `*.js` · `blog.js` · `vocab-topik1.js` → `node tools/build-pages.mjs` |
   | `pricing.html` `terms.html` `refund.html` | `node tools/build-legal.mjs` |
   | `record/*.json` | `node tools/record-list.mjs` |
   | `vocab-topik1.js` | `vocab/data/topik1.json` → `node tools/build-vocab.mjs` |
@@ -65,8 +65,10 @@
 ## 5. 지금 상태 (2026-09-28)
 
 - **진행 중인 큰 일: 「단어」 섹션** — 계획은 `docs/vocab-plan.md`(1~7층, 운영자와 합의). TOPIK I 자료 1,930개(B급) 끝,
-  **2단계(화면 `#words` · `words.js` · 내 단어장 연동) 끝** — 다음은 3단계(검색 유입 · 낱말 쪽 보강). 자료를 고치면
-  `node tools/build-vocab.mjs`. 외우기 기록은 `settings.vocab`, 담은 낱말은 `words`(+ `vocab_id` · `source`).
+  **2단계(화면 `#words` · `words.js` · 내 단어장 연동) 끝, 3단계(낱말 쪽 보강 · `/topik1-words/`) · 4단계(받아쓰기 · 짝 맞추기 · 시험 · `/korean-word-for/`) 끝** — 지금 **5단계(자료 확장)**: TOPIK II 씨앗 8,183개(`vocab/data/topik2.json`, `tools/vocab-seed-topik2.mjs`),
+  안 그래비티가 500개씩 채운다(`docs/antigravity-vocab-topik2-task.md`) — 들어오면 검토.
+  화면 구성(배치)은 운영자가 직접 보고 방향을 준다 — 그 전에는 배치를 크게 바꾸지 않는다.
+  자료를 고치면 `node tools/build-vocab.mjs && node tools/build-pages.mjs`. 활용 · 로마자는 `tools/ko-conj.mjs`(정답표 `check-conj`). 외우기 기록은 `settings.vocab`, 담은 낱말은 `words`(+ `vocab_id` · `source`).
   이 계획에 없는 것은 하지 않고 「다음에」 칸에 적는다. 녹음 파일을 옮길 곳은 `docs/storage-guide.md`
   (추천: 지금 Supabase Storage → 전송량이 늘면 Cloudflare R2, AWS 는 안 씀).
 
