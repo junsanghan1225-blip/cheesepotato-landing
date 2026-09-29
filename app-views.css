@@ -4127,9 +4127,9 @@ div.wd-card:hover { transform:none; }
 @media (max-width:560px){ .wd-modes { grid-template-columns:1fr; } }
 .wd-dir { display:flex; gap:6px; flex-wrap:wrap; margin:14px 0 16px; }
 .wd-addall, .wd-share { margin-top:12px; }
-/* 목적별 단어장 — 알약 한 줄(넘치면 다음 줄). 주제 카드보다 가볍게. */
-.wd-purps { display:flex; flex-wrap:wrap; gap:8px; }
-.wd-purp span { margin-right:4px; }
+/* 「오늘」 낱말 알약의 급수 · 외운 표시 */
+.wd-peek-w small { margin-left:6px; font-size:11px; font-weight:600; color:var(--ink-2); }
+.wd-peek-w.ok { opacity:.55; }
 .wd-share { display:inline-flex; align-items:center; gap:8px; }
 .wd-share-ico { width:18px; height:18px; flex:none; }
 
@@ -4310,5 +4310,8 @@ div.wd-card:hover { transform:none; }
 /* 과정 고르기(TOPIK I · II) */
 .wd-track { display:flex; gap:6px; margin:0 0 12px; }
 .wd-track small { opacity:.6; font-size:12px; margin-left:2px; }
+/* 외우기 탭 「주제별 | 목적별」 토글 — 둘을 한꺼번에 늘어놓지 않는다(운영자 요청). */
+.wd-group { display:inline-flex; gap:4px; padding:4px; margin:18px 0 12px; border:1px solid var(--line); border-radius:999px; background:var(--surface-2); }
+.wd-group .wd-chip { border:0; }
 .wd-focus-track { background:none; border:1px solid var(--line); border-radius:999px; padding:4px 12px; font:inherit; font-size:13px; font-weight:800; color:var(--ink); cursor:pointer; margin-bottom:10px; }
 .wd-focus-track em { font-style:normal; font-weight:600; color:var(--orange-deep); margin-left:4px; }
