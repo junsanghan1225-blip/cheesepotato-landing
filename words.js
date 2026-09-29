@@ -333,7 +333,8 @@ export function wordsInit(D) {
         <label class="wd-searchbox">${SEARCH_ICON}
           <input class="wd-search" id="wdQ" type="search" autocomplete="off" spellcheck="false" enterkeyhint="search"
             aria-label="${esc(t('낱말 찾기', 'Search words'))}"
-            placeholder="${esc(t('먹었어요 · eat · meokda · ㅅㄹ', 'Try 먹었어요, eat, meokda, ㅅㄹ'))}" value="${esc(query)}">
+            placeholder="${esc(t('낱말 찾기 — 먹었어요 · eat · meokda · ㅅㄹ', 'Search — 먹었어요, eat, meokda, ㅅㄹ'))}" value="${esc(query)}">
+          <button type="button" class="wd-clear" data-act="qclear" aria-label="${esc(t('지우기', 'Clear'))}"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg></button>
         </label>
       </div>
       <nav class="wd-tabs" role="tablist">${tabs().map(([k, l]) =>
@@ -1065,6 +1066,7 @@ export function wordsInit(D) {
     if (act === 'dir') { S.dir = a.dataset.dir; save(); return draw(); }
     if (act === 'go') return startRun(view.pick.words, a.dataset.mode, view.pick.from);
     if (act === 'stage') { const o = openStages.get(a.dataset.topic) || new Set(), k = +a.dataset.k; o.has(k) ? o.delete(k) : o.add(k); openStages.set(a.dataset.topic, o); return draw(); }
+    if (act === 'qclear') { const q = root.querySelector('#wdQ'); q.value = ''; q.dispatchEvent(new Event('input', { bubbles: true })); q.focus(); return; }
     if (act === 'group') { group = a.dataset.group === 'goal' ? 'goal' : 'topic'; try { localStorage.setItem('cp-words-group', group); } catch (e) {} return draw(); }
     if (act === 'today') { const ws = todayWords(); view = { tab: 'pick', pick: { words: ws, from: null, title: t(`오늘의 낱말 ${ws.length}개`, `Today’s ${ws.length} words`), back: 'data-tab="home"' } }; mark('today'); return draw(); }
     if (act === 'review') { const d = due().slice(0, 30); view = { tab: 'pick', pick: { words: d, from: null, title: t(`복습 ${d.length}개`, `Review ${d.length}`), back: 'data-tab="home"' } }; mark('review'); return draw(); }
