@@ -267,6 +267,8 @@ export function wordsInit(D) {
     const tp = topic === 'all' ? null : isPurp(topic) ? purpOf(topic) : topicOf(topic);
     return tp ? t(tp.ko, tp.en) : t(`${trackName(S.track)} 필수`, `${trackName(S.track)} essentials`);
   };
+  /* 공유 단추의 고리 그림 — 이모지(🔗)는 기기마다 모양이 달라 SVG 로(운영자 요청). 글자 색을 따른다. */
+  const LINK_ICON = '<svg class="wd-share-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M10 14a4.5 4.5 0 0 0 6.4 0l3.2-3.2a4.5 4.5 0 0 0-6.4-6.4L12 5.6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/><path d="M14 10a4.5 4.5 0 0 0-6.4 0l-3.2 3.2a4.5 4.5 0 0 0 6.4 6.4L12 18.4" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>';
   const SEARCH_ICON = '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="2.2"/><path d="M20 20l-4-4" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>';
   /* 둥근 진도 — conic-gradient 한 겹. 숫자는 가운데에. */
   const ring = (n, of, label) => {
@@ -387,7 +389,7 @@ export function wordsInit(D) {
         <button type="button" class="wd-chip${S.dir === 'en' ? ' on' : ''}" data-act="dir" data-dir="en">${esc(t('뜻 → 한국어', 'Meaning → Korean'))}</button>
       </div>
       <div class="wd-list">${words.map((w) => wordRow(w, learned(idOf(w)) ? '<span class="wd-ok">✓</span>' : '')).join('')}</div>
-      ${words.some((w) => byHead.get(w.h) === w) ? `<button type="button" class="wd-btn ghost wd-share" data-act="share">🔗 ${esc(t('이 낱말들을 링크로 보내기', 'Share these words as a link'))}</button>` : ''}
+      ${words.some((w) => byHead.get(w.h) === w) ? `<button type="button" class="wd-btn ghost wd-share" data-act="share">${LINK_ICON}${esc(t('이 낱말들을 링크로 보내기', 'Share these words as a link'))}</button>` : ''}
       ${view.pick.from ? `<button type="button" class="wd-btn ghost wd-addall" data-act="addall">${esc(t(`이 ${words.length}개 모두 내 단어장에 담기`, `Save all ${words.length} to my wordbook`))}</button>` : ''}`;
   }
 
