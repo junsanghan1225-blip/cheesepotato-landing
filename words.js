@@ -165,21 +165,16 @@ export function wordsInit(D) {
   /* ── 내 길(운영자 결정 2026-09-29: TOPIK 공부하는 학생인지 아닌지로 확실히 나눈다) ────────────
      TOPIK 길 — 내 코스 레벨이 과정을 정한다(L0~L5 TOPIK I 필수 · L6~L7 TOPIK II 필수, 레벨이 없으면 TOPIK I).
      일반 길 — 생활에서 자주 쓰는 낱말(목적 표시 life)을 급수 섞어 자주 나오는 차례로(운영자: 딱 두 길만 — 일반 · TOPIK).
-     길은 단어 화면에서 고른 것(cp-words-path)이 먼저, 없으면 레벨테스트 목표(cp_level.goal), 그것도 없으면 「오늘」에서 묻는다.
+     길은 레벨테스트 목표(cp_level.goal)로만 정한다 — 「TOPIK 준비」면 TOPIK 길, 그 밖 · 테스트 전은 일반 길.
      「오늘」 · 외우기 탭 맨 위 · 내 코스 단어 칸이 모두 이 길 하나를 따른다(입구 하나 → 한 줄 길). */
-  const PATH_KEY = 'cp-words-path';
-  const GOAL_PATH = { topik: 'topik', travel: 'gen', culture: 'gen', life: 'gen', work: 'gen' };
   const readJSON = (k) => { try { return JSON.parse(localStorage.getItem(k) || 'null'); } catch (e) { return null; } };
+  /* 운영자 결정(2026-09-29): 길은 레벨테스트 목표로만 — TOPIK 준비면 TOPIK 길, 그 밖 · 테스트 전은 일반 길. */
   function myPath() {
-    let p = null;
-    try { p = localStorage.getItem(PATH_KEY); } catch (e) {}
     const lv = readJSON('cp_level');
-    if (!p && lv?.goal) p = GOAL_PATH[lv.goal] || null;
-    if (!p) return null;
+    const p = lv?.goal === 'topik' ? 'topik' : 'gen';
     if (p === 'topik') return { kind: 'topik', topic: `all:${(lv?.lv ?? 0) >= 6 && TRACKS.topik2.length ? 'topik2' : 'topik1'}` };
     return { kind: 'life', topic: 'gen' };   // 예전에 고른 여행 · EPS · 드라마(p:…)도 일반으로
   }
-  function setPath(p) { try { localStorage.setItem(PATH_KEY, p); } catch (e) {} }
   { const p0 = myPath(); if (p0?.kind === 'topik') setTrack(p0.topic.slice(4)); }   // 둘러보기(외우기 탭)도 처음엔 내 과정으로
   /* TOPIK II 예문은 처음엔 비어 있다 — 낱말 화면 · 카드가 그 낱말을 그릴 때 그 낱말이 든 조각(500개)만 받아 채우고
      다시 그린다. 받는 동안에도 예문 칸만 비고 나머지는 그대로 보인다. 예문으로 찾기(검색 7순위)는 받은 조각만 본다. */
@@ -209,7 +204,7 @@ export function wordsInit(D) {
   const chunk = (list) => { const out = []; for (let i = 0; i < list.length; i += SESSION) out.push(list.slice(i, i + SESSION)); return out; };
   /* 목적별 단어장(EPS · 생활 · 직장 …) — 「p:<목적>」 꼴의 주제로 다룬다. 목적은 급수를 가리지 않으니 두 과정을 다 본다
      (TOPIK I 먼저 · 자주 나오는 차례). 표시는 안 그래비티가 채울 때 단 purposes(u) 그대로. */
-  const PURP_LOOK = { eps: 30, life: 150, work: 215, medical: 0, campus: 225, travel: 195, kculture: 320 };   // 목적마다 색(hue) — 그림은 IC
+  const PURP_LOOK = { life: 150, work: 215, medical: 0, campus: 225, travel: 195, kculture: 320 };   // EPS 는 따로 선 갈래라 뺀다(운영자 결정)   // 목적마다 색(hue) — 그림은 IC
   const isPurp = (id) => String(id).startsWith('p:');
   const purpOf = (id) => (D.PURPOSES || []).find((x) => `p:${x.id}` === id);
   const listFor = (topic) => (topic === 'all' ? VOCAB : String(topic).startsWith('all:') ? TRACKS[topic.slice(4)] || []
@@ -422,24 +417,13 @@ export function wordsInit(D) {
   /* 오늘 — 할 일 하나만 크게: 오늘의 새 낱말 10개와 시작 단추. 복습할 것이 있으면 그 위에 한 줄. */
   /* 「오늘」 — ① 복습 → ② 내 길의 다음 역 10개(운영자 결정 A: 섞은 10개 대신). 길이 없으면 먼저 하나만 묻는다.
      레퍼런스(여백 · 큰 글씨 · 카드 하나)를 치즈감자 색(베이지 · 짙은 갈색 띠 · 치즈 주황)으로. */
-  let choosing = false;   // 「바꾸기」를 눌러 길을 다시 고르는 중
-  function drawChoose() {
-    return `<div class="wd-day wd-choose">
-      <span class="wd-day-k">${esc(t('시작하기 전에 하나만', 'One question first'))}</span>
-      <b class="wd-choose-t">${esc(t('어떤 한국어를 공부하나요?', 'What are you learning Korean for?'))}</b>
-      <div class="wd-choose-two">
-        <button type="button" class="wd-choose-b" data-act="path" data-p="gen">${ico('life')}<b>${esc(t('일반 한국어', 'Everyday Korean'))}</b><span>${esc(t('생활에서 자주 쓰는 말부터 · 급수 상관없이', 'The words you use most, any level'))}</span></button>
-        <button type="button" class="wd-choose-b topik" data-act="path" data-p="topik">${ico('trophy')}<b>${esc(t('TOPIK 준비', 'TOPIK prep'))}</b><span>${esc(t('급수별 필수 낱말 · 내 코스 레벨에 맞춰', 'Essentials by level, matched to your course'))}</span></button>
-      </div>
-    </div>`;
-  }
   function drawHome() {
     const d = due();
-    const path = choosing ? null : myPath();
+    const path = myPath();
     const hr = new Date().getHours();
     const hello = hr < 5 || hr >= 18 ? t('좋은 저녁이에요!', 'Good evening!') : hr < 12 ? t('좋은 아침이에요!', 'Good morning!') : t('좋은 오후예요!', 'Good afternoon!');
     const dueLine = d.length ? `<button type="button" class="wd-due" data-act="review"><span>${esc(t('① 오늘 복습', '① Review today'))}</span><b>${d.length}</b><em>${esc(t('먼저 하기 →', 'Do first →'))}</em></button>` : '';
-    if (!path) return `<div class="wd-today"><div class="wd-hello"><p class="wd-hello-k">${esc(hello)}</p></div>${dueLine}${drawChoose()}</div>`;
+    if (!path) return `<div class="wd-today"><div class="wd-hello"><p class="wd-hello-k">${esc(hello)}</p></div>${dueLine}</div>`;
     const list = listFor(path.topic), ss = chunk(list), n = nextSession(path.topic);
     const ws = n == null ? [] : ss[n];
     const got = ws.filter((w) => learned(idOf(w))).length;
@@ -450,7 +434,7 @@ export function wordsInit(D) {
       <div class="wd-hello">
         <p class="wd-hello-k">${esc(hello)}</p>
         <p class="wd-hello-p">${esc(t('내 길', 'My path'))} <b>${esc(pathName)}</b><small> · ${doneAll.toLocaleString()} / ${list.length.toLocaleString()} ${esc(t('낱말', 'words'))}</small>
-          <button type="button" class="wd-more wd-path-x" data-act="pathchange">${esc(t('바꾸기', 'Change'))}</button></p>
+          <button type="button" class="wd-more wd-path-x" data-act="pathchange">${esc(t('레벨테스트로 바꾸기', 'Change via level test'))}</button></p>
         ${bar(doneAll, list.length)}
       </div>
       ${dueLine}
@@ -1247,8 +1231,7 @@ export function wordsInit(D) {
     if (act === 'stage') { const o = openStages.get(a.dataset.topic) || new Set(), k = +a.dataset.k; o.has(k) ? o.delete(k) : o.add(k); openStages.set(a.dataset.topic, o); return draw(); }
     if (act === 'qclear') { const q = root.querySelector('#wdQ'); q.value = ''; q.dispatchEvent(new Event('input', { bubbles: true })); q.focus(); return; }
     if (act === 'group') { group = a.dataset.group === 'goal' ? 'goal' : 'topic'; try { localStorage.setItem('cp-words-group', group); } catch (e) {} return draw(); }
-    if (act === 'path') { setPath(a.dataset.p); choosing = false; const p = myPath(); if (p?.kind === 'topik') setTrack(p.topic.slice(4)); D.track('단어길고름'); return draw(); }
-    if (act === 'pathchange') { choosing = true; return draw(); }
+    if (act === 'pathchange') return D.openTest?.();   // 길은 레벨테스트 목표로 바꾼다
     if (act === 'review') { const d = due().slice(0, 30); view = { tab: 'pick', pick: { words: d, from: null, title: t(`복습 ${d.length}개`, `Review ${d.length}`), back: 'data-tab="home"' } }; mark('review'); return draw(); }
     if (act === 'starstudy') { const d = starIds().map((id) => byId.get(id)).filter(Boolean); view = { tab: 'pick', pick: { words: d, from: null, title: t(`별표 ${d.length}개`, `Starred ${d.length}`), back: 'data-tab="mine"' } }; return draw(); }
     if (act === 'star') {
