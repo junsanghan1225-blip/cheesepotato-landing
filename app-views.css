@@ -4806,3 +4806,15 @@ div.wd-card:hover { transform:none; }
 .lt-cal-d.now { box-shadow:inset 0 0 0 1.5px var(--line); }
 .lt-cal-d.on, .lt-cal-d.on:hover:not(:disabled) { background:var(--orange); color:#fff; font-weight:800; }
 .lt-cal-d:disabled { color:var(--ink-3); opacity:.35; cursor:default; }
+
+/* 내 수준(TOPIK) — 막대 아래 급수 눈금 1 ~ 6 과 TOPIK I · II 묶음. 눈금은 손잡이 가운데(15px 안쪽)에 맞춘다. */
+.lt-ticks { position:relative; width:100%; height:18px; margin:0 0 2px; }
+.lt-ticks span { position:absolute; top:0; transform:translateX(-50%); white-space:nowrap; font-size:12.5px; font-weight:700; color:var(--ink-3); font-variant-numeric:tabular-nums; }
+.lt-ticks span:nth-child(1) { left:15px; } .lt-ticks span:nth-child(2) { left:calc(15px + (100% - 30px) * .2); }
+.lt-ticks span:nth-child(3) { left:calc(15px + (100% - 30px) * .4); } .lt-ticks span:nth-child(4) { left:calc(15px + (100% - 30px) * .6); }
+.lt-ticks span:nth-child(5) { left:calc(15px + (100% - 30px) * .8); } .lt-ticks span:nth-child(6) { left:calc(100% - 15px); }
+.lt-ticks span.on { color:var(--orange-deep); }
+.lt-groups { position:relative; width:100%; height:26px; }
+.lt-groups span { position:absolute; top:0; padding-top:5px; border-top:2px solid var(--line); text-align:center; font-size:12px; font-weight:800; color:var(--ink-2); }
+.lt-groups .g1 { left:5px; width:calc((100% - 30px) * .2 + 20px); }
+.lt-groups .g2 { left:calc(15px + (100% - 30px) * .4 - 10px); width:calc((100% - 30px) * .6 + 20px); }
