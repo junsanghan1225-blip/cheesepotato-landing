@@ -3692,6 +3692,21 @@
 .my-step.now { background:var(--orange); color:#fff; }
 .my-meter { display:flex; align-items:center; gap:12px; }
 .my-meter .lc-bar { flex:1; }
+/* 내 코스 — 단어 칸(급수 목표 · 외운 수 · 연속 · 오늘 · 복습 · 폴더) */
+.my-words { display:flex; flex-direction:column; gap:10px; width:100%; text-align:left; padding:16px 18px; border:1px solid var(--line); border-radius:var(--r-l);
+  background:var(--surface); color:var(--ink); font:inherit; cursor:pointer; }
+.my-words:hover { border-color:rgba(var(--ink-rgb),.28); }
+.my-words-top { display:flex; align-items:baseline; justify-content:space-between; gap:12px; }
+.my-words-t { font-size:14.5px; font-weight:800; }
+.my-words-n { font-size:13px; color:var(--ink-2); white-space:nowrap; }
+.my-words-n b { font-size:20px; color:var(--ink); }
+.my-words .lc-bar { display:block; flex:none; height:8px; border-radius:4px; overflow:hidden; background:color-mix(in srgb, var(--ink) 9%, transparent); }
+.my-words .lc-fill { display:block; height:100%; min-width:4px; border-radius:4px; background:var(--orange); }
+.my-words-stats { display:grid; grid-template-columns:repeat(4, 1fr); gap:8px; }
+.my-words-stats span { display:flex; flex-direction:column; gap:1px; padding:8px 10px; border-radius:12px; background:var(--surface-2); font-size:11.5px; color:var(--ink-2); }
+.my-words-stats b { font-size:17px; color:var(--ink); }
+@media (max-width:560px){ .my-words-stats { grid-template-columns:1fr 1fr; } }
+.my-words-s { font-size:13px; font-weight:800; color:var(--orange-deep); }
 .my-next {
   display:flex; flex-direction:column; gap:4px; text-align:left; width:100%; cursor:pointer;
   background:var(--ink-bg, #1c1714); color:#fff; border:none; border-radius:16px; padding:16px 18px;
@@ -4591,3 +4606,51 @@ div.wd-card:hover { transform:none; }
 .wd-sheet-save { width:100%; margin-top:18px; }
 .wd-toast { position:fixed; z-index:130; left:50%; bottom:calc(28px + env(safe-area-inset-bottom)); transform:translateX(-50%); padding:12px 18px; border-radius:999px;
   background:#1B1512; color:#FBF5EC; font-size:14px; font-weight:700; box-shadow:0 10px 24px -10px rgba(27,21,18,.6); animation:wdFade .2s ease; white-space:nowrap; }
+
+/* 사이트 안의 작은 창(브라우저 prompt · confirm 대신) */
+.wd-dlg-bg { position:fixed; inset:0; z-index:140; background:rgba(27,21,18,.45); animation:wdFade .15s ease; }
+.wd-dlg { position:fixed; z-index:141; left:50%; top:50%; transform:translate(-50%, -50%); width:min(400px, calc(100% - 32px)); box-sizing:border-box;
+  padding:22px; border-radius:22px; background:var(--surface); box-shadow:0 24px 60px -20px rgba(27,21,18,.5); animation:wdPop .2s cubic-bezier(.22,1,.36,1); }
+@keyframes wdPop { from { opacity:0; transform:translate(-50%, -46%) scale(.96); } to { opacity:1; transform:translate(-50%, -50%); } }
+.wd-dlg-t { display:block; font-size:18px; font-weight:800; color:var(--ink); }
+.wd-dlg-m { margin:8px 0 0; font-size:14px; line-height:1.55; color:var(--ink-2); }
+.wd-dlg-in { width:100%; box-sizing:border-box; height:48px; margin-top:14px; padding:0 14px; font:inherit; font-size:16px; color:var(--ink);
+  border:1.5px solid var(--line); border-radius:12px; background:var(--surface-2); }
+.wd-dlg-in:focus { outline:none; border-color:var(--orange); background:var(--surface); }
+.wd-dlg-b { display:flex; justify-content:flex-end; gap:8px; margin-top:18px; }
+.wd-dlg-b .wd-btn { min-width:88px; }
+.wd-btn.danger { background:var(--red); color:#fff; border-color:var(--red); }
+
+/* ▶ 공부하기 — 플레이 단추(운영자 요청: 「카드 · 외우기로 공부하기」가 어색하다) */
+.wd-play { display:inline-flex; align-items:center; gap:10px; height:50px; padding:0 22px 0 8px; border:0; border-radius:999px; cursor:pointer;
+  background:var(--orange); color:#1B1512; font:inherit; font-size:16px; font-weight:800; box-shadow:0 8px 18px -10px rgba(196,85,28,.7); transition:transform .12s; }
+.wd-play:active { transform:scale(.96); }
+.wd-play-i { display:grid; place-items:center; width:36px; height:36px; border-radius:50%; background:#1B1512; color:var(--orange); }
+.wd-play-i .wd-i { width:16px; height:16px; margin-left:2px; }
+.wd-play.ghost { background:var(--surface); color:var(--ink); border:1px solid var(--line); box-shadow:none; }
+.wd-play.ghost .wd-play-i { background:var(--orange); color:#1B1512; }
+
+/* 세션 미리보기 — 새 낱말을 한 장씩(운영자 요청). 카드는 크림색 종이 한 장, 아래 이전 · 다음. */
+.wd-segs-hd { position:static; flex:1; display:flex; gap:4px; }
+.wd-segs-hd i { flex:1; height:5px; border-radius:3px; background:color-mix(in srgb, var(--ink) 12%, transparent); }
+.wd-segs-hd i.on { background:var(--orange); }
+.wd-intro-k { margin:0 0 12px; font-size:13px; font-weight:700; color:var(--ink-2); }
+.wd-intro-k b { float:right; color:var(--ink); }
+.wd-intro { display:flex; flex-direction:column; align-items:flex-start; gap:4px; min-height:320px; padding:26px 24px; border-radius:28px;
+  background:#FFF8EE; color:#1B1512; box-shadow:0 20px 40px -24px rgba(27,21,18,.4), 0 0 0 1px rgba(27,21,18,.05); animation:wdCard .28s ease; }
+.wd-intro .wd-card-meta { background:#FFE6D1; color:#C4551C; }
+.wd-intro-w { display:flex; align-items:center; gap:12px; margin-top:10px; }
+.wd-intro-w b { font-size:48px; font-weight:900; letter-spacing:-.03em; line-height:1.1; }
+.wd-intro-say { display:grid; place-items:center; width:44px; height:44px; border:0; border-radius:50%; background:#FF914D; color:#1B1512; cursor:pointer; }
+.wd-intro-say .wd-i { width:21px; height:21px; }
+.wd-intro-say.sm { display:inline-grid; width:30px; height:30px; margin-left:8px; vertical-align:-7px; background:#FFE6D1; color:#C4551C; }
+.wd-intro-say.sm .wd-i { width:16px; height:16px; }
+.wd-intro-rom { font-size:16px; color:#8C7A66; }
+.wd-intro-m { margin:16px 0 0; font-size:22px; font-weight:800; }
+.wd-intro-x { margin-top:14px; padding:14px 16px; width:100%; box-sizing:border-box; border-radius:16px; background:#fff; }
+.wd-intro-x p { margin:0; font-size:16px; line-height:1.6; }
+.wd-intro-x small { display:block; margin-top:4px; font-size:13.5px; color:#8C7A66; }
+.wd-intro-nav { display:flex; gap:10px; margin-top:18px; }
+.wd-intro-nav .wd-btn-big { flex:1; }
+.wd-intro-nav .wd-btn[disabled] { opacity:.4; cursor:default; }
+.wd-pick-ask { margin:0 0 10px; padding:12px 16px; border-radius:14px; background:color-mix(in srgb, var(--orange) 14%, var(--surface)); font-size:15px; font-weight:800; color:var(--ink); }
