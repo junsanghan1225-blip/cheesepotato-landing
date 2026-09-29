@@ -164,11 +164,11 @@ export function wordsInit(D) {
   function setTrack(k) { if (!TRACKS[k]?.length) return; S.track = k; save(); VOCAB = TRACKS[k]; }
   /* ── 내 길(운영자 결정 2026-09-29: TOPIK 공부하는 학생인지 아닌지로 확실히 나눈다) ────────────
      TOPIK 길 — 내 코스 레벨이 과정을 정한다(L0~L5 TOPIK I 필수 · L6~L7 TOPIK II 필수, 레벨이 없으면 TOPIK I).
-     생활 길 — 목적 낱말(한국 생활 · 여행 · 일(EPS) · 드라마)을 급수 섞어 자주 나오는 차례로.
+     일반 길 — 생활에서 자주 쓰는 낱말(목적 표시 life)을 급수 섞어 자주 나오는 차례로(운영자: 딱 두 길만 — 일반 · TOPIK).
      길은 단어 화면에서 고른 것(cp-words-path)이 먼저, 없으면 레벨테스트 목표(cp_level.goal), 그것도 없으면 「오늘」에서 묻는다.
      「오늘」 · 외우기 탭 맨 위 · 내 코스 단어 칸이 모두 이 길 하나를 따른다(입구 하나 → 한 줄 길). */
   const PATH_KEY = 'cp-words-path';
-  const GOAL_PATH = { topik: 'topik', travel: 'p:travel', culture: 'p:kculture', life: 'p:life', work: 'p:eps' };
+  const GOAL_PATH = { topik: 'topik', travel: 'gen', culture: 'gen', life: 'gen', work: 'gen' };
   const readJSON = (k) => { try { return JSON.parse(localStorage.getItem(k) || 'null'); } catch (e) { return null; } };
   function myPath() {
     let p = null;
@@ -177,7 +177,7 @@ export function wordsInit(D) {
     if (!p && lv?.goal) p = GOAL_PATH[lv.goal] || null;
     if (!p) return null;
     if (p === 'topik') return { kind: 'topik', topic: `all:${(lv?.lv ?? 0) >= 6 && TRACKS.topik2.length ? 'topik2' : 'topik1'}` };
-    return { kind: 'life', topic: p };
+    return { kind: 'life', topic: 'gen' };   // 예전에 고른 여행 · EPS · 드라마(p:…)도 일반으로
   }
   function setPath(p) { try { localStorage.setItem(PATH_KEY, p); } catch (e) {} }
   { const p0 = myPath(); if (p0?.kind === 'topik') setTrack(p0.topic.slice(4)); }   // 둘러보기(외우기 탭)도 처음엔 내 과정으로
@@ -213,6 +213,7 @@ export function wordsInit(D) {
   const isPurp = (id) => String(id).startsWith('p:');
   const purpOf = (id) => (D.PURPOSES || []).find((x) => `p:${x.id}` === id);
   const listFor = (topic) => (topic === 'all' ? VOCAB : String(topic).startsWith('all:') ? TRACKS[topic.slice(4)] || []
+    : topic === 'gen' ? ALL.filter((w) => w.u.includes('life'))
     : isPurp(topic) ? ALL.filter((w) => w.u.includes(topic.slice(2))) : VOCAB.filter((w) => inTopic(w, topic)));
   const sayWord = (h) => D.say(h, D.audioFor(h));
   const icon = D.ICON;
@@ -375,12 +376,14 @@ export function wordsInit(D) {
   };
   const look = (id) => {
     if (String(id).startsWith('all')) return [ico('trophy'), 25];
+    if (id === 'gen') return [ico('life'), 150];
     const k = isPurp(id) ? id.slice(2) : id, h = isPurp(id) ? PURP_LOOK[k] : TOPIC_LOOK[k];
     return [ico(k), h ?? 25];
   };
   /* 주제 · 목적 · 과정 전체의 이름 하나로 — 세션 제목과 주제 화면이 같이 쓴다. */
   const topicName = (topic) => {
     if (String(topic).startsWith('all:')) { const k = topic.slice(4); return t(`${trackName(k)} 필수`, `${trackName(k)} essentials`); }
+    if (topic === 'gen') return t('일반 한국어', 'Everyday Korean');
     const tp = topic === 'all' ? null : isPurp(topic) ? purpOf(topic) : topicOf(topic);
     return tp ? t(tp.ko, tp.en) : t(`${trackName(S.track)} 필수`, `${trackName(S.track)} essentials`);
   };
@@ -421,13 +424,13 @@ export function wordsInit(D) {
      레퍼런스(여백 · 큰 글씨 · 카드 하나)를 치즈감자 색(베이지 · 짙은 갈색 띠 · 치즈 주황)으로. */
   let choosing = false;   // 「바꾸기」를 눌러 길을 다시 고르는 중
   function drawChoose() {
-    const life = [['p:life', t('한국 생활', 'Life in Korea')], ['p:travel', t('여행', 'Travel')], ['p:eps', t('일 · EPS', 'Work · EPS')], ['p:kculture', t('드라마 · K-pop', 'K-drama & K-pop')]];
     return `<div class="wd-day wd-choose">
       <span class="wd-day-k">${esc(t('시작하기 전에 하나만', 'One question first'))}</span>
       <b class="wd-choose-t">${esc(t('어떤 한국어를 공부하나요?', 'What are you learning Korean for?'))}</b>
-      <button type="button" class="wd-choose-topik" data-act="path" data-p="topik"><b>${esc(t('TOPIK 준비', 'TOPIK prep'))}</b><span>${esc(t('급수별 필수 낱말을 자주 나오는 차례로 · 내 코스 레벨에 맞춰', 'Essential words by level, most frequent first — matched to your course level'))}</span></button>
-      <span class="wd-choose-or">${esc(t('생활 한국어 — 급수 상관없이 쓰는 말부터', 'Everyday Korean — the words you will use, any level'))}</span>
-      <div class="wd-choose-life">${life.map(([p, n]) => `<button type="button" data-act="path" data-p="${p}">${look(p)[0]}${esc(n)}</button>`).join('')}</div>
+      <div class="wd-choose-two">
+        <button type="button" class="wd-choose-b" data-act="path" data-p="gen">${ico('life')}<b>${esc(t('일반 한국어', 'Everyday Korean'))}</b><span>${esc(t('생활에서 자주 쓰는 말부터 · 급수 상관없이', 'The words you use most, any level'))}</span></button>
+        <button type="button" class="wd-choose-b topik" data-act="path" data-p="topik">${ico('trophy')}<b>${esc(t('TOPIK 준비', 'TOPIK prep'))}</b><span>${esc(t('급수별 필수 낱말 · 내 코스 레벨에 맞춰', 'Essentials by level, matched to your course'))}</span></button>
+      </div>
     </div>`;
   }
   function drawHome() {
