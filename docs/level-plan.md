@@ -152,6 +152,8 @@
 | ④ | TOPIK II 낱말 | 6,500 / 8,183 | 14 ~ 17묶음 | 안티(멈춤) |
 
 - ②가 모이기 전에는 승급 테스트를 **그 레벨 8문항 + 앞 레벨 2문항**으로 시작한다(7층 3단계).
+- **지시문(2026-09-29, 안티 주간 사용량이 돌아오면 넘긴다)** — ① `docs/antigravity-beginner-lessons-task.md`(L2 · L3 코스 4강까지, 22강 —
+  `course-prompt` · `course-merge` 가 이제 초급 코스도 다룬다) · ② `docs/antigravity-leveltest-more-task.md`(L0 ~ L6 각 +12, 84문제).
 
 ## 7층 — 만드는 순서 · 위험과 되돌리기 ✏️
 
