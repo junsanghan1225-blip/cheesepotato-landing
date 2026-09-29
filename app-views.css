@@ -3692,6 +3692,21 @@
 .my-step.now { background:var(--orange); color:#fff; }
 .my-meter { display:flex; align-items:center; gap:12px; }
 .my-meter .lc-bar { flex:1; }
+/* 내 코스 — 단어 칸(급수 목표 · 외운 수 · 연속 · 오늘 · 복습 · 폴더) */
+.my-words { display:flex; flex-direction:column; gap:10px; width:100%; text-align:left; padding:16px 18px; border:1px solid var(--line); border-radius:var(--r-l);
+  background:var(--surface); color:var(--ink); font:inherit; cursor:pointer; }
+.my-words:hover { border-color:rgba(var(--ink-rgb),.28); }
+.my-words-top { display:flex; align-items:baseline; justify-content:space-between; gap:12px; }
+.my-words-t { font-size:14.5px; font-weight:800; }
+.my-words-n { font-size:13px; color:var(--ink-2); white-space:nowrap; }
+.my-words-n b { font-size:20px; color:var(--ink); }
+.my-words .lc-bar { display:block; height:8px; border-radius:4px; overflow:hidden; background:color-mix(in srgb, var(--ink) 9%, transparent); }
+.my-words .lc-fill { display:block; height:100%; min-width:4px; border-radius:4px; background:var(--orange); }
+.my-words-stats { display:grid; grid-template-columns:repeat(4, 1fr); gap:8px; }
+.my-words-stats span { display:flex; flex-direction:column; gap:1px; padding:8px 10px; border-radius:12px; background:var(--surface-2); font-size:11.5px; color:var(--ink-2); }
+.my-words-stats b { font-size:17px; color:var(--ink); }
+@media (max-width:560px){ .my-words-stats { grid-template-columns:1fr 1fr; } }
+.my-words-s { font-size:13px; font-weight:800; color:var(--orange-deep); }
 .my-next {
   display:flex; flex-direction:column; gap:4px; text-align:left; width:100%; cursor:pointer;
   background:var(--ink-bg, #1c1714); color:#fff; border:none; border-radius:16px; padding:16px 18px;

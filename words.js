@@ -267,6 +267,15 @@ export function wordsInit(D) {
   function recent() { try { return JSON.parse(localStorage.getItem(RECENT) || '[]'); } catch (e) { return []; } }
   function addRecent(h) { try { localStorage.setItem(RECENT, JSON.stringify([h, ...recent().filter((x) => x !== h)].slice(0, 8))); } catch (e) {} }
 
+  /* 「내 코스」가 읽는 짧은 요약(cp-words-sum) — 급수별 외운 수 · 전체 수 · 복습 · 연속 일수. 내 코스는 무거운 단어 자료를
+     받지 않고 이것만 읽는다(운영자 요청: 내 코스에 단어 진도). 그릴 때마다 새로 쓴다. */
+  function writeSum() {
+    try {
+      const lv = {}, tot = {};
+      ALL.forEach((w) => { tot[w.l] = (tot[w.l] || 0) + 1; if (learned(idOf(w))) lv[w.l] = (lv[w.l] || 0) + 1; });
+      localStorage.setItem('cp-words-sum', JSON.stringify({ at: Date.now(), lv, tot, due: due().length, streak: streak(), today: S.days[today()] || 0, folders: folders().length }));
+    } catch (e) { /* 막힌 브라우저 — 내 코스는 요약 없이 그린다 */ }
+  }
   const due = () => Object.entries(S.w).filter(([id, v]) => v[1] <= today() && byId.has(id))
     .sort((a, b) => a[1][1] - b[1][1]).map(([id]) => byId.get(id));
   function nextSession(topic = 'all') {
@@ -1109,6 +1118,7 @@ export function wordsInit(D) {
     const hadFocus = document.activeElement?.id === 'wdQ';
     const pos = hadFocus ? document.activeElement.selectionStart : null;
     root.innerHTML = shell(body) + (sheet ? drawSheet() : '') + (dlg ? drawDlg() : '');
+    writeSum();
     if (view.tab === 'intro' && view.intro.said !== view.intro.i) { view.intro.said = view.intro.i; sayWord(view.intro.words[view.intro.i].h); }
     if (dlg) { const inp = root.querySelector('#wdDlgIn'); if (inp) { inp.focus(); inp.select(); } else root.querySelector('.wd-dlg [data-act="dlgok"]')?.focus(); }
     root.classList.toggle('wd-studying', view.tab === 'study' || view.tab === 'intro');
