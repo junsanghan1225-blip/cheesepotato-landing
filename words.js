@@ -302,6 +302,10 @@ export function wordsInit(D) {
     flag: '<path d="M5 21V4M5 4h11l-2 4 2 4H5"/>',
     arrow: '<path d="M5 12h14M13 6l6 6-6 6"/>',
     chev: '<path d="M9 6l6 6-6 6"/>',
+    x: '<path d="M6 6l12 12M18 6L6 18"/>',
+    flip: '<path d="M4 12a8 8 0 0 1 14-5.3M20 12a8 8 0 0 1-14 5.3"/><path d="M18 3v4h-4M6 21v-4h4"/>',
+    q: '<path d="M9.2 9a3 3 0 1 1 4.3 2.7c-.9.5-1.5 1.2-1.5 2.3"/><path d="M12 18h.01"/>',
+    sound: '<path d="M4 10v4h4l5 4V6L8 10z"/><path d="M16.5 9a4 4 0 0 1 0 6M19 6.5a7.5 7.5 0 0 1 0 11"/>',
   };
   const ico = (k) => `<svg class="wd-i" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">${IC[k] || IC.book}</svg>`;
   /* 주제마다 그림 하나와 색 하나(hue) — 카드 목록이 한눈에 갈리게. 색은 --h 로 넘기고 CSS 가 섞는다. */
@@ -333,7 +337,8 @@ export function wordsInit(D) {
         <label class="wd-searchbox">${SEARCH_ICON}
           <input class="wd-search" id="wdQ" type="search" autocomplete="off" spellcheck="false" enterkeyhint="search"
             aria-label="${esc(t('낱말 찾기', 'Search words'))}"
-            placeholder="${esc(t('먹었어요 · eat · meokda · ㅅㄹ', 'Try 먹었어요, eat, meokda, ㅅㄹ'))}" value="${esc(query)}">
+            placeholder="${esc(t('낱말 찾기 — 먹었어요 · eat · meokda · ㅅㄹ', 'Search — 먹었어요, eat, meokda, ㅅㄹ'))}" value="${esc(query)}">
+          <button type="button" class="wd-clear" data-act="qclear" aria-label="${esc(t('지우기', 'Clear'))}"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg></button>
         </label>
       </div>
       <nav class="wd-tabs" role="tablist">${tabs().map(([k, l]) =>
@@ -517,14 +522,14 @@ export function wordsInit(D) {
      이름을 붙여 둔다 — 낱말 목록 위에 두었더니 눌러도 목록이 안 바뀌어 고장 난 것처럼 보였다(운영자 지적). */
   function drawPick() {
     const { words, title, back } = view.pick;
+    /* 공부 방식은 셋만 크게 — 배우는 차례(보기 → 외우기 → 확인)로 번호를 붙인다(운영자 요청: 여섯은 많다).
+       쓰기 · 받아쓰기 · 짝 맞추기는 지우지 않고 아래 「다른 방법」 한 줄로. */
     const MODES = [
-      ['card', t('카드', 'Cards'), t('뒤집어 보며 외우기', 'Flip and rate')],
-      ['learn', t('외우기', 'Learn'), t('고르기 → 쓰기', 'Choose, then type')],
-      ['write', t('쓰기', 'Write'), t('뜻 보고 한국어로', 'Type the Korean')],
-      ['dict', t('받아쓰기', 'Dictation'), t('듣고 쓰기', 'Listen and type')],
-      ['match', t('짝 맞추기', 'Match'), t('시간 재기', 'Against the clock')],
-      ...(words.length >= 2 ? [['test', t('시험', 'Test'), t('섞어서 점수 내기', 'Mixed, scored')]] : []),
+      ['card', t('카드로 보기', 'Cards'), t('뒤집어 보며 처음 익히기', 'Flip through to meet the words')],
+      ['learn', t('외우기', 'Learn'), t('고르기 → 직접 쓰기로 굳히기', 'Choose, then type to lock them in')],
+      words.length >= 2 ? ['test', t('시험 보기', 'Test'), t('섞어서 풀고 점수 확인', 'Mixed questions, scored')] : ['write', t('쓰기', 'Write'), t('뜻 보고 한국어로', 'Type the Korean')],
     ];
+    const MORE = [['write', t('쓰기', 'Write')], ['dict', t('받아쓰기', 'Dictation')], ['match', t('짝 맞추기', 'Match')]].filter(([k]) => !MODES.some((m) => m[0] === k));
     const shareable = words.some((w) => byHead.get(w.h) === w);
     return `<button type="button" class="wd-back" ${back}>← ${esc(t('뒤로', 'Back'))}</button>
       <div class="wd-pick-hd"><h3 class="wd-h3 wd-h3-big">${esc(title)}</h3></div>
@@ -535,8 +540,9 @@ export function wordsInit(D) {
           <button type="button" class="${S.dir === 'en' ? 'on' : ''}" data-act="dir" data-dir="en">${esc(t('뜻 → 한국어', 'Meaning → Korean'))}</button>
         </div>
       </div>
-      <div class="wd-modes">${MODES.map(([k, name, sub]) =>
-        `<button type="button" class="wd-mode" data-act="go" data-mode="${k}">${ico(k)}<b>${esc(name)}</b><span>${esc(sub)}</span></button>`).join('')}</div>
+      <div class="wd-modes wd-modes3">${MODES.map(([k, name, sub], i) =>
+        `<button type="button" class="wd-mode" data-act="go" data-mode="${k}"><span class="wd-mode-top">${ico(k)}<em>${i + 1}</em></span><b>${esc(name)}</b><span>${esc(sub)}</span></button>`).join('')}</div>
+      <p class="wd-more-modes">${esc(t('다른 방법', 'Other ways'))}: ${MORE.map(([k, name]) => `<button type="button" class="wd-link" data-act="go" data-mode="${k}">${esc(name)}</button>`).join('<span aria-hidden="true">·</span>')}</p>
       <p class="wd-pick-n">${esc(t(`낱말 ${words.length}개`, `${words.length} words`))}</p>
       <div class="wd-list">${words.map((w) => wordRow(w, learned(idOf(w)) ? `<span class="wd-ok">${ico('check')}</span>` : '')).join('')}</div>
       <div class="wd-pick-foot">
@@ -842,21 +848,32 @@ export function wordsInit(D) {
     const head = `<div class="wd-study-hd"><button type="button" class="wd-x" data-act="quit" aria-label="${esc(t('그만하기', 'Quit'))}">✕</button>
       ${bar(doneCount(), r.total)}<span class="wd-n">${doneCount()} / ${r.total}</span>
       <button type="button" class="wd-star${isStar(id) ? ' on' : ''}" data-act="star" data-id="${esc(id)}" aria-label="${esc(t('별표', 'Star'))}">${isStar(id) ? '★' : '☆'}</button></div>`;
+    /* 카드 — 틴더처럼(운영자 요청): 겹쳐 쌓인 카드, 오른쪽으로 밀면 알아요 · 왼쪽 몰라요(밀수록 기울고 도장이 진해진다),
+       눌러서 뒤집기. 아래 동그란 단추 넷(몰라요 · 헷갈려요 · 듣기 · 알아요). 밀기는 아래 pointer 처리. */
     if (r.mode === 'card') {
       needEx(w);
+      /* 두 번째 레퍼런스(틴더 카드) — 어두운 카드 위쪽에 스토리처럼 칸 진도, 낱말은 왼쪽 아래 크게, 급수는 작은 칩. */
+      const segN = Math.min(r.total, 20), segOn = Math.round((doneCount() / Math.max(1, r.total)) * segN);
+      const segs = `<span class="wd-segs" aria-hidden="true">${Array.from({ length: segN }, (_, i) => `<i class="${i < segOn ? 'on' : ''}"></i>`).join('')}</span>`;
+      const meta = `<span class="wd-card-meta">${esc([w.l ? t(`${w.l}급`, `Lv ${w.l}`) : '', w.p || ''].filter(Boolean).join(' · '))}</span>`;
       const front = r.dir === 'ko'
-        ? `<b class="wd-big">${esc(w.h)}</b><span class="wd-pos">${esc(w.p || '')}</span>`
-        : `<b class="wd-big wd-big-en">${esc(mean(w))}</b><span class="wd-pos">${esc(w.p || '')}</span>`;
-      const back = `<b class="wd-big">${esc(w.h)}</b><button type="button" class="dict-say" data-say="${esc(w.h)}">${icon}</button>
-        <span class="wd-pos">${esc(w.p || '')} · <span class="wd-rom">${esc(roman(w.h))}</span></span>
-        <p class="wd-word-en">${esc(w.e)}</p>
-        ${w.x[0] ? `<p class="wd-cex">${esc(w.x[0][0])}<button type="button" class="dict-say" data-say="${esc(w.x[0][0])}">${icon}</button><small>${esc(w.x[0][1])}</small></p>` : ''}`;
-      return head + `<div class="wd-flash${r.flip ? ' flip' : ''}" data-act="flip" role="button" tabindex="0" aria-label="${esc(t('카드 뒤집기', 'Flip card'))}">
-          ${r.flip ? back : front}${r.flip ? '' : `<span class="wd-hint">${esc(t('눌러서 뒤집기 · Space', 'Tap to flip · Space'))}</span>`}</div>
-        <div class="wd-rate">
-          <button type="button" class="wd-r no" data-act="rate" data-how="no">${esc(t('몰라요', 'Don’t know'))}<kbd>1</kbd></button>
-          <button type="button" class="wd-r unsure" data-act="rate" data-how="unsure">${esc(t('헷갈려요', 'Unsure'))}<kbd>2</kbd></button>
-          <button type="button" class="wd-r know" data-act="rate" data-how="know">${esc(t('알아요', 'Know it'))}<kbd>3</kbd></button>
+        ? `<span class="wd-card-body">${meta}<b class="wd-big">${esc(w.h)}</b><span class="wd-rom">${esc(roman(w.h))}</span></span>`
+        : `<span class="wd-card-body">${meta}<b class="wd-big wd-big-en">${esc(mean(w))}</b></span>`;
+      const back = `<span class="wd-card-body">${meta}<b class="wd-big">${esc(w.h)}</b><span class="wd-rom">${esc(roman(w.h))}</span>
+        <span class="wd-word-en">${esc(w.e)}</span>
+        ${w.x[0] ? `<span class="wd-cex">${esc(w.x[0][0])}<small>${esc(w.x[0][1])}</small></span>` : ''}</span>`;
+      const b = (how, k, label, extra = '') => `<span class="wd-act-i"><button type="button" class="wd-act-b ${how}" ${extra || `data-act="rate" data-how="${how}"`} aria-label="${esc(label)}">${ico(k)}</button><small>${esc(label)}</small></span>`;
+      return head + `<div class="wd-deck">
+          <div class="wd-flash${r.flip ? ' flip' : ''}" id="wdCard" data-act="flip" role="button" tabindex="0" aria-label="${esc(t('카드 뒤집기', 'Flip card'))}">
+            ${segs}
+            <span class="wd-stamp know">${esc(t('알아요', 'KNOW'))}</span><span class="wd-stamp no">${esc(t('몰라요', 'NOPE'))}</span>
+            ${r.flip ? back : front}
+            <span class="wd-flipb" aria-hidden="true">${ico('flip')}</span>
+
+          </div>
+        </div>
+        <div class="wd-acts">
+          ${b('no', 'x', t('몰라요', 'Nope'))}${b('unsure', 'q', t('헷갈려요', 'Unsure'))}${b('say', 'sound', t('듣기', 'Listen'), `data-say="${esc(w.h)}"`)}${b('know', 'check', t('알아요', 'Know it'))}
         </div>`;
     }
     const c = r.cur, fb = r.fb;
@@ -1065,6 +1082,7 @@ export function wordsInit(D) {
     if (act === 'dir') { S.dir = a.dataset.dir; save(); return draw(); }
     if (act === 'go') return startRun(view.pick.words, a.dataset.mode, view.pick.from);
     if (act === 'stage') { const o = openStages.get(a.dataset.topic) || new Set(), k = +a.dataset.k; o.has(k) ? o.delete(k) : o.add(k); openStages.set(a.dataset.topic, o); return draw(); }
+    if (act === 'qclear') { const q = root.querySelector('#wdQ'); q.value = ''; q.dispatchEvent(new Event('input', { bubbles: true })); q.focus(); return; }
     if (act === 'group') { group = a.dataset.group === 'goal' ? 'goal' : 'topic'; try { localStorage.setItem('cp-words-group', group); } catch (e) {} return draw(); }
     if (act === 'today') { const ws = todayWords(); view = { tab: 'pick', pick: { words: ws, from: null, title: t(`오늘의 낱말 ${ws.length}개`, `Today’s ${ws.length} words`), back: 'data-tab="home"' } }; mark('today'); return draw(); }
     if (act === 'review') { const d = due().slice(0, 30); view = { tab: 'pick', pick: { words: d, from: null, title: t(`복습 ${d.length}개`, `Review ${d.length}`), back: 'data-tab="home"' } }; mark('review'); return draw(); }
@@ -1139,14 +1157,42 @@ export function wordsInit(D) {
     if (run.fb && ev.key === 'Enter') { ev.preventDefault(); return nextAfterFb(); }
     if (run.cur.stage === 0 && /^[1-4]$/.test(ev.key)) answerOpt(+ev.key - 1);
   });
-  /* 카드 밀기 — 오른쪽 알아요, 왼쪽 몰라요. */
-  let sx = null;
-  root.addEventListener('pointerdown', (ev) => { if (ev.target.closest('.wd-flash')) sx = ev.clientX; });
-  root.addEventListener('pointerup', (ev) => {
-    if (sx == null || !run || run.mode !== 'card') { sx = null; return; }
-    const dx = ev.clientX - sx; sx = null;
-    if (Math.abs(dx) > 70) { ev.preventDefault(); rate(dx > 0 ? 'know' : 'no'); }
+  /* 카드 밀기 — 오른쪽 알아요, 왼쪽 몰라요. 끄는 동안 손가락을 따라오며 기울고 도장이 진해진다. 90px 넘게 놓으면 그쪽으로
+     날아가고 채점, 덜 끌면 제자리로. 끈 뒤에 따라오는 click(뒤집기)은 한 번 막는다. */
+  let sx = null, dragDx = 0, dragged = false;
+  const card = () => root.querySelector('#wdCard');
+  const paint = (dx) => {
+    const c = card(); if (!c) return;
+    c.style.transform = dx ? `translateX(${dx}px) rotate(${dx / 18}deg)` : '';
+    c.querySelector('.wd-stamp.know')?.style.setProperty('opacity', Math.max(0, Math.min(1, dx / 90)));
+    c.querySelector('.wd-stamp.no')?.style.setProperty('opacity', Math.max(0, Math.min(1, -dx / 90)));
+  };
+  root.addEventListener('pointerdown', (ev) => {
+    if (!run || run.mode !== 'card' || !ev.target.closest('#wdCard') || ev.target.closest('[data-say]')) return;
+    sx = ev.clientX; dragDx = 0; dragged = false;
+    card()?.classList.add('drag');
   });
+  root.addEventListener('pointermove', (ev) => {
+    if (sx == null) return;
+    dragDx = ev.clientX - sx;
+    if (Math.abs(dragDx) > 6) dragged = true;
+    paint(dragDx);
+  });
+  const release = () => {
+    if (sx == null) return;
+    sx = null;
+    const c = card(); c?.classList.remove('drag');
+    if (Math.abs(dragDx) > 90 && c) {
+      const how = dragDx > 0 ? 'know' : 'no';
+      c.classList.add('fly');
+      c.style.transform = `translateX(${dragDx > 0 ? 140 : -140}%) rotate(${dragDx > 0 ? 24 : -24}deg)`;
+      setTimeout(() => rate(how), 180);
+    } else paint(0);
+    dragDx = 0;
+  };
+  root.addEventListener('pointerup', release);
+  root.addEventListener('pointercancel', release);
+  root.addEventListener('click', (ev) => { if (dragged && ev.target.closest('#wdCard')) { dragged = false; ev.stopPropagation(); ev.preventDefault(); } }, true);
 
   /* 주소 → 화면. sub: '' | learn | review | star | stats | topic/<id>[/<n> | /topik1 | /topik2] | w/<낱말> | search/<검색어> | set/<낱말>.<낱말>… */
   function show(sub) {

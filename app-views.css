@@ -4003,12 +4003,23 @@
 .wd-pill { display:inline-flex; align-items:center; gap:4px; padding:6px 10px; border-radius:999px; font-size:13px; background:var(--surface); border:1px solid var(--line); white-space:nowrap; }
 .wd-pill b { font-weight:800; }
 .wd-searchbox { position:relative; display:block; }
-.wd-searchbox svg { position:absolute; left:16px; top:50%; width:20px; height:20px; transform:translateY(-50%); color:var(--ink-2); pointer-events:none; }
+/* 검색창 — 구글처럼(운영자 요청): 완전히 둥근 알약, 테두리 대신 그림자, 올리면 · 누르면 그림자가 짙어진다.
+   오른쪽 지우기(×)는 글이 있을 때만(:placeholder-shown). 브라우저 기본 지우기 단추는 숨긴다(두 개가 되지 않게). */
+.wd-searchbox > svg { position:absolute; left:20px; top:50%; width:20px; height:20px; transform:translateY(-50%); color:var(--ink-3); pointer-events:none; }
 .wd-search {
-  width:100%; box-sizing:border-box; height:56px; padding:0 16px 0 46px; font-size:17px;
-  border:1.5px solid var(--line); border-radius:var(--r-l); background:var(--surface); color:var(--ink);
+  width:100%; box-sizing:border-box; height:54px; padding:0 54px 0 52px; font-size:16.5px;
+  border:1px solid var(--line-2); border-radius:999px; background:var(--surface); color:var(--ink);
+  box-shadow:0 1px 6px rgba(var(--ink-rgb),.12); transition:box-shadow .2s, border-color .2s;
 }
-.wd-search:focus { outline:none; border-color:var(--orange); }
+.wd-search::placeholder { color:var(--ink-3); }
+.wd-search::-webkit-search-cancel-button { -webkit-appearance:none; appearance:none; display:none; }
+.wd-search:hover { box-shadow:0 2px 10px rgba(var(--ink-rgb),.18); }
+.wd-search:focus { outline:none; border-color:transparent; box-shadow:0 3px 14px rgba(var(--ink-rgb),.2), 0 0 0 2px color-mix(in srgb, var(--orange) 45%, transparent); }
+.wd-clear { position:absolute; right:10px; top:50%; transform:translateY(-50%); display:grid; place-items:center; width:36px; height:36px;
+  border:0; border-radius:50%; background:none; color:var(--ink-3); cursor:pointer; }
+.wd-clear svg { width:18px; height:18px; }
+.wd-clear:hover { background:var(--surface-2); color:var(--ink); }
+.wd-search:placeholder-shown ~ .wd-clear { display:none; }
 .wd-hero-hint { margin:8px 2px 0; font-size:12px; color:var(--ink-2); }
 
 /* 탭 — 알약 줄. 폰에서는 옆으로 민다 */
@@ -4159,6 +4170,16 @@ div.wd-card:hover { transform:none; }
 .wd-seg button.on { background:var(--surface); color:var(--ink); font-weight:700; box-shadow:0 1px 2px rgba(0,0,0,.08); }
 .wd-mode { gap:4px; padding:14px; }
 .wd-mode .wd-i { width:22px; height:22px; margin-bottom:4px; color:var(--orange); }
+/* 공부 방식 셋 — 차례 번호를 오른쪽 위에. 폰에서도 셋을 한 줄에 두지 않고 세로로(설명이 잘리지 않게). */
+.wd-modes3 { grid-template-columns:repeat(3, 1fr); }
+@media (max-width:560px){ .wd-modes3 { grid-template-columns:1fr; } .wd-modes3 .wd-mode { flex-direction:row; flex-wrap:wrap; align-items:center; column-gap:12px; } .wd-modes3 .wd-mode > span:last-child { flex-basis:100%; padding-left:46px; margin-top:-6px; } }
+.wd-mode-top { display:flex; align-items:center; justify-content:space-between; width:100%; }
+.wd-modes3 .wd-mode-top { width:auto; flex:1 1 100%; }
+@media (max-width:560px){ .wd-modes3 .wd-mode-top { flex:0 0 auto; } .wd-modes3 .wd-mode-top em { display:none; } }
+.wd-mode-top em { font-style:normal; font-size:12px; font-weight:800; width:22px; height:22px; border-radius:50%; display:grid; place-items:center;
+  background:color-mix(in srgb, var(--orange) 16%, var(--surface)); color:var(--orange-deep); }
+.wd-more-modes { display:flex; flex-wrap:wrap; align-items:center; gap:4px 10px; margin:10px 2px 0; font-size:13px; color:var(--ink-3); }
+.wd-more-modes .wd-link { font-size:13px; padding:4px 0; text-decoration:underline; text-underline-offset:3px; }
 .wd-pick-n { margin:22px 0 8px; font-size:13px; font-weight:700; color:var(--ink-2); }
 .wd-pick-foot { display:flex; flex-wrap:wrap; gap:6px 18px; margin-top:14px; }
 .wd-link { display:inline-flex; align-items:center; gap:6px; border:0; background:none; padding:6px 0; font:inherit; font-size:14px; font-weight:600; color:var(--ink-2); cursor:pointer; }
@@ -4276,6 +4297,56 @@ div.wd-card:hover { transform:none; }
 .wd-r.know { color:var(--green); background:color-mix(in srgb, var(--green) 10%, var(--surface)); border-color:color-mix(in srgb, var(--green) 35%, var(--line)); }
 .wd-r kbd, .wd-opt kbd { font:inherit; font-size:11px; opacity:.5; }
 @media (pointer:coarse){ .wd-r kbd, .wd-opt kbd { display:none; } }
+/* 카드 — 틴더처럼(운영자 레퍼런스). 덜어낸 모양: 단색 카드 하나(앞 치즈 주황 · 뒤 크림), 위쪽 칸 진도, 낱말은 왼쪽 아래 크게,
+   오른쪽 아래 뒤집기 단추 하나. 뒤에 카드 두 장이 겹쳐 보이고, 앞 카드는 끌면 따라와 기운다(words.js 밀기).
+   종이 카드처럼 테마와 상관없이 같은 색. */
+#wordsRoot { overflow-x:clip; }   /* 밀어 날린 카드가 가로 스크롤을 만들지 않게 */
+.wd-deck { position:relative; margin:0 auto 30px; max-width:440px; }
+.wd-deck::before, .wd-deck::after { content:''; position:absolute; left:0; right:0; bottom:0; height:100%; border-radius:28px; background:#FFC08F; }
+.wd-deck::before { transform:translateY(22px) scale(.88); opacity:.45; }
+.wd-deck::after { transform:translateY(11px) scale(.94); opacity:.75; }
+.wd-deck .wd-flash { position:relative; z-index:1; display:flex; flex-direction:column; justify-content:flex-end; align-items:stretch; text-align:left;
+  min-height:440px; margin:0; padding:24px 24px 26px; border:0; border-radius:28px; touch-action:pan-y; overflow:hidden;
+  color:#1B1512; background:linear-gradient(170deg, #FFA566 0%, #FF914D 55%, #F27E38 100%);
+  box-shadow:0 24px 44px -22px rgba(196,85,28,.55); transition:transform .25s cubic-bezier(.22,1,.36,1); animation:wdCard .28s ease; }
+.wd-deck .wd-flash.flip { background:#FFF8EE; box-shadow:0 24px 44px -22px rgba(27,21,18,.35); animation:wdFlip .35s ease; }
+.wd-deck .wd-flash.drag { transition:none; cursor:grabbing; }
+.wd-deck .wd-flash.fly { transition:transform .2s ease-in, opacity .2s; opacity:0; }
+.wd-segs { position:absolute; top:16px; left:18px; right:18px; display:flex; gap:4px; }
+.wd-segs i { flex:1; height:4px; border-radius:2px; background:rgba(27,21,18,.16); }
+.wd-segs i.on { background:#1B1512; }
+.wd-card-body { display:flex; flex-direction:column; align-items:flex-start; gap:2px; padding-right:56px; }
+.wd-card-meta { align-self:flex-start; margin-bottom:10px; font-size:12px; font-weight:800; padding:5px 11px; border-radius:999px; background:rgba(255,255,255,.9); color:#1B1512; }
+.wd-flash.flip .wd-card-meta { background:#FFE6D1; color:#C4551C; }
+.wd-deck .wd-big { font-size:56px; line-height:1.05; letter-spacing:-.03em; color:#1B1512; }
+.wd-deck .wd-big-en { font-size:34px; }
+.wd-deck .wd-rom { font-size:16px; font-style:normal; color:rgba(27,21,18,.6); }
+.wd-deck .wd-word-en { margin:16px 0 0; font-size:22px; font-weight:800; color:#1B1512; }
+.wd-deck .wd-cex { margin:10px 0 0; align-items:flex-start; text-align:left; font-size:15px; color:#4E3E31; }
+.wd-deck .wd-cex small { color:#8C7A66; }
+.wd-flipb { position:absolute; right:20px; bottom:24px; display:grid; place-items:center; width:44px; height:44px; border-radius:50%;
+  background:rgba(255,255,255,.92); color:#1B1512; box-shadow:0 4px 12px -4px rgba(27,21,18,.3); }
+.wd-flipb .wd-i { width:20px; height:20px; stroke-width:2.2; }
+.wd-stamp { position:absolute; top:48px; padding:6px 14px; border:3px solid; border-radius:10px; font-size:22px; font-weight:900; letter-spacing:.04em;
+  opacity:0; pointer-events:none; background:rgba(255,255,255,.85); }
+.wd-stamp.know { left:22px; color:#12704F; transform:rotate(-14deg); }
+.wd-stamp.no { right:22px; color:#C43D34; transform:rotate(14deg); }
+.wd-acts { display:flex; justify-content:center; align-items:center; gap:18px; margin:30px 0 6px; }
+.wd-act-i { display:flex; flex-direction:column; align-items:center; gap:7px; }
+.wd-act-i small { font-size:11.5px; font-weight:700; color:var(--ink-3); }
+.wd-act-b { display:grid; place-items:center; width:66px; height:66px; border-radius:50%; cursor:pointer; background:#fff; border:0;
+  box-shadow:0 10px 22px -10px rgba(27,21,18,.4), 0 0 0 1px rgba(27,21,18,.05); transition:transform .12s; }
+.wd-act-b:active { transform:scale(.9); }
+.wd-act-b .wd-i { width:30px; height:30px; stroke-width:2.8; }
+.wd-act-b.no { color:#E5484D; }
+.wd-act-b.know { color:#18A058; }
+.wd-act-b.unsure, .wd-act-b.say { width:50px; height:50px; }
+.wd-act-b.unsure .wd-i, .wd-act-b.say .wd-i { width:22px; height:22px; }
+.wd-act-b.unsure { color:#D9A21B; }
+.wd-act-b.say { color:#E1682B; }
+/* 카드 안에 칸 진도가 있으니 머리의 막대는 숨긴다 */
+.wd-study-hd:has(~ .wd-deck) .wd-bar { visibility:hidden; }
+@media (max-width:560px){ .wd-deck .wd-flash { min-height:400px; } .wd-deck .wd-big { font-size:46px; } .wd-acts { gap:14px; } }
 .wd-q { text-align:center; padding:30px 12px 26px; display:flex; flex-direction:column; align-items:center; gap:6px; }
 .wd-opts { display:grid; grid-template-columns:1fr 1fr; gap:8px; }
 @media (max-width:560px){ .wd-opts { grid-template-columns:1fr; } }
