@@ -4850,3 +4850,35 @@ div.wd-card:hover { transform:none; }
 @media (prefers-reduced-motion: reduce) {
   .claw-over-emoji.lvl-big svg, .claw-over-emoji.lvl-big::after, .lt-rep-fill, .lt-rep-row i b, .lvp-bar i { animation:none; }
 }
+
+/* 레벨 분석 v2 — 점수 · 합격선 눈금(아래) · 영역 두 칸 · 할 일 체크 목록(운영자: 더 깔끔하고 직관적으로) */
+.lt-report { padding:20px; }
+.lt-rep-score { align-items:baseline; gap:6px; }
+.lt-rep-score span { font-size:16px; font-weight:700; color:var(--ink-3); }
+.lt-rep-score em { margin-left:auto; font-style:normal; font-size:12px; font-weight:800; color:var(--ink-2); background:var(--surface); border:1px solid var(--line); border-radius:999px; padding:3px 10px; }
+.lt-rep-scale { margin:16px 0 26px; height:10px; }
+.lt-rep-cut { top:-3px; bottom:-3px; opacity:.45; }
+.lt-rep-cut em { bottom:auto; top:calc(100% + 4px); display:flex; flex-direction:column; align-items:center; line-height:1.15; font-size:11px; color:var(--ink-2); }
+.lt-rep-cut em small { font-size:10px; font-weight:600; color:var(--ink-3); }
+.lt-rep-gap { margin-top:0; font-size:14px; }
+.lt-areas { display:grid; grid-template-columns:repeat(auto-fit, minmax(120px, 1fr)); gap:10px; margin-top:14px; }
+.lt-area { position:relative; padding:12px 14px; border-radius:var(--r-l); background:var(--surface); border:1px solid var(--line); }
+.lt-area.weak { border-color:var(--orange); }
+.lt-area-top { display:flex; align-items:center; justify-content:space-between; gap:6px; font-size:13px; font-weight:700; color:var(--ink-2); }
+.lt-area-top em { font-style:normal; font-size:11px; font-weight:800; color:#fff; background:var(--orange); border-radius:999px; padding:2px 8px; }
+.lt-area > b { display:block; margin-top:4px; font-size:26px; font-weight:800; letter-spacing:-.03em; color:var(--ink); }
+.lt-area > b small { font-size:14px; font-weight:700; color:var(--ink-3); margin-left:1px; }
+.lt-area > i { display:block; height:6px; margin-top:6px; border-radius:3px; background:color-mix(in srgb, var(--ink) 10%, transparent); overflow:hidden; }
+.lt-area > i s { display:block; height:100%; border-radius:3px; background:var(--ink-3); animation:barGrow .9s cubic-bezier(.22,1,.36,1) both; transform-origin:left; }
+.lt-area.weak > i s { background:var(--orange); }
+.lt-area-n { display:block; margin-top:4px; font-size:12px; color:var(--ink-3); }
+.lt-adv { border-top:none; margin-top:14px; padding:14px 16px; border-radius:var(--r-l); background:var(--surface); border:1px solid var(--line); }
+.lt-adv-h { font-size:14.5px; }
+.lt-adv ul { list-style:none; margin:10px 0 0; padding:0; display:grid; gap:8px; }
+.lt-adv li { position:relative; padding-left:26px; font-size:14px; line-height:1.45; color:var(--ink); }
+.lt-adv li::before { content:''; position:absolute; left:0; top:1px; width:18px; height:18px; border-radius:50%; background:var(--tint); box-shadow:inset 0 0 0 1.5px var(--orange); }
+.lt-adv li::after { content:''; position:absolute; left:6px; top:5px; width:4px; height:8px; border:solid var(--orange-deep); border-width:0 2px 2px 0; transform:rotate(45deg); }
+.lt-adv-go { width:100%; }
+.lt-rep-fine { text-align:center; }
+.lt-areas { grid-template-columns:1fr 1fr; }
+@media (max-width:600px) { .lt-report { padding:16px; } .lt-area { padding:10px 12px; } .lt-area > b { font-size:22px; } }
