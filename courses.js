@@ -33,23 +33,23 @@
    파일을 나눈 이유는 문법이 계속 늘어날 예정이라 한 파일에 두면
    고칠 곳을 찾기 어려워지기 때문이다.
    + 세분화된 뉘앙스 차이 문법 (초·중·고급 세부 코스)은 courses-grammar-detailed.js 에서 불러온다. */
-import { GRAMMAR_COURSES } from './courses-grammar.js?v=279975e4';
-import { DETAILED_GRAMMAR_COURSES } from './courses-grammar-detailed.js?v=279975e4';
-import { BEGINNER_GRAMMAR_COURSES } from './courses-grammar-beginner.js?v=279975e4';
+import { GRAMMAR_COURSES } from './courses-grammar.js?v=ddc552ff';
+import { DETAILED_GRAMMAR_COURSES } from './courses-grammar-detailed.js?v=ddc552ff';
+import { BEGINNER_GRAMMAR_COURSES } from './courses-grammar-beginner.js?v=ddc552ff';
 // 초급 1단계 — 설계는 docs/curriculum-beginner.md
-import { BEGINNER_STAGE1_COURSES } from './courses-beginner-stage1.js?v=279975e4';
+import { BEGINNER_STAGE1_COURSES } from './courses-beginner-stage1.js?v=ddc552ff';
 // 초급 2단계 — 시간을 얹기
-import { BEGINNER_STAGE2_COURSES } from './courses-beginner-stage2.js?v=279975e4';
+import { BEGINNER_STAGE2_COURSES } from './courses-beginner-stage2.js?v=ddc552ff';
 // 초급 3단계 — 이어 말하기
-import { BEGINNER_STAGE3_COURSES } from './courses-beginner-stage3.js?v=279975e4';
+import { BEGINNER_STAGE3_COURSES } from './courses-beginner-stage3.js?v=ddc552ff';
 // 초급 4단계 — 상대에게
-import { BEGINNER_STAGE4_COURSES } from './courses-beginner-stage4.js?v=279975e4';
+import { BEGINNER_STAGE4_COURSES } from './courses-beginner-stage4.js?v=ddc552ff';
 // 초급 5단계 — 마음을 담기
-import { BEGINNER_STAGE5_COURSES } from './courses-beginner-stage5.js?v=279975e4';
+import { BEGINNER_STAGE5_COURSES } from './courses-beginner-stage5.js?v=ddc552ff';
 // 초급 6단계 — 다듬기
-import { BEGINNER_STAGE6_COURSES } from './courses-beginner-stage6.js?v=279975e4';
+import { BEGINNER_STAGE6_COURSES } from './courses-beginner-stage6.js?v=ddc552ff';
 // 초급 보충 — 110개 문법 목록에 없지만 실전에 꼭 필요한 것 (§8)
-import { BEGINNER_EXTRA_COURSES } from './courses-beginner-extra.js?v=279975e4';
+import { BEGINNER_EXTRA_COURSES } from './courses-beginner-extra.js?v=ddc552ff';
 
 export const COURSES = [
 
@@ -72,6 +72,8 @@ export const COURSES = [
   {
     id: 'hangul-01',
     title: { ko:'누군가 만든 글자', en:'An alphabet someone invented' },
+    // 검색 · AI 가 영어로 찾는 말 — 레슨 쪽 <title> · 설명에만 쓴다(앱 화면은 그대로).
+    seo: { title:'Korean alphabet for beginners: first consonants ㄱ ㄴ ㅁ ㅅ ㅇ', desc:'Start reading Korean: the first five Hangul consonants and why each is shaped like your mouth. Free lesson with a quiz and typing practice.' },
     minutes: 6,
     blocks: [
       { t:'text', md:'Most alphabets grew slowly over centuries. **Hangul did not.** It was designed in the 1440s, by a committee, with a written explanation of *why* each letter looks the way it does.' },
@@ -109,6 +111,7 @@ export const COURSES = [
   {
     id: 'hangul-02',
     title: { ko:'모음 여섯 개, 획 두 개', en:'Six vowels, two strokes' },
+    seo: { title:'Korean vowels ㅏ ㅓ ㅗ ㅜ ㅡ ㅣ — Hangul vowel practice', desc:'The six basic Korean vowels, built from a long line and a short mark. Free Hangul lesson: how each vowel sounds, plus a quiz and typing practice.' },
     minutes: 7,
     blocks: [
       { t:'text', md:'Vowels are built from three pieces: a **long line**, and a **short mark** that can sit on either side of it.' },
@@ -150,6 +153,7 @@ export const COURSES = [
   {
     id: 'hangul-03',
     title: { ko:'글자가 블록이 되다', en:'Letters become blocks' },
+    seo: { title:'How Hangul syllable blocks work (가, 고) — reading practice', desc:'Why Korean stacks letters into blocks, and where the consonant goes. Free Hangul lesson with listening, matching and a quiz.' },
     minutes: 8,
     blocks: [
       { t:'text', md:'Here is the part that makes Korean look hard and is actually the part that makes it easy.' },
@@ -193,6 +197,7 @@ export const COURSES = [
   {
     id: 'hangul-04',
     title: { ko:'자음 다섯 개 더', en:'Five more consonants' },
+    seo: { title:'Korean consonants ㄷ ㄹ ㅂ ㅈ ㅎ — how to say ㄹ', desc:'Five more Hangul consonants, and how to say ㄹ (between r and l). Free lesson with listening, a quiz, typing and your first Korean word.' },
     minutes: 7,
     blocks: [
       { t:'text', md:'You now have enough to read a lot. Five more and you have almost the whole set.' },
@@ -233,6 +238,7 @@ export const COURSES = [
   {
     id: 'hangul-05',
     title: { ko:'획 하나, y 발음 하나', en:'Adding a stroke, adding a y' },
+    seo: { title:'Korean y-vowels ㅑ ㅕ ㅛ ㅠ and ㅐ ㅔ', desc:'Double the mark, add a y: ㅑ ㅕ ㅛ ㅠ, plus ㅐ and ㅔ. Free Hangul lesson with listening and matching practice.' },
     minutes: 6,
     blocks: [
       { t:'text', md:'Remember the short mark on each vowel? **Double the mark and you add a “y” in front.** No new shapes to memorise.' },
@@ -265,10 +271,74 @@ export const COURSES = [
     ],
   },
 
+  /* ── 5½ ────────────────────────────────────────────────── */
+  /* 겹모음(ㅘ ㅝ ㅢ …). 9번 레슨의 화장실이 ㅘ 를 쓰는데 가르친 곳이 없었다 —
+     AI 검색에서 「한글은 배웠는데 두 글자 붙은 것」 질문이 이 자리를 찾는다.
+     id 는 새 번호(11)지만 차례는 모음 다음. 진도가 id 로만 기록돼 앞 레슨 번호를 밀지 않는다. */
+  {
+    id: 'hangul-11',
+    title: { ko:'모음 두 개가 한 글자로', en:'Two vowels, one letter' },
+    seo: { title:'Korean compound vowels ㅘ ㅝ ㅢ ㅟ ㅚ — two vowels together', desc:'Two vowels written as one: ㅘ ㅙ ㅚ ㅝ ㅞ ㅟ ㅢ, how they sound and where the consonant sits. Free Hangul practice with listening, typing and real words.' },
+    minutes: 7,
+    blocks: [
+      { t:'text', md:'You know ㅗ and ㅏ. Put them together and you get **ㅘ — “wa”**. Korean builds its last vowels this way: **two vowels you already know, said fast, written as one**.' },
+
+      { t:'table',
+        head:['Letter','Made from','Sound','A word'],
+        rows:[
+          ['ㅘ','ㅗ + ㅏ','wa','사과 · apple'],
+          ['ㅙ','ㅗ + ㅐ','wae','왜 · why'],
+          ['ㅚ','ㅗ + ㅣ','oe (said “we”)','회사 · company'],
+          ['ㅝ','ㅜ + ㅓ','wo','뭐 · what'],
+          ['ㅞ','ㅜ + ㅔ','we','웨이터 · waiter'],
+          ['ㅟ','ㅜ + ㅣ','wi','귀 · ear'],
+          ['ㅢ','ㅡ + ㅣ','ui','의자 · chair'],
+        ]},
+
+      { t:'note', md:'**One pattern to remember:** ㅗ teams up with ㅏ, and ㅜ teams up with ㅓ. You will never see ㅗ + ㅓ. The first vowel becomes a quick “w”, the second one is the vowel you hold.' },
+
+      { t:'text', h:'Where the consonant sits',
+        md:'These vowels have a flat part **and** a tall part, so the consonant sits in the **top-left corner** and the vowel wraps around it: ㄱ + ㅘ = 과, ㅁ + ㅝ = 뭐.' },
+
+      { t:'chars', items:[
+        { ch:'과', rom:'gwa', tip:'ㄱ + ㅘ. As in 사과, apple.' },
+        { ch:'뭐', rom:'mwo', tip:'ㅁ + ㅝ. “What?” — you will hear it all day.' },
+        { ch:'화', rom:'hwa', tip:'ㅎ + ㅘ. As in 화장실, restroom.' },
+        { ch:'귀', rom:'gwi', tip:'ㄱ + ㅟ. Ear.' },
+        { ch:'의', rom:'ui',  tip:'ㅇ + ㅢ. As in 의자, chair.' },
+      ]},
+
+      { t:'note', md:'**ㅙ, ㅚ and ㅞ sound almost the same** in everyday Seoul speech — all close to “we” in **we**t. Like ㅐ and ㅔ, you learn which one to write with each word.' },
+
+      { t:'text', h:'ㅢ changes with its place',
+        md:'At the start of a word it is **ㅡ sliding into ㅣ**: 의사 (ui-sa, doctor). After a consonant it is said like ㅣ: 희망 sounds like “hi-mang”. You will meet the rest with real words.' },
+
+      { t:'listen', say:'와', q:'Listen. Which one?', options:['와','워','외','위'], answer:0 },
+
+      { t:'listen', say:'뭐', q:'Listen again.', options:['모','무','머','뭐'], answer:3 },
+
+      { t:'choice',
+        q:'ㅗ + ㅏ make ㅘ. Which two make ㅝ?',
+        options:['ㅗ + ㅓ','ㅜ + ㅓ','ㅜ + ㅏ','ㅡ + ㅓ'], answer:1,
+        why:'ㅜ + ㅓ. ㅗ goes with ㅏ, ㅜ goes with ㅓ.' },
+
+      { t:'type', q:'Type the block “gwa” — the second half of 사과, apple.',
+        answer:'과', keys:['과','궈','고','가'],
+        why:'ㄱ in the corner, ㅘ wrapped around it.' },
+
+      { t:'pair', q:'Match.',
+        pairs:[['사과','apple'],['뭐','what'],['왜','why'],['귀','ear'],['의자','chair']] },
+
+      { t:'speak', say:'화장실 어디예요?', rom:'hwa-jang-sil eo-di-ye-yo  ·  “Where is the restroom?”',
+        q:'The most useful sentence in any new country. Read it out loud.' },
+    ],
+  },
+
   /* ── 6 ─────────────────────────────────────────────────── */
   {
     id: 'hangul-06',
     title: { ko:'거센소리와 된소리', en:'Harder and tenser' },
+    seo: { title:'Korean double consonants ㄲ ㄸ ㅃ ㅆ ㅉ — aspirated vs tense', desc:'Hear the difference between 가, 카 and 까. Free Hangul lesson on aspirated (ㅋ ㅌ ㅍ ㅊ) and tense double consonants (ㄲ ㄸ ㅃ ㅆ ㅉ) with listening practice.' },
     minutes: 7,
     blocks: [
       { t:'text', md:'Korean splits consonants three ways where English has two. This is the one place English speakers need real practice.' },
@@ -305,6 +375,7 @@ export const COURSES = [
   {
     id: 'hangul-07',
     title: { ko:'받침, 밑에 오는 글자', en:'The letter underneath' },
+    seo: { title:'Korean batchim (final consonants) — the 7 ending sounds', desc:'The letter underneath a Korean block: any consonant can sit there, but only seven sounds come out. Free Hangul batchim lesson with listening and typing.' },
     minutes: 8,
     blocks: [
       { t:'text', md:'So far every block has been consonant + vowel. But a syllable can end in a consonant too, and it goes **underneath**. Korean calls it 받침 (*batchim*) — “the support”.' },
@@ -350,6 +421,7 @@ export const COURSES = [
   {
     id: 'hangul-08',
     title: { ko:'소리가 넘어갈 때', en:'Sounds that slide' },
+    seo: { title:'Korean linking sounds (연음) — how batchim moves to the next syllable', desc:'Why 한국어 is said ha-gu-geo: a final consonant slides into the next silent ㅇ. Free Hangul reading lesson with listening and speaking practice.' },
     minutes: 7,
     blocks: [
       { t:'text', md:'One last thing and you can read anything. When a block ends in a consonant and the **next block starts with ㅇ** (the silent placeholder), that consonant slides over into the empty seat.' },
@@ -387,6 +459,7 @@ export const COURSES = [
   {
     id: 'hangul-09',
     title: { ko:'진짜 글자 읽어보기', en:'Read something real' },
+    seo: { title:'Read real Korean words — Hangul reading practice with loanwords', desc:'Put the whole alphabet to work: read coffee, taxi, computer and more in Korean. Free Hangul reading practice with matching and speaking.' },
     minutes: 8,
     blocks: [
       { t:'text', md:'No new letters. Everything below uses only what you already know — and these are words you will actually meet on your first day in Korea.' },
@@ -421,6 +494,7 @@ export const COURSES = [
   {
     id: 'hangul-10',
     title: { ko:'증명', en:'Proof' },
+    seo: { title:'Hangul reading test — can you read Korean now?', desc:'A short test of the whole Korean alphabet: blocks, batchim and linking sounds. Free, no sign-up — listen, choose and read out loud.' },
     minutes: 6,
     blocks: [
       { t:'text', md:'A short test with no new material. If you get through this, you can read Korean out loud — and that was supposed to take months.' },
