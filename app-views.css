@@ -4164,6 +4164,35 @@ div.wd-card:hover { transform:none; }
 .wd-link { display:inline-flex; align-items:center; gap:6px; border:0; background:none; padding:6px 0; font:inherit; font-size:14px; font-weight:600; color:var(--ink-2); cursor:pointer; }
 .wd-link:hover { color:var(--ink); }
 .wd-link .wd-i { width:17px; height:17px; }
+/* 낱말 묶음 PDF(인쇄) — #ntPrintView 안에서만, 인쇄할 때만 보인다(index.html 노트 인쇄와 같은 자리).
+   종이는 늘 흰색이라 테마 색 변수를 쓰지 않고 색을 못 박는다. */
+.wdp { color:#2A2118; font-size:12.5px; line-height:1.5; }
+@media print { body.nt-printing { background:#fff !important; } }
+.wdp-hd { display:flex; justify-content:space-between; font-size:11px; color:#8A7B6A; border-bottom:2px solid #F08A3E; padding-bottom:6px; }
+.wdp-brand { font-weight:800; color:#F08A3E; letter-spacing:.02em; }
+.wdp-title { font-size:24px; margin:14px 0 2px; font-weight:800; }
+.wdp-sub { margin:0 0 12px; font-size:11.5px; color:#8A7B6A; }
+.wdp-t { width:100%; border-collapse:collapse; }
+.wdp-t th { text-align:left; font-size:10.5px; font-weight:700; color:#8A7B6A; border-bottom:1px solid #D9CFC2; padding:4px 6px; }
+.wdp-t td { border-bottom:1px solid #EFE8DE; padding:7px 6px; vertical-align:top; }
+.wdp-t tr { break-inside:avoid; }
+.wdp-n { width:22px; color:#B3A696; font-size:11px; }
+.wdp-w { width:26%; }
+.wdp-w b { display:block; font-size:16px; }
+.wdp-w i { display:block; font-style:normal; font-size:10.5px; color:#8A7B6A; }
+.wdp-w small { font-size:10px; color:#B3A696; }
+.wdp-m { width:24%; }
+.wdp-x small { display:block; font-size:10.5px; color:#8A7B6A; }
+.wdp-c { width:24px; text-align:center; }
+.wdp-c span { display:inline-block; width:12px; height:12px; border:1.5px solid #C9BCAB; border-radius:3px; }
+.wdp-quiz { break-before:page; }
+.wdp-quiz h2 { font-size:20px; margin:0 0 2px; }
+.wdp-quiz ol { margin:12px 0 0; padding-left:22px; columns:2; column-gap:28px; }
+.wdp-quiz li { break-inside:avoid; margin:0 0 12px; }
+.wdp-quiz li span { display:block; font-size:12px; }
+.wdp-quiz li em { display:block; height:22px; border-bottom:1px solid #C9BCAB; }
+.wdp-ans { margin-top:18px; font-size:9.5px; color:#B3A696; }
+.wdp-ft { margin-top:16px; padding-top:6px; border-top:1px solid #EFE8DE; font-size:10px; color:#8A7B6A; word-break:break-all; }
 
 /* 목록 */
 .wd-list { display:flex; flex-direction:column; border:1px solid var(--line); border-radius:var(--r-l); background:var(--surface); overflow:hidden; margin-top:12px; }

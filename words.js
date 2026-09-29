@@ -138,18 +138,20 @@ export function wordsInit(D) {
   function setTrack(k) { if (!TRACKS[k]?.length) return; S.track = k; save(); VOCAB = TRACKS[k]; }
   /* TOPIK II 예문은 처음엔 비어 있다 — 낱말 화면 · 카드가 그 낱말을 그릴 때 그 낱말이 든 조각(500개)만 받아 채우고
      다시 그린다. 받는 동안에도 예문 칸만 비고 나머지는 그대로 보인다. 예문으로 찾기(검색 7순위)는 받은 조각만 본다. */
-  const EX_N = 500, exGot = new Set(), exWait = new Set();
+  const EX_N = 500, exGot = new Set(), exWait = new Map();
   TRACKS.topik2.forEach((w) => { if (!w.x) w.x = []; });
-  function needEx(w) {
-    if (!D.loadEx2 || w.l < 3) return;
-    const k = Math.floor(TRACKS.topik2.indexOf(w) / EX_N);
-    if (k < 0 || exGot.has(k) || exWait.has(k)) return;
-    exWait.add(k);
-    D.loadEx2(k).then((EX) => {
+  const exOf = (w) => (D.loadEx2 && w.l >= 3 ? Math.floor(TRACKS.topik2.indexOf(w) / EX_N) : -1);
+  function exLoad(k) {
+    if (k < 0 || exGot.has(k)) return Promise.resolve(false);
+    if (!exWait.has(k)) exWait.set(k, D.loadEx2(k).then((EX) => {
       TRACKS.topik2.slice(k * EX_N, (k + 1) * EX_N).forEach((v, j) => { v.x = EX[j] || []; });
-      exGot.add(k); draw();
-    }).catch(() => {}).finally(() => exWait.delete(k));   // 못 받으면 다음에 그릴 때 다시 시도한다
+      exGot.add(k); return true;
+    }).finally(() => exWait.delete(k)));   // 못 받으면 다음에 다시 시도한다
+    return exWait.get(k);
   }
+  function needEx(w) { exLoad(exOf(w)).then((got) => { if (got) draw(); }).catch(() => {}); }
+  /* 여러 낱말의 예문을 한꺼번에 — PDF 로 찍기 전에. 못 받은 조각은 예문 없이 찍는다. */
+  const ensureEx = (ws) => Promise.all([...new Set(ws.map(exOf))].map((k) => exLoad(k).catch(() => false)));
   const root = D.root;
   const idOf = (w) => w.i || w.h;
   const byId = new Map(ALL.map((w) => [idOf(w), w]));
@@ -296,6 +298,7 @@ export function wordsInit(D) {
     test: '<rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 4V3h6v1M9 10h6M9 14h6M9 18h3"/>',
     link: '<path d="M10 14a4.5 4.5 0 0 0 6.4 0l3.2-3.2a4.5 4.5 0 0 0-6.4-6.4L12 5.6M14 10a4.5 4.5 0 0 0-6.4 0l-3.2 3.2a4.5 4.5 0 0 0 6.4 6.4L12 18.4"/>',
     plus: '<path d="M12 5v14M5 12h14"/>',
+    pdf: '<path d="M12 4v11M7 10l5 5 5-5"/><path d="M5 20h14"/>',
   };
   const ico = (k) => `<svg class="wd-i" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">${IC[k] || IC.book}</svg>`;
   /* 주제마다 그림 하나와 색 하나(hue) — 카드 목록이 한눈에 갈리게. 색은 --h 로 넘기고 CSS 가 섞는다. */
@@ -475,8 +478,48 @@ export function wordsInit(D) {
       <div class="wd-list">${words.map((w) => wordRow(w, learned(idOf(w)) ? `<span class="wd-ok">${ico('check')}</span>` : '')).join('')}</div>
       <div class="wd-pick-foot">
         ${view.pick.from ? `<button type="button" class="wd-link" data-act="addall">${ico('plus')}${esc(t('모두 내 단어장에 담기', 'Save all to my wordbook'))}</button>` : ''}
+        <button type="button" class="wd-link" data-act="pdf">${ico('pdf')}${esc(t('PDF로 저장 · 인쇄', 'Save as PDF / print'))}</button>
         ${shareable ? `<button type="button" class="wd-link" data-act="share">${ico('link')}${esc(t('링크로 보내기', 'Share as a link'))}</button>` : ''}
       </div>`;
+  }
+
+  /* 낱말 묶음을 PDF(인쇄)로 — 노트 인쇄와 같은 자리(#ntPrintView · body.nt-printing, app.module.js)를 빌린다.
+     라이브러리 없이 브라우저 인쇄 창의 「PDF로 저장」으로 — 한글 글꼴을 따로 심지 않아도 된다.
+     1쪽 단어장(낱말 · 로마자 · 뜻 · 예문 · 외움 칸), 2쪽 스스로 시험(뜻 → 한국어 빈칸, 정답은 맨 아래 작게). */
+  async function printSet(btn) {
+    const box = document.getElementById('ntPrintView');
+    if (!box) return;
+    const { words, title } = view.pick;
+    const old = btn.innerHTML;
+    btn.innerHTML = ico('pdf') + esc(t('준비하는 중…', 'Preparing…'));
+    await ensureEx(words);
+    btn.innerHTML = old;
+    const heads = words.filter((w) => byHead.get(w.h) === w).slice(0, SET_MAX).map((w) => w.h);
+    /* 종이에 찍힐 주소 — 사람이 읽고 칠 수 있게 한글 그대로, 길면(12개 넘게) 「단어」 화면 주소만. */
+    const link = heads.length && heads.length <= 12 ? `everykoreans.com/#words/set/${heads.join('.')}` : 'everykoreans.com/#words';
+    const lv = (w) => (w.l ? t(`${w.l}급`, `Lv ${w.l}`) : '');
+    const rows = words.map((w, i) => `<tr>
+        <td class="wdp-n">${i + 1}</td>
+        <td class="wdp-w"><b>${esc(w.h)}</b><i>${esc(roman(w.h))}</i><small>${esc([w.p, lv(w)].filter(Boolean).join(' · '))}</small></td>
+        <td class="wdp-m">${esc(mean(w))}</td>
+        <td class="wdp-x">${w.x?.[0] ? `${esc(w.x[0][0])}<small>${esc(w.x[0][1] || '')}</small>` : ''}</td>
+        <td class="wdp-c"><span></span></td></tr>`).join('');
+    box.innerHTML = `<div class="wdp">
+      <div class="wdp-hd"><span class="wdp-brand">${esc(t('치즈감자 단어장', 'CheesePotato wordbook'))}</span><span>${esc(new Date().toLocaleDateString(t('ko-KR', 'en-US')))}</span></div>
+      <h1 class="wdp-title">${esc(title)}</h1>
+      <p class="wdp-sub">${esc(t(`낱말 ${words.length}개 · 외운 낱말은 오른쪽 칸에 표시하세요`, `${words.length} words · tick the box when you know it`))}</p>
+      <table class="wdp-t"><thead><tr><th></th><th>${esc(t('낱말', 'Word'))}</th><th>${esc(t('뜻', 'Meaning'))}</th><th>${esc(t('예문', 'Example'))}</th><th class="wdp-c">✓</th></tr></thead><tbody>${rows}</tbody></table>
+      <section class="wdp-quiz">
+        <h2>${esc(t('스스로 시험', 'Self-test'))}</h2>
+        <p class="wdp-sub">${esc(t('뜻을 보고 한국어로 써 보세요.', 'Write the Korean word for each meaning.'))}</p>
+        <ol>${words.map((w) => `<li><span>${esc(mean(w))}</span><em></em></li>`).join('')}</ol>
+        <p class="wdp-ans">${esc(t('정답', 'Answers'))}: ${words.map((w, i) => `${i + 1} ${esc(w.h)}`).join(' · ')}</p>
+      </section>
+      <div class="wdp-ft"><span>${esc(t('치즈감자에서 소리 듣고 외우기', 'Listen and learn on CheesePotato'))} — ${esc(link)}</span></div>
+    </div>`;
+    D.track('단어PDF');
+    document.body.classList.add('nt-printing');
+    window.print();
   }
 
   /* 낱말 묶음 공유 — 목록에 있는 낱말만 주소에 싣는다(#words/set/<낱말>.<낱말>…). 받은 사람은 로그인 없이 그 묶음을 바로 공부한다.
@@ -972,6 +1015,7 @@ export function wordsInit(D) {
     if (act === 'add') { const h = a.dataset.h; return D.saveWords([toSave(h)], a); }
     if (act === 'addall') return D.saveWords(view.pick.words.map((w) => toSave(w.h)), a);
     if (act === 'share') return shareSet(a);
+    if (act === 'pdf') return printSet(a);
     if (act === 'mystudy') { view = { tab: 'pick', pick: { words: mineWords, from: null, title: t(`내 단어장 ${mineWords.length}개`, `My wordbook — ${mineWords.length}`), back: 'data-tab="mine"' } }; return draw(); }
     if (act === 'login') return D.openAccount();
     if (act === 'quit') { if (!run?.cur || confirm(t('공부를 그만할까요? 푼 것은 기록돼요.', 'Stop now? What you answered is saved.'))) { run = null; view = { tab: 'home' }; mark(''); draw(); } return; }
