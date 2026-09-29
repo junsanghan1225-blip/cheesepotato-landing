@@ -13,16 +13,16 @@
    어느 날 갑자기 다른 코드가 실려 왔다.
    이제 vendor/ 안에 받아 두고 CSP 로 바깥을 막는다. 버전을 올릴 때는
    tools/vendor.mjs 의 PIN 을 고치고 다시 돌린다. */
-import { createClient } from './vendor/supabase-js.js?v=ddc552ff';
+import { createClient } from './vendor/supabase-js.js?v=f977742e';
 // TOPIK 읽기 "문제 풀이 영상" 목록. 아주 작은 파일이라(id 목록뿐) 다른
 // 자료처럼 갈래를 열 때 지연 로딩하지 않고 그냥 처음부터 받는다.
-import { TQ_VIDEO_IDS } from './topik-video.js?v=ddc552ff';
+import { TQ_VIDEO_IDS } from './topik-video.js?v=f977742e';
 // 코스 아이콘 — 이모지 대신 선 아이콘(course-icons.js 머리말)
 // 구독(Paddle) — billing.js 머리말
-import { BILLING, billingLive, isPro, proInfo, loadPro, openCheckout, waitPro } from './billing.js?v=ddc552ff';
-import { myLevelBadge } from './levels.js?v=ddc552ff';
-import { courseIcon } from './course-icons.js?v=ddc552ff';
-import { AUDIO_REMOTE, audioKey } from './audio-key.js?v=ddc552ff';
+import { BILLING, billingLive, isPro, proInfo, loadPro, openCheckout, waitPro } from './billing.js?v=f977742e';
+import { myLevelBadge } from './levels.js?v=f977742e';
+import { courseIcon } from './course-icons.js?v=f977742e';
+import { AUDIO_REMOTE, audioKey } from './audio-key.js?v=f977742e';
 // 앱(package.json)과 같은 줄기를 쓴다. 갈리면 앱에서는 읽히는 파일이
 // 여기서는 안 읽히는(또는 그 반대) 일이 생긴다.
 /* 엑셀 라이브러리는 422KB — 이 판에서 가장 무거운 조각이다. 그런데 쓰는
@@ -34,7 +34,7 @@ import { AUDIO_REMOTE, audioKey } from './audio-key.js?v=ddc552ff';
    자국(?v=)은 tools/stamp.mjs 가 아래 줄에 알아서 붙인다 — 정적으로 쓰든
    동적으로 쓰든 같은 글자를 찾으므로 바꿔도 그대로 찍힌다. */
 let XLSX = null;
-const needXLSX = async () => (XLSX ??= await import('./vendor/xlsx.js?v=ddc552ff'));
+const needXLSX = async () => (XLSX ??= await import('./vendor/xlsx.js?v=f977742e'));
 // 커리큘럼. 내용과 엔진을 갈라 두면 글을 고치다 화면을 깨지 않는다.
 // 갈래 목록(drawSections)·코스(drawCourses)·문제만 풀기(dqDraw) 를 열 때만
 // 받는다 — 배우기 갈래 목록도 안 본 사람에게 코스 71개 레슨을 다 물릴
@@ -42,9 +42,9 @@ const needXLSX = async () => (XLSX ??= await import('./vendor/xlsx.js?v=ddc552ff
 let COURSES = [], coursesP = null;
 /* 앱은 courses.js 대신 courses-lite.js 를 받는다 — 중·고급 레슨 본문을 뺀 목록이다
    (tools/build-courses-lite.mjs). 본문은 그 레슨을 열 때 upperBlocksNeed() 가 채운다. */
-const coursesNeed = () => (coursesP ??= import('./courses-lite.js?v=ddc552ff').then((m) => { COURSES = m.COURSES; }));
+const coursesNeed = () => (coursesP ??= import('./courses-lite.js?v=f977742e').then((m) => { COURSES = m.COURSES; }));
 let upperP = null;
-const upperBlocksNeed = () => (upperP ??= coursesNeed().then(() => import('./courses-grammar-detailed.js?v=ddc552ff')).then((m) => {
+const upperBlocksNeed = () => (upperP ??= coursesNeed().then(() => import('./courses-grammar-detailed.js?v=f977742e')).then((m) => {
   const byId = new Map(m.DETAILED_GRAMMAR_COURSES.flatMap((c) => c.lessons.map((l) => [l.id, l.blocks])));
   for (const c of COURSES) for (const l of c.lessons) if (!l.blocks && byId.has(l.id)) { l.blocks = byId.get(l.id); delete l.lazy; }
 }));
@@ -59,7 +59,7 @@ const blocksNeed = async (course) => { if (course.lessons.some((l) => !l.blocks)
    tqGloss 는 그대로 동기다 — 아직 안 왔으면 빈 뜻을 돌려주고, 부르는
    쪽은 이미 "사전에 없는 말"을 다룰 줄 안다. */
 let GLOSSARY = {}, GLOSS_LANGS = {}, glossP = null;
-const glossNeed = () => (glossP ??= import('./glossary.js?v=ddc552ff').then((m) => {
+const glossNeed = () => (glossP ??= import('./glossary.js?v=f977742e').then((m) => {
   GLOSSARY = m.GLOSSARY; GLOSS_LANGS = m.GLOSS_LANGS;
   dictBuildEntries();
 }).catch((e) => {
@@ -67,12 +67,12 @@ const glossNeed = () => (glossP ??= import('./glossary.js?v=ddc552ff').then((m) 
   glossP = null;
   throw e;
 }));
-import { glossFind } from './gloss-find.js?v=ddc552ff';
+import { glossFind } from './gloss-find.js?v=f977742e';
 /* 홈 화면 "오늘의 단어" 카드. 표제어·품사·짧은 뜻풀이 3개만 든
    작은 자료라(사전 전체 356KB 와 달리) 홈에 들어오면 바로 받는다 —
    빈 카드로 몇 초 떠 있는 것보다 낫다. */
 let WOTD_POOL = [], wotdP = null;
-const wotdNeed = () => (wotdP ??= import('./wotd.js?v=ddc552ff').then((m) => {
+const wotdNeed = () => (wotdP ??= import('./wotd.js?v=f977742e').then((m) => {
   WOTD_POOL = m.WOTD_POOL;
 }).catch((e) => { wotdP = null; throw e; }));
 /* 그날의 낱말을 고른다. 한국 자정을 기준으로 하루씩 넘어가게
@@ -100,15 +100,16 @@ async function wotdRender() {
 }
 // app.js 의 ptShow(고전 스크립트 쪽 홈 전환)가 부른다 — 모듈이 나중에
 // 실행되므로 전역에 걸어 두고 있으면만 부르는 식으로 이어받는다.
-window.wotdRender = wotdRender;
+// 「오늘」 카드도 같은 순간에 다시 그린다 — 로고를 눌러 홈으로 오면 open() 을 안 거친다.
+window.wotdRender = () => { wotdRender(); try { todayRender(); } catch (e) {} };
 /* 문법 사전(뜻풀이 197개). 읽기 지문의 밑줄 문법 말풍선(rdNeed)과 예문
    만들기 화면(sbNeed) 양쪽이 쓴다 — 둘 중 먼저 여는 화면이 받아 두고,
    나중 화면은 그 약속(??=)을 그대로 쓴다. */
 let GRAMMAR = [], GRAMMAR_EN = {}, grammarP = null;
 const grammarNeed = () => (grammarP ??= Promise.all([
-  import('./grammar.js?v=ddc552ff'), import('./grammar-en.js?v=ddc552ff'),
+  import('./grammar.js?v=f977742e'), import('./grammar-en.js?v=f977742e'),
 ]).then(([a, b]) => { GRAMMAR = a.GRAMMAR; GRAMMAR_EN = b.GRAMMAR_EN; }));
-import { grammarScan } from './grammar-find.js?v=ddc552ff';
+import { grammarScan } from './grammar-find.js?v=f977742e';
 // TOPIK 쓰기·듣기 문항. 읽기(topik.js·topik2.js)와 같은 tqNeedData() 로
 // 함께 받는다 — 유형 연습(topik) 갈래 하나가 세 기술을 다 쓰므로 따로
 // 가를 까닭이 없다. 값은 tqNeedData 정의부에서 채운다.
@@ -120,7 +121,7 @@ let TOPIKL_BY_EXAM = {}, TOPIKL_PICTURE_SLOTS = {};
    sbFind 를 쓰는데, 그쪽은 안 기다리고 그냥 부른다 — 답이 못 찾은
    인용 없이 나가는 것이 채팅이 멈추는 것보다 낫다. */
 let SB_CATS = [], SB_MORE = {}, SB_SEED = {}, SB_POINTS = [], sbDataP = null;
-const sbNeed = () => (sbDataP ??= import('./sentences.js?v=ddc552ff').then((m) => {
+const sbNeed = () => (sbDataP ??= import('./sentences.js?v=f977742e').then((m) => {
   SB_CATS = m.SB_CATS; SB_MORE = m.SB_MORE; SB_SEED = m.SB_SEED;
   // 갈래마다 표현을 펼쳐 한 줄에 담는다 — SB_CATS 안의 점에는 갈래가 안
   // 달려 있어서(sbFind 가 표현 하나를 id 로 바로 찾으려면 이게 있어야 한다).
@@ -131,7 +132,7 @@ const sbNeed = () => (sbDataP ??= import('./sentences.js?v=ddc552ff').then((m) =
 // 숫자 게임의 읽기와 문제 만들기. 화면을 모르는 순수 계산이라 따로 뒀다.
 // 게임 목록에서 「숫자 읽기」를 시작할 때만 받는다 — XLSX 와 같은 자리다.
 let makeRound = null;
-const needNumbers = async () => (makeRound ??= (await import('./numbers.js?v=ddc552ff')).makeRound);
+const needNumbers = async () => (makeRound ??= (await import('./numbers.js?v=f977742e')).makeRound);
 
 // 이 키는 공개돼도 되는 값이다. 이미 APK 안에 같은 것이 들어 있고,
 // 접근을 막는 건 키가 아니라 테이블에 걸린 RLS 다.
@@ -184,6 +185,7 @@ const TRACK_EN = {
   '단어열기': 'words_open', '단어검색': 'words_search', '단어세션시작': 'words_session_start',
   '단어세션끝': 'words_session_done', '단어복습시작': 'words_review_start', '단어별표': 'words_star',
   '단어공유': 'words_share', '단어길고름': 'words_path_pick', '단어PDF': 'words_pdf',
+  '오늘칸': 'today_open', '오늘끝': 'today_done',
 };
 const track = (name) => {
   try { window.clarity && window.clarity('event', name); } catch (e) {}
@@ -212,8 +214,8 @@ let tqDataP = null;
    유형 연습(topik) 갈래 하나가 이 넷을 다 쓰므로 갈라 봤자 요청만
    늘어난다. */
 const tqNeedData = () => (tqDataP ??= Promise.all([
-  import('./topik.js?v=ddc552ff'), import('./topik2.js?v=ddc552ff'),
-  import('./topik-writing.js?v=ddc552ff'), import('./topik-listening.js?v=ddc552ff'),
+  import('./topik.js?v=f977742e'), import('./topik2.js?v=f977742e'),
+  import('./topik-writing.js?v=f977742e'), import('./topik-listening.js?v=f977742e'),
 ]).then(([a, b, c, d]) => {
   TQ_DATA.I  = { reading: a.TOPIK_READING,  blueprint: a.TOPIK_BLUEPRINT,  slots: a.TOPIK_SLOTS };
   TQ_DATA.II = { reading: b.TOPIK2_READING, blueprint: b.TOPIK2_BLUEPRINT, slots: b.TOPIK2_SLOTS };
@@ -224,11 +226,11 @@ const tqNeedData = () => (tqDataP ??= Promise.all([
 let READING = null, rdP = null;
 // 지문의 밑줄 문법 말풍선이 GRAMMAR 를 쓰므로 같이 받아 둔다.
 const rdNeed = () => (rdP ??= Promise.all([
-  import('./reading.js?v=ddc552ff'), grammarNeed(),
+  import('./reading.js?v=f977742e'), grammarNeed(),
 ]).then(([m]) => { READING = m.READING; }));
 
 let CONVO = null, cvP = null;
-const cvNeed = () => (cvP ??= import('./convo.js?v=ddc552ff').then((m) => { CONVO = m.CONVO; }));
+const cvNeed = () => (cvP ??= import('./convo.js?v=f977742e').then((m) => { CONVO = m.CONVO; }));
 
 /* 배우기를 열면 여섯 다 미리 불을 붙인다. 기다리지 않는다 — 갈래 목록은
    이 자료가 없어도 그려지고, 사람이 갈래를 고르는 사이에 도착한다.
@@ -307,7 +309,7 @@ function open(view) {
      사람이 갈래를 고르는 사이에 도착한다. */
   if (view === 'learn' || view === 'lesson') warmLearn();
   // 다른 화면에서 홈으로 되돌아왔을 때도 오늘의 단어를 채운다.
-  if (view === 'home') wotdRender();
+  if (view === 'home') { wotdRender(); todayRender(); }
   window.scrollTo({ top: 0, behavior: 'auto' });
   window.cpMark(view);
 }
@@ -376,9 +378,9 @@ $('dictBtn').addEventListener('click', () => { const go = !showing('wordsView');
    합쳐 200KB 남짓(압축)이라 첫 화면 모두에게 물릴 까닭이 없다. 사이트 공용 도구는 넘겨준다. */
 let wordsApi = null, wordsP = null;
 /* TOPIK II 예문은 500개씩 조각으로 따로 받는다(tools/build-vocab.mjs) — 조각 주소는 이 파일의 자국을 빌린다. */
-const VOCAB2_URL = './vocab-topik2.js?v=ddc552ff';
+const VOCAB2_URL = './vocab-topik2.js?v=f977742e';
 const wordsNeed = () => (wordsP ??= Promise.all([
-  import('./words.js?v=ddc552ff'), import('./vocab-topik1.js?v=ddc552ff'), import(VOCAB2_URL),
+  import('./words.js?v=f977742e'), import('./vocab-topik1.js?v=f977742e'), import(VOCAB2_URL),
 ]).then(([m, d, d2]) => {
   wordsApi = m.wordsInit({
     root: $('wordsRoot'), t, esc, track, say, glossFind, glossNeed, ICON: DICT_SAY_ICON,
@@ -391,6 +393,7 @@ const wordsNeed = () => (wordsP ??= Promise.all([
     /* 폴더를 고치면 조금 뒤 계정 기록과 맞춘다(여러 번 고쳐도 한 번만). */
     syncSoon: () => { clearTimeout(vocabSyncT); vocabSyncT = setTimeout(vocabSync, 1500); },
     mark: (sub) => window.cpMark('words', sub),
+    today: (slot) => tdMark(slot),   // 세션을 끝내면 「오늘」 카드의 낱말 · 복습 칸
     openWordbook: () => open('wordbook'),
     openDashboard: () => { open('dashboard'); loadDashboard(); },
     openTest: () => ltOpen(),
@@ -472,7 +475,7 @@ async function vocabSync() {
   if (!wordsP) return;
   const { data: { session } } = await sb.auth.getSession();
   if (!session) return;
-  const m = await import('./words.js?v=ddc552ff');
+  const m = await import('./words.js?v=f977742e');
   const ok = await m.syncVocab(async () => {
     const { data, error } = await sb.from('settings').select('vocab').eq('user_id', session.user.id).maybeSingle();
     return error ? undefined : (data?.vocab || {});
@@ -487,7 +490,7 @@ function wordsShow(sub) {
   });
 }
 /* 언어를 바꾸면 다시 그린다 — 이 화면은 글을 JS 로 그려서 data-en 으로는 안 바뀐다. */
-$('langBtn').addEventListener('click', () => wordsApi?.redraw());
+$('langBtn').addEventListener('click', () => { wordsApi?.redraw(); todayRender(); });
 $('dashBtn').addEventListener('click', () => { const go = !showing('dashView'); open(go ? 'dashboard' : 'home'); if (go) loadDashboard(); });
 // 게임 하나에 들어가 있을 때 눌러도 목록으로 돌아온다 — 한 단계 위가
 // 홈이 아니라 목록이어야 다른 게임으로 건너갈 수 있다.
@@ -786,14 +789,14 @@ let dictOpen = null;  // 지금 "더 보기"(예문·뜻풀이)를 펼쳐 둔 �
    평소엔 안 쓰는 522KB 를 첫 화면 모두에게 물릴 까닭이 없다. */
 let dictSensesP = null;
 const dictLoadSenses = () => (dictSensesP ??=
-  import('./glossary-senses.js?v=ddc552ff').then((m) => m.SENSES).catch(() => ({})));
+  import('./glossary-senses.js?v=f977742e').then((m) => m.SENSES).catch(() => ({})));
 
 /* 예문. 국립국어원 자료엔 없어서 Gemini 로 새로 지은 것이다(있는 만큼만
    — docs/glossary-examples-gemini-prompt.md 참고). 뜻풀이와 같은 자리에서
    같이 받는다 — 펼치는 손짓 하나에 몰아 두는 편이 화면이 덜 복잡하다. */
 let dictExamplesP = null;
 const dictLoadExamples = () => (dictExamplesP ??=
-  import('./glossary-examples.js?v=ddc552ff').then((m) => m.EXAMPLES).catch(() => ({})));
+  import('./glossary-examples.js?v=f977742e').then((m) => m.EXAMPLES).catch(() => ({})));
 
 function dictVisible() {
   const q = dictQuery.trim().toLowerCase();
@@ -1332,7 +1335,7 @@ sb.auth.onAuthStateChange((_event, session) => {
        둘 다 있어야 정확히 판단된다 — 어느 쪽이 먼저 끝나든 그때마다
        한 번씩 다시 본다(둘 다 끝나면 마지막 판단이 맞게 남는다). */
     loadWords().then(checkNudge);
-    loadProgress().then(checkNudge);
+    loadProgress().then(() => { checkNudge(); todayRender(); });
     progressSync();   // 이 기기와 서버 기록을 지금 합쳐 둔다
     notesSync();      // 노트도 같은 자리에서 합쳐 둔다
     guestMove(session).then(() => wordsApi?.redraw());   // 로그인 전에 담아 둔 낱말을 계정으로
@@ -3765,6 +3768,7 @@ function tlEnd() {
   if (tlRound.length === tlOf(tqGrade).length) gameBest(tlBestKey(tqGrade), tlScore);
   /* 세트별 점수는 항상 남긴다 — 「전체」만 남기면 유형별 약한 곳을 못 짚는다. */
   tlSetWrite(tqExam, tqGrade, tlSet, tlScore, n);
+  tdMark('topik');   // 「오늘」 카드의 연습 칸
   tlDrawBreak();
 
   $('tlWrongs').innerHTML = tlWrong.length
@@ -5801,6 +5805,7 @@ function tqFinish() {
     gameBest(tqBestKey(tqGrade), tqScore);
   }
   tqSetWrite(tqGrade, tqSet, tqScore, n);
+  tdMark(tqMock ? 'mock' : 'topik');   // 「오늘」 카드 — 모의고사 칸 · 연습 칸
   /* 전체 풀기는 유형별 점수도 같이 남긴다. 같은 문제를 같은 자리에서 푼
      것이라 유형별 판과 다를 바가 없고, 이걸 안 남기면 40문제를 다 풀고도
      기록판이 「아직 안 풀었어요」만 늘어놓는다 — 정작 알고 싶은 것이
@@ -9441,7 +9446,7 @@ function cvDoneBlock(c) {
 
   const scored = cvHist.filter((h) => h.score != null);
   const avg = scored.length ? Math.round(scored.reduce((a, h) => a + h.score, 0) / scored.length) : null;
-  if (avg != null) cvDoneWrite(c.id, avg);
+  if (avg != null) { cvDoneWrite(c.id, avg); tdMark('speak'); }
 
   const band = avg == null ? 'mid' : avg >= 70 ? 'good' : avg >= 30 ? 'mid' : 'low';
   const top = document.createElement('div');
@@ -9471,7 +9476,7 @@ let TRAVEL_CATEGORIES = null;
 let TRAVEL_PHRASES = null;
 let TRAVEL_VOCAB = null;
 let tvP = null;
-const tvNeed = () => (tvP ??= import('./travel-data.js?v=ddc552ff').then((m) => {
+const tvNeed = () => (tvP ??= import('./travel-data.js?v=f977742e').then((m) => {
   TRAVEL_CATEGORIES = m.TRAVEL_CATEGORIES;
   TRAVEL_PHRASES = m.TRAVEL_PHRASES;
   TRAVEL_VOCAB = m.TRAVEL_VOCAB;
@@ -11475,6 +11480,7 @@ function twSubmit() {
   const total = rows.reduce((s, x) => s + x.r.pt, 0);
   const max = rows.length * 5;
   twSetWrite(it.id, total, max);
+  tdMark('topik');
 
   const sameType = TW_ITEMS.filter((x) => x.q === it.q);
   const isLastOfType = sameType.findIndex((x) => x.id === it.id) >= sameType.length - 1;
@@ -12815,7 +12821,7 @@ async function gameVocabWords(min, have = []) {
   const push = (word, meaning) => { if (word && meaning && !seen.has(word)) { seen.add(word); out.push({ word, meaning }); } };
   guestRead().forEach((g) => push(g.word, g.meaning));
   try {
-    const d = await import('./vocab-topik1.js?v=ddc552ff');
+    const d = await import('./vocab-topik1.js?v=f977742e');
     let st = {};
     try { st = JSON.parse(localStorage.getItem('cp-words-v1') || '{}').w || {}; } catch (e) {}
     const mean = (w) => w.s || w.e.split(';')[0];
@@ -13369,6 +13375,7 @@ function ltLoadLevel() {
 function ltSaveLevel(lv, goal, time) {
   try { localStorage.setItem(LT_LEVEL_KEY, JSON.stringify({ lv, goal: goal || null, time: time || null, at: new Date().toISOString().slice(0, 10) })); } catch (e) {}
   try { applyTrack(); } catch (e) {}
+  try { todayRender(); } catch (e) {}
 }
 
 /* ── 내 코스 ──────────────────────────────────────────────────
@@ -13407,6 +13414,7 @@ function myMarkDone(lessonId, courseId, wrong) {
   const weak = myRead('cp_weak', []).filter((w) => w.l !== lessonId);
   if (wrong > 0) weak.unshift({ l: lessonId, c: courseId, n: wrong, at: dayKey(new Date()) });
   myWrite('cp_weak', weak.slice(0, 12));
+  tdMark('lesson');   // 「오늘」 카드의 레슨 칸
 }
 function myNext(L) {
   for (let k = L; k < LT_LEVELS.length; k++) {
@@ -13577,6 +13585,159 @@ function myCourseHtml() {
   '</div>';
 }
 
+/* ── 「오늘」 카드 (docs/level-plan.md 4층, 운영자 결정 2026-09-29) ─────────────
+   레벨테스트를 한 사람의 첫 화면 맨 위에 칸 넷. 누르면 그 자리로 가고, 끝내면 ✓.
+     🥔 일반  : 복습 · 오늘의 레슨(내 코스 다음 레슨) · 오늘의 낱말(내 길 다음 세션) · 말하기 한 판
+     🧀 TOPIK : 복습 · 오늘의 연습(약한 영역) · 오늘의 낱말(TOPIK 필수) · 이번 주 모의고사(봤으면 말하기)
+   「끝냈다」는 그 일을 마치는 자리가 tdMark 로 남긴다(이 기기, cp-today-v1 — 로그인 안 한 사람도 되게).
+   복습만 예외 — 오늘 돌아온 낱말을 단어 기록(cp-words-v1)에서 바로 세어, 0 이면 끝.
+   연속 일수는 한 칸이라도 끝낸 날이 이어진 수 — 넷을 다 해야만 이어지면 바쁜 하루에 끊겨 그만두게 된다. */
+const TD_KEY = 'cp-today-v1';
+const tdRead = () => { const v = myRead(TD_KEY, null); return v && v.days && typeof v.days === 'object' ? v : { days: {} }; };
+function tdMark(slot) {
+  const s = tdRead(), d = dayKey(new Date());
+  const day = s.days[d] || (s.days[d] = {});
+  if (day[slot]) return;
+  day[slot] = 1;
+  // 두 달치만 남긴다 — 연속 일수를 세는 데 그 이상은 안 쓴다.
+  for (const k of Object.keys(s.days).sort().slice(0, -60)) delete s.days[k];
+  myWrite(TD_KEY, s);
+  if (!$('homeView').classList.contains('hidden')) todayRender();
+}
+window.cpTodayMark = tdMark;   // 발음 테스트(app.js 고전 스크립트)도 부른다
+function tdStreak(days) {
+  const d = new Date(), has = () => Object.keys(days[dayKey(d)] || {}).length > 0;
+  if (!has()) d.setDate(d.getDate() - 1);   // 오늘 아직이면 어제까지의 연속 — 자정에 0 이 되지 않게
+  let n = 0;
+  while (has()) { n++; d.setDate(d.getDate() - 1); }
+  return n;
+}
+/* 오늘 돌아온 낱말 수 — words.js 의 due() 와 같은 셈(다음 복습 날 ≤ 오늘). 단어 자료를 받지 않고 기록만 본다. */
+function tdWords() {
+  try {
+    const s = JSON.parse(localStorage.getItem('cp-words-v1') || 'null');
+    const now = new Date(), day = Math.floor((now - now.getTimezoneOffset() * 60000) / 864e5);
+    const all = Object.values(s?.w || {}).filter(Array.isArray);
+    return { have: all.length, due: all.filter((v) => v[1] <= day).length };
+  } catch (e) { return { have: 0, due: 0 }; }
+}
+/* TOPIK 약한 영역 — 영역별 세트 기록(읽기 cp-topik-set- · 듣기 cp-tl-set- · 쓰기 cp-tw-)의 정답 비율.
+   한 번도 안 푼 영역이 있으면 그것부터(듣기 → 읽기 → 쓰기 차례), 다 풀었으면 비율이 가장 낮은 곳. */
+function tdWeakSkill(exam) {
+  const grades = TQ_EXAMS[exam].grades, rate = {};
+  const add = (k, s, n) => { if (n > 0) { rate[k] = rate[k] || [0, 0]; rate[k][0] += s; rate[k][1] += n; } };
+  try {
+    for (let i = 0; i < localStorage.length; i++) {
+      const key = localStorage.key(i) || '', v = localStorage.getItem(key) || '';
+      const m = /^(\d+)\/(\d+)$/.exec(v);
+      if (m && key.startsWith('cp-topik-set-') && grades.includes(Number(key.split('-')[3]))) add('reading', +m[1], +m[2]);
+      else if (m && key.startsWith(`cp-tl-set-${exam}-`)) add('listening', +m[1], +m[2]);
+      else if (exam === 'II' && key.startsWith('cp-tw-') && !/^cp-tw-(seen|draft)-/.test(key)) {
+        try { const o = JSON.parse(v); add('writing', Number(o?.pt) || 0, Number(o?.max) || 0); } catch (e) {}
+      }
+    }
+  } catch (e) {}
+  const skills = tqSkillsFor(exam);
+  const fresh = skills.find((k) => !rate[k]);
+  if (fresh) return { skill: fresh, fresh: true };
+  const low = [...skills].sort((a, b) => rate[a][0] / rate[a][1] - rate[b][0] / rate[b][1])[0];
+  return { skill: low, fresh: false };
+}
+function tdMockThisWeek(exam) {
+  const mon = new Date(); mon.setHours(0, 0, 0, 0); mon.setDate(mon.getDate() - ((mon.getDay() + 6) % 7));
+  try { return tqLogAll().some((r) => r.exam === exam && r.at >= mon.getTime()); } catch (e) { return false; }
+}
+const TD_CHECK = '<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>';
+let tdWaitCourses = false;
+function todayRender() {
+  const box = $('todayCard');
+  if (!box) return;
+  const me = ltLoadLevel();
+  if (!me) { box.hidden = true; box.innerHTML = ''; return; }
+  const L = me.lv, topik = siteTrack() === 'topik', badge = myLevelBadge(me);
+  const day = tdRead().days[dayKey(new Date())] || {};
+  /* 로그인 안 한 사람의 끝낸 레슨은 이 기기에(cp_done_local). loadProgress 가 아직 안 돌았어도 다음 레슨이 맞게. */
+  if (!doneSet.size) for (const id of myRead('cp_done_local', [])) doneSet.add(id);
+  if (!COURSES.length && !tdWaitCourses) { tdWaitCourses = true; coursesNeed().then(todayRender, () => {}); }
+
+  const slots = [];
+  /* ① 복습 */
+  const w = tdWords();
+  slots.push(w.due
+    ? { k: 'review', kick: t('복습', 'Review'), title: t(`돌아온 낱말 ${w.due}개`, `${w.due} words due`), sub: t('잊기 전에 한 번 더', 'One more look before they fade'), done: false }
+    : { k: 'review', kick: t('복습', 'Review'), title: w.have ? t('오늘 복습 끝', 'Review done') : t('복습할 낱말이 아직 없어요', 'Nothing to review yet'),
+        sub: w.have ? t('내일 또 돌아와요', 'More come back tomorrow') : t('낱말을 외우면 여기로 돌아와요', 'Words you learn come back here'), done: true, idle: true });
+  /* ② 오늘의 레슨(일반) · 오늘의 연습(TOPIK) */
+  const exam = badge && badge.kind === 'cheese' && badge.step <= 2 ? 'I' : 'II';
+  if (topik) {
+    const ws = tdWeakSkill(exam), nm = TQ_SKILLS[ws.skill].name;
+    slots.push({ k: 'topik', kick: t('오늘의 연습', "Today's practice"), exam, skill: ws.skill,
+      title: t(`TOPIK ${exam} ${nm.ko} 한 판`, `TOPIK ${exam} ${nm.en}, one set`),
+      sub: ws.fresh ? t('아직 안 풀어 본 영역', 'A part you have not tried') : t('기록이 가장 낮은 영역', 'Your lowest part so far'), done: !!day.topik });
+  } else {
+    const nx = COURSES.length ? myNext(L) : null;
+    slots.push(nx || !COURSES.length
+      ? { k: 'lesson', kick: t('오늘의 레슨', "Today's lesson"), c: nx?.c.id, l: nx?.l.id,
+          title: nx ? cTx(nx.l.title) : t('내 코스 다음 레슨', 'Next lesson in my course'),
+          sub: nx ? cTx(nx.c.title) : t('불러오는 중…', 'Loading…'), done: !!day.lesson }
+      : { k: 'lesson', kick: t('오늘의 레슨', "Today's lesson"), title: t('준비된 레슨을 다 끝냈어요', 'Every lesson done'), sub: '', done: true });
+  }
+  /* ③ 오늘의 낱말 */
+  const sum = myRead('cp-words-sum', null);
+  slots.push({ k: 'words', kick: t('오늘의 낱말', "Today's words"), title: t('새 낱말 10개', '10 new words'),
+    sub: sum?.path?.name ? t(`내 길: ${sum.path.name}`, `My path: ${sum.path.name}`) : (topik ? t('TOPIK 필수 낱말', 'TOPIK essentials') : t('일반 한국어', 'Everyday Korean')),
+    done: !!day.words });
+  /* ④ 말하기(일반) · 이번 주 모의고사(TOPIK — 이번 주에 이미 봤으면 말하기) */
+  const pron = L <= 1;   // 한글 · 입문은 발음 테스트, 그 위는 회화 연습
+  const speak = { k: 'speak', how: pron ? 'pron' : 'convo', kick: t('말하기', 'Speaking'),
+    title: pron ? t('발음 테스트 한 판', 'One pronunciation test') : t('회화 연습 한 판', 'One conversation'),
+    sub: pron ? t('소리 내어 읽고 점수 받기', 'Read aloud, get a score') : t('상황 속에서 직접 대답하기', 'Answer in a real situation'), done: !!day.speak };
+  if (topik && !tdMockThisWeek(exam)) {
+    slots.push({ k: 'mock', exam, kick: t('이번 주 모의고사', "This week's mock"), title: t(`TOPIK ${exam} 모의고사 한 회`, `One TOPIK ${exam} mock exam`),
+      sub: t('일주일에 한 번, 시간 재고', 'Once a week, timed'), done: false });
+  } else slots.push(speak);
+
+  const n = slots.filter((s) => s.done).length;
+  const all = n === slots.length, streak = tdStreak(tdRead().days);
+  const slot = (s, i) => `<button type="button" class="td-slot${s.done ? ' done' : ''}" data-td="${s.k}"` +
+    (s.exam ? ` data-exam="${s.exam}"` : '') + (s.skill ? ` data-skill="${s.skill}"` : '') + (s.how ? ` data-how="${s.how}"` : '') +
+    (s.c ? ` data-c="${esc(s.c)}" data-l="${esc(s.l)}"` : '') + '>' +
+    `<span class="td-num">${s.done ? TD_CHECK : i + 1}</span>` +
+    `<span class="td-txt"><span class="td-k">${esc(s.kick)}</span><span class="td-t">${esc(s.title)}</span>` +
+    (s.sub ? `<span class="td-s">${esc(s.sub)}</span>` : '') + '</span></button>';
+  box.innerHTML = `<div class="td-card${all ? ' all' : ''}">` +
+    '<div class="td-head">' +
+      `<div><div class="td-kicker">${esc(t('오늘', 'TODAY'))}</div>` +
+      `<div class="td-title">${esc(all ? t('오늘 끝! 잘했어요', 'All done for today!') : t(`오늘 할 일 ${n} / ${slots.length}`, `Today ${n} / ${slots.length}`))}</div></div>` +
+      `<div class="td-meta">${badge ? `<span class="td-badge">${badge.icon}<span>${esc(t(badge.ko, badge.en))}</span></span>` : ''}` +
+        (streak ? `<span class="td-streak"><b>${streak}</b>${esc(t('일 연속', '-day streak'))}</span>` : '') + '</div>' +
+    '</div>' +
+    `<div class="td-bar" aria-hidden="true">${slots.map((s) => `<i${s.done ? ' class="on"' : ''}></i>`).join('')}</div>` +
+    `<div class="td-slots">${slots.map(slot).join('')}</div>` +
+    (all ? `<p class="td-done">${esc(t('내일 또 만나요. 매일 조금씩이 가장 빨라요.', 'See you tomorrow — a little every day is the fastest way.'))}</p>` : '') +
+    (tqSignedIn ? '' : `<p class="td-note">${esc(t('이 기록은 이 기기에만 남아요.', 'This is saved on this device only.'))} ` +
+      `<button type="button" class="td-link" data-td="auth">${esc(t('가입하면 다른 기기에서도 이어져요', 'Sign up to pick it up anywhere'))}</button></p>`) +
+  '</div>';
+  box.hidden = false;
+  if (all && !day.all) { tdMark('all'); track('오늘끝'); }
+}
+$('todayCard')?.addEventListener('click', (ev) => {
+  const b = ev.target.closest('[data-td]');
+  if (!b) return;
+  const k = b.dataset.td;
+  if (k === 'auth') { $('authBtn').click(); return; }
+  track('오늘칸');
+  if (k === 'review') window.cpOpen('words', 'review');
+  else if (k === 'words') window.cpOpen('words', 'today');
+  else if (k === 'topik') window.cpOpen('learn', `topik/${b.dataset.exam}/${b.dataset.skill}`);
+  else if (k === 'mock') window.cpOpen('learn', `topik/${b.dataset.exam}/reading`);
+  else if (k === 'speak') { if (b.dataset.how === 'pron') window.ptShow(true); else window.cpOpen('learn', 'convo'); }
+  else if (k === 'lesson') {
+    const c = COURSES.find((x) => x.id === b.dataset.c), l = c?.lessons.find((x) => x.id === b.dataset.l);
+    if (c && l) startLesson(c, l); else window.cpOpen('learn', 'mine');
+  }
+});
+
 /* 각 구간별 결과 메시지. Stage 이름을 직접 언급해 "내가 어느 지점인지"를
    바로 알 수 있게 한다. {ko,en} 그대로 둔다 — t() 로 미리 풀어 두면
    언어를 바꿔도 이 값은 그대로 남는다(다른 표들도 다 이 모양이다). */
@@ -13642,10 +13803,10 @@ $('ltPurposeGrid').addEventListener('click', (ev) => {
    빠지고, 고쳐 올려도 브라우저가 예전 문제를 계속 들고 있게 된다. */
 let LT_CUSTOM = { overall: [], reading: [], writing: [], listening: [] };
 let ltCustomOverallP = null, ltCustomReadingP = null, ltCustomWritingP = null, ltCustomListeningP = null;
-const ltCustomOverallNeed = () => (ltCustomOverallP ??= import('./leveltest-overall.js?v=ddc552ff').then((m) => { LT_CUSTOM.overall = m.LT_CUSTOM_OVERALL; }));
-const ltCustomReadingNeed = () => (ltCustomReadingP ??= import('./leveltest-reading.js?v=ddc552ff').then((m) => { LT_CUSTOM.reading = m.LT_CUSTOM_READING; }));
-const ltCustomWritingNeed = () => (ltCustomWritingP ??= import('./leveltest-writing.js?v=ddc552ff').then((m) => { LT_CUSTOM.writing = m.LT_CUSTOM_WRITING; }));
-const ltCustomListeningNeed = () => (ltCustomListeningP ??= import('./leveltest-listening.js?v=ddc552ff').then((m) => { LT_CUSTOM.listening = m.LT_CUSTOM_LISTENING; }));
+const ltCustomOverallNeed = () => (ltCustomOverallP ??= import('./leveltest-overall.js?v=f977742e').then((m) => { LT_CUSTOM.overall = m.LT_CUSTOM_OVERALL; }));
+const ltCustomReadingNeed = () => (ltCustomReadingP ??= import('./leveltest-reading.js?v=f977742e').then((m) => { LT_CUSTOM.reading = m.LT_CUSTOM_READING; }));
+const ltCustomWritingNeed = () => (ltCustomWritingP ??= import('./leveltest-writing.js?v=f977742e').then((m) => { LT_CUSTOM.writing = m.LT_CUSTOM_WRITING; }));
+const ltCustomListeningNeed = () => (ltCustomListeningP ??= import('./leveltest-listening.js?v=f977742e').then((m) => { LT_CUSTOM.listening = m.LT_CUSTOM_LISTENING; }));
 const LT_CUSTOM_NEED = {
   overall: ltCustomOverallNeed, reading: ltCustomReadingNeed,
   writing: ltCustomWritingNeed, listening: ltCustomListeningNeed,
@@ -14644,7 +14805,7 @@ window.cpStart();
    도 ptShow() 도 안 거친다. 그래서 여기서 한 번 더, 지금 홈이 보이고
    있는지만 보고 채운다. 이미 다른 길로 채워졌어도 다시 불러 봤자
    같은 결과라 해될 게 없다. */
-if (!$('homeView').classList.contains('hidden')) wotdRender();
+if (!$('homeView').classList.contains('hidden')) { wotdRender(); todayRender(); }
 
 
 /* ══ 구독 (치즈감자 Pro) ═════════════════════════════════════
@@ -14889,7 +15050,7 @@ function fbMount(host, place, level = null) {
    openSection 이 epsDraw 를 부른다. let · const 면 그때 「초기화 전 접근」으로 죽는다. */
 var EPS = null;
 var epsP = null;
-function epsNeed() { return (epsP ??= import('./eps.js?v=ddc552ff').then((m) => { EPS = m; })); }
+function epsNeed() { return (epsP ??= import('./eps.js?v=f977742e').then((m) => { EPS = m; })); }
 const EPS_SECS = ['reading', 'listening'];
 const EPS_MOCK_SEC = 70 * 60;
 const EPS_NUM = ['①', '②', '③', '④'];

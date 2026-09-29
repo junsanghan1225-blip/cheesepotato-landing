@@ -799,6 +799,7 @@ function ptListen() {
 }
 
 function ptFinish(said) {
+  try { window.cpTodayMark && window.cpTodayMark('speak'); } catch (e) {}   // 첫 화면 「오늘」 카드의 말하기 칸
   // 상한을 넘은 건 이미 발음 자료가 아니다. 화면과 AI 요청이 그만큼
   // 커지지 않게 여기서 한 번 더 자른다.
   said = said.slice(0, ptMaxChars());

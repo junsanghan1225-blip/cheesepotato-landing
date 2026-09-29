@@ -862,6 +862,9 @@ export function wordsInit(D) {
   }
 
   /* ── 공부 판 ───────────────────────────────────────────── */
+  /* 판이 끝났다 — 「오늘」 카드(app.module.js tdMark)에 알린다. 내 길 세션(from 이 있는 판)은 「오늘의 낱말」,
+     복습 · 별표 · 폴더 판은 「복습」 칸. */
+  function sessionEnd() { D.track('단어세션끝'); D.today?.(run?.from ? 'words' : 'review'); }
   function startRun(words, mode, from) {
     if (!words.length) return;
     run = { mode, from, words, dir: S.dir, i: 0, flip: false, res: {}, q: [], cur: null, fb: null, answered: 0, score: 0 };
@@ -949,7 +952,7 @@ export function wordsInit(D) {
         const key = 'cp-words-match-best', best = JSON.parse(localStorage.getItem(key) || 'null');
         if (m.pick.length >= 6 && (best == null || secs < best)) { localStorage.setItem(key, JSON.stringify(secs)); m.newBest = true; }
       } catch (e) {}
-      D.track('단어세션끝');
+      sessionEnd();
     }
     draw();
   }
@@ -1046,7 +1049,7 @@ export function wordsInit(D) {
     run.fb = null; run.flip = false;
     run.cur = run.q.shift() || null;
     if (run.cur && run.mode !== 'card') makeChoices();
-    if (!run.cur) D.track('단어세션끝');
+    if (!run.cur) sessionEnd();
     draw();
   }
   function answerOpt(i) {
@@ -1069,7 +1072,7 @@ export function wordsInit(D) {
   function advanceKeep() {
     run.flip = false; run.cur = run.q.shift() || null;
     if (run.cur) makeChoices();
-    else { if (run.mode === 'test') testGrade(); D.track('단어세션끝'); }
+    else { if (run.mode === 'test') testGrade(); sessionEnd(); }
     draw();
   }
   /* 시험: 문제마다 적고, 끝에 낱말마다 한 번 채점한다(한 낱말이 두 문제로 나와도 기록은 한 번). */
