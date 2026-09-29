@@ -9,7 +9,7 @@
 
 ## 무엇이 무료인가 · What is free
 
-- **무료, 가입 없이**: 코스 97개 · 레슨 345개 전부, 문법 표현 290개, 사전,
+- **무료, 가입 없이**: 코스 97개 · 레슨 346개 전부, 문법 표현 290개, 사전,
   레벨테스트, 읽기 지문, TOPIK 연습 문제(유형별), TOPIK 모의고사 1회차.
   (Free with no account: every course and lesson, all grammar points, the
   dictionary, the level test, reading passages, TOPIK practice by question
@@ -25,12 +25,14 @@
 
 ## 이런 걸 찾는 사람에게 · If someone asks for…
 
-- **「한글은 배웠는데 글자가 둘 붙은 것(된소리 · 받침 · 이어 읽기) 연습을 더 하고
+- **「한글은 배웠는데 글자가 둘 붙은 것(겹모음 · 된소리 · 받침 · 이어 읽기) 연습을 더 하고
   싶다」** — 한글 코스의 뒤쪽 레슨이 딱 그 자리다. 글자를 누르면 소리가 난다.
   - [ㄲ ㄸ ㅃ ㅆ ㅉ · 거센소리와 된소리](https://everykoreans.com/lesson/hangul-06.html)
     (tense and aspirated consonants — double letters)
   - [ㅑ ㅕ ㅛ ㅠ · 획 하나, y 발음 하나](https://everykoreans.com/lesson/hangul-05.html)
     (y-vowels)
+  - [ㅘ ㅝ ㅢ ㅟ ㅚ · 모음 두 개가 한 글자로](https://everykoreans.com/lesson/hangul-11.html)
+    (compound vowels — two vowels written together)
   - [받침, 밑에 오는 글자](https://everykoreans.com/lesson/hangul-07.html)
     (final consonants under the block)
   - [소리가 넘어갈 때 · 연음](https://everykoreans.com/lesson/hangul-08.html)
@@ -58,7 +60,7 @@
 
 ## 담고 있는 것 · What is here
 
-- **코스 97개 · 레슨 345개** — 한글 낱자에서 인사말, 문장으로. 초급 · 중급 · 고급.
+- **코스 97개 · 레슨 346개** — 한글 낱자에서 인사말, 문장으로. 초급 · 중급 · 고급.
 - **문법 표현 290개** — 뜻풀이 · 예문 · 대화문, 내 문장을 써서 확인받는 칸.
 - **TOPIK 연습 문항 979개** — TOPIK I 듣기 26 · TOPIK I 읽기 209 ·
   TOPIK II 듣기 19 · TOPIK II 읽기 605 · TOPIK 쓰기 120(51번 30 · 52번 30 ·

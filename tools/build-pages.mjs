@@ -562,8 +562,12 @@ function lessonPage(course, lesson, prev, next) {
     return '';
   }).filter(Boolean).join('\n');
 
-  const title = `${tx(lesson.title)} — ${tx(course.title)} | 치즈감자`;
-  const desc = clip(`${tx(course.title)} · ${tx(lesson.title)} — ` +
+  /* seo 가 있는 레슨(한글 코스)은 영어로 찾는 사람 · AI 가 고를 수 있게 영어 제목 · 설명을 앞에 둔다.
+     쪽 본문이 영어인데 제목이 「거센소리와 된소리」뿐이면 AI 가 레슨 대신 첫 쪽을 인용했다(Bing, 2026-09). */
+  const seo = lesson.seo;
+  const title = seo ? `${seo.title} · ${tx(lesson.title)} | 치즈감자`
+    : `${tx(lesson.title)} — ${tx(course.title)} | 치즈감자`;
+  const desc = seo ? clip(seo.desc) : clip(`${tx(course.title)} · ${tx(lesson.title)} — ` +
     (read.find((b) => b.t === 'text')?.md || tx(course.tagline) || '').replace(/[*`#]/g, ''));
 
   const body = [
@@ -571,7 +575,8 @@ function lessonPage(course, lesson, prev, next) {
       `<a href="/course/${esc(course.id)}.html">${esc(tx(course.title))}</a></nav>`,
     `<span class="badge">${LV_KO[lv]} · ${LV_EN[lv]}</span>`,
     `<h1>${esc(tx(lesson.title))}</h1>`,
-    `<p class="sub">${esc(tx(course.title))}${lesson.minutes ? ` · ${lesson.minutes}분` : ''}</p>`,
+    `<p class="sub">${seo ? `<span lang="en">${esc(seo.title)}</span><br>` : ''}` +
+      `${esc(tx(course.title))}${lesson.minutes ? ` · ${lesson.minutes}분` : ''}</p>`,
     blocks,
     nQ ? `<h2>연습 · Practice</h2><p class="lead">이 레슨에는 풀어 보는 문제가 ${nQ}개 있습니다. ` +
       `앱에서 하나씩 맞히며 넘어갑니다.<br>${nQ} exercises come with this lesson — open it to work through them.</p>` : '',
@@ -588,6 +593,7 @@ function lessonPage(course, lesson, prev, next) {
       '@type': 'LearningResource',
       '@id': `${SITE}/lesson/${lesson.id}.html`,
       name: tx(lesson.title),
+      ...(seo ? { alternateName: seo.title, description: seo.desc } : {}),
       inLanguage: 'ko',
       teaches: tx(course.title),
       educationalLevel: LV_EN[lv],

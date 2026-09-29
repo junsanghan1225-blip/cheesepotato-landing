@@ -1,5 +1,5 @@
 {
- "built": "2026-09-28",
+ "built": "2026-09-29",
  "groups": [
   {
    "id": "eps",
@@ -24,7 +24,7 @@
    "ko": "코스 소리 · 글자 카드",
    "en": "Course sounds",
    "note": "레슨에서 누르면 나오는 소리예요. 또박또박, 보통 빠르기로.",
-   "none": 375,
+   "none": 381,
    "tts": 209,
    "mine": 0
   },
@@ -33,7 +33,7 @@
    "ko": "TOPIK 쓰기 지문",
    "en": "TOPIK writing passages",
    "note": "안내문 · 설명문을 읽는 톤으로.",
-   "none": 32,
+   "none": 94,
    "tts": 26,
    "mine": 0
   },
