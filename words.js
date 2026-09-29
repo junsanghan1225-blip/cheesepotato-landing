@@ -518,14 +518,14 @@ export function wordsInit(D) {
      이름을 붙여 둔다 — 낱말 목록 위에 두었더니 눌러도 목록이 안 바뀌어 고장 난 것처럼 보였다(운영자 지적). */
   function drawPick() {
     const { words, title, back } = view.pick;
+    /* 공부 방식은 셋만 크게 — 배우는 차례(보기 → 외우기 → 확인)로 번호를 붙인다(운영자 요청: 여섯은 많다).
+       쓰기 · 받아쓰기 · 짝 맞추기는 지우지 않고 아래 「다른 방법」 한 줄로. */
     const MODES = [
-      ['card', t('카드', 'Cards'), t('뒤집어 보며 외우기', 'Flip and rate')],
-      ['learn', t('외우기', 'Learn'), t('고르기 → 쓰기', 'Choose, then type')],
-      ['write', t('쓰기', 'Write'), t('뜻 보고 한국어로', 'Type the Korean')],
-      ['dict', t('받아쓰기', 'Dictation'), t('듣고 쓰기', 'Listen and type')],
-      ['match', t('짝 맞추기', 'Match'), t('시간 재기', 'Against the clock')],
-      ...(words.length >= 2 ? [['test', t('시험', 'Test'), t('섞어서 점수 내기', 'Mixed, scored')]] : []),
+      ['card', t('카드로 보기', 'Cards'), t('뒤집어 보며 처음 익히기', 'Flip through to meet the words')],
+      ['learn', t('외우기', 'Learn'), t('고르기 → 직접 쓰기로 굳히기', 'Choose, then type to lock them in')],
+      words.length >= 2 ? ['test', t('시험 보기', 'Test'), t('섞어서 풀고 점수 확인', 'Mixed questions, scored')] : ['write', t('쓰기', 'Write'), t('뜻 보고 한국어로', 'Type the Korean')],
     ];
+    const MORE = [['write', t('쓰기', 'Write')], ['dict', t('받아쓰기', 'Dictation')], ['match', t('짝 맞추기', 'Match')]].filter(([k]) => !MODES.some((m) => m[0] === k));
     const shareable = words.some((w) => byHead.get(w.h) === w);
     return `<button type="button" class="wd-back" ${back}>← ${esc(t('뒤로', 'Back'))}</button>
       <div class="wd-pick-hd"><h3 class="wd-h3 wd-h3-big">${esc(title)}</h3></div>
@@ -536,8 +536,9 @@ export function wordsInit(D) {
           <button type="button" class="${S.dir === 'en' ? 'on' : ''}" data-act="dir" data-dir="en">${esc(t('뜻 → 한국어', 'Meaning → Korean'))}</button>
         </div>
       </div>
-      <div class="wd-modes">${MODES.map(([k, name, sub]) =>
-        `<button type="button" class="wd-mode" data-act="go" data-mode="${k}">${ico(k)}<b>${esc(name)}</b><span>${esc(sub)}</span></button>`).join('')}</div>
+      <div class="wd-modes wd-modes3">${MODES.map(([k, name, sub], i) =>
+        `<button type="button" class="wd-mode" data-act="go" data-mode="${k}"><span class="wd-mode-top">${ico(k)}<em>${i + 1}</em></span><b>${esc(name)}</b><span>${esc(sub)}</span></button>`).join('')}</div>
+      <p class="wd-more-modes">${esc(t('다른 방법', 'Other ways'))}: ${MORE.map(([k, name]) => `<button type="button" class="wd-link" data-act="go" data-mode="${k}">${esc(name)}</button>`).join('<span aria-hidden="true">·</span>')}</p>
       <p class="wd-pick-n">${esc(t(`낱말 ${words.length}개`, `${words.length} words`))}</p>
       <div class="wd-list">${words.map((w) => wordRow(w, learned(idOf(w)) ? `<span class="wd-ok">${ico('check')}</span>` : '')).join('')}</div>
       <div class="wd-pick-foot">
