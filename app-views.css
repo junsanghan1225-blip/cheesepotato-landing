@@ -4659,15 +4659,16 @@ div.wd-card:hover { transform:none; }
 /* 내 길 고르기(TOPIK 길 · 생활 길) — 「오늘」에서 한 번 */
 .wd-choose { display:flex; flex-direction:column; align-items:stretch; gap:12px; }
 .wd-choose-t { font-size:24px; font-weight:800; letter-spacing:-.02em; color:#FBF5EC; }
-.wd-choose-topik { display:flex; flex-direction:column; gap:4px; text-align:left; padding:16px 18px; border:0; border-radius:16px; background:var(--orange); color:#1B1512; font:inherit; cursor:pointer; }
-.wd-choose-topik b { font-size:18px; font-weight:900; }
-.wd-choose-topik span { font-size:13.5px; opacity:.85; }
-.wd-choose-or { margin-top:6px; font-size:13px; color:rgba(251,245,236,.7); }
-.wd-choose-life { display:grid; grid-template-columns:1fr 1fr; gap:8px; }
-.wd-choose-life button { display:flex; align-items:center; gap:8px; padding:12px 14px; border-radius:14px; border:1px solid rgba(251,245,236,.22); background:rgba(251,245,236,.06);
-  color:#FBF5EC; font:inherit; font-size:15px; font-weight:700; cursor:pointer; text-align:left; }
-.wd-choose-life button:hover { border-color:var(--orange); }
-.wd-choose-life .wd-i { width:20px; height:20px; color:var(--orange); }
+.wd-choose-two { display:grid; grid-template-columns:1fr 1fr; gap:10px; }
+@media (max-width:480px){ .wd-choose-two { grid-template-columns:1fr; } }
+.wd-choose-b { display:flex; flex-direction:column; align-items:flex-start; gap:4px; text-align:left; padding:18px; border-radius:18px; cursor:pointer; font:inherit;
+  border:1px solid rgba(251,245,236,.22); background:rgba(251,245,236,.06); color:#FBF5EC; }
+.wd-choose-b:hover { border-color:var(--orange); }
+.wd-choose-b .wd-i { width:26px; height:26px; margin-bottom:6px; color:var(--orange); }
+.wd-choose-b b { font-size:19px; font-weight:900; }
+.wd-choose-b span { font-size:13px; opacity:.8; }
+.wd-choose-b.topik { background:var(--orange); border-color:var(--orange); color:#1B1512; }
+.wd-choose-b.topik .wd-i { color:#1B1512; }
 .wd-path-x { margin-left:8px; font-size:12.5px; }
 /* 별표 폴더 */
 .wd-folder.cstar { --f:#FFD27A; --fd:#D99A12; }
