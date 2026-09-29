@@ -103,6 +103,12 @@ for (const f of files) {
       }
       if (w.hanja && !/^[㐀-鿿豈-﫿]+$/.test(w.hanja)) err.push(`${at} — hanja 는 한자만(${w.hanja})`);
     });
+    /* 한자어는 글자 수가 음절 수와 같다(경제 → 經濟, 경제적 → 經濟的). 다르면 고유어에 뜻 한자를 붙였을 가능성이 크다
+       (TOPIK II 1묶음: 먼지 → 埃 · 뿌리 → 根). 「-하다 · -되다」 같은 꼬리는 떼고 센다. */
+    if (w.hanja) {
+      const stem = w.head.replace(/(하다|되다|시키다|스럽다|롭다|히|이다)$/, '');
+      if (![w.head.length, stem.length].includes([...w.hanja].length)) warn.push(`${at} — 한자 글자 수가 음절과 다르다(${w.head} · ${w.hanja}) — 고유어면 비운다`);
+    }
     if (w.rel != null && (typeof w.rel !== 'object' || Array.isArray(w.rel))) err.push(`${at} — rel 은 객체`);
     else for (const [k, v] of Object.entries(w.rel || {})) {
       if (!(typeof v === 'string' || (Array.isArray(v) && v.every((x) => typeof x === 'string')))) err.push(`${at} — rel.${k} 는 글자나 글자 배열`);
