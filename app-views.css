@@ -4738,3 +4738,18 @@ div.wd-card:hover { transform:none; }
   .lt-track-t { font-size:17px; }
   .lt-self-ic svg { width:80px; height:80px; }
 }
+
+/* ══ 레벨 진도 막대 — 다음 감자 · 치즈까지(내 코스 · 「오늘」 카드). 선(em)은 승급 기준 자리 ══ */
+.lvp { display:flex; flex-direction:column; gap:8px; padding:12px 14px; border-radius:var(--r-l); background:var(--surface-2); }
+.lvp.ready { background:var(--tint); }
+.lvp-head { display:flex; align-items:center; justify-content:space-between; gap:10px; font-size:12.5px; color:var(--ink-3); font-weight:700; }
+.lvp-head b { display:inline-flex; align-items:center; gap:6px; color:var(--ink); font-size:13.5px; }
+.lvp-head b svg { width:26px; height:26px; flex:none; }
+.lvp-row { display:grid; grid-template-columns:minmax(40px, max-content) 1fr auto; align-items:center; gap:10px; font-size:12.5px; color:var(--ink-2); }
+.lvp-bar { position:relative; display:block; height:8px; border-radius:4px; background:color-mix(in srgb, var(--ink) 10%, transparent); }
+.lvp-bar i { position:absolute; left:0; top:0; bottom:0; border-radius:4px; background:var(--orange); min-width:3px; }
+.lvp-bar em { position:absolute; top:-4px; bottom:-4px; width:2px; margin-left:-1px; background:var(--ink); opacity:.6; }
+.lvp-n { font-weight:800; color:var(--ink); font-variant-numeric:tabular-nums; white-space:nowrap; }
+.lvp-note { font-size:12.5px; color:var(--ink-2); line-height:1.45; word-break:keep-all; }
+.lvp-go { align-self:flex-start; background:var(--orange); color:#fff; border:none; border-radius:999px; padding:8px 14px; font:inherit; font-size:13.5px; font-weight:800; cursor:pointer; }
+.lvp.sm { padding:10px 12px; gap:6px; }
