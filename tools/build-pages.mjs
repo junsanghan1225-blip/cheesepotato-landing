@@ -34,6 +34,7 @@ import { GLOSSARY } from '../glossary.js';
 import { SENSES } from '../glossary-senses.js';
 import { EXAMPLES } from '../glossary-examples.js';
 import { VOCAB, VOCAB_TOPICS } from '../vocab-topik1.js';
+import { VOCAB as VOCAB2 } from '../vocab-topik2.js';   // TOPIK II — 안 그래비티가 채운 B급만(묶음마다 늘어난다)
 import { conjugate, romanize } from './ko-conj.mjs';
 import { readFileSync as readEn } from 'node:fs';
 import { createHash } from 'node:crypto';
@@ -1074,14 +1075,16 @@ const DICT_HEADS = [...new Map(
    영어 검색에 맞춘 제목 · 로마자 · 활용 · 우리 예문 · 비슷한 말 · 같은 주제 낱말 · 미니 퀴즈 · 구조화 데이터.
    사전(GLOSSARY)에 없는 낱말(490개쯤 — 갈비 · 누나 · 떡볶이 …)도 쪽을 새로 낸다.
    오늘의 단어(wotd.js)는 예전 사전 표제어만 그대로 쓴다 — 홈 문구의 숫자가 그 수를 말한다. */
-const VOC = new Map(VOCAB.map((w) => [w.h, w]));
+const VOC = new Map([...VOCAB, ...VOCAB2].map((w) => [w.h, w]));
 const TOPIC_NAME = new Map(VOCAB_TOPICS.map((t) => [t.id, t]));
-const PAGE_HEADS = [...DICT_HEADS, ...VOCAB.filter((w) => !DICT_HEADS.some((d) => d.head === w.h))
+const PAGE_HEADS = [...DICT_HEADS, ...[...VOC.values()].filter((w) => !DICT_HEADS.some((d) => d.head === w.h))
   .map((w) => ({ head: w.h, pos: w.p, en: w.e }))].sort((a, b) => a.head.localeCompare(b.head, 'ko'));
 const PAGE_SET = new Set(PAGE_HEADS.map((h) => h.head));
 const dictHref = (h) => `/dictionary/${encodeURIComponent(h)}.html`;
 const topicMain = (w) => w.t[0]?.split('/')[0];
 const byTopic = new Map(VOCAB_TOPICS.map((t) => [t.id, VOCAB.filter((w) => w.t.some((x) => x.split('/')[0] === t.id))]));
+const byTopic2 = new Map(VOCAB_TOPICS.map((t) => [t.id, VOCAB2.filter((w) => w.t.some((x) => x.split('/')[0] === t.id))]));
+const isT2 = (w) => w.l >= 3;
 const CONJ_NAME = { present: ['현재', 'present'], past: ['과거', 'past'], future: ['미래', 'future'], and: ['-고 (그리고)', 'and …'], mod: ['꾸미는 꼴', 'before a noun'] };
 /* 낱말마다 늘 같은 보기가 나오게 — 굽기를 다시 해도 쪽이 흔들리지 않아야 검색 엔진이 「바뀌었다」고 헷갈리지 않는다. */
 const seeded = (str) => { let h = 2166136261; for (const c of str) h = Math.imul(h ^ c.codePointAt(0), 16777619); return () => ((h = Math.imul(h ^ (h >>> 15), 2246822507) >>> 0) / 4294967296); };
@@ -1170,7 +1173,9 @@ function vocabPage(w, prev, next) {
   const head = w.h, rom = romanize(head) || '';
   const firstEn = w.e.split(';')[0].trim();
   const conj = conjugate(head, w.p);
-  const tp = TOPIC_NAME.get(topicMain(w));
+  /* TOPIK II 낱말은 아직 주제 목록 쪽(/topik1-words/)이 없다 — 이름만 쓰고 그 쪽으로 걸지 않는다. */
+  const tpName = TOPIC_NAME.get(topicMain(w));
+  const tp = isT2(w) ? null : tpName;
   /* 사전 뜻풀이는 같은 꼴의 다른 낱말까지 한데 묶여 있다(먹다: 「귀가 먹다」 · 「밥을 먹다」). 여기 낱말의 영어 뜻과
      겹치는 풀이만 싣는다 — 안 그러면 「먹다 = be deaf」가 맨 위에 선다. */
   const STOP = new Set(['to', 'be', 'of', 'in', 'on', 'at', 'or', 'an', 'as', 'the', 'and', 'for', 'something', 'someone', 'one']);
@@ -1196,11 +1201,11 @@ function vocabPage(w, prev, next) {
   const rel = w.r ? Object.entries(w.r).map(([k, v]) =>
     `<div class="fact"><b>${{ syn: '비슷한 말 · Similar', ant: '반대말 · Opposite', hon: '높임말 · Honorific' }[k]}</b><span>${
       v.map((x) => (PAGE_SET.has(x) ? `<a href="${dictHref(x)}">${esc(x)}</a>` : esc(x))).join(' · ')}</span></div>`).join('') : '';
-  const same = (byTopic.get(topicMain(w)) || []).filter((x) => x !== w).slice(0, 14);
+  const same = ((isT2(w) ? byTopic2 : byTopic).get(topicMain(w)) || []).filter((x) => x !== w).slice(0, 14);
 
   const body = [
     `<nav class="crumb"><a href="/">치즈감자</a> › <a href="/dictionary/">사전</a>${tp ? ` › <a href="/topik1-words/${tp.id}.html">TOPIK I ${esc(tp.ko)}</a>` : ''} › ${esc(head)}</nav>`,
-    `<span class="badge">TOPIK I · ${w.l}급</span> <span class="badge">${esc(w.p)}</span>`,
+    `<span class="badge">TOPIK ${isT2(w) ? 'II' : 'I'} · ${w.l}급</span> <span class="badge">${esc(w.p)}</span>`,
     `<h1>${esc(head)}</h1>`,
     `<p class="sub" lang="en"><span class="rom">${esc(rom)}</span> · ${esc(firstEn)}</p>`,
     '<h2>뜻 · Meaning</h2>',
@@ -1217,7 +1222,7 @@ function vocabPage(w, prev, next) {
     quiz,
     `<a class="cta" href="/#words/w/${encodeURIComponent(head)}">이 낱말이 든 단어장 무료로 외우기 →` +
       `<span>Learn "${esc(head)}" free with flashcards and spaced review — hear it pronounced</span></a>`,
-    same.length ? `<h2>같은 주제 낱말 · More ${esc(tp?.en || '')} words</h2><ul class="pts">` +
+    same.length ? `<h2>같은 주제 낱말 · More ${esc(tpName?.en || '')} words</h2><ul class="pts">` +
       same.map((x) => `<li><a href="${dictHref(x.h)}">${esc(x.h)}</a></li>`).join('') + '</ul>' +
       (tp ? `<p class="note"><a href="/topik1-words/${tp.id}.html">TOPIK I ${esc(tp.ko)} 낱말 전부 보기 · All ${esc(tp.en)} words →</a></p>` : '') : '',
     (prev || next) ? '<div class="near">' +
@@ -2704,6 +2709,6 @@ console.log(`TOPIK 쓰기 ${nW}쪽 + 목록 1쪽 → topik-writing/`);
 console.log(`TOPIK 읽기 ${nR}쪽 + 목록 1쪽 → topik-reading/`);
 console.log(`TOPIK 듣기 ${nTL}쪽 + 목록 1쪽 → topik-listening/`);
 console.log(`EPS-TOPIK ${nEps}쪽 + 목록 1쪽 → eps-topik/`);
-console.log(`사전 ${nDict}쪽 + 목록 1쪽 → dictionary/ (TOPIK I 보강 쪽 ${VOCAB.length}) · TOPIK I 낱말 목록 ${nVl}쪽 + 목록 1쪽 → topik1-words/ · 영어로 찾기 ${EW.size}쪽 → korean-word-for/, 오늘의 단어 자료 ${DICT_HEADS.length}개 → wotd.js`);
+console.log(`사전 ${nDict}쪽 + 목록 1쪽 → dictionary/ (보강 쪽 TOPIK I ${VOCAB.length} · TOPIK II ${VOCAB2.length}) · TOPIK I 낱말 목록 ${nVl}쪽 + 목록 1쪽 → topik1-words/ · 영어로 찾기 ${EW.size}쪽 → korean-word-for/, 오늘의 단어 자료 ${DICT_HEADS.length}개 → wotd.js`);
 console.log(`블로그 ${nB}쪽 + 목록 1쪽 + 갈래 ${nBT}쪽 + rss.xml → blog/`);
 console.log(`sitemap.xml 에 주소 ${urls.length}개 — ${smFiles.map((f) => `${f.file} ${f.n}`).join(' · ')}.`);
