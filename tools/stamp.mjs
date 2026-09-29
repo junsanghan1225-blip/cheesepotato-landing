@@ -17,7 +17,7 @@
  * 자국은 **내용에서 뽑는다.** 날짜나 회차로 찍으면 안 바뀐 파일까지 새로
  * 받게 되고, 손으로 올리는 값이면 잊어버린다.
  */
-import { readFileSync, writeFileSync } from 'node:fs';
+import { readFileSync, writeFileSync, readdirSync, existsSync } from 'node:fs';
 import { createHash } from 'node:crypto';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
@@ -31,6 +31,11 @@ const ASSETS = [
   'glossary.js', 'gloss-find.js',
   /* 「단어」 화면(#words) — 화면 코드와 자료(tools/build-vocab.mjs 생성물). 그 화면을 열 때만 받는다. */
   'words.js', 'vocab-topik1.js', 'vocab-topik2.js',
+  /* TOPIK II 예문 조각(vocab-topik2-ex/<n>.js) — 조각 수가 묶음마다 늘어 폴더에서 읽는다. 주소는 app.module.js 가
+     vocab-topik2.js 의 자국을 그대로 빌려 쓴다(한 자국이 모든 파일에 같으니 조각이 바뀌면 그 주소도 바뀐다). */
+  ...(existsSync(join(dirname(fileURLToPath(import.meta.url)), '..', 'vocab-topik2-ex'))
+    ? readdirSync(join(dirname(fileURLToPath(import.meta.url)), '..', 'vocab-topik2-ex')).filter((f) => f.endsWith('.js'))
+      .sort((a, b) => parseInt(a) - parseInt(b)).map((f) => `vocab-topik2-ex/${f}`) : []),
   /* 국어사전 화면(#dictionary)의 "더 보기" 자료(뜻풀이·예문). glossary.js
      처럼 늘 받는 파일이 아니라 그 화면을 열 때만 따로 받는다. */
   'glossary-senses.js', 'glossary-examples.js',

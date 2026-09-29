@@ -136,6 +136,20 @@ export function wordsInit(D) {
   if (!TRACKS.topik2.length) S.track = 'topik1';
   let VOCAB = TRACKS[S.track];
   function setTrack(k) { if (!TRACKS[k]?.length) return; S.track = k; save(); VOCAB = TRACKS[k]; }
+  /* TOPIK II 예문은 처음엔 비어 있다 — 낱말 화면 · 카드가 그 낱말을 그릴 때 그 낱말이 든 조각(500개)만 받아 채우고
+     다시 그린다. 받는 동안에도 예문 칸만 비고 나머지는 그대로 보인다. 예문으로 찾기(검색 7순위)는 받은 조각만 본다. */
+  const EX_N = 500, exGot = new Set(), exWait = new Set();
+  TRACKS.topik2.forEach((w) => { if (!w.x) w.x = []; });
+  function needEx(w) {
+    if (!D.loadEx2 || w.l < 3) return;
+    const k = Math.floor(TRACKS.topik2.indexOf(w) / EX_N);
+    if (k < 0 || exGot.has(k) || exWait.has(k)) return;
+    exWait.add(k);
+    D.loadEx2(k).then((EX) => {
+      TRACKS.topik2.slice(k * EX_N, (k + 1) * EX_N).forEach((v, j) => { v.x = EX[j] || []; });
+      exGot.add(k); draw();
+    }).catch(() => {}).finally(() => exWait.delete(k));   // 못 받으면 다음에 그릴 때 다시 시도한다
+  }
   const root = D.root;
   const idOf = (w) => w.i || w.h;
   const byId = new Map(ALL.map((w) => [idOf(w), w]));
@@ -407,6 +421,7 @@ export function wordsInit(D) {
       </div>`;
     }
     const id = idOf(w);
+    needEx(w);
     const rel = w.r ? Object.entries(w.r).map(([k, v]) => `<span class="wd-rel"><em>${esc({ syn: t('비슷한 말', 'Similar'), ant: t('반대말', 'Opposite'), hon: t('높임말', 'Honorific') }[k])}</em>${
       v.map((x) => byHead.has(x) || Object.values(D.gloss()).some((g) => g.head === x) ? `<button type="button" class="wd-chip" data-word="${esc(x)}">${esc(x)}</button>` : `<span>${esc(x)}</span>`).join('')}</span>`).join('') : '';
     const topics = w.t.map((x) => { const [a, b] = x.split('/'); const tp = topicOf(a); const s = tp?.subs.find((y) => y.id === b); return tp ? `<button type="button" class="wd-chip" data-act="topic" data-topic="${esc(a)}">${esc(t(tp.ko, tp.en))}${s ? ' · ' + esc(t(s.ko, s.en)) : ''}</button>` : ''; }).join('');
@@ -596,6 +611,7 @@ export function wordsInit(D) {
       ${bar(doneCount(), r.total)}<span class="wd-n">${doneCount()} / ${r.total}</span>
       <button type="button" class="wd-star${isStar(id) ? ' on' : ''}" data-act="star" data-id="${esc(id)}" aria-label="${esc(t('별표', 'Star'))}">${isStar(id) ? '★' : '☆'}</button></div>`;
     if (r.mode === 'card') {
+      needEx(w);
       const front = r.dir === 'ko'
         ? `<b class="wd-big">${esc(w.h)}</b><span class="wd-pos">${esc(w.p || '')}</span>`
         : `<b class="wd-big wd-big-en">${esc(mean(w))}</b><span class="wd-pos">${esc(w.p || '')}</span>`;

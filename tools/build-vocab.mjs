@@ -18,7 +18,12 @@ const read = (f) => JSON.parse(fs.readFileSync(path.join(ROOT, f), 'utf8'));
 const tax = read('vocab/taxonomy.json');
 /* TOPIK I 은 vocab-topik1.js(주제 · 목적 표도 같이), TOPIK II 는 vocab-topik2.js(낱말만 — 표는 topik1 쪽 것을 쓴다).
    TOPIK II 는 안 그래비티가 500개씩 채우는 중이라, B급이 된 것만 실린다 — 묶음이 들어올 때마다 다시 굽는다. */
+/* TOPIK II 는 예문(x)을 따로 떼어 500개씩 vocab-topik2-ex/<n>.js 로 굽는다 — 예문이 파일의 절반이라, 다 채우면(8,183개)
+   4MB 가 넘는다. 화면은 낱말 목록만 먼저 받고, 낱말 화면 · 카드를 열 때 그 낱말이 든 조각만 받는다(words.js needEx).
+   조각 n 은 목록 차례 n*500 ~ n*500+499 의 예문이다. 낱말이 늘어도 조각 수만 는다. */
+const EX_N = 500;
 for (const [name, withTables] of [['topik1', true], ['topik2', false]]) {
+const split = name === 'topik2';
 const words = read(`vocab/data/${name}.json`).filter((w) => w.grade === 'B' || w.grade === 'A');
 
 /* 칸 이름: i id · h 표제어 · p 품사 · l 급수 · e 영어 뜻 · s 쉬운 영어 뜻 · t 주제(대분류/소분류) ·
@@ -40,7 +45,19 @@ const src = `/* 생성물 — 손으로 고치지 않는다. 원본 vocab/data/$
   '   어휘 급수: 국립국어원 「국제 통용 한국어 표준 교육과정」(공공누리 1유형). 뜻 · 예문: 치즈감자. */\n' +
   (withTables ? `export const VOCAB_TOPICS = ${JSON.stringify(topics)};\n` +
   `export const VOCAB_PURPOSES = ${JSON.stringify(purposes)};\n` : '') +
-  'export const VOCAB = [\n' + out.map((o) => JSON.stringify(o)).join(',\n') + '\n];\n';
+  'export const VOCAB = [\n' + out.map((o) => { if (!split) return JSON.stringify(o); const { x, ...core } = o; return JSON.stringify(core); }).join(',\n') + '\n];\n';
 fs.writeFileSync(path.join(ROOT, `vocab-${name}.js`), src);
-console.log(`vocab-${name}.js — 낱말 ${out.length}개 · ${(src.length / 1024).toFixed(0)}KB`);
+let exKB = 0, nEx = 0;
+if (split) {
+  const dir = path.join(ROOT, `vocab-${name}-ex`);
+  fs.mkdirSync(dir, { recursive: true });
+  for (let k = 0; k * EX_N < out.length; k++, nEx++) {
+    const part = `/* 생성물 — 손으로 고치지 않는다. vocab-${name}.js 의 ${k * EX_N}번부터 ${EX_N}개 낱말의 예문 → node tools/build-vocab.mjs */\n` +
+      'export const EX = [\n' + out.slice(k * EX_N, (k + 1) * EX_N).map((o) => JSON.stringify(o.x)).join(',\n') + '\n];\n';
+    fs.writeFileSync(path.join(dir, `${k}.js`), part);
+    exKB += part.length / 1024;
+  }
+}
+console.log(`vocab-${name}.js — 낱말 ${out.length}개 · ${(src.length / 1024).toFixed(0)}KB` +
+  (split ? ` + 예문 조각 ${nEx}개(vocab-${name}-ex/, 합쳐 ${exKB.toFixed(0)}KB)` : ''));
 }
