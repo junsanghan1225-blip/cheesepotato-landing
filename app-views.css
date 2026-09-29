@@ -4162,7 +4162,12 @@ div.wd-card:hover { transform:none; }
 .wd-word > :not(.wd-word-top) { margin-left:20px; margin-right:20px; }
 .wd-word > :last-child { margin-bottom:20px; }
 .wd-word-top { position:relative; padding:22px 20px 16px; background:linear-gradient(160deg, color-mix(in srgb, hsl(var(--h) 80% 60%) 18%, var(--surface)) 0%, var(--surface) 85%); }
-.wd-word-ico { position:absolute; right:18px; top:62px; font-size:44px; opacity:.22; pointer-events:none; }
+/* 주제 그림 — 주제 카드와 같은 둥근 네모로, 낱말 바로 앞에 둔다(따로 떠 있으면 어디 딸린 것인지 안 보인다). */
+.wd-word-ico {
+  flex-shrink:0; width:52px; height:52px; border-radius:14px; display:grid; place-items:center; font-size:28px; margin-right:4px;
+  background:color-mix(in srgb, hsl(var(--h) 80% 60%) 22%, var(--surface));
+}
+@media (max-width:560px){ .wd-word-ico { width:42px; height:42px; font-size:22px; border-radius:12px; } }
 .wd-word-h { display:flex; align-items:center; gap:8px; }
 .wd-word-h b { font-size:42px; font-weight:900; letter-spacing:-.01em; overflow-wrap:anywhere; }
 .wd-say-big { width:38px !important; height:38px !important; }
