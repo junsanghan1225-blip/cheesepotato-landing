@@ -40,7 +40,7 @@
 ">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <!-- 구글 태그 관리자. 구글이 주는 인라인 코드조각은 CSP 가 막아서 gtm.js 로 뺐다. -->
-<script src="gtm.js?v=5f9f3b96" async></script>
+<script src="gtm.js?v=a293a6e7" async></script>
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <!-- 제목과 설명을 두 말로 쓴다. 이 사이트를 찾을 사람은 한국어를 **배우는**
@@ -119,13 +119,13 @@
      Pretendard 는 통짜(2.0MB) 대신 조각난 쪽을 쓴다 — 브라우저가
      unicode-range 를 보고 화면에 실제로 나온 글자가 든 조각만 받는다.
      그래서 저장소는 무거워졌지만 학습자가 받는 양은 오히려 줄었다. -->
-<link rel="stylesheet" href="vendor/pretendard.css?v=5f9f3b96">
-<link rel="stylesheet" href="vendor/pressstart2p.css?v=5f9f3b96">
+<link rel="stylesheet" href="vendor/pretendard.css?v=a293a6e7">
+<link rel="stylesheet" href="vendor/pressstart2p.css?v=a293a6e7">
 <!-- 화면 상자 안에서만 쓰는 CSS 는 여기서 갈라 받는다. media="print" 라
      첫 페인트를 안 막고, 다 받아지면 app.js 가 media 를 all 로 바꾼다.
      자바스크립트가 없으면 <noscript> 쪽이 그냥 평범하게 걸린다. -->
-<link id="viewsCss" rel="stylesheet" href="app-views.css?v=5f9f3b96" media="print">
-<noscript><link rel="stylesheet" href="app-views.css?v=5f9f3b96"></noscript>
+<link id="viewsCss" rel="stylesheet" href="app-views.css?v=a293a6e7" media="print">
+<noscript><link rel="stylesheet" href="app-views.css?v=a293a6e7"></noscript>
 
 <style>
 /* ══════════════════════════════════════════════════════════════
@@ -1682,7 +1682,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- 머리띠의 이 자리는 「단어」다 — 내 단어장은 단어 화면 안의 탭이 됐다(docs/vocab-plan.md 3층).
          id 는 wbBtn 그대로 둔다: 여러 곳이 이 id 로 켜고 끈다. -->
     <button class="nav-link" id="wbBtn" type="button" aria-label="단어 열기" data-en-aria="Open words">
-      <span class="nav-ico">🔤</span><span class="nav-txt" data-en="Words">단어</span>
+      <span class="nav-ico">📚</span><span class="nav-txt" data-en="Words">단어</span>
     </button>
     <!-- 로그인 여부에 따라 글이 바뀌므로 data-en 대신 JS 가 관리한다. -->
     <button class="nav-link" id="authBtn" type="button" aria-label="로그인">
@@ -1747,7 +1747,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="side-sec-h" data-en="Learn">배우기</div>
     <!-- 국어사전과 외우기를 합친 「단어」(#words) — 배우기 맨 위에 둔다. id 는 dictBtn 그대로(예전 이름으로 여는 곳이 있다). -->
     <button class="nav-link" id="dictBtn" type="button" aria-label="단어 열기" data-en-aria="Open words">
-      <span class="nav-ico">🔤</span><span class="nav-txt" data-en="Words — search &amp; learn">단어 — 찾고 외우기</span>
+      <span class="nav-ico">📚</span><span class="nav-txt" data-en="Words — search &amp; learn">단어 — 찾고 외우기</span>
     </button>
     <div class="side-group open" data-group="learn">
       <button class="nav-link side-parent" type="button"
@@ -1861,10 +1861,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <button class="nav-link" id="sideAuthBtn" type="button" data-nav-to="authBtn" aria-label="로그인">
       <span class="nav-ico">👤</span><span class="nav-txt" data-en="Sign in">로그인</span>
     </button>
-    <!-- 단어 화면의 「내 단어장」 탭으로 곧장 간다(app.module.js sideMineBtn). -->
-    <button class="nav-link" id="sideMineBtn" type="button" aria-label="내 단어장 열기" data-en-aria="Open my wordbook">
-      <span class="nav-ico">📚</span><span class="nav-txt" data-en="My wordbook">내 단어장</span>
-    </button>
+    <!-- 「내 단어장」은 단어(배우기 맨 위)에 합쳤다 — 단어 화면의 탭이자, 거기서 「단어장 전체 열기」로 들어간다. -->
     <button class="nav-link" id="dashBtn" type="button" aria-label="대시보드 열기">
       <span class="nav-ico">📊</span><span class="nav-txt" data-en="Dashboard">대시보드</span>
     </button>
@@ -3048,10 +3045,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <span class="game-card-go" data-en="Play →">놀아보기 →</span>
       </button>
 
+      <!-- 「단어」 화면과 잇는다 — 오늘의 새 낱말로 곧장 짝 맞추기(#words/play/match). 로그인 없이 된다. -->
+      <button class="game-card" id="gcWords" type="button">
+        <span class="game-card-ico">🧩</span>
+        <span class="game-card-name" data-en="Word match">단어 짝 맞추기</span>
+        <span class="game-card-desc" data-en="Today's new words from Words — pair each word with its meaning against the clock. No sign-in needed.">「단어」의 오늘의 새 낱말로 — 낱말과 뜻을 짝지어 시간을 재요. 로그인 없이 바로 됩니다.</span>
+        <span class="game-card-go" data-en="Play →">놀아보기 →</span>
+      </button>
+
       <button class="game-card" id="gcQuiz" type="button">
         <span class="game-card-ico">⏱</span>
         <span class="game-card-name" data-en="Speed quiz">스피드 퀴즈</span>
-        <span class="game-card-desc" data-en="Sixty seconds, four choices at a time. How many can you get?">60초, 보기는 넷. 몇 개나 맞힐 수 있을까요.</span>
+        <span class="game-card-desc" data-en="Sixty seconds, four choices at a time. Uses your wordbook — or your Words when it is short.">60초, 보기는 넷. 내 단어장으로 — 모자라면 「단어」에서 외운 낱말로 채워요.</span>
         <span class="game-card-go" data-en="Play →">놀아보기 →</span>
       </button>
 
@@ -3706,6 +3711,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
      쓰는 곳이 두 군데가 되면 어느 쪽이 맞는지 다투게 된다. -->
 <div id="wordbookView" class="hidden">
 
+  <!-- 단어 화면(#words)과 한 몸 — 여기서 곧장 돌아간다(app.module.js wbBackWords). -->
+  <div class="pt-body" style="padding-bottom:0;"><button class="wd-back" id="wbBackWords" type="button" data-en="← Words">← 단어</button></div>
   <div class="pt-hero">
     <h2 data-en="My wordbook">내 단어장</h2>
     <p data-en="The words you saved in the app, right here in your browser.">앱에서 저장한 단어를 브라우저에서 그대로 봅니다.</p>
@@ -3950,9 +3957,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <div id="hlpScrim" class="hlp-scrim"></div>
 <aside id="hlpPanel" class="hlp-panel" aria-label="한국어 도우미" aria-hidden="true"></aside>
 
-<script src="app.js?v=5f9f3b96"></script>
-<script type="module" src="app.module.js?v=5f9f3b96"></script>
+<script src="app.js?v=a293a6e7"></script>
+<script type="module" src="app.module.js?v=a293a6e7"></script>
 
-<script src="analytics.js?v=5f9f3b96" defer></script>
+<script src="analytics.js?v=a293a6e7" defer></script>
 </body>
 </html>

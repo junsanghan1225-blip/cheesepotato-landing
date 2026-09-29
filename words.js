@@ -220,9 +220,10 @@ export function wordsInit(D) {
 
   /* ── 그리기 ───────────────────────────────────────────── */
   /* 탭 이름은 그릴 때마다 만든다 — 한 번만 만들면 언어를 바꿔도 예전 말로 남는다. */
+  /* 탭은 넷 — 처음 온 학생이 고민 없이 「오늘」을 누르게(운영자 요청: 덜어내기). 복습은 「오늘」에, 별표는 「내 단어장」에 합쳤다. */
   const tabs = () => [
-    ['home', t('오늘', 'Today')], ['learn', t('외우기', 'Learn')], ['review', t('복습', 'Review')],
-    ['mine', t('내 단어장', 'My wordbook')], ['star', t('별표', 'Starred')], ['stats', t('기록', 'Progress')],
+    ['home', t('오늘', 'Today')], ['learn', t('외우기', 'Learn')],
+    ['mine', t('내 단어장', 'My wordbook')], ['stats', t('기록', 'Progress')],
   ];
   /* 주제마다 그림 하나와 색 하나(hue) — 카드 목록이 한눈에 갈리게. 색은 --h 로 넘기고 CSS 가 섞는다. */
   const TOPIC_LOOK = {
@@ -240,7 +241,7 @@ export function wordsInit(D) {
   };
 
   function shell(body) {
-    const tabOn = view.tab === 'topic' || view.tab === 'pick' ? 'learn' : view.tab;
+    const tabOn = view.tab === 'topic' || view.tab === 'pick' ? 'learn' : view.tab === 'review' ? 'home' : view.tab === 'star' ? 'mine' : view.tab;
     return `<div class="wd-top">
       <div class="wd-hero">
         <h2 class="wd-h">${esc(t('단어', 'Words'))}</h2>
@@ -263,26 +264,22 @@ export function wordsInit(D) {
     `<button type="button" class="wd-row" data-word="${esc(w.h)}"><b>${esc(w.h)}</b><span class="wd-pos">${esc(w.p || '')}</span>` +
     `<span class="wd-mean">${esc(mean(w) || '')}</span>${extra}</button>`;
 
+  /* 오늘 — 할 일 하나만 크게: 오늘의 새 낱말 10개와 시작 단추. 복습할 것이 있으면 그 위에 한 줄. */
   function drawHome() {
     const d = due();
     const nx = nextSession();
     const total = VOCAB.length, got = VOCAB.filter((w) => learned(idOf(w))).length;
     const first = !Object.keys(S.w).length;
-    const rc = recent();
     const next = nx == null ? [] : chunk(VOCAB)[nx];
     return `<div class="wd-today">
-      <div class="wd-hero-card">
-        ${ring(got, total, t('TOPIK I', 'TOPIK I'))}
-        <div class="wd-hero-card-t">
-          <div class="wd-card-k">${esc(nx == null ? t('다 봤어요!', 'All seen!') : t(`오늘의 새 낱말 · 세션 ${nx + 1} / ${Math.ceil(total / SESSION)}`, `Today’s new words · session ${nx + 1} of ${Math.ceil(total / SESSION)}`))}</div>
-          <p class="wd-hero-card-p">${esc(first ? t('하루 10개씩, 잊기 전에 다시 불러 드려요. TOPIK I 필수 낱말부터 시작하세요.', 'Ten a day — we bring them back before you forget. Start with the TOPIK I essentials.')
-            : t(`TOPIK I 필수 ${total.toLocaleString()}개 중 ${got.toLocaleString()}개를 외웠어요.`, `${got.toLocaleString()} of ${total.toLocaleString()} TOPIK I essentials learned.`))}</p>
-          ${next.length ? `<div class="wd-peek">${next.map((w) => `<button type="button" class="wd-peek-w" data-word="${esc(w.h)}">${esc(w.h)}</button>`).join('')}</div>` : ''}
-          ${nx == null ? '' : `<button type="button" class="wd-btn wd-btn-big" data-act="session" data-topic="all" data-n="${nx}">${esc(first ? t('시작하기', 'Start') : t('이어서 외우기', 'Continue'))} →</button>`}
-        </div>
+      ${d.length ? `<button type="button" class="wd-due" data-act="review"><span>${esc(t('오늘 복습', 'Review today'))}</span><b>${d.length}</b><em>${esc(t('먼저 하기 →', 'Do first →'))}</em></button>` : ''}
+      <div class="wd-focus">
+        <p class="wd-focus-k">${esc(nx == null ? t('TOPIK I 필수를 다 봤어요!', 'You have seen every TOPIK I word!') : t(`오늘의 새 낱말 ${SESSION}개`, `Today’s ${SESSION} new words`))}</p>
+        ${next.length ? `<div class="wd-peek">${next.map((w) => `<button type="button" class="wd-peek-w" data-word="${esc(w.h)}">${esc(w.h)}</button>`).join('')}</div>` : ''}
+        ${nx == null ? '' : `<button type="button" class="wd-btn wd-btn-big" data-act="session" data-topic="all" data-n="${nx}">${esc(first ? t('시작하기', 'Start') : t('이어서 외우기', 'Continue'))} →</button>`}
+        <p class="wd-focus-p">${esc(t(`TOPIK I 필수 ${got.toLocaleString()} / ${total.toLocaleString()}`, `TOPIK I essentials ${got.toLocaleString()} / ${total.toLocaleString()}`))}</p>
+        ${bar(got, total)}
       </div>
-      ${d.length ? `<button type="button" class="wd-due" data-act="review"><span>${esc(t('오늘 복습', 'Review today'))}</span><b>${d.length}</b><em>${esc(t('시작 →', 'Start →'))}</em></button>` : ''}
-      ${rc.length ? `<div class="wd-recent"><span>${esc(t('최근 본 낱말', 'Recently viewed'))}</span>${rc.map((h) => `<button type="button" class="wd-chip" data-word="${esc(h)}">${esc(h)}</button>`).join('')}</div>` : ''}
     </div>`;
   }
 
@@ -303,7 +300,12 @@ export function wordsInit(D) {
         <b>${esc(t('TOPIK I 필수 — 자주 나오는 차례로', 'TOPIK I essentials — most frequent first'))}</b>
         <span class="wd-meta">${esc(t(`${all.toLocaleString()}개 · 세션 ${Math.ceil(all / SESSION)}`, `${all.toLocaleString()} words · ${Math.ceil(all / SESSION)} sessions`))}</span>${bar(got, all)}</button>
       <h3 class="wd-h3">${esc(t('주제별', 'By topic'))}</h3>
-      <div class="wd-topics">${cards}</div>`;
+      <div class="wd-topics">${cards}</div>
+      <h3 class="wd-h3">${esc(t('게임으로 연습', 'Practice with games'))}</h3>
+      <div class="wd-games">
+        <button type="button" class="wd-game" data-act="game-quiz"><b>⏱ ${esc(t('스피드 퀴즈', 'Speed quiz'))}</b><span>${esc(t('60초 동안 뜻 보고 고르기', '60 seconds, pick the word'))}</span></button>
+        <button type="button" class="wd-game" data-act="game-match"><b>🧩 ${esc(t('짝 맞추기', 'Match'))}</b><span>${esc(t('오늘의 낱말로 시간 재기', 'Today’s words, against the clock'))}</span></button>
+      </div>`;
   }
 
   function drawTopic(topic) {
@@ -359,14 +361,17 @@ export function wordsInit(D) {
       /* 공부 판은 VOCAB 모양을 쓴다. 목록에 있는 낱말은 그대로, 없는 것(직접 적은 낱말)은 뜻만 가진 모양으로. */
       mineWords = rows.map((r) => byHead.get(r.word) || { h: r.word, p: r.tag || '', l: 0, e: r.meaning || '', s: '', t: [], u: [], x: [] })
         .filter((w) => mean(w));
-      box.innerHTML = (res.signedIn ? '' :
+      const stars = starIds().map((id) => byId.get(id)).filter(Boolean);
+      box.innerHTML = (res.signedIn ? `<button type="button" class="wd-open-wb" data-act="wordbook"><b>${esc(t('단어장 전체 열기', 'Open full wordbook'))}</b><span>${esc(t('고치기 · 지우기 · 사진 · 엑셀 · 앱과 같은 단어장', 'Edit, delete, photos, Excel — same list as the app'))}</span><em>→</em></button>` :
         `<div class="wd-card hot"><p>${esc(t('로그인하지 않아도 담을 수 있어요. 로그인하면 계정으로 옮겨져서 다른 기기와 앱에서도 보여요.', 'You can save without signing in. Sign in and they move to your account — on every device and in the app.'))}</p>
           <button type="button" class="wd-btn" data-act="login">${esc(t('로그인', 'Sign in'))}</button></div>`) +
         (rows.length ? `<p class="wd-count">${esc(t(`${rows.length}개`, `${rows.length} words`))}</p>
           ${mineWords.length ? `<button type="button" class="wd-btn" data-act="mystudy">${esc(t('카드 · 외우기로 공부하기', 'Study with cards or learn'))}</button>` : ''}
           <div class="wd-list">${rows.map((r) => { const w = byHead.get(r.word); return `<button type="button" class="wd-row" data-word="${esc(r.word)}"><b>${esc(r.word)}</b><span class="wd-pos">${esc(r.tag || '')}</span>${w ? '<span class="wd-lv">TOPIK I</span>' : ''}<span class="wd-mean">${esc(r.meaning || '')}</span></button>`; }).join('')}</div>`
           : `<p class="wd-none">${esc(t('아직 담은 낱말이 없어요. 낱말 화면이나 세션에서 「+ 내 단어장」을 눌러 보세요.', 'Nothing saved yet. Tap “+ My wordbook” on a word or a session.'))}</p>`) +
-        (res.signedIn ? `<button type="button" class="wd-link" data-act="wordbook">${esc(t('단어장 관리 — 고치기 · 지우기 · 엑셀 →', 'Manage — edit, delete, Excel →'))}</button>` : '');
+        (stars.length ? `<h3 class="wd-h3">⭐ ${esc(t(`별표 ${stars.length}개`, `Starred — ${stars.length}`))}</h3>
+          <button type="button" class="wd-btn ghost" data-act="starstudy">${esc(t('별표만 공부하기', 'Study starred'))}</button>
+          <div class="wd-list">${stars.map((w) => wordRow(w)).join('')}</div>` : '');
     }).catch(() => { const box = root.querySelector('#wdMine'); if (box) box.innerHTML = `<p class="wd-none">${esc(t('단어장을 불러오지 못했어요.', 'Could not load your wordbook.'))}</p>`; });
     return `<div id="wdMine"><p class="wd-none">${esc(t('불러오는 중…', 'Loading…'))}</p></div>`;
   }
@@ -791,6 +796,8 @@ export function wordsInit(D) {
     if (!a) return;
     const act = a.dataset.act;
     if (act === 'wordbook') return D.openWordbook();
+    if (act === 'game-quiz') return D.openQuiz();
+    if (act === 'game-match') { const n = nextSession() ?? 0; return startRun(chunk(VOCAB)[n], 'match', { topic: 'all', n }); }
     if (act === 'topic') { query = ''; view = { tab: 'topic', topic: a.dataset.topic }; mark(`topic/${a.dataset.topic}`); return draw(); }
     if (act === 'session') return openSession(a.dataset.topic, +a.dataset.n);
     if (act === 'dir') { S.dir = a.dataset.dir; save(); return draw(); }
@@ -881,6 +888,12 @@ export function wordsInit(D) {
     D.track('단어열기');
     const go = () => {
       if (a === 'w' && b) { view = { tab: 'word', h: decodeURIComponent(b) }; addRecent(view.h); }
+      else if (a === 'play' && ['match', 'test', 'dict'].includes(b)) {
+        /* 게임 화면에서 곧장 — 오늘의 새 낱말(다음 세션)로 바로 판을 연다. */
+        const n = nextSession() ?? 0;
+        startRun(chunk(VOCAB)[n], b, { topic: 'all', n });
+        return;
+      }
       else if (a === 'search' && b) { query = decodeURIComponent(b); view = { tab: 'home' }; }
       else if (a === 'topic' && b) {
         if (c) { openSession(b, Math.max(0, +c - 1)); return; }
