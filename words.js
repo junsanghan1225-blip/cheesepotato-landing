@@ -68,13 +68,16 @@ const dayStr = (n) => new Date(n * 864e5).toISOString().slice(0, 10);
 /* 모양: w[낱말 id] = [상자, 다음 복습 날, 맞은 수, 틀린 수, 고친 시각(ms)] · star[id] = 고친 시각(ms, 뺀 것은 음수) ·
    days[날 번호] = 그날 답한 수 · dir = 방향.
    고친 시각을 낱말마다 들고 있는 까닭 — 두 기기의 기록을 합칠 때(syncVocab) 늦게 고친 쪽이 이기게.
-   별표를 빼도 지우지 않고 음수로 남긴다 — 그냥 지우면 다른 기기가 가진 별표가 되살아난다. */
+   별표를 빼도 지우지 않고 음수로 남긴다 — 그냥 지우면 다른 기기가 가진 별표가 되살아난다.
+   fd[폴더 id] = { n 이름, c 색 번호, at 만든 시각, t 이름 · 색 · 지움을 고친 시각, del 지웠나, w{낱말: 넣은 시각(뺀 것은 음수)} } —
+   단어장 폴더(운영자 요청, 웹에서만 — 앱과 같은 words 표에는 폴더 칸이 없다). 별표처럼 지워도 흔적을 남긴다. */
 function shape(s) {
   s = s && typeof s === 'object' ? s : {};
   let star = s.star || {};
   if (Array.isArray(star)) star = Object.fromEntries(star.map((id) => [id, 1]));   // 2-1 때의 배열 모양
   return { w: s.w && typeof s.w === 'object' ? s.w : {}, star, days: s.days && typeof s.days === 'object' ? s.days : {},
-    dir: s.dir === 'en' ? 'en' : 'ko', track: s.track === 'topik2' ? 'topik2' : 'topik1' };
+    dir: s.dir === 'en' ? 'en' : 'ko', track: s.track === 'topik2' ? 'topik2' : 'topik1',
+    fd: s.fd && typeof s.fd === 'object' ? s.fd : {} };
 }
 function load() {
   try { return shape(JSON.parse(localStorage.getItem(KEY) || '{}')); } catch (e) { return shape({}); }
@@ -91,7 +94,16 @@ export function mergeVocab(a, b) {
   for (const [id, v] of Object.entries(b.star)) if (!(id in star) || Math.abs(v) > Math.abs(star[id])) star[id] = v;
   const days = { ...a.days };
   for (const [d, n] of Object.entries(b.days)) days[d] = Math.max(days[d] || 0, n);
-  return { w, star, days, dir: a.dir, track: a.track };
+  /* 폴더 — 이름 · 색 · 지움은 늦게 고친 쪽, 안의 낱말은 낱말마다 늦게 고친 쪽(별표와 같은 방식). */
+  const fd = { ...a.fd };
+  for (const [id, f] of Object.entries(b.fd)) {
+    const m = fd[id];
+    if (!m) { fd[id] = f; continue; }
+    const fw = { ...(m.w || {}) };
+    for (const [h, v] of Object.entries(f.w || {})) if (!(h in fw) || Math.abs(v) > Math.abs(fw[h])) fw[h] = v;
+    fd[id] = { ...((f.t || 0) > (m.t || 0) ? f : m), w: fw };
+  }
+  return { w, star, days, dir: a.dir, track: a.track, fd };
 }
 /* 로그인한 사람의 기록을 서버(settings.vocab)와 맞춘다. get · put 은 app.module.js 가 넘긴다. */
 export async function syncVocab(get, put) {
@@ -117,6 +129,20 @@ const learned = (id) => (S.w[id]?.[0] || 0) >= 1;
 const isStar = (id) => (S.star[id] || 0) > 0;
 const starIds = () => Object.entries(S.star).filter(([, v]) => v > 0).sort((a, b) => b[1] - a[1]).map(([id]) => id);
 function toggleStar(id) { S.star[id] = isStar(id) ? -Date.now() : Date.now(); save(); }
+/* 단어장 폴더 */
+const folders = () => Object.entries(S.fd).filter(([, f]) => !f.del).map(([id, f]) => ({ id, ...f })).sort((a, b) => (a.at || 0) - (b.at || 0));
+const folderHeads = (f) => Object.entries(f.w || {}).filter(([, v]) => v > 0).sort((a, b) => b[1] - a[1]).map(([h]) => h);
+function newFolder(name) {
+  const id = 'f' + Date.now().toString(36), now = Date.now();
+  S.fd[id] = { n: name, c: folders().length % 6, at: now, t: now, w: {} };
+  save(); return id;
+}
+function putInFolder(id, heads, on) {
+  const f = S.fd[id]; if (!f) return;
+  f.w = f.w || {}; const now = Date.now();
+  heads.forEach((h) => { const cur = f.w[h] || 0; if (on && cur <= 0) f.w[h] = now; if (!on && cur > 0) f.w[h] = -now; });
+  save();
+}
 function streak() {
   let d = today();
   if (!S.days[d]) d--;
@@ -303,6 +329,8 @@ export function wordsInit(D) {
     arrow: '<path d="M5 12h14M13 6l6 6-6 6"/>',
     chev: '<path d="M9 6l6 6-6 6"/>',
     x: '<path d="M6 6l12 12M18 6L6 18"/>',
+    edit: '<path d="M4 20h4L19 9l-4-4L4 16z"/>',
+    trash: '<path d="M4 7h16M10 11v6M14 11v6M6 7l1 13h10l1-13M9 7V4h6v3"/>',
     flip: '<path d="M4 12a8 8 0 0 1 14-5.3M20 12a8 8 0 0 1-14 5.3"/><path d="M18 3v4h-4M6 21v-4h4"/>',
     q: '<path d="M9.2 9a3 3 0 1 1 4.3 2.7c-.9.5-1.5 1.2-1.5 2.3"/><path d="M12 18h.01"/>',
     sound: '<path d="M4 10v4h4l5 4V6L8 10z"/><path d="M16.5 9a4 4 0 0 1 0 6M19 6.5a7.5 7.5 0 0 1 0 11"/>',
@@ -532,7 +560,9 @@ export function wordsInit(D) {
     const MORE = [['write', t('쓰기', 'Write')], ['dict', t('받아쓰기', 'Dictation')], ['match', t('짝 맞추기', 'Match')]].filter(([k]) => !MODES.some((m) => m[0] === k));
     const shareable = words.some((w) => byHead.get(w.h) === w);
     return `<button type="button" class="wd-back" ${back}>← ${esc(t('뒤로', 'Back'))}</button>
-      <div class="wd-pick-hd"><h3 class="wd-h3 wd-h3-big">${esc(title)}</h3></div>
+      <div class="wd-pick-hd">${view.pick.folder ? `<span class="wd-folder-ico c${S.fd[view.pick.folder]?.c || 0}">${FOLDER_SVG}</span>` : ''}<h3 class="wd-h3 wd-h3-big">${esc(title)}</h3>
+        ${view.pick.folder ? `<span class="wd-pick-tools"><button type="button" class="wd-link" data-act="frename">${ico('edit')}${esc(t('이름', 'Rename'))}</button><button type="button" class="wd-link" data-act="fdel">${ico('trash')}${esc(t('지우기', 'Delete'))}</button></span>` : ''}</div>
+      ${view.pick.folder && !words.length ? `<p class="wd-none">${esc(t('아직 비어 있어요. 낱말 화면이나 세션에서 「+ 내 단어장」을 눌러 이 폴더를 고르세요.', 'Empty for now. Tap “+ My wordbook” on a word or session and pick this folder.'))}</p>` : ''}
       <div class="wd-pick-set">
         <span>${esc(t('문제 방향', 'Question side'))}</span>
         <div class="wd-seg" role="group" aria-label="${esc(t('문제 방향', 'Question side'))}">
@@ -546,11 +576,58 @@ export function wordsInit(D) {
       <p class="wd-pick-n">${esc(t(`낱말 ${words.length}개`, `${words.length} words`))}</p>
       <div class="wd-list">${words.map((w) => wordRow(w, learned(idOf(w)) ? `<span class="wd-ok">${ico('check')}</span>` : '')).join('')}</div>
       <div class="wd-pick-foot">
-        ${view.pick.from ? `<button type="button" class="wd-link" data-act="addall">${ico('plus')}${esc(t('모두 내 단어장에 담기', 'Save all to my wordbook'))}</button>` : ''}
+        ${view.pick.folder ? '' : `<button type="button" class="wd-link" data-act="addall">${ico('plus')}${esc(t('모두 단어장에 담기', 'Save all to a wordbook'))}</button>`}
         <button type="button" class="wd-link" data-act="pdf">${ico('pdf')}${esc(t('PDF로 저장 · 인쇄', 'Save as PDF / print'))}</button>
         ${shareable ? `<button type="button" class="wd-link" data-act="share">${ico('link')}${esc(t('링크로 보내기', 'Share as a link'))}</button>` : ''}
       </div>`;
   }
+
+  /* ── 단어장 폴더(운영자 레퍼런스: 폴더 고르기 창) ─────────────────────
+     담기(+ 내 단어장)를 누르면 아래에서 「단어장 선택」 창이 올라와 여러 폴더에 한꺼번에 담는다. 낱말은 예전처럼 계정의
+     단어장(words 표)에도 들어가고, 폴더는 외우기 기록(settings.vocab)에 붙어 기기 사이에 맞춰진다. */
+  const FOLDER_SVG = '<svg class="wd-fsvg" viewBox="0 0 48 40" aria-hidden="true"><path d="M3 9a4 4 0 0 1 4-4h11.5l4 4.5H41a4 4 0 0 1 4 4V33a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4z"/><path class="wd-fsvg-front" d="M3 15.5h42V33a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4z"/></svg>';
+  let sheet = null;   // { heads, sel:Set(폴더 id), had:Set(처음부터 다 들어 있던 폴더) }
+  const wordObj = (h) => byHead.get(h) || mineWords.find((w) => w.h === h) || (() => {
+    const g = Object.values(D.gloss()).find((x) => x.head === h);
+    return { h, p: g?.pos || '', l: 0, e: g?.en || '', s: '', t: [], u: [], x: [] };
+  })();
+  function openSheet(heads) {
+    const had = new Set(folders().filter((f) => heads.every((h) => (f.w?.[h] || 0) > 0)).map((f) => f.id));
+    sheet = { heads, sel: new Set(had), had };
+    draw();
+  }
+  function drawSheet() {
+    const fs = folders();
+    return `<div class="wd-sheet-bg" data-act="sheetx"></div>
+      <div class="wd-sheet" role="dialog" aria-modal="true" aria-label="${esc(t('단어장 선택', 'Choose wordbooks'))}">
+        <div class="wd-sheet-hd"><b>${esc(t('단어장 선택', 'Choose wordbooks'))}</b>
+          <small>${esc(sheet.heads.length === 1 ? sheet.heads[0] : t(`낱말 ${sheet.heads.length}개`, `${sheet.heads.length} words`))}</small>
+          <button type="button" class="wd-sheet-x" data-act="sheetx" aria-label="${esc(t('닫기', 'Close'))}">${ico('x')}</button></div>
+        <div class="wd-folders">
+          <button type="button" class="wd-folder new" data-act="fnew">${FOLDER_SVG}<span class="wd-fplus">${ico('plus')}</span><b>${esc(t('새 단어장', 'New'))}</b></button>
+          ${fs.map((f) => `<button type="button" class="wd-folder c${f.c}${sheet.sel.has(f.id) ? ' on' : ''}" data-act="fpick" data-id="${esc(f.id)}" aria-pressed="${sheet.sel.has(f.id)}">
+            ${FOLDER_SVG}<span class="wd-fchk">${ico('check')}</span><b>${esc(f.n)}</b><small>${folderHeads(f).length}</small></button>`).join('')}
+        </div>
+        ${fs.length ? '' : `<p class="wd-sheet-p">${esc(t('「새 단어장」으로 폴더를 만들어 보세요 — 시험 대비 · 드라마 · 일할 때처럼 나눠 두면 좋아요.', 'Make a folder — e.g. exam prep, dramas, work.'))}</p>`}
+        <button type="button" class="wd-btn wd-btn-big wd-sheet-save" data-act="fsave">${esc(t('저장하기', 'Save'))}</button>
+      </div>`;
+  }
+  function toast(msg) {
+    root.querySelector('.wd-toast')?.remove();
+    const el = document.createElement('div'); el.className = 'wd-toast'; el.textContent = msg;
+    root.appendChild(el); setTimeout(() => el.remove(), 2200);
+  }
+  function openFolder(id) {
+    const f = S.fd[id]; if (!f || f.del) return;
+    const words = folderHeads(f).map(wordObj).filter((w) => w.h);
+    view = { tab: 'pick', pick: { words, from: null, folder: id, title: f.n, back: 'data-tab="mine"' } };
+    mark('mine'); draw();
+  }
+  const folderTiles = () => `<div class="wd-sec-hd"><h3 class="wd-h3">${esc(t('내 단어장 폴더', 'My folders'))}</h3></div>
+    <div class="wd-folders wd-folders-mine">
+      <button type="button" class="wd-folder new" data-act="fnew">${FOLDER_SVG}<span class="wd-fplus">${ico('plus')}</span><b>${esc(t('새 단어장', 'New'))}</b></button>
+      ${folders().map((f) => `<button type="button" class="wd-folder c${f.c}" data-act="fopen" data-id="${esc(f.id)}">${FOLDER_SVG}<b>${esc(f.n)}</b><small>${esc(t(`${folderHeads(f).length}개`, `${folderHeads(f).length}`))}</small></button>`).join('')}
+    </div>`;
 
   /* 낱말 묶음을 PDF(인쇄)로 — 노트 인쇄와 같은 자리(#ntPrintView · body.nt-printing, app.module.js)를 빌린다.
      라이브러리 없이 브라우저 인쇄 창의 「PDF로 저장」으로 — 한글 글꼴을 따로 심지 않아도 된다.
@@ -639,7 +716,7 @@ export function wordsInit(D) {
           <button type="button" class="wd-btn ghost" data-act="starstudy">${esc(t('별표만 공부하기', 'Study starred'))}</button>
           <div class="wd-list">${stars.map((w) => wordRow(w)).join('')}</div>` : '');
     }).catch(() => { const box = root.querySelector('#wdMine'); if (box) box.innerHTML = `<p class="wd-none">${esc(t('단어장을 불러오지 못했어요.', 'Could not load your wordbook.'))}</p>`; });
-    return `<div id="wdMine"><p class="wd-none">${esc(t('불러오는 중…', 'Loading…'))}</p></div>`;
+    return folderTiles() + `<div id="wdMine"><p class="wd-none">${esc(t('불러오는 중…', 'Loading…'))}</p></div>`;
   }
 
   function drawWord(h) {
@@ -1012,7 +1089,7 @@ export function wordsInit(D) {
     else body = drawHome();
     const hadFocus = document.activeElement?.id === 'wdQ';
     const pos = hadFocus ? document.activeElement.selectionStart : null;
-    root.innerHTML = shell(body);
+    root.innerHTML = shell(body) + (sheet ? drawSheet() : '');
     root.classList.toggle('wd-studying', view.tab === 'study');
     if (hadFocus) { const q = root.querySelector('#wdQ'); q.focus(); try { q.setSelectionRange(pos, pos); } catch (e) {} }
     const ty = root.querySelector('#wdType');
@@ -1094,8 +1171,40 @@ export function wordsInit(D) {
       a.classList.toggle('on', isStar(id)); a.textContent = isStar(id) ? '★' : '☆';
       return;
     }
-    if (act === 'add') { const h = a.dataset.h; return D.saveWords([toSave(h)], a); }
-    if (act === 'addall') return D.saveWords(view.pick.words.map((w) => toSave(w.h)), a);
+    if (act === 'add') return openSheet([a.dataset.h]);
+    if (act === 'addall') return openSheet(view.pick.words.map((w) => w.h));
+    if (act === 'sheetx') { sheet = null; return draw(); }
+    if (act === 'fpick') { const id = a.dataset.id; sheet.sel.has(id) ? sheet.sel.delete(id) : sheet.sel.add(id); return draw(); }
+    if (act === 'fnew') {
+      const name = (prompt(t('새 단어장 이름', 'Name the new wordbook'), t(`단어장 ${folders().length + 1}`, `Wordbook ${folders().length + 1}`)) || '').trim().slice(0, 30);
+      if (!name) return;
+      const id = newFolder(name); D.syncSoon?.();
+      if (sheet) sheet.sel.add(id);
+      return draw();
+    }
+    if (act === 'fsave') {
+      const { heads, sel, had } = sheet;
+      sheet = null;
+      sel.forEach((id) => putInFolder(id, heads, true));
+      had.forEach((id) => { if (!sel.has(id)) putInFolder(id, heads, false); });
+      D.syncSoon?.();
+      draw();
+      toast(sel.size ? t(`단어장 ${sel.size}곳에 담았어요`, `Saved to ${sel.size} wordbook${sel.size > 1 ? 's' : ''}`) : t('내 단어장에 담았어요', 'Saved to your wordbook'));
+      return D.saveWords(heads.map(toSave), null);
+    }
+    if (act === 'fopen') return openFolder(a.dataset.id);
+    if (act === 'frename') {
+      const f = S.fd[view.pick.folder]; if (!f) return;
+      const name = (prompt(t('단어장 이름', 'Wordbook name'), f.n) || '').trim().slice(0, 30);
+      if (!name) return;
+      f.n = name; f.t = Date.now(); save(); D.syncSoon?.(); return openFolder(view.pick.folder);
+    }
+    if (act === 'fdel') {
+      const f = S.fd[view.pick.folder]; if (!f) return;
+      if (!confirm(t(`「${f.n}」 폴더를 지울까요? 낱말은 내 단어장에 그대로 남아요.`, `Delete the folder “${f.n}”? The words stay in your wordbook.`))) return;
+      f.del = true; f.t = Date.now(); save(); D.syncSoon?.();
+      view = { tab: 'mine' }; return draw();
+    }
     if (act === 'share') return shareSet(a);
     if (act === 'pdf') return printSet(a);
     if (act === 'mystudy') { view = { tab: 'pick', pick: { words: mineWords, from: null, title: t(`내 단어장 ${mineWords.length}개`, `My wordbook — ${mineWords.length}`), back: 'data-tab="mine"' } }; return draw(); }
