@@ -727,6 +727,21 @@ export const BEGINNER_STAGE4_COURSES = [
     ],
   },
 
+  {
+    id: "bg-21-04", title: {"ko":"4강. 실전 대화: 약속 정하기 종합 — 제안·수락·약속하기","en":"Lesson 4. Real-Life Conversation: Making Plans — Suggesting, Agreeing, and Committing"}, minutes: 5,
+    blocks: [
+      {"t":"text","h":"A Natural Flow for Making Plans with a Friend","md":"When planning an outing or activity with someone in Korean, you combine three key intention and proposal endings in a smooth conversational sequence:\n\n1. **Suggesting / Asking ideas (-(으)ㄹ까요?):**\n   - 이번 주말에 영화 **볼까요?** (Shall we watch a movie this weekend?)\n2. **Asking personal preference / Inviting (-(으)ㄹ래요?):**\n   - 몇 시에 만**날래요?** (What time would you like to meet?)\n3. **Making a commitment / Promise on the spot (-(으)ㄹ게요):**\n   - 제가 영화 표를 예매**할게요!** (I will book the tickets!)\n   - 그럼 제가 커피를 **살게요!** (Then I will buy the coffee!)"},
+      {"t":"table","head":["Stage","Grammar Ending","Conversational Role","Example"],"rows":[["1. Proposal","-(으)ㄹ까요?","Shall we...? (inviting ideas)","점심 같이 먹을까요?"],["2. Preference","-(으)ㄹ래요?","Would you like to...? (asking intent)","비빔밥 먹을래요?"],["3. Agreement","-(으)ㅂ시다 / 좋아요","Let’s do that! (agreeing)","좋아요, 그렇게 합시다!"],["4. Commitment","-(으)ㄹ게요","I’ll do that! (promising)","제가 식당 예약할게요!"]]},
+      {"t":"note","md":"Important rule: **-(으)ㄹ게요** is ONLY used by the speaker (1st person) in direct response to the listener. You can never ask *\"밥 먹을게요?\" or say *\"친구가 올게요\"!"},
+      {"t":"chars","wide":true,"items":[{"ch":"주말에 같이 쇼핑하러 갈까요?","tip":"Shall we go shopping together on the weekend? (-(으)ㄹ까요 proposal)"},{"ch":"네, 좋아요! 몇 시에 만날래요?","tip":"Yes, sounds good! What time would you like to meet? (-(으)ㄹ래요 asking preference)"},{"ch":"제가 10분 전에 카페에 도착해서 자리 잡을게요.","tip":"I’ll arrive at the cafe 10 minutes early and grab a table. (-(으)ㄹ게요 promise)"}]},
+      {"t":"choice","q":"A friend says: 「제가 피자를 살게요.」 (I'll buy the pizza). How do you respond by volunteering to buy the drinks?","options":["그럼 제가 음료수를 살게요!","그럼 제가 음료수를 사세요!","그럼 제가 음료수를 사면 안 돼요!"],"answer":0,"why":"Volunteering to take on an action as a promise directly to the listener uses -(으)ㄹ게요: **살게요**."},
+      {"t":"choice","q":"Which question is natural when asking a friend’s preference: “What would you like to drink?”","options":["뭐 마실래요?","뭐 마실게요?","뭐 마십시다?"],"answer":0,"why":"To ask someone’s preference or intention politely, use -(으)ㄹ래요?: **뭐 마실래요?**."},
+      {"t":"pair","q":"Match each ending to its proper communicative purpose.","pairs":[["갈까요?","Shall we go? (suggesting)"],["갈래요?","Do you want to go? (asking preference)"],["갑시다","Let's go! (collective agreement)"],["갈게요","I'll go (speaker's commitment)"]]},
+      {"t":"cloze","sentence":"날씨가 좋은데 우리 같이 산책 [갈까요]?","answer":"갈까요","meaning":"The weather is nice, shall we go for a walk together?","options":["갈까요","갈게요","가세요","갈고예요"],"keys":["갈까요","갈게요","가세요","갈고예요"],"why":"To ask “Shall we...?”, use -(으)ㄹ까요?: 가다 + -ㄹ까요 → **갈까요**."},
+      {"t":"type","q":"Conjugate 돕다 into the speaker's promise: 「제가 무거운 짐을 ___ .」","answer":"도울게요","keys":["도울게요","돕을게요","도울개요"],"why":"돕다 changes ㅂ to 우 before vowels: 도우 + ㄹ게요 → **도울게요**."},
+      {"t":"speak","say":"오늘 저녁에 시간 괜찮으면 같이 맛있는 거 먹으러 갈래요?","rom":"o-neul jeo-nyeog-e si-gan gwaen-chanh-eu-myeon gat-i mas-iss-neun geo meog-eu-ro gal-lae-yo","q":"Say it aloud naturally asking a friend out for dinner."},
+    ],
+  },
   ],
 },
 
