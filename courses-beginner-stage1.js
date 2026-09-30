@@ -544,6 +544,37 @@ export const BEGINNER_STAGE1_COURSES = [
     ],
   },
 
+  {
+    id: "bg-07-03", title: {"ko":"3강. 하다 동사 확장과 세 가지 쓰임","en":"Lesson 3. Expanding 하다 Verbs and Three Uses"}, minutes: 5,
+    blocks: [
+      {"t":"text","h":"More Everyday 하다 Verbs in Action","md":"As you saw, any noun that describes an activity can pair with **하다** to become a verb.\n\nAll of them turn into **-해요** in polite speech. With just the tone of your voice or punctuation, you can make a **statement**, ask a **question**, or give an **invitation**!"},
+      {"t":"table","head":["Noun","Dictionary Verb","Polite Form","Meaning"],"rows":[["요리 (cooking)","요리하다","요리해요","to cook"],["산책 (a walk)","산책하다","산책해요","to take a walk"],["쇼핑 (shopping)","쇼핑하다","쇼핑해요","to go shopping"],["이야기 (story / chat)","이야기하다","이야기해요","to talk / chat"],["시작 (beginning / start)","시작하다","시작해요","to start"]]},
+      {"t":"note","md":"Because these are all -하다 verbs, you don't need to check vowel harmony rules for them: every single one becomes **-해요**!"},
+      {"t":"chars","wide":true,"items":[{"ch":"주말에 집에서 요리해요.","tip":"I cook at home on the weekend. (Statement)"},{"ch":"지금 공원에서 산책해요?","tip":"Are you taking a walk in the park now? (Question)"},{"ch":"우리 백화점에서 쇼핑해요!","tip":"Let’s go shopping at the department store! (Invitation)"}]},
+      {"t":"choice","q":"How do you conjugate ‘산책하다’ (to take a walk) into polite present form?","options":["산책해요","산책하요","산책아요"],"answer":0,"why":"All verbs ending in -하다 conjugate to **-해요** in polite speech. 산책하요 and 산책아요 are incorrect forms."},
+      {"t":"pair","q":"Match each noun with its correct conjugated verb form.","pairs":[["요리 (cooking)","요리해요"],["산책 (walking)","산책해요"],["이야기 (chatting)","이야기해요"],["쇼핑 (shopping)","쇼핑해요"]]},
+      {"t":"cloze","sentence":"오늘 친구와 카페에서 [이야기해요].","answer":"이야기해요","meaning":"I chat with a friend at a cafe today.","options":["이야기해요","이야기하요","이야기했어요","이야기할 거예요"],"keys":["이야기해요","이야기하요","이야기했어요","이야기할 거예요"],"why":"Present polite form of 이야기하다 is **이야기해요**. 이야기하요 is incorrect."},
+      {"t":"type","q":"요리하다 (to cook) — Complete the statement: 「저녁에 집에서 ___ .」","answer":"요리해요","keys":["요리해요","요리하요","요리하아요"],"why":"요리하다 always conjugates to **요리해요** in polite speech."},
+      {"t":"order","q":"Build the invitation: “Let’s walk together in the park!”","tokens":["공원에서","같이","산책해요!"],"answer":["공원에서","같이","산책해요!"]},
+      {"t":"speak","say":"주말에 친구와 같이 산책해요!","rom":"ju-mal-e chin-gu-wa gat-i san-chaeg-hae-yo","q":"Say it out loud warmly as an invitation: “Let’s take a walk together with a friend this weekend!”"},
+    ],
+  },
+  {
+    id: "bg-07-04", title: {"ko":"4강. 말의 높낮이와 실전 대화","en":"Lesson 4. Intonation and Real Conversations"}, minutes: 5,
+    blocks: [
+      {"t":"text","h":"Telling the Three Roles Apart in Dialogue","md":"Because **해요** looks the same for statements, questions, and invitations, context and punctuation guide you in reading:\n\n- **Question (?):** Rising tone at the very end.\n- **Statement (.):** Steady or falling tone.\n- **Invitation (!):** Said toward someone, often with words like **같이** (together) or **우리** (we / let's)."},
+      {"t":"table","head":["Sentence","Key Word / Sign","Role","Meaning"],"rows":[["지금 뭐 해요?","뭐 (what), ?","Question","What are you doing now?"],["집에서 공부해요.","침착한 어조, .","Statement","I study at home."],["우리 같이 운동해요!","우리, 같이, !","Invitation","Let’s work out together!"],["언제 시작해요?","언제 (when), ?","Question","When does it start?"]]},
+      {"t":"note","md":"When someone asks **“지금 뭐 해요?”** (What are you doing?), reply with a statement ending in **-해요** or **-어요**, like **“책 읽어요”** or **“운동해요”**."},
+      {"t":"chars","wide":true,"items":[{"ch":"지금 공부해요?","tip":"Question: Are you studying now? (rising tone)"},{"ch":"네, 지금 한국어 공부해요.","tip":"Statement answer: Yes, I am studying Korean now."},{"ch":"우리 같이 점심 먹어요!","tip":"Invitation: Let's have lunch together!"}]},
+      {"t":"choice","q":"A friend asks: “오늘 저녁에 뭐 해요?” How should you naturally reply if you plan to exercise?","options":["운동해요.","운동해요?","운동해요!"],"answer":0,"why":"The friend asked a question. You answer with a statement ending with a period and a falling tone: **운동해요.**"},
+      {"t":"choice","q":"You want to suggest to a coworker: “Let's start now!” Which sentence matches this mood best?","options":["지금 시작해요!","지금 시작해요?","지금 시작해요."],"answer":0,"why":"When making an enthusiastic suggestion or invitation to do something together, say **지금 시작해요!** with an inviting tone."},
+      {"t":"pair","q":"Match each dialogue line to its communicative intention.","pairs":[["주말에 보통 뭐 해요?","질문 (Question)"],["집에서 푹 쉬어요.","대답 / 서술 (Statement)"],["우리 커피 한잔해요!","권유 / 제안 (Invitation)"],["내일 몇 시에 만나요?","질문 (Question)"]]},
+      {"t":"cloze","sentence":"A: 지금 어디 가요? B: 도서관에서 [공부해요].","answer":"공부해요","meaning":"A: Where are you going now? B: I'm studying at the library.","options":["공부해요","공부해요?","공부하요","공부예요"],"keys":["공부해요","공부해요?","공부하요","공부예요"],"why":"B is answering a question with a statement, so use **공부해요**."},
+      {"t":"type","q":"Start an invitation using 시작하다: 「우리 이제 회의를 ___ !」","answer":"시작해요","keys":["시작해요","시작하요","시작하아요"],"why":"시작하다 conjugates to **시작해요** for invitations as well as statements and questions."},
+      {"t":"speak","say":"A: 지금 뭐 해요? B: 공원에서 운동해요.","rom":"A: ji-geum mwo hae-yo? B: gong-won-e-seo un-dong-hae-yo","q":"Read both lines out loud, raising your voice for the question and lowering it for the statement."},
+      {"t":"order","q":"Arrange the words to say: “What are you doing today?”","tokens":["오늘","뭐","해요?"],"answer":["오늘","뭐","해요?"]},
+    ],
+  },
   ],
 },
 
