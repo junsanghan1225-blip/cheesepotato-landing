@@ -1080,6 +1080,37 @@ export const BEGINNER_STAGE1_COURSES = [
     ],
   },
 
+  {
+    id: "bg-irr-01-03", title: {"ko":"3강. ㄷ 받침이 ㄹ로 바뀌는 동사","en":"Lesson 3. ㄷ Verbs That Turn into ㄹ"}, minutes: 5,
+    blocks: [
+      {"t":"text","h":"The ㄷ Irregular: ㄷ Changes to ㄹ","md":"When certain verbs ending in **ㄷ 받침** meet a suffix starting with a vowel (like **-아요 / -어요**), the **ㄷ** softens into **ㄹ**.\n\n- **듣다** (to listen) → **들어요**\n- **걷다** (to walk) → **걸어요**\n- **묻다** (to ask) → **물어요**"},
+      {"t":"table","head":["Dictionary Form","Stem","Before Vowel (-어요)","Polite Form","Meaning"],"rows":[["듣다","듣","듣 + 어요 → 들 + 어요","들어요","to listen / hear"],["걷다","걷","걷 + 어요 → 걸 + 어요","걸어요","to walk"],["묻다","묻","묻 + 어요 → 물 + 어요","물어요","to ask"]]},
+      {"t":"note","md":"Notice that this change only happens before **vowels**! Before consonants (like -고, -지만), the ㄷ stays:\n- 듣고 (듣다 + 고)\n- 걷지만 (걷다 + 지만)"},
+      {"t":"chars","wide":true,"items":[{"ch":"이어폰으로 음악을 들어요.","tip":"I listen to music with earphones. (듣다 → 들어요)"},{"ch":"아침마다 공원을 걸어요.","tip":"I walk in the park every morning. (걷다 → 걸어요)"},{"ch":"모르는 길을 물어요.","tip":"I ask for directions I don’t know. (묻다 → 물어요)"}]},
+      {"t":"choice","q":"How do you conjugate ‘듣다’ (to listen) with -어요?","options":["들어요","듣어요","듣아요"],"answer":0,"why":"듣다 is a ㄷ-irregular verb. Before a vowel ending, ㄷ turns into ㄹ, and with -어요 it becomes **들어요**."},
+      {"t":"pair","q":"Match each ㄷ-irregular verb with its polite present form.","pairs":[["듣다 (to listen)","들어요"],["걷다 (to walk)","걸어요"],["묻다 (to ask)","물어요"]]},
+      {"t":"cloze","sentence":"날씨가 좋아서 친구와 공원을 [걸어요].","answer":"걸어요","meaning":"The weather is good, so I walk in the park with a friend.","options":["걸어요","걷어요","걸아요","걸었어요"],"keys":["걸어요","걷어요","걸아요","걸었어요"],"why":"걷다 turns ㄷ into ㄹ before -어요 → **걸어요**."},
+      {"t":"type","q":"듣다 (to listen) — Complete the sentence: 「매일 한국어 라디오를 ___ .」","answer":"들어요","keys":["들어요","듣어요","들아요"],"why":"듣다 changes ㄷ to ㄹ when attaching -어요, resulting in **들어요**."},
+      {"t":"order","q":"Arrange the words to say: “I listen to music in my room.”","tokens":["방에서","음악을","들어요"],"answer":["방에서","음악을","들어요"]},
+      {"t":"speak","say":"매일 아침에 음악을 들으면서 공원을 걸어요.","rom":"mae-il a-chim-e eum-ag-eul deul-eu-myeon-seo gong-won-eul geol-eo-yo","q":"Read out loud: “Every morning I walk in the park while listening to music.”"},
+    ],
+  },
+  {
+    id: "bg-irr-01-04", title: {"ko":"4강. 규칙 동사와 불규칙 동사 가르기","en":"Lesson 4. Sorting Regular from Irregular Verbs"}, minutes: 5,
+    blocks: [
+      {"t":"text","h":"Regular vs. Irregular: Telling Them Apart","md":"Not every verb with **ㄷ** or **ㅂ** is irregular! Some common verbs follow regular rules:\n\n- **Regular ㄷ:** 닫다 → **닫아요** (not 달아요), 받다 → **받아요** (not 발아요)\n- **Regular ㅂ:** 입다 → **입어요** (not 이워요), 잡다 → **잡아요** (not 자워요)\n\nLearning the handful of regular ones keeps you from over-applying the rule!"},
+      {"t":"table","head":["Verb","Stem Ending","Rule Type","Polite Form","Meaning"],"rows":[["듣다","ㄷ","Irregular (ㄷ→ㄹ)","들어요","to listen"],["닫다","ㄷ","Regular (keeps ㄷ)","닫아요","to close"],["받다","ㄷ","Regular (keeps ㄷ)","받아요","to receive"],["춥다","ㅂ","Irregular (ㅂ→우)","추워요","to be cold"],["입다","ㅂ","Regular (keeps ㅂ)","입어요","to wear (clothes)"]]},
+      {"t":"note","md":"Common trap: **닫다** (to close) and **달다** (to be sweet). If you change 닫다 into *달아요, it sounds like you are saying the door is sweet! Keep 닫다 regular: **문을 닫아요**."},
+      {"t":"chars","wide":true,"items":[{"ch":"바람이 불어서 창문을 닫아요.","tip":"Because wind is blowing, I close the window. (닫다 is regular → 닫아요)"},{"ch":"생일 선물을 받아요.","tip":"I receive a birthday gift. (받다 is regular → 받아요)"},{"ch":"따뜻한 코트를 입어요.","tip":"I wear a warm coat. (입다 is regular → 입어요)"}]},
+      {"t":"choice","q":"Which verb changes its final consonant when followed by -아요/-어요?","options":["듣다","닫다","받다","믿다"],"answer":0,"why":"듣다 is irregular (들어요). 닫다 (닫아요), 받다 (받아요), and 믿다 (믿어요) all keep their ㄷ."},
+      {"t":"choice","q":"Which verb does NOT turn ㅂ into 우?","options":["입다","춥다","덥다","맵다"],"answer":0,"why":"입다 is regular: it becomes **입어요**. 춥다 (추워요), 덥다 (더워요), and 맵다 (매워요) all change ㅂ into 우."},
+      {"t":"pair","q":"Match each verb to its correct polite form.","pairs":[["닫다 (regular)","닫아요"],["듣다 (irregular)","들어요"],["입다 (regular)","입어요"],["춥다 (irregular)","추워요"]]},
+      {"t":"cloze","sentence":"추워서 문을 꼭 [닫아요].","answer":"닫아요","meaning":"It’s cold, so I close the door tight.","options":["닫아요","달아요","닫어요","다워요"],"keys":["닫아요","달아요","닫어요","다워요"],"why":"닫다 is regular. Stem vowel is ㅏ, so it takes -아요 → **닫아요**. 달아요 means 'is sweet'."},
+      {"t":"type","q":"Conjugate 입다 (to wear) into polite present tense: 「따뜻한 옷을 ___ .」","answer":"입어요","keys":["입어요","이워요","입아요"],"why":"입다 is a regular verb. The stem vowel is ㅣ, so it simply takes -어요 → **입어요**."},
+      {"t":"speak","say":"날씨가 추워서 따뜻한 옷을 입고 문을 닫아요.","rom":"nal-ssi-ga chu-wo-seo tta-tteut-han os-eul ib-go mun-eul dad-a-yo","q":"Read out loud contrasting the irregular 춥다 and regular 입다 and 닫다."},
+      {"t":"order","q":"Arrange the words to say: “I receive a letter from my friend.”","tokens":["친구에게","편지를","받아요"],"answer":["친구에게","편지를","받아요"]},
+    ],
+  },
   ],
 },
 
