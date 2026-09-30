@@ -1581,6 +1581,12 @@
 .gp-list b { color:#d0463b; font-weight:700; }
 .gp-list b.fix { color:var(--ok, #3f9b5f); }
 .gp-list span { color:var(--ink-3); font-size:12.5px; }
+.gp-mk { background:linear-gradient(transparent 55%, rgba(var(--cheese-rgb, 245,196,60), .55) 55%); color:inherit; padding:0 1px; border-radius:2px; }
+.gp-dr { display:flex; flex-wrap:wrap; align-items:center; gap:8px; margin-top:14px; font-size:16px; }
+.gp-dr-base { font-weight:700; color:var(--ink); }
+.gp-dr-tpl { padding:3px 9px; border-radius:8px; background:var(--surface-2); border:1px solid var(--line); color:var(--ink); }
+.gp-dr-plus { color:var(--ink-3); }
+.gp-dr-in { flex:1 1 180px; min-width:0; font-size:16px; }
 @media (max-width:600px) { .gp-card { padding:14px; } .gp-blk { font-size:14px; padding:7px 11px; } }
 
 /* 답장. 왼쪽 선 하나로 원글에 매단다 — 상자를 또 겹치면 게시판이

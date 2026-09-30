@@ -116,6 +116,62 @@ function addSs(a) { return a.slice(0, -1) + setF(a.slice(-1), 'ㅆ'); }
 /* ‘으세요’ 꼴이 받침 없는 어간에서 「으」를 달지 않게 — euStem 이 bare 어간에 「으」를 붙이지 않으므로
    받침 있는 어간(먹 → 먹으)만 「으」가 붙는다. */
 
+/* ── 문법 꼬리 붙이기 — 문법 섹션 「바꾸기」 연습(docs/grammar-plan.md 2 · 4걸음) ─────────────
+   attach('먹다', '동사', '(으)면서') → '먹으면서'. 꼬리(tpl)는 문법 이름에서 「-」 뒤를 그대로 받는다:
+   「(으)…」 받침에 따라 으 · ㄹ 탈락 · ㄷ/ㅂ 불규칙 / 「아/어…」 「았/었…」 아/어 꼴 / 「(스)ㅂ니다」 /
+   「(느)ㄴ다」 / 「(으)ㄴ/는…」 동사는 는 · 형용사는 (으)ㄴ / 그 밖은 어간에 바로(ㄹ 받침은 ㄴ 앞에서 탈락).
+   모르는 꼴이면 null — 틀린 답을 정답이라고 내미느니 문항을 안 만든다. 정답표는 check-conj.mjs. */
+const JAMO_F = { 'ㄴ': 'ㄴ', 'ㄹ': 'ㄹ', 'ㅁ': 'ㅁ', 'ㅂ': 'ㅂ' };
+const openLast = (s) => { const x = split(s.slice(-1)); return x && x[2] === 0; };
+const mergeJamo = (s, j) => (openLast(s) ? s.slice(0, -1) + setF(s.slice(-1), j) : null);
+const dropL = (st) => st.slice(0, -1) + dropF(st.slice(-1));
+const initOf = (ch) => { const x = split(ch); return x ? CHO[x[0]] : ''; };
+export function attach(head, pos, tpl) {
+  if (!/^[가-힣]+다$/.test(head) || SKIP.has(head) || (pos !== '동사' && pos !== '형용사')) return null;
+  const st = head.slice(0, -1), last = st.slice(-1);
+  const sp = split(last); if (!sp) return null;
+  const fin = JONG[sp[2]];
+  if (fin === 'ㅎ' && pos === '형용사' && head !== '좋다') return null;      // ㅎ 불규칙은 아직 안 다룬다
+  if (fin === 'ㅅ' && S_IRR.has(head)) return null;
+  if (HON_SI.has(head)) return null;
+  let m;
+  const glue = (base, rest) => {           // rest 가 낱자(ㄴ ㄹ ㅁ ㅂ)로 시작하면 앞 글자 받침으로
+    const j = JAMO_F[rest[0]];
+    if (!j) return base + rest;
+    const g = mergeJamo(base, j);
+    return g == null ? null : g + rest.slice(1);
+  };
+  if ((m = /^\(스\)ㅂ니다(.*)$/.exec(tpl))) {
+    if (sp[2] === 0) return glue(st, 'ㅂ니다' + m[1]);
+    if (fin === 'ㄹ') return glue(dropL(st), 'ㅂ니다' + m[1]);
+    return st + '습니다' + m[1];
+  }
+  if ((m = /^\(느\)ㄴ다(.*)$/.exec(tpl))) {
+    if (pos !== '동사') return st + '다' + m[1];
+    if (sp[2] === 0) return glue(st, 'ㄴ다' + m[1]);
+    if (fin === 'ㄹ') return glue(dropL(st), 'ㄴ다' + m[1]);
+    return st + '는다' + m[1];
+  }
+  if ((m = /^\(으\)ㄴ\/는(?:\/\(으\)ㄹ)?(.*)$/.exec(tpl))) {
+    return pos === '동사' ? attach(head, pos, '는' + m[1]) : attach(head, pos, '(으)ㄴ' + m[1]);
+  }
+  if ((m = /^았\/었(.*)$/.exec(tpl))) { const a = aeo(head, pos); return a && addSs(a) + m[1]; }
+  if ((m = /^아\/어(.*)$/.exec(tpl))) { const a = aeo(head, pos); return a && a + m[1]; }
+  if ((m = /^\(으\)(.+)$/.exec(tpl))) {
+    const r = m[1], e = euStem(head, pos);
+    if (e.rieul) {
+      if (r[0] === 'ㄹ') return st + r.slice(1);                          // 살 · 살까요
+      if (r[0] === 'ㅁ') return st.slice(0, -1) + setF(last, 'ㄻ') + r.slice(1);   // 삶
+      if (r[0] === 'ㄴ' || r[0] === 'ㅂ' || ['ㄴ', 'ㅅ', 'ㅂ'].includes(initOf(r[0]))) return glue(dropL(st), r);   // 산 · 사니까 · 사세요 · 삽시다
+      return st + r;                                                      // 살면 · 살러 · 살려고
+    }
+    return glue(e.st, r);
+  }
+  if (!/^[가-힣]/.test(tpl)) return null;
+  if (fin === 'ㄹ' && initOf(tpl[0]) === 'ㄴ') return dropL(st) + tpl;       // 사는 · 사네요
+  return st + tpl;
+}
+
 /* ── 로마자(국어의 로마자 표기법) ────────────────────────────────
    **소리 나는 대로** 적는다(먹다 → meokda, 좋아요 → joayo, 학교 → hakgyo). 받침 → 다음 첫소리 넘어가기(연음)와
    흔한 소리 바뀜 몇 가지(ㄴㄹ · 비음화 · ㅎ 탈락)만 다룬다 — 전부 다루려면 표준 발음 사전이 필요하다. */
