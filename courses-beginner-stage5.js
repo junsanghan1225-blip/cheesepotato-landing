@@ -638,6 +638,34 @@ export const BEGINNER_STAGE5_COURSES = [
     ],
   },
 
+  {
+    id: "bg-25-03", title: {"ko":"3강. 꼴 만들기: 받침과 불규칙","en":"Lesson 3. Conjugation & Irregulars: -았/었으면 좋겠다"}, minutes: 5,
+    blocks: [
+      {"t":"text","h":"Conjugating Wishes & Hopes","md":"To express a hope or wish (*“I hope that...”* or *“I wish...”*), attach **-았/었으면 좋겠어요** to verb and adjective stems. Even though it looks like past tense (**-았/었-**), it expresses a **future wish**!\n\n- Bright vowels (ㅏ, ㅗ) → **-았으면 좋겠어요** *(가다 → 갔으면, 좋다 → 좋았으면)*\n- Dark vowels (others) → **-었으면 좋겠어요** *(먹다 → 먹었으면, 쉬다 → 쉬었으면)*\n- 하다 verbs → **했으면 좋겠어요** *(합격하다 → 합격했으면)*\n\nBe mindful of irregular verbs: ㄷ becomes ㄹ (**듣다 → 들었으면**), and ㅅ drops before a vowel (**낫다 → 나았으면**)!"},
+      {"t":"table","head":["Base Form","Vowel Pattern","-았/었으면 좋겠어요"],"rows":[["오다 (to come)","Bright (ㅗ)","비가 안 **왔으면 좋겠어요**"],["쉬다 (to rest)","Dark (ㅟ)","집에서 **쉬었으면 좋겠어요**"],["듣다 (ㄷ irregular)","ㄷ → ㄹ","좋은 소식을 **들었으면 좋겠어요**"],["낫다 (ㅅ irregular)","ㅅ drops","감기가 빨리 **나았으면 좋겠어요**"]]},
+      {"t":"chars","wide":true,"items":[{"ch":"빨리 방학이 왔으면 좋겠어요.","tip":"I hope vacation comes soon."},{"ch":"주말에 비가 안 오고 맑았으면 좋겠어요.","tip":"I hope it doesn't rain and is clear on the weekend."},{"ch":"감기가 빨리 나았으면 좋겠어요.","tip":"I hope your cold gets better quickly."}]},
+      {"t":"choice","q":"Your friend caught a cold. How do you warmly say: \"I hope you get better quickly!\"? (낫다 = to recover from illness)","options":["빨리 나았으면 좋겠어요.","빨리 낫지 마세요.","빨리 낫으러 가요.","빨리 나으면 안 돼요."],"answer":0,"why":"낫다 is a ㅅ-irregular verb where ㅅ drops before a vowel: 낫- + -았으면 좋겠어요 = 나았으면 좋겠어요."},
+      {"t":"cloze","sentence":"이번 주말에는 날씨가 [좋았으면 좋겠어요].","answer":"좋았으면 좋겠어요","meaning":"I hope the weather is nice this weekend.","options":["좋았으면 좋겠어요","좋지 마세요","좋으러 가요","좋으면 안 돼요"],"keys":["좋았으면 좋겠어요","좋지 마세요","좋으러 가요","좋으면 안 돼요"],"why":"좋다 ends in bright vowel ㅗ, so attach -았으면 좋겠어요: 좋았으면 좋겠어요."},
+      {"t":"type","q":"듣다 (to hear/listen) — Form the wish: 「내일 시험에서 좋은 소식을 ___ . (hope to hear)」","answer":"들었으면 좋겠어요","keys":["들었으면 좋겠어요","듣는 게 좋아요","듣지 마세요","들으면 안 돼요"],"why":"듣다 is a ㄷ-irregular verb where ㄷ changes to ㄹ: 듣- + -었으면 = 들었으면 좋겠어요."},
+      {"t":"order","q":"Put the words in order: \"I hope my cold gets better quickly.\"","tokens":["감기가","빨리","나았으면","좋겠어요."],"answer":["감기가","빨리","나았으면","좋겠어요."]},
+      {"t":"choice","q":"Which sentence expresses a wish for exam success?","options":["이번 시험에 꼭 합격했으면 좋겠어요.","이번 시험에 꼭 합격하지 마세요.","이번 시험에 꼭 합격하면 안 돼요.","이번 시험에 꼭 합격하러 가요."],"answer":0,"why":"합격하다 + -했으면 좋겠어요 = 합격했으면 좋겠어요 expresses a hopeful wish to pass the exam."},
+      {"t":"speak","say":"우리 가족 모두 건강했으면 좋겠어요.","q":"Read aloud with sincere emotion:"},
+    ],
+  },
+  {
+    id: "bg-25-04", title: {"ko":"4강. 헷갈리는 짝과 가르기: 권유 vs 바람 vs 의무","en":"Lesson 4. Choosing Tone: Advice vs Wishes vs Obligation"}, minutes: 5,
+    blocks: [
+      {"t":"text","h":"Advice (-는 게 좋다) vs Wishes (-았/었으면 좋겠다)","md":"Both patterns include **좋다**, but their functions are completely different!\n\n1. **-는 게 좋아요 / 좋겠어요** — **Gentle Advice or Recommendation** (*“It would be best to...”* or *“You should...”*).\n   - 감기에 걸렸으면 따뜻한 차를 마시**는 게 좋아요**.\n\n2. **-았/었으면 좋겠어요** — **Personal Wish or Hope** (*“I hope that...”* or *“I wish...”*).\n   - 주말에 비가 안 **왔으면 좋겠어요**.\n\n3. **-아야/어야 해요** — **Firm Obligation or Duty** (*“Must / Have to...”*).\n   - 비행기 표를 오늘 예약**해야 해요**."},
+      {"t":"table","head":["Pattern","Meaning","When to Use"],"rows":[["-는 게 좋아요","It's best to... / You should","Giving gentle advice to a friend or coworker"],["-았/었으면 좋겠어요","I hope that... / I wish","Expressing personal hopes about the future/weather"],["-아야/어야 해요","Must / Have to","Stating rules, deadlines, or essential obligations"]]},
+      {"t":"chars","wide":true,"items":[{"ch":"머리가 아프면 약을 먹는 게 좋아요.","tip":"If your head hurts, it's best to take medicine. (Advice)"},{"ch":"내일 시험 결과가 잘 나왔으면 좋겠어요.","tip":"I hope the exam results come out well tomorrow. (Wish)"},{"ch":"내일까지 과제를 내야 해요.","tip":"I must submit the assignment by tomorrow. (Obligation)"}]},
+      {"t":"choice","q":"Your friend is coughing badly. Which sentence offers gentle, caring advice to go see a doctor?","options":["병원에 가 보는 게 좋아요.","병원에 가지 마세요.","병원에 가면 안 돼요.","병원에 가고 있어요."],"answer":0,"why":"-는 게 좋아요 gives thoughtful, polite advice: 병원에 가 보는 게 좋아요 (It would be good to visit a clinic)."},
+      {"t":"cloze","sentence":"피곤할 때는 무리하지 말고 일찍 [자는 게 좋아요].","answer":"자는 게 좋아요","meaning":"When tired, it's best not to push yourself and sleep early.","options":["자는 게 좋아요","자지 마세요","자야 돼요","자러 가요"],"keys":["자는 게 좋아요","자지 마세요","자야 돼요","자러 가요"],"why":"When recommending a helpful action to someone, use -는 게 좋아요."},
+      {"t":"type","q":"쉬다 (to rest) — Offer caring advice: 「몸이 안 좋으면 집에서 ___ . (better to rest)」","answer":"쉬는 게 좋아요","keys":["쉬는 게 좋아요","쉬었으면 좋겠어요","쉬지 마세요","쉬면 안 돼요"],"why":"Attach -는 게 좋아요 to the verb stem 쉬- to advise resting: 쉬는 게 좋아요."},
+      {"t":"choice","q":"Which sentence expresses a hopeful wish about tomorrow's weather?","options":["내일은 날씨가 따뜻했으면 좋겠어요.","내일은 날씨가 따뜻한 게 좋아요.","내일은 날씨가 따뜻해야 돼요.","내일은 날씨가 따뜻하러 가요."],"answer":0,"why":"For uncontrollable future events like weather, use the wish pattern -았/었으면 좋겠어요: 따뜻했으면 좋겠어요."},
+      {"t":"order","q":"Put the words in order: \"When you have a fever, it's best to drink warm water.\"","tokens":["열이 날 때는","따뜻한 물을","마시는 게","좋아요."],"answer":["열이 날 때는","따뜻한 물을","마시는 게","좋아요."]},
+      {"t":"speak","say":"스트레스 받을 때는 좋아하는 음악을 듣는 게 좋아요.","q":"Read aloud smoothly:"},
+    ],
+  },
   ],
 },
 
