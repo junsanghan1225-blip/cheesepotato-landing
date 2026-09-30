@@ -5142,3 +5142,23 @@ div.wd-card:hover { transform:none; }
   .st-invite-art img { width:72px; height:72px; }
   .st-row { flex-wrap:wrap; gap:10px; }
 }
+
+/* 설정 — 선 아이콘(이모지 대신, 운영자 요청 2026-09-30) · 접는 줄 · 삭제 */
+.st-ic { width:20px; height:20px; flex:none; fill:none; stroke:currentColor; stroke-width:1.7; stroke-linecap:round; stroke-linejoin:round; }
+.nav-svg { width:18px; height:18px; display:block; fill:none; stroke:currentColor; stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round; }
+.st-fold { display:block; }
+.st-fold > summary { display:flex; align-items:center; justify-content:space-between; gap:18px; list-style:none; cursor:pointer; }
+.st-fold > summary::-webkit-details-marker { display:none; }
+.st-fold[open] > summary .st-btn { background:rgba(var(--ink-rgb),.06); }
+.st-fold .up-panel { margin-top:14px; border:0; padding:0; background:none; box-shadow:none; }
+.st-danger { color:var(--red); border-color:color-mix(in srgb, var(--red) 35%, transparent); text-decoration:none; display:inline-block; }
+.st-danger:hover { background:color-mix(in srgb, var(--red) 8%, transparent); border-color:var(--red); color:var(--red); }
+.st-del { margin:4px 0 8px; padding:16px; border-radius:var(--r); background:color-mix(in srgb, var(--red) 6%, var(--surface)); border:1px solid color-mix(in srgb, var(--red) 25%, transparent); font-size:14px; color:var(--ink-2); line-height:1.6; }
+.st-del b { color:var(--ink); }
+.st-del ol { margin:8px 0 12px 18px; padding:0; }
+.st-invite-rows { margin-top:22px; border-top:1px solid var(--line); }
+#authView .ac-head { margin:0; padding:0; border:0; gap:14px; }
+#authView .ac-ava { width:48px; height:48px; font-size:22px; }
+#authView .ac-name { font-size:17px; }
+#authView .ac-mail { font-size:13.5px; margin-top:2px; }
+.lang-btn .nav-svg { width:17px; height:17px; }

@@ -40,7 +40,7 @@
 ">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <!-- 구글 태그 관리자. 구글이 주는 인라인 코드조각은 CSP 가 막아서 gtm.js 로 뺐다. -->
-<script src="gtm.js?v=f6c0f279" async></script>
+<script src="gtm.js?v=239a2805" async></script>
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <!-- 제목과 설명을 두 말로 쓴다. 이 사이트를 찾을 사람은 한국어를 **배우는**
@@ -119,13 +119,13 @@
      Pretendard 는 통짜(2.0MB) 대신 조각난 쪽을 쓴다 — 브라우저가
      unicode-range 를 보고 화면에 실제로 나온 글자가 든 조각만 받는다.
      그래서 저장소는 무거워졌지만 학습자가 받는 양은 오히려 줄었다. -->
-<link rel="stylesheet" href="vendor/pretendard.css?v=f6c0f279">
-<link rel="stylesheet" href="vendor/pressstart2p.css?v=f6c0f279">
+<link rel="stylesheet" href="vendor/pretendard.css?v=239a2805">
+<link rel="stylesheet" href="vendor/pressstart2p.css?v=239a2805">
 <!-- 화면 상자 안에서만 쓰는 CSS 는 여기서 갈라 받는다. media="print" 라
      첫 페인트를 안 막고, 다 받아지면 app.js 가 media 를 all 로 바꾼다.
      자바스크립트가 없으면 <noscript> 쪽이 그냥 평범하게 걸린다. -->
-<link id="viewsCss" rel="stylesheet" href="app-views.css?v=f6c0f279" media="print">
-<noscript><link rel="stylesheet" href="app-views.css?v=f6c0f279"></noscript>
+<link id="viewsCss" rel="stylesheet" href="app-views.css?v=239a2805" media="print">
+<noscript><link rel="stylesheet" href="app-views.css?v=239a2805"></noscript>
 
 <style>
 /* ══════════════════════════════════════════════════════════════
@@ -1695,7 +1695,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- 내 코스 — 레벨에 맞춘 한 사람만의 길. 배우기 안 갈래(#learn/mine)지만
          배우기를 거쳐 찾아 들어가면 있는 줄도 모른다. 머리띠에 바로 둔다. -->
     <button class="nav-link" id="myHdBtn" type="button" aria-label="내 코스 열기" data-en-aria="Open my course">
-      <span class="nav-ico">🧭</span><span class="nav-txt" data-en="My course">내 코스</span>
+      <span class="nav-ico"><svg class="nav-svg" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M15.5 8.5l-2 5-5 2 2-5z"/></svg></span><span class="nav-txt" data-en="My course">내 코스</span>
     </button>
     <!-- TOPIK 은 배우기 안의 갈래가 아니라 따로 선 곳이다. 시험을 준비하러 온
          사람이 배우기를 거쳐 찾아 들어가지 않게 머리띠에 바로 둔다.
@@ -1709,14 +1709,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- 머리띠의 이 자리는 「단어」다 — 내 단어장은 단어 화면 안의 탭이 됐다(docs/vocab-plan.md 3층).
          id 는 wbBtn 그대로 둔다: 여러 곳이 이 id 로 켜고 끈다. -->
     <button class="nav-link" id="wbBtn" type="button" aria-label="단어 열기" data-en-aria="Open words">
-      <span class="nav-ico">📚</span><span class="nav-txt" data-en="Words">단어</span>
+      <span class="nav-ico"><svg class="nav-svg" viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="6" width="13" height="14" rx="2"/><path d="M7.5 3h11a2 2 0 0 1 2 2v12"/></svg></span><span class="nav-txt" data-en="Words">단어</span>
     </button>
     <!-- 로그인 여부에 따라 글이 바뀌므로 data-en 대신 JS 가 관리한다. -->
     <button class="nav-link" id="authBtn" type="button" aria-label="로그인">
       <span class="nav-ico">👤</span><span class="nav-txt">로그인</span>
     </button>
     <!-- 글자 크기 단추는 모의고사 화면(#tqPlay)으로 옮겼다. -->
-    <button class="lang-btn" id="themeBtn" type="button" aria-label="어두운 모드로 바꾸기">🌙</button>
+    <button class="lang-btn" id="themeBtn" type="button" aria-label="어두운 모드로 바꾸기"><svg class="nav-svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg></button>
     <button class="lang-btn" id="langBtn" type="button" aria-label="Switch to English">EN</button>
     <a class="hd-cta" href="https://play.google.com/store/apps/details?id=com.cheesepotato.app" target="_blank" rel="noopener noreferrer" id="hdCta" data-en="Download">다운로드</a>
     <button class="menu-btn" id="menuBtn" type="button"
@@ -3357,25 +3357,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="st-wrap">
     <aside class="st-side" aria-label="설정 목록">
       <div class="st-side-h" id="auTitle">설정</div>
-      <button class="st-nav on" type="button" data-st="account"><span aria-hidden="true">👤</span><span data-en="Account">계정</span></button>
-      <button class="st-nav" type="button" data-st="learn"><span aria-hidden="true">🥔</span><span data-en="Learning">학습</span></button>
-      <button class="st-nav" type="button" data-st="look"><span aria-hidden="true">🌗</span><span data-en="Appearance">화면</span></button>
-      <button class="st-nav" type="button" data-st="pro"><span aria-hidden="true">🧀</span><span data-en="Subscription">구독</span></button>
-      <button class="st-nav" type="button" data-st="app"><span aria-hidden="true">📱</span><span data-en="App wordbook">앱 단어장</span></button>
+      <button class="st-nav on" type="button" data-st="account"><svg class="st-ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 20c1.5-3.5 4.5-5 8-5s6.5 1.5 8 5"/></svg><span data-en="Account">계정</span></button>
+      <button class="st-nav" type="button" data-st="learn"><svg class="st-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v15H6.5A2.5 2.5 0 0 0 4 20.5z"/><path d="M4 20.5A2.5 2.5 0 0 0 6.5 21H20"/></svg><span data-en="Learning">학습</span></button>
+      <button class="st-nav" type="button" data-st="look"><svg class="st-ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 3.5v17a8.5 8.5 0 0 0 0-17z" fill="currentColor" stroke="none"/></svg><span data-en="Appearance">화면</span></button>
+      <button class="st-nav" type="button" data-st="pro"><svg class="st-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.6 5.6 6.1.7-4.5 4.2 1.2 6L12 16.6 6.6 19.5l1.2-6L3.3 9.3l6.1-.7z"/></svg><span data-en="Subscription">구독</span></button>
+      <button class="st-nav" type="button" data-st="app"><svg class="st-ic" viewBox="0 0 24 24" aria-hidden="true"><rect x="6.5" y="2.5" width="11" height="19" rx="2.5"/><path d="M10.5 18.5h3"/></svg><span data-en="App wordbook">앱 단어장</span></button>
     </aside>
     <div class="st-main" id="auBody">
 
       <!-- 계정 -->
       <section class="st-pane" data-st-pane="account">
-        <!-- 친구에게 알리기 — 레벨테스트로 바로 여는 링크(보상 제도는 없다 — 약속하지 않는다) -->
-        <div class="st-invite">
-          <div class="st-invite-art"><img src="logo-256.png" alt="" width="96" height="96"></div>
-          <div class="st-invite-r">
-            <h3 data-en="Tell a friend about Cheesepotato">친구에게 치즈감자 알려 주기</h3>
-            <p data-en="Your friend opens the link and goes straight into the level test — free, no sign-up.">링크를 열면 바로 레벨테스트가 시작돼요 — 무료, 가입 없이.</p>
-            <div class="st-link"><span id="stInviteUrl">everykoreans.com/?lt=1</span><button type="button" id="stInviteCopy" data-en="Copy link">링크 복사</button></div>
-          </div>
-        </div>
         <h3 class="st-h" data-en="Account">계정</h3>
       <p class="st-sub" data-en="One account works for both the app and the web.">앱과 웹이 같은 계정을 씁니다.</p>
       <div id="auForms" class="wb-login">
@@ -3410,22 +3401,22 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <p class="wb-note" id="auNote"></p>
       </div><!-- /auForms -->
       <div id="auSignedIn" class="hidden">
-        <div class="ac-head">
-          <div class="ac-ava" id="acAva">🧀</div>
-          <div class="ac-who">
-            <div data-clarity-mask="true" class="ac-name" id="acName"></div>
-            <div class="ac-mail" id="auWho"></div>
+        <!-- 로그인한 사람 — 줄 몇 개로: 나 · 프로필 고치기 · 로그아웃 · 계정 삭제(운영자 요청 2026-09-30: 삭제에 쉽게 닿게) -->
+        <div class="st-rows">
+          <div class="st-row">
+            <div class="ac-head">
+              <div class="ac-ava" id="acAva">🧀</div>
+              <div class="ac-who">
+                <div data-clarity-mask="true" class="ac-name" id="acName"></div>
+                <div class="ac-mail" id="auWho"></div>
+              </div>
+            </div>
           </div>
-        </div>
-        <div class="ac-row">
-          <button class="pt-next" id="auGoWb" type="button" data-en="My wordbook">내 단어장</button>
-          <button class="pt-ghost" id="auGoDash" type="button" data-en="Dashboard">대시보드</button>
-        </div>
-        <div class="ac-grid">
+          <details class="st-row st-fold">
+            <summary><span class="st-row-l"><b data-en="Profile">프로필</b><span data-en="Name and photo">이름 · 사진</span></span><span class="st-btn" data-en="Edit">고치기</span></summary>
         <!-- 프로필 -->
         <div class="up-panel">
           <div class="up-row">
-            <div class="dcard-t" data-en="Profile">프로필</div>
             <div>
               <div class="wf-lbl" data-en="Name">이름</div>
               <input data-clarity-mask="true" class="wb-input" id="acNameIn" type="text" maxlength="30" placeholder="이름" style="margin-bottom:0;">
@@ -3446,12 +3437,34 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <div class="wb-ok hidden" id="acOk"></div>
           </div>
         </div>
+          </details>
+          <div class="st-row">
+            <div class="st-row-l"><b data-en="Sign out">로그아웃</b><span data-en="Sign out on this browser">이 브라우저에서 나가요</span></div>
+            <div class="st-row-r"><button class="st-btn" id="auLogout" type="button" data-en="Sign out">로그아웃</button></div>
+          </div>
+          <div class="st-row">
+            <div class="st-row-l"><b data-en="Delete account">계정 삭제</b><span data-en="Your account, words and photos are deleted for good.">계정 · 단어장 · 사진이 모두 영구히 지워져요.</span></div>
+            <div class="st-row-r"><button class="st-btn st-danger" id="stDelBtn" type="button" data-en="Delete">삭제하기</button></div>
+          </div>
+          <div class="st-del hidden" id="stDelBox">
+            <b data-en="Deleting cannot be undone.">삭제하면 되돌릴 수 없어요.</b>
+            <ol>
+              <li data-en="In the Cheesepotato app: Settings → Delete account (deleted right away).">치즈감자 앱 → 설정 → 계정 삭제 (바로 지워져요)</li>
+              <li data-en="No app? Email us from your sign-in address and we delete it.">앱이 없으면 가입한 이메일로 삭제를 요청해 주세요 — 확인하고 지워 드려요.</li>
+            </ol>
+            <a class="st-btn st-danger" id="stDelMail" href="mailto:junsanghan1225@gmail.com" data-en="Email a deletion request">메일로 삭제 요청</a>
+          </div>
         </div>
-        <div class="ac-foot">
-          <button class="wb-out" id="auLogout" type="button" data-en="Sign out">로그아웃</button>
-          <span class="dnote" data-en="Deleting your account is done in the app — Settings → Delete account.">계정 삭제는 앱에서 합니다 — 설정 → 계정 삭제</span>
-        </div>
+        <!-- 옛 계정 화면의 단추 — 다른 곳(설정 「학습」 줄 · JS)이 이 id 를 눌러 쓴다. 화면에는 안 보인다. -->
+        <div class="hidden"><button id="auGoWb" type="button"></button><button id="auGoDash" type="button"></button></div>
       </div><!-- /auSignedIn -->
+      <!-- 친구 초대 — 한 줄(보상 제도는 없다 — 약속하지 않는다) -->
+      <div class="st-rows st-invite-rows">
+        <div class="st-row">
+          <div class="st-row-l"><b data-en="Invite a friend">친구 초대</b><span data-en="The link opens the free level test.">링크를 열면 무료 레벨테스트가 바로 시작돼요.</span><span class="hidden" id="stInviteUrl"></span></div>
+          <div class="st-row-r"><button class="st-btn" id="stInviteCopy" type="button" data-en="Copy link">링크 복사</button></div>
+        </div>
+      </div>
       </section>
 
       <!-- 학습 — 내 길 · 레벨 · 시험 날짜 · 기록 (app.module.js stDrawLearn 이 채운다) -->
@@ -3788,9 +3801,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <div id="hlpScrim" class="hlp-scrim"></div>
 <aside id="hlpPanel" class="hlp-panel" aria-label="한국어 도우미" aria-hidden="true"></aside>
 
-<script src="app.js?v=f6c0f279"></script>
-<script type="module" src="app.module.js?v=f6c0f279"></script>
+<script src="app.js?v=239a2805"></script>
+<script type="module" src="app.module.js?v=239a2805"></script>
 
-<script src="analytics.js?v=f6c0f279" defer></script>
+<script src="analytics.js?v=239a2805" defer></script>
 </body>
 </html>
