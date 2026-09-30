@@ -3812,8 +3812,21 @@
 @media (max-width:480px) { .tq-sq { padding:15px 13px 13px; border-radius:14px; } }
 
 /* 레벨테스트 결과 공유 단추 · 설치 안내 띠 */
-.lt-share-row { display:flex; justify-content:center; margin:16px 0 6px; }
-.lu-share.hidden { display:none; }
+/* 결과 공유 칸 — 카드 미리보기 + 공유 · 링크 복사 */
+.lt-sharebox { display:flex; align-items:center; gap:16px; margin:18px 0 10px; padding:14px; border-radius:var(--r-l);
+  background:var(--surface-2); border:1px solid var(--line); text-align:left; }
+.lt-sharebox-img { flex:none; width:108px; height:108px; border-radius:14px; background:var(--tint); object-fit:cover;
+  box-shadow:0 8px 20px -12px rgba(var(--ink-rgb),.5); transform:rotate(-3deg); }
+.lt-sharebox-r { min-width:0; display:flex; flex-direction:column; gap:4px; }
+.lt-sharebox-r b { font-size:16px; font-weight:800; color:var(--ink); letter-spacing:-.02em; }
+.lt-sharebox-r span { font-size:13px; color:var(--ink-3); line-height:1.5; word-break:keep-all; }
+.lt-sharebox-btns { display:flex; gap:8px; flex-wrap:wrap; margin-top:8px; }
+.lt-share-go { display:inline-flex; align-items:center; gap:6px; padding:9px 18px; border:0; border-radius:999px; cursor:pointer;
+  background:var(--ink-bg); color:#fff; font:inherit; font-size:14px; font-weight:800; }
+.lt-share-go svg { width:16px; height:16px; }
+:root[data-theme="dark"] .lt-share-go { background:var(--ink); color:var(--bg); }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .lt-share-go { background:var(--ink); color:var(--bg); } }
+@media (max-width:420px) { .lt-sharebox-img { width:84px; height:84px; } .lt-sharebox { gap:12px; } }
 .install-bar { background:var(--tint); }
 
 /* ══ 한 줄 피드백 (fbMount) ═══════════════════════════════════ */
