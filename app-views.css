@@ -4607,50 +4607,102 @@ div.wd-card:hover { transform:none; }
 /* ══ 「오늘」 카드 (첫 화면 맨 위, 레벨테스트를 한 사람만 — app.module.js todayRender · docs/level-plan.md 4층) ══ */
 .td-wrap { display:block; padding:18px var(--gut) 0; position:relative; z-index:1; }
 .td-wrap[hidden] { display:none; }
+/* 치즈감자 색(운영자 요청 2026-09-30): 로고의 치즈 노랑 · 감자 갈색 · 검은 테두리. 오늘 한 것은 치즈로 채우고, 다음 레벨은 감자로 자란다. */
+.td-card { --td-cheese:#FFD166; --td-cheese-d:#E9A51C; --td-potato:#D9A263; --td-potato-d:#9C6A34; --td-line:#2A1A12; }
 .td-card {
   max-width:var(--max); margin:0 auto; background:var(--surface); border:1px solid var(--line);
-  border-radius:var(--r-xl); padding:24px 26px 14px; display:flex; flex-direction:column; gap:16px;
+  border-radius:var(--r-xl); padding:22px 24px 16px; display:flex; flex-direction:column; gap:16px;
 }
 .td-head { display:flex; align-items:flex-start; justify-content:space-between; gap:12px; }
-.td-kicker { font-size:12.5px; font-weight:700; color:var(--orange-deep); }
-.td-title { font-size:30px; font-weight:700; color:var(--ink); letter-spacing:-.04em; line-height:1.15; margin-top:4px; }
+.td-kicker { font-size:12.5px; font-weight:700; color:var(--td-potato-d); }
+.td-title { font-size:26px; font-weight:700; color:var(--ink); letter-spacing:-.04em; line-height:1.15; margin-top:3px; }
 .td-badge { display:inline-flex; align-items:center; gap:6px; padding:5px 12px 5px 7px; border:1px solid var(--line); border-radius:999px;
   font-size:12.5px; font-weight:700; color:var(--ink-2); white-space:nowrap; }
 .td-badge svg { width:22px; height:22px; flex:none; }
-/* 숫자는 크게, 이름은 작게 — 한눈에 읽히는 것은 숫자 셋뿐 */
-.td-stats { display:flex; gap:40px; flex-wrap:wrap; }
-.td-stat { display:flex; flex-direction:column; gap:2px; min-width:0; }
-.td-stat b { font-size:30px; font-weight:700; letter-spacing:-.04em; line-height:1.1; color:var(--ink); font-variant-numeric:tabular-nums; }
-.td-stat b small { font-size:15px; font-weight:600; color:var(--ink-3); letter-spacing:0; }
-.td-stat span { font-size:12.5px; color:var(--ink-3); }
-.td-hint { font-size:14px; line-height:1.55; color:var(--ink-2); max-width:60ch; }
-.td-go { align-self:flex-start; }
-/* 할 일 — 상자 대신 줄로 나눈 목록. 넓은 화면에서는 두 줄씩. */
-.td-slots { display:grid; grid-template-columns:1fr 1fr; column-gap:32px; border-top:1px solid var(--line); }
+/* 맨 위 — 고리(오늘 몇 개) + 지금 할 것 하나(큰 단추). 오늘 무엇을 할지가 여기서 끝난다. */
+.td-top { display:flex; align-items:stretch; gap:16px; }
+.td-now { flex:1; min-width:0; display:flex; align-items:center; gap:14px; padding:16px 18px; text-align:left; cursor:pointer;
+  border:1px solid color-mix(in srgb, var(--td-cheese-d) 55%, transparent); border-radius:var(--r-l); background:var(--td-cheese); color:var(--td-line); font:inherit;
+  box-shadow:0 6px 16px -10px rgba(233,165,28,.7); transition:filter .15s, transform .15s, box-shadow .15s; }
+.td-now:hover { filter:brightness(1.03); transform:translateY(-1px); }
+.td-now:active { transform:translateY(1px); }
+.td-now.done { background:var(--td-cheese); cursor:default; transform:none; filter:none; }
+.td-now-txt { flex:1; min-width:0; display:flex; flex-direction:column; gap:2px; }
+.td-now-k { font-size:12.5px; font-weight:700; opacity:.78; }
+.td-now-t { font-size:19px; font-weight:700; letter-spacing:-.03em; line-height:1.3; word-break:keep-all; overflow-wrap:anywhere; }
+.td-now-s { font-size:13px; opacity:.78; word-break:keep-all; }
+.td-now-go { flex:none; padding:10px 16px; border-radius:999px; background:var(--td-line); color:var(--td-cheese); font-size:14.5px; font-weight:800; white-space:nowrap; }
+/* 연속 기록 판 — 듀오링고 연속 화면을 치즈감자 식으로: 큰 치즈 고리 + 요일 고리 7개 + 감자/치즈 말풍선 */
+.td-streakbox { display:grid; grid-template-columns:150px 1fr; gap:28px; align-items:center; padding:18px; border-radius:var(--r-l);
+  background:color-mix(in srgb, var(--td-cheese) 14%, var(--surface)); border:1px solid color-mix(in srgb, var(--td-cheese-d) 30%, transparent); }
+.td-ring { position:relative; width:150px; height:150px; }
+.td-ring svg, .td-day svg { width:100%; height:100%; transform:rotate(-90deg); display:block; }
+.td-ring circle, .td-day circle { fill:none; stroke-linecap:round; }
+.td-ring-bg { stroke:rgba(var(--ink-rgb),.09); }
+.td-ring-fg, .td-day-fg { transition:stroke-dashoffset .8s cubic-bezier(.22,1,.36,1); }
+.td-ring-in { position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center; line-height:1.1; }
+.td-ring-in b { font-size:44px; font-weight:800; letter-spacing:-.05em; color:var(--ink); }
+.td-ring-in small { font-size:13px; font-weight:800; color:var(--td-cheese-d); }
+.td-ring-in em { font-style:normal; font-size:11.5px; color:var(--ink-3); margin-top:4px; }
+.td-sb-r { display:flex; flex-direction:column; gap:14px; min-width:0; }
+.td-days { display:flex; gap:10px; flex-wrap:wrap; }
+.td-day { position:relative; width:52px; flex:none; display:flex; flex-direction:column; align-items:center; }
+.td-day svg { width:52px; height:52px; }
+.td-day small { position:absolute; top:0; left:0; width:52px; height:52px; display:grid; place-items:center; font-size:14px; font-weight:800; color:var(--ink-3); }
+.td-day.full small, .td-day.some small { color:var(--ink); }
+.td-day.today small { color:var(--td-potato-d); }
+.td-day.today::after { content:''; position:absolute; bottom:-7px; width:6px; height:6px; border-radius:50%; background:var(--td-potato-d); }
+.td-buddy { display:flex; align-items:center; gap:10px; }
+.td-buddy-ic svg { width:64px; height:64px; display:block; animation:tdBob 2.6s ease-in-out infinite; }
+@keyframes tdBob { 50% { transform:translateY(-4px); } }
+@media (prefers-reduced-motion:reduce) { .td-buddy-ic svg { animation:none; } }
+.td-bubble { position:relative; margin:0; padding:10px 14px; border-radius:14px; background:var(--surface); border:1px solid var(--line);
+  font-size:14px; font-weight:600; color:var(--ink); line-height:1.45; word-break:keep-all; }
+.td-bubble::before { content:''; position:absolute; left:-8px; top:50%; width:12px; height:12px; background:var(--surface);
+  border-left:1px solid var(--line); border-bottom:1px solid var(--line); transform:translateY(-50%) rotate(45deg); }
+/* 할 일 넷 — 체크 줄 */
+.td-slots { display:grid; grid-template-columns:1fr 1fr; gap:8px; }
 .td-slot {
-  display:flex; align-items:center; gap:12px; text-align:left; padding:14px 2px; min-width:0;
-  border:none; border-bottom:1px solid var(--line); background:none; color:var(--ink);
-  font:inherit; cursor:pointer;
+  display:flex; align-items:center; gap:10px; text-align:left; padding:11px 12px; min-width:0;
+  border:1px solid var(--line); border-radius:var(--r); background:none; color:var(--ink); font:inherit; cursor:pointer; transition:border-color .15s;
 }
-.td-slot:hover .td-t { color:var(--orange-deep); }
+.td-slot:hover { border-color:rgba(var(--ink-rgb),.3); }
+.td-slot.next { border-color:color-mix(in srgb, var(--td-cheese-d) 70%, transparent); }
+.td-chk { flex:none; width:22px; height:22px; border-radius:50%; border:2px solid rgba(var(--ink-rgb),.22); display:grid; place-items:center; color:var(--td-line); }
+.td-chk svg { width:14px; height:14px; }
+.td-slot.done .td-chk { background:var(--td-cheese); border-color:var(--td-cheese-d); }
 .td-slot.done .td-t { color:var(--ink-3); text-decoration:line-through; text-decoration-thickness:1px; }
-.td-txt { display:flex; flex-direction:column; gap:2px; min-width:0; flex:1; }
-.td-k { font-size:11.5px; font-weight:600; color:var(--ink-3); }
-.td-t { font-size:15.5px; font-weight:700; letter-spacing:-.02em; line-height:1.35; word-break:keep-all; overflow-wrap:anywhere; transition:color .15s; }
-.td-s { font-size:12.5px; color:var(--ink-3); line-height:1.4; word-break:keep-all; overflow-wrap:anywhere; }
-.td-end { flex:none; width:24px; height:24px; display:grid; place-items:center; font-size:20px; color:var(--ink-3); }
-.td-slot.done .td-end { color:var(--orange); }
-.td-slot.idle .td-t { text-decoration:none; }   /* 할 것이 없어 끝난 칸은 긋지 않는다 */
-.td-end svg { width:20px; height:20px; }
-.td-note { font-size:12.5px; color:var(--ink-3); padding-top:2px; }
+.td-slot.idle .td-t { text-decoration:none; }
+.td-txt { display:flex; flex-direction:column; gap:1px; min-width:0; flex:1; }
+.td-t { font-size:14.5px; font-weight:700; letter-spacing:-.02em; line-height:1.35; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+.td-k { font-size:12px; color:var(--ink-3); }
+.td-end { flex:none; font-size:18px; color:var(--ink-3); }
+/* 얼마나 왔나 — 이번 주 7일 · 연속 일수 · 다음 레벨 막대 */
+.td-far { display:block; }
+.td-lv { min-width:0; }
+.td-lv-h { display:flex; justify-content:space-between; gap:10px; font-size:13px; color:var(--ink-3); margin-bottom:6px; }
+.td-lv-h b { color:var(--ink); font-size:14px; }
+.td-lv-bar { display:block; height:10px; border-radius:99px; background:rgba(var(--ink-rgb),.08); overflow:hidden; }
+.td-lv-bar i { display:block; height:100%; border-radius:99px; background:var(--td-potato); }
+.td-go { justify-self:start; }
+.td-note { font-size:12.5px; color:var(--ink-3); }
 .td-link { background:none; border:none; padding:0; font:inherit; color:var(--ink-2); text-decoration:underline; cursor:pointer; }
+
 @media (max-width:560px) {
   .td-wrap { padding-top:12px; }
-  .td-card { padding:20px 18px 10px; gap:14px; }
-  .td-title { font-size:26px; }
-  .td-stats { gap:24px; }
-  .td-stat b { font-size:26px; }
-  .td-slots { grid-template-columns:1fr; }
+  .td-card { padding:18px 16px 12px; gap:14px; }
+  .td-title { font-size:22px; }
+  .td-top { gap:12px; }
+  .td-now { padding:14px; flex-wrap:wrap; gap:10px; }
+  .td-now-t { font-size:17px; }
+  .td-now-s { display:none; }
+  .td-now-go { padding:8px 14px; font-size:13.5px; }
+  .td-slots { grid-template-columns:1fr; gap:6px; }
+  .td-streakbox { grid-template-columns:1fr; justify-items:center; gap:14px; padding:18px 12px; }
+  .td-days { gap:6px; justify-content:center; flex-wrap:nowrap; }
+  .td-day, .td-day svg, .td-day small { width:38px; }
+  .td-day svg, .td-day small { height:38px; }
+  .td-day small { font-size:12px; }
 }
 
 /* ══ 레벨테스트 — 테스트 전에 묻는 것(#ltSetup) · 결과의 레벨 분석 · 계획 · Pro (운영자 설계 2026-09-29) ══ */
@@ -5022,3 +5074,6 @@ div.wd-card:hover { transform:none; }
   :root:not([data-theme="light"]) .btn-primary,   :root:not([data-theme="light"]) .dl-btn,   :root:not([data-theme="light"]) .pt-next { background:var(--ink); border-color:var(--ink); color:var(--bg); }
     :root:not([data-theme="light"]) .btn-primary:hover,   :root:not([data-theme="light"]) .dl-btn:hover,   :root:not([data-theme="light"]) .pt-next:hover { background:#FFFFFF; border-color:#FFFFFF; color:var(--bg); }
 }
+
+:root[data-theme="dark"] .td-card { --td-potato-d:#D9A263; --td-line:#1B1512; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .td-card { --td-potato-d:#D9A263; --td-line:#1B1512; } }
