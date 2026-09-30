@@ -622,6 +622,21 @@ export const BEGINNER_STAGE3_COURSES = [
     ],
   },
 
+  {
+    id: "bg-16-04", title: {"ko":"4강. 실전 대화: 거절과 부탁을 부드럽게 넘기기","en":"Lesson 4. Real-Life Conversation: Softening Refusals and Requests"}, minutes: 5,
+    blocks: [
+      {"t":"text","h":"Using Background Endings to Soften Refusals and Requests","md":"In Korean culture, direct blunt answers like **안 돼요** (No) or **못 가요** (I can't go) can sound abrupt or harsh.\n\nInstead, Koreans soften their speech by setting up a background clause with **-는데 / -(으)ㄴ데**:\n\n- **Polite Refusal:** 제가 지금 일이 좀 **많은데요**… (I have quite a bit of work right now, so…)\n- **Softening an Invitation / Request:** 오늘 저녁에 시간 **있는데**, 같이 밥 먹을래요? (I have some free time this evening, would you like to eat together?)\n- **Leading into a Question:** 사진을 찍고 **싶은데**, 여기서 찍어도 돼요? (I’d like to take a photo, is it okay to take one here?)"},
+      {"t":"table","head":["Goal","Direct & Blunt (Avoid)","Polite & Soft (-는데 / -(으)ㄴ데)"],"rows":[["Declining an invite","못 가요 (I can't go)","약속이 있어서 못 갈 것 같은데요…"],["Asking for help","도와줘요 (Help me)","제가 지금 질문이 하나 있는데요…"],["Asking a favor","사진 찍어 줘요","저희 사진 좀 찍어 주실 수 있는데…"],["Offering help","도와줄게요","제가 도와드릴 수 있는데, 괜찮으세요?"]]},
+      {"t":"note","md":"Ending a sentence with **-는데요 / -(으)ㄴ데요** leaves the ending open and gentle. It softens the mood and lets the listener read between the lines without any harshness!"},
+      {"t":"chars","wide":true,"items":[{"ch":"오늘 저녁에 같이 식사할 수 있어요? — 죄송해요, 오늘은 선약이 있는데요.","tip":"Can you have dinner together tonight? — Sorry, I have a prior engagement… (-ㄴ데요 soft refusal)"},{"ch":"길을 찾고 있는데, 지하철역이 어디예요?","tip":"I am looking for the way, where is the subway station? (-는데 leading into question)"},{"ch":"이 옷 정말 예쁜데, 한번 입어 봐도 돼요?","tip":"This outfit is really pretty, may I try it on? (-ㄴ데 setting context)"}]},
+      {"t":"choice","q":"A coworker invites you to coffee, but you are very busy right now. Which response is the most polite and natural?","options":["죄송해요, 제가 지금 조금 바쁜데요…","바빠서 싫어요","바쁜데도 가요"],"answer":0,"why":"Ending with -ㄴ데요 softens the refusal gently: 바쁘다 + -ㄴ데요 → **바쁜데요…**."},
+      {"t":"choice","q":"How do you conjugate ‘있다’ (to have/exist) into this background-setting form?","options":["있는데","있은데","있는대"],"answer":0,"why":"Words with 있다 / 없다 always attach -는데: 있 + 는데 → **있는데**."},
+      {"t":"pair","q":"Match each verb/adjective type with its correct background ending.","pairs":[["Action verb (먹다)","먹는데"],["Descriptive adjective (예쁘다)","예쁜데"],["Existential verb (없다)","없는데"],["Noun (학생)","학생인데"]]},
+      {"t":"cloze","sentence":"지하철역에 가고 [싶은데], 어디로 가야 해요?","answer":"싶은데","meaning":"I'd like to go to the subway station, which way should I go?","options":["싶은데","싶는데","싶개데","싶고데"],"keys":["싶은데","싶는데","싶개데","싶고데"],"why":"싶다 is an adjective (with 받침 ㅂ), so it takes -은데: 싶 + 은데 → **싶은데**."},
+      {"t":"type","q":"Conjugate 멀다 (to be far, ㄹ adjective) with -(으)ㄴ데: 「거기는 조금 ___ 지하철을 탈까요?」","answer":"먼데","keys":["먼데","멀은데","멀는데"],"why":"For ㄹ adjectives, ㄹ drops and attaches ㄴ데: 멀다 → **먼데**."},
+      {"t":"speak","say":"죄송한데, 사진 한 장만 찍어 주실 수 있나요?","rom":"joe-song-han-de, sa-jin han jang-man jjig-eo ju-sil su iss-na-yo","q":"Say it aloud politely asking someone to take a photo."},
+    ],
+  },
   ],
 },
 
