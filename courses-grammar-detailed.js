@@ -563,6 +563,22 @@ export const DETAILED_GRAMMAR_COURSES = [
             q:'This is a phrase people actually use to ask how someone senior is doing.' },
         ],
       },
+
+      {
+        id: "bg-d-03-04", title: {"ko":"4강. 높임 어미 -(으)시-의 받침별 꼴 만들기","en":"Lesson 4. Shaping Honorific Forms by Stem and Batchim"}, minutes: 5,
+        blocks: [
+          {"t":"text","h":"How -(으)시- Changes with Stem Endings","md":"When honoring someone senior using present polite **-(으)세요**:\n\n- **No 받침:** attach **-세요** (가다 → **가세요**, 보다 → **보세요**).\n- **With 받침:** attach **-으세요** (앉다 → **앉으세요**, 읽다 → **읽으세요**).\n- **ㄹ stems:** the ㄹ drops completely before ㅅ! (살다 → **사세요**, 만들다 → **만드세요**, 알다 → **아세요**).\n- **ㄷ irregular:** ㄷ changes to ㄹ (듣다 → **들으세요**).\n- **Special replacement verbs:** use the dedicated honorific word (먹다 → **드세요**, 자다 → **주무세요**)."},
+          {"t":"table","head":["Verb","Stem Rule","Present Honorific","Meaning"],"rows":[["앉다 (to sit)","Batchim ㄵ","앉으세요","please sit"],["읽다 (to read)","Batchim ㄺ","읽으세요","reads (honorific)"],["살다 (to live)","ㄹ drops before ㅅ","사세요","lives (honorific)"],["만들다 (to make)","ㄹ drops before ㅅ","만드세요","makes (honorific)"],["듣다 (to listen)","ㄷ changes to ㄹ","들으세요","listens (honorific)"]]},
+          {"t":"note","md":"Never keep the ㄹ in ㄹ verbs when adding -(으)시-! It is **어디 사세요?** (Where do you live?), never *어디 살으세요."},
+          {"t":"chars","wide":true,"items":[{"ch":"편하게 의자에 앉으세요.","tip":"Please sit comfortably on the chair. (앉다 + 으세요)"},{"ch":"부모님께서 어디에 사세요?","tip":"Where do your parents live? (살다 drops ㄹ → 사세요)"},{"ch":"선생님 말씀을 잘 들으세요.","tip":"Listen carefully to the teacher’s words. (듣다 → 들으세요)"}]},
+          {"t":"choice","q":"How do you conjugate ‘살다’ (to live) with the honorific ending -(으)세요?","options":["사세요","살으세요","살세요"],"answer":0,"why":"Verbs ending in ㄹ drop the ㄹ before ㅅ: 살 + 세요 → **사세요**."},
+          {"t":"choice","q":"How do you politely tell someone to sit using ‘앉다’?","options":["앉으세요","앉세요","앉아세요"],"answer":0,"why":"앉다 has a final consonant (받침 ㄵ), so it attaches -으세요 → **앉으세요**."},
+          {"t":"pair","q":"Match each verb with its correct honorific form.","pairs":[["가다 (no 받침)","가세요"],["읽다 (with 받침)","읽으세요"],["만들다 (ㄹ stem)","만드세요"],["듣다 (ㄷ irregular)","들으세요"]]},
+          {"t":"cloze","sentence":"할머니께서 매일 아침에 라디오를 [들으세요].","answer":"들으세요","meaning":"Grandmother listens to the radio every morning.","options":["들으세요","듣으세요","들세요","듣아세요"],"keys":["들으세요","듣으세요","들세요","듣아세요"],"why":"듣다 changes ㄷ to ㄹ before vowel endings, so it becomes **들으세요**."},
+          {"t":"type","q":"Conjugate 만들다 (to make) into the honorific form: 「어머니께서 김치를 ___ .」","answer":"만드세요","keys":["만드세요","만들으세요","만들세요"],"why":"The ㄹ drops before ㅅ: 만들 + 세요 → **만드세요**."},
+          {"t":"speak","say":"선생님, 편안한 자리에 앉으세요.","rom":"seon-saeng-nim, pyeon-an-han ja-ri-e anj-eu-se-yo","q":"Say it out loud politely: “Teacher, please sit in a comfortable seat.”"},
+        ],
+      },
     ],
   },
 
