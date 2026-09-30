@@ -544,6 +544,36 @@ export const BEGINNER_STAGE4_COURSES = [
     ],
   },
 
+  {
+    id: "bg-20-03", title: {"ko":"3강. 받침과 불규칙 꼴 만들기 (-(으)ㄹ 수 있다/없다)","en":"Lesson 3. Conjugation Forms by Batchim and Irregulars (-(으)ㄹ 수 있다/없다)"}, minutes: 5,
+    blocks: [
+      {"t":"text","h":"How Stems Combine with -(으)ㄹ 수 있다 / 없다","md":"To say you can or cannot do something, attach **-(으)ㄹ 수 있다 / 없다** to the verb stem based on its final sound:\n\n- **No 받침 (vowel ending):** attach **-ㄹ 수 있다** (가다 → **갈 수 있어요**, 보다 → **볼 수 있어요**).\n- **With 받침 (consonant):** attach **-을 수 있다** (먹다 → **먹을 수 있어요**, 읽다 → **읽을 수 있어요**).\n- **ㄹ stem:** merges into **-ㄹ 수 있다** without adding 으 (만들다 → **만들 수 있어요**, 살다 → **살 수 있어요**).\n- **ㄷ irregular:** ㄷ turns to ㄹ before vowel (듣다 → **들을 수 있어요**, 걷다 → **걸을 수 있어요**).\n- **ㅂ irregular:** ㅂ turns to 우 (돕다 → **도울 수 있어요**)."},
+      {"t":"table","head":["Verb","Stem Rule","Can Do (-(으)ㄹ 수 있어요)","Cannot Do (-(으)ㄹ 수 없어요)"],"rows":[["하다 (to do)","Vowel ending","할 수 있어요","할 수 없어요"],["먹다 (to eat)","Consonant (ㄱ)","먹을 수 있어요","먹을 수 없어요"],["만들다 (to make)","ㄹ stem","만들 수 있어요","만들 수 없어요"],["듣다 (to listen)","ㄷ irregular","들을 수 있어요","들을 수 없어요"],["돕다 (to help)","ㅂ irregular","도울 수 있어요","도울 수 없어요"]]},
+      {"t":"note","md":"Watch out for **만들다**! Because it already has an ㄹ 받침, simply attach **수 있어요** directly: **만들 수 있어요** (never *만들을 수 있어요)."},
+      {"t":"chars","wide":true,"items":[{"ch":"매운 음식을 조금 먹을 수 있어요.","tip":"I can eat a little spicy food. (먹다 + 을 수 있어요)"},{"ch":"너무 멀어서 걸어갈 수 없어요.","tip":"It is too far, so I cannot walk there. (가다 + ㄹ 수 없어요)"},{"ch":"한국 노래를 부를 수 있어요.","tip":"I can sing Korean songs. (부르다 + ㄹ 수 있어요)"}]},
+      {"t":"choice","q":"How do you say “I can make kimchi” using 만들다 (to make, ㄹ stem)?","options":["김치를 만들 수 있어요","김치를 만들을 수 있어요","김치를 만든 수 있어요"],"answer":0,"why":"ㄹ stems attach 수 있다 directly to the stem: 만들 + 수 있어요 → **만들 수 있어요**."},
+      {"t":"choice","q":"How do you conjugate 듣다 (to listen, ㄷ irregular) into “I can listen”?","options":["들을 수 있어요","듣을 수 있어요","들을 개 있어요"],"answer":0,"why":"듣다 changes ㄷ to ㄹ before vowel endings: 들 + 을 수 있어요 → **들을 수 있어요**."},
+      {"t":"pair","q":"Match each verb to its correct -(으)ㄹ 수 있어요 form.","pairs":[["타다 (no 받침)","탈 수 있어요"],["읽다 (with 받침)","읽을 수 있어요"],["살다 (ㄹ stem)","살 수 있어요"],["돕다 (ㅂ irregular)","도울 수 있어요"]]},
+      {"t":"cloze","sentence":"내일 바빠서 모임에 [갈 수 없어요].","answer":"갈 수 없어요","meaning":"I am busy tomorrow, so I cannot go to the gathering.","options":["갈 수 없어요","가을 수 없어요","가고 수 없어요","가개 수 없어요"],"keys":["갈 수 없어요","가을 수 없어요","가고 수 없어요","가개 수 없어요"],"why":"가다 ends in a vowel, so it takes -ㄹ 수 없다: 가 + ㄹ 수 없어요 → **갈 수 없어요**."},
+      {"t":"type","q":"Conjugate 돕다 (to help) into “I can help”: 「제가 친구를 ___ .」","answer":"도울 수 있어요","keys":["도울 수 있어요","돕을 수 있어요","도울 개 있어요"],"why":"돕다 changes ㅂ to 우 before vowels: 도우 + ㄹ 수 있어요 → **도울 수 있어요**."},
+      {"t":"speak","say":"한국어로 간단한 대화를 할 수 있어요.","rom":"han-guk-eo-ro gan-dan-han dae-hwa-reul hal su iss-eo-yo","q":"Say it aloud proudly: “I can have simple conversations in Korean.”"},
+    ],
+  },
+  {
+    id: "bg-20-04", title: {"ko":"4강. 못해요 vs 할 수 없어요: 뉘앙스와 말투 가르기","en":"Lesson 4. Nuance Breakdown: 못해요 vs 할 수 없어요 vs 안 해요"}, minutes: 5,
+    blocks: [
+      {"t":"text","h":"Comparing 못해요 and 할 수 없어요","md":"How do you express inability in Korean? Both **못 + Verb** and **Verb + -(으)ㄹ 수 없다** mean “cannot”, but their tones and feelings differ:\n\n- **못 + Verb (Short, Spoken, Casual & Direct):**\n  - Super common in daily spoken Korean.\n  - 예: 수영 **못해요** (I can't swim), 매운 거 **못 먹어요** (I can't eat spicy food).\n- **-(으)ㄹ 수 없다 (Clear, Formal, Explanatory):**\n  - Clearly highlights objective constraints or reasons.\n  - 예: 약속이 있어서 **갈 수 없어요** (I cannot go because I have an appointment).\n- **안 + Verb (Refusal / Choice):**\n  - “I don't (choose not to)”, NOT inability!\n  - 예: 안 먹어요 (I am not eating / I don't eat), vs 못 먹어요 (I can't eat)."},
+      {"t":"table","head":["Expression","Nuance","Example","Meaning"],"rows":[["못 먹어요","Personal inability (cannot eat)","매운 거 못 먹어요","I can't eat spicy food"],["먹을 수 없어요","Objective inability / circumstance","시간이 없어서 먹을 수 없어요","Can't eat due to lack of time"],["안 먹어요","Personal choice / refusal (won't eat)","지금은 배불러서 안 먹어요","I choose not to eat right now"]]},
+      {"t":"note","md":"Never mix up **안 해요** (I choose not to do it) with **못해요** (I lack the ability to do it)! If someone offers you delicious Korean food and you decline because you can't eat spicy food, say **못 먹어요**, not 안 먹어요!"},
+      {"t":"chars","wide":true,"items":[{"ch":"한국어를 조금 알지만 아직 유창하게 말할 수는 없어요.","tip":"I know a little Korean, but I cannot speak fluently yet. (-(으)ㄹ 수 없다)"},{"ch":"저는 운전을 못해요.","tip":"I can’t drive. (못 + verb lack of skill)"},{"ch":"다리를 다쳐서 운동할 수 없어요.","tip":"I hurt my leg, so I cannot exercise. (Physical constraint)"}]},
+      {"t":"choice","q":"A friend asks if you can ski, but you have never learned how. Which spoken response is most natural?","options":["스키를 못 타요","스키를 안 타요","스키를 타지 마세요"],"answer":0,"why":"Inability due to lack of skill in casual spoken Korean is expressed with 못: **스키를 못 타요**."},
+      {"t":"choice","q":"Which sentence clearly explains you cannot go to a party because of a cold?","options":["감기에 걸려서 파티에 갈 수 없어요","감기에 걸려서 파티에 가고 싶어요","감기에 걸려서 파티에 가야 돼요"],"answer":0,"why":"Expressing inability due to a situational cause (a cold) uses -(으)ㄹ 수 없다: **갈 수 없어요**."},
+      {"t":"pair","q":"Match each expression to its intended communicative nuance.","pairs":[["수영을 못해요","Lack of ability: cannot swim"],["수영을 안 해요","Personal choice: don't swim"],["들어갈 수 없어요","Situational constraint: cannot enter"],["들어가면 안 돼요","Strict rule: must not enter"]]},
+      {"t":"cloze","sentence":"너무 피곤해서 오늘은 더 일할 [수 없어요].","answer":"수 없어요","meaning":"I am too tired, so I cannot work any more today.","options":["수 없어요","수 있어요","수 있겠어요","수 돼요"],"keys":["수 없어요","수 있어요","수 있겠어요","수 돼요"],"why":"To say you cannot do an action: 일할 + **수 없어요**."},
+      {"t":"type","q":"Complete the sentence to say “I can't drink coffee”: 「저는 카페인 때문에 커피를 ___ .」 (using 못)","answer":"못 마셔요","keys":["못 마셔요","못마셔요","못 마시어요"],"why":"Cannot drink because of caffeine intolerance: **못 마셔요**."},
+      {"t":"speak","say":"죄송하지만 이번 주말에는 선약이 있어서 참석할 수 없습니다.","rom":"joe-song-ha-ji-man i-beon ju-mal-e-neun seon-yag-i iss-eo-seo cham-seog-hal su eops-seum-ni-da","q":"Say it aloud politely explaining you cannot attend an event."},
+    ],
+  },
   ],
 },
 
