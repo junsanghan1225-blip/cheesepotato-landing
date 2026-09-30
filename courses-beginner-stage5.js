@@ -339,6 +339,20 @@ export const BEGINNER_STAGE5_COURSES = [
     ],
   },
 
+  {
+    id: "bg-23-04", title: {"ko":"4강. 세 가지 표현 가르기: -(으)러 vs -(으)려고 vs -기로 하다","en":"Lesson 4. Comparing Purpose: -(으)러 vs -(으)려고 vs -기로 하다"}, minutes: 5,
+    blocks: [
+      {"t":"text","h":"Purpose vs Intention vs Decision","md":"In the previous lessons, you learned three expressions expressing purpose and future plans. How do you choose between them?\n\n1. **-(으)러 가다 / 오다** — **Only with movement verbs** (*to go/come in order to...*).\n   - 도서관에 공부하**러 가요**. (O)\n   - 공부하**러** 책을 샀어요. (X — 사다 is not movement!)\n\n2. **-(으)려고** — **General intention with any action** (*in order to, intending to...*).\n   - 공부하**려고** 책을 샀어요. (O)\n\n3. **-기로 했어요** — **A firm decision or promise** (*decided to...*).\n   - 주말에 친구를 만나**기로 했어요**."},
+      {"t":"table","head":["Pattern","Meaning","Crucial Rule"],"rows":[["-(으)러 가다/오다","Going/coming to do something","**Only** pairs with movement verbs (가다, 오다, 다니다)"],["-(으)려고 하다","Intending / planning to do","Pairs with **any** action verb (책을 사다, 돈을 모으다)"],["-기로 하다","Decided / promised to do","Focuses on the **resolution or appointment**"]]},
+      {"t":"chars","wide":true,"items":[{"ch":"친구를 만나러 카페에 가요.","tip":"I am going to a café to meet a friend. (Movement)"},{"ch":"한국에 가려고 돈을 모으고 있어요.","tip":"I am saving money intending to go to Korea. (General action)"},{"ch":"내일부터 아침 일찍 운동하기로 했어요.","tip":"I decided to exercise early in the morning starting tomorrow. (Decision)"}]},
+      {"t":"choice","q":"Why is 「책을 읽으러 도서관에서 책을 빌렸어요」 incorrect in natural Korean?","options":["-(으)러 can only be followed by movement verbs like 가다 or 오다.","-(으)러 can only be used with food and eating.","-(으)러 cannot be attached to verbs ending in consonant.","-(으)러 is only used in formal written Korean."],"answer":0,"why":"-(으)러 is strictly used with movement verbs like 가다, 오다, and 다니다. For other actions, use -(으)려고: 「책을 읽으려고 빌렸어요」."},
+      {"t":"cloze","sentence":"친구에게 선물[하려고] 예쁜 모자를 샀어요.","answer":"하려고","meaning":"I bought a pretty hat intending to gift it to a friend.","options":["하려고","할수록","하면서","하자마자"],"keys":["하려고","할수록","하면서","하자마자"],"why":"The main verb is 샀어요 (bought), not a movement verb, so use -(으)려고 to express purpose."},
+      {"t":"type","q":"가다 (to go) — Complete the decision: 「내년 봄에 한국에 ___ . (decided to go)」","answer":"가기로 했어요","keys":["가기로 했어요","가려고 해요","가러 가요","가면 돼요"],"why":"To state a firm decision or resolution, attach -기로 했어요 to the verb stem 가-."},
+      {"t":"choice","q":"Choose the natural sentence for going to a restaurant to eat lunch:","options":["점심을 먹으러 식당에 가요.","점심을 먹고 식당에 가요.","점심을 먹으러 밥을 지어요.","점심을 먹으러 요리를 해요."],"answer":0,"why":"먹으러 가요 correctly combines the purpose 먹다 with the movement verb 가다."},
+      {"t":"order","q":"Put the words in order: \"I am studying hard to pass the exam.\"","tokens":["시험에","붙으려고","열심히","공부해요."],"answer":["시험에","붙으려고","열심히","공부해요."]},
+      {"t":"speak","say":"한국 친구와 이야기하려고 한국어를 배워요.","q":"Read aloud clearly:"},
+    ],
+  },
   ],
 },
 
