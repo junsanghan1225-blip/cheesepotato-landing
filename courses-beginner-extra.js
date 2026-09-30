@@ -459,6 +459,20 @@ export const BEGINNER_EXTRA_COURSES = [
     ],
   },
 
+  {
+    id: "bg-36-04", title: {"ko":"4강. 실전 비교: 헷갈리는 의문사 10개 완벽 정리","en":"Lesson 4. Summary & Practice: 10 Essential Question Words"}, minutes: 5,
+    blocks: [
+      {"t":"text","h":"Mastering the 10 Korean Question Words","md":"In this course, you learned the 10 foundational Korean question words:\n\n1. **누구 / 누가**: Who? *(누가 is used when 'who' is the grammatical subject with -가)*\n2. **무엇 / 뭐**: What? *(뭐 is the common spoken contraction)*\n3. **어디**: Where?\n4. **언제**: When?\n5. **왜**: Why?\n6. **어떻게**: How?\n7. **어느**: Which? *(Selection among defined options: 어느 나라)*\n8. **무슨**: What? *(Open category: 무슨 음식, 무슨 일)*\n9. **어떤**: What kind of? *(Character, trait, description: 어떤 사람)*\n10. **얼마 / 몇**: How much (price/amount) / How many (count)?"},
+      {"t":"table","head":["Question Word","Key Usage","Typical Question","Natural Meaning"],"rows":[["누가","Who (as grammatical subject)","누가 왔어요?","Who came?"],["어느","Which (choice from existing set)","어느 나라 사람이에요?","Which country are you from?"],["무슨","What (identifying category / item)","무슨 책을 읽어요?","What book are you reading?"],["어떤","What kind of (nature, traits, features)","어떤 사람을 좋아해요?","What kind of person do you like?"],["얼마","How much (cost / price)","이 사과 얼마예요?","How much is this apple?"]]},
+      {"t":"chars","wide":true,"items":[{"ch":"어제 무슨 영화를 봤어요?","tip":"What movie did you watch yesterday? (무슨 영화 what movie title/genre)"},{"ch":"어느 계절을 가장 좋아하세요?","tip":"Which season do you like the most? (어느 selection among 4 seasons)"},{"ch":"이 가방은 가격이 얼마예요?","tip":"How much is this bag? (얼마예요 how much is it?)"}]},
+      {"t":"choice","q":"You are meeting a new coworker and want to ask which country they came from: \"Which country did you come from?\" Which question word is correct?","options":["어느 나라에서 왔어요?","무슨 나라에서 왔어요?","어떤 나라에서 왔어요?","얼마 나라에서 왔어요?"],"answer":0,"why":"To pick one from the set of countries around the world, use the selection determiner 어느: 어느 나라에서 왔어요?"},
+      {"t":"cloze","sentence":"가게에서 과일 가격을 물어봤어요: \"이 사과 [얼마]예요?\"","answer":"얼마","meaning":"I asked for the fruit price at the store: \"How much is this apple?\"","options":["얼마","어느","무슨","어떤"],"keys":["얼마","어느","무슨","어떤"],"why":"To ask for price or total money amount, use 얼마: 얼마예요?"},
+      {"t":"type","q":"누구 acts as the subject with subject particle -가: 「이 맛있는 케이크는 ___ 만들었어요? (Who made this?)」","answer":"누가","keys":["누가","누구","누구가","누구를"],"why":"When 누구 combines with the subject particle 가, it contracts to 누가: 누가 만들었어요?"},
+      {"t":"choice","q":"You want to ask about someone's ideal type or personality preference: \"What kind of person do you like?\"","options":["어떤 사람을 좋아해요?","어느 사람을 좋아해요?","무슨 사람을 좋아해요?","얼마 사람을 좋아해요?"],"answer":0,"why":"To ask about personality, character traits, or qualities, use 어떤: 어떤 사람을 좋아해요?"},
+      {"t":"order","q":"Put the words in order: \"What food do you want to eat today?\"","tokens":["오늘","무슨","음식을","먹고","싶어요?"],"answer":["오늘","무슨","음식을","먹고","싶어요?"]},
+      {"t":"speak","say":"한국에 언제 오셨어요? 그리고 한국 생활은 어떠세요?","q":"Read aloud inquiring naturally about someone's arrival time and experience in Korea:"},
+    ],
+  },
   ],
 },
 ];
