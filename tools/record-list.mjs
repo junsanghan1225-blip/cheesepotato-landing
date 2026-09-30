@@ -26,10 +26,12 @@ const OUT = path.join(ROOT, 'record');
 /* 녹음소에 보일 갈래와 순서 — 급한 것부터. 예문 게시판의 대화(dialogue)는 화면이 아직
    소리를 안 틀어서 뺀다(녹음해도 들을 곳이 없다). */
 const GROUPS = [
+  /* 레벨 테스트 듣기가 맨 앞(운영자 2026-09-30: 「레벨 테스트 듣기부터 직접 녹음」). 레벨 테스트는 TOPIK 듣기 문항을
+     그대로 쓰므로(app.module.js ltAdaptPool) 같은 파일이다 — 테스트가 2급에서 시작하니 급수 낮은 것부터 늘어놓는다. */
+  { id: 'listen',  src: ['listen'],         ko: '레벨 테스트 · TOPIK 듣기', en: 'Level test · TOPIK listening', byGrade: true,
+    note: '레벨 테스트에 나오는 듣기예요 — 쉬운 급수부터. 줄마다 녹음하면 내보낼 때 이어 붙입니다. 「여」 줄은 여자 목소리가 좋아요.' },
   { id: 'eps',     src: ['eps'],            ko: 'EPS-TOPIK 듣기',      en: 'EPS-TOPIK listening',
     note: '한 문항에 여러 줄이면 줄마다 녹음합니다. 내보낼 때 한 파일로 이어 붙여요. 「여」 줄은 여자 목소리가 좋아요 — 문제가 「여자는 무엇을…」을 묻기도 해요.' },
-  { id: 'listen',  src: ['listen'],         ko: 'TOPIK 듣기',          en: 'TOPIK listening',
-    note: '줄마다 녹음하면 내보낼 때 이어 붙입니다. 「여」 줄은 여자 목소리가 좋아요.' },
   { id: 'course',  src: ['course'],         ko: '코스 소리 · 글자 카드', en: 'Course sounds',
     note: '레슨에서 누르면 나오는 소리예요. 또박또박, 보통 빠르기로.' },
   { id: 'writing', src: ['writing'],        ko: 'TOPIK 쓰기 지문',      en: 'TOPIK writing passages',
@@ -62,6 +64,12 @@ const index = { built: new Date().toISOString().slice(0, 10), groups: [] };
 
 for (const g of GROUPS) {
   let items = rows.filter((r) => g.src.includes(r.group));
+  if (g.byGrade) {
+    const { TOPIKL_ITEMS, TOPIKL2_ITEMS } = await import(new URL('../topik-listening.js', import.meta.url));
+    const grade = new Map([...TOPIKL_ITEMS, ...TOPIKL2_ITEMS].map((q) => [`listen/${q.id}.mp3`, q.grade || 9]));
+    items.sort((a, b) => (grade.get(a.out) ?? 9) - (grade.get(b.out) ?? 9));
+    for (const r of items) r.grade = grade.get(r.out);
+  }
   if (g.id === 'dict') {
     // 낱말 → 그 낱말의 예문 순으로, 가나다 차례
     const head = (r) => r.out.replace(/^dict\//, '').replace(/(-ex)?\.mp3$/, '');
@@ -75,6 +83,7 @@ for (const g of GROUPS) {
     stat[st]++;
     const it = { out: r.out, st, parts: r.parts.map((p) => ({ v: p.narration ? 'n' : p.voice, t: p.text })) };
     if (r.group === 'dictex') it.kind = 'ex';
+    if (r.grade && r.grade < 9) it.hint = `${r.grade}급 문항`;
     if (r.parts.length === 1 && JAMO.test(r.parts[0].text.trim())) it.hint = '낱자 — 이름(기역) 말고 소리로(ㄱ → 그, ㅏ → 아)';
     list.push(it);
   }
