@@ -168,6 +168,20 @@ export const BEGINNER_STAGE5_COURSES = [
     ],
   },
 
+  {
+    id: "bg-22-04", title: {"ko":"4강. 한번 해 보세요: 권유와 추천","en":"Lesson 4. Recommending Experiences: -아/어 보세요"}, minutes: 5,
+    blocks: [
+      {"t":"text","h":"Recommending an Experience: -아/어 보세요","md":"Now that you can talk about your own experiences with **-아/어 봤어요**, how do you recommend that someone else try something?\n\nAttach **-아/어 보세요** (*“Please try doing...”* or *“Why don't you try...”*):\n\n- Bright vowels (ㅏ, ㅗ) → **-아 보세요** *(가다 → 가 보세요)*\n- Dark vowels (others) → **-어 보세요** *(먹다 → 먹어 보세요, 읽다 → 읽어 보세요)*\n- 하다 verbs → **해 보세요** *(공부하다 → 공부해 보세요)*\n\nIt is often paired with **한번** (*once / give it a try*) or **꼭** (*definitely*)!"},
+      {"t":"table","head":["Verb","-아/어 봤어요 (Experience)","-아/어 보세요 (Recommendation)"],"rows":[["먹다 (to eat)","먹어 봤어요 (I tried it)","먹어 보세요 (Please try it)"],["가다 (to go)","가 봤어요 (I've been there)","가 보세요 (Please go / visit)"],["입다 (to wear)","입어 봤어요 (I've worn it)","입어 보세요 (Please try it on)"],["듣다 (ㄷ irregular)","들어 봤어요 (I've heard it)","들어 보세요 (Please listen to it)"]]},
+      {"t":"chars","wide":true,"items":[{"ch":"이 노래 한번 들어 보세요.","tip":"Please give this song a listen."},{"ch":"한국에 가면 제주도에 꼭 가 보세요.","tip":"If you go to Korea, definitely visit Jeju Island."},{"ch":"이 옷 한번 입어 보세요.","tip":"Please try on these clothes."}]},
+      {"t":"choice","q":"Your friend hasn't tried Korean bibimbap yet. How do you warmly say: \"Try eating it once\"?","options":["한번 먹어 보세요.","한번 먹지 마세요.","한번 먹고 싶어요.","한번 먹고 있어요."],"answer":0,"why":"To recommend trying something to someone else, use -아/어 보세요. 먹다 takes -어 보세요 → 먹어 보세요."},
+      {"t":"cloze","sentence":"이 책이 정말 재미있어요. 한번 [읽어 보세요].","answer":"읽어 보세요","meaning":"This book is really fun. Please try reading it once.","options":["읽어 보세요","읽지 마세요","읽은 적이 있어요","읽고 싶어요"],"keys":["읽어 보세요","읽지 마세요","읽은 적이 있어요","읽고 싶어요"],"why":"When suggesting someone try an activity, use -아/어 보세요. 읽다 + -어 보세요 = 읽어 보세요."},
+      {"t":"type","q":"듣다 (to listen) — Recommend to your friend: 「이 노래 한번 ___ . (Please try listening)」","answer":"들어 보세요","keys":["들어 보세요","들어 봤어요","듣고 싶어요","듣지 마세요"],"why":"듣다 is a ㄷ-irregular verb: ㄷ changes to ㄹ before a vowel, so 듣다 + -어 보세요 becomes 들어 보세요."},
+      {"t":"order","q":"Put the words in order: \"Definitely go to Jeju Island.\"","tokens":["제주도에","꼭","가 보세요."],"answer":["제주도에","꼭","가 보세요."]},
+      {"t":"choice","q":"Which sentence is asking someone politely to try on shoes at a shoe store?","options":["사이즈가 맞는지 한번 신어 보세요.","사이즈가 맞는지 한번 신은 적이 있어요.","사이즈가 맞는지 한번 신지 마세요.","사이즈가 맞는지 한번 신고 있어요."],"answer":0,"why":"신다 (to put on footwear) becomes 신어 보세요 when recommending a customer or friend try them on."},
+      {"t":"speak","say":"한국에 오면 부산에 꼭 가 보세요.","q":"Say aloud with a warm, recommending tone:"},
+    ],
+  },
   ],
 },
 
