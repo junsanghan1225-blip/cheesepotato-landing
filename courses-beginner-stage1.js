@@ -392,6 +392,21 @@ export const BEGINNER_STAGE1_COURSES = [
     ],
   },
 
+  {
+    id: "bg-06-04", title: {"ko":"4강. 이/가 있어요와 없어요 — 명사 뒤에 바르게 붙이기","en":"Lesson 4. Forming 있어요 and 없어요 — Picking the Right Particles"}, minutes: 4,
+    blocks: [
+      {"t":"text","h":"Attaching 있어요 and 없어요","md":"When you say what exists or what you have, the item takes **이** or **가** before **있어요** or **없어요**.\n\n• Consonant ending (받침): noun + **이 있어요 / 없어요**\n• Vowel ending (no 받침): noun + **가 있어요 / 없어요**"},
+      {"t":"table","head":["Noun","Ends in","Positive (있어요)","Negative (없어요)"],"rows":[["가방 (bag)","Consonant (ㅇ)","가방이 있어요","가방이 없어요"],["우산 (umbrella)","Consonant (ㄴ)","우산이 있어요","우산이 없어요"],["친구 (friend)","Vowel (ㅜ)","친구가 있어요","친구가 없어요"],["열쇠 (key)","Vowel (ㅚ)","열쇠가 있어요","열쇠가 없어요"]]},
+      {"t":"note","md":"To add a location, mark the place with **에**:\n\n• **가방에** 열쇠가 있어요. (There is a key in the bag.)\n• **집에** 우산이 없어요. (There is no umbrella at home.)"},
+      {"t":"chars","wide":true,"items":[{"ch":"지금 지갑에 현금이 없어요.","tip":"I don’t have cash in my wallet right now. (현금 = cash, 지갑 = wallet)"},{"ch":"방에 작은 책상이 있어요.","tip":"There is a small desk in the room."},{"ch":"오늘 오후에 중요한 약속이 있어요.","tip":"I have an important appointment this afternoon."}]},
+      {"t":"choice","q":"Choose the correct sentence for “I have an umbrella.” (우산 = umbrella)","options":["우산이 있어요","우산가 있어요","우산에 있어요"],"answer":0,"why":"**우산** ends in the consonant ㄴ (받침), so it takes the subject particle **이** → **우산이 있어요**."},
+      {"t":"cloze","sentence":"지금 차[가] 없어서 지하철을 타요.","answer":"가","meaning":"I don't have a car right now, so I take the subway.","options":["가","이","에","에서"],"keys":["가","이","에","에서"],"why":"**차** (car) ends in a vowel (no 받침), so it takes **가** → **차가 없어요**."},
+      {"t":"pair","q":"Match each noun to its correct pattern with 있어요.","pairs":[["시간 (ends in consonant)","시간이 있어요"],["친구 (ends in vowel)","친구가 있어요"],["우산 (ends in consonant)","우산이 있어요"],["열쇠 (ends in vowel)","열쇠가 있어요"]]},
+      {"t":"type","q":"“Do you have a pen (펜)?” Complete the question: 펜___ 있어요?","answer":"이","keys":["이","가","에"],"why":"**펜** ends in the consonant ㄴ (받침), so it takes the subject marker **이**."},
+      {"t":"order","q":"Put the words in order: “There is an umbrella at home.”","tokens":["집에","우산이","있어요"],"answer":["집에","우산이","있어요"]},
+      {"t":"speak","say":"가방에 지갑이 있어요.","rom":"ga-bang-e ji-gab-i iss-eo-yo","q":"Say it out loud: “There is a wallet in the bag.”"},
+    ],
+  },
   ],
 },
 
