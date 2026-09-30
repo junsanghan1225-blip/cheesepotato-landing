@@ -142,6 +142,36 @@ export const BEGINNER_STAGE2_COURSES = [
     ],
   },
 
+  {
+    id: "bg-10-03", title: {"ko":"3강. 과거형 모음 줄임과 받침 꼴","en":"Lesson 3. Past Tense Contractions and Stem Patterns"}, minutes: 5,
+    blocks: [
+      {"t":"text","h":"How Past Tense Merges with Verb Stems","md":"To form the past tense in polite speech, attach **-았어요** or **-었어요**:\n\n- **ㅏ or ㅗ without 받침:** contracts into one syllable (가다 → **갔어요**, 보다 → **봤어요**, 오다 → **왔어요**).\n- **Other vowels without 받침:** contracts (배우다 → **배웠어요**, 마시다 → **마셨어요**, 쓰다 → **썼어요**).\n- **With 받침:** keep the stem intact! (먹다 → **먹었어요**, 앉다 → **앉았어요**).\n- **-하다 verbs:** always become **했어요**."},
+      {"t":"table","head":["Verb","Stem Vowel","Batchim?","Past Form","Meaning"],"rows":[["보다","ㅗ","No","봤어요","saw / watched"],["마시다","ㅣ","No","마셨어요","drank"],["먹다","ㅓ","Yes (ㄱ)","먹었어요","ate"],["앉다","ㅏ","Yes (ㄵ)","앉았어요","sat"],["운동하다","하다","No","운동했어요","exercised"]]},
+      {"t":"note","md":"Watch out for **쓰다** (to write / to use)! The ㅡ vowel drops out completely, taking -었어요 to become **썼어요** (not 쓰었어요)."},
+      {"t":"chars","wide":true,"items":[{"ch":"어제 친구에게 편지를 썼어요.","tip":"I wrote a letter to a friend yesterday. (쓰다 → 썼어요)"},{"ch":"점심에 비빔밥을 먹었어요.","tip":"I ate bibimbap for lunch. (먹다 → 먹었어요)"},{"ch":"저녁에 공원에서 운동했어요.","tip":"I exercised in the park in the evening. (운동하다 → 운동했어요)"}]},
+      {"t":"choice","q":"Which is the correct past tense of ‘배우다’ (to learn)?","options":["배웠어요","배우았어요","배았어요"],"answer":0,"why":"배우 ends in ㅜ. With -었어요, ㅜ + ㅓ merges into 워, making **배웠어요**. 배우았어요 uses the wrong vowel harmony, and 배았어요 drops the stem."},
+      {"t":"pair","q":"Match each verb with its correct past tense form.","pairs":[["오다 (to come)","왔어요"],["마시다 (to drink)","마셨어요"],["읽다 (to read)","읽었어요"],["청소하다 (to clean)","청소했어요"]]},
+      {"t":"cloze","sentence":"의자에 조용히 [앉았어요].","answer":"앉았어요","meaning":"I sat quietly on the chair.","options":["앉았어요","앉었어요","안잤어요","앉맀어요"],"keys":["앉았어요","앉었어요","안잤어요","앉맀어요"],"why":"The stem 앉 has vowel ㅏ, so it takes -았어요 → **앉았어요**. 앉었어요 has wrong vowel harmony, and 안잤어요 is a spelling error."},
+      {"t":"type","q":"Conjugate 쓰다 (to write) into polite past tense: 「한국어로 일기를 ___ .」","answer":"썼어요","keys":["썼어요","쓰았어요","쓰었어요"],"why":"The vowel ㅡ drops before vowels, so 쓰 + 었어요 contracts to **썼어요**. 쓰았어요 and 쓰었어요 are uncontracted and incorrect."},
+      {"t":"order","q":"Arrange the words to say: “I met my friend yesterday.”","tokens":["어제","친구를","만났어요"],"answer":["어제","친구를","만났어요"]},
+      {"t":"speak","say":"어제 도서관에서 책을 읽고 공부했어요.","rom":"eo-je do-seo-gwan-e-seo chaeg-eul ilg-go gong-bu-haess-eo-yo","q":"Read out loud smoothly: “Yesterday I read a book and studied at the library.”"},
+    ],
+  },
+  {
+    id: "bg-10-04", title: {"ko":"4강. 과거형의 헷갈리는 짝과 불규칙","en":"Lesson 4. Confusing Past Pairs and Irregular Verbs"}, minutes: 5,
+    blocks: [
+      {"t":"text","h":"Past Tense with Irregular Verbs","md":"Irregular verbs follow their special stem changes before **-았어요 / -었어요**:\n\n1. **ㄷ-irregular verbs (듣다, 걷다):** ㄷ changes to ㄹ → **들었어요**, **걸었어요**.\n2. **ㅂ-irregular verbs (춥다, 돕다):** ㅂ changes to 우/오 → **추웠어요**, **도왔어요**.\n3. **르-irregular verbs (빠르다, 모르다):** add an extra ㄹ → **빨랐어요**, **몰랐어요**."},
+      {"t":"table","head":["Verb","Stem Change","Past Ending","Final Past Form","Meaning"],"rows":[["듣다","듣 → 들","-었어요","들었어요","listened / heard"],["걷다","걷 → 걸","-었어요","걸었어요","walked"],["춥다","춥 → 추우","-었어요","추웠어요","was cold"],["돕다","돕 → 도오","-았어요","도왔어요","helped"],["모르다","모르 → 몰ㄹ","-았어요","몰랐어요","didn’t know"]]},
+      {"t":"note","md":"Regular verbs keep their consonant! For example, **닫다** (to close) is regular: **닫았어요** (not 달았어요). **입다** (to wear) is regular: **입었어요** (not 이웠어요)."},
+      {"t":"chars","wide":true,"items":[{"ch":"어제 좋은 음악을 들었어요.","tip":"I listened to good music yesterday. (듣다 → 들었어요)"},{"ch":"지난주에는 날씨가 많이 추웠어요.","tip":"The weather was very cold last week. (춥다 → 추웠어요)"},{"ch":"그 사실을 전혀 몰랐어요.","tip":"I didn’t know that fact at all. (모르다 → 몰랐어요)"}]},
+      {"t":"choice","q":"Which sentence correctly conjugates ‘듣다’ (to listen) in the past tense?","options":["라디오를 들었어요.","라디오를 듣었어요.","라디오를 들았어요."],"answer":0,"why":"듣다 changes ㄷ to ㄹ before vowel endings and takes -었어요, making **들었어요**. 듣었어요 fails to change ㄷ, and 들았어요 has wrong vowel harmony."},
+      {"t":"choice","q":"Which sentence correctly conjugates ‘춥다’ (to be cold) in the past tense?","options":["어제 너무 추웠어요.","어제 너무 춥었어요.","어제 너무 추왔어요."],"answer":0,"why":"춥다 changes ㅂ to 우 before vowel endings, and 우 + 었 merges into **추웠어요**."},
+      {"t":"pair","q":"Match each irregular verb with its correct past tense form.","pairs":[["듣다 (to listen)","들었어요"],["걷다 (to walk)","걸었어요"],["춥다 (to be cold)","추웠어요"],["모르다 (to not know)","몰랐어요"]]},
+      {"t":"cloze","sentence":"어제 공원을 30분 동안 [걸었어요].","answer":"걸었어요","meaning":"Yesterday I walked in the park for 30 minutes.","options":["걸었어요","걷었어요","걸았어요","걷았어요"],"keys":["걸었어요","걷었어요","걸았어요","걷았어요"],"why":"걷다 is a ㄷ-irregular verb: ㄷ changes to ㄹ, and the stem vowel ㅓ takes -었어요 → **걸었어요**."},
+      {"t":"type","q":"Conjugate 돕다 (to help) into polite past tense: 「친구를 ___ .」","answer":"도왔어요","keys":["도왔어요","돕았어요","도웠어요"],"why":"돕다 is an exception where ㅂ changes to 오 before -았/었-, merging with -았어요 into **도왔어요**."},
+      {"t":"speak","say":"어제는 날씨가 추웠지만 공원을 걸었어요.","rom":"eo-je-neun nal-ssi-ga chu-woss-ji-man gong-won-eul geol-eoss-eo-yo","q":"Read out loud: “Yesterday the weather was cold, but I walked in the park.”"},
+    ],
+  },
   ],
 },
 
