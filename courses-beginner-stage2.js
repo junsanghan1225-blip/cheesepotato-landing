@@ -438,6 +438,21 @@ export const BEGINNER_STAGE2_COURSES = [
     ],
   },
 
+  {
+    id: "bg-12-04", title: {"ko":"4강. 시간 표현 네 가지의 꼴 만들기","en":"Lesson 4. Shaping the Four Time Expressions"}, minutes: 5,
+    blocks: [
+      {"t":"text","h":"Batchim Rules Across the 4 Time Patterns","md":"Let’s look at how the 4 time connectors attach to verb stems:\n\n1. **-기 전에 (Before):** Stems never change! Attach directly: 먹기 전에, 가기 전에.\n2. **-(으)ㄴ 후에 (After):** 받침 있음 → **-은 후에**, 받침 없음 → **-ㄴ 후에**.\n3. **-(으)ㄹ 때 (When):** 받침 있음 → **-을 때**, 받침 없음 → **-ㄹ 때**.\n4. **-(으)ㄴ 지 (Elapsed time):** 받침 있음 → **-은 지**, 받침 없음 → **-ㄴ 지**."},
+      {"t":"table","head":["Verb","-기 전에","-(으)ㄴ 후에","-(으)ㄹ 때","-(으)ㄴ 지"],"rows":[["가다 (no 받침)","가기 전에","간 후에","갈 때","간 지"],["먹다 (받침 ㄱ)","먹기 전에","먹은 후에","먹을 때","먹은 지"],["읽다 (받침 ㄺ)","읽기 전에","읽은 후에","읽을 때","읽은 지"],["만들다 (받침 ㄹ)","만들기 전에","만든 후에","만들 때","만든 지"]]},
+      {"t":"note","md":"Look at **만들다** (ㄹ stem)! Before ㄴ, the ㄹ drops out: **만든 후에**, **만든 지**. But with -(으)ㄹ 때, the existing ㄹ merges directly: **만들 때** (not 만들을 때)!"},
+      {"t":"chars","wide":true,"items":[{"ch":"밥을 먹기 전에 손을 씻어요.","tip":"I wash hands before eating. (먹다 + 기 전에)"},{"ch":"수업이 끝난 후에 만나요.","tip":"Let’s meet after class ends. (끝나다 + ㄴ 후에)"},{"ch":"시간이 있을 때 운동해요.","tip":"When I have time, I exercise. (있다 + 을 때)"}]},
+      {"t":"choice","q":"Which form correctly attaches -(으)ㄹ 때 to ‘만나다’ (to meet)?","options":["만날 때","만나을 때","만난 때"],"answer":0,"why":"만나다 has no final consonant (받침), so it attaches -ㄹ 때 to become **만날 때**."},
+      {"t":"choice","q":"How does ‘만들다’ (to make) attach to -(으)ㄴ 후에?","options":["만든 후에","만들은 후에","만들ㄴ 후에"],"answer":0,"why":"Verbs ending in ㄹ drop the ㄹ before ㄴ, resulting in **만든 후에**."},
+      {"t":"pair","q":"Match each verb and connector to its correct form.","pairs":[["자다 + -기 전에","자기 전에"],["도착하다 + -(으)ㄴ 후에","도착한 후에"],["공부하다 + -(으)ㄹ 때","공부할 때"],["졸업하다 + -(으)ㄴ 지","졸업한 지"]]},
+      {"t":"cloze","sentence":"외출하[기 전에] 날씨를 확인해요.","answer":"기 전에","meaning":"Before going out, I check the weather.","options":["기 전에","기 때에","기 지에","기 후에에"],"keys":["기 전에","기 때에","기 지에","기 후에에"],"why":"The pattern for 'before doing' is **-기 전에**."},
+      {"t":"type","q":"Attach -(으)ㄴ 후에 to 먹다 (to eat): 「밥을 ___ 커피를 마셔요.」","answer":"먹은 후에","keys":["먹은 후에","먹는 후에","먹을 후에"],"why":"먹다 has a final consonant (ㄱ), so it attaches -은 후에 → **먹은 후에**."},
+      {"t":"speak","say":"밥을 먹은 후에 이를 닦고, 자기 전에 책을 읽어요.","rom":"bab-eul meog-eun hu-e i-reul dakk-go, ja-gi jeon-e chaeg-eul ilg-eo-yo","q":"Read out loud connecting the two time patterns naturally."},
+    ],
+  },
   ],
 },
 
