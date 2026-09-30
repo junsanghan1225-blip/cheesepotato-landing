@@ -5090,3 +5090,55 @@ div.wd-card:hover { transform:none; }
 
 :root[data-theme="dark"] .td-card { --td-potato-d:#D9A263; --td-line:#1B1512; }
 @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .td-card { --td-potato-d:#D9A263; --td-line:#1B1512; } }
+
+/* ══ 설정 (#account) — Claude 설정 화면처럼: 왼쪽 목록 · 오른쪽 줄(운영자 요청 2026-09-30) ══════════ */
+.st-wrap { max-width:1040px; margin:24px auto 48px; padding:0 var(--gut); display:grid; grid-template-columns:220px minmax(0,1fr); gap:28px; align-items:start; }
+.st-side { position:sticky; top:84px; display:flex; flex-direction:column; gap:2px; }
+.st-side-h { font-size:13px; font-weight:700; color:var(--ink-3); padding:0 12px 8px; }
+.st-nav { display:flex; align-items:center; gap:10px; padding:9px 12px; border:0; border-radius:10px; background:none; color:var(--ink-2);
+  font:inherit; font-size:15px; text-align:left; cursor:pointer; }
+.st-nav:hover { background:rgba(var(--ink-rgb),.05); color:var(--ink); }
+.st-nav.on { background:rgba(var(--ink-rgb),.08); color:var(--ink); font-weight:700; }
+.st-main { min-width:0; background:var(--surface); border:1px solid var(--line); border-radius:var(--r-xl); padding:28px 30px 32px; }
+.st-pane.hidden { display:none; }
+.st-h { font-size:18px; font-weight:700; color:var(--ink); letter-spacing:-.02em; margin:0 0 4px; }
+.st-sub { font-size:14px; color:var(--ink-3); margin:0 0 18px; line-height:1.55; }
+.st-invite { display:grid; grid-template-columns:160px 1fr; gap:24px; align-items:center; margin-bottom:30px; }
+.st-invite-art { background:var(--surface-2); border-radius:var(--r-l); aspect-ratio:1; display:grid; place-items:center; border:1px solid var(--line); }
+.st-invite-art img { width:96px; height:96px; border-radius:18px; }
+.st-invite-r h3 { font-size:22px; font-weight:700; color:var(--ink); letter-spacing:-.03em; margin:0 0 6px; }
+.st-invite-r p { font-size:14.5px; color:var(--ink-2); line-height:1.6; margin:0 0 14px; word-break:keep-all; }
+.st-link { display:flex; align-items:center; gap:8px; max-width:440px; padding:6px 6px 6px 14px; border:1px solid var(--line); border-radius:12px; background:var(--surface); }
+.st-link span { flex:1; min-width:0; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; font-size:14px; color:var(--ink-2); }
+.st-link button { flex:none; padding:8px 14px; border:0; border-radius:9px; background:var(--ink-bg); color:#fff; font:inherit; font-size:13.5px; font-weight:700; cursor:pointer; }
+.st-rows { display:flex; flex-direction:column; }
+.st-row { display:flex; align-items:center; justify-content:space-between; gap:18px; padding:16px 0; border-top:1px solid var(--line); }
+.st-row:first-child { border-top:0; }
+.st-row-l { min-width:0; display:flex; flex-direction:column; gap:3px; }
+.st-row-l b { font-size:15px; font-weight:600; color:var(--ink); }
+.st-row-l span { font-size:13.5px; color:var(--ink-3); line-height:1.5; word-break:keep-all; }
+.st-row-r { flex:none; }
+.st-btn { padding:8px 16px; border:1px solid var(--line); border-radius:10px; background:var(--surface); color:var(--ink); font:inherit; font-size:14px; font-weight:600; cursor:pointer; white-space:nowrap; }
+.st-btn:hover { border-color:rgba(var(--ink-rgb),.3); }
+.st-chip { display:inline-flex; align-items:center; gap:6px; padding:5px 12px 5px 6px; border:1px solid var(--line); border-radius:999px; font-size:13.5px; font-weight:700; color:var(--ink-2); white-space:nowrap; }
+.st-chip svg { width:24px; height:24px; }
+.st-seg { display:inline-flex; padding:3px; gap:2px; border-radius:10px; background:rgba(var(--ink-rgb),.06); }
+.st-seg button { padding:7px 12px; border:0; border-radius:8px; background:none; color:var(--ink-2); font:inherit; font-size:13.5px; font-weight:600; cursor:pointer; white-space:nowrap; }
+.st-seg button.on { background:var(--surface); color:var(--ink); box-shadow:0 1px 3px rgba(var(--ink-rgb),.15); }
+.st-date { padding:7px 10px; border:1px solid var(--line); border-radius:10px; background:var(--surface); color:var(--ink); font:inherit; font-size:14px; }
+#authView .ac-grid { margin-top:18px; }
+#authView .wb-login { max-width:380px; margin:0; }
+:root[data-theme="dark"] .st-link button { background:var(--ink); color:var(--bg); }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .st-link button { background:var(--ink); color:var(--bg); } }
+@media (max-width:760px) {
+  .st-wrap { grid-template-columns:1fr; gap:12px; margin-top:12px; }
+  .st-side { position:static; flex-direction:row; overflow-x:auto; gap:4px; padding-bottom:4px; scrollbar-width:none; }
+  .st-side-h { display:none; }
+  .st-nav { flex:none; padding:8px 12px; font-size:14px; border:1px solid var(--line); border-radius:999px; }
+  .st-nav.on { background:var(--ink-bg); color:#fff; border-color:var(--ink-bg); }
+  .st-main { padding:20px 16px 24px; }
+  .st-invite { grid-template-columns:1fr; gap:14px; }
+  .st-invite-art { aspect-ratio:auto; padding:18px; }
+  .st-invite-art img { width:72px; height:72px; }
+  .st-row { flex-wrap:wrap; gap:10px; }
+}

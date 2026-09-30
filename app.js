@@ -1257,6 +1257,11 @@ function applyTheme(theme) {
   else document.documentElement.removeAttribute('data-theme');
   paintThemeBtn();
 }
+/* 설정 화면(app.module.js stDraw)의 「밝기」 — null 이면 기기 설정을 따른다 */
+window.cpTheme = (theme) => {
+  applyTheme(theme);
+  try { theme ? localStorage.setItem('theme', theme) : localStorage.removeItem('theme'); } catch (e) {}
+};
 themeBtn.addEventListener('click', () => {
   const next = isDarkNow() ? 'light' : 'dark';
   applyTheme(next);

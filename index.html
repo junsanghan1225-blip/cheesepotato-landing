@@ -40,7 +40,7 @@
 ">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <!-- 구글 태그 관리자. 구글이 주는 인라인 코드조각은 CSP 가 막아서 gtm.js 로 뺐다. -->
-<script src="gtm.js?v=c489902f" async></script>
+<script src="gtm.js?v=f6c0f279" async></script>
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <!-- 제목과 설명을 두 말로 쓴다. 이 사이트를 찾을 사람은 한국어를 **배우는**
@@ -119,13 +119,13 @@
      Pretendard 는 통짜(2.0MB) 대신 조각난 쪽을 쓴다 — 브라우저가
      unicode-range 를 보고 화면에 실제로 나온 글자가 든 조각만 받는다.
      그래서 저장소는 무거워졌지만 학습자가 받는 양은 오히려 줄었다. -->
-<link rel="stylesheet" href="vendor/pretendard.css?v=c489902f">
-<link rel="stylesheet" href="vendor/pressstart2p.css?v=c489902f">
+<link rel="stylesheet" href="vendor/pretendard.css?v=f6c0f279">
+<link rel="stylesheet" href="vendor/pressstart2p.css?v=f6c0f279">
 <!-- 화면 상자 안에서만 쓰는 CSS 는 여기서 갈라 받는다. media="print" 라
      첫 페인트를 안 막고, 다 받아지면 app.js 가 media 를 all 로 바꾼다.
      자바스크립트가 없으면 <noscript> 쪽이 그냥 평범하게 걸린다. -->
-<link id="viewsCss" rel="stylesheet" href="app-views.css?v=c489902f" media="print">
-<noscript><link rel="stylesheet" href="app-views.css?v=c489902f"></noscript>
+<link id="viewsCss" rel="stylesheet" href="app-views.css?v=f6c0f279" media="print">
+<noscript><link rel="stylesheet" href="app-views.css?v=f6c0f279"></noscript>
 
 <style>
 /* ══════════════════════════════════════════════════════════════
@@ -361,6 +361,10 @@ a:hover { color:var(--orange-mid); }
   .site-hd-in { padding:0 20px; }
   .site-nav > .nav-link { padding:0 8px; gap:5px; }
 }
+
+/* 머리띠는 「내 코스」 · 「단어」 둘만(운영자 결정 2026-09-30). 배우기 · TOPIK · 계정은 ☰ 메뉴에 그대로 있다 —
+   단추 자체는 남겨 둔다: 옆 메뉴 · 여러 화면이 이 id 를 눌러(.click()) 화면을 연다. */
+.site-nav > #learnBtn, .site-nav > #topikHdBtn, .site-nav > #authBtn { display:none; }
 
 /* 되돌아오게 하는 띠. 기본(review)은 차분한 색, 스트릭이 끊기려 할
    때(urgent)만 주황으로 눈에 띄게 한다 — 둘 다 급하게 보이면 나중엔
@@ -3348,16 +3352,32 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
      자바스크립트가 통째로 관리한다. 둘을 섞으면 언어를 바꿀 때
      applyLang 이 예전 글로 되돌려 놓는다. -->
 <div data-clarity-mask="true" id="authView" class="hidden">
+  <!-- 설정 — 왼쪽 목록 · 오른쪽 줄(운영자 요청 2026-09-30: Claude 설정 화면처럼). 옛 계정 화면의 칸(id)은 그대로 옮겨 담았다 —
+       로그인 폼 · 프로필 · 구독(acPro) · 앱 단어장 설정을 JS 가 예전 id 로 채운다. 목록 전환 · 학습/화면 줄은 app.module.js stInit. -->
+  <div class="st-wrap">
+    <aside class="st-side" aria-label="설정 목록">
+      <div class="st-side-h" id="auTitle">설정</div>
+      <button class="st-nav on" type="button" data-st="account"><span aria-hidden="true">👤</span><span data-en="Account">계정</span></button>
+      <button class="st-nav" type="button" data-st="learn"><span aria-hidden="true">🥔</span><span data-en="Learning">학습</span></button>
+      <button class="st-nav" type="button" data-st="look"><span aria-hidden="true">🌗</span><span data-en="Appearance">화면</span></button>
+      <button class="st-nav" type="button" data-st="pro"><span aria-hidden="true">🧀</span><span data-en="Subscription">구독</span></button>
+      <button class="st-nav" type="button" data-st="app"><span aria-hidden="true">📱</span><span data-en="App wordbook">앱 단어장</span></button>
+    </aside>
+    <div class="st-main" id="auBody">
 
-  <div class="pt-hero">
-    <h2 id="auTitle">로그인</h2>
-    <p data-en="One account works for both the app and the web.">앱과 웹이 같은 계정을 씁니다.</p>
-  </div>
-
-  <div class="pt-body" id="auBody">
-
-      <!-- 로그인 폼만 좁게. 계정 화면은 아래에서 폭을 다 쓴다 —
-           둘을 같은 상자에 넣으면 계정 쪽이 360px 에 갇힌다. -->
+      <!-- 계정 -->
+      <section class="st-pane" data-st-pane="account">
+        <!-- 친구에게 알리기 — 레벨테스트로 바로 여는 링크(보상 제도는 없다 — 약속하지 않는다) -->
+        <div class="st-invite">
+          <div class="st-invite-art"><img src="logo-256.png" alt="" width="96" height="96"></div>
+          <div class="st-invite-r">
+            <h3 data-en="Tell a friend about Cheesepotato">친구에게 치즈감자 알려 주기</h3>
+            <p data-en="Your friend opens the link and goes straight into the level test — free, no sign-up.">링크를 열면 바로 레벨테스트가 시작돼요 — 무료, 가입 없이.</p>
+            <div class="st-link"><span id="stInviteUrl">everykoreans.com/?lt=1</span><button type="button" id="stInviteCopy" data-en="Copy link">링크 복사</button></div>
+          </div>
+        </div>
+        <h3 class="st-h" data-en="Account">계정</h3>
+      <p class="st-sub" data-en="One account works for both the app and the web.">앱과 웹이 같은 계정을 씁니다.</p>
       <div id="auForms" class="wb-login">
       <div class="au-tabs">
         <button class="au-tab on" id="auTabIn" type="button" data-en="Sign in">로그인</button>
@@ -3389,12 +3409,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
       <p class="wb-note" id="auNote"></p>
       </div><!-- /auForms -->
-
-      <!-- 이미 로그인한 사람이 계정 화면에 들어왔을 때.
-           프로필과 학습 설정을 여기 모은다 — 계정에 관한 것을 보러 온
-           사람이 다시 다른 곳으로 옮겨 다니지 않게. -->
       <div id="auSignedIn" class="hidden">
-
         <div class="ac-head">
           <div class="ac-ava" id="acAva">🧀</div>
           <div class="ac-who">
@@ -3402,15 +3417,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <div class="ac-mail" id="auWho"></div>
           </div>
         </div>
-
         <div class="ac-row">
           <button class="pt-next" id="auGoWb" type="button" data-en="My wordbook">내 단어장</button>
           <button class="pt-ghost" id="auGoDash" type="button" data-en="Dashboard">대시보드</button>
         </div>
-
-        <!-- 구독 상태 (proPaintAccount) -->
-        <div id="acPro" class="ac-pro"></div>
-
         <div class="ac-grid">
         <!-- 프로필 -->
         <div class="up-panel">
@@ -3436,7 +3446,38 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <div class="wb-ok hidden" id="acOk"></div>
           </div>
         </div>
+        </div>
+        <div class="ac-foot">
+          <button class="wb-out" id="auLogout" type="button" data-en="Sign out">로그아웃</button>
+          <span class="dnote" data-en="Deleting your account is done in the app — Settings → Delete account.">계정 삭제는 앱에서 합니다 — 설정 → 계정 삭제</span>
+        </div>
+      </div><!-- /auSignedIn -->
+      </section>
 
+      <!-- 학습 — 내 길 · 레벨 · 시험 날짜 · 기록 (app.module.js stDrawLearn 이 채운다) -->
+      <section class="st-pane hidden" data-st-pane="learn">
+        <h3 class="st-h" data-en="Learning">학습</h3>
+        <div class="st-rows" id="stLearnRows"></div>
+      </section>
+
+      <!-- 화면 — 밝기 · 언어 -->
+      <section class="st-pane hidden" data-st-pane="look">
+        <h3 class="st-h" data-en="Appearance">화면</h3>
+        <div class="st-rows" id="stLookRows"></div>
+      </section>
+
+      <!-- 구독 (proPaintAccount 가 acPro 를 채운다) -->
+      <section class="st-pane hidden" data-st-pane="pro">
+        <h3 class="st-h" data-en="Subscription">구독</h3>
+        <div id="acPro" class="ac-pro"></div>
+        <p class="st-sub"><a href="pricing.html" data-en="See plans and prices →">요금제 · 가격 보기 →</a></p>
+      </section>
+
+      <!-- 앱 단어장 — 앱과 같은 settings 표를 쓴다(단어장 이름 · 언어 · 하루 목표). 앱을 쓰는 사람만. -->
+      <section class="st-pane hidden" data-st-pane="app">
+        <h3 class="st-h" data-en="App wordbook">앱 단어장</h3>
+        <p class="st-sub" data-en="Settings for the Cheesepotato wordbook app. Sign in to change them.">치즈감자 단어장 앱의 설정이에요. 로그인하면 여기서도 바꿀 수 있어요.</p>
+        <div id="stAppBox" class="hidden">
         <!-- 학습 설정 -->
         <div class="up-panel">
           <div class="up-row">
@@ -3485,15 +3526,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           </div>
         </div>
 
-        </div><!-- /ac-grid -->
-
-        <div class="ac-foot">
-          <button class="wb-out" id="auLogout" type="button" data-en="Sign out">로그아웃</button>
-          <span class="dnote" data-en="Deleting your account is done in the app — Settings → Delete account.">계정 삭제는 앱에서 합니다 — 설정 → 계정 삭제</span>
         </div>
-      </div><!-- /auSignedIn -->
+      </section>
+    </div>
   </div>
-
   <div class="footer">
     <div class="footer-brand" data-en="Every Koreans">에브리 코리안즈</div>
     <div class="footer-info">© 2026 치즈감자 · <a href="privacy.html" data-en="Privacy policy">개인정보처리방침</a> · <a href="pricing.html" data-en="Pricing">가격</a> · <a href="terms.html" data-en="Terms">이용약관</a> · <a href="refund.html" data-en="Refunds">환불 규정</a></div>
@@ -3752,9 +3788,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <div id="hlpScrim" class="hlp-scrim"></div>
 <aside id="hlpPanel" class="hlp-panel" aria-label="한국어 도우미" aria-hidden="true"></aside>
 
-<script src="app.js?v=c489902f"></script>
-<script type="module" src="app.module.js?v=c489902f"></script>
+<script src="app.js?v=f6c0f279"></script>
+<script type="module" src="app.module.js?v=f6c0f279"></script>
 
-<script src="analytics.js?v=c489902f" defer></script>
+<script src="analytics.js?v=f6c0f279" defer></script>
 </body>
 </html>
