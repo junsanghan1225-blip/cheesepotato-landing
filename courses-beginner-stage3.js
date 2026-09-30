@@ -127,6 +127,36 @@ export const BEGINNER_STAGE3_COURSES = [
     ],
   },
 
+  {
+    id: "bg-13-03", title: {"ko":"3강. 어간에 바로 붙이기: 받침과 품사별 꼴","en":"Lesson 3. Attaching Directly: Verb, Adjective, and Noun Forms"}, minutes: 5,
+    blocks: [
+      {"t":"text","h":"No Batchim Changes: Attach Directly to the Stem","md":"The best part about **-고** and **-지만** is that they are completely regular!\n\nWhether a stem ends in a vowel or a consonant (받침), whether it's an irregular verb or not, you simply drop **다** and attach **-고** or **-지만** directly to the stem.\n\nFor nouns, use **-(이)고** and **-(이)지만**:\n- Ends in vowel: 의사**고** / 의사**지만**\n- Ends in consonant: 학생**이고** / 학생**이지만**"},
+      {"t":"table","head":["Dictionary Form","Stem","Adding -고 (And)","Adding -지만 (But)"],"rows":[["가다 (to go)","가","가고","가지만"],["먹다 (to eat)","먹","먹고","먹지만"],["듣다 (to listen)","듣","듣고","듣지만"],["춥다 (to be cold)","춥","춥고","춥지만"],["학생이다 (to be a student)","학생이","학생이고","학생이지만"]]},
+      {"t":"note","md":"Notice that irregular verbs like **듣다** (ㄷ irregular) and **춥다** (ㅂ irregular) do NOT change before **-고** or **-지만**. They keep their base stem: **듣고**, **듣지만**, **춥고**, **춥지만**!"},
+      {"t":"chars","wide":true,"items":[{"ch":"아침에 음악을 듣고 신문을 읽어요.","tip":"I listen to music and read the paper in the morning. (듣다 + 고)"},{"ch":"밖은 춥지만 방 안은 따뜻해요.","tip":"It is cold outside, but warm inside the room. (춥다 + 지만)"},{"ch":"저는 학생이고 동생은 회사원이에요.","tip":"I am a student, and my sibling is an office worker. (학생 + 이고)"}]},
+      {"t":"choice","q":"How do you attach ‘-지만’ to ‘듣다’ (to listen)?","options":["듣지만","들지만","듣으지만"],"answer":0,"why":"-지만 attaches directly to the stem without irregular sound changes: 듣 + 지만 → **듣지만**."},
+      {"t":"choice","q":"How do you combine ‘선생님’ (teacher, ends in consonant ㅁ) with ‘-고’?","options":["선생님이고","선생님고","선생님하고는"],"answer":0,"why":"Nouns with a final consonant attach -이고: 선생님 + 이고 → **선생님이고**."},
+      {"t":"pair","q":"Match each word stem with its correct connected form.","pairs":[["먹다 + -고","먹고"],["만들다 + -지만","만들지만"],["춥다 + -고","춥고"],["학생 + -지만","학생이지만"]]},
+      {"t":"cloze","sentence":"바람이 [불지만] 날씨는 맑아요.","answer":"불지만","meaning":"The wind blows, but the weather is clear.","options":["불지만","불으지만","불개지만","불고지만"],"keys":["불지만","불으지만","불개지만","불고지만"],"why":"Attach -지만 directly to the stem 불- (불다): 불 + 지만 → **불지만**."},
+      {"t":"type","q":"Attach -고 to 돕다 (to help) without irregular changes: 「친구를 ___ 청소했어요.」","answer":"돕고","keys":["돕고","도우고","돕으고"],"why":"돕다 attaches -고 directly to the base stem 돕- without changing ㅂ to 우: **돕고**."},
+      {"t":"speak","say":"밖은 춥지만 방 안은 따뜻하고 좋아요.","rom":"bakk-eun chup-ji-man bang an-eun tta-tteut-ha-go joh-a-yo","q":"Read aloud combining both -지만 and -고 smoothly."},
+    ],
+  },
+  {
+    id: "bg-13-04", title: {"ko":"4강. 나열(-고)과 대조(-지만) 골라 쓰기","en":"Lesson 4. Choosing Between Connection (-고) and Contrast (-지만)"}, minutes: 5,
+    blocks: [
+      {"t":"text","h":"Connecting Same Direction vs Contrasting Different Directions","md":"How do you choose between **-고** and **-지만**?\n\n- **-고 (And):** Used when two facts go in the **same direction**:\n  - Positive + Positive: \"The room is clean **and** quiet\" (방이 깨끗하**고** 조용해요).\n  - Negative + Negative: \"The food is expensive **and** bad\" (비싸**고** 맛없어요).\n- **-지만 (But):** Used when two facts **contrast** or clash:\n  - Negative + Positive: \"It is expensive, **but** delicious\" (비싸**지만** 맛있어요).\n  - Expectation vs Reality: \"I studied a lot, **but** the test was hard\" (열심히 공부했**지만** 어려웠어요)."},
+      {"t":"table","head":["Situation","Connector","Example","Nuance"],"rows":[["Two good traits","-고","친절하고 착해요","Kind and good-natured"],["Good trait vs bad trait","-지만","친절하지만 바빠요","Kind, but busy"],["Two actions in parallel","-고","노래하고 춤춰요","Sings and dances"],["Action vs conflicting outcome","-지만","찾았지만 없어요","Looked for it, but it isn't there"]]},
+      {"t":"note","md":"Past tense check! In Korean, the past tense marker **-았/었-** can attach before **-지만** (예: 비가 왔지만 갔어요), but for **-고**, the past tense is usually marked only at the very end of the sentence (예: 밥을 먹고 영화를 봤어요)."},
+      {"t":"chars","wide":true,"items":[{"ch":"도서관은 조용하고 시원해요.","tip":"The library is quiet and cool. (Both positive → -고)"},{"ch":"일이 많지만 재미있어요.","tip":"There is a lot of work, but it is interesting. (Challenging + positive → -지만)"},{"ch":"동생은 키가 크고 저는 작아요.","tip":"My sibling is tall, and/whereas I am short. (Contrast in traits)"}]},
+      {"t":"choice","q":"Which connector fits best: 「이 신발은 편해요. 그리고 가벼워요.」 → 「이 신발은 편___ 가벼워요.」?","options":["편하고","편하지만","편하서고"],"answer":0,"why":"Both traits are positive (comfortable + light), so use connection: **편하고**."},
+      {"t":"choice","q":"Which connector fits best: 「가격은 조금 비싸요. 그렇지만 품질이 좋아요.」?","options":["비싸지만","비싸고","비싸며고"],"answer":0,"why":"Expensive (minus) vs high quality (plus) is a contrast, so use -지만: **비싸지만**."},
+      {"t":"order","q":"Put the pieces in order: “Korean is difficult, but fun.”","tokens":["한국어는","어렵지만","정말","재미있어요."],"answer":["한국어는","어렵지만","정말","재미있어요."]},
+      {"t":"cloze","sentence":"어제는 비가 [왔지만] 오늘은 맑아요.","answer":"왔지만","meaning":"Yesterday it rained, but today it is clear.","options":["왔지만","오았지만","왔고지만","왔으지만"],"keys":["왔지만","오았지만","왔고지만","왔으지만"],"why":"Past tense 오- + -았- = 왔-. With contrast -지만, it becomes **왔지만**."},
+      {"t":"type","q":"Combine 크다 (to be big) and -지만: 「이 방은 ___ 혼자 써요.」","answer":"크지만","keys":["크지만","크으지만","크개지만"],"why":"Attach -지만 directly to stem 크-: 크 + 지만 → **크지만**."},
+      {"t":"speak","say":"한국어 공부는 어렵지만 정말 재미있어요.","rom":"han-guk-eo gong-bu-neun eo-ryeop-ji-man jeong-mal jae-mi-iss-eo-yo","q":"Read aloud naturally expressing contrast."},
+    ],
+  },
   ],
 },
 
@@ -278,6 +308,21 @@ export const BEGINNER_STAGE3_COURSES = [
     ],
   },
 
+  {
+    id: "bg-14-04", title: {"ko":"4강. 실전 대화: 인사말·사과와 이유 묻고 답하기","en":"Lesson 4. Real-Life Conversation: Greetings, Apologies, and Decisions"}, minutes: 5,
+    blocks: [
+      {"t":"text","h":"Why Social Greetings and Apologies Only Use -아/어서","md":"In Korean, social conventions strictly require **-아/어서** for greetings, apologies, and thanks:\n\n- **Apologies (죄송해요 / 미안해요):** 늦**어서** 죄송합니다 (Sorry for being late). *Never* 늦으니까 죄송합니다!\n- **Thanks (고마워요 / 감사합니다):** 도와주**셔서** 감사합니다 (Thank you for helping). *Never* 도와주시니까!\n- **Greetings (반가워요):** 만나**서** 반가워요 (Nice to meet you). *Never* 만나니까 반가워요!\n\nUse **-(으)니까** when you give a reason to suggest an action, make a request, or give a command (e.g., \"Since it's raining, let's take an umbrella\")."},
+      {"t":"table","head":["Category","Natural Korean (-아/어서)","Unnatural / Incorrect (-(으)니까)","English Meaning"],"rows":[["Apology","늦어서 죄송해요","늦으니까 죄송해요 (X)","Sorry for being late"],["Thanks","도와줘서 고마워요","도와주니까 고마워요 (X)","Thanks for helping me"],["Greeting","만나서 반가워요","만나니까 반가워요 (X)","Nice to meet you"],["Suggestion","비가 오니까 우산을 쓰세요 (O)","비가 와서 우산을 쓰세요 (X)","It’s raining, so use an umbrella"]]},
+      {"t":"note","md":"Rule of thumb: If you are saying **thank you**, **sorry**, or **pleased to meet you**, always reach for **-아/어서** without hesitation!"},
+      {"t":"chars","wide":true,"items":[{"ch":"약속 시간에 늦어서 정말 죄송합니다.","tip":"I am truly sorry for being late to the appointment. (-어서 for apology)"},{"ch":"도와주셔서 진심으로 감사드려요.","tip":"Thank you sincerely for helping me. (-어서 for thanks)"},{"ch":"지금 길이 막히니까 지하철을 탑시다.","tip":"Since the roads are blocked right now, let’s take the subway. (-(으)니까 before suggestion)"}]},
+      {"t":"choice","q":"How do you politely apologize for being late: “I am sorry for being late”?","options":["늦어서 죄송합니다","늦으니까 죄송합니다","늦아 죄송합니다"],"answer":0,"why":"Apologies always require -아/어서: 늦다 + -어서 → **늦어서 죄송합니다**."},
+      {"t":"choice","q":"Which sentence naturally thanks someone for a gift?","options":["선물을 줘서 고마워요","선물을 주니까 고마워요","선물을 주어서고 고마워요"],"answer":0,"why":"Expressions of gratitude always take -아/어서: 주다 + -어서 → **줘서 고마워요**."},
+      {"t":"pair","q":"Match each context with the appropriate conversational phrase.","pairs":[["Greeting a new friend","만나서 반가워요"],["Apologizing for late arrival","늦어서 죄송해요"],["Suggestion: take the subway","차가 막히니까 지하철 타요"],["Command: please dress warmly","추우니까 따뜻하게 입으세요"]]},
+      {"t":"cloze","sentence":"오늘 날씨가 [좋으니까] 공원에 놀러 가요.","answer":"좋으니까","meaning":"Since the weather is nice today, let's go hang out at the park.","options":["좋으니까","좋아니까","좋개니까","좋고니까"],"keys":["좋으니까","좋아니까","좋개니까","좋고니까"],"why":"Before a suggestion or invitation (놀러 가요), you must use -(으)니까, never -아/어서."},
+      {"t":"type","q":"Conjugate 돕다 (to help) into the thanking phrase: 「친구야, 나를 ___ 고마워.」","answer":"도와줘서","keys":["도와줘서","돕아줘서","도와주개서"],"why":"Thanking expressions require -아/어서: 돕다 changes to 도와- + -줘서 → **도와줘서**."},
+      {"t":"speak","say":"선생님, 친절하게 가르쳐 주셔서 진심으로 감사합니다.","rom":"seon-saeng-nim, chin-jeol-ha-ge ga-reu-chyeo ju-syeo-seo jin-sim-eu-ro gam-sa-ham-ni-da","q":"Say it aloud politely thanking a teacher."},
+    ],
+  },
   ],
 },
 
@@ -416,6 +461,21 @@ export const BEGINNER_STAGE3_COURSES = [
     ],
   },
 
+  {
+    id: "bg-15-04", title: {"ko":"4강. 세 연결 어미 종합: 조건·동시·선택 가려 쓰기","en":"Lesson 4. Choosing the Right Connector: Condition, Simultaneity, or Choice"}, minutes: 5,
+    blocks: [
+      {"t":"text","h":"Comparing -(으)면, -(으)면서, and -거나","md":"Let's review when to use each of these three essential sentence linkers:\n\n- **-(으)면 (If / When):** Sets up a **condition** or assumption. (시간이 있**으면** 만나요 / If you have time, let's meet).\n- **-(으)면서 (While):** Describes **two actions done at the same time by the same person**. (음악을 들**으면서** 공부해요 / I study while listening to music).\n- **-거나 (Or):** Chooses between **two alternative actions or states**. (영화를 보**거나** 책을 읽어요 / I watch a movie or read a book)."},
+      {"t":"table","head":["Connector","Meaning","Stem Ending Rule","Example Sentence"],"rows":[["-(으)면","If / When","Vowel/ㄹ: -면, Consonant: -으면","비가 오면 집에 있어요"],["-(으)면서","While","Vowel/ㄹ: -면서, Consonant: -으면서","차를 마시면서 이야기해요"],["-거나","Or","Direct attachment to all stems","음악을 듣거나 운동해요"]]},
+      {"t":"note","md":"Special stem reminder: ㄹ stems do NOT take 으! **살다** → 살면 / 살면서. **만들다** → 만들면 / 만들면서. But ㄷ irregulars turn ㄷ into ㄹ before 으: **듣다** → 들으면 / 들으면서!"},
+      {"t":"chars","wide":true,"items":[{"ch":"주말에 시간이 있으면 같이 밥 먹어요.","tip":"If you have time this weekend, let’s eat together. (-(으)면 condition)"},{"ch":"밥을 먹으면서 텔레비전을 봐요.","tip":"I watch TV while eating a meal. (-(으)면서 simultaneous actions)"},{"ch":"주말에는 보통 집에서 쉬거나 영화를 봐요.","tip":"On weekends I usually rest at home or watch a movie. (-거나 choice)"}]},
+      {"t":"choice","q":"Which connector expresses doing two actions simultaneously (while): “I chat with my friend while drinking coffee”?","options":["커피를 마시면서 이야기해요","커피를 마시면 이야기해요","커피를 마시거나 이야기해요"],"answer":0,"why":"To describe two actions happening at the same time by the same person, use -(으)면서: 마시다 + -면서 → **마시면서**."},
+      {"t":"choice","q":"How do you correctly conjugate ‘만들다’ (to make, ㄹ stem) with ‘-(으)면서’ (while)?","options":["만들면서","만들을면서","만들으면서"],"answer":0,"why":"Stems ending in ㄹ attach -면서 directly without 으: 만들 + 면서 → **만들면서**."},
+      {"t":"pair","q":"Match each verb and connector combination with its meaning.","pairs":[["읽으면","If you read"],["읽으면서","While reading"],["읽거나","Read or (do something else)"],["듣거나","Listen or (do something else)"]]},
+      {"t":"cloze","sentence":"날씨가 [좋으면] 한강으로 산책하러 가요.","answer":"좋으면","meaning":"If the weather is good, let's go for a walk to the Han River.","options":["좋으면","좋으면서","좋거나","좋고면"],"keys":["좋으면","좋으면서","좋거나","좋고면"],"why":"좋다 + -(으)면 expresses the condition: “If it is good” → **좋으면**."},
+      {"t":"type","q":"Combine 걷다 (to walk, ㄷ irregular) with -(으)면서: 「산책로를 ___ 음악을 들어요.」","answer":"걸으면서","keys":["걸으면서","걷으면서","걸면서"],"why":"걷다 changes ㄷ to ㄹ before vowels: 걷다 + -으면서 → **걸으면서**."},
+      {"t":"speak","say":"주말에는 보통 집에서 책을 읽거나 친구를 만나요.","rom":"ju-mal-e-neun bo-tong jib-e-seo chaeg-eul ilg-geo-na chin-gu-reul man-na-yo","q":"Read aloud naturally expressing alternate weekend plans."},
+    ],
+  },
   ],
 },
 
@@ -562,6 +622,21 @@ export const BEGINNER_STAGE3_COURSES = [
     ],
   },
 
+  {
+    id: "bg-16-04", title: {"ko":"4강. 실전 대화: 거절과 부탁을 부드럽게 넘기기","en":"Lesson 4. Real-Life Conversation: Softening Refusals and Requests"}, minutes: 5,
+    blocks: [
+      {"t":"text","h":"Using Background Endings to Soften Refusals and Requests","md":"In Korean culture, direct blunt answers like **안 돼요** (No) or **못 가요** (I can't go) can sound abrupt or harsh.\n\nInstead, Koreans soften their speech by setting up a background clause with **-는데 / -(으)ㄴ데**:\n\n- **Polite Refusal:** 제가 지금 일이 좀 **많은데요**… (I have quite a bit of work right now, so…)\n- **Softening an Invitation / Request:** 오늘 저녁에 시간 **있는데**, 같이 밥 먹을래요? (I have some free time this evening, would you like to eat together?)\n- **Leading into a Question:** 사진을 찍고 **싶은데**, 여기서 찍어도 돼요? (I’d like to take a photo, is it okay to take one here?)"},
+      {"t":"table","head":["Goal","Direct & Blunt (Avoid)","Polite & Soft (-는데 / -(으)ㄴ데)"],"rows":[["Declining an invite","못 가요 (I can't go)","약속이 있어서 못 갈 것 같은데요…"],["Asking for help","도와줘요 (Help me)","제가 지금 질문이 하나 있는데요…"],["Asking a favor","사진 찍어 줘요","사진을 좀 부탁드리고 싶은데…"],["Offering help","도와줄게요","제가 도와드릴 수 있는데, 괜찮으세요?"]]},
+      {"t":"note","md":"Ending a sentence with **-는데요 / -(으)ㄴ데요** leaves the ending open and gentle. It softens the mood and lets the listener read between the lines without any harshness!"},
+      {"t":"chars","wide":true,"items":[{"ch":"오늘 저녁에 같이 식사할 수 있어요? — 죄송해요, 오늘은 선약이 있는데요.","tip":"Can you have dinner together tonight? — Sorry, I have a prior engagement… (-ㄴ데요 soft refusal)"},{"ch":"길을 찾고 있는데, 지하철역이 어디예요?","tip":"I am looking for the way, where is the subway station? (-는데 leading into question)"},{"ch":"이 옷 정말 예쁜데, 한번 입어 봐도 돼요?","tip":"This outfit is really pretty, may I try it on? (-ㄴ데 setting context)"}]},
+      {"t":"choice","q":"A coworker invites you to coffee, but you are very busy right now. Which response is the most polite and natural?","options":["죄송해요, 제가 지금 조금 바쁜데요…","바빠서 싫어요","바쁜데도 가요"],"answer":0,"why":"Ending with -ㄴ데요 softens the refusal gently: 바쁘다 + -ㄴ데요 → **바쁜데요…**."},
+      {"t":"choice","q":"How do you conjugate ‘있다’ (to have/exist) into this background-setting form?","options":["있는데","있은데","있는대"],"answer":0,"why":"Words with 있다 / 없다 always attach -는데: 있 + 는데 → **있는데**."},
+      {"t":"pair","q":"Match each verb/adjective type with its correct background ending.","pairs":[["Action verb (먹다)","먹는데"],["Descriptive adjective (예쁘다)","예쁜데"],["Existential verb (없다)","없는데"],["Noun (학생)","학생인데"]]},
+      {"t":"cloze","sentence":"지하철역에 가고 [싶은데], 어디로 가야 해요?","answer":"싶은데","meaning":"I'd like to go to the subway station, which way should I go?","options":["싶은데","싶는데","싶개데","싶고데"],"keys":["싶은데","싶는데","싶개데","싶고데"],"why":"싶다 is an adjective (with 받침 ㅂ), so it takes -은데: 싶 + 은데 → **싶은데**."},
+      {"t":"type","q":"Conjugate 멀다 (to be far, ㄹ adjective) with -(으)ㄴ데: 「거기는 조금 ___ 지하철을 탈까요?」","answer":"먼데","keys":["먼데","멀은데","멀는데"],"why":"For ㄹ adjectives, ㄹ drops and attaches ㄴ데: 멀다 → **먼데**."},
+      {"t":"speak","say":"죄송한데, 사진 한 장만 찍어 주실 수 있나요?","rom":"joe-song-han-de, sa-jin han jang-man jjig-eo ju-sil su iss-na-yo","q":"Say it aloud politely asking someone to take a photo."},
+    ],
+  },
   ],
 },
 

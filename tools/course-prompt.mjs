@@ -15,7 +15,9 @@ const TARGET = 4;   // 코스당 레슨 수. 가장 잘 채워진 초급 코스(
 const BEGINNER_FILL = ['bg-05', 'bg-06', 'bg-d-01', 'bg-07', 'bg-08', 'bg-09', 'bg-irr-01',
   'bg-10', 'bg-d-02', 'bg-11', 'bg-12', 'bg-irr-02', 'bg-d-03', 'bg-d-04', 'bg-d-05',
   // 4차(2026-09-30) — L4 (Stage 3–4)
-  'bg-13', 'bg-14', 'bg-15', 'bg-16', 'bg-17', 'bg-18', 'bg-19', 'bg-20', 'bg-21'];
+  'bg-13', 'bg-14', 'bg-15', 'bg-16', 'bg-17', 'bg-18', 'bg-19', 'bg-20', 'bg-21',
+  // 5차(2026-09-30) — L5 (Stage 5–6)
+  'bg-22', 'bg-23', 'bg-24', 'bg-25', 'bg-26', 'bg-27', 'bg-28', 'bg-29', 'bg-30', 'bg-31', 'bg-32', 'bg-33', 'bg-34', 'bg-35', 'bg-36'];
 const list = [
   ...BEGINNER_FILL.map((id) => COURSES.find((c) => c.id === id)).filter(Boolean),
   ...COURSES.filter((c) => c.level === 'Intermediate' || c.level === 'Advanced'),

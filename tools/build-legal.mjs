@@ -87,7 +87,7 @@ ${[['판매자 · Seller', SELLER.name], ['대표자', SELLER.owner], ['사업�
    표의 줄은 실제로 되는 것만 적는다. 숫자를 바꾸면 app.module.js 의 PRO_FEATURES 와
    supabase/functions/grade-writing 의 LIMIT 도 같이 바꾼다. */
 const ROWS = [
-  ['코스 97개 · 레슨 368개 · 문법 표현 290개 · 사전', 'Courses, lessons, grammar points, dictionary', '✓', '✓'],
+  ['코스 97개 · 레슨 382개 · 문법 표현 290개 · 사전', 'Courses, lessons, grammar points, dictionary', '✓', '✓'],
   ['레벨테스트 · 내 코스', 'Level test · My course', '✓', '✓'],
   ['TOPIK 유형별 연습 문제 917개', 'TOPIK practice questions by type (917)', '✓', '✓'],
   ['EPS-TOPIK 연습 · 모의고사', 'EPS-TOPIK practice and mock tests', '✓', '✓'],
