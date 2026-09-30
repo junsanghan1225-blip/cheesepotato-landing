@@ -5199,3 +5199,46 @@ div.wd-card:hover { transform:none; }
 .nt-memo-back { white-space:nowrap; flex:none; }
 .nt-cat-dd-q:focus-visible { outline:none; }
 @media (max-width:600px) { .nt-memo-title { font-size:24px; } .nt-prop-k { width:84px; } }
+
+/* ══ 노트 · 문법 학습지 카드(gram) — 「돈 주고 사는 학습지처럼」(운영자 요청 2026-09-30) ═══════════════
+   머리띠(급 · 갈래) → 큰 이름 → 뜻 → 형태 칩 · 주의 · 예문 · 대화 · 써 보기 줄. 왼쪽 이름표 줄은 학습지의 칸 구분처럼 점선으로. */
+.gs { --gs-ch:#FFF3CF; --gs-ch-d:#E9A51C; --gs-po:#9C6A34; --gs-line:rgba(var(--ink-rgb),.12);
+  width:100%; border:1px solid var(--gs-line); border-radius:16px; overflow:hidden; background:var(--surface);
+  box-shadow:0 10px 28px -20px rgba(var(--ink-rgb),.5); margin:6px 0; color:var(--ink); -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+.gs-top { display:flex; align-items:center; justify-content:space-between; gap:10px; padding:10px 18px; background:var(--gs-ch); border-bottom:1px solid color-mix(in srgb, var(--gs-ch-d) 30%, transparent); }
+.gs-tag { font-size:12.5px; font-weight:700; color:var(--gs-po); }
+.gs-brand { font-size:10.5px; font-weight:800; letter-spacing:.14em; color:color-mix(in srgb, var(--gs-po) 70%, transparent); white-space:nowrap; }
+.gs-name { padding:18px 20px 4px; font-size:28px; font-weight:800; letter-spacing:-.035em; line-height:1.2; }
+.gs-desc { padding:0 20px 16px; font-size:15.5px; line-height:1.7; color:var(--ink-2); }
+.gs-desc p, .gs-v p { margin:0; }
+.gs-en { font-style:italic; color:var(--ink-3); font-size:.94em; margin-top:2px !important; }
+.gs-sec { display:grid; grid-template-columns:78px minmax(0,1fr); gap:14px; padding:14px 20px; border-top:1px dashed var(--gs-line); }
+.gs-k { font-size:12px; font-weight:800; letter-spacing:.04em; color:var(--gs-po); padding-top:3px; }
+.gs-v { min-width:0; font-size:15px; line-height:1.65; }
+.gs-form-v { display:flex; align-items:center; flex-wrap:wrap; gap:6px; margin:2px 0; }
+.gs-form-v i { font-style:normal; color:var(--ink-3); font-weight:700; }
+.gs-chip { display:inline-block; padding:4px 11px; border-radius:8px; background:var(--surface-2); border:1px solid var(--gs-line); font-weight:700; font-size:14.5px; }
+.gs-form-v .gs-chip:last-child { background:var(--gs-ch); border-color:color-mix(in srgb, var(--gs-ch-d) 45%, transparent); }
+.gs-care { position:relative; padding-left:22px; color:var(--ink-2); }
+.gs-care::before { content:'!'; position:absolute; left:0; top:3px; width:16px; height:16px; border-radius:50%; background:var(--red); color:#fff; font-size:11px; font-weight:800; display:grid; place-items:center; }
+.gs-ex { margin:0; padding:0; list-style:none; counter-reset:gs; }
+.gs-ex li { counter-increment:gs; position:relative; padding:4px 0 6px 28px; border-bottom:1px dotted var(--gs-line); font-weight:600; }
+.gs-ex li:last-child { border-bottom:0; }
+.gs-ex li::before { content:counter(gs); position:absolute; left:0; top:6px; width:20px; height:20px; border-radius:50%; border:1.5px solid var(--gs-po); color:var(--gs-po); font-size:11.5px; font-weight:800; display:grid; place-items:center; }
+.gs-dl { display:flex; align-items:flex-start; gap:8px; margin:4px 0; }
+.gs-dl-b { padding-left:26px; }
+.gs-who { flex:none; width:22px; height:22px; border-radius:50%; background:var(--gs-ch); color:var(--gs-po); font-size:11.5px; font-weight:800; display:grid; place-items:center; margin-top:3px; }
+.gs-dl-b .gs-who { background:color-mix(in srgb, var(--gs-po) 18%, var(--surface)); }
+.gs-bub { padding:6px 12px; border-radius:12px; background:var(--surface-2); border:1px solid var(--gs-line); }
+.gs-lines { display:flex; flex-direction:column; gap:14px; padding:6px 0 4px; }
+.gs-lines span { display:block; height:18px; border-bottom:1.5px dotted color-mix(in srgb, var(--gs-po) 45%, transparent); }
+:root[data-theme="dark"] .gs { --gs-ch:#3A2F16; --gs-po:#D9A263; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .gs { --gs-ch:#3A2F16; --gs-po:#D9A263; } }
+@media (max-width:600px) {
+  .gs-name { font-size:23px; padding:16px 16px 4px; }
+  .gs-desc { padding:0 16px 14px; }
+  .gs-sec { grid-template-columns:1fr; gap:6px; padding:12px 16px; }
+  .gs-top { padding:9px 16px; }
+  .gs-brand { display:none; }
+}
+@media print { .gs-print { break-inside:avoid; margin:12px 0; box-shadow:none; } }
