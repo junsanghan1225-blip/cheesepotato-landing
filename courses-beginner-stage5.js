@@ -513,6 +513,20 @@ export const BEGINNER_STAGE5_COURSES = [
     ],
   },
 
+  {
+    id: "bg-24-04", title: {"ko":"4강. 실전 대화: 부드럽게 의견 말하기","en":"Lesson 4. Softening Your Opinions in Conversation"}, minutes: 5,
+    blocks: [
+      {"t":"text","h":"Softening Opinions with 것 같아요","md":"In Korean culture, directly stating an opinion or fact (like **너무 매워요** or **재미없어요**) can sometimes sound blunt or harsh.\n\nNative speakers often use **-(으)ㄴ/는 것 같다** to soften their opinions, making their speech sound polite, modest, and considerate:\n\n- **조금 비싼 것 같아요.** *(I think it's a bit expensive — softer than 비싸요)*\n- **이 옷이 더 잘 어울리는 것 같아요.** *(I think this outfit suits you better)*\n- **민수 씨가 지금 바쁜 것 같아요.** *(Minsu seems busy right now)*\n\nPair it with **조금** (*a little*) or **제 생각에는** (*in my opinion*)!"},
+      {"t":"table","head":["Direct (Can sound blunt)","Softened with 것 같아요 (Polite)","Nuance"],"rows":[["너무 매워요.","너무 **매운 것 같아요.**","I think it is a bit too spicy."],["이게 더 좋아요.","이게 더 **좋은 것 같아요.**","I feel this one might be better."],["도서관에 사람이 많아요.","사람이 **많은 것 같아요.**","It looks like there are a lot of people."],["민수 씨가 안 와요.","민수 씨가 **안 올 것 같아요.**","I don't think Minsu will make it."]]},
+      {"t":"chars","wide":true,"items":[{"ch":"제 생각에는 이 색이 더 예쁜 것 같아요.","tip":"In my opinion, I think this color is prettier."},{"ch":"사이즈가 조금 작은 것 같아요.","tip":"I think the size is a little bit small."},{"ch":"영화가 곧 시작할 것 같아요.","tip":"It seems the movie will start soon."}]},
+      {"t":"choice","q":"Your coworker asks how the new office chair is. How do you politely soften the negative critique: \"I think it is a bit uncomfortable\"? (불편하다 = uncomfortable)","options":["조금 불편한 것 같아요.","조금 불편하지 마세요.","조금 불편하면 안 돼요.","조금 불편하러 가요."],"answer":0,"why":"불편하다 is an adjective ending in a vowel, so attach -ㄴ 것 같아요 → 불편한 것 같아요 to politely soften the opinion."},
+      {"t":"cloze","sentence":"제 생각에는 이 식당 음식이 정말 [맛있는 것 같아요].","answer":"맛있는 것 같아요","meaning":"In my opinion, I think the food at this restaurant is really delicious.","options":["맛있는 것 같아요","맛있지 마세요","맛있으러 가요","맛있으면 안 돼요"],"keys":["맛있는 것 같아요","맛있지 마세요","맛있으러 가요","맛있으면 안 돼요"],"why":"맛있다 takes -는 것 같아요 because of 있다: 맛있는 것 같아요."},
+      {"t":"type","q":"좋다 (to be good) — Soften your opinion: 「이 방법이 더 ___ . (I think it is better)」","answer":"좋은 것 같아요","keys":["좋은 것 같아요","좋을 것 같아요","좋는 것 같아요","좋기로 했어요"],"why":"좋다 is an adjective ending in a consonant (받침 ㅎ), so attach -은 것 같아요: 좋은 것 같아요."},
+      {"t":"choice","q":"Which sentence sounds like a considerate and polite impression when trying on shoes?","options":["신발이 발에 딱 맞는 것 같아요.","신발이 발에 딱 맞으러 가요.","신발이 발에 딱 맞지 마세요.","신발이 발에 딱 맞으면 안 돼요."],"answer":0,"why":"맞다 (to fit) takes -는 것 같아요: 딱 맞는 것 같아요 (It seems to fit just right)."},
+      {"t":"order","q":"Put the words in order: \"In my opinion, this dress is prettier.\"","tokens":["제 생각에는","이 옷이","더 예쁜","것 같아요."],"answer":["제 생각에는","이 옷이","더 예쁜","것 같아요."]},
+      {"t":"speak","say":"제 생각에는 내일 날씨가 아주 좋을 것 같아요.","q":"Say aloud gently and politely:"},
+    ],
+  },
   ],
 },
 
