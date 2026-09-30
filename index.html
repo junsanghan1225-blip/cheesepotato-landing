@@ -40,7 +40,7 @@
 ">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <!-- 구글 태그 관리자. 구글이 주는 인라인 코드조각은 CSP 가 막아서 gtm.js 로 뺐다. -->
-<script src="gtm.js?v=53e6505a" async></script>
+<script src="gtm.js?v=74e6ff7a" async></script>
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <!-- 제목과 설명을 두 말로 쓴다. 이 사이트를 찾을 사람은 한국어를 **배우는**
@@ -119,13 +119,13 @@
      Pretendard 는 통짜(2.0MB) 대신 조각난 쪽을 쓴다 — 브라우저가
      unicode-range 를 보고 화면에 실제로 나온 글자가 든 조각만 받는다.
      그래서 저장소는 무거워졌지만 학습자가 받는 양은 오히려 줄었다. -->
-<link rel="stylesheet" href="vendor/pretendard.css?v=53e6505a">
-<link rel="stylesheet" href="vendor/pressstart2p.css?v=53e6505a">
+<link rel="stylesheet" href="vendor/pretendard.css?v=74e6ff7a">
+<link rel="stylesheet" href="vendor/pressstart2p.css?v=74e6ff7a">
 <!-- 화면 상자 안에서만 쓰는 CSS 는 여기서 갈라 받는다. media="print" 라
      첫 페인트를 안 막고, 다 받아지면 app.js 가 media 를 all 로 바꾼다.
      자바스크립트가 없으면 <noscript> 쪽이 그냥 평범하게 걸린다. -->
-<link id="viewsCss" rel="stylesheet" href="app-views.css?v=53e6505a" media="print">
-<noscript><link rel="stylesheet" href="app-views.css?v=53e6505a"></noscript>
+<link id="viewsCss" rel="stylesheet" href="app-views.css?v=74e6ff7a" media="print">
+<noscript><link rel="stylesheet" href="app-views.css?v=74e6ff7a"></noscript>
 
 <style>
 /* ══════════════════════════════════════════════════════════════
@@ -1893,8 +1893,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <button class="nav-link" id="dashBtn" type="button" aria-label="대시보드 열기">
       <span class="nav-ico">📊</span><span class="nav-txt" data-en="Dashboard">대시보드</span>
     </button>
-    <button class="nav-link" id="libBtn" type="button" aria-label="자료마당 열기">
-      <span class="nav-ico">📄</span><span class="nav-txt" data-en="Library">자료마당</span>
+    <button class="nav-link" id="libBtn" type="button" aria-label="자료실 열기">
+      <span class="nav-ico">📄</span><span class="nav-txt" data-en="Library">자료실</span>
     </button>
     <a class="nav-link" href="blog/" aria-label="블로그 열기">
       <span class="nav-ico">✍️</span><span class="nav-txt" data-en="Blog">블로그</span>
@@ -2810,7 +2810,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="wb-state">
         <div style="font-size:44px; margin-bottom:8px;">🥔</div>
         <span data-en="No words yet — the numbers appear once you start.">아직 단어가 없어요. 단어를 만들면 숫자가 채워집니다.</span>
-        <div><button class="pt-next" id="dashGoLib" type="button" data-en="Get a starter list">자료마당에서 받아오기</button></div>
+        <div><button class="pt-next" id="dashGoLib" type="button" data-en="Pick words to learn">단어 담으러 가기</button></div>
       </div>
     </div>
 
@@ -2906,8 +2906,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div id="quizFew" class="hidden">
       <div class="wb-state">
         <div style="font-size:44px; margin-bottom:8px;">🥔</div>
-        <span data-en="You need at least four words to play. Grab a starter list and come back.">놀려면 단어가 네 개는 있어야 해요. 자료마당에서 받아오고 다시 와 주세요.</span>
-        <div><button class="pt-next" id="quizGoLib" type="button" data-en="Get a starter list">자료마당에서 받아오기</button></div>
+        <span data-en="You need at least four words to play. Add some from Words and come back.">놀려면 단어가 네 개는 있어야 해요. 「단어」에서 담아 오고 다시 와 주세요.</span>
+        <div><button class="pt-next" id="quizGoLib" type="button" data-en="Pick words to learn">단어 담으러 가기</button></div>
       </div>
     </div>
 
@@ -3156,78 +3156,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <span class="bd-sec-note" data-en="Cover, question booklet, answer sheet and answer key. Choose “Save as PDF” in the print window. All items are original — not past papers, not affiliated with NIIED.">표지 · 문제지 · 답안지 · 정답까지 한 번에. 인쇄 창에서 「PDF로 저장」을 고르면 파일이 돼요. 문항은 모두 치즈감자 창작 — 기출이 아니고 국립국제교육원과 관계없어요.</span>
     </div>
     <div class="mk-lib" id="libMock"></div>
-
-    <!-- 공식 자료 : 저장소에 함께 올라가는 파일이라 항상 받을 수 있다 -->
-    <div class="bd-sec-title">
-      <h3 data-en="Official files">공식 자료</h3>
-      <span class="bd-sec-note" data-en="Made by us. Always available.">치즈감자가 만든 자료예요.</span>
-    </div>
-
-    <div class="bd">
-      <div class="bd-head">
-        <span data-en="File">자료</span><span data-en="Words">단어</span><span data-en="Download">받기</span>
-      </div>
-
-      <div class="bd-row">
-        <div class="bd-main">
-          <div class="bd-cat" data-en="Template">서식</div>
-          <div class="bd-title" data-en="Blank template">빈 서식</div>
-          <div class="bd-desc" data-en="The exact layout the app reads: word in column A, meaning in B, difficulty 1-3 in C.">앱이 읽는 형식 그대로예요. A열 단어, B열 뜻, C열 난이도(1~3).</div>
-        </div>
-        <div class="bd-meta">3</div>
-        <div class="bd-actions"><a class="bd-dl" href="samples/template.xlsx" download>⬇ <span data-en="Get">받기</span></a></div>
-      </div>
-
-      <div class="bd-row">
-        <div class="bd-main">
-          <div class="bd-cat" data-en="English">영어</div>
-          <div class="bd-title" data-en="English basics 100">영어 기초 100</div>
-          <div class="bd-desc" data-en="Everyday nouns and verbs to start with.">일상에서 가장 먼저 만나는 명사와 동사.</div>
-        </div>
-        <div class="bd-meta">100</div>
-        <div class="bd-actions"><a class="bd-dl" href="samples/english-basic.xlsx" download>⬇ <span data-en="Get">받기</span></a></div>
-      </div>
-
-      <div class="bd-row">
-        <div class="bd-main">
-          <div class="bd-cat" data-en="English">영어</div>
-          <div class="bd-title" data-en="Middle school essentials 100">중학 필수 100</div>
-          <div class="bd-desc" data-en="Words that keep showing up in middle school textbooks.">교과서에 반복해서 나오는 단어들.</div>
-        </div>
-        <div class="bd-meta">100</div>
-        <div class="bd-actions"><a class="bd-dl" href="samples/english-middle.xlsx" download>⬇ <span data-en="Get">받기</span></a></div>
-      </div>
-
-      <div class="bd-row">
-        <div class="bd-main">
-          <div class="bd-cat">TOEIC</div>
-          <div class="bd-title" data-en="TOEIC business 80">토익 비즈니스 80</div>
-          <div class="bd-desc" data-en="Contracts, invoices, payroll — the vocabulary the test keeps asking about.">계약·청구·급여 등 시험에 자주 나오는 업무 어휘.</div>
-        </div>
-        <div class="bd-meta">80</div>
-        <div class="bd-actions"><a class="bd-dl" href="samples/english-toeic.xlsx" download>⬇ <span data-en="Get">받기</span></a></div>
-      </div>
-
-      <div class="bd-row">
-        <div class="bd-main">
-          <div class="bd-cat" data-en="Korean">한국어</div>
-          <div class="bd-title" data-en="Korean basics 80">한국어 기초 80</div>
-          <div class="bd-desc" data-en="For learners of Korean — Korean word, English meaning.">한국어를 배우는 분들을 위한 자료. 한국어 단어에 영어 뜻.</div>
-        </div>
-        <div class="bd-meta">80</div>
-        <div class="bd-actions"><a class="bd-dl" href="samples/korean-basic.xlsx" download>⬇ <span data-en="Get">받기</span></a></div>
-      </div>
-
-      <div class="bd-row">
-        <div class="bd-main">
-          <div class="bd-cat" data-en="Phrases">표현</div>
-          <div class="bd-title" data-en="Everyday English phrases 50">일상 영어 표현 50</div>
-          <div class="bd-desc" data-en="Whole sentences you can say as they are.">그대로 말할 수 있는 문장 단위 표현.</div>
-        </div>
-        <div class="bd-meta">50</div>
-        <div class="bd-actions"><a class="bd-dl" href="samples/english-phrases.xlsx" download>⬇ <span data-en="Get">받기</span></a></div>
-      </div>
-    </div>
 
     <!-- 모두의 자료 : 사용자가 올린 것 -->
     <div class="bd-sec-title">
@@ -3830,9 +3758,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <div id="hlpScrim" class="hlp-scrim"></div>
 <aside id="hlpPanel" class="hlp-panel" aria-label="한국어 도우미" aria-hidden="true"></aside>
 
-<script src="app.js?v=53e6505a"></script>
-<script type="module" src="app.module.js?v=53e6505a"></script>
+<script src="app.js?v=74e6ff7a"></script>
+<script type="module" src="app.module.js?v=74e6ff7a"></script>
 
-<script src="analytics.js?v=53e6505a" defer></script>
+<script src="analytics.js?v=74e6ff7a" defer></script>
 </body>
 </html>

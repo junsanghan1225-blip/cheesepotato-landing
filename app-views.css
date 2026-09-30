@@ -5310,7 +5310,7 @@ body.mk-printing #ntPrintView { max-width:none; }
 .mk-cover { break-after:page; min-height:252mm; display:flex; flex-direction:column; align-items:center; text-align:center; padding-top:10mm; }
 .mk-cv-top { font-size:11pt; letter-spacing:.2em; color:#444; }
 .mk-cv-t { font-size:40pt; font-weight:800; letter-spacing:.02em; margin:4mm 0 2mm; }
-.mk-cv-logo { width:30mm; height:30mm; object-fit:contain; margin-bottom:4mm; }
+.mk-cv-logo { width:44mm; height:auto; margin-bottom:4mm; }
 .mk-cv-s { font-size:13pt; color:#333; }
 .mk-cv-part { margin:12mm 0 10mm; padding:5mm 16mm; border:2px solid #111; border-radius:2mm; }
 .mk-cv-part b { display:block; font-size:30pt; letter-spacing:.3em; }
@@ -5326,7 +5326,7 @@ body.mk-printing #ntPrintView { max-width:none; }
 /* 쪽마다 되풀이되는 출처 띠는 쪽 여백 칸(@page @bottom-center)에 — app.module.js MK_PAGE_CSS 가 모의고사를 인쇄할 때만 붙인다.
    (이름 붙은 쪽 page:mk 는 이 사이트에서 빈 첫 쪽을 만들어서 쓰지 않는다.) 워터마크는 position:fixed — 인쇄에서 쪽마다 찍힌다. */
 .mk-wm { display:none; }
-body.mk-printing .mk-wm { display:block; position:fixed; top:50%; left:50%; transform:translate(-50%,-50%) rotate(-30deg); font-size:72pt; font-weight:800; color:#000; opacity:.045; white-space:nowrap; pointer-events:none; z-index:0; font-family:system-ui,sans-serif; }
+body.mk-printing .mk-wm { display:block; position:fixed; top:50%; left:50%; transform:translate(-50%,-50%) rotate(-30deg); font-size:64pt; font-weight:200; letter-spacing:.08em; color:#000; opacity:.06; white-space:nowrap; pointer-events:none; z-index:0; font-family:system-ui,sans-serif; }
 body.mk-printing .mk-cover, body.mk-printing .mk-paper, body.mk-printing .mk-omr, body.mk-printing .mk-key { position:relative; z-index:1; }
 /* 문제지 */
 .mk-paper { break-after:page; }
