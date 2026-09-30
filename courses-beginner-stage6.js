@@ -247,6 +247,20 @@ export const BEGINNER_STAGE6_COURSES = [
     ],
   },
 
+  {
+    id: "bg-27-04", title: {"ko":"4강. 실전 대화: 과거·현재·미래를 엮어 말하기","en":"Lesson 4. Connecting Time: Past, Present & Future Modifiers"}, minutes: 5,
+    blocks: [
+      {"t":"text","h":"Putting Past, Present & Future Modifiers Together","md":"Now you have the master key to describing nouns across all three timeframes!\n\n- **과거 (Past)**: **-(으)ㄴ + 명사** *(어제 만난 친구 = friend I met yesterday)*\n- **현재 (Present)**: **-는 + 명사** *(지금 듣는 노래 = song I am listening to now)*\n- **미래 (Future / Plan)**: **-(으)ㄹ + 명사** *(내일 먹을 점심 = lunch I will eat tomorrow)*\n\nIn daily life, Koreans constantly use these modifiers with generic nouns like **것/거** *(thing)*, **사람** *(person)*, **곳** *(place)*, and **때** *(time)*:\n- **제가 좋아하는 것** *(things I like)*\n- **내일 갈 곳** *(places to go tomorrow)*\n- **어제 산 거** *(things I bought yesterday)*"},
+      {"t":"table","head":["Time","Pattern","Example with 명사","Meaning"],"rows":[["과거 (Past)","-(으)ㄴ","어제 **본** 영화","The movie I watched yesterday"],["현재 (Present)","-는","지금 **듣는** 노래","The song I am listening to now"],["미래 (Future)","-(으)ㄹ","내일 **할** 일","Things to do tomorrow"],["ㄹ-drop (살다)","산 / 사는 / 살","우리가 **사는** 집","The house where we live"]]},
+      {"t":"chars","wide":true,"items":[{"ch":"어제 산 옷이 아주 마음에 들어요.","tip":"I really like the clothes I bought yesterday."},{"ch":"지금 마시는 커피가 정말 향기롭고 맛있어요.","tip":"The coffee I am drinking now is really fragrant and delicious."},{"ch":"주말에 볼 영화를 미리 예약했어요.","tip":"I reserved the movie we will watch on the weekend in advance."}]},
+      {"t":"choice","q":"How do you say \"The book I am reading these days is really interesting\"? (요즘 = these days, 읽다 = to read)","options":["요즘 읽는 책이 정말 재미있어요.","요즘 읽지 마세요.","요즘 읽으면 안 돼요.","요즘 읽으러 가요."],"answer":0,"why":"For an ongoing present habit or action (요즘), use the present modifier -는: 읽는 책."},
+      {"t":"cloze","sentence":"어제 친구와 [먹은] 음식이 불고기예요.","answer":"먹은","meaning":"The food I ate with my friend yesterday was bulgogi.","options":["먹은","먹지 마세요","먹어야 돼요","먹으면 안 돼요"],"keys":["먹은","먹지 마세요","먹어야 돼요","먹으면 안 돼요"],"why":"For a completed past action (어제), attach -(으)ㄴ: 먹은 음식."},
+      {"t":"type","q":"가다 (to go) — Modify the noun for tomorrow's plan: 「내일 ___ 곳이 어디예요? (place to go)」","answer":"갈","keys":["갈","가는","간","가기로"],"why":"For a future plan or prospective action (내일), attach -(으)ㄹ to the stem: 가- + -ㄹ = 갈 곳."},
+      {"t":"choice","q":"Which sentence talks about the coffee someone drank earlier?","options":["아까 마신 커피가 정말 맛있었어요.","아까 마시지 마세요.","아까 마시면 안 돼요.","아까 마시러 가요."],"answer":0,"why":"For past completed action earlier (아까), use the past modifier -(으)ㄴ: 마신 커피."},
+      {"t":"order","q":"Put the words in order: \"The clothes I bought yesterday are really pretty.\"","tokens":["어제","산 옷이","정말","예뻐요."],"answer":["어제","산 옷이","정말","예뻐요."]},
+      {"t":"speak","say":"제가 제일 좋아하는 한국 음식은 비빔밥이에요.","q":"Read aloud smoothly:"},
+    ],
+  },
   ],
 },
 
@@ -406,6 +420,34 @@ export const BEGINNER_STAGE6_COURSES = [
     ],
   },
 
+  {
+    id: "bg-28-03", title: {"ko":"3강. 꼴 만들기: 받침과 ㄹ 탈락의 비밀","en":"Lesson 3. Conjugation Rules: The ㄹ-Drop Trap"}, minutes: 5,
+    blocks: [
+      {"t":"text","h":"Formal Endings and The ㄹ-Drop Rule","md":"In formal style (**-ㅂ/습니다**), the rule looks simple at first:\n- Vowel stem → **-ㅂ니다 / -ㅂ니까?** *(가다 → 갑니다)*\n- Consonant stem → **-습니다 / -습니까?** *(먹다 → 먹습니다)*\n\n**The Big Trap: ㄹ-Stems!**\nWhen a verb stem ends in **ㄹ**, the **ㄹ drops completely**, and the verb takes **-ㅂ니다** (not -습니다!):\n- **살다** (to live) → **살** drops ㄹ → **사** + ㅂ니다 = **삽니다**\n- **만들다** (to make) → **만들** drops ㄹ → **만듭니다**\n- **알다** (to know) → **알** drops ㄹ → **압니다**\n\nMeanwhile, verbs with ㅂ, ㄷ, or ㅅ (like 듣다, 덥다, 낫다) stay completely regular before -습니다: **듣습니다**, **덥습니다**, **낫습니다**!"},
+      {"t":"table","head":["Verb Stem","Conjugation Rule","Formal Statement","Formal Question"],"rows":[["살다 (to live)","ㄹ drops → take -ㅂ니다","**삽니다**","**사십니까?** / **삽니까?**"],["만들다 (to make)","ㄹ drops → take -ㅂ니다","**만듭니다**","**만듭니까?**"],["알다 (to know)","ㄹ drops → take -ㅂ니다","**압니다**","**압니까?**"],["듣다 (to listen)","Regular before consonant","**듣습니다**","**듣습니까?**"]]},
+      {"t":"chars","wide":true,"items":[{"ch":"저는 지금 서울에 삽니다.","tip":"I live in Seoul right now. (살다 → 삽니다)"},{"ch":"한국 친구를 위해 불고기를 만듭니다.","tip":"I am making bulgogi for my Korean friend. (만들다 → 만듭니다)"},{"ch":"그 소식을 잘 알고 있습니다.","tip":"I know that news well. (알다 → 압니다)"}]},
+      {"t":"choice","q":"How do you conjugate the verb 살다 (to live) into the formal statement \"I live in Seoul\"?","options":["서울에 삽니다.","서울에 살습니다.","서울에 살읍니다.","서울에 살지 마세요."],"answer":0,"why":"Stems ending in ㄹ drop the ㄹ before formal endings: 살다 → 삽니다 (never 살습니다)."},
+      {"t":"cloze","sentence":"저는 매일 아침 라디오 뉴스를 [듣습니다].","answer":"듣습니다","meaning":"I listen to radio news every morning.","options":["듣습니다","들습니다","듣지 마세요","들으면 안 돼요"],"keys":["듣습니다","들습니다","듣지 마세요","들으면 안 돼요"],"why":"듣다 ends in consonant ㄷ, so it simply attaches -습니다: 듣습니다 (no ㄷ→ㄹ change before consonant ㅅ)."},
+      {"t":"type","q":"만들다 (to make) — Formal style: 「한국 요리를 ___ . (I make)」","answer":"만듭니다","keys":["만듭니다","만들습니다","만들었습니다","만들기로"],"why":"Verbs ending in ㄹ drop the ㄹ and take -ㅂ니다: 만들다 → 만듭니다."},
+      {"t":"choice","q":"Which sentence shows the correct formal conjugation of 알다 (to know)?","options":["그 사람의 이름을 잘 압니다.","그 사람의 이름을 잘 알습니다.","그 사람의 이름을 잘 알읍니다.","그 사람의 이름을 잘 알지 마세요."],"answer":0,"why":"알다 drops ㄹ before -ㅂ니다 to become 압니다."},
+      {"t":"order","q":"Put the words in order: \"I live in Seoul right now.\" (Formal)","tokens":["저는","지금","서울에","삽니다."],"answer":["저는","지금","서울에","삽니다."]},
+      {"t":"speak","say":"저는 지금 서울에서 한국어를 배웁니다.","q":"Read aloud crisply and formally:"},
+    ],
+  },
+  {
+    id: "bg-28-04", title: {"ko":"4강. 헷갈리는 짝과 가르기: 언제 격식체를 쓰는가","en":"Lesson 4. Choosing the Register: Formal vs Polite Informal"}, minutes: 5,
+    blocks: [
+      {"t":"text","h":"When to Use Formal (-ㅂ/습니다) vs Polite (-아/어요)","md":"In Korean, both **-ㅂ/습니다** (격식체) and **-아/어요** (해요체) are polite and respectful. But they belong in completely different settings!\n\n1. **Formal Style (-ㅂ/습니다 / -(으)십시오)**:\n   - **Public & Professional**: Job interviews, business presentations, news broadcasts, subway announcements, and military.\n   - Creates professional distance and serious authority.\n   - *처음 뵙겠습니다. 잘 부탁드립니다.*\n\n2. **Polite Informal Style (-아/어요 / -(으)세요)**:\n   - **Warm & Everyday**: Talking with coworkers, neighbors, teachers, café staff, and friends.\n   - Creates friendly, approachable warmth.\n   - *안녕하세요? 오늘 날씨가 참 좋아요.*"},
+      {"t":"table","head":["Situation","Best Register","Example"],"rows":[["Job interview / Presentation","Formal (-ㅂ/습니다)","열심히 **하겠습니다** (I will work hard)"],["Subway / Public announcement","Formal (-(으)십시오)","안전선 뒤로 **물러서십시오** (Please step back)"],["Ordering at a café / Restaurant","Polite (-아/어요)","따뜻한 아메리카노 한 잔 **주세요**"],["Daily chat with friendly coworker","Polite (-아/어요)","주말에 뭐 **했어요?** (What did you do?)"]]},
+      {"t":"chars","wide":true,"items":[{"ch":"이번 프로젝트 발표를 시작하겠습니다.","tip":"I will now begin the project presentation. (Formal presentation)"},{"ch":"문의 사항이 있으시면 언제든 연락 주십시오.","tip":"If you have questions, please contact us anytime. (Formal notice)"},{"ch":"오늘 점심 같이 먹으러 갈래요?","tip":"Shall we go eat lunch together today? (Friendly polite chat)"}]},
+      {"t":"choice","q":"You are introducing yourself in a formal job interview in Korea. Which ending is the most appropriate and professional?","options":["열심히 일하겠습니다.","열심히 일하지 마세요.","열심히 일하면 안 돼요.","열심히 일하러 가요."],"answer":0,"why":"In job interviews, the formal style -겠습니다 / -습니다 conveys utmost dedication and professionalism."},
+      {"t":"cloze","sentence":"승객 여러분, 이번 역에서 [내리십시오].","answer":"내리십시오","meaning":"Passengers, please exit at this station.","options":["내리십시오","내리시습니다","내리면 안 돼요","내리러 가요"],"keys":["내리십시오","내리시습니다","내리면 안 돼요","내리러 가요"],"why":"Official subway announcements use the formal imperative -(으)십시오: 내리십시오."},
+      {"t":"type","q":"감사하다 (to thank) — Give the quintessential formal greeting: 「대단히 ___ . (Thank you very much)」","answer":"감사합니다","keys":["감사합니다","감사하십시오","감사했습니다","감사하기로"],"why":"Attach -ㅂ니다 to the vowel stem 감사하- = 감사합니다."},
+      {"t":"choice","q":"Which sentence is suitable for a formal business presentation opening?","options":["지금부터 발표를 시작하겠습니다.","지금부터 발표를 하지 마세요.","지금부터 발표를 하면 안 돼요.","지금부터 발표를 하러 가요."],"answer":0,"why":"시작하겠습니다 in formal register establishes a polished presentation tone."},
+      {"t":"order","q":"Put the words in order: \"Nice to meet you for the first time.\" (Formal greeting)","tokens":["처음","뵙겠습니다.","잘","부탁드립니다."],"answer":["처음","뵙겠습니다.","잘","부탁드립니다."]},
+      {"t":"speak","say":"안녕하십니까? 오늘 발표를 맡은 김민수입니다.","q":"Read aloud in a confident, clear presentation tone:"},
+    ],
+  },
   ],
 },
 
@@ -631,6 +673,20 @@ export const BEGINNER_STAGE6_COURSES = [
     ],
   },
 
+  {
+    id: "bg-29-04", title: {"ko":"4강. 실전 대화: 웃어른에 대해 바르게 말하기","en":"Lesson 4. Speaking Respectfully About Elders in Real Life"}, minutes: 5,
+    blocks: [
+      {"t":"text","h":"Putting Honorifics and Humble Forms into Practice","md":"In Korean culture, showing respect to elders (parents, grandparents, teachers, bosses) requires **harmonizing the whole sentence**:\n\n1. **The Elder as Subject**: Use **께서** + honorific verb (**-(으)시-** or special words like **주무시다**, **드시다**).\n   - 할아버지**께서** 지금 거실에서 **주무세요**.\n\n2. **The Elder as Receiver**: Use **께** + humble verb (**드리다**, **모시다**).\n   - 어머니**께** 선물을 **드렸어요**.\n   - 할머니를 병원에 **모시고 갔어요**.\n\n3. **Yourself (The Speaker)**: Lower yourself using **저 / 제가** (never 나 / 내가) when speaking to or about elders!"},
+      {"t":"table","head":["Plain / Everyday","Honorific (Honoring Elder)","Humble (Speaker's Action to Elder)"],"rows":[["주다 (to give)","주시다 (Elder gives to me)","**드리다** (I give to elder)"],["데려가다 (to take someone)","—","**모시다 / 모시고 가다** (I take elder)"],["말 (words / speech)","말씀 (Elder's words)","**말씀 / 말씀드리다** (I say to elder)"],["물어보다 (to ask)","물어보시다 (Elder asks)","**여쭤보다** (I ask elder)"]]},
+      {"t":"chars","wide":true,"items":[{"ch":"할머니께서 진지를 맛있게 드셨어요.","tip":"Grandmother had her meal deliciously. (Full honorific)"},{"ch":"어머니 생신이라서 선물을 사 드렸어요.","tip":"Because it was mother's birthday, I bought and gave her a gift. (Humble 드리다)"},{"ch":"제가 선생님께 질문을 여쭤보았어요.","tip":"I asked the teacher a question. (Humble 여쭤보다)"}]},
+      {"t":"choice","q":"You are giving flowers to your grandmother on her birthday. How do you say \"I gave flowers to grandmother\"?","options":["할머니께 꽃을 드렸어요.","할머니께 꽃을 주지 마세요.","할머니께 꽃을 주면 안 돼요.","할머니께 꽃을 주러 가요."],"answer":0,"why":"When giving something to an elder, use the particle 께 with the humble verb 드리다: 할머니께 꽃을 드렸어요."},
+      {"t":"cloze","sentence":"아버지께서 거실에서 편안하게 [주무세요].","answer":"주무세요","meaning":"Father is sleeping comfortably in the living room.","options":["주무세요","자지 마세요","자면 안 돼요","자러 가요"],"keys":["주무세요","자지 마세요","자면 안 돼요","자러 가요"],"why":"The honorific equivalent of 자다 (to sleep) for an elder like father is 주무시다: 주무세요."},
+      {"t":"type","q":"모시다 (to take/accompany an elder) — Humble verb: 「주말에 할머니를 병원에 ___ 갔어요.」","answer":"모시고","keys":["모시고","데리고","가시고","드리러"],"why":"When accompanying an elder, use 모시다 instead of 데리다: 모시고 갔어요."},
+      {"t":"choice","q":"Which sentence shows complete, natural honorific harmony when speaking about a teacher?","options":["선생님께서 학생들에게 책을 읽어 주셨어요.","선생님께서 학생들에게 책을 읽지 마세요.","선생님께서 학생들에게 책을 읽으면 안 돼요.","선생님께서 학생들에게 책을 읽으러 가요."],"answer":0,"why":"선생님께서 correctly pairs with the honorific past form 읽어 주셨어요."},
+      {"t":"order","q":"Put the words in order: \"Mother calls grandmother every weekend.\"","tokens":["어머니께서","할머니께","주말마다","전화를 드려요."],"answer":["어머니께서","할머니께","주말마다","전화를 드려요."]},
+      {"t":"speak","say":"부모님께 안부 전화를 자주 드리는 것이 효도예요.","q":"Read aloud with warmth and respect:"},
+    ],
+  },
   ],
 },
 
@@ -850,6 +906,20 @@ export const BEGINNER_STAGE6_COURSES = [
     ],
   },
 
+  {
+    id: "bg-30-04", title: {"ko":"4강. 실전 대화: 세 가지 반응으로 맞장구치기","en":"Lesson 4. Natural Reactions in Conversation: -네요, -군요, -지요"}, minutes: 5,
+    blocks: [
+      {"t":"text","h":"Choosing the Perfect Reaction (맞장구)","md":"In Korean conversations, actively reacting to the other person (called **맞장구**) shows engagement and warmth! You now have three distinct reactive tools:\n\n1. **-네요 (Direct Experience)**: You directly see, hear, or taste something and express spontaneous impression/surprise.\n   - 와, 커피가 정말 **맛있네요**! *(Wow, this coffee is really delicious!)*\n\n2. **-군요 / -는군요 (Realization)**: You learn new information or realize a fact you didn't know before.\n   - 아, 한국에서 3년 **사셨군요**! *(Ah, so you've lived in Korea for 3 years!)*\n\n3. **-지요 / -죠 (Agreement & Confirmation)**: You seek confirmation or invite the other person to agree.\n   - 오늘 날씨가 참 **좋지요**? *(The weather is lovely today, isn't it?)*"},
+      {"t":"table","head":["Ending","Mental Trigger","Best Situation"],"rows":[["-네요","Direct immediate sensory experience","Looking at the view, tasting food, noticing effort"],["-군요 / -는군요","Learning/realizing new facts from others","Reacting to someone's background story or news"],["-지요 / -죠","Sharing an obvious thought / checking plans","Small talk about weather, confirming appointment time"]]},
+      {"t":"chars","wide":true,"items":[{"ch":"한국어 발음이 정말 좋으시네요!","tip":"Your Korean pronunciation is really great! (Direct impression: -네요)"},{"ch":"아, 두 분이 대학교 동창이시군요.","tip":"Ah, you two are college alumni! (Realization: -군요)"},{"ch":"이 영화 주인공이 정말 멋있죠?","tip":"The main character in this movie is really cool, right? (Agreement: -죠)"}]},
+      {"t":"choice","q":"You take a bite of food your friend made and love it immediately. How do you naturally praise it on the spot?","options":["와, 정말 맛있네요!","와, 정말 맛없지 마세요!","와, 정말 맛있으면 안 돼요!","와, 정말 맛있으러 가요!"],"answer":0,"why":"When you directly experience a pleasant taste right now, express your immediate impression with -네요: 맛있네요!"},
+      {"t":"cloze","sentence":"아, 다음 주에 고향으로 [돌아가시는군요].","answer":"돌아가시는군요","meaning":"Ah, so you are returning to your hometown next week.","options":["돌아가시는군요","돌아가지 마세요","돌아가면 안 돼요","돌아가러 가요"],"keys":["돌아가시는군요","돌아가지 마세요","돌아가면 안 돼요","돌아가러 가요"],"why":"When learning new news or background about someone, acknowledge it politely with -군요: 돌아가시는군요."},
+      {"t":"type","q":"좋다 (to be good) — Small talk seeking agreement: 「오늘 날씨가 참 ___ ? (isn't it?)」","answer":"좋지요","keys":["좋지요","좋지오","좋네요","좋군요"],"why":"When inviting the listener to share your opinion about something obvious, use -지요? or -죠?: 좋지요?"},
+      {"t":"choice","q":"A: \"제가 김치를 직접 만들었어요.\" B hears this and is impressed. What is B's natural reaction?","options":["직접 만드셨어요? 대단하시네요!","직접 만드셨어요? 대단하지 마세요!","직접 만드셨어요? 대단하면 안 돼요!","직접 만드셨어요? 대단하러 가요!"],"answer":0,"why":"대단하시네요! naturally conveys admiration and surprise upon hearing the friend made kimchi themselves."},
+      {"t":"order","q":"Put the words in order: \"Korean food is really delicious, isn't it?\"","tokens":["한국 음식이","정말","맛있지요?"],"answer":["한국 음식이","정말","맛있지요?"]},
+      {"t":"speak","say":"오늘 날씨도 따뜻하고 하늘도 참 맑네요.","q":"Read aloud with pleasant spontaneous admiration:"},
+    ],
+  },
   ],
 },
 
@@ -1067,6 +1137,20 @@ export const BEGINNER_STAGE6_COURSES = [
     ],
   },
 
+  {
+    id: "bg-31-04", title: {"ko":"4강. 실전 비교: 받는 사람과 가는 방향 총정리","en":"Lesson 4. Summary & Practice: Direction & Person Particles"}, minutes: 5,
+    blocks: [
+      {"t":"text","h":"Reviewing Key Particles: People vs Directions","md":"In this course, you learned essential particles for people and movement:\n\n1. **Target Person (-에게 / -한테)**: Moving towards someone (speaking, giving, sending).\n   - 친구**한테** 선물을 줘요. *(I give a present to a friend.)*\n\n2. **Source Person (-에게서 / -한테서)**: Originating from someone.\n   - 부모님**한테서** 편지를 받았어요. *(I received a letter from my parents.)*\n\n3. **Direction & Tool (-(으)로)**: Destination direction or method/tool.\n   - 오른쪽**으로** 가세요. *(Please go to the right.)*\n   - 지하철**로** 출근해요. *(I commute by subway.)*"},
+      {"t":"table","head":["Particle","Function","Sound Rule","Example"],"rows":[["-에게 / -한테","To person (receiver)","No batchim change (-한테 is spoken)","친구한테"],["-에게서 / -한테서","From person (sender)","No batchim change (-한테서 is spoken)","선생님한테서"],["-(으)로","Towards direction / tool","Vowel / ㄹ: -로, Consonant: -으로","오른쪽으로 / 서울로"]]},
+      {"t":"chars","wide":true,"items":[{"ch":"할머니께 안부 전화를 드렸어요.","tip":"I made a greeting phone call to grandmother. (-께 honorific to grandmother)"},{"ch":"친구한테서 생일 카드를 받았어요.","tip":"I received a birthday card from a friend. (-한테서 from a friend)"},{"ch":"앞으로 똑바로 가면 약국이 나와요.","tip":"If you go straight ahead, you will find the pharmacy. (앞으로 towards the front)"}]},
+      {"t":"choice","q":"Giving directions: You want to tell someone \"Please turn to the right side (오른쪽).\" Which particle is correct?","options":["오른쪽으로 가세요.","오른쪽에게 가세요.","오른쪽한테 가세요.","오른쪽에게서 가세요."],"answer":0,"why":"오른쪽 is a direction/location, not a person. Since it ends in consonant ㄱ, attach -으로: 오른쪽으로 가세요."},
+      {"t":"cloze","sentence":"어제 고향 친구[한테서] 반가운 연락을 받았어요.","answer":"한테서","meaning":"I received a welcome message from a hometown friend yesterday.","options":["한테서","에서","으로","로"],"keys":["한테서","에서","으로","로"],"why":"When receiving something from an everyday person (friend), use -한테서 (or -에게서)."},
+      {"t":"type","q":"연필 (pencil — tool/instrument) ending with ㄹ batchim: 「이 편지는 ___ 썼어요. (I wrote this letter with a pencil.)」","answer":"연필로","keys":["연필로","연필으로","연필한테","연필에게"],"why":"Nouns ending with the ㄹ batchim take -로 (not -으로): 연필로."},
+      {"t":"choice","q":"Which sentence correctly expresses \"I sent a birthday present to my teacher\" using the polite honorific particle for revered elders?","options":["선생님께 생일 선물을 보냈어요.","선생님으로 생일 선물을 보냈어요.","선생님로 생일 선물을 보냈어요.","선생님부터 생일 선물을 보냈어요."],"answer":0,"why":"When giving or sending to a respected elder like a teacher, use the honorific particle -께: 선생님께."},
+      {"t":"order","q":"Put the words in order: \"Please go straight ahead.\"","tokens":["앞으로","똑바로","가세요."],"answer":["앞으로","똑바로","가세요."]},
+      {"t":"speak","say":"저는 매일 아침에 지하철로 회사에 출근해요.","q":"Read aloud smoothly, paying attention to the batchim connection in 지하철로:"},
+    ],
+  },
   ],
 },
 
@@ -1284,6 +1368,20 @@ export const BEGINNER_STAGE6_COURSES = [
     ],
   },
 
+  {
+    id: "bg-32-04", title: {"ko":"4강. 실전 비교: 견주기와 범위(보다 · 처럼 · 밖에) 총정리","en":"Lesson 4. Summary & Practice: Comparison & Scope Particles"}, minutes: 5,
+    blocks: [
+      {"t":"text","h":"Mastering Comparison & Exclusive Scope","md":"In this course, you learned three powerful particles that compare things or set strict limits:\n\n1. **-보다 (Comparison - Than)**: Attached to the standard of comparison.\n   - 비행기가 기차**보다** 빨라요. *(Airplanes are faster than trains.)*\n\n2. **-처럼 / -같이 (Simile - Like/As)**: Attached to something you resemble or do alike.\n   - 영화배우**처럼** 멋있어요. *(Cool like a movie actor.)*\n\n3. **-밖에 (Exclusive Limit - Nothing But)**: MUST be followed by a negative predicate (`없어요`, `몰라요`, `안 먹어요`).\n   - 지갑에 천 원**밖에 없어요**. *(I have nothing but 1,000 won.)*"},
+      {"t":"table","head":["Particle","Core Meaning","Sentence Rule","Example"],"rows":[["-보다","Than (comparison standard)","Attach to what is being compared against","어제보다 오늘이 더워요"],["-처럼 / -같이","Like / As (similarity)","Attach directly to nouns; interchangeable","가수처럼 노래를 잘해요"],["-밖에","Only / Nothing but","Always followed by NEGATIVE predicate","시간이 10분밖에 없어요"]]},
+      {"t":"chars","wide":true,"items":[{"ch":"오늘은 어제보다 날씨가 훨씬 따뜻해요.","tip":"Today the weather is much warmer than yesterday. (어제보다 than yesterday)"},{"ch":"선생님은 천사처럼 마음이 따뜻하세요.","tip":"The teacher is warm-hearted like an angel. (천사처럼 like an angel)"},{"ch":"아침에 바빠서 사과 반 개밖에 못 먹었어요.","tip":"I was busy in the morning, so I could only eat half an apple. (반 개밖에 못 먹었어요)"}]},
+      {"t":"choice","q":"Which sentence correctly uses the comparison particle -보다 to say \"Korean is more fun than English\"?","options":["한국어가 영어보다 더 재미있어요.","한국어가 영어처럼 더 재미있어요.","한국어가 영어밖에 더 재미있어요.","한국어가 영어한테 더 재미있어요."],"answer":0,"why":"To compare against English (\"than English\"), attach -보다 to 영어: 영어보다 더 재미있어요."},
+      {"t":"cloze","sentence":"동생은 가수[처럼] 노래를 정말 감미롭게 잘 불러요.","answer":"처럼","meaning":"My younger sibling sings really sweetly like a singer.","options":["처럼","보다","에게","한테"],"keys":["처럼","보다","에게","한테"],"why":"To express similarity (\"like a singer\"), attach -처럼 (or -같이) to 가수: 가수처럼."},
+      {"t":"type","q":"밖에 is strictly paired with negative verbs: 「시간이 5분 ___ 없어요. (There is only 5 minutes left.)」","answer":"밖에","keys":["밖에","만","보다","처럼"],"why":"With a negative verb like 없어요, use 밖에 to mean 'nothing but / only': 5분밖에 없어요."},
+      {"t":"choice","q":"Grammar check: Which sentence has a critical error with -밖에?","options":["지금 지갑에 천 원밖에 있어요.","지금 지갑에 천 원밖에 없어요.","지금 지갑에 천 원만 있어요.","지금 지갑에 천 원도 없어요."],"answer":0,"why":"밖에 can NEVER be used with positive 있어요! It must be used with a negative verb: 천 원밖에 없어요 (or with 만: 천 원만 있어요)."},
+      {"t":"order","q":"Put the words in order: \"Today is much warmer than yesterday.\"","tokens":["오늘은","어제보다","훨씬","따뜻해요."],"answer":["오늘은","어제보다","훨씬","따뜻해요."]},
+      {"t":"speak","say":"지금 수중에 현금이 3천 원밖에 없어요.","q":"Read aloud naturally expressing that you only have 3,000 won:"},
+    ],
+  },
   ],
 },
 
@@ -1494,6 +1592,20 @@ export const BEGINNER_STAGE6_COURSES = [
     ],
   },
 
+  {
+    id: "bg-33-04", title: {"ko":"4강. 실전 비교: 나열과 선택(와 · 이나 · 마다 · 도) 총정리","en":"Lesson 4. Summary & Practice: Listing & Selection Particles"}, minutes: 5,
+    blocks: [
+      {"t":"text","h":"Reviewing Connecting & Auxiliary Particles","md":"In this course, you learned essential particles for connecting nouns and expressing frequency:\n\n1. **Listing & Companion (-와/과, -하고, -(이)랑)**: Connect nouns with 'and' or mean 'with'.\n   - 사과**와** 배를 샀어요. *(I bought apples and pears.)*\n   - 친구**하고** 영화를 봐요. *(I watch movies with a friend.)*\n\n2. **Choice & Approximate / Wonder (-(이)나)**: Means 'or' between nouns, or emphasizes surprisingly large amounts.\n   - 커피**나** 차를 마셔요. *(I drink coffee or tea.)*\n   - 피자를 3판**이나** 먹었어요! *(I ate as many as 3 pizzas!)*\n\n3. **Every (-마다) & Also (-도)**: Regular recurrence and addition.\n   - 주말**마다** 운동해요. *(I exercise every weekend.)*\n   - 저**도** 갈게요. *(I will go too.)*"},
+      {"t":"table","head":["Particle","Function","Batchim Rule","Example"],"rows":[["-와 / -과","Listing ('and') / Companion ('with')","Vowel: -와, Consonant: -과","사과와 배 / 밥과 국"],["-(이)나","Choice ('or') / Large count","Vowel: -나, Consonant: -이나","차나 커피 / 물 2리터나"],["-마다","Every / Each without exception","Attach directly without change","아침마다 / 주말마다"],["-도","Also / Too (replaces 은/는, 이/가, 을/를)","Attach directly without change","저도 / 한국어도"]]},
+      {"t":"chars","wide":true,"items":[{"ch":"주말마다 서점에 가서 책을 읽어요.","tip":"I go to the bookstore and read books every weekend. (주말마다 every weekend)"},{"ch":"친구와 함께 공원에서 즐겁게 산책했어요.","tip":"I took an enjoyable walk in the park with a friend. (친구와 with a friend)"},{"ch":"목이 마르면 시원한 물이나 주스 드세요.","tip":"If you are thirsty, please drink cool water or juice. (물이나 water or juice)"}]},
+      {"t":"choice","q":"Connecting two nouns with \"and\": Noun ends with batchim ㄱ (책). Which particle correctly follows: \"책(__) 공책\"?","options":["책과 공책","책와 공책","책이나와 공책","책마다와 공책"],"answer":0,"why":"Nouns ending with a final consonant (batchim ㄱ in 책) take -과: 책과 공책."},
+      {"t":"cloze","sentence":"저는 주말[마다] 한강 공원에 가서 자전거를 타요.","answer":"마다","meaning":"I go to Hangang Park and ride a bicycle every weekend.","options":["마다","보다","에게","한테"],"keys":["마다","보다","에게","한테"],"why":"To express a recurring regular routine (\"every weekend\"), use -마다: 주말마다."},
+      {"t":"type","q":"도 replaces topic/subject particles. Correct the common beginner error 「저는도」 to just one word: 「___ 한국어 공부를 좋아해요. (I also like studying Korean.)」","answer":"저도","keys":["저도","저도는","제가","저는"],"why":"The particle -도 completely replaces 는. Never say 저는도; use 저도."},
+      {"t":"choice","q":"A: \"점심에 뭐 드실래요?\" B: \"시간이 없으니 간단하게 김밥(__) 라면 먹어요.\" (Suggesting choice: gimbap or ramen).","options":["김밥이나 라면 먹어요.","김밥마다 라면 먹어요.","김밥보다 라면 먹어요.","김밥에게 라면 먹어요."],"answer":0,"why":"김밥 ends in batchim ㅂ, so to express choice ('or'), attach -이나: 김밥이나 라면 먹어요."},
+      {"t":"order","q":"Put the words in order: \"I also like that song really much.\"","tokens":["저도","그","노래를","정말","좋아해요."],"answer":["저도","그","노래를","정말","좋아해요."]},
+      {"t":"speak","say":"아침마다 따뜻한 커피나 차를 한잔 마셔요.","q":"Read aloud comfortably describing your morning coffee or tea routine:"},
+    ],
+  },
   ],
 },
 
@@ -1645,6 +1757,34 @@ export const BEGINNER_STAGE6_COURSES = [
     ],
   },
 
+  {
+    id: "bg-34-03", title: {"ko":"3강. 꼴 만들기: -기 와 -(으)ㅁ 붙이기","en":"Lesson 3. Forming Nouns: Attaching -기 and -(으)ㅁ"}, minutes: 5,
+    blocks: [
+      {"t":"text","h":"How to Build Nominal Forms: -기 vs -(으)ㅁ","md":"Korean turns verbs and adjectives into nouns using two main endings:\n\n1. **-기 (Simple & Direct)**: Attach `-기` directly to the verb stem without changing anything, whether there is a final consonant or not!\n   - 읽다 → **읽기** *(reading)*\n   - 쓰다 → **쓰기** *(writing)*\n   - 듣다 → **듣기** *(listening)*\n\n2. **-(으)ㅁ (Creates Concrete & Established Nouns)**:\n   - Vowel ending: attach **-ㅁ** (자다 → **잠** *sleep*, 꿈을 꾸다 → **꿈** *dream*)\n   - Consonant ending: attach **-음** (믿다 → **믿음** *faith/trust*, 웃다 → **웃음** *laughter*)\n   - ㄹ batchim: attach **-ㅁ** under ㄹ (살다 → **삶** *life*)\n   - ㅂ irregular: 돕다 → **도움** *help*"},
+      {"t":"table","head":["Verb / Adjective","Stem Type","-기 Form","-(으)ㅁ Form"],"rows":[["자다 (to sleep)","Vowel ending","자기","잠 (sleep)"],["믿다 (to trust)","Consonant ending","믿기","믿음 (trust/faith)"],["살다 (to live)","ㄹ batchim","살기","삶 (life)"],["돕다 (to help)","ㅂ irregular","돕기","도움 (help)"]]},
+      {"t":"chars","wide":true,"items":[{"ch":"한국어 시험에서 듣기와 읽기를 연습해요.","tip":"I practice listening and reading for the Korean exam. (듣기, 읽기 with -기)"},{"ch":"어려울 때 친구의 도움으로 힘을 냈어요.","tip":"In tough times, I gained strength from a friend's help. (도움 from 돕다)"},{"ch":"아이의 밝은 웃음이 온 집안을 채웠어요.","tip":"The child's bright laughter filled the whole house. (웃음 from 웃다)"}]},
+      {"t":"choice","q":"Which noun is formed correctly from the verb 돕다 (to help) with -(으)ㅁ?","options":["도움","돕음","도음","돕기음"],"answer":0,"why":"돕다 is a ㅂ irregular verb. 돕 becomes 도우 + ㅁ = 도움 (help/assistance)."},
+      {"t":"cloze","sentence":"힘들 때마다 친구가 준 따뜻한 [도움]을 잊지 못해요.","answer":"도움","meaning":"Whenever things were hard, I could not forget the warm help my friend gave me.","options":["도움","돕음","돕기음","도와"],"keys":["도움","돕음","돕기음","도와"],"why":"The established noun meaning 'help / assistance' is 도움."},
+      {"t":"type","q":"믿다 (to believe/trust) — Consonant ending: 「친구 사이에 가장 중요한 것은 ___ 입니다. (trust/belief)」","answer":"믿음","keys":["믿음","믿기","믿는","믿음이"],"why":"The noun form of 믿다 ending in consonant ㄷ takes -음: 믿음."},
+      {"t":"choice","q":"How do you form the listening section noun from the verb 듣다 (to listen) with -기?","options":["듣기","들기","듣기음","들음"],"answer":0,"why":"The ending -기 simply attaches directly to the regular dictionary stem without changing ㄷ: 듣기 (listening)."},
+      {"t":"order","q":"Put the words in order: \"I practice listening and reading every day.\"","tokens":["매일","듣기와","읽기를","연습해요."],"answer":["매일","듣기와","읽기를","연습해요."]},
+      {"t":"speak","say":"친구의 따뜻한 말 한마디가 저에게 큰 힘과 믿음을 주었어요.","q":"Read aloud expressing how a friend's words gave you strength and faith:"},
+    ],
+  },
+  {
+    id: "bg-34-04", title: {"ko":"4강. 헷갈리는 짝과 가르기: -기 vs -(으)ㅁ","en":"Lesson 4. Distinguishing the Pair: -기 vs -(으)ㅁ"}, minutes: 5,
+    blocks: [
+      {"t":"text","h":"When to Use -기 vs -(으)ㅁ","md":"Both `-기` and `-(으)ㅁ` transform verbs and adjectives into nouns, but they have clearly separated territories:\n\n1. **Use -기 (Dynamic Action & Set Patterns)**:\n   - In fixed grammatical patterns: **-기 전에** *(before)*, **-기 시작하다** *(start doing)*, **-기 쉽다/어렵다** *(easy/hard to do)*.\n   - In to-do lists, hobbies, and categories: 숙제하**기**, 운동하**기**, 읽**기**.\n\n2. **Use -(으)ㅁ (Fixed Noun & Written Summaries)**:\n   - Standalone permanent nouns: **잠** *(sleep)*, **꿈** *(dream)*, **춤** *(dance)*, **도움** *(help)*, **기쁨** *(joy)*.\n   - Formal memos and checklist options on forms: **있음** / **없음** *(present / none)*."},
+      {"t":"table","head":["Category","Ending to Choose","Common Typical Patterns","Natural Example"],"rows":[["Fixed grammar patterns","-기","-기 전에, -기 시작하다, -기 쉽다","밥 먹기 전에 손을 씻어요"],["Hobbies & task lists","-기","취미는 노래하기, 오늘의 할 일","한국 영화 보기"],["Independent core nouns","-(으)ㅁ","잠, 꿈, 춤, 도움, 믿음, 기쁨","어제 좋은 꿈을 꿨어요"],["Official notices / forms","-(으)ㅁ","서류 상태, 옵션 체크 (있음 / 없음)","추가 요금: 없음"]]},
+      {"t":"chars","wide":true,"items":[{"ch":"식사하기 전에 깨끗하게 손을 씻으세요.","tip":"Please wash your hands cleanly before eating. (-기 전에 before eating)"},{"ch":"제 취미는 주말에 요리하기와 사진 찍기예요.","tip":"My hobbies are cooking and taking photos on weekends. (-기 for hobbies)"},{"ch":"어젯밤에 아주 신기하고 재미있는 꿈을 꿨어요.","tip":"I had a very mysterious and fun dream last night. (꿈 noun from 꾸다)"}]},
+      {"t":"choice","q":"Which ending must be used in the fixed grammar pattern for \"before doing (verb)\"?","options":["-기 전에","-음 전에","-ㅁ 전에","-기음 전에"],"answer":0,"why":"The fixed grammatical pattern is always -기 전에 (e.g., 가기 전에, 먹기 전에)."},
+      {"t":"cloze","sentence":"공식 서류 신청란에서 해당 사항 [있음] 또는 없음에 표시하세요.","answer":"있음","meaning":"On the official application form, please check 'Applicable' (Yes) or 'None' (No).","options":["있음","있기","있는","있어서"],"keys":["있음","있기","있는","있어서"],"why":"On official forms and survey checkboxes, the nominalized written options are 있음 and 없음."},
+      {"t":"type","q":"쉽다 (to be easy) with the grammar pattern -기: 「이 책은 한국어 초급자도 읽___ 쉬워요.」","answer":"읽기","keys":["읽기","읽음","읽는","읽게"],"why":"The pattern for 'easy to do' is -기 쉽다: 읽기 쉬워요."},
+      {"t":"choice","q":"A: \"취미가 뭐예요?\" B wants to answer \"My hobby is watching movies.\" Which phrasing is most natural?","options":["제 취미는 영화 보기예요.","제 취미는 영화 봄이에요.","제 취미는 영화 보음이에요.","제 취미는 영화 보움이에요."],"answer":0,"why":"When stating hobbies or activities, -기 is the natural nominalizer: 영화 보기예요."},
+      {"t":"order","q":"Put the words in order: \"Please wash your hands before eating meals.\"","tokens":["식사하기","전에","손을","씻으세요."],"answer":["식사하기","전에","손을","씻으세요."]},
+      {"t":"speak","say":"한국어는 배울수록 재미있지만 발음은 연습하기가 조금 어려워요.","q":"Read aloud balancing the contrast between enjoyment and speaking practice:"},
+    ],
+  },
   ],
 },
 
