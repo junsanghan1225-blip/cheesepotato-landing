@@ -566,6 +566,36 @@ export const BEGINNER_STAGE2_COURSES = [
     ],
   },
 
+  {
+    id: "bg-irr-02-03", title: {"ko":"3강. 르 불규칙의 모음 조화와 꼴 만들기","en":"Lesson 3. Vowel Harmony in 르-Irregular Verbs"}, minutes: 5,
+    blocks: [
+      {"t":"text","h":"The 2 Steps of 르 Irregular","md":"When a **르** verb meets **-아/어** (like in -아요 / -어요 or -았/었어요), two things happen:\n\n1. **Drop ㅡ** and add a **ㄹ** under the preceding syllable.\n2. **Look at the preceding syllable's vowel** to pick the ending:\n   - **ㅏ or ㅗ:** add **-라요** (빠르다 → **빨라요**, 모르다 → **몰라요**).\n   - **Any other vowel:** add **-러요** (부르다 → **불러요**, 누르다 → **눌러요**, 기르다 → **길러요**)."},
+      {"t":"table","head":["Verb","Preceding Vowel","Harmony","Present Form","Meaning"],"rows":[["빠르다 (to be fast)","ㅏ","-라요","빨라요","is fast"],["모르다 (to not know)","ㅗ","-라요","몰라요","don't know"],["부르다 (to sing / call)","ㅜ","-러요","불러요","sings / calls"],["누르다 (to press)","ㅜ","-러요","눌러요","presses"],["고르다 (to choose)","ㅗ","-라요","골라요","chooses"]]},
+      {"t":"note","md":"Remember: before a consonant suffix like **-고** (and) or **-지만** (but), the verb is completely regular:\n- 빠르고 (빠르 + 고)\n- 모르지만 (모르 + 지만)"},
+      {"t":"chars","wide":true,"items":[{"ch":"친구들과 노래를 불러요.","tip":"I sing songs with my friends. (부르다 (ㅜ) → 불러요)"},{"ch":"버튼을 눌러요.","tip":"I press the button. (누르다 (ㅜ) → 눌러요)"},{"ch":"가게에서 과일을 골라요.","tip":"I choose fruit at the shop. (고르다 (ㅗ) → 골라요)"}]},
+      {"t":"choice","q":"How do you conjugate ‘부르다’ (to sing/call) with the polite ending?","options":["불러요","불라요","부르어요"],"answer":0,"why":"The preceding vowel in 부르다 is ㅜ (not ㅏ or ㅗ), so it takes -러요 → **불러요**. 불라요 has wrong vowel harmony, and 부르어요 fails to apply the irregular rule."},
+      {"t":"choice","q":"How do you attach -고 (and) to ‘빠르다’ (to be fast)?","options":["빠르고","빨라고","빨르고"],"answer":0,"why":"The 르 rule only triggers before vowels (-아/어). Before consonants like -고, keep the regular stem: **빠르고**."},
+      {"t":"pair","q":"Match each 르 verb with its correct polite form.","pairs":[["빠르다 (fast)","빨라요"],["부르다 (sing/call)","불러요"],["고르다 (choose)","골라요"],["누르다 (press)","눌러요"]]},
+      {"t":"cloze","sentence":"노래방에서 신나는 노래를 [불러요].","answer":"불러요","meaning":"I sing an exciting song at the karaoke room.","options":["불러요","불라요","부르아요","부러요"],"keys":["불러요","불라요","부르아요","부러요"],"why":"부르다 takes -러요 with doubled ㄹ → **불러요**."},
+      {"t":"type","q":"Conjugate 고르다 (to pick/choose) into polite present form: 「메뉴에서 음식을 ___ .」","answer":"골라요","keys":["골라요","골러요","고르아요"],"why":"고 has vowel ㅗ, so it doubles ㄹ and takes -라요 → **골라요**."},
+      {"t":"speak","say":"노래방에서 친구와 함께 신나는 노래를 불러요.","rom":"no-rae-bang-e-seo chin-gu-wa ham-kke sin-na-neun no-rae-reul bul-leo-yo","q":"Read out loud: “I sing an exciting song together with my friend at the karaoke room.”"},
+    ],
+  },
+  {
+    id: "bg-irr-02-04", title: {"ko":"4강. 르 불규칙과 헷갈리는 짝 가르기","en":"Lesson 4. Sorting 르-Irregular from Other ㅡ Verbs"}, minutes: 5,
+    blocks: [
+      {"t":"text","h":"르-Irregular vs. Plain ㅡ Drop","md":"Be careful not to confuse **르-irregular verbs** with verbs that simply end in **ㅡ**:\n\n- **르 verbs (모르다, 빠르다):** Drop ㅡ **AND add an extra ㄹ** → **몰라요**, **빨라요**.\n- **Regular ㅡ verbs (쓰다, 끄다, 크다, 아프다):** Just drop ㅡ, **no extra ㄹ** → **써요**, **꺼요**, **커요**, **아파요**.\n- Exception to know: **따르다** (to follow / to pour) follows the simple ㅡ drop: **따라요** (not 딸라요)!"},
+      {"t":"table","head":["Verb","Category","Present Polite","Why?"],"rows":[["모르다","르-irregular","몰라요","Adds extra ㄹ + 아요"],["빠르다","르-irregular","빨라요","Adds extra ㄹ + 아요"],["아프다","Plain ㅡ drop","아파요","Drops ㅡ only, no extra consonant"],["끄다","Plain ㅡ drop","꺼요","Drops ㅡ only (ㄲ + 어요)"],["듣다","ㄷ-irregular","들어요","ㄷ softens to ㄹ"]]},
+      {"t":"note","md":"Look at **아프다**! It ends in ㅡ, but the letter before it is ㅍ, not ㄹ. So it is just a plain ㅡ drop: **머리가 아파요** (not 머리가 알파요)."},
+      {"t":"chars","wide":true,"items":[{"ch":"방에 불을 꺼요.","tip":"I turn off the light in the room. (끄다 is plain ㅡ drop → 꺼요)"},{"ch":"감기에 걸려서 목이 아파요.","tip":"My throat hurts from a cold. (아프다 is plain ㅡ drop → 아파요)"},{"ch":"물과 기름은 서로 달라요.","tip":"Water and oil are different from each other. (다르다 is 르-irregular → 달라요)"}]},
+      {"t":"choice","q":"Which verb adds an extra ㄹ before -아요/-어요?","options":["다르다","아프다","쓰다","끄다"],"answer":0,"why":"다르다 is a 르-irregular verb (달라요). 아프다 (아파요), 쓰다 (써요), and 끄다 (꺼요) are plain ㅡ drop verbs."},
+      {"t":"choice","q":"How do you conjugate ‘끄다’ (to turn off) with -어요?","options":["꺼요","끌어요","끄어요"],"answer":0,"why":"끄다 is a plain ㅡ drop verb, not a 르 verb. Drop ㅡ and attach -어요 → **꺼요**."},
+      {"t":"pair","q":"Match each verb with its conjugated polite form.","pairs":[["다르다 (different)","달라요"],["아프다 (sick / hurt)","아파요"],["끄다 (turn off)","꺼요"],["듣다 (listen)","들어요"]]},
+      {"t":"cloze","sentence":"두 옷의 색깔이 완전히 [달라요].","answer":"달라요","meaning":"The colors of the two clothes are completely different.","options":["달라요","다라요","다르아요","달러요"],"keys":["달라요","다라요","다르아요","달러요"],"why":"다르다 has vowel ㅏ before 르, so it becomes **달라요**."},
+      {"t":"type","q":"Conjugate 다르다 (to be different) into polite present form: 「저와 생각이 ___ .」","answer":"달라요","keys":["달라요","다라요","달러요"],"why":"다르다 adds a ㄹ beneath 다 and takes -라요 → **달라요**."},
+      {"t":"speak","say":"생각이 다르고 방법도 완전히 달라요.","rom":"saeng-gag-i da-reu-go bang-beob-do wan-jeon-hi dal-la-yo","q":"Read out loud contrasting the uncontracted 다르고 and the contracted 달라요."},
+    ],
+  },
   ],
 },
 
