@@ -4621,14 +4621,6 @@ div.wd-card:hover { transform:none; }
 .td-badge svg { width:22px; height:22px; flex:none; }
 /* 맨 위 — 고리(오늘 몇 개) + 지금 할 것 하나(큰 단추). 오늘 무엇을 할지가 여기서 끝난다. */
 .td-top { display:flex; align-items:stretch; gap:16px; }
-.td-ring { position:relative; flex:none; width:84px; height:84px; align-self:center; }
-.td-ring svg { width:100%; height:100%; transform:rotate(-90deg); }
-.td-ring circle { fill:none; stroke-width:8; }
-.td-ring-bg { stroke:rgba(var(--ink-rgb),.1); }
-.td-ring-fg { stroke:var(--td-cheese-d); stroke-linecap:round; transition:stroke-dashoffset .6s cubic-bezier(.22,1,.36,1); }
-.td-ring-n { position:absolute; inset:0; display:grid; place-items:center; font-size:14px; font-weight:700; color:var(--ink-3); }
-.td-ring-n b { font-size:24px; color:var(--ink); letter-spacing:-.03em; }
-.td-ring-n { grid-auto-flow:column; place-content:center; gap:1px; align-items:baseline; }
 .td-now { flex:1; min-width:0; display:flex; align-items:center; gap:14px; padding:16px 18px; text-align:left; cursor:pointer;
   border:2px solid var(--td-line); border-radius:var(--r-l); background:var(--td-cheese); color:var(--td-line); font:inherit;
   box-shadow:0 3px 0 var(--td-line); transition:filter .15s, transform .15s, box-shadow .15s; }
@@ -4640,6 +4632,34 @@ div.wd-card:hover { transform:none; }
 .td-now-t { font-size:19px; font-weight:800; letter-spacing:-.03em; line-height:1.3; word-break:keep-all; overflow-wrap:anywhere; }
 .td-now-s { font-size:13px; opacity:.78; word-break:keep-all; }
 .td-now-go { flex:none; padding:10px 16px; border-radius:999px; background:var(--td-line); color:var(--td-cheese); font-size:14.5px; font-weight:800; white-space:nowrap; }
+/* 연속 기록 판 — 듀오링고 연속 화면을 치즈감자 식으로: 큰 치즈 고리 + 요일 고리 7개 + 감자/치즈 말풍선 */
+.td-streakbox { display:grid; grid-template-columns:150px 1fr; gap:28px; align-items:center; padding:18px; border-radius:var(--r-l);
+  background:color-mix(in srgb, var(--td-cheese) 14%, var(--surface)); border:1px solid color-mix(in srgb, var(--td-cheese-d) 30%, transparent); }
+.td-ring { position:relative; width:150px; height:150px; }
+.td-ring svg, .td-day svg { width:100%; height:100%; transform:rotate(-90deg); display:block; }
+.td-ring circle, .td-day circle { fill:none; stroke-linecap:round; }
+.td-ring-bg { stroke:rgba(var(--ink-rgb),.09); }
+.td-ring-fg, .td-day-fg { transition:stroke-dashoffset .8s cubic-bezier(.22,1,.36,1); }
+.td-ring-in { position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center; line-height:1.1; }
+.td-ring-in b { font-size:44px; font-weight:800; letter-spacing:-.05em; color:var(--ink); }
+.td-ring-in small { font-size:13px; font-weight:800; color:var(--td-cheese-d); }
+.td-ring-in em { font-style:normal; font-size:11.5px; color:var(--ink-3); margin-top:4px; }
+.td-sb-r { display:flex; flex-direction:column; gap:14px; min-width:0; }
+.td-days { display:flex; gap:10px; flex-wrap:wrap; }
+.td-day { position:relative; width:52px; flex:none; display:flex; flex-direction:column; align-items:center; }
+.td-day svg { width:52px; height:52px; }
+.td-day small { position:absolute; top:0; left:0; width:52px; height:52px; display:grid; place-items:center; font-size:14px; font-weight:800; color:var(--ink-3); }
+.td-day.full small, .td-day.some small { color:var(--ink); }
+.td-day.today small { color:var(--td-potato-d); }
+.td-day.today::after { content:''; position:absolute; bottom:-7px; width:6px; height:6px; border-radius:50%; background:var(--td-potato-d); }
+.td-buddy { display:flex; align-items:center; gap:10px; }
+.td-buddy-ic svg { width:64px; height:64px; display:block; animation:tdBob 2.6s ease-in-out infinite; }
+@keyframes tdBob { 50% { transform:translateY(-4px); } }
+@media (prefers-reduced-motion:reduce) { .td-buddy-ic svg { animation:none; } }
+.td-bubble { position:relative; margin:0; padding:10px 14px; border-radius:14px; background:var(--surface); border:2px solid var(--td-line);
+  font-size:14px; font-weight:700; color:var(--ink); line-height:1.45; word-break:keep-all; }
+.td-bubble::before { content:''; position:absolute; left:-8px; top:50%; width:12px; height:12px; background:var(--surface);
+  border-left:2px solid var(--td-line); border-bottom:2px solid var(--td-line); transform:translateY(-50%) rotate(45deg); }
 /* 할 일 넷 — 체크 줄 */
 .td-slots { display:grid; grid-template-columns:1fr 1fr; gap:8px; }
 .td-slot {
@@ -4658,18 +4678,7 @@ div.wd-card:hover { transform:none; }
 .td-k { font-size:12px; color:var(--ink-3); }
 .td-end { flex:none; font-size:18px; color:var(--ink-3); }
 /* 얼마나 왔나 — 이번 주 7일 · 연속 일수 · 다음 레벨 막대 */
-.td-far { display:grid; grid-template-columns:1fr 1fr; gap:14px 28px; align-items:center; padding-top:14px; border-top:1px solid var(--line); }
-.td-week { display:flex; align-items:center; gap:14px; flex-wrap:wrap; }
-.td-days { display:flex; gap:6px; }
-.td-day { display:flex; flex-direction:column; align-items:center; gap:3px; }
-.td-day i { width:26px; height:26px; border-radius:50%; background:rgba(var(--ink-rgb),.08); display:grid; place-items:center; color:var(--td-line); }
-.td-day i svg { width:13px; height:13px; }
-.td-day.on i { background:var(--td-cheese); box-shadow:inset 0 0 0 2px var(--td-line); }
-.td-day.today i { outline:2px solid var(--td-potato-d); outline-offset:2px; }
-.td-day small { font-size:11px; color:var(--ink-3); }
-.td-day.today small { color:var(--td-potato-d); font-weight:800; }
-.td-streak { font-size:13px; color:var(--ink-3); white-space:nowrap; }
-.td-streak b { font-size:20px; color:var(--ink); margin-right:3px; letter-spacing:-.03em; }
+.td-far { display:block; }
 .td-lv { min-width:0; }
 .td-lv-h { display:flex; justify-content:space-between; gap:10px; font-size:13px; color:var(--ink-3); margin-bottom:6px; }
 .td-lv-h b { color:var(--ink); font-size:14px; }
@@ -4678,21 +4687,22 @@ div.wd-card:hover { transform:none; }
 .td-go { justify-self:start; }
 .td-note { font-size:12.5px; color:var(--ink-3); }
 .td-link { background:none; border:none; padding:0; font:inherit; color:var(--ink-2); text-decoration:underline; cursor:pointer; }
-@media (max-width:760px) { .td-far { grid-template-columns:1fr; } }
+
 @media (max-width:560px) {
   .td-wrap { padding-top:12px; }
   .td-card { padding:18px 16px 12px; gap:14px; }
   .td-title { font-size:22px; }
   .td-top { gap:12px; }
-  .td-ring { width:66px; height:66px; }
-  .td-ring-n b { font-size:20px; }
   .td-now { padding:14px; flex-wrap:wrap; gap:10px; }
   .td-now-t { font-size:17px; }
   .td-now-s { display:none; }
   .td-now-go { padding:8px 14px; font-size:13.5px; }
   .td-slots { grid-template-columns:1fr; gap:6px; }
-  .td-day i { width:30px; height:30px; }
-  .td-days { gap:7px; }
+  .td-streakbox { grid-template-columns:1fr; justify-items:center; gap:14px; padding:18px 12px; }
+  .td-days { gap:6px; justify-content:center; flex-wrap:nowrap; }
+  .td-day, .td-day svg, .td-day small { width:38px; }
+  .td-day svg, .td-day small { height:38px; }
+  .td-day small { font-size:12px; }
 }
 
 /* ══ 레벨테스트 — 테스트 전에 묻는 것(#ltSetup) · 결과의 레벨 분석 · 계획 · Pro (운영자 설계 2026-09-29) ══ */
