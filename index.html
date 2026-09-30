@@ -40,7 +40,7 @@
 ">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <!-- 구글 태그 관리자. 구글이 주는 인라인 코드조각은 CSP 가 막아서 gtm.js 로 뺐다. -->
-<script src="gtm.js?v=68dd47df" async></script>
+<script src="gtm.js?v=a108666e" async></script>
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <!-- 제목과 설명을 두 말로 쓴다. 이 사이트를 찾을 사람은 한국어를 **배우는**
@@ -119,13 +119,13 @@
      Pretendard 는 통짜(2.0MB) 대신 조각난 쪽을 쓴다 — 브라우저가
      unicode-range 를 보고 화면에 실제로 나온 글자가 든 조각만 받는다.
      그래서 저장소는 무거워졌지만 학습자가 받는 양은 오히려 줄었다. -->
-<link rel="stylesheet" href="vendor/pretendard.css?v=68dd47df">
-<link rel="stylesheet" href="vendor/pressstart2p.css?v=68dd47df">
+<link rel="stylesheet" href="vendor/pretendard.css?v=a108666e">
+<link rel="stylesheet" href="vendor/pressstart2p.css?v=a108666e">
 <!-- 화면 상자 안에서만 쓰는 CSS 는 여기서 갈라 받는다. media="print" 라
      첫 페인트를 안 막고, 다 받아지면 app.js 가 media 를 all 로 바꾼다.
      자바스크립트가 없으면 <noscript> 쪽이 그냥 평범하게 걸린다. -->
-<link id="viewsCss" rel="stylesheet" href="app-views.css?v=68dd47df" media="print">
-<noscript><link rel="stylesheet" href="app-views.css?v=68dd47df"></noscript>
+<link id="viewsCss" rel="stylesheet" href="app-views.css?v=a108666e" media="print">
+<noscript><link rel="stylesheet" href="app-views.css?v=a108666e"></noscript>
 
 <style>
 /* ══════════════════════════════════════════════════════════════
@@ -840,15 +840,13 @@ button.btn-primary, button.btn-ghost { font-family:inherit; }
 
 /* ══ 첫 화면 덜어 내기 (운영자 결정 2026-09-30) ══════════════════
    히어로는 작게, 갈래는 여섯 장 한 판, 네 구역은 작은 칸 넷(.hm-tiles), 정의 문단 · TOPIK 표는 맨 아래 소개(.hm-about).
-   레벨테스트를 본 학생(html[data-lv])에게는 소개(.hm-intro)를 접고 「내 코스 · 소개 보기」 줄(.hm-me)만 둔다. */
+   레벨테스트를 본 학생(html[data-lv])에게는 소개(.hm-intro)를 접고 「내 코스」 단추(.hm-me)만 둔다. */
 .hero { padding-top:40px; }
 .hero-logo { display:none; }            /* 머리띠에 같은 로고가 있다 */
 .hero .btn-row { padding-bottom:20px; }
 .hm-me { display:none; }
 html[data-lv] .hm-me { display:flex; gap:10px; align-items:center; flex-wrap:wrap; max-width:var(--max); margin:0 auto; padding:16px var(--gut) 8px; }
-html[data-lv]:not([data-intro="open"]) .hm-intro { display:none; }
-.hm-more { background:none; border:0; padding:8px 4px; font:inherit; font-size:14px; color:var(--ink-3); text-decoration:underline; text-underline-offset:3px; cursor:pointer; }
-.hm-more:hover { color:var(--ink); }
+html[data-lv] .hm-intro { display:none; }
 .hm-tiles { display:grid; grid-template-columns:repeat(2,1fr); gap:1px; margin-top:22px;
   background:var(--line-2); border:1px solid var(--line-2); border-radius:var(--r-l); overflow:hidden; }
 .hm-tile { display:flex; flex-direction:column; gap:6px; padding:20px 20px 22px; background:var(--surface); border:0; text-align:left;
@@ -1956,12 +1954,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
   <!-- 첫 화면 덜어 내기(운영자 결정 2026-09-30) — 덩어리 13개를 다섯으로: 오늘 카드 · 히어로 · 여섯 갈래 · 이렇게 공부해요 · 소개(정의 문단 + TOPIK 표) · FAQ.
        숫자 줄 · 문법 로드맵 · 레벨테스트/스트릭/단어장/오늘의 단어 네 구역을 뺐다(네 구역은 「이렇게 공부해요」 칸 넷으로).
-       .hm-intro 는 처음 온 사람용 소개 — 레벨테스트를 본 학생(html[data-lv])에게는 접어 두고 「소개 보기」로만 편다. -->
+       .hm-intro 는 처음 온 사람용 소개 — 레벨테스트를 본 학생(html[data-lv])에게는 숨긴다. -->
 
-  <!-- 레벨테스트를 본 학생에게만 — 소개 대신 내 코스와 「소개 보기」 -->
+  <!-- 레벨테스트를 본 학생에게만 — 소개 대신 내 코스 하나(「소개 보기」는 뺐다 — 운영자 2026-09-30: 학생에게는 필요 없다) -->
   <div class="hm-me" id="hmMe">
     <button class="btn-ghost" id="hmMyBtn" type="button" data-ko="🧭 내 코스">🧭 My course</button>
-    <button class="hm-more" id="hmMoreBtn" type="button" aria-expanded="false" data-ko="치즈감자 소개 보기">About Cheesepotato</button>
   </div>
 
   <!-- 무엇을 배우나 — 여섯 장 한 판. 나머지 갈래(놀이 · 읽기 · 여행 · TOPIK 영역별)는 ☰ 메뉴에 그대로 있다. -->
@@ -3744,9 +3741,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <div id="hlpScrim" class="hlp-scrim"></div>
 <aside id="hlpPanel" class="hlp-panel" aria-label="한국어 도우미" aria-hidden="true"></aside>
 
-<script src="app.js?v=68dd47df"></script>
-<script type="module" src="app.module.js?v=68dd47df"></script>
+<script src="app.js?v=a108666e"></script>
+<script type="module" src="app.module.js?v=a108666e"></script>
 
-<script src="analytics.js?v=68dd47df" defer></script>
+<script src="analytics.js?v=a108666e" defer></script>
 </body>
 </html>
