@@ -673,6 +673,20 @@ export const BEGINNER_STAGE6_COURSES = [
     ],
   },
 
+  {
+    id: "bg-29-04", title: {"ko":"4강. 실전 대화: 웃어른에 대해 바르게 말하기","en":"Lesson 4. Speaking Respectfully About Elders in Real Life"}, minutes: 5,
+    blocks: [
+      {"t":"text","h":"Putting Honorifics and Humble Forms into Practice","md":"In Korean culture, showing respect to elders (parents, grandparents, teachers, bosses) requires **harmonizing the whole sentence**:\n\n1. **The Elder as Subject**: Use **께서** + honorific verb (**-(으)시-** or special words like **주무시다**, **드시다**).\n   - 할아버지**께서** 지금 거실에서 **주무세요**.\n\n2. **The Elder as Receiver**: Use **께** + humble verb (**드리다**, **모시다**).\n   - 어머니**께** 선물을 **드렸어요**.\n   - 할머니를 병원에 **모시고 갔어요**.\n\n3. **Yourself (The Speaker)**: Lower yourself using **저 / 제가** (never 나 / 내가) when speaking to or about elders!"},
+      {"t":"table","head":["Plain / Everyday","Honorific (Honoring Elder)","Humble (Speaker's Action to Elder)"],"rows":[["주다 (to give)","주시다 (Elder gives to me)","**드리다** (I give to elder)"],["데려가다 (to take someone)","—","**모시다 / 모시고 가다** (I take elder)"],["말 (words / speech)","말씀 (Elder's words)","**말씀 / 말씀드리다** (I say to elder)"],["물어보다 (to ask)","물어보시다 (Elder asks)","**여쭤보다** (I ask elder)"]]},
+      {"t":"chars","wide":true,"items":[{"ch":"할머니께서 진지를 맛있게 드셨어요.","tip":"Grandmother had her meal deliciously. (Full honorific)"},{"ch":"어머니 생신이라서 선물을 사 드렸어요.","tip":"Because it was mother's birthday, I bought and gave her a gift. (Humble 드리다)"},{"ch":"제가 선생님께 질문을 여쭤보았어요.","tip":"I asked the teacher a question. (Humble 여쭤보다)"}]},
+      {"t":"choice","q":"You are giving flowers to your grandmother on her birthday. How do you say \"I gave flowers to grandmother\"?","options":["할머니께 꽃을 드렸어요.","할머니께 꽃을 주지 마세요.","할머니께 꽃을 주면 안 돼요.","할머니께 꽃을 주러 가요."],"answer":0,"why":"When giving something to an elder, use the particle 께 with the humble verb 드리다: 할머니께 꽃을 드렸어요."},
+      {"t":"cloze","sentence":"아버지께서 거실에서 편안하게 [주무세요].","answer":"주무세요","meaning":"Father is sleeping comfortably in the living room.","options":["주무세요","자지 마세요","자면 안 돼요","자러 가요"],"keys":["주무세요","자지 마세요","자면 안 돼요","자러 가요"],"why":"The honorific equivalent of 자다 (to sleep) for an elder like father is 주무시다: 주무세요."},
+      {"t":"type","q":"모시다 (to take/accompany an elder) — Humble verb: 「주말에 할머니를 병원에 ___ 갔어요.」","answer":"모시고","keys":["모시고","데리고","가시고","드리러"],"why":"When accompanying an elder, use 모시다 instead of 데리다: 모시고 갔어요."},
+      {"t":"choice","q":"Which sentence shows complete, natural honorific harmony when speaking about a teacher?","options":["선생님께서 학생들에게 책을 읽어 주셨어요.","선생님께서 학생들에게 책을 읽지 마세요.","선생님께서 학생들에게 책을 읽으면 안 돼요.","선생님께서 학생들에게 책을 읽으러 가요."],"answer":0,"why":"선생님께서 correctly pairs with the honorific past form 읽어 주셨어요."},
+      {"t":"order","q":"Put the words in order: \"Mother calls grandmother every weekend.\"","tokens":["어머니께서","할머니께","주말마다","전화를 드려요."],"answer":["어머니께서","할머니께","주말마다","전화를 드려요."]},
+      {"t":"speak","say":"부모님께 안부 전화를 자주 드리는 것이 효도예요.","q":"Read aloud with warmth and respect:"},
+    ],
+  },
   ],
 },
 
