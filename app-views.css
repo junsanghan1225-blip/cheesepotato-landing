@@ -3798,7 +3798,8 @@
 @media (max-width:480px) { .tq-sq { padding:15px 13px 13px; border-radius:14px; } }
 
 /* 레벨테스트 결과 공유 단추 · 설치 안내 띠 */
-.lt-share { margin:16px 0 6px; }
+.lt-share-row { display:flex; justify-content:center; margin:16px 0 6px; }
+.lu-share.hidden { display:none; }
 .install-bar { background:var(--tint); }
 
 /* ══ 한 줄 피드백 (fbMount) ═══════════════════════════════════ */
@@ -4584,8 +4585,8 @@ div.wd-card:hover { transform:none; }
 .my-badge small { font-size:12px; color:var(--ink-2); }
 .my-badge.cheese { background:color-mix(in srgb, #FFD166 16%, var(--surface)); }
 .my-badge.potato { background:color-mix(in srgb, #D9A263 14%, var(--surface)); }
-#heroMyBtn .lvl-ic { width:30px; height:30px; margin:-6px 6px -6px -4px; vertical-align:middle; }
-#heroMyBtn { display:inline-flex; align-items:center; }
+#heroMyBtn .lvl-ic, #hmMyBtn .lvl-ic { width:30px; height:30px; margin:-6px 6px -6px -4px; vertical-align:middle; }
+#heroMyBtn, #hmMyBtn { white-space:nowrap; display:inline-flex; align-items:center; }
 .claw-over-emoji.lvl-big { font-size:0; }
 .claw-over-emoji.lvl-big .lvl-ic { width:120px; height:120px; }
 
@@ -4593,53 +4594,49 @@ div.wd-card:hover { transform:none; }
 .td-wrap { display:block; padding:18px var(--gut) 0; position:relative; z-index:1; }
 .td-wrap[hidden] { display:none; }
 .td-card {
-  max-width:var(--max); margin:0 auto; background:var(--surface); border:1.5px solid var(--orange);
-  border-radius:var(--r-xl); padding:18px 20px; display:flex; flex-direction:column; gap:12px;
-  box-shadow:0 18px 40px -30px rgba(var(--ink-rgb),.45);
+  max-width:var(--max); margin:0 auto; background:var(--surface); border:1px solid var(--line);
+  border-radius:var(--r-xl); padding:24px 26px 14px; display:flex; flex-direction:column; gap:16px;
 }
-.td-card.all { background:var(--tint); }
-.td-head { display:flex; align-items:flex-start; justify-content:space-between; gap:12px; flex-wrap:wrap; }
-.td-kicker { font-size:11.5px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--orange-deep); }
-.td-title { font-size:20px; font-weight:800; color:var(--ink); letter-spacing:-.03em; margin-top:2px; }
-.td-meta { display:flex; align-items:center; gap:8px; flex-wrap:wrap; }
-.td-badge, .td-streak {
-  display:inline-flex; align-items:center; gap:6px; padding:5px 11px 5px 7px; border-radius:999px;
-  background:var(--surface-2, var(--tint)); font-size:12.5px; font-weight:700; color:var(--ink-2);
-}
-.td-badge svg { width:24px; height:24px; flex:none; }
-.td-streak { padding-left:11px; gap:0; }
-.td-streak b { color:var(--orange-deep); font-size:14px; margin-right:1px; }
-.td-bar { display:grid; grid-template-columns:repeat(4, 1fr); gap:6px; }
-.td-bar i { display:block; height:6px; border-radius:3px; background:color-mix(in srgb, var(--ink) 10%, transparent); }
-.td-bar i.on { background:var(--orange); }
-.td-slots { display:grid; grid-template-columns:repeat(4, 1fr); gap:10px; }
+.td-head { display:flex; align-items:flex-start; justify-content:space-between; gap:12px; }
+.td-kicker { font-size:12.5px; font-weight:700; color:var(--orange-deep); }
+.td-title { font-size:30px; font-weight:700; color:var(--ink); letter-spacing:-.04em; line-height:1.15; margin-top:4px; }
+.td-badge { display:inline-flex; align-items:center; gap:6px; padding:5px 12px 5px 7px; border:1px solid var(--line); border-radius:999px;
+  font-size:12.5px; font-weight:700; color:var(--ink-2); white-space:nowrap; }
+.td-badge svg { width:22px; height:22px; flex:none; }
+/* 숫자는 크게, 이름은 작게 — 한눈에 읽히는 것은 숫자 셋뿐 */
+.td-stats { display:flex; gap:40px; flex-wrap:wrap; }
+.td-stat { display:flex; flex-direction:column; gap:2px; min-width:0; }
+.td-stat b { font-size:30px; font-weight:700; letter-spacing:-.04em; line-height:1.1; color:var(--ink); font-variant-numeric:tabular-nums; }
+.td-stat b small { font-size:15px; font-weight:600; color:var(--ink-3); letter-spacing:0; }
+.td-stat span { font-size:12.5px; color:var(--ink-3); }
+.td-hint { font-size:14px; line-height:1.55; color:var(--ink-2); max-width:60ch; }
+.td-go { align-self:flex-start; }
+/* 할 일 — 상자 대신 줄로 나눈 목록. 넓은 화면에서는 두 줄씩. */
+.td-slots { display:grid; grid-template-columns:1fr 1fr; column-gap:32px; border-top:1px solid var(--line); }
 .td-slot {
-  display:flex; align-items:flex-start; gap:10px; text-align:left; padding:14px; min-width:0;
-  border:1px solid var(--line); border-radius:var(--r-l); background:var(--surface); color:var(--ink);
-  font:inherit; cursor:pointer; transition:border-color .15s, transform .2s cubic-bezier(.22,1,.36,1);
+  display:flex; align-items:center; gap:12px; text-align:left; padding:14px 2px; min-width:0;
+  border:none; border-bottom:1px solid var(--line); background:none; color:var(--ink);
+  font:inherit; cursor:pointer;
 }
-.td-slot:hover { border-color:rgba(var(--ink-rgb),.3); transform:translateY(-1px); }
-.td-slot.done { background:transparent; border-style:dashed; }
-.td-slot.done .td-t { color:var(--ink-2); }
-.td-num {
-  flex:none; width:26px; height:26px; border-radius:50%; display:grid; place-items:center;
-  font-size:13px; font-weight:800; background:var(--ink-bg, #1c1714); color:#fff;
-}
-.td-slot.done .td-num { background:var(--orange); }
-.td-txt { display:flex; flex-direction:column; gap:2px; min-width:0; }
-.td-k { font-size:11.5px; font-weight:700; color:var(--ink-3); letter-spacing:.02em; }
-.td-t { font-size:15px; font-weight:800; letter-spacing:-.02em; line-height:1.35; word-break:keep-all; overflow-wrap:anywhere; }
-.td-s { font-size:12.5px; color:var(--ink-2); line-height:1.4; word-break:keep-all; overflow-wrap:anywhere; }
-.td-done { font-size:14px; font-weight:700; color:var(--orange-deep); }
-.td-note { font-size:12.5px; color:var(--ink-3); }
+.td-slot:hover .td-t { color:var(--orange-deep); }
+.td-slot.done .td-t { color:var(--ink-3); text-decoration:line-through; text-decoration-thickness:1px; }
+.td-txt { display:flex; flex-direction:column; gap:2px; min-width:0; flex:1; }
+.td-k { font-size:11.5px; font-weight:600; color:var(--ink-3); }
+.td-t { font-size:15.5px; font-weight:700; letter-spacing:-.02em; line-height:1.35; word-break:keep-all; overflow-wrap:anywhere; transition:color .15s; }
+.td-s { font-size:12.5px; color:var(--ink-3); line-height:1.4; word-break:keep-all; overflow-wrap:anywhere; }
+.td-end { flex:none; width:24px; height:24px; display:grid; place-items:center; font-size:20px; color:var(--ink-3); }
+.td-slot.done .td-end { color:var(--orange); }
+.td-slot.idle .td-t { text-decoration:none; }   /* 할 것이 없어 끝난 칸은 긋지 않는다 */
+.td-end svg { width:20px; height:20px; }
+.td-note { font-size:12.5px; color:var(--ink-3); padding-top:2px; }
 .td-link { background:none; border:none; padding:0; font:inherit; color:var(--ink-2); text-decoration:underline; cursor:pointer; }
-@media (max-width:900px) { .td-slots { grid-template-columns:1fr 1fr; } }
 @media (max-width:560px) {
   .td-wrap { padding-top:12px; }
-  .td-card { padding:16px; gap:10px; }
-  .td-title { font-size:18px; }
-  .td-slots { grid-template-columns:1fr; gap:8px; }
-  .td-slot { padding:12px; align-items:center; }
+  .td-card { padding:20px 18px 10px; gap:14px; }
+  .td-title { font-size:26px; }
+  .td-stats { gap:24px; }
+  .td-stat b { font-size:26px; }
+  .td-slots { grid-template-columns:1fr; }
 }
 
 /* ══ 레벨테스트 — 테스트 전에 묻는 것(#ltSetup) · 결과의 레벨 분석 · 계획 · Pro (운영자 설계 2026-09-29) ══ */
@@ -4728,7 +4725,6 @@ div.wd-card:hover { transform:none; }
 .lt-pro-go { margin-top:12px; padding:10px 18px; border:none; border-radius:999px; background:var(--orange); color:#fff; font:inherit; font-size:14.5px; font-weight:800; cursor:pointer; }
 .lt-pro-go:hover { filter:brightness(1.05); }
 /* 「오늘」 카드의 시험까지 남은 날 */
-.td-dday { display:inline-flex; align-items:center; padding:5px 11px; border-radius:999px; background:var(--ink-bg, #1c1714); color:#fff; font-size:12.5px; font-weight:800; letter-spacing:.02em; }
 @media (max-width:600px) {
   .lt-q { font-size:21px; }
   .lt-tracks { grid-template-columns:1fr; }
