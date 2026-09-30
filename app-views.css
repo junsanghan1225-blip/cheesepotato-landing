@@ -5307,9 +5307,10 @@ body.mk-printing #ntPrintView { max-width:none; }
 .mk { color:#111; font-family:'Batang','바탕','AppleMyungjo','Noto Serif KR','Nanum Myeongjo',serif; font-size:10.5pt; line-height:1.55; }
 .mk b { font-weight:700; }
 /* 표지 */
-.mk-cover { break-after:page; min-height:250mm; display:flex; flex-direction:column; align-items:center; text-align:center; padding-top:18mm; }
+.mk-cover { break-after:page; min-height:252mm; display:flex; flex-direction:column; align-items:center; text-align:center; padding-top:10mm; }
 .mk-cv-top { font-size:11pt; letter-spacing:.2em; color:#444; }
-.mk-cv-t { font-size:52pt; font-weight:800; letter-spacing:.04em; margin:10mm 0 2mm; font-family:Georgia,'Times New Roman',serif; }
+.mk-cv-t { font-size:40pt; font-weight:800; letter-spacing:.02em; margin:4mm 0 2mm; }
+.mk-cv-logo { width:30mm; height:30mm; object-fit:contain; margin-bottom:4mm; }
 .mk-cv-s { font-size:13pt; color:#333; }
 .mk-cv-part { margin:12mm 0 10mm; padding:5mm 16mm; border:2px solid #111; border-radius:2mm; }
 .mk-cv-part b { display:block; font-size:30pt; letter-spacing:.3em; }
@@ -5322,6 +5323,11 @@ body.mk-printing #ntPrintView { max-width:none; }
 .mk-cv-note ol { margin:2mm 0 0 5mm; padding:0; }
 .mk-cv-note small { display:block; color:#666; font-size:8.5pt; }
 .mk-cv-legal { margin-top:auto; font-size:8.5pt; color:#555; line-height:1.6; }
+/* 쪽마다 되풀이되는 출처 띠는 쪽 여백 칸(@page @bottom-center)에 — app.module.js MK_PAGE_CSS 가 모의고사를 인쇄할 때만 붙인다.
+   (이름 붙은 쪽 page:mk 는 이 사이트에서 빈 첫 쪽을 만들어서 쓰지 않는다.) 워터마크는 position:fixed — 인쇄에서 쪽마다 찍힌다. */
+.mk-wm { display:none; }
+body.mk-printing .mk-wm { display:block; position:fixed; top:50%; left:50%; transform:translate(-50%,-50%) rotate(-30deg); font-size:72pt; font-weight:800; color:#000; opacity:.045; white-space:nowrap; pointer-events:none; z-index:0; font-family:system-ui,sans-serif; }
+body.mk-printing .mk-cover, body.mk-printing .mk-paper, body.mk-printing .mk-omr, body.mk-printing .mk-key { position:relative; z-index:1; }
 /* 문제지 */
 .mk-paper { break-after:page; }
 .mk-run { text-align:center; font-weight:700; font-size:11pt; border-top:2px solid #111; border-bottom:1px solid #111; padding:1.5mm 0; margin-bottom:5mm; }
@@ -5366,3 +5372,4 @@ body.mk-printing #ntPrintView { max-width:none; }
 .mk-lib-r { padding:8px 14px; border:1px solid var(--line); border-radius:999px; background:var(--surface-2); color:var(--ink); font:inherit; font-size:13.5px; font-weight:600; cursor:pointer; }
 .mk-lib-r:hover { border-color:var(--orange); }
 .mk-lib-r::before { content:'⎙ '; color:var(--ink-3); }
+.mk-lib-more { margin:10px 0 0; font-size:12.5px; color:var(--ink-3); line-height:1.5; }
