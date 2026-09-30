@@ -461,6 +461,21 @@ export const BEGINNER_STAGE3_COURSES = [
     ],
   },
 
+  {
+    id: "bg-15-04", title: {"ko":"4강. 세 연결 어미 종합: 조건·동시·선택 가려 쓰기","en":"Lesson 4. Choosing the Right Connector: Condition, Simultaneity, or Choice"}, minutes: 5,
+    blocks: [
+      {"t":"text","h":"Comparing -(으)면, -(으)면서, and -거나","md":"Let's review when to use each of these three essential sentence linkers:\n\n- **-(으)면 (If / When):** Sets up a **condition** or assumption. (시간이 있**으면** 만나요 / If you have time, let's meet).\n- **-(으)면서 (While):** Describes **two actions done at the same time by the same person**. (음악을 들**으면서** 공부해요 / I study while listening to music).\n- **-거나 (Or):** Chooses between **two alternative actions or states**. (영화를 보**거나** 책을 읽어요 / I watch a movie or read a book)."},
+      {"t":"table","head":["Connector","Meaning","Stem Ending Rule","Example Sentence"],"rows":[["-(으)면","If / When","Vowel/ㄹ: -면, Consonant: -으면","비가 오면 집에 있어요"],["-(으)면서","While","Vowel/ㄹ: -면서, Consonant: -으면서","차를 마시면서 이야기해요"],["-거나","Or","Direct attachment to all stems","음악을 듣거나 운동해요"]]},
+      {"t":"note","md":"Special stem reminder: ㄹ stems do NOT take 으! **살다** → 살면 / 살면서. **만들다** → 만들면 / 만들면서. But ㄷ irregulars turn ㄷ into ㄹ before 으: **듣다** → 들으면 / 들으면서!"},
+      {"t":"chars","wide":true,"items":[{"ch":"주말에 시간이 있으면 같이 밥 먹어요.","tip":"If you have time this weekend, let’s eat together. (-(으)면 condition)"},{"ch":"밥을 먹으면서 텔레비전을 봐요.","tip":"I watch TV while eating a meal. (-(으)면서 simultaneous actions)"},{"ch":"주말에는 보통 집에서 쉬거나 영화를 봐요.","tip":"On weekends I usually rest at home or watch a movie. (-거나 choice)"}]},
+      {"t":"choice","q":"Which connector expresses doing two actions simultaneously (while): “I chat with my friend while drinking coffee”?","options":["커피를 마시면서 이야기해요","커피를 마시면 이야기해요","커피를 마시거나 이야기해요"],"answer":0,"why":"To describe two actions happening at the same time by the same person, use -(으)면서: 마시다 + -면서 → **마시면서**."},
+      {"t":"choice","q":"How do you correctly conjugate ‘만들다’ (to make, ㄹ stem) with ‘-(으)면서’ (while)?","options":["만들면서","만들을면서","만들으면서"],"answer":0,"why":"Stems ending in ㄹ attach -면서 directly without 으: 만들 + 면서 → **만들면서**."},
+      {"t":"pair","q":"Match each verb and connector combination with its meaning.","pairs":[["읽으면","If you read"],["읽으면서","While reading"],["읽거나","Read or (do something else)"],["듣거나","Listen or (do something else)"]]},
+      {"t":"cloze","sentence":"날씨가 [좋으면] 한강으로 산책하러 가요.","answer":"좋으면","meaning":"If the weather is good, let's go for a walk to the Han River.","options":["좋으면","좋으면서","좋거나","좋고면"],"keys":["좋으면","좋으면서","좋거나","좋고면"],"why":"좋다 + -(으)면 expresses the condition: “If it is good” → **좋으면**."},
+      {"t":"type","q":"Combine 걷다 (to walk, ㄷ irregular) with -(으)면서: 「산책로를 ___ 음악을 들어요.」","answer":"걸으면서","keys":["걸으면서","걷으면서","걸면서"],"why":"걷다 changes ㄷ to ㄹ before vowels: 걷다 + -으면서 → **걸으면서**."},
+      {"t":"speak","say":"주말에는 보통 집에서 책을 읽거나 친구를 만나요.","rom":"ju-mal-e-neun bo-tong jib-e-seo chaeg-eul ilg-geo-na chin-gu-reul man-na-yo","q":"Read aloud naturally expressing alternate weekend plans."},
+    ],
+  },
   ],
 },
 
