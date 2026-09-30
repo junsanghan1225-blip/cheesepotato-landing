@@ -1368,6 +1368,20 @@ export const BEGINNER_STAGE6_COURSES = [
     ],
   },
 
+  {
+    id: "bg-32-04", title: {"ko":"4강. 실전 비교: 견주기와 범위(보다 · 처럼 · 밖에) 총정리","en":"Lesson 4. Summary & Practice: Comparison & Scope Particles"}, minutes: 5,
+    blocks: [
+      {"t":"text","h":"Mastering Comparison & Exclusive Scope","md":"In this course, you learned three powerful particles that compare things or set strict limits:\n\n1. **-보다 (Comparison - Than)**: Attached to the standard of comparison.\n   - 비행기가 기차**보다** 빨라요. *(Airplanes are faster than trains.)*\n\n2. **-처럼 / -같이 (Simile - Like/As)**: Attached to something you resemble or do alike.\n   - 영화배우**처럼** 멋있어요. *(Cool like a movie actor.)*\n\n3. **-밖에 (Exclusive Limit - Nothing But)**: MUST be followed by a negative predicate (`없어요`, `몰라요`, `안 먹어요`).\n   - 지갑에 천 원**밖에 없어요**. *(I have nothing but 1,000 won.)*"},
+      {"t":"table","head":["Particle","Core Meaning","Sentence Rule","Example"],"rows":[["-보다","Than (comparison standard)","Attach to what is being compared against","어제보다 오늘이 더워요"],["-처럼 / -같이","Like / As (similarity)","Attach directly to nouns; interchangeable","가수처럼 노래를 잘해요"],["-밖에","Only / Nothing but","Always followed by NEGATIVE predicate","시간이 10분밖에 없어요"]]},
+      {"t":"chars","wide":true,"items":[{"ch":"오늘은 어제보다 날씨가 훨씬 따뜻해요.","tip":"Today the weather is much warmer than yesterday. (어제보다 than yesterday)"},{"ch":"선생님은 천사처럼 마음이 따뜻하세요.","tip":"The teacher is warm-hearted like an angel. (천사처럼 like an angel)"},{"ch":"아침에 바빠서 사과 반 개밖에 못 먹었어요.","tip":"I was busy in the morning, so I could only eat half an apple. (반 개밖에 못 먹었어요)"}]},
+      {"t":"choice","q":"Which sentence correctly uses the comparison particle -보다 to say \"Korean is more fun than English\"?","options":["한국어가 영어보다 더 재미있어요.","한국어가 영어처럼 더 재미있어요.","한국어가 영어밖에 더 재미있어요.","한국어가 영어한테 더 재미있어요."],"answer":0,"why":"To compare against English (\"than English\"), attach -보다 to 영어: 영어보다 더 재미있어요."},
+      {"t":"cloze","sentence":"동생은 가수[처럼] 노래를 정말 감미롭게 잘 불러요.","answer":"처럼","meaning":"My younger sibling sings really sweetly like a singer.","options":["처럼","보다","에게","한테"],"keys":["처럼","보다","에게","한테"],"why":"To express similarity (\"like a singer\"), attach -처럼 (or -같이) to 가수: 가수처럼."},
+      {"t":"type","q":"밖에 is strictly paired with negative verbs: 「시간이 5분 ___ 없어요. (There is only 5 minutes left.)」","answer":"밖에","keys":["밖에","만","보다","처럼"],"why":"With a negative verb like 없어요, use 밖에 to mean 'nothing but / only': 5분밖에 없어요."},
+      {"t":"choice","q":"Grammar check: Which sentence has a critical error with -밖에?","options":["지금 지갑에 천 원밖에 있어요.","지금 지갑에 천 원밖에 없어요.","지금 지갑에 천 원만 있어요.","지금 지갑에 천 원도 없어요."],"answer":0,"why":"밖에 can NEVER be used with positive 있어요! It must be used with a negative verb: 천 원밖에 없어요 (or with 만: 천 원만 있어요)."},
+      {"t":"order","q":"Put the words in order: \"Today is much warmer than yesterday.\"","tokens":["오늘은","어제보다","훨씬","따뜻해요."],"answer":["오늘은","어제보다","훨씬","따뜻해요."]},
+      {"t":"speak","say":"지금 수중에 현금이 3천 원밖에 없어요.","q":"Read aloud naturally expressing that you only have 3,000 won:"},
+    ],
+  },
   ],
 },
 
