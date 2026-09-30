@@ -247,6 +247,20 @@ export const BEGINNER_STAGE6_COURSES = [
     ],
   },
 
+  {
+    id: "bg-27-04", title: {"ko":"4강. 실전 대화: 과거·현재·미래를 엮어 말하기","en":"Lesson 4. Connecting Time: Past, Present & Future Modifiers"}, minutes: 5,
+    blocks: [
+      {"t":"text","h":"Putting Past, Present & Future Modifiers Together","md":"Now you have the master key to describing nouns across all three timeframes!\n\n- **과거 (Past)**: **-(으)ㄴ + 명사** *(어제 만난 친구 = friend I met yesterday)*\n- **현재 (Present)**: **-는 + 명사** *(지금 듣는 노래 = song I am listening to now)*\n- **미래 (Future / Plan)**: **-(으)ㄹ + 명사** *(내일 먹을 점심 = lunch I will eat tomorrow)*\n\nIn daily life, Koreans constantly use these modifiers with generic nouns like **것/거** *(thing)*, **사람** *(person)*, **곳** *(place)*, and **때** *(time)*:\n- **제가 좋아하는 것** *(things I like)*\n- **내일 갈 곳** *(places to go tomorrow)*\n- **어제 산 거** *(things I bought yesterday)*"},
+      {"t":"table","head":["Time","Pattern","Example with 명사","Meaning"],"rows":[["과거 (Past)","-(으)ㄴ","어제 **본** 영화","The movie I watched yesterday"],["현재 (Present)","-는","지금 **듣는** 노래","The song I am listening to now"],["미래 (Future)","-(으)ㄹ","내일 **할** 일","Things to do tomorrow"],["ㄹ-drop (살다)","산 / 사는 / 살","우리가 **사는** 집","The house where we live"]]},
+      {"t":"chars","wide":true,"items":[{"ch":"어제 산 옷이 아주 마음에 들어요.","tip":"I really like the clothes I bought yesterday."},{"ch":"지금 마시는 커피가 정말 향기롭고 맛있어요.","tip":"The coffee I am drinking now is really fragrant and delicious."},{"ch":"주말에 볼 영화를 미리 예약했어요.","tip":"I reserved the movie we will watch on the weekend in advance."}]},
+      {"t":"choice","q":"How do you say \"The book I am reading these days is really interesting\"? (요즘 = these days, 읽다 = to read)","options":["요즘 읽는 책이 정말 재미있어요.","요즘 읽지 마세요.","요즘 읽으면 안 돼요.","요즘 읽으러 가요."],"answer":0,"why":"For an ongoing present habit or action (요즘), use the present modifier -는: 읽는 책."},
+      {"t":"cloze","sentence":"어제 친구와 [먹은] 음식이 불고기예요.","answer":"먹은","meaning":"The food I ate with my friend yesterday was bulgogi.","options":["먹은","먹지 마세요","먹어야 돼요","먹으면 안 돼요"],"keys":["먹은","먹지 마세요","먹어야 돼요","먹으면 안 돼요"],"why":"For a completed past action (어제), attach -(으)ㄴ: 먹은 음식."},
+      {"t":"type","q":"가다 (to go) — Modify the noun for tomorrow's plan: 「내일 ___ 곳이 어디예요? (place to go)」","answer":"갈","keys":["갈","가는","간","가기로"],"why":"For a future plan or prospective action (내일), attach -(으)ㄹ to the stem: 가- + -ㄹ = 갈 곳."},
+      {"t":"choice","q":"Which sentence talks about the coffee someone drank earlier?","options":["아까 마신 커피가 정말 맛있었어요.","아까 마시지 마세요.","아까 마시면 안 돼요.","아까 마시러 가요."],"answer":0,"why":"For past completed action earlier (아까), use the past modifier -(으)ㄴ: 마신 커피."},
+      {"t":"order","q":"Put the words in order: \"The clothes I bought yesterday are really pretty.\"","tokens":["어제","산 옷이","정말","예뻐요."],"answer":["어제","산 옷이","정말","예뻐요."]},
+      {"t":"speak","say":"제가 제일 좋아하는 한국 음식은 비빔밥이에요.","q":"Read aloud smoothly:"},
+    ],
+  },
   ],
 },
 
