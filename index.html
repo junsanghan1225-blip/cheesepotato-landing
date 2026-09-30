@@ -40,7 +40,7 @@
 ">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <!-- 구글 태그 관리자. 구글이 주는 인라인 코드조각은 CSP 가 막아서 gtm.js 로 뺐다. -->
-<script src="gtm.js?v=239a2805" async></script>
+<script src="gtm.js?v=5565b50d" async></script>
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <!-- 제목과 설명을 두 말로 쓴다. 이 사이트를 찾을 사람은 한국어를 **배우는**
@@ -119,13 +119,13 @@
      Pretendard 는 통짜(2.0MB) 대신 조각난 쪽을 쓴다 — 브라우저가
      unicode-range 를 보고 화면에 실제로 나온 글자가 든 조각만 받는다.
      그래서 저장소는 무거워졌지만 학습자가 받는 양은 오히려 줄었다. -->
-<link rel="stylesheet" href="vendor/pretendard.css?v=239a2805">
-<link rel="stylesheet" href="vendor/pressstart2p.css?v=239a2805">
+<link rel="stylesheet" href="vendor/pretendard.css?v=5565b50d">
+<link rel="stylesheet" href="vendor/pressstart2p.css?v=5565b50d">
 <!-- 화면 상자 안에서만 쓰는 CSS 는 여기서 갈라 받는다. media="print" 라
      첫 페인트를 안 막고, 다 받아지면 app.js 가 media 를 all 로 바꾼다.
      자바스크립트가 없으면 <noscript> 쪽이 그냥 평범하게 걸린다. -->
-<link id="viewsCss" rel="stylesheet" href="app-views.css?v=239a2805" media="print">
-<noscript><link rel="stylesheet" href="app-views.css?v=239a2805"></noscript>
+<link id="viewsCss" rel="stylesheet" href="app-views.css?v=5565b50d" media="print">
+<noscript><link rel="stylesheet" href="app-views.css?v=5565b50d"></noscript>
 
 <style>
 /* ══════════════════════════════════════════════════════════════
@@ -1832,11 +1832,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
 
     <!-- EPS-TOPIK 은 TOPIK 과 따로(운영자 결정 2026-09-29 — 나중에 따로 묶어 판다) -->
-    <div class="side-sec-h" data-en="Work in Korea">한국 취업</div>
-    <button class="side-item side-solo" type="button" data-open="learn/eps">
-      <span class="side-item-ico">🏭</span><span data-en="EPS-TOPIK (work in Korea)">EPS-TOPIK (취업)</span>
-    </button>
-
     <div class="side-sec-h" data-en="Reading · writing · speaking">읽기 · 쓰기 · 말하기</div>
     <div class="side-group open" data-group="skills">
       <button class="nav-link side-parent" type="button"
@@ -1901,6 +1896,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <a class="nav-link" href="blog/" aria-label="블로그 열기">
       <span class="nav-ico">✍️</span><span class="nav-txt" data-en="Blog">블로그</span>
     </a>
+
+    <!-- 한국 취업(EPS)은 메뉴 맨 밑(운영자 결정 2026-09-30) — 따로 선 갈래라 배우기 · TOPIK 사이에 끼우지 않는다. -->
+    <div class="side-sec-h" data-en="Work in Korea">한국 취업</div>
+    <button class="side-item side-solo" type="button" data-open="learn/eps">
+      <span class="side-item-ico">🏭</span><span data-en="EPS-TOPIK (work in Korea)">EPS-TOPIK (취업)</span>
+    </button>
   </div>
 
   <div class="side-foot">
@@ -2493,7 +2494,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <div class="nt-memo-doc" id="ntMemoDoc">
             <div class="nt-memo-doc-h">
               <button type="button" id="ntMemoBack" class="nt-memo-back"></button>
-              <select id="ntMemoDocCat" class="nt-memo-sel"></select>
+              <!-- 갈래 고르개 — 화면에서는 아래 속성 줄(노션처럼)이 대신한다. 값 · change 처리는 이 select 가 그대로 맡는다. -->
+              <select id="ntMemoDocCat" class="nt-memo-sel" hidden aria-hidden="true" tabindex="-1"></select>
               <span class="nt-memo-doc-acts">
                 <button type="button" id="ntMemoFull" class="nt-memo-act" title="전체화면으로 크게 쓰기"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 3H4a1 1 0 0 0-1 1v3"/><path d="M13 3h3a1 1 0 0 1 1 1v3"/><path d="M7 17H4a1 1 0 0 1-1-1v-3"/><path d="M13 17h3a1 1 0 0 0 1-1v-3"/></svg></button>
                 <button type="button" id="ntMemoHelp" class="nt-memo-act" title="단축키 사용법"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="5" width="16" height="10" rx="1.5"/><line x1="5" y1="8.2" x2="5.01" y2="8.2"/><line x1="8" y1="8.2" x2="8.01" y2="8.2"/><line x1="11" y1="8.2" x2="11.01" y2="8.2"/><line x1="14" y1="8.2" x2="14.01" y2="8.2"/><line x1="5.5" y1="11.5" x2="13.5" y2="11.5"/></svg></button>
@@ -2508,6 +2510,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </div>
             <button type="button" id="ntMemoIcon" class="nt-memo-icon"></button>
             <input id="ntMemoTitle" class="nt-memo-title" type="text" maxlength="120" data-clarity-mask="true">
+            <!-- 속성 줄 — 노션의 Properties 처럼(운영자 요청 2026-09-30). 갈래는 색 태그 하나, 누르면 찾기 · 만들기 목록. -->
+            <div class="nt-props">
+              <div class="nt-prop">
+                <span class="nt-prop-k"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M3 10.6V4a1 1 0 0 1 1-1h6.6a1 1 0 0 1 .7.3l5.4 5.4a1 1 0 0 1 0 1.4l-6.6 6.6a1 1 0 0 1-1.4 0L3.3 11.3a1 1 0 0 1-.3-.7z"/><circle cx="7" cy="7" r="1.2"/></svg><span id="ntPropCatK"></span></span>
+                <button type="button" class="nt-prop-v" id="ntCatChip"></button>
+              </div>
+            </div>
+            <div class="nt-cat-dd" id="ntCatDd" data-catpop="1" hidden>
+              <input id="ntCatDdQ" class="nt-cat-dd-q" type="text" autocomplete="off" maxlength="30">
+              <div class="nt-cat-dd-h" id="ntCatDdH"></div>
+              <div id="ntCatDdList" class="nt-cat-dd-list"></div>
+            </div>
             <!-- 블록(섹션)들이 쌓이는 자리. 한 덩이가 한 블록이고, 블록마다
                  종류(제목·목록·할 일·인용·강조 칸…)와 색을 따로 가진다.
                  왼쪽에 마우스를 얹으면 + 와 손잡이(⠿)가 나온다. -->
@@ -3801,9 +3815,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <div id="hlpScrim" class="hlp-scrim"></div>
 <aside id="hlpPanel" class="hlp-panel" aria-label="한국어 도우미" aria-hidden="true"></aside>
 
-<script src="app.js?v=239a2805"></script>
-<script type="module" src="app.module.js?v=239a2805"></script>
+<script src="app.js?v=5565b50d"></script>
+<script type="module" src="app.module.js?v=5565b50d"></script>
 
-<script src="analytics.js?v=239a2805" defer></script>
+<script src="analytics.js?v=5565b50d" defer></script>
 </body>
 </html>

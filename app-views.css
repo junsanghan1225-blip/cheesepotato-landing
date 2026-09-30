@@ -969,7 +969,7 @@
 .nt-memo-stat { font-size:11px; color:var(--ink-3); margin-left:auto; }
 
 /* ── 오른쪽: 문서 ───────────────────────────────────────────── */
-.nt-memo-doc { display:flex; flex-direction:column; min-width:0; padding:16px 18px 14px; }
+.nt-memo-doc { position:relative; display:flex; flex-direction:column; min-width:0; padding:22px clamp(18px, 4vw, 48px) 18px; }
 /* 전체화면 집중 모드. DOM 은 그대로 두고 자리만 바꾼다 — position:fixed
    라 .nt-memo 격자 밖으로 빠져나가 화면을 통째로 덮는다. 사이드바(노트
    목록)·헤더·히어로가 다 가려지는 것이 목적이다(제목·글만 남기고 씀에
@@ -985,7 +985,7 @@
   max-width:none; width:100%; height:100%; border-radius:0;
   padding:20px clamp(16px, 6vw, 120px) 40px; overflow-y:auto;
 }
-.nt-memo-doc-h { display:flex; align-items:center; gap:8px; margin-bottom:10px; }
+.nt-memo-doc-h { display:flex; align-items:center; gap:8px; margin-bottom:22px; }
 .nt-memo-back {
   display:none; font:inherit; font-size:12.5px; font-weight:600; color:var(--ink-2);
   background:none; border:1px solid var(--line); border-radius:999px; padding:5px 12px; cursor:pointer;
@@ -1013,8 +1013,8 @@
 .nt-memo-act-del:hover { color:var(--red); }
 
 .nt-memo-title {
-  width:100%; border:none; background:none; padding:0 0 8px;
-  font:inherit; font-size:22px; font-weight:700; letter-spacing:-.035em; color:var(--ink);
+  width:100%; border:none; background:none; padding:2px 0 10px;
+  font:inherit; font-size:30px; font-weight:700; letter-spacing:-.035em; line-height:1.25; color:var(--ink);
 }
 .nt-memo-title:focus { outline:none; }
 .nt-memo-title::placeholder { color:var(--ink-3); opacity:.55; }
@@ -1027,7 +1027,7 @@
    DOM 을 절대 다시 그리지 않는다** — 한글은 조합 중(ㄱ→가→각)에 DOM 이
    바뀌면 조합이 끊겨 「각」이 「ㄱ가」로 흩어진다. 치는 동안에는 자료만
    고치고, 다시 그리는 것은 블록을 더하거나 종류를 바꿀 때뿐이다. */
-.nb-list { display:flex; flex-direction:column; gap:1px; margin-top:2px; }
+.nb-list { display:flex; flex-direction:column; gap:3px; margin-top:6px; }
 .nb-row { display:flex; align-items:flex-start; gap:2px; border-radius:6px; padding:2px 0; transition:background .15s ease; }
 .nb-row.drag-over { box-shadow:inset 0 2px 0 var(--orange); }
 .nb-row.dragging { opacity:.4; }
@@ -1049,7 +1049,7 @@
 /* 글 칸. 종류에 따라 크기와 굵기만 달라지고 자리는 하나다. */
 .nb-txt {
   width:100%; outline:none; font:inherit; color:var(--ink);
-  font-size:15px; line-height:1.65; padding:2px 6px; border-radius:5px;
+  font-size:15.5px; line-height:1.75; padding:3px 6px; border-radius:5px;
   word-break:keep-all; overflow-wrap:anywhere; white-space:pre-wrap;
   transition:background .12s ease;
 }
@@ -5162,3 +5162,31 @@ div.wd-card:hover { transform:none; }
 #authView .ac-name { font-size:17px; }
 #authView .ac-mail { font-size:13.5px; margin-top:2px; }
 .lang-btn .nav-svg { width:17px; height:17px; }
+
+/* ══ 노트 — 노션처럼(운영자 요청 2026-09-30) ════════════════════════
+   아이콘은 없으면 숨었다가 문서 위에 마우스를 얹으면 「🙂 아이콘 고르기」가 옅게 뜬다(폰은 늘 보인다).
+   제목 아래 속성 줄 — 갈래는 색 태그 하나, 누르면 찾기 · 만들기 목록. */
+.nt-memo-icon.none { font-size:13.5px; font-weight:600; padding:4px 8px; margin-bottom:6px; opacity:0; transition:opacity .15s, background .15s; }
+.nt-memo-doc:hover .nt-memo-icon.none, .nt-memo-icon.none:focus-visible { opacity:.8; }
+@media (hover:none) { .nt-memo-icon.none { opacity:.7; } }
+.nt-props { display:flex; flex-direction:column; gap:2px; padding:4px 0 14px; margin-bottom:10px; border-bottom:1px solid var(--line-2); }
+.nt-prop { display:flex; align-items:center; gap:10px; min-height:34px; }
+.nt-prop-k { flex:none; width:110px; display:flex; align-items:center; gap:7px; font-size:14px; color:var(--ink-3); }
+.nt-prop-k svg { width:16px; height:16px; fill:none; stroke:currentColor; stroke-width:1.5; stroke-linejoin:round; }
+.nt-prop-v { display:flex; align-items:center; min-height:30px; padding:3px 8px; margin-left:-8px; border:0; border-radius:6px; background:none;
+  font:inherit; font-size:14px; color:var(--ink); cursor:pointer; text-align:left; }
+.nt-prop-v:hover { background:rgba(var(--ink-rgb),.06); }
+.nt-prop-empty { color:var(--ink-3); opacity:.7; }
+.nt-tag { display:inline-flex; align-items:center; gap:4px; padding:2px 8px; border-radius:4px; font-size:13.5px; font-weight:500; color:var(--ink); line-height:1.5; white-space:nowrap; }
+.nt-cat-dd { position:absolute; z-index:97; width:min(300px, calc(100% - 16px)); padding:6px; border-radius:10px; background:var(--surface);
+  border:1px solid var(--line); box-shadow:0 12px 32px -10px rgba(var(--ink-rgb),.35); }
+.nt-cat-dd-q { width:100%; padding:8px 10px; border:0; border-bottom:1px solid var(--line-2); background:none; font:inherit; font-size:14px; color:var(--ink); outline:none; }
+.nt-cat-dd-h { font-size:12px; color:var(--ink-3); padding:8px 8px 4px; }
+.nt-cat-dd-list { max-height:260px; overflow-y:auto; display:flex; flex-direction:column; }
+.nt-cat-dd-i { display:flex; align-items:center; gap:6px; padding:6px 8px; border:0; border-radius:6px; background:none; font:inherit; font-size:14px; color:var(--ink-2); cursor:pointer; text-align:left; }
+.nt-cat-dd-i:hover { background:rgba(var(--ink-rgb),.06); }
+.nt-cat-dd-i.on::after { content:'✓'; margin-left:auto; color:var(--ink-3); font-size:13px; }
+.nt-cat-dd-new > span:first-child { color:var(--ink-3); }
+.nt-memo-back { white-space:nowrap; flex:none; }
+.nt-cat-dd-q:focus-visible { outline:none; }
+@media (max-width:600px) { .nt-memo-title { font-size:24px; } .nt-prop-k { width:84px; } }
