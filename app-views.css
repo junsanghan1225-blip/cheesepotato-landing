@@ -2839,6 +2839,16 @@
 .lt-close:hover { background:rgba(var(--ink-rgb),.14); color:var(--ink); }
 
 /* 문제 풀이 폰트 및 보기 대형화 */
+/* 레벨 테스트 듣기 — 시험지 모양: 발문 → 스피커 막대 → 물음 → 보기 */
+.lt-audio { display:flex; align-items:center; gap:12px; flex-wrap:wrap; padding:14px 16px; margin:0 0 14px;
+  border:1px solid var(--line); border-radius:var(--r-l); background:var(--surface-2); }
+.lt-play { display:inline-flex; align-items:center; gap:6px; padding:10px 20px; border:0; border-radius:999px; cursor:pointer;
+  background:var(--orange); color:#fff; font:inherit; font-size:15px; font-weight:800; }
+.lt-play.on { background:var(--orange-deep); }
+.lt-audio-t { font-size:13px; color:var(--ink-3); }
+.lt-sub-q { font-size:15.5px; font-weight:700; color:var(--ink); line-height:1.6; margin:0 0 12px; word-break:keep-all; }
+:root[data-theme="dark"] .lt-play { color:#1B1512; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .lt-play { color:#1B1512; } }
 /* 진행 막대가 닫기 단추(✕) 밑으로 들어가지 않게 오른쪽을 비운다 */
 .lt-card .qz-top { padding-right:46px; }
 .lt-card .claw-ask { margin-bottom:12px; }
