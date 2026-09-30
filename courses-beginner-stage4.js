@@ -128,6 +128,36 @@ export const BEGINNER_STAGE4_COURSES = [
     ],
   },
 
+  {
+    id: "bg-17-03", title: {"ko":"3강. 불규칙 동사로 부탁하기 (-아/어 주세요)","en":"Lesson 3. Making Requests with Irregular Verbs (-아/어 주세요)"}, minutes: 5,
+    blocks: [
+      {"t":"text","h":"How Irregular Verb Stems Combine with -아/어 주세요","md":"To ask someone to do something for you politely, attach **-아/어 주세요** to the verb. Because it starts with **-아/어**, stem vowel rules and irregulars follow the same familiar patterns as **-아요/-어요**!\n\n- **ㅏ / ㅗ vowels:** attach **-아 주세요** (닫다 → **닫아 주세요**, 보다 → **봐 주세요**).\n- **Other vowels:** attach **-어 주세요** (읽다 → **읽어 주세요**, 쓰다 → **써 주세요**).\n- **하다 verbs:** become **-해 주세요** (말하다 → **말해 주세요**).\n- **ㄷ irregular:** ㄷ changes to ㄹ (듣다 → **들어 주세요**).\n- **ㅂ irregular:** ㅂ changes to 우 (돕다 → **도와주세요**)."},
+      {"t":"table","head":["Dictionary Verb","Present (-아요/어요)","Polite Request (-아/어 주세요)","English Meaning"],"rows":[["돕다 (ㅂ irregular)","도와요","도와주세요","Please help me"],["듣다 (ㄷ irregular)","들어요","들어 주세요","Please listen to me"],["부르다 (르 irregular)","불러요","불러 주세요","Please call (a taxi / my name)"],["만들다 (ㄹ stem)","만들어요","만들어 주세요","Please make it for me"],["열다 (to open)","열어요","열어 주세요","Please open (the door)"]]},
+      {"t":"note","md":"**도와주세요** is one compound word (no space) meaning “Please help!”, whereas most other verbs keep a space: **열어 주세요**, **들어 주세요**."},
+      {"t":"chars","wide":true,"items":[{"ch":"선생님, 택시 좀 불러 주세요.","tip":"Teacher, please call a taxi for me. (부르다 → 불러 주세요)"},{"ch":"제 이야기를 끝까지 들어 주세요.","tip":"Please listen to my story until the end. (듣다 → 들어 주세요)"},{"ch":"너무 무거운데 저 좀 도와주세요.","tip":"This is so heavy, please help me. (돕다 → 도와주세요)"}]},
+      {"t":"choice","q":"How do you politely ask someone to listen using ‘듣다’ (to listen)?","options":["들어 주세요","듣어 주세요","듣아 주세요"],"answer":0,"why":"듣다 changes ㄷ to ㄹ before vowel endings: 들 + 어 주세요 → **들어 주세요**."},
+      {"t":"choice","q":"How do you ask someone to call a taxi using ‘부르다’ (to call)?","options":["택시 좀 불러 주세요","택시 좀 부르어 주세요","택시 좀 불어 주세요"],"answer":0,"why":"부르다 is a 르-irregular verb: 부르 + 어 주세요 → **불러 주세요**."},
+      {"t":"pair","q":"Match each base verb with its correct polite request form.","pairs":[["닫다 (to close)","닫아 주세요"],["쓰다 (to write)","써 주세요"],["돕다 (to help)","도와주세요"],["가르치다 (to teach)","가르쳐 주세요"]]},
+      {"t":"cloze","sentence":"날씨가 더운데 에어컨 좀 [틀어 주세요].","answer":"틀어 주세요","meaning":"The weather is hot, please turn on the air conditioner.","options":["틀어 주세요","틀아 주세요","틀고 주세요","틀개 주세요"],"keys":["틀어 주세요","틀아 주세요","틀고 주세요","틀개 주세요"],"why":"틀다 has vowel ㅡ (not ㅏ/ㅗ), so it attaches -어 주세요: 틀 + 어 주세요 → **틀어 주세요**."},
+      {"t":"type","q":"Conjugate 만들다 (to make) into a polite request for me: 「한국 음식을 ___ .」","answer":"만들어 주세요","keys":["만들어 주세요","만들아 주세요","만들고 주세요"],"why":"만들다 attaches -어 주세요: 만들 + 어 주세요 → **만들어 주세요**."},
+      {"t":"speak","say":"길을 잘 모르겠는데 지도 좀 보여 주세요.","rom":"gil-eul jal mo-reu-gess-neun-de ji-do jom bo-yeo ju-se-yo","q":"Say it aloud politely asking to see a map."},
+    ],
+  },
+  {
+    id: "bg-17-04", title: {"ko":"4강. 누구를 위한 행동인가: -(으)세요 vs -아/어 주세요","en":"Lesson 4. For Whom Is the Action: -(으)세요 vs -아/어 주세요"}, minutes: 5,
+    blocks: [
+      {"t":"text","h":"Beneficiary Makes the Difference: For Them vs For Me","md":"Both endings make polite sentences, but they have completely different purposes:\n\n- **-(으)세요 (Do it for yourself / General directive):**\n  - You are instructing or recommending the listener to do something for their own benefit:\n  - 맛있게 **드세요** (Enjoy your meal / Eat well).\n  - 편하게 **앉으세요** (Please take a comfortable seat).\n- **-아/어 주세요 (Do it as a favor for me / Request):**\n  - You are asking the listener to perform an action that **benefits you**:\n  - 저 좀 **도와주세요** (Please help me).\n  - 문 좀 **닫아 주세요** (Please close the door for me)."},
+      {"t":"table","head":["Verb","Directive / Honorific (-(으)세요)","Favor for Me (-아/어 주세요)","Contrast"],"rows":[["앉다 (to sit)","앉으세요 (Please take a seat)","앉아 주세요 (Please sit down for me)","Beneficiary"],["보다 (to look)","보세요 (Look over there)","봐 주세요 (Please take a look at my work)","For you vs For me"],["쓰다 (to write)","쓰세요 (Please write here)","써 주세요 (Please write it for me)","Who writes"],["기다리다 (to wait)","기다리세요 (Please wait)","기다려 주세요 (Please wait for me)","Instruction vs Favor"]]},
+      {"t":"note","md":"When asking a taxi driver to go to a destination, say **서울역으로 가 주세요** (favor for me), NOT 서울역으로 가세요 (which sounds like ordering the driver to go there alone!)."},
+      {"t":"chars","wide":true,"items":[{"ch":"손님, 여기 편하게 앉으세요.","tip":"Customer, please sit here comfortably. (Directive for listener's comfort)"},{"ch":"회의 시작하니까 모두 자리에 앉아 주세요.","tip":"The meeting is starting, so please take your seats. (Favor requested by speaker)"},{"ch":"사진 한 장만 찍어 주세요.","tip":"Please take a photo for me. (Favor benefiting speaker)"}]},
+      {"t":"choice","q":"You are in a taxi and want the driver to take you to the airport. What do you say?","options":["공항으로 가 주세요","공항으로 가세요","공항으로 가고 있어요"],"answer":0,"why":"Taking you to the airport is a service/favor done for you, so use -아/어 주세요: **가 주세요**."},
+      {"t":"choice","q":"You invite a guest into your living room and want them to sit down comfortably. What do you say?","options":["편하게 앉으세요","편하게 앉아 주세요","편하게 앉고 있어요"],"answer":0,"why":"Telling a guest to sit comfortably for their own comfort is an honorable directive: **앉으세요**."},
+      {"t":"pair","q":"Match each situation to the most natural phrase.","pairs":[["Telling a customer to wait","잠깐만 기다리세요"],["Asking a friend to wait for you","조금만 기다려 주세요"],["Ordering food at a restaurant","비빔밥 하나 주세요"],["Offering food to a guest","맛있게 드세요"]]},
+      {"t":"cloze","sentence":"날씨가 추우니까 문 좀 [닫아 주세요].","answer":"닫아 주세요","meaning":"Since it is cold, please close the door for me.","options":["닫아 주세요","닫으세요","닫아 주개요","닫고 주세요"],"keys":["닫아 주세요","닫으세요","닫아 주개요","닫고 주세요"],"why":"Asking someone to close the door for the room's comfort is a favor request: **닫아 주세요**."},
+      {"t":"type","q":"Politely ask someone to teach you Korean (as a favor for you): 「제게 한국어를 ___ .」","answer":"가르쳐 주세요","keys":["가르쳐 주세요","가르치세요","가르쳐 주개요"],"why":"Asking someone to teach you as a favor takes -아/어 주세요: 가르치다 → **가르쳐 주세요**."},
+      {"t":"speak","say":"기사님, 명동역 3번 출구 앞에서 세워 주세요.","rom":"gi-sa-nim, myeong-dong-yeog sam-beon chul-gu ap-e-seo se-wo ju-se-yo","q":"Say it aloud politely asking a driver to stop at a location."},
+    ],
+  },
   ],
 },
 
