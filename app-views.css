@@ -4890,3 +4890,116 @@ div.wd-card:hover { transform:none; }
 /* 진행률 막대는 사이트 머리띠(위에 붙어 있음, 폰 57 · PC 65px) 바로 아래에 붙는다 — top:0 이면 머리띠 뒤로 숨는다 */
 .ls-bar { top:65px; }
 @media (max-width:759px) { .ls-bar { top:57px; } }
+
+/* ══ 어두운 모드 손질 (운영자 요청 2026-09-30) ═════════════════════
+   토큰(--surface · --tint …)을 안 쓰고 밝은 색을 바로 적은 자리가 어두운 모드에서 흰 조각으로 떴다 — 그 자리만 어두운 짝으로 덮는다
+   (밝은 모드는 한 픽셀도 안 바뀐다). 오렌지 칠 위의 흰 글자는 어두운 모드의 밝은 오렌지(#FF9E5C) 위에서 2:1 로 흐려져 짙은 글자로,
+   검은 주 단추(.btn-primary)는 어두운 바탕에 묻혀서 밝은 단추로 뒤집는다. */
+:root[data-theme="dark"] .lq-chip { background:var(--tint); }
+:root[data-theme="dark"] .ntp-cat { background:var(--tint); }
+:root[data-theme="dark"] .ntp-howto { background:#16222E; }
+:root[data-theme="dark"] .ntp-warn { background:#2E1A17; }
+:root[data-theme="dark"] .ntp-tip { background:#1E2B22; }
+:root[data-theme="dark"] .ntp-vocab { background:var(--surface-2); }
+:root[data-theme="dark"] .ntp-wb { background:var(--surface); }
+:root[data-theme="dark"] .ntp-wb-badge { background:var(--tint); }
+:root[data-theme="dark"] .ntp-wb-tag { background:var(--tint); }
+:root[data-theme="dark"] .ntp-ex { background:var(--surface-2); }
+:root[data-theme="dark"] .ntp-toggle { background:var(--surface-2); }
+:root[data-theme="dark"] .ntp-qa-q { background:var(--surface-2); }
+:root[data-theme="dark"] .ntp-qa-a { background:var(--tint); }
+:root[data-theme="dark"] .ntp-code { background:var(--tint); }
+:root[data-theme="dark"] .ntp-b-gray { background:var(--tint); }
+:root[data-theme="dark"] .ntp-b-orange { background:var(--tint); }
+:root[data-theme="dark"] .ntp-b-yellow { background:#2E2812; }
+:root[data-theme="dark"] .ntp-b-green { background:#1E2B22; }
+:root[data-theme="dark"] .ntp-b-red { background:#2E1A17; }
+:root[data-theme="dark"] .sb-pt-n { background:var(--tint); }
+:root[data-theme="dark"] .ex-in:focus { background:var(--surface); }
+:root[data-theme="dark"] .tw-in:focus { background:var(--surface); }
+:root[data-theme="dark"] .ex-chip:hover:not(:disabled) { background:var(--surface); }
+:root[data-theme="dark"] .ex-key:hover { background:var(--surface); }
+:root[data-theme="dark"] .tok { background:var(--surface); }
+:root[data-theme="dark"] .pc:hover:not(:disabled) { background:var(--surface); }
+:root[data-theme="dark"] .pc.sel { background:var(--tint); }
+:root[data-theme="dark"] .pc.miss { background:#2E1A17; }
+:root[data-theme="dark"] .tq-chip { background:var(--tint); }
+:root[data-theme="dark"] .tq-cell.yes { background:var(--surface-2); }
+:root[data-theme="dark"] .tq-cell.no { background:#2E1A17; }
+:root[data-theme="dark"] .tq-legend i.yes { background:var(--surface-2); }
+:root[data-theme="dark"] .tq-legend i.no { background:#2E1A17; }
+:root[data-theme="dark"] .cloze-say:hover { background:var(--surface); }
+:root[data-theme="dark"] .cloze-choices .ex-opt:not(:disabled):hover { background:var(--surface); }
+:root[data-theme="dark"] .cloze-choices .ex-opt.right { background:var(--surface-2); }
+:root[data-theme="dark"] .cloze-choices .ex-opt.wrong { background:#2E1A17; }
+:root[data-theme="dark"] .cloze-inp:focus { background:var(--surface); }
+:root[data-theme="dark"] .cloze-key:hover:not(:disabled) { background:var(--surface); }
+:root[data-theme="dark"] .wd-deck .wd-flash.flip { background:var(--tint); }
+:root[data-theme="dark"] .wd-flash.flip .wd-card-meta { background:var(--tint); }
+:root[data-theme="dark"] .wd-act-b { background:var(--surface); }
+:root[data-theme="dark"] .wd-intro .wd-card-meta { background:var(--tint); }
+:root[data-theme="dark"] .wd-intro-say.sm { background:var(--tint); }
+:root[data-theme="dark"] .wd-intro-x { background:var(--surface); }
+:root[data-theme="dark"] .hero-stack .back1 { background:var(--surface-2); }
+:root[data-theme="dark"] .hero-stack .back2 { background:#2A221C; }
+:root[data-theme="dark"] .way-n { background:var(--tint); }
+:root[data-theme="dark"] .wb-card-tag { background:var(--tint); }
+:root[data-theme="dark"] .sb-like.on { background:var(--tint); }
+:root[data-theme="dark"] .pt-mic, :root[data-theme="dark"] .ex-mic, :root[data-theme="dark"] .tq-skill[aria-pressed="true"], :root[data-theme="dark"] .tl-play, :root[data-theme="dark"] .cg-go, :root[data-theme="dark"] .tv-cat-btn.active, :root[data-theme="dark"] .my-step.now, :root[data-theme="dark"] .my-cta, :root[data-theme="dark"] .cl-pill, :root[data-theme="dark"] .pro-go, :root[data-theme="dark"] .fb-opt.on, :root[data-theme="dark"] .lt-pro-go, :root[data-theme="dark"] .lvp-go, :root[data-theme="dark"] .lt-cal-d.on, :root[data-theme="dark"] .lt-cal-d.on:hover:not(:disabled), :root[data-theme="dark"] .lt-adv-go, :root[data-theme="dark"] .lt-area-top em, :root[data-theme="dark"] .nudge-go, :root[data-theme="dark"] .nt-memo-cat.on, :root[data-theme="dark"] .nt-cat-pop-save, :root[data-theme="dark"] .nb-link-pop-save, :root[data-theme="dark"] .cv-cat.on { color:#1B1512; }
+:root[data-theme="dark"] .btn-primary, :root[data-theme="dark"] .dl-btn, :root[data-theme="dark"] .pt-next { background:var(--ink); border-color:var(--ink); color:var(--bg); }
+:root[data-theme="dark"] .btn-primary:hover, :root[data-theme="dark"] .dl-btn:hover, :root[data-theme="dark"] .pt-next:hover { background:#FFFFFF; border-color:#FFFFFF; color:var(--bg); }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .lq-chip { background:var(--tint); }
+  :root:not([data-theme="light"]) .ntp-cat { background:var(--tint); }
+  :root:not([data-theme="light"]) .ntp-howto { background:#16222E; }
+  :root:not([data-theme="light"]) .ntp-warn { background:#2E1A17; }
+  :root:not([data-theme="light"]) .ntp-tip { background:#1E2B22; }
+  :root:not([data-theme="light"]) .ntp-vocab { background:var(--surface-2); }
+  :root:not([data-theme="light"]) .ntp-wb { background:var(--surface); }
+  :root:not([data-theme="light"]) .ntp-wb-badge { background:var(--tint); }
+  :root:not([data-theme="light"]) .ntp-wb-tag { background:var(--tint); }
+  :root:not([data-theme="light"]) .ntp-ex { background:var(--surface-2); }
+  :root:not([data-theme="light"]) .ntp-toggle { background:var(--surface-2); }
+  :root:not([data-theme="light"]) .ntp-qa-q { background:var(--surface-2); }
+  :root:not([data-theme="light"]) .ntp-qa-a { background:var(--tint); }
+  :root:not([data-theme="light"]) .ntp-code { background:var(--tint); }
+  :root:not([data-theme="light"]) .ntp-b-gray { background:var(--tint); }
+  :root:not([data-theme="light"]) .ntp-b-orange { background:var(--tint); }
+  :root:not([data-theme="light"]) .ntp-b-yellow { background:#2E2812; }
+  :root:not([data-theme="light"]) .ntp-b-green { background:#1E2B22; }
+  :root:not([data-theme="light"]) .ntp-b-red { background:#2E1A17; }
+  :root:not([data-theme="light"]) .sb-pt-n { background:var(--tint); }
+  :root:not([data-theme="light"]) .ex-in:focus { background:var(--surface); }
+  :root:not([data-theme="light"]) .tw-in:focus { background:var(--surface); }
+  :root:not([data-theme="light"]) .ex-chip:hover:not(:disabled) { background:var(--surface); }
+  :root:not([data-theme="light"]) .ex-key:hover { background:var(--surface); }
+  :root:not([data-theme="light"]) .tok { background:var(--surface); }
+  :root:not([data-theme="light"]) .pc:hover:not(:disabled) { background:var(--surface); }
+  :root:not([data-theme="light"]) .pc.sel { background:var(--tint); }
+  :root:not([data-theme="light"]) .pc.miss { background:#2E1A17; }
+  :root:not([data-theme="light"]) .tq-chip { background:var(--tint); }
+  :root:not([data-theme="light"]) .tq-cell.yes { background:var(--surface-2); }
+  :root:not([data-theme="light"]) .tq-cell.no { background:#2E1A17; }
+  :root:not([data-theme="light"]) .tq-legend i.yes { background:var(--surface-2); }
+  :root:not([data-theme="light"]) .tq-legend i.no { background:#2E1A17; }
+  :root:not([data-theme="light"]) .cloze-say:hover { background:var(--surface); }
+  :root:not([data-theme="light"]) .cloze-choices .ex-opt:not(:disabled):hover { background:var(--surface); }
+  :root:not([data-theme="light"]) .cloze-choices .ex-opt.right { background:var(--surface-2); }
+  :root:not([data-theme="light"]) .cloze-choices .ex-opt.wrong { background:#2E1A17; }
+  :root:not([data-theme="light"]) .cloze-inp:focus { background:var(--surface); }
+  :root:not([data-theme="light"]) .cloze-key:hover:not(:disabled) { background:var(--surface); }
+  :root:not([data-theme="light"]) .wd-deck .wd-flash.flip { background:var(--tint); }
+  :root:not([data-theme="light"]) .wd-flash.flip .wd-card-meta { background:var(--tint); }
+  :root:not([data-theme="light"]) .wd-act-b { background:var(--surface); }
+  :root:not([data-theme="light"]) .wd-intro .wd-card-meta { background:var(--tint); }
+  :root:not([data-theme="light"]) .wd-intro-say.sm { background:var(--tint); }
+  :root:not([data-theme="light"]) .wd-intro-x { background:var(--surface); }
+  :root:not([data-theme="light"]) .hero-stack .back1 { background:var(--surface-2); }
+  :root:not([data-theme="light"]) .hero-stack .back2 { background:#2A221C; }
+  :root:not([data-theme="light"]) .way-n { background:var(--tint); }
+  :root:not([data-theme="light"]) .wb-card-tag { background:var(--tint); }
+  :root:not([data-theme="light"]) .sb-like.on { background:var(--tint); }
+  :root:not([data-theme="light"]) .pt-mic,   :root:not([data-theme="light"]) .ex-mic,   :root:not([data-theme="light"]) .tq-skill[aria-pressed="true"],   :root:not([data-theme="light"]) .tl-play,   :root:not([data-theme="light"]) .cg-go,   :root:not([data-theme="light"]) .tv-cat-btn.active,   :root:not([data-theme="light"]) .my-step.now,   :root:not([data-theme="light"]) .my-cta,   :root:not([data-theme="light"]) .cl-pill,   :root:not([data-theme="light"]) .pro-go,   :root:not([data-theme="light"]) .fb-opt.on,   :root:not([data-theme="light"]) .lt-pro-go,   :root:not([data-theme="light"]) .lvp-go,   :root:not([data-theme="light"]) .lt-cal-d.on,   :root:not([data-theme="light"]) .lt-cal-d.on:hover:not(:disabled),   :root:not([data-theme="light"]) .lt-adv-go,   :root:not([data-theme="light"]) .lt-area-top em,   :root:not([data-theme="light"]) .nudge-go,   :root:not([data-theme="light"]) .nt-memo-cat.on,   :root:not([data-theme="light"]) .nt-cat-pop-save,   :root:not([data-theme="light"]) .nb-link-pop-save,   :root:not([data-theme="light"]) .cv-cat.on { color:#1B1512; }
+  :root:not([data-theme="light"]) .btn-primary,   :root:not([data-theme="light"]) .dl-btn,   :root:not([data-theme="light"]) .pt-next { background:var(--ink); border-color:var(--ink); color:var(--bg); }
+    :root:not([data-theme="light"]) .btn-primary:hover,   :root:not([data-theme="light"]) .dl-btn:hover,   :root:not([data-theme="light"]) .pt-next:hover { background:#FFFFFF; border-color:#FFFFFF; color:var(--bg); }
+}
