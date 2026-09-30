@@ -327,6 +327,22 @@ export const DETAILED_GRAMMAR_COURSES = [
             q:'First half is a wish, second half is a firm plan: “Right now it is just a wish, but when I save money, I will definitely go next year.”' },
         ],
       },
+
+      {
+        id: "bg-d-02-04", title: {"ko":"4강. 바람과 계획의 받침별 꼴 만들기","en":"Lesson 4. Conjugation Forms by Batchim and Irregulars"}, minutes: 5,
+        blocks: [
+          {"t":"text","h":"How Stems Attach to -고 싶다 and -(으)ㄹ 거예요","md":"Let's compare the attachment rules side by side:\n\n- **-고 싶어요 (Desire):** Super simple! Just attach **-고 싶어요** directly to any verb stem. No exceptions, no changes!\n- **-(으)ㄹ 거예요 (Future plan):** Depends on 받침:\n  - **No 받침:** attach **-ㄹ 거예요** (가다 → **갈 거예요**).\n  - **With 받침:** attach **-을 거예요** (먹다 → **먹을 거예요**).\n  - **ㄹ stem:** merges into **-ㄹ 거예요** (만들다 → **만들 거예요**).\n  - **ㄷ irregular:** ㄷ changes to ㄹ (듣다 → **들을 거예요**)."},
+          {"t":"table","head":["Verb","Stem Type","-고 싶어요 (Desire)","-(으)ㄹ 거예요 (Future Plan)"],"rows":[["보다 (to see)","No 받침","보고 싶어요","볼 거예요"],["먹다 (to eat)","Batchim ㄱ","먹고 싶어요","먹을 거예요"],["만들다 (to make)","Batchim ㄹ","만들고 싶어요","만들 거예요"],["듣다 (to listen)","ㄷ irregular","듣고 싶어요","들을 거예요"],["돕다 (to help)","ㅂ irregular","돕고 싶어요","도울 거예요"]]},
+          {"t":"note","md":"Look at **듣다**! For desire, it's **듣고 싶어요** (no change before ㄱ). For future plan, it's **들을 거예요** (ㄷ softens to ㄹ before 으)."},
+          {"t":"chars","wide":true,"items":[{"ch":"한국 음악을 많이 듣고 싶어요.","tip":"I want to listen to a lot of Korean music. (듣다 + 고 싶어요)"},{"ch":"내일 콘서트에서 음악을 들을 거예요.","tip":"I will listen to music at the concert tomorrow. (듣다 + 을 거예요)"},{"ch":"주말에 케이크를 만들 거예요.","tip":"I will make a cake on the weekend. (만들다 + ㄹ 거예요)"}]},
+          {"t":"choice","q":"How do you form the future plan for ‘만들다’ (to make)?","options":["만들 거예요","만들을 거예요","만들ㄹ 거예요"],"answer":0,"why":"Stems ending in ㄹ attach - 거예요 directly, so 만들다 becomes **만들 거예요**."},
+          {"t":"choice","q":"Which is the correct future plan form of ‘듣다’ (to listen)?","options":["들을 거예요","듣을 거예요","들을 개예요"],"answer":0,"why":"듣다 changes ㄷ to ㄹ before vowel endings: 듣 + 을 거예요 → **들을 거예요**."},
+          {"t":"pair","q":"Match each verb to its correct -(으)ㄹ 거예요 form.","pairs":[["가다 (no 받침)","갈 거예요"],["읽다 (with 받침)","읽을 거예요"],["살다 (ㄹ 받침)","살 거예요"],["돕다 (ㅂ irregular)","도울 거예요"]]},
+          {"t":"cloze","sentence":"내일 친구와 함께 맛있는 점심을 [먹을 거예요].","answer":"먹을 거예요","meaning":"Tomorrow I will eat a delicious lunch with a friend.","options":["먹을 거예요","먹ㄹ 거예요","먹을 에요","먹을 고예요"],"keys":["먹을 거예요","먹ㄹ 거예요","먹을 에요","먹을 고예요"],"why":"먹다 has a final consonant (ㄱ), so it attaches -을 거예요 → **먹을 거예요**."},
+          {"t":"type","q":"Conjugate 돕다 (to help) into the future plan form -(으)ㄹ 거예요: 「제가 친구를 ___ .」","answer":"도울 거예요","keys":["도울 거예요","돕을 거예요","도울 에요"],"why":"돕다 changes ㅂ to 우 before vowels: 도우 + ㄹ 거예요 → **도울 거예요**."},
+          {"t":"speak","say":"주말에 친구를 만나서 맛있는 음식을 먹고 쇼핑할 거예요.","rom":"ju-mal-e chin-gu-reul man-na-seo mas-iss-neun eum-sig-eul meog-go syo-ping-hal geo-ye-yo","q":"Read out loud expressing a weekend plan clearly."},
+        ],
+      },
     ],
   },
 
@@ -545,6 +561,22 @@ export const DETAILED_GRAMMAR_COURSES = [
 
           { t:'speak', say:'할머니, 요즘 어떻게 지내세요? 건강은 괜찮으세요?',
             q:'This is a phrase people actually use to ask how someone senior is doing.' },
+        ],
+      },
+
+      {
+        id: "bg-d-03-04", title: {"ko":"4강. 높임 어미 -(으)시-의 받침별 꼴 만들기","en":"Lesson 4. Shaping Honorific Forms by Stem and Batchim"}, minutes: 5,
+        blocks: [
+          {"t":"text","h":"How -(으)시- Changes with Stem Endings","md":"When honoring someone senior using present polite **-(으)세요**:\n\n- **No 받침:** attach **-세요** (가다 → **가세요**, 보다 → **보세요**).\n- **With 받침:** attach **-으세요** (앉다 → **앉으세요**, 읽다 → **읽으세요**).\n- **ㄹ stems:** the ㄹ drops completely before ㅅ! (살다 → **사세요**, 만들다 → **만드세요**, 알다 → **아세요**).\n- **ㄷ irregular:** ㄷ changes to ㄹ (듣다 → **들으세요**).\n- **Special replacement verbs:** use the dedicated honorific word (먹다 → **드세요**, 자다 → **주무세요**)."},
+          {"t":"table","head":["Verb","Stem Rule","Present Honorific","Meaning"],"rows":[["앉다 (to sit)","Batchim ㄵ","앉으세요","please sit"],["읽다 (to read)","Batchim ㄺ","읽으세요","reads (honorific)"],["살다 (to live)","ㄹ drops before ㅅ","사세요","lives (honorific)"],["만들다 (to make)","ㄹ drops before ㅅ","만드세요","makes (honorific)"],["듣다 (to listen)","ㄷ changes to ㄹ","들으세요","listens (honorific)"]]},
+          {"t":"note","md":"Never keep the ㄹ in ㄹ verbs when adding -(으)시-! It is **어디 사세요?** (Where do you live?), never *어디 살으세요."},
+          {"t":"chars","wide":true,"items":[{"ch":"편하게 의자에 앉으세요.","tip":"Please sit comfortably on the chair. (앉다 + 으세요)"},{"ch":"부모님께서 어디에 사세요?","tip":"Where do your parents live? (살다 drops ㄹ → 사세요)"},{"ch":"선생님 말씀을 잘 들으세요.","tip":"Listen carefully to the teacher’s words. (듣다 → 들으세요)"}]},
+          {"t":"choice","q":"How do you conjugate ‘살다’ (to live) with the honorific ending -(으)세요?","options":["사세요","살으세요","살세요"],"answer":0,"why":"Verbs ending in ㄹ drop the ㄹ before ㅅ: 살 + 세요 → **사세요**."},
+          {"t":"choice","q":"How do you politely tell someone to sit using ‘앉다’?","options":["앉으세요","앉세요","앉아세요"],"answer":0,"why":"앉다 has a final consonant (받침 ㄵ), so it attaches -으세요 → **앉으세요**."},
+          {"t":"pair","q":"Match each verb with its correct honorific form.","pairs":[["가다 (no 받침)","가세요"],["읽다 (with 받침)","읽으세요"],["만들다 (ㄹ stem)","만드세요"],["듣다 (ㄷ irregular)","들으세요"]]},
+          {"t":"cloze","sentence":"할머니께서 매일 아침에 라디오를 [들으세요].","answer":"들으세요","meaning":"Grandmother listens to the radio every morning.","options":["들으세요","듣으세요","들세요","듣아세요"],"keys":["들으세요","듣으세요","들세요","듣아세요"],"why":"듣다 changes ㄷ to ㄹ before vowel endings, so it becomes **들으세요**."},
+          {"t":"type","q":"Conjugate 만들다 (to make) into the honorific form: 「어머니께서 김치를 ___ .」","answer":"만드세요","keys":["만드세요","만들으세요","만들세요"],"why":"The ㄹ drops before ㅅ: 만들 + 세요 → **만드세요**."},
+          {"t":"speak","say":"선생님, 편안한 자리에 앉으세요.","rom":"seon-saeng-nim, pyeon-an-han ja-ri-e anj-eu-se-yo","q":"Say it out loud politely: “Teacher, please sit in a comfortable seat.”"},
         ],
       },
     ],
