@@ -13,16 +13,16 @@
    어느 날 갑자기 다른 코드가 실려 왔다.
    이제 vendor/ 안에 받아 두고 CSP 로 바깥을 막는다. 버전을 올릴 때는
    tools/vendor.mjs 의 PIN 을 고치고 다시 돌린다. */
-import { createClient } from './vendor/supabase-js.js?v=74e6ff7a';
+import { createClient } from './vendor/supabase-js.js?v=7ac7599e';
 // TOPIK 읽기 "문제 풀이 영상" 목록. 아주 작은 파일이라(id 목록뿐) 다른
 // 자료처럼 갈래를 열 때 지연 로딩하지 않고 그냥 처음부터 받는다.
-import { TQ_VIDEO_IDS } from './topik-video.js?v=74e6ff7a';
+import { TQ_VIDEO_IDS } from './topik-video.js?v=7ac7599e';
 // 코스 아이콘 — 이모지 대신 선 아이콘(course-icons.js 머리말)
 // 구독(Paddle) — billing.js 머리말
-import { BILLING, billingLive, isPro, proInfo, loadPro, openCheckout, waitPro } from './billing.js?v=74e6ff7a';
-import { myLevelBadge, potatoLevel, cheeseLevel } from './levels.js?v=74e6ff7a';
-import { courseIcon } from './course-icons.js?v=74e6ff7a';
-import { AUDIO_REMOTE, audioKey } from './audio-key.js?v=74e6ff7a';
+import { BILLING, billingLive, isPro, proInfo, loadPro, openCheckout, waitPro } from './billing.js?v=7ac7599e';
+import { myLevelBadge, potatoLevel, cheeseLevel } from './levels.js?v=7ac7599e';
+import { courseIcon } from './course-icons.js?v=7ac7599e';
+import { AUDIO_REMOTE, audioKey } from './audio-key.js?v=7ac7599e';
 // 앱(package.json)과 같은 줄기를 쓴다. 갈리면 앱에서는 읽히는 파일이
 // 여기서는 안 읽히는(또는 그 반대) 일이 생긴다.
 /* 엑셀 라이브러리는 422KB — 이 판에서 가장 무거운 조각이다. 그런데 쓰는
@@ -34,7 +34,7 @@ import { AUDIO_REMOTE, audioKey } from './audio-key.js?v=74e6ff7a';
    자국(?v=)은 tools/stamp.mjs 가 아래 줄에 알아서 붙인다 — 정적으로 쓰든
    동적으로 쓰든 같은 글자를 찾으므로 바꿔도 그대로 찍힌다. */
 let XLSX = null;
-const needXLSX = async () => (XLSX ??= await import('./vendor/xlsx.js?v=74e6ff7a'));
+const needXLSX = async () => (XLSX ??= await import('./vendor/xlsx.js?v=7ac7599e'));
 // 커리큘럼. 내용과 엔진을 갈라 두면 글을 고치다 화면을 깨지 않는다.
 // 갈래 목록(drawSections)·코스(drawCourses)·문제만 풀기(dqDraw) 를 열 때만
 // 받는다 — 배우기 갈래 목록도 안 본 사람에게 코스 71개 레슨을 다 물릴
@@ -42,9 +42,9 @@ const needXLSX = async () => (XLSX ??= await import('./vendor/xlsx.js?v=74e6ff7a
 let COURSES = [], coursesP = null;
 /* 앱은 courses.js 대신 courses-lite.js 를 받는다 — 중·고급 레슨 본문을 뺀 목록이다
    (tools/build-courses-lite.mjs). 본문은 그 레슨을 열 때 upperBlocksNeed() 가 채운다. */
-const coursesNeed = () => (coursesP ??= import('./courses-lite.js?v=74e6ff7a').then((m) => { COURSES = m.COURSES; }));
+const coursesNeed = () => (coursesP ??= import('./courses-lite.js?v=7ac7599e').then((m) => { COURSES = m.COURSES; }));
 let upperP = null;
-const upperBlocksNeed = () => (upperP ??= coursesNeed().then(() => import('./courses-grammar-detailed.js?v=74e6ff7a')).then((m) => {
+const upperBlocksNeed = () => (upperP ??= coursesNeed().then(() => import('./courses-grammar-detailed.js?v=7ac7599e')).then((m) => {
   const byId = new Map(m.DETAILED_GRAMMAR_COURSES.flatMap((c) => c.lessons.map((l) => [l.id, l.blocks])));
   for (const c of COURSES) for (const l of c.lessons) if (!l.blocks && byId.has(l.id)) { l.blocks = byId.get(l.id); delete l.lazy; }
 }));
@@ -59,7 +59,7 @@ const blocksNeed = async (course) => { if (course.lessons.some((l) => !l.blocks)
    tqGloss 는 그대로 동기다 — 아직 안 왔으면 빈 뜻을 돌려주고, 부르는
    쪽은 이미 "사전에 없는 말"을 다룰 줄 안다. */
 let GLOSSARY = {}, GLOSS_LANGS = {}, glossP = null;
-const glossNeed = () => (glossP ??= import('./glossary.js?v=74e6ff7a').then((m) => {
+const glossNeed = () => (glossP ??= import('./glossary.js?v=7ac7599e').then((m) => {
   GLOSSARY = m.GLOSSARY; GLOSS_LANGS = m.GLOSS_LANGS;
   dictBuildEntries();
 }).catch((e) => {
@@ -67,12 +67,12 @@ const glossNeed = () => (glossP ??= import('./glossary.js?v=74e6ff7a').then((m) 
   glossP = null;
   throw e;
 }));
-import { glossFind } from './gloss-find.js?v=74e6ff7a';
+import { glossFind } from './gloss-find.js?v=7ac7599e';
 /* 홈 화면 "오늘의 단어" 카드. 표제어·품사·짧은 뜻풀이 3개만 든
    작은 자료라(사전 전체 356KB 와 달리) 홈에 들어오면 바로 받는다 —
    빈 카드로 몇 초 떠 있는 것보다 낫다. */
 let WOTD_POOL = [], wotdP = null;
-const wotdNeed = () => (wotdP ??= import('./wotd.js?v=74e6ff7a').then((m) => {
+const wotdNeed = () => (wotdP ??= import('./wotd.js?v=7ac7599e').then((m) => {
   WOTD_POOL = m.WOTD_POOL;
 }).catch((e) => { wotdP = null; throw e; }));
 /* 그날의 낱말을 고른다. 한국 자정을 기준으로 하루씩 넘어가게
@@ -107,9 +107,9 @@ window.wotdRender = () => { wotdRender(); try { todayRender(); } catch (e) {} };
    나중 화면은 그 약속(??=)을 그대로 쓴다. */
 let GRAMMAR = [], GRAMMAR_EN = {}, grammarP = null;
 const grammarNeed = () => (grammarP ??= Promise.all([
-  import('./grammar.js?v=74e6ff7a'), import('./grammar-en.js?v=74e6ff7a'),
+  import('./grammar.js?v=7ac7599e'), import('./grammar-en.js?v=7ac7599e'),
 ]).then(([a, b]) => { GRAMMAR = a.GRAMMAR; GRAMMAR_EN = b.GRAMMAR_EN; }));
-import { grammarScan } from './grammar-find.js?v=74e6ff7a';
+import { grammarScan } from './grammar-find.js?v=7ac7599e';
 // TOPIK 쓰기·듣기 문항. 읽기(topik.js·topik2.js)와 같은 tqNeedData() 로
 // 함께 받는다 — 유형 연습(topik) 갈래 하나가 세 기술을 다 쓰므로 따로
 // 가를 까닭이 없다. 값은 tqNeedData 정의부에서 채운다.
@@ -121,7 +121,7 @@ let TOPIKL_BY_EXAM = {}, TOPIKL_PICTURE_SLOTS = {};
    sbFind 를 쓰는데, 그쪽은 안 기다리고 그냥 부른다 — 답이 못 찾은
    인용 없이 나가는 것이 채팅이 멈추는 것보다 낫다. */
 let SB_CATS = [], SB_MORE = {}, SB_SEED = {}, SB_POINTS = [], sbDataP = null;
-const sbNeed = () => (sbDataP ??= import('./sentences.js?v=74e6ff7a').then((m) => {
+const sbNeed = () => (sbDataP ??= import('./sentences.js?v=7ac7599e').then((m) => {
   SB_CATS = m.SB_CATS; SB_MORE = m.SB_MORE; SB_SEED = m.SB_SEED;
   // 갈래마다 표현을 펼쳐 한 줄에 담는다 — SB_CATS 안의 점에는 갈래가 안
   // 달려 있어서(sbFind 가 표현 하나를 id 로 바로 찾으려면 이게 있어야 한다).
@@ -132,7 +132,7 @@ const sbNeed = () => (sbDataP ??= import('./sentences.js?v=74e6ff7a').then((m) =
 // 숫자 게임의 읽기와 문제 만들기. 화면을 모르는 순수 계산이라 따로 뒀다.
 // 게임 목록에서 「숫자 읽기」를 시작할 때만 받는다 — XLSX 와 같은 자리다.
 let makeRound = null;
-const needNumbers = async () => (makeRound ??= (await import('./numbers.js?v=74e6ff7a')).makeRound);
+const needNumbers = async () => (makeRound ??= (await import('./numbers.js?v=7ac7599e')).makeRound);
 
 // 이 키는 공개돼도 되는 값이다. 이미 APK 안에 같은 것이 들어 있고,
 // 접근을 막는 건 키가 아니라 테이블에 걸린 RLS 다.
@@ -214,8 +214,8 @@ let tqDataP = null;
    유형 연습(topik) 갈래 하나가 이 넷을 다 쓰므로 갈라 봤자 요청만
    늘어난다. */
 const tqNeedData = () => (tqDataP ??= Promise.all([
-  import('./topik.js?v=74e6ff7a'), import('./topik2.js?v=74e6ff7a'),
-  import('./topik-writing.js?v=74e6ff7a'), import('./topik-listening.js?v=74e6ff7a'),
+  import('./topik.js?v=7ac7599e'), import('./topik2.js?v=7ac7599e'),
+  import('./topik-writing.js?v=7ac7599e'), import('./topik-listening.js?v=7ac7599e'),
 ]).then(([a, b, c, d]) => {
   TQ_DATA.I  = { reading: a.TOPIK_READING,  blueprint: a.TOPIK_BLUEPRINT,  slots: a.TOPIK_SLOTS };
   TQ_DATA.II = { reading: b.TOPIK2_READING, blueprint: b.TOPIK2_BLUEPRINT, slots: b.TOPIK2_SLOTS };
@@ -226,11 +226,11 @@ const tqNeedData = () => (tqDataP ??= Promise.all([
 let READING = null, rdP = null;
 // 지문의 밑줄 문법 말풍선이 GRAMMAR 를 쓰므로 같이 받아 둔다.
 const rdNeed = () => (rdP ??= Promise.all([
-  import('./reading.js?v=74e6ff7a'), grammarNeed(),
+  import('./reading.js?v=7ac7599e'), grammarNeed(),
 ]).then(([m]) => { READING = m.READING; }));
 
 let CONVO = null, cvP = null;
-const cvNeed = () => (cvP ??= import('./convo.js?v=74e6ff7a').then((m) => { CONVO = m.CONVO; }));
+const cvNeed = () => (cvP ??= import('./convo.js?v=7ac7599e').then((m) => { CONVO = m.CONVO; }));
 
 /* 배우기를 열면 여섯 다 미리 불을 붙인다. 기다리지 않는다 — 갈래 목록은
    이 자료가 없어도 그려지고, 사람이 갈래를 고르는 사이에 도착한다.
@@ -452,9 +452,9 @@ $('dictBtn').addEventListener('click', () => { const go = !showing('wordsView');
    합쳐 200KB 남짓(압축)이라 첫 화면 모두에게 물릴 까닭이 없다. 사이트 공용 도구는 넘겨준다. */
 let wordsApi = null, wordsP = null;
 /* TOPIK II 예문은 500개씩 조각으로 따로 받는다(tools/build-vocab.mjs) — 조각 주소는 이 파일의 자국을 빌린다. */
-const VOCAB2_URL = './vocab-topik2.js?v=74e6ff7a';
+const VOCAB2_URL = './vocab-topik2.js?v=7ac7599e';
 const wordsNeed = () => (wordsP ??= Promise.all([
-  import('./words.js?v=74e6ff7a'), import('./vocab-topik1.js?v=74e6ff7a'), import(VOCAB2_URL),
+  import('./words.js?v=7ac7599e'), import('./vocab-topik1.js?v=7ac7599e'), import(VOCAB2_URL),
 ]).then(([m, d, d2]) => {
   wordsApi = m.wordsInit({
     root: $('wordsRoot'), t, esc, track, say, glossFind, glossNeed, ICON: DICT_SAY_ICON,
@@ -549,7 +549,7 @@ async function vocabSync() {
   if (!wordsP) return;
   const { data: { session } } = await sb.auth.getSession();
   if (!session) return;
-  const m = await import('./words.js?v=74e6ff7a');
+  const m = await import('./words.js?v=7ac7599e');
   const ok = await m.syncVocab(async () => {
     const { data, error } = await sb.from('settings').select('vocab').eq('user_id', session.user.id).maybeSingle();
     return error ? undefined : (data?.vocab || {});
@@ -863,14 +863,14 @@ let dictOpen = null;  // 지금 "더 보기"(예문·뜻풀이)를 펼쳐 둔 �
    평소엔 안 쓰는 522KB 를 첫 화면 모두에게 물릴 까닭이 없다. */
 let dictSensesP = null;
 const dictLoadSenses = () => (dictSensesP ??=
-  import('./glossary-senses.js?v=74e6ff7a').then((m) => m.SENSES).catch(() => ({})));
+  import('./glossary-senses.js?v=7ac7599e').then((m) => m.SENSES).catch(() => ({})));
 
 /* 예문. 국립국어원 자료엔 없어서 Gemini 로 새로 지은 것이다(있는 만큼만
    — docs/glossary-examples-gemini-prompt.md 참고). 뜻풀이와 같은 자리에서
    같이 받는다 — 펼치는 손짓 하나에 몰아 두는 편이 화면이 덜 복잡하다. */
 let dictExamplesP = null;
 const dictLoadExamples = () => (dictExamplesP ??=
-  import('./glossary-examples.js?v=74e6ff7a').then((m) => m.EXAMPLES).catch(() => ({})));
+  import('./glossary-examples.js?v=7ac7599e').then((m) => m.EXAMPLES).catch(() => ({})));
 
 function dictVisible() {
   const q = dictQuery.trim().toLowerCase();
@@ -3021,12 +3021,12 @@ const LEARN_SECTIONS = [
   },
   {
     id: 'sentence', emoji: '✍️', ready: true, pane: 'sbWrap',
-    lv:    { ko: '예문',            en: 'SENTENCES' },
-    title: { ko: '예문 만들기',      en: 'Build a sentence' },
-    tag:   { ko: '외운 문장 말고 내 문장',
-             en: 'Your own sentence, not a memorised one' },
-    blurb: { ko: '배운 조각으로 직접 문장을 만들어 봅니다.',
-             en: 'Put the pieces you have learned into sentences of your own.' },
+    lv:    { ko: '문법',            en: 'GRAMMAR' },
+    title: { ko: '문법',            en: 'Grammar' },
+    tag:   { ko: '배우고, 블록으로 맞추고, 직접 써 보기',
+             en: 'Learn it, build it with blocks, then write your own' },
+    blurb: { ko: '문법 표현 290개 — 뜻과 형태를 보고, 예문을 블록으로 맞춰 본 뒤 내 문장을 써서 맞춤법까지 검사해요.',
+             en: '290 grammar points — read the meaning and form, rebuild the examples from blocks, then write your own and check the spelling.' },
   },
   {
     id: 'notes', emoji: '🗒️', ready: true, pane: 'ntWrap',
@@ -9832,7 +9832,7 @@ let TRAVEL_CATEGORIES = null;
 let TRAVEL_PHRASES = null;
 let TRAVEL_VOCAB = null;
 let tvP = null;
-const tvNeed = () => (tvP ??= import('./travel-data.js?v=74e6ff7a').then((m) => {
+const tvNeed = () => (tvP ??= import('./travel-data.js?v=7ac7599e').then((m) => {
   TRAVEL_CATEGORIES = m.TRAVEL_CATEGORIES;
   TRAVEL_PHRASES = m.TRAVEL_PHRASES;
   TRAVEL_VOCAB = m.TRAVEL_VOCAB;
@@ -10656,6 +10656,8 @@ function sbDrawDetail() {
       '</div>'
       : '') +
 
+    sbPracticeHtml(p) +
+
     '<div class="sb-board">' +
       '<div class="sb-board-h">' +
         `<span class="sb-board-t">${t('우리가 만든 예문', 'Sentences we wrote')} ${posts.length}</span>` +
@@ -10718,23 +10720,165 @@ function sbDrawDetail() {
         }).join('')
           : `<p class="sb-none">${t('아직 아무도 안 썼어요. 첫 예문을 올려 보세요.', 'Nobody has written one yet. Go first.')}</p>`) +
       '</div>' +
+    '</div>';
+}
 
+/* ══ 문법 연습 두 걸음 (운영자 요청 2026-10-01) ══════════════════════════════════════════════
+   ① 블록 맞추기 — 선생님 예문 · 대화 줄을 어절(띄어 쓴 덩어리)로 잘라 섞고, 눌러서 차례대로 놓는다.
+   ② 직접 써 보기 — 내 문장을 쓰고 「검사」를 누르면 맞춤법 · 띄어쓰기에서 걸리는 곳을 짚는다.
+      맞춤법 검사기처럼 글자 모양만 본다 — 뜻이 맞는지(맥락)는 보지 않는다고 화면에 밝힌다.
+   예문의 영어 번역은 자료에 없어서 지어내지 않는다 — 블록은 한국어만. */
+const sbExamples = (p) => {
+  const more = SB_MORE[p.id] || [];
+  const dl = (Array.isArray(p.dlg) ? p.dlg : []).map((l) => String(l).replace(/^\s*[AB]\s*:\s*/, ''));
+  return [p.ex, more[3], ...dl].map((x) => String(x || '').trim())
+    .filter((x, i, a) => x && a.indexOf(x) === i && x.split(/\s+/).length >= 3 && x.split(/\s+/).length <= 12);
+};
+let sbBlk = null;   // { id, i(예문 차례), words, order(섞은 차례), ans(고른 칸 번호), res: ''|'ok'|'no', shown }
+function sbBlkNew(p, i) {
+  const exs = sbExamples(p);
+  if (!exs.length) { sbBlk = null; return; }
+  const k = ((i % exs.length) + exs.length) % exs.length;
+  const words = exs[k].split(/\s+/);
+  let order = words.map((_, j) => j);
+  for (let n = 0; n < 8 && order.every((v, j) => v === j); n++) order = order.slice().sort(() => Math.random() - 0.5);
+  sbBlk = { id: p.id, i: k, n: exs.length, words, order, ans: [], res: '', shown: false };
+}
+function sbBlkHtml(p) {
+  if (!sbBlk || sbBlk.id !== p.id) sbBlkNew(p, 0);
+  const b = sbBlk;
+  if (!b) return '';
+  const used = new Set(b.ans);
+  const firstWrong = b.res === 'no' ? b.ans.findIndex((j, x) => b.words[j] !== b.words[x]) : -1;
+  return '<div class="gp-card">' +
+    `<div class="gp-h"><b>① ${t('블록으로 맞추기', 'Put the blocks in order')}</b><span>${b.i + 1} / ${b.n}</span></div>` +
+    `<p class="gp-sub">${t('블록을 눌러 문장을 차례대로 만들어 보세요. 놓은 블록을 다시 누르면 빠져요.', 'Tap the blocks to build the sentence. Tap a placed block to take it back.')}</p>` +
+    `<div class="gp-line${b.res === 'ok' ? ' ok' : ''}">${b.ans.length
+      ? b.ans.map((j, x) => `<button type="button" class="gp-blk on${x === firstWrong ? ' bad' : ''}" data-gpout="${x}">${esc(b.words[j])}</button>`).join('')
+      : `<span class="gp-ph">${t('여기에 문장이 만들어져요', 'Your sentence appears here')}</span>`}</div>` +
+    `<div class="gp-pool">${b.order.filter((j) => !used.has(j)).map((j) => `<button type="button" class="gp-blk" data-gpin="${j}">${esc(b.words[j])}</button>`).join('')}</div>` +
+    (b.res === 'ok' ? `<p class="gp-msg ok">✓ ${t('맞았어요!', 'Correct!')}</p>` : '') +
+    (b.res === 'no' ? `<p class="gp-msg no">${t('빨간 블록부터 다시 놓아 보세요.', 'Start again from the red block.')}</p>` : '') +
+    (b.shown ? `<p class="gp-msg">${t('정답', 'Answer')}: <b>${esc(b.words.join(' '))}</b></p>` : '') +
+    '<div class="gp-row">' +
+      (b.res === 'ok' || b.shown
+        ? `<button type="button" class="pt-next" data-gpnext="1">${b.n > 1 ? t('다음 예문', 'Next sentence') : t('다시 하기', 'Again')}</button>`
+        : `<button type="button" class="pt-next" data-gpcheck="1"${b.ans.length === b.words.length ? '' : ' disabled'}>${t('확인', 'Check')}</button>` +
+          `<button type="button" class="pt-ghost" data-gpshow="1">${t('정답 보기', 'Show answer')}</button>`) +
+    '</div></div>';
+}
+
+/* 맞춤법 · 띄어쓰기 — 자주 틀리는 것만 모은 규칙표. 모르는 것은 말하지 않는다(틀렸다고 우기지 않게). */
+/* 함수로 둔다 — t() 를 부를 때의 언어로 설명을 만든다(영어로 바꾼 뒤에도 맞게). */
+const sbSpellRules = () => [
+  [/됬/g, '됐', t('「되었」을 줄이면 「됐」이에요.', '되었 contracts to 됐.')],
+  [/되요/g, '돼요', t('「되어요」를 줄이면 「돼요」예요.', '되어요 contracts to 돼요.')],
+  [/되서/g, '돼서', t('「되어서」를 줄이면 「돼서」예요.', '되어서 contracts to 돼서.')],
+  [/되도/g, '돼도', t('「되어도」를 줄이면 「돼도」예요.', '되어도 contracts to 돼도.')],
+  [/뵈요/g, '봬요', t('「뵈어요」를 줄이면 「봬요」예요.', '뵈어요 contracts to 봬요.')],
+  [/몇일/g, '며칠', t('「며칠」이 바른 말이에요.', 'The correct spelling is 며칠.')],
+  [/어떻해/g, '어떡해', t('「어떻게 해」를 줄이면 「어떡해」예요.', '어떻게 해 shortens to 어떡해.')],
+  [/금새/g, '금세', t('「금세」가 바른 말이에요(「금시에」의 준말).', 'The correct spelling is 금세.')],
+  [/오랫만/g, '오랜만', t('「오랜만」이 바른 말이에요.', 'The correct spelling is 오랜만.')],
+  [/역활/g, '역할', t('「역할」이 바른 말이에요.', 'The correct spelling is 역할.')],
+  [/희안/g, '희한', t('「희한하다」가 바른 말이에요.', 'The correct spelling is 희한하다.')],
+  [/설레임/g, '설렘', t('「설레다」의 명사는 「설렘」이에요.', 'The noun of 설레다 is 설렘.')],
+  [/웬지/g, '왠지', t('「왜인지」를 줄인 말이라 「왠지」예요.', '왠지 comes from 왜인지.')],
+  [/왠일/g, '웬일', t('「웬일」이 바른 말이에요.', 'The correct spelling is 웬일.')],
+  [/왠만/g, '웬만', t('「웬만하다」가 바른 말이에요.', 'The correct spelling is 웬만하다.')],
+  [/어의없/g, '어이없', t('「어이없다」가 바른 말이에요.', 'The correct spelling is 어이없다.')],
+  [/일일히/g, '일일이', t('「일일이」로 써요.', 'Written 일일이.')],
+  [/깨끗히/g, '깨끗이', t('「깨끗이」로 써요.', 'Written 깨끗이.')],
+  [/틈틈히/g, '틈틈이', t('「틈틈이」로 써요.', 'Written 틈틈이.')],
+  [/곰곰히/g, '곰곰이', t('「곰곰이」로 써요.', 'Written 곰곰이.')],
+  [/할려고/g, '하려고', t('「-(으)려고」에는 ㄹ이 안 들어가요.', '-(으)려고 has no extra ㄹ.')],
+  [/않(해|돼|가|와|먹|했|된|될|되)/g, '안 $1', t('「안 + 동사」는 「안」으로 쓰고 띄어요. 「않」은 「-지 않다」에만 써요.', 'Use 안 (with a space) before a verb; 않 only in -지 않다.')],
+];
+const SB_JOSA = ['은', '는', '을', '를', '에', '에서', '의', '도', '만', '으로', '와', '과', '하고', '이랑', '랑', '한테', '에게', '까지', '부터', '보다', '처럼', '에게서', '한테서'];
+const sbHasBat = (ch) => { const c = ch.charCodeAt(0) - 0xAC00; return c >= 0 && c <= 11171 && c % 28 !== 0; };
+const sbBat = (ch) => { const c = ch.charCodeAt(0) - 0xAC00; return c >= 0 && c <= 11171 ? c % 28 : -1; };
+function sbCheck(text) {
+  const out = [];   // { at, len, fix, why }
+  for (const [re, fix, why] of sbSpellRules()) {
+    for (const m of text.matchAll(re)) out.push({ at: m.index, len: m[0].length, fix: m[0].replace(new RegExp(re.source), fix), why });
+  }
+  /* ㄹ받침 + 께 / 꺼 — 「할께 → 할게」, 「할꺼야 → 할 거야」. 「선생님께」처럼 받침이 다른 「께」는 건드리지 않는다. */
+  for (const m of text.matchAll(/([가-힣])께(요)?(?=[\s.,!?~]|$)/g)) {
+    if (sbBat(m[1]) === 8) out.push({ at: m.index, len: m[0].length, fix: `${m[1]}게${m[2] || ''}`, why: t('「-(으)ㄹ게요」는 「게」로 써요.', 'Write -(으)ㄹ게요 with 게.') });
+  }
+  for (const m of text.matchAll(/([가-힣])꺼/g)) {
+    if (sbBat(m[1]) === 8) out.push({ at: m.index, len: m[0].length, fix: `${m[1]} 거`, why: t('「-(으)ㄹ 거예요」는 「거」로 쓰고 띄어요.', 'Write -(으)ㄹ 거예요 with 거 and a space.') });
+  }
+  /* 띄어쓰기 — 조사를 앞말과 떼어 쓴 것(「저 는」). 「이」 · 「가」는 「이 사람」 · 「가 보세요」처럼 따로 서는 말도 있어 뺀다. */
+  for (const m of text.matchAll(/([가-힣])(\s+)([가-힣]+)(?=[\s.,!?]|$)/g)) {
+    if (SB_JOSA.includes(m[3])) out.push({ at: m.index, len: m[0].length, fix: m[1] + m[3], why: t(`「${m[3]}」 같은 조사는 앞말에 붙여 써요.`, `The particle 「${m[3]}」 attaches to the word before it.`) });
+  }
+  for (const m of text.matchAll(/ {2,}/g)) out.push({ at: m.index, len: m[0].length, fix: ' ', why: t('빈칸이 두 번 들어갔어요.', 'Double space.') });
+  for (const m of text.matchAll(/\s+([.,!?])/g)) out.push({ at: m.index, len: m[0].length, fix: m[1], why: t('문장 부호 앞에는 띄우지 않아요.', 'No space before punctuation.') });
+  for (const m of text.matchAll(/[ㄱ-ㅎㅏ-ㅣ]+/g)) out.push({ at: m.index, len: m[0].length, fix: null, why: t('글자가 덜 만들어졌어요(자음 · 모음만 있어요).', 'An unfinished syllable (only a consonant or vowel).') });
+  /* 겹치면 앞의 것 하나만 — 한 자리에 빨간 줄이 두 번 그어지면 읽기 어렵다 */
+  out.sort((a, b) => a.at - b.at || b.len - a.len);
+  const res = []; let end = -1;
+  for (const o of out) if (o.at >= end) { res.push(o); end = o.at + o.len; }
+  const tail = text.trim();
+  const noEnd = tail && !/[.!?…~]$/.test(tail);
+  return { issues: res, noEnd };
+}
+function sbApply(text, issues) {
+  let s = text;
+  for (const o of issues.slice().reverse()) if (o.fix != null) s = s.slice(0, o.at) + o.fix + s.slice(o.at + o.len);
+  return s;
+}
+let sbChecked = null;   // { text, issues, noEnd } — 검사한 뒤 글을 고치면 지운다
+function sbCheckHtml() {
+  const c = sbChecked;
+  if (!c) return '';
+  if (!c.text.trim()) return '';
+  if (!c.issues.length) {
+    return `<div class="gp-res ok">✓ ${t('맞춤법 · 띄어쓰기에서 걸린 곳이 없어요.', 'No spelling or spacing problems found.')}` +
+      (c.noEnd ? ` <span>${t('문장 끝에 마침표(.)를 찍으면 더 좋아요.', 'Add a full stop at the end.')}</span>` : '') + '</div>';
+  }
+  let hl = '', at = 0;
+  for (const o of c.issues) { hl += esc(c.text.slice(at, o.at)) + `<mark>${esc(c.text.slice(o.at, o.at + o.len)) || '␣'}</mark>`; at = o.at + o.len; }
+  hl += esc(c.text.slice(at));
+  const fixable = c.issues.some((o) => o.fix != null);
+  return '<div class="gp-res">' +
+    `<div class="gp-res-t">${t(`고칠 곳 ${c.issues.length}군데`, `${c.issues.length} thing(s) to fix`)}</div>` +
+    `<div class="gp-hl">${hl}</div>` +
+    /* 빈칸이 문제인 곳은 빈칸이 보여야 한다 — ␣ 로 그린다 */
+    '<ol class="gp-list">' + c.issues.map((o) => `<li><b>${esc(c.text.slice(o.at, o.at + o.len).replace(/ /g, '␣'))}</b>` +
+      (o.fix != null ? ` → <b class="fix">${esc(o.fix.replace(/ /g, '␣'))}</b>` : '') + ` <span>${esc(o.why)}</span></li>`).join('') + '</ol>' +
+    (fixable ? `<button type="button" class="pt-ghost" data-gpfix="1">${t('고친 문장으로 바꾸기', 'Apply the fixes')}</button>` : '') +
+    (c.noEnd ? `<p class="gp-sub">${t('문장 끝에 마침표(.)를 찍으면 더 좋아요.', 'Add a full stop at the end.')}</p>` : '') +
+  '</div>';
+}
+function sbPracticeHtml(p) {
+  return '<div class="gp">' +
+    `<div class="gp-title">${t('연습하기', 'Practice')}</div>` +
+    sbBlkHtml(p) +
+    '<div class="gp-card">' +
+      `<div class="gp-h"><b>② ${t('직접 써 보기', 'Write your own')}</b></div>` +
+      `<p class="gp-sub">${t(`「${esc(p.name)}」로 내 문장을 쓰고 「검사」를 눌러 보세요. 맞춤법 · 띄어쓰기만 봐요 — 뜻이 맞는지는 보지 않아요.`,
+                             `Write your own sentence with ${esc(p.name)} and press Check. It looks at spelling and spacing only — not whether the meaning fits.`)}</p>` +
       '<div class="sb-write">' +
         `<textarea data-clarity-mask="true" id="sbText" class="sb-in" rows="2" placeholder="${t(`「${esc(p.name)}」로 문장을 만들어 보세요`, `Write a sentence using ${esc(p.name)}`)}">${esc(sbDraft)}</textarea>` +
+        `<div id="gpRes">${sbCheckHtml()}</div>` +
         '<div class="sb-write-row">' +
+          `<button class="pt-ghost" id="gpCheck" type="button">${t('검사', 'Check')}</button>` +
           `<input data-clarity-mask="true" id="sbName" class="sb-in" type="text" maxlength="20" placeholder="${t('이름', 'Your name')}" value="${esc(sbStore.name)}">` +
-          `<button class="pt-next" id="sbPost" type="button">${t('올리기', 'Post')}</button>` +
+          `<button class="pt-next" id="sbPost" type="button">${t('게시판에 올리기', 'Post to the board')}</button>` +
         '</div>' +
         `<p class="sb-note">${t('올린 예문은 이 브라우저에만 저장돼요. 방문 기록을 지우면 함께 사라집니다.',
                                 'Your sentences stay in this browser only. Clearing site data removes them.')}</p>` +
       '</div>' +
-    '</div>';
+    '</div>' +
+  '</div>';
 }
 
 function sbShow(id) {
   // 표현을 갈아탈 때는 초안을 버린다. 남겨 두면 「-길래」에 쓰다 만 문장이
   // 「-더라도」 칸에 그대로 떠 있다.
-  if (id !== sbPoint) { sbReplyTo = null; sbDropDraft('both'); }
+  if (id !== sbPoint) { sbReplyTo = null; sbDropDraft('both'); sbBlk = null; sbChecked = null; }
   sbPoint = id;
   /* 표현 하나하나가 주소를 가진다 — 건네받은 사람이 그 표현을 바로 본다. */
   window.cpMark('learn', id ? `sentence/${id}` : 'sentence');
@@ -10744,6 +10888,10 @@ function sbShow(id) {
 }
 
 $('sbQ').addEventListener('input', sbDrawList);
+/* 검사한 뒤 글을 고치면 지난 검사 결과는 틀린 자리를 가리키게 된다 — 지운다 */
+$('sbDetail').addEventListener('input', (ev) => {
+  if (ev.target.id === 'sbText' && sbChecked) { sbChecked = null; const r = $('gpRes'); if (r) r.innerHTML = ''; }
+});
 
 $('sbCats').addEventListener('click', (ev) => {
   const b = ev.target.closest('[data-pt]');
@@ -10765,6 +10913,35 @@ $('sbCats').addEventListener('click', (ev) => {
    바깥 상자 하나에서 받는다. */
 $('sbDetail').addEventListener('click', (ev) => {
   if (ev.target.closest('#sbBack')) { sbShow(null); window.scrollTo({ top: 0, behavior: 'smooth' }); return; }
+
+  /* 연습 ① 블록 */
+  const gi = ev.target.closest('[data-gpin]'), go = ev.target.closest('[data-gpout]');
+  if (sbBlk && (gi || go)) {
+    if (gi) sbBlk.ans.push(Number(gi.dataset.gpin)); else sbBlk.ans.splice(Number(go.dataset.gpout), 1);
+    if (sbBlk.res !== 'ok') sbBlk.res = '';
+    sbDrawDetail(); return;
+  }
+  if (sbBlk && ev.target.closest('[data-gpcheck]')) {
+    const ok = sbBlk.ans.map((j) => sbBlk.words[j]).join(' ') === sbBlk.words.join(' ');
+    sbBlk.res = ok ? 'ok' : 'no';
+    if (ok) track('문법블록');
+    sbDrawDetail(); return;
+  }
+  if (sbBlk && ev.target.closest('[data-gpshow]')) { sbBlk.shown = true; sbBlk.ans = sbBlk.words.map((_, j) => j); sbBlk.res = ''; sbDrawDetail(); return; }
+  if (sbBlk && ev.target.closest('[data-gpnext]')) { const p = sbFind(sbPoint); if (p) sbBlkNew(p, sbBlk.i + 1); sbDrawDetail(); return; }
+  /* 연습 ② 검사 */
+  if (ev.target.closest('#gpCheck')) {
+    const text = $('sbText').value || '';
+    sbChecked = { text, ...sbCheck(text) };
+    track('문법검사');
+    $('gpRes').innerHTML = sbCheckHtml(); return;
+  }
+  if (ev.target.closest('[data-gpfix]') && sbChecked) {
+    const fixed = sbApply(sbChecked.text, sbChecked.issues);
+    $('sbText').value = fixed; sbDraft = fixed;
+    sbChecked = { text: fixed, ...sbCheck(fixed) };
+    $('gpRes').innerHTML = sbCheckHtml(); return;
+  }
 
   const like = ev.target.closest('[data-like]');
   if (like) {
@@ -10828,6 +11005,7 @@ $('sbDetail').addEventListener('click', (ev) => {
     ]);
     sbSave();
     sbDropDraft('post');   // 올렸으니 초안을 비운다
+    sbChecked = null;
     sbSort = 'new';        // 방금 올린 글이 안 보이면 안 올라간 줄 안다
     sbDrawDetail();
   }
@@ -13317,7 +13495,7 @@ async function gameVocabWords(min, have = []) {
   const push = (word, meaning) => { if (word && meaning && !seen.has(word)) { seen.add(word); out.push({ word, meaning }); } };
   guestRead().forEach((g) => push(g.word, g.meaning));
   try {
-    const d = await import('./vocab-topik1.js?v=74e6ff7a');
+    const d = await import('./vocab-topik1.js?v=7ac7599e');
     let st = {};
     try { st = JSON.parse(localStorage.getItem('cp-words-v1') || '{}').w || {}; } catch (e) {}
     const mean = (w) => w.s || w.e.split(';')[0];
@@ -14607,10 +14785,10 @@ $('ltPurposeGrid').addEventListener('click', (ev) => {
    빠지고, 고쳐 올려도 브라우저가 예전 문제를 계속 들고 있게 된다. */
 let LT_CUSTOM = { overall: [], reading: [], writing: [], listening: [] };
 let ltCustomOverallP = null, ltCustomReadingP = null, ltCustomWritingP = null, ltCustomListeningP = null;
-const ltCustomOverallNeed = () => (ltCustomOverallP ??= import('./leveltest-overall.js?v=74e6ff7a').then((m) => { LT_CUSTOM.overall = m.LT_CUSTOM_OVERALL; }));
-const ltCustomReadingNeed = () => (ltCustomReadingP ??= import('./leveltest-reading.js?v=74e6ff7a').then((m) => { LT_CUSTOM.reading = m.LT_CUSTOM_READING; }));
-const ltCustomWritingNeed = () => (ltCustomWritingP ??= import('./leveltest-writing.js?v=74e6ff7a').then((m) => { LT_CUSTOM.writing = m.LT_CUSTOM_WRITING; }));
-const ltCustomListeningNeed = () => (ltCustomListeningP ??= import('./leveltest-listening.js?v=74e6ff7a').then((m) => { LT_CUSTOM.listening = m.LT_CUSTOM_LISTENING; }));
+const ltCustomOverallNeed = () => (ltCustomOverallP ??= import('./leveltest-overall.js?v=7ac7599e').then((m) => { LT_CUSTOM.overall = m.LT_CUSTOM_OVERALL; }));
+const ltCustomReadingNeed = () => (ltCustomReadingP ??= import('./leveltest-reading.js?v=7ac7599e').then((m) => { LT_CUSTOM.reading = m.LT_CUSTOM_READING; }));
+const ltCustomWritingNeed = () => (ltCustomWritingP ??= import('./leveltest-writing.js?v=7ac7599e').then((m) => { LT_CUSTOM.writing = m.LT_CUSTOM_WRITING; }));
+const ltCustomListeningNeed = () => (ltCustomListeningP ??= import('./leveltest-listening.js?v=7ac7599e').then((m) => { LT_CUSTOM.listening = m.LT_CUSTOM_LISTENING; }));
 const LT_CUSTOM_NEED = {
   overall: ltCustomOverallNeed, reading: ltCustomReadingNeed,
   writing: ltCustomWritingNeed, listening: ltCustomListeningNeed,
@@ -16012,7 +16190,7 @@ function fbMount(host, place, level = null) {
    openSection 이 epsDraw 를 부른다. let · const 면 그때 「초기화 전 접근」으로 죽는다. */
 var EPS = null;
 var epsP = null;
-function epsNeed() { return (epsP ??= import('./eps.js?v=74e6ff7a').then((m) => { EPS = m; })); }
+function epsNeed() { return (epsP ??= import('./eps.js?v=7ac7599e').then((m) => { EPS = m; })); }
 const EPS_SECS = ['reading', 'listening'];
 const EPS_MOCK_SEC = 70 * 60;
 const EPS_NUM = ['①', '②', '③', '④'];
