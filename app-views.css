@@ -3812,8 +3812,21 @@
 @media (max-width:480px) { .tq-sq { padding:15px 13px 13px; border-radius:14px; } }
 
 /* 레벨테스트 결과 공유 단추 · 설치 안내 띠 */
-.lt-share-row { display:flex; justify-content:center; margin:16px 0 6px; }
-.lu-share.hidden { display:none; }
+/* 결과 공유 칸 — 카드 미리보기 + 공유 · 링크 복사 */
+.lt-sharebox { display:flex; align-items:center; gap:16px; margin:18px 0 10px; padding:14px; border-radius:var(--r-l);
+  background:var(--surface-2); border:1px solid var(--line); text-align:left; }
+.lt-sharebox-img { flex:none; width:108px; height:108px; border-radius:14px; background:var(--tint); object-fit:cover;
+  box-shadow:0 8px 20px -12px rgba(var(--ink-rgb),.5); transform:rotate(-3deg); }
+.lt-sharebox-r { min-width:0; display:flex; flex-direction:column; gap:4px; }
+.lt-sharebox-r b { font-size:16px; font-weight:800; color:var(--ink); letter-spacing:-.02em; }
+.lt-sharebox-r span { font-size:13px; color:var(--ink-3); line-height:1.5; word-break:keep-all; }
+.lt-sharebox-btns { display:flex; gap:8px; flex-wrap:wrap; margin-top:8px; }
+.lt-share-go { display:inline-flex; align-items:center; gap:6px; padding:9px 18px; border:0; border-radius:999px; cursor:pointer;
+  background:var(--ink-bg); color:#fff; font:inherit; font-size:14px; font-weight:800; }
+.lt-share-go svg { width:16px; height:16px; }
+:root[data-theme="dark"] .lt-share-go { background:var(--ink); color:var(--bg); }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .lt-share-go { background:var(--ink); color:var(--bg); } }
+@media (max-width:420px) { .lt-sharebox-img { width:84px; height:84px; } .lt-sharebox { gap:12px; } }
 .install-bar { background:var(--tint); }
 
 /* ══ 한 줄 피드백 (fbMount) ═══════════════════════════════════ */
@@ -5077,3 +5090,75 @@ div.wd-card:hover { transform:none; }
 
 :root[data-theme="dark"] .td-card { --td-potato-d:#D9A263; --td-line:#1B1512; }
 @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .td-card { --td-potato-d:#D9A263; --td-line:#1B1512; } }
+
+/* ══ 설정 (#account) — Claude 설정 화면처럼: 왼쪽 목록 · 오른쪽 줄(운영자 요청 2026-09-30) ══════════ */
+.st-wrap { max-width:1040px; margin:24px auto 48px; padding:0 var(--gut); display:grid; grid-template-columns:220px minmax(0,1fr); gap:28px; align-items:start; }
+.st-side { position:sticky; top:84px; display:flex; flex-direction:column; gap:2px; }
+.st-side-h { font-size:13px; font-weight:700; color:var(--ink-3); padding:0 12px 8px; }
+.st-nav { display:flex; align-items:center; gap:10px; padding:9px 12px; border:0; border-radius:10px; background:none; color:var(--ink-2);
+  font:inherit; font-size:15px; text-align:left; cursor:pointer; }
+.st-nav:hover { background:rgba(var(--ink-rgb),.05); color:var(--ink); }
+.st-nav.on { background:rgba(var(--ink-rgb),.08); color:var(--ink); font-weight:700; }
+.st-main { min-width:0; background:var(--surface); border:1px solid var(--line); border-radius:var(--r-xl); padding:28px 30px 32px; }
+.st-pane.hidden { display:none; }
+.st-h { font-size:18px; font-weight:700; color:var(--ink); letter-spacing:-.02em; margin:0 0 4px; }
+.st-sub { font-size:14px; color:var(--ink-3); margin:0 0 18px; line-height:1.55; }
+.st-invite { display:grid; grid-template-columns:160px 1fr; gap:24px; align-items:center; margin-bottom:30px; }
+.st-invite-art { background:var(--surface-2); border-radius:var(--r-l); aspect-ratio:1; display:grid; place-items:center; border:1px solid var(--line); }
+.st-invite-art img { width:96px; height:96px; border-radius:18px; }
+.st-invite-r h3 { font-size:22px; font-weight:700; color:var(--ink); letter-spacing:-.03em; margin:0 0 6px; }
+.st-invite-r p { font-size:14.5px; color:var(--ink-2); line-height:1.6; margin:0 0 14px; word-break:keep-all; }
+.st-link { display:flex; align-items:center; gap:8px; max-width:440px; padding:6px 6px 6px 14px; border:1px solid var(--line); border-radius:12px; background:var(--surface); }
+.st-link span { flex:1; min-width:0; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; font-size:14px; color:var(--ink-2); }
+.st-link button { flex:none; padding:8px 14px; border:0; border-radius:9px; background:var(--ink-bg); color:#fff; font:inherit; font-size:13.5px; font-weight:700; cursor:pointer; }
+.st-rows { display:flex; flex-direction:column; }
+.st-row { display:flex; align-items:center; justify-content:space-between; gap:18px; padding:16px 0; border-top:1px solid var(--line); }
+.st-row:first-child { border-top:0; }
+.st-row-l { min-width:0; display:flex; flex-direction:column; gap:3px; }
+.st-row-l b { font-size:15px; font-weight:600; color:var(--ink); }
+.st-row-l span { font-size:13.5px; color:var(--ink-3); line-height:1.5; word-break:keep-all; }
+.st-row-r { flex:none; }
+.st-btn { padding:8px 16px; border:1px solid var(--line); border-radius:10px; background:var(--surface); color:var(--ink); font:inherit; font-size:14px; font-weight:600; cursor:pointer; white-space:nowrap; }
+.st-btn:hover { border-color:rgba(var(--ink-rgb),.3); }
+.st-chip { display:inline-flex; align-items:center; gap:6px; padding:5px 12px 5px 6px; border:1px solid var(--line); border-radius:999px; font-size:13.5px; font-weight:700; color:var(--ink-2); white-space:nowrap; }
+.st-chip svg { width:24px; height:24px; }
+.st-seg { display:inline-flex; padding:3px; gap:2px; border-radius:10px; background:rgba(var(--ink-rgb),.06); }
+.st-seg button { padding:7px 12px; border:0; border-radius:8px; background:none; color:var(--ink-2); font:inherit; font-size:13.5px; font-weight:600; cursor:pointer; white-space:nowrap; }
+.st-seg button.on { background:var(--surface); color:var(--ink); box-shadow:0 1px 3px rgba(var(--ink-rgb),.15); }
+.st-date { padding:7px 10px; border:1px solid var(--line); border-radius:10px; background:var(--surface); color:var(--ink); font:inherit; font-size:14px; }
+#authView .ac-grid { margin-top:18px; }
+#authView .wb-login { max-width:380px; margin:0; }
+:root[data-theme="dark"] .st-link button { background:var(--ink); color:var(--bg); }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .st-link button { background:var(--ink); color:var(--bg); } }
+@media (max-width:760px) {
+  .st-wrap { grid-template-columns:1fr; gap:12px; margin-top:12px; }
+  .st-side { position:static; flex-direction:row; overflow-x:auto; gap:4px; padding-bottom:4px; scrollbar-width:none; }
+  .st-side-h { display:none; }
+  .st-nav { flex:none; padding:8px 12px; font-size:14px; border:1px solid var(--line); border-radius:999px; }
+  .st-nav.on { background:var(--ink-bg); color:#fff; border-color:var(--ink-bg); }
+  .st-main { padding:20px 16px 24px; }
+  .st-invite { grid-template-columns:1fr; gap:14px; }
+  .st-invite-art { aspect-ratio:auto; padding:18px; }
+  .st-invite-art img { width:72px; height:72px; }
+  .st-row { flex-wrap:wrap; gap:10px; }
+}
+
+/* 설정 — 선 아이콘(이모지 대신, 운영자 요청 2026-09-30) · 접는 줄 · 삭제 */
+.st-ic { width:20px; height:20px; flex:none; fill:none; stroke:currentColor; stroke-width:1.7; stroke-linecap:round; stroke-linejoin:round; }
+.nav-svg { width:18px; height:18px; display:block; fill:none; stroke:currentColor; stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round; }
+.st-fold { display:block; }
+.st-fold > summary { display:flex; align-items:center; justify-content:space-between; gap:18px; list-style:none; cursor:pointer; }
+.st-fold > summary::-webkit-details-marker { display:none; }
+.st-fold[open] > summary .st-btn { background:rgba(var(--ink-rgb),.06); }
+.st-fold .up-panel { margin-top:14px; border:0; padding:0; background:none; box-shadow:none; }
+.st-danger { color:var(--red); border-color:color-mix(in srgb, var(--red) 35%, transparent); text-decoration:none; display:inline-block; }
+.st-danger:hover { background:color-mix(in srgb, var(--red) 8%, transparent); border-color:var(--red); color:var(--red); }
+.st-del { margin:4px 0 8px; padding:16px; border-radius:var(--r); background:color-mix(in srgb, var(--red) 6%, var(--surface)); border:1px solid color-mix(in srgb, var(--red) 25%, transparent); font-size:14px; color:var(--ink-2); line-height:1.6; }
+.st-del b { color:var(--ink); }
+.st-del ol { margin:8px 0 12px 18px; padding:0; }
+.st-invite-rows { margin-top:22px; border-top:1px solid var(--line); }
+#authView .ac-head { margin:0; padding:0; border:0; gap:14px; }
+#authView .ac-ava { width:48px; height:48px; font-size:22px; }
+#authView .ac-name { font-size:17px; }
+#authView .ac-mail { font-size:13.5px; margin-top:2px; }
+.lang-btn .nav-svg { width:17px; height:17px; }

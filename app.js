@@ -1239,7 +1239,10 @@ function isDarkNow() {
 }
 function paintThemeBtn() {
   const dark = isDarkNow();
-  themeBtn.textContent = dark ? '☀️' : '🌙';
+  /* 이모지 대신 선 아이콘(운영자 요청 2026-09-30) — 어두우면 해, 밝으면 달 */
+  themeBtn.innerHTML = dark
+    ? '<svg class="nav-svg" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2M12 19.5v2M4.6 4.6l1.4 1.4M18 18l1.4 1.4M2.5 12h2M19.5 12h2M4.6 19.4L6 18M18 6l1.4-1.4"/></svg>'
+    : '<svg class="nav-svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg>';
   themeBtn.setAttribute('aria-label', dark ? '밝은 모드로 바꾸기' : '어두운 모드로 바꾸기');
   /* <meta theme-color> 둘은 media 로 시스템 설정만 본다. 사이트 안 단추로
      손수 반대로 뒤집었을 때(예: 시스템은 밝은데 여기서 어둡게 눌렀을 때)는
@@ -1257,6 +1260,11 @@ function applyTheme(theme) {
   else document.documentElement.removeAttribute('data-theme');
   paintThemeBtn();
 }
+/* 설정 화면(app.module.js stDraw)의 「밝기」 — null 이면 기기 설정을 따른다 */
+window.cpTheme = (theme) => {
+  applyTheme(theme);
+  try { theme ? localStorage.setItem('theme', theme) : localStorage.removeItem('theme'); } catch (e) {}
+};
 themeBtn.addEventListener('click', () => {
   const next = isDarkNow() ? 'light' : 'dark';
   applyTheme(next);

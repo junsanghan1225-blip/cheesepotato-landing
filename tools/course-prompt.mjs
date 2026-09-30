@@ -13,7 +13,9 @@ const TARGET = 4;   // 코스당 레슨 수. 가장 잘 채워진 초급 코스(
 
 /* 초급은 「내 코스」의 L2 · L3 코스만(app.module.js MY_LEVEL_COURSES) — L0 · L1 은 영어로 쓴 입문 코스라 모양이 다르다. */
 const BEGINNER_FILL = ['bg-05', 'bg-06', 'bg-d-01', 'bg-07', 'bg-08', 'bg-09', 'bg-irr-01',
-  'bg-10', 'bg-d-02', 'bg-11', 'bg-12', 'bg-irr-02', 'bg-d-03', 'bg-d-04', 'bg-d-05'];
+  'bg-10', 'bg-d-02', 'bg-11', 'bg-12', 'bg-irr-02', 'bg-d-03', 'bg-d-04', 'bg-d-05',
+  // 4차(2026-09-30) — L4 (Stage 3–4)
+  'bg-13', 'bg-14', 'bg-15', 'bg-16', 'bg-17', 'bg-18', 'bg-19', 'bg-20', 'bg-21'];
 const list = [
   ...BEGINNER_FILL.map((id) => COURSES.find((c) => c.id === id)).filter(Boolean),
   ...COURSES.filter((c) => c.level === 'Intermediate' || c.level === 'Advanced'),
