@@ -918,6 +918,22 @@ export const BEGINNER_STAGE1_COURSES = [
     ],
   },
 
+  {
+    id: "bg-09-04", title: {"ko":"4강. 동사와 형용사의 부정 꼴 만들기","en":"Lesson 4. Shaping Negations for Verbs and Adjectives"}, minutes: 5,
+    blocks: [
+      {"t":"text","h":"Where Negation Sits: Verbs vs. Adjectives","md":"How you negate depends on whether a word is an **action verb** or a **descriptive adjective**:\n\n1. **Actions (동사):** Put **안** or **못** right before the verb. For -하다 action verbs, split them: **공부 안 해요 / 운동 못 해요**.\n2. **Adjectives (형용사):** Use **안** only (never 못!). And do **not** split -하다 adjectives: **안 친절해요**, **안 따뜻해요**."},
+      {"t":"table","head":["Type","Word","Affirmative","Negative with 안","Can it use 못?"],"rows":[["Action Verb","가다 (to go)","가요","안 가요","못 가요 (unable to go)"],["Action -하다","운동하다 (to exercise)","운동해요","운동 안 해요","못 해요 (unable to exercise)"],["Adjective","크다 (to be big)","커요","안 커요","No (못 커요 is wrong)"],["Adjective -하다","친절하다 (to be kind)","친절해요","안 친절해요","No (못 친절해요 is wrong)"]]},
+      {"t":"note","md":"Why can't you use **못** with adjectives? Because **못** means *unable to do an action* due to ability or circumstance. An object cannot 'fail' at being small, warm, or pretty!"},
+      {"t":"chars","wide":true,"items":[{"ch":"오늘은 날씨가 안 추워요.","tip":"The weather isn’t cold today. — Adjective 추워요 takes 안, never 못."},{"ch":"방이 안 넓어요.","tip":"The room isn’t spacious. — Adjective 넓어요 takes 안."},{"ch":"지금 숙제 안 해요.","tip":"I’m not doing homework now. — Action noun 숙제 splits with 안 해요."}]},
+      {"t":"choice","q":"Which sentence correctly says “The water is not hot” (뜨겁다 is an adjective)?","options":["물이 안 뜨거워요.","물이 못 뜨거워요.","물이 뜨겁지 못해요."],"answer":0,"why":"뜨겁다 is an adjective (describes temperature), so it cannot use 못. Use **안 뜨거워요**."},
+      {"t":"choice","q":"How do you say “He is not kind” using 친절하다 (adjective)?","options":["안 친절해요.","친절 안 해요.","친절 못 해요."],"answer":0,"why":"친절하다 is a descriptive adjective, not an action verb. Adjectives do not split, so put 안 at the front: **안 친절해요**."},
+      {"t":"pair","q":"Match each phrase to its correct negative pattern.","pairs":[["전화하다 (action verb)","전화 안 해요"],["깨끗하다 (adjective)","안 깨끗해요"],["먹다 (action verb)","안 먹어요 / 못 먹어요"],["비싸다 (adjective)","안 비싸요"]]},
+      {"t":"cloze","sentence":"이 옷은 전혀 [안] 비싸요.","answer":"안","meaning":"These clothes are not expensive at all.","options":["안","못","잘","너무"],"keys":["안","못","잘","너무"],"why":"비싸다 is an adjective describing price, so only **안** can negate it."},
+      {"t":"type","q":"Make the polite negative form of 수영하다 (to swim) with 안: 「저는 바다에서 ___ .」","answer":"수영 안 해요","keys":["수영 안 해요","안 수영해요","수영 하안 해요"],"why":"Action verbs with -하다 split so that 안 sits right before 해요: **수영 안 해요**. 안 수영해요 does not split the noun and verb, and 수영 하안 해요 is ungrammatical."},
+      {"t":"speak","say":"이 가방은 전혀 안 무겁고 예뻐요.","rom":"i ga-bang-eun jeon-hyeo an mu-geop-go ye-ppeo-yo","q":"Read out loud: “This bag is not heavy at all and it’s pretty.”"},
+      {"t":"order","q":"Arrange the words to say: “I don’t exercise today.”","tokens":["오늘은","운동","안 해요"],"answer":["오늘은","운동","안 해요"]},
+    ],
+  },
   ],
 },
 
