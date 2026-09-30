@@ -6,9 +6,27 @@
 코스마다 **4강**까지 채운다(`docs/level-plan.md` 6층 ① — 운영자가 정한 첫 순서). 모두 22강이다.
 
 ```bash
-git checkout main && git pull origin main
-git checkout -b beginner-lessons
 node tools/course-prompt.mjs        # 채울 코스 목록 — 「강 n / 4」
+```
+
+## 이번 차례 (3차) — L3 코스 6개, 모두 10강
+
+L2 는 다 찼다. 이번에는 **L3** 만 한다. 순서대로:
+
+| 코스 | 지금 | 채울 강 |
+|---|---|---|
+| bg-10 과거 -았/었- | 2 / 4 | 3 · 4강 |
+| bg-11 진행 -고 있다 | 1 / 4 | 2 · 3 · 4강 |
+| bg-12 전 · 후 · 때 · 기간 | 3 / 4 | 4강 |
+| bg-irr-02 ㄷ · 르 불규칙 | 2 / 4 | 3 · 4강 |
+| bg-d-02 -고 싶다 / -(으)ㄹ 거예요 | 3 / 4 | 4강 |
+| bg-d-03 존댓말 -(으)시- | 3 / 4 | 4강 |
+
+아래 명령의 `bg-05` 자리에 위 코스 id 를 넣는다. 브랜치는 **새로** 만든다:
+
+```bash
+git checkout main && git pull origin main
+git checkout -b beginner-lessons-l3
 ```
 
 ## 코스 하나를 채우는 순서 — **L2 코스부터**(bg-05 · bg-06 · bg-d-01 · bg-07 · bg-08 · bg-09 · bg-irr-01), 그다음 L3
@@ -41,13 +59,17 @@ git add -A && git commit -m "course: bg-05 to 4 lessons"
 - `course-merge.mjs` 가 「못 붙임」으로 멈추면 JSON 을 고쳐 다시 붙인다. 파일을 손으로 고치지 않는다.
 - `check-courses.mjs` 가 멈추면 고치고 다시 돌린다. **검사기 · 도구(`tools/`)를 고치지 않는다.**
 - 한자를 쓰지 않는다. 사람 이름은 흔한 것만.
+- **오답 보기는 문장에 넣었을 때 확실히 틀린 말이어야 한다.** 시제만 다른 꼴(과거 · 미래 — 예: 정답 「줘요」에 「줬어요」),
+  줄이지 않은 꼴(「마시어요」 · 「하여요」), 다른 조사로도 말이 되는 것(「동생은」 자리에 「동생이」)은 오답으로 쓰지 않는다.
+  2차에서 이런 보기 8개를 고쳤다.
+- **파일을 CRLF 로 저장하지 않는다**(LF 그대로).
 
 ## 끝낼 때 (몇 개를 했든)
 
 ```bash
 node tools/stamp.mjs --check
 node tools/check-geo.mjs     # 레슨 수가 늘어 첫 쪽 숫자가 걸리면 index.html · llms.txt · tools/build-legal.mjs 를 검사기가 말하는 값으로 바꾸고 node tools/build-legal.mjs
-git push -u origin beginner-lessons
+git push -u origin beginner-lessons-l3
 ```
 
 PR 은 열지 않는다 — Claude 가 검토하고 연다. **`git push` 까지 꼭 한다.** 한 번에 다 못 하면 **L2 앞쪽부터** 하고 멈춘다.
