@@ -175,6 +175,36 @@ export const BEGINNER_STAGE1_COURSES = [
     ],
   },
 
+  {
+    id: "bg-05-03", title: {"ko":"3강. 이름과 물건 소개하기 — 이에요/예요 꼴 만들기","en":"Lesson 3. Naming People & Things — Forming 이에요/예요"}, minutes: 5,
+    blocks: [
+      {"t":"text","h":"Expanding Your Introductions","md":"Now that you know **-이에요** follows a consonant and **-예요** follows a vowel, let's practice with names, nationalities, and everyday objects.\n\nNotice that Korean names ending in a consonant take **-이에요**, while names ending in a vowel take **-예요**."},
+      {"t":"table","head":["Category","Word","Ends In","With Ending"],"rows":[["Name","민수 (Minsu)","Vowel ㅜ","민수**예요**"],["Name","지훈 (Jihoon)","Consonant ㄴ","지훈**이에요**"],["Object","시계 (clock/watch)","Vowel ㅔ","시계**예요**"],["Object","책 (book)","Consonant ㄱ","책**이에요**"]]},
+      {"t":"note","md":"When introducing yourself, you can say **저는 [Name]이에요/예요** or shorten **저는** to **전**: **전 민수예요** (I'm Minsu)."},
+      {"t":"chars","wide":true,"items":[{"ch":"저는 미국 사람이에요.","tip":"I am American. 사람 ends in a consonant ㅁ → 이에요."},{"ch":"이 사람은 제 친구 수진이에요.","tip":"This person is my friend Sujin. 수진 ends in a consonant ㄴ → 이에요."},{"ch":"저거는 가방이에요.","tip":"That (over there) is a bag. 가방 ends in a consonant ㅇ → 이에요."},{"ch":"이거는 의자예요.","tip":"This is a chair. 의자 ends in a vowel ㅏ → 예요."}]},
+      {"t":"pair","q":"Match each word to its correct ending form.","pairs":[["책 (book)","책이에요"],["시계 (clock)","시계예요"],["지훈 (Jihoon)","지훈이에요"],["민수 (Minsu)","민수예요"]]},
+      {"t":"choice","q":"Choose the correct sentence to introduce Minji (민지).","options":["저는 민지예요.","저는 민지이에요.","저는 민지가예요.","저는 민지는이에요."],"answer":0,"why":"민지 ends in the vowel ㅣ, so it takes **-예요**. 민지이에요 breaks the vowel contraction rule."},
+      {"t":"cloze","sentence":"이거는 한국어 [책이에요].","answer":"책이에요","meaning":"This is a Korean book.","options":["책이에요","책예요","책가예요","책이예요"],"keys":["책이에요","책예요","책가예요","책이예요"],"why":"책 ends in the consonant ㄱ (받침), so it attaches **-이에요** to become **책이에요**."},
+      {"t":"type","q":"Complete the sentence with the correct form: “This is a desk (책상).” → 이거는 책상___","answer":"책상이에요","keys":["책상이에요","책상예요","책상가예요"],"why":"책상 ends in the consonant ㅇ (받침), so it takes **-이에요**."},
+      {"t":"order","q":"Assemble the sentence: “I am American.”","tokens":["저는","미국","사람이에요"],"answer":["저는","미국","사람이에요"]},
+      {"t":"speak","say":"저는 지훈이에요. 만나서 반가워요.","rom":"jeo-neun ji-hun-i-e-yo. man-na-seo ban-ga-wo-yo.","q":"Say out loud: “I am Jihoon. Nice to meet you.”"},
+    ],
+  },
+  {
+    id: "bg-05-04", title: {"ko":"4강. 헷갈리는 짝: 이에요/예요 vs. 아니에요","en":"Lesson 4. Sorting the Pair: 이에요/예요 vs. 아니에요"}, minutes: 5,
+    blocks: [
+      {"t":"text","h":"Affirmative vs. Negative: The Particle Trap","md":"Beginners often get confused by what comes *in front of* the ending:\n\n1. **이에요 / 예요** attaches directly to the noun without any particle:\n**학생이에요** (I am a student — NO particle!)\n\n2. **아니에요** requires the subject particle **이/가**:\n**학생이 아니에요** (I am not a student).\n\nNever say *학생 안 이에요* or *학생을 아니에요*!"},
+      {"t":"table","head":["Noun","Is...","Is NOT..."],"rows":[["학생 (student)","학생**이에요**","학생**이 아니에요**"],["의사 (doctor)","의사**예요**","의사**가 아니에요**"],["물 (water)","물**이에요**","물**이 아니에요**"],["커피 (coffee)","커피**예요**","커피**가 아니에요**"]]},
+      {"t":"note","md":"Remember: **이에요/예요** is a suffix glued to the noun. **아니에요** is an independent adjective word meaning 'to not be', which is why the noun before it needs the subject marker **이/가**."},
+      {"t":"chars","wide":true,"items":[{"ch":"이거는 물이에요. 술이 아니에요.","tip":"This is water. It is not alcohol. (물 + 이에요 / 술 + 이 아니에요)"},{"ch":"저는 선생님이 아니에요. 학생이에요.","tip":"I am not a teacher. I am a student. (선생님 + 이 아니에요 / 학생 + 이에요)"},{"ch":"제 가방이 아니에요. 친구 가방이에요.","tip":"It's not my bag. It's my friend's bag."}]},
+      {"t":"choice","q":"Which sentence incorrectly adds a particle before 이에요?","options":["저는 학생이 이에요.","저는 학생이에요.","저는 학생이 아니에요.","저는 의사예요."],"answer":0,"why":"이에요/예요 attaches directly to the noun with **no particle**. Saying **학생이 이에요** is wrong; it should be simply **학생이에요**."},
+      {"t":"cloze","sentence":"이거는 주스[가 아니에요]. 물이에요.","answer":"가 아니에요","meaning":"This is not juice. It is water.","options":["가 아니에요","이 아니에요","안 이에요","를 아니에요"],"keys":["가 아니에요","이 아니에요","안 이에요","를 아니에요"],"why":"주스 ends in a vowel (ㅡ), so it takes **가 아니에요**. Korean never says *안 이에요*."},
+      {"t":"pair","q":"Match each affirmative sentence with its negative counterpart.","pairs":[["커피예요","커피가 아니에요"],["물이에요","물이 아니에요"],["의사예요","의사가 아니에요"],["학생이에요","학생이 아니에요"]]},
+      {"t":"order","q":"Arrange the words to say: “I am not a teacher. I am a student.”","tokens":["선생님이","아니에요.","학생이에요.","저는"],"answer":["저는","선생님이","아니에요.","학생이에요."]},
+      {"t":"type","q":"Complete the sentence with the negative form of 의사: “저는 ___ .” (I am not a doctor.)","answer":"의사가 아니에요","keys":["의사가 아니에요","의사를 아니에요","의사이 아니에요"],"why":"의사 ends in a vowel, so it takes **가 아니에요**."},
+      {"t":"speak","say":"저는 일본 사람이 아니에요. 한국 사람이에요.","rom":"jeo-neun il-bon sa-ram-i a-ni-e-yo. han-guk sa-ram-i-e-yo.","q":"Say out loud: “I am not Japanese. I am Korean.”"},
+    ],
+  },
   ],
 },
 
