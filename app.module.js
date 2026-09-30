@@ -13,16 +13,16 @@
    어느 날 갑자기 다른 코드가 실려 왔다.
    이제 vendor/ 안에 받아 두고 CSP 로 바깥을 막는다. 버전을 올릴 때는
    tools/vendor.mjs 의 PIN 을 고치고 다시 돌린다. */
-import { createClient } from './vendor/supabase-js.js?v=239a2805';
+import { createClient } from './vendor/supabase-js.js?v=457ba281';
 // TOPIK 읽기 "문제 풀이 영상" 목록. 아주 작은 파일이라(id 목록뿐) 다른
 // 자료처럼 갈래를 열 때 지연 로딩하지 않고 그냥 처음부터 받는다.
-import { TQ_VIDEO_IDS } from './topik-video.js?v=239a2805';
+import { TQ_VIDEO_IDS } from './topik-video.js?v=457ba281';
 // 코스 아이콘 — 이모지 대신 선 아이콘(course-icons.js 머리말)
 // 구독(Paddle) — billing.js 머리말
-import { BILLING, billingLive, isPro, proInfo, loadPro, openCheckout, waitPro } from './billing.js?v=239a2805';
-import { myLevelBadge, potatoLevel, cheeseLevel } from './levels.js?v=239a2805';
-import { courseIcon } from './course-icons.js?v=239a2805';
-import { AUDIO_REMOTE, audioKey } from './audio-key.js?v=239a2805';
+import { BILLING, billingLive, isPro, proInfo, loadPro, openCheckout, waitPro } from './billing.js?v=457ba281';
+import { myLevelBadge, potatoLevel, cheeseLevel } from './levels.js?v=457ba281';
+import { courseIcon } from './course-icons.js?v=457ba281';
+import { AUDIO_REMOTE, audioKey } from './audio-key.js?v=457ba281';
 // 앱(package.json)과 같은 줄기를 쓴다. 갈리면 앱에서는 읽히는 파일이
 // 여기서는 안 읽히는(또는 그 반대) 일이 생긴다.
 /* 엑셀 라이브러리는 422KB — 이 판에서 가장 무거운 조각이다. 그런데 쓰는
@@ -34,7 +34,7 @@ import { AUDIO_REMOTE, audioKey } from './audio-key.js?v=239a2805';
    자국(?v=)은 tools/stamp.mjs 가 아래 줄에 알아서 붙인다 — 정적으로 쓰든
    동적으로 쓰든 같은 글자를 찾으므로 바꿔도 그대로 찍힌다. */
 let XLSX = null;
-const needXLSX = async () => (XLSX ??= await import('./vendor/xlsx.js?v=239a2805'));
+const needXLSX = async () => (XLSX ??= await import('./vendor/xlsx.js?v=457ba281'));
 // 커리큘럼. 내용과 엔진을 갈라 두면 글을 고치다 화면을 깨지 않는다.
 // 갈래 목록(drawSections)·코스(drawCourses)·문제만 풀기(dqDraw) 를 열 때만
 // 받는다 — 배우기 갈래 목록도 안 본 사람에게 코스 71개 레슨을 다 물릴
@@ -42,9 +42,9 @@ const needXLSX = async () => (XLSX ??= await import('./vendor/xlsx.js?v=239a2805
 let COURSES = [], coursesP = null;
 /* 앱은 courses.js 대신 courses-lite.js 를 받는다 — 중·고급 레슨 본문을 뺀 목록이다
    (tools/build-courses-lite.mjs). 본문은 그 레슨을 열 때 upperBlocksNeed() 가 채운다. */
-const coursesNeed = () => (coursesP ??= import('./courses-lite.js?v=239a2805').then((m) => { COURSES = m.COURSES; }));
+const coursesNeed = () => (coursesP ??= import('./courses-lite.js?v=457ba281').then((m) => { COURSES = m.COURSES; }));
 let upperP = null;
-const upperBlocksNeed = () => (upperP ??= coursesNeed().then(() => import('./courses-grammar-detailed.js?v=239a2805')).then((m) => {
+const upperBlocksNeed = () => (upperP ??= coursesNeed().then(() => import('./courses-grammar-detailed.js?v=457ba281')).then((m) => {
   const byId = new Map(m.DETAILED_GRAMMAR_COURSES.flatMap((c) => c.lessons.map((l) => [l.id, l.blocks])));
   for (const c of COURSES) for (const l of c.lessons) if (!l.blocks && byId.has(l.id)) { l.blocks = byId.get(l.id); delete l.lazy; }
 }));
@@ -59,7 +59,7 @@ const blocksNeed = async (course) => { if (course.lessons.some((l) => !l.blocks)
    tqGloss 는 그대로 동기다 — 아직 안 왔으면 빈 뜻을 돌려주고, 부르는
    쪽은 이미 "사전에 없는 말"을 다룰 줄 안다. */
 let GLOSSARY = {}, GLOSS_LANGS = {}, glossP = null;
-const glossNeed = () => (glossP ??= import('./glossary.js?v=239a2805').then((m) => {
+const glossNeed = () => (glossP ??= import('./glossary.js?v=457ba281').then((m) => {
   GLOSSARY = m.GLOSSARY; GLOSS_LANGS = m.GLOSS_LANGS;
   dictBuildEntries();
 }).catch((e) => {
@@ -67,12 +67,12 @@ const glossNeed = () => (glossP ??= import('./glossary.js?v=239a2805').then((m) 
   glossP = null;
   throw e;
 }));
-import { glossFind } from './gloss-find.js?v=239a2805';
+import { glossFind } from './gloss-find.js?v=457ba281';
 /* 홈 화면 "오늘의 단어" 카드. 표제어·품사·짧은 뜻풀이 3개만 든
    작은 자료라(사전 전체 356KB 와 달리) 홈에 들어오면 바로 받는다 —
    빈 카드로 몇 초 떠 있는 것보다 낫다. */
 let WOTD_POOL = [], wotdP = null;
-const wotdNeed = () => (wotdP ??= import('./wotd.js?v=239a2805').then((m) => {
+const wotdNeed = () => (wotdP ??= import('./wotd.js?v=457ba281').then((m) => {
   WOTD_POOL = m.WOTD_POOL;
 }).catch((e) => { wotdP = null; throw e; }));
 /* 그날의 낱말을 고른다. 한국 자정을 기준으로 하루씩 넘어가게
@@ -107,9 +107,9 @@ window.wotdRender = () => { wotdRender(); try { todayRender(); } catch (e) {} };
    나중 화면은 그 약속(??=)을 그대로 쓴다. */
 let GRAMMAR = [], GRAMMAR_EN = {}, grammarP = null;
 const grammarNeed = () => (grammarP ??= Promise.all([
-  import('./grammar.js?v=239a2805'), import('./grammar-en.js?v=239a2805'),
+  import('./grammar.js?v=457ba281'), import('./grammar-en.js?v=457ba281'),
 ]).then(([a, b]) => { GRAMMAR = a.GRAMMAR; GRAMMAR_EN = b.GRAMMAR_EN; }));
-import { grammarScan } from './grammar-find.js?v=239a2805';
+import { grammarScan } from './grammar-find.js?v=457ba281';
 // TOPIK 쓰기·듣기 문항. 읽기(topik.js·topik2.js)와 같은 tqNeedData() 로
 // 함께 받는다 — 유형 연습(topik) 갈래 하나가 세 기술을 다 쓰므로 따로
 // 가를 까닭이 없다. 값은 tqNeedData 정의부에서 채운다.
@@ -121,7 +121,7 @@ let TOPIKL_BY_EXAM = {}, TOPIKL_PICTURE_SLOTS = {};
    sbFind 를 쓰는데, 그쪽은 안 기다리고 그냥 부른다 — 답이 못 찾은
    인용 없이 나가는 것이 채팅이 멈추는 것보다 낫다. */
 let SB_CATS = [], SB_MORE = {}, SB_SEED = {}, SB_POINTS = [], sbDataP = null;
-const sbNeed = () => (sbDataP ??= import('./sentences.js?v=239a2805').then((m) => {
+const sbNeed = () => (sbDataP ??= import('./sentences.js?v=457ba281').then((m) => {
   SB_CATS = m.SB_CATS; SB_MORE = m.SB_MORE; SB_SEED = m.SB_SEED;
   // 갈래마다 표현을 펼쳐 한 줄에 담는다 — SB_CATS 안의 점에는 갈래가 안
   // 달려 있어서(sbFind 가 표현 하나를 id 로 바로 찾으려면 이게 있어야 한다).
@@ -132,7 +132,7 @@ const sbNeed = () => (sbDataP ??= import('./sentences.js?v=239a2805').then((m) =
 // 숫자 게임의 읽기와 문제 만들기. 화면을 모르는 순수 계산이라 따로 뒀다.
 // 게임 목록에서 「숫자 읽기」를 시작할 때만 받는다 — XLSX 와 같은 자리다.
 let makeRound = null;
-const needNumbers = async () => (makeRound ??= (await import('./numbers.js?v=239a2805')).makeRound);
+const needNumbers = async () => (makeRound ??= (await import('./numbers.js?v=457ba281')).makeRound);
 
 // 이 키는 공개돼도 되는 값이다. 이미 APK 안에 같은 것이 들어 있고,
 // 접근을 막는 건 키가 아니라 테이블에 걸린 RLS 다.
@@ -214,8 +214,8 @@ let tqDataP = null;
    유형 연습(topik) 갈래 하나가 이 넷을 다 쓰므로 갈라 봤자 요청만
    늘어난다. */
 const tqNeedData = () => (tqDataP ??= Promise.all([
-  import('./topik.js?v=239a2805'), import('./topik2.js?v=239a2805'),
-  import('./topik-writing.js?v=239a2805'), import('./topik-listening.js?v=239a2805'),
+  import('./topik.js?v=457ba281'), import('./topik2.js?v=457ba281'),
+  import('./topik-writing.js?v=457ba281'), import('./topik-listening.js?v=457ba281'),
 ]).then(([a, b, c, d]) => {
   TQ_DATA.I  = { reading: a.TOPIK_READING,  blueprint: a.TOPIK_BLUEPRINT,  slots: a.TOPIK_SLOTS };
   TQ_DATA.II = { reading: b.TOPIK2_READING, blueprint: b.TOPIK2_BLUEPRINT, slots: b.TOPIK2_SLOTS };
@@ -226,11 +226,11 @@ const tqNeedData = () => (tqDataP ??= Promise.all([
 let READING = null, rdP = null;
 // 지문의 밑줄 문법 말풍선이 GRAMMAR 를 쓰므로 같이 받아 둔다.
 const rdNeed = () => (rdP ??= Promise.all([
-  import('./reading.js?v=239a2805'), grammarNeed(),
+  import('./reading.js?v=457ba281'), grammarNeed(),
 ]).then(([m]) => { READING = m.READING; }));
 
 let CONVO = null, cvP = null;
-const cvNeed = () => (cvP ??= import('./convo.js?v=239a2805').then((m) => { CONVO = m.CONVO; }));
+const cvNeed = () => (cvP ??= import('./convo.js?v=457ba281').then((m) => { CONVO = m.CONVO; }));
 
 /* 배우기를 열면 여섯 다 미리 불을 붙인다. 기다리지 않는다 — 갈래 목록은
    이 자료가 없어도 그려지고, 사람이 갈래를 고르는 사이에 도착한다.
@@ -452,9 +452,9 @@ $('dictBtn').addEventListener('click', () => { const go = !showing('wordsView');
    합쳐 200KB 남짓(압축)이라 첫 화면 모두에게 물릴 까닭이 없다. 사이트 공용 도구는 넘겨준다. */
 let wordsApi = null, wordsP = null;
 /* TOPIK II 예문은 500개씩 조각으로 따로 받는다(tools/build-vocab.mjs) — 조각 주소는 이 파일의 자국을 빌린다. */
-const VOCAB2_URL = './vocab-topik2.js?v=239a2805';
+const VOCAB2_URL = './vocab-topik2.js?v=457ba281';
 const wordsNeed = () => (wordsP ??= Promise.all([
-  import('./words.js?v=239a2805'), import('./vocab-topik1.js?v=239a2805'), import(VOCAB2_URL),
+  import('./words.js?v=457ba281'), import('./vocab-topik1.js?v=457ba281'), import(VOCAB2_URL),
 ]).then(([m, d, d2]) => {
   wordsApi = m.wordsInit({
     root: $('wordsRoot'), t, esc, track, say, glossFind, glossNeed, ICON: DICT_SAY_ICON,
@@ -549,7 +549,7 @@ async function vocabSync() {
   if (!wordsP) return;
   const { data: { session } } = await sb.auth.getSession();
   if (!session) return;
-  const m = await import('./words.js?v=239a2805');
+  const m = await import('./words.js?v=457ba281');
   const ok = await m.syncVocab(async () => {
     const { data, error } = await sb.from('settings').select('vocab').eq('user_id', session.user.id).maybeSingle();
     return error ? undefined : (data?.vocab || {});
@@ -863,14 +863,14 @@ let dictOpen = null;  // 지금 "더 보기"(예문·뜻풀이)를 펼쳐 둔 �
    평소엔 안 쓰는 522KB 를 첫 화면 모두에게 물릴 까닭이 없다. */
 let dictSensesP = null;
 const dictLoadSenses = () => (dictSensesP ??=
-  import('./glossary-senses.js?v=239a2805').then((m) => m.SENSES).catch(() => ({})));
+  import('./glossary-senses.js?v=457ba281').then((m) => m.SENSES).catch(() => ({})));
 
 /* 예문. 국립국어원 자료엔 없어서 Gemini 로 새로 지은 것이다(있는 만큼만
    — docs/glossary-examples-gemini-prompt.md 참고). 뜻풀이와 같은 자리에서
    같이 받는다 — 펼치는 손짓 하나에 몰아 두는 편이 화면이 덜 복잡하다. */
 let dictExamplesP = null;
 const dictLoadExamples = () => (dictExamplesP ??=
-  import('./glossary-examples.js?v=239a2805').then((m) => m.EXAMPLES).catch(() => ({})));
+  import('./glossary-examples.js?v=457ba281').then((m) => m.EXAMPLES).catch(() => ({})));
 
 function dictVisible() {
   const q = dictQuery.trim().toLowerCase();
@@ -6749,6 +6749,7 @@ function ntMemoDrawDoc() {
   ic.textContent = m.icon || t('🙂 아이콘 고르기', '🙂 Add icon');
   ic.classList.toggle('none', !m.icon);
   ntMemoCatOptions($('ntMemoDocCat'), m.cat);
+  ntCatChipPaint(m);
   $('ntMemoPin').classList.toggle('on', m.pin);
   $('ntMemoPin').title = m.pin ? t('고정 풀기', 'Unpin') : t('고정하기', 'Pin');
   $('ntMemoSaved').textContent = t('저장됨', 'Saved');
@@ -8228,13 +8229,66 @@ $('ntMemoBack').addEventListener('click', () => {
 });
 $('ntMemoTitle').addEventListener('input', ntMemoTouch);
 $('ntMemoQ').addEventListener('input', () => { ntMemoQ = $('ntMemoQ').value; ntMemoDrawList(); });
+/* ── 속성 줄의 갈래 태그 (노션식) ─────────────────────────────
+   태그를 누르면 찾기 칸 + 갈래 목록이 뜬다. 고르면 숨은 select 의 값을 바꾸고 change 를 보내 — 저장 · 새 갈래 만들기는
+   원래 처리(아래)를 그대로 탄다. 찾기 칸에 없는 이름을 치면 「만들기」가 나와 그 이름으로 만들기 창이 열린다. */
+const ntCatTag = (c) => {
+  const bg = c ? (NB_BGS.find((x) => x.k === c.col) || NB_BGS[1]).css : '';
+  return c ? `<span class="nt-tag" style="background:${bg === 'transparent' ? NB_BGS[1].css : bg}">${c.i ? esc(c.i) + ' ' : ''}${esc(c.n)}</span>` : '';
+};
+function ntCatChipPaint(m) {
+  $('ntPropCatK').textContent = t('갈래', 'Category');
+  const c = m.cat ? ntCatFind(m.cat) : null;
+  $('ntCatChip').innerHTML = c ? ntCatTag(c) : `<span class="nt-prop-empty">${esc(t('비어 있음', 'Empty'))}</span>`;
+}
+function ntCatDdDraw() {
+  const m = ntMemoCur(); if (!m) return;
+  const q = $('ntCatDdQ').value.trim(), ql = q.toLowerCase();
+  const hit = ntMemoCats.filter((c) => !ql || c.n.toLowerCase().includes(ql));
+  $('ntCatDdH').textContent = t('갈래를 고르거나 새로 만드세요', 'Pick a category or create one');
+  let h = '';
+  if (!ql) h += `<button type="button" class="nt-cat-dd-i${!m.cat ? ' on' : ''}" data-cat=""><span class="nt-prop-empty">${esc(t('갈래 없음', 'No category'))}</span></button>`;
+  h += hit.map((c) => `<button type="button" class="nt-cat-dd-i${m.cat === c.n ? ' on' : ''}" data-cat="${esc(c.n)}">${ntCatTag(c)}</button>`).join('');
+  if (q && !ntCatFind(q)) h += `<button type="button" class="nt-cat-dd-i nt-cat-dd-new" data-new="${esc(q)}"><span>${esc(t('만들기', 'Create'))}</span> <span class="nt-tag" style="background:${NB_BGS[1].css}">${esc(q)}</span></button>`;
+  $('ntCatDdList').innerHTML = h;
+}
+function ntCatDdOpen() {
+  const dd = $('ntCatDd'), chip = $('ntCatChip');
+  dd.hidden = false;
+  $('ntCatDdQ').value = '';
+  $('ntCatDdQ').placeholder = t('찾기 또는 새 갈래 이름', 'Search or type a new name');
+  ntCatDdDraw();
+  const r = chip.getBoundingClientRect(), doc = $('ntMemoDoc').getBoundingClientRect();
+  dd.style.top = `${r.bottom - doc.top + 6}px`;
+  dd.style.left = `${Math.max(0, r.left - doc.left - 6)}px`;
+  $('ntCatDdQ').focus();
+}
+const ntCatDdClose = () => { $('ntCatDd').hidden = true; };
+$('ntCatChip').addEventListener('click', (ev) => { ev.stopPropagation(); $('ntCatDd').hidden ? ntCatDdOpen() : ntCatDdClose(); });
+$('ntCatDdQ').addEventListener('input', ntCatDdDraw);
+$('ntCatDdQ').addEventListener('keydown', (ev) => {
+  if (ev.key === 'Escape') { ntCatDdClose(); return; }
+  if (ev.key === 'Enter') { ev.preventDefault(); $('ntCatDdList').querySelector('.nt-cat-dd-i')?.click(); }
+});
+$('ntCatDdList').addEventListener('click', (ev) => {
+  const b = ev.target.closest('.nt-cat-dd-i'); if (!b) return;
+  const sel = $('ntMemoDocCat');
+  ntCatDdClose();
+  if (b.dataset.new != null) {
+    sel.value = ' new'; sel.dispatchEvent(new Event('change'));
+    $('ntCatPopName').value = b.dataset.new;   // 친 이름을 만들기 창에 그대로
+    return;
+  }
+  sel.value = b.dataset.cat; sel.dispatchEvent(new Event('change'));
+});
+document.addEventListener('click', (ev) => { if (!$('ntCatDd').hidden && !ev.target.closest('#ntCatDd, #ntCatChip')) ntCatDdClose(); });
 $('ntMemoDocCat').addEventListener('change', () => {
   const m = ntMemoCur();
   if (!m) return;
   const v = $('ntMemoDocCat').value;
   if (v === ' new') {
     ntMemoDrawDoc();   // 고르개를 먼저 원래 값으로 되돌린다 — 판을 닫아도 이상하게 안 남게
-    ntCatPopOpen($('ntMemoDocCat'), null, (name) => { m.cat = name; m.up = Date.now(); });
+    ntCatPopOpen($('ntCatChip'), null, (name) => { m.cat = name; m.up = Date.now(); });
     return;
   }
   m.cat = v;
@@ -8339,17 +8393,52 @@ async function nbGrammarBuildIndex() {
    뜻풀이는 늘 있고, SB_MORE(형태·자주 쓰는 말·주의할 점·예문)가
    있으면 덧붙인다. 형태는 "동사나 형용사에 어떻게 붙는지"를 보여주는
    자리라 howto 블록으로 담고, 예문은 quote 로 다시 두드러지게 한다. */
+/* 불러올 모양 — lang: 'ko' | 'en' | 'both', ex: 예문, dlg: 대화. 이 브라우저에 기억한다. */
+const NT_GR_KEY = 'cp-nt-gr-opt';
+let ntGrOpt = (() => { try { return { lang: 'ko', ex: true, dlg: true, ...JSON.parse(localStorage.getItem(NT_GR_KEY) || '{}') }; } catch (e) { return { lang: 'ko', ex: true, dlg: true }; } })();
+/* 「주의할 점」 원문은 한국어 뒤에 영어가 붙은 한 덩이다(「…아닙니다. You must …」) — 한국어만 고르면 영어 앞에서 자른다. */
+const ntGrKoOnly = (s) => { const m = String(s || '').match(/^(.*?[.!?。」])\s+(?=[A-Z])/s); return m ? m[1] : String(s || ''); };
+/* 표현 하나를 노트 블록으로 — 이름(작은 제목) · 뜻 · 형태(문형) · 주의(주의 칸) · 예문(예문 칸) · 대화(인용), 끝에 구분선.
+   영어는 GRAMMAR_EN(뜻 · 형태 · 주의)을 쓴다. 예문 · 대화의 영어 번역은 자료에 없어서 지어내지 않는다 — 한국어 그대로. */
 function nbBlocksFromPoint(cat, p) {
-  const out = [nbNew('h3', `${cat.emoji ? esc(cat.emoji) + ' ' : ''}${esc(p.name)}`)];
-  out.push(nbNew('text', esc(p.desc)));
-  const more = SB_MORE[p.id];
-  if (more) {
-    if (more[0]) out.push(nbNew('howto', esc(more[0])));
-    if (more[2]) out.push(nbNew('call', esc(more[2])));
-    if (more[3]) out.push(nbNew('quote', esc(more[3])));
+  const o = ntGrOpt, more = SB_MORE[p.id] || [], en = GRAMMAR_EN[p.id] || {};
+  const two = (ko, e) => (o.lang === 'en' ? esc(e || ko) : o.lang === 'both' && e && e !== ko ? `${esc(ko)}\n<em>${esc(e)}</em>` : esc(ko));
+  const out = [nbNew('h3', esc(p.name))];
+  out.push(nbNew('text', two(p.desc, en.desc)));
+  const form = o.lang === 'en' ? (en.form || more[0]) : (more[0] || en.form);
+  if (form) out.push(nbNew('howto', o.lang === 'both' && en.form && more[0] && en.form !== more[0] ? `${esc(more[0])}\n<em>${esc(en.form)}</em>` : esc(form)));
+  const careKo = ntGrKoOnly(more[2]);
+  if (more[2] || en.care) out.push(nbNew('warn', two(careKo || en.care, en.care)));
+  if (o.ex) {
+    const exs = [p.ex, more[3]].filter(Boolean);
+    exs.forEach((x) => out.push(nbNew('ex', esc(x))));
   }
+  /* 대화는 Q&A 블록(말풍선)으로 — 두 줄씩 묶어 앞줄은 묻는 말, 뒷줄은 답(운영자 요청 2026-09-30). 「A: 」「B: 」 머리는 뗀다. */
+  if (o.dlg && Array.isArray(p.dlg) && p.dlg.length) {
+    const ln = p.dlg.map((l) => String(l).replace(/^\s*[AB가나]\s*[:：]\s*/, ''));
+    for (let i = 0; i < ln.length; i += 2) { const q = nbNew('qa', esc(ln[i])); q.a = esc(ln[i + 1] || ''); out.push(q); }
+  }
+  out.push(nbNew('hr', ''));
   return out;
 }
+function ntGrOptsDraw() {
+  const o = ntGrOpt;
+  const seg = [['ko', '한국어'], ['en', 'English'], ['both', t('둘 다', 'Both')]]
+    .map(([v, l]) => `<button type="button" data-gr-lang="${v}" class="${o.lang === v ? 'on' : ''}" aria-pressed="${o.lang === v}">${esc(l)}</button>`).join('');
+  const chk = (k, l) => `<label class="nt-gr-chk"><input type="checkbox" data-gr-opt="${k}"${o[k] ? ' checked' : ''}><span>${esc(l)}</span></label>`;
+  $('ntGrOpts').innerHTML = `<span class="nt-gr-opts-k">${esc(t('설명', 'Explain in'))}</span><div class="nt-gr-seg">${seg}</div>` +
+    chk('ex', t('예문', 'Examples')) + chk('dlg', t('대화', 'Dialogue'));
+}
+$('ntGrOpts').addEventListener('click', (ev) => {
+  ev.stopPropagation();   // 단추를 다시 그리면 누른 단추가 문서에서 떨어져, 바깥을 누른 것으로 보고 판이 닫힌다
+  const b = ev.target.closest('[data-gr-lang]'); if (!b) return;
+  ntGrOpt.lang = b.dataset.grLang; try { localStorage.setItem(NT_GR_KEY, JSON.stringify(ntGrOpt)); } catch (e) {}
+  ntGrOptsDraw();
+});
+$('ntGrOpts').addEventListener('change', (ev) => {
+  const c = ev.target.closest('[data-gr-opt]'); if (!c) return;
+  ntGrOpt[c.dataset.grOpt] = c.checked; try { localStorage.setItem(NT_GR_KEY, JSON.stringify(ntGrOpt)); } catch (e) {}
+});
 
 /* 예전에 COURSES(코스 레슨)에서 끌어오던 자리. 지금 문법 불러오기는
    위 nbBlocksFromPoint(SB_POINTS 기반)를 쓰지만, 레슨 전체를 노트로
@@ -8415,13 +8504,13 @@ function ntGrammarRenderList(q) {
     any = true;
     const h = document.createElement('div');
     h.className = 'nt-gr-pop-course';
-    h.textContent = `${cat.emoji ? cat.emoji + ' ' : ''}${cat.ko}`;
+    h.textContent = isEn() ? cat.en : cat.ko;
     box.appendChild(h);
     points.forEach((p) => {
       const btn = document.createElement('button');
       btn.type = 'button';
       btn.className = 'nt-gr-pop-lesson';
-      btn.textContent = p.name;
+      btn.innerHTML = `<b>${esc(p.name)}</b><span>${esc(gTx(p.id, 'desc', p.desc))}</span>`;
       btn.addEventListener('click', () => ntGrammarInsert(cat, p));
       box.appendChild(btn);
     });
@@ -8447,7 +8536,8 @@ async function ntGrammarOpenPop() {
   box.appendChild(loading);
   $('ntGrammarPop').hidden = false;
   ntGrammarPosition();
-  await nbGrammarBuildIndex();
+  ntGrOptsDraw();
+  await Promise.all([nbGrammarBuildIndex(), grammarNeed().catch(() => {})]);
   if (!ntGrammarOpen) return;   // 그 사이 닫혔으면(딴 데 눌렀거나) 그만둔다
   ntGrammarRenderList('');
   ntGrammarPosition();   // 자료가 들어와 판 크기가 바뀌었을 수 있다
@@ -8459,6 +8549,9 @@ function ntGrammarInsert(cat, p) {
   const blocks = nbBlocks(m);
   const added = nbBlocksFromPoint(cat, p);
   if (!added.length) return;
+  /* 끝에 남은 빈 글 칸은 걷어 낸다 — 새 노트에 불러오면 맨 위에 빈 줄이 남았다. 제목이 비었으면 표현 이름을 제목으로. */
+  while (blocks.length && blocks[blocks.length - 1].t === 'text' && !String(blocks[blocks.length - 1].s || '').replace(/<br\s*\/?>|&nbsp;|\s/g, '')) blocks.pop();
+  if (!String(m.title || '').trim()) { m.title = p.name; $('ntMemoTitle').value = p.name; }
   blocks.push(...added);
   nbFocus = added[added.length - 1].id;
   nbAtEnd = true;
@@ -9553,7 +9646,7 @@ let TRAVEL_CATEGORIES = null;
 let TRAVEL_PHRASES = null;
 let TRAVEL_VOCAB = null;
 let tvP = null;
-const tvNeed = () => (tvP ??= import('./travel-data.js?v=239a2805').then((m) => {
+const tvNeed = () => (tvP ??= import('./travel-data.js?v=457ba281').then((m) => {
   TRAVEL_CATEGORIES = m.TRAVEL_CATEGORIES;
   TRAVEL_PHRASES = m.TRAVEL_PHRASES;
   TRAVEL_VOCAB = m.TRAVEL_VOCAB;
@@ -12906,7 +12999,7 @@ async function gameVocabWords(min, have = []) {
   const push = (word, meaning) => { if (word && meaning && !seen.has(word)) { seen.add(word); out.push({ word, meaning }); } };
   guestRead().forEach((g) => push(g.word, g.meaning));
   try {
-    const d = await import('./vocab-topik1.js?v=239a2805');
+    const d = await import('./vocab-topik1.js?v=457ba281');
     let st = {};
     try { st = JSON.parse(localStorage.getItem('cp-words-v1') || '{}').w || {}; } catch (e) {}
     const mean = (w) => w.s || w.e.split(';')[0];
@@ -14196,10 +14289,10 @@ $('ltPurposeGrid').addEventListener('click', (ev) => {
    빠지고, 고쳐 올려도 브라우저가 예전 문제를 계속 들고 있게 된다. */
 let LT_CUSTOM = { overall: [], reading: [], writing: [], listening: [] };
 let ltCustomOverallP = null, ltCustomReadingP = null, ltCustomWritingP = null, ltCustomListeningP = null;
-const ltCustomOverallNeed = () => (ltCustomOverallP ??= import('./leveltest-overall.js?v=239a2805').then((m) => { LT_CUSTOM.overall = m.LT_CUSTOM_OVERALL; }));
-const ltCustomReadingNeed = () => (ltCustomReadingP ??= import('./leveltest-reading.js?v=239a2805').then((m) => { LT_CUSTOM.reading = m.LT_CUSTOM_READING; }));
-const ltCustomWritingNeed = () => (ltCustomWritingP ??= import('./leveltest-writing.js?v=239a2805').then((m) => { LT_CUSTOM.writing = m.LT_CUSTOM_WRITING; }));
-const ltCustomListeningNeed = () => (ltCustomListeningP ??= import('./leveltest-listening.js?v=239a2805').then((m) => { LT_CUSTOM.listening = m.LT_CUSTOM_LISTENING; }));
+const ltCustomOverallNeed = () => (ltCustomOverallP ??= import('./leveltest-overall.js?v=457ba281').then((m) => { LT_CUSTOM.overall = m.LT_CUSTOM_OVERALL; }));
+const ltCustomReadingNeed = () => (ltCustomReadingP ??= import('./leveltest-reading.js?v=457ba281').then((m) => { LT_CUSTOM.reading = m.LT_CUSTOM_READING; }));
+const ltCustomWritingNeed = () => (ltCustomWritingP ??= import('./leveltest-writing.js?v=457ba281').then((m) => { LT_CUSTOM.writing = m.LT_CUSTOM_WRITING; }));
+const ltCustomListeningNeed = () => (ltCustomListeningP ??= import('./leveltest-listening.js?v=457ba281').then((m) => { LT_CUSTOM.listening = m.LT_CUSTOM_LISTENING; }));
 const LT_CUSTOM_NEED = {
   overall: ltCustomOverallNeed, reading: ltCustomReadingNeed,
   writing: ltCustomWritingNeed, listening: ltCustomListeningNeed,
@@ -15597,7 +15690,7 @@ function fbMount(host, place, level = null) {
    openSection 이 epsDraw 를 부른다. let · const 면 그때 「초기화 전 접근」으로 죽는다. */
 var EPS = null;
 var epsP = null;
-function epsNeed() { return (epsP ??= import('./eps.js?v=239a2805').then((m) => { EPS = m; })); }
+function epsNeed() { return (epsP ??= import('./eps.js?v=457ba281').then((m) => { EPS = m; })); }
 const EPS_SECS = ['reading', 'listening'];
 const EPS_MOCK_SEC = 70 * 60;
 const EPS_NUM = ['①', '②', '③', '④'];
