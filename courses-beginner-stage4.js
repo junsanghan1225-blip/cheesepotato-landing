@@ -314,6 +314,21 @@ export const BEGINNER_STAGE4_COURSES = [
     ],
   },
 
+  {
+    id: "bg-18-04", title: {"ko":"4강. 실전 대화: 규칙 묻기·양해 구하기와 마감 지키기","en":"Lesson 4. Real-Life Conversation: Asking Rules, Permissions, and Deadlines"}, minutes: 5,
+    blocks: [
+      {"t":"text","h":"Navigating Real-Life Situations with Permission and Obligation","md":"In daily life in Korea—at schools, cafes, offices, or public places—you will constantly use **-아/어도 돼요?** to ask if something is permitted and **-아/어야 돼요** to confirm what you must do:\n\n- **Checking rules / Asking permission:**\n  - 여기서 사진을 찍**어도 돼요?** (May I take photos here?)\n  - 이 음식을 먹**어도 돼요?** (May I eat this food?)\n- **Confirming deadlines / Requirements:**\n  - 보고서를 언제까지 내**야 돼요?** (By when do I have to submit the report?)\n  - 계산은 먼저 해**야 돼요.** (You have to pay in advance.)"},
+      {"t":"table","head":["Place / Situation","Question (-아/어도 돼요?)","Answer / Rule (-아/어야 돼요)"],"rows":[["Museum / Gallery","사진을 찍어도 돼요?","플래시 없이 찍어야 돼요"],["Restaurant","카드로 계산해도 돼요?","카드로 결제하셔도 돼요"],["Classroom / Office","질문해도 돼요?","끝나고 질문하셔야 돼요"],["Library","음료를 마셔도 돼요?","음료는 밖에서 드셔야 돼요"]]},
+      {"t":"note","md":"Both **-아/어야 되다** and **-아/어야 하다** mean “must / have to”. In spoken Korean, **되다** is used far more often, while **하다** is common in formal writing and public notices."},
+      {"t":"chars","wide":true,"items":[{"ch":"실례지만 여기서 사진을 찍어도 돼요?","tip":"Excuse me, may I take photos here? (-아/어도 돼요 asking permission)"},{"ch":"과제를 내일까지 제출해야 돼요.","tip":"I have to submit the assignment by tomorrow. (-아/어야 돼요 obligation)"},{"ch":"이 버스를 타려면 교통카드를 찍어야 돼요.","tip":"To ride this bus, you must tap your transit card. (Requirement)"}]},
+      {"t":"choice","q":"You are at a cafe and want to ask if you may charge your phone here. Which question is natural?","options":["여기서 휴대폰을 충전해도 돼요?","여기서 휴대폰을 충전해야 돼요?","여기서 휴대폰을 충전하고 돼요?"],"answer":0,"why":"Asking permission (“May I...?”) uses -아/어도 되다: 충전하다 → **충전해도 돼요?**."},
+      {"t":"choice","q":"A student asks about a homework deadline: 「언제까지 숙제를 내야 돼요?」. Which answer correctly explains the obligation?","options":["내일 수업 전까지 내야 돼요","내일 수업 전까지 내도 돼요","내일 수업 전까지 내고 돼요"],"answer":0,"why":"Explaining an obligation/requirement (“You must submit...”) uses -아/어야 되다: **내야 돼요**."},
+      {"t":"pair","q":"Match each phrase to its practical communicative function.","pairs":[["들어가도 돼요?","Asking permission to enter"],["신발을 벗어야 돼요","Explaining obligation: must take off shoes"],["앉아도 돼요?","Asking permission to sit down"],["조용히 해야 돼요","Explaining obligation: must be quiet"]]},
+      {"t":"cloze","sentence":"해외여행을 가려면 여권이 꼭 [있어야 돼요].","answer":"있어야 돼요","meaning":"To travel abroad, you must have a passport.","options":["있어야 돼요","있어도 돼요","있고야 돼요","있개야 돼요"],"keys":["있어야 돼요","있어도 돼요","있고야 돼요","있개야 돼요"],"why":"To express absolute necessity (“must have”), use -아/어야 되다: 있다 + -어야 되다 → **있어야 돼요**."},
+      {"t":"type","q":"Conjugate 돕다 (to help) into the obligation form: 「어려운 사람을 ___ .」","answer":"도와야 돼요","keys":["도와야 돼요","돕아야 돼요","도와야 에요"],"why":"돕다 changes ㅂ to 오 before 아: 도우- + -아야 되다 → **도와야 돼요**."},
+      {"t":"speak","say":"실례지만 저기 빈자리에 앉아도 될까요?","rom":"sil-lye-ji-man jeo-gi bin-ja-ri-e anj-a-do doel-kka-yo","q":"Say it aloud politely asking if you may sit in an empty seat."},
+    ],
+  },
   ],
 },
 
