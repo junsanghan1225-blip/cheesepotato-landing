@@ -4451,7 +4451,7 @@
   </url>
   <url>
     <loc>https://everykoreans.com/course/bg-13.html</loc>
-    <lastmod>2026-09-25</lastmod>
+    <lastmod>2026-09-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -4463,7 +4463,19 @@
   </url>
   <url>
     <loc>https://everykoreans.com/lesson/bg-13-02.html</loc>
-    <lastmod>2026-09-25</lastmod>
+    <lastmod>2026-09-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/lesson/bg-13-03.html</loc>
+    <lastmod>2026-09-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/lesson/bg-13-04.html</loc>
+    <lastmod>2026-09-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>

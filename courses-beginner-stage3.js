@@ -127,6 +127,36 @@ export const BEGINNER_STAGE3_COURSES = [
     ],
   },
 
+  {
+    id: "bg-13-03", title: {"ko":"3강. 어간에 바로 붙이기: 받침과 품사별 꼴","en":"Lesson 3. Attaching Directly: Verb, Adjective, and Noun Forms"}, minutes: 5,
+    blocks: [
+      {"t":"text","h":"No Batchim Changes: Attach Directly to the Stem","md":"The best part about **-고** and **-지만** is that they are completely regular!\n\nWhether a stem ends in a vowel or a consonant (받침), whether it's an irregular verb or not, you simply drop **다** and attach **-고** or **-지만** directly to the stem.\n\nFor nouns, use **-(이)고** and **-(이)지만**:\n- Ends in vowel: 의사**고** / 의사**지만**\n- Ends in consonant: 학생**이고** / 학생**이지만**"},
+      {"t":"table","head":["Dictionary Form","Stem","Adding -고 (And)","Adding -지만 (But)"],"rows":[["가다 (to go)","가","가고","가지만"],["먹다 (to eat)","먹","먹고","먹지만"],["듣다 (to listen)","듣","듣고","듣지만"],["춥다 (to be cold)","춥","춥고","춥지만"],["학생이다 (to be a student)","학생이","학생이고","학생이지만"]]},
+      {"t":"note","md":"Notice that irregular verbs like **듣다** (ㄷ irregular) and **춥다** (ㅂ irregular) do NOT change before **-고** or **-지만**. They keep their base stem: **듣고**, **듣지만**, **춥고**, **춥지만**!"},
+      {"t":"chars","wide":true,"items":[{"ch":"아침에 음악을 듣고 신문을 읽어요.","tip":"I listen to music and read the paper in the morning. (듣다 + 고)"},{"ch":"밖은 춥지만 방 안은 따뜻해요.","tip":"It is cold outside, but warm inside the room. (춥다 + 지만)"},{"ch":"저는 학생이고 동생은 회사원이에요.","tip":"I am a student, and my sibling is an office worker. (학생 + 이고)"}]},
+      {"t":"choice","q":"How do you attach ‘-지만’ to ‘듣다’ (to listen)?","options":["듣지만","들지만","듣으지만"],"answer":0,"why":"-지만 attaches directly to the stem without irregular sound changes: 듣 + 지만 → **듣지만**."},
+      {"t":"choice","q":"How do you combine ‘선생님’ (teacher, ends in consonant ㅁ) with ‘-고’?","options":["선생님이고","선생님고","선생님하고는"],"answer":0,"why":"Nouns with a final consonant attach -이고: 선생님 + 이고 → **선생님이고**."},
+      {"t":"pair","q":"Match each word stem with its correct connected form.","pairs":[["먹다 + -고","먹고"],["만들다 + -지만","만들지만"],["춥다 + -고","춥고"],["학생 + -지만","학생이지만"]]},
+      {"t":"cloze","sentence":"바람이 [불지만] 날씨는 맑아요.","answer":"불지만","meaning":"The wind blows, but the weather is clear.","options":["불지만","불으지만","불개지만","불고지만"],"keys":["불지만","불으지만","불개지만","불고지만"],"why":"Attach -지만 directly to the stem 불- (불다): 불 + 지만 → **불지만**."},
+      {"t":"type","q":"Attach -고 to 돕다 (to help) without irregular changes: 「친구를 ___ 청소했어요.」","answer":"돕고","keys":["돕고","도우고","돕으고"],"why":"돕다 attaches -고 directly to the base stem 돕- without changing ㅂ to 우: **돕고**."},
+      {"t":"speak","say":"밖은 춥지만 방 안은 따뜻하고 좋아요.","rom":"bakk-eun chup-ji-man bang an-eun tta-tteut-ha-go joh-a-yo","q":"Read aloud combining both -지만 and -고 smoothly."},
+    ],
+  },
+  {
+    id: "bg-13-04", title: {"ko":"4강. 나열(-고)과 대조(-지만) 골라 쓰기","en":"Lesson 4. Choosing Between Connection (-고) and Contrast (-지만)"}, minutes: 5,
+    blocks: [
+      {"t":"text","h":"Connecting Same Direction vs Contrasting Different Directions","md":"How do you choose between **-고** and **-지만**?\n\n- **-고 (And):** Used when two facts go in the **same direction**:\n  - Positive + Positive: \"The room is clean **and** quiet\" (방이 깨끗하**고** 조용해요).\n  - Negative + Negative: \"The food is expensive **and** bad\" (비싸**고** 맛없어요).\n- **-지만 (But):** Used when two facts **contrast** or clash:\n  - Negative + Positive: \"It is expensive, **but** delicious\" (비싸**지만** 맛있어요).\n  - Expectation vs Reality: \"I studied a lot, **but** the test was hard\" (열심히 공부했**지만** 어려웠어요)."},
+      {"t":"table","head":["Situation","Connector","Example","Nuance"],"rows":[["Two good traits","-고","친절하고 착해요","Kind and good-natured"],["Good trait vs bad trait","-지만","친절하지만 바빠요","Kind, but busy"],["Two actions in parallel","-고","노래하고 춤춰요","Sings and dances"],["Action vs conflicting outcome","-지만","찾았지만 없어요","Looked for it, but it isn't there"]]},
+      {"t":"note","md":"Past tense check! In Korean, the past tense marker **-았/었-** can attach before **-지만** (예: 비가 왔지만 갔어요), but for **-고**, the past tense is usually marked only at the very end of the sentence (예: 밥을 먹고 영화를 봤어요)."},
+      {"t":"chars","wide":true,"items":[{"ch":"도서관은 조용하고 시원해요.","tip":"The library is quiet and cool. (Both positive → -고)"},{"ch":"일이 많지만 재미있어요.","tip":"There is a lot of work, but it is interesting. (Challenging + positive → -지만)"},{"ch":"동생은 키가 크고 저는 작아요.","tip":"My sibling is tall, and/whereas I am short. (Contrast in traits)"}]},
+      {"t":"choice","q":"Which connector fits best: 「이 신발은 편해요. 그리고 가벼워요.」 → 「이 신발은 편___ 가벼워요.」?","options":["편하고","편하지만","편하서고"],"answer":0,"why":"Both traits are positive (comfortable + light), so use connection: **편하고**."},
+      {"t":"choice","q":"Which connector fits best: 「가격은 조금 비싸요. 그렇지만 품질이 좋아요.」?","options":["비싸지만","비싸고","비싸며고"],"answer":0,"why":"Expensive (minus) vs high quality (plus) is a contrast, so use -지만: **비싸지만**."},
+      {"t":"order","q":"Put the pieces in order: “Korean is difficult, but fun.”","tokens":["한국어는","어렵지만","정말","재미있어요."],"answer":["한국어는","어렵지만","정말","재미있어요."]},
+      {"t":"cloze","sentence":"어제는 비가 [왔지만] 오늘은 맑아요.","answer":"왔지만","meaning":"Yesterday it rained, but today it is clear.","options":["왔지만","오았지만","왔고지만","왔으지만"],"keys":["왔지만","오았지만","왔고지만","왔으지만"],"why":"Past tense 오- + -았- = 왔-. With contrast -지만, it becomes **왔지만**."},
+      {"t":"type","q":"Combine 크다 (to be big) and -지만: 「이 방은 ___ 혼자 써요.」","answer":"크지만","keys":["크지만","크으지만","크개지만"],"why":"Attach -지만 directly to stem 크-: 크 + 지만 → **크지만**."},
+      {"t":"speak","say":"한국어 공부는 어렵지만 정말 재미있어요.","rom":"han-guk-eo gong-bu-neun eo-ryeop-ji-man jeong-mal jae-mi-iss-eo-yo","q":"Read aloud naturally expressing contrast."},
+    ],
+  },
   ],
 },
 
