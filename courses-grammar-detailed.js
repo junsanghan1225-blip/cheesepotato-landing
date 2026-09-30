@@ -327,6 +327,22 @@ export const DETAILED_GRAMMAR_COURSES = [
             q:'First half is a wish, second half is a firm plan: “Right now it is just a wish, but when I save money, I will definitely go next year.”' },
         ],
       },
+
+      {
+        id: "bg-d-02-04", title: {"ko":"4강. 바람과 계획의 받침별 꼴 만들기","en":"Lesson 4. Conjugation Forms by Batchim and Irregulars"}, minutes: 5,
+        blocks: [
+          {"t":"text","h":"How Stems Attach to -고 싶다 and -(으)ㄹ 거예요","md":"Let's compare the attachment rules side by side:\n\n- **-고 싶어요 (Desire):** Super simple! Just attach **-고 싶어요** directly to any verb stem. No exceptions, no changes!\n- **-(으)ㄹ 거예요 (Future plan):** Depends on 받침:\n  - **No 받침:** attach **-ㄹ 거예요** (가다 → **갈 거예요**).\n  - **With 받침:** attach **-을 거예요** (먹다 → **먹을 거예요**).\n  - **ㄹ stem:** merges into **-ㄹ 거예요** (만들다 → **만들 거예요**).\n  - **ㄷ irregular:** ㄷ changes to ㄹ (듣다 → **들을 거예요**)."},
+          {"t":"table","head":["Verb","Stem Type","-고 싶어요 (Desire)","-(으)ㄹ 거예요 (Future Plan)"],"rows":[["보다 (to see)","No 받침","보고 싶어요","볼 거예요"],["먹다 (to eat)","Batchim ㄱ","먹고 싶어요","먹을 거예요"],["만들다 (to make)","Batchim ㄹ","만들고 싶어요","만들 거예요"],["듣다 (to listen)","ㄷ irregular","듣고 싶어요","들을 거예요"],["돕다 (to help)","ㅂ irregular","돕고 싶어요","도울 거예요"]]},
+          {"t":"note","md":"Look at **듣다**! For desire, it's **듣고 싶어요** (no change before ㄱ). For future plan, it's **들을 거예요** (ㄷ softens to ㄹ before 으)."},
+          {"t":"chars","wide":true,"items":[{"ch":"한국 음악을 많이 듣고 싶어요.","tip":"I want to listen to a lot of Korean music. (듣다 + 고 싶어요)"},{"ch":"내일 콘서트에서 음악을 들을 거예요.","tip":"I will listen to music at the concert tomorrow. (듣다 + 을 거예요)"},{"ch":"주말에 케이크를 만들 거예요.","tip":"I will make a cake on the weekend. (만들다 + ㄹ 거예요)"}]},
+          {"t":"choice","q":"How do you form the future plan for ‘만들다’ (to make)?","options":["만들 거예요","만들을 거예요","만들ㄹ 거예요"],"answer":0,"why":"Stems ending in ㄹ attach - 거예요 directly, so 만들다 becomes **만들 거예요**."},
+          {"t":"choice","q":"Which is the correct future plan form of ‘듣다’ (to listen)?","options":["들을 거예요","듣을 거예요","들을 개예요"],"answer":0,"why":"듣다 changes ㄷ to ㄹ before vowel endings: 듣 + 을 거예요 → **들을 거예요**."},
+          {"t":"pair","q":"Match each verb to its correct -(으)ㄹ 거예요 form.","pairs":[["가다 (no 받침)","갈 거예요"],["읽다 (with 받침)","읽을 거예요"],["살다 (ㄹ 받침)","살 거예요"],["돕다 (ㅂ irregular)","도울 거예요"]]},
+          {"t":"cloze","sentence":"내일 친구와 함께 맛있는 점심을 [먹을 거예요].","answer":"먹을 거예요","meaning":"Tomorrow I will eat a delicious lunch with a friend.","options":["먹을 거예요","먹ㄹ 거예요","먹을 에요","먹을 고예요"],"keys":["먹을 거예요","먹ㄹ 거예요","먹을 에요","먹을 고예요"],"why":"먹다 has a final consonant (ㄱ), so it attaches -을 거예요 → **먹을 거예요**."},
+          {"t":"type","q":"Conjugate 돕다 (to help) into the future plan form -(으)ㄹ 거예요: 「제가 친구를 ___ .」","answer":"도울 거예요","keys":["도울 거예요","돕을 거예요","도울 에요"],"why":"돕다 changes ㅂ to 우 before vowels: 도우 + ㄹ 거예요 → **도울 거예요**."},
+          {"t":"speak","say":"주말에 친구를 만나서 맛있는 음식을 먹고 쇼핑할 거예요.","rom":"ju-mal-e chin-gu-reul man-na-seo mas-iss-neun eum-sig-eul meog-go syo-ping-hal geo-ye-yo","q":"Read out loud expressing a weekend plan clearly."},
+        ],
+      },
     ],
   },
 
