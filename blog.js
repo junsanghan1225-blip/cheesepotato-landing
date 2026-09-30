@@ -1510,7 +1510,7 @@ export const BLOG_POSTS = [
       { t: 'h', text: 'Step 6 — TOPIK, if you need a number' },
       { t: 'p', text: 'If you need Korean for a university, a visa or a job, you will eventually need a TOPIK level. Worth knowing before you register: you do not choose a level. You choose a test — TOPIK I or TOPIK II — and the score you get decides your level.' },
       { t: 'p', text: 'Level 4 is the most commonly requested, so it is a sensible default target. Cut-off scores and requirements change, so check the official site rather than any number you read in a blog post, including this one.' },
-      { t: 'note', title: 'About our practice questions', text: 'The 512 TOPIK-style questions on this site are **original items written to match the format**, not past papers, and we are not affiliated with the institute that runs the exam. Each one comes with an explanation of why the answer is right; the writing tasks come with a model answer and the points examiners mark down for.' },
+      { t: 'note', title: 'About our practice questions', text: 'The 979 TOPIK-style questions on this site are **original items written to match the format**, not past papers, and we are not affiliated with the institute that runs the exam. Each one comes with an explanation of why the answer is right; the writing tasks come with a model answer and the points examiners mark down for.' },
       { t: 'link', href: '/topik-reading/', title: 'TOPIK reading practice', note: 'Sorted by question type, with the passage, the four options and the reasoning on the same page' },
       { t: 'h', text: 'How long does this take' },
       { t: 'p', text: 'For a native English speaker, Korean is in the hardest group the US Foreign Service Institute classifies — roughly 2,200 class hours to reach professional working proficiency. That figure is for full-time intensive study with an instructor, so treat it as a shape rather than a schedule: this is a multi-year project, not a summer one.' },
@@ -2064,8 +2064,8 @@ export const BLOG_POSTS = [
       '</ul>' +
 
       '<h2>이 사이트에 있는 것</h2>' +
-      '<p>연습 문항이 512개 있습니다. TOPIK I 은 듣기 26·읽기 209, TOPIK II 는 듣기 19·읽기 200· ' +
-      '쓰기 58입니다. <b>기출문제가 아니라 같은 유형으로 새로 만든 창작 문항</b>이고, TOPIK 을 ' +
+      '<p>연습 문항이 979개 있습니다. TOPIK I 은 듣기 26·읽기 209, TOPIK II 는 듣기 19·읽기 605· ' +
+      '쓰기 120입니다. <b>기출문제가 아니라 같은 유형으로 새로 만든 창작 문항</b>이고, TOPIK 을 ' +
       '주관하는 국립국제교육원과 아무 관계가 없습니다 — 이건 분명히 밝혀 둡니다.</p>' +
       '<p>대신 문항마다 왜 그 답인지 해설이 붙어 있고, 쓰기는 모범답안과 채점 포인트, 흔한 감점 ' +
       '요인까지 같이 봅니다. 시계와 답안지가 붙은 모의고사 형태로도 풀 수 있습니다.</p>' +
@@ -2185,7 +2185,7 @@ export const BLOG_POSTS = [
       '— 읽기만 하고 넘어가지 않게 만든 구조입니다.</p>' +
 
       '<h2>3단계 — 실전 유형으로 훈련하기</h2>' +
-      '<p>TOPIK I·II의 읽기·듣기·쓰기 연습 문항이 512개 있습니다. <b>기출문제가 아니라 같은 유형으로 새로 ' +
+      '<p>TOPIK I·II의 읽기·듣기·쓰기 연습 문항이 979개 있습니다. <b>기출문제가 아니라 같은 유형으로 새로 ' +
       '만든 창작 문항</b>입니다 — 이 부분은 정직하게 밝혀 둡니다. 대신 문항마다 왜 그 답인지 설명이 붙어 있고, ' +
       '쓰기는 모범답안과 채점 포인트까지 같이 봅니다. 시간을 재는 모의고사 형태로도 풀 수 있습니다.</p>' +
 
