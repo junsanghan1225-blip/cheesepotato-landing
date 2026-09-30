@@ -709,6 +709,37 @@ export const BEGINNER_STAGE1_COURSES = [
     ],
   },
 
+  {
+    id: "bg-08-03", title: {"ko":"3강. 두 조사를 한 문장에 넣기","en":"Lesson 3. Putting Both Particles in One Sentence"}, minutes: 5,
+    blocks: [
+      {"t":"text","h":"The Standard Korean Sentence Formula","md":"In Korean, the natural sentence order is **Subject/Topic → Object → Verb** (SOV).\n\nNow you can combine **은/는** and **을/를** together to build complete sentences:\n\n**[ Topic + 은/는 ] + [ Object + 을/를 ] + [ Verb ]**"},
+      {"t":"table","head":["Topic (은/는)","Object (을/를)","Verb","Full Sentence"],"rows":[["저는 (저 + 는)","사과를 (사과 + 를)","먹어요","저는 사과를 먹어요."],["민수는 (민수 + 는)","물을 (물 + 을)","마셔요","민수는 물을 마셔요."],["선생님은 (선생님 + 은)","한국어를 (한국어 + 를)","가르쳐요","선생님은 한국어를 가르쳐요."],["동생은 (동생 + 은)","음악을 (음악 + 을)","들어요","동생은 음악을 들어요."]]},
+      {"t":"note","md":"Remember the vowel/consonant rule:\n- **Topic:** 받침 있음 → **은**, 받침 없음 → **는**\n- **Object:** 받침 있음 → **을**, 받침 없음 → **를**"},
+      {"t":"chars","wide":true,"items":[{"ch":"저는 한국어를 배워요.","tip":"I learn Korean. (저 + 는, 한국어 + 를)"},{"ch":"친구는 빵을 사요.","tip":"My friend buys bread. (친구 + 는, 빵 + 을)"},{"ch":"유진은 신문을 읽어요.","tip":"Yujin reads the newspaper. (유진 + 은, 신문 + 을)"}]},
+      {"t":"choice","q":"Which sentence has both particles attached correctly? (지민 = consonant ending, 영화 = vowel ending)","options":["지민은 영화를 봐요.","지민는 영화을 봐요.","지민을 영화는 봐요."],"answer":0,"why":"지민 ends in consonant ㄴ → **은**. 영화 ends in vowel ㅘ → **를**."},
+      {"t":"pair","q":"Pair each noun with its correct particle combination.","pairs":[["저 (as topic)","저는"],["선생님 (as topic)","선생님은"],["밥 (as object)","밥을"],["차 (tea, as object)","차를"]]},
+      {"t":"cloze","sentence":"동생[은] 우유를 마셔요.","answer":"은","meaning":"My sibling drinks milk.","options":["은","는","이","을"],"keys":["은","는","이","을"],"why":"동생 ends in consonant ㅇ, so it takes topic marker **은**."},
+      {"t":"type","q":"Attach the object particle to 물 (water): 「저는 ___ 마셔요.」","answer":"물을","keys":["물을","물를","물에"],"why":"물 ends in consonant ㄹ (받침), so it takes the object particle **-을** → **물을**. 물를 is the wrong form, and 물에 marks place/destination."},
+      {"t":"order","q":"Arrange the words to say: “I eat lunch.”","tokens":["저는","점심을","먹어요"],"answer":["저는","점심을","먹어요"]},
+      {"t":"speak","say":"저는 도서관에서 한국어를 공부해요.","rom":"jeo-neun do-seo-gwan-e-seo han-gug-eo-reul gong-bu-hae-yo","q":"Read out loud clearly: “I study Korean at the library.”"},
+    ],
+  },
+  {
+    id: "bg-08-04", title: {"ko":"4강. 은/는과 을/를 헷갈리지 않기","en":"Lesson 4. Never Confusing 은/는 and 을/를"}, minutes: 5,
+    blocks: [
+      {"t":"text","h":"Topic vs. Object: Who vs. What","md":"How do you avoid mixing up **은/는** and **을/를**?\n\n- Ask: **“Who is doing the action or being discussed?”** → Use **은/는** (e.g., 저는, 친구는).\n- Ask: **“What is being eaten, bought, read, or watched?”** → Use **을/를** (e.g., 밥을, 책을).\n\nIf you swap them, the sentence turns upside down!"},
+      {"t":"table","head":["Question to Ask","Particle","Role in Sentence","Example"],"rows":[["Who is doing it?","은 / 는","Topic (who we talk about)","**민수는** 책을 읽어요."],["What is acted on?","을 / 를","Direct Object (thing received)","민수는 **책을** 읽어요."],["What is being contrasted?","은 / 는 (on object)","Contrast / Special focus","커피**는** 마셔요. 차**는** 안 마셔요."]]},
+      {"t":"note","md":"Notice that **은/는** can replace **을/를** when making a contrast! When you say **“사과는 좋아해요”**, it means: *Apples, I like (but something else, I might not)*."},
+      {"t":"chars","wide":true,"items":[{"ch":"수지는 노래를 들어요.","tip":"Suji listens to music. — Suji is topic (는), music is object (를)."},{"ch":"라면은 먹어요. 그런데 김밥은 안 먹어요.","tip":"Ramen I eat. But kimbap I don’t. — 은/는 shows contrast on foods."},{"ch":"선생님은 사과를 사요.","tip":"The teacher buys apples. — 선생님 is topic (은), 사과 is object (를)."}]},
+      {"t":"choice","q":"Which sentence means “My friend meets a teacher”?","options":["친구는 선생님을 만나요.","친구을 선생님는 만나요.","친구를 선생님은 만나요."],"answer":0,"why":"친구 is the one doing the action (topic: 는), and 선생님 is the person being met (object: 을)."},
+      {"t":"choice","q":"In the sentence “저는 영화를 봐요”, what does 영화를 tell you?","options":["It is the object being watched","It is the person watching","It is the location of the action","It is the time of the action"],"answer":0,"why":"The particle **-를** marks the direct object of the verb 봐요 (watch)."},
+      {"t":"pair","q":"Match each sentence with its correct English meaning.","pairs":[["저는 피자를 먹어요.","I eat pizza."],["피자는 좋아해요.","Pizza, I like (contrasting with other foods)."],["친구는 피자를 사요.","My friend buys pizza."],["오늘 점심은 피자예요.","Today's lunch is pizza."]]},
+      {"t":"cloze","sentence":"지수는 책[을] 읽고, 민호는 음악을 들어요.","answer":"을","meaning":"Jisu reads a book, and Minho listens to music.","options":["을","를","는","은"],"keys":["을","를","는","은"],"why":"책 ends in a consonant and is the direct object of 읽다, so it takes **-을**."},
+      {"t":"type","q":"You are talking about yourself drinking tea: 「저는 차___ 마셔요.」","answer":"차를","keys":["차를","차을","차에"],"why":"차 ends in a vowel and is the direct object acted on by 마시다, so attach **-를** → **차를**. 차을 uses the wrong vowel form, and 차에 marks place/time."},
+      {"t":"speak","say":"저는 한국 영화는 좋아하지만 미국 영화는 잘 안 봐요.","rom":"jeo-neun han-guk yeong-hwa-neun joh-a-ha-ji-man mi-guk yeong-hwa-neun jal an bwa-yo","q":"Say it out loud with contrast: “As for Korean movies I like them, but as for American movies I rarely watch them.”"},
+      {"t":"order","q":"Arrange the words to say: “Yujin buys shoes.”","tokens":["유진은","구두를","사요"],"answer":["유진은","구두를","사요"]},
+    ],
+  },
   ],
 },
 
