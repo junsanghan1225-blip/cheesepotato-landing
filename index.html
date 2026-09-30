@@ -40,7 +40,7 @@
 ">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <!-- 구글 태그 관리자. 구글이 주는 인라인 코드조각은 CSP 가 막아서 gtm.js 로 뺐다. -->
-<script src="gtm.js?v=5618b3b1" async></script>
+<script src="gtm.js?v=4bb566ec" async></script>
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <!-- 제목과 설명을 두 말로 쓴다. 이 사이트를 찾을 사람은 한국어를 **배우는**
@@ -119,13 +119,13 @@
      Pretendard 는 통짜(2.0MB) 대신 조각난 쪽을 쓴다 — 브라우저가
      unicode-range 를 보고 화면에 실제로 나온 글자가 든 조각만 받는다.
      그래서 저장소는 무거워졌지만 학습자가 받는 양은 오히려 줄었다. -->
-<link rel="stylesheet" href="vendor/pretendard.css?v=5618b3b1">
-<link rel="stylesheet" href="vendor/pressstart2p.css?v=5618b3b1">
+<link rel="stylesheet" href="vendor/pretendard.css?v=4bb566ec">
+<link rel="stylesheet" href="vendor/pressstart2p.css?v=4bb566ec">
 <!-- 화면 상자 안에서만 쓰는 CSS 는 여기서 갈라 받는다. media="print" 라
      첫 페인트를 안 막고, 다 받아지면 app.js 가 media 를 all 로 바꾼다.
      자바스크립트가 없으면 <noscript> 쪽이 그냥 평범하게 걸린다. -->
-<link id="viewsCss" rel="stylesheet" href="app-views.css?v=5618b3b1" media="print">
-<noscript><link rel="stylesheet" href="app-views.css?v=5618b3b1"></noscript>
+<link id="viewsCss" rel="stylesheet" href="app-views.css?v=4bb566ec" media="print">
+<noscript><link rel="stylesheet" href="app-views.css?v=4bb566ec"></noscript>
 
 <style>
 /* ══════════════════════════════════════════════════════════════
@@ -3144,11 +3144,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
   <div class="pt-hero">
     <div class="pt-badge">LIBRARY</div>
-    <h2 data-en="Word lists,<br>ready to import">바로 넣어 쓰는<br>단어 자료</h2>
-    <p data-en="Download a list and import it in the app — Wordbook → Import. Sign in to share your own.">받아서 앱의 단어장 → 가져오기로 넣으면 끝이에요. 로그인하면 직접 올릴 수도 있습니다.</p>
+    <h2 data-en="Print it,<br>solve it">인쇄해서 푸는<br>모의고사와 자료</h2>
+    <p data-en="Free TOPIK mock exams in the real exam layout, plus word lists for the app.">실제 시험지처럼 만든 TOPIK 모의고사를 무료로 받아 가세요. 앱에 넣는 단어 자료도 있어요.</p>
   </div>
 
   <div class="pt-body" style="max-width:1160px;">
+
+    <!-- 무료 모의고사 — 사이트 회차를 인쇄용 시험지(표지 · 문제지 · 답안지 · 정답)로. app.module.js mkLibDraw · mkPrint -->
+    <div class="bd-sec-title">
+      <h3 data-en="Free TOPIK mock exams to print">무료 TOPIK 모의고사 · 인쇄용</h3>
+      <span class="bd-sec-note" data-en="Cover, question booklet, answer sheet and answer key. Choose “Save as PDF” in the print window.">표지 · 문제지 · 답안지 · 정답까지 한 번에. 인쇄 창에서 「PDF로 저장」을 고르면 파일이 돼요.</span>
+    </div>
+    <div class="mk-lib" id="libMock"></div>
 
     <!-- 공식 자료 : 저장소에 함께 올라가는 파일이라 항상 받을 수 있다 -->
     <div class="bd-sec-title">
@@ -3823,9 +3830,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <div id="hlpScrim" class="hlp-scrim"></div>
 <aside id="hlpPanel" class="hlp-panel" aria-label="한국어 도우미" aria-hidden="true"></aside>
 
-<script src="app.js?v=5618b3b1"></script>
-<script type="module" src="app.module.js?v=5618b3b1"></script>
+<script src="app.js?v=4bb566ec"></script>
+<script type="module" src="app.module.js?v=4bb566ec"></script>
 
-<script src="analytics.js?v=5618b3b1" defer></script>
+<script src="analytics.js?v=4bb566ec" defer></script>
 </body>
 </html>

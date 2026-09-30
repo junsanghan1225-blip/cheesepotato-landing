@@ -5300,3 +5300,69 @@ div.wd-card:hover { transform:none; }
 .wn-run-opts .qz-choice { display:flex; align-items:center; gap:12px; text-align:left; }
 .wn-run-opts .qz-opt-num { flex:none; width:26px; height:26px; border-radius:50%; display:grid; place-items:center; background:var(--surface-2); color:var(--ink-3); font-size:14px; }
 .wn-run .tq-question { font-size:16px; }
+
+/* ══ 인쇄용 TOPIK 모의고사 (#ntPrintView .mk) — 실제 시험지 모양: 명조 글꼴 · 두 단 · 지문 상자 · ①~④ ══════════════
+   종이는 늘 흰색이라 테마 색을 쓰지 않고 못 박는다(노트 인쇄와 같은 까닭). */
+body.mk-printing #ntPrintView { max-width:none; }
+.mk { color:#111; font-family:'Batang','바탕','AppleMyungjo','Noto Serif KR','Nanum Myeongjo',serif; font-size:10.5pt; line-height:1.55; }
+.mk b { font-weight:700; }
+/* 표지 */
+.mk-cover { break-after:page; min-height:250mm; display:flex; flex-direction:column; align-items:center; text-align:center; padding-top:18mm; }
+.mk-cv-top { font-size:11pt; letter-spacing:.2em; color:#444; }
+.mk-cv-t { font-size:52pt; font-weight:800; letter-spacing:.04em; margin:10mm 0 2mm; font-family:Georgia,'Times New Roman',serif; }
+.mk-cv-s { font-size:13pt; color:#333; }
+.mk-cv-part { margin:12mm 0 10mm; padding:5mm 16mm; border:2px solid #111; border-radius:2mm; }
+.mk-cv-part b { display:block; font-size:30pt; letter-spacing:.3em; }
+.mk-cv-part span { font-size:11pt; color:#333; }
+.mk-cv-id { border-collapse:collapse; width:120mm; margin:0 auto 10mm; }
+.mk-cv-id th, .mk-cv-id td { border:1.2px solid #111; padding:3mm 4mm; font-size:11pt; }
+.mk-cv-id th { width:38mm; background:#f1f1f1; font-weight:700; }
+.mk-cv-id small { font-weight:400; font-size:8pt; color:#555; }
+.mk-cv-note { width:150mm; text-align:left; border:1px solid #999; padding:4mm 6mm; font-size:10pt; }
+.mk-cv-note ol { margin:2mm 0 0 5mm; padding:0; }
+.mk-cv-note small { display:block; color:#666; font-size:8.5pt; }
+.mk-cv-legal { margin-top:auto; font-size:8.5pt; color:#555; line-height:1.6; }
+/* 문제지 */
+.mk-paper { break-after:page; }
+.mk-run { text-align:center; font-weight:700; font-size:11pt; border-top:2px solid #111; border-bottom:1px solid #111; padding:1.5mm 0; margin-bottom:5mm; }
+.mk-cols { column-count:2; column-gap:9mm; column-rule:1px solid #bbb; }
+.mk-g { margin:0 0 5mm; }
+.mk-inst { font-weight:700; margin:0 0 2.5mm; break-after:avoid; }
+.mk-q { break-inside:avoid; margin:0 0 4.5mm; }
+.mk-qn { margin:0 0 1.5mm; }
+.mk-box { border:1px solid #111; padding:2.5mm 3.5mm; margin:0 0 2.5mm; white-space:pre-wrap; break-inside:avoid; }
+.mk-g > .mk-box { margin-bottom:4mm; }
+.mk-ins { border:1px dashed #555; padding:2mm 3mm; margin:0 0 2.5mm; }
+.mk-ins span { display:inline-block; font-weight:700; margin-right:2mm; padding:0 1.5mm; border:1px solid #111; font-size:9pt; }
+.mk-opts { list-style:none; margin:0; padding:0; display:grid; grid-template-columns:1fr 1fr; gap:1mm 4mm; }
+.mk-opts.long { grid-template-columns:1fr; }
+.mk-opts li { display:flex; gap:1.5mm; }
+.mk-opts li span { flex:none; }
+/* 답안지 */
+.mk-omr { break-after:page; }
+.mk-omr-h { display:flex; justify-content:space-between; align-items:baseline; border-bottom:2px solid #111; padding-bottom:2mm; margin-bottom:5mm; }
+.mk-omr-h b { font-size:15pt; }
+.mk-omr-id { width:100%; margin-bottom:6mm; }
+.mk-omr-id th { width:auto; }
+.mk-omr-grid { display:grid; grid-template-columns:repeat(4, 1fr); gap:4mm; }
+.mk-omr-col { border-collapse:collapse; width:100%; }
+.mk-omr-col th { width:9mm; border:1px solid #111; background:#f1f1f1; font-size:9.5pt; padding:1.6mm 0; }
+.mk-omr-col td { border:1px solid #111; text-align:center; padding:1mm 0; }
+.mk-omr-col i { font-style:normal; font-size:12pt; color:#b22; }
+/* 정답과 해설 */
+.mk-key-grid { display:grid; grid-template-columns:repeat(10, 1fr); gap:1.5mm; margin-bottom:6mm; }
+.mk-key-grid span { border:1px solid #111; text-align:center; padding:1.2mm 0; font-size:10pt; }
+.mk-key-grid span b { display:block; font-size:8pt; color:#555; border-bottom:1px solid #ccc; margin-bottom:.8mm; }
+.mk-why { margin:0; padding-left:7mm; column-count:2; column-gap:8mm; font-size:9pt; line-height:1.5; color:#222; }
+.mk-why li { break-inside:avoid; margin-bottom:1.6mm; }
+
+/* 자료마당의 무료 모의고사 칸(화면) */
+.mk-lib { display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:12px; margin:10px 0 34px; }
+.mk-lib-c { padding:18px; border:1px solid var(--line); border-radius:var(--r-l); background:var(--surface); }
+.mk-lib-h { display:flex; flex-direction:column; gap:2px; margin-bottom:12px; }
+.mk-lib-h b { font-size:18px; color:var(--ink); letter-spacing:-.02em; }
+.mk-lib-h span { font-size:13px; color:var(--ink-3); }
+.mk-lib-rs { display:flex; flex-wrap:wrap; gap:6px; }
+.mk-lib-r { padding:8px 14px; border:1px solid var(--line); border-radius:999px; background:var(--surface-2); color:var(--ink); font:inherit; font-size:13.5px; font-weight:600; cursor:pointer; }
+.mk-lib-r:hover { border-color:var(--orange); }
+.mk-lib-r::before { content:'⎙ '; color:var(--ink-3); }
