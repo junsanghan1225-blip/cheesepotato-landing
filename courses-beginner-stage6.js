@@ -1137,6 +1137,20 @@ export const BEGINNER_STAGE6_COURSES = [
     ],
   },
 
+  {
+    id: "bg-31-04", title: {"ko":"4강. 실전 비교: 받는 사람과 가는 방향 총정리","en":"Lesson 4. Summary & Practice: Direction & Person Particles"}, minutes: 5,
+    blocks: [
+      {"t":"text","h":"Reviewing Key Particles: People vs Directions","md":"In this course, you learned essential particles for people and movement:\n\n1. **Target Person (-에게 / -한테)**: Moving towards someone (speaking, giving, sending).\n   - 친구**한테** 선물을 줘요. *(I give a present to a friend.)*\n\n2. **Source Person (-에게서 / -한테서)**: Originating from someone.\n   - 부모님**한테서** 편지를 받았어요. *(I received a letter from my parents.)*\n\n3. **Direction & Tool (-(으)로)**: Destination direction or method/tool.\n   - 오른쪽**으로** 가세요. *(Please go to the right.)*\n   - 지하철**로** 출근해요. *(I commute by subway.)*"},
+      {"t":"table","head":["Particle","Function","Sound Rule","Example"],"rows":[["-에게 / -한테","To person (receiver)","No batchim change (-한테 is spoken)","친구한테"],["-에게서 / -한테서","From person (sender)","No batchim change (-한테서 is spoken)","선생님한테서"],["-(으)로","Towards direction / tool","Vowel / ㄹ: -로, Consonant: -으로","오른쪽으로 / 서울로"]]},
+      {"t":"chars","wide":true,"items":[{"ch":"할머니께 안부 전화를 드렸어요.","tip":"I made a greeting phone call to grandmother. (-께 honorific to grandmother)"},{"ch":"친구한테서 생일 카드를 받았어요.","tip":"I received a birthday card from a friend. (-한테서 from a friend)"},{"ch":"앞으로 똑바로 가면 약국이 나와요.","tip":"If you go straight ahead, you will find the pharmacy. (앞으로 towards the front)"}]},
+      {"t":"choice","q":"Giving directions: You want to tell someone \"Please turn to the right side (오른쪽).\" Which particle is correct?","options":["오른쪽으로 가세요.","오른쪽에게 가세요.","오른쪽한테 가세요.","오른쪽에게서 가세요."],"answer":0,"why":"오른쪽 is a direction/location, not a person. Since it ends in consonant ㄱ, attach -으로: 오른쪽으로 가세요."},
+      {"t":"cloze","sentence":"어제 고향 친구[한테서] 반가운 연락을 받았어요.","answer":"한테서","meaning":"I received a welcome message from a hometown friend yesterday.","options":["한테서","한테","으로","로"],"keys":["한테서","한테","으로","로"],"why":"When receiving something from an everyday person (friend), use -한테서 (or -에게서)."},
+      {"t":"type","q":"연필 (pencil — tool/instrument) ending with ㄹ batchim: 「이 편지는 ___ 썼어요. (I wrote this letter with a pencil.)」","answer":"연필로","keys":["연필로","연필으로","연필한테","연필에게"],"why":"Nouns ending with the ㄹ batchim take -로 (not -으로): 연필로."},
+      {"t":"choice","q":"Which sentence correctly expresses \"I sent a birthday present to my teacher\" using the polite honorific particle for revered elders?","options":["선생님께 생일 선물을 보냈어요.","선생님으로 생일 선물을 보냈어요.","선생님로 생일 선물을 보냈어요.","선생님부터 생일 선물을 보냈어요."],"answer":0,"why":"When giving or sending to a respected elder like a teacher, use the honorific particle -께: 선생님께."},
+      {"t":"order","q":"Put the words in order: \"Please go straight ahead.\"","tokens":["앞으로","똑바로","가세요."],"answer":["앞으로","똑바로","가세요."]},
+      {"t":"speak","say":"저는 매일 아침에 지하철로 회사에 출근해요.","q":"Read aloud smoothly, paying attention to the batchim connection in 지하철로:"},
+    ],
+  },
   ],
 },
 
