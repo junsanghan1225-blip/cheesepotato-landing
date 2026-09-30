@@ -91,6 +91,37 @@ export const DETAILED_GRAMMAR_COURSES = [
             q:'Read out loud connecting the three -어요 verbs naturally.' },
         ],
       },
+
+      {
+        id: "bg-d-01-03", title: {"ko":"3강. 모음 줄임과 꼴 만들기","en":"Lesson 3. Vowel Contractions and Combining Rules"}, minutes: 5,
+        blocks: [
+          {"t":"text","h":"How Vowels Merge Without a Final Consonant","md":"When a verb stem has **no final consonant (받침)**, the vowel of the stem merges with the ending **-아요 / -어요**.\n\nHere are the most common contraction patterns in everyday speech."},
+          {"t":"table","head":["Stem Vowel","Combination","Contraction","Example"],"rows":[["ㅏ (no 받침)","가 + 아요","가요","가다 → 가요 (to go)"],["ㅗ (no 받침)","보 + 아요","봐요","보다 → 봐요 (to see)"],["ㅜ (no 받침)","배우 + 어요","배워요","배우다 → 배워요 (to learn)"],["ㅣ (no 받침)","마시 + 어요","마셔요","마시다 → 마셔요 (to drink)"],["ㅡ (no 받침)","쓰 + 어요","써요","쓰다 → 써요 (to write)"]]},
+          {"t":"note","md":"Remember: stems with a final consonant (받침) do **not** contract! For example: **먹다** → **먹어요** (not 머요), **앉다** → **앉아요** (not 안자요 in spelling)."},
+          {"t":"chars","wide":true,"items":[{"ch":"지금 커피를 마셔요.","tip":"I drink coffee now. — 마시다 (ㅣ) + 어요 → 마셔요"},{"ch":"텔레비전을 봐요.","tip":"I watch television. — 보다 (ㅗ) + 아요 → 봐요"},{"ch":"한국어로 편지를 써요.","tip":"I write a letter in Korean. — 쓰다 (ㅡ) + 어요 → 써요"}]},
+          {"t":"pair","q":"Match the dictionary form to its contracted 해요체 form.","pairs":[["보다 (to see)","봐요"],["마시다 (to drink)","마셔요"],["주다 (to give)","줘요"],["쓰다 (to write)","써요"]]},
+          {"t":"choice","q":"Which is the correct present polite form of ‘오다’ (to come)?","options":["오아요","와요","워요"],"answer":1,"why":"오 ends with ㅗ and has no batchim. ㅗ + 아 merges into 와, making **와요**. 오아요 is not contracted in standard polite speech."},
+          {"t":"cloze","sentence":"카페에서 친구에게 선물을 [줘요].","answer":"줘요","meaning":"I give a present to my friend at the cafe.","options":["줘요","주아요","주어요","줬어요"],"keys":["줘요","주아요","주어요","줬어요"],"why":"The stem 주 ends in ㅜ without batchim. In natural conversation, ㅜ + 어 contracts into 워 → **줘요**."},
+          {"t":"type","q":"마시다 (to drink) — Complete the sentence: 「아침에 물을 ___ .」","answer":"마셔요","keys":["마셔요","마시어요","마샤요"],"why":"마시- ends in vowel ㅣ without batchim. ㅣ + 어 combines into 여, so it becomes **마셔요**."},
+          {"t":"order","q":"Arrange the words to say: “I watch a movie at the cinema.”","tokens":["극장에서","영화를","봐요"],"answer":["극장에서","영화를","봐요"]},
+          {"t":"speak","say":"아침에 따뜻한 차를 마셔요.","rom":"a-chim-e tta-tteut-han cha-reul ma-syeo-yo","q":"Read out loud: “I drink warm tea in the morning.”"},
+        ],
+      },
+      {
+        id: "bg-d-01-04", title: {"ko":"4강. 헷갈리는 짝과 실전 구분","en":"Lesson 4. Distinguishing Confusing Pairs in Real Life"}, minutes: 5,
+        blocks: [
+          {"t":"text","h":"How to Choose the Right Ending Every Time","md":"Let's review the 3 steps to pick between **-아요**, **-어요**, and **해요**:\n\n1. **Is it a 하다 verb?** → Always becomes **해요**.\n2. **Look at the last vowel of the stem:**\n   - **ㅏ or ㅗ** → **-아요**\n   - **Any other vowel (ㅓ, ㅜ, ㅡ, ㅣ, ㅐ, ㅔ)** → **-어요**\n3. Check if the vowels contract when there is no batchim."},
+          {"t":"table","head":["Verb","Stem Vowel","Ending","Final Polite Form"],"rows":[["살다 (to live)","ㅏ","-아요","살아요"],["열다 (to open)","ㅓ","-어요","열어요"],["일하다 (to work)","하다","해요","일해요"],["작다 (to be small)","ㅏ","-아요","작아요"],["적다 (to be few)","ㅓ","-어요","적어요"]]},
+          {"t":"note","md":"Look closely at **살다** vs **열다** and **작다** vs **적다**! One vowel difference changes whether you attach **-아요** or **-어요**."},
+          {"t":"chars","wide":true,"items":[{"ch":"서울에 살아요.","tip":"I live in Seoul. — 살다 has vowel ㅏ → 살아요"},{"ch":"창문을 열어요.","tip":"I open the window. — 열다 has vowel ㅓ → 열어요"},{"ch":"회사에서 일해요.","tip":"I work at the company. — 일하다 is a -하다 verb → 일해요"}]},
+          {"t":"choice","q":"Which sentence correctly conjugates ‘닫다’ (to close)?","options":["문을 닫아요.","문을 닫어요.","문을 닫해요."],"answer":0,"why":"The stem 닫 has the bright vowel **ㅏ**, so it takes **-아요** → **닫아요**. 닫어요 uses the wrong vowel ending."},
+          {"t":"choice","q":"Which sentence correctly conjugates ‘쉬다’ (to rest)?","options":["집에서 쉬아요.","집에서 쉬어요.","집에서 쉬해요."],"answer":1,"why":"The stem 쉬 ends in vowel ㅟ, which is not ㅏ or ㅗ. Therefore it takes **-어요** → **쉬어요**."},
+          {"t":"pair","q":"Pair each verb with its correct ending category.","pairs":[["앉다 (to sit)","-아요 (앉아요)"],["서다 (to stand)","-어요 (서요)"],["청소하다 (to clean)","해요 (청소해요)"],["놀다 (to play / hang out)","-아요 (놀아요)"]]},
+          {"t":"cloze","sentence":"방에서 노래를 [들어요].","answer":"들어요","meaning":"I listen to music in my room.","options":["들어요","들아요","듣아요","들었어요"],"keys":["들어요","들아요","듣아요","들었어요"],"why":"듣다 has vowel ㅡ and changes ㄷ to ㄹ before vowels, taking -어요 → **들어요**."},
+          {"t":"type","q":"운동하다 (to exercise) — Complete the sentence: 「공원에서 매일 ___ .」","answer":"운동해요","keys":["운동해요","운동하아요","운동하여요"],"why":"Verbs ending in -하다 always conjugate to -해요 in standard polite speech: 운동하다 → **운동해요**."},
+          {"t":"speak","say":"주말에는 공원에서 운동하고 집에서 쉬어요.","rom":"ju-mal-e-neun gong-won-e-seo un-dong-ha-go jib-e-seo swi-eo-yo","q":"Read out loud smoothly: “On weekends, I exercise in the park and rest at home.”"},
+        ],
+      },
     ],
   },
 
