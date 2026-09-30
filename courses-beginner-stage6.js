@@ -1592,6 +1592,20 @@ export const BEGINNER_STAGE6_COURSES = [
     ],
   },
 
+  {
+    id: "bg-33-04", title: {"ko":"4강. 실전 비교: 나열과 선택(와 · 이나 · 마다 · 도) 총정리","en":"Lesson 4. Summary & Practice: Listing & Selection Particles"}, minutes: 5,
+    blocks: [
+      {"t":"text","h":"Reviewing Connecting & Auxiliary Particles","md":"In this course, you learned essential particles for connecting nouns and expressing frequency:\n\n1. **Listing & Companion (-와/과, -하고, -(이)랑)**: Connect nouns with 'and' or mean 'with'.\n   - 사과**와** 배를 샀어요. *(I bought apples and pears.)*\n   - 친구**하고** 영화를 봐요. *(I watch movies with a friend.)*\n\n2. **Choice & Approximate / Wonder (-(이)나)**: Means 'or' between nouns, or emphasizes surprisingly large amounts.\n   - 커피**나** 차를 마셔요. *(I drink coffee or tea.)*\n   - 피자를 3판**이나** 먹었어요! *(I ate as many as 3 pizzas!)*\n\n3. **Every (-마다) & Also (-도)**: Regular recurrence and addition.\n   - 주말**마다** 운동해요. *(I exercise every weekend.)*\n   - 저**도** 갈게요. *(I will go too.)*"},
+      {"t":"table","head":["Particle","Function","Batchim Rule","Example"],"rows":[["-와 / -과","Listing ('and') / Companion ('with')","Vowel: -와, Consonant: -과","사과와 배 / 밥과 국"],["-(이)나","Choice ('or') / Large count","Vowel: -나, Consonant: -이나","차나 커피 / 물 2리터나"],["-마다","Every / Each without exception","Attach directly without change","아침마다 / 주말마다"],["-도","Also / Too (replaces 은/는, 이/가, 을/를)","Attach directly without change","저도 / 한국어도"]]},
+      {"t":"chars","wide":true,"items":[{"ch":"주말마다 서점에 가서 책을 읽어요.","tip":"I go to the bookstore and read books every weekend. (주말마다 every weekend)"},{"ch":"친구와 함께 공원에서 즐겁게 산책했어요.","tip":"I took an enjoyable walk in the park with a friend. (친구와 with a friend)"},{"ch":"목이 마르면 시원한 물이나 주스 드세요.","tip":"If you are thirsty, please drink cool water or juice. (물이나 water or juice)"}]},
+      {"t":"choice","q":"Connecting two nouns with \"and\": Noun ends with batchim ㄱ (책). Which particle correctly follows: \"책(__) 공책\"?","options":["책과 공책","책와 공책","책이나와 공책","책마다와 공책"],"answer":0,"why":"Nouns ending with a final consonant (batchim ㄱ in 책) take -과: 책과 공책."},
+      {"t":"cloze","sentence":"저는 주말[마다] 한강 공원에 가서 자전거를 타요.","answer":"마다","meaning":"I go to Hangang Park and ride a bicycle every weekend.","options":["마다","보다","에게","한테"],"keys":["마다","보다","에게","한테"],"why":"To express a recurring regular routine (\"every weekend\"), use -마다: 주말마다."},
+      {"t":"type","q":"도 replaces topic/subject particles. Correct the common beginner error 「저는도」 to just one word: 「___ 한국어 공부를 좋아해요. (I also like studying Korean.)」","answer":"저도","keys":["저도","나도","제가","저는"],"why":"The particle -도 completely replaces 는. Never say 저는도; use 저도."},
+      {"t":"choice","q":"A: \"점심에 뭐 드실래요?\" B: \"시간이 없으니 간단하게 김밥(__) 라면 먹어요.\" (Suggesting choice: gimbap or ramen).","options":["김밥이나 라면 먹어요.","김밥마다 라면 먹어요.","김밥보다 라면 먹어요.","김밥에게 라면 먹어요."],"answer":0,"why":"김밥 ends in batchim ㅂ, so to express choice ('or'), attach -이나: 김밥이나 라면 먹어요."},
+      {"t":"order","q":"Put the words in order: \"I also like that song really much.\"","tokens":["저도","그","노래를","정말","좋아해요."],"answer":["저도","그","노래를","정말","좋아해요."]},
+      {"t":"speak","say":"아침마다 따뜻한 커피나 차를 한잔 마셔요.","q":"Read aloud comfortably describing your morning coffee or tea routine:"},
+    ],
+  },
   ],
 },
 
