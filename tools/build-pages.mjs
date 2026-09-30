@@ -1155,7 +1155,7 @@ function wordPage(entry, prev, next) {
     '<h2>뜻풀이 · Meaning</h2>',
     senses?.length
       ? '<div class="facts">' + senses.map(([ko, enS], i) =>
-          `<div class="fact"><b>${i + 1}</b><span>${esc(ko)}${enS ? `<i lang="en">${esc(enS)}</i>` : ''}</span></div>`
+          `<div class="fact"><b>${i + 1}.</b> <span>${esc(ko)}${enS ? `<i lang="en">${esc(enS)}</i>` : ''}</span></div>`
         ).join('') + '</div>'
       : `<p class="desc">${esc(en || t2(pos))}</p>`,
     example ? '<h2>예문 · Example</h2>' +
@@ -1201,8 +1201,12 @@ function vocabPage(w, prev, next) {
   const toks = (x) => (String(x).toLowerCase().match(/[a-z]{2,}/g) || []).filter((y) => !STOP.has(y));
   const enWords = new Set(toks(`${w.e} ${w.s}`));
   const senses = (SENSES[head] || []).filter(([, enS]) => toks(enS).some((x) => enWords.has(x))).slice(0, 2);
-  const title = `${head} (${rom}) — "${firstEn}" in Korean: meaning, examples${conj ? ', conjugation' : ''} | 치즈감자`;
-  const desc = clip(`${head} (${rom}) means "${w.e}" — TOPIK ${w.l}급 ${w.p}. 예문: ${w.x[0]?.[0] || ''} (${w.x[0]?.[1] || ''})`);
+  /* 검색 결과에 보이는 두 줄 — 운영자 지적(2026-10-01): 영어 · 한국어 · 「3급 명사」 같은 말이 뒤섞여 정신없었다.
+     제목은 짧게(검색어 「… in Korean」 + 낱말), 설명은 영어 한 갈래로 읽히게 쓰고 예문은 한국어 한 줄만. */
+  const title = `${head} (${rom}) — "${firstEn}" in Korean | 치즈감자`;
+  const posEn = POS_EN[w.p] ? ` ${POS_EN[w.p]}` : '';
+  const ex = w.x[0]?.[0] ? ` Example: ${w.x[0][0]}` : '';
+  const desc = clip(`"${firstEn.charAt(0).toUpperCase()}${firstEn.slice(1)}" in Korean is ${head} (${rom}), a TOPIK ${isT2(w) ? 'II' : 'I'} level ${w.l}${posEn || ' word'}.${ex} Meanings, examples with English${conj ? ', conjugation' : ''} and a quick quiz.`);
 
   /* 미니 퀴즈 — 뜻 고르기 넷. 스크립트 없이 <details> 로 답을 편다(정적 쪽이라 CSP · 속도 걱정이 없다). */
   const rnd = seeded(head);
