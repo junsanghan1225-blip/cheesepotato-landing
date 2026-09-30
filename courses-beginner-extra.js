@@ -228,6 +228,20 @@ export const BEGINNER_EXTRA_COURSES = [
     ],
   },
 
+  {
+    id: "bg-35-04", title: {"ko":"4강. 실전 활용: 숫자 변형과 몇 개 묻기 총정리","en":"Lesson 4. Summary & Practice: Number Contractions & Counters with 몇"}, minutes: 5,
+    blocks: [
+      {"t":"text","h":"Counting Naturally: Number Changes & Using '몇'","md":"When counting nouns in Korean with Native Korean numbers, five numbers change their shape right before a counter:\n\n- 하나 → **한** (한 개, 한 명, 한 잔)\n- 둘 → **두** (두 개, 두 명, 두 권)\n- 셋 → **세** (세 개, 세 살, 세 병)\n- 넷 → **네** (네 개, 네 마리, 네 장)\n- 스물 → **스무** (스무 살, 스무 개)\n\nTo ask \"how many?\", place **몇** directly before the counter:\n- 손님이 **몇 명** 오세요? *(How many guests are coming?)*\n- 사과가 **몇 개** 있어요? *(How many apples are there?)*"},
+      {"t":"table","head":["Original Number","Before Counter","Example with Counter","English Meaning"],"rows":[["하나 (1)","한","커피 한 잔","One cup of coffee"],["둘 (2)","두","학생 두 명","Two students"],["셋 (3)","세","책 세 권","Three books"],["넷 (4)","네","고양이 네 마리","Four cats"],["스물 (20)","스무","스무 살","Twenty years old"]]},
+      {"t":"chars","wide":true,"items":[{"ch":"사과 세 개와 바나나 네 개를 샀어요.","tip":"I bought three apples and four bananas. (세 개, 네 개)"},{"ch":"친구 두 명과 함께 영화관에 갔어요.","tip":"I went to the cinema with two friends. (두 명 two people)"},{"ch":"지금 지갑에 만 원짜리 지폐 한 장이 있어요.","tip":"I have one 10,000-won bill in my wallet right now. (한 장 one paper sheet)"}]},
+      {"t":"choice","q":"At a cafe, you want to order two cups of iced tea. Which expression is grammatically correct?","options":["아이스티 두 잔 주세요.","아이스티 둘 잔 주세요.","아이스티 두 개 잔 주세요.","아이스티 두 병 주세요."],"answer":0,"why":"둘 contracts to 두 before counters: 두 잔."},
+      {"t":"cloze","sentence":"오늘 모임에 친구가 [몇 명] 와요?","answer":"몇 명","meaning":"How many friends are coming to today's gathering?","options":["몇 명","몇 개","몇 권","몇 잔"],"keys":["몇 명","몇 개","몇 권","몇 잔"],"why":"When asking how many people, use the person counter 명 with question word 몇: 몇 명."},
+      {"t":"type","q":"셋 (3) contracting before counter 권 (books): 「도서관에서 한국어 책 ___ 빌렸어요. (I borrowed three books.)」","answer":"세 권","keys":["세 권","세권","셋 권","셋권"],"why":"셋 contracts to 세 before counters: 세 권."},
+      {"t":"choice","q":"Age counter: You are 20 years old. How do you say this correctly in Korean?","options":["저는 올해 스무 살이에요.","저는 올해 스물 살이에요.","저는 올해 스무 살예요.","저는 올해 스물 살예요."],"answer":0,"why":"스물 drops its final ㄹ before counters: 스무 살이에요."},
+      {"t":"order","q":"Put the words in order: \"Please give me two cups of warm coffee.\"","tokens":["따뜻한","커피","두","잔","주세요."],"answer":["따뜻한","커피","두","잔","주세요."]},
+      {"t":"speak","say":"카페에서 시원한 커피 두 잔과 케이크 한 조각을 주문했어요.","q":"Read aloud clearly as if ordering drinks and cake at a counter:"},
+    ],
+  },
   ],
 },
 
