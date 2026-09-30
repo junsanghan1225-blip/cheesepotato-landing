@@ -420,6 +420,34 @@ export const BEGINNER_STAGE6_COURSES = [
     ],
   },
 
+  {
+    id: "bg-28-03", title: {"ko":"3강. 꼴 만들기: 받침과 ㄹ 탈락의 비밀","en":"Lesson 3. Conjugation Rules: The ㄹ-Drop Trap"}, minutes: 5,
+    blocks: [
+      {"t":"text","h":"Formal Endings and The ㄹ-Drop Rule","md":"In formal style (**-ㅂ/습니다**), the rule looks simple at first:\n- Vowel stem → **-ㅂ니다 / -ㅂ니까?** *(가다 → 갑니다)*\n- Consonant stem → **-습니다 / -습니까?** *(먹다 → 먹습니다)*\n\n**The Big Trap: ㄹ-Stems!**\nWhen a verb stem ends in **ㄹ**, the **ㄹ drops completely**, and the verb takes **-ㅂ니다** (not -습니다!):\n- **살다** (to live) → **살** drops ㄹ → **사** + ㅂ니다 = **삽니다**\n- **만들다** (to make) → **만들** drops ㄹ → **만듭니다**\n- **알다** (to know) → **알** drops ㄹ → **압니다**\n\nMeanwhile, verbs with ㅂ, ㄷ, or ㅅ (like 듣다, 덥다, 낫다) stay completely regular before -습니다: **듣습니다**, **덥습니다**, **낫습니다**!"},
+      {"t":"table","head":["Verb Stem","Conjugation Rule","Formal Statement","Formal Question"],"rows":[["살다 (to live)","ㄹ drops → take -ㅂ니다","**삽니다**","**사십니까?** / **삽니까?**"],["만들다 (to make)","ㄹ drops → take -ㅂ니다","**만듭니다**","**만듭니까?**"],["알다 (to know)","ㄹ drops → take -ㅂ니다","**압니다**","**압니까?**"],["듣다 (to listen)","Regular before consonant","**듣습니다**","**듣습니까?**"]]},
+      {"t":"chars","wide":true,"items":[{"ch":"저는 지금 서울에 삽니다.","tip":"I live in Seoul right now. (살다 → 삽니다)"},{"ch":"한국 친구를 위해 불고기를 만듭니다.","tip":"I am making bulgogi for my Korean friend. (만들다 → 만듭니다)"},{"ch":"그 소식을 잘 알고 있습니다.","tip":"I know that news well. (알다 → 압니다)"}]},
+      {"t":"choice","q":"How do you conjugate the verb 살다 (to live) into the formal statement \"I live in Seoul\"?","options":["서울에 삽니다.","서울에 살습니다.","서울에 살읍니다.","서울에 살지 마세요."],"answer":0,"why":"Stems ending in ㄹ drop the ㄹ before formal endings: 살다 → 삽니다 (never 살습니다)."},
+      {"t":"cloze","sentence":"저는 매일 아침 라디오 뉴스를 [듣습니다].","answer":"듣습니다","meaning":"I listen to radio news every morning.","options":["듣습니다","들습니다","듣지 마세요","들으면 안 돼요"],"keys":["듣습니다","들습니다","듣지 마세요","들으면 안 돼요"],"why":"듣다 ends in consonant ㄷ, so it simply attaches -습니다: 듣습니다 (no ㄷ→ㄹ change before consonant ㅅ)."},
+      {"t":"type","q":"만들다 (to make) — Formal style: 「한국 요리를 ___ . (I make)」","answer":"만듭니다","keys":["만듭니다","만들습니다","만들었습니다","만들기로"],"why":"Verbs ending in ㄹ drop the ㄹ and take -ㅂ니다: 만들다 → 만듭니다."},
+      {"t":"choice","q":"Which sentence shows the correct formal conjugation of 알다 (to know)?","options":["그 사람의 이름을 잘 압니다.","그 사람의 이름을 잘 알습니다.","그 사람의 이름을 잘 알읍니다.","그 사람의 이름을 잘 알지 마세요."],"answer":0,"why":"알다 drops ㄹ before -ㅂ니다 to become 압니다."},
+      {"t":"order","q":"Put the words in order: \"I live in Seoul right now.\" (Formal)","tokens":["저는","지금","서울에","삽니다."],"answer":["저는","지금","서울에","삽니다."]},
+      {"t":"speak","say":"저는 지금 서울에서 한국어를 배웁니다.","q":"Read aloud crisply and formally:"},
+    ],
+  },
+  {
+    id: "bg-28-04", title: {"ko":"4강. 헷갈리는 짝과 가르기: 언제 격식체를 쓰는가","en":"Lesson 4. Choosing the Register: Formal vs Polite Informal"}, minutes: 5,
+    blocks: [
+      {"t":"text","h":"When to Use Formal (-ㅂ/습니다) vs Polite (-아/어요)","md":"In Korean, both **-ㅂ/습니다** (격식체) and **-아/어요** (해요체) are polite and respectful. But they belong in completely different settings!\n\n1. **Formal Style (-ㅂ/습니다 / -(으)십시오)**:\n   - **Public & Professional**: Job interviews, business presentations, news broadcasts, subway announcements, and military.\n   - Creates professional distance and serious authority.\n   - *처음 뵙겠습니다. 잘 부탁드립니다.*\n\n2. **Polite Informal Style (-아/어요 / -(으)세요)**:\n   - **Warm & Everyday**: Talking with coworkers, neighbors, teachers, café staff, and friends.\n   - Creates friendly, approachable warmth.\n   - *안녕하세요? 오늘 날씨가 참 좋아요.*"},
+      {"t":"table","head":["Situation","Best Register","Example"],"rows":[["Job interview / Presentation","Formal (-ㅂ/습니다)","열심히 **하겠습니다** (I will work hard)"],["Subway / Public announcement","Formal (-(으)십시오)","안전선 뒤로 **물러서십시오** (Please step back)"],["Ordering at a café / Restaurant","Polite (-아/어요)","따뜻한 아메리카노 한 잔 **주세요**"],["Daily chat with friendly coworker","Polite (-아/어요)","주말에 뭐 **했어요?** (What did you do?)"]]},
+      {"t":"chars","wide":true,"items":[{"ch":"이번 프로젝트 발표를 시작하겠습니다.","tip":"I will now begin the project presentation. (Formal presentation)"},{"ch":"문의 사항이 있으시면 언제든 연락 주십시오.","tip":"If you have questions, please contact us anytime. (Formal notice)"},{"ch":"오늘 점심 같이 먹으러 갈래요?","tip":"Shall we go eat lunch together today? (Friendly polite chat)"}]},
+      {"t":"choice","q":"You are introducing yourself in a formal job interview in Korea. Which ending is the most appropriate and professional?","options":["열심히 일하겠습니다.","열심히 일하지 마세요.","열심히 일하면 안 돼요.","열심히 일하러 가요."],"answer":0,"why":"In job interviews, the formal style -겠습니다 / -습니다 conveys utmost dedication and professionalism."},
+      {"t":"cloze","sentence":"승객 여러분, 이번 역에서 [내리십시오].","answer":"내리십시오","meaning":"Passengers, please exit at this station.","options":["내리십시오","내리지 마세요","내리면 안 돼요","내리러 가요"],"keys":["내리십시오","내리지 마세요","내리면 안 돼요","내리러 가요"],"why":"Official subway announcements use the formal imperative -(으)십시오: 내리십시오."},
+      {"t":"type","q":"감사하다 (to thank) — Give the quintessential formal greeting: 「대단히 ___ . (Thank you very much)」","answer":"감사합니다","keys":["감사합니다","감사하십시오","감사했습니다","감사하기로"],"why":"Attach -ㅂ니다 to the vowel stem 감사하- = 감사합니다."},
+      {"t":"choice","q":"Which sentence is suitable for a formal business presentation opening?","options":["지금부터 발표를 시작하겠습니다.","지금부터 발표를 하지 마세요.","지금부터 발표를 하면 안 돼요.","지금부터 발표를 하러 가요."],"answer":0,"why":"시작하겠습니다 in formal register establishes a polished presentation tone."},
+      {"t":"order","q":"Put the words in order: \"Nice to meet you for the first time.\" (Formal greeting)","tokens":["처음","뵙겠습니다.","잘","부탁드립니다."],"answer":["처음","뵙겠습니다.","잘","부탁드립니다."]},
+      {"t":"speak","say":"안녕하십니까? 오늘 발표를 맡은 김민수입니다.","q":"Read aloud in a confident, clear presentation tone:"},
+    ],
+  },
   ],
 },
 
