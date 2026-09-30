@@ -9,7 +9,7 @@
 
 ## 무엇이 무료인가 · What is free
 
-- **무료, 가입 없이**: 코스 97개 · 레슨 346개 전부, 문법 표현 290개, 사전,
+- **무료, 가입 없이**: 코스 97개 · 레슨 358개 전부, 문법 표현 290개, 사전,
   레벨테스트, 읽기 지문, TOPIK 연습 문제(유형별), TOPIK 모의고사 1회차.
   (Free with no account: every course and lesson, all grammar points, the
   dictionary, the level test, reading passages, TOPIK practice by question
@@ -60,7 +60,7 @@
 
 ## 담고 있는 것 · What is here
 
-- **코스 97개 · 레슨 346개** — 한글 낱자에서 인사말, 문장으로. 초급 · 중급 · 고급.
+- **코스 97개 · 레슨 358개** — 한글 낱자에서 인사말, 문장으로. 초급 · 중급 · 고급.
 - **문법 표현 290개** — 뜻풀이 · 예문 · 대화문, 내 문장을 써서 확인받는 칸.
 - **TOPIK 연습 문항 979개** — TOPIK I 듣기 26 · TOPIK I 읽기 209 ·
   TOPIK II 듣기 19 · TOPIK II 읽기 605 · TOPIK 쓰기 120(51번 30 · 52번 30 ·
