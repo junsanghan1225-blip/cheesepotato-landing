@@ -2819,16 +2819,16 @@
    margin:auto 는 꼭 있어야 한다 — <dialog> 는 원래 브라우저 기본 스타일이
    margin:auto 로 화면 한가운데 앉히는데, 위쪽 전역 리셋(* { margin:0 })이
    그 값을 지워서 왼쪽 위로 붙어 버린다. */
-/* 레벨 테스트 팝업 — 현대적 에듀테크 스타일의 시원하고 넓은 팝업창 */
+/* 레벨 테스트 팝업 — 현대적 에듀테크 스타일의 시원하고 넓은 팝업창. 760 → 860px(운영자 요청 2026-09-30 「조금만 더 크게」) */
 .lt-dlg {
-  border:0; padding:0; background:transparent; max-width:760px; width:calc(100% - 32px);
+  border:0; padding:0; background:transparent; max-width:860px; width:calc(100% - 32px);
   max-height:calc(100vh - 40px); border-radius:var(--r-xl); margin:auto;
 }
 .lt-dlg::backdrop { background:rgba(var(--ink-rgb),.48); -webkit-backdrop-filter:blur(3px); backdrop-filter:blur(3px); }
 .lt-dlg[open] { animation:cgUp .24s cubic-bezier(.22,.9,.3,1); }
 .lt-card {
   position:relative; background:var(--surface); border-radius:var(--r-xl);
-  padding:38px 36px 32px; box-shadow:0 24px 64px rgba(var(--ink-rgb),.24);
+  padding:44px 44px 36px; box-shadow:0 24px 64px rgba(var(--ink-rgb),.24);
   max-height:calc(100vh - 40px); overflow-y:auto;
 }
 .lt-close {
@@ -2839,6 +2839,18 @@
 .lt-close:hover { background:rgba(var(--ink-rgb),.14); color:var(--ink); }
 
 /* 문제 풀이 폰트 및 보기 대형화 */
+/* 레벨 테스트 듣기 — 시험지 모양: 발문 → 스피커 막대 → 물음 → 보기 */
+.lt-audio { display:flex; align-items:center; gap:12px; flex-wrap:wrap; padding:14px 16px; margin:0 0 14px;
+  border:1px solid var(--line); border-radius:var(--r-l); background:var(--surface-2); }
+.lt-play { display:inline-flex; align-items:center; gap:6px; padding:10px 20px; border:0; border-radius:999px; cursor:pointer;
+  background:var(--orange); color:#fff; font:inherit; font-size:15px; font-weight:800; }
+.lt-play.on { background:var(--orange-deep); }
+.lt-audio-t { font-size:13px; color:var(--ink-3); }
+.lt-sub-q { font-size:15.5px; font-weight:700; color:var(--ink); line-height:1.6; margin:0 0 12px; word-break:keep-all; }
+:root[data-theme="dark"] .lt-play { color:#1B1512; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .lt-play { color:#1B1512; } }
+/* 진행 막대가 닫기 단추(✕) 밑으로 들어가지 않게 오른쪽을 비운다 */
+.lt-card .qz-top { padding-right:46px; }
 .lt-card .claw-ask { margin-bottom:12px; }
 .lt-card .claw-ask-word {
   display:block; font-size:22px; line-height:1.55; font-weight:800;
@@ -2904,7 +2916,9 @@
 .lt-purpose-sub { display:block; font-size:12.5px; color:var(--ink-3); margin-top:4px; line-height:1.45; word-break:keep-all; }
 
 @media (max-width:600px) {
-  .lt-card { padding:26px 18px 22px; }
+  .lt-card { padding:30px 16px 24px; }
+  /* 폰: 보기 칸의 안쪽 여백을 줄여 한 줄에 더 들어가게(긴 보기가 두 줄로 덜 꺾인다) */
+  .lt-card .qz-choice { padding:14px 14px; gap:10px; font-size:15.5px; }
   .lt-card .claw-ask-word { font-size:19px; }
   .lt-purpose-grid { grid-template-columns:1fr; }
 }
@@ -4647,16 +4661,16 @@ div.wd-card:hover { transform:none; }
 .lt-dots i.on { background:var(--orange); }
 .lt-q { font-size:24px; font-weight:800; letter-spacing:-.035em; line-height:1.3; color:var(--ink); text-align:center; word-break:keep-all; }
 .lt-q-sub { margin-top:8px; font-size:14.5px; line-height:1.55; color:var(--ink-2); text-align:center; word-break:keep-all; }
-.lt-tracks { display:grid; grid-template-columns:1fr 1fr; gap:12px; max-width:560px; margin:24px auto 0; }
+.lt-tracks { display:grid; grid-template-columns:1fr 1fr; gap:14px; max-width:660px; margin:28px auto 0; }
 .lt-track {
-  display:flex; flex-direction:column; align-items:center; gap:6px; padding:22px 16px 20px; text-align:center;
+  display:flex; flex-direction:column; align-items:center; gap:8px; padding:30px 20px 26px; text-align:center;
   border-radius:var(--r-xl); border:2px solid var(--line); background:var(--surface); color:var(--ink); font:inherit; cursor:pointer;
   transition:border-color .16s, transform .16s, box-shadow .16s;
 }
 .lt-track:hover, .lt-track.on { border-color:var(--orange); transform:translateY(-2px); box-shadow:0 12px 24px -10px rgba(255,145,77,.3); }
-.lt-track-ic svg { display:block; width:84px; height:84px; }
-.lt-track-t { font-size:18px; font-weight:800; letter-spacing:-.02em; }
-.lt-track-s { font-size:13px; line-height:1.45; color:var(--ink-3); word-break:keep-all; }
+.lt-track-ic svg { display:block; width:100px; height:100px; }
+.lt-track-t { font-size:20px; font-weight:800; letter-spacing:-.02em; }
+.lt-track-s { font-size:14.5px; line-height:1.45; color:var(--ink-3); word-break:keep-all; }
 .lt-textlink { display:block; margin:18px auto 0; background:none; border:none; font:inherit; font-size:13.5px; color:var(--ink-3); text-decoration:underline; cursor:pointer; }
 .lt-textlink:hover { color:var(--ink); }
 .lt-date { display:flex; flex-direction:column; align-items:center; gap:10px; margin-top:22px; }
@@ -4726,12 +4740,17 @@ div.wd-card:hover { transform:none; }
 .lt-pro-go:hover { filter:brightness(1.05); }
 /* 「오늘」 카드의 시험까지 남은 날 */
 @media (max-width:600px) {
-  .lt-q { font-size:21px; }
-  .lt-tracks { grid-template-columns:1fr; }
-  .lt-track { display:grid; grid-template-columns:56px 1fr; align-items:center; column-gap:14px; row-gap:2px; padding:16px; text-align:left; }
+  /* 폰(운영자 요청 2026-09-30): 창을 화면 가까이 넓히고, 닫기 단추가 제목을 덮지 않게 제목 양옆을 비운다. */
+  .lt-dlg { width:calc(100% - 16px); max-height:calc(100dvh - 24px); }
+  .lt-card { max-height:calc(100dvh - 24px); }
+  .lt-close { top:12px; right:12px; }
+  .lt-q { font-size:20px; padding:0 38px; }
+  .lt-tracks { grid-template-columns:1fr; gap:12px; margin-top:22px; }
+  .lt-track { display:grid; grid-template-columns:64px 1fr; align-items:center; column-gap:16px; row-gap:3px; padding:20px 18px; text-align:left; }
   .lt-track-ic { grid-row:span 2; }
-  .lt-track-ic svg { width:56px; height:56px; }
-  .lt-track-t { font-size:17px; }
+  .lt-track-ic svg { width:64px; height:64px; }
+  .lt-track-t { font-size:18px; }
+  .lt-track-s { font-size:14px; }
   .lt-self-ic svg { width:80px; height:80px; }
 }
 

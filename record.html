@@ -112,6 +112,25 @@ kbd { border:1px solid var(--line); border-bottom-width:2px; border-radius:5px; 
 .row .rbtn:hover { border-color:var(--or); color:var(--ink); }
 .list-h { position:sticky; top:0; background:var(--card); padding:9px 12px; font-size:12px; font-weight:800; color:var(--ink3); border-bottom:1px solid var(--line); z-index:1; }
 @media (max-width:600px) { .say { font-size:22px; } .lines.one .say { font-size:28px; } .stage { padding:18px 14px; } }
+/* 폰으로 녹음하기(운영자 요청 2026-09-30) — 머리띠는 한 줄로, 녹음 단추 줄은 화면 아래에 붙여 긴 대화도 내리면서 바로 누른다.
+   손가락으로 하니 자판 안내(Space · R · P)는 감춘다. */
+@media (max-width:600px) {
+  .hd-in { flex-wrap:nowrap; gap:8px; padding:8px 12px; }
+  .hd h1 { font-size:15px; white-space:nowrap; }
+  .meter { min-width:40px; }
+  #saved { display:none; }
+  #exportBtn { padding:7px 10px; font-size:13px; white-space:nowrap; }
+  .bar { flex-wrap:wrap; }
+  .bar #find { order:9; flex:1 1 100%; min-width:0; }
+  .ctl { position:sticky; bottom:0; z-index:4; padding:10px 0 calc(10px + env(safe-area-inset-bottom)); flex-wrap:nowrap;
+    background:color-mix(in srgb, var(--card) 94%, transparent); backdrop-filter:blur(8px); }
+  .ctl .btn { padding:12px 12px; }
+  .ctl #recBtn { flex:1; min-width:0; height:60px; }
+  .after .btn { padding:10px 12px; font-size:14px; }
+  .opts { font-size:13.5px; gap:10px 16px; }
+  .opts label { padding:4px 0; }
+}
+@media (pointer:coarse) { .keys { display:none; } }
 </style>
 </head>
 <body>

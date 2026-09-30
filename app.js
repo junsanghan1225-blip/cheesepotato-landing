@@ -65,12 +65,6 @@ document.getElementById('heroMyBtn').addEventListener('click', () => goLearn('mi
 document.getElementById('heroCardBtn').addEventListener('click', () => goLearn());
 document.getElementById('streakGoBtn').addEventListener('click', () => goLearn());
 document.getElementById('hmMyBtn').addEventListener('click', () => goLearn('mine'));
-/* 레벨테스트를 본 학생에게 접어 둔 첫 화면 소개를 펴고 접는다(html[data-intro]). */
-document.getElementById('hmMoreBtn').addEventListener('click', (e) => {
-  const open = document.documentElement.dataset.intro !== 'open';
-  if (open) document.documentElement.dataset.intro = 'open'; else delete document.documentElement.dataset.intro;
-  e.currentTarget.setAttribute('aria-expanded', String(open));
-});
 
 /* 레벨 테스트는 팝업(<dialog>)이라 화면 전환이 아니다 — app.module.js 가
    window.ltOpen 을 걸어 둔다. 아직 안 왔으면 페이지 중간 구역의 단추
