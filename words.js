@@ -1132,7 +1132,7 @@ export function wordsInit(D) {
     const pos = hadFocus ? document.activeElement.selectionStart : null;
     root.innerHTML = shell(body) + (sheet ? drawSheet() : '') + (dlg ? drawDlg() : '');
     writeSum();
-    if (view.tab === 'intro' && view.intro.said !== view.intro.i) { view.intro.said = view.intro.i; sayWord(view.intro.words[view.intro.i].h); }
+    /* 새 낱말 카드는 소리를 저절로 내지 않는다 — 스피커를 누를 때만(운영자 요청 2026-09-30). */
     if (dlg) { const inp = root.querySelector('#wdDlgIn'); if (inp) { inp.focus(); inp.select(); } else root.querySelector('.wd-dlg [data-act="dlgok"]')?.focus(); }
     root.classList.toggle('wd-studying', view.tab === 'study' || view.tab === 'intro');
     if (hadFocus) { const q = root.querySelector('#wdQ'); q.focus(); try { q.setSelectionRange(pos, pos); } catch (e) {} }
@@ -1166,7 +1166,7 @@ export function wordsInit(D) {
     const ss = chunk(listFor(topic));
     const words = ss[n];
     if (!words) return;
-    view = { tab: 'intro', intro: { words, i: 0, topic, n, said: -1 } };
+    view = { tab: 'intro', intro: { words, i: 0, topic, n } };
     query = '';
     mark(`topic/${topic}/${n + 1}`);
     window.scrollTo({ top: 0 });
