@@ -4585,8 +4585,8 @@ div.wd-card:hover { transform:none; }
 .my-badge small { font-size:12px; color:var(--ink-2); }
 .my-badge.cheese { background:color-mix(in srgb, #FFD166 16%, var(--surface)); }
 .my-badge.potato { background:color-mix(in srgb, #D9A263 14%, var(--surface)); }
-#heroMyBtn .lvl-ic { width:30px; height:30px; margin:-6px 6px -6px -4px; vertical-align:middle; }
-#heroMyBtn { display:inline-flex; align-items:center; }
+#heroMyBtn .lvl-ic, #hmMyBtn .lvl-ic { width:30px; height:30px; margin:-6px 6px -6px -4px; vertical-align:middle; }
+#heroMyBtn, #hmMyBtn { white-space:nowrap; display:inline-flex; align-items:center; }
 .claw-over-emoji.lvl-big { font-size:0; }
 .claw-over-emoji.lvl-big .lvl-ic { width:120px; height:120px; }
 
