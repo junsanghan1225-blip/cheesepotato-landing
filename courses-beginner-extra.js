@@ -228,6 +228,20 @@ export const BEGINNER_EXTRA_COURSES = [
     ],
   },
 
+  {
+    id: "bg-35-04", title: {"ko":"4강. 실전 활용: 숫자 변형과 몇 개 묻기 총정리","en":"Lesson 4. Summary & Practice: Number Contractions & Counters with 몇"}, minutes: 5,
+    blocks: [
+      {"t":"text","h":"Counting Naturally: Number Changes & Using '몇'","md":"When counting nouns in Korean with Native Korean numbers, five numbers change their shape right before a counter:\n\n- 하나 → **한** (한 개, 한 명, 한 잔)\n- 둘 → **두** (두 개, 두 명, 두 권)\n- 셋 → **세** (세 개, 세 살, 세 병)\n- 넷 → **네** (네 개, 네 마리, 네 장)\n- 스물 → **스무** (스무 살, 스무 개)\n\nTo ask \"how many?\", place **몇** directly before the counter:\n- 손님이 **몇 명** 오세요? *(How many guests are coming?)*\n- 사과가 **몇 개** 있어요? *(How many apples are there?)*"},
+      {"t":"table","head":["Original Number","Before Counter","Example with Counter","English Meaning"],"rows":[["하나 (1)","한","커피 한 잔","One cup of coffee"],["둘 (2)","두","학생 두 명","Two students"],["셋 (3)","세","책 세 권","Three books"],["넷 (4)","네","고양이 네 마리","Four cats"],["스물 (20)","스무","스무 살","Twenty years old"]]},
+      {"t":"chars","wide":true,"items":[{"ch":"사과 세 개와 바나나 네 개를 샀어요.","tip":"I bought three apples and four bananas. (세 개, 네 개)"},{"ch":"친구 두 명과 함께 영화관에 갔어요.","tip":"I went to the cinema with two friends. (두 명 two people)"},{"ch":"지금 지갑에 만 원짜리 지폐 한 장이 있어요.","tip":"I have one 10,000-won bill in my wallet right now. (한 장 one paper sheet)"}]},
+      {"t":"choice","q":"At a cafe, you want to order two cups of iced tea. Which expression is grammatically correct?","options":["아이스티 두 잔 주세요.","아이스티 둘 잔 주세요.","아이스티 두 개 잔 주세요.","아이스티 두 병 주세요."],"answer":0,"why":"둘 contracts to 두 before counters: 두 잔."},
+      {"t":"cloze","sentence":"오늘 모임에 친구가 [몇 명] 와요?","answer":"몇 명","meaning":"How many friends are coming to today's gathering?","options":["몇 명","몇 개","몇 권","몇 잔"],"keys":["몇 명","몇 개","몇 권","몇 잔"],"why":"When asking how many people, use the person counter 명 with question word 몇: 몇 명."},
+      {"t":"type","q":"셋 (3) contracting before counter 권 (books): 「도서관에서 한국어 책 ___ 빌렸어요. (I borrowed three books.)」","answer":"세 권","keys":["세 권","세권","셋 권","셋권"],"why":"셋 contracts to 세 before counters: 세 권."},
+      {"t":"choice","q":"Age counter: You are 20 years old. How do you say this correctly in Korean?","options":["저는 올해 스무 살이에요.","저는 올해 스물 살이에요.","저는 올해 스무 살예요.","저는 올해 스물 살예요."],"answer":0,"why":"스물 drops its final ㄹ before counters: 스무 살이에요."},
+      {"t":"order","q":"Put the words in order: \"Please give me two cups of warm coffee.\"","tokens":["따뜻한","커피","두","잔","주세요."],"answer":["따뜻한","커피","두","잔","주세요."]},
+      {"t":"speak","say":"카페에서 시원한 커피 두 잔과 케이크 한 조각을 주문했어요.","q":"Read aloud clearly as if ordering drinks and cake at a counter:"},
+    ],
+  },
   ],
 },
 
@@ -445,6 +459,20 @@ export const BEGINNER_EXTRA_COURSES = [
     ],
   },
 
+  {
+    id: "bg-36-04", title: {"ko":"4강. 실전 비교: 헷갈리는 의문사 10개 완벽 정리","en":"Lesson 4. Summary & Practice: 10 Essential Question Words"}, minutes: 5,
+    blocks: [
+      {"t":"text","h":"Mastering the 10 Korean Question Words","md":"In this course, you learned the 10 foundational Korean question words:\n\n1. **누구 / 누가**: Who? *(누가 is used when 'who' is the grammatical subject with -가)*\n2. **무엇 / 뭐**: What? *(뭐 is the common spoken contraction)*\n3. **어디**: Where?\n4. **언제**: When?\n5. **왜**: Why?\n6. **어떻게**: How?\n7. **어느**: Which? *(Selection among defined options: 어느 나라)*\n8. **무슨**: What? *(Open category: 무슨 음식, 무슨 일)*\n9. **어떤**: What kind of? *(Character, trait, description: 어떤 사람)*\n10. **얼마 / 몇**: How much (price/amount) / How many (count)?"},
+      {"t":"table","head":["Question Word","Key Usage","Typical Question","Natural Meaning"],"rows":[["누가","Who (as grammatical subject)","누가 왔어요?","Who came?"],["어느","Which (choice from existing set)","어느 나라 사람이에요?","Which country are you from?"],["무슨","What (identifying category / item)","무슨 책을 읽어요?","What book are you reading?"],["어떤","What kind of (nature, traits, features)","어떤 사람을 좋아해요?","What kind of person do you like?"],["얼마","How much (cost / price)","이 사과 얼마예요?","How much is this apple?"]]},
+      {"t":"chars","wide":true,"items":[{"ch":"어제 무슨 영화를 봤어요?","tip":"What movie did you watch yesterday? (무슨 영화 what movie title/genre)"},{"ch":"어느 계절을 가장 좋아하세요?","tip":"Which season do you like the most? (어느 selection among 4 seasons)"},{"ch":"이 가방은 가격이 얼마예요?","tip":"How much is this bag? (얼마예요 how much is it?)"}]},
+      {"t":"choice","q":"You are meeting a new coworker and want to ask which country they came from: \"Which country did you come from?\" Which question word is correct?","options":["어느 나라에서 왔어요?","무슨 나라에서 왔어요?","어떤 나라에서 왔어요?","얼마 나라에서 왔어요?"],"answer":0,"why":"To pick one from the set of countries around the world, use the selection determiner 어느: 어느 나라에서 왔어요?"},
+      {"t":"cloze","sentence":"가게에서 과일 가격을 물어봤어요: \"이 사과 [얼마]예요?\"","answer":"얼마","meaning":"I asked for the fruit price at the store: \"How much is this apple?\"","options":["얼마","어느","무슨","어떤"],"keys":["얼마","어느","무슨","어떤"],"why":"To ask for price or total money amount, use 얼마: 얼마예요?"},
+      {"t":"type","q":"누구 acts as the subject with subject particle -가: 「이 맛있는 케이크는 ___ 만들었어요? (Who made this?)」","answer":"누가","keys":["누가","누구","누구가","누구를"],"why":"When 누구 combines with the subject particle 가, it contracts to 누가: 누가 만들었어요?"},
+      {"t":"choice","q":"You want to ask about someone's ideal type or personality preference: \"What kind of person do you like?\"","options":["어떤 사람을 좋아해요?","어느 사람을 좋아해요?","무슨 사람을 좋아해요?","얼마 사람을 좋아해요?"],"answer":0,"why":"To ask about personality, character traits, or qualities, use 어떤: 어떤 사람을 좋아해요?"},
+      {"t":"order","q":"Put the words in order: \"What food do you want to eat today?\"","tokens":["오늘","무슨","음식을","먹고","싶어요?"],"answer":["오늘","무슨","음식을","먹고","싶어요?"]},
+      {"t":"speak","say":"한국에 언제 오셨어요? 그리고 한국 생활은 어떠세요?","q":"Read aloud inquiring naturally about someone's arrival time and experience in Korea:"},
+    ],
+  },
   ],
 },
 ];
