@@ -781,6 +781,34 @@ export const BEGINNER_STAGE5_COURSES = [
     ],
   },
 
+  {
+    id: "bg-26-03", title: {"ko":"3강. 꼴 만들기: 부사 만들기 -게 와 관용 표현","en":"Lesson 3. Forming Adverbs with -게 & Common Idioms"}, minutes: 5,
+    blocks: [
+      {"t":"text","h":"Turning Descriptive Words into Adverbs (-게)","md":"Attaching **-게** to an adjective stem transforms it into an adverb meaning *“-ly”* or *“in a ... way”*:\n\n- **크다 → 크게** *(loudly / largely)*: 음악을 **크게** 틀었어요.\n- **쉽다 → 쉽게** *(easily)*: 시험문제를 **쉽게** 풀었어요.\n- **예쁘다 → 예쁘게** *(prettily / nicely)*: 머리를 **예쁘게** 잘랐어요.\n\nNotice that **-게** attaches directly to the adjective stem without changing based on batchim! However, a few common adjectives have irregular or independent adverb twins: **많다 → 많이**, **빠르다 → 빨리**, **깨끗하다 → 깨끗이**."},
+      {"t":"table","head":["Adjective","Adverb with -게","Example in Context"],"rows":[["크다 (big / loud)","**크게** (loudly)","목소리를 **크게** 내세요"],["쉽다 (easy)","**쉽게** (easily)","설명을 **쉽게** 해 주세요"],["맛있다 (delicious)","**맛있게** (deliciously)","점심 **맛있게** 드세요"],["편하다 (comfortable)","**편하게** (comfortably)","소파에 **편하게** 앉으세요"]]},
+      {"t":"chars","wide":true,"items":[{"ch":"잘 안 들리니까 조금 더 크게 말씀해 주세요.","tip":"I can't hear well, so please speak a little louder."},{"ch":"선생님이 문법을 쉽게 설명해 주셨어요.","tip":"The teacher explained the grammar easily for us."},{"ch":"여기 편하게 앉아서 기다리세요.","tip":"Please sit comfortably here and wait."}]},
+      {"t":"choice","q":"How do you politely ask a speaker at a lecture: \"Please speak a little louder\"? (크다 = loud/big)","options":["조금 더 크게 말씀해 주세요.","조금 더 큰 말씀해 주세요.","조금 더 크지 마세요.","조금 더 크면 안 돼요."],"answer":0,"why":"크다 becomes the adverb 크게 when modifying the action verb 말씀해 주세요: 크게 말씀해 주세요."},
+      {"t":"cloze","sentence":"처음 배우는 사람도 [쉽게] 이해할 수 있어요.","answer":"쉽게","meaning":"Even beginners can easily understand.","options":["쉽게","쉬운","쉬워서","쉬우면"],"keys":["쉽게","쉬운","쉬워서","쉬우면"],"why":"쉽다 + -게 = 쉽게 (easily), modifying the verb 이해하다."},
+      {"t":"type","q":"편하다 (to be comfortable) — Complete the sentence: 「여기 ___ 앉으세요. (comfortably)」","answer":"편하게","keys":["편하게","편한","편해서","편하기로"],"why":"Attach -게 directly to the stem 편하- to form the adverb 편하게."},
+      {"t":"choice","q":"Which sentence uses the adverb form -게 naturally?","options":["머리를 짧게 잘랐어요.","머리를 짧은 잘랐어요.","머리를 짧아서 잘랐어요.","머리를 짧으면 잘랐어요."],"answer":0,"why":"짧다 (short) takes -게 to become the adverb 짧게 (cut my hair short)."},
+      {"t":"order","q":"Put the words in order: \"Please sit comfortably and drink tea.\"","tokens":["소파에","편하게","앉아서","차를 드세요."],"answer":["소파에","편하게","앉아서","차를 드세요."]},
+      {"t":"speak","say":"목소리가 작아서 안 들려요. 조금만 더 크게 말해 주세요.","q":"Read aloud clearly:"},
+    ],
+  },
+  {
+    id: "bg-26-04", title: {"ko":"4강. 헷갈리는 짝과 가르기: -게 되다 vs -기로 하다","en":"Lesson 4. Circumstance vs Decision: -게 되다 vs -기로 하다"}, minutes: 5,
+    blocks: [
+      {"t":"text","h":"Circumstance (-게 되다) vs Personal Decision (-기로 하다)","md":"Both expressions talk about changes in situation or future actions, but who decided it?\n\n1. **-게 되다** — **Circumstance / External change** (*“Turned out that...”*, *“Came to...”*).\n   - The result happened naturally, unexpectedly, or due to external factors (like company orders or luck).\n   - 회사 발령으로 부산에 살**게 됐어요**. *(I ended up living in Busan due to company relocation)*\n\n2. **-기로 하다** — **Personal resolution / Mutual appointment** (*“Decided to...”*).\n   - The speaker actively chose to do this action.\n   - 부산으로 이사 가**기로 했어요**. *(I personally decided to move to Busan)*"},
+      {"t":"table","head":["Expression","Focus","Example"],"rows":[["-게 되다","External circumstances / Not purely personal choice","갑자기 출장을 **가게 됐어요** (sent on business trip)"],["-기로 하다","Active personal choice or appointment","주말에 친구를 **만나기로 했어요** (agreed to meet)"],["-아/어지다","Change of quality or state (for adjectives)","날씨가 많이 **따뜻해졌어요** (weather became warm)"]]},
+      {"t":"chars","wide":true,"items":[{"ch":"한국 대학교로 유학을 가게 되었어요.","tip":"I ended up going to study abroad at a Korean university."},{"ch":"친구의 소개로 그 사람을 알게 되었어요.","tip":"I came to know that person through a friend's introduction."},{"ch":"건강을 위해 매일 조깅을 하기로 했어요.","tip":"I decided to go jogging every day for my health."}]},
+      {"t":"choice","q":"Your company ordered you to relocate to the overseas branch. Which sentence appropriately reflects that this was an assigned company situation?","options":["다음 달부터 해외 지사에서 일하게 되었어요.","다음 달부터 해외 지사에서 일하지 마세요.","다음 달부터 해외 지사에서 일하면 안 돼요.","다음 달부터 해외 지사에서 일하고 있어요."],"answer":0,"why":"-게 되다 emphasizes that the event was brought about by circumstances outside purely personal choice: 일하게 되었어요."},
+      {"t":"cloze","sentence":"친구 덕분에 좋은 책을 [알게 되었어요].","answer":"알게 되었어요","meaning":"Thanks to my friend, I came to know about a great book.","options":["알게 되었어요","알지 마세요","알아야 돼요","알려고 해요"],"keys":["알게 되었어요","알지 마세요","알아야 돼요","알려고 해요"],"why":"알게 되다 expresses coming to know something over time or through circumstance."},
+      {"t":"type","q":"살다 (to live) — Express that you ended up living in Seoul: 「회사 일 때문에 서울에서 ___ . (came to live)」","answer":"살게 되었어요","keys":["살게 되었어요","살기로 했어요","살아야 돼요","살지 마세요"],"why":"Attach -게 되다 to the stem 살- → 살게 되다 (past polite: 살게 되었어요 / 살게 됐어요)."},
+      {"t":"choice","q":"A: \"그 노래는 어떻게 알았어요?\" How do you naturally explain: \"I happened to hear it at a café\"? (듣다 = to hear)","options":["카페에서 우연히 듣게 되었어요.","카페에서 우연히 듣기로 했어요.","카페에서 우연히 듣지 마세요.","카페에서 우연히 들으면 안 돼요."],"answer":0,"why":"우연히 (by chance) perfectly pairs with -게 되었어요 to describe a natural occurrence: 듣게 되었어요."},
+      {"t":"order","q":"Put the words in order: \"I ended up moving to Seoul because of work.\"","tokens":["회사 일 때문에","서울로","이사하게","되었어요."],"answer":["회사 일 때문에","서울로","이사하게","되었어요."]},
+      {"t":"speak","say":"좋은 기회가 생겨서 한국에서 일하게 되었어요.","q":"Read aloud smoothly:"},
+    ],
+  },
   ],
 },
 
