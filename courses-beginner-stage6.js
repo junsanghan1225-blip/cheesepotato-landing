@@ -1757,6 +1757,34 @@ export const BEGINNER_STAGE6_COURSES = [
     ],
   },
 
+  {
+    id: "bg-34-03", title: {"ko":"3강. 꼴 만들기: -기 와 -(으)ㅁ 붙이기","en":"Lesson 3. Forming Nouns: Attaching -기 and -(으)ㅁ"}, minutes: 5,
+    blocks: [
+      {"t":"text","h":"How to Build Nominal Forms: -기 vs -(으)ㅁ","md":"Korean turns verbs and adjectives into nouns using two main endings:\n\n1. **-기 (Simple & Direct)**: Attach `-기` directly to the verb stem without changing anything, whether there is a final consonant or not!\n   - 읽다 → **읽기** *(reading)*\n   - 쓰다 → **쓰기** *(writing)*\n   - 듣다 → **듣기** *(listening)*\n\n2. **-(으)ㅁ (Creates Concrete & Established Nouns)**:\n   - Vowel ending: attach **-ㅁ** (자다 → **잠** *sleep*, 꿈을 꾸다 → **꿈** *dream*)\n   - Consonant ending: attach **-음** (믿다 → **믿음** *faith/trust*, 웃다 → **웃음** *laughter*)\n   - ㄹ batchim: attach **-ㅁ** under ㄹ (살다 → **삶** *life*)\n   - ㅂ irregular: 돕다 → **도움** *help*"},
+      {"t":"table","head":["Verb / Adjective","Stem Type","-기 Form","-(으)ㅁ Form"],"rows":[["자다 (to sleep)","Vowel ending","자기","잠 (sleep)"],["믿다 (to trust)","Consonant ending","믿기","믿음 (trust/faith)"],["살다 (to live)","ㄹ batchim","살기","삶 (life)"],["돕다 (to help)","ㅂ irregular","돕기","도움 (help)"]]},
+      {"t":"chars","wide":true,"items":[{"ch":"한국어 시험에서 듣기와 읽기를 연습해요.","tip":"I practice listening and reading for the Korean exam. (듣기, 읽기 with -기)"},{"ch":"어려울 때 친구의 도움으로 힘을 냈어요.","tip":"In tough times, I gained strength from a friend's help. (도움 from 돕다)"},{"ch":"아이의 밝은 웃음이 온 집안을 채웠어요.","tip":"The child's bright laughter filled the whole house. (웃음 from 웃다)"}]},
+      {"t":"choice","q":"Which noun is formed correctly from the verb 돕다 (to help) with -(으)ㅁ?","options":["도움","돕음","도음","돕기음"],"answer":0,"why":"돕다 is a ㅂ irregular verb. 돕 becomes 도우 + ㅁ = 도움 (help/assistance)."},
+      {"t":"cloze","sentence":"힘들 때마다 친구가 준 따뜻한 [도움]을 잊지 못해요.","answer":"도움","meaning":"Whenever things were hard, I could not forget the warm help my friend gave me.","options":["도움","돕음","돕기음","도와"],"keys":["도움","돕음","돕기음","도와"],"why":"The established noun meaning 'help / assistance' is 도움."},
+      {"t":"type","q":"믿다 (to believe/trust) — Consonant ending: 「친구 사이에 가장 중요한 것은 ___ 입니다. (trust/belief)」","answer":"믿음","keys":["믿음","믿기","믿는","믿음이"],"why":"The noun form of 믿다 ending in consonant ㄷ takes -음: 믿음."},
+      {"t":"choice","q":"How do you form the listening section noun from the verb 듣다 (to listen) with -기?","options":["듣기","들기","듣기음","들음"],"answer":0,"why":"The ending -기 simply attaches directly to the regular dictionary stem without changing ㄷ: 듣기 (listening)."},
+      {"t":"order","q":"Put the words in order: \"I practice listening and reading every day.\"","tokens":["매일","듣기와","읽기를","연습해요."],"answer":["매일","듣기와","읽기를","연습해요."]},
+      {"t":"speak","say":"친구의 따뜻한 말 한마디가 저에게 큰 힘과 믿음을 주었어요.","q":"Read aloud expressing how a friend's words gave you strength and faith:"},
+    ],
+  },
+  {
+    id: "bg-34-04", title: {"ko":"4강. 헷갈리는 짝과 가르기: -기 vs -(으)ㅁ","en":"Lesson 4. Distinguishing the Pair: -기 vs -(으)ㅁ"}, minutes: 5,
+    blocks: [
+      {"t":"text","h":"When to Use -기 vs -(으)ㅁ","md":"Both `-기` and `-(으)ㅁ` transform verbs and adjectives into nouns, but they have clearly separated territories:\n\n1. **Use -기 (Dynamic Action & Set Patterns)**:\n   - In fixed grammatical patterns: **-기 전에** *(before)*, **-기 시작하다** *(start doing)*, **-기 쉽다/어렵다** *(easy/hard to do)*.\n   - In to-do lists, hobbies, and categories: 숙제하**기**, 운동하**기**, 읽**기**.\n\n2. **Use -(으)ㅁ (Fixed Noun & Written Summaries)**:\n   - Standalone permanent nouns: **잠** *(sleep)*, **꿈** *(dream)*, **춤** *(dance)*, **도움** *(help)*, **기쁨** *(joy)*.\n   - Formal memos and checklist options on forms: **있음** / **없음** *(present / none)*."},
+      {"t":"table","head":["Category","Ending to Choose","Common Typical Patterns","Natural Example"],"rows":[["Fixed grammar patterns","-기","-기 전에, -기 시작하다, -기 쉽다","밥 먹기 전에 손을 씻어요"],["Hobbies & task lists","-기","취미는 노래하기, 오늘의 할 일","한국 영화 보기"],["Independent core nouns","-(으)ㅁ","잠, 꿈, 춤, 도움, 믿음, 기쁨","어제 좋은 꿈을 꿨어요"],["Official notices / forms","-(으)ㅁ","서류 상태, 옵션 체크 (있음 / 없음)","추가 요금: 없음"]]},
+      {"t":"chars","wide":true,"items":[{"ch":"식사하기 전에 깨끗하게 손을 씻으세요.","tip":"Please wash your hands cleanly before eating. (-기 전에 before eating)"},{"ch":"제 취미는 주말에 요리하기와 사진 찍기예요.","tip":"My hobbies are cooking and taking photos on weekends. (-기 for hobbies)"},{"ch":"어젯밤에 아주 신기하고 재미있는 꿈을 꿨어요.","tip":"I had a very mysterious and fun dream last night. (꿈 noun from 꾸다)"}]},
+      {"t":"choice","q":"Which ending must be used in the fixed grammar pattern for \"before doing (verb)\"?","options":["-기 전에","-음 전에","-ㅁ 전에","-기음 전에"],"answer":0,"why":"The fixed grammatical pattern is always -기 전에 (e.g., 가기 전에, 먹기 전에)."},
+      {"t":"cloze","sentence":"공식 서류 신청란에서 해당 사항 [있음] 또는 없음에 표시하세요.","answer":"있음","meaning":"On the official application form, please check 'Applicable' (Yes) or 'None' (No).","options":["있음","있기","있는","있어서"],"keys":["있음","있기","있는","있어서"],"why":"On official forms and survey checkboxes, the nominalized written options are 있음 and 없음."},
+      {"t":"type","q":"쉽다 (to be easy) with the grammar pattern -기: 「이 책은 한국어 초급자도 읽___ 쉬워요.」","answer":"읽기","keys":["읽기","읽음","읽는","읽게"],"why":"The pattern for 'easy to do' is -기 쉽다: 읽기 쉬워요."},
+      {"t":"choice","q":"A: \"취미가 뭐예요?\" B wants to answer \"My hobby is watching movies.\" Which phrasing is most natural?","options":["제 취미는 영화 보기예요.","제 취미는 영화 봄이에요.","제 취미는 영화 보음이에요.","제 취미는 영화 보움이에요."],"answer":0,"why":"When stating hobbies or activities, -기 is the natural nominalizer: 영화 보기예요."},
+      {"t":"order","q":"Put the words in order: \"Please wash your hands before eating meals.\"","tokens":["식사하기","전에","손을","씻으세요."],"answer":["식사하기","전에","손을","씻으세요."]},
+      {"t":"speak","say":"한국어는 배울수록 재미있지만 발음은 연습하기가 조금 어려워요.","q":"Read aloud balancing the contrast between enjoyment and speaking practice:"},
+    ],
+  },
   ],
 },
 
