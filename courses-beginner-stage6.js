@@ -906,6 +906,20 @@ export const BEGINNER_STAGE6_COURSES = [
     ],
   },
 
+  {
+    id: "bg-30-04", title: {"ko":"4강. 실전 대화: 세 가지 반응으로 맞장구치기","en":"Lesson 4. Natural Reactions in Conversation: -네요, -군요, -지요"}, minutes: 5,
+    blocks: [
+      {"t":"text","h":"Choosing the Perfect Reaction (맞장구)","md":"In Korean conversations, actively reacting to the other person (called **맞장구**) shows engagement and warmth! You now have three distinct reactive tools:\n\n1. **-네요 (Direct Experience)**: You directly see, hear, or taste something and express spontaneous impression/surprise.\n   - 와, 커피가 정말 **맛있네요**! *(Wow, this coffee is really delicious!)*\n\n2. **-군요 / -는군요 (Realization)**: You learn new information or realize a fact you didn't know before.\n   - 아, 한국에서 3년 **사셨군요**! *(Ah, so you've lived in Korea for 3 years!)*\n\n3. **-지요 / -죠 (Agreement & Confirmation)**: You seek confirmation or invite the other person to agree.\n   - 오늘 날씨가 참 **좋지요**? *(The weather is lovely today, isn't it?)*"},
+      {"t":"table","head":["Ending","Mental Trigger","Best Situation"],"rows":[["-네요","Direct immediate sensory experience","Looking at the view, tasting food, noticing effort"],["-군요 / -는군요","Learning/realizing new facts from others","Reacting to someone's background story or news"],["-지요 / -죠","Sharing an obvious thought / checking plans","Small talk about weather, confirming appointment time"]]},
+      {"t":"chars","wide":true,"items":[{"ch":"한국어 발음이 정말 좋으시네요!","tip":"Your Korean pronunciation is really great! (Direct impression: -네요)"},{"ch":"아, 두 분이 대학교 동창이시군요.","tip":"Ah, you two are college alumni! (Realization: -군요)"},{"ch":"이 영화 주인공이 정말 멋있죠?","tip":"The main character in this movie is really cool, right? (Agreement: -죠)"}]},
+      {"t":"choice","q":"You take a bite of food your friend made and love it immediately. How do you naturally praise it on the spot?","options":["와, 정말 맛있네요!","와, 정말 맛없지 마세요!","와, 정말 맛있으면 안 돼요!","와, 정말 맛있으러 가요!"],"answer":0,"why":"When you directly experience a pleasant taste right now, express your immediate impression with -네요: 맛있네요!"},
+      {"t":"cloze","sentence":"아, 다음 주에 고향으로 [돌아가시는군요].","answer":"돌아가시는군요","meaning":"Ah, so you are returning to your hometown next week.","options":["돌아가시는군요","돌아가지 마세요","돌아가면 안 돼요","돌아가러 가요"],"keys":["돌아가시는군요","돌아가지 마세요","돌아가면 안 돼요","돌아가러 가요"],"why":"When learning new news or background about someone, acknowledge it politely with -군요: 돌아가시는군요."},
+      {"t":"type","q":"좋다 (to be good) — Small talk seeking agreement: 「오늘 날씨가 참 ___ ? (isn't it?)」","answer":"좋지요","keys":["좋지요","좋죠","좋네요","좋군요"],"why":"When inviting the listener to share your opinion about something obvious, use -지요? or -죠?: 좋지요?"},
+      {"t":"choice","q":"A: \"제가 김치를 직접 만들었어요.\" B hears this and is impressed. What is B's natural reaction?","options":["직접 만드셨어요? 대단하시네요!","직접 만드셨어요? 대단하지 마세요!","직접 만드셨어요? 대단하면 안 돼요!","직접 만드셨어요? 대단하러 가요!"],"answer":0,"why":"대단하시네요! naturally conveys admiration and surprise upon hearing the friend made kimchi themselves."},
+      {"t":"order","q":"Put the words in order: \"Korean food is really delicious, isn't it?\"","tokens":["한국 음식이","정말","맛있지요?"],"answer":["한국 음식이","정말","맛있지요?"]},
+      {"t":"speak","say":"오늘 날씨도 따뜻하고 하늘도 참 맑네요.","q":"Read aloud with pleasant spontaneous admiration:"},
+    ],
+  },
   ],
 },
 
