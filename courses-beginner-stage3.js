@@ -308,6 +308,21 @@ export const BEGINNER_STAGE3_COURSES = [
     ],
   },
 
+  {
+    id: "bg-14-04", title: {"ko":"4강. 실전 대화: 인사말·사과와 이유 묻고 답하기","en":"Lesson 4. Real-Life Conversation: Greetings, Apologies, and Decisions"}, minutes: 5,
+    blocks: [
+      {"t":"text","h":"Why Social Greetings and Apologies Only Use -아/어서","md":"In Korean, social conventions strictly require **-아/어서** for greetings, apologies, and thanks:\n\n- **Apologies (죄송해요 / 미안해요):** 늦**어서** 죄송합니다 (Sorry for being late). *Never* 늦으니까 죄송합니다!\n- **Thanks (고마워요 / 감사합니다):** 도와주**셔서** 감사합니다 (Thank you for helping). *Never* 도와주시니까!\n- **Greetings (반가워요):** 만나**서** 반가워요 (Nice to meet you). *Never* 만나니까 반가워요!\n\nUse **-(으)니까** when you give a reason to suggest an action, make a request, or give a command (e.g., \"Since it's raining, let's take an umbrella\")."},
+      {"t":"table","head":["Category","Natural Korean (-아/어서)","Unnatural / Incorrect (-(으)니까)","English Meaning"],"rows":[["Apology","늦어서 죄송해요","늦으니까 죄송해요 (X)","Sorry for being late"],["Thanks","도와줘서 고마워요","도와주니까 고마워요 (X)","Thanks for helping me"],["Greeting","만나서 반가워요","만나니까 반가워요 (X)","Nice to meet you"],["Suggestion","비 오니까 우산 써요 (O)","비 와서 우산 써요 (X)","It’s raining, so use an umbrella"]]},
+      {"t":"note","md":"Rule of thumb: If you are saying **thank you**, **sorry**, or **pleased to meet you**, always reach for **-아/어서** without hesitation!"},
+      {"t":"chars","wide":true,"items":[{"ch":"약속 시간에 늦어서 정말 죄송합니다.","tip":"I am truly sorry for being late to the appointment. (-어서 for apology)"},{"ch":"도와주셔서 진심으로 감사드려요.","tip":"Thank you sincerely for helping me. (-어서 for thanks)"},{"ch":"지금 길이 막히니까 지하철을 탑시다.","tip":"Since the roads are blocked right now, let’s take the subway. (-(으)니까 before suggestion)"}]},
+      {"t":"choice","q":"How do you politely apologize for being late: “I am sorry for being late”?","options":["늦어서 죄송합니다","늦으니까 죄송합니다","늦아 죄송합니다"],"answer":0,"why":"Apologies always require -아/어서: 늦다 + -어서 → **늦어서 죄송합니다**."},
+      {"t":"choice","q":"Which sentence naturally thanks someone for a gift?","options":["선물을 줘서 고마워요","선물을 주니까 고마워요","선물을 주어서고 고마워요"],"answer":0,"why":"Expressions of gratitude always take -아/어서: 주다 + -어서 → **줘서 고마워요**."},
+      {"t":"pair","q":"Match each context with the appropriate conversational phrase.","pairs":[["Greeting a new friend","만나서 반가워요"],["Apologizing for late arrival","늦어서 죄송해요"],["Suggestion: take the subway","차가 막히니까 지하철 타요"],["Command: please dress warmly","추우니까 따뜻하게 입으세요"]]},
+      {"t":"cloze","sentence":"오늘 날씨가 [좋으니까] 공원에 놀러 가요.","answer":"좋으니까","meaning":"Since the weather is nice today, let's go hang out at the park.","options":["좋으니까","좋아서","좋개니까","좋고니까"],"keys":["좋으니까","좋아서","좋개니까","좋고니까"],"why":"Before a suggestion or invitation (놀러 가요), you must use -(으)니까, never -아/어서."},
+      {"t":"type","q":"Conjugate 돕다 (to help) into the thanking phrase: 「친구야, 나를 ___ 고마워.」","answer":"도와줘서","keys":["도와줘서","돕아줘서","도와주개서"],"why":"Thanking expressions require -아/어서: 돕다 changes to 도와- + -줘서 → **도와줘서**."},
+      {"t":"speak","say":"선생님, 친절하게 가르쳐 주셔서 진심으로 감사합니다.","rom":"seon-saeng-nim, chin-jeol-ha-ge ga-reu-chyeo ju-syeo-seo jin-sim-eu-ro gam-sa-ham-ni-da","q":"Say it aloud politely thanking a teacher."},
+    ],
+  },
   ],
 },
 
