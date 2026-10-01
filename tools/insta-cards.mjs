@@ -15,6 +15,7 @@ import { fileURLToPath, pathToFileURL } from 'node:url';
 import { chromium } from '/opt/node22/lib/node_modules/playwright/index.mjs';
 import { romanize } from './ko-conj.mjs';
 import { grammarMarkRe } from '../grammar-mark.js';
+import { makePicker, todayKst, POS_EN, LV, LINK, wordEn, wordEx, wordsCaption, grammarCaption } from '../insta-pick.js';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const imp = (f) => import(pathToFileURL(path.join(ROOT, f)).href);
@@ -23,26 +24,8 @@ const { SB_CATS, SB_MORE } = await imp('sentences.js');
 const { GRAMMAR_EN } = await imp('grammar-en.js');
 const { GRAMMAR_WORDS } = await imp('grammar-words.js');
 
-const START = Date.UTC(2026, 9, 2);   // 첫 게시일 — 이날이 0번째
-const todayKst = () => new Date(Date.now() + 9 * 3600e3).toISOString().slice(0, 10);
+const pick = makePicker({ VOCAB, VOCAB_TOPICS, SB_CATS, SB_MORE, GRAMMAR_EN, GRAMMAR_WORDS });
 const [dateArg = todayKst(), daysArg = '1'] = process.argv.slice(2);
-
-/* 고정된 씨앗으로 섞은 차례 — 날짜 n 이면 n 번째를 쓴다(다 돌면 처음으로) */
-function shuffled(list, seed) {
-  const a = list.slice(); let h = seed >>> 0;
-  for (let i = a.length - 1; i > 0; i--) { h = (h * 1103515245 + 12345) >>> 0; const j = h % (i + 1); [a[i], a[j]] = [a[j], a[i]]; }
-  return a;
-}
-/* 주제 — 낱말 사전의 작은 주제 가운데 그 주제가 첫째인 낱말이 10개 넘는 것. 뜻이 추상적인 갈래(기본 동사 · 정도 · 의견 …)는 뺀다 */
-const SKIP_TOPIC = /^(function\/|concepts\/(degree|change)|talk\/opinions|feelings\/attitude)/;
-const TOPICS = shuffled(VOCAB_TOPICS.flatMap((g) => g.subs.map((t) => ({ ...t, key: `${g.id}/${t.id}` })))
-  .filter((t) => !SKIP_TOPIC.test(t.key))
-  .map((t) => ({ ...t, words: shuffled(VOCAB.filter((w) => w.t[0] === t.key && w.x?.length && !/\s/.test(w.h)), 11) }))
-  .filter((t) => t.words.length >= 10), 11);
-const POINTS = SB_CATS.flatMap((c) => c.points.map((p) => ({ ...p, cat: c })));
-const GRAMS = [...shuffled(POINTS.filter((p) => p.lv === 'beginner' && GRAMMAR_WORDS[p.id]?.length && GRAMMAR_EN[p.id]), 22),
-  ...shuffled(POINTS.filter((p) => p.lv === 'intermediate' && GRAMMAR_WORDS[p.id]?.length && GRAMMAR_EN[p.id]), 23)];
-const POS_EN = { 명사: 'noun', 동사: 'verb', 형용사: 'adjective', 부사: 'adverb', 대명사: 'pronoun', '의존 명사': 'bound noun', 수사: 'number', 관형사: 'determiner', 감탄사: 'interjection' };
 
 /* 제목 글자 크기 — 한 줄(카드 안 폭 약 780px)에 들어가는 만큼 크게. 한글 1, 라틴 · 기호 0.6 으로 어림 */
 const fit = (text, max, min) => {
@@ -120,8 +103,7 @@ const slide = (tag, page, inner) => `<div class="s"><div class="top"><span class
 /* 주제별 단어 — 표지(주제 + 다섯 낱말) 한 장, 낱말마다 한 장(뜻 · 짧은 예문) */
 function wordsPost(t, ws) {
   const tag = '<i>●</i> 주제별 단어 · Words by topic', all = ws.length + 1;
-  const ex = (w) => w.x.slice().sort((a, b) => a[0].length - b[0].length)[0];
-  const en = (w) => w.s || w.e.split(';')[0];
+  const ex = wordEx, en = wordEn;
   return {
     slides: [
       slide(tag, `1 / ${all}`, `<div class="hook">한국어 단어 5개 · 5 Korean words</div><div class="topic" style="--ts:${fit(t.ko, 170, 96)}px">${esc(t.ko)}<small>${esc(t.en)}</small></div>` +
@@ -131,16 +113,14 @@ function wordsPost(t, ws) {
         `<div class="rom">${esc(romanize(w.h) || '')}</div><div class="en">${esc(en(w))}</div><span class="pos">${esc(w.p)} · ${esc(POS_EN[w.p] || '')}</span>` +
         `<div class="ex" style="margin-top:auto"><p>${esc(ex(w)[0])}</p><small>${esc(ex(w)[1])}</small></div>`)),
     ],
-    caption: `주제별 단어 · ${t.ko} (${t.en})\n\n` + ws.map((w, i) => `${i + 1}. ${w.h} (${romanize(w.h) || ''}) — ${en(w)}\n   ${ex(w)[0]}\n   ${ex(w)[1]}`).join('\n') +
-      `\n\n💾 저장해 두고 외워 보세요 · Save this post!\n더 많은 단어 · 발음 → 프로필 링크 · More words — link in bio.\n\n` +
-      '#한국어 #한국어공부 #learnkorean #koreanwords #koreanvocabulary #topik #studykorean #korean #치즈감자',
+    caption: wordsCaption(t, ws, romanize),
   };
 }
 
 function grammarPost(p) {
   const en = GRAMMAR_EN[p.id] || {}, more = SB_MORE[p.id] || [], words = GRAMMAR_WORDS[p.id] || [];
   const tag = '<i>●</i> 오늘의 문법 · Grammar';
-  const lv = { beginner: '초급 · Beginner', intermediate: '중급 · Intermediate', advanced: '고급 · Advanced' }[p.lv] || '';
+  const lv = LV[p.lv] || '';
   return {
     slides: [
       slide(tag, '1 / 3', `<div class="lv">${lv}</div><div class="gname" style="--gs:${fit(p.name.split(', ').sort((x, y) => y.length - x.length)[0], 180, 84)}px">${esc(p.name).replace(/, /g, ',<br>')}</div>` +
@@ -153,10 +133,7 @@ function grammarPost(p) {
         words.slice(0, 3).map(([w, ex, wen]) => `<div class="w"><b>${esc(w)}</b><span>${esc(wen)}</span><p>${mark(p, ex)}</p></div>`).join('') +
         '</div>'),
     ],
-    caption: `오늘의 문법 · ${p.name}\n${p.desc}\n${en.desc || ''}\n\n` + [p.ex, more[3]].filter(Boolean).slice(0, 2).map((x) => `• ${x}`).join('\n') +
-      `\n\n같이 쓰는 말: ${words.slice(0, 3).map((x) => x[0]).join(' · ')}\n\n` +
-      `✍️ 더 많은 예문 · 연습 → 프로필 링크 · More examples — link in bio.\n\n` +
-      '#한국어문법 #한국어공부 #koreangrammar #learnkorean #topik #studykorean #korean #치즈감자',
+    caption: grammarCaption(p, pick),
   };
 }
 
@@ -165,15 +142,12 @@ const page = await browser.newPage({ viewport: { width: 1080, height: 1350 }, de
 const [y, m, d] = dateArg.split('-').map(Number);
 for (let k = 0; k < Number(daysArg); k++) {
   const t = Date.UTC(y, m - 1, d + k), day = new Date(t).toISOString().slice(0, 10);
-  const n = Math.max(0, Math.round((t - START) / 86400e3));
-  /* 주제는 날마다 하나씩, 한 바퀴 돌면 그 주제의 다음 다섯 낱말 */
-  const tp = TOPICS[n % TOPICS.length], r = Math.floor(n / TOPICS.length) * 5;
-  const ws = Array.from({ length: 5 }, (_, i) => tp.words[(r + i) % tp.words.length]);
-  const posts = [['1-words', wordsPost(tp, ws)], ['2-grammar', grammarPost(GRAMS[(2 * n) % GRAMS.length])], ['3-grammar', grammarPost(GRAMS[(2 * n + 1) % GRAMS.length])]];
+  const { topic: tp, words: ws, grams } = pick.day(day);
+  const posts = [['1-words', wordsPost(tp, ws)], ['2-grammar', grammarPost(grams[0])], ['3-grammar', grammarPost(grams[1])]];
   const dir = path.join(ROOT, 'insta/out', day);
   fs.mkdirSync(dir, { recursive: true });
   const tmp = path.join(dir, '.slide.html');
-  let caps = `치즈감자 인스타 — ${day}\n프로필 링크: https://everykoreans.com/?utm_source=instagram&utm_medium=social&utm_campaign=daily\n`;
+  let caps = `치즈감자 인스타 — ${day}\n프로필 링크: ${LINK}\n`;
   for (const [name, post] of posts) {
     for (let i = 0; i < post.slides.length; i++) {
       /* setContent 는 about:blank 라 file:// 의 로고 · 글꼴을 못 부른다 — 파일로 써서 연다 */

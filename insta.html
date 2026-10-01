@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>치즈감자 인스타 편집기</title>
+<link rel="icon" href="favicon-32.png">
+<link rel="stylesheet" href="vendor/pretendard.css">
+<!-- 치즈감자 인스타 편집기 — 그날의 세 게시물(주제별 단어 1 · 문법 2)을 우리 자료에서 불러와
+     글자 크기 · 위치만 손보고 PNG 로 받는다. 코드는 insta.js, 고르는 규칙은 insta-pick.js. -->
+<style>
+:root { --bg:#F2EEE4; --card:#fff; --soft:#FBF8F1; --line:#E4DED1; --ink:#1B1512; --ink2:#4E3E31; --dim:#8C7A66; --or:#E1682B; --blue:#2F6FD1; }
+@media (prefers-color-scheme: dark) {
+  :root { --bg:#161411; --card:#211E1A; --soft:#2A2621; --line:#38332C; --ink:#F2EEE6; --ink2:#C3BCAF; --dim:#8A8376; --or:#F08A45; --blue:#6FA0F0; }
+}
+* { box-sizing:border-box; }
+body { margin:0; background:var(--bg); color:var(--ink); font-family:"Pretendard Variable", Pretendard, sans-serif; }
+button, select, input, textarea { font-family:inherit; font-size:15px; color:inherit; }
+.hd { display:flex; flex-wrap:wrap; gap:10px 16px; align-items:center; padding:14px 16px; border-bottom:1px solid var(--line); }
+.hd h1 { font-size:18px; margin:0; font-weight:900; }
+.hd input[type=date] { padding:6px 10px; border:1px solid var(--line); border-radius:10px; background:var(--card); }
+.wrap { display:grid; grid-template-columns:minmax(0, 540px) minmax(0, 1fr); gap:24px; padding:16px; max-width:1200px; margin:0 auto; }
+@media (max-width: 900px) { .wrap { grid-template-columns:minmax(0, 1fr); } }
+#cv { width:100%; height:auto; display:block; border-radius:14px; box-shadow:0 2px 12px rgba(0,0,0,.08); touch-action:none; cursor:grab; background:#F2EEE4; }
+.tabs { display:flex; flex-wrap:wrap; gap:8px; }
+.tab { border:1px solid var(--line); background:var(--card); border-radius:999px; padding:8px 14px; cursor:pointer; font-weight:700; max-width:100%; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+.tab.on { background:var(--ink); color:var(--bg); border-color:var(--ink); }
+.thumbs { display:flex; gap:8px; overflow-x:auto; padding:10px 0 4px; }
+.th { position:relative; flex:0 0 auto; padding:0; border:3px solid transparent; border-radius:10px; background:none; cursor:pointer; }
+.th canvas { width:72px; height:90px; display:block; border-radius:7px; }
+.th span { position:absolute; left:4px; top:2px; font-size:11px; font-weight:800; color:var(--dim); }
+.th.on { border-color:var(--or); }
+.panel { background:var(--card); border:1px solid var(--line); border-radius:16px; padding:16px; margin-top:14px; }
+.panel h2 { font-size:15px; margin:0 0 10px; }
+.row { display:flex; flex-wrap:wrap; gap:8px; align-items:center; }
+.row + .row { margin-top:10px; }
+select { max-width:100%; padding:7px 10px; border:1px solid var(--line); border-radius:10px; background:var(--card); }
+label { display:flex; gap:8px; align-items:center; flex-wrap:wrap; max-width:100%; }
+button.b { border:0; background:var(--ink); color:var(--bg); border-radius:10px; padding:9px 14px; font-weight:800; cursor:pointer; }
+button.ghost { border:1px solid var(--line); background:var(--card); border-radius:10px; padding:8px 12px; font-weight:700; cursor:pointer; }
+button.or { background:var(--or); color:#fff; }
+input[type=range] { flex:1; min-width:140px; accent-color:var(--or); }
+#sizev { font-variant-numeric:tabular-nums; color:var(--dim); font-size:14px; min-width:110px; }
+.muted { color:var(--dim); font-size:13px; line-height:1.5; }
+textarea { width:100%; min-height:220px; border:1px solid var(--line); border-radius:10px; padding:10px; background:var(--soft); line-height:1.5; font-size:14px; }
+#link { word-break:break-all; }
+</style>
+</head>
+<body>
+<header class="hd">
+  <h1>🧀 인스타 편집기</h1>
+  <label>날짜 <input type="date" id="day"></label>
+  <button id="resetDay" class="ghost">그날 추천으로 되돌리기</button>
+</header>
+<main class="wrap">
+  <section>
+    <canvas id="cv" aria-label="카드 미리보기"></canvas>
+    <div class="thumbs" id="thumbs"></div>
+  </section>
+  <section>
+    <div class="tabs" id="tabs"></div>
+    <div class="panel">
+      <h2>내용 바꾸기</h2>
+      <div class="row" id="swap"></div>
+    </div>
+    <div class="panel">
+      <h2>글자 크기 · 위치</h2>
+      <p class="muted" id="nosel">카드에서 글을 눌러 고르세요. 끌면 옮겨지고, 화살표 키로 1칸(Shift 10칸)씩 움직여요.</p>
+      <div id="selbox" hidden>
+        <div class="row"><b id="selname"></b><span id="sizev"></span></div>
+        <div class="row"><button id="smaller" class="ghost">가−</button><input type="range" id="size" min="40" max="250" step="1"><button id="bigger" class="ghost">가+</button></div>
+        <div class="row"><button id="resetEl" class="ghost">이 글 원래대로</button></div>
+      </div>
+      <div class="row"><button id="resetSlide" class="ghost">이 장 전체 원래대로</button></div>
+    </div>
+    <div class="panel">
+      <h2>받기 · 올리기</h2>
+      <div class="row"><button id="png" class="b">이 장 PNG</button><button id="zip" class="b or">이 게시물 전부 받기(ZIP)</button></div>
+      <div class="row" style="margin-top:12px"><button id="copy" class="ghost">캡션 복사</button>
+        <label><input type="checkbox" id="done"> 올렸어요</label></div>
+      <textarea id="caption" aria-label="캡션" style="margin-top:10px"></textarea>
+      <p class="muted">프로필 링크: <span id="link"></span></p>
+    </div>
+  </section>
+</main>
+<script src="vendor/jszip.min.js"></script>
+<script type="module" src="insta.js"></script>
+</body>
+</html>
