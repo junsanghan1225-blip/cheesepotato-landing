@@ -9,3 +9,6 @@ extension/data/
 
 # 익스텐션 꾸러미
 extension/*.zip
+
+# 인스타그램 카드 이미지(tools/insta-cards.mjs 가 자료에서 언제든 다시 뽑는다)
+insta/out/
