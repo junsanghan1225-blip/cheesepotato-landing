@@ -5273,7 +5273,8 @@ div.wd-card:hover { transform:none; }
 .gs-chip { display:inline-block; padding:4px 11px; border-radius:8px; background:var(--surface-2); border:1px solid var(--gs-line); font-weight:700; font-size:14.5px; }
 .gs-form-v .gs-chip:last-child { background:var(--gs-ch); border-color:color-mix(in srgb, var(--gs-ch-d) 45%, transparent); }
 .gs-care { position:relative; padding-left:22px; color:var(--ink-2); }
-.gs-care::before { content:'!'; position:absolute; left:0; top:3px; width:16px; height:16px; border-radius:50%; background:var(--red); color:#fff; font-size:11px; font-weight:800; display:grid; place-items:center; }
+/* 「!」 글자는 글꼴마다 위아래 여백이 달라 grid 가운데 맞춤으로는 아래 · 옆으로 밀린다 — 줄 높이를 원 크기와 같게 못 박는다 */
+.gs-care::before { content:'!'; position:absolute; left:0; top:.3em; width:16px; height:16px; border-radius:50%; background:var(--red); color:#fff; font:800 11px/16px Arial, Helvetica, sans-serif; text-align:center; }
 .gs-ex { margin:0; padding:0; list-style:none; counter-reset:gs; }
 .gs-ex li { counter-increment:gs; position:relative; padding:4px 0 6px 28px; border-bottom:1px dotted var(--gs-line); font-weight:600; }
 .gs-ex li:last-child { border-bottom:0; }
