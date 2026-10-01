@@ -25,6 +25,7 @@
 <meta name="twitter:image" content="https://everykoreans.com/logo.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
 <link rel="stylesheet" href="/vendor/pretendard.css">
+<script src="/page.js?v=fdf7987c" defer></script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","@id":"https://everykoreans.com/compare/18.html","inLanguage":"ko","mainEntity":[{"@type":"Question","name":"「-(으)ㄴ 끝에」는 언제 쓰나요?","acceptedAnswer":{"@type":"Answer","text":"오래 애쓴 끝에 어떤 결과에 이르렀다는 뜻입니다. 주의할 점 — 앞에는 오래 걸린 과정이 옵니다. 예: 오래 고민한 끝에 결정했습니다."}},{"@type":"Question","name":"「-아/어 내다」는 언제 쓰나요?","acceptedAnswer":{"@type":"Answer","text":"어려운 일을 끝내 해냈음을 나타냅니다. 주의할 점 — 애써서 이룬 일에 씁니다. 예: 그 어려운 일을 결국 해냈어요."}},{"@type":"Question","name":"「-(으)ㄴ 나머지」는 언제 쓰나요?","acceptedAnswer":{"@type":"Answer","text":"정도가 지나쳐서 그 결과 이렇게 되었다는 뜻입니다. 주의할 점 — 앞의 정도가 지나쳐 생긴 결과입니다. 예: 너무 긴장한 나머지 이름을 잊었다."}},{"@type":"Question","name":"「-데요」는 언제 쓰나요?","acceptedAnswer":{"@type":"Answer","text":"직접 보고 겪은 일을 회상해 전할 때 씁니다. 주의할 점 — 직접 본 일에만 쓰고, 들은 말에는 「-대요」를 씁니다. 예: 어제 가 보니까 아주 좋데요."}}]}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"ItemList","name":"결과와 회상을 나타낼 때 — Expressing Results and Retrospection","numberOfItems":4,"itemListElement":[{"@type":"ListItem","position":1,"name":"-(으)ㄴ 끝에","url":"https://everykoreans.com/sentence/18-1.html"},{"@type":"ListItem","position":2,"name":"-아/어 내다","url":"https://everykoreans.com/sentence/18-2.html"},{"@type":"ListItem","position":3,"name":"-(으)ㄴ 나머지","url":"https://everykoreans.com/sentence/18-3.html"},{"@type":"ListItem","position":4,"name":"-데요","url":"https://everykoreans.com/sentence/18-4.html"}]}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"치즈감자","item":"https://everykoreans.com/"},{"@type":"ListItem","position":2,"name":"갈래별 비교","item":"https://everykoreans.com/compare/"},{"@type":"ListItem","position":3,"name":"결과와 회상을 나타낼 때"}]}</script>
@@ -97,6 +98,22 @@ h2 small{font-weight:500;font-size:12.5px;margin-left:4px;opacity:.8}
 .ans-box summary small{font-weight:500;color:var(--dim);font-size:12.5px;margin-left:4px}
 .ans-box[open] summary{margin-bottom:10px}
 .ans-right{margin:0 0 8px;font-size:16px;color:var(--ink)}.ans-right b{color:var(--orange);margin-right:6px}
+.opts[data-ans] li{cursor:pointer;transition:border-color .15s,background .15s}
+.opts[data-ans] li:hover{border-color:var(--brand)}
+.opts[data-ans] li.right{border-color:#2f8a5b;background:rgba(47,138,91,.1);font-weight:700;color:var(--ink)}
+.opts[data-ans] li.wrong{border-color:#c43d34;background:rgba(196,61,52,.08)}
+.opts[data-done] li{cursor:default}
+.pick-msg{margin:10px 0 0;font-weight:700;font-size:15.5px}.pick-msg.ok{color:#2f8a5b}.pick-msg.no{color:#c43d34}
+.cta.pulse{animation:ctaPulse 1.6s ease 2}
+@keyframes ctaPulse{50%{transform:scale(1.02);box-shadow:0 0 0 6px rgba(240,194,75,.35)}}
+.lt-next{margin:10px 0 0;text-align:center;font-size:14px}.lt-next a{color:var(--ink2);text-decoration:none}.lt-next b{color:var(--ink);text-decoration:underline}
+.wd-acts{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
+.wd-say,.wd-add{display:inline-flex;align-items:center;gap:6px;font:inherit;font-size:14.5px;font-weight:600;padding:10px 16px;border-radius:10px;cursor:pointer;text-decoration:none}
+.wd-say{background:var(--soft);border:1px solid var(--line);color:var(--ink)}
+.wd-say.on{border-color:var(--brand);background:var(--tint)}
+.wd-add{background:var(--cta);color:var(--cta-ink);border:1px solid var(--cta)}
+.wd-add span{font-weight:400;opacity:.8}
+@media(max-width:420px){.wd-add span{display:none}}
 .foot{margin-top:44px;padding-top:18px;border-top:1px solid var(--line);font-size:13px;color:var(--dim)}
 .foot a{color:inherit}
 .cat{margin:30px 0 0}

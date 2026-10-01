@@ -25,6 +25,7 @@
 <meta name="twitter:image" content="https://everykoreans.com/logo.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
 <link rel="stylesheet" href="/vendor/pretendard.css">
+<script src="/page.js?v=fdf7987c" defer></script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","@id":"https://everykoreans.com/compare/43.html","inLanguage":"ko","mainEntity":[{"@type":"Question","name":"「A/V-(으)ㄴ/는지」는 언제 쓰나요?","acceptedAnswer":{"@type":"Answer","text":"무엇인지 확실하지 않은 내용을 안은 채 이어 말합니다. 주의할 점 — 「-(으)ㄴ 지(시간)」와 다른 말입니다. 저쪽은 띄어 씁니다. This is different from 「-(으)ㄴ 지」 (time elapsed), which is written with a space. 예: 그 사람이 오는지 모르겠어요."}},{"@type":"Question","name":"「V-는 데 걸리다/들다」는 언제 쓰나요?","acceptedAnswer":{"@type":"Answer","text":"그 일을 하는 데 시간이나 돈이 얼마나 드는지 말합니다. 주의할 점 — 시간에는 「걸리다」, 돈에는 「들다」입니다. 「데」는 띄어 씁니다. Use 「걸리다」 for time and 「들다」 for money. Make sure to put a space before 「데」. 예: 여기까지 오는 데 한 시간 걸렸어요."}},{"@type":"Question","name":"「A/V-지요?」는 언제 쓰나요?","acceptedAnswer":{"@type":"Answer","text":"이미 알고 있는 것을 확인하며 묻습니다. 말에서는 「-죠?」로 줄입니다. 주의할 점 — 새로 묻는 말이 아니라 맞장구를 청하는 말입니다. This is not asking for new information, but seeking agreement or confirmation from the listener. 예: 오늘 좀 춥지요?"}}]}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"ItemList","name":"정보를 확인할 때 — Confirming Information","numberOfItems":3,"itemListElement":[{"@type":"ListItem","position":1,"name":"A/V-(으)ㄴ/는지","url":"https://everykoreans.com/sentence/43-1.html"},{"@type":"ListItem","position":2,"name":"V-는 데 걸리다/들다","url":"https://everykoreans.com/sentence/43-2.html"},{"@type":"ListItem","position":3,"name":"A/V-지요?","url":"https://everykoreans.com/sentence/43-3.html"}]}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"치즈감자","item":"https://everykoreans.com/"},{"@type":"ListItem","position":2,"name":"갈래별 비교","item":"https://everykoreans.com/compare/"},{"@type":"ListItem","position":3,"name":"정보를 확인할 때"}]}</script>
@@ -97,6 +98,22 @@ h2 small{font-weight:500;font-size:12.5px;margin-left:4px;opacity:.8}
 .ans-box summary small{font-weight:500;color:var(--dim);font-size:12.5px;margin-left:4px}
 .ans-box[open] summary{margin-bottom:10px}
 .ans-right{margin:0 0 8px;font-size:16px;color:var(--ink)}.ans-right b{color:var(--orange);margin-right:6px}
+.opts[data-ans] li{cursor:pointer;transition:border-color .15s,background .15s}
+.opts[data-ans] li:hover{border-color:var(--brand)}
+.opts[data-ans] li.right{border-color:#2f8a5b;background:rgba(47,138,91,.1);font-weight:700;color:var(--ink)}
+.opts[data-ans] li.wrong{border-color:#c43d34;background:rgba(196,61,52,.08)}
+.opts[data-done] li{cursor:default}
+.pick-msg{margin:10px 0 0;font-weight:700;font-size:15.5px}.pick-msg.ok{color:#2f8a5b}.pick-msg.no{color:#c43d34}
+.cta.pulse{animation:ctaPulse 1.6s ease 2}
+@keyframes ctaPulse{50%{transform:scale(1.02);box-shadow:0 0 0 6px rgba(240,194,75,.35)}}
+.lt-next{margin:10px 0 0;text-align:center;font-size:14px}.lt-next a{color:var(--ink2);text-decoration:none}.lt-next b{color:var(--ink);text-decoration:underline}
+.wd-acts{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
+.wd-say,.wd-add{display:inline-flex;align-items:center;gap:6px;font:inherit;font-size:14.5px;font-weight:600;padding:10px 16px;border-radius:10px;cursor:pointer;text-decoration:none}
+.wd-say{background:var(--soft);border:1px solid var(--line);color:var(--ink)}
+.wd-say.on{border-color:var(--brand);background:var(--tint)}
+.wd-add{background:var(--cta);color:var(--cta-ink);border:1px solid var(--cta)}
+.wd-add span{font-weight:400;opacity:.8}
+@media(max-width:420px){.wd-add span{display:none}}
 .foot{margin-top:44px;padding-top:18px;border-top:1px solid var(--line);font-size:13px;color:var(--dim)}
 .foot a{color:inherit}
 .cat{margin:30px 0 0}

@@ -25,6 +25,7 @@
 <meta name="twitter:image" content="https://everykoreans.com/logo.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
 <link rel="stylesheet" href="/vendor/pretendard.css">
+<script src="/page.js?v=fdf7987c" defer></script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"DefinedTerm","@id":"https://everykoreans.com/dictionary/%ED%8B%88.html","name":"틈","alternateName":"teum","description":"crack; crevice","inLanguage":"ko","inDefinedTermSet":"https://everykoreans.com/topik2-words/home.html"}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What does 틈 mean in Korean?","acceptedAnswer":{"@type":"Answer","text":"틈 (teum) means \"crack; crevice\". It is a TOPIK 4 level noun. Example: 창문 틈으로 차가운 겨울바람이 스며들어 문풍지를 붙였어요. — Cold winter winds seeping through window cracks, I pasted draft seals."}}]}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"치즈감자","item":"https://everykoreans.com/"},{"@type":"ListItem","position":2,"name":"사전","item":"https://everykoreans.com/dictionary/"},{"@type":"ListItem","position":3,"name":"TOPIK II 집","item":"https://everykoreans.com/topik2-words/home.html"},{"@type":"ListItem","position":4,"name":"틈"}]}</script>
@@ -97,6 +98,22 @@ h2 small{font-weight:500;font-size:12.5px;margin-left:4px;opacity:.8}
 .ans-box summary small{font-weight:500;color:var(--dim);font-size:12.5px;margin-left:4px}
 .ans-box[open] summary{margin-bottom:10px}
 .ans-right{margin:0 0 8px;font-size:16px;color:var(--ink)}.ans-right b{color:var(--orange);margin-right:6px}
+.opts[data-ans] li{cursor:pointer;transition:border-color .15s,background .15s}
+.opts[data-ans] li:hover{border-color:var(--brand)}
+.opts[data-ans] li.right{border-color:#2f8a5b;background:rgba(47,138,91,.1);font-weight:700;color:var(--ink)}
+.opts[data-ans] li.wrong{border-color:#c43d34;background:rgba(196,61,52,.08)}
+.opts[data-done] li{cursor:default}
+.pick-msg{margin:10px 0 0;font-weight:700;font-size:15.5px}.pick-msg.ok{color:#2f8a5b}.pick-msg.no{color:#c43d34}
+.cta.pulse{animation:ctaPulse 1.6s ease 2}
+@keyframes ctaPulse{50%{transform:scale(1.02);box-shadow:0 0 0 6px rgba(240,194,75,.35)}}
+.lt-next{margin:10px 0 0;text-align:center;font-size:14px}.lt-next a{color:var(--ink2);text-decoration:none}.lt-next b{color:var(--ink);text-decoration:underline}
+.wd-acts{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
+.wd-say,.wd-add{display:inline-flex;align-items:center;gap:6px;font:inherit;font-size:14.5px;font-weight:600;padding:10px 16px;border-radius:10px;cursor:pointer;text-decoration:none}
+.wd-say{background:var(--soft);border:1px solid var(--line);color:var(--ink)}
+.wd-say.on{border-color:var(--brand);background:var(--tint)}
+.wd-add{background:var(--cta);color:var(--cta-ink);border:1px solid var(--cta)}
+.wd-add span{font-weight:400;opacity:.8}
+@media(max-width:420px){.wd-add span{display:none}}
 .foot{margin-top:44px;padding-top:18px;border-top:1px solid var(--line);font-size:13px;color:var(--dim)}
 .foot a{color:inherit}
 .cat{margin:30px 0 0}
@@ -118,11 +135,11 @@ h2 small{font-weight:500;font-size:12.5px;margin-left:4px;opacity:.8}
 <header class="hd"><div class="hd-in"><a class="hd-brand" href="/"><img src="/logo-256.png" alt="" width="28" height="28">치즈감자</a><nav class="hd-nav"><a href="/#learn/topik">TOPIK</a><a href="/#words">단어</a><a class="go" href="/#learn">무료로 배우기</a></nav></div></header>
 <div class="wrap">
 <nav class="crumb"><a href="/">치즈감자</a> › <a href="/dictionary/">사전</a> › <a href="/topik2-words/home.html">TOPIK II 집</a> › 틈</nav>
-<section class="wd-hero"><div class="wd-tags"><span class="badge">TOPIK II · 4급</span><span class="badge">명사</span></div><h1>틈</h1><p class="wd-rom" lang="en">teum</p><p class="wd-en" lang="en">crack; crevice</p><ol class="wd-senses"><li>벌어져서 사이가 생긴 자리.</li></ol><div class="wd-rels"><div class="wd-rel"><b>비슷한 말</b><a href="/dictionary/%ED%8B%88%EC%83%88.html">틈새</a></div></div></section>
+<section class="wd-hero"><div class="wd-tags"><span class="badge">TOPIK II · 4급</span><span class="badge">명사</span></div><h1>틈</h1><p class="wd-rom" lang="en">teum</p><p class="wd-en" lang="en">crack; crevice</p><div class="wd-acts"><button type="button" class="wd-say" data-say="틈" data-src="/assets/audio/dict/%ED%8B%88.mp3" aria-label="발음 듣기 · Listen">🔊 <span>발음 듣기</span></button><a class="wd-add" href="/#words/w/%ED%8B%88">＋ 단어장에 담기<span> · 카드로 외우기</span></a></div><ol class="wd-senses"><li>벌어져서 사이가 생긴 자리.</li></ol><div class="wd-rels"><div class="wd-rel"><b>비슷한 말</b><a href="/dictionary/%ED%8B%88%EC%83%88.html">틈새</a></div></div></section>
 <h2>예문 <small>Examples</small></h2>
 <div class="wd-exs"><div class="ex">창문 틈으로 차가운 겨울바람이 스며들어 문풍지를 붙였어요.<i lang="en">Cold winter winds seeping through window cracks, I pasted draft seals.</i></div><div class="ex">바쁜 일과 중에도 틈을 내어 독서와 운동을 꾸준히 실천했다.<i lang="en">Even amidst busy schedules, making time, one steadily practiced reading and workouts.</i></div></div>
 <h2>미니 퀴즈 <small>Quick check</small></h2><div class="wd-quiz"><p class="wd-q">「틈」의 뜻은? <span lang="en">What does 틈 mean?</span></p><ol class="quiz"><li>buttocks / hips</li><li>crack; crevice</li><li>here and there</li><li>snack / cookie / cracker</li></ol><details class="ans"><summary>정답 보기 · Show answer</summary><p>2. crack; crevice — 창문 틈으로 차가운 겨울바람이 스며들어 문풍지를 붙였어요.</p></details></div>
-<a class="cta" href="/#words/w/%ED%8B%88">이 낱말이 든 단어장 무료로 외우기 →<span>Learn "틈" free with flashcards and spaced review — hear it pronounced</span></a>
+<a class="cta" href="/#leveltest">2분 레벨 테스트로 내 수준 알아보기 →<span>Free 2-minute level test — find your Korean level and get a study path</span></a>
 <h2>같은 주제 낱말 <small>More Home words</small></h2><ul class="pts"><li><a href="/dictionary/%EC%A3%BC%EB%AF%BC.html">주민</a></li><li><a href="/dictionary/%EA%B3%B5%EA%B0%84.html">공간</a></li><li><a href="/dictionary/%EB%82%A1%EB%8B%A4.html">낡다</a></li><li><a href="/dictionary/%EC%98%A5%EC%83%81.html">옥상</a></li><li><a href="/dictionary/%EC%A1%B0%EB%AA%85.html">조명</a></li><li><a href="/dictionary/%EA%B5%AC%EC%A1%B0.html">구조</a></li><li><a href="/dictionary/%EC%86%8C%EC%9D%8C.html">소음</a></li><li><a href="/dictionary/%EC%88%98%EB%A6%AC.html">수리</a></li><li><a href="/dictionary/%EB%A8%BC%EC%A7%80.html">먼지</a></li><li><a href="/dictionary/%EC%8B%A4%EB%82%B4.html">실내</a></li><li><a href="/dictionary/%EC%84%A4%EC%B9%98.html">설치</a></li><li><a href="/dictionary/%EA%B0%80%EC%A0%95.html">가정</a></li><li><a href="/dictionary/%EC%9E%AC%ED%99%9C%EC%9A%A9.html">재활용</a></li><li><a href="/dictionary/%EB%82%B4%EB%B6%80.html">내부</a></li></ul><p class="note"><a href="/topik2-words/home.html">TOPIK II 집 낱말 전부 보기 · All Home words →</a></p>
 <div class="near"><a href="/dictionary/%ED%8B%80%EC%96%B4%EB%B0%95%ED%9E%88%EB%8B%A4.html"><b>← 이전</b>틀어박히다</a><a href="/dictionary/%ED%8B%88%EC%83%88.html"><b>다음 →</b>틈새</a></div>
 <p class="note">어휘 급수: 국립국어원 「국제 통용 한국어 표준 교육과정」(공공누리 1유형) · 뜻풀이: 국립국어원 한국어기초사전(CC BY-SA 2.0 KR) · 예문: 치즈감자</p>

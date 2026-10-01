@@ -25,6 +25,7 @@
 <meta name="twitter:image" content="https://everykoreans.com/logo.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
 <link rel="stylesheet" href="/vendor/pretendard.css">
+<script src="/page.js?v=fdf7987c" defer></script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"DefinedTerm","@id":"https://everykoreans.com/dictionary/%EA%B0%90%ED%83%84%EC%82%AC.html","name":"감탄사","alternateName":"gamtansa","description":"interjection; exclamation","inLanguage":"ko","inDefinedTermSet":"https://everykoreans.com/topik2-words/school.html"}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What does 감탄사 mean in Korean?","acceptedAnswer":{"@type":"Answer","text":"감탄사 (gamtansa) means \"interjection; exclamation\". It is a TOPIK 5 level noun. Example: '어머나'나 '와' 같은 말은 감탄사에 속해요. — Words like 'oh my' or 'wow' belong to interjections."}}]}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"치즈감자","item":"https://everykoreans.com/"},{"@type":"ListItem","position":2,"name":"사전","item":"https://everykoreans.com/dictionary/"},{"@type":"ListItem","position":3,"name":"TOPIK II 학교 · 공부","item":"https://everykoreans.com/topik2-words/school.html"},{"@type":"ListItem","position":4,"name":"감탄사"}]}</script>
@@ -97,6 +98,22 @@ h2 small{font-weight:500;font-size:12.5px;margin-left:4px;opacity:.8}
 .ans-box summary small{font-weight:500;color:var(--dim);font-size:12.5px;margin-left:4px}
 .ans-box[open] summary{margin-bottom:10px}
 .ans-right{margin:0 0 8px;font-size:16px;color:var(--ink)}.ans-right b{color:var(--orange);margin-right:6px}
+.opts[data-ans] li{cursor:pointer;transition:border-color .15s,background .15s}
+.opts[data-ans] li:hover{border-color:var(--brand)}
+.opts[data-ans] li.right{border-color:#2f8a5b;background:rgba(47,138,91,.1);font-weight:700;color:var(--ink)}
+.opts[data-ans] li.wrong{border-color:#c43d34;background:rgba(196,61,52,.08)}
+.opts[data-done] li{cursor:default}
+.pick-msg{margin:10px 0 0;font-weight:700;font-size:15.5px}.pick-msg.ok{color:#2f8a5b}.pick-msg.no{color:#c43d34}
+.cta.pulse{animation:ctaPulse 1.6s ease 2}
+@keyframes ctaPulse{50%{transform:scale(1.02);box-shadow:0 0 0 6px rgba(240,194,75,.35)}}
+.lt-next{margin:10px 0 0;text-align:center;font-size:14px}.lt-next a{color:var(--ink2);text-decoration:none}.lt-next b{color:var(--ink);text-decoration:underline}
+.wd-acts{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
+.wd-say,.wd-add{display:inline-flex;align-items:center;gap:6px;font:inherit;font-size:14.5px;font-weight:600;padding:10px 16px;border-radius:10px;cursor:pointer;text-decoration:none}
+.wd-say{background:var(--soft);border:1px solid var(--line);color:var(--ink)}
+.wd-say.on{border-color:var(--brand);background:var(--tint)}
+.wd-add{background:var(--cta);color:var(--cta-ink);border:1px solid var(--cta)}
+.wd-add span{font-weight:400;opacity:.8}
+@media(max-width:420px){.wd-add span{display:none}}
 .foot{margin-top:44px;padding-top:18px;border-top:1px solid var(--line);font-size:13px;color:var(--dim)}
 .foot a{color:inherit}
 .cat{margin:30px 0 0}
@@ -118,11 +135,11 @@ h2 small{font-weight:500;font-size:12.5px;margin-left:4px;opacity:.8}
 <header class="hd"><div class="hd-in"><a class="hd-brand" href="/"><img src="/logo-256.png" alt="" width="28" height="28">치즈감자</a><nav class="hd-nav"><a href="/#learn/topik">TOPIK</a><a href="/#words">단어</a><a class="go" href="/#learn">무료로 배우기</a></nav></div></header>
 <div class="wrap">
 <nav class="crumb"><a href="/">치즈감자</a> › <a href="/dictionary/">사전</a> › <a href="/topik2-words/school.html">TOPIK II 학교 · 공부</a> › 감탄사</nav>
-<section class="wd-hero"><div class="wd-tags"><span class="badge">TOPIK II · 5급</span><span class="badge">명사</span></div><h1>감탄사</h1><p class="wd-rom" lang="en">gamtansa</p><p class="wd-en" lang="en">interjection; exclamation</p></section>
+<section class="wd-hero"><div class="wd-tags"><span class="badge">TOPIK II · 5급</span><span class="badge">명사</span></div><h1>감탄사</h1><p class="wd-rom" lang="en">gamtansa</p><p class="wd-en" lang="en">interjection; exclamation</p><div class="wd-acts"><button type="button" class="wd-say" data-say="감탄사" aria-label="발음 듣기 · Listen">🔊 <span>발음 듣기</span></button><a class="wd-add" href="/#words/w/%EA%B0%90%ED%83%84%EC%82%AC">＋ 단어장에 담기<span> · 카드로 외우기</span></a></div></section>
 <h2>예문 <small>Examples</small></h2>
 <div class="wd-exs"><div class="ex">'어머나'나 '와' 같은 말은 감탄사에 속해요.<i lang="en">Words like 'oh my' or 'wow' belong to interjections.</i></div><div class="ex">문법 수업에서 감탄사의 기능과 올바른 쓰임새를 배웠다.<i lang="en">In grammar class, we learned functions and correct uses of interjections.</i></div></div>
 <h2>미니 퀴즈 <small>Quick check</small></h2><div class="wd-quiz"><p class="wd-q">「감탄사」의 뜻은? <span lang="en">What does 감탄사 mean?</span></p><ol class="quiz"><li>truck</li><li>broadcasting station</li><li>sole (of foot)</li><li>interjection</li></ol><details class="ans"><summary>정답 보기 · Show answer</summary><p>4. interjection — '어머나'나 '와' 같은 말은 감탄사에 속해요.</p></details></div>
-<a class="cta" href="/#words/w/%EA%B0%90%ED%83%84%EC%82%AC">이 낱말이 든 단어장 무료로 외우기 →<span>Learn "감탄사" free with flashcards and spaced review — hear it pronounced</span></a>
+<a class="cta" href="/#leveltest">2분 레벨 테스트로 내 수준 알아보기 →<span>Free 2-minute level test — find your Korean level and get a study path</span></a>
 <h2>같은 주제 낱말 <small>More School &amp; study words</small></h2><ul class="pts"><li><a href="/dictionary/%EC%8B%9C%EC%84%A4.html">시설</a></li><li><a href="/dictionary/%EB%8C%80%EC%83%81.html">대상</a></li><li><a href="/dictionary/%EA%B3%BC%EC%A0%95.html">과정</a></li><li><a href="/dictionary/%EB%86%92%EC%9D%B4%EB%8B%A4.html">높이다</a></li><li><a href="/dictionary/%EB%B0%A9%EC%8B%9D.html">방식</a></li><li><a href="/dictionary/%EC%A0%91%EC%88%98.html">접수</a></li><li><a href="/dictionary/%EB%AA%A8%EC%A7%91.html">모집</a></li><li><a href="/dictionary/%ED%99%94%ED%95%99.html">화학</a></li><li><a href="/dictionary/%EC%A0%84%EB%AC%B8.html">전문</a></li><li><a href="/dictionary/%EC%97%B0%EA%B5%AC.html">연구</a></li><li><a href="/dictionary/%EC%9B%90%EB%A6%AC.html">원리</a></li><li><a href="/dictionary/%EC%84%A0%EC%B0%A9%EC%88%9C.html">선착순</a></li><li><a href="/dictionary/%EB%8C%80%EC%97%AC.html">대여</a></li><li><a href="/dictionary/%EB%B6%84%EC%95%BC.html">분야</a></li></ul><p class="note"><a href="/topik2-words/school.html">TOPIK II 학교 · 공부 낱말 전부 보기 · All School &amp; study words →</a></p>
 <div class="near"><a href="/dictionary/%EA%B0%90%ED%83%84.html"><b>← 이전</b>감탄</a><a href="/dictionary/%EA%B0%90%ED%83%84%ED%95%98%EB%8B%A4.html"><b>다음 →</b>감탄하다</a></div>
 <p class="note">어휘 급수: 국립국어원 「국제 통용 한국어 표준 교육과정」(공공누리 1유형) · 예문: 치즈감자</p>

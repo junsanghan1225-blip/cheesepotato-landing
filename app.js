@@ -1105,6 +1105,13 @@ window.addEventListener('popstate', () => cpApply(location.hash.replace(/^#/, ''
    모듈이 다 돌고 나서 불린다(그래야 cpOpen 이 있다). */
 window.cpStart = function () {
   const slug = location.hash.replace(/^#/, '');
+  /* #leveltest — 정적 쪽(사전 · 문제 쪽) 아래의 「2분 레벨 테스트」 단추가 오는 자리. 화면이 아니라 팝업이라
+     주소를 첫 화면으로 돌려놓고 테스트를 연다. */
+  if (slug === 'leveltest') {
+    history.replaceState(null, '', location.pathname + location.search);
+    goLevelTest();
+    return;
+  }
   const head = slug.split('/')[0];
   if (head && SLUG_VIEW[head]) cpApply(slug);
 };

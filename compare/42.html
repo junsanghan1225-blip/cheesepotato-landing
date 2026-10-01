@@ -25,6 +25,7 @@
 <meta name="twitter:image" content="https://everykoreans.com/logo.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
 <link rel="stylesheet" href="/vendor/pretendard.css">
+<script src="/page.js?v=fdf7987c" defer></script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","@id":"https://everykoreans.com/compare/42.html","inLanguage":"ko","mainEntity":[{"@type":"Question","name":"「V-고 있다 ② (착용)」은 언제 쓰나요?","acceptedAnswer":{"@type":"Answer","text":"입거나 쓰거나 신은 상태가 이어지고 있음을 나타냅니다. 주의할 점 — 「지금 옷을 입고 있어요」는 갈아입는 중이라는 뜻도, 입은 상태라는 뜻도 됩니다. 「지금 옷을 입고 있어요」 can mean both 'in the process of putting clothes on' and 'currently wearing clothes'. 예: 안경을 쓰고 있어요."}},{"@type":"Question","name":"「V-아/어 있다」는 언제 쓰나요?","acceptedAnswer":{"@type":"Answer","text":"그 동작이 끝난 뒤의 상태가 이어짐을 나타냅니다. 주의할 점 — 목적어를 받는 동사에는 안 붙습니다. 「밥을 먹어 있어요」는 안 됩니다. It does not attach to verbs that take an object. You cannot say 「밥을 먹어 있어요」. 예: 문이 열려 있어요."}},{"@type":"Question","name":"「A-아/어지다」는 언제 쓰나요?","acceptedAnswer":{"@type":"Answer","text":"차차 그렇게 변해 간다는 뜻입니다. 주의할 점 — 형용사에 붙어 변화를 나타냅니다. 「예뻐지다」, 「좋아지다」 Attaches to adjectives to indicate a change of state: 「예뻐지다」, 「좋아지다」. 예: 날씨가 따뜻해졌어요."}},{"@type":"Question","name":"「V-게 되다」는 언제 쓰나요?","acceptedAnswer":{"@type":"Answer","text":"내 뜻과 상관없이 그렇게 되었다는 뜻입니다. 주의할 점 — 제 결정이 아니라는 느낌을 줍니다. 소식을 조심스럽게 전할 때도 씁니다. It implies that the outcome was not entirely your own decision, and is also used to deliver news carefully. 예: 회사 일로 부산에 살게 됐어요."}}]}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"ItemList","name":"상태를 나타낼 때 — Expressions of State","numberOfItems":4,"itemListElement":[{"@type":"ListItem","position":1,"name":"V-고 있다 ② (착용)","url":"https://everykoreans.com/sentence/42-1.html"},{"@type":"ListItem","position":2,"name":"V-아/어 있다","url":"https://everykoreans.com/sentence/42-2.html"},{"@type":"ListItem","position":3,"name":"A-아/어지다","url":"https://everykoreans.com/sentence/42-3.html"},{"@type":"ListItem","position":4,"name":"V-게 되다","url":"https://everykoreans.com/sentence/42-4.html"}]}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"치즈감자","item":"https://everykoreans.com/"},{"@type":"ListItem","position":2,"name":"갈래별 비교","item":"https://everykoreans.com/compare/"},{"@type":"ListItem","position":3,"name":"상태를 나타낼 때"}]}</script>
@@ -97,6 +98,22 @@ h2 small{font-weight:500;font-size:12.5px;margin-left:4px;opacity:.8}
 .ans-box summary small{font-weight:500;color:var(--dim);font-size:12.5px;margin-left:4px}
 .ans-box[open] summary{margin-bottom:10px}
 .ans-right{margin:0 0 8px;font-size:16px;color:var(--ink)}.ans-right b{color:var(--orange);margin-right:6px}
+.opts[data-ans] li{cursor:pointer;transition:border-color .15s,background .15s}
+.opts[data-ans] li:hover{border-color:var(--brand)}
+.opts[data-ans] li.right{border-color:#2f8a5b;background:rgba(47,138,91,.1);font-weight:700;color:var(--ink)}
+.opts[data-ans] li.wrong{border-color:#c43d34;background:rgba(196,61,52,.08)}
+.opts[data-done] li{cursor:default}
+.pick-msg{margin:10px 0 0;font-weight:700;font-size:15.5px}.pick-msg.ok{color:#2f8a5b}.pick-msg.no{color:#c43d34}
+.cta.pulse{animation:ctaPulse 1.6s ease 2}
+@keyframes ctaPulse{50%{transform:scale(1.02);box-shadow:0 0 0 6px rgba(240,194,75,.35)}}
+.lt-next{margin:10px 0 0;text-align:center;font-size:14px}.lt-next a{color:var(--ink2);text-decoration:none}.lt-next b{color:var(--ink);text-decoration:underline}
+.wd-acts{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
+.wd-say,.wd-add{display:inline-flex;align-items:center;gap:6px;font:inherit;font-size:14.5px;font-weight:600;padding:10px 16px;border-radius:10px;cursor:pointer;text-decoration:none}
+.wd-say{background:var(--soft);border:1px solid var(--line);color:var(--ink)}
+.wd-say.on{border-color:var(--brand);background:var(--tint)}
+.wd-add{background:var(--cta);color:var(--cta-ink);border:1px solid var(--cta)}
+.wd-add span{font-weight:400;opacity:.8}
+@media(max-width:420px){.wd-add span{display:none}}
 .foot{margin-top:44px;padding-top:18px;border-top:1px solid var(--line);font-size:13px;color:var(--dim)}
 .foot a{color:inherit}
 .cat{margin:30px 0 0}
