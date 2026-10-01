@@ -44,7 +44,7 @@ const SECTIONS = [
     rows: Object.entries(byKey(eps.EPS_ITEMS, (q) => epsTopic[q.topic] || q.topic)) },
   { icon: '📰', name: '읽기', en: 'Reading', big: passages.length, unit: '지문',
     rows: Object.entries(reading.READING).flatMap(([len, a]) => Object.entries(a).map(([lv, b]) => [`${len === 'short' ? '짧은' : '긴'} 글 · ${LV[lv] || lv}`, b.length])) },
-  { icon: '💬', name: '말하기 대화', en: 'Conversations', big: convo.CONVO.length, unit: '장면',
+  { icon: '💬', name: '회화 연습', en: 'Conversations', big: convo.CONVO.length, unit: '장면',
     rows: Object.entries(byKey(convo.CONVO, (c) => LV[c.lv] || c.lv)) },
   /* 레벨 테스트 — 종합 · 쓰기는 레벨 테스트 전용 문항, 읽기 · 듣기는 TOPIK 문항(급수가 붙은 것)에서 골라 쓴다(app.module.js ltAdaptPool).
      leveltest-reading/listening.js 의 몇 문항은 그 자료가 아직 안 왔을 때만 쓰는 예비라 세지 않는다. */
