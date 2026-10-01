@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>치즈감자 콘텐츠 현황</title>
+<link rel="icon" href="favicon-32.png">
+<link rel="stylesheet" href="vendor/pretendard.css">
+<!-- 치즈감자 콘텐츠 현황 — 섹션마다 자료가 얼마나 있는지 한눈에. 숫자는 자료 파일에서 그 자리에서 센다(stats.js). -->
+<style>
+:root { --bg:#F2EEE4; --card:#fff; --soft:#FBF8F1; --line:#E4DED1; --ink:#1B1512; --ink2:#4E3E31; --dim:#8C7A66;
+        --bar:#E1682B; --track:#F1EADB; --mine:#2F8A5B; --tts:#C9B99F; --none:#EDE6D8; }
+@media (prefers-color-scheme: dark) {
+  :root { --bg:#161411; --card:#211E1A; --soft:#2A2621; --line:#38332C; --ink:#F2EEE6; --ink2:#C3BCAF; --dim:#8A8376;
+          --bar:#F08A45; --track:#2E2924; --mine:#4CC08A; --tts:#6E6455; --none:#3A342D; }
+}
+* { box-sizing:border-box; }
+body { margin:0; background:var(--bg); color:var(--ink); font-family:"Pretendard Variable", Pretendard, sans-serif; }
+.wrap { max-width:1180px; margin:0 auto; padding:24px 16px 48px; }
+.top { display:flex; flex-wrap:wrap; align-items:baseline; justify-content:space-between; gap:6px 16px; }
+h1 { font-size:24px; font-weight:900; margin:0; letter-spacing:-.02em; }
+.top p { margin:0; color:var(--dim); font-size:14px; }
+.hero { display:grid; grid-template-columns:repeat(4, minmax(0, 1fr)); gap:12px; margin:18px 0 22px; }
+.tile { background:var(--ink); color:var(--bg); border-radius:18px; padding:18px 20px; display:flex; flex-direction:column; gap:2px; }
+.tile span { font-size:14px; font-weight:700; opacity:.8; }
+.tile b { font-size:clamp(28px, 4.4vw, 44px); font-weight:900; letter-spacing:-.03em; font-variant-numeric:tabular-nums; }
+.tile small { font-size:13px; opacity:.7; }
+.grid { display:grid; grid-template-columns:repeat(auto-fill, minmax(300px, 1fr)); gap:14px; }
+.card, .rec { background:var(--card); border:1px solid var(--line); border-radius:18px; padding:18px 20px; min-width:0; }
+.card header { display:flex; gap:12px; align-items:center; }
+.ic { font-size:26px; width:44px; height:44px; display:grid; place-items:center; background:var(--soft); border-radius:12px; flex:none; }
+h2 { font-size:17px; margin:0; font-weight:800; }
+h2 small, .card header small { color:var(--dim); font-weight:600; font-size:12px; }
+.big { margin:14px 0 2px; display:flex; align-items:baseline; gap:6px; }
+.big b { font-size:40px; font-weight:900; letter-spacing:-.03em; font-variant-numeric:tabular-nums; line-height:1; }
+.big span { color:var(--ink2); font-weight:700; }
+.sub { margin:2px 0 0; color:var(--dim); font-size:13px; }
+.bars { list-style:none; padding:0; margin:14px 0 0; display:flex; flex-direction:column; gap:7px; }
+.bars li { display:grid; grid-template-columns:minmax(0, 7.5em) minmax(0, 1fr) auto; gap:10px; align-items:center; font-size:13px; }
+.bars .k { color:var(--ink2); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.bar { height:8px; background:var(--track); border-radius:4px; overflow:hidden; }
+.bar i { display:block; height:100%; background:var(--bar); border-radius:4px; min-width:3px; }
+.bars .v, .extra b { font-variant-numeric:tabular-nums; font-weight:700; }
+.extra { list-style:none; padding:10px 0 0; margin:12px 0 0; border-top:1px dashed var(--line); display:flex; flex-direction:column; gap:5px; font-size:13px; }
+.extra li { display:flex; justify-content:space-between; gap:10px; color:var(--ink2); }
+.rec { margin-top:14px; }
+.stack { display:flex; gap:2px; height:16px; margin:14px 0 10px; border-radius:6px; overflow:hidden; }
+.stack i { display:block; height:100%; }
+.mine { background:var(--mine); } .tts { background:var(--tts); } .none { background:var(--none); }
+.legend { list-style:none; padding:0; margin:0 0 12px; display:flex; flex-wrap:wrap; gap:6px 18px; font-size:13px; color:var(--ink2); }
+.legend i { display:inline-block; width:10px; height:10px; border-radius:3px; margin-right:6px; vertical-align:-1px; }
+table { width:100%; border-collapse:collapse; font-size:13px; }
+th, td { text-align:right; padding:6px 8px; border-top:1px solid var(--line); font-variant-numeric:tabular-nums; }
+th:first-child, td:first-child { text-align:left; }
+th { color:var(--dim); font-weight:700; }
+@media (max-width: 700px) { .hero { grid-template-columns:repeat(2, minmax(0, 1fr)); } .grid { grid-template-columns:minmax(0, 1fr); } }
+</style>
+</head>
+<body>
+<main class="wrap">
+  <div class="top"><h1>🧀 치즈감자 콘텐츠 현황</h1><p><span id="when"></span> · 사이트 자료에서 바로 셈</p></div>
+  <section class="hero" id="hero" aria-label="주요 숫자"></section>
+  <section class="grid" id="grid"></section>
+  <section class="rec" id="rec"></section>
+</main>
+<script type="module" src="stats.js"></script>
+</body>
+</html>
