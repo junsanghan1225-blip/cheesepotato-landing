@@ -413,7 +413,26 @@ h1,.rb-id h1,.rb-card h1,.rb-post h2,.blog-article h2{font-family:'Gowun Batang'
 .share-btn svg{flex:none}
 .share-toast{font-size:12.5px;color:var(--dim);opacity:0;transition:opacity .2s}
 .share-toast.on{opacity:1}
-@media(min-width:880px){.wrap{max-width:1060px}}</style>
+@media(min-width:880px){.wrap{max-width:1060px}}
+.rb-tabs{display:flex;gap:8px;margin:18px 0 14px;flex-wrap:wrap}
+.rb-tabs button{font:inherit;font-weight:800;font-size:15px;padding:9px 16px;border-radius:999px;border:1px solid var(--line);background:var(--card);color:var(--ink);cursor:pointer}
+.rb-tabs button small{font-weight:600;color:var(--dim);margin-left:4px}
+.rb-tabs button.on{background:var(--cta);color:var(--cta-ink);border-color:var(--cta)}.rb-tabs button.on small{color:inherit;opacity:.7}
+.rb-qna-hd{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px 18px}
+.rb-qna-hd h2{margin:0;font-size:19px}.rb-qna-hd p{margin:4px 0 0;color:var(--dim);font-size:14px}
+.rb-qna-chips{display:flex;flex-wrap:wrap;gap:6px;margin:14px 0 10px}
+.rb-qna-chips button{font:inherit;font-size:13px;font-weight:700;padding:6px 12px;border-radius:999px;border:1px solid var(--line);background:var(--card);color:var(--ink2);cursor:pointer}
+.rb-qna-chips button.on{background:var(--tint);color:var(--ink);border-color:var(--orange)}
+.rb-q{background:var(--card);border:1px solid var(--line);border-radius:14px;margin:8px 0;overflow:hidden}
+.rb-q summary{display:flex;flex-wrap:wrap;align-items:center;gap:6px 10px;padding:14px 16px;cursor:pointer;list-style:none}.rb-q summary::-webkit-details-marker{display:none}
+.rb-q-b{font-size:12px;font-weight:800;color:var(--orange)}.rb-q-t{flex:1 1 240px;min-width:0;font-weight:800;font-size:15.5px;line-height:1.45;word-break:keep-all;overflow-wrap:anywhere}
+.rb-q-n{font-size:12px;font-weight:700;color:var(--dim)}
+.rb-q-body{padding:0 16px 12px;color:var(--ink2);font-size:14.5px;line-height:1.7;overflow-wrap:anywhere}
+.rb-a{margin:0 12px 12px;padding:12px 14px;background:var(--soft);border-radius:12px;font-size:14.5px;line-height:1.75;overflow-wrap:anywhere}.rb-a.ok{box-shadow:inset 3px 0 0 #2f8a5b}
+.rb-a-who{font-size:12.5px;font-weight:800;color:var(--ink2);margin-bottom:4px}
+.rb-q-go{display:inline-block;margin:0 16px 14px;font-size:13px;font-weight:700;color:var(--orange)}
+.rb-qna-note{color:var(--dim);padding:20px 4px}
+#rbPosts[hidden],#rbQna[hidden]{display:none!important}</style>
 </head>
 <body>
 <header class="hd"><div class="hd-in"><a class="hd-brand" href="/"><img src="/logo-256.png" alt="" width="28" height="28">치즈감자</a><nav class="hd-nav"><a href="/#learn/topik">TOPIK</a><a href="/#words">단어</a><a class="go" href="/#learn">무료로 배우기</a></nav></div></header>

@@ -234,6 +234,7 @@ const crumbLd = (parts) => {
    그 쪽을 영어 검색 결과에 잘 안 올리고, 화면 낭독기는 영어 문장을
    한국어 발음으로 읽는다. */
 /* 정적 쪽의 손에 잡히는 것(page.js — 🔊 · 보기 누르면 채점). 내용이 바뀌면 주소도 바뀌게 자국을 붙인다. */
+const QNA_JS = `/blog-qna.js?v=${createHash('sha1').update(readFileSync(join(dirname(fileURLToPath(import.meta.url)), '..', 'blog-qna.js'))).digest('hex').slice(0, 8)}`;
 const PAGE_JS = `/page.js?v=${createHash('sha1').update(readFileSync(join(dirname(fileURLToPath(import.meta.url)), '..', 'page.js'))).digest('hex').slice(0, 8)}`;
 /* 다음 한 걸음 — 검색으로 들어온 사람에게 권하는 것은 하나만: 2분 레벨 테스트(사이트 #leveltest 가 연다) */
 const LT_CTA = '<a class="cta" href="/#leveltest">2분 레벨 테스트로 내 수준 알아보기 →<span>Free 2-minute level test — find your Korean level and get a study path</span></a>';
@@ -1879,7 +1880,27 @@ h1,.rb-id h1,.rb-card h1,.rb-post h2,.blog-article h2{font-family:'Gowun Batang'
 
 /* 목록 쪽만 넓게 쓴다. 글 읽는 쪽은 한 줄이 길어지면 눈이 되돌아올 자리를
    잃으므로 좁은 채로 둔다 — 같은 BLOG_CSS 를 쓰되 폭만 여기서 가른다. */
-const BLOG_HUB_CSS = '\n@media(min-width:880px){.wrap{max-width:1060px}}';
+const BLOG_HUB_CSS = '\n@media(min-width:880px){.wrap{max-width:1060px}}' +
+  /* 글 | 묻고 답하기 칸 */
+  '\n.rb-tabs{display:flex;gap:8px;margin:18px 0 14px;flex-wrap:wrap}' +
+  '\n.rb-tabs button{font:inherit;font-weight:800;font-size:15px;padding:9px 16px;border-radius:999px;border:1px solid var(--line);background:var(--card);color:var(--ink);cursor:pointer}' +
+  '\n.rb-tabs button small{font-weight:600;color:var(--dim);margin-left:4px}' +
+  '\n.rb-tabs button.on{background:var(--cta);color:var(--cta-ink);border-color:var(--cta)}.rb-tabs button.on small{color:inherit;opacity:.7}' +
+  '\n.rb-qna-hd{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px 18px}' +
+  '\n.rb-qna-hd h2{margin:0;font-size:19px}.rb-qna-hd p{margin:4px 0 0;color:var(--dim);font-size:14px}' +
+  '\n.rb-qna-chips{display:flex;flex-wrap:wrap;gap:6px;margin:14px 0 10px}' +
+  '\n.rb-qna-chips button{font:inherit;font-size:13px;font-weight:700;padding:6px 12px;border-radius:999px;border:1px solid var(--line);background:var(--card);color:var(--ink2);cursor:pointer}' +
+  '\n.rb-qna-chips button.on{background:var(--tint);color:var(--ink);border-color:var(--orange)}' +
+  '\n.rb-q{background:var(--card);border:1px solid var(--line);border-radius:14px;margin:8px 0;overflow:hidden}' +
+  '\n.rb-q summary{display:flex;flex-wrap:wrap;align-items:center;gap:6px 10px;padding:14px 16px;cursor:pointer;list-style:none}.rb-q summary::-webkit-details-marker{display:none}' +
+  '\n.rb-q-b{font-size:12px;font-weight:800;color:var(--orange)}.rb-q-t{flex:1 1 240px;min-width:0;font-weight:800;font-size:15.5px;line-height:1.45;word-break:keep-all;overflow-wrap:anywhere}' +
+  '\n.rb-q-n{font-size:12px;font-weight:700;color:var(--dim)}' +
+  '\n.rb-q-body{padding:0 16px 12px;color:var(--ink2);font-size:14.5px;line-height:1.7;overflow-wrap:anywhere}' +
+  '\n.rb-a{margin:0 12px 12px;padding:12px 14px;background:var(--soft);border-radius:12px;font-size:14.5px;line-height:1.75;overflow-wrap:anywhere}.rb-a.ok{box-shadow:inset 3px 0 0 #2f8a5b}' +
+  '\n.rb-a-who{font-size:12.5px;font-weight:800;color:var(--ink2);margin-bottom:4px}' +
+  '\n.rb-q-go{display:inline-block;margin:0 16px 14px;font-size:13px;font-weight:700;color:var(--orange)}' +
+  '\n.rb-qna-note{color:var(--dim);padding:20px 4px}' +
+  '\n#rbPosts[hidden],#rbQna[hidden]{display:none!important}';
 
 /* ── 글 속 블록 ─────────────────────────────────────────────
    글 본문을 날 HTML 문자열로 두면 두 가지가 깨진다.
@@ -2402,11 +2423,23 @@ function blogHub(posts) {
         '<p>한국어 공부, 문법, TOPIK 준비에 관한 글 · Notes on learning Korean, grammar, and TOPIK prep</p></div>',
       '<a class="rb-join" href="/#learn">한국어 배우러 가기</a>',
     '</header>',
-    '<div class="rb-cols">',
+    /* 글 | 묻고 답하기 — Q&A 는 블로그 안에(운영자 결정 2026-10-02). 질문 · 답은 blog-qna.js 가 표에서 읽어 온다 */
+    '<div class="rb-tabs" role="tablist">' +
+      `<button type="button" role="tab" data-rb-tab="posts" class="on" aria-selected="true">✍️ 글 <small>${posts.length}</small></button>` +
+      '<button type="button" role="tab" data-rb-tab="qna" aria-selected="false">🙋 묻고 답하기 <small>Q&amp;A</small></button>' +
+    '</div>',
+    '<div class="rb-cols" id="rbPosts">',
       `<main>${feed}</main>`,
       blogSide(posts),
     '</div>',
+    '<section class="rb-qna" id="rbQna" hidden>',
+      '<div class="rb-qna-hd"><div><h2>묻고 답하기</h2><p>궁금한 한국어를 물어보면 치즈감자가 답해요 · Ask anything about Korean — we answer.</p></div>' +
+        '<a class="rb-join" href="/#learn/qna">질문하기 · Ask</a></div>',
+      '<div class="rb-qna-chips" id="rbQnaChips"></div>',
+      '<div id="rbQnaList"></div>',
+    '</section>',
     AGO_JS,
+    `<script src="${QNA_JS}" defer></script>`,
   ].join('\n');
 
   return page({
