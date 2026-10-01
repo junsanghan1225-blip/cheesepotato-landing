@@ -87,26 +87,44 @@ const tier = (p) => (LV_KO[p.lv] ? p.lv : 'intermediate');   // lv 를 빠뜨렸
 
 /* 쪽마다 같은 CSS. 화면 안 본문과 비슷하되, 혼자 서는 쪽이라 훨씬 짧다. */
 const CSS = `
-:root{--bg:#fffdf7;--ink:#2b2117;--dim:#6f6152;--line:#ece2d2;--card:#fff;--brand:#f5b301;--soft:#fff7e3}
-@media(prefers-color-scheme:dark){:root{--bg:#171310;--ink:#f3ece1;--dim:#a99c8c;--line:#332a22;--card:#201a15;--soft:#2a2118}}
+/* 색은 사이트(index.html :root)와 같은 값 — 검색으로 들어온 쪽과 사이트가 한 집처럼 보이게(운영자 요청 2026-10-01).
+   --brand 는 강조 띠(치즈색), --cta 는 사이트의 주 단추와 같은 짙은 색. */
+:root{--bg:#F2EEE4;--ink:#1B1512;--ink2:#4E3E31;--dim:#8C7A66;--line:rgba(27,21,18,.11);--line2:rgba(27,21,18,.06);
+  --card:#fff;--brand:#F0C24B;--soft:#FBF8F1;--tint:#FDF0E2;--cta:#1B1512;--cta-ink:#fff;--orange:#E1682B}
+@media(prefers-color-scheme:dark){:root{--bg:#17130F;--ink:#F2EAE0;--ink2:#CBB8A6;--dim:#9C8973;--line:rgba(242,234,224,.11);--line2:rgba(242,234,224,.06);
+  --card:#221C17;--soft:#1C1712;--tint:#2E2015;--cta:#F2EAE0;--cta-ink:#17130F;--orange:#FF8A47}}
 *{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--ink);line-height:1.7;
-  font-family:Pretendard,-apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;
-  -webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink2);line-height:1.7;
+  font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR","Malgun Gothic","Segoe UI",Roboto,sans-serif;
+  -webkit-font-smoothing:antialiased;-webkit-text-size-adjust:100%}
+/* 제목 · 낱말은 사이트처럼 Pretendard(필요한 글자 조각만 받는다) */
+h1,h2,h3,.wd-en,.hd-brand,.cta{font-family:"Pretendard Variable",Pretendard,-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR",sans-serif}
+h1,h3,.wd-en{color:var(--ink)}
+/* 머리띠 — 사이트의 .site-hd 와 같은 모양(로고 · 이름 · 몇 갈래) */
+.hd{position:sticky;top:0;z-index:5;background:rgba(242,238,228,.9);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+@media(prefers-color-scheme:dark){.hd{background:rgba(23,19,15,.9)}}
+.hd-in{max-width:1200px;margin:0 auto;padding:0 22px;height:64px;display:flex;align-items:center;justify-content:space-between;gap:10px}
+.hd-brand{display:flex;align-items:center;gap:9px;text-decoration:none;color:var(--ink);font-weight:700;font-size:16px;letter-spacing:-.03em}
+.hd-brand img{width:28px;height:28px;border-radius:7px}
+.hd-nav{display:flex;gap:2px}
+.hd-nav a{font-size:14px;color:var(--ink2);text-decoration:none;padding:9px 11px;border-radius:8px}
+.hd-nav a:hover{background:var(--line2);color:var(--ink)}
+.hd-nav a.go{background:var(--cta);color:var(--cta-ink);font-weight:600;margin-left:4px}
+@media(max-width:420px){.hd-nav a:not(.go):nth-child(1){display:none}}
 .wrap{max-width:720px;margin:0 auto;padding:24px 20px 64px}
 a{color:inherit}
 .crumb{font-size:13px;color:var(--dim);margin-bottom:18px}
 .crumb a{text-decoration:none}.crumb a:hover{text-decoration:underline}
 .badge{display:inline-block;font-size:12px;font-weight:700;padding:3px 10px;border-radius:999px;
   background:var(--soft);border:1px solid var(--line);color:var(--dim)}
-h1{font-size:30px;line-height:1.3;margin:12px 0 6px;letter-spacing:-.02em}
+h1{font-size:30px;line-height:1.3;margin:12px 0 6px;letter-spacing:-.03em;font-weight:800}
 .sub{color:var(--dim);font-size:14px;margin:0 0 18px}
 .desc{font-size:17px;margin:0 0 26px}
 /* 한국어 뜻풀이 아래 붙는 영어. 한국어가 먼저 읽히도록 한 단계 죽인다. */
 .desc.en{font-size:15.5px;color:var(--dim);margin:-18px 0 26px}
 .fact i{display:block;font-style:normal;font-size:13.5px;color:var(--dim);margin-top:3px}
 h2{font-size:15px;margin:32px 0 10px;color:var(--dim);letter-spacing:.02em}
-.facts{border:1px solid var(--line);border-radius:14px;overflow:hidden;background:var(--card)}
+.facts{border:1px solid var(--line);border-radius:18px;overflow:hidden;background:var(--card)}
 /* 이름표를 두 말로 겹쳐 쓰니(「자주 함께 쓰는 말 / Often paired with」)
    좁은 칸에서는 세 줄로 접힌다. 폭이 날 때만 좌우로 세운다. */
 .fact{padding:12px 16px;border-top:1px solid var(--line);font-size:15px}
@@ -116,19 +134,28 @@ h2{font-size:15px;margin:32px 0 10px;color:var(--dim);letter-spacing:.02em}
   .fact{display:grid;grid-template-columns:190px 1fr;gap:14px;align-items:baseline}
   .fact b{margin-bottom:0}
 }
-.ex{background:var(--soft);border:1px solid var(--line);border-radius:12px;padding:13px 16px;margin:8px 0;font-size:16px}
+.ex{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:13px 16px;margin:8px 0;font-size:16px;color:var(--ink)}
 .dlg{border:1px solid var(--line);border-radius:14px;padding:14px 16px;background:var(--card)}
 .line{display:flex;gap:10px;align-items:flex-start;margin:10px 0}
 .line.b{flex-direction:row-reverse}
 .who{font-size:22px;line-height:1.3;flex:none}
 .bub{background:var(--soft);border:1px solid var(--line);border-radius:14px;padding:9px 13px;font-size:15px}
-.line.b .bub{background:var(--brand);border-color:var(--brand);color:#2b2117}
-.cta{display:block;margin:34px 0 8px;padding:16px 20px;border-radius:14px;background:var(--brand);color:#2b2117;
+.line.b .bub{background:var(--tint);border-color:var(--line);color:var(--ink)}
+.cta{display:block;margin:34px 0 8px;padding:16px 20px;border-radius:12px;background:var(--cta);color:var(--cta-ink);
   text-decoration:none;font-weight:700;text-align:center;font-size:16px}
+.cta:hover{opacity:.92}
 .cta span{display:block;font-weight:500;font-size:13px;opacity:.75;margin-top:3px;text-decoration:none}
 .near{display:flex;gap:10px;margin-top:22px;font-size:14px;flex-wrap:wrap}
 .near a{flex:1 1 200px;border:1px solid var(--line);border-radius:12px;padding:11px 14px;text-decoration:none;background:var(--card)}
 .near b{display:block;font-size:12px;color:var(--dim);font-weight:600}
+.wd-top{display:flex;align-items:center;gap:8px;margin:0 0 14px;text-decoration:none;font-weight:800;font-size:15px;letter-spacing:-.01em}
+.wd-top img{width:28px;height:28px;border-radius:50%}
+h2 small{font-weight:500;font-size:12.5px;margin-left:4px;opacity:.8}
+.ans-box{margin:16px 0 0;border:1px solid var(--line);border-radius:14px;background:var(--card);padding:12px 16px}
+.ans-box summary{cursor:pointer;font-weight:700;font-size:15px}
+.ans-box summary small{font-weight:500;color:var(--dim);font-size:12.5px;margin-left:4px}
+.ans-box[open] summary{margin-bottom:10px}
+.ans-right{margin:0 0 8px;font-size:16px;color:var(--ink)}.ans-right b{color:var(--orange);margin-right:6px}
 .foot{margin-top:44px;padding-top:18px;border-top:1px solid var(--line);font-size:13px;color:var(--dim)}
 .foot a{color:inherit}
 .cat{margin:30px 0 0}
@@ -143,7 +170,7 @@ h2{font-size:15px;margin:32px 0 10px;color:var(--dim);letter-spacing:.02em}
 .opts{list-style:none;padding:0;margin:14px 0;display:flex;flex-direction:column;gap:8px}
 .opts li{border:1px solid var(--line);border-radius:12px;padding:11px 15px;background:var(--card);
   display:flex;gap:10px;align-items:baseline;font-size:15.5px}
-.opts li.right{border-color:var(--brand);background:var(--soft);font-weight:700}
+.opts li.right{border-color:var(--brand);background:var(--tint);font-weight:700}
 .opts .onum{flex:none;color:var(--dim);font-weight:700}
 `.trim();
 
@@ -190,6 +217,18 @@ const crumbLd = (parts) => {
    **lang 을 안 갈면 영어 글을 한국어 쪽이라고 말하는 셈이다.** 구글은
    그 쪽을 영어 검색 결과에 잘 안 올리고, 화면 낭독기는 영어 문장을
    한국어 발음으로 읽는다. */
+/* 모든 정적 쪽에 같은 머리 — 로고 줄(어느 사이트 쪽인지 바로 보이게, 운영자 요청 2026-10-01) · 「한국어 · English」 제목은
+   영어를 작게(낱말 쪽과 같은 모양). 쪽마다 따로 손대지 않고 여기 한 곳에서 맞춘다. */
+function tidy(body) {
+  return body.replace(/<a class="wd-top"[^>]*>.*?<\/a>\n?/g, '')
+    .replace(/<h2>([^<]*?) · ([A-Z][^<]*)<\/h2>/g, '<h2>$1 <small>$2</small></h2>');
+}
+const HEADER = (en) => '<header class="hd"><div class="hd-in">' +
+  '<a class="hd-brand" href="/"><img src="/logo-256.png" alt="" width="28" height="28">치즈감자</a>' +
+  '<nav class="hd-nav">' +
+  (en ? '<a href="/#learn/topik">TOPIK</a><a href="/#words">Words</a><a class="go" href="/#learn">Start free</a>'
+      : '<a href="/#learn/topik">TOPIK</a><a href="/#words">단어</a><a class="go" href="/#learn">무료로 배우기</a>') +
+  '</nav></div></header>';
 function page({ url, title, desc, body, kind = 'article', jsonld, extraCss = '', extraHead = '', lang = 'ko' }) {
   const en = lang === 'en';
   return `<!DOCTYPE html>
@@ -217,12 +256,14 @@ function page({ url, title, desc, body, kind = 'article', jsonld, extraCss = '',
 <meta name="twitter:title" content="${esc(title)}">
 <meta name="twitter:description" content="${esc(desc)}">
 <meta name="twitter:image" content="${SITE}/logo.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">${extraHead}${[].concat(jsonld ?? []).map(ld).join('')}
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="stylesheet" href="/vendor/pretendard.css">${extraHead}${[].concat(jsonld ?? []).map(ld).join('')}
 <style>${CSS}${extraCss}</style>
 </head>
 <body>
+${HEADER(en)}
 <div class="wrap">
-${body}
+${tidy(body)}
 <div class="foot">
   <a href="/">치즈감자</a> · <a href="/sentence/">문법 표현 전체</a> · <a href="/blog/">블로그</a> · <a href="/privacy.html">개인정보</a> · <a href="/terms.html">이용약관</a><br>
   한국어를 배우는 사람을 위한 단어장과 연습 · Learn Korean with CheesePotato<br>
@@ -793,6 +834,15 @@ const trGradeTx = (exam, g) => (exam === 'I'
   ? { ko: `${g}급`, en: `Level ${g}` }
   : { ko: `${g}급 수준`, en: `Level ${g}` });
 
+/* 보기 넷 + 접어 둔 정답 · 해설(운영자 지적 2026-10-01: 문제 쪽이 들어오자마자 정답을 칠해 보여 줬다).
+   검색으로 들어온 학생이 먼저 풀어 보게 정답은 <details> 안에 — 글은 그대로 쪽에 있어 검색에도 읽힌다. */
+const ONUM = ['①', '②', '③', '④', '⑤'];
+function optsAndAnswer(options, answer, whyKo, whyEn) {
+  return '<ul class="opts">' + options.map((o, i) => `<li><span class="onum">${ONUM[i] || i + 1}</span>${esc(o)}</li>`).join('') + '</ul>' +
+    '<details class="ans-box"><summary>정답과 해설 보기 <small>Show answer</small></summary>' +
+    `<p class="ans-right"><b>정답 ${ONUM[answer] || answer + 1}</b> ${esc(options[answer])}</p>` +
+    `<div class="ex">${esc(whyKo)}</div>` + (whyEn ? `<div class="ex" lang="en">${esc(whyEn)}</div>` : '') + '</details>';
+}
 function trPage(it) {
   const tx = TR_TYPES[it.exam][it.type] || { ko: it.type, en: it.type };
   const grade = trGradeTx(it.exam, it.grade);
@@ -808,10 +858,7 @@ function trPage(it) {
     `<p class="sub">${esc(examName)} ${it.slot}번 · ${esc(tx.ko)} · ${esc(tx.en)}</p>`,
     `<div class="ex">${esc(it.passage)}</div>`,
     `<p class="desc">${esc(it.question)}</p>`,
-    '<ul class="opts">' + it.options.map((o, i) =>
-      `<li${i === it.answer ? ' class="right"' : ''}><span class="onum">${i + 1}</span>${esc(o)}</li>`).join('') + '</ul>',
-    '<h2>해설 · Explanation</h2>',
-    `<div class="ex">${esc(it.why)}</div>`,
+    optsAndAnswer(it.options, it.answer, it.why),
     `<a class="cta" href="/#learn/topik/${esc(it.exam)}/reading/${esc(it.id)}">이 문제 직접 풀어보기` +
       `<span>Try it yourself — the same question, in the app</span></a>`,
   ].join('\n');
@@ -899,10 +946,7 @@ function tlPage(it) {
     `<p class="sub">${esc(examName)} ${it.slot}번 · ${esc(tx.ko)} · ${esc(tx.en)} · 대본 · Script</p>`,
     `<div class="dlg">\n  ${script}\n</div>`,
     `<p class="desc" style="margin-top:20px">${esc(it.q)}</p>`,
-    '<ul class="opts">' + it.options.map((o, i) =>
-      `<li${i === it.answer ? ' class="right"' : ''}><span class="onum">${i + 1}</span>${esc(o)}</li>`).join('') + '</ul>',
-    '<h2>해설 · Explanation</h2>',
-    `<div class="ex">${esc(it.why)}</div>`,
+    optsAndAnswer(it.options, it.answer, it.why),
     `<a class="cta" href="/#learn/topik/${esc(it.exam)}/listening/${esc(it.id)}">이 문제 직접 풀어보기` +
       `<span>Try it yourself — hear the audio and answer in the app</span></a>`,
   ].join('\n');
@@ -1001,11 +1045,11 @@ function epsPage(it) {
     script,
     it.passage ? `<div class="ex">${esc(it.passage)}</div>` : '',
     `<p class="desc"${it.sec === 'listening' ? ' style="margin-top:20px"' : ''}>${esc(it.question)}</p>`,
-    '<ul class="opts">' + it.options.map((o, i) =>
-      `<li${i === it.answer ? ' class="right"' : ''}><span class="onum">${i + 1}</span>${esc(o)}</li>`).join('') + '</ul>',
-    '<h2>해설 · Explanation</h2>',
-    picAns,
-    `<div class="ex">${esc(it.why)}${it.why_en ? `<br><span lang="en" style="color:var(--dim)">${esc(it.why_en)}</span>` : ''}</div>`,
+    /* 정답 · 해설은 접어 둔다(읽기 · 듣기 쪽과 같은 까닭 — optsAndAnswer). 그림 보기의 정답 그림도 그 안에. */
+    '<ul class="opts">' + it.options.map((o, i) => `<li><span class="onum">${ONUM[i] || i + 1}</span>${esc(o)}</li>`).join('') + '</ul>' +
+    '<details class="ans-box"><summary>정답과 해설 보기 <small>Show answer</small></summary>' +
+    `<p class="ans-right"><b>정답 ${ONUM[it.answer] || it.answer + 1}</b> ${esc(it.options[it.answer])}</p>` + (picAns || '') +
+    `<div class="ex">${esc(it.why)}${it.why_en ? `<br><span lang="en" style="color:var(--dim)">${esc(it.why_en)}</span>` : ''}</div></details>`,
     `<a class="cta" href="/#learn/eps/${esc(it.id)}">이 문제 직접 풀어보기` +
       `<span>Try it yourself — ${it.sec === 'listening' ? 'hear the audio and answer' : 'answer it'} in the app, then take a 70-minute mock test</span></a>`,
   ].filter(Boolean).join('\n');

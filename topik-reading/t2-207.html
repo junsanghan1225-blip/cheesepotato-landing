@@ -24,28 +24,47 @@
 <meta name="twitter:description" content="TOPIK II 읽기 5번 유형 연습 문항. 무엇에 대한 글 — 치약. 기출이 아닌 창작 문항이고 정답과 해설이 함께 있습니다.">
 <meta name="twitter:image" content="https://everykoreans.com/logo.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="stylesheet" href="/vendor/pretendard.css">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"LearningResource","@id":"https://everykoreans.com/topik-reading/t2-207.html","name":"TOPIK II 읽기 5번 — 치약","description":"다음은 무엇에 대한 글입니까?","inLanguage":"ko","learningResourceType":"exercise","educationalLevel":"Level 3","teaches":"TOPIK II reading","isAccessibleForFree":true}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"치즈감자","item":"https://everykoreans.com/"},{"@type":"ListItem","position":2,"name":"TOPIK 읽기","item":"https://everykoreans.com/topik-reading/"},{"@type":"ListItem","position":3,"name":"치약"}]}</script>
-<style>:root{--bg:#fffdf7;--ink:#2b2117;--dim:#6f6152;--line:#ece2d2;--card:#fff;--brand:#f5b301;--soft:#fff7e3}
-@media(prefers-color-scheme:dark){:root{--bg:#171310;--ink:#f3ece1;--dim:#a99c8c;--line:#332a22;--card:#201a15;--soft:#2a2118}}
+<style>/* 색은 사이트(index.html :root)와 같은 값 — 검색으로 들어온 쪽과 사이트가 한 집처럼 보이게(운영자 요청 2026-10-01).
+   --brand 는 강조 띠(치즈색), --cta 는 사이트의 주 단추와 같은 짙은 색. */
+:root{--bg:#F2EEE4;--ink:#1B1512;--ink2:#4E3E31;--dim:#8C7A66;--line:rgba(27,21,18,.11);--line2:rgba(27,21,18,.06);
+  --card:#fff;--brand:#F0C24B;--soft:#FBF8F1;--tint:#FDF0E2;--cta:#1B1512;--cta-ink:#fff;--orange:#E1682B}
+@media(prefers-color-scheme:dark){:root{--bg:#17130F;--ink:#F2EAE0;--ink2:#CBB8A6;--dim:#9C8973;--line:rgba(242,234,224,.11);--line2:rgba(242,234,224,.06);
+  --card:#221C17;--soft:#1C1712;--tint:#2E2015;--cta:#F2EAE0;--cta-ink:#17130F;--orange:#FF8A47}}
 *{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--ink);line-height:1.7;
-  font-family:Pretendard,-apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;
-  -webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink2);line-height:1.7;
+  font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR","Malgun Gothic","Segoe UI",Roboto,sans-serif;
+  -webkit-font-smoothing:antialiased;-webkit-text-size-adjust:100%}
+/* 제목 · 낱말은 사이트처럼 Pretendard(필요한 글자 조각만 받는다) */
+h1,h2,h3,.wd-en,.hd-brand,.cta{font-family:"Pretendard Variable",Pretendard,-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR",sans-serif}
+h1,h3,.wd-en{color:var(--ink)}
+/* 머리띠 — 사이트의 .site-hd 와 같은 모양(로고 · 이름 · 몇 갈래) */
+.hd{position:sticky;top:0;z-index:5;background:rgba(242,238,228,.9);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+@media(prefers-color-scheme:dark){.hd{background:rgba(23,19,15,.9)}}
+.hd-in{max-width:1200px;margin:0 auto;padding:0 22px;height:64px;display:flex;align-items:center;justify-content:space-between;gap:10px}
+.hd-brand{display:flex;align-items:center;gap:9px;text-decoration:none;color:var(--ink);font-weight:700;font-size:16px;letter-spacing:-.03em}
+.hd-brand img{width:28px;height:28px;border-radius:7px}
+.hd-nav{display:flex;gap:2px}
+.hd-nav a{font-size:14px;color:var(--ink2);text-decoration:none;padding:9px 11px;border-radius:8px}
+.hd-nav a:hover{background:var(--line2);color:var(--ink)}
+.hd-nav a.go{background:var(--cta);color:var(--cta-ink);font-weight:600;margin-left:4px}
+@media(max-width:420px){.hd-nav a:not(.go):nth-child(1){display:none}}
 .wrap{max-width:720px;margin:0 auto;padding:24px 20px 64px}
 a{color:inherit}
 .crumb{font-size:13px;color:var(--dim);margin-bottom:18px}
 .crumb a{text-decoration:none}.crumb a:hover{text-decoration:underline}
 .badge{display:inline-block;font-size:12px;font-weight:700;padding:3px 10px;border-radius:999px;
   background:var(--soft);border:1px solid var(--line);color:var(--dim)}
-h1{font-size:30px;line-height:1.3;margin:12px 0 6px;letter-spacing:-.02em}
+h1{font-size:30px;line-height:1.3;margin:12px 0 6px;letter-spacing:-.03em;font-weight:800}
 .sub{color:var(--dim);font-size:14px;margin:0 0 18px}
 .desc{font-size:17px;margin:0 0 26px}
 /* 한국어 뜻풀이 아래 붙는 영어. 한국어가 먼저 읽히도록 한 단계 죽인다. */
 .desc.en{font-size:15.5px;color:var(--dim);margin:-18px 0 26px}
 .fact i{display:block;font-style:normal;font-size:13.5px;color:var(--dim);margin-top:3px}
 h2{font-size:15px;margin:32px 0 10px;color:var(--dim);letter-spacing:.02em}
-.facts{border:1px solid var(--line);border-radius:14px;overflow:hidden;background:var(--card)}
+.facts{border:1px solid var(--line);border-radius:18px;overflow:hidden;background:var(--card)}
 /* 이름표를 두 말로 겹쳐 쓰니(「자주 함께 쓰는 말 / Often paired with」)
    좁은 칸에서는 세 줄로 접힌다. 폭이 날 때만 좌우로 세운다. */
 .fact{padding:12px 16px;border-top:1px solid var(--line);font-size:15px}
@@ -55,19 +74,28 @@ h2{font-size:15px;margin:32px 0 10px;color:var(--dim);letter-spacing:.02em}
   .fact{display:grid;grid-template-columns:190px 1fr;gap:14px;align-items:baseline}
   .fact b{margin-bottom:0}
 }
-.ex{background:var(--soft);border:1px solid var(--line);border-radius:12px;padding:13px 16px;margin:8px 0;font-size:16px}
+.ex{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:13px 16px;margin:8px 0;font-size:16px;color:var(--ink)}
 .dlg{border:1px solid var(--line);border-radius:14px;padding:14px 16px;background:var(--card)}
 .line{display:flex;gap:10px;align-items:flex-start;margin:10px 0}
 .line.b{flex-direction:row-reverse}
 .who{font-size:22px;line-height:1.3;flex:none}
 .bub{background:var(--soft);border:1px solid var(--line);border-radius:14px;padding:9px 13px;font-size:15px}
-.line.b .bub{background:var(--brand);border-color:var(--brand);color:#2b2117}
-.cta{display:block;margin:34px 0 8px;padding:16px 20px;border-radius:14px;background:var(--brand);color:#2b2117;
+.line.b .bub{background:var(--tint);border-color:var(--line);color:var(--ink)}
+.cta{display:block;margin:34px 0 8px;padding:16px 20px;border-radius:12px;background:var(--cta);color:var(--cta-ink);
   text-decoration:none;font-weight:700;text-align:center;font-size:16px}
+.cta:hover{opacity:.92}
 .cta span{display:block;font-weight:500;font-size:13px;opacity:.75;margin-top:3px;text-decoration:none}
 .near{display:flex;gap:10px;margin-top:22px;font-size:14px;flex-wrap:wrap}
 .near a{flex:1 1 200px;border:1px solid var(--line);border-radius:12px;padding:11px 14px;text-decoration:none;background:var(--card)}
 .near b{display:block;font-size:12px;color:var(--dim);font-weight:600}
+.wd-top{display:flex;align-items:center;gap:8px;margin:0 0 14px;text-decoration:none;font-weight:800;font-size:15px;letter-spacing:-.01em}
+.wd-top img{width:28px;height:28px;border-radius:50%}
+h2 small{font-weight:500;font-size:12.5px;margin-left:4px;opacity:.8}
+.ans-box{margin:16px 0 0;border:1px solid var(--line);border-radius:14px;background:var(--card);padding:12px 16px}
+.ans-box summary{cursor:pointer;font-weight:700;font-size:15px}
+.ans-box summary small{font-weight:500;color:var(--dim);font-size:12.5px;margin-left:4px}
+.ans-box[open] summary{margin-bottom:10px}
+.ans-right{margin:0 0 8px;font-size:16px;color:var(--ink)}.ans-right b{color:var(--orange);margin-right:6px}
 .foot{margin-top:44px;padding-top:18px;border-top:1px solid var(--line);font-size:13px;color:var(--dim)}
 .foot a{color:inherit}
 .cat{margin:30px 0 0}
@@ -82,10 +110,11 @@ h2{font-size:15px;margin:32px 0 10px;color:var(--dim);letter-spacing:.02em}
 .opts{list-style:none;padding:0;margin:14px 0;display:flex;flex-direction:column;gap:8px}
 .opts li{border:1px solid var(--line);border-radius:12px;padding:11px 15px;background:var(--card);
   display:flex;gap:10px;align-items:baseline;font-size:15.5px}
-.opts li.right{border-color:var(--brand);background:var(--soft);font-weight:700}
+.opts li.right{border-color:var(--brand);background:var(--tint);font-weight:700}
 .opts .onum{flex:none;color:var(--dim);font-weight:700}</style>
 </head>
 <body>
+<header class="hd"><div class="hd-in"><a class="hd-brand" href="/"><img src="/logo-256.png" alt="" width="28" height="28">치즈감자</a><nav class="hd-nav"><a href="/#learn/topik">TOPIK</a><a href="/#words">단어</a><a class="go" href="/#learn">무료로 배우기</a></nav></div></header>
 <div class="wrap">
 <nav class="crumb"><a href="/">치즈감자</a> › <a href="/topik-reading/">TOPIK 읽기</a> › TOPIK II</nav>
 <span class="badge">3급 수준 · 무엇에 대한 글</span>
@@ -94,9 +123,7 @@ h2{font-size:15px;margin:32px 0 10px;color:var(--dim);letter-spacing:.02em}
 <div class="ex">식사 후 3분, 입안 가득 상쾌함을 전합니다.
 구석구석 깨끗하게 닦아 충치를 효과적으로 예방하세요.</div>
 <p class="desc">다음은 무엇에 대한 글입니까?</p>
-<ul class="opts"><li><span class="onum">1</span>비누</li><li><span class="onum">2</span>샴푸</li><li class="right"><span class="onum">3</span>치약</li><li><span class="onum">4</span>로션</li></ul>
-<h2>해설 · Explanation</h2>
-<div class="ex">식사 후 입안을 닦아 충치를 예방한다는 설명에서 구강 위생 용품인 「치약」이 알맞습니다. 「비누」는 손이나 몸을 씻는 세정제이므로 충치 예방과 관련이 없습니다.</div>
+<ul class="opts"><li><span class="onum">①</span>비누</li><li><span class="onum">②</span>샴푸</li><li><span class="onum">③</span>치약</li><li><span class="onum">④</span>로션</li></ul><details class="ans-box"><summary>정답과 해설 보기 <small>Show answer</small></summary><p class="ans-right"><b>정답 ③</b> 치약</p><div class="ex">식사 후 입안을 닦아 충치를 예방한다는 설명에서 구강 위생 용품인 「치약」이 알맞습니다. 「비누」는 손이나 몸을 씻는 세정제이므로 충치 예방과 관련이 없습니다.</div></details>
 <a class="cta" href="/#learn/topik/II/reading/t2-207">이 문제 직접 풀어보기<span>Try it yourself — the same question, in the app</span></a>
 <div class="foot">
   <a href="/">치즈감자</a> · <a href="/sentence/">문법 표현 전체</a> · <a href="/blog/">블로그</a> · <a href="/privacy.html">개인정보</a> · <a href="/terms.html">이용약관</a><br>

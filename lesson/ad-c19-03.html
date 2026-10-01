@@ -24,28 +24,47 @@
 <meta name="twitter:description" content="고급 19: 상황이나 기준을 나타낼 때 · 3강. 절대적 규칙과 기준 대비 의외성 (치고 / 치고는) — 치고 는 어떤 범주나 대상을 기준으로 삼아 판단할 때 쓰이며, 조사 '-는' 의 결합 여부에 따라 완전히 다른 두 가지 핵심 기능을 수행합니다. 1. 명사 + 치고 (예외…">
 <meta name="twitter:image" content="https://everykoreans.com/logo.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="stylesheet" href="/vendor/pretendard.css">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"LearningResource","@id":"https://everykoreans.com/lesson/ad-c19-03.html","name":"3강. 절대적 규칙과 기준 대비 의외성 (치고 / 치고는)","inLanguage":"ko","teaches":"고급 19: 상황이나 기준을 나타낼 때","educationalLevel":"Advanced","learningResourceType":"lesson","isPartOf":{"@type":"Course","@id":"https://everykoreans.com/course/ad-c19.html","name":"고급 19: 상황이나 기준을 나타낼 때"},"timeRequired":"PT4M"}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"치즈감자","item":"https://everykoreans.com/"},{"@type":"ListItem","position":2,"name":"코스","item":"https://everykoreans.com/course/"},{"@type":"ListItem","position":3,"name":"고급 19: 상황이나 기준을 나타낼 때","item":"https://everykoreans.com/course/ad-c19.html"},{"@type":"ListItem","position":4,"name":"3강. 절대적 규칙과 기준 대비 의외성 (치고 / 치고는)"}]}</script>
-<style>:root{--bg:#fffdf7;--ink:#2b2117;--dim:#6f6152;--line:#ece2d2;--card:#fff;--brand:#f5b301;--soft:#fff7e3}
-@media(prefers-color-scheme:dark){:root{--bg:#171310;--ink:#f3ece1;--dim:#a99c8c;--line:#332a22;--card:#201a15;--soft:#2a2118}}
+<style>/* 색은 사이트(index.html :root)와 같은 값 — 검색으로 들어온 쪽과 사이트가 한 집처럼 보이게(운영자 요청 2026-10-01).
+   --brand 는 강조 띠(치즈색), --cta 는 사이트의 주 단추와 같은 짙은 색. */
+:root{--bg:#F2EEE4;--ink:#1B1512;--ink2:#4E3E31;--dim:#8C7A66;--line:rgba(27,21,18,.11);--line2:rgba(27,21,18,.06);
+  --card:#fff;--brand:#F0C24B;--soft:#FBF8F1;--tint:#FDF0E2;--cta:#1B1512;--cta-ink:#fff;--orange:#E1682B}
+@media(prefers-color-scheme:dark){:root{--bg:#17130F;--ink:#F2EAE0;--ink2:#CBB8A6;--dim:#9C8973;--line:rgba(242,234,224,.11);--line2:rgba(242,234,224,.06);
+  --card:#221C17;--soft:#1C1712;--tint:#2E2015;--cta:#F2EAE0;--cta-ink:#17130F;--orange:#FF8A47}}
 *{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--ink);line-height:1.7;
-  font-family:Pretendard,-apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;
-  -webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink2);line-height:1.7;
+  font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR","Malgun Gothic","Segoe UI",Roboto,sans-serif;
+  -webkit-font-smoothing:antialiased;-webkit-text-size-adjust:100%}
+/* 제목 · 낱말은 사이트처럼 Pretendard(필요한 글자 조각만 받는다) */
+h1,h2,h3,.wd-en,.hd-brand,.cta{font-family:"Pretendard Variable",Pretendard,-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR",sans-serif}
+h1,h3,.wd-en{color:var(--ink)}
+/* 머리띠 — 사이트의 .site-hd 와 같은 모양(로고 · 이름 · 몇 갈래) */
+.hd{position:sticky;top:0;z-index:5;background:rgba(242,238,228,.9);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+@media(prefers-color-scheme:dark){.hd{background:rgba(23,19,15,.9)}}
+.hd-in{max-width:1200px;margin:0 auto;padding:0 22px;height:64px;display:flex;align-items:center;justify-content:space-between;gap:10px}
+.hd-brand{display:flex;align-items:center;gap:9px;text-decoration:none;color:var(--ink);font-weight:700;font-size:16px;letter-spacing:-.03em}
+.hd-brand img{width:28px;height:28px;border-radius:7px}
+.hd-nav{display:flex;gap:2px}
+.hd-nav a{font-size:14px;color:var(--ink2);text-decoration:none;padding:9px 11px;border-radius:8px}
+.hd-nav a:hover{background:var(--line2);color:var(--ink)}
+.hd-nav a.go{background:var(--cta);color:var(--cta-ink);font-weight:600;margin-left:4px}
+@media(max-width:420px){.hd-nav a:not(.go):nth-child(1){display:none}}
 .wrap{max-width:720px;margin:0 auto;padding:24px 20px 64px}
 a{color:inherit}
 .crumb{font-size:13px;color:var(--dim);margin-bottom:18px}
 .crumb a{text-decoration:none}.crumb a:hover{text-decoration:underline}
 .badge{display:inline-block;font-size:12px;font-weight:700;padding:3px 10px;border-radius:999px;
   background:var(--soft);border:1px solid var(--line);color:var(--dim)}
-h1{font-size:30px;line-height:1.3;margin:12px 0 6px;letter-spacing:-.02em}
+h1{font-size:30px;line-height:1.3;margin:12px 0 6px;letter-spacing:-.03em;font-weight:800}
 .sub{color:var(--dim);font-size:14px;margin:0 0 18px}
 .desc{font-size:17px;margin:0 0 26px}
 /* 한국어 뜻풀이 아래 붙는 영어. 한국어가 먼저 읽히도록 한 단계 죽인다. */
 .desc.en{font-size:15.5px;color:var(--dim);margin:-18px 0 26px}
 .fact i{display:block;font-style:normal;font-size:13.5px;color:var(--dim);margin-top:3px}
 h2{font-size:15px;margin:32px 0 10px;color:var(--dim);letter-spacing:.02em}
-.facts{border:1px solid var(--line);border-radius:14px;overflow:hidden;background:var(--card)}
+.facts{border:1px solid var(--line);border-radius:18px;overflow:hidden;background:var(--card)}
 /* 이름표를 두 말로 겹쳐 쓰니(「자주 함께 쓰는 말 / Often paired with」)
    좁은 칸에서는 세 줄로 접힌다. 폭이 날 때만 좌우로 세운다. */
 .fact{padding:12px 16px;border-top:1px solid var(--line);font-size:15px}
@@ -55,19 +74,28 @@ h2{font-size:15px;margin:32px 0 10px;color:var(--dim);letter-spacing:.02em}
   .fact{display:grid;grid-template-columns:190px 1fr;gap:14px;align-items:baseline}
   .fact b{margin-bottom:0}
 }
-.ex{background:var(--soft);border:1px solid var(--line);border-radius:12px;padding:13px 16px;margin:8px 0;font-size:16px}
+.ex{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:13px 16px;margin:8px 0;font-size:16px;color:var(--ink)}
 .dlg{border:1px solid var(--line);border-radius:14px;padding:14px 16px;background:var(--card)}
 .line{display:flex;gap:10px;align-items:flex-start;margin:10px 0}
 .line.b{flex-direction:row-reverse}
 .who{font-size:22px;line-height:1.3;flex:none}
 .bub{background:var(--soft);border:1px solid var(--line);border-radius:14px;padding:9px 13px;font-size:15px}
-.line.b .bub{background:var(--brand);border-color:var(--brand);color:#2b2117}
-.cta{display:block;margin:34px 0 8px;padding:16px 20px;border-radius:14px;background:var(--brand);color:#2b2117;
+.line.b .bub{background:var(--tint);border-color:var(--line);color:var(--ink)}
+.cta{display:block;margin:34px 0 8px;padding:16px 20px;border-radius:12px;background:var(--cta);color:var(--cta-ink);
   text-decoration:none;font-weight:700;text-align:center;font-size:16px}
+.cta:hover{opacity:.92}
 .cta span{display:block;font-weight:500;font-size:13px;opacity:.75;margin-top:3px;text-decoration:none}
 .near{display:flex;gap:10px;margin-top:22px;font-size:14px;flex-wrap:wrap}
 .near a{flex:1 1 200px;border:1px solid var(--line);border-radius:12px;padding:11px 14px;text-decoration:none;background:var(--card)}
 .near b{display:block;font-size:12px;color:var(--dim);font-weight:600}
+.wd-top{display:flex;align-items:center;gap:8px;margin:0 0 14px;text-decoration:none;font-weight:800;font-size:15px;letter-spacing:-.01em}
+.wd-top img{width:28px;height:28px;border-radius:50%}
+h2 small{font-weight:500;font-size:12.5px;margin-left:4px;opacity:.8}
+.ans-box{margin:16px 0 0;border:1px solid var(--line);border-radius:14px;background:var(--card);padding:12px 16px}
+.ans-box summary{cursor:pointer;font-weight:700;font-size:15px}
+.ans-box summary small{font-weight:500;color:var(--dim);font-size:12.5px;margin-left:4px}
+.ans-box[open] summary{margin-bottom:10px}
+.ans-right{margin:0 0 8px;font-size:16px;color:var(--ink)}.ans-right b{color:var(--orange);margin-right:6px}
 .foot{margin-top:44px;padding-top:18px;border-top:1px solid var(--line);font-size:13px;color:var(--dim)}
 .foot a{color:inherit}
 .cat{margin:30px 0 0}
@@ -82,10 +110,11 @@ h2{font-size:15px;margin:32px 0 10px;color:var(--dim);letter-spacing:.02em}
 .opts{list-style:none;padding:0;margin:14px 0;display:flex;flex-direction:column;gap:8px}
 .opts li{border:1px solid var(--line);border-radius:12px;padding:11px 15px;background:var(--card);
   display:flex;gap:10px;align-items:baseline;font-size:15.5px}
-.opts li.right{border-color:var(--brand);background:var(--soft);font-weight:700}
+.opts li.right{border-color:var(--brand);background:var(--tint);font-weight:700}
 .opts .onum{flex:none;color:var(--dim);font-weight:700}</style>
 </head>
 <body>
+<header class="hd"><div class="hd-in"><a class="hd-brand" href="/"><img src="/logo-256.png" alt="" width="28" height="28">치즈감자</a><nav class="hd-nav"><a href="/#learn/topik">TOPIK</a><a href="/#words">단어</a><a class="go" href="/#learn">무료로 배우기</a></nav></div></header>
 <div class="wrap">
 <nav class="crumb"><a href="/">치즈감자</a> › <a href="/course/">코스</a> › <a href="/course/ad-c19.html">고급 19: 상황이나 기준을 나타낼 때</a></nav>
 <span class="badge">고급 · Advanced</span>
@@ -95,7 +124,7 @@ h2{font-size:15px;margin:32px 0 10px;color:var(--dim);letter-spacing:.02em}
 <div class="facts"><div class="fact"><b>예외 없는 규칙 (치고)</b><span>명사 + 치고 (부정문) · 그 범주에 속한 자 모두에게 해당 · 성공한 사람치고 남모를 피땀을 흘리지 않은 사람은 없다.</span></div><div class="fact"><b>보편적 속성 (치고)</b><span>아이들치고 ... 없다 · 어린이 범주의 보편성 · 아이들치고 과자를 좋아하지 않는 아이는 없어요.</span></div><div class="fact"><b>기준 대비 우수 (치고는)</b><span>초보자치고는 능숙하다 · 경력에 비해 뜻밖의 뛰어난 실력 · 운전을 배운 지 일주일치고는 주차를 아주 침착하게 잘하네.</span></div><div class="fact"><b>조건 대비 만족 (치고는)</b><span>중고치고는 깨끗하다 · 기대치를 훌륭히 뛰어넘음 · 중고 제품치고는 잔기스 하나 없이 상태가 새것 같아요.</span></div></div>
 <div class="facts"><div class="fact"><b>정상에 오른 기업 치고 뼈를 깎는 구조 혁신과 체질 개선을 거치지 않은 곳은 없습니다.</b><span>Among firms reaching the top, there is none that has not undergone bone-carving structural innovation.</span></div><div class="fact"><b>한국에 온 지 겨우 석 달 된 외국인 유학생치고는 발음이 대단히 정확하고 자연스럽네요.</b><span>For a foreign student who has been in Korea barely 3 months, pronunciation is very accurate.</span></div><div class="fact"><b>부모치고 자식의 행복과 안녕을 간절히 바라지 않는 사람이 어디에 있겠습니까?</b><span>Among parents, where is anyone who does not earnestly wish for their children's happiness?</span></div></div>
 <div class="ex">💡 <b>치고 vs 치고는 한 끗 차이 마스터</b><br><br>- <b>치고</b> + 부정어: &quot;겨울 날씨<b>치고</b> 춥지 않은 날이 없다.&quot; (100% 예외 없음)<br>- <b>치고는</b>: &quot;겨울 날씨<b>치고는</b> 꽤 포근하네.&quot; (기준치에 비해 의외임)<br><br>'-는' 하나가 붙음으로써 '예외 없는 규칙'에서 '예상을 깬 의외성'으로 의미가 전환되는 묘미를 기억하세요.</div>
-<h2>연습 · Practice</h2><p class="lead">이 레슨에는 풀어 보는 문제가 5개 있습니다. 앱에서 하나씩 맞히며 넘어갑니다.<br>5 exercises come with this lesson — open it to work through them.</p>
+<h2>연습 <small>Practice</small></h2><p class="lead">이 레슨에는 풀어 보는 문제가 5개 있습니다. 앱에서 하나씩 맞히며 넘어갑니다.<br>5 exercises come with this lesson — open it to work through them.</p>
 <a class="cta" href="/#learn/courses">이 레슨 열기<span>Open this lesson in the app</span></a>
 <div class="near"><a href="/lesson/ad-c19-02.html"><b>← 앞 레슨</b>2강. 막다른 처지와 급박한 국면 제시 (-는 마당에)</a><a href="/lesson/ad-c19-04.html"><b>다음 레슨 →</b>4강. 시대 변화의 연동과 통계 보고의 완성 (-(으)ㅁ에 따라 및 종합)</a></div>
 <div class="foot">
