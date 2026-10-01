@@ -15,7 +15,7 @@ import { fileURLToPath, pathToFileURL } from 'node:url';
 import { chromium } from '/opt/node22/lib/node_modules/playwright/index.mjs';
 import { romanize } from './ko-conj.mjs';
 import { grammarMarkRe } from '../grammar-mark.js';
-import { makePicker, todayKst, POS_EN, LV, LINK, wordEn, wordEx, wordsCaption, grammarCaption } from '../insta-pick.js';
+import { makePicker, todayKst, HASHTAGS, POS_EN, LV, LINK, wordEn, wordEx, wordsCaption, grammarCaption } from '../insta-pick.js';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const imp = (f) => import(pathToFileURL(path.join(ROOT, f)).href);
@@ -157,7 +157,7 @@ for (let k = 0; k < Number(daysArg); k++) {
       await page.screenshot({ path: path.join(dir, `${name}-${i + 1}.png`) });
     }
     fs.rmSync(tmp, { force: true });
-    caps += `\n━━━━━━━━ ${name} (${post.slides.length}장) ━━━━━━━━\n${post.caption}\n`;
+    caps += `\n━━━━━━━━ ${name} (${post.slides.length}장) ━━━━━━━━\n${post.caption}\n\n${HASHTAGS}\n`;
   }
   fs.writeFileSync(path.join(dir, 'caption.txt'), caps);
   console.log(`${day} — 단어(${tp.ko}) ${posts[0][1].slides.length}장 · 문법 ${posts[1][1].slides.length}장 · 문법 ${posts[2][1].slides.length}장 → insta/out/${day}/`);

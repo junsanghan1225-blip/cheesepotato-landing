@@ -8,6 +8,8 @@ export const todayKst = () => new Date(Date.now() + 9 * 3600e3).toISOString().sl
 export const POS_EN = { 명사: 'noun', 동사: 'verb', 형용사: 'adjective', 부사: 'adverb', 대명사: 'pronoun', '의존 명사': 'bound noun',
   수사: 'number', 관형사: 'determiner', 감탄사: 'interjection' };
 export const LV = { beginner: '초급 · Beginner', intermediate: '중급 · Intermediate', advanced: '고급 · Advanced' };
+/* 해시태그 — 세 게시물 모두 같은 묶음(운영자: 「통일되게」). 편집기에서 고치면 그 브라우저에서는 그 묶음을 쓴다 */
+export const HASHTAGS = '#한국어 #한국어공부 #learnkorean #studykorean #koreanlanguage #koreanvocabulary #koreangrammar #topik #korean #치즈감자 #everykoreans';
 export const LINK = 'https://everykoreans.com/?utm_source=instagram&utm_medium=social&utm_campaign=daily';
 
 /* 고정된 씨앗으로 섞은 차례 — 날짜 n 이면 n 번째를 쓴다(다 돌면 처음으로) */
@@ -54,14 +56,12 @@ export const wordEx = (w) => w.x.slice().sort((a, b) => a[0].length - b[0].lengt
 export function wordsCaption(t, ws, romanize) {
   return `주제별 단어 · ${t.ko} (${t.en})\n\n` +
     ws.map((w, i) => `${i + 1}. ${w.h} (${romanize(w.h) || ''}) — ${wordEn(w)}\n   ${wordEx(w)[0]}\n   ${wordEx(w)[1]}`).join('\n') +
-    `\n\n💾 저장해 두고 외워 보세요 · Save this post!\n더 많은 단어 · 발음 → 프로필 링크 · More words — link in bio.\n\n` +
-    '#한국어 #한국어공부 #learnkorean #koreanwords #koreanvocabulary #topik #studykorean #korean #치즈감자';
+    `\n\n💾 저장해 두고 외워 보세요 · Save this post!\n더 많은 단어 · 발음 → 프로필 링크 · More words — link in bio.`;
 }
 
 export function grammarCaption(p, pick) {
   const en = pick.en(p), more = pick.more(p), words = pick.gw(p);
   return `오늘의 문법 · ${p.name}\n${p.desc}\n${en.desc || ''}\n\n` + [p.ex, more[3]].filter(Boolean).slice(0, 2).map((x) => `• ${x}`).join('\n') +
     `\n\n같이 쓰는 말: ${words.slice(0, 3).map((x) => x[0]).join(' · ')}\n\n` +
-    `✍️ 더 많은 예문 · 연습 → 프로필 링크 · More examples — link in bio.\n\n` +
-    '#한국어문법 #한국어공부 #koreangrammar #learnkorean #topik #studykorean #korean #치즈감자';
+    `✍️ 더 많은 예문 · 연습 → 프로필 링크 · More examples — link in bio.`;
 }

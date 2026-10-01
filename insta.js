@@ -10,7 +10,7 @@ import { SB_CATS, SB_MORE } from './sentences.js';
 import { GRAMMAR_EN } from './grammar-en.js';
 import { GRAMMAR_WORDS } from './grammar-words.js';
 import { grammarMarkRe } from './grammar-mark.js';
-import { makePicker, todayKst, POS_EN, LV, LINK, wordEn, wordEx, wordsCaption, grammarCaption } from './insta-pick.js';
+import { makePicker, todayKst, HASHTAGS, POS_EN, LV, LINK, wordEn, wordEx, wordsCaption, grammarCaption } from './insta-pick.js';
 
 /* 로마자는 활용기에서 빌린다 — 못 부르면 로마자 줄만 빈다 */
 let romanize = () => '';
@@ -121,7 +121,13 @@ function drawEl(ctx, e, L, x, y) {
     for (const it of ln.items) {
       setFont(ctx, it, e.s);
       const tx = x + L.pad + L.inner + it.x, tw = ctx.measureText(it.t).width, sz = it.size * e.s;
-      if (it.mark && !it.sp) { ctx.fillStyle = 'rgba(240,194,75,.75)'; ctx.fillRect(tx - 3, base - sz * 0.3, tw + 6, sz * 0.42); }
+      /* 형광펜 — 글자 폭(빈 옆자리 말고 실제 획)에 맞추고, 글자 아래쪽 절반을 칠한다(사이트 문법 화면과 같은 모양) */
+      if (it.mark && !it.sp) {
+        const m = ctx.measureText(it.t), l = tx - (m.actualBoundingBoxLeft || 0), r = tx + (m.actualBoundingBoxRight || tw);
+        const prev = ln.items[ln.items.indexOf(it) - 1], next = ln.items[ln.items.indexOf(it) + 1];
+        const l2 = prev?.mark && !prev.sp ? tx : l - sz * 0.08, r2 = next?.mark && !next.sp ? tx + tw : r + sz * 0.08;
+        ctx.fillStyle = 'rgba(240,194,75,.8)'; ctx.fillRect(l2, base - sz * 0.46, r2 - l2, sz * 0.52);
+      }
       ctx.fillStyle = it.color; ctx.fillText(it.t, tx, base);
     }
   }
@@ -301,6 +307,7 @@ function drawTabs() {
        <button id="nextWords" class="ghost">다른 낱말 5개</button>`
     : `<label>문법 <select id="pickGram">${['beginner', 'intermediate', 'advanced'].map((lv) => `<optgroup label="${LV[lv]}">${pick.ALL_GRAMS.filter((g) => g.lv === lv).map((g) => `<option value="${g.id}"${g === post.gram ? ' selected' : ''}>${esc(g.name)}</option>`).join('')}</optgroup>`).join('')}</select></label>`;
   $('caption').value = `${post.caption}`;
+  $('tags').value = store.get('insta:tags', HASHTAGS);
   $('done').checked = store.get(`insta:done:${S.day}:${post.file}`, false);
 }
 const esc = (s) => String(s ?? '').replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
@@ -379,11 +386,17 @@ $('day').value = S.day;
 $('day').addEventListener('change', async (ev) => { S.day = ev.target.value || todayKst(); S.post = 0; await open(); });
 $('done').addEventListener('change', (ev) => { store.set(`insta:done:${S.day}:${cur().file}`, ev.target.checked); drawTabs(); });
 $('copy').onclick = async () => {
-  try { await navigator.clipboard.writeText($('caption').value); $('copy').textContent = '복사했어요 ✓'; }
-  catch { $('caption').select(); document.execCommand('copy'); $('copy').textContent = '복사했어요 ✓'; }
-  setTimeout(() => { $('copy').textContent = '캡션 복사'; }, 1500);
+  const text = fullCaption();
+  try { await navigator.clipboard.writeText(text); }
+  catch { const t = document.createElement('textarea'); t.value = text; document.body.append(t); t.select(); document.execCommand('copy'); t.remove(); }
+  $('copy').textContent = '복사했어요 ✓';
+  setTimeout(() => { $('copy').textContent = '캡션 + 해시태그 복사'; }, 1500);
 };
 $('link').textContent = LINK;
+/* 캡션 + 해시태그 — 복사 · ZIP 둘 다 이것 */
+const fullCaption = () => `${$('caption').value.trim()}\n\n${$('tags').value.trim()}`;
+$('tags').addEventListener('input', (ev) => store.set('insta:tags', ev.target.value));
+$('resetTags').onclick = () => { store.set('insta:tags', HASHTAGS); $('tags').value = HASHTAGS; };
 
 /* 받기 — 지금 장 PNG, 또는 이 게시물 전부 ZIP */
 const pngOf = (post, si) => new Promise((ok) => {
@@ -395,7 +408,7 @@ $('png').onclick = async () => save(await pngOf(cur(), S.slide), `${S.day}-${cur
 $('zip').onclick = async () => {
   const post = cur(), zip = new window.JSZip();
   for (let i = 0; i < post.slides.length; i++) zip.file(`${S.day}-${post.file}-${i + 1}.png`, await pngOf(post, i));
-  zip.file(`${S.day}-${post.file}-caption.txt`, $('caption').value);
+  zip.file(`${S.day}-${post.file}-caption.txt`, fullCaption());
   save(await zip.generateAsync({ type: 'blob' }), `${S.day}-${post.file}.zip`);
 };
 

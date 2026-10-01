@@ -45,6 +45,7 @@ input[type=range] { flex:1; min-width:140px; accent-color:var(--or); }
 .muted { color:var(--dim); font-size:13px; line-height:1.5; }
 textarea { width:100%; min-height:220px; border:1px solid var(--line); border-radius:10px; padding:10px; background:var(--soft); line-height:1.5; font-size:14px; }
 #link { word-break:break-all; }
+textarea.tags { min-height:80px; margin-top:6px; }
 </style>
 </head>
 <body>
@@ -77,9 +78,12 @@ textarea { width:100%; min-height:220px; border:1px solid var(--line); border-ra
     <div class="panel">
       <h2>받기 · 올리기</h2>
       <div class="row"><button id="png" class="b">이 장 PNG</button><button id="zip" class="b or">이 게시물 전부 받기(ZIP)</button></div>
-      <div class="row" style="margin-top:12px"><button id="copy" class="ghost">캡션 복사</button>
+      <div class="row" style="margin-top:12px"><button id="copy" class="ghost">캡션 + 해시태그 복사</button>
         <label><input type="checkbox" id="done"> 올렸어요</label></div>
       <textarea id="caption" aria-label="캡션" style="margin-top:10px"></textarea>
+      <div class="row" style="margin-top:10px"><b>해시태그</b><span class="muted">세 게시물 모두 같은 묶음 · 캡션 복사에 같이 들어가요</span></div>
+      <textarea id="tags" aria-label="해시태그" class="tags"></textarea>
+      <div class="row"><button id="resetTags" class="ghost">해시태그 기본으로</button></div>
       <p class="muted">프로필 링크: <span id="link"></span></p>
     </div>
   </section>
