@@ -25,6 +25,7 @@
 <meta name="twitter:image" content="https://everykoreans.com/logo.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
 <link rel="stylesheet" href="/vendor/pretendard.css">
+<script src="/page.js?v=fdf7987c" defer></script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"DefinedTerm","@id":"https://everykoreans.com/dictionary/%EC%A7%84%EB%8F%99.html","name":"진동","alternateName":"jindong","description":"vibration; armhole","inLanguage":"ko","inDefinedTermSet":"https://everykoreans.com/topik2-words/tech.html"}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What does 진동 mean in Korean?","acceptedAnswer":{"@type":"Answer","text":"진동 (jindong) means \"vibration; armhole\". It is a TOPIK 4 level noun. Example: 수업 중에는 휴대전화를 진동 모드로 바꾸세요. — Please switch your mobile phone to vibration mode during class."}}]}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"치즈감자","item":"https://everykoreans.com/"},{"@type":"ListItem","position":2,"name":"사전","item":"https://everykoreans.com/dictionary/"},{"@type":"ListItem","position":3,"name":"TOPIK II 과학 · 기술","item":"https://everykoreans.com/topik2-words/tech.html"},{"@type":"ListItem","position":4,"name":"진동"}]}</script>
@@ -97,6 +98,22 @@ h2 small{font-weight:500;font-size:12.5px;margin-left:4px;opacity:.8}
 .ans-box summary small{font-weight:500;color:var(--dim);font-size:12.5px;margin-left:4px}
 .ans-box[open] summary{margin-bottom:10px}
 .ans-right{margin:0 0 8px;font-size:16px;color:var(--ink)}.ans-right b{color:var(--orange);margin-right:6px}
+.opts[data-ans] li{cursor:pointer;transition:border-color .15s,background .15s}
+.opts[data-ans] li:hover{border-color:var(--brand)}
+.opts[data-ans] li.right{border-color:#2f8a5b;background:rgba(47,138,91,.1);font-weight:700;color:var(--ink)}
+.opts[data-ans] li.wrong{border-color:#c43d34;background:rgba(196,61,52,.08)}
+.opts[data-done] li{cursor:default}
+.pick-msg{margin:10px 0 0;font-weight:700;font-size:15.5px}.pick-msg.ok{color:#2f8a5b}.pick-msg.no{color:#c43d34}
+.cta.pulse{animation:ctaPulse 1.6s ease 2}
+@keyframes ctaPulse{50%{transform:scale(1.02);box-shadow:0 0 0 6px rgba(240,194,75,.35)}}
+.lt-next{margin:10px 0 0;text-align:center;font-size:14px}.lt-next a{color:var(--ink2);text-decoration:none}.lt-next b{color:var(--ink);text-decoration:underline}
+.wd-acts{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
+.wd-say,.wd-add{display:inline-flex;align-items:center;gap:6px;font:inherit;font-size:14.5px;font-weight:600;padding:10px 16px;border-radius:10px;cursor:pointer;text-decoration:none}
+.wd-say{background:var(--soft);border:1px solid var(--line);color:var(--ink)}
+.wd-say.on{border-color:var(--brand);background:var(--tint)}
+.wd-add{background:var(--cta);color:var(--cta-ink);border:1px solid var(--cta)}
+.wd-add span{font-weight:400;opacity:.8}
+@media(max-width:420px){.wd-add span{display:none}}
 .foot{margin-top:44px;padding-top:18px;border-top:1px solid var(--line);font-size:13px;color:var(--dim)}
 .foot a{color:inherit}
 .cat{margin:30px 0 0}
@@ -118,11 +135,11 @@ h2 small{font-weight:500;font-size:12.5px;margin-left:4px;opacity:.8}
 <header class="hd"><div class="hd-in"><a class="hd-brand" href="/"><img src="/logo-256.png" alt="" width="28" height="28">치즈감자</a><nav class="hd-nav"><a href="/#learn/topik">TOPIK</a><a href="/#words">단어</a><a class="go" href="/#learn">무료로 배우기</a></nav></div></header>
 <div class="wrap">
 <nav class="crumb"><a href="/">치즈감자</a> › <a href="/dictionary/">사전</a> › <a href="/topik2-words/tech.html">TOPIK II 과학 · 기술</a> › 진동</nav>
-<section class="wd-hero"><div class="wd-tags"><span class="badge">TOPIK II · 4급</span><span class="badge">명사</span></div><h1>진동</h1><p class="wd-rom" lang="en">jindong</p><p class="wd-en" lang="en">vibration; armhole</p><ol class="wd-senses"><li>소매의 어깨에서 겨드랑이까지의 폭이나 넓이.<i lang="en">armhole</i></li><li>흔들려 움직임.</li></ol></section>
+<section class="wd-hero"><div class="wd-tags"><span class="badge">TOPIK II · 4급</span><span class="badge">명사</span></div><h1>진동</h1><p class="wd-rom" lang="en">jindong</p><p class="wd-en" lang="en">vibration; armhole</p><div class="wd-acts"><button type="button" class="wd-say" data-say="진동" data-src="/assets/audio/dict/%EC%A7%84%EB%8F%99.mp3" aria-label="발음 듣기 · Listen">🔊 <span>발음 듣기</span></button><a class="wd-add" href="/#words/w/%EC%A7%84%EB%8F%99">＋ 단어장에 담기<span> · 카드로 외우기</span></a></div><ol class="wd-senses"><li>소매의 어깨에서 겨드랑이까지의 폭이나 넓이.<i lang="en">armhole</i></li><li>흔들려 움직임.</li></ol></section>
 <h2>예문 <small>Examples</small></h2>
 <div class="wd-exs"><div class="ex">수업 중에는 휴대전화를 진동 모드로 바꾸세요.<i lang="en">Please switch your mobile phone to vibration mode during class.</i></div><div class="ex">공사장의 강력한 기계 진동이 인근 건물에 전달되었다.<i lang="en">Strong machine vibration from the construction site was transmitted to nearby buildings.</i></div></div>
 <h2>미니 퀴즈 <small>Quick check</small></h2><div class="wd-quiz"><p class="wd-q">「진동」의 뜻은? <span lang="en">What does 진동 mean?</span></p><ol class="quiz"><li>lunchtime</li><li>vibration</li><li>oriental melon</li><li>men and women</li></ol><details class="ans"><summary>정답 보기 · Show answer</summary><p>2. vibration — 수업 중에는 휴대전화를 진동 모드로 바꾸세요.</p></details></div>
-<a class="cta" href="/#words/w/%EC%A7%84%EB%8F%99">이 낱말이 든 단어장 무료로 외우기 →<span>Learn "진동" free with flashcards and spaced review — hear it pronounced</span></a>
+<a class="cta" href="/#leveltest">2분 레벨 테스트로 내 수준 알아보기 →<span>Free 2-minute level test — find your Korean level and get a study path</span></a>
 <h2>같은 주제 낱말 <small>More Science &amp; tech words</small></h2><ul class="pts"><li><a href="/dictionary/%EA%B8%B0%EC%88%A0.html">기술</a></li><li><a href="/dictionary/%EC%97%90%EB%84%88%EC%A7%80.html">에너지</a></li><li><a href="/dictionary/%EA%B0%9C%EB%B0%9C.html">개발</a></li><li><a href="/dictionary/%EB%AC%BC%EC%A7%88.html">물질</a></li><li><a href="/dictionary/%ED%91%9C%EB%A9%B4.html">표면</a></li><li><a href="/dictionary/%EC%83%9D%EB%AC%BC.html">생물</a></li><li><a href="/dictionary/%ED%9A%A8%EA%B3%BC.html">효과</a></li><li><a href="/dictionary/%EC%A1%B0%EB%AA%85.html">조명</a></li><li><a href="/dictionary/%ED%98%84%EC%83%81.html">현상</a></li><li><a href="/dictionary/%EA%B8%B0%EC%A1%B4.html">기존</a></li><li><a href="/dictionary/%EA%B5%AC%EC%A1%B0.html">구조</a></li><li><a href="/dictionary/%EB%87%8C.html">뇌</a></li><li><a href="/dictionary/%EC%A0%95%EB%B3%B4.html">정보</a></li><li><a href="/dictionary/%EC%93%B0%EC%9D%B4%EB%8B%A4.html">쓰이다</a></li></ul><p class="note"><a href="/topik2-words/tech.html">TOPIK II 과학 · 기술 낱말 전부 보기 · All Science &amp; tech words →</a></p>
 <div class="near"><a href="/dictionary/%EC%A7%84%EB%8B%A8%EC%84%9C.html"><b>← 이전</b>진단서</a><a href="/dictionary/%EC%A7%84%EB%95%80.html"><b>다음 →</b>진땀</a></div>
 <p class="note">어휘 급수: 국립국어원 「국제 통용 한국어 표준 교육과정」(공공누리 1유형) · 뜻풀이: 국립국어원 한국어기초사전(CC BY-SA 2.0 KR) · 예문: 치즈감자</p>

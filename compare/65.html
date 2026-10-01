@@ -25,6 +25,7 @@
 <meta name="twitter:image" content="https://everykoreans.com/logo.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
 <link rel="stylesheet" href="/vendor/pretendard.css">
+<script src="/page.js?v=fdf7987c" defer></script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","@id":"https://everykoreans.com/compare/65.html","inLanguage":"ko","mainEntity":[{"@type":"Question","name":"「-아/어 놓다」는 언제 쓰나요?","acceptedAnswer":{"@type":"Answer","text":"미리 해 두어 그 상태가 이어지게 한다는 뜻입니다. 주의할 점 — 「-아/어 두다」와 거의 같습니다. 「놓다」가 조금 더 구어적입니다. 예: 창문을 열어 놨어요."}},{"@type":"Question","name":"「-아/어 두다」는 언제 쓰나요?","acceptedAnswer":{"@type":"Answer","text":"나중을 위해 해 두었다는 뜻입니다. 주의할 점 — 「놓다」보다 오래 두는 느낌이 있습니다. 「보관해 두다」 예: 필요할까 봐 적어 뒀어요."}},{"@type":"Question","name":"「-(으)ㄴ 채로」는 언제 쓰나요?","acceptedAnswer":{"@type":"Answer","text":"그 상태 그대로 다른 일을 한다는 뜻입니다. 주의할 점 — 대개 그러면 안 되는 상황에 씁니다. 「불을 켠 채로 잤어요」 예: 신발을 신은 채로 들어왔어요."}},{"@type":"Question","name":"「-(으)ㄴ/는 대로」는 언제 쓰나요?","acceptedAnswer":{"@type":"Answer","text":"그 모습 그대로, 또는 그렇게 하는 즉시라는 뜻입니다. 주의할 점 — 「도착하는 대로 연락할게요」처럼 즉시라는 뜻으로도 씁니다. 예: 본 대로 말씀해 주세요."}}]}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"ItemList","name":"상태를 나타낼 때 — Expressing Situational States of Being","numberOfItems":4,"itemListElement":[{"@type":"ListItem","position":1,"name":"-아/어 놓다","url":"https://everykoreans.com/sentence/65-1.html"},{"@type":"ListItem","position":2,"name":"-아/어 두다","url":"https://everykoreans.com/sentence/65-2.html"},{"@type":"ListItem","position":3,"name":"-(으)ㄴ 채로","url":"https://everykoreans.com/sentence/65-3.html"},{"@type":"ListItem","position":4,"name":"-(으)ㄴ/는 대로","url":"https://everykoreans.com/sentence/65-4.html"}]}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"치즈감자","item":"https://everykoreans.com/"},{"@type":"ListItem","position":2,"name":"갈래별 비교","item":"https://everykoreans.com/compare/"},{"@type":"ListItem","position":3,"name":"상태를 나타낼 때"}]}</script>
@@ -97,6 +98,22 @@ h2 small{font-weight:500;font-size:12.5px;margin-left:4px;opacity:.8}
 .ans-box summary small{font-weight:500;color:var(--dim);font-size:12.5px;margin-left:4px}
 .ans-box[open] summary{margin-bottom:10px}
 .ans-right{margin:0 0 8px;font-size:16px;color:var(--ink)}.ans-right b{color:var(--orange);margin-right:6px}
+.opts[data-ans] li{cursor:pointer;transition:border-color .15s,background .15s}
+.opts[data-ans] li:hover{border-color:var(--brand)}
+.opts[data-ans] li.right{border-color:#2f8a5b;background:rgba(47,138,91,.1);font-weight:700;color:var(--ink)}
+.opts[data-ans] li.wrong{border-color:#c43d34;background:rgba(196,61,52,.08)}
+.opts[data-done] li{cursor:default}
+.pick-msg{margin:10px 0 0;font-weight:700;font-size:15.5px}.pick-msg.ok{color:#2f8a5b}.pick-msg.no{color:#c43d34}
+.cta.pulse{animation:ctaPulse 1.6s ease 2}
+@keyframes ctaPulse{50%{transform:scale(1.02);box-shadow:0 0 0 6px rgba(240,194,75,.35)}}
+.lt-next{margin:10px 0 0;text-align:center;font-size:14px}.lt-next a{color:var(--ink2);text-decoration:none}.lt-next b{color:var(--ink);text-decoration:underline}
+.wd-acts{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
+.wd-say,.wd-add{display:inline-flex;align-items:center;gap:6px;font:inherit;font-size:14.5px;font-weight:600;padding:10px 16px;border-radius:10px;cursor:pointer;text-decoration:none}
+.wd-say{background:var(--soft);border:1px solid var(--line);color:var(--ink)}
+.wd-say.on{border-color:var(--brand);background:var(--tint)}
+.wd-add{background:var(--cta);color:var(--cta-ink);border:1px solid var(--cta)}
+.wd-add span{font-weight:400;opacity:.8}
+@media(max-width:420px){.wd-add span{display:none}}
 .foot{margin-top:44px;padding-top:18px;border-top:1px solid var(--line);font-size:13px;color:var(--dim)}
 .foot a{color:inherit}
 .cat{margin:30px 0 0}

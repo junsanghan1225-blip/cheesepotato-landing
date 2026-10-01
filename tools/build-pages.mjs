@@ -19,7 +19,7 @@
  * 글꼴도 vendor/pretendard 를 안 부른다. 검색에서 처음 들어온 사람에게
  * 웹폰트 수백 KB를 물리는 것보다, 기기 글꼴로 즉시 읽히는 편이 낫다.
  */
-import { writeFileSync, mkdirSync, rmSync } from 'node:fs';
+import { writeFileSync, mkdirSync, rmSync, existsSync, readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 import { SB_CATS, SB_MORE } from '../sentences.js';
@@ -156,6 +156,22 @@ h2 small{font-weight:500;font-size:12.5px;margin-left:4px;opacity:.8}
 .ans-box summary small{font-weight:500;color:var(--dim);font-size:12.5px;margin-left:4px}
 .ans-box[open] summary{margin-bottom:10px}
 .ans-right{margin:0 0 8px;font-size:16px;color:var(--ink)}.ans-right b{color:var(--orange);margin-right:6px}
+.opts[data-ans] li{cursor:pointer;transition:border-color .15s,background .15s}
+.opts[data-ans] li:hover{border-color:var(--brand)}
+.opts[data-ans] li.right{border-color:#2f8a5b;background:rgba(47,138,91,.1);font-weight:700;color:var(--ink)}
+.opts[data-ans] li.wrong{border-color:#c43d34;background:rgba(196,61,52,.08)}
+.opts[data-done] li{cursor:default}
+.pick-msg{margin:10px 0 0;font-weight:700;font-size:15.5px}.pick-msg.ok{color:#2f8a5b}.pick-msg.no{color:#c43d34}
+.cta.pulse{animation:ctaPulse 1.6s ease 2}
+@keyframes ctaPulse{50%{transform:scale(1.02);box-shadow:0 0 0 6px rgba(240,194,75,.35)}}
+.lt-next{margin:10px 0 0;text-align:center;font-size:14px}.lt-next a{color:var(--ink2);text-decoration:none}.lt-next b{color:var(--ink);text-decoration:underline}
+.wd-acts{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
+.wd-say,.wd-add{display:inline-flex;align-items:center;gap:6px;font:inherit;font-size:14.5px;font-weight:600;padding:10px 16px;border-radius:10px;cursor:pointer;text-decoration:none}
+.wd-say{background:var(--soft);border:1px solid var(--line);color:var(--ink)}
+.wd-say.on{border-color:var(--brand);background:var(--tint)}
+.wd-add{background:var(--cta);color:var(--cta-ink);border:1px solid var(--cta)}
+.wd-add span{font-weight:400;opacity:.8}
+@media(max-width:420px){.wd-add span{display:none}}
 .foot{margin-top:44px;padding-top:18px;border-top:1px solid var(--line);font-size:13px;color:var(--dim)}
 .foot a{color:inherit}
 .cat{margin:30px 0 0}
@@ -217,6 +233,17 @@ const crumbLd = (parts) => {
    **lang 을 안 갈면 영어 글을 한국어 쪽이라고 말하는 셈이다.** 구글은
    그 쪽을 영어 검색 결과에 잘 안 올리고, 화면 낭독기는 영어 문장을
    한국어 발음으로 읽는다. */
+/* 정적 쪽의 손에 잡히는 것(page.js — 🔊 · 보기 누르면 채점). 내용이 바뀌면 주소도 바뀌게 자국을 붙인다. */
+const PAGE_JS = `/page.js?v=${createHash('sha1').update(readFileSync(join(dirname(fileURLToPath(import.meta.url)), '..', 'page.js'))).digest('hex').slice(0, 8)}`;
+/* 다음 한 걸음 — 검색으로 들어온 사람에게 권하는 것은 하나만: 2분 레벨 테스트(사이트 #leveltest 가 연다) */
+const LT_CTA = '<a class="cta" href="/#leveltest">2분 레벨 테스트로 내 수준 알아보기 →<span>Free 2-minute level test — find your Korean level and get a study path</span></a>';
+const LT_LINK = '<p class="lt-next"><a href="/#leveltest">내 한국어 수준이 궁금하다면 → <b>2분 레벨 테스트</b></a></p>';
+/* 낱말 소리 — 녹음 파일(assets/audio/dict/<낱말>.mp3)이 있으면 그것, 없으면 page.js 가 기기 목소리로 */
+const DICT_AUDIO = join(dirname(fileURLToPath(import.meta.url)), '..', 'assets', 'audio', 'dict');
+const sayBtn = (head) => {
+  const has = existsSync(join(DICT_AUDIO, `${head}.mp3`));
+  return `<button type="button" class="wd-say" data-say="${esc(head)}"${has ? ` data-src="/assets/audio/dict/${encodeURIComponent(head)}.mp3"` : ''} aria-label="발음 듣기 · Listen">🔊 <span>발음 듣기</span></button>`;
+};
 /* 모든 정적 쪽에 같은 머리 — 로고 줄(어느 사이트 쪽인지 바로 보이게, 운영자 요청 2026-10-01) · 「한국어 · English」 제목은
    영어를 작게(낱말 쪽과 같은 모양). 쪽마다 따로 손대지 않고 여기 한 곳에서 맞춘다. */
 function tidy(body) {
@@ -257,7 +284,8 @@ function page({ url, title, desc, body, kind = 'article', jsonld, extraCss = '',
 <meta name="twitter:description" content="${esc(desc)}">
 <meta name="twitter:image" content="${SITE}/logo.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
-<link rel="stylesheet" href="/vendor/pretendard.css">${extraHead}${[].concat(jsonld ?? []).map(ld).join('')}
+<link rel="stylesheet" href="/vendor/pretendard.css">
+<script src="${PAGE_JS}" defer></script>${extraHead}${[].concat(jsonld ?? []).map(ld).join('')}
 <style>${CSS}${extraCss}</style>
 </head>
 <body>
@@ -767,6 +795,7 @@ function twPage(it) {
        방금 읽은 이 문항을 다시 찾아야 한다. app.module.js 의 openLearnSub
        가 이 번호를 받아 목록 대신 이 문항을 바로 연다. */
     `<a class="cta" href="/#learn/writing/${esc(it.id)}">직접 써 보기<span>Write it yourself — length and register checked as you type</span></a>`,
+    LT_LINK,
   ].filter(Boolean).join('\n');
 
   const jsonld = [
@@ -838,7 +867,7 @@ const trGradeTx = (exam, g) => (exam === 'I'
    검색으로 들어온 학생이 먼저 풀어 보게 정답은 <details> 안에 — 글은 그대로 쪽에 있어 검색에도 읽힌다. */
 const ONUM = ['①', '②', '③', '④', '⑤'];
 function optsAndAnswer(options, answer, whyKo, whyEn) {
-  return '<ul class="opts">' + options.map((o, i) => `<li><span class="onum">${ONUM[i] || i + 1}</span>${esc(o)}</li>`).join('') + '</ul>' +
+  return `<ul class="opts" data-ans="${answer}">` + options.map((o, i) => `<li tabindex="0" role="button"><span class="onum">${ONUM[i] || i + 1}</span>${esc(o)}</li>`).join('') + '</ul>' +
     '<details class="ans-box"><summary>정답과 해설 보기 <small>Show answer</small></summary>' +
     `<p class="ans-right"><b>정답 ${ONUM[answer] || answer + 1}</b> ${esc(options[answer])}</p>` +
     `<div class="ex">${esc(whyKo)}</div>` + (whyEn ? `<div class="ex" lang="en">${esc(whyEn)}</div>` : '') + '</details>';
@@ -859,8 +888,9 @@ function trPage(it) {
     `<div class="ex">${esc(it.passage)}</div>`,
     `<p class="desc">${esc(it.question)}</p>`,
     optsAndAnswer(it.options, it.answer, it.why),
-    `<a class="cta" href="/#learn/topik/${esc(it.exam)}/reading/${esc(it.id)}">이 문제 직접 풀어보기` +
-      `<span>Try it yourself — the same question, in the app</span></a>`,
+    `<a class="cta more" href="/#learn/topik/${esc(it.exam)}/reading/${esc(it.id)}">비슷한 문제 더 풀기 →` +
+      `<span>Keep going — more questions of this type, free in the app</span></a>`,
+    LT_LINK,
   ].join('\n');
 
   const jsonld = [
@@ -947,8 +977,9 @@ function tlPage(it) {
     `<div class="dlg">\n  ${script}\n</div>`,
     `<p class="desc" style="margin-top:20px">${esc(it.q)}</p>`,
     optsAndAnswer(it.options, it.answer, it.why),
-    `<a class="cta" href="/#learn/topik/${esc(it.exam)}/listening/${esc(it.id)}">이 문제 직접 풀어보기` +
-      `<span>Try it yourself — hear the audio and answer in the app</span></a>`,
+    `<a class="cta more" href="/#learn/topik/${esc(it.exam)}/listening/${esc(it.id)}">소리 듣고 비슷한 문제 더 풀기 →` +
+      `<span>Hear the audio and keep going — free in the app</span></a>`,
+    LT_LINK,
   ].join('\n');
 
   const jsonld = [
@@ -1046,11 +1077,11 @@ function epsPage(it) {
     it.passage ? `<div class="ex">${esc(it.passage)}</div>` : '',
     `<p class="desc"${it.sec === 'listening' ? ' style="margin-top:20px"' : ''}>${esc(it.question)}</p>`,
     /* 정답 · 해설은 접어 둔다(읽기 · 듣기 쪽과 같은 까닭 — optsAndAnswer). 그림 보기의 정답 그림도 그 안에. */
-    '<ul class="opts">' + it.options.map((o, i) => `<li><span class="onum">${ONUM[i] || i + 1}</span>${esc(o)}</li>`).join('') + '</ul>' +
+    `<ul class="opts" data-ans="${it.answer}">` + it.options.map((o, i) => `<li tabindex="0" role="button"><span class="onum">${ONUM[i] || i + 1}</span>${esc(o)}</li>`).join('') + '</ul>' +
     '<details class="ans-box"><summary>정답과 해설 보기 <small>Show answer</small></summary>' +
     `<p class="ans-right"><b>정답 ${ONUM[it.answer] || it.answer + 1}</b> ${esc(it.options[it.answer])}</p>` + (picAns || '') +
     `<div class="ex">${esc(it.why)}${it.why_en ? `<br><span lang="en" style="color:var(--dim)">${esc(it.why_en)}</span>` : ''}</div></details>`,
-    `<a class="cta" href="/#learn/eps/${esc(it.id)}">이 문제 직접 풀어보기` +
+    `<a class="cta more" href="/#learn/eps/${esc(it.id)}">비슷한 문제 더 풀기 →` +
       `<span>Try it yourself — ${it.sec === 'listening' ? 'hear the audio and answer' : 'answer it'} in the app, then take a 70-minute mock test</span></a>`,
   ].filter(Boolean).join('\n');
 
@@ -1200,14 +1231,14 @@ function wordPage(entry, prev, next) {
       `<h1>${esc(head)}</h1>` +
       (romanize(head) ? `<p class="wd-rom" lang="en">${esc(romanize(head))}</p>` : '') +
       (en ? `<p class="wd-en" lang="en">${esc(en)}</p>` : '') +
+      `<div class="wd-acts">${sayBtn(head)}<a class="wd-add" href="/#dictionary/${encodeURIComponent(head)}">＋ 단어장에 담기</a></div>` +
       (senses?.length ? '<ol class="wd-senses">' + senses.map(([ko, enS]) =>
         `<li>${esc(ko)}${enS && enS.trim() !== String(en || '').trim() ? `<i lang="en">${esc(enS)}</i>` : ''}</li>`).join('') + '</ol>'
         : (en ? '' : `<p class="wd-en">${esc(t2(pos))}</p>`)) +
     '</section>',
     example ? '<h2>예문 <small>Example</small></h2>' +
       `<div class="wd-exs"><div class="ex">${esc(example.ex)}<i lang="en">${esc(example.en)}</i></div></div>` : '',
-    `<a class="cta" href="/#dictionary/${encodeURIComponent(head)}">사전에서 발음 듣고 단어장에 담기` +
-      `<span>Hear it pronounced and save "${esc(head)}" to your wordbook</span></a>`,
+    LT_CTA,
     (prev || next) ? '<div class="near">' +
       (prev ? `<a href="/dictionary/${encodeURIComponent(prev.head)}.html"><b>← 이전</b>${esc(prev.head)}</a>` : '') +
       (next ? `<a href="/dictionary/${encodeURIComponent(next.head)}.html"><b>다음 →</b>${esc(next.head)}</a>` : '') +
@@ -1315,6 +1346,7 @@ function vocabPage(w, prev, next) {
       `<h1>${esc(head)}</h1>` +
       `<p class="wd-rom" lang="en">${esc(rom)}</p>` +
       `<p class="wd-en" lang="en">${esc(w.e)}</p>` +
+      `<div class="wd-acts">${sayBtn(head)}<a class="wd-add" href="/#words/w/${encodeURIComponent(head)}">＋ 단어장에 담기<span> · 카드로 외우기</span></a></div>` +
       (senses?.length ? '<ol class="wd-senses">' + senses.slice(0, 2).map(([ko, enS]) =>
         `<li>${esc(ko)}${enS && enS.trim() !== w.e.trim() && enS.trim() !== (w.s || '').trim() ? `<i lang="en">${esc(enS)}</i>` : ''}</li>`).join('') + '</ol>' : '') +
       (rel ? `<div class="wd-rels">${rel}</div>` : '') +
@@ -1324,8 +1356,7 @@ function vocabPage(w, prev, next) {
     conj ? '<h2>활용 <small>Conjugation · 해요체</small></h2><div class="wd-conj">' +
       conj.map(([k, v]) => `<div><b>${esc(v)}</b><span title="${esc(CONJ_NAME[k][1])}">${CONJ_NAME[k][0]}</span></div>`).join('') + '</div>' : '',
     quiz,
-    `<a class="cta" href="/#words/w/${encodeURIComponent(head)}">이 낱말이 든 단어장 무료로 외우기 →` +
-      `<span>Learn "${esc(head)}" free with flashcards and spaced review — hear it pronounced</span></a>`,
+    LT_CTA,
     same.length ? `<h2>같은 주제 낱말 <small>More ${esc(tpName?.en || '')} words</small></h2><ul class="pts">` +
       same.map((x) => `<li><a href="${dictHref(x.h)}">${esc(x.h)}</a></li>`).join('') + '</ul>' +
       (tp ? `<p class="note"><a href="${vs.dir}${tp.id}.html">${vs.name} ${esc(tp.ko)} 낱말 전부 보기 · All ${esc(tp.en)} words →</a></p>` : '') : '',
