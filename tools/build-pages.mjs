@@ -129,6 +129,14 @@ h2{font-size:15px;margin:32px 0 10px;color:var(--dim);letter-spacing:.02em}
 .near{display:flex;gap:10px;margin-top:22px;font-size:14px;flex-wrap:wrap}
 .near a{flex:1 1 200px;border:1px solid var(--line);border-radius:12px;padding:11px 14px;text-decoration:none;background:var(--card)}
 .near b{display:block;font-size:12px;color:var(--dim);font-weight:600}
+.wd-top{display:flex;align-items:center;gap:8px;margin:0 0 14px;text-decoration:none;font-weight:800;font-size:15px;letter-spacing:-.01em}
+.wd-top img{width:28px;height:28px;border-radius:50%}
+h2 small{font-weight:500;font-size:12.5px;margin-left:4px;opacity:.8}
+.ans-box{margin:16px 0 0;border:1px solid var(--line);border-radius:14px;background:var(--card);padding:12px 16px}
+.ans-box summary{cursor:pointer;font-weight:700;font-size:15px}
+.ans-box summary small{font-weight:500;color:var(--dim);font-size:12.5px;margin-left:4px}
+.ans-box[open] summary{margin-bottom:10px}
+.ans-right{margin:0 0 8px;font-size:16px}.ans-right b{color:#b07b00;margin-right:6px}
 .foot{margin-top:44px;padding-top:18px;border-top:1px solid var(--line);font-size:13px;color:var(--dim)}
 .foot a{color:inherit}
 .cat{margin:30px 0 0}
@@ -190,6 +198,12 @@ const crumbLd = (parts) => {
    **lang 을 안 갈면 영어 글을 한국어 쪽이라고 말하는 셈이다.** 구글은
    그 쪽을 영어 검색 결과에 잘 안 올리고, 화면 낭독기는 영어 문장을
    한국어 발음으로 읽는다. */
+/* 모든 정적 쪽에 같은 머리 — 로고 줄(어느 사이트 쪽인지 바로 보이게, 운영자 요청 2026-10-01) · 「한국어 · English」 제목은
+   영어를 작게(낱말 쪽과 같은 모양). 쪽마다 따로 손대지 않고 여기 한 곳에서 맞춘다. */
+function tidy(body) {
+  const top = body.includes('class="wd-top"') ? '' : '<a class="wd-top" href="/"><img src="/logo-256.png" alt="" width="28" height="28">치즈감자</a>\n';
+  return top + body.replace(/<h2>([^<]*?) · ([A-Z][^<]*)<\/h2>/g, '<h2>$1 <small>$2</small></h2>');
+}
 function page({ url, title, desc, body, kind = 'article', jsonld, extraCss = '', extraHead = '', lang = 'ko' }) {
   const en = lang === 'en';
   return `<!DOCTYPE html>
@@ -222,7 +236,7 @@ function page({ url, title, desc, body, kind = 'article', jsonld, extraCss = '',
 </head>
 <body>
 <div class="wrap">
-${body}
+${tidy(body)}
 <div class="foot">
   <a href="/">치즈감자</a> · <a href="/sentence/">문법 표현 전체</a> · <a href="/blog/">블로그</a> · <a href="/privacy.html">개인정보</a> · <a href="/terms.html">이용약관</a><br>
   한국어를 배우는 사람을 위한 단어장과 연습 · Learn Korean with CheesePotato<br>
@@ -793,6 +807,15 @@ const trGradeTx = (exam, g) => (exam === 'I'
   ? { ko: `${g}급`, en: `Level ${g}` }
   : { ko: `${g}급 수준`, en: `Level ${g}` });
 
+/* 보기 넷 + 접어 둔 정답 · 해설(운영자 지적 2026-10-01: 문제 쪽이 들어오자마자 정답을 칠해 보여 줬다).
+   검색으로 들어온 학생이 먼저 풀어 보게 정답은 <details> 안에 — 글은 그대로 쪽에 있어 검색에도 읽힌다. */
+const ONUM = ['①', '②', '③', '④', '⑤'];
+function optsAndAnswer(options, answer, whyKo, whyEn) {
+  return '<ul class="opts">' + options.map((o, i) => `<li><span class="onum">${ONUM[i] || i + 1}</span>${esc(o)}</li>`).join('') + '</ul>' +
+    '<details class="ans-box"><summary>정답과 해설 보기 <small>Show answer</small></summary>' +
+    `<p class="ans-right"><b>정답 ${ONUM[answer] || answer + 1}</b> ${esc(options[answer])}</p>` +
+    `<div class="ex">${esc(whyKo)}</div>` + (whyEn ? `<div class="ex" lang="en">${esc(whyEn)}</div>` : '') + '</details>';
+}
 function trPage(it) {
   const tx = TR_TYPES[it.exam][it.type] || { ko: it.type, en: it.type };
   const grade = trGradeTx(it.exam, it.grade);
@@ -808,10 +831,7 @@ function trPage(it) {
     `<p class="sub">${esc(examName)} ${it.slot}번 · ${esc(tx.ko)} · ${esc(tx.en)}</p>`,
     `<div class="ex">${esc(it.passage)}</div>`,
     `<p class="desc">${esc(it.question)}</p>`,
-    '<ul class="opts">' + it.options.map((o, i) =>
-      `<li${i === it.answer ? ' class="right"' : ''}><span class="onum">${i + 1}</span>${esc(o)}</li>`).join('') + '</ul>',
-    '<h2>해설 · Explanation</h2>',
-    `<div class="ex">${esc(it.why)}</div>`,
+    optsAndAnswer(it.options, it.answer, it.why),
     `<a class="cta" href="/#learn/topik/${esc(it.exam)}/reading/${esc(it.id)}">이 문제 직접 풀어보기` +
       `<span>Try it yourself — the same question, in the app</span></a>`,
   ].join('\n');
@@ -899,10 +919,7 @@ function tlPage(it) {
     `<p class="sub">${esc(examName)} ${it.slot}번 · ${esc(tx.ko)} · ${esc(tx.en)} · 대본 · Script</p>`,
     `<div class="dlg">\n  ${script}\n</div>`,
     `<p class="desc" style="margin-top:20px">${esc(it.q)}</p>`,
-    '<ul class="opts">' + it.options.map((o, i) =>
-      `<li${i === it.answer ? ' class="right"' : ''}><span class="onum">${i + 1}</span>${esc(o)}</li>`).join('') + '</ul>',
-    '<h2>해설 · Explanation</h2>',
-    `<div class="ex">${esc(it.why)}</div>`,
+    optsAndAnswer(it.options, it.answer, it.why),
     `<a class="cta" href="/#learn/topik/${esc(it.exam)}/listening/${esc(it.id)}">이 문제 직접 풀어보기` +
       `<span>Try it yourself — hear the audio and answer in the app</span></a>`,
   ].join('\n');
@@ -1001,11 +1018,11 @@ function epsPage(it) {
     script,
     it.passage ? `<div class="ex">${esc(it.passage)}</div>` : '',
     `<p class="desc"${it.sec === 'listening' ? ' style="margin-top:20px"' : ''}>${esc(it.question)}</p>`,
-    '<ul class="opts">' + it.options.map((o, i) =>
-      `<li${i === it.answer ? ' class="right"' : ''}><span class="onum">${i + 1}</span>${esc(o)}</li>`).join('') + '</ul>',
-    '<h2>해설 · Explanation</h2>',
-    picAns,
-    `<div class="ex">${esc(it.why)}${it.why_en ? `<br><span lang="en" style="color:var(--dim)">${esc(it.why_en)}</span>` : ''}</div>`,
+    /* 정답 · 해설은 접어 둔다(읽기 · 듣기 쪽과 같은 까닭 — optsAndAnswer). 그림 보기의 정답 그림도 그 안에. */
+    '<ul class="opts">' + it.options.map((o, i) => `<li><span class="onum">${ONUM[i] || i + 1}</span>${esc(o)}</li>`).join('') + '</ul>' +
+    '<details class="ans-box"><summary>정답과 해설 보기 <small>Show answer</small></summary>' +
+    `<p class="ans-right"><b>정답 ${ONUM[it.answer] || it.answer + 1}</b> ${esc(it.options[it.answer])}</p>` + (picAns || '') +
+    `<div class="ex">${esc(it.why)}${it.why_en ? `<br><span lang="en" style="color:var(--dim)">${esc(it.why_en)}</span>` : ''}</div></details>`,
     `<a class="cta" href="/#learn/eps/${esc(it.id)}">이 문제 직접 풀어보기` +
       `<span>Try it yourself — ${it.sec === 'listening' ? 'hear the audio and answer' : 'answer it'} in the app, then take a 70-minute mock test</span></a>`,
   ].filter(Boolean).join('\n');
