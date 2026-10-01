@@ -5296,6 +5296,15 @@ div.wd-card:hover { transform:none; }
   .gs-brand { display:none; }
 }
 @media print { .gs-print { break-inside:avoid; margin:12px 0; box-shadow:none; } }
+/* 종이는 늘 흰색 — 다크 모드로 보던 중에 인쇄해도 학습지 카드는 밝은 색으로(운영자 요청 2026-10-02).
+   다크 모드 규칙(:root[data-theme="dark"] .gs)보다 세게 걸어야 해서 body.nt-printing 을 붙이고 !important. */
+@media print {
+  body.nt-printing .gs.gs-print {
+    --surface:#FFFFFF !important; --surface-2:#FBF8F1 !important; --ink:#1B1512 !important; --ink-2:#4E3E31 !important; --ink-3:#8C7A66 !important;
+    --ink-rgb:27,21,18 !important; --red:#C43D34 !important; --gs-ch:#FFF3CF !important; --gs-ch-d:#E9A51C !important; --gs-po:#9C6A34 !important;
+    --gs-line:rgba(27,21,18,.12) !important; background:#FFFFFF !important; color:#1B1512 !important;
+  }
+}
 
 /* ══ 오답 노트 (#learn/wrong) ══════════════════════════════════════════ */
 .wn { max-width:820px; }
