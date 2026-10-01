@@ -97,7 +97,6 @@
 - 묻고 답하기 씨앗 질문 30개: 안티 초안 → Claude 검토 끝(2026-10-02, `docs/qa-seeds.json`). **운영자가 읽고 고친 뒤**
   `node tools/build-qa-seeds-sql.mjs` → 운영자가 `db/add_qa_seeds.sql` 을 SQL Editor 에서 돌린다.
 - 운영 쪽(검색에 안 걸림): 녹음소 `/record.html`, 인스타 편집기 `/insta.html`, 콘텐츠 현황 `/stats.html`.
-- 안티 그래비티에게 넘긴 일(올라오면 검토): **TOPIK 쓰기 번호마다 30 → 50**(`docs/antigravity-topik-writing-50-task.md`, 브랜치 `topik-writing-50`,
-  `topik-writing.js` 만 — 넣을 때 Claude 가 `index.html` · `llms.txt` 숫자(check-geo) · build-pages · stamp). **회화 연습 장면 30개**(`docs/antigravity-convo-task.md`, 브랜치 `convo-scenes` → `docs/convo-scenes.json`).
+- TOPIK 쓰기 200문항(번호마다 50) — 2026-10-02 검토해 넣음. 안티 그래비티에게 넘긴 일(올라오면 검토): **회화 연습 장면 30개**(`docs/antigravity-convo-task.md`, 브랜치 `convo-scenes` → `docs/convo-scenes.json`).
   넣을 때 `tools/convo-merge.mjs` 는 accept 를 비우므로, 검토한 accept 를 살려 넣는다(그 도구에 그대로 두는 길을 더하거나 손으로 붙인다). 쓰기 보강 · 실물 문서 10편 · 진짜 말 10편은 2026-09-28 #114 로 이미 들어갔다
   (안티 브랜치가 main 보다 「앞서」 보이는 것은 squash 머지 때문 — 내용은 main 에 있다). 검토할 때: 도구(`tools/`)를 고쳤는지, 자국이 낡았는지, 「운영자 확인」 note 가 남았는지 본다.
