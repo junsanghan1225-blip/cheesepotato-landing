@@ -93,6 +93,6 @@
 - 판매자 정보(대표자 · 통신판매업 신고번호 · 주소)는 운영자가 알려 주면 `tools/build-legal.mjs` 의 `SELLER` 에.
 - 녹음: 운영자가 녹음소(`/record.html`)로 직접 녹음 → ZIP 을 구글 드라이브에 올리면 Claude 가 받아 넣는다
   (`docs/recording.md`). 녹음을 넣은 뒤 `node tools/record-list.mjs`.
-- 안티 그래비티에게 넘긴 일(올라오면 검토): 쓰기 보강(`docs/antigravity-topik-writing-more-task.md`,
-  1단계 = 54번 예시 점수), 실물 문서 10편(`…-life-docs-task.md`), 진짜 말 10편(`…-real-korean-task.md`).
-  검토할 때: 도구(`tools/`)를 고쳤는지, 자국이 낡았는지, 「운영자 확인」 note 가 남았는지 본다.
+- 안티 그래비티에게 넘긴 일(올라오면 검토): **묻고 답하기 씨앗 질문 30개**(`docs/antigravity-qa-seeds-task.md`, 브랜치 `qa-seeds`
+  → 검토 후 운영자가 읽고, 올리는 SQL 을 `db/` 에 쓴다). 쓰기 보강 · 실물 문서 10편 · 진짜 말 10편은 2026-09-28 #114 로 이미 들어갔다
+  (안티 브랜치가 main 보다 「앞서」 보이는 것은 squash 머지 때문 — 내용은 main 에 있다). 검토할 때: 도구(`tools/`)를 고쳤는지, 자국이 낡았는지, 「운영자 확인」 note 가 남았는지 본다.
