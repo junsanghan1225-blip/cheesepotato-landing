@@ -3,7 +3,17 @@
 > 배경: `docs/grammar-plan.md` 4 — 문법은 늘 같이 다니는 말과 한 덩어리로 외울 때 빨리 쓴다.
 > 문법 쪽(사이트 「문법」 섹션)에 표현마다 낱말 3~5개와 짧은 예를 붙인다. Claude 가 검토해 화면에 넣는다.
 
-## 할 일
+## 지금 할 것 — 2묶음: 중급 93개 (2026-10-01)
+
+1묶음(초급 112개)은 검토해 사이트에 넣었다(아래 검토 기록). 이번에는 **`lv: 'intermediate'` 인 표현 93개**.
+
+1. `git fetch origin && git checkout -b grammar-words-b2 origin/main`
+2. `docs/grammar-words.json` 은 **이미 112개가 들어 있다 — 그 칸은 건드리지 말고**, 중급 93개의 열쇠만 **더한다**.
+3. 아래 「할 일」 3번부터 그대로(모양 · 지킬 것 같음). 커밋 메시지는 `grammar words: intermediate 93`, 푸시는 `git push -u origin grammar-words-b2`.
+4. **1묶음에서 고친 것을 꼭 지킨다** — 낱말 칸의 말이 예 안에 그대로(활용해서) 들어가야 한다(「만나다」 칸에 「반갑습니다」 ✗).
+   그 문법 칸의 예에는 **그 문법만** 쓴다(「에게/한테」 칸에 「께」 ✗). 조사를 빼지 않는다(「시간이 있어요?」).
+
+## 할 일 (1묶음 때의 순서 — 2묶음도 3번부터 같다)
 
 1. `main` 에서 새 브랜치: `git checkout -b grammar-words-b1 origin/main`
 2. `sentences.js` 의 `SB_CATS` 에서 **`lv: 'beginner'` 인 표현 112개**를 차례대로 본다(`id` · `name` · `desc` · `ex`).
