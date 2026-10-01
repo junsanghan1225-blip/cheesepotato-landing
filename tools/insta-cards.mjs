@@ -1,6 +1,6 @@
 #!/usr/bin/env node
-/* 인스타그램 카드 — 하루 세 게시물(단어 · 문법 · TOPIK 퀴즈)을 우리 자료에서 뽑아 이미지와 캡션으로 만든다.
-   운영자 요청(2026-10-01): 「하루에 세 개씩, 단어 / 문법 / 우리 자료로 정형화된 느낌」.
+/* 인스타그램 카드 — 하루 세 게시물(주제별 단어 5개 1개 · 문법 소개 2개)을 우리 자료에서 뽑아 이미지와 캡션으로 만든다.
+   운영자 결정(2026-10-01): 「주제별 단어 5가지랑 문법 소개 2가지」, 카드 안의 홍보 단추는 빼고, 글꼴은 사이트와 같은 프리텐다드.
 
      node tools/insta-cards.mjs                 # 오늘(한국 시간) 하루치
      node tools/insta-cards.mjs 2026-10-02 7    # 그날부터 7일치
@@ -18,11 +18,10 @@ import { grammarMarkRe } from '../grammar-mark.js';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const imp = (f) => import(pathToFileURL(path.join(ROOT, f)).href);
-const { VOCAB } = await imp('vocab-topik1.js');
+const { VOCAB, VOCAB_TOPICS } = await imp('vocab-topik1.js');
 const { SB_CATS, SB_MORE } = await imp('sentences.js');
 const { GRAMMAR_EN } = await imp('grammar-en.js');
 const { GRAMMAR_WORDS } = await imp('grammar-words.js');
-const { TOPIK_READING } = await imp('topik.js');
 
 const START = Date.UTC(2026, 9, 2);   // 첫 게시일 — 이날이 0번째
 const todayKst = () => new Date(Date.now() + 9 * 3600e3).toISOString().slice(0, 10);
@@ -34,12 +33,15 @@ function shuffled(list, seed) {
   for (let i = a.length - 1; i > 0; i--) { h = (h * 1103515245 + 12345) >>> 0; const j = h % (i + 1); [a[i], a[j]] = [a[j], a[i]]; }
   return a;
 }
-/* 고를 것 — 초급이 먼저 오게(인스타 보는 사람 대부분이 입문 · 초급) */
-const WORDS = shuffled(VOCAB.filter((w) => w.l <= 2 && w.x?.length >= 2 && !/\s/.test(w.h)), 11);
+/* 주제 — 낱말 사전의 작은 주제 가운데 그 주제가 첫째인 낱말이 10개 넘는 것. 뜻이 추상적인 갈래(기본 동사 · 정도 · 의견 …)는 뺀다 */
+const SKIP_TOPIC = /^(function\/|concepts\/(degree|change)|talk\/opinions|feelings\/attitude)/;
+const TOPICS = shuffled(VOCAB_TOPICS.flatMap((g) => g.subs.map((t) => ({ ...t, key: `${g.id}/${t.id}` })))
+  .filter((t) => !SKIP_TOPIC.test(t.key))
+  .map((t) => ({ ...t, words: shuffled(VOCAB.filter((w) => w.t[0] === t.key && w.x?.length && !/\s/.test(w.h)), 11) }))
+  .filter((t) => t.words.length >= 10), 11);
 const POINTS = SB_CATS.flatMap((c) => c.points.map((p) => ({ ...p, cat: c })));
 const GRAMS = [...shuffled(POINTS.filter((p) => p.lv === 'beginner' && GRAMMAR_WORDS[p.id]?.length && GRAMMAR_EN[p.id]), 22),
   ...shuffled(POINTS.filter((p) => p.lv === 'intermediate' && GRAMMAR_WORDS[p.id]?.length && GRAMMAR_EN[p.id]), 23)];
-const QUIZ = shuffled(TOPIK_READING.filter((q) => q.exam === 'I' && ['theme', 'blank'].includes(q.type) && q.passage.length <= 60), 33);
 const POS_EN = { 명사: 'noun', 동사: 'verb', 형용사: 'adjective', 부사: 'adverb', 대명사: 'pronoun', 수사: 'number', 관형사: 'determiner', 감탄사: 'interjection' };
 
 const esc = (s) => String(s ?? '').replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
@@ -97,25 +99,33 @@ mark{background:linear-gradient(transparent 52%,rgba(240,194,75,.75) 52%);color:
 .foot{height:118px;display:flex;align-items:center;justify-content:space-between;border-top:2px solid rgba(27,21,18,.1);margin:0 -84px;padding:0 84px}
 .brand{display:flex;align-items:center;gap:18px;font-size:36px;font-weight:900;letter-spacing:-.03em}
 .brand img{height:62px}
-.url{font-size:30px;font-weight:700;color:#8C7A66}`;
+.url{font-size:30px;font-weight:700;color:#8C7A66}
+.topic{font-size:120px;font-weight:900;letter-spacing:-.04em;line-height:1.1;margin-top:18px;word-break:keep-all}
+.topic small{display:block;font-size:52px;font-weight:700;letter-spacing:0;color:#8C7A66;margin-top:10px}
+.list{margin-top:40px;margin-bottom:30px;display:flex;flex-direction:column;gap:14px}
+.list div{display:flex;align-items:baseline;gap:22px;background:#FBF8F1;border-radius:22px;padding:22px 32px}
+.list b{font-size:46px;font-weight:800}.list span{font-size:32px;color:#8C7A66}
+.list em{font-style:normal;font-size:30px;font-weight:800;color:#E1682B;width:40px}`;
 
 const slide = (tag, page, inner) => `<div class="s"><div class="top"><span class="tag">${tag}</span><span class="page">${page}</span></div>` +
   `<div class="card">${inner}</div><div class="foot"><span class="brand"><img src="${LOGO}">치즈감자</span><span class="url">everykoreans.com</span></div></div>`;
 
-function wordPost(w) {
-  const rom = romanize(w.h) || '';
-  const tag = '<i>●</i> 오늘의 단어 · Word of the day';
+/* 주제별 단어 — 표지(주제 + 다섯 낱말) 한 장, 낱말마다 한 장(뜻 · 짧은 예문) */
+function wordsPost(t, ws) {
+  const tag = '<i>●</i> 주제별 단어 · Words by topic', all = ws.length + 1;
+  const ex = (w) => w.x.slice().sort((a, b) => a[0].length - b[0].length)[0];
+  const en = (w) => w.s || w.e.split(';')[0];
   return {
     slides: [
-      slide(tag, '1 / 2', `<div class="lv">TOPIK I · ${w.l}급</div><div class="big">${esc(w.h)}</div><div class="rom">${esc(rom)}</div>` +
-        `<div class="en">${esc(w.s || w.e.split(';')[0])}</div><span class="pos">${esc(w.p)} · ${esc(POS_EN[w.p] || '')}</span>` +
-        '<div class="hint">예문 보기 → · Swipe for examples</div>'),
-      slide(tag, '2 / 2', `<div class="h2">예문 · EXAMPLES</div>` +
-        w.x.slice(0, 2).map(([ko, en]) => `<div class="ex"><p>${esc(ko)}</p><small>${esc(en)}</small></div>`).join('') +
-        `<div class="cta">🔊 발음 듣고 단어장에 담기<small>Hear it & save it — free at everykoreans.com</small></div>`),
+      slide(tag, `1 / ${all}`, `<div class="lv">TOPIK I</div><div class="topic">${esc(t.ko)}<small>${esc(t.en)}</small></div>` +
+        `<div class="list">${ws.map((w, i) => `<div><em>${i + 1}</em><b>${esc(w.h)}</b><span>${esc(en(w))}</span></div>`).join('')}</div>` +
+        '<div class="hint">하나씩 보기 → · Swipe</div>'),
+      ...ws.map((w, i) => slide(tag, `${i + 2} / ${all}`, `<div class="lv">${esc(t.ko)} · ${esc(t.en)}</div><div class="big">${esc(w.h)}</div>` +
+        `<div class="rom">${esc(romanize(w.h) || '')}</div><div class="en">${esc(en(w))}</div><span class="pos">${esc(w.p)} · ${esc(POS_EN[w.p] || '')}</span>` +
+        `<div class="ex" style="margin-top:auto"><p>${esc(ex(w)[0])}</p><small>${esc(ex(w)[1])}</small></div>`)),
     ],
-    caption: `오늘의 단어 · ${w.h} (${rom})\n= ${w.e}\n\n` + w.x.slice(0, 2).map(([ko, en]) => `• ${ko}\n  ${en}`).join('\n') +
-      `\n\n🔊 발음 듣기 · 단어장에 담기 · 2분 레벨 테스트 → 프로필 링크\nHear it, save it, and test your level — link in bio.\n\n` +
+    caption: `주제별 단어 · ${t.ko} (${t.en})\n\n` + ws.map((w, i) => `${i + 1}. ${w.h} (${romanize(w.h) || ''}) — ${en(w)}\n   ${ex(w)[0]}\n   ${ex(w)[1]}`).join('\n') +
+      `\n\n💾 저장해 두고 외워 보세요 · Save this post!\n더 많은 단어 · 발음 → 프로필 링크 · More words — link in bio.\n\n` +
       '#한국어 #한국어공부 #learnkorean #koreanwords #koreanvocabulary #topik #studykorean #korean #치즈감자',
   };
 }
@@ -134,30 +144,12 @@ function grammarPost(p) {
         (en.care ? `<div class="form" style="margin-top:auto">⚠️ ${esc(en.care)}</div>` : '')),
       slide(tag, '3 / 3', `<div class="h2">같이 쓰는 말 · WORDS THAT GO WITH IT</div><div class="wrow">` +
         words.slice(0, 3).map(([w, ex, wen]) => `<div class="w"><b>${esc(w)}</b><span>${esc(wen)}</span><p>${mark(p, ex)}</p></div>`).join('') +
-        `</div><div class="cta">블록 맞추기 · 바꿔 쓰기 · 맞춤법 검사<small>Practice ${esc(p.name)} free at everykoreans.com</small></div>`),
+        '</div>'),
     ],
     caption: `오늘의 문법 · ${p.name}\n${p.desc}\n${en.desc || ''}\n\n` + [p.ex, more[3]].filter(Boolean).slice(0, 2).map((x) => `• ${x}`).join('\n') +
       `\n\n같이 쓰는 말: ${words.slice(0, 3).map((x) => x[0]).join(' · ')}\n\n` +
-      `✍️ 직접 연습하기 → 프로필 링크 · Practice it free — link in bio.\n\n` +
+      `✍️ 더 많은 예문 · 연습 → 프로필 링크 · More examples — link in bio.\n\n` +
       '#한국어문법 #한국어공부 #koreangrammar #learnkorean #topik #studykorean #korean #치즈감자',
-  };
-}
-
-const NUM = ['①', '②', '③', '④'];
-function quizPost(q) {
-  const tag = '<i>●</i> TOPIK 퀴즈 · Quiz';
-  const opts = (show) => `<div class="opts">${q.options.map((o, i) => `<div class="${show && i === q.answer ? 'ok' : ''}"><em>${NUM[i]}</em>${esc(o)}</div>`).join('')}</div>`;
-  return {
-    slides: [
-      slide(tag, '1 / 2', `<div class="lv">TOPIK I · ${q.slot}번 유형</div><div class="q">${esc(q.question)}</div>` +
-        `<div class="passage">${esc(q.passage)}</div>${opts(false)}<div class="hint">정답은 다음 장 → · Answer on the next slide</div>`),
-      slide(tag, '2 / 2', `<div class="h2">정답 · ANSWER</div>${opts(true)}<div class="why">${esc(q.why)}</div>` +
-        `<div class="cta">TOPIK 연습 979문제 · 모의고사 무료<small>Free TOPIK practice at everykoreans.com</small></div>`),
-    ],
-    caption: `TOPIK 퀴즈 🧀 정답은 몇 번일까요? 댓글로 남겨 주세요!\nWhich one is correct? Comment your answer!\n\n${q.question}\n${q.passage}\n` +
-      q.options.map((o, i) => `${NUM[i]} ${o}`).join('  ') +
-      `\n\n(정답 · 해설은 두 번째 장 · Answer on slide 2)\n※ 치즈감자가 만든 연습 문제예요(기출 아님).\n\n📚 TOPIK 연습 · 모의고사 무료 → 프로필 링크\n\n` +
-      '#TOPIK #토픽 #한국어능력시험 #learnkorean #koreanquiz #studykorean #korean #치즈감자',
   };
 }
 
@@ -167,7 +159,10 @@ const [y, m, d] = dateArg.split('-').map(Number);
 for (let k = 0; k < Number(daysArg); k++) {
   const t = Date.UTC(y, m - 1, d + k), day = new Date(t).toISOString().slice(0, 10);
   const n = Math.max(0, Math.round((t - START) / 86400e3));
-  const posts = [['1-word', wordPost(WORDS[n % WORDS.length])], ['2-grammar', grammarPost(GRAMS[n % GRAMS.length])], ['3-quiz', quizPost(QUIZ[n % QUIZ.length])]];
+  /* 주제는 날마다 하나씩, 한 바퀴 돌면 그 주제의 다음 다섯 낱말 */
+  const tp = TOPICS[n % TOPICS.length], r = Math.floor(n / TOPICS.length) * 5;
+  const ws = Array.from({ length: 5 }, (_, i) => tp.words[(r + i) % tp.words.length]);
+  const posts = [['1-words', wordsPost(tp, ws)], ['2-grammar', grammarPost(GRAMS[(2 * n) % GRAMS.length])], ['3-grammar', grammarPost(GRAMS[(2 * n + 1) % GRAMS.length])]];
   const dir = path.join(ROOT, 'insta/out', day);
   fs.mkdirSync(dir, { recursive: true });
   const tmp = path.join(dir, '.slide.html');
@@ -184,6 +179,6 @@ for (let k = 0; k < Number(daysArg); k++) {
     caps += `\n━━━━━━━━ ${name} (${post.slides.length}장) ━━━━━━━━\n${post.caption}\n`;
   }
   fs.writeFileSync(path.join(dir, 'caption.txt'), caps);
-  console.log(`${day} — 단어 ${posts[0][1].slides.length}장 · 문법 ${posts[1][1].slides.length}장 · 퀴즈 ${posts[2][1].slides.length}장 → insta/out/${day}/`);
+  console.log(`${day} — 단어(${tp.ko}) ${posts[0][1].slides.length}장 · 문법 ${posts[1][1].slides.length}장 · 문법 ${posts[2][1].slides.length}장 → insta/out/${day}/`);
 }
 await browser.close();
