@@ -5530,3 +5530,10 @@ body.mk-printing .mk-cover, body.mk-printing .mk-paper, body.mk-printing .mk-omr
 .lt-compare li { display:flex; justify-content:space-between; }
 .lt-compare b.up { color:var(--green); } .lt-compare b.down { color:var(--red); }
 .lt-cmp-l { margin:8px 0 0; color:var(--ink-2); }
+/* TOPIK 연습판 — 답안지 칸의 맞음 · 틀림, 난이도 칩 */
+.tq-omr-cell.done.ok { background:var(--green); border-color:var(--green); color:#fff; }
+.tq-omr-cell.done.no { background:var(--red); border-color:var(--red); color:#fff; }
+.tq-lv-chip { font-size:12px; font-weight:800; padding:3px 9px; border-radius:999px; margin-left:8px; white-space:nowrap;
+  background:color-mix(in srgb, var(--green) 14%, var(--surface)); color:var(--green); }
+.tq-lv-chip[data-g="3"], .tq-lv-chip[data-g="4"], .tq-lv-chip[data-g="2"] { background:color-mix(in srgb, var(--orange) 14%, var(--surface)); color:var(--orange-deep, var(--orange)); }
+.tq-lv-chip[data-g="5"], .tq-lv-chip[data-g="6"] { background:color-mix(in srgb, var(--red) 12%, var(--surface)); color:var(--red); }

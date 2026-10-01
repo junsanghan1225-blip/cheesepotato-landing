@@ -1,0 +1,4245 @@
+[
+  {
+    "id": "cv-cafe-b-02",
+    "category": "cafe",
+    "title": "음료 크기와 얼음 조절하기",
+    "en": "Choosing drink size and ice level",
+    "lv": "beginner",
+    "register": "polite",
+    "roleUser": "손님",
+    "roleOther": "점원",
+    "setting": "당신은 카페에서 음료 크기를 고르고 얼음 양을 조절하려고 합니다.",
+    "vocab": [
+      [
+        "사이즈",
+        "size"
+      ],
+      [
+        "얼음",
+        "ice"
+      ],
+      [
+        "적게",
+        "less, small amount"
+      ],
+      [
+        "결제",
+        "payment"
+      ]
+    ],
+    "grammarRefs": [],
+    "turns": [
+      {
+        "id": "cv-cafe-b-02-1",
+        "npc": {
+          "text": "주문하신 카페라테 어떤 사이즈로 드릴까요?",
+          "en": "What size would you like for your caffe latte?"
+        },
+        "userPrompt": "중간 크기인 레귤러 사이즈로 달라고 말해 보세요.",
+        "accept": [
+          {
+            "k": [
+              "레귤러",
+              "중간 크기",
+              "보통 크기"
+            ],
+            "why": "사이즈를 선택했는지"
+          },
+          {
+            "k": [
+              "사이즈로 주세요",
+              "주세요",
+              "부탁드려요"
+            ],
+            "why": "요청 어미로 끝맺었는지"
+          }
+        ],
+        "model": "레귤러 사이즈로 주세요.",
+        "tip": "카페에서는 「레귤러 사이즈」 또는 「중간 크기」로 말할 수 있어요.",
+        "onMiss": {
+          "text": "스몰, 레귤러, 라지 중에서 골라 주시겠어요?",
+          "en": "Could you choose between small, regular, or large?"
+        }
+      },
+      {
+        "id": "cv-cafe-b-02-2",
+        "npc": {
+          "text": "얼음 양은 어떻게 해 드릴까요?",
+          "en": "How much ice would you like?"
+        },
+        "userPrompt": "얼음을 적게 넣어 달라고 말해 보세요.",
+        "accept": [
+          {
+            "k": [
+              "얼음은",
+              "얼음",
+              "아이스"
+            ],
+            "why": "얼음을 언급했는지"
+          },
+          {
+            "k": [
+              "적게 넣어",
+              "적게 해",
+              "조금만"
+            ],
+            "why": "적게 넣어 달라고 했는지"
+          },
+          {
+            "k": [
+              "넣어 주세요",
+              "주세요",
+              "부탁해요"
+            ],
+            "why": "요청 종결 어미를 썼는지"
+          }
+        ],
+        "model": "얼음은 적게 넣어 주세요.",
+        "tip": "얼음이나 시럽 양을 줄이고 싶을 때는 「적게 넣어 주세요」라고 해요.",
+        "onMiss": {
+          "text": "얼음을 보통으로 드릴까요, 적게 드릴까요?",
+          "en": "Would you like regular ice, or less ice?"
+        }
+      },
+      {
+        "id": "cv-cafe-b-02-3",
+        "npc": {
+          "text": "네, 오천 원입니다. 결제는 어떻게 도와드릴까요?",
+          "en": "That is 5,000 won. How would you like to pay?"
+        },
+        "userPrompt": "카드로 계산하겠다고 말해 보세요.",
+        "accept": [
+          {
+            "k": [
+              "카드로",
+              "카드요",
+              "신용카드"
+            ],
+            "why": "결제 수단으로 카드를 말했는지"
+          },
+          {
+            "k": [
+              "결제할게요",
+              "계산할게요",
+              "할게요"
+            ],
+            "why": "결제 의사를 밝혔는지"
+          }
+        ],
+        "model": "카드로 결제할게요.",
+        "tip": null,
+        "onMiss": {
+          "text": "카드나 현금 중에서 무엇으로 결제하시겠어요?",
+          "en": "Will you pay by card or cash?"
+        }
+      }
+    ],
+    "outro": {
+      "text": "영수증과 진동벨 여기 있습니다!",
+      "en": "Here are your receipt and pager!"
+    }
+  },
+  {
+    "id": "cv-cafe-b-03",
+    "category": "cafe",
+    "title": "편의점에서 봉투와 영수증 받기",
+    "en": "Checkout at a convenience store",
+    "lv": "beginner",
+    "register": "polite",
+    "roleUser": "손님",
+    "roleOther": "직원",
+    "setting": "당신은 편의점에서 간식을 고르고 계산대 앞에 섰습니다.",
+    "vocab": [
+      [
+        "계산대",
+        "checkout counter"
+      ],
+      [
+        "봉투",
+        "bag"
+      ],
+      [
+        "담아 주다",
+        "to put into a bag"
+      ],
+      [
+        "영수증",
+        "receipt"
+      ]
+    ],
+    "grammarRefs": [],
+    "turns": [
+      {
+        "id": "cv-cafe-b-03-1",
+        "npc": {
+          "text": "어서 오세요. 상품 바코드 찍어 드릴게요.",
+          "en": "Welcome. I will scan your items."
+        },
+        "userPrompt": "물건을 계산해 달라고 말해 보세요.",
+        "accept": [
+          {
+            "k": [
+              "이거",
+              "물건",
+              "상품"
+            ],
+            "why": "계산 대상을 가리켰는지"
+          },
+          {
+            "k": [
+              "계산해 주세요",
+              "결제해 주세요",
+              "계산이요"
+            ],
+            "why": "계산을 요청했는지"
+          }
+        ],
+        "model": "이거 계산해 주세요.",
+        "tip": "계산대에 물건을 올려놓으며 「이거 계산해 주세요」라고 해요.",
+        "onMiss": {
+          "text": "계산 도와드릴까요?",
+          "en": "May I help you check out?"
+        }
+      },
+      {
+        "id": "cv-cafe-b-03-2",
+        "npc": {
+          "text": "봉투 필요하세요?",
+          "en": "Do you need a bag?"
+        },
+        "userPrompt": "봉투에 담아 달라고 말해 보세요.",
+        "accept": [
+          {
+            "k": [
+              "봉투에",
+              "봉투 하나",
+              "비닐봉투"
+            ],
+            "why": "봉투를 요청했는지"
+          },
+          {
+            "k": [
+              "담아 주세요",
+              "주세요",
+              "필요해요"
+            ],
+            "why": "담아 달라고 표현했는지"
+          }
+        ],
+        "model": "네, 봉투에 담아 주세요.",
+        "tip": "편의점에서는 봉투가 필요한지 자주 물어봐요.",
+        "onMiss": {
+          "text": "봉투 필요하신가요?",
+          "en": "Do you need a bag?"
+        }
+      },
+      {
+        "id": "cv-cafe-b-03-3",
+        "npc": {
+          "text": "삼천이백 원 결제되었습니다. 영수증 드릴까요?",
+          "en": "3,200 won has been paid. Would you like a receipt?"
+        },
+        "userPrompt": "영수증은 버려 달라고 말해 보세요.",
+        "accept": [
+          {
+            "k": [
+              "영수증은",
+              "영수증",
+              "종이는"
+            ],
+            "why": "영수증을 언급했는지"
+          },
+          {
+            "k": [
+              "버려 주세요",
+              "괜찮아요",
+              "안 주셔도 돼요"
+            ],
+            "why": "받지 않겠다고 표현했는지"
+          }
+        ],
+        "model": "영수증은 버려 주세요.",
+        "tip": "영수증이 필요 없을 때는 「버려 주세요」나 「괜찮아요」라고 해요.",
+        "onMiss": {
+          "text": "영수증 챙겨 드릴까요?",
+          "en": "Should I give you the receipt?"
+        }
+      }
+    ],
+    "outro": {
+      "text": "감사합니다. 안녕히 가세요!",
+      "en": "Thank you. Have a nice day!"
+    }
+  },
+  {
+    "id": "cv-cafe-i-01",
+    "category": "cafe",
+    "title": "카페에서 자리와 콘센트 찾기",
+    "en": "Finding a seat and power outlet in a cafe",
+    "lv": "intermediate",
+    "register": "polite",
+    "roleUser": "손님",
+    "roleOther": "직원",
+    "setting": "당신은 노트북을 사용하기 위해 카페에서 자리를 찾고 있습니다.",
+    "vocab": [
+      [
+        "콘센트",
+        "power outlet"
+      ],
+      [
+        "자리",
+        "seat, table"
+      ],
+      [
+        "노트북",
+        "laptop"
+      ],
+      [
+        "확인하다",
+        "to check"
+      ]
+    ],
+    "grammarRefs": [],
+    "turns": [
+      {
+        "id": "cv-cafe-i-01-1",
+        "npc": {
+          "text": "주문하시겠어요?",
+          "en": "Would you like to order?"
+        },
+        "userPrompt": "자리 먼저 잡고 주문해도 되는지 물어보세요.",
+        "accept": [
+          {
+            "k": [
+              "자리 먼저",
+              "자리를 먼저",
+              "자리 보고"
+            ],
+            "why": "자리를 먼저 잡겠다는 뜻을 전했는지"
+          },
+          {
+            "k": [
+              "주문해도 될까요",
+              "주문해도 돼요",
+              "시켜도 되나요"
+            ],
+            "why": "주문 가능 여부를 물었는지"
+          }
+        ],
+        "model": "자리 먼저 잡고 주문해도 될까요?",
+        "tip": "손님이 많은 카페에서는 먼저 자리를 확인하고 주문해요.",
+        "onMiss": {
+          "text": "자리를 먼저 찾으시겠어요?",
+          "en": "Would you like to find a seat first?"
+        }
+      },
+      {
+        "id": "cv-cafe-i-01-2",
+        "npc": {
+          "text": "네, 편하게 자리 먼저 확인하세요.",
+          "en": "Yes, feel free to check for seats first."
+        },
+        "userPrompt": "콘센트가 있는 자리가 어디에 있는지 물어보세요.",
+        "accept": [
+          {
+            "k": [
+              "콘센트",
+              "충전",
+              "플러그"
+            ],
+            "why": "전원 시설을 언급했는지"
+          },
+          {
+            "k": [
+              "어디인가요",
+              "어디에 있어요",
+              "있나요"
+            ],
+            "why": "위치를 정중히 물었는지"
+          }
+        ],
+        "model": "혹시 콘센트 있는 자리가 어디인가요?",
+        "tip": "한국에서는 벽면 소켓을 「콘센트」라고 불러요.",
+        "onMiss": {
+          "text": "노트북 쓰실 자리 찾으시나요?",
+          "en": "Are you looking for a seat for your laptop?"
+        }
+      },
+      {
+        "id": "cv-cafe-i-01-3",
+        "npc": {
+          "text": "벽 쪽 테이블 밑에 콘센트가 있습니다.",
+          "en": "There are outlets under the wall tables."
+        },
+        "userPrompt": "알려줘서 고맙다고 인사해 보세요.",
+        "accept": [
+          {
+            "k": [
+              "알려주셔서",
+              "안내해 주셔서",
+              "친절하게"
+            ],
+            "why": "안내에 대한 이유를 말했는지"
+          },
+          {
+            "k": [
+              "감사합니다",
+              "고맙습니다",
+              "감사해요"
+            ],
+            "why": "감사 인사로 끝맺었는지"
+          }
+        ],
+        "model": "알려주셔서 감사합니다.",
+        "tip": null,
+        "onMiss": {
+          "text": "도움이 필요하시면 또 말씀하세요.",
+          "en": "Let me know if you need more help."
+        }
+      }
+    ],
+    "outro": {
+      "text": "편안한 시간 보내세요!",
+      "en": "Have a comfortable time!"
+    }
+  },
+  {
+    "id": "cv-restaurant-b-01",
+    "category": "restaurant",
+    "title": "식당에서 자리 안내받기",
+    "en": "Getting a table at a restaurant",
+    "lv": "beginner",
+    "register": "polite",
+    "roleUser": "손님",
+    "roleOther": "직원",
+    "setting": "당신은 친구와 둘이서 식당에 들어가 자리를 안내받으려고 합니다.",
+    "vocab": [
+      [
+        "몇 분",
+        "how many people (honorific)"
+      ],
+      [
+        "인원",
+        "number of people"
+      ],
+      [
+        "창가",
+        "by the window"
+      ],
+      [
+        "메뉴판",
+        "menu"
+      ]
+    ],
+    "grammarRefs": [],
+    "turns": [
+      {
+        "id": "cv-restaurant-b-01-1",
+        "npc": {
+          "text": "어서 오세요! 몇 분이세요?",
+          "en": "Welcome! How many people?"
+        },
+        "userPrompt": "두 명이라고 말해 보세요.",
+        "accept": [
+          {
+            "k": [
+              "두 명",
+              "두 사람",
+              "둘이서"
+            ],
+            "why": "인원을 명확히 말했는지"
+          },
+          {
+            "k": [
+              "이에요",
+              "예요",
+              "입니다"
+            ],
+            "why": "서술어로 끝맺었는지"
+          }
+        ],
+        "model": "두 명이에요.",
+        "tip": "사람 수는 「한 명 · 두 명 · 세 명」처럼 고유어 숫자로 세어요.",
+        "onMiss": {
+          "text": "몇 분이 오셨나요?",
+          "en": "How many people are in your party?"
+        }
+      },
+      {
+        "id": "cv-restaurant-b-01-2",
+        "npc": {
+          "text": "안쪽 자리와 창가 자리 중 어디가 편하세요?",
+          "en": "Would you prefer an inside seat or by the window?"
+        },
+        "userPrompt": "창가 자리로 앉겠다고 말해 보세요.",
+        "accept": [
+          {
+            "k": [
+              "창가 자리로",
+              "창가 쪽으로",
+              "창가로"
+            ],
+            "why": "창가 자리를 선택했는지"
+          },
+          {
+            "k": [
+              "앉을게요",
+              "앉고 싶어요",
+              "갈게요"
+            ],
+            "why": "착석 의사를 표현했는지"
+          }
+        ],
+        "model": "창가 자리로 앉을게요.",
+        "tip": "원하는 위치 뒤에 「-자리로」 또는 「-쪽으로」를 붙여요.",
+        "onMiss": {
+          "text": "창가 자리가 좋으신가요?",
+          "en": "Do you like the window seat?"
+        }
+      },
+      {
+        "id": "cv-restaurant-b-01-3",
+        "npc": {
+          "text": "네, 이쪽 창가 테이블로 오세요. 편히 앉으세요.",
+          "en": "Yes, come to this window table. Please have a seat."
+        },
+        "userPrompt": "메뉴판을 보여 달라고 부탁해 보세요.",
+        "accept": [
+          {
+            "k": [
+              "메뉴판",
+              "메뉴",
+              "차림표"
+            ],
+            "why": "메뉴판을 가리켰는지"
+          },
+          {
+            "k": [
+              "보여 주세요",
+              "주세요",
+              "부탁드려요"
+            ],
+            "why": "요청 어미를 썼는지"
+          }
+        ],
+        "model": "메뉴판 좀 보여 주세요.",
+        "tip": "자리에 앉은 뒤 메뉴가 없으면 「메뉴판 주세요」라고 해요.",
+        "onMiss": {
+          "text": "주문 먼저 도와드릴까요?",
+          "en": "Shall I help you order first?"
+        }
+      }
+    ],
+    "outro": {
+      "text": "여기 메뉴판 준비해 드렸습니다!",
+      "en": "Here is the menu for you!"
+    }
+  },
+  {
+    "id": "cv-restaurant-b-02",
+    "category": "restaurant",
+    "title": "음식 주문과 맵기 조절하기",
+    "en": "Ordering food and adjusting spice level",
+    "lv": "beginner",
+    "register": "polite",
+    "roleUser": "손님",
+    "roleOther": "직원",
+    "setting": "당신은 한식당에서 찌개를 주문하며 덜 맵게 해 달라고 요청하려고 합니다.",
+    "vocab": [
+      [
+        "찌개",
+        "stew"
+      ],
+      [
+        "덜 맵게",
+        "less spicy"
+      ],
+      [
+        "주문하다",
+        "to order"
+      ],
+      [
+        "공깃밥",
+        "bowl of cooked rice"
+      ]
+    ],
+    "grammarRefs": [],
+    "turns": [
+      {
+        "id": "cv-restaurant-b-02-1",
+        "npc": {
+          "text": "주문 결정되셨으면 말씀해 주세요.",
+          "en": "Please let me know when you are ready to order."
+        },
+        "userPrompt": "된장찌개 하나를 주문하겠다고 말해 보세요.",
+        "accept": [
+          {
+            "k": [
+              "된장찌개",
+              "된장",
+              "찌개"
+            ],
+            "why": "메뉴 이름을 말했는지"
+          },
+          {
+            "k": [
+              "하나 주세요",
+              "일인분 주세요",
+              "주문할게요"
+            ],
+            "why": "수량과 주문 표현을 썼는지"
+          }
+        ],
+        "model": "된장찌개 하나 주세요.",
+        "tip": "음식을 주문할 때는 「메뉴 이름 + 수량 + 주세요」로 말해요.",
+        "onMiss": {
+          "text": "어떤 음식을 주문하시겠어요?",
+          "en": "What food would you like to order?"
+        }
+      },
+      {
+        "id": "cv-restaurant-b-02-2",
+        "npc": {
+          "text": "찌개가 기본적으로 조금 매운데 괜찮으세요?",
+          "en": "The stew is a bit spicy by default. Is that okay?"
+        },
+        "userPrompt": "조금 덜 맵게 해 달라고 부탁해 보세요.",
+        "accept": [
+          {
+            "k": [
+              "덜 맵게",
+              "안 맵게",
+              "맵지 않게"
+            ],
+            "why": "매운 정도를 낮춰 달라고 했는지"
+          },
+          {
+            "k": [
+              "해 주세요",
+              "부탁드려요",
+              "주세요"
+            ],
+            "why": "요청 어미를 썼는지"
+          }
+        ],
+        "model": "조금 덜 맵게 해 주세요.",
+        "tip": "매운맛을 줄이고 싶을 때는 「덜 맵게 해 주세요」라고 해요.",
+        "onMiss": {
+          "text": "맵기를 낮춰 드릴까요?",
+          "en": "Should I lower the spiciness for you?"
+        }
+      },
+      {
+        "id": "cv-restaurant-b-02-3",
+        "npc": {
+          "text": "네, 고추 적게 넣어서 안 맵게 해 드릴게요. 공깃밥 포함입니다.",
+          "en": "Got it, I will use fewer peppers. A bowl of rice is included."
+        },
+        "userPrompt": "알겠다고 답하며 감사하다고 인사해 보세요.",
+        "accept": [
+          {
+            "k": [
+              "알겠습니다",
+              "네네",
+              "좋습니다"
+            ],
+            "why": "안내에 응답했는지"
+          },
+          {
+            "k": [
+              "감사합니다",
+              "고맙습니다",
+              "감사해요"
+            ],
+            "why": "감사를 표현했는지"
+          }
+        ],
+        "model": "네 알겠습니다, 감사합니다.",
+        "tip": null,
+        "onMiss": {
+          "text": "더 필요한 건 없으신가요?",
+          "en": "Do you need anything else?"
+        }
+      }
+    ],
+    "outro": {
+      "text": "맛있게 조리해서 바로 가져다드릴게요!",
+      "en": "We will cook it deliciously and bring it right over!"
+    }
+  },
+  {
+    "id": "cv-restaurant-b-03",
+    "category": "restaurant",
+    "title": "식당에서 반찬과 물 더 요청하기",
+    "en": "Asking for more side dishes and water",
+    "lv": "beginner",
+    "register": "polite",
+    "roleUser": "손님",
+    "roleOther": "직원",
+    "setting": "당신은 식당에서 식사를 하다가 김치와 물이 부족해서 더 달라고 부릅니다.",
+    "vocab": [
+      [
+        "반찬",
+        "side dish"
+      ],
+      [
+        "김치",
+        "kimchi"
+      ],
+      [
+        "물병",
+        "water bottle"
+      ],
+      [
+        "시원하다",
+        "to be cool, refreshing"
+      ]
+    ],
+    "grammarRefs": [],
+    "turns": [
+      {
+        "id": "cv-restaurant-b-03-1",
+        "npc": {
+          "text": "네, 부르셨어요? 필요한 것 있으세요?",
+          "en": "Yes, you called? Do you need something?"
+        },
+        "userPrompt": "김치를 조금 더 달라고 말해 보세요.",
+        "accept": [
+          {
+            "k": [
+              "김치",
+              "반찬",
+              "깍두기"
+            ],
+            "why": "원하는 반찬을 언급했는지"
+          },
+          {
+            "k": [
+              "더 주세요",
+              "추가해 주세요",
+              "리필해 주세요"
+            ],
+            "why": "추가 요청을 했는지"
+          }
+        ],
+        "model": "김치 좀 더 주세요.",
+        "tip": "기본 반찬은 더 달라고 부탁할 수 있는 식당이 많아요.",
+        "onMiss": {
+          "text": "반찬이 더 필요하신가요?",
+          "en": "Do you need more side dishes?"
+        }
+      },
+      {
+        "id": "cv-restaurant-b-03-2",
+        "npc": {
+          "text": "네, 김치 바로 가져다드릴게요. 또 있으세요?",
+          "en": "Sure, I will bring kimchi right away. Anything else?"
+        },
+        "userPrompt": "시원한 물도 한 병 더 달라고 해 보세요.",
+        "accept": [
+          {
+            "k": [
+              "시원한 물도",
+              "물 한 병",
+              "물도"
+            ],
+            "why": "물을 언급했는지"
+          },
+          {
+            "k": [
+              "더 주세요",
+              "가져다주세요",
+              "부탁해요"
+            ],
+            "why": "요청 어미를 썼는지"
+          }
+        ],
+        "model": "시원한 물도 더 주세요.",
+        "tip": "앞의 요청에 덧붙일 때는 「명사 + 도 더 주세요」를 써요.",
+        "onMiss": {
+          "text": "물도 같이 드릴까요?",
+          "en": "Shall I bring water as well?"
+        }
+      },
+      {
+        "id": "cv-restaurant-b-03-3",
+        "npc": {
+          "text": "네, 시원한 물병과 김치 여기 놓아 드렸습니다.",
+          "en": "Yes, here are the cold water bottle and kimchi."
+        },
+        "userPrompt": "잘 먹겠다고 인사해 보세요.",
+        "accept": [
+          {
+            "k": [
+              "잘 먹을게요",
+              "맛있게 먹을게요",
+              "잘 먹겠습니다"
+            ],
+            "why": "음식을 받으며 인사했는지"
+          },
+          {
+            "k": [
+              "감사합니다",
+              "고맙습니다"
+            ],
+            "why": "감사를 전했는지"
+          }
+        ],
+        "model": "감사합니다, 잘 먹을게요.",
+        "tip": null,
+        "onMiss": {
+          "text": "맛있게 드세요!",
+          "en": "Enjoy your meal!"
+        }
+      }
+    ],
+    "outro": {
+      "text": "부족한 반찬 있으면 편하게 또 말씀해 주세요!",
+      "en": "Feel free to let us know if you need more side dishes!"
+    }
+  },
+  {
+    "id": "cv-restaurant-i-01",
+    "category": "restaurant",
+    "title": "식당에서 각자 따로 계산하기",
+    "en": "Splitting the bill at a restaurant",
+    "lv": "intermediate",
+    "register": "polite",
+    "roleUser": "손님",
+    "roleOther": "직원",
+    "setting": "당신은 친구와 식사를 마치고 계산대에서 각자 먹은 것을 따로 결제하려고 합니다.",
+    "vocab": [
+      [
+        "따로",
+        "separately"
+      ],
+      [
+        "각자",
+        "each person"
+      ],
+      [
+        "결제",
+        "payment"
+      ],
+      [
+        "출력하다",
+        "to print out"
+      ]
+    ],
+    "grammarRefs": [],
+    "turns": [
+      {
+        "id": "cv-restaurant-i-01-1",
+        "npc": {
+          "text": "식사 맛있게 하셨어요? 총 만육천 원입니다.",
+          "en": "Did you enjoy your meal? The total is 16,000 won."
+        },
+        "userPrompt": "따로따로 계산할 수 있는지 물어보세요.",
+        "accept": [
+          {
+            "k": [
+              "따로 계산",
+              "각자 계산",
+              "나눠서"
+            ],
+            "why": "분할 결제를 언급했는지"
+          },
+          {
+            "k": [
+              "할 수 있나요",
+              "될까요",
+              "가능한가요"
+            ],
+            "why": "가능 여부를 질문했는지"
+          }
+        ],
+        "model": "혹시 따로 계산할 수 있나요?",
+        "tip": "각자 낼 때는 「따로 계산할 수 있나요?」라고 정중히 물어봐요.",
+        "onMiss": {
+          "text": "한 번에 결제하시나요, 아니면 따로 결제하시나요?",
+          "en": "Are you paying together, or separately?"
+        }
+      },
+      {
+        "id": "cv-restaurant-i-01-2",
+        "npc": {
+          "text": "네, 가능합니다. 어떤 메뉴를 각각 결제하시겠어요?",
+          "en": "Yes, that is possible. Which menu item will each of you pay for?"
+        },
+        "userPrompt": "비빔밥은 이 카드로 결제해 달라고 말해 보세요.",
+        "accept": [
+          {
+            "k": [
+              "비빔밥은",
+              "비빔밥",
+              "제 거는"
+            ],
+            "why": "본인이 지불할 품목을 밝혔는지"
+          },
+          {
+            "k": [
+              "이 카드로",
+              "카드로",
+              "제가"
+            ],
+            "why": "결제 수단을 제시했는지"
+          },
+          {
+            "k": [
+              "결제해 주세요",
+              "계산해 주세요",
+              "할게요"
+            ],
+            "why": "요청 어미를 썼는지"
+          }
+        ],
+        "model": "비빔밥은 이 카드로 결제해 주세요.",
+        "tip": "자신이 먹은 메뉴를 가리키며 카드를 건네면 돼요.",
+        "onMiss": {
+          "text": "손님께서 먼저 계산하실 메뉴는 무엇인가요?",
+          "en": "Which menu item are you paying for first?"
+        }
+      },
+      {
+        "id": "cv-restaurant-i-01-3",
+        "npc": {
+          "text": "네, 비빔밥 팔천 원 결제되었습니다. 영수증 각각 드릴까요?",
+          "en": "Yes, 8,000 won for bibimbap is paid. Would you like separate receipts?"
+        },
+        "userPrompt": "영수증도 따로 출력해 달라고 해 보세요.",
+        "accept": [
+          {
+            "k": [
+              "영수증",
+              "영수증도"
+            ],
+            "why": "영수증을 언급했는지"
+          },
+          {
+            "k": [
+              "따로따로",
+              "따로",
+              "각각"
+            ],
+            "why": "별도 출력을 요청했는지"
+          },
+          {
+            "k": [
+              "출력해 주세요",
+              "뽑아 주세요",
+              "주세요"
+            ],
+            "why": "요청 어미를 썼는지"
+          }
+        ],
+        "model": "네, 영수증 따로따로 출력해 주세요.",
+        "tip": null,
+        "onMiss": {
+          "text": "영수증을 두 장으로 나누어 드릴까요?",
+          "en": "Shall I split the receipts into two?"
+        }
+      }
+    ],
+    "outro": {
+      "text": "영수증 두 장 나왔습니다. 안녕히 가세요!",
+      "en": "Here are two receipts. Have a good day!"
+    }
+  },
+  {
+    "id": "cv-store-b-01",
+    "category": "store",
+    "title": "옷가게에서 입어 보고 사이즈 찾기",
+    "en": "Trying on clothes and finding sizes",
+    "lv": "beginner",
+    "register": "polite",
+    "roleUser": "손님",
+    "roleOther": "직원",
+    "setting": "당신은 옷가게에서 마음에 드는 바지를 발견하고 입어 보려고 합니다.",
+    "vocab": [
+      [
+        "탈의실",
+        "fitting room"
+      ],
+      [
+        "입어 보다",
+        "to try on"
+      ],
+      [
+        "사이즈",
+        "size"
+      ],
+      [
+        "기다리다",
+        "to wait"
+      ]
+    ],
+    "grammarRefs": [],
+    "turns": [
+      {
+        "id": "cv-store-b-01-1",
+        "npc": {
+          "text": "찾으시는 스타일 있으세요?",
+          "en": "Are you looking for a specific style?"
+        },
+        "userPrompt": "이 바지 한번 입어 봐도 되는지 물어보세요.",
+        "accept": [
+          {
+            "k": [
+              "이 바지",
+              "바지",
+              "이 옷"
+            ],
+            "why": "입어 볼 옷을 가리켰는지"
+          },
+          {
+            "k": [
+              "입어 봐도",
+              "착용해 봐도",
+              "입어볼 수"
+            ],
+            "why": "입어 보는 행동을 표현했는지"
+          },
+          {
+            "k": [
+              "돼요",
+              "될까요",
+              "있나요"
+            ],
+            "why": "허락을 구하는 어미를 썼는지"
+          }
+        ],
+        "model": "이 바지 한번 입어 봐도 돼요?",
+        "tip": "옷을 입어 볼 때는 「입어 봐도 돼요?」라고 물어봐요.",
+        "onMiss": {
+          "text": "피팅해 보시겠어요?",
+          "en": "Would you like to try it on?"
+        }
+      },
+      {
+        "id": "cv-store-b-01-2",
+        "npc": {
+          "text": "네, 안쪽에 탈의실 이용하시면 됩니다.",
+          "en": "Yes, you can use the fitting room in the back."
+        },
+        "userPrompt": "혹시 더 큰 사이즈도 있는지 물어보세요.",
+        "accept": [
+          {
+            "k": [
+              "더 큰",
+              "한 치수 큰",
+              "큰 사이즈"
+            ],
+            "why": "큰 치수를 언급했는지"
+          },
+          {
+            "k": [
+              "사이즈도",
+              "사이즈",
+              "치수"
+            ],
+            "why": "크기를 말했는지"
+          },
+          {
+            "k": [
+              "있어요",
+              "있나요",
+              "볼 수 있나요"
+            ],
+            "why": "보유 여부를 물었는지"
+          }
+        ],
+        "model": "혹시 더 큰 사이즈도 있어요?",
+        "tip": "사이즈가 안 맞으면 「더 큰 사이즈」나 「더 작은 사이즈」를 요청해요.",
+        "onMiss": {
+          "text": "사이즈가 작으신가요?",
+          "en": "Is the size too small?"
+        }
+      },
+      {
+        "id": "cv-store-b-01-3",
+        "npc": {
+          "text": "잠시만요, 창고에서 라지 사이즈 찾아다 드릴게요.",
+          "en": "Hold on, I will get a large size from the stockroom."
+        },
+        "userPrompt": "고맙다고 인사하며 기다리겠다고 말해 보세요.",
+        "accept": [
+          {
+            "k": [
+              "감사합니다",
+              "고맙습니다"
+            ],
+            "why": "감사를 전했는지"
+          },
+          {
+            "k": [
+              "기다릴게요",
+              "보고 있을게요"
+            ],
+            "why": "기다리겠다는 의사를 밝혔는지"
+          }
+        ],
+        "model": "감사합니다, 여기서 기다릴게요.",
+        "tip": null,
+        "onMiss": {
+          "text": "금방 가져다드릴게요!",
+          "en": "I will bring it right away!"
+        }
+      }
+    ],
+    "outro": {
+      "text": "라지 사이즈 준비해 드렸습니다. 편하게 입어 보세요!",
+      "en": "Here is the large size. Try it on comfortably!"
+    }
+  },
+  {
+    "id": "cv-store-b-02",
+    "category": "store",
+    "title": "마트에서 물건 위치 묻기",
+    "en": "Asking for item locations at a supermarket",
+    "lv": "beginner",
+    "register": "polite",
+    "roleUser": "손님",
+    "roleOther": "직원",
+    "setting": "당신은 대형 마트에서 계란과 우유가 어디에 있는지 직원에게 물어보려고 합니다.",
+    "vocab": [
+      [
+        "계란",
+        "egg"
+      ],
+      [
+        "우유",
+        "milk"
+      ],
+      [
+        "코너",
+        "section, area"
+      ],
+      [
+        "근처",
+        "nearby, vicinity"
+      ]
+    ],
+    "grammarRefs": [],
+    "turns": [
+      {
+        "id": "cv-store-b-02-1",
+        "npc": {
+          "text": "고객님, 찾는 물건 있으세요?",
+          "en": "Customer, are you looking for an item?"
+        },
+        "userPrompt": "계란 코너가 어디에 있는지 물어보세요.",
+        "accept": [
+          {
+            "k": [
+              "계란",
+              "달걀"
+            ],
+            "why": "찾는 식료품을 말했는지"
+          },
+          {
+            "k": [
+              "코너가",
+              "위치가",
+              "어디"
+            ],
+            "why": "위치 질문을 시작했는지"
+          },
+          {
+            "k": [
+              "어디에 있어요",
+              "어디인가요",
+              "어디예요"
+            ],
+            "why": "위치 질문 어미를 썼는지"
+          }
+        ],
+        "model": "계란 코너가 어디에 있어요?",
+        "tip": "매장에서 물건 위치를 물을 때는 「명사 + 어디에 있어요?」라고 해요.",
+        "onMiss": {
+          "text": "어떤 식료품을 찾으시나요?",
+          "en": "What grocery item are you looking for?"
+        }
+      },
+      {
+        "id": "cv-store-b-02-2",
+        "npc": {
+          "text": "계란은 신선식품 코너 안쪽에 있습니다. 저기 기둥 뒤쪽이에요.",
+          "en": "Eggs are in the fresh produce section, behind that pillar."
+        },
+        "userPrompt": "우유도 그 근처에 있는지 물어보세요.",
+        "accept": [
+          {
+            "k": [
+              "우유도",
+              "우유는",
+              "유제품"
+            ],
+            "why": "우유를 언급했는지"
+          },
+          {
+            "k": [
+              "그 근처에",
+              "옆에",
+              "함께"
+            ],
+            "why": "인접 위치를 물었는지"
+          },
+          {
+            "k": [
+              "있나요",
+              "있어요",
+              "어디 있나요"
+            ],
+            "why": "질문 종결 어미를 썼는지"
+          }
+        ],
+        "model": "혹시 우유도 그 근처에 있나요?",
+        "tip": "「그 근처」는 방금 언급한 장소 주변을 가리킬 때 써요.",
+        "onMiss": {
+          "text": "우유 위치도 궁금하신가요?",
+          "en": "Do you also want to know where milk is?"
+        }
+      },
+      {
+        "id": "cv-store-b-02-3",
+        "npc": {
+          "text": "네, 계란 코너 바로 옆 냉장고에 우유가 진열되어 있습니다.",
+          "en": "Yes, milk is stocked in the refrigerator right next to eggs."
+        },
+        "userPrompt": "알려줘서 고맙다고 인사해 보세요.",
+        "accept": [
+          {
+            "k": [
+              "알려주셔서",
+              "안내해 주셔서"
+            ],
+            "why": "안내에 대한 이유를 짚었는지"
+          },
+          {
+            "k": [
+              "감사합니다",
+              "고맙습니다",
+              "감사해요"
+            ],
+            "why": "감사 인사를 전했는지"
+          }
+        ],
+        "model": "알려주셔서 정말 감사합니다.",
+        "tip": null,
+        "onMiss": {
+          "text": "즐거운 쇼핑 되세요!",
+          "en": "Have a pleasant shopping!"
+        }
+      }
+    ],
+    "outro": {
+      "text": "더 필요한 것 있으시면 언제든 말씀하세요!",
+      "en": "Let me know whenever you need anything else!"
+    }
+  },
+  {
+    "id": "cv-store-i-01",
+    "category": "store",
+    "title": "가게에서 교환과 환불 문의하기",
+    "en": "Inquiring about exchange and refund at a store",
+    "lv": "intermediate",
+    "register": "polite",
+    "roleUser": "손님",
+    "roleOther": "직원",
+    "setting": "당신은 며칠 전 구매한 티셔츠에 이상이 있어서 교환하러 매장에 방문했습니다.",
+    "vocab": [
+      [
+        "교환",
+        "exchange"
+      ],
+      [
+        "환불",
+        "refund"
+      ],
+      [
+        "영수증",
+        "receipt"
+      ],
+      [
+        "색상",
+        "color"
+      ]
+    ],
+    "grammarRefs": [],
+    "turns": [
+      {
+        "id": "cv-store-i-01-1",
+        "npc": {
+          "text": "안녕하세요, 무엇을 도와드릴까요?",
+          "en": "Hello, how can I help you?"
+        },
+        "userPrompt": "며칠 전 산 옷을 교환하고 싶다고 말해 보세요.",
+        "accept": [
+          {
+            "k": [
+              "산 옷을",
+              "구매한 옷",
+              "이 옷을"
+            ],
+            "why": "교환 대상 상품을 말했는지"
+          },
+          {
+            "k": [
+              "교환하고 싶어요",
+              "바꾸고 싶어요",
+              "교환하러 왔어요"
+            ],
+            "why": "교환 의사를 전했는지"
+          }
+        ],
+        "model": "며칠 전에 산 옷을 교환하고 싶어요.",
+        "tip": "물건을 바꿀 때는 「교환」, 돈으로 돌려받을 때는 「환불」이라고 해요.",
+        "onMiss": {
+          "text": "어떤 상품 때문에 오셨나요?",
+          "en": "What product did you come regarding?"
+        }
+      },
+      {
+        "id": "cv-store-i-01-2",
+        "npc": {
+          "text": "혹시 제품 결제 영수증과 결제하셨던 카드 가지고 오셨나요?",
+          "en": "Did you bring the receipt and the card you paid with?"
+        },
+        "userPrompt": "영수증과 카드가 여기 있다고 말해 보세요.",
+        "accept": [
+          {
+            "k": [
+              "영수증과",
+              "카드",
+              "둘 다"
+            ],
+            "why": "지참한 물품을 언급했는지"
+          },
+          {
+            "k": [
+              "여기 있어요",
+              "가져왔어요",
+              "드릴게요"
+            ],
+            "why": "제출하는 말을 했는지"
+          }
+        ],
+        "model": "네, 영수증과 카드 여기 있어요.",
+        "tip": "교환이나 환불 시에는 구매 영수증과 원래 결제 수단이 꼭 필요해요.",
+        "onMiss": {
+          "text": "영수증을 확인해 주시겠어요?",
+          "en": "Could you let me check the receipt?"
+        }
+      },
+      {
+        "id": "cv-store-i-01-3",
+        "npc": {
+          "text": "같은 색상 새 상품으로 바로 바꿔 드릴까요?",
+          "en": "Shall I exchange it for a new item of the same color right away?"
+        },
+        "userPrompt": "같은 색상 새 상품으로 바꿔 달라고 부탁해 보세요.",
+        "accept": [
+          {
+            "k": [
+              "같은 색상",
+              "새 상품",
+              "같은 걸로"
+            ],
+            "why": "동일 상품을 선택했는지"
+          },
+          {
+            "k": [
+              "바꿔 주세요",
+              "교환해 주세요",
+              "부탁드려요"
+            ],
+            "why": "교환 요청 종결을 썼는지"
+          }
+        ],
+        "model": "네, 같은 색상 새 상품으로 바꿔 주세요.",
+        "tip": null,
+        "onMiss": {
+          "text": "새 제품으로 교환해 드릴까요?",
+          "en": "Shall I exchange it for a new item?"
+        }
+      }
+    ],
+    "outro": {
+      "text": "새 상품으로 교환 완료되었습니다. 이용해 주셔서 감사합니다!",
+      "en": "Exchange completed with a new item. Thank you for visiting!"
+    }
+  },
+  {
+    "id": "cv-transit-b-01",
+    "category": "transit",
+    "title": "길에서 지하철역 가는 방법 묻기",
+    "en": "Asking for directions to the subway station",
+    "lv": "beginner",
+    "register": "polite",
+    "roleUser": "행인",
+    "roleOther": "행인",
+    "setting": "당신은 낯선 동네에서 지하철역 입구를 찾지 못해 지나가는 사람에게 길을 묻습니다.",
+    "vocab": [
+      [
+        "지하철역",
+        "subway station"
+      ],
+      [
+        "사거리",
+        "four-way intersection"
+      ],
+      [
+        "횡단보도",
+        "crosswalk"
+      ],
+      [
+        "직진하다",
+        "to go straight"
+      ]
+    ],
+    "grammarRefs": [],
+    "turns": [
+      {
+        "id": "cv-transit-b-01-1",
+        "npc": {
+          "text": "네, 혹시 무슨 일이신가요?",
+          "en": "Yes, is something the matter?"
+        },
+        "userPrompt": "지하철역으로 가려면 어디로 가야 하는지 물어보세요.",
+        "accept": [
+          {
+            "k": [
+              "지하철역",
+              "전철역",
+              "역으로"
+            ],
+            "why": "목적지인 역을 말했는지"
+          },
+          {
+            "k": [
+              "가려면",
+              "가고 싶은데",
+              "찾는데요"
+            ],
+            "why": "이동 목적을 나타냈는지"
+          },
+          {
+            "k": [
+              "어디로 가야 해요",
+              "어떻게 가나요",
+              "어디예요"
+            ],
+            "why": "길 묻는 어미를 썼는지"
+          }
+        ],
+        "model": "지하철역에 가려면 어디로 가야 해요?",
+        "tip": "목적지로 가는 길을 물을 때는 「장소 + 에 가려면 어디로 가야 해요?」라고 해요.",
+        "onMiss": {
+          "text": "지하철역을 찾으시나요?",
+          "en": "Are you looking for the subway station?"
+        }
+      },
+      {
+        "id": "cv-transit-b-01-2",
+        "npc": {
+          "text": "이 길을 따라서 저 앞 사거리까지 똑바로 가세요.",
+          "en": "Go straight along this street until that intersection ahead."
+        },
+        "userPrompt": "사거리에서 오른쪽으로 가는지 물어보세요.",
+        "accept": [
+          {
+            "k": [
+              "사거리에서",
+              "신호등에서",
+              "거기서"
+            ],
+            "why": "방향 전환 지점을 말했는지"
+          },
+          {
+            "k": [
+              "오른쪽으로",
+              "우회전",
+              "우측으로"
+            ],
+            "why": "오른쪽 방향을 언급했는지"
+          },
+          {
+            "k": [
+              "가나요",
+              "돌아요",
+              "가면 돼요"
+            ],
+            "why": "방향 확인 어미를 썼는지"
+          }
+        ],
+        "model": "사거리에서 오른쪽으로 가나요?",
+        "tip": "방향을 확인할 때는 「오른쪽으로 가나요?」 또는 「왼쪽인가요?」라고 물어요.",
+        "onMiss": {
+          "text": "어느 쪽으로 도는지 궁금하신가요?",
+          "en": "Do you want to know which way to turn?"
+        }
+      },
+      {
+        "id": "cv-transit-b-01-3",
+        "npc": {
+          "text": "네, 사거리에서 횡단보도를 건너 오른쪽으로 가시면 역 입구가 보입니다.",
+          "en": "Yes, cross the crosswalk at the intersection and turn right to see the station entrance."
+        },
+        "userPrompt": "친절하게 알려줘서 감사하다고 인사해 보세요.",
+        "accept": [
+          {
+            "k": [
+              "친절하게",
+              "알려주셔서",
+              "덕분에"
+            ],
+            "why": "안내에 대한 고마움을 표현했는지"
+          },
+          {
+            "k": [
+              "감사합니다",
+              "고맙습니다"
+            ],
+            "why": "감사 인사로 끝맺었는지"
+          }
+        ],
+        "model": "친절하게 알려주셔서 감사합니다.",
+        "tip": null,
+        "onMiss": {
+          "text": "조심히 잘 찾아가세요!",
+          "en": "Take care and find your way safely!"
+        }
+      }
+    ],
+    "outro": {
+      "text": "좋은 하루 보내세요!",
+      "en": "Have a nice day!"
+    }
+  },
+  {
+    "id": "cv-transit-b-02",
+    "category": "transit",
+    "title": "택시 타고 목적지와 내릴 곳 말하기",
+    "en": "Taking a taxi and giving instructions",
+    "lv": "beginner",
+    "register": "polite",
+    "roleUser": "승객",
+    "roleOther": "기사",
+    "setting": "당신은 택시를 타고 시청으로 이동한 뒤 편의점 앞에서 내리려고 합니다.",
+    "vocab": [
+      [
+        "시청",
+        "City Hall"
+      ],
+      [
+        "기사님",
+        "driver (honorific)"
+      ],
+      [
+        "목적지",
+        "destination"
+      ],
+      [
+        "내려 주다",
+        "to drop off"
+      ]
+    ],
+    "grammarRefs": [],
+    "turns": [
+      {
+        "id": "cv-transit-b-02-1",
+        "npc": {
+          "text": "어서 오세요. 어디로 모실까요?",
+          "en": "Welcome. Where can I take you?"
+        },
+        "userPrompt": "시청 앞으로 가 달라고 말해 보세요.",
+        "accept": [
+          {
+            "k": [
+              "시청",
+              "시청 앞",
+              "시청으로"
+            ],
+            "why": "목적지 명칭을 말했는지"
+          },
+          {
+            "k": [
+              "가 주세요",
+              "부탁드려요",
+              "부탁해요"
+            ],
+            "why": "이동 요청 어미를 썼는지"
+          }
+        ],
+        "model": "시청 앞으로 가 주세요.",
+        "tip": "택시를 타면 「목적지 + (으)로 가 주세요」라고 말해요.",
+        "onMiss": {
+          "text": "어느 목적지로 가시나요?",
+          "en": "Which destination are you going to?"
+        }
+      },
+      {
+        "id": "cv-transit-b-02-2",
+        "npc": {
+          "text": "네, 출발합니다. 안전벨트 매 주세요.",
+          "en": "Yes, departing. Please fasten your seatbelt."
+        },
+        "userPrompt": "시청까지 얼마나 걸리는지 물어보세요.",
+        "accept": [
+          {
+            "k": [
+              "얼마나",
+              "몇 분",
+              "시간이"
+            ],
+            "why": "소요 시간을 물었는지"
+          },
+          {
+            "k": [
+              "걸려요",
+              "걸릴까요",
+              "걸리나요"
+            ],
+            "why": "걸리는지 확인했는지"
+          }
+        ],
+        "model": "시청까지 얼마나 걸려요?",
+        "tip": "이동 시간을 물어볼 때는 「얼마나 걸려요?」를 써요.",
+        "onMiss": {
+          "text": "도착 시간이 궁금하신가요?",
+          "en": "Are you wondering about the arrival time?"
+        }
+      },
+      {
+        "id": "cv-transit-b-02-3",
+        "npc": {
+          "text": "교통이 원활해서 십 분이면 도착합니다. 거의 다 왔어요.",
+          "en": "Traffic is smooth, so we will arrive in ten minutes. Almost there."
+        },
+        "userPrompt": "저 앞 편의점 앞에서 세워 달라고 말해 보세요.",
+        "accept": [
+          {
+            "k": [
+              "편의점 앞",
+              "저 앞",
+              "편의점에서"
+            ],
+            "why": "하차 위치를 짚었는지"
+          },
+          {
+            "k": [
+              "세워 주세요",
+              "내려 주세요"
+            ],
+            "why": "정차 요청을 표현했는지"
+          }
+        ],
+        "model": "저기 편의점 앞에서 세워 주세요.",
+        "tip": "내릴 곳을 알릴 때는 「장소 + 에서 세워 주세요」라고 해요.",
+        "onMiss": {
+          "text": "어디서 내려 드릴까요?",
+          "en": "Where should I drop you off?"
+        }
+      }
+    ],
+    "outro": {
+      "text": "네, 도착했습니다. 조심히 내리세요!",
+      "en": "Yes, we have arrived. Please exit carefully!"
+    }
+  },
+  {
+    "id": "cv-transit-b-03",
+    "category": "transit",
+    "title": "지하철역에서 교통카드 충전하기",
+    "en": "Recharging a transit card at a subway station",
+    "lv": "beginner",
+    "register": "polite",
+    "roleUser": "승객",
+    "roleOther": "역무원",
+    "setting": "당신은 지하철역 고객센터에서 교통카드를 만 원 충전하려고 합니다.",
+    "vocab": [
+      [
+        "교통카드",
+        "transit card"
+      ],
+      [
+        "충전",
+        "recharge, top-up"
+      ],
+      [
+        "만 원",
+        "10,000 won"
+      ],
+      [
+        "현금",
+        "cash"
+      ]
+    ],
+    "grammarRefs": [],
+    "turns": [
+      {
+        "id": "cv-transit-b-03-1",
+        "npc": {
+          "text": "네, 안내센터입니다. 무엇을 도와드릴까요?",
+          "en": "Yes, customer service. How can I help you?"
+        },
+        "userPrompt": "교통카드를 충전하고 싶다고 말해 보세요.",
+        "accept": [
+          {
+            "k": [
+              "교통카드",
+              "카드"
+            ],
+            "why": "충전 대상을 말했는지"
+          },
+          {
+            "k": [
+              "충전하고 싶어요",
+              "충전하러 왔어요",
+              "충전해 주세요"
+            ],
+            "why": "충전 의사를 밝혔는지"
+          }
+        ],
+        "model": "교통카드 충전하고 싶어요.",
+        "tip": "카드 잔액을 채울 때는 「충전」이라는 단어를 써요.",
+        "onMiss": {
+          "text": "교통카드 관련 용무이신가요?",
+          "en": "Is this regarding your transit card?"
+        }
+      },
+      {
+        "id": "cv-transit-b-03-2",
+        "npc": {
+          "text": "얼마 충전해 드릴까요?",
+          "en": "How much would you like to recharge?"
+        },
+        "userPrompt": "만 원 충전해 달라고 말해 보세요.",
+        "accept": [
+          {
+            "k": [
+              "만 원",
+              "일만 원"
+            ],
+            "why": "충전 금액을 말했는지"
+          },
+          {
+            "k": [
+              "충전해 주세요",
+              "넣어 주세요",
+              "해 주세요"
+            ],
+            "why": "충전 요청 어미를 썼는지"
+          }
+        ],
+        "model": "만 원 충전해 주세요.",
+        "tip": "금액 뒤에 「충전해 주세요」를 붙이면 명확해요.",
+        "onMiss": {
+          "text": "충전 금액을 말씀해 주시겠어요?",
+          "en": "Could you tell me the recharge amount?"
+        }
+      },
+      {
+        "id": "cv-transit-b-03-3",
+        "npc": {
+          "text": "네, 카드 올려놓아 주시고 현금 만 원 받았습니다.",
+          "en": "Yes, please place your card and I received 10,000 won cash."
+        },
+        "userPrompt": "충전이 다 되었는지 물어보세요.",
+        "accept": [
+          {
+            "k": [
+              "다 되었나요",
+              "다 됐어요",
+              "끝났나요"
+            ],
+            "why": "완료 여부를 물었는지"
+          },
+          {
+            "k": [
+              "충전",
+              "완료"
+            ],
+            "why": "충전 작업에 대해 물었는지"
+          }
+        ],
+        "model": "충전 다 되었나요?",
+        "tip": null,
+        "onMiss": {
+          "text": "작업 결과를 확인하시겠어요?",
+          "en": "Would you like to check the result?"
+        }
+      }
+    ],
+    "outro": {
+      "text": "네, 만 원 충전 완료되었습니다. 카드 챙겨 가세요!",
+      "en": "Yes, 10,000 won recharged. Please take your card!"
+    }
+  },
+  {
+    "id": "cv-transit-i-01",
+    "category": "transit",
+    "title": "버스 정류장에서 환승 방법 묻기",
+    "en": "Asking about bus transfers at a stop",
+    "lv": "intermediate",
+    "register": "polite",
+    "roleUser": "승객",
+    "roleOther": "행인",
+    "setting": "당신은 버스 정류장에서 박물관으로 가기 위해 환승하는 버스를 묻습니다.",
+    "vocab": [
+      [
+        "환승",
+        "transfer"
+      ],
+      [
+        "갈아타다",
+        "to transfer"
+      ],
+      [
+        "정류장",
+        "bus stop"
+      ],
+      [
+        "방면",
+        "bound for, direction"
+      ]
+    ],
+    "grammarRefs": [],
+    "turns": [
+      {
+        "id": "cv-transit-i-01-1",
+        "npc": {
+          "text": "네, 무슨 버스 찾으세요?",
+          "en": "Yes, what bus are you looking for?"
+        },
+        "userPrompt": "박물관에 가려면 몇 번 버스를 타야 하는지 물어보세요.",
+        "accept": [
+          {
+            "k": [
+              "박물관",
+              "박물관에"
+            ],
+            "why": "목적지를 분명히 말했는지"
+          },
+          {
+            "k": [
+              "몇 번 버스",
+              "어떤 버스"
+            ],
+            "why": "버스 번호를 물었는지"
+          },
+          {
+            "k": [
+              "타야 해요",
+              "타야 하나요",
+              "가나요"
+            ],
+            "why": "탑승 질문 어미를 썼는지"
+          }
+        ],
+        "model": "박물관에 가려면 몇 번 버스를 타야 해요?",
+        "tip": "노선 번호를 물을 때는 「몇 번 버스를 타야 해요?」라고 해요.",
+        "onMiss": {
+          "text": "어느 곳으로 가는 버스인가요?",
+          "en": "Which bus destination are you heading to?"
+        }
+      },
+      {
+        "id": "cv-transit-i-01-2",
+        "npc": {
+          "text": "여기서 바로 가는 건 없고 중간에 한번 갈아타셔야 해요.",
+          "en": "There is no direct bus here, you need to transfer once on the way."
+        },
+        "userPrompt": "어디에서 갈아타야 하는지 물어보세요.",
+        "accept": [
+          {
+            "k": [
+              "어디에서",
+              "어느 정류장에서",
+              "어디서"
+            ],
+            "why": "환승 장소를 물었는지"
+          },
+          {
+            "k": [
+              "갈아타야 해요",
+              "환승해야 하나요",
+              "갈아타나요"
+            ],
+            "why": "환승 표현을 썼는지"
+          }
+        ],
+        "model": "어디에서 갈아타야 해요?",
+        "tip": "교통수단을 바꿀 때는 동사 「갈아타다」나 명사 「환승」을 써요.",
+        "onMiss": {
+          "text": "환승 정류장이 궁금하신가요?",
+          "en": "Do you want to know the transfer stop?"
+        }
+      },
+      {
+        "id": "cv-transit-i-01-3",
+        "npc": {
+          "text": "삼 번 버스를 타고 세 정거장 뒤 시청 정류장에서 칠 번으로 갈아타세요.",
+          "en": "Take bus number 3 and transfer to number 7 at City Hall stop three stops later."
+        },
+        "userPrompt": "자세히 알려줘서 감사하다고 말해 보세요.",
+        "accept": [
+          {
+            "k": [
+              "자세히",
+              "친절하게",
+              "설명해 주셔서"
+            ],
+            "why": "상세한 안내에 감사를 표했는지"
+          },
+          {
+            "k": [
+              "감사합니다",
+              "고맙습니다"
+            ],
+            "why": "감사 인사로 끝맺었는지"
+          }
+        ],
+        "model": "자세히 알려주셔서 감사합니다.",
+        "tip": null,
+        "onMiss": {
+          "text": "버스 놓치지 말고 잘 타세요!",
+          "en": "Do not miss the bus and have a safe ride!"
+        }
+      }
+    ],
+    "outro": {
+      "text": "네, 곧 삼 번 버스 도착하네요. 조심히 가세요!",
+      "en": "Yes, bus 3 is arriving soon. Have a safe trip!"
+    }
+  },
+  {
+    "id": "cv-hospital-b-01",
+    "category": "hospital",
+    "title": "약국에서 소화제 사고 복용법 묻기",
+    "en": "Buying digestive medicine at a pharmacy",
+    "lv": "beginner",
+    "register": "polite",
+    "roleUser": "손님",
+    "roleOther": "약사",
+    "setting": "당신은 배가 아프고 소화가 안 되어 약국을 방문했습니다.",
+    "vocab": [
+      [
+        "소화제",
+        "digestive medicine"
+      ],
+      [
+        "식후",
+        "after meals"
+      ],
+      [
+        "복용하다",
+        "to take medicine"
+      ],
+      [
+        "속이 답답하다",
+        "to feel bloated/heavy"
+      ]
+    ],
+    "grammarRefs": [],
+    "turns": [
+      {
+        "id": "cv-hospital-b-01-1",
+        "npc": {
+          "text": "어디가 불편해서 오셨어요?",
+          "en": "What seems to be the problem?"
+        },
+        "userPrompt": "소화가 잘 안 되는데 소화제 좀 달라고 말해 보세요.",
+        "accept": [
+          {
+            "k": [
+              "소화가",
+              "배가 아파서",
+              "속이"
+            ],
+            "why": "소화 증상을 말했는지"
+          },
+          {
+            "k": [
+              "소화제 좀 주세요",
+              "소화제 주세요",
+              "약 좀 주세요"
+            ],
+            "why": "약품을 요청했는지"
+          }
+        ],
+        "model": "소화가 안 되는데 소화제 좀 주세요.",
+        "tip": "증상을 말하고 약을 구할 때는 「-는데 약 좀 주세요」를 써요.",
+        "onMiss": {
+          "text": "어떤 약이 필요하신가요?",
+          "en": "What kind of medicine do you need?"
+        }
+      },
+      {
+        "id": "cv-hospital-b-01-2",
+        "npc": {
+          "text": "네, 이 소화제가 효과가 좋습니다. 삼천 원입니다.",
+          "en": "Yes, this digestive medicine is very effective. It is 3,000 won."
+        },
+        "userPrompt": "하루에 몇 번 먹어야 하는지 물어보세요.",
+        "accept": [
+          {
+            "k": [
+              "하루에 몇 번",
+              "몇 알씩",
+              "언제"
+            ],
+            "why": "복용 횟수나 때를 물었는지"
+          },
+          {
+            "k": [
+              "먹어야 해요",
+              "먹나요",
+              "복용하나요"
+            ],
+            "why": "먹는 법을 질문했는지"
+          }
+        ],
+        "model": "하루에 몇 번 먹어야 해요?",
+        "tip": "복용 빈도를 물을 때는 「하루에 몇 번 먹어야 해요?」라고 해요.",
+        "onMiss": {
+          "text": "복용 방법이 궁금하신가요?",
+          "en": "Are you wondering about how to take it?"
+        }
+      },
+      {
+        "id": "cv-hospital-b-01-3",
+        "npc": {
+          "text": "식사 후에 물과 함께 한 알씩 하루 세 번 드시면 됩니다.",
+          "en": "Take one pill three times a day with water after meals."
+        },
+        "userPrompt": "알겠다고 인사하며 약값을 건네 보세요.",
+        "accept": [
+          {
+            "k": [
+              "네 알겠습니다",
+              "잘 알겠습니다"
+            ],
+            "why": "복용법을 이해했는지"
+          },
+          {
+            "k": [
+              "여기 있어요",
+              "감사합니다",
+              "계산해 주세요",
+              "원 있어요"
+            ],
+            "why": "결제와 감사를 표현했는지"
+          }
+        ],
+        "model": "네 알겠습니다, 여기 삼천 원 있어요.",
+        "tip": null,
+        "onMiss": {
+          "text": "물과 함께 드시는 것 잊지 마세요!",
+          "en": "Do not forget to take it with water!"
+        }
+      }
+    ],
+    "outro": {
+      "text": "약 드시고 푹 쉬세요!",
+      "en": "Take your medicine and get plenty of rest!"
+    }
+  },
+  {
+    "id": "cv-hospital-i-01",
+    "category": "hospital",
+    "title": "병원에서 감기 증상 설명하기",
+    "en": "Explaining cold symptoms at a clinic",
+    "lv": "intermediate",
+    "register": "polite",
+    "roleUser": "환자",
+    "roleOther": "의사",
+    "setting": "당신은 며칠 전부터 열이 나고 목이 아파서 내과 의사에게 진료를 받습니다.",
+    "vocab": [
+      [
+        "증상",
+        "symptom"
+      ],
+      [
+        "목이 붓다",
+        "to have a swollen throat"
+      ],
+      [
+        "열이 나다",
+        "to have a fever"
+      ],
+      [
+        "처방전",
+        "prescription"
+      ]
+    ],
+    "grammarRefs": [],
+    "turns": [
+      {
+        "id": "cv-hospital-i-01-1",
+        "npc": {
+          "text": "어디가 안 좋아서 오셨나요?",
+          "en": "What brings you in today?"
+        },
+        "userPrompt": "이틀 전부터 열이 나고 목이 심하게 붓고 아프다고 말해 보세요.",
+        "accept": [
+          {
+            "k": [
+              "이틀 전부터",
+              "열이 나고",
+              "목이 부어서"
+            ],
+            "why": "발병 시기와 증상을 밝혔는지"
+          },
+          {
+            "k": [
+              "아파요",
+              "목이 아파요",
+              "열이 있어요"
+            ],
+            "why": "통증과 열 상태를 전했는지"
+          }
+        ],
+        "model": "이틀 전부터 열이 나고 목이 아파요.",
+        "tip": "증상이 시작된 시점 뒤에 「-부터」를 붙이면 진료에 도움이 돼요.",
+        "onMiss": {
+          "text": "언제부터 어떤 증상이 있으셨나요?",
+          "en": "Since when have you had what symptoms?"
+        }
+      },
+      {
+        "id": "cv-hospital-i-01-2",
+        "npc": {
+          "text": "목 안이 많이 붉네요. 기침이나 콧물 증상도 동반되나요?",
+          "en": "The inside of your throat is quite red. Do you also have a cough or runny nose?"
+        },
+        "userPrompt": "기침은 별로 안 하는데 콧물이 조금 난다고 대답해 보세요.",
+        "accept": [
+          {
+            "k": [
+              "기침은 별로",
+              "기침은 안",
+              "기침은 없고"
+            ],
+            "why": "기침 여부를 정확히 말했는지"
+          },
+          {
+            "k": [
+              "콧물이 조금",
+              "콧물이 나와요",
+              "콧물은 나요"
+            ],
+            "why": "콧물 증상을 설명했는지"
+          }
+        ],
+        "model": "기침은 별로 안 하는데 콧물이 조금 나요.",
+        "tip": "증상이 덜한 것은 「별로 안 -는데」로 대비해 표현해요.",
+        "onMiss": {
+          "text": "기침과 콧물 증상은 어떤가요?",
+          "en": "How are your cough and runny nose?"
+        }
+      },
+      {
+        "id": "cv-hospital-i-01-3",
+        "npc": {
+          "text": "체온을 재 보니 삼십칠 점 팔 도입니다. 약을 삼 일분 처방해 드릴게요.",
+          "en": "Your temperature is 37.8 degrees. I will prescribe three days of medicine."
+        },
+        "userPrompt": "처방전은 어디로 가져가야 하는지 물어보세요.",
+        "accept": [
+          {
+            "k": [
+              "처방전은",
+              "처방전",
+              "약은"
+            ],
+            "why": "처방전을 언급했는지"
+          },
+          {
+            "k": [
+              "어디로 가져가야",
+              "어디로 가야",
+              "어디서 받나요"
+            ],
+            "why": "제출처를 질문했는지"
+          }
+        ],
+        "model": "처방전은 어디로 가져가야 하나요?",
+        "tip": "한국에서는 병원에서 처방전을 받아 인근 약국으로 가요.",
+        "onMiss": {
+          "text": "처방전 제출 방법이 궁금하신가요?",
+          "en": "Do you want to know where to submit the prescription?"
+        }
+      },
+      {
+        "id": "cv-hospital-i-01-4",
+        "npc": {
+          "text": "수납 후 일층 약국에 처방전을 내시면 약을 지어 줍니다.",
+          "en": "After payment, give the prescription to the first floor pharmacy."
+        },
+        "userPrompt": "진료 감사하다고 인사해 보세요.",
+        "accept": [
+          {
+            "k": [
+              "선생님",
+              "원장님"
+            ],
+            "why": "의사 호칭을 적절히 썼는지"
+          },
+          {
+            "k": [
+              "감사합니다",
+              "고맙습니다",
+              "진료 감사합니다"
+            ],
+            "why": "감사를 전했는지"
+          }
+        ],
+        "model": "선생님, 진료 감사합니다.",
+        "tip": null,
+        "onMiss": {
+          "text": "따뜻한 물 많이 드시고 푹 쉬세요.",
+          "en": "Drink plenty of warm water and rest well."
+        }
+      }
+    ],
+    "outro": {
+      "text": "약 거르지 마시고 증상이 계속되면 다시 오세요!",
+      "en": "Do not skip your medicine, and return if symptoms persist!"
+    }
+  },
+  {
+    "id": "cv-hospital-a-01",
+    "category": "hospital",
+    "title": "병원 예약 진료 일정 변경하기",
+    "en": "Rescheduling a hospital appointment",
+    "lv": "advanced",
+    "register": "polite",
+    "roleUser": "환자",
+    "roleOther": "직원",
+    "setting": "당신은 다음 주 병원 검진 예약 시간이 출장과 겹쳐 일정을 변경하려고 전화했습니다.",
+    "vocab": [
+      [
+        "일정 변경",
+        "schedule change"
+      ],
+      [
+        "예약일",
+        "appointment date"
+      ],
+      [
+        "출장",
+        "business trip"
+      ],
+      [
+        "조율하다",
+        "to coordinate, adjust"
+      ]
+    ],
+    "grammarRefs": [],
+    "turns": [
+      {
+        "id": "cv-hospital-a-01-1",
+        "npc": {
+          "text": "감사합니다. 병원 예약센터입니다. 무엇을 도와드릴까요?",
+          "en": "Thank you. Seoul Clinic appointment center. How may I help you?"
+        },
+        "userPrompt": "다음 주 예약 일정을 다른 날로 변경하고 싶다고 말해 보세요.",
+        "accept": [
+          {
+            "k": [
+              "다음 주 예약",
+              "진료 예약",
+              "예약 일정"
+            ],
+            "why": "기존 예약 건을 짚었는지"
+          },
+          {
+            "k": [
+              "변경하고 싶어요",
+              "바꾸고 싶어서요",
+              "변경하려고요",
+              "변경하고 싶어서요"
+            ],
+            "why": "일정 변경 의사를 정중히 밝혔는지"
+          }
+        ],
+        "model": "다음 주 진료 예약을 다른 날로 변경하고 싶어서요.",
+        "tip": "요청 사유를 정중하게 꺼낼 때는 말끝을 「-(으)ㄹ까 해서요」나 「-고 싶어서요」로 맺어요.",
+        "onMiss": {
+          "text": "예약 변경 업무를 원하시나요?",
+          "en": "Would you like to reschedule an appointment?"
+        }
+      },
+      {
+        "id": "cv-hospital-a-01-2",
+        "npc": {
+          "text": "네, 성함과 예약되어 있는 기존 날짜를 말씀해 주시겠어요?",
+          "en": "Yes, could you tell me your name and current appointment date?"
+        },
+        "userPrompt": "다음 주 수요일 오전 진료를 금요일 오후로 바꿀 수 있는지 물어보세요.",
+        "accept": [
+          {
+            "k": [
+              "수요일",
+              "다음 주 수요일"
+            ],
+            "why": "기존 요일을 언급했는지"
+          },
+          {
+            "k": [
+              "금요일 오후로",
+              "금요일로",
+              "다른 시간으로"
+            ],
+            "why": "변경 희망 일시를 제시했는지"
+          },
+          {
+            "k": [
+              "바꿀 수 있을까요",
+              "가능한가요",
+              "변경될까요"
+            ],
+            "why": "조율 가능 여부를 질문했는지"
+          }
+        ],
+        "model": "수요일 진료를 금요일 오후로 바꿀 수 있을까요?",
+        "tip": "정중한 가능 질문에는 「-(으)ㄹ 수 있을까요?」를 쓰면 부드러워요.",
+        "onMiss": {
+          "text": "원하시는 변경 날짜와 시간이 언제인가요?",
+          "en": "What is your preferred new date and time?"
+        }
+      },
+      {
+        "id": "cv-hospital-a-01-3",
+        "npc": {
+          "text": "금요일 오후 세 시에 마침 취소 자리가 있네요. 그 시간으로 잡아 드릴까요?",
+          "en": "There happens to be a cancelled slot at 3 PM Friday. Shall I book that?"
+        },
+        "userPrompt": "그 시간으로 변경해 달라고 부탁해 보세요.",
+        "accept": [
+          {
+            "k": [
+              "그 시간으로",
+              "세 시로",
+              "금요일로"
+            ],
+            "why": "안내받은 시간을 확정했는지"
+          },
+          {
+            "k": [
+              "변경해 주세요",
+              "잡아 주세요",
+              "부탁드려요"
+            ],
+            "why": "예약 변경을 요청했는지"
+          }
+        ],
+        "model": "네, 그 시간으로 변경해 주세요.",
+        "tip": null,
+        "onMiss": {
+          "text": "금요일 오후 세 시로 확정해 드릴까요?",
+          "en": "Shall I confirm for 3 PM on Friday?"
+        }
+      }
+    ],
+    "outro": {
+      "text": "금요일 오후 세 시로 변경 예약 완료되었습니다. 확인 문자 발송해 드릴게요!",
+      "en": "Rescheduling confirmed for Friday at 3 PM. We will send a confirmation text!"
+    }
+  },
+  {
+    "id": "cv-phone-i-01",
+    "category": "phone",
+    "title": "식당 단체 예약 전화하기",
+    "en": "Calling a restaurant to make a group reservation",
+    "lv": "intermediate",
+    "register": "polite",
+    "roleUser": "손님",
+    "roleOther": "직원",
+    "setting": "당신은 주말 저녁 친구들과의 모임을 위해 한식당에 전화로 예약을 진행합니다.",
+    "vocab": [
+      [
+        "단체 예약",
+        "group reservation"
+      ],
+      [
+        "인원수",
+        "number of people"
+      ],
+      [
+        "모임",
+        "gathering"
+      ],
+      [
+        "확인하다",
+        "to confirm"
+      ]
+    ],
+    "grammarRefs": [],
+    "turns": [
+      {
+        "id": "cv-phone-i-01-1",
+        "npc": {
+          "text": "전화 주셔서 감사합니다. 한식당입니다.",
+          "en": "Thank you for calling. Delicious Restaurant."
+        },
+        "userPrompt": "이번 주 토요일 저녁 예약을 하고 싶다고 말해 보세요.",
+        "accept": [
+          {
+            "k": [
+              "이번 주 토요일",
+              "토요일 저녁",
+              "주말 저녁"
+            ],
+            "why": "예약 희망 일시를 밝혔는지"
+          },
+          {
+            "k": [
+              "예약하고 싶어요",
+              "예약하려고요",
+              "예약 가능한가요",
+              "예약을 하고 싶어요"
+            ],
+            "why": "예약 의사를 전달했는지"
+          }
+        ],
+        "model": "이번 주 토요일 저녁 예약을 하고 싶어요.",
+        "tip": "전화 예약 시에는 「날짜 + 시간대 + 예약하고 싶어요」로 서두를 열어요.",
+        "onMiss": {
+          "text": "방문 예정 일시가 언제이신가요?",
+          "en": "What date and time are you planning to visit?"
+        }
+      },
+      {
+        "id": "cv-phone-i-01-2",
+        "npc": {
+          "text": "토요일 몇 시에 몇 분이 방문하실 예정인가요?",
+          "en": "At what time on Saturday, and for how many people?"
+        },
+        "userPrompt": "저녁 일곱 시에 다섯 명이라고 말해 보세요.",
+        "accept": [
+          {
+            "k": [
+              "저녁 일곱 시",
+              "일곱 시",
+              "오후 일곱 시"
+            ],
+            "why": "정확한 시간을 말했는지"
+          },
+          {
+            "k": [
+              "다섯 명",
+              "오 인",
+              "다섯 분"
+            ],
+            "why": "단체 인원수를 명시했는지"
+          },
+          {
+            "k": [
+              "이에요",
+              "예약할게요",
+              "방문해요"
+            ],
+            "why": "서술어로 문장을 맺었는지"
+          }
+        ],
+        "model": "저녁 일곱 시에 다섯 명이에요.",
+        "tip": "시간과 인원을 말할 때는 「시간 + 에 + 인원 + 이에요」 구조를 써요.",
+        "onMiss": {
+          "text": "방문 시간과 인원을 알려주시겠어요?",
+          "en": "Could you tell me the time and number of guests?"
+        }
+      },
+      {
+        "id": "cv-phone-i-01-3",
+        "npc": {
+          "text": "네, 토요일 저녁 일곱 시 다섯 분 룸 자리로 가능합니다. 예약자 성함 말씀해 주세요.",
+          "en": "Yes, Saturday 7 PM for 5 people in a private room is available. May I have your name?"
+        },
+        "userPrompt": "이름을 밝히며 예약 확정을 부탁해 보세요.",
+        "accept": [
+          {
+            "k": [
+              "제 이름은",
+              "이름은",
+              "성함은"
+            ],
+            "why": "이름을 소개했는지"
+          },
+          {
+            "k": [
+              "부탁드려요",
+              "부탁해요",
+              "감사합니다"
+            ],
+            "why": "예약 확정 인사를 전했는지"
+          }
+        ],
+        "model": "제 이름은 ○○입니다. 예약 부탁드려요.",
+        "tip": null,
+        "onMiss": {
+          "text": "성함과 연락처를 남겨 주시겠어요?",
+          "en": "Could you leave your name and contact number?"
+        }
+      }
+    ],
+    "outro": {
+      "text": "토요일 일곱 시에 뵙겠습니다. 감사합니다!",
+      "en": "See you Saturday at seven. Thank you!"
+    }
+  },
+  {
+    "id": "cv-phone-i-02",
+    "category": "phone",
+    "title": "음식 배달 주문 전화하기",
+    "en": "Calling to order food delivery",
+    "lv": "intermediate",
+    "register": "polite",
+    "roleUser": "손님",
+    "roleOther": "직원",
+    "setting": "당신은 비가 와서 집에서 치킨을 주문하려고 가게에 전화를 걸었습니다.",
+    "vocab": [
+      [
+        "배달",
+        "delivery"
+      ],
+      [
+        "주소",
+        "address"
+      ],
+      [
+        "반반",
+        "half and half"
+      ],
+      [
+        "결제 수단",
+        "payment method"
+      ]
+    ],
+    "grammarRefs": [],
+    "turns": [
+      {
+        "id": "cv-phone-i-02-1",
+        "npc": {
+          "text": "네, 치킨집입니다. 주문하시겠어요?",
+          "en": "Yes, Crispy Chicken. Would you like to order?"
+        },
+        "userPrompt": "배달 주문이 가능한지 먼저 물어보세요.",
+        "accept": [
+          {
+            "k": [
+              "배달 주문",
+              "배달"
+            ],
+            "why": "배달을 언급했는지"
+          },
+          {
+            "k": [
+              "가능한가요",
+              "되나요",
+              "될까요"
+            ],
+            "why": "가능 여부를 질문했는지"
+          }
+        ],
+        "model": "혹시 배달 주문 가능한가요?",
+        "tip": "배달 전화 시 먼저 「배달 주문 가능한가요?」로 영업 상황을 확인해요.",
+        "onMiss": {
+          "text": "배달로 주문하시겠어요?",
+          "en": "Would you like to order for delivery?"
+        }
+      },
+      {
+        "id": "cv-phone-i-02-2",
+        "npc": {
+          "text": "네, 가능합니다. 어떤 메뉴로 준비해 드릴까요?",
+          "en": "Yes, it is available. What menu would you like?"
+        },
+        "userPrompt": "양념 반 후라이드 반 한 마리를 주문해 보세요.",
+        "accept": [
+          {
+            "k": [
+              "양념 반",
+              "반반",
+              "후라이드 반"
+            ],
+            "why": "반반 메뉴를 선택했는지"
+          },
+          {
+            "k": [
+              "한 마리",
+              "한 개",
+              "하나"
+            ],
+            "why": "수량을 명확히 했는지"
+          },
+          {
+            "k": [
+              "주세요",
+              "주문할게요",
+              "부탁드려요"
+            ],
+            "why": "주문 어미를 썼는지"
+          }
+        ],
+        "model": "양념 반 후라이드 반 한 마리 주세요.",
+        "tip": "치킨집에서는 두 가지 맛을 섞을 때 「양념 반 후라이드 반」이라고 불러요.",
+        "onMiss": {
+          "text": "원하시는 메뉴 구성을 말씀해 주세요.",
+          "en": "Please tell me your preferred menu choices."
+        }
+      },
+      {
+        "id": "cv-phone-i-02-3",
+        "npc": {
+          "text": "배달받으실 주소와 결제 방법 말씀해 주시겠어요?",
+          "en": "Could you tell me the delivery address and payment method?"
+        },
+        "userPrompt": "집 주소를 말하고 카드로 만나서 결제하겠다고 해 보세요.",
+        "accept": [
+          {
+            "k": [
+              "주소는",
+              "백이 호",
+              "아파트"
+            ],
+            "why": "주소를 언급했는지"
+          },
+          {
+            "k": [
+              "카드로",
+              "만나서 결제",
+              "직접 결제"
+            ],
+            "why": "대면 카드 결제를 선택했는지"
+          }
+        ],
+        "model": "주소는 행복아파트 백이 호이고 카드로 결제할게요.",
+        "tip": null,
+        "onMiss": {
+          "text": "주소와 결제 수단을 차례로 알려주세요.",
+          "en": "Please provide the address and payment method."
+        }
+      }
+    ],
+    "outro": {
+      "text": "주문 접수되었습니다. 삼십 분 내로 배달해 드릴게요!",
+      "en": "Order received. We will deliver within 30 minutes!"
+    }
+  },
+  {
+    "id": "cv-phone-a-01",
+    "category": "phone",
+    "title": "업무 일정 변경을 위한 공식 전화 통화",
+    "en": "Formal business call to reschedule a meeting",
+    "lv": "advanced",
+    "register": "formal",
+    "roleUser": "직원",
+    "roleOther": "상대측 직원",
+    "setting": "당신은 거래처 담당자와의 미팅 일정을 긴급 사정으로 미루기 위해 격식 있게 통화합니다.",
+    "vocab": [
+      [
+        "회의 일정",
+        "meeting schedule"
+      ],
+      [
+        "연기하다",
+        "to postpone"
+      ],
+      [
+        "양해",
+        "understanding, excuse"
+      ],
+      [
+        "송구스럽다",
+        "to be sorry/ashamed (polite)"
+      ]
+    ],
+    "grammarRefs": [],
+    "turns": [
+      {
+        "id": "cv-phone-a-01-1",
+        "npc": {
+          "text": "안녕하십니까. 거래처 관리팀입니다.",
+          "en": "Hello. This is Korea Planning management team."
+        },
+        "userPrompt": "인사를 건네고 소속과 이름을 밝히며 담당자를 연결해 달라고 요청해 보세요.",
+        "accept": [
+          {
+            "k": [
+              "안녕하십니까",
+              "처음 뵙겠습니다"
+            ],
+            "why": "격식 있는 첫인사를 건넸는지"
+          },
+          {
+            "k": [
+              "담당자님",
+              "팀장님",
+              "담당자"
+            ],
+            "why": "통화 상대를 찾았는지"
+          },
+          {
+            "k": [
+              "부탁드립니다",
+              "연결 바랍니다",
+              "계십니까"
+            ],
+            "why": "공식 종결 어미를 갖추었는지"
+          }
+        ],
+        "model": "안녕하십니까, 기획부 ○○○입니다. 담당자님 연결 부탁드립니다.",
+        "tip": "공식 업무 전화에서는 「소속 + 성함 + 연결 부탁드립니다」로 시작해요.",
+        "onMiss": {
+          "text": "어느 부서 누구를 찾으십니까?",
+          "en": "Which department and person are you calling for?"
+        }
+      },
+      {
+        "id": "cv-phone-a-01-2",
+        "npc": {
+          "text": "네, 담당자 본인입니다. 무슨 용무이십니까?",
+          "en": "Yes, I am the person in charge. What can I help you with?"
+        },
+        "userPrompt": "내일 예정된 미팅 일정을 부득이하게 연기할 수 있는지 정중히 여쭈어보세요.",
+        "accept": [
+          {
+            "k": [
+              "내일 미팅",
+              "예정된 회의",
+              "일정"
+            ],
+            "why": "변경 대상 회의를 짚었는지"
+          },
+          {
+            "k": [
+              "연기할 수",
+              "미룰 수",
+              "변경할 수"
+            ],
+            "why": "연기 가능 여부를 물었는지"
+          },
+          {
+            "k": [
+              "있겠습니까",
+              "여쭙겠습니다",
+              "부탁드립니다"
+            ],
+            "why": "합쇼체 질문형을 썼는지"
+          }
+        ],
+        "model": "내일 예정된 회의 일정을 다음 주로 연기할 수 있겠습니까?",
+        "tip": "격식체에서는 「-(으)ㄹ 수 있겠습니까?」로 조심스럽게 타진해요.",
+        "onMiss": {
+          "text": "회의 일정 변경에 대한 문의이십니까?",
+          "en": "Is this regarding rescheduling the meeting?"
+        }
+      },
+      {
+        "id": "cv-phone-a-01-3",
+        "npc": {
+          "text": "갑작스러운 사정이 생기셨군요. 다음 주 화요일 오후는 어떠십니까?",
+          "en": "An unexpected matter must have come up. How about next Tuesday afternoon?"
+        },
+        "userPrompt": "양해에 감사드리며 다음 주 화요일에 찾아뵙겠다고 답변해 보세요.",
+        "accept": [
+          {
+            "k": [
+              "양해해 주셔서",
+              "배려에",
+              "이해해 주셔서"
+            ],
+            "why": "양해에 감사를 표했는지"
+          },
+          {
+            "k": [
+              "감사드립니다",
+              "고맙습니다"
+            ],
+            "why": "격식 있는 감사 표현을 썼는지"
+          },
+          {
+            "k": [
+              "찾아뵙겠습니다",
+              "참석하겠습니다",
+              "뵙겠습니다"
+            ],
+            "why": "방문 다짐을 맺었는지"
+          }
+        ],
+        "model": "양해해 주셔서 감사드립니다, 다음 주 화요일에 찾아뵙겠습니다.",
+        "tip": null,
+        "onMiss": {
+          "text": "다음 주 화요일 일정으로 확정하시겠습니까?",
+          "en": "Shall we finalize on next Tuesday?"
+        }
+      }
+    ],
+    "outro": {
+      "text": "네, 그럼 다음 주 화요일에 뵙겠습니다. 감사합니다.",
+      "en": "Yes, then I look forward to seeing you next Tuesday. Thank you."
+    }
+  },
+  {
+    "id": "cv-social-b-01",
+    "category": "social",
+    "title": "동아리 첫 모임에서 자기소개하기",
+    "en": "Self-introduction at a first club meeting",
+    "lv": "beginner",
+    "register": "polite",
+    "roleUser": "신입 회원",
+    "roleOther": "기존 회원",
+    "setting": "당신은 한국어 독서 동아리에 처음 가입하여 다른 회원들과 인사를 나눕니다.",
+    "vocab": [
+      [
+        "동아리",
+        "club, group"
+      ],
+      [
+        "자기소개",
+        "self-introduction"
+      ],
+      [
+        "전공",
+        "major"
+      ],
+      [
+        "반갑다",
+        "to be glad, pleased"
+      ]
+    ],
+    "grammarRefs": [],
+    "turns": [
+      {
+        "id": "cv-social-b-01-1",
+        "npc": {
+          "text": "새로 오신 회원님이시죠? 만나서 반갑습니다!",
+          "en": "You are the new member, right? Nice to meet you!"
+        },
+        "userPrompt": "만나서 반갑다고 인사하며 본인 이름을 말해 보세요.",
+        "accept": [
+          {
+            "k": [
+              "만나서 반가워요",
+              "반갑습니다",
+              "안녕하세요"
+            ],
+            "why": "첫인사를 건넸는지"
+          },
+          {
+            "k": [
+              "제 이름은",
+              "저는",
+              "이라고 해요"
+            ],
+            "why": "이름을 소개했는지"
+          }
+        ],
+        "model": "안녕하세요, 저는 ○○(이)라고 해요.",
+        "tip": "이름을 소개할 때는 「저는 이름 + (이)라고 해요」가 자연스러워요.",
+        "onMiss": {
+          "text": "성함이 어떻게 되시나요?",
+          "en": "What is your name?"
+        }
+      },
+      {
+        "id": "cv-social-b-01-2",
+        "npc": {
+          "text": "반가워요, 환영해요! 한국어 공부는 언제부터 하셨어요?",
+          "en": "Welcome Michael! Since when have you been studying Korean?"
+        },
+        "userPrompt": "작년부터 한국어를 배우기 시작했다고 대답해 보세요.",
+        "accept": [
+          {
+            "k": [
+              "작년부터",
+              "일 년 전부터",
+              "작년에"
+            ],
+            "why": "학습 기간을 밝혔는지"
+          },
+          {
+            "k": [
+              "배우기 시작했어요",
+              "공부했어요",
+              "배웠어요"
+            ],
+            "why": "배우고 있음을 전했는지"
+          }
+        ],
+        "model": "작년부터 한국어를 배우기 시작했어요.",
+        "tip": "시작 시점을 표현할 때는 「명사 + 부터」를 결합해요.",
+        "onMiss": {
+          "text": "공부하신 지 얼마나 되셨나요?",
+          "en": "How long have you been studying?"
+        }
+      },
+      {
+        "id": "cv-social-b-01-3",
+        "npc": {
+          "text": "한국어를 정말 유창하게 잘하시네요. 앞으로 활동 잘 부탁드려요!",
+          "en": "You speak Korean very fluently. Looking forward to your club activities!"
+        },
+        "userPrompt": "앞으로 친하게 지내자고 화답해 보세요.",
+        "accept": [
+          {
+            "k": [
+              "앞으로",
+              "저도",
+              "함께"
+            ],
+            "why": "관계 발전의 의지를 보였는지"
+          },
+          {
+            "k": [
+              "친하게 지내요",
+              "잘 부탁드려요",
+              "반가워요"
+            ],
+            "why": "다정한 인사로 끝맺었는지"
+          }
+        ],
+        "model": "감사합니다, 앞으로 친하게 지내요.",
+        "tip": null,
+        "onMiss": {
+          "text": "동아리에서 함께 즐겁게 활동해요!",
+          "en": "Let us have fun participating in the club together!"
+        }
+      }
+    ],
+    "outro": {
+      "text": "모임 시간마다 유익하고 즐거운 시간 만들어 가요!",
+      "en": "Let us make every meeting informative and enjoyable!"
+    }
+  },
+  {
+    "id": "cv-social-b-02",
+    "category": "social",
+    "title": "친구와 주말 약속 잡기",
+    "en": "Making weekend plans with a friend",
+    "lv": "beginner",
+    "register": "plain",
+    "roleUser": "친구",
+    "roleOther": "친구",
+    "setting": "당신은 친한 친구와 주말에 만나 영화를 보기로 메신저로 이야기합니다.",
+    "vocab": [
+      [
+        "주말",
+        "weekend"
+      ],
+      [
+        "영화",
+        "movie"
+      ],
+      [
+        "약속",
+        "plan, promise"
+      ],
+      [
+        "만나다",
+        "to meet"
+      ]
+    ],
+    "grammarRefs": [],
+    "turns": [
+      {
+        "id": "cv-social-b-02-1",
+        "npc": {
+          "text": "이번 주 토요일에 특별한 약속 있어?",
+          "en": "Do you have special plans this Saturday?"
+        },
+        "userPrompt": "별다른 약속 없다고 반말로 대답해 보세요.",
+        "accept": [
+          {
+            "k": [
+              "특별한 약속",
+              "약속",
+              "일정"
+            ],
+            "why": "약속 유무를 말했는지"
+          },
+          {
+            "k": [
+              "없어",
+              "별로 없어",
+              "한가해"
+            ],
+            "why": "반말 종결형을 썼는지"
+          }
+        ],
+        "model": "아니, 특별한 약속 없어.",
+        "tip": "친구 사이에서는 요체를 떼고 반말 「-아/어」로 말해요.",
+        "onMiss": {
+          "text": "토요일에 시간 괜찮은지 알려줘.",
+          "en": "Let me know if your Saturday is free."
+        }
+      },
+      {
+        "id": "cv-social-b-02-2",
+        "npc": {
+          "text": "그럼 우리 오랜만에 극장 가서 영화 볼까?",
+          "en": "Then shall we go to the theater and watch a movie after a long time?"
+        },
+        "userPrompt": "좋다고 화답하며 몇 시에 만날지 물어보세요.",
+        "accept": [
+          {
+            "k": [
+              "좋아",
+              "그래",
+              "신난다"
+            ],
+            "why": "제안을 수락했는지"
+          },
+          {
+            "k": [
+              "몇 시에 만날까",
+              "언제 볼까",
+              "몇 시에 볼래"
+            ],
+            "why": "약속 시간을 물었는지"
+          }
+        ],
+        "model": "좋아, 그럼 우리 몇 시에 만날까?",
+        "tip": "친구에게 제안할 때는 「-ㄹ까?」나 「-자」를 써요.",
+        "onMiss": {
+          "text": "영화 볼래? 시간 언제가 좋아?",
+          "en": "Wanna watch a movie? What time works?"
+        }
+      },
+      {
+        "id": "cv-social-b-02-3",
+        "npc": {
+          "text": "점심 먹고 두 시쯤 강남역에서 보는 건 어때?",
+          "en": "How about around 2 PM after lunch at Gangnam Station?"
+        },
+        "userPrompt": "그 시간에 만나자고 약속을 확정해 보세요.",
+        "accept": [
+          {
+            "k": [
+              "두 시에",
+              "그때",
+              "강남역에서"
+            ],
+            "why": "장소나 시간을 확인했는지"
+          },
+          {
+            "k": [
+              "만나자",
+              "보자",
+              "좋아"
+            ],
+            "why": "반말 청유형으로 확정했는지"
+          }
+        ],
+        "model": "그래, 두 시에 강남역에서 만나자.",
+        "tip": null,
+        "onMiss": {
+          "text": "두 시에 시간 괜찮은지 말해줘!",
+          "en": "Tell me if 2 PM works for you!"
+        }
+      }
+    ],
+    "outro": {
+      "text": "응, 늦지 말고 그때 보자!",
+      "en": "Yeah, do not be late and see you then!"
+    }
+  },
+  {
+    "id": "cv-social-i-01",
+    "category": "social",
+    "title": "약속에 늦어서 이유 설명하고 사과하기",
+    "en": "Apologizing for being late and explaining why",
+    "lv": "intermediate",
+    "register": "polite",
+    "roleUser": "모임 참가자",
+    "roleOther": "친구",
+    "setting": "당신은 교통 체증 때문에 친구와의 약속 장소에 이십 분 늦게 도착했습니다.",
+    "vocab": [
+      [
+        "지각",
+        "being late"
+      ],
+      [
+        "길이 막히다",
+        "traffic is heavy"
+      ],
+      [
+        "사과하다",
+        "to apologize"
+      ],
+      [
+        "기다리다",
+        "to wait"
+      ]
+    ],
+    "grammarRefs": [],
+    "turns": [
+      {
+        "id": "cv-social-i-01-1",
+        "npc": {
+          "text": "많이 늦었네! 무슨 일 있었어?",
+          "en": "You are quite late! Did something happen?"
+        },
+        "userPrompt": "늦어서 정말 미안하다고 사과해 보세요.",
+        "accept": [
+          {
+            "k": [
+              "늦어서",
+              "지각해서"
+            ],
+            "why": "지각 원인을 짚었는지"
+          },
+          {
+            "k": [
+              "정말 미안해요",
+              "죄송해요",
+              "미안해"
+            ],
+            "why": "사과 표현을 전했는지"
+          }
+        ],
+        "model": "약속 시간에 늦어서 정말 미안해요.",
+        "tip": "사과할 때는 자연스러운 이유를 나타내는 「-아서/어서 미안해요」를 써요.",
+        "onMiss": {
+          "text": "많이 기다렸는데 사정 있었어?",
+          "en": "I waited for a long time, did something happen?"
+        }
+      },
+      {
+        "id": "cv-social-i-01-2",
+        "npc": {
+          "text": "길이 많이 밀렸어? 연락도 안 돼서 걱정했잖아.",
+          "en": "Was traffic heavy? I was worried since I could not reach you."
+        },
+        "userPrompt": "지하철 고장으로 연착되어 늦었다고 설명해 보세요.",
+        "accept": [
+          {
+            "k": [
+              "지하철이",
+              "열차가",
+              "전철이"
+            ],
+            "why": "교통수단을 언급했는지"
+          },
+          {
+            "k": [
+              "고장 나서",
+              "연착되어서",
+              "문제가 있어서"
+            ],
+            "why": "고장과 지연 이유를 설명했는지"
+          },
+          {
+            "k": [
+              "늦어졌어요",
+              "지체되었어요",
+              "못 갔어요",
+              "연착되었어요"
+            ],
+            "why": "지각 결과를 밝혔는지"
+          }
+        ],
+        "model": "지하철이 고장 나서 열차가 연착되었어요.",
+        "tip": "사유를 설명할 때는 구체적인 교통 상황을 덧붙여요.",
+        "onMiss": {
+          "text": "어떤 사정 때문에 늦었는지 말해줘.",
+          "en": "Tell me what circumstance caused the delay."
+        }
+      },
+      {
+        "id": "cv-social-i-01-3",
+        "npc": {
+          "text": "사고가 있었구나. 다친 데는 없지? 그럼 괜찮아.",
+          "en": "There was an accident. You are not hurt, right? Then it is okay."
+        },
+        "userPrompt": "이해해 줘서 고맙다며 커피를 사겠다고 제안해 보세요.",
+        "accept": [
+          {
+            "k": [
+              "이해해 줘서",
+              "기다려 줘서"
+            ],
+            "why": "배려에 고마워했는지"
+          },
+          {
+            "k": [
+              "커피 살게요",
+              "제가 살게요",
+              "커피 대접할게요"
+            ],
+            "why": "보답 제안을 했는지"
+          }
+        ],
+        "model": "이해해 줘서 고마워요, 제가 맛있는 커피 살게요.",
+        "tip": null,
+        "onMiss": {
+          "text": "괜찮으니 얼른 시원한 거 마시러 가자.",
+          "en": "It is fine, let us go drink something cool."
+        }
+      }
+    ],
+    "outro": {
+      "text": "그래, 다음부터는 급한 일 있으면 문자 먼저 줘!",
+      "en": "Sure, just text me first next time if something urgent happens!"
+    }
+  },
+  {
+    "id": "cv-social-i-02",
+    "category": "social",
+    "title": "친구 생일 축하와 선물 건네기",
+    "en": "Wishing happy birthday and giving a gift to a friend",
+    "lv": "intermediate",
+    "register": "plain",
+    "roleUser": "친구",
+    "roleOther": "생일인 친구",
+    "setting": "당신은 친구의 생일 파티에 초대받아 준비한 선물을 건넵니다.",
+    "vocab": [
+      [
+        "생일 축하",
+        "happy birthday"
+      ],
+      [
+        "선물",
+        "gift"
+      ],
+      [
+        "마음에 들다",
+        "to like, suit one taste"
+      ],
+      [
+        "골랐다",
+        "picked, chose"
+      ]
+    ],
+    "grammarRefs": [],
+    "turns": [
+      {
+        "id": "cv-social-i-02-1",
+        "npc": {
+          "text": "오늘 와 줘서 고마워! 자리 잡고 앉아.",
+          "en": "Thanks for coming today! Grab a seat and sit down."
+        },
+        "userPrompt": "생일 진심으로 축하한다고 반말로 인사해 보세요.",
+        "accept": [
+          {
+            "k": [
+              "생일 진심으로",
+              "생일 축하해",
+              "생일 축하"
+            ],
+            "why": "생일 축하 표현을 건넸는지"
+          },
+          {
+            "k": [
+              "축하해",
+              "축하한다"
+            ],
+            "why": "반말 종결형을 썼는지"
+          }
+        ],
+        "model": "생일 진심으로 축하해!",
+        "tip": "친구 사이에서는 존댓말 대신 「생일 축하해!」라고 축하해요.",
+        "onMiss": {
+          "text": "생일 파티 와 줘서 반가워!",
+          "en": "Glad you made it to the party!"
+        }
+      },
+      {
+        "id": "cv-social-i-02-2",
+        "npc": {
+          "text": "축하해 줘서 고마워. 양손 가득 들고 있는 건 뭐야?",
+          "en": "Thanks for the wish. What is that you are holding in both hands?"
+        },
+        "userPrompt": "네 생각이 나서 고른 선물이라고 건네 보세요.",
+        "accept": [
+          {
+            "k": [
+              "너 생각나서",
+              "선물 준비했어",
+              "선물이야"
+            ],
+            "why": "선물임을 밝혔는지"
+          },
+          {
+            "k": [
+              "받아",
+              "가져왔어",
+              "줄게",
+              "고른 작은 선물"
+            ],
+            "why": "건네는 행동을 전했는지"
+          }
+        ],
+        "model": "너 생각나서 고른 작은 선물이야.",
+        "tip": "선물을 건넬 때는 「너 생각나서 준비했어」라고 덧붙이면 따뜻해요.",
+        "onMiss": {
+          "text": "설마 내 선물 챙겨 온 거야?",
+          "en": "Did you prepare a gift for me by any chance?"
+        }
+      },
+      {
+        "id": "cv-social-i-02-3",
+        "npc": {
+          "text": "우와, 내가 평소에 갖고 싶었던 거잖아! 정말 감동이야.",
+          "en": "Wow, this is something I always wanted! I am so touched."
+        },
+        "userPrompt": "마음에 든다니 기쁘다고 말해 보세요.",
+        "accept": [
+          {
+            "k": [
+              "마음에 든다니",
+              "좋아하니까",
+              "마음에 들어서"
+            ],
+            "why": "상대의 만족 반응을 짚었는지"
+          },
+          {
+            "k": [
+              "다행이야",
+              "기뻐",
+              "뿌듯해",
+              "다행이다"
+            ],
+            "why": "기쁜 감정을 표현했는지"
+          }
+        ],
+        "model": "네 마음에 든다니 정말 다행이다.",
+        "tip": null,
+        "onMiss": {
+          "text": "선물 정말 고마워!",
+          "en": "Thank you so much for the gift!"
+        }
+      }
+    ],
+    "outro": {
+      "text": "오늘 우리 맛있는 음식 많이 먹고 재미있게 놀자!",
+      "en": "Let us eat lots of delicious food and have tons of fun today!"
+    }
+  },
+  {
+    "id": "cv-social-i-03",
+    "category": "social",
+    "title": "취미와 주말 여가 생활 이야기 나누기",
+    "en": "Talking about hobbies and weekend leisure activities",
+    "lv": "intermediate",
+    "register": "polite",
+    "roleUser": "모임 회원",
+    "roleOther": "동료 회원",
+    "setting": "당신은 언어 교환 모임에서 쉬는 시간에 다른 회원과 취미 생활에 대해 대화를 나눕니다.",
+    "vocab": [
+      [
+        "취미",
+        "hobby"
+      ],
+      [
+        "여가 생활",
+        "leisure activity"
+      ],
+      [
+        "등산",
+        "hiking, mountain climbing"
+      ],
+      [
+        "스트레스 해소",
+        "stress relief"
+      ]
+    ],
+    "grammarRefs": [],
+    "turns": [
+      {
+        "id": "cv-social-i-03-1",
+        "npc": {
+          "text": "주말이나 쉬는 날에는 보통 주로 뭘 하면서 시간을 보내세요?",
+          "en": "What do you usually do to spend time on weekends or days off?"
+        },
+        "userPrompt": "날씨가 좋을 때는 주로 근처 산으로 등산을 간다고 말해 보세요.",
+        "accept": [
+          {
+            "k": [
+              "날씨가 좋을 때",
+              "주말에는",
+              "쉬는 날에는"
+            ],
+            "why": "취미를 즐기는 상황을 제시했는지"
+          },
+          {
+            "k": [
+              "등산을 가요",
+              "등산해요",
+              "산에 올라가요"
+            ],
+            "why": "등산 취미를 명확히 밝혔는지"
+          }
+        ],
+        "model": "날씨가 좋을 때는 주로 근처 산으로 등산을 가요.",
+        "tip": "규칙적인 습관이나 취미는 「주로 동사 + 아요/어요」로 말해요.",
+        "onMiss": {
+          "text": "평소 즐겨 하시는 여가 활동이 있으신가요?",
+          "en": "Do you have leisure activities you usually enjoy?"
+        }
+      },
+      {
+        "id": "cv-social-i-03-2",
+        "npc": {
+          "text": "등산 좋아하시는군요! 산에 오르면 어떤 점이 가장 좋으세요?",
+          "en": "You like hiking! What do you like most about climbing mountains?"
+        },
+        "userPrompt": "정상에 올랐을 때 상쾌하고 스트레스가 풀린다고 설명해 보세요.",
+        "accept": [
+          {
+            "k": [
+              "정상에",
+              "올라가면",
+              "산 위에 가면"
+            ],
+            "why": "정상에 오른 순간을 언급했는지"
+          },
+          {
+            "k": [
+              "스트레스가 풀려요",
+              "상쾌해요",
+              "기분이 좋아요"
+            ],
+            "why": "신선한 보람과 효용을 표현했는지"
+          }
+        ],
+        "model": "정상에 서면 공기가 상쾌하고 스트레스가 풀려요.",
+        "tip": "활동의 이점을 설명할 때는 「스트레스가 풀려요」를 자주 써요.",
+        "onMiss": {
+          "text": "등산을 하실 때 특별히 좋은 점이 있나요?",
+          "en": "Is there anything especially good about hiking?"
+        }
+      },
+      {
+        "id": "cv-social-i-03-3",
+        "npc": {
+          "text": "저도 등산 좋아하는데 나중에 기회 되면 주말에 같이 산행 가요!",
+          "en": "I like hiking too. If we get a chance, let us go hiking together on a weekend!"
+        },
+        "userPrompt": "좋은 생각이라며 꼭 같이 가자고 대답해 보세요.",
+        "accept": [
+          {
+            "k": [
+              "좋은 생각이에요",
+              "좋아요",
+              "너무 좋아요"
+            ],
+            "why": "상대의 제안에 긍정적으로 호응했는지"
+          },
+          {
+            "k": [
+              "꼭 같이 가요",
+              "함께 가요",
+              "연락해요"
+            ],
+            "why": "동행 약속으로 대화를 맺었는지"
+          }
+        ],
+        "model": "좋은 생각이에요, 다음에 꼭 같이 가요.",
+        "tip": null,
+        "onMiss": {
+          "text": "주말 산행 같이 계획해 볼까요?",
+          "en": "Shall we plan a weekend hike together?"
+        }
+      }
+    ],
+    "outro": {
+      "text": "네, 다음에 가기 좋은 등산 코스 추천해 드릴게요!",
+      "en": "Yes, next time I will recommend a great hiking route for you!"
+    }
+  },
+  {
+    "id": "cv-work-a-01",
+    "category": "work",
+    "title": "선생님 연구실에 과제 질문과 조언 구하기",
+    "en": "Consulting with an instructor about an assignment",
+    "lv": "advanced",
+    "register": "polite",
+    "roleUser": "학생",
+    "roleOther": "선생님",
+    "setting": "당신은 기말 과제 보고서 작성을 앞두고 연구실에 찾아가 교수님께 지도를 부탁드립니다.",
+    "vocab": [
+      [
+        "연구실",
+        "professor office"
+      ],
+      [
+        "과제 주제",
+        "assignment topic"
+      ],
+      [
+        "피드백",
+        "feedback"
+      ],
+      [
+        "검토하다",
+        "to review, examine"
+      ]
+    ],
+    "grammarRefs": [],
+    "turns": [
+      {
+        "id": "cv-work-a-01-1",
+        "npc": {
+          "text": "들어오세요. 과제 준비하다가 막히는 부분이 있어서 찾아왔나요?",
+          "en": "Come in. Did you come because you got stuck while preparing the assignment?"
+        },
+        "userPrompt": "과제 주제 방향에 대해 조언을 구하고자 찾아왔다고 말씀드려 보세요.",
+        "accept": [
+          {
+            "k": [
+              "과제 주제",
+              "주제 방향",
+              "보고서"
+            ],
+            "why": "상담하려는 과제 내용을 밝혔는지"
+          },
+          {
+            "k": [
+              "조언을 구하고자",
+              "여쭤보려고",
+              "말씀 나누고 싶어서"
+            ],
+            "why": "상담 목적을 정중히 밝혔는지"
+          },
+          {
+            "k": [
+              "찾아왔습니다",
+              "왔어요",
+              "뵙고 싶었어요"
+            ],
+            "why": "방문 목적 어미로 끝맺었는지"
+          }
+        ],
+        "model": "네 선생님, 과제 주제 방향에 대해 조언을 구하고자 찾아왔어요.",
+        "tip": "선생님께 조언을 구할 때는 「조언을 구하고자 찾아왔어요」라고 공손히 표현해요.",
+        "onMiss": {
+          "text": "어떤 주제를 구상 중인지 말씀해 보겠어요?",
+          "en": "Could you tell me what topic you are conceiving?"
+        }
+      },
+      {
+        "id": "cv-work-a-01-2",
+        "npc": {
+          "text": "작성해 온 개요를 보니 자료 조사는 충실한데 결론의 시사점이 조금 모호하군요.",
+          "en": "Looking at your outline, research is thorough, but conclusions implications are vague."
+        },
+        "userPrompt": "결론 부분을 구체적으로 어떻게 보완하면 좋을지 여쭈어보세요.",
+        "accept": [
+          {
+            "k": [
+              "결론 부분을",
+              "시사점을",
+              "마무리 부분을"
+            ],
+            "why": "보완 대상 영역을 짚었는지"
+          },
+          {
+            "k": [
+              "어떻게 보완하면",
+              "어떤 방향으로 고치면"
+            ],
+            "why": "수정 방향을 질문했는지"
+          },
+          {
+            "k": [
+              "좋을까요",
+              "좋을지 여쭙고 싶어요"
+            ],
+            "why": "공손한 조언 청유 어미를 썼는지"
+          }
+        ],
+        "model": "결론 부분을 구체적으로 어떻게 보완하면 좋을까요?",
+        "tip": "조언을 구할 때는 「어떻게 보완하면 좋을까요?」를 쓰면 겸손하게 들려요.",
+        "onMiss": {
+          "text": "보완 방향에 대해 구체적인 질문이 있나요?",
+          "en": "Do you have specific questions on how to improve?"
+        }
+      },
+      {
+        "id": "cv-work-a-01-3",
+        "npc": {
+          "text": "실제 적용 사례를 한 문단 추가해서 실효성을 강조해 보세요.",
+          "en": "Add one paragraph of real-world implementation cases to emphasize effectiveness."
+        },
+        "userPrompt": "지도해 주신 방향대로 수정해서 다시 제출하겠다고 말씀드려 보세요.",
+        "accept": [
+          {
+            "k": [
+              "말씀해 주신 대로",
+              "지도해 주신 방향으로",
+              "조언대로",
+              "말씀대로"
+            ],
+            "why": "선생님의 지침을 따르겠다고 했는지"
+          },
+          {
+            "k": [
+              "수정해서",
+              "고쳐서",
+              "보완하여"
+            ],
+            "why": "원고 수정 의사를 밝혔는지"
+          },
+          {
+            "k": [
+              "제출하겠습니다",
+              "제출할게요",
+              "다시 낼게요"
+            ],
+            "why": "제출 약속으로 매듭지었는지"
+          }
+        ],
+        "model": "선생님 말씀대로 수정해서 다음 주에 다시 제출할게요.",
+        "tip": null,
+        "onMiss": {
+          "text": "수정 방향이 충분히 이해되었나요?",
+          "en": "Do you fully understand the revision direction?"
+        }
+      }
+    ],
+    "outro": {
+      "text": "열심히 준비해서 좋은 결실 맺기를 바랍니다. 힘내세요!",
+      "en": "I hope your hard work bears great fruit. Keep it up!"
+    }
+  },
+  {
+    "id": "cv-work-a-02",
+    "category": "work",
+    "title": "지각 및 결석 사유 정중히 공식 보고하기",
+    "en": "Formally reporting reasons for tardiness or absence",
+    "lv": "advanced",
+    "register": "formal",
+    "roleUser": "직원",
+    "roleOther": "부서장",
+    "setting": "당신은 급작스러운 급성 질환으로 오늘 출근이 어려워 부서장님께 공식 보고합니다.",
+    "vocab": [
+      [
+        "결근",
+        "absence from work"
+      ],
+      [
+        "급작스럽다",
+        "sudden, unexpected"
+      ],
+      [
+        "병가",
+        "sick leave"
+      ],
+      [
+        "양해",
+        "understanding, excuse"
+      ]
+    ],
+    "grammarRefs": [],
+    "turns": [
+      {
+        "id": "cv-work-a-02-1",
+        "npc": {
+          "text": "네, 부서장입니다. 이른 아침에 무슨 연락입니까?",
+          "en": "Yes, department head speaking. What is this early morning call about?"
+        },
+        "userPrompt": "갑작스러운 건강 이상으로 오늘 출근하기 어렵게 되었다고 보고해 보세요.",
+        "accept": [
+          {
+            "k": [
+              "건강 이상으로",
+              "몸이 안 좋아서",
+              "급성 질환으로",
+              "고열로"
+            ],
+            "why": "결근 사유를 밝혔는지"
+          },
+          {
+            "k": [
+              "출근하기 어렵게",
+              "출근이 어려울 것",
+              "결근하게",
+              "출근이 어렵게"
+            ],
+            "why": "출근 곤란 상황을 명시했는지"
+          },
+          {
+            "k": [
+              "되었습니다",
+              "송구합니다",
+              "보고드립니다"
+            ],
+            "why": "격식 있는 서술형을 썼는지"
+          }
+        ],
+        "model": "부서장님, 오늘 아침 갑작스러운 고열로 출근이 어렵게 되었습니다.",
+        "tip": "직장 결근 보고 시에는 증상 사유와 출근 곤란 사실을 결론부터 명확히 전달해요.",
+        "onMiss": {
+          "text": "오늘 출근에 차질이 생겼습니까?",
+          "en": "Is there a disruption with today work attendance?"
+        }
+      },
+      {
+        "id": "cv-work-a-02-2",
+        "npc": {
+          "text": "목소리가 많이 잠겼군요. 오늘 예정된 회의 자료는 어떻게 되어 있습니까?",
+          "en": "Your voice sounds very hoarse. What is the status of today meeting materials?"
+        },
+        "userPrompt": "회의 자료는 이미 공유 폴더에 올려두어 동료가 대신 진행할 수 있다고 보고해 보세요.",
+        "accept": [
+          {
+            "k": [
+              "공유 폴더에",
+              "자료는 미리",
+              "문서는"
+            ],
+            "why": "업무 자료 준비 상황을 알렸는지"
+          },
+          {
+            "k": [
+              "올려두었습니다",
+              "공유해 두었습니다",
+              "전달했습니다",
+              "올려두었으며"
+            ],
+            "why": "업무 인계 완료를 보고했는지"
+          },
+          {
+            "k": [
+              "진행할 수 있습니다",
+              "문제없습니다",
+              "진행할 예정"
+            ],
+            "why": "차질 없는 진행 가능성을 보장했는지"
+          }
+        ],
+        "model": "회의 자료는 공유 폴더에 올려두었으며 동료가 대신 진행할 예정입니다.",
+        "tip": "부재 보고 시에는 남은 팀원들이 업무를 이어받을 수 있도록 사전 조치를 알리는 것이 예의예요.",
+        "onMiss": {
+          "text": "진행 중이던 업무 인계는 준비되었습니까?",
+          "en": "Has your pending work handover been prepared?"
+        }
+      },
+      {
+        "id": "cv-work-a-02-3",
+        "npc": {
+          "text": "사전 조치를 잘해 두었군요. 진료 확인서 챙겨서 하루 푹 쉬도록 하세요.",
+          "en": "You handled the advance preparation well. Get a medical receipt and rest well today."
+        },
+        "userPrompt": "배려에 감사드리며 병원 진료 후 진단서를 제출하겠다고 말씀드려 보세요.",
+        "accept": [
+          {
+            "k": [
+              "배려해 주셔서",
+              "신경 써 주셔서"
+            ],
+            "why": "상사의 배려에 감사를 표했는지"
+          },
+          {
+            "k": [
+              "감사드립니다",
+              "고맙습니다",
+              "감사드리며"
+            ],
+            "why": "격식 있는 감사 표현을 썼는지"
+          },
+          {
+            "k": [
+              "제출하겠습니다",
+              "전달하겠습니다"
+            ],
+            "why": "증빙 서류 제출 다짐을 맺었는지"
+          }
+        ],
+        "model": "배려해 주셔서 진심으로 감사드리며 진단서를 제출하겠습니다.",
+        "tip": null,
+        "onMiss": {
+          "text": "몸조리 잘하시고 내일 뵙겠습니다.",
+          "en": "Take good care of your health and see you tomorrow."
+        }
+      }
+    ],
+    "outro": {
+      "text": "건강이 우선이니 걱정 말고 치료에 전념하십시오.",
+      "en": "Health comes first, so do not worry and focus on recovering."
+    }
+  },
+  {
+    "id": "cv-work-a-03",
+    "category": "work",
+    "title": "동료에게 긴급한 업무 협조 요청하기",
+    "en": "Formally requesting urgent cooperation from a colleague",
+    "lv": "advanced",
+    "register": "formal",
+    "roleUser": "팀원",
+    "roleOther": "동료 팀원",
+    "setting": "당신은 마감 직전 긴급 수정 사항이 발생하여 동료 팀원에게 서류 검토 협조를 구합니다.",
+    "vocab": [
+      [
+        "업무 협조",
+        "work cooperation"
+      ],
+      [
+        "긴급",
+        "urgent"
+      ],
+      [
+        "검토",
+        "review"
+      ],
+      [
+        "마감 기한",
+        "deadline"
+      ]
+    ],
+    "grammarRefs": [],
+    "turns": [
+      {
+        "id": "cv-work-a-03-1",
+        "npc": {
+          "text": "김 대리님, 바빠 보이시는데 무슨 급한 일 있으십니까?",
+          "en": "Assistant Manager Kim, you look busy. Is there something urgent?"
+        },
+        "userPrompt": "프로젝트 마감 서류에 긴급 수정이 생겨 협조를 구하고자 한다고 말씀해 보세요.",
+        "accept": [
+          {
+            "k": [
+              "마감 서류에",
+              "프로젝트 보고서에",
+              "최종본에"
+            ],
+            "why": "업무 대상을 제시했는지"
+          },
+          {
+            "k": [
+              "긴급 수정이",
+              "갑작스러운 수정",
+              "오류가"
+            ],
+            "why": "긴급 상황 발생을 밝혔는지"
+          },
+          {
+            "k": [
+              "협조를 구하고자 합니다",
+              "부탁드립니다",
+              "도움이 필요합니다"
+            ],
+            "why": "협조 요청 어미를 갖추었는지"
+          }
+        ],
+        "model": "마감 서류에 긴급 수정이 발생하여 업무 협조를 구하고자 합니다.",
+        "tip": "동료 간 격식 요청에서는 「업무 협조를 구하고자 합니다」를 즐겨 써요.",
+        "onMiss": {
+          "text": "어떤 부분에서 도움이 필요하십니까?",
+          "en": "In what area do you need assistance?"
+        }
+      },
+      {
+        "id": "cv-work-a-03-2",
+        "npc": {
+          "text": "마감 시각이 한 시간 남았는데 어떤 부분을 분담하면 되겠습니까?",
+          "en": "One hour left until deadline. Which section should I take over?"
+        },
+        "userPrompt": "통계 수치 검증 부분을 나누어 검토해 줄 수 있는지 물어보세요.",
+        "accept": [
+          {
+            "k": [
+              "통계 수치",
+              "데이터 검증",
+              "수치 확인"
+            ],
+            "why": "요청 업무의 구체적 내용을 짚었는지"
+          },
+          {
+            "k": [
+              "검토해 주실 수",
+              "확인해 주실 수",
+              "분담해 주실 수"
+            ],
+            "why": "수행 가능 여부를 타진했는지"
+          },
+          {
+            "k": [
+              "있겠습니까",
+              "바랍니다",
+              "부탁드립니다"
+            ],
+            "why": "합쇼체 의문형을 완성했는지"
+          }
+        ],
+        "model": "통계 수치 검증 부분을 나누어 검토해 주실 수 있겠습니까?",
+        "tip": "업무를 부탁할 때는 「-어 주실 수 있겠습니까?」로 정중하게 요청해요.",
+        "onMiss": {
+          "text": "제가 살펴볼 업무 항목을 지정해 주시겠습니까?",
+          "en": "Could you specify the task item for me to inspect?"
+        }
+      },
+      {
+        "id": "cv-work-a-03-3",
+        "npc": {
+          "text": "네, 제가 세부 수치 대조를 신속히 완료하도록 하겠습니다.",
+          "en": "Yes, I will quickly complete the verification of detailed figures."
+        },
+        "userPrompt": "바쁜 일정 중에 흔쾌히 도와주어 정말 고맙다고 인사해 보세요.",
+        "accept": [
+          {
+            "k": [
+              "바쁜 일정 중에",
+              "바쁘실 텐데",
+              "흔쾌히"
+            ],
+            "why": "동료의 배려에 공감했는지"
+          },
+          {
+            "k": [
+              "도와주셔서",
+              "협조해 주셔서"
+            ],
+            "why": "지원 행동에 감사했는지"
+          },
+          {
+            "k": [
+              "감사드립니다",
+              "고맙습니다"
+            ],
+            "why": "감사 표현으로 끝맺었는지"
+          }
+        ],
+        "model": "바쁘신 와중에 흔쾌히 도와주셔서 진심으로 감사드립니다.",
+        "tip": null,
+        "onMiss": {
+          "text": "어서 분담해서 마감 시간 내에 마칩시다.",
+          "en": "Let us split the work and finish within the deadline."
+        }
+      }
+    ],
+    "outro": {
+      "text": "수치 대조 끝마치는 대로 메일로 회신드리겠습니다!",
+      "en": "I will reply by email as soon as figure verification is complete!"
+    }
+  },
+  {
+    "id": "cv-service-b-01",
+    "category": "service",
+    "title": "경비실에 택배 맡기기 및 수령하기",
+    "en": "Dropping off and picking up parcels at security office",
+    "lv": "beginner",
+    "register": "polite",
+    "roleUser": "주민",
+    "roleOther": "경비원",
+    "setting": "당신은 부재중 도착한 택배 상자를 찾기 위해 아파트 경비실을 찾아갑니다.",
+    "vocab": [
+      [
+        "택배",
+        "parcel, delivery package"
+      ],
+      [
+        "경비실",
+        "security office"
+      ],
+      [
+        "상자",
+        "box"
+      ],
+      [
+        "찾아가다",
+        "to pick up, retrieve"
+      ]
+    ],
+    "grammarRefs": [],
+    "turns": [
+      {
+        "id": "cv-service-b-01-1",
+        "npc": {
+          "text": "네, 경비실입니다. 어떤 일로 오셨어요?",
+          "en": "Yes, security office. What brings you here?"
+        },
+        "userPrompt": "택배 상자를 찾으러 왔다고 말해 보세요.",
+        "accept": [
+          {
+            "k": [
+              "택배 상자",
+              "택배",
+              "상자"
+            ],
+            "why": "수령 대상 물품을 말했는지"
+          },
+          {
+            "k": [
+              "찾으러 왔어요",
+              "받으러 왔어요",
+              "찾으려고요"
+            ],
+            "why": "방문 목적을 표현했는지"
+          }
+        ],
+        "model": "택배 상자 찾으러 왔어요.",
+        "tip": "맡겨진 짐이나 택배를 찾을 때는 「택배 찾으러 왔어요」라고 해요.",
+        "onMiss": {
+          "text": "택배 수령하러 오셨나요?",
+          "en": "Did you come to pick up a parcel?"
+        }
+      },
+      {
+        "id": "cv-service-b-01-2",
+        "npc": {
+          "text": "몇 동 몇 호로 오신 택배인가요?",
+          "en": "Which building and unit number is the parcel for?"
+        },
+        "userPrompt": "일동 삼백이호라고 동과 호수를 밝혀 보세요.",
+        "accept": [
+          {
+            "k": [
+              "일동",
+              "백일동",
+              "일 동"
+            ],
+            "why": "동 번호를 말했는지"
+          },
+          {
+            "k": [
+              "삼백이호",
+              "삼백이 호",
+              "삼공이호"
+            ],
+            "why": "호수 번호를 말했는지"
+          },
+          {
+            "k": [
+              "예요",
+              "이에요",
+              "입니다"
+            ],
+            "why": "서술어로 문장을 끝맺었는지"
+          }
+        ],
+        "model": "일동 삼백이호예요.",
+        "tip": "아파트 주소는 「일동 삼백이호」처럼 한자어 숫자로 읽어요.",
+        "onMiss": {
+          "text": "동과 호수를 말씀해 주시겠어요?",
+          "en": "Could you tell me the building and unit number?"
+        }
+      },
+      {
+        "id": "cv-service-b-01-3",
+        "npc": {
+          "text": "네, 삼백이호 상자 여기 큰 거 하나 보관되어 있네요.",
+          "en": "Yes, here is one big box stored for unit 302."
+        },
+        "userPrompt": "보관해 주셔서 감사하다고 인사하며 상자를 받아 보세요.",
+        "accept": [
+          {
+            "k": [
+              "보관해 주셔서",
+              "맡아 주셔서",
+              "챙겨 주셔서"
+            ],
+            "why": "보관에 대한 감사를 전했는지"
+          },
+          {
+            "k": [
+              "감사합니다",
+              "고맙습니다",
+              "수고하세요"
+            ],
+            "why": "감사 인사로 끝맺었는지"
+          }
+        ],
+        "model": "보관해 주셔서 감사합니다.",
+        "tip": null,
+        "onMiss": {
+          "text": "상자 무거우니 조심히 들고 가세요.",
+          "en": "The box is heavy, so carry it carefully."
+        }
+      }
+    ],
+    "outro": {
+      "text": "네, 안녕히 가시고 좋은 하루 보내세요!",
+      "en": "Yes, take care and have a wonderful day!"
+    }
+  },
+  {
+    "id": "cv-service-a-01",
+    "category": "service",
+    "title": "집주인에게 보일러 고장 알리고 수리 요청하기",
+    "en": "Reporting a boiler breakdown to the landlord and requesting repair",
+    "lv": "advanced",
+    "register": "polite",
+    "roleUser": "세입자",
+    "roleOther": "집주인",
+    "setting": "당신은 추운 겨울날 자취방의 보일러가 작동을 멈추어 집주인에게 연락해 수리를 요청합니다.",
+    "vocab": [
+      [
+        "보일러",
+        "boiler, heating unit"
+      ],
+      [
+        "온수",
+        "hot water"
+      ],
+      [
+        "작동하다",
+        "to operate, run"
+      ],
+      [
+        "수리 기사",
+        "repair technician"
+      ]
+    ],
+    "grammarRefs": [],
+    "turns": [
+      {
+        "id": "cv-service-a-01-1",
+        "npc": {
+          "text": "네, 집주인입니다. 무슨 일 있으신가요?",
+          "en": "Yes, landlord speaking. Is something wrong?"
+        },
+        "userPrompt": "어젯밤부터 보일러가 켜지지 않아 온수가 전혀 나오지 않는다고 알려 보세요.",
+        "accept": [
+          {
+            "k": [
+              "어젯밤부터",
+              "어제부터",
+              "밤부터"
+            ],
+            "why": "고장 발생 시점을 알렸는지"
+          },
+          {
+            "k": [
+              "보일러가",
+              "난방이"
+            ],
+            "why": "고장 설비를 언급했는지"
+          },
+          {
+            "k": [
+              "온수가 안 나와요",
+              "켜지지 않아요",
+              "작동하지 않아요"
+            ],
+            "why": "온수 미작동 문제를 명확히 말했는지"
+          }
+        ],
+        "model": "어젯밤부터 보일러가 켜지지 않아 온수가 안 나와요.",
+        "tip": "주택 시설 문제 보고 시에는 증상과 함께 생활 불편 사항(온수 불통)을 함께 밝혀요.",
+        "onMiss": {
+          "text": "집 안 시설에 어떤 고장이 생겼나요?",
+          "en": "What breakdown happened in the house facilities?"
+        }
+      },
+      {
+        "id": "cv-service-a-01-2",
+        "npc": {
+          "text": "날씨가 몹시 추운데 큰일이군요. 전원 코드를 뺐다가 다시 꽂아 보셨나요?",
+          "en": "It is freezing outside, that is a big trouble. Did you try unplugging and plugging the power cord?"
+        },
+        "userPrompt": "코드를 다시 꽂아도 빨간색 경고등만 깜빡거린다고 상태를 전해 보세요.",
+        "accept": [
+          {
+            "k": [
+              "다시 꽂아도",
+              "코드를 꽂았는데",
+              "해 보았는데"
+            ],
+            "why": "자가 점검을 시도했음을 밝혔는지"
+          },
+          {
+            "k": [
+              "빨간색 불만",
+              "경고등만",
+              "불이 깜빡"
+            ],
+            "why": "경고등 상태를 묘사했는지"
+          },
+          {
+            "k": [
+              "깜빡거려요",
+              "들어와요",
+              "작동이 안 돼요"
+            ],
+            "why": "여전히 작동하지 않음을 전했는지"
+          }
+        ],
+        "model": "코드를 다시 꽂아도 빨간색 경고등만 깜빡거려요.",
+        "tip": "기기 결함을 설명할 때는 계기판의 표시등 색상이나 깜빡임 상태를 알려주면 좋아요.",
+        "onMiss": {
+          "text": "전원을 다시 켜 보셨을 때 반응이 어떠한가요?",
+          "en": "What was the response when you tried turning the power back on?"
+        }
+      },
+      {
+        "id": "cv-service-a-01-3",
+        "npc": {
+          "text": "기계 내부 부품에 결함이 생긴 것 같네요. 수리 기사님을 부르는 게 좋겠습니다.",
+          "en": "It seems like an internal component defect. Better call a repair technician."
+        },
+        "userPrompt": "추우니까 오늘 중으로 수리 기사님을 보내 주실 수 있는지 간곡히 부탁해 보세요.",
+        "accept": [
+          {
+            "k": [
+              "날씨가 추워서",
+              "추우니까",
+              "오늘 중으로"
+            ],
+            "why": "당일 처리 필요성을 강조했는지"
+          },
+          {
+            "k": [
+              "수리 기사님을",
+              "기사님을",
+              "수리를"
+            ],
+            "why": "기사 파견을 요청했는지"
+          },
+          {
+            "k": [
+              "보내 주실 수 있나요",
+              "부탁드려요",
+              "가능할까요"
+            ],
+            "why": "정중한 청구 어미를 썼는지"
+          }
+        ],
+        "model": "날씨가 추우니까 오늘 중으로 기사님을 보내 주실 수 있나요?",
+        "tip": "다급한 상황에서는 「오늘 중으로 -해 주실 수 있나요?」로 긴급성을 전달해요.",
+        "onMiss": {
+          "text": "오늘 방문 수리를 원하시나요?",
+          "en": "Would you like a repair visit today?"
+        }
+      },
+      {
+        "id": "cv-service-a-01-4",
+        "npc": {
+          "text": "네, 보일러 업체에 연락해서 오늘 오후 두 시에 기사님 방문하도록 조치하겠습니다.",
+          "en": "Yes, I will contact the boiler company to arrange a technician visit at 2 PM today."
+        },
+        "userPrompt": "빠른 조치에 감사하다고 인사해 보세요.",
+        "accept": [
+          {
+            "k": [
+              "빠르게 조치해 주셔서",
+              "신속하게",
+              "빠른 조치"
+            ],
+            "why": "신속한 대처에 고마워했는지"
+          },
+          {
+            "k": [
+              "감사합니다",
+              "고맙습니다"
+            ],
+            "why": "감사 인사로 대화를 맺었는지"
+          }
+        ],
+        "model": "빠르게 조치해 주셔서 정말 감사합니다.",
+        "tip": null,
+        "onMiss": {
+          "text": "기사님 오시면 전화 드릴 테니 집에 계세요.",
+          "en": "I will call when the technician arrives, so please stay home."
+        }
+      }
+    ],
+    "outro": {
+      "text": "네, 기사님 방문 시 현장에서 점검 잘 받으세요!",
+      "en": "Yes, hope the inspection goes smoothly when the technician visits!"
+    }
+  }
+]
