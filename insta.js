@@ -287,6 +287,8 @@ function drawThumbs() {
   });
 }
 function drawControls() {
+  const post = cur(), same = post.slides.filter((_, i) => i !== S.slide && sameShape(post, i)).length;
+  $('applyAll').hidden = !same;
   const p = placed.find((q) => q.e.id === S.sel);
   $('selbox').hidden = !p; $('nosel').hidden = !!p;
   if (!p) return;
@@ -358,6 +360,19 @@ $('size').addEventListener('input', (ev) => setSize(+ev.target.value));
 $('smaller').onclick = () => setSize(Math.round(ovPeek(cur(), S.slide, S.sel).s * 100) - 5);
 $('bigger').onclick = () => setSize(Math.round(ovPeek(cur(), S.slide, S.sel).s * 100) + 5);
 $('resetEl').onclick = () => { delete S.ov[cur().key]?.[S.slide]?.[S.sel]; saveOv(cur()); draw(); };
+/* 같은 꼴 장에 똑같이 — 지금 장의 크기 · 위치를 글 덩어리 이름이 같은 다른 장(단어 2~6장처럼) 모두에 옮긴다 */
+const sameShape = (post, i) => post.slides[i].els.map((e) => e.id).join() === post.slides[S.slide].els.map((e) => e.id).join();
+$('applyAll').onclick = () => {
+  const post = cur(), src = S.ov[post.key]?.[S.slide] || {};
+  let n = 0;
+  post.slides.forEach((_, i) => {
+    if (i === S.slide || !sameShape(post, i)) return;
+    (S.ov[post.key] ||= {})[i] = JSON.parse(JSON.stringify(src)); n++;
+  });
+  saveOv(post); draw();
+  $('applyAll').textContent = n ? `${n}장에 똑같이 했어요 ✓` : '같은 꼴 장이 없어요';
+  setTimeout(() => { $('applyAll').textContent = '이 장 모양을 같은 꼴 장 모두에'; }, 1800);
+};
 $('resetSlide').onclick = () => { if (S.ov[cur().key]) delete S.ov[cur().key][S.slide]; saveOv(cur()); S.sel = null; draw(); };
 
 $('tabs').addEventListener('click', (ev) => {
