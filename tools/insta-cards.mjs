@@ -51,6 +51,8 @@ function mark(p, text) {
   return out + esc(s.slice(at));
 }
 
+/* 글꼴 시안을 비교할 때만: INSTA_CSS=파일 — 그 CSS 를 덧붙인다(평소엔 비움) */
+const EXTRA_CSS = process.env.INSTA_CSS ? fs.readFileSync(process.env.INSTA_CSS, 'utf8') : '';
 const FONT = pathToFileURL(path.join(ROOT, 'vendor/pretendard.css')).href;
 const LOGO = pathToFileURL(path.join(ROOT, 'logo-clear.png')).href;
 const CSS = `
@@ -168,13 +170,17 @@ for (let k = 0; k < Number(daysArg); k++) {
   const posts = [['1-word', wordPost(WORDS[n % WORDS.length])], ['2-grammar', grammarPost(GRAMS[n % GRAMS.length])], ['3-quiz', quizPost(QUIZ[n % QUIZ.length])]];
   const dir = path.join(ROOT, 'insta/out', day);
   fs.mkdirSync(dir, { recursive: true });
+  const tmp = path.join(dir, '.slide.html');
   let caps = `치즈감자 인스타 — ${day}\n프로필 링크: https://everykoreans.com/?utm_source=instagram&utm_medium=social&utm_campaign=daily\n`;
   for (const [name, post] of posts) {
     for (let i = 0; i < post.slides.length; i++) {
-      await page.setContent(`<!doctype html><html lang="ko"><head><meta charset="utf-8"><link rel="stylesheet" href="${FONT}"><style>${CSS}</style></head><body>${post.slides[i]}</body></html>`, { waitUntil: 'load' });
+      /* setContent 는 about:blank 라 file:// 의 로고 · 글꼴을 못 부른다 — 파일로 써서 연다 */
+      fs.writeFileSync(tmp, `<!doctype html><html lang="ko"><head><meta charset="utf-8"><link rel="stylesheet" href="${FONT}"><style>${CSS}${EXTRA_CSS}</style></head><body>${post.slides[i]}</body></html>`);
+      await page.goto(pathToFileURL(tmp).href, { waitUntil: 'load' });
       await page.evaluate(() => document.fonts.ready);
       await page.screenshot({ path: path.join(dir, `${name}-${i + 1}.png`) });
     }
+    fs.rmSync(tmp, { force: true });
     caps += `\n━━━━━━━━ ${name} (${post.slides.length}장) ━━━━━━━━\n${post.caption}\n`;
   }
   fs.writeFileSync(path.join(dir, 'caption.txt'), caps);
