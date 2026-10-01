@@ -162,7 +162,7 @@ function wordsSlides(t, ws) {
   return [
     { tag, page: `1 / ${n}`, els: [
       el('hook', '맨 위 한 줄', [[R('한국어 단어 5개 · 5 Korean words', 44, 900, C.or)]]),
-      el('topic', '주제', [[R(t.ko, fit(t.ko, 900, 150, 96, -0.04), 900, C.ink, { ls: -0.04 })]], { gap: 14, lh: 1.12 }),
+      el('topic', '주제', [[R(t.ko, fit(t.ko, 900, 150, 96, -0.04), 900, C.ink, { ls: -0.04 })]], { gap: 14, lh: 1.12, oneLine: true }),
       el('topicEn', '주제 영어', [[R(t.en, 58, 800, C.ink2)]], { gap: 6, lh: 1.2 }),
       ...ws.map((w, i) => el(`w${i}`, `낱말 ${i + 1}`, [[R(`${i + 1}`, 30, 800, C.or), R('   ', 30), R(w.h, 44, 800), R('   ', 30), R(wordEn(w), 30, 400, C.dim)]],
         { deco: 'box', pad: 14, r: 22, gap: i ? 10 : 30, lh: 1.2 })),
@@ -170,7 +170,7 @@ function wordsSlides(t, ws) {
     ] },
     ...ws.map((w, i) => ({ tag, page: `${i + 2} / ${n}`, els: [
       el('lv', '주제 이름', [[R(`${t.ko} · ${t.en}`, 30, 700, C.or)]]),
-      el('big', '낱말', [[R(w.h, fit(w.h, 900, 230, 110, -0.05), 900, C.ink, { ls: -0.05 })]], { gap: 8, lh: 1.1 }),
+      el('big', '낱말', [[R(w.h, fit(w.h, 900, 230, 110, -0.05), 900, C.ink, { ls: -0.05 })]], { gap: 8, lh: 1.1, oneLine: true }),
       el('rom', '로마자', [[R(romanize(w.h) || '', 46, 400, C.dim, { italic: true })]], { gap: 8 }),
       el('en', '영어 뜻', [[R(wordEn(w), 76, 800)]], { gap: 34, lh: 1.2 }),
       el('pos', '품사', [[R(`${w.p} · ${POS_EN[w.p] || ''}`, 30, 700, C.ink2)]], { deco: 'pill', fill: C.pill, pad: 12, gap: 26 }),
@@ -186,7 +186,7 @@ function grammarSlides(p) {
   return [
     { tag, page: '1 / 3', els: [
       el('lv', '급', [[R(LV[p.lv] || '', 30, 700, C.or)]]),
-      el('gname', '문법 이름', names.map((nm, i) => [R(nm + (i < names.length - 1 ? ',' : ''), gs, 900, C.ink, { ls: -0.04 })]), { gap: 14, lh: 1.1, bgap: 0 }),
+      el('gname', '문법 이름', names.map((nm, i) => [R(nm + (i < names.length - 1 ? ',' : ''), gs, 900, C.ink, { ls: -0.04 })]), { gap: 14, lh: 1.1, bgap: 0, oneLine: true }),
       ...(en.desc ? [el('gen', '영어 뜻', [[R(en.desc.split(/(?<=\.)\s/)[0], 58, 800)]], { gap: 34, lh: 1.25 })] : []),
       el('gdesc', '한국어 설명', [[R(p.desc, 40, 600, C.ink2)]], { gap: 30, lh: 1.4 }),
       el('form', '형태', [[R(more[0] || en.form || '', 38, 400, C.ink2)]], { deco: 'box', pad: 36, gap: 40, lh: 1.5 }),
@@ -220,16 +220,32 @@ function loadPosts() {
   ];
   S.posts.forEach((p) => { S.ov[p.key] = store.get(ovKey(p), {}); });
 }
-const ovOf = (post, si, id) => ((S.ov[post.key] ||= {})[si] ||= {})[id] ||= { dx: 0, dy: 0, s: 1 };
-const ovPeek = (post, si, id) => S.ov[post.key]?.[si]?.[id] || { dx: 0, dy: 0, s: 1 };
-const saveOv = (post) => store.set(ovKey(post), S.ov[post.key] || {});
+/* 틀 — 장의 역할(단어 표지 · 단어 장 · 문법 1~3장)마다 마지막으로 손본 크기 · 위치를 기억해 두고,
+   아직 손보지 않은 게시물(다음 날 것)은 그 틀로 그린다. 운영자 요청(2026-10-01): 「다음 날에도 자동으로」. */
+const role = (post, si) => (post.topic ? (si ? 'w-word' : 'w-cover') : `g-${si + 1}`);
+S.tpl = store.get('insta:tpl', {});
+const slideOv = (post, si) => S.ov[post.key]?.[si] ?? S.tpl[role(post, si)];
+const ovOf = (post, si, id) => {
+  const o = (S.ov[post.key] ||= {});
+  if (!o[si]) o[si] = JSON.parse(JSON.stringify(S.tpl[role(post, si)] || {}));
+  return (o[si][id] ||= { dx: 0, dy: 0, s: 1 });
+};
+const ovPeek = (post, si, id) => slideOv(post, si)?.[id] || { dx: 0, dy: 0, s: 1 };
+const saveOv = (post) => {
+  store.set(ovKey(post), S.ov[post.key] || {});
+  const mine = S.ov[post.key]?.[S.slide];
+  if (mine) { S.tpl[role(post, S.slide)] = JSON.parse(JSON.stringify(mine)); store.set('insta:tpl', S.tpl); }
+};
 
 /* 자리 잡기 — 위에서부터 쌓고(크기 바꾼 것을 따라), 아래 붙은 것은 아래에서부터. 그다음 옮긴 만큼 더한다 */
 function place(post, si) {
   const sl = post.slides[si], out = [];
   let y = TOP;
   for (const e0 of sl.els.filter((e) => !e.bottom)) {
-    const o = ovPeek(post, si, e0.id), e = { ...e0, w: CW, s: o.s }, L = layout(e, e.s);
+    const o = ovPeek(post, si, e0.id), e = { ...e0, w: CW, s: o.s };
+    let L = layout(e, e.s);
+    /* 큰 제목(낱말 · 주제 · 문법 이름)은 틀을 다른 날에 써도 한 줄을 넘지 않게 — 넘치면 들어갈 만큼만 줄인다 */
+    while (e0.oneLine && L.lines.length > e0.blocks.length && e.s > 0.3) { e.s *= 0.96; L = layout(e, e.s); }
     y += (e.gap || 0) * 1; out.push({ e, L, x: X0 + o.dx, y: y + o.dy }); y += L.ch + 2 * L.pad;
   }
   /* 아래 붙은 것 — 위 글이 길어 닿으면 위 글 바로 밑으로 밀린다(겹치지 않게) */
@@ -359,7 +375,7 @@ function setSize(pct) {
 $('size').addEventListener('input', (ev) => setSize(+ev.target.value));
 $('smaller').onclick = () => setSize(Math.round(ovPeek(cur(), S.slide, S.sel).s * 100) - 5);
 $('bigger').onclick = () => setSize(Math.round(ovPeek(cur(), S.slide, S.sel).s * 100) + 5);
-$('resetEl').onclick = () => { delete S.ov[cur().key]?.[S.slide]?.[S.sel]; saveOv(cur()); draw(); };
+$('resetEl').onclick = () => { ovOf(cur(), S.slide, S.sel); delete S.ov[cur().key][S.slide][S.sel]; saveOv(cur()); draw(); };
 /* 같은 꼴 장에 똑같이 — 지금 장의 크기 · 위치를 글 덩어리 이름이 같은 다른 장(단어 2~6장처럼) 모두에 옮긴다 */
 const sameShape = (post, i) => post.slides[i].els.map((e) => e.id).join() === post.slides[S.slide].els.map((e) => e.id).join();
 $('applyAll').onclick = () => {
@@ -373,7 +389,7 @@ $('applyAll').onclick = () => {
   $('applyAll').textContent = n ? `${n}장에 똑같이 했어요 ✓` : '같은 꼴 장이 없어요';
   setTimeout(() => { $('applyAll').textContent = '이 장 모양을 같은 꼴 장 모두에'; }, 1800);
 };
-$('resetSlide').onclick = () => { if (S.ov[cur().key]) delete S.ov[cur().key][S.slide]; saveOv(cur()); S.sel = null; draw(); };
+$('resetSlide').onclick = () => { (S.ov[cur().key] ||= {})[S.slide] = {}; saveOv(cur()); S.sel = null; draw(); };
 
 $('tabs').addEventListener('click', (ev) => {
   const b = ev.target.closest('.tab'); if (!b) return;
