@@ -1148,18 +1148,20 @@ function wordPage(entry, prev, next) {
     : `${headTag} — ${en || '한국어 낱말'}`);
 
   const body = [
+    /* 보강한 낱말 쪽(vocabPage)과 같은 모양 — 로고 줄 · 첫 카드(낱말 · 로마자 · 뜻) · 예문 */
+    '<a class="wd-top" href="/"><img src="/logo-256.png" alt="" width="28" height="28">치즈감자</a>',
     `<nav class="crumb"><a href="/">치즈감자</a> › <a href="/dictionary/">사전</a> › ${esc(head)}</nav>`,
-    pos ? `<span class="badge">${esc(pos)}</span>` : '',
-    `<h1>${esc(head)}</h1>`,
-    firstEn ? `<p class="sub" lang="en">${esc(firstEn)}</p>` : '',
-    '<h2>뜻풀이 · Meaning</h2>',
-    senses?.length
-      ? '<div class="facts">' + senses.map(([ko, enS], i) =>
-          `<div class="fact"><b>${i + 1}.</b> <span>${esc(ko)}${enS ? `<i lang="en">${esc(enS)}</i>` : ''}</span></div>`
-        ).join('') + '</div>'
-      : `<p class="desc">${esc(en || t2(pos))}</p>`,
-    example ? '<h2>예문 · Example</h2>' +
-      `<div class="ex">${esc(example.ex)}<i lang="en">${esc(example.en)}</i></div>` : '',
+    '<section class="wd-hero">' +
+      (pos ? `<div class="wd-tags"><span class="badge">${esc(pos)}</span></div>` : '') +
+      `<h1>${esc(head)}</h1>` +
+      (romanize(head) ? `<p class="wd-rom" lang="en">${esc(romanize(head))}</p>` : '') +
+      (en ? `<p class="wd-en" lang="en">${esc(en)}</p>` : '') +
+      (senses?.length ? '<ol class="wd-senses">' + senses.map(([ko, enS]) =>
+        `<li>${esc(ko)}${enS && enS.trim() !== String(en || '').trim() ? `<i lang="en">${esc(enS)}</i>` : ''}</li>`).join('') + '</ol>'
+        : (en ? '' : `<p class="wd-en">${esc(t2(pos))}</p>`)) +
+    '</section>',
+    example ? '<h2>예문 <small>Example</small></h2>' +
+      `<div class="wd-exs"><div class="ex">${esc(example.ex)}<i lang="en">${esc(example.en)}</i></div></div>` : '',
     `<a class="cta" href="/#dictionary/${encodeURIComponent(head)}">사전에서 발음 듣고 단어장에 담기` +
       `<span>Hear it pronounced and save "${esc(head)}" to your wordbook</span></a>`,
     (prev || next) ? '<div class="near">' +
@@ -1183,10 +1185,42 @@ function wordPage(entry, prev, next) {
   return page({
     url: `/dictionary/${encodeURIComponent(head)}.html`,
     title, desc, body, jsonld,
-    extraCss: '.ex i{display:block;color:var(--dim);font-size:14px;font-style:normal;margin-top:4px}',
+    extraCss: VOCAB_CSS,
   });
 }
 
+/* 낱말 쪽 모양(운영자 지적 2026-10-01 「정신없다」 — 검색으로 가장 많이 들어오는 쪽이다).
+   첫 카드 하나(낱말 · 로마자 · 뜻) → 예문 → 활용 → 퀴즈. 이름표는 한국어 하나에 영어를 작게, 선은 가늘게. */
+const VOCAB_CSS = [
+  '.wd-top{display:flex;align-items:center;gap:8px;margin:0 0 14px;text-decoration:none;font-weight:800;font-size:15px;letter-spacing:-.01em}',
+  '.wd-top img{width:28px;height:28px;border-radius:50%}',
+  '.wd-hero{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:22px 22px 20px;margin:4px 0 6px}',
+  '.wd-tags{display:flex;gap:6px;flex-wrap:wrap}',
+  '.wd-hero h1{font-size:44px;line-height:1.15;margin:14px 0 2px;letter-spacing:-.03em}',
+  '.wd-rom{margin:0;color:var(--dim);font-size:15px;font-style:italic}',
+  '.wd-en{margin:14px 0 0;font-size:20px;font-weight:700;line-height:1.45}',
+  '.wd-senses{margin:12px 0 0;padding:12px 0 0 20px;border-top:1px solid var(--line);font-size:15.5px;color:var(--ink)}',
+  '.wd-senses li{margin:2px 0}.wd-senses i{display:block;font-style:normal;font-size:13.5px;color:var(--dim)}',
+  '.wd-rels{display:flex;flex-direction:column;gap:6px;margin-top:14px}',
+  '.wd-rel{display:flex;flex-wrap:wrap;align-items:center;gap:6px;font-size:14px}',
+  '.wd-rel b{font-size:12.5px;font-weight:600;color:var(--dim);min-width:56px}',
+  '.wd-rel a,.wd-rel span{padding:3px 11px;border-radius:999px;background:var(--soft);border:1px solid var(--line);text-decoration:none}',
+  'h2 small{font-weight:500;font-size:12.5px;margin-left:4px;opacity:.8}',
+  '.wd-exs{display:flex;flex-direction:column;gap:8px}',
+  '.wd-exs .ex{margin:0;background:var(--card);border:1px solid var(--line);border-left:3px solid var(--brand);border-radius:12px;padding:12px 16px;font-size:16.5px}',
+  '.ex i{display:block;color:var(--dim);font-size:14px;font-style:normal;margin-top:3px}',
+  '.wd-conj{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:8px}',
+  '.wd-conj div{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:10px 13px}',
+  '.wd-conj b{display:block;font-size:17px}.wd-conj span{font-size:12px;color:var(--dim)}',
+  '.wd-quiz{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px 18px}',
+  '.wd-q{margin:0 0 10px;font-weight:700}.wd-q span{display:block;font-weight:400;font-size:13px;color:var(--dim)}',
+  '.quiz{margin:0;padding:0;list-style:none;counter-reset:q;display:grid;gap:6px}',
+  '.quiz li{counter-increment:q;border:1px solid var(--line);border-radius:10px;padding:8px 12px;font-size:15px}',
+  '.quiz li::before{content:counter(q) ". ";color:var(--dim);font-weight:700}',
+  '.ans{margin:10px 0 0}.ans summary{cursor:pointer;font-weight:700;font-size:14.5px}.ans p{margin:6px 0 0;font-size:14.5px}',
+  '.note{font-size:12.5px;color:var(--dim)}',
+  '@media(max-width:480px){.wd-hero{padding:18px 16px}.wd-hero h1{font-size:38px}.wd-en{font-size:18px}}',
+].join('');
 /* 보강한 낱말 쪽 — TOPIK I 필수 낱말. */
 function vocabPage(w, prev, next) {
   const head = w.h, rom = romanize(head) || '';
@@ -1215,37 +1249,40 @@ function vocabPage(w, prev, next) {
   while (opts.length < 4 && pool.length >= 3) { const x = pool[Math.floor(rnd() * pool.length)]; if (!opts.includes(x)) opts.push(x); }
   opts.sort(() => rnd() - 0.5);
   const quiz = opts.length === 4
-    ? '<h2>미니 퀴즈 · Quick check</h2>' +
-      `<p class="desc">「${esc(head)}」의 뜻은? · What does ${esc(head)} mean?</p><ol class="quiz">` +
+    ? '<h2>미니 퀴즈 <small>Quick check</small></h2><div class="wd-quiz">' +
+      `<p class="wd-q">「${esc(head)}」의 뜻은? <span lang="en">What does ${esc(head)} mean?</span></p><ol class="quiz">` +
       opts.map((o) => `<li>${esc(o.s || o.e.split(';')[0])}</li>`).join('') + '</ol>' +
-      `<details class="ans"><summary>정답 보기 · Show answer</summary><p>${opts.indexOf(w) + 1}. ${esc(w.s || firstEn)} — ${esc(w.x[0]?.[0] || '')}</p></details>`
+      `<details class="ans"><summary>정답 보기 · Show answer</summary><p>${opts.indexOf(w) + 1}. ${esc(w.s || firstEn)} — ${esc(w.x[0]?.[0] || '')}</p></details></div>`
     : '';
 
+  /* 비슷한 말 · 반대말 · 높임말 — 표 칸 대신 첫 카드 아래 작은 줄로(운영자 지적 2026-10-01: 낱말 쪽이 정신없다) */
   const rel = w.r ? Object.entries(w.r).map(([k, v]) =>
-    `<div class="fact"><b>${{ syn: '비슷한 말 · Similar', ant: '반대말 · Opposite', hon: '높임말 · Honorific' }[k]}</b><span>${
-      v.map((x) => (PAGE_SET.has(x) ? `<a href="${dictHref(x)}">${esc(x)}</a>` : esc(x))).join(' · ')}</span></div>`).join('') : '';
+    `<div class="wd-rel"><b>${{ syn: '비슷한 말', ant: '반대말', hon: '높임말' }[k]}</b>${
+      v.map((x) => (PAGE_SET.has(x) ? `<a href="${dictHref(x)}">${esc(x)}</a>` : `<span>${esc(x)}</span>`)).join('')}</div>`).join('') : '';
   const same = ((isT2(w) ? byTopic2 : byTopic).get(topicMain(w)) || []).filter((x) => x !== w).slice(0, 14);
 
   const body = [
+    '<a class="wd-top" href="/"><img src="/logo-256.png" alt="" width="28" height="28">치즈감자</a>',
     `<nav class="crumb"><a href="/">치즈감자</a> › <a href="/dictionary/">사전</a>${tp ? ` › <a href="${vs.dir}${tp.id}.html">${vs.name} ${esc(tp.ko)}</a>` : ''} › ${esc(head)}</nav>`,
-    `<span class="badge">TOPIK ${isT2(w) ? 'II' : 'I'} · ${w.l}급</span> <span class="badge">${esc(w.p)}</span>`,
-    `<h1>${esc(head)}</h1>`,
-    `<p class="sub" lang="en"><span class="rom">${esc(rom)}</span> · ${esc(firstEn)}</p>`,
-    '<h2>뜻 · Meaning</h2>',
-    '<div class="facts">' +
-      `<div class="fact"><b>English</b><span lang="en">${esc(w.e)}${w.s && w.s !== w.e ? `<i>${esc(w.s)}</i>` : ''}</span></div>` +
-      (senses?.length ? senses.slice(0, 3).map(([ko, enS], i) => `<div class="fact"><b>뜻풀이 ${i + 1}</b><span>${esc(ko)}${enS ? `<i lang="en">${esc(enS)}</i>` : ''}</span></div>`).join('') : '') +
-      `<div class="fact"><b>로마자 · Romanization</b><span>${esc(rom)}</span></div>` +
-      rel + '</div>',
-    '<h2>예문 · Examples</h2>',
-    w.x.map(([ko, en]) => `<div class="ex">${esc(ko)}<i lang="en">${esc(en)}</i></div>`).join(''),
-    conj ? '<h2>활용 · Conjugation</h2><table class="conj"><tbody>' +
-      conj.map(([k, v]) => `<tr><th>${CONJ_NAME[k][0]}<small>${CONJ_NAME[k][1]}</small></th><td>${esc(v)}</td></tr>`).join('') +
-      '</tbody></table><p class="note">해요체(친근하고 공손한 말) 기준 · Polite informal style</p>' : '',
+    /* 첫 카드 하나에 낱말 · 로마자 · 뜻을 모은다. 예전엔 같은 영어 뜻이 세 번(부제 · English 칸 · 뜻풀이 칸),
+       로마자가 두 번 나왔다. 영어 뜻풀이는 낱말 뜻과 다를 때만 싣는다. */
+    '<section class="wd-hero">' +
+      `<div class="wd-tags"><span class="badge">TOPIK ${isT2(w) ? 'II' : 'I'} · ${w.l}급</span><span class="badge">${esc(w.p)}</span></div>` +
+      `<h1>${esc(head)}</h1>` +
+      `<p class="wd-rom" lang="en">${esc(rom)}</p>` +
+      `<p class="wd-en" lang="en">${esc(w.e)}</p>` +
+      (senses?.length ? '<ol class="wd-senses">' + senses.slice(0, 2).map(([ko, enS]) =>
+        `<li>${esc(ko)}${enS && enS.trim() !== w.e.trim() && enS.trim() !== (w.s || '').trim() ? `<i lang="en">${esc(enS)}</i>` : ''}</li>`).join('') + '</ol>' : '') +
+      (rel ? `<div class="wd-rels">${rel}</div>` : '') +
+    '</section>',
+    '<h2>예문 <small>Examples</small></h2>',
+    '<div class="wd-exs">' + w.x.map(([ko, en]) => `<div class="ex">${esc(ko)}<i lang="en">${esc(en)}</i></div>`).join('') + '</div>',
+    conj ? '<h2>활용 <small>Conjugation · 해요체</small></h2><div class="wd-conj">' +
+      conj.map(([k, v]) => `<div><b>${esc(v)}</b><span title="${esc(CONJ_NAME[k][1])}">${CONJ_NAME[k][0]}</span></div>`).join('') + '</div>' : '',
     quiz,
     `<a class="cta" href="/#words/w/${encodeURIComponent(head)}">이 낱말이 든 단어장 무료로 외우기 →` +
       `<span>Learn "${esc(head)}" free with flashcards and spaced review — hear it pronounced</span></a>`,
-    same.length ? `<h2>같은 주제 낱말 · More ${esc(tpName?.en || '')} words</h2><ul class="pts">` +
+    same.length ? `<h2>같은 주제 낱말 <small>More ${esc(tpName?.en || '')} words</small></h2><ul class="pts">` +
       same.map((x) => `<li><a href="${dictHref(x.h)}">${esc(x.h)}</a></li>`).join('') + '</ul>' +
       (tp ? `<p class="note"><a href="${vs.dir}${tp.id}.html">${vs.name} ${esc(tp.ko)} 낱말 전부 보기 · All ${esc(tp.en)} words →</a></p>` : '') : '',
     (prev || next) ? '<div class="near">' +
@@ -1274,13 +1311,7 @@ function vocabPage(w, prev, next) {
   ];
   return page({
     url, title, desc, body, jsonld,
-    extraCss: '.ex i{display:block;color:var(--dim);font-size:14px;font-style:normal;margin-top:4px}' +
-      '.sub .rom{font-style:italic}' +
-      '.conj{width:100%;border-collapse:collapse;border:1px solid var(--line);border-radius:12px;overflow:hidden;background:var(--card)}' +
-      '.conj th,.conj td{padding:10px 14px;border-bottom:1px solid var(--line);text-align:left;font-size:16px}' +
-      '.conj th{width:42%;font-weight:600;color:var(--dim);font-size:14px}.conj th small{display:block;font-weight:400;font-size:12px}' +
-      '.quiz{padding-left:22px;line-height:1.9}.ans{margin:6px 0 0;padding:10px 14px;border:1px dashed var(--line);border-radius:12px}' +
-      '.ans summary{cursor:pointer;font-weight:700}.note{font-size:13px;color:var(--dim)}',
+    extraCss: VOCAB_CSS,
   });
 }
 
