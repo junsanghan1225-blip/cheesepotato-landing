@@ -42,8 +42,13 @@ const TOPICS = shuffled(VOCAB_TOPICS.flatMap((g) => g.subs.map((t) => ({ ...t, k
 const POINTS = SB_CATS.flatMap((c) => c.points.map((p) => ({ ...p, cat: c })));
 const GRAMS = [...shuffled(POINTS.filter((p) => p.lv === 'beginner' && GRAMMAR_WORDS[p.id]?.length && GRAMMAR_EN[p.id]), 22),
   ...shuffled(POINTS.filter((p) => p.lv === 'intermediate' && GRAMMAR_WORDS[p.id]?.length && GRAMMAR_EN[p.id]), 23)];
-const POS_EN = { 명사: 'noun', 동사: 'verb', 형용사: 'adjective', 부사: 'adverb', 대명사: 'pronoun', 수사: 'number', 관형사: 'determiner', 감탄사: 'interjection' };
+const POS_EN = { 명사: 'noun', 동사: 'verb', 형용사: 'adjective', 부사: 'adverb', 대명사: 'pronoun', '의존 명사': 'bound noun', 수사: 'number', 관형사: 'determiner', 감탄사: 'interjection' };
 
+/* 제목 글자 크기 — 한 줄(카드 안 폭 약 780px)에 들어가는 만큼 크게. 한글 1, 라틴 · 기호 0.6 으로 어림 */
+const fit = (text, max, min) => {
+  const u = [...String(text)].reduce((n, c) => n + (/[가-힣ㄱ-ㅎ]/.test(c) ? 1 : 0.6), 0);
+  return Math.round(Math.max(min, Math.min(max, 780 / Math.max(u, 1))));
+};
 const esc = (s) => String(s ?? '').replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 function mark(p, text) {
   const re = grammarMarkRe(p.name), s = String(text || '');
@@ -68,18 +73,19 @@ body{width:1080px;height:1350px;background:#F2EEE4;font-family:"Pretendard Varia
 .page{font-size:28px;font-weight:700;color:#8C7A66}
 .card{margin-top:44px;background:#fff;border-radius:44px;padding:64px 64px;flex:1;margin-bottom:40px;display:flex;flex-direction:column;
   box-shadow:0 2px 0 rgba(27,21,18,.06)}
-.big{font-size:176px;font-weight:900;letter-spacing:-.05em;line-height:1.05}
-.rom{font-size:40px;color:#8C7A66;font-style:italic;margin-top:14px}
-.en{font-size:58px;font-weight:800;margin-top:44px;line-height:1.25}
+.big{font-size:230px;font-weight:900;letter-spacing:-.05em;line-height:1.05}
+.rom{font-size:46px;color:#8C7A66;font-style:italic;margin-top:14px}
+.en{font-size:76px;font-weight:800;margin-top:40px;line-height:1.25}
 .pos{display:inline-block;margin-top:28px;font-size:30px;font-weight:700;color:#4E3E31;background:#FDF0E2;border-radius:999px;padding:10px 24px;align-self:flex-start}
 .lv{font-size:30px;font-weight:700;color:#E1682B}
 .ex{border-left:10px solid #F0C24B;padding:6px 0 6px 34px;margin-top:40px}
-.ex p{font-size:46px;font-weight:700;line-height:1.45;word-break:keep-all}
+.ex p{font-size:48px;font-weight:700;line-height:1.45;word-break:keep-all}
 .ex small{display:block;font-size:31px;color:#8C7A66;margin-top:10px;line-height:1.4}
 .h2{font-size:34px;font-weight:800;color:#8C7A66;letter-spacing:.04em}
-.gname{font-size:118px;font-weight:900;letter-spacing:-.04em;line-height:1.1;margin-top:18px;word-break:keep-all}
-.gdesc{font-size:46px;font-weight:700;margin-top:40px;line-height:1.4;word-break:keep-all}
-.gdesc small{display:block;font-size:34px;font-weight:500;color:#8C7A66;margin-top:16px}
+.gname{font-size:var(--gs,150px);font-weight:900;letter-spacing:-.04em;line-height:1.1;margin-top:18px;word-break:keep-all}
+.gdesc{font-size:40px;font-weight:600;margin-top:36px;color:#4E3E31;line-height:1.4;word-break:keep-all}
+.gdesc small{display:block;font-size:34px;font-weight:500;color:#8C7A66;margin-top:14px}
+.gen{font-size:58px;font-weight:800;line-height:1.25;margin-top:36px;word-break:keep-all}
 .form{margin-top:48px;background:#FBF8F1;border-radius:28px;padding:34px 40px;font-size:38px;line-height:1.5;color:#4E3E31}
 mark{background:linear-gradient(transparent 52%,rgba(240,194,75,.75) 52%);color:inherit;padding:0 4px}
 .wrow{display:flex;flex-direction:column;gap:30px;margin-top:40px}
@@ -100,11 +106,12 @@ mark{background:linear-gradient(transparent 52%,rgba(240,194,75,.75) 52%);color:
 .brand{display:flex;align-items:center;gap:18px;font-size:36px;font-weight:900;letter-spacing:-.03em}
 .brand img{height:62px}
 .url{font-size:30px;font-weight:700;color:#8C7A66}
-.topic{font-size:120px;font-weight:900;letter-spacing:-.04em;line-height:1.1;margin-top:18px;word-break:keep-all}
-.topic small{display:block;font-size:52px;font-weight:700;letter-spacing:0;color:#8C7A66;margin-top:10px}
-.list{margin-top:40px;margin-bottom:30px;display:flex;flex-direction:column;gap:14px}
-.list div{display:flex;align-items:baseline;gap:22px;background:#FBF8F1;border-radius:22px;padding:22px 32px}
-.list b{font-size:46px;font-weight:800}.list span{font-size:32px;color:#8C7A66}
+.topic{font-size:var(--ts,150px);font-weight:900;letter-spacing:-.04em;line-height:1.1;margin-top:18px;word-break:keep-all}
+.topic small{display:block;font-size:58px;font-weight:800;letter-spacing:-.01em;color:#4E3E31;margin-top:10px}
+.list{margin-top:34px;margin-bottom:24px;display:flex;flex-direction:column;gap:12px}
+.list div{display:flex;align-items:baseline;gap:22px;background:#FBF8F1;border-radius:22px;padding:16px 30px}
+.list b{font-size:44px;font-weight:800}.list span{font-size:30px;color:#8C7A66}
+.hook{font-size:44px;font-weight:900;color:#E1682B;letter-spacing:-.01em}
 .list em{font-style:normal;font-size:30px;font-weight:800;color:#E1682B;width:40px}`;
 
 const slide = (tag, page, inner) => `<div class="s"><div class="top"><span class="tag">${tag}</span><span class="page">${page}</span></div>` +
@@ -117,7 +124,7 @@ function wordsPost(t, ws) {
   const en = (w) => w.s || w.e.split(';')[0];
   return {
     slides: [
-      slide(tag, `1 / ${all}`, `<div class="lv">TOPIK I</div><div class="topic">${esc(t.ko)}<small>${esc(t.en)}</small></div>` +
+      slide(tag, `1 / ${all}`, `<div class="hook">한국어 단어 5개 · 5 Korean words</div><div class="topic" style="--ts:${fit(t.ko, 170, 96)}px">${esc(t.ko)}<small>${esc(t.en)}</small></div>` +
         `<div class="list">${ws.map((w, i) => `<div><em>${i + 1}</em><b>${esc(w.h)}</b><span>${esc(en(w))}</span></div>`).join('')}</div>` +
         '<div class="hint">하나씩 보기 → · Swipe</div>'),
       ...ws.map((w, i) => slide(tag, `${i + 2} / ${all}`, `<div class="lv">${esc(t.ko)} · ${esc(t.en)}</div><div class="big">${esc(w.h)}</div>` +
@@ -136,8 +143,8 @@ function grammarPost(p) {
   const lv = { beginner: '초급 · Beginner', intermediate: '중급 · Intermediate', advanced: '고급 · Advanced' }[p.lv] || '';
   return {
     slides: [
-      slide(tag, '1 / 3', `<div class="lv">${lv}</div><div class="gname">${esc(p.name)}</div>` +
-        `<div class="gdesc">${esc(p.desc)}<small>${esc(en.desc || '')}</small></div>` +
+      slide(tag, '1 / 3', `<div class="lv">${lv}</div><div class="gname" style="--gs:${fit(p.name.split(', ').sort((x, y) => y.length - x.length)[0], 180, 84)}px">${esc(p.name).replace(/, /g, ',<br>')}</div>` +
+        `${en.desc ? `<div class="gen">${esc(en.desc.split(/(?<=\.)\s/)[0])}</div>` : ''}<div class="gdesc">${esc(p.desc)}</div>` +
         `<div class="form">${esc(more[0] || en.form || '')}</div><div class="hint">예문 보기 → · Swipe</div>`),
       slide(tag, '2 / 3', `<div class="h2">예문 · EXAMPLES</div>` +
         [p.ex, more[3]].filter(Boolean).slice(0, 2).map((ex) => `<div class="ex"><p>${mark(p, ex)}</p></div>`).join('') +
