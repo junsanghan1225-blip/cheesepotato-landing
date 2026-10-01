@@ -5498,3 +5498,35 @@ body.mk-printing .mk-cover, body.mk-printing .mk-paper, body.mk-printing .mk-omr
 .lt-mode-msg { margin-top:12px; padding:12px 14px; border-radius:12px; background:var(--tint); font-size:14px; line-height:1.6; }
 .lt-mode-msg p { margin:0 0 10px; }
 .lt-areas4 .lt-area-n { font-size:12px; }
+/* 레벨 테스트 — 「잘 모르겠어요」 · 영역 첫머리 안내 · 문제 다시 보기 · 지난번과 견주기 */
+.lt-idk { display:block; margin:10px auto 0; font:inherit; font-size:14px; font-weight:700; padding:9px 16px; border-radius:999px;
+  border:1px dashed rgba(var(--ink-rgb),.25); background:transparent; color:var(--ink-3); cursor:pointer; }
+.lt-idk.picked { border-style:solid; border-color:var(--orange); color:var(--ink); background:color-mix(in srgb, var(--orange) 10%, var(--surface)); }
+.lt-intro { display:none; text-align:center; padding:28px 8px 12px; }
+#ltPlay.lt-introing > :not(.qz-top):not(.lt-intro) { display:none !important; }
+#ltPlay.lt-introing .lt-intro { display:block; }
+.lt-intro-ic { font-size:44px; line-height:1; margin-bottom:10px; }
+.lt-intro h3 { margin:0 0 8px; font-size:21px; font-weight:800; }
+.lt-intro p { margin:0 auto 18px; max-width:30em; color:var(--ink-2); font-size:15px; line-height:1.6; word-break:keep-all; }
+.lt-intro-done { color:var(--green) !important; font-weight:700; }
+.lt-review { margin:14px 0 4px; text-align:left; border:1px solid rgba(var(--ink-rgb),.12); border-radius:14px; background:var(--surface); }
+.lt-review summary { cursor:pointer; padding:13px 16px; font-weight:800; font-size:14.5px; }
+.lt-review ol { list-style:none; margin:0; padding:0 12px 12px; display:flex; flex-direction:column; gap:8px; }
+.lt-review li { border-radius:12px; padding:10px 12px; background:var(--surface-2); font-size:13.5px; line-height:1.6; overflow-wrap:anywhere; }
+.lt-review li.no { box-shadow:inset 3px 0 0 var(--red); }
+.lt-review li.ok { box-shadow:inset 3px 0 0 var(--green); }
+.lt-rv-h { display:flex; align-items:center; gap:8px; margin-bottom:2px; }
+.lt-rv-h em { font-style:normal; font-size:12px; color:var(--ink-3); }
+.lt-rv-h span { margin-left:auto; font-weight:800; }
+.lt-review li.ok .lt-rv-h span { color:var(--green); } .lt-review li.no .lt-rv-h span { color:var(--red); }
+.lt-rv-q { font-weight:600; white-space:pre-wrap; }
+.lt-rv-p { margin:6px 0; padding:8px 10px; border-radius:8px; background:var(--surface); white-space:pre-wrap; color:var(--ink-2); }
+.lt-rv-a { margin-top:4px; color:var(--ink-2); }
+.lt-rv-w { margin-top:4px; color:var(--ink-3); font-size:13px; }
+.lt-compare:empty { display:none; }
+.lt-compare { margin-top:12px; padding:12px 14px; border-radius:12px; background:var(--surface-2); font-size:13.5px; text-align:left; }
+.lt-cmp-h { font-weight:800; margin-bottom:6px; }
+.lt-compare ul { list-style:none; margin:0; padding:0; display:grid; grid-template-columns:1fr 1fr; gap:4px 14px; }
+.lt-compare li { display:flex; justify-content:space-between; }
+.lt-compare b.up { color:var(--green); } .lt-compare b.down { color:var(--red); }
+.lt-cmp-l { margin:8px 0 0; color:var(--ink-2); }
