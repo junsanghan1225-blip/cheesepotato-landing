@@ -44,10 +44,15 @@ const SECTIONS = [
     rows: Object.entries(byKey(eps.EPS_ITEMS, (q) => epsTopic[q.topic] || q.topic)) },
   { icon: '📰', name: '읽기', en: 'Reading', big: passages.length, unit: '지문',
     rows: Object.entries(reading.READING).flatMap(([len, a]) => Object.entries(a).map(([lv, b]) => [`${len === 'short' ? '짧은' : '긴'} 글 · ${LV[lv] || lv}`, b.length])) },
-  { icon: '💬', name: '말하기 대화', en: 'Conversations', big: convo.CONVO.length, unit: '장면',
+  { icon: '💬', name: '회화 연습', en: 'Conversations', big: convo.CONVO.length, unit: '장면',
     rows: Object.entries(byKey(convo.CONVO, (c) => LV[c.lv] || c.lv)) },
-  { icon: '🎯', name: '레벨 테스트', en: 'Level test', big: ltO.LT_CUSTOM_OVERALL.length + ltR.LT_CUSTOM_READING.length + ltL.LT_CUSTOM_LISTENING.length + ltW.LT_CUSTOM_WRITING.length, unit: '문항',
-    rows: [['종합', ltO.LT_CUSTOM_OVERALL.length], ['쓰기', ltW.LT_CUSTOM_WRITING.length], ['읽기', ltR.LT_CUSTOM_READING.length], ['듣기', ltL.LT_CUSTOM_LISTENING.length]] },
+  /* 레벨 테스트 — 종합 · 쓰기는 레벨 테스트 전용 문항, 읽기 · 듣기는 TOPIK 문항(급수가 붙은 것)에서 골라 쓴다(app.module.js ltAdaptPool).
+     leveltest-reading/listening.js 의 몇 문항은 그 자료가 아직 안 왔을 때만 쓰는 예비라 세지 않는다. */
+  { icon: '🎯', name: '레벨 테스트', en: 'Level test', big: ltO.LT_CUSTOM_OVERALL.length + ltW.LT_CUSTOM_WRITING.length, unit: '전용 문항',
+    sub: '읽기 · 듣기는 TOPIK 문항에서 골라 써요',
+    rows: [['종합 (L0~L7)', ltO.LT_CUSTOM_OVERALL.length], ['쓰기', ltW.LT_CUSTOM_WRITING.length],
+      ['읽기 (TOPIK 문항)', [...topik1.TOPIK_READING, ...topik2.TOPIK2_READING].filter((q) => q.grade).length],
+      ['듣기 (TOPIK 문항)', [...tl.TOPIKL_ITEMS, ...tl.TOPIKL2_ITEMS].filter((q) => q.grade && q.script).length]], split: 2 },
   { icon: '✈️', name: '여행 한국어', en: 'Travel', big: travel.TRAVEL_PHRASES.length, unit: '표현',
     rows: [['주제', travel.TRAVEL_CATEGORIES.length], ['낱말', sum(Object.values(travel.TRAVEL_VOCAB), (a) => (Array.isArray(a) ? a.length : Object.keys(a || {}).length))]] },
   { icon: '🗞️', name: '블로그', en: 'Blog', big: blog.BLOG_POSTS.length, unit: '편',

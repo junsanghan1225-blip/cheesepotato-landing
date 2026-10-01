@@ -2258,6 +2258,18 @@ a.gp-use-src:hover { color:var(--orange); }
 .qz-choice:active { transform:translateY(1px); }
 .qz-choice.right { border-color:var(--green); background:rgba(18,112,79,.08); color:var(--green); }
 .qz-choice.wrong { border-color:var(--red);   background:rgba(196,61,52,.07); color:var(--red); }
+/* 레벨 테스트 — 고른 보기(맞았는지는 끝에서). 이전 · 다음 · 문제 점 */
+.qz-choice.picked { border-color:var(--orange); background:color-mix(in srgb, var(--orange) 10%, var(--surface)); color:var(--ink); box-shadow:0 0 0 1px var(--orange) inset; }
+.lt-nav { margin-top:14px; }
+.lt-nav-row { display:flex; align-items:center; gap:10px; }
+.lt-nav-b { flex:none; font:inherit; font-size:14.5px; font-weight:800; padding:10px 14px; border-radius:12px; border:1px solid rgba(var(--ink-rgb),.14); background:var(--surface); color:var(--ink); cursor:pointer; }
+.lt-nav-b:disabled { opacity:.4; cursor:default; }
+.lt-nav-b.go { background:var(--ink); color:var(--bg); border-color:var(--ink); }
+.lt-dots { flex:1; min-width:0; display:flex; flex-wrap:wrap; justify-content:center; gap:6px; }
+.lt-dot { width:12px; height:12px; padding:0; border-radius:50%; border:1.5px solid rgba(var(--ink-rgb),.3); background:transparent; cursor:pointer; }
+.lt-dot.done { background:var(--orange); border-color:var(--orange); }
+.lt-dot.on { box-shadow:0 0 0 3px color-mix(in srgb, var(--orange) 30%, transparent); }
+.lt-left { margin:8px 0 0; text-align:center; font-size:13px; color:var(--ink-3); }
 /* 모의고사에서 고른 답. 맞았는지는 알려 주지 않으므로 옳고 그름의 색을
    쓰지 않는다 — OMR 을 칠한 것처럼 「여기에 표시했다」만 보이면 된다. */
 .qz-choice.picked { border-color:var(--ink); background:rgba(var(--ink-rgb),.05); color:var(--ink); font-weight:700; }
