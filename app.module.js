@@ -13,16 +13,16 @@
    어느 날 갑자기 다른 코드가 실려 왔다.
    이제 vendor/ 안에 받아 두고 CSP 로 바깥을 막는다. 버전을 올릴 때는
    tools/vendor.mjs 의 PIN 을 고치고 다시 돌린다. */
-import { createClient } from './vendor/supabase-js.js?v=d74e2268';
+import { createClient } from './vendor/supabase-js.js?v=d9810f6a';
 // TOPIK 읽기 "문제 풀이 영상" 목록. 아주 작은 파일이라(id 목록뿐) 다른
 // 자료처럼 갈래를 열 때 지연 로딩하지 않고 그냥 처음부터 받는다.
-import { TQ_VIDEO_IDS } from './topik-video.js?v=d74e2268';
+import { TQ_VIDEO_IDS } from './topik-video.js?v=d9810f6a';
 // 코스 아이콘 — 이모지 대신 선 아이콘(course-icons.js 머리말)
 // 구독(Paddle) — billing.js 머리말
-import { BILLING, billingLive, isPro, proInfo, loadPro, openCheckout, waitPro } from './billing.js?v=d74e2268';
-import { myLevelBadge, potatoLevel, cheeseLevel } from './levels.js?v=d74e2268';
-import { courseIcon } from './course-icons.js?v=d74e2268';
-import { AUDIO_REMOTE, audioKey } from './audio-key.js?v=d74e2268';
+import { BILLING, billingLive, isPro, proInfo, loadPro, openCheckout, waitPro } from './billing.js?v=d9810f6a';
+import { myLevelBadge, potatoLevel, cheeseLevel } from './levels.js?v=d9810f6a';
+import { courseIcon } from './course-icons.js?v=d9810f6a';
+import { AUDIO_REMOTE, audioKey } from './audio-key.js?v=d9810f6a';
 // 앱(package.json)과 같은 줄기를 쓴다. 갈리면 앱에서는 읽히는 파일이
 // 여기서는 안 읽히는(또는 그 반대) 일이 생긴다.
 /* 엑셀 라이브러리는 422KB — 이 판에서 가장 무거운 조각이다. 그런데 쓰는
@@ -34,7 +34,7 @@ import { AUDIO_REMOTE, audioKey } from './audio-key.js?v=d74e2268';
    자국(?v=)은 tools/stamp.mjs 가 아래 줄에 알아서 붙인다 — 정적으로 쓰든
    동적으로 쓰든 같은 글자를 찾으므로 바꿔도 그대로 찍힌다. */
 let XLSX = null;
-const needXLSX = async () => (XLSX ??= await import('./vendor/xlsx.js?v=d74e2268'));
+const needXLSX = async () => (XLSX ??= await import('./vendor/xlsx.js?v=d9810f6a'));
 // 커리큘럼. 내용과 엔진을 갈라 두면 글을 고치다 화면을 깨지 않는다.
 // 갈래 목록(drawSections)·코스(drawCourses)·문제만 풀기(dqDraw) 를 열 때만
 // 받는다 — 배우기 갈래 목록도 안 본 사람에게 코스 71개 레슨을 다 물릴
@@ -42,9 +42,9 @@ const needXLSX = async () => (XLSX ??= await import('./vendor/xlsx.js?v=d74e2268
 let COURSES = [], coursesP = null;
 /* 앱은 courses.js 대신 courses-lite.js 를 받는다 — 중·고급 레슨 본문을 뺀 목록이다
    (tools/build-courses-lite.mjs). 본문은 그 레슨을 열 때 upperBlocksNeed() 가 채운다. */
-const coursesNeed = () => (coursesP ??= import('./courses-lite.js?v=d74e2268').then((m) => { COURSES = m.COURSES; }));
+const coursesNeed = () => (coursesP ??= import('./courses-lite.js?v=d9810f6a').then((m) => { COURSES = m.COURSES; }));
 let upperP = null;
-const upperBlocksNeed = () => (upperP ??= coursesNeed().then(() => import('./courses-grammar-detailed.js?v=d74e2268')).then((m) => {
+const upperBlocksNeed = () => (upperP ??= coursesNeed().then(() => import('./courses-grammar-detailed.js?v=d9810f6a')).then((m) => {
   const byId = new Map(m.DETAILED_GRAMMAR_COURSES.flatMap((c) => c.lessons.map((l) => [l.id, l.blocks])));
   for (const c of COURSES) for (const l of c.lessons) if (!l.blocks && byId.has(l.id)) { l.blocks = byId.get(l.id); delete l.lazy; }
 }));
@@ -59,7 +59,7 @@ const blocksNeed = async (course) => { if (course.lessons.some((l) => !l.blocks)
    tqGloss 는 그대로 동기다 — 아직 안 왔으면 빈 뜻을 돌려주고, 부르는
    쪽은 이미 "사전에 없는 말"을 다룰 줄 안다. */
 let GLOSSARY = {}, GLOSS_LANGS = {}, glossP = null;
-const glossNeed = () => (glossP ??= import('./glossary.js?v=d74e2268').then((m) => {
+const glossNeed = () => (glossP ??= import('./glossary.js?v=d9810f6a').then((m) => {
   GLOSSARY = m.GLOSSARY; GLOSS_LANGS = m.GLOSS_LANGS;
   dictBuildEntries();
 }).catch((e) => {
@@ -67,12 +67,12 @@ const glossNeed = () => (glossP ??= import('./glossary.js?v=d74e2268').then((m) 
   glossP = null;
   throw e;
 }));
-import { glossFind } from './gloss-find.js?v=d74e2268';
+import { glossFind } from './gloss-find.js?v=d9810f6a';
 /* 홈 화면 "오늘의 단어" 카드. 표제어·품사·짧은 뜻풀이 3개만 든
    작은 자료라(사전 전체 356KB 와 달리) 홈에 들어오면 바로 받는다 —
    빈 카드로 몇 초 떠 있는 것보다 낫다. */
 let WOTD_POOL = [], wotdP = null;
-const wotdNeed = () => (wotdP ??= import('./wotd.js?v=d74e2268').then((m) => {
+const wotdNeed = () => (wotdP ??= import('./wotd.js?v=d9810f6a').then((m) => {
   WOTD_POOL = m.WOTD_POOL;
 }).catch((e) => { wotdP = null; throw e; }));
 /* 그날의 낱말을 고른다. 한국 자정을 기준으로 하루씩 넘어가게
@@ -107,11 +107,11 @@ window.wotdRender = () => { wotdRender(); try { todayRender(); } catch (e) {} };
    나중 화면은 그 약속(??=)을 그대로 쓴다. */
 let GRAMMAR = [], GRAMMAR_EN = {}, grammarP = null;
 const grammarNeed = () => (grammarP ??= Promise.all([
-  import('./grammar.js?v=d74e2268'), import('./grammar-en.js?v=d74e2268'),
+  import('./grammar.js?v=d9810f6a'), import('./grammar-en.js?v=d9810f6a'),
 ]).then(([a, b]) => { GRAMMAR = a.GRAMMAR; GRAMMAR_EN = b.GRAMMAR_EN; }));
-import { grammarScan } from './grammar-find.js?v=d74e2268';
+import { grammarScan } from './grammar-find.js?v=d9810f6a';
 /* 문법 이름 → 예문에서 칠할 꼴. 쓰임 보기 도구(tools/build-grammar-usage.mjs)와 같은 것을 써서 찾은 곳과 칠한 곳이 어긋나지 않게. */
-import { grammarMarkRe } from './grammar-mark.js?v=d74e2268';
+import { grammarMarkRe } from './grammar-mark.js?v=d9810f6a';
 // TOPIK 쓰기·듣기 문항. 읽기(topik.js·topik2.js)와 같은 tqNeedData() 로
 // 함께 받는다 — 유형 연습(topik) 갈래 하나가 세 기술을 다 쓰므로 따로
 // 가를 까닭이 없다. 값은 tqNeedData 정의부에서 채운다.
@@ -126,7 +126,7 @@ let SB_CATS = [], SB_MORE = {}, SB_SEED = {}, SB_POINTS = [], sbDataP = null;
 /* 문법 「바꾸기」 문항(tools/build-grammar-drill.mjs 생성물). 표현 화면을 열 때 예문과 함께 받는다. */
 let GRAMMAR_DRILL = {}, GRAMMAR_USAGE = {};
 /* 쓰임 보기(tools/build-grammar-usage.mjs 생성물) — TOPIK 연습 · 읽기 지문 · 낱말 예문에서 그 문법이 쓰인 문장 */
-const sbNeed = () => (sbDataP ??= Promise.all([import('./sentences.js?v=d74e2268'), import('./grammar-drill.js?v=d74e2268'), import('./grammar-usage.js?v=d74e2268')]).then(([m, d, u]) => {
+const sbNeed = () => (sbDataP ??= Promise.all([import('./sentences.js?v=d9810f6a'), import('./grammar-drill.js?v=d9810f6a'), import('./grammar-usage.js?v=d9810f6a')]).then(([m, d, u]) => {
   GRAMMAR_DRILL = d.GRAMMAR_DRILL || {}; GRAMMAR_USAGE = u.GRAMMAR_USAGE || {};
   SB_CATS = m.SB_CATS; SB_MORE = m.SB_MORE; SB_SEED = m.SB_SEED;
   // 갈래마다 표현을 펼쳐 한 줄에 담는다 — SB_CATS 안의 점에는 갈래가 안
@@ -138,7 +138,7 @@ const sbNeed = () => (sbDataP ??= Promise.all([import('./sentences.js?v=d74e2268
 // 숫자 게임의 읽기와 문제 만들기. 화면을 모르는 순수 계산이라 따로 뒀다.
 // 게임 목록에서 「숫자 읽기」를 시작할 때만 받는다 — XLSX 와 같은 자리다.
 let makeRound = null;
-const needNumbers = async () => (makeRound ??= (await import('./numbers.js?v=d74e2268')).makeRound);
+const needNumbers = async () => (makeRound ??= (await import('./numbers.js?v=d9810f6a')).makeRound);
 
 // 이 키는 공개돼도 되는 값이다. 이미 APK 안에 같은 것이 들어 있고,
 // 접근을 막는 건 키가 아니라 테이블에 걸린 RLS 다.
@@ -220,8 +220,8 @@ let tqDataP = null;
    유형 연습(topik) 갈래 하나가 이 넷을 다 쓰므로 갈라 봤자 요청만
    늘어난다. */
 const tqNeedData = () => (tqDataP ??= Promise.all([
-  import('./topik.js?v=d74e2268'), import('./topik2.js?v=d74e2268'),
-  import('./topik-writing.js?v=d74e2268'), import('./topik-listening.js?v=d74e2268'),
+  import('./topik.js?v=d9810f6a'), import('./topik2.js?v=d9810f6a'),
+  import('./topik-writing.js?v=d9810f6a'), import('./topik-listening.js?v=d9810f6a'),
 ]).then(([a, b, c, d]) => {
   TQ_DATA.I  = { reading: a.TOPIK_READING,  blueprint: a.TOPIK_BLUEPRINT,  slots: a.TOPIK_SLOTS };
   TQ_DATA.II = { reading: b.TOPIK2_READING, blueprint: b.TOPIK2_BLUEPRINT, slots: b.TOPIK2_SLOTS };
@@ -232,11 +232,11 @@ const tqNeedData = () => (tqDataP ??= Promise.all([
 let READING = null, rdP = null;
 // 지문의 밑줄 문법 말풍선이 GRAMMAR 를 쓰므로 같이 받아 둔다.
 const rdNeed = () => (rdP ??= Promise.all([
-  import('./reading.js?v=d74e2268'), grammarNeed(),
+  import('./reading.js?v=d9810f6a'), grammarNeed(),
 ]).then(([m]) => { READING = m.READING; }));
 
 let CONVO = null, cvP = null;
-const cvNeed = () => (cvP ??= import('./convo.js?v=d74e2268').then((m) => { CONVO = m.CONVO; }));
+const cvNeed = () => (cvP ??= import('./convo.js?v=d9810f6a').then((m) => { CONVO = m.CONVO; }));
 
 /* 배우기를 열면 여섯 다 미리 불을 붙인다. 기다리지 않는다 — 갈래 목록은
    이 자료가 없어도 그려지고, 사람이 갈래를 고르는 사이에 도착한다.
@@ -458,9 +458,9 @@ $('dictBtn').addEventListener('click', () => { const go = !showing('wordsView');
    합쳐 200KB 남짓(압축)이라 첫 화면 모두에게 물릴 까닭이 없다. 사이트 공용 도구는 넘겨준다. */
 let wordsApi = null, wordsP = null;
 /* TOPIK II 예문은 500개씩 조각으로 따로 받는다(tools/build-vocab.mjs) — 조각 주소는 이 파일의 자국을 빌린다. */
-const VOCAB2_URL = './vocab-topik2.js?v=d74e2268';
+const VOCAB2_URL = './vocab-topik2.js?v=d9810f6a';
 const wordsNeed = () => (wordsP ??= Promise.all([
-  import('./words.js?v=d74e2268'), import('./vocab-topik1.js?v=d74e2268'), import(VOCAB2_URL),
+  import('./words.js?v=d9810f6a'), import('./vocab-topik1.js?v=d9810f6a'), import(VOCAB2_URL),
 ]).then(([m, d, d2]) => {
   wordsApi = m.wordsInit({
     root: $('wordsRoot'), t, esc, track, say, glossFind, glossNeed, ICON: DICT_SAY_ICON,
@@ -555,7 +555,7 @@ async function vocabSync() {
   if (!wordsP) return;
   const { data: { session } } = await sb.auth.getSession();
   if (!session) return;
-  const m = await import('./words.js?v=d74e2268');
+  const m = await import('./words.js?v=d9810f6a');
   const ok = await m.syncVocab(async () => {
     const { data, error } = await sb.from('settings').select('vocab').eq('user_id', session.user.id).maybeSingle();
     return error ? undefined : (data?.vocab || {});
@@ -869,14 +869,14 @@ let dictOpen = null;  // 지금 "더 보기"(예문·뜻풀이)를 펼쳐 둔 �
    평소엔 안 쓰는 522KB 를 첫 화면 모두에게 물릴 까닭이 없다. */
 let dictSensesP = null;
 const dictLoadSenses = () => (dictSensesP ??=
-  import('./glossary-senses.js?v=d74e2268').then((m) => m.SENSES).catch(() => ({})));
+  import('./glossary-senses.js?v=d9810f6a').then((m) => m.SENSES).catch(() => ({})));
 
 /* 예문. 국립국어원 자료엔 없어서 Gemini 로 새로 지은 것이다(있는 만큼만
    — docs/glossary-examples-gemini-prompt.md 참고). 뜻풀이와 같은 자리에서
    같이 받는다 — 펼치는 손짓 하나에 몰아 두는 편이 화면이 덜 복잡하다. */
 let dictExamplesP = null;
 const dictLoadExamples = () => (dictExamplesP ??=
-  import('./glossary-examples.js?v=d74e2268').then((m) => m.EXAMPLES).catch(() => ({})));
+  import('./glossary-examples.js?v=d9810f6a').then((m) => m.EXAMPLES).catch(() => ({})));
 
 function dictVisible() {
   const q = dictQuery.trim().toLowerCase();
@@ -3043,6 +3043,16 @@ const LEARN_SECTIONS = [
     blurb: { ko: '떠오른 문장·문법을 갈래로 나눠 적어 둡니다. 나만 보이고, 로그인 없이 이 브라우저에 남아요.',
              en: 'Keep sentences and grammar in folders of your own. Only you see it — it stays in this browser.' },
   },
+  /* 묻고 답하기 — 지식iN 처럼(운영자 결정 2026-10-01). 표는 db/add_community.sql. */
+  {
+    id: 'qna', emoji: '🙋', ready: true, pane: 'qaWrap',
+    lv:    { ko: '질문',            en: 'Q&A' },
+    title: { ko: '묻고 답하기',      en: 'Ask & answer' },
+    tag:   { ko: '막힌 것을 물어보면 선생님이 답해요',
+             en: 'Ask what you are stuck on — a teacher answers' },
+    blurb: { ko: '한국어 공부하다 궁금한 것을 질문하세요. 치즈감자 선생님이 답하고, 다른 학생의 질문과 답도 읽을 수 있어요.',
+             en: 'Ask anything about Korean. A Cheesepotato teacher answers, and you can read everyone else’s questions too.' },
+  },
   /* 오답 노트 — TOPIK 연습 · 모의고사 · 듣기 · 레슨 문제 · 레벨테스트에서 틀린 것이 저절로 모인다(운영자 요청 2026-10-01). */
   {
     id: 'wrong', emoji: '📕', ready: true, pane: 'wnWrap',
@@ -3089,7 +3099,7 @@ const LEARN_GROUPS = [
   { title: { ko: '읽기 · 쓰기 · 말하기', en: 'Reading · writing · speaking' },
     items: ['reading', 'convo', 'travel'] },
   { title: { ko: '내 공부', en: 'My study' },
-    items: ['notes', 'wrong'] },
+    items: ['notes', 'wrong', 'qna'] },
 ];
 
 /* 코스·레슨의 글. 지금은 대부분 그냥 문자열이라 언어를 바꿔도 그대로
@@ -9838,7 +9848,7 @@ let TRAVEL_CATEGORIES = null;
 let TRAVEL_PHRASES = null;
 let TRAVEL_VOCAB = null;
 let tvP = null;
-const tvNeed = () => (tvP ??= import('./travel-data.js?v=d74e2268').then((m) => {
+const tvNeed = () => (tvP ??= import('./travel-data.js?v=d9810f6a').then((m) => {
   TRAVEL_CATEGORIES = m.TRAVEL_CATEGORIES;
   TRAVEL_PHRASES = m.TRAVEL_PHRASES;
   TRAVEL_VOCAB = m.TRAVEL_VOCAB;
@@ -10272,6 +10282,7 @@ async function openSection(id, quiet) {
       if (s.id === 'eps') epsDraw();
       if (s.id === 'notes') { ntMemoDraw(); notesSync(); }
       if (s.id === 'wrong') wnDraw();
+      if (s.id === 'qna' && !quiet) qaDraw('');
       if (s.id === 'sentence') {
         await sbNeed();
         drawSentenceHead();
@@ -10312,6 +10323,9 @@ async function openLearnSub(sub) {
   if (secId === 'writing') { secId = 'topik'; rest = ['II', 'writing', ...(rest[0] ? [rest[0]] : [])]; }
 
   if (!LEARN_SECTIONS.some((x) => x.id === secId)) return;
+
+  /* learn/qna/<질문 번호> — 질문 하나로 바로 */
+  if (secId === 'qna') { openSection('qna', true); qaDraw(rest[0] || ''); return; }
 
   /* learn/eps/<문항 id> — eps-topik/ 정적 쪽의 「직접 풀어보기」. 그 문항의 유형 연습을
      그 문항부터 연다. openSection 이 부른 epsDraw 가 같은 epsNeed 를 먼저 기다렸다가
@@ -13281,6 +13295,244 @@ function renderLibrary() {
   }
 }
 
+/* ══ 묻고 답하기 (#learn/qna) — 지식iN 처럼 질문 → 답 → 채택 (운영자 결정 2026-10-01, docs/community-plan.md) ══════════
+   표는 db/add_community.sql(운영자가 SQL Editor 에서 돌린다). 그 전에는 「준비 중」을 보여 준다.
+   읽기는 누구나 · 질문은 로그인 · 답은 지금은 운영자만(정책이 막는다 — 화면은 운영자에게만 답 칸을 연다).
+   글은 전부 esc 해서 그린다(남이 쓴 글이다). */
+const QA_BOARDS = [
+  ['grammar', '문법', 'Grammar'], ['words', '낱말 · 표현', 'Words'], ['topik', 'TOPIK', 'TOPIK'],
+  ['speak', '발음 · 말하기', 'Speaking'], ['life', '한국 생활', 'Life in Korea'],
+];
+const QA_NAME_KEY = 'cp-qa-name';
+let qa = { view: 'list', board: 'all', sort: 'new', q: '', id: null, rows: [], cur: null, answers: [], mine: new Set(), err: '', busy: false, missing: false };
+let qaSession = null;
+const qaBoardTx = (k) => { const b = QA_BOARDS.find((x) => x[0] === k); return b ? t(b[1], b[2]) : k; };
+const qaIsAdmin = () => qaSession?.user?.email === ADMIN_EMAIL;
+const qaBody = (s) => esc(s).replace(/\n/g, '<br>');
+const qaWhen = (iso) => { const d = new Date(iso); return isNaN(d) ? '' : sbAgo(d.getTime()); };
+const qaMissing = (e) => e && (e.code === '42P01' || e.code === 'PGRST205' || /does not exist|schema cache/i.test(e.message || ''));
+
+async function qaLoadList() {
+  qa.busy = true; qa.err = ''; qaPaint();
+  try {
+    let q = sb.from('qa_questions').select('id,created_at,author,board,title,accepted_id,user_id,qa_answers(count)')
+      .order('created_at', { ascending: false }).limit(60);
+    if (qa.board !== 'all') q = q.eq('board', qa.board);
+    if (qa.q.trim()) q = q.ilike('title', `%${qa.q.trim().replace(/[%_]/g, '')}%`);
+    const { data, error } = await q;
+    if (error) throw error;
+    qa.rows = data || []; qa.missing = false;
+  } catch (e) {
+    qa.rows = [];
+    if (qaMissing(e)) qa.missing = true; else qa.err = t('목록을 불러오지 못했어요. 잠시 뒤 다시 해 보세요.', 'Could not load the questions. Try again shortly.');
+  }
+  qa.busy = false; qaPaint();
+}
+async function qaLoadOne(id) {
+  qa.busy = true; qa.err = ''; qa.cur = null; qa.answers = []; qaPaint();
+  try {
+    const [{ data: q, error: e1 }, { data: a, error: e2 }] = await Promise.all([
+      sb.from('qa_questions').select('*').eq('id', id).maybeSingle(),
+      sb.from('qa_answers').select('id,created_at,author,body,user_id,hidden,qa_helpful(count)').eq('question_id', id).order('created_at'),
+    ]);
+    if (e1 || e2) throw e1 || e2;
+    qa.cur = q; qa.answers = a || [];
+    qa.mine = new Set();
+    if (qaSession && qa.answers.length) {
+      const { data: h } = await sb.from('qa_helpful').select('answer_id').eq('user_id', qaSession.user.id).in('answer_id', qa.answers.map((x) => x.id));
+      qa.mine = new Set((h || []).map((x) => x.answer_id));
+    }
+    if (!q) qa.err = t('지워졌거나 없는 질문이에요.', 'This question was removed or does not exist.');
+  } catch (e) {
+    if (qaMissing(e)) qa.missing = true; else qa.err = t('질문을 불러오지 못했어요.', 'Could not load this question.');
+  }
+  qa.busy = false; qaPaint();
+}
+
+function qaListHtml() {
+  const chips = [['all', '전체', 'All'], ...QA_BOARDS].map(([k, ko, en]) =>
+    `<button type="button" class="qa-chip${qa.board === k ? ' on' : ''}" data-qab="${k}">${esc(t(ko, en))}</button>`).join('');
+  const rows = qa.rows.slice().sort((a, b) => {
+    if (qa.sort === 'wait') { const wa = (a.qa_answers?.[0]?.count || 0) === 0, wb = (b.qa_answers?.[0]?.count || 0) === 0; if (wa !== wb) return wa ? -1 : 1; }
+    return new Date(b.created_at) - new Date(a.created_at);
+  });
+  const item = (r) => {
+    const n = r.qa_answers?.[0]?.count || 0;
+    const st = r.accepted_id ? ['done', t('해결', 'Solved')] : n ? ['ans', t(`답 ${n}`, `${n} answer${n > 1 ? 's' : ''}`)] : ['wait', t('답 기다리는 중', 'Waiting')];
+    return `<button type="button" class="qa-row" data-qaq="${r.id}">` +
+      `<span class="qa-q">Q</span><span class="qa-row-main"><b>${esc(r.title)}</b>` +
+      `<span class="qa-meta">${esc(qaBoardTx(r.board))} · ${esc(r.author)} · ${esc(qaWhen(r.created_at))}</span></span>` +
+      `<span class="qa-st ${st[0]}">${esc(st[1])}</span></button>`;
+  };
+  return '<div class="qa-head">' +
+      /* 갈래 머리에 이미 「묻고 답하기」가 있어 제목을 또 달지 않는다 */
+      `<div><p class="qa-lead">${t('한국어 공부하다 막힌 것을 물어보세요. 치즈감자 선생님이 답해 드려요.', 'Stuck on something in Korean? Ask — a Cheesepotato teacher answers.')}</p></div>` +
+      `<button type="button" class="pt-next" data-qaask="1">${t('질문하기', 'Ask a question')}</button>` +
+    '</div>' +
+    `<div class="qa-chips">${chips}</div>` +
+    '<div class="qa-tools">' +
+      `<input id="qaSearch" class="sb-q" type="search" autocomplete="off" placeholder="${esc(t('질문 찾기', 'Search questions'))}" value="${esc(qa.q)}" aria-label="${esc(t('질문 찾기', 'Search questions'))}">` +
+      '<div class="diff-seg" role="radiogroup">' +
+        `<label><input type="radio" name="qaSort" value="new"${qa.sort === 'new' ? ' checked' : ''}><span>${t('새 질문', 'Newest')}</span></label>` +
+        `<label><input type="radio" name="qaSort" value="wait"${qa.sort === 'wait' ? ' checked' : ''}><span>${t('답 기다림', 'Unanswered')}</span></label>` +
+      '</div></div>' +
+    (qa.busy ? `<p class="qa-none">${t('불러오는 중…', 'Loading…')}</p>`
+      : qa.err ? `<p class="qa-none">${esc(qa.err)}</p>`
+      : rows.length ? `<div class="qa-list">${rows.map(item).join('')}</div>`
+      : `<p class="qa-none">${qa.q || qa.board !== 'all' ? t('맞는 질문이 없어요.', 'No questions match.') : t('아직 질문이 없어요. 첫 질문을 남겨 보세요!', 'No questions yet — be the first to ask!')}</p>`);
+}
+
+function qaAskHtml() {
+  if (!qaSession) {
+    return `<button class="wb-out" type="button" data-qaback="1">← ${t('질문 목록', 'All questions')}</button>` +
+      `<div class="qa-card qa-login"><p>${t('질문은 로그인한 뒤에 남길 수 있어요. 읽기는 누구나 할 수 있어요.', 'Sign in to ask. Anyone can read.')}</p>` +
+      `<button type="button" class="pt-next" data-qalogin="1">${t('로그인하러 가기', 'Go to sign in')}</button></div>`;
+  }
+  let name = ''; try { name = localStorage.getItem(QA_NAME_KEY) || ''; } catch (e) {}
+  return `<button class="wb-out" type="button" data-qaback="1">← ${t('질문 목록', 'All questions')}</button>` +
+    `<div class="qa-card"><h2 class="qa-h">${t('질문하기', 'Ask a question')}</h2>` +
+    `<label class="qa-lab">${t('갈래', 'Topic')}<select id="qaBoard" class="up-sel">${QA_BOARDS.map(([k]) => `<option value="${k}"${qa.board === k ? ' selected' : ''}>${esc(qaBoardTx(k))}</option>`).join('')}</select></label>` +
+    `<label class="qa-lab">${t('제목', 'Title')}<input id="qaTitle" class="sb-in" type="text" maxlength="120" placeholder="${esc(t('예: -아서 와 -니까 는 어떻게 달라요?', 'e.g. What is the difference between -아서 and -니까?'))}"></label>` +
+    `<label class="qa-lab">${t('자세한 내용', 'Details')}<textarea id="qaText" class="sb-in" rows="6" maxlength="3000" placeholder="${esc(t('헷갈리는 문장이 있으면 같이 적어 주세요.', 'Include the sentence you are unsure about.'))}"></textarea></label>` +
+    `<label class="qa-lab">${t('보일 이름', 'Display name')}<input id="qaName" class="sb-in" type="text" maxlength="20" value="${esc(name)}" placeholder="${esc(t('학생', 'Student'))}"></label>` +
+    `<p class="sb-note">${t('전화번호 · 주소 같은 개인 정보는 적지 마세요. 실제 TOPIK 시험 문제를 그대로 옮겨 적으면 안 돼요(저작권).', 'Do not post personal details. Do not copy real TOPIK exam questions (copyright).')}</p>` +
+    (qa.err ? `<p class="gp-msg no">${esc(qa.err)}</p>` : '') +
+    `<div class="gp-row"><button type="button" class="pt-next" data-qapost="1"${qa.busy ? ' disabled' : ''}>${t('질문 올리기', 'Post question')}</button></div></div>`;
+}
+
+function qaOneHtml() {
+  const back = `<button class="wb-out" type="button" data-qaback="1">← ${t('질문 목록', 'All questions')}</button>`;
+  if (qa.busy && !qa.cur) return back + `<p class="qa-none">${t('불러오는 중…', 'Loading…')}</p>`;
+  if (!qa.cur) return back + `<p class="qa-none">${esc(qa.err || '')}</p>`;
+  const q = qa.cur, me = qaSession?.user?.id, mineQ = me && q.user_id === me, admin = qaIsAdmin();
+  const ans = qa.answers.slice().sort((a, b) => (b.id === q.accepted_id) - (a.id === q.accepted_id) || new Date(a.created_at) - new Date(b.created_at));
+  return back +
+    `<article class="qa-card qa-one"><div class="qa-one-top"><span class="qa-q big">Q</span><div>` +
+      `<span class="qa-meta">${esc(qaBoardTx(q.board))} · ${esc(q.author)} · ${esc(qaWhen(q.created_at))}${q.hidden ? ` · ${t('숨김', 'hidden')}` : ''}</span>` +
+      `<h2 class="qa-title">${esc(q.title)}</h2></div></div>` +
+      (q.body ? `<div class="qa-body">${qaBody(q.body)}</div>` : '') +
+      '<div class="qa-acts">' +
+        (mineQ || admin ? `<button type="button" class="sb-del" data-qadelq="1">${t('질문 지우기', 'Delete')}</button>` : '') +
+        (admin ? `<button type="button" class="sb-del" data-qahideq="1">${q.hidden ? t('숨김 풀기', 'Unhide') : t('숨기기', 'Hide')}</button>` : '') +
+        (me && !mineQ ? `<button type="button" class="sb-del" data-qarep="q">${t('신고', 'Report')}</button>` : '') +
+      '</div></article>' +
+    `<div class="qa-ans-h">${t(`답 ${ans.length}`, `${ans.length} answer${ans.length === 1 ? '' : 's'}`)}</div>` +
+    (ans.length ? ans.map((a) => {
+      const acc = a.id === q.accepted_id, n = a.qa_helpful?.[0]?.count || 0, on = qa.mine.has(a.id);
+      return `<div class="qa-card qa-ans${acc ? ' acc' : ''}">` +
+        (acc ? `<div class="qa-acc">✓ ${t('질문한 사람이 고른 답', 'Chosen by the asker')}</div>` : '') +
+        `<div class="qa-ans-by"><span class="qa-a">A</span><b>${esc(a.author)}</b><span class="qa-badge">${t('치즈감자 선생님', 'Cheesepotato teacher')}</span><span class="qa-meta">${esc(qaWhen(a.created_at))}</span></div>` +
+        `<div class="qa-body">${qaBody(a.body)}</div>` +
+        '<div class="qa-acts">' +
+          `<button type="button" class="sb-like${on ? ' on' : ''}" data-qahelp="${a.id}"${me ? '' : ' disabled'}>👍 ${t('도움돼요', 'Helpful')} ${n}</button>` +
+          (mineQ && !acc ? `<button type="button" class="sb-reply-btn" data-qaacc="${a.id}">${t('이 답 고르기', 'Choose this answer')}</button>` : '') +
+          (admin ? `<button type="button" class="sb-del" data-qadela="${a.id}">${t('답 지우기', 'Delete')}</button>` : '') +
+        '</div></div>';
+    }).join('') : `<p class="qa-none">${t('아직 답이 없어요. 선생님이 곧 답해 드릴게요.', 'No answer yet — a teacher will reply soon.')}</p>`) +
+    (admin ? `<div class="qa-card"><b>${t('답 쓰기 (운영자)', 'Write an answer (admin)')}</b>` +
+      `<textarea id="qaAns" class="sb-in" rows="6" maxlength="6000" placeholder="${esc(t('답을 써 주세요', 'Your answer'))}"></textarea>` +
+      (qa.err ? `<p class="gp-msg no">${esc(qa.err)}</p>` : '') +
+      `<div class="gp-row"><button type="button" class="pt-next" data-qaans="1"${qa.busy ? ' disabled' : ''}>${t('답 올리기', 'Post answer')}</button></div></div>` : '');
+}
+
+function qaPaint() {
+  const box = $('qaWrap');
+  if (!box) return;
+  if (qa.missing) {
+    box.innerHTML = `<div class="qa-card qa-login">` +
+      `<p>${t('곧 열려요. 준비하고 있어요!', 'Opening soon — we are getting it ready!')}</p></div>`;
+    return;
+  }
+  box.innerHTML = qa.view === 'ask' ? qaAskHtml() : qa.view === 'q' ? qaOneHtml() : qaListHtml();
+}
+async function qaDraw(sub) {
+  const { data: { session } } = await sb.auth.getSession();
+  qaSession = session;
+  const id = Number(sub);
+  if (id) { qa.view = 'q'; qa.id = id; window.cpMark('learn', `qna/${id}`); qaLoadOne(id); }
+  else { qa.view = 'list'; qa.id = null; window.cpMark('learn', 'qna'); qaLoadList(); }
+}
+let qaSearchT = 0;
+$('qaWrap')?.addEventListener('input', (ev) => {
+  if (ev.target.id !== 'qaSearch') return;
+  clearTimeout(qaSearchT);
+  qaSearchT = setTimeout(() => { qa.q = ev.target.value; qaLoadList().then(() => { const s = $('qaSearch'); if (s) { s.focus(); s.setSelectionRange(s.value.length, s.value.length); } }); }, 350);
+});
+$('qaWrap')?.addEventListener('change', (ev) => {
+  if (ev.target.name === 'qaSort') { qa.sort = ev.target.value; qaPaint(); }
+});
+$('qaWrap')?.addEventListener('click', async (ev) => {
+  const el = (sel) => ev.target.closest(sel);
+  if (el('[data-qab]')) { qa.board = el('[data-qab]').dataset.qab; qaLoadList(); return; }
+  if (el('[data-qaq]')) { qaDraw(el('[data-qaq]').dataset.qaq); window.scrollTo({ top: 0, behavior: 'smooth' }); return; }
+  if (el('[data-qaback]')) { qa.err = ''; qaDraw(''); return; }
+  if (el('[data-qaask]')) { qa.view = 'ask'; qa.err = ''; qaPaint(); return; }
+  if (el('[data-qalogin]')) { open('account'); return; }
+  if (el('[data-qapost]')) {
+    const title = ($('qaTitle').value || '').trim(), body = ($('qaText').value || '').trim();
+    const author = ($('qaName').value || '').trim().slice(0, 20) || t('학생', 'Student');
+    if (title.length < 4) { qa.err = t('제목을 네 글자 이상 적어 주세요.', 'Please write a title of at least 4 characters.'); qaPaint(); return; }
+    try { localStorage.setItem(QA_NAME_KEY, author); } catch (e) {}
+    qa.busy = true; qa.err = ''; qaPaint();
+    const { data, error } = await sb.from('qa_questions').insert({ title, body, author, board: $('qaBoard')?.value || 'grammar' }).select('id').single();
+    qa.busy = false;
+    if (error) {
+      qa.err = /qa_daily_limit/.test(error.message || '') ? t('질문은 하루에 다섯 개까지 올릴 수 있어요.', 'You can post up to five questions a day.')
+        : qaMissing(error) ? t('아직 준비 중이에요.', 'Not open yet.') : t('올리지 못했어요. 잠시 뒤 다시 해 보세요.', 'Could not post. Try again shortly.');
+      qaPaint(); return;
+    }
+    track('질문올림');
+    qaDraw(String(data.id)); return;
+  }
+  if (el('[data-qaans]')) {
+    const body = ($('qaAns').value || '').trim();
+    if (!body) return;
+    qa.busy = true; qa.err = ''; qaPaint();
+    const { error } = await sb.from('qa_answers').insert({ question_id: qa.cur.id, body, author: '치즈감자' });
+    qa.busy = false;
+    if (error) { qa.err = t('답을 올리지 못했어요.', 'Could not post the answer.'); qaPaint(); return; }
+    qaLoadOne(qa.cur.id); return;
+  }
+  if (el('[data-qahelp]')) {
+    if (!qaSession) return;
+    const aid = Number(el('[data-qahelp]').dataset.qahelp);
+    const r = qa.mine.has(aid)
+      ? await sb.from('qa_helpful').delete().eq('answer_id', aid).eq('user_id', qaSession.user.id)
+      : await sb.from('qa_helpful').insert({ answer_id: aid });
+    if (!r.error) qaLoadOne(qa.cur.id);
+    return;
+  }
+  if (el('[data-qaacc]')) {
+    const aid = Number(el('[data-qaacc]').dataset.qaacc);
+    const { error } = await sb.from('qa_questions').update({ accepted_id: aid }).eq('id', qa.cur.id);
+    if (!error) { track('답채택'); qaLoadOne(qa.cur.id); }
+    return;
+  }
+  if (el('[data-qadelq]')) {
+    if (!confirm(t('이 질문을 지울까요? 달린 답도 함께 지워져요.', 'Delete this question? Its answers go too.'))) return;
+    const { error } = await sb.from('qa_questions').delete().eq('id', qa.cur.id);
+    if (!error) qaDraw('');
+    return;
+  }
+  if (el('[data-qahideq]')) {
+    const { error } = await sb.from('qa_questions').update({ hidden: !qa.cur.hidden }).eq('id', qa.cur.id);
+    if (!error) qaLoadOne(qa.cur.id);
+    return;
+  }
+  if (el('[data-qadela]')) {
+    if (!confirm(t('이 답을 지울까요?', 'Delete this answer?'))) return;
+    const { error } = await sb.from('qa_answers').delete().eq('id', Number(el('[data-qadela]').dataset.qadela));
+    if (!error) qaLoadOne(qa.cur.id);
+    return;
+  }
+  if (el('[data-qarep]')) {
+    const reason = prompt(t('무엇이 문제인가요? (짧게)', 'What is wrong? (briefly)'), '');
+    if (reason === null) return;
+    const { error } = await sb.from('qa_reports').insert({ question_id: qa.cur.id, reason: reason.slice(0, 300) });
+    alert(error ? t('신고하지 못했어요.', 'Could not send the report.') : t('알려 주셔서 고마워요. 확인할게요.', 'Thanks — we will take a look.'));
+  }
+});
+
 /* ══ 인쇄용 TOPIK 모의고사 — 자료마당 「무료 모의고사」(운영자 요청 2026-10-01: 진짜 모의고사 느낌으로, 무료 배포) ══════
    사이트의 회차(tqBuildMock)를 그대로 종이로 옮긴다: 표지 → 문제지(두 단, 「※ [31~33] …」 묶음 지시문, 지문 상자, ①~④)
    → OMR 답안지 → 정답과 해설. 노트 인쇄와 같은 자리(#ntPrintView · body.nt-printing)를 빌려 브라우저 인쇄로 PDF 를 만든다.
@@ -13589,7 +13841,7 @@ async function gameVocabWords(min, have = []) {
   const push = (word, meaning) => { if (word && meaning && !seen.has(word)) { seen.add(word); out.push({ word, meaning }); } };
   guestRead().forEach((g) => push(g.word, g.meaning));
   try {
-    const d = await import('./vocab-topik1.js?v=d74e2268');
+    const d = await import('./vocab-topik1.js?v=d9810f6a');
     let st = {};
     try { st = JSON.parse(localStorage.getItem('cp-words-v1') || '{}').w || {}; } catch (e) {}
     const mean = (w) => w.s || w.e.split(';')[0];
@@ -14879,10 +15131,10 @@ $('ltPurposeGrid').addEventListener('click', (ev) => {
    빠지고, 고쳐 올려도 브라우저가 예전 문제를 계속 들고 있게 된다. */
 let LT_CUSTOM = { overall: [], reading: [], writing: [], listening: [] };
 let ltCustomOverallP = null, ltCustomReadingP = null, ltCustomWritingP = null, ltCustomListeningP = null;
-const ltCustomOverallNeed = () => (ltCustomOverallP ??= import('./leveltest-overall.js?v=d74e2268').then((m) => { LT_CUSTOM.overall = m.LT_CUSTOM_OVERALL; }));
-const ltCustomReadingNeed = () => (ltCustomReadingP ??= import('./leveltest-reading.js?v=d74e2268').then((m) => { LT_CUSTOM.reading = m.LT_CUSTOM_READING; }));
-const ltCustomWritingNeed = () => (ltCustomWritingP ??= import('./leveltest-writing.js?v=d74e2268').then((m) => { LT_CUSTOM.writing = m.LT_CUSTOM_WRITING; }));
-const ltCustomListeningNeed = () => (ltCustomListeningP ??= import('./leveltest-listening.js?v=d74e2268').then((m) => { LT_CUSTOM.listening = m.LT_CUSTOM_LISTENING; }));
+const ltCustomOverallNeed = () => (ltCustomOverallP ??= import('./leveltest-overall.js?v=d9810f6a').then((m) => { LT_CUSTOM.overall = m.LT_CUSTOM_OVERALL; }));
+const ltCustomReadingNeed = () => (ltCustomReadingP ??= import('./leveltest-reading.js?v=d9810f6a').then((m) => { LT_CUSTOM.reading = m.LT_CUSTOM_READING; }));
+const ltCustomWritingNeed = () => (ltCustomWritingP ??= import('./leveltest-writing.js?v=d9810f6a').then((m) => { LT_CUSTOM.writing = m.LT_CUSTOM_WRITING; }));
+const ltCustomListeningNeed = () => (ltCustomListeningP ??= import('./leveltest-listening.js?v=d9810f6a').then((m) => { LT_CUSTOM.listening = m.LT_CUSTOM_LISTENING; }));
 const LT_CUSTOM_NEED = {
   overall: ltCustomOverallNeed, reading: ltCustomReadingNeed,
   writing: ltCustomWritingNeed, listening: ltCustomListeningNeed,
@@ -16284,7 +16536,7 @@ function fbMount(host, place, level = null) {
    openSection 이 epsDraw 를 부른다. let · const 면 그때 「초기화 전 접근」으로 죽는다. */
 var EPS = null;
 var epsP = null;
-function epsNeed() { return (epsP ??= import('./eps.js?v=d74e2268').then((m) => { EPS = m; })); }
+function epsNeed() { return (epsP ??= import('./eps.js?v=d9810f6a').then((m) => { EPS = m; })); }
 const EPS_SECS = ['reading', 'listening'];
 const EPS_MOCK_SEC = 70 * 60;
 const EPS_NUM = ['①', '②', '③', '④'];
