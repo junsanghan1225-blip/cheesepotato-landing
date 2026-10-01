@@ -13,16 +13,16 @@
    어느 날 갑자기 다른 코드가 실려 왔다.
    이제 vendor/ 안에 받아 두고 CSP 로 바깥을 막는다. 버전을 올릴 때는
    tools/vendor.mjs 의 PIN 을 고치고 다시 돌린다. */
-import { createClient } from './vendor/supabase-js.js?v=0c1eb3d0';
+import { createClient } from './vendor/supabase-js.js?v=076ed8a0';
 // TOPIK 읽기 "문제 풀이 영상" 목록. 아주 작은 파일이라(id 목록뿐) 다른
 // 자료처럼 갈래를 열 때 지연 로딩하지 않고 그냥 처음부터 받는다.
-import { TQ_VIDEO_IDS } from './topik-video.js?v=0c1eb3d0';
+import { TQ_VIDEO_IDS } from './topik-video.js?v=076ed8a0';
 // 코스 아이콘 — 이모지 대신 선 아이콘(course-icons.js 머리말)
 // 구독(Paddle) — billing.js 머리말
-import { BILLING, billingLive, isPro, proInfo, loadPro, openCheckout, waitPro } from './billing.js?v=0c1eb3d0';
-import { myLevelBadge, potatoLevel, cheeseLevel } from './levels.js?v=0c1eb3d0';
-import { courseIcon } from './course-icons.js?v=0c1eb3d0';
-import { AUDIO_REMOTE, audioKey } from './audio-key.js?v=0c1eb3d0';
+import { BILLING, billingLive, isPro, proInfo, loadPro, openCheckout, waitPro } from './billing.js?v=076ed8a0';
+import { myLevelBadge, potatoLevel, cheeseLevel } from './levels.js?v=076ed8a0';
+import { courseIcon } from './course-icons.js?v=076ed8a0';
+import { AUDIO_REMOTE, audioKey } from './audio-key.js?v=076ed8a0';
 // 앱(package.json)과 같은 줄기를 쓴다. 갈리면 앱에서는 읽히는 파일이
 // 여기서는 안 읽히는(또는 그 반대) 일이 생긴다.
 /* 엑셀 라이브러리는 422KB — 이 판에서 가장 무거운 조각이다. 그런데 쓰는
@@ -34,7 +34,7 @@ import { AUDIO_REMOTE, audioKey } from './audio-key.js?v=0c1eb3d0';
    자국(?v=)은 tools/stamp.mjs 가 아래 줄에 알아서 붙인다 — 정적으로 쓰든
    동적으로 쓰든 같은 글자를 찾으므로 바꿔도 그대로 찍힌다. */
 let XLSX = null;
-const needXLSX = async () => (XLSX ??= await import('./vendor/xlsx.js?v=0c1eb3d0'));
+const needXLSX = async () => (XLSX ??= await import('./vendor/xlsx.js?v=076ed8a0'));
 // 커리큘럼. 내용과 엔진을 갈라 두면 글을 고치다 화면을 깨지 않는다.
 // 갈래 목록(drawSections)·코스(drawCourses)·문제만 풀기(dqDraw) 를 열 때만
 // 받는다 — 배우기 갈래 목록도 안 본 사람에게 코스 71개 레슨을 다 물릴
@@ -42,9 +42,9 @@ const needXLSX = async () => (XLSX ??= await import('./vendor/xlsx.js?v=0c1eb3d0
 let COURSES = [], coursesP = null;
 /* 앱은 courses.js 대신 courses-lite.js 를 받는다 — 중·고급 레슨 본문을 뺀 목록이다
    (tools/build-courses-lite.mjs). 본문은 그 레슨을 열 때 upperBlocksNeed() 가 채운다. */
-const coursesNeed = () => (coursesP ??= import('./courses-lite.js?v=0c1eb3d0').then((m) => { COURSES = m.COURSES; }));
+const coursesNeed = () => (coursesP ??= import('./courses-lite.js?v=076ed8a0').then((m) => { COURSES = m.COURSES; }));
 let upperP = null;
-const upperBlocksNeed = () => (upperP ??= coursesNeed().then(() => import('./courses-grammar-detailed.js?v=0c1eb3d0')).then((m) => {
+const upperBlocksNeed = () => (upperP ??= coursesNeed().then(() => import('./courses-grammar-detailed.js?v=076ed8a0')).then((m) => {
   const byId = new Map(m.DETAILED_GRAMMAR_COURSES.flatMap((c) => c.lessons.map((l) => [l.id, l.blocks])));
   for (const c of COURSES) for (const l of c.lessons) if (!l.blocks && byId.has(l.id)) { l.blocks = byId.get(l.id); delete l.lazy; }
 }));
@@ -59,7 +59,7 @@ const blocksNeed = async (course) => { if (course.lessons.some((l) => !l.blocks)
    tqGloss 는 그대로 동기다 — 아직 안 왔으면 빈 뜻을 돌려주고, 부르는
    쪽은 이미 "사전에 없는 말"을 다룰 줄 안다. */
 let GLOSSARY = {}, GLOSS_LANGS = {}, glossP = null;
-const glossNeed = () => (glossP ??= import('./glossary.js?v=0c1eb3d0').then((m) => {
+const glossNeed = () => (glossP ??= import('./glossary.js?v=076ed8a0').then((m) => {
   GLOSSARY = m.GLOSSARY; GLOSS_LANGS = m.GLOSS_LANGS;
   dictBuildEntries();
 }).catch((e) => {
@@ -67,12 +67,12 @@ const glossNeed = () => (glossP ??= import('./glossary.js?v=0c1eb3d0').then((m) 
   glossP = null;
   throw e;
 }));
-import { glossFind } from './gloss-find.js?v=0c1eb3d0';
+import { glossFind } from './gloss-find.js?v=076ed8a0';
 /* 홈 화면 "오늘의 단어" 카드. 표제어·품사·짧은 뜻풀이 3개만 든
    작은 자료라(사전 전체 356KB 와 달리) 홈에 들어오면 바로 받는다 —
    빈 카드로 몇 초 떠 있는 것보다 낫다. */
 let WOTD_POOL = [], wotdP = null;
-const wotdNeed = () => (wotdP ??= import('./wotd.js?v=0c1eb3d0').then((m) => {
+const wotdNeed = () => (wotdP ??= import('./wotd.js?v=076ed8a0').then((m) => {
   WOTD_POOL = m.WOTD_POOL;
 }).catch((e) => { wotdP = null; throw e; }));
 /* 그날의 낱말을 고른다. 한국 자정을 기준으로 하루씩 넘어가게
@@ -107,11 +107,11 @@ window.wotdRender = () => { wotdRender(); try { todayRender(); } catch (e) {} };
    나중 화면은 그 약속(??=)을 그대로 쓴다. */
 let GRAMMAR = [], GRAMMAR_EN = {}, grammarP = null;
 const grammarNeed = () => (grammarP ??= Promise.all([
-  import('./grammar.js?v=0c1eb3d0'), import('./grammar-en.js?v=0c1eb3d0'),
+  import('./grammar.js?v=076ed8a0'), import('./grammar-en.js?v=076ed8a0'),
 ]).then(([a, b]) => { GRAMMAR = a.GRAMMAR; GRAMMAR_EN = b.GRAMMAR_EN; }));
-import { grammarScan } from './grammar-find.js?v=0c1eb3d0';
+import { grammarScan } from './grammar-find.js?v=076ed8a0';
 /* 문법 이름 → 예문에서 칠할 꼴. 쓰임 보기 도구(tools/build-grammar-usage.mjs)와 같은 것을 써서 찾은 곳과 칠한 곳이 어긋나지 않게. */
-import { grammarMarkRe } from './grammar-mark.js?v=0c1eb3d0';
+import { grammarMarkRe } from './grammar-mark.js?v=076ed8a0';
 // TOPIK 쓰기·듣기 문항. 읽기(topik.js·topik2.js)와 같은 tqNeedData() 로
 // 함께 받는다 — 유형 연습(topik) 갈래 하나가 세 기술을 다 쓰므로 따로
 // 가를 까닭이 없다. 값은 tqNeedData 정의부에서 채운다.
@@ -127,7 +127,7 @@ let SB_CATS = [], SB_MORE = {}, SB_SEED = {}, SB_POINTS = [], sbDataP = null;
 let GRAMMAR_DRILL = {}, GRAMMAR_USAGE = {}, GRAMMAR_WORDS = {};
 /* 쓰임 보기(tools/build-grammar-usage.mjs 생성물) — TOPIK 연습 · 읽기 지문 · 낱말 예문에서 그 문법이 쓰인 문장 */
 /* 같이 알면 좋은 단어(tools/build-grammar-words.mjs 생성물, 원본 docs/grammar-words.json) */
-const sbNeed = () => (sbDataP ??= Promise.all([import('./sentences.js?v=0c1eb3d0'), import('./grammar-drill.js?v=0c1eb3d0'), import('./grammar-usage.js?v=0c1eb3d0'), import('./grammar-words.js?v=0c1eb3d0')]).then(([m, d, u, w]) => {
+const sbNeed = () => (sbDataP ??= Promise.all([import('./sentences.js?v=076ed8a0'), import('./grammar-drill.js?v=076ed8a0'), import('./grammar-usage.js?v=076ed8a0'), import('./grammar-words.js?v=076ed8a0')]).then(([m, d, u, w]) => {
   GRAMMAR_DRILL = d.GRAMMAR_DRILL || {}; GRAMMAR_USAGE = u.GRAMMAR_USAGE || {}; GRAMMAR_WORDS = w.GRAMMAR_WORDS || {};
   SB_CATS = m.SB_CATS; SB_MORE = m.SB_MORE; SB_SEED = m.SB_SEED;
   // 갈래마다 표현을 펼쳐 한 줄에 담는다 — SB_CATS 안의 점에는 갈래가 안
@@ -139,7 +139,7 @@ const sbNeed = () => (sbDataP ??= Promise.all([import('./sentences.js?v=0c1eb3d0
 // 숫자 게임의 읽기와 문제 만들기. 화면을 모르는 순수 계산이라 따로 뒀다.
 // 게임 목록에서 「숫자 읽기」를 시작할 때만 받는다 — XLSX 와 같은 자리다.
 let makeRound = null;
-const needNumbers = async () => (makeRound ??= (await import('./numbers.js?v=0c1eb3d0')).makeRound);
+const needNumbers = async () => (makeRound ??= (await import('./numbers.js?v=076ed8a0')).makeRound);
 
 // 이 키는 공개돼도 되는 값이다. 이미 APK 안에 같은 것이 들어 있고,
 // 접근을 막는 건 키가 아니라 테이블에 걸린 RLS 다.
@@ -221,8 +221,8 @@ let tqDataP = null;
    유형 연습(topik) 갈래 하나가 이 넷을 다 쓰므로 갈라 봤자 요청만
    늘어난다. */
 const tqNeedData = () => (tqDataP ??= Promise.all([
-  import('./topik.js?v=0c1eb3d0'), import('./topik2.js?v=0c1eb3d0'),
-  import('./topik-writing.js?v=0c1eb3d0'), import('./topik-listening.js?v=0c1eb3d0'),
+  import('./topik.js?v=076ed8a0'), import('./topik2.js?v=076ed8a0'),
+  import('./topik-writing.js?v=076ed8a0'), import('./topik-listening.js?v=076ed8a0'),
 ]).then(([a, b, c, d]) => {
   TQ_DATA.I  = { reading: a.TOPIK_READING,  blueprint: a.TOPIK_BLUEPRINT,  slots: a.TOPIK_SLOTS };
   TQ_DATA.II = { reading: b.TOPIK2_READING, blueprint: b.TOPIK2_BLUEPRINT, slots: b.TOPIK2_SLOTS };
@@ -233,11 +233,11 @@ const tqNeedData = () => (tqDataP ??= Promise.all([
 let READING = null, rdP = null;
 // 지문의 밑줄 문법 말풍선이 GRAMMAR 를 쓰므로 같이 받아 둔다.
 const rdNeed = () => (rdP ??= Promise.all([
-  import('./reading.js?v=0c1eb3d0'), grammarNeed(),
+  import('./reading.js?v=076ed8a0'), grammarNeed(),
 ]).then(([m]) => { READING = m.READING; }));
 
 let CONVO = null, cvP = null;
-const cvNeed = () => (cvP ??= import('./convo.js?v=0c1eb3d0').then((m) => { CONVO = m.CONVO; }));
+const cvNeed = () => (cvP ??= import('./convo.js?v=076ed8a0').then((m) => { CONVO = m.CONVO; }));
 
 /* 배우기를 열면 여섯 다 미리 불을 붙인다. 기다리지 않는다 — 갈래 목록은
    이 자료가 없어도 그려지고, 사람이 갈래를 고르는 사이에 도착한다.
@@ -459,9 +459,9 @@ $('dictBtn').addEventListener('click', () => { const go = !showing('wordsView');
    합쳐 200KB 남짓(압축)이라 첫 화면 모두에게 물릴 까닭이 없다. 사이트 공용 도구는 넘겨준다. */
 let wordsApi = null, wordsP = null;
 /* TOPIK II 예문은 500개씩 조각으로 따로 받는다(tools/build-vocab.mjs) — 조각 주소는 이 파일의 자국을 빌린다. */
-const VOCAB2_URL = './vocab-topik2.js?v=0c1eb3d0';
+const VOCAB2_URL = './vocab-topik2.js?v=076ed8a0';
 const wordsNeed = () => (wordsP ??= Promise.all([
-  import('./words.js?v=0c1eb3d0'), import('./vocab-topik1.js?v=0c1eb3d0'), import(VOCAB2_URL),
+  import('./words.js?v=076ed8a0'), import('./vocab-topik1.js?v=076ed8a0'), import(VOCAB2_URL),
 ]).then(([m, d, d2]) => {
   wordsApi = m.wordsInit({
     root: $('wordsRoot'), t, esc, track, say, glossFind, glossNeed, ICON: DICT_SAY_ICON,
@@ -556,7 +556,7 @@ async function vocabSync() {
   if (!wordsP) return;
   const { data: { session } } = await sb.auth.getSession();
   if (!session) return;
-  const m = await import('./words.js?v=0c1eb3d0');
+  const m = await import('./words.js?v=076ed8a0');
   const ok = await m.syncVocab(async () => {
     const { data, error } = await sb.from('settings').select('vocab').eq('user_id', session.user.id).maybeSingle();
     return error ? undefined : (data?.vocab || {});
@@ -870,14 +870,14 @@ let dictOpen = null;  // 지금 "더 보기"(예문·뜻풀이)를 펼쳐 둔 �
    평소엔 안 쓰는 522KB 를 첫 화면 모두에게 물릴 까닭이 없다. */
 let dictSensesP = null;
 const dictLoadSenses = () => (dictSensesP ??=
-  import('./glossary-senses.js?v=0c1eb3d0').then((m) => m.SENSES).catch(() => ({})));
+  import('./glossary-senses.js?v=076ed8a0').then((m) => m.SENSES).catch(() => ({})));
 
 /* 예문. 국립국어원 자료엔 없어서 Gemini 로 새로 지은 것이다(있는 만큼만
    — docs/glossary-examples-gemini-prompt.md 참고). 뜻풀이와 같은 자리에서
    같이 받는다 — 펼치는 손짓 하나에 몰아 두는 편이 화면이 덜 복잡하다. */
 let dictExamplesP = null;
 const dictLoadExamples = () => (dictExamplesP ??=
-  import('./glossary-examples.js?v=0c1eb3d0').then((m) => m.EXAMPLES).catch(() => ({})));
+  import('./glossary-examples.js?v=076ed8a0').then((m) => m.EXAMPLES).catch(() => ({})));
 
 function dictVisible() {
   const q = dictQuery.trim().toLowerCase();
@@ -9869,7 +9869,7 @@ let TRAVEL_CATEGORIES = null;
 let TRAVEL_PHRASES = null;
 let TRAVEL_VOCAB = null;
 let tvP = null;
-const tvNeed = () => (tvP ??= import('./travel-data.js?v=0c1eb3d0').then((m) => {
+const tvNeed = () => (tvP ??= import('./travel-data.js?v=076ed8a0').then((m) => {
   TRAVEL_CATEGORIES = m.TRAVEL_CATEGORIES;
   TRAVEL_PHRASES = m.TRAVEL_PHRASES;
   TRAVEL_VOCAB = m.TRAVEL_VOCAB;
@@ -13876,7 +13876,7 @@ async function gameVocabWords(min, have = []) {
   const push = (word, meaning) => { if (word && meaning && !seen.has(word)) { seen.add(word); out.push({ word, meaning }); } };
   guestRead().forEach((g) => push(g.word, g.meaning));
   try {
-    const d = await import('./vocab-topik1.js?v=0c1eb3d0');
+    const d = await import('./vocab-topik1.js?v=076ed8a0');
     let st = {};
     try { st = JSON.parse(localStorage.getItem('cp-words-v1') || '{}').w || {}; } catch (e) {}
     const mean = (w) => w.s || w.e.split(';')[0];
@@ -14370,6 +14370,28 @@ function ltAdaptNext() {
   }
   return null;
 }
+/* 단어 문항 — 한국어 낱말을 보고 영어 뜻을 고른다(운영자 요청 2026-10-02 「일반에서 기본적인 레벨별 단어」).
+   낱말 급수를 우리 레벨(L)에 얹는다: TOPIK I 1급 생활 낱말 L2 · 그 밖 L3, 2급 생활 L4 · 그 밖 L5, TOPIK II 3 · 4급 L6, 5 · 6급 L7.
+   오답 보기는 같은 레벨 · 같은 품사에서, 뜻이 겹치지 않게 고른다. */
+let ltVocabP = null;
+const ltVocabPool = () => (ltVocabP ??= Promise.all([import('./vocab-topik1.js?v=076ed8a0'), import(VOCAB2_URL)]).then(([a, b]) => {
+  const en = (w) => String(w.s || w.e || '').split(';')[0].trim();
+  const lvOf = (w) => (w.l === 1 ? (w.u?.includes('life') ? 2 : 3) : w.l === 2 ? (w.u?.includes('life') ? 4 : 5) : w.l <= 4 ? 6 : 7);
+  const words = [...a.VOCAB, ...b.VOCAB].filter((w) => w.h && !/\s/.test(w.h) && en(w) && en(w).length <= 40).map((w) => ({ w, lv: lvOf(w), en: en(w) }));
+  const by = {};
+  for (const x of words) (by[x.lv] ||= []).push(x);
+  const out = [];
+  for (const list of Object.values(by)) {
+    for (const x of gameShuffle(list.slice()).slice(0, 120)) {
+      const key = x.en.toLowerCase();
+      const same = gameShuffle(list.filter((y) => y.w.p === x.w.p && y.en.toLowerCase() !== key && !key.includes(y.en.toLowerCase()) && !y.en.toLowerCase().includes(key)));
+      const wrong = [...new Set(same.map((y) => y.en))].slice(0, 3);
+      if (wrong.length < 3) continue;
+      out.push({ ask: x.w.h, answer: x.en, options: [x.en, ...wrong], lv: x.lv, area: 'vocab' });
+    }
+  }
+  return out;
+}));
 /* 시험처럼 풀 열 문제를 미리 고른다 — 고른 「내 수준」(cur) 둘레에 몰고, 아래위로 조금씩 넓힌다. 쉬운 것부터.
    TOPIK 길은 읽기 6 · 듣기 4 를 섞어 둔다(번갈아 내면 반이 듣기라 「듣기만 나온다」는 말을 들었다 — 2026-10-02).
    읽기는 같은 유형(빈칸 · 주제 …)이 몰리지 않게 아직 안 쓴 유형을 먼저 고른다. */
@@ -15008,7 +15030,10 @@ const LT_TIME_SUB = {
   15: ['「오늘」 카드 네 칸을 다', 'All four of today’s tasks'],
   30: ['네 칸에 더 — 빨리 늘고 싶어요', 'Four tasks and more — fast progress'],
 };
-const ltSteps = () => (ltFlow.track === 'topik' ? ['track', 'date', 'self'] : ['track', 'goal', 'time', 'self']);
+/* 내 수준을 고른 뒤 — 문제를 무슨 말로 낼지(lang), 간단히 볼지 · 영역별로 분석할지(mode) 묻는다(운영자 요청 2026-10-02) */
+const ltSteps = () => (ltFlow.track === 'topik' ? ['track', 'date', 'self', 'lang', 'mode'] : ['track', 'goal', 'time', 'self', 'lang', 'mode']);
+/* 문제 쪽 글(물음 말 · 발문 · 안내)은 고른 언어로. 고르지 않았으면(영역만 재는 판) 사이트 언어 그대로 */
+const lq = (ko, en) => (ltFlow.lang === 'en' ? en : ltFlow.lang === 'ko' ? ko : t(ko, en));
 const ltDateOf = (s) => { const m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(s || ''); return m ? new Date(+m[1], +m[2] - 1, +m[3]) : null; };
 /* 시험까지 남은 날. 날짜가 없거나 지났으면 null. */
 function ltDaysTo(s) {
@@ -15098,8 +15123,20 @@ function ltSetupShow(step) {
             '<div class="lt-groups"><span class="g1">TOPIK I</span><span class="g2">TOPIK II</span></div>'
           : `<div class="lt-range-ends"><span>${esc(t('처음', 'Beginner'))}</span><span>${esc(t('고급', 'Advanced'))}</span></div>`) +
       '</div>' +
-      `<div class="lt-acts"><button type="button" class="pt-next" data-lt="go">${esc(t('테스트 시작 →', 'Start the test →'))}</button></div>` +
-      `<p class="lt-fine">${esc(t('최대 10문제 · 3분쯤', 'Up to 10 questions · about 3 minutes'))}</p>`;
+      `<div class="lt-acts"><button type="button" class="pt-next" data-lt="selfNext">${esc(t('다음', 'Next'))}</button></div>`;
+  } else if (step === 'lang') {
+    const opt = (v, title, sub) => `<button type="button" class="lt-opt${ltFlow.lang === v ? ' on' : ''}" data-lt="lang" data-v="${v}">` +
+      `<span class="lt-opt-t">${esc(title)}</span><span class="lt-opt-s">${esc(sub)}</span></button>`;
+    body = ltQ(t('문제는 무슨 말로 볼까요?', 'Which language for the questions?'), t('물음 말 · 안내를 이 말로 보여 드려요. 문제 속 한국어는 그대로예요.', 'Instructions are shown in this language. The Korean in each question stays Korean.')) +
+      '<div class="lt-opts">' + opt('ko', '한국어로', '다음을 읽고 알맞은 것을 고르십시오.') + opt('en', 'In English', 'Read the following and choose the correct answer.') + '</div>';
+  } else if (step === 'mode') {
+    const opt = (v, title, sub) => `<button type="button" class="lt-opt${ltFlow.mode === v ? ' on' : ''}" data-lt="mode" data-v="${v}">` +
+      `<span class="lt-opt-t">${esc(title)}</span><span class="lt-opt-s">${esc(sub)}</span></button>`;
+    body = ltQ(t('어떻게 볼까요?', 'Quick check or full analysis?'), t('간단 테스트로 레벨만 보거나, 영역별로 정확히 진단할 수 있어요.', 'Get your level fast, or a precise diagnosis for each skill.')) +
+      '<div class="lt-opts">' +
+        opt('quick', t('간단 테스트', 'Quick test'), t('10문제 · 3분쯤 · 로그인 없이', '10 questions · about 3 minutes · no sign-in')) +
+        opt('full', t('분석 테스트 🔒', 'Full analysis 🔒'), t('40문제 · 듣기 · 읽기 · 쓰기 · 단어 10문제씩 · 15분쯤 · 로그인 필요', '40 questions · 10 each: listening, reading, writing, words · about 15 minutes · sign-in needed')) +
+      '</div><div class="lt-mode-msg" id="ltModeMsg"></div>';
   }
   const dots = step === 'track' ? '' : `<div class="lt-dots" aria-hidden="true">${steps.map((s, k) => `<i${k <= i ? ' class="on"' : ''}></i>`).join('')}</div>`;
   $('ltSetup').innerHTML = (i > 0 ? `<button type="button" class="lt-back" data-lt="back">← ${esc(t('이전', 'Back'))}</button>` : '') + dots + body;
@@ -15150,6 +15187,20 @@ $('ltSetup').addEventListener('click', (ev) => {
   if (a === 'goal') { ltFlow.goal = b.dataset.v; ltSetupShow(next()); return; }
   if (a === 'time') { ltFlow.time = b.dataset.v; ltSetupShow(next()); return; }
   if (a === 'go') { ltFlow.skillOnly = false; ltStart(ltFlow.track === 'topik' ? 'topik' : 'overall'); }
+  if (a === 'selfNext') { ltSetupShow('lang'); return; }
+  if (a === 'lang') { ltFlow.lang = b.dataset.v; ltSetupShow('mode'); return; }
+  if (a === 'login') { $('ltDlg').close(); open('account'); return; }
+  if (a === 'mode') {
+    ltFlow.mode = b.dataset.v; ltFlow.skillOnly = false;
+    if (ltFlow.mode === 'quick') { ltStart(ltFlow.track === 'topik' ? 'topik' : 'overall'); return; }
+    /* 분석 테스트는 로그인한 사람만 — 결과를 계정에 남겨 두고 나중에 비교하려는 판이다 */
+    sb.auth.getSession().then(({ data: { session } }) => {
+      if (session) { ltStartFull(); return; }
+      const m = $('ltModeMsg');
+      if (m) m.innerHTML = `<p>${esc(t('분석 테스트는 로그인하면 볼 수 있어요. 간단 테스트는 바로 볼 수 있어요.', 'Sign in to take the full analysis. The quick test needs no sign-in.'))}</p>` +
+        `<button type="button" class="pt-next" data-lt="login">${esc(t('로그인하러 가기', 'Sign in'))}</button>`;
+    });
+  }
 });
 
 /* 팝업 열고 닫기. <dialog> 라 showModal()/close() 로 되고, 배경은
@@ -15197,10 +15248,10 @@ $('ltPurposeGrid').addEventListener('click', (ev) => {
    빠지고, 고쳐 올려도 브라우저가 예전 문제를 계속 들고 있게 된다. */
 let LT_CUSTOM = { overall: [], reading: [], writing: [], listening: [] };
 let ltCustomOverallP = null, ltCustomReadingP = null, ltCustomWritingP = null, ltCustomListeningP = null;
-const ltCustomOverallNeed = () => (ltCustomOverallP ??= import('./leveltest-overall.js?v=0c1eb3d0').then((m) => { LT_CUSTOM.overall = m.LT_CUSTOM_OVERALL; }));
-const ltCustomReadingNeed = () => (ltCustomReadingP ??= import('./leveltest-reading.js?v=0c1eb3d0').then((m) => { LT_CUSTOM.reading = m.LT_CUSTOM_READING; }));
-const ltCustomWritingNeed = () => (ltCustomWritingP ??= import('./leveltest-writing.js?v=0c1eb3d0').then((m) => { LT_CUSTOM.writing = m.LT_CUSTOM_WRITING; }));
-const ltCustomListeningNeed = () => (ltCustomListeningP ??= import('./leveltest-listening.js?v=0c1eb3d0').then((m) => { LT_CUSTOM.listening = m.LT_CUSTOM_LISTENING; }));
+const ltCustomOverallNeed = () => (ltCustomOverallP ??= import('./leveltest-overall.js?v=076ed8a0').then((m) => { LT_CUSTOM.overall = m.LT_CUSTOM_OVERALL; }));
+const ltCustomReadingNeed = () => (ltCustomReadingP ??= import('./leveltest-reading.js?v=076ed8a0').then((m) => { LT_CUSTOM.reading = m.LT_CUSTOM_READING; }));
+const ltCustomWritingNeed = () => (ltCustomWritingP ??= import('./leveltest-writing.js?v=076ed8a0').then((m) => { LT_CUSTOM.writing = m.LT_CUSTOM_WRITING; }));
+const ltCustomListeningNeed = () => (ltCustomListeningP ??= import('./leveltest-listening.js?v=076ed8a0').then((m) => { LT_CUSTOM.listening = m.LT_CUSTOM_LISTENING; }));
 const LT_CUSTOM_NEED = {
   overall: ltCustomOverallNeed, reading: ltCustomReadingNeed,
   writing: ltCustomWritingNeed, listening: ltCustomListeningNeed,
@@ -15245,13 +15296,81 @@ async function ltMakeRound(purpose) {
     if (!ltFlow.skillOnly && ltFlow.self != null) {
       ad.cur = Math.max(ad.min, Math.min(ad.max, ad.kind === 'grade' ? Math.max(1, ltFlow.self) : ltFlow.self));
     }
-    ltAd = { ...ad, used: new Set(), by: {} }; return ltBuildFixed();
+    ltAd = { ...ad, used: new Set(), by: {} };
+    const round = ltBuildFixed();
+    if (purpose === 'overall' && !ltFlow.skillOnly && ltFlow.track !== 'topik') {
+      const vp = await ltVocabPool().catch(() => []), used = new Set();
+      for (const slot of [2, 6]) {
+        if (!round[slot] || !vp.length) continue;
+        const want = round[slot].lv;
+        const cand = vp.map((x, i) => ({ x, i })).filter(({ i }) => !used.has(i)).sort((p, q) => Math.abs(p.x.lv - want) - Math.abs(q.x.lv - want));
+        const near = cand.filter(({ x }) => x.lv === cand[0]?.x.lv);
+        const pick = near[Math.floor(Math.random() * near.length)];
+        if (!pick) continue;
+        used.add(pick.i);
+        round[slot] = { ...pick.x, options: gameShuffle(pick.x.options.slice()) };
+      }
+    }
+    return round;
   }
   if (purpose === 'topik') return ltMakeTopikRound();
   return ltMakeCustomRound(purpose);
 }
 
+const LT_AREAS = { listening: ['듣기', 'Listening'], reading: ['읽기', 'Reading'], writing: ['쓰기', 'Writing'], vocab: ['단어', 'Words'] };
+/* 내 수준 → 두 사다리. TOPIK 길은 급수(1~6)를 골랐고, 일반 길은 레벨(L0~L7)을 골랐다. */
+const LT_GRADE_SELF_TO_L = { 1: 3, 2: 5, 3: 6, 4: 6, 5: 7, 6: 7 };
+const ltSelfBoth = () => {
+  const s = ltFlow.self;
+  if (ltFlow.track === 'topik') { const g = Math.max(1, Math.min(6, s ?? 1)); return { g, L: LT_GRADE_SELF_TO_L[g] }; }
+  const L = Math.max(0, Math.min(7, s ?? 2));
+  return { L, g: L <= 3 ? 1 : L <= 5 ? 2 : L === 6 ? 3 : 5 };
+};
+let ltFullRes = null;
+async function ltStartFull() {
+  ltPurpose = 'full';
+  track('레벨테스트시작'); tag('레벨테스트목적', 'full');
+  const { g, L } = ltSelfBoth(), round = [];
+  for (const area of ['listening', 'reading', 'writing', 'vocab']) {
+    const ad = await (area === 'vocab'
+      ? ltVocabPool().then((pool) => ({ kind: 'level', pool, min: 2, max: 7 }))
+      : ltAdaptPool(area)).catch(() => null);
+    if (!ad || ad.pool.length < 4) continue;
+    ltAd = { ...ad, mix: false, used: new Set(), by: {}, cur: ad.kind === 'grade' ? g : Math.max(ad.min, Math.min(ad.max, L)) };
+    round.push(...ltBuildFixed().map((q) => ({ ...q, area, scale: ad.kind })));
+  }
+  ltAd = null; ltFullRes = null;
+  ltRound = round; ltIdx = 0; ltScore = 0; ltBusy = false; ltAreas = {}; ltAns = [];
+  ltRecommendation = null;
+  ltPanel('ltPlay');
+  ltDraw();
+}
+/* 영역 하나의 판정 — 아래에서부터 이어서 넘은 칸까지(ltLevelResult 와 같은 생각). 급수 영역은 우리 레벨로 옮긴다. */
+function ltAreaResult(items) {
+  const by = {};
+  for (const { lv, right } of items) { const s = by[lv] || (by[lv] = { c: 0, w: 0 }); if (right) s.c++; else s.w++; }
+  let hi = -1;
+  for (const L of Object.keys(by).map(Number).sort((a, b) => a - b)) { if (by[L].c > by[L].w) hi = L; else break; }
+  const c = items.filter((x) => x.right).length, n = items.length;
+  if (items[0]?.scale === 'grade') { const grade = Math.max(0, hi); return { grade, L: LT_GRADE_TO_LEVEL[grade], c, n }; }
+  const min = Math.min(...items.map((x) => x.lv));
+  return { L: Math.max(min, Math.min(LT_LEVELS.length - 1, hi + 1)), c, n };
+}
+function ltFullHtml() {
+  const tiles = Object.entries(ltFullRes.areas).map(([k, a]) => {
+    const p = Math.round((a.c / a.n) * 100);
+    /* 급수로 잰 영역도 일반 길은 우리 레벨(L)로 보인다. TOPIK 길은 급수로 — 0급은 「1급 준비」 */
+    const lvTx = a.grade != null && ltFlow.track === 'topik'
+      ? (a.grade ? t(`TOPIK ${a.grade}급 수준`, `About TOPIK level ${a.grade}`) : t('TOPIK 1급 준비 단계', 'Getting ready for TOPIK level 1'))
+      : `L${a.L} · ${ltLevelName(a.L)}`;
+    return `<div class="lt-area${k === ltFullRes.weak ? ' weak' : ''}"><div class="lt-area-top"><span>${esc(t(...LT_AREAS[k]))}</span>` +
+      (k === ltFullRes.weak ? `<em>${esc(t('채울 곳', 'Focus'))}</em>` : '') + '</div>' +
+      `<b>${p}<small>%</small></b><i><s style="width:${p}%"></s></i><span class="lt-area-n">${a.c} / ${a.n} · ${esc(lvTx)}</span></div>`;
+  }).join('');
+  return `<div class="lt-rep-k">${esc(t('영역별 진단', 'Skill by skill'))}</div><div class="lt-areas lt-areas4">${tiles}</div>`;
+}
 async function ltStart(purpose) {
+  ltFullRes = null;
   ltPurpose = purpose;
   track('레벨테스트시작'); tag('레벨테스트목적', purpose);
   ltRound = await ltMakeRound(purpose);
@@ -15268,7 +15387,9 @@ const ltTotal = () => (ltExam() || ltPurpose === 'promo' ? ltRound.length : LT_T
 function ltMeta() {
   if (ltExam()) {
     const n = ltRound.length, done = ltRound.filter((_, i) => ltAns[i] != null).length;
-    $('ltCount').textContent = t(`${ltIdx + 1} / ${n} · ${done}개 풀었어요`, `${ltIdx + 1} / ${n} · ${done} answered`);
+    const q = ltRound[ltIdx], sec = ltPurpose === 'full' && q ? ltRound.filter((x) => x.area === q.area) : null;
+    $('ltCount').textContent = (sec ? `${lq(...LT_AREAS[q.area])} ${sec.indexOf(q) + 1}/${sec.length} · ` : '') +
+      lq(`${ltIdx + 1} / ${n} · ${done}개 풀었어요`, `${ltIdx + 1} / ${n} · ${done} answered`);
     $('ltFill').style.width = `${n ? (done / n) * 100 : 0}%`;
     return;
   }
@@ -15281,6 +15402,7 @@ function ltMeta() {
 const LT_ASK_LABEL = {
   overall: { ko: '다음을 풀어 보세요', en: 'Try this question' },
   writing: { ko: '빈칸에 맞는 말을 고르세요', en: 'Pick the word that fits the blank' },
+  vocab: { ko: '이 낱말의 뜻을 고르세요', en: 'What does this word mean?' },
   topik: { ko: '다음 문제를 풀어 보세요', en: 'Try this practice question' },
   reading: { ko: '이 글, 무슨 내용일까요?', en: 'What does this passage say?' },
   listening: { ko: '들은 내용에 맞는 것은?', en: 'Which one matches what you heard?' },
@@ -15291,8 +15413,8 @@ function ltDraw() {
   if (!q) { ltPurpose === 'promo' ? luFinish() : ltExam() && ltRound.length ? ltGrade() : ltFinish(); return; }
   ltMeta();
   /* TOPIK 길은 읽기 · 듣기 문항이 섞여 나온다 — 듣기 문항(raw 가 있다)은 물음 말도 듣기 것으로 하고 소리도 낸다. */
-  const lbl = q.raw ? LT_ASK_LABEL.listening : (LT_ASK_LABEL[ltPurpose] || LT_ASK_LABEL.overall);
-  $('ltAskLabel').textContent = t(lbl.ko, lbl.en);
+  const lbl = q.raw ? LT_ASK_LABEL.listening : (LT_ASK_LABEL[q.area] || LT_ASK_LABEL[ltPurpose] || LT_ASK_LABEL.overall);
+  $('ltAskLabel').textContent = (ltPurpose === 'full' ? `${lq(...LT_AREAS[q.area])} · ` : '') + lq(lbl.ko, lbl.en);
   $('ltAsk').textContent = q.ask;
   /* TOPIK 문항 — 연습 화면(tqDraw)과 같은 모양: 발문이 위, 지문은 테두리 상자, 59번 유형은 <보기> 문장.
      굵은 큰 글씨(claw-ask-word)로 지문을 통째로 찍으면 시험지처럼 읽히지 않는다(운영자 지적). */
@@ -15301,11 +15423,11 @@ function ltDraw() {
   $('ltTopik').classList.toggle('hidden', !tqq);
   $('ltChoices').classList.toggle('lt-tq-ch', !!tqq);
   if (tqq) {
-    $('ltTopik').innerHTML = `<p class="tq-question">${esc(tqq.question && TQ_Q_EN[tqq.question] && isEn() ? TQ_Q_EN[tqq.question] : tqq.question || '')}</p>` +
+    $('ltTopik').innerHTML = `<p class="tq-question">${esc(tqq.question && TQ_Q_EN[tqq.question] && lq(false, true) ? TQ_Q_EN[tqq.question] : tqq.question || '')}</p>` +
       (tqq.passage ? `<div class="tq-passage">${esc(tqq.passage)}</div>` : '') +
       (tqq.sentence ? `<div class="tq-insert"><span class="tq-insert-h">${esc(t('보기', 'Given sentence'))}</span>${esc(tqq.sentence)}</div>` : '') +
       (tqq.listen ? `<div class="lt-audio"><button type="button" class="lt-play" id="ltPlayBtn"></button>` +
-        `<span class="lt-audio-t">${esc(t('여러 번 들어도 돼요', 'Replay as often as you like'))}</span></div>` +
+        `<span class="lt-audio-t">${esc(lq('여러 번 들어도 돼요', 'Replay as often as you like'))}</span></div>` +
         (tqq.sub ? `<p class="lt-sub-q">${esc(tqq.sub)}</p>` : '') : '');
   }
   // 읽기(지문+물음)는 여러 줄이라 왼쪽 정렬로 읽기 좋게 한다.
@@ -15361,8 +15483,34 @@ function ltGo(i) {
   ltIdx = i; tlStop(); ltDraw();
   $('ltDlg').querySelector('.lt-card')?.scrollTo?.(0, 0);
 }
+function ltGradeFull() {
+  ltScore = 0; ltAreas = {};
+  const per = {};
+  ltRound.forEach((q, i) => {
+    const opt = ltAns[i], right = opt === q.answer;
+    wnSeen('lt', q.raw?.id || q.tq?.id || wnHash(q.ask + q.options.join('|')), () => ({
+      question: q.tq ? (q.tq.question || '') : '', passage: q.tq?.passage || '', sentence: q.tq?.sentence || '', sub: q.tq?.sub || '',
+      ask: q.tq ? '' : (q.ask || ''), options: q.options, answer: q.options.indexOf(q.answer), why: q.why || q.raw?.why || q.tq?.why || '',
+      script: q.raw?.script }), right, q.options.indexOf(opt));
+    (per[q.area] ||= []).push({ lv: q.lv, right, scale: q.scale });
+    const ar = ltAreas[q.area] || (ltAreas[q.area] = { c: 0, w: 0 });
+    if (right) { ar.c++; ltScore++; } else ar.w++;
+  });
+  const areas = {};
+  for (const k of Object.keys(LT_AREAS)) if (per[k]) areas[k] = ltAreaResult(per[k]);
+  const Ls = Object.values(areas).map((a) => a.L);
+  const level = Math.round(Ls.reduce((x, y) => x + y, 0) / Math.max(1, Ls.length));
+  const gs = ['listening', 'reading'].filter((k) => areas[k]).map((k) => areas[k].grade);
+  const grade = gs.length ? Math.round(gs.reduce((x, y) => x + y, 0) / gs.length) : null;
+  const weak = Object.entries(areas).sort((a, b) => a[1].c / a[1].n - b[1].c / b[1].n)[0]?.[0];
+  ltFullRes = { areas, level, weak };
+  /* 결과 화면(ltFinish)이 읽는 모양 — 급수는 TOPIK 길에서만 쓴다 */
+  ltAd = { kind: ltFlow.track === 'topik' ? 'grade' : 'level', grade: grade ?? 0, by: {} };
+  ltFinish();
+}
 /* 채점 — 다 푼 뒤 한 번에. 레벨 판정(ltLevelResult)이 쓰는 칸별 맞힌 수 · 영역 · 오답 노트를 여기서 채운다. */
 function ltGrade() {
+  if (ltPurpose === 'full') return ltGradeFull();
   ltScore = 0; ltAreas = {};
   if (ltAd) ltAd.by = {};
   ltRound.forEach((q, i) => {
@@ -15709,7 +15857,7 @@ function ltProHtml(topikPath) {
 $('ltProBox').addEventListener('click', (ev) => { if (ev.target.closest('[data-lt-pro]')) proOpen('leveltest'); });
 
 async function ltFinish() {
-  const level = ltAd ? ltLevelResult() : null;
+  const level = ltFullRes ? ltFullRes.level : ltAd ? ltLevelResult() : null;
   const tier = level != null ? LT_LEVELS[level].tier : ltBucketFromScore(ltScore);
   const main = !ltFlow.skillOnly, topikPath = main && ltFlow.track === 'topik' && ltAd?.kind === 'grade';
   const grade = ltAd?.kind === 'grade' ? ltAd.grade : null;
@@ -15719,11 +15867,11 @@ async function ltFinish() {
   if (level != null && main) ltSaveLevel(level, goalId, ltFlow.time, { grade: topikPath ? grade : null, exam: ltFlow.track === 'topik' ? ltFlow.exam : null, self: ltFlow.self,
       est: topikPath ? (({ exam, score }) => ({ exam, score }))(ltEstimate(grade)) : null });
   else if (level != null && !ltLoadLevel()) ltSaveLevel(level, null, null);
-  await ltSetRecommendation(topikPath ? 'topikPath' : ltPurpose, tier, goalId, level);
+  await ltSetRecommendation(topikPath ? 'topikPath' : ltPurpose === 'full' ? 'overall' : ltPurpose, tier, goalId, level);
   track('레벨테스트완료'); tag('레벨테스트결과', level != null ? `L${level}` : tier);
 
-  $('ltReport').innerHTML = topikPath ? ltReportHtml(grade) : '';
-  $('ltReport').classList.toggle('hidden', !topikPath);
+  $('ltReport').innerHTML = (ltFullRes ? ltFullHtml() : '') + (topikPath ? ltReportHtml(grade) : '');
+  $('ltReport').classList.toggle('hidden', !topikPath && !ltFullRes);
   if (level != null) {
     const L = LT_LEVELS[level];
     const badge = myLevelBadge({ lv: level, goal: goalId, grade: topikPath ? grade : null });
@@ -15753,7 +15901,7 @@ async function ltFinish() {
   $('ltProBox').classList.toggle('hidden', !pro);
 
   /* TOPIK 길은 치즈(급수)로 공유한다 — 결과 화면이 「치즈 가루 · TOPIK 1급」인데 카드가 「L2」면 어긋난다. */
-  ltLast = level != null ? { level, purpose: ltPurpose, grade, cheese: !!topikPath && grade != null, test: true } : null;
+  ltLast = level != null ? { level, purpose: ltPurpose === 'full' ? 'overall' : ltPurpose, grade, cheese: !!topikPath && grade != null, test: true } : null;
   ltShareBoxFill();
   $('ltFb').textContent = '';
   if (level != null) fbMount($('ltFb'), 'leveltest', level);
@@ -15864,7 +16012,7 @@ async function ltShareDo(L, btn) {
   } catch (e) { /* 공유 창을 닫은 것 — 아무것도 안 한다 */ }
 }
 
-$('ltAgain').addEventListener('click', () => ltStart(ltPurpose));
+$('ltAgain').addEventListener('click', () => (ltPurpose === 'full' ? ltStartFull() : ltStart(ltPurpose)));
 $('ltPrev')?.addEventListener('click', () => ltGo(ltIdx - 1));
 $('ltNext')?.addEventListener('click', () => { if (ltIdx >= ltRound.length - 1) { if (ltRound.every((_, i) => ltAns[i] != null)) { tlStop(); ltGrade(); } } else ltGo(ltIdx + 1); });
 $('ltDots')?.addEventListener('click', (ev) => { const d = ev.target.closest('.lt-dot'); if (d) ltGo(Number(d.dataset.i)); });
@@ -16657,7 +16805,7 @@ function fbMount(host, place, level = null) {
    openSection 이 epsDraw 를 부른다. let · const 면 그때 「초기화 전 접근」으로 죽는다. */
 var EPS = null;
 var epsP = null;
-function epsNeed() { return (epsP ??= import('./eps.js?v=0c1eb3d0').then((m) => { EPS = m; })); }
+function epsNeed() { return (epsP ??= import('./eps.js?v=076ed8a0').then((m) => { EPS = m; })); }
 const EPS_SECS = ['reading', 'listening'];
 const EPS_MOCK_SEC = 70 * 60;
 const EPS_NUM = ['①', '②', '③', '④'];
