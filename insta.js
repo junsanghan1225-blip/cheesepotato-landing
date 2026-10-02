@@ -9,14 +9,15 @@ import { VOCAB, VOCAB_TOPICS } from './vocab-topik1.js';
 import { SB_CATS, SB_MORE } from './sentences.js';
 import { GRAMMAR_EN } from './grammar-en.js';
 import { GRAMMAR_WORDS } from './grammar-words.js';
+import { TOPIK_READING } from './topik.js';
 import { grammarMarkRe } from './grammar-mark.js';
-import { makePicker, todayKst, HASHTAGS, POS_EN, LV, LINK, wordEn, wordEx, wordsCaption, grammarCaption } from './insta-pick.js';
+import { makePicker, todayKst, HASHTAGS, POS_EN, LV, LINK, wordEn, wordEx, wordsCaption, grammarCaption, quizCaption, CIRCLED } from './insta-pick.js';
 
 /* 로마자는 활용기에서 빌린다 — 못 부르면 로마자 줄만 빈다 */
 let romanize = () => '';
 try { ({ romanize } = await import('./tools/ko-conj.mjs')); } catch { /* 로마자 없이 */ }
 
-const pick = makePicker({ VOCAB, VOCAB_TOPICS, SB_CATS, SB_MORE, GRAMMAR_EN, GRAMMAR_WORDS });
+const pick = makePicker({ VOCAB, VOCAB_TOPICS, SB_CATS, SB_MORE, GRAMMAR_EN, GRAMMAR_WORDS, TOPIK_READING });
 const $ = (id) => document.getElementById(id);
 const W = 1080, H = 1350;
 const C = { bg: '#F2EEE4', ink: '#1B1512', ink2: '#4E3E31', dim: '#8C7A66', or: '#E1682B', brand: '#F0C24B', soft: '#FBF8F1', pill: '#FDF0E2', card: '#FFFFFF' };
@@ -179,6 +180,25 @@ function wordsSlides(t, ws) {
     ] })),
   ];
 }
+/* 오늘의 TOPIK — 1장 문제(지문 · 질문 · 보기), 2장 정답 · 풀이 */
+function quizSlides(q) {
+  const tag = '오늘의 TOPIK · Daily TOPIK';
+  return [
+    { tag, page: '1 / 2', els: [
+      el('lv', '급', [[R(`TOPIK I · ${q.grade}급 · 연습 문제(기출 아님)`, 30, 700, C.or)]]),
+      ...(q.passage ? [el('qp', '지문', [[R(q.passage, 40, 600)]], { deco: 'box', pad: 36, gap: 26, lh: 1.55 })] : []),
+      el('qq', '질문', [[R(q.question, 44, 800)]], { gap: 34, lh: 1.35 }),
+      ...q.options.map((o, i) => el(`qo${i}`, `보기 ${i + 1}`, [[R(`${CIRCLED[i]}  ${o}`, 40, 700, C.ink2)]], { deco: 'box', fill: C.soft, pad: 22, r: 22, gap: i ? 12 : 28, lh: 1.3 })),
+      hint('정답은 다음 장 → · 댓글로 먼저!'),
+    ] },
+    { tag, page: '2 / 2', els: [
+      el('h2', '소제목', [[R('정답 · ANSWER', 34, 800, C.dim, { ls: 0.04 })]]),
+      el('qa', '정답', [[R(`${CIRCLED[q.answer]} ${q.options[q.answer]}`, fit(`${CIRCLED[q.answer]} ${q.options[q.answer]}`, 900, 120, 64, -0.03), 900, C.ink, { ls: -0.03 })]], { gap: 20, lh: 1.15, oneLine: true }),
+      el('qw', '풀이', [[R(q.why, 36, 400, C.ink2)]], { deco: 'box', pad: 36, gap: 40, lh: 1.6 }),
+      hint('TOPIK 연습 더 하기 → everykoreans.com'),
+    ] },
+  ];
+}
 function grammarSlides(p) {
   const en = pick.en(p), more = pick.more(p), words = pick.gw(p), tag = '오늘의 문법 · Grammar';
   const names = p.name.split(', ');
@@ -221,12 +241,13 @@ function loadPosts() {
   });
   const g = pick.ALL_GRAMS.find((p) => p.id === choice.g0) || d.grams[0];
   S.posts = [...words,
-    { name: `문법 · ${g.name}`, file: '3-grammar', key: `g:${g.id}`, gram: g, slides: grammarSlides(g), caption: grammarCaption(g, pick) }];
+    { name: `문법 · ${g.name}`, file: '3-grammar', key: `g:${g.id}`, gram: g, slides: grammarSlides(g), caption: grammarCaption(g, pick) },
+    ...(d.quiz ? [{ name: `TOPIK · ${d.quiz.id}`, file: '4-topik', key: `q:${d.quiz.id}`, quiz: d.quiz, slides: quizSlides(d.quiz), caption: quizCaption(d.quiz) }] : [])];
   S.posts.forEach((p) => { S.ov[p.key] = store.get(ovKey(p), {}); });
 }
 /* 틀 — 장의 역할(단어 표지 · 단어 장 · 문법 1~3장)마다 마지막으로 손본 크기 · 위치를 기억해 두고,
    아직 손보지 않은 게시물(다음 날 것)은 그 틀로 그린다. 운영자 요청(2026-10-01): 「다음 날에도 자동으로」. */
-const role = (post, si) => (post.topic ? (si ? 'w-word' : 'w-cover') : `g-${si + 1}`);
+const role = (post, si) => (post.topic ? (si ? 'w-word' : 'w-cover') : post.quiz ? `q-${si + 1}` : `g-${si + 1}`);
 S.tpl = store.get('insta:tpl', {});
 const slideOv = (post, si) => S.ov[post.key]?.[si] ?? S.tpl[role(post, si)];
 const ovOf = (post, si, id) => {
@@ -324,7 +345,7 @@ function drawTabs() {
   }).join('');
   const post = cur();
   /* 바꾸기 — 단어는 주제 · 다른 다섯 낱말, 문법은 표현 */
-  $('swap').innerHTML = post.topic
+  $('swap').innerHTML = post.quiz ? '<span class="muted">오늘의 TOPIK 문제 — 날짜로 정해져요(기출 아님 · 사이트 창작 문항)</span>' : post.topic
     ? `<label>주제 <select id="pickTopic">${pick.TOPICS.map((t) => `<option value="${t.key}"${t === post.topic ? ' selected' : ''}>${esc(t.ko)} · ${esc(t.en)} (${t.words.length})</option>`).join('')}</select></label>
        <button id="nextWords" class="ghost">다른 낱말 5개</button>`
     : `<label>문법 <select id="pickGram">${['beginner', 'intermediate', 'advanced'].map((lv) => `<optgroup label="${LV[lv]}">${pick.ALL_GRAMS.filter((g) => g.lv === lv).map((g) => `<option value="${g.id}"${g === post.gram ? ' selected' : ''}>${esc(g.name)}</option>`).join('')}</optgroup>`).join('')}</select></label>`;
@@ -336,7 +357,7 @@ const esc = (s) => String(s ?? '').replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<
 
 async function open() {
   loadPosts();
-  S.post = Math.min(S.post, 2); S.slide = 0; S.sel = null;
+  S.post = Math.min(S.post, S.posts.length - 1); S.slide = 0; S.sel = null;
   drawTabs();
   await Promise.all(S.posts.map(fontsFor));
   draw();

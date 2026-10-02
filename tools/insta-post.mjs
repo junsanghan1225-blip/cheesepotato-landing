@@ -27,7 +27,7 @@ else die('쓰는 법: render --slot 0|1|2 [--day YYYY-MM-DD] [--out media]  /  p
 
 async function render() {
   const slot = Number(arg('slot', '0')), day = arg('day') || todayKst(), out = arg('out', 'media');
-  if (![0, 1, 2].includes(slot)) die('slot 은 0(단어 1) · 1(단어 2) · 2(문법)');
+  if (![0, 1, 2, 3].includes(slot)) die('slot 은 0(단어 1) · 1(단어 2) · 2(문법) · 3(TOPIK)');
   const tplPath = join(ROOT, 'docs/insta-template.json');
   const tpl = existsSync(tplPath) ? JSON.parse(readFileSync(tplPath, 'utf8')) : {};
 
