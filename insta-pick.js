@@ -9,7 +9,8 @@ export const POS_EN = { 명사: 'noun', 동사: 'verb', 형용사: 'adjective', 
   수사: 'number', 관형사: 'determiner', 감탄사: 'interjection' };
 export const LV = { beginner: '초급 · Beginner', intermediate: '중급 · Intermediate', advanced: '고급 · Advanced' };
 /* 해시태그 — 세 게시물 모두 같은 묶음(운영자: 「통일되게」). 편집기에서 고치면 그 브라우저에서는 그 묶음을 쓴다 */
-export const HASHTAGS = '#한국어 #한국어공부 #learnkorean #studykorean #koreanlanguage #koreanvocabulary #koreangrammar #topik #korean #치즈감자 #everykoreans';
+/* 2026-10-02 운영자 결정: 11개 → 5개. 요즘 인스타는 해시태그보다 캡션 낱말로 찾아 주고, 많이 달면 오히려 덜 퍼진다는 안내가 많다 */
+export const HASHTAGS = '#learnkorean #studykorean #koreanlanguage #한국어공부 #topik';
 export const LINK = 'https://everykoreans.com/?utm_source=instagram&utm_medium=social&utm_campaign=daily';
 
 /* 고정된 씨앗으로 섞은 차례 — 날짜 n 이면 n 번째를 쓴다(다 돌면 처음으로) */
@@ -57,6 +58,8 @@ export const wordEx = (w) => w.x.slice().sort((a, b) => a[0].length - b[0].lengt
 export function wordsCaption(t, ws, romanize) {
   return `주제별 단어 · ${t.ko} (${t.en})\n\n` +
     ws.map((w, i) => `${i + 1}. ${w.h} (${romanize(w.h) || ''}) — ${wordEn(w)}\n   ${wordEx(w)[0]}\n   ${wordEx(w)[1]}`).join('\n') +
+    /* 끝에 질문 하나 — 댓글이 붙으면 더 많은 사람에게 보여 준다(운영자 결정 2026-10-02) */
+    `\n\n💬 이 중 한 단어로 문장을 만들어 댓글로 남겨 보세요! · Make a sentence with one of these words in the comments 👇` +
     `\n\n💾 저장해 두고 외워 보세요 · Save this post!\n더 많은 단어 · 발음 → 프로필 링크 · More words — link in bio.`;
 }
 
@@ -64,5 +67,6 @@ export function grammarCaption(p, pick) {
   const en = pick.en(p), more = pick.more(p), words = pick.gw(p);
   return `오늘의 문법 · ${p.name}\n${p.desc}\n${en.desc || ''}\n\n` + [p.ex, more[3]].filter(Boolean).slice(0, 2).map((x) => `• ${x}`).join('\n') +
     `\n\n같이 쓰는 말: ${words.slice(0, 3).map((x) => x[0]).join(' · ')}\n\n` +
+    `💬 이 문법으로 내 문장을 만들어 댓글로 남겨 보세요! · Try it — write your own sentence in the comments 👇\n\n` +
     `✍️ 더 많은 예문 · 연습 → 프로필 링크 · More examples — link in bio.`;
 }
