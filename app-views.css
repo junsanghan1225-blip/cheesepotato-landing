@@ -5625,3 +5625,25 @@ body.mk-printing .mk-cover, body.mk-printing .mk-paper, body.mk-printing .mk-omr
 /* 새 낱말 소개 — 가린 뜻(누르면 보인다) */
 .wd-intro-hide { margin-top:16px; padding:10px 16px; border:1.5px dashed #E8B48F; border-radius:14px; background:#FFF3E8; color:#C4551C; font:inherit; font-size:15px; font-weight:800; cursor:pointer; }
 .wd-intro-hide:hover { background:#FFE6D1; }
+
+/* 강의(#learn/lectures) — 반 · 숙제의 카드 · 입력 칸을 같이 쓴다 */
+.lec-grid { display:grid; grid-template-columns:repeat(auto-fill, minmax(240px, 1fr)); gap:14px; }
+.lec-card { display:flex; flex-direction:column; padding:0; border:1px solid var(--line); border-radius:var(--r-l); background:var(--surface); overflow:hidden; cursor:pointer; text-align:left; font:inherit; color:inherit; }
+.lec-card:hover { border-color:var(--orange); }
+.lec-card.hid { opacity:.55; }
+.lec-thumb { position:relative; display:block; aspect-ratio:16/9; background:var(--surface-2); }
+.lec-thumb img { width:100%; height:100%; object-fit:cover; display:block; }
+.lec-thumb i { position:absolute; inset:auto auto 10px 10px; width:38px; height:38px; border-radius:50%; background:rgba(0,0,0,.65); color:#fff; display:grid; place-items:center; font-style:normal; font-size:15px; }
+.lec-t { display:flex; flex-direction:column; gap:4px; padding:12px 14px 14px; }
+.lec-t b { font-size:15px; color:var(--ink); line-height:1.35; overflow-wrap:anywhere; }
+.lec-lv { font-size:12px; font-weight:800; color:var(--orange-deep); letter-spacing:.02em; }
+.lec-one { display:flex; flex-direction:column; gap:12px; align-items:flex-start; }
+.lec-player { width:100%; aspect-ratio:16/9; border-radius:var(--r-l); overflow:hidden; background:#000; }
+.lec-player iframe { width:100%; height:100%; border:0; display:block; }
+.lec-body { margin:0; color:var(--ink-2); font-size:15px; line-height:1.65; word-break:keep-all; }
+.lec-nav { display:flex; justify-content:space-between; gap:10px; width:100%; flex-wrap:wrap; }
+.lec-nav button { max-width:100%; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+.lec-adm { display:flex; gap:14px; }
+.lec-form .lec-wide { grid-column:1 / -1; }
+.lec-form textarea { font:inherit; font-size:14px; padding:8px 10px; border:1px solid var(--line); border-radius:10px; background:var(--surface); color:var(--ink); width:100%; resize:vertical; }
+.lec-one .lec-form { width:100%; }

@@ -98,6 +98,27 @@ jobs:
             --base https://raw.githubusercontent.com/${{ github.repository }}/insta-media
           cd ../media && git add -A && git commit -qm "posted ${{ steps.pick.outputs.day }} ${{ steps.pick.outputs.file }}" && git push -q origin insta-media
 
+      # 스토리(오늘의 TOPIK 만) · 스레드 — 실패해도 인스타 피드 게시물은 이미 올라갔으므로 작업을 빨갛게 만들지 않는다
+      - name: 인스타 스토리
+        if: ${{ !steps.done.outputs.skip && steps.pick.outputs.dry != 'yes' }}
+        continue-on-error: true
+        env:
+          IG_TOKEN: ${{ secrets.IG_TOKEN }}
+        run: |
+          node tools/insta-post.mjs story --dir ../media/${{ steps.pick.outputs.day }}/${{ steps.pick.outputs.file }} \
+            --base https://raw.githubusercontent.com/${{ github.repository }}/insta-media
+          cd ../media && git add -A && (git diff --cached --quiet || git commit -qm "story ${{ steps.pick.outputs.day }}") && git push -q origin insta-media
+
+      - name: 스레드
+        if: ${{ !steps.done.outputs.skip && steps.pick.outputs.dry != 'yes' }}
+        continue-on-error: true
+        env:
+          THREADS_TOKEN: ${{ secrets.THREADS_TOKEN }}
+        run: |
+          node tools/insta-post.mjs threads --dir ../media/${{ steps.pick.outputs.day }}/${{ steps.pick.outputs.file }} \
+            --base https://raw.githubusercontent.com/${{ github.repository }}/insta-media
+          cd ../media && git add -A && (git diff --cached --quiet || git commit -qm "threads ${{ steps.pick.outputs.day }} ${{ steps.pick.outputs.file }}") && git push -q origin insta-media
+
       - name: 시험이면 이미지 주소 알려 주기
         if: ${{ !steps.done.outputs.skip && steps.pick.outputs.dry == 'yes' }}
         run: echo "시험 — 올리지 않았어요. 이미지 https://github.com/${{ github.repository }}/tree/insta-media/${{ steps.pick.outputs.day }}/${{ steps.pick.outputs.file }}"

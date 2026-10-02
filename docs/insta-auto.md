@@ -39,3 +39,19 @@
 | 인스타 API 오류 … permission | 메타 앱의 `instagram_business_content_publish` 가 「테스트 준비 완료」인지 본다 |
 
 메타 규칙(권한 · 하루 올리기 개수 · API 판 `v23.0`)은 바뀔 수 있다 — 바뀌면 `tools/insta-post.mjs` 의 `GRAPH` 를 올린다.
+
+## 스토리 · 스레드 (2026-10-03)
+
+- **스토리**: 13:07 「오늘의 TOPIK」을 올릴 때 그 문제 1장을 세로(9:16) 스토리로도 올린다(`story.jpg`). 같은 `IG_TOKEN` 을 쓴다.
+  메타가 스토리 게시를 막으면 그 칸만 노랗게 넘어가고 피드 게시물은 그대로 올라간다.
+- **스레드**: 같은 그림 · 줄인 글(500자 안, 해시태그 하나)을 스레드에도 올린다. **`THREADS_TOKEN` 을 넣기 전에는 건너뛴다.**
+
+### 스레드 켜기 (운영자, 한 번)
+
+1. developers.facebook.com → 내 앱 → cheesepotatoeverykoreans → 왼쪽 **이용 사례** → **「이용 사례 추가」** →
+   **「Threads API에 액세스」**(Access the Threads API) → 추가.
+2. 그 이용 사례의 **권한**에서 `threads_basic` · `threads_content_publish` 가 「테스트 준비 완료」인지 본다(아니면 「추가」).
+3. **앱 역할 → 역할 → 「Threads 테스터 추가」** 에 스레드 계정(인스타와 같은 아이디) → 스레드 앱 **설정 → 계정 → 웹사이트 권한 → 초대** 에서 수락.
+4. 이용 사례의 **설정**에서 「액세스 토큰 생성」(User Token Generator) → 그 계정 옆 **토큰 생성** → 복사.
+5. GitHub → Settings → Secrets and variables → Actions → **New repository secret** → Name `THREADS_TOKEN` → 붙여 넣기.
+   (Claude 에게 보내지 않는다.) 다음 예약부터 스레드에도 올라간다. 이 열쇠도 약 60일마다 새로 넣는다.

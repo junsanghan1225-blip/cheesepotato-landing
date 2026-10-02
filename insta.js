@@ -114,6 +114,8 @@ function drawEl(ctx, e, L, x, y) {
   if (e.deco === 'box' || e.deco === 'pill') {
     ctx.fillStyle = e.fill || C.soft;
     ctx.beginPath(); ctx.roundRect(x, y, bw, bh, e.deco === 'pill' ? bh / 2 : (e.r || 28)); ctx.fill();
+    /* 테두리 — 오늘의 TOPIK 처럼 「시험지」로 보여야 하는 칸(운영자: 경계가 흐릿해 문제로 안 느껴진다) */
+    if (e.stroke) { ctx.strokeStyle = e.stroke; ctx.lineWidth = e.sw || 3; ctx.stroke(); }
   }
   if (e.deco === 'bar') { ctx.fillStyle = C.brand; ctx.fillRect(x, y + 4, 10, bh - 8); }
   ctx.textBaseline = 'alphabetic';
@@ -186,9 +188,10 @@ function quizSlides(q) {
   return [
     { tag, page: '1 / 2', els: [
       el('lv', '급', [[R(`TOPIK I · ${q.grade}급 · 연습 문제(기출 아님)`, 30, 700, C.or)]]),
-      ...(q.passage ? [el('qp', '지문', [[R(q.passage, 40, 600)]], { deco: 'box', pad: 36, gap: 26, lh: 1.55 })] : []),
-      el('qq', '질문', [[R(q.question, 44, 800)]], { gap: 34, lh: 1.35 }),
-      ...q.options.map((o, i) => el(`qo${i}`, `보기 ${i + 1}`, [[R(`${CIRCLED[i]}  ${o}`, 40, 700, C.ink2)]], { deco: 'box', fill: C.soft, pad: 22, r: 22, gap: i ? 12 : 28, lh: 1.3 })),
+      /* 시험지처럼 — 지문은 진한 테두리 상자, 질문은 「Q.」, 보기는 테두리 칸 + 주황 번호 */
+      ...(q.passage ? [el('qp', '지문', [[R(q.passage, 40, 600)]], { deco: 'box', fill: C.card, stroke: C.ink, sw: 3, r: 12, pad: 36, gap: 26, lh: 1.55 })] : []),
+      el('qq', '질문', [[R('Q. ', 44, 900, C.or), R(q.question, 44, 800)]], { gap: 36, lh: 1.35 }),
+      ...q.options.map((o, i) => el(`qo${i}`, `보기 ${i + 1}`, [[R(CIRCLED[i], 42, 900, C.or), R('  ', 40), R(o, 40, 700, C.ink)]], { deco: 'box', fill: C.card, stroke: '#CDBFAC', sw: 3, pad: 22, r: 20, gap: i ? 14 : 28, lh: 1.3 })),
       hint('정답은 다음 장 → · 댓글로 먼저!'),
     ] },
     { tag, page: '2 / 2', els: [
@@ -507,7 +510,19 @@ window.instaExport = async (day) => {
   await Promise.all(S.posts.map(fontsFor));
   const tags = store.get('insta:tags', HASHTAGS).trim();
   const jpg = (post, si) => { const c = document.createElement('canvas'); c.width = W; c.height = H; render(c.getContext('2d'), post, si, false); return c.toDataURL('image/jpeg', 0.92); };
-  return S.posts.map((post) => ({ file: post.file, name: post.name, caption: `${post.caption.trim()}\n\n${tags}`, imgs: post.slides.map((_, i) => jpg(post, i)) }));
+  /* 스토리(9:16) — 오늘의 TOPIK 1장을 세로 화면 가운데에. 위아래는 바탕색, 아래에 「정답은 게시물에서」 */
+  const story = (post) => {
+    const c = document.createElement('canvas'); c.width = W; c.height = 1920;
+    const g = c.getContext('2d'), o = document.createElement('canvas'); o.width = W; o.height = H;
+    render(o.getContext('2d'), post, 0, false);
+    g.fillStyle = C.bg; g.fillRect(0, 0, W, 1920); g.drawImage(o, 0, 220);
+    g.fillStyle = C.or; g.textAlign = 'center';
+    setFont(g, { weight: 900, size: 52 }, 1); g.fillText('정답은 게시물에서 확인!', W / 2, 220 + H + 130);
+    setFont(g, { weight: 700, size: 36 }, 1); g.fillText('Answer in the post', W / 2, 220 + H + 190); g.textAlign = 'left';
+    return c.toDataURL('image/jpeg', 0.92);
+  };
+  return S.posts.map((post) => ({ file: post.file, name: post.name, caption: `${post.caption.trim()}\n\n${tags}`, imgs: post.slides.map((_, i) => jpg(post, i)),
+    story: post.quiz ? story(post) : null }));
 };
 
 logo.onload = () => { if (S.posts.length) draw(); };
