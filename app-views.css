@@ -5622,3 +5622,6 @@ body.mk-printing .mk-cover, body.mk-printing .mk-paper, body.mk-printing .mk-omr
 .cls-form select, .cls-form input { font:inherit; font-size:14px; padding:8px 10px; border:1px solid var(--line); border-radius:10px; background:var(--surface); color:var(--ink); min-width:0; width:100%; }
 .cls-small { align-self:flex-start; border:none; background:none; font:inherit; font-size:12.5px; color:var(--ink-3); cursor:pointer; padding:0; text-decoration:underline; }
 .cls-form [hidden] { display:none; }
+/* 새 낱말 소개 — 가린 뜻(누르면 보인다) */
+.wd-intro-hide { margin-top:16px; padding:10px 16px; border:1.5px dashed #E8B48F; border-radius:14px; background:#FFF3E8; color:#C4551C; font:inherit; font-size:15px; font-weight:800; cursor:pointer; }
+.wd-intro-hide:hover { background:#FFE6D1; }
