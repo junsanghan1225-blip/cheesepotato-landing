@@ -91,6 +91,11 @@
 - **강의 영상**(운영자 결정 2026-10-03): 유튜브 「일부 공개」 + 사이트 `#learn/lectures`(`app.module.js` lecDraw, 표 `db/add_lectures.sql`).
   운영자만 「강의 올리기」(유튜브 링크 + 제목). 플레이어는 youtube-nocookie(CSP frame-src · img-src i.ytimg.com). 운영자 순서 `docs/lectures.md`.
 
+- **블로그 주간 정리**(운영자 결정 2026-10-03): 매일 자동 글은 안 한다(검색에 「대량 자동 생성」으로 보일 수 있다). 일요일 20:07
+  `.github/workflows/blog-weekly.yml` 이 `tools/blog-weekly.mjs` 로 그 주 인스타 낱말 · 문법 · TOPIK 을 묶어 **초안 PR** 을 연다.
+  글 안의 `<!-- 운영자 한마디 -->` 를 운영자 말로 채운 뒤 머지(비어 있으면 check-blog 가 막는다). PR 을 열려면 저장소 설정
+  「Allow GitHub Actions to create and approve pull requests」(운영자가 켠다).
+
 - 결제: 준비 끝, **Paddle 도메인 승인 대기**. 승인되면 운영자가 「승인됐어」라고 한다 → `ENV` 전환,
   FAQ · `llms.txt` 의 「가입하면 모의고사 여러 회차」 문구를 「1회차 무료 · 전 회차 Pro」로 고치고, 실제 결제로 시험.
 - AI 쓰기 채점 한도: **무료 하루 2번 · Pro 하루 30번**(운영자 결정, 그대로 유지).
