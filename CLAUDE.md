@@ -55,6 +55,7 @@
   | `sentence/` `course/` `lesson/` `topik-*/` `eps-topik/` `dictionary/` `topik1-words/` `topik2-words/` `korean-word-for/` `blog/` `compare/` `sitemap*.xml` `wotd.js` | 자료 `*.js` · `blog.js` · `vocab-topik1.js` → `node tools/build-pages.mjs` |
   | `pricing.html` `terms.html` `refund.html` | `node tools/build-legal.mjs` |
   | `record/*.json` | `node tools/record-list.mjs` |
+  | `search-index.js`(첫 화면 검색 칸 색인) | 낱말 · 사전 · 문법 · 코스 · 쓰기 · 블로그 자료 → `node tools/build-search.mjs`(build-pages 가 끝에 같이 부른다) |
   | `db/add_qa_seeds.sql`(묻고 답하기 씨앗 질문) | `docs/qa-seeds.json` → `node tools/build-qa-seeds-sql.mjs` |
   | `grammar-words.js`(문법 「같이 알면 좋은 단어」) | `docs/grammar-words.json`(안티 그래비티 · Claude 검토) → `node tools/build-grammar-words.mjs` |
   | `grammar-usage.js`(문법 「쓰임 보기」) | 우리 자료(TOPIK · 읽기 · 낱말 예문) · `grammar-mark.js` → `node tools/build-grammar-usage.mjs` |

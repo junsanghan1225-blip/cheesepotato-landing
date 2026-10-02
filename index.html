@@ -40,7 +40,7 @@
 ">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <!-- 구글 태그 관리자. 구글이 주는 인라인 코드조각은 CSP 가 막아서 gtm.js 로 뺐다. -->
-<script src="gtm.js?v=e3dc2a2c" async></script>
+<script src="gtm.js?v=a01fa604" async></script>
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <!-- 제목과 설명을 두 말로 쓴다. 이 사이트를 찾을 사람은 한국어를 **배우는**
@@ -119,13 +119,13 @@
      Pretendard 는 통짜(2.0MB) 대신 조각난 쪽을 쓴다 — 브라우저가
      unicode-range 를 보고 화면에 실제로 나온 글자가 든 조각만 받는다.
      그래서 저장소는 무거워졌지만 학습자가 받는 양은 오히려 줄었다. -->
-<link rel="stylesheet" href="vendor/pretendard.css?v=e3dc2a2c">
-<link rel="stylesheet" href="vendor/pressstart2p.css?v=e3dc2a2c">
+<link rel="stylesheet" href="vendor/pretendard.css?v=a01fa604">
+<link rel="stylesheet" href="vendor/pressstart2p.css?v=a01fa604">
 <!-- 화면 상자 안에서만 쓰는 CSS 는 여기서 갈라 받는다. media="print" 라
      첫 페인트를 안 막고, 다 받아지면 app.js 가 media 를 all 로 바꾼다.
      자바스크립트가 없으면 <noscript> 쪽이 그냥 평범하게 걸린다. -->
-<link id="viewsCss" rel="stylesheet" href="app-views.css?v=e3dc2a2c" media="print">
-<noscript><link rel="stylesheet" href="app-views.css?v=e3dc2a2c"></noscript>
+<link id="viewsCss" rel="stylesheet" href="app-views.css?v=a01fa604" media="print">
+<noscript><link rel="stylesheet" href="app-views.css?v=a01fa604"></noscript>
 
 <style>
 /* ══════════════════════════════════════════════════════════════
@@ -1928,6 +1928,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
        docs/level-plan.md 4층. 테스트 전이면 비어 있고 숨는다 — 처음 온 사람의 첫 화면은 그대로. -->
   <section id="todayCard" class="td-wrap" hidden aria-label="오늘 할 일"></section>
 
+  <!-- 사이트 검색 — 낱말 · 문법 · 코스 · 레슨 · TOPIK 쓰기 · 블로그 · 화면 이름을 한 칸에서(운영자 요청 2026-10-02).
+       색인(search-index.js)은 칸을 처음 누를 때 받는다. app.module.js ssSearch -->
+  <section class="ss-wrap" id="siteSearch" aria-label="사이트 검색" data-en-aria="Search the site">
+    <div class="ss-box">
+      <span class="ss-ic" aria-hidden="true">🔍</span>
+      <input type="search" id="ssIn" class="ss-in" autocomplete="off" enterkeyhint="search"
+             placeholder="낱말 · 문법 · TOPIK · 코스 검색 (예: 먹다, -아서, 54번)" data-en-placeholder="Search words, grammar, TOPIK, courses (e.g. eat, -아서)">
+    </div>
+    <div class="ss-out" id="ssOut" hidden></div>
+  </section>
+
   <!-- Hero.
        예전에는 「Vocabulary Learning App」이었다. 지금 이 판이 실제로 하는
        일은 한국어를 가르치는 것이고, 단어장은 그 안에서 만난 낱말을 담는
@@ -2341,6 +2352,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               <!-- 모의고사를 끝냈을 때만 보인다. 유형별 연습 점수를 공유하면
                    받는 쪽은 무슨 점수인지 알 수가 없다. -->
               <button class="pt-next hidden" id="tqShare" type="button"></button>
+              <button class="pt-next hidden" id="tqRetryWrong" type="button"></button>
               <button class="pt-next" id="tqAgain" type="button"></button>
               <button class="pt-next" id="tqBack" type="button"></button>
             </div>
@@ -2390,6 +2402,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <div style="text-align:center; margin-top:18px;">
               <button class="pt-next hidden" id="tlNext" type="button"></button>
             </div>
+            <!-- 문제 번호 칸 · 이전 / 다음 — 읽기 연습판과 같은 생김(운영자 요청 2026-10-02). app.module.js tlNavDraw -->
+            <div class="tl-nav" id="tlNav">
+              <div class="tl-grid" id="tlGrid"></div>
+              <div class="tq-pager">
+                <button class="wb-out" id="tlPrevQ" type="button" data-en="← Previous">← 이전</button>
+                <button class="wb-out" id="tlNextQ" type="button" data-en="Next →">다음 →</button>
+              </div>
+            </div>
           </div>
 
           <div id="tlOver" class="hidden">
@@ -2400,6 +2420,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               <div class="tq-bd hidden" id="tlBreak"></div>
               <div class="tq-wrongs" id="tlWrongs"></div>
               <div class="claw-over-btns">
+                <button class="pt-next hidden" id="tlRetryWrong" type="button"></button>
                 <button class="pt-next" id="tlAgain" type="button"></button>
                 <button class="pt-next" id="tlBack" type="button"></button>
               </div>
@@ -3775,9 +3796,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <div id="hlpScrim" class="hlp-scrim"></div>
 <aside id="hlpPanel" class="hlp-panel" aria-label="한국어 도우미" aria-hidden="true"></aside>
 
-<script src="app.js?v=e3dc2a2c"></script>
-<script type="module" src="app.module.js?v=e3dc2a2c"></script>
+<script src="app.js?v=a01fa604"></script>
+<script type="module" src="app.module.js?v=a01fa604"></script>
 
-<script src="analytics.js?v=e3dc2a2c" defer></script>
+<script src="analytics.js?v=a01fa604" defer></script>
 </body>
 </html>
