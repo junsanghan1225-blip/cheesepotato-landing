@@ -1463,28 +1463,14 @@
 .sb-cat-h { display:flex; align-items:baseline; gap:9px; margin-bottom:11px; }
 .sb-cat-n { font-size:11px; font-weight:700; letter-spacing:.13em; color:var(--orange-deep); font-variant-numeric:tabular-nums; }
 .sb-cat-t { font-size:16px; font-weight:700; color:var(--ink); letter-spacing:-.02em; }
-/* 문법 목록 새 모양(2026-10-03, 운영자와 미리 보기로 정함) — 한 칸에 이름 · 뜻 한 줄 · 예문 한 줄, 폰 1칸 · 넓으면 2칸 */
-.sb-pts { display:grid; gap:10px; }
-@media (min-width:760px) { .sb-pts { grid-template-columns:1fr 1fr; } }
+.sb-pts { display:grid; gap:8px; }
 .sb-pt {
-  display:flex; flex-direction:column; align-items:stretch; gap:5px; width:100%; min-width:0; text-align:left; cursor:pointer;
+  display:flex; align-items:center; gap:12px; width:100%; text-align:left; cursor:pointer;
   background:var(--surface); border:1px solid var(--line-2); border-radius:var(--r);
-  padding:14px 16px 13px; transition:border-color .16s, transform .16s;
+  padding:13px 15px; transition:border-color .16s, transform .16s;
 }
 .sb-pt:hover { border-color:rgba(var(--ink-rgb),.22); transform:translateY(-1px); }
-.sb-pt.done { border-color:rgba(18,112,79,.28); }
-.sb-pt-top { display:flex; align-items:center; gap:8px; min-width:0; }
-.sb-pt-name { font-size:19px; font-weight:800; color:var(--ink); letter-spacing:-.025em; flex:1; min-width:0; word-break:keep-all; }
-.sb-pt-ok { flex-shrink:0; font-size:12px; font-weight:800; color:var(--green); }
-.sb-pt-mean { font-size:14px; color:var(--ink-3); line-height:1.45; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
-.sb-pt-ex { font-size:14.5px; color:var(--ink-2); line-height:1.5; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
-.sb-pt-ex .gp-mk { padding:0 1px; }
-.sb-pt .sb-pt-n { align-self:flex-start; margin-top:3px; }
-.sb-cat-h { flex-wrap:wrap; }
-.sb-cat-t { font-size:18px !important; }
-.sb-cat-p { flex:0 0 80px; height:6px; border-radius:999px; background:var(--line-2); overflow:hidden; align-self:center; margin-left:auto; }
-.sb-cat-p i { display:block; height:100%; background:var(--green); border-radius:999px; }
-.sb-cat-k { font-size:12px; font-weight:700; color:var(--ink-3); }
+.sb-pt-name { font-size:15px; font-weight:700; color:var(--ink); letter-spacing:-.02em; flex:1; min-width:0; word-break:keep-all; }
 /* 글이 있는 표현에만 숫자가 붙는다. 0 을 다 그리면 텅 빈 게시판처럼 보인다. */
 .sb-pt-n {
   flex-shrink:0; font-size:11.5px; font-weight:700; color:var(--orange-deep);
