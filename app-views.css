@@ -5585,3 +5585,40 @@ body.mk-printing .mk-cover, body.mk-printing .mk-paper, body.mk-printing .mk-omr
 /* AI 채점 남은 횟수 · 모의고사 「곧 Pro」 칩(Pro 맛보기) */
 .tw-ai-left { margin-top:8px; font-size:13px; color:var(--ink-3); }
 .lq-chip.pro { background:var(--tint); color:var(--orange-deep); border-color:transparent; }
+
+/* 반 · 숙제(#learn/class) — 묻고 답하기(.qa) 틀을 그대로 쓰고 카드만 더한다 */
+.cls-card { padding:16px 18px; border:1px solid var(--line); border-radius:var(--r-l); background:var(--surface); display:flex; flex-direction:column; gap:10px; }
+.cls-card > b { font-size:15.5px; color:var(--ink); }
+.cls-card p { margin:0; color:var(--ink-2); font-size:14.5px; word-break:keep-all; }
+.cls-row { display:flex; gap:8px; flex-wrap:wrap; }
+.cls-row .sb-in { flex:1 1 160px; margin:0; min-width:0; }
+.cls-msg { color:var(--orange-deep) !important; }
+.cls-join { border-color:var(--orange); background:var(--tint); }
+.cls-c-top { display:flex; align-items:center; gap:10px; flex-wrap:wrap; }
+.cls-c-top h3 { margin:0; font-size:18px; font-weight:800; letter-spacing:-.02em; color:var(--ink); flex:1 1 auto; }
+.cls-code { font-size:13px; color:var(--ink-3); }
+.cls-code b { color:var(--ink); letter-spacing:.08em; }
+.cls-hws { list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:8px; }
+.cls-hw { padding:10px 12px; border-radius:var(--r-m, 12px); background:var(--surface-2); }
+.cls-hw.ok { opacity:.75; }
+.cls-hw-top { display:flex; align-items:center; gap:10px; }
+.cls-hw-ic { font-size:20px; flex:0 0 auto; }
+.cls-hw-t { flex:1 1 auto; min-width:0; display:flex; flex-direction:column; }
+.cls-hw-t b { font-size:14.5px; color:var(--ink); overflow-wrap:anywhere; }
+.cls-hw-t small { font-size:12.5px; color:var(--ink-3); }
+.cls-hw-ok { font-size:13.5px; font-weight:800; color:var(--green); white-space:nowrap; }
+.cls-hw-n { font-size:13px; font-weight:700; color:var(--ink-2); white-space:nowrap; }
+.cls-hw-late { font-size:12.5px; font-weight:700; color:var(--orange-deep); white-space:nowrap; }
+.cls-go { flex:0 0 auto; padding:8px 14px; font-size:13.5px; }
+.cls-x { border:none; background:none; color:var(--ink-3); font:inherit; font-size:15px; cursor:pointer; padding:4px 6px; }
+.cls-who { list-style:none; margin:8px 0 0 30px; padding:0; display:flex; flex-wrap:wrap; gap:6px; }
+.cls-who li { font-size:12.5px; padding:3px 9px; border-radius:999px; background:var(--surface); border:1px solid var(--line); color:var(--ink-3); }
+.cls-who li.ok { color:var(--green); border-color:rgba(18,112,79,.28); }
+.cls-who em { font-style:normal; opacity:.8; }
+.cls-empty { color:var(--ink-3) !important; font-size:14px; }
+.cls-add summary { cursor:pointer; font-weight:800; font-size:14px; color:var(--orange-deep); }
+.cls-form { display:grid; grid-template-columns:repeat(auto-fit, minmax(180px, 1fr)); gap:10px; margin-top:10px; align-items:end; }
+.cls-form label { display:flex; flex-direction:column; gap:4px; font-size:12.5px; font-weight:700; color:var(--ink-2); min-width:0; }
+.cls-form select, .cls-form input { font:inherit; font-size:14px; padding:8px 10px; border:1px solid var(--line); border-radius:10px; background:var(--surface); color:var(--ink); min-width:0; width:100%; }
+.cls-small { align-self:flex-start; border:none; background:none; font:inherit; font-size:12.5px; color:var(--ink-3); cursor:pointer; padding:0; text-decoration:underline; }
+.cls-form [hidden] { display:none; }

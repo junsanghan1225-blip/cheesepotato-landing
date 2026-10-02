@@ -13,16 +13,16 @@
    어느 날 갑자기 다른 코드가 실려 왔다.
    이제 vendor/ 안에 받아 두고 CSP 로 바깥을 막는다. 버전을 올릴 때는
    tools/vendor.mjs 의 PIN 을 고치고 다시 돌린다. */
-import { createClient } from './vendor/supabase-js.js?v=00cec147';
+import { createClient } from './vendor/supabase-js.js?v=cf8d29ad';
 // TOPIK 읽기 "문제 풀이 영상" 목록. 아주 작은 파일이라(id 목록뿐) 다른
 // 자료처럼 갈래를 열 때 지연 로딩하지 않고 그냥 처음부터 받는다.
-import { TQ_VIDEO_IDS } from './topik-video.js?v=00cec147';
+import { TQ_VIDEO_IDS } from './topik-video.js?v=cf8d29ad';
 // 코스 아이콘 — 이모지 대신 선 아이콘(course-icons.js 머리말)
 // 구독(Paddle) — billing.js 머리말
-import { BILLING, billingLive, isPro, proInfo, loadPro, openCheckout, waitPro } from './billing.js?v=00cec147';
-import { myLevelBadge, potatoLevel, cheeseLevel } from './levels.js?v=00cec147';
-import { courseIcon } from './course-icons.js?v=00cec147';
-import { AUDIO_REMOTE, audioKey } from './audio-key.js?v=00cec147';
+import { BILLING, billingLive, isPro, proInfo, loadPro, openCheckout, waitPro } from './billing.js?v=cf8d29ad';
+import { myLevelBadge, potatoLevel, cheeseLevel } from './levels.js?v=cf8d29ad';
+import { courseIcon } from './course-icons.js?v=cf8d29ad';
+import { AUDIO_REMOTE, audioKey } from './audio-key.js?v=cf8d29ad';
 // 앱(package.json)과 같은 줄기를 쓴다. 갈리면 앱에서는 읽히는 파일이
 // 여기서는 안 읽히는(또는 그 반대) 일이 생긴다.
 /* 엑셀 라이브러리는 422KB — 이 판에서 가장 무거운 조각이다. 그런데 쓰는
@@ -34,7 +34,7 @@ import { AUDIO_REMOTE, audioKey } from './audio-key.js?v=00cec147';
    자국(?v=)은 tools/stamp.mjs 가 아래 줄에 알아서 붙인다 — 정적으로 쓰든
    동적으로 쓰든 같은 글자를 찾으므로 바꿔도 그대로 찍힌다. */
 let XLSX = null;
-const needXLSX = async () => (XLSX ??= await import('./vendor/xlsx.js?v=00cec147'));
+const needXLSX = async () => (XLSX ??= await import('./vendor/xlsx.js?v=cf8d29ad'));
 // 커리큘럼. 내용과 엔진을 갈라 두면 글을 고치다 화면을 깨지 않는다.
 // 갈래 목록(drawSections)·코스(drawCourses)·문제만 풀기(dqDraw) 를 열 때만
 // 받는다 — 배우기 갈래 목록도 안 본 사람에게 코스 71개 레슨을 다 물릴
@@ -42,9 +42,9 @@ const needXLSX = async () => (XLSX ??= await import('./vendor/xlsx.js?v=00cec147
 let COURSES = [], coursesP = null;
 /* 앱은 courses.js 대신 courses-lite.js 를 받는다 — 중·고급 레슨 본문을 뺀 목록이다
    (tools/build-courses-lite.mjs). 본문은 그 레슨을 열 때 upperBlocksNeed() 가 채운다. */
-const coursesNeed = () => (coursesP ??= import('./courses-lite.js?v=00cec147').then((m) => { COURSES = m.COURSES; }));
+const coursesNeed = () => (coursesP ??= import('./courses-lite.js?v=cf8d29ad').then((m) => { COURSES = m.COURSES; }));
 let upperP = null;
-const upperBlocksNeed = () => (upperP ??= coursesNeed().then(() => import('./courses-grammar-detailed.js?v=00cec147')).then((m) => {
+const upperBlocksNeed = () => (upperP ??= coursesNeed().then(() => import('./courses-grammar-detailed.js?v=cf8d29ad')).then((m) => {
   const byId = new Map(m.DETAILED_GRAMMAR_COURSES.flatMap((c) => c.lessons.map((l) => [l.id, l.blocks])));
   for (const c of COURSES) for (const l of c.lessons) if (!l.blocks && byId.has(l.id)) { l.blocks = byId.get(l.id); delete l.lazy; }
 }));
@@ -59,7 +59,7 @@ const blocksNeed = async (course) => { if (course.lessons.some((l) => !l.blocks)
    tqGloss 는 그대로 동기다 — 아직 안 왔으면 빈 뜻을 돌려주고, 부르는
    쪽은 이미 "사전에 없는 말"을 다룰 줄 안다. */
 let GLOSSARY = {}, GLOSS_LANGS = {}, glossP = null;
-const glossNeed = () => (glossP ??= import('./glossary.js?v=00cec147').then((m) => {
+const glossNeed = () => (glossP ??= import('./glossary.js?v=cf8d29ad').then((m) => {
   GLOSSARY = m.GLOSSARY; GLOSS_LANGS = m.GLOSS_LANGS;
   dictBuildEntries();
 }).catch((e) => {
@@ -67,12 +67,12 @@ const glossNeed = () => (glossP ??= import('./glossary.js?v=00cec147').then((m) 
   glossP = null;
   throw e;
 }));
-import { glossFind } from './gloss-find.js?v=00cec147';
+import { glossFind } from './gloss-find.js?v=cf8d29ad';
 /* 홈 화면 "오늘의 단어" 카드. 표제어·품사·짧은 뜻풀이 3개만 든
    작은 자료라(사전 전체 356KB 와 달리) 홈에 들어오면 바로 받는다 —
    빈 카드로 몇 초 떠 있는 것보다 낫다. */
 let WOTD_POOL = [], wotdP = null;
-const wotdNeed = () => (wotdP ??= import('./wotd.js?v=00cec147').then((m) => {
+const wotdNeed = () => (wotdP ??= import('./wotd.js?v=cf8d29ad').then((m) => {
   WOTD_POOL = m.WOTD_POOL;
 }).catch((e) => { wotdP = null; throw e; }));
 /* 그날의 낱말을 고른다. 한국 자정을 기준으로 하루씩 넘어가게
@@ -107,11 +107,11 @@ window.wotdRender = () => { wotdRender(); try { todayRender(); } catch (e) {} };
    나중 화면은 그 약속(??=)을 그대로 쓴다. */
 let GRAMMAR = [], GRAMMAR_EN = {}, grammarP = null;
 const grammarNeed = () => (grammarP ??= Promise.all([
-  import('./grammar.js?v=00cec147'), import('./grammar-en.js?v=00cec147'),
+  import('./grammar.js?v=cf8d29ad'), import('./grammar-en.js?v=cf8d29ad'),
 ]).then(([a, b]) => { GRAMMAR = a.GRAMMAR; GRAMMAR_EN = b.GRAMMAR_EN; }));
-import { grammarScan } from './grammar-find.js?v=00cec147';
+import { grammarScan } from './grammar-find.js?v=cf8d29ad';
 /* 문법 이름 → 예문에서 칠할 꼴. 쓰임 보기 도구(tools/build-grammar-usage.mjs)와 같은 것을 써서 찾은 곳과 칠한 곳이 어긋나지 않게. */
-import { grammarMarkRe } from './grammar-mark.js?v=00cec147';
+import { grammarMarkRe } from './grammar-mark.js?v=cf8d29ad';
 // TOPIK 쓰기·듣기 문항. 읽기(topik.js·topik2.js)와 같은 tqNeedData() 로
 // 함께 받는다 — 유형 연습(topik) 갈래 하나가 세 기술을 다 쓰므로 따로
 // 가를 까닭이 없다. 값은 tqNeedData 정의부에서 채운다.
@@ -127,7 +127,7 @@ let SB_CATS = [], SB_MORE = {}, SB_SEED = {}, SB_POINTS = [], sbDataP = null;
 let GRAMMAR_DRILL = {}, GRAMMAR_USAGE = {}, GRAMMAR_WORDS = {};
 /* 쓰임 보기(tools/build-grammar-usage.mjs 생성물) — TOPIK 연습 · 읽기 지문 · 낱말 예문에서 그 문법이 쓰인 문장 */
 /* 같이 알면 좋은 단어(tools/build-grammar-words.mjs 생성물, 원본 docs/grammar-words.json) */
-const sbNeed = () => (sbDataP ??= Promise.all([import('./sentences.js?v=00cec147'), import('./grammar-drill.js?v=00cec147'), import('./grammar-usage.js?v=00cec147'), import('./grammar-words.js?v=00cec147')]).then(([m, d, u, w]) => {
+const sbNeed = () => (sbDataP ??= Promise.all([import('./sentences.js?v=cf8d29ad'), import('./grammar-drill.js?v=cf8d29ad'), import('./grammar-usage.js?v=cf8d29ad'), import('./grammar-words.js?v=cf8d29ad')]).then(([m, d, u, w]) => {
   GRAMMAR_DRILL = d.GRAMMAR_DRILL || {}; GRAMMAR_USAGE = u.GRAMMAR_USAGE || {}; GRAMMAR_WORDS = w.GRAMMAR_WORDS || {};
   SB_CATS = m.SB_CATS; SB_MORE = m.SB_MORE; SB_SEED = m.SB_SEED;
   // 갈래마다 표현을 펼쳐 한 줄에 담는다 — SB_CATS 안의 점에는 갈래가 안
@@ -139,7 +139,7 @@ const sbNeed = () => (sbDataP ??= Promise.all([import('./sentences.js?v=00cec147
 // 숫자 게임의 읽기와 문제 만들기. 화면을 모르는 순수 계산이라 따로 뒀다.
 // 게임 목록에서 「숫자 읽기」를 시작할 때만 받는다 — XLSX 와 같은 자리다.
 let makeRound = null;
-const needNumbers = async () => (makeRound ??= (await import('./numbers.js?v=00cec147')).makeRound);
+const needNumbers = async () => (makeRound ??= (await import('./numbers.js?v=cf8d29ad')).makeRound);
 
 // 이 키는 공개돼도 되는 값이다. 이미 APK 안에 같은 것이 들어 있고,
 // 접근을 막는 건 키가 아니라 테이블에 걸린 RLS 다.
@@ -221,8 +221,8 @@ let tqDataP = null;
    유형 연습(topik) 갈래 하나가 이 넷을 다 쓰므로 갈라 봤자 요청만
    늘어난다. */
 const tqNeedData = () => (tqDataP ??= Promise.all([
-  import('./topik.js?v=00cec147'), import('./topik2.js?v=00cec147'),
-  import('./topik-writing.js?v=00cec147'), import('./topik-listening.js?v=00cec147'),
+  import('./topik.js?v=cf8d29ad'), import('./topik2.js?v=cf8d29ad'),
+  import('./topik-writing.js?v=cf8d29ad'), import('./topik-listening.js?v=cf8d29ad'),
 ]).then(([a, b, c, d]) => {
   TQ_DATA.I  = { reading: a.TOPIK_READING,  blueprint: a.TOPIK_BLUEPRINT,  slots: a.TOPIK_SLOTS };
   TQ_DATA.II = { reading: b.TOPIK2_READING, blueprint: b.TOPIK2_BLUEPRINT, slots: b.TOPIK2_SLOTS };
@@ -233,11 +233,11 @@ const tqNeedData = () => (tqDataP ??= Promise.all([
 let READING = null, rdP = null;
 // 지문의 밑줄 문법 말풍선이 GRAMMAR 를 쓰므로 같이 받아 둔다.
 const rdNeed = () => (rdP ??= Promise.all([
-  import('./reading.js?v=00cec147'), grammarNeed(),
+  import('./reading.js?v=cf8d29ad'), grammarNeed(),
 ]).then(([m]) => { READING = m.READING; }));
 
 let CONVO = null, cvP = null;
-const cvNeed = () => (cvP ??= import('./convo.js?v=00cec147').then((m) => { CONVO = m.CONVO; }));
+const cvNeed = () => (cvP ??= import('./convo.js?v=cf8d29ad').then((m) => { CONVO = m.CONVO; }));
 
 /* 배우기를 열면 여섯 다 미리 불을 붙인다. 기다리지 않는다 — 갈래 목록은
    이 자료가 없어도 그려지고, 사람이 갈래를 고르는 사이에 도착한다.
@@ -459,9 +459,9 @@ $('dictBtn').addEventListener('click', () => { const go = !showing('wordsView');
    합쳐 200KB 남짓(압축)이라 첫 화면 모두에게 물릴 까닭이 없다. 사이트 공용 도구는 넘겨준다. */
 let wordsApi = null, wordsP = null;
 /* TOPIK II 예문은 500개씩 조각으로 따로 받는다(tools/build-vocab.mjs) — 조각 주소는 이 파일의 자국을 빌린다. */
-const VOCAB2_URL = './vocab-topik2.js?v=00cec147';
+const VOCAB2_URL = './vocab-topik2.js?v=cf8d29ad';
 const wordsNeed = () => (wordsP ??= Promise.all([
-  import('./words.js?v=00cec147'), import('./vocab-topik1.js?v=00cec147'), import(VOCAB2_URL),
+  import('./words.js?v=cf8d29ad'), import('./vocab-topik1.js?v=cf8d29ad'), import(VOCAB2_URL),
 ]).then(([m, d, d2]) => {
   wordsApi = m.wordsInit({
     root: $('wordsRoot'), t, esc, track, say, glossFind, glossNeed, ICON: DICT_SAY_ICON,
@@ -474,7 +474,7 @@ const wordsNeed = () => (wordsP ??= Promise.all([
     /* 폴더를 고치면 조금 뒤 계정 기록과 맞춘다(여러 번 고쳐도 한 번만). */
     syncSoon: () => { clearTimeout(vocabSyncT); vocabSyncT = setTimeout(vocabSync, 1500); },
     mark: (sub) => window.cpMark('words', sub),
-    today: (slot) => tdMark(slot),   // 세션을 끝내면 「오늘」 카드의 낱말 · 복습 칸
+    today: (slot) => { tdMark(slot); clsMark('vocab', null, {}); },   // 세션을 끝내면 「오늘」 카드의 낱말 · 복습 칸 · 반 숙제(단어 세션)
     openWordbook: () => open('wordbook'),
     openDashboard: () => { open('dashboard'); loadDashboard(); },
     openTest: () => ltOpen(),
@@ -556,7 +556,7 @@ async function vocabSync() {
   if (!wordsP) return;
   const { data: { session } } = await sb.auth.getSession();
   if (!session) return;
-  const m = await import('./words.js?v=00cec147');
+  const m = await import('./words.js?v=cf8d29ad');
   const ok = await m.syncVocab(async () => {
     const { data, error } = await sb.from('settings').select('vocab').eq('user_id', session.user.id).maybeSingle();
     return error ? undefined : (data?.vocab || {});
@@ -870,14 +870,14 @@ let dictOpen = null;  // 지금 "더 보기"(예문·뜻풀이)를 펼쳐 둔 �
    평소엔 안 쓰는 522KB 를 첫 화면 모두에게 물릴 까닭이 없다. */
 let dictSensesP = null;
 const dictLoadSenses = () => (dictSensesP ??=
-  import('./glossary-senses.js?v=00cec147').then((m) => m.SENSES).catch(() => ({})));
+  import('./glossary-senses.js?v=cf8d29ad').then((m) => m.SENSES).catch(() => ({})));
 
 /* 예문. 국립국어원 자료엔 없어서 Gemini 로 새로 지은 것이다(있는 만큼만
    — docs/glossary-examples-gemini-prompt.md 참고). 뜻풀이와 같은 자리에서
    같이 받는다 — 펼치는 손짓 하나에 몰아 두는 편이 화면이 덜 복잡하다. */
 let dictExamplesP = null;
 const dictLoadExamples = () => (dictExamplesP ??=
-  import('./glossary-examples.js?v=00cec147').then((m) => m.EXAMPLES).catch(() => ({})));
+  import('./glossary-examples.js?v=cf8d29ad').then((m) => m.EXAMPLES).catch(() => ({})));
 
 function dictVisible() {
   const q = dictQuery.trim().toLowerCase();
@@ -1383,6 +1383,10 @@ sb.auth.onAuthStateChange((_event, session) => {
   tqSignedIn = !!session;
   proRefresh(session);
   if (session) ltPendingFlush().catch(() => {});   // 레벨테스트 결과를 맡겨 두고 가입하러 왔을 수 있다
+  clsCheckIn(session);   // 반에 들었는지 — 숙제 「했음」을 서버에 알릴지 가른다
+  /* 반 링크를 들고 로그인하러 갔다 왔다 — 그 반 화면으로 되돌린다 */
+  /* (구글 로그인은 쪽이 새로 떠서 이 알림이 반 코드보다 먼저 올 수 있다 — 그때는 반 코드 끝의 같은 확인이 맡는다) */
+  setTimeout(() => { try { if (window.cpClsReady && session && _event === 'SIGNED_IN' && sessionStorage.getItem('cp_cls_code')) window.cpOpen('learn', 'class'); } catch (e) {} }, 0);
   /* 「로그인하고 담기」를 누르고 돌아왔을 수 있다. 표시해 둔 낱말이
      있으면 단어장 맨 위에 다시 내건다. */
   wbPendingDraw();
@@ -3054,6 +3058,16 @@ const LEARN_SECTIONS = [
              en: 'Ask what you are stuck on — a teacher answers' },
     blurb: { ko: '한국어 공부하다 궁금한 것을 질문하세요. 치즈감자 선생님이 답하고, 다른 학생의 질문과 답도 읽을 수 있어요.',
              en: 'Ask anything about Korean. A Cheesepotato teacher answers, and you can read everyone else’s questions too.' },
+  },
+  /* 반 · 숙제 — 선생님(운영자)이 낸 숙제를 하고, 선생님은 누가 했는지 본다(운영자 결정 2026-10-02). 표는 db/add_classes.sql. */
+  {
+    id: 'class', emoji: '🏫', ready: true, pane: 'clsWrap',
+    lv:    { ko: '반',              en: 'CLASS' },
+    title: { ko: '반 · 숙제',       en: 'Class & homework' },
+    tag:   { ko: '선생님이 낸 숙제를 하는 곳',
+             en: 'Where you do your teacher’s homework' },
+    blurb: { ko: '선생님께 받은 반 링크나 코드로 들어와요. 레슨 · 단어 · 문법 숙제를 하면 저절로 「했어요」가 되고, 선생님이 바로 봐요.',
+             en: 'Join with the link or code from your teacher. Do lessons, word sessions and grammar — each one is checked off for your teacher automatically.' },
   },
   /* 오답 노트 — TOPIK 연습 · 모의고사 · 듣기 · 레슨 문제 · 레벨테스트에서 틀린 것이 저절로 모인다(운영자 요청 2026-10-01). */
   {
@@ -10071,7 +10085,7 @@ let TRAVEL_CATEGORIES = null;
 let TRAVEL_PHRASES = null;
 let TRAVEL_VOCAB = null;
 let tvP = null;
-const tvNeed = () => (tvP ??= import('./travel-data.js?v=00cec147').then((m) => {
+const tvNeed = () => (tvP ??= import('./travel-data.js?v=cf8d29ad').then((m) => {
   TRAVEL_CATEGORIES = m.TRAVEL_CATEGORIES;
   TRAVEL_PHRASES = m.TRAVEL_PHRASES;
   TRAVEL_VOCAB = m.TRAVEL_VOCAB;
@@ -10506,6 +10520,7 @@ async function openSection(id, quiet) {
       if (s.id === 'notes') { ntMemoDraw(); notesSync(); }
       if (s.id === 'wrong') wnDraw();
       if (s.id === 'qna' && !quiet) qaDraw('');
+      if (s.id === 'class' && !quiet) clsDraw('');
       if (s.id === 'sentence') {
         await sbNeed();
         drawSentenceHead();
@@ -10549,6 +10564,8 @@ async function openLearnSub(sub) {
 
   /* learn/qna/<질문 번호> — 질문 하나로 바로 */
   if (secId === 'qna') { openSection('qna', true); qaDraw(rest[0] || ''); return; }
+  /* learn/class/join/<코드> — 선생님이 보낸 반 링크 */
+  if (secId === 'class') { openSection('class', true); clsDraw(rest.join('/')); return; }
 
   /* learn/eps/<문항 id> — eps-topik/ 정적 쪽의 「직접 풀어보기」. 그 문항의 유형 연습을
      그 문항부터 연다. openSection 이 부른 epsDraw 가 같은 epsNeed 를 먼저 기다렸다가
@@ -11270,7 +11287,10 @@ $('sbDetail').addEventListener('click', (ev) => {
   /* 연습 ② 바꿔 쓰기 */
   if (ev.target.closest('[data-drcheck]')) { sbDrCheck(); return; }
   if (sbDr && ev.target.closest('[data-drnext]')) {
-    sbDr.i++; sbDr.res = ''; sbDr.val = ''; sbDrawDetail();
+    sbDr.i++; sbDr.res = ''; sbDr.val = '';
+    /* 바꿔 쓰기를 끝까지 했다 — 반 숙제(문법)였으면 「했음」 */
+    if (sbDr.i >= (GRAMMAR_DRILL[sbDr.id]?.x?.length || Infinity)) clsMark('grammar', sbDr.id, { ok: sbDr.ok, n: GRAMMAR_DRILL[sbDr.id].x.length });
+    sbDrawDetail();
     setTimeout(() => $('gpDrIn')?.focus(), 0); return;
   }
   if (sbDr && ev.target.closest('[data-drre]')) { sbDr = { id: sbDr.id, i: 0, ok: 0, res: '', val: '' }; sbDrawDetail(); return; }
@@ -13216,6 +13236,7 @@ async function finishLesson() {
 
   doneSet.add(lsLesson.id);
   myMarkDone(lsLesson.id, lsCourse.id, lsWrong.length);
+  clsMark('lesson', lsLesson.id, { wrong: lsWrong.length });   // 반 숙제였으면 「했음」
 
   // 진도는 남기되, 못 남겨도 화면은 그대로 간다. 다 풀고 나서
   // "저장 실패" 를 보는 것만큼 김빠지는 일이 없다.
@@ -14103,7 +14124,7 @@ async function gameVocabWords(min, have = []) {
   const push = (word, meaning) => { if (word && meaning && !seen.has(word)) { seen.add(word); out.push({ word, meaning }); } };
   guestRead().forEach((g) => push(g.word, g.meaning));
   try {
-    const d = await import('./vocab-topik1.js?v=00cec147');
+    const d = await import('./vocab-topik1.js?v=cf8d29ad');
     let st = {};
     try { st = JSON.parse(localStorage.getItem('cp-words-v1') || '{}').w || {}; } catch (e) {}
     const mean = (w) => w.s || w.e.split(';')[0];
@@ -14601,7 +14622,7 @@ function ltAdaptNext() {
    낱말 급수를 우리 레벨(L)에 얹는다: TOPIK I 1급 생활 낱말 L2 · 그 밖 L3, 2급 생활 L4 · 그 밖 L5, TOPIK II 3 · 4급 L6, 5 · 6급 L7.
    오답 보기는 같은 레벨 · 같은 품사에서, 뜻이 겹치지 않게 고른다. */
 let ltVocabP = null;
-const ltVocabPool = () => (ltVocabP ??= Promise.all([import('./vocab-topik1.js?v=00cec147'), import(VOCAB2_URL)]).then(([a, b]) => {
+const ltVocabPool = () => (ltVocabP ??= Promise.all([import('./vocab-topik1.js?v=cf8d29ad'), import(VOCAB2_URL)]).then(([a, b]) => {
   const en = (w) => String(w.s || w.e || '').split(';')[0].trim();
   const lvOf = (w) => (w.l === 1 ? (w.u?.includes('life') ? 2 : 3) : w.l === 2 ? (w.u?.includes('life') ? 4 : 5) : w.l <= 4 ? 6 : 7);
   const words = [...a.VOCAB, ...b.VOCAB].filter((w) => w.h && !/\s/.test(w.h) && en(w) && en(w).length <= 40).map((w) => ({ w, lv: lvOf(w), en: en(w) }));
@@ -15520,10 +15541,10 @@ $('ltPurposeGrid').addEventListener('click', (ev) => {
    빠지고, 고쳐 올려도 브라우저가 예전 문제를 계속 들고 있게 된다. */
 let LT_CUSTOM = { overall: [], reading: [], writing: [], listening: [] };
 let ltCustomOverallP = null, ltCustomReadingP = null, ltCustomWritingP = null, ltCustomListeningP = null;
-const ltCustomOverallNeed = () => (ltCustomOverallP ??= import('./leveltest-overall.js?v=00cec147').then((m) => { LT_CUSTOM.overall = m.LT_CUSTOM_OVERALL; }));
-const ltCustomReadingNeed = () => (ltCustomReadingP ??= import('./leveltest-reading.js?v=00cec147').then((m) => { LT_CUSTOM.reading = m.LT_CUSTOM_READING; }));
-const ltCustomWritingNeed = () => (ltCustomWritingP ??= import('./leveltest-writing.js?v=00cec147').then((m) => { LT_CUSTOM.writing = m.LT_CUSTOM_WRITING; }));
-const ltCustomListeningNeed = () => (ltCustomListeningP ??= import('./leveltest-listening.js?v=00cec147').then((m) => { LT_CUSTOM.listening = m.LT_CUSTOM_LISTENING; }));
+const ltCustomOverallNeed = () => (ltCustomOverallP ??= import('./leveltest-overall.js?v=cf8d29ad').then((m) => { LT_CUSTOM.overall = m.LT_CUSTOM_OVERALL; }));
+const ltCustomReadingNeed = () => (ltCustomReadingP ??= import('./leveltest-reading.js?v=cf8d29ad').then((m) => { LT_CUSTOM.reading = m.LT_CUSTOM_READING; }));
+const ltCustomWritingNeed = () => (ltCustomWritingP ??= import('./leveltest-writing.js?v=cf8d29ad').then((m) => { LT_CUSTOM.writing = m.LT_CUSTOM_WRITING; }));
+const ltCustomListeningNeed = () => (ltCustomListeningP ??= import('./leveltest-listening.js?v=cf8d29ad').then((m) => { LT_CUSTOM.listening = m.LT_CUSTOM_LISTENING; }));
 const LT_CUSTOM_NEED = {
   overall: ltCustomOverallNeed, reading: ltCustomReadingNeed,
   writing: ltCustomWritingNeed, listening: ltCustomListeningNeed,
@@ -17210,7 +17231,7 @@ function fbMount(host, place, level = null) {
    openSection 이 epsDraw 를 부른다. let · const 면 그때 「초기화 전 접근」으로 죽는다. */
 var EPS = null;
 var epsP = null;
-function epsNeed() { return (epsP ??= import('./eps.js?v=00cec147').then((m) => { EPS = m; })); }
+function epsNeed() { return (epsP ??= import('./eps.js?v=cf8d29ad').then((m) => { EPS = m; })); }
 const EPS_SECS = ['reading', 'listening'];
 const EPS_MOCK_SEC = 70 * 60;
 const EPS_NUM = ['①', '②', '③', '④'];
@@ -17634,7 +17655,7 @@ const SS_PAGES = [
   ['블로그', 'Blog', 'blog/', '블로그 blog 글'],
 ];
 let ssIdx = null, ssP = null, ssT = 0;
-const ssNeed = () => (ssP ??= import('./search-index.js?v=00cec147').then((m) => { ssIdx = m.SEARCH_INDEX; }).catch(() => { ssP = null; }));
+const ssNeed = () => (ssP ??= import('./search-index.js?v=cf8d29ad').then((m) => { ssIdx = m.SEARCH_INDEX; }).catch(() => { ssP = null; }));
 const ssNorm = (s) => String(s || '').toLowerCase().replace(/[\s\-~]+/g, '');
 /* 문법 이름의 다른 꼴 — 「A/V-아/어서」를 「-아서」 · 「-어서」로도, 「-(으)니까」를 「-니까」 · 「-으니까」로도 찾게 */
 const ssGramForms = (name) => {
@@ -17710,3 +17731,196 @@ if ($('ssIn')) {
   $('ssOut').addEventListener('click', (ev) => { if (ev.target.closest('a')) { track('검색결과클릭'); setTimeout(() => { $('ssIn').value = ''; ssSearch(''); }, 50); } });
   $('langBtn')?.addEventListener('click', () => { ssPaint(); if ($('ssIn').value) ssSearch($('ssIn').value); });
 }
+
+/* ══ 반 · 숙제 (#learn/class) ═════════════════════════════════════════
+   운영자 결정(2026-10-02): 반은 운영자만 만든다 · 학생은 반 링크(#learn/class/join/코드)나 코드로 들어온다 ·
+   첫 판 숙제는 코스 레슨 · 단어 세션 · 문법(바꿔 쓰기). 표와 권한은 db/add_classes.sql.
+   「했음」은 학생 화면이 스스로 적는다 — 레슨을 끝내면(finishLesson) · 단어 세션을 끝내면(words.js sessionEnd) ·
+   문법 바꿔 쓰기를 끝까지 하면 clsMark → 서버 cls_mark 가 그 사람이 든 반의 맞는 숙제에만 붙인다. */
+const cls = { rows: [], hw: [], done: [], members: [], err: '', busy: false, code: '', msg: '', open: {} };
+let clsSession = null;
+const clsIsAdmin = () => clsSession?.user?.email === ADMIN_EMAIL;
+const CLS_KIND = { lesson: ['📚', '레슨', 'Lesson'], vocab: ['🔤', '단어 세션', 'Word session'], grammar: ['✍️', '문법', 'Grammar'] };
+const clsLink = (code) => `https://everykoreans.com/#learn/class/join/${code}`;
+
+/* 반에 든 사람만 서버를 부른다 — 모두가 레슨 하나 끝낼 때마다 부르면 쓸데없다. 표시는 로그인할 때 · 반 화면을 열 때 맞춘다.
+   (로그인 알림이 이 줄보다 먼저 올 수 있어 상수 대신 글자를 그대로 쓴다) */
+function clsMark(kind, ref, score) {
+  try { if (localStorage.getItem('cp_cls_in') !== '1') return; } catch (e) { return; }
+  sb.rpc('cls_mark', { p_kind: kind, p_ref: ref ?? null, p_score: score || {} }).then(({ data }) => {
+    if (data > 0) track('숙제했음');
+  }, () => {});
+}
+async function clsCheckIn(session) {
+  try {
+    if (!session) { localStorage.removeItem('cp_cls_in'); return; }
+    const { data, error } = await sb.from('class_members').select('class_id').eq('user_id', session.user.id).limit(1);
+    if (!error) localStorage.setItem('cp_cls_in', data?.length ? '1' : '');
+  } catch (e) { /* 표가 아직 없으면 그대로 */ }
+}
+sb.auth.getSession().then(({ data: { session } }) => {
+  clsCheckIn(session);
+  /* 반 링크를 들고 구글 로그인에 다녀왔다 — 그 반으로 */
+  try { if (session && sessionStorage.getItem('cp_cls_code') && !location.hash.includes('class')) window.cpOpen('learn', 'class'); } catch (e) {}
+}).catch(() => {});
+
+async function clsDraw(sub) {
+  /* 주소(#learn/class…)로 바로 들어오면 이 코드가 다 읽히기 전에 불린다 — 맡겨 두었다가 맨 끝에서 그린다 */
+  if (!window.cpClsReady) { window.cpClsPending = sub || ''; return; }
+  const [a, b] = String(sub || '').split('/');
+  if (a === 'join' && b) { cls.code = b.toUpperCase(); try { sessionStorage.setItem('cp_cls_code', cls.code); } catch (e) {} }
+  else { try { cls.code = cls.code || sessionStorage.getItem('cp_cls_code') || ''; } catch (e) {} }
+  window.cpMark('learn', cls.code ? `class/join/${cls.code}` : 'class');
+  const { data: { session } } = await sb.auth.getSession();
+  clsSession = session;
+  if (!session) { clsPaint(); return; }
+  await clsLoad();
+}
+async function clsLoad() {
+  cls.err = '';
+  const r = await sb.from('classes').select('id, name, code, owner, archived, created_at').order('created_at');
+  if (r.error) { cls.rows = []; cls.err = clsIsAdmin() ? t('반 표가 아직 없어요 — Supabase SQL Editor 에서 db/add_classes.sql 을 돌려 주세요.', 'Run db/add_classes.sql first.') : t('반 기능을 준비하고 있어요. 조금 뒤에 다시 와 주세요.', 'Classes are coming soon.'); clsPaint(); return; }
+  cls.rows = (r.data || []).filter((c) => !c.archived);
+  const ids = cls.rows.map((c) => c.id);
+  const [h, d, m] = ids.length ? await Promise.all([
+    sb.from('class_homework').select('*').in('class_id', ids).order('created_at', { ascending: false }),
+    sb.from('class_done').select('hw_id, user_id, n, score, done_at'),
+    clsIsAdmin() ? sb.from('class_members').select('class_id, user_id, name, joined_at').in('class_id', ids).order('joined_at') : { data: [] },
+  ]) : [{ data: [] }, { data: [] }, { data: [] }];
+  cls.hw = h.data || []; cls.done = d.data || []; cls.members = m.data || [];
+  try { localStorage.setItem('cp_cls_in', cls.rows.some((c) => c.owner !== clsSession.user.id) ? '1' : ''); } catch (e) {}
+  /* 숙제 고르는 칸에 쓸 자료(레슨 · 문법 목록) — 운영자만 */
+  if (clsIsAdmin()) { await Promise.all([coursesNeed(), sbNeed()]).catch(() => {}); }
+  clsPaint();
+}
+
+function clsHwRow(c, h) {
+  const [ic, ko, en] = CLS_KIND[h.kind] || ['📌', '', ''];
+  const due = h.due ? new Date(`${h.due}T00:00:00`).toLocaleDateString(isEn() ? 'en-US' : 'ko-KR', { month: 'short', day: 'numeric' }) : '';
+  const late = h.due && h.due < new Date().toISOString().slice(0, 10);
+  const head = `<span class="cls-hw-ic">${ic}</span><div class="cls-hw-t"><b>${esc(h.title)}</b><small>${esc(t(ko, en))}${h.kind === 'vocab' ? ` · ${h.goal}${t('번', '×')}` : ''}${due ? ` · ${esc(t(`${due}까지`, `due ${due}`))}` : ''}</small></div>`;
+  if (c.owner === clsSession.user.id) {
+    const mem = cls.members.filter((x) => x.class_id === c.id);
+    const fin = (u) => { const d = cls.done.find((x) => x.hw_id === h.id && x.user_id === u); return d && d.n >= (h.kind === 'vocab' ? h.goal : 1) ? d : null; };
+    const k = mem.filter((x) => fin(x.user_id)).length;
+    const who = mem.map((x) => {
+      const d = cls.done.find((y) => y.hw_id === h.id && y.user_id === x.user_id), ok = fin(x.user_id);
+      const sc = d?.score?.n ? ` ${d.score.ok}/${d.score.n}` : d?.score?.wrong != null ? ` ${t(`틀림 ${d.score.wrong}`, `${d.score.wrong} wrong`)}` : '';
+      return `<li class="${ok ? 'ok' : ''}">${ok ? '✓' : d ? `${d.n}/${h.goal}` : '·'} ${esc(x.name)}<em>${esc(sc)}</em></li>`;
+    }).join('');
+    return `<li class="cls-hw"><div class="cls-hw-top">${head}<span class="cls-hw-n">${esc(t(`${k} / ${mem.length}명`, `${k} / ${mem.length} done`))}</span>` +
+      `<button type="button" class="cls-x" data-clsdel="${h.id}" aria-label="${esc(t('숙제 지우기', 'Delete'))}">✕</button></div>` +
+      (mem.length ? `<ul class="cls-who">${who}</ul>` : '') + '</li>';
+  }
+  const d = cls.done.find((x) => x.hw_id === h.id && x.user_id === clsSession.user.id);
+  const ok = d && d.n >= (h.kind === 'vocab' ? h.goal : 1);
+  return `<li class="cls-hw${ok ? ' ok' : ''}"><div class="cls-hw-top">${head}` +
+    (ok ? `<span class="cls-hw-ok">✓ ${esc(t('했어요', 'Done'))}</span>`
+      : `${h.kind === 'vocab' && d ? `<span class="cls-hw-n">${d.n} / ${h.goal}</span>` : late ? `<span class="cls-hw-late">${esc(t('기한 지남', 'Late'))}</span>` : ''}` +
+        `<button type="button" class="pt-next cls-go" data-clsgo="${h.id}">${esc(t('하러 가기', 'Start'))} →</button>`) + '</div></li>';
+}
+function clsAddForm(c) {
+  const lessons = COURSES.map((co) => `<optgroup label="${esc(cTx(co.title))}">${co.lessons.map((l) => `<option value="${esc(l.id)}">${esc(cTx(l.title))}</option>`).join('')}</optgroup>`).join('');
+  const grams = SB_POINTS.filter((p) => GRAMMAR_DRILL[p.id]?.x?.length).map((p) => `<option value="${esc(p.id)}">${esc(p.name)}</option>`).join('');
+  return `<details class="cls-add"${cls.open[c.id] ? ' open' : ''} data-clsadd="${c.id}"><summary>＋ ${esc(t('숙제 내기', 'Give homework'))}</summary>` +
+    `<div class="cls-form"><label>${esc(t('종류', 'Type'))}<select class="cls-kind" data-clskind="${c.id}">` +
+      `<option value="lesson">📚 ${esc(t('코스 레슨', 'Course lesson'))}</option><option value="vocab">🔤 ${esc(t('단어 세션', 'Word session'))}</option><option value="grammar">✍️ ${esc(t('문법 바꿔 쓰기', 'Grammar drill'))}</option></select></label>` +
+      `<label class="cls-f-lesson">${esc(t('레슨', 'Lesson'))}<select data-clsref="lesson">${lessons}</select></label>` +
+      `<label class="cls-f-grammar" hidden>${esc(t('문법', 'Grammar'))}<select data-clsref="grammar">${grams}</select></label>` +
+      `<label class="cls-f-vocab" hidden>${esc(t('몇 번', 'How many'))}<input type="number" min="1" max="20" value="3" data-clsgoal></label>` +
+      `<label>${esc(t('기한(비워도 돼요)', 'Due (optional)'))}<input type="date" data-clsdue></label>` +
+      `<button type="button" class="pt-next" data-clsgive="${c.id}">${esc(t('숙제 내기', 'Give'))}</button></div></details>`;
+}
+function clsPaint() {
+  const box = $('clsWrap'); if (!box) return;
+  const head = `<div class="qa-head"><div><h2 class="qa-h">🏫 ${esc(t('반 · 숙제', 'Class & homework'))}</h2>` +
+    `<p class="qa-lead">${esc(t('선생님이 낸 숙제를 하면 저절로 「했어요」가 돼요.', 'Do the homework your teacher gives — it’s checked off automatically.'))}</p></div></div>`;
+  if (!clsSession) {
+    box.innerHTML = head + `<div class="cls-card"><p>${esc(cls.code ? t(`반 코드 ${cls.code} 에 들어가려면 먼저 로그인해 주세요. 로그인하면 이 반으로 다시 데려다 드려요.`, `Sign in first to join class ${cls.code}. We’ll bring you back here.`) : t('반에 들어가려면 로그인해 주세요.', 'Sign in to join a class.'))}</p>` +
+      `<button type="button" class="pt-next" data-clslogin>${esc(t('로그인하기', 'Sign in'))}</button></div>`;
+    return;
+  }
+  if (cls.err) { box.innerHTML = head + `<div class="cls-card"><p>${esc(cls.err)}</p></div>`; return; }
+  let name = ''; try { name = localStorage.getItem(QA_NAME_KEY) || ''; } catch (e) {}
+  const joined = cls.code && cls.rows.some((c) => c.code === cls.code);
+  const join = `<div class="cls-card cls-join"><b>${esc(cls.code && !joined ? t(`반 코드 ${cls.code} 에 들어가기`, `Join class ${cls.code}`) : t('코드로 반 들어가기', 'Join with a code'))}</b>` +
+    `<div class="cls-row">${cls.code && !joined ? '' : `<input id="clsCode" class="sb-in" maxlength="6" placeholder="${esc(t('반 코드 6자리', '6-letter code'))}" autocapitalize="characters">`}` +
+    `<input id="clsName" class="sb-in" maxlength="20" placeholder="${esc(t('반에서 보일 이름', 'Your name in class'))}" value="${esc(name)}">` +
+    `<button type="button" class="pt-next" data-clsjoin>${esc(t('들어가기', 'Join'))}</button></div>${cls.msg ? `<p class="cls-msg">${esc(cls.msg)}</p>` : ''}</div>`;
+  const make = clsIsAdmin() ? `<div class="cls-card"><b>${esc(t('새 반 만들기', 'New class'))}</b><div class="cls-row"><input id="clsNew" class="sb-in" maxlength="40" placeholder="${esc(t('예: TOPIK 쓰기 8주 반', 'e.g. TOPIK writing, 8 weeks'))}">` +
+    `<button type="button" class="pt-next" data-clsmake>${esc(t('만들기', 'Create'))}</button></div></div>` : '';
+  const cards = cls.rows.map((c) => {
+    const mine = c.owner === clsSession.user.id;
+    const hw = cls.hw.filter((h) => h.class_id === c.id);
+    const n = cls.members.filter((x) => x.class_id === c.id).length;
+    return `<section class="cls-card cls-class"><div class="cls-c-top"><h3>${esc(c.name)}</h3>` +
+      (mine ? `<span class="cls-code">${esc(t('코드', 'Code'))} <b>${esc(c.code)}</b> · ${esc(t(`학생 ${n}명`, `${n} students`))}</span>` +
+        `<button type="button" class="pt-ghost" data-clscopy="${esc(c.code)}">${esc(t('반 링크 복사', 'Copy class link'))}</button>` : '') + '</div>' +
+      (hw.length ? `<ul class="cls-hws">${hw.map((h) => clsHwRow(c, h)).join('')}</ul>` : `<p class="cls-empty">${esc(mine ? t('아직 낸 숙제가 없어요.', 'No homework yet.') : t('아직 숙제가 없어요 — 선생님이 내면 여기에 떠요.', 'No homework yet.'))}</p>`) +
+      (mine ? clsAddForm(c) + `<button type="button" class="cls-small" data-clsarch="${c.id}">${esc(t('반 닫기', 'Close class'))}</button>`
+        : `<button type="button" class="cls-small" data-clsleave="${c.id}">${esc(t('반 나가기', 'Leave class'))}</button>`) + '</section>';
+  }).join('');
+  box.innerHTML = head + ((cls.code && !joined) ? join : '') + make + (cards || (clsIsAdmin() ? '' : `<p class="cls-empty">${esc(t('아직 들어간 반이 없어요. 선생님께 받은 링크를 누르거나 코드를 넣어 주세요.', 'You haven’t joined a class yet. Open the link from your teacher or enter the code.'))}</p>`)) +
+    (!cls.code || joined ? (clsIsAdmin() ? '' : join) : '');
+}
+$('clsWrap')?.addEventListener('change', (ev) => {
+  const k = ev.target.closest('[data-clskind]');
+  if (!k) return;
+  const f = k.closest('.cls-form');
+  for (const x of ['lesson', 'grammar', 'vocab']) f.querySelector(`.cls-f-${x}`).hidden = k.value !== x;
+});
+$('clsWrap')?.addEventListener('toggle', (ev) => { const d = ev.target.closest?.('[data-clsadd]'); if (d) cls.open[d.dataset.clsadd] = d.open; }, true);
+$('clsWrap')?.addEventListener('click', async (ev) => {
+  const el = (s) => ev.target.closest(s);
+  if (el('[data-clslogin]')) { open('account'); return; }
+  if (el('[data-clsjoin]')) {
+    const code = (cls.code && !cls.rows.some((c) => c.code === cls.code) ? cls.code : ($('clsCode')?.value || '')).trim().toUpperCase();
+    const name = ($('clsName')?.value || '').trim().slice(0, 20) || t('학생', 'Student');
+    if (code.length !== 6) { cls.msg = t('반 코드 6자리를 넣어 주세요.', 'Enter the 6-letter code.'); clsPaint(); return; }
+    try { localStorage.setItem(QA_NAME_KEY, name); } catch (e) {}
+    const { data, error } = await sb.rpc('cls_join', { p_code: code, p_name: name });
+    if (error || !data?.length) { cls.msg = t('그 코드의 반을 찾지 못했어요. 선생님께 코드를 다시 확인해 주세요.', 'No class with that code.'); clsPaint(); return; }
+    track('반들어감'); cls.msg = ''; cls.code = ''; try { sessionStorage.removeItem('cp_cls_code'); localStorage.setItem('cp_cls_in', '1'); } catch (e) {}
+    window.cpMark('learn', 'class'); await clsLoad(); return;
+  }
+  if (el('[data-clsmake]')) {
+    const name = ($('clsNew')?.value || '').trim();
+    if (!name) return;
+    const { error } = await sb.from('classes').insert({ name });
+    if (error) { cls.err = t('반을 만들지 못했어요.', 'Could not create the class.'); }
+    await clsLoad(); return;
+  }
+  const cp = el('[data-clscopy]');
+  if (cp) { try { await navigator.clipboard.writeText(clsLink(cp.dataset.clscopy)); cp.textContent = t('복사했어요 ✓', 'Copied ✓'); } catch (e) { cp.textContent = clsLink(cp.dataset.clscopy); } return; }
+  const give = el('[data-clsgive]');
+  if (give) {
+    const f = give.closest('.cls-form'), kind = f.querySelector('[data-clskind]').value, cid = Number(give.dataset.clsgive);
+    const due = f.querySelector('[data-clsdue]').value || null;
+    let ref = null, goal = 1, title = '';
+    if (kind === 'lesson') { ref = f.querySelector('[data-clsref="lesson"]').value; const co = COURSES.find((c) => c.lessons.some((l) => l.id === ref)); title = `${cTx(co?.lessons.find((l) => l.id === ref)?.title || ref)}`; }
+    if (kind === 'grammar') { ref = f.querySelector('[data-clsref="grammar"]').value; title = `${SB_POINTS.find((p) => p.id === ref)?.name || ref} — ${t('바꿔 쓰기', 'drill')}`; }
+    if (kind === 'vocab') { goal = Math.max(1, Math.min(20, Number(f.querySelector('[data-clsgoal]').value) || 1)); title = t(`단어 세션 ${goal}번`, `${goal} word sessions`); }
+    const { error } = await sb.from('class_homework').insert({ class_id: cid, kind, ref, goal, title: title.slice(0, 120), due });
+    if (error) { cls.err = t('숙제를 내지 못했어요.', 'Could not save the homework.'); }
+    track('숙제냄'); await clsLoad(); return;
+  }
+  const del = el('[data-clsdel]');
+  if (del) { if (!confirm(t('이 숙제를 지울까요? 학생 기록도 같이 지워져요.', 'Delete this homework and its records?'))) return; await sb.from('class_homework').delete().eq('id', Number(del.dataset.clsdel)); await clsLoad(); return; }
+  const ar = el('[data-clsarch]');
+  if (ar) { if (!confirm(t('이 반을 닫을까요? 학생에게 더 보이지 않아요.', 'Close this class? Students will no longer see it.'))) return; await sb.from('classes').update({ archived: true }).eq('id', Number(ar.dataset.clsarch)); await clsLoad(); return; }
+  const lv = el('[data-clsleave]');
+  if (lv) { if (!confirm(t('이 반에서 나갈까요?', 'Leave this class?'))) return; await sb.from('class_members').delete().eq('class_id', Number(lv.dataset.clsleave)).eq('user_id', clsSession.user.id); await clsLoad(); return; }
+  const go = el('[data-clsgo]');
+  if (go) {
+    const h = cls.hw.find((x) => x.id === Number(go.dataset.clsgo));
+    if (!h) return;
+    track('숙제하러감');
+    if (h.kind === 'vocab') { window.cpOpen('words', ''); return; }
+    if (h.kind === 'grammar') { window.cpOpen('learn', `sentence/${h.ref}`); return; }
+    await coursesNeed();
+    const co = COURSES.find((c) => c.lessons.some((l) => l.id === h.ref));
+    if (co) startLesson(co, co.lessons.find((l) => l.id === h.ref));
+  }
+});
+window.cpClsReady = true;
+if (window.cpClsPending != null) { const p = window.cpClsPending; window.cpClsPending = null; clsDraw(p); }
