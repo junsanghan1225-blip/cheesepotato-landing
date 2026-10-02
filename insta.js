@@ -157,6 +157,7 @@ function drawFrame(ctx, tag, page) {
 
 /* ───────── 장 만들기 ───────── */
 const hint = (t) => el('hint', '넘기기 안내', [[R(t, 34, 700, C.or)]], { bottom: true });
+/* 글자 크기 — 운영자(2026-10-03): 「너무 크지 않게, 표지 정도로」. 낱말 장 · 문법 장을 표지(주제 150)와 같은 눈높이로 줄였다 */
 function wordsSlides(t, ws) {
   const tag = '주제별 단어 · Words by topic', n = ws.length + 1;
   return [
@@ -170,31 +171,31 @@ function wordsSlides(t, ws) {
     ] },
     ...ws.map((w, i) => ({ tag, page: `${i + 2} / ${n}`, els: [
       el('lv', '주제 이름', [[R(`${t.ko} · ${t.en}`, 30, 700, C.or)]]),
-      el('big', '낱말', [[R(w.h, fit(w.h, 900, 230, 110, -0.05), 900, C.ink, { ls: -0.05 })]], { gap: 8, lh: 1.1, oneLine: true }),
-      el('rom', '로마자', [[R(romanize(w.h) || '', 46, 400, C.dim, { italic: true })]], { gap: 8 }),
-      el('en', '영어 뜻', [[R(wordEn(w), 76, 800)]], { gap: 34, lh: 1.2 }),
+      el('big', '낱말', [[R(w.h, fit(w.h, 900, 170, 100, -0.05), 900, C.ink, { ls: -0.05 })]], { gap: 8, lh: 1.1, oneLine: true }),
+      el('rom', '로마자', [[R(romanize(w.h) || '', 40, 400, C.dim, { italic: true })]], { gap: 8 }),
+      el('en', '영어 뜻', [[R(wordEn(w), 60, 800)]], { gap: 34, lh: 1.2 }),
       el('pos', '품사', [[R(`${w.p} · ${POS_EN[w.p] || ''}`, 30, 700, C.ink2)]], { deco: 'pill', fill: C.pill, pad: 12, gap: 26 }),
-      el('ex', '예문', [[R(wordEx(w)[0], 48, 700)], [R(wordEx(w)[1], 31, 400, C.dim)]], { deco: 'bar', bottom: true, lh: 1.4 }),
+      el('ex', '예문', [[R(wordEx(w)[0], 42, 700)], [R(wordEx(w)[1], 29, 400, C.dim)]], { deco: 'bar', bottom: true, lh: 1.4 }),
     ] })),
   ];
 }
 function grammarSlides(p) {
   const en = pick.en(p), more = pick.more(p), words = pick.gw(p), tag = '오늘의 문법 · Grammar';
   const names = p.name.split(', ');
-  const gs = fit(names.slice().sort((a, b) => b.length - a.length)[0], 900, 180, 84, -0.04);
+  const gs = fit(names.slice().sort((a, b) => b.length - a.length)[0], 900, 140, 80, -0.04);
   const exs = [p.ex, more[3]].filter(Boolean).slice(0, 2);
   return [
     { tag, page: '1 / 3', els: [
       el('lv', '급', [[R(LV[p.lv] || '', 30, 700, C.or)]]),
       el('gname', '문법 이름', names.map((nm, i) => [R(nm + (i < names.length - 1 ? ',' : ''), gs, 900, C.ink, { ls: -0.04 })]), { gap: 14, lh: 1.1, bgap: 0, oneLine: true }),
-      ...(en.desc ? [el('gen', '영어 뜻', [[R(en.desc.split(/(?<=\.)\s/)[0], 58, 800)]], { gap: 34, lh: 1.25 })] : []),
+      ...(en.desc ? [el('gen', '영어 뜻', [[R(en.desc.split(/(?<=\.)\s/)[0], 50, 800)]], { gap: 34, lh: 1.25 })] : []),
       el('gdesc', '한국어 설명', [[R(p.desc, 40, 600, C.ink2)]], { gap: 30, lh: 1.4 }),
       el('form', '형태', [[R(more[0] || en.form || '', 38, 400, C.ink2)]], { deco: 'box', pad: 36, gap: 40, lh: 1.5 }),
       hint('예문 보기 → · Swipe'),
     ] },
     { tag, page: '2 / 3', els: [
       el('h2', '소제목', [[R('예문 · EXAMPLES', 34, 800, C.dim, { ls: 0.04 })]]),
-      ...exs.map((x, i) => el(`ex${i}`, `예문 ${i + 1}`, [markRuns(p, x, 46, 700)], { deco: 'bar', gap: i ? 30 : 40, lh: 1.45 })),
+      ...exs.map((x, i) => el(`ex${i}`, `예문 ${i + 1}`, [markRuns(p, x, 42, 700)], { deco: 'bar', gap: i ? 30 : 40, lh: 1.45 })),
       ...(en.care ? [el('care', '주의', [[R(`⚠️ ${en.care}`, 36, 400, C.ink2)]], { deco: 'box', pad: 36, bottom: true, lh: 1.5 })] : []),
     ] },
     { tag, page: '3 / 3', els: [
