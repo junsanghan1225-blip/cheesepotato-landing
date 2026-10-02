@@ -475,5 +475,18 @@ $('weekZip').onclick = async () => {
   }
 };
 
+/* 자동 올리기용 틀 — 손본 크기 · 위치(장의 역할마다)와 해시태그를 파일 하나로. 운영자가 받아 Claude 에게 주면
+   docs/insta-template.json 으로 넣고, 매일 도는 자동 올리기(tools/insta-post.mjs)가 같은 모양으로 그린다. 비밀 값 아님. */
+$('tplOut').onclick = () => save(new Blob([JSON.stringify({ tpl: S.tpl, tags: store.get('insta:tags', HASHTAGS) }, null, 1)], { type: 'application/json' }), 'insta-template.json');
+
+/* 자동 올리기(tools/insta-post.mjs)가 머리 없는 브라우저에서 부르는 문 — 그날 세 게시물을 JPEG(인스타 API 는 JPEG 만 받는다) 와 캡션으로. */
+window.instaExport = async (day) => {
+  S.day = day; loadPosts();
+  await Promise.all(S.posts.map(fontsFor));
+  const tags = store.get('insta:tags', HASHTAGS).trim();
+  const jpg = (post, si) => { const c = document.createElement('canvas'); c.width = W; c.height = H; render(c.getContext('2d'), post, si, false); return c.toDataURL('image/jpeg', 0.92); };
+  return S.posts.map((post) => ({ file: post.file, name: post.name, caption: `${post.caption.trim()}\n\n${tags}`, imgs: post.slides.map((_, i) => jpg(post, i)) }));
+};
+
 logo.onload = () => { if (S.posts.length) draw(); };
 await open();
