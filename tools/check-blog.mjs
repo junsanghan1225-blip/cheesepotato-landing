@@ -44,6 +44,9 @@ const width = (t) => [...String(t ?? '')].reduce((n, c) => n + (WIDE.test(c) ? 2
 
 const ISO = /^\d{4}-\d{2}-\d{2}$/;
 
+/* 주간 정리 초안(tools/blog-weekly.mjs)은 「운영자 한마디」 자리표를 품고 온다 — 채우기 전에는 내보내지 않는다(운영자 결정 2026-10-03) */
+for (const p of BLOG_POSTS) if (String(p.body || '').includes('<!-- 운영자 한마디 -->')) bad.push(`${p.id}: 운영자 한마디가 아직 비어 있다 — 채운 뒤 머지한다`);
+
 for (const p of BLOG_POSTS) {
   const at = p?.id ?? '(id 없음)';
 

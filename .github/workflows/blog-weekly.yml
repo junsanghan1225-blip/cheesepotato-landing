@@ -1,0 +1,49 @@
+# 블로그 주간 정리 초안 — 일요일 저녁(한국 20:07) 그 주 인스타 낱말 · 문법 · 오늘의 TOPIK 을 글 한 편으로 묶어 PR 로 올린다.
+# 운영자 결정(2026-10-03): 매일 자동 글은 검색에 나쁠 수 있어 일주일에 한 편 · 초안으로만. 머지하기 전에
+# 운영자가 「운영자 한마디」를 Claude 에게 알려 주면 Claude 가 채워 머지한다(비어 있으면 check-blog 가 막는다).
+# PR 을 만들려면 저장소 설정 하나가 켜져 있어야 한다: Settings → Actions → General → Workflow permissions →
+# 「Allow GitHub Actions to create and approve pull requests」. 꺼져 있으면 가지만 올라가고 PR 은 안 생긴다.
+name: blog-weekly
+
+on:
+  schedule:
+    - cron: '7 11 * * 0'   # 일요일 한국 20:07
+  workflow_dispatch:
+    inputs:
+      end:
+        description: '끝 날 YYYY-MM-DD (비우면 오늘, 한국 날짜) — 그날부터 거꾸로 7일'
+        default: ''
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  draft:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+      - name: 초안 만들기
+        id: mk
+        run: |
+          END='${{ inputs.end }}'
+          [ -z "$END" ] && END=$(TZ=Asia/Seoul date +%F)
+          echo "end=$END" >> $GITHUB_OUTPUT
+          node tools/blog-weekly.mjs --end "$END"
+          node tools/build-pages.mjs >/dev/null
+          node tools/stamp.mjs >/dev/null && node tools/stamp.mjs --check
+      - name: PR 로 올리기
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          [ -z "$(git status --porcelain)" ] && { echo "바뀐 것 없음(이미 있는 글)"; exit 0; }
+          B="blog-weekly-${{ steps.mk.outputs.end }}"
+          git config user.name 'cheesepotato-blog'
+          git config user.email 'actions@users.noreply.github.com'
+          git checkout -q -b "$B" && git add -A && git commit -qm "블로그 주간 정리 초안 ${{ steps.mk.outputs.end }}" && git push -q -u origin "$B"
+          gh pr create --head "$B" --base main --title "블로그 주간 정리 초안 (${{ steps.mk.outputs.end }})" \
+            --body "그 주 인스타에 올린 낱말 · 문법 · 오늘의 TOPIK 을 묶은 초안입니다. **운영자 한마디**를 Claude 에게 알려 주면 채워서 머지합니다(비어 있으면 check-blog 가 막습니다)." \
+            || echo "::warning::PR 을 못 만들었어요 — 저장소 설정 「Allow GitHub Actions to create and approve pull requests」를 켜 주세요. 가지 $B 는 올라가 있어요."
