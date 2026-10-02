@@ -210,14 +210,17 @@ const S = { day: todayKst(), post: 0, slide: 0, sel: null, posts: [], ov: {} };
 const ovKey = (post) => `insta:ov:${post.key}`;
 function loadPosts() {
   const d = pick.day(S.day), choice = store.get(`insta:choice:${S.day}`, {});
-  const topic = pick.TOPICS.find((t) => t.key === choice.topic) || d.topic;
-  const page = choice.page ?? (topic === d.topic ? null : 0);
-  const ws = page == null ? d.words : pick.topicWords(topic, page);
-  const g = [0, 1].map((i) => pick.ALL_GRAMS.find((p) => p.id === choice[`g${i}`]) || d.grams[i]);
-  S.posts = [
-    { name: `단어 · ${topic.ko}`, file: '1-words', key: `w:${topic.key}:${ws.map((w) => w.h).join(',')}`, topic, words: ws, slides: wordsSlides(topic, ws), caption: wordsCaption(topic, ws, romanize) },
-    ...g.map((p, i) => ({ name: `문법 ${i + 1} · ${p.name}`, file: `${i + 2}-grammar`, key: `g:${p.id}`, gram: p, slides: grammarSlides(p), caption: grammarCaption(p, pick) })),
-  ];
+  /* 고른 것은 단어 게시물마다 t0 · p0 / t1 · p1, 문법은 g0. 예전(단어 하나 · 문법 둘) 날의 topic · page 는 첫 단어 게시물 것으로 읽는다 */
+  if (choice.topic && !choice.t0) { choice.t0 = choice.topic; choice.p0 = choice.page; }
+  const words = d.topics.map((dt, i) => {
+    const topic = pick.TOPICS.find((t) => t.key === choice[`t${i}`]) || dt.topic;
+    const page = choice[`p${i}`] ?? (topic === dt.topic ? null : 0);
+    const ws = page == null ? dt.words : pick.topicWords(topic, page);
+    return { name: `단어 ${i + 1} · ${topic.ko}`, file: `${i + 1}-words`, key: `w:${topic.key}:${ws.map((w) => w.h).join(',')}`, wi: i, topic, words: ws, slides: wordsSlides(topic, ws), caption: wordsCaption(topic, ws, romanize) };
+  });
+  const g = pick.ALL_GRAMS.find((p) => p.id === choice.g0) || d.grams[0];
+  S.posts = [...words,
+    { name: `문법 · ${g.name}`, file: '3-grammar', key: `g:${g.id}`, gram: g, slides: grammarSlides(g), caption: grammarCaption(g, pick) }];
   S.posts.forEach((p) => { S.ov[p.key] = store.get(ovKey(p), {}); });
 }
 /* 틀 — 장의 역할(단어 표지 · 단어 장 · 문법 1~3장)마다 마지막으로 손본 크기 · 위치를 기억해 두고,
@@ -401,15 +404,16 @@ $('thumbs').addEventListener('click', (ev) => {
 });
 $('swap').addEventListener('change', async (ev) => {
   const c = store.get(`insta:choice:${S.day}`, {});
-  if (ev.target.id === 'pickTopic') { c.topic = ev.target.value; c.page = 0; }
-  if (ev.target.id === 'pickGram') c[`g${S.post - 1}`] = ev.target.value;
+  const i = cur().wi;
+  if (ev.target.id === 'pickTopic') { c[`t${i}`] = ev.target.value; c[`p${i}`] = 0; delete c.topic; delete c.page; }
+  if (ev.target.id === 'pickGram') c.g0 = ev.target.value;
   store.set(`insta:choice:${S.day}`, c); await open();
 });
 $('swap').addEventListener('click', async (ev) => {
   if (ev.target.id !== 'nextWords') return;
   const c = store.get(`insta:choice:${S.day}`, {});
   const t = cur().topic, i = t.words.indexOf(cur().words[0]);
-  c.topic = t.key; c.page = Math.floor(Math.max(0, i) / 5) + 1;
+  c[`t${cur().wi}`] = t.key; c[`p${cur().wi}`] = Math.floor(Math.max(0, i) / 5) + 1; delete c.topic; delete c.page;
   store.set(`insta:choice:${S.day}`, c); await open();
 });
 $('resetDay').onclick = async () => { store.set(`insta:choice:${S.day}`, {}); await open(); };
@@ -441,6 +445,34 @@ $('zip').onclick = async () => {
   for (let i = 0; i < post.slides.length; i++) zip.file(`${S.day}-${post.file}-${i + 1}.png`, await pngOf(post, i));
   zip.file(`${S.day}-${post.file}-caption.txt`, fullCaption());
   save(await zip.generateAsync({ type: 'blob' }), `${S.day}-${post.file}.zip`);
+};
+
+/* 일주일치 — 고른 날부터 7일, 날마다 세 게시물을 날짜 폴더로(운영자 요청 2026-10-02: 메타 비즈니스 스위트로 한 주를 한 번에 예약).
+   날마다 loadPosts 로 그날 고른 주제 · 문법과 손본 모양(틀)을 그대로 쓴다. 캡션은 각 게시물 것 + 해시태그(지금 칸에서 고친 캡션은 그 게시물만 바뀌므로 저장된 것을 쓴다). */
+const addDays = (day, n) => { const d = new Date(`${day}T00:00:00Z`); d.setUTCDate(d.getUTCDate() + n); return d.toISOString().slice(0, 10); };
+$('weekZip').onclick = async () => {
+  const btn = $('weekZip'), label = btn.textContent, start = S.day, keep = S.post, zip = new window.JSZip();
+  const tags = store.get('insta:tags', HASHTAGS).trim(), list = [];
+  btn.disabled = true;
+  try {
+    for (let n = 0; n < 7; n++) {
+      S.day = addDays(start, n); loadPosts();
+      await Promise.all(S.posts.map(fontsFor));
+      for (const post of S.posts) {
+        btn.textContent = `만드는 중… ${n + 1} / 7일`;
+        const dir = `${S.day}/${post.file}`;
+        for (let i = 0; i < post.slides.length; i++) zip.file(`${dir}/${i + 1}.png`, await pngOf(post, i));
+        zip.file(`${dir}/caption.txt`, `${post.caption.trim()}\n\n${tags}`);
+        list.push(`${S.day}  ${post.name}  (${post.slides.length}장)  → ${dir}/`);
+      }
+    }
+    zip.file('00-ORDER.txt', , ['치즈감자 인스타 일주일치', '', ...list, '',
+      '올리는 법: 메타 비즈니스 스위트 → 게시물 만들기 → 폴더의 사진을 차례대로(1, 2, 3…) 넣기 → caption.txt 내용 붙여 넣기 → 「예약」으로 날짜 · 시간 고르기.'].join('\n'));
+    save(await zip.generateAsync({ type: 'blob' }), `insta-${start}-7days.zip`);
+  } finally {
+    S.day = start; S.post = keep; btn.disabled = false; btn.textContent = label;
+    await open();
+  }
 };
 
 logo.onload = () => { if (S.posts.length) draw(); };
