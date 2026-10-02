@@ -466,7 +466,7 @@ $('weekZip').onclick = async () => {
         list.push(`${S.day}  ${post.name}  (${post.slides.length}장)  → ${dir}/`);
       }
     }
-    zip.file('00-ORDER.txt', , ['치즈감자 인스타 일주일치', '', ...list, '',
+    zip.file('00-ORDER.txt', ['치즈감자 인스타 일주일치', '', ...list, '',
       '올리는 법: 메타 비즈니스 스위트 → 게시물 만들기 → 폴더의 사진을 차례대로(1, 2, 3…) 넣기 → caption.txt 내용 붙여 넣기 → 「예약」으로 날짜 · 시간 고르기.'].join('\n'));
     save(await zip.generateAsync({ type: 'blob' }), `insta-${start}-7days.zip`);
   } finally {
