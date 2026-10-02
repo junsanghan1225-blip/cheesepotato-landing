@@ -23,11 +23,80 @@ const die = (msg) => { console.error(`\n✗ ${msg}\n`); process.exit(1); };
 const cmd = process.argv[2];
 if (cmd === 'render') await render();
 else if (cmd === 'publish') await publish();
-else die('쓰는 법: render --slot 0|1|2 [--day YYYY-MM-DD] [--out media]  /  publish --dir <폴더> --base <주소>');
+else if (cmd === 'story') await story();
+else if (cmd === 'threads') await threads();
+else die('쓰는 법: render --slot 0|1|2|3 [--day YYYY-MM-DD] [--out media]  /  publish · story · threads --dir <폴더> --base <주소>');
+
+/* 메타 API 부르기 — 인스타(graph.instagram.com)와 스레드(graph.threads.net)가 같은 꼴이다. 열쇠는 access_token 칸에. */
+function api(host, token, label) {
+  return async (method, path, params = {}) => {
+    const url = new URL(`${host}${path}`), all = { ...params, access_token: token };
+    let body;
+    if (method === 'GET') Object.entries(all).forEach(([k, v]) => url.searchParams.set(k, v));
+    else body = new URLSearchParams(all);
+    const res = await fetch(url, { method, body });
+    const j = await res.json().catch(() => ({}));
+    if (!res.ok || j.error) {
+      const e = j.error || {};
+      if (e.code === 190) die(`${label} 열쇠(토큰)가 끝났거나 틀렸어요 — docs/insta-auto.md 「토큰 새로 넣기」대로 새 토큰을 넣어 주세요.`);
+      die(`${label} API 오류 ${res.status}: ${e.message || JSON.stringify(j).slice(0, 300)}`);
+    }
+    return j;
+  };
+}
+async function waitReady(call, id, field, label) {
+  for (let i = 0; i < 30; i++) {
+    const st = await call('GET', `/${id}`, { fields: field });
+    const v = st[field];
+    if (v === 'FINISHED') return;
+    if (v === 'ERROR' || v === 'EXPIRED') die(`${label}가 이미지를 못 받았어요(${v}).`);
+    await new Promise((r) => setTimeout(r, 5000));
+  }
+}
+
+/* 인스타 스토리 — 오늘의 TOPIK 만(story.jpg 가 있을 때). 피드 게시물을 올린 뒤에 부른다. 실패해도 피드는 그대로. */
+async function story() {
+  const dir = arg('dir'), base = arg('base'), token = process.env.IG_TOKEN;
+  if (!existsSync(join(dir, 'story.jpg'))) { console.log('스토리 없음 — 건너뜀'); return; }
+  if (existsSync(join(dir, 'story.json'))) { console.log('스토리 이미 올림 — 건너뜀'); return; }
+  if (!token) die('IG_TOKEN 이 없어요');
+  const meta = JSON.parse(await readFile(join(dir, 'meta.json'), 'utf8'));
+  const call = api(GRAPH, token, '인스타');
+  const me = await call('GET', '/me', { fields: 'user_id,username' }), uid = me.user_id || me.id;
+  const c = (await call('POST', `/${uid}/media`, { image_url: `${base}/${meta.day}/${meta.file}/story.jpg`, media_type: 'STORIES' })).id;
+  await waitReady(call, c, 'status_code', '인스타');
+  const pub = await call('POST', `/${uid}/media_publish`, { creation_id: c });
+  await writeFile(join(dir, 'story.json'), JSON.stringify({ id: pub.id, at: new Date().toISOString() }, null, 1));
+  console.log(`✓ 스토리 올렸어요 — ${meta.day} ${meta.name}`);
+}
+
+/* 스레드 — 같은 그림을 여러 장 글로. 글은 500자 안이라 캡션을 줄이고 해시태그는 하나(스레드는 주제 태그를 하나만 받는다).
+   열쇠 THREADS_TOKEN 이 없으면 조용히 건너뛴다(운영자가 스레드를 켜기 전). */
+async function threads() {
+  const dir = arg('dir'), base = arg('base'), token = process.env.THREADS_TOKEN;
+  if (!token) { console.log('THREADS_TOKEN 없음 — 스레드는 건너뜀'); return; }
+  if (existsSync(join(dir, 'threads.json'))) { console.log('스레드 이미 올림 — 건너뜀'); return; }
+  const meta = JSON.parse(await readFile(join(dir, 'meta.json'), 'utf8'));
+  const cap = (await readFile(join(dir, 'caption.txt'), 'utf8')).split(/\n\n#/)[0].trim();
+  const text = (cap.length > 440 ? `${cap.slice(0, 437).replace(/\s+\S*$/, '')}…` : cap) + '\n\neverykoreans.com #learnkorean';
+  const call = api('https://graph.threads.net/v1.0', token, '스레드');
+  const urls = Array.from({ length: meta.n }, (_, i) => `${base}/${meta.day}/${meta.file}/${i + 1}.jpg`);
+  let creation;
+  if (urls.length === 1) creation = (await call('POST', '/me/threads', { media_type: 'IMAGE', image_url: urls[0], text })).id;
+  else {
+    const kids = [];
+    for (const u of urls) kids.push((await call('POST', '/me/threads', { media_type: 'IMAGE', image_url: u, is_carousel_item: 'true' })).id);
+    creation = (await call('POST', '/me/threads', { media_type: 'CAROUSEL', children: kids.join(','), text })).id;
+  }
+  await waitReady(call, creation, 'status', '스레드');
+  const pub = await call('POST', '/me/threads_publish', { creation_id: creation });
+  await writeFile(join(dir, 'threads.json'), JSON.stringify({ id: pub.id, at: new Date().toISOString() }, null, 1));
+  console.log(`✓ 스레드 올렸어요 — ${meta.day} ${meta.name} (${urls.length}장)`);
+}
 
 async function render() {
   const slot = Number(arg('slot', '0')), day = arg('day') || todayKst(), out = arg('out', 'media');
-  if (![0, 1, 2].includes(slot)) die('slot 은 0(단어 1) · 1(단어 2) · 2(문법)');
+  if (![0, 1, 2, 3].includes(slot)) die('slot 은 0(단어 1) · 1(단어 2) · 2(문법) · 3(TOPIK)');
   const tplPath = join(ROOT, 'docs/insta-template.json');
   const tpl = existsSync(tplPath) ? JSON.parse(readFileSync(tplPath, 'utf8')) : {};
 
@@ -61,6 +130,7 @@ async function render() {
     await mkdir(dir, { recursive: true });
     for (let i = 0; i < post.imgs.length; i++) await writeFile(join(dir, `${i + 1}.jpg`), Buffer.from(post.imgs[i].split(',')[1], 'base64'));
     await writeFile(join(dir, 'caption.txt'), post.caption);
+    if (post.story) await writeFile(join(dir, 'story.jpg'), Buffer.from(post.story.split(',')[1], 'base64'));
     await writeFile(join(dir, 'meta.json'), JSON.stringify({ day, slot, file: post.file, name: post.name, n: post.imgs.length }, null, 1));
     console.log(`✓ ${day} ${post.name} — ${post.imgs.length}장 → ${dir}`);
   } finally { await browser.close(); srv.close(); }

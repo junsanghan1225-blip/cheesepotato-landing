@@ -1,4 +1,4 @@
-# 인스타 자동 올리기 — 하루 세 번, 그날의 게시물 하나씩(단어 1 · 문법 · 단어 2). 운영자 요청 2026-10-02.
+# 인스타 자동 올리기 — 하루 네 번, 그날의 게시물 하나씩(단어 1 · TOPIK · 문법 · 단어 2). 운영자 요청 2026-10-02 · TOPIK 2026-10-03.
 # 켜고 끄기: GitHub → Settings → Secrets and variables → Actions → Variables 의 INSTA_AUTO 를 on 으로(끄려면 지우거나 off).
 # 열쇠: 같은 곳 Secrets 의 IG_TOKEN(운영자가 직접 넣는다). 하는 일 · 순서는 docs/insta-auto.md.
 # 이미지는 사이트(main)가 아니라 insta-media 가지에 올린다 — 인스타가 공개 주소에서 가져가야 해서.
@@ -7,17 +7,19 @@ name: insta-post
 on:
   schedule:
     - cron: '7 0 * * *'    # 한국 09:07 — 단어 1
+    - cron: '7 4 * * *'    # 한국 13:07 — 오늘의 TOPIK(하루 한 문제)
     - cron: '7 9 * * *'    # 한국 18:07 — 문법
     - cron: '7 14 * * *'   # 한국 23:07 — 단어 2 (미국 동부 아침 · 유럽 낮)
     # 한 번 더(+1시간) — GitHub 은 붐빌 때 예약 실행을 늦추거나 건너뛴다(2026-10-02 18:07 이 아예 안 돌았다).
     # 이미 올렸으면 posted.json 을 보고 멈추므로 두 번 올라가지 않는다.
     - cron: '7 1 * * *'
+    - cron: '7 5 * * *'
     - cron: '7 10 * * *'
     - cron: '7 15 * * *'
   workflow_dispatch:
     inputs:
       slot:
-        description: '0 = 단어 1 · 1 = 단어 2 · 2 = 문법'
+        description: '0 = 단어 1 · 1 = 단어 2 · 2 = 문법 · 3 = TOPIK'
         default: '0'
       day:
         description: '날짜 YYYY-MM-DD (비우면 오늘, 한국 날짜)'
@@ -49,6 +51,7 @@ jobs:
         run: |
           case "${{ github.event.schedule }}" in
             '7 0 * * *'|'7 1 * * *')   SLOT=0 ;;
+            '7 4 * * *'|'7 5 * * *')   SLOT=3 ;;
             '7 9 * * *'|'7 10 * * *')  SLOT=2 ;;
             '7 14 * * *'|'7 15 * * *') SLOT=1 ;;
             *)            SLOT='${{ inputs.slot }}' ;;
@@ -60,7 +63,7 @@ jobs:
           fi
           DRY='${{ inputs.dry }}'
           [ "${{ github.event_name }}" = schedule ] && DRY=no
-          FILE=$([ "$SLOT" = 0 ] && echo 1-words || ([ "$SLOT" = 1 ] && echo 2-words || echo 3-grammar))
+          case "$SLOT" in 0) FILE=1-words ;; 1) FILE=2-words ;; 2) FILE=3-grammar ;; 3) FILE=4-topik ;; *) echo "slot 은 0~3"; exit 1 ;; esac
           echo "slot=$SLOT" >> $GITHUB_OUTPUT; echo "day=$DAY" >> $GITHUB_OUTPUT; echo "dry=$DRY" >> $GITHUB_OUTPUT; echo "file=$FILE" >> $GITHUB_OUTPUT
           echo "날짜 $DAY · 게시물 $FILE · 시험 $DRY"
 
@@ -94,6 +97,27 @@ jobs:
           node tools/insta-post.mjs publish --dir ../media/${{ steps.pick.outputs.day }}/${{ steps.pick.outputs.file }} \
             --base https://raw.githubusercontent.com/${{ github.repository }}/insta-media
           cd ../media && git add -A && git commit -qm "posted ${{ steps.pick.outputs.day }} ${{ steps.pick.outputs.file }}" && git push -q origin insta-media
+
+      # 스토리(오늘의 TOPIK 만) · 스레드 — 실패해도 인스타 피드 게시물은 이미 올라갔으므로 작업을 빨갛게 만들지 않는다
+      - name: 인스타 스토리
+        if: ${{ !steps.done.outputs.skip && steps.pick.outputs.dry != 'yes' }}
+        continue-on-error: true
+        env:
+          IG_TOKEN: ${{ secrets.IG_TOKEN }}
+        run: |
+          node tools/insta-post.mjs story --dir ../media/${{ steps.pick.outputs.day }}/${{ steps.pick.outputs.file }} \
+            --base https://raw.githubusercontent.com/${{ github.repository }}/insta-media
+          cd ../media && git add -A && (git diff --cached --quiet || git commit -qm "story ${{ steps.pick.outputs.day }}") && git push -q origin insta-media
+
+      - name: 스레드
+        if: ${{ !steps.done.outputs.skip && steps.pick.outputs.dry != 'yes' }}
+        continue-on-error: true
+        env:
+          THREADS_TOKEN: ${{ secrets.THREADS_TOKEN }}
+        run: |
+          node tools/insta-post.mjs threads --dir ../media/${{ steps.pick.outputs.day }}/${{ steps.pick.outputs.file }} \
+            --base https://raw.githubusercontent.com/${{ github.repository }}/insta-media
+          cd ../media && git add -A && (git diff --cached --quiet || git commit -qm "threads ${{ steps.pick.outputs.day }} ${{ steps.pick.outputs.file }}") && git push -q origin insta-media
 
       - name: 시험이면 이미지 주소 알려 주기
         if: ${{ !steps.done.outputs.skip && steps.pick.outputs.dry == 'yes' }}

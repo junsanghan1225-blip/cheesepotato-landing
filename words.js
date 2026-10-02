@@ -1174,6 +1174,9 @@ export function wordsInit(D) {
   }
   function drawIntro() {
     const it = view.intro, w = it.words[it.i], last = it.i === it.words.length - 1;
+    /* 뜻은 처음에 가린다 — 먼저 떠올려 보고 눌러서 확인(운영자 요청 2026-10-03). 예문의 영어도 뜻을 알려 주므로 같이 가린다.
+       한 번 연 낱말은 앞뒤로 다시 와도 열린 채로. */
+    const open = (it.open ||= new Set()).has(it.i);
     needEx(w);
     return `<div class="wd-study-hd">
         <button type="button" class="wd-x" data-act="topic" data-topic="${esc(it.topic)}" aria-label="${esc(t('로드맵으로', 'Back to the map'))}">✕</button>
@@ -1184,8 +1187,9 @@ export function wordsInit(D) {
         <span class="wd-card-meta">${esc([w.l ? t(`${w.l}급`, `Lv ${w.l}`) : '', w.p || ''].filter(Boolean).join(' · '))}</span>
         <div class="wd-intro-w"><b>${esc(w.h)}</b><button type="button" class="wd-intro-say" data-say="${esc(w.h)}" aria-label="${esc(t('발음 듣기', 'Play'))}">${ico('sound')}</button></div>
         <span class="wd-intro-rom">${esc(roman(w.h))}</span>
-        <p class="wd-intro-m">${esc(w.e)}</p>
-        ${w.x[0] ? `<div class="wd-intro-x"><p>${esc(w.x[0][0])}<button type="button" class="wd-intro-say sm" data-say="${esc(w.x[0][0])}" aria-label="${esc(t('예문 듣기', 'Play example'))}">${ico('sound')}</button></p><small>${esc(w.x[0][1])}</small></div>` : ''}
+        ${open ? `<p class="wd-intro-m">${esc(w.e)}</p>`
+          : `<button type="button" class="wd-intro-hide" data-act="introshow">${esc(t('뜻 보기 · 눌러서 확인', 'Tap to see the meaning'))}</button>`}
+        ${w.x[0] ? `<div class="wd-intro-x"><p>${esc(w.x[0][0])}<button type="button" class="wd-intro-say sm" data-say="${esc(w.x[0][0])}" aria-label="${esc(t('예문 듣기', 'Play example'))}">${ico('sound')}</button></p>${open ? `<small>${esc(w.x[0][1])}</small>` : ''}</div>` : ''}
       </div>
       <div class="wd-intro-nav">
         <button type="button" class="wd-btn ghost" data-act="introprev"${it.i ? '' : ' disabled'}>← ${esc(t('이전', 'Back'))}</button>
@@ -1288,6 +1292,7 @@ export function wordsInit(D) {
     }
     if (act === 'intronext') return introStep(1);
     if (act === 'introprev') return introStep(-1);
+    if (act === 'introshow') { view.intro.open.add(view.intro.i); return draw(); }
     if (act === 'introskip') { const it = view.intro; view = sessionPick(it.topic, it.n, it.words, true); return draw(); }
     if (act === 'dlgx') { dlg = null; return draw(); }
     if (act === 'dlgok') { const v = root.querySelector('#wdDlgIn')?.value.trim() ?? ''; const cb = dlg?.done; dlg = null; return cb ? cb(v) : draw(); }
