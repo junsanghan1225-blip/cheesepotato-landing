@@ -51,22 +51,31 @@ export function makePicker({ VOCAB, VOCAB_TOPICS, SB_CATS, SB_MORE, GRAMMAR_EN, 
     gw: (p) => GRAMMAR_WORDS[p.id] || [] };
 }
 
-/* 낱말 — 짧은 영어 뜻, 가장 짧은 예문 */
-export const wordEn = (w) => w.s || w.e.split(';')[0];
+/* 낱말 — 짧은 영어 뜻, 가장 짧은 예문.
+   짧은 뜻(s)은 「person (hon) / min」처럼 다른 뜻이 섞여 있을 때가 있다 — 긴 뜻(e)에 없는 쪽은 빼고, 예문과 같은 뜻만 남긴다(운영자 지적 2026-10-02). */
+export const wordEn = (w) => {
+  if (!w.s) return String(w.e || '').split(';')[0];
+  const all = String(w.e || '').toLowerCase(), parts = w.s.split(' / ');
+  const keep = parts.filter((p) => all.includes(p.replace(/\(.*?\)/g, '').replace(/^to /, '').trim().toLowerCase()));
+  return keep.length && keep.length < parts.length ? keep.join(' / ') : w.s;
+};
 export const wordEx = (w) => w.x.slice().sort((a, b) => a[0].length - b[0].length)[0];
 
+/* 캡션 — 짧게(운영자: 「정신 사납다」 2026-10-02). 첫 줄은 영어 검색어(인스타는 첫 줄만 보이고, 캡션 낱말로 찾아 준다).
+   예문은 넘기는 장에 있으므로 캡션에는 안 넣는다 — 넘겨 보게 하는 편이 낫다. 끝에 댓글 질문 하나. */
 export function wordsCaption(t, ws, romanize) {
-  return `주제별 단어 · ${t.ko} (${t.en})\n\n` +
-    ws.map((w, i) => `${i + 1}. ${w.h} (${romanize(w.h) || ''}) — ${wordEn(w)}\n   ${wordEx(w)[0]}\n   ${wordEx(w)[1]}`).join('\n') +
-    /* 끝에 질문 하나 — 댓글이 붙으면 더 많은 사람에게 보여 준다(운영자 결정 2026-10-02) */
-    `\n\n💬 이 중 한 단어로 문장을 만들어 댓글로 남겨 보세요! · Make a sentence with one of these words in the comments 👇` +
-    `\n\n💾 저장해 두고 외워 보세요 · Save this post!\n더 많은 단어 · 발음 → 프로필 링크 · More words — link in bio.`;
+  return `Korean words: ${t.en} 🇰🇷\n${t.ko} — 한국어 단어 5개\n\n` +
+    ws.map((w, i) => `${i + 1}. ${w.h} (${romanize(w.h) || ''}) — ${wordEn(w)}`).join('\n') +
+    `\n\n👉 넘겨서 예문 보기 · Swipe for examples` +
+    `\n💬 이 중 한 단어로 문장을 만들어 댓글로! · Make a sentence in the comments 👇` +
+    `\n💾 저장해 두고 외우기 · Save for later — more words, link in bio`;
 }
 
 export function grammarCaption(p, pick) {
-  const en = pick.en(p), more = pick.more(p), words = pick.gw(p);
-  return `오늘의 문법 · ${p.name}\n${p.desc}\n${en.desc || ''}\n\n` + [p.ex, more[3]].filter(Boolean).slice(0, 2).map((x) => `• ${x}`).join('\n') +
-    `\n\n같이 쓰는 말: ${words.slice(0, 3).map((x) => x[0]).join(' · ')}\n\n` +
-    `💬 이 문법으로 내 문장을 만들어 댓글로 남겨 보세요! · Try it — write your own sentence in the comments 👇\n\n` +
-    `✍️ 더 많은 예문 · 연습 → 프로필 링크 · More examples — link in bio.`;
+  const en = pick.en(p);
+  return `Korean grammar: ${p.name} ✍️\n오늘의 문법 · ${p.name}\n\n${p.desc}\n${en.desc || ''}`.trimEnd() +
+    (p.ex ? `\n\n예) ${p.ex}` : '') +
+    `\n\n👉 넘겨서 예문 더 보기 · Swipe for more examples` +
+    `\n💬 이 문법으로 내 문장을 만들어 댓글로! · Write your own sentence in the comments 👇` +
+    `\n💾 저장해 두고 복습하기 · Save for later — more grammar, link in bio`;
 }
