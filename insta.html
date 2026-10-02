@@ -7,7 +7,7 @@
 <title>치즈감자 인스타 편집기</title>
 <link rel="icon" href="favicon-32.png">
 <link rel="stylesheet" href="vendor/pretendard.css">
-<!-- 치즈감자 인스타 편집기 — 그날의 세 게시물(주제별 단어 1 · 문법 2)을 우리 자료에서 불러와
+<!-- 치즈감자 인스타 편집기 — 그날의 세 게시물(주제별 단어 2 · 문법 1, 2026-10-02 바꿈)을 우리 자료에서 불러와
      글자 크기 · 위치만 손보고 PNG 로 받는다. 코드는 insta.js, 고르는 규칙은 insta-pick.js. -->
 <style>
 :root { --bg:#F2EEE4; --card:#fff; --soft:#FBF8F1; --line:#E4DED1; --ink:#1B1512; --ink2:#4E3E31; --dim:#8C7A66; --or:#E1682B; --blue:#2F6FD1; }
@@ -80,6 +80,9 @@ textarea.tags { min-height:80px; margin-top:6px; }
     <div class="panel">
       <h2>받기 · 올리기</h2>
       <div class="row"><button id="png" class="b">이 장 PNG</button><button id="zip" class="b or">이 게시물 전부 받기(ZIP)</button></div>
+      <div class="row" style="margin-top:8px"><button id="weekZip" class="b or">일주일치 한꺼번에 받기(ZIP)</button><button id="tplOut" class="ghost">자동 올리기용 틀 받기</button></div>
+      <p class="muted">고른 날부터 7일 · 하루 3게시물을 날짜 폴더로 나눠 받아요(이미지 + 캡션 · 해시태그). 메타 비즈니스 스위트에서 날짜를 골라 예약하면 돼요.
+        다른 날 주제 · 문법을 바꾸려면 그날로 가서 바꾼 뒤 받으세요 — 고친 것이 그대로 들어가요.</p>
       <div class="row" style="margin-top:12px"><button id="copy" class="ghost">캡션 + 해시태그 복사</button>
         <label><input type="checkbox" id="done"> 올렸어요</label></div>
       <textarea id="caption" aria-label="캡션" style="margin-top:10px"></textarea>

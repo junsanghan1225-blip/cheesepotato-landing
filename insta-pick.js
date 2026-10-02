@@ -1,5 +1,5 @@
 /* 인스타그램 — 날짜마다 무엇을 올릴지 고르고 캡션을 만든다. 편집기(insta.html)와 도구(tools/insta-cards.mjs)가 함께 쓴다.
-   운영자 결정(2026-10-01): 하루 세 게시물 = 주제별 단어 5개 1개 + 문법 소개 2개.
+   운영자 결정(2026-10-01): 하루 세 게시물. 2026-10-02 바꿈: 주제별 단어(5개씩) 2개 + 문법 소개 1개.
    날마다 고르는 것은 날짜로 정해진다(같은 날은 늘 같은 것). 첫날(2026-10-02)부터 안 겹치게 차례로 간다.
    지어낸 말 없음 — 낱말 · 예문 · 문법은 사이트에 실린 그대로. */
 
@@ -35,13 +35,14 @@ export function makePicker({ VOCAB, VOCAB_TOPICS, SB_CATS, SB_MORE, GRAMMAR_EN, 
   const ALL_GRAMS = POINTS.filter(ok);
 
   const dayN = (day) => { const [y, m, d] = day.split('-').map(Number); return Math.max(0, Math.round((Date.UTC(y, m - 1, d) - START) / 86400e3)); };
-  /* 그날의 세 게시물 — 주제는 날마다 하나씩, 한 바퀴 돌면 그 주제의 다음 다섯 낱말 */
+  /* 그날의 세 게시물 — 주제는 하루 둘씩 차례로(k = 2n, 2n+1), 한 바퀴 돌면 그 주제의 다음 다섯 낱말. 문법은 하루 하나 */
   function day(dayStr) {
-    const n = dayN(dayStr), t = TOPICS[n % TOPICS.length], r = Math.floor(n / TOPICS.length) * 5;
-    return {
-      topic: t, words: Array.from({ length: 5 }, (_, i) => t.words[(r + i) % t.words.length]),
-      grams: [GRAMS[(2 * n) % GRAMS.length], GRAMS[(2 * n + 1) % GRAMS.length]],
-    };
+    const n = dayN(dayStr);
+    const topics = [0, 1].map((i) => {
+      const k = 2 * n + i, t = TOPICS[k % TOPICS.length], r = Math.floor(k / TOPICS.length) * 5;
+      return { topic: t, words: Array.from({ length: 5 }, (_, j) => t.words[(r + j) % t.words.length]) };
+    });
+    return { topics, grams: [GRAMS[n % GRAMS.length]] };
   }
   /* 직접 고를 때 — 주제의 다섯 낱말(앞에서부터, 쪽 번호로 넘김) */
   const topicWords = (t, page = 0) => Array.from({ length: 5 }, (_, i) => t.words[(page * 5 + i) % t.words.length]);

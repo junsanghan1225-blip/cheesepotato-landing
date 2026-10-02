@@ -142,8 +142,8 @@ const page = await browser.newPage({ viewport: { width: 1080, height: 1350 }, de
 const [y, m, d] = dateArg.split('-').map(Number);
 for (let k = 0; k < Number(daysArg); k++) {
   const t = Date.UTC(y, m - 1, d + k), day = new Date(t).toISOString().slice(0, 10);
-  const { topic: tp, words: ws, grams } = pick.day(day);
-  const posts = [['1-words', wordsPost(tp, ws)], ['2-grammar', grammarPost(grams[0])], ['3-grammar', grammarPost(grams[1])]];
+  const { topics, grams } = pick.day(day);
+  const posts = [['1-words', wordsPost(topics[0].topic, topics[0].words)], ['2-words', wordsPost(topics[1].topic, topics[1].words)], ['3-grammar', grammarPost(grams[0])]];
   const dir = path.join(ROOT, 'insta/out', day);
   fs.mkdirSync(dir, { recursive: true });
   const tmp = path.join(dir, '.slide.html');

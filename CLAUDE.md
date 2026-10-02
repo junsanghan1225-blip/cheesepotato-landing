@@ -55,6 +55,7 @@
   | `sentence/` `course/` `lesson/` `topik-*/` `eps-topik/` `dictionary/` `topik1-words/` `topik2-words/` `korean-word-for/` `blog/` `compare/` `sitemap*.xml` `wotd.js` | 자료 `*.js` · `blog.js` · `vocab-topik1.js` → `node tools/build-pages.mjs` |
   | `pricing.html` `terms.html` `refund.html` | `node tools/build-legal.mjs` |
   | `record/*.json` | `node tools/record-list.mjs` |
+  | `search-index.js`(첫 화면 검색 칸 색인) | 낱말 · 사전 · 문법 · 코스 · 쓰기 · 블로그 자료 → `node tools/build-search.mjs`(build-pages 가 끝에 같이 부른다) |
   | `db/add_qa_seeds.sql`(묻고 답하기 씨앗 질문) | `docs/qa-seeds.json` → `node tools/build-qa-seeds-sql.mjs` |
   | `grammar-words.js`(문법 「같이 알면 좋은 단어」) | `docs/grammar-words.json`(안티 그래비티 · Claude 검토) → `node tools/build-grammar-words.mjs` |
   | `grammar-usage.js`(문법 「쓰임 보기」) | 우리 자료(TOPIK · 읽기 · 낱말 예문) · `grammar-mark.js` → `node tools/build-grammar-usage.mjs` |
@@ -97,6 +98,7 @@
 - 묻고 답하기 씨앗 질문 30개: 안티 초안 → Claude 검토 끝(2026-10-02, `docs/qa-seeds.json`). **운영자가 읽고 고친 뒤**
   `node tools/build-qa-seeds-sql.mjs` → 운영자가 `db/add_qa_seeds.sql` 을 SQL Editor 에서 돌린다.
 - 운영 쪽(검색에 안 걸림): 녹음소 `/record.html`, 인스타 편집기 `/insta.html`, 콘텐츠 현황 `/stats.html`.
-- TOPIK 쓰기 200문항(번호마다 50) — 2026-10-02 검토해 넣음. 안티 그래비티에게 넘긴 일(올라오면 검토): **회화 연습 장면 30개**(`docs/antigravity-convo-task.md`, 브랜치 `convo-scenes` → `docs/convo-scenes.json`).
-  넣을 때 `tools/convo-merge.mjs` 는 accept 를 비우므로, 검토한 accept 를 살려 넣는다(그 도구에 그대로 두는 길을 더하거나 손으로 붙인다). 쓰기 보강 · 실물 문서 10편 · 진짜 말 10편은 2026-09-28 #114 로 이미 들어갔다
+- 인스타: 하루 단어 2 · 문법 1(운영자 결정 2026-10-02). **자동 올리기** `.github/workflows/insta-post.yml` + `tools/insta-post.mjs`
+  (이미지는 `insta-media` 가지, 열쇠는 운영자가 넣는 Secrets `IG_TOKEN`, 켜기는 Variables `INSTA_AUTO=on`) — 운영자 순서는 `docs/insta-auto.md`.
+- TOPIK 쓰기 200문항(번호마다 50) — 2026-10-02 검토해 넣음. 회화 연습 장면 31개(2026-10-02 30개 검토해 넣음, `convo-merge.mjs --keep-accept`). 안티 그래비티에게 넘긴 일: 지금 없음. 쓰기 보강 · 실물 문서 10편 · 진짜 말 10편은 2026-09-28 #114 로 이미 들어갔다
   (안티 브랜치가 main 보다 「앞서」 보이는 것은 squash 머지 때문 — 내용은 main 에 있다). 검토할 때: 도구(`tools/`)를 고쳤는지, 자국이 낡았는지, 「운영자 확인」 note 가 남았는지 본다.

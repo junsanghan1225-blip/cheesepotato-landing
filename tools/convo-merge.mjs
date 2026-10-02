@@ -21,10 +21,12 @@ import { fileURLToPath, pathToFileURL } from 'node:url';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const FILE = path.join(ROOT, 'convo.js');
-const SRC = process.argv[2];
+/* --keep-accept: 사람이 검토한 accept 를 그대로 넣는다(안티 그래비티 초안을 Claude 가 검토한 경우 — 2026-10-02) */
+const KEEP = process.argv.includes('--keep-accept');
+const SRC = process.argv.slice(2).find((a) => !a.startsWith('--'));
 
 if (!SRC) {
-  console.error('쓰기: node tools/convo-merge.mjs 받은것.json');
+  console.error('쓰기: node tools/convo-merge.mjs 받은것.json [--keep-accept]');
   process.exit(1);
 }
 
@@ -43,7 +45,7 @@ for (const c of got) {
   if (flat.includes("'") || flat.includes('\\\\')) { skipped.push(`${c.id} — 홑따옴표나 역슬래시가 들었다`); continue; }
   if (!Array.isArray(c.turns) || !c.turns.length) { skipped.push(`${c.id} — turns 가 비었다`); continue; }
   /* accept 는 Gemini 가 뭘 채워왔든 버리고 빈 자리로 만든다. */
-  c.turns = c.turns.map((t) => ({ ...t, accept: [] }));
+  if (!KEEP) c.turns = c.turns.map((t) => ({ ...t, accept: [] }));
   allIds.add(c.id);
   fresh.push(c);
 }
@@ -56,7 +58,9 @@ const oneTurn = (t) => [
   `        id: ${q(t.id)},`,
   `        npc: { text: ${q(t.npc.text)}, en: ${q(t.npc.en)} },`,
   `        userPrompt: ${q(t.userPrompt)},`,
-  '        accept: [],',
+  KEEP && t.accept?.length
+    ? `        accept: [\n${t.accept.map((g) => `          { k: [${g.k.map(q).join(', ')}], why: ${q(g.why || '')} },`).join('\n')}\n        ],`
+    : '        accept: [],',
   `        model: ${q(t.model)},`,
   `        tip: ${qOrNull(t.tip)},`,
   `        onMiss: ${line(t.onMiss)},`,

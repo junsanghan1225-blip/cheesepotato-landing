@@ -2880,3 +2880,6 @@ console.log(`EPS-TOPIK ${nEps}쪽 + 목록 1쪽 → eps-topik/`);
 console.log(`사전 ${nDict}쪽 + 목록 1쪽 → dictionary/ (보강 쪽 TOPIK I ${VOCAB.length} · TOPIK II ${VOCAB2.length}) · TOPIK I · II 낱말 목록 ${nVl}쪽 + 목록 2쪽 → topik1-words/ · topik2-words/ · 영어로 찾기 ${EW.size}쪽 → korean-word-for/, 오늘의 단어 자료 ${DICT_HEADS.length}개 → wotd.js`);
 console.log(`블로그 ${nB}쪽 + 목록 1쪽 + 갈래 ${nBT}쪽 + rss.xml → blog/`);
 console.log(`sitemap.xml 에 주소 ${urls.length}개 — ${smFiles.map((f) => `${f.file} ${f.n}`).join(' · ')}.`);
+
+/* 첫 화면 검색 칸의 색인도 같은 자료에서 — 자료가 바뀌면 여기서 같이 새로 만든다 */
+await import('./build-search.mjs');

@@ -1,0 +1,91 @@
+# 인스타 자동 올리기 — 하루 세 번, 그날의 게시물 하나씩(단어 1 · 문법 · 단어 2). 운영자 요청 2026-10-02.
+# 켜고 끄기: GitHub → Settings → Secrets and variables → Actions → Variables 의 INSTA_AUTO 를 on 으로(끄려면 지우거나 off).
+# 열쇠: 같은 곳 Secrets 의 IG_TOKEN(운영자가 직접 넣는다). 하는 일 · 순서는 docs/insta-auto.md.
+# 이미지는 사이트(main)가 아니라 insta-media 가지에 올린다 — 인스타가 공개 주소에서 가져가야 해서.
+name: insta-post
+
+on:
+  schedule:
+    - cron: '7 0 * * *'    # 한국 09:07 — 단어 1
+    - cron: '7 9 * * *'    # 한국 18:07 — 문법
+    - cron: '7 14 * * *'   # 한국 23:07 — 단어 2 (미국 동부 아침 · 유럽 낮)
+  workflow_dispatch:
+    inputs:
+      slot:
+        description: '0 = 단어 1 · 1 = 단어 2 · 2 = 문법'
+        default: '0'
+      day:
+        description: '날짜 YYYY-MM-DD (비우면 오늘, 한국 날짜)'
+        default: ''
+      dry:
+        description: 'yes 면 이미지만 만들고 올리지 않는다(시험)'
+        default: 'yes'
+
+permissions:
+  contents: write
+
+concurrency: insta-post
+
+jobs:
+  post:
+    if: ${{ vars.INSTA_AUTO == 'on' || github.event_name == 'workflow_dispatch' }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+      - name: 브라우저
+        run: npm i --no-save --no-package-lock playwright@1.55.0 && npx playwright install --with-deps chromium
+
+      - name: 무엇을 올릴지
+        id: pick
+        run: |
+          case "${{ github.event.schedule }}" in
+            '7 0 * * *')  SLOT=0 ;;
+            '7 9 * * *')  SLOT=2 ;;
+            '7 14 * * *') SLOT=1 ;;
+            *)            SLOT='${{ inputs.slot }}' ;;
+          esac
+          DAY='${{ inputs.day }}'
+          [ -z "$DAY" ] && DAY=$(TZ=Asia/Seoul date +%F)
+          DRY='${{ inputs.dry }}'
+          [ "${{ github.event_name }}" = schedule ] && DRY=no
+          FILE=$([ "$SLOT" = 0 ] && echo 1-words || ([ "$SLOT" = 1 ] && echo 2-words || echo 3-grammar))
+          echo "slot=$SLOT" >> $GITHUB_OUTPUT; echo "day=$DAY" >> $GITHUB_OUTPUT; echo "dry=$DRY" >> $GITHUB_OUTPUT; echo "file=$FILE" >> $GITHUB_OUTPUT
+          echo "날짜 $DAY · 게시물 $FILE · 시험 $DRY"
+
+      - name: 이미지 가지(insta-media) 열기
+        run: |
+          git config user.name 'cheesepotato-insta'
+          git config user.email 'actions@users.noreply.github.com'
+          if git fetch -q origin insta-media; then git worktree add -q ../media FETCH_HEAD && git -C ../media checkout -q -B insta-media
+          else git worktree add -q --orphan -b insta-media ../media; fi
+
+      - name: 이미 올렸으면 멈춤
+        id: done
+        run: |
+          if [ -f "../media/${{ steps.pick.outputs.day }}/${{ steps.pick.outputs.file }}/posted.json" ]; then echo "이미 올렸어요"; echo "skip=1" >> $GITHUB_OUTPUT; fi
+
+      - name: 이미지 만들기
+        if: ${{ !steps.done.outputs.skip }}
+        run: node tools/insta-post.mjs render --slot ${{ steps.pick.outputs.slot }} --day ${{ steps.pick.outputs.day }} --out ../media
+
+      - name: 이미지를 공개 주소로
+        if: ${{ !steps.done.outputs.skip }}
+        run: |
+          cd ../media && git add -A && (git diff --cached --quiet || git commit -qm "insta ${{ steps.pick.outputs.day }} ${{ steps.pick.outputs.file }}") && git push -q origin insta-media
+          sleep 20
+
+      - name: 인스타에 올리기
+        if: ${{ !steps.done.outputs.skip && steps.pick.outputs.dry != 'yes' }}
+        env:
+          IG_TOKEN: ${{ secrets.IG_TOKEN }}
+        run: |
+          node tools/insta-post.mjs publish --dir ../media/${{ steps.pick.outputs.day }}/${{ steps.pick.outputs.file }} \
+            --base https://raw.githubusercontent.com/${{ github.repository }}/insta-media
+          cd ../media && git add -A && git commit -qm "posted ${{ steps.pick.outputs.day }} ${{ steps.pick.outputs.file }}" && git push -q origin insta-media
+
+      - name: 시험이면 이미지 주소 알려 주기
+        if: ${{ !steps.done.outputs.skip && steps.pick.outputs.dry == 'yes' }}
+        run: echo "시험 — 올리지 않았어요. 이미지 https://github.com/${{ github.repository }}/tree/insta-media/${{ steps.pick.outputs.day }}/${{ steps.pick.outputs.file }}"
