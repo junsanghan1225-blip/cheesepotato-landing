@@ -21,11 +21,14 @@ const todayKst = () => new Date(Date.now() + 9 * 36e5).toISOString().slice(0, 10
 const die = (msg) => { console.error(`\n✗ ${msg}\n`); process.exit(1); };
 
 const cmd = process.argv[2];
-if (cmd === 'render') await render();
-else if (cmd === 'publish') await publish();
-else if (cmd === 'story') await story();
-else if (cmd === 'threads') await threads();
-else die('쓰는 법: render --slot 0|1|2|3 [--day YYYY-MM-DD] [--out media]  /  publish · story · threads --dir <폴더> --base <주소>');
+/* 메타 API 오류는 api() 가 던진다(다시 시도할 수 있게) — 끝까지 못 받으면 여기서 멈춘다 */
+try {
+  if (cmd === 'render') await render();
+  else if (cmd === 'publish') await publish();
+  else if (cmd === 'story') await story();
+  else if (cmd === 'threads') await threads();
+} catch (e) { die(e.message); }
+if (!['render', 'publish', 'story', 'threads'].includes(cmd)) die('쓰는 법: render --slot 0|1|2|3 [--day YYYY-MM-DD] [--out media]  /  publish · story · threads --dir <폴더> --base <주소>');
 
 /* 메타 API 부르기 — 인스타(graph.instagram.com)와 스레드(graph.threads.net)가 같은 꼴이다. 열쇠는 access_token 칸에. */
 function api(host, token, label) {
@@ -41,7 +44,7 @@ function api(host, token, label) {
       if (e.code === 190) die(`${label} 열쇠(토큰)가 끝났거나 틀렸어요 — docs/insta-auto.md 「토큰 새로 넣기」대로 새 토큰을 넣어 주세요.`);
       /* 어느 단계 · 어느 칸이 틀렸는지 보이게 — 메타는 「Invalid parameter」만 주고 자세한 까닭은 error_user_msg · subcode 에 담는다(열쇠는 찍지 않는다) */
       const what = Object.keys(params).filter((k) => k !== 'access_token').join(',');
-      die(`${label} API 오류 ${res.status} (${method} ${path} · 보낸 칸: ${what}): ${e.message || ''} ${e.error_user_title || ''} ${e.error_user_msg || ''} [code ${e.code ?? '-'} / sub ${e.error_subcode ?? '-'}] ${e.error_data ? JSON.stringify(e.error_data).slice(0, 200) : ''}`);
+      throw new Error(`${label} API 오류 ${res.status} (${method} ${path} · 보낸 칸: ${what}): ${e.message || ''} ${e.error_user_title || ''} ${e.error_user_msg || ''} [code ${e.code ?? '-'} / sub ${e.error_subcode ?? '-'}] ${e.error_data ? JSON.stringify(e.error_data).slice(0, 200) : ''}`);
     }
     return j;
   };
@@ -82,16 +85,28 @@ async function threads() {
   const cap = (await readFile(join(dir, 'caption.txt'), 'utf8')).split(/\n\n#/)[0].trim();
   const text = (cap.length > 440 ? `${cap.slice(0, 437).replace(/\s+\S*$/, '')}…` : cap) + '\n\neverykoreans.com #learnkorean';
   const call = api('https://graph.threads.net/v1.0', token, '스레드');
+  /* 계정 번호를 먼저 받는다 — 문서대로 /{번호}/threads 로 보낸다(/me 로 보냈더니 400 · 500 이 났다, 2026-10-03). 열쇠가 맞는지도 여기서 갈린다 */
+  const me = await call('GET', '/me', { fields: 'id,username' });
+  console.log(`스레드 계정 @${me.username}`);
+  /* 메타가 「잠시 뒤 다시」(500 · code 2)를 주면 세 번까지 기다렸다 다시 */
+  const retry = async (fn) => { for (let i = 0; ; i++) { try { return await fn(); } catch (e) { if (i >= 2 || !/code 2 |500/.test(String(e.message))) throw e; await new Promise((r) => setTimeout(r, 8000 * (i + 1))); } } };
   const urls = Array.from({ length: meta.n }, (_, i) => `${base}/${meta.day}/${meta.file}/${i + 1}.jpg`);
+  const single = async () => (await retry(() => call('POST', `/${me.id}/threads`, { media_type: 'IMAGE', image_url: urls[0], text }))).id;
   let creation;
-  if (urls.length === 1) creation = (await call('POST', '/me/threads', { media_type: 'IMAGE', image_url: urls[0], text })).id;
+  if (urls.length === 1) creation = await single();
   else {
-    const kids = [];
-    for (const u of urls) kids.push((await call('POST', '/me/threads', { media_type: 'IMAGE', image_url: u, is_carousel_item: 'true' })).id);
-    creation = (await call('POST', '/me/threads', { media_type: 'CAROUSEL', children: kids.join(','), text })).id;
+    try {
+      const kids = [];
+      for (const u of urls) kids.push((await retry(() => call('POST', `/${me.id}/threads`, { media_type: 'IMAGE', image_url: u, is_carousel_item: 'true' }))).id);
+      creation = (await retry(() => call('POST', `/${me.id}/threads`, { media_type: 'CAROUSEL', children: kids.join(','), text }))).id;
+    } catch (e) {
+      /* 여러 장이 안 되면 첫 장 하나로라도 — 표지에 주제 · 낱말이 다 있다 */
+      console.log(`여러 장 실패 → 첫 장만: ${e.message}`);
+      creation = await single();
+    }
   }
   await waitReady(call, creation, 'status', '스레드');
-  const pub = await call('POST', '/me/threads_publish', { creation_id: creation });
+  const pub = await retry(() => call('POST', `/${me.id}/threads_publish`, { creation_id: creation }));
   await writeFile(join(dir, 'threads.json'), JSON.stringify({ id: pub.id, at: new Date().toISOString() }, null, 1));
   console.log(`✓ 스레드 올렸어요 — ${meta.day} ${meta.name} (${urls.length}장)`);
 }
