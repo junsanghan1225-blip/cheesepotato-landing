@@ -72,3 +72,17 @@
     localStorage.setItem(KEY, today);
   } catch (e) {}
 })();
+
+/* 밖으로 나가는 단추 세기 — data-ev 를 단 링크를 누르면 Clarity 이벤트 · GTM 이벤트를 남긴다(2026-10-03).
+   수업 신청(Preply) · WhatsApp 처럼 「사이트가 돈으로 이어지는 곳」이 몇 번 눌렸는지 보려고.
+   teacher.html 처럼 app.module.js 가 없는 쪽에서도 돌아야 해서 여기 둔다. 링크는 그대로 열린다. */
+(function () {
+  var EN = { '수업신청클릭': 'lesson_booking_click', '왓츠앱클릭': 'whatsapp_click', '선생님쪽열기': 'teacher_page_click' };
+  document.addEventListener('click', function (ev) {
+    var a = ev.target && ev.target.closest ? ev.target.closest('a[data-ev]') : null;
+    if (!a) return;
+    var name = a.getAttribute('data-ev'), from = a.getAttribute('data-ev-from') || location.pathname;
+    try { if (window.clarity) { window.clarity('event', name); window.clarity('set', '수업단추자리', from); } } catch (e) {}
+    try { if (EN[name]) (window.dataLayer = window.dataLayer || []).push({ event: EN[name], cp_event: name, cp_from: from }); } catch (e) {}
+  }, true);
+})();
