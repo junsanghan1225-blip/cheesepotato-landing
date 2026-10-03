@@ -1,109 +1,81 @@
-# 구독(Paddle) 붙이는 순서
+# 구독(치즈감자 Pro) 붙이는 순서 — Polar
 
-사이트 쪽은 다 되어 있다. **`billing.js` 의 `clientToken` 이 비어 있는 동안은 아무것도 잠기지 않고**
-구독 창에는 「곧 열려요」가 뜬다. 아래를 끝내고 값을 채우면 켜진다.
+> 2026-10-03: Paddle 은 심사에서 거절돼 **Polar** 로 옮겼다(Polar 는 계정 승인 · 본인 확인 · 우리은행 계좌 연결 끝).
+> 옛 Paddle 쪽 코드(`supabase/functions/paddle-webhook/`)는 지우지 않고 남겨 두었지만 더는 쓰지 않는다.
+
+사이트 쪽은 다 되어 있다. **`billing.js` 의 `ON` 이 `false` 인 동안은 아무것도 잠기지 않고** 구독 창에는 「곧 열려요」가 뜬다.
+아래 1~5 를 운영자가 마친 뒤 「결제 켜줘」라고 하면 Claude 가 `ON = true` 로 바꾼다 — **그 순간 TOPIK 모의고사 2회차부터 잠긴다.**
 
 | 어디 | 무엇 |
 |---|---|
-| `billing.js` | Paddle 설정값(토큰·가격 id), 구독 상태 읽기, 결제 창 |
-| `app.module.js` 맨 끝 「구독 (치즈감자 Pro)」 | 구독 팝업, 내 계정의 구독 줄, `?pro=1` |
-| `db/add_subscriptions.sql` | 구독 표 + `is_pro()` |
-| `supabase/functions/paddle-webhook/` | Paddle → 구독 표에 적는 서버 함수 |
-| `tools/build-legal.mjs` | pricing.html · terms.html · refund.html |
+| `billing.js` | 켜기 스위치(`ON`) · Polar 결제 링크 · 구독 상태 읽기 · 결제 쪽으로 보내기 |
+| `app.module.js` 「구독 (치즈감자 Pro)」 | 구독 팝업 · 내 계정의 구독 줄 · `?pro=1`(가격 쪽에서 옴) · `?pro=done`(결제 마치고 돌아옴) |
+| `db/add_subscriptions.sql` | 구독 표 + `is_pro()`(AI 한도 함수들이 쓴다) |
+| `supabase/functions/polar-webhook/` | Polar → 구독 표에 적는 서버 함수 |
+| `tools/build-legal.mjs` | pricing.html · terms.html · refund.html(판매 대행사 Polar) |
+
+결제 링크: `https://buy.polar.sh/polar_cl_enjp5pPzR4GNe1QfPIs1Z7tsoQ7tdqa3igOyW2GjisW`(월 $4.99 · 연 $39 두 상품, 결제 화면에서 고른다).
+누가 결제했는지는 링크에 `external_customer_id`(= 사이트 계정 id)를 붙여 보내서 안다 — 사이트에서 로그인한 뒤 「구독하기」로 가야 한다.
 
 ---
 
-## 1. Paddle 가입 (직접)
+## 1. 구독 표 (Supabase SQL Editor) — 이미 돌렸으면 건너뛴다
 
-1. https://www.paddle.com 에서 가입. 회사 형태는 **Individual / Sole trader**(개인사업자) 또는
-   **Private company**(법인). *Public company 를 고르면 Stock ticker 를 묻는다 — 잘못 고른 것이다.*
-2. 웹사이트: `https://everykoreans.com`
-   심사가 보는 쪽 — 가격 `https://everykoreans.com/pricing.html` · 약관 `/terms.html` ·
-   환불 `/refund.html` · 개인정보 `/privacy.html`
-3. **사업자 정보 채우기** — 사업자등록을 마쳤으면 `tools/build-legal.mjs` 의 `SELLER`
-   (대표자 · 사업자등록번호 · 통신판매업 신고번호 · 주소)를 채우고
-   `node tools/build-legal.mjs` 를 돌린다. 빈 칸은 쪽에 안 나온다.
+`db/add_subscriptions.sql` 을 통째로 붙여 넣고 Run. 두 번 돌려도 괜찮다.
+(Table editor 에 `subscriptions` 표가 보이면 이미 돌린 것이다.)
 
-심사를 기다리는 동안 **Sandbox(시험) 계정**으로 2~5번을 먼저 끝내 둔다:
-https://sandbox-vendors.paddle.com
+## 2. 서버 함수 배포 (Supabase 대시보드)
 
-## 2. 상품과 가격 (Paddle 대시보드)
+1. **Edge Functions → Deploy a new function → Via Editor** → 이름 **`polar-webhook`**.
+2. 코드 칸을 비우고 `supabase/functions/polar-webhook/index.ts` 내용을 **전부** 붙여 넣기 → **Deploy**.
+3. 그 함수의 **Details(설정)** → **Enforce JWT verification(Verify JWT)** 을 **끈다** → 저장.
+   Polar 는 Supabase 로그인 토큰이 없어서, 켜 두면 모든 알림이 401 로 막힌다(대신 함수가 서명으로 확인한다).
 
-**Catalog → Products → New product**: 이름 `CheesePotato Pro`, 세금 분류 **Standard digital goods**
-(또는 SaaS). 가격 두 개:
+## 3. Polar 웹훅 만들기 (Polar 대시보드)
 
-- `$4.99` · 매월(Monthly)
-- `$39` · 매년(Yearly)
+1. **Settings → Webhooks → Add Endpoint**
+2. URL: `https://tjgoevtvobvmlyefgxel.supabase.co/functions/v1/polar-webhook`
+3. Format: **Raw**
+4. Events: `subscription.created` · `subscription.updated` · `subscription.active` · `subscription.canceled` ·
+   `subscription.uncanceled` · `subscription.revoked` (subscription 으로 시작하는 것 전부 골라도 된다)
+5. 만들면 나오는 **Secret** 을 복사 — **Claude 에게 보내지 않는다.**
 
-만들고 나면 가격마다 `pri_…` id 가 생긴다.
+## 4. 비밀 넣기 (Supabase 대시보드)
 
-## 3. 토큰
+**Edge Functions → Secrets → Add new secret** → Name `POLAR_WEBHOOK_SECRET` · Value: 3번에서 복사한 secret → Save.
 
-**Developer tools → Authentication → Client-side tokens → New** → `test_…`(샌드박스) 또는 `live_…`.
-이것은 브라우저에 보여도 되는 토큰이다(결제 창을 여는 것만 된다). **API key 와 헷갈리지 말 것** —
-API key 는 절대 사이트에 넣지 않는다.
+## 5. 결제 링크의 돌아올 곳 (Polar 대시보드)
 
-**Checkout → Checkout settings → Default payment link** 에 `https://everykoreans.com/` 을 넣는다.
-(비어 있으면 결제 창이 안 열린다.)
+**Products → Checkout Links → CheesePotato Pro → 고치기**
+- Success URL: `https://everykoreans.com/?pro=done&checkout_id={CHECKOUT_ID}`
+  (결제를 마치고 돌아오면 사이트가 「결제를 확인하는 중」을 띄우고, 몇 초 뒤 「구독 중」으로 바꾼다.)
+- Return URL: `https://everykoreans.com/`
 
-## 4. 서버 (Supabase)
+## 6. 켜기 (Claude)
 
-1. **SQL Editor** 에서 `db/add_subscriptions.sql` 을 통째로 돌린다.
-2. 웹훅 함수 배포 — 이 저장소에서:
-   ```bash
-   supabase functions deploy paddle-webhook --no-verify-jwt --project-ref tjgoevtvobvmlyefgxel
-   ```
-3. Paddle → **Developer tools → Notifications → New destination**
-   - URL: `https://tjgoevtvobvmlyefgxel.supabase.co/functions/v1/paddle-webhook`
-   - 이벤트: `subscription.created` · `subscription.updated` · `subscription.activated` ·
-     `subscription.canceled` · `subscription.past_due` · `subscription.paused` · `subscription.resumed`
-   - 만들면 **secret key**(`pdl_ntfset_…`)가 나온다.
-4. 그 비밀을 함수에 넣는다:
-   ```bash
-   supabase secrets set PADDLE_WEBHOOK_SECRET=pdl_ntfset_… --project-ref tjgoevtvobvmlyefgxel
-   ```
+운영자가 「결제 켜줘」 → Claude 가 `billing.js` 의 `ON = true` · 자국(stamp) · FAQ · `llms.txt` 의
+「가입하면 모의고사 여러 회차」를 「1회차 무료 · 전 회차 Pro」로 고쳐 머지.
 
-## 5. 사이트에 값 넣기
+## 7. 시험 결제 (운영자, 실제 카드)
 
-`billing.js`:
+1. 사이트에서 로그인 → 내 계정 → 「Pro 알아보기」 → 구독하기 → Polar 결제 화면 → 월 $4.99 로 결제.
+2. 사이트로 돌아와 몇 초 뒤 「구독 중이에요 🎉」, 모의고사 2회차가 열리면 성공.
+   Supabase **Table editor → subscriptions** 에 `provider = polar` 한 줄이 생긴다.
+3. Polar → **Settings → Webhooks → 그 Endpoint → Deliveries** 에서 응답이 **200** 인지 본다
+   (401 = secret 이 틀렸거나 JWT 확인을 안 껐다 · `no user` = 로그인하지 않은 채 링크로 바로 결제했다).
+4. 확인했으면 Polar → **Sales(Orders) → 그 주문 → Refund** 로 환불하고, 구독도 **Cancel** — 기간이 끝나면 Pro 가 닫힌다.
 
-```js
-env: 'sandbox',
-clientToken: 'test_…',
-prices: { monthly: 'pri_…', yearly: 'pri_…' },
-```
+## 구독자가 해지할 때
 
-그다음 `node tools/stamp.mjs` → 커밋 → 배포. **이 순간부터 모의고사 2회차 이상이 잠긴다.**
+내 계정 → 구독 정보 → 「구독 관리 · 해지」 → Polar 고객 포털(`https://polar.sh/everykoreans/portal`, 결제한 메일로 들어감).
+해지하면 낸 기간이 끝날 때까지 Pro 가 열려 있고, 끝나면(웹훅 `subscription.revoked`) 닫힌다.
 
-## 6. 시험 결제 (샌드박스)
+## AI 한도 (앱 저장소 · 끝)
 
-1. 사이트에서 로그인 → 내 계정 → 「Pro 알아보기」 → 구독하기
-2. 카드 `4242 4242 4242 4242`, 만료일은 미래 아무 날, CVC `100`
-3. 몇 초 뒤 Supabase **Table editor → subscriptions** 에 한 줄이 생기고, 내 계정에
-   「치즈감자 Pro 구독 중」, 모의고사 2회차가 열리면 성공.
-4. Paddle → Notifications 에서 전달 기록이 200 인지 본다(401 이면 비밀이 틀렸다).
-
-## 7. 실제로 켜기
-
-심사가 끝나면 **실제 계정(vendors.paddle.com)** 에서 2~4번을 다시 한다(샌드박스의 상품·토큰·
-웹훅은 실제로 넘어오지 않는다). `billing.js` 를 `env: 'production'`, `live_…` 토큰, 실제 `pri_…` 로
-바꾼다.
-
-## 8. AI 한도 (앱 저장소)
-
-AI 함수(`score-pronunciation` · `ask-korean`)는 앱 저장소의 `supabase/functions` 에 있고 하루 한도를
-거기서 센다. 구독자 한도를 늘리려면 두 함수에서 한도를 정하는 곳을 이렇게 바꾼다:
-
-```ts
-const { data: pro } = await admin.rpc('is_pro', { uid: user.id });
-const DAILY_LIMIT = pro ? 100 : 10;   // 지금 쓰는 무료 한도 값에 맞춰 조정
-```
-
-이걸 안 해도 구독은 돌아간다 — 그때는 Pro 혜택이 「모의고사 전 회차」 하나뿐이니, 가격 쪽과
-구독 창의 AI 줄(`app.module.js` 의 `PRO_FEATURES`, `tools/build-legal.mjs`)을 빼 두는 게 정직하다.
+`score-pronunciation` · `ask-korean`(앱 저장소 cheesepotatoapp#3 · #4)과 `grade-writing` 이 `is_pro()` 로 한도를 가른다 —
+무료 20 · Pro 100(발음 · 도우미), 무료 2 · Pro 30(쓰기 채점). 구독 표가 채워지면 저절로 따라간다.
 
 ## 앱(안드로이드)
 
-이번 구독은 **웹에서만** 판다. 앱 안에서 구독을 팔거나 웹 결제로 보내는 링크를 넣으면 구글 플레이
-결제 규칙이 걸린다. 같은 계정으로 앱에서도 Pro 를 쓰게 하려면 앱이 `subscriptions` 표(또는
-`is_pro`)를 읽기만 하면 된다 — 앱에서 사게 하지만 않으면 된다.
+구독은 **웹에서만** 판다. 앱 안에서 구독을 팔거나 웹 결제로 보내는 링크를 넣으면 구글 플레이 결제 규칙이 걸린다.
+같은 계정으로 앱에서도 Pro 를 쓰게 하려면 앱이 `subscriptions` 표(또는 `is_pro`)를 읽기만 하면 된다.

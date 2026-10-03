@@ -1,6 +1,6 @@
 /* 가격 · 이용약관 · 환불 규정 쪽을 만든다 — pricing.html · terms.html · refund.html
      node tools/build-legal.mjs
-   Paddle 가입 심사가 이 세 쪽을 본다(가격이 보이는 쪽, 약관, 환불 규정).
+   결제 판매 대행사(지금 Polar — 2026-10-03 Paddle 에서 옮김)의 심사가 이 세 쪽을 본다(가격이 보이는 쪽, 약관, 환불 규정).
    모양은 privacy.html 을 그대로 따른다 — 머리(<style>)를 거기서 떼어 온다.
    가격을 바꾸면 billing.js 의 BILLING.show 와 여기 PRICE 를 같이 고친다.
 
@@ -14,7 +14,7 @@ import { fileURLToPath } from 'url';
 const ROOT = path.join(path.dirname(fileURLToPath(import.meta.url)), '..');
 const PRICE = { monthly: '$4.99', yearly: '$39' };
 const EMAIL = 'junsanghan1225@gmail.com';
-const UPDATED = '2026-09-25';
+const UPDATED = '2026-10-03';
 const SELLER = {
   name: '에브리코리안즈 (everykoreans · 치즈감자)',
   owner: '',        // 대표자
@@ -73,7 +73,7 @@ ${body}
 ${[['판매자 · Seller', SELLER.name], ['대표자', SELLER.owner], ['사업자등록번호', SELLER.bizNo],
    ['통신판매업 신고번호', SELLER.mailOrder], ['주소', SELLER.address], ['문의 · Contact', EMAIL]]
   .filter(([, v]) => v).map(([k, v]) => `${k}: ${v}`).join('<br>')}<br>
-결제·세금 처리 · Merchant of Record: Paddle.com Market Ltd.
+결제·세금 처리 · Merchant of Record: Polar (polar.sh)
 </div>
 <p class="seller" style="border:0;margin-top:8px;padding-top:0"><a href="/pricing.html">가격 · Pricing</a> · <a href="/terms.html">이용약관 · Terms</a> · <a href="/refund.html">환불 규정 · Refunds</a> · <a href="/privacy.html">개인정보처리방침 · Privacy</a></p>
 <a class="back" href="/">← 홈으로</a>
@@ -93,10 +93,11 @@ const ROWS = [
   ['EPS-TOPIK 연습 · 모의고사', 'EPS-TOPIK practice and mock tests', '✓', '✓'],
   ['TOPIK 모의고사', 'TOPIK mock tests', '1회차', '<b>전 회차 + 회차별 성적 추이</b>'],
   ['TOPIK 쓰기 53·54번 AI 채점', 'AI scoring for TOPIK writing Q53–54', '하루 2번 (로그인)', '<b>하루 30번</b>'],
-  ['AI 발음 진단 · 한국어 도우미', 'AI pronunciation feedback · Korean helper', '기본 횟수', '<b>하루 더 많이</b>'],
+  ['AI 발음 진단 · 한국어 도우미', 'AI pronunciation feedback · Korean helper', '하루 20번 (로그인)', '<b>하루 100번</b>'],
+  ['TOPIK 약점 리포트 · 합격 계획표', 'TOPIK weak-spot report · exam plan', '가장 약한 유형 하나', '<b>전체 리포트 + 계획표</b>'],
   ['앞으로 나올 Pro 기능', 'Every Pro feature we add next', '—', '✓'],
 ];
-const EN_CELL = { '1회차': 'Round 1', '하루 2번 (로그인)': '2 a day (signed in)', '기본 횟수': 'Standard',
+const EN_CELL = { '1회차': 'Round 1', '하루 2번 (로그인)': '2 a day (signed in)', '하루 20번 (로그인)': '20 a day (signed in)', '가장 약한 유형 하나': 'Your weakest type', '<b>전체 리포트 + 계획표</b>': '<b>Full report + plan</b>', '<b>하루 100번</b>': '<b>100 a day</b>',
   '<b>전 회차 + 회차별 성적 추이</b>': '<b>Every round + score history</b>', '<b>하루 30번</b>': '<b>30 a day</b>',
   '<b>하루 더 많이</b>': '<b>More each day</b>' };
 const table = (en) => `<table class="cmp"><thead><tr><th></th><th>${en ? 'Free' : '무료'}</th><th class="pro">Pro</th></tr></thead><tbody>` +
@@ -125,7 +126,7 @@ ${table(false)}
 <h3>환불은요?</h3>
 <p>처음 결제한 뒤 14일 안이면 이유를 묻지 않고 전액 돌려 드립니다. 연 구독이 자동 갱신된 뒤 14일 안에 알려 주셔도 갱신분을 전액 환불합니다(<a href="/refund.html">환불 규정</a>).</p>
 <h3>어떻게 결제하나요?</h3>
-<p>결제 · 세금 · 영수증은 판매 대행사 Paddle 이 처리합니다. 카드, 그리고 나라에 따라 PayPal 등으로 낼 수 있습니다. 표시 가격은 미국 달러 기준이며 나라에 따라 부가세가 더해질 수 있습니다.</p>
+<p>결제 · 세금 · 영수증은 판매 대행사 Polar 가 처리합니다. 카드로 낼 수 있고, 나라에 따라 다른 결제 수단이 함께 보일 수 있습니다. 표시 가격은 미국 달러 기준이며 나라에 따라 부가세가 더해질 수 있습니다.</p>
 <h3>무료 기능이 줄어들 수도 있나요?</h3>
 <p>아니요. 위 표에서 무료로 적힌 것은 Pro 가 생겨도 그대로 무료입니다.</p>
 
@@ -134,7 +135,7 @@ ${table(false)}
 <p>Most of CheesePotato is <strong>free</strong>. Add <strong>CheesePotato Pro</strong> when you want to prepare all the way to the exam:
 <strong>${PRICE.yearly} / year</strong> (about $3.25 a month, save 35%) or <strong>${PRICE.monthly} / month</strong>, renewing automatically.</p>
 ${table(true)}
-<p>Cancel anytime from your account and keep Pro until the end of the period you paid for. <strong>Full refund within 14 days of your first payment, no questions asked</strong> (<a href="/refund.html">refund policy</a>). Payments, tax and receipts are handled by Paddle; prices are in US dollars and VAT or sales tax may be added depending on your country. Everything marked free above stays free.</p>
+<p>Cancel anytime from your account and keep Pro until the end of the period you paid for. <strong>Full refund within 14 days of your first payment, no questions asked</strong> (<a href="/refund.html">refund policy</a>). Payments, tax and receipts are handled by our reseller Polar; prices are in US dollars and VAT or sales tax may be added depending on your country. Everything marked free above stays free.</p>
 <a class="cta" href="/?pro=1">Subscribe to Pro</a>
 <p class="seller" style="border:0;margin-top:18px;padding-top:0">최종 수정 · Last updated: ${UPDATED}</p>
 `);
@@ -149,7 +150,7 @@ const terms = page('terms.html', '이용약관 · Terms of Service', '치즈감�
 <h2>3. 유료 구독</h2>
 <ul>
 <li>가격은 <a href="/pricing.html">가격 쪽</a>에 적힌 대로이며, 월 또는 연 단위로 자동 갱신됩니다.</li>
-<li>결제 · 세금 처리 · 영수증 발급은 판매 대행사 <strong>Paddle</strong>(Paddle.com Market Ltd.)이 합니다. 결제에는 Paddle 의 구매자 약관도 함께 적용됩니다.</li>
+<li>결제 · 세금 처리 · 영수증 발급은 판매 대행사 <strong>Polar</strong>(polar.sh)가 합니다. 결제에는 Polar 의 구매자 약관도 함께 적용됩니다.</li>
 <li>언제든 해지할 수 있습니다. 해지하면 다음 갱신이 멈추고, 이미 낸 기간이 끝날 때까지 Pro 기능을 쓸 수 있습니다.</li>
 <li>환불은 <a href="/refund.html">환불 규정</a>을 따릅니다.</li>
 <li>가격을 바꿀 때는 적어도 30일 전에 알리며, 이미 구독 중인 기간에는 적용하지 않습니다.</li>
@@ -173,7 +174,7 @@ const terms = page('terms.html', '이용약관 · Terms of Service', '치즈감�
 <h2>3. Subscriptions</h2>
 <ul>
 <li>Prices are as shown on the <a href="/pricing.html">pricing page</a> and renew automatically each month or year.</li>
-<li>Our order process is conducted by our online reseller <strong>Paddle.com</strong>. Paddle.com is the Merchant of Record for all our orders and handles payment, taxes, invoices and customer service inquiries about billing. Paddle's buyer terms also apply to your purchase.</li>
+<li>Our order process is conducted by our online reseller <strong>Polar</strong> (polar.sh). Polar is the Merchant of Record for all our orders and handles payment, taxes, invoices and billing inquiries. Polar's buyer terms also apply to your purchase.</li>
 <li>You can cancel anytime. Cancelling stops the next renewal; you keep Pro until the end of the period you paid for.</li>
 <li>Refunds follow our <a href="/refund.html">refund policy</a>.</li>
 <li>We will give at least 30 days' notice before changing prices, and changes never apply to a period you have already paid for.</li>
@@ -200,7 +201,7 @@ const refund = page('refund.html', '환불 규정 · Refund Policy', '치즈감�
 <li>연 구독이 자동 갱신된 뒤 14일 안에 알려 주시면 갱신분을 전액 환불합니다.</li>
 </ul>
 <h2>환불 요청</h2>
-<p>결제 영수증 이메일(Paddle 이 보냄)의 링크로 요청하거나, <code>${EMAIL}</code> 로 결제에 쓴 이메일 주소를 적어 보내 주세요. 환불은 Paddle 이 처리하며, 원래 결제 수단으로 5~10 영업일 안에 들어갑니다.</p>
+<p>결제 영수증 이메일(Polar 가 보냄)에 답장하거나, <code>${EMAIL}</code> 로 결제에 쓴 이메일 주소를 적어 보내 주세요. 환불은 Polar 가 처리하며, 원래 결제 수단으로 5~10 영업일 안에 들어갑니다.</p>
 <hr>
 <h1>English</h1>
 <ul>
@@ -210,7 +211,7 @@ const refund = page('refund.html', '환불 규정 · Refund Policy', '치즈감�
 <li>If a yearly plan renews automatically, tell us within 14 days of the renewal for a full refund of that renewal.</li>
 </ul>
 <h2>How to request a refund</h2>
-<p>Use the link in your receipt email from Paddle, or write to <code>${EMAIL}</code> with the email address you paid with. Refunds are processed by Paddle to your original payment method, usually within 5–10 business days.</p>
+<p>Reply to your receipt email from Polar, or write to <code>${EMAIL}</code> with the email address you paid with. Refunds are processed by Polar to your original payment method, usually within 5–10 business days.</p>
 `);
 
 fs.writeFileSync(path.join(ROOT, 'pricing.html'), pricing);

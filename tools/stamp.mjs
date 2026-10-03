@@ -33,6 +33,8 @@ const ASSETS = [
   'words.js', 'vocab-topik1.js', 'vocab-topik2.js',
   /* 레벨 아이콘(감자 · 치즈) — 내 코스 · 첫 화면 · 레벨테스트 결과가 쓴다. */
   'levels.js',
+  /* 동화책(#learn/stories) 자료 — 그 갈래를 열 때만 받는다. */
+  'stories.js',
   /* 첫 화면 검색 칸의 색인(tools/build-search.mjs 생성물) — 검색 칸을 처음 누를 때 받는다. */
   'search-index.js',
   /* 정적 쪽(사전 · 문제 쪽)의 🔊 · 보기 채점 — 그 쪽들은 build-pages.mjs 가 이 파일 내용으로 따로 자국을 붙인다. */
