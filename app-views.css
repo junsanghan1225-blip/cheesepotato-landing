@@ -5570,7 +5570,8 @@ body.mk-printing .mk-cover, body.mk-printing .mk-paper, body.mk-printing .mk-omr
 .tq-fold[open] > summary::after { content:'▴'; }
 .tq-fold > .lc-grid { padding:0 14px 14px; }
 /* 첫 화면 사이트 검색 */
-.ss-wrap { max-width:880px; margin:20px auto 10px; padding:0 16px; position:relative; z-index:3; }
+/* 「오늘」 카드(.td-wrap · .td-card)와 같은 너비 · 같은 왼쪽 끝 — 좁게 가운데 두면 위아래가 어긋나 보였다(운영자 2026-10-03) */
+.ss-wrap { max-width:calc(var(--max) + 2 * var(--gut)); margin:16px auto 4px; padding:0 var(--gut); position:relative; z-index:3; }
 .ss-box { display:flex; align-items:center; gap:12px; background:var(--surface); border:3px solid #FFC94D; border-radius:26px; padding:8px 10px 8px 10px; box-shadow:0 6px 0 #F2B33D, 0 18px 34px -18px rgba(196,85,28,.45); }
 .ss-box:focus-within { border-color:var(--orange); box-shadow:0 6px 0 var(--orange), 0 18px 34px -18px rgba(196,85,28,.55); }
 .ss-face { width:48px; height:48px; border-radius:16px; background:#FFF3D1; flex:none; }
