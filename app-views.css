@@ -5641,6 +5641,8 @@ body.mk-printing .mk-cover, body.mk-printing .mk-paper, body.mk-printing .mk-omr
 .wd-intro-hide:hover { background:#FFE6D1; }
 
 /* 강의(#learn/lectures) — 반 · 숙제의 카드 · 입력 칸을 같이 쓴다 */
+.lec-teach { display:inline-flex; align-items:center; min-height:44px; margin:0 0 16px; padding:10px 16px; border-radius:12px; background:var(--tint, #FDF0E2); color:var(--orange-deep, #C4551C); font-weight:700; font-size:14.5px; text-decoration:none; }
+.lec-teach:hover { filter:brightness(.97); }
 .lec-grid { display:grid; grid-template-columns:repeat(auto-fill, minmax(240px, 1fr)); gap:14px; }
 .lec-card { display:flex; flex-direction:column; padding:0; border:1px solid var(--line); border-radius:var(--r-l); background:var(--surface); overflow:hidden; cursor:pointer; text-align:left; font:inherit; color:inherit; }
 .lec-card:hover { border-color:var(--orange); }
