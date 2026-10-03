@@ -87,11 +87,14 @@ items.forEach((q, i) => {
     if (!String(l?.text || '').trim()) bad.push(`${at}: 대본 ${j + 1}째 줄이 비었다`);
   });
 
-  /* id 끝 두 자리와 slot 을 맞춰 둔 규칙이 있다. 어긋나면 나중에 어느 자리
-     문항인지 id 만 보고 알 수 없게 된다. */
+  /* 새 번호대(lI-101~, lII-101~)이거나 기존 번호대(lI-01~, lII-04~) */
+  const isOld = /^l(I|II)-\d{2}$/.test(q.id);
   const want = `l${q.exam}-${String(q.slot).padStart(2, '0')}`;
-  if (q.id && q.exam && Number.isInteger(q.slot) && q.id !== want)
+  if (isOld && q.id !== want)
     bad.push(`${at}: id 가 slot 과 안 맞는다. ${want} 여야 한다`);
+  const isNew = new RegExp(`^l${q.exam}-\\d{3,}$`).test(q.id);
+  if (!isOld && !isNew)
+    bad.push(`${at}: id 형식이 맞지 않는다`);
 });
 
 if (bad.length) {
