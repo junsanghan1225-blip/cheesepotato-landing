@@ -96,6 +96,8 @@
   글 안의 `<!-- 운영자 한마디 -->` 를 운영자 말로 채운 뒤 머지(비어 있으면 check-blog 가 막는다). PR 을 열려면 저장소 설정
   「Allow GitHub Actions to create and approve pull requests」(운영자가 켠다).
 
+- **선생님 · 1:1 수업**(운영자 결정 2026-10-03): `/teacher.html`(손으로 쓴 쪽, 스크립트 없음) — 신청은 **Preply**(큰 단추) · **WhatsApp**(문의).
+  링크는 강의 화면 위 · 맨 아래 줄에. 사진은 아직 없음(로고). TOPIK 듣기 120 지시서 `docs/antigravity-topik-listening-task.md` — 소리는 **기계 목소리 먼저**(운영자 결정).
 - 결제: 준비 끝, **Paddle 도메인 승인 대기**. 승인되면 운영자가 「승인됐어」라고 한다 → `ENV` 전환,
   FAQ · `llms.txt` 의 「가입하면 모의고사 여러 회차」 문구를 「1회차 무료 · 전 회차 Pro」로 고치고, 실제 결제로 시험.
 - AI 쓰기 채점 한도: **무료 하루 2번 · Pro 하루 30번**(운영자 결정, 그대로 유지).
