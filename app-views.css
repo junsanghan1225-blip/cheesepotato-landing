@@ -5700,3 +5700,41 @@ body.mk-printing .mk-cover, body.mk-printing .mk-paper, body.mk-printing .mk-omr
 .pl-row.ok .pl-t { color:var(--ink-3); text-decoration:line-through; }
 .pl-t { min-width:0; overflow-wrap:anywhere; color:var(--ink); }
 .pl-n { font-size:12.5px; color:var(--ink-3); font-variant-numeric:tabular-nums; }
+
+/* 동화책(#learn/stories) — app.module.js bkPaint. 그림 없이 감자 · 치즈 얼굴만(저작권 · 운영자 결정 2026-10-03). */
+.bk-grid { display:grid; grid-template-columns:repeat(auto-fill, minmax(260px, 1fr)); gap:14px; margin-top:18px; }
+.bk-card { display:flex; gap:14px; align-items:center; padding:16px; border:1px solid var(--line); border-radius:var(--r-l); background:var(--surface); cursor:pointer; text-align:left; font:inherit; color:inherit; }
+.bk-card:hover { border-color:var(--orange); }
+.bk-card.done { background:var(--tint); }
+.bk-faces { display:flex; flex:none; }
+.bk-faces .lvl-ic { width:44px; height:44px; }
+.bk-faces .lvl-ic + .lvl-ic { margin-left:-12px; }
+.bk-t { min-width:0; display:grid; gap:2px; }
+.bk-t b { font-size:17px; color:var(--ink); word-break:keep-all; }
+.bk-t small { color:var(--ink-3); font-size:13px; word-break:keep-all; }
+.bk-lv { font-size:12px; font-weight:700; color:var(--orange-deep, #C4551C); }
+.bk-top { display:flex; align-items:center; gap:12px; flex-wrap:wrap; }
+.bk-title { font-size:17px; color:var(--ink); }
+.bk-dots { display:flex; gap:6px; margin:16px 0 12px; }
+.bk-dots i { flex:1; height:5px; border-radius:5px; background:var(--line); }
+.bk-dots i.past { background:#FFC94D; }
+.bk-dots i.on { background:var(--orange); }
+.bk-page { max-width:680px; margin:0 auto; padding:26px 22px; border-radius:24px; background:var(--surface); border:3px solid #FFC94D; box-shadow:0 6px 0 #F2B33D; min-height:240px; display:flex; flex-direction:column; gap:14px; }
+.bk-who { display:flex; align-items:center; gap:10px; font-weight:800; color:var(--ink-2); }
+.bk-who .lvl-ic { width:56px; height:56px; }
+.bk-ko { font-size:clamp(22px, 4.6vw, 28px); line-height:1.7; color:var(--ink); margin:0; word-break:keep-all; }
+.bk-en { margin:0; color:var(--ink-3); font-size:15.5px; line-height:1.6; }
+.bk-tools { display:flex; gap:8px; flex-wrap:wrap; margin-top:auto; }
+.bk-nav { display:flex; justify-content:space-between; gap:10px; max-width:680px; margin:18px auto 0; flex-wrap:wrap; }
+.bk-end { max-width:680px; margin:0 auto; }
+.bk-end h3 { font-size:22px; margin:6px 0 10px; color:var(--ink); }
+.bk-end h4 { font-size:15px; margin:18px 0 8px; color:var(--ink-2); }
+.bk-words { list-style:none; padding:0; margin:0; display:flex; flex-wrap:wrap; gap:8px; }
+.bk-words li { padding:6px 12px; border-radius:999px; background:var(--tint); font-size:14px; color:var(--ink-2); }
+.bk-words b { color:var(--ink); margin-right:4px; }
+.bk-q p { margin:12px 0 8px; color:var(--ink); word-break:keep-all; }
+.bk-q small { color:var(--ink-3); }
+.bk-opts { display:grid; grid-template-columns:repeat(auto-fit, minmax(140px, 1fr)); gap:8px; }
+.bk-opts button { min-height:44px; padding:8px 12px; border:1.5px solid var(--line); border-radius:12px; background:var(--surface); font:inherit; color:var(--ink); cursor:pointer; }
+.bk-opts button.ok { border-color:#1D7A55; background:rgba(29,122,85,.1); }
+.bk-opts button.no { border-color:#C4551C; background:rgba(196,85,28,.1); }
