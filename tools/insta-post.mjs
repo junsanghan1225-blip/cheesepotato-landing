@@ -54,7 +54,7 @@ async function waitReady(call, id, field, label) {
     const st = await call('GET', `/${id}`, { fields: field });
     const v = st[field];
     if (v === 'FINISHED') return;
-    if (v === 'ERROR' || v === 'EXPIRED') die(`${label}가 이미지를 못 받았어요(${v}).`);
+    if (v === 'ERROR' || v === 'EXPIRED') throw new Error(`${label}가 이미지를 못 받았어요(${v}).`);
     await new Promise((r) => setTimeout(r, 5000));
   }
 }
@@ -92,23 +92,25 @@ async function threads() {
   const retry = async (fn) => { for (let i = 0; ; i++) { try { return await fn(); } catch (e) { if (i >= 2 || !/code 2 |500/.test(String(e.message))) throw e; await new Promise((r) => setTimeout(r, 8000 * (i + 1))); } } };
   const urls = Array.from({ length: meta.n }, (_, i) => `${base}/${meta.day}/${meta.file}/${i + 1}.jpg`);
   const single = async () => (await retry(() => call('POST', `/${me.id}/threads`, { media_type: 'IMAGE', image_url: urls[0], text }))).id;
-  let creation;
+  let creation, n = urls.length;
   if (urls.length === 1) creation = await single();
   else {
     try {
       const kids = [];
       for (const u of urls) kids.push((await retry(() => call('POST', `/${me.id}/threads`, { media_type: 'IMAGE', image_url: u, is_carousel_item: 'true' }))).id);
+      /* 장마다 스레드가 그림을 다 받을 때까지 기다린다 — 바로 묶으면 「children … invalid, nonexistent, or expired」(2026-10-03) */
+      for (const k of kids) await waitReady(call, k, 'status', '스레드');
       creation = (await retry(() => call('POST', `/${me.id}/threads`, { media_type: 'CAROUSEL', children: kids.join(','), text }))).id;
     } catch (e) {
       /* 여러 장이 안 되면 첫 장 하나로라도 — 표지에 주제 · 낱말이 다 있다 */
       console.log(`여러 장 실패 → 첫 장만: ${e.message}`);
-      creation = await single();
+      creation = await single(); n = 1;
     }
   }
   await waitReady(call, creation, 'status', '스레드');
   const pub = await retry(() => call('POST', `/${me.id}/threads_publish`, { creation_id: creation }));
   await writeFile(join(dir, 'threads.json'), JSON.stringify({ id: pub.id, at: new Date().toISOString() }, null, 1));
-  console.log(`✓ 스레드 올렸어요 — ${meta.day} ${meta.name} (${urls.length}장)`);
+  console.log(`✓ 스레드 올렸어요 — ${meta.day} ${meta.name} (${n}장)`);
 }
 
 async function render() {

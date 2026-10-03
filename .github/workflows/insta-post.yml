@@ -5,17 +5,11 @@
 name: insta-post
 
 on:
+  # 15분마다 「시간이 지났는데 아직 안 올린 게시물」이 있는지 본다(2026-10-03).
+  # 정해진 시간에 한 번만 걸어 두면 GitHub 이 붐빌 때 늦추거나 아예 건너뛴다 — 10월 2~3일에 18:07 · 09:07 · 10:07 이 통째로 안 돌았고,
+  # 23:07 몫은 4시간 늦게 돌았다. 할 일이 없으면 몇 초 만에 끝난다(공개 저장소라 실행 시간은 무료).
   schedule:
-    - cron: '7 0 * * *'    # 한국 09:07 — 단어 1
-    - cron: '7 4 * * *'    # 한국 13:07 — 오늘의 TOPIK(하루 한 문제)
-    - cron: '7 9 * * *'    # 한국 18:07 — 문법
-    - cron: '7 14 * * *'   # 한국 23:07 — 단어 2 (미국 동부 아침 · 유럽 낮)
-    # 한 번 더(+1시간) — GitHub 은 붐빌 때 예약 실행을 늦추거나 건너뛴다(2026-10-02 18:07 이 아예 안 돌았다).
-    # 이미 올렸으면 posted.json 을 보고 멈추므로 두 번 올라가지 않는다.
-    - cron: '7 1 * * *'
-    - cron: '7 5 * * *'
-    - cron: '7 10 * * *'
-    - cron: '7 15 * * *'
+    - cron: '*/15 * * * *'
   workflow_dispatch:
     inputs:
       slot:
@@ -37,9 +31,48 @@ permissions:
 concurrency: insta-post
 
 jobs:
-  post:
-    # 값 끝에 줄바꿈이 붙어도 켜지게(입력 칸이 여러 줄이라 Enter 가 들어가기 쉽다 — 첫 예약이 「skipped」였다)
+  # 1) 무엇을 올릴지 — 브라우저를 깔기 전에 가른다(할 일 없는 15분 몫은 여기서 끝)
+  pick:
     if: ${{ startsWith(vars.INSTA_AUTO, 'on') || github.event_name == 'workflow_dispatch' }}
+    runs-on: ubuntu-latest
+    outputs:
+      slot: ${{ needs.pick.outputs.slot }}
+      day: ${{ needs.pick.outputs.day }}
+      file: ${{ needs.pick.outputs.file }}
+      dry: ${{ needs.pick.outputs.dry }}
+      go: ${{ needs.pick.outputs.go }}
+    steps:
+      - name: 무엇을 올릴지
+        id: pick
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          file_of() { case "$1" in 0) echo 1-words ;; 1) echo 2-words ;; 2) echo 3-grammar ;; 3) echo 4-topik ;; esac; }
+          posted() { [ "$(curl -s -o /dev/null -w '%{http_code}' -H "Authorization: Bearer $GH_TOKEN" "https://api.github.com/repos/${{ github.repository }}/contents/$1/$2/posted.json?ref=insta-media")" = 200 ]; }
+          if [ "${{ github.event_name }}" = schedule ]; then
+            # 한국 시간 몫: 09:07 단어 1 · 13:07 TOPIK · 18:07 문법 · 23:07 단어 2. 시간이 지났고 3시간 안이며 아직 안 올린 것 하나.
+            # 3시간 넘게 지났으면 그날 몫은 버린다 — 새벽에 올라가면 보는 사람이 없다.
+            DAY=$(TZ=Asia/Seoul date +%F); NOW=$(( 10#$(TZ=Asia/Seoul date +%H) * 60 + 10#$(TZ=Asia/Seoul date +%M) ))
+            for x in "0 547" "3 787" "2 1087" "1 1387"; do
+              set -- $x; S=$1; T=$2
+              if [ "$NOW" -ge "$T" ] && [ $((NOW - T)) -le 180 ] && ! posted "$DAY" "$(file_of $S)"; then
+                echo "올릴 차례: $DAY $(file_of $S) (예정보다 $((NOW - T))분 늦음)"
+                echo "slot=$S" >> $GITHUB_OUTPUT; echo "day=$DAY" >> $GITHUB_OUTPUT; echo "file=$(file_of $S)" >> $GITHUB_OUTPUT
+                echo "dry=no" >> $GITHUB_OUTPUT; echo "go=1" >> $GITHUB_OUTPUT; exit 0
+              fi
+            done
+            echo "지금은 올릴 것 없음"; exit 0
+          fi
+          SLOT='${{ inputs.slot }}'; DAY='${{ inputs.day }}'; [ -z "$DAY" ] && DAY=$(TZ=Asia/Seoul date +%F)
+          FILE=$(file_of "$SLOT"); [ -z "$FILE" ] && { echo "slot 은 0~3"; exit 1; }
+          echo "slot=$SLOT" >> $GITHUB_OUTPUT; echo "day=$DAY" >> $GITHUB_OUTPUT; echo "file=$FILE" >> $GITHUB_OUTPUT
+          echo "dry=${{ inputs.dry }}" >> $GITHUB_OUTPUT; echo "go=1" >> $GITHUB_OUTPUT
+          echo "손으로: $DAY $FILE · 시험 ${{ inputs.dry }} · only ${{ inputs.only }}"
+
+  # 2) 만들고 올리기
+  post:
+    needs: pick
+    if: ${{ needs.pick.outputs.go == '1' }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v5
@@ -47,34 +80,8 @@ jobs:
         with:
           node-version: 22
       - name: 브라우저
+        if: ${{ inputs.only != 'threads' }}
         run: npm i --no-save --no-package-lock playwright@1.55.0 && npx playwright install --with-deps chromium
-
-      - name: 무엇을 올릴지
-        id: pick
-        run: |
-          case "${{ github.event.schedule }}" in
-            '7 0 * * *'|'7 1 * * *')   SLOT=0 ;;
-            '7 4 * * *'|'7 5 * * *')   SLOT=3 ;;
-            '7 9 * * *'|'7 10 * * *')  SLOT=2 ;;
-            '7 14 * * *'|'7 15 * * *') SLOT=1 ;;
-            *)            SLOT='${{ inputs.slot }}' ;;
-          esac
-          DAY='${{ inputs.day }}'
-          # 예약 시간(UTC 00 · 04 · 09 · 14시)은 모두 한국 날짜와 UTC 날짜가 같은 때다 — 늦게 돌아도 UTC 날짜가 그날이다.
-          # (예전엔 한국 시간에서 3시간을 뺐는데, 23:07 몫이 4시간 늦게 돌자 다음 날 것을 새벽 4시에 올렸다 · 2026-10-03)
-          if [ -z "$DAY" ]; then
-            if [ "${{ github.event_name }}" = schedule ]; then DAY=$(date -u +%F); else DAY=$(TZ=Asia/Seoul date +%F); fi
-          fi
-          # 예약이 3시간 넘게 늦으면 올리지 않는다 — 새벽에 올라가면 보는 사람이 없다. 1시간 뒤 다시 시도 몫이 따로 있다.
-          if [ "${{ github.event_name }}" = schedule ]; then
-            H=$(echo "${{ github.event.schedule }}" | awk '{print $2}'); NOW=$(date -u +%H); LATE=$(( (10#$NOW - 10#$H + 24) % 24 ))
-            if [ "$LATE" -gt 3 ]; then echo "예약이 ${LATE}시간 늦었어요 — 이번 몫은 건너뜀"; echo "late=1" >> $GITHUB_OUTPUT; fi
-          fi
-          DRY='${{ inputs.dry }}'
-          [ "${{ github.event_name }}" = schedule ] && DRY=no
-          case "$SLOT" in 0) FILE=1-words ;; 1) FILE=2-words ;; 2) FILE=3-grammar ;; 3) FILE=4-topik ;; *) echo "slot 은 0~3"; exit 1 ;; esac
-          echo "slot=$SLOT" >> $GITHUB_OUTPUT; echo "day=$DAY" >> $GITHUB_OUTPUT; echo "dry=$DRY" >> $GITHUB_OUTPUT; echo "file=$FILE" >> $GITHUB_OUTPUT
-          echo "날짜 $DAY · 게시물 $FILE · 시험 $DRY"
 
       - name: 이미지 가지(insta-media) 열기
         run: |
@@ -86,50 +93,49 @@ jobs:
       - name: 이미 올렸으면 멈춤
         id: done
         run: |
-          if [ -n "${{ steps.pick.outputs.late }}" ]; then echo "skip=1" >> $GITHUB_OUTPUT; exit 0; fi
           if [ "${{ inputs.only }}" = threads ]; then echo "스레드만 — 인스타는 건너뜀"; echo "skip=1" >> $GITHUB_OUTPUT; echo "threads=1" >> $GITHUB_OUTPUT; exit 0; fi
-          if [ -f "../media/${{ steps.pick.outputs.day }}/${{ steps.pick.outputs.file }}/posted.json" ]; then echo "이미 올렸어요"; echo "skip=1" >> $GITHUB_OUTPUT; fi
+          if [ -f "../media/${{ needs.pick.outputs.day }}/${{ needs.pick.outputs.file }}/posted.json" ]; then echo "이미 올렸어요"; echo "skip=1" >> $GITHUB_OUTPUT; fi
 
       - name: 이미지 만들기
         if: ${{ !steps.done.outputs.skip }}
-        run: node tools/insta-post.mjs render --slot ${{ steps.pick.outputs.slot }} --day ${{ steps.pick.outputs.day }} --out ../media
+        run: node tools/insta-post.mjs render --slot ${{ needs.pick.outputs.slot }} --day ${{ needs.pick.outputs.day }} --out ../media
 
       - name: 이미지를 공개 주소로
         if: ${{ !steps.done.outputs.skip }}
         run: |
-          cd ../media && git add -A && (git diff --cached --quiet || git commit -qm "insta ${{ steps.pick.outputs.day }} ${{ steps.pick.outputs.file }}") && git push -q origin insta-media
+          cd ../media && git add -A && (git diff --cached --quiet || git commit -qm "insta ${{ needs.pick.outputs.day }} ${{ needs.pick.outputs.file }}") && git push -q origin insta-media
           sleep 20
 
       - name: 인스타에 올리기
-        if: ${{ !steps.done.outputs.skip && steps.pick.outputs.dry != 'yes' }}
+        if: ${{ !steps.done.outputs.skip && needs.pick.outputs.dry != 'yes' }}
         env:
           IG_TOKEN: ${{ secrets.IG_TOKEN }}
         run: |
-          node tools/insta-post.mjs publish --dir ../media/${{ steps.pick.outputs.day }}/${{ steps.pick.outputs.file }} \
+          node tools/insta-post.mjs publish --dir ../media/${{ needs.pick.outputs.day }}/${{ needs.pick.outputs.file }} \
             --base https://raw.githubusercontent.com/${{ github.repository }}/insta-media
-          cd ../media && git add -A && git commit -qm "posted ${{ steps.pick.outputs.day }} ${{ steps.pick.outputs.file }}" && git push -q origin insta-media
+          cd ../media && git add -A && git commit -qm "posted ${{ needs.pick.outputs.day }} ${{ needs.pick.outputs.file }}" && git push -q origin insta-media
 
       # 스토리(오늘의 TOPIK 만) · 스레드 — 실패해도 인스타 피드 게시물은 이미 올라갔으므로 작업을 빨갛게 만들지 않는다
       - name: 인스타 스토리
-        if: ${{ !steps.done.outputs.skip && steps.pick.outputs.dry != 'yes' }}
+        if: ${{ !steps.done.outputs.skip && needs.pick.outputs.dry != 'yes' }}
         continue-on-error: true
         env:
           IG_TOKEN: ${{ secrets.IG_TOKEN }}
         run: |
-          node tools/insta-post.mjs story --dir ../media/${{ steps.pick.outputs.day }}/${{ steps.pick.outputs.file }} \
+          node tools/insta-post.mjs story --dir ../media/${{ needs.pick.outputs.day }}/${{ needs.pick.outputs.file }} \
             --base https://raw.githubusercontent.com/${{ github.repository }}/insta-media
-          cd ../media && git add -A && (git diff --cached --quiet || git commit -qm "story ${{ steps.pick.outputs.day }}") && git push -q origin insta-media
+          cd ../media && git add -A && (git diff --cached --quiet || git commit -qm "story ${{ needs.pick.outputs.day }}") && git push -q origin insta-media
 
       - name: 스레드
-        if: ${{ (!steps.done.outputs.skip || steps.done.outputs.threads) && steps.pick.outputs.dry != 'yes' }}
+        if: ${{ (!steps.done.outputs.skip || steps.done.outputs.threads) && needs.pick.outputs.dry != 'yes' }}
         continue-on-error: true
         env:
           THREADS_TOKEN: ${{ secrets.THREADS_TOKEN }}
         run: |
-          node tools/insta-post.mjs threads --dir ../media/${{ steps.pick.outputs.day }}/${{ steps.pick.outputs.file }} \
+          node tools/insta-post.mjs threads --dir ../media/${{ needs.pick.outputs.day }}/${{ needs.pick.outputs.file }} \
             --base https://raw.githubusercontent.com/${{ github.repository }}/insta-media
-          cd ../media && git add -A && (git diff --cached --quiet || git commit -qm "threads ${{ steps.pick.outputs.day }} ${{ steps.pick.outputs.file }}") && git push -q origin insta-media
+          cd ../media && git add -A && (git diff --cached --quiet || git commit -qm "threads ${{ needs.pick.outputs.day }} ${{ needs.pick.outputs.file }}") && git push -q origin insta-media
 
       - name: 시험이면 이미지 주소 알려 주기
-        if: ${{ !steps.done.outputs.skip && steps.pick.outputs.dry == 'yes' }}
-        run: echo "시험 — 올리지 않았어요. 이미지 https://github.com/${{ github.repository }}/tree/insta-media/${{ steps.pick.outputs.day }}/${{ steps.pick.outputs.file }}"
+        if: ${{ !steps.done.outputs.skip && needs.pick.outputs.dry == 'yes' }}
+        run: echo "시험 — 올리지 않았어요. 이미지 https://github.com/${{ github.repository }}/tree/insta-media/${{ needs.pick.outputs.day }}/${{ needs.pick.outputs.file }}"
