@@ -36,11 +36,11 @@ jobs:
     if: ${{ startsWith(vars.INSTA_AUTO, 'on') || github.event_name == 'workflow_dispatch' }}
     runs-on: ubuntu-latest
     outputs:
-      slot: ${{ needs.pick.outputs.slot }}
-      day: ${{ needs.pick.outputs.day }}
-      file: ${{ needs.pick.outputs.file }}
-      dry: ${{ needs.pick.outputs.dry }}
-      go: ${{ needs.pick.outputs.go }}
+      slot: ${{ steps.pick.outputs.slot }}
+      day: ${{ steps.pick.outputs.day }}
+      file: ${{ steps.pick.outputs.file }}
+      dry: ${{ steps.pick.outputs.dry }}
+      go: ${{ steps.pick.outputs.go }}
     steps:
       - name: 무엇을 올릴지
         id: pick
