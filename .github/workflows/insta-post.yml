@@ -27,6 +27,9 @@ on:
       dry:
         description: 'yes 면 이미지만 만들고 올리지 않는다(시험)'
         default: 'yes'
+      only:
+        description: 'threads 면 이미 올린 게시물을 스레드에만 다시 올린다(인스타는 건드리지 않음)'
+        default: ''
 
 permissions:
   contents: write
@@ -57,9 +60,15 @@ jobs:
             *)            SLOT='${{ inputs.slot }}' ;;
           esac
           DAY='${{ inputs.day }}'
-          # 예약 실행은 늦게 돌 수 있다 — 23:07 몫이 자정을 넘겨 돌아도 그날 것을 올리게, 한국 시간에서 3시간 뺀 날짜
+          # 예약 시간(UTC 00 · 04 · 09 · 14시)은 모두 한국 날짜와 UTC 날짜가 같은 때다 — 늦게 돌아도 UTC 날짜가 그날이다.
+          # (예전엔 한국 시간에서 3시간을 뺐는데, 23:07 몫이 4시간 늦게 돌자 다음 날 것을 새벽 4시에 올렸다 · 2026-10-03)
           if [ -z "$DAY" ]; then
-            if [ "${{ github.event_name }}" = schedule ]; then DAY=$(TZ=Asia/Seoul date -d '-3 hours' +%F); else DAY=$(TZ=Asia/Seoul date +%F); fi
+            if [ "${{ github.event_name }}" = schedule ]; then DAY=$(date -u +%F); else DAY=$(TZ=Asia/Seoul date +%F); fi
+          fi
+          # 예약이 3시간 넘게 늦으면 올리지 않는다 — 새벽에 올라가면 보는 사람이 없다. 1시간 뒤 다시 시도 몫이 따로 있다.
+          if [ "${{ github.event_name }}" = schedule ]; then
+            H=$(echo "${{ github.event.schedule }}" | awk '{print $2}'); NOW=$(date -u +%H); LATE=$(( (10#$NOW - 10#$H + 24) % 24 ))
+            if [ "$LATE" -gt 3 ]; then echo "예약이 ${LATE}시간 늦었어요 — 이번 몫은 건너뜀"; echo "late=1" >> $GITHUB_OUTPUT; fi
           fi
           DRY='${{ inputs.dry }}'
           [ "${{ github.event_name }}" = schedule ] && DRY=no
@@ -77,6 +86,8 @@ jobs:
       - name: 이미 올렸으면 멈춤
         id: done
         run: |
+          if [ -n "${{ steps.pick.outputs.late }}" ]; then echo "skip=1" >> $GITHUB_OUTPUT; exit 0; fi
+          if [ "${{ inputs.only }}" = threads ]; then echo "스레드만 — 인스타는 건너뜀"; echo "skip=1" >> $GITHUB_OUTPUT; echo "threads=1" >> $GITHUB_OUTPUT; exit 0; fi
           if [ -f "../media/${{ steps.pick.outputs.day }}/${{ steps.pick.outputs.file }}/posted.json" ]; then echo "이미 올렸어요"; echo "skip=1" >> $GITHUB_OUTPUT; fi
 
       - name: 이미지 만들기
@@ -110,7 +121,7 @@ jobs:
           cd ../media && git add -A && (git diff --cached --quiet || git commit -qm "story ${{ steps.pick.outputs.day }}") && git push -q origin insta-media
 
       - name: 스레드
-        if: ${{ !steps.done.outputs.skip && steps.pick.outputs.dry != 'yes' }}
+        if: ${{ (!steps.done.outputs.skip || steps.done.outputs.threads) && steps.pick.outputs.dry != 'yes' }}
         continue-on-error: true
         env:
           THREADS_TOKEN: ${{ secrets.THREADS_TOKEN }}
