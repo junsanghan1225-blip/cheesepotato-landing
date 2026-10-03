@@ -55,3 +55,54 @@
 4. 이용 사례의 **설정**에서 「액세스 토큰 생성」(User Token Generator) → 그 계정 옆 **토큰 생성** → 복사.
 5. GitHub → Settings → Secrets and variables → Actions → **New repository secret** → Name `THREADS_TOKEN` → 붙여 넣기.
    (Claude 에게 보내지 않는다.) 다음 예약부터 스레드에도 올라간다. 이 열쇠도 약 60일마다 새로 넣는다.
+
+## 정확한 시간에 깨우기 — cron-job.org (2026-10-03)
+
+GitHub 의 예약 실행(15분마다)은 붐비면 몇 시간씩 건너뛴다(10월 3일 04:11 ~ 13:18 에 한 번도 안 돌았다).
+그래서 무료 예약 사이트 **cron-job.org** 가 하루 네 번 정해진 시간에 GitHub 에 「지금 올려」를 보낸다.
+15분 확인은 예비로 그대로 둔다 — 같은 게시물은 두 번 올라가지 않는다(`posted.json`).
+
+### 1. GitHub 열쇠 만들기 (운영자, 한 번)
+
+1. github.com 오른쪽 위 내 사진 → **Settings** → 왼쪽 맨 아래 **Developer settings** →
+   **Personal access tokens** → **Fine-grained tokens** → **Generate new token**.
+2. Token name `cron-job insta` · Expiration **1년**(달력에 적어 둔다) ·
+   Repository access **Only select repositories** → `cheesepotato-landing`.
+3. **Permissions → Repository permissions → Actions → Read and write**. 다른 것은 건드리지 않는다.
+4. **Generate token** → 나온 `github_pat_…` 를 복사(cron-job.org 에만 넣는다. Claude 에게 보내지 않는다).
+
+### 2. cron-job.org 에 네 개 만들기
+
+cron-job.org 가입(무료) → **Dashboard → Create cronjob**. 네 개 모두 아래처럼, **시간과 slot 만** 다르게.
+
+| 제목 | 시간(Asia/Seoul) | 본문의 slot |
+|---|---|---|
+| insta 단어 1 | 09:07 | `0` |
+| insta TOPIK | 13:07 | `3` |
+| insta 문법 | 18:07 | `2` |
+| insta 단어 2 | 23:07 | `1` |
+
+- **COMMON** 탭
+  - URL: `https://api.github.com/repos/junsanghan1225-blip/cheesepotato-landing/actions/workflows/insta-post.yml/dispatches`
+  - Execution schedule: **Custom** → Days of month · Days of week · Months 는 **모두(Every)**, Hours 는 위 표의 시, Minutes 는 `7`.
+  - 시간대(Time zone)가 **Asia/Seoul** 인지 본다(계정 설정 또는 이 화면 아래).
+- **ADVANCED** 탭
+  - Request method: **POST**
+  - Headers 에 세 줄:
+    - `Authorization` : `Bearer github_pat_…`(복사한 열쇠)
+    - `Accept` : `application/vnd.github+json`
+    - `Content-Type` : `application/json`
+  - Request body: `{"ref":"main","inputs":{"slot":"0","dry":"no"}}` ← slot 숫자만 표대로 바꾼다.
+- **CREATE** 로 저장.
+
+### 3. 시험 (한 번)
+
+아무 하나를 열어 body 의 `"dry":"no"` 를 잠깐 `"dry":"yes"` 로 → **TEST RUN** → 결과가 **204** 면 성공
+(GitHub → Actions → insta-post 에 새 실행이 생기고, 인스타에는 안 올라간다). 확인한 뒤 `"no"` 로 되돌려 저장.
+
+| 결과 | 뜻 |
+|---|---|
+| 204 | 성공 |
+| 401 | 열쇠가 틀렸거나 끝났다 → 1번을 다시 하고 네 개의 Authorization 을 바꾼다 |
+| 403 · 404 | 열쇠의 권한(Actions: Read and write) · 저장소 선택을 다시 본다 |
+| 422 | body 모양이 틀렸다 → 위 줄을 그대로 다시 붙여 넣는다 |

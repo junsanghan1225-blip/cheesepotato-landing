@@ -40,7 +40,7 @@
 ">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <!-- 구글 태그 관리자. 구글이 주는 인라인 코드조각은 CSP 가 막아서 gtm.js 로 뺐다. -->
-<script src="gtm.js?v=2cfad8db" async></script>
+<script src="gtm.js?v=261aba4e" async></script>
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <!-- 제목과 설명을 두 말로 쓴다. 이 사이트를 찾을 사람은 한국어를 **배우는**
@@ -119,13 +119,13 @@
      Pretendard 는 통짜(2.0MB) 대신 조각난 쪽을 쓴다 — 브라우저가
      unicode-range 를 보고 화면에 실제로 나온 글자가 든 조각만 받는다.
      그래서 저장소는 무거워졌지만 학습자가 받는 양은 오히려 줄었다. -->
-<link rel="stylesheet" href="vendor/pretendard.css?v=2cfad8db">
-<link rel="stylesheet" href="vendor/pressstart2p.css?v=2cfad8db">
+<link rel="stylesheet" href="vendor/pretendard.css?v=261aba4e">
+<link rel="stylesheet" href="vendor/pressstart2p.css?v=261aba4e">
 <!-- 화면 상자 안에서만 쓰는 CSS 는 여기서 갈라 받는다. media="print" 라
      첫 페인트를 안 막고, 다 받아지면 app.js 가 media 를 all 로 바꾼다.
      자바스크립트가 없으면 <noscript> 쪽이 그냥 평범하게 걸린다. -->
-<link id="viewsCss" rel="stylesheet" href="app-views.css?v=2cfad8db" media="print">
-<noscript><link rel="stylesheet" href="app-views.css?v=2cfad8db"></noscript>
+<link id="viewsCss" rel="stylesheet" href="app-views.css?v=261aba4e" media="print">
+<noscript><link rel="stylesheet" href="app-views.css?v=261aba4e"></noscript>
 
 <style>
 /* ══════════════════════════════════════════════════════════════
@@ -1932,9 +1932,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
        색인(search-index.js)은 칸을 처음 누를 때 받는다. app.module.js ssSearch -->
   <section class="ss-wrap" id="siteSearch" aria-label="사이트 검색" data-en-aria="Search the site">
     <div class="ss-box">
-      <span class="ss-ic" aria-hidden="true">🔍</span>
+      <!-- 치즈감자 얼굴 + 치즈색 테두리 — 운영자 요청 2026-10-03 「크게, 치즈감자 느낌」 -->
+      <img class="ss-face" src="logo.png" alt="" width="44" height="44">
       <input type="search" id="ssIn" class="ss-in" autocomplete="off" enterkeyhint="search"
-             placeholder="낱말 · 문법 · TOPIK · 코스 검색 (예: 먹다, -아서, 54번)" data-en-placeholder="Search words, grammar, TOPIK, courses (e.g. eat, -아서)">
+             placeholder="낱말 · 문법 · TOPIK · 코스 찾기" data-en-placeholder="Search words, grammar, TOPIK…">
+      <span class="ss-go" aria-hidden="true">🔍</span>
     </div>
     <div class="ss-out" id="ssOut" hidden></div>
   </section>
@@ -3136,6 +3138,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <!-- 가입 권유(로그인 전) · 「계정에 저장했어요 · 지난번과 견주기」(로그인 후) — app.module.js ltJoinPaint.
              Clarity 에서 레벨테스트 → 로그인이 0% 라(2026-10-02) 결과 바로 아래, 가장 궁금할 때 가입할 까닭을 보인다. -->
         <div id="ltJoin" class="lt-join hidden"></div>
+        <!-- 선생님과 체험 수업 — 결과를 막 본 때가 「무엇부터 하지?」가 가장 궁금한 때다(Clarity 분석 2026-10-03).
+             누르면 Preply 선생님 쪽으로. 센 수는 analytics.js 의 data-ev. 링크를 바꾸면 teacher.html 도 같이. -->
+        <a class="lt-teach" href="https://preply.com/en/tutor/5384966" target="_blank" rel="noopener" data-ev="수업신청클릭" data-ev-from="레벨테스트결과">
+          <span class="lt-teach-e" aria-hidden="true">🧑‍🏫</span>
+          <span><b data-en="Not sure what to study first? Book a 1:1 trial lesson">무엇부터 할지 막막하다면 — 선생님과 1:1 체험 수업</b>
+          <small data-en="With the teacher who built this site · on Preply">이 사이트를 만든 선생님과 · Preply 에서</small></span>
+        </a>
         <!-- 문제 다시 보기 — 내 답 · 정답 · 풀이(app.module.js ltReviewHtml) -->
         <div id="ltReview"></div>
 
@@ -3803,9 +3812,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <div id="hlpScrim" class="hlp-scrim"></div>
 <aside id="hlpPanel" class="hlp-panel" aria-label="한국어 도우미" aria-hidden="true"></aside>
 
-<script src="app.js?v=2cfad8db"></script>
-<script type="module" src="app.module.js?v=2cfad8db"></script>
+<script src="app.js?v=261aba4e"></script>
+<script type="module" src="app.module.js?v=261aba4e"></script>
 
-<script src="analytics.js?v=2cfad8db" defer></script>
+<script src="analytics.js?v=261aba4e" defer></script>
 </body>
 </html>

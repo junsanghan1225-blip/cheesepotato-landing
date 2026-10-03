@@ -5570,11 +5570,14 @@ body.mk-printing .mk-cover, body.mk-printing .mk-paper, body.mk-printing .mk-omr
 .tq-fold[open] > summary::after { content:'▴'; }
 .tq-fold > .lc-grid { padding:0 14px 14px; }
 /* 첫 화면 사이트 검색 */
-.ss-wrap { max-width:760px; margin:14px auto 6px; padding:0 16px; position:relative; z-index:3; }
-.ss-box { display:flex; align-items:center; gap:10px; background:var(--surface); border:1.5px solid rgba(var(--ink-rgb),.14); border-radius:999px; padding:0 18px; box-shadow:0 6px 18px -14px rgba(var(--ink-rgb),.5); }
-.ss-box:focus-within { border-color:var(--orange); }
-.ss-ic { font-size:16px; opacity:.7; }
-.ss-in { flex:1; min-width:0; border:0; outline:none; background:transparent; font:inherit; font-size:16px; padding:14px 0; color:var(--ink); }
+.ss-wrap { max-width:880px; margin:20px auto 10px; padding:0 16px; position:relative; z-index:3; }
+.ss-box { display:flex; align-items:center; gap:12px; background:var(--surface); border:3px solid #FFC94D; border-radius:26px; padding:8px 10px 8px 10px; box-shadow:0 6px 0 #F2B33D, 0 18px 34px -18px rgba(196,85,28,.45); }
+.ss-box:focus-within { border-color:var(--orange); box-shadow:0 6px 0 var(--orange), 0 18px 34px -18px rgba(196,85,28,.55); }
+.ss-face { width:48px; height:48px; border-radius:16px; background:#FFF3D1; flex:none; }
+.ss-go { flex:none; display:grid; place-items:center; width:48px; height:48px; border-radius:16px; background:var(--orange); color:#fff; font-size:20px; }
+@media (max-width:560px) { .ss-face, .ss-go { width:40px; height:40px; border-radius:13px; } .ss-go { font-size:17px; } .ss-box { gap:8px; padding:6px 8px; border-radius:22px; } }
+.ss-in { flex:1; min-width:0; border:0; outline:none; background:transparent; font:inherit; font-size:clamp(17px,2.2vw,20px); font-weight:600; padding:16px 0; color:var(--ink); }
+.ss-in::placeholder { color:var(--ink-3); font-weight:500; }
 .ss-out { margin-top:8px; background:var(--surface); border:1px solid rgba(var(--ink-rgb),.12); border-radius:18px; padding:8px; max-height:60vh; overflow:auto; box-shadow:0 14px 30px -18px rgba(var(--ink-rgb),.5); }
 .ss-g + .ss-g { border-top:1px dashed rgba(var(--ink-rgb),.1); margin-top:4px; padding-top:4px; }
 .ss-gh { font-size:12px; font-weight:800; color:var(--ink-3); padding:8px 10px 4px; letter-spacing:.02em; }
@@ -5587,6 +5590,11 @@ body.mk-printing .mk-cover, body.mk-printing .mk-paper, body.mk-printing .mk-omr
 .ss-box .ss-in:focus, .ss-box .ss-in:focus-visible { outline:none !important; box-shadow:none !important; }
 
 /* 레벨테스트 결과 → 가입 권유(ltJoinPaint) · 저장했어요 한 줄. Pro 상자보다 밝게 — 먼저 할 일은 무료 가입이다 */
+.lt-teach { display:flex; align-items:center; gap:12px; max-width:420px; margin:12px auto 0; padding:12px 16px; border-radius:var(--r-xl); background:var(--surface); border:1px solid var(--line); text-align:left; text-decoration:none; color:var(--ink); }
+.lt-teach:hover { border-color:var(--orange); }
+.lt-teach-e { font-size:24px; flex:none; }
+.lt-teach b { display:block; font-size:14.5px; line-height:1.4; word-break:keep-all; }
+.lt-teach small { display:block; margin-top:2px; font-size:12.5px; color:var(--ink-3); }
 .lt-join { max-width:420px; margin:14px auto 0; padding:16px 18px; border-radius:var(--r-xl); background:var(--tint); border:1.5px solid var(--orange); text-align:left; }
 .lt-join-t { font-size:17px; font-weight:800; letter-spacing:-.02em; color:var(--ink); }
 .lt-join ul { margin:8px 0 0; padding-left:18px; display:grid; gap:4px; font-size:13.5px; line-height:1.5; color:var(--ink-2); word-break:keep-all; }
