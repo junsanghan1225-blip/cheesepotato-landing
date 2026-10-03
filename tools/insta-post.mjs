@@ -39,7 +39,9 @@ function api(host, token, label) {
     if (!res.ok || j.error) {
       const e = j.error || {};
       if (e.code === 190) die(`${label} 열쇠(토큰)가 끝났거나 틀렸어요 — docs/insta-auto.md 「토큰 새로 넣기」대로 새 토큰을 넣어 주세요.`);
-      die(`${label} API 오류 ${res.status}: ${e.message || JSON.stringify(j).slice(0, 300)}`);
+      /* 어느 단계 · 어느 칸이 틀렸는지 보이게 — 메타는 「Invalid parameter」만 주고 자세한 까닭은 error_user_msg · subcode 에 담는다(열쇠는 찍지 않는다) */
+      const what = Object.keys(params).filter((k) => k !== 'access_token').join(',');
+      die(`${label} API 오류 ${res.status} (${method} ${path} · 보낸 칸: ${what}): ${e.message || ''} ${e.error_user_title || ''} ${e.error_user_msg || ''} [code ${e.code ?? '-'} / sub ${e.error_subcode ?? '-'}] ${e.error_data ? JSON.stringify(e.error_data).slice(0, 200) : ''}`);
     }
     return j;
   };
