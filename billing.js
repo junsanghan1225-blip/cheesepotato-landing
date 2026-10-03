@@ -1,57 +1,42 @@
 /* 치즈감자 — 구독(결제)
 
-   결제는 Paddle 이 한다(판매 대행 — 나라별 세금·환불·카드 분쟁을 그쪽이 맡는다).
+   결제는 Polar 가 한다(판매 대행 — 나라별 세금·환불·카드 분쟁을 그쪽이 맡는다).
    이 파일은 사이트 쪽 세 가지만 한다.
      1) 이 사람이 구독 중인가 — Supabase 의 subscriptions 표를 읽는다
-        (쓰는 것은 결제 서버 함수 paddle-webhook 뿐이다. 브라우저는 읽기만).
-     2) 결제 창 열기 — Paddle.js 를 **누를 때만** 불러온다. 첫 화면을 느리게
-        만들 까닭이 없고, 결제를 안 하는 사람의 브라우저에 남의 스크립트가
-        돌 까닭도 없다.
-     3) 결제가 끝나면 표가 바뀔 때까지 몇 번 다시 읽는다(웹훅이 몇 초 늦게 온다).
+        (쓰는 것은 결제 서버 함수 polar-webhook 뿐이다. 브라우저는 읽기만).
+     2) 결제 창 열기 — Polar 결제 화면으로 넘긴다(같은 창). 남의 스크립트를 우리 쪽에
+        불러오지 않는다.
+     3) 결제가 끝나고 돌아오면 표가 바뀔 때까지 몇 번 다시 읽는다(웹훅이 몇 초 늦게 온다).
 
-   **아직 Paddle 을 안 붙였으면(아래 clientToken 이 비었으면) 아무것도 잠그지
-   않는다.** 잠가 놓고 결제할 길이 없으면 그냥 막힌 사이트가 된다.
+   **아래 ON 이 false 인 동안은 아무것도 잠그지 않는다.** 잠가 놓고 결제할 길이 없으면
+   그냥 막힌 사이트가 된다.
    붙이는 순서는 docs/billing-setup.md. */
 
-/* 샌드박스(시험)와 실제 계정은 상품·가격·토큰이 서로 다르다 — 섞으면 결제 창이
-   안 열린다. 두 벌을 따로 적고 ENV 하나로 고른다.
-   가격 id 는 비밀이 아니다(결제 창 주소에도 보인다). 비밀인 API key ·
-   웹훅 secret 은 여기 절대 넣지 않는다 — secret 은 Supabase secrets 에만. */
-/* 샌드박스를 건너뛰고 실제 계정으로 간다(docs/billing-setup.md 7번).
-   Paddle 심사(Website approval)가 끝나고, Supabase 쪽(SQL · 웹훅)을 마친 뒤에
-   'production' 으로 바꾼다 — 그 순간 결제가 켜지고 모의고사 2회차부터 잠긴다.
-   'sandbox' 인 동안은 그쪽 토큰이 비어 있어서 아무것도 안 잠긴다. */
-const ENV = 'sandbox';
-const ENVS = {
-  sandbox: {
-    clientToken: '',     // sandbox-vendors.paddle.com → Developer tools → Authentication → Client-side tokens (test_…)
-    prices: { monthly: '', yearly: '' },
-  },
-  production: {
-    clientToken: 'live_cafafee5ce730333aeb232d6af0',   // vendors.paddle.com → 같은 자리. 공개해도 되는 토큰(결제 창만 연다)
-    prices: {
-      monthly: 'pri_01m3bahxs5dj2p0p1c4hs8kjfg',   // $4.99 / 1 month
-      yearly:  'pri_01m3bajxkc6xe6exr5had9g33r',   // $39 / 1 year
-    },
-  },
-};
+/* 결제는 Polar 로 옮겼다(2026-10-03 — Paddle 은 심사에서 거절, Polar 는 승인).
+   Polar 의 「결제 링크(Checkout Link)」 하나로 연다 — 월 · 연 두 상품이 한 링크에 들어 있고
+   학생이 결제 화면에서 고른다. 링크 주소는 비밀이 아니다(누구나 보는 결제 화면 주소).
+   비밀인 Access token · 웹훅 secret 은 여기 절대 넣지 않는다 — secret 은 Supabase secrets 에만.
+
+   **ON 을 true 로 바꾸는 순간 결제가 켜지고 모의고사 2회차부터 잠긴다.** 운영자가
+   「결제 켜줘」라고 하기 전에는 false 로 둔다(CLAUDE.md 3장). 켜기 전에 Supabase 쪽
+   (polar-webhook 함수 · POLAR_WEBHOOK_SECRET)을 먼저 마친다 — 순서는 docs/billing-setup.md. */
+const ON = false;
+const CHECKOUT_URL = 'https://buy.polar.sh/polar_cl_enjp5pPzR4GNe1QfPIs1Z7tsoQ7tdqa3igOyW2GjisW';
 
 export const BILLING = {
-  provider: 'paddle',
-  env: ENV,
-  clientToken: ENVS[ENV].clientToken,
-  prices: ENVS[ENV].prices,
-  // 화면에 보이는 값. Paddle 의 가격을 바꾸면 여기도 같이 바꾼다.
+  provider: 'polar',
+  checkoutUrl: CHECKOUT_URL,
+  // 화면에 보이는 값. Polar 의 가격을 바꾸면 여기도 같이 바꾼다.
   show: { monthly: '$4.99', yearly: '$39', yearlyPerMonth: '$3.25' },
 };
 
-export const billingLive = () => !!(BILLING.clientToken && BILLING.prices.monthly && BILLING.prices.yearly);
+export const billingLive = () => ON && !!BILLING.checkoutUrl;
 
 /* ── 구독 상태 ─────────────────────────────────────────────── */
 let sub = null;   // { status, plan, current_period_end, manage_url } | null
 
-/* Paddle 의 status: active · trialing · past_due(결제 실패, 재시도 중) · paused · canceled.
-   예약 해지는 기간이 끝날 때까지 active 로 남고, 끝나야 canceled 가 된다.
+/* 표의 status(polar-webhook 이 적는다): active · trialing · past_due(결제 실패, 재시도 중) · canceled.
+   예약 해지는 기간이 끝날 때까지 active 로 남고, 끝나야(Polar 의 subscription.revoked) canceled 가 된다.
    past_due 는 며칠 재시도하는 동안이라 막지 않는다 — 카드 한 번 실패로 쓰던
    기능이 사라지면 억울하다. */
 export function isPro() {
@@ -73,43 +58,21 @@ export async function loadPro(sb, session) {
 }
 
 /* ── 결제 창 ───────────────────────────────────────────────── */
-let paddleP = null;
-let onDone = null;
-function paddleNeed() {
-  if (paddleP) return paddleP;
-  paddleP = new Promise((resolve, reject) => {
-    const s = document.createElement('script');
-    s.src = 'https://cdn.paddle.com/paddle/v2/paddle.js';
-    s.async = true;
-    s.onload = () => {
-      try {
-        const P = window.Paddle;
-        if (BILLING.env === 'sandbox') P.Environment.set('sandbox');
-        P.Initialize({
-          token: BILLING.clientToken,
-          eventCallback: (ev) => { if (ev?.name === 'checkout.completed' && onDone) onDone(ev); },
-        });
-        resolve(P);
-      } catch (e) { reject(e); }
-    };
-    s.onerror = () => { paddleP = null; reject(new Error('paddle.js load failed')); };
-    document.head.appendChild(s);
-  });
-  return paddleP;
-}
-
-/* plan: 'monthly' | 'yearly'. 결제한 사람이 누구인지는 customData.user_id 로
-   넘긴다 — 웹훅이 이것으로 subscriptions 의 한 줄을 고른다. 이메일로 찾지 않는
-   까닭: Paddle 결제 창에서 이메일을 바꿔 쓸 수 있다. */
-export async function openCheckout(plan, session, { lang = 'en', done } = {}) {
-  const P = await paddleNeed();
-  onDone = done || null;
-  P.Checkout.open({
-    items: [{ priceId: BILLING.prices[plan], quantity: 1 }],
-    customer: session?.user?.email ? { email: session.user.email } : undefined,
-    customData: { user_id: session.user.id },
-    settings: { displayMode: 'overlay', theme: 'light', locale: lang === 'ko' ? 'ko' : 'en', allowLogout: false },
-  });
+/* Polar 결제 화면으로 넘어간다(같은 창). 남의 스크립트를 우리 쪽에 불러오지 않는다 — 결제 화면은 Polar 의 쪽이다.
+   누가 결제했는지는 external_customer_id(= 우리 user id)로 넘긴다 — 웹훅이 이것으로 subscriptions 의 한 줄을
+   고른다. 이메일로 찾지 않는 까닭: 결제 화면에서 이메일을 바꿔 쓸 수 있다. reference_id 도 같은 값으로
+   한 번 더 싣는다(결제 메타데이터로 들어간다 — 둘 중 하나라도 오면 찾는다).
+   plan 은 지금 쓰지 않는다 — 한 링크에 월 · 연이 다 있고 결제 화면에서 고른다. 결제가 끝나면 Polar 가
+   링크의 Success URL(https://everykoreans.com/?pro=done&checkout_id={CHECKOUT_ID})로 돌려보낸다. */
+export async function openCheckout(plan, session, { lang = 'en' } = {}) {
+  const u = new URL(BILLING.checkoutUrl);
+  if (session?.user?.email) u.searchParams.set('customer_email', session.user.email);
+  u.searchParams.set('external_customer_id', session.user.id);
+  u.searchParams.set('reference_id', session.user.id);
+  u.searchParams.set('utm_source', 'everykoreans');
+  u.searchParams.set('utm_content', plan || '');
+  if (lang) u.searchParams.set('locale', lang);
+  location.href = u.toString();
 }
 
 /* 결제가 끝난 직후엔 웹훅이 아직 안 왔을 수 있다. 2초 간격으로 열 번까지 읽는다. */
