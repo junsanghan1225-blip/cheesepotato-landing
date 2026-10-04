@@ -12,9 +12,9 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 
 const ROOT = path.join(path.dirname(fileURLToPath(import.meta.url)), '..');
-const PRICE = { monthly: '$4.99', yearly: '$39' };
+const PRICE = { monthly: '$4.99', yearly: '$39', pass: '$15', passMonths: 3, trialDays: 7 };   // 시험 패스 · 7일 체험(2026-10-04) — billing.js BILLING 과 같이 고친다
 const EMAIL = 'junsanghan1225@gmail.com';
-const UPDATED = '2026-10-03';
+const UPDATED = '2026-10-04';
 const SELLER = {
   name: '에브리코리안즈 (everykoreans · 치즈감자)',
   owner: '',        // 대표자
@@ -95,11 +95,12 @@ const ROWS = [
   ['TOPIK 쓰기 53·54번 AI 채점', 'AI scoring for TOPIK writing Q53–54', '하루 2번 (로그인)', '<b>하루 30번</b>'],
   ['AI 발음 진단 · 한국어 도우미', 'AI pronunciation feedback · Korean helper', '하루 20번 (로그인)', '<b>하루 100번</b>'],
   ['TOPIK 약점 리포트 · 합격 계획표', 'TOPIK weak-spot report · exam plan', '가장 약한 유형 하나', '<b>전체 리포트 + 계획표</b>'],
+  ['TOPIK 모의고사 인쇄본(PDF · 문제지 · 답안지 · 정답)', 'Printable TOPIK mock exams (PDF · paper, answer sheet, key)', '제1 · 2회', '<b>전 회차</b>'],
   ['앞으로 나올 Pro 기능', 'Every Pro feature we add next', '—', '✓'],
 ];
 const EN_CELL = { '1회차': 'Round 1', '하루 2번 (로그인)': '2 a day (signed in)', '하루 20번 (로그인)': '20 a day (signed in)', '가장 약한 유형 하나': 'Your weakest type', '<b>전체 리포트 + 계획표</b>': '<b>Full report + plan</b>', '<b>하루 100번</b>': '<b>100 a day</b>',
   '<b>전 회차 + 회차별 성적 추이</b>': '<b>Every round + score history</b>', '<b>하루 30번</b>': '<b>30 a day</b>',
-  '<b>하루 더 많이</b>': '<b>More each day</b>' };
+  '<b>하루 더 많이</b>': '<b>More each day</b>', '제1 · 2회': 'Rounds 1–2', '<b>전 회차</b>': '<b>Every round</b>' };
 const table = (en) => `<table class="cmp"><thead><tr><th></th><th>${en ? 'Free' : '무료'}</th><th class="pro">Pro</th></tr></thead><tbody>` +
   ROWS.map(([ko, e, f, p]) => `<tr><th>${en ? e : ko}</th><td>${en ? (EN_CELL[f] || f) : f}</td><td class="pro">${en ? (EN_CELL[p] || p) : p}</td></tr>`).join('') +
   '</tbody></table>';
@@ -110,7 +111,10 @@ const pricing = page('pricing.html', '가격 · Pricing', '치즈감자 Pro 구�
 <div class="plans">
   <div class="plan best"><span class="tag">추천 · Best value</span>1년 · Yearly<b>${PRICE.yearly}</b>한 달 $3.25꼴 · 35% 싸요<br><small>매년 자동 갱신 · billed yearly</small></div>
   <div class="plan">한 달 · Monthly<b>${PRICE.monthly}</b>부담 없이 한 달부터<br><small>매달 자동 갱신 · billed monthly</small></div>
+  <div class="plan">시험 패스 · Exam Pass<b>${PRICE.pass}</b>${PRICE.passMonths}개월 동안 Pro · 한 번 결제<br><small>자동 갱신 없음 · one-time, no renewal</small></div>
 </div>
+<p class="promise">✓ 한 달 · 1년 구독은 <strong>${PRICE.trialDays}일 무료 체험</strong>으로 시작해요 — 체험이 끝나기 전에 해지하면 돈이 나가지 않습니다.<br>
+<span>Monthly and yearly plans start with a ${PRICE.trialDays}-day free trial — cancel before it ends and you pay nothing.</span></p>
 <div class="buy">
   <a class="cta" href="/?pro=1">Pro 구독하기 · Subscribe</a>
   <p class="promise">✓ 처음 결제한 뒤 <strong>14일 안에는 이유를 묻지 않고 전액 환불</strong> · ✓ 언제든 해지, 낸 기간 끝까지 사용<br>
@@ -124,7 +128,9 @@ ${table(false)}
 <h3>해지는 어떻게 하나요?</h3>
 <p>내 계정 → 구독 정보 → 「구독 관리 · 해지」에서 바로 할 수 있습니다. 해지해도 이미 낸 기간이 끝날 때까지 Pro 를 씁니다.</p>
 <h3>환불은요?</h3>
-<p>처음 결제한 뒤 14일 안이면 이유를 묻지 않고 전액 돌려 드립니다. 연 구독이 자동 갱신된 뒤 14일 안에 알려 주셔도 갱신분을 전액 환불합니다(<a href="/refund.html">환불 규정</a>).</p>
+<p>처음 결제한 뒤 14일 안이면 이유를 묻지 않고 전액 돌려 드립니다(시험 패스도 같습니다). 연 구독이 자동 갱신된 뒤 14일 안에 알려 주셔도 갱신분을 전액 환불합니다(<a href="/refund.html">환불 규정</a>).</p>
+<h3>시험 패스는 무엇이 다른가요?</h3>
+<p>한 번만 결제하고 ${PRICE.passMonths}개월 동안 Pro 를 그대로 씁니다. 자동 갱신이 없어서 기간이 끝나면 저절로 무료로 돌아가고, 카드에서 다시 빠져나가지 않습니다. 기간 안에 한 번 더 사면 남은 기간에 이어 붙습니다.</p>
 <h3>어떻게 결제하나요?</h3>
 <p>결제 · 세금 · 영수증은 판매 대행사 Polar 가 처리합니다. 카드로 낼 수 있고, 나라에 따라 다른 결제 수단이 함께 보일 수 있습니다. 표시 가격은 미국 달러 기준이며 나라에 따라 부가세가 더해질 수 있습니다.</p>
 <h3>무료 기능이 줄어들 수도 있나요?</h3>
@@ -133,7 +139,7 @@ ${table(false)}
 <hr>
 <h2>English</h2>
 <p>Most of CheesePotato is <strong>free</strong>. Add <strong>CheesePotato Pro</strong> when you want to prepare all the way to the exam:
-<strong>${PRICE.yearly} / year</strong> (about $3.25 a month, save 35%) or <strong>${PRICE.monthly} / month</strong>, renewing automatically.</p>
+<strong>${PRICE.yearly} / year</strong> (about $3.25 a month, save 35%) or <strong>${PRICE.monthly} / month</strong>, renewing automatically, each starting with a ${PRICE.trialDays}-day free trial — or the <strong>Exam Pass</strong>: ${PRICE.pass} once for ${PRICE.passMonths} months, no renewal.</p>
 ${table(true)}
 <p>Cancel anytime from your account and keep Pro until the end of the period you paid for. <strong>Full refund within 14 days of your first payment, no questions asked</strong> (<a href="/refund.html">refund policy</a>). Payments, tax and receipts are handled by our reseller Polar; prices are in US dollars and VAT or sales tax may be added depending on your country. Everything marked free above stays free.</p>
 <a class="cta" href="/?pro=1">Subscribe to Pro</a>
@@ -149,7 +155,8 @@ const terms = page('terms.html', '이용약관 · Terms of Service', '치즈감�
 <p>일부 기능은 로그인이 필요합니다. 계정 정보는 본인이 관리하며, 다른 사람과 계정을 나눠 쓰지 않습니다. 만 14세 미만은 보호자 동의 없이 가입할 수 없습니다.</p>
 <h2>3. 유료 구독</h2>
 <ul>
-<li>가격은 <a href="/pricing.html">가격 쪽</a>에 적힌 대로이며, 월 또는 연 단위로 자동 갱신됩니다.</li>
+<li>가격은 <a href="/pricing.html">가격 쪽</a>에 적힌 대로이며, 월 또는 연 구독은 자동 갱신됩니다. 월 · 연 구독은 ${PRICE.trialDays}일 무료 체험으로 시작하며, 체험이 끝나기 전에 해지하면 요금이 청구되지 않습니다.</li>
+<li>「시험 패스」는 한 번 결제로 ${PRICE.passMonths}개월 동안 Pro 기능을 쓰는 상품이며 자동 갱신되지 않습니다.</li>
 <li>결제 · 세금 처리 · 영수증 발급은 판매 대행사 <strong>Polar</strong>(polar.sh)가 합니다. 결제에는 Polar 의 구매자 약관도 함께 적용됩니다.</li>
 <li>언제든 해지할 수 있습니다. 해지하면 다음 갱신이 멈추고, 이미 낸 기간이 끝날 때까지 Pro 기능을 쓸 수 있습니다.</li>
 <li>환불은 <a href="/refund.html">환불 규정</a>을 따릅니다.</li>
@@ -173,7 +180,8 @@ const terms = page('terms.html', '이용약관 · Terms of Service', '치즈감�
 <p>Some features require an account. You are responsible for your account and must not share it. Users under 14 need parental consent.</p>
 <h2>3. Subscriptions</h2>
 <ul>
-<li>Prices are as shown on the <a href="/pricing.html">pricing page</a> and renew automatically each month or year.</li>
+<li>Prices are as shown on the <a href="/pricing.html">pricing page</a>. Monthly and yearly plans renew automatically and start with a ${PRICE.trialDays}-day free trial; cancel before it ends and you are not charged.</li>
+<li>The "Exam Pass" is a one-time purchase that gives Pro features for ${PRICE.passMonths} months and does not renew.</li>
 <li>Our order process is conducted by our online reseller <strong>Polar</strong> (polar.sh). Polar is the Merchant of Record for all our orders and handles payment, taxes, invoices and billing inquiries. Polar's buyer terms also apply to your purchase.</li>
 <li>You can cancel anytime. Cancelling stops the next renewal; you keep Pro until the end of the period you paid for.</li>
 <li>Refunds follow our <a href="/refund.html">refund policy</a>.</li>
@@ -195,7 +203,7 @@ const refund = page('refund.html', '환불 규정 · Refund Policy', '치즈감�
 <h1>환불 규정 · Refund Policy</h1>
 <p>최종 수정일: ${UPDATED}</p>
 <ul>
-<li><strong>처음 결제한 뒤 14일 안에는 이유를 묻지 않고 전액 환불합니다.</strong> 월 구독 · 연 구독 모두 같습니다.</li>
+<li><strong>처음 결제한 뒤 14일 안에는 이유를 묻지 않고 전액 환불합니다.</strong> 월 구독 · 연 구독 · 시험 패스 모두 같습니다. (무료 체험 기간에는 결제가 없으니 해지만 하면 됩니다.)</li>
 <li>14일이 지난 뒤에는 남은 기간을 나눠 돌려 드리지 않습니다. 대신 언제든 해지할 수 있고, 해지해도 이미 낸 기간이 끝날 때까지 Pro 를 쓸 수 있습니다.</li>
 <li>서비스 장애로 Pro 기능을 쓰지 못한 경우에는 기간과 관계없이 환불하거나 기간을 늘려 드립니다.</li>
 <li>연 구독이 자동 갱신된 뒤 14일 안에 알려 주시면 갱신분을 전액 환불합니다.</li>
@@ -205,7 +213,7 @@ const refund = page('refund.html', '환불 규정 · Refund Policy', '치즈감�
 <hr>
 <h1>English</h1>
 <ul>
-<li><strong>Full refund within 14 days of your first payment, no questions asked</strong> — monthly and yearly plans alike.</li>
+<li><strong>Full refund within 14 days of your first payment, no questions asked</strong> — monthly, yearly and the Exam Pass alike. (Nothing is charged during the free trial — just cancel.)</li>
 <li>After 14 days we do not give partial refunds for the remaining period. You can cancel anytime and keep Pro until the end of the period you paid for.</li>
 <li>If an outage prevented you from using Pro, we will refund or extend your subscription regardless of timing.</li>
 <li>If a yearly plan renews automatically, tell us within 14 days of the renewal for a full refund of that renewal.</li>

@@ -79,3 +79,18 @@
 
 구독은 **웹에서만** 판다. 앱 안에서 구독을 팔거나 웹 결제로 보내는 링크를 넣으면 구글 플레이 결제 규칙이 걸린다.
 같은 계정으로 앱에서도 Pro 를 쓰게 하려면 앱이 `subscriptions` 표(또는 `is_pro`)를 읽기만 하면 된다.
+
+## 무료 체험 · 출시 할인 · 시험 패스 (2026-10-04, 운영자 결정)
+
+사이트 쪽은 다 되어 있다(구독 쪽 #pro 의 세 장 · 잠긴 모의고사 3문제 미리 보기 · PDF 인쇄본 3회부터 Pro · 무료 횟수를 다 쓰면 체험 권유).
+운영자가 Polar · Supabase 에서 할 일:
+
+1. **7일 무료 체험** — Products → Checkout Links → CheesePotato Pro → **Free trial period 켜기 · 7 days** → 저장.
+2. **출시 할인** — Products → Discounts → 새 할인: 이름 `Launch 30%` · 코드 **`LAUNCH30`** · **30%** · Duration **Once** ·
+   Max redemptions **100** · Products **Yearly 만**. (사이트가 1년을 고르면 코드를 미리 채운다. 끝나면 billing.js `launch.on = false`)
+3. **시험 패스 상품** — Products → 새 상품: `CheesePotato Exam Pass (3 months)` · **One-time** · **$15** → 그 상품만 넣은 새 Checkout Link
+   (Success URL `https://everykoreans.com/?pro=done&checkout_id={CHECKOUT_ID}`, Return URL `https://everykoreans.com/`) → **링크를 Claude 에게**
+   (비밀 아님 — billing.js `PASS_URL` 에 넣는다. 그 전에는 카드에 「곧 열려요」).
+4. **웹훅 이벤트 더하기** — Settings → Webhooks → 그 Endpoint → Events 에 **`order.paid` · `order.refunded`** 체크 → 저장.
+5. **서버 함수 다시 배포** — polar-webhook 을 main 의 새 코드로(시험 패스 처리).
+6. **SQL** — `db/update_is_pro_pass.sql` 을 SQL Editor 에서 Run(시험 패스를 is_pro 가 Pro 로 보게 — AI 한도가 따라간다).

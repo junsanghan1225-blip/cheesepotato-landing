@@ -7,8 +7,7 @@
    Polar → Settings → Webhooks → Add Endpoint:
           URL     https://tjgoevtvobvmlyefgxel.supabase.co/functions/v1/polar-webhook
           Format  Raw
-          Events  subscription.created · subscription.updated · subscription.active · subscription.canceled ·
-                  subscription.uncanceled · subscription.revoked
+          Events  subscription.* 전부 + order.paid · order.refunded(시험 패스 — 한 번 결제, 2026-10-04)
    순서 전체는 docs/billing-setup.md. 표는 db/add_subscriptions.sql(이미 있다 — 그대로 쓴다). */
 import { createClient } from 'npm:@supabase/supabase-js@2';
 
@@ -60,6 +59,7 @@ Deno.serve(async (req) => {
 
   const ev = JSON.parse(raw);
   const type = String(ev.type ?? '');
+  if (type === 'order.paid' || type === 'order.refunded') return await passOrder(type, ev.data ?? {});
   if (!type.startsWith('subscription.')) return new Response('ignored');
 
   const s = ev.data ?? {};
@@ -91,3 +91,32 @@ Deno.serve(async (req) => {
   if (error) { console.error(error); return new Response('db error', { status: 500 }); }
   return new Response('ok');
 });
+
+/* 시험 패스(한 번 결제 · 3개월 · 자동 갱신 없음, 운영자 결정 2026-10-04). 구독 주문(billing_reason subscription_*)은
+   subscription.* 이 맡으므로 여기서는 한 번 결제(purchase)만 본다 — 우리의 한 번 결제 상품은 시험 패스뿐이다.
+   표에는 status 'pass' + 끝나는 날로 적는다(billing.js isPro · db is_pro 가 그 날까지 Pro 로 본다). 이미 패스가
+   남아 있으면 그 끝에서 이어 붙인다(연장). 정기 구독 중인 사람은 건드리지 않는다 — 구독이 더 넓다. */
+const PASS_DAYS = 90;
+async function passOrder(type: string, o: any): Promise<Response> {
+  if (String(o.billing_reason ?? '') !== 'purchase') return new Response('not a pass');
+  const uid = o.customer?.external_id ?? o.metadata?.reference_id ?? o.checkout?.metadata?.reference_id;
+  if (!UUID.test(String(uid ?? ''))) { console.warn('pass: no user id', o.id, type); return new Response('no user'); }
+  const { data: old } = await admin.from('subscriptions').select('status, current_period_end').eq('user_id', uid).maybeSingle();
+  const now = Date.now();
+  let row;
+  if (type === 'order.refunded') {
+    if (old?.status !== 'pass') return new Response('ok');
+    row = { user_id: uid, provider: 'polar', status: 'canceled', current_period_end: new Date().toISOString(), updated_at: new Date().toISOString() };
+  } else {
+    if (old && ['active', 'trialing', 'past_due'].includes(String(old.status))) return new Response('has subscription');
+    const from = old?.status === 'pass' && old.current_period_end && Date.parse(old.current_period_end) > now ? Date.parse(old.current_period_end) : now;
+    row = {
+      user_id: uid, provider: 'polar', customer_id: o.customer_id ?? o.customer?.id ?? null, subscription_id: null,
+      status: 'pass', plan: 'pass', current_period_end: new Date(from + PASS_DAYS * 864e5).toISOString(),
+      manage_url: PORTAL, updated_at: new Date().toISOString(),
+    };
+  }
+  const { error } = await admin.from('subscriptions').upsert(row, { onConflict: 'user_id' });
+  if (error) { console.error(error); return new Response('db error', { status: 500 }); }
+  return new Response('ok');
+}

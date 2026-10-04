@@ -33,6 +33,6 @@ language sql stable security definer set search_path = public as $$
     select 1 from subscriptions
     where user_id = uid
       and (status in ('active', 'trialing', 'past_due')
-           or (status = 'canceled' and current_period_end > now()))
+           or (status in ('canceled', 'pass') and current_period_end > now()))   -- pass: 시험 패스(2026-10-04)
   );
 $$;
