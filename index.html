@@ -40,7 +40,7 @@
 ">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <!-- 구글 태그 관리자. 구글이 주는 인라인 코드조각은 CSP 가 막아서 gtm.js 로 뺐다. -->
-<script src="gtm.js?v=d5361ef3" async></script>
+<script src="gtm.js?v=01b851ce" async></script>
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <!-- 제목과 설명을 두 말로 쓴다. 이 사이트를 찾을 사람은 한국어를 **배우는**
@@ -119,13 +119,13 @@
      Pretendard 는 통짜(2.0MB) 대신 조각난 쪽을 쓴다 — 브라우저가
      unicode-range 를 보고 화면에 실제로 나온 글자가 든 조각만 받는다.
      그래서 저장소는 무거워졌지만 학습자가 받는 양은 오히려 줄었다. -->
-<link rel="stylesheet" href="vendor/pretendard.css?v=d5361ef3">
-<link rel="stylesheet" href="vendor/pressstart2p.css?v=d5361ef3">
+<link rel="stylesheet" href="vendor/pretendard.css?v=01b851ce">
+<link rel="stylesheet" href="vendor/pressstart2p.css?v=01b851ce">
 <!-- 화면 상자 안에서만 쓰는 CSS 는 여기서 갈라 받는다. media="print" 라
      첫 페인트를 안 막고, 다 받아지면 app.js 가 media 를 all 로 바꾼다.
      자바스크립트가 없으면 <noscript> 쪽이 그냥 평범하게 걸린다. -->
-<link id="viewsCss" rel="stylesheet" href="app-views.css?v=d5361ef3" media="print">
-<noscript><link rel="stylesheet" href="app-views.css?v=d5361ef3"></noscript>
+<link id="viewsCss" rel="stylesheet" href="app-views.css?v=01b851ce" media="print">
+<noscript><link rel="stylesheet" href="app-views.css?v=01b851ce"></noscript>
 
 <style>
 /* ══════════════════════════════════════════════════════════════
@@ -1893,6 +1893,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
          제 단추를 그대로 대신 누른다. -->
     <button class="nav-link" id="sideAuthBtn" type="button" data-nav-to="authBtn" aria-label="로그인">
       <span class="nav-ico">👤</span><span class="nav-txt" data-en="Sign in">로그인</span>
+    </button>
+    <!-- 구독 · Pro — 내 구독 상태(요금제 · 다음 결제일 · 해지 예약)를 바로 보는 자리(운영자 요청 2026-10-04).
+         누르면 구독 창(app.module.js proOpen). 오른쪽 작은 딱지는 proPaintAccount 가 「Pro」 · 「무료」로 맞춘다. -->
+    <button class="nav-link" id="sideProBtn" type="button" aria-label="구독 · Pro">
+      <span class="nav-ico">⭐</span><span class="nav-txt" data-en="Subscription · Pro">구독 · Pro</span><span class="side-pro-tag" id="sideProTag" hidden></span>
     </button>
     <!-- 「내 단어장」은 단어(배우기 맨 위)에 합쳤다 — 단어 화면의 탭이자, 거기서 「단어장 전체 열기」로 들어간다. -->
     <button class="nav-link" id="dashBtn" type="button" aria-label="대시보드 열기">
@@ -3814,9 +3819,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <div id="hlpScrim" class="hlp-scrim"></div>
 <aside id="hlpPanel" class="hlp-panel" aria-label="한국어 도우미" aria-hidden="true"></aside>
 
-<script src="app.js?v=d5361ef3"></script>
-<script type="module" src="app.module.js?v=d5361ef3"></script>
+<script src="app.js?v=01b851ce"></script>
+<script type="module" src="app.module.js?v=01b851ce"></script>
 
-<script src="analytics.js?v=d5361ef3" defer></script>
+<script src="analytics.js?v=01b851ce" defer></script>
 </body>
 </html>
