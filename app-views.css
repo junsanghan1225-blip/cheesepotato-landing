@@ -5785,3 +5785,8 @@ body.mk-printing .mk-cover, body.mk-printing .mk-paper, body.mk-printing .mk-omr
 .up-foot { margin:22px auto 0; max-width:760px; text-align:center; font-size:13px; color:var(--ink-3); line-height:1.7; word-break:keep-all; }
 .up-foot a, .up-biz a { color:inherit; }
 .up-biz { margin:10px auto 0; text-align:center; font-size:12px; color:var(--ink-3); word-break:keep-all; }
+.up-launch { align-self:flex-start; padding:4px 12px; border-radius:999px; background:#FFF3D1; color:#8A4B0F; font-size:12.5px; font-weight:800; }
+.up-price s { color:var(--ink-3); font-size:18px; margin-right:6px; }
+.up-card.pass .up-btn { border-color:#C4551C; color:#C4551C; }
+.up-card.pass .up-btn:disabled { border-color:var(--line); color:var(--ink-3); }
+@media (min-width:900px) { .up-wrap { max-width:1140px; } .up-grid { grid-template-columns:repeat(3, 1fr); } }
