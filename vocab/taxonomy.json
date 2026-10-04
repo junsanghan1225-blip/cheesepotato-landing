@@ -106,6 +106,19 @@
    { "id": "questions", "ko": "의문사", "en": "Question words" },
    { "id": "connectors", "ko": "잇는 말", "en": "Connecting words" },
    { "id": "counters", "ko": "단위 명사", "en": "Counters" },
-   { "id": "basic-verbs", "ko": "기본 동사 · 형용사", "en": "Core verbs & adjectives" } ] }
+   { "id": "basic-verbs", "ko": "기본 동사 · 형용사", "en": "Core verbs & adjectives" } ] },
+  { "id": "writing", "ko": "TOPIK 쓰기 표현", "en": "TOPIK writing expressions", "subs": [
+   { "id": "add", "ko": "덧붙이기", "en": "Adding more" },
+   { "id": "contrast", "ko": "반대 · 전환", "en": "Contrast & turning" },
+   { "id": "cause", "ko": "원인 · 결과", "en": "Cause & result" },
+   { "id": "example", "ko": "예시 · 다시 말하기", "en": "Examples & restating" },
+   { "id": "order", "ko": "순서", "en": "Order" },
+   { "id": "summary", "ko": "정리 · 맺음", "en": "Summing up" },
+   { "id": "refer", "ko": "지시 표현", "en": "Referring words" },
+   { "id": "survey", "ko": "조사 · 그래프", "en": "Surveys & graphs" },
+   { "id": "change", "ko": "늘고 줄기", "en": "Rising & falling" },
+   { "id": "compare", "ko": "비교 · 정도 · 전망", "en": "Comparing & outlook" },
+   { "id": "opinion", "ko": "의견 · 주장", "en": "Opinions & arguments" },
+   { "id": "solve", "ko": "문제 · 해결", "en": "Problems & solutions" } ] }
  ]
 }
