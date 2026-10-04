@@ -30,7 +30,7 @@
 ## 3. 운영자가 시키기 전에는 절대 하지 않는 것
 
 - **결제 켜기** — `billing.js` 의 `ON` 을 `true` 로 바꾸는 것. 바꾸는 순간 실제 결제가 열리고
-  TOPIK 모의고사 2회차부터 잠긴다. (지금: `false` — 운영자가 Supabase · Polar 설정(docs/billing-setup.md 1~5)을 마치고 「결제 켜줘」라고 하면)
+  TOPIK 모의고사 2회차부터 잠긴다. (2026-10-04 운영자 「결제 켜줘」로 `true` — 끄는 것도 운영자가 시킬 때만)
 - **비밀 값을 묻거나 적는 것** — Polar access token · 웹훅 secret(`POLAR_WEBHOOK_SECRET`), Supabase service key,
   Gemini key. 이것들은 운영자가 Supabase Secrets 에 직접 넣는다. 채팅 · 코드 · 커밋 어디에도 적지 않는다.
   (브라우저용 공개 값 — Polar 결제 링크 `buy.polar.sh/polar_cl_…`, Supabase anon key — 은 괜찮다.)
@@ -98,7 +98,7 @@
 
 - **선생님 · 1:1 수업**(운영자 결정 2026-10-03): `/teacher.html`(손으로 쓴 쪽, 스크립트 없음) — 신청은 **Preply**(큰 단추) · **WhatsApp**(문의).
   링크는 강의 화면 위 · 맨 아래 줄에. 사진은 아직 없음(로고). TOPIK 듣기 120 지시서 `docs/antigravity-topik-listening-task.md` — 소리는 **기계 목소리 먼저**(운영자 결정).
-- 결제: **Polar 승인 끝**(2026-10-03, Paddle 은 거절). 코드는 Polar 로 옮김(결제 링크 · polar-webhook · 약관 쪽). 운영자가 docs/billing-setup.md 1~5
+- 결제: **켜짐(2026-10-04, 운영자 「결제 켜줘」)** — Polar(2026-10-03 승인, Paddle 은 거절). 코드는 Polar 로 옮김(결제 링크 · polar-webhook · 약관 쪽). 운영자가 docs/billing-setup.md 1~5
   (함수 배포 · 웹훅 · secret · Success URL)를 마치고 「결제 켜줘」 → `ON = true`,
   FAQ · `llms.txt` 의 「가입하면 모의고사 여러 회차」 문구를 「1회차 무료 · 전 회차 Pro」로 고치고, 실제 결제로 시험.
 - AI 쓰기 채점 한도: **무료 하루 2번 · Pro 하루 30번**(운영자 결정, 그대로 유지).
