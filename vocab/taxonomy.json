@@ -119,6 +119,13 @@
    { "id": "change", "ko": "늘고 줄기", "en": "Rising & falling" },
    { "id": "compare", "ko": "비교 · 정도 · 전망", "en": "Comparing & outlook" },
    { "id": "opinion", "ko": "의견 · 주장", "en": "Opinions & arguments" },
-   { "id": "solve", "ko": "문제 · 해결", "en": "Problems & solutions" } ] }
+   { "id": "solve", "ko": "문제 · 해결", "en": "Problems & solutions" } ] },
+  { "id": "konglish", "ko": "콩글리시 · 헷갈리는 외래어", "en": "Konglish — false friends", "subs": [
+   { "id": "home", "ko": "집 · 물건", "en": "Home & things" },
+   { "id": "clothes", "ko": "옷 · 꾸미기", "en": "Clothes & beauty" },
+   { "id": "car", "ko": "차 · 길", "en": "Cars & roads" },
+   { "id": "work", "ko": "학교 · 일", "en": "School & work" },
+   { "id": "shop", "ko": "가게 · 음식", "en": "Shops & food" },
+   { "id": "talk", "ko": "말 · 느낌", "en": "Talk & feelings" } ] }
  ]
 }

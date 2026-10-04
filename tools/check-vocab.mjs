@@ -82,6 +82,10 @@ for (const f of files) {
     if (!Array.isArray(w.purposes) || !w.purposes.length) err.push(`${at} — purposes 가 하나 이상`);
     else w.purposes.forEach((p) => { if (!PURPOSES.has(p)) err.push(`${at} — 목적 「${p}」 가 taxonomy 에 없다`); });
     if (!Array.isArray(w.topics)) err.push(`${at} — topics 는 배열`);
+    /* 콩글리시(kg) — 영어처럼 보이는 말(like)과 영어로 실제 하는 말(say). 둘 다 있어야 화면에 「헷갈림 주의」가 바로 선다. */
+    if (w.kg !== undefined && !(w.kg && typeof w.kg.like === 'string' && w.kg.like.trim() && typeof w.kg.say === 'string' && w.kg.say.trim()))
+      err.push(`${at} — kg 는 { like, say } 둘 다 글자로`);
+    if (w.kg && !w.topics?.some((t) => t.startsWith('konglish/'))) warn.push(`${at} — kg 가 있는데 콩글리시 주제가 없다`);
     else w.topics.forEach((t) => { if (!TOPICS.has(t)) err.push(`${at} — 주제 「${t}」 가 taxonomy 에 없다(「대분류/소분류」 꼴)`); });
     /* 씨앗(C)에는 영어 뜻이 없을 수 있다 — 표준 목록에만 있고 우리 사전에 없는 낱말. B 부터는 꼭. */
     if (typeof w.en !== 'string') err.push(`${at} — en(영어 뜻)은 글자`);
