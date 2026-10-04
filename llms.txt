@@ -14,12 +14,12 @@
   (Free with no account: every course and lesson, all grammar points, the
   dictionary, the level test, reading passages, TOPIK practice by question
   type, and the first TOPIK mock round.)
-- **무료, 가입하면**: 진도를 여러 기기에서 이어 보기, 모의고사 여러 회차와 성적
-  기록. 가입은 이메일이나 구글 계정으로 하고, **카드 정보는 묻지 않는다.**
-  (Free with a free account: progress synced across devices and more mock
-  rounds. Signing up never asks for a card.)
-- **유료 구독 「치즈감자 Pro」(준비 중)**: 모의고사 전 회차, AI 기능을 하루에 더
-  많이. 월 $4.99 · 연 $39. 위의 무료 항목은 Pro 가 생겨도 그대로 무료다.
+- **무료, 가입하면**: 진도를 여러 기기에서 이어 보기, AI 쓰기 채점(하루 2번) · AI 발음 · 도우미(하루 20번).
+  가입은 이메일이나 구글 계정으로 하고, **카드 정보는 묻지 않는다.**
+  (Free with a free account: progress synced across devices and daily AI
+  feedback. Signing up never asks for a card.)
+- **유료 구독 「치즈감자 Pro」**: TOPIK 모의고사 1회차는 무료 · 전 회차와 성적 기록은 Pro,
+  AI 기능을 하루에 더 많이(쓰기 채점 30번 · 발음 · 도우미 100번), 약점 리포트 · 합격 계획표. 월 $4.99 · 연 $39. 위의 무료 항목은 Pro 가 생겨도 그대로 무료다.
   ([Pricing](https://everykoreans.com/pricing.html) — a paid tier is being
   prepared; everything listed as free above stays free.)
 
