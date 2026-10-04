@@ -25,7 +25,7 @@ const CHECKOUT_URL = 'https://buy.polar.sh/polar_cl_enjp5pPzR4GNe1QfPIs1Z7tsoQ7t
 
 /* 시험 패스 — 한 번 결제 · 3개월 · 자동 갱신 없음(운영자 결정 2026-10-04, $15). Polar 의 한 번 결제 상품 결제 링크.
    운영자가 Polar 에서 상품 · 링크를 만들어 주면 넣는다 — 비어 있으면 구독 쪽에 「곧 열려요」. */
-const PASS_URL = '';
+const PASS_URL = 'https://buy.polar.sh/polar_cl_MFDeS9rr2PecjLezT7w7EtdgsrtUZ6JHz9xxb2pf9Vo';
 
 export const BILLING = {
   provider: 'polar',

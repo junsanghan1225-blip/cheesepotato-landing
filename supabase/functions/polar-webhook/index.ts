@@ -24,17 +24,26 @@ async function verify(raw: string, h: Headers): Promise<boolean> {
   const id = h.get('webhook-id'), ts = h.get('webhook-timestamp'), sig = h.get('webhook-signature');
   if (!SECRET || !id || !ts || !sig) return false;
   if (Math.abs(Date.now() / 1000 - Number(ts)) > 300) return false;   // 5분 넘은 것은 되풀이 공격으로 본다
-  const key = await crypto.subtle.importKey('raw', new TextEncoder().encode(SECRET),
-    { name: 'HMAC', hash: 'SHA-256' }, false, ['sign']);
-  const mac = new Uint8Array(await crypto.subtle.sign('HMAC', key, new TextEncoder().encode(`${id}.${ts}.${raw}`)));
-  const want = btoa(String.fromCharCode(...mac));
-  return sig.split(' ').some((part) => {
-    const [ver, val] = part.split(',');
-    if (ver !== 'v1' || !val || val.length !== want.length) return false;
-    let diff = 0;
-    for (let i = 0; i < want.length; i++) diff |= want.charCodeAt(i) ^ val.charCodeAt(i);
-    return diff === 0;
-  });
+  /* 열쇠 두 가지를 다 본다 — Polar SDK 방식(secret 글자 그대로)과 Standard Webhooks 원래 방식(「whsec_」 뒤를 base64 로 풀기).
+     Polar 가 secret 을 「whsec_…」 꼴로 주기 시작해서(2026-10) 어느 쪽인지 문서만으로 확신할 수 없다. 둘 중 하나만 맞으면 된다. */
+  const keys: Uint8Array[] = [new TextEncoder().encode(SECRET)];
+  if (SECRET.startsWith('whsec_')) {
+    try { keys.push(Uint8Array.from(atob(SECRET.slice(6)), (c) => c.charCodeAt(0))); } catch { /* base64 가 아니면 첫 방식만 */ }
+  }
+  const data = new TextEncoder().encode(`${id}.${ts}.${raw}`);
+  for (const k of keys) {
+    const key = await crypto.subtle.importKey('raw', k, { name: 'HMAC', hash: 'SHA-256' }, false, ['sign']);
+    const want = btoa(String.fromCharCode(...new Uint8Array(await crypto.subtle.sign('HMAC', key, data))));
+    const ok = sig.split(' ').some((part) => {
+      const [ver, val] = part.split(',');
+      if (ver !== 'v1' || !val || val.length !== want.length) return false;
+      let diff = 0;
+      for (let i = 0; i < want.length; i++) diff |= want.charCodeAt(i) ^ val.charCodeAt(i);
+      return diff === 0;
+    });
+    if (ok) return true;
+  }
+  return false;
 }
 
 /* Polar 의 status → 우리 표의 status(billing.js isPro · db is_pro 가 읽는 말).
