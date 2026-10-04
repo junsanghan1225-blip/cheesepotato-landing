@@ -987,7 +987,7 @@ function ptShow(toTest) {
    아무 해시나 받아 open() 에 넘기면 맞는 화면이 하나도 없어 전부 닫히고
    빈 페이지가 된다. */
 const SLUG_VIEW = {
-  wordbook: 'wordbook', account: 'account', library: 'library', dashboard: 'dashboard',
+  wordbook: 'wordbook', account: 'account', library: 'library', dashboard: 'dashboard', pro: 'pro',
   dictionary: 'dictionary', words: 'words',
   learn: 'learn', test: 'test', games: 'games',
   // 게임 한 판과 레슨은 도중부터 열 수 없다. 주소로 들어오면 한 단계 위를 연다.
@@ -1049,7 +1049,7 @@ window.cpTxtSize = function (on) {
 
 const VIEW_SLUG = {
   home: '', test: 'test', wordbook: 'wordbook', account: 'account',
-  library: 'library', dashboard: 'dashboard', dictionary: 'dictionary', words: 'words', games: 'games',
+  library: 'library', dashboard: 'dashboard', pro: 'pro', dictionary: 'dictionary', words: 'words', games: 'games',
   quiz: 'quiz', num: 'num', learn: 'learn', lesson: 'lesson',
 };
 let routeBusy = false;
