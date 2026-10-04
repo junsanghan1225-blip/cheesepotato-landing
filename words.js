@@ -207,9 +207,33 @@ export function wordsInit(D) {
   const PURP_LOOK = { life: 150, work: 215, medical: 0, campus: 225, travel: 195, kculture: 320 };   // EPS 는 따로 선 갈래라 뺀다(운영자 결정)   // 목적마다 색(hue) — 그림은 IC
   const isPurp = (id) => String(id).startsWith('p:');
   const purpOf = (id) => (D.PURPOSES || []).find((x) => `p:${x.id}` === id);
+  /* TOPIK 쓰기 표현(운영자 요청 2026-10-04) — 그러므로(2급)처럼 TOPIK I 낱말도 쓰기에 쓰니 두 과정을 다 보고,
+     세션을 10개씩 자르지 않고 「비슷한 표현끼리」(덧붙이기 · 반대 · 원인 · 그래프 …) 묶는다. 묶음 차례는 vocab/taxonomy.json 의 subs. */
+  const WRITE = 'writing';
+  const subOf = (w, id) => (w.t.find((x) => x.split('/')[0] === id) || '').split('/')[1];
+  function writeGroups() {
+    const tp = topicOf(WRITE);
+    if (!tp) return [];
+    const words = ALL.filter((w) => inTopic(w, WRITE));
+    return tp.subs.flatMap((sb) => {
+      const g = words.filter((w) => subOf(w, WRITE) === sb.id);
+      if (!g.length) return [];
+      /* 한 묶음이 10개를 넘으면 고르게 나눈다(24 → 8 · 8 · 8) — 끝에 서너 개만 남는 세션이 없게. */
+      const n = Math.ceil(g.length / SESSION), size = Math.ceil(g.length / n);
+      return Array.from({ length: n }, (_, k) => ({ sub: sb, k, n, words: g.slice(k * size, (k + 1) * size) }));
+    });
+  }
   const listFor = (topic) => (topic === 'all' ? VOCAB : String(topic).startsWith('all:') ? TRACKS[topic.slice(4)] || []
     : topic === 'gen' ? ALL.filter((w) => w.u.includes('life'))
+    : topic === WRITE ? writeGroups().flatMap((g) => g.words)
     : isPurp(topic) ? ALL.filter((w) => w.u.includes(topic.slice(2))) : VOCAB.filter((w) => inTopic(w, topic)));
+  /* 세션 나누기 — 쓰기 표현만 묶음대로, 나머지는 10개씩. */
+  const sessionsOf = (topic) => (topic === WRITE ? writeGroups().map((g) => g.words) : chunk(listFor(topic)));
+  /* 세션 이름 — 쓰기 표현은 묶음 이름(「원인 · 결과 2/2」), 나머지는 「세션 N」. */
+  const sessionName = (topic, i) => {
+    const g = topic === WRITE ? writeGroups()[i] : null;
+    return g ? t(g.sub.ko, g.sub.en) + (g.n > 1 ? ` ${g.k + 1}/${g.n}` : '') : t(`세션 ${i + 1}`, `Session ${i + 1}`);
+  };
   const sayWord = (h) => D.say(h, D.audioFor(h));
   const icon = D.ICON;
 
@@ -297,7 +321,7 @@ export function wordsInit(D) {
   const due = () => Object.entries(S.w).filter(([id, v]) => v[1] <= today() && byId.has(id))
     .sort((a, b) => a[1][1] - b[1][1]).map(([id]) => byId.get(id));
   function nextSession(topic = 'all') {
-    const ss = chunk(listFor(topic));
+    const ss = sessionsOf(topic);
     const i = ss.findIndex((s) => !s.every((w) => learned(idOf(w))));
     return i < 0 ? null : i;
   }
@@ -328,6 +352,7 @@ export function wordsInit(D) {
     tech: '<rect x="7" y="3" width="10" height="18" rx="2"/><path d="M11 17h2"/>',
     culture: '<path d="M12 20L4 9a11 11 0 0 1 16 0z"/><path d="M12 20V8M8.5 15.2L7 8.6M15.5 15.2L17 8.6"/>',
     function: '<path d="M9 4H7a2 2 0 0 0-2 2v4l-2 2 2 2v4a2 2 0 0 0 2 2h2M15 4h2a2 2 0 0 1 2 2v4l2 2-2 2v4a2 2 0 0 1-2 2h-2"/>',
+    writing: '<path d="M4 20h4L19 9l-4-4L4 16z"/><path d="M13 7l4 4M14 20h6"/>',
     eps: '<path d="M3 20V11l6 4v-4l6 4V4h4v16z"/>',
     life: '<path d="M12 21s-7-6.2-7-12a7 7 0 0 1 14 0c0 5.8-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/>',
     medical: '<rect x="4" y="4" width="16" height="16" rx="3"/><path d="M12 8v8M8 12h8"/>',
@@ -367,7 +392,7 @@ export function wordsInit(D) {
   /* 주제마다 그림 하나와 색 하나(hue) — 카드 목록이 한눈에 갈리게. 색은 --h 로 넘기고 CSS 가 섞는다. */
   const TOPIC_LOOK = {
     people: 20, daily: 40, transport: 205, concepts: 260, food: 15, leisure: 300, feelings: 350, talk: 190, home: 30,
-    school: 225, society: 170, body: 0, work: 215, nature: 130, tech: 240, culture: 330, function: 280,
+    school: 225, society: 170, body: 0, work: 215, nature: 130, tech: 240, culture: 330, function: 280, writing: 45,
   };
   const look = (id) => {
     if (String(id).startsWith('all')) return [ico('trophy'), 25];
@@ -424,7 +449,7 @@ export function wordsInit(D) {
     const hello = hr < 5 || hr >= 18 ? t('좋은 저녁이에요!', 'Good evening!') : hr < 12 ? t('좋은 아침이에요!', 'Good morning!') : t('좋은 오후예요!', 'Good afternoon!');
     const dueLine = d.length ? `<button type="button" class="wd-due" data-act="review"><span>${esc(t('① 오늘 복습', '① Review today'))}</span><b>${d.length}</b><em>${esc(t('먼저 하기 →', 'Do first →'))}</em></button>` : '';
     if (!path) return `<div class="wd-today"><div class="wd-hello"><p class="wd-hello-k">${esc(hello)}</p></div>${dueLine}</div>`;
-    const list = listFor(path.topic), ss = chunk(list), n = nextSession(path.topic);
+    const list = listFor(path.topic), ss = sessionsOf(path.topic), n = nextSession(path.topic);
     const ws = n == null ? [] : ss[n];
     const got = ws.filter((w) => learned(idOf(w))).length;
     const w = ws.find((x) => !learned(idOf(x))) || ws[0];
@@ -474,7 +499,7 @@ export function wordsInit(D) {
       return `<button type="button" class="wd-topic" style="--h:${h}" data-act="topic" data-topic="${esc(tp.id)}">
         <span class="wd-topic-ico" aria-hidden="true">${ico}</span>
         <b>${esc(t(tp.ko, tp.en))}</b>
-        <span class="wd-meta">${esc(t(`${list.length}개 · 세션 ${Math.ceil(list.length / SESSION)}`, `${list.length} words · ${Math.ceil(list.length / SESSION)} sessions`))}</span>${bar(g, list.length)}</button>`;
+        <span class="wd-meta">${esc(t(`${list.length}개 · 세션 ${sessionsOf(tp.id).length}`, `${list.length} words · ${sessionsOf(tp.id).length} sessions`))}</span>${bar(g, list.length)}</button>`;
     }).join('');
     /* 목적별 — 10개(한 세션)가 안 되는 목적은 아직 싣지 않는다. 주제 카드와 같은 모양, 토글로 둘 중 하나만 보인다. */
     const purps = Object.keys(PURP_LOOK).map((k) => {
@@ -515,7 +540,7 @@ export function wordsInit(D) {
   const STAGE = 10;
   const openStages = new Map();   // 주제 → 사람이 펴거나 접은 구간 번호들
   function drawTopic(topic) {
-    const list = listFor(topic), ss = chunk(list);
+    const list = listFor(topic), ss = sessionsOf(topic);
     const name = topicName(topic);
     const gotW = list.filter((w) => learned(idOf(w))).length;
     const done = ss.map((s) => s.every((w) => learned(idOf(w))));
@@ -529,7 +554,7 @@ export function wordsInit(D) {
       const g = s.filter((w) => learned(idOf(w))).length, st = done[i] ? 'done' : i === cur ? 'cur' : g ? 'part' : 'todo';
       return `<li class="wd-stop ${st}"><button type="button" data-act="session" data-topic="${esc(topic)}" data-n="${i}">
         <span class="wd-dot">${done[i] ? ico('check') : i + 1}</span>
-        <span class="wd-stop-t"><b>${esc(t(`세션 ${i + 1}`, `Session ${i + 1}`))}${i === cur ? `<em>${esc(t('지금 여기', 'You are here'))}</em>` : ''}</b>
+        <span class="wd-stop-t"><b>${esc(sessionName(topic, i))}${i === cur ? `<em>${esc(t('지금 여기', 'You are here'))}</em>` : ''}</b>
           <small>${esc(s.slice(0, 5).map((w) => w.h).join(' · '))}${s.length > 5 ? ' …' : ''}</small></span>
         ${g && !done[i] ? `<span class="wd-stop-c">${g}/${s.length}</span>` : ''}</button></li>`;
     };
@@ -555,9 +580,10 @@ export function wordsInit(D) {
           <div><b>${done.filter(Boolean).length}<small>/${ss.length}</small></b><span>${esc(t('클리어한 세션', 'Sessions cleared'))}</span></div>
         </div>
         <div class="wd-cover-btns">
-          ${cur >= 0 ? `<button type="button" class="wd-btn wd-btn-big" data-act="session" data-topic="${esc(topic)}" data-n="${cur}">${esc(t(`세션 ${cur + 1} 시작`, `Start session ${cur + 1}`))}${ico('arrow')}</button>` : `<p class="wd-cover-done">${esc(t('모든 세션을 클리어했어요!', 'Every session cleared!'))}</p>`}
+          ${cur >= 0 ? `<button type="button" class="wd-btn wd-btn-big" data-act="session" data-topic="${esc(topic)}" data-n="${cur}">${esc(t(`${sessionName(topic, cur)} 시작`, `Start ${sessionName(topic, cur)}`))}${ico('arrow')}</button>` : `<p class="wd-cover-done">${esc(t('모든 세션을 클리어했어요!', 'Every session cleared!'))}</p>`}
         </div>
-        <p class="wd-cover-d">${esc(t('자주 나오는 낱말부터 10개씩 한 역이에요. 한 역씩 클리어해 나가요.', 'Ten words per stop, most frequent first. Clear them one stop at a time.'))}</p>
+        <p class="wd-cover-d">${esc(topic === WRITE ? t('비슷한 표현끼리 한 역이에요 — 덧붙이기 · 반대 · 원인 · 그래프 · 의견처럼 글에서 하는 일로 묶었어요.', 'Each stop groups similar expressions by what they do in an essay — adding, contrasting, cause, graphs, opinions.')
+          : t('자주 나오는 낱말부터 10개씩 한 역이에요. 한 역씩 클리어해 나가요.', 'Ten words per stop, most frequent first. Clear them one stop at a time.'))}</p>
       </div>
       <div class="wd-map">${stages}</div>`;
   }
@@ -1160,10 +1186,10 @@ export function wordsInit(D) {
   /* 세션 열기 — 먼저 새 낱말을 카드로 한 장씩 미리 보여 주고(운영자 요청: 천천히 소개한 뒤에), 다 보면 「이제 어떻게 공부할까요?」
      (공부 방식 셋), 공부가 끝나면 끝 화면의 「로드맵으로」로 돌아가 다음 역. 미리보기는 「건너뛰기」로 넘길 수 있다. */
   const sessionPick = (topic, n, words, intro) => ({ tab: 'pick', pick: { words, from: { topic, n }, intro,
-    title: `${topicName(topic)} · ${t(`세션 ${n + 1}`, `Session ${n + 1}`)}`,
+    title: `${topicName(topic)} · ${sessionName(topic, n)}`,
     back: `data-act="topic" data-topic="${esc(topic)}"` } });
   function openSession(topic, n) {
-    const ss = chunk(listFor(topic));
+    const ss = sessionsOf(topic);
     const words = ss[n];
     if (!words) return;
     view = { tab: 'intro', intro: { words, i: 0, topic, n } };
@@ -1182,7 +1208,7 @@ export function wordsInit(D) {
         <button type="button" class="wd-x" data-act="topic" data-topic="${esc(it.topic)}" aria-label="${esc(t('로드맵으로', 'Back to the map'))}">✕</button>
         <span class="wd-segs wd-segs-hd" aria-hidden="true">${it.words.map((_, j) => `<i class="${j <= it.i ? 'on' : ''}"></i>`).join('')}</span>
         <button type="button" class="wd-link" data-act="introskip">${esc(t('건너뛰기', 'Skip'))}</button></div>
-      <p class="wd-intro-k">${esc(topicName(it.topic))} · ${esc(t(`세션 ${it.n + 1} 새 낱말`, `Session ${it.n + 1} — new words`))} <b>${it.i + 1} / ${it.words.length}</b></p>
+      <p class="wd-intro-k">${esc(topicName(it.topic))} · ${esc(t(`${sessionName(it.topic, it.n)} 새 낱말`, `${sessionName(it.topic, it.n)} — new words`))} <b>${it.i + 1} / ${it.words.length}</b></p>
       <div class="wd-intro">
         <span class="wd-card-meta">${esc([w.l ? t(`${w.l}급`, `Lv ${w.l}`) : '', w.p || ''].filter(Boolean).join(' · '))}</span>
         <div class="wd-intro-w"><b>${esc(w.h)}</b><button type="button" class="wd-intro-say" data-say="${esc(w.h)}" aria-label="${esc(t('발음 듣기', 'Play'))}">${ico('sound')}</button></div>
