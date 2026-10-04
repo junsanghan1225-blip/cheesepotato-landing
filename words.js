@@ -207,31 +207,37 @@ export function wordsInit(D) {
   const PURP_LOOK = { life: 150, work: 215, medical: 0, campus: 225, travel: 195, kculture: 320 };   // EPS 는 따로 선 갈래라 뺀다(운영자 결정)   // 목적마다 색(hue) — 그림은 IC
   const isPurp = (id) => String(id).startsWith('p:');
   const purpOf = (id) => (D.PURPOSES || []).find((x) => `p:${x.id}` === id);
-  /* TOPIK 쓰기 표현(운영자 요청 2026-10-04) — 그러므로(2급)처럼 TOPIK I 낱말도 쓰기에 쓰니 두 과정을 다 보고,
-     세션을 10개씩 자르지 않고 「비슷한 표현끼리」(덧붙이기 · 반대 · 원인 · 그래프 …) 묶는다. 묶음 차례는 vocab/taxonomy.json 의 subs. */
+  /* 묶음 주제 — TOPIK 쓰기 표현 · 콩글리시(운영자 요청 2026-10-04). 그러므로(2급) · 볼펜(1급)처럼 TOPIK I 낱말도 들어가니
+     두 과정을 다 보고, 세션을 10개씩 자르지 않고 「비슷한 것끼리」(덧붙이기 · 반대 … / 집 · 옷 · 차 …) 묶는다.
+     묶음 차례는 vocab/taxonomy.json 의 subs. */
   const WRITE = 'writing';
+  const GROUPED = new Set([WRITE, 'konglish']);
   const subOf = (w, id) => (w.t.find((x) => x.split('/')[0] === id) || '').split('/')[1];
-  function writeGroups() {
-    const tp = topicOf(WRITE);
+  const groupCache = new Map();
+  function writeGroups(id) {
+    if (groupCache.has(id)) return groupCache.get(id);
+    const tp = topicOf(id);
     if (!tp) return [];
-    const words = ALL.filter((w) => inTopic(w, WRITE));
-    return tp.subs.flatMap((sb) => {
-      const g = words.filter((w) => subOf(w, WRITE) === sb.id);
+    const words = ALL.filter((w) => inTopic(w, id));
+    const out = tp.subs.flatMap((sb) => {
+      const g = words.filter((w) => subOf(w, id) === sb.id);
       if (!g.length) return [];
       /* 한 묶음이 10개를 넘으면 고르게 나눈다(24 → 8 · 8 · 8) — 끝에 서너 개만 남는 세션이 없게. */
       const n = Math.ceil(g.length / SESSION), size = Math.ceil(g.length / n);
       return Array.from({ length: n }, (_, k) => ({ sub: sb, k, n, words: g.slice(k * size, (k + 1) * size) }));
     });
+    groupCache.set(id, out);
+    return out;
   }
   const listFor = (topic) => (topic === 'all' ? VOCAB : String(topic).startsWith('all:') ? TRACKS[topic.slice(4)] || []
     : topic === 'gen' ? ALL.filter((w) => w.u.includes('life'))
-    : topic === WRITE ? writeGroups().flatMap((g) => g.words)
+    : GROUPED.has(topic) ? writeGroups(topic).flatMap((g) => g.words)
     : isPurp(topic) ? ALL.filter((w) => w.u.includes(topic.slice(2))) : VOCAB.filter((w) => inTopic(w, topic)));
-  /* 세션 나누기 — 쓰기 표현만 묶음대로, 나머지는 10개씩. */
-  const sessionsOf = (topic) => (topic === WRITE ? writeGroups().map((g) => g.words) : chunk(listFor(topic)));
-  /* 세션 이름 — 쓰기 표현은 묶음 이름(「원인 · 결과 2/2」), 나머지는 「세션 N」. */
+  /* 세션 나누기 — 묶음 주제는 묶음대로, 나머지는 10개씩. */
+  const sessionsOf = (topic) => (GROUPED.has(topic) ? writeGroups(topic).map((g) => g.words) : chunk(listFor(topic)));
+  /* 세션 이름 — 묶음 주제는 묶음 이름(「원인 · 결과 2/2」), 나머지는 「세션 N」. */
   const sessionName = (topic, i) => {
-    const g = topic === WRITE ? writeGroups()[i] : null;
+    const g = GROUPED.has(topic) ? writeGroups(topic)[i] : null;
     return g ? t(g.sub.ko, g.sub.en) + (g.n > 1 ? ` ${g.k + 1}/${g.n}` : '') : t(`세션 ${i + 1}`, `Session ${i + 1}`);
   };
   const sayWord = (h) => D.say(h, D.audioFor(h));
@@ -353,6 +359,7 @@ export function wordsInit(D) {
     culture: '<path d="M12 20L4 9a11 11 0 0 1 16 0z"/><path d="M12 20V8M8.5 15.2L7 8.6M15.5 15.2L17 8.6"/>',
     function: '<path d="M9 4H7a2 2 0 0 0-2 2v4l-2 2 2 2v4a2 2 0 0 0 2 2h2M15 4h2a2 2 0 0 1 2 2v4l2 2-2 2v4a2 2 0 0 1-2 2h-2"/>',
     writing: '<path d="M4 20h4L19 9l-4-4L4 16z"/><path d="M13 7l4 4M14 20h6"/>',
+    konglish: '<path d="M4 6h9v7H8l-4 3z"/><path d="M13 9h7v7l-3-2h-4z"/>',
     eps: '<path d="M3 20V11l6 4v-4l6 4V4h4v16z"/>',
     life: '<path d="M12 21s-7-6.2-7-12a7 7 0 0 1 14 0c0 5.8-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/>',
     medical: '<rect x="4" y="4" width="16" height="16" rx="3"/><path d="M12 8v8M8 12h8"/>',
@@ -392,7 +399,7 @@ export function wordsInit(D) {
   /* 주제마다 그림 하나와 색 하나(hue) — 카드 목록이 한눈에 갈리게. 색은 --h 로 넘기고 CSS 가 섞는다. */
   const TOPIC_LOOK = {
     people: 20, daily: 40, transport: 205, concepts: 260, food: 15, leisure: 300, feelings: 350, talk: 190, home: 30,
-    school: 225, society: 170, body: 0, work: 215, nature: 130, tech: 240, culture: 330, function: 280, writing: 45,
+    school: 225, society: 170, body: 0, work: 215, nature: 130, tech: 240, culture: 330, function: 280, writing: 45, konglish: 10,
   };
   const look = (id) => {
     if (String(id).startsWith('all')) return [ico('trophy'), 25];
@@ -582,7 +589,8 @@ export function wordsInit(D) {
         <div class="wd-cover-btns">
           ${cur >= 0 ? `<button type="button" class="wd-btn wd-btn-big" data-act="session" data-topic="${esc(topic)}" data-n="${cur}">${esc(t(`${sessionName(topic, cur)} 시작`, `Start ${sessionName(topic, cur)}`))}${ico('arrow')}</button>` : `<p class="wd-cover-done">${esc(t('모든 세션을 클리어했어요!', 'Every session cleared!'))}</p>`}
         </div>
-        <p class="wd-cover-d">${esc(topic === WRITE ? t('비슷한 표현끼리 한 역이에요 — 덧붙이기 · 반대 · 원인 · 그래프 · 의견처럼 글에서 하는 일로 묶었어요.', 'Each stop groups similar expressions by what they do in an essay — adding, contrasting, cause, graphs, opinions.')
+        <p class="wd-cover-d">${esc(topic === 'konglish' ? t('영어처럼 보이지만 영어로는 다르게 말하는 낱말이에요 — 집 · 옷 · 차 · 학교 · 가게 · 말로 묶었어요. 낱말마다 「영어로는」을 같이 보여 줘요.', 'Words that look English but are said differently in English — grouped into home, clothes, cars, school, shops and talk. Each word shows what to say in English.')
+          : topic === WRITE ? t('비슷한 표현끼리 한 역이에요 — 덧붙이기 · 반대 · 원인 · 그래프 · 의견처럼 글에서 하는 일로 묶었어요.', 'Each stop groups similar expressions by what they do in an essay — adding, contrasting, cause, graphs, opinions.')
           : t('자주 나오는 낱말부터 10개씩 한 역이에요. 한 역씩 클리어해 나가요.', 'Ten words per stop, most frequent first. Clear them one stop at a time.'))}</p>
       </div>
       <div class="wd-map">${stages}</div>`;
@@ -781,6 +789,8 @@ export function wordsInit(D) {
     return folderTiles() + `<div id="wdMine"><p class="wd-none">${esc(t('불러오는 중…', 'Loading…'))}</p></div>`;
   }
 
+  /* 콩글리시 한 줄 — 「hand phone 처럼 보이지만 영어로는 cell phone」. 헷갈림을 바로 잡는 게 이 낱말의 핵심이라 뜻 바로 아래에 둔다. */
+  const kgLine = (w) => (w.k ? `<p class="wd-kg"><em>${esc(t('콩글리시', 'Konglish'))}</em>${esc(t(`「${w.k[0]}」처럼 보이지만 영어로는 「${w.k[1]}」`, `Looks like “${w.k[0]}”, but in English say “${w.k[1]}”`))}</p>` : '');
   function drawWord(h) {
     const w = byHead.get(h);
     if (!w) {
@@ -810,6 +820,7 @@ export function wordsInit(D) {
           <button type="button" class="wd-star${isStar(id) ? ' on' : ''}" data-act="star" data-id="${esc(id)}" aria-label="${esc(t('별표', 'Star'))}">${isStar(id) ? '★' : '☆'}</button></div>
         <div class="wd-word-meta"><span class="wd-tagpill">TOPIK ${w.l}${esc(t('급', ''))}</span><span class="wd-tagpill">${esc(w.p || '')}</span><span class="wd-rom">${esc(roman(w.h))}</span>${learned(id) ? `<span class="wd-tagpill ok">✓ ${esc(t('외움', 'Learned'))}</span>` : ''}</div>
         <p class="wd-word-en">${esc(w.e)}</p>
+        ${kgLine(w)}
       </div>
       ${w.s && w.s !== w.e ? `<p class="wd-word-s">${esc(w.s)}</p>` : ''}
       <ul class="wd-ex">${w.x.map(([ko, en]) => `<li><span>${esc(ko)}<button type="button" class="dict-say" data-say="${esc(ko)}" aria-label="${esc(t('예문 듣기', 'Play example'))}">${icon}</button></span><small>${esc(en)}</small></li>`).join('')}</ul>
@@ -1213,7 +1224,7 @@ export function wordsInit(D) {
         <span class="wd-card-meta">${esc([w.l ? t(`${w.l}급`, `Lv ${w.l}`) : '', w.p || ''].filter(Boolean).join(' · '))}</span>
         <div class="wd-intro-w"><b>${esc(w.h)}</b><button type="button" class="wd-intro-say" data-say="${esc(w.h)}" aria-label="${esc(t('발음 듣기', 'Play'))}">${ico('sound')}</button></div>
         <span class="wd-intro-rom">${esc(roman(w.h))}</span>
-        ${open ? `<p class="wd-intro-m">${esc(w.e)}</p>`
+        ${open ? `<p class="wd-intro-m">${esc(w.e)}</p>${kgLine(w)}`
           : `<button type="button" class="wd-intro-hide" data-act="introshow">${esc(t('뜻 보기 · 눌러서 확인', 'Tap to see the meaning'))}</button>`}
         ${w.x[0] ? `<div class="wd-intro-x"><p>${esc(w.x[0][0])}<button type="button" class="wd-intro-say sm" data-say="${esc(w.x[0][0])}" aria-label="${esc(t('예문 듣기', 'Play example'))}">${ico('sound')}</button></p>${open ? `<small>${esc(w.x[0][1])}</small>` : ''}</div>` : ''}
       </div>

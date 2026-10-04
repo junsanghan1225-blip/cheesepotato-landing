@@ -14,6 +14,7 @@
   "topics": ["food/dishes"],    // 「대분류/소분류」 — vocab/taxonomy.json 의 topics
   "en": "to eat",               // 사전 영어 뜻(국립국어원)
   "en_simple": "eat food",      // 쉬운 영어 뜻 — A급 필수, 학습자가 한눈에
+  "kg": { "like": "hand phone", "say": "cell phone" },   // 콩글리시만 — 영어처럼 보이는 말 · 영어로 실제 하는 말(주제 konglish/…)
   "examples": [                 // 쉬운 것 → 어려운 것. 표제어(또는 활용형)가 들어 있어야
     { "ko": "아침에 밥을 먹어요.", "en": "I eat breakfast in the morning." }
   ],

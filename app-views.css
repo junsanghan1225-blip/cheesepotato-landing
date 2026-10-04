@@ -4293,6 +4293,9 @@ div.wd-card:hover { transform:none; }
 .wd-rels, .wd-tags { display:flex; flex-wrap:wrap; gap:8px; margin:10px 0; }
 .wd-rel { display:flex; align-items:center; gap:6px; flex-wrap:wrap; font-size:14px; }
 .wd-rel em { font-style:normal; font-size:12px; color:var(--ink-2); }
+/* 콩글리시 한 줄 — 낱말 쪽 · 미리 보기 카드(words.js kgLine) */
+.wd-kg { margin:8px 0 0; padding:8px 12px; border-radius:10px; background:var(--surface-2); border:1px dashed var(--ink-3); font-size:14px; line-height:1.5; color:var(--ink); }
+.wd-kg em { font-style:normal; font-weight:700; font-size:12px; margin-right:6px; color:var(--red); }
 .wd-word-act { display:flex; flex-wrap:wrap; gap:8px; margin-top:16px; }
 .wd-star { background:none; border:none; cursor:pointer; font-size:26px; line-height:1; color:var(--ink-2); padding:6px; margin-left:auto; transition:transform .15s; }
 .wd-star:active { transform:scale(1.3); }
