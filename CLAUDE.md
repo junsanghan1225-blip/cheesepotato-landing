@@ -10,7 +10,7 @@
 - 화면의 중심: `index.html`(마크업 · CSP) · `app.js`(메뉴 · 첫 화면) · `app.module.js`(거의 모든 화면) ·
   `app-views.css`. 자료는 `*.js`(courses · sentences · topik · eps · glossary …).
 - 서버: **Supabase**(프로젝트 ref `tjgoevtvobvmlyefgxel`) — 로그인 · 표 · Edge Functions(`supabase/functions/`).
-  결제: **Paddle**(`billing.js`, 웹훅 `supabase/functions/paddle-webhook`). AI 쓰기 채점: `grade-writing`(Gemini).
+  결제: **Polar**(`billing.js`, 웹훅 `supabase/functions/polar-webhook` — 2026-10-03 Paddle 거절 → Polar 승인). AI 쓰기 채점: `grade-writing`(Gemini).
 - 분석: GTM `GTM-K4Z87SVS` · GA4 `G-4KF487RTZT` · Clarity(`analytics.js`). 이 id 들은 비밀이 아니다.
 - 자세한 설명은 `README.md`, 분야별 문서는 `docs/`.
 
@@ -29,11 +29,11 @@
 
 ## 3. 운영자가 시키기 전에는 절대 하지 않는 것
 
-- **결제 켜기** — `billing.js` 의 `ENV` 를 `'production'` 으로 바꾸는 것. 바꾸는 순간 실제 결제가 열리고
-  TOPIK 모의고사 2회차부터 잠긴다. (지금: `'sandbox'`, Paddle 도메인 승인 대기 중)
-- **비밀 값을 묻거나 적는 것** — Paddle API key, 웹훅 secret(`pdl_ntfset_…`), Supabase service key,
+- **결제 켜기** — `billing.js` 의 `ON` 을 `true` 로 바꾸는 것. 바꾸는 순간 실제 결제가 열리고
+  TOPIK 모의고사 2회차부터 잠긴다. (지금: `false` — 운영자가 Supabase · Polar 설정(docs/billing-setup.md 1~5)을 마치고 「결제 켜줘」라고 하면)
+- **비밀 값을 묻거나 적는 것** — Polar access token · 웹훅 secret(`POLAR_WEBHOOK_SECRET`), Supabase service key,
   Gemini key. 이것들은 운영자가 Supabase Secrets 에 직접 넣는다. 채팅 · 코드 · 커밋 어디에도 적지 않는다.
-  (브라우저용 공개 값 — Paddle client token `live_…`, 가격 id `pri_…`, Supabase anon key — 은 괜찮다.)
+  (브라우저용 공개 값 — Polar 결제 링크 `buy.polar.sh/polar_cl_…`, Supabase anon key — 은 괜찮다.)
 - **Supabase 에 직접 손대는 것** — SQL 은 `db/*.sql` 파일로 쓰고, 운영자가 SQL Editor 에서 돌린다.
   함수는 파일로 쓰고, 운영자가 대시보드에서 배포한다. 이미 있는 표(`ai_usage` 등)를 지우거나 바꾸지 않는다.
 - **되돌릴 수 없는 일** — 파일 · 브랜치 삭제, `main` 에 직접 푸시, force push(자기 브랜치의 이미 머지된
@@ -98,12 +98,13 @@
 
 - **선생님 · 1:1 수업**(운영자 결정 2026-10-03): `/teacher.html`(손으로 쓴 쪽, 스크립트 없음) — 신청은 **Preply**(큰 단추) · **WhatsApp**(문의).
   링크는 강의 화면 위 · 맨 아래 줄에. 사진은 아직 없음(로고). TOPIK 듣기 120 지시서 `docs/antigravity-topik-listening-task.md` — 소리는 **기계 목소리 먼저**(운영자 결정).
-- 결제: 준비 끝, **Paddle 도메인 승인 대기**. 승인되면 운영자가 「승인됐어」라고 한다 → `ENV` 전환,
+- 결제: **Polar 승인 끝**(2026-10-03, Paddle 은 거절). 코드는 Polar 로 옮김(결제 링크 · polar-webhook · 약관 쪽). 운영자가 docs/billing-setup.md 1~5
+  (함수 배포 · 웹훅 · secret · Success URL)를 마치고 「결제 켜줘」 → `ON = true`,
   FAQ · `llms.txt` 의 「가입하면 모의고사 여러 회차」 문구를 「1회차 무료 · 전 회차 Pro」로 고치고, 실제 결제로 시험.
 - AI 쓰기 채점 한도: **무료 하루 2번 · Pro 하루 30번**(운영자 결정, 그대로 유지).
 - 가격 쪽 「AI 발음 진단 · 한국어 도우미 Pro 더 많이」 — 운영자 결정 (가) 한도 올리기(2026-10-03): **무료 20 · Pro 100**.
   발음(`score-pronunciation`)은 앱 저장소 cheesepotatoapp#3 로 바꿈(운영자가 대시보드에서 배포). **도우미(`ask-korean`)는 코드가 어느 저장소에도 없어**
-  운영자가 대시보드 코드를 주면 앱 저장소에 넣고 같은 한도로 — 그 전에는 결제를 켜지 않는다.
+  → 운영자가 코드를 줘서 cheesepotatoapp#4 로 넣음(무료 20 · Pro 100, 둘 다 운영자가 배포함).
 - 판매자 정보(대표자 · 통신판매업 신고번호 · 주소)는 운영자가 알려 주면 `tools/build-legal.mjs` 의 `SELLER` 에.
 - 녹음: 운영자가 녹음소(`/record.html`)로 직접 녹음 → ZIP 을 구글 드라이브에 올리면 Claude 가 받아 넣는다
   (`docs/recording.md`). 녹음을 넣은 뒤 `node tools/record-list.mjs`.

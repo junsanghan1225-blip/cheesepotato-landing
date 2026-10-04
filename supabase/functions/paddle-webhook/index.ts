@@ -1,4 +1,4 @@
-/* Paddle 웹훅 — 구독이 생기거나 바뀌면 subscriptions 표에 적는다.
+/* (안 씀 — 2026-10-03 Polar 로 옮김, supabase/functions/polar-webhook) Paddle 웹훅 — 구독이 생기거나 바뀌면 subscriptions 표에 적는다.
 
    배포:  supabase functions deploy paddle-webhook --no-verify-jwt --project-ref tjgoevtvobvmlyefgxel
    비밀:  supabase secrets set PADDLE_WEBHOOK_SECRET=pdl_ntfset_… --project-ref tjgoevtvobvmlyefgxel
