@@ -45,6 +45,9 @@ function statusOf(type: string, s: any): { status: string; end: string | null } 
   const end = s.current_period_end ?? null;
   if (type === 'subscription.revoked') return { status: 'canceled', end: s.ended_at ?? new Date().toISOString() };
   const st = String(s.status ?? '');
+  /* 해지 예약(cancel_at_period_end): Polar 는 active 로 보내지만, 화면에 「해지 예약됨 · 날짜까지」를 정확히 보이려고
+     canceled + 기간 끝 날짜로 적는다 — isPro · is_pro 는 그 날까지 Pro 로 본다. 다시 이으면(uncanceled) active 로 돌아온다. */
+  if (s.cancel_at_period_end && (st === 'active' || st === 'trialing')) return { status: 'canceled', end };
   if (st === 'active' || st === 'trialing' || st === 'past_due') return { status: st, end };
   if (st === 'canceled') return { status: 'canceled', end: s.ended_at ?? end };
   return { status: 'canceled', end: new Date().toISOString() };   // incomplete · unpaid 등 — 열지 않는다
