@@ -4,10 +4,14 @@
    (「정답이 둘인 문제」는 기계가 못 가린다. 사람이 눈으로 볼 것.) */
 import { LT_CUSTOM_OVERALL } from '../leveltest-overall.js';
 import { LT_CUSTOM_WRITING } from '../leveltest-writing.js';
+import { SB_CATS } from '../sentences.js';
+/* 문법 꼬리표 g — 결과지 「다시 볼 것」이 틀린 문제를 그 문법 쪽(#learn/sentence/<id>)에 잇는다(2026-10-05). 있으면 진짜 id 여야 한다. */
+const GIDS = new Set(SB_CATS.flatMap((c) => c.points.map((p) => p.id)));
 
 const SETS = [
-  { name: '전체(overall)', items: LT_CUSTOM_OVERALL, levels: [0, 1, 2, 3, 4, 5, 6, 7], need: 8 },
-  { name: '쓰기(writing)', items: LT_CUSTOM_WRITING, levels: [2, 3, 4, 5, 6, 7], need: 6 },
+  /* need — 레벨마다 이만큼은 있어야 다시 봐도 다른 문제가 나온다(운영자 결정 2026-10-05: 30). 모자라면 짚기만 한다. */
+  { name: '전체 · 문법(overall)', items: LT_CUSTOM_OVERALL, levels: [0, 1, 2, 3, 4, 5, 6, 7], need: 30 },
+  { name: '쓰기(writing)', items: LT_CUSTOM_WRITING, levels: [2, 3, 4, 5, 6, 7], need: 30 },
 ];
 const bad = [], note = [];
 for (const { name, items, levels, need } of SETS) {
@@ -20,6 +24,7 @@ for (const { name, items, levels, need } of SETS) {
     else if (new Set(x.options).size !== 4) bad.push(`${at}: 보기가 겹친다`);
     if (!(Number.isInteger(x.answer) && x.answer >= 0 && x.answer < 4)) bad.push(`${at}: answer 가 0~3 이 아니다`);
     if (!x.why) bad.push(`${at}: why 가 없다`);
+    if (x.g != null && !GIDS.has(String(x.g))) bad.push(`${at}: g 「${x.g}」 는 예문 만들기에 없는 문법 id 다`);
     if (JSON.stringify(x).includes('\\\\n')) bad.push(`${at}: 줄바꿈 대신 「\\n」 두 글자가 있다`);
     const key = (x.passage || '') + '|' + x.q;
     if (seen.has(key)) bad.push(`${at}: 같은 문제가 또 있다`);
@@ -27,7 +32,8 @@ for (const { name, items, levels, need } of SETS) {
     count[x.lv] = (count[x.lv] || 0) + 1;
   });
   const row = levels.map((L) => `L${L} ${count[L] || 0}`).join(' · ');
-  console.log(`${name} ${items.length}문제 — ${row}`);
+  const noG = items.filter((x) => x.g == null && x.lv > 0).length;
+  console.log(`${name} ${items.length}문제 — ${row} · 문법 꼬리표 없음 ${noG}`);
   const short = levels.filter((L) => (count[L] || 0) < need);
   if (short.length) note.push(`${name}: 레벨마다 ${need}문제 밑 — ${short.map((L) => `L${L}(${count[L] || 0})`).join(' ')}`);
 }
