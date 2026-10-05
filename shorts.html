@@ -16,6 +16,7 @@
   :root { --bg:#161411; --card:#211E1A; --line:#38332C; --ink:#F2EEE6; --dim:#8A8376; --or:#F08A45; }
 }
 * { box-sizing:border-box; }
+[hidden] { display:none !important; }   /* .row · .btn 의 display 가 hidden 을 이기지 않게 */
 body { margin:0; background:var(--bg); color:var(--ink); font-family:"Pretendard Variable", Pretendard, sans-serif; }
 button, select, input { font-family:inherit; font-size:15px; color:inherit; }
 .wrap { display:grid; grid-template-columns:auto minmax(0, 420px); gap:24px; padding:16px; justify-content:center; align-items:start; }
@@ -78,7 +79,15 @@ kbd { border:1px solid var(--line); border-bottom-width:2px; border-radius:5px; 
   </div>
   <div class="panel">
     <div class="box">
-      <h2>1. 문제 고르기</h2>
+      <h2>1. 무엇을 찍을까</h2>
+      <div class="row">
+        <select id="mode"><option value="read">📖 TOPIK 읽기</option><option value="gram">✏️ 문법 소개</option></select>
+      </div>
+      <div class="row" id="slideRow" hidden>
+        <button class="btn" id="slPrev">◀ 앞 장 <kbd>←</kbd></button>
+        <span class="time" id="slNo">1 / 7</span>
+        <button class="btn" id="slNext">다음 장 ▶ <kbd>→</kbd> <kbd>Space</kbd></button>
+      </div>
       <div class="row">
         <select id="exam"><option value="I">TOPIK I</option><option value="II">TOPIK II</option></select>
         <select id="grade"></select>
@@ -92,11 +101,11 @@ kbd { border:1px solid var(--line); border-bottom-width:2px; border-radius:5px; 
       <div class="muted" id="info"></div>
       <label class="muted">맨 위 한 줄(훅) — 비우면 안 나와요
         <input type="text" id="hook" maxlength="40"></label>
-      <div class="row">
+      <div class="row" id="coverRow">
         <span class="muted">표지</span><select id="coverSel"></select>
         <button class="btn" id="coverPrev">표지 보기 <kbd>T</kbd></button>
       </div>
-      <div class="muted">영상 첫 1초가 표지예요. 같은 그림을 표지 사진으로도 올려요.</div>
+      <div class="muted" id="coverNote">영상 첫 1초가 표지예요. 같은 그림을 표지 사진으로도 올려요.</div>
     </div>
 
     <div class="box">
@@ -121,7 +130,7 @@ kbd { border:1px solid var(--line); border-bottom-width:2px; border-radius:5px; 
         <button class="btn" id="undo">↶ 하나 지우기 <kbd>Z</kbd></button>
         <button class="btn" id="clear">모두 지우기 <kbd>C</kbd></button>
       </div>
-      <div class="row">
+      <div class="row" id="ansRow">
         <button class="btn" id="answer">✅ 정답 보이기 <kbd>A</kbd></button>
         <button class="btn" id="why">💡 풀이 보이기 <kbd>W</kbd></button>
       </div>
