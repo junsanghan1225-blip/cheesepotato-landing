@@ -58,7 +58,8 @@ function goLearn(sub) {
 document.getElementById('topikHdBtn').addEventListener('click', () => goLearn('topik'));
 /* 내 코스 — 머리띠와 첫 화면 히어로 두 곳에서 연다. */
 document.getElementById('myHdBtn').addEventListener('click', () => goLearn('mine'));
-document.getElementById('heroMyBtn').addEventListener('click', () => goLearn('mine'));
+/* 첫 화면 히어로의 둘째 단추는 회원가입(2026-10-05) — 계정 화면(로그인 · 가입)으로 */
+document.getElementById('heroSignupBtn').addEventListener('click', () => { if (window.cpOpen) window.cpOpen('account'); else location.hash = '#account'; });
 /* 첫 화면의 떠 있는 낱말 카드(heroCardBtn)는 2026-10-05 시안 A 에서 「오늘의 TOPIK 1문제」(app.module.js hmQuizRender)로 바뀌었다. */
 document.getElementById('streakGoBtn').addEventListener('click', () => goLearn());
 document.getElementById('hmMyBtn').addEventListener('click', () => goLearn('mine'));
