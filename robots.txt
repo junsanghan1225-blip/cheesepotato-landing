@@ -13,6 +13,7 @@ Allow: /
 # 녹음소(운영자 도구) — 배우는 쪽이 아니다
 Disallow: /record.html
 Disallow: /shorts.html
+Disallow: /connect.html
 Disallow: /record/
 
 # ── 대화형 엔진 · AI answer engines ──────────────────────────
