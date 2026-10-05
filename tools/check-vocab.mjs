@@ -82,6 +82,8 @@ for (const f of files) {
     if (!Array.isArray(w.purposes) || !w.purposes.length) err.push(`${at} — purposes 가 하나 이상`);
     else w.purposes.forEach((p) => { if (!PURPOSES.has(p)) err.push(`${at} — 목적 「${p}」 가 taxonomy 에 없다`); });
     if (!Array.isArray(w.topics)) err.push(`${at} — topics 는 배열`);
+    /* 우리 레벨(감자 L1 ~ L7) — tools/vocab-level.mjs 가 넣는다. 빠지면 「내 길」 · 레벨별 단어장에서 낱말이 사라진다. */
+    if (w.grade !== 'C' && !(Number.isInteger(w.lv) && w.lv >= 1 && w.lv <= 7)) err.push(`${at} — lv(우리 레벨 1~7)가 없다 — node tools/vocab-level.mjs`);
     /* 콩글리시(kg) — 영어처럼 보이는 말(like)과 영어로 실제 하는 말(say). 둘 다 있어야 화면에 「헷갈림 주의」가 바로 선다. */
     if (w.kg !== undefined && !(w.kg && typeof w.kg.like === 'string' && w.kg.like.trim() && typeof w.kg.say === 'string' && w.kg.say.trim()))
       err.push(`${at} — kg 는 { like, say } 둘 다 글자로`);
