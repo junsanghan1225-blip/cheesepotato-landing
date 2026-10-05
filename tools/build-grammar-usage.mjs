@@ -102,7 +102,10 @@ const PRACTICE = {};
 /* 손으로 쓴 연습 문장(안티 그래비티 → Claude 검토, docs/grammar-practice.json, 검사 check-grammar-practice) — 있으면 맨 앞에 */
 const HAND = fs.existsSync(path.join(ROOT, 'docs/grammar-practice.json'))
   ? JSON.parse(fs.readFileSync(path.join(ROOT, 'docs/grammar-practice.json'), 'utf8')) : {};
-const handOf = (id) => (Array.isArray(HAND[id]) ? HAND[id] : []).filter((x) => x?.ko).map((x) => (x.en ? [x.ko.trim(), x.en.trim()] : [x.ko.trim()]));
+/* 초급 표현은 짧은 문장부터(블록이 적어야 처음 하는 사람이 덜 막힌다) — 안티 문장 중 8어절이 넘는 것이 꽤 있다(2026-10-05 검토) */
+const handOf = (id) => (Array.isArray(HAND[id]) ? HAND[id] : []).filter((x) => x?.ko)
+  .map((x) => (x.en ? [x.ko.trim(), x.en.trim()] : [x.ko.trim()]))
+  .sort((a, b) => (LV.get(id) === 'beginner' ? a[0].split(/\s+/).length - b[0].split(/\s+/).length : 0));
 const withHand = (id, auto) => { const h = handOf(id); const out = [...h, ...auto.filter((a) => !h.some((x) => x[0] === a[0]))].slice(0, 8); return out; };
 const LV = new Map(PTS.map((p) => [p.id, p.lv]));
 /* 게시판 씨앗 글(SB_SEED)도 화면 아래에 보인다 — 연습 문장에서 뺀다 */
