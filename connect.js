@@ -9,7 +9,7 @@
   $('ytGo').addEventListener('click', function () {
     var id = $('ytId').value.trim(); if (!id) { alert('클라이언트 ID 를 넣어 주세요'); return; } set('cp-yt-client', id);
     location.href = 'https://accounts.google.com/o/oauth2/v2/auth?' + new URLSearchParams({ client_id: id, redirect_uri: CB, response_type: 'code',
-      scope: 'https://www.googleapis.com/auth/youtube.upload', access_type: 'offline', prompt: 'consent', state: 'yt' });
+      scope: 'https://www.googleapis.com/auth/youtube' /* 올리기 + 재생목록(upload 만으로는 재생목록을 못 만든다) */, access_type: 'offline', prompt: 'consent', state: 'yt' });
   });
   $('ttGo').addEventListener('click', function () {
     var key = $('ttKey').value.trim(); if (!key) { alert('Client key 를 넣어 주세요'); return; } set('cp-tt-key', key);

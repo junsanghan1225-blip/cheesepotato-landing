@@ -187,7 +187,27 @@ function drawDeck(c, m, item, sl, i, hook, t) {
   if (m === 'listen' && sl[i].k === 'cover') return drawCover(c, { ...item, kind: '듣기', question: item.q }, coverStyle, { hook: hook || HOOK.listen, logo: logoOk() });
   return drawTopikSlide(c, sl, i, { logo: logoOk(), t, playing: rec ? micLevel : 0 });
 }
-const metaOf = (m, item, hook) => (m === 'gram' ? grammarMeta(item, hook) : m === 'read' ? shortsMeta(item, hook) : topikMeta(m, item, hook));
+/* 시리즈 이름 — 제목 맨 앞에 붙고, 유튜브 재생목록 이름이 된다(운영자 2026-10-05: 「시리즈 제목이랑 재생목록」).
+   [TOPIK I 모의고사 1회 · 31번 1/40] 처럼 — 다음 편을 찾아보게. 액션(tools/shorts-post.mjs)이 대괄호 안 「· 」 앞을 재생목록으로 쓴다. */
+function seriesOf(m, item, roundIdx, pos, total) {
+  if (m === 'gram') { const lv = levelOf(item)[0]; return { list: `한국어 ${lv} 문법`, tag: `[한국어 ${lv} 문법 · ${pos}/${total}]` }; }
+  const name = m === 'read' ? `TOPIK ${item.exam} 모의고사 ${roundIdx + 1}회` : m === 'listen' ? `TOPIK ${item.exam} 듣기 모의고사 ${roundIdx + 1}회` : `TOPIK II 쓰기 모의고사 ${roundIdx + 1}회`;
+  const no = m === 'write' ? item.q : item.slot;
+  return { list: name, tag: `[${name} · ${no}번 ${pos}/${total}]` };
+}
+const metaOf = (m, item, hook, series) => {
+  const r = m === 'gram' ? grammarMeta(item, hook) : m === 'read' ? shortsMeta(item, hook) : topikMeta(m, item, hook);
+  if (!series) return r;
+  /* 시리즈가 있으면 제목은 「[시리즈] 훅 #shorts」만 — 「TOPIK I 읽기 31번」이 두 번 나오지 않게 */
+  const WHOOK = { 51: '이 빈칸, 채울 수 있어요?', 52: '이 빈칸, 채울 수 있어요?', 53: '이 자료, 글로 쓸 수 있어요?', 54: '600자 논술, 이렇게 써요' };
+  const core = m === 'gram' ? `${item.name} — 1분 정리` : (hook || (m === 'write' ? WHOOK[item.q] : HOOK[m]) || '이 문제, 풀 수 있어요?');
+  return { ...r, title: `${series.tag} ${core} #shorts`.slice(0, 100), caption: `${series.tag}\n${r.caption}`, description: `${series.tag}\n${r.description}`, playlist: series.list };
+};
+/* 지금 고른 것의 시리즈 — 문법은 같은 단계 안에서 몇 번째 */
+function seriesNow() {
+  if (isGram()) { const same = GRAMMAR_POINTS.filter((x) => x.lv === q.lv); return seriesOf(mode, q, 0, same.indexOf(q) + 1, same.length); }
+  return seriesOf(mode, q, +$('grade').value || 0, idx + 1, list.length);
+}
 function drawMaster() {
   ctx.fillStyle = C.bg; ctx.fillRect(0, 0, W, H);
   if (isDeck()) { if (q && slides.length) { drawDeck(ctx, mode, q, slides, slide, $('hook').value.trim(), now() - animT0); drawStrokes(); } return; }
@@ -492,7 +512,7 @@ async function recStart() {
   /* 3Mbps — 글자 화면은 이 정도로 충분히 또렷하고, 1분 영상이 20MB 쯤이라 저장소 한도(파일 하나 50MB) 안에 든다 */
   rec = new MediaRecorder(stream, { mimeType: MIME, videoBitsPerSecond: 3e6, audioBitsPerSecond: 128e3 });
   chunks = []; rec.ondataavailable = (e) => e.data.size && chunks.push(e.data);
-  const snap = { q, hook: $('hook').value.trim(), style: coverStyle, mode, deck: isDeck(), slides, key: keyOf(q) };
+  const snap = { q, hook: $('hook').value.trim(), style: coverStyle, mode, deck: isDeck(), slides, key: keyOf(q), series: seriesNow() };
   rec.onstop = () => takeOpen(snap);
   /* 읽기는 첫 1초를 표지로 끼우고, 문법은 첫 장(0장)이 표지라 그 장부터 찍는다 */
   slideGo(0);
@@ -551,7 +571,7 @@ $('takeUp').addEventListener('click', async () => {
     const up = async (path, blob, type) => { const { error } = await sb.storage.from('shorts').upload(path, blob, { contentType: type, upsert: false }); if (error) throw error; };
     await up(`${base}.${EXT}`, take.video, MIME.split(';')[0]);
     await up(`${base}.jpg`, take.cover, 'image/jpeg');
-    const m = metaOf(take.mode, take.q, take.hook);
+    const m = metaOf(take.mode, take.q, take.hook, take.series);
     const { error } = await sb.from('shorts_queue').insert({ qid: take.key, exam: take.mode === 'read' ? take.q.exam : take.mode === 'listen' ? `listen-${take.q.exam}` : take.mode, video_path: `${base}.${EXT}`, cover_path: `${base}.jpg`,
       mime: MIME.split(';')[0], seconds: take.sec, title: m.title, description: m.description, caption: m.caption, tags: m.tags, cover_style: take.deck ? take.mode : take.style });
     if (error) throw error;
@@ -584,7 +604,7 @@ $('queueRe').addEventListener('click', queueLoad);
 
 /* 제목 · 설명 — 대기열과 같은 틀(shorts-cover.js shortsMeta) */
 $('copy').addEventListener('click', async () => {
-  const m = metaOf(mode, q, $('hook').value.trim()), d = `${m.title}\n\n${m.description}`;
+  const m = metaOf(mode, q, $('hook').value.trim(), seriesNow()), d = `${m.title}\n\n${m.description}`;
   try { await navigator.clipboard.writeText(d); $('copy').textContent = '📋 복사했어요'; } catch { prompt('복사해 주세요', d); }
   setTimeout(() => { $('copy').textContent = '📋 제목 · 설명 복사'; }, 1500);
 });

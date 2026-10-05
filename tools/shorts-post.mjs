@@ -76,7 +76,34 @@ async function toYouTube(row, file, cover) {
     const t = await fetch(`https://www.googleapis.com/upload/youtube/v3/thumbnails/set?videoId=${v.id}`, { method: 'POST', headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'image/jpeg' }, body: await readFile(cover) });
     thumb = t.ok; if (!t.ok) console.log(`  (유튜브 표지는 못 넣었어요 ${t.status} — 채널 인증이 필요할 수 있어요)`);
   }
-  return { ok: true, id: v.id, url: `https://youtube.com/shorts/${v.id}`, privacy: meta.status.privacyStatus, thumb };
+  /* 재생목록 — 제목 맨 앞 [시리즈 이름 · …] 의 이름(촬영소가 붙인다). 실패해도 영상은 올라갔으니 넘어간다 */
+  let playlist = null;
+  const name = playlistOf(row);
+  if (name) {
+    try { playlist = await addToPlaylist(token, name, v.id); console.log(`  재생목록 「${name}」에 넣음`); }
+    catch (e) { console.log(`  (재생목록에는 못 넣었어요: ${e.message} — 연결을 다시 하면 권한이 생겨요 · docs/shorts-auto.md 2-6)`); }
+  }
+  return { ok: true, id: v.id, url: `https://youtube.com/shorts/${v.id}`, privacy: meta.status.privacyStatus, thumb, playlist };
+}
+
+/* 「[TOPIK I 모의고사 1회 · 31번 1/40] …」 → 「TOPIK I 모의고사 1회」 */
+export const playlistOf = (row) => (String(row.title || '').match(/^\[(.+?) · /) || [])[1] || null;
+/* 이름으로 재생목록을 찾고(표 shorts_kv 에 적어 둔 id 먼저) 없으면 만든 뒤 영상을 넣는다.
+   재생목록은 공개 — 비공개 영상은 넣어도 남에게는 안 보이고, 공개로 바꾸면 그대로 시리즈가 된다 */
+async function addToPlaylist(token, name, videoId) {
+  const H2 = { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json; charset=UTF-8' };
+  const key = 'yt_pl:' + name;
+  let id = await kvGet(key);
+  if (!id) {
+    const r = await fetch('https://www.googleapis.com/youtube/v3/playlists?part=snippet,status', { method: 'POST', headers: H2,
+      body: JSON.stringify({ snippet: { title: name, description: `${name} — 치즈감자 연습 문제(기출 아님). 무료 TOPIK 연습 → https://everykoreans.com`, defaultLanguage: 'ko' }, status: { privacyStatus: 'public' } }) });
+    const j = await r.json(); if (!j.id) throw new Error(`재생목록 만들기 ${r.status}: ${j.error?.message || ''}`);
+    id = j.id; await kvSet(key, id);
+  }
+  const r = await fetch('https://www.googleapis.com/youtube/v3/playlistItems?part=snippet', { method: 'POST', headers: H2,
+    body: JSON.stringify({ snippet: { playlistId: id, resourceId: { kind: 'youtube#video', videoId } } }) });
+  if (!r.ok) throw new Error(`재생목록에 넣기 ${r.status}: ${(await r.text()).slice(0, 200)}`);
+  return { id, name };
 }
 
 async function toInstagram(row, videoUrl, coverUrl) {
