@@ -266,11 +266,18 @@ const saveOv = (post) => {
 };
 
 /* 자리 잡기 — 위에서부터 쌓고(크기 바꾼 것을 따라), 아래 붙은 것은 아래에서부터. 그다음 옮긴 만큼 더한다 */
+/* 넘치면 줄이기(운영자 지적 2026-10-05 — 오늘의 TOPIK 지문 · 보기가 길면 4번 보기 · 「정답은 다음 장」이 아래 로고 줄에 겹쳤다).
+   위 글 전체를 같은 비율(k)로 조금씩 줄여 아래 안내 줄 위에 들어올 때까지 다시 쌓는다. 0.6 보다 작게는 안 줄인다(읽혀야 한다). */
 function place(post, si) {
+  let k = 1, out = place1(post, si, k);
+  while (out.over && k > 0.6) { k *= 0.95; out = place1(post, si, k); }
+  return out;
+}
+function place1(post, si, k) {
   const sl = post.slides[si], out = [];
   let y = TOP;
   for (const e0 of sl.els.filter((e) => !e.bottom)) {
-    const o = ovPeek(post, si, e0.id), e = { ...e0, w: CW, s: o.s };
+    const o = ovPeek(post, si, e0.id), e = { ...e0, w: CW, s: o.s * k, gap: (e0.gap || 0) * k };
     let L = layout(e, e.s);
     /* 큰 제목(낱말 · 주제 · 문법 이름)은 틀을 다른 날에 써도 한 줄을 넘지 않게 — 넘치면 들어갈 만큼만 줄인다 */
     while (e0.oneLine && L.lines.length > e0.blocks.length && e.s > 0.3) { e.s *= 0.96; L = layout(e, e.s); }
@@ -279,6 +286,7 @@ function place(post, si) {
   /* 아래 붙은 것 — 위 글이 길어 닿으면 위 글 바로 밑으로 밀린다(겹치지 않게) */
   const bot = sl.els.filter((e) => e.bottom).map((e0) => { const o = ovPeek(post, si, e0.id), e = { ...e0, w: CW, s: o.s }; return { e, o, L: layout(e, e.s) }; });
   const total = bot.reduce((n, b) => n + b.L.ch + 2 * b.L.pad, 0) + 24 * Math.max(0, bot.length - 1);
+  out.over = y + 28 > BOTTOM - total;
   let yb = Math.max(BOTTOM - total, y + 28);
   for (const { e, o, L } of bot) { out.push({ e, L, x: X0 + o.dx, y: yb + o.dy }); yb += L.ch + 2 * L.pad + 24; }
   return out;
