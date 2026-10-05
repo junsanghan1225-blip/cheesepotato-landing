@@ -59,10 +59,7 @@ document.getElementById('topikHdBtn').addEventListener('click', () => goLearn('t
 /* 내 코스 — 머리띠와 첫 화면 히어로 두 곳에서 연다. */
 document.getElementById('myHdBtn').addEventListener('click', () => goLearn('mine'));
 document.getElementById('heroMyBtn').addEventListener('click', () => goLearn('mine'));
-/* 첫 화면 카드도 눌리는 자리다. 방문 기록을 보면 사람들이 오는 곳은
-   레딧이고, 앱을 받으러 온 것이 아니라 **여기서 한국어를 해 보려고**
-   온다. 눌러 본 사람은 「해 보고 싶다」고 말한 것이니 그 자리로 보낸다. */
-document.getElementById('heroCardBtn').addEventListener('click', () => goLearn());
+/* 첫 화면의 떠 있는 낱말 카드(heroCardBtn)는 2026-10-05 시안 A 에서 「오늘의 TOPIK 1문제」(app.module.js hmQuizRender)로 바뀌었다. */
 document.getElementById('streakGoBtn').addEventListener('click', () => goLearn());
 document.getElementById('hmMyBtn').addEventListener('click', () => goLearn('mine'));
 
@@ -81,6 +78,7 @@ document.getElementById('heroLevelTestBtn').addEventListener('click', () => goLe
    막상 눌러 보면 찾아볼 사전 화면이 없이 엑셀 파일 목록만 나왔다. */
 const WAY_GO = {
   learn:    () => goLearn(),
+  courses:  () => goLearn('courses'),
   topik:    () => goLearn('topik'),
   topikListening: () => goLearn('topik/listening'),
   topikReading:   () => goLearn('topik/reading'),
@@ -93,7 +91,8 @@ const WAY_GO = {
   games:    () => window.cpOpen && window.cpOpen('games'),
   glossary: () => window.cpOpen && window.cpOpen('words'),
 };
-document.querySelectorAll('.way[data-go]').forEach((b) => {
+/* 첫 화면 두 문(.hm-door, 2026-10-05)도 같은 길로 */
+document.querySelectorAll('.way[data-go], .hm-door[data-go]').forEach((b) => {
   b.addEventListener('click', () => { const f = WAY_GO[b.dataset.go]; if (f) f(); });
 });
 

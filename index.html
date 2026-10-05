@@ -40,7 +40,7 @@
 ">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <!-- 구글 태그 관리자. 구글이 주는 인라인 코드조각은 CSP 가 막아서 gtm.js 로 뺐다. -->
-<script src="gtm.js?v=dde679c2" async></script>
+<script src="gtm.js?v=9151b292" async></script>
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <!-- 제목과 설명을 두 말로 쓴다. 이 사이트를 찾을 사람은 한국어를 **배우는**
@@ -119,13 +119,13 @@
      Pretendard 는 통짜(2.0MB) 대신 조각난 쪽을 쓴다 — 브라우저가
      unicode-range 를 보고 화면에 실제로 나온 글자가 든 조각만 받는다.
      그래서 저장소는 무거워졌지만 학습자가 받는 양은 오히려 줄었다. -->
-<link rel="stylesheet" href="vendor/pretendard.css?v=dde679c2">
-<link rel="stylesheet" href="vendor/pressstart2p.css?v=dde679c2">
+<link rel="stylesheet" href="vendor/pretendard.css?v=9151b292">
+<link rel="stylesheet" href="vendor/pressstart2p.css?v=9151b292">
 <!-- 화면 상자 안에서만 쓰는 CSS 는 여기서 갈라 받는다. media="print" 라
      첫 페인트를 안 막고, 다 받아지면 app.js 가 media 를 all 로 바꾼다.
      자바스크립트가 없으면 <noscript> 쪽이 그냥 평범하게 걸린다. -->
-<link id="viewsCss" rel="stylesheet" href="app-views.css?v=dde679c2" media="print">
-<noscript><link rel="stylesheet" href="app-views.css?v=dde679c2"></noscript>
+<link id="viewsCss" rel="stylesheet" href="app-views.css?v=9151b292" media="print">
+<noscript><link rel="stylesheet" href="app-views.css?v=9151b292"></noscript>
 
 <style>
 /* ══════════════════════════════════════════════════════════════
@@ -700,6 +700,49 @@ body.nav-open { overflow:hidden; }
   cursor:pointer; transition:background .18s, border-color .18s;
 }
 .btn-ghost:hover, .pt-ghost:hover { background:rgba(var(--ink-rgb),.045); border-color:rgba(var(--ink-rgb),.22); color:var(--ink); }
+
+/* ── 첫 화면 시안 A (2026-10-05) — 숫자 네 칸 · 함께 공부한 사람 · 믿을 근거 · 오늘의 TOPIK · 두 문 ── */
+.btn-primary small { font-size:12px; font-weight:600; color:#D9CDBE; }
+.hero h1 { font-size:clamp(31px, 8.6vw, 40px); line-height:1.16; letter-spacing:-.045em; word-break:keep-all; }
+.hero h1 br { display:inline; }
+.hm-proof { display:grid; grid-template-columns:repeat(2,1fr); gap:1px; background:var(--line); border:1px solid var(--line); border-radius:var(--r-l); overflow:hidden; margin-top:4px; }
+.hm-proof > div { background:var(--surface); padding:12px 14px; display:flex; flex-direction:column; min-width:0; }
+.hm-proof b { font-size:22px; font-weight:800; letter-spacing:-.03em; font-variant-numeric:tabular-nums; color:var(--ink); }
+.hm-proof span { font-size:12.5px; color:var(--ink-3); }
+.hm-users { margin:14px 0 0; font-size:14.5px; color:var(--ink-2); line-height:1.6; word-break:keep-all; }
+.hm-users b { color:var(--ink); }
+.hm-users small { display:block; font-size:11.5px; color:var(--ink-3); }
+.hm-trust { list-style:none; padding:0; margin:10px 0 0; display:flex; flex-wrap:wrap; gap:4px 16px; font-size:13px; color:var(--ink-3); }
+.hm-trust li::before { content:'✓ '; color:var(--green); font-weight:700; }
+.hm-today { margin-top:26px; }
+.hm-quiz { background:var(--surface); border:1px solid var(--line); border-radius:var(--r-xl); padding:18px; box-shadow:0 22px 48px -30px rgba(var(--ink-rgb),.35); }
+.hm-quiz-k { display:flex; justify-content:space-between; align-items:center; gap:8px; font-size:13px; }
+.hm-quiz-k b { color:var(--orange-deep); letter-spacing:.02em; }
+.hm-quiz-k span { color:var(--ink-3); font-size:12px; }
+.hm-quiz-wait { color:var(--ink-3); font-size:14px; margin:12px 0 0; }
+.hm-quiz-p { border:1.5px solid var(--ink); border-radius:8px; padding:10px 13px; margin:10px 0; font-size:15px; line-height:1.7; white-space:pre-wrap; word-break:keep-all; }
+.hm-quiz-q { font-weight:700; font-size:15px; margin:0 0 8px; word-break:keep-all; }
+.hm-quiz-o { display:grid; gap:7px; }
+.hm-quiz-o button { font:inherit; font-size:14.5px; text-align:left; display:flex; gap:9px; align-items:baseline; padding:9px 12px; border-radius:10px; border:1.5px solid var(--line); background:var(--surface); color:var(--ink); cursor:pointer; }
+.hm-quiz-o button i { font-style:normal; font-weight:800; color:var(--orange-mid); }
+.hm-quiz-o button:hover { border-color:rgba(255,145,77,.6); }
+.hm-quiz-o button.ok { border-color:var(--green); background:color-mix(in srgb, var(--green) 10%, var(--surface)); }
+.hm-quiz-o button.no { border-color:var(--red); background:color-mix(in srgb, var(--red) 8%, var(--surface)); }
+.hm-quiz-r { margin:10px 0 0; font-size:14px; color:var(--ink-2); line-height:1.6; }
+.hm-quiz-r a { display:inline-block; margin-top:6px; font-weight:700; color:var(--orange-deep); }
+.hm-doors { max-width:var(--max); margin:28px auto 0; padding:0 var(--gut); display:grid; gap:12px; }
+.hm-door { font:inherit; color:var(--ink); text-align:left; cursor:pointer; display:grid; grid-template-columns:64px minmax(0,1fr); gap:14px; align-items:center;
+  padding:16px; border-radius:var(--r-xl); border:1.5px solid var(--ink); transition:transform .15s; }
+.hm-door:hover { transform:translateY(-2px); }
+.hm-door:focus-visible { outline:3px solid var(--orange); outline-offset:3px; }
+.hm-door.d1 { background:#FBEFE0; } .hm-door.d2 { background:#FFF4D6; }
+.hm-door-ic { width:64px; height:64px; }
+.hm-door-ic svg { width:100%; height:100%; display:block; }
+.hm-door-t { display:flex; flex-direction:column; gap:3px; min-width:0; }
+.hm-door-t b { font-size:18px; letter-spacing:-.02em; }
+.hm-door-t span { font-size:13.5px; color:var(--ink-2); word-break:keep-all; }
+.hm-door-t em { font-style:normal; font-size:12.5px; font-weight:800; color:var(--orange-deep); }
+html[data-lv] .hm-doors { display:none; }
 
 /* 떠 있는 단어 카드 */
 .hero-stage { position:relative; height:210px; perspective:1100px; }
@@ -1514,10 +1557,16 @@ body.hlp-open { overflow:hidden; }
   .hero { padding:92px var(--gut) 40px; }
   .hero-in { display:grid; grid-template-columns:1.06fr .94fr; gap:56px; align-items:center; }
   .hero-logo { display:none; }        /* 헤더에 이미 로고가 있다 */
-  .hero h1 { font-size:clamp(62px, 7.4vw, 88px); }
+  .hero h1 { font-size:clamp(44px, 4.6vw, 60px); }
   .hero-sub { font-size:19px; margin-bottom:36px; }
   .btn-row { padding-bottom:0; }
   .hero-stage { height:300px; }
+  .hero-in { align-items:start; }
+  .hm-today { margin-top:0; }
+  .hm-proof { grid-template-columns:repeat(4,1fr); }
+  .hm-doors { grid-template-columns:1fr 1fr; gap:16px; margin-top:40px; }
+  .hm-door { grid-template-columns:84px minmax(0,1fr); padding:22px; }
+  .hm-door-ic { width:84px; height:84px; }
   .hero-stack { left:auto; right:8px; width:308px; height:194px; }
   .hero-word { font-size:31px; }
   .hero-meaning { font-size:15px; }
@@ -1933,11 +1982,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
        docs/level-plan.md 4층. 테스트 전이면 비어 있고 숨는다 — 처음 온 사람의 첫 화면은 그대로. -->
   <section id="todayCard" class="td-wrap" hidden aria-label="오늘 할 일"></section>
 
-  <!-- 사이트 검색 — 낱말 · 문법 · 코스 · 레슨 · TOPIK 쓰기 · 블로그 · 화면 이름을 한 칸에서(운영자 요청 2026-10-02).
-       색인(search-index.js)은 칸을 처음 누를 때 받는다. app.module.js ssSearch -->
-  <section class="ss-wrap" id="siteSearch" aria-label="사이트 검색" data-en-aria="Search the site">
+  <!-- 사이트 검색 — 첫 화면에서 숨겼다(운영자 결정 2026-10-05 「검색바는 빼자」 — 시안 A). 지우지 않고 hidden 으로 둔다 —
+       검색 코드(app.module.js ssSearch)와 색인은 그대로라, 다시 보이려면 hidden 만 뗀다. -->
+  <section class="ss-wrap" id="siteSearch" aria-label="사이트 검색" data-en-aria="Search the site" hidden>
     <div class="ss-box">
-      <!-- 치즈감자 얼굴 + 치즈색 테두리 — 운영자 요청 2026-10-03 「크게, 치즈감자 느낌」 -->
       <img class="ss-face" src="logo.png" alt="" width="44" height="44">
       <input type="search" id="ssIn" class="ss-in" autocomplete="off" enterkeyhint="search"
              placeholder="낱말 · 문법 · TOPIK · 코스 찾기" data-en-placeholder="Search words, grammar, TOPIK…">
@@ -1950,37 +1998,57 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
        예전에는 「Vocabulary Learning App」이었다. 지금 이 판이 실제로 하는
        일은 한국어를 가르치는 것이고, 단어장은 그 안에서 만난 낱말을 담는
        자리로 내려갔다. 첫 화면이 그렇게 말해야 한다. -->
+  <!-- 히어로 — 시안 A 「오늘의 한 장」(운영자 결정 2026-10-05, 19개 학습 사이트 분석에서): 무엇을 주는지 한 줄(머리 문장) ·
+       레벨테스트 하나 · 진짜 숫자(check-geo 가 aria-label 의 수를 자료와 맞춰 본다) · 오른쪽은 오늘의 TOPIK 1문제(인스타와 같은 문제, app.module.js hmQuizRender).
+       글자 「치즈감자」는 머리띠 로고와 배지에 남긴다. -->
   <div class="hero hm-intro">
    <div class="hero-in">
     <div class="hero-copy">
       <img class="hero-logo" src="logo-256.png" alt="치즈감자 로고" width="56" height="56">
-      <div class="hero-badge" data-ko="무료 한국어 학습 · TOPIK I·II 대비">Free Korean learning · TOPIK I & II</div>
-      <h1>치즈감자</h1>
-      <p class="hero-en">CHEESEPOTATO</p>
-      <p class="hero-sub" data-ko="한글 낱자부터 TOPIK 까지.<br>설치도 회원가입도 없이 브라우저에서 바로.">Korean from the first letter to TOPIK.<br>In your browser — no install, no sign-up.</p>
-      <!-- 히어로는 이제 레벨 테스트 하나로 단순화한다. 한국어 배우기·
-           TOPIK 연습·발음 테스트는 위 ☰ 메뉴(learnBtn·topikBtn·navBtn)로
-           여전히 들어갈 수 있다 — 지운 것은 이 지름길 단추들뿐이다. -->
+      <div class="hero-badge" data-ko="치즈감자 · 무료 한국어 학습 · TOPIK I·II 대비">Cheesepotato · Free Korean · TOPIK I & II</div>
+      <h1 data-ko="하루 10분,<br>한글부터 TOPIK 6급까지">10 minutes a day,<br>from Hangul to TOPIK 6</h1>
+      <p class="hero-sub" data-ko="설치도 회원가입도 없이 브라우저에서 바로.<br>3분 레벨테스트로 내 자리부터 찾아요.">In your browser — no install, no sign-up.<br>Find where to start with a 3-minute level test.</p>
       <div class="btn-row">
-        <button class="btn-primary" id="heroLevelTestBtn" type="button" data-ko="레벨 테스트 →">Level test →</button>
+        <button class="btn-primary" id="heroLevelTestBtn" type="button" data-ko="레벨 테스트 → <small>3분 · 10문제</small>">Level test → <small>3 min · 10 questions</small></button>
         <button class="btn-ghost" id="heroMyBtn" type="button" data-ko="🧭 내 코스">🧭 My course</button>
       </div>
-    </div>
-    <div class="hero-stage">
-      <div class="hero-stack">
-        <div class="back1"></div>
-        <div class="back2"></div>
-        <button class="front" id="heroCardBtn" type="button" aria-label="배우기 열기" data-en-aria="Open Learn">
-          <div class="hero-word">안녕하세요</div>
-          <div class="hero-meaning" data-ko="안녕하세요 — 가장 먼저 배우는 말">Hello — the first thing you learn</div>
-          <div class="hero-diff"><span>🧀</span><span>🥔</span></div>
-        </button>
-        <div class="chip1">🧀</div>
-        <div class="chip2">🥔</div>
+      <div class="hm-proof">
+        <div aria-label="TOPIK 문항 1,179개"><b>1,179</b><span data-en="TOPIK practice questions">TOPIK 연습 문항</span></div>
+        <div aria-label="낱말 7,970개"><b>7,970</b><span data-en="dictionary words">사전 낱말</span></div>
+        <div aria-label="레슨 401개"><b>401</b><span data-en="lessons in 97 courses">레슨 · 코스 97개</span></div>
+        <div aria-label="문법 표현 290개"><b>290</b><span data-en="grammar points">문법 표현</span></div>
       </div>
-      <div class="hero-shadow"></div>
+      <!-- 함께 공부한 사람 — 운영자가 준 구글 애널리틱스 숫자(지난 28일 · 2026-09-07 ~ 10-04). 날짜를 같이 적어 오래된 숫자로 읽히지 않게 -->
+      <p class="hm-users" data-ko="최근 4주 동안 <b>256명</b>이 치즈감자로 공부했어요 · 한 사람 평균 <b>4분 23초</b> <small>Google Analytics · 2026.9.7 ~ 10.4</small>">In the last 4 weeks <b>256 people</b> studied here · <b>4 min 23 s</b> each on average <small>Google Analytics · Sep 7 – Oct 4, 2026</small></p>
+      <ul class="hm-trust">
+        <li data-en="Every question is original — not a past paper">모든 문항 창작 · 기출 아님</li>
+        <li data-en="Definitions from the National Institute of Korean Language">뜻풀이 국립국어원 한국어기초사전</li>
+        <li data-en="Courses, grammar and the dictionary are free">코스 · 문법 · 사전은 무료</li>
+      </ul>
+    </div>
+    <div class="hm-today">
+      <section class="hm-quiz" id="hmQuiz" aria-label="오늘의 TOPIK 1문제" data-en-aria="Daily TOPIK question">
+        <div class="hm-quiz-k"><b data-en="Today's TOPIK question">오늘의 TOPIK 1문제</b><span data-en="Not a past paper">기출 아님</span></div>
+        <p class="hm-quiz-wait" data-en="Loading today's question…">오늘의 문제를 불러오는 중…</p>
+      </section>
     </div>
    </div>
+  </div>
+
+  <!-- 두 문 — 시안 C 의 「목표별 입구」 가운데 둘(운영자: EPS 는 빼도 된다 — 아래 여섯 갈래에는 그대로 있다). data-go 는 여섯 갈래와 같은 길 -->
+  <div class="hm-doors hm-intro">
+    <button class="hm-door d1" type="button" data-go="courses">
+      <span class="hm-door-ic" data-lvl="potato:2" aria-hidden="true"></span>
+      <span class="hm-door-t"><b data-en="Korean from the start">한국어 처음부터</b>
+        <span data-en="Hangul → greetings → sentences · storybooks · travel workbook">한글 → 인사 → 문장 · 동화책 · 여행 학습지</span>
+        <em data-en="97 courses →">코스 97개 →</em></span>
+    </button>
+    <button class="hm-door d2" type="button" data-go="topik">
+      <span class="hm-door-ic" data-lvl="cheese:2" aria-hidden="true"></span>
+      <span class="hm-door-t"><b data-en="Preparing for TOPIK">TOPIK 준비</b>
+        <span data-en="Listening, reading, writing, timed mock exams, AI writing feedback">듣기 · 읽기 · 쓰기, 시계 붙은 모의고사, AI 쓰기 채점</span>
+        <em data-en="Original questions · not past papers →">창작 문항 · 기출 아님 →</em></span>
+    </button>
   </div>
 
   <!-- 첫 화면 덜어 내기(운영자 결정 2026-09-30) — 덩어리 13개를 다섯으로: 오늘 카드 · 히어로 · 여섯 갈래 · 이렇게 공부해요 · 소개(정의 문단 + TOPIK 표) · FAQ.
@@ -3829,9 +3897,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <div id="hlpScrim" class="hlp-scrim"></div>
 <aside id="hlpPanel" class="hlp-panel" aria-label="한국어 도우미" aria-hidden="true"></aside>
 
-<script src="app.js?v=dde679c2"></script>
-<script type="module" src="app.module.js?v=dde679c2"></script>
+<script src="app.js?v=9151b292"></script>
+<script type="module" src="app.module.js?v=9151b292"></script>
 
-<script src="analytics.js?v=dde679c2" defer></script>
+<script src="analytics.js?v=9151b292" defer></script>
 </body>
 </html>
