@@ -13,16 +13,16 @@
    어느 날 갑자기 다른 코드가 실려 왔다.
    이제 vendor/ 안에 받아 두고 CSP 로 바깥을 막는다. 버전을 올릴 때는
    tools/vendor.mjs 의 PIN 을 고치고 다시 돌린다. */
-import { createClient } from './vendor/supabase-js.js?v=00835a3c';
+import { createClient } from './vendor/supabase-js.js?v=72bc79b0';
 // TOPIK 읽기 "문제 풀이 영상" 목록. 아주 작은 파일이라(id 목록뿐) 다른
 // 자료처럼 갈래를 열 때 지연 로딩하지 않고 그냥 처음부터 받는다.
-import { TQ_VIDEO_IDS } from './topik-video.js?v=00835a3c';
+import { TQ_VIDEO_IDS } from './topik-video.js?v=72bc79b0';
 // 코스 아이콘 — 이모지 대신 선 아이콘(course-icons.js 머리말)
 // 구독(Paddle) — billing.js 머리말
-import { BILLING, billingLive, isPro, proInfo, loadPro, openCheckout, waitPro } from './billing.js?v=00835a3c';
-import { myLevelBadge, potatoLevel, cheeseLevel, CHEESE_OF_LEVEL } from './levels.js?v=00835a3c';
-import { courseIcon } from './course-icons.js?v=00835a3c';
-import { AUDIO_REMOTE, audioKey } from './audio-key.js?v=00835a3c';
+import { BILLING, billingLive, isPro, proInfo, loadPro, openCheckout, waitPro } from './billing.js?v=72bc79b0';
+import { myLevelBadge, potatoLevel, cheeseLevel, CHEESE_OF_LEVEL } from './levels.js?v=72bc79b0';
+import { courseIcon } from './course-icons.js?v=72bc79b0';
+import { AUDIO_REMOTE, audioKey } from './audio-key.js?v=72bc79b0';
 // 앱(package.json)과 같은 줄기를 쓴다. 갈리면 앱에서는 읽히는 파일이
 // 여기서는 안 읽히는(또는 그 반대) 일이 생긴다.
 /* 엑셀 라이브러리는 422KB — 이 판에서 가장 무거운 조각이다. 그런데 쓰는
@@ -34,7 +34,7 @@ import { AUDIO_REMOTE, audioKey } from './audio-key.js?v=00835a3c';
    자국(?v=)은 tools/stamp.mjs 가 아래 줄에 알아서 붙인다 — 정적으로 쓰든
    동적으로 쓰든 같은 글자를 찾으므로 바꿔도 그대로 찍힌다. */
 let XLSX = null;
-const needXLSX = async () => (XLSX ??= await import('./vendor/xlsx.js?v=00835a3c'));
+const needXLSX = async () => (XLSX ??= await import('./vendor/xlsx.js?v=72bc79b0'));
 // 커리큘럼. 내용과 엔진을 갈라 두면 글을 고치다 화면을 깨지 않는다.
 // 갈래 목록(drawSections)·코스(drawCourses)·문제만 풀기(dqDraw) 를 열 때만
 // 받는다 — 배우기 갈래 목록도 안 본 사람에게 코스 71개 레슨을 다 물릴
@@ -42,9 +42,9 @@ const needXLSX = async () => (XLSX ??= await import('./vendor/xlsx.js?v=00835a3c
 let COURSES = [], coursesP = null;
 /* 앱은 courses.js 대신 courses-lite.js 를 받는다 — 중·고급 레슨 본문을 뺀 목록이다
    (tools/build-courses-lite.mjs). 본문은 그 레슨을 열 때 upperBlocksNeed() 가 채운다. */
-const coursesNeed = () => (coursesP ??= import('./courses-lite.js?v=00835a3c').then((m) => { COURSES = m.COURSES; }));
+const coursesNeed = () => (coursesP ??= import('./courses-lite.js?v=72bc79b0').then((m) => { COURSES = m.COURSES; }));
 let upperP = null;
-const upperBlocksNeed = () => (upperP ??= coursesNeed().then(() => import('./courses-grammar-detailed.js?v=00835a3c')).then((m) => {
+const upperBlocksNeed = () => (upperP ??= coursesNeed().then(() => import('./courses-grammar-detailed.js?v=72bc79b0')).then((m) => {
   const byId = new Map(m.DETAILED_GRAMMAR_COURSES.flatMap((c) => c.lessons.map((l) => [l.id, l.blocks])));
   for (const c of COURSES) for (const l of c.lessons) if (!l.blocks && byId.has(l.id)) { l.blocks = byId.get(l.id); delete l.lazy; }
 }));
@@ -59,7 +59,7 @@ const blocksNeed = async (course) => { if (course.lessons.some((l) => !l.blocks)
    tqGloss 는 그대로 동기다 — 아직 안 왔으면 빈 뜻을 돌려주고, 부르는
    쪽은 이미 "사전에 없는 말"을 다룰 줄 안다. */
 let GLOSSARY = {}, GLOSS_LANGS = {}, glossP = null;
-const glossNeed = () => (glossP ??= import('./glossary.js?v=00835a3c').then((m) => {
+const glossNeed = () => (glossP ??= import('./glossary.js?v=72bc79b0').then((m) => {
   GLOSSARY = m.GLOSSARY; GLOSS_LANGS = m.GLOSS_LANGS;
   dictBuildEntries();
 }).catch((e) => {
@@ -67,12 +67,12 @@ const glossNeed = () => (glossP ??= import('./glossary.js?v=00835a3c').then((m) 
   glossP = null;
   throw e;
 }));
-import { glossFind } from './gloss-find.js?v=00835a3c';
+import { glossFind } from './gloss-find.js?v=72bc79b0';
 /* 홈 화면 "오늘의 단어" 카드. 표제어·품사·짧은 뜻풀이 3개만 든
    작은 자료라(사전 전체 356KB 와 달리) 홈에 들어오면 바로 받는다 —
    빈 카드로 몇 초 떠 있는 것보다 낫다. */
 let WOTD_POOL = [], wotdP = null;
-const wotdNeed = () => (wotdP ??= import('./wotd.js?v=00835a3c').then((m) => {
+const wotdNeed = () => (wotdP ??= import('./wotd.js?v=72bc79b0').then((m) => {
   WOTD_POOL = m.WOTD_POOL;
 }).catch((e) => { wotdP = null; throw e; }));
 /* 그날의 낱말을 고른다. 한국 자정을 기준으로 하루씩 넘어가게
@@ -107,11 +107,11 @@ window.wotdRender = () => { wotdRender(); try { todayRender(); } catch (e) {} };
    나중 화면은 그 약속(??=)을 그대로 쓴다. */
 let GRAMMAR = [], GRAMMAR_EN = {}, grammarP = null;
 const grammarNeed = () => (grammarP ??= Promise.all([
-  import('./grammar.js?v=00835a3c'), import('./grammar-en.js?v=00835a3c'),
+  import('./grammar.js?v=72bc79b0'), import('./grammar-en.js?v=72bc79b0'),
 ]).then(([a, b]) => { GRAMMAR = a.GRAMMAR; GRAMMAR_EN = b.GRAMMAR_EN; }));
-import { grammarScan } from './grammar-find.js?v=00835a3c';
+import { grammarScan } from './grammar-find.js?v=72bc79b0';
 /* 문법 이름 → 예문에서 칠할 꼴. 쓰임 보기 도구(tools/build-grammar-usage.mjs)와 같은 것을 써서 찾은 곳과 칠한 곳이 어긋나지 않게. */
-import { grammarMarkRe } from './grammar-mark.js?v=00835a3c';
+import { grammarMarkRe } from './grammar-mark.js?v=72bc79b0';
 // TOPIK 쓰기·듣기 문항. 읽기(topik.js·topik2.js)와 같은 tqNeedData() 로
 // 함께 받는다 — 유형 연습(topik) 갈래 하나가 세 기술을 다 쓰므로 따로
 // 가를 까닭이 없다. 값은 tqNeedData 정의부에서 채운다.
@@ -127,7 +127,7 @@ let SB_CATS = [], SB_MORE = {}, SB_SEED = {}, SB_POINTS = [], sbDataP = null;
 let GRAMMAR_DRILL = {}, GRAMMAR_USAGE = {}, GRAMMAR_WORDS = {};
 /* 쓰임 보기(tools/build-grammar-usage.mjs 생성물) — TOPIK 연습 · 읽기 지문 · 낱말 예문에서 그 문법이 쓰인 문장 */
 /* 같이 알면 좋은 단어(tools/build-grammar-words.mjs 생성물, 원본 docs/grammar-words.json) */
-const sbNeed = () => (sbDataP ??= Promise.all([import('./sentences.js?v=00835a3c'), import('./grammar-drill.js?v=00835a3c'), import('./grammar-usage.js?v=00835a3c'), import('./grammar-words.js?v=00835a3c')]).then(([m, d, u, w]) => {
+const sbNeed = () => (sbDataP ??= Promise.all([import('./sentences.js?v=72bc79b0'), import('./grammar-drill.js?v=72bc79b0'), import('./grammar-usage.js?v=72bc79b0'), import('./grammar-words.js?v=72bc79b0')]).then(([m, d, u, w]) => {
   GRAMMAR_DRILL = d.GRAMMAR_DRILL || {}; GRAMMAR_USAGE = u.GRAMMAR_USAGE || {}; GRAMMAR_WORDS = w.GRAMMAR_WORDS || {};
   SB_CATS = m.SB_CATS; SB_MORE = m.SB_MORE; SB_SEED = m.SB_SEED;
   // 갈래마다 표현을 펼쳐 한 줄에 담는다 — SB_CATS 안의 점에는 갈래가 안
@@ -139,7 +139,7 @@ const sbNeed = () => (sbDataP ??= Promise.all([import('./sentences.js?v=00835a3c
 // 숫자 게임의 읽기와 문제 만들기. 화면을 모르는 순수 계산이라 따로 뒀다.
 // 게임 목록에서 「숫자 읽기」를 시작할 때만 받는다 — XLSX 와 같은 자리다.
 let makeRound = null;
-const needNumbers = async () => (makeRound ??= (await import('./numbers.js?v=00835a3c')).makeRound);
+const needNumbers = async () => (makeRound ??= (await import('./numbers.js?v=72bc79b0')).makeRound);
 
 // 이 키는 공개돼도 되는 값이다. 이미 APK 안에 같은 것이 들어 있고,
 // 접근을 막는 건 키가 아니라 테이블에 걸린 RLS 다.
@@ -221,8 +221,8 @@ let tqDataP = null;
    유형 연습(topik) 갈래 하나가 이 넷을 다 쓰므로 갈라 봤자 요청만
    늘어난다. */
 const tqNeedData = () => (tqDataP ??= Promise.all([
-  import('./topik.js?v=00835a3c'), import('./topik2.js?v=00835a3c'),
-  import('./topik-writing.js?v=00835a3c'), import('./topik-listening.js?v=00835a3c'),
+  import('./topik.js?v=72bc79b0'), import('./topik2.js?v=72bc79b0'),
+  import('./topik-writing.js?v=72bc79b0'), import('./topik-listening.js?v=72bc79b0'),
 ]).then(([a, b, c, d]) => {
   TQ_DATA.I  = { reading: a.TOPIK_READING,  blueprint: a.TOPIK_BLUEPRINT,  slots: a.TOPIK_SLOTS };
   TQ_DATA.II = { reading: b.TOPIK2_READING, blueprint: b.TOPIK2_BLUEPRINT, slots: b.TOPIK2_SLOTS };
@@ -233,14 +233,14 @@ const tqNeedData = () => (tqDataP ??= Promise.all([
 let READING = null, rdP = null;
 // 지문의 밑줄 문법 말풍선이 GRAMMAR 를 쓰므로 같이 받아 둔다.
 const rdNeed = () => (rdP ??= Promise.all([
-  import('./reading.js?v=00835a3c'), grammarNeed(),
+  import('./reading.js?v=72bc79b0'), grammarNeed(),
 ]).then(([m]) => { READING = m.READING; }));
 
 let CONVO = null, cvP = null;
-const cvNeed = () => (cvP ??= import('./convo.js?v=00835a3c').then((m) => { CONVO = m.CONVO; }));
+const cvNeed = () => (cvP ??= import('./convo.js?v=72bc79b0').then((m) => { CONVO = m.CONVO; }));
 /* 동화책 — 배우기 › 동화책을 열 때 받는다. 문법 밑줄 · 낱말 뜻(rdGrammarify)을 쓰니 grammarNeed 도 같이 */
 let STORIES = [], bkP = null;
-const bkNeed = () => (bkP ??= Promise.all([import('./stories.js?v=00835a3c'), grammarNeed()]).then(([m]) => { STORIES = m.STORIES; }));
+const bkNeed = () => (bkP ??= Promise.all([import('./stories.js?v=72bc79b0'), grammarNeed()]).then(([m]) => { STORIES = m.STORIES; }));
 
 /* 배우기를 열면 여섯 다 미리 불을 붙인다. 기다리지 않는다 — 갈래 목록은
    이 자료가 없어도 그려지고, 사람이 갈래를 고르는 사이에 도착한다.
@@ -464,9 +464,9 @@ $('dictBtn').addEventListener('click', () => { const go = !showing('wordsView');
    합쳐 200KB 남짓(압축)이라 첫 화면 모두에게 물릴 까닭이 없다. 사이트 공용 도구는 넘겨준다. */
 let wordsApi = null, wordsP = null;
 /* TOPIK II 예문은 500개씩 조각으로 따로 받는다(tools/build-vocab.mjs) — 조각 주소는 이 파일의 자국을 빌린다. */
-const VOCAB2_URL = './vocab-topik2.js?v=00835a3c';
+const VOCAB2_URL = './vocab-topik2.js?v=72bc79b0';
 const wordsNeed = () => (wordsP ??= Promise.all([
-  import('./words.js?v=00835a3c'), import('./vocab-topik1.js?v=00835a3c'), import(VOCAB2_URL),
+  import('./words.js?v=72bc79b0'), import('./vocab-topik1.js?v=72bc79b0'), import(VOCAB2_URL),
 ]).then(([m, d, d2]) => {
   wordsApi = m.wordsInit({
     root: $('wordsRoot'), t, esc, track, say, glossFind, glossNeed, ICON: DICT_SAY_ICON,
@@ -561,7 +561,7 @@ async function vocabSync() {
   if (!wordsP) return;
   const { data: { session } } = await sb.auth.getSession();
   if (!session) return;
-  const m = await import('./words.js?v=00835a3c');
+  const m = await import('./words.js?v=72bc79b0');
   const ok = await m.syncVocab(async () => {
     const { data, error } = await sb.from('settings').select('vocab').eq('user_id', session.user.id).maybeSingle();
     return error ? undefined : (data?.vocab || {});
@@ -875,14 +875,14 @@ let dictOpen = null;  // 지금 "더 보기"(예문·뜻풀이)를 펼쳐 둔 �
    평소엔 안 쓰는 522KB 를 첫 화면 모두에게 물릴 까닭이 없다. */
 let dictSensesP = null;
 const dictLoadSenses = () => (dictSensesP ??=
-  import('./glossary-senses.js?v=00835a3c').then((m) => m.SENSES).catch(() => ({})));
+  import('./glossary-senses.js?v=72bc79b0').then((m) => m.SENSES).catch(() => ({})));
 
 /* 예문. 국립국어원 자료엔 없어서 Gemini 로 새로 지은 것이다(있는 만큼만
    — docs/glossary-examples-gemini-prompt.md 참고). 뜻풀이와 같은 자리에서
    같이 받는다 — 펼치는 손짓 하나에 몰아 두는 편이 화면이 덜 복잡하다. */
 let dictExamplesP = null;
 const dictLoadExamples = () => (dictExamplesP ??=
-  import('./glossary-examples.js?v=00835a3c').then((m) => m.EXAMPLES).catch(() => ({})));
+  import('./glossary-examples.js?v=72bc79b0').then((m) => m.EXAMPLES).catch(() => ({})));
 
 function dictVisible() {
   const q = dictQuery.trim().toLowerCase();
@@ -10132,7 +10132,7 @@ let TRAVEL_CATEGORIES = null;
 let TRAVEL_PHRASES = null;
 let TRAVEL_VOCAB = null;
 let tvP = null;
-const tvNeed = () => (tvP ??= import('./travel-data.js?v=00835a3c').then((m) => {
+const tvNeed = () => (tvP ??= import('./travel-data.js?v=72bc79b0').then((m) => {
   TRAVEL_CATEGORIES = m.TRAVEL_CATEGORIES;
   TRAVEL_PHRASES = m.TRAVEL_PHRASES;
   TRAVEL_VOCAB = m.TRAVEL_VOCAB;
@@ -14016,6 +14016,132 @@ async function mkLibDraw() {
   };
   box.innerHTML = card('I') + card('II');
 }
+/* ══ 학습지 — 여행 한국어 A1 (운영자 요청 2026-10-05 「여행 가는데 초급 A1 까지 공부했다 · 하나로 학습지로 · 자료실에」) ══
+   새로 지은 문장은 없다 — 사이트의 여행 한국어 자료(travel-data.js: 7가지 상황 · 낱말 · 문장 43개)의 「보통 말」(해요체, A1)을
+   한 묶음 인쇄본으로 엮는다. 상황마다 한 쪽: 필수 낱말(따라 쓰기 칸) · 꼭 쓰는 문장 · 빈칸 채우기 · 짝 맞추기. 끝에 말하기
+   체크리스트와 정답. 섞는 차례는 고정 씨앗이라 몇 번을 찍어도 같은 학습지가 나온다(선생님 · 학생이 같은 쪽을 본다). */
+const WS_PAGE_CSS = `@page { margin:12mm 12mm 16mm;
+  @bottom-center { content:"치즈감자 여행 한국어 A1 학습지 · everykoreans.com"; font-size:7.5pt; color:#555; font-family:system-ui,sans-serif; }
+  @bottom-right { content:counter(page); font-size:8pt; color:#555; } }`;
+let wsPageSheet = null;
+function wsPageOn(on) {
+  try {
+    if (!wsPageSheet) { wsPageSheet = new CSSStyleSheet(); wsPageSheet.replaceSync(WS_PAGE_CSS); }
+    const rest = document.adoptedStyleSheets.filter((x) => x !== wsPageSheet);
+    document.adoptedStyleSheets = on ? [...rest, wsPageSheet] : rest;
+  } catch { /* 여백 칸을 모르는 브라우저 — 쪽 머리글의 「치즈감자」는 그대로 남는다 */ }
+}
+const wsShuffle = (arr, seed) => {
+  const a = arr.slice();
+  let x = seed * 9301 + 49297;
+  for (let i = a.length - 1; i > 0; i--) { x = (x * 9301 + 49297) % 233280; const j = Math.floor((x / 233280) * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; }
+  return a;
+};
+/* 낱말 칸의 「짐 / 수하물」 · 「교통카드 (티머니)」 → 문장에서 찾을 꼴들 */
+const wsForms = (ko) => ko.split('/').map((w) => w.replace(/\(.*?\)/g, '').trim()).filter(Boolean);
+/* 기본 단어(운영자 요청 「기본 문법이랑 단어도」) — 여행에서 바로 쓰는 꼴(해요체 · 숫자 두 벌)로 손으로 고른 목록.
+   낱말 자료(vocab-*.js)에서 뜻을 가져오지 않는 까닭: 동형어가 아직 한 줄이라(네 = four · 분 = person · 약 = about) 여행용 뜻이 틀린다. */
+const WS_WORDS = [
+  ['인사 · 기본 말', 'Basics', [['안녕하세요', 'hello'], ['감사합니다', 'thank you'], ['죄송합니다', 'I’m sorry'], ['괜찮아요', 'it’s okay / I’m fine'], ['네', 'yes'], ['아니요', 'no'],
+    ['주세요', 'please give me'], ['있어요', 'there is / I have'], ['없어요', 'there isn’t / I don’t have'], ['알아요', 'I know'], ['몰라요', 'I don’t know'], ['잠깐만요', 'just a moment']]],
+  ['묻는 말', 'Question words', [['뭐', 'what'], ['어디', 'where'], ['얼마', 'how much'], ['누구', 'who'], ['언제', 'when'], ['몇', 'how many'], ['어느', 'which'], ['왜', 'why'], ['어떻게', 'how']]],
+  ['시간 · 날', 'Time', [['오늘', 'today'], ['내일', 'tomorrow'], ['어제', 'yesterday'], ['지금', 'now'], ['아침', 'morning / breakfast'], ['점심', 'lunch'], ['저녁', 'evening / dinner'], ['시', 'o’clock'], ['분', 'minute'], ['주말', 'weekend']]],
+  ['길 · 장소', 'Places & directions', [['여기', 'here'], ['거기', 'there'], ['저기', 'over there'], ['앞', 'front'], ['뒤', 'behind'], ['옆', 'next to'], ['오른쪽', 'right'], ['왼쪽', 'left'], ['역', 'station'], ['출구', 'exit'], ['화장실', 'restroom']]],
+  ['먹고 사기', 'Eating & shopping', [['물', 'water'], ['맛있어요', 'it’s delicious'], ['매워요', 'it’s spicy'], ['비싸요', 'it’s expensive'], ['싸요', 'it’s cheap'], ['카드', 'card'], ['현금', 'cash'], ['영수증', 'receipt'], ['하나 더', 'one more']]],
+  ['몸 · 도움', 'Health & help', [['아파요', 'it hurts / I’m sick'], ['머리', 'head'], ['배', 'stomach'], ['약', 'medicine'], ['약국', 'pharmacy'], ['병원', 'hospital'], ['경찰서', 'police station'], ['잃어버렸어요', 'I lost it'], ['도와주세요', 'please help']]],
+];
+/* 숫자 두 벌 — 한자어(값 · 분 · 층 · 호선)와 고유어(개수 · 사람 · 시 · 잔). 문법 「숫자」 · 「시간」(sentences.js 23-3 · 23-5)과 같은 규칙. */
+const WS_NUM_SINO = [['일', 1], ['이', 2], ['삼', 3], ['사', 4], ['오', 5], ['육', 6], ['칠', 7], ['팔', 8], ['구', 9], ['십', 10], ['백', 100], ['천', '1,000'], ['만', '10,000']];
+const WS_NUM_NATIVE = [['하나 (한)', 1], ['둘 (두)', 2], ['셋 (세)', 3], ['넷 (네)', 4], ['다섯', 5], ['여섯', 6], ['일곱', 7], ['여덟', 8], ['아홉', 9], ['열', 10]];
+const WS_NUM_Q = [['3,000원', '삼천 원'], ['커피 2잔', '커피 두 잔'], ['3시', '세 시'], ['10분', '십 분'], ['5명', '다섯 명'], ['2호선', '이 호선']];
+/* 기본 문법 — 사이트 「예문 만들기」의 초급 표현(sentences.js)에서 여행에 바로 쓰는 것만, 그 자료의 이름 · 꼴 · 뜻풀이 · 예문 그대로. */
+const WS_GRAMMAR = ['23-1', '23-2', '24-2', '26-3', '26-6', '26-8', '26-7', '26-14', '33-1', '31-1', '29-1', '30-4', '30-1', '34-1', '23-3', '23-5'];
+const WS_DRILL = [['사진을 찍다', '-아/어 주세요', '사진을 찍어 주세요.'], ['한복을 입다', '-고 싶어요', '한복을 입고 싶어요.'],
+  ['카드로 계산하다', '-(으)ㄹ 수 있어요?', '카드로 계산할 수 있어요?'], ['여기 앉다', '-아/어도 돼요?', '여기 앉아도 돼요?'], ['천천히 말하다', '-아/어 주세요', '천천히 말해 주세요.']];
+function wsTravelHtml(GP) {
+  const L = ['a', 'b', 'c', 'd'];
+  const key = [];
+  const sec = TRAVEL_CATEGORIES.map((c, ci) => {
+    const voc = TRAVEL_VOCAB[c.id] || [], ph = TRAVEL_PHRASES.filter((p) => p.cat === c.id);
+    /* 빈칸 — 이 상황의 낱말이 든 문장에서 그 낱말을 비운다(셋까지). */
+    const blanks = [];
+    for (const p of ph) {
+      if (blanks.length >= 3) break;
+      const w = voc.flatMap((v) => wsForms(v.ko)).find((f) => p.std.ko.includes(f));
+      if (w && !blanks.some((b) => b.w === w)) blanks.push({ w, ko: p.std.ko.replace(w, '(　　　　　)'), en: p.std.en });
+    }
+    const pairs = ph.slice(0, 4), right = wsShuffle(pairs.map((p, i) => ({ en: p.std.en, i })), ci + 1);
+    key.push({ c, blanks: blanks.map((b) => b.w), match: pairs.map((_, i) => L[right.findIndex((r) => r.i === i)]) });
+    return `<section class="ws-sec"><div class="ws-run"><b>치즈감자</b><span>여행 한국어 A1 학습지</span></div>
+      <h2 class="ws-h"><span>${ci + 1}</span>${esc(c.ko)} <small>${esc(c.en)}</small></h2>
+      <h3 class="ws-k">A. 꼭 알아야 할 낱말 <small>Key words — 읽고 따라 써 보세요</small></h3>
+      <table class="ws-voc"><tr><th>한국어</th><th>읽기</th><th>뜻</th><th>따라 쓰기</th></tr>${voc.map((v) => `<tr><td><b>${esc(v.ko)}</b></td><td>${esc(v.pron)}</td><td>${esc(v.en)}</td><td class="ws-line"></td></tr>`).join('')}</table>
+      <h3 class="ws-k">B. 꼭 쓰는 문장 <small>Key sentences — 소리 내어 세 번 읽어 보세요</small></h3>
+      <ol class="ws-ph">${ph.map((p) => `<li><span class="ws-t">${esc(p.title)}</span><b>${esc(p.std.ko)}</b><i>${esc(p.std.pron)}</i><span>${esc(p.std.en)}</span><em>□□□</em></li>`).join('')}</ol>
+      ${blanks.length ? `<h3 class="ws-k">C. 빈칸 채우기 <small>Fill in the blank</small></h3>
+      <div class="ws-bank">${wsShuffle(blanks.map((b) => b.w), ci + 7).map((w) => `<span>${esc(w)}</span>`).join('')}</div>
+      <ol class="ws-bl">${blanks.map((b) => `<li><b>${esc(b.ko)}</b><span>${esc(b.en)}</span></li>`).join('')}</ol>` : ''}
+      <h3 class="ws-k">${blanks.length ? 'D' : 'C'}. 짝 맞추기 <small>Match the Korean with the English</small></h3>
+      <div class="ws-match"><ol>${pairs.map((p) => `<li>${esc(p.std.ko)}</li>`).join('')}</ol>
+        <ol class="ws-ab">${right.map((r, k) => `<li><b>${L[k]}</b> ${esc(r.en)}</li>`).join('')}</ol></div>
+    </section>`;
+  }).join('');
+  const check = `<section class="ws-sec"><div class="ws-run"><b>치즈감자</b><span>여행 한국어 A1 학습지</span></div>
+    <h2 class="ws-h"><span>✓</span>떠나기 전에 — 말해 보기 체크리스트 <small>Say each one out loud without looking</small></h2>
+    <ul class="ws-chk">${TRAVEL_CATEGORIES.map((c) => TRAVEL_PHRASES.filter((p) => p.cat === c.id).slice(0, 2)
+      .map((p) => `<li><i>□</i><span>${esc(c.ko)}</span><b>${esc(p.std.en)}</b><span class="ws-line"></span></li>`).join('')).join('')}</ul>
+    <h3 class="ws-k">나만의 문장 <small>Write three sentences you will really use on your trip</small></h3>
+    <div class="ws-write"><span></span><span></span><span></span></div></section>`;
+  const ans = `<section class="ws-sec ws-key"><h2 class="ws-h"><span>★</span>정답 <small>Answers</small></h2>
+    <p><b>숫자 읽어 보기</b> — ${WS_NUM_Q.map(([q, a], i) => `${i + 1}) ${esc(q)} → ${esc(a)}`).join(' · ')}</p>
+    <p><b>바꿔 말해 보기</b> — ${WS_DRILL.map(([, , a], i) => `${i + 1}) ${esc(a)}`).join(' · ')}</p>
+    ${key.map((k, i) => `<p><b>${i + 1}. ${esc(k.c.ko)}</b> — ${k.blanks.length ? `C. ${k.blanks.map((w, j) => `${j + 1}) ${esc(w)}`).join(' · ')} / ` : ''}${k.blanks.length ? 'D' : 'C'}. ${k.match.map((x, j) => `${j + 1}-${x}`).join(' · ')}</p>`).join('')}
+    <p class="ws-key-n">체크리스트 정답은 각 상황의 「B. 꼭 쓰는 문장」 1 · 2번이에요. · The checklist answers are sentences 1–2 in each section’s B.</p></section>`;
+  const run = `<div class="ws-run"><b>치즈감자</b><span>여행 한국어 A1 학습지</span></div>`;
+  const words = `<section class="ws-sec">${run}
+    <h2 class="ws-h"><span>W</span>기본 단어 <small>Basic words — 읽고, 가리고 뜻 말해 보기</small></h2>
+    <div class="ws-wgrid">${WS_WORDS.map(([ko, en, list]) => `<div class="ws-wg"><h3 class="ws-k">${esc(ko)} <small>${esc(en)}</small></h3>
+      <table class="ws-voc ws-voc2">${list.map(([k, e]) => `<tr><td><b>${esc(k)}</b></td><td>${esc(e)}</td></tr>`).join('')}</table></div>`).join('')}</div>
+    <h3 class="ws-k">숫자 두 벌 <small>Two sets of numbers</small></h3>
+    <div class="ws-wgrid"><div class="ws-wg"><p class="ws-note"><b>한자어 숫자</b> — 돈 · 분 · 층 · 호선 · 전화번호</p>
+      <table class="ws-voc ws-voc2 ws-num">${WS_NUM_SINO.map(([k, n]) => `<tr><td><b>${esc(k)}</b></td><td>${n}</td></tr>`).join('')}</table></div>
+      <div class="ws-wg"><p class="ws-note"><b>고유어 숫자</b> — 개수 · 사람 · 시 · 잔 (괄호 꼴은 낱말 앞에서)</p>
+      <table class="ws-voc ws-voc2 ws-num">${WS_NUM_NATIVE.map(([k, n]) => `<tr><td><b>${esc(k)}</b></td><td>${n}</td></tr>`).join('')}</table></div></div>
+    <h3 class="ws-k">숫자 읽어 보기 <small>Write how you say it</small></h3>
+    <ol class="ws-nq">${WS_NUM_Q.map(([q]) => `<li><b>${esc(q)}</b><span class="ws-line"></span></li>`).join('')}</ol></section>`;
+  const gp = WS_GRAMMAR.map((id) => GP.get(id)).filter(Boolean);
+  const grammar = `<section class="ws-sec">${run}
+    <h2 class="ws-h"><span>G</span>기본 문법 <small>Basic grammar — 꼴과 예문을 소리 내어 읽기</small></h2>
+    <ol class="ws-gr">${gp.map((p) => `<li><b>${esc(p.name)}</b>${p.more?.[0] ? `<span class="ws-form">${esc(p.more[0])}</span>` : ''}
+      <p>${esc(p.desc || '')}</p><em>${esc(p.ex || '')}</em></li>`).join('')}</ol>
+    <h3 class="ws-k">바꿔 말해 보기 <small>Make the sentence</small></h3>
+    <ol class="ws-dr">${WS_DRILL.map(([a, f]) => `<li><b>${esc(a)}</b> + ${esc(f)} → <span class="ws-line"></span></li>`).join('')}</ol></section>`;
+  const cover = `<section class="ws-cover"><img class="ws-logo" src="logo.png" alt="">
+    <div class="ws-cv-top">CHEESEPOTATO · TRAVEL KOREAN</div>
+    <h1>여행 한국어 A1 학습지</h1><p class="ws-cv-s">Travel Korean A1 — one workbook for your trip</p>
+    <table class="ws-id"><tr><th>이름 Name</th><td></td></tr><tr><th>여행 날짜 Trip date</th><td></td></tr></table>
+    <div class="ws-how"><b>이렇게 써요 · How to use</b><ol>
+      <li>먼저 기본 단어 · 숫자 · 기본 문법을 훑어요.</li>
+      <li>상황마다 A 낱말 → B 문장을 소리 내어 읽어요. 읽을 때마다 □ 에 표시해요.</li>
+      <li>C 빈칸 · D 짝 맞추기를 풀고, 맨 뒤 정답으로 확인해요.</li>
+      <li>떠나기 전날, 체크리스트를 안 보고 말할 수 있으면 준비 끝!</li></ol>
+      <small>Start with the basic words, numbers and grammar. Then read A and B aloud (tick a box each time), solve C and D, check the answers at the back. The night before you fly, say the checklist without looking.</small></div>
+    <ul class="ws-toc"><li><b>W</b>기본 단어 · 숫자 <small>Basic words</small></li><li><b>G</b>기본 문법 <small>Basic grammar</small></li>${TRAVEL_CATEGORIES.map((c, i) => `<li><b>${i + 1}</b>${esc(c.ko)} <small>${esc(c.en)}</small></li>`).join('')}</ul>
+    <p class="ws-cv-legal">문장은 「보통 말」(해요체 · A1) — 사이트 「여행 한국어」에서 소리와 쉬운 말 · 정확한 말도 볼 수 있어요 · everykoreans.com</p></section>`;
+  return `<div class="mk-wm" aria-hidden="true">everykoreans</div>${cover}${words}${grammar}${sec}${check}${ans}`;
+}
+async function wsPrint() {
+  const [, sm] = await Promise.all([tvNeed(), import('./sentences.js?v=72bc79b0')]);
+  if (!TRAVEL_CATEGORIES) return;
+  track('학습지인쇄');
+  const GP = new Map(sm.SB_CATS.flatMap((c) => c.points).map((p) => [p.id, p]));
+  $('ntPrintView').innerHTML = `<div class="ws">${wsTravelHtml(GP)}</div>`;
+  document.body.classList.add('nt-printing', 'mk-printing', 'ws-printing');
+  wsPageOn(true);
+  window.print();
+}
+window.addEventListener('afterprint', () => { document.body.classList.remove('ws-printing'); wsPageOn(false); });
+$('wsTravelBtn')?.addEventListener('click', wsPrint);
 $('libMock')?.addEventListener('click', (ev) => {
   const b = ev.target.closest('[data-mk]'); if (!b) return;
   if (b.dataset.mk === 'pro') { proOpen('pdf'); return; }
@@ -14208,7 +14334,7 @@ async function gameVocabWords(min, have = []) {
   const push = (word, meaning) => { if (word && meaning && !seen.has(word)) { seen.add(word); out.push({ word, meaning }); } };
   guestRead().forEach((g) => push(g.word, g.meaning));
   try {
-    const d = await import('./vocab-topik1.js?v=00835a3c');
+    const d = await import('./vocab-topik1.js?v=72bc79b0');
     let st = {};
     try { st = JSON.parse(localStorage.getItem('cp-words-v1') || '{}').w || {}; } catch (e) {}
     const mean = (w) => w.s || w.e.split(';')[0];
@@ -14706,7 +14832,7 @@ function ltAdaptNext() {
    낱말 급수를 우리 레벨(L)에 얹는다: TOPIK I 1급 생활 낱말 L2 · 그 밖 L3, 2급 생활 L4 · 그 밖 L5, TOPIK II 3 · 4급 L6, 5 · 6급 L7.
    오답 보기는 같은 레벨 · 같은 품사에서, 뜻이 겹치지 않게 고른다. */
 let ltVocabP = null;
-const ltVocabPool = () => (ltVocabP ??= Promise.all([import('./vocab-topik1.js?v=00835a3c'), import(VOCAB2_URL)]).then(([a, b]) => {
+const ltVocabPool = () => (ltVocabP ??= Promise.all([import('./vocab-topik1.js?v=72bc79b0'), import(VOCAB2_URL)]).then(([a, b]) => {
   const en = (w) => String(w.s || w.e || '').split(';')[0].trim();
   /* 2026-10-05 부터 낱말마다 우리 레벨(v, tools/vocab-level.mjs)이 있다 — 그것을 그대로 쓴다. 옛 자료(v 없음)는 급수로 어림. */
   const lvOf = (w) => w.v || (w.l === 1 ? 3 : w.l === 2 ? 5 : w.l <= 4 ? 6 : 7);
@@ -15699,10 +15825,10 @@ $('ltPurposeGrid').addEventListener('click', (ev) => {
    빠지고, 고쳐 올려도 브라우저가 예전 문제를 계속 들고 있게 된다. */
 let LT_CUSTOM = { overall: [], reading: [], writing: [], listening: [] };
 let ltCustomOverallP = null, ltCustomReadingP = null, ltCustomWritingP = null, ltCustomListeningP = null;
-const ltCustomOverallNeed = () => (ltCustomOverallP ??= import('./leveltest-overall.js?v=00835a3c').then((m) => { LT_CUSTOM.overall = m.LT_CUSTOM_OVERALL; }));
-const ltCustomReadingNeed = () => (ltCustomReadingP ??= import('./leveltest-reading.js?v=00835a3c').then((m) => { LT_CUSTOM.reading = m.LT_CUSTOM_READING; }));
-const ltCustomWritingNeed = () => (ltCustomWritingP ??= import('./leveltest-writing.js?v=00835a3c').then((m) => { LT_CUSTOM.writing = m.LT_CUSTOM_WRITING; }));
-const ltCustomListeningNeed = () => (ltCustomListeningP ??= import('./leveltest-listening.js?v=00835a3c').then((m) => { LT_CUSTOM.listening = m.LT_CUSTOM_LISTENING; }));
+const ltCustomOverallNeed = () => (ltCustomOverallP ??= import('./leveltest-overall.js?v=72bc79b0').then((m) => { LT_CUSTOM.overall = m.LT_CUSTOM_OVERALL; }));
+const ltCustomReadingNeed = () => (ltCustomReadingP ??= import('./leveltest-reading.js?v=72bc79b0').then((m) => { LT_CUSTOM.reading = m.LT_CUSTOM_READING; }));
+const ltCustomWritingNeed = () => (ltCustomWritingP ??= import('./leveltest-writing.js?v=72bc79b0').then((m) => { LT_CUSTOM.writing = m.LT_CUSTOM_WRITING; }));
+const ltCustomListeningNeed = () => (ltCustomListeningP ??= import('./leveltest-listening.js?v=72bc79b0').then((m) => { LT_CUSTOM.listening = m.LT_CUSTOM_LISTENING; }));
 const LT_CUSTOM_NEED = {
   overall: ltCustomOverallNeed, reading: ltCustomReadingNeed,
   writing: ltCustomWritingNeed, listening: ltCustomListeningNeed,
@@ -17516,7 +17642,7 @@ function fbMount(host, place, level = null) {
    openSection 이 epsDraw 를 부른다. let · const 면 그때 「초기화 전 접근」으로 죽는다. */
 var EPS = null;
 var epsP = null;
-function epsNeed() { return (epsP ??= import('./eps.js?v=00835a3c').then((m) => { EPS = m; })); }
+function epsNeed() { return (epsP ??= import('./eps.js?v=72bc79b0').then((m) => { EPS = m; })); }
 const EPS_SECS = ['reading', 'listening'];
 const EPS_MOCK_SEC = 70 * 60;
 const EPS_NUM = ['①', '②', '③', '④'];
@@ -17940,7 +18066,7 @@ const SS_PAGES = [
   ['블로그', 'Blog', 'blog/', '블로그 blog 글'],
 ];
 let ssIdx = null, ssP = null, ssT = 0;
-const ssNeed = () => (ssP ??= import('./search-index.js?v=00835a3c').then((m) => { ssIdx = m.SEARCH_INDEX; }).catch(() => { ssP = null; }));
+const ssNeed = () => (ssP ??= import('./search-index.js?v=72bc79b0').then((m) => { ssIdx = m.SEARCH_INDEX; }).catch(() => { ssP = null; }));
 const ssNorm = (s) => String(s || '').toLowerCase().replace(/[\s\-~]+/g, '');
 /* 문법 이름의 다른 꼴 — 「A/V-아/어서」를 「-아서」 · 「-어서」로도, 「-(으)니까」를 「-니까」 · 「-으니까」로도 찾게 */
 const ssGramForms = (name) => {

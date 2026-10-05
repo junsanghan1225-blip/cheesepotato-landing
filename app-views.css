@@ -5832,3 +5832,80 @@ body.mk-printing .mk-cover, body.mk-printing .mk-paper, body.mk-printing .mk-omr
 }
 /* 폰에서는 한 줄씩 쌓이니 Pro 를 맨 위로 — 무료 카드를 다 읽고 나서야 Pro 가 나오면 지나치기 쉽다 */
 @media (max-width:899px) { .up-card.pro { order:-1; } }
+
+/* ══ 인쇄용 학습지(#ntPrintView .ws) — 여행 한국어 A1 (app.module.js wsTravelHtml). 종이는 늘 흰색이라 색을 못 박는다 ══ */
+.ws-lib-d { font-size:13.5px; color:var(--ink-2); margin:6px 0 10px; line-height:1.6; }
+.ws { color:#1E1A16; font-family:system-ui,-apple-system,'Apple SD Gothic Neo','Malgun Gothic','Noto Sans KR',sans-serif; font-size:10.5pt; line-height:1.5; }
+body.ws-printing .ws-cover, body.ws-printing .ws-sec { position:relative; z-index:1; }
+.ws-cover { break-after:page; min-height:250mm; display:flex; flex-direction:column; align-items:center; text-align:center; padding-top:8mm; }
+.ws-logo { width:36mm; height:auto; margin-bottom:4mm; }
+.ws-cv-top { font-size:10pt; letter-spacing:.2em; color:#555; }
+.ws-cover h1 { font-size:30pt; margin:3mm 0 1mm; font-weight:800; }
+.ws-cv-s { font-size:12pt; color:#444; margin:0 0 8mm; }
+.ws-id { border-collapse:collapse; width:120mm; margin:0 auto 8mm; }
+.ws-id th, .ws-id td { border:1.2px solid #222; padding:3mm 4mm; font-size:10.5pt; }
+.ws-id th { width:40mm; background:#F3EEE6; }
+.ws-how { width:150mm; text-align:left; border:1px solid #999; border-radius:2mm; padding:4mm 6mm; }
+.ws-how ol { margin:2mm 0 2mm 5mm; padding:0; }
+.ws-how small { color:#666; font-size:8.5pt; }
+.ws-toc { list-style:none; padding:0; margin:8mm 0 0; width:150mm; display:grid; grid-template-columns:1fr 1fr; gap:2mm 8mm; text-align:left; }
+.ws-toc b { display:inline-block; width:6mm; color:#E1682B; }
+.ws-toc small, .ws-h small, .ws-k small { color:#777; font-weight:400; }
+.ws-cv-legal { margin-top:auto; font-size:8.5pt; color:#666; }
+.ws-sec { break-before:page; }
+.ws-run { display:flex; justify-content:space-between; font-size:8.5pt; color:#777; border-bottom:2px solid #F08A3E; padding-bottom:1.5mm; margin-bottom:4mm; }
+.ws-run b { color:#E1682B; }
+.ws-h { font-size:17pt; margin:0 0 3mm; display:flex; align-items:baseline; gap:3mm; flex-wrap:wrap; }
+.ws-h > span { display:inline-grid; place-items:center; width:9mm; height:9mm; border-radius:50%; background:#F08A3E; color:#fff; font-size:12pt; }
+.ws-h small { font-size:10pt; }
+.ws-k { font-size:11.5pt; margin:5mm 0 2mm; break-after:avoid; }
+.ws-k small { font-size:8.5pt; margin-left:2mm; }
+.ws-voc { width:100%; border-collapse:collapse; break-inside:avoid; }
+.ws-voc th, .ws-voc td { border:1px solid #BBB; padding:1.6mm 2.5mm; text-align:left; font-size:9.5pt; }
+.ws-voc th { background:#F3EEE6; font-size:8.5pt; }
+.ws-voc td:nth-child(2) { color:#555; font-style:italic; }
+.ws-voc td.ws-line { width:34%; }
+.ws-ph { margin:0; padding-left:6mm; }
+.ws-ph li { break-inside:avoid; margin:0 0 2mm; display:grid; grid-template-columns:1fr auto; column-gap:4mm; }
+.ws-ph .ws-t { grid-column:1 / -1; font-size:8pt; color:#888; }
+.ws-ph b { font-size:11.5pt; }
+.ws-ph i { grid-column:1; color:#555; font-size:9pt; }
+.ws-ph li > span:not(.ws-t) { grid-column:1; font-size:9pt; color:#333; }
+.ws-ph em { grid-column:2; grid-row:2 / span 3; font-style:normal; letter-spacing:.2em; color:#999; font-size:12pt; align-self:center; }
+.ws-bank { display:flex; flex-wrap:wrap; gap:2mm; border:1px dashed #999; border-radius:1.5mm; padding:2mm 3mm; margin:0 0 2mm; }
+.ws-bank span { padding:0.5mm 3mm; border-radius:3mm; background:#F3EEE6; font-weight:700; }
+.ws-bl { margin:0; padding-left:6mm; }
+.ws-bl li { margin:0 0 2mm; break-inside:avoid; }
+.ws-bl b { display:block; font-size:11pt; }
+.ws-bl span { font-size:9pt; color:#555; }
+.ws-match { display:grid; grid-template-columns:1fr 1fr; gap:6mm; break-inside:avoid; }
+.ws-match ol { margin:0; padding-left:6mm; }
+.ws-match li { margin:0 0 2.5mm; }
+.ws-ab { list-style:none; padding-left:0 !important; }
+.ws-ab b { display:inline-grid; place-items:center; width:5mm; height:5mm; border:1px solid #333; border-radius:50%; font-size:8pt; margin-right:1.5mm; }
+.ws-chk { list-style:none; padding:0; margin:0; }
+.ws-chk li { display:grid; grid-template-columns:6mm 22mm 1fr; column-gap:2mm; align-items:baseline; padding:1.8mm 0; border-bottom:1px solid #DDD; break-inside:avoid; }
+.ws-chk i { font-style:normal; }
+.ws-chk span:not(.ws-line) { font-size:8.5pt; color:#777; }
+.ws-chk .ws-line { grid-column:3; height:6mm; border-bottom:1px dotted #999; }
+.ws-write span { display:block; height:10mm; border-bottom:1px solid #999; }
+.ws-key p { margin:0 0 2mm; font-size:10pt; }
+.ws-key-n { color:#666; font-size:9pt !important; margin-top:4mm !important; }
+.ws-wgrid { display:grid; grid-template-columns:1fr 1fr; gap:2mm 6mm; }
+.ws-wg { break-inside:avoid; }
+.ws-wg .ws-k { margin-top:3mm; }
+.ws-voc2 td { padding:1.2mm 2.5mm; }
+.ws-voc2 td:nth-child(2) { font-style:normal; color:#333; }
+.ws-num td:nth-child(2) { text-align:right; font-variant-numeric:tabular-nums; }
+.ws-note { margin:2mm 0 1.5mm; font-size:9pt; color:#444; }
+.ws-nq { display:grid; grid-template-columns:1fr 1fr 1fr; gap:2mm 6mm; margin:0; padding-left:6mm; }
+.ws-nq li, .ws-dr li { display:flex; align-items:baseline; gap:2mm; }
+.ws-nq .ws-line, .ws-dr .ws-line { flex:1; min-width:20mm; height:6mm; border-bottom:1px dotted #888; }
+.ws-gr { margin:0; padding-left:6mm; columns:2; column-gap:8mm; }
+.ws-gr li { break-inside:avoid; margin:0 0 3mm; }
+.ws-gr b { font-size:10.5pt; }
+.ws-form { display:block; font-size:8.5pt; color:#E1682B; }
+.ws-gr p { margin:0.5mm 0; font-size:8.5pt; color:#444; }
+.ws-gr em { font-style:normal; font-weight:700; font-size:9.5pt; }
+.ws-dr { margin:0; padding-left:6mm; }
+.ws-dr li { margin:0 0 2.5mm; }
