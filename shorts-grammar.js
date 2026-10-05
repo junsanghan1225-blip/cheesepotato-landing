@@ -68,13 +68,14 @@ function rr(ctx, x, y, w, h, r, fill, stroke, lw = 3) {
   if (stroke) { ctx.strokeStyle = stroke; ctx.lineWidth = lw; ctx.stroke(); }
 }
 /* 글 한 줄 — mark(정규식)에 걸린 곳 밑에 노란 형광펜을 먼저 깔고 글을 쓴다 */
-function lineWithMark(ctx, l, x, y, size, color, re) {
-  if (re) {
+function lineWithMark(ctx, l, x, y, size, color, re, sweep = 1) {
+  if (re && sweep > 0) {
     re.lastIndex = 0; let m;
     ctx.save(); ctx.globalCompositeOperation = 'multiply'; ctx.fillStyle = C.mark;
     while ((m = re.exec(l))) {
       const a = ctx.measureText(l.slice(0, m.index)).width, b = ctx.measureText(l.slice(0, m.index + m[0].length)).width;
-      ctx.beginPath(); ctx.roundRect(x + a - 4, y - size * 0.78, b - a + 8, size * 0.98, 8); ctx.fill();
+      /* sweep: 형광펜이 왼쪽에서 오른쪽으로 그어지는 애니메이션(0 → 1) */
+      ctx.beginPath(); ctx.roundRect(x + a - 4, y - size * 0.78, (b - a + 8) * sweep, size * 0.98, 8); ctx.fill();
       if (!m[0].length) re.lastIndex++;
     }
     ctx.restore();
@@ -105,41 +106,82 @@ function flow(ctx, blocks, y0, floor = FLOOR) {
   }
   return null;
 }
-function paint(ctx, laid) {
-  for (const { b, ls, size, lh, pad, y, h, bw } of laid) {
+/* ── 애니메이션(운영자 요청 2026-10-05: 「장마다 애니메이션」) ──
+   t = 그 장이 뜬 뒤 지난 ms. 덩어리마다 STEP ms 씩 늦게, RISE ms 동안 아래에서 올라오며 나타난다.
+   형광펜은 그 덩어리가 다 올라온 뒤 SWEEP ms 동안 왼쪽 → 오른쪽으로 그어진다. t 가 Infinity 면 다 된 그림(표지 사진). */
+export const STEP = 160, RISE = 420, SWEEP = 450;
+const ease = (x) => 1 - Math.pow(1 - Math.min(1, Math.max(0, x)), 3);
+export const animEnd = (n) => n * STEP + RISE + SWEEP + 100;   // 이 장의 움직임이 끝나는 때(그때까지 다시 그린다)
+function paint(ctx, laid, t = Infinity) {
+  laid.forEach(({ b, ls, size, lh, pad, y, h, bw }, k) => {
+    const p = ease((t - k * STEP) / RISE), sw = ease((t - k * STEP - RISE * 0.8) / SWEEP);
+    if (p <= 0) return;
+    ctx.save(); ctx.globalAlpha = p; ctx.translate(0, (1 - p) * 46);
     const x0 = b.side === 'B' ? R - bw : X;
-    if (b.card) rr(ctx, x0, y, bw, h, 22, b.card === 'warn' ? C.warnBg : b.card === 'soft' ? '#FBF8F1' : C.card, b.card === 'warn' ? '#F2B48E' : C.line, 3);
+    /* 칸 모양: white(기본) · soft(연한) · warn(주의, 주황) · ok(정답, 초록) · note(풀이, 노랑) */
+    const CARDS = { warn: [C.warnBg, '#F2B48E', 3], soft: ['#FBF8F1', C.line, 3], ok: ['#DDF3E5', '#2E9B5B', 5], note: ['#FFF6D6', '#E8C969', 3] };
+    if (b.card) { const [f, st, lw] = CARDS[b.card] || [C.card, C.line, 3]; rr(ctx, x0, y, bw, h, 22, f, st, lw); }
+    if (b.card === 'ok' && !b.color) b = { ...b, color: '#1E7A45' };
     font(ctx, size, b.weight);
     ls.forEach((l, i) => {
       const ty = y + pad + size + i * lh - size * 0.12;
       const lx = b.align === 'center' ? W / 2 - ctx.measureText(l).width / 2 + (X - (W - R)) / 2 : x0 + pad;
-      lineWithMark(ctx, l, lx, ty, size, b.color || C.ink, b.mark);
+      lineWithMark(ctx, l, lx, ty, size, b.color || C.ink, b.mark, sw);
     });
-  }
+    ctx.restore();
+  });
 }
 
-function header(ctx, sl, idx, n, logo) {
+function header(ctx, label, idx, n, logo, t = Infinity) {
   font(ctx, 34, 800); ctx.fillStyle = C.or;
   if (logo) ctx.drawImage(logo, X, TOP - 14, 60, 60 * logo.height / logo.width);
   ctx.fillText('치즈감자', X + (logo ? 70 : 0), TOP + 32);
-  const [ko] = levelOf(sl.p);
-  font(ctx, 32, 700); ctx.fillStyle = C.dim; ctx.textAlign = 'right'; ctx.fillText(`${ko} 문법 · ${idx} / ${n - 1}`, R, TOP + 32); ctx.textAlign = 'left';
+  font(ctx, 32, 700); ctx.fillStyle = C.dim; ctx.textAlign = 'right'; ctx.fillText(`${label} · ${idx} / ${n - 1}`, R, TOP + 32); ctx.textAlign = 'left';
   /* 진행 막대 — 몇 번째 장인지(쇼츠는 길이를 모르고 보므로 「곧 끝난다」가 보이면 끝까지 본다) */
   const gap = 10, bw = (CW - gap * (n - 2)) / Math.max(1, n - 1);
-  for (let i = 1; i < n; i++) rr(ctx, X + (i - 1) * (bw + gap), TOP + 60, bw, 10, 5, i <= idx ? C.or : C.line);
+  for (let i = 1; i < n; i++) {
+    rr(ctx, X + (i - 1) * (bw + gap), TOP + 60, bw, 10, 5, i < idx ? C.or : C.line);
+    if (i === idx) rr(ctx, X + (i - 1) * (bw + gap), TOP + 60, Math.max(10, bw * ease(t / 500)), 10, 5, C.or);   // 이번 칸이 차오른다
+  }
 }
 /* 장 이름(뜻 · 모양 …) 칩 + 문법 이름 — 이름은 한 줄에 다 들어가게 글자를 줄인다(… 로 자르지 않는다) */
-function titleRow(ctx, sl, y) {
-  font(ctx, 36, 800); const t = sl.title, w = ctx.measureText(t).width + 52;
-  rr(ctx, X, y, w, 66, 33, C.or); ctx.fillStyle = '#fff'; ctx.fillText(t, X + 26, y + 46);
-  let s = 44; for (; s > 30; s -= 2) { font(ctx, s, 800); if (ctx.measureText(sl.p.name).width <= CW - w - 24) break; }
-  ctx.fillStyle = C.ink2; ctx.textAlign = 'right'; ctx.fillText(sl.p.name, R, y + 47); ctx.textAlign = 'left';
+function titleRow(ctx, title, name, y) {
+  font(ctx, 36, 800); const w = ctx.measureText(title).width + 52;
+  rr(ctx, X, y, w, 66, 33, C.or); ctx.fillStyle = '#fff'; ctx.fillText(title, X + 26, y + 46);
+  let s = 44; for (; s > 30; s -= 2) { font(ctx, s, 800); if (ctx.measureText(name).width <= CW - w - 24) break; }
+  ctx.fillStyle = C.ink2; ctx.textAlign = 'right'; ctx.fillText(name, R, y + 47); ctx.textAlign = 'left';
   return y + 110;
+}
+
+/* ── 다른 갈래(TOPIK 듣기 · 쓰기)도 같은 틀로 그린다 — 머리 · 진행 막대 · 장 이름 칩 · 덩어리 · 움직임 · 바닥 크기 ──
+   card = { label: '듣기 15번', title: '문제', name: 'TOPIK I 듣기', variants: [덩어리 목록, 더 줄인 목록 …], extra(ctx, t, laid) } */
+export const CARD = { X, R, CW, TOP, BOTTOM, C };
+export function cardFits(ctx, blocks) { return !!flow(ctx, blocks, TOP + 210); }
+export function drawCard(ctx, card, idx, n, { logo = null, t = Infinity } = {}) {
+  ctx.save(); ctx.textBaseline = 'alphabetic'; ctx.textAlign = 'left';
+  ctx.fillStyle = C.bg; ctx.fillRect(0, 0, W, H);
+  header(ctx, card.label, idx, n, logo, t);
+  const y = titleRow(ctx, card.title, card.name, TOP + 100);
+  let laid = null, ok = true;
+  for (const B of card.variants) if ((laid = flow(ctx, B, y))) break;
+  if (!laid) { ok = false; laid = flow(ctx, card.variants.at(-1), y, 0.4) || []; }
+  paint(ctx, laid, t);
+  card.extra?.(ctx, t, laid);
+  ctx.restore();
+  return ok;
+}
+/* 표지(문법 표지와 같은 틀) — { chip, name, hook, card(맛보기 글), mark, foot } */
+export function drawCoverCard(ctx, c, { logo = null, t = Infinity } = {}) {
+  ctx.save(); ctx.textBaseline = 'alphabetic'; ctx.textAlign = 'left';
+  ctx.fillStyle = C.bg; ctx.fillRect(0, 0, W, H);
+  const ok = coverDraw(ctx, c, logo, t);
+  ctx.restore(); return ok;
 }
 
 /* 장마다 덩어리 — lean 0 은 다 넣고, 1 은 영어 줄을 빼고, 2 는 개수를 줄인다(그래도 바닥 크기 아래로는 안 줄인다) */
 function blocksFor(sl, lean) {
-  const p = sl.p, B = [], en = lean < 1, few = lean >= 2;
+  /* 영어 줄은 넣지 않는다(운영자 2026-10-05: 「영어는 있다 말고 — 내가 말할 테니 빼」). 낱말 뜻(meal 등)만 남긴다 — 모든 낱말에 있다 */
+  const p = sl.p, B = [], en = false, few = lean >= 2;
   if (sl.k === 'mean') {
     B.push({ t: p.name, size: 100, weight: 900, gap: 34 });
     B.push({ t: sl.ko, size: 62, weight: 700, lh: 1.5, gap: 36 });
@@ -156,13 +198,13 @@ function blocksFor(sl, lean) {
     });
   } else if (sl.k === 'care') {
     if (sl.ko) B.push({ t: '⚠️ ' + sl.ko, size: 60, weight: 700, card: 'warn', pad: 40, lh: 1.5, gap: 30, mark: sl.mark });
-    if (sl.sub && (en || !sl.ko)) B.push({ t: sl.sub, size: 44, weight: 500, color: C.dim });
+    if (sl.sub && en) B.push({ t: sl.sub, size: 44, weight: 500, color: C.dim });
   } else if (sl.k === 'dlg') {
     sl.lines.forEach((l) => { const m = l.match(/^([AB])\s*[:：]\s*/); const who = m?.[1] || 'A';
       B.push({ t: l.replace(/^[AB]\s*[:：]\s*/, ''), size: 58, weight: 600, card: who === 'B' ? 'soft' : 'white', pad: 32, w: CW * 0.88, side: who, gap: 24, mark: sl.mark }); });
   } else if (sl.k === 'try') {
     B.push({ t: sl.words.length ? '이 낱말로 문장을 만들어 보세요' : '이 문법으로 문장을 만들어 보세요', size: 64, weight: 800, gap: 30 });
-    for (const w of sl.words.slice(0, few ? 3 : 4)) B.push({ t: en && w[2] ? `${w[0]}  ·  ${w[2]}` : w[0], size: 58, weight: 700, card: 'white', pad: 28, gap: 14 });
+    for (const w of sl.words.slice(0, few ? 3 : 4)) B.push({ t: w[2] ? `${w[0]}  ·  ${w[2]}` : w[0], size: 58, weight: 700, card: 'white', pad: 28, gap: 14 });
     B.push({ space: 30 }, { t: '댓글로 남겨 주면 확인해 줄게요 👇', size: 54, weight: 800, color: C.or, gap: 20 },
       { t: 'everykoreans.com', size: 44, weight: 700, color: C.dim });
   }
@@ -170,40 +212,44 @@ function blocksFor(sl, lean) {
 }
 
 /* 한 장 그리기 — 다 들어갔으면 true(검사가 290개 × 모든 장을 센다) */
-export function drawGrammarSlide(ctx, slides, idx, { logo = null, hook = '' } = {}) {
+export function drawGrammarSlide(ctx, slides, idx, { logo = null, hook = '', t = Infinity } = {}) {
   const sl = slides[idx], p = sl.p;
   ctx.save(); ctx.textBaseline = 'alphabetic'; ctx.textAlign = 'left';
   ctx.fillStyle = C.bg; ctx.fillRect(0, 0, W, H);
-  if (sl.k === 'cover') { const ok = cover(ctx, sl, logo, hook); ctx.restore(); return ok; }
-  header(ctx, sl, idx, slides.length, logo);
-  const y = titleRow(ctx, sl, TOP + 100);
+  if (sl.k === 'cover') { const [ko, en] = levelOf(p);
+    const ok = coverDraw(ctx, { chip: `${ko} 문법 · ${en}`, name: p.name, hook: hook || '이 문법, 1분이면 끝!', card: p.ex || '', mark: sl.mark, foot: `everykoreans.com · ${CAT.get(p.id)?.ko || ''}` }, logo, t);
+    ctx.restore(); return ok; }
+  header(ctx, `${levelOf(p)[0]} 문법`, idx, slides.length, logo, t);
+  const y = titleRow(ctx, sl.title, p.name, TOP + 100);
   /* 다 넣은 것부터 바닥 크기로 들어가는 첫 판 — 셋 다 안 되면(검사로는 0개) 마지막 판을 더 작게 */
   let laid = null, ok = true;
   for (const lean of [0, 1, 2]) if ((laid = flow(ctx, blocksFor(sl, lean), y))) break;
   if (!laid) { ok = false; laid = flow(ctx, blocksFor(sl, 2), y, 0.4) || []; }
-  paint(ctx, laid);
+  paint(ctx, laid, t);
   ctx.restore();
   return ok;
 }
 
 /* 표지 — 읽기 쇼츠의 A 시험지와 같은 틀(운영자가 고른 것): 마스코트 · 주황 칩 · 큰 이름 · 훅 · 예문 맛보기 */
-function cover(ctx, sl, logo, hook) {
-  const p = sl.p, [ko, en] = levelOf(p);
-  if (logo) ctx.drawImage(logo, W / 2 - 170, 250, 340, 340 * logo.height / logo.width);
-  font(ctx, 44, 800); const t = `${ko} 문법 · ${en}`, tw = ctx.measureText(t).width + 64;
-  rr(ctx, W / 2 - tw / 2, 560, tw, 76, 38, C.or); ctx.fillStyle = '#fff'; ctx.fillText(t, W / 2 - tw / 2 + 32, 613);
-  let s = 150, ls; for (; s >= 64; s -= 6) { font(ctx, s, 900); ls = wrap(ctx, p.name, 940); if (ls.length <= 2) break; }
-  ls.forEach((l, i) => { ctx.fillStyle = C.ink; ctx.fillText(l, W / 2 - ctx.measureText(l).width / 2, 640 + s + i * s * 1.15); });
+function coverDraw(ctx, c, logo, t = Infinity) {
+  /* 표지 움직임: 마스코트가 통 튀어 내려오고 → 칩 → 이름 → 훅(형광펜이 그어짐) → 예문 카드 차례로 */
+  const part = (k, fn) => { const q = ease((t - k * 220) / 460); if (q <= 0) return; ctx.save(); ctx.globalAlpha = q; ctx.translate(0, (1 - q) * 50); fn(q); ctx.restore(); };
+  if (logo) { const q = Math.min(1, Math.max(0, t / 520)), bounce = q < 1 ? Math.sin(q * Math.PI) * -40 * (1 - q) - (1 - ease(q)) * 160 : 0;
+    ctx.save(); ctx.globalAlpha = Math.min(1, q * 2); ctx.drawImage(logo, W / 2 - 170, 250 + bounce, 340, 340 * logo.height / logo.width); ctx.restore(); }
+  part(1, () => { font(ctx, 44, 800); const tx = c.chip, tw = ctx.measureText(tx).width + 64;
+    rr(ctx, W / 2 - tw / 2, 560, tw, 76, 38, C.or); ctx.fillStyle = '#fff'; ctx.fillText(tx, W / 2 - tw / 2 + 32, 613); });
+  let s = 150, ls; for (; s >= 64; s -= 6) { font(ctx, s, 900); ls = wrap(ctx, c.name, 940); if (ls.length <= 2) break; }
+  part(2, () => { font(ctx, s, 900); ls.forEach((l, i) => { ctx.fillStyle = C.ink; ctx.fillText(l, W / 2 - ctx.measureText(l).width / 2, 640 + s + i * s * 1.15); }); });
   let y = 640 + s + (ls.length - 1) * s * 1.15 + 120;
-  const hk = hook || '이 문법, 1분이면 끝!';
+  const hk = c.hook;
   font(ctx, 80, 900); const hl = wrap(ctx, hk, 920).slice(0, 2);
-  hl.forEach((l, i) => { const w = ctx.measureText(l).width; lineWithMark(ctx, l, W / 2 - w / 2, y + i * 100, 80, C.ink, /\d+\s*분|끝|쉽게/g); });
+  const sw = ease((t - 3 * 220 - 300) / SWEEP);
+  part(3, () => { font(ctx, 80, 900); hl.forEach((l, i) => { const w = ctx.measureText(l).width; lineWithMark(ctx, l, W / 2 - w / 2, y + i * 100, 80, C.ink, /\d+\s*분|끝|쉽게/g, sw); }); });
   y += hl.length * 100 + 40;
-  font(ctx, 46, 700); const ex = wrap(ctx, p.ex || '', 820).slice(0, 3);
+  font(ctx, 46, 700); const ex = wrap(ctx, c.card || '', 820).slice(0, 3);
   const ch = ex.length * 66 + 70;
-  rr(ctx, 90, y, 900, ch, 28, C.card, C.line, 4);
-  ex.forEach((l, i) => lineWithMark(ctx, l, 130, y + 70 + i * 66, 46, C.ink2, sl.mark));
-  font(ctx, 34, 700); ctx.fillStyle = C.dim; const f = `everykoreans.com · ${CAT.get(p.id)?.ko || ''}`; ctx.fillText(f, W / 2 - ctx.measureText(f).width / 2, Math.max(y + ch + 80, 1680));
+  part(4, () => { rr(ctx, 90, y, 900, ch, 28, C.card, C.line, 4); font(ctx, 46, 700); ex.forEach((l, i) => lineWithMark(ctx, l, 130, y + 70 + i * 66, 46, C.ink2, c.mark, ease((t - 4 * 220 - 400) / SWEEP))); });
+  part(5, () => { font(ctx, 34, 700); ctx.fillStyle = C.dim; const f = c.foot || 'everykoreans.com'; ctx.fillText(f, W / 2 - ctx.measureText(f).width / 2, Math.max(y + ch + 80, 1680)); });
   return y + ch + 80 <= 1720;
 }
 

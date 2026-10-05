@@ -59,7 +59,7 @@ function coverA(ctx, q, hook, logo) {
   if (logo) ctx.drawImage(logo, W / 2 - 170, 250, 340, 340 * logo.height / logo.width);
   font(ctx, 44, 800); const t = label(q), tw = ctx.measureText(t).width + 64;
   rr(ctx, W / 2 - tw / 2, 560, tw, 76, 38, '#E1682B'); ctx.fillStyle = '#fff'; ctx.fillText(t, W / 2 - tw / 2 + 32, 613);
-  font(ctx, 150, 900); ctx.fillStyle = '#1B1512'; const big = `읽기 ${q.slot}번`; ctx.fillText(big, W / 2 - ctx.measureText(big).width / 2, 800);
+  font(ctx, 150, 900); ctx.fillStyle = '#1B1512'; const big = `${q.kind || '읽기'} ${q.slot}번`; ctx.fillText(big, W / 2 - ctx.measureText(big).width / 2, 800);
   const h = fit(ctx, hook, 900, 92, 2);
   centerLines(ctx, h.ls, W / 2, 960, Math.round(h.s * 1.3), '#1B1512', keyOf(hook), 'rgba(255, 221, 0, .75)');
   /* 문제 맛보기 — 질문 한 줄 + 보기 넷(길면 자른다) */
@@ -78,7 +78,7 @@ function coverA(ctx, q, hook, logo) {
 /* B 색판 — 주황 바탕에 흰 큰 글. 급수는 노란 동그라미, 마스코트는 아래에 크게 */
 function coverB(ctx, q, hook, logo) {
   const g = ctx.createLinearGradient(0, 0, 0, H); g.addColorStop(0, '#F07A35'); g.addColorStop(1, '#D9561C'); ctx.fillStyle = g; ctx.fillRect(0, 0, W, H);
-  font(ctx, 46, 800); ctx.fillStyle = 'rgba(255,255,255,.85)'; const top = '치즈감자 TOPIK 읽기'; ctx.fillText(top, W / 2 - ctx.measureText(top).width / 2, 300);
+  font(ctx, 46, 800); ctx.fillStyle = 'rgba(255,255,255,.85)'; const top = `치즈감자 TOPIK ${q.kind || '읽기'}`; ctx.fillText(top, W / 2 - ctx.measureText(top).width / 2, 300);
   font(ctx, 230, 900); ctx.fillStyle = '#fff'; const tk = `TOPIK ${q.exam}`; ctx.fillText(tk, W / 2 - ctx.measureText(tk).width / 2, 530);
   /* 급수 동그라미 + 번호 */
   ctx.beginPath(); ctx.arc(330, 700, 120, 0, Math.PI * 2); ctx.fillStyle = '#FFD84A'; ctx.fill();
@@ -104,7 +104,7 @@ function coverC(ctx, q, hook, logo) {
   const sec = (hook.match(/(\d+)\s*초/) || [0, '?'])[1];
   font(ctx, 200, 900); ctx.fillStyle = '#fff'; ctx.fillText(sec, W / 2 - ctx.measureText(sec).width / 2, cy + 60);
   font(ctx, 56, 800); ctx.fillStyle = '#E1682B'; ctx.fillText('초', W / 2 - ctx.measureText('초').width / 2, cy + 140);
-  font(ctx, 58, 800); ctx.fillStyle = '#fff'; const t = `${label(q)} · 읽기 ${q.slot}번`; ctx.fillText(t, W / 2 - ctx.measureText(t).width / 2, 1440);
+  font(ctx, 58, 800); ctx.fillStyle = '#fff'; const t = `${label(q)} · ${q.kind || '읽기'} ${q.slot}번`; ctx.fillText(t, W / 2 - ctx.measureText(t).width / 2, 1440);
   font(ctx, 36, 600); ctx.fillStyle = 'rgba(255,255,255,.6)'; const f = '연습 문제(기출 아님) · everykoreans.com'; ctx.fillText(f, W / 2 - ctx.measureText(f).width / 2, 1520);
   if (logo) { const lw = 300; ctx.drawImage(logo, W - lw - 60, 1600, lw, lw * logo.height / logo.width); }
 }
@@ -112,10 +112,10 @@ function coverC(ctx, q, hook, logo) {
 /* 제목 · 설명 — 유튜브 · 인스타 · 틱톡이 같은 틀을 쓴다(대기열에 같이 저장해 액션이 그대로 올린다) */
 export function shortsMeta(q, hook = '') {
   const hk = hook || '이 문제, 풀 수 있어요?';
-  const title = `${hk} | TOPIK ${q.exam} ${q.grade}급 읽기 ${q.slot}번 #shorts`.slice(0, 100);
+  const title = `${hk} | TOPIK ${q.exam} ${q.grade}급 ${q.kind || '읽기'} ${q.slot}번 #shorts`.slice(0, 100);
   const tags = '#TOPIK #토픽 #한국어 #한국어공부 #learnkorean #studykorean #koreanlanguage';
   const body = `${q.question}\n${q.options.map((o, i) => `${CIRCLED[i]} ${o}`).join('\n')}\n\n정답은 영상 끝에 👀 댓글로 먼저 맞혀 보세요!\n` +
     `※ 치즈감자가 만든 연습 문제예요(기출 아님).\n무료 TOPIK 연습 → https://everykoreans.com/?utm_source=shorts&utm_medium=video`;
-  return { title, description: `${body}\n\n${tags} #shorts`, caption: `${hk} TOPIK ${q.exam} ${q.grade}급 읽기 ${q.slot}번\n\n${body}\n\n${tags}`,
+  return { title, description: `${body}\n\n${tags} #shorts`, caption: `${hk} TOPIK ${q.exam} ${q.grade}급 ${q.kind || '읽기'} ${q.slot}번\n\n${body}\n\n${tags}`,
     tags: ['TOPIK', '토픽', '한국어', '한국어공부', 'learn korean', 'study korean', `TOPIK ${q.exam}`] };
 }
