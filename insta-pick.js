@@ -31,11 +31,16 @@ function related(words) {
   return [...by.values()].sort((a, b) => b.length - a.length).flat();
 }
 
+/* 오늘의 TOPIK — 하루 한 문제(운영자 요청 2026-10-03). TOPIK I 읽기 가운데 한 장에 들어가는 짧은 것만(지문 180자 · 보기 30자 안),
+   1급 수준 먼저. 순서 맞추기 · 문장 넣기처럼 한 장에 안 맞는 유형은 뺀다. 문항은 전부 사이트 창작(기출 아님).
+   사이트 첫 화면의 「오늘의 TOPIK 1문제」(app.module.js hmQuizRender)도 같은 차례를 써서 인스타와 같은 문제가 뜬다(2026-10-05). */
+const quizOk = (q) => q.options?.length === 4 && !['order', 'insert'].includes(q.type) && (q.passage || '').length <= 180 && q.options.every((o) => String(o).length <= 30);
+export const quizList = (TOPIK_READING) => [...shuffled(TOPIK_READING.filter((q) => q.grade === 1 && quizOk(q)), 31), ...shuffled(TOPIK_READING.filter((q) => q.grade === 2 && quizOk(q)), 37)];
+export const dayN = (day) => { const [y, m, d] = day.split('-').map(Number); return Math.max(0, Math.round((Date.UTC(y, m - 1, d) - START) / 86400e3)); };
+export const quizOfDay = (TOPIK_READING, day = todayKst()) => { const Q = quizList(TOPIK_READING); return Q.length ? Q[dayN(day) % Q.length] : null; };
+
 export function makePicker({ VOCAB, VOCAB_TOPICS, SB_CATS, SB_MORE, GRAMMAR_EN, GRAMMAR_WORDS, TOPIK_READING = [] }) {
-  /* 오늘의 TOPIK — 하루 한 문제(운영자 요청 2026-10-03). TOPIK I 읽기 가운데 한 장에 들어가는 짧은 것만(지문 180자 · 보기 30자 안),
-     1급 수준 먼저. 순서 맞추기 · 문장 넣기처럼 한 장에 안 맞는 유형은 뺀다. 문항은 전부 사이트 창작(기출 아님). */
-  const quizOk = (q) => q.options?.length === 4 && !['order', 'insert'].includes(q.type) && (q.passage || '').length <= 180 && q.options.every((o) => String(o).length <= 30);
-  const QUIZ = [...shuffled(TOPIK_READING.filter((q) => q.grade === 1 && quizOk(q)), 31), ...shuffled(TOPIK_READING.filter((q) => q.grade === 2 && quizOk(q)), 37)];
+  const QUIZ = quizList(TOPIK_READING);
   const TOPICS = shuffled(VOCAB_TOPICS.flatMap((g) => g.subs.map((t) => ({ ...t, key: `${g.id}/${t.id}` })))
     .filter((t) => !SKIP_TOPIC.test(t.key))
     .map((t) => ({ ...t, words: related(shuffled(VOCAB.filter((w) => w.t[0] === t.key && w.x?.length && !/\s/.test(w.h)), 11)) }))
@@ -47,7 +52,6 @@ export function makePicker({ VOCAB, VOCAB_TOPICS, SB_CATS, SB_MORE, GRAMMAR_EN, 
     ...shuffled(POINTS.filter((p) => p.lv === 'intermediate' && ok(p)), 23)];
   const ALL_GRAMS = POINTS.filter(ok);
 
-  const dayN = (day) => { const [y, m, d] = day.split('-').map(Number); return Math.max(0, Math.round((Date.UTC(y, m - 1, d) - START) / 86400e3)); };
   /* 그날의 세 게시물 — 주제는 하루 둘씩 차례로(k = 2n, 2n+1), 한 바퀴 돌면 그 주제의 다음 다섯 낱말. 문법은 하루 하나 */
   function day(dayStr) {
     const n = dayN(dayStr);
