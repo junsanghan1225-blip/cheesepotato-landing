@@ -5517,6 +5517,21 @@ body.mk-printing .mk-cover, body.mk-printing .mk-paper, body.mk-printing .mk-omr
 .lt-mode-msg { margin-top:12px; padding:12px 14px; border-radius:12px; background:var(--tint); font-size:14px; line-height:1.6; }
 .lt-mode-msg p { margin:0 0 10px; }
 .lt-areas4 .lt-area-n { font-size:12px; }
+/* 분석 테스트 — 영역별 레벨 계단 막대(app.module.js ltLadderHtml). 한 줄 = 영역 하나, 막대 칸 = 레벨 한 칸(2px 틈) */
+.lt-ladder { display:grid; gap:8px; margin:6px 0 14px; padding:14px; border-radius:var(--r-l); background:var(--surface); border:1px solid var(--line); }
+.lt-lad-row { display:grid; grid-template-columns:3.6em minmax(0,1fr) 4.6em; align-items:center; gap:10px; }
+.lt-lad-k { font-size:13.5px; font-weight:700; color:var(--ink-2); }
+.lt-lad-tr { display:grid; grid-template-columns:repeat(var(--steps), 1fr); gap:2px; height:14px; }
+.lt-lad-tr i { border-radius:3px; background:rgba(var(--ink-rgb),.08); }
+.lt-lad-tr i.on { background:var(--orange); }
+.lt-lad-tr i.on:first-child { border-radius:4px 3px 3px 4px; }
+.lt-lad-row.weak .lt-lad-k::after { content:'•'; color:var(--orange); margin-left:4px; }
+.lt-lad-v { font-size:14px; color:var(--ink); white-space:nowrap; }
+.lt-lad-v small { margin-left:4px; font-size:11px; font-weight:600; color:var(--ink-3); }
+.lt-lad-ticks { display:grid; grid-template-columns:repeat(var(--steps), 1fr); gap:2px; font-size:11px; color:var(--ink-3); text-align:center; font-variant-numeric:tabular-nums; }
+.lt-lad-axis .lt-lad-v { font-size:11px; font-weight:600; color:var(--ink-3); }
+.lt-area-lv { display:block; font-size:16px; margin:6px 0 2px; }
+.lt-intro-fine { font-size:13px; color:var(--ink-3); max-width:32em; margin:6px auto 14px; }
 /* 레벨 테스트 — 「잘 모르겠어요」 · 영역 첫머리 안내 · 문제 다시 보기 · 지난번과 견주기 */
 .lt-idk { display:block; margin:10px auto 0; font:inherit; font-size:14px; font-weight:700; padding:9px 16px; border-radius:999px;
   border:1px dashed rgba(var(--ink-rgb),.25); background:transparent; color:var(--ink-3); cursor:pointer; }
