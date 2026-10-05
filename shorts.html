@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>치즈감자 쇼츠 촬영소</title>
+<link rel="icon" href="favicon-32.png">
+<link rel="stylesheet" href="vendor/pretendard.css">
+<!-- 치즈감자 쇼츠 촬영소 — TOPIK 읽기 문제를 세로(1080×1920) 화면에 띄우고, 형광펜으로 그으며 풀이하는 것을
+     마이크 소리와 함께 한 번에 녹화해 영상 파일로 받는다(운영자 요청 2026-10-05: 「공장처럼 찍어낼 거야, 형광펜만」).
+     화면 공유가 아니라 이 캔버스만 찍으므로 다른 창 · 알림이 영상에 안 들어간다. 코드는 shorts.js. -->
+<style>
+:root { --bg:#F2EEE4; --card:#fff; --line:#E4DED1; --ink:#1B1512; --dim:#8C7A66; --or:#E1682B; --red:#D33A2C; --green:#2E9B5B; }
+@media (prefers-color-scheme: dark) {
+  :root { --bg:#161411; --card:#211E1A; --line:#38332C; --ink:#F2EEE6; --dim:#8A8376; --or:#F08A45; }
+}
+* { box-sizing:border-box; }
+body { margin:0; background:var(--bg); color:var(--ink); font-family:"Pretendard Variable", Pretendard, sans-serif; }
+button, select, input { font-family:inherit; font-size:15px; color:inherit; }
+.wrap { display:grid; grid-template-columns:auto minmax(0, 420px); gap:24px; padding:16px; justify-content:center; align-items:start; }
+@media (max-width: 900px) { .wrap { grid-template-columns:minmax(0, 1fr); } }
+.stage { position:relative; }
+#cv { height:calc(100vh - 32px); max-height:1100px; width:auto; max-width:100%; aspect-ratio:9 / 16; display:block; border-radius:14px;
+  box-shadow:0 2px 12px rgba(0,0,0,.12); touch-action:none; cursor:crosshair; background:#F7F3EA; }
+@media (max-width: 900px) { #cv { height:auto; width:100%; } }
+.count { position:absolute; inset:0; display:flex; align-items:center; justify-content:center; font-size:140px; font-weight:900;
+  color:#fff; text-shadow:0 4px 24px rgba(0,0,0,.5); pointer-events:none; }
+.count[hidden] { display:none; }
+.panel { display:flex; flex-direction:column; gap:14px; }
+.box { background:var(--card); border:1px solid var(--line); border-radius:14px; padding:14px; display:flex; flex-direction:column; gap:10px; }
+.box h2 { margin:0; font-size:15px; font-weight:800; }
+.row { display:flex; flex-wrap:wrap; gap:8px; align-items:center; }
+.btn { border:1px solid var(--line); background:var(--card); border-radius:10px; padding:8px 12px; cursor:pointer; font-weight:700; }
+.btn:disabled { opacity:.45; cursor:default; }
+.btn.on { background:var(--ink); color:var(--bg); border-color:var(--ink); }
+.btn.rec { background:var(--red); color:#fff; border-color:var(--red); font-size:17px; padding:12px 18px; }
+.btn.rec.live { animation:blink 1s infinite; }
+@keyframes blink { 50% { opacity:.6; } }
+select, input[type=text] { padding:7px 10px; border:1px solid var(--line); border-radius:10px; background:var(--card); max-width:100%; }
+input[type=text] { width:100%; }
+.sw { width:30px; height:30px; border-radius:50%; border:3px solid transparent; cursor:pointer; padding:0; }
+.sw.on { border-color:var(--ink); }
+.meter { flex:1; height:10px; background:var(--line); border-radius:6px; overflow:hidden; min-width:80px; }
+.meter i { display:block; height:100%; width:0; background:var(--green); transition:width .08s; }
+.muted { color:var(--dim); font-size:13px; line-height:1.5; }
+.time { font-variant-numeric:tabular-nums; font-weight:800; font-size:18px; }
+.time.warn { color:var(--red); }
+kbd { border:1px solid var(--line); border-bottom-width:2px; border-radius:5px; padding:0 5px; font-size:12px; font-family:inherit; }
+.done { color:var(--green); font-weight:800; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="stage">
+    <canvas id="cv" width="1080" height="1920"></canvas>
+    <div class="count" id="count" hidden></div>
+  </div>
+  <div class="panel">
+    <div class="box">
+      <h2>1. 문제 고르기</h2>
+      <div class="row">
+        <select id="exam"><option value="I">TOPIK I</option><option value="II">TOPIK II</option></select>
+        <select id="grade"></select>
+        <label class="row muted"><input type="checkbox" id="skipDone" checked> 찍은 것 건너뛰기</label>
+      </div>
+      <div class="row">
+        <button class="btn" id="prev" title="←">← 이전</button>
+        <select id="pick" style="flex:1; min-width:0"></select>
+        <button class="btn" id="next" title="→">다음 →</button>
+      </div>
+      <div class="muted" id="info"></div>
+      <label class="muted">맨 위 한 줄(훅) — 비우면 안 나와요
+        <input type="text" id="hook" maxlength="40"></label>
+    </div>
+
+    <div class="box">
+      <h2>2. 마이크</h2>
+      <div class="row">
+        <button class="btn" id="micOn">🎙️ 마이크 켜기</button>
+        <select id="micSel" hidden style="flex:1; min-width:0"></select>
+      </div>
+      <div class="row"><span class="muted">크기</span><div class="meter"><i id="lvl"></i></div></div>
+      <div class="muted">막대가 말할 때 반쯤 차면 알맞아요. 이어폰 마이크보다 노트북 · 폰 가까이가 나아요.</div>
+    </div>
+
+    <div class="box">
+      <h2>3. 형광펜</h2>
+      <div class="row" id="colors"></div>
+      <div class="row">
+        <button class="btn on" id="straight" title="곧은 줄: 가로로만 그어져요">곧은 줄</button>
+        <button class="btn" id="undo">↶ 하나 지우기 <kbd>Z</kbd></button>
+        <button class="btn" id="clear">모두 지우기 <kbd>C</kbd></button>
+      </div>
+      <div class="row">
+        <button class="btn" id="answer">✅ 정답 보이기 <kbd>A</kbd></button>
+        <button class="btn" id="why">💡 풀이 보이기 <kbd>W</kbd></button>
+      </div>
+    </div>
+
+    <div class="box">
+      <h2>4. 녹화</h2>
+      <div class="row">
+        <button class="btn rec" id="rec">● 녹화 시작 <kbd style="color:#fff">R</kbd></button>
+        <span class="time" id="time">0:00</span>
+      </div>
+      <div class="muted" id="recInfo">3·2·1 뒤에 시작해요. 다시 <kbd>R</kbd> 을 누르면 멈추고 영상 파일이 내려받아져요.
+        쇼츠는 3분까지, 릴스는 90초 안이 좋아요(1분이 넘으면 시간이 빨개져요).</div>
+      <button class="btn" id="copy">📋 제목 · 설명 복사</button>
+      <div class="muted" id="stat"></div>
+    </div>
+    <div class="muted">
+      <kbd>←</kbd><kbd>→</kbd> 문제 바꾸기 · <kbd>1</kbd><kbd>2</kbd><kbd>3</kbd> 형광펜 색 · <kbd>A</kbd> 정답 · <kbd>W</kbd> 풀이 · <kbd>Z</kbd> 지우기 · <kbd>R</kbd> 녹화<br>
+      문항은 모두 사이트가 만든 연습 문제예요(기출 아님) — 영상에도 「기출 아님」이 찍혀요.
+    </div>
+  </div>
+</div>
+<script type="module" src="shorts.js"></script>
+</body>
+</html>

@@ -112,7 +112,7 @@
   (`docs/recording.md`). 녹음을 넣은 뒤 `node tools/record-list.mjs`.
 - 묻고 답하기 씨앗 질문 30개: 안티 초안 → Claude 검토 끝(2026-10-02, `docs/qa-seeds.json`). **운영자가 읽고 고친 뒤**
   `node tools/build-qa-seeds-sql.mjs` → 운영자가 `db/add_qa_seeds.sql` 을 SQL Editor 에서 돌린다.
-- 운영 쪽(검색에 안 걸림): 녹음소 `/record.html`, 인스타 편집기 `/insta.html`, 콘텐츠 현황 `/stats.html`.
+- 운영 쪽(검색에 안 걸림): 녹음소 `/record.html`, 인스타 편집기 `/insta.html`, 콘텐츠 현황 `/stats.html`, **쇼츠 촬영소 `/shorts.html`**(TOPIK 읽기 세로 영상 — 형광펜 + 마이크 녹화 → mp4, 2026-10-05).
 - 인스타: 하루 단어 2 · 문법 1(운영자 결정 2026-10-02) + **오늘의 TOPIK 한 문제**(13:07, 2026-10-03 · TOPIK I 읽기 창작 문항 · 「기출 아님」 표시). 낱말 다섯은 둘째 갈래 · 품사가 같은 것끼리(`insta-pick.js` related). TOPIK 은 스토리(9:16)로도, 모든 게시물은 **스레드**로도(Secrets `THREADS_TOKEN` 을 넣으면 — 순서는 `docs/insta-auto.md`). **자동 올리기** `.github/workflows/insta-post.yml` + `tools/insta-post.mjs`
   (이미지는 `insta-media` 가지, 열쇠는 운영자가 넣는 Secrets `IG_TOKEN`, 켜기는 Variables `INSTA_AUTO=on`) — 운영자 순서는 `docs/insta-auto.md`.
 - TOPIK 쓰기 200문항(번호마다 50) — 2026-10-02 검토해 넣음. 회화 연습 장면 31개(2026-10-02 30개 검토해 넣음, `convo-merge.mjs --keep-accept`). 안티 그래비티에게 넘긴 일: **문법 블록 연습 문장 205개 표현 × 5**(`docs/antigravity-grammar-practice-task.md`, 브랜치 `grammar-practice`) · **레벨테스트 문제 은행 레벨마다 30 + 문법 꼬리표 g**(`docs/antigravity-leveltest-bank-task.md`, 브랜치 `leveltest-bank`) — 2026-10-05, 오면 검토. 쓰기 보강 · 실물 문서 10편 · 진짜 말 10편은 2026-09-28 #114 로 이미 들어갔다
