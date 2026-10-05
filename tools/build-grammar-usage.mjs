@@ -99,13 +99,18 @@ const USAGE = {};
    풀게 한다. 같은 꼴을 찾은 문장 가운데 화면에 이미 나온 것을 뺀 것. 3 ~ 10어절 · 영어 뜻이 있는 것 먼저(블록 위에 뜻을 보여 준다) ·
    초급 표현은 짧은 문장 먼저. 표현마다 여덟까지. */
 const PRACTICE = {};
+/* 손으로 쓴 연습 문장(안티 그래비티 → Claude 검토, docs/grammar-practice.json, 검사 check-grammar-practice) — 있으면 맨 앞에 */
+const HAND = fs.existsSync(path.join(ROOT, 'docs/grammar-practice.json'))
+  ? JSON.parse(fs.readFileSync(path.join(ROOT, 'docs/grammar-practice.json'), 'utf8')) : {};
+const handOf = (id) => (Array.isArray(HAND[id]) ? HAND[id] : []).filter((x) => x?.ko).map((x) => (x.en ? [x.ko.trim(), x.en.trim()] : [x.ko.trim()]));
+const withHand = (id, auto) => { const h = handOf(id); const out = [...h, ...auto.filter((a) => !h.some((x) => x[0] === a[0]))].slice(0, 8); return out; };
 const LV = new Map(PTS.map((p) => [p.id, p.lv]));
 /* 게시판 씨앗 글(SB_SEED)도 화면 아래에 보인다 — 연습 문장에서 뺀다 */
 const seedOf = (id) => (SB_SEED?.[id] || []).map((r) => String(r[1] || '').trim());
 let made = 0;
 for (const p of PTS) {
   const re = RE.get(p.id);
-  if (!re || sameForm.has(p.id) || SKIP_ID.has(p.id)) continue;
+  if (!re || sameForm.has(p.id) || SKIP_ID.has(p.id)) { const h = withHand(p.id, []); if (h.length) PRACTICE[p.id] = h; continue; }
   const own = new Set([p.ex, (SB_MORE[p.id] || [])[3], ...(p.dlg || []).map((l) => String(l).replace(/^\s*[AB]\s*:\s*/, ''))].map((x) => String(x || '').trim()));
   const hit = [];
   for (const s of POOL) {
@@ -126,7 +131,7 @@ for (const p of PTS) {
     for (const s of cand) { if (out.length >= 8) break; if (!out.some((o) => o.ko === s.ko)) out.push(s); }
     return out.map((s) => (s.en ? [s.ko, s.en] : [s.ko]));
   };
-  if (!usageHit.length) { const pr = pick(new Set([...own, ...seedOf(p.id)])); if (pr.length) PRACTICE[p.id] = pr; continue; }
+  if (!usageHit.length) { const pr = withHand(p.id, pick(new Set([...own, ...seedOf(p.id)]))); if (pr.length) PRACTICE[p.id] = pr; continue; }
   /* 짧고 쉬운 문장부터, 같은 출처 쪽은 한 번만, TOPIK 둘 + 그 밖 하나 */
   usageHit.sort((a, b) => a.rank - b.rank || a.ko.length - b.ko.length);
   const out = [], seen = new Set();
@@ -139,7 +144,7 @@ for (const p of PTS) {
   }
   if (out.length < 3) for (const s of usageHit) { if (out.length >= 3) break; if (!out.includes(s) && !out.some((o) => o.ko === s.ko)) out.push(s); }
   USAGE[p.id] = out.map((s) => [s.ko, s.en, s.src[0], s.src[1], s.href, s.at, s.len]);
-  const pr = pick(new Set([...own, ...out.map((s) => s.ko), ...seedOf(p.id)]));
+  const pr = withHand(p.id, pick(new Set([...own, ...out.map((s) => s.ko), ...seedOf(p.id)])));
   if (pr.length) PRACTICE[p.id] = pr;
   made++;
 }
