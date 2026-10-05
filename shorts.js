@@ -21,7 +21,8 @@ const sb = createClient('https://tjgoevtvobvmlyefgxel.supabase.co',
 const $ = (id) => document.getElementById(id);
 const cv = $('cv'), ctx = cv.getContext('2d');
 const W = 1080, H = 1920;
-const SAFE = { x: 64, r: W - 130, top: 120, bottom: 1500 };
+/* 쇼츠 · 릴스 · 틱톡이 가리는 곳을 비운다: 위 약 220(맨 위 글자 · 카메라 단추), 아래 약 440(제목 · 채널 · 설명), 오른쪽 약 140(좋아요 · 댓글 단추) */
+const SAFE = { x: 64, r: W - 140, top: 230, bottom: 1480 };
 const FONT = '"Pretendard Variable", Pretendard, sans-serif';
 const C = { bg: '#F7F3EA', card: '#FFFFFF', line: '#D9D1C2', ink: '#1B1512', ink2: '#4E3E31', dim: '#8C7A66', or: '#E1682B',
   green: '#2E9B5B', greenBg: '#DDF3E5', red: '#D33A2C' };
@@ -41,7 +42,7 @@ let tool = 'hl';
 let mode = store.get('cp-shorts-mode', 'read'), slides = [], slide = 0, slideStrokes = new Map();
 const isGram = () => mode === 'gram';
 const keyOf = (x) => (isGram() ? 'g:' + x.id : x.id);   // 찍은 것 · 대기열 qid — 문법은 g: 를 붙여 읽기 id 와 안 섞이게
-let strokes = [], cur = null, pen = 1, straight = true, showAns = false, showWhy = false, L = null;
+let strokes = [], cur = null, pen = 1, straight = true, showAns = false, showWhy = false, LA = null, L = null;   // LA 읽기 배치 전체(pages) · L 지금 장
 
 /* ── 글 나누기: 낱말(띄어쓰기) 단위로 줄을 바꾼다. 낱말 하나가 줄보다 길면 글자 단위로 자른다. ── */
 function wrap(text, width) {
@@ -64,27 +65,58 @@ function wrap(text, width) {
 }
 const font = (size, weight = 500) => { ctx.font = `${weight} ${size}px ${FONT}`; };
 
-/* ── 배치: 글 크기 s 를 1 → 0.55 로 줄여 가며 SAFE 안에 다 들어가는 첫 크기를 쓴다. 풀이 칸 자리도 같이 잡는다. ── */
-function layout(q, hook) {
-  for (let s = 1.4; s >= 0.3; s -= 0.025) {   // 짧은 문제는 글을 키워 화면을 채운다
-    const b = [], X = SAFE.x, CW = SAFE.r - SAFE.x;
-    let y = SAFE.top;
-    font(30, 800); b.push({ k: 'brand', y: y + 30 }); y += 58;
-    if (hook) { const hs = Math.round(56 * Math.min(1.15, Math.max(s, 0.8))); font(hs, 900); const ls = wrap(hook, CW); b.push({ k: 'hook', ls, size: hs, y }); y += ls.length * Math.round(hs * 1.25) + 18; }
-    font(28, 700); b.push({ k: 'chip', y }); y += 64;
-    const fs = Math.round(40 * s), lh = Math.round(fs * 1.6), pad = Math.round(36 * s);
-    if (q.sentence) { font(fs, 600); const ls = wrap(q.sentence, CW - pad * 2 - 20); b.push({ k: 'sent', ls, fs, lh, pad, y }); y += ls.length * lh + pad * 2 - 10 + 22; }
-    font(fs, 500); const pl = wrap(q.passage, CW - pad * 2); b.push({ k: 'pass', ls: pl, fs, lh, pad, y }); y += pl.length * lh + pad * 2 + Math.round(30 * s);
-    const qs = Math.round(38 * s); font(qs, 800); const ql = wrap(q.question, CW); b.push({ k: 'q', ls: ql, fs: qs, lh: Math.round(qs * 1.45), y }); y += ql.length * Math.round(qs * 1.45) + Math.round(22 * s);
-    const os = Math.round(40 * s), olh = Math.round(os * 1.45), opad = Math.round(20 * s);
-    const opts = q.options.map((o) => { font(os, 600); const ls = wrap(o, CW - opad * 2 - os * 1.6); const h = ls.length * olh + opad * 2; const r = { ls, y, h }; y += h + Math.round(14 * s); return r; });
-    b.push({ k: 'opts', opts, fs: os, lh: olh, pad: opad });
-    y += Math.round(16 * s);
-    const ws = Math.round(32 * s), wlh = Math.round(ws * 1.5), wpad = Math.round(26 * s);
-    font(ws, 500); const wl = wrap('💡 ' + q.why, CW - wpad * 2);
-    const wh = wl.length * wlh + wpad * 2; b.push({ k: 'why', ls: wl, fs: ws, lh: wlh, pad: wpad, y, h: wh }); y += wh;
-    if (y <= SAFE.bottom || s <= 0.31) return { s, b, X, CW, fit: y <= SAFE.bottom };
+/* ── 배치(2026-10-05 다시: 운영자 「폰트 보기 편하게 · 쇼츠 · 릴스에서 잘림 없게」) ──
+   · 글자 크기는 폰에서 읽히는 만큼 아래로는 안 내린다: 지문 · 보기 42px, 풀이 35px 이 바닥(1080 폭 → 폰에서 약 15pt).
+   · 한 장에 다 들어가면 한 장. 안 들어가면 두 장으로 나눈다 — ① 지문 ② 질문 · 보기 · 풀이(Space 로 넘긴다).
+   · 그래도 넘치면(거의 없다) 그 장만 바닥 아래로 줄이고, 화면 옆 칸에 빨갛게 알린다. */
+const S_MIN = 0.84, S_MAX = 1.25;   // 지문 · 보기 50px × 0.84 = 42px 가 바닥
+function brandBlocks(b, y, CW, hook, s) {
+  b.push({ k: 'brand', y: y + 34 }); y += 70;
+  if (hook) { const hs = Math.round(60 * Math.min(1.1, Math.max(s, 0.9))); font(hs, 900); const ls = wrap(hook, CW); b.push({ k: 'hook', ls, size: hs, y }); y += ls.length * Math.round(hs * 1.25) + 20; }
+  b.push({ k: 'chip', y }); return y + 72;
+}
+function passBlocks(b, y, CW, s) {
+  const fs = Math.round(50 * s), lh = Math.round(fs * 1.55), pad = Math.round(36 * s);
+  if (q.sentence) { font(fs, 600); const ls = wrap(q.sentence, CW - pad * 2 - 20); b.push({ k: 'sent', ls, fs, lh, pad, y }); y += ls.length * lh + pad * 2 - 10 + 22; }
+  font(fs, 500); const pl = wrap(q.passage, CW - pad * 2); b.push({ k: 'pass', ls: pl, fs, lh, pad, y });
+  return y + pl.length * lh + pad * 2 + Math.round(30 * s);
+}
+function optBlocks(b, y, CW, s) {
+  const qs = Math.round(48 * s), qlh = Math.round(qs * 1.4); font(qs, 800); const ql = wrap(q.question, CW); b.push({ k: 'q', ls: ql, fs: qs, lh: qlh, y }); y += ql.length * qlh + Math.round(22 * s);
+  const os = Math.round(50 * s), olh = Math.round(os * 1.4), opad = Math.round(22 * s);
+  /* 오른쪽에 ✓ 자리(os)를 비워 두고 줄을 바꾼다 — 정답을 보여도 글이 안 움직이고 ✓ 와 안 겹친다 */
+  const opts = q.options.map((o) => { font(os, 600); const ls = wrap(o, CW - opad * 2 - os * 1.6 - os); const h = ls.length * olh + opad * 2; const r = { ls, y, h }; y += h + Math.round(14 * s); return r; });
+  b.push({ k: 'opts', opts, fs: os, lh: olh, pad: opad });
+  return y + Math.round(16 * s);
+}
+const askBlocks = (b, y, CW, s) => whyBlocks(b, optBlocks(b, y, CW, s), CW, s);
+/* 풀이만 따로 한 장(보기가 길어 한 장에 다 안 들 때) — 그 장에서는 늘 보인다 */
+const whyOnly = (b, y, CW, s) => { const r = whyBlocks(b, y, CW, s); b.at(-1).always = true; return r; };
+function whyBlocks(b, y, CW, s) {
+  const ws = Math.round(42 * s), wlh = Math.round(ws * 1.5), wpad = Math.round(26 * s);
+  font(ws, 500); const wl = wrap('💡 ' + q.why, CW - wpad * 2);
+  const wh = wl.length * wlh + wpad * 2; b.push({ k: 'why', ls: wl, fs: ws, lh: wlh, pad: wpad, y, h: wh });
+  return y + wh;
+}
+/* 한 장 만들기 — parts 를 S_MAX → lo 로 줄여 가며 들어가는 첫 크기 */
+function page(parts, hook, lo) {
+  const X = SAFE.x, CW = SAFE.r - SAFE.x;
+  for (let s = S_MAX; s >= lo - 1e-9; s -= 0.02) {
+    const b = []; let y = brandBlocks(b, SAFE.top, CW, hook, s);
+    for (const f of parts) y = f(b, y, CW, s);
+    if (y <= SAFE.bottom) return { s, b, X, CW, fit: true };
   }
+  return null;
+}
+function layout(q, hook) {
+  const one = page([passBlocks, askBlocks], hook, S_MIN);
+  if (one) return { pages: [one], small: false };
+  /* 지문이 아주 길면 그 장에서는 훅을 빼고 지문에 자리를 준다 */
+  const p1 = page([passBlocks], hook, S_MIN) || page([passBlocks], '', S_MIN) || page([passBlocks], '', 0.6);
+  const p2 = page([askBlocks], '', S_MIN);
+  const rest = p2 ? [p2] : [page([optBlocks], '', S_MIN) || page([optBlocks], '', 0.6), page([whyOnly], '', S_MIN) || page([whyOnly], '', 0.6)];
+  const pages = [p1, ...rest];
+  return { pages, small: pages.some((x) => x.s < S_MIN) };
 }
 
 /* 밑줄 칠 곳(mark) — 지문 안 글자 위치 */
@@ -105,12 +137,12 @@ function draw() {
   const { X, CW } = L;
   ctx.textBaseline = 'alphabetic';
   for (const b of L.b) {
-    if (b.k === 'brand') { font(30, 800); ctx.fillStyle = C.or; if (logo.naturalWidth) ctx.drawImage(logo, X, b.y - 42, 54, 54 * logo.height / logo.width); ctx.fillText('치즈감자', X + (logo.naturalWidth ? 64 : 0), b.y); font(26, 600); ctx.fillStyle = C.dim; ctx.textAlign = 'right'; ctx.fillText('everykoreans.com', SAFE.r, b.y); ctx.textAlign = 'left'; }
+    if (b.k === 'brand') { font(34, 800); ctx.fillStyle = C.or; if (logo.naturalWidth) ctx.drawImage(logo, X, b.y - 46, 60, 60 * logo.height / logo.width); ctx.fillText('치즈감자', X + (logo.naturalWidth ? 70 : 0), b.y); font(30, 600); ctx.fillStyle = C.dim; ctx.textAlign = 'right'; ctx.fillText(LA.pages.length > 1 ? `${slide + 1} / ${LA.pages.length}` : 'everykoreans.com', SAFE.r, b.y); ctx.textAlign = 'left'; }
     if (b.k === 'hook') { font(b.size, 900); ctx.fillStyle = C.ink; b.ls.forEach((l, i) => ctx.fillText(l.t, X, b.y + b.size + i * Math.round(b.size * 1.25))); }
     if (b.k === 'chip') {
-      font(28, 700); const t = `TOPIK ${q.exam} · 읽기 ${q.slot}번 · ${q.grade}급`; const w = ctx.measureText(t).width + 40;
-      roundRect(X, b.y, w, 48, 24, C.or); ctx.fillStyle = '#fff'; ctx.fillText(t, X + 20, b.y + 34);
-      font(24, 600); ctx.fillStyle = C.dim; ctx.fillText('연습 문제 · 기출 아님', X + w + 16, b.y + 33);
+      font(32, 700); const t = `TOPIK ${q.exam} · 읽기 ${q.slot}번 · ${q.grade}급`; const w = ctx.measureText(t).width + 44;
+      roundRect(X, b.y, w, 54, 27, C.or); ctx.fillStyle = '#fff'; ctx.fillText(t, X + 22, b.y + 38);
+      font(30, 600); ctx.fillStyle = C.dim; ctx.fillText('기출 아님', X + w + 16, b.y + 38);
     }
     if (b.k === 'sent') {
       const h = b.ls.length * b.lh + b.pad * 2 - 10; ctx.setLineDash([12, 8]); roundRect(X, b.y, CW, h, 16, C.card, C.ink2, 3); ctx.setLineDash([]);
@@ -140,12 +172,12 @@ function draw() {
       if (ok) { font(b.fs, 900); ctx.textAlign = 'right'; ctx.fillText('✓', X + CW - b.pad, o.y + b.pad + b.fs - 4); ctx.textAlign = 'left'; }
     });
     if (b.k === 'why') {
-      if (showWhy) {
+      if (showWhy || b.always) {
         roundRect(X, b.y, CW, b.h, 16, '#FFF6D6', '#E8C969', 3);
         font(b.fs, 500); ctx.fillStyle = C.ink2; b.ls.forEach((l, i) => ctx.fillText(l.t, X + b.pad, b.y + b.pad + b.fs - 4 + i * b.lh));
       } else if (!showAns) {
-        font(Math.round(40 * L.s), 800); ctx.fillStyle = C.or; ctx.textAlign = 'center';
-        ctx.fillText('정답은? 댓글로 👇', X + CW / 2, b.y + Math.round(60 * L.s)); ctx.textAlign = 'left';
+        font(Math.round(44 * L.s), 800); ctx.fillStyle = C.or; ctx.textAlign = 'center';
+        ctx.fillText('정답은? 댓글로 👇', X + CW / 2, b.y + Math.round(64 * L.s)); ctx.textAlign = 'left';
       }
     }
   }
@@ -172,7 +204,7 @@ function drawStrokes() {
    · 펜을 한 번 쓰면 그 뒤로는 손가락 닿음을 무시한다(펜으로 쓰다 손바닥이 닿아도 안 그어지게)
    · 펜은 이벤트가 촘촘히 오므로 getCoalescedEvents 로 사이 점까지 받아 정확하게 따라간다 */
 const toCanvas = (e) => { const r = cv.getBoundingClientRect(); return [(e.clientX - r.left) * W / r.width, (e.clientY - r.top) * H / r.height]; };
-const hlW = () => (isGram() ? 60 : Math.round((L ? L.b.find((b) => b.k === 'pass').fs : 40) * 1.15));
+const hlW = () => (isGram() ? 62 : Math.round(((L && L.b.find((b) => b.fs))?.fs || 46) * 1.15));
 let penSeen = false;
 cv.addEventListener('pointerdown', (e) => {
   if (e.pointerType === 'pen') penSeen = true;
@@ -255,22 +287,34 @@ async function go(i) {
     $('info').innerHTML = `${q.cat} · ${slides.length}장` + (done.has(keyOf(q)) ? ' · <span class="done">찍음 ✓</span>' : '');
   } else {
     store.set('cp-shorts-last', { exam: $('exam').value, id: q.id });
+    slide = 0; slideStrokes = new Map();
     await fontsReady([q.passage, q.question, q.sentence || '', q.why, ...q.options].join(''));
-    relayout();
-    $('info').innerHTML = `${q.genre || ''} · ${q.type} · 정답 ${CIRCLED[q.answer]}` + (done.has(q.id) ? ' · <span class="done">찍음 ✓</span>' : '') + (L && !L.fit ? ' · <b style="color:#D33A2C">글이 길어 아래가 가려질 수 있어요</b>' : '');
+    relayout(); paintSlide();
+    $('info').innerHTML = `${q.genre || ''} · ${q.type} · 정답 ${CIRCLED[q.answer]}` + (done.has(q.id) ? ' · <span class="done">찍음 ✓</span>' : '') +
+      (LA.pages.length > 1 ? ` · <b>${LA.pages.length}장(지문 → 질문${LA.pages.length > 2 ? ' → 풀이' : ''}) — Space 로 넘겨요</b>` : '') + (LA.small ? ' · <b style="color:#D33A2C">글이 길어 글자가 작아요 — 다른 문제를 권해요</b>' : '');
   }
   paintStat();
 }
-function relayout() { if (!q) return; if (!isGram()) L = layout(q, $('hook').value.trim()); draw(); }
+function relayout() {
+  if (!q) return;
+  if (!isGram()) { LA = layout(q, $('hook').value.trim()); slide = Math.min(slide, LA.pages.length - 1); L = LA.pages[slide]; }
+  draw();
+}
 
-/* 장 넘기기(문법) — 지금 장의 자국을 맡겨 두고, 갈 장의 자국을 꺼낸다 */
+/* 장 넘기기 — 문법은 슬라이드, 읽기는 긴 문제의 두 장(지문 · 질문). 지금 장의 자국을 맡겨 두고, 갈 장의 자국을 꺼낸다 */
+const pageCount = () => (isGram() ? slides.length : LA?.pages.length || 1);
 function slideGo(n) {
-  if (!isGram() || !slides.length) return;
-  const to = Math.max(0, Math.min(slides.length - 1, n)); if (to === slide) return;
+  if (!q) return;
+  const to = Math.max(0, Math.min(pageCount() - 1, n)); if (to === slide) return;
   slideStrokes.set(slide, strokes); slide = to; strokes = slideStrokes.get(slide) || []; cur = null;
+  if (!isGram()) L = LA.pages[slide];
   paintSlide(); draw();
 }
-function paintSlide() { $('slNo').textContent = `${slide + 1} / ${slides.length}`; $('slPrev').disabled = slide === 0; $('slNext').disabled = slide >= slides.length - 1; }
+function paintSlide() {
+  const n = pageCount();
+  $('slideRow').hidden = !isGram() && n < 2;
+  $('slNo').textContent = `${slide + 1} / ${n}`; $('slPrev').disabled = slide === 0; $('slNext').disabled = slide >= n - 1;
+}
 $('slPrev').addEventListener('click', () => slideGo(slide - 1));
 $('slNext').addEventListener('click', () => slideGo(slide + 1));
 
@@ -346,7 +390,7 @@ async function recStart() {
   const snap = { q, hook: $('hook').value.trim(), style: coverStyle, gram: isGram(), slides, key: keyOf(q) };
   rec.onstop = () => takeOpen(snap);
   /* 읽기는 첫 1초를 표지로 끼우고, 문법은 첫 장(0장)이 표지라 그 장부터 찍는다 */
-  if (snap.gram) slideGo(0);
+  slideGo(0);
   t0 = Date.now(); recCover = !snap.gram; rec.start(1000);
   if (recCover) setTimeout(() => { recCover = false; }, COVER_MS);
   /* 캔버스는 바뀔 때만 다시 그려져서, 가만히 있으면 프레임이 비어 영상이 끊겨 보인다 → 녹화 중에는 계속 그린다 */
@@ -443,8 +487,8 @@ document.addEventListener('keydown', (e) => {
   if (e.target.matches('input, select, textarea') || e.metaKey || e.ctrlKey || e.altKey) return;
   const k = e.key.toLowerCase();
   /* 문법: → · Space · PageDown 다음 장, ← · PageUp 앞 장 — 녹화 중에도(넘기며 설명한다) */
-  if (isGram() && ['arrowright', ' ', 'pagedown', 'arrowdown'].includes(k)) { e.preventDefault(); slideGo(slide + 1); return; }
-  if (isGram() && ['arrowleft', 'pageup', 'arrowup'].includes(k)) { e.preventDefault(); slideGo(slide - 1); return; }
+  if ([' ', 'pagedown', 'arrowdown'].includes(k) || (isGram() && k === 'arrowright')) { e.preventDefault(); slideGo(slide + 1); return; }
+  if (['pageup', 'arrowup'].includes(k) || (isGram() && k === 'arrowleft')) { e.preventDefault(); slideGo(slide - 1); return; }
   if (k === 'r') { e.preventDefault(); $('rec').click(); }
   else if (rec || counting) { /* 녹화 중에는 문제를 못 바꾼다 */ if (k === 'h') setTool('hl'); else if (k === 'p') setTool('pen'); else if (k === 'a') toggleAns(); else if (k === 'w') toggleWhy(); else if (k === 'z') $('undo').click(); else if (k === 'c') $('clear').click(); else if (['1', '2', '3'].includes(k)) { pen = +k - 1; paintPens(); } }
   else if (k === 't') toggleCover();
@@ -456,12 +500,13 @@ document.addEventListener('keydown', (e) => {
 
 /* 태블릿 막대 — 화면 위 단추가 옆 칸 단추를 그대로 누른다(글쇠가 없는 태블릿에서도 한 손으로) */
 for (const [b, t] of [['bUndo', 'undo'], ['bAns', 'answer'], ['bWhy', 'why'], ['bRec', 'rec']]) $(b).addEventListener('click', () => $(t).click());
-/* ← → : 읽기는 문제 바꾸기, 문법은 장 넘기기(녹화 중에도) */
-$('bPrev').addEventListener('click', () => (isGram() ? slideGo(slide - 1) : $('prev').click()));
-$('bNext').addEventListener('click', () => (isGram() ? slideGo(slide + 1) : $('next').click()));
+/* ← → : 문법은 장 넘기기, 읽기는 문제 바꾸기 — 다만 녹화 중에는(문제를 못 바꾸므로) 긴 문제의 두 장 넘기기 */
+const pagesNow = () => isGram() || (rec && pageCount() > 1);
+$('bPrev').addEventListener('click', () => (pagesNow() ? slideGo(slide - 1) : $('prev').click()));
+$('bNext').addEventListener('click', () => (pagesNow() ? slideGo(slide + 1) : $('next').click()));
 new MutationObserver(() => { $('bRec').classList.toggle('live', $('rec').classList.contains('live')); $('bRec').textContent = $('rec').classList.contains('live') ? '■' : '●';
   $('bAns').classList.toggle('on', showAns); $('bWhy').classList.toggle('on', showWhy);
-  if (!isGram()) { $('bPrev').disabled = $('prev').disabled; $('bNext').disabled = $('next').disabled; } else { $('bPrev').disabled = $('bNext').disabled = false; } })
+  if (!isGram() && !(rec && pageCount() > 1)) { $('bPrev').disabled = $('prev').disabled; $('bNext').disabled = $('next').disabled; } else { $('bPrev').disabled = $('bNext').disabled = false; } })
   .observe(document.querySelector('.panel'), { subtree: true, attributes: true, childList: true });
 
 /* 표지 고르기 · 미리 보기 */

@@ -11,7 +11,8 @@ import { GRAMMAR_WORDS } from './grammar-words.js';
 import { GRAMMAR_DRILL } from './grammar-drill.js';
 import { grammarMarkRe } from './grammar-mark.js';
 
-const W = 1080, H = 1920, X = 64, R = W - 130, CW = R - X, TOP = 120, BOTTOM = 1500;
+/* 쇼츠 · 릴스 · 틱톡이 가리는 곳(위 약 220 · 아래 약 440 · 오른쪽 약 140)을 비운다 — shorts.js SAFE 와 같다 */
+const W = 1080, H = 1920, X = 64, R = W - 140, CW = R - X, TOP = 230, BOTTOM = 1480;
 const FONT = '"Pretendard Variable", Pretendard, sans-serif';
 const C = { bg: '#F7F3EA', card: '#FFFFFF', line: '#D9D1C2', ink: '#1B1512', ink2: '#4E3E31', dim: '#8C7A66', or: '#E1682B', mark: 'rgba(255, 221, 0, .7)', warnBg: '#FFF1E8' };
 const LV = { beginner: ['초급', 'Beginner'], intermediate: ['중급', 'Intermediate'], advanced: ['고급', 'Advanced'] };
@@ -20,8 +21,9 @@ const CAT = new Map(SB_CATS.flatMap((c) => c.points.map((p) => [p.id, c])));
 export const GRAMMAR_POINTS = SB_CATS.flatMap((c) => c.points.map((p) => ({ ...p, cat: c.ko })));
 export const levelOf = (p) => LV[p.lv] || LV.beginner;
 
-/* more[2] 는 「한국어 설명. English explanation.」 — 영어가 시작하는 곳에서 자른다 */
-const koPart = (t) => { const i = t.search(/\s[A-Z][a-z]/); return (i > 0 ? t.slice(0, i) : t).trim(); };
+/* more[2] 는 「한국어 설명. English explanation.」 — 문장마다 나눠 한글이 영어 글자보다 많은 문장만 남긴다
+   (영어가 「-고」 같은 한국어 인용으로 시작하는 문장도 있어서, 대문자 자리로 자르면 영어가 섞인다) */
+const koPart = (t) => t.split(/(?<=[.!?])\s+/).filter((x) => (x.match(/[가-힣]/g) || []).length > (x.match(/[A-Za-z]/g) || []).length).join(' ').trim();
 
 export function grammarSlides(p) {
   const en = GRAMMAR_EN[p.id] || {}, more = p.more || SB_MORE?.[p.id] || [];
@@ -80,10 +82,12 @@ function lineWithMark(ctx, l, x, y, size, color, re) {
   ctx.fillStyle = color; ctx.fillText(l, x, y);
 }
 
-/* 덩어리 목록으로 배치한다 — 글자 배율 s 를 1.3 → 0.35 로 줄여 가며 BOTTOM 안에 드는 첫 배율로 그린다.
+/* 덩어리 목록으로 배치한다 — 글자 배율 s 를 1.5 → floor 로 줄여 가며 BOTTOM 안에 드는 첫 배율로 그린다(못 들면 null).
+   floor 0.8 = 본문 46px 이상 · 영어 34px 이상(폰에서 약 16pt · 12pt — 운영자 「보기 편하게」).
    덩어리: { t: 글, size, weight, color, lh, gap, mark, card: 'white'|'warn'|null, pad, align, side } */
-function flow(ctx, blocks, y0) {
-  for (let s = 1.6; s >= 0.35; s -= 0.03) {
+const FLOOR = 0.8;
+function flow(ctx, blocks, y0, floor = FLOOR) {
+  for (let s = 1.5; s >= floor - 1e-9; s -= 0.03) {
     let y = y0; const laid = [];
     for (const b of blocks) {
       if (b.space) { y += b.space * s; continue; }
@@ -92,13 +96,14 @@ function flow(ctx, blocks, y0) {
       const h = ls.length * lh + pad * 2 - (b.card ? lh - size * 1.15 : 0);
       laid.push({ b, ls, size, lh, pad, y, h, bw }); y += h + (b.gap ?? 20) * s;
     }
-    if (y <= BOTTOM || s <= 0.36) {
+    if (y <= BOTTOM) {
       /* 남는 자리가 있으면 위아래 가운데로 — 짧은 장이 위에만 몰려 아래가 텅 비지 않게 */
       const dy = Math.max(0, (BOTTOM - y) / 2);
       for (const l of laid) l.y += dy;
-      laid.fit = y <= BOTTOM; return laid;
+      laid.fit = true; return laid;
     }
   }
+  return null;
 }
 function paint(ctx, laid) {
   for (const { b, ls, size, lh, pad, y, h, bw } of laid) {
@@ -114,22 +119,54 @@ function paint(ctx, laid) {
 }
 
 function header(ctx, sl, idx, n, logo) {
-  font(ctx, 30, 800); ctx.fillStyle = C.or;
-  if (logo) ctx.drawImage(logo, X, TOP - 12, 54, 54 * logo.height / logo.width);
-  ctx.fillText('치즈감자', X + (logo ? 64 : 0), TOP + 30);
-  const [ko, en] = levelOf(sl.p);
-  font(ctx, 26, 600); ctx.fillStyle = C.dim; ctx.textAlign = 'right'; ctx.fillText(`한국어 문법 · ${ko} ${en}`, R, TOP + 30); ctx.textAlign = 'left';
+  font(ctx, 34, 800); ctx.fillStyle = C.or;
+  if (logo) ctx.drawImage(logo, X, TOP - 14, 60, 60 * logo.height / logo.width);
+  ctx.fillText('치즈감자', X + (logo ? 70 : 0), TOP + 32);
+  const [ko] = levelOf(sl.p);
+  font(ctx, 32, 700); ctx.fillStyle = C.dim; ctx.textAlign = 'right'; ctx.fillText(`${ko} 문법 · ${idx} / ${n - 1}`, R, TOP + 32); ctx.textAlign = 'left';
   /* 진행 막대 — 몇 번째 장인지(쇼츠는 길이를 모르고 보므로 「곧 끝난다」가 보이면 끝까지 본다) */
   const gap = 10, bw = (CW - gap * (n - 2)) / Math.max(1, n - 1);
-  for (let i = 1; i < n; i++) rr(ctx, X + (i - 1) * (bw + gap), TOP + 56, bw, 8, 4, i <= idx ? C.or : C.line);
+  for (let i = 1; i < n; i++) rr(ctx, X + (i - 1) * (bw + gap), TOP + 60, bw, 10, 5, i <= idx ? C.or : C.line);
 }
+/* 장 이름(뜻 · 모양 …) 칩 + 문법 이름 — 이름은 한 줄에 다 들어가게 글자를 줄인다(… 로 자르지 않는다) */
 function titleRow(ctx, sl, y) {
-  font(ctx, 30, 800); const t = `${sl.title} · ${sl.en}`, w = ctx.measureText(t).width + 44;
-  rr(ctx, X, y, w, 56, 28, C.or); ctx.fillStyle = '#fff'; ctx.fillText(t, X + 22, y + 39);
-  font(ctx, 30, 800); ctx.fillStyle = C.ink2; ctx.textAlign = 'right';
-  let name = sl.p.name; while (ctx.measureText(name).width > CW - w - 20 && name.length > 3) name = name.slice(0, -2) + '…';
-  ctx.fillText(name, R, y + 39); ctx.textAlign = 'left';
-  return y + 96;
+  font(ctx, 36, 800); const t = sl.title, w = ctx.measureText(t).width + 52;
+  rr(ctx, X, y, w, 66, 33, C.or); ctx.fillStyle = '#fff'; ctx.fillText(t, X + 26, y + 46);
+  let s = 44; for (; s > 30; s -= 2) { font(ctx, s, 800); if (ctx.measureText(sl.p.name).width <= CW - w - 24) break; }
+  ctx.fillStyle = C.ink2; ctx.textAlign = 'right'; ctx.fillText(sl.p.name, R, y + 47); ctx.textAlign = 'left';
+  return y + 110;
+}
+
+/* 장마다 덩어리 — lean 0 은 다 넣고, 1 은 영어 줄을 빼고, 2 는 개수를 줄인다(그래도 바닥 크기 아래로는 안 줄인다) */
+function blocksFor(sl, lean) {
+  const p = sl.p, B = [], en = lean < 1, few = lean >= 2;
+  if (sl.k === 'mean') {
+    B.push({ t: p.name, size: 100, weight: 900, gap: 34 });
+    B.push({ t: sl.ko, size: 62, weight: 700, lh: 1.5, gap: 36 });
+    if (sl.sub && en) B.push({ t: sl.sub, size: 44, weight: 500, color: C.dim });
+  } else if (sl.k === 'form') {
+    if (sl.form) B.push({ t: sl.form, size: 66, weight: 800, card: 'white', pad: 40, gap: 34 });
+    for (const [a, b] of sl.rows.slice(0, few ? 3 : 4)) B.push({ t: `${a}  →  ${b}`, size: 60, weight: 700, card: 'soft', pad: 26, gap: 14, mark: sl.mark });
+    if (sl.with && !few) B.push({ space: 20 }, { t: '자주 같이 쓰는 말', size: 44, weight: 800, color: C.dim, gap: 10 }, { t: sl.with, size: 56, weight: 700 });
+  } else if (sl.k === 'ex') {
+    const exs = sl.exs.slice(0, few ? 2 : 3);
+    exs.forEach(([ko, e], i) => {
+      B.push({ t: ko, size: 60, weight: 700, card: 'white', pad: 34, gap: e && en ? 10 : 30, mark: sl.mark });
+      if (e && en) B.push({ t: e, size: 42, weight: 500, color: C.dim, gap: i < exs.length - 1 ? 30 : 0 });
+    });
+  } else if (sl.k === 'care') {
+    if (sl.ko) B.push({ t: '⚠️ ' + sl.ko, size: 60, weight: 700, card: 'warn', pad: 40, lh: 1.5, gap: 30, mark: sl.mark });
+    if (sl.sub && (en || !sl.ko)) B.push({ t: sl.sub, size: 44, weight: 500, color: C.dim });
+  } else if (sl.k === 'dlg') {
+    sl.lines.forEach((l) => { const m = l.match(/^([AB])\s*[:：]\s*/); const who = m?.[1] || 'A';
+      B.push({ t: l.replace(/^[AB]\s*[:：]\s*/, ''), size: 58, weight: 600, card: who === 'B' ? 'soft' : 'white', pad: 32, w: CW * 0.88, side: who, gap: 24, mark: sl.mark }); });
+  } else if (sl.k === 'try') {
+    B.push({ t: sl.words.length ? '이 낱말로 문장을 만들어 보세요' : '이 문법으로 문장을 만들어 보세요', size: 64, weight: 800, gap: 30 });
+    for (const w of sl.words.slice(0, few ? 3 : 4)) B.push({ t: en && w[2] ? `${w[0]}  ·  ${w[2]}` : w[0], size: 58, weight: 700, card: 'white', pad: 28, gap: 14 });
+    B.push({ space: 30 }, { t: '댓글로 남겨 주면 확인해 줄게요 👇', size: 54, weight: 800, color: C.or, gap: 20 },
+      { t: 'everykoreans.com', size: 44, weight: 700, color: C.dim });
+  }
+  return B;
 }
 
 /* 한 장 그리기 — 다 들어갔으면 true(검사가 290개 × 모든 장을 센다) */
@@ -140,36 +177,13 @@ export function drawGrammarSlide(ctx, slides, idx, { logo = null, hook = '' } = 
   if (sl.k === 'cover') { const ok = cover(ctx, sl, logo, hook); ctx.restore(); return ok; }
   header(ctx, sl, idx, slides.length, logo);
   const y = titleRow(ctx, sl, TOP + 100);
-  const B = [];
-  if (sl.k === 'mean') {
-    B.push({ t: p.name, size: 96, weight: 900, gap: 30 });
-    B.push({ t: sl.ko, size: 58, weight: 700, lh: 1.5, gap: 34 });
-    if (sl.sub) B.push({ t: sl.sub, size: 40, weight: 500, color: C.dim });
-  } else if (sl.k === 'form') {
-    if (sl.form) B.push({ t: sl.form, size: 64, weight: 800, card: 'white', pad: 40, gap: 34 });
-    for (const [a, b] of sl.rows) B.push({ t: `${a}  →  ${b}`, size: 56, weight: 700, card: 'soft', pad: 26, gap: 14, mark: sl.mark });
-    if (sl.with) B.push({ space: 20 }, { t: '자주 같이 쓰는 말', size: 34, weight: 800, color: C.dim, gap: 10 }, { t: sl.with, size: 50, weight: 700 });
-  } else if (sl.k === 'ex') {
-    sl.exs.forEach(([ko, en], i) => {
-      B.push({ t: ko, size: 58, weight: 700, card: 'white', pad: 34, gap: en ? 10 : 30, mark: sl.mark });
-      if (en) B.push({ t: en, size: 36, weight: 500, color: C.dim, gap: i < sl.exs.length - 1 ? 30 : 0 });
-    });
-  } else if (sl.k === 'care') {
-    if (sl.ko) B.push({ t: '⚠️ ' + sl.ko, size: 54, weight: 700, card: 'warn', pad: 40, lh: 1.55, gap: 30, mark: sl.mark });
-    if (sl.sub) B.push({ t: sl.sub, size: 38, weight: 500, color: C.dim });
-  } else if (sl.k === 'dlg') {
-    sl.lines.forEach((l) => { const m = l.match(/^([AB])\s*[:：]\s*/); const who = m?.[1] || 'A';
-      B.push({ t: l.replace(/^[AB]\s*[:：]\s*/, ''), size: 54, weight: 600, card: who === 'B' ? 'soft' : 'white', pad: 32, w: CW * 0.86, side: who, gap: 24, mark: sl.mark }); });
-  } else if (sl.k === 'try') {
-    B.push({ t: sl.words.length ? '이 낱말로 문장을 만들어 보세요' : '이 문법으로 문장을 만들어 보세요', size: 60, weight: 800, gap: 30 });
-    for (const w of sl.words) B.push({ t: `${w[0]}  ·  ${w[2] || ''}`, size: 54, weight: 700, card: 'white', pad: 28, gap: 14 });
-    B.push({ space: 30 }, { t: '댓글로 남겨 주면 확인해 줄게요 👇', size: 50, weight: 800, color: C.or, gap: 20 },
-      { t: '무료 문법 연습 · everykoreans.com', size: 38, weight: 600, color: C.dim });
-  }
-  const laid = flow(ctx, B, y);
+  /* 다 넣은 것부터 바닥 크기로 들어가는 첫 판 — 셋 다 안 되면(검사로는 0개) 마지막 판을 더 작게 */
+  let laid = null, ok = true;
+  for (const lean of [0, 1, 2]) if ((laid = flow(ctx, blocksFor(sl, lean), y))) break;
+  if (!laid) { ok = false; laid = flow(ctx, blocksFor(sl, 2), y, 0.4) || []; }
   paint(ctx, laid);
   ctx.restore();
-  return laid.fit;
+  return ok;
 }
 
 /* 표지 — 읽기 쇼츠의 A 시험지와 같은 틀(운영자가 고른 것): 마스코트 · 주황 칩 · 큰 이름 · 훅 · 예문 맛보기 */
