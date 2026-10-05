@@ -19,7 +19,22 @@ const sb = createClient('https://tjgoevtvobvmlyefgxel.supabase.co',
   { auth: { persistSession: true, autoRefreshToken: true, detectSessionInUrl: false } });
 
 const $ = (id) => document.getElementById(id);
-const cv = $('cv'), ctx = cv.getContext('2d');
+/* 그림은 두 장: master(1080×1920 — 영상 · 표지에 들어가는 원본)와 cv(화면에 보이는 것).
+   화면 칸은 폭 400~600 정도라, 원본을 브라우저가 그냥 줄이면 글자가 거칠게 깨져 보인다(운영자 「해상도가 엄청 구려」 2026-10-05).
+   그래서 cv 는 화면 크기 × 기기 배율로 만들고, 원본을 고화질로 줄여 옮겨 그린다. 녹화는 원본에서 한다. */
+const cv = $('cv'), view = cv.getContext('2d');
+const master = document.createElement('canvas'); master.width = 1080; master.height = 1920;
+const ctx = master.getContext('2d');
+function fitView() {
+  const r = cv.getBoundingClientRect(), d = window.devicePixelRatio || 1;
+  const w = Math.max(1, Math.round(r.width * d)), h = Math.max(1, Math.round(r.height * d));
+  if (cv.width !== w || cv.height !== h) { cv.width = w; cv.height = h; }
+}
+function blit() {
+  view.imageSmoothingEnabled = true; view.imageSmoothingQuality = 'high';
+  view.drawImage(master, 0, 0, cv.width, cv.height);
+}
+new ResizeObserver(() => { fitView(); blit(); }).observe(cv);
 const W = 1080, H = 1920;
 /* 쇼츠 · 릴스 · 틱톡이 가리는 곳을 비운다: 위 약 220(맨 위 글자 · 카메라 단추), 아래 약 440(제목 · 채널 · 설명), 오른쪽 약 140(좋아요 · 댓글 단추) */
 const SAFE = { x: 64, r: W - 140, top: 230, bottom: 1480 };
@@ -77,15 +92,15 @@ function brandBlocks(b, y, CW, hook, s) {
 }
 function passBlocks(b, y, CW, s) {
   const fs = Math.round(50 * s), lh = Math.round(fs * 1.55), pad = Math.round(36 * s);
-  if (q.sentence) { font(fs, 600); const ls = wrap(q.sentence, CW - pad * 2 - 20); b.push({ k: 'sent', ls, fs, lh, pad, y }); y += ls.length * lh + pad * 2 - 10 + 22; }
-  font(fs, 500); const pl = wrap(q.passage, CW - pad * 2); b.push({ k: 'pass', ls: pl, fs, lh, pad, y });
+  if (q.sentence) { font(fs, 600); const ls = wrap(shown(q.sentence), CW - pad * 2 - 20); b.push({ k: 'sent', ls, fs, lh, pad, y }); y += ls.length * lh + pad * 2 - 10 + 22; }
+  font(fs, 500); const pl = wrap(shown(q.passage), CW - pad * 2); b.push({ k: 'pass', ls: pl, fs, lh, pad, y });
   return y + pl.length * lh + pad * 2 + Math.round(30 * s);
 }
 function optBlocks(b, y, CW, s) {
-  const qs = Math.round(48 * s), qlh = Math.round(qs * 1.4); font(qs, 800); const ql = wrap(q.question, CW); b.push({ k: 'q', ls: ql, fs: qs, lh: qlh, y }); y += ql.length * qlh + Math.round(22 * s);
+  const qs = Math.round(48 * s), qlh = Math.round(qs * 1.4); font(qs, 800); const ql = wrap(shown(q.question), CW); b.push({ k: 'q', ls: ql, fs: qs, lh: qlh, y }); y += ql.length * qlh + Math.round(22 * s);
   const os = Math.round(50 * s), olh = Math.round(os * 1.4), opad = Math.round(22 * s);
   /* 오른쪽에 ✓ 자리(os)를 비워 두고 줄을 바꾼다 — 정답을 보여도 글이 안 움직이고 ✓ 와 안 겹친다 */
-  const opts = q.options.map((o) => { font(os, 600); const ls = wrap(o, CW - opad * 2 - os * 1.6 - os); const h = ls.length * olh + opad * 2; const r = { ls, y, h }; y += h + Math.round(14 * s); return r; });
+  const opts = q.options.map((o) => { font(os, 600); const ls = wrap(shown(o), CW - opad * 2 - os * 1.6 - os); const h = ls.length * olh + opad * 2; const r = { ls, y, h }; y += h + Math.round(14 * s); return r; });
   b.push({ k: 'opts', opts, fs: os, lh: olh, pad: opad });
   return y + Math.round(16 * s);
 }
@@ -94,7 +109,7 @@ const askBlocks = (b, y, CW, s) => whyBlocks(b, optBlocks(b, y, CW, s), CW, s);
 const whyOnly = (b, y, CW, s) => { const r = whyBlocks(b, y, CW, s); b.at(-1).always = true; return r; };
 function whyBlocks(b, y, CW, s) {
   const ws = Math.round(42 * s), wlh = Math.round(ws * 1.5), wpad = Math.round(26 * s);
-  font(ws, 500); const wl = wrap('💡 ' + q.why, CW - wpad * 2);
+  font(ws, 500); const wl = wrap('💡 ' + shown(q.why), CW - wpad * 2);
   const wh = wl.length * wlh + wpad * 2; b.push({ k: 'why', ls: wl, fs: ws, lh: wlh, pad: wpad, y, h: wh });
   return y + wh;
 }
@@ -120,7 +135,22 @@ function layout(q, hook) {
 }
 
 /* 밑줄 칠 곳(mark) — 지문 안 글자 위치 */
-const markRange = (q) => { if (!q.mark) return null; const i = q.passage.indexOf(q.mark); return i < 0 ? null : [i, i + q.mark.length]; };
+const markRange = (q) => { if (!q.mark) return null; const i = shown(q.passage).indexOf(q.mark); return i < 0 ? null : [i, i + q.mark.length]; };
+
+/* 빈칸 「(  )」 · 「(　　　　)」 — 띄어쓰기 · 전각 공백은 글꼴에 따라 아주 좁게 그려져 빈칸이 안 보인다(운영자 지적 2026-10-05).
+   그래서 줄바꿈되지 않는 공백 8칸으로 바꿔 자리를 넓히고, 그릴 때 그 자리에 연한 주황 칸을 깐다. */
+const BLANK = '(' + '\u00A0'.repeat(8) + ')';
+const shown = (t) => String(t).replace(/\([\s\u3000]*\)/g, BLANK);
+function blankBg(t, x, y, fs) {
+  if (!t.includes(BLANK)) return;
+  const fill = ctx.fillStyle; let i = -1;
+  ctx.fillStyle = 'rgba(225, 104, 43, .16)';
+  while ((i = t.indexOf(BLANK, i + 1)) >= 0) {
+    const a = ctx.measureText(t.slice(0, i)).width, w = ctx.measureText(BLANK).width;
+    ctx.beginPath(); ctx.roundRect(x + a, y - fs * 0.85, w, fs * 1.1, 8); ctx.fill();
+  }
+  ctx.fillStyle = fill;
+}
 
 function roundRect(x, y, w, h, r, fill, stroke, lw = 3) {
   ctx.beginPath(); ctx.roundRect(x, y, w, h, r);
@@ -129,7 +159,10 @@ function roundRect(x, y, w, h, r, fill, stroke, lw = 3) {
 }
 
 const logoOk = () => (logo.complete && logo.naturalWidth ? logo : null);
-function draw() {
+let vTrack = null, frameTimer = 0;   // 녹화 중일 때 원본 한 장을 그릴 때마다 영상에 한 프레임
+const pushFrame = () => { if (vTrack && vTrack.readyState === 'live') vTrack.requestFrame?.(); };
+function draw() { drawMaster(); pushFrame(); blit(); }
+function drawMaster() {
   ctx.fillStyle = C.bg; ctx.fillRect(0, 0, W, H);
   if (isGram()) { if (q && slides.length) { drawGrammarSlide(ctx, slides, slide, { logo: logoOk(), hook: $('hook').value.trim() }); drawStrokes(); } return; }
   if (!q || !L) return;
@@ -146,14 +179,14 @@ function draw() {
     }
     if (b.k === 'sent') {
       const h = b.ls.length * b.lh + b.pad * 2 - 10; ctx.setLineDash([12, 8]); roundRect(X, b.y, CW, h, 16, C.card, C.ink2, 3); ctx.setLineDash([]);
-      font(b.fs, 600); ctx.fillStyle = C.ink; b.ls.forEach((l, i) => ctx.fillText(l.t, X + b.pad, b.y + b.pad - 5 + b.fs + i * b.lh));
+      font(b.fs, 600); ctx.fillStyle = C.ink; b.ls.forEach((l, i) => { const ty = b.y + b.pad - 5 + b.fs + i * b.lh; blankBg(l.t, X + b.pad, ty, b.fs); ctx.fillText(l.t, X + b.pad, ty); });
     }
     if (b.k === 'pass') {
       const h = b.ls.length * b.lh + b.pad * 2; roundRect(X, b.y, CW, h, 18, C.card, C.line, 3);
       font(b.fs, 500); ctx.fillStyle = C.ink; const mr = markRange(q);
       b.ls.forEach((l, i) => {
         const ty = b.y + b.pad + b.fs + i * b.lh - Math.round(b.fs * 0.1);
-        ctx.fillText(l.t, X + b.pad, ty);
+        blankBg(l.t, X + b.pad, ty, b.fs); ctx.fillText(l.t, X + b.pad, ty);
         if (mr && mr[0] < l.end && mr[1] > l.start) {
           const a = Math.max(mr[0], l.start) - l.start, z = Math.min(mr[1], l.end) - l.start;
           const x0 = X + b.pad + ctx.measureText(l.t.slice(0, a)).width, x1 = X + b.pad + ctx.measureText(l.t.slice(0, z)).width;
@@ -161,7 +194,7 @@ function draw() {
         }
       });
     }
-    if (b.k === 'q') { font(b.fs, 800); ctx.fillStyle = C.ink; b.ls.forEach((l, i) => ctx.fillText(l.t, X, b.y + b.fs + i * b.lh)); }
+    if (b.k === 'q') { font(b.fs, 800); ctx.fillStyle = C.ink; b.ls.forEach((l, i) => { blankBg(l.t, X, b.y + b.fs + i * b.lh, b.fs); ctx.fillText(l.t, X, b.y + b.fs + i * b.lh); }); }
     if (b.k === 'opts') b.opts.forEach((o, i) => {
       const ok = showAns && i === q.answer, dimmed = showAns && i !== q.answer;
       roundRect(X, o.y, CW, o.h, 16, ok ? C.greenBg : C.card, ok ? C.green : C.line, ok ? 5 : 3);
@@ -382,7 +415,8 @@ async function recStart() {
   counting = true; $('count').hidden = false;
   for (const n of [3, 2, 1]) { $('count').textContent = n; await new Promise((r) => setTimeout(r, 800)); }
   $('count').hidden = true; counting = false;
-  const vs = cv.captureStream(30);
+  /* 원본(master)은 화면에 안 붙어 있어서 저절로는 프레임이 안 나온다(시험에서 4초에 2장) → 그릴 때마다 한 장씩 직접 보낸다 */
+  const vs = master.captureStream(0); vTrack = vs.getVideoTracks()[0];
   const stream = new MediaStream([...vs.getVideoTracks(), ...mic.getAudioTracks()]);
   /* 3Mbps — 글자 화면은 이 정도로 충분히 또렷하고, 1분 영상이 20MB 쯤이라 저장소 한도(파일 하나 50MB) 안에 든다 */
   rec = new MediaRecorder(stream, { mimeType: MIME, videoBitsPerSecond: 3e6, audioBitsPerSecond: 128e3 });
@@ -395,13 +429,15 @@ async function recStart() {
   if (recCover) setTimeout(() => { recCover = false; }, COVER_MS);
   /* 캔버스는 바뀔 때만 다시 그려져서, 가만히 있으면 프레임이 비어 영상이 끊겨 보인다 → 녹화 중에는 계속 그린다 */
   const loop = () => { draw(); frameRaf = requestAnimationFrame(loop); }; loop();
+  /* 30fps 로 고르게 — 탭이 뒤로 가 requestAnimationFrame 이 멈춰도 영상은 끊기지 않게 타이머로 */
+  frameTimer = setInterval(() => { if (document.hidden) { drawMaster(); pushFrame(); } }, 1000 / 30);
   timer = setInterval(() => { const s = Math.floor((Date.now() - t0) / 1000); $('time').textContent = `${Math.floor(s / 60)}:${String(s % 60).padStart(2, '0')}`; $('time').classList.toggle('warn', s >= 60); }, 250);
   $('rec').classList.add('live'); $('rec').innerHTML = '■ 멈추기 <kbd style="color:#fff">R</kbd>';
   for (const b of ['prev', 'next', 'pick', 'exam', 'grade', 'coverSel', 'mode']) $(b).disabled = true;
 }
 function recStop() {
   if (!rec) return;
-  rec.stop(); rec = null; recCover = false; cancelAnimationFrame(frameRaf); clearInterval(timer); draw();
+  rec.stop(); rec = null; recCover = false; cancelAnimationFrame(frameRaf); clearInterval(timer); clearInterval(frameTimer); vTrack = null; draw();
   $('rec').classList.remove('live'); $('rec').innerHTML = '● 녹화 시작 <kbd style="color:#fff">R</kbd>';
   for (const b of ['prev', 'next', 'pick', 'exam', 'grade', 'coverSel', 'mode']) $(b).disabled = false;
 }
