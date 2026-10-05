@@ -5910,3 +5910,20 @@ body.ws-printing .ws-cover, body.ws-printing .ws-sec { position:relative; z-inde
 .ws-gr em { font-style:normal; font-weight:700; font-size:9.5pt; }
 .ws-dr { margin:0; padding-left:6mm; }
 .ws-dr li { margin:0 0 2.5mm; }
+
+/* 분석 테스트 결과지 — 다시 볼 것 · 학습 계획(app.module.js ltMorePaint · ltWeekHtml) */
+.lt-more { display:grid; gap:10px; margin:14px 0; }
+.lt-more .lt-rep-k small { font-weight:600; color:var(--ink-3); margin-left:6px; }
+.lt-more-box { display:grid; gap:10px; padding:14px; border-radius:var(--r-l); background:var(--surface); border:1px solid var(--line); }
+.lt-more-r { display:grid; grid-template-columns:5.5em minmax(0,1fr); gap:8px; align-items:start; }
+.lt-more-r > b { font-size:13.5px; color:var(--ink-2); padding-top:4px; }
+.lt-more-r > div { display:flex; flex-wrap:wrap; gap:6px; }
+.lt-chip { display:inline-block; padding:4px 10px; border-radius:999px; font-size:13.5px; font-weight:600; color:var(--ink); background:var(--surface-2); border:1px solid var(--line); text-decoration:none; }
+a.lt-chip:hover { border-color:var(--orange); }
+.lt-chip-s { font-weight:500; color:var(--ink-2); }
+.lt-more-none { margin:0; color:var(--ink-2); font-size:14px; }
+.lt-week { display:grid; gap:6px; }
+.lt-week-d { display:grid; grid-template-columns:2.6em minmax(0,1fr); gap:10px; align-items:baseline; padding:8px 12px; border-radius:10px; background:var(--surface); border:1px solid var(--line); }
+.lt-week-d b { font-size:13.5px; color:var(--orange-deep); }
+.lt-week-d span { font-size:14px; color:var(--ink); line-height:1.5; }
+.lt-week-n { margin:4px 2px 0; font-size:14px; font-weight:700; color:var(--ink); }

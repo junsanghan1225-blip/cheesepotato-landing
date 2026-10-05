@@ -58,7 +58,7 @@
   | `search-index.js`(첫 화면 검색 칸 색인) | 낱말 · 사전 · 문법 · 코스 · 쓰기 · 블로그 자료 → `node tools/build-search.mjs`(build-pages 가 끝에 같이 부른다) |
   | `db/add_qa_seeds.sql`(묻고 답하기 씨앗 질문) | `docs/qa-seeds.json` → `node tools/build-qa-seeds-sql.mjs` |
   | `grammar-words.js`(문법 「같이 알면 좋은 단어」) | `docs/grammar-words.json`(안티 그래비티 · Claude 검토) → `node tools/build-grammar-words.mjs` |
-  | `grammar-usage.js`(문법 「쓰임 보기」) | 우리 자료(TOPIK · 읽기 · 낱말 예문) · `grammar-mark.js` → `node tools/build-grammar-usage.mjs` |
+  | `grammar-usage.js`(문법 「쓰임 보기」 + 「블록으로 맞추기」 연습 문장) | 우리 자료(TOPIK · 읽기 · 낱말 예문) · `grammar-mark.js` · `docs/grammar-practice.json`(안티 · Claude 검토, 검사 `check-grammar-practice`) → `node tools/build-grammar-usage.mjs` |
   | `grammar-drill.js`(문법 「바꾸기」 문항) | 문법 이름(`sentences*.js`) · `tools/ko-conj.mjs` attach → `node tools/build-grammar-drill.mjs` |
   | `vocab-topik1.js` · `vocab-topik2.js` · `vocab-topik2-ex/`(TOPIK II 예문 조각, 500개씩) | `vocab/data/topik1.json` · `topik2.json`(B급 이상만) → `node tools/build-vocab.mjs` |
 - **검사:** 올리기 전에 CI 와 같은 검사를 돌린다(`.github/workflows/check.yml` 의 목록).
@@ -115,5 +115,5 @@
 - 운영 쪽(검색에 안 걸림): 녹음소 `/record.html`, 인스타 편집기 `/insta.html`, 콘텐츠 현황 `/stats.html`.
 - 인스타: 하루 단어 2 · 문법 1(운영자 결정 2026-10-02) + **오늘의 TOPIK 한 문제**(13:07, 2026-10-03 · TOPIK I 읽기 창작 문항 · 「기출 아님」 표시). 낱말 다섯은 둘째 갈래 · 품사가 같은 것끼리(`insta-pick.js` related). TOPIK 은 스토리(9:16)로도, 모든 게시물은 **스레드**로도(Secrets `THREADS_TOKEN` 을 넣으면 — 순서는 `docs/insta-auto.md`). **자동 올리기** `.github/workflows/insta-post.yml` + `tools/insta-post.mjs`
   (이미지는 `insta-media` 가지, 열쇠는 운영자가 넣는 Secrets `IG_TOKEN`, 켜기는 Variables `INSTA_AUTO=on`) — 운영자 순서는 `docs/insta-auto.md`.
-- TOPIK 쓰기 200문항(번호마다 50) — 2026-10-02 검토해 넣음. 회화 연습 장면 31개(2026-10-02 30개 검토해 넣음, `convo-merge.mjs --keep-accept`). 안티 그래비티에게 넘긴 일: 지금 없음. 쓰기 보강 · 실물 문서 10편 · 진짜 말 10편은 2026-09-28 #114 로 이미 들어갔다
+- TOPIK 쓰기 200문항(번호마다 50) — 2026-10-02 검토해 넣음. 회화 연습 장면 31개(2026-10-02 30개 검토해 넣음, `convo-merge.mjs --keep-accept`). 안티 그래비티에게 넘긴 일: **문법 블록 연습 문장 205개 표현 × 5**(`docs/antigravity-grammar-practice-task.md`, 브랜치 `grammar-practice`) · **레벨테스트 문제 은행 레벨마다 30 + 문법 꼬리표 g**(`docs/antigravity-leveltest-bank-task.md`, 브랜치 `leveltest-bank`) — 2026-10-05, 오면 검토. 쓰기 보강 · 실물 문서 10편 · 진짜 말 10편은 2026-09-28 #114 로 이미 들어갔다
   (안티 브랜치가 main 보다 「앞서」 보이는 것은 squash 머지 때문 — 내용은 main 에 있다). 검토할 때: 도구(`tools/`)를 고쳤는지, 자국이 낡았는지, 「운영자 확인」 note 가 남았는지 본다.
