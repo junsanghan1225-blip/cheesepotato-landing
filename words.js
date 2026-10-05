@@ -173,7 +173,9 @@ export function wordsInit(D) {
     const lv = readJSON('cp_level');
     const p = lv?.goal === 'topik' ? 'topik' : 'gen';
     if (p === 'topik') return { kind: 'topik', topic: `all:${(lv?.lv ?? 0) >= 6 && TRACKS.topik2.length ? 'topik2' : 'topik1'}` };
-    return { kind: 'life', topic: 'gen' };   // 예전에 고른 여행 · EPS · 드라마(p:…)도 일반으로
+    /* 일반 길 — 내 감자 레벨의 낱말(낱말마다 넣은 우리 레벨 v, tools/vocab-level.mjs). 테스트 전(L0)은 L1 첫 낱말부터.
+       예전에 고른 여행 · EPS · 드라마(p:…)도 일반으로. */
+    return { kind: 'level', topic: `lv:${Math.max(1, Math.min(7, lv?.lv ?? 1))}` };
   }
   { const p0 = myPath(); if (p0?.kind === 'topik') setTrack(p0.topic.slice(4)); }   // 둘러보기(외우기 탭)도 처음엔 내 과정으로
   /* TOPIK II 예문은 처음엔 비어 있다 — 낱말 화면 · 카드가 그 낱말을 그릴 때 그 낱말이 든 조각(500개)만 받아 채우고
@@ -206,6 +208,14 @@ export function wordsInit(D) {
      (TOPIK I 먼저 · 자주 나오는 차례). 표시는 안 그래비티가 채울 때 단 purposes(u) 그대로. */
   const PURP_LOOK = { life: 150, work: 215, medical: 0, campus: 225, travel: 195, kculture: 320 };   // EPS 는 따로 선 갈래라 뺀다(운영자 결정)   // 목적마다 색(hue) — 그림은 IC
   const isPurp = (id) => String(id).startsWith('p:');
+  /* 레벨별 단어장 — 「lv:<1~7>」. 우리 레벨(감자) 이름은 levels.js 에서 받는다(app.module.js 가 deps 로). */
+  const isLv = (id) => /^lv:[1-7]$/.test(String(id));
+  /* 레벨 ↔ TOPIK 급(levels.js CHEESE_OF_LEVEL 과 같은 짝) — 레벨 카드에 한 줄로. */
+  const LV_TOPIK = [null, ['첫 낱말', 'first words'], ['TOPIK 1급 앞 반', 'TOPIK 1, first half'], ['TOPIK 1급 뒤 반', 'TOPIK 1, second half'],
+    ['TOPIK 2급 앞 반', 'TOPIK 2, first half'], ['TOPIK 2급 뒤 반', 'TOPIK 2, second half'], ['TOPIK 3 · 4급', 'TOPIK 3–4'], ['TOPIK 5 · 6급', 'TOPIK 5–6']];
+  const potName = (L) => { const p = D.potatoLevel?.(L); return p ? t(`L${L} ${p.ko}`, `L${L} ${p.en}`) : `L${L}`; };
+  /* 낱말 한 개의 레벨 표 — 우리 레벨(감자)은 늘, 공식 TOPIK 급은 표준 목록에 있는 낱말만(o = 공식 급 없음). */
+  const lvTag = (w) => [w.v ? potName(w.v) : '', w.o ? '' : t(`TOPIK ${w.l}급`, `TOPIK ${w.l}`)].filter(Boolean);
   const purpOf = (id) => (D.PURPOSES || []).find((x) => `p:${x.id}` === id);
   /* 묶음 주제 — TOPIK 쓰기 표현 · 콩글리시(운영자 요청 2026-10-04). 그러므로(2급) · 볼펜(1급)처럼 TOPIK I 낱말도 들어가니
      두 과정을 다 보고, 세션을 10개씩 자르지 않고 「비슷한 것끼리」(덧붙이기 · 반대 … / 집 · 옷 · 차 …) 묶는다.
@@ -231,6 +241,7 @@ export function wordsInit(D) {
   }
   const listFor = (topic) => (topic === 'all' ? VOCAB : String(topic).startsWith('all:') ? TRACKS[topic.slice(4)] || []
     : topic === 'gen' ? ALL.filter((w) => w.u.includes('life'))
+    : isLv(topic) ? ALL.filter((w) => w.v === +topic.slice(3))
     : GROUPED.has(topic) ? writeGroups(topic).flatMap((g) => g.words)
     : isPurp(topic) ? ALL.filter((w) => w.u.includes(topic.slice(2))) : VOCAB.filter((w) => inTopic(w, topic)));
   /* 세션 나누기 — 묶음 주제는 묶음대로, 나머지는 10개씩. */
@@ -318,10 +329,14 @@ export function wordsInit(D) {
   function writeSum() {
     try {
       const lv = {}, tot = {};
-      ALL.forEach((w) => { tot[w.l] = (tot[w.l] || 0) + 1; if (learned(idOf(w))) lv[w.l] = (lv[w.l] || 0) + 1; });
+      const pv = {}, ptot = {};   // 우리 레벨(감자)별 — 일반 길의 「이 레벨 단어 목표」
+      ALL.forEach((w) => {
+        tot[w.l] = (tot[w.l] || 0) + 1; ptot[w.v] = (ptot[w.v] || 0) + 1;
+        if (learned(idOf(w))) { lv[w.l] = (lv[w.l] || 0) + 1; pv[w.v] = (pv[w.v] || 0) + 1; }
+      });
       const p = myPath(), pl = p ? listFor(p.topic) : [];
       const path = p ? { kind: p.kind, name: topicName(p.topic), got: pl.filter((w) => learned(idOf(w))).length, tot: pl.length } : null;
-      localStorage.setItem('cp-words-sum', JSON.stringify({ at: Date.now(), lv, tot, due: due().length, streak: streak(), today: S.days[today()] || 0, folders: folders().length, path }));
+      localStorage.setItem('cp-words-sum', JSON.stringify({ at: Date.now(), lv, tot, pv, ptot, due: due().length, streak: streak(), today: S.days[today()] || 0, folders: folders().length, path }));
     } catch (e) { /* 막힌 브라우저 — 내 코스는 요약 없이 그린다 */ }
   }
   const due = () => Object.entries(S.w).filter(([id, v]) => v[1] <= today() && byId.has(id))
@@ -404,6 +419,7 @@ export function wordsInit(D) {
   const look = (id) => {
     if (String(id).startsWith('all')) return [ico('trophy'), 25];
     if (id === 'gen') return [ico('life'), 150];
+    if (isLv(id)) return [D.potatoLevel?.(+id.slice(3))?.icon || ico('up'), 30];
     const k = isPurp(id) ? id.slice(2) : id, h = isPurp(id) ? PURP_LOOK[k] : TOPIC_LOOK[k];
     return [ico(k), h ?? 25];
   };
@@ -411,6 +427,7 @@ export function wordsInit(D) {
   const topicName = (topic) => {
     if (String(topic).startsWith('all:')) { const k = topic.slice(4); return t(`${trackName(k)} 필수`, `${trackName(k)} essentials`); }
     if (topic === 'gen') return t('일반 한국어', 'Everyday Korean');
+    if (isLv(topic)) return t(`${potName(+topic.slice(3))} 낱말`, `${potName(+topic.slice(3))} words`);
     const tp = topic === 'all' ? null : isPurp(topic) ? purpOf(topic) : topicOf(topic);
     return tp ? t(tp.ko, tp.en) : t(`${trackName(S.track)} 필수`, `${trackName(S.track)} essentials`);
   };
@@ -471,7 +488,7 @@ export function wordsInit(D) {
       </div>
       ${dueLine}
       ${w ? `<div class="wd-day">
-        <span class="wd-day-k">${esc(d.length ? t('② ', '② ') : '')}${esc(t(`오늘의 낱말 · 세션 ${n + 1}`, `Today’s words · session ${n + 1}`))} · ${esc(t(`${w.l}급`, `Lv ${w.l}`))}</span>
+        <span class="wd-day-k">${esc(d.length ? t('② ', '② ') : '')}${esc(t(`오늘의 낱말 · 세션 ${n + 1}`, `Today’s words · session ${n + 1}`))} · ${esc(lvTag(w)[0] || '')}</span>
         <button type="button" class="wd-day-w" data-word="${esc(w.h)}"><b>${esc(w.h)}</b><span>${esc(roman(w.h))}</span></button>
         <p class="wd-day-m">${esc(mean(w))}</p>
         <div class="wd-day-btns">
@@ -492,7 +509,7 @@ export function wordsInit(D) {
 
   /* 외우기 탭의 보기 — 주제별(기본) · 목적별. 이 브라우저에만 기억한다. */
   let group = 'topic';
-  try { group = localStorage.getItem('cp-words-group') === 'goal' ? 'goal' : 'topic'; } catch (e) {}
+  try { const g0 = localStorage.getItem('cp-words-group'); group = g0 === 'goal' || g0 === 'level' ? g0 : 'topic'; } catch (e) {}
   /* 과정 고르기 — TOPIK II 가 채워진 뒤에만 보인다. */
   const trackBar = () => (TRACKS.topik2.length ? `<div class="wd-track" role="group" aria-label="${esc(t('과정', 'Level'))}">${['topik1', 'topik2'].map((k) =>
     `<button type="button" class="wd-chip${S.track === k ? ' on' : ''}" data-act="track" data-track="${k}">${trackName(k)} <small>${TRACKS[k].length.toLocaleString()}</small></button>`).join('')}</div>` : '');
@@ -520,6 +537,17 @@ export function wordsInit(D) {
         <span class="wd-meta">${esc(t(`${list.length}개 · TOPIK I · II`, `${list.length} words · TOPIK I & II`))}</span>${bar(g, list.length)}</button>`;
     }).join('');
     const byGoal = purps && group === 'goal';
+    /* 레벨별 — 우리 레벨(감자 L1 ~ L7)마다 한 장. 레벨이 곧 「이 레벨에서 외울 낱말」(내 코스 · 승급 조건과 같은 셈). */
+    const byLv = group === 'level';
+    const lvCards = byLv ? [1, 2, 3, 4, 5, 6, 7].map((L) => {
+      const id = `lv:${L}`, list = listFor(id);
+      if (!list.length) return '';
+      const g = list.filter((w) => learned(idOf(w))).length;
+      return `<button type="button" class="wd-topic" style="--h:30" data-act="topic" data-topic="${id}">
+        <span class="wd-topic-ico wd-topic-lv" aria-hidden="true">${D.potatoLevel?.(L)?.icon || ico('up')}</span>
+        <b>${esc(potName(L))}</b>
+        <span class="wd-meta">${esc(t(`${list.length.toLocaleString()}개 · ${LV_TOPIK[L][0]}`, `${list.length.toLocaleString()} words · ${LV_TOPIK[L][1]}`))}</span>${bar(g, list.length)}</button>`;
+    }).join('') : '';
     /* 맨 위는 내 길 로드맵 한 장(운영자 결정 F). 과정 칩은 아래 「둘러보기」에서 주제를 볼 때만(B). */
     const path = myPath();
     const pl = path ? listFor(path.topic) : VOCAB, pg = pl.filter((w) => learned(idOf(w))).length;
@@ -529,11 +557,12 @@ export function wordsInit(D) {
         <span class="wd-meta">${esc(t(`${pl.length.toLocaleString()}개 · 세션 ${Math.ceil(pl.length / SESSION)} · 로드맵 보기`, `${pl.length.toLocaleString()} words · ${Math.ceil(pl.length / SESSION)} sessions · open the map`))}</span>${bar(pg, pl.length)}</button>
       <h3 class="wd-h3">${esc(t('둘러보기', 'Explore'))}</h3>
       ${purps ? `<div class="wd-group" role="group" aria-label="${esc(t('보기', 'View'))}">
-        <button type="button" class="wd-chip${byGoal ? '' : ' on'}" data-act="group" data-group="topic">${esc(t('주제별', 'By topic'))}</button>
+        <button type="button" class="wd-chip${byGoal || byLv ? '' : ' on'}" data-act="group" data-group="topic">${esc(t('주제별', 'By topic'))}</button>
+        <button type="button" class="wd-chip${byLv ? ' on' : ''}" data-act="group" data-group="level">${esc(t('레벨별', 'By level'))}</button>
         <button type="button" class="wd-chip${byGoal ? ' on' : ''}" data-act="group" data-group="goal">${esc(t('목적별', 'By goal'))}</button>
       </div>` : ''}
-      ${byGoal ? '' : trackBar()}
-      <div class="wd-topics">${byGoal ? purps : cards}</div>
+      ${byGoal || byLv ? '' : trackBar()}
+      <div class="wd-topics">${byLv ? lvCards : byGoal ? purps : cards}</div>
       <h3 class="wd-h3">${esc(t('게임으로 연습', 'Practice with games'))}</h3>
       <div class="wd-games">
         <button type="button" class="wd-game" data-act="game-quiz"><b>${ico('timer')}${esc(t('스피드 퀴즈', 'Speed quiz'))}</b><span>${esc(t('60초 동안 뜻 보고 고르기', '60 seconds, pick the word'))}</span></button>
@@ -717,7 +746,7 @@ export function wordsInit(D) {
     const heads = words.filter((w) => byHead.get(w.h) === w).slice(0, SET_MAX).map((w) => w.h);
     /* 종이에 찍힐 주소 — 사람이 읽고 칠 수 있게 한글 그대로, 길면(12개 넘게) 「단어」 화면 주소만. */
     const link = heads.length && heads.length <= 12 ? `everykoreans.com/#words/set/${heads.join('.')}` : 'everykoreans.com/#words';
-    const lv = (w) => (w.l ? t(`${w.l}급`, `Lv ${w.l}`) : '');
+    const lv = (w) => lvTag(w).join(' · ');
     const rows = words.map((w, i) => `<tr>
         <td class="wdp-n">${i + 1}</td>
         <td class="wdp-w"><b>${esc(w.h)}</b><i>${esc(roman(w.h))}</i><small>${esc([w.p, lv(w)].filter(Boolean).join(' · '))}</small></td>
@@ -818,7 +847,7 @@ export function wordsInit(D) {
       <div class="wd-word-top">
         <div class="wd-word-h"><b>${esc(w.h)}</b><button type="button" class="dict-say wd-say-big" data-say="${esc(w.h)}" aria-label="${esc(t('발음 듣기', 'Play'))}">${icon}</button>
           <button type="button" class="wd-star${isStar(id) ? ' on' : ''}" data-act="star" data-id="${esc(id)}" aria-label="${esc(t('별표', 'Star'))}">${isStar(id) ? '★' : '☆'}</button></div>
-        <div class="wd-word-meta"><span class="wd-tagpill">TOPIK ${w.l}${esc(t('급', ''))}</span><span class="wd-tagpill">${esc(w.p || '')}</span><span class="wd-rom">${esc(roman(w.h))}</span>${learned(id) ? `<span class="wd-tagpill ok">✓ ${esc(t('외움', 'Learned'))}</span>` : ''}</div>
+        <div class="wd-word-meta">${lvTag(w).map((x) => `<span class="wd-tagpill">${esc(x)}</span>`).join('')}<span class="wd-tagpill">${esc(w.p || '')}</span><span class="wd-rom">${esc(roman(w.h))}</span>${learned(id) ? `<span class="wd-tagpill ok">✓ ${esc(t('외움', 'Learned'))}</span>` : ''}</div>
         <p class="wd-word-en">${esc(w.e)}</p>
         ${kgLine(w)}
       </div>
@@ -1009,7 +1038,7 @@ export function wordsInit(D) {
       /* 두 번째 레퍼런스(틴더 카드) — 어두운 카드 위쪽에 스토리처럼 칸 진도, 낱말은 왼쪽 아래 크게, 급수는 작은 칩. */
       const segN = Math.min(r.total, 20), segOn = Math.round((doneCount() / Math.max(1, r.total)) * segN);
       const segs = `<span class="wd-segs" aria-hidden="true">${Array.from({ length: segN }, (_, i) => `<i class="${i < segOn ? 'on' : ''}"></i>`).join('')}</span>`;
-      const meta = `<span class="wd-card-meta">${esc([w.l ? t(`${w.l}급`, `Lv ${w.l}`) : '', w.p || ''].filter(Boolean).join(' · '))}</span>`;
+      const meta = `<span class="wd-card-meta">${esc([lvTag(w)[0] || '', w.p || ''].filter(Boolean).join(' · '))}</span>`;
       const front = r.dir === 'ko'
         ? `<span class="wd-card-body">${meta}<b class="wd-big">${esc(w.h)}</b><span class="wd-rom">${esc(roman(w.h))}</span></span>`
         : `<span class="wd-card-body">${meta}<b class="wd-big wd-big-en">${esc(mean(w))}</b></span>`;
@@ -1221,7 +1250,7 @@ export function wordsInit(D) {
         <button type="button" class="wd-link" data-act="introskip">${esc(t('건너뛰기', 'Skip'))}</button></div>
       <p class="wd-intro-k">${esc(topicName(it.topic))} · ${esc(t(`${sessionName(it.topic, it.n)} 새 낱말`, `${sessionName(it.topic, it.n)} — new words`))} <b>${it.i + 1} / ${it.words.length}</b></p>
       <div class="wd-intro">
-        <span class="wd-card-meta">${esc([w.l ? t(`${w.l}급`, `Lv ${w.l}`) : '', w.p || ''].filter(Boolean).join(' · '))}</span>
+        <span class="wd-card-meta">${esc([lvTag(w)[0] || '', w.p || ''].filter(Boolean).join(' · '))}</span>
         <div class="wd-intro-w"><b>${esc(w.h)}</b><button type="button" class="wd-intro-say" data-say="${esc(w.h)}" aria-label="${esc(t('발음 듣기', 'Play'))}">${ico('sound')}</button></div>
         <span class="wd-intro-rom">${esc(roman(w.h))}</span>
         ${open ? `<p class="wd-intro-m">${esc(w.e)}</p>${kgLine(w)}`
@@ -1274,7 +1303,7 @@ export function wordsInit(D) {
     if (act === 'go') return startRun(view.pick.words, a.dataset.mode, view.pick.from);
     if (act === 'stage') { const o = openStages.get(a.dataset.topic) || new Set(), k = +a.dataset.k; o.has(k) ? o.delete(k) : o.add(k); openStages.set(a.dataset.topic, o); return draw(); }
     if (act === 'qclear') { const q = root.querySelector('#wdQ'); q.value = ''; q.dispatchEvent(new Event('input', { bubbles: true })); q.focus(); return; }
-    if (act === 'group') { group = a.dataset.group === 'goal' ? 'goal' : 'topic'; try { localStorage.setItem('cp-words-group', group); } catch (e) {} return draw(); }
+    if (act === 'group') { group = ['goal', 'level'].includes(a.dataset.group) ? a.dataset.group : 'topic'; try { localStorage.setItem('cp-words-group', group); } catch (e) {} return draw(); }
     if (act === 'pathchange') return D.openTest?.();   // 길은 레벨테스트 목표로 바꾼다
     if (act === 'review') { const d = due().slice(0, 30); view = { tab: 'pick', pick: { words: d, from: null, title: t(`복습 ${d.length}개`, `Review ${d.length}`), back: 'data-tab="home"' } }; mark('review'); return draw(); }
     if (act === 'starstudy') { const d = starIds().map((id) => byId.get(id)).filter(Boolean); view = { tab: 'pick', pick: { words: d, from: null, title: t(`별표 ${d.length}개`, `Starred ${d.length}`), back: 'data-tab="mine"' } }; return draw(); }

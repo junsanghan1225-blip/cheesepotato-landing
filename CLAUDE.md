@@ -74,7 +74,7 @@
   안 그래비티가 500개씩 채운다(`docs/antigravity-vocab-topik2-task.md`) — 들어오면 검토. **17묶음까지 모두 끝(8,183개 전부 B급, 2026-10-01)**(올라오면 커밋이 있는지 먼저 본다).
 - **레벨 계획**(`docs/level-plan.md`): 1 ~ 5층 합의 끝, 6 · 7층 초안 — 레벨업 화면은 운영자 스케치를 받아 만든다.
   화면 구성(배치)은 운영자가 직접 보고 방향을 준다 — 그 전에는 배치를 크게 바꾸지 않는다.
-  자료를 고치면 `node tools/build-vocab.mjs && node tools/build-pages.mjs`. 활용 · 로마자는 `tools/ko-conj.mjs`(정답표 `check-conj`). 외우기 기록은 `settings.vocab`, 담은 낱말은 `words`(+ `vocab_id` · `source`).
+  자료를 고치면 `node tools/vocab-level.mjs && node tools/build-vocab.mjs && node tools/build-pages.mjs`(낱말마다 우리 레벨 `lv` 감자 L1~L7 — 2026-10-05 운영자 요청, 기준은 도구 맨 위). 활용 · 로마자는 `tools/ko-conj.mjs`(정답표 `check-conj`). 외우기 기록은 `settings.vocab`, 담은 낱말은 `words`(+ `vocab_id` · `source`).
   이 계획에 없는 것은 하지 않고 「다음에」 칸에 적는다. 녹음 파일을 옮길 곳은 `docs/storage-guide.md`
   (추천: 지금 Supabase Storage → 전송량이 늘면 Cloudflare R2, AWS 는 안 씀).
 
