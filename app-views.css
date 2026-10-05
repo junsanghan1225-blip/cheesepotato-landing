@@ -1572,6 +1572,7 @@
 .gp-h b { font-size:15px; color:var(--ink); }
 .gp-h span { font-size:12.5px; color:var(--ink-3); }
 .gp-sub { font-size:13px; color:var(--ink-3); line-height:1.6; margin:6px 0 0; word-break:keep-all; }
+.gp-en { font-size:13.5px; color:var(--ink-2); margin:8px 0 0; padding:6px 10px; border-radius:8px; background:var(--surface-2); }
 .gp-line { min-height:52px; margin-top:14px; padding:9px; border:1.5px dashed var(--line); border-radius:var(--r); display:flex; flex-wrap:wrap; gap:7px; align-items:center; }
 .gp-line.ok { border-style:solid; border-color:var(--ok, #3f9b5f); background:rgba(63,155,95,.07); }
 .gp-ph { font-size:13px; color:var(--ink-3); padding:0 4px; }

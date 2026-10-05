@@ -14,13 +14,13 @@ import { grammarMarkRe } from '../grammar-mark.js';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const imp = (f) => import(path.join(ROOT, f));
-const { SB_CATS, SB_MORE } = await imp('sentences.js');
+const { SB_CATS, SB_MORE, SB_SEED } = await imp('sentences.js');
 const PTS = SB_CATS.flatMap((c) => c.points);
 
 const sents = (text) => String(text || '').replace(/\s+/g, ' ').split(/(?<=[.?!])\s+/).map((x) => x.trim())
   .filter((x) => x.length >= 6 && x.length <= 70 && !/[　㉠㉡㉢]|\(\s*\)|___/.test(x) && /[가-힣]/.test(x));
 const POOL = [];   // { ko, en, src: [ko, en], href, rank }
-const add = (text, en, src, href, rank) => { for (const ko of sents(text)) POOL.push({ ko, en: en || '', src, href, rank }); };
+const add = (text, en, src, href, rank, only) => { for (const ko of sents(text)) POOL.push({ ko, en: en || '', src, href, rank, only }); };
 
 const { TOPIK_READING } = await imp('topik.js');
 const { TOPIK2_READING } = await imp('topik2.js');
@@ -37,6 +37,14 @@ const { READING } = await imp('reading.js');
 for (const g of Object.values(READING)) for (const list of Object.values(g)) for (const it of list) add(it.passage, '', ['읽기 연습', 'Reading practice'], '', 1);
 const { VOCAB } = await imp('vocab-topik1.js');
 for (const w of VOCAB) for (const [ko, en] of w.x || []) add(ko, en, [`낱말 「${w.h}」 예문`, `Example for ${w.h}`], `/dictionary/${encodeURIComponent(w.h)}.html`, 2);
+/* TOPIK II 낱말 예문(500개씩 조각) — 연습 문장(PRACTICE)에만 쓴다. 쓰임 보기(USAGE)는 예전 그대로 두려고 only 표시. */
+{
+  const { VOCAB: V2 } = await imp('vocab-topik2.js');
+  for (let k = 0; k * 500 < V2.length; k++) {
+    const { EX } = await imp(`vocab-topik2-ex/${k}.js`);
+    V2.slice(k * 500, (k + 1) * 500).forEach((w, j) => { for (const [ko, en] of EX[j] || []) add(ko, en, ['', ''], '', 3, 'practice'); });
+  }
+}
 
 /* 더 긴 문법(꼴이 짧은 쪽의 꼴을 품은 것)을 미리 짝지어 둔다 */
 const RE = new Map(PTS.map((p) => [p.id, grammarMarkRe(p.name)]));
@@ -87,6 +95,13 @@ for (const p of PTS) for (const q of PTS) if (p.id !== q.id && RE.get(p.id) && S
 /* 꼴만으로는 다른 말(「한 집안」의 수 · 「바이오」)과 못 가르는 것 — 쓰임 보기를 안 붙인다 */
 const SKIP_ID = new Set(['7-1', '3-3', '4-10', '23-1']);   // 23-1 N이다: 찾으면 「마련이다 · 때문이다」뿐이라 초급에 안 맞는다
 const USAGE = {};
+/* 연습 문장(운영자 요청 2026-10-05) — 「블록으로 맞추기」가 위에 보인 예문 · 대화 · 쓰임 보기를 그대로 다시 내서, 처음 보는 문장으로
+   풀게 한다. 같은 꼴을 찾은 문장 가운데 화면에 이미 나온 것을 뺀 것. 3 ~ 10어절 · 영어 뜻이 있는 것 먼저(블록 위에 뜻을 보여 준다) ·
+   초급 표현은 짧은 문장 먼저. 표현마다 여덟까지. */
+const PRACTICE = {};
+const LV = new Map(PTS.map((p) => [p.id, p.lv]));
+/* 게시판 씨앗 글(SB_SEED)도 화면 아래에 보인다 — 연습 문장에서 뺀다 */
+const seedOf = (id) => (SB_SEED?.[id] || []).map((r) => String(r[1] || '').trim());
 let made = 0;
 for (const p of PTS) {
   const re = RE.get(p.id);
@@ -101,19 +116,31 @@ for (const p of PTS) {
     if (longer.get(p.id).some((r) => { r.lastIndex = 0; return r.test(s.ko); })) continue;
     hit.push({ ...s, at: m.index, len: m[0].length });
   }
-  if (!hit.length) continue;
+  const usageHit = hit.filter((s) => !s.only);
+  const pick = (shown) => {
+    const n = (x) => x.ko.split(/\s+/).length;
+    const cand = hit.filter((s) => !shown.has(s.ko) && n(s) >= 3 && n(s) <= 10 && !/["“”'‘’「」()]/.test(s.ko));
+    const beg = LV.get(p.id) === 'beginner';
+    cand.sort((a, b) => (b.en ? 1 : 0) - (a.en ? 1 : 0) || (beg ? a.ko.length - b.ko.length : a.rank - b.rank || a.ko.length - b.ko.length));
+    const out = [];
+    for (const s of cand) { if (out.length >= 8) break; if (!out.some((o) => o.ko === s.ko)) out.push(s); }
+    return out.map((s) => (s.en ? [s.ko, s.en] : [s.ko]));
+  };
+  if (!usageHit.length) { const pr = pick(new Set([...own, ...seedOf(p.id)])); if (pr.length) PRACTICE[p.id] = pr; continue; }
   /* 짧고 쉬운 문장부터, 같은 출처 쪽은 한 번만, TOPIK 둘 + 그 밖 하나 */
-  hit.sort((a, b) => a.rank - b.rank || a.ko.length - b.ko.length);
+  usageHit.sort((a, b) => a.rank - b.rank || a.ko.length - b.ko.length);
   const out = [], seen = new Set();
-  for (const s of hit) {
+  for (const s of usageHit) {
     if (out.length >= 3) break;
     const key = s.href || s.src[0];
     if (seen.has(key) || out.some((o) => o.ko === s.ko)) continue;
     if (s.rank === 0 && out.filter((o) => o.rank === 0).length >= 2) continue;
     seen.add(key); out.push(s);
   }
-  if (out.length < 3) for (const s of hit) { if (out.length >= 3) break; if (!out.includes(s) && !out.some((o) => o.ko === s.ko)) out.push(s); }
+  if (out.length < 3) for (const s of usageHit) { if (out.length >= 3) break; if (!out.includes(s) && !out.some((o) => o.ko === s.ko)) out.push(s); }
   USAGE[p.id] = out.map((s) => [s.ko, s.en, s.src[0], s.src[1], s.href, s.at, s.len]);
+  const pr = pick(new Set([...own, ...out.map((s) => s.ko), ...seedOf(p.id)]));
+  if (pr.length) PRACTICE[p.id] = pr;
   made++;
 }
 fs.writeFileSync(path.join(ROOT, 'grammar-usage.js'), `/* 문법 「쓰임 보기」 — 생성물. 손으로 고치지 말 것.
@@ -121,6 +148,8 @@ fs.writeFileSync(path.join(ROOT, 'grammar-usage.js'), `/* 문법 「쓰임 보�
  *   ${made}개 표현 · 표현마다 [문장, 영어(있을 때), 출처, 출처(영어), 주소, 칠할 곳, 길이] 셋까지. 우리 자료에서 옮긴 문장만 — 지어낸 것 없음.
  */
 export const GRAMMAR_USAGE = ${JSON.stringify(USAGE)};
+/* 「블록으로 맞추기」 연습 문장 — 표현마다 [문장, 영어(있을 때)] 여덟까지. 위 예문 · 대화 · 쓰임 보기에 나온 문장은 뺐다. */
+export const GRAMMAR_PRACTICE = ${JSON.stringify(PRACTICE)};
 `);
-console.log(`grammar-usage.js — ${made}개 표현 (문장 풀 ${POOL.length}개)`);
+console.log(`grammar-usage.js — ${made}개 표현 · 연습 문장 ${Object.keys(PRACTICE).length}개 표현 ${Object.values(PRACTICE).reduce((a, x) => a + x.length, 0)}문장 (문장 풀 ${POOL.length}개)`);
 if (process.argv.includes('--list')) for (const p of PTS) if (USAGE[p.id]) console.log(`${p.id}\t${p.name}\n  ` + USAGE[p.id].map((u) => `${u[0].slice(0, u[5])}【${u[0].substr(u[5], u[6])}】${u[0].slice(u[5] + u[6])}  [${u[2]}]`).join('\n  '));
