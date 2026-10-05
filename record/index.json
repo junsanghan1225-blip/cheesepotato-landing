@@ -1,12 +1,12 @@
 {
- "built": "2026-09-30",
+ "built": "2026-10-05",
  "groups": [
   {
    "id": "listen",
    "ko": "레벨 테스트 · TOPIK 듣기",
    "en": "Level test · TOPIK listening",
    "note": "레벨 테스트에 나오는 듣기예요 — 쉬운 급수부터. 줄마다 녹음하면 내보낼 때 이어 붙입니다. 「여」 줄은 여자 목소리가 좋아요.",
-   "none": 0,
+   "none": 120,
    "tts": 0,
    "mine": 45
   },
@@ -33,18 +33,18 @@
    "ko": "TOPIK 쓰기 지문",
    "en": "TOPIK writing passages",
    "note": "안내문 · 설명문을 읽는 톤으로.",
-   "none": 94,
+   "none": 173,
    "tts": 26,
-   "mine": 0
+   "mine": 1
   },
   {
    "id": "dict",
    "ko": "사전 낱말 · 예문",
    "en": "Dictionary words & examples",
    "note": "가나다 순이에요 — 지난번 「나태」까지 하셨어요. 낱말 다음에 그 낱말의 예문이 이어서 나옵니다.",
-   "none": 4846,
+   "none": 4747,
    "tts": 3542,
-   "mine": 1590
+   "mine": 1689
   },
   {
    "id": "example",

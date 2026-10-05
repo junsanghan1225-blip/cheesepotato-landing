@@ -1,0 +1,65 @@
+# 쇼츠 공장 자동 올리기 — 대기열(Supabase shorts_queue)에서 하루 두 번, 영상 하나씩 유튜브 · 인스타 릴스 · 틱톡에(운영자 요청 2026-10-05).
+# 켜기: GitHub → Settings → Secrets and variables → Actions → Variables
+#   SHORTS_AUTO = on (전체) · SHORTS_YT / SHORTS_IG / SHORTS_TT = on (곳마다)
+#   YT_PRIVACY = private(기본) | public  — 구글 심사 전에는 private 만 된다
+#   TT_MODE = inbox(기본, 틱톡 앱 초안함으로) | direct(심사 뒤, 바로 게시) · TT_PRIVACY = SELF_ONLY(기본) | PUBLIC_TO_EVERYONE
+# 열쇠(Secrets, 운영자가 직접): SUPABASE_SERVICE_KEY · IG_TOKEN · YT_CLIENT_ID · YT_CLIENT_SECRET · TT_CLIENT_KEY · TT_CLIENT_SECRET
+# 순서 · 연결하는 법은 docs/shorts-auto.md.
+name: shorts-post
+
+on:
+  schedule:
+    # 한국 시간 12:07 · 19:07 (UTC 03:07 · 10:07). GitHub 이 붐비면 조금 늦게 돈다.
+    - cron: '7 3,10 * * *'
+  workflow_dispatch:
+    inputs:
+      what:
+        description: 'post = 하나 올리기 · dry = 받아서 바꾸기까지만(시험) · connect-yt / connect-tt = 연결'
+        default: 'dry'
+      code:
+        description: 'connect 일 때만 — connect.html 에서 받은 코드'
+        default: ''
+
+permissions:
+  contents: read
+
+concurrency: shorts-post
+
+jobs:
+  run:
+    if: ${{ startsWith(vars.SHORTS_AUTO, 'on') || github.event_name == 'workflow_dispatch' }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+      - name: ffmpeg
+        if: ${{ github.event_name == 'schedule' || inputs.what == 'post' || inputs.what == 'dry' }}
+        run: which ffmpeg || (sudo apt-get update -q && sudo apt-get install -yq ffmpeg)
+      - name: 하기
+        env:
+          SUPABASE_SERVICE_KEY: ${{ secrets.SUPABASE_SERVICE_KEY }}
+          IG_TOKEN: ${{ secrets.IG_TOKEN }}
+          YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
+          YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
+          TT_CLIENT_KEY: ${{ secrets.TT_CLIENT_KEY }}
+          TT_CLIENT_SECRET: ${{ secrets.TT_CLIENT_SECRET }}
+          SHORTS_YT: ${{ vars.SHORTS_YT }}
+          SHORTS_IG: ${{ vars.SHORTS_IG }}
+          SHORTS_TT: ${{ vars.SHORTS_TT }}
+          YT_PRIVACY: ${{ vars.YT_PRIVACY }}
+          TT_MODE: ${{ vars.TT_MODE }}
+          TT_PRIVACY: ${{ vars.TT_PRIVACY }}
+          WHAT: ${{ github.event_name == 'schedule' && 'post' || inputs.what }}
+          CODE: ${{ inputs.code }}
+        run: |
+          # 연결 코드는 한 번 쓰고 버리는 값이지만 로그에 남지 않게 가린다
+          [ -n "$CODE" ] && echo "::add-mask::$CODE"
+          case "$WHAT" in
+            post) node tools/shorts-post.mjs post ;;
+            dry) node tools/shorts-post.mjs post --dry ;;
+            connect-yt) node tools/shorts-post.mjs connect yt "$CODE" ;;
+            connect-tt) node tools/shorts-post.mjs connect tt "$CODE" ;;
+            *) echo "what 은 post · dry · connect-yt · connect-tt"; exit 1 ;;
+          esac

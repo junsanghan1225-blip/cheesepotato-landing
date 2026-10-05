@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>치즈감자 채널 연결</title>
+<link rel="icon" href="favicon-32.png">
+<link rel="stylesheet" href="vendor/pretendard.css">
+<!-- 쇼츠 공장의 유튜브 · 틱톡 연결(운영자 도구, 2026-10-05). 구글 · 틱톡 로그인 → 돌아오면 일회용 코드를 보여 준다 →
+     운영자가 GitHub 액션 shorts-post(connect-yt / connect-tt)에 붙여 넣으면 액션이 오래 쓰는 열쇠로 바꿔 Supabase 에 적는다.
+     비밀 값(client secret)은 이 쪽에 없다 — 공개 값(client id · client key)만 쓴다. 순서는 docs/shorts-auto.md. -->
+<style>
+:root { --bg:#F2EEE4; --card:#fff; --line:#E4DED1; --ink:#1B1512; --dim:#8C7A66; --or:#E1682B; --green:#2E9B5B; }
+@media (prefers-color-scheme: dark) { :root { --bg:#161411; --card:#211E1A; --line:#38332C; --ink:#F2EEE6; --dim:#8A8376; } }
+* { box-sizing:border-box; }
+body { margin:0; background:var(--bg); color:var(--ink); font-family:"Pretendard Variable", Pretendard, sans-serif; line-height:1.6; }
+main { max-width:640px; margin:0 auto; padding:24px 16px; display:flex; flex-direction:column; gap:16px; }
+h1 { font-size:22px; margin:0; }
+.box { background:var(--card); border:1px solid var(--line); border-radius:14px; padding:16px; display:flex; flex-direction:column; gap:10px; }
+.box h2 { margin:0; font-size:17px; }
+input { font:inherit; padding:8px 10px; border:1px solid var(--line); border-radius:10px; background:var(--card); color:inherit; width:100%; }
+.btn { font:inherit; font-weight:800; border:0; border-radius:10px; padding:10px 14px; background:var(--or); color:#fff; cursor:pointer; }
+.muted { color:var(--dim); font-size:14px; }
+code { word-break:break-all; background:var(--bg); padding:8px; border-radius:8px; display:block; font-size:14px; }
+.ok { color:var(--green); font-weight:800; }
+[hidden] { display:none !important; }
+</style>
+</head>
+<body>
+<main>
+  <h1>채널 연결 — 쇼츠 공장</h1>
+  <div class="box" id="got" hidden>
+    <h2 class="ok" id="gotTitle"></h2>
+    <div>아래 코드를 복사하세요. <b>몇 분 안에</b> 써야 해요.</div>
+    <code id="code"></code>
+    <button class="btn" id="copy">코드 복사</button>
+    <ol class="muted">
+      <li>GitHub 저장소 → <b>Actions</b> → 왼쪽 <b>shorts-post</b> → <b>Run workflow</b></li>
+      <li><b>what</b> 칸에 <code style="display:inline" id="what"></code> · <b>code</b> 칸에 복사한 코드 → 초록 단추</li>
+      <li>초록 ✓ 이 뜨면 연결 끝(한 번만 하면 돼요)</li>
+    </ol>
+  </div>
+  <div class="box">
+    <h2>▶️ 유튜브</h2>
+    <label class="muted">구글 OAuth 클라이언트 ID(공개 값, …apps.googleusercontent.com)<input id="ytId" autocomplete="off"></label>
+    <button class="btn" id="ytGo">구글로 연결</button>
+  </div>
+  <div class="box">
+    <h2>🎵 틱톡</h2>
+    <label class="muted">틱톡 Client key(공개 값)<input id="ttKey" autocomplete="off"></label>
+    <button class="btn" id="ttGo">틱톡으로 연결</button>
+  </div>
+  <div class="muted">Client secret 은 여기 넣지 않아요 — GitHub Secrets 에만 넣어요.</div>
+</main>
+<script src="connect.js"></script>
+</body>
+</html>
