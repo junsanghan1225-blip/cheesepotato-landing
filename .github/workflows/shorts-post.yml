@@ -1,7 +1,8 @@
-# 쇼츠 공장 자동 올리기 — 대기열(Supabase shorts_queue)에서 하루 두 번, 영상 하나씩 유튜브 · 인스타 릴스 · 틱톡에(운영자 요청 2026-10-05).
+# 쇼츠 공장 자동 올리기 — 대기열(Supabase shorts_queue)에서 하루 한 번: 인스타 릴스 · 틱톡 1개씩, 유튜브는 되는 만큼(기본 5개, 비공개로 쌓기)
+# (운영자 결정 2026-10-05: 「틱톡 · 릴스는 하루 1개, 유튜브는 되는 대로 다 올리고 쌓아 두는 느낌」).
 # 켜기: GitHub → Settings → Secrets and variables → Actions → Variables
 #   SHORTS_AUTO = on (전체) · SHORTS_YT / SHORTS_IG / SHORTS_TT = on (곳마다)
-#   YT_PRIVACY = private(기본) | public  — 구글 심사 전에는 private 만 된다
+#   YT_PRIVACY = private(기본) | public  — 구글 심사 전에는 private 만 된다 · YT_PER_DAY = 하루 유튜브 개수(기본 5)
 #   TT_MODE = inbox(기본, 틱톡 앱 초안함으로) | direct(심사 뒤, 바로 게시) · TT_PRIVACY = SELF_ONLY(기본) | PUBLIC_TO_EVERYONE
 # 열쇠(Secrets, 운영자가 직접): SUPABASE_SERVICE_KEY · IG_TOKEN · YT_CLIENT_ID · YT_CLIENT_SECRET · TT_CLIENT_KEY · TT_CLIENT_SECRET
 # 순서 · 연결하는 법은 docs/shorts-auto.md.
@@ -9,12 +10,12 @@ name: shorts-post
 
 on:
   schedule:
-    # 한국 시간 12:07 · 19:07 (UTC 03:07 · 10:07). GitHub 이 붐비면 조금 늦게 돈다.
-    - cron: '7 3,10 * * *'
+    # 한국 시간 19:07 (UTC 10:07) 하루 한 번. GitHub 이 붐비면 조금 늦게 돈다.
+    - cron: '7 10 * * *'
   workflow_dispatch:
     inputs:
       what:
-        description: 'post = 하나 올리기 · dry = 받아서 바꾸기까지만(시험) · connect-yt / connect-tt = 연결'
+        description: 'post = 오늘 몫 올리기 · dry = 받아서 바꾸기까지만(시험) · connect-yt / connect-tt = 연결'
         default: 'dry'
       code:
         description: 'connect 일 때만 — connect.html 에서 받은 코드'
@@ -49,6 +50,7 @@ jobs:
           SHORTS_IG: ${{ vars.SHORTS_IG }}
           SHORTS_TT: ${{ vars.SHORTS_TT }}
           YT_PRIVACY: ${{ vars.YT_PRIVACY }}
+          YT_PER_DAY: ${{ vars.YT_PER_DAY }}
           TT_MODE: ${{ vars.TT_MODE }}
           TT_PRIVACY: ${{ vars.TT_PRIVACY }}
           WHAT: ${{ github.event_name == 'schedule' && 'post' || inputs.what }}

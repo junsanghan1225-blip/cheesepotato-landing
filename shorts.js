@@ -7,10 +7,11 @@
    - 쇼츠 · 릴스는 아래쪽(제목 · 채널)과 오른쪽(좋아요 단추)을 가린다 → 글은 SAFE 안에만 둔다.
    - 형광펜 자국은 캔버스 좌표로 남긴다. 그래서 정답 · 풀이를 보여도 글 자리가 안 움직이게, 풀이 칸 자리를 처음부터 잡아 둔다.
    - 찍은 문제는 이 브라우저에 적어 두고(localStorage) 「찍은 것 건너뛰기」로 다음 안 찍은 문제로 간다. */
-import { TOPIK_READING } from './topik.js';
-import { TOPIK2_READING } from './topik2.js';
+import { TOPIK_READING, TOPIK_SLOTS } from './topik.js';
+import { TOPIK2_READING, TOPIK2_SLOTS } from './topik2.js';
+import { buildRounds, listenRounds, writeRounds, listenSlides, writeSlides, drawTopikSlide, topikMeta } from './shorts-topik.js';
 import { drawCover, COVER_STYLES, shortsMeta } from './shorts-cover.js';
-import { GRAMMAR_POINTS, grammarSlides, drawGrammarSlide, grammarMeta, levelOf } from './shorts-grammar.js';
+import { GRAMMAR_POINTS, grammarSlides, drawGrammarSlide, grammarMeta, levelOf, STEP, RISE } from './shorts-grammar.js';
 import { createClient } from './vendor/supabase-js.js';
 
 /* 사이트와 같은 Supabase(공개 키 — 막는 것은 표의 RLS). 사이트에서 로그인한 세션을 같이 쓴다(같은 주소라 저장 칸이 같다). */
@@ -56,6 +57,7 @@ let tool = 'hl';
 /* 문법 소개(2026-10-05) — q 는 문법 하나, slides 는 그 슬라이드들. 형광펜 자국은 장마다 따로 남긴다(돌아오면 다시 보인다) */
 let mode = store.get('cp-shorts-mode', 'read'), slides = [], slide = 0, slideStrokes = new Map();
 const isGram = () => mode === 'gram';
+const isDeck = () => mode !== 'read';   // 듣기 · 쓰기 · 문법은 슬라이드(장) 갈래
 const keyOf = (x) => (isGram() ? 'g:' + x.id : x.id);   // 찍은 것 · 대기열 qid — 문법은 g: 를 붙여 읽기 id 와 안 섞이게
 let strokes = [], cur = null, pen = 1, straight = true, showAns = false, showWhy = false, LA = null, L = null;   // LA 읽기 배치 전체(pages) · L 지금 장
 
@@ -104,33 +106,37 @@ function optBlocks(b, y, CW, s) {
   b.push({ k: 'opts', opts, fs: os, lh: olh, pad: opad });
   return y + Math.round(16 * s);
 }
-const askBlocks = (b, y, CW, s) => whyBlocks(b, optBlocks(b, y, CW, s), CW, s);
-/* 풀이만 따로 한 장(보기가 길어 한 장에 다 안 들 때) — 그 장에서는 늘 보인다 */
-const whyOnly = (b, y, CW, s) => { const r = whyBlocks(b, y, CW, s); b.at(-1).always = true; return r; };
+/* 「정답은? 댓글로 👇」 — 보기 아래 자리가 남을 때만(없어도 그 장은 들어간 것으로 본다) */
+function ctaBlock(b, y, CW, s) { if (y + 80 * s <= SAFE.bottom) b.push({ k: 'cta', y, s }); return y; }
+/* 풀이 장 — 정답 한 줄(초록 칸) + 풀이. 늘 마지막 장이고, W 를 누르면 여기로 간다 */
 function whyBlocks(b, y, CW, s) {
-  const ws = Math.round(42 * s), wlh = Math.round(ws * 1.5), wpad = Math.round(26 * s);
+  const as = Math.round(50 * s), apad = Math.round(24 * s); font(as, 800);
+  const al = wrap(`${CIRCLED[q.answer]} ${shown(q.options[q.answer])}`, CW - apad * 2 - as * 2.2);
+  const ah = al.length * Math.round(as * 1.4) + apad * 2; b.push({ k: 'ans', ls: al, fs: as, lh: Math.round(as * 1.4), pad: apad, y, h: ah }); y += ah + Math.round(28 * s);
+  const ws = Math.round(46 * s), wlh = Math.round(ws * 1.5), wpad = Math.round(30 * s);
   font(ws, 500); const wl = wrap('💡 ' + shown(q.why), CW - wpad * 2);
-  const wh = wl.length * wlh + wpad * 2; b.push({ k: 'why', ls: wl, fs: ws, lh: wlh, pad: wpad, y, h: wh });
+  const wh = wl.length * wlh + wpad * 2; b.push({ k: 'why', ls: wl, fs: ws, lh: wlh, pad: wpad, y, h: wh, always: true });
   return y + wh;
 }
 /* 한 장 만들기 — parts 를 S_MAX → lo 로 줄여 가며 들어가는 첫 크기 */
-function page(parts, hook, lo) {
+function page(parts, hook, lo, tail = null) {
   const X = SAFE.x, CW = SAFE.r - SAFE.x;
   for (let s = S_MAX; s >= lo - 1e-9; s -= 0.02) {
     const b = []; let y = brandBlocks(b, SAFE.top, CW, hook, s);
     for (const f of parts) y = f(b, y, CW, s);
-    if (y <= SAFE.bottom) return { s, b, X, CW, fit: true };
+    if (y <= SAFE.bottom) { if (tail) tail(b, y, CW, s); return { s, b, X, CW, fit: true }; }
   }
   return null;
 }
+/* 장 나누기(운영자 2026-10-05: 「문제가 만들다 말았다」 — 지문만 있는 장이 문제로 안 보였다)
+   ① 지문 · 질문 · 보기를 한 장에 → ② 풀이 장.  한 장에 바닥 크기로 안 들어가는 긴 글만 ①을 「지문」 · 「질문 · 보기」로 나눈다. */
 function layout(q, hook) {
-  const one = page([passBlocks, askBlocks], hook, S_MIN);
-  if (one) return { pages: [one], small: false };
-  /* 지문이 아주 길면 그 장에서는 훅을 빼고 지문에 자리를 준다 */
+  const why = page([whyBlocks], '', S_MIN) || page([whyBlocks], '', 0.6);
+  const one = page([passBlocks, optBlocks], hook, S_MIN, ctaBlock) || page([passBlocks, optBlocks], '', S_MIN, ctaBlock);
+  if (one) return { pages: [one, why], small: why.s < S_MIN };
   const p1 = page([passBlocks], hook, S_MIN) || page([passBlocks], '', S_MIN) || page([passBlocks], '', 0.6);
-  const p2 = page([askBlocks], '', S_MIN);
-  const rest = p2 ? [p2] : [page([optBlocks], '', S_MIN) || page([optBlocks], '', 0.6), page([whyOnly], '', S_MIN) || page([whyOnly], '', 0.6)];
-  const pages = [p1, ...rest];
+  const p2 = page([optBlocks], '', S_MIN, ctaBlock) || page([optBlocks], '', 0.6, ctaBlock);
+  const pages = [p1, p2, why];
   return { pages, small: pages.some((x) => x.s < S_MIN) };
 }
 
@@ -162,14 +168,40 @@ const logoOk = () => (logo.complete && logo.naturalWidth ? logo : null);
 let vTrack = null, frameTimer = 0;   // 녹화 중일 때 원본 한 장을 그릴 때마다 영상에 한 프레임
 const pushFrame = () => { if (vTrack && vTrack.readyState === 'live') vTrack.requestFrame?.(); };
 function draw() { drawMaster(); pushFrame(); blit(); }
+/* ── 움직임(운영자 2026-10-05: 「장마다 애니메이션」) — 장이 뜨면 덩어리가 차례로 아래에서 올라오고, 정답은 초록이 번지며 ✓ 가 톡 ── */
+const now = () => performance.now();
+const ease = (x) => 1 - Math.pow(1 - Math.min(1, Math.max(0, x)), 3);
+let animT0 = -1e9, ansT0 = -1e9, animRaf = 0;
+const animP = (k) => ease((now() - animT0 - k * STEP) / RISE);
+/* 움직이는 동안만 다시 그린다(녹화 중에는 녹화 고리가 늘 그린다) */
+function kick(answer = false) {
+  if (answer) ansT0 = now(); else animT0 = now();
+  cancelAnimationFrame(animRaf);
+  const run = () => { draw(); if (!rec && (now() - animT0 < 3200 || now() - ansT0 < 600)) animRaf = requestAnimationFrame(run); };
+  run();
+}
+/* 슬라이드 갈래 한 장 — 문법 · 듣기 · 쓰기. 듣기 표지는 읽기 표지(고른 모양)를 「듣기」로 */
+let micLevel = 0;   // 운영자 마이크 크기(0~1) — 듣기 🎧 장의 막대가 따라 움직인다
+function drawDeck(c, m, item, sl, i, hook, t) {
+  if (m === 'gram') return drawGrammarSlide(c, sl, i, { logo: logoOk(), hook, t });
+  if (m === 'listen' && sl[i].k === 'cover') return drawCover(c, { ...item, kind: '듣기', question: item.q }, coverStyle, { hook: hook || HOOK.listen, logo: logoOk() });
+  return drawTopikSlide(c, sl, i, { logo: logoOk(), t, playing: rec ? micLevel : 0 });
+}
+const metaOf = (m, item, hook) => (m === 'gram' ? grammarMeta(item, hook) : m === 'read' ? shortsMeta(item, hook) : topikMeta(m, item, hook));
 function drawMaster() {
   ctx.fillStyle = C.bg; ctx.fillRect(0, 0, W, H);
-  if (isGram()) { if (q && slides.length) { drawGrammarSlide(ctx, slides, slide, { logo: logoOk(), hook: $('hook').value.trim() }); drawStrokes(); } return; }
+  if (isDeck()) { if (q && slides.length) { drawDeck(ctx, mode, q, slides, slide, $('hook').value.trim(), now() - animT0); drawStrokes(); } return; }
   if (!q || !L) return;
   if (coverPrev || recCover) { drawCover(ctx, q, coverStyle, { hook: $('hook').value.trim(), logo: logo.complete && logo.naturalWidth ? logo : null }); return; }
   const { X, CW } = L;
   ctx.textBaseline = 'alphabetic';
+  let k = 0;
   for (const b of L.b) {
+    /* 머리(로고 · 훅 · 칩)는 그대로, 그 아래 덩어리만 차례로 올라온다. 보기는 한 줄씩 따로(아래에서) */
+    const still = ['brand', 'hook', 'chip'].includes(b.k), pa = still || b.k === 'opts' ? 1 : animP(k);
+    if (!still && b.k !== 'opts') k++;
+    if (pa <= 0) continue;
+    ctx.save(); ctx.globalAlpha = pa; ctx.translate(0, (1 - pa) * 46);
     if (b.k === 'brand') { font(34, 800); ctx.fillStyle = C.or; if (logo.naturalWidth) ctx.drawImage(logo, X, b.y - 46, 60, 60 * logo.height / logo.width); ctx.fillText('치즈감자', X + (logo.naturalWidth ? 70 : 0), b.y); font(30, 600); ctx.fillStyle = C.dim; ctx.textAlign = 'right'; ctx.fillText(LA.pages.length > 1 ? `${slide + 1} / ${LA.pages.length}` : 'everykoreans.com', SAFE.r, b.y); ctx.textAlign = 'left'; }
     if (b.k === 'hook') { font(b.size, 900); ctx.fillStyle = C.ink; b.ls.forEach((l, i) => ctx.fillText(l.t, X, b.y + b.size + i * Math.round(b.size * 1.25))); }
     if (b.k === 'chip') {
@@ -195,24 +227,34 @@ function drawMaster() {
       });
     }
     if (b.k === 'q') { font(b.fs, 800); ctx.fillStyle = C.ink; b.ls.forEach((l, i) => { blankBg(l.t, X, b.y + b.fs + i * b.lh, b.fs); ctx.fillText(l.t, X, b.y + b.fs + i * b.lh); }); }
-    if (b.k === 'opts') b.opts.forEach((o, i) => {
-      const ok = showAns && i === q.answer, dimmed = showAns && i !== q.answer;
-      roundRect(X, o.y, CW, o.h, 16, ok ? C.greenBg : C.card, ok ? C.green : C.line, ok ? 5 : 3);
-      font(b.fs, 700); ctx.fillStyle = ok ? C.green : dimmed ? C.dim : C.ink;
+    if (b.k === 'opts') { const k0 = k; k += b.opts.length; b.opts.forEach((o, i) => {
+      const po = animP(k0 + i); if (po <= 0) return;
+      ctx.save(); ctx.globalAlpha = po; ctx.translate((1 - po) * 60, 0);   // 보기는 오른쪽에서 톡
+      const ok = showAns && i === q.answer, dimmed = showAns && i !== q.answer, pk = ok ? ease((now() - ansT0) / 350) : 0;
+      roundRect(X, o.y, CW, o.h, 16, C.card, C.line, 3);
+      if (ok) { ctx.save(); ctx.globalAlpha *= pk; roundRect(X, o.y, CW, o.h, 16, C.greenBg, C.green, 5); ctx.restore(); }
+      font(b.fs, 700); ctx.fillStyle = ok && pk > 0.4 ? C.green : dimmed ? C.dim : C.ink;
+      blankBg(o.ls[0]?.t || '', X + b.pad + b.fs * 1.6, o.y + b.pad + b.fs - 4, b.fs);
       ctx.fillText(CIRCLED[i], X + b.pad, o.y + b.pad + b.fs - 4);
       font(b.fs, ok ? 800 : 600);
       o.ls.forEach((l, j) => ctx.fillText(l.t, X + b.pad + b.fs * 1.6, o.y + b.pad + b.fs - 4 + j * b.lh));
-      if (ok) { font(b.fs, 900); ctx.textAlign = 'right'; ctx.fillText('✓', X + CW - b.pad, o.y + b.pad + b.fs - 4); ctx.textAlign = 'left'; }
-    });
-    if (b.k === 'why') {
-      if (showWhy || b.always) {
-        roundRect(X, b.y, CW, b.h, 16, '#FFF6D6', '#E8C969', 3);
-        font(b.fs, 500); ctx.fillStyle = C.ink2; b.ls.forEach((l, i) => ctx.fillText(l.t, X + b.pad, b.y + b.pad + b.fs - 4 + i * b.lh));
-      } else if (!showAns) {
-        font(Math.round(44 * L.s), 800); ctx.fillStyle = C.or; ctx.textAlign = 'center';
-        ctx.fillText('정답은? 댓글로 👇', X + CW / 2, b.y + Math.round(64 * L.s)); ctx.textAlign = 'left';
-      }
+      if (ok) { font(Math.round(b.fs * (0.5 + 0.5 * pk)), 900); ctx.fillStyle = C.green; ctx.textAlign = 'right'; ctx.fillText('✓', X + CW - b.pad, o.y + b.pad + b.fs - 4); ctx.textAlign = 'left'; }
+      ctx.restore();
+    }); }
+    if (b.k === 'cta' && !showAns) {
+      font(Math.round(46 * b.s), 800); ctx.fillStyle = C.or; ctx.textAlign = 'center';
+      ctx.fillText('정답은? 댓글로 👇', X + CW / 2, b.y + Math.round(56 * b.s)); ctx.textAlign = 'left';
     }
+    if (b.k === 'ans') {
+      roundRect(X, b.y, CW, b.h, 16, C.greenBg, C.green, 5);
+      font(Math.round(b.fs * 0.62), 800); ctx.fillStyle = C.green; ctx.fillText('정답', X + b.pad, b.y + b.pad + b.fs * 0.8);
+      font(b.fs, 800); b.ls.forEach((l, i) => ctx.fillText(l.t, X + b.pad + b.fs * 2.2, b.y + b.pad + b.fs - 4 + i * b.lh));
+    }
+    if (b.k === 'why') {
+      roundRect(X, b.y, CW, b.h, 16, '#FFF6D6', '#E8C969', 3);
+      font(b.fs, 500); ctx.fillStyle = C.ink2; b.ls.forEach((l, i) => { const ty = b.y + b.pad + b.fs - 4 + i * b.lh; blankBg(l.t, X + b.pad, ty, b.fs); ctx.fillText(l.t, X + b.pad, ty); });
+    }
+    ctx.restore();
   }
   drawStrokes();
 }
@@ -237,7 +279,7 @@ function drawStrokes() {
    · 펜을 한 번 쓰면 그 뒤로는 손가락 닿음을 무시한다(펜으로 쓰다 손바닥이 닿아도 안 그어지게)
    · 펜은 이벤트가 촘촘히 오므로 getCoalescedEvents 로 사이 점까지 받아 정확하게 따라간다 */
 const toCanvas = (e) => { const r = cv.getBoundingClientRect(); return [(e.clientX - r.left) * W / r.width, (e.clientY - r.top) * H / r.height]; };
-const hlW = () => (isGram() ? 62 : Math.round(((L && L.b.find((b) => b.fs))?.fs || 46) * 1.15));
+const hlW = () => (isDeck() ? 62 : Math.round(((L && L.b.find((b) => b.fs))?.fs || 46) * 1.15));
 let penSeen = false;
 cv.addEventListener('pointerdown', (e) => {
   if (e.pointerType === 'pen') penSeen = true;
@@ -271,35 +313,50 @@ for (const id of ['toolPen', 'bPen']) $(id).addEventListener('click', () => setT
 $('straight').addEventListener('click', () => { straight = !straight; $('straight').classList.toggle('on', straight); $('straight').textContent = straight ? '곧은 줄' : '손으로 긋기'; });
 $('undo').addEventListener('click', () => { strokes.pop(); draw(); });
 $('clear').addEventListener('click', () => { strokes = []; draw(); });
-const toggleAns = () => { showAns = !showAns; if (!showAns) showWhy = false; paintBtns(); draw(); };
-const toggleWhy = () => { showWhy = !showWhy; if (showWhy) showAns = true; paintBtns(); draw(); };
-function paintBtns() { $('answer').classList.toggle('on', showAns); $('why').classList.toggle('on', showWhy); }
+const toggleAns = () => { showAns = !showAns; if (!showAns) showWhy = false; paintBtns(); kick(true); };
+/* 풀이 = 마지막 장(정답 + 풀이). W 로 가고, 다시 W 면 앞 장(보기)으로 돌아온다 */
+const toggleWhy = () => {
+  if (isDeck() || !LA) return;
+  const last = LA.pages.length - 1;
+  if (slide === last) slideGo(last - 1); else { showAns = true; slideGo(last); }
+  paintBtns(); draw();
+};
+function paintBtns() { showWhy = !isDeck() && !!LA && slide === LA.pages.length - 1; $('answer').classList.toggle('on', showAns); $('why').classList.toggle('on', showWhy); }
 $('answer').addEventListener('click', toggleAns);
 $('why').addEventListener('click', toggleWhy);
 
 /* ── 문제 고르기 ── */
 /* 훅(맨 위 한 줄)은 읽기 · 문법이 따로 기억한다 */
-const hookKey = () => (isGram() ? 'cp-shorts-hook-g' : 'cp-shorts-hook');
-const hookDefault = () => (isGram() ? '이 문법, 1분이면 끝!' : '이 문제, 30초 안에 풀 수 있어요?');
+/* 훅(맨 위 한 줄)은 갈래마다 따로 기억한다 */
+const HOOK = { read: '이 문제, 30초 안에 풀 수 있어요?', listen: '이 문제, 듣고 풀 수 있어요?', write: '', gram: '이 문법, 1분이면 끝!' };
+const hookKey = () => (mode === 'read' ? 'cp-shorts-hook' : mode === 'gram' ? 'cp-shorts-hook-g' : `cp-shorts-hook-${mode}`);
+const hookDefault = () => HOOK[mode];
 $('hook').addEventListener('input', () => { store.set(hookKey(), $('hook').value); relayout(); });
 
+/* 회차 — 읽기 · 듣기 · 쓰기는 「모의고사 n회」 차례로 번호마다 하나씩(운영자 2026-10-05: 「모의고사 1회 기준으로 쭉 올릴게」).
+   읽기는 사이트 모의고사와 같은 규칙이라 촬영소 1회 = 사이트 모의고사 1회차다. */
+const SLOTS = { I: TOPIK_SLOTS, II: TOPIK2_SLOTS };
+const roundsCache = new Map();
+function roundsOf() {
+  const k = `${mode}|${$('exam').value}`;
+  if (!roundsCache.has(k)) roundsCache.set(k, mode === 'read' ? buildRounds(ALL[$('exam').value], SLOTS[$('exam').value]) : mode === 'listen' ? listenRounds($('exam').value) : writeRounds());
+  return roundsCache.get(k);
+}
 function fillGrades() {
   if (isGram()) {
     $('grade').innerHTML = '<option value="">모든 단계</option>' + ['beginner', 'intermediate', 'advanced'].map((l) => `<option value="${l}">${levelOf({ lv: l })[0]}</option>`).join('');
     return;
   }
-  const ex = $('exam').value, gs = [...new Set(ALL[ex].map((x) => x.grade))].sort();
-  $('grade').innerHTML = '<option value="">모든 급</option>' + gs.map((g) => `<option value="${g}">${g}급</option>`).join('');
+  const R = roundsOf(), keep = store.get(`cp-shorts-round-${mode}-${$('exam').value}`, 0);
+  $('grade').innerHTML = R.map((r, i) => `<option value="${i}">모의고사 ${i + 1}회 · ${r.length}문항</option>`).join('');
+  $('grade').value = Math.min(keep, R.length - 1);
 }
+const itemText = (x) => (mode === 'read' ? `${x.slot}번 · ${x.topic || x.type}` : mode === 'listen' ? `${x.slot}번 · ${x.q}` : mode === 'write' ? `${x.q}번 · ${x.title}` : `${x.name} · ${levelOf(x)[0]}`);
 function fillList(keepId) {
-  const ex = $('exam').value, g = $('grade').value;
-  if (isGram()) {
-    list = GRAMMAR_POINTS.filter((x) => !g || x.lv === g);
-    $('pick').innerHTML = list.map((x, i) => `<option value="${i}">${done.has(keyOf(x)) ? '✓ ' : ''}${x.name} · ${levelOf(x)[0]} (${x.id})</option>`).join('');
-  } else {
-    list = ALL[ex].filter((x) => !g || String(x.grade) === g).slice().sort((a, b) => a.slot - b.slot || a.id.localeCompare(b.id));
-    $('pick').innerHTML = list.map((x, i) => `<option value="${i}">${done.has(x.id) ? '✓ ' : ''}${x.slot}번 · ${x.topic || x.type} (${x.id})</option>`).join('');
-  }
+  const g = $('grade').value;
+  if (isGram()) list = GRAMMAR_POINTS.filter((x) => !g || x.lv === g);
+  else { store.set(`cp-shorts-round-${mode}-${$('exam').value}`, +g || 0); list = roundsOf()[+g || 0] || []; }
+  $('pick').innerHTML = list.map((x, i) => `<option value="${i}">${done.has(keyOf(x)) ? '✓ ' : ''}${itemText(x)} (${x.id})</option>`).join('');
   const k = keepId ? list.findIndex((x) => x.id === keepId) : -1;
   go(k >= 0 ? k : firstTodo(0, 1));
 }
@@ -311,57 +368,70 @@ function firstTodo(from, dir) {
 async function go(i) {
   if (!list.length) return;
   idx = (i + list.length) % list.length; q = list[idx];
-  $('pick').value = idx; strokes = []; showAns = false; showWhy = false; paintBtns();
-  if (isGram()) {
-    store.set('cp-shorts-last-g', q.id);
-    slides = grammarSlides(q); slide = 0; slideStrokes = new Map();
-    await fontsReady(JSON.stringify(slides.map(({ p, mark, ...s }) => s)) + q.name + q.ex);
-    relayout(); paintSlide();
-    $('info').innerHTML = `${q.cat} · ${slides.length}장` + (done.has(keyOf(q)) ? ' · <span class="done">찍음 ✓</span>' : '');
+  $('pick').value = idx; strokes = []; showAns = false; showWhy = false;
+  slide = 0; slideStrokes = new Map();
+  store.set(`cp-shorts-last-${mode}`, { exam: $('exam').value, id: q.id });
+  const doneTag = done.has(keyOf(q)) ? ' · <span class="done">찍음 ✓</span>' : '';
+  if (isDeck()) {
+    await fontsReady(JSON.stringify(q));
+    slides = isGram() ? grammarSlides(q) : mode === 'listen' ? listenSlides(ctx, q) : writeSlides(ctx, q);
+    relayout(); paintSlide(); kick();
+    $('info').innerHTML = (isGram() ? `${q.cat} · ` : mode === 'listen' ? `${q.type} · 정답 ${CIRCLED[q.answer]} · ` : '') + `${slides.length}장 — Space 로 넘겨요` + doneTag;
   } else {
-    store.set('cp-shorts-last', { exam: $('exam').value, id: q.id });
-    slide = 0; slideStrokes = new Map();
     await fontsReady([q.passage, q.question, q.sentence || '', q.why, ...q.options].join(''));
-    relayout(); paintSlide();
-    $('info').innerHTML = `${q.genre || ''} · ${q.type} · 정답 ${CIRCLED[q.answer]}` + (done.has(q.id) ? ' · <span class="done">찍음 ✓</span>' : '') +
-      (LA.pages.length > 1 ? ` · <b>${LA.pages.length}장(지문 → 질문${LA.pages.length > 2 ? ' → 풀이' : ''}) — Space 로 넘겨요</b>` : '') + (LA.small ? ' · <b style="color:#D33A2C">글이 길어 글자가 작아요 — 다른 문제를 권해요</b>' : '');
+    relayout(); paintSlide(); kick();
+    $('info').innerHTML = `${q.genre || ''} · ${q.type} · 정답 ${CIRCLED[q.answer]}` + doneTag +
+      ` · <b>${LA.pages.length}장 — Space 로 넘겨요</b>` + (LA.small ? ' · <b style="color:#D33A2C">글이 길어 글자가 작아요 — 다른 문제를 권해요</b>' : '');
   }
+  paintScript();
   paintStat();
+}
+/* 듣기 대본 — 옆 칸에만(영상에는 안 찍힌다). 운영자가 이걸 읽어 녹음한다 */
+function paintScript() {
+  const on = mode === 'listen' && q?.script;
+  $('scriptBox').hidden = !on;
+  if (!on) return;
+  const WHO = { m: '👨 남자', w: '👩 여자', n: '📢 안내' };
+  $('scriptBox').innerHTML = '<b>🎙️ 대본 — 직접 읽어 주세요(영상에는 안 나와요)</b>' +
+    q.script.map((l) => `<p><span>${WHO[l.who] || ''}</span> ${l.text.replace(/[<&]/g, (c) => (c === '<' ? '&lt;' : '&amp;'))}</p>`).join('');
 }
 function relayout() {
   if (!q) return;
-  if (!isGram()) { LA = layout(q, $('hook').value.trim()); slide = Math.min(slide, LA.pages.length - 1); L = LA.pages[slide]; }
+  if (!isDeck()) { LA = layout(q, $('hook').value.trim()); slide = Math.min(slide, LA.pages.length - 1); L = LA.pages[slide]; }
   draw();
 }
 
-/* 장 넘기기 — 문법은 슬라이드, 읽기는 긴 문제의 두 장(지문 · 질문). 지금 장의 자국을 맡겨 두고, 갈 장의 자국을 꺼낸다 */
-const pageCount = () => (isGram() ? slides.length : LA?.pages.length || 1);
+/* 장 넘기기 — 듣기 · 쓰기 · 문법은 슬라이드, 읽기는 문제 · 풀이 장. 지금 장의 자국을 맡겨 두고, 갈 장의 자국을 꺼낸다 */
+const pageCount = () => (isDeck() ? slides.length : LA?.pages.length || 1);
 function slideGo(n) {
   if (!q) return;
   const to = Math.max(0, Math.min(pageCount() - 1, n)); if (to === slide) return;
-  slideStrokes.set(slide, strokes); slide = to; strokes = slideStrokes.get(slide) || []; cur = null;
-  if (!isGram()) L = LA.pages[slide];
+  slideStrokes.set(slide, strokes); slide = to; strokes = slideStrokes.get(slide) || []; cur = null; animT0 = now();
+  if (!isDeck()) L = LA.pages[slide];
   paintSlide(); draw();
 }
 function paintSlide() {
   const n = pageCount();
-  $('slideRow').hidden = !isGram() && n < 2;
+  $('slideRow').hidden = n < 2;
   $('slNo').textContent = `${slide + 1} / ${n}`; $('slPrev').disabled = slide === 0; $('slNext').disabled = slide >= n - 1;
+  paintBtns();
 }
 $('slPrev').addEventListener('click', () => slideGo(slide - 1));
 $('slNext').addEventListener('click', () => slideGo(slide + 1));
 
-/* 읽기 ↔ 문법 — 보이는 칸을 바꾸고 그 갈래의 지난번 것으로 */
+/* 갈래 바꾸기 — 보이는 칸을 바꾸고 그 갈래의 지난번 것으로 */
 function applyMode() {
-  const g = isGram();
-  $('exam').hidden = g; $('ansRow').hidden = g; $('coverRow').hidden = g; $('slideRow').hidden = !g;
-  $('bAns').hidden = g; $('bWhy').hidden = g;
-  $('bPrev').title = g ? '앞 장' : '이전 문제'; $('bNext').title = g ? '다음 장' : '다음 문제';
-  $('coverNote').textContent = g ? '첫 장(표지)부터 찍혀요. 같은 그림을 표지 사진으로도 올려요.' : '영상 첫 1초가 표지예요. 같은 그림을 표지 사진으로도 올려요.';
+  const d = isDeck();
+  $('exam').hidden = mode === 'write' || mode === 'gram'; $('ansRow').hidden = d; $('coverRow').hidden = d;
+  $('bAns').hidden = d; $('bWhy').hidden = d;
+  $('bPrev').title = d ? '앞 장' : '이전 문제'; $('bNext').title = d ? '다음 장' : '다음 문제';
+  $('coverNote').textContent = d ? '첫 장(표지)부터 찍혀요. 같은 그림을 표지 사진으로도 올려요.' : '영상 첫 1초가 표지예요. 같은 그림을 표지 사진으로도 올려요.';
   $('hook').value = store.get(hookKey(), hookDefault());
   coverPrev = false; $('coverPrev').classList.remove('on');
+  const last = store.get(`cp-shorts-last-${mode}`, null) || (mode === 'read' ? store.get('cp-shorts-last', null) : null);
+  if (last?.exam && !$('exam').hidden) $('exam').value = last.exam;
   fillGrades();
-  fillList(g ? store.get('cp-shorts-last-g', null) : store.get('cp-shorts-last', null)?.id);
+  fillList(last?.id ?? (mode === 'gram' ? store.get('cp-shorts-last-g', null) : null));
 }
 $('mode').addEventListener('change', () => { mode = $('mode').value; store.set('cp-shorts-mode', mode); applyMode(); });
 const step = (dir) => go(firstTodo(idx + dir, dir));
@@ -380,6 +450,7 @@ async function fontsReady(more) {
 
 function paintStat() {
   if (isGram()) { $('stat').textContent = `문법 — 찍은 것 ${GRAMMAR_POINTS.filter((x) => done.has('g:' + x.id)).length} / ${GRAMMAR_POINTS.length}`; return; }
+  if (mode !== 'read') { const all = roundsOf().flat(); $('stat').textContent = `${mode === 'listen' ? `TOPIK ${$('exam').value} 듣기` : 'TOPIK II 쓰기'} — 찍은 것 ${all.filter((x) => done.has(x.id)).length} / ${all.length}`; return; }
   const n = ALL[$('exam').value].filter((x) => done.has(x.id)).length;
   $('stat').textContent = `TOPIK ${$('exam').value} 읽기 — 찍은 문제 ${n} / ${ALL[$('exam').value].length}`;
 }
@@ -391,7 +462,7 @@ async function micStart(deviceId) {
   mic = await navigator.mediaDevices.getUserMedia({ audio: { deviceId: deviceId ? { exact: deviceId } : undefined, echoCancellation: true, noiseSuppression: true, autoGainControl: true } });
   const ac = new AudioContext(), an = ac.createAnalyser(); an.fftSize = 512; ac.createMediaStreamSource(mic).connect(an);
   const buf = new Uint8Array(an.fftSize); cancelAnimationFrame(meterRaf);
-  const tick = () => { an.getByteTimeDomainData(buf); let m = 0; for (const v of buf) m = Math.max(m, Math.abs(v - 128)); $('lvl').style.width = Math.min(100, m / 128 * 180) + '%'; $('lvl').style.background = m > 115 ? '#D33A2C' : '#2E9B5B'; meterRaf = requestAnimationFrame(tick); };
+  const tick = () => { an.getByteTimeDomainData(buf); let m = 0; for (const v of buf) m = Math.max(m, Math.abs(v - 128)); micLevel = Math.min(1, m / 128 * 2.2); $('lvl').style.width = Math.min(100, m / 128 * 180) + '%'; $('lvl').style.background = m > 115 ? '#D33A2C' : '#2E9B5B'; meterRaf = requestAnimationFrame(tick); };
   tick();
   const devs = (await navigator.mediaDevices.enumerateDevices()).filter((d) => d.kind === 'audioinput');
   const now = mic.getAudioTracks()[0].getSettings().deviceId;
@@ -421,11 +492,11 @@ async function recStart() {
   /* 3Mbps — 글자 화면은 이 정도로 충분히 또렷하고, 1분 영상이 20MB 쯤이라 저장소 한도(파일 하나 50MB) 안에 든다 */
   rec = new MediaRecorder(stream, { mimeType: MIME, videoBitsPerSecond: 3e6, audioBitsPerSecond: 128e3 });
   chunks = []; rec.ondataavailable = (e) => e.data.size && chunks.push(e.data);
-  const snap = { q, hook: $('hook').value.trim(), style: coverStyle, gram: isGram(), slides, key: keyOf(q) };
+  const snap = { q, hook: $('hook').value.trim(), style: coverStyle, mode, deck: isDeck(), slides, key: keyOf(q) };
   rec.onstop = () => takeOpen(snap);
   /* 읽기는 첫 1초를 표지로 끼우고, 문법은 첫 장(0장)이 표지라 그 장부터 찍는다 */
   slideGo(0);
-  t0 = Date.now(); recCover = !snap.gram; rec.start(1000);
+  t0 = Date.now(); recCover = !snap.deck; rec.start(1000);
   if (recCover) setTimeout(() => { recCover = false; }, COVER_MS);
   /* 캔버스는 바뀔 때만 다시 그려져서, 가만히 있으면 프레임이 비어 영상이 끊겨 보인다 → 녹화 중에는 계속 그린다 */
   const loop = () => { draw(); frameRaf = requestAnimationFrame(loop); }; loop();
@@ -446,7 +517,7 @@ $('rec').addEventListener('click', () => { if (counting) return; rec ? recStop()
 /* 표지 그림(cover.jpg) — 영상 첫 장면과 같은 그림 */
 async function coverBlob(snap) {
   const c = document.createElement('canvas'); c.width = W; c.height = H;
-  if (snap.gram) drawGrammarSlide(c.getContext('2d'), snap.slides, 0, { hook: snap.hook, logo: logoOk() });
+  if (snap.deck) drawDeck(c.getContext('2d'), snap.mode, snap.q, snap.slides, 0, snap.hook, Infinity);
   else drawCover(c.getContext('2d'), snap.q, snap.style, { hook: snap.hook, logo: logoOk() });
   return new Promise((r) => c.toBlob(r, 'image/jpeg', 0.9));
 }
@@ -456,7 +527,7 @@ async function takeOpen(snap) {
   const video = new Blob(chunks, { type: MIME.split(';')[0] });
   take = { ...snap, video, cover: await coverBlob(snap), sec: Math.round((Date.now() - t0) / 1000) };
   $('takeVid').src = URL.createObjectURL(video);
-  $('takeInfo').textContent = `${snap.gram ? snap.q.name : snap.q.id} · ${take.sec}초 · ${(video.size / 1048576).toFixed(1)}MB`;
+  $('takeInfo').textContent = `${snap.mode === 'gram' ? snap.q.name : snap.q.id} · ${take.sec}초 · ${(video.size / 1048576).toFixed(1)}MB`;
   $('take').hidden = false; $('takeUp').disabled = false; $('takeMsg').textContent = '';
 }
 function takeClose() { if (take) URL.revokeObjectURL($('takeVid').src); take = null; $('take').hidden = true; }
@@ -465,7 +536,7 @@ function markDone(key) {
   const o = $('pick').options[list.findIndex((x) => keyOf(x) === key)]; if (o && !o.text.startsWith('✓')) o.text = '✓ ' + o.text;
   paintStat();
 }
-const fileOf = (t) => (t.gram ? `korean-grammar-${t.q.id}` : `topik-reading-${t.q.id}`);
+const fileOf = (t) => `${{ read: 'topik-reading', listen: 'topik-listening', write: 'topik-writing', gram: 'korean-grammar' }[t.mode]}-${t.q.id}`;
 const dl = (blob, name) => { const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = name; document.body.appendChild(a); a.click(); a.remove(); setTimeout(() => URL.revokeObjectURL(a.href), 60e3); };
 $('takeDl').addEventListener('click', () => { if (!take) return; dl(take.video, `${fileOf(take)}.${EXT}`); dl(take.cover, `${fileOf(take)}-cover.jpg`); markDone(take.key); });
 $('takeRedo').addEventListener('click', () => { takeClose(); });
@@ -476,13 +547,13 @@ $('takeUp').addEventListener('click', async () => {
   try {
     const { data: { session } } = await sb.auth.getSession();
     if (!session) throw new Error('로그인이 필요해요 — everykoreans.com 에서 운영자 계정으로 로그인한 뒤 이 쪽을 새로 고쳐 주세요.');
-    const base = `${new Date(Date.now() + 9 * 36e5).toISOString().slice(0, 10)}/${take.gram ? 'g' : ''}${take.q.id}-${Date.now()}`;
+    const base = `${new Date(Date.now() + 9 * 36e5).toISOString().slice(0, 10)}/${take.mode === 'gram' ? 'g' : ''}${take.q.id}-${Date.now()}`;
     const up = async (path, blob, type) => { const { error } = await sb.storage.from('shorts').upload(path, blob, { contentType: type, upsert: false }); if (error) throw error; };
     await up(`${base}.${EXT}`, take.video, MIME.split(';')[0]);
     await up(`${base}.jpg`, take.cover, 'image/jpeg');
-    const m = take.gram ? grammarMeta(take.q, take.hook) : shortsMeta(take.q, take.hook);
-    const { error } = await sb.from('shorts_queue').insert({ qid: take.key, exam: take.gram ? 'grammar' : take.q.exam, video_path: `${base}.${EXT}`, cover_path: `${base}.jpg`,
-      mime: MIME.split(';')[0], seconds: take.sec, title: m.title, description: m.description, caption: m.caption, tags: m.tags, cover_style: take.gram ? 'G' : take.style });
+    const m = metaOf(take.mode, take.q, take.hook);
+    const { error } = await sb.from('shorts_queue').insert({ qid: take.key, exam: take.mode === 'read' ? take.q.exam : take.mode === 'listen' ? `listen-${take.q.exam}` : take.mode, video_path: `${base}.${EXT}`, cover_path: `${base}.jpg`,
+      mime: MIME.split(';')[0], seconds: take.sec, title: m.title, description: m.description, caption: m.caption, tags: m.tags, cover_style: take.deck ? take.mode : take.style });
     if (error) throw error;
     markDone(take.key); $('takeMsg').innerHTML = '<span class="done">대기열에 올렸어요 ✓</span> → 정해진 시각에 액션이 올려요.';
     setTimeout(() => { takeClose(); step(1); }, 900);
@@ -513,7 +584,7 @@ $('queueRe').addEventListener('click', queueLoad);
 
 /* 제목 · 설명 — 대기열과 같은 틀(shorts-cover.js shortsMeta) */
 $('copy').addEventListener('click', async () => {
-  const m = (isGram() ? grammarMeta : shortsMeta)(q, $('hook').value.trim()), d = `${m.title}\n\n${m.description}`;
+  const m = metaOf(mode, q, $('hook').value.trim()), d = `${m.title}\n\n${m.description}`;
   try { await navigator.clipboard.writeText(d); $('copy').textContent = '📋 복사했어요'; } catch { prompt('복사해 주세요', d); }
   setTimeout(() => { $('copy').textContent = '📋 제목 · 설명 복사'; }, 1500);
 });
@@ -523,8 +594,8 @@ document.addEventListener('keydown', (e) => {
   if (e.target.matches('input, select, textarea') || e.metaKey || e.ctrlKey || e.altKey) return;
   const k = e.key.toLowerCase();
   /* 문법: → · Space · PageDown 다음 장, ← · PageUp 앞 장 — 녹화 중에도(넘기며 설명한다) */
-  if ([' ', 'pagedown', 'arrowdown'].includes(k) || (isGram() && k === 'arrowright')) { e.preventDefault(); slideGo(slide + 1); return; }
-  if (['pageup', 'arrowup'].includes(k) || (isGram() && k === 'arrowleft')) { e.preventDefault(); slideGo(slide - 1); return; }
+  if ([' ', 'pagedown', 'arrowdown'].includes(k) || (isDeck() && k === 'arrowright')) { e.preventDefault(); slideGo(slide + 1); return; }
+  if (['pageup', 'arrowup'].includes(k) || (isDeck() && k === 'arrowleft')) { e.preventDefault(); slideGo(slide - 1); return; }
   if (k === 'r') { e.preventDefault(); $('rec').click(); }
   else if (rec || counting) { /* 녹화 중에는 문제를 못 바꾼다 */ if (k === 'h') setTool('hl'); else if (k === 'p') setTool('pen'); else if (k === 'a') toggleAns(); else if (k === 'w') toggleWhy(); else if (k === 'z') $('undo').click(); else if (k === 'c') $('clear').click(); else if (['1', '2', '3'].includes(k)) { pen = +k - 1; paintPens(); } }
   else if (k === 't') toggleCover();
@@ -537,12 +608,12 @@ document.addEventListener('keydown', (e) => {
 /* 태블릿 막대 — 화면 위 단추가 옆 칸 단추를 그대로 누른다(글쇠가 없는 태블릿에서도 한 손으로) */
 for (const [b, t] of [['bUndo', 'undo'], ['bAns', 'answer'], ['bWhy', 'why'], ['bRec', 'rec']]) $(b).addEventListener('click', () => $(t).click());
 /* ← → : 문법은 장 넘기기, 읽기는 문제 바꾸기 — 다만 녹화 중에는(문제를 못 바꾸므로) 긴 문제의 두 장 넘기기 */
-const pagesNow = () => isGram() || (rec && pageCount() > 1);
+const pagesNow = () => isDeck() || (rec && pageCount() > 1);
 $('bPrev').addEventListener('click', () => (pagesNow() ? slideGo(slide - 1) : $('prev').click()));
 $('bNext').addEventListener('click', () => (pagesNow() ? slideGo(slide + 1) : $('next').click()));
 new MutationObserver(() => { $('bRec').classList.toggle('live', $('rec').classList.contains('live')); $('bRec').textContent = $('rec').classList.contains('live') ? '■' : '●';
   $('bAns').classList.toggle('on', showAns); $('bWhy').classList.toggle('on', showWhy);
-  if (!isGram() && !(rec && pageCount() > 1)) { $('bPrev').disabled = $('prev').disabled; $('bNext').disabled = $('next').disabled; } else { $('bPrev').disabled = $('bNext').disabled = false; } })
+  if (!isDeck() && !(rec && pageCount() > 1)) { $('bPrev').disabled = $('prev').disabled; $('bNext').disabled = $('next').disabled; } else { $('bPrev').disabled = $('bNext').disabled = false; } })
   .observe(document.querySelector('.panel'), { subtree: true, attributes: true, childList: true });
 
 /* 표지 고르기 · 미리 보기 */

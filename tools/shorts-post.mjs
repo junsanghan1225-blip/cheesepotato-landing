@@ -128,39 +128,59 @@ async function toTikTok(row, file) {
   return { ok: true, id: j.data.publish_id, mode: direct ? 'direct' : 'inbox', status };
 }
 
-/* ── 한 줄 올리기 ── */
+/* ── 하루 한 번 — 곳마다 몇 개씩(운영자 결정 2026-10-05) ──
+   인스타 릴스 · 틱톡: 하루 1개(대기열 차례대로). 유튜브: 되는 만큼 비공개로 쌓아 둔다(기본 5개 — 구글 하루 한도 안,
+   Variables YT_PER_DAY 로 바꿀 수 있다). 공개할 것은 운영자가 유튜브 스튜디오에서 고른다.
+   한 줄(영상)은 켜진 곳에 다 올라가면 「done」, 저장 칸 파일을 지운다. */
 async function post(dry) {
   const want = { yt: on('SHORTS_YT'), ig: on('SHORTS_IG'), tt: on('SHORTS_TT') };
   if (!dry && !Object.values(want).some(Boolean)) { console.log('켜진 곳이 없어요(SHORTS_YT · SHORTS_IG · SHORTS_TT) — 끝'); return; }
-  const [row] = await rest('GET', 'shorts_queue?status=eq.ready&order=id.asc&limit=1&select=*');
-  if (!row) { console.log('대기열이 비었어요 — 끝'); return; }
-  console.log(`올릴 것: #${row.id} ${row.qid} (${row.seconds ?? '?'}초) — ${row.title}`);
+  const quota = { yt: want.yt ? Math.max(0, Number(env.YT_PER_DAY || 5)) : 0, ig: want.ig ? 1 : 0, tt: want.tt ? 1 : 0 };
+  const rows = await rest('GET', 'shorts_queue?status=eq.ready&order=id.asc&limit=40&select=*');
+  if (!rows.length) { console.log('대기열이 비었어요 — 끝'); return; }
+  console.log(`대기열 ${rows.length}개 · 오늘 몫: 유튜브 ${quota.yt} · 인스타 ${quota.ig} · 틱톡 ${quota.tt}`);
+  if (dry) { await prepare(rows[0]); console.log('시험(--dry) — 여기까지. 올리지 않았어요.'); return; }
+  let failed = false;
+  for (const row of rows) {
+    const ks = ['yt', 'ig', 'tt'].filter((k) => quota[k] > 0 && !row[k]?.ok && !row[k]?.skip);
+    if (!ks.length) continue;
+    ks.forEach((k) => quota[k]--);
+    failed = (await postRow(row, ks, want)) || failed;
+    if (!Object.values(quota).some((n) => n > 0)) break;
+  }
+  if (failed) process.exitCode = 1;   // 하나라도 실패하면 액션이 빨갛게 — 운영자가 알 수 있게
+}
 
-  /* 받아서 표준 mp4 로(H.264 · AAC · 30fps · 앞에 색인) — 크롬 녹화 파일은 조각난 mp4/webm 이라 인스타 · 틱톡이 거절할 수 있다 */
+/* 받아서 표준 mp4 로(H.264 · AAC · 30fps · 앞에 색인) — 크롬 녹화 파일은 조각난 mp4/webm 이라 인스타 · 틱톡이 거절할 수 있다 */
+async function prepare(row) {
+  console.log(`#${row.id} ${row.qid} (${row.seconds ?? '?'}초) — ${row.title}`);
   const dir = 'shorts-tmp'; await mkdir(dir, { recursive: true });
-  const src = join(dir, 'in' + (row.mime === 'video/webm' ? '.webm' : '.mp4')), out = join(dir, 'out.mp4'), cover = join(dir, 'cover.jpg');
+  const src = join(dir, `in-${row.id}` + (row.mime === 'video/webm' ? '.webm' : '.mp4')), out = join(dir, `out-${row.id}.mp4`), cover = join(dir, `cover-${row.id}.jpg`);
   const get = async (p, f) => { const r = await fetch(publicUrl(p)); if (!r.ok) throw new Error(`파일 받기 ${r.status}: ${p}`); await writeFile(f, Buffer.from(await r.arrayBuffer())); };
   await get(row.video_path, src); if (row.cover_path) await get(row.cover_path, cover);
   execFileSync('ffmpeg', ['-y', '-loglevel', 'error', '-i', src, '-vf', 'scale=1080:1920:force_original_aspect_ratio=decrease,pad=1080:1920:(ow-iw)/2:(oh-ih)/2,fps=30',
     '-c:v', 'libx264', '-preset', 'veryfast', '-crf', '20', '-pix_fmt', 'yuv420p', '-c:a', 'aac', '-b:a', '128k', '-ar', '48000', '-movflags', '+faststart', out], { stdio: 'inherit' });
   console.log(`  표준 mp4 로 바꿈 — ${(statSync(out).size / 1048576).toFixed(1)}MB`);
-  if (dry) { console.log('시험(--dry) — 여기까지. 올리지 않았어요.'); return; }
+  return { out, cover: row.cover_path ? cover : null };
+}
 
+/* 한 줄을 ks 곳에 올린다. 실패가 있으면 true */
+async function postRow(row, ks, want) {
+  const { out, cover } = await prepare(row);
   const postPath = row.video_path.replace(/\.\w+$/, '') + '-post.mp4';
-  await storagePut(postPath, await readFile(out), 'video/mp4');   // 인스타는 공개 주소에서 가져간다
-  const patch = {};
-  const tries = [['yt', () => toYouTube(row, out, row.cover_path ? cover : null)], ['ig', () => toInstagram(row, publicUrl(postPath), row.cover_path ? publicUrl(row.cover_path) : null)], ['tt', () => toTikTok(row, out)]];
-  for (const [k, fn] of tries) {
-    if (!want[k] || row[k]?.ok || row[k]?.skip) continue;
-    try { patch[k] = await fn(); console.log(`  ✓ ${k}: ${patch[k].url || patch[k].id}`); }
-    catch (e) { const n = (row[k]?.tries || 0) + 1; patch[k] = n >= 3 ? { skip: true, err: e.message.slice(0, 300), tries: n } : { err: e.message.slice(0, 300), tries: n }; console.log(`  ✗ ${k} (${n}번째): ${e.message}`); }
+  if (ks.includes('ig')) await storagePut(postPath, await readFile(out), 'video/mp4');   // 인스타는 공개 주소에서 가져간다
+  const fns = { yt: () => toYouTube(row, out, cover), ig: () => toInstagram(row, publicUrl(postPath), row.cover_path ? publicUrl(row.cover_path) : null), tt: () => toTikTok(row, out) };
+  const patch = {}; let failed = false;
+  for (const k of ks) {
+    try { patch[k] = await fns[k](); console.log(`  ✓ ${k}: ${patch[k].url || patch[k].id}`); }
+    catch (e) { failed = true; const n = (row[k]?.tries || 0) + 1; patch[k] = n >= 3 ? { skip: true, err: e.message.slice(0, 300), tries: n } : { err: e.message.slice(0, 300), tries: n }; console.log(`  ✗ ${k} (${n}번째): ${e.message}`); }
   }
   const after = { ...row, ...patch };
   const finished = Object.entries(want).every(([k, w]) => !w || after[k]?.ok || after[k]?.skip);
   if (finished) { patch.status = 'done'; patch.posted_at = new Date().toISOString(); }
   await rest('PATCH', `shorts_queue?id=eq.${row.id}`, patch, { Prefer: 'return=minimal' });
   if (finished) { await storageDel([row.video_path, postPath, ...(row.cover_path ? [row.cover_path] : [])]); console.log('  다 올려서 저장 칸 파일을 지웠어요(표의 줄은 남아요).'); }
-  if (Object.values(patch).some((x) => x?.err)) process.exitCode = 1;   // 하나라도 실패하면 액션이 빨갛게 — 운영자가 알 수 있게
+  return failed;
 }
 
 /* ── 연결: 일회용 코드 → refresh token(표에만 적는다) ── */

@@ -53,6 +53,10 @@ input[type=text] { width:100%; }
 .time.warn { color:var(--red); }
 kbd { border:1px solid var(--line); border-bottom-width:2px; border-radius:5px; padding:0 5px; font-size:12px; font-family:inherit; }
 .done { color:var(--green); font-weight:800; }
+/* 듣기 대본 — 운영자가 보고 읽는 칸(영상에는 안 찍힌다). 크게, 줄마다 누가 말하는지 */
+.script { background:#FFF6D6; color:#1B1512; border:1px solid #E8C969; border-radius:12px; padding:12px 14px; font-size:18px; line-height:1.6; max-height:40vh; overflow:auto; }
+.script p { margin:8px 0 0; }
+.script span { font-weight:800; margin-right:6px; }
 .take { display:flex; flex-direction:column; gap:8px; border-top:1px solid var(--line); padding-top:10px; }
 .take[hidden] { display:none; }
 .take video { width:160px; aspect-ratio:9 / 16; background:#000; border-radius:10px; }
@@ -81,7 +85,7 @@ kbd { border:1px solid var(--line); border-bottom-width:2px; border-radius:5px; 
     <div class="box">
       <h2>1. 무엇을 찍을까</h2>
       <div class="row">
-        <select id="mode"><option value="read">📖 TOPIK 읽기</option><option value="gram">✏️ 문법 소개</option></select>
+        <select id="mode"><option value="read">📖 TOPIK 읽기</option><option value="listen">🎧 TOPIK 듣기</option><option value="write">✍️ TOPIK 쓰기</option><option value="gram">🧩 문법 소개</option></select>
       </div>
       <div class="row" id="slideRow" hidden>
         <button class="btn" id="slPrev">◀ 앞 장 <kbd>↑</kbd></button>
@@ -99,6 +103,7 @@ kbd { border:1px solid var(--line); border-bottom-width:2px; border-radius:5px; 
         <button class="btn" id="next" title="→">다음 →</button>
       </div>
       <div class="muted" id="info"></div>
+      <div class="script" id="scriptBox" hidden></div>
       <label class="muted">맨 위 한 줄(훅) — 비우면 안 나와요
         <input type="text" id="hook" maxlength="40"></label>
       <div class="row" id="coverRow">
