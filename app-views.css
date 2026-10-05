@@ -5813,7 +5813,7 @@ body.mk-printing .mk-cover, body.mk-printing .mk-paper, body.mk-printing .mk-omr
 @media (min-width:900px) { .up-wrap { max-width:1140px; } .up-grid { grid-template-columns:repeat(3, 1fr); } }
 
 /* 「Pro 로 바뀌는 것」 — 무료 → Pro 를 숫자로 한눈에(운영자 요청 2026-10-04) */
-.up-val { max-width:820px; margin:0 auto 22px; padding:18px 20px; border-radius:22px; background:var(--surface); border:2px solid #FFC94D; }
+.up-val { max-width:820px; margin:26px auto 22px; padding:18px 20px; border-radius:22px; background:var(--surface); border:2px solid #FFC94D; }
 .up-val h3 { margin:0 0 10px; font-size:17px; color:var(--ink); text-align:center; }
 .up-val-g { display:grid; gap:2px; }
 .up-val-r { display:grid; grid-template-columns:28px minmax(0,1fr) auto 18px auto 42px; align-items:center; gap:8px; padding:9px 6px; border-top:1px solid var(--line); font-size:14.5px; }
