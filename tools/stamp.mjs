@@ -31,6 +31,8 @@ const ASSETS = [
   'glossary.js', 'gloss-find.js',
   /* 「단어」 화면(#words) — 화면 코드와 자료(tools/build-vocab.mjs 생성물). 그 화면을 열 때만 받는다. */
   'words.js', 'vocab-topik1.js', 'vocab-topik2.js',
+  /* 게임 「단어 블록 쌓기」(#blocks) — 그 게임을 열 때만 받는다. */
+  'word-blocks.js',
   /* 레벨 아이콘(감자 · 치즈) — 내 코스 · 첫 화면 · 레벨테스트 결과가 쓴다. */
   'levels.js',
   /* 동화책(#learn/stories) 자료 — 그 갈래를 열 때만 받는다. */

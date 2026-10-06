@@ -6195,3 +6195,78 @@ a.lt-chip:hover { border-color:var(--orange); }
 .lr-old .pt-next { justify-self:start; }
 .pa-sum { margin:6px 0 0; font-size:14.5px; color:var(--ink-2); }
 .pa-soon .pa-step { border-color:var(--line); }
+
+/* ── 게임 : 단어 블록 쌓기 (word-blocks.js) ──────────────────────
+   낱말이 주인공 — 떨어지는 블록은 크게, 보기 셋은 엄지로 누르기 좋게 아래에 붙인다.
+   보드 높이는 화면에 맞추되 보기가 늘 보이게(폰 세로에서도 스크롤 없이 한 판). */
+.blk-intro, .blk-end { text-align:center; }
+.blk-intro h2 { font-size:26px; font-weight:800; margin:14px 0 8px; color:var(--ink); }
+.blk-intro p { color:var(--ink-2); font-size:15px; line-height:1.6; margin:0 auto 18px; max-width:460px; word-break:keep-all; }
+.blk-demo { display:flex; flex-direction:column; align-items:center; gap:6px; }
+.blk-demo span { display:block; width:150px; padding:9px 0; border-radius:10px; font-weight:800; color:#fff; background:var(--orange); box-shadow:inset 0 -4px 0 rgba(0,0,0,.14); }
+.blk-demo span:nth-child(2) { background:#F2B33D; width:170px; }
+.blk-demo span:nth-child(3) { background:#8FB65A; width:190px; }
+.blk-lvs { display:grid; grid-template-columns:repeat(3, 1fr); gap:8px; margin:0 0 18px; }
+.blk-lv { display:flex; flex-direction:column; gap:4px; padding:12px 8px; border-radius:var(--r); border:1.5px solid var(--line); background:var(--surface); cursor:pointer; color:var(--ink); }
+.blk-lv b { font-size:16px; }
+.blk-lv small { font-size:12px; color:var(--ink-3); line-height:1.4; word-break:keep-all; }
+.blk-lv.on { border-color:var(--orange); background:var(--tint); }
+.blk-go { min-width:200px; }
+.blk-keys { font-size:13px !important; color:var(--ink-3) !important; margin-top:12px !important; }
+.blk-wait { text-align:center; color:var(--ink-2); padding:40px 0; }
+
+.blk-top { display:flex; align-items:center; gap:10px; margin-bottom:8px; }
+.blk-score { font-size:26px; font-weight:800; color:var(--ink); font-variant-numeric:tabular-nums; min-width:60px; }
+.blk-stage { flex:1; font-size:13px; font-weight:700; color:var(--ink-3); }
+.blk-snd { background:none; border:1px solid var(--line); border-radius:999px; padding:5px 10px; cursor:pointer; font-size:16px; }
+.blk-board {
+  position:relative; overflow:hidden; height:clamp(260px, calc(100svh - 360px), 460px);
+  border-radius:var(--r-l); border:2px solid var(--line);
+  background:repeating-linear-gradient(0deg, var(--surface-2) 0 calc(100% / 8 - 1px), var(--line) calc(100% / 8 - 1px) calc(100% / 8));
+}
+.blk-fall, .blk-row {
+  position:absolute; left:8px; right:8px; height:calc(100% / 8 - 4px);
+  display:flex; align-items:center; justify-content:center; gap:10px; border-radius:10px;
+  box-shadow:inset 0 -4px 0 rgba(0,0,0,.14);
+}
+.blk-fall { top:2px; background:var(--orange); color:#fff; will-change:transform; z-index:2; }
+.blk-fall b { font-size:clamp(20px, 5vw, 26px); font-weight:800; }
+.blk-fall i { font-style:normal; font-size:11px; font-weight:800; padding:2px 7px; border-radius:999px; background:rgba(255,255,255,.3); }
+.blk-fall.re { background:#E0663A; }
+.blk-fall.pop { animation:blkPop .4s ease-out forwards; }
+.blk-fall.land { opacity:0; }
+@keyframes blkPop { to { transform:scale(1.25); opacity:0; } }
+.blk-stack { position:absolute; inset:auto 0 0 0; display:flex; flex-direction:column-reverse; height:100%; }
+.blk-row { position:relative; left:auto; right:auto; margin:0 8px 4px; background:#B9A893; color:#fff; }
+.blk-row:first-child { margin-bottom:2px; }
+.blk-row b { font-size:17px; font-weight:800; }
+.blk-row span { font-size:13px; opacity:.9; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; max-width:55%; }
+.blk-row.flash { animation:blkShake .4s; background:var(--red); }
+@keyframes blkShake { 25% { transform:translateX(-6px); } 75% { transform:translateX(6px); } }
+.blk-pop { position:absolute; left:50%; top:12px; transform:translateX(-50%); z-index:3; padding:6px 14px; border-radius:999px; font-weight:800; font-size:14px; white-space:nowrap; max-width:92%; overflow:hidden; text-overflow:ellipsis; }
+.blk-pop.ok { background:var(--green); color:#fff; }
+.blk-pop.no { background:var(--ink); color:#fff; }
+.blk-picks { display:grid; gap:8px; margin-top:10px; }
+.blk-pick {
+  display:flex; align-items:center; gap:10px; width:100%; min-height:50px; padding:10px 14px;
+  border-radius:var(--r); border:1.5px solid var(--line); background:var(--surface); color:var(--ink);
+  font-size:16px; font-weight:700; text-align:left; cursor:pointer; word-break:keep-all;
+}
+.blk-pick span { flex:none; width:24px; height:24px; border-radius:6px; display:grid; place-items:center; font-size:12px; background:var(--surface-2); color:var(--ink-3); }
+.blk-pick:hover { border-color:var(--orange); }
+.blk-pick.ok { border-color:var(--green); background:rgba(46,160,90,.12); }
+.blk-pick.no { border-color:var(--red); background:rgba(220,60,50,.1); }
+
+.blk-end-score b { font-size:56px; font-weight:800; color:var(--ink); }
+.blk-end-score span { font-size:18px; color:var(--ink-3); margin-left:4px; }
+.blk-end-sub { color:var(--ink-2); margin:4px 0 20px; }
+.blk-end h3 { font-size:17px; margin:0 0 10px; text-align:left; }
+.blk-miss { list-style:none; padding:0; margin:0 0 14px; text-align:left; border:1px solid var(--line); border-radius:var(--r); background:var(--surface); }
+.blk-miss li { display:flex; align-items:center; gap:10px; padding:10px 12px; border-top:1px solid var(--line); }
+.blk-miss li:first-child { border-top:none; }
+.blk-miss b { font-size:16px; }
+.blk-miss span { color:var(--ink-2); font-size:14px; }
+.blk-say { background:none; border:none; cursor:pointer; font-size:16px; padding:0; }
+.blk-end-btns { display:flex; gap:8px; justify-content:center; flex-wrap:wrap; margin-top:16px; }
+/* 판 하는 동안 도우미 단추(🧀)가 셋째 보기를 가린다 — 이 게임에서만 숨긴다. */
+body:has(#blkView:not(.hidden)) .hlp-fab { display:none; }
