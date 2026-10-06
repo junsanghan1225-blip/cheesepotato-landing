@@ -181,11 +181,13 @@ export function drawCoverCard(ctx, c, { logo = null, t = Infinity } = {}) {
 /* 장마다 덩어리 — lean 0 은 다 넣고, 1 은 영어 줄을 빼고, 2 는 개수를 줄인다(그래도 바닥 크기 아래로는 안 줄인다) */
 function blocksFor(sl, lean) {
   /* 영어 줄은 넣지 않는다(운영자 2026-10-05: 「영어는 있다 말고 — 내가 말할 테니 빼」). 낱말 뜻(meal 등)만 남긴다 — 모든 낱말에 있다 */
-  const p = sl.p, B = [], en = false, few = lean >= 2;
+  /* 초급만 「뜻」 · 「주의」 장에 영어 한 줄(운영자 2026-10-06: 「초급은 문법 설명이랑 주의할 부분만 영어」) — 112개 모두 영어가 있어 빠지는 장이 없다.
+     예문 · 대화는 한국어만. 넘치면(lean 1 부터) 영어 줄을 덜어 낸다 */
+  const p = sl.p, B = [], en = false, enHelp = p.lv === 'beginner' && lean < 1, few = lean >= 2;
   if (sl.k === 'mean') {
     B.push({ t: p.name, size: 100, weight: 900, gap: 34 });
     B.push({ t: sl.ko, size: 62, weight: 700, lh: 1.5, gap: 36 });
-    if (sl.sub && en) B.push({ t: sl.sub, size: 44, weight: 500, color: C.dim });
+    if (sl.sub && enHelp) B.push({ t: sl.sub, size: 44, weight: 500, color: C.dim });
   } else if (sl.k === 'form') {
     if (sl.form) B.push({ t: sl.form, size: 66, weight: 800, card: 'white', pad: 40, gap: 34 });
     for (const [a, b] of sl.rows.slice(0, few ? 3 : 4)) B.push({ t: `${a}  →  ${b}`, size: 60, weight: 700, card: 'soft', pad: 26, gap: 14, mark: sl.mark });
@@ -198,7 +200,7 @@ function blocksFor(sl, lean) {
     });
   } else if (sl.k === 'care') {
     if (sl.ko) B.push({ t: '⚠️ ' + sl.ko, size: 60, weight: 700, card: 'warn', pad: 40, lh: 1.5, gap: 30, mark: sl.mark });
-    if (sl.sub && en) B.push({ t: sl.sub, size: 44, weight: 500, color: C.dim });
+    if (sl.sub && enHelp) B.push({ t: sl.sub, size: 44, weight: 500, color: C.dim });
   } else if (sl.k === 'dlg') {
     sl.lines.forEach((l) => { const m = l.match(/^([AB])\s*[:：]\s*/); const who = m?.[1] || 'A';
       B.push({ t: l.replace(/^[AB]\s*[:：]\s*/, ''), size: 58, weight: 600, card: who === 'B' ? 'soft' : 'white', pad: 32, w: CW * 0.88, side: who, gap: 24, mark: sl.mark }); });
