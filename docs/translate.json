@@ -1,0 +1,42 @@
+{
+  "_note": "번역 연습(영어 → 한국어, 한 줄씩). 원본 — tools/build-translate.mjs 가 translate.js 를 만든다. 지시서 docs/antigravity-translate-task.md. 문장은 전부 창작.",
+  "sets": [
+    {
+      "id": "b-cafe",
+      "tier": "beginner",
+      "title": { "ko": "카페에서", "en": "At a café" },
+      "lines": [
+        { "en": "Hello. One iced americano, please.", "ko": ["안녕하세요. 아이스 아메리카노 한 잔 주세요.", "안녕하세요. 아이스 아메리카노 하나 주세요."], "hint": "~ 주세요 = please give me ~" },
+        { "en": "Is it for here or to go?", "ko": ["드시고 가세요?", "여기서 드세요?", "드시고 가실 거예요?"], "hint": "드시다 = to eat/drink (polite)" },
+        { "en": "To go, please.", "ko": ["가지고 갈게요.", "포장해 주세요.", "테이크아웃이요."], "hint": "가지고 가다 = to take with you" },
+        { "en": "How much is it?", "ko": ["얼마예요?", "얼마에요?"], "hint": "얼마 = how much" },
+        { "en": "It's 4,500 won.", "ko": ["사천오백 원이에요.", "4,500원이에요.", "4500원이에요."], "hint": "Sino-Korean numbers: 사천오백" },
+        { "en": "Thank you. Have a nice day.", "ko": ["감사합니다. 좋은 하루 보내세요.", "고맙습니다. 좋은 하루 보내세요."], "hint": "좋은 하루 = a good day" }
+      ]
+    },
+    {
+      "id": "i-late",
+      "tier": "intermediate",
+      "title": { "ko": "늦은 이유", "en": "Why I was late" },
+      "lines": [
+        { "en": "I'm sorry I'm late.", "ko": ["늦어서 죄송해요.", "늦어서 죄송합니다.", "늦어서 미안해요."], "hint": "-아서/어서 for a reason before an apology", "g": "32-1" },
+        { "en": "The subway stopped, so I couldn't come on time.", "ko": ["지하철이 멈춰서 제시간에 못 왔어요.", "지하철이 멈춰서 제시간에 올 수 없었어요.", "지하철이 서서 제시간에 못 왔어요."], "hint": "멈추다 = to stop · 제시간에 = on time" },
+        { "en": "I should have left home earlier.", "ko": ["집에서 더 일찍 나올걸 그랬어요.", "집에서 좀 더 일찍 나올걸 그랬어요.", "집에서 더 일찍 나왔어야 했어요."], "hint": "-(으)ㄹ걸 그랬다 = I should have ~" },
+        { "en": "Next time I'll leave thirty minutes early.", "ko": ["다음에는 삼십 분 일찍 나올게요.", "다음에는 30분 일찍 나올게요.", "다음번에는 30분 일찍 출발할게요."], "hint": "-(으)ㄹ게요 = I will (a promise)" },
+        { "en": "Did the meeting already start?", "ko": ["회의가 벌써 시작됐어요?", "회의가 이미 시작됐어요?", "회의 벌써 시작했어요?"], "hint": "벌써 = already" }
+      ]
+    },
+    {
+      "id": "a-remote",
+      "tier": "advanced",
+      "title": { "ko": "재택근무에 대한 생각", "en": "Thoughts on remote work" },
+      "lines": [
+        { "en": "Since the pandemic, the number of companies allowing remote work has increased.", "ko": ["코로나 이후로 재택근무를 허용하는 회사가 늘어났다.", "팬데믹 이후 재택근무를 허용하는 기업이 늘었다.", "코로나 이후 재택근무를 허락하는 회사가 많아졌다."], "hint": "허용하다 = to allow · 늘어나다 = to increase" },
+        { "en": "Some say it raises productivity, while others say the opposite.", "ko": ["생산성이 높아진다는 사람이 있는가 하면 그 반대라는 사람도 있다.", "생산성이 오른다고 하는 사람도 있고 반대라고 하는 사람도 있다."], "hint": "-는가 하면 = while some ~, others ~" },
+        { "en": "Without a commute, people can use their time more efficiently.", "ko": ["출퇴근을 하지 않으니 시간을 더 효율적으로 쓸 수 있다.", "출퇴근이 없으면 시간을 더 효율적으로 쓸 수 있다.", "출퇴근할 필요가 없어서 시간을 더 효율적으로 활용할 수 있다."], "hint": "출퇴근 = commute · 효율적으로 = efficiently" },
+        { "en": "However, it is hard to separate work from personal life.", "ko": ["하지만 일과 사생활을 구분하기가 어렵다.", "그러나 일과 개인 생활을 나누기가 쉽지 않다.", "하지만 업무와 사생활을 분리하기 어렵다."], "hint": "구분하다 = to separate · -기(가) 어렵다" },
+        { "en": "In the end, what matters is finding a way that suits each person.", "ko": ["결국 중요한 것은 각자에게 맞는 방법을 찾는 것이다.", "결국 각자에게 맞는 방식을 찾는 것이 중요하다."], "hint": "결국 = in the end · 맞다 = to suit" }
+      ]
+    }
+  ]
+}

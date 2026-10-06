@@ -61,6 +61,7 @@
   | `grammar-usage.js`(문법 「쓰임 보기」 + 「블록으로 맞추기」 연습 문장) | 우리 자료(TOPIK · 읽기 · 낱말 예문) · `grammar-mark.js` · `docs/grammar-practice.json`(안티 · Claude 검토, 검사 `check-grammar-practice`) → `node tools/build-grammar-usage.mjs` |
   | `grammar-drill.js`(문법 「바꾸기」 문항) | 문법 이름(`sentences*.js`) · `tools/ko-conj.mjs` attach · `docs/grammar-drill-extra.json`(자동이 안 되는 것, 안티 · Claude 검토) → `node tools/build-grammar-drill.mjs` |
   | `path-map.js`(학습 길 — 레슨마다 붙일 문법) | `courses.js` · 문법 자료 · `docs/path-map.json`(사람이 고친 짝, 있으면 우선) → `node tools/build-path-map.mjs` |
+  | `translate.js`(번역 연습 — 영어 → 한국어 한 줄씩) | `docs/translate.json`(안티 · Claude 검토, 지시 `docs/antigravity-translate-task.md`) → `node tools/build-translate.mjs` |
   | `grammar-pairs.js`(헷갈리는 문법 비교 · 퀴즈) | `docs/grammar-pairs.json`(안티 · Claude 검토, 지시 `docs/antigravity-grammar-fill-task.md`) → `node tools/build-grammar-pairs.mjs` |
   | `vocab-topik1.js` · `vocab-topik2.js` · `vocab-topik2-ex/`(TOPIK II 예문 조각, 500개씩) | `vocab/data/topik1.json` · `topik2.json`(B급 이상만) → `node tools/build-vocab.mjs` |
 - **검사:** 올리기 전에 CI 와 같은 검사를 돌린다(`.github/workflows/check.yml` 의 목록).
@@ -100,6 +101,9 @@
   레슨-문법 짝은 기계(`tools/build-path-map.mjs`) — 사람 검토는 `docs/path-map.json` 에.
   안티 그래비티에게 넘김(2026-10-06): 짝 검토 `docs/antigravity-path-map-task.md`(브랜치 `path-map`) · 문법 채우기 `docs/antigravity-grammar-fill-task.md`(브랜치 `grammar-fill`) — 오면 검토.
   인스타 @cheese_p_otato — 첫 화면 맨 아래 · `teacher.html` · Organization sameAs.
+- **번역 연습 · 문법 학습지**(운영자 요청 2026-10-06): 새 섹션 `#learn/translate`(app.module.js trDraw) — 짧은 글을 한 줄씩 영어 → 한국어, 초급 · 중급 · 고급,
+  답은 여러 개(띄어쓰기 · 문장부호 무시), 다르면 모범 답 + 「제 답도 맞아요」. 견본 3편, 45편은 안티(`docs/antigravity-translate-task.md`, 브랜치 `translate`).
+  문법 쪽 「📄 학습지 PDF」(sbWsPrint) — 설명 · 예문 · 빈칸 · 바꿔 쓰기 · 직접 쓰기 · 내 메모 + 정답 쪽, 여행 학습지와 같은 틀(.ws). 지금은 무료.
 
 - **블로그 주간 정리**(운영자 결정 2026-10-03): 매일 자동 글은 안 한다(검색에 「대량 자동 생성」으로 보일 수 있다). 일요일 20:07
   `.github/workflows/blog-weekly.yml` 이 `tools/blog-weekly.mjs` 로 그 주 인스타 낱말 · 문법 · TOPIK 을 묶어 **초안 PR** 을 연다.

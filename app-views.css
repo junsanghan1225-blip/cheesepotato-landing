@@ -6012,3 +6012,45 @@ a.lt-chip:hover { border-color:var(--orange); }
 .pa-words span { color:var(--ink-2); font-size:13px; }
 .pa-words small { display:block; color:var(--ink-2); font-size:13px; }
 .pa-nav { display:flex; justify-content:space-between; gap:10px; margin:18px 0 8px; }
+
+/* 문법 학습지(2026-10-06) — 첫 쪽은 표지가 없으니 쪽을 넘기지 않는다 */
+.ws .ws-first { break-before:auto; }
+.ws-gdesc { font-size:11pt; margin:0 0 3mm; }
+.ws-gdesc small { color:#666; font-size:9pt; }
+.ws-voc2 th { width:32mm; }
+.ws-memo { min-height:24mm; border:1px solid #BBB; border-radius:1.5mm; padding:2mm 3mm; font-size:10pt; }
+.ws-memo span { display:block; height:9mm; border-bottom:1px dotted #AAA; }
+.ws-ph u { text-decoration-thickness:2px; text-underline-offset:2px; }
+.sb-topbar { display:flex; justify-content:space-between; gap:8px; flex-wrap:wrap; }
+
+/* ── 번역 연습(2026-10-06) — #learn/translate ── */
+.tr-page { max-width:720px; margin:0 auto; }
+.tr-lead { font-size:15px; line-height:1.6; color:var(--ink-2); margin:4px 0 14px; word-break:keep-all; }
+.tr-tiers { display:flex; gap:6px; flex-wrap:wrap; margin-bottom:14px; }
+.tr-tier { font:inherit; font-size:14px; font-weight:700; padding:8px 14px; border-radius:99px; border:1px solid var(--line); background:var(--surface); color:var(--ink); cursor:pointer; }
+.tr-tier.on { background:var(--ink); color:var(--surface); border-color:var(--ink); }
+.tr-tier small { opacity:.7; font-weight:600; }
+.tr-sets { display:grid; gap:10px; }
+@media (min-width:700px) { .tr-sets { grid-template-columns:1fr 1fr; } }
+.tr-set { display:grid; gap:4px; text-align:left; padding:14px 16px; border:1px solid var(--line); border-radius:var(--r-l); background:var(--surface); color:var(--ink); font:inherit; cursor:pointer; }
+.tr-set b { font-size:16px; word-break:keep-all; }
+.tr-set span { font-size:13px; color:var(--ink-2); }
+.tr-set.done { border-color:var(--green); }
+.tr-none { color:var(--ink-2); }
+.tr-head { margin:14px 0 8px; display:grid; gap:2px; }
+.tr-head span { font-size:12.5px; font-weight:700; color:var(--orange-deep); }
+.tr-head b { font-size:21px; word-break:keep-all; }
+.tr-bar { height:6px; border-radius:3px; background:var(--line); overflow:hidden; margin-bottom:12px; }
+.tr-bar i { display:block; height:100%; background:var(--orange); }
+.tr-past { list-style:none; margin:0 0 12px; padding:0; display:grid; gap:6px; }
+.tr-past li { display:grid; gap:2px; padding:8px 12px; border-left:3px solid var(--green); background:var(--surface); border-radius:0 var(--r) var(--r) 0; }
+.tr-past span { font-size:12.5px; color:var(--ink-2); }
+.tr-past b { font-size:15px; font-weight:600; word-break:keep-all; overflow-wrap:anywhere; }
+.tr-en { font-size:19px; font-weight:700; line-height:1.5; margin:8px 0 10px; overflow-wrap:anywhere; }
+.tr-hint { font-size:13.5px; color:var(--ink-2); margin:0 0 8px; padding:6px 10px; border-radius:8px; background:var(--surface-2, var(--tint)); }
+.tr-hint-b { font:inherit; font-size:13px; font-weight:700; background:none; border:none; color:var(--orange-deep); cursor:pointer; padding:2px 4px; }
+.tr-in { width:100%; box-sizing:border-box; font-size:17px; resize:vertical; }
+.tr-ans { margin:6px 0 0; padding-left:20px; font-size:15.5px; line-height:1.7; word-break:keep-all; overflow-wrap:anywhere; }
+.tr-ans li:first-child { font-weight:700; }
+.tr-g { font-size:13.5px; margin:10px 0 0; color:var(--ink-2); }
+.tr-end b { font-size:17px; }
