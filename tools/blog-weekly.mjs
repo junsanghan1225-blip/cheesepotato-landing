@@ -46,7 +46,7 @@ const C = ['①', '②', '③', '④'];
 
 const wordLink = (h) => (has(`dictionary/${h}.html`) ? `<a href="/dictionary/${encodeURIComponent(h)}.html">${esc(h)}</a>` : esc(h));
 const body = [
-  `<p>치즈감자 인스타그램(@chesse_p_otato)에 ${md(start)}부터 ${md(end)}까지 올린 낱말 ${nWords}개 · 문법 ${grams.length}개 · TOPIK 연습 ${quiz.length}문제를 한곳에 모았습니다. 한 주를 마무리하며 소리 내어 한 번씩 읽어 보세요.</p>`,
+  `<p>치즈감자 인스타그램(@cheese_p_otato)에 ${md(start)}부터 ${md(end)}까지 올린 낱말 ${nWords}개 · 문법 ${grams.length}개 · TOPIK 연습 ${quiz.length}문제를 한곳에 모았습니다. 한 주를 마무리하며 소리 내어 한 번씩 읽어 보세요.</p>`,
   OP_NOTE,
   '<h2>이번 주 낱말</h2>',
   ...topics.map((tp) => `<h3>${esc(tp.topic.ko)} · ${esc(tp.topic.en)}</h3><ul>` +
@@ -60,7 +60,7 @@ const body = [
     `<p>${q.options.map((o, j) => `${C[j]} ${esc(o)}`).join(' · ')}</p>`),
   '<h3>정답</h3><ul>' + quiz.map((q, i) => `<li>문제 ${i + 1}: ${C[q.answer]} ${esc(q.options[q.answer])} — ${esc(q.why)}` +
     (has(`topik-reading/${q.id}.html`) ? ` <a href="/topik-reading/${q.id}.html">풀어 보기 →</a>` : '') + '</li>').join('') + '</ul>',
-  '<p>더 많은 낱말 · 문법 · TOPIK 연습은 <a href="/#learn">배우기</a>에서 무료로 할 수 있어요. 매일 새 게시물은 인스타그램 @chesse_p_otato 에 올라옵니다.</p>',
+  '<p>더 많은 낱말 · 문법 · TOPIK 연습은 <a href="/#learn">배우기</a>에서 무료로 할 수 있어요. 매일 새 게시물은 인스타그램 @cheese_p_otato 에 올라옵니다.</p>',
 ].join('');
 
 const post = {

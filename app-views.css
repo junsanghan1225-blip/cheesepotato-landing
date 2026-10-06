@@ -6193,3 +6193,5 @@ a.lt-chip:hover { border-color:var(--orange); }
 .lr-old { display:grid; gap:8px; padding:16px; border-radius:var(--r-l); background:var(--tint); }
 .lr-old p { margin:0; font-size:14px; line-height:1.6; color:var(--ink-2); }
 .lr-old .pt-next { justify-self:start; }
+.pa-sum { margin:6px 0 0; font-size:14.5px; color:var(--ink-2); }
+.pa-soon .pa-step { border-color:var(--line); }
