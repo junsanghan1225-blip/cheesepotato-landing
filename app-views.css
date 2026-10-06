@@ -6074,3 +6074,17 @@ a.lt-chip:hover { border-color:var(--orange); }
 .pa-go { width:100%; min-height:52px; font-size:16px; }
 @media (min-width:700px) { .pa-go { width:auto; min-width:220px; } }
 #sideNav.side-calm .side-head span { font-weight:800; }
+
+/* 반 진도 리포트 · 선생님 목록(2026-10-06) */
+.cls-rep { margin:10px 0; display:grid; gap:8px; }
+.cls-rep-sum { font-size:14px; font-weight:700; margin:0; }
+.cls-rep-scroll { overflow-x:auto; border:1px solid var(--line); border-radius:var(--r); }
+.cls-rep-t { border-collapse:collapse; font-size:13px; min-width:100%; }
+.cls-rep-t th, .cls-rep-t td { padding:7px 10px; border-bottom:1px solid var(--line); text-align:center; white-space:nowrap; }
+.cls-rep-t thead th { background:var(--tint); font-size:12px; }
+.cls-rep-t tbody th { text-align:left; position:sticky; left:0; background:var(--surface); }
+.cls-rep-t td.ok { color:var(--green); font-weight:700; }
+.cls-rep-t td.part { color:var(--orange-deep); }
+.cls-teach { list-style:none; padding:0; margin:8px 0; display:grid; gap:6px; }
+.cls-teach li { display:flex; justify-content:space-between; align-items:center; gap:8px; }
+.cls-teach small { color:var(--ink-2); }

@@ -40,7 +40,7 @@
 ">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <!-- 구글 태그 관리자. 구글이 주는 인라인 코드조각은 CSP 가 막아서 gtm.js 로 뺐다. -->
-<script src="gtm.js?v=fb4f783f" async></script>
+<script src="gtm.js?v=0ce8c293" async></script>
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <!-- 제목과 설명을 두 말로 쓴다. 이 사이트를 찾을 사람은 한국어를 **배우는**
@@ -119,13 +119,13 @@
      Pretendard 는 통짜(2.0MB) 대신 조각난 쪽을 쓴다 — 브라우저가
      unicode-range 를 보고 화면에 실제로 나온 글자가 든 조각만 받는다.
      그래서 저장소는 무거워졌지만 학습자가 받는 양은 오히려 줄었다. -->
-<link rel="stylesheet" href="vendor/pretendard.css?v=fb4f783f">
-<link rel="stylesheet" href="vendor/pressstart2p.css?v=fb4f783f">
+<link rel="stylesheet" href="vendor/pretendard.css?v=0ce8c293">
+<link rel="stylesheet" href="vendor/pressstart2p.css?v=0ce8c293">
 <!-- 화면 상자 안에서만 쓰는 CSS 는 여기서 갈라 받는다. media="print" 라
      첫 페인트를 안 막고, 다 받아지면 app.js 가 media 를 all 로 바꾼다.
      자바스크립트가 없으면 <noscript> 쪽이 그냥 평범하게 걸린다. -->
-<link id="viewsCss" rel="stylesheet" href="app-views.css?v=fb4f783f" media="print">
-<noscript><link rel="stylesheet" href="app-views.css?v=fb4f783f"></noscript>
+<link id="viewsCss" rel="stylesheet" href="app-views.css?v=0ce8c293" media="print">
+<noscript><link rel="stylesheet" href="app-views.css?v=0ce8c293"></noscript>
 
 <style>
 /* ══════════════════════════════════════════════════════════════
@@ -747,6 +747,34 @@ body.nav-open { overflow:hidden; }
 html[data-lv] .hm-doors { display:none; }
 /* 길 넷(2026-10-06) — 학생에게도 보인다. 폰 한 줄 · PC 두 줄 */
 html[data-lv] .hm-paths .hm-doors { display:grid; }
+/* 첫 화면 시안 「무엇을 배우러 오셨나요?」(2026-10-06) — 왼쪽 질문, 오른쪽 추천 카드 · 길 카드 · 배너 하나 */
+.hero-ask .hero-in { display:grid; gap:24px; max-width:calc(var(--max) - 2 * var(--gut)); }
+@media (min-width:900px) { .hero-ask .hero-in { grid-template-columns:1.1fr .9fr; gap:48px; align-items:center; } }
+.hero-ask h1 em { font-style:normal; color:var(--orange); }
+.hero-ask .hero-badge::first-letter { color:var(--green); }
+.hm-rec { background:var(--surface); border:1px solid var(--line); border-radius:var(--r-xl); padding:20px; box-shadow:0 22px 48px -30px rgba(var(--ink-rgb),.35); display:grid; gap:10px; }
+.hm-rec-h { font-size:14px; color:var(--ink-2); }
+.hm-rec-main, .hm-rec-row { display:grid; grid-template-columns:44px minmax(0,1fr) auto; gap:12px; align-items:center; width:100%; text-align:left; font:inherit; color:var(--ink); cursor:pointer; text-decoration:none; border-radius:16px; box-sizing:border-box; }
+.hm-rec-main { min-height:72px; padding:14px 16px; border:none; background:var(--ink); color:var(--surface); }
+.hm-rec-main b { font-size:18px; } .hm-rec-main small { display:block; font-size:13px; opacity:.8; }
+.hm-rec-row { min-height:60px; padding:10px 12px; border:1px solid var(--line); background:transparent; }
+.hm-rec-row b { font-size:15px; } .hm-rec-row small { display:block; font-size:12.5px; color:var(--ink-2); }
+.hm-rec-main i, .hm-rec-row i { font-style:normal; font-size:20px; opacity:.7; }
+.hm-rec-ic { display:grid; place-items:center; width:44px; height:44px; border-radius:12px; background:var(--orange); font-size:22px; }
+.hm-rec-ic.s { background:var(--tint); }
+.hm-rec .hero-link { justify-self:start; }
+.hm-paths .hm-door { background:var(--surface) !important; border:1px solid var(--line); box-shadow:0 14px 34px -26px rgba(var(--ink-rgb),.4); position:relative; }
+.hm-paths .hm-door::after { content:'›'; position:absolute; right:18px; top:50%; transform:translateY(-50%); width:32px; height:32px; border-radius:50%; border:1px solid var(--line); display:grid; place-items:center; font-size:20px; color:var(--ink-2); }
+.hm-paths .hm-door-ic { background:var(--tint); border-radius:18px; padding:6px; box-sizing:border-box; }
+.hm-paths .hm-door-t { padding-right:40px; }
+.hm-banner { display:grid; grid-template-columns:1fr; gap:14px; width:calc(100% - 2 * var(--gut)); max-width:calc(var(--max) - 2 * var(--gut)); margin:24px auto 0; padding:22px; text-align:left; font:inherit; color:var(--ink); cursor:pointer; border:1px solid var(--line); border-radius:var(--r-xl); background:linear-gradient(120deg, var(--tint), var(--surface)); box-sizing:border-box; }
+@media (min-width:900px) { .hm-banner { grid-template-columns:auto 1fr auto auto; align-items:center; gap:24px; padding:26px 30px; } }
+.hm-banner-tag { justify-self:start; font-size:12px; font-weight:800; color:#fff; background:var(--orange); padding:4px 10px; border-radius:99px; }
+.hm-banner-t b { display:block; font-size:22px; letter-spacing:-.02em; }
+.hm-banner-t span { font-size:14px; color:var(--ink-2); word-break:keep-all; }
+.hm-banner-card { display:grid; gap:4px; padding:12px 16px; border-radius:12px; background:var(--surface); border:1px solid var(--line); transform:rotate(-2deg); justify-self:start; }
+.hm-banner-card i { font-size:13px; color:var(--ink-2); } .hm-banner-card b { color:var(--orange-deep); }
+.hm-banner-go { font-weight:800; color:var(--orange-deep); }
 /* 첫 화면 세 덩어리(2026-10-06) — 히어로는 한 단, 큰 단추 하나(폰은 화면 폭 · 56px), 회원가입은 글자 단추로 */
 .hero-solo .hero-in { display:block; max-width:calc(var(--max) - 2 * var(--gut)); }
 .hero-solo .hero-copy { max-width:760px; }
@@ -2044,19 +2072,26 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <!-- 히어로 — 시안 A 「오늘의 한 장」(운영자 결정 2026-10-05, 19개 학습 사이트 분석에서): 무엇을 주는지 한 줄(머리 문장) ·
        레벨테스트 하나 · 진짜 숫자(check-geo 가 aria-label 의 수를 자료와 맞춰 본다) · 오른쪽은 오늘의 TOPIK 1문제(인스타와 같은 문제, app.module.js hmQuizRender).
        글자 「치즈감자」는 머리띠 로고와 배지에 남긴다. -->
-  <div class="hero hm-intro hero-solo">
+  <!-- 첫 화면 시안(운영자 결정 2026-10-06 「그 모양으로 — 검색창은 빼고 배너는 번역 연습」): 왼쪽 질문형 제목, 오른쪽 「오늘의 추천」 카드.
+       레벨테스트 단추(heroLevelTestBtn) · 회원가입(heroSignupBtn)은 id 그대로 카드 안으로 옮겼다. -->
+  <div class="hero hm-intro hero-ask">
    <div class="hero-in">
     <div class="hero-copy">
-      <img class="hero-logo" src="logo-256.png" alt="치즈감자 로고" width="56" height="56">
-      <div class="hero-badge" data-ko="치즈감자 · 무료 한국어 학습 · TOPIK I·II 대비">Cheesepotato · Free Korean · TOPIK I & II</div>
-      <h1 data-ko="하루 10분,<br>한글부터 TOPIK 6급까지">10 minutes a day,<br>from Hangul to TOPIK 6</h1>
-      <p class="hero-sub" data-ko="설치도 회원가입도 없이 브라우저에서 바로.<br>3분 레벨테스트로 내 자리부터 찾아요.">In your browser — no install, no sign-up.<br>Find where to start with a 3-minute level test.</p>
-      <div class="btn-row">
-        <!-- 단추 글은 「시험」이 아니라 「받는 것」을 먼저(운영자 결정 2026-10-06 (나)) — 효과는 level_test_open_home 으로 잰다 -->
-        <button class="btn-primary" id="heroLevelTestBtn" type="button" data-ko="내 레벨 찾기 → <small>3분 뒤 오늘 할 레슨이 나와요</small>">Find my level → <small>today’s lesson in 3 min</small></button>
-        <!-- 「내 코스」 대신 회원가입(운영자 요청 2026-10-05) — 첫 화면 히어로는 처음 온 사람만 본다. 로그인한 사람에게는 숨긴다(paintAuthNav) -->
-        <button class="hero-link" id="heroSignupBtn" type="button" data-ko="회원가입 · 무료 — 기록을 기기마다 이어 보려면">Sign up · free — keep your progress on every device</button>
-      </div>
+      <div class="hero-badge" data-ko="● 치즈감자 · 무료 한국어 학습 · TOPIK I·II 대비">● Cheesepotato · Free Korean · TOPIK I & II</div>
+      <h1 data-ko="무엇을 배우러<br><em>오셨나요?</em>">What are you<br><em>here to learn?</em></h1>
+      <p class="hero-sub" data-ko="메뉴를 뒤질 필요 없어요.<br>목표 하나만 고르면, 그 안에 길이 이미 정리되어 있어요.">No need to dig through menus.<br>Pick one goal — the path inside is already laid out.</p>
+    </div>
+    <aside class="hm-rec" aria-label="오늘의 추천" data-en-aria="Today’s pick">
+      <div class="hm-rec-h"><b data-en="✨ Today’s pick">✨ 오늘의 추천</b></div>
+      <!-- 단추 글은 「받는 것」 먼저(운영자 결정 2026-10-06 (나)) — 효과는 level_test_open_home 으로 잰다 -->
+      <button class="hm-rec-main" id="heroLevelTestBtn" type="button" data-ko="<span class='hm-rec-ic'>🧭</span><span><b>내 레벨 찾기</b><small>3분 뒤 오늘 할 레슨이 나와요</small></span><i>→</i>"><span class='hm-rec-ic'>🧭</span><span><b>Find my level</b><small>Your lesson for today in 3 minutes</small></span><i>→</i></button>
+      <a class="hm-rec-row" href="#hmQuiz"><span class="hm-rec-ic s">📖</span><span><b data-en="Today’s TOPIK question">오늘의 TOPIK 1문제</b><small data-en="Original · not a past paper">창작 문항 · 기출 아님</small></span><i>›</i></a>
+      <button class="hm-rec-row" type="button" data-go="translate"><span class="hm-rec-ic s">🔁</span><span><b data-en="Translate to Korean">번역 연습</b><small data-en="English → Korean, one line at a time">영어 → 한국어, 한 줄씩</small></span><i>›</i></button>
+      <!-- 회원가입 — 로그인한 사람에게는 숨긴다(paintAuthNav) -->
+      <button class="hero-link" id="heroSignupBtn" type="button" data-ko="회원가입 · 무료 — 기록을 기기마다 이어 보려면">Sign up · free — keep your progress on every device</button>
+    </aside>
+   </div>
+  </div>
     </div>
    </div>
   </div>
@@ -2093,6 +2128,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </button>
     </div>
   </div>
+  <!-- 새 기능 배너 하나(운영자 결정 2026-10-06 「배너는 번역 연습」) -->
+  <button class="hm-banner hm-intro" type="button" data-go="translate">
+    <span class="hm-banner-tag">NEW</span>
+    <span class="hm-banner-t"><b data-en="Translate, line by line.">한 줄씩, 한국어로.</b>
+      <span data-en="Short English texts — beginner to advanced. Write each line in Korean and compare.">짧은 영어 글을 한 줄씩 한국어로 옮겨 써 봐요 — 초급부터 고급까지 45편.</span></span>
+    <span class="hm-banner-card" aria-hidden="true"><i>I’m sorry I’m late.</i><b>늦어서 죄송해요.</b></span>
+    <span class="hm-banner-go" data-en="Start →">시작하기 →</span>
+  </button>
   <!-- 첫 화면 다시 짜기(운영자 요청 2026-10-06 「UX 법칙을 생각해서」): 세 덩어리로 — ① 시작(머리 문장 + 큰 단추 하나, 피츠 · 힉)
        ② 길 넷 ③ 오늘의 한 문제 · 믿을 만한 숫자(밀러 — 묶어서). 숫자 · 오늘의 문제는 히어로에서 이리로 내려왔다(check-geo 는 aria-label 을 그대로 본다). -->
   <div class="hm-proofrow hm-intro">
@@ -2227,6 +2270,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </table>
     </div>
     <p class="hm-fine" data-en="Practice items are original, not past papers. They follow the TOPIK format and are not affiliated with NIIED.">연습 문항은 기출이 아니라 직접 만든 것입니다. TOPIK 형식을 따랐고 국립국제교육원과 관계가 없습니다.</p>
+    <!-- 「기출 아님」을 장점으로(운영자 결정 2026-10-06): 실제 시험지는 공식 누리집으로 보내고, 우리가 하는 일을 분명히 -->
+    <p class="hm-fine hm-why" data-en="Why original questions? Official past papers can't be copied freely — see them on the official TOPIK website (topik.go.kr). Cheesepotato is where you practise each question type, number by number, with an explanation right after every answer.">왜 창작 문항일까요? 공식 기출문제는 마음대로 옮길 수 없어요 — 실제 시험지는 <a href="https://www.topik.go.kr" target="_blank" rel="noopener">TOPIK 공식 누리집(topik.go.kr)</a>에서 보세요. 치즈감자는 같은 유형을 번호별로 연습하고, 풀자마자 해설로 실력을 쌓는 곳이에요.</p>
   </div>
 
   <div class="divider hm-intro"></div>
@@ -3974,9 +4019,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <div id="hlpScrim" class="hlp-scrim"></div>
 <aside id="hlpPanel" class="hlp-panel" aria-label="한국어 도우미" aria-hidden="true"></aside>
 
-<script src="app.js?v=fb4f783f"></script>
-<script type="module" src="app.module.js?v=fb4f783f"></script>
+<script src="app.js?v=0ce8c293"></script>
+<script type="module" src="app.module.js?v=0ce8c293"></script>
 
-<script src="analytics.js?v=fb4f783f" defer></script>
+<script src="analytics.js?v=0ce8c293" defer></script>
 </body>
 </html>
