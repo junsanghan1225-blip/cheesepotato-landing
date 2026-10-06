@@ -44,39 +44,28 @@ export const billingLive = () => ON && !!BILLING.checkoutUrl;
 
 /* ── 구독 상태 ─────────────────────────────────────────────── */
 let sub = null;   // { status, plan, current_period_end, manage_url } | null
-/* 반 학생은 Pro 무료(운영자 결정 2026-10-06) — 보관하지 않은 반에 들어 있으면 true. db 의 is_pro() 와 같은 규칙(db/add_class_pro.sql). */
-let classPro = false;
 
 /* 표의 status(polar-webhook 이 적는다): active · trialing · past_due(결제 실패, 재시도 중) · canceled.
    예약 해지는 기간이 끝날 때까지 active 로 남고, 끝나야(Polar 의 subscription.revoked) canceled 가 된다.
    past_due 는 며칠 재시도하는 동안이라 막지 않는다 — 카드 한 번 실패로 쓰던
    기능이 사라지면 억울하다. */
-/* 구독 표만 보고 Pro 인가 */
-function subPro() {
+export function isPro() {
   if (!sub) return false;
   /* 시험 패스: 기간(current_period_end)이 남아 있는 동안 Pro. db 의 is_pro() 와 같은 규칙. */
   if (sub.status === 'pass') return !!sub.current_period_end && Date.parse(sub.current_period_end) > Date.now();
   if (['active', 'trialing', 'past_due'].includes(sub.status)) return true;
   return sub.status === 'canceled' && !!sub.current_period_end && Date.parse(sub.current_period_end) > Date.now();
 }
-export const isPro = () => classPro || subPro();
 export const proInfo = () => sub;
-/* 구독 없이 반 학생이라 Pro 인가 — 계정 칸에 「반 학생이라 무료」를 보이고, 결제 단추를 내밀지 않게 */
-export const proByClass = () => classPro && !subPro();
 
 export async function loadPro(sb, session) {
-  if (!session) { sub = null; classPro = false; return false; }
+  if (!session) { sub = null; return false; }
   const { data, error } = await sb.from('subscriptions')
     .select('status, plan, current_period_end, manage_url')
     .eq('user_id', session.user.id).maybeSingle();
   /* 표가 아직 없는 프로젝트(db/add_subscriptions.sql 을 안 돌림)에서도 사이트는
      살아 있어야 한다 — 읽기 실패는 「구독 안 함」으로 본다. */
   sub = error ? null : data;
-  /* 반에 든 학생인가 — 내 줄만 읽힌다(RLS). 보관한 반은 빼고. 표가 없거나(add_classes.sql 전) 읽기 실패면 아님 */
-  try {
-    const { data: rows, error: e2 } = await sb.from('class_members').select('class_id, classes(archived)').eq('user_id', session.user.id);
-    classPro = !e2 && (rows || []).some((r) => r.classes && !r.classes.archived);
-  } catch (e) { classPro = false; }
   return isPro();
 }
 

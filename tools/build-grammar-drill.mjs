@@ -87,22 +87,8 @@ for (const p of pts) {
   made++;
 }
 
-/* 꼬리를 못 읽는 표현(N · 조사 · 문장 끝 …)의 문항 — docs/grammar-drill-extra.json(안티 그래비티 · Claude 검토, 운영자 요청 2026-10-06).
-   모양: { "<문법 id>": { "t": "-(으)ㄴ 적이 있다", "x": [["가다", "간 적이 있다"], …] } } — 3~4개. 자동으로 만든 것이 있으면 그것이 먼저다. */
-const EXTRA = path.join(ROOT, 'docs/grammar-drill-extra.json');
-if (fs.existsSync(EXTRA)) {
-  const ids = new Set(pts.map((p) => p.id));
-  for (const [id, d] of Object.entries(JSON.parse(fs.readFileSync(EXTRA, 'utf8')))) {
-    if (DRILL[id] || !ids.has(id)) continue;
-    const x = (d?.x || []).filter((r) => Array.isArray(r) && r.length === 2 && r[0] && r[1]).slice(0, 4);
-    if (x.length < 3 || !d.t) continue;
-    DRILL[id] = { t: String(d.t), x };
-    made++; skipped--;
-  }
-}
-
 const out = `/* 문법 「바꾸기」 문항 — 생성물. 손으로 고치지 말 것.
- *   고칠 때: tools/ko-conj.mjs(attach) · tools/build-grammar-drill.mjs · docs/grammar-drill-extra.json 을 고치고 다시 돌린다.
+ *   고칠 때: tools/ko-conj.mjs(attach) · tools/build-grammar-drill.mjs 를 고치고 다시 돌린다.
  *   ${made}개 표현 · 표현마다 [기본형, 정답] 3~4개. 꼬리를 못 읽은 ${skipped}개는 문항이 없다(화면에서 칸을 뺀다).
  */
 export const GRAMMAR_DRILL = ${JSON.stringify(DRILL)};

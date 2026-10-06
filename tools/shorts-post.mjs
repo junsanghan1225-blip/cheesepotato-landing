@@ -163,12 +163,6 @@ async function post(dry) {
   const want = { yt: on('SHORTS_YT'), ig: on('SHORTS_IG'), tt: on('SHORTS_TT') };
   if (!dry && !Object.values(want).some(Boolean)) { console.log('켜진 곳이 없어요(SHORTS_YT · SHORTS_IG · SHORTS_TT) — 끝'); return; }
   const quota = { yt: want.yt ? Math.max(0, Number(env.YT_PER_DAY || 5)) : 0, ig: want.ig ? 1 : 0, tt: want.tt ? 1 : 0 };
-  /* 하루 몫은 「한 번 돌 때」가 아니라 「하루(한국 날짜)」로 센다 — 손으로 한 번 돌린 날 예약 실행이 또 돌아도
-     인스타 · 틱톡에 두 개가 올라가지 않게(2026-10-06). 센 수는 shorts_kv 의 day:<날짜> */
-  const day = 'day:' + new Date(Date.now() + 9 * 3600e3).toISOString().slice(0, 10);
-  let used = {}; try { used = JSON.parse((await kvGet(day)) || '{}'); } catch (e) { used = {}; }
-  for (const k of Object.keys(quota)) quota[k] = Math.max(0, quota[k] - (used[k] || 0));
-  if (!dry && !Object.values(quota).some((n) => n > 0)) { console.log(`오늘 몫을 이미 다 올렸어요(${JSON.stringify(used)}) — 끝`); return; }
   const rows = await rest('GET', 'shorts_queue?status=eq.ready&order=id.asc&limit=40&select=*');
   if (!rows.length) { console.log('대기열이 비었어요 — 끝'); return; }
   console.log(`대기열 ${rows.length}개 · 오늘 몫: 유튜브 ${quota.yt} · 인스타 ${quota.ig} · 틱톡 ${quota.tt}`);
@@ -178,9 +172,7 @@ async function post(dry) {
     const ks = ['yt', 'ig', 'tt'].filter((k) => quota[k] > 0 && !row[k]?.ok && !row[k]?.skip);
     if (!ks.length) continue;
     ks.forEach((k) => quota[k]--);
-    const r = await postRow(row, ks, want);
-    failed = r.failed || failed;
-    if (r.ok.length) { r.ok.forEach((k) => { used[k] = (used[k] || 0) + 1; }); await kvSet(day, JSON.stringify(used)); }
+    failed = (await postRow(row, ks, want)) || failed;
     if (!Object.values(quota).some((n) => n > 0)) break;
   }
   if (failed) process.exitCode = 1;   // 하나라도 실패하면 액션이 빨갛게 — 운영자가 알 수 있게
@@ -199,7 +191,7 @@ async function prepare(row) {
   return { out, cover: row.cover_path ? cover : null };
 }
 
-/* 한 줄을 ks 곳에 올린다. { failed: 실패가 있었나, ok: 올라간 곳들 } */
+/* 한 줄을 ks 곳에 올린다. 실패가 있으면 true */
 async function postRow(row, ks, want) {
   const { out, cover } = await prepare(row);
   const postPath = row.video_path.replace(/\.\w+$/, '') + '-post.mp4';
@@ -215,7 +207,7 @@ async function postRow(row, ks, want) {
   if (finished) { patch.status = 'done'; patch.posted_at = new Date().toISOString(); }
   await rest('PATCH', `shorts_queue?id=eq.${row.id}`, patch, { Prefer: 'return=minimal' });
   if (finished) { await storageDel([row.video_path, postPath, ...(row.cover_path ? [row.cover_path] : [])]); console.log('  다 올려서 저장 칸 파일을 지웠어요(표의 줄은 남아요).'); }
-  return { failed, ok: ks.filter((k) => patch[k]?.ok) };
+  return failed;
 }
 
 /* ── 연결: 일회용 코드 → refresh token(표에만 적는다) ── */

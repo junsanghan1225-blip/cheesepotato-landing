@@ -11,15 +11,6 @@ export const LV = { beginner: '초급 · Beginner', intermediate: '중급 · Int
 /* 해시태그 — 세 게시물 모두 같은 묶음(운영자: 「통일되게」). 편집기에서 고치면 그 브라우저에서는 그 묶음을 쓴다 */
 /* 2026-10-02 운영자 결정: 11개 → 5개. 요즘 인스타는 해시태그보다 캡션 낱말로 찾아 주고, 많이 달면 오히려 덜 퍼진다는 안내가 많다 */
 export const HASHTAGS = '#learnkorean #studykorean #koreanlanguage #한국어공부 #topik';
-/* 게시물 갈래마다 좁은 해시태그 4개(운영자 결정 2026-10-06: 「해시태그 좁게」) — 넓은 태그(#learnkorean 하나)에
-   좁은 태그를 섞는다. 편집기에서 태그 칸을 손으로 고쳐 두었으면 그것을 쓴다(tagsFor). */
-export const TAGS = {
-  words: '#koreanvocabulary #topik1 #한국어단어 #learnkorean',
-  grammar: '#koreangrammar #topikgrammar #한국어문법 #learnkorean',
-  topik: '#topik #topik1 #topikpractice #learnkorean',
-};
-export const tagsFor = (file, custom) => (custom && custom.trim() !== HASHTAGS ? custom.trim()
-  : /words/.test(file) ? TAGS.words : /grammar/.test(file) ? TAGS.grammar : /topik/.test(file) ? TAGS.topik : HASHTAGS);
 export const LINK = 'https://everykoreans.com/?utm_source=instagram&utm_medium=social&utm_campaign=daily';
 
 /* 고정된 씨앗으로 섞은 차례 — 날짜 n 이면 n 번째를 쓴다(다 돌면 처음으로) */

@@ -26,14 +26,7 @@ const SELLER = {
 const priv = fs.readFileSync(path.join(ROOT, 'privacy.html'), 'utf8');
 const style = priv.slice(priv.indexOf('<style>'), priv.indexOf('</style>') + 8);
 
-/* 가격 쪽에만 GA(운영자 결정 2026-10-06 — 「가격을 보고 → 결제」 흐름을 재려고). 약관 · 환불 쪽은 스크립트 없이 그대로.
-   허용 주소는 index.html 의 CSP 와 같은 것(analytics.js 가 GTM · Clarity 를 부른다). */
-const CSP_PLAIN = "default-src 'self'; script-src 'none'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; base-uri 'self'; form-action 'none'; object-src 'none'; frame-src 'none'";
-const CSP_GA = "default-src 'self'; script-src 'self' https://www.clarity.ms https://*.clarity.ms https://www.googletagmanager.com https://*.googletagmanager.com https://www.googleadservices.com https://googleads.g.doubleclick.net https://www.google.com; " +
-  "style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: https://*.clarity.ms https://c.bing.com https://*.google-analytics.com https://*.googletagmanager.com https://googleads.g.doubleclick.net https://www.google.com https://www.google.co.kr; " +
-  "connect-src 'self' https://*.clarity.ms https://c.bing.com https://*.google-analytics.com https://analytics.google.com https://*.analytics.google.com https://*.googletagmanager.com https://googleads.g.doubleclick.net https://www.google.com https://pagead2.googlesyndication.com; " +
-  "frame-src https://www.googletagmanager.com https://td.doubleclick.net; base-uri 'self'; form-action 'none'; object-src 'none'";
-const page = (file, title, desc, body, ga = false) => `<!DOCTYPE html>
+const page = (file, title, desc, body) => `<!DOCTYPE html>
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
@@ -41,8 +34,8 @@ const page = (file, title, desc, body, ga = false) => `<!DOCTYPE html>
 <title>${title} — 치즈감자</title>
 <meta name="description" content="${desc}">
 <link rel="canonical" href="https://everykoreans.com/${file}">
-<!-- tools/build-legal.mjs 가 만든다. 손으로 고치지 말 것. ${ga ? '스크립트는 방문 세기(gtm.js · analytics.js)뿐.' : '스크립트가 한 줄도 없다.'} -->
-<meta http-equiv="Content-Security-Policy" content="${ga ? CSP_GA : CSP_PLAIN}">${ga ? '\n<script src="/gtm.js" async></script>\n<script src="/analytics.js" defer></script>' : ''}
+<!-- tools/build-legal.mjs 가 만든다. 손으로 고치지 말 것. 스크립트가 한 줄도 없다. -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'none'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; base-uri 'self'; form-action 'none'; object-src 'none'; frame-src 'none'">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <link rel="stylesheet" href="vendor/pretendard.css">
 ${style}
@@ -151,7 +144,7 @@ ${table(true)}
 <p>Cancel anytime from your account and keep Pro until the end of the period you paid for. <strong>Full refund within 14 days of your first payment, no questions asked</strong> (<a href="/refund.html">refund policy</a>). Payments, tax and receipts are handled by our reseller Polar; prices are in US dollars and VAT or sales tax may be added depending on your country. Everything marked free above stays free.</p>
 <a class="cta" href="/?pro=1">Subscribe to Pro</a>
 <p class="seller" style="border:0;margin-top:18px;padding-top:0">최종 수정 · Last updated: ${UPDATED}</p>
-`, true);   // 가격 쪽만 GA
+`);
 
 const terms = page('terms.html', '이용약관 · Terms of Service', '치즈감자 이용약관입니다. Terms of Service for CheesePotato.', `
 <h1>이용약관 · Terms of Service</h1>
