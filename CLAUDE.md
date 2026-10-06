@@ -87,6 +87,7 @@
   첫 판 숙제는 **코스 레슨 · 단어 세션(횟수) · 문법 바꿔 쓰기**. 화면 `#learn/class`(`app.module.js` clsDraw), 표 `db/add_classes.sql`
   (운영자가 SQL Editor 에서 돌린다). 「했음」은 finishLesson · words.js 세션 끝 · 바꿔 쓰기 끝에서 `clsMark` → 서버 `cls_mark`.
   다음에(운영자와 정할 것): TOPIK 쓰기 · 읽기 숙제, 다른 선생님에게 열기(`cls_is_admin` 하나), 첫 화면에 「숙제 N개」.
+  **반 학생은 Pro 무료**(운영자 결정 2026-10-06): 보관하지 않은 반의 학생이면 Pro — 서버 `is_pro()`(`db/add_class_pro.sql`, 운영자가 SQL Editor 에서) · 화면 `billing.js` isPro(classPro). 반을 나가거나 보관하면 다시 무료.
 
 - **강의 영상**(운영자 결정 2026-10-03): 유튜브 「일부 공개」 + 사이트 `#learn/lectures`(`app.module.js` lecDraw, 표 `db/add_lectures.sql`).
   운영자만 「강의 올리기」(유튜브 링크 + 제목). 플레이어는 youtube-nocookie(CSP frame-src · img-src i.ytimg.com). 운영자 순서 `docs/lectures.md`.
