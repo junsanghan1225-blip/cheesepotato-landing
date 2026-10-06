@@ -40,7 +40,7 @@
 ">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <!-- 구글 태그 관리자. 구글이 주는 인라인 코드조각은 CSP 가 막아서 gtm.js 로 뺐다. -->
-<script src="gtm.js?v=31b95073" async></script>
+<script src="gtm.js?v=64b24ba9" async></script>
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <!-- 제목과 설명을 두 말로 쓴다. 이 사이트를 찾을 사람은 한국어를 **배우는**
@@ -119,13 +119,13 @@
      Pretendard 는 통짜(2.0MB) 대신 조각난 쪽을 쓴다 — 브라우저가
      unicode-range 를 보고 화면에 실제로 나온 글자가 든 조각만 받는다.
      그래서 저장소는 무거워졌지만 학습자가 받는 양은 오히려 줄었다. -->
-<link rel="stylesheet" href="vendor/pretendard.css?v=31b95073">
-<link rel="stylesheet" href="vendor/pressstart2p.css?v=31b95073">
+<link rel="stylesheet" href="vendor/pretendard.css?v=64b24ba9">
+<link rel="stylesheet" href="vendor/pressstart2p.css?v=64b24ba9">
 <!-- 화면 상자 안에서만 쓰는 CSS 는 여기서 갈라 받는다. media="print" 라
      첫 페인트를 안 막고, 다 받아지면 app.js 가 media 를 all 로 바꾼다.
      자바스크립트가 없으면 <noscript> 쪽이 그냥 평범하게 걸린다. -->
-<link id="viewsCss" rel="stylesheet" href="app-views.css?v=31b95073" media="print">
-<noscript><link rel="stylesheet" href="app-views.css?v=31b95073"></noscript>
+<link id="viewsCss" rel="stylesheet" href="app-views.css?v=64b24ba9" media="print">
+<noscript><link rel="stylesheet" href="app-views.css?v=64b24ba9"></noscript>
 
 <style>
 /* ══════════════════════════════════════════════════════════════
@@ -2010,7 +2010,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <h1 data-ko="하루 10분,<br>한글부터 TOPIK 6급까지">10 minutes a day,<br>from Hangul to TOPIK 6</h1>
       <p class="hero-sub" data-ko="설치도 회원가입도 없이 브라우저에서 바로.<br>3분 레벨테스트로 내 자리부터 찾아요.">In your browser — no install, no sign-up.<br>Find where to start with a 3-minute level test.</p>
       <div class="btn-row">
-        <button class="btn-primary" id="heroLevelTestBtn" type="button" data-ko="레벨 테스트 → <small>3분 · 10문제</small>">Level test → <small>3 min · 10 questions</small></button>
+        <!-- 단추 글은 「시험」이 아니라 「받는 것」을 먼저(운영자 결정 2026-10-06 (나)) — 효과는 level_test_open_home 으로 잰다 -->
+        <button class="btn-primary" id="heroLevelTestBtn" type="button" data-ko="내 레벨 찾기 → <small>3분 뒤 오늘 할 레슨이 나와요</small>">Find my level → <small>today’s lesson in 3 min</small></button>
         <!-- 「내 코스」 대신 회원가입(운영자 요청 2026-10-05) — 첫 화면 히어로는 처음 온 사람만 본다. 로그인한 사람에게는 숨긴다(paintAuthNav) -->
         <button class="btn-ghost" id="heroSignupBtn" type="button" data-ko="회원가입 · 무료">Sign up · free</button>
       </div>
@@ -3924,9 +3925,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <div id="hlpScrim" class="hlp-scrim"></div>
 <aside id="hlpPanel" class="hlp-panel" aria-label="한국어 도우미" aria-hidden="true"></aside>
 
-<script src="app.js?v=31b95073"></script>
-<script type="module" src="app.module.js?v=31b95073"></script>
+<script src="app.js?v=64b24ba9"></script>
+<script type="module" src="app.module.js?v=64b24ba9"></script>
 
-<script src="analytics.js?v=31b95073" defer></script>
+<script src="analytics.js?v=64b24ba9" defer></script>
 </body>
 </html>
