@@ -113,8 +113,7 @@ function coverC(ctx, q, hook, logo) {
 export function shortsMeta(q, hook = '') {
   const hk = hook || '이 문제, 풀 수 있어요?';
   const title = `${hk} | TOPIK ${q.exam} ${q.grade}급 ${q.kind || '읽기'} ${q.slot}번 #shorts`.slice(0, 100);
-  /* 좁은 태그 4개(운영자 2026-10-06) — 읽기 · 급수에 맞춰 */
-  const tags = `#topik #topik${q.exam === 'II' ? 2 : 1} #topikreading #learnkorean`;
+  const tags = '#TOPIK #토픽 #한국어 #한국어공부 #learnkorean #studykorean #koreanlanguage';
   const body = `${q.question}\n${q.options.map((o, i) => `${CIRCLED[i]} ${o}`).join('\n')}\n\n정답은 영상 끝에 👀 댓글로 먼저 맞혀 보세요!\n` +
     `※ 치즈감자가 만든 연습 문제예요(기출 아님).\n무료 TOPIK 연습 → https://everykoreans.com/?utm_source=shorts&utm_medium=video`;
   return { title, description: `${body}\n\n${tags} #shorts`, caption: `${hk} TOPIK ${q.exam} ${q.grade}급 ${q.kind || '읽기'} ${q.slot}번\n\n${body}\n\n${tags}`,

@@ -11,7 +11,7 @@ import { GRAMMAR_EN } from './grammar-en.js';
 import { GRAMMAR_WORDS } from './grammar-words.js';
 import { TOPIK_READING } from './topik.js';
 import { grammarMarkRe } from './grammar-mark.js';
-import { makePicker, todayKst, HASHTAGS, tagsFor, POS_EN, LV, LINK, wordEn, wordEx, wordsCaption, grammarCaption, quizCaption, CIRCLED } from './insta-pick.js';
+import { makePicker, todayKst, HASHTAGS, POS_EN, LV, LINK, wordEn, wordEx, wordsCaption, grammarCaption, quizCaption, CIRCLED } from './insta-pick.js';
 
 /* 로마자는 활용기에서 빌린다 — 못 부르면 로마자 줄만 빈다 */
 let romanize = () => '';
@@ -529,7 +529,7 @@ window.instaExport = async (day) => {
     setFont(g, { weight: 700, size: 36 }, 1); g.fillText('Answer in the post', W / 2, 220 + H + 190); g.textAlign = 'left';
     return c.toDataURL('image/jpeg', 0.92);
   };
-  return S.posts.map((post) => ({ file: post.file, name: post.name, caption: `${post.caption.trim()}\n\n${tagsFor(post.file, tags)}`, imgs: post.slides.map((_, i) => jpg(post, i)),
+  return S.posts.map((post) => ({ file: post.file, name: post.name, caption: `${post.caption.trim()}\n\n${tags}`, imgs: post.slides.map((_, i) => jpg(post, i)),
     story: post.quiz ? story(post) : null }));
 };
 

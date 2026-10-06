@@ -62,8 +62,7 @@ document.getElementById('myHdBtn').addEventListener('click', () => goLearn('mine
 document.getElementById('heroSignupBtn').addEventListener('click', () => { if (window.cpOpen) window.cpOpen('account'); else location.hash = '#account'; });
 /* 첫 화면의 떠 있는 낱말 카드(heroCardBtn)는 2026-10-05 시안 A 에서 「오늘의 TOPIK 1문제」(app.module.js hmQuizRender)로 바뀌었다. */
 document.getElementById('streakGoBtn').addEventListener('click', () => goLearn());
-/* 「내 길 이어가기」(2026-10-06) — 레벨테스트로 정해진 내 길의 다음 걸음 쪽으로 */
-document.getElementById('hmMyBtn').addEventListener('click', () => goLearn('path/' + (window.cpPathMine?.() || '')));
+document.getElementById('hmMyBtn').addEventListener('click', () => goLearn('mine'));
 
 /* 레벨 테스트는 팝업(<dialog>)이라 화면 전환이 아니다 — app.module.js 가
    window.ltOpen 을 걸어 둔다. 아직 안 왔으면 페이지 중간 구역의 단추
@@ -81,12 +80,6 @@ document.getElementById('heroLevelTestBtn').addEventListener('click', () => goLe
 const WAY_GO = {
   learn:    () => goLearn(),
   courses:  () => goLearn('courses'),
-  /* 첫 화면 길 넷(2026-10-06) */
-  pathBasic: () => goLearn('path/basic'),
-  pathMid:   () => goLearn('path/mid'),
-  pathAdv:   () => goLearn('path/adv'),
-  pathTopik: () => goLearn('path/topik'),
-  translate: () => goLearn('translate'),   // 첫 화면 추천 카드 · 배너(2026-10-06)
   topik:    () => goLearn('topik'),
   topikListening: () => goLearn('topik/listening'),
   topikReading:   () => goLearn('topik/reading'),
@@ -100,7 +93,7 @@ const WAY_GO = {
   glossary: () => window.cpOpen && window.cpOpen('words'),
 };
 /* 첫 화면 두 문(.hm-door, 2026-10-05)도 같은 길로 */
-document.querySelectorAll('.way[data-go], .hm-door[data-go], .hm-rec-row[data-go], .hm-banner[data-go]').forEach((b) => {
+document.querySelectorAll('.way[data-go], .hm-door[data-go]').forEach((b) => {
   b.addEventListener('click', () => { const f = WAY_GO[b.dataset.go]; if (f) f(); });
 });
 
