@@ -4508,5 +4508,709 @@
       "ko": "닫힌 창문 틈 사이로 은은한 풀벌레 소리가 들려왔다.",
       "en": "Through the crack of closed windows, subtle grass insect sounds were heard."
     }
+  ],
+  "26-13": [
+    {
+      "ko": "주머니에 동전 몇 개밖에 없어요.",
+      "en": "I only have a few coins in my pocket."
+    },
+    {
+      "ko": "지금 냉장고에 물밖에 안 남았어요.",
+      "en": "Right now there is only water left in the refrigerator."
+    },
+    {
+      "ko": "교실에 학생이 세 명밖에 없었어요.",
+      "en": "There were only three students in the classroom."
+    },
+    {
+      "ko": "오늘 아침에 사과 반 쪽밖에 안 먹었어요.",
+      "en": "I only ate half an apple this morning."
+    },
+    {
+      "ko": "약속 시간까지 십 분밖에 안 남았어요.",
+      "en": "There are only ten minutes left until the meeting time."
+    }
+  ],
+  "28-9": [
+    {
+      "ko": "방학 동안 할머니 댁에 다녀왔어요.",
+      "en": "I visited my grandmother house during vacation."
+    },
+    {
+      "ko": "친구가 전화를 받는 동안 밖에서 기다렸어요.",
+      "en": "I waited outside while my friend answered the phone."
+    },
+    {
+      "ko": "비가 내리는 동안 실내에 머물렀습니다.",
+      "en": "We stayed indoors while it rained."
+    },
+    {
+      "ko": "한국에서 지내는 동안 좋은 추억을 많이 쌓았어요.",
+      "en": "I made many good memories while living in Korea."
+    },
+    {
+      "ko": "비행기를 타고 가는 동안 책을 읽었어요.",
+      "en": "I read a book while traveling on the plane."
+    }
+  ],
+  "32-3": [
+    {
+      "ko": "심한 감기 때문에 오늘 학교에 결석했어요.",
+      "en": "I was absent from school today because of a bad cold."
+    },
+    {
+      "ko": "안개가 짙게 끼었기 때문에 운전을 조심해야 해요.",
+      "en": "You must drive carefully because the fog is thick."
+    },
+    {
+      "ko": "시험을 앞두고 있기 때문에 도서관에 사람이 많습니다.",
+      "en": "There are many people in the library because exams are ahead."
+    },
+    {
+      "ko": "눈이 많이 내렸기 때문에 길이 무척 미끄러워요.",
+      "en": "The road is very slippery because it snowed a lot."
+    },
+    {
+      "ko": "공사 때문에 버스가 다른 길로 돌아갔어요.",
+      "en": "The bus took a detour because of the construction."
+    }
+  ],
+  "35-3": [
+    {
+      "ko": "회의를 시작하기 전에 먼저 자료를 살펴봅시다.",
+      "en": "Let us first review the materials before starting the meeting."
+    },
+    {
+      "ko": "다음 주말에 다 같이 영화를 보러 갑시다.",
+      "en": "Let us all go to watch a movie next weekend."
+    },
+    {
+      "ko": "점심시간이 되었으니 식당으로 이동합시다.",
+      "en": "It is lunchtime now, so let us move to the restaurant."
+    },
+    {
+      "ko": "어려운 문제는 천천히 함께 의논해 봅시다.",
+      "en": "Let us discuss difficult problems slowly together."
+    },
+    {
+      "ko": "날씨가 맑으니 오늘은 호숫가를 산책합시다.",
+      "en": "Since the weather is clear, let us take a walk by the lake today."
+    }
+  ],
+  "38-5": [
+    {
+      "ko": "건강을 위해서 매일 아침 운동하기로 했어요.",
+      "en": "I decided to exercise every morning for my health."
+    },
+    {
+      "ko": "이번 방학에는 운전면허를 따기로 결정했습니다.",
+      "en": "I decided to get a driver license this vacation."
+    },
+    {
+      "ko": "친구들과 주말에 캠핑을 가기로 약속했어요.",
+      "en": "I promised to go camping with my friends on the weekend."
+    },
+    {
+      "ko": "졸업 후에 고향으로 돌아가서 일하기로 했어요.",
+      "en": "I decided to return to my hometown and work after graduation."
+    },
+    {
+      "ko": "밤늦게는 단 음식을 먹지 않기로 했어요.",
+      "en": "I decided not to eat sweet food late at night."
+    }
+  ],
+  "44-1": [
+    {
+      "ko": "한국어를 정말 자연스럽게 잘하시는군요.",
+      "en": "You really speak Korean naturally and well."
+    },
+    {
+      "ko": "오늘 아침에는 날씨가 꽤 쌀쌀하군요.",
+      "en": "The weather is quite chilly this morning."
+    },
+    {
+      "ko": "주말이라 백화점에 손님이 정말 많군요.",
+      "en": "Since it is the weekend, there are really many customers at the department store."
+    },
+    {
+      "ko": "이렇게 어려운 시험에 합격하셨다니 대단하군요.",
+      "en": "It is amazing that you passed such a difficult exam."
+    },
+    {
+      "ko": "매일 아침마다 공원을 달리시는군요.",
+      "en": "You run in the park every morning."
+    }
+  ],
+  "45-1": [
+    {
+      "ko": "이 버스가 서울역으로 가는 버스인가요?",
+      "en": "Is this bus the one going to Seoul Station?"
+    },
+    {
+      "ko": "혹시 근처에 약국이 어디에 있나요?",
+      "en": "By any chance, where is a pharmacy nearby?"
+    },
+    {
+      "ko": "오늘 회의는 몇 시에 시작하나요?",
+      "en": "What time does today meeting start?"
+    },
+    {
+      "ko": "지금 주문하면 음식이 바로 나오나요?",
+      "en": "If I order now, will the food come out right away?"
+    },
+    {
+      "ko": "박물관 입장료는 얼마인가요?",
+      "en": "How much is the museum entrance fee?"
+    }
+  ],
+  "51-1": [
+    {
+      "ko": "오늘은 약속에 못 가요. 급한 일이 생겼거든요.",
+      "en": "I cannot make it to the appointment today. An urgent matter arose."
+    },
+    {
+      "ko": "따뜻한 옷을 입으세요. 저녁에는 기온이 떨어지거든요.",
+      "en": "Please wear warm clothes. The temperature drops in the evening."
+    },
+    {
+      "ko": "그 식당은 예약하고 가야 해요. 항상 손님이 많거든요.",
+      "en": "You should make a reservation before going to that restaurant. It always has many customers."
+    },
+    {
+      "ko": "제가 먼저 출발할게요. 미리 준비해야 할 게 있거든요.",
+      "en": "I will leave first. There is something I need to prepare in advance."
+    },
+    {
+      "ko": "매운 음식은 잘 못 먹어요. 속이 자주 쓰리거든요.",
+      "en": "I cannot eat spicy food well. My stomach often hurts."
+    }
+  ],
+  "51-2": [
+    {
+      "ko": "서두르지 마세요. 아직 시간이 넉넉하잖아요.",
+      "en": "Do not rush. We still have plenty of time, you know."
+    },
+    {
+      "ko": "그 영화는 지난주에 이미 같이 봤잖아요.",
+      "en": "We already watched that movie together last week, remember?"
+    },
+    {
+      "ko": "피곤할 때는 잠을 푹 자야 건강에 좋잖아요.",
+      "en": "When you are tired, getting plenty of sleep is good for health, right?"
+    },
+    {
+      "ko": "조금만 기다려 보세요. 곧 친구가 도착하잖아요.",
+      "en": "Please wait a little. Your friend will arrive soon, you know."
+    },
+    {
+      "ko": "오늘은 휴일이라 은행 문을 닫았잖아요.",
+      "en": "Today is a holiday, so the bank is closed, you know."
+    }
+  ],
+  "52-3": [
+    {
+      "ko": "다음 달에 새 아파트로 이사하신다면서요?",
+      "en": "I heard you are moving to a new apartment next month, is that true?"
+    },
+    {
+      "ko": "이번 승진 시험에 합격하셨다면서요?",
+      "en": "I heard you passed this promotion exam, is that right?"
+    },
+    {
+      "ko": "주말마다 등산 동호회에 나가신다면서요?",
+      "en": "I heard you go out to a hiking club every weekend, is that right?"
+    },
+    {
+      "ko": "이번 방학에 유럽 배낭여행을 떠난다면서요?",
+      "en": "I heard you are leaving for a European backpacking trip this vacation, is that right?"
+    },
+    {
+      "ko": "사장님이 새로운 프로젝트를 맡기셨다면서요?",
+      "en": "I heard the CEO assigned you a new project, is that right?"
+    }
+  ],
+  "53-3": [
+    {
+      "ko": "마침 배가 고파서 라면을 끓이려던 참이었어요.",
+      "en": "I was just about to cook ramen because I was hungry."
+    },
+    {
+      "ko": "방금 전화를 걸려던 참에 연락이 왔네요.",
+      "en": "Just as I was about to call, your message arrived."
+    },
+    {
+      "ko": "집을 나서려던 참에 갑자기 소나기가 쏟아졌어요.",
+      "en": "Just as I was about to leave the house, a sudden shower poured down."
+    },
+    {
+      "ko": "보고서를 다 작성하고 퇴근하려던 참이었습니다.",
+      "en": "I was just about to finish writing the report and leave work."
+    },
+    {
+      "ko": "커피를 마시러 카페에 가려던 참이었어요.",
+      "en": "I was just about to head to the cafe to drink coffee."
+    }
+  ],
+  "53-5": [
+    {
+      "ko": "몸이 아프면 무리하지 말고 쉬어야지요.",
+      "en": "If you are sick, you should rest without overworking yourself."
+    },
+    {
+      "ko": "부모님 은혜에는 늘 감사하며 살아야지요.",
+      "en": "We ought to live always grateful for our parents grace."
+    },
+    {
+      "ko": "한번 결심한 일은 끝까지 해내야지요.",
+      "en": "Once you make up your mind, you must see it through to the end."
+    },
+    {
+      "ko": "약속을 했으면 제시간에 꼭 지켜야지요.",
+      "en": "If you made a promise, you must surely keep it on time."
+    },
+    {
+      "ko": "아무리 바빠도 아침밥은 챙겨 먹어야지요.",
+      "en": "No matter how busy you are, you should make sure to eat breakfast."
+    }
+  ],
+  "60-1": [
+    {
+      "ko": "퇴근하는 길에 마트에 들러 장을 봐 왔어요.",
+      "en": "On my way home from work, I stopped by the supermarket and bought groceries."
+    },
+    {
+      "ko": "도서관에 가는 길에 우체국에 들렀습니다.",
+      "en": "On my way to the library, I dropped by the post office."
+    },
+    {
+      "ko": "산책하는 길에 오랜만에 옛 친구를 마주쳤어요.",
+      "en": "On my way taking a walk, I ran into an old friend after a long time."
+    },
+    {
+      "ko": "출근하는 길에 지하철에서 커피를 쏟을 뻔했어요.",
+      "en": "On my way to work, I almost spilled coffee on the subway."
+    },
+    {
+      "ko": "서점에 들르는 길에 읽고 싶던 잡지를 샀어요.",
+      "en": "On my way visiting the bookstore, I bought the magazine I wanted to read."
+    }
+  ],
+  "63-4": [
+    {
+      "ko": "중요한 결정을 내리고서 마음이 한결 가벼워졌어요.",
+      "en": "After making an important decision, my mind became much lighter."
+    },
+    {
+      "ko": "식사를 마치고서 조용히 차를 한잔 마셨습니다.",
+      "en": "After finishing the meal, I quietly drank a cup of tea."
+    },
+    {
+      "ko": "먼 길을 걸어오고서 다리가 몹시 아팠습니다.",
+      "en": "After walking a long way, my legs hurt terribly."
+    },
+    {
+      "ko": "오랜 고민을 끝내고서 마침내 해답을 찾았습니다.",
+      "en": "After ending my long contemplation, I finally found the answer."
+    },
+    {
+      "ko": "영화를 다 보고서 친구들과 소감을 나누었어요.",
+      "en": "After watching the whole movie, I shared impressions with friends."
+    }
+  ],
+  "64-1": [
+    {
+      "ko": "처음에는 몰랐는데 알고 보니 중학교 동창이었어요.",
+      "en": "At first I did not know, but upon finding out, he was my middle school classmate."
+    },
+    {
+      "ko": "옷을 입고 보니 색상이 생각보다 너무 밝았어요.",
+      "en": "Upon trying on the clothes, the color was much brighter than expected."
+    },
+    {
+      "ko": "계약서를 다시 읽고 보니 빠진 내용이 있었어요.",
+      "en": "Upon re-reading the contract, there was missing content."
+    },
+    {
+      "ko": "요리를 완성하고 보니 간이 조금 싱거웠습니다.",
+      "en": "Upon finishing the cooking, the seasoning was a bit bland."
+    },
+    {
+      "ko": "오랜만에 만나고 보니 다들 어엿한 어른이 되었더군요.",
+      "en": "Upon meeting after a long time, everyone had become respectable adults."
+    }
+  ],
+  "65-4": [
+    {
+      "ko": "설명서에 적혀 있는 대로 차근차근 조립했어요.",
+      "en": "I assembled it step by step just as written in the manual."
+    },
+    {
+      "ko": "회의가 끝나는 대로 곧장 연락드리겠습니다.",
+      "en": "As soon as the meeting ends, I will contact you straight away."
+    },
+    {
+      "ko": "마음먹은 대로 모든 일이 쉽게 풀리지는 않아요.",
+      "en": "Not everything resolves easily just as one makes up one mind."
+    },
+    {
+      "ko": "공항에 도착하는 대로 부모님께 안부 전화를 드렸어요.",
+      "en": "As soon as I arrived at the airport, I made a call to my parents."
+    },
+    {
+      "ko": "선생님이 가르쳐 주신 대로 연습해 보았습니다.",
+      "en": "I tried practicing just as the teacher taught me."
+    }
+  ],
+  "71-1": [
+    {
+      "ko": "내가 다시 젊어진다면 세계 일주를 떠나고 싶어요.",
+      "en": "If I were to become young again, I would want to go on a round-the-world trip."
+    },
+    {
+      "ko": "이번 제안을 받아들인다면 큰 기회가 될 것입니다.",
+      "en": "If you accept this proposal, it will become a great opportunity."
+    },
+    {
+      "ko": "내일 비가 온다면 야외 행사는 취소해야 해요.",
+      "en": "If it rains tomorrow, we will have to cancel the outdoor event."
+    },
+    {
+      "ko": "충분한 자금이 마련된다면 새 사업을 시작하겠어요.",
+      "en": "If sufficient funds are prepared, I will start a new business."
+    },
+    {
+      "ko": "소원이 하나 이루어진다면 평화로운 세상을 바라겠어요.",
+      "en": "If one wish came true, I would wish for a peaceful world."
+    }
+  ],
+  "1-1": [
+    {
+      "ko": "하루 종일 굶느니 차라리 라면이라도 끓여 먹겠다.",
+      "en": "Rather than starving all day, I would rather cook and eat ramen."
+    },
+    {
+      "ko": "불편한 자리에 억지로 가느니 집에서 쉬는 게 낫다.",
+      "en": "Rather than forcing myself to an uncomfortable gathering, resting at home is better."
+    },
+    {
+      "ko": "거짓말을 하느니 솔직하게 사실대로 털어놓는 편이 좋다.",
+      "en": "Rather than telling a lie, confessing truthfully is better."
+    },
+    {
+      "ko": "무의미하게 시간을 낭비하느니 책이라도 한 권 읽겠다.",
+      "en": "Rather than wasting time meaninglessly, I would rather read a book."
+    },
+    {
+      "ko": "끝까지 끌려다니느니 여기서 단호하게 거절하겠습니다.",
+      "en": "Rather than being dragged along to the end, I will firmly refuse here."
+    }
+  ],
+  "2-3": [
+    {
+      "ko": "해외 지사로 발령이 난다면서 언제 출국하세요?",
+      "en": "I heard you are being transferred to an overseas branch, when do you depart?"
+    },
+    {
+      "ko": "주말에 가족들과 여행을 간다면서 어디로 가나요?",
+      "en": "I heard you are traveling with family on the weekend, where are you going?"
+    },
+    {
+      "ko": "새로운 언어를 배운다면서 공부는 잘돼 가요?",
+      "en": "I heard you are learning a new language, is studying going well?"
+    },
+    {
+      "ko": "그 회사가 부도가 난다면서 소문이 사실인가요?",
+      "en": "I heard that company is going bankrupt, is the rumor true?"
+    },
+    {
+      "ko": "곧 결혼식을 올린다면서 준비는 많이 하셨어요?",
+      "en": "I heard you are having a wedding soon, have you prepared a lot?"
+    }
+  ],
+  "4-9": [
+    {
+      "ko": "꾸준히 독서함으로써 폭넓은 지식을 쌓을 수 있습니다.",
+      "en": "By reading consistently, one can build broad knowledge."
+    },
+    {
+      "ko": "대화를 나눔으로써 오해를 원만하게 풀 수 있었습니다.",
+      "en": "By having conversations, we were able to amicably resolve misunderstandings."
+    },
+    {
+      "ko": "비용을 절감함으로써 회사의 수익성을 높였습니다.",
+      "en": "By cutting costs, the company profitability was improved."
+    },
+    {
+      "ko": "다양한 경험을 함으로써 세상을 보는 시야가 넓어졌어요.",
+      "en": "By having diverse experiences, my perspective on the world broadened."
+    },
+    {
+      "ko": "약속을 성실히 지킴으로써 깊은 신뢰를 얻었습니다.",
+      "en": "By faithfully keeping promises, deep trust was gained."
+    }
+  ],
+  "5-2": [
+    {
+      "ko": "아무리 앞길이 험난할지라도 결코 포기하지 않겠습니다.",
+      "en": "No matter how rough the road ahead may be, I will never give up."
+    },
+    {
+      "ko": "비록 실패로 끝날지라도 도전하는 데 의미가 있습니다.",
+      "en": "Even if it ends in failure, there is meaning in taking on the challenge."
+    },
+    {
+      "ko": "아무리 화가 날지라도 함부로 감정을 드러내서는 안 됩니다.",
+      "en": "No matter how angry you may get, you should not carelessly show emotions."
+    },
+    {
+      "ko": "어떤 위기가 닥쳐올지라도 냉정함을 잃지 않아야 합니다.",
+      "en": "No matter what crisis strikes, one must not lose composure."
+    },
+    {
+      "ko": "비록 작은 도움일지라도 상대에게는 큰 힘이 됩니다.",
+      "en": "Even if it is small help, it becomes great strength to the other person."
+    }
+  ],
+  "7-5": [
+    {
+      "ko": "사람의 운명은 스스로 마음먹기 나름입니다.",
+      "en": "A person destiny depends on how one makes up one mind."
+    },
+    {
+      "ko": "같은 문제라도 생각하기 나름으로 쉽게 풀릴 수 있어요.",
+      "en": "Even with the same problem, depending on how you think, it can be easily resolved."
+    },
+    {
+      "ko": "일의 성공 여부는 계획을 세우기 나름이에요.",
+      "en": "Whether work succeeds depends on how one sets plans."
+    },
+    {
+      "ko": "시간은 어떻게 관리하기 나름에 따라 가치가 달라집니다.",
+      "en": "Depending on how one manages time, its value changes."
+    },
+    {
+      "ko": "인생의 행복은 자신의 태도에 달려 있고 받아들이기 나름입니다.",
+      "en": "Life happiness depends on one attitude and depends on how one accepts it."
+    }
+  ],
+  "9-1": [
+    {
+      "ko": "봄이 찾아왔건만 날씨는 여전히 한겨울처럼 춥습니다.",
+      "en": "Spring has arrived, yet the weather is still cold like midwinter."
+    },
+    {
+      "ko": "정성껏 보살폈건만 식물이 시들고 말았습니다.",
+      "en": "I cared for it wholeheartedly, yet the plant ended up withering."
+    },
+    {
+      "ko": "오랫동안 준비했건만 결과는 기대에 미치지 못했어요.",
+      "en": "I prepared for a long time, yet the outcome fell short of expectations."
+    },
+    {
+      "ko": "진심으로 충고했건만 친구는 내 말을 귀담아듣지 않았다.",
+      "en": "I sincerely advised him, yet my friend did not listen carefully to my words."
+    },
+    {
+      "ko": "세월이 흘렀건만 고향 마을의 모습은 변함이 없더군요.",
+      "en": "Years have passed, yet the appearance of my hometown village was unchanged."
+    }
+  ],
+  "9-3": [
+    {
+      "ko": "신체적 장애에도 불구하고 세계적인 음악가가 되었습니다.",
+      "en": "Despite physical disability, he became a world-renowned musician."
+    },
+    {
+      "ko": "폭설이 내렸음에도 불구하고 많은 관객이 공연장을 찾았습니다.",
+      "en": "Despite heavy snowfall, many audience members visited the concert hall."
+    },
+    {
+      "ko": "열악한 환경에도 불구하고 연구진은 큰 성과를 거두었습니다.",
+      "en": "Despite the poor environment, the research team achieved great results."
+    },
+    {
+      "ko": "여러 번 실패했음에도 불구하고 도전을 멈추지 않았습니다.",
+      "en": "Despite failing several times, he did not stop challenging himself."
+    },
+    {
+      "ko": "건강이 좋지 못함에도 불구하고 끝까지 책임을 다했습니다.",
+      "en": "Despite not being in good health, he fulfilled responsibility to the end."
+    }
+  ],
+  "10-1": [
+    {
+      "ko": "물 흐르듯이 자연스럽게 말을 이어 나갔습니다.",
+      "en": "He continued talking naturally like water flowing."
+    },
+    {
+      "ko": "손바닥을 뒤집듯이 순식간에 태도가 바뀌어 버렸어요.",
+      "en": "As easily as flipping a palm, the attitude changed in an instant."
+    },
+    {
+      "ko": "땀이 비 오듯이 쏟아지는 무더운 여름날이었습니다.",
+      "en": "It was a sweltering summer day where sweat poured down like rain."
+    },
+    {
+      "ko": "누구나 알다시피 시간은 한 번 지나가면 되돌릴 수 없습니다.",
+      "en": "As everyone knows, once time passes, it cannot be reversed."
+    },
+    {
+      "ko": "이미 짐작하셨듯이 이번 계획은 수정이 불가피합니다.",
+      "en": "As you already guessed, revisions to this plan are inevitable."
+    }
+  ],
+  "11-2": [
+    {
+      "ko": "칭찬을 받기는커녕 오히려 호된 꾸중을 들었습니다.",
+      "en": "Far from receiving praise, I rather heard harsh scolding."
+    },
+    {
+      "ko": "밥을 먹기는커녕 물 한 모금도 마시지 못했어요.",
+      "en": "Far from eating a meal, I could not even drink a sip of water."
+    },
+    {
+      "ko": "빚을 갚기는커녕 오히려 빚이 더 늘어났습니다.",
+      "en": "Far from paying off debt, debt rather increased further."
+    },
+    {
+      "ko": "병이 낫기는커녕 통증이 날마다 더 심해집니다.",
+      "en": "Far from getting better, the pain worsens day by day."
+    },
+    {
+      "ko": "사과를 하기는커녕 당당하게 큰소리를 치더군요.",
+      "en": "Far from apologizing, he rather boldly raised his voice."
+    }
+  ],
+  "12-2": [
+    {
+      "ko": "밤늦게까지 깨어 있으면 다음 날 지각하기 일쑤이다.",
+      "en": "If you stay awake until late at night, being tardy the next day is common."
+    },
+    {
+      "ko": "급하게 서두르다 보면 중요한 물건을 깜빡하기 일쑤예요.",
+      "en": "If you rush in a hurry, forgetting important items is routine."
+    },
+    {
+      "ko": "사전 준비가 부족하면 현장에서 당황하기 일쑤입니다.",
+      "en": "If advance preparation is lacking, panicking on site is common."
+    },
+    {
+      "ko": "환절기에는 면역력이 떨어져 감기에 걸리기 일쑤예요.",
+      "en": "During seasonal transitions, immunity drops and catching a cold is frequent."
+    },
+    {
+      "ko": "초보 운전자는 좁은 골목길에서 실수하기 일쑤입니다.",
+      "en": "Novice drivers frequently make mistakes on narrow alley roads."
+    }
+  ],
+  "15-1": [
+    {
+      "ko": "아무 일도 없었던 듯이 태연하게 미소를 지었어요.",
+      "en": "She smiled nonchalantly as if nothing had happened."
+    },
+    {
+      "ko": "세상의 모든 짐을 진 듯이 어깨가 무거워 보였습니다.",
+      "en": "His shoulders looked heavy as if carrying all the burdens of the world."
+    },
+    {
+      "ko": "모든 비밀을 다 안다는 듯이 의미심장한 눈빛을 보냈어요.",
+      "en": "He sent a meaningful gaze as if knowing all secrets."
+    },
+    {
+      "ko": "방금 잠에서 깬 듯이 눈을 비비며 일어났습니다.",
+      "en": "He woke up rubbing his eyes as if having just woken from sleep."
+    },
+    {
+      "ko": "물속을 헤엄치는 듯이 유연하게 춤을 추더군요.",
+      "en": "She danced flexibly as if swimming in water."
+    }
+  ],
+  "15-7": [
+    {
+      "ko": "빙판길에서는 미끄러져서 넘어지기 십상이에요.",
+      "en": "On icy roads, slipping and falling is very likely."
+    },
+    {
+      "ko": "화가 난 상태에서 말을 하면 실언하기 십상입니다.",
+      "en": "If you speak while angry, making a slip of the tongue is very likely."
+    },
+    {
+      "ko": "낯선 여행지에서는 길을 잃어버리기 십상이에요.",
+      "en": "In unfamiliar travel destinations, losing your way is very likely."
+    },
+    {
+      "ko": "어두운 조명 아래에서 책을 보면 시력이 나빠지기 십상입니다.",
+      "en": "Reading books under dim lighting is very prone to worsening eyesight."
+    },
+    {
+      "ko": "무리하게 일정을 잡으면 중간에 지치기 십상이에요.",
+      "en": "If you schedule too excessively, getting exhausted midway is very likely."
+    }
+  ],
+  "16-2": [
+    {
+      "ko": "달도 차면 기울고 오르막이 있으면 내리막도 있는 법이다.",
+      "en": "The moon wanes when full, and where there is an uphill, there is a downhill."
+    },
+    {
+      "ko": "정성을 쏟으면 그 결실은 반드시 나타나는 법입니다.",
+      "en": "If you devote sincere effort, its fruit surely appears."
+    },
+    {
+      "ko": "고난을 겪은 뒤에 사람이 한층 성숙해지는 법이에요.",
+      "en": "After undergoing hardships, a person naturally matures further."
+    },
+    {
+      "ko": "원인이 있으면 반드시 그에 따른 결과가 따르는 법입니다.",
+      "en": "If there is a cause, a corresponding result naturally follows."
+    },
+    {
+      "ko": "비밀은 언젠가 만천하에 드러나게 마련이고 밝혀지는 법이에요.",
+      "en": "Secrets are bound to be revealed to the world someday, and naturally come to light."
+    }
+  ],
+  "19-1": [
+    {
+      "ko": "거센 비바람이 몰아치는 가운데 구조 작업이 진행되었습니다.",
+      "en": "Amidst fierce wind and rain raging, rescue operations proceeded."
+    },
+    {
+      "ko": "전 세계의 관심이 집중되는 가운데 정상회담이 열렸습니다.",
+      "en": "Amidst worldwide interest concentrating, the summit meeting was held."
+    },
+    {
+      "ko": "찬반 논쟁이 뜨거운 가운데 법안이 국회를 통과했습니다.",
+      "en": "Amidst fierce pros and cons debate, the bill passed the National Assembly."
+    },
+    {
+      "ko": "경기가 침체된 가운데 물가는 계속해서 오르고 있어요.",
+      "en": "Amidst an economic downturn, prices continue to rise."
+    },
+    {
+      "ko": "모두가 숨죽여 지켜보는 가운데 결승전 경기가 시작되었습니다.",
+      "en": "Amidst everyone watching holding their breath, the finals match began."
+    }
+  ],
+  "22-3": [
+    {
+      "ko": "아이가 잠에서 깰세라 발걸음을 조심스럽게 옮겼습니다.",
+      "en": "Lest the child should wake up from sleep, I moved steps carefully."
+    },
+    {
+      "ko": "모든 사정을 다 아는 양 거만하게 굴었습니다.",
+      "en": "He acted arrogantly as if he knew all the circumstances."
+    },
+    {
+      "ko": "신제품 개발에 힘쓰는 한편 해외 시장 개척에도 나섰습니다.",
+      "en": "While striving for new product development, on the other hand we set out to pioneer overseas markets."
+    },
+    {
+      "ko": "정직한 그 사람이 남을 속였을 턱이 없습니다.",
+      "en": "There is no way that honest person deceived others."
+    },
+    {
+      "ko": "비가 올세라 서둘러 빨래를 걷어 들였습니다.",
+      "en": "Lest it should rain, I hurried to take in the laundry."
+    }
   ]
 }

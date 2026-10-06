@@ -99,10 +99,11 @@
   나머지는 「더 보기」로 접음. 길 하나 = 걸음 줄(코스 레슨 차례 — 기초 L0~L5 · 중급 L6 · 고급 L7, `MY_LEVEL_COURSES`), 한 걸음 = **문법 → 코스 레슨 → 단어**
   (`app.module.js` pathDraw, 주소 `#learn/path/<길>/<레슨>`). 레슨이 끝나면 「다음 걸음 →」. 옆 메뉴는 🥔 한국어 배우기 · 🧀 TOPIK 준비 · 내 공부 · 더 보기(TOPIK 학생은 TOPIK 이 위).
   레슨-문법 짝은 기계(`tools/build-path-map.mjs`) — 사람 검토는 `docs/path-map.json` 에.
-  안티 그래비티에게 넘김(2026-10-06): 짝 검토 `docs/antigravity-path-map-task.md`(브랜치 `path-map`) · 문법 채우기 `docs/antigravity-grammar-fill-task.md`(브랜치 `grammar-fill`) — 오면 검토.
+  안티 결과 들어옴(2026-10-06): 짝 401개(#230) · 문법 채우기(비교 42쌍 · 바꿔 쓰기 95개 · 연습 문장) · 번역 45편 — Claude 검토해 넣음.
+  번역 고급은 모범 답 하나만(대체 답이 영어와 뜻이 멀어서) — 나머지는 「제 답도 맞아요」로.
   인스타 @cheese_p_otato — 첫 화면 맨 아래 · `teacher.html` · Organization sameAs.
 - **번역 연습 · 문법 학습지**(운영자 요청 2026-10-06): 새 섹션 `#learn/translate`(app.module.js trDraw) — 짧은 글을 한 줄씩 영어 → 한국어, 초급 · 중급 · 고급,
-  답은 여러 개(띄어쓰기 · 문장부호 무시), 다르면 모범 답 + 「제 답도 맞아요」. 견본 3편, 45편은 안티(`docs/antigravity-translate-task.md`, 브랜치 `translate`).
+  답은 여러 개(띄어쓰기 · 문장부호 무시), 다르면 모범 답 + 「제 답도 맞아요」. 글 45편(초급 20 · 중급 15 · 고급 10, 안티 · Claude 검토).
   문법 쪽 「📄 학습지 PDF」(sbWsPrint) — 설명 · 예문 · 빈칸 · 바꿔 쓰기 · 직접 쓰기 · 내 메모 + 정답 쪽, 여행 학습지와 같은 틀(.ws). 지금은 무료.
 
 - **블로그 주간 정리**(운영자 결정 2026-10-03): 매일 자동 글은 안 한다(검색에 「대량 자동 생성」으로 보일 수 있다). 일요일 20:07
