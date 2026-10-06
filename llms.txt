@@ -11,6 +11,7 @@
 
 - **무료, 가입 없이**: 코스 97개 · 레슨 401개 전부, 문법 표현 290개, 사전,
   레벨테스트, 읽기 지문, TOPIK 연습 문제(유형별), TOPIK 모의고사 1회차.
+  문항은 전부 창작(기출 아님) — 공식 기출은 저작권 때문에 옮기지 않고 TOPIK 공식 누리집(topik.go.kr)으로 안내한다. 치즈감자는 번호(유형)별 연습과 바로 보는 해설에 집중한다.
   (Free with no account: every course and lesson, all grammar points, the
   dictionary, the level test, reading passages, TOPIK practice by question
   type, and the first TOPIK mock round.)
