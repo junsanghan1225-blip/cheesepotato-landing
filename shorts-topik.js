@@ -137,7 +137,8 @@ function soundBars(ctx, t, level) {
 
 /* 제목 · 설명 · 글 — 듣기 · 쓰기판 */
 export function topikMeta(kind, x, hook = '') {
-  const tags = '#TOPIK #토픽 #한국어 #한국어공부 #learnkorean #studykorean #koreanlanguage';
+  /* 좁은 태그 4개(운영자 2026-10-06) — 듣기 · 쓰기에 맞춰 */
+  const tags = kind === 'listen' ? `#topik #topik${x.exam === 'II' ? 2 : 1} #topiklistening #learnkorean` : '#topik #topik2 #topikwriting #learnkorean';
   const link = '무료 TOPIK 연습 → https://everykoreans.com/?utm_source=shorts&utm_medium=video';
   if (kind === 'listen') {
     const hk = hook || '이 문제, 듣고 풀 수 있어요?';
