@@ -40,7 +40,7 @@
 ">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <!-- 구글 태그 관리자. 구글이 주는 인라인 코드조각은 CSP 가 막아서 gtm.js 로 뺐다. -->
-<script src="gtm.js?v=5b438597" async></script>
+<script src="gtm.js?v=31b95073" async></script>
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <!-- 제목과 설명을 두 말로 쓴다. 이 사이트를 찾을 사람은 한국어를 **배우는**
@@ -119,13 +119,13 @@
      Pretendard 는 통짜(2.0MB) 대신 조각난 쪽을 쓴다 — 브라우저가
      unicode-range 를 보고 화면에 실제로 나온 글자가 든 조각만 받는다.
      그래서 저장소는 무거워졌지만 학습자가 받는 양은 오히려 줄었다. -->
-<link rel="stylesheet" href="vendor/pretendard.css?v=5b438597">
-<link rel="stylesheet" href="vendor/pressstart2p.css?v=5b438597">
+<link rel="stylesheet" href="vendor/pretendard.css?v=31b95073">
+<link rel="stylesheet" href="vendor/pressstart2p.css?v=31b95073">
 <!-- 화면 상자 안에서만 쓰는 CSS 는 여기서 갈라 받는다. media="print" 라
      첫 페인트를 안 막고, 다 받아지면 app.js 가 media 를 all 로 바꾼다.
      자바스크립트가 없으면 <noscript> 쪽이 그냥 평범하게 걸린다. -->
-<link id="viewsCss" rel="stylesheet" href="app-views.css?v=5b438597" media="print">
-<noscript><link rel="stylesheet" href="app-views.css?v=5b438597"></noscript>
+<link id="viewsCss" rel="stylesheet" href="app-views.css?v=31b95073" media="print">
+<noscript><link rel="stylesheet" href="app-views.css?v=31b95073"></noscript>
 
 <style>
 /* ══════════════════════════════════════════════════════════════
@@ -756,6 +756,11 @@ html[data-lv] .hm-paths .hm-doors { display:grid; }
 .hm-more > .section { padding-left:0; padding-right:0; }
 .side-item small { display:block; font-size:11.5px; font-weight:500; color:var(--ink-2); margin-top:1px; }
 .side-path { font-weight:800; }
+/* 차분한 메뉴(2026-10-06) — 색 그림 아이콘을 숨기고 글자만. 길(side-path)만 굵게 */
+.side-calm .side-item-ico, .side-calm .nav-ico { display:none; }
+#sideNav.side-calm .side-item, #sideNav.side-calm .nav-link { flex-shrink:0; gap:0; padding:9px 12px; margin:0; font-size:15px; font-weight:500; color:var(--ink); min-height:0; }
+.side-calm .side-path { font-weight:800; }
+.side-calm .side-item.on, .side-calm .nav-link.on { color:var(--orange-deep); }
 #sideKo > .side-sec-h, #sideTopik > .side-sec-h { margin-top:16px; }
 .side-list > div:first-child > .side-sec-h { margin-top:0; }
 
@@ -1814,7 +1819,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
      버튼은 **옮기기만 했다**. id 와 class 가 그대로여야 ptShow /
      open / syncLang 이 예전처럼 찾아 쓴다. -->
 <div class="nav-scrim" id="navScrim"></div>
-<aside class="side-nav" id="sideNav" aria-label="메뉴" aria-hidden="true">
+<aside class="side-nav side-calm" id="sideNav" aria-label="메뉴" aria-hidden="true">
   <div class="side-hd">
     <span class="side-eyebrow" data-en="Menu">메뉴</span>
     <button class="side-close" id="sideClose" type="button" aria-label="메뉴 닫기">✕</button>
@@ -1840,10 +1845,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
          나누고 한 흐름으로 쭉」). 갈래마다 맨 위가 「길」(한 줄로 이어진 걸음), 그 아래는 길에서 쓰는 것만.
          나머지(회화 · 읽기 · 여행 · 게임 · 발음 · 문제만 풀기 · 자료실)는 맨 밑 「더 보기」에 접어 둔다 — 지우지 않는다.
          TOPIK 학생은 TOPIK 갈래가 위로 온다(app.module.js applyTrack, #sideTopik). -->
+    <!-- 2026-10-06 운영자 「정신 사나워」 — 그림 아이콘을 빼고(.side-calm) 이름을 짧게, 갈래마다 꼭 쓰는 것만.
+         코스 전체 · TOPIK 읽기 · 듣기 · 쓰기는 길 안(학습 길 · TOPIK 길)과 「더 보기」에서 연다. -->
     <div id="sideKo">
-    <div class="side-sec-h" data-en="Learn Korean">🥔 한국어 배우기</div>
+    <div class="side-sec-h" data-en="Learn Korean">한국어 배우기</div>
     <button class="side-item side-solo side-path" type="button" data-open="learn/path">
-      <span class="side-item-ico">🛤️</span><span data-en="My path (basic · intermediate · advanced)">내 학습 길 <small>기초 · 중급 · 고급</small></span>
+      <span class="side-item-ico">🛤️</span><span data-en="My path">내 학습 길</span>
     </button>
     <button class="side-item side-solo" type="button" data-open="learn/sentence">
       <span class="side-item-ico">✍️</span><span data-en="Grammar">문법</span>
@@ -1853,30 +1860,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <span class="side-item-ico">🔤</span><span data-en="Words">단어</span>
     </button>
     <button class="side-item side-solo" type="button" data-open="learn/translate">
-      <span class="side-item-ico">🔁</span><span data-en="Translate to Korean">번역 연습</span>
-    </button>
-    <button class="side-item side-solo" type="button" data-open="learn/courses">
-      <span class="side-item-ico">📚</span><span data-en="All courses">코스 전체</span>
+      <span class="side-item-ico">🔁</span><span data-en="Translate">번역 연습</span>
     </button>
     </div>
 
     <div id="sideTopik">
-    <div class="side-sec-h" data-en="TOPIK prep">🧀 TOPIK 준비</div>
+    <div class="side-sec-h" data-en="TOPIK">TOPIK 준비</div>
     <button class="side-item side-solo side-path" type="button" data-open="learn/path/topik">
-      <span class="side-item-ico">🛤️</span><span data-en="TOPIK path">TOPIK 길 <small>단어 → 유형 → 모의고사</small></span>
+      <span class="side-item-ico">🛤️</span><span data-en="TOPIK path">TOPIK 길</span>
     </button>
-    <button class="side-item side-solo" type="button" data-open="learn/topik/reading">
-      <span class="side-item-ico">📖</span><span data-en="Reading">읽기</span>
-    </button>
-    <button class="side-item side-solo" type="button" data-open="learn/topik/listening">
-      <span class="side-item-ico">🎧</span><span data-en="Listening">듣기</span>
-    </button>
-    <button class="side-item side-solo" type="button" data-open="learn/topik/II/writing">
-      <span class="side-item-ico">✍️</span><span data-en="Writing (II)">쓰기 (II)</span>
-    </button>
-    <!-- topikBtn 은 id 를 지킨다 — app.module.js 가 이 id 로 켜짐 표시를 한다. -->
+    <!-- topikBtn 은 id 를 지킨다 — app.module.js 가 이 id 로 켜짐 표시를 한다. 들어가면 듣기 · 읽기 · 쓰기 · 모의고사를 고른다 -->
     <button class="side-item side-solo" type="button" id="topikBtn" data-open="learn/topik">
-      <span class="side-item-ico">📝</span><span data-en="Mock exams">모의고사</span>
+      <span class="side-item-ico">📝</span><span data-en="Practice · mock exams">연습 · 모의고사</span>
     </button>
     </div>
 
@@ -1899,6 +1894,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </button>
       <div class="side-sub" id="sideSubMore">
        <div class="side-sub-in" role="group" aria-label="더 보기" data-en-aria="More">
+        <button class="side-item" type="button" data-open="learn/courses">
+          <span class="side-item-ico">📚</span><span data-en="All courses">코스 전체</span>
+        </button>
         <button class="side-item" type="button" data-open="learn/convo">
           <span class="side-item-ico">💬</span><span data-en="Practice a conversation">회화 연습</span>
         </button>
@@ -3926,9 +3924,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <div id="hlpScrim" class="hlp-scrim"></div>
 <aside id="hlpPanel" class="hlp-panel" aria-label="한국어 도우미" aria-hidden="true"></aside>
 
-<script src="app.js?v=5b438597"></script>
-<script type="module" src="app.module.js?v=5b438597"></script>
+<script src="app.js?v=31b95073"></script>
+<script type="module" src="app.module.js?v=31b95073"></script>
 
-<script src="analytics.js?v=5b438597" defer></script>
+<script src="analytics.js?v=31b95073" defer></script>
 </body>
 </html>
