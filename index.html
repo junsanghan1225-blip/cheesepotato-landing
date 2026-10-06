@@ -40,7 +40,7 @@
 ">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <!-- 구글 태그 관리자. 구글이 주는 인라인 코드조각은 CSP 가 막아서 gtm.js 로 뺐다. -->
-<script src="gtm.js?v=dedd3f57" async></script>
+<script src="gtm.js?v=f1646815" async></script>
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <!-- 제목과 설명을 두 말로 쓴다. 이 사이트를 찾을 사람은 한국어를 **배우는**
@@ -119,13 +119,13 @@
      Pretendard 는 통짜(2.0MB) 대신 조각난 쪽을 쓴다 — 브라우저가
      unicode-range 를 보고 화면에 실제로 나온 글자가 든 조각만 받는다.
      그래서 저장소는 무거워졌지만 학습자가 받는 양은 오히려 줄었다. -->
-<link rel="stylesheet" href="vendor/pretendard.css?v=dedd3f57">
-<link rel="stylesheet" href="vendor/pressstart2p.css?v=dedd3f57">
+<link rel="stylesheet" href="vendor/pretendard.css?v=f1646815">
+<link rel="stylesheet" href="vendor/pressstart2p.css?v=f1646815">
 <!-- 화면 상자 안에서만 쓰는 CSS 는 여기서 갈라 받는다. media="print" 라
      첫 페인트를 안 막고, 다 받아지면 app.js 가 media 를 all 로 바꾼다.
      자바스크립트가 없으면 <noscript> 쪽이 그냥 평범하게 걸린다. -->
-<link id="viewsCss" rel="stylesheet" href="app-views.css?v=dedd3f57" media="print">
-<noscript><link rel="stylesheet" href="app-views.css?v=dedd3f57"></noscript>
+<link id="viewsCss" rel="stylesheet" href="app-views.css?v=f1646815" media="print">
+<noscript><link rel="stylesheet" href="app-views.css?v=f1646815"></noscript>
 
 <style>
 /* ══════════════════════════════════════════════════════════════
@@ -745,6 +745,19 @@ body.nav-open { overflow:hidden; }
 .hm-door-t span { font-size:13.5px; color:var(--ink-2); word-break:keep-all; }
 .hm-door-t em { font-style:normal; font-size:12.5px; font-weight:800; color:var(--orange-deep); }
 html[data-lv] .hm-doors { display:none; }
+/* 길 넷(2026-10-06) — 학생에게도 보인다. 폰 한 줄 · PC 두 줄 */
+html[data-lv] .hm-paths .hm-doors { display:grid; }
+.hm-paths-h { max-width:var(--max); margin:28px auto 0; padding:0 var(--gut); font-size:15px; font-weight:800; color:var(--ink-2); }
+.hm-paths .hm-doors { margin-top:12px; }
+.hm-more { max-width:var(--max); margin:28px auto 0; padding:0 var(--gut); }
+.hm-more > summary { cursor:pointer; list-style:none; padding:14px 18px; border:1px solid var(--line); border-radius:16px; font-weight:700; color:var(--ink-2); text-align:center; }
+.hm-more > summary::-webkit-details-marker { display:none; }
+.hm-more[open] > summary { margin-bottom:8px; }
+.hm-more > .section { padding-left:0; padding-right:0; }
+.side-item small { display:block; font-size:11.5px; font-weight:500; color:var(--ink-2); margin-top:1px; }
+.side-path { font-weight:800; }
+#sideKo > .side-sec-h, #sideTopik > .side-sec-h { margin-top:16px; }
+.side-list > div:first-child > .side-sec-h { margin-top:0; }
 
 /* 떠 있는 단어 카드 */
 .hero-stage { position:relative; height:210px; perspective:1100px; }
@@ -1823,119 +1836,104 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
          안 보인다. 세 갈래(배우기·놀이·내 활동)로 나눠 이름표를 붙였다.
          이름표는 눈으로 가르는 것일 뿐 눌리지 않는다 — 실제로 여닫는
          것은 여전히 .side-group(배우기·게임) 뿐이다. -->
-    <div class="side-sec-h" data-en="Learn">배우기</div>
-    <!-- 국어사전과 외우기를 합친 「단어」(#words) — 배우기 맨 위에 둔다. id 는 dictBtn 그대로(예전 이름으로 여는 곳이 있다). -->
-    <button class="nav-link" id="dictBtn" type="button" aria-label="단어 열기" data-en-aria="Open words">
-      <span class="nav-ico">📚</span><span class="nav-txt" data-en="Words — search &amp; learn">단어 — 찾고 외우기</span>
+    <!-- 목적별 두 갈래(운영자 결정 2026-10-06: 「너무 많아서 독이 된다 — 한국어 배우는 사람 · TOPIK 배우는 사람으로
+         나누고 한 흐름으로 쭉」). 갈래마다 맨 위가 「길」(한 줄로 이어진 걸음), 그 아래는 길에서 쓰는 것만.
+         나머지(회화 · 읽기 · 여행 · 게임 · 발음 · 문제만 풀기 · 자료실)는 맨 밑 「더 보기」에 접어 둔다 — 지우지 않는다.
+         TOPIK 학생은 TOPIK 갈래가 위로 온다(app.module.js applyTrack, #sideTopik). -->
+    <div id="sideKo">
+    <div class="side-sec-h" data-en="Learn Korean">🥔 한국어 배우기</div>
+    <button class="side-item side-solo side-path" type="button" data-open="learn/path">
+      <span class="side-item-ico">🛤️</span><span data-en="My path (basic · intermediate · advanced)">내 학습 길 <small>기초 · 중급 · 고급</small></span>
     </button>
-    <div class="side-group open" data-group="learn">
+    <button class="side-item side-solo" type="button" data-open="learn/sentence">
+      <span class="side-item-ico">✍️</span><span data-en="Grammar">문법</span>
+    </button>
+    <!-- 국어사전과 외우기를 합친 「단어」(#words). id 는 dictBtn 그대로(예전 이름으로 여는 곳이 있다). -->
+    <button class="side-item side-solo" id="dictBtn" type="button" aria-label="단어 열기" data-en-aria="Open words">
+      <span class="side-item-ico">🔤</span><span data-en="Words">단어</span>
+    </button>
+    <button class="side-item side-solo" type="button" data-open="learn/courses">
+      <span class="side-item-ico">📚</span><span data-en="All courses">코스 전체</span>
+    </button>
+    </div>
+
+    <div id="sideTopik">
+    <div class="side-sec-h" data-en="TOPIK prep">🧀 TOPIK 준비</div>
+    <button class="side-item side-solo side-path" type="button" data-open="learn/path/topik">
+      <span class="side-item-ico">🛤️</span><span data-en="TOPIK path">TOPIK 길 <small>단어 → 유형 → 모의고사</small></span>
+    </button>
+    <button class="side-item side-solo" type="button" data-open="learn/topik/reading">
+      <span class="side-item-ico">📖</span><span data-en="Reading">읽기</span>
+    </button>
+    <button class="side-item side-solo" type="button" data-open="learn/topik/listening">
+      <span class="side-item-ico">🎧</span><span data-en="Listening">듣기</span>
+    </button>
+    <button class="side-item side-solo" type="button" data-open="learn/topik/II/writing">
+      <span class="side-item-ico">✍️</span><span data-en="Writing (II)">쓰기 (II)</span>
+    </button>
+    <!-- topikBtn 은 id 를 지킨다 — app.module.js 가 이 id 로 켜짐 표시를 한다. -->
+    <button class="side-item side-solo" type="button" id="topikBtn" data-open="learn/topik">
+      <span class="side-item-ico">📝</span><span data-en="Mock exams">모의고사</span>
+    </button>
+    </div>
+
+    <div class="side-sec-h" data-en="My study">내 공부</div>
+    <button class="side-item side-solo" type="button" data-open="learn/class">
+      <span class="side-item-ico">🏫</span><span data-en="My class · homework">내 반 · 숙제</span>
+    </button>
+    <button class="side-item side-solo" type="button" data-open="learn/notes">
+      <span class="side-item-ico">🗒️</span><span data-en="My notes">내 노트</span>
+    </button>
+    <button class="side-item side-solo" type="button" data-open="learn/wrong">
+      <span class="side-item-ico">📕</span><span data-en="My mistakes">오답 노트</span>
+    </button>
+
+    <!-- 더 보기 — 길 밖의 것. 처음에는 접혀 있다(sideMark 가 지금 자리가 안에 있으면 펼친다). -->
+    <div class="side-group" data-group="more">
       <button class="nav-link side-parent" type="button"
-              aria-expanded="true" aria-controls="sideSubLearn">
-        <span class="nav-ico">📖</span><span class="nav-txt" data-en="Learn">배우기</span>
+              aria-expanded="false" aria-controls="sideSubMore">
+        <span class="nav-ico">➕</span><span class="nav-txt" data-en="More">더 보기</span>
       </button>
-      <div class="side-sub" id="sideSubLearn">
-       <div class="side-sub-in" role="group" aria-label="배우기 갈래" data-en-aria="Learn sections">
-        <button class="side-item" type="button" data-open="learn/mine">
-          <span class="side-item-ico">🧭</span><span data-en="My course">내 코스</span>
+      <div class="side-sub" id="sideSubMore">
+       <div class="side-sub-in" role="group" aria-label="더 보기" data-en-aria="More">
+        <button class="side-item" type="button" data-open="learn/convo">
+          <span class="side-item-ico">💬</span><span data-en="Practice a conversation">회화 연습</span>
         </button>
-        <button class="side-item" type="button" data-open="learn/courses">
-          <span class="side-item-ico">📚</span><span data-en="Learn by course">코스로 배우기</span>
+        <button class="side-item" type="button" data-open="learn/reading">
+          <span class="side-item-ico">📝</span><span data-en="Read and write it back">읽고 써 보기</span>
+        </button>
+        <button class="side-item" type="button" data-open="learn/stories">
+          <span class="side-item-ico">📚</span><span data-en="Storybooks">동화책</span>
+        </button>
+        <button class="side-item" type="button" data-open="learn/travel">
+          <span class="side-item-ico">✈️</span><span data-en="Travel Korean">여행 한국어</span>
+        </button>
+        <button class="side-item" type="button" data-open="learn/lectures">
+          <span class="side-item-ico">🎬</span><span data-en="Video lessons">강의 영상</span>
         </button>
         <button class="side-item" type="button" data-open="learn/quiz">
           <span class="side-item-ico">⚡</span><span data-en="Just the questions">문제만 풀기</span>
         </button>
-        <button class="side-item" type="button" data-open="learn/sentence">
-          <span class="side-item-ico">✍️</span><span data-en="Grammar">문법</span>
+        <button class="side-item" type="button" data-open="learn/mine">
+          <span class="side-item-ico">🧭</span><span data-en="My course (by level)">내 코스 (레벨별)</span>
         </button>
-        <button class="side-item" type="button" data-open="learn/notes">
-          <span class="side-item-ico">🗒️</span><span data-en="My notes">내 노트</span>
+        <!-- gameBtn 은 제 손잡이(app.module.js)로 게임 목록을 연다. 숫자 읽기는 gcNum 을 대신 누른다. gameBtn 은 id 를 지킨다 — 다른 곳에서 이 id 로 게임 목록을 연다. -->
+        <button class="side-item" type="button" id="gameBtn">
+          <span class="side-item-ico">🎮</span><span data-en="Games">게임</span>
         </button>
-        <button class="side-item" type="button" data-open="learn/wrong">
-          <span class="side-item-ico">📕</span><span data-en="My mistakes">오답 노트</span>
+        <button class="side-item" type="button" data-nav-to="gcNum">
+          <span class="side-item-ico">🔢</span><span data-en="Read the number">숫자 읽기</span>
         </button>
-        <!-- 묻고 답하기는 블로그 안에 있다(운영자 결정 2026-10-02) — 블로그의 「묻고 답하기」 칸으로 간다 -->
+        <button class="side-item" type="button" id="navBtn" aria-label="발음 테스트 열기">
+          <span class="side-item-ico">🎙</span><span data-en="Pronunciation test">발음 테스트</span>
+        </button>
+        <!-- 묻고 답하기는 블로그 안에 있다(운영자 결정 2026-10-02) -->
         <a class="side-item" href="blog/#qna">
           <span class="side-item-ico">🙋</span><span data-en="Ask &amp; answer">묻고 답하기</span>
         </a>
        </div>
       </div>
     </div>
-    <!-- TOPIK 과 영역별 연습을 배우기에서 떼어 제 이름표 아래 둔다. 코스를 따라
-         배우는 사람과 시험을 준비하는 사람, 읽기·말하기만 하러 온 사람은 찾는
-         곳이 다르다 — 한 서랍에 섞여 있으면 각자 자기 것을 못 찾는다.
-         둘 다 처음부터 펼쳐 둔다: 접혀 있으면 이름표 하나로만 보여서 안에
-         듣기·읽기·쓰기가 따로 있는 줄 모른다.
-         topikBtn 은 id 를 지킨다 — app.module.js 가 이 id 로 켜짐 표시를 한다. -->
-    <div class="side-sec-h">TOPIK</div>
-    <div class="side-group open" data-group="topik">
-      <button class="nav-link side-parent" type="button"
-              aria-expanded="true" aria-controls="sideSubTopik">
-        <span class="nav-ico">🎯</span><span class="nav-txt" data-en="TOPIK practice">TOPIK 연습</span>
-      </button>
-      <div class="side-sub" id="sideSubTopik">
-       <div class="side-sub-in" role="group" aria-label="TOPIK 영역" data-en-aria="TOPIK sections">
-        <button class="side-item" type="button" data-open="learn/topik/listening">
-          <span class="side-item-ico">🎧</span><span data-en="TOPIK listening">TOPIK 듣기</span>
-        </button>
-        <button class="side-item" type="button" data-open="learn/topik/reading">
-          <span class="side-item-ico">📖</span><span data-en="TOPIK reading">TOPIK 읽기</span>
-        </button>
-        <button class="side-item" type="button" data-open="learn/topik/II/writing">
-          <span class="side-item-ico">✍️</span><span data-en="TOPIK writing (II)">TOPIK 쓰기 (II)</span>
-        </button>
-        <button class="side-item" type="button" id="topikBtn" data-open="learn/topik">
-          <span class="side-item-ico">📝</span><span data-en="Mock exams · all">모의고사 · 전체</span>
-        </button>
-       </div>
-      </div>
-    </div>
-
-    <!-- EPS-TOPIK 은 TOPIK 과 따로(운영자 결정 2026-09-29 — 나중에 따로 묶어 판다) -->
-    <div class="side-sec-h" data-en="Reading · writing · speaking">읽기 · 쓰기 · 말하기</div>
-    <div class="side-group open" data-group="skills">
-      <button class="nav-link side-parent" type="button"
-              aria-expanded="true" aria-controls="sideSubSkills">
-        <span class="nav-ico">🗣️</span><span class="nav-txt" data-en="Skill practice">영역별 연습</span>
-      </button>
-      <div class="side-sub" id="sideSubSkills">
-       <div class="side-sub-in" role="group" aria-label="영역별 연습" data-en-aria="Skill practice">
-        <button class="side-item" type="button" data-open="learn/reading">
-          <span class="side-item-ico">📝</span><span data-en="Read and write it back">읽고 써 보기</span>
-        </button>
-        <button class="side-item" type="button" data-open="learn/convo">
-          <span class="side-item-ico">💬</span><span data-en="Practice a conversation">회화 연습</span>
-        </button>
-        <button class="side-item" type="button" data-open="learn/travel">
-          <span class="side-item-ico">✈️</span><span data-en="Travel Korean">여행 한국어</span>
-        </button>
-       </div>
-      </div>
-    </div>
-
-
-    <div class="side-sec-h" data-en="Practice">연습 · 놀이</div>
-    <div class="side-group" data-group="games">
-      <!-- id 는 gameBtn 그대로다. 다른 곳에서 이 id 로 게임 목록을 연다. -->
-      <button class="nav-link side-parent" id="gameBtn" type="button"
-              aria-expanded="false" aria-controls="sideSubGames">
-        <span class="nav-ico">🎮</span><span class="nav-txt" data-en="Games">게임</span>
-      </button>
-      <div class="side-sub" id="sideSubGames">
-       <div class="side-sub-in" role="group" aria-label="게임" data-en-aria="Games">
-        <!-- 게임은 제 단추를 대신 누른다. 그쪽이 화면을 열고 판까지
-             깔아 주므로, 여기서 다시 만들면 언젠가 둘이 어긋난다. -->
-        <button class="side-item" type="button" data-nav-to="gcNum">
-          <span class="side-item-ico">🔢</span><span data-en="Read the number">숫자 읽기</span>
-        </button>
-        <button class="side-item" type="button" data-nav-to="gcQuiz">
-          <span class="side-item-ico">⏱</span><span data-en="Speed quiz">스피드 퀴즈</span>
-        </button>
-       </div>
-      </div>
-    </div>
-    <button class="nav-link" id="navBtn" type="button" aria-label="발음 테스트 열기">
-      <span class="nav-ico">🎙</span><span class="nav-txt" data-en="Pronunciation test">발음 테스트</span>
-    </button>
 
     <div class="side-sec-h" data-en="My activity">내 활동</div>
     <!-- 로그인/계정. 머리띠의 authBtn 이 폰에서는 숨으므로 여기가 유일한
@@ -2039,19 +2037,36 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 
   <!-- 두 문 — 시안 C 의 「목표별 입구」 가운데 둘(운영자: EPS 는 빼도 된다 — 아래 여섯 갈래에는 그대로 있다). data-go 는 여섯 갈래와 같은 길 -->
-  <div class="hm-doors hm-intro">
-    <button class="hm-door d1" type="button" data-go="courses">
-      <span class="hm-door-ic" data-lvl="potato:2" aria-hidden="true"></span>
-      <span class="hm-door-t"><b data-en="Korean from the start">한국어 처음부터</b>
-        <span data-en="Hangul → greetings → sentences · storybooks · travel workbook">한글 → 인사 → 문장 · 동화책 · 여행 학습지</span>
-        <em data-en="97 courses →">코스 97개 →</em></span>
-    </button>
-    <button class="hm-door d2" type="button" data-go="topik">
-      <span class="hm-door-ic" data-lvl="cheese:2" aria-hidden="true"></span>
-      <span class="hm-door-t"><b data-en="Preparing for TOPIK">TOPIK 준비</b>
-        <span data-en="Listening, reading, writing, timed mock exams, AI writing feedback">듣기 · 읽기 · 쓰기, 시계 붙은 모의고사, AI 쓰기 채점</span>
-        <em data-en="Original questions · not past papers →">창작 문항 · 기출 아님 →</em></span>
-    </button>
+  <!-- 길 넷(운영자 결정 2026-10-06: 「첫 화면을 길 4개로, 다른 메뉴는 더 보기로 접기 — 내 얘기는 학습 흐름」).
+       누르면 그 길(#learn/path/<길>) — 한 걸음 = 문법 → 코스 레슨 → 단어. 처음 온 사람 · 학생 모두에게 보인다. -->
+  <div class="hm-paths" id="hmPaths">
+    <p class="hm-paths-h" data-en="Pick one path and follow it">길을 하나 고르고 쭉 따라가세요</p>
+    <div class="hm-doors hm-doors4">
+      <button class="hm-door d1" type="button" data-go="pathBasic">
+        <span class="hm-door-ic" data-lvl="potato:1" aria-hidden="true"></span>
+        <span class="hm-door-t"><b data-en="From the basics">기초부터</b>
+          <span data-en="Hangul and first sentences up to upper beginner">한글 · 첫 문장부터 초급 끝까지</span>
+          <em data-en="Grammar → lesson → words →">문법 → 레슨 → 단어 →</em></span>
+      </button>
+      <button class="hm-door d1" type="button" data-go="pathMid">
+        <span class="hm-door-ic" data-lvl="potato:5" aria-hidden="true"></span>
+        <span class="hm-door-t"><b data-en="Intermediate">중급부터</b>
+          <span data-en="Reasons, conditions, guesses — longer sentences">이유 · 조건 · 추측 — 길게 말하기</span>
+          <em data-en="Grammar → lesson → words →">문법 → 레슨 → 단어 →</em></span>
+      </button>
+      <button class="hm-door d1" type="button" data-go="pathAdv">
+        <span class="hm-door-ic" data-lvl="potato:7" aria-hidden="true"></span>
+        <span class="hm-door-t"><b data-en="Advanced">고급부터</b>
+          <span data-en="Written style, news and subtle expressions">글말 · 뉴스 · 미묘한 표현</span>
+          <em data-en="Grammar → lesson → words →">문법 → 레슨 → 단어 →</em></span>
+      </button>
+      <button class="hm-door d2" type="button" data-go="pathTopik">
+        <span class="hm-door-ic" data-lvl="cheese:2" aria-hidden="true"></span>
+        <span class="hm-door-t"><b data-en="TOPIK prep">TOPIK 준비</b>
+          <span data-en="TOPIK only: core words, practice by type, mock tests">TOPIK 만: 필수 단어 · 유형 연습 · 모의고사</span>
+          <em data-en="Original questions · not past papers →">창작 문항 · 기출 아님 →</em></span>
+      </button>
+    </div>
   </div>
 
   <!-- 첫 화면 덜어 내기(운영자 결정 2026-09-30) — 덩어리 13개를 다섯으로: 오늘 카드 · 히어로 · 여섯 갈래 · 이렇게 공부해요 · 소개(정의 문단 + TOPIK 표) · FAQ.
@@ -2060,11 +2075,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
   <!-- 레벨테스트를 본 학생에게만 — 소개 대신 내 코스 하나(「소개 보기」는 뺐다 — 운영자 2026-09-30: 학생에게는 필요 없다) -->
   <div class="hm-me" id="hmMe">
-    <button class="btn-ghost" id="hmMyBtn" type="button" data-ko="🧭 내 코스">🧭 My course</button>
+    <button class="btn-ghost" id="hmMyBtn" type="button" data-ko="🛤️ 내 길 이어가기">🛤️ Continue my path</button>
   </div>
 
+  <!-- 더 보기 — 길 밖의 갈래(여섯 갈래 · 이렇게 공부해요)는 접어 둔다(운영자 결정 2026-10-06). 지우지 않는다 — 검색 엔진도 읽는다. -->
+  <details class="hm-more" id="hmMore">
+    <summary data-en="More ways to learn">더 보기 — 다른 공부 방법</summary>
   <!-- 무엇을 배우나 — 여섯 장 한 판. 나머지 갈래(놀이 · 읽기 · 여행 · TOPIK 영역별)는 ☰ 메뉴에 그대로 있다. -->
-  <div class="section hm-intro" id="learn-what">
+  <div class="section" id="learn-what">
     <div class="label">WHAT YOU LEARN</div>
     <p class="section-title" data-en="Six ways in,<br>one language">한국어로 들어가는<br>여섯 갈래</p>
     <div class="way-grid">
@@ -2104,7 +2122,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
   <!-- 이렇게 공부해요 — 예전의 네 구역(레벨테스트 · 스트릭 · 단어장 앱 · 오늘의 단어)을 작은 칸 넷으로.
        id(leveltestGoBtn · streakGoBtn · wotd*)는 app.js · app.module.js 가 그대로 쓴다. -->
-  <div class="section hm-intro hm-how" id="how">
+  <div class="section hm-how" id="how">
     <div class="label" data-en="HOW IT WORKS">이렇게 공부해요</div>
     <div class="hm-tiles">
       <button class="hm-tile" type="button" id="leveltestGoBtn">
@@ -2123,6 +2141,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </a>
     </div>
   </div>
+  </details>
 
   <!-- 소개 — 한 문단 정의와 TOPIK 표. 검색 엔진과 대화형 엔진이 가장 많이 인용하는 자리라 지우지 않고
        맨 아래로 내렸다(tools/check-geo.mjs 가 숫자 · 표를 맞춰 본다). -->
@@ -2661,6 +2680,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
            아니라 턴을 하나씩 밟아 나간다 — convo.js 머리말 참고. -->
       <!-- 갈래 : 내 코스 (app.module.js 의 drawMine) -->
       <div id="myWrap" class="hidden"><div id="myBody" class="my-page"></div></div>
+      <!-- 학습 길(2026-10-06) — 기초 · 중급 · 고급 · TOPIK, 한 걸음 = 문법 → 코스 → 단어(app.module.js pathDraw) -->
+      <div id="pathWrap" class="hidden"><div id="pathBody" class="pa-page"></div></div>
 
       <div id="cvWrap" class="hidden">
         <div class="learn-head">
@@ -3900,9 +3921,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <div id="hlpScrim" class="hlp-scrim"></div>
 <aside id="hlpPanel" class="hlp-panel" aria-label="한국어 도우미" aria-hidden="true"></aside>
 
-<script src="app.js?v=dedd3f57"></script>
-<script type="module" src="app.module.js?v=dedd3f57"></script>
+<script src="app.js?v=f1646815"></script>
+<script type="module" src="app.module.js?v=f1646815"></script>
 
-<script src="analytics.js?v=dedd3f57" defer></script>
+<script src="analytics.js?v=f1646815" defer></script>
 </body>
 </html>

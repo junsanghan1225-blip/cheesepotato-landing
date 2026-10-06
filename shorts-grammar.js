@@ -260,7 +260,7 @@ export function grammarMeta(p, hook = '') {
   const [ko, en] = levelOf(p), e = GRAMMAR_EN[p.id] || {};
   const hk = hook || '이 문법, 1분이면 끝!';
   const title = `${p.name} | 한국어 ${ko} 문법 1분 정리 #shorts`.slice(0, 100);
-  const tags = '#한국어 #한국어문법 #한국어공부 #learnkorean #koreangrammar #studykorean #TOPIK';
+  const tags = '#koreangrammar #한국어문법 #koreanlesson #learnkorean';   // 좁은 태그 4개(운영자 2026-10-06)
   const body = `${p.name} — ${p.desc}\n${e.desc ? e.desc + '\n' : ''}\n예) ${p.ex}\n\n이 문법으로 문장을 만들어 댓글로 남겨 주세요 👇\n무료 문법 연습 → https://everykoreans.com/?utm_source=shorts&utm_medium=video`;
   return { title, description: `${body}\n\n${tags} #shorts`, caption: `${hk} ${p.name} (${ko} · ${en})\n\n${body}\n\n${tags}`,
     tags: ['한국어', '한국어 문법', 'Korean grammar', 'learn korean', p.name] };
