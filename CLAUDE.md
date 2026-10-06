@@ -98,6 +98,8 @@
   나머지는 「더 보기」로 접음. 길 하나 = 걸음 줄(코스 레슨 차례 — 기초 L0~L5 · 중급 L6 · 고급 L7, `MY_LEVEL_COURSES`), 한 걸음 = **문법 → 코스 레슨 → 단어**
   (`app.module.js` pathDraw, 주소 `#learn/path/<길>/<레슨>`). 레슨이 끝나면 「다음 걸음 →」. 옆 메뉴는 🥔 한국어 배우기 · 🧀 TOPIK 준비 · 내 공부 · 더 보기(TOPIK 학생은 TOPIK 이 위).
   레슨-문법 짝은 기계(`tools/build-path-map.mjs`) — 사람 검토는 `docs/path-map.json` 에.
+  안티 그래비티에게 넘김(2026-10-06): 짝 검토 `docs/antigravity-path-map-task.md`(브랜치 `path-map`) · 문법 채우기 `docs/antigravity-grammar-fill-task.md`(브랜치 `grammar-fill`) — 오면 검토.
+  인스타 @cheese_p_otato — 첫 화면 맨 아래 · `teacher.html` · Organization sameAs.
 
 - **블로그 주간 정리**(운영자 결정 2026-10-03): 매일 자동 글은 안 한다(검색에 「대량 자동 생성」으로 보일 수 있다). 일요일 20:07
   `.github/workflows/blog-weekly.yml` 이 `tools/blog-weekly.mjs` 로 그 주 인스타 낱말 · 문법 · TOPIK 을 묶어 **초안 PR** 을 연다.
