@@ -60,6 +60,7 @@
   | `grammar-words.js`(문법 「같이 알면 좋은 단어」) | `docs/grammar-words.json`(안티 그래비티 · Claude 검토) → `node tools/build-grammar-words.mjs` |
   | `grammar-usage.js`(문법 「쓰임 보기」 + 「블록으로 맞추기」 연습 문장) | 우리 자료(TOPIK · 읽기 · 낱말 예문) · `grammar-mark.js` · `docs/grammar-practice.json`(안티 · Claude 검토, 검사 `check-grammar-practice`) → `node tools/build-grammar-usage.mjs` |
   | `grammar-drill.js`(문법 「바꾸기」 문항) | 문법 이름(`sentences*.js`) · `tools/ko-conj.mjs` attach · `docs/grammar-drill-extra.json`(자동이 안 되는 것, 안티 · Claude 검토) → `node tools/build-grammar-drill.mjs` |
+  | `path-map.js`(학습 길 — 레슨마다 붙일 문법) | `courses.js` · 문법 자료 · `docs/path-map.json`(사람이 고친 짝, 있으면 우선) → `node tools/build-path-map.mjs` |
   | `grammar-pairs.js`(헷갈리는 문법 비교 · 퀴즈) | `docs/grammar-pairs.json`(안티 · Claude 검토, 지시 `docs/antigravity-grammar-fill-task.md`) → `node tools/build-grammar-pairs.mjs` |
   | `vocab-topik1.js` · `vocab-topik2.js` · `vocab-topik2-ex/`(TOPIK II 예문 조각, 500개씩) | `vocab/data/topik1.json` · `topik2.json`(B급 이상만) → `node tools/build-vocab.mjs` |
 - **검사:** 올리기 전에 CI 와 같은 검사를 돌린다(`.github/workflows/check.yml` 의 목록).
@@ -92,6 +93,11 @@
 
 - **강의 영상**(운영자 결정 2026-10-03): 유튜브 「일부 공개」 + 사이트 `#learn/lectures`(`app.module.js` lecDraw, 표 `db/add_lectures.sql`).
   운영자만 「강의 올리기」(유튜브 링크 + 제목). 플레이어는 youtube-nocookie(CSP frame-src · img-src i.ytimg.com). 운영자 순서 `docs/lectures.md`.
+
+- **학습 길 · 목적별 메뉴**(운영자 결정 2026-10-06): 「섹션이 너무 많아 독이 된다 — 한 흐름으로」. 첫 화면 = 길 넷(기초 · 중급 · 고급 · TOPIK),
+  나머지는 「더 보기」로 접음. 길 하나 = 걸음 줄(코스 레슨 차례 — 기초 L0~L5 · 중급 L6 · 고급 L7, `MY_LEVEL_COURSES`), 한 걸음 = **문법 → 코스 레슨 → 단어**
+  (`app.module.js` pathDraw, 주소 `#learn/path/<길>/<레슨>`). 레슨이 끝나면 「다음 걸음 →」. 옆 메뉴는 🥔 한국어 배우기 · 🧀 TOPIK 준비 · 내 공부 · 더 보기(TOPIK 학생은 TOPIK 이 위).
+  레슨-문법 짝은 기계(`tools/build-path-map.mjs`) — 사람 검토는 `docs/path-map.json` 에.
 
 - **블로그 주간 정리**(운영자 결정 2026-10-03): 매일 자동 글은 안 한다(검색에 「대량 자동 생성」으로 보일 수 있다). 일요일 20:07
   `.github/workflows/blog-weekly.yml` 이 `tools/blog-weekly.mjs` 로 그 주 인스타 낱말 · 문법 · TOPIK 을 묶어 **초안 PR** 을 연다.
