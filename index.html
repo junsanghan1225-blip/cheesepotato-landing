@@ -40,7 +40,7 @@
 ">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <!-- 구글 태그 관리자. 구글이 주는 인라인 코드조각은 CSP 가 막아서 gtm.js 로 뺐다. -->
-<script src="gtm.js?v=986d55e0" async></script>
+<script src="gtm.js?v=fb4f783f" async></script>
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <!-- 제목과 설명을 두 말로 쓴다. 이 사이트를 찾을 사람은 한국어를 **배우는**
@@ -119,13 +119,13 @@
      Pretendard 는 통짜(2.0MB) 대신 조각난 쪽을 쓴다 — 브라우저가
      unicode-range 를 보고 화면에 실제로 나온 글자가 든 조각만 받는다.
      그래서 저장소는 무거워졌지만 학습자가 받는 양은 오히려 줄었다. -->
-<link rel="stylesheet" href="vendor/pretendard.css?v=986d55e0">
-<link rel="stylesheet" href="vendor/pressstart2p.css?v=986d55e0">
+<link rel="stylesheet" href="vendor/pretendard.css?v=fb4f783f">
+<link rel="stylesheet" href="vendor/pressstart2p.css?v=fb4f783f">
 <!-- 화면 상자 안에서만 쓰는 CSS 는 여기서 갈라 받는다. media="print" 라
      첫 페인트를 안 막고, 다 받아지면 app.js 가 media 를 all 로 바꾼다.
      자바스크립트가 없으면 <noscript> 쪽이 그냥 평범하게 걸린다. -->
-<link id="viewsCss" rel="stylesheet" href="app-views.css?v=986d55e0" media="print">
-<noscript><link rel="stylesheet" href="app-views.css?v=986d55e0"></noscript>
+<link id="viewsCss" rel="stylesheet" href="app-views.css?v=fb4f783f" media="print">
+<noscript><link rel="stylesheet" href="app-views.css?v=fb4f783f"></noscript>
 
 <style>
 /* ══════════════════════════════════════════════════════════════
@@ -767,7 +767,40 @@ html[data-lv] .hm-paths .hm-doors { display:grid; }
 .side-item small { display:block; font-size:11.5px; font-weight:500; color:var(--ink-2); margin-top:1px; }
 .side-path { font-weight:800; }
 /* 차분한 메뉴(2026-10-06) — 색 그림 아이콘을 숨기고 글자만. 길(side-path)만 굵게 */
-.side-calm .side-item-ico, .side-calm .nav-ico { display:none; }
+/* 옆 메뉴 선 아이콘(운영자 2026-10-06 「허전해 — 아이콘은 들어갔으면」): 색 그림 대신 한 굵기 · 한 색의 선 그림.
+   이모지 글자는 그대로 두고(읽기 · 검색용) 크기 0, 그림은 data-ic 마다 mask 로 그린다 — 글자색을 따라 어둡게/밝게 바뀐다 */
+#sideNav.side-calm .side-item-ico[data-ic], #sideNav.side-calm .nav-ico[data-ic] { display:inline-block; flex:0 0 18px; width:18px; height:18px; margin-right:12px; font-size:0; background:currentColor; opacity:.75; -webkit-mask:var(--ic) center/contain no-repeat; mask:var(--ic) center/contain no-repeat; }
+#sideNav.side-calm .side-path .side-item-ico[data-ic] { opacity:1; color:var(--orange-deep); }
+#sideNav.side-calm .side-head { font-size:16px; font-weight:800; margin-top:14px; }
+#sideKo > .side-head { margin-top:4px; }
+#sideNav.side-calm #sideKo > .side-item:not(.side-head), #sideNav.side-calm #sideTopik > .side-item:not(.side-head) { padding-left:22px; }
+#sideNav.side-calm .side-item, #sideNav.side-calm .nav-link { display:flex; align-items:center; }
+[data-ic="path"] { --ic:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22black%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Ccircle%20cx%3D%226%22%20cy%3D%2219%22%20r%3D%222%22/%3E%3Ccircle%20cx%3D%2218%22%20cy%3D%225%22%20r%3D%222%22/%3E%3Cpath%20d%3D%22M8%2019h7.5a3.5%203.5%200%200%200%200-7h-7a3.5%203.5%200%200%201%200-7H16%22/%3E%3C/svg%3E"); }
+[data-ic="pen"] { --ic:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22black%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M12%2020h9%22/%3E%3Cpath%20d%3D%22M16.5%203.5a2.1%202.1%200%200%201%203%203L7%2019l-4%201%201-4Z%22/%3E%3C/svg%3E"); }
+[data-ic="abc"] { --ic:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22black%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M4%207V4h16v3%22/%3E%3Cpath%20d%3D%22M9%2020h6%22/%3E%3Cpath%20d%3D%22M12%204v16%22/%3E%3C/svg%3E"); }
+[data-ic="swap"] { --ic:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22black%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22m17%202%204%204-4%204%22/%3E%3Cpath%20d%3D%22M3%2011V9a3%203%200%200%201%203-3h15%22/%3E%3Cpath%20d%3D%22m7%2022-4-4%204-4%22/%3E%3Cpath%20d%3D%22M21%2013v2a3%203%200%200%201-3%203H3%22/%3E%3C/svg%3E"); }
+[data-ic="doc"] { --ic:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22black%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M14%203H6a2%202%200%200%200-2%202v14a2%202%200%200%200%202%202h12a2%202%200%200%200%202-2V9Z%22/%3E%3Cpath%20d%3D%22M14%203v6h6%22/%3E%3Cpath%20d%3D%22M8%2013h8M8%2017h5%22/%3E%3C/svg%3E"); }
+[data-ic="class"] { --ic:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22black%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M3%2021h18%22/%3E%3Cpath%20d%3D%22M5%2021V9l7-5%207%205v12%22/%3E%3Cpath%20d%3D%22M10%2021v-5h4v5%22/%3E%3C/svg%3E"); }
+[data-ic="note"] { --ic:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22black%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Crect%20x%3D%225%22%20y%3D%223%22%20width%3D%2214%22%20height%3D%2218%22%20rx%3D%222%22/%3E%3Cpath%20d%3D%22M9%208h6M9%2012h6M9%2016h4%22/%3E%3C/svg%3E"); }
+[data-ic="book"] { --ic:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22black%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M4%2019.5A2.5%202.5%200%200%201%206.5%2017H20V3H6.5A2.5%202.5%200%200%200%204%205.5Z%22/%3E%3Cpath%20d%3D%22M4%2019.5A2.5%202.5%200%200%200%206.5%2022H20v-5%22/%3E%3Cpath%20d%3D%22m10%208%204%204m0-4-4%204%22/%3E%3C/svg%3E"); }
+[data-ic="more"] { --ic:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22black%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Ccircle%20cx%3D%2212%22%20cy%3D%2212%22%20r%3D%229%22/%3E%3Cpath%20d%3D%22M12%208v8M8%2012h8%22/%3E%3C/svg%3E"); }
+[data-ic="books"] { --ic:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22black%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M4%204h4v16H4z%22/%3E%3Cpath%20d%3D%22M10%204h4v16h-4z%22/%3E%3Cpath%20d%3D%22m16%205%203.5-1%203%2015.5-3.5%201Z%22/%3E%3C/svg%3E"); }
+[data-ic="chat"] { --ic:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22black%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M21%2012a8%208%200%200%201-11.6%207.1L4%2021l1.9-5.4A8%208%200%201%201%2021%2012Z%22/%3E%3C/svg%3E"); }
+[data-ic="play"] { --ic:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22black%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Crect%20x%3D%223%22%20y%3D%225%22%20width%3D%2218%22%20height%3D%2214%22%20rx%3D%222%22/%3E%3Cpath%20d%3D%22m10%209%205%203-5%203Z%22/%3E%3C/svg%3E"); }
+[data-ic="bolt"] { --ic:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22black%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M13%202%204%2014h7l-1%208%209-12h-7Z%22/%3E%3C/svg%3E"); }
+[data-ic="compass"] { --ic:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22black%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Ccircle%20cx%3D%2212%22%20cy%3D%2212%22%20r%3D%229%22/%3E%3Cpath%20d%3D%22m15.5%208.5-2%205-5%202%202-5Z%22/%3E%3C/svg%3E"); }
+[data-ic="game"] { --ic:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22black%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Crect%20x%3D%222%22%20y%3D%227%22%20width%3D%2220%22%20height%3D%2211%22%20rx%3D%224%22/%3E%3Cpath%20d%3D%22M7%2011v3M5.5%2012.5h3%22/%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2211.5%22%20r%3D%22.8%22/%3E%3Ccircle%20cx%3D%2218%22%20cy%3D%2213.5%22%20r%3D%22.8%22/%3E%3C/svg%3E"); }
+[data-ic="hash"] { --ic:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22black%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M4%209h16M4%2015h16M10%203%208%2021M16%203l-2%2018%22/%3E%3C/svg%3E"); }
+[data-ic="mic"] { --ic:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22black%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Crect%20x%3D%229%22%20y%3D%223%22%20width%3D%226%22%20height%3D%2211%22%20rx%3D%223%22/%3E%3Cpath%20d%3D%22M5%2011a7%207%200%200%200%2014%200M12%2018v3%22/%3E%3C/svg%3E"); }
+[data-ic="help"] { --ic:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22black%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Ccircle%20cx%3D%2212%22%20cy%3D%2212%22%20r%3D%229%22/%3E%3Cpath%20d%3D%22M9.5%209a2.5%202.5%200%201%201%203.5%202.3c-.6.3-1%20.9-1%201.6V14%22/%3E%3Cpath%20d%3D%22M12%2017.5h.01%22/%3E%3C/svg%3E"); }
+[data-ic="user"] { --ic:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22black%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Ccircle%20cx%3D%2212%22%20cy%3D%228%22%20r%3D%224%22/%3E%3Cpath%20d%3D%22M4%2021a8%208%200%200%201%2016%200%22/%3E%3C/svg%3E"); }
+[data-ic="star"] { --ic:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22black%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22m12%203%202.8%205.7%206.2.9-4.5%204.4%201%206.2L12%2017.3%206.5%2020.2l1-6.2L3%209.6l6.2-.9Z%22/%3E%3C/svg%3E"); }
+[data-ic="chart"] { --ic:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22black%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M4%2020V10M10%2020V4M16%2020v-7M22%2020H2%22/%3E%3C/svg%3E"); }
+[data-ic="file"] { --ic:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22black%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M14%203H6a2%202%200%200%200-2%202v14a2%202%200%200%200%202%202h12a2%202%200%200%200%202-2V9Z%22/%3E%3Cpath%20d%3D%22M14%203v6h6%22/%3E%3Cpath%20d%3D%22M12%2012v6m-3-3%203%203%203-3%22/%3E%3C/svg%3E"); }
+[data-ic="open"] { --ic:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22black%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M2%205h6a4%204%200%200%201%204%204v12a3%203%200%200%200-3-3H2Z%22/%3E%3Cpath%20d%3D%22M22%205h-6a4%204%200%200%200-4%204v12a3%203%200%200%201%203-3h7Z%22/%3E%3C/svg%3E"); }
+[data-ic="work"] { --ic:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22black%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Crect%20x%3D%223%22%20y%3D%227%22%20width%3D%2218%22%20height%3D%2213%22%20rx%3D%222%22/%3E%3Cpath%20d%3D%22M8%207V5a2%202%200%200%201%202-2h4a2%202%200%200%201%202%202v2M3%2013h18%22/%3E%3C/svg%3E"); }
+[data-ic="target"] { --ic:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22black%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Ccircle%20cx%3D%2212%22%20cy%3D%2212%22%20r%3D%229%22/%3E%3Ccircle%20cx%3D%2212%22%20cy%3D%2212%22%20r%3D%225%22/%3E%3Ccircle%20cx%3D%2212%22%20cy%3D%2212%22%20r%3D%221%22/%3E%3C/svg%3E"); }
+[data-ic="plane"] { --ic:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22black%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M17.8%2019.2%2016%2011l3.5-3.5A2.1%202.1%200%200%200%2016.5%204.5L13%208%204.8%206.2l-1.6%201.6L10%2011.5%207%2014.5H4l-1%201%204%202%202%204%201-1v-3l3-3%203.7%206.8Z%22/%3E%3C/svg%3E"); }
 #sideNav.side-calm .side-item, #sideNav.side-calm .nav-link { flex-shrink:0; gap:0; padding:9px 12px; margin:0; font-size:15px; font-weight:500; color:var(--ink); min-height:0; }
 .side-calm .side-path { font-weight:800; }
 .side-calm .side-item.on, .side-calm .nav-link.on { color:var(--orange-deep); }
@@ -1858,89 +1891,88 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- 2026-10-06 운영자 「정신 사나워」 — 그림 아이콘을 빼고(.side-calm) 이름을 짧게, 갈래마다 꼭 쓰는 것만.
          코스 전체 · TOPIK 읽기 · 듣기 · 쓰기는 길 안(학습 길 · TOPIK 길)과 「더 보기」에서 연다. -->
     <div id="sideKo">
-    <div class="side-sec-h" data-en="Learn Korean">한국어 배우기</div>
-    <button class="side-item side-solo side-path" type="button" data-open="learn/path">
-      <span class="side-item-ico">🛤️</span><span data-en="My path">내 학습 길</span>
+    <!-- 갈래 이름이 곧 길 입구(운영자 2026-10-06 「path 이런 거 넣지 말고 Learn Korean · TOPIK 이 정도만」) -->
+    <button class="side-item side-solo side-path side-head" type="button" data-open="learn/path">
+      <span class="side-item-ico" data-ic="path">🛤️</span><span data-en="Learn Korean">한국어 배우기</span>
     </button>
     <button class="side-item side-solo" type="button" data-open="learn/sentence">
-      <span class="side-item-ico">✍️</span><span data-en="Grammar">문법</span>
+      <span class="side-item-ico" data-ic="pen">✍️</span><span data-en="Grammar">문법</span>
     </button>
     <!-- 국어사전과 외우기를 합친 「단어」(#words). id 는 dictBtn 그대로(예전 이름으로 여는 곳이 있다). -->
     <button class="side-item side-solo" id="dictBtn" type="button" aria-label="단어 열기" data-en-aria="Open words">
-      <span class="side-item-ico">🔤</span><span data-en="Words">단어</span>
+      <span class="side-item-ico" data-ic="abc">🔤</span><span data-en="Words">단어</span>
     </button>
     <button class="side-item side-solo" type="button" data-open="learn/translate">
-      <span class="side-item-ico">🔁</span><span data-en="Translate">번역 연습</span>
+      <span class="side-item-ico" data-ic="swap">🔁</span><span data-en="Translate">번역 연습</span>
     </button>
     </div>
 
     <div id="sideTopik">
-    <div class="side-sec-h" data-en="TOPIK">TOPIK 준비</div>
-    <button class="side-item side-solo side-path" type="button" data-open="learn/path/topik">
-      <span class="side-item-ico">🛤️</span><span data-en="TOPIK path">TOPIK 길</span>
+    <button class="side-item side-solo side-path side-head" type="button" data-open="learn/path/topik">
+      <span class="side-item-ico" data-ic="target">🎯</span><span data-en="TOPIK">TOPIK</span>
     </button>
     <!-- topikBtn 은 id 를 지킨다 — app.module.js 가 이 id 로 켜짐 표시를 한다. 들어가면 듣기 · 읽기 · 쓰기 · 모의고사를 고른다 -->
     <button class="side-item side-solo" type="button" id="topikBtn" data-open="learn/topik">
-      <span class="side-item-ico">📝</span><span data-en="Practice · mock exams">연습 · 모의고사</span>
+      <span class="side-item-ico" data-ic="doc">📝</span><span data-en="Practice · mock exams">연습 · 모의고사</span>
     </button>
     </div>
 
     <div class="side-sec-h" data-en="My study">내 공부</div>
     <button class="side-item side-solo" type="button" data-open="learn/class">
-      <span class="side-item-ico">🏫</span><span data-en="My class · homework">내 반 · 숙제</span>
+      <span class="side-item-ico" data-ic="class">🏫</span><span data-en="My class · homework">내 반 · 숙제</span>
     </button>
     <button class="side-item side-solo" type="button" data-open="learn/notes">
-      <span class="side-item-ico">🗒️</span><span data-en="My notes">내 노트</span>
+      <span class="side-item-ico" data-ic="note">🗒️</span><span data-en="My notes">내 노트</span>
     </button>
     <button class="side-item side-solo" type="button" data-open="learn/wrong">
-      <span class="side-item-ico">📕</span><span data-en="My mistakes">오답 노트</span>
+      <span class="side-item-ico" data-ic="book">📕</span><span data-en="My mistakes">오답 노트</span>
     </button>
 
     <!-- 더 보기 — 길 밖의 것. 처음에는 접혀 있다(sideMark 가 지금 자리가 안에 있으면 펼친다). -->
     <div class="side-group" data-group="more">
       <button class="nav-link side-parent" type="button"
               aria-expanded="false" aria-controls="sideSubMore">
-        <span class="nav-ico">➕</span><span class="nav-txt" data-en="More">더 보기</span>
+        <span class="nav-ico" data-ic="more">➕</span><span class="nav-txt" data-en="More">더 보기</span>
       </button>
       <div class="side-sub" id="sideSubMore">
        <div class="side-sub-in" role="group" aria-label="더 보기" data-en-aria="More">
         <button class="side-item" type="button" data-open="learn/courses">
-          <span class="side-item-ico">📚</span><span data-en="All courses">코스 전체</span>
+          <span class="side-item-ico" data-ic="books">📚</span><span data-en="All courses">코스 전체</span>
         </button>
         <button class="side-item" type="button" data-open="learn/convo">
-          <span class="side-item-ico">💬</span><span data-en="Practice a conversation">회화 연습</span>
+          <span class="side-item-ico" data-ic="chat">💬</span><span data-en="Practice a conversation">회화 연습</span>
         </button>
         <button class="side-item" type="button" data-open="learn/reading">
-          <span class="side-item-ico">📝</span><span data-en="Read and write it back">읽고 써 보기</span>
+          <span class="side-item-ico" data-ic="doc">📝</span><span data-en="Read and write it back">읽고 써 보기</span>
         </button>
         <button class="side-item" type="button" data-open="learn/stories">
-          <span class="side-item-ico">📚</span><span data-en="Storybooks">동화책</span>
+          <span class="side-item-ico" data-ic="books">📚</span><span data-en="Storybooks">동화책</span>
         </button>
         <button class="side-item" type="button" data-open="learn/travel">
-          <span class="side-item-ico">✈️</span><span data-en="Travel Korean">여행 한국어</span>
+          <span class="side-item-ico" data-ic="plane">✈️</span><span data-en="Travel Korean">여행 한국어</span>
         </button>
         <button class="side-item" type="button" data-open="learn/lectures">
-          <span class="side-item-ico">🎬</span><span data-en="Video lessons">강의 영상</span>
+          <span class="side-item-ico" data-ic="play">🎬</span><span data-en="Video lessons">강의 영상</span>
         </button>
         <button class="side-item" type="button" data-open="learn/quiz">
-          <span class="side-item-ico">⚡</span><span data-en="Just the questions">문제만 풀기</span>
+          <span class="side-item-ico" data-ic="bolt">⚡</span><span data-en="Just the questions">문제만 풀기</span>
         </button>
         <button class="side-item" type="button" data-open="learn/mine">
-          <span class="side-item-ico">🧭</span><span data-en="My course (by level)">내 코스 (레벨별)</span>
+          <span class="side-item-ico" data-ic="compass">🧭</span><span data-en="My course (by level)">내 코스 (레벨별)</span>
         </button>
         <!-- gameBtn 은 제 손잡이(app.module.js)로 게임 목록을 연다. 숫자 읽기는 gcNum 을 대신 누른다. gameBtn 은 id 를 지킨다 — 다른 곳에서 이 id 로 게임 목록을 연다. -->
         <button class="side-item" type="button" id="gameBtn">
-          <span class="side-item-ico">🎮</span><span data-en="Games">게임</span>
+          <span class="side-item-ico" data-ic="game">🎮</span><span data-en="Games">게임</span>
         </button>
         <button class="side-item" type="button" data-nav-to="gcNum">
-          <span class="side-item-ico">🔢</span><span data-en="Read the number">숫자 읽기</span>
+          <span class="side-item-ico" data-ic="hash">🔢</span><span data-en="Read the number">숫자 읽기</span>
         </button>
         <button class="side-item" type="button" id="navBtn" aria-label="발음 테스트 열기">
-          <span class="side-item-ico">🎙</span><span data-en="Pronunciation test">발음 테스트</span>
+          <span class="side-item-ico" data-ic="mic">🎙</span><span data-en="Pronunciation test">발음 테스트</span>
         </button>
         <!-- 묻고 답하기는 블로그 안에 있다(운영자 결정 2026-10-02) -->
         <a class="side-item" href="blog/#qna">
-          <span class="side-item-ico">🙋</span><span data-en="Ask &amp; answer">묻고 답하기</span>
+          <span class="side-item-ico" data-ic="help">🙋</span><span data-en="Ask &amp; answer">묻고 답하기</span>
         </a>
        </div>
       </div>
@@ -1952,28 +1984,28 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
          맞춘다(app.module.js paintAuthNav) — 손잡이만 여기 것, 동작은
          제 단추를 그대로 대신 누른다. -->
     <button class="nav-link" id="sideAuthBtn" type="button" data-nav-to="authBtn" aria-label="로그인">
-      <span class="nav-ico">👤</span><span class="nav-txt" data-en="Sign in">로그인</span>
+      <span class="nav-ico" data-ic="user">👤</span><span class="nav-txt" data-en="Sign in">로그인</span>
     </button>
     <!-- 구독 · Pro — 내 구독 상태(요금제 · 다음 결제일 · 해지 예약)를 바로 보는 자리(운영자 요청 2026-10-04).
          누르면 구독 창(app.module.js proOpen). 오른쪽 작은 딱지는 proPaintAccount 가 「Pro」 · 「무료」로 맞춘다. -->
     <button class="nav-link" id="sideProBtn" type="button" aria-label="구독 · Pro">
-      <span class="nav-ico">⭐</span><span class="nav-txt" data-en="Subscription · Pro">구독 · Pro</span><span class="side-pro-tag" id="sideProTag" hidden></span>
+      <span class="nav-ico" data-ic="star">⭐</span><span class="nav-txt" data-en="Subscription · Pro">구독 · Pro</span><span class="side-pro-tag" id="sideProTag" hidden></span>
     </button>
     <!-- 「내 단어장」은 단어(배우기 맨 위)에 합쳤다 — 단어 화면의 탭이자, 거기서 「단어장 전체 열기」로 들어간다. -->
     <button class="nav-link" id="dashBtn" type="button" aria-label="대시보드 열기">
-      <span class="nav-ico">📊</span><span class="nav-txt" data-en="Dashboard">대시보드</span>
+      <span class="nav-ico" data-ic="chart">📊</span><span class="nav-txt" data-en="Dashboard">대시보드</span>
     </button>
     <button class="nav-link" id="libBtn" type="button" aria-label="자료실 열기">
-      <span class="nav-ico">📄</span><span class="nav-txt" data-en="Library">자료실</span>
+      <span class="nav-ico" data-ic="file">📄</span><span class="nav-txt" data-en="Library">자료실</span>
     </button>
     <a class="nav-link" href="blog/" aria-label="블로그 열기">
-      <span class="nav-ico">✍️</span><span class="nav-txt" data-en="Blog">블로그</span>
+      <span class="nav-ico" data-ic="pen">✍️</span><span class="nav-txt" data-en="Blog">블로그</span>
     </a>
 
     <!-- 한국 취업(EPS)은 메뉴 맨 밑(운영자 결정 2026-09-30) — 따로 선 갈래라 배우기 · TOPIK 사이에 끼우지 않는다. -->
     <div class="side-sec-h" data-en="Work in Korea">한국 취업</div>
     <button class="side-item side-solo" type="button" data-open="learn/eps">
-      <span class="side-item-ico">🏭</span><span data-en="EPS-TOPIK (work in Korea)">EPS-TOPIK (취업)</span>
+      <span class="side-item-ico" data-ic="work">🏭</span><span data-en="EPS-TOPIK (work in Korea)">EPS-TOPIK (취업)</span>
     </button>
   </div>
 
@@ -3942,9 +3974,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <div id="hlpScrim" class="hlp-scrim"></div>
 <aside id="hlpPanel" class="hlp-panel" aria-label="한국어 도우미" aria-hidden="true"></aside>
 
-<script src="app.js?v=986d55e0"></script>
-<script type="module" src="app.module.js?v=986d55e0"></script>
+<script src="app.js?v=fb4f783f"></script>
+<script type="module" src="app.module.js?v=fb4f783f"></script>
 
-<script src="analytics.js?v=986d55e0" defer></script>
+<script src="analytics.js?v=fb4f783f" defer></script>
 </body>
 </html>
