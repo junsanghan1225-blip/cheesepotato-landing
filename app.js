@@ -86,6 +86,7 @@ const WAY_GO = {
   pathMid:   () => goLearn('path/mid'),
   pathAdv:   () => goLearn('path/adv'),
   pathTopik: () => goLearn('path/topik'),
+  translate: () => goLearn('translate'),   // 첫 화면 추천 카드 · 배너(2026-10-06)
   topik:    () => goLearn('topik'),
   topikListening: () => goLearn('topik/listening'),
   topikReading:   () => goLearn('topik/reading'),
@@ -99,7 +100,7 @@ const WAY_GO = {
   glossary: () => window.cpOpen && window.cpOpen('words'),
 };
 /* 첫 화면 두 문(.hm-door, 2026-10-05)도 같은 길로 */
-document.querySelectorAll('.way[data-go], .hm-door[data-go]').forEach((b) => {
+document.querySelectorAll('.way[data-go], .hm-door[data-go], .hm-rec-row[data-go], .hm-banner[data-go]').forEach((b) => {
   b.addEventListener('click', () => { const f = WAY_GO[b.dataset.go]; if (f) f(); });
 });
 
