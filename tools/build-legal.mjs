@@ -31,7 +31,7 @@ const style = priv.slice(priv.indexOf('<style>'), priv.indexOf('</style>') + 8);
 const CSP_PLAIN = "default-src 'self'; script-src 'none'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; base-uri 'self'; form-action 'none'; object-src 'none'; frame-src 'none'";
 const CSP_GA = "default-src 'self'; script-src 'self' https://www.clarity.ms https://*.clarity.ms https://www.googletagmanager.com https://*.googletagmanager.com https://www.googleadservices.com https://googleads.g.doubleclick.net https://www.google.com; " +
   "style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: https://*.clarity.ms https://c.bing.com https://*.google-analytics.com https://*.googletagmanager.com https://googleads.g.doubleclick.net https://www.google.com https://www.google.co.kr; " +
-  "connect-src 'self' https://*.clarity.ms https://c.bing.com https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com https://googleads.g.doubleclick.net https://www.google.com https://pagead2.googlesyndication.com; " +
+  "connect-src 'self' https://*.clarity.ms https://c.bing.com https://*.google-analytics.com https://analytics.google.com https://*.analytics.google.com https://*.googletagmanager.com https://googleads.g.doubleclick.net https://www.google.com https://pagead2.googlesyndication.com; " +
   "frame-src https://www.googletagmanager.com https://td.doubleclick.net; base-uri 'self'; form-action 'none'; object-src 'none'";
 const page = (file, title, desc, body, ga = false) => `<!DOCTYPE html>
 <html lang="ko">
