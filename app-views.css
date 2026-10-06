@@ -6167,3 +6167,29 @@ a.lt-chip:hover { border-color:var(--orange); }
 .lr-dot.no { background:rgba(208,70,59,.12); color:var(--red); }
 .lr-dot.mini { width:12px; height:12px; border-radius:3px; vertical-align:middle; }
 .lr-flow-k { font-size:12.5px; color:var(--ink-2); margin:0 0 12px; }
+
+/* 레벨 리포트 — 전문 리포트(2026-10-07) */
+.lr-sec { display:grid; gap:8px; }
+.lr-sec h4 { margin:0; font-size:15px; }
+.lr-why .lr-dots { margin-top:10px; }
+.lr-area em.good { background:var(--green); } .lr-area em.mid { background:var(--orange); } .lr-area em.weak { background:var(--red); }
+.lr-area b.good { color:var(--green); } .lr-area b.weak { color:var(--red); }
+.lr-area { grid-template-columns:70px minmax(0,1fr) auto; }
+.lr-rx { border:1px solid var(--line); border-radius:var(--r-l); padding:12px 14px; background:var(--surface); }
+.lr-rx-h { display:flex; justify-content:space-between; align-items:center; gap:8px; }
+.lr-rx-h b { font-size:16px; }
+.lr-rx-go { font:inherit; font-size:13.5px; font-weight:700; color:var(--orange-deep); background:var(--tint); border:none; border-radius:99px; padding:6px 12px; cursor:pointer; }
+.lr-rx ul { margin:8px 0 0; padding-left:18px; font-size:14px; line-height:1.7; word-break:keep-all; }
+.lr-qs { list-style:none; margin:0; padding:0; display:grid; gap:8px; }
+.lr-q { border:1px solid var(--line); border-radius:var(--r-l); padding:12px 14px; background:var(--surface); }
+.lr-q.no { border-left:4px solid var(--red); } .lr-q.ok { border-left:4px solid var(--green); }
+.lr-q-h { display:flex; gap:8px; align-items:center; font-size:13px; color:var(--ink-2); }
+.lr-q-n { font-weight:800; color:var(--ink); }
+.lr-q.no .lr-q-m { color:var(--red); font-weight:800; } .lr-q.ok .lr-q-m { color:var(--green); font-weight:800; }
+.lr-q-q { margin:6px 0 0; font-size:14.5px; line-height:1.6; word-break:keep-all; overflow-wrap:anywhere; white-space:pre-line; }
+.lr-q-p { margin:6px 0 0; font-size:14px; color:var(--red); }
+.lr-q-a { margin:4px 0 0; font-size:14px; color:var(--green); font-weight:700; }
+.lr-q-w { margin:6px 0 0; font-size:13.5px; color:var(--ink-2); line-height:1.6; padding:8px 10px; border-radius:8px; background:var(--tint); }
+.lr-old { display:grid; gap:8px; padding:16px; border-radius:var(--r-l); background:var(--tint); }
+.lr-old p { margin:0; font-size:14px; line-height:1.6; color:var(--ink-2); }
+.lr-old .pt-next { justify-self:start; }
