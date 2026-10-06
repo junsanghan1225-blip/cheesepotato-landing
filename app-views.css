@@ -6131,3 +6131,65 @@ a.lt-chip:hover { border-color:var(--orange); }
 .lr-note { margin-top:14px; font-size:13.5px; color:var(--ink-2); line-height:1.6; padding:12px 14px; border-radius:var(--r); background:var(--tint); }
 .lr-print .lr-btns { display:none; }
 .lr-print .lr-card { border:1px solid #BBB; }
+
+/* 학습 길 한눈에(2026-10-07) — 지금 하는 코스만 펼치고, 전체 코스는 접기 하나 */
+.pa-cur { border:1px solid var(--orange); border-radius:var(--r-l); background:var(--surface); padding:10px; }
+.pa-cur-h { display:grid; grid-template-columns:28px minmax(0,1fr) auto; gap:10px; align-items:center; padding:4px 6px 10px; }
+.pa-cur-h b { font-size:15px; word-break:keep-all; }
+.pa-cur .pa-step { border-color:transparent; }
+.pa-cur .pa-step.now { border-color:var(--orange); background:var(--tint); }
+.pa-all { margin-top:14px; }
+.pa-all > summary { cursor:pointer; list-style:none; padding:14px 16px; border:1px solid var(--line); border-radius:var(--r-l); font-weight:700; color:var(--ink-2); text-align:center; }
+.pa-all > summary::-webkit-details-marker { display:none; }
+.pa-allc { list-style:none; margin:8px 0 0; padding:0; display:grid; gap:4px; }
+.pa-allc-row { display:grid; grid-template-columns:28px minmax(0,1fr) auto; gap:10px; align-items:center; width:100%; text-align:left; padding:10px 12px; border:none; border-radius:var(--r); background:transparent; color:var(--ink); font:inherit; font-size:14px; cursor:pointer; }
+.pa-allc-row.now { background:var(--tint); font-weight:700; }
+.pa-allc-row svg { width:22px; height:22px; display:block; }
+
+/* 레벨 리포트 — 왜 · 먼저 채울 곳 · 자세히(2026-10-07) */
+.lr-why { padding:14px 16px; border-radius:var(--r-l); background:var(--tint); }
+.lr-why h4, .lr-weak h4, .lr-more h4 { margin:0 0 6px; font-size:14px; }
+.lr-why p { margin:0; font-size:15px; line-height:1.6; word-break:keep-all; }
+.lr-weak { display:grid; gap:8px; }
+.lr-weak-go { display:grid; grid-template-columns:auto 1fr auto; gap:10px; align-items:center; width:100%; text-align:left; padding:12px 14px; border:1px solid var(--orange); border-radius:var(--r-l); background:var(--surface); color:var(--ink); font:inherit; cursor:pointer; }
+.lr-weak-go b { font-size:16px; }
+.lr-weak-go span { font-size:13px; color:var(--ink-2); }
+.lr-weak-go i { font-style:normal; font-weight:700; color:var(--orange-deep); font-size:13.5px; }
+.lr-good { margin:0; padding:12px 14px; border-radius:var(--r-l); background:var(--tint); font-size:14.5px; }
+.lr-more > summary { cursor:pointer; list-style:none; font-size:14px; font-weight:700; color:var(--ink-2); padding:10px 0; }
+.lr-more > summary::-webkit-details-marker { display:none; }
+.lr-more > summary::after { content:' ▾'; }
+.lr-more[open] > summary::after { content:' ▴'; }
+.lr-dots { display:flex; flex-wrap:wrap; gap:6px; margin-bottom:6px; }
+.lr-dot { display:inline-grid; place-items:center; width:38px; height:42px; border-radius:10px; font-size:13px; line-height:1.1; }
+.lr-dot b { font-size:14px; } .lr-dot small { font-size:10.5px; opacity:.85; }
+.lr-dot.ok { background:rgba(63,155,95,.14); color:var(--green); }
+.lr-dot.no { background:rgba(208,70,59,.12); color:var(--red); }
+.lr-dot.mini { width:12px; height:12px; border-radius:3px; vertical-align:middle; }
+.lr-flow-k { font-size:12.5px; color:var(--ink-2); margin:0 0 12px; }
+
+/* 레벨 리포트 — 전문 리포트(2026-10-07) */
+.lr-sec { display:grid; gap:8px; }
+.lr-sec h4 { margin:0; font-size:15px; }
+.lr-why .lr-dots { margin-top:10px; }
+.lr-area em.good { background:var(--green); } .lr-area em.mid { background:var(--orange); } .lr-area em.weak { background:var(--red); }
+.lr-area b.good { color:var(--green); } .lr-area b.weak { color:var(--red); }
+.lr-area { grid-template-columns:70px minmax(0,1fr) auto; }
+.lr-rx { border:1px solid var(--line); border-radius:var(--r-l); padding:12px 14px; background:var(--surface); }
+.lr-rx-h { display:flex; justify-content:space-between; align-items:center; gap:8px; }
+.lr-rx-h b { font-size:16px; }
+.lr-rx-go { font:inherit; font-size:13.5px; font-weight:700; color:var(--orange-deep); background:var(--tint); border:none; border-radius:99px; padding:6px 12px; cursor:pointer; }
+.lr-rx ul { margin:8px 0 0; padding-left:18px; font-size:14px; line-height:1.7; word-break:keep-all; }
+.lr-qs { list-style:none; margin:0; padding:0; display:grid; gap:8px; }
+.lr-q { border:1px solid var(--line); border-radius:var(--r-l); padding:12px 14px; background:var(--surface); }
+.lr-q.no { border-left:4px solid var(--red); } .lr-q.ok { border-left:4px solid var(--green); }
+.lr-q-h { display:flex; gap:8px; align-items:center; font-size:13px; color:var(--ink-2); }
+.lr-q-n { font-weight:800; color:var(--ink); }
+.lr-q.no .lr-q-m { color:var(--red); font-weight:800; } .lr-q.ok .lr-q-m { color:var(--green); font-weight:800; }
+.lr-q-q { margin:6px 0 0; font-size:14.5px; line-height:1.6; word-break:keep-all; overflow-wrap:anywhere; white-space:pre-line; }
+.lr-q-p { margin:6px 0 0; font-size:14px; color:var(--red); }
+.lr-q-a { margin:4px 0 0; font-size:14px; color:var(--green); font-weight:700; }
+.lr-q-w { margin:6px 0 0; font-size:13.5px; color:var(--ink-2); line-height:1.6; padding:8px 10px; border-radius:8px; background:var(--tint); }
+.lr-old { display:grid; gap:8px; padding:16px; border-radius:var(--r-l); background:var(--tint); }
+.lr-old p { margin:0; font-size:14px; line-height:1.6; color:var(--ink-2); }
+.lr-old .pt-next { justify-self:start; }
