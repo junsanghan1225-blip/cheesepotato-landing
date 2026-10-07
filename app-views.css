@@ -6911,3 +6911,14 @@ body:has(.wd-word2) .hlp-fab { display:none; }
 .lang-menu button { text-align:left; padding:10px 12px; border:none; border-radius:10px; background:none; font:inherit; font-size:15px; color:var(--ink); cursor:pointer; }
 .lang-menu button:hover { background:var(--surface-2); }
 .lang-menu button[aria-checked="true"] { font-weight:800; background:var(--tint); }
+
+/* 오늘 공부 — 한 칸을 끝내면 아래에서 올라오는 「다음 →」(운영자 2026-10-07 「한 흐름으로」) */
+.daily-sheet { position:fixed; left:50%; bottom:16px; z-index:9000; width:min(480px, calc(100vw - 24px)); transform:translate(-50%, 140%); transition:transform .3s cubic-bezier(.2,1.2,.4,1); }
+.daily-sheet.on { transform:translate(-50%, 0); }
+.daily-sheet .ds-in { padding:16px; border-radius:22px; background:var(--ink); color:#fff; box-shadow:0 18px 40px rgba(0,0,0,.35); }
+.ds-bar { height:8px; border-radius:999px; background:rgba(255,255,255,.18); overflow:hidden; margin:0 0 10px; } .ds-bar i { display:block; height:100%; background:#FFD23F; border-radius:999px; }
+.ds-k { margin:0; font-size:13px; font-weight:800; color:#FFE699; } .ds-t { margin:4px 0 12px; font-size:16px; word-break:keep-all; }
+.ds-btns { display:flex; gap:8px; } .ds-go { flex:1; padding:12px; border:none; border-radius:999px; background:#FFD23F; color:#4A3300; font:inherit; font-weight:900; font-size:15px; cursor:pointer; }
+.ds-x { padding:12px 14px; border:1px solid rgba(255,255,255,.3); border-radius:999px; background:none; color:#fff; font:inherit; font-size:13px; cursor:pointer; }
+
+.lt-daily-go { display:block; width:100%; margin:14px 0 8px; font-size:17px; }
