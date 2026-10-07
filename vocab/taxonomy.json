@@ -1,131 +1,1020 @@
 {
- "_about": "「단어」 섹션의 분류 체계(docs/vocab-plan.md 5층). 초안 — 운영자 확인 뒤 늘린다. id 는 한 번 쓰면 바꾸지 않는다(낱말 자료가 id 로 가리킨다). 새 칸은 더하기만.",
+ "_about": "「단어」 섹션의 분류 체계(docs/vocab-plan.md 5층). 초안 — 운영자 확인 뒤 늘린다. id 는 한 번 쓰면 바꾸지 않는다(낱말 자료가 id 로 가리킨다). 새 칸은 더하기만. 2026-10-07: 운영자 요청 「감정 · 신체 · 학용품 · 정치 · 전자기기처럼 잘게」로 작은 주제 칸을 더했다(옛 칸은 그대로 — 낱말은 옛 칸 + 새 칸을 같이 가진다, docs/antigravity-vocab-retag-task.md).",
  "purposes": [
-  { "id": "intro",    "ko": "입문",            "en": "First words" },
-  { "id": "topik1",   "ko": "TOPIK I",         "en": "TOPIK I" },
-  { "id": "topik2",   "ko": "TOPIK II",        "en": "TOPIK II" },
-  { "id": "eps",      "ko": "EPS-TOPIK",       "en": "EPS-TOPIK (work in Korea)" },
-  { "id": "life",     "ko": "한국 생활(KIIP)", "en": "Living in Korea (KIIP)" },
-  { "id": "travel",   "ko": "여행",            "en": "Travel" },
-  { "id": "work",     "ko": "직장",            "en": "At work" },
-  { "id": "campus",   "ko": "대학",            "en": "University" },
-  { "id": "kculture", "ko": "드라마 · K-pop",  "en": "K-drama & K-pop" },
-  { "id": "medical",  "ko": "병원",            "en": "At the hospital" }
+  {
+   "id": "intro",
+   "ko": "입문",
+   "en": "First words"
+  },
+  {
+   "id": "topik1",
+   "ko": "TOPIK I",
+   "en": "TOPIK I"
+  },
+  {
+   "id": "topik2",
+   "ko": "TOPIK II",
+   "en": "TOPIK II"
+  },
+  {
+   "id": "eps",
+   "ko": "EPS-TOPIK",
+   "en": "EPS-TOPIK (work in Korea)"
+  },
+  {
+   "id": "life",
+   "ko": "한국 생활(KIIP)",
+   "en": "Living in Korea (KIIP)"
+  },
+  {
+   "id": "travel",
+   "ko": "여행",
+   "en": "Travel"
+  },
+  {
+   "id": "work",
+   "ko": "직장",
+   "en": "At work"
+  },
+  {
+   "id": "campus",
+   "ko": "대학",
+   "en": "University"
+  },
+  {
+   "id": "kculture",
+   "ko": "드라마 · K-pop",
+   "en": "K-drama & K-pop"
+  },
+  {
+   "id": "medical",
+   "ko": "병원",
+   "en": "At the hospital"
+  }
  ],
  "topics": [
-  { "id": "people", "ko": "사람", "en": "People", "subs": [
-   { "id": "family", "ko": "가족", "en": "Family" },
-   { "id": "address", "ko": "관계 · 호칭", "en": "Relationships & titles" },
-   { "id": "looks", "ko": "외모", "en": "Appearance" },
-   { "id": "character", "ko": "성격", "en": "Personality" },
-   { "id": "jobs", "ko": "직업", "en": "Occupations" },
-   { "id": "life-stages", "ko": "나이 · 일생", "en": "Age & life events" } ] },
-  { "id": "body", "ko": "몸 · 건강", "en": "Body & health", "subs": [
-   { "id": "parts", "ko": "신체", "en": "Body parts" },
-   { "id": "symptoms", "ko": "증상", "en": "Symptoms" },
-   { "id": "hospital", "ko": "병원 · 약", "en": "Hospital & medicine" },
-   { "id": "habits", "ko": "건강 습관", "en": "Healthy habits" } ] },
-  { "id": "food", "ko": "음식", "en": "Food", "subs": [
-   { "id": "dishes", "ko": "음식 이름", "en": "Dishes" },
-   { "id": "ingredients", "ko": "재료 · 과일 · 채소", "en": "Ingredients, fruit & vegetables" },
-   { "id": "cooking", "ko": "조리", "en": "Cooking" },
-   { "id": "taste", "ko": "맛", "en": "Taste" },
-   { "id": "restaurant", "ko": "식당 · 주문", "en": "Restaurants & ordering" },
-   { "id": "drinks", "ko": "음료", "en": "Drinks" } ] },
-  { "id": "home", "ko": "집", "en": "Home", "subs": [
-   { "id": "rooms", "ko": "방 · 공간", "en": "Rooms" },
-   { "id": "furniture", "ko": "가구 · 가전", "en": "Furniture & appliances" },
-   { "id": "chores", "ko": "집안일", "en": "Housework" },
-   { "id": "housing", "ko": "집 구하기 · 계약", "en": "Finding a place & leases" },
-   { "id": "bills", "ko": "관리비 · 공과금", "en": "Bills & utilities" } ] },
-  { "id": "daily", "ko": "일상", "en": "Daily life", "subs": [
-   { "id": "routine", "ko": "하루 일과", "en": "Daily routine" },
-   { "id": "time", "ko": "시간 · 날짜", "en": "Time & dates" },
-   { "id": "weather", "ko": "날씨 · 계절", "en": "Weather & seasons" },
-   { "id": "clothes", "ko": "옷 · 꾸미기", "en": "Clothes" },
-   { "id": "shopping", "ko": "쇼핑 · 가격", "en": "Shopping & prices" },
-   { "id": "money", "ko": "돈 · 은행", "en": "Money & banking" } ] },
-  { "id": "transport", "ko": "교통 · 장소", "en": "Transport & places", "subs": [
-   { "id": "vehicles", "ko": "교통수단", "en": "Getting around" },
-   { "id": "directions", "ko": "길 · 방향", "en": "Directions" },
-   { "id": "city", "ko": "도시의 장소", "en": "Places in town" },
-   { "id": "trip", "ko": "여행 · 숙소", "en": "Trips & lodging" },
-   { "id": "airport", "ko": "공항", "en": "Airport" } ] },
-  { "id": "school", "ko": "학교 · 공부", "en": "School & study", "subs": [
-   { "id": "school-life", "ko": "학교생활", "en": "School life" },
-   { "id": "subjects", "ko": "과목", "en": "Subjects" },
-   { "id": "study", "ko": "공부 · 시험", "en": "Studying & exams" },
-   { "id": "university", "ko": "대학", "en": "University" } ] },
-  { "id": "work", "ko": "일 · 직장", "en": "Work", "subs": [
-   { "id": "office-life", "ko": "직장생활", "en": "Working life" },
-   { "id": "job-hunt", "ko": "구직 · 면접", "en": "Job hunting" },
-   { "id": "pay", "ko": "급여 · 계약", "en": "Pay & contracts" },
-   { "id": "office", "ko": "사무", "en": "Office work" },
-   { "id": "factory", "ko": "공장 · 생산", "en": "Factory & production" },
-   { "id": "safety", "ko": "산업 안전", "en": "Workplace safety" },
-   { "id": "farm-fish", "ko": "농업 · 어업", "en": "Farming & fishing" },
-   { "id": "construction", "ko": "건설", "en": "Construction" } ] },
-  { "id": "talk", "ko": "말 · 소통", "en": "Communication", "subs": [
-   { "id": "greetings", "ko": "인사", "en": "Greetings" },
-   { "id": "phone", "ko": "전화 · 문자", "en": "Calls & messages" },
-   { "id": "opinions", "ko": "의견 · 생각", "en": "Opinions" },
-   { "id": "requests", "ko": "부탁 · 거절", "en": "Asking & declining" } ] },
-  { "id": "feelings", "ko": "감정 · 태도", "en": "Feelings", "subs": [
-   { "id": "emotions", "ko": "감정", "en": "Emotions" },
-   { "id": "attitude", "ko": "태도", "en": "Attitude" } ] },
-  { "id": "leisure", "ko": "여가", "en": "Free time", "subs": [
-   { "id": "hobbies", "ko": "취미", "en": "Hobbies" },
-   { "id": "sports", "ko": "운동", "en": "Sports" },
-   { "id": "media", "ko": "영화 · 드라마 · 음악", "en": "Films, dramas & music" } ] },
-  { "id": "nature", "ko": "자연", "en": "Nature", "subs": [
-   { "id": "animals", "ko": "동물", "en": "Animals" },
-   { "id": "plants", "ko": "식물", "en": "Plants" },
-   { "id": "environment", "ko": "환경", "en": "Environment" },
-   { "id": "geography", "ko": "지리", "en": "Geography" } ] },
-  { "id": "society", "ko": "사회", "en": "Society", "subs": [
-   { "id": "law", "ko": "정치 · 법", "en": "Politics & law" },
-   { "id": "economy", "ko": "경제", "en": "Economy" },
-   { "id": "news", "ko": "뉴스 · 언론", "en": "News" },
-   { "id": "issues", "ko": "사회 문제", "en": "Social issues" },
-   { "id": "immigration", "ko": "체류 · 출입국", "en": "Visas & immigration" } ] },
-  { "id": "culture", "ko": "문화", "en": "Culture", "subs": [
-   { "id": "holidays", "ko": "명절 · 기념일", "en": "Holidays" },
-   { "id": "tradition", "ko": "전통", "en": "Tradition" },
-   { "id": "etiquette", "ko": "예절", "en": "Etiquette" } ] },
-  { "id": "tech", "ko": "과학 · 기술", "en": "Science & tech", "subs": [
-   { "id": "digital", "ko": "인터넷 · 기기", "en": "Internet & devices" },
-   { "id": "science", "ko": "과학", "en": "Science" } ] },
-  { "id": "concepts", "ko": "개념", "en": "Concepts", "subs": [
-   { "id": "numbers", "ko": "수 · 단위", "en": "Numbers & units" },
-   { "id": "shape-color", "ko": "모양 · 색", "en": "Shapes & colours" },
-   { "id": "position", "ko": "위치", "en": "Position" },
-   { "id": "degree", "ko": "정도 · 빈도", "en": "Degree & frequency" },
-   { "id": "change", "ko": "변화 · 상태", "en": "Change & states" } ] },
-  { "id": "function", "ko": "기능어", "en": "Function words", "subs": [
-   { "id": "pronouns", "ko": "대명사 · 가리키는 말", "en": "Pronouns & pointing words" },
-   { "id": "questions", "ko": "의문사", "en": "Question words" },
-   { "id": "connectors", "ko": "잇는 말", "en": "Connecting words" },
-   { "id": "counters", "ko": "단위 명사", "en": "Counters" },
-   { "id": "basic-verbs", "ko": "기본 동사 · 형용사", "en": "Core verbs & adjectives" } ] },
-  { "id": "writing", "ko": "TOPIK 쓰기 표현", "en": "TOPIK writing expressions", "subs": [
-   { "id": "add", "ko": "덧붙이기", "en": "Adding more" },
-   { "id": "contrast", "ko": "반대 · 전환", "en": "Contrast & turning" },
-   { "id": "cause", "ko": "원인 · 결과", "en": "Cause & result" },
-   { "id": "example", "ko": "예시 · 다시 말하기", "en": "Examples & restating" },
-   { "id": "order", "ko": "순서", "en": "Order" },
-   { "id": "summary", "ko": "정리 · 맺음", "en": "Summing up" },
-   { "id": "refer", "ko": "지시 표현", "en": "Referring words" },
-   { "id": "survey", "ko": "조사 · 그래프", "en": "Surveys & graphs" },
-   { "id": "change", "ko": "늘고 줄기", "en": "Rising & falling" },
-   { "id": "compare", "ko": "비교 · 정도 · 전망", "en": "Comparing & outlook" },
-   { "id": "opinion", "ko": "의견 · 주장", "en": "Opinions & arguments" },
-   { "id": "solve", "ko": "문제 · 해결", "en": "Problems & solutions" } ] },
-  { "id": "konglish", "ko": "콩글리시 · 헷갈리는 외래어", "en": "Konglish — false friends", "subs": [
-   { "id": "home", "ko": "집 · 물건", "en": "Home & things" },
-   { "id": "clothes", "ko": "옷 · 꾸미기", "en": "Clothes & beauty" },
-   { "id": "car", "ko": "차 · 길", "en": "Cars & roads" },
-   { "id": "work", "ko": "학교 · 일", "en": "School & work" },
-   { "id": "shop", "ko": "가게 · 음식", "en": "Shops & food" },
-   { "id": "talk", "ko": "말 · 느낌", "en": "Talk & feelings" } ] }
+  {
+   "id": "people",
+   "ko": "사람",
+   "en": "People",
+   "subs": [
+    {
+     "id": "family",
+     "ko": "가족",
+     "en": "Family"
+    },
+    {
+     "id": "address",
+     "ko": "관계 · 호칭",
+     "en": "Relationships & titles"
+    },
+    {
+     "id": "looks",
+     "ko": "외모",
+     "en": "Appearance"
+    },
+    {
+     "id": "character",
+     "ko": "성격",
+     "en": "Personality"
+    },
+    {
+     "id": "jobs",
+     "ko": "직업",
+     "en": "Occupations"
+    },
+    {
+     "id": "life-stages",
+     "ko": "나이 · 일생",
+     "en": "Age & life events"
+    },
+    {
+     "id": "relationships",
+     "ko": "친구 · 연애 · 결혼",
+     "en": "Friends, dating & marriage"
+    }
+   ]
+  },
+  {
+   "id": "body",
+   "ko": "몸 · 건강",
+   "en": "Body & health",
+   "subs": [
+    {
+     "id": "parts",
+     "ko": "신체",
+     "en": "Body parts"
+    },
+    {
+     "id": "symptoms",
+     "ko": "증상",
+     "en": "Symptoms"
+    },
+    {
+     "id": "hospital",
+     "ko": "병원 · 약",
+     "en": "Hospital & medicine"
+    },
+    {
+     "id": "habits",
+     "ko": "건강 습관",
+     "en": "Healthy habits"
+    },
+    {
+     "id": "face",
+     "ko": "얼굴",
+     "en": "Face"
+    },
+    {
+     "id": "inside",
+     "ko": "몸속 · 장기",
+     "en": "Inside the body"
+    },
+    {
+     "id": "movement",
+     "ko": "몸 움직임 · 동작",
+     "en": "Body movements"
+    },
+    {
+     "id": "senses",
+     "ko": "감각 · 오감",
+     "en": "Senses"
+    },
+    {
+     "id": "beauty",
+     "ko": "미용 · 위생",
+     "en": "Grooming & hygiene"
+    }
+   ]
+  },
+  {
+   "id": "food",
+   "ko": "음식",
+   "en": "Food",
+   "subs": [
+    {
+     "id": "dishes",
+     "ko": "음식 이름",
+     "en": "Dishes"
+    },
+    {
+     "id": "ingredients",
+     "ko": "재료 · 과일 · 채소",
+     "en": "Ingredients, fruit & vegetables"
+    },
+    {
+     "id": "cooking",
+     "ko": "조리",
+     "en": "Cooking"
+    },
+    {
+     "id": "taste",
+     "ko": "맛",
+     "en": "Taste"
+    },
+    {
+     "id": "restaurant",
+     "ko": "식당 · 주문",
+     "en": "Restaurants & ordering"
+    },
+    {
+     "id": "drinks",
+     "ko": "음료",
+     "en": "Drinks"
+    },
+    {
+     "id": "fruit",
+     "ko": "과일",
+     "en": "Fruit"
+    },
+    {
+     "id": "vegetables",
+     "ko": "채소",
+     "en": "Vegetables"
+    },
+    {
+     "id": "meat-fish",
+     "ko": "고기 · 해산물",
+     "en": "Meat & seafood"
+    },
+    {
+     "id": "snacks",
+     "ko": "간식 · 디저트",
+     "en": "Snacks & desserts"
+    },
+    {
+     "id": "kitchen",
+     "ko": "주방 도구 · 그릇",
+     "en": "Kitchenware"
+    },
+    {
+     "id": "korean-food",
+     "ko": "한식",
+     "en": "Korean food"
+    }
+   ]
+  },
+  {
+   "id": "home",
+   "ko": "집",
+   "en": "Home",
+   "subs": [
+    {
+     "id": "rooms",
+     "ko": "방 · 공간",
+     "en": "Rooms"
+    },
+    {
+     "id": "furniture",
+     "ko": "가구 · 가전",
+     "en": "Furniture & appliances"
+    },
+    {
+     "id": "chores",
+     "ko": "집안일",
+     "en": "Housework"
+    },
+    {
+     "id": "housing",
+     "ko": "집 구하기 · 계약",
+     "en": "Finding a place & leases"
+    },
+    {
+     "id": "bills",
+     "ko": "관리비 · 공과금",
+     "en": "Bills & utilities"
+    },
+    {
+     "id": "appliances",
+     "ko": "가전제품",
+     "en": "Home appliances"
+    },
+    {
+     "id": "bathroom",
+     "ko": "욕실 · 생활용품",
+     "en": "Bathroom & household items"
+    },
+    {
+     "id": "moving",
+     "ko": "이사 · 정리",
+     "en": "Moving & tidying"
+    }
+   ]
+  },
+  {
+   "id": "daily",
+   "ko": "일상",
+   "en": "Daily life",
+   "subs": [
+    {
+     "id": "routine",
+     "ko": "하루 일과",
+     "en": "Daily routine"
+    },
+    {
+     "id": "time",
+     "ko": "시간 · 날짜",
+     "en": "Time & dates"
+    },
+    {
+     "id": "weather",
+     "ko": "날씨 · 계절",
+     "en": "Weather & seasons"
+    },
+    {
+     "id": "clothes",
+     "ko": "옷 · 꾸미기",
+     "en": "Clothes"
+    },
+    {
+     "id": "shopping",
+     "ko": "쇼핑 · 가격",
+     "en": "Shopping & prices"
+    },
+    {
+     "id": "money",
+     "ko": "돈 · 은행",
+     "en": "Money & banking"
+    },
+    {
+     "id": "sleep",
+     "ko": "잠 · 휴식",
+     "en": "Sleep & rest"
+    },
+    {
+     "id": "meals",
+     "ko": "식사",
+     "en": "Meals"
+    },
+    {
+     "id": "accessories",
+     "ko": "신발 · 가방 · 액세서리",
+     "en": "Shoes, bags & accessories"
+    },
+    {
+     "id": "calendar",
+     "ko": "요일 · 달 · 계절 행사",
+     "en": "Days, months & seasons"
+    },
+    {
+     "id": "mail",
+     "ko": "우편 · 택배",
+     "en": "Mail & delivery"
+    }
+   ]
+  },
+  {
+   "id": "transport",
+   "ko": "교통 · 장소",
+   "en": "Transport & places",
+   "subs": [
+    {
+     "id": "vehicles",
+     "ko": "교통수단",
+     "en": "Getting around"
+    },
+    {
+     "id": "directions",
+     "ko": "길 · 방향",
+     "en": "Directions"
+    },
+    {
+     "id": "city",
+     "ko": "도시의 장소",
+     "en": "Places in town"
+    },
+    {
+     "id": "trip",
+     "ko": "여행 · 숙소",
+     "en": "Trips & lodging"
+    },
+    {
+     "id": "airport",
+     "ko": "공항",
+     "en": "Airport"
+    },
+    {
+     "id": "driving",
+     "ko": "운전 · 자동차",
+     "en": "Driving & cars"
+    },
+    {
+     "id": "traffic",
+     "ko": "교통 · 신호 · 사고",
+     "en": "Traffic & accidents"
+    },
+    {
+     "id": "public-transit",
+     "ko": "지하철 · 버스",
+     "en": "Subway & bus"
+    }
+   ]
+  },
+  {
+   "id": "school",
+   "ko": "학교 · 공부",
+   "en": "School & study",
+   "subs": [
+    {
+     "id": "school-life",
+     "ko": "학교생활",
+     "en": "School life"
+    },
+    {
+     "id": "subjects",
+     "ko": "과목",
+     "en": "Subjects"
+    },
+    {
+     "id": "study",
+     "ko": "공부 · 시험",
+     "en": "Studying & exams"
+    },
+    {
+     "id": "university",
+     "ko": "대학",
+     "en": "University"
+    },
+    {
+     "id": "supplies",
+     "ko": "학용품",
+     "en": "School supplies"
+    },
+    {
+     "id": "classroom",
+     "ko": "교실 · 수업",
+     "en": "Classroom & lessons"
+    },
+    {
+     "id": "grades",
+     "ko": "성적 · 평가",
+     "en": "Grades & assessment"
+    },
+    {
+     "id": "academic",
+     "ko": "학문 · 연구",
+     "en": "Academic & research"
+    }
+   ]
+  },
+  {
+   "id": "work",
+   "ko": "일 · 직장",
+   "en": "Work",
+   "subs": [
+    {
+     "id": "office-life",
+     "ko": "직장생활",
+     "en": "Working life"
+    },
+    {
+     "id": "job-hunt",
+     "ko": "구직 · 면접",
+     "en": "Job hunting"
+    },
+    {
+     "id": "pay",
+     "ko": "급여 · 계약",
+     "en": "Pay & contracts"
+    },
+    {
+     "id": "office",
+     "ko": "사무",
+     "en": "Office work"
+    },
+    {
+     "id": "factory",
+     "ko": "공장 · 생산",
+     "en": "Factory & production"
+    },
+    {
+     "id": "safety",
+     "ko": "산업 안전",
+     "en": "Workplace safety"
+    },
+    {
+     "id": "farm-fish",
+     "ko": "농업 · 어업",
+     "en": "Farming & fishing"
+    },
+    {
+     "id": "construction",
+     "ko": "건설",
+     "en": "Construction"
+    },
+    {
+     "id": "meetings",
+     "ko": "회의 · 보고",
+     "en": "Meetings & reports"
+    },
+    {
+     "id": "business",
+     "ko": "사업 · 회사 운영",
+     "en": "Business"
+    },
+    {
+     "id": "service",
+     "ko": "서비스 · 판매",
+     "en": "Service & sales"
+    }
+   ]
+  },
+  {
+   "id": "talk",
+   "ko": "말 · 소통",
+   "en": "Communication",
+   "subs": [
+    {
+     "id": "greetings",
+     "ko": "인사",
+     "en": "Greetings"
+    },
+    {
+     "id": "phone",
+     "ko": "전화 · 문자",
+     "en": "Calls & messages"
+    },
+    {
+     "id": "opinions",
+     "ko": "의견 · 생각",
+     "en": "Opinions"
+    },
+    {
+     "id": "requests",
+     "ko": "부탁 · 거절",
+     "en": "Asking & declining"
+    },
+    {
+     "id": "agree",
+     "ko": "찬성 · 반대 · 설득",
+     "en": "Agreeing, disagreeing & persuading"
+    },
+    {
+     "id": "explain",
+     "ko": "설명 · 말하기",
+     "en": "Explaining & speaking"
+    },
+    {
+     "id": "thinking",
+     "ko": "생각 · 판단 · 기억",
+     "en": "Thinking, judging & memory"
+    },
+    {
+     "id": "apology-thanks",
+     "ko": "사과 · 감사 · 칭찬",
+     "en": "Apologies, thanks & praise"
+    },
+    {
+     "id": "conflict",
+     "ko": "다툼 · 화해",
+     "en": "Arguments & making up"
+    }
+   ]
+  },
+  {
+   "id": "feelings",
+   "ko": "감정 · 태도",
+   "en": "Feelings",
+   "subs": [
+    {
+     "id": "emotions",
+     "ko": "감정",
+     "en": "Emotions"
+    },
+    {
+     "id": "attitude",
+     "ko": "태도",
+     "en": "Attitude"
+    },
+    {
+     "id": "joy",
+     "ko": "기쁨 · 행복",
+     "en": "Joy & happiness"
+    },
+    {
+     "id": "sadness",
+     "ko": "슬픔 · 외로움",
+     "en": "Sadness & loneliness"
+    },
+    {
+     "id": "anger",
+     "ko": "화 · 짜증",
+     "en": "Anger & annoyance"
+    },
+    {
+     "id": "fear",
+     "ko": "걱정 · 두려움 · 놀람",
+     "en": "Worry, fear & surprise"
+    },
+    {
+     "id": "love",
+     "ko": "사랑 · 그리움 · 정",
+     "en": "Love, longing & affection"
+    },
+    {
+     "id": "shame",
+     "ko": "부끄러움 · 미안함",
+     "en": "Embarrassment & guilt"
+    },
+    {
+     "id": "calm",
+     "ko": "편안함 · 만족",
+     "en": "Calm & satisfaction"
+    },
+    {
+     "id": "desire",
+     "ko": "바람 · 의지 · 기대",
+     "en": "Wishes, will & hope"
+    }
+   ]
+  },
+  {
+   "id": "leisure",
+   "ko": "여가",
+   "en": "Free time",
+   "subs": [
+    {
+     "id": "hobbies",
+     "ko": "취미",
+     "en": "Hobbies"
+    },
+    {
+     "id": "sports",
+     "ko": "운동",
+     "en": "Sports"
+    },
+    {
+     "id": "media",
+     "ko": "영화 · 드라마 · 음악",
+     "en": "Films, dramas & music"
+    },
+    {
+     "id": "music",
+     "ko": "음악 · 공연",
+     "en": "Music & performances"
+    },
+    {
+     "id": "film",
+     "ko": "영화 · 드라마",
+     "en": "Films & dramas"
+    },
+    {
+     "id": "games",
+     "ko": "게임 · 놀이",
+     "en": "Games & play"
+    },
+    {
+     "id": "outdoors",
+     "ko": "캠핑 · 등산 · 바다",
+     "en": "Outdoors"
+    },
+    {
+     "id": "reading",
+     "ko": "책 · 독서",
+     "en": "Books & reading"
+    },
+    {
+     "id": "art",
+     "ko": "미술 · 사진",
+     "en": "Art & photography"
+    }
+   ]
+  },
+  {
+   "id": "nature",
+   "ko": "자연",
+   "en": "Nature",
+   "subs": [
+    {
+     "id": "animals",
+     "ko": "동물",
+     "en": "Animals"
+    },
+    {
+     "id": "plants",
+     "ko": "식물",
+     "en": "Plants"
+    },
+    {
+     "id": "environment",
+     "ko": "환경",
+     "en": "Environment"
+    },
+    {
+     "id": "geography",
+     "ko": "지리",
+     "en": "Geography"
+    },
+    {
+     "id": "weather-disaster",
+     "ko": "자연재해",
+     "en": "Natural disasters"
+    },
+    {
+     "id": "sea-mountain",
+     "ko": "바다 · 산 · 강",
+     "en": "Seas, mountains & rivers"
+    },
+    {
+     "id": "insects",
+     "ko": "곤충 · 작은 동물",
+     "en": "Insects & small creatures"
+    },
+    {
+     "id": "space",
+     "ko": "우주 · 하늘",
+     "en": "Space & sky"
+    }
+   ]
+  },
+  {
+   "id": "society",
+   "ko": "사회",
+   "en": "Society",
+   "subs": [
+    {
+     "id": "law",
+     "ko": "정치 · 법",
+     "en": "Politics & law"
+    },
+    {
+     "id": "economy",
+     "ko": "경제",
+     "en": "Economy"
+    },
+    {
+     "id": "news",
+     "ko": "뉴스 · 언론",
+     "en": "News"
+    },
+    {
+     "id": "issues",
+     "ko": "사회 문제",
+     "en": "Social issues"
+    },
+    {
+     "id": "immigration",
+     "ko": "체류 · 출입국",
+     "en": "Visas & immigration"
+    },
+    {
+     "id": "politics",
+     "ko": "정치 · 선거 · 정부",
+     "en": "Politics, elections & government"
+    },
+    {
+     "id": "justice",
+     "ko": "법 · 재판 · 범죄",
+     "en": "Law, courts & crime"
+    },
+    {
+     "id": "welfare",
+     "ko": "복지 · 의료 제도",
+     "en": "Welfare & public health"
+    },
+    {
+     "id": "population",
+     "ko": "인구 · 가족 변화",
+     "en": "Population & family change"
+    },
+    {
+     "id": "global",
+     "ko": "국제 · 외교",
+     "en": "International affairs"
+    },
+    {
+     "id": "military",
+     "ko": "국방 · 안보",
+     "en": "Defense & security"
+    }
+   ]
+  },
+  {
+   "id": "culture",
+   "ko": "문화",
+   "en": "Culture",
+   "subs": [
+    {
+     "id": "holidays",
+     "ko": "명절 · 기념일",
+     "en": "Holidays"
+    },
+    {
+     "id": "tradition",
+     "ko": "전통",
+     "en": "Tradition"
+    },
+    {
+     "id": "etiquette",
+     "ko": "예절",
+     "en": "Etiquette"
+    },
+    {
+     "id": "religion",
+     "ko": "종교 · 신앙",
+     "en": "Religion"
+    },
+    {
+     "id": "history",
+     "ko": "역사",
+     "en": "History"
+    },
+    {
+     "id": "k-culture",
+     "ko": "한류 · 대중문화",
+     "en": "Hallyu & pop culture"
+    }
+   ]
+  },
+  {
+   "id": "tech",
+   "ko": "과학 · 기술",
+   "en": "Science & tech",
+   "subs": [
+    {
+     "id": "digital",
+     "ko": "인터넷 · 기기",
+     "en": "Internet & devices"
+    },
+    {
+     "id": "science",
+     "ko": "과학",
+     "en": "Science"
+    },
+    {
+     "id": "devices",
+     "ko": "전자기기 · 스마트폰",
+     "en": "Devices & smartphones"
+    },
+    {
+     "id": "internet",
+     "ko": "인터넷 · SNS",
+     "en": "Internet & social media"
+    },
+    {
+     "id": "computer",
+     "ko": "컴퓨터 · 소프트웨어",
+     "en": "Computers & software"
+    },
+    {
+     "id": "ai-future",
+     "ko": "AI · 미래 기술",
+     "en": "AI & future tech"
+    },
+    {
+     "id": "energy",
+     "ko": "에너지 · 발명",
+     "en": "Energy & inventions"
+    }
+   ]
+  },
+  {
+   "id": "concepts",
+   "ko": "개념",
+   "en": "Concepts",
+   "subs": [
+    {
+     "id": "numbers",
+     "ko": "수 · 단위",
+     "en": "Numbers & units"
+    },
+    {
+     "id": "shape-color",
+     "ko": "모양 · 색",
+     "en": "Shapes & colours"
+    },
+    {
+     "id": "position",
+     "ko": "위치",
+     "en": "Position"
+    },
+    {
+     "id": "degree",
+     "ko": "정도 · 빈도",
+     "en": "Degree & frequency"
+    },
+    {
+     "id": "change",
+     "ko": "변화 · 상태",
+     "en": "Change & states"
+    },
+    {
+     "id": "time-order",
+     "ko": "순서 · 시간 흐름",
+     "en": "Order & sequence"
+    },
+    {
+     "id": "quantity",
+     "ko": "양 · 크기 · 무게",
+     "en": "Amount, size & weight"
+    },
+    {
+     "id": "cause-result",
+     "ko": "원인 · 결과",
+     "en": "Cause & result"
+    },
+    {
+     "id": "comparison",
+     "ko": "비교 · 차이",
+     "en": "Comparison & difference"
+    }
+   ]
+  },
+  {
+   "id": "function",
+   "ko": "기능어",
+   "en": "Function words",
+   "subs": [
+    {
+     "id": "pronouns",
+     "ko": "대명사 · 가리키는 말",
+     "en": "Pronouns & pointing words"
+    },
+    {
+     "id": "questions",
+     "ko": "의문사",
+     "en": "Question words"
+    },
+    {
+     "id": "connectors",
+     "ko": "잇는 말",
+     "en": "Connecting words"
+    },
+    {
+     "id": "counters",
+     "ko": "단위 명사",
+     "en": "Counters"
+    },
+    {
+     "id": "basic-verbs",
+     "ko": "기본 동사 · 형용사",
+     "en": "Core verbs & adjectives"
+    }
+   ]
+  },
+  {
+   "id": "writing",
+   "ko": "TOPIK 쓰기 표현",
+   "en": "TOPIK writing expressions",
+   "subs": [
+    {
+     "id": "add",
+     "ko": "덧붙이기",
+     "en": "Adding more"
+    },
+    {
+     "id": "contrast",
+     "ko": "반대 · 전환",
+     "en": "Contrast & turning"
+    },
+    {
+     "id": "cause",
+     "ko": "원인 · 결과",
+     "en": "Cause & result"
+    },
+    {
+     "id": "example",
+     "ko": "예시 · 다시 말하기",
+     "en": "Examples & restating"
+    },
+    {
+     "id": "order",
+     "ko": "순서",
+     "en": "Order"
+    },
+    {
+     "id": "summary",
+     "ko": "정리 · 맺음",
+     "en": "Summing up"
+    },
+    {
+     "id": "refer",
+     "ko": "지시 표현",
+     "en": "Referring words"
+    },
+    {
+     "id": "survey",
+     "ko": "조사 · 그래프",
+     "en": "Surveys & graphs"
+    },
+    {
+     "id": "change",
+     "ko": "늘고 줄기",
+     "en": "Rising & falling"
+    },
+    {
+     "id": "compare",
+     "ko": "비교 · 정도 · 전망",
+     "en": "Comparing & outlook"
+    },
+    {
+     "id": "opinion",
+     "ko": "의견 · 주장",
+     "en": "Opinions & arguments"
+    },
+    {
+     "id": "solve",
+     "ko": "문제 · 해결",
+     "en": "Problems & solutions"
+    }
+   ]
+  },
+  {
+   "id": "konglish",
+   "ko": "콩글리시 · 헷갈리는 외래어",
+   "en": "Konglish — false friends",
+   "subs": [
+    {
+     "id": "home",
+     "ko": "집 · 물건",
+     "en": "Home & things"
+    },
+    {
+     "id": "clothes",
+     "ko": "옷 · 꾸미기",
+     "en": "Clothes & beauty"
+    },
+    {
+     "id": "car",
+     "ko": "차 · 길",
+     "en": "Cars & roads"
+    },
+    {
+     "id": "work",
+     "ko": "학교 · 일",
+     "en": "School & work"
+    },
+    {
+     "id": "shop",
+     "ko": "가게 · 음식",
+     "en": "Shops & food"
+    },
+    {
+     "id": "talk",
+     "ko": "말 · 느낌",
+     "en": "Talk & feelings"
+    }
+   ]
+  }
  ]
 }
