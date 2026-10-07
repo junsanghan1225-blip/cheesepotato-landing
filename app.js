@@ -352,7 +352,7 @@ const PT = () => PT_SETS[ptLevel] || PT_SETS.normal;
    번역이 다 들어오기 전에는 메뉴에 안 보인다(빈 사전이면 영어만 나와 헷갈린다). 미리 보기는 주소 끝에 ?i18n=all. */
 const LANGS = [['ko', '한국어', 'KO', 1], ['en', 'English', 'EN', 1], ['vi', 'Tiếng Việt', 'VI', 0], ['ja', '日本語', '日', 0], ['zh', '中文（简体）', '中', 0]];
 const langShown = () => LANGS.filter((x) => x[3] || /[?&]i18n=all/.test(location.search));
-const I18N_URL = { vi: './i18n-vi.js?v=7cc78970', ja: './i18n-ja.js?v=7cc78970', zh: './i18n-zh.js?v=7cc78970' };
+const I18N_URL = { vi: './i18n-vi.js?v=3330f39b', ja: './i18n-ja.js?v=3330f39b', zh: './i18n-zh.js?v=3330f39b' };
 const trMemo = new Map();
 window.cpTr = (en) => {
   const L = window.cpI18n, s = String(en ?? '');
@@ -979,6 +979,8 @@ function ptShow(toTest) {
   ptId('quizView').classList.add('hidden');
   ptId('numView').classList.add('hidden');
   ptId('blkView')?.classList.add('hidden');
+  ptId('chsView')?.classList.add('hidden');
+  ptId('pdlView')?.classList.add('hidden');
   ptId('learnView').classList.add('hidden');
   ptId('lessonView').classList.add('hidden');
   ptId('learnBtn')?.classList.remove('on');
@@ -1026,7 +1028,7 @@ const SLUG_VIEW = {
   dictionary: 'dictionary', words: 'words',
   learn: 'learn', test: 'test', games: 'games',
   // 게임 한 판과 레슨은 도중부터 열 수 없다. 주소로 들어오면 한 단계 위를 연다.
-  quiz: 'games', num: 'num', blocks: 'blocks', lesson: 'learn',
+  quiz: 'games', num: 'num', blocks: 'blocks', chosung: 'chosung', potdle: 'potdle', lesson: 'learn',
 };
 /* 레벨 테스트는 <dialog> 팝업(#ltDlg)이라 화면 갈아 끼우기(SLUG_VIEW)에
    안 낀다 — 지금 있는 화면 위에 뜨고 닫으면 그 화면 그대로다. */
@@ -1085,7 +1087,7 @@ window.cpTxtSize = function (on) {
 const VIEW_SLUG = {
   home: '', test: 'test', wordbook: 'wordbook', account: 'account',
   library: 'library', dashboard: 'dashboard', pro: 'pro', dictionary: 'dictionary', words: 'words', games: 'games',
-  quiz: 'quiz', num: 'num', blocks: 'blocks', learn: 'learn', lesson: 'lesson',
+  quiz: 'quiz', num: 'num', blocks: 'blocks', chosung: 'chosung', potdle: 'potdle', learn: 'learn', lesson: 'lesson',
 };
 let routeBusy = false;
 /* 마지막으로 주소에 남긴 자리. 떠나기를 막았을 때 되돌릴 곳이다. */

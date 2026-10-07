@@ -546,6 +546,8 @@ export function wordsInit(D) {
       ['match', 'grid', t('짝 맞추기', 'Match'), t('오늘 낱말 · 시간 재기', 'Today’s words, timed')],
       ['dict', 'ear', t('받아쓰기', 'Dictation'), t('듣고 한국어로 쓰기', 'Hear it, type it')],
       ['test', 'check', t('미니 시험', 'Mini test'), t('섞어서 풀고 점수', 'Mixed, scored')],
+      ['potdle', 'grid', t('오늘의 감자들', 'Potato Wordle'), t('하루 한 낱말 · 한글 워들', 'One word a day · Korean Wordle')],
+      ['chosung', 'check', t('초성 퀴즈', 'Initials quiz'), t('ㅎㄱ → 학교 떠올려 쓰기', 'ㅎㄱ → type 학교')],
       ['quiz', 'timer', t('스피드 퀴즈', 'Speed quiz'), t('60초 동안 많이', 'As many as you can in 60s')]];
     /* 어떤 낱말로 — 지금 외우는 세션 · 내 레벨에서 랜덤 10 · 아무 레벨 랜덤 10(운영자 2026-10-07) */
     const src = gameSrc();
@@ -1420,6 +1422,8 @@ export function wordsInit(D) {
     if (act === 'hgame') {
       const k = a.dataset.k; D.track('단어게임_' + k);
       if (k === 'blocks') return D.openBlocks?.();
+      if (k === 'chosung') return D.openChosung?.();
+      if (k === 'potdle') return D.openPotdle?.();
       if (k === 'quiz') return D.openQuiz();
       const src = gameSrc();
       if (src !== 'now') return startRun(randomWords(src), k, null);
