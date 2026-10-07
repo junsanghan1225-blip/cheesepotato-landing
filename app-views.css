@@ -6406,3 +6406,93 @@ body.cls-in a[href*="teacher.html"], body.cls-in .ft-teach { display:none !impor
 .cls-qr-img { width:240px; height:auto; }
 .cls-qr-img img { width:100%; height:auto; display:block; border-radius:16px; box-shadow:0 10px 28px -16px rgba(59,42,30,.45); }
 @media (max-width:520px) { .cls-newbtn { padding:8px 12px; font-size:14px; } .cls-head .qa-h { font-size:22px; } .cls-qr-img { width:100%; max-width:300px; margin:0 auto; } }
+
+/* ── 학생 「내 반」 패널(첫 화면 · 반 화면) — 운영자 2026-10-07 「학생이 느껴도 전문적이구나」 ── */
+.ck { border:1px solid var(--line); border-radius:22px; background:var(--surface); padding:18px; display:flex; flex-direction:column; gap:14px; box-shadow:0 16px 36px -28px rgba(59,42,30,.45); }
+.ck-head { display:flex; align-items:flex-start; justify-content:space-between; gap:12px; flex-wrap:wrap; }
+.ck-id { min-width:0; }
+.ck-k { font-size:11.5px; font-weight:800; letter-spacing:.12em; text-transform:uppercase; color:var(--orange-deep); }
+.ck-id h3 { margin:2px 0 0; font-size:21px; font-weight:800; letter-spacing:-.02em; color:var(--ink); word-break:keep-all; }
+.ck-lv { display:flex; align-items:center; gap:8px; padding:6px 12px 6px 6px; border-radius:999px; background:var(--surface-2); border:1px solid var(--line); }
+.ck-lv-ic { width:34px; height:34px; display:block; }
+.ck-lv-ic svg { width:100%; height:100%; display:block; }
+.ck-lv b { display:block; font-size:13px; color:var(--ink); }
+.ck-lv small { font-size:11px; color:var(--ink-3); }
+.ck-msg { display:flex; gap:10px; align-items:flex-start; padding:12px 14px; border-radius:16px; background:var(--tint); }
+.ck-msg img { border-radius:12px; flex:none; }
+.ck-msg small { font-size:11.5px; font-weight:800; color:var(--orange-deep); }
+.ck-msg p { margin:2px 0 0; font-size:14.5px; color:var(--ink); line-height:1.55; word-break:keep-all; white-space:pre-line; }
+.ck-sum { display:flex; align-items:center; gap:14px; }
+.ck-ring { width:68px; height:68px; flex:none; }
+.ck-sum-t { display:flex; flex-direction:column; gap:3px; min-width:0; }
+.ck-sum-t b { font-size:16.5px; color:var(--ink); word-break:keep-all; }
+.ck-sum-t span { font-size:13px; color:var(--ink-2); }
+.ck-sum-t .ck-late { color:var(--red); font-weight:700; }
+.ck-sec { font-size:12px; font-weight:800; letter-spacing:.06em; color:var(--ink-3); text-transform:uppercase; margin-bottom:-6px; }
+.ck-list { list-style:none; margin:0; padding:0; display:grid; gap:8px; }
+.ck-item { display:flex; align-items:center; gap:12px; width:100%; padding:12px; border:1px solid var(--line); border-radius:16px; background:var(--surface); color:var(--ink); font:inherit; text-align:left; cursor:pointer; flex-wrap:wrap; transition:border-color .15s, transform .15s; }
+.ck-item:hover { border-color:var(--orange); transform:translateY(-1px); }
+.ck-tile { width:42px; height:42px; border-radius:12px; display:grid; place-items:center; font-size:20px; flex:none; background:var(--tint); }
+.k-vocab .ck-tile { background:rgba(46,160,90,.12); }
+.k-grammar .ck-tile { background:rgba(80,120,220,.12); }
+.k-twrite .ck-tile, .k-tread .ck-tile { background:rgba(255,200,60,.2); }
+.ck-t { flex:1; min-width:140px; display:flex; flex-direction:column; gap:2px; }
+.ck-t b { font-size:15px; word-break:keep-all; overflow-wrap:anywhere; }
+.ck-t small { font-size:12.5px; color:var(--ink-3); }
+.ck-due { font-size:12px; font-weight:800; padding:4px 9px; border-radius:999px; background:var(--surface-2); color:var(--ink-2); white-space:nowrap; }
+.ck-due.soon, .ck-due.today { background:var(--tint); color:var(--orange-deep); }
+.ck-due.late { background:var(--red); color:#fff; }
+.ck-go { font-size:13px; font-weight:800; padding:7px 14px; border-radius:999px; background:var(--ink); color:var(--surface); white-space:nowrap; }
+.ck-more, .ck-open { align-self:flex-start; background:none; border:none; padding:2px 0; font:inherit; font-size:13.5px; font-weight:800; color:var(--orange-deep); cursor:pointer; }
+.ck-open { align-self:stretch; text-align:center; padding:11px; border-top:1px solid var(--line); margin:0 -18px -18px; border-radius:0 0 22px 22px; color:var(--ink-2); }
+.ck-done { display:flex; align-items:center; gap:12px; flex-wrap:wrap; padding:14px; border-radius:16px; background:rgba(46,160,90,.09); }
+.ck-done > span { font-size:28px; }
+.ck-done b { font-size:15.5px; color:var(--ink); }
+.ck-done p { margin:2px 0 0; font-size:13px; color:var(--ink-2); }
+.ck-done > div:first-of-type { flex:1; min-width:160px; }
+.ck-done-btns { display:flex; gap:6px; }
+.ck-fin summary { cursor:pointer; font-size:13.5px; font-weight:700; color:var(--ink-2); }
+.ck-fin ol { list-style:none; margin:8px 0 0; padding:0; display:grid; gap:4px; }
+.ck-fin li { display:flex; align-items:center; gap:10px; padding:8px 10px; border-radius:12px; background:var(--surface-2); }
+.ck-check { width:24px; height:24px; border-radius:50%; display:grid; place-items:center; background:var(--green); color:#fff; font-size:12px; font-weight:800; flex:none; }
+.ck-wrap { display:flex; flex-direction:column; gap:6px; }
+.ck-leave { display:flex; justify-content:flex-end; padding:0 6px; }
+#clsHome.ch-wrap { display:block; }
+#clsHome .ck + .ck { margin-top:10px; }
+/* 선생님 — 학생 관리 카드 */
+.cls-stu summary { grid-template-columns:auto minmax(90px, 1.2fr) minmax(70px, 1fr) auto !important; }
+.cls-stu-av { width:36px; height:36px; border-radius:50%; display:grid; place-items:center; font-weight:800; background:var(--tint); color:var(--orange-deep); }
+.cls-stu-who { display:flex; flex-direction:column; min-width:0; }
+.cls-stu-who b { font-size:15px; }
+.cls-stu-who small { font-size:12px; color:var(--ink-3); display:flex; align-items:center; gap:4px; }
+.cls-stu-lvic { width:18px; height:18px; display:inline-block; }
+.cls-stu-lvic svg { width:100%; height:100%; display:block; }
+.cls-stu-body { padding:0 12px 12px; display:flex; flex-direction:column; gap:10px; }
+.cls-stu-form { display:grid; gap:10px; padding:12px; border-radius:14px; background:var(--surface-2); }
+.cls-stu-form label { display:flex; flex-direction:column; gap:4px; font-size:12.5px; font-weight:700; color:var(--ink-2); }
+.cls-stu-form select, .cls-stu-form textarea { font:inherit; font-size:14px; padding:8px 10px; border:1px solid var(--line); border-radius:10px; background:var(--surface); color:var(--ink); width:100%; box-sizing:border-box; resize:vertical; }
+.cls-stu-act { display:flex; gap:8px; flex-wrap:wrap; }
+.cls-stu-hw li i { font-style:normal; font-size:11px; }
+.cls-stu-hw { padding:0 !important; }
+.cls-stu-out { margin:0 !important; align-self:flex-end; }
+.cls-hw-to { font-size:11.5px; font-weight:700; padding:3px 8px; border-radius:999px; background:var(--tint); color:var(--orange-deep); white-space:nowrap; max-width:160px; overflow:hidden; text-overflow:ellipsis; }
+.cls-hw-to.all { background:var(--surface); color:var(--ink-3); border:1px solid var(--line); }
+.cls-hw-top { flex-wrap:wrap; }
+.cls-due-pre { display:flex; gap:6px; flex-wrap:wrap; grid-column:1 / -1; }
+.cls-due-pre button { padding:6px 12px; border-radius:999px; border:1px solid var(--line); background:var(--surface); font:inherit; font-size:13px; cursor:pointer; color:var(--ink-2); }
+.cls-due-pre button.on { border-color:var(--orange); background:var(--tint); color:var(--orange-deep); font-weight:700; }
+.cls-to { grid-column:1 / -1; border:1px solid var(--line); border-radius:12px; padding:8px 12px; display:flex; flex-wrap:wrap; gap:6px 14px; margin:0; }
+.cls-to legend { font-size:12.5px; font-weight:700; color:var(--ink-2); padding:0 4px; }
+.cls-to label { flex-direction:row !important; align-items:center; gap:6px !important; font-weight:600 !important; font-size:14px !important; color:var(--ink) !important; }
+.cls-to input { width:auto !important; }
+.cls-rep-t td.na { color:var(--line); }
+.cls-need { border-color:var(--orange); background:var(--tint); font-size:14px; }
+/* QR 만 */
+.cls-qr { flex-direction:column; align-items:center; text-align:center; border-style:solid; gap:10px; }
+.cls-qr-img { width:260px !important; }
+.cls-qr-img img { box-shadow:none !important; border-radius:12px !important; }
+.cls-qr-cap { margin:0; font-size:13.5px; color:#4E3E31; }
+.cls-qr-btns { justify-content:center; }
+.cls-hw-meta { display:flex; flex-wrap:wrap; align-items:center; gap:6px; margin:8px 0 0 30px; }
+.cls-hw-meta .cls-hw-n { margin-left:auto; }
+.cls-hw .cls-who { margin-left:30px; }
