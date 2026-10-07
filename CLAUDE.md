@@ -92,6 +92,7 @@
   다음에(운영자와 정할 것): TOPIK 쓰기 · 읽기 숙제, 다른 선생님에게 열기(`cls_is_admin` 하나), 첫 화면에 「숙제 N개」.
   **선생님 계정 · 진도 리포트**(운영자 결정 2026-10-06 — 기관 · 대학 파트너십 준비): 운영자가 반 화면 「선생님 계정」에 메일을 올리면 그 사람도 반을 만든다(`db/add_class_teachers.sql`, cls_is_admin = 운영자 + class_teachers). 반마다 「📊 진도 리포트」(학생 × 숙제 표, CSV 받기).
   **반 학생은 Pro 무료**(운영자 결정 2026-10-06): 보관하지 않은 반의 학생이면 Pro — 서버 `is_pro()`(`db/add_class_pro.sql`, 운영자가 SQL Editor 에서) · 화면 `billing.js` isPro(classPro). 반을 나가거나 보관하면 다시 무료.
+  **QR · 첫 화면 숙제 · 구글 캘린더 · 학생별 진도**(운영자 요청 2026-10-07): 반 카드 「📱 QR」(`qrcode-lib.js`, MIT) — 찍고 로그인만 하면 이름 안 묻고 바로 들어옴 · 반 학생은 첫 화면 맨 위 숙제 카드(`clsHomeRender`) · 수업 일정은 반마다 구글 캘린더 iCal 비공개 주소(`db/add_class_calendar.sql`, 선생님만 봄) → 함수 `class-schedule` 이 다음 수업들만 학생에게 · 진도 리포트에 학생별 카드(`clsStuHtml`). **1:1 이 기본**(per_student) — 학생은 자기 수업만(손님 메일 = 로그인 메일, 또는 학생 카드의 「찾는 말」 `class_member_cal`). 마지막 수업 3주 전 · 앞으로 없음 → 함수가 반에서 뺌(기록은 남음). 운영자 순서 `docs/class-calendar.md`.
 
 - **강의 영상**(운영자 결정 2026-10-03): 유튜브 「일부 공개」 + 사이트 `#learn/lectures`(`app.module.js` lecDraw, 표 `db/add_lectures.sql`).
   운영자만 「강의 올리기」(유튜브 링크 + 제목). 플레이어는 youtube-nocookie(CSP frame-src · img-src i.ytimg.com). 운영자 순서 `docs/lectures.md`.
