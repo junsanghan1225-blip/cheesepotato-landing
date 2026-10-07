@@ -92,7 +92,7 @@
   다음에(운영자와 정할 것): TOPIK 쓰기 · 읽기 숙제, 다른 선생님에게 열기(`cls_is_admin` 하나), 첫 화면에 「숙제 N개」.
   **선생님 계정 · 진도 리포트**(운영자 결정 2026-10-06 — 기관 · 대학 파트너십 준비): 운영자가 반 화면 「선생님 계정」에 메일을 올리면 그 사람도 반을 만든다(`db/add_class_teachers.sql`, cls_is_admin = 운영자 + class_teachers). 반마다 「📊 진도 리포트」(학생 × 숙제 표, CSV 받기).
   **반 학생은 Pro 무료**(운영자 결정 2026-10-06): 보관하지 않은 반의 학생이면 Pro — 서버 `is_pro()`(`db/add_class_pro.sql`, 운영자가 SQL Editor 에서) · 화면 `billing.js` isPro(classPro). 반을 나가거나 보관하면 다시 무료.
-  **QR · 첫 화면 숙제 · 학생별 진도**(운영자 요청 2026-10-07): 반 카드 「📱 QR」(`qrcode-lib.js`, MIT) — 찍고 로그인만 하면 이름 안 묻고 바로 들어옴 · 반 학생은 첫 화면 맨 위 숙제 카드(`clsHomeRender`) · 진도 리포트에 학생별 카드(`clsStuHtml`) · 「반에서 빼기」 · 개인정보 안내 한 줄(`clsPrivacy`). **반은 숙제 · 복습용으로만 — 수업 · 결제를 사이트로 데려오지 않는다**(Preply 규정, 운영자 결정). 구글 캘린더 일정은 만들었다가 뺐다(표는 남김, `db/add_class_calendar.sql` 머리글). 운영자 순서 `docs/class-homework.md`.
+  **QR · 첫 화면 숙제 · 학생별 진도**(운영자 요청 2026-10-07): 반 카드 「📱 QR」(`qrcode-lib.js`, MIT) — 찍고 로그인만 하면 이름 안 묻고 바로 들어옴 · 반 학생은 첫 화면 맨 위 숙제 카드(`clsHomeRender`) · 진도 리포트에 학생별 카드(`clsStuHtml`) · 「반에서 빼기」 · 개인정보 안내 한 줄(`clsPrivacy`). **반은 숙제 · 복습용으로만 — 수업 · 결제를 사이트로 데려오지 않는다**(Preply 규정, 운영자 결정). 반 학생에게는 선생님 쪽(teacher.html · WhatsApp) 링크를 숨긴다(`clsBodyMark`, body.cls-in). 구글 캘린더 일정은 만들었다가 뺐다(표는 남김, `db/add_class_calendar.sql` 머리글). 운영자 순서 `docs/class-homework.md`.
 
 - **강의 영상**(운영자 결정 2026-10-03): 유튜브 「일부 공개」 + 사이트 `#learn/lectures`(`app.module.js` lecDraw, 표 `db/add_lectures.sql`).
   운영자만 「강의 올리기」(유튜브 링크 + 제목). 플레이어는 youtube-nocookie(CSP frame-src · img-src i.ytimg.com). 운영자 순서 `docs/lectures.md`.
