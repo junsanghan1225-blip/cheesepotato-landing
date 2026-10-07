@@ -122,7 +122,8 @@ Deno.serve(async (req) => {
     if (!kw && !em) return json({ list: [], unset: true });
     pass = (title: string, comp: any) => {
       const guests = (comp?.getAllProperties?.('attendee') || []).map((p: any) => String(p.getFirstValue() || '').replace(/^mailto:/i, '').toLowerCase());
-      return (!!em && guests.includes(em)) || (!!kw && title.toLowerCase().includes(kw));
+      /* 반 전체의 거르는 말(예: Preply)도 지킨다 — 1:1 이어도 그 말이 든 일정만, 그중 이 학생 것만 */
+      return has(title, cal.keyword || '') && ((!!em && guests.includes(em)) || (!!kw && title.toLowerCase().includes(kw)));
     };
   }
   try {
