@@ -65,6 +65,7 @@
   | `grammar-pairs.js`(헷갈리는 문법 비교 · 퀴즈) | `docs/grammar-pairs.json`(안티 · Claude 검토, 지시 `docs/antigravity-grammar-fill-task.md`) → `node tools/build-grammar-pairs.mjs` |
   | `topik-refs/`(낱말 → 우리 TOPIK 문항의 쓰임 문장, 단어 한 장 「TOPIK에서」 탭) | `topik.js` · `topik2.js` · `topik-listening.js` · `topik-writing.js` · `vocab/data/*.json` → `node tools/build-topik-refs.mjs` |
   | `docs/i18n/strings.json`(화면 글자 목록) · `i18n-<언어>.js`(화면 번역 사전) | 코드의 t() · index.html data-en → `node tools/i18n-extract.mjs`; `docs/i18n/<언어>.json`(안티 번역) → `node tools/build-i18n.mjs`(검사 `check-i18n`) |
+  | `expressions.js`(「단어」 표현 탭 — 사자성어 · 속담 · 관용 표현) | `vocab/data/expressions.json`(안티 · Claude 검토, 검사 `check-expressions`) → `node tools/build-expressions.mjs` |
   | `vocab-topik1.js` · `vocab-topik2.js` · `vocab-topik2-ex/`(TOPIK II 예문 조각, 500개씩) | `vocab/data/topik1.json` · `topik2.json`(B급 이상만) → `node tools/build-vocab.mjs` |
 - **검사:** 올리기 전에 CI 와 같은 검사를 돌린다(`.github/workflows/check.yml` 의 목록).
   `node --check app.js && node --check app.module.js`, `node tools/check-*.mjs`.
@@ -113,7 +114,7 @@
   답은 여러 개(띄어쓰기 · 문장부호 무시), 다르면 모범 답 + 「제 답도 맞아요」. 글 45편(초급 20 · 중급 15 · 고급 10, 안티 · Claude 검토).
   문법 쪽 「📄 학습지 PDF」(sbWsPrint) — 설명 · 예문 · 빈칸 · 바꿔 쓰기 · 직접 쓰기 · 내 메모 + 정답 쪽, 여행 학습지와 같은 틀(.ws). 지금은 무료.
 - **단어 — 잘게 나눈 주제 · 단어 한 장 새 화면 · 표현 자료**(운영자 요청 2026-10-07): `vocab/taxonomy.json` 에 작은 주제 71칸 더함(모두 166, 옛 칸은 그대로 — 감정 기쁨/슬픔/화 … · 학용품 · 전자기기 · 정치 …). 낱말 1만 개에 새 칸 붙이기는 안티(`docs/antigravity-vocab-retag-task.md`, 1,000개 × 11묶음, `topics` 만 더하기).
-  사자성어 · 속담 · 관용 표현 각 150 은 안티(`docs/antigravity-expressions-task.md` → `vocab/data/expressions.json`, 검사 `check-expressions`) — 오면 검토하고 화면에 붙인다(아직 화면 없음).
+  사자성어 · 속담 · 관용 표현 각 150 은 안티(`docs/antigravity-expressions-task.md` → `vocab/data/expressions.json`, 검사 `check-expressions`) — 화면은 「단어」 「표현」 탭(`words.js` drawExpr · drawExprOne · 퀴즈 10문제, 주소 `#words/expr` · `#words/expr/<id>`, 운영자 2026-10-07). 속담 · 관용 표현은 들어오면 `build-expressions` 만 다시.
   단어 한 장(`words.js` drawWord): 탭 뜻 · 여러 뜻(사전 뜻풀이) · 어원 · 한자(같은 한자 낱말, 자료 `j`) · 관련 말 · AI 질문(ask-korean, `wdAskAI`) + 아래 고정 「발음 연습(window.ptWith) · 다음 낱말」. 주제 화면에 작은 주제 칩 · 「둘러보기」에 주제 찾기, 주소 `#words/topic/feelings~joy`.
   반 숙제 「단어 · 주제」(ref = 주제 id) — 그 주제 세션만 센다(`db/update_cls_mark_vocab.sql`, 운영자가 SQL Editor 에서).
 - **콘텐츠 늘리기**(운영자 결정 2026-10-07 — 「콘텐츠를 뽑을 때」): 안티 지시서 — TOPIK 고르게(`docs/antigravity-topik-balance-task.md`, 읽기 번호마다 10 · 듣기 6, 8묶음 — mock-more 를 대신함) · 레벨별 짧은 이야기(`docs/antigravity-stories-more-task.md`, L1~L7 레벨마다 10편, 3묶음) · 실생활 대화 장면(`docs/antigravity-convo-more-task.md`, 31 → 150, 4묶음) · 표현 450 · 주제 다시 붙이기. **들어온 것(2026-10-07)**: TOPIK 고르게 1(읽기 I 31~48 → 번호마다 10, 65문항 — 정답 자리 ④가 8/65 로 적음, 다음 묶음에 「④ 를 더」) · 이야기 1(sb-12~30, L1~3 각 10편) · 대화 1(34장면, 실제 은행 이름 · 요율 3곳 일반 표현으로 고침) · 사자성어 149(박빙지세 뺌 — 드문 말) · 주제 다시 붙이기 1 · 2(TOPIK I 1,931개 끝). **TOPIK 쓰기 해설 영상은 운영자가 직접 강의**(Claude 는 만들지 않는다).

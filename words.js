@@ -358,7 +358,7 @@ export function wordsInit(D) {
   /* 탭 이름은 그릴 때마다 만든다 — 한 번만 만들면 언어를 바꿔도 예전 말로 남는다. */
   /* 탭은 넷 — 처음 온 학생이 고민 없이 「오늘」을 누르게(운영자 요청: 덜어내기). 복습은 「오늘」에, 별표는 「내 단어장」에 합쳤다. */
   const tabs = () => [
-    ['home', t('오늘', 'Today')], ['learn', t('외우기', 'Learn')],
+    ['home', t('오늘', 'Today')], ['learn', t('외우기', 'Learn')], ['expr', t('표현', 'Idioms')],
     ['mine', t('내 단어장', 'My wordbook')], ['stats', t('기록', 'Progress')],
   ];
   /* 선 아이콘(SVG) — 이모지는 기기마다 모양 · 색이 달라 화면이 어수선해진다(운영자 요청: 이모지 → SVG). 24칸 · 글자 색을 따른다. */
@@ -450,7 +450,7 @@ export function wordsInit(D) {
   };
 
   function shell(body) {
-    const tabOn = view.tab === 'topic' || view.tab === 'pick' ? 'learn' : view.tab === 'review' ? 'home' : view.tab === 'star' ? 'mine' : view.tab;
+    const tabOn = view.tab === 'xone' ? 'expr' : view.tab === 'topic' || view.tab === 'pick' ? 'learn' : view.tab === 'review' ? 'home' : view.tab === 'star' ? 'mine' : view.tab;
     return `<div class="wd-top">
       <div class="wd-hero">
         <h2 class="wd-h">${esc(t('단어', 'Words'))}</h2>
@@ -1301,6 +1301,107 @@ export function wordsInit(D) {
     advance();
   }
 
+
+  /* ── 표현: 사자성어 · 속담 · 관용 표현(운영자 2026-10-07 「사자성어 · 속담 · 관용 표현도 — 뜻 · 예문 · 퀴즈」) ──
+     자료는 expressions.js(tools/build-expressions.mjs ← vocab/data/expressions.json, 안티 · Claude 검토). 이 탭을 열 때만 받는다.
+     속담 · 관용 표현은 아직 자료가 없다 — 칸은 보여 주고 「준비 중」으로. */
+  let EXPR = null, exprP = null;
+  const isEn = () => document.documentElement.lang !== 'ko';
+  const xs = { ty: 'idiom4', lv: 0, q: '', quiz: null };
+  const X_TYPES = [['idiom4', t('사자성어', 'Four-character idioms')], ['proverb', t('속담', 'Proverbs')], ['idiom', t('관용 표현', 'Idiomatic phrases')]];
+  function exprNeed() {
+    if (EXPR || exprP) return;
+    exprP = D.loadExpr().then((a) => { EXPR = a; if (view.tab === 'expr' || view.tab === 'xone') draw(); }, () => { exprP = null; });
+  }
+  const xById = (id) => EXPR?.find((x) => x.id === id);
+  const xByHead = (h) => EXPR?.find((x) => x.h === h);
+  function xList() {
+    const q = xs.q.trim().toLowerCase();
+    return (EXPR || []).filter((x) => x.ty === xs.ty && (!xs.lv || x.lv === xs.lv) &&
+      (!q || x.h.includes(q) || x.m.includes(q) || x.en.toLowerCase().includes(q) || (x.hj || '').includes(q)));
+  }
+  function drawExpr() {
+    if (!EXPR) { exprNeed(); return `<p class="wd-none">${esc(t('불러오는 중…', 'Loading…'))}</p>`; }
+    if (xs.quiz) return drawExprQuiz();
+    const n = (ty) => EXPR.filter((x) => x.ty === ty).length;
+    const list = xList();
+    const lvs = [...new Set(EXPR.filter((x) => x.ty === xs.ty).map((x) => x.lv))].sort();
+    return `<div class="wd-x">
+      <div class="wd-x-hero"><b>${esc(t('한국어를 한층 자연스럽게', 'Sound more natural'))}</b><span>${esc(t('사자성어 · 속담 · 관용 표현 — 뜻과 예문을 보고, 퀴즈로 굳혀요.', 'Idioms, proverbs and set phrases — read the meaning and examples, then lock them in with a quiz.'))}</span>
+        ${n(xs.ty) >= 4 ? `<button type="button" class="wd-day-go" data-act="xquiz">${esc(t('🎯 퀴즈 10문제', '🎯 10-question quiz'))}${ico('arrow')}</button>` : ''}</div>
+      <div class="wd-group" role="tablist">${X_TYPES.map(([k, l]) => `<button type="button" class="wd-chip${xs.ty === k ? ' on' : ''}" data-act="xty" data-k="${k}">${esc(l)} <small>${n(k) || esc(t('준비 중', 'soon'))}</small></button>`).join('')}</div>
+      ${n(xs.ty) ? `<div class="wd-group wd-x-lv">${[0, ...lvs].map((L) => `<button type="button" class="wd-chip${xs.lv === L ? ' on' : ''}" data-act="xlv" data-k="${L}">${L ? `L${L}` : esc(t('모든 레벨', 'All levels'))}</button>`).join('')}</div>
+      <input class="wd-x-q" id="wdXQ" type="search" autocomplete="off" value="${esc(xs.q)}" placeholder="${esc(t('찾기 — 일석이조 · two birds · 一石', 'Search — 일석이조, two birds, 一石'))}" aria-label="${esc(t('표현 찾기', 'Search idioms'))}">
+      <div class="wd-x-list" id="wdXList">${xListHtml(list)}</div>`
+      : `<div class="wd-x-soon">${esc(t('이 갈래는 준비 중이에요. 곧 150개가 들어와요!', 'Coming soon — 150 on the way!'))}</div>`}
+    </div>`;
+  }
+  function xListHtml(list) {
+    if (!list.length) return `<p class="wd-none">${esc(t('찾는 표현이 없어요.', 'No matches.'))}</p>`;
+    return list.map((x) => `<button type="button" class="wd-x-row" data-act="xone" data-k="${esc(x.id)}">
+      <span class="wd-x-h"><b>${esc(x.h)}</b>${x.hj ? `<i>${esc(x.hj)}</i>` : ''}</span>
+      <span class="wd-x-m">${esc(isEn() ? x.en : x.m)}</span><em>L${x.lv}${x.tk ? ' · TOPIK' : ''}</em></button>`).join('');
+  }
+  function drawExprOne(id) {
+    if (!EXPR) { exprNeed(); return `<p class="wd-none">${esc(t('불러오는 중…', 'Loading…'))}</p>`; }
+    const x = xById(id);
+    if (!x) return `<p class="wd-none">${esc(t('표현을 찾지 못했어요.', 'Not found.'))}</p>`;
+    const toneL = { formal: t('격식 · 글', 'Formal · written'), neutral: t('두루 써요', 'Everyday'), casual: t('친한 사이 말', 'Casual') }[x.tone] || '';
+    const rel = (arr, lab) => arr?.length ? `<div class="wd-relrow"><em>${esc(lab)}</em><div>${arr.map((h) => xByHead(h) ? `<button type="button" class="wd-chip" data-act="xone" data-k="${esc(xByHead(h).id)}">${esc(h)}</button>` : `<span class="wd-chip">${esc(h)}</span>`).join('')}</div></div>` : '';
+    return `<div class="wd-x-one">
+      <button type="button" class="wd-back" data-tab="expr">← ${esc(t('표현', 'Idioms'))}</button>
+      <div class="wd-x-card">
+        <div class="wd-word-h"><b>${esc(x.h)}</b><button type="button" class="dict-say" data-say="${esc(x.h)}" aria-label="${esc(t('발음 듣기', 'Play'))}">${icon}</button></div>
+        ${x.hj ? `<div class="wd-x-hanja">${[...x.hj].map((c, i) => `<span><b>${esc(c)}</b><small>${esc(x.he?.[i] || '')}</small></span>`).join('')}</div>` : ''}
+        <p class="wd-x-mean">${esc(x.m)}</p>
+        <p class="wd-x-en">${esc(x.en)}${x.eq ? ` <small>≈ ${esc(x.eq)}</small>` : ''}</p>
+        <p class="wd-x-lit">${esc(t('글자 그대로', 'Literally'))}: ${esc(x.lit)}</p>
+        <p class="wd-x-tags"><span>L${x.lv}</span>${x.tk ? '<span>TOPIK</span>' : ''}${toneL ? `<span>${esc(toneL)}</span>` : ''}</p>
+      </div>
+      <h3 class="wd-h3">${esc(t('예문', 'Examples'))}</h3>
+      <div class="wd-x-ex">${x.ex.map(([k, e]) => `<div><p>${esc(k).split(esc(x.h)).join(`<mark>${esc(x.h)}</mark>`)} <button type="button" class="dict-say" data-say="${esc(k)}" aria-label="${esc(t('듣기', 'Play'))}">${icon}</button></p><small>${esc(e)}</small></div>`).join('')}</div>
+      ${x.dl ? `<h3 class="wd-h3">${esc(t('대화로 보기', 'In a conversation'))}</h3><div class="wd-x-dl">${x.dl.map(([who, line]) => `<p><b>${esc(who)}</b>${esc(line)}</p>`).join('')}</div>` : ''}
+      ${x.note ? `<p class="wd-x-note">💡 ${esc(x.note)}</p>` : ''}
+      ${rel(x.syn, t('비슷한 표현', 'Similar'))}${rel(x.ant, t('반대 표현', 'Opposite'))}
+      ${x.wd?.length ? `<div class="wd-relrow"><em>${esc(t('같이 보면 좋은 낱말', 'Related words'))}</em><div>${x.wd.map((h) => `<button type="button" class="wd-chip" data-word="${esc(h)}">${esc(h)}</button>`).join('')}</div></div>` : ''}
+      <div class="wd-x-btns"><button type="button" class="wd-btn" data-act="xsave" data-k="${esc(x.id)}">${esc(t('📒 내 단어장에 담기', '📒 Save to my wordbook'))}</button></div>
+    </div>`;
+  }
+  /* 퀴즈 10문제 — 둘을 번갈아: ① 표현 → 뜻 고르기 ② 예문 빈칸 → 표현 고르기(예문 속 표현을 ___ 로). 오답 보기는 같은 갈래에서. */
+  function xQuizStart() {
+    const pool = (EXPR || []).filter((x) => x.ty === xs.ty && (!xs.lv || x.lv === xs.lv));
+    const src = pool.length >= 4 ? pool : (EXPR || []).filter((x) => x.ty === xs.ty);
+    const pick = src.slice().sort(() => Math.random() - 0.5).slice(0, 10);
+    xs.quiz = { qs: pick.map((x, i) => {
+      const others = src.filter((y) => y !== x && y.m !== x.m).sort(() => Math.random() - 0.5).slice(0, 3);
+      const ex = x.ex.find(([k]) => k.includes(x.h));
+      const kind = i % 2 && ex ? 'fill' : 'mean';
+      const opts = [x, ...others].sort(() => Math.random() - 0.5);
+      return { x, kind, ex: ex?.[0], opts };
+    }), i: 0, right: 0, picked: null, miss: [] };
+    D.track('표현퀴즈');
+  }
+  function drawExprQuiz() {
+    const Q = xs.quiz, q = Q.qs[Q.i];
+    if (!q) {
+      return `<div class="wd-x-end"><p class="wd-x-score"><b>${Q.right}</b> / ${Q.qs.length}</p>
+        ${Q.miss.length ? `<h3 class="wd-h3">${esc(t('다시 볼 표현', 'Review these'))}</h3><div class="wd-x-list">${xListHtml(Q.miss)}</div>` : `<p>${esc(t('다 맞혔어요! 🎉', 'Perfect! 🎉'))}</p>`}
+        <div class="wd-x-btns"><button type="button" class="wd-btn" data-act="xquiz">${esc(t('🔁 다시 하기', '🔁 Again'))}</button><button type="button" class="wd-btn ghost" data-act="xqend">${esc(t('목록으로', 'Back to list'))}</button></div></div>`;
+    }
+    const ask = q.kind === 'fill'
+      ? `<p class="wd-x-qk">${esc(t('빈칸에 알맞은 표현은?', 'Which idiom fits the blank?'))}</p><p class="wd-x-qs">${esc(q.ex.split(q.x.h).join('＿＿＿＿'))}</p>`
+      : `<p class="wd-x-qk">${esc(t('이 표현의 뜻은?', 'What does it mean?'))}</p><p class="wd-x-qh">${esc(q.x.h)}${q.x.hj ? `<small>${esc(q.x.hj)}</small>` : ''}</p>`;
+    const lab = (o) => (q.kind === 'fill' ? o.h : (isEn() ? o.en : o.m));
+    return `<div class="wd-x-quiz"><div class="wd-x-qtop"><span>${Q.i + 1} / ${Q.qs.length}</span><button type="button" class="wd-more" data-act="xqend">${esc(t('그만하기', 'Quit'))}</button></div>
+      ${ask}
+      <div class="wd-x-opts">${q.opts.map((o, k) => {
+        const st = Q.picked == null ? '' : o === q.x ? ' ok' : k === Q.picked ? ' no' : '';
+        return `<button type="button" class="wd-x-opt${st}" data-act="xans" data-k="${k}"${Q.picked != null ? ' disabled' : ''}>${esc(lab(o))}</button>`;
+      }).join('')}</div>
+      ${Q.picked != null ? `<div class="wd-x-why"><b>${esc(q.x.h)}</b> — ${esc(q.x.m)}<br><small>${esc(q.x.en)}</small></div><button type="button" class="wd-day-go" data-act="xnext">${esc(t('다음', 'Next'))}${ico('arrow')}</button>` : ''}
+    </div>`;
+  }
+
   /* ── 한 화면 그리기 ─────────────────────────────────────── */
   function draw() {
     let body;
@@ -1316,6 +1417,8 @@ export function wordsInit(D) {
     else if (view.tab === 'stats') body = drawStats();
     else if (view.tab === 'mine') body = drawMine();
     else if (view.tab === 'word') body = drawWord(view.h);
+    else if (view.tab === 'expr') body = drawExpr();
+    else if (view.tab === 'xone') body = drawExprOne(view.id);
     else body = drawHome();
     const hadFocus = document.activeElement?.id === 'wdQ';
     const pos = hadFocus ? document.activeElement.selectionStart : null;
@@ -1419,6 +1522,14 @@ export function wordsInit(D) {
     if (act === 'dash') return D.openDashboard?.();
     if (act === 'game-quiz') return D.openQuiz();
     if (act === 'gsrc') { try { localStorage.setItem('cp_wd_gsrc', a.dataset.k); } catch (e) {} return draw(); }
+    if (act === 'xty') { xs.ty = a.dataset.k; xs.lv = 0; xs.q = ''; return draw(); }
+    if (act === 'xlv') { xs.lv = +a.dataset.k; return draw(); }
+    if (act === 'xone') { view = { tab: 'xone', id: a.dataset.k }; mark('expr/' + a.dataset.k); D.track('표현보기'); draw(); return window.scrollTo?.(0, 0); }
+    if (act === 'xquiz') { xQuizStart(); view = { tab: 'expr' }; return draw(); }
+    if (act === 'xqend') { xs.quiz = null; return draw(); }
+    if (act === 'xans') { const Q = xs.quiz; if (!Q || Q.picked != null) return; Q.picked = +a.dataset.k; const q = Q.qs[Q.i]; if (q.opts[Q.picked] === q.x) Q.right++; else Q.miss.push(q.x); D.say(q.x.h); return draw(); }
+    if (act === 'xnext') { const Q = xs.quiz; if (Q) { Q.i++; Q.picked = null; } return draw(); }
+    if (act === 'xsave') { const x = xById(a.dataset.k); if (x) D.saveWords([{ word: x.h, meaning: x.en, tag: x.ty === 'idiom4' ? '사자성어' : x.ty === 'proverb' ? '속담' : '관용 표현', vocab_id: x.id, source: 'expr' }], a); return; }
     if (act === 'hgame') {
       const k = a.dataset.k; D.track('단어게임_' + k);
       if (k === 'blocks') return D.openBlocks?.();
@@ -1530,6 +1641,7 @@ export function wordsInit(D) {
     ev.preventDefault(); wdAsk(root.querySelector('#wdAiQ')?.value);
   });
   root.addEventListener('input', (ev) => {
+    if (ev.target.id === 'wdXQ') { xs.q = ev.target.value; const box = root.querySelector('#wdXList'); if (box) box.innerHTML = xListHtml(xList()); return; }
     if (ev.target.id === 'wdTopicQ') { const box = root.querySelector('#wdTopicRes'); if (box) box.innerHTML = topicSearchHtml(ev.target.value); return; }
     if (ev.target.id !== 'wdQ') return;
     query = ev.target.value; sel = -1;
@@ -1636,7 +1748,8 @@ export function wordsInit(D) {
         if (c === 'topik1' || c === 'topik2') setTrack(c);
         else if (c) { openSession(b.replace('~', '/'), Math.max(0, +c - 1)); return; }
         view = { tab: 'topic', topic: b.replace('~', '/') };
-      } else if (['learn', 'review', 'star', 'stats', 'mine'].includes(a)) view = { tab: a };
+      } else if (a === 'expr' && b) { view = { tab: 'xone', id: b }; exprNeed(); }
+      else if (['learn', 'review', 'star', 'stats', 'mine', 'expr'].includes(a)) view = { tab: a };
       else view = { tab: 'home' };
       draw();
     };
