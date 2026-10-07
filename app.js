@@ -97,10 +97,13 @@ const WAY_GO = {
   reading:  () => goLearn('reading'),
   convo:    () => goLearn('convo'),
   games:    () => window.cpOpen && window.cpOpen('games'),
+  /* 제품 둘러보기 칸(2026-10-07) */
+  levelTest: () => goLevelTest(),
+  class:    () => goLearn('class'),
   glossary: () => window.cpOpen && window.cpOpen('words'),
 };
 /* 첫 화면 두 문(.hm-door, 2026-10-05)도 같은 길로 */
-document.querySelectorAll('.way[data-go], .hm-door[data-go], .hm-rec-row[data-go], .hm-banner[data-go]').forEach((b) => {
+document.querySelectorAll('.way[data-go], .hm-door[data-go], .hm-rec-row[data-go], .hm-banner[data-go], .hm-tour-t[data-go]').forEach((b) => {
   b.addEventListener('click', () => { const f = WAY_GO[b.dataset.go]; if (f) f(); });
 });
 
@@ -352,7 +355,7 @@ const PT = () => PT_SETS[ptLevel] || PT_SETS.normal;
    번역이 다 들어오기 전에는 메뉴에 안 보인다(빈 사전이면 영어만 나와 헷갈린다). 미리 보기는 주소 끝에 ?i18n=all. */
 const LANGS = [['ko', '한국어', 'KO', 1], ['en', 'English', 'EN', 1], ['vi', 'Tiếng Việt', 'VI', 0], ['ja', '日本語', '日', 0], ['zh', '中文（简体）', '中', 0]];
 const langShown = () => LANGS.filter((x) => x[3] || /[?&]i18n=all/.test(location.search));
-const I18N_URL = { vi: './i18n-vi.js?v=715177d7', ja: './i18n-ja.js?v=715177d7', zh: './i18n-zh.js?v=715177d7' };
+const I18N_URL = { vi: './i18n-vi.js?v=5b8418b2', ja: './i18n-ja.js?v=5b8418b2', zh: './i18n-zh.js?v=5b8418b2' };
 const trMemo = new Map();
 window.cpTr = (en) => {
   const L = window.cpI18n, s = String(en ?? '');

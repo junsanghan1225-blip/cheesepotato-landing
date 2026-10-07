@@ -40,7 +40,7 @@
 ">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <!-- 구글 태그 관리자. 구글이 주는 인라인 코드조각은 CSP 가 막아서 gtm.js 로 뺐다. -->
-<script src="gtm.js?v=715177d7" async></script>
+<script src="gtm.js?v=5b8418b2" async></script>
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <!-- 제목과 설명을 두 말로 쓴다. 이 사이트를 찾을 사람은 한국어를 **배우는**
@@ -119,13 +119,13 @@
      Pretendard 는 통짜(2.0MB) 대신 조각난 쪽을 쓴다 — 브라우저가
      unicode-range 를 보고 화면에 실제로 나온 글자가 든 조각만 받는다.
      그래서 저장소는 무거워졌지만 학습자가 받는 양은 오히려 줄었다. -->
-<link rel="stylesheet" href="vendor/pretendard.css?v=715177d7">
-<link rel="stylesheet" href="vendor/pressstart2p.css?v=715177d7">
+<link rel="stylesheet" href="vendor/pretendard.css?v=5b8418b2">
+<link rel="stylesheet" href="vendor/pressstart2p.css?v=5b8418b2">
 <!-- 화면 상자 안에서만 쓰는 CSS 는 여기서 갈라 받는다. media="print" 라
      첫 페인트를 안 막고, 다 받아지면 app.js 가 media 를 all 로 바꾼다.
      자바스크립트가 없으면 <noscript> 쪽이 그냥 평범하게 걸린다. -->
-<link id="viewsCss" rel="stylesheet" href="app-views.css?v=715177d7" media="print">
-<noscript><link rel="stylesheet" href="app-views.css?v=715177d7"></noscript>
+<link id="viewsCss" rel="stylesheet" href="app-views.css?v=5b8418b2" media="print">
+<noscript><link rel="stylesheet" href="app-views.css?v=5b8418b2"></noscript>
 
 <style>
 /* ══════════════════════════════════════════════════════════════
@@ -747,6 +747,16 @@ body.nav-open { overflow:hidden; }
 html[data-lv] .hm-doors { display:none; }
 /* 길 넷(2026-10-06) — 학생에게도 보인다. 폰 한 줄 · PC 두 줄 */
 html[data-lv] .hm-paths .hm-doors { display:grid; }
+/* 첫 화면 「치즈감자로 할 수 있는 것」(제품 둘러보기, 2026-10-07) — 폰 두 칸 · PC 네 칸. 길 넷 아래. */
+.hm-tour { max-width:var(--max); margin:8px auto 24px; padding:0 var(--gut); box-sizing:border-box; }
+.hm-tour .hm-paths-h { padding:0; margin:20px 0 10px; }
+.hm-tour-grid { display:grid; grid-template-columns:repeat(2, 1fr); gap:10px; }
+@media (min-width: 760px) { .hm-tour-grid { grid-template-columns:repeat(4, 1fr); } }
+.hm-tour-t { display:flex; flex-direction:column; align-items:flex-start; gap:4px; padding:14px; border-radius:18px; border:1px solid var(--line); background:var(--surface); color:var(--ink); font:inherit; text-align:left; cursor:pointer; transition:transform .15s, border-color .15s; }
+.hm-tour-t:hover { transform:translateY(-2px); border-color:var(--orange); }
+.hm-tour-ic { font-size:24px; line-height:1; margin-bottom:4px; }
+.hm-tour-t b { font-size:15.5px; font-weight:800; }
+.hm-tour-t span:not(.hm-tour-ic) { font-size:12.5px; color:var(--ink-3); line-height:1.4; word-break:keep-all; }
 /* 첫 화면 시안 「무엇을 배우러 오셨나요?」(2026-10-06) — 왼쪽 질문, 오른쪽 추천 카드 · 길 카드 · 배너 하나 */
 .hero-ask .hero-in { display:grid; gap:24px; max-width:calc(var(--max) - 2 * var(--gut)); }
 @media (min-width:900px) { .hero-ask .hero-in { grid-template-columns:1.1fr .9fr; gap:48px; align-items:center; } }
@@ -2147,6 +2157,20 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <span class="hm-banner-card" aria-hidden="true"><i>I’m sorry I’m late.</i><b>늦어서 죄송해요.</b></span>
     <span class="hm-banner-go" data-en="Start →">시작하기 →</span>
   </button>
+  <!-- 제품 둘러보기(운영자 요청 2026-10-07 「메뉴 깊숙한 기능 — 첫 화면에서 무엇을 할 수 있는지 한눈에」). 여덟 칸, 누르면 그 기능으로. 모두에게 보인다. -->
+  <section class="hm-tour" aria-labelledby="hmTourH">
+    <p class="hm-paths-h" id="hmTourH" data-en="Everything you can do here">치즈감자로 할 수 있는 것</p>
+    <div class="hm-tour-grid">
+      <button class="hm-tour-t" type="button" data-go="levelTest"><span class="hm-tour-ic" aria-hidden="true">🧭</span><b data-en="3-min level test">3분 레벨테스트</b><span data-en="Find your level and the path that fits">내 레벨과 맞는 길 찾기</span></button>
+      <button class="hm-tour-t" type="button" data-go="courses"><span class="hm-tour-ic" aria-hidden="true">📚</span><b data-en="Courses">코스</b><span data-en="From Hangul to advanced, lesson by lesson">한글부터 고급까지 레슨으로</span></button>
+      <button class="hm-tour-t" type="button" data-go="glossary"><span class="hm-tour-ic" aria-hidden="true">🔤</span><b data-en="Words &amp; idioms">단어 · 사자성어</b><span data-en="10 a day, review, idioms with quizzes">하루 10개 · 복습 · 사자성어 퀴즈</span></button>
+      <button class="hm-tour-t" type="button" data-go="topik"><span class="hm-tour-ic" aria-hidden="true">🧀</span><b data-en="TOPIK prep">TOPIK 준비</b><span data-en="Mock tests, practice by type, AI writing scores">모의고사 · 유형 연습 · AI 쓰기 채점</span></button>
+      <button class="hm-tour-t" type="button" data-go="games"><span class="hm-tour-ic" aria-hidden="true">🎮</span><b data-en="Word games">단어 게임</b><span data-en="Word potatoes · Potato Wordle · initials quiz">단어 감자 · 오늘의 감자들 · 초성 퀴즈</span></button>
+      <button class="hm-tour-t" type="button" data-go="convo"><span class="hm-tour-ic" aria-hidden="true">🗣️</span><b data-en="Speaking">회화 · 발음</b><span data-en="Real-life scenes and AI pronunciation check">실생활 장면 · AI 발음 진단</span></button>
+      <button class="hm-tour-t" type="button" data-go="translate"><span class="hm-tour-ic" aria-hidden="true">✍️</span><b data-en="Writing">쓰기 · 번역</b><span data-en="Translate line by line · grammar worksheets (PDF)">한 줄씩 번역 · 문법 학습지 PDF</span></button>
+      <button class="hm-tour-t" type="button" data-go="class"><span class="hm-tour-ic" aria-hidden="true">🏫</span><b data-en="For teachers">선생님 · 반</b><span data-en="Homework, progress reports, QR join">숙제 · 진도 리포트 · QR로 들어오기</span></button>
+    </div>
+  </section>
   <!-- 첫 화면 다시 짜기(운영자 요청 2026-10-06 「UX 법칙을 생각해서」): 세 덩어리로 — ① 시작(머리 문장 + 큰 단추 하나, 피츠 · 힉)
        ② 길 넷 ③ 오늘의 한 문제 · 믿을 만한 숫자(밀러 — 묶어서). 숫자 · 오늘의 문제는 히어로에서 이리로 내려왔다(check-geo 는 aria-label 을 그대로 본다). -->
   <div class="hm-proofrow hm-intro">
@@ -4085,9 +4109,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <div id="hlpScrim" class="hlp-scrim"></div>
 <aside id="hlpPanel" class="hlp-panel" aria-label="한국어 도우미" aria-hidden="true"></aside>
 
-<script src="app.js?v=715177d7"></script>
-<script type="module" src="app.module.js?v=715177d7"></script>
+<script src="app.js?v=5b8418b2"></script>
+<script type="module" src="app.module.js?v=5b8418b2"></script>
 
-<script src="analytics.js?v=715177d7" defer></script>
+<script src="analytics.js?v=5b8418b2" defer></script>
 </body>
 </html>
