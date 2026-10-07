@@ -6341,3 +6341,11 @@ body:has(#blkView:not(.hidden)) .hlp-fab { display:none; }
 .cls-stu-hw li.late b { color:var(--red); }
 .cls-stu-hw li small { font-size:12px; color:var(--ink-3); }
 .cls-rep-tbl summary { cursor:pointer; font-size:13.5px; font-weight:700; color:var(--ink-2); margin:6px 0; }
+.cls-stu-cal { margin:0 12px 8px; padding:8px 10px; border-radius:8px; background:var(--tint); font-size:13px; }
+.cls-stu-cal p { margin:0 0 6px; }
+.cls-stu-cal .cls-row { display:flex; gap:6px; }
+.cls-stu-cal .sb-in { flex:1; min-width:0; }
+.cls-sched-me { flex-basis:100%; margin-left:0 !important; color:var(--ink-3) !important; }
+.cls-check { display:flex; gap:8px; align-items:flex-start; font-size:13px; font-weight:400; }
+.cls-stu-last { font-size:12px; color:var(--ink-3); }
+.cls-stu-out { margin:0 12px 6px; }
