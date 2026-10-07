@@ -12,7 +12,9 @@ for (const f of fs.readdirSync(DIR).filter((x) => /^[a-z]{2}(-[A-Za-z]+)?\.json$
   const EXACT = {}, PATS = [];
   for (const [en, tr] of Object.entries(d)) {
     if (!tr || typeof tr !== 'string') continue;
-    if (/\{\d\}/.test(en)) PATS.push(['^' + esc(en).replace(/\\\{(\d)\\\}/g, '([\\s\\S]*?)') + '$', tr, [...en.matchAll(/\{(\d)\}/g)].map((m) => +m[1])]);
+    // 영어 복수 꼬리(run{2} → runs)는 다른 말에서는 버린다 — 「3 lầns」처럼 붙지 않게. 글자 바로 뒤의 자리 표시만 해당(값이 s · es · 빈칸일 때 화면에서 지운다).
+    const plural = [...en.matchAll(/[a-z]\{(\d)\}/g)].map((m) => +m[1]);
+    if (/\{\d\}/.test(en)) PATS.push(['^' + esc(en).replace(/\\\{(\d)\\\}/g, '([\\s\\S]*?)') + '$', tr, [...en.matchAll(/\{(\d)\}/g)].map((m) => +m[1]), plural]);
     else EXACT[en] = tr;
   }
   fs.writeFileSync(path.join(ROOT, `i18n-${code}.js`), `/* 만든 것: tools/build-i18n.mjs ← docs/i18n/${f} — 손으로 고치지 않는다 */\nexport const LANG = ${JSON.stringify(code)};\nexport const EXACT = ${JSON.stringify(EXACT)};\nexport const PATS = ${JSON.stringify(PATS)};\n`);

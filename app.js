@@ -352,7 +352,7 @@ const PT = () => PT_SETS[ptLevel] || PT_SETS.normal;
    번역이 다 들어오기 전에는 메뉴에 안 보인다(빈 사전이면 영어만 나와 헷갈린다). 미리 보기는 주소 끝에 ?i18n=all. */
 const LANGS = [['ko', '한국어', 'KO', 1], ['en', 'English', 'EN', 1], ['vi', 'Tiếng Việt', 'VI', 0], ['ja', '日本語', '日', 0], ['zh', '中文（简体）', '中', 0]];
 const langShown = () => LANGS.filter((x) => x[3] || /[?&]i18n=all/.test(location.search));
-const I18N_URL = { vi: './i18n-vi.js?v=3330f39b', ja: './i18n-ja.js?v=3330f39b', zh: './i18n-zh.js?v=3330f39b' };
+const I18N_URL = { vi: './i18n-vi.js?v=233e4489', ja: './i18n-ja.js?v=233e4489', zh: './i18n-zh.js?v=233e4489' };
 const trMemo = new Map();
 window.cpTr = (en) => {
   const L = window.cpI18n, s = String(en ?? '');
@@ -360,12 +360,16 @@ window.cpTr = (en) => {
   if (L.exact[s] != null) return L.exact[s];
   if (trMemo.has(s)) return trMemo.get(s);
   let r = s;
-  for (const [re, tr, ord] of L.pats) { const m = s.match(re); if (m) { r = tr.replace(/\{(\d)\}/g, (_, i) => m[ord.indexOf(+i) + 1] ?? ''); break; } }
+  for (const [re, tr, ord, pl] of L.pats) {
+    const m = s.match(re);
+    // 영어 복수 꼬리(s · es)는 버린다 — tools/build-i18n.mjs 가 그 자리를 pl 로 알려 준다
+    if (m) { r = tr.replace(/\{(\d)\}/g, (_, i) => { const v = m[ord.indexOf(+i) + 1] ?? ''; return pl?.includes(+i) && /^(e?s)?$/.test(v) ? '' : v; }); break; }
+  }
   trMemo.set(s, r);
   return r;
 };
 const langNeed = (code) => (!I18N_URL[code] ? Promise.resolve() : window.cpI18n?.lang === code ? Promise.resolve()
-  : import(I18N_URL[code]).then((m) => { trMemo.clear(); window.cpI18n = { lang: m.LANG, exact: m.EXACT, pats: m.PATS.map(([re, tr, ord]) => [new RegExp(re), tr, ord]) }; }));
+  : import(I18N_URL[code]).then((m) => { trMemo.clear(); window.cpI18n = { lang: m.LANG, exact: m.EXACT, pats: m.PATS.map(([re, tr, ord, pl]) => [new RegExp(re), tr, ord, pl || []]) }; }));
 const ptIsEn = () => document.documentElement.lang !== 'ko';
 /* 안내 문구는 data-en 으로 못 붙인다 — 상황에 따라 자바스크립트가 바꿔
    쓰는 자리라서다. 영어 화면인데 여기만 한국어로 남아 있었다. */
