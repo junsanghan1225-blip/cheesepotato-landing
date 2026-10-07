@@ -346,10 +346,27 @@ const PT = () => PT_SETS[ptLevel] || PT_SETS.normal;
    선언되기 때문이다 — 저장된 단계를 불러오는 코드가 먼저 도는데 거기서
    ptLang 을 읽으면 TDZ 로 스크립트 전체가 죽는다. <html lang> 은
    applyLang 이 늘 맞춰 두므로 언제 읽어도 안전하다. */
-const ptIsEn = () => document.documentElement.lang === 'en';
+/* 화면 언어(운영자 2026-10-07 — 중국어부터): ko · en 에 더해 번역 사전(i18n-<언어>.js)이 있는 언어.
+   번역 언어는 영어 화면을 바탕으로 사전에서 바꾼다(cpTr) — 사전에 없는 글귀는 영어 그대로. */
+const LANGS = [['ko', '한국어', 'KO'], ['en', 'English', 'EN'], ['zh', '中文（简体）', '中']];
+const I18N_URL = { zh: './i18n-zh.js?v=c3cfc53a' };
+const trMemo = new Map();
+window.cpTr = (en) => {
+  const L = window.cpI18n, s = String(en ?? '');
+  if (!L || L.lang !== document.documentElement.lang || !s) return s;
+  if (L.exact[s] != null) return L.exact[s];
+  if (trMemo.has(s)) return trMemo.get(s);
+  let r = s;
+  for (const [re, tr, ord] of L.pats) { const m = s.match(re); if (m) { r = tr.replace(/\{(\d)\}/g, (_, i) => m[ord.indexOf(+i) + 1] ?? ''); break; } }
+  trMemo.set(s, r);
+  return r;
+};
+const langNeed = (code) => (!I18N_URL[code] ? Promise.resolve() : window.cpI18n?.lang === code ? Promise.resolve()
+  : import(I18N_URL[code]).then((m) => { trMemo.clear(); window.cpI18n = { lang: m.LANG, exact: m.EXACT, pats: m.PATS.map(([re, tr, ord]) => [new RegExp(re), tr, ord]) }; }));
+const ptIsEn = () => document.documentElement.lang !== 'ko';
 /* 안내 문구는 data-en 으로 못 붙인다 — 상황에 따라 자바스크립트가 바꿔
    쓰는 자리라서다. 영어 화면인데 여기만 한국어로 남아 있었다. */
-const ptT = (ko, en) => (ptIsEn() ? en : ko);
+const ptT = (ko, en) => (ptIsEn() ? window.cpTr(en) : ko);
 
 const PT_LV = [
   { min:90, n:'원어민 수준', s:'거의 그대로 전달됩니다. 발음으로 막힐 일은 없겠어요.' },
@@ -1148,32 +1165,53 @@ ptId('navBtn').addEventListener('click', () => {
 let ptLang = 'ko';
 function applyLang(lang) {
   ptLang = lang;
+  document.documentElement.lang = lang;   // 먼저 — cpTr 이 지금 언어를 본다
+  const en = lang !== 'ko';
   document.querySelectorAll('[data-en], [data-ko]').forEach(el => {
     // 둘 중 원문이 아닌 쪽을 처음 볼 때 보관해 둔다. 안 그러면 되돌릴 수 없다.
     if (el.dataset.ko === undefined) el.dataset.ko = el.innerHTML;
     if (el.dataset.en === undefined) el.dataset.en = el.innerHTML;
-    el.innerHTML = lang === 'en' ? el.dataset.en : el.dataset.ko;
+    el.innerHTML = en ? window.cpTr(el.dataset.en) : el.dataset.ko;
   });
   /* 눈에 보이는 이름표가 없는 칸(찾기 상자, 갈래 고르기)은 aria-label 로만
      이름이 붙는다. 그건 innerHTML 이 아니라서 위 반복이 못 건드린다 —
      따로 바꿔 주지 않으면 영어 화면에서 화면 낭독기만 한국어로 읽는다. */
   document.querySelectorAll('[data-en-aria]').forEach(el => {
     if (el.dataset.koAria === undefined) el.dataset.koAria = el.getAttribute('aria-label') || '';
-    el.setAttribute('aria-label', lang === 'en' ? el.dataset.enAria : el.dataset.koAria);
+    el.setAttribute('aria-label', en ? window.cpTr(el.dataset.enAria) : el.dataset.koAria);
   });
-  document.documentElement.lang = lang;
   const b = ptId('langBtn');
-  b.textContent = lang === 'en' ? 'KO' : 'EN';
-  b.setAttribute('aria-label', lang === 'en' ? '한국어로 보기' : 'Switch to English');
+  b.textContent = (LANGS.find((x) => x[0] === lang) || LANGS[1])[2];
+  b.setAttribute('aria-label', '언어 · Language');
   // 지문은 한국어 발음을 재는 것이라 번역하지 않는다. 안내 문구만 바꾼다.
   ptId('ptHint').textContent = ptRunning
-    ? (lang === 'en' ? 'Listening — pause when you finish and it stops on its own'
+    ? (en ? window.cpTr('Listening — pause when you finish and it stops on its own')
                      : '듣고 있어요 — 다 읽고 잠시 기다리면 저절로 끝나요')
-    : (lang === 'en' ? 'Tap the mic and start reading'
+    : (en ? window.cpTr('Tap the mic and start reading')
                      : '마이크를 누르고 읽기 시작하세요');
 }
-ptId('langBtn').addEventListener('click', () => {
-  const next = ptLang === 'ko' ? 'en' : 'ko';
+/* 언어 단추 — 누르면 언어 메뉴. 메뉴에서 고르면 사전을 받은 뒤 이 단추를 한 번 더 「눌러」(cpLangNext) 적용한다 —
+   app.module.js 의 화면들이 이 단추의 click 을 듣고 다시 그리므로, 메뉴를 여는 눌림은 거기까지 가지 않게 막는다. */
+function langMenu(open) {
+  let m = ptId('langMenu');
+  if (!m) {
+    m = document.createElement('div'); m.id = 'langMenu'; m.className = 'lang-menu'; m.setAttribute('role', 'menu');
+    m.innerHTML = LANGS.map(([c, n]) => `<button type="button" role="menuitemradio" data-lang="${c}">${n}</button>`).join('');
+    document.body.appendChild(m);
+    m.addEventListener('click', (ev) => { const b = ev.target.closest('[data-lang]'); if (b) { langMenu(false); window.cpLangChoose(b.dataset.lang); } });
+    document.addEventListener('click', (ev) => { if (!ev.target.closest('#langMenu, #langBtn')) langMenu(false); });
+  }
+  if (open) { const r = ptId('langBtn').getBoundingClientRect(); m.style.top = `${r.bottom + 6}px`; m.style.right = `${Math.max(8, innerWidth - r.right)}px`;
+    m.querySelectorAll('[data-lang]').forEach((x) => x.setAttribute('aria-checked', x.dataset.lang === ptLang)); }
+  m.classList.toggle('on', !!open);
+}
+window.cpLangChoose = (code) => {
+  if (!LANGS.some((x) => x[0] === code)) return;
+  langNeed(code).then(() => { window.cpLangNext = code; ptId('langBtn').click(); }, () => {});
+};
+ptId('langBtn').addEventListener('click', (ev) => {
+  const next = window.cpLangNext; window.cpLangNext = null;
+  if (!next) { ev.stopImmediatePropagation(); langMenu(!ptId('langMenu')?.classList.contains('on')); return; }
   applyLang(next);
   try { localStorage.setItem('lang', next); } catch (e) {}
 });
@@ -1188,7 +1226,10 @@ ptId('langBtn').addEventListener('click', () => {
   // 저장된 것이 없으면 브라우저 언어를 본다. 한국어 사용자에게까지
   // 영어를 들이밀 이유는 없다.
   const guess = (navigator.language || '').toLowerCase().startsWith('ko') ? 'ko' : 'en';
-  applyLang(saved || guess);
+  const want = saved || guess;
+  /* 번역 언어는 사전이 올 때까지 영어로 그려 두고, 오면 바꾼다 */
+  applyLang(I18N_URL[want] ? 'en' : want);
+  if (I18N_URL[want]) window.cpLangChoose(want);
 })();
 
 /* ── confirm() · alert() 대신 <dialog> ─────────────────────────
