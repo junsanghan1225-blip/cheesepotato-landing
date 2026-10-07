@@ -63,7 +63,7 @@ document.getElementById('heroSignupBtn').addEventListener('click', () => { if (w
 /* 첫 화면의 떠 있는 낱말 카드(heroCardBtn)는 2026-10-05 시안 A 에서 「오늘의 TOPIK 1문제」(app.module.js hmQuizRender)로 바뀌었다. */
 document.getElementById('streakGoBtn').addEventListener('click', () => goLearn());
 /* 「내 길 이어가기」(2026-10-06) — 레벨테스트로 정해진 내 길의 다음 걸음 쪽으로 */
-document.getElementById('hmMyBtn').addEventListener('click', () => goLearn('path/' + (window.cpPathMine?.() || '')));
+/* 「내 길 이어가기」 단추는 2026-10-07 「내 길」 카드(app.module.js hmMyPathRender)로 바뀌었다. */
 
 /* 레벨 테스트는 팝업(<dialog>)이라 화면 전환이 아니다 — app.module.js 가
    window.ltOpen 을 걸어 둔다. 아직 안 왔으면 페이지 중간 구역의 단추
@@ -97,10 +97,13 @@ const WAY_GO = {
   reading:  () => goLearn('reading'),
   convo:    () => goLearn('convo'),
   games:    () => window.cpOpen && window.cpOpen('games'),
+  /* 제품 둘러보기 칸(2026-10-07) */
+  levelTest: () => goLevelTest(),
+  class:    () => goLearn('class'),
   glossary: () => window.cpOpen && window.cpOpen('words'),
 };
 /* 첫 화면 두 문(.hm-door, 2026-10-05)도 같은 길로 */
-document.querySelectorAll('.way[data-go], .hm-door[data-go], .hm-rec-row[data-go], .hm-banner[data-go]').forEach((b) => {
+document.querySelectorAll('.way[data-go], .hm-door[data-go], .hm-rec-row[data-go], .hm-banner[data-go], .hm-tour-t[data-go]').forEach((b) => {
   b.addEventListener('click', () => { const f = WAY_GO[b.dataset.go]; if (f) f(); });
 });
 
@@ -352,7 +355,7 @@ const PT = () => PT_SETS[ptLevel] || PT_SETS.normal;
    번역이 다 들어오기 전에는 메뉴에 안 보인다(빈 사전이면 영어만 나와 헷갈린다). 미리 보기는 주소 끝에 ?i18n=all. */
 const LANGS = [['ko', '한국어', 'KO', 1], ['en', 'English', 'EN', 1], ['vi', 'Tiếng Việt', 'VI', 0], ['ja', '日本語', '日', 0], ['zh', '中文（简体）', '中', 0]];
 const langShown = () => LANGS.filter((x) => x[3] || /[?&]i18n=all/.test(location.search));
-const I18N_URL = { vi: './i18n-vi.js?v=bb9f07a2', ja: './i18n-ja.js?v=bb9f07a2', zh: './i18n-zh.js?v=bb9f07a2' };
+const I18N_URL = { vi: './i18n-vi.js?v=f71364a8', ja: './i18n-ja.js?v=f71364a8', zh: './i18n-zh.js?v=f71364a8' };
 const trMemo = new Map();
 window.cpTr = (en) => {
   const L = window.cpI18n, s = String(en ?? '');

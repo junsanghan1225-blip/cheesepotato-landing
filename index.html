@@ -40,7 +40,7 @@
 ">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <!-- 구글 태그 관리자. 구글이 주는 인라인 코드조각은 CSP 가 막아서 gtm.js 로 뺐다. -->
-<script src="gtm.js?v=bb9f07a2" async></script>
+<script src="gtm.js?v=f71364a8" async></script>
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <!-- 제목과 설명을 두 말로 쓴다. 이 사이트를 찾을 사람은 한국어를 **배우는**
@@ -119,13 +119,13 @@
      Pretendard 는 통짜(2.0MB) 대신 조각난 쪽을 쓴다 — 브라우저가
      unicode-range 를 보고 화면에 실제로 나온 글자가 든 조각만 받는다.
      그래서 저장소는 무거워졌지만 학습자가 받는 양은 오히려 줄었다. -->
-<link rel="stylesheet" href="vendor/pretendard.css?v=bb9f07a2">
-<link rel="stylesheet" href="vendor/pressstart2p.css?v=bb9f07a2">
+<link rel="stylesheet" href="vendor/pretendard.css?v=f71364a8">
+<link rel="stylesheet" href="vendor/pressstart2p.css?v=f71364a8">
 <!-- 화면 상자 안에서만 쓰는 CSS 는 여기서 갈라 받는다. media="print" 라
      첫 페인트를 안 막고, 다 받아지면 app.js 가 media 를 all 로 바꾼다.
      자바스크립트가 없으면 <noscript> 쪽이 그냥 평범하게 걸린다. -->
-<link id="viewsCss" rel="stylesheet" href="app-views.css?v=bb9f07a2" media="print">
-<noscript><link rel="stylesheet" href="app-views.css?v=bb9f07a2"></noscript>
+<link id="viewsCss" rel="stylesheet" href="app-views.css?v=f71364a8" media="print">
+<noscript><link rel="stylesheet" href="app-views.css?v=f71364a8"></noscript>
 
 <style>
 /* ══════════════════════════════════════════════════════════════
@@ -747,6 +747,37 @@ body.nav-open { overflow:hidden; }
 html[data-lv] .hm-doors { display:none; }
 /* 길 넷(2026-10-06) — 학생에게도 보인다. 폰 한 줄 · PC 두 줄 */
 html[data-lv] .hm-paths .hm-doors { display:grid; }
+/* 내 길 카드(2026-10-07) — 길이 정해진 학생(html[data-path])은 길 넷을 접고 이 카드 하나 */
+html[data-path] .hm-paths { display:none; }
+html[data-path][data-path-open] .hm-paths { display:block; }
+html[data-path] .hm-me.hm-me { display:block; max-width:var(--max); margin:18px auto 0; padding:0 var(--gut); box-sizing:border-box; }
+.hm-mp { padding:18px; border-radius:22px; color:#fff; background:radial-gradient(circle at 20% 30%, rgba(0,0,0,.06) 0 3px, transparent 4px) 0 0 / 30px 30px, linear-gradient(135deg, #B07F4E, #6E4A2A); box-shadow:0 14px 34px -22px rgba(80,50,20,.6); }
+.hm-mp-top { display:flex; align-items:center; gap:12px; }
+.hm-mp-ic { width:52px; height:52px; flex:none; border-radius:16px; background:rgba(255,255,255,.18); display:grid; place-items:center; font-size:28px; overflow:hidden; }
+.hm-mp-ic img, .hm-mp-ic svg { width:44px; height:44px; }
+.hm-mp-tx { flex:1; display:flex; flex-direction:column; } .hm-mp-tx small { font-size:12.5px; opacity:.85; font-weight:700; } .hm-mp-tx b { font-size:22px; font-weight:900; }
+.hm-mp-pct { font-size:26px; font-weight:900; color:#FFE699; }
+.hm-mp-bar { height:10px; border-radius:999px; background:rgba(255,255,255,.2); margin:14px 0 6px; overflow:hidden; } .hm-mp-bar i { display:block; height:100%; border-radius:999px; background:#FFD23F; }
+.hm-mp-sum { margin:0 0 12px; font-size:13px; opacity:.85; }
+.hm-mp-next { display:flex; align-items:center; gap:12px; width:100%; padding:14px 16px; border:none; border-radius:16px; background:#fff; color:var(--ink); font:inherit; text-align:left; cursor:pointer; }
+.hm-mp-next > span:first-child { flex:1; min-width:0; display:flex; flex-direction:column; gap:2px; }
+.hm-mp-next small { font-size:12px; font-weight:800; color:var(--orange); } .hm-mp-next b { font-size:17px; font-weight:800; word-break:keep-all; } .hm-mp-next em { font-style:normal; font-size:12.5px; color:var(--ink-3); }
+.hm-mp-go { flex:none; padding:10px 14px; border-radius:999px; background:#FFD23F; color:#4A3300; font-weight:900; font-size:14px; white-space:nowrap; }
+.hm-mp-done { margin:0; padding:12px; border-radius:14px; background:rgba(255,255,255,.15); }
+.hm-mp-other { margin-top:10px; background:none; border:none; color:#FFE699; font:inherit; font-size:13.5px; font-weight:700; text-decoration:underline; cursor:pointer; padding:4px 0; }
+@media (max-width: 420px) { .hm-mp-next { flex-wrap:wrap; } .hm-mp-go { width:100%; text-align:center; } }
+
+/* 첫 화면 「치즈감자로 할 수 있는 것」(제품 둘러보기, 2026-10-07) — 폰 두 칸 · PC 네 칸. 길 넷 아래. */
+.hm-tour { max-width:var(--max); margin:8px auto 24px; padding:0 var(--gut); box-sizing:border-box; }
+.hm-tour .hm-paths-h { padding:0; margin:20px 0 10px; }
+html[data-lv] .hm-tour { display:none; }   /* 레벨이 있는 학생은 「오늘 공부」 하나로 — 기능 칸은 메뉴 「더 보기」에 */
+.hm-tour-grid { display:grid; grid-template-columns:repeat(2, 1fr); gap:10px; }
+@media (min-width: 760px) { .hm-tour-grid { grid-template-columns:repeat(4, 1fr); } }
+.hm-tour-t { display:flex; flex-direction:column; align-items:flex-start; gap:4px; padding:14px; border-radius:18px; border:1px solid var(--line); background:var(--surface); color:var(--ink); font:inherit; text-align:left; cursor:pointer; transition:transform .15s, border-color .15s; }
+.hm-tour-t:hover { transform:translateY(-2px); border-color:var(--orange); }
+.hm-tour-ic { font-size:24px; line-height:1; margin-bottom:4px; }
+.hm-tour-t b { font-size:15.5px; font-weight:800; }
+.hm-tour-t span:not(.hm-tour-ic) { font-size:12.5px; color:var(--ink-3); line-height:1.4; word-break:keep-all; }
 /* 첫 화면 시안 「무엇을 배우러 오셨나요?」(2026-10-06) — 왼쪽 질문, 오른쪽 추천 카드 · 길 카드 · 배너 하나 */
 .hero-ask .hero-in { display:grid; gap:24px; max-width:calc(var(--max) - 2 * var(--gut)); }
 @media (min-width:900px) { .hero-ask .hero-in { grid-template-columns:1.1fr .9fr; gap:48px; align-items:center; } }
@@ -803,6 +834,7 @@ html[data-lv] .hm-paths .hm-doors { display:grid; }
 #sideKo > .side-head { margin-top:4px; }
 #sideNav.side-calm #sideKo > .side-item:not(.side-head), #sideNav.side-calm #sideTopik > .side-item:not(.side-head) { padding-left:22px; }
 #sideNav.side-calm .side-item, #sideNav.side-calm .nav-link { display:flex; align-items:center; }
+[data-ic="home"] { --ic:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22black%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M3%2010.5%2012%203l9%207.5%22/%3E%3Cpath%20d%3D%22M5%209.5V20h14V9.5%22/%3E%3Cpath%20d%3D%22M10%2020v-5h4v5%22/%3E%3C/svg%3E"); }
 [data-ic="path"] { --ic:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22black%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Ccircle%20cx%3D%226%22%20cy%3D%2219%22%20r%3D%222%22/%3E%3Ccircle%20cx%3D%2218%22%20cy%3D%225%22%20r%3D%222%22/%3E%3Cpath%20d%3D%22M8%2019h7.5a3.5%203.5%200%200%200%200-7h-7a3.5%203.5%200%200%201%200-7H16%22/%3E%3C/svg%3E"); }
 [data-ic="pen"] { --ic:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22black%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M12%2020h9%22/%3E%3Cpath%20d%3D%22M16.5%203.5a2.1%202.1%200%200%201%203%203L7%2019l-4%201%201-4Z%22/%3E%3C/svg%3E"); }
 [data-ic="abc"] { --ic:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22black%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M4%207V4h16v3%22/%3E%3Cpath%20d%3D%22M9%2020h6%22/%3E%3Cpath%20d%3D%22M12%204v16%22/%3E%3C/svg%3E"); }
@@ -1918,20 +1950,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
          TOPIK 학생은 TOPIK 갈래가 위로 온다(app.module.js applyTrack, #sideTopik). -->
     <!-- 2026-10-06 운영자 「정신 사나워」 — 그림 아이콘을 빼고(.side-calm) 이름을 짧게, 갈래마다 꼭 쓰는 것만.
          코스 전체 · TOPIK 읽기 · 듣기 · 쓰기는 길 안(학습 길 · TOPIK 길)과 「더 보기」에서 연다. -->
+    <!-- 메뉴 넷(+TOPIK) — 운영자 2026-10-07 「이 버튼 저 버튼 누르지 않게 한 흐름으로」: 오늘 공부 · 한국어 배우기 · TOPIK · 단어 · 더 보기.
+         문법 · 번역 · TOPIK 연습 · 내 공부는 「더 보기」 안으로(지우지 않고 옮기기만 — id 그대로). -->
+    <button class="side-item side-solo side-head" type="button" id="sideToday" data-open="home">
+      <span class="side-item-ico" data-ic="home">🏠</span><span data-en="Today's study">오늘 공부</span>
+    </button>
     <div id="sideKo">
     <!-- 갈래 이름이 곧 길 입구(운영자 2026-10-06 「path 이런 거 넣지 말고 Learn Korean · TOPIK 이 정도만」) -->
     <button class="side-item side-solo side-path side-head" type="button" data-open="learn/path">
       <span class="side-item-ico" data-ic="path">🛤️</span><span data-en="Learn Korean">한국어 배우기</span>
-    </button>
-    <button class="side-item side-solo" type="button" data-open="learn/sentence">
-      <span class="side-item-ico" data-ic="pen">✍️</span><span data-en="Grammar">문법</span>
-    </button>
-    <!-- 국어사전과 외우기를 합친 「단어」(#words). id 는 dictBtn 그대로(예전 이름으로 여는 곳이 있다). -->
-    <button class="side-item side-solo" id="dictBtn" type="button" aria-label="단어 열기" data-en-aria="Open words">
-      <span class="side-item-ico" data-ic="abc">🔤</span><span data-en="Words">단어</span>
-    </button>
-    <button class="side-item side-solo" type="button" data-open="learn/translate">
-      <span class="side-item-ico" data-ic="swap">🔁</span><span data-en="Translate">번역 연습</span>
     </button>
     </div>
 
@@ -1939,24 +1966,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <button class="side-item side-solo side-path side-head" type="button" data-open="learn/path/topik">
       <span class="side-item-ico" data-ic="target">🎯</span><span data-en="TOPIK">TOPIK</span>
     </button>
-    <!-- topikBtn 은 id 를 지킨다 — app.module.js 가 이 id 로 켜짐 표시를 한다. 들어가면 듣기 · 읽기 · 쓰기 · 모의고사를 고른다 -->
-    <button class="side-item side-solo" type="button" id="topikBtn" data-open="learn/topik">
-      <span class="side-item-ico" data-ic="doc">📝</span><span data-en="Practice · mock exams">연습 · 모의고사</span>
-    </button>
     </div>
 
-    <div class="side-sec-h" data-en="My study">내 공부</div>
-    <button class="side-item side-solo" type="button" data-open="learn/class">
-      <span class="side-item-ico" data-ic="class">🏫</span><span data-en="My class · homework">내 반 · 숙제</span>
-    </button>
-    <button class="side-item side-solo" type="button" data-open="learn/report">
-      <span class="side-item-ico" data-ic="chart">📊</span><span data-en="Level test results">레벨테스트 결과</span>
-    </button>
-    <button class="side-item side-solo" type="button" data-open="learn/notes">
-      <span class="side-item-ico" data-ic="note">🗒️</span><span data-en="My notes">내 노트</span>
-    </button>
-    <button class="side-item side-solo" type="button" data-open="learn/wrong">
-      <span class="side-item-ico" data-ic="book">📕</span><span data-en="My mistakes">오답 노트</span>
+
+    <!-- 국어사전과 외우기를 합친 「단어」(#words). id 는 dictBtn 그대로(예전 이름으로 여는 곳이 있다). -->
+    <button class="side-item side-solo" id="dictBtn" type="button" aria-label="단어 열기" data-en-aria="Open words">
+      <span class="side-item-ico" data-ic="abc">🔤</span><span data-en="Words">단어</span>
     </button>
 
     <!-- 더 보기 — 길 밖의 것. 처음에는 접혀 있다(sideMark 가 지금 자리가 안에 있으면 펼친다). -->
@@ -1967,6 +1982,28 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </button>
       <div class="side-sub" id="sideSubMore">
        <div class="side-sub-in" role="group" aria-label="더 보기" data-en-aria="More">
+    <button class="side-item" type="button" data-open="learn/sentence">
+      <span class="side-item-ico" data-ic="pen">✍️</span><span data-en="Grammar">문법</span>
+    </button>
+    <button class="side-item" type="button" data-open="learn/translate">
+      <span class="side-item-ico" data-ic="swap">🔁</span><span data-en="Translate">번역 연습</span>
+    </button>
+    <!-- topikBtn 은 id 를 지킨다 — app.module.js 가 이 id 로 켜짐 표시를 한다. 들어가면 듣기 · 읽기 · 쓰기 · 모의고사를 고른다 -->
+    <button class="side-item" type="button" id="topikBtn" data-open="learn/topik">
+      <span class="side-item-ico" data-ic="doc">📝</span><span data-en="Practice · mock exams">연습 · 모의고사</span>
+    </button>
+    <button class="side-item" type="button" data-open="learn/class">
+      <span class="side-item-ico" data-ic="class">🏫</span><span data-en="My class · homework">내 반 · 숙제</span>
+    </button>
+    <button class="side-item" type="button" data-open="learn/report">
+      <span class="side-item-ico" data-ic="chart">📊</span><span data-en="Level test results">레벨테스트 결과</span>
+    </button>
+    <button class="side-item" type="button" data-open="learn/notes">
+      <span class="side-item-ico" data-ic="note">🗒️</span><span data-en="My notes">내 노트</span>
+    </button>
+    <button class="side-item" type="button" data-open="learn/wrong">
+      <span class="side-item-ico" data-ic="book">📕</span><span data-en="My mistakes">오답 노트</span>
+    </button>
         <button class="side-item" type="button" data-open="learn/courses">
           <span class="side-item-ico" data-ic="books">📚</span><span data-en="All courses">코스 전체</span>
         </button>
@@ -2110,6 +2147,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <!-- 두 문 — 시안 C 의 「목표별 입구」 가운데 둘(운영자: EPS 는 빼도 된다 — 아래 여섯 갈래에는 그대로 있다). data-go 는 여섯 갈래와 같은 길 -->
   <!-- 길 넷(운영자 결정 2026-10-06: 「첫 화면을 길 4개로, 다른 메뉴는 더 보기로 접기 — 내 얘기는 학습 흐름」).
        누르면 그 길(#learn/path/<길>) — 한 걸음 = 문법 → 코스 레슨 → 단어. 처음 온 사람 · 학생 모두에게 보인다. -->
+  <!-- 내 길(2026-10-07) — 길이 정해진 학생에게는 길 넷 대신 이 카드(app.module.js hmMyPathRender). 길 넷은 「다른 길 보기」로 편다. -->
+  <div class="hm-me" id="hmMe"></div>
   <div class="hm-paths" id="hmPaths">
     <p class="hm-paths-h" data-en="Pick one path and follow it">길을 하나 고르고 쭉 따라가세요</p>
     <div class="hm-doors hm-doors4">
@@ -2147,6 +2186,20 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <span class="hm-banner-card" aria-hidden="true"><i>I’m sorry I’m late.</i><b>늦어서 죄송해요.</b></span>
     <span class="hm-banner-go" data-en="Start →">시작하기 →</span>
   </button>
+  <!-- 제품 둘러보기(운영자 요청 2026-10-07 「메뉴 깊숙한 기능 — 첫 화면에서 무엇을 할 수 있는지 한눈에」). 여덟 칸, 누르면 그 기능으로. 모두에게 보인다. -->
+  <section class="hm-tour" aria-labelledby="hmTourH">
+    <p class="hm-paths-h" id="hmTourH" data-en="Everything you can do here">치즈감자로 할 수 있는 것</p>
+    <div class="hm-tour-grid">
+      <button class="hm-tour-t" type="button" data-go="levelTest"><span class="hm-tour-ic" aria-hidden="true">🧭</span><b data-en="3-min level test">3분 레벨테스트</b><span data-en="Find your level and the path that fits">내 레벨과 맞는 길 찾기</span></button>
+      <button class="hm-tour-t" type="button" data-go="courses"><span class="hm-tour-ic" aria-hidden="true">📚</span><b data-en="Courses">코스</b><span data-en="From Hangul to advanced, lesson by lesson">한글부터 고급까지 레슨으로</span></button>
+      <button class="hm-tour-t" type="button" data-go="glossary"><span class="hm-tour-ic" aria-hidden="true">🔤</span><b data-en="Words &amp; idioms">단어 · 사자성어</b><span data-en="10 a day, review, idioms with quizzes">하루 10개 · 복습 · 사자성어 퀴즈</span></button>
+      <button class="hm-tour-t" type="button" data-go="topik"><span class="hm-tour-ic" aria-hidden="true">🧀</span><b data-en="TOPIK prep">TOPIK 준비</b><span data-en="Mock tests, practice by type, AI writing scores">모의고사 · 유형 연습 · AI 쓰기 채점</span></button>
+      <button class="hm-tour-t" type="button" data-go="games"><span class="hm-tour-ic" aria-hidden="true">🎮</span><b data-en="Word games">단어 게임</b><span data-en="Word potatoes · Potato Wordle · initials quiz">단어 감자 · 오늘의 감자들 · 초성 퀴즈</span></button>
+      <button class="hm-tour-t" type="button" data-go="convo"><span class="hm-tour-ic" aria-hidden="true">🗣️</span><b data-en="Speaking">회화 · 발음</b><span data-en="Real-life scenes and AI pronunciation check">실생활 장면 · AI 발음 진단</span></button>
+      <button class="hm-tour-t" type="button" data-go="translate"><span class="hm-tour-ic" aria-hidden="true">✍️</span><b data-en="Writing">쓰기 · 번역</b><span data-en="Translate line by line · grammar worksheets (PDF)">한 줄씩 번역 · 문법 학습지 PDF</span></button>
+      <button class="hm-tour-t" type="button" data-go="class"><span class="hm-tour-ic" aria-hidden="true">🏫</span><b data-en="For teachers">선생님 · 반</b><span data-en="Homework, progress reports, QR join">숙제 · 진도 리포트 · QR로 들어오기</span></button>
+    </div>
+  </section>
   <!-- 첫 화면 다시 짜기(운영자 요청 2026-10-06 「UX 법칙을 생각해서」): 세 덩어리로 — ① 시작(머리 문장 + 큰 단추 하나, 피츠 · 힉)
        ② 길 넷 ③ 오늘의 한 문제 · 믿을 만한 숫자(밀러 — 묶어서). 숫자 · 오늘의 문제는 히어로에서 이리로 내려왔다(check-geo 는 aria-label 을 그대로 본다). -->
   <div class="hm-proofrow hm-intro">
@@ -2179,9 +2232,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
        .hm-intro 는 처음 온 사람용 소개 — 레벨테스트를 본 학생(html[data-lv])에게는 숨긴다. -->
 
   <!-- 레벨테스트를 본 학생에게만 — 소개 대신 내 코스 하나(「소개 보기」는 뺐다 — 운영자 2026-09-30: 학생에게는 필요 없다) -->
-  <div class="hm-me" id="hmMe">
-    <button class="btn-ghost" id="hmMyBtn" type="button" data-ko="🛤️ 내 길 이어가기">🛤️ Continue my path</button>
-  </div>
 
   <!-- 더 보기 — 길 밖의 갈래(여섯 갈래 · 이렇게 공부해요)는 접어 둔다(운영자 결정 2026-10-06). 지우지 않는다 — 검색 엔진도 읽는다. -->
   <details class="hm-more" id="hmMore">
@@ -3397,6 +3447,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
              Clarity 에서 레벨테스트 → 로그인이 0% 라(2026-10-02) 결과 바로 아래, 가장 궁금할 때 가입할 까닭을 보인다. -->
         <div id="ltJoin" class="lt-join hidden"></div>
         <!-- 결과는 언제든 「레벨테스트 결과」 리포트에서 다시 본다(2026-10-06) -->
+        <!-- 처음 온 사람의 흐름(운영자 2026-10-07): 레벨테스트 → 바로 「오늘 공부」 1회. 가입은 첫 회를 마친 뒤에 권한다. -->
+        <button type="button" class="pt-next lt-daily-go" id="ltDailyGo" data-en="▶ Start today’s study now (~15 min)">▶ 오늘 공부 바로 시작 (약 15분)</button>
         <button type="button" class="lt-report-go" id="ltReportGo" data-en="📊 See the full report — you can come back to it any time">📊 결과 리포트로 보기 — 언제든 다시 볼 수 있어요</button>
         <!-- 선생님과 체험 수업 — 결과를 막 본 때가 「무엇부터 하지?」가 가장 궁금한 때다(Clarity 분석 2026-10-03).
              누르면 Preply 선생님 쪽으로. 센 수는 analytics.js 의 data-ev. 링크를 바꾸면 teacher.html 도 같이. -->
@@ -4085,9 +4137,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <div id="hlpScrim" class="hlp-scrim"></div>
 <aside id="hlpPanel" class="hlp-panel" aria-label="한국어 도우미" aria-hidden="true"></aside>
 
-<script src="app.js?v=bb9f07a2"></script>
-<script type="module" src="app.module.js?v=bb9f07a2"></script>
+<script src="app.js?v=f71364a8"></script>
+<script type="module" src="app.module.js?v=f71364a8"></script>
 
-<script src="analytics.js?v=bb9f07a2" defer></script>
+<script src="analytics.js?v=f71364a8" defer></script>
 </body>
 </html>

@@ -35,6 +35,8 @@ const ASSETS = [
   'word-blocks.js',
   /* 게임 「초성 퀴즈」(#chosung) · 「오늘의 감자들」(#potdle) — 그 게임을 열 때만 받는다. */
   'chosung.js', 'potdle.js',
+  /* 「단어」 표현 탭(사자성어 · 속담 · 관용 표현, tools/build-expressions.mjs) — 그 탭을 열 때만 받는다. */
+  'expressions.js',
   /* 반 QR(qrcode-generator, MIT) — 선생님이 QR 칸을 열 때만 받는다. */
   'qrcode-lib.js',
   /* 화면 번역 사전(tools/build-i18n.mjs) — 그 언어를 고를 때만 받는다 */
