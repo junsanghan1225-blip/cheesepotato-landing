@@ -14,7 +14,7 @@ const SETS = [
   { name: '쓰기(writing)', items: LT_CUSTOM_WRITING, levels: [2, 3, 4, 5, 6, 7], need: 30 },
 ];
 /* 문제 종류(운영자 2026-10-07 「다 문법만 나온다」) — 없으면 grammar. 레벨테스트가 바로 앞 두 문제와 다른 종류를 먼저 낸다. */
-const TYPES = new Set(['grammar', 'vocab', 'reply', 'situation', 'meaning', 'connect', 'read', 'wrong', 'honor']);
+const TYPES = new Set(['grammar', 'vocab', 'reply', 'situation', 'meaning', 'connect', 'read', 'wrong', 'honor', 'conj']);
 const bad = [], note = [];
 for (const { name, items, levels, need } of SETS) {
   const seen = new Set(), count = {};
