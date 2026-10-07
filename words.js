@@ -393,6 +393,8 @@ export function wordsInit(D) {
     grid: '<rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/>',
     star: '<path d="M12 3l2.8 5.8 6.2.9-4.5 4.4 1 6.3L12 17.5l-5.5 2.9 1-6.3L3 9.7l6.2-.9z"/>',
     check: '<path d="M5 12l5 5 9-10"/>',
+    ear: '<path d="M7 10a5 5 0 0 1 10 0c0 3-3 4-3 7a3 3 0 0 1-6 0"/><path d="M10 10a2 2 0 0 1 4 0"/>',
+    stack: '<rect x="5" y="14" width="14" height="5" rx="1.5"/><rect x="7" y="8" width="10" height="5" rx="1.5"/><rect x="9" y="2" width="6" height="5" rx="1.5"/>',
     bolt: '<path d="M13 2L4 14h7l-1 8 9-12h-7z"/>',
     spark: '<path d="M12 3v4M12 17v4M3 12h4M17 12h4M6 6l2.5 2.5M15.5 15.5L18 18M6 18l2.5-2.5M15.5 8.5L18 6"/>',
     up: '<path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/>',
@@ -513,7 +515,32 @@ export function wordsInit(D) {
           <span class="wd-topic-ico" aria-hidden="true">${ic}</span><b>${esc(t(tp.ko, tp.en))}</b>
           <span class="wd-meta">${esc(t(`${l.length}개 · ${Math.round((g / l.length) * 100)}%`, `${l.length} words · ${Math.round((g / l.length) * 100)}%`))}</span></button>`;
       }).join('')}</div>
+      ${homeGames()}
     </div>`;
+  }
+  /* 게임으로 공부(운영자 2026-10-07 「밑에 게임 학습도 — 학습하고 있는 단어로 바로」): 오늘 외우는 세션 낱말로 바로 판을 연다.
+     블록 쌓기 · 스피드 퀴즈는 제 화면(레벨 낱말 · 내 단어장)으로 간다. */
+  const gameSrc = () => { try { return localStorage.getItem('cp_wd_gsrc') || 'now'; } catch (e) { return 'now'; } };
+  /* 랜덤 10개 — 내 레벨(감자 L, 레벨테스트 · 선생님이 정한 것; 없으면 L1) 또는 아무 레벨 */
+  function randomWords(src) {
+    const L = Math.max(1, Math.min(7, D.myLv?.() ?? 1));
+    const pool = src === 'lv' ? ALL.filter((w) => w.v === L) : ALL;
+    const a = pool.length >= SESSION ? pool.slice() : ALL.slice();
+    for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; }
+    return a.slice(0, SESSION);
+  }
+  function homeGames() {
+    const G = [['match', 'grid', t('짝 맞추기', 'Match'), t('오늘 낱말 · 시간 재기', 'Today’s words, timed')],
+      ['dict', 'ear', t('받아쓰기', 'Dictation'), t('듣고 한국어로 쓰기', 'Hear it, type it')],
+      ['test', 'check', t('미니 시험', 'Mini test'), t('섞어서 풀고 점수', 'Mixed, scored')],
+      ['blocks', 'stack', t('단어 블록 쌓기', 'Word blocks'), t('떨어지기 전에 뜻 고르기', 'Pick the meaning before it lands')],
+      ['quiz', 'timer', t('스피드 퀴즈', 'Speed quiz'), t('60초 동안 많이', 'As many as you can in 60s')]];
+    /* 어떤 낱말로 — 지금 외우는 세션 · 내 레벨에서 랜덤 10 · 아무 레벨 랜덤 10(운영자 2026-10-07) */
+    const src = gameSrc();
+    const SRC = [['now', t('지금 외우는 낱말', 'My current words')], ['lv', t('내 레벨 랜덤', 'Random · my level')], ['any', t('아무 레벨 랜덤', 'Random · any level')]];
+    return `<div class="wd-sec-hd"><h3 class="wd-h3">${esc(t('게임으로 공부', 'Learn with games'))}</h3></div>
+      <div class="wd-group wd-gsrc" role="radiogroup">${SRC.map(([k, l]) => `<button type="button" role="radio" aria-checked="${k === src}" class="wd-chip${k === src ? ' on' : ''}" data-act="gsrc" data-k="${k}">${esc(l)}</button>`).join('')}</div>
+      <div class="wd-hgames">${G.map(([k, ic, n, d]) => `<button type="button" class="wd-hgame" data-act="hgame" data-k="${k}"><span class="wd-hgame-ic" aria-hidden="true">${ico(ic)}</span><b>${esc(n)}</b><span>${esc(d)}</span></button>`).join('')}</div>`;
   }
 
   /* 외우기 탭의 보기 — 주제별(기본) · 목적별. 이 브라우저에만 기억한다. */
@@ -1377,6 +1404,16 @@ export function wordsInit(D) {
     if (act === 'wordbook') return D.openWordbook();
     if (act === 'dash') return D.openDashboard?.();
     if (act === 'game-quiz') return D.openQuiz();
+    if (act === 'gsrc') { try { localStorage.setItem('cp_wd_gsrc', a.dataset.k); } catch (e) {} return draw(); }
+    if (act === 'hgame') {
+      const k = a.dataset.k; D.track('단어게임_' + k);
+      if (k === 'blocks') return D.openBlocks?.();
+      if (k === 'quiz') return D.openQuiz();
+      const src = gameSrc();
+      if (src !== 'now') return startRun(randomWords(src), k, null);
+      const p = myPath(), topic = p?.topic || 'all', ss = sessionsOf(topic), n = Math.min(nextSession(topic) ?? 0, Math.max(0, ss.length - 1));
+      return startRun(ss[n] || chunk(VOCAB)[0], k, { topic, n });
+    }
     if (act === 'game-match') { const n = nextSession() ?? 0; return startRun(chunk(VOCAB)[n], 'match', { topic: 'all', n }); }
     if (act === 'wtab') { view = { ...view, wtab: a.dataset.k }; D.track('단어탭_' + a.dataset.k); return draw(); }
     if (act === 'topikref') { D.track('단어TOPIK쓰임'); return D.openTopik?.(a.dataset.p); }
