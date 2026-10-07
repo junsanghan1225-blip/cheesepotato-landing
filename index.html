@@ -40,7 +40,7 @@
 ">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <!-- 구글 태그 관리자. 구글이 주는 인라인 코드조각은 CSP 가 막아서 gtm.js 로 뺐다. -->
-<script src="gtm.js?v=1893760e" async></script>
+<script src="gtm.js?v=3330f39b" async></script>
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <!-- 제목과 설명을 두 말로 쓴다. 이 사이트를 찾을 사람은 한국어를 **배우는**
@@ -119,13 +119,13 @@
      Pretendard 는 통짜(2.0MB) 대신 조각난 쪽을 쓴다 — 브라우저가
      unicode-range 를 보고 화면에 실제로 나온 글자가 든 조각만 받는다.
      그래서 저장소는 무거워졌지만 학습자가 받는 양은 오히려 줄었다. -->
-<link rel="stylesheet" href="vendor/pretendard.css?v=1893760e">
-<link rel="stylesheet" href="vendor/pressstart2p.css?v=1893760e">
+<link rel="stylesheet" href="vendor/pretendard.css?v=3330f39b">
+<link rel="stylesheet" href="vendor/pressstart2p.css?v=3330f39b">
 <!-- 화면 상자 안에서만 쓰는 CSS 는 여기서 갈라 받는다. media="print" 라
      첫 페인트를 안 막고, 다 받아지면 app.js 가 media 를 all 로 바꾼다.
      자바스크립트가 없으면 <noscript> 쪽이 그냥 평범하게 걸린다. -->
-<link id="viewsCss" rel="stylesheet" href="app-views.css?v=1893760e" media="print">
-<noscript><link rel="stylesheet" href="app-views.css?v=1893760e"></noscript>
+<link id="viewsCss" rel="stylesheet" href="app-views.css?v=3330f39b" media="print">
+<noscript><link rel="stylesheet" href="app-views.css?v=3330f39b"></noscript>
 
 <style>
 /* ══════════════════════════════════════════════════════════════
@@ -1998,6 +1998,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <button class="side-item" type="button" data-nav-to="gcBlocks">
           <span class="side-item-ico" data-ic="bolt">🥔</span><span data-en="Word potatoes">단어 감자</span>
         </button>
+        <button class="side-item" type="button" data-nav-to="gcPotdle">
+          <span class="side-item-ico" data-ic="bolt">🟨</span><span data-en="Potato Wordle">오늘의 감자들</span>
+        </button>
+        <button class="side-item" type="button" data-nav-to="gcChosung">
+          <span class="side-item-ico" data-ic="bolt">ㅊ</span><span data-en="Initial-consonant quiz">초성 퀴즈</span>
+        </button>
         <button class="side-item" type="button" data-nav-to="gcNum">
           <span class="side-item-ico" data-ic="hash">🔢</span><span data-en="Read the number">숫자 읽기</span>
         </button>
@@ -3091,9 +3097,24 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
            내므로 처음 온 사람도 바로 놀 수 있다. -->
       <!-- 단어 감자(word-blocks.js) — 사과 게임처럼 네모로 짝 묶기. 로그인 없이 된다. -->
       <button class="game-card" id="gcBlocks" type="button">
-        <span class="game-card-ico">🧱</span>
+        <span class="game-card-ico">🥔</span>
         <span class="game-card-name" data-en="Word potatoes">단어 감자</span>
         <span class="game-card-desc" data-en="A field of potatoes — box a Korean word with its meaning to dig them up. 2 minutes, combos, no sign-in needed.">감자밭에서 한국어 낱말과 뜻이 짝인 감자 둘을 네모로 묶어 캐요. 2분 · 콤보 · 로그인 없이 바로.</span>
+        <span class="game-card-go" data-en="Play →">놀아보기 →</span>
+      </button>
+
+      <!-- 오늘의 감자들(potdle.js) — 한글 워들, 하루 한 낱말 · 결과 공유. 초성 퀴즈(chosung.js) — 초성 보고 떠올려 쓰기. -->
+      <button class="game-card" id="gcPotdle" type="button">
+        <span class="game-card-ico">🟨</span>
+        <span class="game-card-name" data-en="Potato Wordle">오늘의 감자들</span>
+        <span class="game-card-desc" data-en="Korean Wordle — one word a day, 6 tries, share your 🥔🧀 grid. No sign-in needed.">한글 워들 — 하루 한 낱말을 6번 안에 맞혀요. 🥔🧀 결과를 친구에게 공유해요. 로그인 없이 바로.</span>
+        <span class="game-card-go" data-en="Play →">놀아보기 →</span>
+      </button>
+
+      <button class="game-card" id="gcChosung" type="button">
+        <span class="game-card-ico">ㅊㅅ</span>
+        <span class="game-card-name" data-en="Initial-consonant quiz">초성 퀴즈</span>
+        <span class="game-card-desc" data-en="See ㅎㄱ, type 학교. Hints open over time — fewer hints, more points. No sign-in needed.">「ㅎㄱ」을 보고 「학교」를 써요. 시간이 지나면 힌트가 열려요 — 힌트 없이 맞힐수록 높은 점수. 로그인 없이 바로.</span>
         <span class="game-card-go" data-en="Play →">놀아보기 →</span>
       </button>
 
@@ -3218,6 +3239,24 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div id="blkRoot"></div>
   </div>
 </div><!-- /blkView -->
+
+<!-- ── 게임 : 초성 퀴즈 · 오늘의 감자들 ── 판 안은 chosung.js · potdle.js 가 그린다. -->
+<div id="chsView" class="hidden">
+  <div class="claw-wrap">
+    <div class="claw-bar">
+      <button class="claw-back" id="chsBack" type="button">← <span data-en="Games">게임</span></button>
+    </div>
+    <div id="chsRoot"></div>
+  </div>
+</div><!-- /chsView -->
+<div id="pdlView" class="hidden">
+  <div class="claw-wrap">
+    <div class="claw-bar">
+      <button class="claw-back" id="pdlBack" type="button">← <span data-en="Games">게임</span></button>
+    </div>
+    <div id="pdlRoot"></div>
+  </div>
+</div><!-- /pdlView -->
 
 <div id="numView" class="hidden">
   <div class="claw-wrap">
@@ -4046,9 +4085,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <div id="hlpScrim" class="hlp-scrim"></div>
 <aside id="hlpPanel" class="hlp-panel" aria-label="한국어 도우미" aria-hidden="true"></aside>
 
-<script src="app.js?v=1893760e"></script>
-<script type="module" src="app.module.js?v=1893760e"></script>
+<script src="app.js?v=3330f39b"></script>
+<script type="module" src="app.module.js?v=3330f39b"></script>
 
-<script src="analytics.js?v=1893760e" defer></script>
+<script src="analytics.js?v=3330f39b" defer></script>
 </body>
 </html>

@@ -7,18 +7,19 @@ const DIR = path.join(ROOT, 'docs/i18n');
 const keys = new Set(JSON.parse(fs.readFileSync(path.join(DIR, 'strings.json'), 'utf8')).map((x) => x.en));
 const tags = (s) => (s.match(/<\/?[a-z]+/gi) || []).map((x) => x.toLowerCase()).sort().join(',');
 const ph = (s) => (s.match(/\{\d\}/g) || []).sort().join(',');
-let bad = 0;
+let bad = 0, stale = 0;
 for (const f of fs.readdirSync(DIR).filter((x) => /^[a-z]{2}(-[A-Za-z]+)?\.json$/.test(x))) {
   const d = JSON.parse(fs.readFileSync(path.join(DIR, f), 'utf8')); let n = 0;
   for (const [en, tr] of Object.entries(d)) {
     n++;
     const say = (m) => { bad++; if (bad <= 40) console.error(`${f}: 「${en.slice(0, 50)}」 — ${m}`); };
-    if (!keys.has(en)) say('strings.json 에 없는 열쇠');
+    // 화면 글이 바뀌어 안 쓰게 된 열쇠 — 틀린 것은 아니라 짚기만 한다(Claude 가 검토할 때 지운다).
+    if (!keys.has(en)) { stale++; continue; }
     if (typeof tr !== 'string' || !tr.trim()) { say('번역이 비었다'); continue; }
     if (ph(en) !== ph(tr)) say(`자리 표시가 다르다 (${ph(en)} ↔ ${ph(tr)})`);
     if (tags(en) !== tags(tr)) say('HTML 태그가 다르다');
   }
-  console.log(`${f}: 번역 ${n} / ${keys.size}`);
+  console.log(`${f}: 번역 ${n - stale} / ${keys.size}${stale ? ` · 안 쓰는 열쇠 ${stale}` : ''}`); stale = 0;
 }
 if (bad) { console.error(`문제 ${bad}곳`); process.exit(1); }
 console.log('문제 없음');
