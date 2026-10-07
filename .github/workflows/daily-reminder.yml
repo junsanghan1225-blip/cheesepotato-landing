@@ -1,0 +1,16 @@
+# 매일 공부 알림 메일 — 매시 5분에 Edge Function daily-reminder 를 부른다(그 사람 시간의 정한 때인 사람에게만 보낸다).
+# 켜기: 저장소 Variables REMINDER_AUTO=on, Secrets CRON_KEY(Supabase Secrets 의 CRON_KEY 와 같은 값). 순서는 docs/reminders.md.
+name: daily-reminder
+on:
+  schedule:
+    - cron: '5 * * * *'
+  workflow_dispatch:
+jobs:
+  call:
+    if: vars.REMINDER_AUTO == 'on'
+    runs-on: ubuntu-latest
+    steps:
+      - name: call function
+        run: |
+          curl -fsS -X POST "https://tjgoevtvobvmlyefgxel.supabase.co/functions/v1/daily-reminder" \
+            -H "x-cron-key: ${{ secrets.CRON_KEY }}" -H "Content-Type: application/json" -d '{}'

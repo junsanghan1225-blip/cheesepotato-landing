@@ -56,6 +56,17 @@
   [EPS-TOPIK 연습 문제 100개](https://everykoreans.com/eps-topik/) (문항마다 제 주소, 정답과
   해설은 한국어 · 영어) · [70분 모의고사](https://everykoreans.com/#learn/eps) (읽기 25 + 듣기 25,
   200점. 기출이 아닌 창작 문항)
+- **「놀면서 낱말 외우기 · 한국어 게임」** — [게임](https://everykoreans.com/#games), 가입 없이 무료:
+  [단어 감자](https://everykoreans.com/#blocks)(낱말 감자와 뜻 감자를 네모로 묶어 캐는 2분 게임 · Word Potatoes) ·
+  [오늘의 감자들](https://everykoreans.com/#potdle)(하루 한 낱말 한글 워들 · Korean Wordle, 결과 공유) ·
+  [초성 퀴즈](https://everykoreans.com/#chosung)(「ㅎㄱ」을 보고 「학교」 쓰기 · initial-consonant quiz)
+- **「사자성어 · 속담 · 관용 표현」** — [단어 › 표현](https://everykoreans.com/#words/expr)
+  (사자성어 149개: 한자 풀이 · 예문 · 대화 · 퀴즈. Four-character idioms with hanja, examples and a quiz)
+- **「매일 무엇을 공부할지 정해 주는 곳」** — 레벨테스트 뒤 첫 화면의 「오늘 공부」: 복습 → 오늘의 레슨 →
+  하루치 새 낱말 → 말하기를 한 번에 이어서(약 15분). (A daily 15-minute study session that chains review,
+  the next lesson, 10 new words and speaking.)
+- **「한국어 선생님 · 학원 · 대학 — 학생에게 숙제 내기」** — [반 · 숙제](https://everykoreans.com/#learn/class)
+  (QR · 링크로 학생이 들어오고, 레슨 · 단어 · 문법 숙제와 진도 리포트 · PDF. For teachers: homework and progress reports.)
 - **「여행 가서 쓸 한국어」** — [여행 한국어 가이드](https://everykoreans.com/travel-guide.html)
   (상황별 구문과 포켓 PDF)
 

@@ -1214,7 +1214,7 @@ function wordPage(entry, prev, next) {
      제목 앞자리를 그 검색에 맞춘다 — 한국어 표제어는 어차피 본문 h1 과
      제목 뒷자리에 그대로 있어 한국어 쪽 검색도 놓치지 않는다. */
   const title = firstEn
-    ? `${head} — "${esc(firstEn)}" in Korean | 치즈감자`
+    ? `${head} meaning — "${esc(firstEn)}" in Korean | Cheesepotato`
     : `${head} 뜻 — 한국어 낱말 사전 | 치즈감자`;
   const senses = SENSES[head];
   const example = EXAMPLES[head];
@@ -1313,10 +1313,12 @@ function vocabPage(w, prev, next) {
   const senses = (SENSES[head] || []).filter(([, enS]) => toks(enS).some((x) => enWords.has(x))).slice(0, 2);
   /* 검색 결과에 보이는 두 줄 — 운영자 지적(2026-10-01): 영어 · 한국어 · 「3급 명사」 같은 말이 뒤섞여 정신없었다.
      제목은 짧게(검색어 「… in Korean」 + 낱말), 설명은 영어 한 갈래로 읽히게 쓰고 예문은 한국어 한 줄만. */
-  const title = `${head} (${rom}) — "${firstEn}" in Korean | 치즈감자`;
+  /* 2026-10-07(운영자 「검색 노출은 많은데 클릭이 적다」): 두 검색을 한 줄에 — 「가게 meaning」 과 「shop in Korean」.
+     낱말 + meaning 을 맨 앞에, 영어 뜻을 바로 뒤에. 설명은 답 먼저 · 무료 · 소리 · 퀴즈로 누를 까닭을 준다. */
+  const title = `${head} (${rom}) meaning — "${firstEn}" in Korean | Cheesepotato`;
   const posEn = POS_EN[w.p] ? ` ${POS_EN[w.p]}` : '';
   const ex = w.x[0]?.[0] ? ` Example: ${w.x[0][0]}` : '';
-  const desc = clip(`"${firstEn.charAt(0).toUpperCase()}${firstEn.slice(1)}" in Korean is ${head} (${rom}), a TOPIK ${isT2(w) ? 'II' : 'I'} level ${w.l}${posEn || ' word'}.${ex} Meanings, examples with English${conj ? ', conjugation' : ''} and a quick quiz.`);
+  const desc = clip(`${head} (${rom}) means "${firstEn}" in Korean — a TOPIK ${isT2(w) ? 'II' : 'I'} level ${w.l}${posEn || ' word'}. 🔊 Hear it, see example sentences with English${conj ? ', conjugation' : ''} and try a 1-minute quiz. Free, no sign-up.`);
 
   /* 미니 퀴즈 — 뜻 고르기 넷. 스크립트 없이 <details> 로 답을 편다(정적 쪽이라 CSP · 속도 걱정이 없다). */
   const rnd = seeded(head);
