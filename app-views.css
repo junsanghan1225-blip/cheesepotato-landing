@@ -6337,3 +6337,5 @@ body:has(#blkView:not(.hidden)) .hlp-fab { display:none; }
 
 .cls-privacy { font-size:12.5px; color:var(--ink-3); margin:10px 0 0; line-height:1.55; font-weight:400; }
 .cls-privacy a { color:inherit; }
+/* 반 학생에게는 선생님 쪽(WhatsApp 이 있는 teacher.html) 링크를 숨긴다 — app.module.js clsBodyMark */
+body.cls-in a[href*="teacher.html"], body.cls-in .ft-teach { display:none !important; }
