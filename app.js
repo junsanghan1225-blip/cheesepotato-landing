@@ -348,8 +348,11 @@ const PT = () => PT_SETS[ptLevel] || PT_SETS.normal;
    applyLang 이 늘 맞춰 두므로 언제 읽어도 안전하다. */
 /* 화면 언어(운영자 2026-10-07 — 중국어부터): ko · en 에 더해 번역 사전(i18n-<언어>.js)이 있는 언어.
    번역 언어는 영어 화면을 바탕으로 사전에서 바꾼다(cpTr) — 사전에 없는 글귀는 영어 그대로. */
-const LANGS = [['ko', '한국어', 'KO'], ['en', 'English', 'EN'], ['zh', '中文（简体）', '中']];
-const I18N_URL = { zh: './i18n-zh.js?v=5e062426' };
+/* [코드, 메뉴 이름, 단추 글자, 번역 다 됨] — 운영자 2026-10-07 「베트남어 · 일본어 먼저」(분석: 중국 방문은 머문 시간 0초라 봇으로 보임).
+   번역이 다 들어오기 전에는 메뉴에 안 보인다(빈 사전이면 영어만 나와 헷갈린다). 미리 보기는 주소 끝에 ?i18n=all. */
+const LANGS = [['ko', '한국어', 'KO', 1], ['en', 'English', 'EN', 1], ['vi', 'Tiếng Việt', 'VI', 0], ['ja', '日本語', '日', 0], ['zh', '中文（简体）', '中', 0]];
+const langShown = () => LANGS.filter((x) => x[3] || /[?&]i18n=all/.test(location.search));
+const I18N_URL = { vi: './i18n-vi.js?v=6d92a76c', ja: './i18n-ja.js?v=6d92a76c', zh: './i18n-zh.js?v=6d92a76c' };
 const trMemo = new Map();
 window.cpTr = (en) => {
   const L = window.cpI18n, s = String(en ?? '');
@@ -1196,7 +1199,7 @@ function langMenu(open) {
   let m = ptId('langMenu');
   if (!m) {
     m = document.createElement('div'); m.id = 'langMenu'; m.className = 'lang-menu'; m.setAttribute('role', 'menu');
-    m.innerHTML = LANGS.map(([c, n]) => `<button type="button" role="menuitemradio" data-lang="${c}">${n}</button>`).join('');
+    m.innerHTML = langShown().map(([c, n]) => `<button type="button" role="menuitemradio" data-lang="${c}">${n}</button>`).join('');
     document.body.appendChild(m);
     m.addEventListener('click', (ev) => { const b = ev.target.closest('[data-lang]'); if (b) { langMenu(false); window.cpLangChoose(b.dataset.lang); } });
     document.addEventListener('click', (ev) => { if (!ev.target.closest('#langMenu, #langBtn')) langMenu(false); });
@@ -1206,7 +1209,7 @@ function langMenu(open) {
   m.classList.toggle('on', !!open);
 }
 window.cpLangChoose = (code) => {
-  if (!LANGS.some((x) => x[0] === code)) return;
+  if (!langShown().some((x) => x[0] === code)) return;
   langNeed(code).then(() => { window.cpLangNext = code; ptId('langBtn').click(); }, () => {});
 };
 ptId('langBtn').addEventListener('click', (ev) => {
