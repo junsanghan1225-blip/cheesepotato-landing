@@ -349,7 +349,7 @@ const PT = () => PT_SETS[ptLevel] || PT_SETS.normal;
 /* 화면 언어(운영자 2026-10-07 — 중국어부터): ko · en 에 더해 번역 사전(i18n-<언어>.js)이 있는 언어.
    번역 언어는 영어 화면을 바탕으로 사전에서 바꾼다(cpTr) — 사전에 없는 글귀는 영어 그대로. */
 const LANGS = [['ko', '한국어', 'KO'], ['en', 'English', 'EN'], ['zh', '中文（简体）', '中']];
-const I18N_URL = { zh: './i18n-zh.js?v=c3cfc53a' };
+const I18N_URL = { zh: './i18n-zh.js?v=5e062426' };
 const trMemo = new Map();
 window.cpTr = (en) => {
   const L = window.cpI18n, s = String(en ?? '');
