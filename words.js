@@ -483,7 +483,7 @@ export function wordsInit(D) {
     const hr = new Date().getHours();
     const hello = hr < 5 || hr >= 18 ? t('좋은 저녁이에요!', 'Good evening!') : hr < 12 ? t('좋은 아침이에요!', 'Good morning!') : t('좋은 오후예요!', 'Good afternoon!');
     const dueLine = d.length ? `<button type="button" class="wd-due" data-act="review"><span>${esc(t('① 오늘 복습', '① Review today'))}</span><b>${d.length}</b><em>${esc(t('먼저 하기 →', 'Do first →'))}</em></button>` : '';
-    if (!path) return `<div class="wd-today"><div class="wd-hello"><p class="wd-hello-k">${esc(hello)}</p></div>${dueLine}</div>`;
+    if (!path) return `<div class="wd-today"><div class="wd-hello"><p class="wd-hello-k">${esc(hello)}</p></div>${potHero()}${dueLine}</div>`;
     const list = listFor(path.topic), ss = sessionsOf(path.topic), n = nextSession(path.topic);
     const ws = n == null ? [] : ss[n];
     const got = ws.filter((w) => learned(idOf(w))).length;
@@ -491,6 +491,7 @@ export function wordsInit(D) {
     const pathName = topicName(path.topic), doneAll = list.filter((x) => learned(idOf(x))).length;
     const tops = TOPICS.map((tp) => [tp, listFor(tp.id)]).filter(([, l]) => l.length).sort((a, b) => b[1].length - a[1].length).slice(0, 4);
     return `<div class="wd-today">
+      ${potHero()}
       <div class="wd-hello">
         <p class="wd-hello-k">${esc(hello)}</p>
         <p class="wd-hello-p">${esc(t('내 길', 'My path'))} <b>${esc(pathName)}</b><small> · ${doneAll.toLocaleString()} / ${list.length.toLocaleString()} ${esc(t('낱말', 'words'))}</small>
@@ -529,11 +530,22 @@ export function wordsInit(D) {
     for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; }
     return a.slice(0, SESSION);
   }
+  /* 단어 감자 — 「단어」 첫 화면 맨 위 큰 카드(운영자 2026-10-07 「사과 게임 재미있다 — 메인으로, words 첫 번째에」). */
+  function potHero() {
+    let best = 0; try { best = parseInt(localStorage.getItem('cp_pot_best') || '0', 10) || 0; } catch (e) {}
+    return `<button type="button" class="wd-pot" data-act="hgame" data-k="blocks">
+      <span class="wd-pot-art" aria-hidden="true"><i class="ko">사과</i><i class="en">apple</i><i class="ko">학교</i></span>
+      <span class="wd-pot-txt"><small>${esc(t('🎮 오늘의 게임', '🎮 Game of the day'))}</small><b>${esc(t('단어 감자', 'Word potatoes'))}</b>
+        <span>${esc(t('낱말 감자와 뜻 감자를 네모로 묶어 캐요 · 2분', 'Box a word potato with its meaning · 2 minutes'))}</span>
+        ${best ? `<em>${esc(t(`🏆 내 최고 ${best}점`, `🏆 My best ${best}`))}</em>` : ''}</span>
+      <span class="wd-pot-go">${esc(t('▶ 바로 하기', '▶ Play'))}</span>
+    </button>`;
+  }
   function homeGames() {
-    const G = [['match', 'grid', t('짝 맞추기', 'Match'), t('오늘 낱말 · 시간 재기', 'Today’s words, timed')],
+    const G = [['blocks', 'stack', t('단어 감자', 'Word potatoes'), t('낱말과 뜻 감자를 묶어 캐기', 'Box a word with its meaning')],
+      ['match', 'grid', t('짝 맞추기', 'Match'), t('오늘 낱말 · 시간 재기', 'Today’s words, timed')],
       ['dict', 'ear', t('받아쓰기', 'Dictation'), t('듣고 한국어로 쓰기', 'Hear it, type it')],
       ['test', 'check', t('미니 시험', 'Mini test'), t('섞어서 풀고 점수', 'Mixed, scored')],
-      ['blocks', 'stack', t('단어 감자', 'Word potatoes'), t('낱말과 뜻 감자를 묶어 캐기', 'Box a word with its meaning')],
       ['quiz', 'timer', t('스피드 퀴즈', 'Speed quiz'), t('60초 동안 많이', 'As many as you can in 60s')]];
     /* 어떤 낱말로 — 지금 외우는 세션 · 내 레벨에서 랜덤 10 · 아무 레벨 랜덤 10(운영자 2026-10-07) */
     const src = gameSrc();
