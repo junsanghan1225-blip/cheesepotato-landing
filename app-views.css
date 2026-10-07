@@ -6287,7 +6287,7 @@ body:has(#blkView:not(.hidden)) .hlp-fab { display:none; }
 .pa-road-i.done .pa-road-t { color:var(--ink-3); }
 .pa-road-i button:hover .pa-road-t { color:var(--orange-deep); }
 
-/* ── 반 숙제(첫 화면 맨 위) · 수업 일정 · QR ── 운영자 2026-10-07 */
+/* ── 반 숙제(첫 화면 맨 위) · QR ── 운영자 2026-10-07 */
 .ch-wrap { max-width:var(--max); margin:14px auto 0; padding:0 var(--gut); display:grid; gap:10px; }
 .ch-card { border:1.5px solid var(--orange); border-radius:var(--r-l); background:var(--surface); padding:16px; }
 .ch-top { display:flex; align-items:baseline; justify-content:space-between; gap:10px; flex-wrap:wrap; }
@@ -6302,14 +6302,6 @@ body:has(#blkView:not(.hidden)) .hlp-fab { display:none; }
 .ch-t small { font-size:12.5px; color:var(--ink-2); }
 .ch-go { flex:none; font-size:13px; font-weight:800; color:#fff; background:var(--orange); padding:6px 12px; border-radius:999px; }
 .ch-more { margin-top:10px; background:none; border:none; padding:4px 0; font:inherit; font-size:13.5px; font-weight:700; color:var(--ink-2); cursor:pointer; }
-.cls-sched { margin:10px 0 4px; padding:10px 12px; border-radius:var(--r); background:var(--tint); }
-.cls-sched-next { display:flex; flex-wrap:wrap; align-items:baseline; gap:4px 8px; }
-.cls-sched-next span { font-size:12.5px; font-weight:700; color:var(--orange-deep); }
-.cls-sched-next b { font-size:15.5px; color:var(--ink); }
-.cls-sched-next em { font-style:normal; font-size:11px; font-weight:800; padding:2px 7px; border-radius:999px; background:var(--orange); color:#fff; }
-.cls-sched-next small { margin-left:auto; font-size:12.5px; color:var(--ink-2); }
-.cls-sched-list { margin:6px 0 0; padding-left:18px; font-size:13px; color:var(--ink-2); }
-.cls-cal summary small { font-weight:400; color:var(--ink-3); margin-left:6px; }
 .cls-hint { font-size:13px; color:var(--ink-2); margin:0 0 4px; grid-column:1 / -1; }
 .cls-hi { border-color:var(--green); background:rgba(46,160,90,.08); font-weight:700; }
 .cls-qr { display:flex; gap:16px; align-items:center; flex-wrap:wrap; margin:12px 0; padding:14px; border:1px dashed var(--line); border-radius:var(--r); background:#fff; color:#1B1512; }
@@ -6341,11 +6333,7 @@ body:has(#blkView:not(.hidden)) .hlp-fab { display:none; }
 .cls-stu-hw li.late b { color:var(--red); }
 .cls-stu-hw li small { font-size:12px; color:var(--ink-3); }
 .cls-rep-tbl summary { cursor:pointer; font-size:13.5px; font-weight:700; color:var(--ink-2); margin:6px 0; }
-.cls-stu-cal { margin:0 12px 8px; padding:8px 10px; border-radius:8px; background:var(--tint); font-size:13px; }
-.cls-stu-cal p { margin:0 0 6px; }
-.cls-stu-cal .cls-row { display:flex; gap:6px; }
-.cls-stu-cal .sb-in { flex:1; min-width:0; }
-.cls-sched-me { flex-basis:100%; margin-left:0 !important; color:var(--ink-3) !important; }
-.cls-check { display:flex; gap:8px; align-items:flex-start; font-size:13px; font-weight:400; }
-.cls-stu-last { font-size:12px; color:var(--ink-3); }
 .cls-stu-out { margin:0 12px 6px; }
+
+.cls-privacy { font-size:12.5px; color:var(--ink-3); margin:10px 0 0; line-height:1.55; font-weight:400; }
+.cls-privacy a { color:inherit; }

@@ -13,16 +13,16 @@
    어느 날 갑자기 다른 코드가 실려 왔다.
    이제 vendor/ 안에 받아 두고 CSP 로 바깥을 막는다. 버전을 올릴 때는
    tools/vendor.mjs 의 PIN 을 고치고 다시 돌린다. */
-import { createClient } from './vendor/supabase-js.js?v=f05e4ebc';
+import { createClient } from './vendor/supabase-js.js?v=5a6bb8a3';
 // TOPIK 읽기 "문제 풀이 영상" 목록. 아주 작은 파일이라(id 목록뿐) 다른
 // 자료처럼 갈래를 열 때 지연 로딩하지 않고 그냥 처음부터 받는다.
-import { TQ_VIDEO_IDS } from './topik-video.js?v=f05e4ebc';
+import { TQ_VIDEO_IDS } from './topik-video.js?v=5a6bb8a3';
 // 코스 아이콘 — 이모지 대신 선 아이콘(course-icons.js 머리말)
 // 구독(Paddle) — billing.js 머리말
-import { BILLING, billingLive, isPro, proInfo, proByClass, loadPro, openCheckout, waitPro } from './billing.js?v=f05e4ebc';
-import { myLevelBadge, potatoLevel, cheeseLevel, CHEESE_OF_LEVEL } from './levels.js?v=f05e4ebc';
-import { courseIcon } from './course-icons.js?v=f05e4ebc';
-import { AUDIO_REMOTE, audioKey } from './audio-key.js?v=f05e4ebc';
+import { BILLING, billingLive, isPro, proInfo, proByClass, loadPro, openCheckout, waitPro } from './billing.js?v=5a6bb8a3';
+import { myLevelBadge, potatoLevel, cheeseLevel, CHEESE_OF_LEVEL } from './levels.js?v=5a6bb8a3';
+import { courseIcon } from './course-icons.js?v=5a6bb8a3';
+import { AUDIO_REMOTE, audioKey } from './audio-key.js?v=5a6bb8a3';
 // 앱(package.json)과 같은 줄기를 쓴다. 갈리면 앱에서는 읽히는 파일이
 // 여기서는 안 읽히는(또는 그 반대) 일이 생긴다.
 /* 엑셀 라이브러리는 422KB — 이 판에서 가장 무거운 조각이다. 그런데 쓰는
@@ -34,7 +34,7 @@ import { AUDIO_REMOTE, audioKey } from './audio-key.js?v=f05e4ebc';
    자국(?v=)은 tools/stamp.mjs 가 아래 줄에 알아서 붙인다 — 정적으로 쓰든
    동적으로 쓰든 같은 글자를 찾으므로 바꿔도 그대로 찍힌다. */
 let XLSX = null;
-const needXLSX = async () => (XLSX ??= await import('./vendor/xlsx.js?v=f05e4ebc'));
+const needXLSX = async () => (XLSX ??= await import('./vendor/xlsx.js?v=5a6bb8a3'));
 // 커리큘럼. 내용과 엔진을 갈라 두면 글을 고치다 화면을 깨지 않는다.
 // 갈래 목록(drawSections)·코스(drawCourses)·문제만 풀기(dqDraw) 를 열 때만
 // 받는다 — 배우기 갈래 목록도 안 본 사람에게 코스 71개 레슨을 다 물릴
@@ -42,9 +42,9 @@ const needXLSX = async () => (XLSX ??= await import('./vendor/xlsx.js?v=f05e4ebc
 let COURSES = [], coursesP = null;
 /* 앱은 courses.js 대신 courses-lite.js 를 받는다 — 중·고급 레슨 본문을 뺀 목록이다
    (tools/build-courses-lite.mjs). 본문은 그 레슨을 열 때 upperBlocksNeed() 가 채운다. */
-const coursesNeed = () => (coursesP ??= import('./courses-lite.js?v=f05e4ebc').then((m) => { COURSES = m.COURSES; }));
+const coursesNeed = () => (coursesP ??= import('./courses-lite.js?v=5a6bb8a3').then((m) => { COURSES = m.COURSES; }));
 let upperP = null;
-const upperBlocksNeed = () => (upperP ??= coursesNeed().then(() => import('./courses-grammar-detailed.js?v=f05e4ebc')).then((m) => {
+const upperBlocksNeed = () => (upperP ??= coursesNeed().then(() => import('./courses-grammar-detailed.js?v=5a6bb8a3')).then((m) => {
   const byId = new Map(m.DETAILED_GRAMMAR_COURSES.flatMap((c) => c.lessons.map((l) => [l.id, l.blocks])));
   for (const c of COURSES) for (const l of c.lessons) if (!l.blocks && byId.has(l.id)) { l.blocks = byId.get(l.id); delete l.lazy; }
 }));
@@ -59,7 +59,7 @@ const blocksNeed = async (course) => { if (course.lessons.some((l) => !l.blocks)
    tqGloss 는 그대로 동기다 — 아직 안 왔으면 빈 뜻을 돌려주고, 부르는
    쪽은 이미 "사전에 없는 말"을 다룰 줄 안다. */
 let GLOSSARY = {}, GLOSS_LANGS = {}, glossP = null;
-const glossNeed = () => (glossP ??= import('./glossary.js?v=f05e4ebc').then((m) => {
+const glossNeed = () => (glossP ??= import('./glossary.js?v=5a6bb8a3').then((m) => {
   GLOSSARY = m.GLOSSARY; GLOSS_LANGS = m.GLOSS_LANGS;
   dictBuildEntries();
 }).catch((e) => {
@@ -67,12 +67,12 @@ const glossNeed = () => (glossP ??= import('./glossary.js?v=f05e4ebc').then((m) 
   glossP = null;
   throw e;
 }));
-import { glossFind } from './gloss-find.js?v=f05e4ebc';
+import { glossFind } from './gloss-find.js?v=5a6bb8a3';
 /* 홈 화면 "오늘의 단어" 카드. 표제어·품사·짧은 뜻풀이 3개만 든
    작은 자료라(사전 전체 356KB 와 달리) 홈에 들어오면 바로 받는다 —
    빈 카드로 몇 초 떠 있는 것보다 낫다. */
 let WOTD_POOL = [], wotdP = null;
-const wotdNeed = () => (wotdP ??= import('./wotd.js?v=f05e4ebc').then((m) => {
+const wotdNeed = () => (wotdP ??= import('./wotd.js?v=5a6bb8a3').then((m) => {
   WOTD_POOL = m.WOTD_POOL;
 }).catch((e) => { wotdP = null; throw e; }));
 /* 그날의 낱말을 고른다. 한국 자정을 기준으로 하루씩 넘어가게
@@ -109,7 +109,7 @@ function hmQuizRender() {
   const box = $('hmQuiz');
   if (!box || box.dataset.done) return;
   box.dataset.done = '1';
-  const go = () => (hmQuizP ??= Promise.all([import('./topik.js?v=f05e4ebc'), import('./insta-pick.js?v=f05e4ebc')])).then(([tk, ip]) => {
+  const go = () => (hmQuizP ??= Promise.all([import('./topik.js?v=5a6bb8a3'), import('./insta-pick.js?v=5a6bb8a3')])).then(([tk, ip]) => {
     const q = ip.quizOfDay(tk.TOPIK_READING);
     if (!q) { box.hidden = true; return; }
     box.innerHTML = `<div class="hm-quiz-k"><b>${esc(t('오늘의 TOPIK 1문제', "Today's TOPIK question"))}</b><span>${esc(t(`TOPIK I · ${q.grade}급 · 기출 아님`, `TOPIK I · level ${q.grade} · not a past paper`))}</span></div>` +
@@ -141,11 +141,11 @@ window.wotdRender = () => { wotdRender(); hmQuizRender(); hmDoorIcons(); try { t
    나중 화면은 그 약속(??=)을 그대로 쓴다. */
 let GRAMMAR = [], GRAMMAR_EN = {}, grammarP = null;
 const grammarNeed = () => (grammarP ??= Promise.all([
-  import('./grammar.js?v=f05e4ebc'), import('./grammar-en.js?v=f05e4ebc'),
+  import('./grammar.js?v=5a6bb8a3'), import('./grammar-en.js?v=5a6bb8a3'),
 ]).then(([a, b]) => { GRAMMAR = a.GRAMMAR; GRAMMAR_EN = b.GRAMMAR_EN; }));
-import { grammarScan } from './grammar-find.js?v=f05e4ebc';
+import { grammarScan } from './grammar-find.js?v=5a6bb8a3';
 /* 문법 이름 → 예문에서 칠할 꼴. 쓰임 보기 도구(tools/build-grammar-usage.mjs)와 같은 것을 써서 찾은 곳과 칠한 곳이 어긋나지 않게. */
-import { grammarMarkRe } from './grammar-mark.js?v=f05e4ebc';
+import { grammarMarkRe } from './grammar-mark.js?v=5a6bb8a3';
 // TOPIK 쓰기·듣기 문항. 읽기(topik.js·topik2.js)와 같은 tqNeedData() 로
 // 함께 받는다 — 유형 연습(topik) 갈래 하나가 세 기술을 다 쓰므로 따로
 // 가를 까닭이 없다. 값은 tqNeedData 정의부에서 채운다.
@@ -162,7 +162,7 @@ let GRAMMAR_DRILL = {}, GRAMMAR_USAGE = {}, GRAMMAR_WORDS = {}, GRAMMAR_PRACTICE
 let GRAMMAR_PAIRS = [], sbDataReady = false;   // 헷갈리는 문법 비교(grammar-pairs.js, 2026-10-06)
 /* 쓰임 보기(tools/build-grammar-usage.mjs 생성물) — TOPIK 연습 · 읽기 지문 · 낱말 예문에서 그 문법이 쓰인 문장 */
 /* 같이 알면 좋은 단어(tools/build-grammar-words.mjs 생성물, 원본 docs/grammar-words.json) */
-const sbNeed = () => (sbDataP ??= Promise.all([import('./sentences.js?v=f05e4ebc'), import('./grammar-drill.js?v=f05e4ebc'), import('./grammar-usage.js?v=f05e4ebc'), import('./grammar-words.js?v=f05e4ebc'), import('./grammar-pairs.js?v=f05e4ebc')]).then(([m, d, u, w, gp]) => {
+const sbNeed = () => (sbDataP ??= Promise.all([import('./sentences.js?v=5a6bb8a3'), import('./grammar-drill.js?v=5a6bb8a3'), import('./grammar-usage.js?v=5a6bb8a3'), import('./grammar-words.js?v=5a6bb8a3'), import('./grammar-pairs.js?v=5a6bb8a3')]).then(([m, d, u, w, gp]) => {
   GRAMMAR_PAIRS = gp.GRAMMAR_PAIRS || [];
   sbDataReady = true;
   GRAMMAR_DRILL = d.GRAMMAR_DRILL || {}; GRAMMAR_USAGE = u.GRAMMAR_USAGE || {}; GRAMMAR_PRACTICE = u.GRAMMAR_PRACTICE || {}; GRAMMAR_WORDS = w.GRAMMAR_WORDS || {};
@@ -176,7 +176,7 @@ const sbNeed = () => (sbDataP ??= Promise.all([import('./sentences.js?v=f05e4ebc
 // 숫자 게임의 읽기와 문제 만들기. 화면을 모르는 순수 계산이라 따로 뒀다.
 // 게임 목록에서 「숫자 읽기」를 시작할 때만 받는다 — XLSX 와 같은 자리다.
 let makeRound = null;
-const needNumbers = async () => (makeRound ??= (await import('./numbers.js?v=f05e4ebc')).makeRound);
+const needNumbers = async () => (makeRound ??= (await import('./numbers.js?v=5a6bb8a3')).makeRound);
 
 // 이 키는 공개돼도 되는 값이다. 이미 APK 안에 같은 것이 들어 있고,
 // 접근을 막는 건 키가 아니라 테이블에 걸린 RLS 다.
@@ -286,8 +286,8 @@ let tqDataP = null;
    유형 연습(topik) 갈래 하나가 이 넷을 다 쓰므로 갈라 봤자 요청만
    늘어난다. */
 const tqNeedData = () => (tqDataP ??= Promise.all([
-  import('./topik.js?v=f05e4ebc'), import('./topik2.js?v=f05e4ebc'),
-  import('./topik-writing.js?v=f05e4ebc'), import('./topik-listening.js?v=f05e4ebc'),
+  import('./topik.js?v=5a6bb8a3'), import('./topik2.js?v=5a6bb8a3'),
+  import('./topik-writing.js?v=5a6bb8a3'), import('./topik-listening.js?v=5a6bb8a3'),
 ]).then(([a, b, c, d]) => {
   TQ_DATA.I  = { reading: a.TOPIK_READING,  blueprint: a.TOPIK_BLUEPRINT,  slots: a.TOPIK_SLOTS };
   TQ_DATA.II = { reading: b.TOPIK2_READING, blueprint: b.TOPIK2_BLUEPRINT, slots: b.TOPIK2_SLOTS };
@@ -298,14 +298,14 @@ const tqNeedData = () => (tqDataP ??= Promise.all([
 let READING = null, rdP = null;
 // 지문의 밑줄 문법 말풍선이 GRAMMAR 를 쓰므로 같이 받아 둔다.
 const rdNeed = () => (rdP ??= Promise.all([
-  import('./reading.js?v=f05e4ebc'), grammarNeed(),
+  import('./reading.js?v=5a6bb8a3'), grammarNeed(),
 ]).then(([m]) => { READING = m.READING; }));
 
 let CONVO = null, cvP = null;
-const cvNeed = () => (cvP ??= import('./convo.js?v=f05e4ebc').then((m) => { CONVO = m.CONVO; }));
+const cvNeed = () => (cvP ??= import('./convo.js?v=5a6bb8a3').then((m) => { CONVO = m.CONVO; }));
 /* 동화책 — 배우기 › 동화책을 열 때 받는다. 문법 밑줄 · 낱말 뜻(rdGrammarify)을 쓰니 grammarNeed 도 같이 */
 let STORIES = [], bkP = null;
-const bkNeed = () => (bkP ??= Promise.all([import('./stories.js?v=f05e4ebc'), grammarNeed()]).then(([m]) => { STORIES = m.STORIES; }));
+const bkNeed = () => (bkP ??= Promise.all([import('./stories.js?v=5a6bb8a3'), grammarNeed()]).then(([m]) => { STORIES = m.STORIES; }));
 
 /* 배우기를 열면 여섯 다 미리 불을 붙인다. 기다리지 않는다 — 갈래 목록은
    이 자료가 없어도 그려지고, 사람이 갈래를 고르는 사이에 도착한다.
@@ -534,9 +534,9 @@ $('dictBtn').addEventListener('click', () => { const go = !showing('wordsView');
    합쳐 200KB 남짓(압축)이라 첫 화면 모두에게 물릴 까닭이 없다. 사이트 공용 도구는 넘겨준다. */
 let wordsApi = null, wordsP = null;
 /* TOPIK II 예문은 500개씩 조각으로 따로 받는다(tools/build-vocab.mjs) — 조각 주소는 이 파일의 자국을 빌린다. */
-const VOCAB2_URL = './vocab-topik2.js?v=f05e4ebc';
+const VOCAB2_URL = './vocab-topik2.js?v=5a6bb8a3';
 const wordsNeed = () => (wordsP ??= Promise.all([
-  import('./words.js?v=f05e4ebc'), import('./vocab-topik1.js?v=f05e4ebc'), import(VOCAB2_URL),
+  import('./words.js?v=5a6bb8a3'), import('./vocab-topik1.js?v=5a6bb8a3'), import(VOCAB2_URL),
 ]).then(([m, d, d2]) => {
   wordsApi = m.wordsInit({
     root: $('wordsRoot'), t, esc, track, say, glossFind, glossNeed, ICON: DICT_SAY_ICON,
@@ -631,7 +631,7 @@ async function vocabSync() {
   if (!wordsP) return;
   const { data: { session } } = await sb.auth.getSession();
   if (!session) return;
-  const m = await import('./words.js?v=f05e4ebc');
+  const m = await import('./words.js?v=5a6bb8a3');
   const ok = await m.syncVocab(async () => {
     const { data, error } = await sb.from('settings').select('vocab').eq('user_id', session.user.id).maybeSingle();
     return error ? undefined : (data?.vocab || {});
@@ -945,14 +945,14 @@ let dictOpen = null;  // 지금 "더 보기"(예문·뜻풀이)를 펼쳐 둔 �
    평소엔 안 쓰는 522KB 를 첫 화면 모두에게 물릴 까닭이 없다. */
 let dictSensesP = null;
 const dictLoadSenses = () => (dictSensesP ??=
-  import('./glossary-senses.js?v=f05e4ebc').then((m) => m.SENSES).catch(() => ({})));
+  import('./glossary-senses.js?v=5a6bb8a3').then((m) => m.SENSES).catch(() => ({})));
 
 /* 예문. 국립국어원 자료엔 없어서 Gemini 로 새로 지은 것이다(있는 만큼만
    — docs/glossary-examples-gemini-prompt.md 참고). 뜻풀이와 같은 자리에서
    같이 받는다 — 펼치는 손짓 하나에 몰아 두는 편이 화면이 덜 복잡하다. */
 let dictExamplesP = null;
 const dictLoadExamples = () => (dictExamplesP ??=
-  import('./glossary-examples.js?v=f05e4ebc').then((m) => m.EXAMPLES).catch(() => ({})));
+  import('./glossary-examples.js?v=5a6bb8a3').then((m) => m.EXAMPLES).catch(() => ({})));
 
 function dictVisible() {
   const q = dictQuery.trim().toLowerCase();
@@ -10232,7 +10232,7 @@ let TRAVEL_CATEGORIES = null;
 let TRAVEL_PHRASES = null;
 let TRAVEL_VOCAB = null;
 let tvP = null;
-const tvNeed = () => (tvP ??= import('./travel-data.js?v=f05e4ebc').then((m) => {
+const tvNeed = () => (tvP ??= import('./travel-data.js?v=5a6bb8a3').then((m) => {
   TRAVEL_CATEGORIES = m.TRAVEL_CATEGORIES;
   TRAVEL_PHRASES = m.TRAVEL_PHRASES;
   TRAVEL_VOCAB = m.TRAVEL_VOCAB;
@@ -14467,7 +14467,7 @@ function sbWsPrint() {
   window.print();
 }
 async function wsPrint() {
-  const [, sm] = await Promise.all([tvNeed(), import('./sentences.js?v=f05e4ebc')]);
+  const [, sm] = await Promise.all([tvNeed(), import('./sentences.js?v=5a6bb8a3')]);
   if (!TRAVEL_CATEGORIES) return;
   track('학습지인쇄');
   const GP = new Map(sm.SB_CATS.flatMap((c) => c.points).map((p) => [p.id, p]));
@@ -14670,7 +14670,7 @@ async function gameVocabWords(min, have = []) {
   const push = (word, meaning) => { if (word && meaning && !seen.has(word)) { seen.add(word); out.push({ word, meaning }); } };
   guestRead().forEach((g) => push(g.word, g.meaning));
   try {
-    const d = await import('./vocab-topik1.js?v=f05e4ebc');
+    const d = await import('./vocab-topik1.js?v=5a6bb8a3');
     let st = {};
     try { st = JSON.parse(localStorage.getItem('cp-words-v1') || '{}').w || {}; } catch (e) {}
     const mean = (w) => w.s || w.e.split(';')[0];
@@ -15047,12 +15047,12 @@ let blkMod = null;
 async function blkOpen() {
   if (!blkMod) {
     $('blkRoot').innerHTML = `<p class="blk-wait">${esc(t('불러오는 중…', 'Loading…'))}</p>`;
-    try { blkMod = await import('./word-blocks.js?v=f05e4ebc'); } catch (e) { $('blkRoot').innerHTML = `<p class="blk-wait">${esc(t('게임을 못 불러왔어요. 새로고침해 주세요.', 'Could not load the game. Please refresh.'))}</p>`; return; }
+    try { blkMod = await import('./word-blocks.js?v=5a6bb8a3'); } catch (e) { $('blkRoot').innerHTML = `<p class="blk-wait">${esc(t('게임을 못 불러왔어요. 새로고침해 주세요.', 'Could not load the game. Please refresh.'))}</p>`; return; }
     blkMod.blkBind($('blkRoot'));
     blkMod.blkMount({
       root: $('blkRoot'), t, esc, say, track, save: saveWords,
       vocab: async (two) => {
-        const [a, b] = await Promise.all([import('./vocab-topik1.js?v=f05e4ebc'), two ? import(VOCAB2_URL) : null]);
+        const [a, b] = await Promise.all([import('./vocab-topik1.js?v=5a6bb8a3'), two ? import(VOCAB2_URL) : null]);
         return b ? [...a.VOCAB, ...b.VOCAB] : a.VOCAB;
       },
     });
@@ -15190,7 +15190,7 @@ function ltAdaptNext() {
    낱말 급수를 우리 레벨(L)에 얹는다: TOPIK I 1급 생활 낱말 L2 · 그 밖 L3, 2급 생활 L4 · 그 밖 L5, TOPIK II 3 · 4급 L6, 5 · 6급 L7.
    오답 보기는 같은 레벨 · 같은 품사에서, 뜻이 겹치지 않게 고른다. */
 let ltVocabP = null;
-const ltVocabPool = () => (ltVocabP ??= Promise.all([import('./vocab-topik1.js?v=f05e4ebc'), import(VOCAB2_URL)]).then(([a, b]) => {
+const ltVocabPool = () => (ltVocabP ??= Promise.all([import('./vocab-topik1.js?v=5a6bb8a3'), import(VOCAB2_URL)]).then(([a, b]) => {
   const en = (w) => String(w.s || w.e || '').split(';')[0].trim();
   /* 2026-10-05 부터 낱말마다 우리 레벨(v, tools/vocab-level.mjs)이 있다 — 그것을 그대로 쓴다. 옛 자료(v 없음)는 급수로 어림. */
   const lvOf = (w) => w.v || (w.l === 1 ? 3 : w.l === 2 ? 5 : w.l <= 4 ? 6 : 7);
@@ -15698,7 +15698,7 @@ $('lrWrap').addEventListener('click', (ev) => {
    주소: #learn/translate · #learn/translate/<글 id> */
 let TRANSLATE_SETS = null;
 const trNeed = () => TRANSLATE_SETS ? Promise.resolve() :
-  import('./translate.js?v=f05e4ebc').then((m) => { TRANSLATE_SETS = m.TRANSLATE_SETS || []; });
+  import('./translate.js?v=5a6bb8a3').then((m) => { TRANSLATE_SETS = m.TRANSLATE_SETS || []; });
 const TR_DONE = 'cp_tr_done';
 const TR_TIERS = [['beginner', '초급', 'Beginner'], ['intermediate', '중급', 'Intermediate'], ['advanced', '고급', 'Advanced']];
 let trTier = null, tr = null;   // tr = { id, i, val, res: ''|'ok'|'no'|'self', hint, ok }
@@ -15805,7 +15805,7 @@ $('trWrap').addEventListener('keydown', (ev) => {
    주소: #learn/path · #learn/path/<길> · #learn/path/<길>/<레슨 id> */
 let PATH_GRAMMAR = null;
 const pathNeed = () => PATH_GRAMMAR ? Promise.resolve() :
-  import('./path-map.js?v=f05e4ebc').then((m) => { PATH_GRAMMAR = m.PATH_GRAMMAR || {}; });
+  import('./path-map.js?v=5a6bb8a3').then((m) => { PATH_GRAMMAR = m.PATH_GRAMMAR || {}; });
 const PATHS = [
   { id: 'basic', icon: '🥔', lvs: [0, 1, 2, 3, 4, 5], ko: '기초부터', en: 'From the basics',
     subKo: '한글 · 첫 문장부터 초급 끝까지', subEn: 'Hangul and first sentences up to upper beginner' },
@@ -16678,10 +16678,10 @@ $('ltPurposeGrid').addEventListener('click', (ev) => {
    빠지고, 고쳐 올려도 브라우저가 예전 문제를 계속 들고 있게 된다. */
 let LT_CUSTOM = { overall: [], reading: [], writing: [], listening: [] };
 let ltCustomOverallP = null, ltCustomReadingP = null, ltCustomWritingP = null, ltCustomListeningP = null;
-const ltCustomOverallNeed = () => (ltCustomOverallP ??= import('./leveltest-overall.js?v=f05e4ebc').then((m) => { LT_CUSTOM.overall = m.LT_CUSTOM_OVERALL; }));
-const ltCustomReadingNeed = () => (ltCustomReadingP ??= import('./leveltest-reading.js?v=f05e4ebc').then((m) => { LT_CUSTOM.reading = m.LT_CUSTOM_READING; }));
-const ltCustomWritingNeed = () => (ltCustomWritingP ??= import('./leveltest-writing.js?v=f05e4ebc').then((m) => { LT_CUSTOM.writing = m.LT_CUSTOM_WRITING; }));
-const ltCustomListeningNeed = () => (ltCustomListeningP ??= import('./leveltest-listening.js?v=f05e4ebc').then((m) => { LT_CUSTOM.listening = m.LT_CUSTOM_LISTENING; }));
+const ltCustomOverallNeed = () => (ltCustomOverallP ??= import('./leveltest-overall.js?v=5a6bb8a3').then((m) => { LT_CUSTOM.overall = m.LT_CUSTOM_OVERALL; }));
+const ltCustomReadingNeed = () => (ltCustomReadingP ??= import('./leveltest-reading.js?v=5a6bb8a3').then((m) => { LT_CUSTOM.reading = m.LT_CUSTOM_READING; }));
+const ltCustomWritingNeed = () => (ltCustomWritingP ??= import('./leveltest-writing.js?v=5a6bb8a3').then((m) => { LT_CUSTOM.writing = m.LT_CUSTOM_WRITING; }));
+const ltCustomListeningNeed = () => (ltCustomListeningP ??= import('./leveltest-listening.js?v=5a6bb8a3').then((m) => { LT_CUSTOM.listening = m.LT_CUSTOM_LISTENING; }));
 const LT_CUSTOM_NEED = {
   overall: ltCustomOverallNeed, reading: ltCustomReadingNeed,
   writing: ltCustomWritingNeed, listening: ltCustomListeningNeed,
@@ -17401,7 +17401,7 @@ async function ltWeekHtml(level, grade) {
     const lessonMins = list.reduce((x, c) => x + c.lessons.reduce((y, l) => y + (l.minutes || 7), 0), 0);
     let nWords = 0;
     try {
-      const [a, b] = await Promise.all([import('./vocab-topik1.js?v=f05e4ebc'), import(VOCAB2_URL)]);
+      const [a, b] = await Promise.all([import('./vocab-topik1.js?v=5a6bb8a3'), import(VOCAB2_URL)]);
       nWords = [...a.VOCAB, ...b.VOCAB].filter((w) => w.v === L).length;
     } catch (e) { /* 낱말 자료를 못 받으면 레슨만으로 어림 */ }
     const dL = lessonMins ? Math.ceil((lessonMins * LV_NEED.lessons) / (mainMin * 5 / 7)) : 0;
@@ -18589,7 +18589,7 @@ function fbMount(host, place, level = null) {
    openSection 이 epsDraw 를 부른다. let · const 면 그때 「초기화 전 접근」으로 죽는다. */
 var EPS = null;
 var epsP = null;
-function epsNeed() { return (epsP ??= import('./eps.js?v=f05e4ebc').then((m) => { EPS = m; })); }
+function epsNeed() { return (epsP ??= import('./eps.js?v=5a6bb8a3').then((m) => { EPS = m; })); }
 const EPS_SECS = ['reading', 'listening'];
 const EPS_MOCK_SEC = 70 * 60;
 const EPS_NUM = ['①', '②', '③', '④'];
@@ -19013,7 +19013,7 @@ const SS_PAGES = [
   ['블로그', 'Blog', 'blog/', '블로그 blog 글'],
 ];
 let ssIdx = null, ssP = null, ssT = 0;
-const ssNeed = () => (ssP ??= import('./search-index.js?v=f05e4ebc').then((m) => { ssIdx = m.SEARCH_INDEX; }).catch(() => { ssP = null; }));
+const ssNeed = () => (ssP ??= import('./search-index.js?v=5a6bb8a3').then((m) => { ssIdx = m.SEARCH_INDEX; }).catch(() => { ssP = null; }));
 const ssNorm = (s) => String(s || '').toLowerCase().replace(/[\s\-~]+/g, '');
 /* 문법 이름의 다른 꼴 — 「A/V-아/어서」를 「-아서」 · 「-어서」로도, 「-(으)니까」를 「-니까」 · 「-으니까」로도 찾게 */
 const ssGramForms = (name) => {
@@ -19095,7 +19095,7 @@ if ($('ssIn')) {
    첫 판 숙제는 코스 레슨 · 단어 세션 · 문법(바꿔 쓰기). 표와 권한은 db/add_classes.sql.
    「했음」은 학생 화면이 스스로 적는다 — 레슨을 끝내면(finishLesson) · 단어 세션을 끝내면(words.js sessionEnd) ·
    문법 바꿔 쓰기를 끝까지 하면 clsMark → 서버 cls_mark 가 그 사람이 든 반의 맞는 숙제에만 붙인다. */
-const cls = { rows: [], hw: [], done: [], members: [], err: '', busy: false, code: '', msg: '', open: {}, sched: {}, cal: {}, mcal: {}, ssched: {}, hi: '', auto: '' };
+const cls = { rows: [], hw: [], done: [], members: [], err: '', busy: false, code: '', msg: '', open: {}, hi: '', auto: '' };
 let clsSession = null;
 const clsIsAdmin = () => clsSession?.user?.email === ADMIN_EMAIL;
 /* 선생님 계정(2026-10-06, db/add_class_teachers.sql) — 운영자가 올린 메일도 반을 만든다. 서버 cls_is_admin() 이 정답 */
@@ -19160,19 +19160,13 @@ async function clsLoad() {
     cls.auto = cls.code;
     if (await clsJoin(cls.code, clsDefaultName())) return;
   }
-  /* 수업 일정(구글 캘린더) — 반마다 서버 함수가 걸러 준 다음 수업들. 선생님은 붙여 둔 주소도 읽는다 */
-  const own = cls.rows.filter((c) => c.owner === clsSession.user.id).map((c) => c.id);
-  if (own.length) {
-    const [r2, r3] = await Promise.all([sb.from('class_calendar').select('class_id, ical, keyword, per_student').in('class_id', own), sb.from('class_member_cal').select('class_id, user_id, keyword').in('class_id', own)]);
-    cls.cal = Object.fromEntries((r2.data || []).map((x) => [x.class_id, x]));
-    cls.mcal = Object.fromEntries((r3.data || []).map((x) => [`${x.class_id}:${x.user_id}`, x.keyword]));
-  }
-  await Promise.all(cls.rows.map((c) => clsSchedLoad(c.id)));
   /* 숙제 고르는 칸에 쓸 자료(레슨 · 문법 목록) — 운영자만 */
   if (clsCanMake()) { await Promise.all([coursesNeed(), sbNeed(), tqNeedData()]).catch(() => {}); }
   clsPaint();
 }
 
+/* 개인정보 안내 한 줄(운영자 2026-10-07) — 반에 들어오기 전(초대 · 코드 칸)과 들어온 뒤(반가운 말)에 같은 글 */
+const clsPrivacy = () => `<p class="cls-privacy">🔒 ${esc(t('반에 들어오면 선생님이 반에서 보일 이름(계정 이름)과 숙제 기록(한 날 · 점수)을 볼 수 있어요. 숙제 · 복습에만 쓰고, 「반 나가기」로 언제든 나갈 수 있어요.', 'In a class, your teacher can see your display name (your account name) and homework records (dates and scores). They are used only for homework and review, and you can leave anytime with “Leave class”.'))} <a href="privacy.html">${esc(t('개인정보처리방침', 'Privacy policy'))}</a></p>`;
 const clsDefaultName = () => {
   let n = ''; try { n = localStorage.getItem(QA_NAME_KEY) || ''; } catch (e) {}
   const u = clsSession?.user;
@@ -19190,56 +19184,10 @@ async function clsJoin(code, name) {
   try { const { data: { session } } = await sb.auth.getSession(); if (session) { await loadPro(sb, session); proPaintAccount(); } } catch (e) {}
   return true;
 }
-/* 수업 일정 — class-schedule 함수(구글 캘린더 iCal 을 서버가 읽는다). 함수를 아직 안 올렸으면 조용히 빈칸 */
-async function clsSchedLoad(cid, uid) {
-  try {
-    const { data: { session } } = await sb.auth.getSession();
-    if (!session) return null;
-    const res = await fetch(`${SB_URL}/functions/v1/class-schedule`, {
-      method: 'POST', headers: { 'Content-Type': 'application/json', apikey: SB_ANON, Authorization: `Bearer ${session.access_token}` },
-      body: JSON.stringify(uid ? { class_id: cid, user_id: uid } : { class_id: cid }),
-    });
-    const r = await res.json().catch(() => null);
-    const v = res.ok && r?.list ? r : { list: [], err: r?.error || 'fn' };
-    /* 수업이 끝나 서버가 반에서 뺐다(마지막 수업 3주 전 · 앞으로 없음) — 학생에게는 묻지 않고 숙제 카드만 조용히 거둔다 */
-    if (r?.left) {
-      if (uid) cls.members = cls.members.filter((x) => !(x.class_id === cid && x.user_id === uid));
-      else { cls.rows = cls.rows.filter((c) => c.id !== cid); try { if (!cls.rows.some((c) => c.owner !== clsSession?.user?.id)) localStorage.setItem('cp_cls_in', ''); } catch (e) {} }
-    }
-    if (uid) cls.ssched[`${cid}:${uid}`] = v; else cls.sched[cid] = v;
-    return v;
-  } catch (e) { const v = { list: [], err: 'fn' }; if (uid) cls.ssched[`${cid}:${uid}`] = v; else cls.sched[cid] = v; return v; }
-}
-const clsWhen = (iso) => new Date(iso).toLocaleString(isEn() ? 'en-US' : 'ko-KR', { month: 'short', day: 'numeric', weekday: 'short', hour: 'numeric', minute: '2-digit' });
-/* 「다음 수업 · 앞으로 몇 번」 한 줄 + 다음 셋. 일정이 없으면 빈 글 */
-function clsSchedHtml(cid, small) {
-  const s = cls.sched[cid];
-  if (!s?.list?.length) return '';
-  /* 1:1 반의 선생님은 캘린더 전체를 본다 — 학생에게는 각자 자기 수업만 간다고 적어 둔다 */
-  const c0 = cls.rows.find((c) => c.id === cid), teach1 = c0 && c0.owner === clsSession?.user?.id && cls.cal[cid]?.per_student !== false;
-  const [a, ...rest] = s.list;
-  const soon = (new Date(a.start) - Date.now()) < 864e5;
-  return `<div class="cls-sched${small ? ' sm' : ''}"><div class="cls-sched-next"><span>📅 ${esc(t('다음 수업', 'Next class'))}</span><b>${esc(clsWhen(a.start))}</b>` +
-    `${soon ? `<em>${esc(t('곧', 'Soon'))}</em>` : ''}<small>${esc(t(`앞으로 수업 ${s.list.length}${s.more ? '+' : ''}번`, `${s.list.length}${s.more ? '+' : ''} classes ahead`))}</small>${teach1 ? `<small class="cls-sched-me">${esc(t('선생님 캘린더 전체 · 학생은 자기 수업만 봐요', 'Your whole calendar · each student sees only their own'))}</small>` : ''}</div>` +
-    (small ? '' : rest.length ? `<ul class="cls-sched-list">${rest.slice(0, 3).map((x) => `<li>${esc(clsWhen(x.start))}${x.title ? ` · ${esc(x.title)}` : ''}</li>`).join('')}</ul>` : '') + '</div>';
-}
-/* 선생님 — 반의 구글 캘린더 주소(iCal 비공개 주소) · 거르는 말 */
-function clsCalForm(c) {
-  const x = cls.cal[c.id], s = cls.sched[c.id];
-  const st = !x ? t('아직 연결 안 함', 'Not connected') : s?.err === 'fn' ? t('연결해 두었어요 — 일정 함수(class-schedule)를 아직 안 올렸어요', 'Saved — the class-schedule function is not deployed yet')
-    : s?.err ? t('캘린더를 읽지 못했어요 — 주소를 다시 확인해 주세요', 'Could not read the calendar — check the address') : t(`연결됨 · 앞으로 수업 ${s?.list?.length || 0}번`, `Connected · ${s?.list?.length || 0} classes ahead`);
-  return `<details class="cls-add cls-cal"${cls.open['cal' + c.id] ? ' open' : ''} data-clscal="${c.id}"><summary>📅 ${esc(t('수업 일정 · 구글 캘린더', 'Class schedule · Google Calendar'))} <small>${esc(st)}</small></summary>` +
-    `<div class="cls-form"><p class="cls-hint">${esc(t('구글 캘린더 → 그 캘린더의 「설정 및 공유」 → 맨 아래 「iCal 형식의 비공개 주소」를 복사해 붙여 넣으세요. 학생에게는 수업 시간만 보여요.', 'Google Calendar → the calendar’s “Settings and sharing” → copy “Secret address in iCal format” and paste it here. Students only see class times.'))}</p>` +
-    `<label class="lec-wide">${esc(t('iCal 비공개 주소', 'Secret iCal address'))}<input data-clscalurl placeholder="https://calendar.google.com/calendar/ical/…/basic.ics" value="${esc(x?.ical || '')}"></label>` +
-    `<label class="lec-wide">${esc(t('이 말이 든 일정만(비우면 전부) — 예: Preply · Korean class', 'Only events containing (optional) — e.g. Preply · Korean class'))}<input data-clscalkw maxlength="40" value="${esc(x?.keyword || '')}"></label>` +
-    `<label class="cls-check lec-wide"><input type="checkbox" data-clscal1 ${x?.per_student === false ? '' : 'checked'}> ${esc(t('1:1 수업 — 학생마다 자기 수업만 보여 주기(추천). 구글 캘린더 일정에 학생 메일을 손님으로 넣거나, 진도 리포트의 학생 카드에서 「캘린더에서 찾는 말」(예: 학생 이름)을 정해 주세요.', '1:1 lessons — each student sees only their own (recommended). Invite the student’s email as a guest in Google Calendar, or set a “calendar keyword” (e.g. their name) on the student card in the progress report.'))}</label>` +
-    `<button type="button" class="pt-next" data-clscalsave="${c.id}">${esc(t('저장', 'Save'))}</button>` +
-    (x ? `<button type="button" class="pt-ghost" data-clscaldel="${c.id}">${esc(t('연결 끊기', 'Disconnect'))}</button>` : '') + '</div></details>';
-}
 /* QR — qrcode-lib.js(MIT, Kazuhiko Arase)를 이 칸을 열 때만 받는다. CSP 때문에 우리 도메인에 둔다 */
 let clsQrLib = null;
 const clsQrNeed = () => (clsQrLib ??= new Promise((ok, no) => {
-  const sc = document.createElement('script'); sc.src = './qrcode-lib.js?v=f05e4ebc'; sc.onload = () => ok(window.qrcode); sc.onerror = no; document.head.appendChild(sc);
+  const sc = document.createElement('script'); sc.src = './qrcode-lib.js?v=5a6bb8a3'; sc.onload = () => ok(window.qrcode); sc.onerror = no; document.head.appendChild(sc);
 }));
 async function clsQrFill() {
   const boxes = document.querySelectorAll('[data-clsqrbox]');
@@ -19253,7 +19201,7 @@ async function clsQrFill() {
 }
 function clsQrHtml(c) {
   return `<div class="cls-qr" data-clsqrbox="${esc(c.code)}"><div class="cls-qr-img" aria-label="QR"></div><div class="cls-qr-t"><b>${esc(c.name)}</b>` +
-    `<p>${esc(t('학생이 휴대폰 카메라로 찍고 로그인만 하면 이 반에 바로 들어와요. 이름은 묻지 않아요(계정 이름으로).', 'Students scan with their phone camera and just sign in — they join this class right away (their account name is used).'))}</p>` +
+    `<p>${esc(t('숙제 · 복습용이에요. 학생이 휴대폰 카메라로 찍고 로그인만 하면 이 반에 바로 들어와요. 이름은 묻지 않아요(계정 이름으로).', 'For homework and review. Students scan with their phone camera and just sign in — they join this class right away (their account name is used).'))}</p>` +
     `<small>${esc(clsLink(c.code))}</small><div class="cls-row"><button type="button" class="pt-next" data-clsqrsave="" data-name="${esc(c.code)}">${esc(t('QR 그림 저장', 'Save QR image'))}</button>` +
     `<button type="button" class="pt-ghost" data-clscopy="${esc(c.code)}">${esc(t('링크 복사', 'Copy link'))}</button></div></div></div>`;
 }
@@ -19278,9 +19226,6 @@ async function clsHomeRender() {
         sb.from('class_homework').select('*').in('class_id', ids).order('created_at', { ascending: false }),
         sb.from('class_done').select('hw_id, user_id, n').eq('user_id', session.user.id),
       ]) : [{ data: [] }, { data: [] }];
-      const left = new Set();
-      await Promise.all(rows.map(async (c) => { if ((await clsSchedLoad(c.id))?.left) left.add(c.id); }));
-      if (left.size) { const keep = rows.filter((c) => !left.has(c.id)); rows.length = 0; rows.push(...keep); if (!keep.length) try { localStorage.setItem('cp_cls_in', ''); } catch (e) {} }
       clsHomeData = { rows, hw: h.data || [], done: d.data || [], uid: session.user.id };
       /* 숙제 「하러 가기」가 반 화면과 같은 길을 쓰게 */
       cls.hw = [...new Map([...cls.hw, ...clsHomeData.hw].map((x) => [x.id, x])).values()];
@@ -19301,7 +19246,6 @@ async function clsHomeRender() {
         `<small>${esc(t(ko, en))}${hh.kind === 'vocab' ? ` · ${d?.n || 0}/${hh.goal}` : ''}${due ? ` · ${hh.due < today ? esc(t('기한 지남', 'late')) : esc(t(`${due}까지`, `due ${due}`))}` : ''}</small></span><span class="ch-go">${esc(t('하기', 'Go'))} →</span></button></li>`; };
     return `<section class="ch-card"><div class="ch-top"><span class="ch-k">🏫 ${esc(c.name)}</span>` +
       `<span class="ch-n">${todo.length ? esc(t(`숙제 ${todo.length}개 남았어요`, `${todo.length} homework left`)) : esc(t('숙제 다 했어요 ✓', 'All homework done ✓'))}</span></div>` +
-      clsSchedHtml(c.id, true) +
       (todo.length ? `<ol class="ch-list">${todo.slice(0, 3).map(row).join('')}</ol>` : '') +
       `<button type="button" class="ch-more" data-clsopen>${esc(t(`반 화면 열기${all.length ? ` · 숙제 ${all.length}개` : ''}`, `Open class${all.length ? ` · ${all.length} homework` : ''}`))} →</button></section>`;
   }).join('');
@@ -19382,17 +19326,6 @@ function clsReportHtml(c) {
     '</tbody></table></div>' +
     `</details><button type="button" class="pt-ghost" data-clscsv="${c.id}">⬇ ${esc(t('엑셀(CSV)로 받기', 'Download CSV'))}</button></div>`;
 }
-/* 학생 카드 안의 수업 일정 — 이 학생이 보는 그대로(다음 수업) + 캘린더에서 이 학생을 찾는 말 */
-function clsStuCalHtml(c, m) {
-  if (!cls.cal[c.id]) return '';
-  const k = `${c.id}:${m.user_id}`, s = cls.ssched[k];
-  const next = s?.list?.[0];
-  const st = !s ? t('불러오는 중…', 'Loading…') : s.err ? t('일정을 못 읽었어요', 'Could not read the schedule')
-    : next ? t(`다음 수업 ${clsWhen(next.start)} · 앞으로 ${s.list.length}${s.more ? '+' : ''}번`, `Next ${clsWhen(next.start)} · ${s.list.length}${s.more ? '+' : ''} ahead`)
-    : t('이 학생에게 보이는 수업이 없어요 — 캘린더 일정에 학생 메일을 손님으로 넣거나 아래 「찾는 말」을 정해 주세요.', 'No classes show for this student — invite their email or set a keyword below.');
-  return `<div class="cls-stu-cal"><p>📅 ${esc(st)}</p>${s?.last ? `<p class="cls-stu-last">${esc(t(`마지막 수업 ${clsWhen(s.last)} — 3주 넘게 수업이 없고 앞으로도 없으면 저절로 반에서 나가요`, `Last class ${clsWhen(s.last)} — leaves the class automatically after 3 weeks with nothing booked`))}</p>` : ''}${cls.cal[c.id].per_student === false ? '' : `<div class="cls-row"><input class="sb-in" maxlength="40" data-clsmkw="${k}" value="${esc(cls.mcal[k] || '')}" placeholder="${esc(t('캘린더에서 찾는 말 — 예: 민수', 'Calendar keyword — e.g. Minsu'))}">` +
-    `<button type="button" class="pt-ghost" data-clsmsave="${k}">${esc(t('저장', 'Save'))}</button></div>`}</div>`;
-}
 /* 학생별 진도 · 숙제 결과(운영자 2026-10-07 「선생님 탭에서 학생 진행상황 · 숙제 결과」) — 학생마다 카드 하나:
    완료율 막대 · 기한 지난 숙제 · 평균 점수 · 마지막으로 한 날. 누르면 숙제마다 결과(점수 · 몇 번 · 안 함 · 기한 지남).
    챙겨야 할 학생(기한 지난 숙제가 있거나 완료율이 낮은)이 위로 온다. */
@@ -19419,7 +19352,6 @@ function clsStuHtml(c) {
       `<span class="cls-stu-bar"><i style="width:${Math.round(x.rate * 100)}%"></i></span><span class="cls-stu-n">${x.done}/${hw.length}</span>` +
       `<span class="cls-stu-tags">${x.late ? `<em class="late">${esc(t(`기한 지남 ${x.late}`, `${x.late} late`))}</em>` : ''}${x.avg != null ? `<em>${esc(t(`평균 ${x.avg}%`, `avg ${x.avg}%`))}</em>` : ''}` +
       `<em class="mute">${esc(x.last ? t(`마지막 ${day(x.last)}`, `last ${day(x.last)}`) : t('아직 안 함', 'not started'))}</em></span></summary>` +
-      clsStuCalHtml(c, x.m) +
       `<button type="button" class="cls-small cls-stu-out" data-clskick="${c.id}:${x.m.user_id}">${esc(t('반에서 빼기(수업을 그만둔 학생)', 'Remove from class'))}</button>` +
       '<ol class="cls-stu-hw">' + x.res.map((r) => `<li class="${r.ok ? 'ok' : r.late ? 'late' : ''}"><span>${(CLS_KIND[r.h.kind] || ['📌'])[0]} ${esc(r.h.title)}</span>` +
         `<b>${r.ok ? `✓ ${esc(r.sc || t('했음', 'done'))}` : r.d ? esc(`${r.d.n}/${r.h.goal}${r.sc ? ` · ${r.sc}` : ''}`) : r.late ? esc(t('기한 지남', 'late')) : esc(t('아직', 'not yet'))}</b>` +
@@ -19452,18 +19384,18 @@ function clsPaint() {
   const head = `<div class="qa-head"><div><h2 class="qa-h">🏫 ${esc(t('반 · 숙제', 'Class & homework'))}</h2>` +
     `<p class="qa-lead">${esc(t('선생님이 낸 숙제를 하면 저절로 「했어요」가 돼요.', 'Do the homework your teacher gives — it’s checked off automatically.'))}</p></div></div>`;
   if (!clsSession) {
-    box.innerHTML = head + `<div class="cls-card"><p>${esc(cls.code ? t(`선생님 반(코드 ${cls.code})에 초대받았어요! 로그인만 하면 바로 들어가져요 — 이름 · 코드를 따로 넣을 필요 없어요.`, `You’re invited to a class (code ${cls.code})! Just sign in and you’ll join right away.`) : t('반에 들어가려면 로그인해 주세요.', 'Sign in to join a class.'))}</p>` +
-      `<button type="button" class="pt-next" data-clslogin>${esc(t('로그인하기', 'Sign in'))}</button></div>`;
+    box.innerHTML = head + `<div class="cls-card"><p>${esc(cls.code ? t(`선생님이 숙제 · 복습 반(코드 ${cls.code})에 초대했어요! 로그인만 하면 바로 들어가져요 — 이름 · 코드를 따로 넣을 필요 없어요.`, `Your teacher invited you to a homework & review class (code ${cls.code})! Just sign in and you’ll join right away.`) : t('반에 들어가려면 로그인해 주세요.', 'Sign in to join a class.'))}</p>` +
+      `<button type="button" class="pt-next" data-clslogin>${esc(t('로그인하기', 'Sign in'))}</button>${cls.code ? clsPrivacy() : ''}</div>`;
     return;
   }
   if (cls.err) { box.innerHTML = head + `<div class="cls-card"><p>${esc(cls.err)}</p></div>`; return; }
-  const hi = cls.hi ? `<div class="cls-card cls-hi">🎉 ${esc(cls.hi)}</div>` : '';
+  const hi = cls.hi ? `<div class="cls-card cls-hi">🎉 ${esc(cls.hi)}${clsPrivacy()}</div>` : '';
   let name = ''; try { name = localStorage.getItem(QA_NAME_KEY) || ''; } catch (e) {}
   const joined = cls.code && cls.rows.some((c) => c.code === cls.code);
   const join = `<div class="cls-card cls-join"><b>${esc(cls.code && !joined ? t(`반 코드 ${cls.code} 에 들어가기`, `Join class ${cls.code}`) : t('코드로 반 들어가기', 'Join with a code'))}</b>` +
     `<div class="cls-row">${cls.code && !joined ? '' : `<input id="clsCode" class="sb-in" maxlength="6" placeholder="${esc(t('반 코드 6자리', '6-letter code'))}" autocapitalize="characters">`}` +
     `<input id="clsName" class="sb-in" maxlength="20" placeholder="${esc(t('반에서 보일 이름', 'Your name in class'))}" value="${esc(name)}">` +
-    `<button type="button" class="pt-next" data-clsjoin>${esc(t('들어가기', 'Join'))}</button></div>${cls.msg ? `<p class="cls-msg">${esc(cls.msg)}</p>` : ''}</div>`;
+    `<button type="button" class="pt-next" data-clsjoin>${esc(t('들어가기', 'Join'))}</button></div>${cls.msg ? `<p class="cls-msg">${esc(cls.msg)}</p>` : ''}${clsPrivacy()}</div>`;
   const make = (clsIsAdmin() ? clsTeacherHtml() : '') + (clsCanMake() ? `<div class="cls-card"><b>${esc(t('새 반 만들기', 'New class'))}</b><div class="cls-row"><input id="clsNew" class="sb-in" maxlength="40" placeholder="${esc(t('예: TOPIK 쓰기 8주 반', 'e.g. TOPIK writing, 8 weeks'))}">` +
     `<button type="button" class="pt-next" data-clsmake>${esc(t('만들기', 'Create'))}</button></div></div>` : '');
   const cards = cls.rows.map((c) => {
@@ -19477,9 +19409,8 @@ function clsPaint() {
         `<button type="button" class="pt-ghost" data-clsrep="${c.id}">📊 ${esc(t('진도 리포트', 'Progress report'))}</button>` : '') + '</div>' +
       (mine && cls.open['qr' + c.id] ? clsQrHtml(c) : '') +
       (mine && cls.open['rep' + c.id] ? clsReportHtml(c) : '') +
-      clsSchedHtml(c.id) +
       (hw.length ? `<ul class="cls-hws">${hw.map((h) => clsHwRow(c, h)).join('')}</ul>` : `<p class="cls-empty">${esc(mine ? t('아직 낸 숙제가 없어요.', 'No homework yet.') : t('아직 숙제가 없어요 — 선생님이 내면 여기에 떠요.', 'No homework yet.'))}</p>`) +
-      (mine ? clsAddForm(c) + clsCalForm(c) + `<button type="button" class="cls-small" data-clsarch="${c.id}">${esc(t('반 닫기', 'Close class'))}</button>`
+      (mine ? clsAddForm(c) + `<button type="button" class="cls-small" data-clsarch="${c.id}">${esc(t('반 닫기', 'Close class'))}</button>`
         : `<button type="button" class="cls-small" data-clsleave="${c.id}">${esc(t('반 나가기', 'Leave class'))}</button>`) + '</section>';
   }).join('');
   box.innerHTML = head + hi + ((cls.code && !joined) ? join : '') + make + (cards || (clsCanMake() ? '' : `<p class="cls-empty">${esc(t('아직 들어간 반이 없어요. 선생님께 받은 링크를 누르거나 코드를 넣어 주세요.', 'You haven’t joined a class yet. Open the link from your teacher or enter the code.'))}</p>`)) +
@@ -19492,7 +19423,7 @@ $('clsWrap')?.addEventListener('change', (ev) => {
   const f = k.closest('.cls-form');
   for (const x of ['lesson', 'grammar', 'vocab', 'twrite', 'tread']) f.querySelector(`.cls-f-${x}`).hidden = k.value !== x;
 });
-$('clsWrap')?.addEventListener('toggle', (ev) => { const d = ev.target.closest?.('[data-clsadd]'); if (d) cls.open[d.dataset.clsadd] = d.open; const c = ev.target.closest?.('[data-clscal]'); if (c) cls.open['cal' + c.dataset.clscal] = c.open; }, true);
+$('clsWrap')?.addEventListener('toggle', (ev) => { const d = ev.target.closest?.('[data-clsadd]'); if (d) cls.open[d.dataset.clsadd] = d.open; }, true);
 $('clsWrap')?.addEventListener('click', async (ev) => {
   const el = (s) => ev.target.closest(s);
   if (el('[data-clslogin]')) { open('account'); return; }
@@ -19508,37 +19439,14 @@ $('clsWrap')?.addEventListener('click', async (ev) => {
   if (qb) { const k = 'qr' + qb.dataset.clsqr; cls.open[k] = !cls.open[k]; if (cls.open[k]) track('반QR열기'); clsPaint(); return; }
   const qs = el('[data-clsqrsave]');
   if (qs) { if (!qs.dataset.url) return; const a = document.createElement('a'); a.href = qs.dataset.url; a.download = `class-${qs.dataset.name}-qr.gif`; a.click(); return; }
-  const cs = el('[data-clscalsave]');
-  if (cs) {
-    const f = cs.closest('.cls-form'), cid = Number(cs.dataset.clscalsave);
-    const ical = f.querySelector('[data-clscalurl]').value.trim().replace(/^webcal:\/\//, 'https://'), keyword = f.querySelector('[data-clscalkw]').value.trim() || null;
-    if (!/^https:\/\/calendar\.google\.com\/calendar\/ical\//.test(ical)) { alert(t('구글 캘린더의 「iCal 형식의 비공개 주소」(https://calendar.google.com/calendar/ical/… 로 시작)를 붙여 넣어 주세요.', 'Paste the Google Calendar “Secret address in iCal format” (starts with https://calendar.google.com/calendar/ical/…).')); return; }
-    const per_student = !!f.querySelector('[data-clscal1]')?.checked;
-    const { error } = await sb.from('class_calendar').upsert({ class_id: cid, ical, keyword, per_student, updated_at: new Date().toISOString() });
-    if (error) { cls.err = clsIsAdmin() ? t('일정 표가 아직 없어요 — Supabase SQL Editor 에서 db/add_class_calendar.sql 을 돌려 주세요.', 'Run db/add_class_calendar.sql first.') : t('일정을 저장하지 못했어요.', 'Could not save.'); clsPaint(); return; }
-    track('반일정연결'); cls.open['cal' + cid] = true; await clsLoad(); return;
-  }
-  const cd = el('[data-clscaldel]');
-  if (cd) { if (!confirm(t('구글 캘린더 연결을 끊을까요?', 'Disconnect Google Calendar?'))) return; await sb.from('class_calendar').delete().eq('class_id', Number(cd.dataset.clscaldel)); await clsLoad(); return; }
   const rp = el('[data-clsrep]');
   if (rp) { const k = 'rep' + rp.dataset.clsrep; cls.open[k] = !cls.open[k]; if (cls.open[k]) track('반리포트열기'); clsPaint();
-    const cid = Number(rp.dataset.clsrep);
-    if (cls.open[k] && cls.cal[cid]) { await Promise.all(cls.members.filter((x) => x.class_id === cid).map((x) => clsSchedLoad(cid, x.user_id))); clsPaint(); }
     return; }
   const kk = el('[data-clskick]');
   if (kk) {
     const [cid, uid] = kk.dataset.clskick.split(':');
     if (!confirm(t('이 학생을 반에서 뺄까요? 숙제 기록은 남고, QR 로 다시 들어올 수 있어요.', 'Remove this student? Their homework records stay and they can rejoin with the QR.'))) return;
     await sb.from('class_members').delete().eq('class_id', Number(cid)).eq('user_id', uid); track('반학생뺌'); await clsLoad(); return;
-  }
-  const ms = el('[data-clsmsave]');
-  if (ms) {
-    const [cid, uid] = ms.dataset.clsmsave.split(':'), kw = (ms.closest('.cls-row').querySelector('[data-clsmkw]')?.value || '').trim();
-    const q = kw ? sb.from('class_member_cal').upsert({ class_id: Number(cid), user_id: uid, keyword: kw.slice(0, 40) }) : sb.from('class_member_cal').delete().eq('class_id', Number(cid)).eq('user_id', uid);
-    const { error } = await q;
-    if (error) { ms.textContent = t('실패 — 다시', 'Failed'); return; }
-    if (kw) cls.mcal[ms.dataset.clsmsave] = kw; else delete cls.mcal[ms.dataset.clsmsave];
-    await clsSchedLoad(Number(cid), uid); clsPaint(); return;
   }
   const cv = el('[data-clscsv]');
   if (cv) { const c = cls.rows.find((x) => x.id === Number(cv.dataset.clscsv)); if (c) clsReportCsv(c); return; }
