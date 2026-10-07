@@ -533,6 +533,13 @@ function ptPick() {
     : '마이크를 누르고 읽기 시작하세요';
 }
 
+/* 단어 한 장 화면의 「발음 연습」(운영자 2026-10-07) — 그 낱말 · 예문을 지문으로 바로 연다 */
+window.ptWith = (text) => {
+  ptShow(true); ptPick();
+  ptText = String(text || '').trim() || ptText;
+  ptId('ptTarget').textContent = ptText;
+};
+
 /* 말이 끊기면 저절로 끝낸다.
    다 읽고 나서 마이크를 다시 누르러 가는 게 번거롭고, 누르는 걸 잊으면
    마이크가 계속 켜져 있다.

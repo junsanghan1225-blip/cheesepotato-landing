@@ -6552,3 +6552,76 @@ body.cls-in a[href*="teacher.html"], body.cls-in .ft-teach { display:none !impor
 .cls-hw-top { flex-wrap:nowrap !important; }
 .cls-hw-top .cls-hw-t { min-width:0; }
 @media (max-width:520px) { .cls-re span { display:none; } .cls-re { padding:4px 9px; } }
+
+/* ── 단어 한 장(운영자 2026-10-07 참고 이미지 — 큰 낱말 · 둥근 아이콘 단추 · 색 칩 · 밑줄 탭 · 흰 뜻 카드 · 아래 고정 단추) ── */
+.wd-word2 { padding-bottom:0; }
+.wd-w2-head { display:flex; align-items:flex-start; justify-content:space-between; gap:12px; }
+.wd-w2-h { display:block; font-size:clamp(34px, 9vw, 46px); font-weight:800; letter-spacing:-.03em; line-height:1.1; color:var(--ink); word-break:keep-all; }
+.wd-word2 .wd-rom { display:block; margin-top:4px; font-size:15px; color:var(--ink-3); }
+.wd-w2-ic { display:flex; gap:8px; flex:none; }
+.wd-w2-ic > button { width:48px; height:48px; border-radius:14px; border:none; background:var(--surface-2); display:grid; place-items:center; cursor:pointer; font-size:20px; color:var(--ink); }
+.wd-w2-ic .wd-star.on { color:#E9A51C; }
+.wd-word2 .wd-word-meta { display:flex; flex-wrap:wrap; gap:6px; margin-top:12px; }
+.wd-pill { font-size:12px; font-weight:800; padding:4px 10px; border-radius:999px; }
+.wd-pill.pos { background:rgba(60,140,230,.12); color:#2D7BD0; }
+.wd-pill.lv { background:rgba(230,90,160,.12); color:#C8457F; }
+.wd-pill.tp { background:var(--tint); color:var(--orange-deep); }
+.wd-pill.ok { background:rgba(46,160,90,.12); color:var(--green); }
+.wd-w2-tabs { display:flex; gap:4px; margin:18px 0 0; border-bottom:2px solid var(--line); overflow-x:auto; scrollbar-width:none; }
+.wd-w2-tabs::-webkit-scrollbar { display:none; }
+.wd-w2-tabs button { flex:none; background:none; border:none; padding:10px 12px; margin-bottom:-2px; border-bottom:3px solid transparent; font:inherit; font-size:15px; font-weight:700; color:var(--ink-3); cursor:pointer; }
+.wd-w2-tabs button.on { color:var(--ink); border-bottom-color:var(--ink); }
+.wd-w2-body { padding:16px 0 6px; min-height:120px; }
+.wd-mcard { padding:18px; border-radius:20px; background:var(--surface); border:1px solid var(--line); box-shadow:0 10px 26px -22px rgba(59,42,30,.5); }
+.wd-mcard .wd-word-en { font-size:20px; font-weight:800; margin:0 0 6px; }
+.wd-mcard .wd-ex li { border-left:3px solid var(--line); padding-left:12px; }
+.wd-relrow { display:flex; gap:10px; align-items:flex-start; margin-top:12px; padding:10px 12px; border-radius:14px; background:var(--surface-2); }
+.wd-relrow > em { font-style:normal; font-size:13px; font-weight:700; color:var(--ink-3); flex:none; padding-top:5px; min-width:56px; }
+.wd-relrow > div { display:flex; flex-wrap:wrap; gap:6px; }
+.wd-relrow.mini { margin-top:14px; }
+.wd-chip.off { cursor:default; opacity:.7; }
+.wd-chip em { font-style:normal; font-size:11.5px; color:var(--ink-3); margin-left:2px; }
+.wd-senses { margin:0; padding-left:22px; display:grid; gap:10px; }
+.wd-senses li b { display:block; font-size:15px; font-weight:600; color:var(--ink); line-height:1.5; }
+.wd-senses li small { font-size:13px; color:var(--ink-3); }
+.wd-origin { display:flex; flex-direction:column; gap:10px; }
+.wd-hanja { font-size:40px; font-weight:700; letter-spacing:.1em; color:var(--ink); font-family:"Noto Serif KR", "Noto Serif CJK KR", serif; }
+.wd-hj { display:flex; gap:12px; align-items:flex-start; padding:12px; border-radius:14px; background:var(--surface-2); }
+.wd-hj-ch { flex:none; width:56px; height:56px; border-radius:14px; background:var(--surface); border:1px solid var(--line); display:flex; flex-direction:column; align-items:center; justify-content:center; font-size:24px; font-weight:700; font-family:"Noto Serif KR", serif; }
+.wd-hj-ch small { font-size:12px; font-family:inherit; color:var(--orange-deep); font-weight:800; }
+.wd-hj > div { display:flex; flex-wrap:wrap; gap:6px; }
+.wd-ai { display:flex; flex-direction:column; gap:10px; }
+.wd-ai-qs { display:flex; flex-wrap:wrap; gap:6px; }
+.wd-ai-f { display:flex; gap:8px; }
+.wd-ai-f input { flex:1; min-width:0; font:inherit; font-size:15px; padding:10px 12px; border:1.5px solid var(--line); border-radius:12px; background:var(--surface); color:var(--ink); }
+.wd-ai-f input:focus { outline:none; border-color:var(--orange); }
+.wd-ai-a { padding:14px; border-radius:16px; background:var(--tint); }
+.wd-ai-a b { font-size:13px; color:var(--orange-deep); }
+.wd-ai-a p { margin:6px 0 0; font-size:15px; line-height:1.65; white-space:pre-line; color:var(--ink); }
+.wd-w2-more { display:flex; gap:8px; flex-wrap:wrap; margin:6px 0 12px; }
+.wd-w2-bar { position:sticky; bottom:0; z-index:5; display:flex; gap:10px; padding:12px 0 calc(12px + env(safe-area-inset-bottom)); background:linear-gradient(to top, var(--bg) 70%, transparent); }
+.wd-w2-bar button { flex:1; min-height:54px; border-radius:16px; font:inherit; font-size:16px; font-weight:800; cursor:pointer; }
+.wd-w2-pron { border:1.5px solid var(--line); background:var(--surface); color:var(--ink); box-shadow:0 4px 0 var(--line); }
+.wd-w2-next { border:none; background:#FFD84D; color:#2A1A12; box-shadow:0 4px 0 #C9A21A; }
+.wd-w2-bar button:active { transform:translateY(2px); box-shadow:none; }
+/* 주제 찾기 · 작은 주제 칩 */
+.wd-tsearch { display:flex; align-items:center; gap:8px; padding:0 12px; margin:4px 0 8px; border:1.5px solid var(--line); border-radius:12px; background:var(--surface); }
+.wd-tsearch:focus-within { border-color:var(--orange); }
+.wd-tsearch input { flex:1; border:none; outline:none; background:none; font:inherit; font-size:15px; padding:11px 0; color:var(--ink); }
+.wd-tres { display:flex; flex-wrap:wrap; gap:6px; margin-bottom:10px; }
+.wd-tres:empty { display:none; }
+.wd-subs { margin:14px 0 4px; }
+.wd-subs > b { display:block; font-size:13px; color:var(--ink-3); margin-bottom:8px; }
+.wd-subs > div { display:flex; flex-wrap:wrap; gap:6px; }
+.wd-w2-ic > .dict-say { width:48px !important; height:48px !important; border-radius:14px !important; background:var(--surface-2) !important; }
+.wd-w2-bar button { white-space:nowrap; }
+/* 단어 한 장을 보는 동안 도우미 단추(🧀)가 아래 고정 단추를 가린다 — 그때만 숨긴다 */
+body:has(.wd-word2) .hlp-fab { display:none; }
+/* 단어 한 장 「TOPIK에서」 — 우리 문항의 문장, 낱말은 형광펜 */
+.wd-tref { list-style:none; margin:0; padding:0; display:grid; gap:8px; }
+.wd-tref button { display:flex; flex-direction:column; gap:4px; width:100%; padding:12px 14px; border:1px solid var(--line); border-radius:14px; background:var(--surface); color:var(--ink); font:inherit; text-align:left; cursor:pointer; }
+.wd-tref button:hover { border-color:var(--orange); }
+.wd-tref-k { font-size:11.5px; font-weight:800; color:var(--orange-deep); letter-spacing:.02em; }
+.wd-tref-s { font-size:15.5px; line-height:1.55; word-break:keep-all; }
+.wd-tref-s mark { background:linear-gradient(transparent 55%, #FFE27A 55%); color:inherit; padding:0 1px; }
+.wd-tref-go { align-self:flex-end; font-size:12.5px; font-weight:800; color:var(--ink-3); }

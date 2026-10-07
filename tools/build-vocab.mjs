@@ -28,7 +28,7 @@ const words = read(`vocab/data/${name}.json`).filter((w) => w.grade === 'B' || w
 
 /* 칸 이름: i id · h 표제어 · p 품사 · l 급수 · e 영어 뜻 · s 쉬운 영어 뜻 · t 주제(대분류/소분류) ·
    u 목적 · x 예문 [[한국어, 영어]] · r 관계 {syn, ant, hon} · k 콩글리시 [영어처럼 보이는 말, 영어로는] ·
-   v 우리 레벨(감자 L1 ~ L7, tools/vocab-level.mjs) · o 공식 TOPIK 급수가 없다(1 — 화면에 치즈 급을 안 띄운다) */
+   v 우리 레벨(감자 L1 ~ L7, tools/vocab-level.mjs) · j 한자 · o 공식 TOPIK 급수가 없다(1 — 화면에 치즈 급을 안 띄운다) */
 const out = words.map((w) => {
   const o = { i: w.id, h: w.head, p: w.pos, l: w.level, e: w.en, s: w.en_simple || '', t: w.topics, u: w.purposes,
     x: (w.examples || []).map((x) => [x.ko, x.en || '']) };
@@ -38,6 +38,7 @@ const out = words.map((w) => {
   if (Object.keys(r).length) o.r = r;
   if (w.kg) o.k = [w.kg.like, w.kg.say];
   if (Number.isInteger(w.lv)) o.v = w.lv;
+  if (w.hanja) o.j = w.hanja;   // 한자어의 한자 — 단어 한 장 화면 「어원」 탭(같은 한자를 쓰는 낱말)
   if (!Number.isInteger(w.std)) o.o = 1;
   return o;
 });

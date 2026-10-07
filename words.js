@@ -239,7 +239,14 @@ export function wordsInit(D) {
     groupCache.set(id, out);
     return out;
   }
-  const listFor = (topic) => (topic === 'all' ? VOCAB : String(topic).startsWith('all:') ? TRACKS[topic.slice(4)] || []
+  /* 작은 주제(「feelings/joy」 꼴, 운영자 2026-10-07 「주제를 잘게」) — 두 과정을 다 본다(TOPIK I 먼저). 주소에는 「feelings~joy」로 */
+  const isSub = (topic) => String(topic).includes('/') && !String(topic).startsWith('all');
+  const topicHash = (topic) => String(topic).replace('/', '~');
+  /* 작은 주제도 큰 주제처럼 지금 고른 과정(TOPIK I · II)의 낱말로 — 그 과정에 한 세션(10개)도 안 되면 두 과정을 다 본다 */
+  const subList = (id) => { const v = VOCAB.filter((w) => w.t.includes(id)); return v.length >= SESSION ? v : ALL.filter((w) => w.t.includes(id)); };
+  const subCount = new Map();
+  const subN = (id) => { const k = `${S.track}:${id}`; if (!subCount.has(k)) subCount.set(k, subList(id).length); return subCount.get(k); };
+  const listFor = (topic) => (isSub(topic) ? subList(topic) : topic === 'all' ? VOCAB : String(topic).startsWith('all:') ? TRACKS[topic.slice(4)] || []
     : topic === 'gen' ? ALL.filter((w) => w.u.includes('life'))
     : isLv(topic) ? ALL.filter((w) => w.v === +topic.slice(3))
     : GROUPED.has(topic) ? writeGroups(topic).flatMap((g) => g.words)
@@ -420,6 +427,7 @@ export function wordsInit(D) {
     if (String(id).startsWith('all')) return [ico('trophy'), 25];
     if (id === 'gen') return [ico('life'), 150];
     if (isLv(id)) return [D.potatoLevel?.(+id.slice(3))?.icon || ico('up'), 30];
+    if (isSub(id)) return look(id.split('/')[0]);
     const k = isPurp(id) ? id.slice(2) : id, h = isPurp(id) ? PURP_LOOK[k] : TOPIC_LOOK[k];
     return [ico(k), h ?? 25];
   };
@@ -428,6 +436,7 @@ export function wordsInit(D) {
     if (String(topic).startsWith('all:')) { const k = topic.slice(4); return t(`${trackName(k)} 필수`, `${trackName(k)} essentials`); }
     if (topic === 'gen') return t('일반 한국어', 'Everyday Korean');
     if (isLv(topic)) return t(`${potName(+topic.slice(3))} 낱말`, `${potName(+topic.slice(3))} words`);
+    if (isSub(topic)) { const [a, b] = topic.split('/'), tp = topicOf(a), sb = tp?.subs.find((x) => x.id === b); if (tp && sb) return t(`${tp.ko} · ${sb.ko}`, `${tp.en} · ${sb.en}`); }
     const tp = topic === 'all' ? null : isPurp(topic) ? purpOf(topic) : topicOf(topic);
     return tp ? t(tp.ko, tp.en) : t(`${trackName(S.track)} 필수`, `${trackName(S.track)} essentials`);
   };
@@ -556,6 +565,8 @@ export function wordsInit(D) {
         <b>${esc(t('내 길 · ', 'My path · '))}${esc(path ? topicName(path.topic) : t(`${trackName(S.track)} 필수`, `${trackName(S.track)} essentials`))}</b>
         <span class="wd-meta">${esc(t(`${pl.length.toLocaleString()}개 · 세션 ${Math.ceil(pl.length / SESSION)} · 로드맵 보기`, `${pl.length.toLocaleString()} words · ${Math.ceil(pl.length / SESSION)} sessions · open the map`))}</span>${bar(pg, pl.length)}</button>
       <h3 class="wd-h3">${esc(t('둘러보기', 'Explore'))}</h3>
+      <div class="wd-tsearch"><span aria-hidden="true">🔍</span><input type="search" id="wdTopicQ" autocomplete="off" placeholder="${esc(t('주제 찾기 — 예: 감정, 학용품, 전자기기, 정치', 'Find a topic — e.g. emotions, school supplies, devices'))}"></div>
+      <div class="wd-tres" id="wdTopicRes"></div>
       ${purps ? `<div class="wd-group" role="group" aria-label="${esc(t('보기', 'View'))}">
         <button type="button" class="wd-chip${byGoal || byLv ? '' : ' on'}" data-act="group" data-group="topic">${esc(t('주제별', 'By topic'))}</button>
         <button type="button" class="wd-chip${byLv ? ' on' : ''}" data-act="group" data-group="level">${esc(t('레벨별', 'By level'))}</button>
@@ -570,6 +581,19 @@ export function wordsInit(D) {
       </div>`;
   }
 
+  /* 주제 찾기 — 큰 주제 · 작은 주제 이름(한국어 · 영어)에서 찾는다. 낱말이 있는 칸만 */
+  function topicSearchHtml(q) {
+    const n = String(q || '').toLowerCase().replace(/\s|·/g, '');
+    if (!n) return '';
+    const hit = (x) => `${x.ko}${x.en}`.toLowerCase().replace(/\s|·/g, '').includes(n);
+    const out = [];
+    for (const tp of TOPICS) {
+      if (hit(tp) && listFor(tp.id).length) out.push({ id: tp.id, name: t(tp.ko, tp.en), n: listFor(tp.id).length });
+      for (const sb of tp.subs) { const id = `${tp.id}/${sb.id}`; if ((hit(sb) || hit(tp)) && subN(id)) out.push({ id, name: t(`${tp.ko} · ${sb.ko}`, `${tp.en} · ${sb.en}`), n: subN(id) }); }
+    }
+    return out.length ? out.slice(0, 24).map((x) => `<button type="button" class="wd-chip" data-act="topic" data-topic="${esc(x.id)}">${esc(x.name)} <em>${x.n}</em></button>`).join('')
+      : `<p class="wd-none">${esc(t('그런 주제가 아직 없어요. 낱말 이름으로 찾으려면 위 검색 칸을 써 주세요.', 'No topic like that yet — use the search box above to find a word.'))}</p>`;
+  }
   /* 주제 · 목적 · 과정 전체 화면 — 위는 표지(큰 제목 · 숫자 둘 · 단추 둘), 아래는 로드맵: 세션을 역처럼 한 줄로 잇고
      10역마다 구간(깃발)으로 끊는다. 지나온 역은 초록, 지금 역은 주황으로 크게, 앞으로 갈 역은 회색. 지금 구간만 펴 둔다 —
      193역을 다 펴면 끝이 안 보인다(운영자 요청: 지하철 · 게임 맵처럼 하나씩 클리어). */
@@ -606,7 +630,12 @@ export function wordsInit(D) {
         ${open ? `<ol class="wd-line">${ss.slice(a, b).map((s, j) => stop(s, a + j)).join('')}</ol>` : ''}
       </section>`;
     }).join('');
-    return `<button type="button" class="wd-back" data-tab="learn">← ${esc(t('주제', 'Topics'))}</button>
+    /* 큰 주제 안의 작은 주제 — 칩으로 골라 그것만 외운다(낱말이 있는 칸만) */
+    const tpo = !isSub(topic) && !GROUPED.has(topic) ? topicOf(topic) : null;
+    const subs = tpo ? tpo.subs.map((sb) => ({ sb, n: subN(`${tpo.id}/${sb.id}`) })).filter((x) => x.n) : [];
+    const back = isSub(topic) ? `<button type="button" class="wd-back" data-act="topic" data-topic="${esc(topic.split('/')[0])}">← ${esc(topicName(topic.split('/')[0]))}</button>`
+      : `<button type="button" class="wd-back" data-tab="learn">← ${esc(t('주제', 'Topics'))}</button>`;
+    return `${back}
       <div class="wd-cover" style="--h:${h}">
         <span class="wd-cover-ico" aria-hidden="true">${ic}</span>
         <h2 class="wd-cover-t">${esc(name)}</h2>
@@ -622,6 +651,7 @@ export function wordsInit(D) {
           : topic === WRITE ? t('비슷한 표현끼리 한 역이에요 — 덧붙이기 · 반대 · 원인 · 그래프 · 의견처럼 글에서 하는 일로 묶었어요.', 'Each stop groups similar expressions by what they do in an essay — adding, contrasting, cause, graphs, opinions.')
           : t('자주 나오는 낱말부터 10개씩 한 역이에요. 한 역씩 클리어해 나가요.', 'Ten words per stop, most frequent first. Clear them one stop at a time.'))}</p>
       </div>
+      ${subs.length > 1 ? `<div class="wd-subs"><b>${esc(t('작은 주제로 골라 외우기', 'Pick a smaller topic'))}</b><div>${subs.map((x) => `<button type="button" class="wd-chip" data-act="topic" data-topic="${esc(`${tpo.id}/${x.sb.id}`)}">${esc(t(x.sb.ko, x.sb.en))} <em>${x.n}</em></button>`).join('')}</div></div>` : ''}
       <div class="wd-map">${stages}</div>`;
   }
 
@@ -838,28 +868,80 @@ export function wordsInit(D) {
     }
     const id = idOf(w);
     needEx(w);
-    const rel = w.r ? Object.entries(w.r).map(([k, v]) => `<span class="wd-rel"><em>${esc({ syn: t('비슷한 말', 'Similar'), ant: t('반대말', 'Opposite'), hon: t('높임말', 'Honorific') }[k])}</em>${
-      v.map((x) => byHead.has(x) || Object.values(D.gloss()).some((g) => g.head === x) ? `<button type="button" class="wd-chip" data-word="${esc(x)}">${esc(x)}</button>` : `<span>${esc(x)}</span>`).join('')}</span>`).join('') : '';
-    const topics = w.t.map((x) => { const [a, b] = x.split('/'); const tp = topicOf(a); const s = tp?.subs.find((y) => y.id === b); return tp ? `<button type="button" class="wd-chip" data-act="topic" data-topic="${esc(a)}">${esc(t(tp.ko, tp.en))}${s ? ' · ' + esc(t(s.ko, s.en)) : ''}</button>` : ''; }).join('');
+    /* 단어 한 장 — 탭(뜻 · 여러 뜻 · 어원 · 관련 말 · AI 질문) + 아래 고정 단추(발음 연습 · 다음 낱말)
+       (운영자 2026-10-07 참고 이미지: 단어 앱의 뜻 · 하이라이트 · 어원 · AI 질문 답변). 없는 탭은 안 보인다. */
+    const tab = view.wtab || 'mean';
+    const rel = w.r ? Object.entries(w.r).map(([k, v]) => `<div class="wd-relrow"><em>${esc({ syn: t('비슷한 말', 'Similar'), ant: t('반대말', 'Opposite'), hon: t('높임말', 'Honorific') }[k])}</em><div>${
+      v.map((x) => byHead.has(x) || Object.values(D.gloss()).some((g) => g.head === x) ? `<button type="button" class="wd-chip" data-word="${esc(x)}">${esc(x)}</button>` : `<span class="wd-chip off">${esc(x)}</span>`).join('')}</div></div>`).join('') : '';
+    const topics = w.t.map((x) => { const [a, b] = x.split('/'); const tp = topicOf(a); const sb = tp?.subs.find((y) => y.id === b); return tp ? `<button type="button" class="wd-chip" data-act="topic" data-topic="${esc(sb ? x : a)}">${esc(t(tp.ko, tp.en))}${sb ? ' · ' + esc(t(sb.ko, sb.en)) : ''}</button>` : ''; }).join('');
     const pos = TRACKS[trackOf(w)].indexOf(w);
-    const [ico, hue] = look(w.t[0]?.split('/')[0]);
-    return `<div class="wd-word" style="--h:${hue}">
+    const [, hue] = look(w.t[0]?.split('/')[0]);
+    const senses = sensesCache.get(w.h);
+    if (tab === 'senses' && senses === undefined) loadSenses(w.h);
+    /* 우리 TOPIK 문항에서 쓰인 문장(topik-refs/, tools/build-topik-refs.mjs) — 낱말을 열 때 받아 두고, 있으면 탭이 생긴다 */
+    const refs = refsCache.get(w.h);
+    if (refs === undefined) loadRefs(w.h);
+    const sameHanja = w.j ? [...w.j].map((ch, k) => ({ ch, rd: [...w.h][k] || '', others: hanjaWords(ch, w.h) })) : [];
+    const tabs = [['mean', t('뜻', 'Meaning')], refs ? ['topik', t(`TOPIK에서 · ${refs.n}`, `In TOPIK · ${refs.n}`)] : null, ['senses', t('여러 뜻', 'More senses')], w.j ? ['origin', t('어원 · 한자', 'Origin')] : null,
+      rel || topics ? ['rel', t('관련 말', 'Related')] : null, ['ai', t('AI 질문', 'Ask AI')]].filter(Boolean);
+    let body = '';
+    if (tab === 'mean') body = `<div class="wd-mcard"><p class="wd-word-en">${esc(w.e)}</p>${w.s && w.s !== w.e ? `<p class="wd-word-s">${esc(w.s)}</p>` : ''}${kgLine(w)}
+        <ul class="wd-ex">${w.x.map(([ko, en]) => `<li><span>${esc(ko)}<button type="button" class="dict-say" data-say="${esc(ko)}" aria-label="${esc(t('예문 듣기', 'Play example'))}">${icon}</button></span><small>${esc(en)}</small></li>`).join('')}</ul>
+        ${w.r?.syn?.length ? `<div class="wd-relrow mini"><em>${esc(t('비슷한 말', 'Similar'))}</em><div>${w.r.syn.slice(0, 3).map((x) => `<button type="button" class="wd-chip" data-word="${esc(x)}">${esc(x)}</button>`).join('')}</div></div>` : ''}</div>`;
+    if (tab === 'senses') body = senses === undefined ? `<p class="wd-none">${esc(t('불러오는 중…', 'Loading…'))}</p>`
+      : senses?.length ? `<ol class="wd-senses">${senses.map(([ko, en]) => `<li><b>${esc(ko)}</b>${en ? `<small>${esc(en)}</small>` : ''}</li>`).join('')}</ol><p class="wd-note">${esc(t('국립국어원 사전 뜻풀이에서 왔어요.', 'From the National Institute of Korean Language dictionary.'))}</p>`
+      : `<p class="wd-none">${esc(t('이 낱말은 뜻이 하나예요 — 「뜻」 탭을 봐 주세요.', 'This word has one main sense — see “Meaning”.'))}</p>`;
+    if (tab === 'topik' && refs) {
+      const SK = { reading: t('읽기', 'Reading'), listening: t('듣기', 'Listening'), writing: t('쓰기', 'Writing') };
+      const key = /^(동사|형용사)$/.test(w.p) && w.h.endsWith('다') ? w.h.slice(0, -1) : w.h;
+      const mark = (txt) => esc(txt).split(esc(key)).join(`<mark>${esc(key)}</mark>`);
+      body = `<p class="wd-note">${esc(t(`치즈감자 TOPIK 문항 ${refs.n}곳에 나와요. 누르면 그 문제를 풀어 볼 수 있어요.`, `Appears in ${refs.n} of our TOPIK questions. Tap one to try it.`))}</p>` +
+        `<ul class="wd-tref">${refs.r.map(([e, sk, id, txt]) => `<li><button type="button" data-act="topikref" data-p="topik/${esc(e)}/${esc(sk)}/${esc(id)}"><span class="wd-tref-k">TOPIK ${esc(e)} · ${esc(SK[sk] || sk)}</span><span class="wd-tref-s">${mark(txt)}</span><span class="wd-tref-go">${esc(t('문제 풀기', 'Try it'))} →</span></button></li>`).join('')}</ul>` +
+        `<p class="wd-note">${esc(t('문항은 모두 치즈감자가 만든 연습 문제예요(기출 아님).', 'All questions are original practice items (not past papers).'))}</p>`;
+    }
+    if (tab === 'origin') body = `<div class="wd-origin"><div class="wd-hanja">${esc(w.j)}</div><p class="wd-note">${esc(t('한자어예요 — 글자마다 다른 낱말에도 나와요. 같은 한자를 알면 새 낱말을 짐작할 수 있어요.', 'A Sino-Korean word — each character shows up in other words too.'))}</p>` +
+      sameHanja.map((x) => `<div class="wd-hj"><span class="wd-hj-ch">${esc(x.ch)}<small>${esc(x.rd)}</small></span><div>${x.others.length ? x.others.map((o) => `<button type="button" class="wd-chip" data-word="${esc(o.h)}">${esc(o.h)} <em>${esc(o.j)}</em></button>`).join('') : `<span class="wd-none">${esc(t('같은 한자를 쓰는 낱말이 아직 없어요', 'No other words with this character yet'))}</span>`}</div></div>`).join('') + '</div>';
+    if (tab === 'rel') body = (rel ? `<div class="wd-rels2">${rel}</div>` : '') + (topics ? `<div class="wd-relrow"><em>${esc(t('주제', 'Topics'))}</em><div>${topics}</div></div>` : '');
+    if (tab === 'ai') {
+      const qs = [t(`「${w.h}」는 언제 써요?`, `When do I use “${w.h}”?`), t(`「${w.h}」로 예문을 더 만들어 주세요.`, `Give me more examples with “${w.h}”.`),
+        w.r?.syn?.[0] ? t(`「${w.h}」와 「${w.r.syn[0]}」는 어떻게 달라요?`, `How is “${w.h}” different from “${w.r.syn[0]}”?`) : t(`「${w.h}」와 비슷한 말은 뭐예요?`, `What words are similar to “${w.h}”?`)];
+      const a = aiCache.get(w.h);
+      body = `<div class="wd-ai"><div class="wd-ai-qs">${qs.map((q) => `<button type="button" class="wd-chip" data-act="askai" data-q="${esc(q)}">${esc(q)}</button>`).join('')}</div>` +
+        `<form class="wd-ai-f" data-act="askform"><input id="wdAiQ" type="text" autocomplete="off" placeholder="${esc(t(`「${w.h}」에 대해 물어보기`, `Ask about “${w.h}”`))}"><button type="submit" class="wd-btn">${esc(t('묻기', 'Ask'))}</button></form>` +
+        (a ? `<div class="wd-ai-a"><b>${esc(a.q)}</b><p>${esc(a.text)}</p></div>` : '') +
+        `<p class="wd-note">${esc(t('한국어 도우미와 같은 AI예요(하루 한도 같이 씀).', 'Same AI as the Korean helper (shares the daily limit).'))}</p></div>`;
+    }
+    const nextH = TRACKS[trackOf(w)][pos + 1]?.h;
+    return `<div class="wd-word wd-word2" style="--h:${hue}">
       <div class="wd-word-top">
-        <div class="wd-word-h"><b>${esc(w.h)}</b><button type="button" class="dict-say wd-say-big" data-say="${esc(w.h)}" aria-label="${esc(t('발음 듣기', 'Play'))}">${icon}</button>
-          <button type="button" class="wd-star${isStar(id) ? ' on' : ''}" data-act="star" data-id="${esc(id)}" aria-label="${esc(t('별표', 'Star'))}">${isStar(id) ? '★' : '☆'}</button></div>
-        <div class="wd-word-meta">${lvTag(w).map((x) => `<span class="wd-tagpill">${esc(x)}</span>`).join('')}<span class="wd-tagpill">${esc(w.p || '')}</span><span class="wd-rom">${esc(roman(w.h))}</span>${learned(id) ? `<span class="wd-tagpill ok">✓ ${esc(t('외움', 'Learned'))}</span>` : ''}</div>
-        <p class="wd-word-en">${esc(w.e)}</p>
-        ${kgLine(w)}
+        <div class="wd-w2-head"><div><b class="wd-w2-h">${esc(w.h)}</b><span class="wd-rom">[${esc(roman(w.h))}]</span></div>
+          <div class="wd-w2-ic"><button type="button" class="dict-say wd-say-big" data-say="${esc(w.h)}" aria-label="${esc(t('발음 듣기', 'Play'))}">${icon}</button>
+          <button type="button" class="wd-star${isStar(id) ? ' on' : ''}" data-act="star" data-id="${esc(id)}" aria-label="${esc(t('별표', 'Star'))}">${isStar(id) ? '★' : '☆'}</button></div></div>
+        <div class="wd-word-meta"><span class="wd-pill pos">${esc(w.p || '')}</span>${lvTag(w).map((x, k) => `<span class="wd-pill ${k ? 'tp' : 'lv'}">${esc(x)}</span>`).join('')}${learned(id) ? `<span class="wd-pill ok">✓ ${esc(t('외움', 'Learned'))}</span>` : ''}</div>
       </div>
-      ${w.s && w.s !== w.e ? `<p class="wd-word-s">${esc(w.s)}</p>` : ''}
-      <ul class="wd-ex">${w.x.map(([ko, en]) => `<li><span>${esc(ko)}<button type="button" class="dict-say" data-say="${esc(ko)}" aria-label="${esc(t('예문 듣기', 'Play example'))}">${icon}</button></span><small>${esc(en)}</small></li>`).join('')}</ul>
-      ${rel ? `<div class="wd-rels">${rel}</div>` : ''}
-      ${topics ? `<div class="wd-tags">${topics}</div>` : ''}
-      <div class="wd-word-act">
-        <button type="button" class="wd-btn" data-act="session" data-topic="all" data-track="${trackOf(w)}" data-n="${Math.floor(pos / SESSION)}">${esc(t('이 낱말이 든 세션 외우기', 'Learn its session'))}</button>
+      <div class="wd-w2-tabs" role="tablist">${tabs.map(([k, l]) => `<button type="button" role="tab" aria-selected="${k === tab}" class="${k === tab ? 'on' : ''}" data-act="wtab" data-k="${k}">${esc(l)}</button>`).join('')}</div>
+      <div class="wd-w2-body">${body}</div>
+      <div class="wd-w2-more">
+        <button type="button" class="wd-btn ghost" data-act="session" data-topic="all" data-track="${trackOf(w)}" data-n="${Math.floor(pos / SESSION)}">${esc(t('이 낱말이 든 세션 외우기', 'Learn its session'))}</button>
         <button type="button" class="wd-btn ghost" data-act="add" data-h="${esc(w.h)}">${esc(t('+ 내 단어장', '+ My wordbook'))}</button>
       </div>
+      <div class="wd-w2-bar">
+        <button type="button" class="wd-w2-pron" data-act="pron" data-h="${esc(w.h)}">🎤 ${esc(t('발음 연습', 'Pronounce'))}</button>
+        ${nextH ? `<button type="button" class="wd-w2-next" data-word="${esc(nextH)}">${esc(t('다음 낱말', 'Next word'))} →</button>` : ''}
+      </div>
     </div>`;
+  }
+  /* 여러 뜻 — 국어사전 뜻풀이(glossary-senses). 한 번 받으면 기억 */
+  const sensesCache = new Map(), aiCache = new Map(), refsCache = new Map();
+  /* TOPIK 쓰임 — 낱말 이름으로 나눈 조각 하나만 받는다(build-topik-refs 와 같은 나눔) */
+  const refBucket = (h) => { let s = 0; for (const c of h) s = (s * 31 + c.codePointAt(0)) >>> 0; return String(s % 40).padStart(2, '0'); };
+  function loadRefs(h) { refsCache.set(h, null); D.loadRefs?.(refBucket(h)).then((R) => { refsCache.set(h, R?.[h] || null); if (R?.[h] && view.tab === 'word' && view.h === h) draw(); }, () => {}); }
+  function loadSenses(h) { D.loadSenses().then((all) => { sensesCache.set(h, all?.[h] || null); if (view.tab === 'word' && view.h === h) draw(); }, () => { sensesCache.set(h, null); draw(); }); }
+  /* 같은 한자를 쓰는 낱말 — 그 글자가 든 한자어(자주 나오는 차례), 8개까지 */
+  let HJ = null;
+  function hanjaWords(ch, self) {
+    if (!HJ) { HJ = new Map(); for (const w of ALL) if (w.j) for (const c of new Set(w.j)) { if (!HJ.has(c)) HJ.set(c, []); HJ.get(c).push(w); } }
+    return (HJ.get(ch) || []).filter((w) => w.h !== self).slice(0, 8).map((w) => ({ h: w.h, j: w.j }));
   }
   /* 사전 낱말은 국어사전 화면이 쓰던 뜻풀이 · 예문을 그대로 붙인다. */
   async function moreFromDict(h) {
@@ -930,7 +1012,7 @@ export function wordsInit(D) {
   /* ── 공부 판 ───────────────────────────────────────────── */
   /* 판이 끝났다 — 「오늘」 카드(app.module.js tdMark)에 알린다. 내 길 세션(from 이 있는 판)은 「오늘의 낱말」,
      복습 · 별표 · 폴더 판은 「복습」 칸. */
-  function sessionEnd() { D.track('단어세션끝'); D.today?.(run?.from ? 'words' : 'review'); }
+  function sessionEnd() { D.track('단어세션끝'); D.today?.(run?.from ? 'words' : 'review', run?.from?.topic && run.from.topic !== 'all' ? run.from.topic : null); }
   function startRun(words, mode, from) {
     if (!words.length) return;
     run = { mode, from, words, dir: S.dir, i: 0, flip: false, res: {}, q: [], cur: null, fb: null, answered: 0, score: 0 };
@@ -1271,7 +1353,7 @@ export function wordsInit(D) {
   function openWord(h) {
     addRecent(h);
     query = ''; sel = -1;
-    view = { tab: 'word', h };
+    view = { tab: 'word', h, wtab: 'mean' };
     mark(`w/${encodeURIComponent(h)}`);
     draw();
     window.scrollTo({ top: 0 });
@@ -1296,7 +1378,11 @@ export function wordsInit(D) {
     if (act === 'dash') return D.openDashboard?.();
     if (act === 'game-quiz') return D.openQuiz();
     if (act === 'game-match') { const n = nextSession() ?? 0; return startRun(chunk(VOCAB)[n], 'match', { topic: 'all', n }); }
-    if (act === 'topic') { query = ''; view = { tab: 'topic', topic: a.dataset.topic }; mark(`topic/${a.dataset.topic}`); return draw(); }
+    if (act === 'wtab') { view = { ...view, wtab: a.dataset.k }; D.track('단어탭_' + a.dataset.k); return draw(); }
+    if (act === 'topikref') { D.track('단어TOPIK쓰임'); return D.openTopik?.(a.dataset.p); }
+    if (act === 'pron') { D.track('단어발음연습'); return D.pron?.(a.dataset.h); }
+    if (act === 'askai') return wdAsk(a.dataset.q);
+    if (act === 'topic') { query = ''; view = { tab: 'topic', topic: a.dataset.topic }; mark(`topic/${topicHash(a.dataset.topic)}`); draw(); return window.scrollTo({ top: 0 }); }
     if (act === 'session') { if (a.dataset.track) setTrack(a.dataset.track); return openSession(a.dataset.topic, +a.dataset.n); }
     if (act === 'track') { setTrack(a.dataset.track); return draw(); }
     if (act === 'dir') { S.dir = a.dataset.dir; save(); return draw(); }
@@ -1377,7 +1463,21 @@ export function wordsInit(D) {
     ev.preventDefault();
     answerType(root.querySelector('#wdType')?.value || '');
   });
+  /* AI 질문 — 답이 올 때까지 「생각하는 중」, 낱말마다 마지막 답 하나를 기억 */
+  async function wdAsk(q) {
+    q = String(q || '').trim(); if (!q || !view.h) return;
+    const h = view.h;
+    aiCache.set(h, { q, text: t('생각하는 중…', 'Thinking…') }); draw();
+    const r = await D.askAI?.(q);
+    aiCache.set(h, { q, text: r?.text || t('지금은 답할 수 없어요.', 'No answer right now.') });
+    if (view.tab === 'word' && view.h === h) draw();
+  }
+  root.addEventListener('submit', (ev) => {
+    if (!ev.target.matches('[data-act="askform"]')) return;
+    ev.preventDefault(); wdAsk(root.querySelector('#wdAiQ')?.value);
+  });
   root.addEventListener('input', (ev) => {
+    if (ev.target.id === 'wdTopicQ') { const box = root.querySelector('#wdTopicRes'); if (box) box.innerHTML = topicSearchHtml(ev.target.value); return; }
     if (ev.target.id !== 'wdQ') return;
     query = ev.target.value; sel = -1;
     if (view.tab === 'study') { view = { tab: 'home' }; run = null; draw(); return; }
@@ -1481,8 +1581,8 @@ export function wordsInit(D) {
       else if (a === 'topic' && b) {
         /* 정적 목록 쪽(/topik1-words/ · /topik2-words/)은 과정을 붙여 보낸다 — 지금 고른 과정과 달라도 그 목록이 열리게. */
         if (c === 'topik1' || c === 'topik2') setTrack(c);
-        else if (c) { openSession(b, Math.max(0, +c - 1)); return; }
-        view = { tab: 'topic', topic: b };
+        else if (c) { openSession(b.replace('~', '/'), Math.max(0, +c - 1)); return; }
+        view = { tab: 'topic', topic: b.replace('~', '/') };
       } else if (['learn', 'review', 'star', 'stats', 'mine'].includes(a)) view = { tab: a };
       else view = { tab: 'home' };
       draw();
