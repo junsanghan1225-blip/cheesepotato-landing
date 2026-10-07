@@ -13,6 +13,8 @@ const SETS = [
   { name: '전체 · 문법(overall)', items: LT_CUSTOM_OVERALL, levels: [0, 1, 2, 3, 4, 5, 6, 7], need: 30 },
   { name: '쓰기(writing)', items: LT_CUSTOM_WRITING, levels: [2, 3, 4, 5, 6, 7], need: 30 },
 ];
+/* 문제 종류(운영자 2026-10-07 「다 문법만 나온다」) — 없으면 grammar. 레벨테스트가 바로 앞 두 문제와 다른 종류를 먼저 낸다. */
+const TYPES = new Set(['grammar', 'vocab', 'reply', 'situation', 'meaning', 'connect', 'read', 'wrong', 'honor']);
 const bad = [], note = [];
 for (const { name, items, levels, need } of SETS) {
   const seen = new Set(), count = {};
@@ -24,6 +26,7 @@ for (const { name, items, levels, need } of SETS) {
     else if (new Set(x.options).size !== 4) bad.push(`${at}: 보기가 겹친다`);
     if (!(Number.isInteger(x.answer) && x.answer >= 0 && x.answer < 4)) bad.push(`${at}: answer 가 0~3 이 아니다`);
     if (!x.why) bad.push(`${at}: why 가 없다`);
+    if (x.t != null && !TYPES.has(x.t)) bad.push(`${at}: t 「${x.t}」 는 정해진 종류가 아니다`);
     if (x.g != null && !GIDS.has(String(x.g))) bad.push(`${at}: g 「${x.g}」 는 예문 만들기에 없는 문법 id 다`);
     if (JSON.stringify(x).includes('\\\\n')) bad.push(`${at}: 줄바꿈 대신 「\\n」 두 글자가 있다`);
     const key = (x.passage || '') + '|' + x.q;
@@ -34,6 +37,9 @@ for (const { name, items, levels, need } of SETS) {
   const row = levels.map((L) => `L${L} ${count[L] || 0}`).join(' · ');
   const noG = items.filter((x) => x.g == null && x.lv > 0).length;
   console.log(`${name} ${items.length}문제 — ${row} · 문법 꼬리표 없음 ${noG}`);
+  const kinds = {};
+  items.forEach((x) => { kinds[x.t || 'grammar'] = (kinds[x.t || 'grammar'] || 0) + 1; });
+  console.log(`  종류: ${Object.entries(kinds).map(([k, n]) => `${k} ${n}`).join(' · ')}`);
   const short = levels.filter((L) => (count[L] || 0) < need);
   if (short.length) note.push(`${name}: 레벨마다 ${need}문제 밑 — ${short.map((L) => `L${L}(${count[L] || 0})`).join(' ')}`);
 }
