@@ -394,7 +394,7 @@ export function wordsInit(D) {
     star: '<path d="M12 3l2.8 5.8 6.2.9-4.5 4.4 1 6.3L12 17.5l-5.5 2.9 1-6.3L3 9.7l6.2-.9z"/>',
     check: '<path d="M5 12l5 5 9-10"/>',
     ear: '<path d="M7 10a5 5 0 0 1 10 0c0 3-3 4-3 7a3 3 0 0 1-6 0"/><path d="M10 10a2 2 0 0 1 4 0"/>',
-    stack: '<rect x="5" y="14" width="14" height="5" rx="1.5"/><rect x="7" y="8" width="10" height="5" rx="1.5"/><rect x="9" y="2" width="6" height="5" rx="1.5"/>',
+    stack: '<path d="M6 7c3-4 10-4 13 0s2 10-3 12-12 1-12-4 0-5 2-8z"/><circle cx="10" cy="10" r=".8"/><circle cx="14.5" cy="13" r=".8"/><circle cx="10.5" cy="15" r=".8"/>',
     bolt: '<path d="M13 2L4 14h7l-1 8 9-12h-7z"/>',
     spark: '<path d="M12 3v4M12 17v4M3 12h4M17 12h4M6 6l2.5 2.5M15.5 15.5L18 18M6 18l2.5-2.5M15.5 8.5L18 6"/>',
     up: '<path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/>',
@@ -533,7 +533,7 @@ export function wordsInit(D) {
     const G = [['match', 'grid', t('짝 맞추기', 'Match'), t('오늘 낱말 · 시간 재기', 'Today’s words, timed')],
       ['dict', 'ear', t('받아쓰기', 'Dictation'), t('듣고 한국어로 쓰기', 'Hear it, type it')],
       ['test', 'check', t('미니 시험', 'Mini test'), t('섞어서 풀고 점수', 'Mixed, scored')],
-      ['blocks', 'stack', t('단어 블록 쌓기', 'Word blocks'), t('떨어지기 전에 뜻 고르기', 'Pick the meaning before it lands')],
+      ['blocks', 'stack', t('단어 감자', 'Word potatoes'), t('낱말과 뜻 감자를 묶어 캐기', 'Box a word with its meaning')],
       ['quiz', 'timer', t('스피드 퀴즈', 'Speed quiz'), t('60초 동안 많이', 'As many as you can in 60s')]];
     /* 어떤 낱말로 — 지금 외우는 세션 · 내 레벨에서 랜덤 10 · 아무 레벨 랜덤 10(운영자 2026-10-07) */
     const src = gameSrc();
