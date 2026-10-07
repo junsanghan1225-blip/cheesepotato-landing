@@ -40,7 +40,7 @@
 ">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <!-- 구글 태그 관리자. 구글이 주는 인라인 코드조각은 CSP 가 막아서 gtm.js 로 뺐다. -->
-<script src="gtm.js?v=3f8a510e" async></script>
+<script src="gtm.js?v=33ef8413" async></script>
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <!-- 제목과 설명을 두 말로 쓴다. 이 사이트를 찾을 사람은 한국어를 **배우는**
@@ -119,13 +119,13 @@
      Pretendard 는 통짜(2.0MB) 대신 조각난 쪽을 쓴다 — 브라우저가
      unicode-range 를 보고 화면에 실제로 나온 글자가 든 조각만 받는다.
      그래서 저장소는 무거워졌지만 학습자가 받는 양은 오히려 줄었다. -->
-<link rel="stylesheet" href="vendor/pretendard.css?v=3f8a510e">
-<link rel="stylesheet" href="vendor/pressstart2p.css?v=3f8a510e">
+<link rel="stylesheet" href="vendor/pretendard.css?v=33ef8413">
+<link rel="stylesheet" href="vendor/pressstart2p.css?v=33ef8413">
 <!-- 화면 상자 안에서만 쓰는 CSS 는 여기서 갈라 받는다. media="print" 라
      첫 페인트를 안 막고, 다 받아지면 app.js 가 media 를 all 로 바꾼다.
      자바스크립트가 없으면 <noscript> 쪽이 그냥 평범하게 걸린다. -->
-<link id="viewsCss" rel="stylesheet" href="app-views.css?v=3f8a510e" media="print">
-<noscript><link rel="stylesheet" href="app-views.css?v=3f8a510e"></noscript>
+<link id="viewsCss" rel="stylesheet" href="app-views.css?v=33ef8413" media="print">
+<noscript><link rel="stylesheet" href="app-views.css?v=33ef8413"></noscript>
 
 <style>
 /* ══════════════════════════════════════════════════════════════
@@ -747,6 +747,26 @@ body.nav-open { overflow:hidden; }
 html[data-lv] .hm-doors { display:none; }
 /* 길 넷(2026-10-06) — 학생에게도 보인다. 폰 한 줄 · PC 두 줄 */
 html[data-lv] .hm-paths .hm-doors { display:grid; }
+/* 내 길 카드(2026-10-07) — 길이 정해진 학생(html[data-path])은 길 넷을 접고 이 카드 하나 */
+html[data-path] .hm-paths { display:none; }
+html[data-path][data-path-open] .hm-paths { display:block; }
+html[data-path] .hm-me.hm-me { display:block; max-width:var(--max); margin:18px auto 0; padding:0 var(--gut); box-sizing:border-box; }
+.hm-mp { padding:18px; border-radius:22px; color:#fff; background:radial-gradient(circle at 20% 30%, rgba(0,0,0,.06) 0 3px, transparent 4px) 0 0 / 30px 30px, linear-gradient(135deg, #B07F4E, #6E4A2A); box-shadow:0 14px 34px -22px rgba(80,50,20,.6); }
+.hm-mp-top { display:flex; align-items:center; gap:12px; }
+.hm-mp-ic { width:52px; height:52px; flex:none; border-radius:16px; background:rgba(255,255,255,.18); display:grid; place-items:center; font-size:28px; overflow:hidden; }
+.hm-mp-ic img, .hm-mp-ic svg { width:44px; height:44px; }
+.hm-mp-tx { flex:1; display:flex; flex-direction:column; } .hm-mp-tx small { font-size:12.5px; opacity:.85; font-weight:700; } .hm-mp-tx b { font-size:22px; font-weight:900; }
+.hm-mp-pct { font-size:26px; font-weight:900; color:#FFE699; }
+.hm-mp-bar { height:10px; border-radius:999px; background:rgba(255,255,255,.2); margin:14px 0 6px; overflow:hidden; } .hm-mp-bar i { display:block; height:100%; border-radius:999px; background:#FFD23F; }
+.hm-mp-sum { margin:0 0 12px; font-size:13px; opacity:.85; }
+.hm-mp-next { display:flex; align-items:center; gap:12px; width:100%; padding:14px 16px; border:none; border-radius:16px; background:#fff; color:var(--ink); font:inherit; text-align:left; cursor:pointer; }
+.hm-mp-next > span:first-child { flex:1; min-width:0; display:flex; flex-direction:column; gap:2px; }
+.hm-mp-next small { font-size:12px; font-weight:800; color:var(--orange); } .hm-mp-next b { font-size:17px; font-weight:800; word-break:keep-all; } .hm-mp-next em { font-style:normal; font-size:12.5px; color:var(--ink-3); }
+.hm-mp-go { flex:none; padding:10px 14px; border-radius:999px; background:#FFD23F; color:#4A3300; font-weight:900; font-size:14px; white-space:nowrap; }
+.hm-mp-done { margin:0; padding:12px; border-radius:14px; background:rgba(255,255,255,.15); }
+.hm-mp-other { margin-top:10px; background:none; border:none; color:#FFE699; font:inherit; font-size:13.5px; font-weight:700; text-decoration:underline; cursor:pointer; padding:4px 0; }
+@media (max-width: 420px) { .hm-mp-next { flex-wrap:wrap; } .hm-mp-go { width:100%; text-align:center; } }
+
 /* 첫 화면 「치즈감자로 할 수 있는 것」(제품 둘러보기, 2026-10-07) — 폰 두 칸 · PC 네 칸. 길 넷 아래. */
 .hm-tour { max-width:var(--max); margin:8px auto 24px; padding:0 var(--gut); box-sizing:border-box; }
 .hm-tour .hm-paths-h { padding:0; margin:20px 0 10px; }
@@ -2120,6 +2140,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <!-- 두 문 — 시안 C 의 「목표별 입구」 가운데 둘(운영자: EPS 는 빼도 된다 — 아래 여섯 갈래에는 그대로 있다). data-go 는 여섯 갈래와 같은 길 -->
   <!-- 길 넷(운영자 결정 2026-10-06: 「첫 화면을 길 4개로, 다른 메뉴는 더 보기로 접기 — 내 얘기는 학습 흐름」).
        누르면 그 길(#learn/path/<길>) — 한 걸음 = 문법 → 코스 레슨 → 단어. 처음 온 사람 · 학생 모두에게 보인다. -->
+  <!-- 내 길(2026-10-07) — 길이 정해진 학생에게는 길 넷 대신 이 카드(app.module.js hmMyPathRender). 길 넷은 「다른 길 보기」로 편다. -->
+  <div class="hm-me" id="hmMe"></div>
   <div class="hm-paths" id="hmPaths">
     <p class="hm-paths-h" data-en="Pick one path and follow it">길을 하나 고르고 쭉 따라가세요</p>
     <div class="hm-doors hm-doors4">
@@ -2203,9 +2225,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
        .hm-intro 는 처음 온 사람용 소개 — 레벨테스트를 본 학생(html[data-lv])에게는 숨긴다. -->
 
   <!-- 레벨테스트를 본 학생에게만 — 소개 대신 내 코스 하나(「소개 보기」는 뺐다 — 운영자 2026-09-30: 학생에게는 필요 없다) -->
-  <div class="hm-me" id="hmMe">
-    <button class="btn-ghost" id="hmMyBtn" type="button" data-ko="🛤️ 내 길 이어가기">🛤️ Continue my path</button>
-  </div>
 
   <!-- 더 보기 — 길 밖의 갈래(여섯 갈래 · 이렇게 공부해요)는 접어 둔다(운영자 결정 2026-10-06). 지우지 않는다 — 검색 엔진도 읽는다. -->
   <details class="hm-more" id="hmMore">
@@ -4109,9 +4128,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <div id="hlpScrim" class="hlp-scrim"></div>
 <aside id="hlpPanel" class="hlp-panel" aria-label="한국어 도우미" aria-hidden="true"></aside>
 
-<script src="app.js?v=3f8a510e"></script>
-<script type="module" src="app.module.js?v=3f8a510e"></script>
+<script src="app.js?v=33ef8413"></script>
+<script type="module" src="app.module.js?v=33ef8413"></script>
 
-<script src="analytics.js?v=3f8a510e" defer></script>
+<script src="analytics.js?v=33ef8413" defer></script>
 </body>
 </html>
