@@ -6339,3 +6339,70 @@ body:has(#blkView:not(.hidden)) .hlp-fab { display:none; }
 .cls-privacy a { color:inherit; }
 /* 반 학생에게는 선생님 쪽(WhatsApp 이 있는 teacher.html) 링크를 숨긴다 — app.module.js clsBodyMark */
 body.cls-in a[href*="teacher.html"], body.cls-in .ft-teach { display:none !important; }
+
+/* ── 반 · 숙제 대시보드(운영자 2026-10-07 「더 깔끔하게 · 전문적으로」) ── */
+#clsWrap { display:flex; flex-direction:column; gap:14px; }
+.cls-head { display:flex; align-items:flex-start; justify-content:space-between; gap:12px; }
+.cls-head .qa-h { margin:0; }
+.cls-head .qa-lead { margin:4px 0 0; }
+.cls-newbtn { flex:none; padding:10px 16px; }
+.cls-stats { display:grid; grid-template-columns:repeat(4, 1fr); border:1px solid var(--line); border-radius:var(--r-l); background:var(--surface); overflow:hidden; }
+.cls-stats > div { padding:14px 16px; display:flex; flex-direction:column; gap:2px; border-left:1px solid var(--line); }
+.cls-stats > div:first-child { border-left:none; }
+.cls-stats b { font-size:24px; font-weight:800; color:var(--ink); font-variant-numeric:tabular-nums; letter-spacing:-.02em; }
+.cls-stats span { font-size:12.5px; font-weight:700; color:var(--ink-3); }
+@media (max-width:520px) { .cls-stats { grid-template-columns:repeat(2, 1fr); } .cls-stats > div:nth-child(3) { border-left:none; } .cls-stats > div:nth-child(n+3) { border-top:1px solid var(--line); } }
+.cls-class { padding:0; gap:0; overflow:hidden; }
+.cls-class .cls-c-top { padding:16px 18px 12px; align-items:flex-start; }
+.cls-c-name { flex:1; min-width:0; display:flex; flex-direction:column; gap:3px; }
+.cls-c-name h3 { margin:0; font-size:19px; font-weight:800; letter-spacing:-.02em; color:var(--ink); }
+.cls-meta { font-size:13px; color:var(--ink-3); }
+.cls-meta b { color:var(--ink); letter-spacing:.08em; font-weight:800; }
+.cls-mini { padding:7px 12px !important; font-size:13px !important; flex:none; }
+.cls-tabs { display:flex; gap:2px; padding:0 14px; border-bottom:1px solid var(--line); overflow-x:auto; }
+.cls-tabs button { background:none; border:none; border-bottom:2px solid transparent; padding:10px 12px; font:inherit; font-size:14px; font-weight:700; color:var(--ink-3); cursor:pointer; white-space:nowrap; margin-bottom:-1px; }
+.cls-tabs button.on { color:var(--ink); border-bottom-color:var(--orange); }
+.cls-tabs em { font-style:normal; font-size:11.5px; padding:1px 7px; border-radius:999px; background:var(--surface-2); color:var(--ink-3); margin-left:2px; }
+.cls-tabs button.on em { background:var(--tint); color:var(--orange-deep); }
+.cls-tabbody { padding:14px 18px; display:flex; flex-direction:column; gap:10px; }
+.cls-tabbody .cls-qr { margin:0; }
+.cls-tabbody .cls-rep { margin:0; }
+.cls-blank { display:flex; flex-direction:column; align-items:center; gap:8px; text-align:center; padding:18px 10px; border:1px dashed var(--line); border-radius:var(--r); }
+.cls-blank span { font-size:28px; }
+.cls-blank p { color:var(--ink-2) !important; font-size:14px !important; max-width:380px; }
+.cls-foot { display:flex; justify-content:flex-end; padding:10px 18px; border-top:1px solid var(--line); background:var(--surface-2); }
+.cls-class > .cls-hws, .cls-class > .cls-prog, .cls-class > .cls-empty { margin-left:18px; margin-right:18px; }
+.cls-class > .cls-hws { margin-bottom:14px; }
+.cls-class > .cls-empty { margin-bottom:14px; }
+.cls-prog { height:8px; border-radius:99px; background:var(--surface-2); overflow:hidden; margin-bottom:12px; }
+.cls-prog i { display:block; height:100%; background:var(--green); border-radius:99px; }
+.cls-add > summary { display:inline-flex; align-items:center; gap:6px; padding:9px 14px; border-radius:999px; border:1.5px solid var(--orange); background:var(--tint); list-style:none; }
+.cls-add > summary::-webkit-details-marker { display:none; }
+.cls-add[open] > summary { background:var(--orange); color:#fff; }
+.cls-admin { border:1px solid var(--line); border-radius:var(--r-l); background:var(--surface); padding:12px 16px; }
+.cls-admin > summary { cursor:pointer; font-weight:700; font-size:14px; color:var(--ink-2); }
+.cls-admin .cls-card { border:none; padding:12px 0 0; }
+.cls-newc { border-color:var(--orange); }
+.cls-invite { align-items:flex-start; }
+.cls-invite-ic { font-size:30px; }
+/* QR 로 들어온 사람의 초대 화면 — 가운데 카드 하나(운영자 2026-10-07) */
+#lsecWrap:has(.cls-inv) .bd-sec-title { display:none; }
+.cls-inv { max-width:420px; margin:8px auto 24px; padding:32px 24px 22px; border:1px solid var(--line); border-radius:28px; background:var(--surface); text-align:center; display:flex; flex-direction:column; align-items:center; gap:10px; box-shadow:0 18px 40px -24px rgba(59,42,30,.35); }
+.cls-inv-logo { width:88px; height:88px; border-radius:26px; box-shadow:0 0 0 6px var(--tint); }
+.cls-inv-kick { margin-top:6px; font-size:12px; font-weight:800; letter-spacing:.08em; color:var(--orange-deep); }
+.cls-inv h2 { margin:0; font-size:24px; font-weight:800; letter-spacing:-.02em; color:var(--ink); word-break:keep-all; }
+.cls-inv-lead { margin:0; font-size:15px; color:var(--ink-2); line-height:1.55; word-break:keep-all; max-width:300px; }
+.cls-inv-code { margin:4px 0 8px; padding:6px 14px; border-radius:999px; background:var(--surface-2); font-size:13px; color:var(--ink-3); }
+.cls-inv-code b { color:var(--ink); letter-spacing:.12em; margin-left:4px; }
+.cls-inv-google, .cls-inv-mail { width:100%; min-height:52px; border-radius:14px; font:inherit; font-size:16px; font-weight:800; cursor:pointer; display:flex; align-items:center; justify-content:center; gap:10px; }
+.cls-inv-google { border:none; background:var(--ink); color:var(--surface); }
+.cls-inv-google svg { background:#fff; border-radius:50%; padding:3px; box-sizing:content-box; }
+.cls-inv-mail { border:1px solid var(--line); background:none; color:var(--ink-2); font-size:14.5px; min-height:46px; }
+.cls-inv-steps { list-style:none; margin:14px 0 4px; padding:14px 0 0; border-top:1px solid var(--line); width:100%; display:grid; grid-template-columns:repeat(3, 1fr); gap:6px; }
+.cls-inv-steps li { display:flex; flex-direction:column; align-items:center; gap:6px; font-size:12.5px; font-weight:700; color:var(--ink-2); word-break:keep-all; }
+.cls-inv-steps b { width:28px; height:28px; border-radius:50%; display:grid; place-items:center; background:var(--tint); color:var(--orange-deep); font-size:13px; }
+.cls-inv .cls-privacy { margin-top:6px; font-size:12px; }
+/* QR 카드 그림(캔버스 → PNG) */
+.cls-qr-img { width:240px; height:auto; }
+.cls-qr-img img { width:100%; height:auto; display:block; border-radius:16px; box-shadow:0 10px 28px -16px rgba(59,42,30,.45); }
+@media (max-width:520px) { .cls-newbtn { padding:8px 12px; font-size:14px; } .cls-head .qa-h { font-size:22px; } .cls-qr-img { width:100%; max-width:300px; margin:0 auto; } }
