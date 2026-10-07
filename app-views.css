@@ -6270,3 +6270,19 @@ a.lt-chip:hover { border-color:var(--orange); }
 .blk-end-btns { display:flex; gap:8px; justify-content:center; flex-wrap:wrap; margin-top:16px; }
 /* 판 하는 동안 도우미 단추(🧀)가 셋째 보기를 가린다 — 이 게임에서만 숨긴다. */
 body:has(#blkView:not(.hidden)) .hlp-fab { display:none; }
+/* TOPIK 준비 지도 — 할 일을 번호 동그라미와 세로 선으로 잇는다(끝낸 것 초록 ✓ · 지금 주황 · 다음 회색) */
+.pa-road { list-style:none; margin:4px 0 0; padding:0; }
+.pa-road-h { margin:14px 0 6px; font-size:13px; font-weight:800; color:var(--ink-2); }
+.pa-road-i { position:relative; padding-left:0; }
+.pa-road-i::before { content:''; position:absolute; left:17px; top:0; bottom:0; width:2px; background:var(--line); }
+.pa-road-i.done::before { background:var(--green); }
+.pa-road-i button { position:relative; display:flex; align-items:center; gap:12px; width:100%; padding:8px 0; border:none; background:none; color:var(--ink); font:inherit; text-align:left; cursor:pointer; }
+.pa-road-n { flex:none; width:36px; height:36px; border-radius:50%; display:grid; place-items:center; font-size:14px; font-weight:800; background:var(--surface); border:2px solid var(--line); color:var(--ink-3); }
+.pa-road-i.done .pa-road-n { background:var(--green); border-color:var(--green); color:#fff; }
+.pa-road-i.now .pa-road-n { background:var(--orange); border-color:var(--orange); color:#fff; box-shadow:0 0 0 4px var(--tint); }
+.pa-road-t { flex:1; min-width:0; font-size:15px; font-weight:700; word-break:keep-all; }
+.pa-road-t small { display:block; font-size:12.5px; font-weight:400; color:var(--ink-2); }
+.pa-road-t em { font-style:normal; font-size:11px; font-weight:800; padding:2px 7px; border-radius:999px; background:var(--orange); color:#fff; vertical-align:2px; }
+.pa-road-i.soon .pa-road-t { color:var(--ink-2); }
+.pa-road-i.done .pa-road-t { color:var(--ink-3); }
+.pa-road-i button:hover .pa-road-t { color:var(--orange-deep); }
