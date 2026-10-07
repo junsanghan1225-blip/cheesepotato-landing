@@ -6617,3 +6617,11 @@ body.cls-in a[href*="teacher.html"], body.cls-in .ft-teach { display:none !impor
 .wd-w2-bar button { white-space:nowrap; }
 /* 단어 한 장을 보는 동안 도우미 단추(🧀)가 아래 고정 단추를 가린다 — 그때만 숨긴다 */
 body:has(.wd-word2) .hlp-fab { display:none; }
+/* 단어 한 장 「TOPIK에서」 — 우리 문항의 문장, 낱말은 형광펜 */
+.wd-tref { list-style:none; margin:0; padding:0; display:grid; gap:8px; }
+.wd-tref button { display:flex; flex-direction:column; gap:4px; width:100%; padding:12px 14px; border:1px solid var(--line); border-radius:14px; background:var(--surface); color:var(--ink); font:inherit; text-align:left; cursor:pointer; }
+.wd-tref button:hover { border-color:var(--orange); }
+.wd-tref-k { font-size:11.5px; font-weight:800; color:var(--orange-deep); letter-spacing:.02em; }
+.wd-tref-s { font-size:15.5px; line-height:1.55; word-break:keep-all; }
+.wd-tref-s mark { background:linear-gradient(transparent 55%, #FFE27A 55%); color:inherit; padding:0 1px; }
+.wd-tref-go { align-self:flex-end; font-size:12.5px; font-weight:800; color:var(--ink-3); }

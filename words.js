@@ -878,8 +878,11 @@ export function wordsInit(D) {
     const [, hue] = look(w.t[0]?.split('/')[0]);
     const senses = sensesCache.get(w.h);
     if (tab === 'senses' && senses === undefined) loadSenses(w.h);
+    /* 우리 TOPIK 문항에서 쓰인 문장(topik-refs/, tools/build-topik-refs.mjs) — 낱말을 열 때 받아 두고, 있으면 탭이 생긴다 */
+    const refs = refsCache.get(w.h);
+    if (refs === undefined) loadRefs(w.h);
     const sameHanja = w.j ? [...w.j].map((ch, k) => ({ ch, rd: [...w.h][k] || '', others: hanjaWords(ch, w.h) })) : [];
-    const tabs = [['mean', t('뜻', 'Meaning')], ['senses', t('여러 뜻', 'More senses')], w.j ? ['origin', t('어원 · 한자', 'Origin')] : null,
+    const tabs = [['mean', t('뜻', 'Meaning')], refs ? ['topik', t(`TOPIK에서 · ${refs.n}`, `In TOPIK · ${refs.n}`)] : null, ['senses', t('여러 뜻', 'More senses')], w.j ? ['origin', t('어원 · 한자', 'Origin')] : null,
       rel || topics ? ['rel', t('관련 말', 'Related')] : null, ['ai', t('AI 질문', 'Ask AI')]].filter(Boolean);
     let body = '';
     if (tab === 'mean') body = `<div class="wd-mcard"><p class="wd-word-en">${esc(w.e)}</p>${w.s && w.s !== w.e ? `<p class="wd-word-s">${esc(w.s)}</p>` : ''}${kgLine(w)}
@@ -888,6 +891,14 @@ export function wordsInit(D) {
     if (tab === 'senses') body = senses === undefined ? `<p class="wd-none">${esc(t('불러오는 중…', 'Loading…'))}</p>`
       : senses?.length ? `<ol class="wd-senses">${senses.map(([ko, en]) => `<li><b>${esc(ko)}</b>${en ? `<small>${esc(en)}</small>` : ''}</li>`).join('')}</ol><p class="wd-note">${esc(t('국립국어원 사전 뜻풀이에서 왔어요.', 'From the National Institute of Korean Language dictionary.'))}</p>`
       : `<p class="wd-none">${esc(t('이 낱말은 뜻이 하나예요 — 「뜻」 탭을 봐 주세요.', 'This word has one main sense — see “Meaning”.'))}</p>`;
+    if (tab === 'topik' && refs) {
+      const SK = { reading: t('읽기', 'Reading'), listening: t('듣기', 'Listening'), writing: t('쓰기', 'Writing') };
+      const key = /^(동사|형용사)$/.test(w.p) && w.h.endsWith('다') ? w.h.slice(0, -1) : w.h;
+      const mark = (txt) => esc(txt).split(esc(key)).join(`<mark>${esc(key)}</mark>`);
+      body = `<p class="wd-note">${esc(t(`치즈감자 TOPIK 문항 ${refs.n}곳에 나와요. 누르면 그 문제를 풀어 볼 수 있어요.`, `Appears in ${refs.n} of our TOPIK questions. Tap one to try it.`))}</p>` +
+        `<ul class="wd-tref">${refs.r.map(([e, sk, id, txt]) => `<li><button type="button" data-act="topikref" data-p="topik/${esc(e)}/${esc(sk)}/${esc(id)}"><span class="wd-tref-k">TOPIK ${esc(e)} · ${esc(SK[sk] || sk)}</span><span class="wd-tref-s">${mark(txt)}</span><span class="wd-tref-go">${esc(t('문제 풀기', 'Try it'))} →</span></button></li>`).join('')}</ul>` +
+        `<p class="wd-note">${esc(t('문항은 모두 치즈감자가 만든 연습 문제예요(기출 아님).', 'All questions are original practice items (not past papers).'))}</p>`;
+    }
     if (tab === 'origin') body = `<div class="wd-origin"><div class="wd-hanja">${esc(w.j)}</div><p class="wd-note">${esc(t('한자어예요 — 글자마다 다른 낱말에도 나와요. 같은 한자를 알면 새 낱말을 짐작할 수 있어요.', 'A Sino-Korean word — each character shows up in other words too.'))}</p>` +
       sameHanja.map((x) => `<div class="wd-hj"><span class="wd-hj-ch">${esc(x.ch)}<small>${esc(x.rd)}</small></span><div>${x.others.length ? x.others.map((o) => `<button type="button" class="wd-chip" data-word="${esc(o.h)}">${esc(o.h)} <em>${esc(o.j)}</em></button>`).join('') : `<span class="wd-none">${esc(t('같은 한자를 쓰는 낱말이 아직 없어요', 'No other words with this character yet'))}</span>`}</div></div>`).join('') + '</div>';
     if (tab === 'rel') body = (rel ? `<div class="wd-rels2">${rel}</div>` : '') + (topics ? `<div class="wd-relrow"><em>${esc(t('주제', 'Topics'))}</em><div>${topics}</div></div>` : '');
@@ -921,7 +932,10 @@ export function wordsInit(D) {
     </div>`;
   }
   /* 여러 뜻 — 국어사전 뜻풀이(glossary-senses). 한 번 받으면 기억 */
-  const sensesCache = new Map(), aiCache = new Map();
+  const sensesCache = new Map(), aiCache = new Map(), refsCache = new Map();
+  /* TOPIK 쓰임 — 낱말 이름으로 나눈 조각 하나만 받는다(build-topik-refs 와 같은 나눔) */
+  const refBucket = (h) => { let s = 0; for (const c of h) s = (s * 31 + c.codePointAt(0)) >>> 0; return String(s % 40).padStart(2, '0'); };
+  function loadRefs(h) { refsCache.set(h, null); D.loadRefs?.(refBucket(h)).then((R) => { refsCache.set(h, R?.[h] || null); if (R?.[h] && view.tab === 'word' && view.h === h) draw(); }, () => {}); }
   function loadSenses(h) { D.loadSenses().then((all) => { sensesCache.set(h, all?.[h] || null); if (view.tab === 'word' && view.h === h) draw(); }, () => { sensesCache.set(h, null); draw(); }); }
   /* 같은 한자를 쓰는 낱말 — 그 글자가 든 한자어(자주 나오는 차례), 8개까지 */
   let HJ = null;
@@ -1365,6 +1379,7 @@ export function wordsInit(D) {
     if (act === 'game-quiz') return D.openQuiz();
     if (act === 'game-match') { const n = nextSession() ?? 0; return startRun(chunk(VOCAB)[n], 'match', { topic: 'all', n }); }
     if (act === 'wtab') { view = { ...view, wtab: a.dataset.k }; D.track('단어탭_' + a.dataset.k); return draw(); }
+    if (act === 'topikref') { D.track('단어TOPIK쓰임'); return D.openTopik?.(a.dataset.p); }
     if (act === 'pron') { D.track('단어발음연습'); return D.pron?.(a.dataset.h); }
     if (act === 'askai') return wdAsk(a.dataset.q);
     if (act === 'topic') { query = ''; view = { tab: 'topic', topic: a.dataset.topic }; mark(`topic/${topicHash(a.dataset.topic)}`); draw(); return window.scrollTo({ top: 0 }); }

@@ -63,6 +63,7 @@
   | `path-map.js`(학습 길 — 레슨마다 붙일 문법) | `courses.js` · 문법 자료 · `docs/path-map.json`(사람이 고친 짝, 있으면 우선) → `node tools/build-path-map.mjs` |
   | `translate.js`(번역 연습 — 영어 → 한국어 한 줄씩) | `docs/translate.json`(안티 · Claude 검토, 지시 `docs/antigravity-translate-task.md`) → `node tools/build-translate.mjs` |
   | `grammar-pairs.js`(헷갈리는 문법 비교 · 퀴즈) | `docs/grammar-pairs.json`(안티 · Claude 검토, 지시 `docs/antigravity-grammar-fill-task.md`) → `node tools/build-grammar-pairs.mjs` |
+  | `topik-refs/`(낱말 → 우리 TOPIK 문항의 쓰임 문장, 단어 한 장 「TOPIK에서」 탭) | `topik.js` · `topik2.js` · `topik-listening.js` · `topik-writing.js` · `vocab/data/*.json` → `node tools/build-topik-refs.mjs` |
   | `vocab-topik1.js` · `vocab-topik2.js` · `vocab-topik2-ex/`(TOPIK II 예문 조각, 500개씩) | `vocab/data/topik1.json` · `topik2.json`(B급 이상만) → `node tools/build-vocab.mjs` |
 - **검사:** 올리기 전에 CI 와 같은 검사를 돌린다(`.github/workflows/check.yml` 의 목록).
   `node --check app.js && node --check app.module.js`, `node tools/check-*.mjs`.
