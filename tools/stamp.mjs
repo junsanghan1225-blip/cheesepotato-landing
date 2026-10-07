@@ -33,6 +33,8 @@ const ASSETS = [
   'words.js', 'vocab-topik1.js', 'vocab-topik2.js',
   /* 게임 「단어 블록 쌓기」(#blocks) — 그 게임을 열 때만 받는다. */
   'word-blocks.js',
+  /* 반 QR(qrcode-generator, MIT) — 선생님이 QR 칸을 열 때만 받는다. */
+  'qrcode-lib.js',
   /* 레벨 아이콘(감자 · 치즈) — 내 코스 · 첫 화면 · 레벨테스트 결과가 쓴다. */
   'levels.js',
   /* 동화책(#learn/stories) 자료 — 그 갈래를 열 때만 받는다. */

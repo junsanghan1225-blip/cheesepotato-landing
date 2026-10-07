@@ -6286,3 +6286,58 @@ body:has(#blkView:not(.hidden)) .hlp-fab { display:none; }
 .pa-road-i.soon .pa-road-t { color:var(--ink-2); }
 .pa-road-i.done .pa-road-t { color:var(--ink-3); }
 .pa-road-i button:hover .pa-road-t { color:var(--orange-deep); }
+
+/* ── 반 숙제(첫 화면 맨 위) · 수업 일정 · QR ── 운영자 2026-10-07 */
+.ch-wrap { max-width:var(--max); margin:14px auto 0; padding:0 var(--gut); display:grid; gap:10px; }
+.ch-card { border:1.5px solid var(--orange); border-radius:var(--r-l); background:var(--surface); padding:16px; }
+.ch-top { display:flex; align-items:baseline; justify-content:space-between; gap:10px; flex-wrap:wrap; }
+.ch-k { font-size:13px; font-weight:800; color:var(--orange-deep); }
+.ch-n { font-size:18px; font-weight:800; color:var(--ink); }
+.ch-list { list-style:none; margin:10px 0 0; padding:0; display:grid; gap:6px; }
+.ch-hw { display:flex; align-items:center; gap:10px; width:100%; padding:10px 12px; border:1px solid var(--line); border-radius:var(--r); background:var(--surface-2); color:var(--ink); font:inherit; text-align:left; cursor:pointer; }
+.ch-hw:hover { border-color:var(--orange); }
+.ch-ic { font-size:20px; flex:none; }
+.ch-t { flex:1; min-width:0; }
+.ch-t b { display:block; font-size:15px; word-break:keep-all; }
+.ch-t small { font-size:12.5px; color:var(--ink-2); }
+.ch-go { flex:none; font-size:13px; font-weight:800; color:#fff; background:var(--orange); padding:6px 12px; border-radius:999px; }
+.ch-more { margin-top:10px; background:none; border:none; padding:4px 0; font:inherit; font-size:13.5px; font-weight:700; color:var(--ink-2); cursor:pointer; }
+.cls-sched { margin:10px 0 4px; padding:10px 12px; border-radius:var(--r); background:var(--tint); }
+.cls-sched-next { display:flex; flex-wrap:wrap; align-items:baseline; gap:4px 8px; }
+.cls-sched-next span { font-size:12.5px; font-weight:700; color:var(--orange-deep); }
+.cls-sched-next b { font-size:15.5px; color:var(--ink); }
+.cls-sched-next em { font-style:normal; font-size:11px; font-weight:800; padding:2px 7px; border-radius:999px; background:var(--orange); color:#fff; }
+.cls-sched-next small { margin-left:auto; font-size:12.5px; color:var(--ink-2); }
+.cls-sched-list { margin:6px 0 0; padding-left:18px; font-size:13px; color:var(--ink-2); }
+.cls-cal summary small { font-weight:400; color:var(--ink-3); margin-left:6px; }
+.cls-hint { font-size:13px; color:var(--ink-2); margin:0 0 4px; grid-column:1 / -1; }
+.cls-hi { border-color:var(--green); background:rgba(46,160,90,.08); font-weight:700; }
+.cls-qr { display:flex; gap:16px; align-items:center; flex-wrap:wrap; margin:12px 0; padding:14px; border:1px dashed var(--line); border-radius:var(--r); background:#fff; color:#1B1512; }
+.cls-qr-img { width:180px; height:180px; flex:none; }
+.cls-qr-img svg { width:100%; height:100%; display:block; }
+.cls-qr-t { flex:1; min-width:200px; }
+.cls-qr-t p { font-size:13.5px; margin:6px 0; color:#4E3E31; }
+.cls-qr-t small { display:block; font-size:12px; color:#8C7A66; word-break:break-all; margin-bottom:8px; }
+/* 학생별 진도 카드(선생님) — 챙겨야 할 학생이 위, 누르면 숙제별 결과 */
+.cls-stu { list-style:none; margin:8px 0 10px; padding:0; display:grid; gap:6px; }
+.cls-stu > li { border:1px solid var(--line); border-radius:var(--r); background:var(--surface); }
+.cls-stu > li.warn { border-color:var(--red); }
+.cls-stu > li.good { border-color:var(--green); }
+.cls-stu summary { display:grid; grid-template-columns:minmax(70px, 1fr) minmax(80px, 2fr) auto; align-items:center; gap:6px 10px; padding:10px 12px; cursor:pointer; list-style:none; }
+.cls-stu summary::-webkit-details-marker { display:none; }
+.cls-stu-name { font-weight:800; font-size:15px; word-break:keep-all; }
+.cls-stu-bar { height:8px; border-radius:99px; background:var(--surface-2); overflow:hidden; }
+.cls-stu-bar i { display:block; height:100%; background:var(--green); border-radius:99px; }
+.cls-stu-n { font-size:13px; font-weight:800; font-variant-numeric:tabular-nums; }
+.cls-stu-tags { grid-column:1 / -1; display:flex; flex-wrap:wrap; gap:6px; }
+.cls-stu-tags em { font-style:normal; font-size:12px; font-weight:700; padding:2px 8px; border-radius:999px; background:var(--tint); color:var(--orange-deep); }
+.cls-stu-tags em.late { background:var(--red); color:#fff; }
+.cls-stu-tags em.mute { background:var(--surface-2); color:var(--ink-3); }
+.cls-stu-hw { list-style:none; margin:0; padding:0 12px 10px; display:grid; gap:4px; }
+.cls-stu-hw li { display:flex; flex-wrap:wrap; align-items:baseline; gap:4px 10px; padding:6px 8px; border-radius:8px; background:var(--surface-2); font-size:13.5px; }
+.cls-stu-hw li span { flex:1; min-width:150px; word-break:keep-all; }
+.cls-stu-hw li b { font-size:13px; }
+.cls-stu-hw li.ok b { color:var(--green); }
+.cls-stu-hw li.late b { color:var(--red); }
+.cls-stu-hw li small { font-size:12px; color:var(--ink-3); }
+.cls-rep-tbl summary { cursor:pointer; font-size:13.5px; font-weight:700; color:var(--ink-2); margin:6px 0; }
