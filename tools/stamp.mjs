@@ -36,7 +36,7 @@ const ASSETS = [
   /* 반 QR(qrcode-generator, MIT) — 선생님이 QR 칸을 열 때만 받는다. */
   'qrcode-lib.js',
   /* 화면 번역 사전(tools/build-i18n.mjs) — 그 언어를 고를 때만 받는다 */
-  'i18n-zh.js',
+  'i18n-vi.js', 'i18n-ja.js', 'i18n-zh.js',
   /* 레벨 아이콘(감자 · 치즈) — 내 코스 · 첫 화면 · 레벨테스트 결과가 쓴다. */
   'levels.js',
   /* 동화책(#learn/stories) 자료 — 그 갈래를 열 때만 받는다. */
