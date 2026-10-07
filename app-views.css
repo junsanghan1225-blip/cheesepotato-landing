@@ -6625,3 +6625,11 @@ body:has(.wd-word2) .hlp-fab { display:none; }
 .wd-tref-s { font-size:15.5px; line-height:1.55; word-break:keep-all; }
 .wd-tref-s mark { background:linear-gradient(transparent 55%, #FFE27A 55%); color:inherit; padding:0 1px; }
 .wd-tref-go { align-self:flex-end; font-size:12.5px; font-weight:800; color:var(--ink-3); }
+/* 「단어」 첫 화면 — 게임으로 공부(지금 외우는 낱말로) */
+.wd-hgames { display:grid; grid-template-columns:repeat(auto-fill, minmax(150px, 1fr)); gap:10px; }
+.wd-hgame { display:flex; flex-direction:column; align-items:flex-start; gap:4px; padding:14px; border:1px solid var(--line); border-radius:18px; background:var(--surface); color:var(--ink); font:inherit; text-align:left; cursor:pointer; transition:border-color .15s, transform .15s; }
+.wd-hgame:hover { border-color:var(--orange); transform:translateY(-2px); }
+.wd-hgame-ic { width:40px; height:40px; border-radius:12px; display:grid; place-items:center; background:var(--tint); color:var(--orange-deep); margin-bottom:4px; }
+.wd-hgame-ic .wd-i { width:22px; height:22px; }
+.wd-hgame b { font-size:15px; }
+.wd-hgame span:last-child { font-size:12.5px; color:var(--ink-3); }
