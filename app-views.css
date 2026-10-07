@@ -6524,3 +6524,31 @@ body.cls-in a[href*="teacher.html"], body.cls-in .ft-teach { display:none !impor
 .ck-due { font-size:12px; font-weight:800; padding:3px 9px; border-radius:999px; background:var(--surface); border:1px solid var(--line); color:var(--ink-2); white-space:nowrap; }
 .ck-due.soon, .ck-due.today { background:var(--tint); border-color:transparent; color:var(--orange-deep); }
 .ck-due.late { background:var(--red); border-color:transparent; color:#fff; }
+/* 숙제 고르기 — 검색 한 칸 · 종류 칩 · 최근 숙제 · 결과 목록(운영자 2026-10-07 「검색해서 바로 찾게」) */
+.cls-pick { grid-column:1 / -1; display:flex; flex-direction:column; gap:8px; }
+.cls-search { display:flex; align-items:center; gap:8px; padding:0 12px; border:1.5px solid var(--line); border-radius:12px; background:var(--surface); }
+.cls-search:focus-within { border-color:var(--orange); }
+.cls-search input { flex:1; border:none !important; outline:none; padding:11px 0 !important; font-size:15px !important; background:none !important; }
+.cls-kchips, .cls-recent { display:flex; flex-wrap:wrap; gap:6px; align-items:center; }
+.cls-kchips button, .cls-recent button { padding:6px 11px; border-radius:999px; border:1px solid var(--line); background:var(--surface); font:inherit; font-size:13px; color:var(--ink-2); cursor:pointer; white-space:nowrap; }
+.cls-kchips button.on { background:var(--ink); color:var(--surface); border-color:var(--ink); }
+.cls-recent small { width:100%; font-size:12px; font-weight:700; color:var(--ink-3); }
+.cls-recent button { background:var(--tint); border-color:transparent; color:var(--ink); max-width:100%; overflow:hidden; text-overflow:ellipsis; }
+.cls-pick-list { max-height:300px; overflow-y:auto; display:flex; flex-direction:column; gap:4px; padding:4px; border:1px solid var(--line); border-radius:12px; background:var(--surface-2); }
+.cls-pick-i, .cls-picked { display:flex; align-items:center; gap:10px; width:100%; padding:9px 10px; border:1px solid transparent; border-radius:10px; background:var(--surface); color:var(--ink); font:inherit; text-align:left; cursor:pointer; }
+.cls-pick-i:hover { border-color:var(--orange); }
+.cls-pick-ic { width:32px; height:32px; border-radius:9px; display:grid; place-items:center; background:var(--tint); flex:none; font-size:16px; }
+.cls-pick-t { flex:1; min-width:0; display:flex; flex-direction:column; }
+.cls-pick-t b { font-size:14px; font-weight:700; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+.cls-pick-t small { font-size:12px; color:var(--ink-3); overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+.cls-pick-go { font-size:12.5px; font-weight:800; color:var(--orange-deep); flex:none; }
+.cls-pick-none { margin:8px; font-size:13px; color:var(--ink-3); }
+.cls-picked { grid-column:1 / -1; cursor:default; border:2px solid var(--orange); background:var(--tint); flex-wrap:wrap; }
+.cls-picked .cls-pick-t b { white-space:normal; font-size:15px; }
+.cls-step { display:inline-flex; align-items:center; border:1px solid var(--line); border-radius:999px; background:var(--surface); overflow:hidden; }
+.cls-step button { width:36px; height:34px; border:none; background:none; font-size:18px; font-weight:800; cursor:pointer; color:var(--ink); }
+.cls-step b { min-width:28px; text-align:center; font-size:15px; }
+.cls-give-row button[disabled] { opacity:.45; cursor:not-allowed; }
+.cls-hw-top { flex-wrap:nowrap !important; }
+.cls-hw-top .cls-hw-t { min-width:0; }
+@media (max-width:520px) { .cls-re span { display:none; } .cls-re { padding:4px 9px; } }
