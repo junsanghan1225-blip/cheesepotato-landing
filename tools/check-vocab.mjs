@@ -62,7 +62,8 @@ function hasHead(ko, head) {
   return false;
 }
 
-const files = fs.existsSync(DIR) ? fs.readdirSync(DIR).filter((f) => f.endsWith('.json')).sort() : [];
+/* 표현(사자성어 · 속담 · 관용, expressions.json)은 모양이 달라 check-expressions 가 본다 */
+const files = fs.existsSync(DIR) ? fs.readdirSync(DIR).filter((f) => f.endsWith('.json') && f !== 'expressions.json').sort() : [];
 for (const f of files) {
   let list;
   try { list = JSON.parse(fs.readFileSync(path.join(DIR, f), 'utf8')); }
