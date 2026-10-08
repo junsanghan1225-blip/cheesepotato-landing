@@ -48,6 +48,14 @@ for (const f of FILES) {
   const s = fs.readFileSync(path.join(ROOT, f), 'utf8');
   for (const m of s.matchAll(/(\b\w*?)[kK]o:\s*'((?:[^'\\]|\\.)*)'\s*,\s*\1[eE]n:\s*'((?:[^'\\]|\\.)*)'/g)) add(m[3].replace(/\\(.)/g, '$1'), m[2].replace(/\\(.)/g, '$1'), f);
 }
+/* 짝이 목록인 것 — { ko: ['제목', '설명'], en: ['Title', 'Body'] }(갈래 안내 단계 GUIDES). 안내 창의 pick() 은 목록을 한 줄씩 cpTr 로 바꾼다 */
+for (const f of FILES) {
+  const s = fs.readFileSync(path.join(ROOT, f), 'utf8');
+  const str = "'((?:[^'\\\\]|\\\\.)*)'";
+  const re = new RegExp(`\\bko:\\s*\\[\\s*${str}\\s*,\\s*${str}\\s*\\]\\s*,\\s*en:\\s*\\[\\s*${str}\\s*,\\s*${str}\\s*\\]`, 'g');
+  const un = (x) => x.replace(/\\(.)/g, '$1');
+  for (const m of s.matchAll(re)) { add(un(m[3]), un(m[1]), f); add(un(m[4]), un(m[2]), f); }
+}
 const dec = (x) => x.replace(/&amp;/g, '&').replace(/&quot;/g, '"').replace(/&#39;/g, "'").replace(/&lt;/g, '<').replace(/&gt;/g, '>');
 const html = fs.readFileSync(path.join(ROOT, 'index.html'), 'utf8');
 for (const m of html.matchAll(/data-en(?:-aria)?="([^"]*)"/g)) add(dec(m[1]), '', 'index.html');

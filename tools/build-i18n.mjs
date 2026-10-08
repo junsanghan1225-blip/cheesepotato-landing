@@ -17,6 +17,10 @@ for (const f of fs.readdirSync(DIR).filter((x) => /^[a-z]{2}(-[A-Za-z]+)?\.json$
     if (/\{\d\}/.test(en)) PATS.push(['^' + esc(en).replace(/\\\{(\d)\\\}/g, '([\\s\\S]*?)') + '$', tr, [...en.matchAll(/\{(\d)\}/g)].map((m) => +m[1]), plural]);
     else EXACT[en] = tr;
   }
+  /* 고정 글자가 많은(구체적인) 틀부터 — cpTr 는 처음 맞는 틀을 쓰므로, 「{0} of {1}」처럼 넓은 틀이 앞에 있으면
+     「… of your first payment」 같은 긴 문장을 가로채 엉뚱하게 바꾼다(2026-10-08 베트남어에서 찾음). */
+  const lit = (re) => re.replace(/\(\[\\s\\S\]\*\?\)/g, '').length;
+  PATS.sort((a, b) => lit(b[0]) - lit(a[0]));
   fs.writeFileSync(path.join(ROOT, `i18n-${code}.js`), `/* 만든 것: tools/build-i18n.mjs ← docs/i18n/${f} — 손으로 고치지 않는다 */\nexport const LANG = ${JSON.stringify(code)};\nexport const EXACT = ${JSON.stringify(EXACT)};\nexport const PATS = ${JSON.stringify(PATS)};\n`);
   console.log(`${code}: 그대로 ${Object.keys(EXACT).length} · 자리 표시 ${PATS.length} → i18n-${code}.js`);
 }
