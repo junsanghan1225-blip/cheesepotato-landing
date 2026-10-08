@@ -355,7 +355,7 @@ const PT = () => PT_SETS[ptLevel] || PT_SETS.normal;
    번역이 다 들어오기 전에는 메뉴에 안 보인다(빈 사전이면 영어만 나와 헷갈린다). 미리 보기는 주소 끝에 ?i18n=all. */
 const LANGS = [['ko', '한국어', 'KO', 1], ['en', 'English', 'EN', 1], ['vi', 'Tiếng Việt', 'VI', 0], ['ja', '日本語', '日', 0], ['zh', '中文（简体）', '中', 0]];
 const langShown = () => LANGS.filter((x) => x[3] || /[?&]i18n=all/.test(location.search));
-const I18N_URL = { vi: './i18n-vi.js?v=0f56ca95', ja: './i18n-ja.js?v=0f56ca95', zh: './i18n-zh.js?v=0f56ca95' };
+const I18N_URL = { vi: './i18n-vi.js?v=07b6bb6d', ja: './i18n-ja.js?v=07b6bb6d', zh: './i18n-zh.js?v=07b6bb6d' };
 const trMemo = new Map();
 window.cpTr = (en) => {
   const L = window.cpI18n, s = String(en ?? '');

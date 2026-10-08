@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>치즈감자 숫자 판</title>
+<link rel="icon" href="favicon-32.png">
+<link rel="stylesheet" href="vendor/pretendard.css">
+<!-- 치즈감자 숫자 판(운영자만) — 방문 → 공부 → 가입 → 결제, 단계마다 몇 명이 넘어가는지(운영자 요청 2026-10-08
+     「수익을 키우려면 누가 어디서 떠나는지부터」). 숫자는 funnel_events(db/add_funnel.sql) + 서버의 가입 · 결제 수. 코드는 funnel.js. -->
+<style>
+:root { --bg:#F2EEE4; --card:#fff; --soft:#FBF8F1; --line:#E4DED1; --ink:#1B1512; --ink2:#4E3E31; --dim:#8C7A66;
+        --bar:#E1682B; --track:#F1EADB; --good:#2F8A5B; --bad:#C2412D; }
+@media (prefers-color-scheme: dark) {
+  :root { --bg:#161411; --card:#211E1A; --soft:#2A2621; --line:#38332C; --ink:#F2EEE6; --ink2:#C3BCAF; --dim:#8A8376;
+          --bar:#F08A45; --track:#2E2924; --good:#4CC08A; --bad:#F07560; }
+}
+* { box-sizing:border-box; }
+body { margin:0; background:var(--bg); color:var(--ink); font-family:"Pretendard Variable", Pretendard, sans-serif; }
+.wrap { max-width:1080px; margin:0 auto; padding:24px 16px 48px; }
+.top { display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:10px 16px; }
+h1 { font-size:24px; font-weight:900; margin:0; letter-spacing:-.02em; }
+.who { color:var(--dim); font-size:13px; margin:4px 0 0; }
+.seg { display:flex; gap:6px; }
+.seg button { border:1px solid var(--line); background:var(--card); color:var(--ink); border-radius:999px; padding:8px 14px; font:inherit; font-weight:700; cursor:pointer; }
+.seg button[aria-pressed="true"] { background:var(--ink); color:var(--bg); border-color:var(--ink); }
+.tiles { display:grid; grid-template-columns:repeat(4, minmax(0, 1fr)); gap:12px; margin:18px 0; }
+.tile { background:var(--ink); color:var(--bg); border-radius:18px; padding:16px 18px; display:flex; flex-direction:column; gap:2px; min-width:0; }
+.tile span { font-size:13px; font-weight:700; opacity:.8; }
+.tile b { font-size:clamp(26px, 4vw, 40px); font-weight:900; letter-spacing:-.03em; font-variant-numeric:tabular-nums; }
+.tile small { font-size:12px; opacity:.7; }
+.card { background:var(--card); border:1px solid var(--line); border-radius:18px; padding:18px 20px; margin:0 0 14px; min-width:0; }
+h2 { font-size:17px; margin:0 0 4px; font-weight:800; }
+.sub { margin:0 0 12px; color:var(--dim); font-size:13px; }
+.fn { list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:10px; }
+.fn li { display:grid; grid-template-columns:minmax(0, 9em) minmax(0, 1fr) 5.5em; gap:10px; align-items:center; font-size:14px; }
+.fn .lab { font-weight:700; }
+.fn .lab small { display:block; color:var(--dim); font-weight:500; font-size:12px; }
+.fn .tr { background:var(--track); border-radius:8px; height:26px; overflow:hidden; }
+.fn .tr i { display:block; height:100%; background:var(--bar); border-radius:8px; min-width:2px; }
+.fn .num { text-align:right; font-variant-numeric:tabular-nums; font-weight:800; }
+.fn .num small { display:block; font-weight:600; font-size:12px; color:var(--dim); }
+.fn li.drop .num small { color:var(--bad); }
+.note { background:var(--soft); border-radius:12px; padding:12px 14px; font-size:14px; line-height:1.6; margin:12px 0 0; }
+.note b { color:var(--bad); }
+table { width:100%; border-collapse:collapse; font-size:14px; font-variant-numeric:tabular-nums; }
+th, td { padding:8px 6px; border-bottom:1px solid var(--line); text-align:right; white-space:nowrap; }
+th:first-child, td:first-child { text-align:left; }
+th { color:var(--dim); font-weight:700; font-size:12px; }
+.tblw { overflow-x:auto; }
+.days { display:flex; align-items:flex-end; gap:3px; height:120px; margin-top:8px; }
+.days div { flex:1; min-width:0; display:flex; flex-direction:column; justify-content:flex-end; gap:1px; height:100%; }
+.days i { display:block; background:var(--bar); border-radius:3px 3px 0 0; }
+.days i.s { background:var(--good); border-radius:0; }
+.dlab { display:flex; justify-content:space-between; color:var(--dim); font-size:12px; margin-top:4px; }
+.key { display:flex; gap:14px; font-size:12px; color:var(--dim); margin-top:6px; }
+.key span::before { content:""; display:inline-block; width:10px; height:10px; border-radius:2px; background:var(--bar); margin-right:5px; vertical-align:-1px; }
+.key span.s::before { background:var(--good); }
+.msg { padding:30px 10px; text-align:center; color:var(--ink2); line-height:1.7; }
+@media (max-width:720px) {
+  .tiles { grid-template-columns:repeat(2, minmax(0, 1fr)); }
+  .fn li { grid-template-columns:minmax(0, 7em) minmax(0, 1fr) 4.8em; font-size:13px; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top">
+    <div><h1>📊 숫자 판</h1><p class="who" id="who">확인하는 중…</p></div>
+    <div class="seg" id="seg">
+      <button type="button" data-d="7">7일</button>
+      <button type="button" data-d="28" aria-pressed="true">28일</button>
+      <button type="button" data-d="90">90일</button>
+    </div>
+  </div>
+  <div id="out"><p class="msg">불러오는 중…</p></div>
+</div>
+<script type="module" src="funnel.js"></script>
+</body>
+</html>
