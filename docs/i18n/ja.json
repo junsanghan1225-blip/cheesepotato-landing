@@ -421,7 +421,6 @@
   "+3 days": "3日後",
   "<b>Cheesepotato is a free website for learning Korean</b>, from the Hangul letters through TOPIK level 6. It holds <b>97 courses across 401 lessons</b>, <b>290 grammar points</b> with meanings, examples and dialogues, <b>1,244 TOPIK-style practice questions</b> covering listening, reading and writing for TOPIK I and II, <b>54 reading passages</b>, and a <b>7,970-word dictionary</b> using definitions from Korea's National Institute of Korean Language. Everything runs in the browser with no install and no sign-up.": "<b>チーズポテトは韓国語学習のための無料ウェブサイトです</b>。ハングル文字からTOPIK 6級まで対応。<b>401レッスン・97コース</b>、意味・例文・対話文付きの<b>290の文法項目</b>、TOPIK I・IIの聞き取り・読解・書き取りを網羅した<b>1,244問のTOPIK形式の練習問題</b>、<b>54編の読解文</b>、韓国の国立国語院の定義に基づく<b>7,970語の辞書</b>を収録しています。インストール不要、会員登録不要で、すべてブラウザで利用できます。",
   "<b>This browser does not support speech recognition.</b><br>Open it in Chrome or Edge and it will work right away. On iPhone, use the latest Safari.": "<b>お使いのブラウザは音声認識に対応していません。</b><br>ChromeまたはEdgeで開くとすぐにご利用いただけます。iPhoneの場合は最新のSafariをご利用ください。",
-  "<span class='hm-rec-ic'>🧭</span><span><b>Find my level</b><small>Your lesson for today in 3 minutes</small></span><i>→</i>": "<span class='hm-rec-ic'>🧭</span><span><b>レベル診断</b><small>3分で今日のレッスンを見つけよう</small></span><i>→</i>",
   "⏱ Time was up.": "⏱ 時間切れになりました。",
   "⏳ Confirming your payment… this usually takes a few seconds.": "⏳ お支払いを確認しています… 通常は数秒で完了します。",
   "▶ Get it on Google Play": "▶ Google Playで手に入れよう",
@@ -1495,5 +1494,6 @@
   "Run db/add_class_feedback.sql first.": "Supabase SQL Editorで db/add_class_feedback.sql を先に実行してください。",
   "Run db/add_class_feedback.sql once to enable homework comments.": "宿題のコメント機能を利用するには、Supabase SQL Editorで db/add_class_feedback.sql を1回実行してください。",
   "Run db/add_class_students.sql once to enable student management.": "生徒管理機能を利用するには、Supabase SQL Editorで db/add_class_students.sql を1回実行してください。",
-  "Run db/add_class_teachers.sql first.": "Supabase SQL Editorで db/add_class_teachers.sql を先に実行してください。"
+  "Run db/add_class_teachers.sql first.": "Supabase SQL Editorで db/add_class_teachers.sql を先に実行してください。",
+  "<span class=\"hm-rec-ic\">🧭</span><span><b>Find my level</b><small>Your lesson for today in 3 minutes</small></span><i>→</i>": "<span class=\"hm-rec-ic\">🧭</span><span><b>レベル診断</b><small>3分で今日のレッスンを見つけよう</small></span><i>→</i>"
 }
