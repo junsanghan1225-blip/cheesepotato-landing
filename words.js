@@ -1455,6 +1455,7 @@ export function wordsInit(D) {
     title: `${topicName(topic)} · ${sessionName(topic, n)}`,
     back: `data-act="topic" data-topic="${esc(topic)}"` } });
   function openSession(topic, n) {
+    if (window.cpGateRecords?.()) return;   // 둘째 날부터는 로그인(외운 기록을 잃지 않게 — app.module.js gateRecords)
     const ss = sessionsOf(topic);
     const words = ss[n];
     if (!words) return;
@@ -1555,7 +1556,7 @@ export function wordsInit(D) {
     if (act === 'qclear') { const q = root.querySelector('#wdQ'); q.value = ''; q.dispatchEvent(new Event('input', { bubbles: true })); q.focus(); return; }
     if (act === 'group') { group = ['goal', 'level'].includes(a.dataset.group) ? a.dataset.group : 'topic'; try { localStorage.setItem('cp-words-group', group); } catch (e) {} return draw(); }
     if (act === 'pathchange') return D.openTest?.();   // 길은 레벨테스트 목표로 바꾼다
-    if (act === 'review') { const d = due().slice(0, 30); view = { tab: 'pick', pick: { words: d, from: null, title: t(`복습 ${d.length}개`, `Review ${d.length}`), back: 'data-tab="home"' } }; mark('review'); return draw(); }
+    if (act === 'review') { if (window.cpGateRecords?.()) return; const d = due().slice(0, 30); view = { tab: 'pick', pick: { words: d, from: null, title: t(`복습 ${d.length}개`, `Review ${d.length}`), back: 'data-tab="home"' } }; mark('review'); return draw(); }
     if (act === 'starstudy') { const d = starIds().map((id) => byId.get(id)).filter(Boolean); view = { tab: 'pick', pick: { words: d, from: null, title: t(`별표 ${d.length}개`, `Starred ${d.length}`), back: 'data-tab="mine"' } }; return draw(); }
     if (act === 'star') {
       const id = a.dataset.id;
