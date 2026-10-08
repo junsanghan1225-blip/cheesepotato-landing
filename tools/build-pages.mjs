@@ -182,6 +182,23 @@ h2 small{font-weight:500;font-size:12.5px;margin-left:4px;opacity:.8}
   padding:6px 13px;font-size:14px;text-decoration:none}
 .pts a:hover{border-color:var(--brand)}
 .lead{font-size:16px;color:var(--dim);margin:0 0 26px}
+/* 모음 쪽(TOPIK 쓰기 · 읽기 · 듣기) — ChatGPT · 검색으로 처음 오는 사람에게(운영자 2026-10-07 「어필 · 정리」):
+   무엇을 얻는지 넷 → 큰 단추 둘 → 유형마다 몇 개만 보이고 나머지는 접기 → 함께 쓰면 좋은 것. */
+.why{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin:0 0 18px;padding:0;list-style:none}
+@media(min-width:640px){.why{grid-template-columns:repeat(4,1fr)}}
+.why li{border:1px solid var(--line);background:var(--card);border-radius:14px;padding:12px 12px 11px;font-size:13px;color:var(--dim);line-height:1.4}
+.why b{display:block;font-size:15px;color:var(--ink);margin-bottom:2px}
+.ctas{display:flex;gap:10px;flex-wrap:wrap;margin:0 0 8px}.ctas .cta{flex:1 1 240px;margin:0}
+.cta.alt{background:var(--card);color:var(--ink);border:1.5px solid var(--line)}
+.hub-note{font-size:12.5px;color:var(--dim);margin:8px 0 0}
+.cat{border:1px solid var(--line);background:var(--card);border-radius:16px;padding:16px 16px 14px}
+.more{margin-top:10px}.more summary{cursor:pointer;font-size:13.5px;font-weight:700;color:var(--ink2);list-style:none}
+.more summary::-webkit-details-marker{display:none}.more[open] summary{margin-bottom:10px}
+.next{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin:14px 0 0}
+@media(min-width:640px){.next{grid-template-columns:repeat(3,1fr)}}
+.next a{border:1px solid var(--line);background:var(--card);border-radius:14px;padding:12px;text-decoration:none;font-size:13px;color:var(--dim);line-height:1.4}
+.next a b{display:block;font-size:15px;color:var(--ink)}
+.next a:hover{border-color:var(--brand)}
 /* TOPIK 읽기·듣기 문항 — 보기 넷과 정답. */
 .opts{list-style:none;padding:0;margin:14px 0;display:flex;flex-direction:column;gap:8px}
 .opts li{border:1px solid var(--line);border-radius:12px;padding:11px 15px;background:var(--card);
@@ -817,13 +834,26 @@ function twPage(it) {
   return page({ url: `/topik-writing/${it.id}.html`, title, desc, body, jsonld });
 }
 
+
+/* ── 모음 쪽 공용 조각 ─────────────────────────────────────── */
+const hubWhy = (cells) => `<ul class="why">${cells.map(([b, s]) => `<li><b>${b}</b>${s}</li>`).join('')}</ul>`;
+const hubCtas = (main, alt) => `<div class="ctas"><a class="cta" href="${main[0].replace('/#', '/?utm_source=hub#')}">${main[1]}<span>${main[2]}</span></a>` +
+  (alt ? `<a class="cta alt" href="${alt[0]}">${alt[1]}<span>${alt[2]}</span></a>` : '') + '</div>';
+/* 유형마다 처음 n 개만 펼치고 나머지는 접는다 — 200 개를 한 번에 늘어놓으면 무엇부터 할지 모른다. */
+const chipList = (list, li, n = 8) => `<ul class="pts">${list.slice(0, n).map(li).join('')}</ul>` +
+  (list.length > n ? `<details class="more"><summary>＋ 나머지 ${list.length - n}개 모두 보기 · See all ${list.length}</summary><ul class="pts">${list.slice(n).map(li).join('')}</ul></details>` : '');
+const hubNext = (skip) => '<h2>치즈감자에서 함께 · Also free here</h2><div class="next">' + [
+  ['/topik-writing/', 'TOPIK 쓰기', 'Writing 51–54 · AI scores'], ['/topik-reading/', 'TOPIK 읽기', 'Reading by question type'],
+  ['/topik-listening/', 'TOPIK 듣기', 'Listening with transcripts'], ['/?lt=1&utm_source=hub', '3분 레벨테스트', '3-min level test → your path'],
+  ['/#words', '단어 1만 개', '10,000 words · daily review'], ['/#games', '단어 게임', 'Word Potatoes · Korean Wordle'],
+].filter(([h]) => h !== skip).slice(0, 6).map(([h, b, s]) => `<a href="${h}"><b>${b}</b>${s}</a>`).join('') + '</div>';
+
 function twHub(items) {
   const sections = TW_QS.map((g) => {
     const mine = items.filter((x) => x.q === g.q);
     if (!mine.length) return '';
-    return `<div class="cat"><h3>${esc(g.ko)} · ${g.pt}점</h3><p>${esc(g.en)}</p><ul class="pts">` +
-      mine.map((x) => `<li><a href="/topik-writing/${esc(x.id)}.html">${esc(x.title)}</a></li>`).join('') +
-      '</ul></div>';
+    return `<div class="cat"><h3>${esc(g.ko)} · ${g.pt}점</h3><p>${esc(g.en)}</p>` +
+      chipList(mine, (x) => `<li><a href="/topik-writing/${esc(x.id)}.html">${esc(x.title)}</a></li>`) + '</div>';
   }).filter(Boolean).join('\n');
 
   const body = [
@@ -832,8 +862,11 @@ function twHub(items) {
     '<p class="lead">51~54번 유형으로 직접 써 보는 연습 문항입니다. 문항마다 모범답안과 채점 포인트, 흔한 감점 요인이 붙어 있습니다.<br>' +
     '<b>기출문제가 아니라 같은 유형으로 새로 쓴 창작 문항입니다.</b><br>' +
     `${items.length} original TOPIK II writing practice tasks with model answers and scoring notes.</p>`,
-    `<a class="cta" href="/#learn/writing">TOPIK 쓰기 열기<span>Open the writing practice</span></a>`,
+    hubWhy([['200문항 · 200 tasks', '51~54번 유형 그대로'], ['AI 채점 · AI scoring', '무료 하루 2번 · free 2/day'], ['모범답안 · Model answers', '채점 포인트 · 감점 요인'], ['가입 없이 · No sign-up', '브라우저에서 바로']]),
+    hubCtas(['/#learn/topik/II/writing', '✍️ AI 채점으로 바로 써 보기', 'Write now and get an AI score — free'], ['/?lt=1&utm_source=hub', '🧭 내 TOPIK 레벨 3분 테스트', 'Not sure of your level? 3-min test']),
+    '<p class="hub-note">아래에서 유형을 골라 문항 하나를 열어도 돼요 — 모범답안 · 채점 포인트가 함께 있어요. Pick any task below to see a model answer.</p>',
     sections,
+    hubNext('/topik-writing/'),
   ].join('\n');
 
   return page({
@@ -921,9 +954,8 @@ function trHub() {
     const typeSections = TR_ORDER[exam].filter((k) => byType[k]).map((k) => {
       const tx = TR_TYPES[exam][k];
       const list = byType[k].slice().sort((a, b) => a.slot - b.slot);
-      return `<div class="cat"><h3>${esc(tx?.ko || k)}</h3><p>${esc(tx?.en || '')}</p><ul class="pts">` +
-        list.map((it) => `<li><a href="/topik-reading/${esc(it.id)}.html">${it.slot}번 · ${esc(it.topic)}</a></li>`).join('') +
-        '</ul></div>';
+      return `<div class="cat"><h3>${esc(tx?.ko || k)} <small>· ${list.length}</small></h3><p>${esc(tx?.en || '')}</p>` +
+        chipList(list, (it) => `<li><a href="/topik-reading/${esc(it.id)}.html">${it.slot}번 · ${esc(it.topic)}</a></li>`, 6) + '</div>';
     }).join('\n');
     return `<h2>TOPIK ${exam} — ${items.length}문항</h2>${typeSections}`;
   }).join('\n');
@@ -934,8 +966,10 @@ function trHub() {
     '<p class="lead">TOPIK I·II 읽기 유형별 연습 문항입니다. 문항마다 정답과 해설이 함께 있습니다.<br>' +
       '<b>기출문제가 아니라 같은 유형으로 새로 쓴 창작 문항입니다.</b><br>' +
       `${total} original TOPIK I/II reading practice questions, each with the answer explained.</p>`,
-    '<a class="cta" href="/#learn/topik/I/reading">TOPIK 읽기 열기<span>Open the reading practice</span></a>',
+    hubWhy([[`${total}문항 · questions`, 'TOPIK I · II 유형별'], ['바로 채점 · Instant check', '고르면 정답 · 해설'], ['모의고사 · Mock tests', '시간 재고 회차별'], ['가입 없이 · No sign-up', '브라우저에서 바로']]),
+    hubCtas(['/#learn/topik/I/reading', '📖 읽기 연습 바로 시작', 'Start reading practice — free'], ['/?lt=1&utm_source=hub', '🧭 내 TOPIK 레벨 3분 테스트', 'Not sure of your level? 3-min test']),
     sections,
+    hubNext('/topik-reading/'),
   ].join('\n');
 
   return page({
@@ -1011,9 +1045,8 @@ function tlHub() {
     ex.items.forEach((it) => (byType[it.type] = byType[it.type] || []).push(it));
     const typeSections = order.filter((k) => byType[k]).map((k) => {
       const list = byType[k].slice().sort((a, b) => a.slot - b.slot);
-      return `<div class="cat"><h3>${esc(types[k]?.ko || k)}</h3><p>${esc(types[k]?.en || '')}</p><ul class="pts">` +
-        list.map((it) => `<li><a href="/topik-listening/${esc(it.id)}.html">${it.slot}번</a></li>`).join('') +
-        '</ul></div>';
+      return `<div class="cat"><h3>${esc(types[k]?.ko || k)} <small>· ${list.length}</small></h3><p>${esc(types[k]?.en || '')}</p>` +
+        chipList(list, (it) => `<li><a href="/topik-listening/${esc(it.id)}.html">${it.slot}번</a></li>`, 10) + '</div>';
     }).join('\n');
     return `<h2>TOPIK ${exam} — ${ex.items.length}문항</h2>${typeSections}`;
   }).join('\n');
@@ -1024,8 +1057,10 @@ function tlHub() {
     '<p class="lead">TOPIK I·II 듣기 유형별 연습 문항입니다. 대본과 정답, 해설이 함께 있습니다.<br>' +
       '<b>기출문제가 아니라 같은 유형으로 새로 쓴 창작 문항입니다.</b><br>' +
       `${total} original TOPIK I/II listening practice questions with transcripts and answers explained.</p>`,
-    '<a class="cta" href="/#learn/topik/I/listening">TOPIK 듣기 열기<span>Open the listening practice</span></a>',
+    hubWhy([[`${total}문항 · questions`, 'TOPIK I · II 유형별'], ['대본 · Transcripts', '고른 뒤에 열려요'], ['소리 · Audio', '들으며 바로 풀기'], ['가입 없이 · No sign-up', '브라우저에서 바로']]),
+    hubCtas(['/#learn/topik/I/listening', '🎧 듣기 연습 바로 시작', 'Start listening practice — free'], ['/?lt=1&utm_source=hub', '🧭 내 TOPIK 레벨 3분 테스트', 'Not sure of your level? 3-min test']),
     sections,
+    hubNext('/topik-listening/'),
   ].join('\n');
 
   return page({

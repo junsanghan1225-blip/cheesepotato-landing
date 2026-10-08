@@ -124,6 +124,23 @@ h2 small{font-weight:500;font-size:12.5px;margin-left:4px;opacity:.8}
   padding:6px 13px;font-size:14px;text-decoration:none}
 .pts a:hover{border-color:var(--brand)}
 .lead{font-size:16px;color:var(--dim);margin:0 0 26px}
+/* 모음 쪽(TOPIK 쓰기 · 읽기 · 듣기) — ChatGPT · 검색으로 처음 오는 사람에게(운영자 2026-10-07 「어필 · 정리」):
+   무엇을 얻는지 넷 → 큰 단추 둘 → 유형마다 몇 개만 보이고 나머지는 접기 → 함께 쓰면 좋은 것. */
+.why{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin:0 0 18px;padding:0;list-style:none}
+@media(min-width:640px){.why{grid-template-columns:repeat(4,1fr)}}
+.why li{border:1px solid var(--line);background:var(--card);border-radius:14px;padding:12px 12px 11px;font-size:13px;color:var(--dim);line-height:1.4}
+.why b{display:block;font-size:15px;color:var(--ink);margin-bottom:2px}
+.ctas{display:flex;gap:10px;flex-wrap:wrap;margin:0 0 8px}.ctas .cta{flex:1 1 240px;margin:0}
+.cta.alt{background:var(--card);color:var(--ink);border:1.5px solid var(--line)}
+.hub-note{font-size:12.5px;color:var(--dim);margin:8px 0 0}
+.cat{border:1px solid var(--line);background:var(--card);border-radius:16px;padding:16px 16px 14px}
+.more{margin-top:10px}.more summary{cursor:pointer;font-size:13.5px;font-weight:700;color:var(--ink2);list-style:none}
+.more summary::-webkit-details-marker{display:none}.more[open] summary{margin-bottom:10px}
+.next{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin:14px 0 0}
+@media(min-width:640px){.next{grid-template-columns:repeat(3,1fr)}}
+.next a{border:1px solid var(--line);background:var(--card);border-radius:14px;padding:12px;text-decoration:none;font-size:13px;color:var(--dim);line-height:1.4}
+.next a b{display:block;font-size:15px;color:var(--ink)}
+.next a:hover{border-color:var(--brand)}
 /* TOPIK 읽기·듣기 문항 — 보기 넷과 정답. */
 .opts{list-style:none;padding:0;margin:14px 0;display:flex;flex-direction:column;gap:8px}
 .opts li{border:1px solid var(--line);border-radius:12px;padding:11px 15px;background:var(--card);
