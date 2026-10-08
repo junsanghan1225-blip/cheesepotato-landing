@@ -40,7 +40,7 @@
 ">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <!-- 구글 태그 관리자. 구글이 주는 인라인 코드조각은 CSP 가 막아서 gtm.js 로 뺐다. -->
-<script src="gtm.js?v=e99cbbac" async></script>
+<script src="gtm.js?v=f129c8a4" async></script>
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <!-- 제목과 설명을 두 말로 쓴다. 이 사이트를 찾을 사람은 한국어를 **배우는**
@@ -119,13 +119,13 @@
      Pretendard 는 통짜(2.0MB) 대신 조각난 쪽을 쓴다 — 브라우저가
      unicode-range 를 보고 화면에 실제로 나온 글자가 든 조각만 받는다.
      그래서 저장소는 무거워졌지만 학습자가 받는 양은 오히려 줄었다. -->
-<link rel="stylesheet" href="vendor/pretendard.css?v=e99cbbac">
-<link rel="stylesheet" href="vendor/pressstart2p.css?v=e99cbbac">
+<link rel="stylesheet" href="vendor/pretendard.css?v=f129c8a4">
+<link rel="stylesheet" href="vendor/pressstart2p.css?v=f129c8a4">
 <!-- 화면 상자 안에서만 쓰는 CSS 는 여기서 갈라 받는다. media="print" 라
      첫 페인트를 안 막고, 다 받아지면 app.js 가 media 를 all 로 바꾼다.
      자바스크립트가 없으면 <noscript> 쪽이 그냥 평범하게 걸린다. -->
-<link id="viewsCss" rel="stylesheet" href="app-views.css?v=e99cbbac" media="print">
-<noscript><link rel="stylesheet" href="app-views.css?v=e99cbbac"></noscript>
+<link id="viewsCss" rel="stylesheet" href="app-views.css?v=f129c8a4" media="print">
+<noscript><link rel="stylesheet" href="app-views.css?v=f129c8a4"></noscript>
 
 <style>
 /* ══════════════════════════════════════════════════════════════
@@ -794,6 +794,31 @@ html[data-lv] .hm-tour { display:none; }   /* 레벨이 있는 학생은 「오�
 .hm-rec-ic { display:grid; place-items:center; width:44px; height:44px; border-radius:12px; background:var(--orange); font-size:22px; }
 .hm-rec-ic.s { background:var(--tint); }
 .hm-rec .hero-link { justify-self:start; }
+/* 첫 화면 위쪽 「맞는 순서로」(2026-10-08) — 큰 단추 하나 + 길 카드 넷이 비스듬히 쌓인 그림 */
+.hero-steps h1 { letter-spacing:-.03em; }
+.hero-acts { display:flex; flex-wrap:wrap; gap:10px; margin-top:22px; }
+.hero-go { min-height:56px; padding:14px 26px; border:none; border-radius:16px; background:var(--ink); color:var(--surface); font:inherit; font-size:17px; font-weight:800; cursor:pointer; }
+.hero-go:hover { filter:brightness(1.12); }
+.hero-how { display:inline-flex; align-items:center; min-height:56px; padding:14px 22px; border-radius:16px; background:var(--tint); color:var(--ink); font-weight:700; text-decoration:none; }
+.hero-fine { margin:12px 0 0; font-size:13.5px; color:var(--ink-2); }
+.hero-steps .hero-link { margin-top:8px; }
+.hs-stack { display:grid; gap:12px; padding:8px 4px; }
+.hs-card { display:grid; grid-template-columns:52px minmax(0,1fr); gap:14px; align-items:center; width:100%; padding:14px 18px; border:none; border-radius:20px; text-align:left; font:inherit; color:#1B1512; cursor:pointer; box-shadow:0 18px 30px -22px rgba(0,0,0,.45); transition:transform .15s; }
+.hs-card:hover { transform:translateY(-2px) rotate(0deg) !important; }
+.hs-card.c1 { background:#E3F0A8; } .hs-card.c2 { background:#D9D6FF; } .hs-card.c3 { background:#FFB38A; } .hs-card.c4 { background:#FFE08A; }
+.hs-ic { display:grid; place-items:center; width:52px; height:52px; border-radius:14px; background:rgba(255,255,255,.65); }
+.hs-ic .lvl-ic { width:40px; height:40px; }
+.hs-t small { display:block; font-size:12px; font-weight:700; opacity:.7; letter-spacing:.02em; }
+.hs-t b { display:block; font-size:19px; font-weight:800; margin:1px 0 6px; }
+.hs-bar { display:block; height:8px; border-radius:99px; background:rgba(255,255,255,.7); overflow:hidden; }
+.hs-bar i { display:block; height:100%; border-radius:99px; background:#1B1512; opacity:.75; }
+@media (min-width:900px) {
+  .hs-stack { padding:18px 24px; }
+  .hs-card.c1 { transform:rotate(-2deg); } .hs-card.c2 { transform:rotate(1.5deg) translateX(18px); }
+  .hs-card.c3 { transform:rotate(-1deg) translateX(-6px); } .hs-card.c4 { transform:rotate(2deg) translateX(14px); }
+}
+@media (max-width:899px) { .hs-stack { grid-template-columns:1fr 1fr; gap:10px; } .hs-card { grid-template-columns:40px minmax(0,1fr); gap:10px; padding:12px; }
+  .hs-ic { width:40px; height:40px; } .hs-ic .lvl-ic { width:32px; height:32px; } .hs-t b { font-size:16px; margin-bottom:4px; } .hs-t small { font-size:11px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; } }
 .hm-paths .hm-door { background:var(--surface) !important; border:1px solid var(--line); box-shadow:0 14px 34px -26px rgba(var(--ink-rgb),.4); position:relative; }
 .hm-paths .hm-door::after { content:'›'; position:absolute; right:18px; top:50%; transform:translateY(-50%); width:32px; height:32px; border-radius:50%; border:1px solid var(--line); display:grid; place-items:center; font-size:20px; color:var(--ink-2); }
 .hm-paths .hm-door-ic { background:var(--tint); border-radius:18px; padding:6px; box-sizing:border-box; }
@@ -2125,22 +2150,33 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
        글자 「치즈감자」는 머리띠 로고와 배지에 남긴다. -->
   <!-- 첫 화면 시안(운영자 결정 2026-10-06 「그 모양으로 — 검색창은 빼고 배너는 번역 연습」): 왼쪽 질문형 제목, 오른쪽 「오늘의 추천」 카드.
        레벨테스트 단추(heroLevelTestBtn) · 회원가입(heroSignupBtn)은 id 그대로 카드 안으로 옮겼다. -->
-  <div class="hero hm-intro hero-ask">
+  <!-- 첫 화면 위쪽(운영자 2026-10-08 「톡투미인코리안처럼 — 한 문장 + 큰 단추 하나 + 길 카드 그림」, 앞으로 할 일 3번).
+       처음 온 사람(레벨 없음)에게만 보인다(.hm-intro). 큰 단추는 레벨테스트 하나(heroLevelTestBtn — id 그대로),
+       오른쪽 카드 넷은 길 넷(data-go 는 아래 길 넷과 같은 길). 오늘의 TOPIK 1문제 · 번역 연습은 아래에 그대로 있다. -->
+  <div class="hero hm-intro hero-ask hero-steps">
    <div class="hero-in">
     <div class="hero-copy">
-      <div class="hero-badge" data-ko="● 치즈감자 · 무료 한국어 학습 · TOPIK I·II 대비">● Cheesepotato · Free Korean · TOPIK I & II</div>
-      <h1 data-ko="무엇을 배우러<br><em>오셨나요?</em>">What are you<br><em>here to learn?</em></h1>
-      <p class="hero-sub" data-ko="메뉴를 뒤질 필요 없어요.<br>목표 하나만 고르면, 그 안에 길이 이미 정리되어 있어요.">No need to dig through menus.<br>Pick one goal — the path inside is already laid out.</p>
-    </div>
-    <aside class="hm-rec" aria-label="오늘의 추천" data-en-aria="Today’s pick">
-      <div class="hm-rec-h"><b data-en="✨ Today’s pick">✨ 오늘의 추천</b></div>
-      <!-- 단추 글은 「받는 것」 먼저(운영자 결정 2026-10-06 (나)) — 효과는 level_test_open_home 으로 잰다 -->
-      <button class="hm-rec-main" id="heroLevelTestBtn" type="button" data-ko="<span class='hm-rec-ic'>🧭</span><span><b>내 레벨 찾기</b><small>3분 뒤 오늘 할 레슨이 나와요</small></span><i>→</i>"><span class="hm-rec-ic">🧭</span><span><b>Find my level</b><small>Your lesson for today in 3 minutes</small></span><i>→</i></button>
-      <a class="hm-rec-row" href="#hmQuiz"><span class="hm-rec-ic s">📖</span><span><b data-en="Today’s TOPIK question">오늘의 TOPIK 1문제</b><small data-en="Original · not a past paper">창작 문항 · 기출 아님</small></span><i>›</i></a>
-      <button class="hm-rec-row" type="button" data-go="translate"><span class="hm-rec-ic s">🔁</span><span><b data-en="Translate to Korean">번역 연습</b><small data-en="English → Korean, one line at a time">영어 → 한국어, 한 줄씩</small></span><i>›</i></button>
+      <div class="hero-badge" data-ko="● 치즈감자 · 무료 한국어 · TOPIK I·II">● Cheesepotato · Free Korean · TOPIK I & II</div>
+      <h1 data-ko="맞는 순서로 배우면<br><em>누구나 한국어를 해요.</em>">Anyone can learn Korean<br><em>in the right order.</em></h1>
+      <p class="hero-sub" data-ko="한글부터 TOPIK 6급까지, 레슨이 차례대로 놓여 있어요.<br>처음부터 따라가도 되고, 3분 테스트로 내 자리에서 시작해도 돼요.">From Hangul to TOPIK level 6, the lessons are already in order.<br>Start from the very first step, or take a 3-minute test and jump in where you are.</p>
+      <div class="hero-acts">
+        <button class="hero-go" id="heroLevelTestBtn" type="button" data-en="Find my level and start →">내 레벨 찾고 시작하기 →</button>
+        <a class="hero-how" href="#hmPaths" data-en="See the paths">길 둘러보기</a>
+      </div>
+      <p class="hero-fine" data-en="Free · no sign-up needed · about 3 minutes">무료 · 가입 없이 바로 · 3분쯤</p>
       <!-- 회원가입 — 로그인한 사람에게는 숨긴다(paintAuthNav) -->
       <button class="hero-link" id="heroSignupBtn" type="button" data-ko="회원가입 · 무료 — 기록을 기기마다 이어 보려면">Sign up · free — keep your progress on every device</button>
-    </aside>
+    </div>
+    <div class="hs-stack" aria-label="학습 길" data-en-aria="Learning paths">
+      <button class="hs-card c1" type="button" data-go="pathBasic"><span class="hs-ic" data-lvl="potato:1" aria-hidden="true"></span>
+        <span class="hs-t"><small data-en="STEP 1 · Hangul → beginner">STEP 1 · 한글 → 초급</small><b data-en="Basics">기초</b><i class="hs-bar"><i style="width:100%"></i></i></span></button>
+      <button class="hs-card c2" type="button" data-go="pathMid"><span class="hs-ic" data-lvl="potato:5" aria-hidden="true"></span>
+        <span class="hs-t"><small data-en="STEP 2 · longer sentences">STEP 2 · 길게 말하기</small><b data-en="Intermediate">중급</b><i class="hs-bar"><i style="width:55%"></i></i></span></button>
+      <button class="hs-card c3" type="button" data-go="pathAdv"><span class="hs-ic" data-lvl="potato:7" aria-hidden="true"></span>
+        <span class="hs-t"><small data-en="STEP 3 · news and written style">STEP 3 · 뉴스 · 글말</small><b data-en="Advanced">고급</b><i class="hs-bar"><i style="width:20%"></i></i></span></button>
+      <button class="hs-card c4" type="button" data-go="pathTopik"><span class="hs-ic" data-lvl="cheese:2" aria-hidden="true"></span>
+        <span class="hs-t"><small data-en="TOPIK I · II · original questions">TOPIK I · II · 창작 문항</small><b data-en="TOPIK prep">TOPIK 준비</b><i class="hs-bar"><i style="width:35%"></i></i></span></button>
+    </div>
    </div>
   </div>
 
@@ -4137,9 +4173,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <div id="hlpScrim" class="hlp-scrim"></div>
 <aside id="hlpPanel" class="hlp-panel" aria-label="한국어 도우미" aria-hidden="true"></aside>
 
-<script src="app.js?v=e99cbbac"></script>
-<script type="module" src="app.module.js?v=e99cbbac"></script>
+<script src="app.js?v=f129c8a4"></script>
+<script type="module" src="app.module.js?v=f129c8a4"></script>
 
-<script src="analytics.js?v=e99cbbac" defer></script>
+<script src="analytics.js?v=f129c8a4" defer></script>
 </body>
 </html>

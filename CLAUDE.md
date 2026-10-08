@@ -108,6 +108,7 @@
   레슨-문법 짝은 기계(`tools/build-path-map.mjs`) — 사람 검토는 `docs/path-map.json` 에.
   안티 결과 들어옴(2026-10-06): 짝 401개(#230) · 문법 채우기(비교 42쌍 · 바꿔 쓰기 95개 · 연습 문장) · 번역 45편 — Claude 검토해 넣음.
   번역 고급은 모범 답 하나만(대체 답이 영어와 뜻이 멀어서) — 나머지는 「제 답도 맞아요」로.
+  **첫 화면 위쪽 「맞는 순서로」**(운영자 2026-10-08 「톡투미인코리안처럼」): 처음 온 사람에게 한 문장 + 큰 단추 하나(heroLevelTestBtn 「내 레벨 찾고 시작하기」) + 「길 둘러보기」 + 오른쪽 길 카드 넷(.hs-card, data-go = 길 넷). 오늘의 추천 카드는 뺐다(TOPIK 1문제 · 번역 배너는 아래 그대로).
   **첫 화면 「내 길」 카드**(운영자 2026-10-07 「길을 골랐는데 길 넷이 계속 뜬다」): 길이 정해진 학생(html[data-path])은 길 넷을 접고 카드 하나(`hmMyPathRender` — 진도 · 다음 걸음 · 이어서 · 「다른 길 보기」). 다음 걸음은 `pathNext` — 내 레벨 시작 코스(LT_LEVELS start)부터(「오늘의 계획」과 같은 레슨).
   **오늘 공부 — 한 흐름**(운영자 2026-10-07 「이 버튼 저 버튼 누르지 않게」): 「오늘 할 일」 큰 단추 = 「오늘 공부 시작」(data-td=daily) → 칸을 차례로, 한 칸 끝(tdMark)마다 아래 「다음 → 계속」(`dailyAfter`, #dailySheet), 다 끝나면 보상 「오늘의 감자들」. 켜짐은 탭 하나(sessionStorage cp-daily-on). 흐름 중에는 갈래 안내 창을 안 띄운다. 레벨테스트 끝 「▶ 오늘 공부 바로 시작」(#ltDailyGo). 옆 메뉴 = 오늘 공부 · 한국어 배우기 · TOPIK · 단어 · 더 보기(문법 · 번역 · TOPIK 연습 · 내 공부는 「더 보기」 안). 레벨이 있는 학생은 첫 화면 기능 여덟 칸을 숨긴다.
   **매일 공부 알림 메일**(운영자 2026-10-07 「트래픽 — 다시 오게」): 설정 「📧 매일 공부 알림 메일」(기본 꺼짐) · 「오늘 공부」 끝 「내일 알림 받기」 → 표 `db/add_reminders.sql`(reminder_prefs) → 함수 `supabase/functions/daily-reminder`(Resend, 그날 공부했으면 안 보냄, 「그만 받기」 링크) ← `.github/workflows/daily-reminder.yml` 매시 5분(Variables REMINDER_AUTO=on). 운영자 순서 `docs/reminders.md`. 사전 쪽 검색 제목은 「가게 (gage) meaning — "shop" in Korean | Cheesepotato」(2026-10-07).
