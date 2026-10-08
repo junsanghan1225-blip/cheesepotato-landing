@@ -4921,6 +4921,7 @@ div.wd-card:hover { transform:none; }
 .lt-pro-s { margin-top:6px; font-size:13.5px; line-height:1.55; opacity:.82; word-break:keep-all; }
 .lt-pro-go { margin-top:12px; padding:10px 18px; border:none; border-radius:999px; background:var(--orange); color:#fff; font:inherit; font-size:14.5px; font-weight:800; cursor:pointer; }
 .lt-pro-go:hover { filter:brightness(1.05); }
+.lt-pro-alt { display:block; margin-top:8px; padding:4px 0; border:0; background:none; font:inherit; font-size:13px; color:inherit; opacity:.75; text-decoration:underline; cursor:pointer; }
 /* 「오늘」 카드의 시험까지 남은 날 */
 @media (max-width:600px) {
   /* 폰(운영자 요청 2026-09-30): 창을 화면 가까이 넓히고, 닫기 단추가 제목을 덮지 않게 제목 양옆을 비운다. */
@@ -5834,6 +5835,7 @@ body.mk-printing .mk-cover, body.mk-printing .mk-paper, body.mk-printing .mk-omr
 .up-price s { color:var(--ink-3); font-size:18px; margin-right:6px; }
 .up-card.pass .up-btn { border-color:#C4551C; color:#C4551C; }
 .up-card.pass .up-btn:disabled { border-color:var(--line); color:var(--ink-3); }
+.up-card.pass .up-btn.main { color:#fff; border-color:#C4551C; }   /* 추천일 때 — 위 줄의 주황 글씨가 주황 단추에 묻히지 않게 */
 @media (min-width:900px) { .up-wrap { max-width:1140px; } .up-grid { grid-template-columns:repeat(3, 1fr); } }
 
 /* 「Pro 로 바뀌는 것」 — 무료 → Pro 를 숫자로 한눈에(운영자 요청 2026-10-04) */
@@ -5857,6 +5859,13 @@ body.mk-printing .mk-cover, body.mk-printing .mk-paper, body.mk-printing .mk-omr
 }
 /* 폰에서는 한 줄씩 쌓이니 Pro 를 맨 위로 — 무료 카드를 다 읽고 나서야 Pro 가 나오면 지나치기 쉽다 */
 @media (max-width:899px) { .up-card.pro { order:-1; } }
+/* 「이런 분께」 · 추천(운영자 2026-10-08 — 시험 패스와 매달 구독을 나눠 보이게). 추천 카드는 폰에서 맨 위로 */
+.up-for { margin:0; padding:8px 10px; border-radius:12px; background:var(--surface-2, #FBF8F1); font-size:13.5px; line-height:1.5; color:var(--ink-2); word-break:keep-all; }
+.up-for b { color:var(--ink); margin-right:4px; }
+.up-badge.rec { background:#C4551C; color:#fff; }
+.up-card.rec { border:2px solid #C4551C; box-shadow:0 6px 0 #A8461A; }
+.up-card.pro.rec { border-color:#C4551C; box-shadow:0 6px 0 #A8461A; }
+@media (max-width:899px) { .up-card.rec { order:-2; } }
 
 /* ══ 인쇄용 학습지(#ntPrintView .ws) — 여행 한국어 A1 (app.module.js wsTravelHtml). 종이는 늘 흰색이라 색을 못 박는다 ══ */
 .ws-lib-d { font-size:13.5px; color:var(--ink-2); margin:6px 0 10px; line-height:1.6; }
