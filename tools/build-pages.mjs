@@ -848,13 +848,16 @@ const hubNext = (skip) => '<h2>치즈감자에서 함께 · Also free here</h2><
   ['/#words', '단어 1만 개', '10,000 words · daily review'], ['/#games', '단어 게임', 'Word Potatoes · Korean Wordle'],
 ].filter(([h]) => h !== skip).slice(0, 6).map(([h, b, s]) => `<a href="${h}"><b>${b}</b>${s}</a>`).join('') + '</div>';
 
-function twHub(items) {
-  const sections = TW_QS.map((g) => {
+function twSections(items) {
+  return TW_QS.map((g) => {
     const mine = items.filter((x) => x.q === g.q);
     if (!mine.length) return '';
     return `<div class="cat"><h3>${esc(g.ko)} · ${g.pt}점</h3><p>${esc(g.en)}</p>` +
       chipList(mine, (x) => `<li><a href="/topik-writing/${esc(x.id)}.html">${esc(x.title)}</a></li>`) + '</div>';
   }).filter(Boolean).join('\n');
+}
+function twHub(items) {
+  const sections = twSections(items);
 
   const body = [
     '<nav class="crumb"><a href="/">치즈감자</a> › TOPIK 쓰기</nav>',
@@ -870,7 +873,7 @@ function twHub(items) {
   ].join('\n');
 
   return page({
-    url: '/topik-writing/', kind: 'website',
+    url: '/topik-writing/', kind: 'website', extraHead: hubHreflang('/topik-writing/'),
     title: `TOPIK II 쓰기 연습 문항 ${items.length}개 — 51·52·53·54번 | 치즈감자`,
     desc: clip(`TOPIK II 쓰기 51~54번 유형 연습 문항 ${items.length}개. 모범답안과 채점 기준, 감점 요인까지. 기출이 아닌 창작 문항입니다.`),
     body,
@@ -945,10 +948,10 @@ function trPage(it) {
   return page({ url: `/topik-reading/${it.id}.html`, title, desc, body, jsonld });
 }
 
-function trHub() {
+function trSections() {
   const groups = [['I', TOPIK_READING], ['II', TOPIK2_READING]];
   const total = TOPIK_READING.length + TOPIK2_READING.length;
-  const sections = groups.map(([exam, items]) => {
+  return groups.map(([exam, items]) => {
     const byType = {};
     items.forEach((it) => (byType[it.type] = byType[it.type] || []).push(it));
     const typeSections = TR_ORDER[exam].filter((k) => byType[k]).map((k) => {
@@ -959,6 +962,11 @@ function trHub() {
     }).join('\n');
     return `<h2>TOPIK ${exam} — ${items.length}문항</h2>${typeSections}`;
   }).join('\n');
+}
+function trHub() {
+  const groups = [['I', TOPIK_READING], ['II', TOPIK2_READING]];
+  const total = TOPIK_READING.length + TOPIK2_READING.length;
+  const sections = trSections();
 
   const body = [
     '<nav class="crumb"><a href="/">치즈감자</a> › TOPIK 읽기</nav>',
@@ -973,7 +981,7 @@ function trHub() {
   ].join('\n');
 
   return page({
-    url: '/topik-reading/', kind: 'website',
+    url: '/topik-reading/', kind: 'website', extraHead: hubHreflang('/topik-reading/'),
     title: `TOPIK 읽기 연습 문항 ${total}개 | 치즈감자`,
     desc: clip(`TOPIK I·II 읽기 유형별 연습 문항 ${total}개. 정답과 해설까지. 기출이 아닌 창작 문항입니다.`),
     body,
@@ -1035,10 +1043,10 @@ function tlPage(it) {
   return page({ url: `/topik-listening/${it.id}.html`, title, desc, body, jsonld });
 }
 
-function tlHub() {
+function tlSections() {
   const groups = [['I', TOPIKL_BY_EXAM.I], ['II', TOPIKL_BY_EXAM.II]];
   const total = TOPIKL_BY_EXAM.I.items.length + TOPIKL_BY_EXAM.II.items.length;
-  const sections = groups.map(([exam, ex]) => {
+  return groups.map(([exam, ex]) => {
     const types = trTypeMap(ex.blueprint);
     const order = [...new Set(ex.blueprint.map((b) => b.type))];
     const byType = {};
@@ -1050,6 +1058,11 @@ function tlHub() {
     }).join('\n');
     return `<h2>TOPIK ${exam} — ${ex.items.length}문항</h2>${typeSections}`;
   }).join('\n');
+}
+function tlHub() {
+  const groups = [['I', TOPIKL_BY_EXAM.I], ['II', TOPIKL_BY_EXAM.II]];
+  const total = TOPIKL_BY_EXAM.I.items.length + TOPIKL_BY_EXAM.II.items.length;
+  const sections = tlSections();
 
   const body = [
     '<nav class="crumb"><a href="/">치즈감자</a> › TOPIK 듣기</nav>',
@@ -1064,7 +1077,7 @@ function tlHub() {
   ].join('\n');
 
   return page({
-    url: '/topik-listening/', kind: 'website',
+    url: '/topik-listening/', kind: 'website', extraHead: hubHreflang('/topik-listening/'),
     title: `TOPIK 듣기 연습 문항 ${total}개 | 치즈감자`,
     desc: clip(`TOPIK I·II 듣기 유형별 연습 문항 ${total}개. 대본과 정답, 해설까지. 기출이 아닌 창작 문항입니다.`),
     body,
@@ -2914,7 +2927,7 @@ function localeHome(code) {
       `<ul>${best.map((x) => `<li>${esc(tr(x))}</li>`).join('')}</ul><span class="lc-start">${esc(tr('Start →'))}</span></a>`).join('')}</div>`,
     `<h2>TOPIK</h2>`,
     `<p>${esc(tr('Original questions · not past papers →').replace(/\s*→$/, ''))}</p>`,
-    `<ul class="lc-topik"><li><a href="/topik-reading/">TOPIK · ${esc(tr('Reading'))}</a></li><li><a href="/topik-listening/">TOPIK · ${esc(tr('Listening'))}</a></li><li><a href="/topik-writing/">${esc(tr('TOPIK II · Writing'))}</a></li></ul>`,
+    `<ul class="lc-topik"><li><a href="/${code}/topik-reading/">TOPIK · ${esc(tr('Reading'))}</a></li><li><a href="/${code}/topik-listening/">TOPIK · ${esc(tr('Listening'))}</a></li><li><a href="/${code}/topik-writing/">${esc(tr('TOPIK II · Writing'))}</a></li></ul>`,
     `<h2>${esc(tr('Everything you can do here'))}</h2>`,
     `<div class="lc-tiles">${tour.join('')}</div>`,
     `<h2>${esc(tr('Questions people ask'))}</h2>`,
@@ -2935,8 +2948,65 @@ function localeHome(code) {
   const webLd = { '@context': 'https://schema.org', '@type': 'WebPage', name: L.title, description: L.desc, inLanguage: code, url: `${SITE}/${code}/` };
   return page({ url: `/${code}/`, kind: 'website', lang: code, title: L.title, desc: L.desc, body, extraCss, extraHead: HREFLANG, jsonld: [webLd, faqLd] });
 }
+/* 언어별 TOPIK 모음 쪽 /vi/topik-writing/ … (운영자 2026-10-09 「2번 해줘」) — 유형 이름 · 문항 목록은 한국어 모음 쪽과 같은 것(시험 그대로
+   한국어 + 영어), 제목 · 소개 · 얻는 것 · 단추만 그 나라 말. 글은 여기 표에 — 화면 번역 사전에 없는 검색용 문장이라서. */
+const HUB_L = {
+  vi: { home: 'Trang chủ', lt: '🧭 Kiểm tra trình độ TOPIK trong 3 phút', note: 'Tên dạng câu hỏi để bằng tiếng Hàn (kèm tiếng Anh) — đúng như trong đề thi. Chọn một câu để xem đáp án và giải thích.',
+    writing: { name: 'TOPIK viết', h1: (n) => `Luyện viết TOPIK II — ${n} đề (câu 51–54)`, title: (n) => `Luyện viết TOPIK II ${n} đề — câu 51·52·53·54 | Cheesepotato`,
+      lead: 'Đề luyện viết theo đúng dạng câu 51–54. Mỗi đề có bài mẫu, tiêu chí chấm và lỗi hay bị trừ điểm.<br><b>Không phải đề thi thật — đều là đề tự biên soạn theo đúng dạng.</b>',
+      desc: (n) => `${n} đề luyện viết TOPIK II câu 51–54 kèm bài mẫu và tiêu chí chấm. Đề tự biên soạn, không phải đề thi thật.`,
+      why: (n) => [[`${n} đề`, 'Đúng dạng câu 51–54'], ['AI chấm điểm', 'Miễn phí 2 lần/ngày (đăng nhập)'], ['Bài mẫu', 'Tiêu chí chấm · lỗi trừ điểm'], ['Xem đề miễn phí', 'Mở trình duyệt là luyện']], go: '✍️ Viết ngay và được AI chấm điểm' },
+    reading: { name: 'TOPIK đọc', h1: (n) => `Luyện đọc TOPIK — ${n} câu`, title: (n) => `Luyện đọc TOPIK ${n} câu — TOPIK I · II | Cheesepotato`,
+      lead: 'Câu luyện đọc TOPIK I · II theo từng dạng, mỗi câu có đáp án và giải thích.<br><b>Không phải đề thi thật — đều là câu tự biên soạn theo đúng dạng.</b>',
+      desc: (n) => `${n} câu luyện đọc TOPIK I · II theo dạng, có đáp án và giải thích. Câu tự biên soạn, không phải đề thi thật.`,
+      why: (n) => [[`${n} câu`, 'TOPIK I · II theo dạng'], ['Chấm ngay', 'Chọn xong là có đáp án · giải thích'], ['Thi thử', 'Tính giờ theo từng đề'], ['10 câu/ngày', 'Không cần đăng nhập']], go: '📖 Bắt đầu luyện đọc' },
+    listening: { name: 'TOPIK nghe', h1: (n) => `Luyện nghe TOPIK — ${n} câu`, title: (n) => `Luyện nghe TOPIK ${n} câu — TOPIK I · II | Cheesepotato`,
+      lead: 'Câu luyện nghe TOPIK I · II theo từng dạng, có kịch bản, đáp án và giải thích.<br><b>Không phải đề thi thật — đều là câu tự biên soạn theo đúng dạng.</b>',
+      desc: (n) => `${n} câu luyện nghe TOPIK I · II theo dạng, có kịch bản, đáp án và giải thích. Câu tự biên soạn, không phải đề thi thật.`,
+      why: (n) => [[`${n} câu`, 'TOPIK I · II theo dạng'], ['Kịch bản', 'Hiện ra sau khi chọn đáp án'], ['Âm thanh', 'Vừa nghe vừa làm'], ['10 câu/ngày', 'Không cần đăng nhập']], go: '🎧 Bắt đầu luyện nghe' } },
+  ja: { home: 'ホーム', lt: '🧭 TOPIKレベルを3分でチェック', note: '問題形式の名前は試験と同じ韓国語（英語つき）で表示しています。問題を1つ選ぶと正解と解説が見られます。',
+    writing: { name: 'TOPIK 書取り', h1: (n) => `TOPIK II 書取り練習問題 ${n}問（51〜54番）`, title: (n) => `TOPIK II 書取り練習問題${n}問 — 51・52・53・54番 | チーズポテト`,
+      lead: '51〜54番の形式で実際に書いて練習する問題です。各問題に模範解答・採点ポイント・よくある減点の理由があります。<br><b>過去問ではなく、同じ形式で新しく作ったオリジナル問題です。</b>',
+      desc: (n) => `TOPIK II 書取り51〜54番の練習問題${n}問。模範解答と採点基準つき。過去問ではないオリジナル問題です。`,
+      why: (n) => [[`${n}問`, '51〜54番の形式どおり'], ['AI採点', '無料で1日2回（ログイン時）'], ['模範解答', '採点ポイント・減点理由'], ['問題は無料', 'ブラウザですぐ練習']], go: '✍️ 書いてすぐAI採点' },
+    reading: { name: 'TOPIK 読解', h1: (n) => `TOPIK 読解練習問題 ${n}問`, title: (n) => `TOPIK 読解練習問題${n}問 — TOPIK I・II | チーズポテト`,
+      lead: 'TOPIK I・IIの読解を形式別に練習できます。各問題に正解と解説があります。<br><b>過去問ではなく、同じ形式で新しく作ったオリジナル問題です。</b>',
+      desc: (n) => `TOPIK I・II 読解の形式別練習問題${n}問。正解と解説つき。過去問ではないオリジナル問題です。`,
+      why: (n) => [[`${n}問`, 'TOPIK I・II 形式別'], ['すぐ採点', '選ぶと正解・解説'], ['模試', '時間を計って回ごとに'], ['1日10問', 'ログインなしで']], go: '📖 読解練習をはじめる' },
+    listening: { name: 'TOPIK 聞取り', h1: (n) => `TOPIK 聞取り練習問題 ${n}問`, title: (n) => `TOPIK 聞取り練習問題${n}問 — TOPIK I・II | チーズポテト`,
+      lead: 'TOPIK I・IIの聞取りを形式別に練習できます。台本・正解・解説つき。<br><b>過去問ではなく、同じ形式で新しく作ったオリジナル問題です。</b>',
+      desc: (n) => `TOPIK I・II 聞取りの形式別練習問題${n}問。台本・正解・解説つき。過去問ではないオリジナル問題です。`,
+      why: (n) => [[`${n}問`, 'TOPIK I・II 形式別'], ['台本', '答えを選んだあとに表示'], ['音声', '聞きながらすぐ解く'], ['1日10問', 'ログインなしで']], go: '🎧 聞取り練習をはじめる' } },
+};
+const HUB_KIND = { writing: '/topik-writing/', reading: '/topik-reading/', listening: '/topik-listening/' };
+function hubHreflang(url) {
+  return '\n' + [['ko', url], ['en', url], ['vi', `/vi${url}`], ['ja', `/ja${url}`], ['x-default', url]]
+    .map(([h, u]) => `<link rel="alternate" hreflang="${h}" href="${SITE}${u}">`).join('\n');
+}
+function localeHub(code, kind) {
+  const L = HUB_L[code], K = L[kind], url = `/${code}${HUB_KIND[kind]}`;
+  const n = kind === 'writing' ? TW_ITEMS.length : kind === 'reading' ? TOPIK_READING.length + TOPIK2_READING.length : TOPIKL_BY_EXAM.I.items.length + TOPIKL_BY_EXAM.II.items.length;
+  const sections = kind === 'writing' ? twSections(TW_ITEMS) : kind === 'reading' ? trSections() : tlSections();
+  const appGo = kind === 'writing' ? '#learn/topik/II/writing' : kind === 'reading' ? '#learn/topik/I/reading' : '#learn/topik/I/listening';
+  const body = [
+    `<nav class="crumb"><a href="/${code}/">${esc(L.home)}</a> › ${esc(K.name)}</nav>`,
+    `<h1>${esc(K.h1(n))}</h1>`,
+    `<p class="lead">${K.lead}</p>`,
+    hubWhy(K.why(n)),
+    `<div class="ctas"><a class="cta" href="/?lang=${code}&utm_source=hub${appGo}">${esc(K.go)}</a><a class="cta alt" href="/?lang=${code}&lt=1&utm_source=hub">${esc(L.lt)}</a></div>`,   // 한국어 모음 쪽 hubCtas 와 같은 모양
+    `<p class="hub-note">${esc(L.note)}</p>`,
+    sections,
+  ].join('\n');
+  return page({ url, kind: 'website', lang: code, title: K.title(n), desc: clip(K.desc(n)), body, extraHead: hubHreflang(HUB_KIND[kind]),
+    jsonld: [crumbLd([[L.home, `/${code}/`], [K.name, url]])] });
+}
 for (const code of Object.keys(LOCALES)) {
   mkdirSync(join(ROOT, code), { recursive: true });
+  for (const kind of Object.keys(HUB_KIND)) {
+    mkdirSync(join(ROOT, code, HUB_KIND[kind].slice(1)), { recursive: true });
+    writeFileSync(join(ROOT, code, HUB_KIND[kind].slice(1), 'index.html'), localeHub(code, kind));
+    urls.push({ loc: `/${code}${HUB_KIND[kind]}`, freq: 'weekly', pri: '0.8' });
+  }
   writeFileSync(join(ROOT, code, 'index.html'), localeHome(code));
   urls.push({ loc: `/${code}/`, freq: 'weekly', pri: '0.9' });
 }
