@@ -19,6 +19,9 @@ ChatGPT 의 검색은 Bing 자료를 많이 쓴다고 알려져 있다 — ChatG
 5. **IndexNow** 는 사이트에 붙여 두었다(2026-10-09) — 열쇠 파일 `8d5ef86e607785529ebf569ba80b18f7.txt`(비밀 아님), `tools/indexnow.mjs`, 액션 `.github/workflows/indexnow.yml`.
    main 에 .html 이 바뀌어 들어올 때마다 그 쪽들을 저절로 알린다. **처음 한 번만**: GitHub → Actions → indexnow → Run workflow → 「사이트맵 전체 보내기」 켜고 Run.
 
+## 3. Yandex 웹마스터
+- 확인 파일 `yandex_d43c6634bde6dcde.html`(맨 위, 2026-10-09) — **지우지 않는다**(지우면 확인이 풀린다). 사이트맵 제출은 `https://everykoreans.com/sitemap.xml`.
+
 ## 3. 하지 않는 것
 - 중국 Baidu 는 지금 하지 않는다 — 중국 안 서버 · 허가가 필요하다.
 - 검색 순위를 「사 준다」는 서비스 · 링크 판매는 쓰지 않는다(구글이 벌을 준다).
