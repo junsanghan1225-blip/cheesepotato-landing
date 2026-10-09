@@ -22,6 +22,9 @@ ChatGPT 의 검색은 Bing 자료를 많이 쓴다고 알려져 있다 — ChatG
 ## 3. Yandex 웹마스터
 - 확인 파일 `yandex_d43c6634bde6dcde.html`(맨 위, 2026-10-09) — **지우지 않는다**(지우면 확인이 풀린다). 사이트맵 제출은 `https://everykoreans.com/sitemap.xml`.
 
+## 네이버 서치어드바이저
+- 확인 태그 `naver-site-verification`(index.html `<head>`, 2026-10-09) — **지우지 않는다**. 확인 뒤 「요청 → 사이트맵 제출」에 `https://everykoreans.com/sitemap.xml`.
+
 ## 3. 하지 않는 것
 - 중국 Baidu 는 지금 하지 않는다 — 중국 안 서버 · 허가가 필요하다.
 - 검색 순위를 「사 준다」는 서비스 · 링크 판매는 쓰지 않는다(구글이 벌을 준다).
