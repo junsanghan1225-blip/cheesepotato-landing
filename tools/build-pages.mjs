@@ -786,6 +786,8 @@ function twPage(it) {
     `<span class="badge">${lvKo} · ${esc(q ? q.ko : '')} · ${q ? q.pt : ''}점</span>`,
     `<h1>${esc(it.title)}</h1>`,
     `<p class="sub">${esc(it.cond)}</p>`,
+    /* 맨 위에 「직접 써 보기」(운영자 2026-10-09 — Clarity: 쓰기 문항 쪽에 온 사람이 9초 만에 모범답안만 보고 떠난다). 이 문항이 앱에서 바로 열린다 */
+    `<a class="cta tw-try" href="/?utm_source=twpage#learn/writing/${encodeURIComponent(it.id)}">✍️ 이 문항 직접 써 보고 AI 점수 받기 →<span>Write this task yourself and get an AI score — free</span></a>`,
     '<h2>문항 · Task</h2>',
     `<p class="desc">${esc(it.passage)}</p>`,
     it.data ? '<div class="facts">' + it.data.map((d) =>
@@ -1254,6 +1256,16 @@ function choOf(head) {
   return CHO[Math.floor(code / (21 * 28))];
 }
 
+/* 「다음 한 걸음」(운영자 2026-10-09 — Clarity: 검색으로 사전 · 「○○ in Korean」 쪽에 온 사람이 7~9초 만에 떠난다).
+   뜻을 본 바로 아래에 큰 단추 셋 — 로그인 없이 되는 게임 · 이 낱말 외우기 · 3분 레벨테스트. utm 으로 숫자 판에서 갈래를 본다. */
+const nextStep = (head, src) => `<div class="nx"><p class="nx-h">다음 한 걸음 <small lang="en">What next?</small></p>` +
+  `<a class="nx-a nx-go" href="/?utm_source=${src}#blocks"><b>🥔 낱말 감자 게임 · 2분</b><span lang="en">Match Korean words — free, no sign-up</span></a>` +
+  `<a class="nx-a" href="/?utm_source=${src}#words/w/${encodeURIComponent(head)}"><b>📚 「${esc(head)}」 외우기</b><span lang="en">Flashcards, audio and review</span></a>` +
+  `<a class="nx-a" href="/?lt=1&utm_source=${src}"><b>🧭 내 한국어 레벨 · 3분</b><span lang="en">Find your level and today’s lesson</span></a></div>`;
+const NX_CSS = '.nx{margin:18px 0 6px;display:grid;gap:8px}.nx-h{margin:0;font-weight:800;font-size:14px;color:var(--dim)}.nx-h small{font-weight:600}' +
+  '.nx-a{display:block;padding:13px 16px;border:1px solid var(--line);border-radius:14px;background:var(--card);color:var(--ink);text-decoration:none}' +
+  '.nx-a b{display:block;font-size:16px}.nx-a span{display:block;font-size:13px;color:var(--dim);margin-top:2px}' +
+  '.nx-go{background:var(--cta);border-color:var(--cta);color:var(--cta-ink)}.nx-go span{color:inherit;opacity:.8}';
 function wordPage(entry, prev, next) {
   if (VOC.has(entry.head)) return vocabPage(VOC.get(entry.head), prev, next);
   const { head, pos, en } = entry;
@@ -1285,6 +1297,7 @@ function wordPage(entry, prev, next) {
         `<li>${esc(ko)}${enS && enS.trim() !== String(en || '').trim() ? `<i lang="en">${esc(enS)}</i>` : ''}</li>`).join('') + '</ol>'
         : (en ? '' : `<p class="wd-en">${esc(t2(pos))}</p>`)) +
     '</section>',
+    nextStep(head, 'dict'),
     example ? '<h2>예문 <small>Example</small></h2>' +
       `<div class="wd-exs"><div class="ex">${esc(example.ex)}<i lang="en">${esc(example.en)}</i></div></div>` : '',
     LT_CTA,
@@ -1309,7 +1322,7 @@ function wordPage(entry, prev, next) {
   return page({
     url: `/dictionary/${encodeURIComponent(head)}.html`,
     title, desc, body, jsonld,
-    extraCss: VOCAB_CSS,
+    extraCss: VOCAB_CSS + NX_CSS,
   });
 }
 
@@ -1402,6 +1415,7 @@ function vocabPage(w, prev, next) {
         `<li>${esc(ko)}${enS && enS.trim() !== w.e.trim() && enS.trim() !== (w.s || '').trim() ? `<i lang="en">${esc(enS)}</i>` : ''}</li>`).join('') + '</ol>' : '') +
       (rel ? `<div class="wd-rels">${rel}</div>` : '') +
     '</section>',
+    nextStep(head, 'dict'),
     '<h2>예문 <small>Examples</small></h2>',
     '<div class="wd-exs">' + w.x.map(([ko, en]) => `<div class="ex">${esc(ko)}<i lang="en">${esc(en)}</i></div>`).join('') + '</div>',
     conj ? '<h2>활용 <small>Conjugation · 해요체</small></h2><div class="wd-conj">' +
@@ -1437,7 +1451,7 @@ function vocabPage(w, prev, next) {
   ];
   return page({
     url, title, desc, body, jsonld,
-    extraCss: VOCAB_CSS,
+    extraCss: VOCAB_CSS + NX_CSS,
   });
 }
 
@@ -1552,7 +1566,7 @@ function engPage(slug, { key, words }) {
     `<p class="lead" lang="en">The most common Korean word for “${esc(key)}” is <b>${esc(top.h)}</b> (${esc(rom)})` +
       (n > 1 ? `. There ${n === 2 ? 'is one more word' : `are ${n - 1} more words`} with a similar meaning — compare them below.` : '.') +
       ` 「${esc(key)}」는 한국어로 <b>${esc(top.h)}</b>.</p>`,
-    words.map(card).join(''),
+    card(words[0], 0), nextStep(top.h, 'wordfor'), words.slice(1).map((w, i) => card(w, i + 1)).join(''),
     `<a class="cta" href="/#words/w/${encodeURIComponent(top.h)}">Learn ${esc(top.h)} free — flashcards, audio and review →<span>「${esc(top.h)}」 단어장으로 무료로 외우기</span></a>`,
     '<p class="note">Words and levels: TOPIK I essentials (National Institute of Korean Language standard curriculum, KOGL Type 1) · examples: Cheesepotato</p>',
   ].join('\n');
@@ -1563,7 +1577,7 @@ function engPage(slug, { key, words }) {
     ] },
     crumbLd([['치즈감자', '/'], ['Korean word for…', '/korean-word-for/'], [key, null]]),
   ];
-  return page({ url, title, desc, body, jsonld, lang: 'en', extraCss: EW_CSS });
+  return page({ url, title, desc, body, jsonld, lang: 'en', extraCss: EW_CSS + NX_CSS });
 }
 const EW_CSS = '.ewc{border:1px solid var(--line);border-radius:14px;padding:14px 16px;margin:12px 0;background:var(--card)}' +
   '.ewh{font-size:22px}.ewh i{font-size:15px;color:var(--dim)}.ewn{display:inline-grid;place-items:center;width:24px;height:24px;border-radius:50%;background:var(--soft);font-size:12px;margin-right:6px;vertical-align:middle}' +
