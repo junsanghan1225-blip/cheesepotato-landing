@@ -1,0 +1,30 @@
+# 새로 생기거나 바뀐 쪽을 IndexNow(Bing 등)에 알린다 — tools/indexnow.mjs.
+# main 에 .html 이 바뀌어 들어오면 GitHub Pages 가 올릴 때까지 기다렸다가 그 쪽들만 보낸다.
+# 처음 한 번은 Actions 화면에서 「Run workflow」 → all 을 켜고 돌리면 사이트맵 전체를 보낸다.
+name: indexnow
+
+on:
+  push:
+    branches: [main]
+    paths: ['**.html']
+  workflow_dispatch:
+    inputs:
+      all:
+        description: '사이트맵 전체 보내기'
+        type: boolean
+        default: false
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 2
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+      - name: Pages 가 올릴 때까지 기다리기
+        run: sleep 150
+      - name: 알리기
+        run: node tools/indexnow.mjs ${{ inputs.all && '--all' || '--changed' }}

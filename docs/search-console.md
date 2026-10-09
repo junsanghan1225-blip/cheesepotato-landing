@@ -16,7 +16,8 @@ ChatGPT 의 검색은 Bing 자료를 많이 쓴다고 알려져 있다 — ChatG
 2. **Google Search Console 에서 가져오기(Import)** 를 고르면 사이트 · 사이트맵이 한 번에 넘어온다(가장 쉬움).
 3. 가져오기가 안 되면 「사이트 추가」 → `https://everykoreans.com/` → 확인 방법 **HTML 메타 태그** → 나온 `<meta name="msvalidate.01" content="…">` 한 줄을 Claude 에게 준다.
 4. **Sitemaps** 에 `https://everykoreans.com/sitemap.xml` 제출.
-5. **IndexNow** 가 보이면 켜 둔다(새 쪽을 Bing 에 바로 알리는 기능).
+5. **IndexNow** 는 사이트에 붙여 두었다(2026-10-09) — 열쇠 파일 `8d5ef86e607785529ebf569ba80b18f7.txt`(비밀 아님), `tools/indexnow.mjs`, 액션 `.github/workflows/indexnow.yml`.
+   main 에 .html 이 바뀌어 들어올 때마다 그 쪽들을 저절로 알린다. **처음 한 번만**: GitHub → Actions → indexnow → Run workflow → 「사이트맵 전체 보내기」 켜고 Run.
 
 ## 3. 하지 않는 것
 - 중국 Baidu 는 지금 하지 않는다 — 중국 안 서버 · 허가가 필요하다.
