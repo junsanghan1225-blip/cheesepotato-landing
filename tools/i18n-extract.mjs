@@ -44,7 +44,8 @@ for (const f of FILES) {
 }
 /* 자료 객체 안의 화면 글자 — { ko: '…', en: '…' } · { subKo, subEn } · { dKo, dEn } 처럼 이름이 짝인 것(메뉴 설명 · 갈래 이름 · 길 설명).
    t() 로 안 감싸고 isEn() ? o.en : o.ko 로 고르는 곳이 있어 위 반복이 못 본다 — 그 자리는 cpTr 을 거친다. 학습 자료(문항 · 예문)는 .js 자료 파일에 있어 여기 안 걸린다. */
-for (const f of FILES) {
+/* TOPIK · EPS 자료의 문제 유형 이름(blueprint · 갈래 { ko, en })도 — 화면의 유형 고르기 카드에 쓰인다(문항 자체는 학습 자료라 뽑지 않는다, 2026-10-09) */
+for (const f of [...FILES, 'topik.js', 'topik2.js', 'topik-listening.js', 'eps.js'].filter((f) => fs.existsSync(path.join(ROOT, f)))) {
   const s = fs.readFileSync(path.join(ROOT, f), 'utf8');
   for (const m of s.matchAll(/(\b\w*?)[kK]o:\s*'((?:[^'\\]|\\.)*)'\s*,\s*\1[eE]n:\s*'((?:[^'\\]|\\.)*)'/g)) add(m[3].replace(/\\(.)/g, '$1'), m[2].replace(/\\(.)/g, '$1'), f);
 }
