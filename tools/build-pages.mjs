@@ -292,8 +292,8 @@ function page({ url, title, desc, body, kind = 'article', jsonld, extraCss = '',
 <meta property="og:type" content="${kind}">
 <meta property="og:url" content="${SITE}${url}">
 <meta property="og:site_name" content="치즈감자">
-<meta property="og:locale" content="${en ? 'en_US' : 'ko_KR'}">
-<meta property="og:locale:alternate" content="${en ? 'ko_KR' : 'en_US'}">
+<meta property="og:locale" content="${({ en: 'en_US', vi: 'vi_VN', ja: 'ja_JP' })[lang] || 'ko_KR'}">
+<meta property="og:locale:alternate" content="${lang === 'ko' ? 'en_US' : 'ko_KR'}">
 <meta property="og:title" content="${esc(title)}">
 <meta property="og:description" content="${esc(desc)}">
 <meta property="og:image" content="${SITE}/logo.png">
@@ -307,7 +307,7 @@ function page({ url, title, desc, body, kind = 'article', jsonld, extraCss = '',
 <style>${CSS}${extraCss}</style>
 </head>
 <body>
-${HEADER(en)}
+${HEADER(en || lang === 'vi' || lang === 'ja')}
 <div class="wrap">
 ${tidy(body)}
 <div class="foot">
@@ -2868,6 +2868,78 @@ for (const [tag, posts] of TAG_POSTS) {
 /* RSS 는 sitemap 에 안 넣는다. 사람이 읽는 쪽이 아니라 구독기가 읽는
    파일이라 검색 결과에 뜰 일이 없고, 넣으면 중복된 내용으로 잡힌다. */
 writeFileSync(join(OUT_BLOG, 'rss.xml'), blogRss(BLOG_POSTS));
+
+/* ── 언어별 첫 쪽 /vi/ · /ja/ (운영자 2026-10-09 「글로벌하게 검색에 뜨려면」) ──────────────────
+   사이트의 언어 바꾸기는 브라우저 안에서만 일어나서, 검색 엔진은 영어 쪽만 읽는다. 그래서 언어마다 주소가 따로 있는
+   정적 쪽을 하나씩 굽는다 — 글은 화면 번역 사전(docs/i18n/<언어>.json)에서 영어 열쇠로 꺼낸다(없으면 굽기를 멈춘다 —
+   반쯤 영어인 쪽을 내보내지 않는다). index.html 과 서로 hreflang 으로 가리킨다. 앱으로 가는 단추는 ?lang=<언어>. */
+const LOCALES = {
+  vi: { name: 'Tiếng Việt', title: 'Học tiếng Hàn miễn phí — luyện thi TOPIK I · II | Cheesepotato',
+    desc: 'Học tiếng Hàn miễn phí từ bảng chữ cái Hangul đến TOPIK cấp 6: 401 bài học, 290 điểm ngữ pháp, 1.370 câu luyện TOPIK (nghe · đọc · viết), từ điển và trò chơi. Không cần cài đặt.' },
+  ja: { name: '日本語', title: '無料で韓国語を学ぶ — TOPIK I・II対策 | チーズポテト',
+    desc: 'ハングルからTOPIK 6級まで無料で学べる韓国語学習サイト。レッスン401個、文法290項目、TOPIK練習問題1,370問（聞取り・読解・書取り）、辞書、ゲーム。インストール不要。' },
+};
+const HREFLANG = '\n' + [['en', '/'], ['ko', '/'], ['vi', '/vi/'], ['ja', '/ja/'], ['x-default', '/']]
+  .map(([h, u]) => `<link rel="alternate" hreflang="${h}" href="${SITE}${u}">`).join('\n');
+const unent = (x) => x.replace(/&amp;/g, '&').replace(/&quot;/g, '"').replace(/&#39;/g, "'").replace(/&lt;/g, '<').replace(/&gt;/g, '>');
+function localeHome(code) {
+  const L = LOCALES[code], dict = JSON.parse(readFileSync(join(ROOT, 'docs/i18n', `${code}.json`), 'utf8'));
+  const miss = [];
+  const tr = (en) => { if (dict[en] == null) { miss.push(en); return en; } return dict[en]; };
+  const app = (h = '') => `/?lang=${code}${h}`;
+  const html = readFileSync(join(ROOT, 'index.html'), 'utf8');
+  const PATHS_L = [
+    ['basic', 'Potato L0–L5', 'STEP 1', 'From the basics', 'Hangul and first sentences up to upper beginner', ['Complete beginners, or you just learned Hangul', 'You want to build simple sentences']],
+    ['mid', 'Potato L6 · TOPIK 3–4', 'STEP 2', 'Intermediate', 'Reasons, conditions, guesses — longer sentences', ['You can already make basic sentences', 'You want longer sentences with reasons and conditions']],
+    ['adv', 'Potato L7 · TOPIK 5–6', 'STEP 3', 'Advanced', 'Written style, news and subtle expressions', ['You can hold everyday conversations', 'You want to read news and formal writing']],
+    ['topik', 'Cheese TOPIK 1–6', 'TOPIK', 'TOPIK prep', 'Core words → practice by type → mock tests', ['You have an exam date', 'You need a TOPIK level for study or work']],
+  ];
+  const TOUR_GO = { levelTest: '&lt=1', courses: '#learn/courses', glossary: '#words', topik: '#learn/topik', games: '#games', convo: '#learn/convo', translate: '#learn/translate', class: '#learn/class' };
+  const tour = [...html.matchAll(/<button class="hm-tour-t" type="button" data-go="(\w+)"><span class="hm-tour-ic" aria-hidden="true">([^<]*)<\/span><b data-en="([^"]*)">[^<]*<\/b><span data-en="([^"]*)">/g)]
+    .map(([, go, ic, t, d]) => `<a class="lc-tile" href="${app(TOUR_GO[go] || '')}"><span>${ic}</span><b>${esc(tr(unent(t)))}</b><small>${esc(tr(unent(d)))}</small></a>`);
+  const faq = [...html.matchAll(/<summary data-en="([^"]*)">[\s\S]*?<p data-en="([^"]*)">/g)].map(([, q, a]) => [tr(unent(q)), tr(unent(a))]);
+  const strip = (x) => x.replace(/<[^>]+>/g, '');
+  const h1 = tr('Anyone can learn Korean<br><em>in the right order.</em>');
+  const sub = tr('From Hangul to TOPIK level 6, the lessons are already in order.<br>Start from the very first step, or take a 3-minute test and jump in where you are.');
+  const body = [
+    `<p class="lc-langs">${[['/', 'English'], ['/vi/', 'Tiếng Việt'], ['/ja/', '日本語']].map(([u, n]) => u === `/${code}/` ? `<b>${n}</b>` : `<a href="${u}" hreflang="${u === '/' ? 'en' : u.slice(1, 3)}">${n}</a>`).join(' · ')}</p>`,
+    `<h1 class="lc-h1">${h1}</h1>`,
+    `<p class="lead">${sub}</p>`,
+    `<div class="lc-acts"><a class="lc-go" href="${app('&lt=1')}">${esc(tr('Find my level and start →'))}</a><a class="lc-how" href="#paths">${esc(tr('See the paths'))}</a></div>`,
+    `<p class="lc-fine">${esc(tr('Free · no sign-up needed · about 3 minutes'))}</p>`,
+    `<h2 id="paths">${esc(tr('Pick one path and follow it'))}</h2>`,
+    `<div class="lc-paths">${PATHS_L.map(([id, badge, step, t, d, best]) => `<a class="lc-path lc-${id}" href="${app(`#learn/path/${id}`)}">` +
+      `<span class="lc-top"><span class="lc-badge">${esc(tr(badge))}</span><span class="lc-step">${esc(step)}</span></span>` +
+      `<b>${esc(tr(t))}</b><small>${esc(tr(d))}</small><em>${esc(tr('Best for'))}</em>` +
+      `<ul>${best.map((x) => `<li>${esc(tr(x))}</li>`).join('')}</ul><span class="lc-start">${esc(tr('Start →'))}</span></a>`).join('')}</div>`,
+    `<h2>TOPIK</h2>`,
+    `<p>${esc(tr('Original questions · not past papers →').replace(/\s*→$/, ''))}</p>`,
+    `<ul class="lc-topik"><li><a href="/topik-reading/">TOPIK · ${esc(tr('Reading'))}</a></li><li><a href="/topik-listening/">TOPIK · ${esc(tr('Listening'))}</a></li><li><a href="/topik-writing/">${esc(tr('TOPIK II · Writing'))}</a></li></ul>`,
+    `<h2>${esc(tr('Everything you can do here'))}</h2>`,
+    `<div class="lc-tiles">${tour.join('')}</div>`,
+    `<h2>${esc(tr('Questions people ask'))}</h2>`,
+    faq.map(([q, a]) => `<details class="lc-faq"><summary>${esc(q)}</summary><p>${a}</p></details>`).join('\n'),
+  ].join('\n');
+  if (miss.length) throw new Error(`/${code}/ 번역이 없는 글 ${miss.length}개 — ${miss.slice(0, 5).join(' | ')}`);
+  const extraCss = `.lc-langs{font-size:13px;color:#8C7A66}.lc-langs a{color:inherit}.lc-h1{font-size:clamp(30px,6vw,46px);line-height:1.15;letter-spacing:-.03em}.lc-h1 em{font-style:normal;color:#E1682B}
+.lc-acts{display:flex;flex-wrap:wrap;gap:10px;margin:18px 0 6px}.lc-go,.lc-how{display:inline-flex;align-items:center;min-height:52px;padding:12px 22px;border-radius:14px;font-weight:800;text-decoration:none}
+.lc-go{background:#1B1512;color:#fff}.lc-how{background:#FDF0E2;color:#1B1512}.lc-fine{font-size:13px;color:#8C7A66}
+.lc-paths{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}.lc-path{display:flex;flex-direction:column;gap:4px;padding:0 0 14px;border:1px solid #E4DED1;border-radius:18px;background:#fff;color:#1B1512;text-decoration:none;overflow:hidden}
+.lc-path>b,.lc-path>small,.lc-path>em,.lc-path>ul,.lc-start{margin:0 14px}.lc-path>b{font-size:18px;margin-top:8px}.lc-path>small{color:#4E3E31}.lc-path>em{font-style:normal;font-weight:800;font-size:12.5px;color:#C4551C;margin-top:6px}
+.lc-path ul{padding-left:18px;font-size:13.5px}.lc-start{font-weight:800}.lc-top{display:flex;justify-content:space-between;padding:9px 12px}.lc-badge{padding:3px 9px;border-radius:99px;background:#1B1512;color:#fff;font-size:12px;font-weight:800}
+.lc-step{padding:2px 9px;border:1.5px solid #1B1512;border-radius:99px;font-size:11.5px;font-weight:800}.lc-basic .lc-top{background:#F6E7CC}.lc-mid .lc-top{background:#FFD9B8}.lc-adv .lc-top{background:#FFB27A}.lc-topik .lc-top{background:#FFDF7A}
+.lc-tiles{display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}.lc-tile{display:flex;flex-direction:column;gap:3px;padding:14px;border:1px solid #E4DED1;border-radius:16px;background:#fff;color:#1B1512;text-decoration:none}
+.lc-tile small{color:#8C7A66}.lc-faq{border-top:1px solid #E4DED1;padding:10px 0}.lc-faq summary{font-weight:800;cursor:pointer}`;
+  const faqLd = { '@context': 'https://schema.org', '@type': 'FAQPage', inLanguage: code,
+    mainEntity: faq.map(([q, a]) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: strip(a) } })) };
+  const webLd = { '@context': 'https://schema.org', '@type': 'WebPage', name: L.title, description: L.desc, inLanguage: code, url: `${SITE}/${code}/` };
+  return page({ url: `/${code}/`, kind: 'website', lang: code, title: L.title, desc: L.desc, body, extraCss, extraHead: HREFLANG, jsonld: [webLd, faqLd] });
+}
+for (const code of Object.keys(LOCALES)) {
+  mkdirSync(join(ROOT, code), { recursive: true });
+  writeFileSync(join(ROOT, code, 'index.html'), localeHome(code));
+  urls.push({ loc: `/${code}/`, freq: 'weekly', pri: '0.9' });
+}
 
 urls.push({ loc: '/privacy.html', freq: 'yearly', pri: '0.3' });
 urls.push({ loc: '/teacher.html', freq: 'monthly', pri: '0.5' });
