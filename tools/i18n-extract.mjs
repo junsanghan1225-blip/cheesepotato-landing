@@ -56,6 +56,11 @@ for (const f of FILES) {
   const un = (x) => x.replace(/\\(.)/g, '$1');
   for (const m of s.matchAll(re)) { add(un(m[3]), un(m[1]), f); add(un(m[4]), un(m[2]), f); }
 }
+/* 레벨 이름(levels.js POTATO_EN · CHEESE_EN) — 영어만 따로 든 목록. 배지는 t(b.ko, b.en) 로 그려 cpTr 을 거친다 */
+{
+  const s = fs.readFileSync(path.join(ROOT, 'levels.js'), 'utf8');
+  for (const m of s.matchAll(/const \w+_EN = \[([^\]]*)\]/g)) for (const x of m[1].matchAll(/'([^']*)'/g)) add(x[1], '', 'levels.js');
+}
 const dec = (x) => x.replace(/&amp;/g, '&').replace(/&quot;/g, '"').replace(/&#39;/g, "'").replace(/&lt;/g, '<').replace(/&gt;/g, '>');
 const html = fs.readFileSync(path.join(ROOT, 'index.html'), 'utf8');
 for (const m of html.matchAll(/data-en(?:-aria)?="([^"]*)"/g)) add(dec(m[1]), '', 'index.html');
