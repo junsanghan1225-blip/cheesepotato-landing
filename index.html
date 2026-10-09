@@ -40,7 +40,7 @@
 ">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <!-- 구글 태그 관리자. 구글이 주는 인라인 코드조각은 CSP 가 막아서 gtm.js 로 뺐다. -->
-<script src="gtm.js?v=0f128934" async></script>
+<script src="gtm.js?v=0f24e61b" async></script>
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <!-- 제목과 설명을 두 말로 쓴다. 이 사이트를 찾을 사람은 한국어를 **배우는**
@@ -48,12 +48,17 @@
      검색과 공유 미리보기만 한국어로 나가서, 정작 대상이 검색으로는 못 닿고
      있었다.
 
-     ※ hreflang 은 안 건다. 언어를 주소가 아니라 화면에서 갈라 영어 쪽
-       주소가 따로 없기 때문이다. 없는 주소를 hreflang 으로 적으면 구글이
-       그 줄을 통째로 버린다. 영어 주소를 따로 낼 때 함께 붙일 것. -->
+     ※ hreflang(2026-10-09): 베트남어 · 일본어는 따로 구운 쪽(/vi/ · /ja/, tools/build-pages.mjs localeHome)이
+       있어 그 주소로 가리킨다. 이 쪽은 한국어 · 영어 둘 다라 en · ko · x-default 를 같이 건다.
+       /vi/ · /ja/ 쪽에도 같은 다섯 줄이 있다(서로 가리켜야 구글이 받아들인다). -->
 <title>치즈감자 — 무료 한국어 학습과 TOPIK 연습 | Learn Korean Free</title>
 <meta name="description" content="한글 낱자부터 TOPIK 6급까지 무료로 배우는 한국어 학습 사이트. 코스 97개·레슨 401개, 문법 표현 290개, TOPIK I·II 듣기·읽기·쓰기 연습 문항 1,370개, 읽기 지문 54편, 국립국어원 뜻풀이 낱말 7,970개. 설치·회원가입 없이 브라우저에서 바로.">
 <link rel="canonical" href="https://everykoreans.com/">
+<link rel="alternate" hreflang="en" href="https://everykoreans.com/">
+<link rel="alternate" hreflang="ko" href="https://everykoreans.com/">
+<link rel="alternate" hreflang="vi" href="https://everykoreans.com/vi/">
+<link rel="alternate" hreflang="ja" href="https://everykoreans.com/ja/">
+<link rel="alternate" hreflang="x-default" href="https://everykoreans.com/">
 
 <!-- ── 구조화 자료 (JSON-LD) ────────────────────────────────────
      여태 이 쪽에는 이게 **하나도 없었다.** 문법 표현 291쪽에는 넣어 두고
@@ -119,13 +124,13 @@
      Pretendard 는 통짜(2.0MB) 대신 조각난 쪽을 쓴다 — 브라우저가
      unicode-range 를 보고 화면에 실제로 나온 글자가 든 조각만 받는다.
      그래서 저장소는 무거워졌지만 학습자가 받는 양은 오히려 줄었다. -->
-<link rel="stylesheet" href="vendor/pretendard.css?v=0f128934">
-<link rel="stylesheet" href="vendor/pressstart2p.css?v=0f128934">
+<link rel="stylesheet" href="vendor/pretendard.css?v=0f24e61b">
+<link rel="stylesheet" href="vendor/pressstart2p.css?v=0f24e61b">
 <!-- 화면 상자 안에서만 쓰는 CSS 는 여기서 갈라 받는다. media="print" 라
      첫 페인트를 안 막고, 다 받아지면 app.js 가 media 를 all 로 바꾼다.
      자바스크립트가 없으면 <noscript> 쪽이 그냥 평범하게 걸린다. -->
-<link id="viewsCss" rel="stylesheet" href="app-views.css?v=0f128934" media="print">
-<noscript><link rel="stylesheet" href="app-views.css?v=0f128934"></noscript>
+<link id="viewsCss" rel="stylesheet" href="app-views.css?v=0f24e61b" media="print">
+<noscript><link rel="stylesheet" href="app-views.css?v=0f24e61b"></noscript>
 
 <style>
 /* ══════════════════════════════════════════════════════════════
@@ -4174,9 +4179,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <div id="hlpScrim" class="hlp-scrim"></div>
 <aside id="hlpPanel" class="hlp-panel" aria-label="한국어 도우미" aria-hidden="true"></aside>
 
-<script src="app.js?v=0f128934"></script>
-<script type="module" src="app.module.js?v=0f128934"></script>
+<script src="app.js?v=0f24e61b"></script>
+<script type="module" src="app.module.js?v=0f24e61b"></script>
 
-<script src="analytics.js?v=0f128934" defer></script>
+<script src="analytics.js?v=0f24e61b" defer></script>
 </body>
 </html>

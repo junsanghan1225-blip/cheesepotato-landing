@@ -355,7 +355,7 @@ const PT = () => PT_SETS[ptLevel] || PT_SETS.normal;
    번역이 다 들어오기 전에는 메뉴에 안 보인다(빈 사전이면 영어만 나와 헷갈린다). 미리 보기는 주소 끝에 ?i18n=all. */
 const LANGS = [['ko', '한국어', 'KO', 1], ['en', 'English', 'EN', 1], ['vi', 'Tiếng Việt', 'VI', 1], ['ja', '日本語', '日', 1], ['zh', '中文（简体）', '中', 0]];
 const langShown = () => LANGS.filter((x) => x[3] || /[?&]i18n=all/.test(location.search));
-const I18N_URL = { vi: './i18n-vi.js?v=0f128934', ja: './i18n-ja.js?v=0f128934', zh: './i18n-zh.js?v=0f128934' };
+const I18N_URL = { vi: './i18n-vi.js?v=0f24e61b', ja: './i18n-ja.js?v=0f24e61b', zh: './i18n-zh.js?v=0f24e61b' };
 const trMemo = new Map();
 window.cpTr = (en) => {
   const L = window.cpI18n, s = String(en ?? '');
@@ -1237,8 +1237,12 @@ ptId('langBtn').addEventListener('click', (ev) => {
   try { saved = localStorage.getItem('lang'); } catch (e) {}
   // 저장된 것이 없으면 브라우저 언어를 본다. 한국어 사용자에게까지
   // 영어를 들이밀 이유는 없다.
-  const guess = (navigator.language || '').toLowerCase().startsWith('ko') ? 'ko' : 'en';
-  const want = saved || guess;
+  /* 언어별 쪽(/vi/ · /ja/)의 단추는 ?lang=<언어> 로 온다 — 그 말로 열고 기억한다. 브라우저 말이 켜 둔 번역 언어면 그것부터 */
+  const asked = new URLSearchParams(location.search).get('lang');
+  const nav = (navigator.language || '').toLowerCase().slice(0, 2);
+  const guess = nav === 'ko' ? 'ko' : langShown().some((x) => x[0] === nav && I18N_URL[nav]) ? nav : 'en';
+  const want = (asked && langShown().some((x) => x[0] === asked)) ? asked : (saved || guess);
+  if (asked && want === asked) { try { localStorage.setItem('lang', want); } catch (e) {} }
   /* 번역 언어는 사전이 올 때까지 영어로 그려 두고, 오면 바꾼다 */
   applyLang(I18N_URL[want] ? 'en' : want);
   if (I18N_URL[want]) window.cpLangChoose(want);
