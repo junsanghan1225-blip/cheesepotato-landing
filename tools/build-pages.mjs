@@ -3036,6 +3036,7 @@ urls.push({ loc: '/about.html', freq: 'monthly', pri: '0.5' });
 urls.push({ loc: '/korean-name/', freq: 'monthly', pri: '0.7' });
 urls.push({ loc: '/korean-age/', freq: 'monthly', pri: '0.7' });
 urls.push({ loc: '/for-teachers.html', freq: 'monthly', pri: '0.6' });
+urls.push({ loc: '/my/eps-topik/', freq: 'monthly', pri: '0.6' });   // 미얀마어 EPS(운영자 2026-10-10 「열어줘」)
 for (const loc of ['/pricing.html', '/terms.html', '/refund.html']) urls.push({ loc, freq: 'yearly', pri: '0.3' });
 /* 사이트맵을 갈래마다 따로 쓴다. 한 파일(7,500여 개)이면 Search Console 이
    「색인 안 됨」을 갈래별로 못 나눠 보여 준다 — 사전이 문제인지 블로그가 문제인지
