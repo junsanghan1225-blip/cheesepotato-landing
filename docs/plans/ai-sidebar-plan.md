@@ -82,7 +82,7 @@
 ```
 
 **규칙으로 되는 것을 AI에 넘기지 않는다.** 이건 취향이 아니라 비용과
-일관성의 문제다 — `docs/topik-writing-plan.md` §3에 같은 말이 있다.
+일관성의 문제다 — `docs/plans/topik-writing-plan.md` §3에 같은 말이 있다.
 
 ---
 

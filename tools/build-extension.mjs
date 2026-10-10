@@ -33,7 +33,7 @@
  * 뜻풀이 일부는 국립국어원 「한국어기초사전」에서 왔고 CC BY-SA 2.0 KR 이다.
  * 출처를 밝혀야 하고 같은 라이선스로 열어 두어야 한다. JSON 에는 주석을
  * 못 다니 data/README.md 를 함께 굽고, 설정 쪽에도 눈에 보이게 적어 둔다.
- * docs/glossary-license.md.
+ * docs/plans/glossary-license.md.
  */
 import { readFile, writeFile, mkdir, rm } from 'node:fs/promises';
 import { createHash } from 'node:crypto';
@@ -159,7 +159,7 @@ const readme = (langs) => `<!-- tools/build-extension.mjs 가 구운 것이다. 
 
 **CC BY-SA 2.0 KR** — https://creativecommons.org/licenses/by-sa/2.0/kr/
 출처를 밝혀야 하고, 거기서 나온 자료는 같은 라이선스로 열어 두어야 한다.
-자세한 것은 저장소의 \`docs/glossary-license.md\`.
+자세한 것은 저장소의 \`docs/plans/glossary-license.md\`.
 
 \`cards.json\` 과 \`examples.json\`, \`grammar.json\` 은 치즈감자가 만든 것이다.
 `;

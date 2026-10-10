@@ -1,4 +1,4 @@
--- 묻고 답하기(커뮤니티) — 지식iN 처럼 질문 → 답 → 채택. docs/community-plan.md (운영자 결정 2026-10-01).
+-- 묻고 답하기(커뮤니티) — 지식iN 처럼 질문 → 답 → 채택. docs/plans/community-plan.md (운영자 결정 2026-10-01).
 --
 --   Supabase 대시보드 → SQL Editor 에서 한 번 돌린다. 여러 번 돌려도 괜찮다(if not exists · drop policy if exists).
 --

@@ -2,7 +2,7 @@
  *
  *   node tools/grammar-words.mjs 40 > /tmp/batch.txt
  *
- * 받는 쪽 지시문은 docs/grammar-gemini-prompt.md 에 있다.
+ * 받는 쪽 지시문은 docs/antigravity/grammar-gemini-prompt.md 에 있다.
  *
  * ── 왜 나눠 보내나 ──────────────────────────────────────────
  * 290개를 한 번에 보내면 한국어만 23,000자다. 뒤로 갈수록 성의가 빠져서

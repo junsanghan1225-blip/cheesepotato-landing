@@ -55,7 +55,7 @@ git push -u origin leveltest-writing
 | L6 중급 | -느라고, -는 바람에, -(으)ㄹ 텐데, -다가, -도록, -더라고요, -아/어 놓다 |
 | L7 고급 | -(으)ㄹ수록, -기는커녕, -는 한, -(으)ㅁ에도 불구하고, 문어체 연결(-(으)며 · -(으)나) |
 
-더 자세한 문법 목록은 `docs/curriculum-upper.md`(L6·L7)와 예문 만들기 자료(`sentences.js`)에 있다.
+더 자세한 문법 목록은 `docs/plans/curriculum-upper.md`(L6·L7)와 예문 만들기 자료(`sentences.js`)에 있다.
 
 ## 반드시 지킬 것
 

@@ -4735,7 +4735,7 @@ div.wd-card:hover { transform:none; }
 .claw-over-emoji.lvl-big { font-size:0; }
 .claw-over-emoji.lvl-big .lvl-ic { width:120px; height:120px; }
 
-/* ══ 「오늘」 카드 (첫 화면 맨 위, 레벨테스트를 한 사람만 — app.module.js todayRender · docs/level-plan.md 4층) ══ */
+/* ══ 「오늘」 카드 (첫 화면 맨 위, 레벨테스트를 한 사람만 — app.module.js todayRender · docs/plans/level-plan.md 4층) ══ */
 .td-wrap { display:block; padding:18px var(--gut) 0; position:relative; z-index:1; }
 .td-wrap[hidden] { display:none; }
 /* 치즈감자 색(운영자 요청 2026-09-30): 로고의 치즈 노랑 · 감자 갈색 · 검은 테두리. 오늘 한 것은 치즈로 채우고, 다음 레벨은 감자로 자란다. */

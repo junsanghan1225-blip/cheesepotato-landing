@@ -3,7 +3,7 @@
 
      node tools/build-grammar-words.mjs
 
-   원본은 docs/grammar-words.json(안티 그래비티가 채우고 Claude 가 검토 — docs/antigravity-grammar-words-task.md).
+   원본은 docs/grammar-words.json(안티 그래비티가 채우고 Claude 가 검토 — docs/antigravity/antigravity-grammar-words-task.md).
    낱말에 사전 쪽(dictionary/<낱말>.html)이 있으면 주소를 붙인다 — 「시간이 있다」처럼 덩어리면 붙이지 않는다. */
 import fs from 'node:fs';
 import path from 'node:path';

@@ -4,10 +4,10 @@
 > (N 은 운영자가 적는다 — 1, 2, 3 …)
 
 ## 왜
-「단어」 섹션(`docs/vocab-plan.md`)의 TOPIK I 1,930개는 끝났다. 이제 **TOPIK II(3~6급)** 다.
+「단어」 섹션(`docs/plans/vocab-plan.md`)의 TOPIK I 1,930개는 끝났다. 이제 **TOPIK II(3~6급)** 다.
 `vocab/data/topik2.json` 에 씨앗이 있다 — 국립국어원 표준 교육과정 어휘 **3~6급** 중 TOPIK I 에 없는 낱말,
 우리 TOPIK II 문항 · 중고급 코스에 자주 나오는 순서로 서 있다. 표제어 · 급수 · (있으면) 사전 영어 뜻 · 길잡이말(`hint`)만
-있는 **C급**이다. 이것을 **B급**으로 올린다. 모양은 `docs/vocab-schema.md`.
+있는 **C급**이다. 이것을 **B급**으로 올린다. 모양은 `docs/plans/vocab-schema.md`.
 
 TOPIK I 네 묶음에서 배운 것을 그대로 지킨다(아래 「TOPIK I 에서 고친 것」).
 

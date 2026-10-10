@@ -1,6 +1,6 @@
 /* TOPIK 쓰기 문항(topik-writing.js) 검사.
      node tools/check-writing.mjs
-   안티 그래비티가 문항을 늘릴 때(docs/antigravity-topik-writing-more-task.md) 돌린다. CI 도 돈다.
+   안티 그래비티가 문항을 늘릴 때(docs/antigravity/antigravity-topik-writing-more-task.md) 돌린다. CI 도 돈다.
    AI 채점(grade-writing)이 이 칸들을 그대로 채점 기준으로 쓰므로, 빠지거나 틀리면 채점이 틀린다. */
 import { TW_ITEMS } from '../topik-writing.js';
 

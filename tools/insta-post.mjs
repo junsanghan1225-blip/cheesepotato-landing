@@ -41,7 +41,7 @@ function api(host, token, label) {
     const j = await res.json().catch(() => ({}));
     if (!res.ok || j.error) {
       const e = j.error || {};
-      if (e.code === 190) die(`${label} 열쇠(토큰)가 끝났거나 틀렸어요 — docs/insta-auto.md 「토큰 새로 넣기」대로 새 토큰을 넣어 주세요.`);
+      if (e.code === 190) die(`${label} 열쇠(토큰)가 끝났거나 틀렸어요 — docs/ops/insta-auto.md 「토큰 새로 넣기」대로 새 토큰을 넣어 주세요.`);
       /* 어느 단계 · 어느 칸이 틀렸는지 보이게 — 메타는 「Invalid parameter」만 주고 자세한 까닭은 error_user_msg · subcode 에 담는다(열쇠는 찍지 않는다) */
       const what = Object.keys(params).filter((k) => k !== 'access_token').join(',');
       throw new Error(`${label} API 오류 ${res.status} (${method} ${path} · 보낸 칸: ${what}): ${e.message || ''} ${e.error_user_title || ''} ${e.error_user_msg || ''} [code ${e.code ?? '-'} / sub ${e.error_subcode ?? '-'}] ${e.error_data ? JSON.stringify(e.error_data).slice(0, 200) : ''}`);
@@ -159,7 +159,7 @@ async function publish() {
   const dir = arg('dir'), base = arg('base');
   const token = process.env.IG_TOKEN;
   if (!dir || !base) die('--dir 와 --base 가 필요해요');
-  if (!token) die('IG_TOKEN 이 없어요 — GitHub → Settings → Secrets → Actions 에 IG_TOKEN 을 넣어 주세요(docs/insta-auto.md).');
+  if (!token) die('IG_TOKEN 이 없어요 — GitHub → Settings → Secrets → Actions 에 IG_TOKEN 을 넣어 주세요(docs/ops/insta-auto.md).');
   if (existsSync(join(dir, 'posted.json'))) { console.log('이미 올린 게시물 — 건너뜀'); return; }
   const meta = JSON.parse(await readFile(join(dir, 'meta.json'), 'utf8'));
   const caption = await readFile(join(dir, 'caption.txt'), 'utf8');
@@ -174,7 +174,7 @@ async function publish() {
     const j = await res.json().catch(() => ({}));
     if (!res.ok || j.error) {
       const e = j.error || {};
-      if (e.code === 190) die('열쇠(토큰)가 끝났거나 틀렸어요 — docs/insta-auto.md 「토큰 새로 넣기」대로 새 토큰을 넣어 주세요.');
+      if (e.code === 190) die('열쇠(토큰)가 끝났거나 틀렸어요 — docs/ops/insta-auto.md 「토큰 새로 넣기」대로 새 토큰을 넣어 주세요.');
       die(`인스타 API 오류 ${res.status}: ${e.message || JSON.stringify(j).slice(0, 300)}`);
     }
     return j;

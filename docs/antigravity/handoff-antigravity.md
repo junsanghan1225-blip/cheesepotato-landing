@@ -39,7 +39,7 @@ node tools/build-pages.mjs && node tools/stamp.mjs
 
 ## 2. 음성 파일을 git 밖으로 (개선안 7번)
 
-**→ 순서가 바뀌었다. `docs/storage-guide.md` 의 「운영자가 고른 것」을 따른다.**
+**→ 순서가 바뀌었다. `docs/ops/storage-guide.md` 의 「운영자가 고른 것」을 따른다.**
 Supabase 는 한글 파일 이름을 안 받아서 「같은 경로 그대로 올리기」가 안 된다 — 이름을 `audio-key.js` 규칙으로
 바꿔 올리는 `tools/upload-audio.mjs` 를 쓰고, 사이트 쪽은 `audio-key.js` 의 `AUDIO_REMOTE` 한 줄로 켠다.
 (예전의 `window.__AUDIO_BASE__` 방식은 없앴다.) 아래 4번은 그대로.

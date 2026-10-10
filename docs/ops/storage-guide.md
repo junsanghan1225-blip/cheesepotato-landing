@@ -1,6 +1,6 @@
 # 파일 저장소 고르기 — Supabase · Cloudflare R2 · AWS S3
 
-녹음 파일(`assets/audio/`)이 지금 **174MB**다. 「단어」 섹션을 키우면(`docs/vocab-plan.md`) 낱말 · 예문 소리가 늘어
+녹음 파일(`assets/audio/`)이 지금 **174MB**다. 「단어」 섹션을 키우면(`docs/plans/vocab-plan.md`) 낱말 · 예문 소리가 늘어
 **1GB 가까이** 간다. 지금은 GitHub Pages 가 사이트와 함께 이 파일들을 내주는데, GitHub Pages 는
 **사이트 1GB · 한 달 전송 100GB 정도를 권장 한도**로 둔다. 그래서 소리 파일만 바깥 저장소로 옮길 곳을 고른다.
 
@@ -20,7 +20,7 @@
 ## 추천
 
 1. **지금 → Supabase Storage.** 가입도 새 설정도 필요 없고, 사이트는 이미 그 주소를 허용한다. 지금 방문자 수면
-   무료 한도 안에서 충분하다. 할 일은 `docs/handoff-antigravity.md` 2번(공개 버킷 `audio` → 같은 경로로 올리기 →
+   무료 한도 안에서 충분하다. 할 일은 `docs/antigravity/handoff-antigravity.md` 2번(공개 버킷 `audio` → 같은 경로로 올리기 →
    `app.js` 한 줄)이다.
 2. **나중 → Cloudflare R2.** Supabase 대시보드의 사용량(Usage)에서 **전송량이 무료 한도에 자주 닿기 시작하면**
    옮긴다. 소리는 듣는 만큼 전송량이 늘어서, 사람이 많아지면 「전송 요금 없음」이 가장 큰 차이가 된다.
@@ -56,4 +56,4 @@
 - 사이트에서 사전 · 읽기 · 듣기 · 여행 소리가 다 나는 것을 확인한 **뒤에야** `assets/audio/` 를 저장소에서 지운다.
   (지워도 git 기록에는 남는다 — 저장소 크기까지 줄이는 것은 급하지 않다.)
 - 녹음소(`record.html`)의 ZIP 은 계속 저장소 경로(`assets/audio/…`) 모양이다. 옮긴 뒤에는 ZIP 을 받은 Claude 가
-  바깥 저장소에 올리는 순서로 바뀐다 — 그때 `docs/recording.md` 를 고친다.
+  바깥 저장소에 올리는 순서로 바뀐다 — 그때 `docs/ops/recording.md` 를 고친다.

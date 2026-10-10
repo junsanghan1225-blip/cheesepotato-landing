@@ -152,7 +152,7 @@ GitHub Pages 는 캐시 머리글을 우리가 못 정한다. `app.js` 를 그�
 이라 상업적으로 써도 되지만 출처를 밝혀야 하고, 거기서 나온 자료는 같은
 라이선스로 열어 두어야 한다.** 그래서 우리가 쓴 뜻풀이와 파일부터 갈라 둔다 —
 한 파일에 섞으면 어디까지가 CC BY-SA 인지 말할 수 없게 된다.
-자세한 것은 `docs/glossary-license.md`.
+자세한 것은 `docs/plans/glossary-license.md`.
 
 내려받은 자료는 1GB 가까이 된다. 그대로 저장소에 넣지 말고
 `tools/build-krdict-glossary.mjs` 로 **우리 지문에 나오는 낱말만** 뽑는다.
@@ -161,7 +161,7 @@ GitHub Pages 는 캐시 머리글을 우리가 못 정한다. `app.js` 를 그�
 node tools/build-krdict-glossary.mjs ~/Downloads/krdict
 ```
 
-영어 뜻풀이를 손으로 더 채우려면 `docs/glossary-gemini-prompt.md` 를 따른다.
+영어 뜻풀이를 손으로 더 채우려면 `docs/antigravity/glossary-gemini-prompt.md` 를 따른다.
 
 ---
 
@@ -379,7 +379,7 @@ node tools/build-grammar.mjs --report   # 지문 어디에 걸리는지 전부 �
 
 ```bash
 node tools/grammar-words.mjs 40 > /tmp/batch.txt   # 아직 안 옮긴 것 40개
-# docs/grammar-gemini-prompt.md 뒤에 붙여 보내고, 받은 JSON 을 붙인다
+# docs/antigravity/grammar-gemini-prompt.md 뒤에 붙여 보내고, 받은 JSON 을 붙인다
 node tools/build-grammar.mjs && node tools/stamp.mjs
 ```
 
@@ -506,6 +506,6 @@ TOPIK·읽기·듣기는 TOPIK 문항 은행(문항마다 `grade`)의 급수(1~6
 | `cp_done_local` | 끝낸 레슨 — 로그인 안 해도 길이 이어지게. 불러올 때 서버 진도와 합친다 |
 | `cp_weak` | 빈칸을 틀린 레슨 최근 12개 — 다시 풀어 하나도 안 틀리면 빠진다 |
 
-중·고급 코스 계획은 `docs/curriculum-upper.md` — 예문 만들기 갈래 하나가 코스 하나다
+중·고급 코스 계획은 `docs/plans/curriculum-upper.md` — 예문 만들기 갈래 하나가 코스 하나다
 (중급 26 · 고급 22, 전부 채움). 새 코스는 `course-prompt.mjs` → `course-merge.mjs` →
-`check-courses.mjs` 순서로 넣는다(`docs/antigravity-level-content-task.md`).
+`check-courses.mjs` 순서로 넣는다(`docs/antigravity/antigravity-level-content-task.md`).

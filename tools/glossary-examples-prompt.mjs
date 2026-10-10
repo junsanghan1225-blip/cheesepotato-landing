@@ -4,7 +4,7 @@
  *   node tools/glossary-examples-prompt.mjs --n=60       한 번에 60개
  *   node tools/glossary-examples-prompt.mjs --skip=40    그다음 40개(=두 번째 묶음)
  *
- * docs/glossary-examples-gemini-prompt.md 의 "보낼 글" 뒤에 이 출력을
+ * docs/antigravity/glossary-examples-gemini-prompt.md 의 "보낼 글" 뒤에 이 출력을
  * 그대로 붙여서 Gemini 에 준다.
  *
  * 이미 예문이 있는 표제어는 건너뛴다 — 다시 돌려도 늘 "다음" 40개가

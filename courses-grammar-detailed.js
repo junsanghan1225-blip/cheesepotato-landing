@@ -1688,7 +1688,7 @@ export const DETAILED_GRAMMAR_COURSES = [
   },
 
   // ════════════════════════════════════════════════
-  // 🟡 중급 갈래 코스 (docs/curriculum-upper.md) — 예문 만들기 갈래 하나 = 코스 하나
+  // 🟡 중급 갈래 코스 (docs/plans/curriculum-upper.md) — 예문 만들기 갈래 하나 = 코스 하나
   // ════════════════════════════════════════════════
   {
     id: 'im-c48',

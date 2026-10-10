@@ -7,7 +7,7 @@
 「회화 연습」(#learn/convo)은 학습자가 **직접 대답을 써서** 말해 보는 곳이다. 지금 31장면(카페 4 · 식당 4 · 가게 3 · 교통 4 · 병원 3 · 전화 3 · 사람 사이 5 · 일 3 · 서비스 2).
 외국인이 한국에서 **실제로 부딪히는 장면**을 넓혀 150개로 만든다.
 
-## 규칙 · 모양은 `docs/antigravity-convo-task.md` 그대로
+## 규칙 · 모양은 `docs/antigravity/antigravity-convo-task.md` 그대로
 - `convo.js` 머리말 · `cv-cafe-b-01` 을 먼저 읽고 똑같은 모양. id 는 `cv-{category}-{b/i/a}-{두 자리}` — **이미 있는 번호 다음부터**.
 - 결과는 `docs/convo-scenes-more-N.json`(배열) 하나만 커밋 · 푸시. `convo.js` 는 고치지 않는다(Claude 가 `convo-merge.mjs` 로 넣는다).
 - 기관 · 전화번호 · 요금 · 법 · 제도를 사실처럼 쓰지 않는다(「주민센터에서 서류를 떼어야 해요」처럼 일반으로). 브랜드 · 가게 이름 없음.

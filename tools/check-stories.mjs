@@ -33,7 +33,7 @@ for (const s of STORIES) {
   const id = s.id || '(id 없음)';
   if (!/^sb-\d{2,3}$/.test(s.id || '')) err(id, 'id 는 sb-01 꼴');
   if (seen.has(s.id)) err(id, 'id 가 겹친다'); seen.add(s.id);
-  if (!(Number.isInteger(s.lv) && s.lv >= 1 && s.lv <= 7)) err(id, `lv 가 ${s.lv} — 1 ~ 7`);   // 레벨별 이야기 L1~L7(docs/antigravity-stories-more-task.md)
+  if (!(Number.isInteger(s.lv) && s.lv >= 1 && s.lv <= 7)) err(id, `lv 가 ${s.lv} — 1 ~ 7`);   // 레벨별 이야기 L1~L7(docs/antigravity/antigravity-stories-more-task.md)
   for (const k of ['title', 'blurb']) if (!s[k]?.ko || !s[k]?.en) err(id, `${k} 의 ko · en 이 다 있어야 한다`);
   if (!Array.isArray(s.pages) || s.pages.length < 5 || s.pages.length > 14) err(id, `쪽이 ${s.pages?.length ?? 0} — 5~14`);
 

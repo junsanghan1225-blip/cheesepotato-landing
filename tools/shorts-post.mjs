@@ -1,5 +1,5 @@
 // 쇼츠 공장 — 대기열(Supabase shorts_queue)에서 영상 하나를 꺼내 유튜브 · 인스타 릴스 · 틱톡에 올린다(운영자 요청 2026-10-05).
-// .github/workflows/shorts-post.yml 이 부른다. 순서 · 열쇠 넣는 법은 docs/shorts-auto.md.
+// .github/workflows/shorts-post.yml 이 부른다. 순서 · 열쇠 넣는 법은 docs/ops/shorts-auto.md.
 //
 //   node tools/shorts-post.mjs post [--dry]          가장 오래된 「ready」 하나를 올린다(--dry 면 받아서 바꾸기까지만)
 //   node tools/shorts-post.mjs connect yt|tt <code>   connect.html 에서 받은 일회용 코드 → 오래 쓰는 열쇠(refresh token)로 바꿔 shorts_kv 에 적는다
@@ -21,7 +21,7 @@ const on = (k) => String(env[k] || '').toLowerCase().startsWith('on');
 const die = (m) => { console.error(`\n✗ ${m}\n`); process.exit(1); };
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 const KEY = env.SUPABASE_SERVICE_KEY;
-if (!KEY) die('SUPABASE_SERVICE_KEY 가 없어요 — GitHub Secrets 에 넣어 주세요(docs/shorts-auto.md 0-2).');
+if (!KEY) die('SUPABASE_SERVICE_KEY 가 없어요 — GitHub Secrets 에 넣어 주세요(docs/ops/shorts-auto.md 0-2).');
 
 /* ── Supabase(REST · 저장 칸) — service key 라 RLS 를 안 탄다 ── */
 const H = { apikey: KEY, Authorization: `Bearer ${KEY}` };
@@ -44,16 +44,16 @@ async function storageDel(paths) {
 /* ── 열쇠: 표(shorts_kv)에 적힌 것이 먼저, 없으면 Secrets ── */
 async function googleToken() {
   const refresh = (await kvGet('yt_refresh')) || env.YT_REFRESH_TOKEN;
-  if (!env.YT_CLIENT_ID || !env.YT_CLIENT_SECRET || !refresh) throw new Error('유튜브 열쇠가 없어요(YT_CLIENT_ID · YT_CLIENT_SECRET · 연결) — docs/shorts-auto.md 2번');
+  if (!env.YT_CLIENT_ID || !env.YT_CLIENT_SECRET || !refresh) throw new Error('유튜브 열쇠가 없어요(YT_CLIENT_ID · YT_CLIENT_SECRET · 연결) — docs/ops/shorts-auto.md 2번');
   const r = await fetch('https://oauth2.googleapis.com/token', { method: 'POST', body: new URLSearchParams({ client_id: env.YT_CLIENT_ID, client_secret: env.YT_CLIENT_SECRET, refresh_token: refresh, grant_type: 'refresh_token' }) });
-  const j = await r.json(); if (!j.access_token) throw new Error(`구글 열쇠 새로 받기 실패: ${j.error || r.status} ${j.error_description || ''} — 연결을 다시 해 주세요(docs/shorts-auto.md 2-6)`);
+  const j = await r.json(); if (!j.access_token) throw new Error(`구글 열쇠 새로 받기 실패: ${j.error || r.status} ${j.error_description || ''} — 연결을 다시 해 주세요(docs/ops/shorts-auto.md 2-6)`);
   return j.access_token;
 }
 async function tiktokToken() {
   const refresh = (await kvGet('tt_refresh')) || env.TT_REFRESH_TOKEN;
-  if (!env.TT_CLIENT_KEY || !env.TT_CLIENT_SECRET || !refresh) throw new Error('틱톡 열쇠가 없어요(TT_CLIENT_KEY · TT_CLIENT_SECRET · 연결) — docs/shorts-auto.md 3번');
+  if (!env.TT_CLIENT_KEY || !env.TT_CLIENT_SECRET || !refresh) throw new Error('틱톡 열쇠가 없어요(TT_CLIENT_KEY · TT_CLIENT_SECRET · 연결) — docs/ops/shorts-auto.md 3번');
   const r = await fetch(`${TT}/oauth/token/`, { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: new URLSearchParams({ client_key: env.TT_CLIENT_KEY, client_secret: env.TT_CLIENT_SECRET, grant_type: 'refresh_token', refresh_token: refresh }) });
-  const j = await r.json(); if (!j.access_token) throw new Error(`틱톡 열쇠 새로 받기 실패: ${j.error || r.status} ${j.error_description || ''} — 연결을 다시 해 주세요(docs/shorts-auto.md 3-5)`);
+  const j = await r.json(); if (!j.access_token) throw new Error(`틱톡 열쇠 새로 받기 실패: ${j.error || r.status} ${j.error_description || ''} — 연결을 다시 해 주세요(docs/ops/shorts-auto.md 3-5)`);
   /* 틱톡은 새 refresh token 을 줄 수 있다 — 바뀌었으면 적어 둔다(안 그러면 1년 뒤 끊긴다) */
   if (j.refresh_token && j.refresh_token !== refresh) await kvSet('tt_refresh', j.refresh_token);
   return j.access_token;
@@ -81,7 +81,7 @@ async function toYouTube(row, file, cover) {
   const name = playlistOf(row);
   if (name) {
     try { playlist = await addToPlaylist(token, name, v.id); console.log(`  재생목록 「${name}」에 넣음`); }
-    catch (e) { console.log(`  (재생목록에는 못 넣었어요: ${e.message} — 연결을 다시 하면 권한이 생겨요 · docs/shorts-auto.md 2-6)`); }
+    catch (e) { console.log(`  (재생목록에는 못 넣었어요: ${e.message} — 연결을 다시 하면 권한이 생겨요 · docs/ops/shorts-auto.md 2-6)`); }
   }
   return { ok: true, id: v.id, url: `https://youtube.com/shorts/${v.id}`, privacy: meta.status.privacyStatus, thumb, playlist };
 }

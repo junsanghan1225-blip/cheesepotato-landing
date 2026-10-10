@@ -185,9 +185,9 @@
   **어휘 · 문법 등급 목록**은 공공누리 **제1유형(출처표시)** — 출처를 밝히면 상업적 이용 · 변형 가능.
   (https://www.korean.go.kr/front/reportData/reportDataView.do?mn_id=207&report_seq=932 — 받을 때 그 쪽의
   공공누리 표시를 한 번 더 확인하고, 쓰는 자리에 「출처: 국립국어원」을 적는다.) 이 목록의 등급으로 후보의 급수를 맞춘다.
-- 2026-09-28 · **낱말 자료 모양 · 검사기 · 씨앗** — `docs/vocab-schema.md`, `vocab/taxonomy.json`(목적 10 · 주제 17 × 약
+- 2026-09-28 · **낱말 자료 모양 · 검사기 · 씨앗** — `docs/plans/vocab-schema.md`, `vocab/taxonomy.json`(목적 10 · 주제 17 × 약
   80, 초안 — 운영자 확인), `tools/check-vocab.mjs`(CI 에 넣음), `tools/vocab-seed.mjs` → `vocab/data/topik1.json`
-  씨앗 1,352개(C급). 안 그래비티 첫 묶음 지시문: `docs/antigravity-vocab-task.md`(앞 500개 → B급).
+  씨앗 1,352개(C급). 안 그래비티 첫 묶음 지시문: `docs/antigravity/antigravity-vocab-task.md`(앞 500개 → B급).
 - 2026-09-28 · **표준 교육과정 어휘 목록 받음**(운영자) → `docs/vocab/std-2017.json`(표제어 10,080 · 1~6급 · 길잡이말).
   TOPIK I 씨앗을 다시 만듦: **표준 1 · 2급 1,781 + 우리 자료에서 더한 217 = 1,998개**. 표준에서 3급 이상인 낱말은 뺐다
   (TOPIK II 몫). 영어 뜻이 없는 497개는 안 그래비티가 채운다. **0단계 끝.**
@@ -206,7 +206,7 @@
 
 | 누가 | 일 | 끝 |
 |---|---|---|
-| Claude | 이 계획 파일 · 저장소 선택 가이드(`docs/storage-guide.md`) | 머지 |
+| Claude | 이 계획 파일 · 저장소 선택 가이드(`docs/ops/storage-guide.md`) | 머지 |
 | Claude | 공공 어휘 목록의 이용 조건 확인 | 쓸 수 있는 목록 · 없는 목록을 이 파일에 적음 |
 | Claude | 낱말 자료 모양(스키마) + 검사기 `tools/check-vocab.mjs` | 지금 사전 5,779개가 새 모양으로 통과 |
 | Claude | 수준 초안 도구 — 코스 · TOPIK I/II 문항 등장 빈도 | TOPIK I 필수 후보 목록(약 1,800) |
@@ -308,7 +308,7 @@
 - 2026-09-28 · **TOPIK II 씨앗** `vocab/data/topik2.json` ← `tools/vocab-seed-topik2.mjs`: 표준 교육과정 3~6급 중 TOPIK I 에
   없는 낱말, 우리 TOPIK II 문항 · 중고급 코스 등장 순. **우리 자료에서 낱말을 더하지 않음**(TOPIK I 때 64줄이 쓰레기였다).
   EPS · 생활 · 직장 · 병원은 따로 목록을 만들지 않고 채울 때 `purposes` 로 단다 → 목적별 단어장은 그 표시로 거른다.
-  안 그래비티 지시문 `docs/antigravity-vocab-topik2-task.md`(500개씩 · 예문 둘 = 말 + 글 · 30자 안팎 · 한자는 확실할 때만).
+  안 그래비티 지시문 `docs/antigravity/antigravity-vocab-topik2-task.md`(500개씩 · 예문 둘 = 말 + 글 · 30자 안팎 · 한자는 확실할 때만).
   검사기: 3~6급 예문 32자 넘으면 짚음, `hanja` 는 한자만.
 - 2026-09-29 · **TOPIK II 1묶음 들어옴**(B급 500, 예문 평균 24글자, 둘째 예문 전부 글말, 지킬 칸 그대로). 한자 353개 중 22곳을
   Claude 가 고침 — 고유어에 뜻 한자(먼지 → 埃 · 빛 → 光 · 시스템 → 制度)를 뺐고 점 → 點 · 양 → 量. 검사기에 「한자 글자 수 = 음절 수」.

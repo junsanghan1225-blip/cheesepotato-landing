@@ -161,6 +161,6 @@ mp3 를 받아 온다 — 그 요청에도 referrer 는 안 붙인다.
 낱말 뜻풀이 일부는 국립국어원 「한국어기초사전」(https://krdict.korean.go.kr)
 에서 왔다. **CC BY-SA 2.0 KR** — 출처를 밝혀야 하고 같은 라이선스로 열어
 두어야 한다. 설정 쪽 맨 아래와 `data/README.md`(구울 때 함께 나온다)에
-적어 두었다. 자세한 것은 저장소의 `docs/glossary-license.md`.
+적어 두었다. 자세한 것은 저장소의 `docs/plans/glossary-license.md`.
 
 문법 표현·예문·표현 카드는 치즈감자가 만든 것이다.

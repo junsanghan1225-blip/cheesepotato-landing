@@ -5,7 +5,7 @@
    한국에서 일하려는 사람이다. 수준은 TOPIK I(1~2급) 안팎이고, 일상 · 직장 생활 · 산업 안전 ·
    한국 문화를 묻는다.
 
-   문항은 안티 그래비티가 채운다(docs/antigravity-eps-task.md). 모양 검사: tools/check-eps.mjs.
+   문항은 안티 그래비티가 채운다(docs/antigravity/antigravity-eps-task.md). 모양 검사: tools/check-eps.mjs.
    한 문항:
    {
      id: 'eps-r-001',              // 읽기 eps-r-… · 듣기 eps-l-…

@@ -11,7 +11,7 @@
  *
  * 씨앗은 우리가 가진 것만 채운 C급이다: 표제어 · 품사 · 급수 · 영어 뜻(사전에 있으면) · 길잡이말 ·
  * 예문 하나(사전 예문이 있으면). 나머지는 안 그래비티가 500개씩 채워 B · A급으로 올린다
- * (docs/antigravity-vocab-task.md). 모양은 docs/vocab-schema.md, 검사는 tools/check-vocab.mjs.
+ * (docs/antigravity/antigravity-vocab-task.md). 모양은 docs/plans/vocab-schema.md, 검사는 tools/check-vocab.mjs.
  *
  * **이미 사람이 채운 자료를 덮지 않는다.** 파일이 있으면 표제어가 같은 줄은 그대로 두고,
  * 새로 들어올 낱말만 뒤에 더한다. */

@@ -8,7 +8,7 @@
           URL     https://tjgoevtvobvmlyefgxel.supabase.co/functions/v1/polar-webhook
           Format  Raw
           Events  subscription.* 전부 + order.paid · order.refunded(시험 패스 — 한 번 결제, 2026-10-04)
-   순서 전체는 docs/billing-setup.md. 표는 db/add_subscriptions.sql(이미 있다 — 그대로 쓴다). */
+   순서 전체는 docs/ops/billing-setup.md. 표는 db/add_subscriptions.sql(이미 있다 — 그대로 쓴다). */
 import { createClient } from 'npm:@supabase/supabase-js@2';
 
 const SECRET = Deno.env.get('POLAR_WEBHOOK_SECRET') ?? '';

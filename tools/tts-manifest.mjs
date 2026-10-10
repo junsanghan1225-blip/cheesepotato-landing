@@ -188,7 +188,7 @@ if (want('writing')) {
 }
 
 /* ── 6. 낱말 사전 — 표제어와 예문 ────────────────────────────
-   표제어 하나는 짧아서 flash 모델로 구우면 값이 반이다(docs/tts-plan.md
+   표제어 하나는 짧아서 flash 모델로 구우면 값이 반이다(docs/plans/tts-plan.md
    "값을 더 뽑는 법" 참고) — 그래서 group 을 example/course 와 분리해
    둔다. build 쪽에서 group 별 모델을 다르게 줄 수 있다.
 

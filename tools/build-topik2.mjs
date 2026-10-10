@@ -16,7 +16,7 @@
  */
 import { readFileSync, writeFileSync } from 'node:fs';
 
-/* 설계표. docs/topik2-blueprint.md 의 표와 같아야 한다.
+/* 설계표. docs/plans/topik2-blueprint.md 의 표와 같아야 한다.
    [시작, 끝, type, genre, 한글 이름, 영어 이름, 묶음] */
 const BLUEPRINT = [
   [1, 2, 'blank', '서술문', '빈칸에 알맞은 말', 'Fill in the blank'],

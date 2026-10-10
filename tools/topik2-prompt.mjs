@@ -2,7 +2,7 @@
  *
  *   node tools/topik2-prompt.mjs 13 24 > batch2.md
  *
- * docs/topik2-gemini-prompt.md 가 원본이다. 「낼 문항」 표에서 이번 묶음 줄만
+ * docs/antigravity/topik2-gemini-prompt.md 가 원본이다. 「낼 문항」 표에서 이번 묶음 줄만
  * 남기고, 앞뒤 규칙은 그대로 둔다.
  *
  * 손으로 자르면 반드시 빠뜨린다 — 1차에서 정답 쏠림을 놓친 것도 지시문을
@@ -45,7 +45,7 @@ for (let r = 1; r < round; r++) {
   });
 }
 
-const src = readFileSync(new URL('../docs/topik2-gemini-prompt.md', import.meta.url), 'utf8');
+const src = readFileSync(new URL('../docs/antigravity/topik2-gemini-prompt.md', import.meta.url), 'utf8');
 const lines = src.split('\n');
 
 /* 「낼 문항」 표의 자리를 찾는다. 그 위는 규칙, 아래는 내보낼 모양이다. */

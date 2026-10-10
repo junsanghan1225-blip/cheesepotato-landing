@@ -1,4 +1,4 @@
--- 「단어」 화면(#words)과 내 단어장을 잇는다 — docs/vocab-plan.md 5층 「내 단어장 연동」.
+-- 「단어」 화면(#words)과 내 단어장을 잇는다 — docs/plans/vocab-plan.md 5층 「내 단어장 연동」.
 --
 --   Supabase 대시보드 → SQL Editor 에서 한 번 돌린다. 여러 번 돌려도 괜찮다(if not exists).
 --

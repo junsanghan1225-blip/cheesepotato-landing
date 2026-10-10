@@ -1,5 +1,5 @@
 {
-  "_note": "번역 연습(영어 → 한국어, 한 줄씩). 원본 — tools/build-translate.mjs 가 translate.js 를 만든다. 지시서 docs/antigravity-translate-task.md. 문장은 전부 창작.",
+  "_note": "번역 연습(영어 → 한국어, 한 줄씩). 원본 — tools/build-translate.mjs 가 translate.js 를 만든다. 지시서 docs/antigravity/antigravity-translate-task.md. 문장은 전부 창작.",
   "sets": [
     {
       "id": "b-cafe",

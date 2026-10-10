@@ -7,7 +7,7 @@
 많이 읽고 많이 듣는 것이 실력에 가장 크게 남는다. 지금 이야기(`stories.js` STORIES)는 **11편 — L1 5 · L2 4 · L3 2**, L4~L7 은 0편이다.
 **레벨마다 10편(모두 70편)** 으로 채워, 「오늘의 이야기」 · 반 숙제 · 학습 길에서 레벨에 맞는 읽기 + 듣기로 쓴다.
 
-## 규칙은 `docs/antigravity-storybook-task.md` 그대로
+## 규칙은 `docs/antigravity/antigravity-storybook-task.md` 그대로
 - **저작권(맨 위 1~3)** — 전부 새로 지은 이야기, 이미 있는 작품 · 전래동화 · 교과서 줄거리를 옮기거나 「조금 바꾸지」 않는다. 브랜드 · 실존 인물 없음.
 - 모양은 `stories.js` 의 `sb-01` 과 똑같이(`id · lv · title{ko,en} · blurb{ko,en} · pages[{who, ko, en}] …` — 파일 맨 위 설명을 먼저 읽는다).
 - 검사 `node tools/check-stories.mjs` 「문제 없음」. 커밋은 `stories.js` 하나만. 도구 · 다른 파일 · 자국은 손대지 않는다.

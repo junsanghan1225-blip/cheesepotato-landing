@@ -1,10 +1,10 @@
 #!/usr/bin/env node
-/* 「단어」 섹션 낱말 자료 검사 — vocab/data/*.json (모양: docs/vocab-schema.md)
+/* 「단어」 섹션 낱말 자료 검사 — vocab/data/*.json (모양: docs/plans/vocab-schema.md)
  *
  *   node tools/check-vocab.mjs
  *   node tools/check-vocab.mjs --base origin/main   안 그래비티 묶음을 받았을 때 — main 과 견줘 지킬 칸을 봤는지 본다
  *
- * 수천 개를 500개씩 넣을 때 품질이 흐트러지지 않게 막는 문이다(docs/vocab-plan.md 7층).
+ * 수천 개를 500개씩 넣을 때 품질이 흐트러지지 않게 막는 문이다(docs/plans/vocab-plan.md 7층).
  * 「고쳐야 할 것」이 하나라도 있으면 실패한다. 「짚어 둘 것」은 실패는 아니지만 사람이 본다.
  *
  * 등급마다 채워야 할 것이 다르다.
@@ -25,7 +25,7 @@ const GRADES = new Set(['A', 'B', 'C']);
 
 const err = [], warn = [];
 const ALL = process.argv.includes('--all');       // 짚어 둘 것을 전부 보이기(고칠 줄 목록 뽑을 때)
-/* 초급 낱말의 예문은 짧고 쉬워야 한다(docs/antigravity-vocab-task.md: 8~18글자 안팎, 초급 문법).
+/* 초급 낱말의 예문은 짧고 쉬워야 한다(docs/antigravity/antigravity-vocab-task.md: 8~18글자 안팎, 초급 문법).
    빈칸 · 문장 부호를 뺀 글자 수가 이보다 길거나, 중급 이상 문법이 보이면 짚는다. */
 const EX_MAX = 22;
 const EX_MAX2 = 32;   // 3~6급 예문 상한
@@ -105,7 +105,7 @@ for (const f of files) {
         else if (HARD.test(x.ko + ' ')) warn.push(`${at} — 예문 ${j + 1} 문법이 초급보다 어렵다: ${x.ko}`);
       } else if (w.grade !== 'C') {
         /* TOPIK II(3~6급)는 중고급 문법 · 글말을 쓰되, 낱말 하나를 배우는 문장이라 길이는 막는다
-           (docs/antigravity-vocab-topik2-task.md: 30글자 안팎). */
+           (docs/antigravity/antigravity-vocab-topik2-task.md: 30글자 안팎). */
         const len = x.ko.replace(/[\s.,!?~…「」'"]/g, '').length;
         if (len > EX_MAX2) warn.push(`${at} — 예문 ${j + 1} 이 길다(${len}자 · 중고급은 30자 안팎): ${x.ko}`);
       }
@@ -157,7 +157,7 @@ for (const name of ['topik1', 'topik2']) {
 }
 
 /* --base <git 주소> — 묶음 검토. 안 그래비티가 거듭 어긴 것(급수 · 출처 · 채워진 영어 뜻 · 이미 B 인 줄 · 이번 묶음 밖의 C 줄)을
-   main 과 줄마다 견준다(docs/antigravity-vocab-topik2-task.md). 바뀐 곳은 「고쳐야 할 것」, 반대말 · 비슷한 말은 사람이 보게 뽑는다. */
+   main 과 줄마다 견준다(docs/antigravity/antigravity-vocab-topik2-task.md). 바뀐 곳은 「고쳐야 할 것」, 반대말 · 비슷한 말은 사람이 보게 뽑는다. */
 const bi = process.argv.indexOf('--base');
 if (bi > 0) {
   const ref = process.argv[bi + 1];

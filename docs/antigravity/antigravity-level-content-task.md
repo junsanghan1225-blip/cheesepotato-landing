@@ -59,7 +59,7 @@ git checkout -b leveltest-pool
 | L3 | Stage 2: 과거 -았/었, -고 있다, -기 전에/-(으)ㄴ 후에, 불규칙 ㄷ·ㅂ | |
 | L4 | Stage 3–4: -아서/-니까, -(으)면, -는데, -아/어 주다, -아야 하다, -(으)ㄹ 수 있다 | |
 | L5 | Stage 5–6: -아/어 본 적이 있다, -(으)러, -(으)ㄹ 것 같다, 높임말, 관형형 | |
-| L6 | 중급: `docs/curriculum-upper.md` 의 L6 문법 (-느라고, -는 바람에, -(으)ㄹ 텐데 …) | |
+| L6 | 중급: `docs/plans/curriculum-upper.md` 의 L6 문법 (-느라고, -는 바람에, -(으)ㄹ 텐데 …) | |
 | L7 | 고급: 같은 문서 L7 문법, 신문·논설 어휘 | |
 
 ### 반드시 지킬 것
@@ -84,7 +84,7 @@ PR 을 열고 설명에 레벨별 문제 수를 적는다.
 
 ## B. 중급·고급 코스 만들기 (크다, 코스 하나씩)
 
-계획표는 `docs/curriculum-upper.md` 다. L6 중급 26개, L7 고급 22개.
+계획표는 `docs/plans/curriculum-upper.md` 다. L6 중급 26개, L7 고급 22개.
 **`im-c48` 은 1강까지 이미 있다.** 모양은 그것을 그대로 따른다
 (`courses-grammar-detailed.js` 맨 끝).
 
