@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hangul Name Tracing Worksheet — Print Free (PDF) | CheesePotato</title>
+<meta name="description" content="Type a name and print a free Hangul tracing worksheet: write your Korean name in practice boxes and trace every letter in it, with each letter’s name and sound. For learners, teachers and parents.">
+<link rel="canonical" href="https://everykoreans.com/hangul-worksheet/">
+<!-- 만들기 도구 — 내 이름 따라 쓰기 학습지(운영자 2026-10-10 「B」). 손으로 쓴 쪽. 영어 이름은 korean-name.js 규칙으로 한글. 인쇄 = 브라우저 인쇄. -->
+<script src="/gtm.js" async></script>
+<script src="/analytics.js" defer></script>
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta property="og:title" content="Hangul Name Tracing Worksheet">
+<meta property="og:description" content="Print a free worksheet to practise writing your name in Korean.">
+<meta property="og:url" content="https://everykoreans.com/hangul-worksheet/">
+<meta property="og:image" content="https://everykoreans.com/logo-256.png">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Hangul Name Tracing Worksheet","url":"https://everykoreans.com/hangul-worksheet/","applicationCategory":"EducationalApplication","operatingSystem":"Any","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"publisher":{"@id":"https://everykoreans.com/#org"}}</script>
+<link rel="stylesheet" href="/vendor/pretendard.css">
+<link rel="stylesheet" href="/page.css">
+<script src="/korean-name.js" defer></script>
+<script src="/hangul-worksheet.js" defer></script>
+<style>
+/* 학습지 — 화면에서는 종이처럼, 인쇄하면 A4 한 장(머리띠 · 설명은 숨김) */
+.ws-paper { background:#fff; border:1px solid var(--line); border-radius:12px; padding:22px; margin:18px 0; }
+.ws-top { display:flex; justify-content:space-between; gap:12px; font-size:13px; color:var(--ink-3); border-bottom:1px solid var(--line); padding-bottom:8px; }
+.ws-name { font-size:44px; font-weight:800; color:var(--ink); margin:14px 0 0; letter-spacing:.06em; }
+.ws-rom { font-size:14px; color:var(--ink-3); margin-bottom:12px; }
+.ws-row { display:grid; grid-template-columns:repeat(8, 1fr); border-left:1px solid #bbb; border-top:1px solid #bbb; margin:0 0 6px; }
+.ws-l .ws-row { grid-template-columns:repeat(6, 1fr); }
+.ws-c { position:relative; aspect-ratio:1; border-right:1px solid #bbb; border-bottom:1px solid #bbb; display:grid; place-items:center; font-size:clamp(20px,6vw,42px); font-weight:500; line-height:1; color:#1B1512;
+  background:linear-gradient(#e6e6e6,#e6e6e6) center/100% 1px no-repeat, linear-gradient(#e6e6e6,#e6e6e6) center/1px 100% no-repeat; }
+.ws-c.trace { color:#d4d4d4; }
+.ws-h3 { font-size:15px; font-weight:800; color:var(--ink); margin:18px 0 8px; }
+.ws-letters { display:grid; grid-template-columns:1fr 1fr; gap:10px 16px; }
+.ws-lh { display:flex; align-items:center; gap:10px; margin-bottom:4px; }
+.ws-lh b { font-size:30px; color:var(--orange-deep); }
+.ws-lh span { font-size:14px; font-weight:700; color:var(--ink); display:flex; flex-direction:column; }
+.ws-lh small { font-weight:500; color:var(--ink-3); font-size:12px; }
+.ws-foot { margin-top:14px; font-size:12px; color:var(--ink-3); text-align:center; }
+@media (max-width:520px) { .ws-letters { grid-template-columns:1fr; } }
+@media print {
+  @page { size:A4; margin:12mm; }
+  body { background:#fff; }
+  .hd, .no-print, .ft, h1, h1 + p, .box > label, #wsIn { display:none !important; }
+  main { padding:0 !important; max-width:none; }
+  .box { border:0; padding:0; margin:0; }
+  .ws-paper { border:0; padding:0; margin:0; }
+  .ws-paper { -webkit-print-color-adjust:exact; print-color-adjust:exact; }   /* 칸 안 점선 십자(배경)도 찍히게 */
+  .ws-row { grid-template-columns:repeat(8, 17mm); width:max-content; margin-bottom:1.5mm; }
+  .ws-l .ws-row { grid-template-columns:repeat(6, 11mm); }
+  .ws-c { font-size:11mm; }
+  .ws-l .ws-c { font-size:7mm; }
+  .ws-lh b { font-size:22px; }
+  .ws-name { font-size:30px; margin-top:8px; }
+  .ws-h3 { margin:10px 0 6px; }
+  .ws-letters { gap:6px 12px; }
+  .ws-l { break-inside:avoid; }
+}
+</style>
+</head>
+<body>
+<header class="hd"><div class="hd-in">
+  <a href="/"><img src="/logo.png" alt=""><span>치즈감자 CheesePotato</span></a>
+</div></header>
+<main>
+<h1>Hangul name tracing worksheet</h1>
+<p>내 이름 따라 쓰기 학습지 · print or save as PDF · Free</p>
+<div class="box">
+  <label for="wsIn">Name — in English or Korean</label>
+  <input id="wsIn" type="text" autocomplete="off" maxlength="20" placeholder="e.g. Emily or 에밀리">
+  <div id="wsSheet" hidden>
+    <div class="btns no-print"><button class="btn main" id="wsPrint" type="button">🖨️ Print / save as PDF</button></div>
+    <div class="ws-paper">
+      <div class="ws-top"><span>Name: ______________________</span><span>Date: ____________</span></div>
+      <div class="ws-name" id="wsName"></div>
+      <div class="ws-rom" id="wsRom"></div>
+      <div class="ws-h3">1 · Look, trace, then write it yourself</div>
+      <div id="wsRows"></div>
+      <div class="ws-h3">2 · The letters in this name</div>
+      <div class="ws-letters" id="wsLetters"></div>
+      <div class="ws-foot">Free Hangul lessons · everykoreans.com · 치즈감자 CheesePotato</div>
+    </div>
+  </div>
+</div>
+<div class="no-print">
+<h2>How to use it</h2>
+<ul>
+  <li>The first row shows the name. Trace the light letters in rows 2–4, then write it on your own in the empty rows.</li>
+  <li>Korean is written <strong>top to bottom and left to right</strong> inside each block. The dashed cross helps keep each block square.</li>
+  <li>Section 2 lists every consonant and vowel in the name with its Korean name and sound.</li>
+  <li>Teachers: type each student’s name and print one sheet each — a nice first-class activity.</li>
+</ul>
+<h2>한국어</h2>
+<p>이름(영어나 한글)을 넣으면 따라 쓰기 학습지가 나와요. 첫 줄은 본보기, 2~4줄은 흐린 글자를 따라 쓰고, 마지막 두 줄은 혼자 써요. 아래에는 이름에 든 자음 · 모음의 이름과 소리가 있어요. 「인쇄」에서 PDF 로 저장할 수도 있어요.</p>
+<div class="next">
+  <h3>Learn every Hangul letter</h3>
+  <p>The beginner path teaches the 24 basic letters with sound, step by step.</p>
+  <div class="btns">
+    <a class="btn main" href="/?utm_source=tool&amp;utm_medium=hangul_worksheet#learn/path/basic">Start Hangul — free →</a>
+    <a class="btn sub" href="/for-teachers.html">For teachers — free class tools</a>
+  </div>
+</div>
+<p class="ft">Made by a Korean teacher · <a href="/about.html">About</a> · <a href="/korean-name/">Your name in Korean</a> · <a href="/my-korean-name/">Korean name generator</a> · <a href="/korean-zodiac/">Korean zodiac</a> · <a href="/korean-proverb/">Korean fortune cookie</a> · <a href="/korean-birthday/">Happy birthday in Korean</a> · <a href="/korean-word-today/">Word of the day</a> · <a href="/hangul-worksheet/">Name tracing worksheet</a> · <a href="/korean-age/">Korean age calculator</a> · <a href="/privacy.html">Privacy</a></p>
+</div>
+</main>
+</body>
+</html>

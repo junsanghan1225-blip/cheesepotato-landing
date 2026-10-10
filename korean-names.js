@@ -1,0 +1,63 @@
+/* 「나의 한국 이름 짓기」(/my-korean-name/)가 고르는 이름들 — 손으로 고르는 자료(생성물 아님).
+   요즘 한국에서 흔한 이름 + 한자 하나의 예(같은 이름도 집마다 한자가 다르다 — 화면에 「한자는 한 가지 예」라고 적는다).
+   한자마다 [글자, 훈 음(한국어), 영어 뜻]. 고유어 이름(하늘 · 다솜 …)은 hj 없이 뜻만.
+   늘릴 때는 docs/antigravity/antigravity-korean-names-task.md(안티) → Claude 가 한자 · 훈음을 검토해 넣는다. */
+window.KO_NAMES = {
+  // 성 — 한국에서 흔한 성 스무 개(대략 많은 차례). w 는 고를 때의 무게(어림 비율, 정확한 사람 수가 아님)
+  surnames: [
+    ['김', '金', 'Kim', 21], ['이', '李', 'Lee', 15], ['박', '朴', 'Park', 8], ['최', '崔', 'Choi', 5], ['정', '鄭', 'Jung', 4],
+    ['강', '姜', 'Kang', 2], ['조', '趙', 'Cho', 2], ['윤', '尹', 'Yoon', 2], ['장', '張', 'Jang', 2], ['임', '林', 'Lim', 2],
+    ['한', '韓', 'Han', 1], ['오', '吳', 'Oh', 1], ['서', '徐', 'Seo', 1], ['신', '申', 'Shin', 1], ['권', '權', 'Kwon', 1],
+    ['황', '黃', 'Hwang', 1], ['안', '安', 'Ahn', 1], ['송', '宋', 'Song', 1], ['류', '柳', 'Ryu', 1], ['홍', '洪', 'Hong', 1],
+  ],
+  // g: f(여) · m(남) · u(둘 다)
+  given: [
+    { ko: '서연', g: 'f', hj: [['瑞', '상서로울 서', 'auspicious'], ['妍', '고울 연', 'beautiful']], en: 'auspicious and beautiful' },
+    { ko: '하은', g: 'f', hj: [['河', '물 하', 'river'], ['恩', '은혜 은', 'grace']], en: 'a river of grace' },
+    { ko: '수아', g: 'f', hj: [['秀', '빼어날 수', 'outstanding'], ['雅', '맑을 아', 'elegant']], en: 'outstanding and elegant' },
+    { ko: '윤서', g: 'f', hj: [['允', '진실로 윤', 'truly'], ['瑞', '상서로울 서', 'auspicious']], en: 'truly blessed' },
+    { ko: '예은', g: 'f', hj: [['藝', '재주 예', 'talent, art'], ['恩', '은혜 은', 'grace']], en: 'talent and grace' },
+    { ko: '수빈', g: 'f', hj: [['秀', '빼어날 수', 'outstanding'], ['彬', '빛날 빈', 'refined']], en: 'outstanding and refined' },
+    { ko: '지아', g: 'f', hj: [['智', '슬기 지', 'wisdom'], ['雅', '맑을 아', 'elegant']], en: 'wise and elegant' },
+    { ko: '다은', g: 'f', hj: [['多', '많을 다', 'plenty'], ['恩', '은혜 은', 'grace']], en: 'full of grace' },
+    { ko: '채원', g: 'f', hj: [['彩', '채색 채', 'colour'], ['媛', '미인 원', 'lovely lady']], en: 'colourful and lovely' },
+    { ko: '하윤', g: 'f', hj: [['夏', '여름 하', 'summer'], ['潤', '윤택할 윤', 'rich, glowing']], en: 'a glowing summer' },
+    { ko: '소희', g: 'f', hj: [['昭', '밝을 소', 'bright'], ['熙', '빛날 희', 'shining']], en: 'bright and shining' },
+    { ko: '지현', g: 'f', hj: [['智', '슬기 지', 'wisdom'], ['賢', '어질 현', 'good, wise']], en: 'wise and kind' },
+    { ko: '은지', g: 'f', hj: [['恩', '은혜 은', 'grace'], ['智', '슬기 지', 'wisdom']], en: 'grace and wisdom' },
+    { ko: '혜원', g: 'f', hj: [['慧', '슬기로울 혜', 'wise'], ['媛', '미인 원', 'lovely lady']], en: 'wise and lovely' },
+    { ko: '나연', g: 'f', hj: [['娜', '아리따울 나', 'graceful'], ['妍', '고울 연', 'beautiful']], en: 'graceful and beautiful' },
+    { ko: '가은', g: 'f', hj: [['佳', '아름다울 가', 'beautiful'], ['恩', '은혜 은', 'grace']], en: 'beautiful grace' },
+    { ko: '민준', g: 'm', hj: [['敏', '민첩할 민', 'quick-witted'], ['俊', '준걸 준', 'talented']], en: 'quick-witted and talented' },
+    { ko: '서준', g: 'm', hj: [['瑞', '상서로울 서', 'auspicious'], ['俊', '준걸 준', 'talented']], en: 'blessed and talented' },
+    { ko: '도윤', g: 'm', hj: [['道', '길 도', 'the way'], ['允', '진실로 윤', 'truly']], en: 'true to the right way' },
+    { ko: '예준', g: 'm', hj: [['睿', '슬기 예', 'wise'], ['俊', '준걸 준', 'talented']], en: 'wise and talented' },
+    { ko: '시우', g: 'm', hj: [['時', '때 시', 'the right time'], ['雨', '비 우', 'rain']], en: 'rain that comes at just the right time' },
+    { ko: '하준', g: 'm', hj: [['夏', '여름 하', 'summer'], ['俊', '준걸 준', 'talented']], en: 'a talented summer child' },
+    { ko: '주원', g: 'm', hj: [['柱', '기둥 주', 'pillar'], ['元', '으뜸 원', 'first, leading']], en: 'a leading pillar' },
+    { ko: '지호', g: 'm', hj: [['智', '슬기 지', 'wisdom'], ['浩', '넓을 호', 'vast']], en: 'vast wisdom' },
+    { ko: '준우', g: 'm', hj: [['俊', '준걸 준', 'talented'], ['佑', '도울 우', 'helping']], en: 'a talented helper' },
+    { ko: '현우', g: 'm', hj: [['賢', '어질 현', 'good, wise'], ['佑', '도울 우', 'helping']], en: 'a wise helper' },
+    { ko: '건우', g: 'm', hj: [['健', '굳셀 건', 'strong'], ['宇', '집 우', 'the wide world']], en: 'strong, with a big world' },
+    { ko: '선우', g: 'm', hj: [['善', '착할 선', 'kind'], ['佑', '도울 우', 'helping']], en: 'a kind helper' },
+    { ko: '태민', g: 'm', hj: [['泰', '클 태', 'great, calm'], ['敏', '민첩할 민', 'quick-witted']], en: 'calm and quick-witted' },
+    { ko: '동현', g: 'm', hj: [['東', '동녘 동', 'east'], ['賢', '어질 현', 'good, wise']], en: 'the wise one of the east' },
+    { ko: '정우', g: 'm', hj: [['正', '바를 정', 'upright'], ['佑', '도울 우', 'helping']], en: 'an upright helper' },
+    { ko: '승현', g: 'm', hj: [['承', '이을 승', 'carry on'], ['賢', '어질 현', 'good, wise']], en: 'carrying on wisdom' },
+    { ko: '지민', g: 'u', hj: [['智', '슬기 지', 'wisdom'], ['敏', '민첩할 민', 'quick-witted']], en: 'wise and quick-witted' },
+    { ko: '지우', g: 'u', hj: [['智', '슬기 지', 'wisdom'], ['佑', '도울 우', 'helping']], en: 'a wise helper' },
+    { ko: '유진', g: 'u', hj: [['有', '있을 유', 'having'], ['珍', '보배 진', 'treasure']], en: 'one who holds a treasure' },
+    { ko: '은우', g: 'u', hj: [['恩', '은혜 은', 'grace'], ['佑', '도울 우', 'helping']], en: 'grace that helps others' },
+    { ko: '민서', g: 'u', hj: [['敏', '민첩할 민', 'quick-witted'], ['瑞', '상서로울 서', 'auspicious']], en: 'bright and blessed' },
+    // 고유어 이름 — 한자 없이 우리말 뜻
+    { ko: '하늘', g: 'u', en: 'sky', native: true },
+    { ko: '다솜', g: 'f', en: 'love (an old Korean word)', native: true },
+    { ko: '보람', g: 'u', en: 'something worthwhile', native: true },
+    { ko: '한별', g: 'u', en: 'a big, bright star', native: true },
+    { ko: '나래', g: 'f', en: 'wings', native: true },
+    { ko: '이슬', g: 'f', en: 'morning dew', native: true },
+    { ko: '가람', g: 'u', en: 'river (an old Korean word)', native: true },
+    { ko: '한결', g: 'm', en: 'always the same, steady', native: true },
+    { ko: '슬기', g: 'f', en: 'wisdom', native: true },
+  ],
+};

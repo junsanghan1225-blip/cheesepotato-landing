@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Korean Name Generator — If I Were Korean, My Name Would Be… | CheesePotato</title>
+<meta name="description" content="Get a real Korean name — a common Korean surname and given name with its hanja and meaning — from your name and birthday, then save it as a card. Free, no sign-up.">
+<link rel="canonical" href="https://everykoreans.com/my-korean-name/">
+<!-- 만들기 도구 — 나의 한국 이름 짓기(운영자 2026-10-10 「A」). 손으로 쓴 쪽. 이름 · 한자는 korean-names.js(손으로 고른 자료). -->
+<script src="/gtm.js" async></script>
+<script src="/analytics.js" defer></script>
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta property="og:title" content="Korean Name Generator">
+<meta property="og:description" content="If you were Korean, what would your name be? Get a real Korean name with its meaning.">
+<meta property="og:url" content="https://everykoreans.com/my-korean-name/">
+<meta property="og:image" content="https://everykoreans.com/logo-256.png">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Korean Name Generator","url":"https://everykoreans.com/my-korean-name/","applicationCategory":"EducationalApplication","operatingSystem":"Any","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"publisher":{"@id":"https://everykoreans.com/#org"}}</script>
+<link rel="stylesheet" href="/vendor/pretendard.css">
+<link rel="stylesheet" href="/page.css">
+<script src="/card-kit.js" defer></script>
+<script src="/korean-names.js" defer></script>
+<script src="/my-korean-name.js" defer></script>
+</head>
+<body>
+<header class="hd"><div class="hd-in">
+  <a href="/"><img src="/logo.png" alt=""><span>치즈감자 CheesePotato</span></a>
+</div></header>
+<main>
+<h1>If I were Korean, my name would be…</h1>
+<p>나의 한국 이름 짓기 · a real Korean name with its meaning · Free · no sign-up</p>
+<div class="box">
+  <label for="mkName">Your name</label>
+  <input id="mkName" type="text" autocomplete="off" maxlength="40" placeholder="e.g. Emily">
+  <label for="mkBirth" style="margin-top:12px">Your birthday (optional)</label>
+  <input id="mkBirth" type="date">
+  <div class="mk-g" id="mkG" role="group" aria-label="Name style"><button type="button" data-g="f">Girl’s name</button><button type="button" data-g="m">Boy’s name</button><button type="button" data-g="u" class="on">Either</button></div>
+  <div class="out" aria-live="polite" id="mkOut" hidden>
+    <div class="big" id="mkBig"></div>
+    <div class="sub" id="mkSub"></div>
+    <p class="mk-mean" id="mkMean"></p>
+    <div class="mk-hj" id="mkHj"></div>
+    <p class="note">Korean families choose the hanja (Chinese characters) for a name — the same name can be written with different ones. This shows one common choice.</p>
+    <div class="seal">
+      <img id="mkImg" alt="Your Korean name card" width="270" height="480">
+      <div class="btns"><button class="btn main" id="mkSave" type="button">Save / share my Korean name</button><button class="btn sub" id="mkAgain" type="button">🔀 Another name</button></div>
+      <div class="btns" style="margin-top:0"><button class="btn sub" id="mkSheet" type="button">✏️ Print a tracing sheet</button><a class="btn sub" id="mkSeal" href="/korean-name/">🔴 Make a name seal</a></div>
+      <div class="after" id="mkAfter" hidden>
+        <b>Saved ✓ Now learn to write it</b>
+        <p>Your Korean name is three Hangul blocks. Learn every letter in it — Hangul takes about an hour, free.</p>
+        <div class="btns">
+          <a class="btn main" data-ev="한국이름_다음" data-ev-from="한글" href="/?utm_source=tool&amp;utm_medium=my_korean_name_saved#learn/path/basic">Start Hangul — free →</a>
+          <a class="btn sub" data-ev="한국이름_다음" data-ev-from="가입" href="/?utm_source=tool&amp;utm_medium=my_korean_name_saved#account">Create a free account</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<h2>How Korean names work</h2>
+<p>Most Korean names have <strong>three syllables</strong>: a one-syllable family name first (김 Kim, 이 Lee, 박 Park …), then a two-syllable given name. Many given names are made of two <strong>hanja</strong>, each chosen for its meaning — 하은 (河恩) is “river” + “grace”. Some names are native Korean words, like 하늘 (sky).</p>
+<p>Your result is just for fun — the same name and birthday always give the same name. Want your <em>own</em> name in Korean letters instead? Try <a href="/korean-name/">Your name in Korean</a>.</p>
+<h2>한국어</h2>
+<p>한국 이름은 보통 성 한 글자 + 이름 두 글자예요. 이름 두 글자에는 뜻을 담은 한자를 고르는 일이 많고, 「하늘」처럼 고유어 이름도 있어요. 같은 이름이라도 한자는 집마다 다를 수 있어요.</p>
+
+<div class="next">
+  <h3>Learn to read your new name</h3>
+  <p>The beginner path teaches Hangul step by step — you’ll read your name on day one.</p>
+  <div class="btns">
+    <a class="btn main" href="/?lt=1&amp;utm_source=tool&amp;utm_medium=my_korean_name">Find my Korean level — 3 min →</a>
+    <a class="btn sub" href="/#learn/path/basic">Learn Hangul from the start</a>
+  </div>
+</div>
+<p class="ft">Made by a Korean teacher · <a href="/about.html">About</a> · <a href="/korean-name/">Your name in Korean</a> · <a href="/my-korean-name/">Korean name generator</a> · <a href="/korean-zodiac/">Korean zodiac</a> · <a href="/korean-proverb/">Korean fortune cookie</a> · <a href="/korean-birthday/">Happy birthday in Korean</a> · <a href="/korean-word-today/">Word of the day</a> · <a href="/hangul-worksheet/">Name tracing worksheet</a> · <a href="/korean-age/">Korean age calculator</a> · <a href="/privacy.html">Privacy</a></p>
+</main>
+</body>
+</html>

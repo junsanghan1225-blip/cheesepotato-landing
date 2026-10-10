@@ -95,3 +95,13 @@ ol li::marker { color:var(--orange-deep); font-weight:700; }
 .pv-ex { margin:10px 0 0; padding:12px 14px; border-left:3px solid var(--orange); background:var(--tint); border-radius:0 10px 10px 0; font-size:14.5px; }
 .pv-ex small { display:block; color:var(--ink-3); }
 @media (max-width:420px) { .zd-grid { grid-template-columns:repeat(4, 1fr); } }
+.mk-g { display:flex; gap:6px; flex-wrap:wrap; margin-top:12px; }
+.mk-g button { padding:8px 14px; border-radius:999px; border:1px solid var(--line); background:#fff; font:inherit; font-size:14px; font-weight:600; color:var(--ink-2); cursor:pointer; }
+.mk-g button.on { background:var(--orange-deep); border-color:var(--orange-deep); color:#fff; }
+.mk-mean { margin:8px 0 6px; font-size:20px; font-weight:800; color:var(--orange-deep); }
+.mk-hj { display:flex; gap:8px; flex-wrap:wrap; }
+.mk-hj span { display:flex; flex-direction:column; align-items:center; min-width:96px; padding:10px 12px; border-radius:12px; background:var(--tint); font-size:13.5px; color:var(--ink-2); }
+.mk-hj span b { font-size:30px; color:var(--ink); line-height:1.2; }
+.mk-hj span small { color:var(--ink-3); }
+.mk-hj span.native { min-width:0; align-items:flex-start; }
+.wd-tag { display:inline-block; padding:4px 10px; border-radius:999px; background:var(--tint); color:var(--orange-deep); font-weight:800; font-size:12.5px; }
