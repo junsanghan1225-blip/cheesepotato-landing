@@ -2518,5 +2518,13 @@
   "Make & share": "制作 · 分享",
   "My name seal": "我的名字印章",
   "Korean age": "韩国年龄",
-  "Make my Korean name seal": "制作我的韩文名字印章"
+  "Make my Korean name seal": "制作我的韩文名字印章",
+  "Give to {0}": "布置给 {0}",
+  "Giving “{0}” again": "再次布置“{0}”",
+  "Invite a student first — use the QR or link in “Invite”.": "请先邀请学生 — 使用“邀请”中的二维码或链接。",
+  "No homework yet — pick a student and homework above.": "还没有作业 — 请在上方选择学生和作业。",
+  "Pick a date": "选择日期",
+  "Pick a student first": "请先选择学生",
+  "What": "什么作业",
+  "Who": "给谁"
 }
