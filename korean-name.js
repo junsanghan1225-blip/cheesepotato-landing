@@ -23,6 +23,9 @@
     jasmine: '재스민', megan: '메건', ashley: '애슐리', amanda: '어맨다', stephanie: '스테파니', nicole: '니콜', michelle: '미셸',
     kelly: '켈리', jake: '제이크', mike: '마이크', steve: '스티브', dan: '댄', ben: '벤', joe: '조', jane: '제인', anne: '앤', dave: '데이브',
     pete: '피트', nate: '네이트', jade: '제이드', rose: '로즈', eve: '이브', kyle: '카일', blake: '블레이크', luna: '루나', ruby: '루비', sophie: '소피', ellie: '엘리', fatima: '파티마', aisha: '아이샤', sara: '사라', elena: '엘레나',
+    // 일본어 로마자처럼 읽혀 틀리던 영어 이름(운영자 2026-10-10 「June 이 왜 주네」)
+    june: '준', jude: '주드', gabe: '게이브', dane: '데인', wade: '웨이드', gene: '진', tina: '티나', tara: '타라', kara: '카라', kai: '카이',
+    mae: '메이', rae: '레이', shane: '셰인', wayne: '웨인', jesse: '제시', jamie: '제이미', joanne: '조앤', dana: '데이나', mona: '모나', nina: '니나', rita: '리타',
     // 베트남어(성 · 흔한 이름) — 소리 기호를 떼고 찾는다
     nguyen: '응우옌', tran: '쩐', le: '레', pham: '팜', hoang: '호앙', huynh: '후인', phan: '판', vu: '부', vo: '보', dang: '당',
     bui: '부이', do: '도', ho: '호', ngo: '응오', duong: '즈엉', ly: '리', anh: '아인', linh: '린', minh: '민', huong: '흐엉',
@@ -125,7 +128,9 @@
     let guessed = false;
     const out = words.map((w) => {
       if (NAMES[w]) return NAMES[w];
-      const ja = fromJapanese(w);
+      /* 「자음 + 모음 + 자음 + e」 네 글자(June · Jade · Gabe …)는 일본어 로마자로도 읽히지만 끝 e 가 소리 없는 영어 이름이다.
+         j · g · d · b · w · z 로 시작하는 이런 꼴의 일본 이름은 드물어 소리 규칙으로 보낸다(Yume · Mone 같은 일본 이름은 그대로). */
+      const ja = /^[jgdbwz][aiueo][kgsztdnhbpmrw]e$/.test(w) ? null : fromJapanese(w);
       if (ja) return ja;
       guessed = true;
       return fromSound(w) || '';
