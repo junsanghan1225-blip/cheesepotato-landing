@@ -155,6 +155,67 @@
      인스타 스토리 크기(1080×1920). 빨간 네모 도장 안에 이름 글자를 옛 도장처럼 **오른쪽 줄부터 위에서 아래로**.
      글자가 셋까지면 한 줄, 넷이면 2×2, 그보다 많으면 두 줄. 아래에 로마자와 사이트 주소 — 받은 사람이 「나도」 해 보게. */
   const FONT = "'Pretendard Variable', Pretendard, -apple-system, 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif";
+  /* 도장 한 개(S×S). 진짜 새김 도장처럼(운영자 2026-10-10 「더 타이트하게 · 레퍼런스 느낌」):
+     굵은 테두리 안을 글자가 **꽉** 채운다 — 글자마다 실제 잉크 상자를 재서 칸에 늘려 맞추고, 칸 사이는 좁게.
+     칸: 1자 통째 · 2자 좌우 · 3자 왼쪽 큰 한 자 + 오른쪽 위아래 · 4자 이상 두 줄씩(왼→오, 위→아래).
+     마지막에 이름에서 나온 씨앗으로 잉크 번짐 · 빠진 점을 찍어 손도장 느낌(같은 이름은 늘 같은 그림). */
+  const RED = '#C8102E';
+  function glyph(t) {
+    const P = 400, c = document.createElement('canvas'); c.width = c.height = P;
+    const g = c.getContext('2d'); g.fillStyle = RED; g.textAlign = 'center'; g.textBaseline = 'middle';
+    g.font = `900 ${P * 0.72}px ${FONT}`; g.fillText(t, P / 2, P / 2);
+    const d = g.getImageData(0, 0, P, P).data; let x1 = P, y1 = P, x2 = -1, y2 = -1;
+    for (let y = 0; y < P; y++) for (let x = 0; x < P; x++) if (d[(y * P + x) * 4 + 3] > 60) {
+      if (x < x1) x1 = x; if (x > x2) x2 = x; if (y < y1) y1 = y; if (y > y2) y2 = y;
+    }
+    return x2 < 0 ? null : { c, x: x1, y: y1, w: x2 - x1 + 1, h: y2 - y1 + 1 };
+  }
+  function sealCanvas(chars0, S) {
+    // 둥근 인감처럼 — 1 · 3자 이름은 끝에 「인(印)」을 붙여 2 · 4칸으로(홍길동 → 홍길/동인), 읽는 차례는 왼→오, 위→아래.
+    const chars = chars0.length === 1 || chars0.length === 3 ? [...chars0, '인'] : chars0, n = chars.length;
+    const cols = n <= 4 ? 2 : n <= 6 ? 3 : 4, rows = n === 2 ? 1 : Math.ceil(n / cols);
+    // 1) 네모 판에 글자를 칸마다 꽉 채워 그린다
+    const A = S, sq = document.createElement('canvas'); sq.width = sq.height = A;
+    const q = sq.getContext('2d'), gap = A * 0.03;
+    chars.forEach((t, i) => {
+      const gl = glyph(t); if (!gl) return;
+      const r = Math.floor(i / cols), inRow = r === rows - 1 ? n - cols * r : cols;   // 마지막 줄이 덜 차면 넓게
+      const cw = A / inRow, ch = A / rows;
+      q.drawImage(gl.c, gl.x, gl.y, gl.w, gl.h, (i - cols * r) * cw + gap / 2, r * ch + gap / 2, cw - gap, ch - gap);
+    });
+    // 2) 네모 판을 동그라미 안으로 부풀려 옮긴다(원 → 네모 대응) — 글자가 둥근 테두리까지 꽉 찬다
+    const c = document.createElement('canvas'); c.width = c.height = S;
+    const g = c.getContext('2d'), B = S * 0.045, R = S / 2 - B / 2, Ri = S / 2 - B - S * 0.03;
+    const src = q.getImageData(0, 0, A, A).data, out = g.createImageData(S, S), o = out.data, h2 = 2 * Math.SQRT2;
+    for (let py = 0; py < S; py++) for (let px = 0; px < S; px++) {
+      const u = (px + .5 - S / 2) / Ri, v = (py + .5 - S / 2) / Ri; if (u * u + v * v > 1) continue;
+      const a = 2 + u * u - v * v, b = 2 - u * u + v * v;
+      const x = .5 * Math.sqrt(Math.max(0, a + h2 * u)) - .5 * Math.sqrt(Math.max(0, a - h2 * u));
+      const y = .5 * Math.sqrt(Math.max(0, b + h2 * v)) - .5 * Math.sqrt(Math.max(0, b - h2 * v));
+      const sx = Math.min(A - 1, Math.max(0, Math.round((x + 1) / 2 * A - .5))), sy = Math.min(A - 1, Math.max(0, Math.round((y + 1) / 2 * A - .5)));
+      const si = (sy * A + sx) * 4, di = (py * S + px) * 4;
+      o[di] = src[si]; o[di + 1] = src[si + 1]; o[di + 2] = src[si + 2]; o[di + 3] = src[si + 3];
+    }
+    g.putImageData(out, 0, 0);
+    g.strokeStyle = RED; g.lineWidth = B; g.beginPath(); g.arc(S / 2, S / 2, R, 0, 7); g.stroke();
+    // 손도장 느낌 — 잉크가 덜 묻은 점 · 긁힌 자국
+    let s = 7; for (const ch of chars.join('')) s = (s * 31 + ch.charCodeAt(0)) >>> 0;
+    const rnd = () => ((s = (s * 1664525 + 1013904223) >>> 0) / 4294967296);
+    g.globalCompositeOperation = 'destination-out';
+    for (let i = 0; i < 900; i++) { g.globalAlpha = .25 + rnd() * .75; g.beginPath(); g.arc(rnd() * S, rnd() * S, .6 + rnd() * rnd() * S * .008, 0, 7); g.fill(); }
+    for (let i = 0; i < 14; i++) {
+      g.globalAlpha = .15 + rnd() * .25; g.lineWidth = 1 + rnd() * 3; g.beginPath();
+      const x = rnd() * S, y = rnd() * S, a = rnd() * 7, l = S * (.03 + rnd() * .08);
+      g.moveTo(x, y); g.lineTo(x + Math.cos(a) * l, y + Math.sin(a) * l); g.stroke();
+    }
+    for (let i = 0; i < 5; i++) {                                     // 잉크가 옅은 큰 얼룩
+      const x = rnd() * S, y = rnd() * S, r = S * (.08 + rnd() * .12), gr = g.createRadialGradient(x, y, 0, x, y, r);
+      gr.addColorStop(0, 'rgba(0,0,0,.18)'); gr.addColorStop(1, 'rgba(0,0,0,0)');
+      g.globalAlpha = 1; g.fillStyle = gr; g.fillRect(x - r, y - r, r * 2, r * 2);
+    }
+    g.globalCompositeOperation = 'source-over'; g.globalAlpha = 1;
+    return c;
+  }
   async function sealBlob(ko, rom) {
     const chars = [...ko.replace(/\s/g, '')].slice(0, 8);
     if (!chars.length) return null;
@@ -165,24 +226,10 @@
     g.fillStyle = '#1B1512'; g.textAlign = 'center';
     g.font = `700 54px ${FONT}`; g.fillText('My name in Korean', W / 2, 300);
     g.fillStyle = '#8C7A66'; g.font = `600 40px ${FONT}`; g.fillText('한국어로 내 이름', W / 2, 370);
-    // 도장 — 칸 나누기
-    const cols = chars.length <= 3 ? 1 : 2, rows = Math.ceil(chars.length / cols);
-    const S = 640, x0 = (W - S) / 2, y0 = 470, pad = 56, cw = (S - pad * 2) / cols, ch = (S - pad * 2) / rows;
-    g.save(); g.translate(x0 + S / 2, y0 + S / 2); g.rotate(-0.035); g.translate(-(x0 + S / 2), -(y0 + S / 2));
-    g.strokeStyle = '#C8102E'; g.lineWidth = 26; g.lineJoin = 'round';
-    g.beginPath(); g.roundRect ? g.roundRect(x0, y0, S, S, 46) : g.rect(x0, y0, S, S); g.stroke();
-    g.lineWidth = 8; g.beginPath(); g.roundRect ? g.roundRect(x0 + 30, y0 + 30, S - 60, S - 60, 30) : g.rect(x0 + 30, y0 + 30, S - 60, S - 60); g.stroke();
-    g.fillStyle = '#C8102E'; g.textBaseline = 'middle';
-    const fs = Math.floor(Math.min(cw, ch) * 0.82);
-    g.font = `900 ${fs}px ${FONT}`;
-    chars.forEach((t, i) => {
-      const col = Math.floor(i / rows), row = i % rows;              // 오른쪽 줄부터
-      const cx = x0 + pad + cw * (cols - 1 - col) + cw / 2, cy = y0 + pad + ch * row + ch / 2;
-      g.fillText(t, cx, cy);
-    });
-    g.restore();
-    g.textBaseline = 'alphabetic'; g.fillStyle = '#1B1512'; g.font = `800 96px ${FONT}`; g.fillText(ko, W / 2, 1300);
-    g.fillStyle = '#4E3E31'; g.font = `600 42px ${FONT}`; g.fillText(rom, W / 2, 1380);
+    const S = 720, seal = sealCanvas(chars, S);
+    g.save(); g.translate(W / 2, 470 + S / 2); g.rotate(-0.03); g.drawImage(seal, -S / 2, -S / 2); g.restore();
+    g.textBaseline = 'alphabetic'; g.fillStyle = '#1B1512'; g.font = `800 96px ${FONT}`; g.fillText(ko, W / 2, 1340);
+    g.fillStyle = '#4E3E31'; g.font = `600 42px ${FONT}`; g.fillText(rom, W / 2, 1420);
     g.fillStyle = '#8C7A66'; g.font = `600 38px ${FONT}`; g.fillText("What's yours? 🥔🧀", W / 2, 1640);
     g.fillStyle = '#C4551C'; g.font = `800 44px ${FONT}`; g.fillText('everykoreans.com/korean-name', W / 2, 1710);
     return new Promise((res) => c.toBlob(res, 'image/png'));
