@@ -7003,3 +7003,15 @@ body:has(.wd-word2) .hlp-fab { display:none; }
 .cls-add2 .cls-due-pre input { width:auto; flex:0 1 160px; }
 .cls-give2 { align-self:flex-end; margin-top:6px; }
 .cls-give2:disabled { opacity:.5; cursor:not-allowed; }
+
+/* 출석 도장(2026-10-10) — 레슨 끝 화면, 이번 주 7칸 */
+.ls-stamp { margin:14px auto 0; max-width:420px; padding:14px 16px; border-radius:16px; background:var(--surface); border:1px solid var(--line); }
+.ls-stamp-h { display:flex; justify-content:space-between; align-items:baseline; font-size:14px; }
+.ls-stamp-h span { color:var(--ink-3); font-weight:700; }
+.ls-stamp-row { display:grid; grid-template-columns:repeat(7, 1fr); gap:4px; margin:10px 0 8px; }
+.ls-st { display:flex; flex-direction:column; align-items:center; gap:4px; }
+.ls-st i { display:grid; place-items:center; width:38px; height:38px; border-radius:50%; border:2px dashed var(--line); font-style:normal; font-size:13px; font-weight:700; color:var(--ink-3); }
+.ls-st.on i { border:3px double #C8102E; font-size:20px; transform:rotate(var(--r)); }
+.ls-st.now i { box-shadow:0 0 0 3px var(--tint); }
+.ls-st small { font-size:11.5px; color:var(--ink-3); }
+.ls-stamp-save { width:100%; }

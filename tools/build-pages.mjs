@@ -3035,6 +3035,8 @@ urls.push({ loc: '/teacher.html', freq: 'monthly', pri: '0.5' });
 urls.push({ loc: '/about.html', freq: 'monthly', pri: '0.5' });
 urls.push({ loc: '/korean-name/', freq: 'monthly', pri: '0.7' });
 urls.push({ loc: '/korean-age/', freq: 'monthly', pri: '0.7' });
+urls.push({ loc: '/korean-zodiac/', freq: 'monthly', pri: '0.7' });
+urls.push({ loc: '/korean-proverb/', freq: 'monthly', pri: '0.7' });
 urls.push({ loc: '/for-teachers.html', freq: 'monthly', pri: '0.6' });
 urls.push({ loc: '/my/eps-topik/', freq: 'monthly', pri: '0.6' });   // 미얀마어 EPS(운영자 2026-10-10 「열어줘」)
 for (const loc of ['/pricing.html', '/terms.html', '/refund.html']) urls.push({ loc, freq: 'yearly', pri: '0.3' });

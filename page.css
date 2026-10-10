@@ -74,3 +74,24 @@ tr:last-child td { border-bottom:none; }
 .seal img { display:block; width:min(270px,70vw); height:auto; border-radius:14px; border:1px solid var(--line); box-shadow:0 8px 24px rgba(0,0,0,.08); }
 ol { margin:14px 0 14px 4px; padding-left:20px; }
 ol li::marker { color:var(--orange-deep); font-weight:700; }
+/* 만들기 도구 — 띠 카드 · 속담 포춘쿠키(2026-10-10) */
+.zd-grid { display:grid; grid-template-columns:repeat(6, 1fr); gap:6px; margin-top:14px; }
+.zd-grid button { display:flex; flex-direction:column; align-items:center; gap:2px; padding:8px 2px; border:1px solid var(--line); border-radius:12px; background:#fff; font:inherit; font-size:12.5px; font-weight:700; color:var(--ink-2); cursor:pointer; }
+.zd-grid button span { font-size:26px; line-height:1.1; }
+.zd-grid button.on { border-color:var(--orange-deep); background:var(--tint); color:var(--orange-deep); }
+.zd-head { display:flex; align-items:center; gap:16px; }
+.zd-em { font-size:clamp(56px,14vw,84px); line-height:1; }
+.zd-say { margin:14px 0 6px; padding:14px 16px; border-radius:12px; background:var(--tint); }
+.zd-say b { display:block; font-size:20px; color:var(--orange-deep); }
+.zd-say span { font-size:14px; color:var(--ink-3); }
+.pv-cookie { display:block; margin:6px auto 0; width:160px; height:160px; border:0; border-radius:50%; background:var(--tint); font-size:92px; line-height:160px; cursor:pointer; transition:transform .25s; }
+.pv-cookie:hover { transform:rotate(-8deg) scale(1.04); }
+.pv-cookie.crack { animation:pvCrack .5s ease; }
+@keyframes pvCrack { 0% { transform:scale(1); } 40% { transform:scale(1.15) rotate(10deg); } 100% { transform:scale(1); } }
+.pv-tip { text-align:center; font-size:14px; color:var(--ink-3); margin:8px 0 0; }
+.pv-h { font-size:clamp(24px,6vw,32px); font-weight:800; color:var(--ink); line-height:1.35; word-break:keep-all; margin:0; }
+.pv-r { font-size:14px; color:var(--ink-3); margin:4px 0 12px; }
+.pv-m { margin:8px 0; font-size:15.5px; }
+.pv-ex { margin:10px 0 0; padding:12px 14px; border-left:3px solid var(--orange); background:var(--tint); border-radius:0 10px 10px 0; font-size:14.5px; }
+.pv-ex small { display:block; color:var(--ink-3); }
+@media (max-width:420px) { .zd-grid { grid-template-columns:repeat(4, 1fr); } }
