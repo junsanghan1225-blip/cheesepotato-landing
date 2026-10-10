@@ -3027,6 +3027,11 @@ for (const code of Object.keys(LOCALES)) {
 
 urls.push({ loc: '/privacy.html', freq: 'yearly', pri: '0.3' });
 urls.push({ loc: '/teacher.html', freq: 'monthly', pri: '0.5' });
+// 손으로 쓴 쪽 — 소개 · 무료 도구(2026-10-10 운영자 「트래픽 A · 소개 쪽」)
+urls.push({ loc: '/about.html', freq: 'monthly', pri: '0.5' });
+urls.push({ loc: '/korean-name/', freq: 'monthly', pri: '0.7' });
+urls.push({ loc: '/korean-age/', freq: 'monthly', pri: '0.7' });
+urls.push({ loc: '/for-teachers.html', freq: 'monthly', pri: '0.6' });
 for (const loc of ['/pricing.html', '/terms.html', '/refund.html']) urls.push({ loc, freq: 'yearly', pri: '0.3' });
 /* 사이트맵을 갈래마다 따로 쓴다. 한 파일(7,500여 개)이면 Search Console 이
    「색인 안 됨」을 갈래별로 못 나눠 보여 준다 — 사전이 문제인지 블로그가 문제인지
