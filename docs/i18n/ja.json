@@ -2530,5 +2530,10 @@
   "My predicted TOPIK level": "私のTOPIK予想級",
   "Predicted TOPIK {0} {1} · {2}/{3}": "TOPIK {0} 予想 {1} · {2}/{3}",
   "Raise it — practise {0} ({1}%) →": "点数アップ — {0}({1}%)を練習 →",
-  "Take the 3-minute level test or 20 practice questions and your predicted level shows up here — it moves as you practise.": "3分のレベルテストか練習20問で、ここに予想級が出ます — 練習するほど変わります。"
+  "Take the 3-minute level test or 20 practice questions and your predicted level shows up here — it moves as you practise.": "3分のレベルテストか練習20問で、ここに予想級が出ます — 練習するほど変わります。",
+  "{0} pts {1}d ago": "{1}日前 {0}点",
+  "{0}d": "{0}日",
+  "In this question": "この問題に出たもの",
+  "Our estimate, not an official TOPIK score": "当サイトの目安で、公式のTOPIKスコアではありません",
+  "Predicted TOPIK {0} level": "TOPIK {0} 予想級"
 }

@@ -2531,5 +2531,10 @@
   "My predicted TOPIK level": "Cấp TOPIK dự đoán của tôi",
   "Predicted TOPIK {0} {1} · {2}/{3}": "TOPIK {0} dự đoán {1} · {2}/{3}",
   "Raise it — practise {0} ({1}%) →": "Nâng điểm — luyện {0} ({1}%) →",
-  "Take the 3-minute level test or 20 practice questions and your predicted level shows up here — it moves as you practise.": "Làm bài kiểm tra trình độ 3 phút hoặc 20 câu luyện tập, cấp dự đoán sẽ hiện ở đây — và thay đổi khi bạn luyện tập."
+  "Take the 3-minute level test or 20 practice questions and your predicted level shows up here — it moves as you practise.": "Làm bài kiểm tra trình độ 3 phút hoặc 20 câu luyện tập, cấp dự đoán sẽ hiện ở đây — và thay đổi khi bạn luyện tập.",
+  "{0} pts {1}d ago": "{0} điểm, {1} ngày trước",
+  "{0}d": "{0} ngày",
+  "In this question": "Có trong câu này",
+  "Our estimate, not an official TOPIK score": "Ước tính của chúng tôi, không phải điểm TOPIK chính thức",
+  "Predicted TOPIK {0} level": "Cấp TOPIK {0} dự đoán"
 }
