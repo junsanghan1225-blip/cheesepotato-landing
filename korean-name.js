@@ -152,12 +152,11 @@
   });
 
   /* ── 이름 도장 그림(운영자 2026-10-10 「판돈 4」 — 공유하고 싶게) ──
-     인스타 스토리 크기(1080×1920). 빨간 네모 도장 안에 이름 글자를 옛 도장처럼 **오른쪽 줄부터 위에서 아래로**.
-     글자가 셋까지면 한 줄, 넷이면 2×2, 그보다 많으면 두 줄. 아래에 로마자와 사이트 주소 — 받은 사람이 「나도」 해 보게. */
+     인스타 스토리 크기(1080×1920). 가운데 빨간 도장(모양은 아래 sealStyle). 아래에 로마자와 사이트 주소 — 받은 사람이 「나도」 해 보게. */
   const FONT = "'Pretendard Variable', Pretendard, -apple-system, 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif";
   /* 도장 한 개(S×S). 진짜 새김 도장처럼(운영자 2026-10-10 「더 타이트하게 · 레퍼런스 느낌」):
      굵은 테두리 안을 글자가 **꽉** 채운다 — 글자마다 실제 잉크 상자를 재서 칸에 늘려 맞추고, 칸 사이는 좁게.
-     칸: 1자 통째 · 2자 좌우 · 3자 왼쪽 큰 한 자 + 오른쪽 위아래 · 4자 이상 두 줄씩(왼→오, 위→아래).
+     칸: 1자 통째 · 2자 좌우 · 3자는 「인」을 붙여 2×2 · 5자 이상 세 · 네 칸씩 두 줄(왼→오, 위→아래).
      마지막에 이름에서 나온 씨앗으로 잉크 번짐 · 빠진 점을 찍어 손도장 느낌(같은 이름은 늘 같은 그림). */
   const RED = '#C8102E';
   function glyph(t) {
@@ -170,12 +169,24 @@
     }
     return x2 < 0 ? null : { c, x: x1, y: y1, w: x2 - x1 + 1, h: y2 - y1 + 1 };
   }
-  function sealCanvas(chars0, S) {
-    // 둥근 인감처럼 — 1 · 3자 이름은 끝에 「인(印)」을 붙여 2 · 4칸으로(홍길동 → 홍길/동인), 읽는 차례는 왼→오, 위→아래.
-    const chars = chars0.length === 1 || chars0.length === 3 ? [...chars0, '인'] : chars0, n = chars.length;
-    const cols = n <= 4 ? 2 : n <= 6 ? 3 : 4, rows = n === 2 ? 1 : Math.ceil(n / cols);
+  /* 모양 넷 — 둥근 · 네모 × 양각(빨간 글자) · 음각(빨간 판에 흰 글자). 글자 수에 맞는 것 중에서 이름 씨앗으로 고른다
+     (운영자 2026-10-10 「스타일 다양하게, 글자에 따라 적절하게」). 둥근 것은 4칸일 때만 — 2칸 · 5칸 이상은 원에서 글자가 너무 늘어난다.
+     「다른 모양」 단추가 bump 를 하나씩 올려 다음 것으로. */
+  const STYLES = [['round', 'yang'], ['square', 'yang'], ['round', 'eum'], ['square', 'eum']];
+  function sealStyle(chars, bump) {
+    const n = chars.length === 3 ? 4 : chars.length;
+    const ok = STYLES.filter(([sh]) => sh === 'square' || n === 4);
+    let s = 0; for (const ch of chars.join('')) s = (s * 31 + ch.charCodeAt(0)) >>> 0;
+    return ok[(s + bump) % ok.length];
+  }
+  function sealCanvas(chars0, S, shape, mode) {
+    // 3자 이름은 끝에 「인(印)」을 붙여 4칸으로(홍길동 → 홍길/동인) — 인감처럼. 읽는 차례는 왼→오, 위→아래.
+    const chars = chars0.length === 3 ? [...chars0, '인'] : chars0, n = chars.length;
+    const cols = n === 1 ? 1 : n <= 4 ? 2 : n <= 6 ? 3 : 4, rows = n <= 2 ? 1 : Math.ceil(n / cols);
+    const B = S * 0.045, eum = mode === 'eum';
     // 1) 네모 판에 글자를 칸마다 꽉 채워 그린다
-    const A = S, sq = document.createElement('canvas'); sq.width = sq.height = A;
+    const A = shape === 'round' ? S : Math.round(S - 2 * (eum ? S * 0.07 : B + S * 0.03));
+    const sq = document.createElement('canvas'); sq.width = sq.height = A;
     const q = sq.getContext('2d'), gap = A * 0.03;
     chars.forEach((t, i) => {
       const gl = glyph(t); if (!gl) return;
@@ -183,21 +194,32 @@
       const cw = A / inRow, ch = A / rows;
       q.drawImage(gl.c, gl.x, gl.y, gl.w, gl.h, (i - cols * r) * cw + gap / 2, r * ch + gap / 2, cw - gap, ch - gap);
     });
-    // 2) 네모 판을 동그라미 안으로 부풀려 옮긴다(원 → 네모 대응) — 글자가 둥근 테두리까지 꽉 찬다
-    const c = document.createElement('canvas'); c.width = c.height = S;
-    const g = c.getContext('2d'), B = S * 0.045, R = S / 2 - B / 2, Ri = S / 2 - B - S * 0.03;
-    const src = q.getImageData(0, 0, A, A).data, out = g.createImageData(S, S), o = out.data, h2 = 2 * Math.SQRT2;
-    for (let py = 0; py < S; py++) for (let px = 0; px < S; px++) {
-      const u = (px + .5 - S / 2) / Ri, v = (py + .5 - S / 2) / Ri; if (u * u + v * v > 1) continue;
-      const a = 2 + u * u - v * v, b = 2 - u * u + v * v;
-      const x = .5 * Math.sqrt(Math.max(0, a + h2 * u)) - .5 * Math.sqrt(Math.max(0, a - h2 * u));
-      const y = .5 * Math.sqrt(Math.max(0, b + h2 * v)) - .5 * Math.sqrt(Math.max(0, b - h2 * v));
-      const sx = Math.min(A - 1, Math.max(0, Math.round((x + 1) / 2 * A - .5))), sy = Math.min(A - 1, Math.max(0, Math.round((y + 1) / 2 * A - .5)));
-      const si = (sy * A + sx) * 4, di = (py * S + px) * 4;
-      o[di] = src[si]; o[di + 1] = src[si + 1]; o[di + 2] = src[si + 2]; o[di + 3] = src[si + 3];
+    let ink = sq;
+    if (shape === 'round') {
+      // 2) 네모 판을 동그라미 안으로 부풀려 옮긴다(원 → 네모 대응) — 글자가 둥근 테두리까지 꽉 찬다
+      const Ri = S / 2 - (eum ? S * 0.07 : B + S * 0.03);
+      ink = document.createElement('canvas'); ink.width = ink.height = S;
+      const w = ink.getContext('2d'), src = q.getImageData(0, 0, A, A).data, out = w.createImageData(S, S), o = out.data, h2 = 2 * Math.SQRT2;
+      for (let py = 0; py < S; py++) for (let px = 0; px < S; px++) {
+        const u = (px + .5 - S / 2) / Ri, v = (py + .5 - S / 2) / Ri; if (u * u + v * v > 1) continue;
+        const a = 2 + u * u - v * v, b = 2 - u * u + v * v;
+        const x = .5 * Math.sqrt(Math.max(0, a + h2 * u)) - .5 * Math.sqrt(Math.max(0, a - h2 * u));
+        const y = .5 * Math.sqrt(Math.max(0, b + h2 * v)) - .5 * Math.sqrt(Math.max(0, b - h2 * v));
+        const sx = Math.min(A - 1, Math.max(0, Math.round((x + 1) / 2 * A - .5))), sy = Math.min(A - 1, Math.max(0, Math.round((y + 1) / 2 * A - .5)));
+        const si = (sy * A + sx) * 4, di = (py * S + px) * 4;
+        o[di] = src[si]; o[di + 1] = src[si + 1]; o[di + 2] = src[si + 2]; o[di + 3] = src[si + 3];
+      }
+      w.putImageData(out, 0, 0);
     }
-    g.putImageData(out, 0, 0);
-    g.strokeStyle = RED; g.lineWidth = B; g.beginPath(); g.arc(S / 2, S / 2, R, 0, 7); g.stroke();
+    const c = document.createElement('canvas'); c.width = c.height = S;
+    const g = c.getContext('2d'), off = (S - ink.width) / 2;
+    const path = () => { g.beginPath(); if (shape === 'round') g.arc(S / 2, S / 2, S / 2 - B / 2, 0, 7); else if (g.roundRect) g.roundRect(B / 2, B / 2, S - B, S - B, S * 0.03); else g.rect(B / 2, B / 2, S - B, S - B); };
+    if (eum) {                                                        // 빨간 판을 칠하고 글자 자리를 파낸다
+      g.fillStyle = RED; path(); g.lineWidth = B; g.strokeStyle = RED; g.fill(); g.stroke();
+      g.globalCompositeOperation = 'destination-out'; g.drawImage(ink, off, off); g.globalCompositeOperation = 'source-over';
+    } else {
+      g.drawImage(ink, off, off); g.strokeStyle = RED; g.lineWidth = B; path(); g.stroke();
+    }
     // 손도장 느낌 — 잉크가 덜 묻은 점 · 긁힌 자국
     let s = 7; for (const ch of chars.join('')) s = (s * 31 + ch.charCodeAt(0)) >>> 0;
     const rnd = () => ((s = (s * 1664525 + 1013904223) >>> 0) / 4294967296);
@@ -216,6 +238,7 @@
     g.globalCompositeOperation = 'source-over'; g.globalAlpha = 1;
     return c;
   }
+  let bump = 0;
   async function sealBlob(ko, rom) {
     const chars = [...ko.replace(/\s/g, '')].slice(0, 8);
     if (!chars.length) return null;
@@ -226,7 +249,7 @@
     g.fillStyle = '#1B1512'; g.textAlign = 'center';
     g.font = `700 54px ${FONT}`; g.fillText('My name in Korean', W / 2, 300);
     g.fillStyle = '#8C7A66'; g.font = `600 40px ${FONT}`; g.fillText('한국어로 내 이름', W / 2, 370);
-    const S = 720, seal = sealCanvas(chars, S);
+    const S = 720, [shape, mode] = sealStyle(chars, bump), seal = sealCanvas(chars, S, shape, mode);
     g.save(); g.translate(W / 2, 470 + S / 2); g.rotate(-0.03); g.drawImage(seal, -S / 2, -S / 2); g.restore();
     g.textBaseline = 'alphabetic'; g.fillStyle = '#1B1512'; g.font = `800 96px ${FONT}`; g.fillText(ko, W / 2, 1340);
     g.fillStyle = '#4E3E31'; g.font = `600 42px ${FONT}`; g.fillText(rom, W / 2, 1420);
@@ -247,6 +270,8 @@
   let sealT = 0;
   inp.addEventListener('input', () => { clearTimeout(sealT); sealT = setTimeout(sealPaint, 350); });
   sealPaint();
+  $('nmStyle')?.addEventListener('click', () => { bump++; sealPaint(); });
+  inp.addEventListener('input', () => { bump = 0; });
   $('nmSave')?.addEventListener('click', async () => {
     const ko = big.textContent, blob = await sealBlob(ko, sub.textContent); if (!blob) return;
     const file = new File([blob], `my-korean-name-${Date.now()}.png`, { type: 'image/png' });
