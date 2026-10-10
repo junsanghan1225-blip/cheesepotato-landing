@@ -5719,6 +5719,32 @@ body.mk-printing .mk-cover, body.mk-printing .mk-paper, body.mk-printing .mk-omr
 .lec-form textarea { font:inherit; font-size:14px; padding:8px 10px; border:1px solid var(--line); border-radius:10px; background:var(--surface); color:var(--ink); width:100%; resize:vertical; }
 .lec-one .lec-form { width:100%; }
 
+/* 내 TOPIK 예상 급수(TOPIK 첫 화면 맨 위 · 레벨테스트 끝, 2026-10-10) — 약점 리포트와 같은 상자 모양 */
+.pd-card { padding:14px 16px 12px; margin-bottom:12px; border:1px solid var(--line); border-radius:var(--r-l); background:var(--surface); display:flex; flex-direction:column; gap:8px; min-width:0; }
+.pd-k { font-size:12px; font-weight:800; color:var(--ink-3); }
+.pd-top { display:flex; align-items:baseline; gap:10px; min-width:0; }
+.pd-top b { font-size:32px; font-weight:800; line-height:1; letter-spacing:-.03em; color:var(--ink); white-space:nowrap; }
+.pd-top > span:not(.pd-chg) { font-size:17px; font-weight:800; color:var(--ink-2); }
+.pd-top small { font-size:12px; font-weight:700; color:var(--ink-3); }
+.pd-chg { align-self:center; font-size:12px; font-weight:800; padding:3px 9px; border-radius:999px; background:var(--surface-2); color:var(--ink-2); white-space:nowrap; }
+.pd-chg.up { color:var(--green); background:color-mix(in srgb, var(--green) 12%, transparent); }
+.pd-spark { margin-left:auto; align-self:center; flex:0 1 96px; min-width:0; height:28px; }
+@media (max-width:480px) { .pd-spark { display:none; } }
+.pd-spark polyline { fill:none; stroke:var(--orange); stroke-width:2.5; stroke-linecap:round; stroke-linejoin:round; }
+.pd-card .lt-rep-scale { height:8px; margin:18px 0 0; }
+.pd-card .lt-rep-cut em { font-size:10.5px; }
+.pd-bot { margin-top:14px; display:flex; align-items:center; justify-content:space-between; gap:10px; flex-wrap:wrap; }
+.pd-gap { font-size:13.5px; font-weight:700; color:var(--ink-2); }
+.pd-go { padding:7px 14px; border:0; border-radius:999px; background:var(--orange); color:#fff; font:inherit; font-size:13px; font-weight:800; cursor:pointer; white-space:nowrap; max-width:100%; overflow:hidden; text-overflow:ellipsis; }
+.pd-fine { margin:0; font-size:11.5px; color:var(--ink-3); word-break:keep-all; }
+.pd-empty p { margin:0; font-size:13.5px; color:var(--ink-2); word-break:keep-all; }
+.pd-empty .pd-go { align-self:flex-start; }
+.pd-lt { margin:12px 0 0; }
+/* 틀린 문제 해설 밑 「이 문제에 나온 것」 */
+.tq-learn { margin-top:10px; padding-top:10px; border-top:1px dashed var(--line); display:flex; flex-direction:column; gap:6px; }
+.tq-learn-h { font-size:12px; font-weight:800; color:var(--ink-3); }
+.tq-learn div { display:flex; flex-wrap:wrap; gap:6px; }
+
 /* 약점 리포트 · 합격 계획표(TOPIK 읽기 첫 화면 맨 위, 2026-10-03) */
 .tq-me-in { display:grid; gap:12px; margin-top:10px; }
 @media (min-width:760px) { .tq-me-in { grid-template-columns:1fr 1fr; } }
