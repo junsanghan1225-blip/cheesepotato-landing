@@ -12,7 +12,7 @@
 | 2 | 선생님 5명에게 메시지 보내기 → 메일 오면 반 화면 「선생님 계정」에 올리기 | `docs/ops/teacher-pilot.md`(그대로 복사할 글) |
 | 3 | 다음 TOPIK 시험 날짜(공식 공지) 알려 주기 | 받으면 D-30 부트캠프를 만든다(`docs/plans/topik-exam-wave.md`) |
 | 5 | 이름 도장 그림(Claude 가 만든 셋 중 하나)을 인스타 스토리에 + 링크 스티커 `everykoreans.com/korean-name` | 첫 공유 예시 |
-| 4 | Search Console 에 `/my/eps-topik/` 도 색인 요청 | 머지 뒤 |
+| 4 | Search Console 에 `/my/eps-topik/` · `/korean-zodiac/` · `/korean-proverb/` 색인 요청 | 머지 뒤 |
 
 ### 📱 앱
 | # | 할 일 | 어디 |
