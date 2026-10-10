@@ -67,3 +67,7 @@ tr:last-child td { border-bottom:none; }
 /* 도구 쪽 결과 표는 폰에서 옆으로 밀리지 않게(기본 표는 min-width 420) */
 .box .tw table { min-width:0; }
 .box .tw th { white-space:normal; width:42%; }
+.seal { margin-top:18px; }
+.seal img { display:block; width:min(270px,70vw); height:auto; border-radius:14px; border:1px solid var(--line); box-shadow:0 8px 24px rgba(0,0,0,.08); }
+ol { margin:14px 0 14px 4px; padding-left:20px; }
+ol li::marker { color:var(--orange-deep); font-weight:700; }

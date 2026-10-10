@@ -150,4 +150,63 @@
   $('nmCopy')?.addEventListener('click', async () => {
     try { await navigator.clipboard.writeText(big.textContent); $('nmCopy').textContent = 'Copied ✓'; } catch (e) {}
   });
+
+  /* ── 이름 도장 그림(운영자 2026-10-10 「판돈 4」 — 공유하고 싶게) ──
+     인스타 스토리 크기(1080×1920). 빨간 네모 도장 안에 이름 글자를 옛 도장처럼 **오른쪽 줄부터 위에서 아래로**.
+     글자가 셋까지면 한 줄, 넷이면 2×2, 그보다 많으면 두 줄. 아래에 로마자와 사이트 주소 — 받은 사람이 「나도」 해 보게. */
+  const FONT = "'Pretendard Variable', Pretendard, -apple-system, 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif";
+  async function sealBlob(ko, rom) {
+    const chars = [...ko.replace(/\s/g, '')].slice(0, 8);
+    if (!chars.length) return null;
+    try { await document.fonts.ready; } catch (e) {}
+    const W = 1080, H = 1920, c = document.createElement('canvas'); c.width = W; c.height = H;
+    const g = c.getContext('2d');
+    g.fillStyle = '#F6EFE2'; g.fillRect(0, 0, W, H);
+    g.fillStyle = '#1B1512'; g.textAlign = 'center';
+    g.font = `700 54px ${FONT}`; g.fillText('My name in Korean', W / 2, 300);
+    g.fillStyle = '#8C7A66'; g.font = `600 40px ${FONT}`; g.fillText('한국어로 내 이름', W / 2, 370);
+    // 도장 — 칸 나누기
+    const cols = chars.length <= 3 ? 1 : 2, rows = Math.ceil(chars.length / cols);
+    const S = 640, x0 = (W - S) / 2, y0 = 470, pad = 56, cw = (S - pad * 2) / cols, ch = (S - pad * 2) / rows;
+    g.save(); g.translate(x0 + S / 2, y0 + S / 2); g.rotate(-0.035); g.translate(-(x0 + S / 2), -(y0 + S / 2));
+    g.strokeStyle = '#C8102E'; g.lineWidth = 26; g.lineJoin = 'round';
+    g.beginPath(); g.roundRect ? g.roundRect(x0, y0, S, S, 46) : g.rect(x0, y0, S, S); g.stroke();
+    g.lineWidth = 8; g.beginPath(); g.roundRect ? g.roundRect(x0 + 30, y0 + 30, S - 60, S - 60, 30) : g.rect(x0 + 30, y0 + 30, S - 60, S - 60); g.stroke();
+    g.fillStyle = '#C8102E'; g.textBaseline = 'middle';
+    const fs = Math.floor(Math.min(cw, ch) * 0.82);
+    g.font = `900 ${fs}px ${FONT}`;
+    chars.forEach((t, i) => {
+      const col = Math.floor(i / rows), row = i % rows;              // 오른쪽 줄부터
+      const cx = x0 + pad + cw * (cols - 1 - col) + cw / 2, cy = y0 + pad + ch * row + ch / 2;
+      g.fillText(t, cx, cy);
+    });
+    g.restore();
+    g.textBaseline = 'alphabetic'; g.fillStyle = '#1B1512'; g.font = `800 96px ${FONT}`; g.fillText(ko, W / 2, 1300);
+    g.fillStyle = '#4E3E31'; g.font = `600 42px ${FONT}`; g.fillText(rom, W / 2, 1380);
+    g.fillStyle = '#8C7A66'; g.font = `600 38px ${FONT}`; g.fillText("What's yours? 🥔🧀", W / 2, 1640);
+    g.fillStyle = '#C4551C'; g.font = `800 44px ${FONT}`; g.fillText('everykoreans.com/korean-name', W / 2, 1710);
+    return new Promise((res) => c.toBlob(res, 'image/png'));
+  }
+  let sealUrl = null;
+  async function sealPaint() {
+    const box = $('nmSeal'), img = $('nmSealImg'); if (!box || !img) return;
+    const ko = big.textContent;
+    if (!ko || ko === '—') { box.hidden = true; return; }
+    const blob = await sealBlob(ko, sub.textContent);
+    if (!blob || big.textContent !== ko) return;
+    if (sealUrl) URL.revokeObjectURL(sealUrl);
+    img.src = sealUrl = URL.createObjectURL(blob); box.hidden = false;
+  }
+  let sealT = 0;
+  inp.addEventListener('input', () => { clearTimeout(sealT); sealT = setTimeout(sealPaint, 350); });
+  sealPaint();
+  $('nmSave')?.addEventListener('click', async () => {
+    const ko = big.textContent, blob = await sealBlob(ko, sub.textContent); if (!blob) return;
+    const file = new File([blob], `my-korean-name-${Date.now()}.png`, { type: 'image/png' });
+    try {
+      if (navigator.canShare && navigator.canShare({ files: [file] })) { await navigator.share({ files: [file], text: `My name in Korean: ${ko} — everykoreans.com/korean-name` }); return; }
+    } catch (e) { if (e && e.name === 'AbortError') return; }
+    const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = file.name; a.click();
+    setTimeout(() => URL.revokeObjectURL(a.href), 4000);
+  });
 })();
