@@ -2543,5 +2543,13 @@
   "Make & share": "作って共有",
   "My name seal": "名前のはんこ",
   "Korean age": "韓国の年齢",
-  "Make my Korean name seal": "韓国語の名前はんこを作る"
+  "Make my Korean name seal": "韓国語の名前はんこを作る",
+  "Give to {0}": "{0}さんに出す",
+  "Giving “{0}” again": "「{0}」をもう一度出す",
+  "Invite a student first — use the QR or link in “Invite”.": "まず生徒を招待してください —「招待」のQRかリンクで。",
+  "No homework yet — pick a student and homework above.": "まだ宿題がありません — 上で生徒と宿題を選んでください。",
+  "Pick a date": "日付を選ぶ",
+  "Pick a student first": "先に生徒を選んでください",
+  "What": "どの宿題",
+  "Who": "だれに"
 }
