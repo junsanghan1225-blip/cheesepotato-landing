@@ -16,7 +16,6 @@
 | 7 | 매주 일요일: 숫자 넷(방문 · 가입 · 결제 · 다시 온 사람) + Clarity CSV | 숫자 판 `/funnel.html` |
 | 8 | 알림 메일 켜기 · 쇼츠 자동 올리기 설정 | `docs/ops/reminders.md` · `docs/ops/shorts-auto.md` |
 | 9 | 앱 PR #1(홍보 자료 안내) 넣을지 | cheesepotatoapp#1 |
-| 10 | 예상 급수: 숫자는 무료 그대로 둘지(지금 무료) | `docs/status.md` 23 |
 
 ## 🤖 Claude
 | # | 할 일 | 언제 |
