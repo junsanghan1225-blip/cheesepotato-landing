@@ -12,7 +12,7 @@
 - 서버: **Supabase**(프로젝트 ref `tjgoevtvobvmlyefgxel`) — 로그인 · 표 · Edge Functions(`supabase/functions/`).
   결제: **Polar**(`billing.js`, 웹훅 `supabase/functions/polar-webhook` — 2026-10-03 Paddle 거절 → Polar 승인). AI 쓰기 채점: `grade-writing`(Gemini).
 - 분석: GTM `GTM-K4Z87SVS` · GA4 `G-4KF487RTZT` · Clarity(`analytics.js`). 이 id 들은 비밀이 아니다.
-- 자세한 설명은 `README.md`, 분야별 문서는 `docs/`.
+- 자세한 설명은 `README.md`, 문서 지도는 `docs/README.md`. 앱(안드로이드)은 따로 저장소 `cheesepotatoapp`.
 
 ## 2. 운영자와 일하는 법
 
@@ -23,9 +23,22 @@
   작은 수정 여러 번보다 한 번에 묶는다. 화면 확인(Playwright 스크린샷)은 꼭 필요한 곳만.
 - **시킨 것만 한다.** 요청 밖의 개선은 하지 말고 「이런 것도 있다」고 한 줄로 제안만 한다.
   요청이 두 가지로 읽히면 짐작하지 말고 먼저 묻는다.
-- 운영자가 「머지해줘」라고 하면: 브랜치 → 검사 → 커밋 → 푸시 → PR → **CI 초록불 확인** → squash 머지.
-  「머지해줘」가 없으면 PR 까지만 하고 멈춘다.
 - 결과는 정직하게. 확인 못 한 것은 「확인 못 했다」고 말한다. 추측을 사실처럼 말하지 않는다.
+
+### 운영자의 짧은 말 → 정해진 순서 (매번 다시 생각하지 않는다)
+| 운영자 말 | Claude 가 하는 것 |
+|---|---|
+| 「머지해줘」 | `node tools/preflight.mjs` → 커밋 · 푸시 → PR → CI 초록불 → squash 머지(`expectedHeadSha`) → 작업 브랜치를 새 main 으로 다시 세움(`git checkout -B <브랜치> origin/main && git merge -s ours origin/<브랜치>` → 푸시). 「머지해줘」가 없으면 PR 까지만. |
+| 「안티가 올렸어」 | `node tools/ag-status.mjs` → 🆕 인 브랜치만 → 그 지시서의 「지킬 것」대로 검토(다른 칸 안 바뀜 · 사실 · 기출) → 고칠 것은 고쳐 넣음 → 생성 도구 · 자국 → PR → `docs/antigravity/STATUS.md` 고침. 🆕 가 없으면 「아직 안 올라왔다」고 바로 말한다. |
+| 「SQL 돌렸어」 · 「배포했어」 · 「설정했어」 | `docs/todo.md` 운영자 줄을 「끝난 것」으로 → 그다음 단계를 말한다. |
+| Clarity CSV · 숫자 판 캡처 | 나라 · 기기 · 입구 · 머문 시간 · 한 사람이 여러 번인지(유럽 — 쿠키 동의 전) 를 보고 이상한 것 · 고칠 것 1~3개. 숫자는 숫자 판이 기준. |
+| 「앱 …」 | 앱 저장소 `/home/user/cheesepotatoapp`(없으면 add_repo) — 그 저장소 `AGENTS.md` 먼저. 앱 저장소엔 CI 가 없으니 `npx tsc --noEmit` 으로 확인. |
+| 새 기능 · 화면 요청 | `docs/prd.md` 범위 안인지 → 두 가지로 읽히면 묻기 → 만들기 → 390 · 1280 확인 → PR. |
+
+### 일이 끝날 때마다 기록 (한 번에)
+- 정한 것 → `docs/decisions.md` 맨 아래 한 줄. 갈래가 바뀌면 → `docs/status.md` 그 갈래 줄.
+- 할 일 → `docs/todo.md`(새로 생긴 운영자 할 일은 여기에 — 채팅에만 두지 않는다). 안티 → `docs/antigravity/STATUS.md`.
+- 기록은 그 일의 PR 에 같이 넣는다(따로 PR 을 만들지 않는다).
 
 ## 3. 운영자가 시키기 전에는 절대 하지 않는 것
 
@@ -67,9 +80,8 @@
   | `docs/i18n/strings.json`(화면 글자 목록) · `i18n-<언어>.js`(화면 번역 사전) | 코드의 t() · index.html data-en → `node tools/i18n-extract.mjs`; `docs/i18n/<언어>.json`(안티 번역) → `node tools/build-i18n.mjs`(검사 `check-i18n`) |
   | `expressions.js`(「단어」 표현 탭 — 사자성어 · 속담 · 관용 표현) | `vocab/data/expressions.json`(안티 · Claude 검토, 검사 `check-expressions`) → `node tools/build-expressions.mjs` |
   | `vocab-topik1.js` · `vocab-topik2.js` · `vocab-topik2-ex/`(TOPIK II 예문 조각, 500개씩) | `vocab/data/topik1.json` · `topik2.json`(B급 이상만) → `node tools/build-vocab.mjs` |
-- **검사:** 올리기 전에 CI 와 같은 검사를 돌린다(`.github/workflows/check.yml` 의 목록).
-  `node --check app.js && node --check app.module.js`, `node tools/check-*.mjs`.
-  첫 쪽 · `llms.txt` 의 숫자(문항 수 등)가 바뀌면 `check-geo` 가 알려 준다.
+- **검사:** 올리기 전에 **`node tools/preflight.mjs` 한 줄** — 자국 찍기 · 확인, 문법, CI(`check.yml`)의 검사 전부를 같은 차례로.
+  첫 쪽 · `llms.txt` 의 숫자(문항 수 등)가 바뀌면 `check-geo` 가, 없는 문서 경로는 `check-docs` 가 알려 준다.
 - **말투:** 코드 주석은 주변처럼 한국어로, 「왜」를 적는다. 사용자에게 보이는 글은 `t('한국어', 'English')` 로 둘 다.
 - **화면 확인:** 화면을 바꾸면 폭 390px(폰)과 1280px(PC)에서 가로 스크롤 · JS 오류가 없는지 본다.
 
