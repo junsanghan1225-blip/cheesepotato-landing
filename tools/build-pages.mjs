@@ -332,7 +332,7 @@ function pointPage(cat, p, prev, next) {
      그런데 결과에 보이는 제목·설명이 영어뿐이라 1쪽에 있으면서도 CTR 이 0~2% 였다.
      「뜻 · 예문 · 문법」은 사람들이 실제로 붙여 치는 말이라 결과에서 굵게 걸린다.
      뒤의 「Korean grammar」는 영어로 찾는 학습자 몫으로 남긴다. */
-  const title = `${p.name} 뜻과 예문 · 문법 정리 — Korean grammar | 치즈감자`;
+  const title = `${p.name} 뜻과 예문 · 문법 정리 — Korean grammar | CheesePotato`;
   /* 설명도 한국어 뜻풀이를 앞에, 영어를 뒤에. 영어로 찾은 사람도 뒤쪽에서 읽을 것이 있다. */
   const en = EN_BY_ID.get(p.id);
   const desc = clip(`${p.name} 뜻: ${p.desc} 예문과 대화로 익혀요.` + (en?.desc ? ` ${en.desc}` : ''), 160);
@@ -383,7 +383,9 @@ function pointPage(cat, p, prev, next) {
     `<a class="cta" href="/#learn/sentence/${esc(p.id)}">이 표현으로 문장 만들어 보기` +
       `<span>Practice writing your own sentence with ${esc(p.name)}</span></a>`,
     `<div class="near"><a href="/compare/${esc(cat.id)}.html"><b>같은 갈래 견주어 보기</b>` +
-      `${esc(cat.ko)} 표현 ${cat.points.length}가지</a></div>`,
+      `${esc(cat.ko)} 표현 ${cat.points.length}가지</a>` +
+      // 문법을 익혔으면 쓰기로 — TOPIK 쓰기 모음은 클릭률이 가장 높은 쪽(2026-10-10)
+      `<a href="/topik-writing/?utm_source=grammar"><b>TOPIK 쓰기로 써 보기</b>쓰기 연습 200문항 · AI 채점 — TOPIK writing practice</a></div>`,
     (prev || next) ? '<div class="near">' +
       (prev ? `<a href="/sentence/${esc(prev.id)}.html"><b>← 앞 표현</b>${esc(prev.name)}</a>` : '') +
       (next ? `<a href="/sentence/${esc(next.id)}.html"><b>다음 표현 →</b>${esc(next.name)}</a>` : '') +
@@ -468,7 +470,7 @@ function hubPage(cats, total) {
     url: '/sentence/',
     kind: 'website',
     jsonld,
-    title: `한국어 문법 표현 ${total}개 — 초급·중급·고급 | 치즈감자`,
+    title: `한국어 문법 표현 ${total}개 — 초급·중급·고급 | CheesePotato`,
     desc: clip(`한국어 문법 표현 ${total}개를 초급·중급·고급으로 정리했습니다. ` +
       '표현마다 뜻풀이와 형태, 주의할 점, 예문과 대화문이 있습니다. ' +
       `${total} Korean grammar points with meanings, examples and dialogues.`),
@@ -510,8 +512,8 @@ function comparePage(cat) {
   /* 제목이 곧 사람들이 치는 말이 되게 한다. 둘셋이면 이름을 그대로 붙여
      「A와 B 차이」로, 많으면 이름을 다 넣을 수 없으니 갈래 이름으로 간다. */
   const title = pts.length <= 3
-    ? `${names.join('와 ')} 차이 — ${cat.ko} | 치즈감자`
-    : `${cat.ko} 표현 ${pts.length}가지 — ${names.slice(0, 2).join(' · ')} 외 | 치즈감자`;
+    ? `${names.join('와 ')} 차이 — ${cat.ko} | CheesePotato`
+    : `${cat.ko} 표현 ${pts.length}가지 — ${names.slice(0, 2).join(' · ')} 외 | CheesePotato`;
   const desc = clip(`${cat.ko}(${cat.en})에 쓰는 표현 ${pts.length}가지를 한자리에서 견줍니다. ` +
     `${names.slice(0, 4).join(' · ')}${names.length > 4 ? ' 외' : ''} — 뜻과 형태, 주의할 점을 나란히 놓았습니다.`);
 
@@ -601,7 +603,7 @@ function compareHub(cats) {
 
   return page({
     url: '/compare/', kind: 'website',
-    title: `비슷한 한국어 표현 비교 ${cats.length}갈래 — 뜻·형태·주의할 점 | 치즈감자`,
+    title: `비슷한 한국어 표현 비교 ${cats.length}갈래 — 뜻·형태·주의할 점 | CheesePotato`,
     desc: clip(`뜻이 비슷한 한국어 표현을 갈래별로 견줍니다. ${cats.length}갈래, 표현 ${cats.reduce((a, c) => a + c.points.length, 0)}개. ` +
       'Similar Korean grammar expressions compared side by side.'),
     body,
@@ -652,8 +654,8 @@ function lessonPage(course, lesson, prev, next) {
   /* seo 가 있는 레슨(한글 코스)은 영어로 찾는 사람 · AI 가 고를 수 있게 영어 제목 · 설명을 앞에 둔다.
      쪽 본문이 영어인데 제목이 「거센소리와 된소리」뿐이면 AI 가 레슨 대신 첫 쪽을 인용했다(Bing, 2026-09). */
   const seo = lesson.seo;
-  const title = seo ? `${seo.title} · ${tx(lesson.title)} | 치즈감자`
-    : `${tx(lesson.title)} — ${tx(course.title)} | 치즈감자`;
+  const title = seo ? `${seo.title} · ${tx(lesson.title)} | CheesePotato`
+    : `${tx(lesson.title)} — ${tx(course.title)} | CheesePotato`;
   const desc = seo ? clip(seo.desc) : clip(`${tx(course.title)} · ${tx(lesson.title)} — ` +
     (read.find((b) => b.t === 'text')?.md || tx(course.tagline) || '').replace(/[*`#]/g, ''));
 
@@ -697,7 +699,7 @@ function lessonPage(course, lesson, prev, next) {
 /* ── 코스 한 쪽 ─────────────────────────────────────────────── */
 function coursePage(course) {
   const lv = LV_OF(course);
-  const title = `${tx(course.title)} — ${LV_KO[lv]} 한국어 코스 | 치즈감자`;
+  const title = `${tx(course.title)} — ${LV_KO[lv]} 한국어 코스 | CheesePotato`;
   const desc = clip(`${tx(course.title)} · ${tx(course.tagline)} — ${tx(course.blurb)}`);
   const body = [
     `<nav class="crumb"><a href="/">치즈감자</a> › <a href="/course/">코스</a></nav>`,
@@ -765,7 +767,7 @@ function courseHub(courses) {
 
   return page({
     url: '/course/', kind: 'website',
-    title: `한국어 코스 ${nC}개 · ${nL}강 — 초급·중급·고급 | 치즈감자`,
+    title: `한국어 코스 ${nC}개 · ${nL}강 — 초급·중급·고급 | CheesePotato`,
     desc: clip(`한글 읽기부터 문장 만들기까지 한국어 코스 ${nC}개 ${nL}강. ` +
       `${nC} Korean courses with ${nL} lessons, from Hangul to sentence building.`),
     body,
@@ -777,7 +779,7 @@ function courseHub(courses) {
 function twPage(it) {
   const q = TW_QS.find((x) => x.q === it.q);
   const lvKo = LV_KO[it.lv] || '중급';
-  const title = `TOPIK ${it.q}번 연습 — ${it.title} | 치즈감자`;
+  const title = `TOPIK ${it.q}번 연습 — ${it.title} | CheesePotato`;
   const desc = clip(`TOPIK II 쓰기 ${it.q}번 유형 연습 문항. ${it.title} — ${it.cond}. ` +
     '기출이 아닌 창작 문항이고 모범답안과 채점 포인트가 함께 있습니다.');
 
@@ -876,7 +878,7 @@ function twHub(items) {
 
   return page({
     url: '/topik-writing/', kind: 'website', extraHead: hubHreflang('/topik-writing/'),
-    title: `TOPIK II 쓰기 연습 문항 ${items.length}개 — 51·52·53·54번 | 치즈감자`,
+    title: `TOPIK II 쓰기 연습 문항 ${items.length}개 — 51·52·53·54번 | CheesePotato`,
     desc: clip(`TOPIK II 쓰기 51~54번 유형 연습 문항 ${items.length}개. 모범답안과 채점 기준, 감점 요인까지. 기출이 아닌 창작 문항입니다.`),
     body,
     jsonld: [crumbLd([['치즈감자', '/'], ['TOPIK 쓰기', '/topik-writing/']])],
@@ -915,7 +917,7 @@ function trPage(it) {
   const tx = TR_TYPES[it.exam][it.type] || { ko: it.type, en: it.type };
   const grade = trGradeTx(it.exam, it.grade);
   const examName = `TOPIK ${it.exam}`;
-  const title = `TOPIK ${it.exam} 읽기 ${it.slot}번 연습 — ${it.topic} | 치즈감자`;
+  const title = `TOPIK ${it.exam} 읽기 ${it.slot}번 연습 — ${it.topic} | CheesePotato`;
   const desc = clip(`TOPIK ${it.exam} 읽기 ${it.slot}번 유형 연습 문항. ${tx.ko} — ${it.topic}. ` +
     '기출이 아닌 창작 문항이고 정답과 해설이 함께 있습니다.');
 
@@ -984,7 +986,7 @@ function trHub() {
 
   return page({
     url: '/topik-reading/', kind: 'website', extraHead: hubHreflang('/topik-reading/'),
-    title: `TOPIK 읽기 연습 문항 ${total}개 | 치즈감자`,
+    title: `TOPIK 읽기 연습 문항 ${total}개 | CheesePotato`,
     desc: clip(`TOPIK I·II 읽기 유형별 연습 문항 ${total}개. 정답과 해설까지. 기출이 아닌 창작 문항입니다.`),
     body,
     jsonld: [crumbLd([['치즈감자', '/'], ['TOPIK 읽기', '/topik-reading/']])],
@@ -1005,7 +1007,7 @@ function tlPage(it) {
   const grade = trGradeTx(it.exam, it.grade);
   const examName = `TOPIK ${it.exam}`;
   const gist = it.script[0]?.text || it.q;
-  const title = `TOPIK ${it.exam} 듣기 ${it.slot}번 연습 — ${tx.ko} | 치즈감자`;
+  const title = `TOPIK ${it.exam} 듣기 ${it.slot}번 연습 — ${tx.ko} | CheesePotato`;
   const desc = clip(`TOPIK ${it.exam} 듣기 ${it.slot}번 유형 연습 문항. ${tx.ko}. 대본과 정답, 해설이 함께 있습니다.`);
 
   const script = it.script.map((l) => {
@@ -1080,7 +1082,7 @@ function tlHub() {
 
   return page({
     url: '/topik-listening/', kind: 'website', extraHead: hubHreflang('/topik-listening/'),
-    title: `TOPIK 듣기 연습 문항 ${total}개 | 치즈감자`,
+    title: `TOPIK 듣기 연습 문항 ${total}개 | CheesePotato`,
     desc: clip(`TOPIK I·II 듣기 유형별 연습 문항 ${total}개. 대본과 정답, 해설까지. 기출이 아닌 창작 문항입니다.`),
     body,
     jsonld: [crumbLd([['치즈감자', '/'], ['TOPIK 듣기', '/topik-listening/']])],
@@ -1104,7 +1106,7 @@ function epsPage(it) {
   const gistSrc = it.sec === 'listening' ? it.script[0].replace(/^(남|여|안내)\s*:\s*/, '') : (it.passage || it.question);
   const gist = String(gistSrc).replace(/\s+/g, ' ');
   const h1 = gist.length > 40 ? gist.slice(0, 40) + '…' : gist;
-  const title = `EPS-TOPIK ${sec.ko} 연습 ${n} — ${tx.ko} · EPS-TOPIK ${sec.en} practice | 치즈감자`;
+  const title = `EPS-TOPIK ${sec.ko} 연습 ${n} — ${tx.ko} · EPS-TOPIK ${sec.en} practice | CheesePotato`;
   const desc = clip(`EPS-TOPIK ${sec.ko} 연습 문항 · ${tx.ko}. 정답과 해설(한국어 · 영어). ` +
     `Free EPS-TOPIK ${sec.en.toLowerCase()} practice question (${tx.en}) with the answer explained in Korean and English.`);
 
@@ -1186,7 +1188,7 @@ function epsHub() {
 
   return page({
     url: '/eps-topik/', kind: 'website',
-    title: `EPS-TOPIK 연습 문제 ${total}개 · 무료 모의고사 — Free EPS-TOPIK practice test | 치즈감자`,
+    title: `EPS-TOPIK 연습 문제 ${total}개 · 무료 모의고사 — Free EPS-TOPIK practice test | CheesePotato`,
     desc: clip(`EPS-TOPIK 읽기 · 듣기 연습 문제 ${total}개와 70분 모의고사. 해설은 한국어 · 영어. ` +
       'Free EPS-TOPIK practice test with answers explained in English.'),
     body,
@@ -1261,7 +1263,9 @@ function choOf(head) {
 const nextStep = (head, src) => `<div class="nx"><p class="nx-h">다음 한 걸음 <small lang="en">What next?</small></p>` +
   `<a class="nx-a nx-go" href="/?utm_source=${src}#blocks"><b>🥔 낱말 감자 게임 · 2분</b><span lang="en">Match Korean words — free, no sign-up</span></a>` +
   `<a class="nx-a" href="/?utm_source=${src}#words/w/${encodeURIComponent(head)}"><b>📚 「${esc(head)}」 외우기</b><span lang="en">Flashcards, audio and review</span></a>` +
-  `<a class="nx-a" href="/?lt=1&utm_source=${src}"><b>🧭 내 한국어 레벨 · 3분</b><span lang="en">Find your level and today’s lesson</span></a></div>`;
+  `<a class="nx-a" href="/?lt=1&utm_source=${src}"><b>🧭 내 한국어 레벨 · 3분</b><span lang="en">Find your level and today’s lesson</span></a>` +
+  /* TOPIK 쓰기 모음은 검색 클릭률 17%(Search Console 2026-10-10) — 노출이 적을 뿐이라 많이 보이는 쪽에서 잇는다 */
+  `<a class="nx-a" href="/topik-writing/?utm_source=${src}"><b>✍️ TOPIK 쓰기 연습 · AI 채점</b><span lang="en">200 TOPIK II writing tasks with model answers — free</span></a></div>`;
 const NX_CSS = '.nx{margin:18px 0 6px;display:grid;gap:8px}.nx-h{margin:0;font-weight:800;font-size:14px;color:var(--dim)}.nx-h small{font-weight:600}' +
   '.nx-a{display:block;padding:13px 16px;border:1px solid var(--line);border-radius:14px;background:var(--card);color:var(--ink);text-decoration:none}' +
   '.nx-a b{display:block;font-size:16px}.nx-a span{display:block;font-size:13px;color:var(--dim);margin-top:2px}' +
@@ -1274,8 +1278,8 @@ function wordPage(entry, prev, next) {
      제목 앞자리를 그 검색에 맞춘다 — 한국어 표제어는 어차피 본문 h1 과
      제목 뒷자리에 그대로 있어 한국어 쪽 검색도 놓치지 않는다. */
   const title = firstEn
-    ? `${head} meaning — "${esc(firstEn)}" in Korean | Cheesepotato`
-    : `${head} 뜻 — 한국어 낱말 사전 | 치즈감자`;
+    ? `${head} meaning — "${esc(firstEn)}" in Korean | CheesePotato`
+    : `${head} 뜻 — 한국어 낱말 사전 | CheesePotato`;
   const senses = SENSES[head];
   const example = EXAMPLES[head];
   const headTag = pos ? `${head}(${pos})` : head;   // 품사가 없는 표제어(감탄사류)엔 빈 괄호를 안 붙인다
@@ -1376,7 +1380,7 @@ function vocabPage(w, prev, next) {
      제목은 짧게(검색어 「… in Korean」 + 낱말), 설명은 영어 한 갈래로 읽히게 쓰고 예문은 한국어 한 줄만. */
   /* 2026-10-07(운영자 「검색 노출은 많은데 클릭이 적다」): 두 검색을 한 줄에 — 「가게 meaning」 과 「shop in Korean」.
      낱말 + meaning 을 맨 앞에, 영어 뜻을 바로 뒤에. 설명은 답 먼저 · 무료 · 소리 · 퀴즈로 누를 까닭을 준다. */
-  const title = `${head} (${rom}) meaning — "${firstEn}" in Korean | Cheesepotato`;
+  const title = `${head} (${rom}) meaning — "${firstEn}" in Korean | CheesePotato`;
   const posEn = POS_EN[w.p] ? ` ${POS_EN[w.p]}` : '';
   const ex = w.x[0]?.[0] ? ` Example: ${w.x[0][0]}` : '';
   const desc = clip(`${head} (${rom}) means "${firstEn}" in Korean — a TOPIK ${isT2(w) ? 'II' : 'I'} level ${w.l}${posEn || ' word'}. 🔊 Hear it, see example sentences with English${conj ? ', conjugation' : ''} and try a 1-minute quiz. Free, no sign-up.`);
@@ -1473,7 +1477,7 @@ function vocabListPage(vs, tp, list) {
   ].join('\n');
   const url = `${vs.dir}${tp.id}.html`;
   return page({
-    url, title: `TOPIK ${vs.num} ${tp.en} Vocabulary — ${n} Korean Words with English | 치즈감자`,
+    url, title: `TOPIK ${vs.num} ${tp.en} Vocabulary — ${n} Korean Words with English | CheesePotato`,
     desc: clip(`${vs.name} ${tp.ko} 낱말 ${n}개 — ${list.slice(0, 8).map((w) => `${w.h}(${w.s || w.e.split(';')[0]})`).join(', ')} … 로마자 · 영어 뜻 · 예문.`),
     body,
     jsonld: [
@@ -1506,7 +1510,7 @@ function vocabListHub(vs) {
   ].join('\n');
   return page({
     url: vs.dir, kind: 'website',
-    title: `TOPIK ${vs.num} Vocabulary List — ${all.toLocaleString('en-US')} Essential Korean Words by Topic | 치즈감자`,
+    title: `TOPIK ${vs.num} Vocabulary List — ${all.toLocaleString('en-US')} Essential Korean Words by Topic | CheesePotato`,
     desc: clip(`${vs.name} 필수 낱말 ${all.toLocaleString('ko-KR')}개를 주제별로 — 로마자 · 영어 뜻 · 예문 · 활용. Free TOPIK ${vs.num} vocabulary list with English.`),
     body, jsonld: [crumbLd([['치즈감자', '/'], [`${vs.name} 낱말`, vs.dir]])], extraCss: VL_CSS,
   });
@@ -1544,8 +1548,8 @@ function engPage(slug, { key, words }) {
   const n = words.length;
   const url = `/korean-word-for/${slug}.html`;
   const title = n > 1
-    ? `"${key}" in Korean — ${top.h} (${rom}) and ${n - 1} more way${n > 2 ? 's' : ''} to say it | 치즈감자`
-    : `"${key}" in Korean — ${top.h} (${rom}) with examples | 치즈감자`;
+    ? `"${key}" in Korean — ${top.h} (${rom}) and ${n - 1} more way${n > 2 ? 's' : ''} to say it | CheesePotato`
+    : `"${key}" in Korean — ${top.h} (${rom}) with examples | CheesePotato`;
   const desc = clip(`How to say "${key}" in Korean: ${words.map((w) => `${w.h} (${romanize(w.h) || ''})`).join(', ')}. ` +
     `Meaning, pronunciation, example sentences${n > 1 ? ' and which one to use' : ''}.`);
   const card = (w, i) => {
@@ -1596,7 +1600,7 @@ function engHub() {
   ].join('\n');
   return page({
     url: '/korean-word-for/', kind: 'website', lang: 'en',
-    title: `Korean Word For… — ${EW.size.toLocaleString('en-US')} English Words in Korean with Examples | 치즈감자`,
+    title: `Korean Word For… — ${EW.size.toLocaleString('en-US')} English Words in Korean with Examples | CheesePotato`,
     desc: clip(`How to say ${EW.size.toLocaleString('en-US')} everyday English words in Korean — Korean word, romanization, examples, and the difference when there are several.`),
     body, jsonld: [crumbLd([['치즈감자', '/'], ['Korean word for…', '/korean-word-for/']])],
   });
@@ -1631,7 +1635,7 @@ function wordHub(heads) {
 
   return page({
     url: '/dictionary/', kind: 'website',
-    title: `한국어 낱말 사전 ${n}개 — 뜻풀이·예문 | 치즈감자`,
+    title: `한국어 낱말 사전 ${n}개 — 뜻풀이·예문 | CheesePotato`,
     desc: clip(`한국어 낱말 ${n}개의 뜻풀이와 예문. 국립국어원 한국어기초사전 CC BY-SA 2.0 KR.`),
     body,
     jsonld: [crumbLd([['치즈감자', '/'], ['사전', '/dictionary/']])],
@@ -2508,7 +2512,7 @@ function blogHub(posts) {
 
   return page({
     url: '/blog/', kind: 'website',
-    title: '블로그 | 치즈감자',
+    title: '블로그 | CheesePotato',
     desc: clip('한국어 공부, 문법, TOPIK 준비에 관한 치즈감자 블로그입니다.'),
     body,
     jsonld: [
@@ -2901,7 +2905,7 @@ writeFileSync(join(OUT_BLOG, 'rss.xml'), blogRss(BLOG_POSTS));
    정적 쪽을 하나씩 굽는다 — 글은 화면 번역 사전(docs/i18n/<언어>.json)에서 영어 열쇠로 꺼낸다(없으면 굽기를 멈춘다 —
    반쯤 영어인 쪽을 내보내지 않는다). index.html 과 서로 hreflang 으로 가리킨다. 앱으로 가는 단추는 ?lang=<언어>. */
 const LOCALES = {
-  vi: { name: 'Tiếng Việt', title: 'Học tiếng Hàn miễn phí — luyện thi TOPIK I · II | Cheesepotato',
+  vi: { name: 'Tiếng Việt', title: 'Học tiếng Hàn miễn phí — luyện thi TOPIK I · II | CheesePotato',
     desc: 'Học tiếng Hàn miễn phí từ bảng chữ cái Hangul đến TOPIK cấp 6: 401 bài học, 290 điểm ngữ pháp, 1.370 câu luyện TOPIK (nghe · đọc · viết), từ điển và trò chơi. Không cần cài đặt.' },
   ja: { name: '日本語', title: '無料で韓国語を学ぶ — TOPIK I・II対策 | チーズポテト',
     desc: 'ハングルからTOPIK 6級まで無料で学べる韓国語学習サイト。レッスン401個、文法290項目、TOPIK練習問題1,370問（聞取り・読解・書取り）、辞書、ゲーム。インストール不要。' },
@@ -2966,15 +2970,15 @@ function localeHome(code) {
    한국어 + 영어), 제목 · 소개 · 얻는 것 · 단추만 그 나라 말. 글은 여기 표에 — 화면 번역 사전에 없는 검색용 문장이라서. */
 const HUB_L = {
   vi: { home: 'Trang chủ', lt: '🧭 Kiểm tra trình độ TOPIK trong 3 phút', note: 'Tên dạng câu hỏi để bằng tiếng Hàn (kèm tiếng Anh) — đúng như trong đề thi. Chọn một câu để xem đáp án và giải thích.',
-    writing: { name: 'TOPIK viết', h1: (n) => `Luyện viết TOPIK II — ${n} đề (câu 51–54)`, title: (n) => `Luyện viết TOPIK II ${n} đề — câu 51·52·53·54 | Cheesepotato`,
+    writing: { name: 'TOPIK viết', h1: (n) => `Luyện viết TOPIK II — ${n} đề (câu 51–54)`, title: (n) => `Luyện viết TOPIK II ${n} đề — câu 51·52·53·54 | CheesePotato`,
       lead: 'Đề luyện viết theo đúng dạng câu 51–54. Mỗi đề có bài mẫu, tiêu chí chấm và lỗi hay bị trừ điểm.<br><b>Không phải đề thi thật — đều là đề tự biên soạn theo đúng dạng.</b>',
       desc: (n) => `${n} đề luyện viết TOPIK II câu 51–54 kèm bài mẫu và tiêu chí chấm. Đề tự biên soạn, không phải đề thi thật.`,
       why: (n) => [[`${n} đề`, 'Đúng dạng câu 51–54'], ['AI chấm điểm', 'Miễn phí 2 lần/ngày (đăng nhập)'], ['Bài mẫu', 'Tiêu chí chấm · lỗi trừ điểm'], ['Xem đề miễn phí', 'Mở trình duyệt là luyện']], go: '✍️ Viết ngay và được AI chấm điểm' },
-    reading: { name: 'TOPIK đọc', h1: (n) => `Luyện đọc TOPIK — ${n} câu`, title: (n) => `Luyện đọc TOPIK ${n} câu — TOPIK I · II | Cheesepotato`,
+    reading: { name: 'TOPIK đọc', h1: (n) => `Luyện đọc TOPIK — ${n} câu`, title: (n) => `Luyện đọc TOPIK ${n} câu — TOPIK I · II | CheesePotato`,
       lead: 'Câu luyện đọc TOPIK I · II theo từng dạng, mỗi câu có đáp án và giải thích.<br><b>Không phải đề thi thật — đều là câu tự biên soạn theo đúng dạng.</b>',
       desc: (n) => `${n} câu luyện đọc TOPIK I · II theo dạng, có đáp án và giải thích. Câu tự biên soạn, không phải đề thi thật.`,
       why: (n) => [[`${n} câu`, 'TOPIK I · II theo dạng'], ['Chấm ngay', 'Chọn xong là có đáp án · giải thích'], ['Thi thử', 'Tính giờ theo từng đề'], ['10 câu/ngày', 'Không cần đăng nhập']], go: '📖 Bắt đầu luyện đọc' },
-    listening: { name: 'TOPIK nghe', h1: (n) => `Luyện nghe TOPIK — ${n} câu`, title: (n) => `Luyện nghe TOPIK ${n} câu — TOPIK I · II | Cheesepotato`,
+    listening: { name: 'TOPIK nghe', h1: (n) => `Luyện nghe TOPIK — ${n} câu`, title: (n) => `Luyện nghe TOPIK ${n} câu — TOPIK I · II | CheesePotato`,
       lead: 'Câu luyện nghe TOPIK I · II theo từng dạng, có kịch bản, đáp án và giải thích.<br><b>Không phải đề thi thật — đều là câu tự biên soạn theo đúng dạng.</b>',
       desc: (n) => `${n} câu luyện nghe TOPIK I · II theo dạng, có kịch bản, đáp án và giải thích. Câu tự biên soạn, không phải đề thi thật.`,
       why: (n) => [[`${n} câu`, 'TOPIK I · II theo dạng'], ['Kịch bản', 'Hiện ra sau khi chọn đáp án'], ['Âm thanh', 'Vừa nghe vừa làm'], ['10 câu/ngày', 'Không cần đăng nhập']], go: '🎧 Bắt đầu luyện nghe' } },
