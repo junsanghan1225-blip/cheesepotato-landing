@@ -2514,5 +2514,21 @@
   "Where is this": "ここはどこですか",
   "Where the sentence goes": "文が入る位置",
   "Which does NOT match": "内容が一致しないもの",
-  "Why it was written": "文章を書いた目的"
+  "Why it was written": "文章を書いた目的",
+  "{0}d ago": "{0}日前",
+  "{0}d ago {1} · {2} → now {3} · {4}": "{0}日前 {1} · {2} → 今 {3} · {4}",
+  "3-minute level test →": "3分レベルテスト →",
+  "A rough estimate from this test — practise or take a mock and your predicted level updates on the TOPIK screen.": "このテストからの目安です — 練習や模擬試験を解くと、TOPIK画面の予想級が更新されます。",
+  "An estimate from our questions — not an official TOPIK score": "当サイトの問題による目安です — 公式のTOPIKスコアではありません",
+  "Below level 1": "1級未満",
+  "Below level 3": "3級未満",
+  "From a mock ({0} Qs) · {1}": "模擬試験({0}問)より · {1}",
+  "From the level test · {0}": "レベルテストより · {0}",
+  "From your last {0} practice questions": "直近の練習{0}問より",
+  "In TOPIK terms": "TOPIKで言うと",
+  "My predicted TOPIK {0} level": "私のTOPIK {0} 予想級",
+  "My predicted TOPIK level": "私のTOPIK予想級",
+  "Predicted TOPIK {0} {1} · {2}/{3}": "TOPIK {0} 予想 {1} · {2}/{3}",
+  "Raise it — practise {0} ({1}%) →": "点数アップ — {0}({1}%)を練習 →",
+  "Take the 3-minute level test or 20 practice questions and your predicted level shows up here — it moves as you practise.": "3分のレベルテストか練習20問で、ここに予想級が出ます — 練習するほど変わります。"
 }

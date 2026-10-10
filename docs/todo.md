@@ -16,6 +16,7 @@
 | 7 | 매주 일요일: 숫자 넷(방문 · 가입 · 결제 · 다시 온 사람) + Clarity CSV | 숫자 판 `/funnel.html` |
 | 8 | 알림 메일 켜기 · 쇼츠 자동 올리기 설정 | `docs/ops/reminders.md` · `docs/ops/shorts-auto.md` |
 | 9 | 앱 PR #1(홍보 자료 안내) 넣을지 | cheesepotatoapp#1 |
+| 10 | 예상 급수: 숫자는 무료 그대로 둘지(지금 무료) | `docs/status.md` 23 |
 
 ## 🤖 Claude
 | # | 할 일 | 언제 |
@@ -29,5 +30,5 @@
 | 7 | 앱 개인정보 문서(`cheesepotatoapp/docs/privacy-policy.md`)와 사이트 `privacy.html` 맞추기(Polar 줄 등 어긋남) | 운영자 OK |
 
 ## ✅ 끝난 것
-- 2026-10-10 쿠키 동의 줄(#286) · 안티 결과 vi · ja 1묶음 + 중국어 3묶음(#285) · PRD 초안 · 작업 체계 정리 · 효율 도구(preflight · ag-status · check-docs) · CLAUDE.md 표준 순서
+- 2026-10-10 쿠키 동의 줄(#286) · 안티 결과 vi · ja 1묶음 + 중국어 3묶음(#285) · PRD 초안 · 작업 체계 정리 · 효율 도구(preflight · ag-status · check-docs) · CLAUDE.md 표준 순서 · TOPIK 예상 급수
 - 2026-10-09 앱 오류 알림(cheesepotatoapp#7, SQL 돌림) · 개인정보 오류 기록 고지(#284) · 로드맵(#283)
