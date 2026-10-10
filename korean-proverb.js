@@ -35,13 +35,13 @@ async function card(p) {
   const c = K.canvas(), g = c.getContext('2d'), W = 1080;
   g.fillStyle = '#FBE9D0'; g.fillRect(0, 0, W, 1920);
   // 쪽지 — 흰 종이에 빨간 테두리 두 줄(옛 부적 · 복주머니 느낌)
-  g.fillStyle = '#FFFDF8'; g.beginPath(); g.roundRect ? g.roundRect(90, 490, W - 180, 960, 28) : g.rect(90, 490, W - 180, 960); g.fill();
-  g.strokeStyle = '#C8102E'; g.lineWidth = 8; g.strokeRect(118, 518, W - 236, 904);
-  g.lineWidth = 3; g.strokeRect(136, 536, W - 272, 868);
+  g.fillStyle = '#FFFDF8'; g.beginPath(); g.roundRect ? g.roundRect(90, 520, W - 180, 940, 28) : g.rect(90, 520, W - 180, 940); g.fill();
+  g.strokeStyle = '#C8102E'; g.lineWidth = 8; g.strokeRect(118, 548, W - 236, 884);
+  g.lineWidth = 3; g.strokeRect(136, 566, W - 272, 848);
   g.textAlign = 'center'; g.textBaseline = 'alphabetic';
   g.fillStyle = '#1B1512'; g.font = `700 54px ${K.FONT}`; g.fillText('My Korean fortune today', W / 2, 235);
   g.fillStyle = '#8C7A66'; g.font = `600 40px ${K.FONT}`; g.fillText('오늘의 한국어 포춘쿠키', W / 2, 300);
-  g.textBaseline = 'middle'; g.font = `120px ${K.EMOJI}`; g.fillText('🥠', W / 2, 400); g.textBaseline = 'alphabetic';
+  g.textBaseline = 'middle'; g.font = `120px ${K.EMOJI}`; g.fillText('🥠', W / 2, 410); g.textBaseline = 'alphabetic';
   // 속담 — 쪽지 안(위 600 ~ 아래 1380)에 위에서부터 쌓는다. 길면 속담 글자부터 줄이고, 그래도 넘치면 영어 글자를 줄인다
   const fit = (fs, es) => {
     g.font = `800 ${fs}px ${K.FONT}`; const ls = K.lines(g, p.h, W - 340);
@@ -54,7 +54,7 @@ async function card(p) {
   let fs = 88, es = 46, L = fit(fs, es);
   while (L.h > 760 && fs > 52) { fs -= 6; L = fit(fs, es); }
   while (L.h > 760 && es > 32) { es -= 4; L = fit(fs, es); }
-  let y = 600 + (780 - L.h) / 2 + fs;   // 남는 자리는 위아래로 나눠 가운데에
+  let y = 610 + (780 - L.h) / 2 + fs;   // 남는 자리는 위아래로 나눠 가운데에
   g.fillStyle = '#C8102E'; g.font = `800 ${fs}px ${K.FONT}`; for (const l of L.ls) { g.fillText(l, W / 2, y); y += fs * 1.25; }
   g.fillStyle = '#8C7A66'; g.font = `600 30px ${K.FONT}`; y -= fs * 0.25; for (const l of L.rs) { g.fillText(l, W / 2, y); y += 40; }
   g.fillStyle = '#E2D4BF'; g.fillRect(W / 2 - 60, y, 120, 4); y += 70;
