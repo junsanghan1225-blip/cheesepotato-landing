@@ -58,7 +58,7 @@ const OUT_EPS = join(ROOT, 'eps-topik');
 const OUT_DICT = join(ROOT, 'dictionary');
 const OUT_VL = join(ROOT, 'topik1-words');
 const OUT_VL2 = join(ROOT, 'topik2-words');   // TOPIK II 주제별 목록 — 묶음이 들어올 때마다 늘어난다
-const OUT_EW = join(ROOT, 'korean-word-for');   // 「Korean word for ___」 — 영어로 찾는 쪽(docs/vocab-plan.md 4단계)   // TOPIK I 낱말 목록 쪽(주제별) — docs/vocab-plan.md 3단계
+const OUT_EW = join(ROOT, 'korean-word-for');   // 「Korean word for ___」 — 영어로 찾는 쪽(docs/plans/vocab-plan.md 4단계)   // TOPIK I 낱말 목록 쪽(주제별) — docs/plans/vocab-plan.md 3단계
 
 /* 표현 290개의 영어 설명. app.module.js 는 이걸 grammar-en.js 로 읽어 화면에
    쓰는데, **검색에 걸리는 정적 쪽에는 여태 한 줄도 안 실렸다.** 그래서
@@ -1209,7 +1209,7 @@ const DICT_HEADS = [...new Map(
 ).values()].sort((a, b) => a.head.localeCompare(b.head, 'ko'));
 
 /* ── TOPIK I 필수 낱말(단어 섹션 자료, vocab-topik1.js) ─────────────────
-   검수를 거친 B급 낱말 1,930개. 이 낱말의 사전 쪽은 **보강한 쪽**을 낸다(docs/vocab-plan.md 4층 「검색 유입」):
+   검수를 거친 B급 낱말 1,930개. 이 낱말의 사전 쪽은 **보강한 쪽**을 낸다(docs/plans/vocab-plan.md 4층 「검색 유입」):
    영어 검색에 맞춘 제목 · 로마자 · 활용 · 우리 예문 · 비슷한 말 · 같은 주제 낱말 · 미니 퀴즈 · 구조화 데이터.
    사전(GLOSSARY)에 없는 낱말(490개쯤 — 갈비 · 누나 · 떡볶이 …)도 쪽을 새로 낸다.
    오늘의 단어(wotd.js)는 예전 사전 표제어만 그대로 쓴다 — 홈 문구의 숫자가 그 수를 말한다. */

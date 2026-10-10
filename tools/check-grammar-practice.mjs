@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-/* 문법 「블록으로 맞추기」 연습 문장 검사 — docs/grammar-practice.json (안티 그래비티가 쓰고 Claude 가 검토, 지시서 docs/antigravity-grammar-practice-task.md)
+/* 문법 「블록으로 맞추기」 연습 문장 검사 — docs/grammar-practice.json (안티 그래비티가 쓰고 Claude 가 검토, 지시서 docs/antigravity/antigravity-grammar-practice-task.md)
  *
  *   node tools/check-grammar-practice.mjs
  *

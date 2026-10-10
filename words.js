@@ -1,4 +1,4 @@
-/* 「단어」 화면(#words) — docs/vocab-plan.md 2단계(1차).
+/* 「단어」 화면(#words) — docs/plans/vocab-plan.md 2단계(1차).
  *
  * 사전은 「찾는」 곳, 내 단어장은 「모으는」 곳이었다. 여기는 **외우는 길**이다:
  *   검색(맨 위) · 오늘 할 일(복습 먼저) · 외우기(주제 → 세션 10개) · 복습(간격 반복) · 별표 · 기록.
@@ -861,7 +861,7 @@ export function wordsInit(D) {
     view = { tab: 'pick', pick: { words, from: null, title: t(`받은 낱말 ${words.length}개`, `Shared set — ${words.length} words`), back: 'data-tab="home"' } };
   }
 
-  /* 담을 모양 — 원본 낱말 id(vocab_id)와 담은 곳을 같이 적는다(docs/vocab-plan.md 5층 「내 단어장 연동」). */
+  /* 담을 모양 — 원본 낱말 id(vocab_id)와 담은 곳을 같이 적는다(docs/plans/vocab-plan.md 5층 「내 단어장 연동」). */
   function toSave(h) {
     const w = byHead.get(h), g = w ? null : Object.values(D.gloss()).find((x) => x.head === h);
     return { word: h, meaning: w ? w.e : (g?.en || ''), tag: w?.p || g?.pos || null, vocab_id: w ? idOf(w) : null, source: 'words' };

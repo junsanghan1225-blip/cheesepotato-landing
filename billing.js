@@ -10,7 +10,7 @@
 
    **아래 ON 이 false 인 동안은 아무것도 잠그지 않는다.** 잠가 놓고 결제할 길이 없으면
    그냥 막힌 사이트가 된다.
-   붙이는 순서는 docs/billing-setup.md. */
+   붙이는 순서는 docs/ops/billing-setup.md. */
 
 /* 결제는 Polar 로 옮겼다(2026-10-03 — Paddle 은 심사에서 거절, Polar 는 승인).
    Polar 의 「결제 링크(Checkout Link)」 하나로 연다 — 월 · 연 두 상품이 한 링크에 들어 있고
@@ -19,7 +19,7 @@
 
    **ON 을 true 로 바꾸는 순간 결제가 켜지고 모의고사 2회차부터 잠긴다.** 운영자가
    「결제 켜줘」라고 하기 전에는 false 로 둔다(CLAUDE.md 3장). 켜기 전에 Supabase 쪽
-   (polar-webhook 함수 · POLAR_WEBHOOK_SECRET)을 먼저 마친다 — 순서는 docs/billing-setup.md. */
+   (polar-webhook 함수 · POLAR_WEBHOOK_SECRET)을 먼저 마친다 — 순서는 docs/ops/billing-setup.md. */
 const ON = true;   // 운영자 「결제 켜줘」 2026-10-04
 const CHECKOUT_URL = 'https://buy.polar.sh/polar_cl_enjp5pPzR4GNe1QfPIs1Z7tsoQ7tdqa3igOyW2GjisW';
 

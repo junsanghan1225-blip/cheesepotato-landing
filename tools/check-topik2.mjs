@@ -18,7 +18,7 @@ const GENRES = new Set([
   '서술문', '실용문', '수필', '설명문', '매체담화',
   '광고', '도표', '신문기사', '논설문', '소설',
 ]);
-/* 문항 번호가 어느 급수 구간인지. docs/topik2-blueprint.md 의 표와 같아야 한다. */
+/* 문항 번호가 어느 급수 구간인지. docs/plans/topik2-blueprint.md 의 표와 같아야 한다. */
 const levelOf = (slot) => (slot <= 12 ? 3 : slot <= 24 ? 4 : slot <= 41 ? 5 : 6);
 
 const file = process.argv[2];

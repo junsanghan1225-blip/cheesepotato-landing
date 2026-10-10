@@ -1,4 +1,4 @@
-// 사자성어 · 속담 · 관용 표현 자료(vocab/data/expressions.json) 검사 — docs/antigravity-expressions-task.md 의 모양.
+// 사자성어 · 속담 · 관용 표현 자료(vocab/data/expressions.json) 검사 — docs/antigravity/antigravity-expressions-task.md 의 모양.
 // 안티 그래비티가 올린 묶음을 Claude 가 넣기 전에, CI 에서도 돈다. 빈 배열이면 통과.
 import fs from 'node:fs';
 import path from 'node:path';

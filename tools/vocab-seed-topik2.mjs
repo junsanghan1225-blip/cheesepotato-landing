@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-/* 「단어」 5단계 — TOPIK II 낱말 **씨앗** (docs/vocab-plan.md 5층 「2단계 자료」) → vocab/data/topik2.json
+/* 「단어」 5단계 — TOPIK II 낱말 **씨앗** (docs/plans/vocab-plan.md 5층 「2단계 자료」) → vocab/data/topik2.json
  *
  *   node tools/vocab-seed-topik2.mjs
  *
@@ -7,11 +7,11 @@
  * TOPIK I 자료(vocab/data/topik1.json)에 없는 낱말.
  *
  * TOPIK I 때와 다른 점 — **우리 자료에서 낱말을 더하지 않는다.** TOPIK I 씨앗에서 빈도로 더한 217개 중
- * 64개가 활용형 조각 · 사람 이름 · 문법 용어였다(docs/vocab-plan.md 진행 기록). 표준 목록만 쓴다.
+ * 64개가 활용형 조각 · 사람 이름 · 문법 용어였다(docs/plans/vocab-plan.md 진행 기록). 표준 목록만 쓴다.
  * 우리 자료(TOPIK II 문항 · 중고급 코스)는 **순서**에만 쓴다 — 자주 나오는 것이 앞, 같으면 급수 낮은 것 · 표준 순서.
  *
  * 씨앗은 C급: 표제어 · 품사 · 급수(=표준 급수) · 사전 영어 뜻(있으면) · 길잡이말 · 사전 예문(있으면).
- * 안 그래비티가 500개씩 B급으로 올린다(docs/antigravity-vocab-topik2-task.md).
+ * 안 그래비티가 500개씩 B급으로 올린다(docs/antigravity/antigravity-vocab-topik2-task.md).
  * **이미 채운 줄은 덮지 않는다** — 파일이 있으면 표제어가 같은 줄은 그대로 두고 새 낱말만 뒤에 더한다. */
 import fs from 'node:fs';
 import path from 'node:path';

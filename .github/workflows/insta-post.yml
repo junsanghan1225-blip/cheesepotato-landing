@@ -1,6 +1,6 @@
 # 인스타 자동 올리기 — 하루 네 번, 그날의 게시물 하나씩(단어 1 · TOPIK · 문법 · 단어 2). 운영자 요청 2026-10-02 · TOPIK 2026-10-03.
 # 켜고 끄기: GitHub → Settings → Secrets and variables → Actions → Variables 의 INSTA_AUTO 를 on 으로(끄려면 지우거나 off).
-# 열쇠: 같은 곳 Secrets 의 IG_TOKEN(운영자가 직접 넣는다). 하는 일 · 순서는 docs/insta-auto.md.
+# 열쇠: 같은 곳 Secrets 의 IG_TOKEN(운영자가 직접 넣는다). 하는 일 · 순서는 docs/ops/insta-auto.md.
 # 이미지는 사이트(main)가 아니라 insta-media 가지에 올린다 — 인스타가 공개 주소에서 가져가야 해서.
 name: insta-post
 

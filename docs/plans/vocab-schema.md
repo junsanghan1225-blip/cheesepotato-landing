@@ -1,6 +1,6 @@
 # 낱말 자료의 모양 — `vocab/data/*.json`
 
-「단어」 섹션(`docs/vocab-plan.md`)의 원본 자료. 파일마다 **배열**이고, **한 줄에 낱말 하나**다(고친 곳이 git
+「단어」 섹션(`docs/plans/vocab-plan.md`)의 원본 자료. 파일마다 **배열**이고, **한 줄에 낱말 하나**다(고친 곳이 git
 차이에서 줄 단위로 보이게). 검사: `node tools/check-vocab.mjs` — 「고쳐야 할 것」이 있으면 CI 가 빨개진다.
 
 ```json

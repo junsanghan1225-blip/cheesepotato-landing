@@ -1,5 +1,5 @@
 /* EPS-TOPIK 연습 문항(eps.js) 검사.   node tools/check-eps.mjs
-   docs/antigravity-eps-task.md 의 규칙을 기계로 본다. CI 도 돈다. */
+   docs/antigravity/antigravity-eps-task.md 의 규칙을 기계로 본다. CI 도 돈다. */
 import { EPS_ITEMS, EPS_TYPES, EPS_TOPICS } from '../eps.js';
 
 const err = [], warn = [];

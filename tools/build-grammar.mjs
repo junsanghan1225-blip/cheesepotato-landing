@@ -213,7 +213,7 @@ export const GRAMMAR = ${JSON.stringify(rows)};
  * 그 파일은 손으로 오래 다듬은 자료라, 번역을 한 줄씩 끼워 넣다가 다른
  * 줄을 건드리면 되돌릴 데가 없다. 여기서 id 로 맞춰 붙인다.
  *
- * 채우는 길은 docs/grammar-gemini-prompt.md 에.
+ * 채우는 길은 docs/antigravity/grammar-gemini-prompt.md 에.
  */
 let mineEn = [];
 try { mineEn = JSON.parse(readFileSync(join(ROOT, 'docs/grammar-en.json'), 'utf8')); } catch (e) { /* 없으면 한국어로 */ }

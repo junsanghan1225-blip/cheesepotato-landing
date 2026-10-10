@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-/* 「단어」 섹션 0단계 — TOPIK I 필수 낱말 **후보**를 우리 자료에서 뽑는다 (docs/vocab-plan.md 6층).
+/* 「단어」 섹션 0단계 — TOPIK I 필수 낱말 **후보**를 우리 자료에서 뽑는다 (docs/plans/vocab-plan.md 6층).
  *
  *   node tools/vocab-draft.mjs            → docs/vocab/topik1-candidates.json + 요약
  *

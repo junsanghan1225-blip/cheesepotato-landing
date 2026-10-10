@@ -40,7 +40,7 @@
 ">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <!-- 구글 태그 관리자. 구글이 주는 인라인 코드조각은 CSP 가 막아서 gtm.js 로 뺐다. -->
-<script src="gtm.js?v=e0dfb16e" async></script>
+<script src="gtm.js?v=3de6c4c9" async></script>
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <!-- 제목과 설명을 두 말로 쓴다. 이 사이트를 찾을 사람은 한국어를 **배우는**
@@ -59,7 +59,7 @@
 <link rel="alternate" hreflang="vi" href="https://everykoreans.com/vi/">
 <link rel="alternate" hreflang="ja" href="https://everykoreans.com/ja/">
 <link rel="alternate" hreflang="x-default" href="https://everykoreans.com/">
-<!-- 검색 엔진 소유 확인(비밀 아님 — 지우면 확인이 풀린다). 순서는 docs/search-console.md -->
+<!-- 검색 엔진 소유 확인(비밀 아님 — 지우면 확인이 풀린다). 순서는 docs/ops/search-console.md -->
 <meta name="naver-site-verification" content="dbb9efd9cfca4de5df1456f3c3199ab33a4430df">
 
 <!-- ── 구조화 자료 (JSON-LD) ────────────────────────────────────
@@ -126,13 +126,13 @@
      Pretendard 는 통짜(2.0MB) 대신 조각난 쪽을 쓴다 — 브라우저가
      unicode-range 를 보고 화면에 실제로 나온 글자가 든 조각만 받는다.
      그래서 저장소는 무거워졌지만 학습자가 받는 양은 오히려 줄었다. -->
-<link rel="stylesheet" href="vendor/pretendard.css?v=e0dfb16e">
-<link rel="stylesheet" href="vendor/pressstart2p.css?v=e0dfb16e">
+<link rel="stylesheet" href="vendor/pretendard.css?v=3de6c4c9">
+<link rel="stylesheet" href="vendor/pressstart2p.css?v=3de6c4c9">
 <!-- 화면 상자 안에서만 쓰는 CSS 는 여기서 갈라 받는다. media="print" 라
      첫 페인트를 안 막고, 다 받아지면 app.js 가 media 를 all 로 바꾼다.
      자바스크립트가 없으면 <noscript> 쪽이 그냥 평범하게 걸린다. -->
-<link id="viewsCss" rel="stylesheet" href="app-views.css?v=e0dfb16e" media="print">
-<noscript><link rel="stylesheet" href="app-views.css?v=e0dfb16e"></noscript>
+<link id="viewsCss" rel="stylesheet" href="app-views.css?v=3de6c4c9" media="print">
+<noscript><link rel="stylesheet" href="app-views.css?v=3de6c4c9"></noscript>
 
 <style>
 /* ══════════════════════════════════════════════════════════════
@@ -1912,7 +1912,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- 머리띠에서는 「Wordbook」이다. 「My wordbook」으로 두면 320px 짜리
          영어 화면에서 머리띠가 넘친다. 옆 메뉴는 자리가 넉넉해서 거기서는
          「My wordbook」을 그대로 쓴다. -->
-    <!-- 머리띠의 이 자리는 「단어」다 — 내 단어장은 단어 화면 안의 탭이 됐다(docs/vocab-plan.md 3층).
+    <!-- 머리띠의 이 자리는 「단어」다 — 내 단어장은 단어 화면 안의 탭이 됐다(docs/plans/vocab-plan.md 3층).
          id 는 wbBtn 그대로 둔다: 여러 곳이 이 id 로 켜고 끈다. -->
     <button class="nav-link" id="wbBtn" type="button" aria-label="단어 열기" data-en-aria="Open words">
       <span class="nav-ico"><svg class="nav-svg" viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="6" width="13" height="14" rx="2"/><path d="M7.5 3h11a2 2 0 0 1 2 2v12"/></svg></span><span class="nav-txt" data-en="Words">단어</span>
@@ -2132,7 +2132,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <div id="homeView">
 
   <!-- 「오늘」 카드 — 레벨테스트를 한 사람에게만(app.module.js todayRender). 오늘 할 일 넷과 연속 일수.
-       docs/level-plan.md 4층. 테스트 전이면 비어 있고 숨는다 — 처음 온 사람의 첫 화면은 그대로. -->
+       docs/plans/level-plan.md 4층. 테스트 전이면 비어 있고 숨는다 — 처음 온 사람의 첫 화면은 그대로. -->
   <!-- 반 숙제 — 반 학생에게만, 오늘 할 일보다 위에(운영자 2026-10-07 「반 학생이면 숙제부터」, app.module.js clsHomeRender). 반이 아니면 숨는다. -->
   <section id="clsHome" class="td-wrap" hidden aria-label="반 숙제"></section>
   <section id="todayCard" class="td-wrap" hidden aria-label="오늘 할 일"></section>
@@ -3433,7 +3433,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="lt-card">
     <button class="lt-close" id="ltClose" type="button" aria-label="닫기">✕</button>
 
-    <!-- 테스트 전에 묻는 것(운영자 설계 2026-09-29, docs/level-plan.md 「레벨테스트 흐름」) —
+    <!-- 테스트 전에 묻는 것(운영자 설계 2026-09-29, docs/plans/level-plan.md 「레벨테스트 흐름」) —
          TOPIK / 일반 → 시험 날짜 또는 목적 · 공부 시간 → 내 수준(끌어서). 글은 전부 app.module.js ltSetupShow 가 채운다. -->
     <div id="ltSetup" class="hidden"></div>
 
@@ -3711,7 +3711,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 </div><!-- /dictView -->
 
-<!-- ── 단어 (#words) ── 찾기 · 외우기 · 복습 · 별표 · 기록. 안은 words.js 가 그린다(docs/vocab-plan.md 2단계). -->
+<!-- ── 단어 (#words) ── 찾기 · 외우기 · 복습 · 별표 · 기록. 안은 words.js 가 그린다(docs/plans/vocab-plan.md 2단계). -->
 <div id="wordsView" class="hidden">
   <div class="pt-body wd-wrap">
     <div id="wordsRoot"></div>
@@ -4175,15 +4175,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <!-- 한국어 도우미. 어느 화면에서든 뜬다 — 갈래 화면(learnView 등)
      안에 두면 그 갈래를 나갈 때 open() 이 hidden 을 걸어 사라진다.
-     docs/ai-sidebar-plan.md 1단계: 0층 조회만, 로그인 필요 없음.
+     docs/plans/ai-sidebar-plan.md 1단계: 0층 조회만, 로그인 필요 없음.
      속은 app.module.js 가 채운다. -->
 <button id="hlpFab" class="hlp-fab" type="button" aria-label="한국어 도우미 열기">🧀</button>
 <div id="hlpScrim" class="hlp-scrim"></div>
 <aside id="hlpPanel" class="hlp-panel" aria-label="한국어 도우미" aria-hidden="true"></aside>
 
-<script src="app.js?v=e0dfb16e"></script>
-<script type="module" src="app.module.js?v=e0dfb16e"></script>
+<script src="app.js?v=3de6c4c9"></script>
+<script type="module" src="app.module.js?v=3de6c4c9"></script>
 
-<script src="analytics.js?v=e0dfb16e" defer></script>
+<script src="analytics.js?v=3de6c4c9" defer></script>
 </body>
 </html>
