@@ -276,10 +276,11 @@
   inp.addEventListener('input', () => { clearTimeout(sealT); sealT = setTimeout(sealPaint, 350); });
   sealPaint();
   $('nmStyle')?.addEventListener('click', () => { bump++; sealPaint(); });
-  inp.addEventListener('input', () => { bump = 0; });
+  inp.addEventListener('input', () => { bump = 0; const a = $('nmAfter'); if (a) a.hidden = true; });
   $('nmSave')?.addEventListener('click', async () => {
     const ko = big.textContent, blob = await sealBlob(ko, sub.textContent); if (!blob) return;
     const file = new File([blob], `my-korean-name-${Date.now()}.png`, { type: 'image/png' });
+    const after = $('nmAfter'); if (after) after.hidden = false;   // 받은 뒤 다음 걸음(한글 · 가입) — 공유 창이 닫혀도 남는다
     try {
       if (navigator.canShare && navigator.canShare({ files: [file] })) { await navigator.share({ files: [file], text: `My name in Korean: ${ko} — everykoreans.com/korean-name` }); return; }
     } catch (e) { if (e && e.name === 'AbortError') return; }
