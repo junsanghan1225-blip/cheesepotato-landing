@@ -68,6 +68,9 @@ tr:last-child td { border-bottom:none; }
 .box .tw table { min-width:0; }
 .box .tw th { white-space:normal; width:42%; }
 .seal { margin-top:18px; }
+.seal .after { margin-top:16px; padding:16px 18px; border-radius:14px; background:var(--tint); border:1px solid var(--line); }
+.seal .after b { color:var(--ink); font-size:16px; }
+.seal .after p { margin:6px 0 4px; font-size:14.5px; }
 .seal img { display:block; width:min(270px,70vw); height:auto; border-radius:14px; border:1px solid var(--line); box-shadow:0 8px 24px rgba(0,0,0,.08); }
 ol { margin:14px 0 14px 4px; padding-left:20px; }
 ol li::marker { color:var(--orange-deep); font-weight:700; }
