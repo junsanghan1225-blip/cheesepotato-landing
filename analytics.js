@@ -1,6 +1,6 @@
 /* 치즈감자 — 방문 기록 (Microsoft Clarity)
 
-   쿠키를 쓰지 않고, 화면 녹화와 방문 수를 같이 본다.
+   화면 녹화와 방문 수를 같이 본다. 유럽 방문자는 동의를 받은 뒤에만 기억 쿠키를 쓴다(아래 동의 줄).
 
    **왜 defer 인가** — 이 스크립트가 불러오는 건 남의 서버에서 온다.
    먼저 돌게 두면 그쪽이 느린 날 우리 화면이 같이 늦게 뜬다. defer 로
@@ -17,6 +17,66 @@
     t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
     y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
   })(window, document, "clarity", "script", "y2rlymno2u");
+
+/* 유럽 방문자 쿠키 동의 줄(2026-10-10, 운영자 「쿠키 동의 줄을 띄우자」).
+   Clarity 는 유럽(EEA · 영국 · 스위스) 방문자에게 동의 신호가 없으면 기억 쿠키를 쓰지 않는다 —
+   그래서 한 사람이 쪽마다 새 사람으로 잡혔다(Clarity 10/8~10/10, 독일 1명 → 46번).
+   나라는 서버 없이 시간대(Europe/…)로 어림한다. 고른 것은 이 기기에만(cp_consent y · n), 밖으로 안 나간다.
+   앱 안(WebView)에서는 띄우지 않는다 — 아래 탭을 가리므로. 유럽 밖은 지금까지처럼 그대로. */
+(function () {
+  function grant(ok) {
+    try {
+      var v = ok ? 'granted' : 'denied';
+      window.clarity('consentv2', { ad_Storage: 'denied', analytics_Storage: v });
+      if (ok) window.clarity('consent'); // 옛 방식 — 새 방식을 모르는 버전 대비
+    } catch (e) {}
+  }
+  var tz = '';
+  try { tz = Intl.DateTimeFormat().resolvedOptions().timeZone || ''; } catch (e) {}
+  if (!/^Europe\//.test(tz) || /CheesePotatoApp/.test(navigator.userAgent)) return;
+  var saved = null;
+  try { saved = localStorage.getItem('cp_consent'); } catch (e) {}
+  if (saved === 'y' || saved === 'n') { grant(saved === 'y'); return; }
+
+  function show() {
+    // 쪽의 말(문항 쪽은 lang=ko)이 아니라 방문자 브라우저의 말로 — 유럽 방문자는 대개 한국어를 못 읽는다.
+    var ko = /^ko/i.test(navigator.language || '');
+    var bar = document.createElement('div');
+    bar.setAttribute('role', 'dialog');
+    bar.setAttribute('aria-label', ko ? '쿠키 동의' : 'Cookie consent');
+    bar.style.cssText = 'position:fixed;left:12px;right:12px;bottom:12px;z-index:2147483000;max-width:560px;margin:0 auto;' +
+      'background:#2A1E12;color:#FFF6E0;border-radius:16px;padding:14px 16px;box-shadow:0 10px 30px rgba(0,0,0,.3);' +
+      'font:14px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif;display:flex;flex-wrap:wrap;gap:10px;align-items:center';
+    var p = document.createElement('div');
+    p.style.cssText = 'flex:1 1 260px';
+    p.textContent = ko
+      ? '어느 화면이 불편한지 보고 고치려고 Microsoft Clarity 쿠키를 써도 될까요? 입력한 글은 기록하지 않아요. '
+      : 'May we use Microsoft Clarity cookies to see which screens are hard to use, so we can fix them? What you type is never recorded. ';
+    var a = document.createElement('a');
+    a.href = '/privacy.html';
+    a.textContent = ko ? '개인정보처리방침' : 'Privacy policy';
+    a.style.cssText = 'color:#FFD36B;text-decoration:underline';
+    p.appendChild(a);
+    function btn(label, ok, main) {
+      var b = document.createElement('button');
+      b.type = 'button';
+      b.textContent = label;
+      b.style.cssText = 'border:0;border-radius:999px;padding:9px 16px;font:600 14px system-ui,sans-serif;cursor:pointer;' +
+        (main ? 'background:#FFC24D;color:#2A1E12' : 'background:transparent;color:#FFF6E0;border:1px solid rgba(255,246,224,.4)');
+      b.addEventListener('click', function () {
+        try { localStorage.setItem('cp_consent', ok ? 'y' : 'n'); } catch (e) {}
+        grant(ok);
+        bar.remove();
+      });
+      return b;
+    }
+    bar.appendChild(p);
+    bar.appendChild(btn(ko ? '거절' : 'No thanks', false, false));
+    bar.appendChild(btn(ko ? '괜찮아요' : 'OK', true, true));
+    document.body.appendChild(bar);
+  }
+  if (document.body) show(); else document.addEventListener('DOMContentLoaded', show);
+})();
 
 (function () {
   /* 이 사이트는 주소의 # 뒤만 바뀌는 한 장짜리다. 그래서 그냥 두면
