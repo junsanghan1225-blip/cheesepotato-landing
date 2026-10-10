@@ -8,7 +8,7 @@
 ## 하는 중
 | 일 | 지시서 | 브랜치 | 모두 | 올라옴 | 넣음 | 다음에 줄 말 |
 |---|---|---|---|---|---|---|
-| 낱말 뜻 vi · ja | `antigravity-vocab-tr-task.md` | `vocab-tr` | 11 | 2 | 2 | 2묶음까지 넣음(topik1 1,931개 다) · 다음 3묶음(topik2). 「예문에 맞는 뜻만 — 소리만 같은 다른 낱말 뜻 섞지 마」 |
+| 낱말 뜻 vi · ja | `antigravity-vocab-tr-task.md` | `vocab-tr` | 11 | 3 | 3 | 3묶음까지 넣음(topik1 다 · topik2 1~1,000) · 다음 4묶음(topik2 1,001~2,000). 「예문에 맞는 뜻만 — 소리만 같은 다른 낱말 뜻 섞지 마」 |
 | 중국어 화면 | `antigravity-i18n-zh-task.md` | `i18n-zh` | 5 | 5 | 5 | **끝 — 2,520/2,520, 메뉴에 켬(2026-10-10)**. 새 글은 몇 줄이면 Claude 가 바로 |
 | TOPIK 고르게 | `antigravity-topik-balance-task.md` | `topik-balance` | 8 | 2 | 2 | 3묶음. 정답 자리 ④ 를 더 |
 | 레벨별 이야기 | `antigravity-stories-more-task.md` | `stories-more` | 3 | 2 | 2 | 3묶음 (L6 · L7) |
