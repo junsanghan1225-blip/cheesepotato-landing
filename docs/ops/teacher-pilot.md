@@ -25,3 +25,22 @@
 ## 지킬 것
 - 반은 숙제 · 복습용 — 수업 · 결제를 사이트로 데려오지 않는다(Preply 규정).
 - 학생 기록을 누가 보는지는 반 화면의 개인정보 안내 그대로 말한다(새로 약속하지 않는다).
+
+## 운영자 본인 학생에게 (2026-10-11 「사람 늘리기」 2번) — 이번 주 5명만
+선생님을 데려오기 전에, **지금 가르치는 학생**부터 반(QR)으로 부른다 — 가장 빠르고, 후기 · 입소문의 첫 사람들이다.
+1. 사이트 → 반 · 숙제 → 반 카드 「📱 QR로 학생 부르기」 → 「QR 그림 저장」.
+2. 아래 메시지 + QR 그림을 보낸다. **Preply 학생은 정규 수업을 시작한 뒤에만**(체험 결제 전 링크 공유 금지).
+3. 보낸 날 첫 숙제 하나를 바로 낸다(「＋ 숙제 내기」 — 오늘의 단어 · 레슨 1개). 빈 반은 안 켜진다.
+4. 일주일 뒤 「진도 리포트」를 캡처해 Claude 에게 — 몇 명이 열었고 몇 명이 숙제를 했는지 본다.
+
+### 한국어
+> [이름]님, 수업 사이에 복습하라고 제가 만든 사이트(치즈감자)에 우리 반을 열었어요.
+> QR 을 카메라로 찍고 로그인만 하면 들어와요. 제가 낸 숙제가 첫 화면에 뜨고, 반에 있는 동안은 유료 기능(AI 쓰기 채점 · 발음 · 도우미)이 무료예요.
+> 이번 주 숙제는 하나만 올려 뒀어요. 해 보고 불편한 점 있으면 편하게 말해 주세요!
+
+### English
+> Hi [name]! I opened a class for you on my site CheesePotato so you can review between our lessons.
+> Scan the QR with your camera and sign in — the homework I give shows on the home screen, and while you're in my class the Pro features (AI writing feedback, pronunciation, helper) are free.
+> I've put one small homework up for this week. If anything feels confusing, tell me!
+
+(수업 · 결제는 지금 쓰는 플랫폼 그대로 — 사이트는 숙제 · 복습용이라고만 말한다.)

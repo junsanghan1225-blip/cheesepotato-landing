@@ -19,7 +19,7 @@ const HIST_MAX = 4;
 const HIST_FIELD_MAX = 300;
 
 // 채팅은 발음 진단보다 자주, 여러 번 주고받으며 눌릴 수 있다. 처음엔
-// 좁게 열고 실제 쓰임을 보고 늘린다(docs/ai-sidebar-plan.md §7).
+// 좁게 열고 실제 쓰임을 보고 늘린다(웹 저장소 docs 의 도우미 계획 참고).
 // 무료 20 · Pro 100(운영자 결정 2026-10-03, 무료는 그대로). Pro 는 웹(everykoreans.com)의 구독 —
 // 판별은 웹 저장소 db/add_subscriptions.sql 의 is_pro(), score-pronunciation 과 같은 방식.
 const LIMIT = { free: 20, pro: 100 };
