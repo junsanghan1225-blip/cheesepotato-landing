@@ -22,11 +22,8 @@ export const WS_LEVELS = ['beginner'];   // 지금은 초급만(112개). 형식�
 
 const POINTS = SB_CATS.flatMap((c) => c.points.map((p) => ({ ...p, cat: c }))).filter((p) => WS_LEVELS.includes(p.lv));
 export const WS_IDS = POINTS.map((p) => p.id);
-/* 공개(무료) 표본: 갈래마다 첫 문법 하나 + 조사 · 때 · 불규칙 갈래에서 몇 개 더. 나머지는 Pro(연습 · 정답) — 운영자 2026-10-12 「일부만 공개하고 무료로, 나머지는 Pro」 */
-const FREE = new Set(); {
-  const seen = new Map();
-  for (const p of POINTS) { const k = p.cat.id; seen.set(k, (seen.get(k) || 0) + 1); const lim = k === 26 ? 4 : k === 28 || k === 47 ? 2 : 1; if (seen.get(k) <= lim) FREE.add(p.id); }
-}
+/* 공개(무료) 표본 5개. 나머지는 Pro(연습 · 정답) — 운영자 2026-10-12 「일부만 공개하고 무료로, 나머지는 Pro」 */
+const FREE = new Set(['26-1', '28-1', '30-1', '35-1', '38-1']);   // 운영자 2026-10-12 「일단 5개 정도만 공개」 — 빈칸 연습이 있는 대표 초급 5개(N이/가 · 전에 · -(으)세요 · -(으)ㄹ까요? · -(으)러 가다)
 export const WS_FREE = [...FREE];
 
 /* 문장 속 그 문법 자리를 찾아 [앞, 맞은 글자, 뒤] 로 — 못 찾으면 null */
