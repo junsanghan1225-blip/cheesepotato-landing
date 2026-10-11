@@ -85,7 +85,7 @@ const WAY_GO = {
   pathBasic: () => goLearn('path/basic'),
   pathMid:   () => goLearn('path/mid'),
   pathAdv:   () => goLearn('path/adv'),
-  pathTopik: () => goLearn('path/topik'),
+  pathTopik: () => goLearn('topik'),   // 2026-10-11: 한 번에 TOPIK 연습 판으로(길 카드 한 단계를 건너뜀)
   translate: () => goLearn('translate'),   // 첫 화면 추천 카드 · 배너(2026-10-06)
   topik:    () => goLearn('topik'),
   topikListening: () => goLearn('topik/listening'),
@@ -355,7 +355,7 @@ const PT = () => PT_SETS[ptLevel] || PT_SETS.normal;
    번역이 다 들어오기 전에는 메뉴에 안 보인다(빈 사전이면 영어만 나와 헷갈린다). 미리 보기는 주소 끝에 ?i18n=all. */
 const LANGS = [['ko', '한국어', 'KO', 1], ['en', 'English', 'EN', 1], ['vi', 'Tiếng Việt', 'VI', 1], ['ja', '日本語', '日', 1], ['zh', '中文（简体）', '中', 1]];
 const langShown = () => LANGS.filter((x) => x[3] || /[?&]i18n=all/.test(location.search));
-const I18N_URL = { vi: './i18n-vi.js?v=9e82699d', ja: './i18n-ja.js?v=9e82699d', zh: './i18n-zh.js?v=9e82699d' };
+const I18N_URL = { vi: './i18n-vi.js?v=7d7971b0', ja: './i18n-ja.js?v=7d7971b0', zh: './i18n-zh.js?v=7d7971b0' };
 const trMemo = new Map();
 window.cpTr = (en) => {
   const L = window.cpI18n, s = String(en ?? '');
