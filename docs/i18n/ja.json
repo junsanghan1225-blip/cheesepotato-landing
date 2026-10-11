@@ -2625,5 +2625,7 @@
   "Daily study reminder email": "毎日の学習リマインドメール",
   "One email to {0} around 7 pm · not an ad · skipped on days you studied · turn off with “Stop” in the email or in Settings · sent via Resend": "{0} 宛に夜7時ごろ1通 · 広告ではありません · 勉強した日は送りません · メールの「配信停止」か設定でいつでもオフ · 送信は Resend",
   "Agree to all": "すべて同意",
-  "Save my choices": "選んだものだけ保存"
+  "Save my choices": "選んだものだけ保存",
+  "Answers from our own material": "自社の教材から答えます",
+  "Look up a word or grammar point, or ask how to use the site — in Korean or English.": "単語や文法を調べたり、サイトの使い方を聞けます。韓国語でも英語でもOK。"
 }
