@@ -22,6 +22,12 @@ export const WS_LEVELS = ['beginner'];   // 지금은 초급만(112개). 형식�
 
 const POINTS = SB_CATS.flatMap((c) => c.points.map((p) => ({ ...p, cat: c }))).filter((p) => WS_LEVELS.includes(p.lv));
 export const WS_IDS = POINTS.map((p) => p.id);
+/* 공개(무료) 표본: 갈래마다 첫 문법 하나 + 조사 · 때 · 불규칙 갈래에서 몇 개 더. 나머지는 Pro(연습 · 정답) — 운영자 2026-10-12 「일부만 공개하고 무료로, 나머지는 Pro」 */
+const FREE = new Set(); {
+  const seen = new Map();
+  for (const p of POINTS) { const k = p.cat.id; seen.set(k, (seen.get(k) || 0) + 1); const lim = k === 26 ? 4 : k === 28 || k === 47 ? 2 : 1; if (seen.get(k) <= lim) FREE.add(p.id); }
+}
+export const WS_FREE = [...FREE];
 
 /* 문장 속 그 문법 자리를 찾아 [앞, 맞은 글자, 뒤] 로 — 못 찾으면 null */
 function splitAt(point, sentence) {
@@ -133,37 +139,51 @@ ${jsonld}<link rel="stylesheet" href="/vendor/pretendard.css">
 <main>`;
 const foot = `</main></body></html>\n`;
 
-let n = 0;
+let n = 0, nFree = 0;
+mkdirSync(join(OUT, 'pro'), { recursive: true });
 const byCat = new Map();
+const LOCK = (p) => `<section class="ws-p ws-lock"><h2>🔒 연습 · 정답은 Pro · Practice and answer key are Pro</h2>
+<p>이 문법 학습지의 <b>연습(바꿔 쓰기 · 빈칸 · 따라 쓰기 · 한국어로 쓰기)과 정답</b>은 치즈감자 Pro(반 학생은 무료)에서 열려요. 7일 무료 체험으로 먼저 써 볼 수 있어요.</p>
+<p lang="en">The practice pages and answer key for <b>${esc(p.name)}</b> are part of CheesePotato Pro (free for class students). Try Pro free for 7 days.</p>
+<div class="ws-acts"><a class="btn main" href="/?utm_source=worksheet&amp;utm_medium=pro_lock#pro">Pro 7일 무료로 시작 · Try Pro free</a><a class="btn sub" href="/worksheet/">무료 학습지 보기 · Free worksheets</a></div></section>`;
+const NAV = (p, pro) => `<nav class="ws-nav"><a href="/worksheet/${pro ? 'pro/' : ''}">← 문법 학습지 목록 · All worksheets</a> · <a href="/sentence/${p.id}.html">이 문법 자세히 · Grammar page</a></nav>`;
+const wrap = (p, body, pro) => `<div class="ws-doc">${NAV(p, pro)}
+<p class="ws-intro">인쇄하거나 PDF 로 저장해서 쓰세요(브라우저의 인쇄 → PDF 로 저장). · Print or save as PDF.</p>
+<div class="ws-acts"><button type="button" class="btn main" onclick="window.print()">🖨️ Print / save as PDF</button><a class="btn sub" href="/?utm_source=worksheet&amp;utm_medium=${p.id}#learn/sentence/${p.id}">Practise this grammar online — free →</a></div>
+${body}
+</div>
+<p class="ft">Made by a Korean teacher · <a href="/about.html">About</a> · <a href="/worksheet/">All grammar worksheets</a> · <a href="/privacy.html">Privacy</a></p>`;
 for (const p of POINTS) {
   const s = sheet(p);
   if (!s.has.blanks && !s.has.rows) continue;   // 연습 재료가 하나도 없으면 학습지를 내지 않는다(빈 연습을 내보내지 않는다)
-  const title = `Korean Grammar Worksheet: ${p.name} — Free Printable (PDF) | CheesePotato`;
-  const desc = `Free printable worksheet for the Korean grammar point ${p.name}: meaning, form, examples, fill-in-the-blank and writing practice with an answer key. For learners and teachers.`;
+  const free = FREE.has(p.id);
+  const title = `Korean Grammar Worksheet: ${p.name} — ${free ? 'Free Printable (PDF)' : 'Printable'} | CheesePotato`;
+  const desc = `Printable worksheet for the Korean grammar point ${p.name}: meaning, form and examples${free ? ', plus practice and an answer key — free' : '; practice and answer key with Pro'}. For learners and teachers.`;
   const url = `/worksheet/${p.id}.html`;
-  const html = head(title, desc, url) + `
-<div class="ws-doc">
-<nav class="ws-nav"><a href="/worksheet/">← 문법 학습지 목록 · All worksheets</a> · <a href="/sentence/${p.id}.html">이 문법 자세히 · Grammar page</a></nav>
-<p class="ws-intro">인쇄하거나 PDF 로 저장해서 쓰세요(브라우저의 인쇄 → PDF 로 저장). 1쪽 설명 · 2쪽 연습 · 3쪽 정답이에요. · Print or save as PDF: page 1 explanation, page 2 practice, page 3 answers.</p>
-<div class="ws-acts"><button type="button" class="btn main" onclick="window.print()">🖨️ Print / save as PDF</button><a class="btn sub" href="/?utm_source=worksheet&amp;utm_medium=${p.id}#learn/sentence/${p.id}">Practise this grammar online — free →</a></div>
-${s.sheet1}
-${s.sheet2}
-${s.sheet3}
-</div>
-<p class="ft">Made by a Korean teacher · <a href="/about.html">About</a> · <a href="/worksheet/">All grammar worksheets</a> · <a href="/privacy.html">Privacy</a></p>
-` + foot;
-  writeFileSync(join(OUT, `${p.id}.html`), html);
+  // 공개 쪽: 무료는 3쪽 전부, Pro 는 설명 1쪽 + 잠금 안내(연습 · 정답은 이 쪽에 들어 있지 않다)
+  writeFileSync(join(OUT, `${p.id}.html`), head(title, desc, url) + wrap(p, free ? `${s.sheet1}\n${s.sheet2}\n${s.sheet3}` : `${s.sheet1}\n${LOCK(p)}`, false) + foot);
+  if (!free) {
+    // 전체 쪽은 Pro 가 앱(자료실)에서 들어오는 길 — 검색에 안 잡히게 noindex + robots 에서 막는다. 쪽 주소를 아는 사람은 열 수 있다(앱의 Pro 확인과 같은 수준의 안내)
+    const full = head(`${p.name} — worksheet (Pro) | CheesePotato`, desc, `/worksheet/pro/${p.id}.html`).replace('<meta name="referrer"', '<meta name="robots" content="noindex,nofollow">\n<meta name="referrer"')
+      + wrap(p, `${s.sheet1}\n${s.sheet2}\n${s.sheet3}`, true) + foot;
+    writeFileSync(join(OUT, 'pro', `${p.id}.html`), full);
+  } else nFree++;
   n++;
   if (!byCat.has(p.cat.id)) byCat.set(p.cat.id, { cat: p.cat, items: [] });
-  byCat.get(p.cat.id).items.push(p);
+  byCat.get(p.cat.id).items.push({ p, free });
 }
 export const WS_MADE = n;
-const idx = head(`Free Korean Grammar Worksheets (Printable PDF) — ${n} Beginner Grammar Points | CheesePotato`,
-  `${n} free printable Korean grammar worksheets for beginners: each one explains the grammar and adds fill-in-the-blank, writing practice and an answer key. Print or save as PDF.`, '/worksheet/') + `
-<h1>문법 학습지 · Free grammar worksheets</h1>
-<p>${n} beginner Korean grammar points, one printable worksheet each: explanation, examples, practice and an answer key. Print them or save as PDF. All practice is original — not from past exams. 초급 문법 ${n}개, 표현마다 인쇄용 학습지 한 벌이에요(설명 · 연습 · 정답).</p>
-${[...byCat.values()].map(({ cat, items }) => `<h2>${esc(cat.ko)} · ${esc(cat.en || '')}</h2><ul class="pts">${items.map((p) => `<li><a href="/worksheet/${p.id}.html">${esc(p.name)}</a></li>`).join('')}</ul>`).join('\n')}
+const list = (pro) => [...byCat.values()].map(({ cat, items }) => `<h2>${esc(cat.ko)} · ${esc(cat.en || '')}</h2><ul class="pts">${items.map(({ p, free }) => `<li><a href="/worksheet/${pro ? 'pro/' : ''}${p.id}.html">${esc(p.name)}</a>${pro ? '' : free ? ' <small>무료 · Free</small>' : ' <small>🔒 Pro</small>'}</li>`).join('')}</ul>`).join('\n');
+writeFileSync(join(OUT, 'index.html'), head(`Free Korean Grammar Worksheets (Printable PDF) — Beginner Grammar | CheesePotato`,
+  `${nFree} free printable Korean grammar worksheets for beginners, plus ${n - nFree} more with Pro: explanation, examples, fill-in-the-blank, writing practice and an answer key.`, '/worksheet/') + `
+<h1>문법 학습지 · Grammar worksheets</h1>
+<p>Beginner Korean grammar, one printable worksheet each: explanation, examples, practice and an answer key. <b>${nFree} are completely free</b>; the other ${n - nFree} show the explanation for free, and the practice and answer key come with <a href="/?utm_source=worksheet&amp;utm_medium=index#pro">Pro</a> (free for class students). All practice is original — not from past exams. 초급 문법 학습지예요. ${nFree}개는 모두 무료, 나머지 ${n - nFree}개는 설명만 무료이고 연습 · 정답은 Pro 에서 열려요.</p>
+${list(false)}
 <p class="ft">Made by a Korean teacher · <a href="/about.html">About</a> · <a href="/sentence/">All grammar points</a> · <a href="/topik-vocabulary-list/">Word lists (CSV · Anki)</a> · <a href="/privacy.html">Privacy</a></p>
-` + foot;
-writeFileSync(join(OUT, 'index.html'), idx);
-console.log(`문법 학습지 — 초급 ${n}개 + 목록 → worksheet/ (재료 없는 ${POINTS.length - n}개는 뺌)`);
+` + foot);
+writeFileSync(join(OUT, 'pro', 'index.html'), head('Grammar worksheets (Pro) | CheesePotato', 'Pro grammar worksheets.', '/worksheet/pro/').replace('<meta name="referrer"', '<meta name="robots" content="noindex,nofollow">\n<meta name="referrer"') + `
+<h1>문법 학습지 — Pro 전체 · All worksheets (Pro)</h1>
+<p>치즈감자 Pro · 반 학생용 전체 학습지(설명 + 연습 + 정답)예요. <a href="/worksheet/">무료 목록으로</a></p>
+${list(true)}
+` + foot);
+console.log(`문법 학습지 — 초급 ${n}개(무료 ${nFree} · Pro ${n - nFree}) + 목록 → worksheet/ · worksheet/pro/ (재료 없는 ${POINTS.length - n}개는 뺌)`);
