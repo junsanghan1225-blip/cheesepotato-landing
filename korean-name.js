@@ -138,6 +138,8 @@
     return { ko: out.join(' '), guessed };
   }
 
+  // 다른 만들기 도구(생일 카드 · 따라 쓰기 학습지)도 영어 이름 → 한글을 이 규칙으로 — 이 파일을 불러 쓴다
+  window.cpKoName = (s) => convert(s).ko;
   const $ = (id) => document.getElementById(id);
   const inp = $('nmIn'), big = $('nmBig'), sub = $('nmSub'), note = $('nmNote');
   if (!inp) return;

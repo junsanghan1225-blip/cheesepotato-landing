@@ -9,6 +9,7 @@
 | 일 | 지시서 | 브랜치 | 모두 | 올라옴 | 넣음 | 다음에 줄 말 |
 |---|---|---|---|---|---|---|
 | 낱말 뜻 vi · ja | `antigravity-vocab-tr-task.md` | `vocab-tr` | 11 | 6 | 6 | 6묶음까지 넣음(topik1 다 · topik2 1~4,000, 「사기(士氣)」 · 「창(窓)」 한 개씩 고침) · 다음 7묶음(topik2 4,001~5,000). 「예문에 맞는 뜻만 — 소리만 같은 다른 낱말 뜻 섞지 마」 |
+| 한국 이름 늘리기 | `antigravity-korean-names-task.md` | `korean-names` | 2 | 0 | 0 | **새로** — 1묶음(60개) |
 | 중국어 화면 | `antigravity-i18n-zh-task.md` | `i18n-zh` | 5 | 5 | 5 | **끝 — 2,520/2,520, 메뉴에 켬(2026-10-10)**. 새 글은 몇 줄이면 Claude 가 바로 |
 | TOPIK 고르게 | `antigravity-topik-balance-task.md` | `topik-balance` | 8 | 2 | 2 | 3묶음. 정답 자리 ④ 를 더 |
 | 레벨별 이야기 | `antigravity-stories-more-task.md` | `stories-more` | 3 | 2 | 2 | 3묶음 (L6 · L7) |

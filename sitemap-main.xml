@@ -106,6 +106,30 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://everykoreans.com/my-korean-name/</loc>
+    <lastmod>2026-10-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/korean-birthday/</loc>
+    <lastmod>2026-10-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/korean-word-today/</loc>
+    <lastmod>2026-10-10</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://everykoreans.com/hangul-worksheet/</loc>
+    <lastmod>2026-10-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://everykoreans.com/for-teachers.html</loc>
     <lastmod>2026-10-10</lastmod>
     <changefreq>monthly</changefreq>
