@@ -13,7 +13,7 @@ import { fileURLToPath } from 'url';
 
 const ROOT = path.join(path.dirname(fileURLToPath(import.meta.url)), '..');
 const PRICE = { monthly: '$4.99', yearly: '$39', pass: '$15', passMonths: 3, trialDays: 7 };   // 시험 패스 · 7일 체험(2026-10-04) — billing.js BILLING 과 같이 고친다
-const EMAIL = 'junsanghan1225@gmail.com';
+const EMAIL = 'cheesepotato@everykoreans.com';
 const UPDATED = '2026-10-04';
 const SELLER = {
   name: '에브리코리안즈 (everykoreans · 치즈감자)',

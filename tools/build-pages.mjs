@@ -42,6 +42,8 @@ for (let k = 0; k * 500 < VOCAB2.length; k++) {
 }
 import { conjugate, romanize } from './ko-conj.mjs';
 import { pron, PRON_RULES } from './ko-pron.mjs';
+import { WS_IDS } from './build-worksheets.mjs';   // 문법 학습지(worksheet/) — 가져오는 것만으로 쪽이 구워진다
+const WS_SET = new Set(WS_IDS);
 import { readFileSync as readEn } from 'node:fs';
 import { createHash } from 'node:crypto';
 
@@ -387,6 +389,7 @@ function pointPage(cat, p, prev, next) {
        직접 문장을 써 보는 곳은 앱이다. */
     `<a class="cta" href="/#learn/sentence/${esc(p.id)}">이 표현으로 문장 만들어 보기` +
       `<span>Practice writing your own sentence with ${esc(p.name)}</span></a>`,
+    WS_SET.has(p.id) ? `<a class="cta" href="/worksheet/${esc(p.id)}.html">인쇄용 학습지 받기 · 연습 + 정답<span>Free printable worksheet (PDF) for ${esc(p.name)}</span></a>` : '',
     `<div class="near"><a href="/compare/${esc(cat.id)}.html"><b>같은 갈래 견주어 보기</b>` +
       `${esc(cat.ko)} 표현 ${cat.points.length}가지</a>` +
       // 문법을 익혔으면 쓰기로 — TOPIK 쓰기 모음은 클릭률이 가장 높은 쪽(2026-10-10)
@@ -3103,6 +3106,8 @@ urls.push({ loc: '/my-korean-name/', freq: 'monthly', pri: '0.7' });
 urls.push({ loc: '/korean-birthday/', freq: 'monthly', pri: '0.7' });
 urls.push({ loc: '/korean-word-today/', freq: 'daily', pri: '0.6' });
 urls.push({ loc: '/hangul-worksheet/', freq: 'monthly', pri: '0.7' });
+urls.push({ loc: '/worksheet/', freq: 'monthly', pri: '0.8' });
+for (const id of WS_IDS) urls.push({ loc: `/worksheet/${id}.html`, freq: 'monthly', pri: '0.6' });
 urls.push({ loc: '/topik-vocabulary-list/', freq: 'monthly', pri: '0.8' });
 urls.push({ loc: '/for-teachers.html', freq: 'monthly', pri: '0.6' });
 urls.push({ loc: '/my/eps-topik/', freq: 'monthly', pri: '0.6' });   // 미얀마어 EPS(운영자 2026-10-10 「열어줘」)
@@ -3115,7 +3120,7 @@ for (const loc of ['/pricing.html', '/terms.html', '/refund.html']) urls.push({ 
 const SITEMAP_GROUPS = [
   ['dictionary', (loc) => /^\/(dictionary|topik1-words|topik2-words|korean-word-for)\//.test(loc)],
   ['topik',      (loc) => /^\/(topik-(reading|writing|listening)|eps-topik)\//.test(loc)],
-  ['learn',      (loc) => /^\/(sentence|compare|course|lesson)\//.test(loc)],
+  ['learn',      (loc) => /^\/(sentence|compare|course|lesson|worksheet)\//.test(loc)],
   ['blog',       (loc) => loc.startsWith('/blog/')],
   ['main',       () => true],                 // 첫 쪽 · 여행 · 약관 등 나머지
 ];

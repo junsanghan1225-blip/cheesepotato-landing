@@ -7126,3 +7126,29 @@ a.hlp-row-site:hover { background:var(--surface); box-shadow:inset 0 0 0 1px var
   .pa-tc-go { position:absolute; right:16px; top:16px; font-size:20px; }
   .pa-tg-h { font-size:16px; margin-top:26px; }
 }
+
+/* 첫 화면 「오늘 할 일」 정리(운영자 2026-10-12): 큰 단추 하나 → 오늘 네 단계는 한 줄 칩 → 연속 기록은 한 줄 + 작은 점 */
+.td-card:not(.ck) .td-slots { display:flex; flex-wrap:wrap; gap:8px; }
+.td-card:not(.ck) .td-slot { flex:1 1 calc(25% - 8px); min-width:120px; padding:10px 12px; gap:8px; }
+.td-card:not(.ck) .td-slot .td-t { display:none; }
+.td-card:not(.ck) .td-slot .td-k { font-size:13.5px; font-weight:700; color:var(--ink); }
+.td-card:not(.ck) .td-slot .td-end { display:none; }
+.td-card:not(.ck) .td-slot.done .td-k { color:var(--ink-3); text-decoration:line-through; text-decoration-thickness:1px; }
+.td-streakbox.mini { display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:10px 16px; padding:12px 16px; }
+.td-mini-t { display:flex; flex-direction:column; gap:2px; min-width:0; font-size:13.5px; color:var(--ink-2); }
+.td-mini-t b { font-size:15px; color:var(--ink); }
+.td-streakbox.mini .td-days { gap:6px; }
+.td-streakbox.mini .td-day, .td-streakbox.mini .td-day svg, .td-streakbox.mini .td-day small { width:34px; height:34px; }
+.td-streakbox.mini .td-day small { font-size:11.5px; }
+@media (max-width: 520px) { .td-card:not(.ck) .td-slot { flex:1 1 calc(50% - 8px); } }
+
+/* ── 움직임 두 가지 — transitions.dev 의 무료 움직임(Error state shake · Modal open/close)에서 필요한 것만 가져옴(운영자 2026-10-12).
+   저작권: © 2026 Jakub Antalik / Transitions.dev — 무료 움직임은 상업 사이트에서 쓰고 고쳐 써도 되고, 라이브러리 자체를 되팔지만 않으면 된다(LICENSE). 이 주석을 지우지 않는다.
+   쓰는 곳: ① 틀린 보기를 눌렀을 때 좌우로 짧게 흔들림 ② 가입 직후 동의 창이 가운데서 살짝 커지며 열림. 움직임 줄이기를 켠 사람에게는 끈다. */
+@keyframes t-shake { 0% { transform:translateX(0); } 28.57% { transform:translateX(6px); } 57.14% { transform:translateX(-6px); } 78.57% { transform:translateX(4px); } 100% { transform:translateX(0); } }
+.ex-opt.wrong, .qz-choice.wrong { animation:t-shake 280ms cubic-bezier(.22,1,.36,1); }
+@keyframes t-modal-in { from { opacity:0; transform:scale(.96); } to { opacity:1; transform:scale(1); } }
+@keyframes t-scrim-in { from { opacity:0; } to { opacity:1; } }
+.cs-scrim { animation:t-scrim-in 200ms ease-out; }
+.cs-card { animation:t-modal-in 250ms cubic-bezier(.22,1,.36,1); }
+@media (prefers-reduced-motion: reduce) { .ex-opt.wrong, .qz-choice.wrong, .cs-scrim, .cs-card { animation:none !important; } }
