@@ -2609,5 +2609,7 @@
   "We couldn't find \"{0}\" in our material. Try a simpler word — e.g. \"difficult\", \"eat\", \"because\" — or the Korean dictionary form. You can also ask how to use the site.": "Chúng tôi không tìm thấy \"{0}\" trong tài liệu. Hãy thử từ đơn giản hơn — ví dụ \"difficult\", \"eat\", \"because\" — hoặc dạng gốc trong từ điển tiếng Hàn. Bạn cũng có thể hỏi cách dùng trang web.",
   "Word, grammar or question": "Từ, ngữ pháp hoặc câu hỏi",
   "Ask the helper": "Hỏi trợ lý",
-  "Search a word or ask anything": "Tìm từ hoặc hỏi bất cứ điều gì"
+  "Search a word or ask anything": "Tìm từ hoặc hỏi bất cứ điều gì",
+  "Search": "Tìm kiếm",
+  "Open search and helper": "Mở tìm kiếm và trợ lý"
 }

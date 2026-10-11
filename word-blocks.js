@@ -178,6 +178,7 @@ function potShuffle(free) {
 
 function blkMeta() {
   const { t, esc } = D;
+  if (!$('blkBoard') || !$('blkScore')) return;   // 판이 사라진 뒤(게임을 나감)에 불리면 그냥 둔다 — Clarity 「null is not an object」
   $('blkScore').textContent = String(G.score);
   $('blkBest').textContent = G.best ? (G.beat ? t('🏆 신기록 중!', '🏆 New record!') : t(`최고 ${G.best}`, `Best ${G.best}`)) : '';
   const m = mult(G.combo);
@@ -218,7 +219,9 @@ function potClock() {
 let drag = null;
 function potCellsIn(x0, y0, x1, y1) {
   const L = Math.min(x0, x1), R = Math.max(x0, x1), T = Math.min(y0, y1), B = Math.max(y0, y1);
-  const b = $('blkBoard').getBoundingClientRect(), out = [];
+  const bd = $('blkBoard'), out = [];
+  if (!bd || !$('potGrid')) return out;
+  const b = bd.getBoundingClientRect();
   $('potGrid').querySelectorAll('.pot').forEach((el) => {
     const r = el.getBoundingClientRect(), cx = r.left - b.left + r.width / 2, cy = r.top - b.top + r.height / 2;
     if (cx >= L && cx <= R && cy >= T && cy <= B) out.push(+el.dataset.i);
@@ -227,6 +230,7 @@ function potCellsIn(x0, y0, x1, y1) {
 }
 function potSelDraw(x0, y0, x1, y1, ids) {
   const s = $('potSel');
+  if (!s) return;   // 판이 사라진 뒤 손가락이 움직일 때
   s.classList.remove('hidden');
   s.style.left = `${Math.min(x0, x1)}px`; s.style.top = `${Math.min(y0, y1)}px`;
   s.style.width = `${Math.abs(x1 - x0)}px`; s.style.height = `${Math.abs(y1 - y0)}px`;
@@ -235,8 +239,8 @@ function potSelDraw(x0, y0, x1, y1, ids) {
   $('potGrid').querySelectorAll('.pot').forEach((el) => el.classList.toggle('sel', ids.includes(+el.dataset.i)));
 }
 function potRelease(ids) {
-  $('potSel').classList.add('hidden');
-  $('potGrid').querySelectorAll('.pot.sel').forEach((el) => el.classList.remove('sel'));
+  $('potSel')?.classList.add('hidden');
+  $('potGrid')?.querySelectorAll('.pot.sel').forEach((el) => el.classList.remove('sel'));
   if (!G || G.over || G.hold || G.paused) return;
   if (ids.length !== 2) {
     // 감자 하나만 눌렀다 — 낱말이면 소리를 들려준다(외우는 데 도움)
@@ -412,6 +416,7 @@ export function blkBind(root) {
   });
   root.addEventListener('pointermove', (e) => {
     if (!drag) return;
+    if (!$('blkBoard')) { drag = null; return; }
     const b = $('blkBoard').getBoundingClientRect();
     const x = e.clientX - b.left, y = e.clientY - b.top;
     drag.ids = potCellsIn(drag.x0, drag.y0, x, y);

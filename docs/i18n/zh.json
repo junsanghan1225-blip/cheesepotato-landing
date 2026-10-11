@@ -2583,5 +2583,7 @@
   "We couldn't find \"{0}\" in our material. Try a simpler word — e.g. \"difficult\", \"eat\", \"because\" — or the Korean dictionary form. You can also ask how to use the site.": "资料中没有找到“{0}”。试试更简单的词 — 例如 \"difficult\"、\"eat\"、\"because\" — 或词典原形。也可以询问网站的使用方法。",
   "Word, grammar or question": "单词、语法或问题",
   "Ask the helper": "向助手提问",
-  "Search a word or ask anything": "查单词或随便问"
+  "Search a word or ask anything": "查单词或随便问",
+  "Search": "搜索",
+  "Open search and helper": "打开搜索与助手"
 }

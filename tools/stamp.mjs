@@ -47,6 +47,7 @@ const ASSETS = [
   'stories.js',
   /* 첫 화면 검색 칸의 색인(tools/build-search.mjs 생성물) — 검색 칸을 처음 누를 때 받는다. */
   'search-index.js',
+  'search-tr.js',
   /* 정적 쪽(사전 · 문제 쪽)의 🔊 · 보기 채점 — 그 쪽들은 build-pages.mjs 가 이 파일 내용으로 따로 자국을 붙인다. */
   'page.js',
   /* TOPIK II 예문 조각(vocab-topik2-ex/<n>.js) — 조각 수가 묶음마다 늘어 폴더에서 읽는다. 주소는 app.module.js 가
