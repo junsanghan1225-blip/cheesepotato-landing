@@ -31,9 +31,18 @@
       if (ok) window.clarity('consent'); // 옛 방식 — 새 방식을 모르는 버전 대비
     } catch (e) {}
   }
+  /* 가입 직후 동의 화면(app.module.js consentAsk)이 고른 것을 여기로 넘긴다 — 쿠키 띠와 같은 칸(cp_consent)에 적고 Clarity 에 알린다.
+     유럽 밖이어도 「안 돼요」를 골랐으면 그 기기에서는 따른다. */
+  window.cpConsentSet = function (ok) {
+    try { localStorage.setItem('cp_consent', ok ? 'y' : 'n'); } catch (e) {}
+    grant(ok);
+  };
   var tz = '';
   try { tz = Intl.DateTimeFormat().resolvedOptions().timeZone || ''; } catch (e) {}
-  if (!/^Europe\//.test(tz) || /CheesePotatoApp/.test(navigator.userAgent)) return;
+  if (!/^Europe\//.test(tz) || /CheesePotatoApp/.test(navigator.userAgent)) {
+    try { if (localStorage.getItem('cp_consent') === 'n') grant(false); } catch (e) {}
+    return;
+  }
   var saved = null;
   try { saved = localStorage.getItem('cp_consent'); } catch (e) {}
   if (saved === 'y' || saved === 'n') { grant(saved === 'y'); return; }

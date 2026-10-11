@@ -2617,5 +2617,13 @@
   "TOPIK prep — tap anything to start": "TOPIK対策 — やりたいものをすぐタップ",
   "Try the first {0} questions without signing in. Sign in (free) to finish the round and save your score.": "ログインなしで最初の{0}問を試せます。最後まで解いて点数を残すには無料ログイン。",
   "Preview done! Sign in (free) to finish the other {0} questions in this round and save your score.": "プレビュー終了！ログイン（無料）すると、この回の残り{0}問を最後まで解いて点数を保存できます。",
-  "Sign in free": "無料でログイン"
+  "Sign in free": "無料でログイン",
+  "Two quick choices before you start": "始める前に2つだけ選んでください",
+  "Both are optional. Everything works without them, and you can change them any time in Settings.": "どちらも任意です。選ばなくても全機能が使えて、設定でいつでも変更できます。",
+  "Analytics cookies": "分析用クッキー",
+  "We use Microsoft Clarity cookies to see which screens are hard to use. What you type is never recorded.": "使いにくい画面を見つけるため Microsoft Clarity のクッキーを使います。入力した文章は記録しません。",
+  "Daily study reminder email": "毎日の学習リマインドメール",
+  "One email to {0} around 7 pm · not an ad · skipped on days you studied · turn off with “Stop” in the email or in Settings · sent via Resend": "{0} 宛に夜7時ごろ1通 · 広告ではありません · 勉強した日は送りません · メールの「配信停止」か設定でいつでもオフ · 送信は Resend",
+  "Agree to all": "すべて同意",
+  "Save my choices": "選んだものだけ保存"
 }

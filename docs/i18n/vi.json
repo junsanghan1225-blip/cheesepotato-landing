@@ -2618,5 +2618,13 @@
   "TOPIK prep — tap anything to start": "Luyện TOPIK — chạm vào bất cứ mục nào để bắt đầu",
   "Try the first {0} questions without signing in. Sign in (free) to finish the round and save your score.": "Thử {0} câu đầu mà không cần đăng nhập. Đăng nhập (miễn phí) để làm hết đề và lưu điểm.",
   "Preview done! Sign in (free) to finish the other {0} questions in this round and save your score.": "Hết phần xem thử! Đăng nhập (miễn phí) để làm nốt {0} câu còn lại của đề này và lưu điểm.",
-  "Sign in free": "Đăng nhập miễn phí"
+  "Sign in free": "Đăng nhập miễn phí",
+  "Two quick choices before you start": "Hai lựa chọn nhanh trước khi bắt đầu",
+  "Both are optional. Everything works without them, and you can change them any time in Settings.": "Cả hai đều tùy chọn. Không chọn vẫn dùng được mọi tính năng và bạn có thể đổi bất cứ lúc nào trong Cài đặt.",
+  "Analytics cookies": "Cookie phân tích",
+  "We use Microsoft Clarity cookies to see which screens are hard to use. What you type is never recorded.": "Chúng tôi dùng cookie Microsoft Clarity để xem màn hình nào khó dùng. Nội dung bạn nhập không bao giờ được ghi lại.",
+  "Daily study reminder email": "Email nhắc học mỗi ngày",
+  "One email to {0} around 7 pm · not an ad · skipped on days you studied · turn off with “Stop” in the email or in Settings · sent via Resend": "Một email gửi đến {0} khoảng 7 giờ tối · không phải quảng cáo · bỏ qua ngày bạn đã học · tắt bằng “Dừng” trong email hoặc trong Cài đặt · gửi qua Resend",
+  "Agree to all": "Đồng ý tất cả",
+  "Save my choices": "Lưu lựa chọn của tôi"
 }
