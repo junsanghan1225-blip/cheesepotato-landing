@@ -41,6 +41,7 @@ for (let k = 0; k * 500 < VOCAB2.length; k++) {
   EX.forEach((x, j) => { VOCAB2[k * 500 + j].x = x; });
 }
 import { conjugate, romanize } from './ko-conj.mjs';
+import { pron, PRON_RULES } from './ko-pron.mjs';
 import { readFileSync as readEn } from 'node:fs';
 import { createHash } from 'node:crypto';
 
@@ -1320,6 +1321,7 @@ function wordPage(entry, prev, next) {
       (pos ? `<div class="wd-tags"><span class="badge">${esc(pos)}</span></div>` : '') +
       `<h1>${esc(head)}</h1>` +
       (romanize(head) ? `<p class="wd-rom" lang="en">${esc(romanize(head))}</p>` : '') +
+      pronBlock(head, pos) +
       (en ? `<p class="wd-en" lang="en">${esc(en)}</p>` : '') +
       `<div class="wd-acts">${sayBtn(head)}<a class="wd-add" href="/#dictionary/${encodeURIComponent(head)}">＋ 단어장에 담기</a></div>` +
       (senses?.length ? '<ol class="wd-senses">' + senses.map(([ko, enS]) =>
@@ -1364,6 +1366,8 @@ const VOCAB_CSS = [
   '.wd-tags{display:flex;gap:6px;flex-wrap:wrap}',
   '.wd-hero h1{font-size:44px;line-height:1.15;margin:14px 0 2px;letter-spacing:-.03em}',
   '.wd-rom{margin:0;color:var(--dim);font-size:15px;font-style:italic}',
+  '.wd-pron{margin:6px 0 0;font-size:15.5px}.wd-pron b{font-size:18px;color:var(--ink)}.wd-pron span{color:var(--dim);font-size:13.5px}',
+  '.wd-pron-why{margin:4px 0 0;font-size:13.5px;color:var(--dim)}.wd-pron-why summary{cursor:pointer;font-weight:700}.wd-pron-why ul{margin:8px 0 4px;padding-left:20px}.wd-pron-why p{margin:6px 0 0}',
   '.wd-en{margin:14px 0 0;font-size:20px;font-weight:700;line-height:1.45}',
   '.wd-senses{margin:12px 0 0;padding:12px 0 0 20px;border-top:1px solid var(--line);font-size:15.5px;color:var(--ink)}',
   '.wd-senses li{margin:2px 0}.wd-senses i{display:block;font-style:normal;font-size:13.5px;color:var(--dim)}',
@@ -1439,6 +1443,7 @@ function vocabPage(w, prev, next) {
       `<div class="wd-tags"><span class="badge">TOPIK ${isT2(w) ? 'II' : 'I'} · ${w.l}급</span><span class="badge">${esc(w.p)}</span></div>` +
       `<h1>${esc(head)}</h1>` +
       `<p class="wd-rom" lang="en">${esc(rom)}</p>` +
+      pronBlock(head, w.p) +
       `<p class="wd-en" lang="en">${esc(w.e)}</p>` +
       `<div class="wd-acts">${sayBtn(head)}<a class="wd-add" href="/#words/w/${encodeURIComponent(head)}">＋ 단어장에 담기<span> · 카드로 외우기</span></a></div>` +
       (senses?.length ? '<ol class="wd-senses">' + senses.slice(0, 2).map(([ko, enS]) =>
@@ -1569,6 +1574,14 @@ const EW = (() => {
 /* 이 낱말이 다른 낱말의 높임말이면 그 낱말. (vocab 의 rel.hon 은 「먹다 → 드시다」 쪽으로 적혀 있다.) */
 const HON_OF = new Map();
 VOCAB.forEach((w) => (w.r?.hon || []).forEach((h) => { if (!HON_OF.has(h)) HON_OF.set(h, w.h); }));
+/* 소리 나는 대로(운영자 2026-10-11 「3번」) — 글자와 소리가 다른 낱말에만 「Pronounced [소리]」 한 줄 + 왜(규칙). 규칙 엔진은 확실한 것만 말한다(tools/ko-pron.mjs) */
+function pronBlock(head, pos) {
+  const r = pron(head, pos); if (!r) return '';
+  const names = r.rules.map((k) => PRON_RULES[k]).filter(Boolean);
+  return `<p class="wd-pron" lang="en">Pronounced <b>[${esc(r.s)}]</b> <span>— ${names.map((n) => `${esc(n[1])} · ${esc(n[0])}`).join(', ')}</span></p>` +
+    `<details class="wd-pron-why" lang="en"><summary>Why does it sound different?</summary><ul>${names.map((n) => `<li><b>${esc(n[1])} (${esc(n[0])})</b> — ${esc(n[2])}</li>`).join('')}</ul>` +
+    '<p>Standard pronunciation of the word on its own. Sounds can shift a little inside a sentence.</p></details>';
+}
 const POS_EN = { 동사: 'verb', 형용사: 'adjective', 명사: 'noun', 부사: 'adverb', 대명사: 'pronoun', 수사: 'number', 관형사: 'determiner', 감탄사: 'interjection', '의존 명사': 'bound noun', 조사: 'particle' };
 
 function engPage(slug, { key, words }) {
