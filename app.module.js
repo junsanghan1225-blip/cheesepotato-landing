@@ -16264,20 +16264,27 @@ function pathDurTx(p) {
   return days < 14 ? t(`레슨 ${st.length}개 · 하루 15분이면 약 ${days}일`, `${st.length} lessons · about ${days} days at 15 min a day`)
     : t(`레슨 ${st.length}개 · 하루 15분이면 약 ${wk}주`, `${st.length} lessons · about ${wk} weeks at 15 min a day`);
 }
-function pathCardsHtml(cls) {
+/* 카드 한 장 — 정보는 이름 · 한 줄 설명 · 기간 · 진도만(운영자 2026-10-12 「정신없다」: 「이런 분께」 목록은 뺐다) */
+function pathCardHtml(p, mine) {
+  const pr = pathProgress(p), m = PATH_META[p.id], dur = pathDurTx(p), me = p.id === mine;
+  const ic = (m.lvl[0] === 'cheese' ? cheeseLevel : potatoLevel)(m.lvl[1]).icon;
+  return `<button type="button" class="pc-card pc-${p.id}${me ? ' mine' : ''}" data-path="${p.id}">` +
+    `<span class="pc-top"><span class="pc-badge">${esc(t(m.badge.ko, m.badge.en))}</span></span>` +
+    `<span class="pc-head"><span class="pc-ic" aria-hidden="true">${ic}</span><span><b>${esc(t(p.ko, p.en))}</b><small>${esc(t(p.subKo, p.subEn))}</small></span></span>` +
+    (dur ? `<span class="pc-dur">${esc(dur)}</span>` : '') +
+    `<span class="pc-foot"><span class="pc-prog">${pr.all ? `${pr.n} / ${pr.all}` : ''}</span>` +
+    `<span class="pc-go">${esc(pr.n ? t('이어서 →', 'Continue →') : t('시작하기 →', 'Start →'))}</span></span></button>`;
+}
+/* rec — 레벨 테스트 · 고른 길이 있으면 그 길 한 장만 크게, 나머지는 「다른 길 보기」에 접는다(운영자 2026-10-12) */
+function pathCardsHtml(cls, rec) {
   const mine = pathMine();
-  return `<div class="pa-cards pc-cards ${cls || ''}">` + PATHS.map((p) => {
-    const pr = pathProgress(p), m = PATH_META[p.id], dur = pathDurTx(p), me = p.id === mine;
-    const ic = (m.lvl[0] === 'cheese' ? cheeseLevel : potatoLevel)(m.lvl[1]).icon;
-    return `<button type="button" class="pc-card pc-${p.id}${me ? ' mine' : ''}" data-path="${p.id}">` +
-      `<span class="pc-top"><span class="pc-badge">${esc(t(m.badge.ko, m.badge.en))}</span><span class="pc-step">${esc(m.step)}</span></span>` +
-      `<span class="pc-head"><span class="pc-ic" aria-hidden="true">${ic}</span><span><b>${esc(t(p.ko, p.en))}</b><small>${esc(t(p.subKo, p.subEn))}</small></span></span>` +
-      `<span class="pc-k">${esc(t('이런 분께', 'Best for'))}</span>` +
-      `<span class="pc-best">${m.best.map((b) => `<span>${esc(t(b.ko, b.en))}</span>`).join('')}</span>` +
-      (dur ? `<span class="pc-k">${esc(t('기간', 'Duration'))}</span><span class="pc-dur">${esc(dur)}</span>` : '') +
-      `<span class="pc-foot"><span class="pc-prog">${me ? `<em>${esc(t('내 길', 'My path'))}</em> ` : ''}${pr.all ? `${pr.n} / ${pr.all}` : ''}</span>` +
-      `<span class="pc-go">${esc(pr.n ? t('이어서 →', 'Continue →') : t('시작하기 →', 'Start →'))}</span></span></button>`;
-  }).join('') + '</div>';
+  if (rec && mine && pathOf(mine)) {
+    const others = PATHS.filter((p) => p.id !== mine);
+    return `<div class="pc-rec-wrap ${cls || ''}"><p class="pc-rec-k">${esc(t('내 레벨에 맞는 길', 'Your path, from your level'))}</p>` +
+      `<div class="pa-cards pc-cards pc-rec">${pathCardHtml(pathOf(mine), mine)}</div>` +
+      `<details class="pc-others"><summary>${esc(t('다른 길 보기', 'See other paths'))}</summary><div class="pa-cards pc-cards">${others.map((p) => pathCardHtml(p, mine)).join('')}</div></details></div>`;
+  }
+  return `<div class="pa-cards pc-cards ${cls || ''}">` + PATHS.map((p) => pathCardHtml(p, mine)).join('') + '</div>';
 }
 /* 첫 화면의 길 넷도 같은 카드로 — 정적인 문(.hm-doors, 검색 · 스크립트 없는 화면용)은 그리기 전까지 그대로 둔다 */
 async function hmPathCards() {
@@ -16292,7 +16299,7 @@ $('hmPaths')?.addEventListener('click', (ev) => {
 });
 function pathChooseHtml() {
   return `<p class="pa-lead">${esc(t('어디서 시작할까요? 길을 하나 고르면 그 길만 차례대로 따라가면 돼요.', 'Where do you start? Pick one path and just follow it step by step.'))}</p>` +
-    pathCardsHtml() +
+    pathCardsHtml('', !!ltLoadLevel()) +
     (ltLoadLevel() ? '' : `<button type="button" class="pa-test" data-my="test">${esc(t('어디서 시작할지 모르겠으면 — 내 레벨 찾기(3분) →', 'Not sure where to start? Find my level (3 min) →'))}</button>`);
 }
 function pathListHtml(p) {
