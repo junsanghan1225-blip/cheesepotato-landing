@@ -2588,5 +2588,12 @@
   "TOPIK writing · AI score": "TOPIK作文 · AI採点",
   "🔁 Translation": "🔁 翻訳",
   "English → Korean · {0} lines": "英語 → 韓国語 · {0}行",
-  "Translation": "翻訳"
+  "Translation": "翻訳",
+  "Ask in English or Korean — a word or a grammar point. Searched across 10,000+ words and 290 grammar points.": "英語か韓国語で聞いてください — 単語や文法表現。1万語以上と290の文法表現から探します。",
+  "e.g. difficult, 가지고, -느니": "例: difficult, 가지고, -느니",
+  "Matches": "見つかった単語",
+  "More matches": "こんな言葉もあります",
+  "Searching more…": "さらに検索中…",
+  "We couldn't find \"{0}\" in our material. Try a simpler word — e.g. \"difficult\", \"eat\", \"because\" — or the Korean dictionary form.": "「{0}」は資料に見つかりませんでした。もっと簡単な言葉 — 例: \"difficult\" · \"eat\" · \"because\" — か、辞書形で試してください。",
+  "Look up a word or grammar point — English or Korean": "単語や文法を調べる — 英語か韓国語で"
 }

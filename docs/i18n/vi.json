@@ -2589,5 +2589,12 @@
   "TOPIK writing · AI score": "Viết TOPIK · AI chấm điểm",
   "🔁 Translation": "🔁 Dịch",
   "English → Korean · {0} lines": "Tiếng Anh → tiếng Hàn · {0} câu",
-  "Translation": "Dịch"
+  "Translation": "Dịch",
+  "Ask in English or Korean — a word or a grammar point. Searched across 10,000+ words and 290 grammar points.": "Hỏi bằng tiếng Anh hoặc tiếng Hàn — một từ hoặc một điểm ngữ pháp. Tìm trong hơn 10.000 từ và 290 điểm ngữ pháp.",
+  "e.g. difficult, 가지고, -느니": "vd: difficult, 가지고, -느니",
+  "Matches": "Kết quả",
+  "More matches": "Còn có",
+  "Searching more…": "Đang tìm thêm…",
+  "We couldn't find \"{0}\" in our material. Try a simpler word — e.g. \"difficult\", \"eat\", \"because\" — or the Korean dictionary form.": "Chúng tôi không tìm thấy \"{0}\" trong tài liệu. Hãy thử từ đơn giản hơn — ví dụ \"difficult\", \"eat\", \"because\" — hoặc dạng gốc trong từ điển tiếng Hàn.",
+  "Look up a word or grammar point — English or Korean": "Tra từ hoặc ngữ pháp — bằng tiếng Anh hoặc tiếng Hàn"
 }
