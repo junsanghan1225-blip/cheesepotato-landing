@@ -40,7 +40,7 @@
 ">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <!-- 구글 태그 관리자. 구글이 주는 인라인 코드조각은 CSP 가 막아서 gtm.js 로 뺐다. -->
-<script src="gtm.js?v=b5617075" async></script>
+<script src="gtm.js?v=8d407b3f" async></script>
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <!-- 제목과 설명을 두 말로 쓴다. 이 사이트를 찾을 사람은 한국어를 **배우는**
@@ -126,13 +126,13 @@
      Pretendard 는 통짜(2.0MB) 대신 조각난 쪽을 쓴다 — 브라우저가
      unicode-range 를 보고 화면에 실제로 나온 글자가 든 조각만 받는다.
      그래서 저장소는 무거워졌지만 학습자가 받는 양은 오히려 줄었다. -->
-<link rel="stylesheet" href="vendor/pretendard.css?v=b5617075">
-<link rel="stylesheet" href="vendor/pressstart2p.css?v=b5617075">
+<link rel="stylesheet" href="vendor/pretendard.css?v=8d407b3f">
+<link rel="stylesheet" href="vendor/pressstart2p.css?v=8d407b3f">
 <!-- 화면 상자 안에서만 쓰는 CSS 는 여기서 갈라 받는다. media="print" 라
      첫 페인트를 안 막고, 다 받아지면 app.js 가 media 를 all 로 바꾼다.
      자바스크립트가 없으면 <noscript> 쪽이 그냥 평범하게 걸린다. -->
-<link id="viewsCss" rel="stylesheet" href="app-views.css?v=b5617075" media="print">
-<noscript><link rel="stylesheet" href="app-views.css?v=b5617075"></noscript>
+<link id="viewsCss" rel="stylesheet" href="app-views.css?v=8d407b3f" media="print">
+<noscript><link rel="stylesheet" href="app-views.css?v=8d407b3f"></noscript>
 
 <style>
 /* ══════════════════════════════════════════════════════════════
@@ -2480,6 +2480,22 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
   </div>
 
+  <!-- 소개(운영자 2026-10-12 「제품 설명도 홈페이지 밑에 소개하는 걸로」) — 처음 온 사람 · 심사하는 사람이 한 번에 읽는 제품 설명.
+       숫자는 일부러 쓰지 않는다(FAQ 의 숫자와 check-geo 가 맞춰 주므로 같은 숫자를 두 곳에서 관리하지 않는다). 자세한 것은 about.html. -->
+  <div class="section" id="about">
+    <div class="label">ABOUT</div>
+    <p class="section-title" data-en="What CheesePotato is">치즈감자는 이런 곳이에요</p>
+    <p class="abt-lead" data-en="CheesePotato is a free Korean-learning site made by a Korean teacher. You learn in order — from the Hangul letters to TOPIK level 6 — and you practise for the test with questions written to match the real exam.">치즈감자는 한국어 선생님이 만든 무료 한국어 학습 사이트예요. 한글 낱자부터 TOPIK 6급까지 순서대로 배우고, 시험 연습은 실제 시험과 같은 형식으로 새로 쓴 문항으로 해요.</p>
+    <div class="abt-grid">
+      <div class="abt-card"><b data-en="In the right order">순서대로 배워요</b><p data-en="A 3-minute level test shows where to start. Lessons, grammar, words and speaking practice follow one path.">3분 레벨테스트로 시작할 곳을 찾고, 레슨 · 문법 · 낱말 · 말하기가 한 길로 이어져요.</p></div>
+      <div class="abt-card"><b data-en="Original TOPIK practice">직접 쓴 TOPIK 연습</b><p data-en="Every TOPIK and EPS-TOPIK question is written for this site in the real format. We never copy official exam questions.">TOPIK · EPS-TOPIK 문항은 모두 이 사이트를 위해 실제 형식으로 새로 썼어요. 실제 기출 문제는 옮기지 않아요.</p></div>
+      <div class="abt-card"><b data-en="AI only where it helps">필요한 곳에만 AI</b><p data-en="AI scores your TOPIK writing, gives pronunciation feedback and answers questions from our own material. What you send is not stored.">TOPIK 쓰기 채점 · 발음 피드백 · 우리 자료로만 답하는 도우미에 AI 를 써요. 보낸 내용은 저장하지 않아요.</p></div>
+      <div class="abt-card"><b data-en="Free stays free">무료는 계속 무료</b><p data-en="Most of the site is free, with no ads and no selling of data. Pro adds extra practice and more AI use.">대부분 무료이고, 광고도 없고 정보를 팔지도 않아요. Pro 는 연습과 AI 사용량을 더해 줘요.</p></div>
+    </div>
+    <p class="abt-more"><span data-en="Teachers can give homework and see progress for free — lessons and payments stay on the platform you already use. Available in Korean, English, Vietnamese, Japanese and Chinese, with an Android app.">선생님은 숙제를 내고 진도를 무료로 볼 수 있어요(수업 · 결제는 쓰시는 플랫폼 그대로). 한국어 · 영어 · 베트남어 · 일본어 · 중국어 화면과 안드로이드 앱이 있어요.</span>
+      <a href="about.html" data-en="More about us →">더 알아보기 →</a> · <a href="for-teachers.html" data-en="For teachers">선생님용</a> · <a href="mailto:cheesepotato@everykoreans.com">cheesepotato@everykoreans.com</a></p>
+  </div>
+
   <!-- 다운로드 -->
   <div class="dl-section" id="download">
     <div class="dl-logo-wrap"><img class="dl-logo" src="logo-256.png" alt="치즈감자" width="54" height="54"></div>
@@ -4228,9 +4244,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <div id="hlpScrim" class="hlp-scrim"></div>
 <aside id="hlpPanel" class="hlp-panel" aria-label="한국어 도우미" aria-hidden="true"></aside>
 
-<script src="app.js?v=b5617075"></script>
-<script type="module" src="app.module.js?v=b5617075"></script>
+<script src="app.js?v=8d407b3f"></script>
+<script type="module" src="app.module.js?v=8d407b3f"></script>
 
-<script src="analytics.js?v=b5617075" defer></script>
+<script src="analytics.js?v=8d407b3f" defer></script>
 </body>
 </html>

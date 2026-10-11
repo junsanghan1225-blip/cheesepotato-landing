@@ -7141,3 +7141,23 @@ a.hlp-row-site:hover { background:var(--surface); box-shadow:inset 0 0 0 1px var
 .td-streakbox.mini .td-day, .td-streakbox.mini .td-day svg, .td-streakbox.mini .td-day small { width:34px; height:34px; }
 .td-streakbox.mini .td-day small { font-size:11.5px; }
 @media (max-width: 520px) { .td-card:not(.ck) .td-slot { flex:1 1 calc(50% - 8px); } }
+
+/* 홈 아래 소개(운영자 2026-10-12) */
+.abt-lead { max-width:760px; margin:0 0 20px; font-size:16.5px; line-height:1.7; color:var(--ink-2); }
+.abt-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(220px, 1fr)); gap:12px; }
+.abt-card { padding:16px; border:1px solid var(--line); border-radius:16px; background:var(--surface); }
+.abt-card b { display:block; margin-bottom:6px; font-size:15.5px; }
+.abt-card p { margin:0; font-size:13.5px; line-height:1.6; color:var(--ink-2); }
+.abt-more { margin:18px 0 0; font-size:14px; line-height:1.7; color:var(--ink-2); }
+.abt-more a { color:var(--orange-deep); text-decoration:underline; text-underline-offset:3px; }
+
+/* ── 움직임 두 가지 — transitions.dev 의 무료 움직임(Error state shake · Modal open/close)에서 필요한 것만 가져옴(운영자 2026-10-12).
+   저작권: © 2026 Jakub Antalik / Transitions.dev — 무료 움직임은 상업 사이트에서 쓰고 고쳐 써도 되고, 라이브러리 자체를 되팔지만 않으면 된다(LICENSE). 이 주석을 지우지 않는다.
+   쓰는 곳: ① 틀린 보기를 눌렀을 때 좌우로 짧게 흔들림 ② 가입 직후 동의 창이 가운데서 살짝 커지며 열림. 움직임 줄이기를 켠 사람에게는 끈다. */
+@keyframes t-shake { 0% { transform:translateX(0); } 28.57% { transform:translateX(6px); } 57.14% { transform:translateX(-6px); } 78.57% { transform:translateX(4px); } 100% { transform:translateX(0); } }
+.ex-opt.wrong, .qz-choice.wrong { animation:t-shake 280ms cubic-bezier(.22,1,.36,1); }
+@keyframes t-modal-in { from { opacity:0; transform:scale(.96); } to { opacity:1; transform:scale(1); } }
+@keyframes t-scrim-in { from { opacity:0; } to { opacity:1; } }
+.cs-scrim { animation:t-scrim-in 200ms ease-out; }
+.cs-card { animation:t-modal-in 250ms cubic-bezier(.22,1,.36,1); }
+@media (prefers-reduced-motion: reduce) { .ex-opt.wrong, .qz-choice.wrong, .cs-scrim, .cs-card { animation:none !important; } }
