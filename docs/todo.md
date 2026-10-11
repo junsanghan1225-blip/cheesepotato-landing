@@ -14,7 +14,7 @@
 | 5 | 이름 도장 그림(Claude 가 만든 셋 중 하나)을 인스타 스토리에 + 링크 스티커 `everykoreans.com/korean-name` | 첫 공유 예시 |
 | 4 | Search Console 에 `/my/eps-topik/` · `/korean-zodiac/` · `/korean-proverb/` · `/my-korean-name/` · `/korean-birthday/` · `/korean-word-today/` · `/hangul-worksheet/` 색인 요청 | 머지 뒤 |
 
-| 3b | **SQL 한 번** — 새 숙제 종류(TOPIK 듣기 · 모의고사 · 회화 · 동화책)를 쓰려면 Supabase SQL Editor 에서 `db/add_classes_more_kinds.sql` | 안 돌리면 새 종류를 낼 때 「SQL 을 돌려 주세요」라고 떠요(기존 숙제는 그대로) |
+| 3b | **SQL 한 번 더** — `db/add_classes_more_kinds.sql` 에 「번역 연습」이 더해졌다(2026-10-11). 앞서 돌렸어도 같은 파일을 한 번 더(몇 번 돌려도 괜찮다) | 안 돌리면 번역 숙제를 낼 때 「SQL 을 돌려 주세요」라고 떠요 |
 
 ### 📱 앱
 | # | 할 일 | 어디 |

@@ -2586,5 +2586,8 @@
   "Run db/add_classes_more_kinds.sql once to enable the new homework types.": "Hãy chạy db/add_classes_more_kinds.sql một lần để dùng các loại bài tập mới.",
   "Storybook": "Truyện",
   "TOPIK listening type practice": "Luyện một dạng bài nghe TOPIK",
-  "TOPIK writing · AI score": "Viết TOPIK · AI chấm điểm"
+  "TOPIK writing · AI score": "Viết TOPIK · AI chấm điểm",
+  "🔁 Translation": "🔁 Dịch",
+  "English → Korean · {0} lines": "Tiếng Anh → tiếng Hàn · {0} câu",
+  "Translation": "Dịch"
 }

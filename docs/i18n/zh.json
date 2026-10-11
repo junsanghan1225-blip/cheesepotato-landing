@@ -2560,5 +2560,8 @@
   "Run db/add_classes_more_kinds.sql once to enable the new homework types.": "请运行一次 db/add_classes_more_kinds.sql 以启用新的作业类型。",
   "Storybook": "绘本",
   "TOPIK listening type practice": "TOPIK 听力题型练习",
-  "TOPIK writing · AI score": "TOPIK 写作 · AI 评分"
+  "TOPIK writing · AI score": "TOPIK 写作 · AI 评分",
+  "🔁 Translation": "🔁 翻译",
+  "English → Korean · {0} lines": "英语 → 韩语 · {0} 句",
+  "Translation": "翻译"
 }

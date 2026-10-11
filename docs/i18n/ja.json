@@ -2585,5 +2585,8 @@
   "Run db/add_classes_more_kinds.sql once to enable the new homework types.": "新しい宿題の種類を使うには db/add_classes_more_kinds.sql を一度実行してください。",
   "Storybook": "絵本",
   "TOPIK listening type practice": "TOPIKリスニングの問題タイプ練習",
-  "TOPIK writing · AI score": "TOPIK作文 · AI採点"
+  "TOPIK writing · AI score": "TOPIK作文 · AI採点",
+  "🔁 Translation": "🔁 翻訳",
+  "English → Korean · {0} lines": "英語 → 韓国語 · {0}行",
+  "Translation": "翻訳"
 }
