@@ -1458,6 +1458,7 @@ function vocabPage(w, prev, next) {
     (prev || next) ? '<div class="near">' +
       (prev ? `<a href="${dictHref(prev.head)}"><b>← 이전</b>${esc(prev.head)}</a>` : '') +
       (next ? `<a href="${dictHref(next.head)}"><b>다음 →</b>${esc(next.head)}</a>` : '') + '</div>' : '',
+    '<p class="note"><a href="/topik-vocabulary-list/">Download the TOPIK word list — CSV · Anki (free) →</a></p>',
     '<p class="note">어휘 급수: 국립국어원 「국제 통용 한국어 표준 교육과정」(공공누리 1유형)' + (senses?.length ? ' · 뜻풀이: 국립국어원 한국어기초사전(CC BY-SA 2.0 KR)' : '') + ' · 예문: 치즈감자</p>',
   ].filter(Boolean).join('\n');
 
@@ -3088,6 +3089,7 @@ urls.push({ loc: '/my-korean-name/', freq: 'monthly', pri: '0.7' });
 urls.push({ loc: '/korean-birthday/', freq: 'monthly', pri: '0.7' });
 urls.push({ loc: '/korean-word-today/', freq: 'daily', pri: '0.6' });
 urls.push({ loc: '/hangul-worksheet/', freq: 'monthly', pri: '0.7' });
+urls.push({ loc: '/topik-vocabulary-list/', freq: 'monthly', pri: '0.8' });
 urls.push({ loc: '/for-teachers.html', freq: 'monthly', pri: '0.6' });
 urls.push({ loc: '/my/eps-topik/', freq: 'monthly', pri: '0.6' });   // 미얀마어 EPS(운영자 2026-10-10 「열어줘」)
 for (const loc of ['/pricing.html', '/terms.html', '/refund.html']) urls.push({ loc, freq: 'yearly', pri: '0.3' });
@@ -3140,3 +3142,6 @@ console.log(`sitemap.xml 에 주소 ${urls.length}개 — ${smFiles.map((f) => `
 
 /* 첫 화면 검색 칸의 색인도 같은 자료에서 — 자료가 바뀌면 여기서 같이 새로 만든다 */
 await import('./build-search.mjs');
+
+/* TOPIK 낱말 내려받기(CSV · Anki) 쪽 — 따로 도구로 둔다 */
+await import('./build-downloads.mjs');
