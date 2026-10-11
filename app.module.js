@@ -13,16 +13,16 @@
    어느 날 갑자기 다른 코드가 실려 왔다.
    이제 vendor/ 안에 받아 두고 CSP 로 바깥을 막는다. 버전을 올릴 때는
    tools/vendor.mjs 의 PIN 을 고치고 다시 돌린다. */
-import { createClient } from './vendor/supabase-js.js?v=bfeec899';
+import { createClient } from './vendor/supabase-js.js?v=931fe152';
 // TOPIK 읽기 "문제 풀이 영상" 목록. 아주 작은 파일이라(id 목록뿐) 다른
 // 자료처럼 갈래를 열 때 지연 로딩하지 않고 그냥 처음부터 받는다.
-import { TQ_VIDEO_IDS } from './topik-video.js?v=bfeec899';
+import { TQ_VIDEO_IDS } from './topik-video.js?v=931fe152';
 // 코스 아이콘 — 이모지 대신 선 아이콘(course-icons.js 머리말)
 // 구독(Paddle) — billing.js 머리말
-import { BILLING, billingLive, isPro, proInfo, proByClass, loadPro, openCheckout, waitPro } from './billing.js?v=bfeec899';
-import { myLevelBadge, potatoLevel, cheeseLevel, CHEESE_OF_LEVEL } from './levels.js?v=bfeec899';
-import { courseIcon } from './course-icons.js?v=bfeec899';
-import { AUDIO_REMOTE, audioKey } from './audio-key.js?v=bfeec899';
+import { BILLING, billingLive, isPro, proInfo, proByClass, loadPro, openCheckout, waitPro } from './billing.js?v=931fe152';
+import { myLevelBadge, potatoLevel, cheeseLevel, CHEESE_OF_LEVEL } from './levels.js?v=931fe152';
+import { courseIcon } from './course-icons.js?v=931fe152';
+import { AUDIO_REMOTE, audioKey } from './audio-key.js?v=931fe152';
 // 앱(package.json)과 같은 줄기를 쓴다. 갈리면 앱에서는 읽히는 파일이
 // 여기서는 안 읽히는(또는 그 반대) 일이 생긴다.
 /* 엑셀 라이브러리는 422KB — 이 판에서 가장 무거운 조각이다. 그런데 쓰는
@@ -34,7 +34,7 @@ import { AUDIO_REMOTE, audioKey } from './audio-key.js?v=bfeec899';
    자국(?v=)은 tools/stamp.mjs 가 아래 줄에 알아서 붙인다 — 정적으로 쓰든
    동적으로 쓰든 같은 글자를 찾으므로 바꿔도 그대로 찍힌다. */
 let XLSX = null;
-const needXLSX = async () => (XLSX ??= await import('./vendor/xlsx.js?v=bfeec899'));
+const needXLSX = async () => (XLSX ??= await import('./vendor/xlsx.js?v=931fe152'));
 // 커리큘럼. 내용과 엔진을 갈라 두면 글을 고치다 화면을 깨지 않는다.
 // 갈래 목록(drawSections)·코스(drawCourses)·문제만 풀기(dqDraw) 를 열 때만
 // 받는다 — 배우기 갈래 목록도 안 본 사람에게 코스 71개 레슨을 다 물릴
@@ -42,9 +42,9 @@ const needXLSX = async () => (XLSX ??= await import('./vendor/xlsx.js?v=bfeec899
 let COURSES = [], coursesP = null;
 /* 앱은 courses.js 대신 courses-lite.js 를 받는다 — 중·고급 레슨 본문을 뺀 목록이다
    (tools/build-courses-lite.mjs). 본문은 그 레슨을 열 때 upperBlocksNeed() 가 채운다. */
-const coursesNeed = () => (coursesP ??= import('./courses-lite.js?v=bfeec899').then((m) => { COURSES = m.COURSES; }));
+const coursesNeed = () => (coursesP ??= import('./courses-lite.js?v=931fe152').then((m) => { COURSES = m.COURSES; }));
 let upperP = null;
-const upperBlocksNeed = () => (upperP ??= coursesNeed().then(() => import('./courses-grammar-detailed.js?v=bfeec899')).then((m) => {
+const upperBlocksNeed = () => (upperP ??= coursesNeed().then(() => import('./courses-grammar-detailed.js?v=931fe152')).then((m) => {
   const byId = new Map(m.DETAILED_GRAMMAR_COURSES.flatMap((c) => c.lessons.map((l) => [l.id, l.blocks])));
   for (const c of COURSES) for (const l of c.lessons) if (!l.blocks && byId.has(l.id)) { l.blocks = byId.get(l.id); delete l.lazy; }
 }));
@@ -59,7 +59,7 @@ const blocksNeed = async (course) => { if (course.lessons.some((l) => !l.blocks)
    tqGloss 는 그대로 동기다 — 아직 안 왔으면 빈 뜻을 돌려주고, 부르는
    쪽은 이미 "사전에 없는 말"을 다룰 줄 안다. */
 let GLOSSARY = {}, GLOSS_LANGS = {}, glossP = null;
-const glossNeed = () => (glossP ??= import('./glossary.js?v=bfeec899').then((m) => {
+const glossNeed = () => (glossP ??= import('./glossary.js?v=931fe152').then((m) => {
   GLOSSARY = m.GLOSSARY; GLOSS_LANGS = m.GLOSS_LANGS;
   dictBuildEntries();
 }).catch((e) => {
@@ -67,12 +67,12 @@ const glossNeed = () => (glossP ??= import('./glossary.js?v=bfeec899').then((m) 
   glossP = null;
   throw e;
 }));
-import { glossFind } from './gloss-find.js?v=bfeec899';
+import { glossFind } from './gloss-find.js?v=931fe152';
 /* 홈 화면 "오늘의 단어" 카드. 표제어·품사·짧은 뜻풀이 3개만 든
    작은 자료라(사전 전체 356KB 와 달리) 홈에 들어오면 바로 받는다 —
    빈 카드로 몇 초 떠 있는 것보다 낫다. */
 let WOTD_POOL = [], wotdP = null;
-const wotdNeed = () => (wotdP ??= import('./wotd.js?v=bfeec899').then((m) => {
+const wotdNeed = () => (wotdP ??= import('./wotd.js?v=931fe152').then((m) => {
   WOTD_POOL = m.WOTD_POOL;
 }).catch((e) => { wotdP = null; throw e; }));
 /* 그날의 낱말을 고른다. 한국 자정을 기준으로 하루씩 넘어가게
@@ -109,7 +109,7 @@ function hmQuizRender() {
   const box = $('hmQuiz');
   if (!box || box.dataset.done) return;
   box.dataset.done = '1';
-  const go = () => (hmQuizP ??= Promise.all([import('./topik.js?v=bfeec899'), import('./insta-pick.js?v=bfeec899')])).then(([tk, ip]) => {
+  const go = () => (hmQuizP ??= Promise.all([import('./topik.js?v=931fe152'), import('./insta-pick.js?v=931fe152')])).then(([tk, ip]) => {
     const q = ip.quizOfDay(tk.TOPIK_READING);
     if (!q) { box.hidden = true; return; }
     box.innerHTML = `<div class="hm-quiz-k"><b>${esc(t('오늘의 TOPIK 1문제', "Today's TOPIK question"))}</b><span>${esc(t(`TOPIK I · ${q.grade}급 · 기출 아님`, `TOPIK I · level ${q.grade} · not a past paper`))}</span></div>` +
@@ -141,11 +141,11 @@ window.wotdRender = () => { wotdRender(); hmQuizRender(); hmDoorIcons(); try { t
    나중 화면은 그 약속(??=)을 그대로 쓴다. */
 let GRAMMAR = [], GRAMMAR_EN = {}, grammarP = null;
 const grammarNeed = () => (grammarP ??= Promise.all([
-  import('./grammar.js?v=bfeec899'), import('./grammar-en.js?v=bfeec899'),
+  import('./grammar.js?v=931fe152'), import('./grammar-en.js?v=931fe152'),
 ]).then(([a, b]) => { GRAMMAR = a.GRAMMAR; GRAMMAR_EN = b.GRAMMAR_EN; }));
-import { grammarScan } from './grammar-find.js?v=bfeec899';
+import { grammarScan } from './grammar-find.js?v=931fe152';
 /* 문법 이름 → 예문에서 칠할 꼴. 쓰임 보기 도구(tools/build-grammar-usage.mjs)와 같은 것을 써서 찾은 곳과 칠한 곳이 어긋나지 않게. */
-import { grammarMarkRe } from './grammar-mark.js?v=bfeec899';
+import { grammarMarkRe } from './grammar-mark.js?v=931fe152';
 // TOPIK 쓰기·듣기 문항. 읽기(topik.js·topik2.js)와 같은 tqNeedData() 로
 // 함께 받는다 — 유형 연습(topik) 갈래 하나가 세 기술을 다 쓰므로 따로
 // 가를 까닭이 없다. 값은 tqNeedData 정의부에서 채운다.
@@ -162,7 +162,7 @@ let GRAMMAR_DRILL = {}, GRAMMAR_USAGE = {}, GRAMMAR_WORDS = {}, GRAMMAR_PRACTICE
 let GRAMMAR_PAIRS = [], sbDataReady = false;   // 헷갈리는 문법 비교(grammar-pairs.js, 2026-10-06)
 /* 쓰임 보기(tools/build-grammar-usage.mjs 생성물) — TOPIK 연습 · 읽기 지문 · 낱말 예문에서 그 문법이 쓰인 문장 */
 /* 같이 알면 좋은 단어(tools/build-grammar-words.mjs 생성물, 원본 docs/grammar-words.json) */
-const sbNeed = () => (sbDataP ??= Promise.all([import('./sentences.js?v=bfeec899'), import('./grammar-drill.js?v=bfeec899'), import('./grammar-usage.js?v=bfeec899'), import('./grammar-words.js?v=bfeec899'), import('./grammar-pairs.js?v=bfeec899')]).then(([m, d, u, w, gp]) => {
+const sbNeed = () => (sbDataP ??= Promise.all([import('./sentences.js?v=931fe152'), import('./grammar-drill.js?v=931fe152'), import('./grammar-usage.js?v=931fe152'), import('./grammar-words.js?v=931fe152'), import('./grammar-pairs.js?v=931fe152')]).then(([m, d, u, w, gp]) => {
   GRAMMAR_PAIRS = gp.GRAMMAR_PAIRS || [];
   sbDataReady = true;
   GRAMMAR_DRILL = d.GRAMMAR_DRILL || {}; GRAMMAR_USAGE = u.GRAMMAR_USAGE || {}; GRAMMAR_PRACTICE = u.GRAMMAR_PRACTICE || {}; GRAMMAR_WORDS = w.GRAMMAR_WORDS || {};
@@ -176,7 +176,7 @@ const sbNeed = () => (sbDataP ??= Promise.all([import('./sentences.js?v=bfeec899
 // 숫자 게임의 읽기와 문제 만들기. 화면을 모르는 순수 계산이라 따로 뒀다.
 // 게임 목록에서 「숫자 읽기」를 시작할 때만 받는다 — XLSX 와 같은 자리다.
 let makeRound = null;
-const needNumbers = async () => (makeRound ??= (await import('./numbers.js?v=bfeec899')).makeRound);
+const needNumbers = async () => (makeRound ??= (await import('./numbers.js?v=931fe152')).makeRound);
 
 // 이 키는 공개돼도 되는 값이다. 이미 APK 안에 같은 것이 들어 있고,
 // 접근을 막는 건 키가 아니라 테이블에 걸린 RLS 다.
@@ -324,8 +324,8 @@ let tqDataP = null;
    유형 연습(topik) 갈래 하나가 이 넷을 다 쓰므로 갈라 봤자 요청만
    늘어난다. */
 const tqNeedData = () => (tqDataP ??= Promise.all([
-  import('./topik.js?v=bfeec899'), import('./topik2.js?v=bfeec899'),
-  import('./topik-writing.js?v=bfeec899'), import('./topik-listening.js?v=bfeec899'),
+  import('./topik.js?v=931fe152'), import('./topik2.js?v=931fe152'),
+  import('./topik-writing.js?v=931fe152'), import('./topik-listening.js?v=931fe152'),
 ]).then(([a, b, c, d]) => {
   TQ_DATA.I  = { reading: a.TOPIK_READING,  blueprint: a.TOPIK_BLUEPRINT,  slots: a.TOPIK_SLOTS };
   TQ_DATA.II = { reading: b.TOPIK2_READING, blueprint: b.TOPIK2_BLUEPRINT, slots: b.TOPIK2_SLOTS };
@@ -336,14 +336,14 @@ const tqNeedData = () => (tqDataP ??= Promise.all([
 let READING = null, rdP = null;
 // 지문의 밑줄 문법 말풍선이 GRAMMAR 를 쓰므로 같이 받아 둔다.
 const rdNeed = () => (rdP ??= Promise.all([
-  import('./reading.js?v=bfeec899'), grammarNeed(),
+  import('./reading.js?v=931fe152'), grammarNeed(),
 ]).then(([m]) => { READING = m.READING; }));
 
 let CONVO = null, cvP = null;
-const cvNeed = () => (cvP ??= import('./convo.js?v=bfeec899').then((m) => { CONVO = m.CONVO; }));
+const cvNeed = () => (cvP ??= import('./convo.js?v=931fe152').then((m) => { CONVO = m.CONVO; }));
 /* 동화책 — 배우기 › 동화책을 열 때 받는다. 문법 밑줄 · 낱말 뜻(rdGrammarify)을 쓰니 grammarNeed 도 같이 */
 let STORIES = [], bkP = null;
-const bkNeed = () => (bkP ??= Promise.all([import('./stories.js?v=bfeec899'), grammarNeed()]).then(([m]) => { STORIES = m.STORIES; }));
+const bkNeed = () => (bkP ??= Promise.all([import('./stories.js?v=931fe152'), grammarNeed()]).then(([m]) => { STORIES = m.STORIES; }));
 
 /* 배우기를 열면 여섯 다 미리 불을 붙인다. 기다리지 않는다 — 갈래 목록은
    이 자료가 없어도 그려지고, 사람이 갈래를 고르는 사이에 도착한다.
@@ -602,9 +602,9 @@ $('dictBtn').addEventListener('click', () => { const go = !showing('wordsView');
    합쳐 200KB 남짓(압축)이라 첫 화면 모두에게 물릴 까닭이 없다. 사이트 공용 도구는 넘겨준다. */
 let wordsApi = null, wordsP = null;
 /* TOPIK II 예문은 500개씩 조각으로 따로 받는다(tools/build-vocab.mjs) — 조각 주소는 이 파일의 자국을 빌린다. */
-const VOCAB2_URL = './vocab-topik2.js?v=bfeec899';
+const VOCAB2_URL = './vocab-topik2.js?v=931fe152';
 const wordsNeed = () => (wordsP ??= Promise.all([
-  import('./words.js?v=bfeec899'), import('./vocab-topik1.js?v=bfeec899'), import(VOCAB2_URL),
+  import('./words.js?v=931fe152'), import('./vocab-topik1.js?v=931fe152'), import(VOCAB2_URL),
 ]).then(([m, d, d2]) => {
   wordsApi = m.wordsInit({
     root: $('wordsRoot'), t, esc, track, say, glossFind, glossNeed, ICON: DICT_SAY_ICON,
@@ -619,7 +619,7 @@ const wordsNeed = () => (wordsP ??= Promise.all([
     mark: (sub) => window.cpMark('words', sub),
     today: (slot, topic) => { tdMark(slot); clsMark('vocab', topic || null, {}); actLog('vocab'); },   // topic — 주제별 단어 숙제(db/update_cls_mark_vocab.sql)
     pron: (text) => window.ptWith?.(text),
-    loadExpr: () => import('./expressions.js?v=bfeec899').then((m) => m.EXPR),   // 사자성어 · 속담 · 관용 표현(tools/build-expressions.mjs)
+    loadExpr: () => import('./expressions.js?v=931fe152').then((m) => m.EXPR),   // 사자성어 · 속담 · 관용 표현(tools/build-expressions.mjs)
     loadRefs: (k) => import(VOCAB2_URL.replace('vocab-topik2.js', `topik-refs/${k}.js`)).then((m) => m.R),   // 낱말의 TOPIK 쓰임(tools/build-topik-refs.mjs)
     openTopik: (p) => { window.cpOpen('learn', p); },
     askAI: wdAskAI,   // 세션을 끝내면 「오늘」 카드의 낱말 · 복습 칸 · 반 숙제(단어 세션)
@@ -708,7 +708,7 @@ async function vocabSync() {
   if (!wordsP) return;
   const { data: { session } } = await sb.auth.getSession();
   if (!session) return;
-  const m = await import('./words.js?v=bfeec899');
+  const m = await import('./words.js?v=931fe152');
   const ok = await m.syncVocab(async () => {
     const { data, error } = await sb.from('settings').select('vocab').eq('user_id', session.user.id).maybeSingle();
     return error ? undefined : (data?.vocab || {});
@@ -1022,14 +1022,14 @@ let dictOpen = null;  // 지금 "더 보기"(예문·뜻풀이)를 펼쳐 둔 �
    평소엔 안 쓰는 522KB 를 첫 화면 모두에게 물릴 까닭이 없다. */
 let dictSensesP = null;
 const dictLoadSenses = () => (dictSensesP ??=
-  import('./glossary-senses.js?v=bfeec899').then((m) => m.SENSES).catch(() => ({})));
+  import('./glossary-senses.js?v=931fe152').then((m) => m.SENSES).catch(() => ({})));
 
 /* 예문. 국립국어원 자료엔 없어서 Gemini 로 새로 지은 것이다(있는 만큼만
    — docs/antigravity/glossary-examples-gemini-prompt.md 참고). 뜻풀이와 같은 자리에서
    같이 받는다 — 펼치는 손짓 하나에 몰아 두는 편이 화면이 덜 복잡하다. */
 let dictExamplesP = null;
 const dictLoadExamples = () => (dictExamplesP ??=
-  import('./glossary-examples.js?v=bfeec899').then((m) => m.EXAMPLES).catch(() => ({})));
+  import('./glossary-examples.js?v=931fe152').then((m) => m.EXAMPLES).catch(() => ({})));
 
 function dictVisible() {
   const q = dictQuery.trim().toLowerCase();
@@ -10403,7 +10403,7 @@ let TRAVEL_CATEGORIES = null;
 let TRAVEL_PHRASES = null;
 let TRAVEL_VOCAB = null;
 let tvP = null;
-const tvNeed = () => (tvP ??= import('./travel-data.js?v=bfeec899').then((m) => {
+const tvNeed = () => (tvP ??= import('./travel-data.js?v=931fe152').then((m) => {
   TRAVEL_CATEGORIES = m.TRAVEL_CATEGORIES;
   TRAVEL_PHRASES = m.TRAVEL_PHRASES;
   TRAVEL_VOCAB = m.TRAVEL_VOCAB;
@@ -14694,7 +14694,7 @@ function sbWsPrint() {
   window.print();
 }
 async function wsPrint() {
-  const [, sm] = await Promise.all([tvNeed(), import('./sentences.js?v=bfeec899')]);
+  const [, sm] = await Promise.all([tvNeed(), import('./sentences.js?v=931fe152')]);
   if (!TRAVEL_CATEGORIES) return;
   track('학습지인쇄');
   const GP = new Map(sm.SB_CATS.flatMap((c) => c.points).map((p) => [p.id, p]));
@@ -14897,7 +14897,7 @@ async function gameVocabWords(min, have = []) {
   const push = (word, meaning) => { if (word && meaning && !seen.has(word)) { seen.add(word); out.push({ word, meaning }); } };
   guestRead().forEach((g) => push(g.word, g.meaning));
   try {
-    const d = await import('./vocab-topik1.js?v=bfeec899');
+    const d = await import('./vocab-topik1.js?v=931fe152');
     let st = {};
     try { st = JSON.parse(localStorage.getItem('cp-words-v1') || '{}').w || {}; } catch (e) {}
     const mean = (w) => w.s || w.e.split(';')[0];
@@ -15274,12 +15274,12 @@ let blkMod = null;
 async function blkOpen() {
   if (!blkMod) {
     $('blkRoot').innerHTML = `<p class="blk-wait">${esc(t('불러오는 중…', 'Loading…'))}</p>`;
-    try { blkMod = await import('./word-blocks.js?v=bfeec899'); } catch (e) { $('blkRoot').innerHTML = `<p class="blk-wait">${esc(t('게임을 못 불러왔어요. 새로고침해 주세요.', 'Could not load the game. Please refresh.'))}</p>`; return; }
+    try { blkMod = await import('./word-blocks.js?v=931fe152'); } catch (e) { $('blkRoot').innerHTML = `<p class="blk-wait">${esc(t('게임을 못 불러왔어요. 새로고침해 주세요.', 'Could not load the game. Please refresh.'))}</p>`; return; }
     blkMod.blkBind($('blkRoot'));
     blkMod.blkMount({
       root: $('blkRoot'), t, esc, say, track, save: saveWords,
       vocab: async (two) => {
-        const [a, b] = await Promise.all([import('./vocab-topik1.js?v=bfeec899'), two ? import(VOCAB2_URL) : null]);
+        const [a, b] = await Promise.all([import('./vocab-topik1.js?v=931fe152'), two ? import(VOCAB2_URL) : null]);
         return b ? [...a.VOCAB, ...b.VOCAB] : a.VOCAB;
       },
     });
@@ -15298,14 +15298,14 @@ const gameToast = (msg) => {
   clearTimeout(gameToast.t); gameToast.t = setTimeout(() => el.classList.remove('on'), 1800);
 };
 const gameVocab = async (two) => {
-  const [a, b] = await Promise.all([import('./vocab-topik1.js?v=bfeec899'), two ? import(VOCAB2_URL) : null]);
+  const [a, b] = await Promise.all([import('./vocab-topik1.js?v=931fe152'), two ? import(VOCAB2_URL) : null]);
   return b ? [...a.VOCAB, ...b.VOCAB] : a.VOCAB;
 };
 let chsMod = null, pdlMod = null;
 async function chsOpen() {
   if (!chsMod) {
     $('chsRoot').innerHTML = `<p class="blk-wait">${esc(t('불러오는 중…', 'Loading…'))}</p>`;
-    try { chsMod = await import('./chosung.js?v=bfeec899'); } catch (e) { $('chsRoot').innerHTML = `<p class="blk-wait">${esc(t('게임을 못 불러왔어요. 새로고침해 주세요.', 'Could not load the game. Please refresh.'))}</p>`; return; }
+    try { chsMod = await import('./chosung.js?v=931fe152'); } catch (e) { $('chsRoot').innerHTML = `<p class="blk-wait">${esc(t('게임을 못 불러왔어요. 새로고침해 주세요.', 'Could not load the game. Please refresh.'))}</p>`; return; }
     chsMod.chsBind($('chsRoot'));
     chsMod.chsMount({ root: $('chsRoot'), t, esc, say, track, save: saveWords, toast: gameToast, vocab: gameVocab });
     return;
@@ -15315,7 +15315,7 @@ async function chsOpen() {
 async function pdlOpenView() {
   if (!pdlMod) {
     $('pdlRoot').innerHTML = `<p class="blk-wait">${esc(t('불러오는 중…', 'Loading…'))}</p>`;
-    try { pdlMod = await import('./potdle.js?v=bfeec899'); } catch (e) { $('pdlRoot').innerHTML = `<p class="blk-wait">${esc(t('게임을 못 불러왔어요. 새로고침해 주세요.', 'Could not load the game. Please refresh.'))}</p>`; return; }
+    try { pdlMod = await import('./potdle.js?v=931fe152'); } catch (e) { $('pdlRoot').innerHTML = `<p class="blk-wait">${esc(t('게임을 못 불러왔어요. 새로고침해 주세요.', 'Could not load the game. Please refresh.'))}</p>`; return; }
     pdlMod.pdlBind($('pdlRoot'));
     pdlMod.pdlMount({ root: $('pdlRoot'), t, esc, say, track, save: saveWords, toast: gameToast, vocab: gameVocab });
     return;
@@ -15461,7 +15461,7 @@ function ltAdaptNext() {
    낱말 급수를 우리 레벨(L)에 얹는다: TOPIK I 1급 생활 낱말 L2 · 그 밖 L3, 2급 생활 L4 · 그 밖 L5, TOPIK II 3 · 4급 L6, 5 · 6급 L7.
    오답 보기는 같은 레벨 · 같은 품사에서, 뜻이 겹치지 않게 고른다. */
 let ltVocabP = null;
-const ltVocabPool = () => (ltVocabP ??= Promise.all([import('./vocab-topik1.js?v=bfeec899'), import(VOCAB2_URL)]).then(([a, b]) => {
+const ltVocabPool = () => (ltVocabP ??= Promise.all([import('./vocab-topik1.js?v=931fe152'), import(VOCAB2_URL)]).then(([a, b]) => {
   const en = (w) => String(w.s || w.e || '').split(';')[0].trim();
   /* 2026-10-05 부터 낱말마다 우리 레벨(v, tools/vocab-level.mjs)이 있다 — 그것을 그대로 쓴다. 옛 자료(v 없음)는 급수로 어림. */
   const lvOf = (w) => w.v || (w.l === 1 ? 3 : w.l === 2 ? 5 : w.l <= 4 ? 6 : 7);
@@ -15965,7 +15965,7 @@ $('lrWrap').addEventListener('click', (ev) => {
    주소: #learn/translate · #learn/translate/<글 id> */
 let TRANSLATE_SETS = null;
 const trNeed = () => TRANSLATE_SETS ? Promise.resolve() :
-  import('./translate.js?v=bfeec899').then((m) => { TRANSLATE_SETS = m.TRANSLATE_SETS || []; });
+  import('./translate.js?v=931fe152').then((m) => { TRANSLATE_SETS = m.TRANSLATE_SETS || []; });
 const TR_DONE = 'cp_tr_done';
 const TR_TIERS = [['beginner', '초급', 'Beginner'], ['intermediate', '중급', 'Intermediate'], ['advanced', '고급', 'Advanced']];
 let trTier = null, tr = null;   // tr = { id, i, val, res: ''|'ok'|'no'|'self', hint, ok }
@@ -16072,7 +16072,7 @@ $('trWrap').addEventListener('keydown', (ev) => {
    주소: #learn/path · #learn/path/<길> · #learn/path/<길>/<레슨 id> */
 let PATH_GRAMMAR = null;
 const pathNeed = () => PATH_GRAMMAR ? Promise.resolve() :
-  import('./path-map.js?v=bfeec899').then((m) => { PATH_GRAMMAR = m.PATH_GRAMMAR || {}; });
+  import('./path-map.js?v=931fe152').then((m) => { PATH_GRAMMAR = m.PATH_GRAMMAR || {}; });
 const PATHS = [
   { id: 'basic', icon: '🥔', lvs: [0, 1, 2, 3, 4, 5], ko: '기초부터', en: 'From the basics',
     subKo: '한글 · 첫 문장부터 초급 끝까지', subEn: 'Hangul and first sentences up to upper beginner' },
@@ -17076,10 +17076,10 @@ $('ltPurposeGrid').addEventListener('click', (ev) => {
    빠지고, 고쳐 올려도 브라우저가 예전 문제를 계속 들고 있게 된다. */
 let LT_CUSTOM = { overall: [], reading: [], writing: [], listening: [] };
 let ltCustomOverallP = null, ltCustomReadingP = null, ltCustomWritingP = null, ltCustomListeningP = null;
-const ltCustomOverallNeed = () => (ltCustomOverallP ??= import('./leveltest-overall.js?v=bfeec899').then((m) => { LT_CUSTOM.overall = m.LT_CUSTOM_OVERALL; }));
-const ltCustomReadingNeed = () => (ltCustomReadingP ??= import('./leveltest-reading.js?v=bfeec899').then((m) => { LT_CUSTOM.reading = m.LT_CUSTOM_READING; }));
-const ltCustomWritingNeed = () => (ltCustomWritingP ??= import('./leveltest-writing.js?v=bfeec899').then((m) => { LT_CUSTOM.writing = m.LT_CUSTOM_WRITING; }));
-const ltCustomListeningNeed = () => (ltCustomListeningP ??= import('./leveltest-listening.js?v=bfeec899').then((m) => { LT_CUSTOM.listening = m.LT_CUSTOM_LISTENING; }));
+const ltCustomOverallNeed = () => (ltCustomOverallP ??= import('./leveltest-overall.js?v=931fe152').then((m) => { LT_CUSTOM.overall = m.LT_CUSTOM_OVERALL; }));
+const ltCustomReadingNeed = () => (ltCustomReadingP ??= import('./leveltest-reading.js?v=931fe152').then((m) => { LT_CUSTOM.reading = m.LT_CUSTOM_READING; }));
+const ltCustomWritingNeed = () => (ltCustomWritingP ??= import('./leveltest-writing.js?v=931fe152').then((m) => { LT_CUSTOM.writing = m.LT_CUSTOM_WRITING; }));
+const ltCustomListeningNeed = () => (ltCustomListeningP ??= import('./leveltest-listening.js?v=931fe152').then((m) => { LT_CUSTOM.listening = m.LT_CUSTOM_LISTENING; }));
 const LT_CUSTOM_NEED = {
   overall: ltCustomOverallNeed, reading: ltCustomReadingNeed,
   writing: ltCustomWritingNeed, listening: ltCustomListeningNeed,
@@ -17815,7 +17815,7 @@ async function ltWeekHtml(level, grade) {
     const lessonMins = list.reduce((x, c) => x + c.lessons.reduce((y, l) => y + (l.minutes || 7), 0), 0);
     let nWords = 0;
     try {
-      const [a, b] = await Promise.all([import('./vocab-topik1.js?v=bfeec899'), import(VOCAB2_URL)]);
+      const [a, b] = await Promise.all([import('./vocab-topik1.js?v=931fe152'), import(VOCAB2_URL)]);
       nWords = [...a.VOCAB, ...b.VOCAB].filter((w) => w.v === L).length;
     } catch (e) { /* 낱말 자료를 못 받으면 레슨만으로 어림 */ }
     const dL = lessonMins ? Math.ceil((lessonMins * LV_NEED.lessons) / (mainMin * 5 / 7)) : 0;
@@ -18367,7 +18367,6 @@ window.ptAiGuess = async (target, heard, score) => {
    보고 잠그는 것)는 아직 없다 — 지금은 사전 조회뿐이라 그 문제가
    생기지 않는다. AI 가 붙는 2단계에서 반드시 넣는다. */
 
-let hlpLastQ = '';   // 언어를 바꿨을 때 같은 결과를 다시 그리려고 쥐고 있는다.
 
 /* 표시용 이름 비교를 위해 앞의 품사 표시(V-, A/V- 따위)와 공백을 뗀다.
    "V-(으)ㄹ 수 있다"와 사람이 치는 "을 수 있다"가 같아 보이게 하려는
@@ -18504,98 +18503,151 @@ function hlpCites(q) {
   return out;
 }
 
-function hlpAiIdle(cites) {
-  return '<div class="hlp-ai">' +
-    `<button id="hlpAiBtn" class="hlp-ai-btn" type="button">✨ ${t('이 질문을 AI 도우미에게 물어보기', 'Ask the AI helper about this')}</button>` +
-    `<p class="hlp-ai-note">${t('로그인이 필요해요. 하루 20번까지 물어볼 수 있어요. 저희 자료에 없는 건 "모른다"고 답해요.', 'Sign-in required, up to 20 questions a day. It says "I don’t know" rather than guessing.')}</p>` +
-  '</div>';
-}
+/* ── 치즈감자 도우미 = 검색 + AI 채팅(운영자 2026-10-11 「검색바는 밑에 깔고 위에 결과가 나오게 · 검색 + AI 채팅을 합쳐서, 우리 웹사이트에 관한 것만」) ──
+   아래에 입력칸, 위에 대화(새것이 맨 아래). 한 번 치면 ① 바로(공짜) 검색 결과 — 낱말 카드 · 문법 · 줄 · 사이트 안내 ② 「AI 에게 물어보기」로 답 말풍선.
+   AI(ask-korean)는 우리가 올려 보내는 자료(낱말 · 문법 · 사이트 안내 조각)로만 답한다 — 사이트 밖 질문은 「자료에 없어요」(서버가 그렇게 막는다).
+   대화는 이 화면 안에만 둔다(서버 · 저장소에 안 남김, 새로 고치면 사라짐). 매 질문은 따로따로 답해진다(서버는 앞 대화를 기억하지 않는다). */
+let hlpThread = [];   // [{ id, q, html, cites, ai: null | { wait, text } }]
+let hlpSeq = 0;
+const HLP_MAX = 30;
 
-function hlpDraw() {
-  const cardsEl = $('hlpCards');
-  if (!cardsEl) return;
-  const q = hlpLastQ;
-  if (!q) {
-    /* Canva AI 같은 가벼운 첫 화면 — 긴 안내문 대신 큰 물음 하나와
-       눌러 보는 칸(chip) 몇 개. 규칙은 그대로다: 눌러도 결국 hlpAsk
-       로 들어가 같은 검색을 한다. */
-    const suggestions = [
-      { q: '가지고', label: '가지고' },
-      { q: '-느니', label: '-느니' },
-      { q: 'difficult', label: 'difficult' },
-      { q: t('가지고랑 -느니 차이가 뭐예요?', "What's the difference between 가지고 and -느니?"),
-        label: '✨ ' + t('AI에게 물어보기', 'Ask the AI') },
-    ];
-    cardsEl.innerHTML =
-      `<div class="hlp-empty">${esc(t('오늘은 뭐가 궁금하세요?', "What's on your mind today?"))}` +
-      `<span>${esc(t('한국어나 영어로 물어보세요 — 낱말 1만 개 넘게, 문법 표현 290개 안에서 찾아요.', 'Ask in English or Korean — a word or a grammar point. Searched across 10,000+ words and 290 grammar points.'))}</span>` +
-      '</div>' +
-      '<div class="hlp-suggest">' +
-        suggestions.map((s) => `<button type="button" class="hlp-chip" data-q="${esc(s.q)}">${esc(s.label)}</button>`).join('') +
-      '</div>';
-    cardsEl.querySelectorAll('.hlp-chip').forEach((btn) => {
-      btn.addEventListener('click', () => {
-        const v = btn.dataset.q;
-        $('hlpInput').value = v;
-        hlpAsk(v);
-      });
-    });
-    return;
+/* 사이트 안내 — 「이 사이트에서 이건 어디서 해요 · 얼마예요」에 답하는 짧은 조각. 사실만(docs/status.md · prd.md · 화면에 이미 적힌 것).
+   [id, 한글 이름, 영어 이름, 찾을 말, 가는 곳, 한글 설명, 영어 설명]. 바꾸면 이 줄만 고치면 된다 — 검색과 AI 답이 함께 따라온다. */
+const HLP_SITE = [
+  ['level', '레벨 테스트', 'Level test', 'level test placement 레벨 테스트 실력 시작 어디서 where start', '#leveltest', '3분 레벨 테스트로 지금 실력과 시작할 자리를 찾아요.', 'A 3-minute test that finds your level and where to start.'],
+  ['path', '한국어 배우기 길', 'Learn Korean path', 'learn path lesson course beginner hangul 한글 처음 시작 레슨 코스 순서', '#learn/path', '한글부터 차례대로 이어지는 레슨 길(감자 L0~L7)이에요. 하루 한 걸음씩 가요.', 'Lessons in order from Hangul (levels L0–L7), one step a day.'],
+  ['topik-path', 'TOPIK 길', 'TOPIK path', 'topik path 토픽 길 시험 준비 급수 grade', '#learn/path/topik', 'TOPIK을 준비하는 학생을 위한 길(0~6급)이에요.', 'A path for TOPIK students, from level 0 to 6.'],
+  ['topik', 'TOPIK 연습 · 모의고사', 'TOPIK practice · mock exams', 'topik practice mock exam test listening reading writing 토픽 모의고사 시험 듣기 읽기 쓰기', '#learn/topik', '듣기 · 읽기 · 쓰기 연습과 모의고사예요. 문항은 모두 새로 쓴 창작 문항이고 기출이 아니에요. 모의고사는 2회차부터 Pro예요(반 학생은 Pro 무료).', 'Listening, reading and writing practice plus mock exams. All questions are original, not past papers. Mock exams from round 2 need Pro (class students get Pro free).'],
+  ['writing', 'TOPIK 쓰기 AI 채점', 'TOPIK writing AI scoring', 'writing ai score grade 쓰기 채점 점수 ai', '#learn/topik/II/writing', '쓴 글을 AI가 점수로 채점해 줘요. 무료는 하루 2번, Pro는 하루 30번이에요.', 'AI scores your TOPIK writing. Free: 2 a day. Pro: 30 a day.'],
+  ['pron', 'AI 발음 테스트', 'AI pronunciation test', 'pronunciation speaking mic 발음 말하기 테스트 ai', '', '말하면 AI가 발음을 진단해 줘요. 무료 하루 20번, Pro 하루 100번이에요(메뉴 「더 보기」 안에 있어요).', 'Speak and the AI checks your pronunciation. Free: 20 a day, Pro: 100 a day (in the menu under “More”).'],
+  ['words', '단어', 'Words', 'words vocabulary vocab flashcard 단어 낱말 단어장 복습 외우기', '#words', 'TOPIK I · II 낱말 1만 개 넘게를 주제별로 공부하고, 내 단어장으로 복습해요.', 'Over 10,000 TOPIK I and II words by topic, with your own word list to review.'],
+  ['grammar', '문법', 'Grammar', 'grammar point pattern 문법 표현', '#learn/sentence', '문법 표현 290개 — 뜻 · 형태 · 예문 · 연습이 있어요.', '290 grammar points with meaning, form, examples and practice.'],
+  ['translate', '번역 연습', 'Translation practice', 'translate translation 번역 영어 한국어 쓰기', '#learn/translate', '영어 문장을 한국어로 한 줄씩 써 보는 연습이에요(글 45편).', 'Write each English line in Korean (45 short texts).'],
+  ['convo', '회화 연습', 'Conversation practice', 'conversation speaking dialogue role-play 회화 대화 말하기 상황극', '#learn/convo', '상황극 대본으로 말해 보는 연습이에요(장면 65개).', 'Practise speaking with role-play scenes (65 scenes).'],
+  ['reading', '읽고 써 보기', 'Read and write it back', 'reading passage 읽기 지문 쓰기', '#learn/reading', '글을 읽고 내 말로 써 보는 연습이에요.', 'Read a passage, then write it back in your own words.'],
+  ['stories', '동화책', 'Storybooks', 'story storybook book 동화 이야기 책', '#learn/stories', '레벨별 동화책 50권을 읽어요.', '50 graded storybooks to read.'],
+  ['travel', '여행 한국어', 'Travel Korean', 'travel trip 여행', '#learn/travel', '여행에서 쓰는 한국어예요.', 'Korean for travel.'],
+  ['dictionary', '국어사전', 'Dictionary', 'dictionary meaning 사전 뜻 국어사전', '#dictionary', '낱말의 뜻을 찾는 국어사전이에요.', 'A Korean dictionary for looking up word meanings.'],
+  ['class', '내 반 · 숙제', 'My class · homework', 'class homework teacher student assignment 반 숙제 선생님 학생', '#learn/class', '선생님이 보낸 반 링크로 들어가면 숙제가 첫 화면에 떠요. 숙제 · 복습용이고, 반 학생은 Pro가 무료예요.', 'Join with your teacher’s class link and homework shows on your home screen. For homework and review; class students get Pro free.'],
+  ['pro', 'Pro 구독', 'Pro subscription', 'pro subscription price pricing cost pay plan 구독 가격 요금 결제 얼마 월 연 시험 패스', '#pro', 'Pro는 월 $4.99, 연 $39예요. 시험 패스는 $15예요. AI 한도가 늘고 TOPIK 모의고사 전체가 열려요.', 'Pro is $4.99 a month or $39 a year; the exam pass is $15. You get higher AI limits and all TOPIK mock exams.'],
+  ['legal', '가격 · 이용약관 · 환불', 'Pricing · Terms · Refunds', 'pricing terms refund policy 가격 이용약관 환불 규정 개인정보 privacy', 'pricing.html', '가격 · 이용약관 · 환불 규정 · 개인정보처리방침 쪽이 따로 있어요.', 'Pricing, terms, refund policy and privacy policy have their own pages.'],
+  ['account', '로그인 · 가입', 'Sign in · Sign up', 'login sign in sign up account register 로그인 가입 계정', '#account', '무료로 가입하면 진도 · 연속 일수 · 단어장이 폰과 컴퓨터에서 이어져요.', 'Sign up free and your progress, streak and word list follow you across devices.'],
+  ['lang', '화면 언어', 'Language', 'language translate english vietnamese japanese chinese 언어 영어 베트남어 일본어 중국어', '', '화면 말은 한국어 · English · Tiếng Việt · 日本語 · 中文이에요. 머리띠의 언어 단추로 바꿔요. 학습 자료(문항 · 낱말 · 예문)는 번역하지 않아요.', 'The interface is in Korean, English, Vietnamese, Japanese and Chinese — switch with the language button at the top. Learning material (questions, words, examples) is not translated.'],
+  ['app', '안드로이드 앱', 'Android app', 'app android phone google play 앱 안드로이드 플레이 스토어', '', '안드로이드 앱(구글 플레이)으로도 쓸 수 있어요.', 'There is an Android app on Google Play.'],
+  ['teacher', '1:1 수업', '1:1 lessons', 'teacher private lesson tutor preply 선생님 1:1 수업 과외 신청', 'teacher.html', '이 사이트를 만든 한국어 선생님과 1:1 수업을 해요. 신청은 Preply, 문의는 WhatsApp이에요.', 'Take 1:1 lessons with the teacher who built this site — book on Preply, ask questions on WhatsApp.'],
+  ['about', '소개', 'About', 'about who made contact 소개 누가 만들었 문의 연락', 'about.html', '한국어 선생님이 직접 만드는 사이트예요. 문의는 소개 쪽에 있어요.', 'Made by a Korean teacher. Contact details are on the About page.'],
+  ['seal', '내 이름 도장', 'My name seal', 'name seal stamp dojang hangul name 이름 도장 한글 이름', 'korean-name/', '영어 이름을 한글로 바꾸고 도장 그림으로 저장해요.', 'Turn your name into Hangul and save it as a seal card.'],
+  ['kname', '나의 한국 이름', 'Korean name generator', 'korean name generate hanja 한국 이름 짓기 한자', 'my-korean-name/', '한국에서 태어났다면 내 이름은? 흔한 성과 이름으로 지어 줘요.', 'If you were Korean, what would your name be? A common surname and given name.'],
+  ['zodiac', '나의 띠 카드', 'Zodiac card', 'zodiac animal tiger 띠 12지 동물', 'korean-zodiac/', '태어난 해로 띠를 알아보고 카드로 저장해요.', 'Find your Korean zodiac animal from your birth year and save a card.'],
+  ['fortune', '속담 포춘쿠키', 'Fortune cookie', 'fortune cookie proverb 속담 포춘쿠키', 'korean-proverb/', '쿠키를 누르면 한국 속담이 하나 나와요.', 'Crack a cookie and get a Korean proverb.'],
+  ['birthday', '한국어 생일 카드', 'Birthday card', 'birthday card 생일 카드 축하', 'korean-birthday/', '친구 · 윗사람에게 맞는 말로 생일 카드를 만들어요.', 'Make a Korean birthday card in the right tone for friends or elders.'],
+  ['wotd', '오늘의 단어', 'Word of the day', 'word of the day daily 오늘의 단어', 'korean-word-today/', '날마다 초급 낱말 하나를 카드로 보여 줘요.', 'One beginner word a day, as a card.'],
+  ['sheet', '이름 따라 쓰기 학습지', 'Name tracing worksheet', 'worksheet tracing print pdf handwriting 학습지 따라 쓰기 인쇄', 'hangul-worksheet/', '내 이름을 따라 쓰는 학습지를 인쇄해요(PDF 저장도 돼요).', 'Print a worksheet for tracing your name (or save it as PDF).'],
+  ['kage', '한국 나이 계산기', 'Korean age calculator', 'age calculator birthday 한국 나이 만 나이 계산', 'korean-age/', '만 나이 · 연 나이 · 세는 나이와 띠를 계산해요.', 'Calculate international, year and counting age and your zodiac.'],
+];
+const HLP_STOP = new Set(['the', 'and', 'for', 'how', 'what', 'where', 'can', 'does', 'much', 'with', 'you', 'your', 'are', 'this', 'that', 'there', 'about', 'have', 'from', 'use', 'get', 'make']);
+function hlpSiteHits(q) {
+  const s = String(q ?? '').toLowerCase();
+  const toks = [...new Set(s.split(/[^a-z0-9가-힣$]+/).filter((x) => (/[가-힣]/.test(x) ? x.length >= 2 : x.length >= 3 && !HLP_STOP.has(x))))];
+  if (!toks.length) return [];
+  const out = [];
+  for (const e of HLP_SITE) {
+    const hay = `${e[1]} ${e[2]} ${e[3]}`.toLowerCase(), hw = hay.split(/[^a-z0-9가-힣$]+/).filter(Boolean);
+    let sc = 0;
+    for (const k of toks) {
+      /* 영어는 낱말 단위로(「pro」가 pronunciation · proverb 에 걸리지 않게), 한국어는 조사가 붙으니 들어 있으면 */
+      const kk = k.length > 4 && /^[a-z]+$/.test(k) ? k.replace(/(ing|ed|es|s)$/, '') : k;
+      const hit = /[가-힣]/.test(k) ? hay.includes(k) : hw.some((w) => w === k || w === kk || (kk.length >= 5 && (w.startsWith(kk) || (w.length >= 5 && kk.startsWith(w)))));
+      if (hit) sc += (e[1].toLowerCase() === s.trim() || e[2].toLowerCase() === s.trim()) ? 3 : 1;
+    }
+    if (sc) out.push([sc, e]);
   }
+  return out.sort((a, b) => b[0] - a[0]).slice(0, 3).map((x) => ({ sc: x[0], e: x[1] }));
+}
+function hlpSiteRowsHtml(hits) {
+  if (!hits.length) return '';
+  return `<div class="hlp-rows hlp-site"><div class="hlp-rows-h">${esc(t('이 사이트에서', 'On this site'))}</div>` + hits.map(({ e }) => {
+    const inner = `<b>${esc(t(e[1], e[2]))}</b><span>${esc(t(e[5], e[6]))}</span>`;
+    return e[4] ? `<a class="hlp-row hlp-row-site" href="${esc(e[4])}">${inner}</a>` : `<div class="hlp-row hlp-row-site">${inner}</div>`;
+  }).join('') + '</div>';
+}
+const hlpLooksQuestion = (q) => /[?？]\s*$/.test(q) || q.trim().split(/\s+/).length >= 4 || /(요|까|죠|나요|어요)$/.test(q.trim());
+
+/* 한 번 친 말 → 보여 줄 것(공짜 검색). 색인이 아직 안 왔으면 pending — 오면 다시 만든다 */
+function hlpResultHtml(q) {
   const word = hlpFindWord(q);
   const points = hlpFindPoints(q).slice(0, 5);
-  const cites = hlpCites(q);
-  /* 넓게 찾기 — 색인은 처음 한 번 받는다(오는 동안은 지금 있는 것부터 보여 준다) */
   const L = hlpList(q);
-  if (!ssIdx) ssNeed().then(() => { if (hlpLastQ === q) hlpDraw(); });
+  const site = hlpSiteHits(q);
   const extra = L ? L.words.filter((w) => !word || w.head !== word.head) : [];
-  /* 영어로 쳤고 뜻이 똑같은 낱말이 있으면 그 낱말 카드를 맨 위에 */
   let top = word;
   if (!top && L && !L.kor && extra[0] && extra[0].s <= 1) {
     const e0 = extra.shift();
     top = hlpFindWord(e0.head) || { query: e0.head, head: e0.head, en: e0.en };
   }
-  const noEx = !top && !points.length && !extra.length && !(L && L.points.length);
-  const cards = noEx
-    ? `<div class="hlp-none">${esc(t(
-        `"${q}"는 저희 자료에 없어요. 오타는 아닌지, 또는 사전에 나온 기본형으로 다시 써 보세요.`,
-        `We couldn't find "${q}" in our material. Try a simpler word — e.g. "difficult", "eat", "because" — or the Korean dictionary form.`
-      ))}</div>`
-    : (top ? hlpWordCard(top) : '') + points.map(hlpPointCard).join('') +
-      (L ? hlpRowsHtml(extra.slice(0, 12), top || points.length ? t('이런 말도 있어요', 'More matches') : t('찾은 낱말', 'Matches')) + hlpPointRowsHtml(L.points.filter((p) => !points.some((x) => x.id === p.id)))
-        : `<p class="hlp-wait">${esc(t('더 찾는 중…', 'Searching more…'))}</p>`);
-
-  cardsEl.innerHTML = cards + hlpAiIdle(cites);
-  $('hlpAiBtn').addEventListener('click', () => hlpAskAI(q, cites));
-  cardsEl.querySelectorAll('.hlp-row').forEach((b) => b.addEventListener('click', () => { $('hlpInput').value = b.dataset.q; hlpAsk(b.dataset.q); }));
+  const siteFirst = site.length && site[0].sc >= 2;
+  const none = !top && !points.length && !extra.length && !(L && L.points.length) && !site.length;
+  if (none) {
+    return `<div class="hlp-none">${esc(t(
+      `"${q}"는 저희 자료에 없어요. 오타는 아닌지, 또는 사전에 나온 기본형으로 다시 써 보세요. 사이트 사용법이나 한국어 낱말 · 문법을 물어봐 주세요.`,
+      `We couldn't find "${q}" in our material. Try a simpler word — e.g. "difficult", "eat", "because" — or the Korean dictionary form. You can also ask how to use the site.`
+    ))}</div>`;
+  }
+  const siteHtml = hlpSiteRowsHtml(site);
+  return (siteFirst ? siteHtml : '') + (top ? hlpWordCard(top) : '') + points.map(hlpPointCard).join('') +
+    (L ? hlpRowsHtml(extra.slice(0, 10), top || points.length ? t('이런 말도 있어요', 'More matches') : t('찾은 낱말', 'Matches')) + hlpPointRowsHtml(L.points.filter((p) => !points.some((x) => x.id === p.id)))
+       : `<p class="hlp-wait">${esc(t('더 찾는 중…', 'Searching more…'))}</p>`) +
+    (siteFirst ? '' : siteHtml);
+}
+/* AI 에 올려 보낼 자료 — 낱말 · 문법(hlpCites) + 사이트 안내. 서버는 여섯 개까지 받는다 */
+function hlpAllCites(q) {
+  const site = hlpSiteHits(q).map(({ e }) => ({ id: `site:${e[0]}`, kind: 'point', name: e[1], desc: `${e[5]}${e[4] ? ` (바로 가기: ${e[4]})` : ''}`, en: e[6] }));
+  return [...site, ...hlpCites(q)].slice(0, 6);
 }
 
 function hlpAsk(raw) {
-  hlpLastQ = String(raw ?? '').trim();
-  hlpDraw();
+  const q = String(raw ?? '').trim().slice(0, 120);
+  if (!q) return;
+  const ex = { id: ++hlpSeq, q, html: '', cites: [], ai: null, pending: false };
+  ex.html = hlpResultHtml(q); ex.cites = hlpAllCites(q);
+  if (!ssIdx) { ex.pending = true; ssNeed().then(() => { for (const x of hlpThread) if (x.pending) { x.html = hlpResultHtml(x.q); x.cites = hlpAllCites(x.q); x.pending = false; } hlpRenderThread(null); }); }
+  hlpThread.push(ex); if (hlpThread.length > HLP_MAX) hlpThread.shift();
+  hlpRenderThread(ex.id);
+  track('도우미질문');
 }
 
-/* 물어본 것들을 말풍선으로 쌓는다. 매 질문은 여전히 따로따로
-   서버에 보내 답을 받는다(대화 기억 없음) — 화면만 채팅처럼 보이게
-   쌓아 둘 뿐이다. 새로 찾기를 해도(hlpDraw → #hlpCards) 이 자리는
-   안 지워지고, 패널을 닫을 때만 비운다(hlpSetOpen). */
-let hlpChat = [];
-
-function hlpChatBubble(role, text) {
-  return `<div class="hlp-msg ${role === 'user' ? 'hlp-msg-user' : 'hlp-msg-ai'}">${esc(text)}</div>`;
+function hlpAiPart(ex) {
+  if (ex.ai) return `<div class="hlp-msg hlp-msg-ai${ex.ai.wait ? ' wait' : ''}" data-ai="${ex.id}"><span class="hlp-ai-tag">✨ AI</span>${esc(ex.ai.text)}</div>`;
+  const primary = hlpLooksQuestion(ex.q);
+  return '<div class="hlp-ai">' +
+    `<button class="hlp-ai-btn${primary ? '' : ' ghost'}" type="button" data-hlpai="${ex.id}">✨ ${t(primary ? '이 질문을 AI 도우미에게 물어보기' : 'AI 도우미에게도 물어보기', primary ? 'Ask the AI helper about this' : 'Ask the AI helper too')}</button>` +
+    (primary ? `<p class="hlp-ai-note">${t('로그인이 필요해요. 하루 20번까지 물어볼 수 있어요. 치즈감자 자료에 없는 건 "모른다"고 답해요.', 'Sign-in required, up to 20 questions a day. It says "I don’t know" rather than guessing.')}</p>` : '') +
+  '</div>';
+}
+function hlpEmptyHtml() {
+  const chips = [
+    ['가지고', '가지고'], ['difficult', 'difficult'], ['-느니', '-느니'],
+    [t('레벨 테스트는 어디서 해요?', 'Where is the level test?'), t('레벨 테스트는 어디서 해요?', 'Where is the level test?')],
+    [t('Pro는 얼마예요?', 'How much is Pro?'), t('Pro는 얼마예요?', 'How much is Pro?')],
+    [t('TOPIK 쓰기 채점은 어떻게 돼요?', 'How does TOPIK writing scoring work?'), t('TOPIK 쓰기 채점은 어떻게 돼요?', 'How does TOPIK writing scoring work?')],
+  ];
+  return `<div class="hlp-empty">${esc(t('오늘은 뭐가 궁금하세요?', "What's on your mind today?"))}` +
+    `<span>${esc(t('한국어나 영어로 낱말 · 문법을 찾거나, 치즈감자 사용법을 물어보세요. 낱말 1만 개 넘게, 문법 290개, 사이트 안내에서 찾아요.', 'Look up a word or grammar point in English or Korean, or ask how to use CheesePotato. Searches 10,000+ words, 290 grammar points and the site guide.'))}</span></div>` +
+    `<div class="hlp-suggest">${chips.map(([q, l]) => `<button type="button" class="hlp-chip" data-q="${esc(q)}">${esc(l)}</button>`).join('')}</div>`;
+}
+/* 대화를 다시 그린다. scrollTo = 새로 생긴 칸의 id(그 칸 맨 위가 보이게) · 'ai:<id>'(AI 답이 보이게) · null(그대로) */
+function hlpRenderThread(scrollTo) {
+  const box = $('hlpThread'); if (!box) return;
+  const keep = box.scrollTop;
+  box.innerHTML = hlpThread.length
+    ? hlpThread.map((ex) => `<div class="hlp-ex" data-ex="${ex.id}"><div class="hlp-msg hlp-msg-user">${esc(ex.q)}</div><div class="hlp-res">${ex.html}${hlpAiPart(ex)}</div></div>`).join('')
+    : hlpEmptyHtml();
+  $('hlpClear')?.toggleAttribute('hidden', !hlpThread.length);
+  if (scrollTo == null) { box.scrollTop = keep; return; }
+  const el = typeof scrollTo === 'string' ? box.querySelector(`[data-ai="${scrollTo.slice(3)}"]`) : box.querySelector(`[data-ex="${scrollTo}"]`);
+  if (el) el.scrollIntoView({ block: typeof scrollTo === 'string' ? 'nearest' : 'start' });
 }
 
-function hlpRenderChat() {
-  const chat = $('hlpChat');
-  if (!chat) return;
-  chat.innerHTML = hlpChat.map((m) => hlpChatBubble(m.role, m.text)).join('');
-  chat.scrollTop = chat.scrollHeight;
-}
-
-/* AI 호출. score-pronunciation 을 부르는 window.ptAiGuess 와 같은 틀 —
-   로그인 확인, 15초에서 끊기, 429/daily_limit 처리, 실패하면 조용히
-   말풍선 하나로 접는다(이미 0층 결과는 위에 그대로 있으니 여기만
-   죽어도 된다). */
 /* 단어 한 장 화면 「AI 질문」 탭 — 도우미(ask-korean)와 같은 함수 · 같은 하루 한도. 답 글만 돌려준다 */
 async function wdAskAI(q) {
   const { data: { session } } = await sb.auth.getSession();
@@ -18614,79 +18666,87 @@ async function wdAskAI(q) {
   } catch (e) { return { text: t('지금은 답할 수 없어요. 잠시 후 다시 해 주세요.', "Couldn't get an answer right now — try again in a moment.") }; }
   finally { clearTimeout(timer); }
 }
-async function hlpAskAI(q, cites) {
+
+/* AI 호출. 로그인 확인, 15초에서 끊기, 429/daily_limit 처리, 실패하면 조용히 말풍선 하나로 접는다
+   (검색 결과는 이미 위에 그대로 있으니 여기만 죽어도 된다). 보내는 것: 질문 + 낱말 · 문법 · 사이트 안내 조각(hlpAllCites). */
+async function hlpAskAI(exId) {
+  const ex = hlpThread.find((x) => x.id === exId); if (!ex || ex.ai) return;
   const { data: { session } } = await sb.auth.getSession();
-  if (!session) {
-    hlpSetOpen(false);
-    open('account');
-    return;
-  }
-
-  hlpChat.push({ role: 'user', text: q });
-  const idx = hlpChat.push({ role: 'ai', text: t('생각하는 중…', 'Thinking…') }) - 1;
-  hlpRenderChat();
-
+  if (!session) { hlpSetOpen(false); open('account'); return; }
+  ex.ai = { wait: true, text: t('생각하는 중…', 'Thinking…') };
+  hlpRenderThread(`ai:${ex.id}`);
   const ctrl = new AbortController();
   const timer = setTimeout(() => ctrl.abort(), 15000);
   try {
     const res = await fetch(`${SB_URL}/functions/v1/ask-korean`, {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        apikey: SB_ANON,
-        Authorization: `Bearer ${session.access_token}`,
-      },
-      body: JSON.stringify({ q, lang: isEn() ? 'en' : 'ko', cites }),
+      headers: { 'Content-Type': 'application/json', apikey: SB_ANON, Authorization: `Bearer ${session.access_token}` },
+      body: JSON.stringify({ q: ex.q.slice(0, 300), lang: isEn() ? 'en' : 'ko', cites: ex.cites }),
       signal: ctrl.signal,
     });
     const out = await res.json().catch(() => null);
-
     let reply;
     if (res.status === 429 || out?.error === 'daily_limit') {
       reply = t('오늘 AI 도우미에게 물어볼 수 있는 횟수를 다 썼어요. 내일 다시 써 주세요.', "You've used today's AI questions — try again tomorrow.");
-      if (billingLive() && !isPro() && !inApp) reply +=t(' 치즈감자 Pro 는 하루 100번 — 옆 메뉴 「구독 · Pro」에서 7일 무료로 먼저 써 볼 수 있어요.', ' CheesePotato Pro gives you 100 a day — try it free for 7 days from 「Subscription · Pro」 in the menu.');
+      if (billingLive() && !isPro() && !inApp) reply += t(' 치즈감자 Pro 는 하루 100번 — 옆 메뉴 「구독 · Pro」에서 7일 무료로 먼저 써 볼 수 있어요.', ' CheesePotato Pro gives you 100 a day — try it free for 7 days from 「Subscription · Pro」 in the menu.');
     } else if (!res.ok || out?.grounded === undefined) {
       reply = t('지금은 답할 수 없어요. 잠시 후 다시 시도해 주세요.', "Couldn't get an answer right now — try again in a moment.");
     } else if (!out.grounded || !out.answer) {
-      reply = t('이건 저희 자료에 없어요. 표현을 바꿔서 다시 물어봐 주세요.', "This isn't in our material — try rephrasing.");
+      reply = t('이건 치즈감자 자료에 없어요. 한국어 낱말 · 문법이나 사이트 사용법을 표현을 바꿔 다시 물어봐 주세요.', "This isn't in CheesePotato's material — ask about Korean words, grammar or how to use the site, or try rephrasing.");
     } else {
       reply = out.answer;
     }
-    hlpChat[idx] = { role: 'ai', text: reply };
+    ex.ai = { wait: false, text: reply };
   } catch (e) {
-    hlpChat[idx] = { role: 'ai', text: t('지금은 답할 수 없어요. 잠시 후 다시 시도해 주세요.', "Couldn't get an answer right now — try again in a moment.") };
+    ex.ai = { wait: false, text: t('지금은 답할 수 없어요. 잠시 후 다시 시도해 주세요.', "Couldn't get an answer right now — try again in a moment.") };
   } finally {
     clearTimeout(timer);
-    hlpRenderChat();
+    hlpRenderThread(`ai:${ex.id}`);
   }
 }
 
-/* 패널의 뼈대(제목·입력칸)를 그린다. 열 때와 언어를 바꿀 때만 부른다 —
-   검색할 때마다 다시 그리면 입력칸의 커서 위치가 매번 날아간다. */
+/* 패널의 뼈대(제목 · 대화 칸 · 아래 입력칸)를 그린다. 열 때와 언어를 바꿀 때만 부른다 —
+   검색할 때마다 다시 그리면 입력칸의 커서 위치가 매번 날아간다. 입력칸은 맨 아래(채팅앱처럼), 결과는 그 위에 쌓인다. */
 function hlpRenderChrome() {
   $('hlpPanel').innerHTML =
     '<div class="hlp-hd">' +
       '<div>' +
-        `<div class="hlp-title" id="hlpTitle">${t('한국어 도우미', 'Korean helper')}</div>` +
-        `<div class="hlp-sub">${t('한국어나 영어로 낱말 · 문법을 찾아보세요', 'Look up a word or grammar point — English or Korean')}</div>` +
+        `<div class="hlp-title" id="hlpTitle">${t('치즈감자 도우미', 'CheesePotato helper')}</div>` +
+        `<div class="hlp-sub">${t('낱말 · 문법 찾기 + 사이트 안내 + AI 질문', 'Search words & grammar · site guide · AI answers')}</div>` +
       '</div>' +
+      `<button id="hlpClear" class="hlp-clr" type="button" hidden>${t('새로 시작', 'Clear')}</button>` +
       `<button id="hlpClose" class="hlp-x" type="button" aria-label="${t('닫기', 'Close')}">✕</button>` +
     '</div>' +
+    '<div class="hlp-thread" id="hlpThread" aria-live="polite"></div>' +
     '<form id="hlpForm" class="hlp-form">' +
-      `<input id="hlpInput" class="hlp-in" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="${esc(t('예: 가지고, -느니, difficult', 'e.g. difficult, 가지고, -느니'))}">` +
+      `<input id="hlpInput" class="hlp-in" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" maxlength="120" enterkeyhint="send" placeholder="${esc(t('낱말 · 문법 · 질문', 'Word, grammar or question'))}">` +
       `<button type="submit" class="hlp-go" aria-label="${esc(t('보내기', 'Send'))}">➤</button>` +
-    '</form>' +
-    '<div class="hlp-body" id="hlpBody">' +
-      '<div id="hlpCards"></div>' +
-      '<div id="hlpChat" class="hlp-chat"></div>' +
-    '</div>';
+    '</form>';
 
   $('hlpClose').addEventListener('click', () => hlpSetOpen(false));
-  $('hlpForm').addEventListener('submit', (ev) => { ev.preventDefault(); hlpAsk($('hlpInput').value); });
-  $('hlpInput').value = hlpLastQ;
-  hlpDraw();
-  hlpRenderChat();
+  $('hlpClear').addEventListener('click', () => { hlpThread = []; hlpRenderThread(null); $('hlpInput').focus(); });
+  $('hlpForm').addEventListener('submit', (ev) => { ev.preventDefault(); const v = $('hlpInput').value; if (!v.trim()) return; $('hlpInput').value = ''; hlpAsk(v); });
+  $('hlpThread').addEventListener('click', (ev) => {
+    const chip = ev.target.closest('[data-q]');
+    if (chip) { hlpAsk(chip.dataset.q); return; }
+    const ai = ev.target.closest('[data-hlpai]');
+    if (ai) { hlpAskAI(Number(ai.dataset.hlpai)); return; }
+    if (ev.target.closest('a.hlp-row-site, a.hlp-card-link')) { if (innerWidth < 760) hlpSetOpen(false); }   // 사이트 안 쪽으로 가면 폰에서는 도우미를 접는다
+  });
+  // 줄 · 칩(data-q)이 위에서 먼저 잡히므로 줄 누름도 같은 길로 간다
+  for (const ex of hlpThread) { ex.html = hlpResultHtml(ex.q); ex.cites = hlpAllCites(ex.q); }   // 언어를 바꿨으면 새 말로
+  hlpRenderThread(null);
+  const box = $('hlpThread'); if (box) box.scrollTop = box.scrollHeight;
 }
+
+/* 폰 키보드가 올라오면 아래에서 올라오는 시트가 가려진다 — visualViewport 로 시트를 키보드 위로 올린다(큰 화면은 옆 서랍이라 그대로) */
+function hlpFit() {
+  const vv = window.visualViewport, p = $('hlpPanel'); if (!p) return;
+  if (!vv || innerWidth >= 760 || !p.classList.contains('on')) { p.style.bottom = ''; p.style.height = ''; return; }
+  p.style.bottom = `${Math.max(0, Math.round(innerHeight - vv.height - vv.offsetTop))}px`;
+  p.style.height = `${Math.round(Math.min(vv.height * 0.9, 760))}px`;
+}
+if (window.visualViewport) { visualViewport.addEventListener('resize', hlpFit); visualViewport.addEventListener('scroll', hlpFit); }
 
 function hlpSetOpen(open) {
   const panel = $('hlpPanel');
@@ -18703,13 +18763,13 @@ function hlpSetOpen(open) {
     // 쓴다(hlpCites·hlpFindWord). 여기서 배우기를 한 번도 안 연 사람도 열
     // 수 있는 자리라, 미리 불을 붙여만 둔다 — 기다리지 않는다. 타자 치는
     // 동안 대개 도착한다.
-    sbNeed(); grammarNeed(); glossNeed();
+    sbNeed(); grammarNeed(); glossNeed(); ssNeed();   // 낱말 · 문법 · 검색 색인(영어로 찾기) — 타자 치는 동안 대개 도착한다
     hlpRenderChrome();
+    hlpFit();
     setTimeout(() => $('hlpInput')?.focus(), 60);
   } else {
-    // 닫으면 쌓아 둔 말풍선을 비운다 — 서버에도 아무것도 안 남기는
-    // 것과 같은 원칙이다. 다음에 열면 늘 새 판으로 시작한다.
-    hlpChat = [];
+    // 닫아도 대화는 이 화면 안에 둔다(다시 열면 이어서) — 서버 · 저장소에는 안 남고, 새로 고치면 사라진다.
+    hlpFit();
   }
 }
 
@@ -19116,7 +19176,7 @@ function fbMount(host, place, level = null) {
    openSection 이 epsDraw 를 부른다. let · const 면 그때 「초기화 전 접근」으로 죽는다. */
 var EPS = null;
 var epsP = null;
-function epsNeed() { return (epsP ??= import('./eps.js?v=bfeec899').then((m) => { EPS = m; })); }
+function epsNeed() { return (epsP ??= import('./eps.js?v=931fe152').then((m) => { EPS = m; })); }
 const EPS_SECS = ['reading', 'listening'];
 const EPS_MOCK_SEC = 70 * 60;
 const EPS_NUM = ['①', '②', '③', '④'];
@@ -19540,7 +19600,7 @@ const SS_PAGES = [
   ['블로그', 'Blog', 'blog/', '블로그 blog 글'],
 ];
 let ssIdx = null, ssP = null, ssT = 0;
-const ssNeed = () => (ssP ??= import('./search-index.js?v=bfeec899').then((m) => { ssIdx = m.SEARCH_INDEX; }).catch(() => { ssP = null; }));
+const ssNeed = () => (ssP ??= import('./search-index.js?v=931fe152').then((m) => { ssIdx = m.SEARCH_INDEX; }).catch(() => { ssP = null; }));
 const ssNorm = (s) => String(s || '').toLowerCase().replace(/[\s\-~]+/g, '');
 /* 문법 이름의 다른 꼴 — 「A/V-아/어서」를 「-아서」 · 「-어서」로도, 「-(으)니까」를 「-니까」 · 「-으니까」로도 찾게 */
 const ssGramForms = (name) => {
@@ -19699,7 +19759,7 @@ async function clsLoad() {
     if (await clsJoin(cls.code, clsDefaultName())) return;
   }
   /* 숙제 고르는 칸에 쓸 자료(레슨 · 문법 목록) — 운영자만 */
-  if (clsCanMake()) { await Promise.all([coursesNeed(), sbNeed(), tqNeedData(), cvNeed(), bkNeed(), trNeed(), Promise.all([import('./vocab-topik1.js?v=bfeec899'), import(VOCAB2_URL)]).then(([m, m2]) => { if (!clsVTopics) {
+  if (clsCanMake()) { await Promise.all([coursesNeed(), sbNeed(), tqNeedData(), cvNeed(), bkNeed(), trNeed(), Promise.all([import('./vocab-topik1.js?v=931fe152'), import(VOCAB2_URL)]).then(([m, m2]) => { if (!clsVTopics) {
     /* 주제마다 낱말 수(두 과정) — 낱말이 없는 주제는 숙제로 못 고르게(새 작은 주제는 안티 그래비티가 낱말을 붙인 뒤에 채워진다) */
     clsVN = new Map(); for (const w of [...m.VOCAB, ...m2.VOCAB]) for (const x of w.t || []) { clsVN.set(x, (clsVN.get(x) || 0) + 1); const a = x.split('/')[0]; clsVN.set(a, (clsVN.get(a) || 0) + 1); }
     clsVTopics = m.VOCAB_TOPICS; clsCat = null; } })]).catch(() => {}); }
@@ -19893,7 +19953,7 @@ async function clsJoin(code, name) {
 /* QR — qrcode-lib.js(MIT, Kazuhiko Arase)를 이 칸을 열 때만 받는다. CSP 때문에 우리 도메인에 둔다 */
 let clsQrLib = null;
 const clsQrNeed = () => (clsQrLib ??= new Promise((ok, no) => {
-  const sc = document.createElement('script'); sc.src = './qrcode-lib.js?v=bfeec899'; sc.onload = () => ok(window.qrcode); sc.onerror = no; document.head.appendChild(sc);
+  const sc = document.createElement('script'); sc.src = './qrcode-lib.js?v=931fe152'; sc.onload = () => ok(window.qrcode); sc.onerror = no; document.head.appendChild(sc);
 }));
 /* 치즈감자 QR 카드(운영자 2026-10-07 「QR 을 귀엽게 — 치즈감자 스타일로」): 둥근 점 · 갈색 둥근 모서리 눈 · 가운데 치즈감자 얼굴 ·
    위에 주황 띠와 반 이름, 아래 「찍고 로그인하면 바로」. 보이는 그림과 저장하는 PNG 가 같은 캔버스 하나다.
