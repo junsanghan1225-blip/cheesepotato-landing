@@ -2600,5 +2600,8 @@
   "Daily study reminder email": "每日学习提醒邮件",
   "One email to {0} around 7 pm · not an ad · skipped on days you studied · turn off with “Stop” in the email or in Settings · sent via Resend": "晚上7点左右向 {0} 发送一封邮件 · 不是广告 · 当天已学习则不发送 · 可通过邮件中的“停止接收”或设置关闭 · 通过 Resend 发送",
   "Agree to all": "全部同意",
-  "Save my choices": "保存我的选择"
+  "Save my choices": "保存我的选择",
+  "Answers from our own material": "基于我们自己的资料回答",
+  "Look up a word or grammar point, or ask how to use the site — in Korean or English.": "查单词或语法，或询问网站用法 — 可用韩语或英语。",
+  "What should I do today?": "今天该做什么？"
 }
