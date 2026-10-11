@@ -36,6 +36,7 @@
 | 11c | 안티에게 「영어 TOPIK 가이드 글 1묶음」(`antigravity-topik-guides-en-task.md`) 주기 — 낱말 · 문법 내려받기 쪽(`/topik-vocabulary-list/`)은 만들어 둠. 머지 뒤 Search Console 에서 그 주소 색인 요청 | 안티 / 검색 콘솔 |
 | 11d | **도우미 AI 가 대화를 기억하게** — 대시보드 → Edge Functions → Deploy a new function → Via Editor → 이름 `ask-helper` → `supabase/functions/ask-helper/index.ts` 내용을 붙여 넣고 Deploy (키 · SQL 은 새로 필요 없음). 배포 전에는 예전 함수로 알아서 물러선다 | 운영자 (머지 뒤) |
 | 11e | **이번 주 학생 5명에게 반 QR 보내기** — 순서 · 메시지: `docs/ops/teacher-pilot.md` 맨 아래 「운영자 본인 학생에게」. Preply 학생은 정규 수업 시작 뒤에만 | 운영자 |
+| 11f | **발음 표시 눈으로 확인** — 머지 뒤 사전 쪽(예: `/dictionary/혈액형.html`) 아무거나 10개를 열어 「Pronounced […]」가 맞는지 봐 주세요. 틀린 것이 있으면 낱말만 알려 주시면 규칙을 고쳐요 | 운영자 |
 | 11 | Polar 에서 지금 유료 사용자 수 | PRD 기준선 |
 | 12 | PRD ⚠ 남은 것(90일 숫자 · 부트캠프 · 기관 요금 · EPS 시기 · 언어 · iOS) | `docs/prd.md` 10항 |
 | 13 | 쿠키 동의 단추 글(지금 「OK · No thanks」 / 「Accept all · Essential only」) | |
