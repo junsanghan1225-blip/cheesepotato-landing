@@ -7088,3 +7088,4 @@ a.hlp-row-site:hover { background:var(--surface); box-shadow:inset 0 0 0 1px var
 .td-slot .td-end { display:flex; align-items:center; }
 .ck-newc { font-style:normal; font-weight:800; font-size:12px; margin-left:6px; padding:2px 8px; border-radius:99px; background:color-mix(in srgb, var(--td-cheese) 45%, var(--surface)); color:var(--ink); }
 .cls-more-join { margin:14px 0 0; } .cls-more-join > summary { cursor:pointer; font-size:13.5px; font-weight:700; color:var(--ink-3); padding:6px 2px; } .cls-more-join[open] > summary { margin-bottom:8px; }
+.ds-rem-n { display:block; margin-top:6px; font-size:12px; line-height:1.4; color:rgba(255,255,255,.62); text-align:center; }
