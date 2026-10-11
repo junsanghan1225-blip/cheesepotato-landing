@@ -18,7 +18,10 @@ const tx = (x) => (x && typeof x === 'object' ? [x.ko || '', x.en || ''] : [Stri
 const short = (s, n = 40) => { s = String(s || '').split(/[;/]/)[0].trim().replace(/^to\s+/i, ''); return s.length > n ? s.slice(0, n) : s; };
 
 const words = [], seen = new Set();
-for (const w of [...v1.VOCAB, ...v2.VOCAB]) { if (!w.h || seen.has(w.h)) continue; seen.add(w.h); words.push([w.h, short(w.s || w.e), w.l]); }
+for (const w of [...v1.VOCAB, ...v2.VOCAB]) { if (!w.h || seen.has(w.h)) continue; seen.add(w.h);
+  const g = short(w.s || w.e), more = String(w.e || '').split(/;/).slice(1).map((x) => x.trim().replace(/^to\s+/i, '')).filter((x) => x && x !== g).join('; ').slice(0, 60);
+  words.push(more ? [w.h, g, w.l, more] : [w.h, g, w.l]);   // 4째 칸 = 다른 뜻(영어로 찾을 때 「difficult」가 두 번째 뜻이어도 걸리게 — 도우미 · 첫 화면 검색)
+}
 const dict = Object.values(gl.GLOSSARY).filter((g) => g.head && !seen.has(g.head)).map((g) => [g.head, short(g.en)]);
 const grammar = sb.SB_CATS.flatMap((c) => c.points).map((p) => [p.id, p.name, short(p.desc, 60)]);
 const courses = co.COURSES.map((c) => [c.id, ...tx(c.title)]);
