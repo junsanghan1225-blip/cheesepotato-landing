@@ -31,4 +31,11 @@ const blog = bl.BLOG_POSTS.map((p) => [p.id, p.title, p.lang === 'en' ? 'en' : '
 
 const out = `/* 사이트 검색 색인 — 생성물(node tools/build-search.mjs). 손으로 고치지 말 것. */\nexport const SEARCH_INDEX = ${JSON.stringify({ words, dict, grammar, courses, lessons, writing, blog })};\n`;
 fs.writeFileSync(path.join(ROOT, 'search-index.js'), out);
+/* 베트남어 · 일본어 뜻으로 찾기(운영자 2026-10-11 「E」) — 도우미가 화면 언어가 vi · ja 일 때(또는 일본어를 칠 때)만 받는 작은 파일.
+   원본: vocab/data/topik1.json · topik2.json 의 tr { vi, ja }(안티 그래비티 · Claude 검토). [낱말, vi, ja] */
+const trRows = [];
+for (const f of ['topik1.json', 'topik2.json']) for (const w of JSON.parse(fs.readFileSync(path.join(ROOT, 'vocab/data', f), 'utf8'))) if (w.head && w.tr && (w.tr.vi || w.tr.ja)) trRows.push([w.head, w.tr.vi || '', w.tr.ja || '']);
+const trOut = `/* 베트남어 · 일본어 뜻 색인 — 생성물(node tools/build-search.mjs). 손으로 고치지 말 것. [낱말, vi, ja] */\nexport const SEARCH_TR = ${JSON.stringify(trRows)};\n`;
+fs.writeFileSync(path.join(ROOT, 'search-tr.js'), trOut);
+console.log(`search-tr.js — 뜻 ${trRows.length}개 (${Math.round(trOut.length / 1024)}KB)`);
 console.log(`search-index.js — 낱말 ${words.length} · 사전 ${dict.length} · 문법 ${grammar.length} · 코스 ${courses.length} · 레슨 ${lessons.length} · 쓰기 ${writing.length} · 블로그 ${blog.length} (${Math.round(out.length / 1024)}KB)`);

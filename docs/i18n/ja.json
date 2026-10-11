@@ -2608,5 +2608,7 @@
   "We couldn't find \"{0}\" in our material. Try a simpler word — e.g. \"difficult\", \"eat\", \"because\" — or the Korean dictionary form. You can also ask how to use the site.": "「{0}」は資料に見つかりませんでした。もっと簡単な言葉 — 例: \"difficult\" · \"eat\" · \"because\" — か、辞書形で試してください。サイトの使い方も聞けます。",
   "Word, grammar or question": "単語・文法・質問",
   "Ask the helper": "ヘルパーに聞く",
-  "Search a word or ask anything": "単語を探す・何でも聞く"
+  "Search a word or ask anything": "単語を探す・何でも聞く",
+  "Search": "検索",
+  "Open search and helper": "検索とヘルパーを開く"
 }

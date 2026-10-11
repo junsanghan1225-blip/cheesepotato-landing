@@ -2881,10 +2881,13 @@ urls.push({ loc: '/korean-word-for/', freq: 'monthly', pri: '0.8' });
 
 /* 오늘의 단어 자료. 사이트맵에는 안 넣는다 — 쪽이 아니라 홈 화면이
    읽는 자료 파일이다(sentences.js·courses.js 와 같은 자리). */
+/* 오늘의 단어(운영자 2026-10-11 「D」): 옛 사전 표제어(뜻풀이에 틀린 것이 섞임) 대신 우리 TOPIK I 낱말 1 · 2급(뜻 · 예문이 우리 것) — 만들기 도구 「오늘의 단어 카드」와 같은 풀 */
+const WOTD_VOCAB = VOCAB.filter((w) => w.l <= 2 && w.e && w.x?.length && existsSync(join(ROOT, 'dictionary', `${w.h}.html`)))
+  .map((w) => [w.h, w.p || '', String(w.s || w.e.split(';')[0]).trim()]);
 writeFileSync(join(ROOT, 'wotd.js'),
   `/* 생성물 — tools/build-pages.mjs 가 굽는다. 손으로 고치지 말 것.\n` +
   `   홈 화면 "오늘의 단어" 카드가 읽는다(app.module.js 의 wotdNeed). */\n` +
-  `export const WOTD_POOL = ${JSON.stringify(DICT_HEADS.map((e) => [e.head, e.pos || '', wotdGloss(e)]))};\n`);
+  `export const WOTD_POOL = ${JSON.stringify(WOTD_VOCAB)};\n`);
 
 /* ── 블로그 ─────────────────────────────────────────────────── */
 /* 글이 하나도 없어도(BLOG_POSTS = []) 목록 쪽은 늘 굽는다 — 안 그러면

@@ -7071,3 +7071,10 @@ a.hlp-row-site:hover { background:var(--surface); box-shadow:inset 0 0 0 1px var
 .hlp-site .hlp-rows-h { color:var(--orange-deep); }
 /* 전역 입력칸 포커스 선이 알약 안에 네모로 비치던 것(2026-10-11) — 빛은 바깥 알약(.hlp-box:focus-within)이 낸다 */
 .hlp-box .hlp-in, .hlp-box .hlp-in:focus, .hlp-box .hlp-in:focus-visible { outline:none !important; box-shadow:none !important; border:0 !important; background:none !important; border-radius:0; }
+
+/* 위 줄 정리 — 단어 · 내 코스 · 다운로드는 머리띠에서 뺀다(옆 메뉴에 그대로 있음). id 는 JS 가 쓰므로 지우지 않고 숨긴다 */
+#myHdBtn, #wbBtn, #hdCta { display: none !important; }
+/* 검색 단추는 폰에서도 보인다(글자 없이 돋보기만). 로그인은 PC 폭에서만 머리띠에 — 폰은 ☰ 안에 있다 */
+.site-nav > #hdSearchBtn { display: flex !important; }
+@media (max-width: 759px) { #hdSearchBtn .nav-txt { display: none; } }
+@media (min-width: 760px) { .site-nav > #authBtn { display: flex !important; } }
