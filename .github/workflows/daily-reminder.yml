@@ -12,5 +12,8 @@ jobs:
     steps:
       - name: call function
         run: |
-          curl -fsS -X POST "https://tjgoevtvobvmlyefgxel.supabase.co/functions/v1/daily-reminder" \
-            -H "x-cron-key: ${{ secrets.CRON_KEY }}" -H "Content-Type: application/json" -d '{}'
+          # 실패하면 어느 숫자(401 · 404 · 500 …)와 어떤 말이 왔는지 로그에 남긴다(2026-10-12 — curl -f 는 「exit code 22」만 보여 줘서 원인을 몰랐다)
+          code=$(curl -sS -o /tmp/resp.txt -w "%{http_code}" -X POST "https://tjgoevtvobvmlyefgxel.supabase.co/functions/v1/daily-reminder" \
+            -H "x-cron-key: ${{ secrets.CRON_KEY }}" -H "Content-Type: application/json" -d '{}') || code=000
+          echo "HTTP $code"; head -c 600 /tmp/resp.txt; echo
+          case "$code" in 2??) ;; *) exit 1 ;; esac

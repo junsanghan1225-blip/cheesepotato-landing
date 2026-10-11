@@ -9,8 +9,8 @@
 | 일 | 지시서 | 브랜치 | 모두 | 올라옴 | 넣음 | 다음에 줄 말 |
 |---|---|---|---|---|---|---|
 | 낱말 뜻 vi · ja | `antigravity-vocab-tr-task.md` | `vocab-tr` | 11 | 11 | 11 | **끝 — 11묶음(topik1 1,931 + topik2 8,258 = 10,189개 전부)**. 「사기(士氣)」 · 「창(窓)」 · 「당면(唐麵)」 · 「빈소(殯所)」 고침. 다음 일: 사전 쪽 · 도우미 · 낱말 한 장에 보여 주기 |
-| 영어 TOPIK 가이드 글 | `antigravity-topik-guides-en-task.md` | `blog-en-topik` | 2 | 0 | 0 | **새로** — 1묶음(5편). 시험 일정 · 응시료 · 점수 숫자 쓰지 말 것 |
-| 한국 이름 늘리기 | `antigravity-korean-names-task.md` | `korean-names` | 2 | 0 | 0 | **새로** — 1묶음(60개) |
+| 영어 TOPIK 가이드 글 | `antigravity-topik-guides-en-task.md` | `blog-en-topik` | 2 | 2 | 2 | **9편 넣음, 1편 보류**(`topik-vocabulary-how-many-words-english` — 급수별 어휘 수 숫자가 지시서 「숫자 쓰지 말 것」에 걸림). 다시 쓸 때: 시험의 정확한 어휘 수 대신 「우리 낱말 목록 TOPIK I 1,931 · II 8,258」 같은 우리 숫자와 학습 순서만. 쓰기 53 · 54번 글자 수(200~300 · 600~700자)는 알려진 규정이라 두었으나 공식 사이트 확인 문구가 붙어 있는지 볼 것 |
+| 한국 이름 늘리기 | `antigravity-korean-names-task.md` | `korean-names` | 2 | 2 | 2 | **끝 — 2묶음 120개 중 119개 넣음**(연우 — 旴 훈음이 확실하지 않아 뺌). 다음: 이름이 늘었으니 「이름 도장」 쪽에서 보기 |
 | 중국어 화면 | `antigravity-i18n-zh-task.md` | `i18n-zh` | 5 | 5 | 5 | **끝 — 2,520/2,520, 메뉴에 켬(2026-10-10)**. 새 글은 몇 줄이면 Claude 가 바로 |
 | TOPIK 고르게 | `antigravity-topik-balance-task.md` | `topik-balance` | 8 | 2 | 2 | 3묶음. 정답 자리 ④ 를 더 |
 | 레벨별 이야기 | `antigravity-stories-more-task.md` | `stories-more` | 3 | 2 | 2 | 3묶음 (L6 · L7) |
