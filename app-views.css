@@ -7078,3 +7078,13 @@ a.hlp-row-site:hover { background:var(--surface); box-shadow:inset 0 0 0 1px var
 .site-nav > #hdSearchBtn { display: flex !important; }
 @media (max-width: 759px) { #hdSearchBtn .nav-txt { display: none; } }
 @media (min-width: 760px) { .site-nav > #authBtn { display: flex !important; } }
+
+/* 학생 숙제 카드 정리(운영자 2026-10-11 「학생들이 정신없대 — 해야 할 걸 정확히」): 「지금 할 것」 하나 크게 → 그다음 숙제는 제목 + 오른쪽 기한 알약만 */
+.td-count { margin:0; font-size:13px; color:var(--ink-3); }
+.td-next-h { margin:2px 0 -4px; font-size:12.5px; font-weight:800; color:var(--ink-3); letter-spacing:.02em; }
+.td-due { flex:none; font-size:12px; font-weight:800; padding:4px 9px; border-radius:99px; background:rgba(var(--ink-rgb),.07); color:var(--ink-2, var(--ink)); white-space:nowrap; }
+.td-due.soon, .td-due.today { background:color-mix(in srgb, #FF914D 22%, var(--surface)); color:#B4470F; }
+.td-due.late { background:color-mix(in srgb, var(--red) 16%, var(--surface)); color:var(--red); }
+.td-slot .td-end { display:flex; align-items:center; }
+.ck-newc { font-style:normal; font-weight:800; font-size:12px; margin-left:6px; padding:2px 8px; border-radius:99px; background:color-mix(in srgb, var(--td-cheese) 45%, var(--surface)); color:var(--ink); }
+.cls-more-join { margin:14px 0 0; } .cls-more-join > summary { cursor:pointer; font-size:13.5px; font-weight:700; color:var(--ink-3); padding:6px 2px; } .cls-more-join[open] > summary { margin-bottom:8px; }
