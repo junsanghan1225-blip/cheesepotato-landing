@@ -3094,7 +3094,7 @@ for (const code of Object.keys(HUB_L)) {
   }
 }
 
-urls.push({ loc: '/privacy.html', freq: 'yearly', pri: '0.3' });
+// privacy.html 은 noindex(운영자 2026-10-12) — 사이트맵에 두면 구글이 모순으로 본다
 urls.push({ loc: '/teacher.html', freq: 'monthly', pri: '0.5' });
 // 손으로 쓴 쪽 — 소개 · 무료 도구(2026-10-10 운영자 「트래픽 A · 소개 쪽」)
 urls.push({ loc: '/about.html', freq: 'monthly', pri: '0.5' });
