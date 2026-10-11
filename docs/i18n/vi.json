@@ -2572,5 +2572,22 @@
   "Korean word of the day": "Từ tiếng Hàn hôm nay",
   "My Korean name": "Tên Hàn của tôi",
   "Name tracing worksheet": "Phiếu tập viết tên",
-  "Tracing worksheet": "Phiếu tập viết"
+  "Tracing worksheet": "Phiếu tập viết",
+  "🎧 TOPIK listening": "🎧 Nghe TOPIK",
+  "💬 Conversation": "💬 Hội thoại",
+  "📗 Storybook": "📗 Truyện",
+  "🧪 Mock exam": "🧪 Thi thử",
+  "Conversation": "Hội thoại",
+  "Conversation practice": "Luyện hội thoại",
+  "listening": "nghe",
+  "mock exam · round {0}": "thi thử · lần {0}",
+  "One full reading mock exam · scored": "Một đề thi thử đọc đầy đủ · có điểm",
+  "Read one storybook to the end": "Đọc hết một cuốn truyện",
+  "Run db/add_classes_more_kinds.sql once to enable the new homework types.": "Hãy chạy db/add_classes_more_kinds.sql một lần để dùng các loại bài tập mới.",
+  "Storybook": "Truyện",
+  "TOPIK listening type practice": "Luyện một dạng bài nghe TOPIK",
+  "TOPIK writing · AI score": "Viết TOPIK · AI chấm điểm",
+  "🔁 Translation": "🔁 Dịch",
+  "English → Korean · {0} lines": "Tiếng Anh → tiếng Hàn · {0} câu",
+  "Translation": "Dịch"
 }

@@ -2571,5 +2571,22 @@
   "Korean word of the day": "今日の韓国語単語",
   "My Korean name": "私の韓国名",
   "Name tracing worksheet": "名前のなぞり書きシート",
-  "Tracing worksheet": "なぞり書きシート"
+  "Tracing worksheet": "なぞり書きシート",
+  "🎧 TOPIK listening": "🎧 TOPIKリスニング",
+  "💬 Conversation": "💬 会話",
+  "📗 Storybook": "📗 絵本",
+  "🧪 Mock exam": "🧪 模擬試験",
+  "Conversation": "会話",
+  "Conversation practice": "会話練習",
+  "listening": "リスニング",
+  "mock exam · round {0}": "模擬試験 · 第{0}回",
+  "One full reading mock exam · scored": "読解の模擬試験1回分 · 採点あり",
+  "Read one storybook to the end": "絵本を1冊最後まで読む",
+  "Run db/add_classes_more_kinds.sql once to enable the new homework types.": "新しい宿題の種類を使うには db/add_classes_more_kinds.sql を一度実行してください。",
+  "Storybook": "絵本",
+  "TOPIK listening type practice": "TOPIKリスニングの問題タイプ練習",
+  "TOPIK writing · AI score": "TOPIK作文 · AI採点",
+  "🔁 Translation": "🔁 翻訳",
+  "English → Korean · {0} lines": "英語 → 韓国語 · {0}行",
+  "Translation": "翻訳"
 }

@@ -7015,3 +7015,14 @@ body:has(.wd-word2) .hlp-fab { display:none; }
 .ls-st.now i { box-shadow:0 0 0 3px var(--tint); }
 .ls-st small { font-size:11.5px; color:var(--ink-3); }
 .ls-stamp-save { width:100%; }
+
+/* 숙제 화면 일체화(2026-10-11 「깔끔하게 · 일체화」) — 고르는 목록은 한 줄 칩 + 작은 줄, 「했음」은 한 가지 모양 */
+.cls-kchips { flex-wrap:nowrap; overflow-x:auto; scrollbar-width:none; padding-bottom:2px; }
+.cls-kchips::-webkit-scrollbar { display:none; }
+.cls-pick-list { max-height:260px; }
+.cls-pick-i { padding:7px 10px; }
+.cls-pick-ic { width:28px; height:28px; font-size:14px; border-radius:8px; }
+.cls-pick-t b { font-size:13.5px; }
+.cls-pick-go { display:grid; place-items:center; width:26px; height:26px; border-radius:50%; background:var(--tint); font-size:16px; line-height:1; }
+.cls-pick-i:hover .cls-pick-go { background:var(--orange); color:#fff; }
+.cls-hw-ok { padding:3px 10px; border-radius:999px; background:color-mix(in srgb, var(--green) 14%, var(--surface)); }
