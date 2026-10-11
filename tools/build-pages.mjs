@@ -19,7 +19,7 @@
  * 글꼴도 vendor/pretendard 를 안 부른다. 검색에서 처음 들어온 사람에게
  * 웹폰트 수백 KB를 물리는 것보다, 기기 글꼴로 즉시 읽히는 편이 낫다.
  */
-import { writeFileSync, mkdirSync, rmSync, existsSync, readFileSync } from 'node:fs';
+import { writeFileSync, mkdirSync, rmSync, existsSync, readFileSync, readdirSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 import { SB_CATS, SB_MORE } from '../sentences.js';
@@ -45,6 +45,10 @@ import { readFileSync as readEn } from 'node:fs';
 import { createHash } from 'node:crypto';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
+/* 낱말 → 우리 TOPIK 문항에서 쓰인 문장(topik-refs/ ← tools/build-topik-refs.mjs). TOPIK 낱말 쪽에 「TOPIK 문항에서」 칸을 붙여
+   노출이 많은 사전 쪽(검색 노출의 대부분)에서 TOPIK 문항 쪽으로 안쪽 링크를 잇는다(운영자 2026-10-11 「TOPIK 쪽 노출 더 늘리자」). */
+const REFS = {};
+if (existsSync(join(ROOT, 'topik-refs'))) for (const f of readdirSync(join(ROOT, 'topik-refs')).filter((x) => x.endsWith('.js'))) Object.assign(REFS, (await import(`../topik-refs/${f}`)).R);
 const SITE = 'https://everykoreans.com';
 const OUT = join(ROOT, 'sentence');
 const OUT_COURSE = join(ROOT, 'course');
@@ -1265,11 +1269,32 @@ const nextStep = (head, src) => `<div class="nx"><p class="nx-h">다음 한 걸�
   `<a class="nx-a" href="/?utm_source=${src}#words/w/${encodeURIComponent(head)}"><b>📚 「${esc(head)}」 외우기</b><span lang="en">Flashcards, audio and review</span></a>` +
   `<a class="nx-a" href="/?lt=1&utm_source=${src}"><b>🧭 내 한국어 레벨 · 3분</b><span lang="en">Find your level and today’s lesson</span></a>` +
   /* TOPIK 쓰기 모음은 검색 클릭률 17%(Search Console 2026-10-10) — 노출이 적을 뿐이라 많이 보이는 쪽에서 잇는다 */
-  `<a class="nx-a" href="/topik-writing/?utm_source=${src}"><b>✍️ TOPIK 쓰기 연습 · AI 채점</b><span lang="en">200 TOPIK II writing tasks with model answers — free</span></a></div>`;
+  `<a class="nx-a" href="/en/topik-writing/?utm_source=${src}"><b>✍️ TOPIK 쓰기 연습 · AI 채점</b><span lang="en">200 TOPIK II writing tasks with model answers — free</span></a></div>`;
+/* 「TOPIK 문항에서」 — 이 낱말이 우리 TOPIK 문항에 나온 문장 셋과 그 문항 쪽 링크(문항 쪽이 실제로 있는 것만) */
+const TREF_SK = { reading: ['topik-reading', '읽기', 'Reading'], listening: ['topik-listening', '듣기', 'Listening'], writing: ['topik-writing', '쓰기', 'Writing'] };
+/* 찾은 문장이 정말 그 낱말인지 — 토큰(띄어쓰기 단위)이 줄기로 시작할 때만(「무책임하게」가 「임하다」로, 「묵묵히」가 「묵히다」로, 「파악하여」가 「악하다」로 잡히던 것을 거른다).
+   -하다 낱말은 앞 명사 뒤에 하 · 했 · 해 · 합 …이 올 때. 「잊지 마시기」(말다)가 「마시다」로 잡히는 것은 따로 거른다. 못 알아본 것(불규칙 활용)은 그냥 안 보여 준다. */
+const refOk = (head, sent) => {
+  const toks = sent.replace(/[()「」"'“”‘’.,!?·…]/g, ' ').split(/\s+/).filter(Boolean);
+  if (head === '마시다' && /지\s*마(시|세|십)/.test(sent)) return false;
+  if (/하다$/.test(head) && head.length > 3) { const noun = head.slice(0, -2); return toks.some((tk) => tk.startsWith(noun) && /^[하했해합함할한]/.test(tk.slice(noun.length))); }
+  const stem = /다$/.test(head) ? head.slice(0, -1) : head;
+  return toks.some((tk) => tk.startsWith(stem));
+};
+const trefBlock = (head, src) => {
+  const r = REFS[head]; if (!r || !r.n) return '';
+  const rows = (r.r || []).filter(([, sk, id, sent]) => TREF_SK[sk] && refOk(head, sent) && existsSync(join(ROOT, TREF_SK[sk][0], `${id}.html`))).slice(0, 3);
+  if (!rows.length) return '';
+  return `<h2>TOPIK 문항에서 <small>In our TOPIK practice questions</small></h2>` +
+    `<p class="tref-n">「${esc(head)}」가 나온 치즈감자 TOPIK 연습 문항의 문장이에요. <span lang="en">Sentences from our original TOPIK questions that use this word — see it in a real exam context.</span></p>` +
+    '<ul class="tref">' + rows.map(([e, sk, id, sent]) => `<li><span>${esc(sent)}</span><a href="/${TREF_SK[sk][0]}/${id}.html?utm_source=${src}">TOPIK ${e} ${TREF_SK[sk][1]} <span lang="en">${TREF_SK[sk][2]} question</span> →</a></li>`).join('') + '</ul>';
+};
 const NX_CSS = '.nx{margin:18px 0 6px;display:grid;gap:8px}.nx-h{margin:0;font-weight:800;font-size:14px;color:var(--dim)}.nx-h small{font-weight:600}' +
   '.nx-a{display:block;padding:13px 16px;border:1px solid var(--line);border-radius:14px;background:var(--card);color:var(--ink);text-decoration:none}' +
   '.nx-a b{display:block;font-size:16px}.nx-a span{display:block;font-size:13px;color:var(--dim);margin-top:2px}' +
-  '.nx-go{background:var(--cta);border-color:var(--cta);color:var(--cta-ink)}.nx-go span{color:inherit;opacity:.8}';
+  '.nx-go{background:var(--cta);border-color:var(--cta);color:var(--cta-ink)}.nx-go span{color:inherit;opacity:.8}' +
+  '.tref-n{margin:6px 0 8px}.tref{list-style:none;margin:0 0 6px;padding:0;display:grid;gap:8px}.tref li{padding:11px 14px;border:1px solid var(--line);border-radius:12px;background:var(--card)}' +
+  '.tref li>span{display:block;font-size:15px;line-height:1.6}.tref li a{display:inline-block;margin-top:4px;font-size:13px;font-weight:700;color:var(--cta,#C4551C);text-decoration:none}';
 function wordPage(entry, prev, next) {
   if (VOC.has(entry.head)) return vocabPage(VOC.get(entry.head), prev, next);
   const { head, pos, en } = entry;
@@ -1422,6 +1447,7 @@ function vocabPage(w, prev, next) {
     nextStep(head, 'dict'),
     '<h2>예문 <small>Examples</small></h2>',
     '<div class="wd-exs">' + w.x.map(([ko, en]) => `<div class="ex">${esc(ko)}<i lang="en">${esc(en)}</i></div>`).join('') + '</div>',
+    trefBlock(head, 'dict-topik'),
     conj ? '<h2>활용 <small>Conjugation · 해요체</small></h2><div class="wd-conj">' +
       conj.map(([k, v]) => `<div><b>${esc(v)}</b><span title="${esc(CONJ_NAME[k][1])}">${CONJ_NAME[k][0]}</span></div>`).join('') + '</div>' : '',
     quiz,
@@ -2996,18 +3022,34 @@ const HUB_L = {
       desc: (n) => `TOPIK I・II 聞取りの形式別練習問題${n}問。台本・正解・解説つき。過去問ではないオリジナル問題です。`,
       why: (n) => [[`${n}問`, 'TOPIK I・II 形式別'], ['台本', '答えを選んだあとに表示'], ['音声', '聞きながらすぐ解く'], ['1日10問', 'ログインなしで']], go: '🎧 聞取り練習をはじめる' } },
 };
+/* 영어 모음 쪽 /en/topik-writing/ … (운영자 2026-10-11 「TOPIK 쪽 노출 더 늘리자」) — Search Console: 「topik 쓰기 연습 문제」 같은 TOPIK 검색은 클릭률이 17~26% 인데 노출이 아주 적다.
+   세계에서 TOPIK 을 찾는 사람 대부분이 영어로 찾는다 — 한국어 모음 쪽만 있던 자리에 영어 제목 · 소개를 둔다(문항 목록은 같은 것). */
+HUB_L.en = { home: 'Home', lt: '🧭 Find my TOPIK level in 3 minutes', note: 'Question type names are shown in Korean (with English), exactly as on the exam. Pick a question to see the answer and explanation.',
+  writing: { name: 'TOPIK Writing', h1: (n) => `TOPIK II Writing Practice — ${n} Questions (Q51–54) with Model Answers`, title: (n) => `TOPIK II Writing Practice: ${n} Questions (51–54) with Model Answers | CheesePotato`,
+    lead: 'Practice questions in the exact format of TOPIK II writing questions 51–54 — notice blanks, explanatory-text blanks, describing data, and the essay. Every question has a model answer, scoring points and the common reasons points are lost.<br><b>Original questions, not past papers — written to match the real format.</b>',
+    desc: (n) => `${n} TOPIK II writing practice questions for Q51–54, each with a model answer, scoring criteria and common point deductions. Original questions, not past papers. Free.`,
+    why: (n) => [[`${n} questions`, 'Q51–54, exact format'], ['AI scoring', 'Free: 2 a day (sign in)'], ['Model answers', 'Scoring points · common mistakes'], ['Browse free', 'Practise right in your browser']], go: '✍️ Write one and get an AI score' },
+  reading: { name: 'TOPIK Reading', h1: (n) => `TOPIK Reading Practice — ${n} Questions (TOPIK I & II)`, title: (n) => `TOPIK Reading Practice: ${n} Questions with Answers (TOPIK I & II) | CheesePotato`,
+    lead: 'TOPIK I and II reading questions by type, each with the answer and an explanation. A wrong answer tells you why right away.<br><b>Original questions, not past papers — written to match the real format.</b>',
+    desc: (n) => `${n} TOPIK I and II reading practice questions by type, with answers and explanations. Original questions, not past papers. Free.`,
+    why: (n) => [[`${n} questions`, 'TOPIK I & II by type'], ['Instant check', 'Pick an answer → explanation'], ['Mock exams', 'Timed, round by round'], ['10 a day', 'No sign-up needed']], go: '📖 Start reading practice' },
+  listening: { name: 'TOPIK Listening', h1: (n) => `TOPIK Listening Practice — ${n} Questions with Transcripts`, title: (n) => `TOPIK Listening Practice: ${n} Questions with Transcripts (TOPIK I & II) | CheesePotato`,
+    lead: 'TOPIK I and II listening questions by type, with transcripts, answers and explanations.<br><b>Original questions, not past papers — written to match the real format.</b>',
+    desc: (n) => `${n} TOPIK I and II listening practice questions by type, with transcripts, answers and explanations. Original questions, not past papers. Free.`,
+    why: (n) => [[`${n} questions`, 'TOPIK I & II by type'], ['Transcripts', 'Shown after you answer'], ['Audio', 'Listen and answer on the spot'], ['10 a day', 'No sign-up needed']], go: '🎧 Start listening practice' } };
 const HUB_KIND = { writing: '/topik-writing/', reading: '/topik-reading/', listening: '/topik-listening/' };
 function hubHreflang(url) {
-  return '\n' + [['ko', url], ['en', url], ['vi', `/vi${url}`], ['ja', `/ja${url}`], ['x-default', url]]
+  return '\n' + [['ko', url], ['en', `/en${url}`], ['vi', `/vi${url}`], ['ja', `/ja${url}`], ['x-default', `/en${url}`]]
     .map(([h, u]) => `<link rel="alternate" hreflang="${h}" href="${SITE}${u}">`).join('\n');
 }
 function localeHub(code, kind) {
   const L = HUB_L[code], K = L[kind], url = `/${code}${HUB_KIND[kind]}`;
+  const homeUrl = code === 'en' ? '/' : `/${code}/`;   // 영어 첫 쪽은 /
   const n = kind === 'writing' ? TW_ITEMS.length : kind === 'reading' ? TOPIK_READING.length + TOPIK2_READING.length : TOPIKL_BY_EXAM.I.items.length + TOPIKL_BY_EXAM.II.items.length;
   const sections = kind === 'writing' ? twSections(TW_ITEMS) : kind === 'reading' ? trSections() : tlSections();
   const appGo = kind === 'writing' ? '#learn/topik/II/writing' : kind === 'reading' ? '#learn/topik/I/reading' : '#learn/topik/I/listening';
   const body = [
-    `<nav class="crumb"><a href="/${code}/">${esc(L.home)}</a> › ${esc(K.name)}</nav>`,
+    `<nav class="crumb"><a href="${homeUrl}">${esc(L.home)}</a> › ${esc(K.name)}</nav>`,
     `<h1>${esc(K.h1(n))}</h1>`,
     `<p class="lead">${K.lead}</p>`,
     hubWhy(K.why(n)),
@@ -3016,17 +3058,19 @@ function localeHub(code, kind) {
     sections,
   ].join('\n');
   return page({ url, kind: 'website', lang: code, title: K.title(n), desc: clip(K.desc(n)), body, extraHead: hubHreflang(HUB_KIND[kind]),
-    jsonld: [crumbLd([[L.home, `/${code}/`], [K.name, url]])] });
+    jsonld: [crumbLd([[L.home, homeUrl], [K.name, url]])] });
 }
-for (const code of Object.keys(LOCALES)) {
+for (const code of Object.keys(HUB_L)) {
   mkdirSync(join(ROOT, code), { recursive: true });
   for (const kind of Object.keys(HUB_KIND)) {
     mkdirSync(join(ROOT, code, HUB_KIND[kind].slice(1)), { recursive: true });
     writeFileSync(join(ROOT, code, HUB_KIND[kind].slice(1), 'index.html'), localeHub(code, kind));
-    urls.push({ loc: `/${code}${HUB_KIND[kind]}`, freq: 'weekly', pri: '0.8' });
+    urls.push({ loc: `/${code}${HUB_KIND[kind]}`, freq: 'weekly', pri: code === 'en' ? '0.9' : '0.8' });
   }
-  writeFileSync(join(ROOT, code, 'index.html'), localeHome(code));
-  urls.push({ loc: `/${code}/`, freq: 'weekly', pri: '0.9' });
+  if (LOCALES[code]) {   // 언어별 첫 쪽은 번역 사전이 있는 언어만(영어 모음 쪽 /en/ 에는 첫 쪽이 없다 — 영어 첫 쪽은 /)
+    writeFileSync(join(ROOT, code, 'index.html'), localeHome(code));
+    urls.push({ loc: `/${code}/`, freq: 'weekly', pri: '0.9' });
+  }
 }
 
 urls.push({ loc: '/privacy.html', freq: 'yearly', pri: '0.3' });

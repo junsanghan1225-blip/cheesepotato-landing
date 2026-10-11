@@ -2606,5 +2606,7 @@
   "This isn't in CheesePotato's material — ask about Korean words, grammar or how to use the site, or try rephrasing.": "これはCheesePotatoの資料にありません。韓国語の単語・文法やサイトの使い方を、言い方を変えて聞いてください。",
   "Type a word, a grammar point or a question": "単語・文法・質問を入力してください",
   "We couldn't find \"{0}\" in our material. Try a simpler word — e.g. \"difficult\", \"eat\", \"because\" — or the Korean dictionary form. You can also ask how to use the site.": "「{0}」は資料に見つかりませんでした。もっと簡単な言葉 — 例: \"difficult\" · \"eat\" · \"because\" — か、辞書形で試してください。サイトの使い方も聞けます。",
-  "Word, grammar or question": "単語・文法・質問"
+  "Word, grammar or question": "単語・文法・質問",
+  "Ask the helper": "ヘルパーに聞く",
+  "Search a word or ask anything": "単語を探す・何でも聞く"
 }
