@@ -34,6 +34,8 @@
 | 11a | **우리만의 것 후보**(① 선생님이 본 실수 · ② 한국어 붙여 넣기 · ③ 소리 나는 대로 · ④ AI + 선생님 한 줄 · ⑤ 살아 보는 한국어) 중 고르기 | `docs/plans/unique-edge.md` |
 | 11b | 안티에게 「한국 이름 늘리기」 1묶음 시키기 | `docs/antigravity/STATUS.md` |
 | 11c | 안티에게 「영어 TOPIK 가이드 글 1묶음」(`antigravity-topik-guides-en-task.md`) 주기 — 낱말 · 문법 내려받기 쪽(`/topik-vocabulary-list/`)은 만들어 둠. 머지 뒤 Search Console 에서 그 주소 색인 요청 | 안티 / 검색 콘솔 |
+| 11d | **도우미 AI 가 대화를 기억하게** — 대시보드 → Edge Functions → Deploy a new function → Via Editor → 이름 `ask-helper` → `supabase/functions/ask-helper/index.ts` 내용을 붙여 넣고 Deploy (키 · SQL 은 새로 필요 없음). 배포 전에는 예전 함수로 알아서 물러선다 | 운영자 (머지 뒤) |
+| 11e | **이번 주 학생 5명에게 반 QR 보내기** — 순서 · 메시지: `docs/ops/teacher-pilot.md` 맨 아래 「운영자 본인 학생에게」. Preply 학생은 정규 수업 시작 뒤에만 | 운영자 |
 | 11 | Polar 에서 지금 유료 사용자 수 | PRD 기준선 |
 | 12 | PRD ⚠ 남은 것(90일 숫자 · 부트캠프 · 기관 요금 · EPS 시기 · 언어 · iOS) | `docs/prd.md` 10항 |
 | 13 | 쿠키 동의 단추 글(지금 「OK · No thanks」 / 「Accept all · Essential only」) | |

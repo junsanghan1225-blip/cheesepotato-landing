@@ -1405,10 +1405,11 @@ function vocabPage(w, prev, next) {
      제목은 짧게(검색어 「… in Korean」 + 낱말), 설명은 영어 한 갈래로 읽히게 쓰고 예문은 한국어 한 줄만. */
   /* 2026-10-07(운영자 「검색 노출은 많은데 클릭이 적다」): 두 검색을 한 줄에 — 「가게 meaning」 과 「shop in Korean」.
      낱말 + meaning 을 맨 앞에, 영어 뜻을 바로 뒤에. 설명은 답 먼저 · 무료 · 소리 · 퀴즈로 누를 까닭을 준다. */
-  const title = `${head} (${rom}) meaning — "${firstEn}" in Korean | CheesePotato`;
+  /* 2026-10-11: Search Console 검색어를 보니 「가능」 「그」 「미루다」 처럼 한국어로 뜻을 찾는 사람이 많다 — 영어 제목만으로는 눌릴 까닭이 없다. 「뜻」 한 글자로 두 갈래 모두에게 읽히게 한다 */
+  const title = `${head} 뜻 (${rom}) meaning — "${firstEn}" in Korean | CheesePotato`;
   const posEn = POS_EN[w.p] ? ` ${POS_EN[w.p]}` : '';
   const ex = w.x[0]?.[0] ? ` Example: ${w.x[0][0]}` : '';
-  const desc = clip(`${head} (${rom}) means "${firstEn}" in Korean — a TOPIK ${isT2(w) ? 'II' : 'I'} level ${w.l}${posEn || ' word'}. 🔊 Hear it, see example sentences with English${conj ? ', conjugation' : ''} and try a 1-minute quiz. Free, no sign-up.`);
+  const desc = clip(`${head} 뜻 · ${head} (${rom}) means "${firstEn}" in Korean — a TOPIK ${isT2(w) ? 'II' : 'I'} level ${w.l}${posEn || ' word'}. 🔊 Hear it, examples in English${conj ? ', conjugation' : ''} and try a 1-minute quiz. Free, no sign-up.`);
 
   /* 미니 퀴즈 — 뜻 고르기 넷. 스크립트 없이 <details> 로 답을 편다(정적 쪽이라 CSP · 속도 걱정이 없다). */
   const rnd = seeded(head);
