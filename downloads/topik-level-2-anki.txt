@@ -1,0 +1,1076 @@
+#separator:tab
+#html:true
+#tags column:3
+수	(in -ㄹ 수 있다) can; be able to · khả năng, cách · こと, わけ<br>열심히 연습하면 한국어로 유창하게 말할 수 있어요.<br>If you practice hard, you can speak Korean fluently.	topik-level-2
+거	thing · cái, thứ · こと, もの<br>책상 위에 놓인 예쁜 가방이 제 거예요.<br>The pretty bag placed on the desk is my thing.	topik-level-2
+세다	turn white · đếm, mạnh · 数える, 強い<br>세월이 흐르며 할아버지의 머리가 하얗게 세요.<br>As time passes, my grandfather's hair turns white.	topik-level-2
+끼다	hang; cloud over · đeo, cài · はめる, 挟まる<br>이른 아침이라 호수에 짙은 안개가 껴요.<br>Thick fog hangs over the lake because it is early morning.	topik-level-2
+이거	this · cái này · これ<br>책상 위에 놓인 이거 한번 먹어보세요.<br>Please try eating this placed on the desk.	topik-level-2
+소리	sound; noise · tiếng, âm thanh · 音, 声<br>창밖에서 맑은 새들의 노랫소리가 들려와요.<br>The sound of chirping birds singing is heard outside the window.	topik-level-2
+편하다	to be comfortable; to be easy · thoải mái, tiện lợi · 楽だ, 便利だ<br>이 운동화는 발이 아주 편해요.<br>These sneakers are very comfortable on the feet.	topik-level-2
+도	degree; province · độ, tỉnh · 度, 道<br>오늘 서울의 낮 최고 기온은 25도예요.<br>Today's highest daytime temperature in Seoul is 25 degrees.	topik-level-2
+내다	to pay; to submit · trả, nộp · 出す, 払う<br>선생님께 숙제 공책을 내요.<br>I hand in and produce my homework notebook to the teacher.	topik-level-2
+해	sun; year · mặt trời, năm · 太陽, 年<br>아침에 동쪽 하늘에서 붉은 해가 떠올라요.<br>In the morning, the red sun rises in the eastern sky.	topik-level-2
+지키다	to protect; to obey · giữ, bảo vệ · 守る<br>친구와 약속한 시간과 장소를 어기지 않고 꼭 지켜요.<br>I definitely keep the time and place promised with my friend without breaking it.	topik-level-2
+카페	cafe; coffee shop · quán cà phê · カフェ, 喫茶店<br>방과 후에 조용한 카페에 앉아 친구와 함께 과제를 해요.<br>After school, I sit in a quiet cafe and do homework together with a friend.	topik-level-2
+도움	help; assistance · sự giúp đỡ · 助け<br>선생님의 따뜻한 도움 덕분에 문제를 쉽게 풀어요.<br>Thanks to the teacher's warm assistance, I solve the problem easily.	topik-level-2
+규칙	rule · quy tắc · 規則, ルール<br>학생들이 교실 규칙을 지켜요.<br>Students keep classroom rules.	topik-level-2
+상자	box · hộp, thùng · 箱<br>선물로 받은 찻잔을 예쁜 상자에 담아요.<br>I put the teacup received as a gift into a pretty box.	topik-level-2
+아까	a moment ago · vừa nãy, lúc nãy · さっき, 先ほど<br>아까 점심시간에 식당에서 리아를 만나요.<br>I met Lia at the cafeteria a moment ago during lunchtime.	topik-level-2
+남다	to remain; to be left · còn lại, thừa · 残る, 余る<br>점심을 먹고 빵이 조금 남아요.<br>A little bread remains after eating lunch.	topik-level-2
+오래	for a long time · lâu, thời gian dài · 長く, 長い間<br>밖에서 친구를 너무 오래 기다려서 발이 시려요.<br>My feet are cold because I waited for my friend outside for too long.	topik-level-2
+차	car; tea · xe, trà · 車, お茶<br>식사 후에 조용한 카페에서 따뜻한 녹차 한 잔을 마셔요.<br>After the meal, I drink a cup of warm green tea at a quiet cafe.	topik-level-2
+어리다	be young · nhỏ tuổi, trẻ con · 幼い, 若い<br>강아지 치즈는 아직 나이가 어려서 잠을 많이 자요.<br>The puppy Cheese is still young, so he sleeps a lot.	topik-level-2
+사고	accident; incident · tai nạn, suy nghĩ · 事故, 思考<br>눈길에서 사고를 조심해요.<br>Be careful of accidents on snowy roads.	topik-level-2
+키우다	to raise; to grow · nuôi, trồng · 育てる, 飼う<br>방 안 창가에서 작은 화초를 정성껏 키워요.<br>I carefully raise and grow a small flowering plant by the room window.	topik-level-2
+모임	gathering; club meeting · buổi họp mặt, cuộc gặp · 集まり, 会合<br>주말에 친구들과 즐거운 독서 모임을 가져요.<br>I have an enjoyable book club meeting with my friends on the weekend.	topik-level-2
+새로	newly; afresh · mới, lại · 新しく, 新たに<br>새 학기를 맞이해서 공책과 필통을 새로 사요.<br>I buy notebooks and a pencil case newly for the new semester.	topik-level-2
+유리	glass · thủy tinh, kính · ガラス<br>식탁 위에 투명하고 깨끗한 유리 컵을 놓아요.<br>I place a transparent, clean glass cup on the dining table.	topik-level-2
+할인	discount · giảm giá · 割引, 値引き<br>마트에서 과일 할인을 해요.<br>The mart gives discounts on fruits.	topik-level-2
+물어보다	ask; inquire; interrogate · hỏi · 聞く, 尋ねる<br>선생님께 모르는 문제를 조심스럽게 물어봐요.<br>I carefully ask the teacher about a problem I do not understand.	topik-level-2
+바라다	to wish; to hope · mong muốn, hy vọng · 願う, 望む<br>친구가 이번 시험에서 좋은 결과를 얻기를 바라요.<br>I hope my friend gets good results on this exam.	topik-level-2
+버리다	to throw away · vứt, bỏ · 捨てる<br>방 청소를 하면서 오래된 영수증을 쓰레기통에 버려요.<br>While cleaning my room, I throw away old receipts into the trash can.	topik-level-2
+쓰레기	rubbish; trash · rác · ごみ<br>방 청소를 끝내고 모아둔 쓰레기를 밖에 내놓아요.<br>After finishing cleaning the room, I put the collected trash outside.	topik-level-2
+모시다	serve; attend; wait on · chăm sóc, phụng dưỡng · お仕えする, 連れる<br>부모님을 모시고 맛있는 한식당에 가요.<br>I attend my parents and go to a delicious Korean restaurant.	topik-level-2
+모이다	to gather; to assemble · tập hợp, tụ họp · 集まる<br>주말 저녁에 온 가족이 거실에 모여요.<br>The whole family gathers in the living room on weekend evenings.	topik-level-2
+새	bird · chim, mới · 鳥, 新しい<br>문틈 새로 시원한 바람이 솔솔 들어와요.<br>A cool breeze gently comes in through the gap in the door.	topik-level-2
+옆집	the house next door · nhà bên cạnh, hàng xóm · 隣の家, 隣家<br>주말에 옆집 이웃에게 맛있는 떡을 나누어 줘요.<br>I share delicious rice cakes with the house next door on the weekend.	topik-level-2
+자리	seat; spot · chỗ ngồi, vị trí · 席, 場所<br>지하철에서 짐을 많이 든 어르신께 자리를 양보해요.<br>I yield my seat on the subway to an elderly person carrying a lot of luggage.	topik-level-2
+모양	shape; appearance · hình dạng, dáng vẻ · 形, 模様<br>쿠키를 귀여운 별 모양으로 예쁘게 구워요.<br>I bake cookies nicely into a cute star shape.	topik-level-2
+이제	now; from now on · bây giờ, giờ đây · 今, もう<br>점심시간이 다 되었으니 이제 식당으로 출발해요.<br>It is lunchtime now, so we head to the cafeteria from now on.	topik-level-2
+빨다	suck; puff on · giặt, mút · 洗う, 吸う<br>아기가 입에 손가락을 넣고 쪽쪽 빨아요.<br>The baby puts a finger in their mouth and sucks on it.	topik-level-2
+남	others; another person · người khác, phía nam · 他人, 南<br>남의 물건을 함부로 만지면 안 돼요.<br>You shouldn't touch another person's belongings carelessly.	topik-level-2
+방법	way; method · phương pháp, cách · 方法<br>한국어를 쉽고 재미있게 배우는 좋은 방법을 찾아요.<br>I look for a good way to learn Korean easily and enjoyably.	topik-level-2
+짧다	to be short · ngắn · 短い<br>겨울에는 해가 일찍 져서 낮의 길이가 참 짧아요.<br>In winter, the sun sets early, so the length of the day is truly short.	topik-level-2
+강아지	puppy; small dog · cún con, chó con · 子犬<br>귀여운 강아지가 꼬리를 흔들며 다가와요.<br>A cute puppy approaches while wagging its tail.	topik-level-2
+바닥	floor; bottom · sàn nhà, đáy · 床, 底<br>거실 바닥을 깨끗한 걸레로 닦아요.<br>I wipe the living room floor with a clean rag.	topik-level-2
+행사	event · sự kiện, lễ hội · 行事, イベント<br>학교에서 봄 행사를 열어요.<br>The school holds a spring event.	topik-level-2
+훨씬	far; much more · hơn nhiều, hẳn · ずっと, はるかに<br>안경을 깨끗이 닦고 나니 책의 글씨가 훨씬 잘 보여요.<br>After wiping my glasses cleanly, the letters in the book are visible far better.	topik-level-2
+귀엽다	to be cute; to be lovely · đáng yêu, dễ thương · 可愛い<br>공원에서 뛰노는 아기 강아지가 정말 귀여워요.<br>The puppy running around in the park is really cute.	topik-level-2
+배달	delivery · giao hàng · 配達<br>저녁에 집에서 따뜻한 피자 배달을 시켜요.<br>I order hot pizza delivery at home in the evening.	topik-level-2
+어른	adult; elder · người lớn · 大人<br>예절을 지켜 어른 앞에서 바른 자세로 앉아요.<br>I maintain etiquette and sit in a proper posture in front of an adult.	topik-level-2
+가져가다	bring · mang đi, mang theo · 持っていく<br>학교에 숙제 공책을 가져가요.<br>I bring my homework notebook to school.	topik-level-2
+나이	age · tuổi · 年, 年齢<br>올해 민수의 나이는 스무 살이에요.<br>This year, Minsu's age is twenty years old.	topik-level-2
+벌써	so soon · đã, rồi · もう, すでに<br>이야기를 나누다 보니 벌써 저녁 시간이 다 돼요.<br>While chatting, it is already dinner time so soon.	topik-level-2
+즐겁다	to be joyful; to be pleasant · vui vẻ · 楽しい<br>친구와 노는 시간이 즐거워요.<br>Hanging out with friends is joyful.	topik-level-2
+나누다	to divide; to share · chia, chia sẻ · 分ける, 分かち合う<br>달콤한 사과를 반으로 잘라 친구와 나눠요.<br>I cut a sweet apple in half and share it with my friend.	topik-level-2
+두다	to put; to place · đặt, để · 置く<br>가방을 책상 위에 얌전히 둬요.<br>I put the bag gently on the desk.	topik-level-2
+스무	twenty · hai mươi · 二十, 20<br>준상은 올해 스무 살이 되어 대학교에 들어가요.<br>Junsang turns twenty years old this year and enters university.	topik-level-2
+습관	habit · thói quen · 習慣<br>매일 아침 일찍 일어나는 좋은 습관을 길러요.<br>I build a good habit of waking up early every morning.	topik-level-2
+끝	end; tip · kết thúc, cuối · 終わり, 末<br>드디어 긴 시험의 끝이 보여요.<br>I finally see the end of the long exam.	topik-level-2
+덕분	thanks to · nhờ, ơn · おかげ<br>선생님의 따뜻한 격려 덕분에 시험에 합격해요.<br>Thanks to the teacher's warm encouragement, I pass the exam.	topik-level-2
+엘리베이터	elevator; lift · thang máy · エレベーター<br>높은 층으로 올라가려고 엘리베이터 버튼을 눌러요.<br>I press the elevator button to go up to a high floor.	topik-level-2
+달리다	to run; to race · chạy, treo · 走る, 掛かる<br>아침마다 건강을 위해 운동장을 힘차게 달려요.<br>I run vigorously around the sports ground every morning for my health.	topik-level-2
+목소리	voice · giọng nói, tiếng · 声<br>리아는 맑고 고운 목소리로 노래해요.<br>Lia sings in a clear and beautiful voice.	topik-level-2
+밝다	to be bright · sáng, sáng sủa · 明るい<br>방 안으로 햇빛이 잘 들어와서 아주 밝아요.<br>Sunlight comes in well, so the room is very bright.	topik-level-2
+이미	already · đã, rồi · すでに, もう<br>친구가 이미 도착했어요.<br>My friend has already arrived.	topik-level-2
+체육관	gym; gymnasium · nhà thi đấu, phòng tập thể dục · 体育館<br>체육관에서 농구를 해요.<br>I play basketball in the gym.	topik-level-2
+갑자기	suddenly; unexpectedly · đột nhiên, bất ngờ · 突然, 急に<br>갑자기 비가 내리기 시작해요.<br>Suddenly it starts to rain.	topik-level-2
+닦다	to wipe; to polish · lau, chùi · 拭く, 磨く<br>밥을 먹고 깨끗하게 이를 닦아요.<br>I brush and polish my teeth cleanly after eating.	topik-level-2
+댁	residence; family (honorific) · nhà, quý vị · お宅<br>주말에 선생님 댁을 방문하여 안부를 여쭈어요.<br>On the weekend, I visit the teacher's residence and ask how they are.	topik-level-2
+벗다	to take off (clothes, shoes) · cởi, tháo · 脱ぐ<br>집에 들어와서 신발을 편하게 벗어요.<br>I comfortably take off my shoes upon entering the house.	topik-level-2
+젓가락	chopsticks · đũa · 箸<br>젓가락으로 반찬을 집어요.<br>I pick up a side dish with chopsticks.	topik-level-2
+고개	head · đầu, đèo · 頭, 峠<br>민수는 음악을 들으면서 고개를 끄덕여요.<br>Minsu nods his head while listening to music.	topik-level-2
+마르다	to dry up; to become thin · khô, khát · 乾く, 渇く<br>운동을 열심히 해서 목이 몹시 말라요.<br>I am very thirsty because I exercised hard.	topik-level-2
+반찬	side dish · món ăn kèm, thức ăn · おかず, 惣菜<br>식탁 위에 맛있는 반찬이 가득해요.<br>The dining table is full of delicious side dishes.	topik-level-2
+서류	document; paperwork · tài liệu, hồ sơ · 書類<br>회사에 제출할 중요한 서류를 작성해요.<br>I fill out the important paperwork to submit to the company.	topik-level-2
+놓다	to put down; to place · đặt, để · 置く<br>책상 위에 따뜻한 차 한 잔을 놓아요.<br>I place a cup of warm tea on the desk.	topik-level-2
+늘	always · luôn, luôn luôn · いつも, 常に<br>지영이는 아침마다 늘 밝게 인사해요.<br>Jiyoung always greets brightly every morning.	topik-level-2
+성함	name · quý danh, họ tên · お名前<br>서류 확인을 위해 손님의 성함을 정중하게 여쭤봐요.<br>I politely ask for the guest's name to verify the document.	topik-level-2
+시계	clock; watch · đồng hồ · 時計<br>벽에 걸린 둥근 시계를 보고 시간을 확인해요.<br>I check the time looking at the round clock hanging on the wall.	topik-level-2
+위치	location; position · vị trí · 位置, 場所<br>지도를 보며 우리가 가야 할 식당의 위치를 확인해요.<br>Looking at the map, I check the location of the restaurant we need to go to.	topik-level-2
+장갑	gloves · găng tay, bao tay · 手袋<br>손이 시려서 장갑을 꼈어요.<br>My hands were cold, so I wore gloves.	topik-level-2
+점심시간	lunch time; lunch hour · giờ ăn trưa, giờ nghỉ trưa · 昼休み, 昼食時間<br>즐거운 점심시간이 되자 교실 밖으로 신나게 나가요.<br>When the pleasant lunch time arrives, I step outside the classroom excitedly.	topik-level-2
+접다	to fold; to collapse · gấp, gập · 折る, 畳む<br>편지를 다 쓴 후에 예쁘게 반으로 접어요.<br>After finishing writing the letter, I fold it nicely in half.	topik-level-2
+조금씩	little by little; gradually · từng chút một, dần dần · 少しずつ<br>매일 새로운 단어를 조금씩 외우며 실력을 키워요.<br>I build up my skills by memorizing new words little by little every day.	topik-level-2
+줄다	to decrease; to diminish · giảm, giảm bớt · 減る<br>바지를 빨아서 길이가 줄었어요.<br>I washed the pants, so the length shrank.	topik-level-2
+차갑다	to be cold; to be icy · lạnh · 冷たい<br>더운 여름에는 얼음이 든 차가운 물을 마셔요.<br>In the hot summer, I drink cold water with ice.	topik-level-2
+라디오	radio · đài, radio · ラジオ<br>아침에 방에서 음악 라디오를 들어요.<br>I listen to music radio in my room in the morning.	topik-level-2
+마트	mart · siêu thị, mart · マート, スーパー<br>저녁 요리를 하려고 동네 마트에서 장을 봐요.<br>I buy groceries at the neighborhood mart to cook dinner.	topik-level-2
+복잡하다	to be complicated; to be crowded · phức tạp, đông đúc · 複雑だ, 混んでいる<br>출근 시간에는 지하철역이 사람들로 아주 복잡해요.<br>The subway station is very crowded with people during rush hour.	topik-level-2
+생기다	to happen; to appear · xuất hiện, nảy sinh · 生じる, できる<br>집 근처에 크고 편리한 마트가 새로 생겨요.<br>A large and convenient mart is newly formed near my house.	topik-level-2
+서로	each other; mutually · lẫn nhau, nhau · お互い, 互いに<br>우리는 어려운 일이 있을 때 서로 도와요.<br>We help each other when there is a difficult problem.	topik-level-2
+송편	songpyeon (half-moon rice cake) · bánh songpyeon, bánh gạo · ソンピョン, 松餅<br>추석 명절에 가족들과 옹기종기 모여 송편을 빚어요.<br>We gather warmly with family on Chuseok to make half-moon rice cakes.	topik-level-2
+젖다	to get wet · ướt · 濡れる<br>갑자기 내린 소나기에 옷과 신발이 흠뻑 젖어요.<br>My clothes and shoes get completely wet in the sudden shower.	topik-level-2
+짐	luggage; load · hành lý, đồ đạc · 荷物<br>여행을 떠나기 전에 가방에 필요한 짐을 챙겨요.<br>Before leaving for the trip, I pack the necessary luggage into my bag.	topik-level-2
+한글	Hangeul; Korean alphabet · chữ Hangeul, chữ Hàn · ハングル<br>공책에 한글을 예쁘게 써요.<br>I write Hangeul prettily in my notebook.	topik-level-2
+그냥	just; as it is · cứ thế, chỉ là · そのまま, ただ<br>휴일에는 그냥 집에서 쉬어요.<br>On holidays, I just rest at home.	topik-level-2
+미래	future · tương lai · 未来<br>멋진 미래를 위해 매일 열심히 공부해요.<br>I study hard every day for a wonderful future.	topik-level-2
+바뀌다	to change; to be changed · thay đổi, bị đổi · 変わる<br>계절이 바뀌어 날씨가 쌀쌀해요.<br>The season changed and the weather is chilly.	topik-level-2
+정하다	to decide; to set · quyết định, định ra · 決める, 定める<br>친구와 약속 시간을 정해요.<br>I set an appointment time with a friend.	topik-level-2
+푹	soundly · say giấc, kỹ · ぐっすり, じっくり<br>피곤해서 주말에 푹 잤어요.<br>I was tired, so I slept soundly on the weekend.	topik-level-2
+한번	one day; once · một lần, một lần thử · 一度, 一回<br>한국에 한번 가 보고 싶어요.<br>I want to go to Korea once.	topik-level-2
+고치다	to repair; to fix · sửa chữa, sửa · 直す, 修理する<br>고장 난 컴퓨터를 스스로 고쳐요.<br>I fix the broken computer myself.	topik-level-2
+그동안	meanwhile; during that time · thời gian qua, trong lúc đó · その間, これまで<br>그동안 잘 지내셨어요?<br>Have you been well in the meantime?	topik-level-2
+내용	content; substance · nội dung · 内容<br>이 책의 내용이 참 재미있어요.<br>The content of this book is very interesting.	topik-level-2
+무섭다	to be scary; to be afraid · sợ hãi, đáng sợ · 怖い<br>어두운 밤길이 조금 무서워요.<br>The dark night road is a little scary.	topik-level-2
+옛날	old times; past · ngày xưa, thời xưa · 昔<br>할머니께서 옛날이야기를 해주세요.<br>Grandmother tells an old story.	topik-level-2
+이용	use; utilization · sử dụng, sự sử dụng · 利用<br>대중교통 이용이 아주 편리해요.<br>Using public transit is very convenient.	topik-level-2
+재료	ingredient; material · nguyên liệu, vật liệu · 材料<br>신선한 요리 재료를 준비해요.<br>I prepare fresh cooking ingredients.	topik-level-2
+줄	(in -ㄹ 줄 알다) how to; way · dây, cách · 紐, 方法<br>식당 앞에 사람들이 줄을 섰어요.<br>People stood in line in front of the restaurant.	topik-level-2
+회원	member; membership · hội viên, thành viên · 会員<br>헬스클럽 신규 회원으로 등록해요.<br>I register as a new member at the gym.	topik-level-2
+곧	immediately · ngay, sắp · すぐ, まもなく<br>수업이 곧 시작할 거예요.<br>Class will start soon.	topik-level-2
+그대로	as it is; intact · nguyên như vậy, y nguyên · そのまま<br>책을 책상 위에 그대로 둬요.<br>Leave the book as it is on the desk.	topik-level-2
+넘어지다	fall down; trip over; tumble over · ngã, té · 転ぶ, 倒れる<br>빙판길에서 미끄러져 넘어졌어요.<br>I slipped and fell on the icy road.	topik-level-2
+믿다	believe; trust · tin, tin tưởng · 信じる<br>저는 친구의 말을 항상 믿어요.<br>I always believe my friend's words.	topik-level-2
+부드럽다	to be soft; to be tender · mềm mại, dịu dàng · 柔らかい, 優しい<br>새로 산 털 담요가 참 부드러워요.<br>The newly bought wool blanket is very soft.	topik-level-2
+붙이다	stick; paste · dán, gắn · 貼る, つける<br>편지 봉투에 예쁜 우표를 붙여요.<br>I stick a pretty stamp on the envelope.	topik-level-2
+종류	kind; type · loại, chủng loại · 種類<br>가게에 여러 종류의 과일이 있어요.<br>There are various kinds of fruits in the shop.	topik-level-2
+고장	breakdown; trouble · hỏng hóc, vùng · 故障, 土地<br>시계가 고장 나서 멈췄어요.<br>The clock broke down and stopped.	topik-level-2
+국	guk; soup · canh, súp · スープ, 汁物<br>아침에 따뜻한 미역국을 먹어요.<br>I eat warm seaweed soup in the morning.	topik-level-2
+급하다	to be urgent; to be hurried · gấp, khẩn cấp · 急だ, 慌ただしい<br>급한 일이 생겨서 먼저 가요.<br>An urgent matter came up, so I leave first.	topik-level-2
+미리	in advance · trước, sẵn · あらかじめ, 前もって<br>기차표를 미리 예매했어요.<br>I reserved the train ticket in advance.	topik-level-2
+방송	broadcasting · phát sóng, truyền hình · 放送<br>라디오에서 안내 방송이 나와요.<br>An announcement broadcast comes from the radio.	topik-level-2
+잊다	to forget · quên · 忘れる<br>친구의 전화번호를 깜빡 잊었어요.<br>I completely forgot my friend's phone number.	topik-level-2
+장	chapter; sheet · tờ, chương · 枚, 章<br>종이 한 장을 꺼내어 글씨를 써요.<br>I take out a sheet of paper and write.	topik-level-2
+화	anger · giận dữ, tai họa · 怒り, 災い<br>사소한 일에 화를 내지 마세요.<br>Do not get angry over minor things.	topik-level-2
+그때	then; at that time · khi đó, lúc đó · その時, 当時<br>그때는 날씨가 꽤 쌀쌀했어요.<br>At that time, the weather was quite chilly.	topik-level-2
+그만	stop; no more · thôi, dừng · もう, それくらいで<br>시간이 늦었으니 그만 자요.<br>It is late, so stop and go to sleep.	topik-level-2
+금방	soon; right away · vừa mới, sắp · 今すぐ, まもなく<br>청소를 금방 끝내고 쉴게요.<br>I will finish cleaning quickly and rest.	topik-level-2
+놀라다	be surprised; be astonished; be shocked; be scared · ngạc nhiên, giật mình · 驚く, びっくりする<br>큰 소리에 깜짝 놀랐어요.<br>I was startled by the loud noise.	topik-level-2
+들리다	to be heard; to sound · nghe thấy, mắc phải · 聞こえる, かかる<br>창밖에서 새소리가 들려요.<br>Birdsong is heard outside the window.	topik-level-2
+마당	yard; garden · sân, vườn · 庭<br>강아지가 마당에서 신나게 뛰어요.<br>The puppy runs excitedly in the yard.	topik-level-2
+모습	appearance; figure · dáng vẻ, hình ảnh · 姿, 様子<br>친구의 밝은 모습이 보기 좋아요.<br>It is nice to see my friend's bright look.	topik-level-2
+방향	direction; way · phương hướng, hướng · 方向, 向き<br>지도를 보고 역 방향으로 가요.<br>I look at the map and go toward the station direction.	topik-level-2
+빨갛다	to be red · đỏ · 赤い<br>사과가 아주 빨갛고 맛있어요.<br>The apple is very red and delicious.	topik-level-2
+서랍	drawer · ngăn kéo · 引き出し<br>책상 서랍을 열고 펜을 꺼내요.<br>I open the desk drawer and take out a pen.	topik-level-2
+선택	choice; selection · lựa chọn, sự lựa chọn · 選択<br>점심 메뉴로 냉면을 선택했어요.<br>I chose naengmyeon for lunch menu.	topik-level-2
+어둡다	to be dark · tối, tăm tối · 暗い<br>밤이 되니 밖이 아주 어두워요.<br>At night, it is very dark outside.	topik-level-2
+어젯밤	last night · tối qua, đêm qua · 昨晩, 昨夜<br>어젯밤에 좋은 꿈을 꿨어요.<br>I had a good dream last night.	topik-level-2
+외우다	memorize · học thuộc, ghi nhớ · 覚える, 暗記する<br>매일 아침 새 단어를 외워요.<br>I memorize new words every morning.	topik-level-2
+음료	beverage; drink · đồ uống, thức uống · 飲料, 飲み物<br>식사 후에 시원한 음료를 마셔요.<br>I drink a cool beverage after a meal.	topik-level-2
+집안일	housework; chore · việc nhà, việc gia đình · 家事<br>주말에 집안일을 도와요.<br>I help with housework on the weekend.	topik-level-2
+푸르다	to be blue; to be green · xanh biếc, xanh lam · 青い<br>봄이 되니 산과 숲이 아주 푸르러요.<br>Spring has come, so mountains and forests are very green.	topik-level-2
+하늘	sky · bầu trời, trời · 空<br>가을 하늘이 높고 맑아요.<br>The autumn sky is high and clear.	topik-level-2
+현재	present; now · hiện tại · 現在<br>현재 서울 기온은 20도예요.<br>The current Seoul temperature is 20 degrees.	topik-level-2
+휴대폰	mobile phone; cellular phone · điện thoại di động · 携帯電話, スマホ<br>책상 위의 휴대폰을 충전해요.<br>I charge the mobile phone on the desk.	topik-level-2
+개월	months (counter) · tháng · ヶ月, か月<br>한국에 온 지 삼 개월이 되었어요.<br>It has been three months since I came to Korea.	topik-level-2
+떠나다	to leave; to depart · rời đi, rời khỏi · 去る, 離れる<br>내일 아침 일찍 여행을 떠나요.<br>I leave on a trip early tomorrow morning.	topik-level-2
+숟가락	spoon · thìa, muỗng · スプーン, さじ<br>식탁 위에 숟가락을 놓아요.<br>I put a spoon on the dining table.	topik-level-2
+실수	mistake; error · sai lầm, sơ suất · 失敗, ミス<br>시험에서 작은 실수를 했어요.<br>I made a small mistake on the exam.	topik-level-2
+이사	moving; house-moving · chuyển nhà, dọn nhà · 引っ越し<br>다음 주에 새집으로 이사를 가요.<br>I move to a new house next week.	topik-level-2
+정문	main gate; front gate · cổng chính · 正門<br>학교 정문 앞에서 만나요.<br>Let's meet in front of the school main gate.	topik-level-2
+추석	Chuseok; Korean Thanksgiving · tết Chuseok, trung thu · 秋夕, チュソク<br>가을 추석에 송편을 빚어요.<br>We make songpyeon on autumn Chuseok.	topik-level-2
+평일	weekday · ngày thường · 平日<br>평일에는 도서관에 가요.<br>I go to the library on weekdays.	topik-level-2
+학원	academy; private institute · trung tâm học thêm, học viện · 塾, 学院<br>방과 후에 영어 학원에 다녀요.<br>I attend an English academy after school.	topik-level-2
+항상	always · luôn luôn, luôn · いつも, 常に<br>친구에게 항상 고마운 마음이에요.<br>I am always grateful to my friend.	topik-level-2
+그런	like that · như vậy, như thế · そのような, そんな<br>교실에서 그런 행동은 안 돼요.<br>Such behavior is not allowed in class.	topik-level-2
+깊이	deeply; depth · độ sâu, chiều sâu · 深さ, 奥行き<br>수영장 물의 깊이가 꽤 깊어요.<br>The depth of the pool water is quite deep.	topik-level-2
+낫다	recover; get well · khỏi, lành · 治る, 回復する<br>푹 쉬니까 감기가 빨리 나아요.<br>Resting well makes the cold get better quickly.	topik-level-2
+마치다	complete; finish · hoàn thành, kết thúc · 終える, 済ませる<br>오후 여섯 시에 일을 마쳐요.<br>I finish work at six in the afternoon.	topik-level-2
+변하다	to change; to turn into · thay đổi, biến đổi · 変わる, 変化する<br>시간이 지나 동네가 많이 변했어요.<br>Time passed and the neighborhood changed a lot.	topik-level-2
+사실	fact · sự thật, thực tế · 事実, 本当<br>친구에게 있는 그대로 사실을 말해요.<br>I tell the fact as it is to my friend.	topik-level-2
+서다	stand · đứng · 立つ<br>버스 정류장에 줄을 서요.<br>I stand in line at the bus stop.	topik-level-2
+식탁	dining table · bàn ăn · 食卓, ダイニングテーブル<br>식탁 위에 밥과 반찬을 놓아요.<br>I put rice and side dishes on the dining table.	topik-level-2
+열차	train · tàu hỏa, đoàn tàu · 列車<br>부산행 고속 열차를 타요.<br>I take the express train to Busan.	topik-level-2
+월급	monthly salary; paycheck · lương tháng, tiền lương · 月給, 給料<br>매달 정해진 날에 월급을 받아요.<br>I receive my monthly salary on a fixed day each month.	topik-level-2
+자르다	to cut; to sever · cắt · 切る<br>미용실에서 머리를 자르고 와요.<br>I cut my hair at the hair salon and come back.	topik-level-2
+잘되다	to go well; to succeed · thuận lợi, suôn sẻ · うまくいく, 成功する<br>준비한 축제가 문제없이 잘돼요.<br>The prepared festival goes well without problems.	topik-level-2
+그만두다	to quit; to stop doing · từ bỏ, thôi · やめる<br>아르바이트를 다음 달에 그만둬요.<br>I quit my part-time job next month.	topik-level-2
+기차표	train ticket · vé tàu hỏa, vé tàu · 列車の切符, 乗車券<br>부산 가는 기차표를 예매했어요.<br>I reserved a train ticket to Busan.	topik-level-2
+놀이	play; game · trò chơi · 遊び<br>친구들과 재미있는 민속놀이를 해요.<br>I play fun folk games with friends.	topik-level-2
+눕다	to lie down · nằm · 横になる, 寝転ぶ<br>피곤해서 푹신한 침대에 누워요.<br>I lie down on the soft bed because I'm tired.	topik-level-2
+돌려주다	give back; return · trả lại · 返す, 返却する<br>빌린 책을 친구에게 돌려줘요.<br>I return the borrowed book to my friend.	topik-level-2
+두껍다	to be thick · dày · 厚い<br>겨울에는 두꺼운 외투를 입어요.<br>I wear a thick coat in winter.	topik-level-2
+따로	separately; apart · riêng, riêng biệt · 別に, 別々に<br>밥과 반찬을 따로 담아요.<br>I put rice and side dishes separately.	topik-level-2
+배추	napa cabbage; Chinese cabbage · cải thảo · 白菜<br>김치를 담그려고 배추를 사요.<br>I buy napa cabbage to make kimchi.	topik-level-2
+벌	set · bộ · 着, 着分<br>멋진 정장 한 벌을 샀어요.<br>I bought a fine suit.	topik-level-2
+비누	soap · xà phòng, xà bông · 石鹸<br>비누로 손을 깨끗이 씻어요.<br>I wash my hands cleanly with soap.	topik-level-2
+세탁소	laundromat; dry cleaner · tiệm giặt ủi, tiệm giặt là · クリーニング店<br>겨울 코트를 세탁소에 맡겨요.<br>I leave the winter coat at the dry cleaner.	topik-level-2
+센터	center · trung tâm · センター<br>도움을 받으러 주민 센터에 가요.<br>I go to the community center to get help.	topik-level-2
+신선하다	to be fresh · tươi, tươi mới · 新鮮だ<br>시장에서 신선한 채소를 골라요.<br>I pick fresh vegetables at the market.	topik-level-2
+싸우다	to fight; to quarrel · đánh nhau, cãi nhau · 喧嘩する, 戦う<br>친구와 사소한 일로 싸우지 마세요.<br>Do not fight with friends over minor things.	topik-level-2
+양말	socks · tất, vớ · 靴下<br>따뜻한 겨울 양말을 신어요.<br>I wear warm winter socks.	topik-level-2
+영수증	receipt · hóa đơn, biên lai · 領収書, レシート<br>마트에서 물건을 사고 영수증을 받아요.<br>I buy goods at the mart and get a receipt.	topik-level-2
+자기소개	self-introduction · tự giới thiệu · 自己紹介<br>교실에서 짧게 자기소개를 해요.<br>I do a short self-introduction in the classroom.	topik-level-2
+자꾸	frequently; repeatedly; again and again · thường xuyên, liên tục · しきりに, 何度も<br>친구 생각이 머릿속에 자꾸 나요.<br>Thoughts of my friend keep coming to mind.	topik-level-2
+장난감	toy · đồ chơi · おもちゃ, 玩具<br>방에 흩어진 장난감을 상자에 치워요.<br>I put away toys scattered in the room into the box.	topik-level-2
+차례	procedure; process · thứ tự, lượt · 順番, 順序<br>제 차례가 올 때까지 기다려요.<br>I wait until my turn comes.	topik-level-2
+채소	vegetable; greens · rau, rau củ · 野菜<br>건강을 위해 신선한 채소를 먹어요.<br>I eat fresh vegetables for my health.	topik-level-2
+태어나다	be born · sinh ra, chào đời · 生まれる<br>저는 바다가 있는 부산에서 태어났어요.<br>I was born in Busan where there is sea.	topik-level-2
+평소	ordinary times; usual · ngày thường, bình thường · 普段, 平素<br>평소보다 일찍 일어났어요.<br>I woke up earlier than usual.	topik-level-2
+현금	cash · tiền mặt · 現金<br>시장에서 물건을 사고 현금을 내요.<br>I buy goods at the market and pay cash.	topik-level-2
+감다	to close (eyes); to wind · nhắm, gội · つむる, 洗う<br>피곤해서 눈을 감고 쉬어요.<br>I close my eyes and rest because I am tired.	topik-level-2
+강	river · sông, con sông · 川, 河川<br>다리를 지나 강을 건너요.<br>I cross the bridge over the river.	topik-level-2
+공장	factory; plant · nhà máy, xưởng · 工場<br>삼촌은 자동차 공장에서 일해요.<br>My uncle works at an automobile factory.	topik-level-2
+뜻	intention; opinion; wish; cause · ý nghĩa, ý định · 意味, 意志<br>이 단어의 뜻을 잘 모르겠어요.<br>I don't really know the meaning of this word.	topik-level-2
+만지다	touch · chạm, sờ · 触る, 触れる<br>귀여운 강아지를 손으로 만져요.<br>I touch the cute puppy with my hand.	topik-level-2
+비슷하다	similar · tương tự, giống nhau · 似ている, 同様だ<br>동생과 저는 얼굴이 비슷해요.<br>My sibling and I have similar faces.	topik-level-2
+수건	towel · khăn tắm, khăn mặt · タオル, 手拭い<br>세수한 후에 수건으로 얼굴을 닦아요.<br>I wipe my face with a towel after washing.	topik-level-2
+아무것	anything · bất cứ thứ gì, cái gì · 何でも, 何も<br>배가 불러서 아무것도 못 먹어요.<br>I'm full, so I can't eat anything.	topik-level-2
+정도	degree; extent; level · mức độ, chừng · 程度, くらい<br>한국어를 어느 정도 할 수 있어요.<br>I can speak Korean to some extent.	topik-level-2
+좁다	small · hẹp, chật · 狭い<br>이 방은 혼자 살기에 조금 좁아요.<br>This room is a bit small to live in alone.	topik-level-2
+지나가다	pass; go by · đi qua, trôi qua · 通り過ぎる, 過ぎる<br>바쁜 하루가 빠르게 지나갔어요.<br>A busy day passed by quickly.	topik-level-2
+첫	first · đầu tiên, đầu · 初の, 最初の<br>친구와의 첫 만남을 기억해요.<br>I remember the first meeting with my friend.	topik-level-2
+피다	bloom; blossom · nở · 咲く<br>봄이 오면 길가에 꽃이 피어요.<br>Flowers bloom along the street when spring comes.	topik-level-2
+안전모	safety helmet; hard hat · mũ bảo hộ · 安全帽, ヘルメット<br>공사장에서 노란 안전모를 써요.<br>I wear a yellow safety helmet at the construction site.	topik-level-2
+깎다	peel · gọt, cắt · 削る, 剥く<br>칼로 사과 껍질을 깎아요.<br>I peel the apple skin with a knife.	topik-level-2
+막히다	be blocked; be closed; be clogged · bị tắc, bị nghẽn · 詰まる, 塞がる<br>퇴근 시간에 도로가 심하게 막혀요.<br>The road is heavily congested during rush hour.	topik-level-2
+벽	wall · tường, bức tường · 壁<br>거실 벽에 예쁜 가족사진을 걸어요.<br>I hang a pretty family photo on the living room wall.	topik-level-2
+아무	any; nobody · bất kỳ, bất cứ · どんな, 誰<br>궁금한 것은 아무 때나 물어보세요.<br>Please ask anytime you are curious.	topik-level-2
+언제나	always; at all times · luôn luôn, lúc nào cũng · いつも, 常に<br>어머니는 언제나 저를 응원해 주세요.<br>My mother always cheers me on.	topik-level-2
+원하다	to want; to wish · muốn, mong muốn · 望む, 願う<br>도움을 원하시면 언제든지 말씀하세요.<br>If you want help, please let me know anytime.	topik-level-2
+조용히	quietly; silently · yên lặng, lặng lẽ · 静かに<br>도서관에서는 조용히 이야기하세요.<br>Please speak quietly in the library.	topik-level-2
+통장	bank account book · sổ tài khoản, sổ tiết kiệm · 通帳<br>은행에서 새 통장을 만들었어요.<br>I opened a new bank account book at the bank.	topik-level-2
+가끔	sometimes · thỉnh thoảng, đôi khi · 時々, たまに<br>주말에 가끔 영화를 보러 가요.<br>I sometimes go see a movie on weekends.	topik-level-2
+거울	mirror · gương, cái gương · 鏡<br>외출하기 전에 거울을 봐요.<br>I look in the mirror before going out.	topik-level-2
+걸음	step; walk · bước đi, bước chân · 歩み, 足取り<br>피곤해서 걸음이 점점 느려져요.<br>My steps gradually slow down because I'm tired.	topik-level-2
+계단	stairs; stairway · cầu thang, bậc thang · 階段<br>건강을 위해 계단을 걸어 올라가요.<br>I walk up the stairs for my health.	topik-level-2
+과자	snack · bánh kẹo, bánh · お菓子, 菓子<br>간식으로 달콤한 과자를 먹어요.<br>I eat sweet snacks as a treat.	topik-level-2
+국수	noodle · mì, bún · 麺, うどん<br>점심으로 따뜻한 국수를 먹어요.<br>I eat warm noodles for lunch.	topik-level-2
+그분	that person (honorific) · vị ấy, người ấy · その方, あの方<br>그분은 우리 학교 교수님이에요.<br>That person is a professor at our university.	topik-level-2
+글씨	handwriting; lettering · chữ viết, nét chữ · 文字, 筆跡<br>공책에 또박또박 글씨를 써요.<br>I write letters clearly in the notebook.	topik-level-2
+기뻐하다	be glad; be happy · vui mừng, hân hoan · 喜ぶ<br>부모님이 제 소식을 크게 기뻐하셨어요.<br>My parents were very happy with my news.	topik-level-2
+꾸다	to dream (a dream) · mơ, mượn · 夢見る, 借りる<br>어젯밤에 아주 행복한 꿈을 꿨어요.<br>I dreamed a very happy dream last night.	topik-level-2
+끝내다	complete; finish · hoàn thành, kết thúc · 終える, 終わらせる<br>오늘 할 일을 모두 끝냈어요.<br>I finished all the work to do today.	topik-level-2
+노랗다	to be yellow · vàng, màu vàng · 黄色い<br>봄이 되자 노란 개나리가 피었어요.<br>When spring came, yellow forsythias bloomed.	topik-level-2
+노력	effort; endeavor · nỗ lực, cố gắng · 努力<br>목표를 위해 많은 노력을 해요.<br>I make a lot of effort for my goal.	topik-level-2
+높이	height; high · độ cao, chiều cao · 高さ, 高み<br>저 산의 높이가 얼마나 돼요?<br>How high is that mountain?	topik-level-2
+느낌	feeling; sense; impression · cảm giác, cảm nhận · 感じ, 感覚<br>새 옷을 입으니 느낌이 아주 좋아요.<br>Wearing new clothes feels very nice.	topik-level-2
+답장	reply; answer · thư trả lời, hồi âm · 返事, 返信<br>친구의 문자 메시지에 답장을 보내요.<br>I send a reply to my friend's text message.	topik-level-2
+동전	coin · tiền xu, đồng xu · 硬貨, 小銭<br>동전 지갑에 백 원 동전이 많아요.<br>There are many 100-won coins in the coin purse.	topik-level-2
+돼지고기	pork · thịt lợn, thịt heo · 豚肉<br>저녁으로 맛있는 돼지고기를 구워요.<br>I grill delicious pork for dinner.	topik-level-2
+떠들다	clamor; make a noise · làm ồn, ầm ĩ · 騒ぐ<br>도서관에서 크게 떠들지 마세요.<br>Please do not make loud noise in the library.	topik-level-2
+또는	or; either · hoặc, hoặc là · または, あるいは<br>신분증 또는 여권을 보여 주세요.<br>Please show your ID card or passport.	topik-level-2
+미술관	art museum; art gallery · bảo tàng mỹ thuật · 美術館<br>주말에 미술관에 그림을 보러 가요.<br>I go to the art museum to see paintings on the weekend.	topik-level-2
+부럽다	to be envious; to envy · ghen tị, ngưỡng mộ · 羨ましい<br>시험을 일찍 끝낸 친구가 부러워요.<br>I envy my friend who finished the exam early.	topik-level-2
+붙다	stick to; cling to · dính, bám · 付く, くっつく<br>옷에 하얀 먼지가 많이 붙었어요.<br>A lot of white dust stuck to the clothes.	topik-level-2
+비교	comparison · sự so sánh, so sánh · 比較<br>두 제품의 가격을 꼼꼼히 비교해요.<br>I carefully compare the prices of the two products.	topik-level-2
+삼촌	uncle · chú, bác · おじ, 叔父<br>삼촌이 명절에 재미있는 선물을 줘요.<br>My uncle gives fun gifts on holidays.	topik-level-2
+생선	fish (as food) · cá, cá tươi · 魚, 鮮魚<br>오늘 저녁 메뉴는 생선구이예요.<br>Today's dinner menu is grilled fish.	topik-level-2
+서두르다	to hurry; to rush · vội vã, vội vàng · 急ぐ, 慌てる<br>늦지 않게 준비를 서두르고 있어요.<br>I am hurrying preparations so as not to be late.	topik-level-2
+선선하다	cool; refreshing · mát mẻ, dễ chịu · 涼しい<br>가을이 오니 바람이 선선해요.<br>Autumn is here, so the breeze is cool.	topik-level-2
+설거지	dish wash · rửa bát, rửa chén · 皿洗い, 洗い物<br>밥을 먹은 뒤에 설거지를 해요.<br>I wash dishes after eating a meal.	topik-level-2
+쓰레기통	trash can; garbage bin · thùng rác · ゴミ箱<br>휴지를 쓰레기통에 버리세요.<br>Please throw tissues into the trash can.	topik-level-2
+안내문	letter of notice; notice; introduction · thông báo, bản hướng dẫn · 案内文, お知らせ<br>벽에 붙은 안내문을 자세히 읽어요.<br>I carefully read the notice posted on the wall.	topik-level-2
+연결	connection · sự kết nối, liên kết · 接続, 連結<br>인터넷 연결이 갑자기 끊겼어요.<br>The internet connection suddenly cut off.	topik-level-2
+올림	Sincerely yours; Yours very truly · kính thư · 敬具, より<br>편지 끝에 제 이름과 올림을 적어요.<br>I write my name and 'sincerely' at the end of the letter.	topik-level-2
+외출	going out; outing · việc ra ngoài, ra ngoài · 外出<br>미세먼지가 심해서 외출을 삼가요.<br>I refrain from going out because fine dust is severe.	topik-level-2
+입구	entrance; entry · lối vào, cửa vào · 入口, 入り口<br>지하철역 일번 입구에서 만나요.<br>Let's meet at subway Exit 1.	topik-level-2
+자판기	vending machine · máy bán hàng tự động · 自販機, 自動販売機<br>자판기에서 따뜻한 캔커피를 뽑아요.<br>I get hot canned coffee from the vending machine.	topik-level-2
+주머니	pocket; pouch · túi, túi áo · ポケット, 袋<br>코트 주머니에 장갑을 넣었어요.<br>I put gloves into my coat pocket.	topik-level-2
+지우다	erase · xóa, tẩy · 消す<br>칠판의 낙서를 깨끗이 지워요.<br>I cleanly erase the scribbles on the blackboard.	topik-level-2
+진짜	authentic · hàng thật, thật · 本物, 本当<br>이 옷은 진짜 가죽으로 만들었어요.<br>This clothing is made of real leather.	topik-level-2
+택배	parcel delivery; package · giao hàng tận nơi, chuyển phát nhanh · 宅配, 宅配便<br>주문한 물건을 택배로 받아요.<br>I receive the ordered item by parcel delivery.	topik-level-2
+하얗다	to be white · trắng, màu trắng · 白い<br>겨울이 되어 온 세상이 하얘요.<br>Winter has come, so the whole world is white.	topik-level-2
+행복	happiness; pleasure; contentment · hạnh phúc · 幸福, 幸せ<br>가족의 건강과 행복을 빌어요.<br>I wish for the health and happiness of my family.	topik-level-2
+계산	calculation · sự tính toán, thanh toán · 計算, 会計<br>식사를 마친 뒤 카운터에서 계산해요.<br>After the meal, I pay at the counter.	topik-level-2
+금지	ban · sự cấm đoán, cấm · 禁止<br>공사장에 출입 금지 표지가 있어요.<br>There is a 'No Entry' sign at the construction site.	topik-level-2
+방문	visit · sự thăm viếng, cửa phòng · 訪問, 部屋のドア<br>바람이 차서 방문을 꼭 닫았어요.<br>The wind was cold, so I closed the room door tightly.	topik-level-2
+색깔	color · màu sắc · 色, 色合い<br>이 셔츠의 파란 색깔이 참 예뻐요.<br>The blue color of this shirt is really pretty.	topik-level-2
+순서	order; sequence · thứ tự, trình tự · 順序, 順番<br>줄을 서서 순서를 기다려요.<br>I stand in line and wait for my turn.	topik-level-2
+연락	communication · sự liên lạc · 連絡<br>도착하면 저에게 연락을 주세요.<br>Please give me a call when you arrive.	topik-level-2
+갈아입다	change one's clothes · thay quần áo · 着替える<br>집에 와서 편한 옷으로 갈아입어요.<br>I come home and change into comfortable clothes.	topik-level-2
+감기약	cold medicine · thuốc cảm · 風邪薬<br>열이 나서 약국에서 감기약을 사요.<br>I have a fever, so I buy cold medicine at the pharmacy.	topik-level-2
+기쁨	joy; gladness · niềm vui, sự vui mừng · 喜び, 嬉しさ<br>합격 소식을 듣고 기쁨을 느꼈어요.<br>I felt joy upon hearing the news of passing.	topik-level-2
+김	steam · rong biển, hơi nước · 海苔, 湯気<br>따뜻한 밥을 바삭한 김에 싸 먹어요.<br>I wrap warm rice in crispy dried seaweed.	topik-level-2
+누르다	press; push · ấn, nhấn · 押す<br>원하는 층의 버튼을 누르고 기다려요.<br>I press the button for the desired floor and wait.	topik-level-2
+매다	tie; bind; lace · thắt, buộc · 結ぶ, 締める<br>풀린 신발 끈을 단단히 매요.<br>I tightly tie the untied shoelaces.	topik-level-2
+봉투	envelope · phong bì, túi · 封筒, 袋<br>정성껏 쓴 편지를 봉투에 넣어요.<br>I put the carefully written letter into the envelope.	topik-level-2
+빨래	washing; laundry · giặt giũ, quần áo giặt · 洗濯, 洗濯物<br>주말에 모아 둔 빨래를 돌려요.<br>I run the accumulated laundry over the weekend.	topik-level-2
+영하	below zero; sub-zero · dưới 0 độ, độ âm · 氷点下, 零下<br>겨울이 되어 기온이 영하로 떨어졌어요.<br>Winter came, so the temperature dropped below zero.	topik-level-2
+주사	injection · sự tiêm thuốc, tiêm · 注射<br>감기가 심해서 주사를 맞았어요.<br>The cold was severe, so I received an injection.	topik-level-2
+죽다	die · chết · 死ぬ<br>물을 주지 않아서 화분이 죽었어요.<br>The pot plant died because I didn't water it.	topik-level-2
+제출하다	to submit · nộp, đệ trình · 提出する<br>선생님께 과제 보고서를 제출했어요.<br>I submitted the assignment report to the teacher.	topik-level-2
+간단하다	simple · đơn giản · 簡単だ<br>선생님의 설명이 아주 간단해요.<br>The teacher's explanation is very simple.	topik-level-2
+걸어가다	walk; tread; stride · đi bộ đến, đi bộ đi · 歩いて行く<br>집에서 가까운 학교에 걸어가요.<br>I walk to school which is close to home.	topik-level-2
+검사	examination; test · sự kiểm tra, công tố viên · 検査, 検事<br>선생님께 숙제 검사를 받았어요.<br>I received homework inspection from the teacher.	topik-level-2
+검은색	black · màu đen · 黒, 黒色<br>깔끔한 검은색 구두를 신었어요.<br>I wore neat black dress shoes.	topik-level-2
+관계	official world; government circles · mối quan hệ, quan hệ · 関係<br>이웃들과 좋은 관계를 맺고 지내요.<br>I build good relationships with neighbors and get along.	topik-level-2
+단추	button · cúc áo, khuy áo · ボタン<br>떨어진 셔츠 단추를 실로 달아요.<br>I sew on the fallen shirt button with thread.	topik-level-2
+단풍	autumn foliage · lá phong, lá đỏ mùa thu · 紅葉<br>가을 산에 붉은 단풍이 들었어요.<br>Red autumn foliage colored the autumn mountain.	topik-level-2
+드디어	at last; finally · cuối cùng, rốt cuộc · ついに, とうとう<br>즐거운 방학이 드디어 시작돼요.<br>The pleasant vacation finally begins.	topik-level-2
+똑같다	exactly the same; equivalent to · giống hệt, như nhau · そっくりだ, 同じだ<br>두 사람의 옷 모양이 똑같아요.<br>The styles of the two people's clothes are identical.	topik-level-2
+메시지	message · tin nhắn, thông điệp · メッセージ<br>친구에게 문자 메시지를 보냈어요.<br>I sent a text message to my friend.	topik-level-2
+벌다	make; earn · kiếm (tiền) · 稼ぐ, 儲ける<br>아르바이트를 해서 학비를 벌어요.<br>I work part-time to earn tuition.	topik-level-2
+손가락	finger · ngón tay · 指, 手の指<br>피아노를 쳐서 손가락이 길어요.<br>My fingers are long from playing the piano.	topik-level-2
+알맞다	appropriate; proper; suitable · thích hợp, phù hợp · 相応しい, 適切だ<br>빈칸에 알맞은 단어를 넣으세요.<br>Please insert the appropriate word in the blank.	topik-level-2
+알아보다	investigate; examine; look into · tìm hiểu, nhận ra · 調べる, 見分ける<br>인터넷으로 여행 정보를 알아봐요.<br>I look into travel information on the internet.	topik-level-2
+오랜만	after a long time · dạo lâu, lâu ngày · 久しぶり<br>오랜만에 친구를 만나서 반가워요.<br>It's nice to meet my friend after a long time.	topik-level-2
+오른손	right hand · tay phải · 右手<br>질문이 있는 분은 오른손을 드세요.<br>Whoever has questions, please raise your right hand.	topik-level-2
+이틀	the second day · hai ngày, ngày mùng hai · 二日, 二日間<br>이틀 동안 집에서 푹 쉬었어요.<br>I took a good rest at home for two days.	topik-level-2
+일기	diary; journal · nhật ký · 日記<br>잠들기 전에 일기를 쓰고 자요.<br>I write in my diary before falling asleep.	topik-level-2
+잃어버리다	lose · làm mất, đánh mất · なくす, 見失う<br>지하철에서 지갑을 잃어버렸어요.<br>I lost my wallet on the subway.	topik-level-2
+자라다	to grow · lớn lên, phát triển · 育つ, 成長する<br>마당에 심은 나무가 쑥쑥 자라요.<br>The tree planted in the yard grows rapidly.	topik-level-2
+지도	map · bản đồ, sự chỉ đạo · 地図, 指導<br>스마트폰으로 지도를 보며 길을 찾아요.<br>I find the way while looking at a map on my smartphone.	topik-level-2
+찌개	stew; jjigae · canh hầm jjigae, món hầm · チゲ, 鍋料理<br>저녁으로 맛있는 된장찌개를 끓여요.<br>I cook delicious soybean paste stew for dinner.	topik-level-2
+초록색	green · màu xanh lá cây · 緑色, 緑<br>봄이 되니 산이 온통 초록색이에요.<br>Spring has come, so the mountains are entirely green.	topik-level-2
+친척	relative · họ hàng, bà con · 親戚<br>명절에 친척들이 한자리에 모여요.<br>Relatives gather in one place on holidays.	topik-level-2
+켤레	pair · đôi (giày, tất) · 足, 一組<br>신발 가게에서 운동화 한 켤레를 샀어요.<br>I bought a pair of sneakers at the shoe store.	topik-level-2
+트럭	truck · xe tải · トラック<br>큰 파란색 트럭이 짐을 싣고 가요.<br>A large blue truck carries cargo and goes.	topik-level-2
+파랗다	blue · xanh lam, xanh biếc · 青い<br>맑은 가을 하늘이 아주 파래요.<br>The clear autumn sky is very blue.	topik-level-2
+풀다	untie · tháo, cởi, giải quyết · 解く, ほどく<br>단단히 묶인 신발 끈을 풀어요.<br>I untie the tightly bound shoelaces.	topik-level-2
+화가	painter; artist · họa sĩ · 画家<br>유명한 화가의 그림을 보러 미술관에 가요.<br>I go to the art museum to see a famous painter's artwork.	topik-level-2
+화나다	get angry; be furious; be enraged · tức giận, nổi giận · 怒る, 腹が立つ<br>친구가 약속을 어겨서 화가 났어요.<br>I got angry because my friend broke the promise.	topik-level-2
+환전	foreign exchange; money exchange · sự đổi tiền · 両替<br>은행에서 달러 환전을 신청했어요.<br>I applied for US dollar currency exchange at the bank.	topik-level-2
+흰색	white · màu trắng · 白, 白色<br>여름에는 시원한 흰색 옷을 즐겨 입어요.<br>In summer, I enjoy wearing cool white clothes.	topik-level-2
+가리키다	point; gesture; indicate · chỉ, trỏ · 指す, 指し示す<br>손가락으로 저 건물을 가리켜요.<br>I point at that building with my finger.	topik-level-2
+결심	decision; resolution; determination · sự quyết tâm, quyết định · 決心, 決意<br>새해를 맞아 금연 결심을 세웠어요.<br>I made a resolution to quit smoking for the New Year.	topik-level-2
+끊다	cut · cắt, bỏ · 切る, 断つ<br>건강을 위해 마침내 담배를 끊었어요.<br>I finally quit smoking for my health.	topik-level-2
+단순	simpleness · sự đơn giản, đơn thuần · 単純<br>이 일은 단순 반복 작업이에요.<br>This work is simple, repetitive work.	topik-level-2
+매달	every month; monthly · hàng tháng, mỗi tháng · 毎月<br>매달 첫 번째 월요일에 회의해요.<br>We meet on the first Monday of every month.	topik-level-2
+무	radish · củ cải, số không · 大根, 無<br>시장에서 시원하고 단단한 무를 샀어요.<br>I bought crisp, firm radishes at the market.	topik-level-2
+소	filling · con bò, nhân bánh · 牛, 具<br>시골 외할머니 댁에서 소를 길러요.<br>We raise cattle at my maternal grandmother's house in the countryside.	topik-level-2
+수고	trouble; effort · sự vất vả, công sức · 苦労, 手間<br>오늘 하루도 수고 많았어요.<br>Thank you for your hard work today as well.	topik-level-2
+숫자	number; figure · con số, chữ số · 数字<br>공책에 숫자를 하나씩 써요.<br>I write numbers one by one in the notebook.	topik-level-2
+심심하다	bored · buồn chán, tẻ nhạt · 退屈だ<br>주말에 심심해서 영화를 봤어요.<br>I was bored on the weekend, so I watched a movie.	topik-level-2
+얘기	story · câu chuyện · 話, 会話<br>친구와 카페에서 재미있는 얘기를 해요.<br>I chat with a friend at a cafe about fun things.	topik-level-2
+우리나라	our country · đất nước chúng tôi, nước ta · 我が国, 私たちの国<br>우리나라는 사계절이 있어요.<br>Our country has four seasons.	topik-level-2
+유학	studying abroad · du học, nho học · 留学, 儒学<br>내년에 한국으로 유학을 가요.<br>I am going to study abroad in Korea next year.	topik-level-2
+의미	meaning; sense · ý nghĩa · 意味<br>이 단어의 의미를 잘 모르겠어요.<br>I do not know the meaning of this word well.	topik-level-2
+잡지	magazine · tạp chí · 雑誌<br>서점에서 패션 잡지를 샀어요.<br>I bought a fashion magazine at the bookstore.	topik-level-2
+짝	couple; pair; piece; partner; mate · đôi, cặp, bạn cặp · 相手, 対<br>교실에서 짝과 함께 공부해요.<br>I study together with my partner in class.	topik-level-2
+차다	be full · đầy, đá · 満ちる, 蹴る<br>운동장에서 축구공을 차요.<br>I kick a soccer ball in the schoolyard.	topik-level-2
+틀리다	be wrong; be incorrect · sai, nhầm · 間違う, 異なる<br>시험에서 두 문제가 틀렸어요.<br>I got two questions wrong on the exam.	topik-level-2
+한강	Hangang River · sông Hàn · 漢江, ハンガン<br>주말에 한강 공원에 놀러 가요.<br>I go to Hangang Park on weekends.	topik-level-2
+희망	hope · hy vọng · 希望<br>새해에는 희망이 가득해요.<br>The new year is full of hope.	topik-level-2
+복용하다	take; take a dose · uống thuốc, dùng thuốc · 服用する<br>식사 후에 감기약을 복용하세요.<br>Please take your cold medicine after meals.	topik-level-2
+수고하다	take the trouble · vất vả, chịu khó · 苦労する, 骨を折る<br>오늘 늦게까지 정말 수고하셨어요.<br>Thank you so much for your hard work late today.	topik-level-2
+알약	pill; tablet · thuốc viên · 錠剤, 飲み薬<br>물과 함께 알약을 삼켜요.<br>I swallow the pill with water.	topik-level-2
+운전하다	drive; operate · lái xe, vận hành · 運転する<br>조심해서 안전하게 운전하세요.<br>Please drive carefully and safely.	topik-level-2
+가까이	near; close to · gần, lại gần · 近く, 近くに<br>학교 가까이에 살아서 걸어 다녀요.<br>I live near school, so I walk.	topik-level-2
+가늘다	to be thin; to be slender · mảnh, thon nhỏ · 細い<br>손가락이 길고 가늘어요.<br>The fingers are long and slender.	topik-level-2
+가득	full; completely · đầy, tràn đầy · いっぱい, たっぷり<br>컵에 따뜻한 차가 가득 찼어요.<br>The cup is full of warm tea.	topik-level-2
+가슴	chest; heart · ngực, lòng · 胸<br>감동적인 영화를 보고 가슴이 뭉클해요.<br>Watching the touching movie moved my heart.	topik-level-2
+가위	scissors · kéo · ハサミ<br>종이를 가위로 예쁘게 잘라요.<br>I cut paper prettily with scissors.	topik-level-2
+가져오다	to bring; to fetch · mang đến, mang lại · 持ってくる, もたらす<br>비가 올 것 같아서 우산을 가져왔어요.<br>I brought an umbrella because it looks like rain.	topik-level-2
+각각	each; every single · mỗi, từng · 各自, それぞれ<br>사람마다 취향이 각각 달라요.<br>Each person's taste is different.	topik-level-2
+간단히	simply; briefly · đơn giản, vắn tắt · 簡単に, 手短に<br>아침 식사를 간단히 빵으로 해결해요.<br>I solve breakfast simply with bread.	topik-level-2
+간식	snack · đồ ăn vặt, món ăn nhẹ · おやつ, 間食<br>오후에 출출해서 간식을 먹어요.<br>I eat a snack because I feel peckish in the afternoon.	topik-level-2
+간장	soy sauce · nước tương, xì dầu · 醤油<br>만두를 간장에 살짝 찍어 먹어요.<br>I dip the dumpling lightly in soy sauce and eat it.	topik-level-2
+간호사	nurse · y tá, điều dưỡng · 看護師<br>친절한 간호사가 체온을 재어 주었어요.<br>A kind nurse measured my temperature.	topik-level-2
+갈색	brown (color) · màu nâu · 茶色, 褐色<br>가을에 어울리는 갈색 코트를 샀어요.<br>I bought a brown coat suitable for autumn.	topik-level-2
+감자	potato · khoai tây · じゃがいも<br>냄비에 감자를 삶아 먹어요.<br>I boil potatoes in a pot and eat them.	topik-level-2
+강하다	to be strong; to be powerful · mạnh, mạnh mẽ · 強い<br>바람이 너무 강하게 불어요.<br>The wind is blowing too strongly.	topik-level-2
+갖다	have; hold · có, cầm · 持つ<br>자신감을 갖고 열심히 도전하세요.<br>Have confidence and take on the challenge hard.	topik-level-2
+갚다	pay back; repay · trả, đền đáp · 返す, 償う<br>친구에게 빌린 돈을 모두 갚았어요.<br>I paid back all the money I borrowed from my friend.	topik-level-2
+거리	distance; street · đường phố, khoảng cách · 通り, 距離<br>주말에는 명동 거리에 사람이 많아요.<br>On weekends, there are many people on Myeongdong street.	topik-level-2
+거의	almost; nearly · hầu như, gần như · ほとんど, 大体<br>숙제를 거의 다 끝냈어요.<br>I have almost finished the homework.	topik-level-2
+거절	refusal; rejection; denial · sự từ chối · 拒絶, 断り<br>어려운 부탁을 정중하게 거절했어요.<br>I politely declined the difficult request.	topik-level-2
+거짓말	lie; falsehood · lời nói dối · 嘘<br>친구에게 거짓말을 하면 안 돼요.<br>You must not tell a lie to your friend.	topik-level-2
+걱정	worry; concern · nỗi lo, lo lắng · 心配, 不安<br>시험 결과 때문에 걱정이 많아요.<br>I have a lot of worry because of exam results.	topik-level-2
+건너가다	to cross over; go across · băng qua, sang · 渡る, 渡っていく<br>초록 불에 횡단보도를 건너가요.<br>I cross the crosswalk on the green light.	topik-level-2
+건너다	cross; go across · băng qua, qua · 渡る, 越える<br>차를 조심하며 길을 건너요.<br>I cross the street while watching out for cars.	topik-level-2
+걸어오다	to walk here; come on foot · đi bộ đến · 歩いてくる<br>날씨가 좋아서 역에서 걸어왔어요.<br>The weather was nice, so I walked from the station.	topik-level-2
+검정	black (color) · màu đen · 黒, 黒色<br>단정한 검정 구두를 신었어요.<br>I wore neat black dress shoes.	topik-level-2
+겉	outside; surface; exterior · bề ngoài, bên ngoài · 外側, 表面<br>사과의 겉을 깨끗하게 씻어요.<br>I wash the outside of the apple cleanly.	topik-level-2
+게으르다	to be lazy · lười biếng, lười · 怠惰だ, 怠けている<br>게으른 생활 습관을 고쳐요.<br>I correct my lazy living habits.	topik-level-2
+결과	result; outcome · kết quả · 結果<br>시험 결과가 좋아서 기뻐요.<br>I am happy because my test results are good.	topik-level-2
+결석	absence (from school) · sự vắng mặt, nghỉ học · 欠席<br>감기 때문에 오늘 학교에 결석했어요.<br>I was absent from school today due to a cold.	topik-level-2
+결정	decision; crystal · quyết định · 決定, 決断<br>신중하게 생각하고 결정을 내려요.<br>I think carefully and make a decision.	topik-level-2
+결혼	marriage; wedding; union; matrimony · kết hôn, hôn nhân · 結婚<br>선배가 다음 달에 결혼을 해요.<br>My senior is getting married next month.	topik-level-2
+결혼식	wedding · lễ cưới, đám cưới · 結婚式<br>주말에 친구 결혼식에 다녀왔어요.<br>I went to a friend's wedding on the weekend.	topik-level-2
+경기	economy; business · trận đấu, kinh tế · 試合, 景気<br>오늘 저녁에 축구 경기를 응원해요.<br>I cheer for the soccer match this evening.	topik-level-2
+경찰	police; policing · cảnh sát · 警察<br>경찰이 교통정리를 하고 있어요.<br>A police officer is directing traffic.	topik-level-2
+경찰서	police station · đồn cảnh sát · 警察署<br>지갑을 잃어버려 경찰서에 갔어요.<br>I lost my wallet and went to the police station.	topik-level-2
+경치	scenery; view · phong cảnh, cảnh trí · 景色, 景観<br>산꼭대기에서 보는 경치가 아름다워요.<br>The scenery seen from the mountain top is beautiful.	topik-level-2
+경험	experience · kinh nghiệm, trải nghiệm · 経験<br>한국 여행은 아주 좋은 경험이었어요.<br>Traveling in Korea was a very good experience.	topik-level-2
+계란	egg · trứng, trứng gà · 卵, 鶏卵<br>아침에 삶은 계란 두 개를 먹어요.<br>I eat two boiled eggs in the morning.	topik-level-2
+고등학교	high school · trường cấp ba · 高校, 高等学校<br>올해 고등학교를 졸업했어요.<br>I graduated from high school this year.	topik-level-2
+고등학생	high school student · học sinh cấp ba · 高校生<br>제 남동생은 고등학생이에요.<br>My younger brother is a high school student.	topik-level-2
+고모	paternal aunt · cô, bác gái · 父方の伯母, 父方の叔母<br>명절에 고모 댁에 인사를 가요.<br>I go to greet at my paternal aunt's house on the holiday.	topik-level-2
+고민	worry; anguish · nỗi lo, phiền muộn · 悩み, 苦悩<br>진로 문제로 고민이 많아요.<br>I have many worries about my career path.	topik-level-2
+고속버스	express bus · xe buýt tốc hành, xe khách · 高速バス<br>부산에 가려고 고속버스를 탔어요.<br>I took an express bus to go to Busan.	topik-level-2
+고추장	red pepper paste; gochujang · tương ớt Hàn Quốc, gochujang · コチュジャン, 唐辛子味噌<br>비빔밥에 매콤한 고추장을 넣어요.<br>I put spicy gochujang into bibimbap.	topik-level-2
+공	ball; zero · quả bóng, số không · ボール, ゼロ<br>마당에서 강아지와 공 놀이를 해요.<br>I play ball with the puppy in the yard.	topik-level-2
+공무원	civil servant; public official · công chức, viên chức · 公務員<br>공무원 시험에 합격하고 싶어요.<br>I want to pass the civil service exam.	topik-level-2
+공짜	free of charge; freebie · miễn phí · 無料, タダ<br>이 행사는 누구나 공짜로 입장해요.<br>Anyone enters this event for free.	topik-level-2
+공휴일	public holiday · ngày nghỉ lễ, ngày lễ · 公休日, 祝日<br>공휴일에는 학교와 은행이 쉬어요.<br>Schools and banks are closed on public holidays.	topik-level-2
+과거	past · quá khứ · 過去<br>과거를 돌아보며 반성해요.<br>I reflect while looking back on the past.	topik-level-2
+관광	tourism · tham quan, du lịch · 観光<br>제주도 명소를 관광하러 가요.<br>I go to tour scenic spots in Jeju Island.	topik-level-2
+관광객	tourist; sightseer · khách du lịch, du khách · 観光客<br>명동에 외국인 관광객이 아주 많아요.<br>There are very many foreign tourists in Myeongdong.	topik-level-2
+관광지	tourist attraction; sightseeing spot · điểm du lịch, danh lam thắng cảnh · 観光地<br>경주는 한국의 유명한 관광지예요.<br>Gyeongju is a famous tourist spot in Korea.	topik-level-2
+관심	interest; attention · sự quan tâm, hứng thú · 関心, 興味<br>한국 드라마에 관심이 많아요.<br>I have a lot of interest in Korean dramas.	topik-level-2
+광고	advertisement; commercial · quảng cáo · 広告<br>텔레비전에서 재미있는 광고를 봤어요.<br>I saw an interesting commercial on TV.	topik-level-2
+광주	Gwangju · Gwangju · 光州, クァンジュ<br>케이티엑스를 타고 광주에 다녀왔어요.<br>I went to Gwangju taking the KTX.	topik-level-2
+교과서	textbook · sách giáo khoa · 教科書<br>한국어 교과서 오십 쪽을 펴세요.<br>Please open to page 50 of the Korean textbook.	topik-level-2
+교사	teacher; instructor · giáo viên · 教師, 教員<br>초등학교 교사가 되는 것이 꿈이에요.<br>Becoming an elementary school teacher is my dream.	topik-level-2
+교수	professor · giáo sư · 教授<br>대학교 교수님께 질문을 드렸어요.<br>I asked a question to the university professor.	topik-level-2
+교육	education; training · giáo dục · 教育<br>아이들을 위한 예절 교육을 해요.<br>We conduct etiquette education for children.	topik-level-2
+교통비	transportation expenses · phí giao thông, tiền xe · 交通費<br>한 달 교통비가 십만 원쯤 들어요.<br>Transportation expenses cost about 100,000 won a month.	topik-level-2
+교통사고	traffic accident · tai nạn giao thông · 交通事故<br>비 오는 날에는 교통사고를 조심해요.<br>Be careful of traffic accidents on rainy days.	topik-level-2
+교환	exchange; swap · đổi, trao đổi · 交換<br>옷 사이즈가 안 맞아 교환했어요.<br>The clothes size didn't fit, so I exchanged them.	topik-level-2
+교회	church · nhà thờ, giáo hội · 教会<br>일요일 아침에 교회에 가요.<br>I go to church on Sunday morning.	topik-level-2
+구름	cloud · mây, đám mây · 雲<br>하늘에 하얀 구름이 둥실 떠 있어요.<br>White clouds are floating gently in the sky.	topik-level-2
+국내	domestic; within the country · trong nước, quốc nội · 国内<br>이번 여름에는 국내 여행을 가요.<br>This summer I go on a domestic trip.	topik-level-2
+국제	international · quốc tế · 国際<br>인천국제공항에서 비행기를 탔어요.<br>I boarded the plane at Incheon International Airport.	topik-level-2
+군인	soldier; military personnel · quân nhân, người lính · 軍人<br>사촌 형은 씩씩한 군인이에요.<br>My cousin is a brave soldier.	topik-level-2
+굵다	thick; fat · to, dày · 太い<br>이 나무는 줄기가 아주 굵어요.<br>This tree has a very thick trunk.	topik-level-2
+굽다	to be bent; to be curved · nướng, cong · 焼く, 曲がる<br>불판 위에 소고기를 맛있게 구워요.<br>I grill beef deliciously on the grill pan.	topik-level-2
+궁금하다	curious · tò mò, thắc mắc · 気になる, 知りたい<br>친구의 시험 결과가 아주 궁금해요.<br>I am very curious about my friend's test result.	topik-level-2
+귀걸이	earrings · bông tai, khuyên tai · イヤリング, ピアス<br>생일 선물로 반짝이는 귀걸이를 받았어요.<br>I received sparkling earrings as a birthday present.	topik-level-2
+귀여워하다	to adore; find cute · cưng chiều, yêu quý · 可愛がる<br>할머니께서 막내 손자를 귀여워하세요.<br>Grandmother adores her youngest grandchild.	topik-level-2
+귀찮다	troublesome; annoying; tiresome · phiền phức, ngại · 面倒だ, めんどくさい<br>비 오는 날 밖에 나가기 귀찮아요.<br>It is bothersome to go out on a rainy day.	topik-level-2
+그거	that; that thing · cái đó · それ<br>그거 참 좋은 아이디어예요.<br>That is a really good idea.	topik-level-2
+그곳	that place; there · nơi đó, chỗ đó · そこ, その場所<br>그곳은 경치가 정말 아름다워요.<br>That place has really beautiful scenery.	topik-level-2
+그날	that day; the day · ngày đó, hôm đó · その日, あの日<br>그날 우리는 정말 즐거웠어요.<br>On that day, we had so much fun.	topik-level-2
+그러나	however · tuy nhiên, nhưng · しかし, だけど<br>열심히 공부했어요. 그러나 시험이 어려웠어요.<br>I studied hard. However, the exam was difficult.	topik-level-2
+그러므로	therefore; hence · vì vậy, do đó · したがって, それゆえ<br>건강이 중요해요. 그러므로 운동을 해요.<br>Health is important. Therefore, I exercise.	topik-level-2
+그립다	to miss; long for · nhớ, nhớ nhung · 恋しい, 懐かしい<br>외국에 있으니 고향 음식이 그립습니다.<br>Being abroad, I miss my hometown food.	topik-level-2
+그치다	to stop; to cease · tạnh, ngừng · やむ, 止まる<br>오후가 되자 비가 그쳤어요.<br>As afternoon came, the rain stopped.	topik-level-2
+글쎄	well; hm · ừm, để xem nào · さあ, そうですね<br>글쎄, 내 생각은 조금 달라.<br>Well, my thoughts are a little different.	topik-level-2
+글자	letter; character · chữ, chữ cái · 文字, 字<br>칠판에 큰 글자로 단어를 적어요.<br>I write words in big letters on the board.	topik-level-2
+기르다	to raise; to cultivate · nuôi, trồng · 育てる, 飼う<br>화분에 예쁜 꽃을 정성껏 기르고 있어요.<br>I am growing pretty flowers in a flowerpot with care.	topik-level-2
+기름	oil; grease · dầu, mỡ · 油, オイル<br>프라이팬에 식용유 기름을 둘러요.<br>I put cooking oil around the frying pan.	topik-level-2
+기억	memory; remembrance · ký ức, trí nhớ · 記憶, 思い出<br>어릴 적 즐거운 기억이 떠올라요.<br>Fun childhood memories come to mind.	topik-level-2
+기억나다	to remember; come to mind · nhớ ra · 思い出す<br>친구의 이름이 갑자기 기억났어요.<br>My friend's name suddenly came to mind.	topik-level-2
+기온	temperature; air temperature · nhiệt độ · 気温<br>오늘 낮 기온이 어제보다 높아요.<br>Today's daytime temperature is higher than yesterday.	topik-level-2
+기자	reporter; journalist · phóng viên, nhà báo · 記者<br>신문사 기자가 사건을 취재해요.<br>The newspaper reporter covers the incident.	topik-level-2
+기차역	train station · ga tàu hỏa, nhà ga · 駅, 鉄道駅<br>기차역 앞에서 택시를 탔어요.<br>I took a taxi in front of the train station.	topik-level-2
+기침	cough; coughing · tiếng ho, cơn ho · 咳<br>목이 아프고 기침이 계속 나와요.<br>My throat hurts and coughs keep coming out.	topik-level-2
+기타	guitar · đàn ghi-ta · ギター<br>동아리에서 통기타를 배워요.<br>I learn acoustic guitar in the club.	topik-level-2
+기타	etc.; others; and so on · khác, vân vân · その他, 他<br>기타 궁금한 점은 전화하세요.<br>Call us with any other questions.	topik-level-2
+기회	opportunity; chance · cơ hội, dịp · 機会, チャンス<br>좋은 기회를 놓치지 마세요.<br>Do not miss a good opportunity.	topik-level-2
+긴장	nervousness; tension · sự căng thẳng, hồi hộp · 緊張<br>면접 보기 전에 긴장이 많이 돼요.<br>I get very nervous before the interview.	topik-level-2
+길이	length · chiều dài, độ dài · 長さ<br>바지의 길이가 너무 길어서 줄여요.<br>The length of the pants is too long, so I shorten them.	topik-level-2
+깊다	to be deep · sâu · 深い<br>이 호수는 수심이 아주 깊어요.<br>This lake has very deep water.	topik-level-2
+까만색	black (color) · màu đen · 黒, 黒色<br>머리를 까만색으로 염색했어요.<br>I dyed my hair black.	topik-level-2
+까맣다	to be black · đen · 黒い<br>밤하늘이 까맣고 별이 빛나요.<br>The night sky is black and stars shine.	topik-level-2
+깜짝	with surprise; surprisingly · giật mình, bất ngờ · びっくり, はっと<br>큰 소리에 깜짝 놀랐어요.<br>I was startled by the loud sound.	topik-level-2
+깨끗이	cleanly; neatly · sạch sẽ, gọn gàng · きれいに, 清潔に<br>식사 전에 손을 깨끗이 씻어요.<br>I wash my hands cleanly before eating.	topik-level-2
+깨다	sober up · tỉnh giấc, vỡ · 目覚める, 割る<br>아침 일찍 알람 소리에 잠을 깼어요.<br>I woke up from sleep early in the morning to the alarm.	topik-level-2
+꺼내다	to take out; to pull out · lấy ra, rút ra · 取り出す, 出す<br>가방에서 필통과 노트를 꺼냈어요.<br>I took a pencil case and notebook out of the bag.	topik-level-2
+껌	chewing gum · kẹo cao su · ガム<br>식사 후에 상쾌한 박하 껌을 씹어요.<br>I chew refreshing mint gum after a meal.	topik-level-2
+꽃다발	bouquet of flowers · bó hoa · 花束<br>졸업식에서 예쁜 꽃다발을 받았어요.<br>I received a pretty bouquet at the graduation ceremony.	topik-level-2
+꽃병	flower vase · lọ hoa, bình hoa · 花瓶<br>식탁 위 꽃병에 장미를 꽂았어요.<br>I arranged roses in the vase on the dining table.	topik-level-2
+꽃집	flower shop; florist · tiệm hoa, cửa hàng hoa · 花屋<br>어버이날에 꽃집에서 카네이션을 샀어요.<br>I bought carnations at the flower shop on Parents' Day.	topik-level-2
+꿈	dream · giấc mơ, ước mơ · 夢<br>어젯밤에 아주 신기한 꿈을 꿨어요.<br>Last night I had a very marvelous dream.	topik-level-2
+끓다	boil · sôi · 沸く, 煮える<br>냄비에서 물이 보글보글 끓어요.<br>Water boils bubbling in the pot.	topik-level-2
+끓이다	to boil; to brew · đun sôi, nấu · 沸かす, 煮る<br>점심으로 따뜻한 라면을 끓여요.<br>I cook warm ramen for lunch.	topik-level-2
+나머지	rest; remainder · phần còn lại, còn lại · 残り, 余り<br>일부를 내고 나머지 돈을 갚았어요.<br>I paid part and repaid the rest of the money.	topik-level-2
+나타나다	to appear; to show up · xuất hiện, hiện ra · 現れる, 出てくる<br>골목 끝에서 고양이가 나타났어요.<br>A cat appeared at the end of the alley.	topik-level-2
+나흘	four days · bốn ngày · 四日, 四日間<br>나흘 동안 제주도를 여행했어요.<br>I traveled Jeju Island for four days.	topik-level-2
+낚시	fishing · câu cá · 釣り<br>주말에 아버지와 바다낚시를 가요.<br>I go sea fishing with my father on weekends.	topik-level-2
+날다	fly · bay · 飛ぶ<br>새들이 푸른 하늘을 자유롭게 날아요.<br>Birds fly freely in the blue sky.	topik-level-2
+날씬하다	slim; slender · thon thả, mảnh mai · すらりとしている, ほっそりしている<br>꾸준히 운동해서 몸이 날씬해요.<br>I exercise steadily so my body is slim.	topik-level-2
+남기다	to leave behind · để lại, để thừa · 残す<br>음식을 남기지 않고 다 먹었어요.<br>I ate everything without leaving any food.	topik-level-2
+남녀	men and women; both sexes · nam nữ · 男女<br>남녀노소 누구나 즐길 수 있는 축제예요.<br>It is a festival anyone can enjoy regardless of age or sex.	topik-level-2
+남성	male; man · nam giới, đàn ông · 男性<br>백화점 오 층에 남성복 매장이 있어요.<br>There is a menswear shop on the fifth floor of the department store.	topik-level-2
+남쪽	south; southward · phía nam, hướng nam · 南, 南側<br>남쪽 지방은 겨울에도 날씨가 따뜻해요.<br>The southern region has warm weather even in winter.	topik-level-2
+남학생	male student · nam sinh, học sinh nam · 男子学生, 男子生徒<br>운동장에서 남학생들이 축구를 해요.<br>Male students play soccer in the schoolyard.	topik-level-2
+낮잠	nap; daytime sleep · giấc ngủ trưa, ngủ trưa · 昼寝<br>주말 오후에 달콤한 낮잠을 잤어요.<br>I took a sweet nap on the weekend afternoon.	topik-level-2
+내과	internal medicine · khoa nội · 内科<br>배가 아파서 동네 내과에 다녀왔어요.<br>My stomach hurt so I visited the local clinic.	topik-level-2
+내려가다	to go down; to head down · đi xuống · 降りていく, 下りる<br>계단을 조심해서 천천히 내려가세요.<br>Please go down the stairs carefully and slowly.	topik-level-2
+내려오다	to come down · xuống đây, đi xuống · 降りてくる, 下りてくる<br>산꼭대기에서 아래로 내려왔어요.<br>I came down from the mountain top to below.	topik-level-2
+냄비	pot; pan · cái nồi, nồi · 鍋<br>냄비에 된장찌개를 끓여요.<br>I boil soybean paste stew in a pot.	topik-level-2
+냄새	smell; odor · mùi, mùi hương · 匂い, 臭い<br>부엌에서 맛있는 찌개 냄새가 나요.<br>There is a delicious smell of stew from the kitchen.	topik-level-2
+냉장고	refrigerator; fridge · tủ lạnh · 冷蔵庫<br>우유를 시원하게 냉장고에 넣어요.<br>I put milk in the refrigerator to keep it cool.	topik-level-2
+너희	you (plural); you guys · các bạn, chúng mày · お前たち, あなたたち<br>너희 오늘 방과 후에 뭐 해?<br>What are you guys doing after school today?	topik-level-2
+넘다	to cross; to exceed · vượt qua, quá · 越える, 過ぎる<br>수업 시간이 한 시간을 넘었어요.<br>The class time exceeded one hour.	topik-level-2
+넥타이	necktie; tie · cà vạt · ネクタイ<br>정장에 파란색 넥타이를 맸어요.<br>I wore a blue necktie with the suit.	topik-level-2
+넷째	fourth; 4th · thứ tư · 四番目, 第四<br>넷째 줄에 앉아서 수업을 들어요.<br>I sit in the fourth row and take the class.	topik-level-2
+노란색	yellow (color) · màu vàng · 黄色<br>노란색 우산을 쓰고 길을 걸어요.<br>I walk the street holding a yellow umbrella.	topik-level-2
+노인	elderly person; senior · người già, người cao tuổi · 老人, 高齢者<br>버스에서 노인에게 자리를 양보해요.<br>I yield my seat to an elderly person on the bus.	topik-level-2
+노트	notebook · vở, sổ tay · ノート<br>수업 내용을 노트에 꼼꼼히 적어요.<br>I meticulously write down class contents in the notebook.	topik-level-2
+녹색	green (color) · màu xanh lá cây · 緑, 緑色<br>신호등이 녹색으로 바뀌었어요.<br>The traffic light turned green.	topik-level-2
+녹차	green tea · trà xanh · 緑茶<br>따뜻한 녹차를 한잔 마시며 쉬어요.<br>I rest while drinking a warm cup of green tea.	topik-level-2
+농담	joke; kidding · lời nói đùa, trò đùa · 冗談<br>친구의 재미있는 농담에 크게 웃었어요.<br>I laughed loudly at my friend's funny joke.	topik-level-2
+눈물	tears · nước mắt · 涙<br>슬픈 영화를 보고 눈물을 흘렸어요.<br>I shed tears after watching a sad movie.	topik-level-2
+느끼다	feel; perceive; sense · cảm thấy, nhận thấy · 感じる, 覚える<br>가을이 오니 아침에 쌀쌀함을 느껴요.<br>As autumn comes, I feel chilliness in the morning.	topik-level-2
+느리다	to be slow · chậm, chậm chạp · 遅い, 鈍い<br>인터넷 속도가 너무 느려서 답답해요.<br>The internet speed is too slow, so I feel frustrated.	topik-level-2
+늘다	to increase; to grow · tăng lên, tăng · 増える, 伸びる<br>한국어 말하기 실력이 많이 늘었어요.<br>My Korean speaking skills improved a lot.	topik-level-2
+늙다	to grow old; age · già đi, già · 老いる, 年をとる<br>세월이 흘러 사람들은 누구나 늙어요.<br>As time flows, anyone grows old.	topik-level-2
+능력	ability; capability · năng lực, khả năng · 能力<br>외국어 능력을 키우려고 공부해요.<br>I study to develop foreign language capability.	topik-level-2
+다섯째	fifth; 5th · thứ năm · 五番目, 第五<br>다섯째 날에 여행을 마쳤어요.<br>I finished the trip on the fifth day.	topik-level-2
+다양	diversity; variety · sự đa dạng · 多様<br>서점에 다양한 분야의 책이 많아요.<br>There are many books of various fields in the bookstore.	topik-level-2
+다음날	next day; following day · ngày hôm sau, ngày sau · 翌日, 次の日<br>시험을 치고 다음날 푹 쉬었어요.<br>I took the exam and rested well the following day.	topik-level-2
+다이어트	dieting to lose weight; diet · ăn kiêng, giảm cân · ダイエット<br>건강을 위해 매일 다이어트를 해요.<br>I go on a diet every day for health.	topik-level-2
+다치다	be injured · bị thương, bị đau · 怪我をする, 痛める<br>축구를 하다가 다리를 다쳤어요.<br>I injured my leg while playing soccer.	topik-level-2
+다하다	to exhaust; to fulfill · hết, tận lực · 尽きる, 尽くす<br>모든 일에 최선을 다해요.<br>I do my best in everything.	topik-level-2
+달걀	egg · trứng gà, trứng · 卵, 鶏卵<br>아침 식사로 달걀 프라이를 먹어요.<br>I eat fried eggs for breakfast.	topik-level-2
+달력	calendar · lịch, tờ lịch · カレンダー, 暦<br>벽에 새해 달력을 걸었어요.<br>I hung a new year calendar on the wall.	topik-level-2
+달리기	running · chạy bộ, môn chạy · 走ること, かけっこ<br>아침마다 공원에서 달리기를 해요.<br>I do running in the park every morning.	topik-level-2
+닭	chicken / hen / rooster · con gà, gà · 鶏, ニワトリ<br>시골 마당에서 닭이 울어요.<br>A rooster crows in the countryside yard.	topik-level-2
+닭고기	chicken meat · thịt gà · 鶏肉<br>닭고기를 넣고 카레를 만들어요.<br>I make curry with chicken meat.	topik-level-2
+닮다	to resemble; look like · giống, giống như · 似る, 似通う<br>저는 성격이 아버지를 많이 닮았어요.<br>My personality resembles my father a lot.	topik-level-2
+답	answer; response · câu trả lời, đáp án · 答え, 解答<br>선생님의 질문에 바른 답을 해요.<br>I give the correct answer to the teacher's question.	topik-level-2
+답답하다	to stifling; suffocating · ngột ngạt, bức bối · 息苦しい, もどかしい<br>방 안의 공기가 탁해서 답답해요.<br>The air in the room is dusty so it feels stuffy.	topik-level-2
+대	generation; unit counter · chiếc · 台<br>주차장에 자동차 열 대가 있어요.<br>There are ten cars in the parking lot.	topik-level-2
+대구	cod · Daegu, cá tuyết · 大邱, タラ<br>대구는 여름에 날씨가 무척 더워요.<br>Daegu is very hot in summer.	topik-level-2
+대부분	most; majority · phần lớn, hầu hết · 大部分, 大半<br>학생들 대부분이 수업에 참석했어요.<br>Most of the students attended the class.	topik-level-2
+대전	Daejeon · Daejeon · 大田, テジョン<br>기차를 타고 서울에서 대전까지 가요.<br>I take a train from Seoul to Daejeon.	topik-level-2
+대학원	graduate school · trường cao học, cao học · 大学院<br>대학교를 졸업하고 대학원에 진학해요.<br>After graduating college, I advance to graduate school.	topik-level-2
+대회	competition; contest · đại hội, cuộc thi · 大会<br>한국어 말하기 대회에 참가했어요.<br>I participated in the Korean speech contest.	topik-level-2
+더럽다	to be dirty; to be foul · bẩn, dơ · 汚い<br>손이 더러우니 비누로 깨끗이 씻어요.<br>My hands are dirty, so I wash them cleanly with soap.	topik-level-2
+더욱	more and more; further · càng, hơn nữa · ますます, さらに<br>날씨가 추워지니 건강에 더욱 주의하세요.<br>As the weather gets cold, take more care of health.	topik-level-2
+던지다	to throw; cast · ném, quăng · 投げる<br>운동장에서 친구에게 공을 던져요.<br>I throw the ball to my friend in the yard.	topik-level-2
+데려가다	to take (someone along) · dẫn đi, đưa đi · 連れていく<br>주말에 아이를 데려가서 신나게 놀았어요.<br>I took my child along and had fun on the weekend.	topik-level-2
+데려오다	to bring (someone) · dẫn đến, đưa đến · 連れてくる<br>집에 친한 친구를 데려왔어요.<br>I brought a close friend to my house.	topik-level-2
+데이트	date; romantic outing · hẹn hò · デート<br>주말에 남자 친구와 영화관 데이트를 해요.<br>I go on a movie theater date with my boyfriend on the weekend.	topik-level-2
+도로	road; street · con đường, lại · 道路, 再び<br>도로에 차들이 빽빽하게 서 있어요.<br>Cars are densely stopped on the road.	topik-level-2
+도시	city · thành phố, đô thị · 都市, 都会<br>서울은 인구가 많은 큰 도시예요.<br>Seoul is a large city with a big population.	topik-level-2
+독서	reading · đọc sách · 読書<br>주말에 도서관에서 독서를 즐겨요.<br>I enjoy reading at the library on weekends.	topik-level-2
+돈가스	pork cutlet; tonkatsu · thịt heo chiên xù, tonkatsu · とんかつ, トンカツ<br>점심으로 바삭한 돈가스를 먹었어요.<br>I ate crispy pork cutlet for lunch.	topik-level-2
+돌	dol; first birthday · hòn đá, thôi nôi · 石, 初誕生日<br>시냇물에 예쁜 조약돌이 많아요.<br>There are many pretty pebbles in the stream.	topik-level-2
+돌다	to turn; to spin · quay, xoay · 回る, 回転する<br>사거리에서 오른쪽으로 도세요.<br>Please turn to the right at the intersection.	topik-level-2
+돌리다	to turn; to spin · quay, xoay · 回す, 回転させる<br>주말에 세탁기를 돌려 빨래해요.<br>I run the washing machine to do laundry on the weekend.	topik-level-2
+동네	neighborhood; village · khu xóm, làng xóm · 近所, 町内<br>동네 골목길을 조용히 산책해요.<br>I quietly take a walk along neighborhood alleys.	topik-level-2
+동물	animal · động vật · 動物<br>강아지와 고양이 같은 동물을 좋아해요.<br>I like animals like puppies and cats.	topik-level-2
+동물원	zoo · vườn bách thú, sở thú · 動物園<br>주말에 가족과 동물원에 놀러 가요.<br>I go on an outing to the zoo with my family on the weekend.	topik-level-2
+동시	same time; simultaneous · đồng thời, cùng lúc · 同時<br>두 사람이 동시에 문을 열었어요.<br>Two people opened the door at the same time.	topik-level-2
+동쪽	east; eastward · phía đông, hướng đông · 東, 東側<br>해는 아침에 동쪽에서 떠요.<br>The sun rises from the east in the morning.	topik-level-2
+돼지	pig · con lợn, con heo · 豚<br>농장에서 아기 돼지들이 뛰어놀아요.<br>Piglets run and play on the farm.	topik-level-2
+된장	soybean paste · tương đậu, doenjang · テンジャン, 味噌<br>항아리에 담근 된장 맛이 깊어요.<br>The soybean paste aged in the jar has deep flavor.	topik-level-2
+두부	tofu; bean curd · đậu phụ, đậu hũ · 豆腐<br>마트에서 신선한 두부 한 모를 샀어요.<br>I bought a block of fresh tofu at the mart.	topik-level-2
+두세	a couple of · hai ba, vài · 二三の, 二つ三つの<br>사과 두세 개만 사 오세요.<br>Please buy and bring just two or three apples.	topik-level-2
+두통	headache · đau đầu, chứng đau đầu · 頭痛<br>심한 두통 때문에 약을 먹었어요.<br>I took medicine because of a severe headache.	topik-level-2
+둘째	second; 2nd · thứ hai · 二番目, 第二<br>둘째 줄에서 친구를 기다려요.<br>I wait for my friend in the second row.	topik-level-2
+뒤쪽	back; rear · phía sau, đằng sau · 後ろ, 後方<br>건물 뒤쪽에 주차장이 있어요.<br>There is a parking lot at the back of the building.	topik-level-2
+들르다	drop by · ghé qua, tạt qua · 立ち寄る, 寄る<br>퇴근길에 마트에 잠시 들렀어요.<br>I dropped by the mart on the way home from work.	topik-level-2
+등	and the like; etc. · vân vân, lưng · など, 背中<br>사과, 배 등의 과일을 샀어요.<br>I bought fruits such as apples, pears, and the like.	topik-level-2
+디자인	design · thiết kế · デザイン<br>이 신발은 디자인이 아주 깔끔해요.<br>These shoes have a very neat design.	topik-level-2
+땀	sweat; perspiration · mồ hôi · 汗<br>열심히 운동해서 땀을 흠뻑 흘렸어요.<br>I exercised hard and sweated profusely.	topik-level-2
+땅	land; ground · đất, mặt đất · 土地, 地面<br>비가 내려서 마른 땅을 적셔요.<br>Rain falls and wets the dry ground.	topik-level-2
+떡	rice cake · bánh gạo, tteok · 餅, トック<br>명절에 가족들과 쫄깃한 떡을 먹어요.<br>I eat chewy rice cakes with family on holidays.	topik-level-2
+떡국	rice cake soup; tteokguk · canh bánh gạo, tteokguk · トックク, 餅スープ<br>새해 첫날 아침에 따뜻한 떡국을 먹어요.<br>I eat warm rice cake soup on the morning of New Year's Day.	topik-level-2
+떨어지다	to fall; to drop · rơi, rớt · 落ちる<br>가을이 되자 나뭇잎이 바닥에 떨어져요.<br>As autumn comes, tree leaves fall to the ground.	topik-level-2
+똑같이	equally; exactly the same · như nhau, giống nhau · 同じく, 同様に<br>케이크를 세 조각으로 똑같이 나눠요.<br>We divide the cake equally into three slices.	topik-level-2
+똑똑하다	to be smart; clever · thông minh, sáng dạ · 賢い, 利口だ<br>그 아이는 똑똑해서 책을 잘 읽어요.<br>That child is smart, so they read books well.	topik-level-2
+똑바로	straight; upright · thẳng, ngay ngắn · まっすぐに<br>이 길을 따라 앞으로 똑바로 가세요.<br>Please go straight ahead along this street.	topik-level-2
+뚱뚱하다	fat; overweight · béo, mập · 太っている<br>뚱뚱한 체격을 줄이려고 운동해요.<br>I exercise to reduce my plump build.	topik-level-2
+뛰다	jump; hop; leap · chạy, nhảy · 走る, 跳ぶ<br>아침마다 운동장에서 가볍게 뛰어요.<br>I run lightly in the athletic field every morning.	topik-level-2
+뛰어가다	to run; dash · chạy đi, chạy tới · 走って行く, 駆けて行く<br>늦어서 지하철역으로 급히 뛰어갔어요.<br>I was late, so I dashed urgently to the subway station.	topik-level-2
+뜨겁다	to be hot · nóng · 熱い<br>뜨거운 국물을 천천히 식혀 먹어요.<br>I cool and eat the hot soup slowly.	topik-level-2
+뜨다	float; buoy · mở (mắt), mọc · 開ける, 昇る<br>아침에 눈을 뜨고 기지개를 켜요.<br>I open my eyes in the morning and stretch.	topik-level-2
+레스토랑	restaurant · nhà hàng · レストラン<br>기념일에 고급 레스토랑에서 외식해요.<br>We eat out at a fancy restaurant on the anniversary.	topik-level-2
+마을	village; town · làng, thôn · 村, 集落<br>조용하고 평화로운 시골 마을이에요.<br>It is a quiet and peaceful countryside village.	topik-level-2
+마중	meeting; welcoming · đón, sự đón tiếp · 出迎え<br>공항으로 친구를 마중 나갔어요.<br>I went out to the airport to meet my friend.	topik-level-2
+마지막	last; final · cuối cùng · 最後<br>올해의 마지막 날을 가족과 보내요.<br>I spend the last day of the year with family.	topik-level-2
+막걸리	makgeolli; rice wine · rượu gạo, makgeolli · マッコリ<br>비 오는 날에 파전과 막걸리를 먹어요.<br>I eat pajeon and makgeolli on rainy days.	topik-level-2
+만두	mandu; dumpling · bánh xếp, sủi cảo · 餃子, マンドゥ<br>설날에 온 가족이 모여 만두를 빚어요.<br>The whole family gathers to fold dumplings on New Year's Day.	topik-level-2
+만약	supposing · giả sử, nếu · 万一, もし<br>만약 비가 오면 약속을 미뤄요.<br>If it rains, we will postpone the appointment.	topik-level-2
+만일	if; in case · vạn nhất, ngộ nhỡ · 万一, 万が一<br>만일 시간이 없으면 내일 만나요.<br>In case you don't have time, let's meet tomorrow.	topik-level-2
+만화	comics; manga; cartoon · truyện tranh · 漫画<br>주말에 방에서 만화책을 재미있게 읽어요.<br>I enjoy reading comic books in my room on weekends.	topik-level-2
+맞추다	to adjust; to set · lắp ráp, khớp · 合わせる, 組み立てる<br>아침 일곱 시로 알람을 맞추었어요.<br>I set the alarm for seven in the morning.	topik-level-2
+매년	every year; annually · hàng năm, mỗi năm · 毎年<br>우리 가족은 매년 여름휴가를 떠나요.<br>Our family leaves for summer vacation every year.	topik-level-2
+매우	very; extremely · rất, vô cùng · とても, 非常に<br>오늘 날씨가 매우 맑고 따뜻해요.<br>Today's weather is very clear and warm.	topik-level-2
+매주	every week; weekly · hàng tuần, mỗi tuần · 毎週<br>매주 토요일마다 한국어 학원에 가요.<br>I go to Korean academy every Saturday.	topik-level-2
+매표소	ticket office; box office · quầy bán vé, phòng vé · 切符売り場, 切符売場<br>극장 매표소에서 영화 표를 샀어요.<br>I bought a movie ticket at the theater box office.	topik-level-2
+맥주	beer · bia · ビール<br>퇴근하고 시원한 캔맥주를 마셔요.<br>I drink a cold canned beer after work.	topik-level-2
+머리카락	hair (head) · tóc, sợi tóc · 髪の毛, 髪<br>미용실에서 긴 머리카락을 단정히 잘랐어요.<br>I neatly cut my long hair at the hair salon.	topik-level-2
+멀리	being far · nơi xa, xa xôi · 遠く<br>집에서 멀리 떨어진 곳으로 여행 가요.<br>I travel to a place far away from home.	topik-level-2
+멈추다	stop doing; quit · dừng lại, ngừng · 止まる, 止める<br>빨간 불에는 차를 멈추어야 해요.<br>You must stop the car on the red light.	topik-level-2
+멋	stylishness; being fashionable; being chic · phong cách, nét đẹp · おしゃれ, 粋<br>모자를 써서 한껏 멋을 부렸어요.<br>I dressed up stylishly by wearing a hat.	topik-level-2
+메다	choke up · đeo, vác · 担ぐ, 背負う<br>가벼운 배낭을 어깨에 메고 떠나요.<br>I carry a light backpack on my shoulders and leave.	topik-level-2
+메모	memo · ghi chú, mẩu ghi nhớ · メモ<br>잊어버리지 않게 수첩에 메모를 해요.<br>I write a memo in the notebook so I don't forget.	topik-level-2
+메일	mail; email · thư điện tử, email · メール<br>선생님께 감사 메일을 보냈어요.<br>I sent a thank-you email to the teacher.	topik-level-2
+명절	traditional holiday; festival · ngày lễ tết, tết · 名節, 祝日<br>추석은 한국의 대표적인 명절이에요.<br>Chuseok is a representative holiday of Korea.	topik-level-2
+모기	mosquito · con muỗi, muỗi · 蚊<br>여름밤에 모기에 물려 가려워요.<br>I got bitten by a mosquito on a summer night, so it's itchy.	topik-level-2
+모든	all; every · mọi, tất cả · すべての, あらゆる<br>모든 학생이 시험에 합격했어요.<br>All students passed the exam.	topik-level-2
+모으다	to gather; to collect · thu thập, gom góp · 集める<br>여행을 가려고 돈을 모으고 있어요.<br>I am saving money to go on a trip.	topik-level-2
+모자라다	to be short of; insufficient · thiếu, không đủ · 足りない, 不足する<br>물건을 사기에 돈이 조금 모자라요.<br>Money is a little short to buy the item.	topik-level-2
+목걸이	necklace · dây chuyền, vòng cổ · ネックレス, 首飾り<br>목에 예쁜 은 목걸이를 걸었어요.<br>I wore a pretty silver necklace on my neck.	topik-level-2
+목도리	scarf; muffler · khăn quàng cổ · マフラー<br>날씨가 쌀쌀해서 목도리를 둘렀어요.<br>The weather was chilly, so I wrapped a scarf.	topik-level-2
+목욕	bath · sự tắm gội, tắm · 入浴, お風呂<br>따뜻한 물로 목욕을 하고 나니 상쾌해요.<br>Taking a bath with warm water feels refreshing.	topik-level-2
+목적	purpose · mục đích · 目的<br>한국에 온 목적은 유학이에요.<br>My purpose for coming to Korea is studying abroad.	topik-level-2
+못생기다	to be ugly · xấu xí, không đẹp · 不細工だ, 醜い<br>얼굴이 못생겨도 마음은 착해요.<br>Even if the face is not good-looking, the heart is kind.	topik-level-2
+무게	weight · trọng lượng, sức nặng · 重さ, 重量<br>공항에서 여행 가방의 무게를 재어요.<br>I weigh the travel luggage at the airport.	topik-level-2
+무궁화	Mugunghwa; rose of Sharon · hoa mugunghwa, hoa dâm bụt kép · ムクゲ, 無窮花<br>무궁화는 한국의 나라꽃이에요.<br>Mugunghwa is Korea's national flower.	topik-level-2
+무료	free; free of charge · miễn phí · 無料<br>박물관 입장은 누구나 무료예요.<br>Museum admission is free for everyone.	topik-level-2
+무릎	knee; lap · đầu gối · 膝<br>넘어져서 무릎이 까졌어요.<br>I fell down and scraped my knee.	topik-level-2
+무척	very; extremely · rất, vô cùng · とても, 大変<br>오랜만에 친구를 만나 무척 기뻤어요.<br>Meeting my friend after a long time made me very glad.	topik-level-2
+문제	problem; issue · vấn đề, câu hỏi · 問題<br>시험 문제가 생각보다 쉬웠어요.<br>The exam questions were easier than I thought.	topik-level-2
+물고기	fish · con cá, cá · 魚<br>어항 속에서 물고기가 헤엄쳐요.<br>Fish are swimming in the fishbowl.	topik-level-2
+물론	of course · tất nhiên, đương nhiên · もちろん, 当然<br>물론 저도 그 모임에 갈게요.<br>Of course I will go to that gathering too.	topik-level-2
+미끄러지다	to slip; slide · trượt, trượt ngã · 滑る<br>눈길에서 미끄러지지 않게 조심하세요.<br>Be careful not to slip on the snowy road.	topik-level-2
+미역국	seaweed soup; miyeokguk · canh rong biển · わかめスープ<br>생일 아침에는 따뜻한 미역국을 먹어요.<br>I eat warm seaweed soup on my birthday morning.	topik-level-2
+미터	meter (unit) · mét · メートル<br>백 미터를 전속력으로 달렸어요.<br>I ran one hundred meters at full speed.	topik-level-2
+밀가루	flour; wheat flour · bột mì · 小麦粉<br>밀가루 반죽으로 부침개를 부쳐요.<br>I fry savory pancakes with flour batter.	topik-level-2
+밀다	push · đẩy · 押す<br>문을 밀고 식당 안으로 들어가요.<br>I push the door and enter the restaurant.	topik-level-2
+바깥	outside; exterior · bên ngoài, ngoài · 外, 外部<br>바깥 날씨가 아주 쌀쌀해요.<br>The weather outside is very chilly.	topik-level-2
+바깥쪽	outside; outer side · phía ngoài, bên ngoài · 外側<br>바깥쪽 창가 자리에 앉았어요.<br>I sat at the window seat on the outside.	topik-level-2
+바닷가	seaside; beach · bờ biển, bãi biển · 海岸, 浜辺<br>여름휴가 때 시원한 바닷가에 가요.<br>I go to the cool seaside on summer vacation.	topik-level-2
+바라보다	look; stare; gaze · nhìn, ngắm nhìn · 眺める, 見つめる<br>언덕에서 저녁노을을 바라봐요.<br>I gaze at the sunset glow from the hill.	topik-level-2
+바르다	to apply; smear · bôi, thoa · 塗る<br>상처 난 무릎에 연고를 바르고 쉬어요.<br>I apply ointment to my wounded knee and rest.	topik-level-2
+바이올린	violin · đàn vĩ cầm, violin · バイオリン<br>어릴 때부터 바이올린을 연주해요.<br>I have played the violin since childhood.	topik-level-2
+박수	applause; clapping · tiếng vỗ tay, tràng pháo tay · 拍手<br>공연이 끝나고 큰 박수를 쳤어요.<br>After the performance ended, I clapped loudly.	topik-level-2
+반대	opposite; opposition · phản đối, sự ngược lại · 反対<br>버스를 반대 방향에서 잘못 탔어요.<br>I mistakenly took the bus from the opposite direction.	topik-level-2
+반드시	must; certainly · nhất định, chắc chắn · 必ず<br>약속 시간은 반드시 지켜야 해요.<br>You must certainly keep the appointment time.	topik-level-2
+반바지	shorts; short pants · quần đùi, quần soóc · 半ズボン, ショートパンツ<br>여름에는 시원한 반바지를 즐겨 입어요.<br>In summer, I enjoy wearing cool shorts.	topik-level-2
+반지	ring · chiếc nhẫn, nhẫn · 指輪<br>손가락에 예쁜 금반지를 꼈어요.<br>I wore a pretty gold ring on my finger.	topik-level-2
+받아쓰다	to take dictation; write down · viết chính tả, nghe chép · 書き取る<br>선생님 말씀을 공책에 받아써요.<br>I write down the teacher's words in my notebook.	topik-level-2
+발가락	toe · ngón chân · 足の指<br>작은 신발을 신어서 발가락이 아파요.<br>My toes hurt from wearing small shoes.	topik-level-2
+발바닥	sole of foot · lòng bàn chân · 足の裏<br>오래 걸어서 발바닥이 쑤셔요.<br>The soles of my feet ache from walking long.	topik-level-2
+방금	moment ago · vừa mới, lúc nãy · たった今, 先ほど<br>친구가 방금 공항에 도착했어요.<br>My friend arrived at the airport just now.	topik-level-2
+방송국	broadcasting station · đài truyền hình, đài phát thanh · 放送局<br>친구와 라디오 방송국을 견학해요.<br>I tour the radio broadcasting station with my friend.	topik-level-2
+배드민턴	badminton · cầu lông · バドミントン<br>저녁에 공원에서 배드민턴을 쳐요.<br>I play badminton in the park in the evening.	topik-level-2
+배탈	stomachache; upset stomach; stomach upset · đau bụng, rối loạn tiêu hóa · 腹痛, 食あたり<br>찬 음식을 많이 먹어 배탈이 났어요.<br>I had an upset stomach from eating a lot of cold food.	topik-level-2
+뱀	snake · con rắn, rắn · 蛇<br>산길에서 긴 뱀을 보고 놀랐어요.<br>I was surprised to see a long snake on the mountain path.	topik-level-2
+버릇	habit · thói quen, tật · 癖, 習慣<br>손톱을 물어뜯는 버릇을 고쳐요.<br>I fix the habit of biting my nails.	topik-level-2
+번째	ordinal counter (th) · thứ, lần thứ · 番目, 回目<br>세 번째 골목에서 오른쪽으로 가세요.<br>Please go right at the third alley.	topik-level-2
+변호사	lawyer; attorney · luật sư · 弁護士<br>어려운 법률 문제를 변호사와 상담해요.<br>I consult difficult legal issues with a lawyer.	topik-level-2
+별	star · ngôi sao, sao · 星<br>밤하늘에 반짝이는 별이 아름다워요.<br>The twinkling stars in the night sky are beautiful.	topik-level-2
+병문안	visit to sick person · sự thăm bệnh, thăm người ốm · 見舞い, お見舞い<br>입원한 친구를 위해 병문안을 가요.<br>I go on a hospital visit for my hospitalized friend.	topik-level-2
+보라색	purple (color) · màu tím · 紫色, 紫<br>예쁜 보라색 원피스를 샀어요.<br>I bought a pretty purple dress.	topik-level-2
+보이다	to be seen; to show · trông thấy, cho xem · 見える, 見せる<br>창밖으로 푸른 바다가 잘 보여요.<br>The blue ocean is clearly seen outside the window.	topik-level-2
+복습	review · sự ôn tập, ôn bài · 復習<br>수업 후에 배운 내용을 복습해요.<br>I review the learned content after class.	topik-level-2
+볶다	to stir-fry; roast · xào, rang · 炒める, 煎る<br>프라이팬에 고기와 야채를 볶아요.<br>I stir-fry meat and vegetables in the frying pan.	topik-level-2
+볶음밥	fried rice · cơm chiên, cơm rang · チャーハン, 炒めご飯<br>점심으로 김치볶음밥을 만들어 먹어요.<br>I make and eat kimchi fried rice for lunch.	topik-level-2
+뵙다	to see; meet (hon.) · gặp, bái kiến · お目にかかる, お会いする<br>선생님을 오랜만에 찾아뵙고 인사해요.<br>I visit and greet my teacher after a long time.	topik-level-2
+부끄럽다	to be shy; to be ashamed · xấu hổ, ngượng ngùng · 恥ずかしい<br>사람들 앞에서 발표하니 부끄러워요.<br>I feel shy presenting in front of people.	topik-level-2
+부부	married couple · vợ chồng · 夫婦<br>두 사람은 금실 좋은 부부예요.<br>The two are a happily married couple.	topik-level-2
+부분	part · bộ phận, phần · 部分<br>어려운 부분은 다시 질문하세요.<br>Please ask again about difficult parts.	topik-level-2
+부인	wife / lady · phu nhân, vợ · 夫人, 妻<br>김 선생님의 부인을 파티에서 만났어요.<br>I met Teacher Kim's wife at the party.	topik-level-2
+부자	rich person · người giàu, cha con · 金持ち, 富豪<br>그 사람은 동네에서 소문난 부자예요.<br>That person is a well-known rich person in town.	topik-level-2
+부장	department head; division head · trưởng phòng · 部長<br>부장님께 결재 서류를 올렸어요.<br>I submitted the approval document to the department head.	topik-level-2
+부족	shortage; lack · sự thiếu hụt, thiếu thốn · 不足<br>수면 부족으로 아침에 피곤해요.<br>I feel tired in the morning due to lack of sleep.	topik-level-2
+부지런하다	diligent; hard-working · chăm chỉ, siêng năng · 勤勉だ, まめだ<br>아침 일찍 일어나는 부지런한 사람이에요.<br>He is a diligent person who wakes up early in the morning.	topik-level-2
+부치다	be beyond one's capacity · gửi, rán · 送る, 焼く<br>우체국에 가서 편지를 부쳤어요.<br>I went to the post office and sent a letter.	topik-level-2
+북쪽	north · phía bắc, hướng bắc · 北, 北側<br>나침반 바늘이 항상 북쪽을 가리켜요.<br>The compass needle always points north.	topik-level-2
+분명하다	clear; distinct · rõ ràng, minh bạch · 明確だ, 明らかだ<br>그 학생은 한국어 발음이 분명해요.<br>That student's Korean pronunciation is distinct.	topik-level-2
+분식	snack food; flour-based food · món ăn nhẹ, món bột · 粉食, 軽食<br>점심에 분식집에서 떡볶이를 먹어요.<br>I eat tteokbokki at the snack bar for lunch.	topik-level-2
+분위기	mood · bầu không khí, không khí · 雰囲気<br>이 카페는 분위기가 아주 아늑해요.<br>This cafe has a very cozy atmosphere.	topik-level-2
+분홍색	pink (color) · màu hồng · ピンク色, 桃色<br>봄에는 화사한 분홍색 옷을 입어요.<br>I wear bright pink clothes in spring.	topik-level-2
+불쌍하다	pitiful; pathetic · đáng thương, tội nghiệp · 可哀相だ, 哀れだ<br>비 맞은 길고양이가 불쌍해 보여요.<br>The stray cat in the rain looks pitiful.	topik-level-2
+불안	anxiety; unease · sự bất an, lo lắng · 不安<br>시험 날짜가 다가와서 불안을 느껴요.<br>I feel anxiety as the exam date approaches.	topik-level-2
+불편	inconvenience · sự bất tiện · 不便<br>신발이 작아서 걷기 불편해요.<br>The shoes are small so it is uncomfortable to walk.	topik-level-2
+붉다	to be red · đỏ, ửng đỏ · 赤い<br>저녁노을이 붉게 물들었어요.<br>The sunset glow was dyed crimson.	topik-level-2
+블라우스	blouse · áo sơ mi nữ, áo blouse · ブラウス<br>면접 볼 때 단정한 흰 블라우스를 입어요.<br>I wear a neat white blouse for the interview.	topik-level-2
+비다	to be empty · trống, rỗng · 空く<br>버스에 빈자리가 있어서 앉았어요.<br>There was an empty seat on the bus, so I sat down.	topik-level-2
+비디오	video · video, băng hình · ビデオ<br>주말에 재미있는 비디오를 보았어요.<br>I watched an entertaining video on the weekend.	topik-level-2
+비밀	secret; covertness · bí mật · 秘密<br>친구와 둘만의 소중한 비밀을 나눠요.<br>I share a precious secret between the two of us.	topik-level-2
+빌딩	building · tòa nhà, cao ốc · ビル, ビルディング<br>도심에 높은 고층 빌딩이 많아요.<br>There are many high skyscraper buildings downtown.	topik-level-2
+빠지다	to fall into; to escape · rơi vào, rụng · 落ちる, 抜ける<br>재미있는 소설책에 푹 빠졌어요.<br>I was deeply absorbed in the interesting novel.	topik-level-2
+빨간색	red (color) · màu đỏ · 赤色, 赤<br>빨간색 사과가 아주 달콤해요.<br>The red apple is very sweet.	topik-level-2
+빵집	bakery · tiệm bánh mì, tiệm bánh · パン屋<br>동네 빵집에서 갓 구운 식빵을 샀어요.<br>I bought freshly baked loaf bread at the neighborhood bakery.	topik-level-2
+빼다	to subtract; to remove · rút ra, trừ · 抜く, 引く<br>십에서 삼을 빼면 칠이 돼요.<br>If you subtract three from ten, it becomes seven.	topik-level-2
+뽑다	pull; pick; pluck · nhổ, chọn · 抜く, 選ぶ<br>은행에서 대기 번호표를 뽑아요.<br>I pull a waiting ticket at the bank.	topik-level-2
+사거리	crossroads; intersection · ngã tư · 交差点, 四つ角<br>사거리 신호등 앞에서 차를 세워요.<br>I stop the car in front of the intersection traffic light.	topik-level-2
+사계절	four seasons · bốn mùa · 四季<br>한국은 사계절 풍경이 다 달라요.<br>Korea's four season sceneries are all different.	topik-level-2
+사업	business; project · sự nghiệp, kinh doanh · 事業, ビジネス<br>아버지께서는 무역 사업을 하세요.<br>My father runs a trading business.	topik-level-2
+사이즈	size; measurement · kích cỡ, cỡ · サイズ<br>이 신발은 제 발에 사이즈가 딱 맞아요.<br>These shoes fit my size perfectly.	topik-level-2
+사장	president; chief executive · giám đốc, tổng giám đốc · 社長<br>우리 회사 사장님은 아주 친절하세요.<br>Our company CEO is very kind.	topik-level-2
+사탕	candy · kẹo, viên kẹo · 飴, キャンディー<br>달콤한 박하사탕을 입에 물어요.<br>I hold a sweet mint candy in my mouth.	topik-level-2
+사흘	three days · ba ngày · 三日<br>사흘 동안 부산 여행을 다녀왔어요.<br>I went on a trip to Busan for three days.	topik-level-2
+삼거리	three-way intersection · ngã ba · 三叉路, 三つ辻<br>삼거리 모퉁이에 작은 편의점이 있어요.<br>There is a small convenience store on the corner of the three-way intersection.	topik-level-2
+삼겹살	pork belly; samgyeopsal · thịt ba chỉ nướng, thịt ba chỉ · サムギョプサル, 豚バラ肉<br>퇴근하고 동료들과 삼겹살을 구워 먹어요.<br>I grill and eat pork belly with colleagues after work.	topik-level-2
+상	good; top · giải thưởng, bàn · 賞, お膳<br>말하기 대회에서 일등 상을 받았어요.<br>I received the first prize in the speech contest.	topik-level-2
+상처	wound; scar · vết thương, sự tổn thương · 傷, 傷口<br>넘어져서 무릎에 작은 상처가 났어요.<br>I fell down and got a small wound on my knee.	topik-level-2
+상추	lettuce · rau xà lách · サンチュ, レタス<br>신선한 상추에 고기를 싸서 먹어요.<br>I wrap meat in fresh lettuce and eat it.	topik-level-2
+상품	product; merchandise · hàng hóa, sản phẩm · 商品<br>백화점에 다양한 인기 상품이 진열돼요.<br>Various popular products are displayed in the department store.	topik-level-2
+새롭다	to be new; to be fresh · mới, mới mẻ · 新しい<br>새 학기가 되니 모든 것이 새로워요.<br>As the new semester begins, everything feels new.	topik-level-2
+새벽	dawn; early morning · sáng sớm, rạng sáng · 夜明け, 早朝<br>새벽 공기가 맑고 시원해요.<br>The dawn air is clear and cool.	topik-level-2
+새해	new year · năm mới · 新年, 新しい年<br>새해 복 많이 받으세요.<br>Happy New Year.	topik-level-2
+색	color; tint; hue · màu sắc, màu · 色<br>가장 좋아하는 색이 무엇이에요?<br>What is your favorite color?	topik-level-2
+샌드위치	sandwich · bánh sandwich · サンドイッチ<br>아침 식사로 햄 샌드위치를 만들어요.<br>I make a ham sandwich for breakfast.	topik-level-2
+생각나다	to come to mind; remember · nhớ ra, nghĩ ra · 思い出す, 思い浮かぶ<br>좋은 아이디어가 갑자기 생각났어요.<br>A good idea suddenly came to mind.	topik-level-2
+서너	three or four · ba bốn, ba bốn cái · 三四の, 三つ四つの<br>서너 명의 친구들과 함께 모였어요.<br>I gathered together with three or four friends.	topik-level-2
+서비스	something extra for free; on the house; service · dịch vụ, đồ tặng kèm · サービス<br>이 식당은 고객 서비스가 친절해요.<br>This restaurant's customer service is kind.	topik-level-2
+서양	the West; Western world · phương Tây · 西洋<br>서양 문화와 동양 문화는 서로 달라요.<br>Western culture and Eastern culture are different from each other.	topik-level-2
+서쪽	west · phía tây, hướng tây · 西, 西側<br>해가 저녁에 서쪽으로 져요.<br>The sun sets in the west in the evening.	topik-level-2
+섞다	to mix; to blend · trộn, pha trộn · 混ぜる<br>비빔밥을 숟가락으로 골고루 섞어요.<br>I mix the bibimbap evenly with a spoon.	topik-level-2
+선배	senior · tiền bối, đàn anh · 先輩<br>학교 선배가 대학 생활을 조언해 줘요.<br>My school senior gives advice on college life.	topik-level-2
+선수	athlete; player · vận động viên, cầu thủ · 選手<br>축구 선수가 멋진 골을 넣었어요.<br>The soccer player scored a wonderful goal.	topik-level-2
+선풍기	electric fan · quạt máy, quạt điện · 扇風機<br>더운 날씨에 시원한 선풍기를 틀어요.<br>I turn on the cool electric fan in hot weather.	topik-level-2
+설날	Lunar New Year's Day · Tết Nguyên Đán, ngày Tết · 旧正月, 元日<br>설날 아침에 온 가족이 떡국을 먹어요.<br>The whole family eats rice cake soup on Lunar New Year's morning.	topik-level-2
+설렁탕	ox bone soup; seolleongtang · canh xương bò, seolleongtang · ソルロンタン, 牛骨スープ<br>추운 날 따끈한 설렁탕을 먹어요.<br>I eat steaming ox bone soup on a cold day.	topik-level-2
+설탕	sugar · đường · 砂糖<br>커피에 달콤한 설탕을 한 스푼 넣어요.<br>I put a spoonful of sweet sugar in my coffee.	topik-level-2
+섬	straw sack · hòn đảo, đảo · 島<br>배를 타고 아름다운 섬으로 여행을 가요.<br>I go on a trip to a beautiful island by boat.	topik-level-2
+섭섭하다	to sorry; regrettable · tiếc nuối, buồn bã · 名残惜しい, 寂しい<br>친구가 떠나니 마음이 섭섭해요.<br>My heart feels sad because my friend is leaving.	topik-level-2
+성	family name; surname · họ, giới tính · 姓, 性別<br>서류에 성과 이름을 정확히 적으세요.<br>Please write your surname and given name accurately on the document.	topik-level-2
+성격	personality; character · tính cách · 性格<br>제 친구는 성격이 밝고 활발해요.<br>My friend has a bright and lively personality.	topik-level-2
+성공	success · sự thành công, thành công · 成功<br>꾸준한 노력 끝에 시험에 성공했어요.<br>I succeeded on the exam after steady effort.	topik-level-2
+성적	grade; academic record · thành tích, điểm số · 成績<br>열심히 공부해서 좋은 성적을 받았어요.<br>I studied hard and received good grades.	topik-level-2
+세계	world; globe · thế giới · 世界<br>방학 동안 세계 여러 나라를 여행해요.<br>I travel to various countries around the world during vacation.	topik-level-2
+세배	New Year's bow · lạy mừng tuổi, lạy chúc tết · 新年の挨拶, 歳拝<br>설날 아침에 부모님께 세배를 드려요.<br>I make a New Year's bow to my parents on Lunar New Year's morning.	topik-level-2
+세상	world; society · thế giới, cõi đời · 世の中, 世界<br>이 세상에는 아름다운 곳이 참 많아요.<br>There are really many beautiful places in this world.	topik-level-2
+세우다	to establish; to set up · dựng lên, dừng lại · 立てる, 止める<br>길가에 차를 안전하게 세워요.<br>I stop the car safely on the roadside.	topik-level-2
+세탁	washing; laundry · sự giặt giũ, giặt · 洗濯<br>더러워진 옷을 모아 세탁을 해요.<br>I collect dirty clothes and do the laundry.	topik-level-2
+세탁기	washing machine · máy giặt · 洗濯機<br>세탁기에 세제와 빨래를 넣어요.<br>I put detergent and laundry into the washing machine.	topik-level-2
+센티미터	centimeter · xentimét, cm · センチメートル, センチ<br>키가 작년보다 오 센티미터 컸어요.<br>My height grew five centimeters more than last year.	topik-level-2
+셋째	third; 3rd · thứ ba · 三番目, 三つ目<br>셋째 아들이 학교에 입학해요.<br>The third son enters school.	topik-level-2
+소고기	beef · thịt bò · 牛肉<br>저녁으로 맛있는 소고기 불고기를 먹어요.<br>I eat delicious beef bulgogi for dinner.	topik-level-2
+소설	soseol · tiểu thuyết · 小説<br>주말에 재미있는 한국 소설을 읽어요.<br>I read an interesting Korean novel on the weekend.	topik-level-2
+소식	news; word · tin tức · 知らせ, 便り<br>오랜만에 친구의 반가운 소식을 들었어요.<br>I heard welcome news of my friend after a long time.	topik-level-2
+소주	soju · rượu soju · 焼酎, ソジュ<br>삼겹살을 먹을 때 소주 한 잔을 마셔요.<br>I drink a glass of soju when eating pork belly.	topik-level-2
+소중하다	to be precious; to be valuable · quý giá, quý báu · 大切だ, 貴重だ<br>가족과 함께하는 시간은 아주 소중해요.<br>Time spent together with family is very precious.	topik-level-2
+소파	sofa; couch · ghế sô pha, ghế sofa · ソファー<br>거실 편안한 소파에 앉아서 쉬어요.<br>I sit and rest on the comfortable sofa in the living room.	topik-level-2
+소포	parcel; package · bưu kiện, kiện hàng · 小包<br>우체국에서 고향으로 소포를 부쳤어요.<br>I sent a parcel to my hometown from the post office.	topik-level-2
+소풍	trip; picnic; outing · dã ngoại, chuyến tham quan · 遠足, ピクニック<br>날씨가 맑아서 공원으로 소풍을 가요.<br>The weather is sunny so I go on a picnic to the park.	topik-level-2
+소화제	digestive medicine · thuốc tiêu hóa · 消化剤, 胃腸薬<br>과식해서 약국에서 소화제를 샀어요.<br>I overate so I bought digestive medicine at the pharmacy.	topik-level-2
+속	inside; interior · bên trong, lòng · 中, 内側<br>가방 속에 책과 지갑이 들어 있어요.<br>Books and a wallet are inside the bag.	topik-level-2
+속도	speed; velocity · tốc độ · 速度, スピード<br>차가 빠른 속도로 도로를 달려요.<br>The car runs on the road at high speed.	topik-level-2
+속옷	underwear · đồ lót, quần áo lót · 下着<br>매일 아침에 깨끗한 속옷으로 갈아입어요.<br>I change into clean underwear every morning.	topik-level-2
+손녀	granddaughter · cháu gái · 孫娘<br>할머니께서 귀여운 손녀를 안아 주셨어요.<br>Grandmother hugged her cute granddaughter.	topik-level-2
+손바닥	palm · lòng bàn tay · 手のひら<br>박수를 치며 손바닥을 부딪쳐요.<br>I clap my hands and hit my palms together.	topik-level-2
+손수건	handkerchief · khăn tay · ハンカチ<br>가방에 항상 부드러운 손수건을 챙겨요.<br>I always pack a soft handkerchief in my bag.	topik-level-2
+수술	surgery; operation · phẫu thuật, ca mổ · 手術<br>병원에서 다리 수술을 잘 받았어요.<br>I received the leg surgery well at the hospital.	topik-level-2
+수영복	swimsuit; bathing suit · đồ bơi, áo tắm · 水着<br>수영장에서 예쁜 수영복을 입어요.<br>I wear a pretty swimsuit at the swimming pool.	topik-level-2
+수저	spoon and chopsticks · thìa đũa, muỗng đũa · スプーンと箸, 匙と箸<br>식사 전에 식탁 위에 수저를 놓아요.<br>I place spoon and chopsticks on the table before the meal.	topik-level-2
+순두부찌개	soft tofu stew · canh đậu phụ non, sundubu-jjigae · スンドゥブチゲ, 純豆腐チゲ<br>얼큰하고 따뜻한 순두부찌개를 먹어요.<br>I eat spicy and warm soft tofu stew.	topik-level-2
+술집	bar; pub · quán rượu, quán bar · 居酒屋, 酒場<br>퇴근하고 조용한 술집에서 맥주를 마셔요.<br>I drink beer at a quiet pub after work.	topik-level-2
+쉰	fifty; 50 · năm mươi · 五十<br>어머니는 올해 연세가 쉰이십니다.<br>Mother is fifty years old this year.	topik-level-2
+스스로	by oneself; voluntarily · tự mình, bản thân · 自ら, 自分自身<br>아이들이 스스로 방을 청소해요.<br>Children clean the room by themselves.	topik-level-2
+스웨터	sweater · áo len · セーター<br>추운 겨울에 따뜻한 털 스웨터를 입어요.<br>I wear a warm wool sweater in cold winter.	topik-level-2
+스카프	scarf · khăn lụa, khăn quàng · スカーフ<br>목에 실크 스카프를 예쁘게 맸어요.<br>I tied a silk scarf prettily around my neck.	topik-level-2
+스케이트	skates; ice skating · giày trượt băng, môn trượt băng · スケート<br>겨울에 아이스링크에서 스케이트를 타요.<br>I skate at the ice rink in winter.	topik-level-2
+스키장	ski resort · khu trượt tuyết · スキー場<br>겨울 방학에 친구들과 스키장에 가요.<br>I go to the ski resort with friends during winter break.	topik-level-2
+스타	star; celebrity · ngôi sao, người nổi tiếng · スター, 人気者<br>텔레비전에 인기 스타가 출연했어요.<br>A popular star appeared on television.	topik-level-2
+스트레스	stress · sự căng thẳng, stress · ストレス<br>운동을 하며 일상의 스트레스를 풀어요.<br>I relieve daily stress while exercising.	topik-level-2
+스파게티	spaghetti · mì Ý, mì spaghetti · スパゲッティ<br>점심으로 토마토 스파게티를 요리해요.<br>I cook tomato spaghetti for lunch.	topik-level-2
+스포츠	sports · thể thao · スポーツ<br>주말마다 다양한 스포츠를 즐겨요.<br>I enjoy various sports every weekend.	topik-level-2
+슬퍼하다	to grieve; feel sad · đau buồn, buồn bã · 悲しむ<br>친구가 헤어질 때 많이 슬퍼했어요.<br>My friend felt very sad when we parted.	topik-level-2
+슬픔	sadness; grief · nỗi buồn, sự buồn rầu · 悲しみ<br>음악을 들으며 마음의 슬픔을 달래요.<br>I soothe the sorrow in my heart listening to music.	topik-level-2
+시간표	timetable; schedule · thời khóa biểu, lịch trình · 時間割, 時刻表<br>새 학기 강의 시간표를 확인해요.<br>I check the new semester class timetable.	topik-level-2
+시골	countryside; rural area · vùng quê, nông thôn · 田舎<br>방학에 시골 외할머니 댁에 가요.<br>I go to my maternal grandmother's countryside home during vacation.	topik-level-2
+시끄럽다	to be noisy; loud · ồn ào · うるさい, 騒がしい<br>밖에서 공사 소리가 시끄러워요.<br>The construction noise outside is loud.	topik-level-2
+시내	downtown · nội thành, trung tâm thành phố · 市内, 市街<br>주말에 친구와 시내 중심가에 나가요.<br>I go out to downtown with my friend on the weekend.	topik-level-2
+시민	citizen · công dân, người dân · 市民<br>시민들이 공원에 모여 산책을 즐겨요.<br>Citizens gather in the park to enjoy walks.	topik-level-2
+시어머니	mother-in-law (husband's mother) · mẹ chồng · 姑, 義母<br>주말에 시어머니 댁에 인사를 드려요.<br>I pay respects at my mother-in-law's home on the weekend.	topik-level-2
+식구	family member; family · người trong nhà, thành viên gia đình · 家族, 身内<br>우리 집 식구는 모두 네 명이에요.<br>Our family members are four people in total.	topik-level-2
+식다	cool; cool down; get cold · nguội, nguội đi · 冷める<br>국이 식기 전에 따뜻할 때 드세요.<br>Please eat the soup while warm before it cools down.	topik-level-2
+식빵	loaf bread; white bread · bánh mì gối, bánh mì sandwich · 食パン<br>아침에 토스터에 식빵을 구워 먹어요.<br>I toast and eat bread in the toaster in the morning.	topik-level-2
+식초	vinegar · giấm · 酢, 食酢<br>시원한 냉면에 식초를 조금 넣어요.<br>I add a little vinegar to the cold noodles.	topik-level-2
+식품	food; grocery · thực phẩm · 食品<br>마트 식품 매장에서 장을 보아요.<br>I shop for groceries at the mart food section.	topik-level-2
+신랑	groom · chú rể · 新郎, 花婿<br>턱시도를 입은 신랑이 멋있어요.<br>The groom wearing a tuxedo looks cool.	topik-level-2
+신부	bride · cô dâu · 新婦, 花嫁<br>하얀 드레스를 입은 신부가 아름다워요.<br>The bride wearing a white dress is beautiful.	topik-level-2
+신분증	ID card; identification · chứng minh thư, giấy tờ tùy thân · 身分証明書, 身分証<br>은행에서 업무를 볼 때 신분증을 보여요.<br>I show my ID card when doing banking business.	topik-level-2
+신청	application; signing up · đăng ký, nộp đơn · 申請, 申し込み<br>인터넷으로 한국어 수업 신청을 해요.<br>I apply for Korean classes online.	topik-level-2
+신호	signal; sign · tín hiệu, dấu hiệu · 信号, サイン<br>초록색 신호가 켜지면 길을 건너요.<br>Cross the street when the green signal turns on.	topik-level-2
+신호등	traffic light · đèn giao thông, đèn tín hiệu · 信号機, 信号<br>횡단보도 앞에서 신호등을 기다려요.<br>I wait for the traffic light in front of the crosswalk.	topik-level-2
+신혼여행	honeymoon · tuần trăng mật · 新婚旅行, ハネムーン<br>결혼식 끝나고 하와이로 신혼여행을 가요.<br>After the wedding, we go on a honeymoon to Hawaii.	topik-level-2
+싣다	load; lade; freight · chở, chất lên · 積む, 載せる<br>트럭에 무거운 짐을 가득 실었어요.<br>We loaded heavy cargo fully onto the truck.	topik-level-2
+실패	failure · thất bại · 失敗<br>실패를 두려워하지 말고 도전하세요.<br>Do not fear failure and take on challenges.	topik-level-2
+심다	to plant · trồng · 植える<br>화단에 예쁜 꽃과 나무를 심어요.<br>I plant pretty flowers and trees in the flowerbed.	topik-level-2
+심하다	severe; harsh · nghiêm trọng, quá mức · ひどい, 激しい<br>감기가 심해서 병원에 다녀왔어요.<br>My cold was severe so I visited the hospital.	topik-level-2
+쌀	rice · gạo · 米<br>밥을 지으려고 쌀을 깨끗이 씻어요.<br>I wash uncooked rice cleanly to cook rice.	topik-level-2
+쌀쌀하다	to be chilly · se lạnh · 肌寒い<br>가을바람이 불어 날씨가 쌀쌀해요.<br>The autumn wind blows so the weather is chilly.	topik-level-2
+쌓다	pile; heap · chất, xếp · 積む, 重ねる<br>책상 위에 책을 높이 쌓았어요.<br>I piled up books high on the desk.	topik-level-2
+썰다	to slice; chop · thái, cắt · 切る, 刻む<br>도마 위에서 당근과 오이를 썰어요.<br>I slice carrots and cucumbers on the cutting board.	topik-level-2
+씹다	chew; masticate · nhai · 噛む<br>음식을 꼭꼭 씹어서 천천히 삼켜요.<br>I chew food thoroughly and swallow slowly.	topik-level-2
+아가씨	young lady; miss · cô gái, tiểu thư · お嬢さん, 若い女性<br>저기 친절한 아가씨가 길을 알려 줬어요.<br>That kind young lady over there showed the way.	topik-level-2
+아나운서	announcer; newscaster · phát thanh viên · アナウンサー<br>텔레비전 아나운서가 뉴스를 진행해요.<br>The TV announcer conducts the news.	topik-level-2
+아니	not · không · いいえ, いや<br>아니, 나는 그렇게 생각하지 않아.<br>No, I do not think so.	topik-level-2
+아들	son · con trai · 息子<br>우리 아들은 축구를 아주 잘해요.<br>Our son plays soccer very well.	topik-level-2
+아래쪽	lower part; bottom · phía dưới, bên dưới · 下の方, 下側<br>서류의 아래쪽에 서명을 해 주세요.<br>Please sign at the bottom of the document.	topik-level-2
+아마	maybe; likely · có lẽ, chắc là · たぶん, おそらく<br>아마 내일은 비가 그칠 거예요.<br>Maybe the rain will stop tomorrow.	topik-level-2
+아무리	no matter how · dù thế nào, dẫu sao · いくら, どんなに<br>아무리 바빠도 식사는 꼭 챙겨 드세요.<br>No matter how busy you are, make sure to eat.	topik-level-2
+아버님	father (hon.) · cha, bố · お父様, お父さん<br>친구 아버님께 정중하게 인사드렸어요.<br>I politely greeted my friend's father.	topik-level-2
+아빠	dad; daddy · bố, ba · パパ, お父さん<br>주말에 아빠와 함께 자전거를 타요.<br>I ride a bicycle with dad on the weekend.	topik-level-2
+아줌마	middle-aged woman; ajumma · cô, bác gái · おばさん<br>식당 아줌마가 반찬을 더 주셨어요.<br>The restaurant lady gave more side dishes.	topik-level-2
+악기	musical instrument · nhạc cụ · 楽器<br>피아노나 기타 같은 악기를 연주해요.<br>I play musical instruments like the piano or guitar.	topik-level-2
+안개	fog; mist · sương mù · 霧<br>아침에 짙은 안개가 끼어 있어요.<br>Thick fog is formed in the morning.	topik-level-2
+안다	embrace; hug; hold someone in one's arms · ôm · 抱く, 抱きしめる<br>엄마가 우는 아기를 따뜻하게 안아 줘요.<br>Mom warmly hugs the crying baby.	topik-level-2
+안되다	to go poorly; pitiful · không được, hỏng · うまくいかない, だめになる<br>공부가 잘 안돼서 머리를 식혀요.<br>Study isn't going well, so I take a breather.	topik-level-2
+안전	safety; security · an toàn · 安全<br>공사장에서는 항상 안전이 중요해요.<br>Safety is always important at construction sites.	topik-level-2
+안쪽	inside; inner part · phía trong, bên trong · 内側, 中<br>식당 안쪽의 조용한 자리에 앉았어요.<br>I sat at a quiet seat on the inside of the restaurant.	topik-level-2
+앞쪽	front; front side · phía trước · 前の方, 前面<br>교실 앞쪽 자리에 앉아서 공부해요.<br>I sit in the front row of the classroom to study.	topik-level-2
+애	child; kid · đứa trẻ, con nít · 子ども, 子<br>놀이터에서 애들이 신나게 놀아요.<br>Kids play excitedly in the playground.	topik-level-2
+애인	lover; partner · người yêu · 恋人<br>주말에 애인과 함께 데이트를 해요.<br>I go on a date with my partner on the weekend.	topik-level-2
+앨범	album; photo album · album, tập ảnh · アルバム<br>가족 사진 앨범을 펼쳐 보아요.<br>I open and view the family photo album.	topik-level-2
+야	hey · này · おい, やあ<br>야, 오늘 방과 후에 같이 놀자.<br>Hey, let's hang out together after school today.	topik-level-2
+야채	vegetables; greens · rau củ, rau · 野菜<br>건강을 위해 신선한 야채를 먹어요.<br>I eat fresh vegetables for health.	topik-level-2
+약간	slightly; a little · hơi, một chút · 少し, やや<br>오늘 날씨가 어제보다 약간 쌀쌀해요.<br>Today's weather is slightly chillier than yesterday.	topik-level-2
+약사	pharmacist · dược sĩ · 薬剤師<br>약사 선생님께 복용법을 들었어요.<br>I heard the dosing instructions from the pharmacist.	topik-level-2
+약하다	weak · yếu, yếu ớt · 弱い<br>몸이 약해서 감기에 자주 걸려요.<br>My body is weak so I catch colds often.	topik-level-2
+얇다	thin · mỏng · 薄い<br>여름에는 얇은 옷을 입어요.<br>I wear thin clothes in summer.	topik-level-2
+양복	suit (western style) · âu phục, bộ vest · 洋服, スーツ<br>결혼식에 갈 때 멋진 양복을 입어요.<br>I wear a stylish suit when going to a wedding.	topik-level-2
+양식	Western food / form · món Tây, phong cách · 洋食, 様式<br>점심으로 피자 같은 양식을 먹어요.<br>I eat Western food like pizza for lunch.	topik-level-2
+양식집	Western restaurant · nhà hàng món Tây · 洋食屋, レストラン<br>스파게티를 먹으러 양식집에 가요.<br>I go to a Western restaurant to eat spaghetti.	topik-level-2
+양치질	brushing one's teeth · đánh răng · 歯磨き<br>식사 후에는 깨끗하게 양치질을 해요.<br>I brush my teeth cleanly after meals.	topik-level-2
+어	uh / oh · ơ, ồ · おや, あら<br>어, 저기 친구가 걸어오고 있어요.<br>Oh, that friend is walking over there.	topik-level-2
+어깨	shoulder · vai · 肩<br>무거운 가방을 매일 메니 어깨가 아파요.<br>My shoulders hurt from carrying a heavy bag every day.	topik-level-2
+어떠하다	to be how; what like · như thế nào, ra sao · どうだ, どのような<br>그 영화 내용이 어떠했는지 말해 줘요.<br>Tell me what that movie's content was like.	topik-level-2
+어린아이	young child; toddler · trẻ nhỏ, đứa bé · 幼い子ども, 幼児<br>어린아이가 공원에서 밝게 웃어요.<br>The young child laughs brightly in the park.	topik-level-2
+어린이	child; children · trẻ em, thiếu nhi · 子ども, 児童<br>오월 오일은 어린이들을 위한 날이에요.<br>May 5th is a day for children.	topik-level-2
+어머님	mother (hon.) · mẹ, má · お母様, お母さん<br>어머님께 맛있는 음식을 차려 드렸어요.<br>I prepared delicious food for Mother.	topik-level-2
+어울리다	to match; to suit · hợp, hòa nhập · 似合う, 打ち解ける<br>새 안경이 얼굴에 참 잘 어울려요.<br>The new glasses suit your face really well.	topik-level-2
+언어	language · ngôn ngữ · 言語, 言葉<br>외국 언어를 배우는 것은 아주 재미있어요.<br>Learning a foreign language is very fun.	topik-level-2
+얻다	to gain; to obtain · nhận được, có được · 得る, もらう<br>선생님께 유익한 조언을 얻었어요.<br>I gained beneficial advice from the teacher.	topik-level-2
+얼다	freeze · đóng băng, đông lạnh · 凍る<br>추운 겨울에 강물이 꽁꽁 얼었어요.<br>The river froze solid in cold winter.	topik-level-2
+얼음	ice · băng, đá · 氷<br>유리잔에 얼음을 동동 띄워 마셔요.<br>I float ice in the glass and drink.	topik-level-2
+엄마	mom; mommy · mẹ, má · ママ, お母さん<br>엄마가 끓여 주신 된장찌개가 맛있어요.<br>The soybean paste stew mom cooked is delicious.	topik-level-2
+엉덩이	buttocks; hips · mông · お尻<br>빙판에서 넘어져 엉덩이가 아파요.<br>I slipped on the ice and my buttocks hurt.	topik-level-2
+여기저기	here and there · đây đó, khắp nơi · あちこち<br>여기저기 둘러보았어요.<br>I looked around here and there.	topik-level-2
+여성	woman; female · phụ nữ, nữ giới · 女性<br>여성 코너에서 사요.<br>I buy it in the women's section.	topik-level-2
+여쭙다	ask; inquire (honorific) · hỏi, thưa · 伺う, 申し上げる<br>선생님께 여쭈었어요.<br>I asked the teacher.	topik-level-2
+여학생	female student; schoolgirl · nữ sinh · 女子学生, 女子生徒<br>여학생 기숙사예요.<br>It is a female dormitory.	topik-level-2
+여행지	travel destination · điểm du lịch, nơi du lịch · 旅行地, 観光地<br>인기 있는 여행지예요.<br>It is a popular travel destination.	topik-level-2
+역사	history · lịch sử · 歴史<br>한국 역사를 배워요.<br>I learn Korean history.	topik-level-2
+역시	also; as well; as expected · quả nhiên, cũng · やはり, やっぱり<br>역시 여기가 맛있어요.<br>As expected, this place is delicious.	topik-level-2
+연락처	contact information · thông tin liên lạc, số liên lạc · 連絡先<br>연락처를 남겨 주세요.<br>Please leave your contact information.	topik-level-2
+연말	end of the year · cuối năm · 年末<br>연말에 모임이 많아요.<br>There are many gatherings at year-end.	topik-level-2
+연세	age (honorific) · tuổi, tuổi tác · お年, 年齢<br>할머니 연세가 많으세요.<br>Grandmother is elderly.	topik-level-2
+연예인	celebrity; entertainer · nghệ sĩ, người nổi tiếng · 芸能人<br>유명한 연예인을 봤어요.<br>I saw a famous celebrity.	topik-level-2
+연휴	consecutive holidays; long weekend · kỳ nghỉ dài, ngày nghỉ liên tiếp · 連休<br>추석 연휴에 쉬어요.<br>I rest during the Chuseok holiday.	topik-level-2
+열리다	to open; to be held; to take place · mở, tổ chức · 開く, 開かれる<br>창문이 활짝 열려요.<br>The window opens wide.	topik-level-2
+열흘	ten days · mười ngày · 十日間, 十日<br>열흘 동안 여행해요.<br>I travel for ten days.	topik-level-2
+엽서	postcard · bưu thiếp · はがき, 絵葉書<br>예쁜 엽서를 샀어요.<br>I bought a pretty postcard.	topik-level-2
+예매	advance purchase; booking · mua trước, đặt vé trước · 前売り, 予約購入<br>영화표를 예매했어요.<br>I booked a movie ticket in advance.	topik-level-2
+예순	sixty · sáu mươi · 六十<br>어머니 나이가 예순이에요.<br>My mother's age is sixty.	topik-level-2
+예술	art · nghệ thuật · 芸術<br>예술 작품을 감상해요.<br>I appreciate artworks.	topik-level-2
+예습	preview; preparation for class · chuẩn bị bài trước · 予習<br>수업 전에 예습해요.<br>I preview before class.	topik-level-2
+예약	reservation; booking · đặt trước, đặt chỗ · 予約<br>식당을 미리 예약해요.<br>I reserve a restaurant in advance.	topik-level-2
+옛	old; ancient · xưa, cũ · 昔の, 古い<br>옛 친구를 만났어요.<br>I met an old friend.	topik-level-2
+오래간만	after a long time · lâu ngày, lâu rồi · 久しぶり<br>오래간만에 친구를 만나요.<br>I meet a friend after a long time.	topik-level-2
+오래되다	to be old; to be long-standing · lâu đời, cũ · 古い, 長い<br>오래된 건물이에요.<br>It is an old building.	topik-level-2
+오랫동안	for a long time · thời gian dài, lâu dài · 長い間, 長時間<br>오랫동안 기다렸어요.<br>I waited for a long time.	topik-level-2
+오르다	to climb; to rise · lên, tăng lên · 上がる, 登る<br>물건값이 많이 올라요.<br>Prices of goods rise a lot.	topik-level-2
+오이	cucumber · dưa chuột, dưa leo · きゅうり<br>신선한 오이를 샀어요.<br>I bought fresh cucumbers.	topik-level-2
+온도	temperature · nhiệt độ · 温度<br>방 온도가 높아요.<br>The room temperature is high.	topik-level-2
+올라오다	to come up; climb up · đi lên, lên · 上がってくる, 登ってくる<br>산꼭대기에 올라왔어요.<br>I came up to the mountain peak.	topik-level-2
+올리다	to raise; to increase · nâng lên, tăng lên · 上げる, 載せる<br>가게가 값을 올렸어요.<br>The store raised prices.	topik-level-2
+올림픽	Olympic Games; Olympics · Thế vận hội, Olympic · オリンピック<br>올림픽 경기를 봐요.<br>I watch Olympic games.	topik-level-2
+옳다	right; correct; proper · đúng, đúng đắn · 正しい<br>그 생각이 옳아요.<br>That thought is right.	topik-level-2
+옷걸이	clothes hanger · móc áo, móc treo quần áo · ハンガー, 衣類掛け<br>코트를 옷걸이에 걸어요.<br>I hang my coat on the hanger.	topik-level-2
+옷장	wardrobe; closet · tủ quần áo · 洋服だんす, タンス<br>옷장을 깔끔하게 정리해요.<br>I organize the closet neatly.	topik-level-2
+와이셔츠	dress shirt; collared shirt · áo sơ mi · ワイシャツ<br>흰 와이셔츠를 입어요.<br>I wear a white dress shirt.	topik-level-2
+완전히	completely; fully · hoàn toàn · 完全に, すっかり<br>숙제를 완전히 끝냈어요.<br>I completely finished my homework.	topik-level-2
+왕	king; male monarch · vua, quốc vương · 王, 国王<br>옛날에 어진 왕이 살았어요.<br>A wise king lived long ago.	topik-level-2
+왜냐하면	because; since; by reason of · bởi vì, vì · なぜなら<br>왜냐하면 피곤해서예요.<br>Because I was tired.	topik-level-2
+외롭다	lonely; solitary · cô đơn, cô độc · 寂しい, 孤独だ<br>혼자 있어서 외로워요.<br>I feel lonely being alone.	topik-level-2
+왼손	left hand · tay trái · 左手<br>왼손을 번쩍 들어요.<br>Raise your left hand.	topik-level-2
+요금	fare; fee · tiền phí, cước phí · 料金<br>버스 요금을 내요.<br>I pay the bus fare.	topik-level-2
+요리사	cook; chef · đầu bếp · 料理人, コック<br>유명한 요리사가 만든 음식이에요.<br>It is food made by a famous chef.	topik-level-2
+우동	udon; thick wheat noodles · mì udon · うどん<br>따뜻한 우동을 먹어요.<br>I eat warm udon.	topik-level-2
+우선	first; above all · trước hết, ưu tiên · まず, 優先<br>우선 손부터 씻으세요.<br>First wash your hands.	topik-level-2
+운동복	sportswear; workout clothes · quần áo thể thao · 運動着, スポーツウェア<br>편한 운동복을 입어요.<br>I wear comfortable workout clothes.	topik-level-2
+운전사	driver; chauffeur · tài xế, người lái xe · 運転手, ドライバー<br>친절한 택시 운전사예요.<br>He is a kind taxi driver.	topik-level-2
+울산	Ulsan · Ulsan · 蔚山, ウルサン<br>울산에 공장이 많아요.<br>There are many factories in Ulsan.	topik-level-2
+울음	crying; weeping; tears · tiếng khóc · 泣き声, 泣くこと<br>아기가 울음을 그쳤어요.<br>The baby stopped crying.	topik-level-2
+움직이다	move; budge; be in motion · cử động, di chuyển · 動く, 動かす<br>몸을 천천히 움직여요.<br>Move your body slowly.	topik-level-2
+웃음	smile; laughter · nụ cười, tiếng cười · 笑い, 笑顔<br>얼굴에 웃음이 가득해요.<br>Her face is full of smiles.	topik-level-2
+원피스	one-piece dress; dress · váy liền, đầm liền · ワンピース<br>예쁜 원피스를 입었어요.<br>I wore a pretty dress.	topik-level-2
+위쪽	upper side; upper part · phía trên, bên trên · 上の方, 上側<br>위쪽을 올려다보세요.<br>Look up at the upper side.	topik-level-2
+위험	danger; risk · nguy hiểm, rủi ro · 危険<br>길에 위험이 도사려요.<br>Danger lurks on the road.	topik-level-2
+유치원	kindergarten · mẫu giáo, trường mầm non · 幼稚園<br>아이가 유치원에 가요.<br>The child goes to kindergarten.	topik-level-2
+유학생	international student; student studying abroad · du học sinh · 留学生<br>한국에 온 유학생이에요.<br>I am an international student in Korea.	topik-level-2
+유행	trend; fashion; vogue · trào lưu, thịnh hành · 流行, トレンド<br>요즘 유행하는 옷이에요.<br>These are trendy clothes these days.	topik-level-2
+육교	pedestrian overpass; footbridge · cầu vượt đi bộ, cầu vượt · 歩道橋<br>육교를 건너서 가요.<br>Cross the pedestrian bridge to go.	topik-level-2
+윷놀이	yunnori (traditional Korean board game) · trò chơi Yutnori · ユンノリ<br>설날에 윷놀이를 해요.<br>We play yunnori on New Year's Day.	topik-level-2
+음식점	restaurant; eatery · quán ăn, nhà hàng · 飲食店, 食堂<br>유명한 음식점에 갔어요.<br>I went to a famous restaurant.	topik-level-2
+음악가	musician · nhạc sĩ, nhà âm nhạc · 音楽家<br>그는 훌륭한 음악가예요.<br>He is a great musician.	topik-level-2
+응	yes; yeah (informal) · ừ · うん<br>응, 나도 알아.<br>Yeah, I know too.	topik-level-2
+이곳	here; this place · nơi này, chỗ này · ここ, こちら<br>이곳 경치가 참 좋아요.<br>The scenery here is very nice.	topik-level-2
+이기다	to win; beat · thắng, chiến thắng · 勝つ<br>경기에서 꼭 이겨요.<br>We definitely win in the game.	topik-level-2
+이날	this day; that day · ngày này, hôm đó · この日, 当日<br>이날 비가 많이 왔어요.<br>It rained a lot on this day.	topik-level-2
+이때	at this time; at this moment · lúc này, khi này · この時, その時<br>이때 친구가 찾아왔어요.<br>At this time a friend visited.	topik-level-2
+이런	such; this kind of · như thế này · こんな, このような<br>이런 일은 처음이에요.<br>This kind of work is a first.	topik-level-2
+이렇다	to be like this; be so · như thế này · こうだ, このようだ<br>사정이 이렇습니다.<br>The situation is like this.	topik-level-2
+이르다	arrive; reach; be early · đến, đạt tới · 至る, 達する<br>목적지에 이르렀어요.<br>We reached our destination.	topik-level-2
+이마	forehead; brow · trán · 額, おでこ<br>이마에 땀이 흘러요.<br>Sweat runs down my forehead.	topik-level-2
+이모	maternal aunt · dì · 叔母, 伯母<br>이모 댁에 놀러 가요.<br>I go visit my aunt's home.	topik-level-2
+이분	this gentleman; this lady; this person (honorific) · vị này, người này · この方, こちらの方<br>이분은 제 선생님이세요.<br>This is my teacher.	topik-level-2
+이불	bedding; blanket; quilt · chăn, mền · 布団<br>따뜻한 이불을 덮어요.<br>I cover myself with a warm blanket.	topik-level-2
+이삿짐	moving luggage; moving goods · đồ chuyển nhà · 引越し荷物<br>이삿짐을 차에 실어요.<br>We load the moving goods into the truck.	topik-level-2
+이상	or more; above · trở lên, lý tưởng · 以上, 理想<br>한 시간 이상 걸려요.<br>It takes more than an hour.	topik-level-2
+이웃	neighbor; neighborhood · hàng xóm, láng giềng · 近所, 隣人<br>이웃에게 반갑게 인사해요.<br>I greet my neighbors warmly.	topik-level-2
+이전	previous time; before; former · trước đây, chuyển đổi · 以前, 移転<br>이전보다 더 좋아졌어요.<br>It got better than before.	topik-level-2
+이해	understanding; comprehension · hiểu biết, thấu hiểu · 理解, 了解<br>설명을 듣고 이해했어요.<br>I understood after listening to the explanation.	topik-level-2
+이후	after that; since; hereafter · sau đó, từ sau đó · 以後, その後<br>그날 이후로 안 만났어요.<br>I haven't met him since that day.	topik-level-2
+익다	to ripen; to cook through · chín, quen · 熟す, 慣れる<br>사과가 빨갛게 익었어요.<br>The apples ripened red.	topik-level-2
+익숙하다	to be familiar; to be accustomed · quen thuộc, thành thạo · 慣れている<br>이 길이 이제 익숙해요.<br>This road is familiar now.	topik-level-2
+인기	popularity · sự nổi tiếng, hâm mộ · 人気<br>학생들에게 인기가 많아요.<br>He is very popular among students.	topik-level-2
+인삼	ginseng · nhân sâm · 高麗人参<br>인삼차를 따뜻하게 마셔요.<br>I drink warm ginseng tea.	topik-level-2
+인형	doll; puppet; stuffed animal · búp bê, thú nhồi bông · 人形, ぬいぐるみ<br>귀여운 곰 인형을 샀어요.<br>I bought a cute teddy bear doll.	topik-level-2
+일부	part; portion · một phần, bộ phận · 一部, 部分<br>일부 지역에 비가 와요.<br>Rain falls in some areas.	topik-level-2
+일식	Japanese food; Japanese meal · món Nhật, ẩm thực Nhật · 和食, 日本料理<br>점심에 일식을 먹었어요.<br>I ate Japanese food for lunch.	topik-level-2
+일식집	Japanese restaurant · quán ăn Nhật, nhà hàng Nhật · 和食屋, 日本料理店<br>근처 일식집에 갔어요.<br>I went to a nearby Japanese restaurant.	topik-level-2
+일어서다	stand up; get up · đứng dậy · 立ち上がる, 立つ<br>자리에서 벌떡 일어섰어요.<br>I stood up quickly from my seat.	topik-level-2
+잃다	lose · mất, đánh mất · 失う, なくす<br>지갑을 길에서 잃어버렸어요.<br>I lost my wallet on the street.	topik-level-2
+입술	lips · môi · 唇<br>입술이 건조해서 터요.<br>My lips are dry and chapped.	topik-level-2
+입원	hospitalization · nhập viện · 入院<br>병원에 일주일간 입원했어요.<br>I was hospitalized for a week.	topik-level-2
+입장권	admission ticket; entrance ticket · vé vào cửa · 入場券, チケット<br>매표소에서 입장권을 사요.<br>I buy an admission ticket at the ticket office.	topik-level-2
+입학	admission to school; entrance · nhập học · 入学<br>올해 대학교에 입학해요.<br>I enter university this year.	topik-level-2
+잊어버리다	forget; be forgetful of · quên, quên mất · 忘れる, 忘れてしまう<br>약속 시간을 잊어버렸어요.<br>I forgot the appointment time.	topik-level-2
+잎	leaf · lá, lá cây · 葉, 葉っぱ<br>초록색 잎이 무성해요.<br>The green leaves are lush.	topik-level-2
+자동판매기	vending machine · máy bán hàng tự động · 自動販売機<br>자동판매기에서 표를 사요.<br>I buy a ticket from the vending machine.	topik-level-2
+자랑	boast; brag; showing off · tự hào, khoe khoang · 自慢, 誇り<br>친구에게 새 옷을 자랑해요.<br>I show off my new clothes to a friend.	topik-level-2
+자세히	in detail; closely · chi tiết, tường tận · 詳しく, 詳細に<br>설명서를 자세히 읽으세요.<br>Please read the instructions in detail.	topik-level-2
+자식	children; offspring · con cái · 子ども, 子息<br>부모는 자식을 사랑해요.<br>Parents love their children.	topik-level-2
+자신	oneself; confidence · bản thân, tự tin · 自身, 自信<br>자신을 먼저 돌아봐요.<br>Look back at yourself first.	topik-level-2
+자연	nature · tự nhiên, thiên nhiên · 自然<br>아름다운 자연을 느껴요.<br>Feel beautiful nature.	topik-level-2
+자유	freedom · tự do · 自由<br>모두에게 표현의 자유가 있어요.<br>Everyone has freedom of expression.	topik-level-2
+자장면	jajangmyeon; black bean noodles · mì tương đen, mì Jajang · ジャージャー麺<br>점심으로 자장면을 먹어요.<br>I eat jajangmyeon for lunch.	topik-level-2
+잔치	feast; party; banquet · bữa tiệc, tiệc mừng · 宴会, パーティー<br>오늘 생일잔치를 해요.<br>We have a birthday feast today.	topik-level-2
+잘못되다	to go wrong; to be mistaken · sai lầm, hỏng · 間違う, 狂う<br>순서가 잘못되었어요.<br>The order went wrong.	topik-level-2
+잘못하다	commit an error; blunder; do wrong · làm sai, phạm lỗi · 間違う, やり損なう<br>제가 계산을 잘못했어요.<br>I calculated wrongly.	topik-level-2
+잘생기다	handsome; good-looking · đẹp trai · ハンサムだ, かっこいい<br>얼굴이 참 잘생겼어요.<br>His face is very handsome.	topik-level-2
+잠자다	sleep; slumber · ngủ · 眠る, 寝る<br>아기가 곤히 잠자요.<br>The baby sleeps soundly.	topik-level-2
+잡다	to catch; to hold · bắt, nắm · つかむ, 捕まえる<br>친구 손을 꼭 잡아요.<br>Hold your friend's hand tightly.	topik-level-2
+장마	monsoon; rainy season · mùa mưa · 梅雨<br>여름 장마가 시작되었어요.<br>The summer rainy season has begun.	topik-level-2
+장미	rose · hoa hồng · バラ<br>빨간 장미가 활짝 폈어요.<br>Red roses bloomed fully.	topik-level-2
+재미	fun; interest · sự thú vị, niềm vui · 面白さ, 楽しみ<br>한국어 배우는 재미가 커요.<br>The fun of learning Korean is great.	topik-level-2
+재채기	sneeze; sneezing · hắt hơi · くしゃみ<br>감기에 걸려 재채기가 나와요.<br>I caught a cold and sneeze comes out.	topik-level-2
+저거	that thing; that · cái kia · あれ<br>저거 얼마예요?<br>How much is that thing?	topik-level-2
+저곳	that place over there · nơi kia, đằng kia · あそこ, あちら<br>저곳에서 기다리세요.<br>Please wait over there.	topik-level-2
+저금	savings; deposit · tiết kiệm, tiền tiết kiệm · 貯金<br>매달 은행에 저금해요.<br>I save money in the bank every month.	topik-level-2
+저런	that kind of; such · như thế kia · あんな, あのような<br>저런 사람은 처음 봐요.<br>I've never seen such a person.	topik-level-2
+저렇다	to be like that · như thế kia · ああだ, あのようだ<br>저러한 일이 일어났어요.<br>That kind of thing happened.	topik-level-2
+저번	the other day; last time · lần trước · この前, 前回<br>저번 주에 만났어요.<br>We met last week.	topik-level-2
+저분	that gentleman; that lady (honorific) · vị kia, người kia · あの方<br>저분은 제 은사님이세요.<br>That person is my respected teacher.	topik-level-2
+저희	we; us; our (humble) · chúng tôi · 私たち, わたくしども<br>저희 집에 놀러 오세요.<br>Please come over to our home.	topik-level-2
+적당하다	suitable; proper; moderate · vừa phải, thích hợp · 適当だ, ほどよい<br>적당한 가격에 샀어요.<br>I bought it at a suitable price.	topik-level-2
+전기	electricity · điện, tiểu sử · 電気, 伝記<br>전기 밥솥을 새로 샀어요.<br>I bought a new electric rice cooker.	topik-level-2
+전부	all; whole · toàn bộ, tất cả · 全部, すべて<br>친구들이 전부 모였어요.<br>All friends gathered.	topik-level-2
+전철	subway; electric railway · tàu điện ngầm · 電車, 地下鉄<br>전철을 타고 출근해요.<br>I commute by subway.	topik-level-2
+전체	whole; entirety · toàn bộ, tất cả · 全体<br>학교 전체가 조용해요.<br>The whole school is quiet.	topik-level-2
+전하다	convey; give; pass on · chuyển, truyền đạt · 伝える<br>안부 인사를 전해요.<br>I pass along my greetings.	topik-level-2
+전혀	not at all; never · hoàn toàn không · 全く, 全然<br>그 사실을 전혀 몰라요.<br>I don't know that fact at all.	topik-level-2
+전화기	telephone; phone device · máy điện thoại · 電話機<br>전화기 벨소리가 울려요.<br>The telephone ring rings.	topik-level-2
+젊다	to be young · trẻ · 若い<br>젊은 사람들이 많아요.<br>There are many young people.	topik-level-2
+점수	score; grade; mark · điểm số, điểm · 点数, 得点<br>시험 점수가 높아요.<br>The exam score is high.	topik-level-2
+점점	gradually; little by little · dần dần, càng ngày càng · だんだん, ますます<br>날씨가 점점 추워져요.<br>The weather gets gradually cold.	topik-level-2
+접시	plate; dish · đĩa · 皿<br>예쁜 접시에 과일을 담아요.<br>I put fruits on a pretty plate.	topik-level-2
+정거장	station; stop · trạm dừng, bến xe · 停留所, 駅<br>버스 정거장에서 기다려요.<br>I wait at the bus stop.	topik-level-2
+정리	organizing; arrangement; cleanup · dọn dẹp, sắp xếp · 整理, 片付け<br>책상 위를 깨끗이 정리해요.<br>I organize on the desk cleanly.	topik-level-2
+정원	garden · khu vườn, vườn · 庭, 庭園<br>정원에 예쁜 꽃이 피어요.<br>Pretty flowers bloom in the garden.	topik-level-2
+정확	accuracy; correctness · sự chính xác · 正確<br>발음이 아주 정확해요.<br>Pronunciation is very accurate.	topik-level-2
+제목	title · tiêu đề, tựa đề · 題名, タイトル<br>책 제목을 잊어버렸어요.<br>I forgot the book title.	topik-level-2
+조심	caution; carefulness · cẩn thận, chú ý · 用心, 注意<br>차를 조심해서 타세요.<br>Be careful when getting in cars.	topik-level-2
+조카	nephew; niece · cháu · 甥, 姪<br>귀여운 조카가 태어났어요.<br>A cute niece was born.	topik-level-2
+졸다	doze off; nod off · ngủ gật · 居眠りする, うとうとする<br>수업 시간에 깜빡 졸았어요.<br>I dozed off briefly during class.	topik-level-2
+종이	paper · giấy · 紙<br>흰 종이에 글을 써요.<br>I write on white paper.	topik-level-2
+주문	order · đặt hàng, gọi món · 注文<br>식당에서 음식을 주문해요.<br>I order food at the restaurant.	topik-level-2
+주변	surroundings; vicinity · xung quanh · 周辺, 周り<br>집 주변에 공원이 있어요.<br>There is a park around my house.	topik-level-2
+주위	surroundings; perimeter · xung quanh · 周囲, 周り<br>주위를 조용히 둘러보아요.<br>I quietly look around my surroundings.	topik-level-2
+주차	parking · đỗ xe · 駐車<br>여기에 차를 주차해요.<br>I park the car here.	topik-level-2
+주차장	parking lot · bãi đỗ xe · 駐車場<br>지하 주차장에 차를 세워요.<br>I park the car in the basement parking lot.	topik-level-2
+주황색	orange color · màu cam · オレンジ色, 橙色<br>주황색 옷을 입었어요.<br>I wore orange clothes.	topik-level-2
+줄이다	to reduce; to decrease · giảm, thu nhỏ · 減らす, 縮める<br>라디오 소리를 줄여요.<br>Turn down the radio volume.	topik-level-2
+줍다	pick up; gather · nhặt · 拾う<br>떨어진 쓰레기를 주워요.<br>I pick up the fallen trash.	topik-level-2
+중간	middle; intermediate · ở giữa, trung gian · 中間, 真ん中<br>줄 중간에 섰어요.<br>I stood in the middle of the line.	topik-level-2
+중국집	Chinese restaurant · quán ăn Trung Hoa · 中華料理屋, 中華料理店<br>중국집에서 짬뽕을 시켜요.<br>I order spicy noodles at the Chinese restaurant.	topik-level-2
+중심	center; core · trung tâm · 中心<br>서울의 중심에 살아요.<br>I live in the center of Seoul.	topik-level-2
+중앙	middle; center · trung ương, trung tâm · 中央<br>무대 중앙에 서요.<br>Stand in the middle of the stage.	topik-level-2
+중요	importance · sự quan trọng, quan trọng · 重要<br>이 일은 아주 중요해요.<br>This work is very important.	topik-level-2
+중학교	middle school; junior high school · trường trung học cơ sở · 中学校<br>동생이 중학교에 입학해요.<br>My younger sibling enters middle school.	topik-level-2
+중학생	middle school student · học sinh trung học cơ sở · 中学生<br>이제 의젓한 중학생이에요.<br>Now he is a mature middle school student.	topik-level-2
+즐거워하다	be joyful; be pleased · vui mừng, thích thú · 楽しがる, 喜ぶ<br>모두 매우 즐거워해요.<br>Everyone is very joyful.	topik-level-2
+즐기다	to enjoy · thưởng thức, tận hưởng · 楽しむ<br>주말에 휴식을 즐겨요.<br>I enjoy a rest on the weekend.	topik-level-2
+지각	being late; tardiness · sự đi muộn, đi muộn · 遅刻<br>오늘 아침에 지각했어요.<br>I was late this morning.	topik-level-2
+지난번	last time · lần trước · 前回, この前<br>지난번에 배운 내용이에요.<br>This is what we learned last time.	topik-level-2
+지다	to lose (a game); to set (sun) · thua, lặn · 負ける, 沈む<br>시합에서 안 지려고 해요.<br>I try not to lose in the match.	topik-level-2
+지루하다	boring; tedious · nhàm chán, buồn tẻ · 退屈だ<br>수업이 조금 지루해요.<br>The class is a bit boring.	topik-level-2
+지르다	to shout; to yell · hét, la · 叫ぶ<br>큰 소리를 질러요.<br>I shout loudly.	topik-level-2
+지방	region; local area; fat · địa phương, mỡ · 地方, 脂肪<br>남쪽 지방으로 여행을 가요.<br>I go on a trip to the southern region.	topik-level-2
+지하	underground; basement · dưới lòng đất, tầng hầm · 地下<br>지하 일층으로 내려가요.<br>Go down to the first basement floor.	topik-level-2
+지하도	underground walkway; underpass · đường hầm đi bộ · 地下道<br>지하도로 길을 건너요.<br>Cross the street through the underpass.	topik-level-2
+직장	workplace; job · nơi làm việc, chỗ làm · 職場<br>새 직장을 구했어요.<br>I got a new workplace.	topik-level-2
+직접	directly; in person · trực tiếp · 直接<br>제가 직접 요리했어요.<br>I cooked it directly myself.	topik-level-2
+진하다	thick; rich; dark; deep · đậm, đặc · 濃い<br>진한 커피를 마셔요.<br>I drink thick coffee.	topik-level-2
+집들이	housewarming party · tiệc tân gia · 引っ越し祝い<br>친구 집들이에 초대받았어요.<br>I was invited to my friend's housewarming.	topik-level-2
+짓다	to build; to make; to cook · xây, nấu · 建てる, 作る<br>새집을 튼튼하게 지어요.<br>Build a new house strongly.	topik-level-2
+짜증	irritation; annoyance · bực mình, cáu gắt · 苛立ち, 不機嫌<br>더워서 짜증이 나요.<br>It is hot and I feel annoyed.	topik-level-2
+짬뽕	jjamppong; spicy seafood noodle soup · mì cay hải sản, jjamppong · チャンポン<br>얼큰한 짬뽕을 먹어요.<br>I eat spicy seafood noodle soup.	topik-level-2
+찌다	to steam; gain weight · hấp, béo lên · 蒸す, 太る<br>냄비에 만두를 쪄요.<br>Steam dumplings in the pot.	topik-level-2
+착하다	good-natured; kind; nice · hiền lành, ngoan ngoãn · 優しい, おとなしい<br>마음이 아주 착해요.<br>His heart is very kind.	topik-level-2
+찬물	cold water · nước lạnh · 冷たい水, 冷水<br>시원한 찬물을 마셔요.<br>I drink refreshing cold water.	topik-level-2
+참다	endure; withstand; bear; be patient · chịu đựng, nhịn · 我慢する, 耐える<br>아픔을 꾹 참았어요.<br>I endured the pain patiently.	topik-level-2
+찾아가다	to visit; go to see · tìm đến, đến thăm · 訪ねる, 訪れる<br>선생님을 찾아가요.<br>I go to see the teacher.	topik-level-2
+찾아오다	to come visit; arrive · tìm đến, ghé thăm · 訪ねてくる, やって来る<br>손님이 집에 찾아왔어요.<br>A guest came to visit my house.	topik-level-2
+책장	bookshelf; bookcase · giá sách, tủ sách · 本棚<br>책장에 책을 꽂아요.<br>I place books in the bookshelf.	topik-level-2
+첫날	first day · ngày đầu tiên · 初日<br>새해 첫날에 떡국을 먹어요.<br>We eat rice cake soup on the first day of the new year.	topik-level-2
+첫째	first; the first · thứ nhất, đầu tiên · 第一, 最初<br>첫째는 건강입니다.<br>The first thing is health.	topik-level-2
+청년	young person; youth · thanh niên · 青年, 若者<br>패기 넘치는 청년이에요.<br>He is a youth full of spirit.	topik-level-2
+청바지	blue jeans; jeans · quần bò, quần jean · ジーンズ, ジーパン<br>파란 청바지를 입었어요.<br>I wore blue jeans.	topik-level-2
+청소년	youth; adolescent; teenager · thanh thiếu niên · 青少年<br>청소년을 위한 책이에요.<br>This is a book for adolescents.	topik-level-2
+쳐다보다	look at; gaze at; stare · nhìn, ngước nhìn · 見つめる, 見上げる<br>하늘을 물끄러미 쳐다봐요.<br>I look up at the sky blankly.	topik-level-2
+초	candle; second; beginning · nến, giây · ろうそく, 秒<br>케이크에 초를 꽂아요.<br>Put candles on the cake.	topik-level-2
+초대장	invitation card; invitation · thiệp mời, giấy mời · 招待状<br>결혼식 초대장을 받았어요.<br>I received a wedding invitation.	topik-level-2
+초등학교	elementary school · trường tiểu học · 小学校<br>아이가 초등학교에 입학해요.<br>The child enters elementary school.	topik-level-2
+초등학생	elementary school student · học sinh tiểu học · 小学生<br>의젓한 초등학생이 되었어요.<br>He became a mature elementary student.	topik-level-2
+최고	the best; the highest · cao nhất, tuyệt nhất · 最高<br>이 음식이 정말 최고예요.<br>This food is really the best.	topik-level-2
+최근	recent days; lately · gần đây, dạo này · 最近<br>최근에 이사했어요.<br>I moved recently.	topik-level-2
+축구공	soccer ball · quả bóng đá · サッカーボール<br>새 축구공을 샀어요.<br>I bought a new soccer ball.	topik-level-2
+출구	exit · lối ra, cửa ra · 出口<br>이 번 출구로 나가세요.<br>Please exit through Exit 2.	topik-level-2
+출근	going to work; arriving at work · đi làm · 出勤<br>아침 여덟 시에 출근해요.<br>I go to work at 8 a.m.	topik-level-2
+출석	attendance; presence · điểm danh, có mặt · 出席<br>선생님이 출석을 불러요.<br>The teacher calls the attendance.	topik-level-2
+출입	access; entry and exit · ra vào · 出入り<br>외부인 출입을 금지해요.<br>Entry by outsiders is prohibited.	topik-level-2
+출입국	immigration; entry and departure from a country · xuất nhập cảnh · 出入国<br>출입국 관리소에 가요.<br>I go to the immigration office.	topik-level-2
+출장	business trip · công tác, chuyến công tác · 出張<br>부산으로 출장을 가요.<br>I go on a business trip to Busan.	topik-level-2
+출퇴근	commuting (to and from work) · đi làm và về · 通勤, 出退勤<br>지하철로 출퇴근해요.<br>I commute by subway.	topik-level-2
+충분하다	sufficient; enough; ample · đầy đủ, đủ · 十分だ<br>시간이 아직 충분해요.<br>There is still plenty of time.	topik-level-2
+취소	cancellation · sự hủy bỏ, hủy · 取り消し, キャンセル<br>호텔 예약을 취소했어요.<br>I cancelled the hotel reservation.	topik-level-2
+취직	getting a job; employment · tìm việc, xin việc · 就職<br>좋은 회사에 취직했어요.<br>I got a job at a good company.	topik-level-2
+치과	dentistry; dental clinic · nha khoa · 歯科, 歯医者<br>이가 아파서 치과에 가요.<br>My tooth hurts so I go to the dental clinic.	topik-level-2
+치료	treatment; cure · điều trị, chữa trị · 治療<br>병원에서 치료를 받아요.<br>I receive treatment at the hospital.	topik-level-2
+치약	toothpaste · kem đánh răng · 歯磨き粉<br>칫솔에 치약을 짜요.<br>Squeeze toothpaste onto the toothbrush.	topik-level-2
+치킨	fried chicken; chicken · gà rán · フライドチキン, チキン<br>저녁에 치킨을 시켜 먹어요.<br>We order and eat fried chicken in the evening.	topik-level-2
+침실	bedroom · phòng ngủ · 寝室<br>침실에 큰 침대가 있어요.<br>There is a big bed in the bedroom.	topik-level-2
+칫솔	toothbrush · bàn chải đánh răng · 歯ブラシ<br>식사 후에 칫솔로 이를 닦아요.<br>I brush my teeth with a toothbrush after meals.	topik-level-2
+칭찬	praise; compliment · khen ngợi, lời khen · 褒め言葉, 称賛<br>선생님께 칭찬을 들었어요.<br>I received compliments from the teacher.	topik-level-2
+카레	curry · cà ri · カレー<br>매콤한 카레를 만들어요.<br>I make spicy curry.	topik-level-2
+칼	knife; blade · dao · 包丁, ナイフ<br>칼로 사과를 깎아요.<br>I peel an apple with a knife.	topik-level-2
+칼국수	kal-guksu; knife-cut noodle soup · mì sợi cắt, mì kalguksu · カルグクス, 手打ちうどん<br>따뜻한 칼국수를 먹어요.<br>I eat warm knife-cut noodles.	topik-level-2
+코끼리	elephant · con voi · 象<br>동물원에서 코끼리를 봐요.<br>I look at an elephant at the zoo.	topik-level-2
+콧물	runny nose; nasal mucus; snot · nước mũi · 鼻水<br>감기에 걸려 콧물이 나요.<br>I caught a cold and have a runny nose.	topik-level-2
+콩	bean; pea; soybean · đậu, đỗ · 豆, 大豆<br>밥에 검은 콩을 넣어요.<br>I put black beans in the rice.	topik-level-2
+크기	size; dimension · kích cỡ, kích thước · 大きさ, サイズ<br>상자 크기가 딱 맞아요.<br>The box size fits just right.	topik-level-2
+크리스마스	Christmas · Giáng sinh, Noel · クリスマス<br>크리스마스 선물을 준비해요.<br>I prepare Christmas gifts.	topik-level-2
+큰소리	loud voice; shout; boast · tiếng lớn, to tiếng · 大声<br>밖에서 큰소리가 들려요.<br>I hear a loud voice outside.	topik-level-2
+킬로그램	kilogram; kg · ki-lô-gam, kg · キログラム, キロ<br>사과 일 킬로그램을 샀어요.<br>I bought one kilogram of apples.	topik-level-2
+킬로미터	kilometer; km · ki-lô-mét, km · キロメートル, キロ<br>여기서 오 킬로미터 떨어져 있어요.<br>It is five kilometers away from here.	topik-level-2
+탕수육	tangsuyuk; sweet and sour pork · thịt heo chua ngọt · タンスユク, 酢豚<br>바삭한 탕수육을 먹어요.<br>I eat crispy sweet and sour pork.	topik-level-2
+태극기	Taegeukgi; the national flag of South Korea · cờ Thái Cực, cờ Hàn Quốc · 太極旗, 韓国の国旗<br>국경일에 태극기를 달아요.<br>I hang the national flag on national holidays.	topik-level-2
+태도	attitude; manner · thái độ · 態度<br>수업 태도가 아주 좋아요.<br>His classroom attitude is very good.	topik-level-2
+태풍	typhoon · bão · 台風<br>강한 태풍이 올라오고 있어요.<br>A strong typhoon is coming up.	topik-level-2
+테니스장	tennis court · sân tennis, sân quần vợt · テニスコート, テニス場<br>주말에 테니스장에 가요.<br>I go to the tennis court on weekends.	topik-level-2
+테이블	table · bàn · テーブル<br>테이블 위에 컵을 놓아요.<br>I put a cup on the table.	topik-level-2
+토끼	rabbit; bunny; hare · con thỏ · ウサギ<br>하얀 토끼가 귀여워요.<br>The white bunny is cute.	topik-level-2
+토마토	tomato · cà chua · トマト<br>빨간 토마토를 씻어요.<br>I wash red tomatoes.	topik-level-2
+통화	phone conversation; call · cuộc gọi, nói chuyện điện thoại · 通話<br>친구와 오래 통화했어요.<br>I talked on the phone with a friend for a long time.	topik-level-2
+퇴원	discharge from hospital · xuất viện · 退院<br>병이 다 나아서 퇴원해요.<br>I recovered fully and leave the hospital.	topik-level-2
+튀기다	fry; deep-fry · chiên, rán · 揚げる<br>뜨거운 기름에 감자를 튀겨요.<br>I fry potatoes in hot oil.	topik-level-2
+튀김	deep-fried food; fritter · món chiên, món rán · 揚げ物, 天ぷら<br>바삭바삭한 튀김을 먹어요.<br>I eat crispy fried food.	topik-level-2
+특별히	specially; particularly; especially · đặc biệt · 特別に, 特に<br>특별히 좋아하는 노래예요.<br>It is a song I especially like.	topik-level-2
+튼튼하다	to be strong; to be sturdy; healthy · chắc chắn, khỏe mạnh · 丈夫だ, 頑丈だ<br>운동을 해서 몸이 튼튼해요.<br>My body is strong through exercise.	topik-level-2
+틀다	turn on (device); twist · bật, vặn · つける, ひねる<br>더워서 선풍기를 틀어요.<br>It is hot so I turn on the electric fan.	topik-level-2
+팀	team · đội, nhóm · チーム<br>우리 팀이 시합에서 이겼어요.<br>Our team won in the match.	topik-level-2
+파란색	blue color; blue · màu xanh lam, màu xanh da trời · 青, 青色<br>맑은 날에는 하늘이 파란색이에요.<br>On clear days the sky is blue.	topik-level-2
+팔리다	to be sold; sell · bán được, được bán · 売れる<br>인기 있는 빵이 다 팔렸어요.<br>The popular bread was completely sold out.	topik-level-2
+펴다	open; spread out; unfold · mở, giương · 開く, 広げる<br>책을 펴고 공부해요.<br>I open the book and study.	topik-level-2
+편리	convenience; handiness · sự tiện lợi, thuận tiện · 便利<br>교통이 편리해서 살기 좋아요.<br>It's good to live in because transport is convenient.	topik-level-2
+편안	comfort; peace; ease · sự bình an, thoải mái · 平穏, 安らか<br>편안한 밤 보내세요.<br>Have a peaceful night.	topik-level-2
+편찮다	to be sick; to be unwell (honorific) · không khỏe, ốm · 具合が悪い, お悪い<br>할아버지께서 편찮으세요.<br>Grandfather is unwell.	topik-level-2
+포장	wrapping; packaging; takeout · đóng gói, gói · 包装, パッキング<br>선물을 예쁘게 포장해요.<br>Wrap the gift prettily.	topik-level-2
+풍경	scenery; scene; view; landscape · phong cảnh · 風景, 景色<br>가을 산 풍경이 아름다워요.<br>The autumn mountain scenery is beautiful.	topik-level-2
+프라이팬	frying pan · chảo rán, chảo · フライパン<br>프라이팬에 기름을 둘러요.<br>I put oil on the frying pan.	topik-level-2
+피	blood · máu · 血<br>손가락에서 피가 나요.<br>Blood comes out of my finger.	topik-level-2
+피자	pizza · bánh pizza, pizza · ピザ<br>치즈 피자를 주문해요.<br>I order cheese pizza.	topik-level-2
+하늘색	sky blue; light blue · màu xanh da trời · 空色, 水色<br>하늘색 모자를 썼어요.<br>I wore a sky-blue hat.	topik-level-2
+하숙비	boarding fee; room and board cost · tiền trọ, tiền trọ kèm ăn · 下宿代, 下宿費<br>매달 말에 하숙비를 내요.<br>I pay room and board at the end of each month.	topik-level-2
+하얀색	white color; white · màu trắng · 白, 白色<br>하얀색 눈이 소복이 쌓여요.<br>White snow piles up thickly.	topik-level-2
+학기	semester; academic term · học kỳ · 学期<br>새 학기가 시작되었어요.<br>A new semester has begun.	topik-level-2
+학년	school year; grade level · năm học, lớp · 学年<br>올해 대학교 이 학년이에요.<br>I am a sophomore at university this year.	topik-level-2
+한두	one or two; a couple of · một hai, một vài · 一二の, 一つ二つの<br>한두 번 가 본 적이 있어요.<br>I have been there once or twice.	topik-level-2
+한식	Korean food; Korean cuisine · món ăn Hàn Quốc, món Hàn · 韓国料理, 韓食<br>외국인 친구에게 한식을 소개해요.<br>I introduce Korean food to a foreign friend.	topik-level-2
+한식집	Korean restaurant · quán ăn Hàn Quốc, nhà hàng Hàn Quốc · 韓国料理屋, 韓国料理店<br>근처 유명한 한식집에 가요.<br>I go to a famous Korean restaurant nearby.	topik-level-2
+한옥	hanok; traditional Korean house · nhà truyền thống Hàn Quốc, hanok · 韓屋, 韓国の伝統家屋<br>멋진 한옥 마을을 구경해요.<br>I look around the wonderful hanok village.	topik-level-2
+한잔	a cup of; a drink; a glass of · một chén, một ly · 一杯, お酒<br>따뜻한 차 한잔 마셔요.<br>Have a cup of warm tea.	topik-level-2
+한턱	treat; buying a meal · chầu khao, bữa khao · おごり, ごちそう<br>시험에 붙어서 한턱냈어요.<br>I passed the exam and treated everyone.	topik-level-2
+항공	aviation; flight; airline · hàng không · 航空<br>한국 항공사를 이용해요.<br>I use a Korean airline.	topik-level-2
+항공권	airline ticket; plane ticket · vé máy bay · 航空券, 飛行機の切符<br>제주도 가는 항공권을 샀어요.<br>I bought an airline ticket to Jeju Island.	topik-level-2
+해마다	every year; each year · hàng năm, mỗi năm · 毎年, 年ごとに<br>해마다 가족 여행을 가요.<br>We go on a family trip every year.	topik-level-2
+해외	foreign country; overseas; abroad · nước ngoài, hải ngoại · 海外<br>해외로 유학을 떠나요.<br>I leave for study abroad.	topik-level-2
+해외여행	overseas travel; trip abroad · du lịch nước ngoài · 海外旅行<br>여름휴가 때 해외여행을 가요.<br>I go on an overseas trip during summer vacation.	topik-level-2
+햄버거	hamburger; burger · bánh mì kẹp thịt, hamburger · ハンバーガー<br>점심으로 햄버거 세트를 먹어요.<br>I eat a hamburger set for lunch.	topik-level-2
+햇빛	sunlight; sunshine · ánh nắng, ánh sáng mặt trời · 日光, 日差し<br>따뜻한 햇빛이 창가에 비쳐요.<br>Warm sunlight shines by the window.	topik-level-2
+행동	behavior; action · hành động · 行動<br>바르게 행동해야 해요.<br>You must behave properly.	topik-level-2
+허리	waist; lower back · eo, thắt lưng · 腰, ウエスト<br>무거운 짐을 들다가 허리를 삐었어요.<br>I sprained my back while lifting heavy luggage.	topik-level-2
+헤어지다	part; bid farewell; say good-bye · chia tay, xa nhau · 別れる<br>다음을 기약하며 헤어졌어요.<br>We parted promising next time.	topik-level-2
+헬스클럽	gym; fitness club · phòng tập gym, câu lạc bộ thể thao · スポーツジム, フィットネスクラブ<br>퇴근 후 헬스클럽에 가요.<br>I go to the gym after work.	topik-level-2
+혀	tongue · lưỡi · 舌<br>뜨거운 국에 혀를 데었어요.<br>I burned my tongue on hot soup.	topik-level-2
+형제	brothers; siblings · anh em · 兄弟<br>우리 집은 삼 형제예요.<br>Our family has three brothers.	topik-level-2
+호랑이	tiger · con hổ · 虎<br>동화 속에 호랑이가 나와요.<br>A tiger appears in the fairy tale.	topik-level-2
+호수	lake · hồ, hồ nước · 湖<br>호수 주변을 천천히 산책해요.<br>I stroll slowly around the lake.	topik-level-2
+혹시	by any chance; maybe · liệu, ngộ nhỡ · もしかして, 万が一<br>혹시 시간이 있으세요?<br>By any chance, do you have time?	topik-level-2
+홍차	black tea · trà đen, hồng trà · 紅茶<br>따뜻한 홍차를 한 잔 마셔요.<br>I drink a cup of warm black tea.	topik-level-2
+화내다	get angry; lose one's temper · nổi giận, tức giận · 怒る<br>사소한 일에 화내지 마세요.<br>Please do not get angry over minor things.	topik-level-2
+화려하다	to be splendid; to be gorgeous; flashy · lộng lẫy, sặc sỡ · 華やかだ, 派手だ<br>무대 조명이 참 화려해요.<br>The stage lighting is very splendid.	topik-level-2
+화장품	cosmetics; makeup · mỹ phẩm · 化粧品<br>가게에서 화장품을 샀어요.<br>I bought cosmetics at the store.	topik-level-2
+환영	welcome · hoan nghênh, sự chào đón · 歓迎<br>신입생을 따뜻하게 환영해요.<br>We warmly welcome freshmen.	topik-level-2
+환자	patient; sick person · bệnh nhân · 患者<br>의사가 환자를 진찰해요.<br>The doctor examines the patient.	topik-level-2
+회	time; round; episode · lần, hồi · 回, 回目<br>드라마 일 회를 시청했어요.<br>I watched episode 1 of the drama.	topik-level-2
+회색	gray color; grey · màu xám · 灰色, グレー<br>회색 코트를 입었어요.<br>I wore a gray coat.	topik-level-2
+횡단보도	crosswalk; pedestrian crossing · vạch qua đường · 横断歩道<br>초록 불에 횡단보도를 건너요.<br>Cross the crosswalk on the green light.	topik-level-2
+후배	junior; younger colleague or schoolmate · hậu bối, đàn em · 後輩<br>새로 들어온 후배예요.<br>He is a newly joined junior.	topik-level-2
+훌륭하다	to be excellent; splendid; admirable · xuất sắc, tuyệt vời · 素晴らしい, 立派だ<br>훌륭한 작품을 완성했어요.<br>Completed an excellent artwork.	topik-level-2
+휴게실	lounge; resting room; break room · phòng nghỉ · 休憩室<br>휴게실에서 편히 쉬어요.<br>Rest comfortably in the lounge.	topik-level-2
+휴일	holiday; day off · ngày nghỉ · 休日, 休みの日<br>내일은 신나는 휴일이에요.<br>Tomorrow is an exciting holiday.	topik-level-2
+휴지	tissue; toilet paper · giấy vệ sinh, giấy ăn · ティッシュ, ちり紙<br>흘린 물을 휴지로 닦아요.<br>Wipe spilled water with a tissue.	topik-level-2
+휴지통	wastebasket; trash can · thùng rác · ごみ箱, くずかご<br>쓰레기는 휴지통에 버리세요.<br>Please throw trash in the wastebasket.	topik-level-2
+흐르다	to flow; to run · chảy, trôi · 流れる<br>강물이 바다로 흘러요.<br>The river water flows to the sea.	topik-level-2
+흔들다	wave; sway; shake · vẫy, lắc · 振る, 揺らす<br>떠나는 친구에게 손을 흔들어요.<br>I wave my hand to a departing friend.	topik-level-2
+흘리다	to spill; to shed; to drop · làm đổ, chảy · 流す, こぼす<br>바닥에 주스를 흘렸어요.<br>I spilled juice on the floor.	topik-level-2
+힘	strength; power; energy · sức lực, sức mạnh · 力<br>무거운 짐을 들 힘이 없어요.<br>I have no strength to lift heavy luggage.	topik-level-2
