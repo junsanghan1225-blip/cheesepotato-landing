@@ -2589,5 +2589,8 @@
   "Get a daily study reminder email?\n\n· One email to the address above (your sign-in email) at your chosen time\n· Not an ad — it is skipped on days you already studied\n· Turn it off any time with “Stop” at the bottom of the email or in Settings\n· Emails are sent through a service called Resend (see the Privacy Policy)\n\nPress OK to agree.": "要接收每日学习提醒邮件吗？\n\n· 在您选择的时间向上方地址（您的登录邮箱）发送一封邮件\n· 不是广告 — 当天已学习则不发送\n· 可随时通过邮件底部的“停止接收”或在设置中关闭\n· 邮件通过名为 Resend 的服务发送（见隐私政策）\n\n同意请按“确定”。",
   "Turning it on sends one email to your sign-in address at your chosen time · not an ad · skipped on days you studied · turn off any time · sent via Resend": "开启后，每天在您选择的时间向登录邮箱发送一封邮件 · 不是广告 · 当天已学习则不发送 · 可随时关闭 · 通过 Resend 发送",
   "Sends one email a day to your sign-in address · not an ad · turn off any time in Settings": "每天向登录邮箱发送一封邮件 · 不是广告 · 可随时在设置中关闭",
-  "TOPIK prep — tap anything to start": "TOPIK备考 — 想学哪个直接点"
+  "TOPIK prep — tap anything to start": "TOPIK备考 — 想学哪个直接点",
+  "Try the first {0} questions without signing in. Sign in (free) to finish the round and save your score.": "无需登录即可先试做前{0}题。登录（免费）后可做完整套并保存分数。",
+  "Preview done! Sign in (free) to finish the other {0} questions in this round and save your score.": "试做结束！登录（免费）即可做完本套剩余{0}题并保存分数。",
+  "Sign in free": "免费登录"
 }

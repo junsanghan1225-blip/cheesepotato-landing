@@ -2615,5 +2615,8 @@
   "Get a daily study reminder email?\n\n· One email to the address above (your sign-in email) at your chosen time\n· Not an ad — it is skipped on days you already studied\n· Turn it off any time with “Stop” at the bottom of the email or in Settings\n· Emails are sent through a service called Resend (see the Privacy Policy)\n\nPress OK to agree.": "Nhận email nhắc học mỗi ngày?\n\n· Một email gửi đến địa chỉ ở trên (email đăng nhập của bạn) vào giờ bạn chọn\n· Không phải quảng cáo — sẽ không gửi vào những ngày bạn đã học\n· Tắt bất cứ lúc nào bằng liên kết “Dừng” ở cuối email hoặc trong Cài đặt\n· Email được gửi qua dịch vụ có tên Resend (xem Chính sách bảo mật)\n\nNhấn OK để đồng ý.",
   "Turning it on sends one email to your sign-in address at your chosen time · not an ad · skipped on days you studied · turn off any time · sent via Resend": "Khi bật, mỗi ngày một email đến địa chỉ đăng nhập vào giờ bạn chọn · không phải quảng cáo · bỏ qua ngày bạn đã học · tắt bất cứ lúc nào · gửi qua Resend",
   "Sends one email a day to your sign-in address · not an ad · turn off any time in Settings": "Gửi mỗi ngày một email đến địa chỉ đăng nhập · không phải quảng cáo · tắt bất cứ lúc nào trong Cài đặt",
-  "TOPIK prep — tap anything to start": "Luyện TOPIK — chạm vào bất cứ mục nào để bắt đầu"
+  "TOPIK prep — tap anything to start": "Luyện TOPIK — chạm vào bất cứ mục nào để bắt đầu",
+  "Try the first {0} questions without signing in. Sign in (free) to finish the round and save your score.": "Thử {0} câu đầu mà không cần đăng nhập. Đăng nhập (miễn phí) để làm hết đề và lưu điểm.",
+  "Preview done! Sign in (free) to finish the other {0} questions in this round and save your score.": "Hết phần xem thử! Đăng nhập (miễn phí) để làm nốt {0} câu còn lại của đề này và lưu điểm.",
+  "Sign in free": "Đăng nhập miễn phí"
 }

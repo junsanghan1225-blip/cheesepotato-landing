@@ -2614,5 +2614,8 @@
   "Get a daily study reminder email?\n\n· One email to the address above (your sign-in email) at your chosen time\n· Not an ad — it is skipped on days you already studied\n· Turn it off any time with “Stop” at the bottom of the email or in Settings\n· Emails are sent through a service called Resend (see the Privacy Policy)\n\nPress OK to agree.": "毎日の学習リマインドメールを受け取りますか？\n\n· 上のアドレス（ログイン用メール）に、選んだ時刻にメールを1通お送りします\n· 広告ではありません — その日すでに勉強した日は送りません\n· メール下部の「配信停止」または設定からいつでもオフにできます\n· メールは Resend というサービスを通じて送信します（プライバシーポリシー参照）\n\n同意する場合は OK を押してください。",
   "Turning it on sends one email to your sign-in address at your chosen time · not an ad · skipped on days you studied · turn off any time · sent via Resend": "オンにすると、選んだ時刻にログイン用アドレスへ毎日1通 · 広告ではありません · 勉強した日は送りません · いつでもオフ · 送信は Resend",
   "Sends one email a day to your sign-in address · not an ad · turn off any time in Settings": "ログイン用アドレスに1日1通 · 広告ではありません · 設定からいつでもオフ",
-  "TOPIK prep — tap anything to start": "TOPIK対策 — やりたいものをすぐタップ"
+  "TOPIK prep — tap anything to start": "TOPIK対策 — やりたいものをすぐタップ",
+  "Try the first {0} questions without signing in. Sign in (free) to finish the round and save your score.": "ログインなしで最初の{0}問を試せます。最後まで解いて点数を残すには無料ログイン。",
+  "Preview done! Sign in (free) to finish the other {0} questions in this round and save your score.": "プレビュー終了！ログイン（無料）すると、この回の残り{0}問を最後まで解いて点数を保存できます。",
+  "Sign in free": "無料でログイン"
 }
