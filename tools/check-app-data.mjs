@@ -61,5 +61,17 @@ for (const [k, src] of Object.entries(TOPIK_SRC)) {
   if (g.potdle.length < 100 || Object.values(g.numbers).some((x) => x.length < 40)) err('게임 자료가 모자라다');
   if (man.writing?.n !== w.items.length || man.vocab?.n !== v.length) err('manifest 의 writing · vocab 이 낡았다');
 }
+/* 앱 번역 사전: 자리 표시({0}) 가 열쇠와 같은 집합이어야 한다 */
+{
+  const ph = (t) => (String(t).match(/\{\d+\}/g) || []).sort().join(',');
+  for (const lang of ['vi', 'ja', 'zh']) {
+    const f = path.join(ROOT, `app-data/ui-${lang}.json`);
+    if (!fs.existsSync(f)) { err(`ui-${lang}.json 이 없다`); continue; }
+    const d = JSON.parse(fs.readFileSync(f, 'utf8'));
+    for (const [k, v] of Object.entries(d)) if (ph(k) !== ph(v)) err(`ui-${lang}: 「${k}」 의 자리 표시가 번역과 다르다`);
+    const miss = (man.ui?.[lang]?.total ?? 0) - Object.keys(d).length;
+    console.log(`  앱 번역 ${lang}: ${Object.keys(d).length}/${man.ui?.[lang]?.total} (English 로 보이는 것 ${miss}개)`);
+  }
+}
 console.log(bad ? `앱 자료 검사 — 문제 ${bad}개` : `앱 자료 검사 — 통과 (코스 ${want.length} · 레슨 ${nL} · 블록 ${nB})`);
 process.exit(bad ? 1 : 0);

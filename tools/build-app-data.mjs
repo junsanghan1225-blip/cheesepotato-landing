@@ -120,9 +120,23 @@ fs.writeFileSync(path.join(OUT, 'games.json'), gamesBody);
 const games = { h: crypto.createHash('sha1').update(gamesBody).digest('hex').slice(0, 8), potdle: potdle.length, numbers: Object.fromEntries(Object.entries(numbers).map(([k, v]) => [k, v.length])) };
 const vocab = { h: crypto.createHash('sha1').update(vocabBody).digest('hex').slice(0, 8), n: vocabRows.length };
 
+/* 앱 새 화면의 번역 사전 — English 문장 → vi · ja · zh. 앱의 화면 글자 목록(docs/i18n/app-strings.json, 앱 저장소 tools/extract-ui-strings.cjs 가 뽑아 옴)을 기준으로,
+   앱 전용 번역(docs/i18n/app-<언어>.json)을 먼저, 없으면 웹 화면 번역(docs/i18n/<언어>.json)을 쓴다. 번역이 없는 문장은 앱에서 English 로 보인다. */
+const readJson = (f) => { try { return JSON.parse(fs.readFileSync(path.join(ROOT, f), 'utf8')); } catch { return null; } };
+const uiStrings = readJson('docs/i18n/app-strings.json') || [];
+const ui = {};
+for (const lang of ['vi', 'ja', 'zh']) {
+  const web = readJson(`docs/i18n/${lang}.json`) || {}, appd = readJson(`docs/i18n/app-${lang}.json`) || {};
+  const dict = {};
+  for (const { en } of uiStrings) { const v = appd[en] ?? web[en]; if (v) dict[en] = v; }
+  const body = JSON.stringify(dict);
+  fs.writeFileSync(path.join(OUT, `ui-${lang}.json`), body);
+  ui[lang] = { h: crypto.createHash('sha1').update(body).digest('hex').slice(0, 8), n: Object.keys(dict).length, total: uiStrings.length };
+}
+
 const paths = Object.fromEntries(Object.entries(PATHS).map(([k, p]) => [k, { ko: p.ko, en: p.en, courses: pathCourses(p.lvs) }]));
-const manifest = { schema: 1, paths, courses, grammarPairs, topik, writing, mock: mockMeta, vocab, games };
+const manifest = { schema: 1, paths, courses, grammarPairs, topik, writing, mock: mockMeta, vocab, games, ui };
 manifest.v = crypto.createHash('sha1').update(JSON.stringify(manifest)).digest('hex').slice(0, 8);
 fs.writeFileSync(path.join(OUT, 'manifest.json'), JSON.stringify(manifest));
 const nL = courses.reduce((a, c) => a + c.lessons.length, 0);
-console.log(`앱 자료 — 코스 ${courses.length}개 · 레슨 ${nL}개 · 길 ${Object.keys(paths).join('/')}(${Object.values(paths).map((p) => p.courses.length).join('/')}코스) + 문법 비교 ${grammarPairs.n}짝·퀴즈 ${grammarPairs.q}문제 + TOPIK ${Object.values(topik).reduce((a, x) => a + x.n, 0)}문항 + 쓰기 ${writing.n}문항 + 낱말 ${vocab.n} + 게임(워들 ${games.potdle}낱말) → app-data/ (v ${manifest.v}, 길에 안 든 코스 ${courses.filter((c) => !used.has(c.id)).length}개)`);
+console.log(`앱 자료 — 코스 ${courses.length}개 · 레슨 ${nL}개 · 길 ${Object.keys(paths).join('/')}(${Object.values(paths).map((p) => p.courses.length).join('/')}코스) + 문법 비교 ${grammarPairs.n}짝·퀴즈 ${grammarPairs.q}문제 + TOPIK ${Object.values(topik).reduce((a, x) => a + x.n, 0)}문항 + 쓰기 ${writing.n}문항 + 낱말 ${vocab.n} + 게임(워들 ${games.potdle}낱말) + 앱 번역 vi/ja/zh ${ui.vi.n}/${ui.vi.total} → app-data/ (v ${manifest.v}, 길에 안 든 코스 ${courses.filter((c) => !used.has(c.id)).length}개)`);
