@@ -1114,5 +1114,33 @@
   {
     "en": "WATCH OUT",
     "ko": "주의"
+  },
+  {
+    "en": "Mistake notebook",
+    "ko": "오답 노트"
+  },
+  {
+    "en": "Nothing to review",
+    "ko": "틀린 문제가 없어요"
+  },
+  {
+    "en": "questions waiting",
+    "ko": "개의 문제가 기다려요"
+  },
+  {
+    "en": "Questions you missed in lessons. Get one right and it leaves the notebook.",
+    "ko": "레슨에서 틀린 문제만 모아 놨어요. 맞히면 노트에서 빠져요."
+  },
+  {
+    "en": "Redo only what you missed",
+    "ko": "틀린 문제만 모아 다시 풀기"
+  },
+  {
+    "en": "Redo them",
+    "ko": "다시 풀기"
+  },
+  {
+    "en": "You cleared {0}!",
+    "ko": "{0}개를 정리했어요!"
   }
 ]

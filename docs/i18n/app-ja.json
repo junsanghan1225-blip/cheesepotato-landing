@@ -184,5 +184,12 @@
   "Nothing found": "見つかりません",
   "Search by name or meaning": "名前や意味で検索",
   "Today's goal complete!": "今日のノルマ達成!",
-  "WATCH OUT": "注意"
+  "WATCH OUT": "注意",
+  "Mistake notebook": "間違いノート",
+  "Nothing to review": "間違いはありません",
+  "questions waiting": "問が待っています",
+  "Questions you missed in lessons. Get one right and it leaves the notebook.": "レッスンで間違えた問題を集めました。正解するとノートから消えます。",
+  "Redo only what you missed": "間違えた問題だけやり直す",
+  "Redo them": "やり直す",
+  "You cleared {0}!": "{0}問を片付けました!"
 }

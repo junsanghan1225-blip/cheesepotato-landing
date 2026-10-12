@@ -184,5 +184,12 @@
   "Nothing found": "没有找到",
   "Search by name or meaning": "按名称或意思搜索",
   "Today's goal complete!": "今日任务完成!",
-  "WATCH OUT": "注意"
+  "WATCH OUT": "注意",
+  "Mistake notebook": "错题本",
+  "Nothing to review": "没有错题",
+  "questions waiting": "道题等着你",
+  "Questions you missed in lessons. Get one right and it leaves the notebook.": "收集了你在课程中做错的题。答对后就会从错题本里移除。",
+  "Redo only what you missed": "只重做做错的题",
+  "Redo them": "重做",
+  "You cleared {0}!": "你已清除 {0} 道!"
 }
