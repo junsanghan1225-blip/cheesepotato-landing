@@ -45,5 +45,20 @@ for (const [k, src] of Object.entries(TOPIK_SRC)) {
     if (k.startsWith('listening') && !Array.isArray(it.script)) err(`TOPIK ${k} ${it.id}: 대본이 없다`);
   }
 }
+/* 쓰기 · 모의고사 · 낱말 · 게임 */
+{
+  const { TW_ITEMS } = await import(pathToFileURL(path.join(ROOT, 'topik-writing.js')).href);
+  const rd = (n) => JSON.parse(fs.readFileSync(path.join(ROOT, `app-data/${n}.json`), 'utf8'));
+  const w = rd('topik-writing');
+  if (w.items.length !== TW_ITEMS.length) err(`쓰기 ${w.items.length}문항 — 원본 ${TW_ITEMS.length}`);
+  for (const x of w.items) { if ((x.q === 51 || x.q === 52) && !x.blanks?.length) err(`${x.id}: 빈칸이 없다`); if ((x.q === 53 || x.q === 54) && !(x.min && x.max)) err(`${x.id}: 분량(min · max)이 없다`); if ('samples' in x || 'points' in x) err(`${x.id}: 채점 기준(samples · points)이 앱 자료에 들어갔다 — 서버만 들고 있어야 한다`); }
+  const mk = rd('topik-mock');
+  if (mk.I.slots.length !== 40 || mk.II.slots.length !== 50) err(`모의고사 자리 수가 이상하다(I ${mk.I.slots.length} · II ${mk.II.slots.length})`);
+  const v = rd('vocab');
+  if (v.length < 9000 || v.some((r) => r.length !== 4 || !r[0] || !r[3])) err('낱말 자료가 이상하다');
+  const g = rd('games');
+  if (g.potdle.length < 100 || Object.values(g.numbers).some((x) => x.length < 40)) err('게임 자료가 모자라다');
+  if (man.writing?.n !== w.items.length || man.vocab?.n !== v.length) err('manifest 의 writing · vocab 이 낡았다');
+}
 console.log(bad ? `앱 자료 검사 — 문제 ${bad}개` : `앱 자료 검사 — 통과 (코스 ${want.length} · 레슨 ${nL} · 블록 ${nB})`);
 process.exit(bad ? 1 : 0);

@@ -74,9 +74,52 @@ for (const [k, v] of Object.entries(topikFiles)) {
   fs.writeFileSync(path.join(OUT, `topik-${k}.json`), body);
   topik[k] = { h: crypto.createHash('sha1').update(body).digest('hex').slice(0, 8), n: v.items.length };
 }
+/* 쓰기(51~54번) — 51 · 52 는 빈칸 문장 쓰기(모범답과 견주기), 53 · 54 는 AI 채점(서버 함수 grade-writing 이 채점 기준 · 예시를 따로 들고 있다 —
+   앱에는 문제 · 자료 · 조건 · 모범답안만 보낸다). */
+const { TW_ITEMS, TW_QS } = await import(pathToFileURL(path.join(ROOT, 'topik-writing.js')).href);
+const writingItems = TW_ITEMS.map((x) => ({ id: x.id, q: x.q, lv: x.lv, register: x.register, title: x.title, passage: x.passage, cond: x.cond,
+  ...(x.blanks ? { blanks: x.blanks.map((b) => ({ mark: b.mark, answers: b.answers, point: b.point })) } : {}),
+  ...(x.data ? { data: x.data } : {}), ...(x.tasks ? { tasks: x.tasks } : {}), ...(x.min ? { min: x.min, max: x.max } : {}), ...(x.model ? { model: x.model } : {}) }));
+const writingBody = JSON.stringify({ qs: TW_QS, items: writingItems });
+fs.writeFileSync(path.join(OUT, 'topik-writing.json'), writingBody);
+const writing = { h: crypto.createHash('sha1').update(writingBody).digest('hex').slice(0, 8), n: writingItems.length };
+
+/* TOPIK 읽기 모의고사 — 자리(slot) 목록 + 시간(웹 TQ_EXAMS.mockSec 와 같다: I 60분 · II 70분). 앱이 웹과 같은 방법으로 회차를 뽑는다. */
+const mock = { I: { min: 60, slots: T1.TOPIK_SLOTS }, II: { min: 70, slots: T2.TOPIK2_SLOTS } };
+fs.writeFileSync(path.join(OUT, 'topik-mock.json'), JSON.stringify(mock));
+const mockMeta = { h: crypto.createHash('sha1').update(JSON.stringify(mock)).digest('hex').slice(0, 8) };
+
+/* 낱말 — 게임 · 단어 퀴즈가 같이 쓴다. [낱말, 품사, 감자 레벨(1~7), 뜻]. TOPIK I(1,931) + II(8,258). */
+const V1 = await import(pathToFileURL(path.join(ROOT, 'vocab-topik1.js')).href);
+const V2 = await import(pathToFileURL(path.join(ROOT, 'vocab-topik2.js')).href);
+const meanOf = (w) => (w.s || w.e || '').split(/[;/(]/)[0].trim();
+const vocabRows = [...V1.VOCAB, ...V2.VOCAB].map((w) => [w.h, w.p || '', w.v || 1, meanOf(w)]).filter((r) => r[0] && r[3]);
+const vocabBody = JSON.stringify(vocabRows);
+fs.writeFileSync(path.join(OUT, 'vocab.json'), vocabBody);
+
+/* 감자 워들 — 웹 potdle.js 와 같은 규칙(두 글자 · 자모 5개 · 감자 L1~L4)으로 거르고 같은 순서로 섞어 날짜 번호로 집게 한다(웹 · 앱이 같은 날 같은 낱말) */
+const CHO = 'ㄱㄲㄴㄷㄸㄹㅁㅂㅃㅅㅆㅇㅈㅉㅊㅋㅌㅍㅎ', VOW = 'ㅏㅐㅑㅒㅓㅔㅕㅖㅗㅘㅙㅚㅛㅜㅝㅞㅟㅠㅡㅢㅣ';
+const JT = ['', 'ㄱ', 'ㄲ', 'ㄳ', 'ㄴ', 'ㄵ', 'ㄶ', 'ㄷ', 'ㄹ', 'ㄺ', 'ㄻ', 'ㄼ', 'ㄽ', 'ㄾ', 'ㄿ', 'ㅀ', 'ㅁ', 'ㅂ', 'ㅄ', 'ㅅ', 'ㅆ', 'ㅇ', 'ㅈ', 'ㅊ', 'ㅋ', 'ㅌ', 'ㅍ', 'ㅎ'];
+const SPLIT = { ㅘ: 'ㅗㅏ', ㅙ: 'ㅗㅐ', ㅚ: 'ㅗㅣ', ㅝ: 'ㅜㅓ', ㅞ: 'ㅜㅔ', ㅟ: 'ㅜㅣ', ㅢ: 'ㅡㅣ', ㄳ: 'ㄱㅅ', ㄵ: 'ㄴㅈ', ㄶ: 'ㄴㅎ', ㄺ: 'ㄹㄱ', ㄻ: 'ㄹㅁ', ㄼ: 'ㄹㅂ', ㄽ: 'ㄹㅅ', ㄾ: 'ㄹㅌ', ㄿ: 'ㄹㅍ', ㅀ: 'ㄹㅎ', ㅄ: 'ㅂㅅ' };
+const jamoOf = (s) => [...s].flatMap((ch) => { const c = ch.charCodeAt(0) - 0xac00; if (c < 0 || c >= 11172) return [ch]; return [CHO[Math.floor(c / 588)], VOW[Math.floor((c % 588) / 28)], JT[c % 28]].filter(Boolean).flatMap((j) => [...(SPLIT[j] || j)]); });
+const pdSrc = fs.readFileSync(path.join(ROOT, 'potdle.js'), 'utf8');
+if (!pdSrc.includes('let s = 20261008;') || !pdSrc.includes('const a = [...list].sort((x, y) => (x.h < y.h ? -1 : 1));')) throw new Error('potdle.js 의 섞는 방법이 바뀌었다 — build-app-data.mjs 의 potdle 부분도 같이 고친다');
+const seeded = (list) => { let s = 20261008; const rnd = () => { s = (s * 1103515245 + 12345) % 2147483648; return s / 2147483648; }; const a = [...list].sort((x, y) => (x.h < y.h ? -1 : 1)); for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(rnd() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };
+const seenP = new Set();
+const potdle = seeded(V1.VOCAB.filter((w) => /^[가-힣]{2}$/.test(w.h) && w.v >= 1 && w.v <= 4 && meanOf(w) && jamoOf(w.h).length === 5 && !seenP.has(w.h) && seenP.add(w.h))).map((w) => [w.h, meanOf(w)]);
+
+/* 숫자 읽기 — 웹 numbers.js 의 makeRound 로 레벨마다 문제를 넉넉히 뽑아 둔다(앱이 그중에서 고른다) */
+const NUM = await import(pathToFileURL(path.join(ROOT, 'numbers.js')).href);
+const numbers = {};
+for (const lv of NUM.NUM_LEVELS) { const seen = new Set(); const out = []; for (let k = 0; k < 40 && out.length < 150; k++) for (const q of NUM.makeRound(lv, 20)) if (!seen.has(q.ask + q.answer)) { seen.add(q.ask + q.answer); out.push(q); } numbers[lv] = out; }
+const gamesBody = JSON.stringify({ potdle, numbers });
+fs.writeFileSync(path.join(OUT, 'games.json'), gamesBody);
+const games = { h: crypto.createHash('sha1').update(gamesBody).digest('hex').slice(0, 8), potdle: potdle.length, numbers: Object.fromEntries(Object.entries(numbers).map(([k, v]) => [k, v.length])) };
+const vocab = { h: crypto.createHash('sha1').update(vocabBody).digest('hex').slice(0, 8), n: vocabRows.length };
+
 const paths = Object.fromEntries(Object.entries(PATHS).map(([k, p]) => [k, { ko: p.ko, en: p.en, courses: pathCourses(p.lvs) }]));
-const manifest = { schema: 1, paths, courses, grammarPairs, topik };
+const manifest = { schema: 1, paths, courses, grammarPairs, topik, writing, mock: mockMeta, vocab, games };
 manifest.v = crypto.createHash('sha1').update(JSON.stringify(manifest)).digest('hex').slice(0, 8);
 fs.writeFileSync(path.join(OUT, 'manifest.json'), JSON.stringify(manifest));
 const nL = courses.reduce((a, c) => a + c.lessons.length, 0);
-console.log(`앱 자료 — 코스 ${courses.length}개 · 레슨 ${nL}개 · 길 ${Object.keys(paths).join('/')}(${Object.values(paths).map((p) => p.courses.length).join('/')}코스) + 문법 비교 ${grammarPairs.n}짝·퀴즈 ${grammarPairs.q}문제 + TOPIK ${Object.values(topik).reduce((a, x) => a + x.n, 0)}문항 → app-data/ (v ${manifest.v}, 길에 안 든 코스 ${courses.filter((c) => !used.has(c.id)).length}개)`);
+console.log(`앱 자료 — 코스 ${courses.length}개 · 레슨 ${nL}개 · 길 ${Object.keys(paths).join('/')}(${Object.values(paths).map((p) => p.courses.length).join('/')}코스) + 문법 비교 ${grammarPairs.n}짝·퀴즈 ${grammarPairs.q}문제 + TOPIK ${Object.values(topik).reduce((a, x) => a + x.n, 0)}문항 + 쓰기 ${writing.n}문항 + 낱말 ${vocab.n} + 게임(워들 ${games.potdle}낱말) → app-data/ (v ${manifest.v}, 길에 안 든 코스 ${courses.filter((c) => !used.has(c.id)).length}개)`);
