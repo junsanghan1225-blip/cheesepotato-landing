@@ -61,6 +61,15 @@ for (const [k, src] of Object.entries(TOPIK_SRC)) {
   if (g.potdle.length < 100 || Object.values(g.numbers).some((x) => x.length < 40)) err('게임 자료가 모자라다');
   if (man.writing?.n !== w.items.length || man.vocab?.n !== v.length) err('manifest 의 writing · vocab 이 낡았다');
 }
+/* 사전 */
+{
+  const GL = await import(pathToFileURL(path.join(ROOT, 'glossary.js')).href);
+  const dr = JSON.parse(fs.readFileSync(path.join(ROOT, 'app-data/dict.json'), 'utf8'));
+  if (dr.length !== new Set(Object.values(GL.GLOSSARY).map((w) => w.head)).size) err(`사전 ${dr.length}개 — 원본과 다르다`);
+  if (dr.some((r) => r.length !== 8 || !r[0])) err('사전 줄 모양이 이상하다');
+  if (man.dict?.n !== dr.length) err('manifest 의 dict 가 낡았다');
+  if (!fs.existsSync(path.join(ROOT, 'app-data/dict-senses.json'))) err('dict-senses.json 이 없다');
+}
 /* 앱 번역 사전: 자리 표시({0}) 가 열쇠와 같은 집합이어야 한다 */
 {
   const ph = (t) => (String(t).match(/\{\d+\}/g) || []).sort().join(',');

@@ -134,9 +134,24 @@ for (const lang of ['vi', 'ja', 'zh']) {
   ui[lang] = { h: crypto.createHash('sha1').update(body).digest('hex').slice(0, 8), n: Object.keys(dict).length, total: uiStrings.length };
 }
 
+/* 사전 — 앱 「더보기 → 사전」. 낱말(국립국어원 뜻풀이 7,970) · 품사 · 영어 뜻 · 베트남어 · 일본어 · 중국어 뜻 · 예문.
+   한 줄 = [낱말, 품사, 영어, 베트남어, 일본어, 중국어, 예문(한국어), 예문(영어)] — 없는 칸은 빈 글자. 뜻 갈래(국립국어원 풀이)는 따로(dict-senses.json) 열 때 받는다. */
+const GL = await import(pathToFileURL(path.join(ROOT, 'glossary.js')).href);
+const gl = async (f) => (await import(pathToFileURL(path.join(ROOT, f)).href)).G;
+const GVI = await gl('glossary-vi.js'), GJA = await gl('glossary-ja.js'), GZH = await gl('glossary-zh.js');
+const { EXAMPLES } = await import(pathToFileURL(path.join(ROOT, 'glossary-examples.js')).href);
+const { SENSES } = await import(pathToFileURL(path.join(ROOT, 'glossary-senses.js')).href);
+const dictHeads = new Map(); for (const w of Object.values(GL.GLOSSARY)) if (!dictHeads.has(w.head)) dictHeads.set(w.head, w);
+const dictRows = [...dictHeads.values()].map((w) => { const ex = EXAMPLES[w.head]; return [w.head, w.pos || '', w.en || '', GVI[w.head] || '', GJA[w.head] || '', GZH[w.head] || '', ex?.ex || '', ex?.en || '']; });
+const dictBody = JSON.stringify(dictRows);
+fs.writeFileSync(path.join(OUT, 'dict.json'), dictBody);
+const sensesBody = JSON.stringify(SENSES);
+fs.writeFileSync(path.join(OUT, 'dict-senses.json'), sensesBody);
+const dict = { h: crypto.createHash('sha1').update(dictBody).digest('hex').slice(0, 8), n: dictRows.length, hs: crypto.createHash('sha1').update(sensesBody).digest('hex').slice(0, 8) };
+
 const paths = Object.fromEntries(Object.entries(PATHS).map(([k, p]) => [k, { ko: p.ko, en: p.en, courses: pathCourses(p.lvs) }]));
-const manifest = { schema: 1, paths, courses, grammarPairs, topik, writing, mock: mockMeta, vocab, games, ui };
+const manifest = { schema: 1, paths, courses, grammarPairs, topik, writing, mock: mockMeta, vocab, games, ui, dict };
 manifest.v = crypto.createHash('sha1').update(JSON.stringify(manifest)).digest('hex').slice(0, 8);
 fs.writeFileSync(path.join(OUT, 'manifest.json'), JSON.stringify(manifest));
 const nL = courses.reduce((a, c) => a + c.lessons.length, 0);
-console.log(`앱 자료 — 코스 ${courses.length}개 · 레슨 ${nL}개 · 길 ${Object.keys(paths).join('/')}(${Object.values(paths).map((p) => p.courses.length).join('/')}코스) + 문법 비교 ${grammarPairs.n}짝·퀴즈 ${grammarPairs.q}문제 + TOPIK ${Object.values(topik).reduce((a, x) => a + x.n, 0)}문항 + 쓰기 ${writing.n}문항 + 낱말 ${vocab.n} + 게임(워들 ${games.potdle}낱말) + 앱 번역 vi/ja/zh ${ui.vi.n}/${ui.vi.total} → app-data/ (v ${manifest.v}, 길에 안 든 코스 ${courses.filter((c) => !used.has(c.id)).length}개)`);
+console.log(`앱 자료 — 코스 ${courses.length}개 · 레슨 ${nL}개 · 길 ${Object.keys(paths).join('/')}(${Object.values(paths).map((p) => p.courses.length).join('/')}코스) + 문법 비교 ${grammarPairs.n}짝·퀴즈 ${grammarPairs.q}문제 + TOPIK ${Object.values(topik).reduce((a, x) => a + x.n, 0)}문항 + 쓰기 ${writing.n}문항 + 낱말 ${vocab.n} + 게임(워들 ${games.potdle}낱말) + 앱 번역 vi/ja/zh ${ui.vi.n}/${ui.vi.total} + 사전 ${dict.n} → app-data/ (v ${manifest.v}, 길에 안 든 코스 ${courses.filter((c) => !used.has(c.id)).length}개)`);
