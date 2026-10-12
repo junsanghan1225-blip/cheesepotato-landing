@@ -34,18 +34,21 @@ const PATHS = {
   adv: { lvs: [7], ko: '고급부터', en: 'Advanced' },
 };
 
+/* 제목이 {ko, en} 이 아니라 글자 하나로 적힌 코스 · 레슨이 있다(웹은 cTx 가 그대로 보여 준다) — 앱이 빈칸으로 보지 않게 두 칸으로 맞춘다 */
+const L2 = (v) => (typeof v === 'string' ? { ko: v, en: v } : { ko: v?.ko || v?.en || '', en: v?.en || v?.ko || '' });
+
 fs.rmSync(OUT, { recursive: true, force: true });
 fs.mkdirSync(path.join(OUT, 'lessons'), { recursive: true });
 const used = new Set(Object.values(PATHS).flatMap((p) => pathCourses(p.lvs)));
 const courses = [];
 for (const c of COURSES) {
   if (!c.lessons.length) continue;
-  const body = JSON.stringify(c.lessons);
+  const body = JSON.stringify(c.lessons.map((l) => ({ ...l, title: L2(l.title) })));
   fs.writeFileSync(path.join(OUT, 'lessons', `${c.id}.json`), body);
   courses.push({
-    id: c.id, emoji: c.emoji, title: c.title, tagline: c.tagline, level: c.level,
+    id: c.id, emoji: c.emoji, title: L2(c.title), tagline: L2(c.tagline), level: c.level,
     h: crypto.createHash('sha1').update(body).digest('hex').slice(0, 8),   // 앱이 폰에 저장해 둔 것이 낡았는지 보는 값
-    lessons: c.lessons.map((l) => ({ id: l.id, title: l.title, minutes: l.minutes || 7, n: l.blocks.length })),
+    lessons: c.lessons.map((l) => ({ id: l.id, title: L2(l.title), minutes: l.minutes || 7, n: l.blocks.length })),
   });
 }
 /* 헷갈리는 문법 비교 퀴즈 — 앱 「문법 비교」 화면. 두 문법의 이름 · 뜻을 같이 담아 앱이 다른 자료를 안 찾게 한다. */

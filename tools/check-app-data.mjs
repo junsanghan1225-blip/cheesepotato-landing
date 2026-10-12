@@ -13,6 +13,7 @@ const man = JSON.parse(fs.readFileSync(mf, 'utf8'));
 const want = COURSES.filter((c) => c.lessons.length);
 if (man.courses.length !== want.length) err(`코스 ${man.courses.length}개 — 원본은 ${want.length}개(자료가 바뀌었으면 node tools/build-app-data.mjs)`);
 const ids = new Set(man.courses.map((c) => c.id));
+for (const c of man.courses) { if (!c.title?.ko || !c.title?.en) err(`코스 ${c.id}: 제목이 비었다(ko · en 둘 다 있어야 앱에 보인다)`); for (const l of c.lessons) if (!l.title?.ko || !l.title?.en) err(`레슨 ${l.id}: 제목이 비었다`); }
 for (const [k, p] of Object.entries(man.paths)) { if (!p.courses.length) err(`길 ${k} 에 코스가 없다`); for (const id of p.courses) if (!ids.has(id)) err(`길 ${k} 의 코스 ${id} 가 목록에 없다`); }
 let nL = 0, nB = 0;
 for (const c of want) {
