@@ -162,5 +162,6 @@
   "You used today's {0} gradings. Try again tomorrow.": "今日の採点{0}回を使い切りました。明日また試してください。",
   "You wrote": "あなたの答え",
   "Your answers will not be saved.": "ここまでの回答は保存されません。",
-  "Yours": "あなたの答え"
+  "Yours": "あなたの答え",
+  "Draw a box around one word and its meaning": "単語とその意味を1組だけ囲もう"
 }
