@@ -163,5 +163,16 @@
   "You wrote": "あなたの答え",
   "Your answers will not be saved.": "ここまでの回答は保存されません。",
   "Yours": "あなたの答え",
-  "Draw a box around one word and its meaning": "単語とその意味を1組だけ囲もう"
+  "Draw a box around one word and its meaning": "単語とその意味を1組だけ囲もう",
+  "5,700 words, consonant search, examples": "5,700語・子音検索・例文",
+  "Daily goal {0}/{1} XP": "今日の目標 {0}/{1} XP",
+  "Daily goal reached!": "今日の目標を達成!",
+  "Dictionary": "辞書",
+  "EXAMPLE": "例文",
+  "Level {0}": "レベル {0}",
+  "Level {0} reached!": "レベル {0} に到達!",
+  "MEANINGS": "意味",
+  "No words found": "見つかりませんでした",
+  "Search in Korean, initials (ㅅㄱ) or English": "韓国語・初声(ㅅㄱ)・英語で検索",
+  "Some definitions: Korean Basic Dictionary, NIKL (CC BY-SA 2.0 KR)": "語釈の一部:国立国語院 韓国語基礎辞典 (CC BY-SA 2.0 KR)"
 }

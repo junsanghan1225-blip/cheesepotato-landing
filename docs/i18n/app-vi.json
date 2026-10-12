@@ -163,5 +163,16 @@
   "You wrote": "Bạn đã viết",
   "Your answers will not be saved.": "Các câu trả lời của bạn sẽ không được lưu.",
   "Yours": "Của bạn",
-  "Draw a box around one word and its meaning": "Khoanh một từ cùng nghĩa của nó"
+  "Draw a box around one word and its meaning": "Khoanh một từ cùng nghĩa của nó",
+  "5,700 words, consonant search, examples": "5.700 từ, tìm theo phụ âm đầu, ví dụ",
+  "Daily goal {0}/{1} XP": "Mục tiêu hôm nay {0}/{1} XP",
+  "Daily goal reached!": "Đã đạt mục tiêu hôm nay!",
+  "Dictionary": "Từ điển",
+  "EXAMPLE": "VÍ DỤ",
+  "Level {0}": "Cấp {0}",
+  "Level {0} reached!": "Đạt cấp {0}!",
+  "MEANINGS": "CÁC NGHĨA",
+  "No words found": "Không tìm thấy từ",
+  "Search in Korean, initials (ㅅㄱ) or English": "Tìm bằng tiếng Hàn, phụ âm đầu (ㅅㄱ) hoặc tiếng Anh",
+  "Some definitions: Korean Basic Dictionary, NIKL (CC BY-SA 2.0 KR)": "Một số định nghĩa: Từ điển cơ bản tiếng Hàn, NIKL (CC BY-SA 2.0 KR)"
 }
