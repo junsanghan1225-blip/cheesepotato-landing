@@ -2,6 +2,7 @@
    앱은 이 파일을 everykoreans.com/app-data/ 에서 받아 폰에 저장해 둔다 → 자료를 앱에 복사해 두지 않으니 웹에서 고치면 앱도 바뀐다(앱 새로 올릴 필요 없음).
    - manifest.json : 길(basic · mid · adv) 순서 · 코스 목록(제목 · 이모지 · 레슨 id · 분) · v(내용이 바뀌면 바뀌는 값)
    - lessons/<코스 id>.json : 그 코스의 레슨들(블록 포함)
+   - grammar-pairs.json : 헷갈리는 문법 비교 퀴즈(문법 이름 · 뜻 포함)
    길 순서는 app.module.js 의 MY_LEVEL_COURSES · PATHS 와 같다 — 거기서 읽어 오니 웹에서 순서를 바꾸면 따라온다.
    원본은 courses*.js. 이 폴더는 생성물이라 손으로 고치지 않는다(node tools/build-app-data.mjs). */
 import fs from 'node:fs';
@@ -46,9 +47,19 @@ for (const c of COURSES) {
     lessons: c.lessons.map((l) => ({ id: l.id, title: l.title, minutes: l.minutes || 7, n: l.blocks.length })),
   });
 }
+/* 헷갈리는 문법 비교 퀴즈 — 앱 「문법 비교」 화면. 두 문법의 이름 · 뜻을 같이 담아 앱이 다른 자료를 안 찾게 한다. */
+const { GRAMMAR_PAIRS } = await import(pathToFileURL(path.join(ROOT, 'grammar-pairs.js')).href);
+const { SB_CATS } = await import(pathToFileURL(path.join(ROOT, 'sentences.js')).href);
+const { GRAMMAR_EN } = await import(pathToFileURL(path.join(ROOT, 'grammar-en.js')).href);
+const points = new Map(SB_CATS.flatMap((c) => c.points).map((p) => [p.id, p]));
+const side = (id) => { const p = points.get(id); if (!p) throw new Error(`문법 ${id} 을(를) 못 찾았다`); return { id, name: p.name, desc: p.desc, descEn: GRAMMAR_EN[id]?.desc || '' }; };
+const pairs = GRAMMAR_PAIRS.map((x) => ({ id: x.id, title: x.title, gist: x.gist, diff: x.diff, ex: x.ex, a: side(x.a), b: side(x.b), quiz: x.quiz }));
+const pairsBody = JSON.stringify(pairs);
+fs.writeFileSync(path.join(OUT, 'grammar-pairs.json'), pairsBody);
+const grammarPairs = { h: crypto.createHash('sha1').update(pairsBody).digest('hex').slice(0, 8), n: pairs.length, q: pairs.reduce((a, x) => a + x.quiz.length, 0) };
 const paths = Object.fromEntries(Object.entries(PATHS).map(([k, p]) => [k, { ko: p.ko, en: p.en, courses: pathCourses(p.lvs) }]));
-const manifest = { schema: 1, paths, courses };
+const manifest = { schema: 1, paths, courses, grammarPairs };
 manifest.v = crypto.createHash('sha1').update(JSON.stringify(manifest)).digest('hex').slice(0, 8);
 fs.writeFileSync(path.join(OUT, 'manifest.json'), JSON.stringify(manifest));
 const nL = courses.reduce((a, c) => a + c.lessons.length, 0);
-console.log(`앱 자료 — 코스 ${courses.length}개 · 레슨 ${nL}개 · 길 ${Object.keys(paths).join('/')}(${Object.values(paths).map((p) => p.courses.length).join('/')}코스) → app-data/ (v ${manifest.v}, 길에 안 든 코스 ${courses.filter((c) => !used.has(c.id)).length}개)`);
+console.log(`앱 자료 — 코스 ${courses.length}개 · 레슨 ${nL}개 · 길 ${Object.keys(paths).join('/')}(${Object.values(paths).map((p) => p.courses.length).join('/')}코스) + 문법 비교 ${grammarPairs.n}짝·퀴즈 ${grammarPairs.q}문제 → app-data/ (v ${manifest.v}, 길에 안 든 코스 ${courses.filter((c) => !used.has(c.id)).length}개)`);

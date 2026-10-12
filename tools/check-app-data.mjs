@@ -22,5 +22,14 @@ for (const c of want) {
   if (ls.length !== c.lessons.length) err(`${c.id}: 레슨 ${ls.length}개 — 원본 ${c.lessons.length}개`);
   for (const l of ls) { nL++; for (const b of l.blocks) { nB++; if (!KNOWN.has(b.t)) err(`${l.id}: 앱이 모르는 블록 「${b.t}」`); } }
 }
+const { GRAMMAR_PAIRS } = await import(pathToFileURL(path.join(ROOT, 'grammar-pairs.js')).href);
+const gpf = path.join(ROOT, 'app-data/grammar-pairs.json');
+if (!fs.existsSync(gpf)) err('app-data/grammar-pairs.json 이 없다');
+else {
+  const gp = JSON.parse(fs.readFileSync(gpf, 'utf8'));
+  if (gp.length !== GRAMMAR_PAIRS.length) err(`문법 비교 ${gp.length}짝 — 원본 ${GRAMMAR_PAIRS.length}짝`);
+  for (const x of gp) { if (!x.a?.name || !x.b?.name) err(`${x.id}: 문법 이름이 비었다`); for (const q of x.quiz) if (!q.q.includes('___') || (q.ans !== 'a' && q.ans !== 'b')) err(`${x.id}: 퀴즈 모양이 이상하다 — ${q.q}`); }
+  if (man.grammarPairs?.n !== gp.length) err('manifest 의 grammarPairs 가 낡았다');
+}
 console.log(bad ? `앱 자료 검사 — 문제 ${bad}개` : `앱 자료 검사 — 통과 (코스 ${want.length} · 레슨 ${nL} · 블록 ${nB})`);
 process.exit(bad ? 1 : 0);
