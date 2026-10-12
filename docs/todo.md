@@ -21,7 +21,7 @@
 | 6 | 확인용 앱을 폰에서 보기 → 「앱 PR 머지해줘」 | 앱 PR cheesepotatoapp#8 (별점 · 바로 고치기) |
 | 7 | 정식 앱 빌드 올리기 + Play Console 데이터 보안 「비정상 종료 로그 · 진단」 체크 | 앱 `docs/ota-updates.md` · `docs/data-safety.md` |
 | 8 | 앱 PR #1(홍보 자료 안내) 넣을지 | cheesepotatoapp#1 |
-| 9 | **앱 재설계 1단계를 폰에서 보기** — 오늘 · 공부 · 레슨 화면이 폰에서 잘 되는지(터치 · 키보드 · 소리). 확인용 APK 새로 빌드 또는 `eas update --channel preview --environment production` | 앱 브랜치 `claude/app-native-learn` · `docs/native-redesign.md` |
+| 9 | **앱 재설계 1단계를 폰에서 보기** — 오늘 · 공부 · 레슨 화면이 폰에서 잘 되는지(터치 · 키보드 · 소리). 확인용 APK 새로 빌드 또는 `eas update --channel preview --environment production` | 앱 브랜치 `claude/app-native-learn` · 앱 저장소의 native-redesign 문서 |
 
 ### ⚙️ 한 번만 하면 계속 도는 것
 | # | 할 일 | 어디 |
