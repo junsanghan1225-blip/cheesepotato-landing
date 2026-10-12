@@ -31,5 +31,19 @@ else {
   for (const x of gp) { if (!x.a?.name || !x.b?.name) err(`${x.id}: 문법 이름이 비었다`); for (const q of x.quiz) if (!q.q.includes('___') || (q.ans !== 'a' && q.ans !== 'b')) err(`${x.id}: 퀴즈 모양이 이상하다 — ${q.q}`); }
   if (man.grammarPairs?.n !== gp.length) err('manifest 의 grammarPairs 가 낡았다');
 }
+const TOPIK_SRC = { 'reading-I': (await import(pathToFileURL(path.join(ROOT, 'topik.js')).href)).TOPIK_READING, 'reading-II': (await import(pathToFileURL(path.join(ROOT, 'topik2.js')).href)).TOPIK2_READING };
+const TL = await import(pathToFileURL(path.join(ROOT, 'topik-listening.js')).href);
+TOPIK_SRC['listening-I'] = TL.TOPIKL_ITEMS; TOPIK_SRC['listening-II'] = TL.TOPIKL2_ITEMS;
+for (const [k, src] of Object.entries(TOPIK_SRC)) {
+  const f = path.join(ROOT, `app-data/topik-${k}.json`);
+  if (!fs.existsSync(f)) { err(`topik-${k}.json 이 없다`); continue; }
+  const d = JSON.parse(fs.readFileSync(f, 'utf8'));
+  if (d.items.length !== src.length) err(`TOPIK ${k}: ${d.items.length}문항 — 원본 ${src.length}`);
+  if (man.topik?.[k]?.n !== d.items.length) err(`manifest 의 topik.${k} 가 낡았다`);
+  for (const it of d.items) {
+    if (!Array.isArray(it.options) || it.options.length < 2 || !(it.answer >= 0 && it.answer < it.options.length)) err(`TOPIK ${k} ${it.id}: 보기 · 정답이 이상하다`);
+    if (k.startsWith('listening') && !Array.isArray(it.script)) err(`TOPIK ${k} ${it.id}: 대본이 없다`);
+  }
+}
 console.log(bad ? `앱 자료 검사 — 문제 ${bad}개` : `앱 자료 검사 — 통과 (코스 ${want.length} · 레슨 ${nL} · 블록 ${nB})`);
 process.exit(bad ? 1 : 0);

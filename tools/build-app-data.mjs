@@ -3,6 +3,7 @@
    - manifest.json : 길(basic · mid · adv) 순서 · 코스 목록(제목 · 이모지 · 레슨 id · 분) · v(내용이 바뀌면 바뀌는 값)
    - lessons/<코스 id>.json : 그 코스의 레슨들(블록 포함)
    - grammar-pairs.json : 헷갈리는 문법 비교 퀴즈(문법 이름 · 뜻 포함)
+   - topik-<reading|listening>-<I|II>.json : TOPIK 연습 문항 + 유형 목록(blueprint)
    길 순서는 app.module.js 의 MY_LEVEL_COURSES · PATHS 와 같다 — 거기서 읽어 오니 웹에서 순서를 바꾸면 따라온다.
    원본은 courses*.js. 이 폴더는 생성물이라 손으로 고치지 않는다(node tools/build-app-data.mjs). */
 import fs from 'node:fs';
@@ -57,9 +58,25 @@ const pairs = GRAMMAR_PAIRS.map((x) => ({ id: x.id, title: x.title, gist: x.gist
 const pairsBody = JSON.stringify(pairs);
 fs.writeFileSync(path.join(OUT, 'grammar-pairs.json'), pairsBody);
 const grammarPairs = { h: crypto.createHash('sha1').update(pairsBody).digest('hex').slice(0, 8), n: pairs.length, q: pairs.reduce((a, x) => a + x.quiz.length, 0) };
+/* TOPIK 연습(읽기 · 듣기, I · II) — 앱 「TOPIK」 탭. 문항은 전부 창작(기출 아님). 쓰기 · 모의고사는 아직 웹 화면으로. */
+const T1 = await import(pathToFileURL(path.join(ROOT, 'topik.js')).href);
+const T2 = await import(pathToFileURL(path.join(ROOT, 'topik2.js')).href);
+const TL = await import(pathToFileURL(path.join(ROOT, 'topik-listening.js')).href);
+const topikFiles = {
+  'reading-I': { blueprint: T1.TOPIK_BLUEPRINT, items: T1.TOPIK_READING },
+  'reading-II': { blueprint: T2.TOPIK2_BLUEPRINT, items: T2.TOPIK2_READING },
+  'listening-I': { blueprint: TL.TOPIKL_BLUEPRINT, items: TL.TOPIKL_ITEMS },
+  'listening-II': { blueprint: TL.TOPIKL2_BLUEPRINT, items: TL.TOPIKL2_ITEMS },
+};
+const topik = {};
+for (const [k, v] of Object.entries(topikFiles)) {
+  const body = JSON.stringify(v);
+  fs.writeFileSync(path.join(OUT, `topik-${k}.json`), body);
+  topik[k] = { h: crypto.createHash('sha1').update(body).digest('hex').slice(0, 8), n: v.items.length };
+}
 const paths = Object.fromEntries(Object.entries(PATHS).map(([k, p]) => [k, { ko: p.ko, en: p.en, courses: pathCourses(p.lvs) }]));
-const manifest = { schema: 1, paths, courses, grammarPairs };
+const manifest = { schema: 1, paths, courses, grammarPairs, topik };
 manifest.v = crypto.createHash('sha1').update(JSON.stringify(manifest)).digest('hex').slice(0, 8);
 fs.writeFileSync(path.join(OUT, 'manifest.json'), JSON.stringify(manifest));
 const nL = courses.reduce((a, c) => a + c.lessons.length, 0);
-console.log(`앱 자료 — 코스 ${courses.length}개 · 레슨 ${nL}개 · 길 ${Object.keys(paths).join('/')}(${Object.values(paths).map((p) => p.courses.length).join('/')}코스) + 문법 비교 ${grammarPairs.n}짝·퀴즈 ${grammarPairs.q}문제 → app-data/ (v ${manifest.v}, 길에 안 든 코스 ${courses.filter((c) => !used.has(c.id)).length}개)`);
+console.log(`앱 자료 — 코스 ${courses.length}개 · 레슨 ${nL}개 · 길 ${Object.keys(paths).join('/')}(${Object.values(paths).map((p) => p.courses.length).join('/')}코스) + 문법 비교 ${grammarPairs.n}짝·퀴즈 ${grammarPairs.q}문제 + TOPIK ${Object.values(topik).reduce((a, x) => a + x.n, 0)}문항 → app-data/ (v ${manifest.v}, 길에 안 든 코스 ${courses.filter((c) => !used.has(c.id)).length}개)`);
