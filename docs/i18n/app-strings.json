@@ -1114,5 +1114,73 @@
   {
     "en": "WATCH OUT",
     "ko": "주의"
+  },
+  {
+    "en": "Mistake notebook",
+    "ko": "오답 노트"
+  },
+  {
+    "en": "Nothing to review",
+    "ko": "틀린 문제가 없어요"
+  },
+  {
+    "en": "questions waiting",
+    "ko": "개의 문제가 기다려요"
+  },
+  {
+    "en": "Questions you missed in lessons. Get one right and it leaves the notebook.",
+    "ko": "레슨에서 틀린 문제만 모아 놨어요. 맞히면 노트에서 빠져요."
+  },
+  {
+    "en": "Redo only what you missed",
+    "ko": "틀린 문제만 모아 다시 풀기"
+  },
+  {
+    "en": "Redo them",
+    "ko": "다시 풀기"
+  },
+  {
+    "en": "You cleared {0}!",
+    "ko": "{0}개를 정리했어요!"
+  },
+  {
+    "en": "290 points with examples",
+    "ko": "290개 · 쓰임과 대화"
+  },
+  {
+    "en": "401 lessons along your path",
+    "ko": "길 따라 레슨 401개"
+  },
+  {
+    "en": "Ask what you wonder",
+    "ko": "궁금한 것 묻기"
+  },
+  {
+    "en": "Confusing grammar pairs",
+    "ko": "헷갈리는 두 문법"
+  },
+  {
+    "en": "Courses",
+    "ko": "코스"
+  },
+  {
+    "en": "Find your level",
+    "ko": "내 자리 찾기"
+  },
+  {
+    "en": "Look-alikes",
+    "ko": "문법 비교"
+  },
+  {
+    "en": "Mistakes",
+    "ko": "오답 노트"
+  },
+  {
+    "en": "Redo what you missed",
+    "ko": "틀린 문제 다시 풀기"
+  },
+  {
+    "en": "Words and initials search",
+    "ko": "낱말 · 초성 검색"
   }
 ]
