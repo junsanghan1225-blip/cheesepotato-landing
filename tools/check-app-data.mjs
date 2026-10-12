@@ -70,6 +70,15 @@ for (const [k, src] of Object.entries(TOPIK_SRC)) {
   if (man.dict?.n !== dr.length) err('manifest 의 dict 가 낡았다');
   if (!fs.existsSync(path.join(ROOT, 'app-data/dict-senses.json'))) err('dict-senses.json 이 없다');
 }
+/* 문법 */
+{
+  const gr = JSON.parse(fs.readFileSync(path.join(ROOT, 'app-data/grammar.json'), 'utf8'));
+  const n = gr.reduce((a, c) => a + c.points.length, 0);
+  const SBM = await import(pathToFileURL(path.join(ROOT, 'sentences.js')).href);
+  if (n !== SBM.SB_CATS.reduce((a, c) => a + c.points.length, 0)) err('문법 개수가 원본과 다르다');
+  if (gr.some((c) => c.points.some((p) => !p.id || !p.name || !p.desc))) err('이름 · 뜻이 빈 문법이 있다');
+  if (man.grammar?.n !== n) err('manifest 의 grammar 가 낡았다');
+}
 /* 앱 번역 사전: 자리 표시({0}) 가 열쇠와 같은 집합이어야 한다 */
 {
   const ph = (t) => (String(t).match(/\{\d+\}/g) || []).sort().join(',');

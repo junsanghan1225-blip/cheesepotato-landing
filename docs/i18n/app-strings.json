@@ -1074,5 +1074,45 @@
   {
     "en": "Some definitions: Korean Basic Dictionary, NIKL (CC BY-SA 2.0 KR)",
     "ko": "뜻풀이 일부: 국립국어원 한국어기초사전 (CC BY-SA 2.0 KR)"
+  },
+  {
+    "en": "{1} of {0} done today",
+    "ko": "오늘 {0}칸 중 {1}칸"
+  },
+  {
+    "en": "All",
+    "ko": "전체"
+  },
+  {
+    "en": "DIALOGUE",
+    "ko": "대화"
+  },
+  {
+    "en": "FORM",
+    "ko": "모양"
+  },
+  {
+    "en": "Lv {0} · {1} XP",
+    "ko": "레벨 {0} · {1} XP"
+  },
+  {
+    "en": "MORE EXAMPLES",
+    "ko": "이렇게 써요"
+  },
+  {
+    "en": "Nothing found",
+    "ko": "찾는 문법이 없어요"
+  },
+  {
+    "en": "Search by name or meaning",
+    "ko": "문법 이름이나 뜻으로 찾기"
+  },
+  {
+    "en": "Today's goal complete!",
+    "ko": "오늘 할당 끝!"
+  },
+  {
+    "en": "WATCH OUT",
+    "ko": "주의"
   }
 ]
