@@ -3164,3 +3164,6 @@ await import('./build-search.mjs');
 
 /* TOPIK 낱말 내려받기(CSV · Anki) 쪽 — 따로 도구로 둔다 */
 await import('./build-downloads.mjs');
+
+/* 앱(cheesepotatoapp)이 읽는 코스 · 레슨 JSON — 자료가 바뀌면 같이 새로 만든다(2026-10-12) */
+await import('./build-app-data.mjs');
