@@ -1,0 +1,1118 @@
+[
+  {
+    "en": "(blank)",
+    "ko": "(안 풀었어요)"
+  },
+  {
+    "en": "{0} chars",
+    "ko": "{0}자"
+  },
+  {
+    "en": "{0} correct",
+    "ko": "맞은 것 {0}개"
+  },
+  {
+    "en": "{0} gradings left today",
+    "ko": "오늘 남은 채점 {0}번"
+  },
+  {
+    "en": "{0} min",
+    "ko": "{0}분"
+  },
+  {
+    "en": "{0} of {1} correct",
+    "ko": "{1}문제 중 {0}개 맞혔어요"
+  },
+  {
+    "en": "{0} pts",
+    "ko": "{0}점"
+  },
+  {
+    "en": "{0} questions",
+    "ko": "퀴즈 {0}문제"
+  },
+  {
+    "en": "{0} questions · {1} min. Timed, in one go; explanations after you submit.",
+    "ko": "{0}문항 · {1}분. 시간을 재며 한 번에 풀고, 풀이는 제출한 뒤에 봐요. 안 푼 문제는 틀린 것으로 매겨요."
+  },
+  {
+    "en": "{0} questions · unseen first",
+    "ko": "{0}문항 · 안 푼 것부터"
+  },
+  {
+    "en": "{0} slips — that's how it sticks",
+    "ko": "틀린 것 {0}번 — 괜찮아요, 다시 보면 돼요"
+  },
+  {
+    "en": "{0} syllables",
+    "ko": "{0}글자"
+  },
+  {
+    "en": "{0} to review",
+    "ko": "틀린 문제 {0}개"
+  },
+  {
+    "en": "{0} unanswered — they count as wrong.",
+    "ko": "안 푼 문제가 {0}개 있어요. 틀린 것으로 매겨져요."
+  },
+  {
+    "en": "{0}-day streak",
+    "ko": "{0}일 연속"
+  },
+  {
+    "en": "{0}% correct · {1}",
+    "ko": "정답률 {0}% · {1} 걸렸어요"
+  },
+  {
+    "en": "~{0} min",
+    "ko": "약 {0}분"
+  },
+  {
+    "en": "290 points, drills and block practice",
+    "ko": "문법 290개 · 바꾸기 · 블록 맞추기"
+  },
+  {
+    "en": "A phone reminder at your chosen time",
+    "ko": "정한 시각에 폰으로 알려 줘요"
+  },
+  {
+    "en": "ACCOUNT",
+    "ko": "계정"
+  },
+  {
+    "en": "Add words from a photo",
+    "ko": "사진으로 단어 담기"
+  },
+  {
+    "en": "Add your name",
+    "ko": "이름을 정해 주세요"
+  },
+  {
+    "en": "Advanced",
+    "ko": "고급"
+  },
+  {
+    "en": "AI feedback · Q51–54",
+    "ko": "AI 채점 · 51~54번"
+  },
+  {
+    "en": "All answered.",
+    "ko": "모두 풀었어요."
+  },
+  {
+    "en": "All courses",
+    "ko": "코스 전체"
+  },
+  {
+    "en": "All done today — see you tomorrow",
+    "ko": "오늘 학습 끝! 내일 또 만나요"
+  },
+  {
+    "en": "All games",
+    "ko": "게임 목록"
+  },
+  {
+    "en": "Another 10",
+    "ko": "다른 10문제"
+  },
+  {
+    "en": "Another word with the same initials also counts (original: {0})",
+    "ko": "같은 초성의 다른 낱말도 정답이에요 (원래 답: {0})"
+  },
+  {
+    "en": "Answer",
+    "ko": "정답"
+  },
+  {
+    "en": "Answer to continue",
+    "ko": "풀어 보세요"
+  },
+  {
+    "en": "APP",
+    "ko": "앱"
+  },
+  {
+    "en": "APP INFO",
+    "ko": "앱 정보"
+  },
+  {
+    "en": "App version",
+    "ko": "앱 버전"
+  },
+  {
+    "en": "APPEARANCE",
+    "ko": "화면"
+  },
+  {
+    "en": "Ask what you wonder about",
+    "ko": "궁금한 것을 물어보세요"
+  },
+  {
+    "en": "Back",
+    "ko": "돌아가기"
+  },
+  {
+    "en": "Back to rounds",
+    "ko": "회차 목록으로"
+  },
+  {
+    "en": "Basics",
+    "ko": "기초"
+  },
+  {
+    "en": "Beginner",
+    "ko": "초급"
+  },
+  {
+    "en": "Best",
+    "ko": "최고"
+  },
+  {
+    "en": "Best {0}",
+    "ko": "최고 {0}개"
+  },
+  {
+    "en": "Best {0} {1}",
+    "ko": "최고 {0}{1}"
+  },
+  {
+    "en": "Best {0} / {1}",
+    "ko": "최고 {0} / {1}"
+  },
+  {
+    "en": "Best {0} pairs",
+    "ko": "최고 {0}쌍"
+  },
+  {
+    "en": "Best {0} pts",
+    "ko": "최고 {0}점"
+  },
+  {
+    "en": "Best {0}{1}",
+    "ko": "최고 {0}{2}"
+  },
+  {
+    "en": "Box a word with its meaning to pop it",
+    "ko": "네모를 그려 낱말과 뜻을 묶어 터뜨려요"
+  },
+  {
+    "en": "Build your words and your Korean ear by playing.",
+    "ko": "놀면서 낱말과 한국어 감각을 키워요."
+  },
+  {
+    "en": "By question type",
+    "ko": "유형별 결과"
+  },
+  {
+    "en": "Channel",
+    "ko": "채널"
+  },
+  {
+    "en": "Check",
+    "ko": "확인"
+  },
+  {
+    "en": "Check for update",
+    "ko": "업데이트 확인 · 적용"
+  },
+  {
+    "en": "Check your connection.",
+    "ko": "인터넷을 확인해 주세요."
+  },
+  {
+    "en": "Cleared! +{0}s",
+    "ko": "판 비움! +{0}초"
+  },
+  {
+    "en": "Combo {0} · ×{1}",
+    "ko": "콤보 {0} · ×{1}"
+  },
+  {
+    "en": "Compare with the model answers",
+    "ko": "모범답과 견주어 보세요"
+  },
+  {
+    "en": "Conditions",
+    "ko": "조건"
+  },
+  {
+    "en": "Content & task",
+    "ko": "내용 · 과제 수행"
+  },
+  {
+    "en": "Continue",
+    "ko": "이어서 하기"
+  },
+  {
+    "en": "Correct!",
+    "ko": "맞았어요!"
+  },
+  {
+    "en": "Correct! +{0}",
+    "ko": "정답! +{0}"
+  },
+  {
+    "en": "Could not check: {0}",
+    "ko": "확인하지 못했어요: {0}"
+  },
+  {
+    "en": "Could not load",
+    "ko": "불러오지 못했어요"
+  },
+  {
+    "en": "Could not load the lesson. Check your connection.",
+    "ko": "레슨을 불러오지 못했어요. 인터넷을 확인해 주세요."
+  },
+  {
+    "en": "Could not load words",
+    "ko": "낱말을 불러오지 못했어요"
+  },
+  {
+    "en": "Could not load. Check your connection.",
+    "ko": "불러오지 못했어요. 인터넷을 확인해 주세요."
+  },
+  {
+    "en": "Dark",
+    "ko": "어둡게"
+  },
+  {
+    "en": "Device",
+    "ko": "기기"
+  },
+  {
+    "en": "Do just one to start a streak",
+    "ko": "오늘 하나만 해도 연속이 시작돼요"
+  },
+  {
+    "en": "Done for now",
+    "ko": "그만하기"
+  },
+  {
+    "en": "Downloading the update…",
+    "ko": "새 업데이트를 받는 중…"
+  },
+  {
+    "en": "Draw a box around one word and its meaning",
+    "ko": "낱말과 뜻, 한 쌍만 네모로 묶어요"
+  },
+  {
+    "en": "Easy",
+    "ko": "쉬움"
+  },
+  {
+    "en": "Edit",
+    "ko": "수정"
+  },
+  {
+    "en": "Enter",
+    "ko": "확인"
+  },
+  {
+    "en": "Exam prep for the EPS-TOPIK",
+    "ko": "고용허가제 시험 준비"
+  },
+  {
+    "en": "Find where to start in 3 minutes",
+    "ko": "3분이면 내 자리를 알아요"
+  },
+  {
+    "en": "Finish",
+    "ko": "끝내기"
+  },
+  {
+    "en": "Fix the mistake.",
+    "ko": "틀린 곳을 고쳐 쓰세요."
+  },
+  {
+    "en": "Follow your device or pick one",
+    "ko": "기기 설정을 따르거나 직접 고르세요"
+  },
+  {
+    "en": "formal -습니다",
+    "ko": "-습니다체"
+  },
+  {
+    "en": "Free: 2 a day · Pro: 30. A practice score — not an official TOPIK score. Your text is used only for grading.",
+    "ko": "하루 무료 2번 · Pro 30번. 연습용 점수이며 실제 TOPIK 점수와 달라요. 내 글은 채점에만 쓰여요."
+  },
+  {
+    "en": "From the basics",
+    "ko": "기초부터"
+  },
+  {
+    "en": "Games",
+    "ko": "게임"
+  },
+  {
+    "en": "Get AI feedback",
+    "ko": "AI 채점 받기"
+  },
+  {
+    "en": "Grade again",
+    "ko": "다시 채점 받기"
+  },
+  {
+    "en": "Grading failed — try again shortly (it did not count).",
+    "ko": "채점에 실패했어요. 잠시 뒤 다시 해 주세요(횟수는 차감되지 않아요)."
+  },
+  {
+    "en": "Grammar",
+    "ko": "문법 표현"
+  },
+  {
+    "en": "Grammar look-alikes",
+    "ko": "헷갈리는 문법 비교"
+  },
+  {
+    "en": "Hard",
+    "ko": "어려움"
+  },
+  {
+    "en": "Hint {0}",
+    "ko": "힌트 {0}"
+  },
+  {
+    "en": "Homework and review",
+    "ko": "숙제와 복습"
+  },
+  {
+    "en": "How do you read it?",
+    "ko": "어떻게 읽을까요?"
+  },
+  {
+    "en": "I said it out loud",
+    "ko": "소리 내어 읽었어요"
+  },
+  {
+    "en": "Initial-consonant quiz",
+    "ko": "초성 퀴즈"
+  },
+  {
+    "en": "Intermediate",
+    "ko": "중급"
+  },
+  {
+    "en": "INVITE A FRIEND",
+    "ko": "친구 초대"
+  },
+  {
+    "en": "Keep going",
+    "ko": "계속 풀기"
+  },
+  {
+    "en": "Language",
+    "ko": "언어"
+  },
+  {
+    "en": "Language for menus and explanations",
+    "ko": "설명 · 메뉴에 쓰는 말"
+  },
+  {
+    "en": "Language use",
+    "ko": "언어 사용"
+  },
+  {
+    "en": "LEARNING",
+    "ko": "학습"
+  },
+  {
+    "en": "Leave",
+    "ko": "그만두기"
+  },
+  {
+    "en": "Leave the test?",
+    "ko": "그만둘까요?"
+  },
+  {
+    "en": "Lesson complete!",
+    "ko": "레슨 끝!"
+  },
+  {
+    "en": "Level test",
+    "ko": "레벨 테스트"
+  },
+  {
+    "en": "Levels 1–2",
+    "ko": "1~2급"
+  },
+  {
+    "en": "Levels 3–6",
+    "ko": "3~6급"
+  },
+  {
+    "en": "Light",
+    "ko": "밝게"
+  },
+  {
+    "en": "Listen",
+    "ko": "듣기"
+  },
+  {
+    "en": "Listening",
+    "ko": "듣기"
+  },
+  {
+    "en": "M",
+    "ko": "남"
+  },
+  {
+    "en": "Matches a model answer",
+    "ko": "모범답과 같아요"
+  },
+  {
+    "en": "ME",
+    "ko": "내 기록"
+  },
+  {
+    "en": "Meaning",
+    "ko": "뜻"
+  },
+  {
+    "en": "Meaning hint opens soon",
+    "ko": "뜻 힌트는 조금 뒤에 열려요"
+  },
+  {
+    "en": "Medium",
+    "ko": "보통"
+  },
+  {
+    "en": "Mock test",
+    "ko": "모의고사"
+  },
+  {
+    "en": "Model answer",
+    "ko": "모범답안 보기"
+  },
+  {
+    "en": "More",
+    "ko": "더보기"
+  },
+  {
+    "en": "My class",
+    "ko": "우리 반"
+  },
+  {
+    "en": "My path",
+    "ko": "내 길"
+  },
+  {
+    "en": "My wordbook",
+    "ko": "내 단어장"
+  },
+  {
+    "en": "New best!",
+    "ko": "새 기록!"
+  },
+  {
+    "en": "Next",
+    "ko": "다음"
+  },
+  {
+    "en": "Next step →",
+    "ko": "다음 걸음 →"
+  },
+  {
+    "en": "No mistakes!",
+    "ko": "하나도 안 틀렸어요!"
+  },
+  {
+    "en": "No rounds available yet.",
+    "ko": "만들 수 있는 회차가 아직 없어요."
+  },
+  {
+    "en": "none (embedded)",
+    "ko": "없음(앱에 들어 있는 처음 화면)"
+  },
+  {
+    "en": "Not quite",
+    "ko": "아쉬워요"
+  },
+  {
+    "en": "Not taken yet",
+    "ko": "아직 안 풀었어요"
+  },
+  {
+    "en": "Not this time. The word was",
+    "ko": "아쉬워요. 오늘의 낱말은"
+  },
+  {
+    "en": "One reading set to get a feel for the exam",
+    "ko": "읽기 한 세트로 시험 감을 잡아요"
+  },
+  {
+    "en": "One word a day, 6 tries",
+    "ko": "하루 한 낱말, 6번 안에 맞혀요"
+  },
+  {
+    "en": "Open",
+    "ko": "열기"
+  },
+  {
+    "en": "Opens with Pro (subscribe on the website — it applies here too)",
+    "ko": "Pro 구독 후 열려요 (웹에서 구독하면 앱에도 적용돼요)"
+  },
+  {
+    "en": "Other pairs",
+    "ko": "다른 짝"
+  },
+  {
+    "en": "Pair words with meanings",
+    "ko": "낱말과 뜻을 시간 안에 짝지어요"
+  },
+  {
+    "en": "pairs",
+    "ko": "쌍"
+  },
+  {
+    "en": "Perfect!",
+    "ko": "모두 맞혔어요!"
+  },
+  {
+    "en": "Pick the right reading",
+    "ko": "세 시 · 삼십 분 — 알맞은 읽기를 골라요"
+  },
+  {
+    "en": "Pick the word in 60 seconds",
+    "ko": "뜻을 보고 낱말을 60초 동안 골라요"
+  },
+  {
+    "en": "plain -(느)ㄴ다",
+    "ko": "-(느)ㄴ다체"
+  },
+  {
+    "en": "Plan",
+    "ko": "요금제"
+  },
+  {
+    "en": "Play",
+    "ko": "게임 하기"
+  },
+  {
+    "en": "Play again",
+    "ko": "다시 하기"
+  },
+  {
+    "en": "Please sign in.",
+    "ko": "로그인이 필요해요."
+  },
+  {
+    "en": "Please write at least 50 characters.",
+    "ko": "50자 이상 써 주세요."
+  },
+  {
+    "en": "Potato L1–L2 · first words",
+    "ko": "감자 L1~L2 · 처음 배우는 낱말"
+  },
+  {
+    "en": "Potato L3–L5 · TOPIK I words",
+    "ko": "감자 L3~L5 · TOPIK I 낱말"
+  },
+  {
+    "en": "Potato L6–L7 · TOPIK II words",
+    "ko": "감자 L6~L7 · TOPIK II 낱말"
+  },
+  {
+    "en": "Potato Wordle",
+    "ko": "감자 워들"
+  },
+  {
+    "en": "Potato Wordle — one word a day",
+    "ko": "감자 워들 — 하루 한 낱말, 6번 안에"
+  },
+  {
+    "en": "Potato Wordle · practice",
+    "ko": "감자 워들 · 연습"
+  },
+  {
+    "en": "Potato Wordle #{0}",
+    "ko": "감자 워들 #{0}"
+  },
+  {
+    "en": "Practice",
+    "ko": "연습 한 판"
+  },
+  {
+    "en": "Practice questions are original, written in the TOPIK format (not past papers).",
+    "ko": "연습 문항은 TOPIK 형식을 따라 새로 만든 것이에요(기출 아님)."
+  },
+  {
+    "en": "Practised",
+    "ko": "푼 문제"
+  },
+  {
+    "en": "Profile, reminders, theme, account",
+    "ko": "프로필 · 알림 · 화면 · 계정"
+  },
+  {
+    "en": "pts",
+    "ko": "점"
+  },
+  {
+    "en": "Published",
+    "ko": "받은 시각"
+  },
+  {
+    "en": "Q{0}",
+    "ko": "{0}번"
+  },
+  {
+    "en": "Q{0}{1}",
+    "ko": "{0}{2}번 유형"
+  },
+  {
+    "en": "Q&A",
+    "ko": "묻고 답하기"
+  },
+  {
+    "en": "Q51–52: compare with model answers. Q53–54: AI feedback (for practice).",
+    "ko": "51 · 52번은 모범답과 견주고, 53 · 54번은 AI가 채점해 줘요(연습용)."
+  },
+  {
+    "en": "Questions are original, written in the TOPIK format (not past papers). The listening mock is on the website.",
+    "ko": "문항은 TOPIK 형식을 따라 새로 만든 것이에요(기출 아님). 듣기 모의고사는 웹에서 풀 수 있어요."
+  },
+  {
+    "en": "Read the number",
+    "ko": "숫자 읽기"
+  },
+  {
+    "en": "Reading",
+    "ko": "읽기"
+  },
+  {
+    "en": "Reading · {0} min · timed",
+    "ko": "읽기 · {0}분 · 시간을 재고 한 번에"
+  },
+  {
+    "en": "Retry",
+    "ko": "다시 시도"
+  },
+  {
+    "en": "Retry the {0} you missed",
+    "ko": "틀린 {0}개 다시 풀기"
+  },
+  {
+    "en": "Round {0}",
+    "ko": "{0}회차"
+  },
+  {
+    "en": "Runtime",
+    "ko": "런타임"
+  },
+  {
+    "en": "Saved words and review",
+    "ko": "담아 둔 낱말과 복습"
+  },
+  {
+    "en": "Screen version",
+    "ko": "화면 버전"
+  },
+  {
+    "en": "Script",
+    "ko": "대본"
+  },
+  {
+    "en": "See how two similar grammar points differ, then quiz yourself.",
+    "ko": "비슷해 보이는 두 문법의 차이를 보고, 퀴즈로 구별해 봐요."
+  },
+  {
+    "en": "See result",
+    "ko": "결과 보기"
+  },
+  {
+    "en": "See the difference, then quiz yourself",
+    "ko": "두 문법의 차이를 보고 퀴즈로 구별"
+  },
+  {
+    "en": "See the meaning, pick the Korean word. How many in 60 seconds?",
+    "ko": "뜻을 보고 알맞은 한국어 낱말을 골라요. 60초 동안 몇 개나 맞힐 수 있을까요?"
+  },
+  {
+    "en": "See ㅎㄱ, type 학교",
+    "ko": "ㅎㄱ 을 보고 학교를 써요"
+  },
+  {
+    "en": "See ㅎㄱ, type 학교. Hints open over time — fewer hints, more points. (You need a Korean keyboard.)",
+    "ko": "「ㅎㄱ」을 보고 「학교」를 써요. 시간이 지나면 뜻 → 첫 글자 힌트가 열려요. 힌트 없이 맞힐수록 점수가 커요! (한국어 자판이 필요해요)"
+  },
+  {
+    "en": "Send a friend the level test",
+    "ko": "친구에게 레벨 테스트 보내기"
+  },
+  {
+    "en": "Settings",
+    "ko": "설정"
+  },
+  {
+    "en": "Share",
+    "ko": "공유"
+  },
+  {
+    "en": "Short texts with questions",
+    "ko": "짧은 글 읽고 풀기"
+  },
+  {
+    "en": "Show hint",
+    "ko": "힌트 보기"
+  },
+  {
+    "en": "Show meaning",
+    "ko": "뜻 보기"
+  },
+  {
+    "en": "Show model answers",
+    "ko": "모범답 보기"
+  },
+  {
+    "en": "Shuffle −{0}s",
+    "ko": "섞기 −{0}초"
+  },
+  {
+    "en": "Skip",
+    "ko": "모르겠어요"
+  },
+  {
+    "en": "SMTWTFS",
+    "ko": "일월화수목금토"
+  },
+  {
+    "en": "Snap a sign or page into your wordbook",
+    "ko": "간판 · 책을 찍으면 단어장에"
+  },
+  {
+    "en": "So close",
+    "ko": "아쉬워요"
+  },
+  {
+    "en": "Solve 10",
+    "ko": "10문제 풀기"
+  },
+  {
+    "en": "Solved in {0}!",
+    "ko": "{0}번 만에 맞혔어요!"
+  },
+  {
+    "en": "Speed quiz",
+    "ko": "스피드 퀴즈"
+  },
+  {
+    "en": "Start",
+    "ko": "시작하기"
+  },
+  {
+    "en": "Start from the top",
+    "ko": "처음부터 풀기"
+  },
+  {
+    "en": "Start the lesson",
+    "ko": "레슨 시작하기"
+  },
+  {
+    "en": "Start the quiz",
+    "ko": "퀴즈 풀기"
+  },
+  {
+    "en": "Stop",
+    "ko": "멈추기"
+  },
+  {
+    "en": "Streak {0} · wins {1}/{2}",
+    "ko": "연속 {0}일 · 승률 {3}% ({1}/{2})"
+  },
+  {
+    "en": "Strengths",
+    "ko": "잘한 점"
+  },
+  {
+    "en": "Structure",
+    "ko": "글의 전개 구조"
+  },
+  {
+    "en": "Study",
+    "ko": "공부"
+  },
+  {
+    "en": "STUDY",
+    "ko": "공부"
+  },
+  {
+    "en": "Study reminder",
+    "ko": "공부 알림"
+  },
+  {
+    "en": "Submit",
+    "ko": "제출"
+  },
+  {
+    "en": "Submit?",
+    "ko": "제출할까요?"
+  },
+  {
+    "en": "SUBSCRIPTION",
+    "ko": "구독"
+  },
+  {
+    "en": "Tap a word, then its meaning. Clear all 6 for a new board and bonus time.",
+    "ko": "왼쪽 낱말을 누르고, 오른쪽에서 뜻을 골라 짝을 맞춰요. 6쌍을 다 맞히면 새 판 + 시간 보너스!"
+  },
+  {
+    "en": "Tap the words below",
+    "ko": "아래 말을 눌러 문장을 만드세요"
+  },
+  {
+    "en": "That's enough for today",
+    "ko": "오늘은 여기까지"
+  },
+  {
+    "en": "The field is full of potatoes — brown for Korean words, yellow for meanings. Draw a box around exactly one matching pair to pop it. 2 minutes, combos!",
+    "ko": "판에 감자가 가득해요. 갈색 감자는 낱말, 노란 감자는 뜻! 손가락으로 네모를 그려 짝이 맞는 두 감자만 묶으면 터져요. 사이에 낀 감자는 먼저 치워야 해요. 2분, 빨리 이어 터뜨리면 콤보!"
+  },
+  {
+    "en": "The link opens the free level test",
+    "ko": "링크를 열면 무료 레벨 테스트가 열려요"
+  },
+  {
+    "en": "Theme",
+    "ko": "밝기"
+  },
+  {
+    "en": "This build cannot receive updates (dev build).",
+    "ko": "이 빌드는 업데이트를 못 받아요(개발용 빌드)."
+  },
+  {
+    "en": "Three o’clock is 세 시, but thirty minutes is 삼십 분. Pick the right reading.",
+    "ko": "세 시는 「세 시」, 삼십 분은 「삼십 분」. 한국어는 숫자를 두 가지로 읽어요. 맞는 읽기를 골라요."
+  },
+  {
+    "en": "Today",
+    "ko": "오늘"
+  },
+  {
+    "en": "Today's game",
+    "ko": "오늘의 게임"
+  },
+  {
+    "en": "Today's lesson",
+    "ko": "오늘의 레슨"
+  },
+  {
+    "en": "Today's plan",
+    "ko": "오늘의 추천 학습"
+  },
+  {
+    "en": "Today's step follows this path",
+    "ko": "오늘 할 일이 이 길을 따라가요"
+  },
+  {
+    "en": "TOPIK {0} reading · Round {1}",
+    "ko": "TOPIK {0} 읽기 · {1}회차"
+  },
+  {
+    "en": "TOPIK {0} reading mock",
+    "ko": "TOPIK {0} 읽기 모의고사"
+  },
+  {
+    "en": "TOPIK practice",
+    "ko": "TOPIK 연습"
+  },
+  {
+    "en": "TOPIK writing",
+    "ko": "TOPIK 쓰기"
+  },
+  {
+    "en": "TOPIK, 10 questions",
+    "ko": "TOPIK 10문제"
+  },
+  {
+    "en": "Translation is in progress — some text may still appear in English.",
+    "ko": "번역을 채우는 중이라 일부 글은 English 로 보일 수 있어요."
+  },
+  {
+    "en": "Try again",
+    "ko": "다시 풀기"
+  },
+  {
+    "en": "Try the free Korean level test https://everykoreans.com/?lt=1&utm_source=share&utm_medium=app_settings",
+    "ko": "치즈감자에서 한국어 레벨 테스트 해 봐요 https://everykoreans.com/?lt=1&utm_source=share&utm_medium=app_settings"
+  },
+  {
+    "en": "Try these fixes",
+    "ko": "이렇게 고쳐 보세요"
+  },
+  {
+    "en": "Type here",
+    "ko": "여기에 쓰세요"
+  },
+  {
+    "en": "Type in Korean",
+    "ko": "한국어로 쓰기"
+  },
+  {
+    "en": "Update ID",
+    "ko": "업데이트 번호"
+  },
+  {
+    "en": "W",
+    "ko": "여"
+  },
+  {
+    "en": "Which one?",
+    "ko": "어느 쪽일까요?"
+  },
+  {
+    "en": "Word match",
+    "ko": "단어 맞추기"
+  },
+  {
+    "en": "Word potatoes",
+    "ko": "단어 감자"
+  },
+  {
+    "en": "WORDBOOK",
+    "ko": "단어장"
+  },
+  {
+    "en": "Wordbook settings",
+    "ko": "단어장 설정"
+  },
+  {
+    "en": "WORDS",
+    "ko": "단어"
+  },
+  {
+    "en": "Words to review",
+    "ko": "다시 볼 낱말"
+  },
+  {
+    "en": "Write here",
+    "ko": "여기에 쓰세요"
+  },
+  {
+    "en": "Write one sentence",
+    "ko": "한 문장으로 쓰세요"
+  },
+  {
+    "en": "Writing Q51–54 (AI feedback)",
+    "ko": "쓰기 51~54번 (AI 채점)"
+  },
+  {
+    "en": "Wrong −{0}s",
+    "ko": "틀렸어요 −{0}초"
+  },
+  {
+    "en": "You already have the latest update. If the screen looks old, the published channel/runtime differs from this app.",
+    "ko": "이미 가장 새 업데이트예요. 화면이 그대로면 올린 업데이트 채널 · 지문이 이 앱과 다른 거예요."
+  },
+  {
+    "en": "You finished this path",
+    "ko": "이 길을 다 끝냈어요"
+  },
+  {
+    "en": "You got {0} of {1}",
+    "ko": "{1}문제 중 {0}개 맞혔어요"
+  },
+  {
+    "en": "You used today's {0} gradings. Pro gives 30 a day.",
+    "ko": "오늘 채점 횟수({0}번)를 다 썼어요. Pro 는 하루 30번이에요."
+  },
+  {
+    "en": "You used today's {0} gradings. Try again tomorrow.",
+    "ko": "오늘 채점 횟수({0}번)를 다 썼어요. 내일 다시 해 주세요."
+  },
+  {
+    "en": "You wrote",
+    "ko": "내가 쓴 말"
+  },
+  {
+    "en": "Your answers will not be saved.",
+    "ko": "지금까지 푼 것은 저장되지 않아요."
+  },
+  {
+    "en": "Yours",
+    "ko": "내 답"
+  },
+  {
+    "en": "5,700 words, consonant search, examples",
+    "ko": "낱말 5,700개 · 초성 검색 · 예문"
+  },
+  {
+    "en": "Daily goal {0}/{1} XP",
+    "ko": "오늘 목표 {0}/{1} XP"
+  },
+  {
+    "en": "Daily goal reached!",
+    "ko": "오늘 목표 달성!"
+  },
+  {
+    "en": "Dictionary",
+    "ko": "사전"
+  },
+  {
+    "en": "EXAMPLE",
+    "ko": "예문"
+  },
+  {
+    "en": "Level {0}",
+    "ko": "레벨 {0}"
+  },
+  {
+    "en": "Level {0} reached!",
+    "ko": "레벨 {0} 달성!"
+  },
+  {
+    "en": "MEANINGS",
+    "ko": "뜻 갈래"
+  },
+  {
+    "en": "No words found",
+    "ko": "찾는 낱말이 없어요"
+  },
+  {
+    "en": "Search in Korean, initials (ㅅㄱ) or English",
+    "ko": "한글 · 초성(ㅅㄱ) · 영어로 찾기"
+  },
+  {
+    "en": "Some definitions: Korean Basic Dictionary, NIKL (CC BY-SA 2.0 KR)",
+    "ko": "뜻풀이 일부: 국립국어원 한국어기초사전 (CC BY-SA 2.0 KR)"
+  },
+  {
+    "en": "{1} of {0} done today",
+    "ko": "오늘 {0}칸 중 {1}칸"
+  },
+  {
+    "en": "All",
+    "ko": "전체"
+  },
+  {
+    "en": "DIALOGUE",
+    "ko": "대화"
+  },
+  {
+    "en": "FORM",
+    "ko": "모양"
+  },
+  {
+    "en": "Lv {0} · {1} XP",
+    "ko": "레벨 {0} · {1} XP"
+  },
+  {
+    "en": "MORE EXAMPLES",
+    "ko": "이렇게 써요"
+  },
+  {
+    "en": "Nothing found",
+    "ko": "찾는 문법이 없어요"
+  },
+  {
+    "en": "Search by name or meaning",
+    "ko": "문법 이름이나 뜻으로 찾기"
+  },
+  {
+    "en": "Today's goal complete!",
+    "ko": "오늘 할당 끝!"
+  },
+  {
+    "en": "WATCH OUT",
+    "ko": "주의"
+  }
+]

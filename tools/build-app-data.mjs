@@ -34,25 +34,28 @@ const PATHS = {
   adv: { lvs: [7], ko: '고급부터', en: 'Advanced' },
 };
 
+/* 제목이 {ko, en} 이 아니라 글자 하나로 적힌 코스 · 레슨이 있다(웹은 cTx 가 그대로 보여 준다) — 앱이 빈칸으로 보지 않게 두 칸으로 맞춘다 */
+const L2 = (v) => (typeof v === 'string' ? { ko: v, en: v } : { ko: v?.ko || v?.en || '', en: v?.en || v?.ko || '' });
+
 fs.rmSync(OUT, { recursive: true, force: true });
 fs.mkdirSync(path.join(OUT, 'lessons'), { recursive: true });
 const used = new Set(Object.values(PATHS).flatMap((p) => pathCourses(p.lvs)));
 const courses = [];
 for (const c of COURSES) {
   if (!c.lessons.length) continue;
-  const body = JSON.stringify(c.lessons);
+  const body = JSON.stringify(c.lessons.map((l) => ({ ...l, title: L2(l.title) })));
   fs.writeFileSync(path.join(OUT, 'lessons', `${c.id}.json`), body);
   courses.push({
-    id: c.id, emoji: c.emoji, title: c.title, tagline: c.tagline, level: c.level,
+    id: c.id, emoji: c.emoji, title: L2(c.title), tagline: L2(c.tagline), level: c.level,
     h: crypto.createHash('sha1').update(body).digest('hex').slice(0, 8),   // 앱이 폰에 저장해 둔 것이 낡았는지 보는 값
-    lessons: c.lessons.map((l) => ({ id: l.id, title: l.title, minutes: l.minutes || 7, n: l.blocks.length })),
+    lessons: c.lessons.map((l) => ({ id: l.id, title: L2(l.title), minutes: l.minutes || 7, n: l.blocks.length })),
   });
 }
 /* 헷갈리는 문법 비교 퀴즈 — 앱 「문법 비교」 화면. 두 문법의 이름 · 뜻을 같이 담아 앱이 다른 자료를 안 찾게 한다. */
 const { GRAMMAR_PAIRS } = await import(pathToFileURL(path.join(ROOT, 'grammar-pairs.js')).href);
 const { SB_CATS } = await import(pathToFileURL(path.join(ROOT, 'sentences.js')).href);
-const { GRAMMAR_EN } = await import(pathToFileURL(path.join(ROOT, 'grammar-en.js')).href);
 const points = new Map(SB_CATS.flatMap((c) => c.points).map((p) => [p.id, p]));
+const { GRAMMAR_EN } = await import(pathToFileURL(path.join(ROOT, 'grammar-en.js')).href);
 const side = (id) => { const p = points.get(id); if (!p) throw new Error(`문법 ${id} 을(를) 못 찾았다`); return { id, name: p.name, desc: p.desc, descEn: GRAMMAR_EN[id]?.desc || '' }; };
 const pairs = GRAMMAR_PAIRS.map((x) => ({ id: x.id, title: x.title, gist: x.gist, diff: x.diff, ex: x.ex, a: side(x.a), b: side(x.b), quiz: x.quiz }));
 const pairsBody = JSON.stringify(pairs);
@@ -117,9 +120,54 @@ fs.writeFileSync(path.join(OUT, 'games.json'), gamesBody);
 const games = { h: crypto.createHash('sha1').update(gamesBody).digest('hex').slice(0, 8), potdle: potdle.length, numbers: Object.fromEntries(Object.entries(numbers).map(([k, v]) => [k, v.length])) };
 const vocab = { h: crypto.createHash('sha1').update(vocabBody).digest('hex').slice(0, 8), n: vocabRows.length };
 
+/* 앱 새 화면의 번역 사전 — English 문장 → vi · ja · zh. 앱의 화면 글자 목록(docs/i18n/app-strings.json, 앱 저장소 tools/extract-ui-strings.cjs 가 뽑아 옴)을 기준으로,
+   앱 전용 번역(docs/i18n/app-<언어>.json)을 먼저, 없으면 웹 화면 번역(docs/i18n/<언어>.json)을 쓴다. 번역이 없는 문장은 앱에서 English 로 보인다. */
+const readJson = (f) => { try { return JSON.parse(fs.readFileSync(path.join(ROOT, f), 'utf8')); } catch { return null; } };
+const uiStrings = readJson('docs/i18n/app-strings.json') || [];
+const ui = {};
+for (const lang of ['vi', 'ja', 'zh']) {
+  const web = readJson(`docs/i18n/${lang}.json`) || {}, appd = readJson(`docs/i18n/app-${lang}.json`) || {};
+  const dict = {};
+  for (const { en } of uiStrings) { const v = appd[en] ?? web[en]; if (v) dict[en] = v; }
+  const body = JSON.stringify(dict);
+  fs.writeFileSync(path.join(OUT, `ui-${lang}.json`), body);
+  ui[lang] = { h: crypto.createHash('sha1').update(body).digest('hex').slice(0, 8), n: Object.keys(dict).length, total: uiStrings.length };
+}
+
+/* 사전 — 앱 「더보기 → 사전」. 낱말(국립국어원 뜻풀이 7,970) · 품사 · 영어 뜻 · 베트남어 · 일본어 · 중국어 뜻 · 예문.
+   한 줄 = [낱말, 품사, 영어, 베트남어, 일본어, 중국어, 예문(한국어), 예문(영어)] — 없는 칸은 빈 글자. 뜻 갈래(국립국어원 풀이)는 따로(dict-senses.json) 열 때 받는다. */
+const GL = await import(pathToFileURL(path.join(ROOT, 'glossary.js')).href);
+const gl = async (f) => (await import(pathToFileURL(path.join(ROOT, f)).href)).G;
+const GVI = await gl('glossary-vi.js'), GJA = await gl('glossary-ja.js'), GZH = await gl('glossary-zh.js');
+const { EXAMPLES } = await import(pathToFileURL(path.join(ROOT, 'glossary-examples.js')).href);
+const { SENSES } = await import(pathToFileURL(path.join(ROOT, 'glossary-senses.js')).href);
+const dictHeads = new Map(); for (const w of Object.values(GL.GLOSSARY)) if (!dictHeads.has(w.head)) dictHeads.set(w.head, w);
+const dictRows = [...dictHeads.values()].map((w) => { const ex = EXAMPLES[w.head]; return [w.head, w.pos || '', w.en || '', GVI[w.head] || '', GJA[w.head] || '', GZH[w.head] || '', ex?.ex || '', ex?.en || '']; });
+const dictBody = JSON.stringify(dictRows);
+fs.writeFileSync(path.join(OUT, 'dict.json'), dictBody);
+const sensesBody = JSON.stringify(SENSES);
+fs.writeFileSync(path.join(OUT, 'dict-senses.json'), sensesBody);
+const dict = { h: crypto.createHash('sha1').update(dictBody).digest('hex').slice(0, 8), n: dictRows.length, hs: crypto.createHash('sha1').update(sensesBody).digest('hex').slice(0, 8) };
+
+/* 문법 — 앱 「더보기 → 문법」. 갈래(73) 안에 문법 290개: 이름 · 뜻 · 대표 예문 · 더 알기 · 대화 · 영어 설명 · 쓰임 예문. */
+const SBM = await import(pathToFileURL(path.join(ROOT, 'sentences.js')).href);
+const { GRAMMAR_USAGE } = await import(pathToFileURL(path.join(ROOT, 'grammar-usage.js')).href);
+const gcats = SBM.SB_CATS.map((c) => ({
+  id: c.id, ko: c.ko, en: c.en,
+  points: c.points.map((p) => { const en = GRAMMAR_EN[p.id] || {}; return {
+    id: p.id, lv: p.lv, name: p.name, desc: p.desc, ex: p.ex || '',
+    more: p.more || SBM.SB_MORE?.[p.id] || [], dlg: p.dlg || [],
+    en: en.desc ? { desc: en.desc, form: en.form || '', care: en.care || '' } : null,
+    use: (GRAMMAR_USAGE[p.id] || []).slice(0, 6),
+  }; }),
+}));
+const grammarBody = JSON.stringify(gcats);
+fs.writeFileSync(path.join(OUT, 'grammar.json'), grammarBody);
+const grammar = { h: crypto.createHash('sha1').update(grammarBody).digest('hex').slice(0, 8), n: gcats.reduce((a, c) => a + c.points.length, 0) };
+
 const paths = Object.fromEntries(Object.entries(PATHS).map(([k, p]) => [k, { ko: p.ko, en: p.en, courses: pathCourses(p.lvs) }]));
-const manifest = { schema: 1, paths, courses, grammarPairs, topik, writing, mock: mockMeta, vocab, games };
+const manifest = { schema: 1, paths, courses, grammarPairs, topik, writing, mock: mockMeta, vocab, games, ui, dict, grammar };
 manifest.v = crypto.createHash('sha1').update(JSON.stringify(manifest)).digest('hex').slice(0, 8);
 fs.writeFileSync(path.join(OUT, 'manifest.json'), JSON.stringify(manifest));
 const nL = courses.reduce((a, c) => a + c.lessons.length, 0);
-console.log(`앱 자료 — 코스 ${courses.length}개 · 레슨 ${nL}개 · 길 ${Object.keys(paths).join('/')}(${Object.values(paths).map((p) => p.courses.length).join('/')}코스) + 문법 비교 ${grammarPairs.n}짝·퀴즈 ${grammarPairs.q}문제 + TOPIK ${Object.values(topik).reduce((a, x) => a + x.n, 0)}문항 + 쓰기 ${writing.n}문항 + 낱말 ${vocab.n} + 게임(워들 ${games.potdle}낱말) → app-data/ (v ${manifest.v}, 길에 안 든 코스 ${courses.filter((c) => !used.has(c.id)).length}개)`);
+console.log(`앱 자료 — 코스 ${courses.length}개 · 레슨 ${nL}개 · 길 ${Object.keys(paths).join('/')}(${Object.values(paths).map((p) => p.courses.length).join('/')}코스) + 문법 비교 ${grammarPairs.n}짝·퀴즈 ${grammarPairs.q}문제 + TOPIK ${Object.values(topik).reduce((a, x) => a + x.n, 0)}문항 + 쓰기 ${writing.n}문항 + 낱말 ${vocab.n} + 게임(워들 ${games.potdle}낱말) + 앱 번역 vi/ja/zh ${ui.vi.n}/${ui.vi.total} + 사전 ${dict.n} + 문법 ${grammar.n} → app-data/ (v ${manifest.v}, 길에 안 든 코스 ${courses.filter((c) => !used.has(c.id)).length}개)`);

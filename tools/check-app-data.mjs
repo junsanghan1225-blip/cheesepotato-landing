@@ -13,6 +13,7 @@ const man = JSON.parse(fs.readFileSync(mf, 'utf8'));
 const want = COURSES.filter((c) => c.lessons.length);
 if (man.courses.length !== want.length) err(`코스 ${man.courses.length}개 — 원본은 ${want.length}개(자료가 바뀌었으면 node tools/build-app-data.mjs)`);
 const ids = new Set(man.courses.map((c) => c.id));
+for (const c of man.courses) { if (!c.title?.ko || !c.title?.en) err(`코스 ${c.id}: 제목이 비었다(ko · en 둘 다 있어야 앱에 보인다)`); for (const l of c.lessons) if (!l.title?.ko || !l.title?.en) err(`레슨 ${l.id}: 제목이 비었다`); }
 for (const [k, p] of Object.entries(man.paths)) { if (!p.courses.length) err(`길 ${k} 에 코스가 없다`); for (const id of p.courses) if (!ids.has(id)) err(`길 ${k} 의 코스 ${id} 가 목록에 없다`); }
 let nL = 0, nB = 0;
 for (const c of want) {
@@ -59,6 +60,36 @@ for (const [k, src] of Object.entries(TOPIK_SRC)) {
   const g = rd('games');
   if (g.potdle.length < 100 || Object.values(g.numbers).some((x) => x.length < 40)) err('게임 자료가 모자라다');
   if (man.writing?.n !== w.items.length || man.vocab?.n !== v.length) err('manifest 의 writing · vocab 이 낡았다');
+}
+/* 사전 */
+{
+  const GL = await import(pathToFileURL(path.join(ROOT, 'glossary.js')).href);
+  const dr = JSON.parse(fs.readFileSync(path.join(ROOT, 'app-data/dict.json'), 'utf8'));
+  if (dr.length !== new Set(Object.values(GL.GLOSSARY).map((w) => w.head)).size) err(`사전 ${dr.length}개 — 원본과 다르다`);
+  if (dr.some((r) => r.length !== 8 || !r[0])) err('사전 줄 모양이 이상하다');
+  if (man.dict?.n !== dr.length) err('manifest 의 dict 가 낡았다');
+  if (!fs.existsSync(path.join(ROOT, 'app-data/dict-senses.json'))) err('dict-senses.json 이 없다');
+}
+/* 문법 */
+{
+  const gr = JSON.parse(fs.readFileSync(path.join(ROOT, 'app-data/grammar.json'), 'utf8'));
+  const n = gr.reduce((a, c) => a + c.points.length, 0);
+  const SBM = await import(pathToFileURL(path.join(ROOT, 'sentences.js')).href);
+  if (n !== SBM.SB_CATS.reduce((a, c) => a + c.points.length, 0)) err('문법 개수가 원본과 다르다');
+  if (gr.some((c) => c.points.some((p) => !p.id || !p.name || !p.desc))) err('이름 · 뜻이 빈 문법이 있다');
+  if (man.grammar?.n !== n) err('manifest 의 grammar 가 낡았다');
+}
+/* 앱 번역 사전: 자리 표시({0}) 가 열쇠와 같은 집합이어야 한다 */
+{
+  const ph = (t) => (String(t).match(/\{\d+\}/g) || []).sort().join(',');
+  for (const lang of ['vi', 'ja', 'zh']) {
+    const f = path.join(ROOT, `app-data/ui-${lang}.json`);
+    if (!fs.existsSync(f)) { err(`ui-${lang}.json 이 없다`); continue; }
+    const d = JSON.parse(fs.readFileSync(f, 'utf8'));
+    for (const [k, v] of Object.entries(d)) if (ph(k) !== ph(v)) err(`ui-${lang}: 「${k}」 의 자리 표시가 번역과 다르다`);
+    const miss = (man.ui?.[lang]?.total ?? 0) - Object.keys(d).length;
+    console.log(`  앱 번역 ${lang}: ${Object.keys(d).length}/${man.ui?.[lang]?.total} (English 로 보이는 것 ${miss}개)`);
+  }
 }
 console.log(bad ? `앱 자료 검사 — 문제 ${bad}개` : `앱 자료 검사 — 통과 (코스 ${want.length} · 레슨 ${nL} · 블록 ${nB})`);
 process.exit(bad ? 1 : 0);
