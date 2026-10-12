@@ -1142,5 +1142,45 @@
   {
     "en": "You cleared {0}!",
     "ko": "{0}개를 정리했어요!"
+  },
+  {
+    "en": "290 points with examples",
+    "ko": "290개 · 쓰임과 대화"
+  },
+  {
+    "en": "401 lessons along your path",
+    "ko": "길 따라 레슨 401개"
+  },
+  {
+    "en": "Ask what you wonder",
+    "ko": "궁금한 것 묻기"
+  },
+  {
+    "en": "Confusing grammar pairs",
+    "ko": "헷갈리는 두 문법"
+  },
+  {
+    "en": "Courses",
+    "ko": "코스"
+  },
+  {
+    "en": "Find your level",
+    "ko": "내 자리 찾기"
+  },
+  {
+    "en": "Look-alikes",
+    "ko": "문법 비교"
+  },
+  {
+    "en": "Mistakes",
+    "ko": "오답 노트"
+  },
+  {
+    "en": "Redo what you missed",
+    "ko": "틀린 문제 다시 풀기"
+  },
+  {
+    "en": "Words and initials search",
+    "ko": "낱말 · 초성 검색"
   }
 ]
