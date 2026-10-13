@@ -2585,6 +2585,315 @@
           "hint": "구속력 = binding force · 확대하다 = expand"
         }
       ]
+    },
+    {
+      "id": "b-quote-statement",
+      "tier": "beginner",
+      "title": {
+        "ko": "-다고 얘기했어요 (들은 말 전하기)",
+        "en": "-다고 얘기했어요 (reporting a statement)"
+      },
+      "lines": [
+        {
+          "en": "My friend said he is busy today.",
+          "ko": [
+            "친구가 오늘 바쁘다고 얘기했어요.",
+            "친구가 오늘 바쁘다고 했어요.",
+            "친구가 오늘 바쁘다고 말했어요."
+          ],
+          "hint": "바쁘다 + -다고 = said that (he) is busy",
+          "g": "46-2"
+        },
+        {
+          "en": "Minsu said he will come tomorrow.",
+          "ko": [
+            "민수 씨가 내일 온다고 얘기했어요.",
+            "민수 씨가 내일 온다고 했어요.",
+            "민수 씨가 내일 온다고 말했어요."
+          ],
+          "hint": "verb + -ㄴ/는다고 (오다 → 온다고)",
+          "g": "46-2"
+        },
+        {
+          "en": "The teacher said the test was difficult.",
+          "ko": [
+            "선생님이 시험이 어려웠다고 얘기했어요.",
+            "선생님이 시험이 어려웠다고 하셨어요.",
+            "선생님께서 시험이 어려웠다고 하셨어요."
+          ],
+          "hint": "past = -았/었다고 (어렵다 → 어려웠다고)",
+          "g": "46-2"
+        },
+        {
+          "en": "She said she is a student.",
+          "ko": [
+            "그 사람은 학생이라고 얘기했어요.",
+            "그분은 학생이라고 얘기했어요.",
+            "그 사람은 학생이라고 했어요."
+          ],
+          "hint": "noun + (이)라고 = said that it is ~",
+          "g": "46-2"
+        },
+        {
+          "en": "My mother said she is eating dinner.",
+          "ko": [
+            "어머니가 저녁을 먹는다고 얘기했어요.",
+            "엄마가 저녁을 먹는다고 얘기했어요.",
+            "어머니가 저녁을 먹는다고 하셨어요."
+          ],
+          "hint": "먹다 → 먹는다고 (present, verb)",
+          "g": "46-2"
+        }
+      ]
+    },
+    {
+      "id": "b-quote-question",
+      "tier": "beginner",
+      "title": {
+        "ko": "-냐고 물어봤어요 (질문 전하기)",
+        "en": "-냐고 물어봤어요 (reporting a question)"
+      },
+      "lines": [
+        {
+          "en": "He asked what time it is.",
+          "ko": [
+            "그 사람이 지금 몇 시냐고 물어봤어요.",
+            "그 사람이 지금 몇 시냐고 얘기했어요.",
+            "그분이 지금 몇 시냐고 물어봤어요."
+          ],
+          "hint": "~(이)냐고 물어보다 = asked whether/what ~",
+          "g": "46-2"
+        },
+        {
+          "en": "My friend asked if I am hungry.",
+          "ko": [
+            "친구가 배고프냐고 물어봤어요.",
+            "친구가 배고프냐고 얘기했어요.",
+            "친구가 저한테 배고프냐고 물어봤어요."
+          ],
+          "hint": "adjective + -(으)냐고 (배고프다 → 배고프냐고)",
+          "g": "46-2"
+        },
+        {
+          "en": "She asked where I live.",
+          "ko": [
+            "그 사람이 어디에 사냐고 물어봤어요.",
+            "그 사람이 어디에 사느냐고 물어봤어요.",
+            "그 사람이 어디에 사냐고 얘기했어요."
+          ],
+          "hint": "살다 → 사냐고 (ㄹ drops before ㄴ)",
+          "g": "46-2"
+        },
+        {
+          "en": "The teacher asked if I did my homework.",
+          "ko": [
+            "선생님이 숙제를 했냐고 물어보셨어요.",
+            "선생님이 숙제를 했냐고 물어봤어요.",
+            "선생님께서 숙제를 했냐고 물어보셨어요."
+          ],
+          "hint": "past = -았/었냐고 (하다 → 했냐고)",
+          "g": "46-2"
+        },
+        {
+          "en": "He asked if this is my bag.",
+          "ko": [
+            "이게 내 가방이냐고 물어봤어요.",
+            "그 사람이 이게 내 가방이냐고 물어봤어요.",
+            "그 사람이 이게 제 가방이냐고 물어봤어요."
+          ],
+          "hint": "noun + (이)냐고 (가방 → 가방이냐고)",
+          "g": "46-2"
+        }
+      ]
+    },
+    {
+      "id": "b-quote-suggest",
+      "tier": "beginner",
+      "title": {
+        "ko": "-자고 얘기했어요 (제안 전하기)",
+        "en": "-자고 얘기했어요 (reporting a suggestion)"
+      },
+      "lines": [
+        {
+          "en": "My friend said let's eat lunch together.",
+          "ko": [
+            "친구가 같이 점심을 먹자고 얘기했어요.",
+            "친구가 같이 점심을 먹자고 했어요.",
+            "친구가 같이 점심 먹자고 얘기했어요."
+          ],
+          "hint": "verb stem + -자고 = said let's ~",
+          "g": "46-2"
+        },
+        {
+          "en": "Minsu suggested going to the movies.",
+          "ko": [
+            "민수 씨가 영화를 보러 가자고 얘기했어요.",
+            "민수 씨가 영화를 보러 가자고 했어요.",
+            "민수 씨가 영화 보러 가자고 했어요."
+          ],
+          "hint": "가다 → 가자고 (no 받침 change)",
+          "g": "46-2"
+        },
+        {
+          "en": "She said let's meet at 7.",
+          "ko": [
+            "그 사람이 7시에 만나자고 얘기했어요.",
+            "그 사람이 일곱 시에 만나자고 얘기했어요.",
+            "그 사람이 7시에 만나자고 했어요."
+          ],
+          "hint": "만나다 → 만나자고",
+          "g": "46-2"
+        },
+        {
+          "en": "He suggested studying together at the library.",
+          "ko": [
+            "그 사람이 도서관에서 같이 공부하자고 얘기했어요.",
+            "그 사람이 도서관에서 같이 공부하자고 했어요.",
+            "그분이 도서관에서 같이 공부하자고 했어요."
+          ],
+          "hint": "공부하다 → 공부하자고",
+          "g": "46-2"
+        },
+        {
+          "en": "My coworker said let's leave work early today.",
+          "ko": [
+            "동료가 오늘은 일찍 퇴근하자고 얘기했어요.",
+            "동료가 오늘 일찍 퇴근하자고 얘기했어요.",
+            "직장 동료가 오늘은 일찍 퇴근하자고 했어요."
+          ],
+          "hint": "퇴근하다 → 퇴근하자고",
+          "g": "46-2"
+        }
+      ]
+    },
+    {
+      "id": "b-quote-command",
+      "tier": "beginner",
+      "title": {
+        "ko": "-(으)라고 얘기했어요 (명령 전하기)",
+        "en": "-(으)라고 얘기했어요 (reporting a command)"
+      },
+      "lines": [
+        {
+          "en": "The teacher told me to sit down.",
+          "ko": [
+            "선생님이 앉으라고 얘기했어요.",
+            "선생님께서 앉으라고 하셨어요.",
+            "선생님이 앉으라고 하셨어요."
+          ],
+          "hint": "받침 O + -으라고 (앉다 → 앉으라고)",
+          "g": "46-2"
+        },
+        {
+          "en": "My mother told me to go to bed early.",
+          "ko": [
+            "어머니가 일찍 자라고 얘기하셨어요.",
+            "어머니가 일찍 자라고 하셨어요.",
+            "엄마가 일찍 자라고 했어요."
+          ],
+          "hint": "받침 X + -라고 (자다 → 자라고)",
+          "g": "46-2"
+        },
+        {
+          "en": "He told me to wait here.",
+          "ko": [
+            "그 사람이 여기에서 기다리라고 얘기했어요.",
+            "그 사람이 여기서 기다리라고 얘기했어요.",
+            "그 사람이 여기에서 기다리라고 했어요."
+          ],
+          "hint": "기다리다 → 기다리라고",
+          "g": "46-2"
+        },
+        {
+          "en": "My friend told me to call him later.",
+          "ko": [
+            "친구가 나중에 전화하라고 얘기했어요.",
+            "친구가 나중에 전화하라고 했어요.",
+            "친구가 이따가 전화하라고 했어요."
+          ],
+          "hint": "전화하다 → 전화하라고",
+          "g": "46-2"
+        },
+        {
+          "en": "The doctor told me to take the medicine.",
+          "ko": [
+            "의사 선생님이 약을 먹으라고 하셨어요.",
+            "의사 선생님이 약을 먹으라고 얘기하셨어요.",
+            "의사 선생님이 약을 먹으라고 했어요."
+          ],
+          "hint": "먹다 → 먹으라고",
+          "g": "46-2"
+        }
+      ]
+    },
+    {
+      "id": "i-quote-mix",
+      "tier": "intermediate",
+      "title": {
+        "ko": "뭐라고 얘기했어요? (네 가지 섞어서)",
+        "en": "What did they say? (all four forms)"
+      },
+      "lines": [
+        {
+          "en": "My friend said it is fun.",
+          "ko": [
+            "친구가 재미있다고 얘기했어요.",
+            "친구가 재미있다고 했어요.",
+            "친구가 재밌다고 얘기했어요."
+          ],
+          "hint": "statement → -다고",
+          "g": "46-2"
+        },
+        {
+          "en": "My friend asked if it is fun.",
+          "ko": [
+            "친구가 재미있냐고 물어봤어요.",
+            "친구가 재밌냐고 물어봤어요.",
+            "친구가 재미있냐고 얘기했어요."
+          ],
+          "hint": "question → -냐고",
+          "g": "46-2"
+        },
+        {
+          "en": "My friend said let's go.",
+          "ko": [
+            "친구가 가자고 얘기했어요.",
+            "친구가 가자고 했어요.",
+            "친구가 같이 가자고 얘기했어요."
+          ],
+          "hint": "suggestion → -자고",
+          "g": "46-2"
+        },
+        {
+          "en": "My friend told me to go.",
+          "ko": [
+            "친구가 가라고 얘기했어요.",
+            "친구가 가라고 했어요."
+          ],
+          "hint": "command → -(으)라고",
+          "g": "46-2"
+        },
+        {
+          "en": "The teacher said there is no class tomorrow.",
+          "ko": [
+            "선생님이 내일 수업이 없다고 얘기했어요.",
+            "선생님이 내일 수업이 없다고 하셨어요.",
+            "선생님께서 내일 수업이 없다고 하셨어요."
+          ],
+          "hint": "없다 → 없다고",
+          "g": "46-2"
+        },
+        {
+          "en": "Mom asked if I ate.",
+          "ko": [
+            "엄마가 밥 먹었냐고 물어봤어요.",
+            "엄마가 밥을 먹었냐고 물어봤어요.",
+            "어머니가 밥 먹었냐고 물어보셨어요."
+          ],
+          "hint": "past question → -았/었냐고",
+          "g": "46-2"
+        }
+      ]
     }
   ]
 }
