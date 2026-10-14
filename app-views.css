@@ -7296,3 +7296,21 @@ body.cls-pres-on { overflow:hidden; }
 #libMock { grid-template-columns:repeat(2, 1fr); }
 #libMock .lib-wide { grid-column:auto; }
 @media (max-width:520px) { #libMock { grid-template-columns:1fr; } }
+
+/* 자료실 — 책 표지 서가(2026-10-14 운영자 「e-book 처럼」) */
+#libSheets { grid-template-columns:repeat(auto-fill, minmax(158px, 1fr)); gap:22px 16px; }
+.lib-book { position:relative; display:flex; aspect-ratio:3/4; padding:0; border:0; border-radius:4px 10px 10px 4px; background:var(--bk); color:#2a2a2a; text-decoration:none; font:inherit; text-align:left; cursor:pointer; overflow:hidden; box-shadow:0 1px 2px rgba(0,0,0,.25), 0 8px 14px -6px rgba(0,0,0,.4); transition:transform .15s, box-shadow .15s; }
+.lib-book:hover { transform:translateY(-5px) rotate(-.6deg); box-shadow:0 2px 3px rgba(0,0,0,.25), 0 16px 20px -8px rgba(0,0,0,.5); }
+.bk-spine { flex:none; width:11px; background:linear-gradient(90deg, rgba(0,0,0,.28), rgba(0,0,0,.06) 60%, rgba(255,255,255,.2)); }
+.bk-cov { position:relative; display:flex; flex-direction:column; flex:1; min-width:0; padding:14px 12px 12px; background:radial-gradient(circle at 105% -5%, rgba(255,255,255,.55) 0 34%, transparent 35%), radial-gradient(circle at -10% 110%, rgba(255,255,255,.35) 0 26%, transparent 27%); }
+.bk-kick { font-size:8.5px; font-weight:800; letter-spacing:.12em; color:rgba(0,0,0,.5); }
+.bk-title { margin-top:12px; font-size:17px; line-height:1.28; letter-spacing:-.03em; font-weight:800; display:-webkit-box; -webkit-line-clamp:4; -webkit-box-orient:vertical; overflow:hidden; word-break:keep-all; }
+.bk-sub { margin-top:8px; font-size:11px; line-height:1.35; color:rgba(0,0,0,.6); display:-webkit-box; -webkit-line-clamp:3; -webkit-box-orient:vertical; overflow:hidden; }
+.bk-foot { margin-top:auto; display:flex; justify-content:space-between; align-items:center; padding-top:8px; border-top:1px solid rgba(0,0,0,.18); }
+.bk-foot i { font-style:normal; font-size:11px; font-weight:800; }
+.bk-foot em { font-style:normal; font-size:11px; font-weight:700; color:rgba(0,0,0,.6); }
+.bk-mini { flex:none; display:flex; width:84px; height:112px; margin:14px 0 14px 14px; border-radius:3px 7px 7px 3px; overflow:hidden; background:var(--bk); box-shadow:0 1px 2px rgba(0,0,0,.25), 0 6px 10px -5px rgba(0,0,0,.4); color:#2a2a2a; }
+.bk-mini .bk-cov { align-items:center; justify-content:center; padding:8px; }
+.bk-mini b { font-size:34px; font-weight:800; line-height:1.1; }
+.lib-wide { flex-direction:row; align-items:stretch; }
+.lib-wide > .ls-body { padding-top:16px; }
