@@ -7377,3 +7377,4 @@ body.cls-pres-on { overflow:hidden; }
 #lessonView.ls-fade .ls-body { animation:lsFade .28s ease-out; }
 @keyframes lsFade { from { opacity:0; transform:translateY(8px); } to { opacity:1; transform:none; } }
 @media (prefers-reduced-motion: reduce) { #lessonView.ls-fade .ls-body { animation:none; } }
+.ll-r { color:var(--orange); font-weight:800; }
