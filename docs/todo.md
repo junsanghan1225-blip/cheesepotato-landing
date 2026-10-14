@@ -24,6 +24,7 @@
 | 9 | **앱 재설계 1단계를 폰에서 보기** — 오늘 · 공부 · 레슨 화면이 폰에서 잘 되는지(터치 · 키보드 · 소리). 확인용 APK 새로 빌드 또는 `eas update --channel preview --environment production` | 앱 브랜치 `claude/app-native-learn` · 앱 저장소의 native-redesign 문서 |
 | 10 | **앱 정리 브랜치 확인** — `claude/app-refactor`(색 상수 · 공용 부품 · 자료 받기 · 게임 공용 화면 정리, 화면 변화 없음). 폰에서 지금 앱 확인이 끝난 뒤 `eas update` 로 올려도 되는지 말씀 | 앱 저장소 브랜치 |
 | 12 | **반 숙제 제출 켜기(SQL 한 번)** — Supabase SQL Editor 에서 `db/add_class_submit.sql` 열어 전체 복사 → 붙여 넣기 → Run (Success 가 나오면 끝). 안 돌리면 제출 단추가 숨어 있다. 돌린 뒤 선생님 반 화면에서 「글 · 사진 제출」 숙제를 내고, 학생 계정으로 제출해 보기 | `db/add_class_submit.sql` |
+| 13 | **선생님 신청 켜기(SQL 한 번)** — `db/add_teacher_requests.sql` 을 SQL Editor 에 붙여 넣고 Run(먼저 `add_class_submit.sql` 도). 돌린 뒤: 선생님이 신청하면 반 화면(선생님 탭) 맨 아래 「선생님 계정 관리」 위에 신청이 떠요 → 「승인」 | `db/add_teacher_requests.sql` |
 
 ### ⚙️ 한 번만 하면 계속 도는 것
 | # | 할 일 | 어디 |
