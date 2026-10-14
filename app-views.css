@@ -7352,3 +7352,19 @@ body.cls-pres-on { overflow:hidden; }
 
 .up-val-free { margin:12px 0 0; padding:10px 14px; border-radius:12px; background:color-mix(in srgb, #FFC94D 18%, var(--surface)); font-size:13.5px; line-height:1.6; color:var(--ink-2); text-align:center; }
 .up-val-free b { color:var(--ink); background:#FFC94D; padding:1px 8px; border-radius:99px; margin-right:4px; }
+
+/* 레슨 새 블록(2026-10-15, docs/plans/course-blocks.md) — 비교 · 낱말 카드 · 내 문장 쓰기 */
+.cmp { display:grid; grid-template-columns:1fr 1fr; gap:10px; }
+.cmp-s { display:flex; flex-direction:column; gap:6px; padding:12px 14px; border:1px solid var(--line); border-radius:var(--r-l); background:var(--surface); min-width:0; }
+.cmp-h { font-size:17px; font-weight:800; letter-spacing:-.02em; color:var(--ink); }
+.cmp-d { font-size:13.5px; color:var(--ink-2); line-height:1.5; }
+.cmp-ex { text-align:left; padding:8px 10px; border:0; border-radius:10px; background:var(--tint, rgba(var(--ink-rgb),.05)); color:var(--ink); font:inherit; font-size:14px; line-height:1.45; cursor:pointer; }
+.cmp-tip { margin-top:10px; }
+.vk { display:grid; grid-template-columns:repeat(auto-fill, minmax(150px, 1fr)); gap:8px; }
+.vk-c { position:relative; display:flex; flex-direction:column; gap:2px; padding:12px 34px 12px 12px; border:1px solid var(--line); border-radius:var(--r-l); background:var(--surface); }
+.vk-w { text-align:left; padding:0; border:0; background:none; font:inherit; font-size:19px; font-weight:800; color:var(--ink); cursor:pointer; }
+.vk-m { font-size:13px; color:var(--ink-2); }
+.vk-e { font-size:12px; color:var(--ink-3); line-height:1.4; }
+.vk-s { position:absolute; top:8px; right:8px; width:26px; height:26px; border:0; border-radius:50%; background:none; font-size:17px; color:var(--orange); cursor:pointer; }
+.ex-write-in { width:100%; box-sizing:border-box; resize:vertical; font:inherit; }
+@media (max-width:520px) { .cmp { grid-template-columns:1fr; } }

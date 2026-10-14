@@ -1,0 +1,39 @@
+# 코스 블록 더하기 · 레슨별 개별화 (운영자 2026-10-15 「코스 블럭 더 추가하고 레슨별로 학습에 필요한 블럭 개별화해서 추가하자」)
+
+> 상태: 1단계(틀 · 새 블록 4종 · 검사 · 시범 레슨 2개) 끝. 다음 2단계(안티 그래비티 묶음). 운영자 고름: 새 블록 = **듣고 받아쓰기 · 비교 · 틀린 곳 고치기 · 내 문장 쓰기 · 낱말 카드**, 범위 = **전 레벨 한 번에**.
+
+## 왜
+레슨 401개 · 블록 3,797개(평균 9.5)인데 듣기 블록은 13개뿐, 고치기 67개, 내 문장을 쓰는 블록은 없다. 레슨마다 필요한 것이 다르다(한글은 소리, 문법은 비교 · 고치기, 뉘앙스 레슨은 나란히 비교).
+
+## 새 블록 (courses.js 맨 위 블록 설명에도 있음)
+| 종류 | 모양 | 읽기/풀기 |
+|---|---|---|
+| `compare` | `{ t, h?, a:{h,d?,ex[]}, b:{h,d?,ex[]}, tip? }` 둘을 나란히 | 읽기 — 첫 문제 앞 |
+| `vocab` | `{ t, h?, items:[{ko,en,ex?}] }` 3~8개, 눌러 듣기 · ☆ 내 단어장 | 읽기 — 첫 문제 앞 |
+| `dictate` | `{ t, say, answers?, hint?, why? }` 듣고 쓰기(build 채점기) | 풀기 — 끝 |
+| `write` | `{ t, q, must?[], min?, sample, why? }` 내 문장(정답 없음, must 조각 포함 + 길이), 두 번 못 하면 예시 | 풀기 — 끝 |
+| 기존 `listen` · `correct` · `choice` · `cloze` · `build` | 그대로 — 더 쓴다 | 풀기 |
+
+## 데이터 자리 (원래 레슨은 건드리지 않는다)
+- 원본: `docs/lesson-blocks/<코스 id>.json` = `{ "<레슨 id>": [ 블록…, 각 블록에 at?: 번호 ] }`
+- `node tools/build-lesson-blocks.mjs` → `lesson-extra/<코스 id>.json` + `index.json`(CI `check-lesson-blocks`).
+- 화면(`app.module.js` startLesson → `lessonExtra` · `lxMerge`)이 레슨을 열 때 합친다. 읽는 새 블록은 첫 문제 앞, 푸는 새 블록은 끝(또는 `at`). 파일이 없으면 원래 레슨 그대로.
+- **앱(안드로이드)**: `app-data/` 는 이 새 블록을 아직 안 싣는다 — 앱이 모르는 블록 종류를 받으면 안 되기 때문. 앱이 이 블록을 그릴 수 있게 된 뒤에 싣는다(앱 일).
+
+## 레슨 유형별 처방 (`node tools/lesson-needs.mjs` → `docs/lesson-blocks/_needs.json`)
+| 유형 | 레슨 수 | 새 블록 |
+|---|---|---|
+| 한글(`hangul`) | 11 | listen ×2 — 비슷한 소리 구분(받아쓰기는 한글 자판이 어려워 뺌) |
+| 초급(`first-words` · `grammar-core` · `bg-*`) | 172 | vocab · dictate · write · (고치기가 없으면) correct · (제목에 비교가 있으면) compare |
+| 중고급 뉘앙스(`im-*` · `ad-*`) | 216 | compare · correct · vocab · dictate · write |
+→ 새 블록 약 1,750개. 안티 그래비티 묶음(지시 `docs/antigravity/antigravity-lesson-blocks-task.md`): 코스 몇 개씩, 한 묶음 = PR 하나.
+
+## 단계
+1. **틀(끝)** — 새 블록 4종 화면 · 합치기 · 검사 도구 · 처방 표 · 시범(`first-words` fw-02, `grammar-core` gr-02).
+2. **안티 묶음** — 한글 → 초급 → 중급 → 고급 순서(레슨 수 · 난이도). Claude 가 검토: 레슨 실제 내용과 맞는지 · 정답이 하나로 정해지는지 · 한 칸만 틀렸는지 · 기출 아님.
+3. **앱 지원** — 앱이 새 블록 종류를 그리면 `app-data` 에 싣는다.
+4. (이어서) 내 문장 쓰기 AI 확인(Pro) · 틀린 곳 모아 복습.
+
+## 지킬 것
+- 원래 레슨 id · 블록은 바꾸지 않는다(진도 열쇠).
+- 문항은 전부 창작, 기출 아님. 영어 설명 + 한국어 문장.

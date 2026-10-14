@@ -24,6 +24,12 @@
      { t:'translate', q:'I am a student.', answers:[…], hint?, why? }   · 은행 없이 빈손 번역(build 와 같은 채점기)
      { t:'correct', q?, wrong:'제가 학생은 이에요.', answers:[…], hint?, why? }  · 틀린 문장을 보여 주고 고쳐 쓰게 함
 
+   새 블록(2026-10-15, docs/plans/course-blocks.md) — 레슨에 직접 쓰지 않고 docs/lesson-blocks/<코스 id>.json → lesson-extra/ 로 따로 두며, 레슨을 열 때 화면이 합친다
+     { t:'compare', h?, a:{h,d?,ex?:[…]}, b:{…}, tip? }   · 읽는 것 — 헷갈리는 둘을 나란히
+     { t:'vocab',   h?, items:[{ko,en,ex?}] }            · 읽는 것 — 낱말 카드(☆ 로 내 단어장에)
+     { t:'dictate', say, answers?:[…], hint?, why? }      · 푸는 것 — 듣고 받아쓰기(build 와 같은 채점기)
+     { t:'write',   q, must?:[…], min?, sample, why? }   · 푸는 것 — 내 문장 쓰기(정답 없음, must 조각 + 길이로 통과)
+
    ── 손대기 전에 ────────────────────────────────────────────
    lesson.id 는 진도(lesson_progress)의 열쇠다. **바꾸면 그 레슨을
    끝낸 사람의 기록이 사라진다.** 순서를 바꾸는 건 괜찮고, id 는 두어라.
@@ -33,23 +39,23 @@
    파일을 나눈 이유는 문법이 계속 늘어날 예정이라 한 파일에 두면
    고칠 곳을 찾기 어려워지기 때문이다.
    + 세분화된 뉘앙스 차이 문법 (초·중·고급 세부 코스)은 courses-grammar-detailed.js 에서 불러온다. */
-import { GRAMMAR_COURSES } from './courses-grammar.js?v=7d5950cf';
-import { DETAILED_GRAMMAR_COURSES } from './courses-grammar-detailed.js?v=7d5950cf';
-import { BEGINNER_GRAMMAR_COURSES } from './courses-grammar-beginner.js?v=7d5950cf';
+import { GRAMMAR_COURSES } from './courses-grammar.js?v=f6ccd34d';
+import { DETAILED_GRAMMAR_COURSES } from './courses-grammar-detailed.js?v=f6ccd34d';
+import { BEGINNER_GRAMMAR_COURSES } from './courses-grammar-beginner.js?v=f6ccd34d';
 // 초급 1단계 — 설계는 docs/plans/curriculum-beginner.md
-import { BEGINNER_STAGE1_COURSES } from './courses-beginner-stage1.js?v=7d5950cf';
+import { BEGINNER_STAGE1_COURSES } from './courses-beginner-stage1.js?v=f6ccd34d';
 // 초급 2단계 — 시간을 얹기
-import { BEGINNER_STAGE2_COURSES } from './courses-beginner-stage2.js?v=7d5950cf';
+import { BEGINNER_STAGE2_COURSES } from './courses-beginner-stage2.js?v=f6ccd34d';
 // 초급 3단계 — 이어 말하기
-import { BEGINNER_STAGE3_COURSES } from './courses-beginner-stage3.js?v=7d5950cf';
+import { BEGINNER_STAGE3_COURSES } from './courses-beginner-stage3.js?v=f6ccd34d';
 // 초급 4단계 — 상대에게
-import { BEGINNER_STAGE4_COURSES } from './courses-beginner-stage4.js?v=7d5950cf';
+import { BEGINNER_STAGE4_COURSES } from './courses-beginner-stage4.js?v=f6ccd34d';
 // 초급 5단계 — 마음을 담기
-import { BEGINNER_STAGE5_COURSES } from './courses-beginner-stage5.js?v=7d5950cf';
+import { BEGINNER_STAGE5_COURSES } from './courses-beginner-stage5.js?v=f6ccd34d';
 // 초급 6단계 — 다듬기
-import { BEGINNER_STAGE6_COURSES } from './courses-beginner-stage6.js?v=7d5950cf';
+import { BEGINNER_STAGE6_COURSES } from './courses-beginner-stage6.js?v=f6ccd34d';
 // 초급 보충 — 110개 문법 목록에 없지만 실전에 꼭 필요한 것 (§8)
-import { BEGINNER_EXTRA_COURSES } from './courses-beginner-extra.js?v=7d5950cf';
+import { BEGINNER_EXTRA_COURSES } from './courses-beginner-extra.js?v=f6ccd34d';
 
 export const COURSES = [
 
