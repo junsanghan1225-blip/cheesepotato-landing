@@ -7349,3 +7349,6 @@ body.cls-pres-on { overflow:hidden; }
 .td-card:not(.ck) .td-slot .td-k { font-size:12px; font-weight:400; color:var(--ink-3); }
 .td-card:not(.ck) .td-slot .td-end { display:block; }
 .td-card:not(.ck) .td-slot.done .td-k { text-decoration:none; }
+
+.up-val-free { margin:12px 0 0; padding:10px 14px; border-radius:12px; background:color-mix(in srgb, #FFC94D 18%, var(--surface)); font-size:13.5px; line-height:1.6; color:var(--ink-2); text-align:center; }
+.up-val-free b { color:var(--ink); background:#FFC94D; padding:1px 8px; border-radius:99px; margin-right:4px; }
