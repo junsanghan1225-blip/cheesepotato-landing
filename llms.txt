@@ -26,15 +26,15 @@
 
 ## 지원 언어 · Languages
 
-- **화면(메뉴 · 단추 · 안내)은 8개 언어**: 한국어 · English · Tiếng Việt(베트남어) · 日本語(일본어) · 中文 简体(중국어) ·
-  Bahasa Indonesia(인도네시아어) · नेपाली(네팔어) · မြန်မာ(미얀마어). 머리띠의 언어 단추로 바꾼다. 베트남어 · 일본어는 첫 쪽이
+- **화면(메뉴 · 단추 · 안내)은 9개 언어**: 한국어 · English · Tiếng Việt(베트남어) · 日本語(일본어) · 中文 简体(중국어) ·
+  Bahasa Indonesia(인도네시아어) · नेपाली(네팔어) · မြန်မာ(미얀마어) · Русский(러시아어). 머리띠의 언어 단추로 바꾼다. 베트남어 · 일본어는 첫 쪽이
   따로 있다: https://everykoreans.com/vi/ · https://everykoreans.com/ja/
-  (The interface is available in 8 languages: Korean, English, Vietnamese, Japanese, Simplified Chinese, Indonesian, Nepali
-  and Burmese — switch with the language button in the header. Vietnamese and Japanese also have their own home pages.)
+  (The interface is available in 9 languages: Korean, English, Vietnamese, Japanese, Simplified Chinese, Indonesian, Nepali,
+  Burmese and Russian — switch with the language button in the header. Vietnamese and Japanese also have their own home pages.)
 - **학습 자료(문항 · 낱말 · 예문)는 한국어**이고 영어 설명이 붙어 있다 — 다른 언어로 번역하지 않는다.
   (The Korean learning material itself is in Korean with English explanations; it is not translated further.)
-- 베트남 · 일본 · 중국 · 인도네시아 · 네팔 · 미얀마에서 한국어를 배우는 사람이 자기 말로 메뉴를 보며 쓸 수 있다.
-  (Learners in Vietnam, Japan, China, Indonesia, Nepal and Myanmar can use the menus in their own language.)
+- 베트남 · 일본 · 중국 · 인도네시아 · 네팔 · 미얀마 · 러시아에서 한국어를 배우는 사람이 자기 말로 메뉴를 보며 쓸 수 있다.
+  (Learners in Vietnam, Japan, China, Indonesia, Nepal, Myanmar and Russia can use the menus in their own language.)
 
 ## 이런 걸 찾는 사람에게 · If someone asks for…
 
