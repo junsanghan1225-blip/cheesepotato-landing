@@ -1309,7 +1309,7 @@
   "Past the line — confirm it with a mock to move up.": "Đã vượt điểm chuẩn — hãy làm bài thi thử để thăng cấp.",
   "Pause": "Tạm dừng",
   "Paused": "Đã tạm dừng",
-  "Payment received — Pro will switch on within a minute or two. If not, email junsanghan1225@gmail.com with your receipt.": "Đã nhận thanh toán — gói Pro sẽ kích hoạt trong 1–2 phút. Nếu chưa được, vui lòng gửi email kèm biên lai đến junsanghan1225@gmail.com.",
+  "Payment received — Pro will switch on within a minute or two. If not, email cheesepotato@everykoreans.com with your receipt.": "Đã nhận thanh toán — gói Pro sẽ kích hoạt trong 1–2 phút. Nếu chưa được, vui lòng gửi email kèm biên lai đến cheesepotato@everykoreans.com.",
   "Payment retrying": "Đang thử lại thanh toán",
   "Payment, tax and receipts are handled by our reseller, Polar. Prices are in US dollars; VAT may apply depending on your country.": "Thanh toán, thuế và biên lai do đại lý bán lại Polar xử lý. Giá tính bằng USD; thuế VAT có thể áp dụng tùy theo quốc gia của bạn.",
   "People signed in with these emails can create their own classes. Class students get Pro free — add only people you trust.": "Người đăng nhập bằng các email này có thể tạo lớp học riêng. Học viên trong lớp được dùng Pro miễn phí — chỉ thêm những người bạn tin cậy.",
@@ -2626,5 +2626,14 @@
   "Daily study reminder email": "Email nhắc học mỗi ngày",
   "One email to {0} around 7 pm · not an ad · skipped on days you studied · turn off with “Stop” in the email or in Settings · sent via Resend": "Một email gửi đến {0} khoảng 7 giờ tối · không phải quảng cáo · bỏ qua ngày bạn đã học · tắt bằng “Dừng” trong email hoặc trong Cài đặt · gửi qua Resend",
   "Agree to all": "Đồng ý tất cả",
-  "Save my choices": "Lưu lựa chọn của tôi"
+  "Save my choices": "Lưu lựa chọn của tôi",
+  "Answers from our own material": "Trả lời từ tài liệu của chúng tôi",
+  "Look up a word or grammar point, or ask how to use the site — in Korean or English.": "Tra từ hoặc ngữ pháp, hoặc hỏi cách dùng trang web — bằng tiếng Hàn hoặc tiếng Anh.",
+  "What should I do today?": "Hôm nay tôi nên làm gì?",
+  "Most of it is free. Pro is for finishing the exam prep.": "Phần lớn đều miễn phí. Pro dành cho khi bạn muốn chuẩn bị thi đến cùng.",
+  "AI scoring for writing Q53–54: 30 a day (free: 2)": "Chấm bài viết câu 53–54 bằng AI: 30 lần mỗi ngày (miễn phí: 2)",
+  "AI pronunciation feedback and Korean helper: 100 a day (free: 20)": "Chẩn đoán phát âm bằng AI và trợ lý tiếng Hàn: 100 lần mỗi ngày (miễn phí: 20)",
+  "Full weak-spot report and exam plan": "Báo cáo điểm yếu đầy đủ và kế hoạch thi",
+  "Pro $4.99 a month · $39 a year · Exam Pass $15 for 3 months, one payment. Everything marked free stays free. Full refund within 14 days.": "Pro $4,99 mỗi tháng · $39 mỗi năm · Gói thi $15 cho 3 tháng, thanh toán một lần. Những gì đang miễn phí vẫn miễn phí. Hoàn tiền toàn bộ trong 14 ngày.",
+  "Your path, from your level": "Lộ trình hợp với trình độ của bạn"
 }

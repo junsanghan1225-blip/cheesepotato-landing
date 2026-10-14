@@ -1595,7 +1595,7 @@
   "PATHS": "学习路线",
   "Pause": "暂停",
   "Paused": "已暂停",
-  "Payment received — Pro will switch on within a minute or two. If not, email junsanghan1225@gmail.com with your receipt.": "付款已收到 — Pro 会员将在 1~2 分钟内生效。若未生效，请附上收据发送邮件至 junsanghan1225@gmail.com。",
+  "Payment received — Pro will switch on within a minute or two. If not, email cheesepotato@everykoreans.com with your receipt.": "付款已收到 — Pro 会员将在 1~2 分钟内生效。若未生效，请附上收据发送邮件至 cheesepotato@everykoreans.com。",
   "Payment retrying": "正在重试付款",
   "Payment, tax and receipts are handled by our reseller, Polar. Prices are in US dollars; VAT may apply depending on your country.": "付款、税费和收据均由我们的代销商 Polar 处理。价格以美元结算；根据你所在的国家/地区，可能会加收增值税（VAT）。",
   "People & Direction": "人物与方向助词",
@@ -2600,5 +2600,14 @@
   "Daily study reminder email": "每日学习提醒邮件",
   "One email to {0} around 7 pm · not an ad · skipped on days you studied · turn off with “Stop” in the email or in Settings · sent via Resend": "晚上7点左右向 {0} 发送一封邮件 · 不是广告 · 当天已学习则不发送 · 可通过邮件中的“停止接收”或设置关闭 · 通过 Resend 发送",
   "Agree to all": "全部同意",
-  "Save my choices": "保存我的选择"
+  "Save my choices": "保存我的选择",
+  "Answers from our own material": "基于我们自己的资料回答",
+  "Look up a word or grammar point, or ask how to use the site — in Korean or English.": "查单词或语法，或询问网站用法 — 可用韩语或英语。",
+  "What should I do today?": "今天该做什么？",
+  "Most of it is free. Pro is for finishing the exam prep.": "大部分内容免费。想把备考做到底时,再加上 Pro。",
+  "AI scoring for writing Q53–54: 30 a day (free: 2)": "写作第 53–54 题 AI 评分:每天 30 次(免费 2 次)",
+  "AI pronunciation feedback and Korean helper: 100 a day (free: 20)": "AI 发音诊断和韩语助手:每天 100 次(免费 20 次)",
+  "Full weak-spot report and exam plan": "完整的弱点报告和备考计划表",
+  "Pro $4.99 a month · $39 a year · Exam Pass $15 for 3 months, one payment. Everything marked free stays free. Full refund within 14 days.": "Pro 每月 $4.99 · 每年 $39 · 考试通行证 $15(3 个月,一次付清)。标明免费的内容依然免费。首次付款后 14 天内全额退款。",
+  "Your path, from your level": "适合你水平的路线"
 }

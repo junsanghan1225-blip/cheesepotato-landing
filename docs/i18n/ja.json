@@ -1309,7 +1309,7 @@
   "Past the line — confirm it with a mock to move up.": "合格ラインを突破 — 模試で実力を確認してレベルアップしましょう。",
   "Pause": "一時停止",
   "Paused": "一時停止中",
-  "Payment received — Pro will switch on within a minute or two. If not, email junsanghan1225@gmail.com with your receipt.": "決済が完了しました — 1〜2分以内にProに切り替わります。反映されない場合は、領収書を添えて junsanghan1225@gmail.com までご連絡ください。",
+  "Payment received — Pro will switch on within a minute or two. If not, email cheesepotato@everykoreans.com with your receipt.": "決済が完了しました — 1〜2分以内にProに切り替わります。反映されない場合は、領収書を添えて cheesepotato@everykoreans.com までご連絡ください。",
   "Payment retrying": "決済再試行中",
   "Payment, tax and receipts are handled by our reseller, Polar. Prices are in US dollars; VAT may apply depending on your country.": "決済・税金・領収書は販売代行会社Polarが処理します。表示価格は米ドルで、お住まいの国によって消費税（VAT）が加算される場合があります。",
   "People signed in with these emails can create their own classes. Class students get Pro free — add only people you trust.": "これらのメールアドレスでログインしたユーザーは、自分のクラスを作成できます。生徒はProを無料で利用できるため、信頼できるユーザーのみを追加してください。",
@@ -2625,5 +2625,14 @@
   "Daily study reminder email": "毎日の学習リマインドメール",
   "One email to {0} around 7 pm · not an ad · skipped on days you studied · turn off with “Stop” in the email or in Settings · sent via Resend": "{0} 宛に夜7時ごろ1通 · 広告ではありません · 勉強した日は送りません · メールの「配信停止」か設定でいつでもオフ · 送信は Resend",
   "Agree to all": "すべて同意",
-  "Save my choices": "選んだものだけ保存"
+  "Save my choices": "選んだものだけ保存",
+  "Answers from our own material": "自社の教材から答えます",
+  "Look up a word or grammar point, or ask how to use the site — in Korean or English.": "単語や文法を調べたり、サイトの使い方を聞けます。韓国語でも英語でもOK。",
+  "What should I do today?": "今日は何をすればいい？",
+  "Most of it is free. Pro is for finishing the exam prep.": "ほとんど無料です。試験準備を最後までやりたいときに Pro を足してください。",
+  "AI scoring for writing Q53–54: 30 a day (free: 2)": "書き取り 53・54 番の AI 採点:1 日 30 回(無料は 2 回)",
+  "AI pronunciation feedback and Korean helper: 100 a day (free: 20)": "AI 発音診断・韓国語ヘルパー:1 日 100 回(無料は 20 回)",
+  "Full weak-spot report and exam plan": "弱点レポートと合格プランの全体",
+  "Pro $4.99 a month · $39 a year · Exam Pass $15 for 3 months, one payment. Everything marked free stays free. Full refund within 14 days.": "Pro は月 $4.99・年 $39・試験パス $15(3 か月、1 回払い)。無料のものはそのまま無料です。初回決済から 14 日以内は全額返金します。",
+  "Your path, from your level": "あなたのレベルに合う道"
 }
