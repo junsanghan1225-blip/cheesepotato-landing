@@ -88,6 +88,16 @@ for (const [k, src] of Object.entries(TOPIK_SRC)) {
   for (let L = 0; L <= 7; L++) if (lt.pool.filter((r) => r[0] === L).length < 10) err(`레벨 ${L} 문제가 10개보다 적다`);
   if (man.leveltest?.n !== lt.pool.length) err('manifest 의 leveltest 가 낡았다');
 }
+/* 번역 연습 · 회화 · 동화책 */
+{
+  const tt = JSON.parse(fs.readFileSync(path.join(ROOT, 'app-data/translate.json'), 'utf8'));
+  const cv = JSON.parse(fs.readFileSync(path.join(ROOT, 'app-data/convo.json'), 'utf8'));
+  const sb = JSON.parse(fs.readFileSync(path.join(ROOT, 'app-data/stories.json'), 'utf8'));
+  if (tt.some((x) => !x.id || !x.lines?.length || x.lines.some((l) => !l.en || !l.ko?.length))) err('번역 연습 모양이 이상하다');
+  if (cv.some((x) => !x.id || !x.turns?.length || x.turns.some((t) => !t.npc?.text))) err('회화 모양이 이상하다');
+  if (sb.some((x) => !x.id || !x.pages?.length || x.pages.some((p) => !p.ko))) err('동화책 모양이 이상하다');
+  for (const [k, n] of [['translate', tt.length], ['convo', cv.length], ['stories', sb.length]]) if (man[k]?.n !== n) err(`manifest 의 ${k} 가 낡았다`);
+}
 /* 앱 번역 사전: 자리 표시({0}) 가 열쇠와 같은 집합이어야 한다 */
 {
   const ph = (t) => (String(t).match(/\{\d+\}/g) || []).sort().join(',');
