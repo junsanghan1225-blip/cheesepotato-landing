@@ -1,0 +1,144 @@
+{
+  "id": "irregular-verbs",
+  "title": {
+    "en": "Irregular Verbs: ㅂ, ㄷ & 르",
+    "ko": "동사 · 형용사 불규칙 활용: ㅂ · ㄷ · 르"
+  },
+  "sub": {
+    "en": "Rules and patterns for ㅂ-irregular, ㄷ-irregular and 르-irregular verbs and adjectives",
+    "ko": "ㅂ 불규칙, ㄷ 불규칙, 르 불규칙의 어미 결합 규칙과 예외"
+  },
+  "desc": {
+    "en": "Free printable Korean worksheet on common irregular verbs: ㅂ irregular (춥다 → 추워요), ㄷ irregular (듣다 → 들어요), and 르 irregular (빠르다 → 빨라요) with practice exercises and an answer key."
+  },
+  "level": "A2",
+  "sections": [
+    {
+      "type": "table",
+      "title": {
+        "en": "ㅂ-Irregular Verbs & Adjectives",
+        "ko": "ㅂ 불규칙 용언"
+      },
+      "cols": [
+        "Base word",
+        "Meaning",
+        "Vowel change rule",
+        "Polite form (해요체)",
+        "Regular exception"
+      ],
+      "rows": [
+        ["춥다", "To be cold", "ㅂ changes to 우", "추워요", "입다 → 입어요 (regular)"],
+        ["덥다", "To be hot", "ㅂ changes to 우", "더워요", "잡다 → 잡아요 (regular)"],
+        ["맵다", "To be spicy", "ㅂ changes to 우", "매워요", "접다 → 접어요 (regular)"],
+        ["어렵다", "To be difficult", "ㅂ changes to 우", "어려워요", "뽑다 → 뽑아요 (regular)"],
+        ["돕다", "To help", "ㅂ changes to 오 (special)", "도와요", "곱다 → 고와요 (special)"]
+      ],
+      "note": "When followed by a vowel suffix (-아/어 or -(으)-), final ㅂ changes to 우 (or 오 for 돕다 and 곱다). Regular exceptions keep ㅂ: 입다 → 입어요, 잡다 → 잡아요."
+    },
+    {
+      "type": "table",
+      "title": {
+        "en": "ㄷ-Irregular Verbs",
+        "ko": "ㄷ 불규칙 동사"
+      },
+      "cols": [
+        "Base word",
+        "Meaning",
+        "Vowel change rule",
+        "Polite form (해요체)",
+        "Regular exception"
+      ],
+      "rows": [
+        ["듣다", "To listen / hear", "ㄷ changes to ㄹ", "들어요", "받다 → 받아요 (regular)"],
+        ["걷다", "To walk", "ㄷ changes to ㄹ", "걸어요", "닫다 → 닫아요 (regular)"],
+        ["묻다", "To ask (a question)", "ㄷ changes to ㄹ", "물어요", "믿다 → 믿어요 (regular)"],
+        ["싣다", "To load (cargo)", "ㄷ changes to ㄹ", "실어요", "얻다 → 얻어요 (regular)"]
+      ],
+      "note": "When meeting a vowel suffix (-아/어, -(으)면), final ㄷ becomes ㄹ. Regular exceptions keep ㄷ: 받다 (받아요), 닫다 (닫아요), 믿다 (믿어요)."
+    },
+    {
+      "type": "table",
+      "title": {
+        "en": "르-Irregular Verbs & Adjectives",
+        "ko": "르 불규칙 용언"
+      },
+      "cols": [
+        "Base word",
+        "Meaning",
+        "Doubled ㄹ rule",
+        "Polite form (해요체)",
+        "Example sentence"
+      ],
+      "rows": [
+        ["빠르다", "To be fast", "Drop 으, add ㄹ to previous syllable", "빨라요", "비행기가 빨라요."],
+        ["부르다", "To call / sing", "Drop 으, add ㄹ to previous syllable", "불러요", "노래를 불러요."],
+        ["모르다", "To not know", "Drop 으, add ㄹ to previous syllable", "몰라요", "그 소식을 몰라요."],
+        ["고르다", "To choose", "Drop 으, add ㄹ to previous syllable", "골라요", "선물을 골라요."],
+        ["다르다", "To be different", "Drop 으, add ㄹ to previous syllable", "달라요", "생각이 서로 달라요."]
+      ],
+      "note": "When 르 meets -아/어, 으 drops, a ㄹ is added as 받침 to the preceding syllable, and 라/러 is appended: 빠르다 → 빨 + 라요 = 빨라요."
+    },
+    {
+      "type": "practice",
+      "title": {
+        "en": "Practice A — Conjugate ㅂ-irregular words into 해요체",
+        "ko": "ㅂ 불규칙 단어를 해요체로 바꿔 써요"
+      },
+      "items": [
+        { "q": "춥다 (cold) in 해요체 →", "a": "추워요" },
+        { "q": "덥다 (hot) in 해요체 →", "a": "더워요" },
+        { "q": "맵다 (spicy) in 해요체 →", "a": "매워요" },
+        { "q": "어렵다 (difficult) in 해요체 →", "a": "어려워요" },
+        { "q": "돕다 (to help) in 해요체 →", "a": "도와요" }
+      ]
+    },
+    {
+      "type": "practice",
+      "title": {
+        "en": "Practice B — Conjugate ㄷ verbs into 해요체 (Watch out for regular verbs!)",
+        "ko": "ㄷ 동사를 해요체로 바꿔 써요 (규칙 동사 주의)"
+      },
+      "items": [
+        { "q": "음악을 듣다 (to listen) in 해요체 →", "a": "들어요" },
+        { "q": "공원을 걷다 (to walk) in 해요체 →", "a": "걸어요" },
+        { "q": "선생님께 묻다 (to ask) in 해요체 →", "a": "물어요" },
+        { "q": "선물을 받다 (regular exception!) in 해요체 →", "a": "받아요" },
+        { "q": "문을 닫다 (regular exception!) in 해요체 →", "a": "닫아요" }
+      ]
+    },
+    {
+      "type": "practice",
+      "title": {
+        "en": "Practice C — Conjugate 르-irregular words into 해요체",
+        "ko": "르 불규칙 단어를 해요체로 바꿔 써요"
+      },
+      "items": [
+        { "q": "속도가 빠르다 (fast) in 해요체 →", "a": "빨라요" },
+        { "q": "노래를 부르다 (to sing) in 해요체 →", "a": "불러요" },
+        { "q": "그 말을 모르다 (to not know) in 해요체 →", "a": "몰라요" },
+        { "q": "선물을 고르다 (to choose) in 해요체 →", "a": "골라요" },
+        { "q": "모양이 다르다 (different) in 해요체 →", "a": "달라요" }
+      ]
+    },
+    {
+      "type": "practice",
+      "title": {
+        "en": "Practice D — Choose the correct irregular conjugation",
+        "ko": "올바른 활용형을 골라요"
+      },
+      "items": [
+        { "q": "겨울에는 날씨가 ___ (추워요 / 춥어요) →", "a": "추워요" },
+        { "q": "매일 음악을 ___ (들어요 / 듣어요) →", "a": "들어요" },
+        { "q": "이 단어 뜻을 잘 ___ (몰라요 / 모르어요) →", "a": "몰라요" },
+        { "q": "제가 일을 좀 ___ (도와드릴게요 / 돕아드릴게요) →", "a": "도와드릴게요" },
+        { "q": "친구가 준 선물을 ___ (받았어요 / 발았어요) →", "a": "받았어요" }
+      ]
+    }
+  ],
+  "howto": [
+    "Remember that ㅂ turns into 우 (or 오 for 돕다/곱다) when meeting a vowel ending.",
+    "Pay attention to ㄷ changing to ㄹ before vowels (듣다 → 들어요), while remembering regular verbs like 받다 (받아요).",
+    "For 르 verbs, drop 으 and double the ㄹ (빠르다 → 빨라요). Solve Practice A to D."
+  ],
+  "koSummary": "한국어의 대표적인 3대 불규칙인 ㅂ 불규칙(춥다→추워요), ㄷ 불규칙(듣다→들어요, 규칙 예외 받다→받아요), 르 불규칙(빠르다→빨라요)의 원리와 활용 연습을 한 장에 정리했습니다. 문제를 풀고 정답지로 확인하세요."
+}

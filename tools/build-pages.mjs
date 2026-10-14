@@ -42,6 +42,7 @@ for (let k = 0; k * 500 < VOCAB2.length; k++) {
 }
 import { conjugate, romanize } from './ko-conj.mjs';
 import { pron, PRON_RULES } from './ko-pron.mjs';
+import { readdirSync as wsDir } from 'node:fs';   // 학습지 틀(build-sheets.mjs)의 자료 목록 — 사이트맵용
 import { WS_IDS } from './build-worksheets.mjs';   // 문법 학습지(worksheet/) — 가져오는 것만으로 쪽이 구워진다
 const WS_SET = new Set(WS_IDS);
 import { readFileSync as readEn } from 'node:fs';
@@ -3106,7 +3107,9 @@ urls.push({ loc: '/my-korean-name/', freq: 'monthly', pri: '0.7' });
 urls.push({ loc: '/korean-birthday/', freq: 'monthly', pri: '0.7' });
 urls.push({ loc: '/korean-word-today/', freq: 'daily', pri: '0.6' });
 urls.push({ loc: '/hangul-worksheet/', freq: 'monthly', pri: '0.7' });
-urls.push({ loc: '/numbers-worksheet/', freq: 'monthly', pri: '0.7' });   // 수사 학습지(운영자 2026-10-14)
+urls.push({ loc: '/numbers-worksheet/', freq: 'monthly', pri: '0.7' });
+urls.push({ loc: '/worksheets/', freq: 'weekly', pri: '0.8' });   // 학습지 모음(tools/build-worksheets.mjs)
+for (const f of wsDir(join(ROOT, 'docs/worksheets'))) if (f.endsWith('.json') && !f.startsWith('_')) urls.push({ loc: `/${f.replace(/\.json$/, '')}-worksheet/`, freq: 'monthly', pri: '0.7' });   // 수사 학습지(운영자 2026-10-14)
 urls.push({ loc: '/worksheet/', freq: 'monthly', pri: '0.8' });
 for (const id of WS_IDS) urls.push({ loc: `/worksheet/${id}.html`, freq: 'monthly', pri: '0.6' });
 urls.push({ loc: '/topik-vocabulary-list/', freq: 'monthly', pri: '0.8' });

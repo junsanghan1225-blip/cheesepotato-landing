@@ -1,0 +1,283 @@
+{
+  "id": "family-terms",
+  "title": {
+    "en": "Family Terms & Honorifics",
+    "ko": "가족 호칭과 높임말"
+  },
+  "sub": {
+    "en": "Family members, terms based on speaker gender, and basic honorific vocabulary",
+    "ko": "가족 호칭, 화자 기준 부르는 말, 기초 높임말 단어"
+  },
+  "desc": {
+    "en": "Free printable Korean worksheet on family members and basic honorifics: parents, grandparents, older siblings (형, 오빠, 누나, 언니), honorific vocabulary (진지, 성함, 연세) with exercises and an answer key."
+  },
+  "level": "A1",
+  "sections": [
+    {
+      "type": "table",
+      "title": {
+        "en": "Immediate Family Members",
+        "ko": "가족 호칭"
+      },
+      "cols": [
+        "Relative",
+        "Korean",
+        "Respectful form",
+        "Note"
+      ],
+      "rows": [
+        [
+          "Grandfather",
+          "할아버지",
+          "—",
+          "Father's or mother's father"
+        ],
+        [
+          "Grandmother",
+          "할머니",
+          "—",
+          "Father's or mother's mother"
+        ],
+        [
+          "Father",
+          "아버지",
+          "아버님 (respectful; also spouse’s father)",
+          "Casual: 아빠"
+        ],
+        [
+          "Mother",
+          "어머니",
+          "어머님 (respectful; also spouse’s mother)",
+          "Casual: 엄마"
+        ],
+        [
+          "Parents",
+          "부모님",
+          "부모님",
+          "Father & mother"
+        ],
+        [
+          "Older brother (male speaker)",
+          "형",
+          "형님 (respectful)",
+          "Used by males"
+        ],
+        [
+          "Older sister (male speaker)",
+          "누나",
+          "누님 (respectful)",
+          "Used by males"
+        ],
+        [
+          "Older brother (female speaker)",
+          "오빠",
+          "오빠",
+          "Used by females"
+        ],
+        [
+          "Older sister (female speaker)",
+          "언니",
+          "언니",
+          "Used by females"
+        ],
+        [
+          "Younger sibling",
+          "동생",
+          "남동생 / 여동생",
+          "Little brother / sister"
+        ]
+      ],
+      "note": "Korean words for older siblings depend on the speaker: a male says 형 and 누나, while a female says 오빠 and 언니."
+    },
+    {
+      "type": "table",
+      "title": {
+        "en": "Essential Honorific Words",
+        "ko": "기초 높임말 어휘"
+      },
+      "cols": [
+        "Meaning",
+        "Plain word",
+        "Honorific word",
+        "Example sentence"
+      ],
+      "rows": [
+        [
+          "Age",
+          "나이",
+          "연세",
+          "연세가 어떻게 되세요?"
+        ],
+        [
+          "Name",
+          "이름",
+          "성함",
+          "성함이 어떻게 되세요?"
+        ],
+        [
+          "Meal / Rice",
+          "밥",
+          "진지",
+          "진지 잡수셨어요?"
+        ],
+        [
+          "House",
+          "집",
+          "댁",
+          "선생님 댁에 가요."
+        ],
+        [
+          "Words / Speech",
+          "말",
+          "말씀",
+          "선생님 말씀"
+        ],
+        [
+          "To eat",
+          "먹다",
+          "드시다",
+          "맛있게 드세요."
+        ],
+        [
+          "To sleep",
+          "자다",
+          "주무시다",
+          "안녕히 주무세요."
+        ],
+        [
+          "To be / exist",
+          "있다",
+          "계시다",
+          "할머니께서 집에 계세요."
+        ]
+      ],
+      "note": "Use honorific words when speaking to or talking about elders, grandparents, parents, and teachers."
+    },
+    {
+      "type": "text",
+      "title": {
+        "en": "Honorific Particles: 께서 and 께",
+        "ko": "높임 조사"
+      },
+      "text": "When the subject of the sentence is an elder, the subject particle 이/가 is replaced by 께서 (할머니께서 오셨어요). The topic particle 은/는 becomes 께서는 (아버지께서는 회사에 가셨어요). The giving particle 에게/한테 becomes 께 (선생님께 질문을 드려요)."
+    },
+    {
+      "type": "practice",
+      "title": {
+        "en": "Practice A — Terms used by a male speaker",
+        "ko": "남자가 부르는 호칭을 써요"
+      },
+      "items": [
+        {
+          "q": "Older brother (male speaker) →",
+          "a": "형"
+        },
+        {
+          "q": "Older sister (male speaker) →",
+          "a": "누나"
+        },
+        {
+          "q": "Younger brother (male speaker) →",
+          "a": "남동생"
+        },
+        {
+          "q": "Younger sister (male speaker) →",
+          "a": "여동생"
+        }
+      ]
+    },
+    {
+      "type": "practice",
+      "title": {
+        "en": "Practice B — Terms used by a female speaker",
+        "ko": "여자가 부르는 호칭을 써요"
+      },
+      "items": [
+        {
+          "q": "Older brother (female speaker) →",
+          "a": "오빠"
+        },
+        {
+          "q": "Older sister (female speaker) →",
+          "a": "언니"
+        },
+        {
+          "q": "Younger brother (female speaker) →",
+          "a": "남동생"
+        },
+        {
+          "q": "Younger sister (female speaker) →",
+          "a": "여동생"
+        }
+      ]
+    },
+    {
+      "type": "practice",
+      "title": {
+        "en": "Practice C — Replace the plain word with its honorific partner",
+        "ko": "알맞은 높임말 단어로 바꿔 써요"
+      },
+      "items": [
+        {
+          "q": "이름 (name) →",
+          "a": "성함"
+        },
+        {
+          "q": "나이 (age) →",
+          "a": "연세"
+        },
+        {
+          "q": "밥 (meal) →",
+          "a": "진지"
+        },
+        {
+          "q": "집 (house) →",
+          "a": "댁"
+        },
+        {
+          "q": "말 (words) →",
+          "a": "말씀"
+        },
+        {
+          "q": "자다 (to sleep) →",
+          "a": "주무시다"
+        }
+      ]
+    },
+    {
+      "type": "practice",
+      "title": {
+        "en": "Practice D — Choose the polite honorific expression",
+        "ko": "알맞은 높임 표현을 골라요"
+      },
+      "items": [
+        {
+          "q": "할머니, 진지 ___ (먹어요 / 드세요) →",
+          "a": "드세요"
+        },
+        {
+          "q": "선생님, 성함이 어떻게 ___ (되세요 / 있어요) →",
+          "a": "되세요"
+        },
+        {
+          "q": "아버지는 지금 방에서 ___ (자요 / 주무세요) →",
+          "a": "주무세요"
+        },
+        {
+          "q": "어머니___ 선물을 드려요 (한테 / 께) →",
+          "a": "께"
+        },
+        {
+          "q": "할아버지___ 집에 계세요 (께서 / 가) →",
+          "a": "께서"
+        }
+      ]
+    }
+  ],
+  "howto": [
+    "Note whether terms are used by a male speaker (형, 누나) or a female speaker (오빠, 언니).",
+    "Memorize key honorific vocabulary pairs: 밥-진지, 이름-성함, 나이-연세, 자다-주무시다.",
+    "Complete Practice A to D and verify your answers using the answer key."
+  ],
+  "koSummary": "가족 호칭(화자의 성별에 따른 형·오빠·누나·언니 구별)과 어른께 쓰는 필수 높임말 단어(성함, 연세, 진지, 댁, 드시다, 주무시다)를 정리했습니다. 연습 문제를 풀고 정답지로 확인하세요."
+}

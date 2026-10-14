@@ -1,0 +1,247 @@
+{
+  "id": "speech-levels",
+  "title": {
+    "en": "Speech Levels: 해요체, 합쇼체 & 반말",
+    "ko": "해요체 · 합쇼체 · 반말 — 말투 바꾸기"
+  },
+  "sub": {
+    "en": "Polite informal (해요체), formal polite (합쇼체), and intimate casual (반말)",
+    "ko": "상황에 따른 세 가지 말투 비교, 어미 변화 규칙과 전환 연습"
+  },
+  "desc": {
+    "en": "Free printable Korean worksheet on speech levels: 해요체 (polite informal), 합쇼체 (formal polite), and 반말 (intimate casual) — sentence endings, conversion rules with practice exercises and an answer key."
+  },
+  "level": "A2",
+  "sections": [
+    {
+      "type": "table",
+      "title": {
+        "en": "The Three Core Speech Levels",
+        "ko": "세 가지 말투와 사용 상황"
+      },
+      "cols": [
+        "Speech level",
+        "Korean name",
+        "Typical situation / Audience",
+        "Ending form"
+      ],
+      "rows": [
+        [
+          "Polite Informal",
+          "해요체",
+          "Daily conversations with coworkers, acquaintances, elders",
+          "-아/어요"
+        ],
+        [
+          "Formal Polite",
+          "합쇼체",
+          "Presentations, news broadcasts, business, formal service",
+          "-ㅂ/습니다"
+        ],
+        [
+          "Casual / Intimate",
+          "반말 (해체)",
+          "Close friends of same age, younger siblings, children",
+          "-아/어"
+        ]
+      ],
+      "note": "Foreign learners should primarily use 해요체. Switching to casual 반말 requires mutual agreement or same-age close friendship."
+    },
+    {
+      "type": "table",
+      "title": {
+        "en": "Conjugation Comparison Across Speech Levels",
+        "ko": "말투별 어미 비교"
+      },
+      "cols": [
+        "Base word",
+        "Meaning",
+        "해요체 (Polite informal)",
+        "합쇼체 (Formal polite)",
+        "반말 (Casual intimate)"
+      ],
+      "rows": [
+        [
+          "가다",
+          "To go",
+          "가요",
+          "갑니다",
+          "가"
+        ],
+        [
+          "먹다",
+          "To eat",
+          "먹어요",
+          "먹습니다",
+          "먹어"
+        ],
+        [
+          "보다",
+          "To see / watch",
+          "봐요",
+          "봅니다",
+          "봐"
+        ],
+        [
+          "하다",
+          "To do",
+          "해요",
+          "합니다",
+          "해"
+        ],
+        [
+          "있다",
+          "To exist / have",
+          "있어요",
+          "있습니다",
+          "있어"
+        ],
+        [
+          "크다",
+          "To be big",
+          "커요",
+          "큽니다",
+          "커"
+        ],
+        [
+          "좋다",
+          "To be good",
+          "좋아요",
+          "좋습니다",
+          "좋아"
+        ]
+      ],
+      "note": "Quick conversion rule: remove the polite ending marker 요 from 해요체 to make casual 반말 (가요 → 가, 먹어요 → 먹어, 좋아요 → 좋아)."
+    },
+    {
+      "type": "text",
+      "title": {
+        "en": "Pronouns Change With Speech Level",
+        "ko": "말투에 따른 인칭 대명사"
+      },
+      "text": "In polite speech (해요체 and 합쇼체), use humble pronouns for yourself: 저 (I) and 저희 (we). In casual speech (반말), switch to informal pronouns: 나 (I), 우리 (we), and 너 (you). Never call an adult or elder 너."
+    },
+    {
+      "type": "practice",
+      "title": {
+        "en": "Practice A — Convert base form to polite informal (해요체)",
+        "ko": "기본형을 해요체로 바꿔 써요"
+      },
+      "items": [
+        {
+          "q": "가다 (to go) in 해요체 →",
+          "a": "가요"
+        },
+        {
+          "q": "먹다 (to eat) in 해요체 →",
+          "a": "먹어요"
+        },
+        {
+          "q": "보다 (to watch) in 해요체 →",
+          "a": "봐요"
+        },
+        {
+          "q": "하다 (to do) in 해요체 →",
+          "a": "해요"
+        },
+        {
+          "q": "좋다 (to be good) in 해요체 →",
+          "a": "좋아요"
+        }
+      ]
+    },
+    {
+      "type": "practice",
+      "title": {
+        "en": "Practice B — Convert base form to formal polite (합쇼체 -ㅂ/습니다)",
+        "ko": "기본형을 합쇼체로 바꿔 써요"
+      },
+      "items": [
+        {
+          "q": "가다 (to go) in 합쇼체 →",
+          "a": "갑니다"
+        },
+        {
+          "q": "먹다 (to eat) in 합쇼체 →",
+          "a": "먹습니다"
+        },
+        {
+          "q": "보다 (to see) in 합쇼체 →",
+          "a": "봅니다"
+        },
+        {
+          "q": "하다 (to do) in 합쇼체 →",
+          "a": "합니다"
+        },
+        {
+          "q": "있다 (to have) in 합쇼체 →",
+          "a": "있습니다"
+        }
+      ]
+    },
+    {
+      "type": "practice",
+      "title": {
+        "en": "Practice C — Convert polite 해요체 into casual 반말",
+        "ko": "해요체 문장을 반말로 바꿔 써요"
+      },
+      "items": [
+        {
+          "q": "지금 어디 가요? in 반말 →",
+          "a": "지금 어디 가?"
+        },
+        {
+          "q": "점심 먹어요 in 반말 →",
+          "a": "점심 먹어"
+        },
+        {
+          "q": "영화 봐요 in 반말 →",
+          "a": "영화 봐"
+        },
+        {
+          "q": "숙제 해요 in 반말 →",
+          "a": "숙제 해"
+        },
+        {
+          "q": "정말 좋아요 in 반말 →",
+          "a": "정말 좋아"
+        }
+      ]
+    },
+    {
+      "type": "practice",
+      "title": {
+        "en": "Practice D — Choose the appropriate speech level in context",
+        "ko": "상황에 어울리는 말을 골라요"
+      },
+      "items": [
+        {
+          "q": "To a stranger: 저기요, 길 좀 ___ (알려줘 / 알려주세요) →",
+          "a": "알려주세요"
+        },
+        {
+          "q": "In a formal news report: 오늘 비가 ___ (옵니다 / 와) →",
+          "a": "옵니다"
+        },
+        {
+          "q": "To your best same-age friend: 주말에 뭐 ___ ? (해 / 하세요) →",
+          "a": "해"
+        },
+        {
+          "q": "Humble pronoun for 'I' in polite speech: ___는 학생이에요 (저 / 나) →",
+          "a": "저"
+        },
+        {
+          "q": "Casual pronoun to friend: ___도 같이 갈래? (너 / 당신) →",
+          "a": "너"
+        }
+      ]
+    }
+  ],
+  "howto": [
+    "Learn the distinctive endings of the 3 speech levels: -아/어요 (해요체), -ㅂ/습니다 (합쇼체), and -아/어 (반말).",
+    "Notice how dropping the final 요 from 해요체 produces natural casual 반말.",
+    "Solve Practice A to D and check your answers with the answer key."
+  ],
+  "koSummary": "한국어의 대표적인 세 가지 말투(해요체, 합쇼체, 반말)의 용도와 어미 규칙, 그리고 인칭 대명사(저/나)의 알맞은 사용법을 한 장에 정리했습니다. 문장 전환 연습을 풀고 정답지로 확인하세요."
+}

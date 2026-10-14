@@ -1,0 +1,301 @@
+{
+  "id": "hangul-alphabet",
+  "title": {
+    "en": "Hangul Alphabet: Consonants & Vowels",
+    "ko": "한글 자음과 모음"
+  },
+  "sub": {
+    "en": "The 14 basic consonants, 10 basic vowels, syllable blocks and pronunciation",
+    "ko": "기본 자음 14자, 기본 모음 10자, 음절 조합과 발음"
+  },
+  "desc": {
+    "en": "Free printable Korean alphabet worksheet: 14 basic consonants (ㄱ to ㅎ) with names and sounds, 10 basic vowels (ㅏ to ㅣ), syllable structure, handwriting practice and an answer key."
+  },
+  "level": "A1",
+  "sections": [
+    {
+      "type": "table",
+      "title": {
+        "en": "The 14 Basic Consonants",
+        "ko": "기본 자음 14자"
+      },
+      "cols": [
+        "Letter",
+        "Name",
+        "Sound",
+        "Example word"
+      ],
+      "rows": [
+        [
+          "ㄱ",
+          "기역 (giyeok)",
+          "g / k",
+          "가방 (bag)"
+        ],
+        [
+          "ㄴ",
+          "니은 (nieun)",
+          "n",
+          "나무 (tree)"
+        ],
+        [
+          "ㄷ",
+          "디귿 (digeut)",
+          "d / t",
+          "다리 (leg / bridge)"
+        ],
+        [
+          "ㄹ",
+          "리을 (rieul)",
+          "r / l",
+          "라디오 (radio)"
+        ],
+        [
+          "ㅁ",
+          "미음 (mieum)",
+          "m",
+          "모자 (hat)"
+        ],
+        [
+          "ㅂ",
+          "비읍 (bieup)",
+          "b / p",
+          "바지 (pants)"
+        ],
+        [
+          "ㅅ",
+          "시옷 (siot)",
+          "s",
+          "사과 (apple)"
+        ],
+        [
+          "ㅇ",
+          "이응 (ieung)",
+          "silent / ng",
+          "아이 (child)"
+        ],
+        [
+          "ㅈ",
+          "지읒 (jieut)",
+          "j",
+          "지도 (map)"
+        ],
+        [
+          "ㅊ",
+          "치읓 (chieut)",
+          "ch",
+          "치마 (skirt)"
+        ],
+        [
+          "ㅋ",
+          "키읔 (kieuk)",
+          "k",
+          "코 (nose)"
+        ],
+        [
+          "ㅌ",
+          "티읕 (tieut)",
+          "t",
+          "토마토 (tomato)"
+        ],
+        [
+          "ㅍ",
+          "피읖 (pieup)",
+          "p",
+          "포도 (grape)"
+        ],
+        [
+          "ㅎ",
+          "히읗 (hieut)",
+          "h",
+          "하늘 (sky)"
+        ]
+      ],
+      "note": "Initial ㅇ has no sound and acts as a placeholder for vowels (아이 = a-i). At the end of a syllable, ㅇ makes the 'ng' sound (강 = gang)."
+    },
+    {
+      "type": "table",
+      "title": {
+        "en": "The 10 Basic Vowels",
+        "ko": "기본 모음 10자"
+      },
+      "cols": [
+        "Vowel",
+        "Sound",
+        "Vowel",
+        "Sound"
+      ],
+      "rows": [
+        [
+          "ㅏ",
+          "a (father)",
+          "ㅓ",
+          "eo (like “u” in cup)"
+        ],
+        [
+          "ㅗ",
+          "o (go)",
+          "ㅜ",
+          "u (moon)"
+        ],
+        [
+          "ㅡ",
+          "eu (like “oo” in book, lips flat)",
+          "ㅣ",
+          "i (see)"
+        ],
+        [
+          "ㅑ",
+          "ya (yard)",
+          "ㅕ",
+          "yeo (young)"
+        ],
+        [
+          "ㅛ",
+          "yo (yo-yo)",
+          "ㅠ",
+          "yu (youth)"
+        ]
+      ],
+      "note": "Vertical vowels (ㅏ, ㅓ, ㅣ, ㅑ, ㅕ) go to the right of the consonant (가, 너). Horizontal vowels (ㅗ, ㅜ, ㅡ, ㅛ, ㅠ) go under the consonant (고, 누)."
+    },
+    {
+      "type": "text",
+      "title": {
+        "en": "How Hangul Syllables Work",
+        "ko": "한글 음절 조합 원리"
+      },
+      "text": "Every Korean syllable block has at least one consonant and one vowel: Initial consonant + Vowel (e.g., ㄱ + ㅏ = 가, ㅇ + ㅗ = 오). Many blocks add a final consonant (받침) at the bottom: Initial + Vowel + Final (e.g., ㄱ + ㅏ + ㄴ = 간, ㅂ + ㅏ + ㅂ = 밥)."
+    },
+    {
+      "type": "practice",
+      "title": {
+        "en": "Practice A — Write the official consonant name",
+        "ko": "자음의 이름을 한글로 써요"
+      },
+      "items": [
+        {
+          "q": "ㄱ →",
+          "a": "기역"
+        },
+        {
+          "q": "ㄴ →",
+          "a": "니은"
+        },
+        {
+          "q": "ㄷ →",
+          "a": "디귿"
+        },
+        {
+          "q": "ㄹ →",
+          "a": "리을"
+        },
+        {
+          "q": "ㅁ →",
+          "a": "미음"
+        },
+        {
+          "q": "ㅅ →",
+          "a": "시옷"
+        }
+      ]
+    },
+    {
+      "type": "practice",
+      "title": {
+        "en": "Practice B — Combine consonant and vowel into one syllable",
+        "ko": "자음과 모음을 합쳐서 한 글자로 써요"
+      },
+      "items": [
+        {
+          "q": "ㄴ + ㅏ →",
+          "a": "나"
+        },
+        {
+          "q": "ㄷ + ㅓ →",
+          "a": "더"
+        },
+        {
+          "q": "ㅁ + ㅗ →",
+          "a": "모"
+        },
+        {
+          "q": "ㅂ + ㅜ →",
+          "a": "부"
+        },
+        {
+          "q": "ㅅ + ㅣ →",
+          "a": "시"
+        },
+        {
+          "q": "ㅎ + ㅏ →",
+          "a": "하"
+        }
+      ]
+    },
+    {
+      "type": "practice",
+      "title": {
+        "en": "Practice C — Write the initial consonant of each word",
+        "ko": "단어의 첫소리 자음을 써요"
+      },
+      "items": [
+        {
+          "q": "사과 (apple) starts with ___ →",
+          "a": "ㅅ"
+        },
+        {
+          "q": "나무 (tree) starts with ___ →",
+          "a": "ㄴ"
+        },
+        {
+          "q": "모자 (hat) starts with ___ →",
+          "a": "ㅁ"
+        },
+        {
+          "q": "다리 (leg) starts with ___ →",
+          "a": "ㄷ"
+        },
+        {
+          "q": "바지 (pants) starts with ___ →",
+          "a": "ㅂ"
+        }
+      ]
+    },
+    {
+      "type": "practice",
+      "title": {
+        "en": "Practice D — Identify the vowel in the syllable",
+        "ko": "글자의 모음을 찾아 써요"
+      },
+      "items": [
+        {
+          "q": "가 (in 가방) vowel →",
+          "a": "ㅏ"
+        },
+        {
+          "q": "구 (in 구름) vowel →",
+          "a": "ㅜ"
+        },
+        {
+          "q": "소 (in 소리) vowel →",
+          "a": "ㅗ"
+        },
+        {
+          "q": "어 (in 어머니) vowel →",
+          "a": "ㅓ"
+        },
+        {
+          "q": "지 (in 지도) vowel →",
+          "a": "ㅣ"
+        }
+      ]
+    }
+  ],
+  "howto": [
+    "Memorize the 14 basic consonants and their traditional names (기역, 니은, 디귿...).",
+    "Practice combining vertical vowels (placed to the right) and horizontal vowels (placed underneath).",
+    "Complete Practice A to D and verify your answers with the answer key."
+  ],
+  "koSummary": "한글의 기본 자음 14자와 기본 모음 10자의 이름, 발음, 글자 조합 원리를 한 장에 정리했습니다. 자음 이름 쓰기, 자모 결합, 첫소리 찾기 연습을 풀고 정답지로 확인하세요."
+}

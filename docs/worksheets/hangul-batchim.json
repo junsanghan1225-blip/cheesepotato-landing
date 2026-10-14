@@ -1,0 +1,133 @@
+{
+  "id": "hangul-batchim",
+  "title": {
+    "en": "Hangul Batchim & Sound Rules",
+    "ko": "받침과 소리 규칙"
+  },
+  "sub": {
+    "en": "The 7 representative final sounds, liaison rule (연음) and pronunciation guide",
+    "ko": "받침 7개 대표음, 연음 법칙, 소리 나는 대로 읽기"
+  },
+  "desc": {
+    "en": "Free printable Korean worksheet on 받침 (batchim / final consonants): the 7 representative sounds ([ㄱ ㄴ ㄷ ㄹ ㅁ ㅂ ㅇ]), the liaison rule (연음), pronunciation practice and an answer key."
+  },
+  "level": "A1",
+  "sections": [
+    {
+      "type": "table",
+      "title": {
+        "en": "The 7 Representative Batchim Sounds",
+        "ko": "받침의 7개 대표음"
+      },
+      "cols": [
+        "Sound",
+        "Batchim letters",
+        "Example words",
+        "Pronunciation"
+      ],
+      "rows": [
+        ["[ㄱ]", "ㄱ, ㅋ, ㄲ", "책, 부엌, 밖", "[책], [부억], [박]"],
+        ["[ㄴ]", "ㄴ", "눈, 문, 산", "[눈], [문], [산]"],
+        ["[ㄷ]", "ㄷ, ㅅ, ㅆ, ㅈ, ㅊ, ㅌ, ㅎ", "옷, 낮, 꽃, 끝", "[옫], [낟], [꼳], [끋]"],
+        ["[ㄹ]", "ㄹ", "달, 길, 물", "[달], [길], [물]"],
+        ["[ㅁ]", "ㅁ", "밤, 봄, 사람", "[밤], [봄], [사람]"],
+        ["[ㅂ]", "ㅂ, ㅍ", "밥, 잎, 앞", "[밥], [입], [압]"],
+        ["[ㅇ]", "ㅇ", "강, 방, 공", "[강], [방], [공]"]
+      ],
+      "note": "When spoken in isolation or before a consonant, all Korean final consonants simplify into one of these 7 representative sounds: [ㄱ ㄴ ㄷ ㄹ ㅁ ㅂ ㅇ]."
+    },
+    {
+      "type": "table",
+      "title": {
+        "en": "Key Pronunciation Rules",
+        "ko": "주요 발음 규칙"
+      },
+      "cols": [
+        "Rule",
+        "Explanation",
+        "Written word",
+        "Actual sound"
+      ],
+      "rows": [
+        ["Liaison (연음)", "Batchim moves to next vowel (ㅇ)", "한국어", "[한구거]"],
+        ["Liaison (연음)", "Batchim carries over to the next syllable", "음악", "[으막]"],
+        ["Liaison (연음)", "Batchim takes over the initial ㅇ slot", "집에", "[지베]"],
+        ["Nasalization (비음화)", "ㄱ / ㄷ / ㅂ changes to ㅇ / ㄴ / ㅁ before ㄴ / ㅁ", "국물", "[궁물]"],
+        ["Tensification (경음화)", "Plain consonant becomes tense (ㄲ/ㄸ/ㅃ/ㅆ/ㅉ) after ㄱ/ㄷ/ㅂ", "학교", "[학꾜]"]
+      ],
+      "note": "Liaison is the most frequent rule in everyday Korean: always carry the final consonant sound over into the following vowel."
+    },
+    {
+      "type": "text",
+      "title": {
+        "en": "Liaison: How to Carry the Sound Over",
+        "ko": "소리 나는 대로 읽는 연음 법칙"
+      },
+      "text": "When a syllable ending with a batchim is followed by a syllable starting with the silent vowel placeholder ㅇ, move the final consonant sound directly into that vowel: 물 + 이 → [무리], 밥 + 을 → [바블], 옷 + 이 → [오시]. If a consonant follows, pronounce the representative sound: 옷장 → [옫짱]."
+    },
+    {
+      "type": "practice",
+      "title": {
+        "en": "Practice A — Identify the representative final sound",
+        "ko": "대표 받침 소리([ㄱ ㄴ ㄷ ㄹ ㅁ ㅂ ㅇ])를 써요"
+      },
+      "items": [
+        { "q": "꽃 (flower) batchim sound →", "a": "ㄷ" },
+        { "q": "부엌 (kitchen) batchim sound →", "a": "ㄱ" },
+        { "q": "잎 (leaf) batchim sound →", "a": "ㅂ" },
+        { "q": "옷 (clothes) batchim sound →", "a": "ㄷ" },
+        { "q": "밖 (outside) batchim sound →", "a": "ㄱ" },
+        { "q": "빛 (light) batchim sound →", "a": "ㄷ" }
+      ]
+    },
+    {
+      "type": "practice",
+      "title": {
+        "en": "Practice B — Write the liaison pronunciation in Hangul",
+        "ko": "연음 법칙대로 소리 나는 대로 써요"
+      },
+      "items": [
+        { "q": "한국어 →", "a": "한구거" },
+        { "q": "음악 →", "a": "으막" },
+        { "q": "집에 →", "a": "지베" },
+        { "q": "할아버지 →", "a": "하라버지" },
+        { "q": "물이 →", "a": "무리" },
+        { "q": "밥을 →", "a": "바블" }
+      ]
+    },
+    {
+      "type": "practice",
+      "title": {
+        "en": "Practice C — Write the actual pronunciation with ㄷ and ㅂ batchim",
+        "ko": "소리 나는 대로 발음을 써요"
+      },
+      "items": [
+        { "q": "옷이 →", "a": "오시" },
+        { "q": "앞에 →", "a": "아페" },
+        { "q": "꽃을 →", "a": "꼬츨" },
+        { "q": "빛이 →", "a": "비치" },
+        { "q": "입에 →", "a": "이베" }
+      ]
+    },
+    {
+      "type": "practice",
+      "title": {
+        "en": "Practice D — Write the correct spoken sound",
+        "ko": "올바른 발음을 써요"
+      },
+      "items": [
+        { "q": "국물 pronunciation →", "a": "궁물" },
+        { "q": "학교 pronunciation →", "a": "학꾜" },
+        { "q": "식당 pronunciation →", "a": "식땅" },
+        { "q": "책을 pronunciation →", "a": "채글" },
+        { "q": "문이 pronunciation →", "a": "무니" }
+      ]
+    }
+  ],
+  "howto": [
+    "Learn the 7 representative sounds: ㄱ, ㄴ, ㄷ, ㄹ, ㅁ, ㅂ, ㅇ.",
+    "Practice carrying the final consonant into the next syllable when meeting a vowel (Liaison).",
+    "Complete Practice A to D and check your results with the answer key."
+  ],
+  "koSummary": "받침의 7개 대표음([ㄱ ㄴ ㄷ ㄹ ㅁ ㅂ ㅇ])과 가장 기초적인 연음 법칙, 비음화, 경음화를 한 장에 정리했습니다. 대표음 찾기와 소리 나는 대로 발음 쓰기 연습을 풀고 정답지로 확인하세요."
+}
