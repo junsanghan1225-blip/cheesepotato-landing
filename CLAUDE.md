@@ -79,10 +79,12 @@
   | `topik-refs/`(낱말 → 우리 TOPIK 문항의 쓰임 문장, 단어 한 장 「TOPIK에서」 탭) | `topik.js` · `topik2.js` · `topik-listening.js` · `topik-writing.js` · `vocab/data/*.json` → `node tools/build-topik-refs.mjs` |
   | `docs/i18n/strings.json`(화면 글자 목록) · `i18n-<언어>.js`(화면 번역 사전) | 코드의 t() · index.html data-en → `node tools/i18n-extract.mjs`; `docs/i18n/<언어>.json`(안티 번역) → `node tools/build-i18n.mjs`(검사 `check-i18n`) |
   | `expressions.js`(「단어」 표현 탭 — 사자성어 · 속담 · 관용 표현) | `vocab/data/expressions.json`(안티 · Claude 검토, 검사 `check-expressions`) → `node tools/build-expressions.mjs` |
+  | `app-data/`(앱이 읽는 코스 · 레슨 JSON — 앱은 이걸 받아 폰에 저장) | `courses*.js` · `app.module.js` 의 `MY_LEVEL_COURSES` · `docs/i18n/app-strings.json`(앱이 뽑은 화면 글자) · `docs/i18n/app-<언어>.json`(앱 번역) → `node tools/build-app-data.mjs`(build-pages 가 끝에 같이 부른다, 검사 `check-app-data`) |
   | `vocab-topik1.js` · `vocab-topik2.js` · `vocab-topik2-ex/`(TOPIK II 예문 조각, 500개씩) | `vocab/data/topik1.json` · `topik2.json`(B급 이상만) → `node tools/build-vocab.mjs` |
 - **검사:** 올리기 전에 **`node tools/preflight.mjs` 한 줄** — 자국 찍기 · 확인, 문법, CI(`check.yml`)의 검사 전부를 같은 차례로.
   첫 쪽 · `llms.txt` 의 숫자(문항 수 등)가 바뀌면 `check-geo` 가, 없는 문서 경로는 `check-docs` 가 알려 준다.
 - **말투:** 코드 주석은 주변처럼 한국어로, 「왜」를 적는다. 사용자에게 보이는 글은 `t('한국어', 'English')` 로 둘 다.
+- **리팩터링:** 코드를 옮기거나 지우는 일은 `docs/plans/web-refactor.md` 의 단계대로 한 번에 하나, 전 · 후로 `node tools/smoke.mjs`(주요 화면 오류 0) 를 돌린다.
 - **화면 확인:** 화면을 바꾸면 폭 390px(폰)과 1280px(PC)에서 가로 스크롤 · JS 오류가 없는지 본다.
 
 ## 5. 어디를 보나 (2026-10-10 운영자 「작업 구조 향상」 — 문서 3층)
