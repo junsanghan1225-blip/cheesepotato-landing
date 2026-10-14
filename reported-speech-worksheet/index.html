@@ -41,6 +41,12 @@
 .nw-line { display:inline-block; min-width:90px; border-bottom:1.5px solid #1B1512; height:1em; vertical-align:bottom; }
 .nw-circle { letter-spacing:.04em; }
 .nw-ans { display:none; }
+.nw-bar { display:grid; gap:8px; margin:20px 0 12px; }
+.nw-row { display:flex; align-items:center; flex-wrap:wrap; gap:8px; }
+.nw-row > span { width:96px; font-size:13.5px; font-weight:700; color:var(--ink-3); }
+.nw-b { min-height:40px; padding:8px 18px; border:1px solid var(--line); border-radius:8px; background:var(--surface); color:var(--ink); font:inherit; font-size:14px; font-weight:700; cursor:pointer; }
+.nw-b:hover { border-color:var(--ink); }
+.nw-b.dark { background:var(--ink); border-color:var(--ink); color:var(--bg); }
 body.show-ans .nw-ans { display:block; }
 body.show-ans .nw-work { display:none; }
 .nw-foot { margin-top:14px; font-size:12px; color:var(--ink-3); text-align:center; }
@@ -68,7 +74,7 @@ body.show-ans .nw-work { display:none; }
 <h1>Reported speech: -다고 · -냐고 · -자고 · -(으)라고</h1>
 <p>간접 인용 · How to tell what someone said: statements, questions, suggestions and commands · print, save as PDF or Word · Free</p>
 <div class="box">
-  <div class="btns no-print"><button class="btn main" id="nwPrint" type="button">🖨️ Print worksheet</button><button class="btn sub" id="nwAns" type="button">✅ Print answer key</button><button class="btn sub" id="nwDocx" type="button">📝 Word (.docx)</button><button class="btn sub" id="nwAnsDocx" type="button">📝 Answer key (.docx)</button></div>
+  <div class="nw-bar no-print"><div class="nw-row"><span>Worksheet</span><button class="nw-b dark" id="nwPrint" type="button">Print / PDF</button><button class="nw-b" id="nwDocx" type="button">Word</button></div><div class="nw-row"><span>Answer key</span><button class="nw-b dark" id="nwAns" type="button">Print / PDF</button><button class="nw-b" id="nwAnsDocx" type="button">Word</button></div></div>
   <div class="nw-paper nw-work">
     <div class="nw-top"><span>Name: ______________________</span><span>Date: ____________</span></div>
     <div class="nw-h">Reported speech: -다고 · -냐고 · -자고 · -(으)라고 · 간접 인용</div>

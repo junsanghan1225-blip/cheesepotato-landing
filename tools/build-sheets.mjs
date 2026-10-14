@@ -107,7 +107,7 @@ function sheetPage(w) {
   return head(`${w.title.en} (Free PDF)`, w.desc.en, url, ld) + `<h1>${esc(w.title.en)}</h1>
 <p>${esc(w.title.ko)} · ${esc(w.sub.en)} · print, save as PDF or Word · Free</p>
 <div class="box">
-  <div class="btns no-print"><button class="btn main" id="nwPrint" type="button">🖨️ Print worksheet</button><button class="btn sub" id="nwAns" type="button">✅ Print answer key</button><button class="btn sub" id="nwDocx" type="button">📝 Word (.docx)</button><button class="btn sub" id="nwAnsDocx" type="button">📝 Answer key (.docx)</button></div>
+  <div class="nw-bar no-print"><div class="nw-row"><span>Worksheet</span><button class="nw-b dark" id="nwPrint" type="button">Print / PDF</button><button class="nw-b" id="nwDocx" type="button">Word</button></div><div class="nw-row"><span>Answer key</span><button class="nw-b dark" id="nwAns" type="button">Print / PDF</button><button class="nw-b" id="nwAnsDocx" type="button">Word</button></div></div>
   <div class="nw-paper nw-work">
     <div class="nw-top"><span>Name: ______________________</span><span>Date: ____________</span></div>
     <div class="nw-h">${esc(w.title.en)} · ${esc(w.title.ko)}</div>
