@@ -23,15 +23,45 @@
         "Korean",
         "English",
         "Usage / Context",
-        "Spoken reading"
+        "Reading tip"
       ],
       "rows": [
-        ["이거 얼마예요?", "How much is this?", "Asking the price of an item", "이거 얼마예여"],
-        ["너무 비싸요", "It is too expensive", "Price reaction", "너무 비싸여"],
-        ["조금만 깎아 주세요", "Please give me a discount", "Asking politely for a discount", "조금만 까까 주세여"],
-        ["입어 봐도 돼요?", "Can I try this on?", "Asking to try on fitting room clothes", "이버 봐도 돼여"],
-        ["카드로 할게요", "I will pay by card", "Stating payment method", "카드로 할께여"],
-        ["현금 영수증 주세요", "Cash receipt, please", "Asking for tax receipt", "현금 영수증 주세여"]
+        [
+          "이거 얼마예요?",
+          "How much is this?",
+          "Asking the price of an item",
+          "—"
+        ],
+        [
+          "너무 비싸요",
+          "It is too expensive",
+          "Price reaction",
+          "—"
+        ],
+        [
+          "조금만 깎아 주세요",
+          "Please give me a discount",
+          "Asking politely for a discount",
+          "깎아 [까까]"
+        ],
+        [
+          "입어 봐도 돼요?",
+          "Can I try this on?",
+          "Asking to try on fitting room clothes",
+          "입어 [이버]"
+        ],
+        [
+          "카드로 할게요",
+          "I will pay by card",
+          "Stating payment method",
+          "할게요 [할께요]"
+        ],
+        [
+          "현금 영수증 주세요",
+          "Cash receipt, please",
+          "Asking for tax receipt",
+          "—"
+        ]
       ],
       "note": "Prices in Korea always use Sino-Korean numbers + 원: 1,000원 = 천 원, 10,000원 = 만 원, 50,000원 = 오만 원."
     },
@@ -48,13 +78,48 @@
         "Counter unit"
       ],
       "rows": [
-        ["Shirt / T-shirt", "셔츠 / 티셔츠", "입다 (to put on clothes)", "한 벌, 두 벌 (벌)"],
-        ["Pants / Trousers", "바지", "입다 (to put on clothes)", "한 벌, 두 벌 (벌)"],
-        ["Skirt", "치마", "입다 (to put on clothes)", "한 벌, 두 벌 (벌)"],
-        ["Coat / Jacket", "코트 / 재킷", "입다 (to put on clothes)", "한 벌, 두 벌 (벌)"],
-        ["Shoes / Sneakers", "신발 / 운동화", "신다 (to put on footwear)", "한 켤레, 두 켤레 (켤레)"],
-        ["Socks", "양말", "신다 (to put on footwear)", "한 켤레, 두 켤레 (켤레)"],
-        ["Hat / Cap", "모자", "쓰다 (to put on headwear)", "한 개, 두 개 (개)"]
+        [
+          "Shirt / T-shirt",
+          "셔츠 / 티셔츠",
+          "입다 (to put on clothes)",
+          "한 벌, 두 벌 (벌)"
+        ],
+        [
+          "Pants / Trousers",
+          "바지",
+          "입다 (to put on clothes)",
+          "한 벌, 두 벌 (벌)"
+        ],
+        [
+          "Skirt",
+          "치마",
+          "입다 (to put on clothes)",
+          "한 벌, 두 벌 (벌)"
+        ],
+        [
+          "Coat / Jacket",
+          "코트 / 재킷",
+          "입다 (to put on clothes)",
+          "한 벌, 두 벌 (벌)"
+        ],
+        [
+          "Shoes / Sneakers",
+          "신발 / 운동화",
+          "신다 (to put on footwear)",
+          "한 켤레, 두 켤레 (켤레)"
+        ],
+        [
+          "Socks",
+          "양말",
+          "신다 (to put on footwear)",
+          "한 켤레, 두 켤레 (켤레)"
+        ],
+        [
+          "Hat / Cap",
+          "모자",
+          "쓰다 (to put on headwear)",
+          "한 개, 두 개 (개)"
+        ]
       ],
       "note": "Korean distinguishes wearing verbs by body part: 입다 (body/clothes), 신다 (feet/shoes), 쓰다 (head/hats/glasses), 끼다 (hands/gloves)."
     },
@@ -71,11 +136,36 @@
         "Example sentence"
       ],
       "rows": [
-        ["크다", "Big / Loose", "작다 (Small / Tight)", "바지가 너무 커요."],
-        ["작다", "Small / Tight", "크다 (Big)", "치수가 조금 작아요."],
-        ["딱 맞다", "Fits just right", "크거나 작지 않다", "사이즈가 딱 맞아요."],
-        ["사이즈 / 치수", "Size", "대(L) · 중(M) · 소(S)", "더 큰 사이즈 있어요?"],
-        ["잘 어울리다", "Looks great on you", "안 어울리다", "이 옷이 잘 어울려요."]
+        [
+          "크다",
+          "Big / Loose",
+          "작다 (Small / Tight)",
+          "바지가 너무 커요."
+        ],
+        [
+          "작다",
+          "Small / Tight",
+          "크다 (Big)",
+          "치수가 조금 작아요."
+        ],
+        [
+          "딱 맞다",
+          "Fits just right",
+          "크거나 작지 않다",
+          "사이즈가 딱 맞아요."
+        ],
+        [
+          "사이즈 / 치수",
+          "Size",
+          "대(L) · 중(M) · 소(S)",
+          "더 큰 사이즈 있어요?"
+        ],
+        [
+          "잘 어울리다",
+          "Looks great on you",
+          "안 어울리다",
+          "이 옷이 잘 어울려요."
+        ]
       ],
       "note": "Polite present forms: 커요 (it is big), 작아요 (it is small), 맞아요 (it fits), 잘 어울려요 (it looks good on you)."
     },
@@ -86,11 +176,26 @@
         "ko": "가격을 한글로 써요"
       },
       "items": [
-        { "q": "1,000원 →", "a": "천 원" },
-        { "q": "5,000원 →", "a": "오천 원" },
-        { "q": "10,000원 →", "a": "만 원" },
-        { "q": "25,000원 →", "a": "이만 오천 원" },
-        { "q": "50,000원 →", "a": "오만 원" }
+        {
+          "q": "1,000원 →",
+          "a": "천 원"
+        },
+        {
+          "q": "5,000원 →",
+          "a": "오천 원"
+        },
+        {
+          "q": "10,000원 →",
+          "a": "만 원"
+        },
+        {
+          "q": "25,000원 →",
+          "a": "이만 오천 원"
+        },
+        {
+          "q": "50,000원 →",
+          "a": "오만 원"
+        }
       ]
     },
     {
@@ -100,11 +205,26 @@
         "ko": "옷 이름을 한국어로 써요"
       },
       "items": [
-        { "q": "Pants →", "a": "바지" },
-        { "q": "Skirt →", "a": "치마" },
-        { "q": "Shoes / sneakers →", "a": "신발 / 운동화" },
-        { "q": "Hat →", "a": "모자" },
-        { "q": "Socks →", "a": "양말" }
+        {
+          "q": "Pants →",
+          "a": "바지"
+        },
+        {
+          "q": "Skirt →",
+          "a": "치마"
+        },
+        {
+          "q": "Shoes / sneakers →",
+          "a": "신발 / 운동화"
+        },
+        {
+          "q": "Hat →",
+          "a": "모자"
+        },
+        {
+          "q": "Socks →",
+          "a": "양말"
+        }
       ]
     },
     {
@@ -114,11 +234,26 @@
         "ko": "알맞은 착용 동사를 골라요"
       },
       "items": [
-        { "q": "바지를 ___ (입어요 / 신어요) — I put on pants →", "a": "입어요" },
-        { "q": "운동화를 ___ (신어요 / 입어요) — I put on sneakers →", "a": "신어요" },
-        { "q": "모자를 ___ (써요 / 입어요) — I put on a hat →", "a": "써요" },
-        { "q": "양말을 ___ (신어요 / 써요) — I put on socks →", "a": "신어요" },
-        { "q": "코트를 ___ (입어요 / 신어요) — I put on a coat →", "a": "입어요" }
+        {
+          "q": "바지를 ___ (입어요 / 신어요) — I put on pants →",
+          "a": "입어요"
+        },
+        {
+          "q": "운동화를 ___ (신어요 / 입어요) — I put on sneakers →",
+          "a": "신어요"
+        },
+        {
+          "q": "모자를 ___ (써요 / 입어요) — I put on a hat →",
+          "a": "써요"
+        },
+        {
+          "q": "양말을 ___ (신어요 / 써요) — I put on socks →",
+          "a": "신어요"
+        },
+        {
+          "q": "코트를 ___ (입어요 / 신어요) — I put on a coat →",
+          "a": "입어요"
+        }
       ]
     },
     {
@@ -128,11 +263,26 @@
         "ko": "알맞은 쇼핑 표현을 골라요"
       },
       "items": [
-        { "q": "이거 ___ ? (얼마예요 / 어디예요) — How much is this? →", "a": "얼마예요" },
-        { "q": "너무 ___ (비싸요 / 맛있어요) — It is too expensive →", "a": "비싸요" },
-        { "q": "사이즈가 딱 ___ (맞아요 / 써요) — The size fits just right →", "a": "맞아요" },
-        { "q": "바지 한 ___ 주세요 (벌 / 켤레) — One pair of pants →", "a": "벌" },
-        { "q": "신발 한 ___ 사요 (켤레 / 벌) — One pair of shoes →", "a": "켤레" }
+        {
+          "q": "이거 ___ ? (얼마예요 / 어디예요) — How much is this? →",
+          "a": "얼마예요"
+        },
+        {
+          "q": "너무 ___ (비싸요 / 맛있어요) — It is too expensive →",
+          "a": "비싸요"
+        },
+        {
+          "q": "사이즈가 딱 ___ (맞아요 / 써요) — The size fits just right →",
+          "a": "맞아요"
+        },
+        {
+          "q": "바지 한 ___ 주세요 (벌 / 켤레) — One pair of pants →",
+          "a": "벌"
+        },
+        {
+          "q": "신발 한 ___ 사요 (켤레 / 벌) — One pair of shoes →",
+          "a": "켤레"
+        }
       ]
     }
   ],
