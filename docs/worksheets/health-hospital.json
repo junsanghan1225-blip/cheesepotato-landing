@@ -1,0 +1,147 @@
+{
+  "id": "health-hospital",
+  "title": {
+    "en": "Body Parts, Illness & Hospital",
+    "ko": "몸 · 아플 때 쓰는 말 · 병원"
+  },
+  "sub": {
+    "en": "Korean names for body parts, common symptoms, illness phrases, and pharmacy/clinic expressions",
+    "ko": "신체 부위 명칭, 증상 표현(아프다, 열이 나다, 감기에 걸리다), 약국과 병원 대화"
+  },
+  "desc": {
+    "en": "Free printable Korean worksheet on body parts, illness and hospital: body vocabulary (머리, 배, 눈, 목), symptoms (아프다, 기침, 콧물), pharmacy/hospital expressions, practice and an answer key."
+  },
+  "level": "A1",
+  "sections": [
+    {
+      "type": "table",
+      "title": {
+        "en": "Essential Body Parts",
+        "ko": "기본 신체 부위"
+      },
+      "cols": [
+        "Body part",
+        "Korean",
+        "Body part",
+        "Korean"
+      ],
+      "rows": [
+        ["Head / Hair", "머리", "Stomach / Belly", "배"],
+        ["Eye", "눈", "Mouth / Lips", "입"],
+        ["Ear", "귀", "Nose", "코"],
+        ["Neck / Throat", "목", "Shoulder", "어깨"],
+        ["Hand", "손", "Arm", "팔"],
+        ["Foot", "발", "Leg", "다리"],
+        ["Tooth / Teeth", "이 / 치아", "Back / Waist", "허리"]
+      ],
+      "note": "Saying where it hurts: [Body part]이/가 아파요. E.g., 머리가 아파요 (I have a headache), 배가 아파요 (I have a stomachache)."
+    },
+    {
+      "type": "table",
+      "title": {
+        "en": "Common Symptoms & Illnesses",
+        "ko": "자주 겪는 증상과 표현"
+      },
+      "cols": [
+        "Condition / Symptom",
+        "Korean phrase",
+        "Spoken polite (해요체)",
+        "Reading tip"
+      ],
+      "rows": [
+        ["To have a cold", "감기에 걸리다", "감기에 걸렸어요", "—"],
+        ["To have a fever", "열이 나다", "열이 많이 나요", "—"],
+        ["To cough", "기침을 하다", "기침을 해요", "—"],
+        ["To have a runny nose", "콧물이 나다", "콧물이 나요", "[콘무리 나요] (비음화)"],
+        ["To have diarrhea", "설사를 하다", "설사를 해요", "—"],
+        ["To have indigestion", "체하다", "체했어요", "—"],
+        ["To be hurt / injured", "다치다", "다쳤어요", "—"]
+      ],
+      "note": "Notice spoken reading: 콧물이 나다 is pronounced [콘무리 나요] due to nasalization (ㄴ inserted)."
+    },
+    {
+      "type": "table",
+      "title": {
+        "en": "At the Pharmacy & Hospital",
+        "ko": "약국과 병원 대화 표현"
+      },
+      "cols": [
+        "Korean",
+        "English",
+        "Context / Usage",
+        "Reading tip"
+      ],
+      "rows": [
+        ["어디가 아프세요?", "Where does it hurt?", "Doctor or pharmacist asking", "—"],
+        ["두통약 좀 주세요", "Please give me headache medicine", "Buying medicine at pharmacy", "[두통냑] (ㄴ첨가)"],
+        ["식후 30분에 드세요", "Take 30 minutes after meals", "Medication dosage instruction", "[시쿠] (격음화)"],
+        ["하루에 세 번 드세요", "Take three times a day", "Frequency instruction", "—"],
+        ["푹 쉬세요", "Please get plenty of rest", "Doctor's recommendation", "—"]
+      ],
+      "note": "Notice spoken reading: 식후 is pronounced [시쿠] (ㄱ+ㅎ → ㅋ), and 두통약 is pronounced [두통냑]."
+    },
+    {
+      "type": "practice",
+      "title": {
+        "en": "Practice A — Write the body part in Korean",
+        "ko": "신체 부위 이름을 한국어로 써요"
+      },
+      "items": [
+        { "q": "Head →", "a": "머리" },
+        { "q": "Eye →", "a": "눈" },
+        { "q": "Stomach / Belly →", "a": "배" },
+        { "q": "Throat / Neck →", "a": "목" },
+        { "q": "Hand →", "a": "손" },
+        { "q": "Foot →", "a": "발" }
+      ]
+    },
+    {
+      "type": "practice",
+      "title": {
+        "en": "Practice B — Express pain with 아파요",
+        "ko": "아파요를 써서 아픈 곳을 표현해요"
+      },
+      "items": [
+        { "q": "I have a headache (머리) → 머리가 ___", "a": "아파요" },
+        { "q": "I have a stomachache (배) → 배가 ___", "a": "아파요" },
+        { "q": "My throat hurts (목) → 목이 ___", "a": "아파요" },
+        { "q": "My tooth hurts (이) → 이가 ___", "a": "아파요" },
+        { "q": "My leg hurts (다리) → 다리가 ___", "a": "아파요" }
+      ]
+    },
+    {
+      "type": "practice",
+      "title": {
+        "en": "Practice C — Choose the correct symptom expression",
+        "ko": "알맞은 증상 표현을 골라요"
+      },
+      "items": [
+        { "q": "I caught a cold: 감기에 ___ (걸렸어요 / 체했어요) →", "a": "걸렸어요" },
+        { "q": "I have a high fever: 열이 많이 ___ (나요 / 걸려요) →", "a": "나요" },
+        { "q": "I am coughing a lot: 기침을 많이 ___ (해요 / 마셔요) →", "a": "해요" },
+        { "q": "I hurt my arm: 팔을 ___ (다쳤어요 / 걸렸어요) →", "a": "다쳤어요" },
+        { "q": "Take this medicine after meals: 밥 먹고 약을 ___ (드세요 / 타세요) →", "a": "드세요" }
+      ]
+    },
+    {
+      "type": "practice",
+      "title": {
+        "en": "Practice D — Complete clinic and pharmacy dialogues",
+        "ko": "병원과 약국 대화를 완성해요"
+      },
+      "items": [
+        { "q": "의사: 어디가 ___ ? (아프세요 / 계세요)", "a": "아프세요" },
+        { "q": "환자: 어제부터 열이 나고 목이 ___ (아파요 / 좋아요)", "a": "아파요" },
+        { "q": "약사: 이 약은 식후 30분에 ___ (드세요 / 사세요)", "a": "드세요" },
+        { "q": "약사: 하루에 세 ___ 드세요 (번 / 개)", "a": "번" },
+        { "q": "의사: 오늘은 따뜻한 물을 마시고 푹 ___ (쉬세요 / 가세요)", "a": "쉬세요" }
+      ]
+    }
+  ],
+  "howto": [
+    "Learn the common names for body parts and combine them with 이/가 아파요 (머리가 아파요).",
+    "Familiarize yourself with common symptom verbs: 감기에 걸리다, 열이 나다, 기침을 하다.",
+    "Solve Practice A to D and check your answers with the answer key."
+  ],
+  "koSummary": "주요 신체 부위 어휘(머리, 눈, 코, 입, 배, 손, 발), 통증과 질병 증상 표현(아파요, 감기에 걸리다, 열이 나다), 그리고 병원과 약국에서 쓰는 대화 표현을 한 장에 정리했습니다."
+}

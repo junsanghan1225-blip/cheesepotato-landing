@@ -1,0 +1,126 @@
+{
+  "id": "demonstratives",
+  "title": {
+    "en": "Korean Demonstratives: 이 · 그 · 저",
+    "ko": "지시어: 이 · 그 · 저"
+  },
+  "sub": {
+    "en": "This, that and that over there: modifiers, places (여기, 거기, 저기) and things (이것, 그것, 저것)",
+    "ko": "이·그·저의 거리 기준, 장소 지시(여기·거기·저기), 사물 지시(이것·그것·저것)"
+  },
+  "desc": {
+    "en": "Free printable Korean worksheet on demonstratives: 이 (near speaker), 그 (near listener), and 저 (far from both) — with modifiers, objects (이것/그것/저것), places (여기/거기/저기), practice and an answer key."
+  },
+  "level": "A1",
+  "sections": [
+    {
+      "type": "table",
+      "title": {
+        "en": "The Three Distances of 이, 그, 저",
+        "ko": "거리 기준에 따른 지시어"
+      },
+      "cols": [
+        "Category",
+        "Near Speaker (This)",
+        "Near Listener (That)",
+        "Far from Both (That over there)"
+      ],
+      "rows": [
+        ["Modifier (before noun)", "이 (이 사람 = this person)", "그 (그 사람 = that person)", "저 (저 사람 = that person over there)"],
+        ["Thing / Object", "이것 (this thing)", "그것 (that thing)", "저것 (that thing over there)"],
+        ["Place / Location", "여기 (here)", "거기 (there)", "저기 (over there)"],
+        ["Direction", "이쪽 (this way)", "그쪽 (that way)", "저쪽 (that way over there)"]
+      ],
+      "note": "이 refers to what is close to the speaker. 그 refers to what is close to the listener (or already mentioned in conversation). 저 refers to what is visible but distant from both speaker and listener."
+    },
+    {
+      "type": "table",
+      "title": {
+        "en": "Spoken Contractions of 이것, 그것, 저것",
+        "ko": "사물 지시 대명사의 줄임말"
+      },
+      "cols": [
+        "Full form",
+        "Subject (+ 이)",
+        "Topic (+ 은)",
+        "Object (+ 을)"
+      ],
+      "rows": [
+        ["이것 (this thing)", "이게 (이것이)", "이건 (이것은)", "이걸 (이것을)"],
+        ["그것 (that thing)", "그게 (그것이)", "그건 (그것은)", "그걸 (그것을)"],
+        ["저것 (that thing over there)", "저게 (저것이)", "저건 (저것은)", "저걸 (저것을)"]
+      ],
+      "note": "In natural spoken Korean, native speakers almost always use the short forms: 이게 뭐예요? (What is this?), 이건 제 거예요 (This is mine), 이걸로 주세요 (Give me this one)."
+    },
+    {
+      "type": "text",
+      "title": {
+        "en": "Using 이, 그, 저 with Nouns",
+        "ko": "명사를 꾸미는 이, 그, 저"
+      },
+      "text": "Place 이, 그, or 저 directly before any noun without a particle: 이 책 (this book), 그 영화 (that movie you mentioned), 저 건물 (that building over there). To ask 'which', use 어느: 어느 나라 사람이에요? (Which country are you from?)."
+    },
+    {
+      "type": "practice",
+      "title": {
+        "en": "Practice A — Choose 이, 그, or 저 based on distance",
+        "ko": "거리 기준에 맞게 이, 그, 저 중 하나를 골라요"
+      },
+      "items": [
+        { "q": "Object in the speaker's hand: ___ 책 (this book) →", "a": "이" },
+        { "q": "Object right next to the listener: ___ 가방 (that bag near you) →", "a": "그" },
+        { "q": "Distant mountain visible to both: ___ 산 (that mountain over there) →", "a": "저" },
+        { "q": "Building across the street: ___ 건물 (that building over there) →", "a": "저" },
+        { "q": "Food the speaker is currently eating: ___ 음식 (this food) →", "a": "이" }
+      ]
+    },
+    {
+      "type": "practice",
+      "title": {
+        "en": "Practice B — Choose place words: 여기, 거기, 저기",
+        "ko": "여기, 거기, 저기 중 알맞은 장소를 골라요"
+      },
+      "items": [
+        { "q": "Right where the speaker stands: ___에 앉으세요 (Sit here) →", "a": "여기" },
+        { "q": "Where the listener is: ___는 날씨가 어때요? (How is the weather there?) →", "a": "거기" },
+        { "q": "Far spot across the road: ___에 편의점이 있어요 (Over there) →", "a": "저기" },
+        { "q": "Calling restaurant server: ___요! (Excuse me!) →", "a": "저기" },
+        { "q": "Come toward the speaker: ___로 오세요 (Come this way) →", "a": "여기" }
+      ]
+    },
+    {
+      "type": "practice",
+      "title": {
+        "en": "Practice C — Choose the spoken contraction",
+        "ko": "알맞은 줄임말을 골라요"
+      },
+      "items": [
+        { "q": "What is this? (subject): ___ 뭐예요? (이게 / 이건) →", "a": "이게" },
+        { "q": "As for this, it is my notebook (topic): ___ 제 공책이에요 (이게 / 이건) →", "a": "이건" },
+        { "q": "Please give me this (object): ___ 주세요 (이걸 / 이게) →", "a": "이걸" },
+        { "q": "That is a great idea! (subject): ___ 좋은 생각이에요! (그게 / 그걸) →", "a": "그게" },
+        { "q": "Look at that over there! (object): ___ 보세요 (저걸 / 저게) →", "a": "저걸" }
+      ]
+    },
+    {
+      "type": "practice",
+      "title": {
+        "en": "Practice D — Complete the demonstrative sentence",
+        "ko": "문맥에 맞는 지시어를 넣어요"
+      },
+      "items": [
+        { "q": "Who is that person over there?: ___ 사람은 누구예요? (이 / 그 / 저) →", "a": "저" },
+        { "q": "How much is this pencil in my hand?: ___ 연필 얼마예요? (이 / 그 / 저) →", "a": "이" },
+        { "q": "Did you like the movie you watched?: ___ 영화 재미있었어요? (이 / 그 / 저) →", "a": "그" },
+        { "q": "The restroom is over there: 화장실은 ___에 있어요 (여기 / 거기 / 저기) →", "a": "저기" },
+        { "q": "Please show me that one near you: ___ 좀 보여 주세요 (이것 / 그것) →", "a": "그것" }
+      ]
+    }
+  ],
+  "howto": [
+    "Master the 3 distance zones: 이 (close to speaker), 그 (close to listener / previously mentioned), and 저 (distant from both).",
+    "Familiarize yourself with the spoken short forms: 이게 (이것이), 이건 (이것은), and 이걸 (이것을).",
+    "Complete Practice A to D and check your answers with the answer key."
+  ],
+  "koSummary": "화자와 청자의 거리에 따른 이·그·저의 기준, 사물(이것·그것·저것)과 장소(여기·거기·저기) 지시 표현, 그리고 실생활에서 널리 쓰이는 줄임말(이게, 이건, 이걸)을 정리했습니다."
+}
