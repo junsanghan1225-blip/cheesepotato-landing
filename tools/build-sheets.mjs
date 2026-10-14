@@ -164,6 +164,8 @@ ${rows.map(([u, en, ko, lv, d]) => `  <p><a class="btn sub" href="${u}"><b>${esc
 if (bad.length) { console.error('학습지 자료에 문제가 있다:\n  - ' + bad.join('\n  - ')); process.exit(1); }
 const out = new Map(sheets.map((w) => [`${w.id}-worksheet/index.html`, sheetPage(w)]));
 out.set('worksheets/index.html', hubPage());
+/* 자료실(#library)이 한 번에 펼쳐 보여 주는 목록 — 손으로 쓴 쪽 + 만든 쪽 */
+out.set('worksheets/list.json', JSON.stringify([...hand.map(([u, en, ko, lv]) => ({ u, en, ko, lv })), ...sheets.map((w) => ({ u: `/${w.id}-worksheet/`, en: w.title.en, ko: w.title.ko, lv: w.level }))]) + '\n');
 let diff = 0;
 for (const [f, body] of out) {
   const p = path.join(ROOT, f);

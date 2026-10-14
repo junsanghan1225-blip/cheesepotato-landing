@@ -7255,3 +7255,19 @@ body.cls-pres-on { overflow:hidden; }
 .cls-toast span { flex:1 1 200px; min-width:0; }
 .cls-toast button { border:0; border-radius:10px; padding:8px 12px; background:var(--orange); color:#fff; font:inherit; font-weight:800; cursor:pointer; }
 .cls-toast button.x { background:transparent; padding:6px 8px; opacity:.8; }
+
+/* 자료실 — 위쪽 바로가기 · 학습지 전부 한 번에(2026-10-14) */
+.lib-nav { position:sticky; top:57px; z-index:5; display:flex; gap:8px; padding:10px 0; margin:0 0 4px; background:var(--bg); overflow-x:auto; }
+.lib-nav a { flex:none; padding:8px 16px; border:1px solid var(--line); border-radius:999px; background:var(--surface); color:var(--ink); font-size:14px; font-weight:600; text-decoration:none; }
+.lib-nav a:hover { border-color:var(--orange); }
+#libraryView .bd-sec-title { margin-top:26px; scroll-margin-top:110px; }
+#libraryView .mk-lib { margin-bottom:14px; }
+.lib-filter { display:flex; flex-wrap:wrap; gap:6px; margin:6px 0 10px; }
+.lib-filter button { padding:6px 14px; border:1px solid var(--line); border-radius:999px; background:var(--surface); color:var(--ink-2); font:inherit; font-size:13px; font-weight:600; cursor:pointer; }
+.lib-filter button.on { background:var(--ink); border-color:var(--ink); color:var(--bg); }
+.lib-sheets { display:grid; grid-template-columns:repeat(auto-fill, minmax(210px, 1fr)); gap:8px; margin-bottom:30px; }
+.lib-sheet { display:flex; flex-direction:column; gap:2px; padding:12px 14px; border:1px solid var(--line); border-radius:var(--r-m, 12px); background:var(--surface); color:var(--ink); text-decoration:none; }
+.lib-sheet:hover { border-color:var(--orange); }
+.lib-sheet b { font-size:15px; letter-spacing:-.02em; }
+.lib-sheet span { font-size:12.5px; color:var(--ink-3); }
+.lib-sheet i { font-style:normal; font-size:11px; font-weight:700; color:var(--orange); }
