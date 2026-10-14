@@ -3106,6 +3106,7 @@ urls.push({ loc: '/my-korean-name/', freq: 'monthly', pri: '0.7' });
 urls.push({ loc: '/korean-birthday/', freq: 'monthly', pri: '0.7' });
 urls.push({ loc: '/korean-word-today/', freq: 'daily', pri: '0.6' });
 urls.push({ loc: '/hangul-worksheet/', freq: 'monthly', pri: '0.7' });
+urls.push({ loc: '/numbers-worksheet/', freq: 'monthly', pri: '0.7' });   // 수사 학습지(운영자 2026-10-14)
 urls.push({ loc: '/worksheet/', freq: 'monthly', pri: '0.8' });
 for (const id of WS_IDS) urls.push({ loc: `/worksheet/${id}.html`, freq: 'monthly', pri: '0.6' });
 urls.push({ loc: '/topik-vocabulary-list/', freq: 'monthly', pri: '0.8' });
