@@ -235,5 +235,15 @@
   "Up to 10 questions, about 3 minutes. Right answers get harder, wrong ones easier. \"I don't know\" is fine.": "最多 10 题,约 3 分钟。答对会变难,答错会变简单。选「我不知道」也可以。",
   "Word session": "单词练习",
   "Your level": "你的等级",
-  "Your teacher only sees your name and homework record (date, score). You can leave anytime.": "老师只能看到你的名字和作业记录(日期、分数)。你随时可以退出。"
+  "Your teacher only sees your name and homework record (date, score). You can leave anytime.": "老师只能看到你的名字和作业记录(日期、分数)。你随时可以退出。",
+  "{0} homework left": "还剩 {0} 项作业",
+  "Change": "修改",
+  "Close": "关闭",
+  "Enter your class code": "输入班级代码",
+  "Join another class": "加入其他班",
+  "Joining as {0}": "以 {0} 的名字加入",
+  "My name": "我的名字",
+  "Start with the homework below.": "从下面的作业开始吧。",
+  "Type the 6-character code from your teacher, or paste the whole link. It joins as soon as the code is complete.": "输入老师给的 6 位代码,或直接粘贴整个链接。代码输完就会立即加入。",
+  "You joined {0}!": "你已加入 {0}!"
 }

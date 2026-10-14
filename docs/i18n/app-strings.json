@@ -1318,5 +1318,45 @@
   {
     "en": "Your teacher only sees your name and homework record (date, score). You can leave anytime.",
     "ko": "선생님은 내 이름과 숙제 기록(한 날 · 점수)만 봐요. 숙제 · 복습에만 쓰고, 언제든 나갈 수 있어요."
+  },
+  {
+    "en": "{0} homework left",
+    "ko": "남은 숙제 {0}개"
+  },
+  {
+    "en": "Change",
+    "ko": "바꾸기"
+  },
+  {
+    "en": "Close",
+    "ko": "닫기"
+  },
+  {
+    "en": "Enter your class code",
+    "ko": "반 코드를 입력하세요"
+  },
+  {
+    "en": "Join another class",
+    "ko": "다른 반에 들어가기"
+  },
+  {
+    "en": "Joining as {0}",
+    "ko": "{0} 이름으로 들어가요"
+  },
+  {
+    "en": "My name",
+    "ko": "내 이름"
+  },
+  {
+    "en": "Start with the homework below.",
+    "ko": "아래 숙제부터 해 볼까요?"
+  },
+  {
+    "en": "Type the 6-character code from your teacher, or paste the whole link. It joins as soon as the code is complete.",
+    "ko": "선생님이 보낸 6자리 코드를 치거나, 받은 링크를 통째로 붙여 넣어도 돼요. 6자가 차면 바로 들어가요."
+  },
+  {
+    "en": "You joined {0}!",
+    "ko": "{0} 반에 들어왔어요!"
   }
 ]

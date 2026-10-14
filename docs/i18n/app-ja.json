@@ -235,5 +235,15 @@
   "Up to 10 questions, about 3 minutes. Right answers get harder, wrong ones easier. \"I don't know\" is fine.": "最大10問、約3分。正解すると難しく、間違えると易しくなります。「わかりません」でも大丈夫です。",
   "Word session": "単語セッション",
   "Your level": "あなたのレベル",
-  "Your teacher only sees your name and homework record (date, score). You can leave anytime.": "先生には名前と宿題の記録(日付・点数)だけが見えます。いつでも退出できます。"
+  "Your teacher only sees your name and homework record (date, score). You can leave anytime.": "先生には名前と宿題の記録(日付・点数)だけが見えます。いつでも退出できます。",
+  "{0} homework left": "宿題が残り{0}件",
+  "Change": "変更",
+  "Close": "閉じる",
+  "Enter your class code": "クラスコードを入力",
+  "Join another class": "別のクラスに参加",
+  "Joining as {0}": "{0}の名前で参加",
+  "My name": "私の名前",
+  "Start with the homework below.": "下の宿題から始めましょう。",
+  "Type the 6-character code from your teacher, or paste the whole link. It joins as soon as the code is complete.": "先生から届いた6文字のコードを入力するか、リンクをそのまま貼り付けてください。コードがそろうとすぐ参加します。",
+  "You joined {0}!": "{0}に参加しました!"
 }
