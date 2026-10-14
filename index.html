@@ -40,7 +40,7 @@
 ">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <!-- 구글 태그 관리자. 구글이 주는 인라인 코드조각은 CSP 가 막아서 gtm.js 로 뺐다. -->
-<script src="gtm.js?v=7d91a808" async></script>
+<script src="gtm.js?v=0d84f769" async></script>
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <!-- 제목과 설명을 두 말로 쓴다. 이 사이트를 찾을 사람은 한국어를 **배우는**
@@ -126,13 +126,13 @@
      Pretendard 는 통짜(2.0MB) 대신 조각난 쪽을 쓴다 — 브라우저가
      unicode-range 를 보고 화면에 실제로 나온 글자가 든 조각만 받는다.
      그래서 저장소는 무거워졌지만 학습자가 받는 양은 오히려 줄었다. -->
-<link rel="stylesheet" href="vendor/pretendard.css?v=7d91a808">
-<link rel="stylesheet" href="vendor/pressstart2p.css?v=7d91a808">
+<link rel="stylesheet" href="vendor/pretendard.css?v=0d84f769">
+<link rel="stylesheet" href="vendor/pressstart2p.css?v=0d84f769">
 <!-- 화면 상자 안에서만 쓰는 CSS 는 여기서 갈라 받는다. media="print" 라
      첫 페인트를 안 막고, 다 받아지면 app.js 가 media 를 all 로 바꾼다.
      자바스크립트가 없으면 <noscript> 쪽이 그냥 평범하게 걸린다. -->
-<link id="viewsCss" rel="stylesheet" href="app-views.css?v=7d91a808" media="print">
-<noscript><link rel="stylesheet" href="app-views.css?v=7d91a808"></noscript>
+<link id="viewsCss" rel="stylesheet" href="app-views.css?v=0d84f769" media="print">
+<noscript><link rel="stylesheet" href="app-views.css?v=0d84f769"></noscript>
 
 <style>
 /* ══════════════════════════════════════════════════════════════
@@ -3623,12 +3623,20 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
   <div class="pt-body" style="max-width:1160px;">
 
-    <nav class="lib-nav" aria-label="Library">
-      <a href="#library" data-lib-go="libSecMock" data-en="Mock exams">모의고사</a>
-      <a href="#library" data-lib-go="libSecSheets" data-en="Worksheets">학습지</a>
-      <a href="#library" data-lib-go="libSecShared" data-en="Shared lists">모두의 자료</a>
-    </nav>
+    <div class="lib-tools">
+      <input class="wb-search" id="libQ" type="search" placeholder="자료 검색" data-en-placeholder="Search materials" autocomplete="off" aria-label="Search">
+      <select class="up-sel" id="libLv" aria-label="Level" data-en-aria="Level">
+        <option value="all" data-en="All levels">모든 단계</option>
+        <option value="A1">A1</option><option value="A2">A2</option><option value="B1">B1</option><option value="B2">B2</option>
+      </select>
+    </div>
+    <div class="lib-folders" id="libFolders">
+      <button type="button" class="lib-folder f1" data-f="mock"><span class="lf-ic">📝</span><b data-en="Mock exams">모의고사</b><span class="lf-n" id="libNMock"></span></button>
+      <button type="button" class="lib-folder f2" data-f="sheets"><span class="lf-ic">📄</span><b data-en="Worksheets">학습지</b><span class="lf-n" id="libNSheets"></span></button>
+      <button type="button" class="lib-folder f3" data-f="shared"><span class="lf-ic">👥</span><b data-en="Shared lists">모두의 자료</b><span class="lf-n" id="libNShared"></span></button>
+    </div>
 
+<div class="lib-g" data-g="mock">
     <!-- 무료 모의고사 — 사이트 회차를 인쇄용 시험지(표지 · 문제지 · 답안지 · 정답)로. app.module.js mkLibDraw · mkPrint -->
     <div class="bd-sec-title" id="libSecMock">
       <h3 data-en="Cheesepotato mock exams (TOPIK format) · free to print">치즈감자 모의고사 · TOPIK 형식 · 무료 인쇄</h3>
@@ -3636,6 +3644,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
     <div class="mk-lib" id="libMock"></div>
 
+</div>
+<div class="lib-g" data-g="sheets">
     <!-- 학습지 — 사이트 자료를 엮은 인쇄본. app.module.js wsTravelHtml · wsPrint · libSheetsDraw (2026-10-14: 전부 한 번에 펼쳐 보기) -->
     <div class="bd-sec-title" id="libSecSheets">
       <h3 data-en="Workbooks · free to print">학습지 · 무료 인쇄</h3>
@@ -3651,9 +3661,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="mk-lib-rs"><a class="mk-lib-r" href="/worksheet/" data-en="Free worksheets">무료 학습지 보기</a><button type="button" class="mk-lib-r" id="wsGramPro" data-en="All worksheets (Pro)">전체 학습지 (Pro)</button></div>
       </div>
     </div>
-    <div class="lib-filter" id="libSheetFilter" role="group" aria-label="Level"></div>
     <div class="lib-sheets" id="libSheets"></div>
 
+</div>
+<div class="lib-g" data-g="shared">
     <!-- 모두의 자료 : 사용자가 올린 것 -->
     <div class="bd-sec-title" id="libSecShared">
       <h3 data-en="Shared by everyone">모두의 자료</h3>
@@ -3741,6 +3752,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
     </div>
 
+</div>
   </div>
 
   <div class="footer">
@@ -4261,9 +4273,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <div id="hlpScrim" class="hlp-scrim"></div>
 <aside id="hlpPanel" class="hlp-panel" aria-label="한국어 도우미" aria-hidden="true"></aside>
 
-<script src="app.js?v=7d91a808"></script>
-<script type="module" src="app.module.js?v=7d91a808"></script>
+<script src="app.js?v=0d84f769"></script>
+<script type="module" src="app.module.js?v=0d84f769"></script>
 
-<script src="analytics.js?v=7d91a808" defer></script>
+<script src="analytics.js?v=0d84f769" defer></script>
 </body>
 </html>
