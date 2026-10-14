@@ -245,5 +245,16 @@
   "My name": "私の名前",
   "Start with the homework below.": "下の宿題から始めましょう。",
   "Type the 6-character code from your teacher, or paste the whole link. It joins as soon as the code is complete.": "先生から届いた6文字のコードを入力するか、リンクをそのまま貼り付けてください。コードがそろうとすぐ参加します。",
-  "You joined {0}!": "{0}に参加しました!"
+  "You joined {0}!": "{0}に参加しました!",
+  "✓ Checked by teacher": "✓ 先生が確認しました",
+  "✓ Submitted · edit": "✓ 提出済み・修正",
+  "Add a photo (optional)": "写真を追加(任意)",
+  "Change photo": "写真を変更",
+  "Could not submit — check your connection or tell your teacher.": "提出できませんでした。接続を確認するか、先生に知らせてください。",
+  "Submit again": "修正して再提出",
+  "Submit text / photo": "文章・写真を提出",
+  "Teacher comment": "先生のコメント",
+  "Write something or add a photo.": "文章を書くか写真を追加してください。",
+  "Write your answer here": "ここに答えを書きます",
+  "Written / photo": "文章・写真"
 }

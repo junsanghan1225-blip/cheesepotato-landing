@@ -245,5 +245,16 @@
   "My name": "Tên của tôi",
   "Start with the homework below.": "Bắt đầu với bài tập bên dưới nhé.",
   "Type the 6-character code from your teacher, or paste the whole link. It joins as soon as the code is complete.": "Nhập mã 6 ký tự của giáo viên, hoặc dán cả đường link. Đủ mã là vào lớp ngay.",
-  "You joined {0}!": "Bạn đã vào lớp {0}!"
+  "You joined {0}!": "Bạn đã vào lớp {0}!",
+  "✓ Checked by teacher": "✓ Giáo viên đã kiểm tra",
+  "✓ Submitted · edit": "✓ Đã nộp · sửa",
+  "Add a photo (optional)": "Thêm ảnh (không bắt buộc)",
+  "Change photo": "Đổi ảnh",
+  "Could not submit — check your connection or tell your teacher.": "Không nộp được — kiểm tra kết nối hoặc báo cho giáo viên.",
+  "Submit again": "Nộp lại",
+  "Submit text / photo": "Nộp bài viết / ảnh",
+  "Teacher comment": "Nhận xét của giáo viên",
+  "Write something or add a photo.": "Hãy viết gì đó hoặc thêm ảnh.",
+  "Write your answer here": "Viết câu trả lời ở đây",
+  "Written / photo": "Bài viết / ảnh"
 }
