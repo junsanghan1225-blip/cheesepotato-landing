@@ -105,9 +105,9 @@ function sheetPage(w) {
   const url = `/${w.id}-worksheet/`;
   const ld = `<script type="application/ld+json">${JSON.stringify({ '@context': 'https://schema.org', '@type': 'LearningResource', name: w.title.en, url: `https://everykoreans.com${url}`, inLanguage: ['en', 'ko'], isAccessibleForFree: true, educationalLevel: w.level, learningResourceType: 'Worksheet' })}</script>\n`;
   return head(`${w.title.en} (Free PDF)`, w.desc.en, url, ld) + `<h1>${esc(w.title.en)}</h1>
-<p>${esc(w.title.ko)} · ${esc(w.sub.en)} · print or save as PDF · Free</p>
+<p>${esc(w.title.ko)} · ${esc(w.sub.en)} · print, save as PDF or Word · Free</p>
 <div class="box">
-  <div class="btns no-print"><button class="btn main" id="nwPrint" type="button">🖨️ Print worksheet</button><button class="btn sub" id="nwAns" type="button">✅ Print answer key</button></div>
+  <div class="btns no-print"><button class="btn main" id="nwPrint" type="button">🖨️ Print worksheet</button><button class="btn sub" id="nwAns" type="button">✅ Print answer key</button><button class="btn sub" id="nwDocx" type="button">📝 Word (.docx)</button><button class="btn sub" id="nwAnsDocx" type="button">📝 Answer key (.docx)</button></div>
   <div class="nw-paper nw-work">
     <div class="nw-top"><span>Name: ______________________</span><span>Date: ____________</span></div>
     <div class="nw-h">${esc(w.title.en)} · ${esc(w.title.ko)}</div>
@@ -148,7 +148,7 @@ function hubPage() {
   const rows = [...hand.map(([u, en, ko, lv]) => [u, en, ko, lv, '']), ...sheets.map((w) => [`/${w.id}-worksheet/`, w.title.en, w.title.ko, w.level, w.desc.en])];
   return head('Free Korean Worksheets (Printable PDF)', 'Free printable Korean worksheets: numbers and counters, dates, hangul, grammar and more — each with an answer key. Print or save as PDF.', '/worksheets/') +
 `<h1>Free Korean worksheets</h1>
-<p>학습지 모음 · print or save as PDF · every worksheet has an answer key</p>
+<p>학습지 모음 · print, save as PDF or Word · every worksheet has an answer key</p>
 <div class="box">
 ${rows.map(([u, en, ko, lv, d]) => `  <p><a class="btn sub" href="${u}"><b>${esc(en)}</b> · ${esc(ko)}${lv ? ` · ${esc(lv)}` : ''}</a>${d ? `<br><small>${esc(d)}</small>` : ''}</p>`).join('\n')}
 </div>
