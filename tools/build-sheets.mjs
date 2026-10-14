@@ -14,6 +14,8 @@ const SRC = path.join(ROOT, 'docs/worksheets');
 const CHECK = process.argv.includes('--check');
 const esc = (x) => String(x ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 const blank = '<span class="nw-line"></span>';
+/* 문제 줄 — 글 속에 「___」가 있으면 그 자리에 빈칸(끝의 「→」는 뺀다), 없으면 끝에 빈칸 */
+const qLine = (q) => q.includes('___') ? esc(q.replace(/\s*→\s*$/, '')).replace('___', blank) : `${esc(q)} ${blank}`;
 const bad = [];
 
 export function loadSheets() {
@@ -95,7 +97,7 @@ function sheetPage(w) {
     if (s.type === 'table') return h + table(s) + (s.note ? `    <p class="nw-sub">${esc(s.note)}</p>\n` : '');
     if (s.type === 'text') return h + `    <p class="nw-sub">${esc(s.text)}</p>\n`;
     pn++;
-    return h + (s.hint ? `    <p class="nw-sub">${esc(s.hint)}</p>\n` : '') + `    <ol class="nw-q" style="padding:0">${s.items.map((x, i) => `<li>${i + 1}. ${esc(x.q.replace('___', '').trimEnd())} ${blank}</li>`).join('')}</ol>\n`;
+    return h + (s.hint ? `    <p class="nw-sub">${esc(s.hint)}</p>\n` : '') + `    <ol class="nw-q" style="padding:0">${s.items.map((x, i) => `<li>${i + 1}. ${qLine(x.q)}</li>`).join('')}</ol>\n`;
   }).join('\n');
   let pi = 0;
   const ans = w.sections.filter((s) => s.type === 'practice').map((s) =>

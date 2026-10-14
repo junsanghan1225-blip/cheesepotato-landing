@@ -26,14 +26,54 @@
         "Example noun phrase"
       ],
       "rows": [
-        ["Red", "빨간색", "빨갛다", "빨간 사과 (red apple)"],
-        ["Blue", "파란색", "파랗다", "파란 하늘 (blue sky)"],
-        ["Yellow", "노란색", "노랗다", "노란 바나나 (yellow banana)"],
-        ["Green", "초록색", "초록색이다", "초록색 나뭇잎 (green leaf)"],
-        ["Black", "검은색", "검다", "검은 모자 (black hat)"],
-        ["White", "흰색 / 하얀색", "하얗다", "하얀 눈 (white snow)"],
-        ["Orange", "주황색", "주황색이다", "주황색 귤 (orange tangerine)"],
-        ["Purple", "보라색", "보라색이다", "보라색 포도 (purple grape)"]
+        [
+          "Red",
+          "빨간색",
+          "빨갛다",
+          "빨간 사과 (red apple)"
+        ],
+        [
+          "Blue",
+          "파란색",
+          "파랗다",
+          "파란 하늘 (blue sky)"
+        ],
+        [
+          "Yellow",
+          "노란색",
+          "노랗다",
+          "노란 바나나 (yellow banana)"
+        ],
+        [
+          "Green",
+          "초록색",
+          "초록색이다",
+          "초록색 나뭇잎 (green leaf)"
+        ],
+        [
+          "Black",
+          "검은색",
+          "검다",
+          "검은 모자 (black hat)"
+        ],
+        [
+          "White",
+          "흰색 / 하얀색",
+          "하얗다",
+          "하얀 눈 (white snow)"
+        ],
+        [
+          "Orange",
+          "주황색",
+          "주황색이다",
+          "주황색 귤 (orange tangerine)"
+        ],
+        [
+          "Purple",
+          "보라색",
+          "보라색이다",
+          "보라색 포도 (purple grape)"
+        ]
       ],
       "note": "Colors as nouns usually end in 색 (color): 빨간색, 파란색. To modify a noun directly, use descriptive forms: 빨간, 파란, 노란, 하얀, 검은."
     },
@@ -50,13 +90,38 @@
         "Example object"
       ],
       "rows": [
-        ["Circle", "동그라미", "원 (圓)", "공 (ball)"],
-        ["Triangle", "세모", "삼각형", "샌드위치 (sandwich)"],
-        ["Square / rectangle", "네모", "사각형", "상자 (box)"],
-        ["Star", "별 모양", "성형 (星形)", "불가사리 (starfish)"],
-        ["Heart", "하트 모양", "심장형", "하트 사탕 (heart candy)"]
+        [
+          "Circle",
+          "동그라미",
+          "원",
+          "시계 (clock)"
+        ],
+        [
+          "Triangle",
+          "세모",
+          "삼각형",
+          "삼각김밥 (rice triangle)"
+        ],
+        [
+          "Square / rectangle",
+          "네모",
+          "사각형",
+          "창문 (window)"
+        ],
+        [
+          "Star",
+          "별 모양",
+          "—",
+          "별 (star)"
+        ],
+        [
+          "Heart",
+          "하트 모양",
+          "—",
+          "하트 사탕 (heart candy)"
+        ]
       ],
-      "note": "Children and everyday speakers usually say 동그라미, 세모, and 네모 instead of formal mathematical terms."
+      "note": "Children and everyday speakers usually say 동그라미, 세모, and 네모. Formal (math / school) words are 원, 삼각형, 사각형."
     },
     {
       "type": "table",
@@ -71,14 +136,54 @@
         "English B"
       ],
       "rows": [
-        ["크다", "Big", "작다", "Small"],
-        ["많다", "Many / Much", "적다", "Few / Little"],
-        ["좋다", "Good", "나쁘다", "Bad"],
-        ["길다", "Long", "짧다", "Short (length)"],
-        ["무겁다", "Heavy", "가볍다", "Light (weight)"],
-        ["덥다", "Hot (weather)", "춥다", "Cold (weather)"],
-        ["빠르다", "Fast", "느리다", "Slow"],
-        ["쉽다", "Easy", "어렵다", "Difficult"]
+        [
+          "크다",
+          "Big",
+          "작다",
+          "Small"
+        ],
+        [
+          "많다",
+          "Many / Much",
+          "적다",
+          "Few / Little"
+        ],
+        [
+          "좋다",
+          "Good",
+          "나쁘다",
+          "Bad"
+        ],
+        [
+          "길다",
+          "Long",
+          "짧다",
+          "Short (length)"
+        ],
+        [
+          "무겁다",
+          "Heavy",
+          "가볍다",
+          "Light (weight)"
+        ],
+        [
+          "덥다",
+          "Hot (weather)",
+          "춥다",
+          "Cold (weather)"
+        ],
+        [
+          "빠르다",
+          "Fast",
+          "느리다",
+          "Slow"
+        ],
+        [
+          "쉽다",
+          "Easy",
+          "어렵다",
+          "Difficult"
+        ]
       ],
       "note": "In polite present speech (해요체): 커요/작아요, 많아요/적어요, 좋아요/나빠요, 더워요/추워요, 빨라요/느려요, 쉬워요/어려워요."
     },
@@ -89,12 +194,30 @@
         "ko": "색깔 이름을 한국어로 써요"
       },
       "items": [
-        { "q": "Red (noun) →", "a": "빨간색" },
-        { "q": "Blue (noun) →", "a": "파란색" },
-        { "q": "Yellow (noun) →", "a": "노란색" },
-        { "q": "White (noun) →", "a": "흰색 / 하얀색" },
-        { "q": "Black (noun) →", "a": "검은색" },
-        { "q": "Green (noun) →", "a": "초록색" }
+        {
+          "q": "Red (noun) →",
+          "a": "빨간색"
+        },
+        {
+          "q": "Blue (noun) →",
+          "a": "파란색"
+        },
+        {
+          "q": "Yellow (noun) →",
+          "a": "노란색"
+        },
+        {
+          "q": "White (noun) →",
+          "a": "흰색 / 하얀색"
+        },
+        {
+          "q": "Black (noun) →",
+          "a": "검은색"
+        },
+        {
+          "q": "Green (noun) →",
+          "a": "초록색"
+        }
       ]
     },
     {
@@ -104,10 +227,22 @@
         "ko": "모양 이름을 한국어로 써요"
       },
       "items": [
-        { "q": "Circle (everyday Korean) →", "a": "동그라미" },
-        { "q": "Triangle (everyday Korean) →", "a": "세모" },
-        { "q": "Square / rectangle (everyday Korean) →", "a": "네모" },
-        { "q": "Star shape →", "a": "별 모양" }
+        {
+          "q": "Circle (everyday Korean) →",
+          "a": "동그라미"
+        },
+        {
+          "q": "Triangle (everyday Korean) →",
+          "a": "세모"
+        },
+        {
+          "q": "Square / rectangle (everyday Korean) →",
+          "a": "네모"
+        },
+        {
+          "q": "Star shape →",
+          "a": "별 모양"
+        }
       ]
     },
     {
@@ -117,12 +252,30 @@
         "ko": "반대말 형용사를 기본형으로 써요"
       },
       "items": [
-        { "q": "크다 (big) ↔", "a": "작다" },
-        { "q": "많다 (many) ↔", "a": "적다" },
-        { "q": "좋다 (good) ↔", "a": "나쁘다" },
-        { "q": "길다 (long) ↔", "a": "짧다" },
-        { "q": "무겁다 (heavy) ↔", "a": "가볍다" },
-        { "q": "쉽다 (easy) ↔", "a": "어렵다" }
+        {
+          "q": "크다 (big) ↔",
+          "a": "작다"
+        },
+        {
+          "q": "많다 (many) ↔",
+          "a": "적다"
+        },
+        {
+          "q": "좋다 (good) ↔",
+          "a": "나쁘다"
+        },
+        {
+          "q": "길다 (long) ↔",
+          "a": "짧다"
+        },
+        {
+          "q": "무겁다 (heavy) ↔",
+          "a": "가볍다"
+        },
+        {
+          "q": "쉽다 (easy) ↔",
+          "a": "어렵다"
+        }
       ]
     },
     {
@@ -132,11 +285,26 @@
         "ko": "문맥에 알맞은 반대말을 골라요"
       },
       "items": [
-        { "q": "코끼리는 커요. 생쥐는 ___ (작아요 / 길어요) →", "a": "작아요" },
-        { "q": "여름은 더워요. 겨울은 ___ (추워요 / 쉬워요) →", "a": "추워요" },
-        { "q": "비행기는 빨라요. 거북이는 ___ (느려요 / 무거워요) →", "a": "느려요" },
-        { "q": "깃털은 가벼워요. 바위는 ___ (무거워요 / 나빠요) →", "a": "무거워요" },
-        { "q": "한국어 공부는 재미있고 ___ (쉬워요 / 적어요) →", "a": "쉬워요" }
+        {
+          "q": "코끼리는 커요. 생쥐는 ___ (작아요 / 길어요) →",
+          "a": "작아요"
+        },
+        {
+          "q": "여름은 더워요. 겨울은 ___ (추워요 / 쉬워요) →",
+          "a": "추워요"
+        },
+        {
+          "q": "비행기는 빨라요. 거북이는 ___ (느려요 / 무거워요) →",
+          "a": "느려요"
+        },
+        {
+          "q": "깃털은 가벼워요. 바위는 ___ (무거워요 / 나빠요) →",
+          "a": "무거워요"
+        },
+        {
+          "q": "한국어 공부는 재미있고 ___ (쉬워요 / 적어요) →",
+          "a": "쉬워요"
+        }
       ]
     }
   ],
