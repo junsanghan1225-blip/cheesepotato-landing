@@ -1,0 +1,144 @@
+{
+  "id": "greetings-self-introduction",
+  "title": {
+    "en": "Greetings & Self-Introduction",
+    "ko": "인사말과 자기소개"
+  },
+  "sub": {
+    "en": "Essential daily greetings, introducing your name, nationality and job",
+    "ko": "기본 인사말, 이름, 국적, 직업 소개하기"
+  },
+  "desc": {
+    "en": "Free printable Korean worksheet on basic greetings and self-introduction: hello, goodbye, thank you, introducing your name, countries, jobs and polite sentence endings with practice exercises and an answer key."
+  },
+  "level": "A1",
+  "sections": [
+    {
+      "type": "table",
+      "title": {
+        "en": "Essential Greetings",
+        "ko": "기본 인사말"
+      },
+      "cols": [
+        "Korean",
+        "English",
+        "Situation / Usage",
+        "Spoken reading"
+      ],
+      "rows": [
+        ["안녕하세요", "Hello / Good morning", "Everyday polite greeting", "안녕하세여"],
+        ["반갑습니다", "Nice to meet you", "First meeting or introduction", "반갑씀니다"],
+        ["안녕히 계세요", "Goodbye (stay well)", "Said by the person leaving", "안녕히 계세여"],
+        ["안녕히 가세요", "Goodbye (go well)", "Said to the person leaving", "안녕히 가세여"],
+        ["감사합니다", "Thank you", "Formal / polite appreciation", "감사함니다"],
+        ["죄송합니다", "I am sorry", "Polite apology", "죄송함니다"],
+        ["괜찮아요", "It is okay / No worries", "Polite response to apology", "괜차나요"]
+      ],
+      "note": "Remember: 안녕히 계세요 is said to someone staying. 안녕히 가세요 is said to someone leaving."
+    },
+    {
+      "type": "table",
+      "title": {
+        "en": "Countries & Nationalities",
+        "ko": "나라와 국적"
+      },
+      "cols": [
+        "Country",
+        "Korean name",
+        "Nationality (person)",
+        "Language"
+      ],
+      "rows": [
+        ["Korea", "한국", "한국 사람", "한국어"],
+        ["United States", "미국", "미국 사람", "영어"],
+        ["Japan", "일본", "일본 사람", "일본어"],
+        ["China", "중국", "중국 사람", "중국어"],
+        ["Vietnam", "베트남", "베트남 사람", "베트남어"],
+        ["Philippines", "필리핀", "필리핀 사람", "타갈로그어"]
+      ],
+      "note": "Formula: Country + 사람 = person/nationality (e.g., 한국 사람). Country + 어 = language (e.g., 한국어)."
+    },
+    {
+      "type": "table",
+      "title": {
+        "en": "Common Occupations",
+        "ko": "주요 직업"
+      },
+      "cols": [
+        "Occupation",
+        "Korean",
+        "Occupation",
+        "Korean"
+      ],
+      "rows": [
+        ["Student", "학생", "Teacher", "선생님"],
+        ["Company employee", "회사원", "Doctor", "의사"],
+        ["Nurse", "간호사", "Police officer", "경찰관"],
+        ["Cook / Chef", "요리사", "Driver", "운전기사"]
+      ],
+      "note": "Use 이에요 (after consonant) or 예요 (after vowel): 학생이에요 (student) · 의사예요 (doctor)."
+    },
+    {
+      "type": "practice",
+      "title": {
+        "en": "Practice A — Choose the fitting greeting",
+        "ko": "상황에 알맞은 인사말을 써요"
+      },
+      "items": [
+        { "q": "When you greet someone politely in the morning →", "a": "안녕하세요" },
+        { "q": "When you leave the office and coworkers stay →", "a": "안녕히 계세요" },
+        { "q": "When a guest is leaving your home →", "a": "안녕히 가세요" },
+        { "q": "When thanking someone for help →", "a": "감사합니다" },
+        { "q": "When meeting someone for the first time →", "a": "반갑습니다" }
+      ]
+    },
+    {
+      "type": "practice",
+      "title": {
+        "en": "Practice B — Write the nationality in Korean",
+        "ko": "국적을 한국어로 써요"
+      },
+      "items": [
+        { "q": "Person from Korea →", "a": "한국 사람" },
+        { "q": "Person from the United States →", "a": "미국 사람" },
+        { "q": "Person from Japan →", "a": "일본 사람" },
+        { "q": "Person from China →", "a": "중국 사람" },
+        { "q": "Person from Vietnam →", "a": "베트남 사람" }
+      ]
+    },
+    {
+      "type": "practice",
+      "title": {
+        "en": "Practice C — Write the occupation in Korean",
+        "ko": "직업을 한국어로 써요"
+      },
+      "items": [
+        { "q": "Teacher →", "a": "선생님" },
+        { "q": "Student →", "a": "학생" },
+        { "q": "Doctor →", "a": "의사" },
+        { "q": "Company employee →", "a": "회사원" },
+        { "q": "Chef / Cook →", "a": "요리사" }
+      ]
+    },
+    {
+      "type": "practice",
+      "title": {
+        "en": "Practice D — Complete the self-introduction sentence",
+        "ko": "자기소개 문장을 완성해요"
+      },
+      "items": [
+        { "q": "저는 수피아 ___ (이에요 / 예요) →", "a": "예요" },
+        { "q": "저는 한국 사람 ___ (이에요 / 예요) →", "a": "이에요" },
+        { "q": "저는 학생 ___ (이에요 / 예요) →", "a": "이에요" },
+        { "q": "저는 의사 ___ (이에요 / 예요) →", "a": "예요" },
+        { "q": "만나서 ___ (반갑습니다 / 계세요) →", "a": "반갑습니다" }
+      ]
+    }
+  ],
+  "howto": [
+    "Learn the difference between 안녕히 계세요 (to someone staying) and 안녕히 가세요 (to someone leaving).",
+    "Practice introducing yourself using '저는 [이름]이에요/예요' and '저는 [국적] 사람이에요'.",
+    "Solve Practice A to D and check your answers with the answer key."
+  ],
+  "koSummary": "기본 인사말과 만남·작별 표현, 나라 이름과 국적, 주요 직업 명칭, 그리고 자기소개 패턴(이에요/예요)을 정리했습니다. 인사말 선택과 자기소개 완성 연습을 풀고 정답지로 확인하세요."
+}
