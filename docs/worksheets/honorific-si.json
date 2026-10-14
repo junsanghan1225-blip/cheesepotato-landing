@@ -1,0 +1,133 @@
+{
+  "id": "honorific-si",
+  "title": {
+    "en": "Honorific Suffix: -(으)시-",
+    "ko": "높임 표현: -(으)시-"
+  },
+  "sub": {
+    "en": "Showing respect to elders and subjects using the -(으)시- suffix and honorific endings",
+    "ko": "주체를 높이는 선어말어미 -(으)시-의 결합 규칙, -(으)세요, -(으)십니다"
+  },
+  "desc": {
+    "en": "Free printable Korean worksheet on the subject honorific suffix -(으)시-: how to conjugate with -세요 and -십니다, vowel vs consonant rules, special honorific verbs, practice and an answer key."
+  },
+  "level": "A2",
+  "sections": [
+    {
+      "type": "table",
+      "title": {
+        "en": "Basic Conjugation of -(으)시-",
+        "ko": "-(으)시- 결합 규칙"
+      },
+      "cols": [
+        "Verb / Adjective",
+        "Meaning",
+        "Polite present (-세요)",
+        "Formal present (-십니다)",
+        "Reading tip"
+      ],
+      "rows": [
+        ["가다 (vowel)", "To go", "가세요", "가십니다", "—"],
+        ["오다 (vowel)", "To come", "오세요", "오십니다", "—"],
+        ["읽다 (consonant)", "To read", "읽으세요", "읽으십니다", "[일그세요] (연음)"],
+        ["앉다 (consonant)", "To sit", "앉으세요", "앉으십니다", "[안즈세요] (연음)"],
+        ["만들다 (ㄹ drop)", "To make", "만드세요", "만드십니다", "ㄹ drops before ㅅ"],
+        ["살다 (ㄹ drop)", "To live", "사세요", "사십니다", "ㄹ drops before ㅅ"]
+      ],
+      "note": "Rule: stems ending in a vowel take -시- (가세요). Stems ending in a consonant take -으시- (읽으세요). Stems ending in ㄹ drop the ㄹ before ㅅ (살다 → 사세요). Spoken reading: 읽으세요 is pronounced [일그세요] due to liaison."
+    },
+    {
+      "type": "table",
+      "title": {
+        "en": "Words with Special Honorific Verbs",
+        "ko": "특수 높임 동사"
+      },
+      "cols": [
+        "Plain word",
+        "Meaning",
+        "Special honorific verb",
+        "Present polite (-세요)"
+      ],
+      "rows": [
+        ["자다", "To sleep", "주무시다", "주무세요 (not 자세요)"],
+        ["먹다 / 마시다", "To eat / drink", "드시다 / 잡수시다", "드세요 (not 먹으세요)"],
+        ["있다 (existence)", "To be / stay", "계시다", "계세요 (not 있으세요)"],
+        ["아프다", "To be sick", "편찮으시다", "편찮으세요 (not 아프세요)"],
+        ["죽다", "To pass away", "돌아가시다", "돌아가셨어요"],
+        ["말하다", "To speak", "말씀하시다", "말씀하세요"]
+      ],
+      "note": "Important: do not attach -(으)시- to regular words when a special honorific counterpart exists: use 주무시다 instead of '자시다', and 드시다 instead of '먹으시다'."
+    },
+    {
+      "type": "text",
+      "title": {
+        "en": "Context: When to Use -(으)시-",
+        "ko": "높임 표현의 사용 대상"
+      },
+      "text": "Use -(으)시- exclusively to show respect to the SUBJECT of the action (elders, grandparents, parents, teachers, customers): 할아버지께서 진지를 드세요 (Grandfather is having a meal). NEVER use -(으)시- when speaking about your own actions: 제가 가세요 (X) → 제가 가요 (O)."
+    },
+    {
+      "type": "practice",
+      "title": {
+        "en": "Practice A — Conjugate to honorific polite present (-(으)세요)",
+        "ko": "-(으)세요 형태로 바꿔 써요"
+      },
+      "items": [
+        { "q": "선생님, 의자에 앉다 → 선생님, 의자에 ___", "a": "앉으세요" },
+        { "q": "할머니, 어서 오다 → 할머니, 어서 ___", "a": "오세요" },
+        { "q": "아버지께서 신문을 읽다 → 아버지께서 신문을 ___", "a": "읽으세요" },
+        { "q": "어머니께서 김치를 만들다 → 어머니께서 김치를 ___", "a": "만드세요" },
+        { "q": "할아버지께서 서울에 살다 → 할아버지께서 서울에 ___", "a": "사세요" },
+        { "q": "교수님께서 음악을 듣다 (ㄷ irregular) → 교수님께서 음악을 ___", "a": "들으세요" }
+      ]
+    },
+    {
+      "type": "practice",
+      "title": {
+        "en": "Practice B — Replace with special honorific verbs",
+        "ko": "특수 높임 동사로 바꿔 써요"
+      },
+      "items": [
+        { "q": "할아버지, 안녕히 ___ (자다 → 주무시다)", "a": "주무세요" },
+        { "q": "선생님, 맛있게 ___ (먹다 → 드시다)", "a": "드세요" },
+        { "q": "어머니께서는 지금 집에 ___ (있다 → 계시다)", "a": "계세요" },
+        { "q": "할머니께서 편찮___ (아프다 → 편찮으시다)", "a": "으세요" },
+        { "q": "교장 선생님께서 말씀___ (말하다 → 말씀하시다)", "a": "하세요" }
+      ]
+    },
+    {
+      "type": "practice",
+      "title": {
+        "en": "Practice C — Choose between plain and honorific forms",
+        "ko": "상황에 맞는 표현을 골라요"
+      },
+      "items": [
+        { "q": "선생님께서 교실에 ___ (가요 / 가세요) →", "a": "가세요" },
+        { "q": "제가 지금 숙제를 ___ (해요 / 하세요) — speaking about myself! →", "a": "해요" },
+        { "q": "아버지께서 텔레비전을 ___ (봐요 / 보세요) →", "a": "보세요" },
+        { "q": "할머니, 진지 ___ (드세요 / 먹으세요) →", "a": "드세요" },
+        { "q": "손님, 여기 앉___ (으세요 / 아요) →", "a": "으세요" }
+      ]
+    },
+    {
+      "type": "practice",
+      "title": {
+        "en": "Practice D — Combine with honorific particles 께서 and 께",
+        "ko": "높임 조사 께서와 께를 맞게 골라요"
+      },
+      "items": [
+        { "q": "어머니___ 빵을 만드셨어요 (가 / 께서) →", "a": "께서" },
+        { "q": "할아버지___ 선물을 드렸어요 (에게 / 께) →", "a": "께" },
+        { "q": "선생님___ 지금 바쁘세요 (은 / 께서는) →", "a": "께서는" },
+        { "q": "아버지께서 회사에 ___ (가요 / 가세요) →", "a": "가세요" },
+        { "q": "할머니께서 방에서 ___ (자요 / 주무세요) →", "a": "주무세요" }
+      ]
+    }
+  ],
+  "howto": [
+    "Attach -시- after vowel stems and -으시- after consonant stems (읽으세요).",
+    "Drop ㄹ before ㅅ: 살다 becomes 사세요, 만들다 becomes 만드세요.",
+    "Use special honorific verbs for core words: 주무시다 (자다), 드시다 (먹다), 계시다 (있다). Solve Practice A to D."
+  ],
+  "koSummary": "주어를 높이는 선어말어미 -(으)시-의 어간 결합 규칙(모음/자음/ㄹ 탈락), 특수 높임 동사(주무시다, 드시다, 계시다, 편찮으시다), 그리고 자신에게는 높임말을 쓰지 않는 원칙을 한 장에 정리했습니다."
+}

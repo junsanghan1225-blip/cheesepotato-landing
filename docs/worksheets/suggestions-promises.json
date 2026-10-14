@@ -1,0 +1,141 @@
+{
+  "id": "suggestions-promises",
+  "title": {
+    "en": "Suggestions & Promises: -(으)ㄹ까요? · -(으)ㄹ래요? · -(으)ㄹ게요",
+    "ko": "전화 · 약속 잡기: -(으)ㄹ까요? · -(으)ㄹ래요? · -(으)ㄹ게요"
+  },
+  "sub": {
+    "en": "Making plans, suggesting ideas (-(으)ㄹ까요?), asking preferences (-(으)ㄹ래요?), and promising action (-(으)ㄹ게요)",
+    "ko": "약속 제안하기(-(으)ㄹ까요?), 상대 의사 묻기(-(으)ㄹ래요?), 나의 약속과 다짐(-(으)ㄹ게요)"
+  },
+  "desc": {
+    "en": "Free printable Korean worksheet on making plans and appointments: suggestions with -(으)ㄹ까요?, invitations with -(으)ㄹ래요?, and promises with -(으)ㄹ게요 with dialogue practice and an answer key."
+  },
+  "level": "A2",
+  "sections": [
+    {
+      "type": "table",
+      "title": {
+        "en": "The Three Plan-Making Endings",
+        "ko": "약속과 제안의 3대 어미"
+      },
+      "cols": [
+        "Ending",
+        "Meaning / Function",
+        "Subject / Usage tone",
+        "Reading tip"
+      ],
+      "rows": [
+        ["-(으)ㄹ까요?", "Shall we...? / Shall I...?", "We (suggestions) or I (offers to listener)", "—"],
+        ["-(으)ㄹ래요?", "Would you like to...? / Do you want to...?", "Asks listener's direct preference or intention", "—"],
+        ["-(으)ㄹ게요", "I will... (promise to listener)", "First person only ('I'), promising action to listener", "[ㄹ께요] (경음화)"]
+      ],
+      "note": "Notice spoken reading: -(으)ㄹ게요 is written with ㄱ but pronounced with a tense sound [ㄹ께요]. Never write 'ㄹ께요' in standard spelling."
+    },
+    {
+      "type": "table",
+      "title": {
+        "en": "Conjugation Rules by Verb Stem",
+        "ko": "어간 결합 규칙"
+      },
+      "cols": [
+        "Base verb",
+        "Meaning",
+        "Shall we...? (-(으)ㄹ까요?)",
+        "Would you like to...? (-(으)ㄹ래요?)",
+        "I will! (-(으)ㄹ게요)"
+      ],
+      "rows": [
+        ["가다 (vowel)", "To go", "갈까요?", "갈래요?", "갈게요 [갈께요]"],
+        ["만나다 (vowel)", "To meet", "만날까요?", "만날래요?", "만날게요 [만날께요]"],
+        ["먹다 (consonant)", "To eat", "먹을까요?", "먹을래요?", "먹을게요 [머글께요]"],
+        ["읽다 (consonant)", "To read", "읽을까요?", "읽을래요?", "읽을게요 [일글께요]"],
+        ["만들다 (ㄹ stem)", "To make", "만들까요?", "만들래요?", "만들게요 [만들께요]"]
+      ],
+      "note": "Rule: vowel stems take -ㄹ, consonant stems take -을. Stems ending in ㄹ just take 까요/래요/게요 without adding an extra vowel."
+    },
+    {
+      "type": "table",
+      "title": {
+        "en": "Making Appointments & Telephone Phrases",
+        "ko": "전화와 약속 필수 표현"
+      },
+      "cols": [
+        "Korean",
+        "English",
+        "Context / Usage",
+        "Reading tip"
+      ],
+      "rows": [
+        ["여보세요", "Hello (on phone)", "Standard greeting when answering telephone", "—"],
+        ["몇 시에 만날까요?", "What time shall we meet?", "Deciding the meeting time", "—"],
+        ["어디서 만날까요?", "Where shall we meet?", "Deciding the meeting place", "—"],
+        ["이번 주말에 시간 있어요?", "Do you have time this weekend?", "Checking availability for an appointment", "—"],
+        ["제가 10분 뒤에 다시 전화할게요", "I will call back in 10 minutes", "Promising to call back later", "[전화할께요]"]
+      ],
+      "note": "Natural conversation flow: A: 주말에 영화 볼래요? (Would you like to see a movie?) B: 좋아요! 몇 시에 만날까요? (Great! What time shall we meet?) A: 2시에 만나요. 제가 예매할게요 (Let's meet at 2. I'll book the tickets!)."
+    },
+    {
+      "type": "practice",
+      "title": {
+        "en": "Practice A — Make suggestions with -(으)ㄹ까요?",
+        "ko": "-(으)ㄹ까요?로 제안을 완성해요"
+      },
+      "items": [
+        { "q": "내일 몇 시에 만나다 → 내일 몇 시에 ___ ?", "a": "만날까요" },
+        { "q": "점심에 비빔밥을 먹다 → 점심에 비빔밥을 ___ ?", "a": "먹을까요" },
+        { "q": "학교 앞에서 기다리다 → 학교 앞에서 ___ ?", "a": "기다릴까요" },
+        { "q": "같이 산책을 하다 → 같이 산책을 ___ ?", "a": "할까요" },
+        { "q": "창문을 닫다 (consonant) → 창문을 ___ ?", "a": "닫을까요" }
+      ]
+    },
+    {
+      "type": "practice",
+      "title": {
+        "en": "Practice B — Ask preferences with -(으)ㄹ래요?",
+        "ko": "-(으)ㄹ래요?로 상대방의 의사를 물어요"
+      },
+      "items": [
+        { "q": "주말에 같이 영화를 보다 → 주말에 같이 영화 ___ ?", "a": "볼래요" },
+        { "q": "커피 한 잔 마시다 → 커피 한 잔 ___ ?", "a": "마실래요" },
+        { "q": "오늘 저녁에 치킨을 먹다 → 오늘 저녁에 치킨 ___ ?", "a": "먹을래요" },
+        { "q": "저하고 공원에 가다 → 저하고 공원에 ___ ?", "a": "갈래요" },
+        { "q": "우리 같이 사진을 찍다 → 우리 같이 사진을 ___ ?", "a": "찍을래요" }
+      ]
+    },
+    {
+      "type": "practice",
+      "title": {
+        "en": "Practice C — Make promises with -(으)ㄹ게요",
+        "ko": "-(으)ㄹ게요로 약속을 표현해요"
+      },
+      "items": [
+        { "q": "제가 내일 일찍 오다 → 제가 내일 일찍 ___", "a": "올게요" },
+        { "q": "제가 커피를 사다 → 제가 커피를 ___", "a": "살게요" },
+        { "q": "숙제를 꼭 하다 → 숙제를 꼭 ___", "a": "할게요" },
+        { "q": "도착하면 바로 전화하다 → 도착하면 바로 전화___", "a": "할게요" },
+        { "q": "맛있는 음식을 만들다 → 맛있는 음식을 ___", "a": "만들게요" }
+      ]
+    },
+    {
+      "type": "practice",
+      "title": {
+        "en": "Practice D — Choose the fitting ending in dialogue",
+        "ko": "대화에 어울리는 어미를 골라요"
+      },
+      "items": [
+        { "q": "민수: 오늘 점심에 뭐 ___ ? (먹을래요 / 먹을게요)", "a": "먹을래요" },
+        { "q": "지수: 불고기 어때요? 제가 ___ ! (살게요 / 살래요)", "a": "살게요" },
+        { "q": "민수: 좋아요! 어디서 ___ ? (만날까요 / 만날게요)", "a": "만날까요" },
+        { "q": "지수: 식당 앞에서 만나요. 제가 예약___ (할게요 / 할래요)", "a": "할게요" },
+        { "q": "민수: 늦지 않고 일찍 ___ (갈게요 / 갈까요)", "a": "갈게요" }
+      ]
+    }
+  ],
+  "howto": [
+    "Use -(으)ㄹ까요? when proposing an idea together (Shall we...?).",
+    "Use -(으)ㄹ래요? to ask the listener's friendly preference (Do you want to...?).",
+    "Use -(으)ㄹ게요 only for 1st person ('I') making a promise. Remember the pronunciation is [ㄹ께요]. Solve Practice A to D."
+  ],
+  "koSummary": "친구와 약속을 잡을 때 필수적인 제안 표현(-(으)ㄹ까요?), 상대방의 의사를 묻는 -(으)ㄹ래요?, 나의 다짐과 약속을 알리는 -(으)ㄹ게요의 결합 원리와 실전 대화 활용을 한 장에 정리했습니다."
+}
