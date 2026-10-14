@@ -79,6 +79,15 @@ for (const [k, src] of Object.entries(TOPIK_SRC)) {
   if (gr.some((c) => c.points.some((p) => !p.id || !p.name || !p.desc))) err('이름 · 뜻이 빈 문법이 있다');
   if (man.grammar?.n !== n) err('manifest 의 grammar 가 낡았다');
 }
+/* 레벨 테스트 */
+{
+  const lt = JSON.parse(fs.readFileSync(path.join(ROOT, 'app-data/leveltest.json'), 'utf8'));
+  const ids = new Set(man.courses.map((c) => c.id));
+  for (const l of lt.levels) for (const k of [l.start, l.next]) if (!ids.has(k)) err(`레벨 ${l.lv} 의 코스 ${k} 가 앱 자료에 없다`);
+  if (lt.pool.some((r) => r.length !== 6 || !Array.isArray(r[3]) || r[3].length < 2 || !r[3][r[4]] || r[0] < 0 || r[0] > 7)) err('레벨 테스트 문제 모양이 이상하다');
+  for (let L = 0; L <= 7; L++) if (lt.pool.filter((r) => r[0] === L).length < 10) err(`레벨 ${L} 문제가 10개보다 적다`);
+  if (man.leveltest?.n !== lt.pool.length) err('manifest 의 leveltest 가 낡았다');
+}
 /* 앱 번역 사전: 자리 표시({0}) 가 열쇠와 같은 집합이어야 한다 */
 {
   const ph = (t) => (String(t).match(/\{\d+\}/g) || []).sort().join(',');

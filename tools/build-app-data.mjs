@@ -165,9 +165,27 @@ const grammarBody = JSON.stringify(gcats);
 fs.writeFileSync(path.join(OUT, 'grammar.json'), grammarBody);
 const grammar = { h: crypto.createHash('sha1').update(grammarBody).digest('hex').slice(0, 8), n: gcats.reduce((a, c) => a + c.points.length, 0) };
 
+/* 레벨 테스트 — 앱 「공부 → 레벨 테스트」. 웹 「전체」 목적의 문제 풀(429문항, 레벨 0~7)과 레벨표.
+   레벨표는 app.module.js 의 LT_LEVELS 와 같다(바뀌면 여기도 — check-app-data 가 코스 id 가 실제 있는지 본다).
+   한 줄 = [레벨, 종류, 문제(지문 포함), 보기, 정답 번호, 풀이]. */
+const { LT_CUSTOM_OVERALL } = await import(pathToFileURL(path.join(ROOT, 'leveltest-overall.js')).href);
+const ltLevels = [
+  { lv: 0, ko: '한글 전', en: 'Pre-Hangul', topik: '', start: 'hangul', next: 'first-words' },
+  { lv: 1, ko: '입문', en: 'Starter', topik: '', start: 'first-words', next: 'grammar-core' },
+  { lv: 2, ko: '초급 1', en: 'Beginner 1', topik: 'TOPIK 1', start: 'bg-05', next: 'bg-10' },
+  { lv: 3, ko: '초급 2', en: 'Beginner 2', topik: 'TOPIK 1', start: 'bg-10', next: 'bg-13' },
+  { lv: 4, ko: '초급 3', en: 'Beginner 3', topik: 'TOPIK 2', start: 'bg-13', next: 'bg-17' },
+  { lv: 5, ko: '초급 4', en: 'Beginner 4', topik: 'TOPIK 2', start: 'bg-22', next: 'bg-27' },
+  { lv: 6, ko: '중급', en: 'Intermediate', topik: 'TOPIK 3–4', start: 'im-02-02', next: 'im-03-01' },
+  { lv: 7, ko: '고급', en: 'Advanced', topik: 'TOPIK 5–6', start: 'ad-01-01', next: 'ad-02-01' },
+];
+const ltBody = JSON.stringify({ levels: ltLevels, pool: LT_CUSTOM_OVERALL.filter((x) => x.lv != null).map((x) => [x.lv, x.t || (x.g ? 'grammar' : 'grammar'), x.passage ? `${x.passage}\n\n${x.q}` : x.q, x.options, x.answer, x.why || '']) });
+fs.writeFileSync(path.join(OUT, 'leveltest.json'), ltBody);
+const leveltest = { h: crypto.createHash('sha1').update(ltBody).digest('hex').slice(0, 8), n: JSON.parse(ltBody).pool.length };
+
 const paths = Object.fromEntries(Object.entries(PATHS).map(([k, p]) => [k, { ko: p.ko, en: p.en, courses: pathCourses(p.lvs) }]));
-const manifest = { schema: 1, paths, courses, grammarPairs, topik, writing, mock: mockMeta, vocab, games, ui, dict, grammar };
+const manifest = { schema: 1, paths, courses, grammarPairs, topik, writing, mock: mockMeta, vocab, games, ui, dict, grammar, leveltest };
 manifest.v = crypto.createHash('sha1').update(JSON.stringify(manifest)).digest('hex').slice(0, 8);
 fs.writeFileSync(path.join(OUT, 'manifest.json'), JSON.stringify(manifest));
 const nL = courses.reduce((a, c) => a + c.lessons.length, 0);
-console.log(`앱 자료 — 코스 ${courses.length}개 · 레슨 ${nL}개 · 길 ${Object.keys(paths).join('/')}(${Object.values(paths).map((p) => p.courses.length).join('/')}코스) + 문법 비교 ${grammarPairs.n}짝·퀴즈 ${grammarPairs.q}문제 + TOPIK ${Object.values(topik).reduce((a, x) => a + x.n, 0)}문항 + 쓰기 ${writing.n}문항 + 낱말 ${vocab.n} + 게임(워들 ${games.potdle}낱말) + 앱 번역 vi/ja/zh ${ui.vi.n}/${ui.vi.total} + 사전 ${dict.n} + 문법 ${grammar.n} → app-data/ (v ${manifest.v}, 길에 안 든 코스 ${courses.filter((c) => !used.has(c.id)).length}개)`);
+console.log(`앱 자료 — 코스 ${courses.length}개 · 레슨 ${nL}개 · 길 ${Object.keys(paths).join('/')}(${Object.values(paths).map((p) => p.courses.length).join('/')}코스) + 문법 비교 ${grammarPairs.n}짝·퀴즈 ${grammarPairs.q}문제 + TOPIK ${Object.values(topik).reduce((a, x) => a + x.n, 0)}문항 + 쓰기 ${writing.n}문항 + 낱말 ${vocab.n} + 게임(워들 ${games.potdle}낱말) + 앱 번역 vi/ja/zh ${ui.vi.n}/${ui.vi.total} + 사전 ${dict.n} + 문법 ${grammar.n} + 레벨테스트 ${leveltest.n} → app-data/ (v ${manifest.v}, 길에 안 든 코스 ${courses.filter((c) => !used.has(c.id)).length}개)`);
