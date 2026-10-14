@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Free Korean Worksheets (Printable PDF) | CheesePotato</title>
+<meta name="description" content="Free printable Korean worksheets: numbers and counters, dates, hangul, grammar and more — each with an answer key. Print or save as PDF.">
+<link rel="canonical" href="https://everykoreans.com/worksheets/">
+<!-- 생성물 — 손으로 고치지 말 것. docs/worksheets/*.json 을 고치고 node tools/build-sheets.mjs -->
+<script src="/gtm.js" async></script>
+<script src="/analytics.js" defer></script>
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta property="og:title" content="Free Korean Worksheets (Printable PDF)">
+<meta property="og:description" content="Free printable Korean worksheets: numbers and counters, dates, hangul, grammar and more — each with an answer key. Print or save as PDF.">
+<meta property="og:url" content="https://everykoreans.com/worksheets/">
+<meta property="og:image" content="https://everykoreans.com/logo-256.png">
+<link rel="stylesheet" href="/vendor/pretendard.css">
+<link rel="stylesheet" href="/page.css">
+<script src="/numbers-worksheet.js" defer></script>
+<style>
+.nw-paper { background:#fff; border:1px solid var(--line); border-radius:12px; padding:22px; margin:18px 0; color:#1B1512; }
+.nw-top { display:flex; justify-content:space-between; gap:12px; font-size:13px; color:var(--ink-3); border-bottom:1px solid var(--line); padding-bottom:8px; }
+.nw-h { font-size:22px; font-weight:800; margin:14px 0 2px; }
+.nw-c { table-layout:fixed; }
+.nw-c th:nth-child(1) { width:20%; } .nw-c th:nth-child(2) { width:34%; } .nw-c th:nth-child(3) { width:32%; } .nw-c th:nth-child(4) { width:14%; }
+.nw-g { font-size:14px; font-weight:800; margin:12px 0 4px; color:#1B1512; }
+.nw-sub { font-size:13.5px; color:var(--ink-3); margin:0 0 10px; }
+.nw-h3 { font-size:15px; font-weight:800; margin:18px 0 8px; color:var(--orange-deep); }
+.nw-tw { overflow-x:auto; margin:0 0 8px; }
+.nw-t { width:100%; border-collapse:collapse; font-size:14px; margin:0; }
+.nw-t th, .nw-t td { border:1px solid #cfc7bd; padding:5px 7px; text-align:center; }
+.nw-t th { background:#fff3e6; font-weight:800; }
+.nw-t td.l { text-align:left; }
+.nw-t .k { font-weight:800; font-size:15px; }
+.nw-two { display:grid; grid-template-columns:1fr 1fr; gap:10px; }
+.nw-two > div { border:1px solid #cfc7bd; border-radius:10px; padding:8px 10px; font-size:13.5px; line-height:1.6; }
+.nw-two b { color:var(--orange-deep); }
+.nw-q { display:grid; grid-template-columns:1fr 1fr; gap:6px 18px; font-size:15px; }
+.nw-q li { list-style:none; padding:5px 0; border-bottom:1px dashed #cfc7bd; }
+.nw-q ol { margin:0; padding:0; }
+.nw-line { display:inline-block; min-width:90px; border-bottom:1.5px solid #1B1512; height:1em; vertical-align:bottom; }
+.nw-circle { letter-spacing:.04em; }
+.nw-ans { display:none; }
+body.show-ans .nw-ans { display:block; }
+body.show-ans .nw-work { display:none; }
+.nw-foot { margin-top:14px; font-size:12px; color:var(--ink-3); text-align:center; }
+@media (max-width:560px) { .nw-two, .nw-q { grid-template-columns:1fr; } .nw-paper { padding:14px; } .nw-t { min-width:480px; font-size:13px; } }
+@media print {
+  @page { size:A4; margin:11mm; }
+  body { background:#fff; }
+  .hd, .no-print, .ft, h1, h1 + p { display:none !important; }
+  main { padding:0 !important; max-width:none; }
+  .box { border:0; padding:0; margin:0; }
+  .nw-paper { border:0; padding:0; margin:0; -webkit-print-color-adjust:exact; print-color-adjust:exact; font-size:12.5px; }
+  .nw-t { font-size:12px; } .nw-t th, .nw-t td { padding:3px 5px; }
+  .nw-h3 { margin:11px 0 5px; } .nw-q { font-size:13px; } .nw-q li { padding:3px 0; }
+  .nw-two > div { font-size:12px; padding:5px 8px; }
+  .pg { break-after:page; }
+}
+</style>
+</head>
+<body>
+<header class="hd"><div class="hd-in">
+  <a href="/"><img src="/logo.png" alt=""><span>치즈감자 CheesePotato</span></a>
+</div></header>
+<main>
+<h1>Free Korean worksheets</h1>
+<p>학습지 모음 · print or save as PDF · every worksheet has an answer key</p>
+<div class="box">
+  <p><a class="btn sub" href="/numbers-worksheet/"><b>Korean numbers &amp; counters</b> · 수사 · 세는 말 · all</a></p>
+  <p><a class="btn sub" href="/hangul-worksheet/"><b>Hangul name tracing</b> · 내 이름 따라 쓰기 · A1</a></p>
+  <p><a class="btn sub" href="/worksheet/"><b>Grammar worksheets</b> · 문법 학습지 · all</a></p>
+  <p><a class="btn sub" href="/days-months-dates-worksheet/"><b>Days, months &amp; dates</b> · 요일 · 월 · 날짜 · A1</a><br><small>Free printable Korean worksheet on weekdays, months and dates: how to read 5월 5일, the irregular 유월 and 시월, today / yesterday / tomorrow, last / this / next week — with practice and an answer key.</small></p>
+</div>
+<div class="next">
+  <h3>Want a worksheet we do not have yet?</h3>
+  <p>Teachers: tell us the topic — new worksheets are added every week.</p>
+  <div class="btns"><a class="btn sub" href="/for-teachers.html">For teachers — free class tools</a></div>
+</div>
+<p class="ft">Made by a Korean teacher · <a href="/about.html">About</a> · <a href="/for-teachers.html">For teachers</a></p>
+</main>
+</body>
+</html>
