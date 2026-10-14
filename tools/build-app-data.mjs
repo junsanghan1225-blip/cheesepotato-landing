@@ -183,9 +183,18 @@ const ltBody = JSON.stringify({ levels: ltLevels, pool: LT_CUSTOM_OVERALL.filter
 fs.writeFileSync(path.join(OUT, 'leveltest.json'), ltBody);
 const leveltest = { h: crypto.createHash('sha1').update(ltBody).digest('hex').slice(0, 8), n: JSON.parse(ltBody).pool.length };
 
+/* 번역 연습 · 회화 · 동화책 — 앱 「공부」. 웹 translate.js · convo.js · stories.js 를 그대로(자료 한 벌). */
+const { TRANSLATE_SETS } = await import(pathToFileURL(path.join(ROOT, 'translate.js')).href);
+const { CONVO } = await import(pathToFileURL(path.join(ROOT, 'convo.js')).href);
+const { STORIES } = await import(pathToFileURL(path.join(ROOT, 'stories.js')).href);
+const mk = (name, data) => { const body = JSON.stringify(data); fs.writeFileSync(path.join(OUT, `${name}.json`), body); return { h: crypto.createHash('sha1').update(body).digest('hex').slice(0, 8), n: data.length }; };
+const translate = mk('translate', TRANSLATE_SETS);
+const convo = mk('convo', CONVO);
+const stories = mk('stories', STORIES);
+
 const paths = Object.fromEntries(Object.entries(PATHS).map(([k, p]) => [k, { ko: p.ko, en: p.en, courses: pathCourses(p.lvs) }]));
-const manifest = { schema: 1, paths, courses, grammarPairs, topik, writing, mock: mockMeta, vocab, games, ui, dict, grammar, leveltest };
+const manifest = { schema: 1, paths, courses, grammarPairs, topik, writing, mock: mockMeta, vocab, games, ui, dict, grammar, leveltest, translate, convo, stories };
 manifest.v = crypto.createHash('sha1').update(JSON.stringify(manifest)).digest('hex').slice(0, 8);
 fs.writeFileSync(path.join(OUT, 'manifest.json'), JSON.stringify(manifest));
 const nL = courses.reduce((a, c) => a + c.lessons.length, 0);
-console.log(`앱 자료 — 코스 ${courses.length}개 · 레슨 ${nL}개 · 길 ${Object.keys(paths).join('/')}(${Object.values(paths).map((p) => p.courses.length).join('/')}코스) + 문법 비교 ${grammarPairs.n}짝·퀴즈 ${grammarPairs.q}문제 + TOPIK ${Object.values(topik).reduce((a, x) => a + x.n, 0)}문항 + 쓰기 ${writing.n}문항 + 낱말 ${vocab.n} + 게임(워들 ${games.potdle}낱말) + 앱 번역 vi/ja/zh ${ui.vi.n}/${ui.vi.total} + 사전 ${dict.n} + 문법 ${grammar.n} + 레벨테스트 ${leveltest.n} → app-data/ (v ${manifest.v}, 길에 안 든 코스 ${courses.filter((c) => !used.has(c.id)).length}개)`);
+console.log(`앱 자료 — 코스 ${courses.length}개 · 레슨 ${nL}개 · 길 ${Object.keys(paths).join('/')}(${Object.values(paths).map((p) => p.courses.length).join('/')}코스) + 문법 비교 ${grammarPairs.n}짝·퀴즈 ${grammarPairs.q}문제 + TOPIK ${Object.values(topik).reduce((a, x) => a + x.n, 0)}문항 + 쓰기 ${writing.n}문항 + 낱말 ${vocab.n} + 게임(워들 ${games.potdle}낱말) + 앱 번역 vi/ja/zh ${ui.vi.n}/${ui.vi.total} + 사전 ${dict.n} + 문법 ${grammar.n} + 레벨테스트 ${leveltest.n} + 번역 ${translate.n}편 · 회화 ${convo.n} · 동화 ${stories.n} → app-data/ (v ${manifest.v}, 길에 안 든 코스 ${courses.filter((c) => !used.has(c.id)).length}개)`);
