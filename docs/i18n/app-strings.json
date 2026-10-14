@@ -1182,5 +1182,141 @@
   {
     "en": "Words and initials search",
     "ko": "낱말 · 초성 검색"
+  },
+  {
+    "en": " due",
+    "ko": "까지"
+  },
+  {
+    "en": "{0} missed · 10 at a time",
+    "ko": "틀린 문제 {0}개 · 10문제씩"
+  },
+  {
+    "en": "{0} to do",
+    "ko": "남은 숙제 {0}개"
+  },
+  {
+    "en": "All done!",
+    "ko": "숙제를 다 했어요!"
+  },
+  {
+    "en": "Cancel",
+    "ko": "취소"
+  },
+  {
+    "en": "Class code",
+    "ko": "반 코드"
+  },
+  {
+    "en": "Conversation",
+    "ko": "회화"
+  },
+  {
+    "en": "I don't know",
+    "ko": "잘 모르겠어요"
+  },
+  {
+    "en": "Join",
+    "ko": "반에 들어가기"
+  },
+  {
+    "en": "Join with your teacher's code",
+    "ko": "선생님이 알려 준 코드로 들어가요"
+  },
+  {
+    "en": "Last result: {0}",
+    "ko": "지난 결과: {0}"
+  },
+  {
+    "en": "Leave this class?",
+    "ko": "이 반에서 나갈까요?"
+  },
+  {
+    "en": "Lesson",
+    "ko": "레슨"
+  },
+  {
+    "en": "Log in to see your class homework.",
+    "ko": "로그인하면 반 숙제를 볼 수 있어요."
+  },
+  {
+    "en": "Maybe later",
+    "ko": "나중에 할게요"
+  },
+  {
+    "en": "Missed in lessons",
+    "ko": "레슨에서 틀린 문제"
+  },
+  {
+    "en": "My name (your teacher sees it)",
+    "ko": "내 이름(선생님에게 보여요)"
+  },
+  {
+    "en": "No class with that code.",
+    "ko": "그 코드의 반을 찾지 못했어요. 선생님께 코드를 다시 확인해 주세요."
+  },
+  {
+    "en": "No homework yet",
+    "ko": "아직 숙제가 없어요"
+  },
+  {
+    "en": "overdue",
+    "ko": "기한 지남"
+  },
+  {
+    "en": "Questions you missed in lessons and TOPIK. Get one right and it leaves the notebook.",
+    "ko": "레슨과 TOPIK에서 틀린 문제만 모아 놨어요. 맞히면 노트에서 빠져요."
+  },
+  {
+    "en": "Retake",
+    "ko": "다시 보기"
+  },
+  {
+    "en": "Start this level",
+    "ko": "이 레벨 코스 시작"
+  },
+  {
+    "en": "Starting here is a good fit. Your path is set to this level.",
+    "ko": "여기서부터 시작하면 딱 맞아요. 길도 이 레벨에 맞춰 바꿔 뒀어요."
+  },
+  {
+    "en": "Storybook",
+    "ko": "동화책"
+  },
+  {
+    "en": "Student",
+    "ko": "학생"
+  },
+  {
+    "en": "TOPIK listening",
+    "ko": "TOPIK 듣기"
+  },
+  {
+    "en": "TOPIK mock",
+    "ko": "TOPIK 모의고사"
+  },
+  {
+    "en": "TOPIK reading",
+    "ko": "TOPIK 읽기"
+  },
+  {
+    "en": "Translation",
+    "ko": "번역 연습"
+  },
+  {
+    "en": "Up to 10 questions, about 3 minutes. Right answers get harder, wrong ones easier. \"I don't know\" is fine.",
+    "ko": "최대 10문제, 약 3분. 맞히면 어려워지고 틀리면 쉬워져요. 모르면 「잘 모르겠어요」를 눌러도 괜찮아요."
+  },
+  {
+    "en": "Word session",
+    "ko": "단어 세션"
+  },
+  {
+    "en": "Your level",
+    "ko": "내 레벨"
+  },
+  {
+    "en": "Your teacher only sees your name and homework record (date, score). You can leave anytime.",
+    "ko": "선생님은 내 이름과 숙제 기록(한 날 · 점수)만 봐요. 숙제 · 복습에만 쓰고, 언제든 나갈 수 있어요."
   }
 ]
