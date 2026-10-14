@@ -1,0 +1,148 @@
+{
+  "id": "food-ordering-taste",
+  "title": {
+    "en": "Food Ordering, Menus & Taste",
+    "ko": "음식 주문 · 메뉴 · 맛 표현"
+  },
+  "sub": {
+    "en": "Ordering at Korean restaurants, popular dishes, serving counters and taste adjectives",
+    "ko": "식당 주문 표현, 주요 음식 메뉴, 세는 말(인분/개), 맛 형용사"
+  },
+  "desc": {
+    "en": "Free printable Korean worksheet on food ordering and taste: how to order in restaurants (주세요, 몇 인분), popular foods (비빔밥, 김치찌개), taste words (맵다, 달다, 짜다, 싱겁다) with practice exercises and an answer key."
+  },
+  "level": "A1",
+  "sections": [
+    {
+      "type": "table",
+      "title": {
+        "en": "Restaurant Ordering Phrases",
+        "ko": "식당 필수 주문 표현"
+      },
+      "cols": [
+        "Korean",
+        "English",
+        "Usage / Context",
+        "Spoken reading"
+      ],
+      "rows": [
+        ["여기요 / 저기요", "Excuse me!", "Calling the server to your table", "여기여 / 저기여"],
+        ["메뉴판 좀 주세요", "Please give me the menu", "Asking for the menu", "메뉴판 좀 주세여"],
+        ["물 좀 주세요", "Please give me water", "Asking for drinking water", "물 좀 주세여"],
+        ["비빔밥 하나 주세요", "One bibimbap, please", "Ordering a single dish", "비빔밥 하나 주세여"],
+        ["삼겹살 2인분 주세요", "Two servings of pork belly", "Ordering meat portions", "삼겹살 이인분 주세여"],
+        ["얼마예요?", "How much is it?", "Asking for the price", "얼마예여"],
+        ["계산해 주세요", "Check, please", "Asking to pay the bill", "계산해 주세여"]
+      ],
+      "note": "Standard pattern: [Food name] + [Quantity] + 주세요. For example: 비빔밥 하나 주세요 (One bibimbap, please)."
+    },
+    {
+      "type": "table",
+      "title": {
+        "en": "Popular Dishes & Counting Units",
+        "ko": "인기 메뉴와 세는 단위"
+      },
+      "cols": [
+        "Dish",
+        "Korean",
+        "Category",
+        "Counting unit"
+      ],
+      "rows": [
+        ["Bibimbap", "비빔밥", "Rice dish", "하나, 둘 / 그릇"],
+        ["Kimchi stew", "김치찌개", "Stew / Soup", "하나, 둘 / 냄비"],
+        ["Soybean paste stew", "된장찌개", "Stew / Soup", "하나, 둘 / 뚝배기"],
+        ["Bulgogi", "불고기", "Marinated beef", "1인분, 2인분 (인분)"],
+        ["Pork belly", "삼겹살", "Barbecue meat", "1인분, 2인분 (인분)"],
+        ["Kimbap", "김밥", "Seaweed rice roll", "한 줄, 두 줄 (줄)"],
+        ["Water / Soda", "물 / 콜라", "Beverage", "한 병, 한 캔"]
+      ],
+      "note": "BBQ and meat portions always use Sino-Korean numbers + 인분: 1인분 (일 인분), 2인분 (이 인분), 3인분 (삼 인분)."
+    },
+    {
+      "type": "table",
+      "title": {
+        "en": "Taste Adjectives",
+        "ko": "맛을 나타내는 형용사"
+      },
+      "cols": [
+        "Taste",
+        "Basic form",
+        "Polite present (해요체)",
+        "Example / Note"
+      ],
+      "rows": [
+        ["Delicious", "맛있다", "맛있어요", "Opposite: 맛없다 (맛없어요)"],
+        ["Spicy", "맵다", "매워요", "ㅂ irregular: 떡볶이가 매워요"],
+        ["Sweet", "달다", "달아요", "사탕이 달아요"],
+        ["Salty", "짜다", "짜요", "Opposite: 싱겁다 (싱거워요)"],
+        ["Bland / Not salty", "싱겁다", "싱거워요", "ㅂ irregular: 국이 싱거워요"],
+        ["Sour", "시다", "셔요", "레몬이 셔요"],
+        ["Bitter", "쓰다", "써요", "약이 써요"]
+      ],
+      "note": "Notice the ㅂ irregular conjugations: 맵다 becomes 매워요, and 싱겁다 becomes 싱거워요."
+    },
+    {
+      "type": "practice",
+      "title": {
+        "en": "Practice A — Say it at the restaurant",
+        "ko": "식당에서 하는 말을 완성해요"
+      },
+      "items": [
+        { "q": "Calling the server: Excuse me! →", "a": "여기요 / 저기요" },
+        { "q": "Asking for water: Please give me water →", "a": "물 좀 주세요" },
+        { "q": "Ordering 1 bibimbap: One bibimbap, please →", "a": "비빔밥 하나 주세요" },
+        { "q": "Asking for the bill: Check, please →", "a": "계산해 주세요" },
+        { "q": "Asking the price: How much is it? →", "a": "얼마예요?" }
+      ]
+    },
+    {
+      "type": "practice",
+      "title": {
+        "en": "Practice B — Conjugate the taste adjective to 해요체",
+        "ko": "맛 형용사를 해요체로 바꿔 써요"
+      },
+      "items": [
+        { "q": "맵다 (spicy) in 해요체 →", "a": "매워요" },
+        { "q": "달다 (sweet) in 해요체 →", "a": "달아요" },
+        { "q": "짜다 (salty) in 해요체 →", "a": "짜요" },
+        { "q": "싱겁다 (bland) in 해요체 →", "a": "싱거워요" },
+        { "q": "맛있다 (delicious) in 해요체 →", "a": "맛있어요" }
+      ]
+    },
+    {
+      "type": "practice",
+      "title": {
+        "en": "Practice C — Choose the taste matching the food",
+        "ko": "음식에 어울리는 맛을 골라요"
+      },
+      "items": [
+        { "q": "사탕 (candy)은 ___ (달아요 / 매워요) →", "a": "달아요" },
+        { "q": "떡볶이 (tteokbokki)는 ___ (매워요 / 싱거워요) →", "a": "매워요" },
+        { "q": "소금 (salt)은 ___ (짜요 / 달아요) →", "a": "짜요" },
+        { "q": "레몬 (lemon)은 ___ (셔요 / 써요) →", "a": "셔요" },
+        { "q": "커피 (black coffee)는 ___ (써요 / 달아요) →", "a": "써요" }
+      ]
+    },
+    {
+      "type": "practice",
+      "title": {
+        "en": "Practice D — Choose the right ordering unit",
+        "ko": "알맞은 세는 말을 골라요"
+      },
+      "items": [
+        { "q": "삼겹살 2___ 주세요 (인분 / 개) →", "a": "인분" },
+        { "q": "김밥 한 ___ 주세요 (줄 / 명) →", "a": "줄" },
+        { "q": "콜라 한 ___ 주세요 (병 / 권) →", "a": "병" },
+        { "q": "메뉴판 좀 ___ (주세요 / 가세요) →", "a": "주세요" },
+        { "q": "음식이 정말 ___ (맛있어요 / 안녕해요) →", "a": "맛있어요" }
+      ]
+    }
+  ],
+  "howto": [
+    "Learn key restaurant phrases: 여기요 (excuse me), 메뉴판 좀 주세요 (menu please), 계산해 주세요 (check please).",
+    "Remember that barbecue portions take 인분 (1인분, 2인분) and single dishes use 하나, 둘.",
+    "Practice taste adjectives in polite present forms (매워요, 달아요, 짜요, 싱거워요) in Practice A–D."
+  ],
+  "koSummary": "한국 식당 필수 주문 표현(여기요, 주세요, 계산해 주세요), 주요 메뉴와 세는 말(인분, 줄), 기본 맛 형용사(맵다, 달다, 짜다, 싱겁다)를 정리했습니다. 연습 문제를 풀고 정답지로 확인하세요."
+}

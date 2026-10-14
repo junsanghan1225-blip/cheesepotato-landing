@@ -1,0 +1,143 @@
+{
+  "id": "weather-seasons-temperature",
+  "title": {
+    "en": "Weather, Seasons & Temperature",
+    "ko": "날씨 · 계절 · 기온"
+  },
+  "sub": {
+    "en": "The four seasons, daily weather conditions, degrees Celsius, above and below zero",
+    "ko": "사계절, 날씨 표현, 기온(영상 · 영하), 날씨 묻고 답하기"
+  },
+  "desc": {
+    "en": "Free printable Korean worksheet on weather, seasons and temperature: the four seasons (봄, 여름, 가을, 겨울), weather conditions (맑다, 비가 오다), degrees Celsius with 영상 and 영하, practice exercises and an answer key."
+  },
+  "level": "A1",
+  "sections": [
+    {
+      "type": "table",
+      "title": {
+        "en": "The Four Seasons",
+        "ko": "한국의 사계절"
+      },
+      "cols": [
+        "Season",
+        "Korean",
+        "Months",
+        "Climate characteristics"
+      ],
+      "rows": [
+        ["Spring", "봄", "3월 ~ 5월", "따뜻해요 (warm), 꽃이 피어요"],
+        ["Summer", "여름", "6월 ~ 8월", "더워요 (hot), 비가 많이 와요"],
+        ["Autumn / Fall", "가을", "9월 ~ 11월", "시원해요 (cool), 단풍이 들어요"],
+        ["Winter", "겨울", "12월 ~ 2월", "추워요 (cold), 눈이 와요"]
+      ],
+      "note": "Korea has four distinct seasons: 봄 (spring), 여름 (summer), 가을 (autumn), and 겨울 (winter)."
+    },
+    {
+      "type": "table",
+      "title": {
+        "en": "Daily Weather Expressions",
+        "ko": "자주 쓰는 날씨 표현"
+      },
+      "cols": [
+        "Condition",
+        "Korean base",
+        "Polite present (해요체)",
+        "Example sentence"
+      ],
+      "rows": [
+        ["Clear / Sunny", "맑다", "맑아요", "오늘 하늘이 맑아요."],
+        ["Cloudy", "흐리다", "흐려요", "오후에 날씨가 흐려요."],
+        ["Raining", "비가 오다", "비가 와요", "밖에 비가 많이 와요."],
+        ["Snowing", "눈이 오다", "눈이 와요", "하얀 눈이 내려요."],
+        ["Windy", "바람이 불다", "바람이 불어요", "바람이 시원하게 불어요."],
+        ["Warm", "따뜻하다", "따뜻해요", "봄 날씨가 따뜻해요."],
+        ["Cool / Chilly", "시원하다", "시원해요", "가을 바람이 시원해요."]
+      ],
+      "note": "To ask about the weather: 오늘 날씨가 어때요? (How is the weather today?)"
+    },
+    {
+      "type": "table",
+      "title": {
+        "en": "Temperature: Degrees Celsius, 영상 & 영하",
+        "ko": "기온 읽기: 영상과 영하"
+      },
+      "cols": [
+        "Temperature",
+        "Korean reading",
+        "Meaning",
+        "Typical context"
+      ],
+      "rows": [
+        ["영상 25도", "영상 이십오 도", "+25°C (Above zero)", "Warm spring / summer day"],
+        ["영상 32도", "영상 삼십이 도", "+32°C (Above zero)", "Hot midsummer day"],
+        ["영상 10도", "영상 십 도", "+10°C (Above zero)", "Mild autumn day"],
+        ["0도", "영도", "0°C (Freezing point)", "Freezing point"],
+        ["영하 5도", "영하 오 도", "-5°C (Below zero)", "Cold winter day"],
+        ["영하 12도", "영하 십이 도", "-12°C (Below zero)", "Severe cold wave in winter"]
+      ],
+      "note": "Degrees Celsius is 도. Above zero is 영상 (plus). Below zero is 영하 (minus). Numbers use Sino-Korean."
+    },
+    {
+      "type": "practice",
+      "title": {
+        "en": "Practice A — Write the season in Korean",
+        "ko": "계절 이름을 한국어로 써요"
+      },
+      "items": [
+        { "q": "Spring →", "a": "봄" },
+        { "q": "Summer →", "a": "여름" },
+        { "q": "Autumn / Fall →", "a": "가을" },
+        { "q": "Winter →", "a": "겨울" }
+      ]
+    },
+    {
+      "type": "practice",
+      "title": {
+        "en": "Practice B — Write the temperature reading in Hangul",
+        "ko": "기온을 한글로 써요"
+      },
+      "items": [
+        { "q": "영상 20도 →", "a": "영상 이십 도" },
+        { "q": "영상 5도 →", "a": "영상 오 도" },
+        { "q": "0도 →", "a": "영도" },
+        { "q": "영하 3도 →", "a": "영하 삼 도" },
+        { "q": "영하 10도 →", "a": "영하 십 도" }
+      ]
+    },
+    {
+      "type": "practice",
+      "title": {
+        "en": "Practice C — Write the weather condition in polite present",
+        "ko": "날씨 표현을 해요체로 완성해요"
+      },
+      "items": [
+        { "q": "It is raining: 비가 ___ →", "a": "와요" },
+        { "q": "It is snowing: 눈이 ___ →", "a": "와요" },
+        { "q": "The sky is clear: 하늘이 ___ (맑다) →", "a": "맑아요" },
+        { "q": "The wind is blowing: 바람이 ___ (불다) →", "a": "불어요" },
+        { "q": "It is cloudy: 날씨가 ___ (흐리다) →", "a": "흐려요" }
+      ]
+    },
+    {
+      "type": "practice",
+      "title": {
+        "en": "Practice D — Choose the fitting weather word",
+        "ko": "알맞은 계절과 날씨 단어를 골라요"
+      },
+      "items": [
+        { "q": "봄에는 날씨가 ___ (따뜻해요 / 추워요) →", "a": "따뜻해요" },
+        { "q": "겨울에는 날씨가 ___ (추워요 / 더워요) →", "a": "추워요" },
+        { "q": "밖에 비가 오니까 ___ 챙기세요 (우산 / 모자) →", "a": "우산" },
+        { "q": "오늘 기온은 영하 5___ 예요 (도 / 원) →", "a": "도" },
+        { "q": "오늘 날씨가 ___ ? (어때요 / 누구예요) →", "a": "어때요" }
+      ]
+    }
+  ],
+  "howto": [
+    "Memorize the 4 seasons: 봄 (spring), 여름 (summer), 가을 (autumn), 겨울 (winter).",
+    "Practice temperature readings using 영상 (above zero) and 영하 (below zero) with Sino-Korean numbers.",
+    "Solve Practice A to D and check your work using the answer key."
+  ],
+  "koSummary": "사계절 명칭(봄, 여름, 가을, 겨울), 주요 날씨 어휘(비가 오다, 눈이 오다, 맑다, 흐리다), 기온 표현(영상, 영하, 도)을 한 장에 정리했습니다. 날씨 질문과 기온 읽기 연습을 풀고 정답지로 확인하세요."
+}

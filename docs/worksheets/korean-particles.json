@@ -1,0 +1,141 @@
+{
+  "id": "korean-particles",
+  "title": {
+    "en": "Essential Korean Particles",
+    "ko": "기초 필수 조사"
+  },
+  "sub": {
+    "en": "Topic (은/는), subject (이/가), object (을/를), location (에/에서), and with/by particles",
+    "ko": "은/는, 이/가, 을/를, 에, 에서, 와/과, (으)로"
+  },
+  "desc": {
+    "en": "Free printable Korean worksheet on essential grammar particles: topic 은/는, subject 이/가, object 을/를, time/location 에 and 에서, connecting 와/과, direction/tool (으)로 with practice exercises and an answer key."
+  },
+  "level": "A1",
+  "sections": [
+    {
+      "type": "table",
+      "title": {
+        "en": "The Core Three Pairs: Topic, Subject & Object",
+        "ko": "기초 3대 조사 쌍"
+      },
+      "cols": [
+        "Particle pair",
+        "Grammar role",
+        "After consonant (받침 O)",
+        "After vowel (받침 X)"
+      ],
+      "rows": [
+        ["은 / 는", "Topic / Contrast (as for)", "은 (선생님은, 가방은)", "는 (저는, 친구는)"],
+        ["이 / 가", "Subject / Specific identifier", "이 (밥이, 물이)", "가 (사과가, 날씨가)"],
+        ["을 / 를", "Direct object (action target)", "을 (책을, 음악을)", "를 (커피를, 영화를)"]
+      ],
+      "note": "Phonetic rule: nouns ending in a final consonant (받침) take 은, 이, 을. Nouns ending in an open vowel take 는, 가, 를."
+    },
+    {
+      "type": "table",
+      "title": {
+        "en": "Location & Time Particles: 에 vs 에서",
+        "ko": "시간과 장소 조사: 에와 에서"
+      },
+      "cols": [
+        "Particle",
+        "Core function",
+        "Common verbs",
+        "Example sentence"
+      ],
+      "rows": [
+        ["에", "Destination (to)", "가다, 오다, 다니다", "학교에 가요."],
+        ["에", "Static location (at / in)", "있다, 없다, 살다", "지금 집에 있어요."],
+        ["에", "Specific point in time (at / on)", "만나다, 시작하다", "오후 2시에 만나요."],
+        ["에서", "Action location (at / in)", "공부하다, 일하다, 먹다", "도서관에서 공부해요."],
+        ["에서", "Starting point (from)", "출발하다, 오다", "서울에서 부산까지 가요."]
+      ],
+      "note": "Key distinction: use 에 for static presence or movement destinations. Use 에서 for the dynamic location where an action takes place."
+    },
+    {
+      "type": "table",
+      "title": {
+        "en": "Connecting & Tool Particles: 와/과 and (으)로",
+        "ko": "접속과 수단 조사"
+      },
+      "cols": [
+        "Particle",
+        "Function",
+        "Forms",
+        "Example sentence"
+      ],
+      "rows": [
+        ["와 / 과", "And / With (polite/written)", "Consonant: 과 / Vowel: 와", "빵과 우유를 사요."],
+        ["하고", "And / With (everyday speech)", "Noun + 하고 (no change)", "친구하고 영화를 봐요."],
+        ["(으)로", "By / With (tool / vehicle)", "Consonant: 으로 / Vowel & ㄹ: 로", "버스로 학교에 가요."],
+        ["(으)로", "Toward (direction)", "Consonant: 으로 / Vowel & ㄹ: 로", "오른쪽으로 가세요."]
+      ],
+      "note": "With (으)로, nouns ending in ㄹ drop the 으: 지하철 + 로 = 지하철로 (not 지하철으로)."
+    },
+    {
+      "type": "practice",
+      "title": {
+        "en": "Practice A — Choose the topic or subject particle (은/는, 이/가)",
+        "ko": "은/는, 이/가 중 알맞은 것을 골라요"
+      },
+      "items": [
+        { "q": "선생님___ 한국 사람이에요 (은 / 는) →", "a": "은" },
+        { "q": "저___ 학생이에요 (은 / 는) →", "a": "는" },
+        { "q": "물___ 시원해요 (이 / 가) →", "a": "이" },
+        { "q": "날씨___ 좋아요 (이 / 가) →", "a": "가" },
+        { "q": "이름___ 무엇입니까? (이 / 가) →", "a": "이" },
+        { "q": "친구___ 집에 와요 (이 / 가) →", "a": "가" }
+      ]
+    },
+    {
+      "type": "practice",
+      "title": {
+        "en": "Practice B — Choose the object particle (을 / 를)",
+        "ko": "을/를 중 알맞은 것을 골라요"
+      },
+      "items": [
+        { "q": "책___ 읽어요 (을 / 를) →", "a": "을" },
+        { "q": "커피___ 마셔요 (을 / 를) →", "a": "를" },
+        { "q": "한국어___ 배워요 (을 / 를) →", "a": "를" },
+        { "q": "음악___ 들어요 (을 / 를) →", "a": "을" },
+        { "q": "사과___ 먹어요 (을 / 를) →", "a": "를" },
+        { "q": "옷___ 사요 (을 / 를) →", "a": "을" }
+      ]
+    },
+    {
+      "type": "practice",
+      "title": {
+        "en": "Practice C — Choose between 에 and 에서",
+        "ko": "에/에서 중 알맞은 것을 골라요"
+      },
+      "items": [
+        { "q": "내일 부산___ 가요 (에 / 에서) →", "a": "에" },
+        { "q": "방___ 책을 읽어요 (에 / 에서) →", "a": "에서" },
+        { "q": "식당___ 밥을 먹어요 (에 / 에서) →", "a": "에서" },
+        { "q": "지금 집___ 있어요 (에 / 에서) →", "a": "에" },
+        { "q": "오후 2시___ 만나요 (에 / 에서) →", "a": "에" }
+      ]
+    },
+    {
+      "type": "practice",
+      "title": {
+        "en": "Practice D — Choose the connecting or tool particle (와/과, (으)로)",
+        "ko": "와/과, (으)로 중 알맞은 것을 골라요"
+      },
+      "items": [
+        { "q": "사과___ 배를 샀어요 (와 / 과) →", "a": "와" },
+        { "q": "책___ 공책이 책상에 있어요 (와 / 과) →", "a": "과" },
+        { "q": "학교에 버스___ 가요 (로 / 으로) →", "a": "로" },
+        { "q": "한국에 비행기___ 왔어요 (로 / 으로) →", "a": "로" },
+        { "q": "지하철___ 갈아타세요 (로 / 으로) →", "a": "로" }
+      ]
+    }
+  ],
+  "howto": [
+    "Check whether the preceding noun ends in a consonant (받침) or vowel to choose between 은/는, 이/가, and 을/를.",
+    "Distinguish between 에 (destination / static presence / time) and 에서 (action venue / starting point).",
+    "Complete Practice A to D and check your answers with the answer key."
+  ],
+  "koSummary": "기초 필수 조사인 은/는, 이/가, 을/를의 받침 유무 선택 규칙, 에와 에서의 기능적 차이, 접속 조사(와/과, 하고) 및 수단·방향 조사((으)로)를 한 장에 정리했습니다. 문제를 풀고 정답지로 확인하세요."
+}

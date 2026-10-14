@@ -1,0 +1,143 @@
+{
+  "id": "directions-transportation",
+  "title": {
+    "en": "Directions & Transportation",
+    "ko": "길 묻기 · 교통 · 방향"
+  },
+  "sub": {
+    "en": "Asking for directions, directional words (left, right, straight), and public transit",
+    "ko": "길 묻기 표현, 방향 어휘(왼쪽, 오른쪽, 곧장), 대중교통 이용하기"
+  },
+  "desc": {
+    "en": "Free printable Korean worksheet on directions and transportation: asking where things are (어디예요?), directional words (왼쪽, 오른쪽, 직진), taking subways and buses (타다, 내리다, 갈아타다) with practice exercises and an answer key."
+  },
+  "level": "A1",
+  "sections": [
+    {
+      "type": "table",
+      "title": {
+        "en": "Direction & Position Words",
+        "ko": "방향과 위치 어휘"
+      },
+      "cols": [
+        "Direction",
+        "Korean",
+        "With particle (으)로",
+        "Example sentence"
+      ],
+      "rows": [
+        ["Left", "왼쪽", "왼쪽으로 (to the left)", "왼쪽으로 가세요."],
+        ["Right", "오른쪽", "오른쪽으로 (to the right)", "오른쪽으로 돌아가세요."],
+        ["Straight ahead", "직진 / 곧장", "앞으로 (straight forward)", "앞으로 쭉 가세요."],
+        ["Across the street", "건너편 / 맞은편", "길 건너편에", "은행 맞은편에 있어요."],
+        ["Between A and B", "사이", "A와 B 사이에", "약국과 마트 사이에 있어요."]
+      ],
+      "note": "The direction particle (으)로 indicates destination or direction: 왼쪽으로 (leftward), 오른쪽으로 (rightward), 앞으로 (forward)."
+    },
+    {
+      "type": "table",
+      "title": {
+        "en": "Asking for Directions",
+        "ko": "길 묻기 필수 표현"
+      },
+      "cols": [
+        "Korean",
+        "English",
+        "Usage / Context",
+        "Spoken reading"
+      ],
+      "rows": [
+        ["실례합니다", "Excuse me", "Polite opening before asking a stranger", "실례함니다"],
+        ["지하철역이 어디예요?", "Where is the subway station?", "Asking for location", "지하철여기 어디예여"],
+        ["어떻게 가요?", "How do I get there?", "Asking for the route or transit method", "어떠케 가여"],
+        ["여기서 멀어요?", "Is it far from here?", "Asking about distance", "여기서 머러여"],
+        ["걸어서 5분 걸려요", "It takes 5 minutes on foot", "Estimated walking time", "거러서 오분 걸려여"],
+        ["이쪽으로 가세요", "Please go this way", "Giving direction", "이쪼그로 가세여"]
+      ],
+      "note": "Standard pattern: [Place]이/가 어디예요? (Where is [place]?) or [Place]에 어떻게 가요? (How do I get to [place]?)"
+    },
+    {
+      "type": "table",
+      "title": {
+        "en": "Public Transportation & Action Verbs",
+        "ko": "대중교통과 동작 동사"
+      },
+      "cols": [
+        "Vehicle",
+        "Korean",
+        "Action verb",
+        "Combined phrase"
+      ],
+      "rows": [
+        ["Subway", "지하철", "타다 (to ride / take)", "지하철을 타요"],
+        ["Bus", "버스", "내리다 (to get off)", "버스에서 내려요"],
+        ["Taxi", "택시", "잡다 / 타다 (catch / take)", "택시를 타요"],
+        ["Train", "기차", "갈아타다 (to transfer)", "기차로 갈아타요"],
+        ["On foot", "걸어서", "가다 (to go on foot)", "걸어서 가요"]
+      ],
+      "note": "Particles: [Vehicle]을/를 타다 (ride vehicle), [Vehicle]에서 내리다 (get off vehicle), [Vehicle](으)로 갈아타다 (transfer to vehicle)."
+    },
+    {
+      "type": "practice",
+      "title": {
+        "en": "Practice A — Write the direction phrase in Korean",
+        "ko": "방향 표현을 한국어로 써요"
+      },
+      "items": [
+        { "q": "To the left →", "a": "왼쪽으로" },
+        { "q": "To the right →", "a": "오른쪽으로" },
+        { "q": "Straight ahead →", "a": "앞으로 / 곧장" },
+        { "q": "Across the street →", "a": "건너편 / 맞은편" },
+        { "q": "Between the buildings →", "a": "사이" }
+      ]
+    },
+    {
+      "type": "practice",
+      "title": {
+        "en": "Practice B — Write the transportation vehicle in Korean",
+        "ko": "교통수단 이름을 한국어로 써요"
+      },
+      "items": [
+        { "q": "Subway →", "a": "지하철" },
+        { "q": "Bus →", "a": "버스" },
+        { "q": "Taxi →", "a": "택시" },
+        { "q": "Train →", "a": "기차" },
+        { "q": "Airplane →", "a": "비행기" }
+      ]
+    },
+    {
+      "type": "practice",
+      "title": {
+        "en": "Practice C — Complete the direction question and answer",
+        "ko": "길 묻기 문장을 완성해요"
+      },
+      "items": [
+        { "q": "Excuse me, where is the station? (실례합니다, 지하철역이 ___ ?) →", "a": "어디예요" },
+        { "q": "Please go to the right (오른쪽___ 가세요) →", "a": "으로" },
+        { "q": "Please go straight ahead (앞으로 ___ 가세요) →", "a": "쭉" },
+        { "q": "It takes 10 minutes (10분 ___ ) →", "a": "걸려요" },
+        { "q": "Is it far from here? (여기서 ___ ?) →", "a": "멀어요" }
+      ]
+    },
+    {
+      "type": "practice",
+      "title": {
+        "en": "Practice D — Choose the fitting transit verb",
+        "ko": "알맞은 교통 동사를 골라요"
+      },
+      "items": [
+        { "q": "버스를 ___ (타요 / 내려요) — I get on the bus →", "a": "타요" },
+        { "q": "지하철에서 ___ (내려요 / 타요) — I get off the subway →", "a": "내려요" },
+        { "q": "2호선으로 ___ (갈아타요 / 멀어요) — Transfer to Line 2 →", "a": "갈아타요" },
+        { "q": "학교까지 ___ 가요 (걸어서 / 내려서) — I go on foot →", "a": "걸어서" },
+        { "q": "택시를 ___ (타요 / 걸려요) — Ride a taxi →", "a": "타요" }
+      ]
+    }
+  ],
+  "howto": [
+    "Learn how to ask for locations using [Place]이/가 어디예요? and [Place]에 어떻게 가요?.",
+    "Practice direction particles: 왼쪽으로 (to the left), 오른쪽으로 (to the right), 앞으로 (straight ahead).",
+    "Master the core transit verbs: 타다 (ride), 내리다 (get off), 갈아타다 (transfer) in Practice A–D."
+  ],
+  "koSummary": "길 묻기 필수 표현(실례합니다, 어디예요?, 어떻게 가요?), 방향 어휘(왼쪽, 오른쪽, 곧장), 주요 대중교통과 동작 동사(타다, 내리다, 갈아타다)를 한 장에 정리했습니다. 문제를 풀고 정답지로 확인하세요."
+}
