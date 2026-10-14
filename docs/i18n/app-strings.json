@@ -1426,5 +1426,81 @@
   {
     "en": "To do",
     "ko": "할 일"
+  },
+  {
+    "en": "{0} homework left · continue",
+    "ko": "남은 숙제 {0}개 · 이어서"
+  },
+  {
+    "en": "Application sent. The teacher view opens once approved.",
+    "ko": "신청했어요. 운영자가 확인하면 선생님 화면이 열려요."
+  },
+  {
+    "en": "Applications are being set up — please email the operator.",
+    "ko": "신청 기능을 준비하고 있어요. 운영자에게 이메일로 문의해 주세요."
+  },
+  {
+    "en": "Apply",
+    "ko": "신청하기"
+  },
+  {
+    "en": "Apply for a teacher account",
+    "ko": "선생님 계정 신청"
+  },
+  {
+    "en": "Could not send — try again shortly.",
+    "ko": "신청하지 못했어요. 조금 뒤에 다시 해 주세요."
+  },
+  {
+    "en": "Create classes, give homework and check or present submissions on the web.",
+    "ko": "반 만들기 · 숙제 내기 · 제출 확인과 수업에서 보여주기는 웹 화면에서 해요."
+  },
+  {
+    "en": "Not approved this time — add more detail and apply again.",
+    "ko": "이번에는 열리지 않았어요. 설명을 더 적어서 다시 신청해 보세요."
+  },
+  {
+    "en": "Open class on the web",
+    "ko": "웹 반 화면 열기"
+  },
+  {
+    "en": "Start: {0}",
+    "ko": "바로 하기: {0}"
+  },
+  {
+    "en": "submissions to check",
+    "ko": "확인할 제출"
+  },
+  {
+    "en": "Teacher",
+    "ko": "선생님"
+  },
+  {
+    "en": "Teacher accounts open after a quick review — teachers can see student names and submissions.",
+    "ko": "선생님 계정은 운영자가 확인한 뒤에 열려요. 학생 이름과 제출물을 보는 기능이라서요."
+  },
+  {
+    "en": "Teacher view",
+    "ko": "선생님 화면"
+  },
+  {
+    "en": "Where do you teach? e.g. Preply, a school",
+    "ko": "어디서 가르치세요? 예: Preply · 학교 · 학원"
+  },
+  {
+    "en": "Your name",
+    "ko": "이름"
+  },
+  {
+    "en": "I'm a student",
+    "ko": "학생이에요"
+  },
+  {
+    "en": "I'm a teacher",
+    "ko": "선생님이에요"
+  },
+  {
+    "en": "Teacher accounts open after a quick review: sign in, then apply in My class.",
+    "ko": "선생님 계정은 확인 뒤에 열려요. 먼저 로그인하고, 우리 반에서 신청해 주세요."
   }
 ]
