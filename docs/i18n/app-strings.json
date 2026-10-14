@@ -1402,5 +1402,29 @@
   {
     "en": "Written / photo",
     "ko": "글 · 사진 제출"
+  },
+  {
+    "en": "Do & submit",
+    "ko": "하고 제출"
+  },
+  {
+    "en": "Enter code",
+    "ko": "코드 입력"
+  },
+  {
+    "en": "Finished",
+    "ko": "끝낸 숙제"
+  },
+  {
+    "en": "See homework",
+    "ko": "숙제 보기"
+  },
+  {
+    "en": "Submitted · waiting for your teacher",
+    "ko": "제출함 · 확인을 기다려요"
+  },
+  {
+    "en": "To do",
+    "ko": "할 일"
   }
 ]

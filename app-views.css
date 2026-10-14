@@ -7215,3 +7215,20 @@ body.cls-pres-on { overflow:hidden; }
 .cls-pres-bar button.on { background:var(--green); border-color:var(--green); color:#fff; }
 .cls-pres-fb { flex:1; min-width:0; padding:11px 14px; border:1.5px solid var(--line); border-radius:12px; font:inherit; font-size:15px; }
 @media (max-width:640px) { .cls-pres-bar { flex-wrap:wrap; } .cls-pres-fb { flex:1 1 100%; order:-1; } }
+/* 선생님 첫 화면 — 확인할 제출 · 시작 안내(2026-10-14) */
+.cls-inbox { border-color:var(--orange); background:var(--tint); }
+.cls-inbox.ok { border-color:rgba(18,112,79,.28); background:var(--surface); color:var(--green); font-weight:800; }
+.cls-inbox.ok p { margin:0; }
+.cls-inbox-h { display:flex; align-items:center; justify-content:space-between; gap:10px; flex-wrap:wrap; }
+.cls-inbox-h h3 { margin:0; font-size:17px; color:var(--ink); }
+.cls-inbox ul { list-style:none; margin:10px 0 0; padding:0; display:grid; gap:6px; }
+.cls-inbox li button { width:100%; display:flex; align-items:center; gap:10px; padding:10px 12px; border:1px solid var(--line); border-radius:12px; background:var(--surface); cursor:pointer; text-align:left; font:inherit; }
+.cls-inbox li b { color:var(--ink); }
+.cls-inbox li span { flex:1; min-width:0; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; color:var(--ink-3); font-size:13.5px; }
+.cls-inbox li em { font-style:normal; color:var(--ink-3); font-size:12.5px; }
+.cls-guide h3 { margin:0 0 10px; font-size:17px; color:var(--ink); }
+.cls-guide ol { list-style:none; margin:0; padding:0; display:grid; gap:8px; }
+.cls-guide li { display:flex; align-items:center; gap:10px; flex-wrap:wrap; color:var(--ink-3); }
+.cls-guide li b { width:26px; height:26px; border-radius:50%; display:inline-flex; align-items:center; justify-content:center; background:var(--surface-2); color:var(--ink-3); font-size:13px; flex:0 0 auto; }
+.cls-guide li.ok { color:var(--green); } .cls-guide li.ok b { background:rgba(18,112,79,.14); color:var(--green); }
+.cls-guide li.now { color:var(--ink); font-weight:800; } .cls-guide li.now b { background:var(--orange); color:#fff; }
