@@ -7327,3 +7327,25 @@ body.cls-pres-on { overflow:hidden; }
 .lib-wide > .ls-body { padding-top:16px; }
 .lib-sheet.lib-wide { grid-column:auto; }
 @media (max-width:520px) { .sf-desk { flex-direction:row; padding:12px; } .sf-cover { width:84px; height:116px; } .sf-ct { font-size:12px; } }
+
+/* 오늘 할 일 정리(2026-10-15 운영자 「조금 어색」) — 한 줄 흐름 · 막대 하나 · 폭 맞춤 */
+.td-slots { grid-template-columns:1fr; gap:6px; }
+.td-slot { padding:11px 14px; }
+.td-slot:not(.next):not(.done) { opacity:.62; }
+.td-slot:not(.next):not(.done):hover { opacity:1; }
+.td-chk { display:grid; place-items:center; font-size:12px; font-weight:800; color:var(--ink-3); }
+.td-slot.next .td-chk { background:var(--td-cheese); border-color:var(--td-cheese-d); color:var(--td-line); }
+.td-slot.next { border-width:1.5px; }
+.td-lv-t { display:flex; justify-content:space-between; gap:10px; margin:0; font-size:13px; color:var(--ink-3); }
+.td-lv-t b { color:var(--ink); font-size:13.5px; }
+.td-streakbox.calm { grid-template-columns:1fr; gap:12px; }
+.td-streakbox.calm .td-mini-t span { font-size:14px; }
+.hm-mp-start { font-size:13px; font-weight:700; color:#FFE699; opacity:.9; }
+.hm-mp.zero .hm-mp-bar, .hm-mp.zero .hm-mp-sum { display:none; }
+/* 한 줄 흐름(2026-10-15 운영자 「…1번부터 5번 다」) — 2026-10-12 의 가로 칩 넷을 세로 단계 목록으로 되돌려, 무엇을 · 몇 번째인지 보이게 */
+.td-card:not(.ck) .td-slots { display:grid; grid-template-columns:1fr; gap:6px; }
+.td-card:not(.ck) .td-slot { flex:none; min-width:0; padding:11px 14px; gap:12px; }
+.td-card:not(.ck) .td-slot .td-t { display:block; }
+.td-card:not(.ck) .td-slot .td-k { font-size:12px; font-weight:400; color:var(--ink-3); }
+.td-card:not(.ck) .td-slot .td-end { display:block; }
+.td-card:not(.ck) .td-slot.done .td-k { text-decoration:none; }
