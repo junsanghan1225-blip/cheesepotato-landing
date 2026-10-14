@@ -1,0 +1,141 @@
+{
+  "id": "wishes-obligations-permissions",
+  "title": {
+    "en": "Wishes, Obligations & Permissions",
+    "ko": "하고 싶다 · 해야 하다 · 해도 되다"
+  },
+  "sub": {
+    "en": "Expressing wishes (-고 싶다), obligations (-아야/어야 하다), and permissions (-아/어도 되다, -(으)면 안 되다)",
+    "ko": "-고 싶다(희망), -아야/어야 하다(의무), -아/어도 되다(허락), -(으)면 안 되다(금지)"
+  },
+  "desc": {
+    "en": "Free printable Korean worksheet on wishes and rules: -고 싶다 (want to), -아야/어야 하다 (must/have to), -아/어도 되다 (may/allowed to), and -(으)면 안 되다 (must not) with grammar rules, practice and an answer key."
+  },
+  "level": "A2",
+  "sections": [
+    {
+      "type": "table",
+      "title": {
+        "en": "The 4 Core Modal Patterns",
+        "ko": "4대 표현 비교"
+      },
+      "cols": [
+        "Grammar pattern",
+        "Meaning",
+        "Conjugation rule",
+        "Example sentence"
+      ],
+      "rows": [
+        ["-고 싶다", "Want to (wish / desire)", "Verb stem + -고 싶다", "한국에 가고 싶어요."],
+        ["-아야 / -어야 하다", "Must / Have to (obligation)", "ㅏ/ㅗ: -아야 하다, Other: -어야 하다, 하다: 해야 하다", "내일 일찍 일어나야 해요."],
+        ["-아 / -어도 되다", "May / Can (permission)", "ㅏ/ㅗ: -아도 되다, Other: -어도 되다", "여기 앉아도 돼요."],
+        ["-(으)면 안 되다", "Must not (prohibition)", "Vowel: -면 안 되다, Consonant: -으면 안 되다", "여기서 담배를 피우면 안 돼요."]
+      ],
+      "note": "For 3rd person desires, use -고 싶어 하다 (동생이 한국에 가고 싶어 해요). To ask permission, raise the ending tone: '들어가도 돼요?' (May I come in?)."
+    },
+    {
+      "type": "table",
+      "title": {
+        "en": "Vowel Harmony for -아야/어야 하다 & -아/어도 되다",
+        "ko": "모음 조화 규칙"
+      },
+      "cols": [
+        "Stem vowel",
+        "Pattern",
+        "Base verb",
+        "Obligation (-아야/어야 해요)",
+        "Permission (-아/어도 돼요)"
+      ],
+      "rows": [
+        ["ㅏ, ㅗ", "-아-", "가다 (to go)", "가야 해요", "가도 돼요"],
+        ["ㅏ, ㅗ", "-아-", "보다 (to see)", "봐야 해요", "봐도 돼요"],
+        ["ㅓ, ㅜ, ㅡ, ㅣ", "-어-", "먹다 (to eat)", "먹어야 해요", "먹어도 돼요"],
+        ["ㅓ, ㅜ, ㅡ, ㅣ", "-어-", "쉬다 (to rest)", "쉬어야 해요", "쉬어도 돼요"],
+        ["하다", "해-", "공부하다 (to study)", "공부해야 해요", "공부해도 돼요"]
+      ],
+      "note": "Follows the exact same vowel harmony rule as 해요체: ㅏ/ㅗ takes -아-, everything else takes -어-, and 하다 becomes 해-."
+    },
+    {
+      "type": "table",
+      "title": {
+        "en": "Prohibition with -(으)면 안 되다",
+        "ko": "금지 표현: -(으)면 안 되다"
+      },
+      "cols": [
+        "Ending of stem",
+        "Pattern",
+        "Base verb",
+        "Prohibition form"
+      ],
+      "rows": [
+        ["Vowel stem", "-면 안 되다", "하다 (to do)", "하면 안 돼요 (must not do)"],
+        ["Consonant stem", "-으면 안 되다", "먹다 (to eat)", "먹으면 안 돼요 (must not eat)"],
+        ["Consonant stem", "-으면 안 되다", "찍다 (to photograph)", "찍으면 안 돼요 (must not take photos)"],
+        ["ㄹ stem (ㄹ stays)", "-면 안 되다", "만들다 (to make)", "만들면 안 돼요 (must not make)"]
+      ],
+      "note": "Notice spoken reading: 안 돼요 is pronounced [안 대요]."
+    },
+    {
+      "type": "practice",
+      "title": {
+        "en": "Practice A — Express wishes with -고 싶다",
+        "ko": "-고 싶다로 소망을 표현해요"
+      },
+      "items": [
+        { "q": "한국어를 배우다 → 한국어를 배우___", "a": "고 싶어요" },
+        { "q": "친구를 만나다 → 친구를 만나___", "a": "고 싶어요" },
+        { "q": "피자를 먹다 → 피자를 먹___", "a": "고 싶어요" },
+        { "q": "집에서 쉬다 → 집에서 쉬___", "a": "고 싶어요" },
+        { "q": "영화관에 가다 → 영화관에 가___", "a": "고 싶어요" }
+      ]
+    },
+    {
+      "type": "practice",
+      "title": {
+        "en": "Practice B — Obligation with -아야/어야 해요",
+        "ko": "-아야/어야 해요로 의무를 표현해요"
+      },
+      "items": [
+        { "q": "내일 시험이 있어서 공부하다 → 열심히 공부___", "a": "해야 해요" },
+        { "q": "약속 시간에 늦지 않게 가다 → 지금 가___", "a": "야 해요" },
+        { "q": "건강을 위해 밥을 잘 먹다 → 밥을 잘 먹___", "a": "어야 해요" },
+        { "q": "도서관 책을 돌려주다 → 책을 돌려주___", "a": "어야 해요" },
+        { "q": "손을 깨끗이 씻다 → 손을 씻___", "a": "어야 해요" }
+      ]
+    },
+    {
+      "type": "practice",
+      "title": {
+        "en": "Practice C — Choose between permission and prohibition",
+        "ko": "허락과 금지 중 알맞은 것을 골라요"
+      },
+      "items": [
+        { "q": "여기서 사진을 ___ (찍어도 돼요 / 찍으면 안 돼요) — Taking photos is allowed →", "a": "찍어도 돼요" },
+        { "q": "수업 중에 큰 소리로 ___ (떠들어도 돼요 / 떠들면 안 돼요) — Must not be loud →", "a": "떠들면 안 돼요" },
+        { "q": "질문이 있으면 ___ (물어봐도 돼요 / 물어보면 안 돼요) — May ask questions →", "a": "물어봐도 돼요" },
+        { "q": "박물관 전시품을 손으로 ___ (만져도 돼요 / 만지면 안 돼요) — Must not touch →", "a": "만지면 안 돼요" },
+        { "q": "피곤하면 방에서 ___ (쉬어도 돼요 / 쉬면 안 돼요) — You may rest →", "a": "쉬어도 돼요" }
+      ]
+    },
+    {
+      "type": "practice",
+      "title": {
+        "en": "Practice D — Complete the sentence for the situation",
+        "ko": "상황에 맞는 표현을 골라요"
+      },
+      "items": [
+        { "q": "배가 너무 고파요. 라면을 먹___ (고 싶어요 / 어야 해요) →", "a": "고 싶어요" },
+        { "q": "감기에 걸렸어요. 병원에 가___ (고 싶어요 / 야 해요) →", "a": "야 해요" },
+        { "q": "이 컴퓨터를 써도 ___ ? (돼요 / 싶어요) — Asking permission →", "a": "돼요" },
+        { "q": "도서관에서는 전화를 받으면 ___ (안 돼요 / 돼요) →", "a": "안 돼요" },
+        { "q": "오늘 날씨가 좋아서 산책하___ (고 싶어요 / 면 안 돼요) →", "a": "고 싶어요" }
+      ]
+    }
+  ],
+  "howto": [
+    "Use -고 싶다 for 1st person wishes, and -고 싶어 하다 for 3rd person desires.",
+    "Apply vowel harmony for obligations (-아야/어야 하다) and permissions (-아/어도 되다).",
+    "Use -(으)면 안 되다 for strict prohibitions. Solve Practice A to D."
+  ],
+  "koSummary": "소망과 희망을 나타내는 -고 싶다, 필수 의무를 나타내는 -아야/어야 하다, 허락을 구하거나 나타내는 -아/어도 되다, 금지를 표현하는 -(으)면 안 되다의 규칙과 활용 연습을 한 장에 정리했습니다."
+}

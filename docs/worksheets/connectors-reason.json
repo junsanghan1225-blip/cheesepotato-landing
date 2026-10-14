@@ -1,0 +1,140 @@
+{
+  "id": "connectors-reason",
+  "title": {
+    "en": "Cause, Reason & Sentence Connectors",
+    "ko": "이유와 이어 주는 말: -아서/어서 · -(으)니까 · 그리고 · 그래서"
+  },
+  "sub": {
+    "en": "Expressing cause with -아서/어서 and -(으)니까, conjunctions 그리고, 그래서, 그런데, 하지만",
+    "ko": "이유 표현(-아서/어서, -(으)니까)의 차이점, 문장 접속사(그리고, 그래서, 그런데, 하지만)"
+  },
+  "desc": {
+    "en": "Free printable Korean worksheet on cause, reason and sentence connectors: -아서/어서 vs -(으)니까, conjunctions 그리고, 그래서, 그런데, 하지만 with grammar rules, contrast table, practice and an answer key."
+  },
+  "level": "A2",
+  "sections": [
+    {
+      "type": "table",
+      "title": {
+        "en": "Reason Connectives: -아서/어서 vs -(으)니까",
+        "ko": "이유 연결 어미 비교"
+      },
+      "cols": [
+        "Grammar ending",
+        "Meaning",
+        "Main rule / Restriction",
+        "Example sentence"
+      ],
+      "rows": [
+        ["-아서 / -어서", "Because / So (general cause)", "Never use with imperatives (-세요) or suggestions (-자 / -(으)ㅂ시다)", "비가 와서 집에 있어요."],
+        ["-(으)니까", "Since / Because (speaker's ground)", "Natural with imperatives (-세요) and suggestions (-(으)ㄹ까요)", "비가 오니까 우산을 쓰세요."],
+        ["Noun + (이)라서", "Because it is [noun]", "Consonant: 이라서 / Vowel: 라서", "일요일이라서 쉬어요."]
+      ],
+      "note": "Critical rule: never use -아서/어서 in imperative (주세요, 가세요) or suggestion (갑시다, 만나요) sentences: '더워서 에어컨을 켜세요' (X) → '더우니까 에어컨을 켜세요' (O)."
+    },
+    {
+      "type": "table",
+      "title": {
+        "en": "Sentence Connectors",
+        "ko": "문장 접속 부사"
+      },
+      "cols": [
+        "Conjunction",
+        "English meaning",
+        "Role / Usage",
+        "Example sentence"
+      ],
+      "rows": [
+        ["그리고", "And / And then", "Connects two equal facts or consecutive actions", "사과를 샀어요. 그리고 빵도 샀어요."],
+        ["그래서", "So / Therefore", "Introduces the result or consequence of sentence 1", "배가 고팠어요. 그래서 밥을 먹었어요."],
+        ["그런데", "By the way / But", "Shifts the topic or contrasts with sentence 1", "백화점에 갔어요. 그런데 문을 닫았어요."],
+        ["하지만 / 그렇지만", "However / But", "Direct contrast between sentence 1 and 2", "한국어는 어려워요. 하지만 재미있어요."]
+      ],
+      "note": "그런데 can mean 'but' (contrast) or 'by the way' (changing topic). 하지만 is strictly contrastive ('however')."
+    },
+    {
+      "type": "table",
+      "title": {
+        "en": "Vowel Harmony for -아서 / -어서",
+        "ko": "모음 조화 규칙"
+      },
+      "cols": [
+        "Stem vowel",
+        "Ending",
+        "Base verb",
+        "Connected form"
+      ],
+      "rows": [
+        ["Bright vowels (ㅏ, ㅗ)", "-아서", "만나다 (to meet)", "만나서"],
+        ["Bright vowels (ㅏ, ㅗ)", "-아서", "좋다 (to be good)", "좋아서"],
+        ["Dark vowels (ㅓ, ㅜ, ㅡ, ㅣ 등)", "-어서", "먹다 (to eat)", "먹어서"],
+        ["Dark vowels (ㅓ, ㅜ, ㅡ, ㅣ 등)", "-어서", "맛있다 (to be tasty)", "맛있어서 [마시써서]"],
+        ["하다 verbs", "-해서", "공부하다 (to study)", "공부해서"]
+      ],
+      "note": "Notice spoken reading: 맛있어서 is pronounced [마시써서] due to liaison."
+    },
+    {
+      "type": "practice",
+      "title": {
+        "en": "Practice A — Connect verbs with -아서/어서",
+        "ko": "모음 조화에 맞게 -아서/어서로 연결해요"
+      },
+      "items": [
+        { "q": "날씨가 좋다 → 날씨가 ___ 기분이 좋아요", "a": "좋아서" },
+        { "q": "밥을 많이 먹다 → 밥을 많이 ___ 배가 불러요", "a": "먹어서" },
+        { "q": "친구를 만나다 → 친구를 ___ 반가웠어요", "a": "만나서" },
+        { "q": "열심히 공부하다 → 열심히 ___ 시험을 잘 봤어요", "a": "공부해서" },
+        { "q": "영화가 재미있다 → 영화가 ___ 또 보고 싶어요", "a": "재미있어서" },
+        { "q": "길이 막히다 → 길이 ___ 늦었어요", "a": "막혀서" }
+      ]
+    },
+    {
+      "type": "practice",
+      "title": {
+        "en": "Practice B — Choose between -아서/어서 and -(으)니까",
+        "ko": "-아서/어서와 -(으)니까 중 알맞은 것을 골라요"
+      },
+      "items": [
+        { "q": "날씨가 ___ 따뜻하게 입으세요 (추워서 / 추우니까)", "a": "추우니까" },
+        { "q": "배가 ___ 같이 식당에 갈까요? (고파서 / 고프니까)", "a": "고프니까" },
+        { "q": "어제 머리가 ___ 일찍 잤어요 (아파서 / 아프니까)", "a": "아파서" },
+        { "q": "시간이 ___ 택시를 탑시다 (없어서 / 없으니까)", "a": "없으니까" },
+        { "q": "버스가 ___ 늦었어요 (늦게 와서 / 늦게 오니까)", "a": "늦게 와서" }
+      ]
+    },
+    {
+      "type": "practice",
+      "title": {
+        "en": "Practice C — Choose the correct sentence connector",
+        "ko": "알맞은 접속 부사를 골라요"
+      },
+      "items": [
+        { "q": "비가 와요. ___ 우산을 가져가세요 (그래서 / 그리고) →", "a": "그래서" },
+        { "q": "한국 노래를 좋아해요. ___ 한국 드라마도 좋아해요 (그리고 / 하지만) →", "a": "그리고" },
+        { "q": "가방이 아주 예뻐요. ___ 너무 비싸요 (하지만 / 그래서) →", "a": "하지만" },
+        { "q": "서점에 갔어요. ___ 책이 다 팔렸어요 (그런데 / 그리고) →", "a": "그런데" },
+        { "q": "아침을 안 먹었어요. ___ 지금 배가 고파요 (그래서 / 하지만) →", "a": "그래서" }
+      ]
+    },
+    {
+      "type": "practice",
+      "title": {
+        "en": "Practice D — Complete the reason sentence",
+        "ko": "이유 문장을 완성해요"
+      },
+      "items": [
+        { "q": "오늘은 일요일___ 학교에 안 가요 (이라서 / 라서)", "a": "이라서" },
+        { "q": "내일은 제 생일___ 파티를 해요 (이라서 / 라서)", "a": "이라서" },
+        { "q": "친구___ 한국 사람이라서 한국어를 잘해요 (는 / 가)", "a": "는" },
+        { "q": "눈이 많이 ___ 길이 미끄러워요 (와서 / 오고)", "a": "와서" },
+        { "q": "피곤___ 일찍 쉬세요 (하니까 / 해서)", "a": "하니까" }
+      ]
+    }
+  ],
+  "howto": [
+    "Remember that -아서/어서 cannot be combined with imperative (-세요) or propositive (-(으)ㅂ시다, -(으)ㄹ까요) sentences — use -(으)니까 instead.",
+    "Practice vowel harmony: ㅏ/ㅗ takes -아서, other vowels take -어서, and 하다 becomes 해서.",
+    "Complete Practice A to D and check your answers with the answer key."
+  ],
+  "koSummary": "이유를 나타내는 연결 어미 -아서/어서와 -(으)니까의 핵심 문법 차이(명령문·청유문 결합 가능 여부), 명사와 결합하는 (이)라서, 그리고 대표적인 접속 부사(그리고, 그래서, 그런데, 하지만)의 쓰임을 한 장에 정리했습니다."
+}
