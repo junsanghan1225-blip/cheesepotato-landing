@@ -39,6 +39,7 @@
 | 11f | **발음 표시 눈으로 확인** — 머지 뒤 사전 쪽(예: `/dictionary/혈액형.html`) 아무거나 10개를 열어 「Pronounced […]」가 맞는지 봐 주세요. 틀린 것이 있으면 낱말만 알려 주시면 규칙을 고쳐요 | 운영자 |
 | 11g | **알림 메일 실제로 받아 보기** — 설정에서 「매일 공부 알림 메일」을 켜고(확인 창 → 확인) 시각을 지금 시각으로 → 다음 정각 5분쯤 메일이 오는지, 스팸함 확인, 맨 아래 「그만 받기」가 되는지 | 운영자 |
 | 11h | **도우미 이어 묻기 시험** — 로그인하고 도우미에 낱말을 묻고 「예문 하나 더」로 이어 물어 보기 | 운영자 |
+| 11i | **쓰기 답안 공유 SQL 실행** — Supabase SQL Editor 에서 `db/add_writing_share.sql` 한 번(먼저 `add_community.sql` 이 돌려져 있어야 함). 그 뒤 TOPIK 쓰기 53·54 를 AI 채점하고 「내 답안을 …」 체크 → 올리기 → 「다른 학생 답안 보기」 확인 | 운영자 |
 | 11i | **새 메일(cheesepotato@everykoreans.com)로 바꿀 곳 — 사이트 밖**: 앱 저장소(cheesepotatoapp)의 문의 주소 · 플레이스토어 개발자 연락처 · Polar · Resend 계정 메일 · Search Console · Clarity · Supabase 알림. (사이트 쪽은 Claude 가 바꿈) | 운영자 · 앱 때 |
 | 11 | Polar 에서 지금 유료 사용자 수 | PRD 기준선 |
 | 12 | PRD ⚠ 남은 것(90일 숫자 · 부트캠프 · 기관 요금 · EPS 시기 · 언어 · iOS) | `docs/prd.md` 10항 |
