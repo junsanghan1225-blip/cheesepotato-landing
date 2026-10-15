@@ -7429,3 +7429,6 @@ button.hero-how { border:none; font:inherit; font-weight:700; cursor:pointer; }
 .ls-steps span.on { background:var(--ink); color:var(--surface); }
 .ls-steps span.done { color:var(--ok,#2f7d4f); }
 .ls-steps span.done::before { content:'✓ '; }
+.ls-pace-row { display:flex; justify-content:center; padding:0 0 8px; }
+.ls-pace { border:1px solid var(--line); background:var(--tint); color:var(--ink-2); font:inherit; font-size:12px; font-weight:700; padding:3px 12px; border-radius:999px; cursor:pointer; }
+.ls-pace[hidden] { display:none; }
