@@ -9,11 +9,11 @@
    더 긴 문법이 같은 자리를 잡으면(「-기에」 ⊂ 「-기에 망정이지」) 짧은 쪽에서는 그 문장을 쓰지 않는다. */
 import fs from 'node:fs';
 import path from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { fileURLToPath, pathToFileURL } from 'node:url';
 import { grammarMarkRe } from '../grammar-mark.js';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
-const imp = (f) => import(path.join(ROOT, f));
+const imp = (f) => import(pathToFileURL(path.join(ROOT, f)).href);
 const { SB_CATS, SB_MORE, SB_SEED } = await imp('sentences.js');
 const PTS = SB_CATS.flatMap((c) => c.points);
 
