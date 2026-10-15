@@ -7445,3 +7445,17 @@ button.hero-how { border:none; font:inherit; font-weight:700; cursor:pointer; }
 .td-weak span { grid-column:1 / -1; font-size:12px; font-weight:800; color:#b4531f; }
 .td-weak b { min-width:0; overflow-wrap:anywhere; }
 .td-weak i { font-style:normal; font-size:13px; color:var(--ink-3); white-space:nowrap; }
+/* 학습 스타일 · 접힌 설명 · 힌트(2026-10-15) */
+.td-style { display:block; width:100%; margin:8px 0 0; padding:9px 12px; border:none; border-radius:12px; background:var(--tint); color:var(--ink-2); font:inherit; font-size:13px; font-weight:700; text-align:left; cursor:pointer; }
+.td-style.on { background:transparent; color:var(--ink-3); padding-left:2px; }
+.sty-big { font-size:54px; text-align:center; line-height:1.1; }
+.sty-opts { display:grid; gap:10px; margin:14px 0; }
+.sty-o { width:100%; padding:14px 16px; border:1px solid var(--line); border-radius:14px; background:var(--card,#fff); color:var(--ink); font:inherit; font-size:16px; font-weight:700; text-align:left; cursor:pointer; }
+.sty-o:active { background:var(--tint); }
+.sty-ul { margin:10px 0; padding-left:20px; line-height:1.8; font-size:15px; }
+.sty-note { font-size:13px; color:var(--ink-3); margin:6px 0 12px; }
+.bk-fold { margin:8px 0; border:1px solid var(--line); border-radius:12px; padding:8px 12px; }
+.bk-fold > summary { cursor:pointer; font-weight:700; font-size:14px; color:var(--ink-2); }
+.ex-hint { margin-top:10px; padding:10px 12px; border-radius:10px; background:var(--tint); font-size:14px; line-height:1.6; }
+.sty .ds-btns { flex-direction:column; align-items:stretch; }
+.sty .ds-btns button { width:100%; }
