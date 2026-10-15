@@ -1,7 +1,80 @@
 {
   "gr-02": [
-    { "t": "compare", "h": "Past or future?", "a": { "h": "-았/었어요", "d": "It already happened.", "ex": ["어제 빵을 먹**었어요**. — I ate bread yesterday."] }, "b": { "h": "-(으)ㄹ 거예요", "d": "It has not happened yet — a plan or a guess.", "ex": ["내일 빵을 먹**을 거예요**. — I will eat bread tomorrow."] }, "tip": "Look for the time word first: 어제 (yesterday) → 았/었어요, 내일 (tomorrow) → (으)ㄹ 거예요." },
-    { "t": "dictate", "say": "어제 친구를 만났어요", "answers": ["어제 친구를 만났어요"], "hint": "만났어요 = 만나 + 았어요 (the vowels merge).", "why": "만나 ends in ㅏ, so 았어요 merges into 만났어요." },
-    { "t": "write", "q": "Write one sentence about something you did yesterday.", "must": ["어제"], "sample": "어제 영화를 봤어요.", "why": "Put 어제 first, then the past ending 았/었어요." }
+    {
+      "t": "compare",
+      "h": "Past or future?",
+      "a": {
+        "h": "-았/었어요",
+        "d": "It already happened.",
+        "ex": [
+          "어제 빵을 먹**었어요**. — I ate bread yesterday."
+        ]
+      },
+      "b": {
+        "h": "-(으)ㄹ 거예요",
+        "d": "It has not happened yet — a plan or a guess.",
+        "ex": [
+          "내일 빵을 먹**을 거예요**. — I will eat bread tomorrow."
+        ]
+      },
+      "tip": "Look for the time word first: 어제 (yesterday) → 았/었어요, 내일 (tomorrow) → (으)ㄹ 거예요."
+    },
+    {
+      "t": "dictate",
+      "say": "어제 친구를 만났어요",
+      "answers": [
+        "어제 친구를 만났어요"
+      ],
+      "hint": "만났어요 = 만나 + 았어요 (the vowels merge).",
+      "why": "만나 ends in ㅏ, so 았어요 merges into 만났어요."
+    },
+    {
+      "t": "write",
+      "q": "Write one sentence about something you did yesterday.",
+      "must": [
+        "어제"
+      ],
+      "sample": "어제 영화를 봤어요.",
+      "why": "Put 어제 first, then the past ending 았/었어요."
+    },
+    {
+      "t": "conj",
+      "h": "Fill the forms",
+      "forms": [
+        "present",
+        "past",
+        "future"
+      ],
+      "verbs": [
+        {
+          "v": "가다",
+          "pos": "동사",
+          "en": "to go"
+        },
+        {
+          "v": "먹다",
+          "pos": "동사",
+          "en": "to eat"
+        },
+        {
+          "v": "공부하다",
+          "pos": "동사",
+          "en": "to study"
+        },
+        {
+          "v": "읽다",
+          "pos": "동사",
+          "en": "to read"
+        }
+      ]
+    },
+    {
+      "t": "cando",
+      "items": [
+        "I can say what I did yesterday with 았/었어요.",
+        "I can say my plan with -(으)ㄹ 거예요.",
+        "I can tell 갔어요 from 갈 거예요."
+      ]
+    }
   ]
 }
