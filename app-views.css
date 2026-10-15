@@ -7422,3 +7422,40 @@ button.hero-how { border:none; font:inherit; font-weight:700; cursor:pointer; }
 .tw-share-i p { margin:0 0 8px; white-space:pre-wrap; line-height:1.7; font-size:15px; }
 .tw-share-f { display:flex; justify-content:space-between; align-items:center; font-size:12px; color:var(--ink-3); }
 .tw-share-f button { border:none; background:none; color:var(--ink-3); font:inherit; text-decoration:underline; cursor:pointer; }
+/* 레슨 단계 막대(2026-10-15) — 배우기 · 연습 · 만들기 · 점검 */
+.ls-steps { display:flex; gap:6px; justify-content:center; padding:0 0 8px; font-size:12px; font-weight:700; color:var(--ink-3); }
+.ls-steps[hidden] { display:none; }
+.ls-steps span { padding:3px 10px; border-radius:999px; background:var(--tint); transition:background .2s, color .2s; }
+.ls-steps span.on { background:var(--ink); color:var(--surface); }
+.ls-steps span.done { color:var(--ok,#2f7d4f); }
+.ls-steps span.done::before { content:'✓ '; }
+.ls-pace-row { display:flex; justify-content:center; padding:0 0 8px; }
+.ls-pace { border:1px solid var(--line); background:var(--tint); color:var(--ink-2); font:inherit; font-size:12px; font-weight:700; padding:3px 12px; border-radius:999px; cursor:pointer; }
+.ls-pace[hidden] { display:none; }
+/* 약점 지도 · 오늘의 한 가지(2026-10-15) */
+.wn-map { display:grid; gap:12px; margin:0 0 18px; padding:14px; border:1px solid var(--line); border-radius:14px; background:var(--card,#fff); }
+.wn-map > b { font-size:15px; }
+.wn-wm { display:grid; gap:6px; }
+.wn-wm-h { display:flex; justify-content:space-between; align-items:baseline; gap:8px; font-weight:700; }
+.wn-wm-h em { font-style:normal; font-size:12px; color:#b4531f; }
+.wn-wm-bar { height:8px; border-radius:6px; background:var(--tint); overflow:hidden; }
+.wn-wm-bar i { display:block; height:100%; background:#e1682b; border-radius:6px; }
+.wn-wm-none { margin:0; font-size:14px; color:var(--ink-3); line-height:1.6; }
+.td-weak { display:grid; grid-template-columns:1fr auto; align-items:center; gap:2px 10px; width:100%; margin:10px 0 0; padding:12px 14px; border:1px dashed #e1682b; border-radius:14px; background:transparent; color:var(--ink); font:inherit; text-align:left; cursor:pointer; }
+.td-weak span { grid-column:1 / -1; font-size:12px; font-weight:800; color:#b4531f; }
+.td-weak b { min-width:0; overflow-wrap:anywhere; }
+.td-weak i { font-style:normal; font-size:13px; color:var(--ink-3); white-space:nowrap; }
+/* 학습 스타일 · 접힌 설명 · 힌트(2026-10-15) */
+.td-style { display:block; width:100%; margin:8px 0 0; padding:9px 12px; border:none; border-radius:12px; background:var(--tint); color:var(--ink-2); font:inherit; font-size:13px; font-weight:700; text-align:left; cursor:pointer; }
+.td-style.on { background:transparent; color:var(--ink-3); padding-left:2px; }
+.sty-big { font-size:54px; text-align:center; line-height:1.1; }
+.sty-opts { display:grid; gap:10px; margin:14px 0; }
+.sty-o { width:100%; padding:14px 16px; border:1px solid var(--line); border-radius:14px; background:var(--card,#fff); color:var(--ink); font:inherit; font-size:16px; font-weight:700; text-align:left; cursor:pointer; }
+.sty-o:active { background:var(--tint); }
+.sty-ul { margin:10px 0; padding-left:20px; line-height:1.8; font-size:15px; }
+.sty-note { font-size:13px; color:var(--ink-3); margin:6px 0 12px; }
+.bk-fold { margin:8px 0; border:1px solid var(--line); border-radius:12px; padding:8px 12px; }
+.bk-fold > summary { cursor:pointer; font-weight:700; font-size:14px; color:var(--ink-2); }
+.ex-hint { margin-top:10px; padding:10px 12px; border-radius:10px; background:var(--tint); font-size:14px; line-height:1.6; }
+.sty .ds-btns { flex-direction:column; align-items:stretch; }
+.sty .ds-btns button { width:100%; }

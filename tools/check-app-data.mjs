@@ -79,6 +79,12 @@ for (const [k, src] of Object.entries(TOPIK_SRC)) {
   if (gr.some((c) => c.points.some((p) => !p.id || !p.name || !p.desc))) err('이름 · 뜻이 빈 문법이 있다');
   if (man.grammar?.n !== n) err('manifest 의 grammar 가 낡았다');
 }
+/* 레슨 ↔ 문법 짝 */
+{
+  const pg = JSON.parse(fs.readFileSync(path.join(ROOT, 'app-data/path-grammar.json'), 'utf8'));
+  const { PATH_GRAMMAR } = await import(pathToFileURL(path.join(ROOT, 'path-map.js')).href);
+  if (Object.keys(pg).length !== Object.keys(PATH_GRAMMAR).length || man.pathGrammar?.n !== Object.keys(pg).length) err('path-grammar.json · manifest 의 pathGrammar 가 낡았다');
+}
 /* 레벨 테스트 */
 {
   const lt = JSON.parse(fs.readFileSync(path.join(ROOT, 'app-data/leveltest.json'), 'utf8'));
