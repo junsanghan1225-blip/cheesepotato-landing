@@ -14,6 +14,7 @@ const DRILL_T = new Set(['choice', 'cloze', 'type', 'order', 'build', 'translate
 const NAME = {}, LV = {};
 for (const c of SBM.SB_CATS) for (const p of c.points) { NAME[p.id] = p.name; LV[p.id] = p.lv; }
 const extraOf = (cid) => { const f = path.join(ROOT, 'lesson-extra', `${cid}.json`); return fs.existsSync(f) ? JSON.parse(fs.readFileSync(f, 'utf8')) : {}; };
+const DE = fs.existsSync(path.join(ROOT, 'drill-extra.json')) ? JSON.parse(fs.readFileSync(path.join(ROOT, 'drill-extra.json'), 'utf8')) : {};   // 안티가 쓴 집중 훈련 추가 문제도 센다
 const count = {}, lessons = {};
 for (const c of COURSES) {
   const ex = extraOf(c.id);
@@ -24,7 +25,7 @@ for (const c of COURSES) {
     for (const g of gs) { count[g] = (count[g] || 0) + n; (lessons[g] ||= []).push(l.id); }
   }
 }
-const rows = Object.keys(NAME).map((g) => ({ g, name: NAME[g], lv: LV[g], n: count[g] || 0, lessons: lessons[g] || [] }));
+const rows = Object.keys(NAME).map((g) => ({ g, name: NAME[g], lv: LV[g], n: (count[g] || 0) + (DE[g] || []).length, lessons: lessons[g] || [] }));
 const NEED = 8;
 const low = rows.filter((r) => r.n < NEED);
 if (!process.argv.includes('--todo')) fs.writeFileSync(path.join(ROOT, 'docs/lesson-blocks/_drill.json'), JSON.stringify(rows.map(({ g, name, lv, n, lessons: ls }) => ({ g, name, lv, n, lessons: ls })), null, 1) + '\n');
