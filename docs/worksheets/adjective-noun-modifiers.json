@@ -1,0 +1,296 @@
+{
+  "id": "adjective-noun-modifiers",
+  "title": {
+    "en": "Noun-Modifying Adjectives: -(으)ㄴ",
+    "ko": "형용사로 명사 꾸미기"
+  },
+  "sub": {
+    "en": "How to turn Korean descriptive verbs into adjectives that modify nouns (e.g. 예쁜 꽃, 맛있는 음식)",
+    "ko": "형용사 어간에 -(으)ㄴ을 붙여 명사를 꾸미는 방법"
+  },
+  "desc": {
+    "en": "Free printable Korean worksheet on noun-modifying adjectives with -(으)ㄴ: 예쁜 꽃, 작은 방, 좋은 친구, irregular ㅂ and ㅎ stems, -있다/-없다 forms with -는, practice exercises and an answer key."
+  },
+  "level": "A2",
+  "sections": [
+    {
+      "type": "table",
+      "title": {
+        "en": "Regular Adjective Modifying Pattern: -(으)ㄴ",
+        "ko": "기본 형용사 명사 수식형"
+      },
+      "cols": [
+        "Dictionary form",
+        "Stem ends in",
+        "Modifying form",
+        "Example phrase with noun"
+      ],
+      "rows": [
+        [
+          "예쁘다 (pretty)",
+          "Vowel (no 받침)",
+          "예쁜",
+          "예쁜 꽃 (a pretty flower)"
+        ],
+        [
+          "크다 (big)",
+          "Vowel (no 받침)",
+          "큰",
+          "큰 가방 (a big bag)"
+        ],
+        [
+          "비싸다 (expensive)",
+          "Vowel (no 받침)",
+          "비싼",
+          "비싼 시계 (an expensive watch)"
+        ],
+        [
+          "작다 (small)",
+          "Consonant (받침 O)",
+          "작은",
+          "작은 방 (a small room)"
+        ],
+        [
+          "좋다 (good)",
+          "Consonant (받침 O)",
+          "좋은",
+          "좋은 친구 (a good friend)"
+        ],
+        [
+          "많다 (many)",
+          "Consonant (받침 O)",
+          "많은",
+          "많은 사람 (many people)"
+        ],
+        [
+          "높다 (high)",
+          "Consonant (받침 O)",
+          "높은",
+          "높은 산 (a high mountain)"
+        ],
+        [
+          "넓다 (spacious)",
+          "Consonant (받침 O)",
+          "넓은",
+          "넓은 집 (a spacious house)"
+        ]
+      ],
+      "note": "Vowel stems take ㄴ at the bottom (크다 → 큰). Consonant stems attach 은 (작다 → 작은). Sound changes: 좋은 is pronounced [조은] (silent ㅎ); 넓은 is pronounced [널븐] (liaison)."
+    },
+    {
+      "type": "table",
+      "title": {
+        "en": "Special & Irregular Adjective Modifiers",
+        "ko": "특수 및 불규칙 형용사 수식형"
+      },
+      "cols": [
+        "Base adjective",
+        "Pattern / Category",
+        "Modifying form",
+        "Example phrase"
+      ],
+      "rows": [
+        [
+          "맛있다 (delicious)",
+          "-있다 family (always -는!)",
+          "맛있는",
+          "맛있는 음식 (delicious food)"
+        ],
+        [
+          "재미있다 (fun / exciting)",
+          "-있다 family (always -는!)",
+          "재미있는",
+          "재미있는 영화 (a fun movie)"
+        ],
+        [
+          "맛없다 (unpalatable)",
+          "-없다 family (always -는!)",
+          "맛없는",
+          "맛없는 음식 (bad-tasting food)"
+        ],
+        [
+          "더운 (hot weather)",
+          "ㅂ irregular (ㅂ → 우 + ㄴ)",
+          "더운",
+          "더운 날씨 (hot weather)"
+        ],
+        [
+          "추운 (cold weather)",
+          "ㅂ irregular (ㅂ → 우 + ㄴ)",
+          "추운",
+          "추운 겨울 (cold winter)"
+        ],
+        [
+          "어렵다 (difficult)",
+          "ㅂ irregular (ㅂ → 우 + ㄴ)",
+          "어려운",
+          "어려운 시험 (a difficult exam)"
+        ],
+        [
+          "쉽다 (easy)",
+          "ㅂ irregular (ㅂ → 우 + ㄴ)",
+          "쉬운",
+          "쉬운 문제 (an easy problem)"
+        ],
+        [
+          "길다 (long)",
+          "ㄹ irregular (ㄹ drops + ㄴ)",
+          "긴",
+          "긴 머리 (long hair)"
+        ],
+        [
+          "빨갛다 (red)",
+          "ㅎ irregular (ㅎ drops + ㄴ)",
+          "빨간",
+          "빨간 사과 (a red apple)"
+        ]
+      ],
+      "note": "Key rules: 1. Adjectives ending in -있다 / -없다 always take -는 (맛있는, 재미있는). 2. ㅂ irregular stems turn ㅂ into 우, yielding -운 (덥다 → 더운, 춥다 → 추운)."
+    },
+    {
+      "type": "table",
+      "title": {
+        "en": "Sentence Predicate vs Noun Modifier",
+        "ko": "서술형 문장과 명사 수식형 비교"
+      },
+      "cols": [
+        "Concept",
+        "Predicate at end (-아요/어요)",
+        "Modifier before noun (-(으)ㄴ)",
+        "English comparison"
+      ],
+      "rows": [
+        [
+          "Pretty",
+          "꽃이 예뻐요.",
+          "예쁜 꽃을 샀어요.",
+          "\"The flower is pretty.\" vs \"I bought a pretty flower.\""
+        ],
+        [
+          "Cold",
+          "날씨가 추워요.",
+          "추운 날씨를 싫어해요.",
+          "\"The weather is cold.\" vs \"I dislike cold weather.\""
+        ],
+        [
+          "Delicious",
+          "음식이 맛있어요.",
+          "맛있는 음식을 먹어요.",
+          "\"The food is delicious.\" vs \"I eat delicious food.\""
+        ],
+        [
+          "Big",
+          "가방이 커요.",
+          "큰 가방이 필요해요.",
+          "\"The bag is big.\" vs \"I need a big bag.\""
+        ]
+      ],
+      "note": "Modifiers sit directly in front of the noun they describe without any intervening particles."
+    },
+    {
+      "type": "practice",
+      "title": {
+        "en": "Practice A — Convert the dictionary adjective into a noun modifier",
+        "ko": "형용사를 명사 수식형으로 바꿔요"
+      },
+      "items": [
+        {
+          "q": "작다 (small) + 방 →",
+          "a": "작은 방"
+        },
+        {
+          "q": "크다 (big) + 모자 →",
+          "a": "큰 모자"
+        },
+        {
+          "q": "좋다 (good) + 사람 →",
+          "a": "좋은 사람"
+        },
+        {
+          "q": "비싸다 (expensive) + 시계 →",
+          "a": "비싼 시계"
+        },
+        {
+          "q": "예쁘다 (pretty) + 옷 →",
+          "a": "예쁜 옷"
+        },
+        {
+          "q": "넓다 (spacious) + 거실 →",
+          "a": "넓은 거실"
+        }
+      ]
+    },
+    {
+      "type": "practice",
+      "title": {
+        "en": "Practice B — Irregular & -있다 adjectives modifying nouns",
+        "ko": "불규칙 및 -있다 형용사를 명사 수식형으로 바꿔요"
+      },
+      "items": [
+        {
+          "q": "맛있다 (delicious) + 음식 →",
+          "a": "맛있는 음식"
+        },
+        {
+          "q": "재미있다 (fun) + 영화 →",
+          "a": "재미있는 영화"
+        },
+        {
+          "q": "춥다 (cold) + 겨울 →",
+          "a": "추운 겨울"
+        },
+        {
+          "q": "덥다 (hot) + 여름 →",
+          "a": "더운 여름"
+        },
+        {
+          "q": "어렵다 (difficult) + 한국어 →",
+          "a": "어려운 한국어"
+        },
+        {
+          "q": "길다 (long) + 치마 →",
+          "a": "긴 치마"
+        }
+      ]
+    },
+    {
+      "type": "practice",
+      "title": {
+        "en": "Practice C — Complete the sentence with the correct modifying form",
+        "ko": "문맥에 맞는 수식형으로 문장을 완성해요"
+      },
+      "items": [
+        {
+          "q": "어제 백화점에서 ___ 가방을 샀어요 (비싸다) →",
+          "a": "비싼"
+        },
+        {
+          "q": "식당에서 정말 ___ 불고기를 먹었어요 (맛있다) →",
+          "a": "맛있는"
+        },
+        {
+          "q": "도서관에는 읽을 만한 ___ 책이 아주 많이 있어요 (좋다) →",
+          "a": "좋은"
+        },
+        {
+          "q": "오늘은 바람이 많이 불어서 ___ 날씨예요 (춥다) →",
+          "a": "추운"
+        },
+        {
+          "q": "제 동생은 눈이 아주 ___ 사람이에요 (크다) →",
+          "a": "큰"
+        },
+        {
+          "q": "시험이 끝나고 친구와 함께 ___ 영화를 봤어요 (재미있다) →",
+          "a": "재미있는"
+        }
+      ]
+    }
+  ],
+  "howto": [
+    "Review the basic rule: add ㄴ to vowel stems (예쁜, 큰) and 은 to consonant stems (작은, 좋은).",
+    "Remember that adjectives ending in -있다 and -없다 take -는 (맛있는, 재미있는), and ㅂ irregular stems become -운 (더운, 추운).",
+    "Complete Practice A to C and check your answers with the answer key."
+  ],
+  "koSummary": "형용사 어간에 -(으)ㄴ을 붙여 명사를 앞에서 꾸미는 기본 규칙과 -있다/-없다 계열(-는), ㅂ 불규칙(-운), ㄹ 탈락(긴) 등 특수 형태를 정리했습니다. 연습 A~C를 풀고 정답지로 확인하세요."
+}

@@ -1,0 +1,296 @@
+{
+  "id": "hobbies-leisure-sports",
+  "title": {
+    "en": "Hobbies, Leisure & Sports",
+    "ko": "취미 · 여가 · 운동"
+  },
+  "sub": {
+    "en": "Everyday hobbies, leisure activities, sports, and common hobby verbs with 하다, 치다, 타다",
+    "ko": "취미 어휘, 운동 종목, 취미 표현과 관련 동사"
+  },
+  "desc": {
+    "en": "Free printable Korean worksheet on hobbies, leisure activities and sports: 독서, 영화 감상, 축구, 수영, 자전거, how to pair sports with 하다, 치다, and 타다, plus practice exercises and an answer key."
+  },
+  "level": "A1",
+  "sections": [
+    {
+      "type": "table",
+      "title": {
+        "en": "Common Hobbies & Activities",
+        "ko": "취미 활동 어휘"
+      },
+      "cols": [
+        "Activity",
+        "Korean",
+        "Spoken reading",
+        "Collocation / Verb phrase"
+      ],
+      "rows": [
+        [
+          "Reading",
+          "독서",
+          "—",
+          "독서를 하다 / 책을 읽다"
+        ],
+        [
+          "Watching movies",
+          "영화 감상",
+          "—",
+          "영화를 보다"
+        ],
+        [
+          "Listening to music",
+          "음악 감상",
+          "으막 감상",
+          "음악을 듣다"
+        ],
+        [
+          "Cooking",
+          "요리",
+          "—",
+          "요리를 하다 / 음식을 만들다"
+        ],
+        [
+          "Taking photos",
+          "사진 촬영",
+          "—",
+          "사진을 찍다"
+        ],
+        [
+          "Traveling",
+          "여행",
+          "—",
+          "여행을 가다 / 여행하다"
+        ],
+        [
+          "Gaming",
+          "게임",
+          "—",
+          "게임을 하다"
+        ],
+        [
+          "Drawing / Painting",
+          "그림 그리기",
+          "—",
+          "그림을 그리다"
+        ]
+      ],
+      "note": "In natural daily conversation, Koreans usually say the verb phrase (예: 음악을 들어요, 사진을 찍어요) instead of the Sino-Korean noun (음악 감상, 사진 촬영)."
+    },
+    {
+      "type": "table",
+      "title": {
+        "en": "Sports & Verbs: 하다 vs 치다 vs 타다",
+        "ko": "운동 종목과 알맞은 동사"
+      },
+      "cols": [
+        "Sport",
+        "Korean",
+        "Spoken reading",
+        "Verb used (Collocation)"
+      ],
+      "rows": [
+        [
+          "Soccer / Football",
+          "축구",
+          "축꾸",
+          "축구를 하다"
+        ],
+        [
+          "Basketball",
+          "농구",
+          "—",
+          "농구를 하다"
+        ],
+        [
+          "Swimming",
+          "수영",
+          "—",
+          "수영을 하다"
+        ],
+        [
+          "Running / Jogging",
+          "달리기 / 조깅",
+          "—",
+          "달리기를 하다 / 조깅하다"
+        ],
+        [
+          "Tennis",
+          "테니스",
+          "—",
+          "테니스를 치다 (racket)"
+        ],
+        [
+          "Badminton",
+          "배드민턴",
+          "—",
+          "배드민턴을 치다 (racket)"
+        ],
+        [
+          "Piano / Guitar",
+          "피아노 / 기타",
+          "—",
+          "피아노를 치다 (keys/strings)"
+        ],
+        [
+          "Bicycle",
+          "자전거",
+          "—",
+          "자전거를 타다 (ride)"
+        ],
+        [
+          "Ice skates / Skis",
+          "스케이트 / 스키",
+          "—",
+          "스케이트를 타다 (ride)"
+        ]
+      ],
+      "note": "Rule of thumb: general sports and team games use 하다; sports or instruments where you hit something use 치다; anything you ride uses 타다."
+    },
+    {
+      "type": "table",
+      "title": {
+        "en": "Talking About Hobbies",
+        "ko": "취미 묻고 답하기"
+      },
+      "cols": [
+        "Expression",
+        "Korean",
+        "Spoken reading",
+        "Meaning & Pattern"
+      ],
+      "rows": [
+        [
+          "What is your hobby?",
+          "취미가 뭐예요?",
+          "—",
+          "Asking someone's hobby"
+        ],
+        [
+          "My hobby is [noun]",
+          "제 취미는 독서예요.",
+          "—",
+          "Stating hobby with a noun"
+        ],
+        [
+          "I like [verb]-ing",
+          "음악 듣는 것을 좋아해요.",
+          "음악 든는 거슬",
+          "Stating favorite leisure activity"
+        ],
+        [
+          "In my free time...",
+          "시간이 있을 때 운동해요.",
+          "시가니 이쓸 때",
+          "Habitual leisure routine"
+        ]
+      ],
+      "note": "Spoken reading shows actual Korean liaison (연음) and tensification (경음화): 시간이 있을 때 [시가니 이쓸 때], 듣는 것 [뜬는 것]."
+    },
+    {
+      "type": "practice",
+      "title": {
+        "en": "Practice A — Choose the correct verb (해요 / 쳐요 / 타요)",
+        "ko": "알맞은 동사를 골라요"
+      },
+      "items": [
+        {
+          "q": "주말마다 친구들과 축구를 ___ (해요 / 쳐요 / 타요) →",
+          "a": "해요"
+        },
+        {
+          "q": "코트에서 친구와 테니스를 ___ (해요 / 쳐요 / 타요) →",
+          "a": "쳐요"
+        },
+        {
+          "q": "날씨가 좋아서 한강에서 자전거를 ___ (해요 / 쳐요 / 타요) →",
+          "a": "타요"
+        },
+        {
+          "q": "여름에는 시원한 수영장에서 수영을 ___ (해요 / 쳐요 / 타요) →",
+          "a": "해요"
+        },
+        {
+          "q": "음악실에서 피아노를 ___ (해요 / 쳐요 / 타요) →",
+          "a": "쳐요"
+        },
+        {
+          "q": "겨울에 스키장에서 스키를 ___ (해요 / 쳐요 / 타요) →",
+          "a": "타요"
+        }
+      ]
+    },
+    {
+      "type": "practice",
+      "title": {
+        "en": "Practice B — Complete with the matching hobby noun",
+        "ko": "알맞은 취미 명사로 채워요"
+      },
+      "items": [
+        {
+          "q": "취미가 뭐예요? — 책 읽는 것을 좋아해서 제 취미는 ___입니다 (독서 / 축구) →",
+          "a": "독서"
+        },
+        {
+          "q": "카메라로 풍경을 찍는 것을 좋아해요. 제 취미는 ___입니다 (사진 촬영 / 요리) →",
+          "a": "사진 촬영"
+        },
+        {
+          "q": "물에서 헤엄치는 운동을 좋아해요. 제 취미는 ___입니다 (수영 / 농구) →",
+          "a": "수영"
+        },
+        {
+          "q": "주말에 집에서 맛있는 파스타를 만들어요. 제 취미는 ___입니다 (요리 / 여행) →",
+          "a": "요리"
+        },
+        {
+          "q": "휴가 때 다른 나라 도시를 구경해요. 제 취미는 ___입니다 (여행 / 게임) →",
+          "a": "여행"
+        },
+        {
+          "q": "방에서 조용히 노래를 들어요. 제 취미는 ___입니다 (음악 감상 / 달리기) →",
+          "a": "음악 감상"
+        }
+      ]
+    },
+    {
+      "type": "practice",
+      "title": {
+        "en": "Practice C — Write the Korean word for each hobby",
+        "ko": "취미 단어를 한국어로 써요"
+      },
+      "items": [
+        {
+          "q": "reading books →",
+          "a": "독서"
+        },
+        {
+          "q": "soccer / football →",
+          "a": "축구"
+        },
+        {
+          "q": "swimming →",
+          "a": "수영"
+        },
+        {
+          "q": "bicycle →",
+          "a": "자전거"
+        },
+        {
+          "q": "cooking →",
+          "a": "요리"
+        },
+        {
+          "q": "travel / trip →",
+          "a": "여행"
+        }
+      ]
+    }
+  ],
+  "howto": [
+    "Review the common hobbies and note which sports pair with 하다, 치다, or 타다.",
+    "Complete Practice A to C, paying close attention to sport verb collocations.",
+    "Check your answers with the answer key and practice asking a friend: 취미가 뭐예요?"
+  ],
+  "koSummary": "독서, 영화 감상, 음악 감상, 요리, 사진 촬영 등 취미 어휘와 운동 종목별 동사(하다 · 치다 · 타다)를 정리했어요. 연습 A~C를 풀고 정답지로 확인하세요."
+}

@@ -1,0 +1,258 @@
+{
+  "id": "onomatopoeia-mimetic-words",
+  "title": {
+    "en": "Korean Onomatopoeia & Mimetic Words",
+    "ko": "의성어와 의태어"
+  },
+  "sub": {
+    "en": "Essential sound-imitating (의성어) and motion/manner-imitating (의태어) words in everyday Korean",
+    "ko": "소리를 흉내 내는 말과 모양을 흉내 내는 말"
+  },
+  "desc": {
+    "en": "Free printable Korean worksheet on onomatopoeia and mimetic words: 반짝반짝, 보글보글, 주룩주룩, 멍멍, 꼬르륵, with meanings, natural example sentences, practice exercises and an answer key."
+  },
+  "level": "A2",
+  "sections": [
+    {
+      "type": "table",
+      "title": {
+        "en": "Sound-Imitating Words (의성어)",
+        "ko": "소리를 흉내 내는 말"
+      },
+      "cols": [
+        "Word",
+        "Spoken reading",
+        "Sound / Meaning",
+        "Example sentence"
+      ],
+      "rows": [
+        [
+          "주룩주룩",
+          "—",
+          "Rain pouring heavily",
+          "비가 주룩주룩 내려요."
+        ],
+        [
+          "보글보글",
+          "—",
+          "Stew boiling gently",
+          "찌개가 보글보글 끓어요."
+        ],
+        [
+          "똑똑",
+          "—",
+          "Knocking on a door (tap-tap)",
+          "문을 똑똑 두드려요."
+        ],
+        [
+          "꼬르륵",
+          "—",
+          "Stomach rumbling with hunger",
+          "배에서 꼬르륵 소리가 나요."
+        ],
+        [
+          "쿨쿨",
+          "—",
+          "Deep sleep with gentle snoring",
+          "아기가 쿨쿨 자고 있어요."
+        ],
+        [
+          "하하",
+          "—",
+          "Hearty open laughter",
+          "친구들이 하하 웃어요."
+        ],
+        [
+          "멍멍",
+          "—",
+          "Dog barking (woof-woof)",
+          "강아지가 멍멍 짖어요."
+        ],
+        [
+          "야옹",
+          "—",
+          "Cat meowing (meow)",
+          "고양이가 야옹 울어요."
+        ]
+      ],
+      "note": "Korean sound words frequently repeat two syllables to express continuous, rhythmic sounds (주룩주룩, 보글보글, 쿨쿨)."
+    },
+    {
+      "type": "table",
+      "title": {
+        "en": "Manner & Motion-Imitating Words (의태어)",
+        "ko": "모양과 움직임을 흉내 내는 말"
+      },
+      "cols": [
+        "Word",
+        "Spoken reading",
+        "Manner / Movement",
+        "Example sentence"
+      ],
+      "rows": [
+        [
+          "반짝반짝",
+          "반짝빤짝",
+          "Sparkling / twinkling brightly",
+          "밤하늘에 별이 반짝반짝 빛나요."
+        ],
+        [
+          "두근두근",
+          "—",
+          "Heart pounding with nervousness or excitement",
+          "시험 전에 가슴이 두근두근해요."
+        ],
+        [
+          "뒤뚱뒤뚱",
+          "—",
+          "Waddling awkwardly (duck or toddler)",
+          "오리가 뒤뚱뒤뚱 걸어가요."
+        ],
+        [
+          "살금살금",
+          "—",
+          "Tiptoeing stealthily and quietly",
+          "방에 살금살금 들어왔어요."
+        ],
+        [
+          "푹",
+          "—",
+          "Resting deeply / thoroughly",
+          "주말에 집에서 푹 쉬었어요."
+        ],
+        [
+          "활짝",
+          "—",
+          "Widely / fully open (doors, flowers, smile)",
+          "꽃이 활짝 피었어요."
+        ],
+        [
+          "싱글벙글",
+          "—",
+          "Smiling broadly and happily",
+          "선물을 받고 싱글벙글 웃어요."
+        ],
+        [
+          "멍하니",
+          "—",
+          "Spacing out / staring blankly",
+          "창밖을 멍하니 바라봐요."
+        ]
+      ],
+      "note": "Mimetic words describe visual movements, postures, or emotional states that make no sound at all."
+    },
+    {
+      "type": "text",
+      "title": {
+        "en": "Bright vs Dark Vowels in Korean Mimetic Words",
+        "ko": "양성 모음과 음성 모음의 뉘앙스 차이"
+      },
+      "text": "Korean sound and mimetic words often contrast bright vowels (ㅏ, ㅗ) with dark vowels (ㅓ, ㅜ, ㅡ). Bright vowels feel light, small, and cheerful (반짝반짝, 보글보글), while dark vowels feel heavier, larger, and deeper (번쩍번쩍, 부글부글). Understanding this vowel nuance helps you intuitively guess the meaning of new words."
+    },
+    {
+      "type": "practice",
+      "title": {
+        "en": "Practice A — Choose the natural sound or mimetic word",
+        "ko": "상황에 어울리는 의성어·의태어를 골라요"
+      },
+      "items": [
+        {
+          "q": "하늘에서 장마비가 ___ 내려요 (주룩주룩 / 꼬르륵) →",
+          "a": "주룩주룩"
+        },
+        {
+          "q": "냄비에서 된장찌개가 ___ 끓고 있어요 (보글보글 / 쿨쿨) →",
+          "a": "보글보글"
+        },
+        {
+          "q": "점심시간이 다 되어 배에서 ___ 소리가 나요 (꼬르륵 / 반짝반짝) →",
+          "a": "꼬르륵"
+        },
+        {
+          "q": "맑은 밤하늘에 별들이 ___ 빛나요 (반짝반짝 / 뒤뚱뒤뚱) →",
+          "a": "반짝반짝"
+        },
+        {
+          "q": "면접실에 들어가기 전에 심장이 ___ 뛰어요 (두근두근 / 살금살금) →",
+          "a": "두근두근"
+        },
+        {
+          "q": "가족들이 깨지 않게 방으로 ___ 걸어왔어요 (살금살금 / 하하) →",
+          "a": "살금살금"
+        }
+      ]
+    },
+    {
+      "type": "practice",
+      "title": {
+        "en": "Practice B — Match the situation with the expressive adverb",
+        "ko": "문맥에 알맞은 표현을 골라요"
+      },
+      "items": [
+        {
+          "q": "따뜻한 봄이 되어서 공원에 벚꽃이 ___ 피었어요 (활짝 / 꼬르륵) →",
+          "a": "활짝"
+        },
+        {
+          "q": "주말에는 피로가 풀리도록 집에서 ___ 잤어요 (쿨쿨 / 반짝반짝) →",
+          "a": "쿨쿨"
+        },
+        {
+          "q": "선생님 연구실에 들어가기 전에 문을 ___ 두드렸어요 (똑똑 / 싱글벙글) →",
+          "a": "똑똑"
+        },
+        {
+          "q": "원하던 시험에 합격해서 하루 종일 ___ 웃었어요 (싱글벙글 / 주룩주룩) →",
+          "a": "싱글벙글"
+        },
+        {
+          "q": "귀여운 오리 가족이 물가를 향해 ___ 걸어요 (뒤뚱뒤뚱 / 멍멍) →",
+          "a": "뒤뚱뒤뚱"
+        },
+        {
+          "q": "집을 지키는 진돗개가 반갑게 꼬리를 치며 ___ 짖어요 (멍멍 / 야옹) →",
+          "a": "멍멍"
+        }
+      ]
+    },
+    {
+      "type": "practice",
+      "title": {
+        "en": "Practice C — Write the Korean onomatopoeia or mimetic word",
+        "ko": "영어 뜻에 맞는 의성어·의태어를 한글로 써요"
+      },
+      "items": [
+        {
+          "q": "sparkling / twinkling →",
+          "a": "반짝반짝"
+        },
+        {
+          "q": "heart pounding / throbbing →",
+          "a": "두근두근"
+        },
+        {
+          "q": "stomach rumbling / growling →",
+          "a": "꼬르륵"
+        },
+        {
+          "q": "soup boiling gently →",
+          "a": "보글보글"
+        },
+        {
+          "q": "sleeping soundly / deep sleep →",
+          "a": "쿨쿨"
+        },
+        {
+          "q": "flowers blooming widely / fully →",
+          "a": "활짝"
+        }
+      ]
+    }
+  ],
+  "howto": [
+    "Review the sound-imitating words (의성어) and motion-imitating words (의태어) alongside their example sentences.",
+    "Notice how sound repetition creates lively rhythm in Korean storytelling and everyday conversations.",
+    "Complete Practice A to C and verify your answers with the answer key."
+  ],
+  "koSummary": "비가 주룩주룩, 찌개가 보글보글 등 소리를 나타내는 의성어와 별이 반짝반짝, 가슴이 두근두근 등 모양과 움직임을 나타내는 의태어를 모았습니다. 연습 A~C를 풀고 정답지로 확인하세요."
+}
