@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>치즈감자 문제 분석</title>
+<link rel="icon" href="favicon-32.png">
+<link rel="stylesheet" href="vendor/pretendard.css">
+<!-- 치즈감자 문제 분석(운영자만) — 학생이 문제를 풀 때 쌓은 기록(answer_events, db/add_answer_events.sql)으로 어느 문제가 어렵고 어떤 보기에 몰리는지 본다.
+     운영자 요청 2026-10-16 「정말 interactive 하게 — 어떤 문제를 푸는지 보고 개선할 수 있게」. 숫자는 admin_answer_overview · admin_answer_item 이 운영자 메일일 때만 돌려준다.
+     글로 쓴 답의 내용은 저장하지 않으므로 여기서도 볼 수 없다(맞음/틀림 · 시간 · AI 점수만). -->
+<style>
+:root { --bg:#F2EEE4; --card:#fff; --soft:#FBF8F1; --line:#E4DED1; --ink:#1B1512; --ink2:#4E3E31; --dim:#8C7A66;
+        --bar:#E1682B; --track:#F1EADB; --good:#2F8A5B; --bad:#C2412D; --warn:#B7791F; }
+@media (prefers-color-scheme: dark) {
+  :root { --bg:#161411; --card:#211E1A; --soft:#2A2621; --line:#38332C; --ink:#F2EEE6; --ink2:#C3BCAF; --dim:#8A8376;
+          --bar:#F08A45; --track:#2E2924; --good:#4CC08A; --bad:#F07560; --warn:#E3B04B; }
+}
+* { box-sizing:border-box; }
+body { margin:0; background:var(--bg); color:var(--ink); font-family:"Pretendard Variable", Pretendard, sans-serif; }
+.wrap { max-width:1180px; margin:0 auto; padding:24px 16px 64px; }
+.top { display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:10px 16px; }
+h1 { font-size:24px; font-weight:900; margin:0; letter-spacing:-.02em; }
+.who { color:var(--dim); font-size:13px; margin:4px 0 0; }
+.bar { display:flex; flex-wrap:wrap; gap:8px; align-items:center; margin:14px 0 0; }
+.chips { display:flex; flex-wrap:wrap; gap:6px; }
+.chip, .seg button { border:1px solid var(--line); background:var(--card); color:var(--ink); border-radius:999px; padding:7px 13px; font:inherit; font-size:13px; font-weight:700; cursor:pointer; }
+.chip[aria-pressed="true"], .seg button[aria-pressed="true"] { background:var(--ink); color:var(--bg); border-color:var(--ink); }
+.chip.tag { background:var(--bar); color:#fff; border-color:var(--bar); }
+.seg { display:flex; gap:6px; }
+input[type=search] { border:1px solid var(--line); background:var(--card); color:var(--ink); border-radius:999px; padding:8px 14px; font:inherit; font-size:14px; min-width:200px; flex:1; max-width:340px; }
+.tiles { display:grid; grid-template-columns:repeat(4, minmax(0, 1fr)); gap:12px; margin:18px 0; }
+.tile { background:var(--ink); color:var(--bg); border-radius:18px; padding:16px 18px; display:flex; flex-direction:column; gap:2px; min-width:0; }
+.tile span { font-size:13px; font-weight:700; opacity:.8; }
+.tile b { font-size:clamp(26px, 4vw, 40px); font-weight:900; letter-spacing:-.03em; font-variant-numeric:tabular-nums; }
+.tile small { font-size:12px; opacity:.7; }
+.grid2 { display:grid; grid-template-columns:minmax(0, 1fr) minmax(0, 1fr); gap:14px; }
+.card { background:var(--card); border:1px solid var(--line); border-radius:18px; padding:18px 20px; margin:0 0 14px; min-width:0; }
+h2 { font-size:17px; margin:0 0 4px; font-weight:800; }
+.sub { margin:0 0 12px; color:var(--dim); font-size:13px; }
+.rows { list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:6px; }
+.rows li { display:grid; grid-template-columns:minmax(0, 11em) minmax(0, 1fr) 5.5em; gap:10px; align-items:center; font-size:14px; padding:6px 8px; border-radius:10px; cursor:pointer; }
+.rows li:hover { background:var(--soft); }
+.rows .lab { font-weight:700; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+.rows .lab small { display:block; color:var(--dim); font-weight:500; font-size:12px; }
+.rows .tr { background:var(--track); border-radius:8px; height:22px; overflow:hidden; display:flex; }
+.rows .tr i { display:block; height:100%; }
+.rows .tr .g { background:var(--good); } .rows .tr .b { background:var(--bad); }
+.rows .num { text-align:right; font-variant-numeric:tabular-nums; font-weight:800; }
+.rows .num small { display:block; font-weight:600; font-size:12px; color:var(--dim); }
+.days { display:flex; align-items:flex-end; gap:3px; height:130px; margin-top:8px; }
+.days div { flex:1; min-width:0; display:flex; flex-direction:column; justify-content:flex-end; height:100%; cursor:default; }
+.days i { display:block; background:var(--track); border-radius:3px 3px 0 0; }
+.days i.s { background:var(--good); border-radius:0; }
+.dlab { display:flex; justify-content:space-between; color:var(--dim); font-size:12px; margin-top:4px; }
+table { width:100%; border-collapse:collapse; font-size:14px; font-variant-numeric:tabular-nums; }
+th, td { padding:9px 8px; border-bottom:1px solid var(--line); text-align:right; white-space:nowrap; }
+th:first-child, td:first-child { text-align:left; white-space:normal; min-width:200px; }
+th { color:var(--dim); font-weight:700; font-size:12px; cursor:pointer; user-select:none; }
+th.on { color:var(--ink); }
+tbody tr { cursor:pointer; }
+tbody tr:hover { background:var(--soft); }
+td .ms { color:var(--dim); font-size:12px; display:block; }
+.tblw { overflow-x:auto; }
+.pill { display:inline-block; font-size:11px; font-weight:800; padding:2px 8px; border-radius:999px; background:var(--track); color:var(--ink2); margin-right:4px; }
+.hard { color:var(--bad); font-weight:800; } .easy { color:var(--good); font-weight:800; }
+.msg { padding:30px 10px; text-align:center; color:var(--ink2); line-height:1.7; }
+.drawer { position:fixed; inset:0 0 0 auto; width:min(520px, 100%); background:var(--card); border-left:1px solid var(--line); box-shadow:-12px 0 40px rgba(0,0,0,.18); padding:20px 20px 40px; overflow-y:auto; transform:translateX(105%); transition:transform .22s ease; z-index:20; }
+.drawer.on { transform:none; }
+.drawer h3 { margin:0 28px 4px 0; font-size:18px; line-height:1.4; }
+.drawer .x { position:absolute; top:12px; right:14px; border:none; background:none; color:var(--ink); font-size:22px; cursor:pointer; }
+.kv { display:grid; grid-template-columns:repeat(3, 1fr); gap:8px; margin:14px 0; }
+.kv div { background:var(--soft); border-radius:12px; padding:10px 12px; }
+.kv b { display:block; font-size:20px; font-variant-numeric:tabular-nums; } .kv span { font-size:12px; color:var(--dim); }
+.pick { display:grid; grid-template-columns:minmax(0, 1fr) 90px 46px; gap:8px; align-items:center; font-size:14px; margin:6px 0; }
+.pick .tr { background:var(--track); border-radius:6px; height:14px; overflow:hidden; } .pick .tr i { display:block; height:100%; background:var(--bad); }
+.pick.ok .tr i { background:var(--good); } .pick span:first-child { overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+.tips { background:var(--soft); border-radius:12px; padding:12px 14px; font-size:14px; line-height:1.7; margin:12px 0; }
+.tips b { color:var(--bad); }
+.shade { position:fixed; inset:0; background:rgba(0,0,0,.35); z-index:19; display:none; } .shade.on { display:block; }
+.btn { border:1px solid var(--line); background:var(--card); color:var(--ink); border-radius:999px; padding:7px 13px; font:inherit; font-size:13px; font-weight:700; cursor:pointer; }
+@media (max-width:820px) { .tiles { grid-template-columns:repeat(2, minmax(0, 1fr)); } .grid2 { grid-template-columns:1fr; } .rows li { grid-template-columns:minmax(0, 8em) minmax(0, 1fr) 4.5em; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top"><div><h1>문제 분석</h1><p class="who" id="who">…</p></div>
+    <div class="seg" id="days" role="group" aria-label="기간"><button type="button" data-d="7">7일</button><button type="button" data-d="28" aria-pressed="true">28일</button><button type="button" data-d="90">90일</button></div></div>
+  <div class="bar"><div class="chips" id="secs" role="group" aria-label="섹션"></div><input type="search" id="q" placeholder="문제 · 문장 검색" aria-label="검색"><span id="tagbar"></span></div>
+  <div id="out"><p class="msg">불러오는 중…</p></div>
+</div>
+<div class="shade" id="shade"></div>
+<aside class="drawer" id="drawer" aria-label="문제 자세히"></aside>
+<script type="module" src="insights.js"></script>
+</body>
+</html>
