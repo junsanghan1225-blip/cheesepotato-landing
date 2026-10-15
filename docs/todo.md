@@ -64,7 +64,7 @@
 | 4 | 원본 영상 → 고화질 · 소리 · 썸네일 | 원본 받으면 |
 | 5 | Clarity: 유럽 방문자가 한 사람으로 묶이는지 확인 | 다음 주 CSV |
 | 6 | PRD ⚠ 채워 확정 | 운영자 답 받으면 |
-| 7 | 앱 개인정보 문서(`cheesepotatoapp/docs/privacy-policy.md`)와 사이트 `privacy.html` 맞추기(Polar 줄 등 어긋남) | 운영자 OK |
+| 7 | (2026-10-15 사이트 `privacy.html` 에 「쓰기 답안 공유」 단락을 손으로 넣음 — `tools/build-privacy.js` 는 옛 경로를 가리켜 다시 돌리면 덮어쓰니 돌리지 않는다) 앱 개인정보 문서(`cheesepotatoapp/docs/privacy-policy.md`)와 사이트 `privacy.html` 맞추기(Polar 줄 등 어긋남) | 운영자 OK |
 
 | 8 | **TOPIK 노출 다음 단계**(운영자 고르면): ① 영어 TOPIK 가이드 글 10편(안티 지시서) ② 「TOPIK 낱말 목록 · Anki 내려받기」 쪽 ③ 「TOPIK 문법 목록」 쪽 | 운영자 OK |
 
