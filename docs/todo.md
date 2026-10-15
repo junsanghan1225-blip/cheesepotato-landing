@@ -8,8 +8,6 @@
 ### 🔥 이번 주 (몇 분씩)
 | # | 할 일 | 어디 · 어떻게 |
 |---|---|---|
-| 0 | **SQL 한 번**: `db/add_referrals.sql` 을 SQL Editor 에 붙여 Run → 「SQL 돌렸어」 (친구 초대 → 둘 다 Pro 30일이 켜진다. 돌리기 전에는 설정 「친구 초대」가 예전처럼 레벨테스트 링크만 준다) | `docs/plans/growth.md` 2 |
-| 0 | **Search Console 「실적」 내보내기**(검색어 · 쪽 · 노출 · 클릭 · 순위, 최근 3개월) 올리기 → 검색 늘리기 4번을 시작 | Search Console → 실적 → 내보내기 |
 | 0 | **iOS 앱 낼지** 정하기(애플 개발자 계정 필요) | `docs/ops/ios-launch.md` |
 | 1 | Search Console 「색인 생성 요청」 — 새 쪽 열두 개 + `/topik-grammar-list/` + Sitemaps 에 `sitemap.xml` 다시 제출. 주소: `/korean-name/` `/korean-age/` `/for-teachers.html` `/my/eps-topik/` `/korean-zodiac/` `/korean-proverb/` `/my-korean-name/` `/korean-birthday/` `/korean-word-today/` `/hangul-worksheet/` **`/en/topik-writing/` `/en/topik-reading/` `/en/topik-listening/`** | URL 검사 칸에 주소 → 맨 위 상자의 「색인 생성 요청」 |
 | 2 | 선생님 5명에게 메시지 보내기 → 메일 오면 반 화면 「선생님 계정」에 올리기 | `docs/ops/teacher-pilot.md`(그대로 복사할 글) |
