@@ -71,6 +71,7 @@
 | 8 | **TOPIK 노출 다음 단계**: ① 영어 TOPIK 가이드 글(9편 들어옴 · 1편 보류) ② 낱말 목록 쪽 ✅ ③ 문법 목록 쪽 ✅(2026-10-15 `/topik-grammar-list/`) — 머지 뒤 Search Console 색인 요청 필요 | 운영자 |
 
 ## ✅ 끝난 것
+- 2026-10-16 Search Console 실적 내보내기(3개월) 받음 → `docs/analytics/2026-10-16-search-console.md`. 다음: 2주 뒤 순위 다시 보기.
 - 2026-10-16 SQL `db/add_referrals.sql`(친구 초대 → 둘 다 Pro 30일 — 표 3개 · is_pro 보너스) 운영자가 돌림. 다음: 실제 가입으로 보상 확인.
 - 2026-10-15 SQL `db/add_writing_share.sql`(TOPIK 쓰기 답안 공유 — 표 2개 · 신고) 운영자가 돌림. 다음: 53·54 를 AI 채점 → 「내 답안을…」 체크 → 올리기 → 「다른 학생 답안 보기」 눈으로 확인(운영자)
 - 2026-10-14 SQL `db/add_class_submit.sql`(숙제 제출 · 사진 저장소) · `db/add_teacher_requests.sql`(선생님 신청) 돌림 — 다음: 머지 뒤 선생님 · 학생 계정으로 흐름 눈으로 확인
