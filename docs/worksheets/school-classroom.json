@@ -1,0 +1,308 @@
+{
+  "id": "school-classroom",
+  "title": {
+    "en": "School & Classroom Expressions",
+    "ko": "학교 · 교실 표현"
+  },
+  "sub": {
+    "en": "Classroom objects, school supplies, teacher instructions, and student questions",
+    "ko": "교실 물건, 학용품, 수업 시간 선생님 말씀과 학생 질문 표현"
+  },
+  "desc": {
+    "en": "Free printable Korean worksheet on school and classroom vocabulary: 교실, 칠판, 공책, 지우개, teacher instructions like 책을 펴세요 and 따라 읽으세요, practice exercises and an answer key."
+  },
+  "level": "A1",
+  "sections": [
+    {
+      "type": "table",
+      "title": {
+        "en": "Classroom Objects & Supplies",
+        "ko": "교실 물건과 학용품"
+      },
+      "cols": [
+        "Item",
+        "Korean",
+        "Spoken reading",
+        "Meaning & Use"
+      ],
+      "rows": [
+        [
+          "Classroom",
+          "교실",
+          "—",
+          "Room where lessons take place"
+        ],
+        [
+          "Blackboard / Board",
+          "칠판",
+          "—",
+          "Board at the front of class"
+        ],
+        [
+          "Desk",
+          "책상",
+          "책쌍",
+          "Student or teacher desk"
+        ],
+        [
+          "Chair",
+          "의자",
+          "—",
+          "Chair in the classroom"
+        ],
+        [
+          "Textbook",
+          "교과서 / 교재",
+          "—",
+          "Subject book or instructional material"
+        ],
+        [
+          "Notebook",
+          "공책",
+          "—",
+          "Notebook for taking notes"
+        ],
+        [
+          "Pencil",
+          "연필",
+          "—",
+          "Pencil for writing and sketching"
+        ],
+        [
+          "Eraser",
+          "지우개",
+          "—",
+          "Rubber eraser"
+        ],
+        [
+          "Pencil case",
+          "필통",
+          "—",
+          "Case storing writing instruments"
+        ],
+        [
+          "Dictionary",
+          "사전",
+          "—",
+          "Reference book for word definitions"
+        ]
+      ],
+      "note": "Tensification: 책상 is pronounced [책쌍] after the stop consonant ㄱ."
+    },
+    {
+      "type": "table",
+      "title": {
+        "en": "Teacher Instructions in Class",
+        "ko": "선생님 말씀과 지시 표현"
+      },
+      "cols": [
+        "Instruction",
+        "Korean",
+        "Spoken reading",
+        "English Meaning"
+      ],
+      "rows": [
+        [
+          "Please open your book",
+          "책을 펴세요",
+          "채글 펴세요",
+          "Open your textbook to the page"
+        ],
+        [
+          "Please close your book",
+          "책을 덮으세요",
+          "채글 더프세요",
+          "Close your textbook"
+        ],
+        [
+          "Please look at the board",
+          "칠판을 보세요",
+          "칠파늘 보세요",
+          "Look at the blackboard"
+        ],
+        [
+          "Please listen carefully",
+          "잘 들으세요",
+          "잘 드르세요",
+          "Listen attentively"
+        ],
+        [
+          "Please read after me",
+          "따라 읽으세요",
+          "따라 일그세요",
+          "Repeat after the teacher"
+        ],
+        [
+          "Please write in your notebook",
+          "공책에 쓰세요",
+          "공채게 쓰세요",
+          "Write notes down"
+        ],
+        [
+          "Do you have questions?",
+          "질문 있어요?",
+          "질문 이써요?",
+          "Asking if students have questions"
+        ]
+      ],
+      "note": "Liaison (연음) shifts final consonants to following vowel syllables: 책을 [채글], 덮으세요 [더프세요], 읽으세요 [일그세요]."
+    },
+    {
+      "type": "table",
+      "title": {
+        "en": "Student Questions & Responses",
+        "ko": "학생의 교실 질문과 대답"
+      },
+      "cols": [
+        "Expression",
+        "Korean",
+        "Spoken reading",
+        "Situation & Meaning"
+      ],
+      "rows": [
+        [
+          "I have a question",
+          "질문이 있어요.",
+          "질무니 이써요",
+          "Raising hand to ask a question"
+        ],
+        [
+          "I don't understand",
+          "잘 모르겠어요.",
+          "잘 모르갣써요",
+          "When the explanation is unclear"
+        ],
+        [
+          "I understood",
+          "네, 알겠습니다.",
+          "알갣씀니다",
+          "Confirming comprehension (formal)"
+        ],
+        [
+          "Please say it once more",
+          "다시 한번 말씀해 주세요.",
+          "—",
+          "Polite request to repeat"
+        ],
+        [
+          "Please speak slowly",
+          "천천히 말씀해 주세요.",
+          "—",
+          "Polite request for slower speech"
+        ],
+        [
+          "What does this mean?",
+          "이게 무슨 뜻이에요?",
+          "무슨 뜨시에요",
+          "Asking for the meaning of a word"
+        ]
+      ],
+      "note": "알겠습니다 is pronounced [알갣씀니다] due to tensification (ㅅ→ㅆ) and nasalization (ㅂ+ㄴ → ㅁㄴ)."
+    },
+    {
+      "type": "practice",
+      "title": {
+        "en": "Practice A — Match the teacher instruction with its English meaning",
+        "ko": "선생님 말씀의 뜻을 알맞게 연결해요"
+      },
+      "items": [
+        {
+          "q": "책을 펴세요 →",
+          "a": "Please open your book"
+        },
+        {
+          "q": "칠판을 보세요 →",
+          "a": "Please look at the board"
+        },
+        {
+          "q": "잘 들으세요 →",
+          "a": "Please listen carefully"
+        },
+        {
+          "q": "따라 읽으세요 →",
+          "a": "Please read after me"
+        },
+        {
+          "q": "공책에 쓰세요 →",
+          "a": "Please write in your notebook"
+        },
+        {
+          "q": "책을 덮으세요 →",
+          "a": "Please close your book"
+        }
+      ]
+    },
+    {
+      "type": "practice",
+      "title": {
+        "en": "Practice B — Choose the correct classroom item",
+        "ko": "알맞은 교실 물건을 골라요"
+      },
+      "items": [
+        {
+          "q": "선생님이 분필로 ___에 글씨를 쓰세요 (칠판 / 의자) →",
+          "a": "칠판"
+        },
+        {
+          "q": "연필로 쓴 글씨가 틀려서 ___로 지워요 (지우개 / 필통) →",
+          "a": "지우개"
+        },
+        {
+          "q": "한국어 수업 시간에 ___을 펴고 30쪽을 읽어요 (교과서 / 사전) →",
+          "a": "교과서"
+        },
+        {
+          "q": "선생님 설명을 ___에 꼼꼼히 적어요 (공책 / 가방) →",
+          "a": "공책"
+        },
+        {
+          "q": "학생들이 교실 ___에 앉아서 공부해요 (의자 / 칠판) →",
+          "a": "의자"
+        },
+        {
+          "q": "모르는 단어의 뜻을 인터넷 ___에서 찾아요 (사전 / 지우개) →",
+          "a": "사전"
+        }
+      ]
+    },
+    {
+      "type": "practice",
+      "title": {
+        "en": "Practice C — Complete the student expression",
+        "ko": "학생 표현의 빈칸을 채워요"
+      },
+      "items": [
+        {
+          "q": "선생님, 저 ___이 있어요 (question) →",
+          "a": "질문"
+        },
+        {
+          "q": "말씀이 너무 빨라요. ___ 말씀해 주세요 (slowly) →",
+          "a": "천천히"
+        },
+        {
+          "q": "잘 못 들었어요. 다시 ___ 말씀해 주세요 (once more) →",
+          "a": "한번"
+        },
+        {
+          "q": "선생님 말씀 이해했어요? — 네, ___ (I understood) →",
+          "a": "알겠습니다"
+        },
+        {
+          "q": "선생님, 이 단어가 무슨 ___이에요? (meaning) →",
+          "a": "뜻"
+        },
+        {
+          "q": "이 문법은 너무 어려워서 잘 ___ (I don't understand / don't know) →",
+          "a": "모르겠어요"
+        }
+      ]
+    }
+  ],
+  "howto": [
+    "Memorize the essential classroom objects and common teacher command forms ending in -(으)세요.",
+    "Practice student question patterns so you can comfortably ask your teacher for help in Korean.",
+    "Solve Practice A to C and check with the answer key."
+  ],
+  "koSummary": "칠판 · 공책 · 지우개 등 교실 물건과 '책을 펴세요' · '따라 읽으세요' 등 선생님 지시 표현, '질문이 있어요' · '천천히 말씀해 주세요' 등 학생 유용 표현을 모았습니다. 연습 A~C를 풀고 정답지로 확인하세요."
+}
