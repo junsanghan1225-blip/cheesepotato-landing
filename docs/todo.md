@@ -8,7 +8,6 @@
 ### 🔥 이번 주 (몇 분씩)
 | # | 할 일 | 어디 · 어떻게 |
 |---|---|---|
-| 0 | **Search Console 「실적」 내보내기**(검색어 · 쪽 · 노출 · 클릭 · 순위, 최근 3개월) 올리기 → 검색 늘리기 4번을 시작 | Search Console → 실적 → 내보내기 |
 | 0 | **iOS 앱 낼지** 정하기(애플 개발자 계정 필요) | `docs/ops/ios-launch.md` |
 | 1 | Search Console 「색인 생성 요청」 — 새 쪽 열두 개 + `/topik-grammar-list/` + Sitemaps 에 `sitemap.xml` 다시 제출. 주소: `/korean-name/` `/korean-age/` `/for-teachers.html` `/my/eps-topik/` `/korean-zodiac/` `/korean-proverb/` `/my-korean-name/` `/korean-birthday/` `/korean-word-today/` `/hangul-worksheet/` **`/en/topik-writing/` `/en/topik-reading/` `/en/topik-listening/`** | URL 검사 칸에 주소 → 맨 위 상자의 「색인 생성 요청」 |
 | 2 | 선생님 5명에게 메시지 보내기 → 메일 오면 반 화면 「선생님 계정」에 올리기 | `docs/ops/teacher-pilot.md`(그대로 복사할 글) |
@@ -72,6 +71,7 @@
 | 8 | **TOPIK 노출 다음 단계**: ① 영어 TOPIK 가이드 글(9편 들어옴 · 1편 보류) ② 낱말 목록 쪽 ✅ ③ 문법 목록 쪽 ✅(2026-10-15 `/topik-grammar-list/`) — 머지 뒤 Search Console 색인 요청 필요 | 운영자 |
 
 ## ✅ 끝난 것
+- 2026-10-16 Search Console 실적 내보내기(3개월) 받음 → `docs/analytics/2026-10-16-search-console.md`. 다음: 2주 뒤 순위 다시 보기.
 - 2026-10-16 SQL `db/add_referrals.sql`(친구 초대 → 둘 다 Pro 30일 — 표 3개 · is_pro 보너스) 운영자가 돌림. 다음: 실제 가입으로 보상 확인.
 - 2026-10-15 SQL `db/add_writing_share.sql`(TOPIK 쓰기 답안 공유 — 표 2개 · 신고) 운영자가 돌림. 다음: 53·54 를 AI 채점 → 「내 답안을…」 체크 → 올리기 → 「다른 학생 답안 보기」 눈으로 확인(운영자)
 - 2026-10-14 SQL `db/add_class_submit.sql`(숙제 제출 · 사진 저장소) · `db/add_teacher_requests.sql`(선생님 신청) 돌림 — 다음: 머지 뒤 선생님 · 학생 계정으로 흐름 눈으로 확인
