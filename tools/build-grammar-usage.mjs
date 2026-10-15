@@ -122,6 +122,9 @@ for (const p of PTS) {
     const m = [...s.ko.matchAll(re)].find((x) => (isParticle(p) ? particleOk(s.ko, x) : endingOk(s.ko, x)));
     if (!m) continue;
     if (longer.get(p.id).some((r) => { r.lastIndex = 0; return r.test(s.ko); })) continue;
+    /* 「N에서 N까지」처럼 짝으로 쓰는 문법은 짝이 다 있는 문장만 — 「집에서 쉬려고요」는 「에서」 하나라 이 문법의 쓰임이 아니다(운영자 2026-10-15 「말도 안 되는 예문」) */
+    { const pairs = String(p.name).split(/,\s*/).map((x) => /^N([가-힣]+)\s+N([가-힣]+)$/.exec(x.trim())).filter(Boolean).map((q) => new RegExp(`${q[1]}.*${q[2]}`));
+      if (pairs.length && !pairs.some((r) => r.test(s.ko))) continue; }
     hit.push({ ...s, at: m.index, len: m[0].length });
   }
   const usageHit = hit.filter((s) => !s.only);
@@ -151,6 +154,16 @@ for (const p of PTS) {
   if (pr.length) PRACTICE[p.id] = pr;
   made++;
 }
+/* 직접 쓴 단계별 연습 문장(docs/grammar-sentences.json, 안티 · Claude 검토, 검사 check-grammar-sentences) — 문법마다 [문장, 영어, 단계 1~3] 아홉 개 이상이면
+   그 문법의 연습 문장은 이것만 쓴다(우리 자료에서 찾은 문장이 다른 문법 것이거나 되풀이되는 문제를 끊는다 — 운영자 2026-10-15). 쉬운 것부터. */
+const AUTH = fs.existsSync(path.join(ROOT, 'docs/grammar-sentences.json')) ? JSON.parse(fs.readFileSync(path.join(ROOT, 'docs/grammar-sentences.json'), 'utf8')) : {};
+let authN = 0;
+for (const [id, arr] of Object.entries(AUTH)) {
+  if (id.startsWith('_') || !Array.isArray(arr) || arr.length < 9) continue;
+  PRACTICE[id] = arr.filter((x) => x?.ko && [1, 2, 3].includes(x.lv)).sort((a, b) => a.lv - b.lv).map((x) => [x.ko.trim(), (x.en || '').trim(), x.lv]);
+  authN++;
+}
+console.log(`직접 쓴 단계별 연습 문장 ${authN}개 표현`);
 fs.writeFileSync(path.join(ROOT, 'grammar-usage.js'), `/* 문법 「쓰임 보기」 — 생성물. 손으로 고치지 말 것.
  *   고칠 때: grammar-mark.js · tools/build-grammar-usage.mjs 를 고치고 다시 돌린다.
  *   ${made}개 표현 · 표현마다 [문장, 영어(있을 때), 출처, 출처(영어), 주소, 칠할 곳, 길이] 셋까지. 우리 자료에서 옮긴 문장만 — 지어낸 것 없음.
