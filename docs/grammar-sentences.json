@@ -1,0 +1,45 @@
+{
+  "_note": "문법별 단계별 연습 문장 — 안티 그래비티 · Claude 검토. 모양과 규칙은 docs/antigravity/antigravity-grammar-sentences-task.md, 검사 node tools/check-grammar-sentences.mjs",
+  "26-8": [
+    { "ko": "공원에서 걸어요.", "en": "I walk in the park.", "lv": 1 },
+    { "ko": "식당에서 먹어요.", "en": "I eat at a restaurant.", "lv": 1 },
+    { "ko": "학교에서 배워요.", "en": "I learn at school.", "lv": 1 },
+    { "ko": "집에서 쉬어요.", "en": "I rest at home.", "lv": 1 },
+    { "ko": "카페에서 친구를 만나요.", "en": "I meet my friend at a cafe.", "lv": 2 },
+    { "ko": "우리는 학교에서 한국어를 배워요.", "en": "We learn Korean at school.", "lv": 2 },
+    { "ko": "저는 회사에서 일해요.", "en": "I work at a company.", "lv": 2 },
+    { "ko": "시장에서 과일을 샀어요.", "en": "I bought fruit at the market.", "lv": 2 },
+    { "ko": "어제 친구하고 영화관에서 영화를 봤어요.", "en": "Yesterday I watched a movie at the cinema with a friend.", "lv": 3 },
+    { "ko": "점심은 회사 앞 식당에서 먹어요.", "en": "I eat lunch at the restaurant in front of my office.", "lv": 3 },
+    { "ko": "이 책은 서점에서 사지 않고 도서관에서 빌렸어요.", "en": "I did not buy this book at a bookstore; I borrowed it from the library.", "lv": 3 },
+    { "ko": "주말에는 가족하고 공원에서 자전거를 타요.", "en": "On weekends I ride bikes in the park with my family.", "lv": 3 }
+  ],
+  "26-9": [
+    { "ko": "집에서 학교까지 가요.", "en": "I go from home to school.", "lv": 1 },
+    { "ko": "서울에서 부산까지 멀어요.", "en": "It is far from Seoul to Busan.", "lv": 1 },
+    { "ko": "수요일부터 금요일까지 바빠요.", "en": "I am busy from Wednesday to Friday.", "lv": 1 },
+    { "ko": "아침부터 저녁까지 일해요.", "en": "I work from morning to evening.", "lv": 1 },
+    { "ko": "집에서 지하철역까지 오 분 걸려요.", "en": "It takes five minutes from my house to the subway station.", "lv": 2 },
+    { "ko": "여덟 시부터 다섯 시까지 일해요.", "en": "I work from eight to five.", "lv": 2 },
+    { "ko": "서울역에서 인천공항까지 버스로 가요.", "en": "I go from Seoul Station to Incheon Airport by bus.", "lv": 2 },
+    { "ko": "도서관은 아침부터 저녁까지 열려요.", "en": "The library is open from morning to evening.", "lv": 2 },
+    { "ko": "학교에서 집까지 걸어서 이십 분쯤 걸려요.", "en": "It takes about twenty minutes to walk from school to home.", "lv": 3 },
+    { "ko": "이번 주 월요일부터 수요일까지 시험이 있어요.", "en": "There are exams from Monday to Wednesday this week.", "lv": 3 },
+    { "ko": "부산에서 서울까지 KTX로 두 시간 반 걸려요.", "en": "It takes two and a half hours from Busan to Seoul by KTX.", "lv": 3 },
+    { "ko": "어젯밤 열 시부터 아침 여섯 시까지 잤어요.", "en": "I slept from ten last night until six this morning.", "lv": 3 }
+  ],
+  "51-3": [
+    { "ko": "숙제를 하느라고 못 잤어요.", "en": "I could not sleep because I was doing homework.", "lv": 1 },
+    { "ko": "게임을 하느라고 늦었어요.", "en": "I was late because I was playing games.", "lv": 1 },
+    { "ko": "청소하느라고 전화를 못 받았어요.", "en": "I could not answer the phone because I was cleaning.", "lv": 1 },
+    { "ko": "시험 공부를 하느라고 피곤해요.", "en": "I am tired because I have been studying for the exam.", "lv": 1 },
+    { "ko": "친구하고 이야기하느라고 버스를 놓쳤어요.", "en": "I missed the bus because I was talking with a friend.", "lv": 2 },
+    { "ko": "보고서를 쓰느라고 점심도 못 먹었어요.", "en": "I could not even eat lunch because I was writing a report.", "lv": 2 },
+    { "ko": "아이를 돌보느라고 밤새 잠을 못 잤어요.", "en": "I could not sleep all night because I was looking after my child.", "lv": 2 },
+    { "ko": "영화를 보느라고 약속을 잊어버렸어요.", "en": "I forgot the appointment because I was watching a movie.", "lv": 2 },
+    { "ko": "이사 준비를 하느라고 요즘 친구들을 만날 시간이 없어요.", "en": "I have no time to meet friends these days because I am preparing to move.", "lv": 3 },
+    { "ko": "휴대폰을 보느라고 내려야 할 역을 지나쳐 버렸어요.", "en": "I was looking at my phone and went past the station where I should have gotten off.", "lv": 3 },
+    { "ko": "회사 일을 하느라고 가족과 여행을 가지 못해서 미안해요.", "en": "I am sorry that I could not go on a trip with my family because I was busy with work.", "lv": 3 },
+    { "ko": "아침부터 손님을 맞이하느라고 정신이 하나도 없었어요.", "en": "I was in a daze all morning because I was busy receiving guests.", "lv": 3 }
+  ]
+}
