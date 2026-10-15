@@ -1,0 +1,390 @@
+{
+  "bg-d-01-01": [
+    {
+      "t": "passage",
+      "h": "Listen to the dialogue",
+      "ko": [
+        "오늘 수업 끝나고 어디 가요?",
+        "시내에서 친구를 만나요.",
+        "친구하고 같이 영화를 봐요?",
+        "네, 극장에서 재미있는 영화를 봐요."
+      ],
+      "en": [
+        "Where are you going after class today?",
+        "I am meeting a friend downtown.",
+        "Are you watching a movie together with your friend?",
+        "Yes, we are watching an interesting movie at the cinema."
+      ]
+    },
+    {
+      "t": "choice",
+      "q": "Where is the second speaker meeting their friend?",
+      "options": [
+        "Downtown",
+        "At school",
+        "At home"
+      ],
+      "answer": 0,
+      "why": "The second speaker answers '시내에서 친구를 만나요' (I am meeting a friend downtown)."
+    },
+    {
+      "t": "choice",
+      "q": "What will the two friends do together?",
+      "options": [
+        "Watch a movie",
+        "Study Korean",
+        "Go shopping"
+      ],
+      "answer": 0,
+      "why": "They say '극장에서 재미있는 영화를 봐요' (We are watching an interesting movie at the cinema)."
+    },
+    {
+      "t": "vocab",
+      "h": "Words for this scene",
+      "items": [
+        {
+          "ko": "가다",
+          "en": "to go",
+          "ex": "오늘 학교에 가요."
+        },
+        {
+          "ko": "만나다",
+          "en": "to meet",
+          "ex": "시내에서 친구를 만나요."
+        },
+        {
+          "ko": "보다",
+          "en": "to see / watch",
+          "ex": "극장에서 영화를 봐요."
+        },
+        {
+          "ko": "끝나다",
+          "en": "to end / finish",
+          "ex": "수업이 끝나요."
+        },
+        {
+          "ko": "시내",
+          "en": "downtown",
+          "ex": "시내에 가요."
+        }
+      ]
+    },
+    {
+      "t": "dictate",
+      "say": "시내에서 친구를 만나요",
+      "answers": [
+        "시내에서 친구를 만나요"
+      ],
+      "hint": "I meet a friend downtown.",
+      "why": "만나다 has the bright vowel ㅏ, conjugating to 만나요."
+    },
+    {
+      "t": "write",
+      "q": "Your friend asks: “오늘 수업 끝나고 어디 가요?” Reply that you are going to the cinema using 극장에 and 가요.",
+      "must": [
+        "극장에",
+        "가요"
+      ],
+      "sample": "저는 극장에 가요.",
+      "why": "가다 ends in the stem vowel ㅏ, attaching -아요 to contract into 가요."
+    },
+    {
+      "t": "cando",
+      "items": [
+        "Conjugate verb stems ending in bright vowels ㅏ and ㅗ with -아요",
+        "Describe where you go and who you meet after class"
+      ]
+    }
+  ],
+  "bg-d-01-02": [
+    {
+      "t": "passage",
+      "h": "Listen to the dialogue",
+      "ko": [
+        "점심시간인데 같이 밥 먹어요.",
+        "좋아요, 식당에서 김밥을 먹어요.",
+        "식사하고 도서관에서 책을 읽어요?",
+        "네, 도서관에서 한국어를 배워요."
+      ],
+      "en": [
+        "It is lunchtime, let's eat together.",
+        "Sounds great, let's eat kimbap at the restaurant.",
+        "Do you read books at the library after eating?",
+        "Yes, I learn Korean at the library."
+      ]
+    },
+    {
+      "t": "choice",
+      "q": "What do the speakers plan to eat for lunch?",
+      "options": [
+        "Kimbap",
+        "Ramen",
+        "Bibimbap"
+      ],
+      "answer": 0,
+      "why": "The second speaker says '식당에서 김밥을 먹어요' (Let's eat kimbap at the restaurant)."
+    },
+    {
+      "t": "choice",
+      "q": "What will the second speaker study at the library?",
+      "options": [
+        "Korean",
+        "English",
+        "History"
+      ],
+      "answer": 0,
+      "why": "The speaker says '도서관에서 한국어를 배워요' (I learn Korean at the library)."
+    },
+    {
+      "t": "vocab",
+      "h": "Words for this scene",
+      "items": [
+        {
+          "ko": "먹다",
+          "en": "to eat",
+          "ex": "식당에서 김밥을 먹어요."
+        },
+        {
+          "ko": "배우다",
+          "en": "to learn",
+          "ex": "한국어를 열심히 배워요."
+        },
+        {
+          "ko": "읽다",
+          "en": "to read",
+          "ex": "도서관에서 책을 읽어요."
+        },
+        {
+          "ko": "점심시간",
+          "en": "lunchtime",
+          "ex": "점심시간에 만나요."
+        },
+        {
+          "ko": "김밥",
+          "en": "kimbap",
+          "ex": "김밥을 먹어요."
+        }
+      ]
+    },
+    {
+      "t": "dictate",
+      "say": "식당에서 김밥을 먹어요",
+      "answers": [
+        "식당에서 김밥을 먹어요"
+      ],
+      "hint": "I eat kimbap at the restaurant.",
+      "why": "먹다 has the stem vowel ㅓ, so it attaches -어요 → 먹어요."
+    },
+    {
+      "t": "write",
+      "q": "Your friend asks what you do at the library. Reply that you read books using 책을 and 읽어요.",
+      "must": [
+        "책을",
+        "읽어요"
+      ],
+      "sample": "도서관에서 책을 읽어요.",
+      "why": "읽다 has the vowel ㅣ, which takes -어요 to form 읽어요."
+    },
+    {
+      "t": "cando",
+      "items": [
+        "Apply -어요 to verb stems ending in vowels other than ㅏ or ㅗ",
+        "Talk about everyday lunchtime routines and studying at the library"
+      ]
+    }
+  ],
+  "bg-d-01-03": [
+    {
+      "t": "passage",
+      "h": "Listen to the dialogue",
+      "ko": [
+        "지금 카페에서 뭐 마셔요?",
+        "따뜻한 차를 마셔요.",
+        "친구에게 줄 편지도 써요?",
+        "네, 한국어로 축하 편지를 써요."
+      ],
+      "en": [
+        "What are you drinking at the cafe right now?",
+        "I am drinking warm tea.",
+        "Are you also writing a letter to give to your friend?",
+        "Yes, I am writing a congratulatory letter in Korean."
+      ]
+    },
+    {
+      "t": "choice",
+      "q": "What is the speaker drinking at the cafe?",
+      "options": [
+        "Warm tea",
+        "Iced coffee",
+        "Orange juice"
+      ],
+      "answer": 0,
+      "why": "The second speaker answers '따뜻한 차를 마셔요' (I am drinking warm tea)."
+    },
+    {
+      "t": "choice",
+      "q": "What is the speaker writing?",
+      "options": [
+        "A congratulatory letter in Korean",
+        "A book report",
+        "A diary entry"
+      ],
+      "answer": 0,
+      "why": "The text says '한국어로 축하 편지를 써요' (I am writing a congratulatory letter in Korean)."
+    },
+    {
+      "t": "vocab",
+      "h": "Words for this scene",
+      "items": [
+        {
+          "ko": "마시다",
+          "en": "to drink",
+          "ex": "따뜻한 차를 마셔요."
+        },
+        {
+          "ko": "쓰다",
+          "en": "to write",
+          "ex": "한국어로 편지를 써요."
+        },
+        {
+          "ko": "주다",
+          "en": "to give",
+          "ex": "친구에게 선물을 줘요."
+        },
+        {
+          "ko": "차",
+          "en": "tea",
+          "ex": "차를 마셔요."
+        },
+        {
+          "ko": "편지",
+          "en": "letter",
+          "ex": "편지를 써요."
+        }
+      ]
+    },
+    {
+      "t": "dictate",
+      "say": "따뜻한 차를 마셔요",
+      "answers": [
+        "따뜻한 차를 마셔요"
+      ],
+      "hint": "I drink warm tea.",
+      "why": "마시- + -어요 contracts ㅣ + 어 into 여 → 마셔요."
+    },
+    {
+      "t": "write",
+      "q": "Your friend asks what you do in the morning. Reply that you drink coffee using 커피를 and 마셔요.",
+      "must": [
+        "커피를",
+        "마셔요"
+      ],
+      "sample": "아침에 커피를 마셔요.",
+      "why": "마시다 contracts with -어요 to become 마셔요."
+    },
+    {
+      "t": "cando",
+      "items": [
+        "Fluently contract vowels without final consonants (ㅗ+아→와, ㅣ+어→여, ㅜ+어→워)",
+        "Order drinks and describe writing activities in Korean"
+      ]
+    }
+  ],
+  "bg-d-01-04": [
+    {
+      "t": "passage",
+      "h": "Listen to the dialogue",
+      "ko": [
+        "방이 좀 더운데 창문 열어요?",
+        "네, 바람이 시원하니까 창문을 열어요.",
+        "주말에는 보통 어디서 쉬어요?",
+        "집에서 푹 쉬고 공원에서 운동해요."
+      ],
+      "en": [
+        "The room is a bit warm, shall I open the window?",
+        "Yes, the breeze is cool, so please open the window.",
+        "Where do you usually rest on weekends?",
+        "I rest well at home and exercise in the park."
+      ]
+    },
+    {
+      "t": "choice",
+      "q": "Why do the speakers open the window?",
+      "options": [
+        "The room is warm and the breeze is cool",
+        "It is raining outside",
+        "They heard a sound outside"
+      ],
+      "answer": 0,
+      "why": "The first speaker says '방이 좀 더운데 창문 열어요?' and the second agrees the breeze is cool."
+    },
+    {
+      "t": "choice",
+      "q": "What does the second speaker do on weekends?",
+      "options": [
+        "Rest at home and exercise in the park",
+        "Travel to another city",
+        "Work overtime at the office"
+      ],
+      "answer": 0,
+      "why": "The speaker explains '집에서 푹 쉬고 공원에서 운동해요' (I rest well at home and exercise in the park)."
+    },
+    {
+      "t": "vocab",
+      "h": "Words for this scene",
+      "items": [
+        {
+          "ko": "열다",
+          "en": "to open",
+          "ex": "창문을 열어요."
+        },
+        {
+          "ko": "닫다",
+          "en": "to close",
+          "ex": "문을 닫아요."
+        },
+        {
+          "ko": "쉬다",
+          "en": "to rest",
+          "ex": "집에서 편하게 쉬어요."
+        },
+        {
+          "ko": "살다",
+          "en": "to live",
+          "ex": "서울에 살아요."
+        },
+        {
+          "ko": "창문",
+          "en": "window",
+          "ex": "창문을 열어요."
+        }
+      ]
+    },
+    {
+      "t": "dictate",
+      "say": "시원하니까 창문을 열어요",
+      "answers": [
+        "시원하니까 창문을 열어요"
+      ],
+      "hint": "Since it is cool, I open the window.",
+      "why": "열다 has vowel ㅓ, taking -어요 to become 열어요."
+    },
+    {
+      "t": "write",
+      "q": "Your friend asks where you rest on weekends. Reply that you rest at home using 집에서 and 쉬어요.",
+      "must": [
+        "집에서",
+        "쉬어요"
+      ],
+      "sample": "주말에는 집에서 쉬어요.",
+      "why": "쉬다 ends in vowel ㅟ, which is not ㅏ or ㅗ, so it takes -어요 → 쉬어요."
+    },
+    {
+      "t": "cando",
+      "items": [
+        "Accurately differentiate confusing verb stems (살다 vs 열다, 닫다 vs 쉬다)",
+        "Confidently produce appropriate polite forms in natural conversational context"
+      ]
+    }
+  ]
+}
