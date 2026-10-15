@@ -111,6 +111,8 @@ const CSS = `.ws-doc{max-width:820px;margin:0 auto}.ws-p{background:#fff;border:
 .ws-acts{display:flex;gap:10px;flex-wrap:wrap;margin:14px 0}
 @media print{@page{size:A4;margin:12mm}body{background:#fff}.hd,.ws-acts,.ws-nav,.ft,.ws-intro{display:none!important}main{padding:0!important;max-width:none}.ws-p{border:0;border-radius:0;padding:0;margin:0;break-after:page}.ws-p:last-child{break-after:auto}.ws-p h1{font-size:26px}.ws-p p,.ws-q li{font-size:13.5px}.ws-wl{height:26px}mark{-webkit-print-color-adjust:exact;print-color-adjust:exact}}`;
 
+/* 받을 때 파일 이름(.docx · PDF 저장)의 앞부분 — Cheesepotato_Grammar_<번호(두 자리)>_<이름>. numbers-worksheet.js 가 읽는다 */
+const wsFile = (p) => `<meta name="ws-file" content="${esc('Cheesepotato_Grammar_' + p.id.split('-').map((x) => x.padStart(2, '0')).join('-') + '_' + String(p.name).replace(/[^0-9A-Za-z가-힣]+/g, '-').replace(/^-+|-+$/g, '').slice(0, 36))}">\n`;
 const head = (title, desc, url, jsonld = '') => `<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -147,7 +149,7 @@ const LOCK = (p) => `<section class="ws-p ws-lock"><h2>🔒 연습 · 정답은 
 const NAV = (p, pro) => `<nav class="ws-nav"><a href="/worksheet/${pro ? 'pro/' : ''}">← 문법 학습지 목록 · All worksheets</a> · <a href="/sentence/${p.id}.html">이 문법 자세히 · Grammar page</a></nav>`;
 const wrap = (p, body, pro) => `<div class="ws-doc">${NAV(p, pro)}
 <p class="ws-intro">인쇄하거나 PDF · Word 파일로 받아 쓰세요(브라우저의 인쇄 → PDF 로 저장). · Print, save as PDF, or download Word.</p>
-<div class="ws-acts"><button type="button" class="btn main" onclick="window.print()">Print / save as PDF</button><button type="button" class="btn sub" id="wsDocx">Word (.docx)</button>${pro ? '<button type="button" class="btn sub" id="wsAnsDocx">Answer key (.docx)</button>' : ''}<a class="btn sub" href="/?utm_source=worksheet&amp;utm_medium=${p.id}#learn/sentence/${p.id}">Practise this grammar online — free →</a></div>
+<div class="ws-acts"><button type="button" class="btn main" id="wsPrint">Print / save as PDF</button><button type="button" class="btn sub" id="wsDocx">Word (.docx)</button>${pro ? '<button type="button" class="btn sub" id="wsAnsDocx">Answer key (.docx)</button>' : ''}<a class="btn sub" href="/?utm_source=worksheet&amp;utm_medium=${p.id}#learn/sentence/${p.id}">Practise this grammar online — free →</a></div>
 ${body}
 </div>
 <p class="ft">Made by a Korean teacher · <a href="/about.html">About</a> · <a href="/worksheet/">All grammar worksheets</a> · <a href="/privacy.html">Privacy</a></p>`;
@@ -159,10 +161,10 @@ for (const p of POINTS) {
   const desc = `Printable worksheet for the Korean grammar point ${p.name}: meaning, form and examples${free ? ', plus practice and an answer key — free' : '; practice and answer key with Pro'}. For learners and teachers.`;
   const url = `/worksheet/${p.id}.html`;
   // 공개 쪽: 무료는 3쪽 전부, Pro 는 설명 1쪽 + 잠금 안내(연습 · 정답은 이 쪽에 들어 있지 않다)
-  writeFileSync(join(OUT, `${p.id}.html`), head(title, desc, url) + wrap(p, free ? `${s.sheet1}\n${s.sheet2}\n${s.sheet3}` : `${s.sheet1}\n${LOCK(p)}`, false) + foot);
+  writeFileSync(join(OUT, `${p.id}.html`), head(title, desc, url, wsFile(p)) + wrap(p, free ? `${s.sheet1}\n${s.sheet2}\n${s.sheet3}` : `${s.sheet1}\n${LOCK(p)}`, false) + foot);
   if (!free) {
     // 전체 쪽은 Pro 가 앱(자료실)에서 들어오는 길 — 검색에 안 잡히게 noindex + robots 에서 막는다. 쪽 주소를 아는 사람은 열 수 있다(앱의 Pro 확인과 같은 수준의 안내)
-    const full = head(`${p.name} — worksheet (Pro) | CheesePotato`, desc, `/worksheet/pro/${p.id}.html`).replace('<meta name="referrer"', '<meta name="robots" content="noindex,nofollow">\n<meta name="referrer"')
+    const full = head(`${p.name} — worksheet (Pro) | CheesePotato`, desc, `/worksheet/pro/${p.id}.html`, wsFile(p)).replace('<meta name="referrer"', '<meta name="robots" content="noindex,nofollow">\n<meta name="referrer"')
       + wrap(p, `${s.sheet1}\n${s.sheet2}\n${s.sheet3}`, true) + foot;
     writeFileSync(join(OUT, 'pro', `${p.id}.html`), full);
   } else nFree++;
@@ -184,4 +186,6 @@ writeFileSync(join(OUT, 'pro', 'index.html'), head('Grammar worksheets (Pro) | C
 <p>치즈감자 Pro · 반 학생용 전체 학습지(설명 + 연습 + 정답)예요. <a href="/worksheet/">무료 목록으로</a></p>
 ${list(true)}
 ` + foot);
+/* 자료실(#library)이 한 번에 펼쳐 보는 목록 — 문법 학습지 전부(분류 · 무료 여부) */
+writeFileSync(join(OUT, 'list.json'), JSON.stringify([...byCat.values()].flatMap(({ cat, items }) => items.map(({ p, free }) => ({ id: p.id, n: p.name, c: cat.ko, ce: cat.en || '', f: free ? 1 : 0 })))) + '\n');
 console.log(`문법 학습지 — 초급 ${n}개(무료 ${nFree} · Pro ${n - nFree}) + 목록 → worksheet/ · worksheet/pro/ (재료 없는 ${POINTS.length - n}개는 뺌)`);

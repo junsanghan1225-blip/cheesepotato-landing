@@ -104,7 +104,8 @@ function sheetPage(w) {
     `    <div class="nw-h3">${esc(s.title.en)}</div>\n    <ol class="nw-q" style="padding:0">${s.items.map((x, i) => `<li>${i + 1}. ${esc(x.a)}</li>`).join('')}</ol>\n`).join('');
   const url = `/${w.id}-worksheet/`;
   const ld = `<script type="application/ld+json">${JSON.stringify({ '@context': 'https://schema.org', '@type': 'LearningResource', name: w.title.en, url: `https://everykoreans.com${url}`, inLanguage: ['en', 'ko'], isAccessibleForFree: true, educationalLevel: w.level, learningResourceType: 'Worksheet' })}</script>\n`;
-  return head(`${w.title.en} (Free PDF)`, w.desc.en, url, ld) + `<h1>${esc(w.title.en)}</h1>
+  const wsFile = `<meta name="ws-file" content="${esc('Cheesepotato_' + (w.level === 'all' ? 'All' : w.level) + '_' + w.title.en.replace(/[^0-9A-Za-z]+/g, '-').replace(/^-+|-+$/g, '').slice(0, 40))}">\n`;
+  return head(`${w.title.en} (Free PDF)`, w.desc.en, url, ld + wsFile) + `<h1>${esc(w.title.en)}</h1>
 <p>${esc(w.title.ko)} · ${esc(w.sub.en)} · print, save as PDF or Word · Free</p>
 <div class="box">
   <div class="nw-bar no-print"><div class="nw-row"><span>Worksheet</span><button class="nw-b dark" id="nwPrint" type="button">Print / PDF</button><button class="nw-b" id="nwDocx" type="button">Word</button></div><div class="nw-row"><span>Answer key</span><button class="nw-b dark" id="nwAns" type="button">Print / PDF</button><button class="nw-b" id="nwAnsDocx" type="button">Word</button></div></div>
