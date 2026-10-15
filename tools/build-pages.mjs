@@ -1542,6 +1542,7 @@ function vocabListHub(vs) {
     `<a class="cta" href="/#words/topic/all/${vs.key}">하루 10개씩 무료로 외우기 →<span>Learn ${all.toLocaleString('en-US')} ${vs.name} words, ten a day, with spaced review</span></a>`,
     '<div class="facts">' + VOCAB_TOPICS.filter((x) => vs.by.get(x.id)?.length).map((x) =>
       `<div class="fact"><b><a href="${vs.dir}${x.id}.html">${esc(x.ko)} · ${esc(x.en)}</a></b><span>${vs.by.get(x.id).length}개 — ${esc(vs.by.get(x.id).slice(0, 6).map((w) => w.h).join(' · '))} …</span></div>`).join('') + '</div>',
+    '<p class="note"><a href="/topik-vocabulary-list/">Download the TOPIK vocabulary list — CSV · Anki (free) →</a> · <a href="/topik-grammar-list/">TOPIK grammar list →</a> · <a href="/topik-writing/">TOPIK writing practice →</a></p>',
     other.list.length ? `<p class="note"><a href="${other.dir}">${other.name} 낱말 목록(${other.list.length.toLocaleString('ko-KR')}개) →</a></p>` : '',
     '<p class="note">어휘 급수: 국립국어원 「국제 통용 한국어 표준 교육과정」(공공누리 1유형) · 뜻 · 예문: 치즈감자</p>',
   ].join('\n');
@@ -1575,6 +1576,18 @@ const EW = (() => {
   }
   return bySlug;
 })();
+/* 「○○ in Korean」 쪽끼리 이어 준다(검색 실적 2026-10-16 — 이 갈래는 노출이 많은데 순위가 8~10위): 같은 주제의 이웃 쪽 6개.
+   차례대로 돌려 쓰는 까닭: 모든 쪽이 같은 몇 쪽만 가리키지 않게 — 링크가 고르게 퍼진다. */
+const EW_BY_TOPIC = new Map();
+for (const [slug, v] of EW) { const tp = (v.words[0].t?.[0] || '').split('/')[0]; if (!tp) continue; if (!EW_BY_TOPIC.has(tp)) EW_BY_TOPIC.set(tp, []); EW_BY_TOPIC.get(tp).push([slug, v]); }
+function ewRelated(slug, v) {
+  const tp = (v.words[0].t?.[0] || '').split('/')[0], list = EW_BY_TOPIC.get(tp) || [];
+  const i = list.findIndex(([s2]) => s2 === slug); if (i < 0 || list.length < 3) return '';
+  const seen = new Set([v.words[0].h]), pick = [];   // 같은 한국어 낱말로 가는 쪽(move · move house → 이사하다)은 한 번만
+  for (let k = 1; k < list.length && pick.length < 6; k++) { const e = list[(i + k) % list.length]; if (seen.has(e[1].words[0].h)) continue; seen.add(e[1].words[0].h); pick.push(e); }
+  return '<div class="rel"><p class="nx-h">More ways to say it <small>같은 주제의 낱말</small></p><ul>' +
+    pick.map(([s2, v2]) => `<li><a href="/korean-word-for/${s2}.html">“${esc(v2.key)}” in Korean — ${esc(v2.words[0].h)}</a></li>`).join('') + '</ul></div>';
+}
 /* 이 낱말이 다른 낱말의 높임말이면 그 낱말. (vocab 의 rel.hon 은 「먹다 → 드시다」 쪽으로 적혀 있다.) */
 const HON_OF = new Map();
 VOCAB.forEach((w) => (w.r?.hon || []).forEach((h) => { if (!HON_OF.has(h)) HON_OF.set(h, w.h); }));
@@ -1617,6 +1630,8 @@ function engPage(slug, { key, words }) {
       ` 「${esc(key)}」는 한국어로 <b>${esc(top.h)}</b>.</p>`,
     card(words[0], 0), nextStep(top.h, 'wordfor'), words.slice(1).map((w, i) => card(w, i + 1)).join(''),
     `<a class="cta" href="/#words/w/${encodeURIComponent(top.h)}">Learn ${esc(top.h)} free — flashcards, audio and review →<span>「${esc(top.h)}」 단어장으로 무료로 외우기</span></a>`,
+    ewRelated(slug, { words }),
+    '<p class="note"><a href="/topik1-words/">TOPIK 1 vocabulary list</a> · <a href="/topik2-words/">TOPIK 2 vocabulary list</a> · <a href="/topik-vocabulary-list/">Download the word lists (CSV · Anki)</a></p>',
     '<p class="note">Words and levels: TOPIK I essentials (National Institute of Korean Language standard curriculum, KOGL Type 1) · examples: Cheesepotato</p>',
   ].join('\n');
   const jsonld = [
@@ -1630,7 +1645,7 @@ function engPage(slug, { key, words }) {
 }
 const EW_CSS = '.ewc{border:1px solid var(--line);border-radius:14px;padding:14px 16px;margin:12px 0;background:var(--card)}' +
   '.ewh{font-size:22px}.ewh i{font-size:15px;color:var(--dim)}.ewn{display:inline-grid;place-items:center;width:24px;height:24px;border-radius:50%;background:var(--soft);font-size:12px;margin-right:6px;vertical-align:middle}' +
-  '.ewe{margin:6px 0 2px;font-size:16px}.ex i{display:block;color:var(--dim);font-size:14px;font-style:normal;margin-top:4px}.note{font-size:13px;color:var(--dim)}';
+  '.rel ul{margin:6px 0 0;padding-left:18px}.rel li{margin:4px 0;font-size:14.5px}.ewe{margin:6px 0 2px;font-size:16px}.ex i{display:block;color:var(--dim);font-size:14px;font-style:normal;margin-top:4px}.note{font-size:13px;color:var(--dim)}';
 
 function engHub() {
   const list = [...EW.entries()].sort((a, b) => a[1].key.localeCompare(b[1].key));
