@@ -1,0 +1,308 @@
+{
+  "id": "house-rooms-furniture",
+  "title": {
+    "en": "House, Rooms & Furniture",
+    "ko": "집 · 방 · 가구"
+  },
+  "sub": {
+    "en": "Types of housing, room names, household furniture, appliances, and location phrases",
+    "ko": "집 종류, 방 이름, 기본 가구와 가전제품, 위치 표현"
+  },
+  "desc": {
+    "en": "Free printable Korean worksheet on housing, rooms and furniture: 아파트, 거실, 침실, 부엌, 침대, 책상, 냉장고, with location particles and descriptive sentences, practice exercises and an answer key."
+  },
+  "level": "A1",
+  "sections": [
+    {
+      "type": "table",
+      "title": {
+        "en": "Types of Housing & Rooms",
+        "ko": "집 종류와 방 이름"
+      },
+      "cols": [
+        "Area / Room",
+        "Korean",
+        "Spoken reading",
+        "Meaning & Note"
+      ],
+      "rows": [
+        [
+          "House / Home",
+          "집",
+          "—",
+          "Home or house in general"
+        ],
+        [
+          "Apartment",
+          "아파트",
+          "—",
+          "Apartment flat in a building"
+        ],
+        [
+          "Studio flat",
+          "원룸",
+          "월룸",
+          "Single-room studio (유음화: ㄴ+ㄹ→ㄹㄹ)"
+        ],
+        [
+          "Living room",
+          "거실",
+          "—",
+          "Main common living room area"
+        ],
+        [
+          "Bedroom",
+          "침실 / 방",
+          "—",
+          "Room for sleeping"
+        ],
+        [
+          "Kitchen",
+          "부엌",
+          "부억",
+          "Kitchen (받침 ㅋ pronounced [ㄱ])"
+        ],
+        [
+          "Bathroom / Restroom",
+          "화장실",
+          "—",
+          "Bathroom or toilet"
+        ],
+        [
+          "Entrance foyer",
+          "현관",
+          "—",
+          "Entryway where shoes are taken off"
+        ],
+        [
+          "Balcony / Veranda",
+          "베란다",
+          "—",
+          "Balcony or utility veranda"
+        ]
+      ],
+      "note": "Pronunciation highlights: 부엌 is pronounced [부억] with representative consonant ㄱ; 원룸 is pronounced [월룸] through liquidization."
+    },
+    {
+      "type": "table",
+      "title": {
+        "en": "Furniture & Household Appliances",
+        "ko": "가구와 가전제품"
+      },
+      "cols": [
+        "Item",
+        "Korean",
+        "Spoken reading",
+        "Category & Usual placement"
+      ],
+      "rows": [
+        [
+          "Bed",
+          "침대",
+          "—",
+          "Furniture in the bedroom"
+        ],
+        [
+          "Desk",
+          "책상",
+          "책쌍",
+          "Furniture in study / bedroom"
+        ],
+        [
+          "Chair",
+          "의자",
+          "—",
+          "Seating paired with desk or table"
+        ],
+        [
+          "Sofa / Couch",
+          "소파",
+          "—",
+          "Furniture in the living room"
+        ],
+        [
+          "Dining table",
+          "식탁",
+          "—",
+          "Table in the kitchen / dining area"
+        ],
+        [
+          "Wardrobe / Closet",
+          "옷장",
+          "옫짱",
+          "Clothes storage (음절 끝소리 + 경음화)"
+        ],
+        [
+          "Bookshelf",
+          "책장",
+          "책짱",
+          "Book shelf unit"
+        ],
+        [
+          "Refrigerator",
+          "냉장고",
+          "—",
+          "Appliance in the kitchen"
+        ],
+        [
+          "Washing machine",
+          "세탁기",
+          "세탁끼",
+          "Appliance for laundry"
+        ],
+        [
+          "Television",
+          "텔레비전",
+          "—",
+          "Appliance in the living room"
+        ]
+      ],
+      "note": "Sound changes: 책상 [책쌍], 옷장 [옫짱], 세탁기 [세탁끼] undergo tensification (경음화) after stop consonants."
+    },
+    {
+      "type": "table",
+      "title": {
+        "en": "Describing Where Things Are",
+        "ko": "집안 위치 표현"
+      },
+      "cols": [
+        "Pattern",
+        "Korean example",
+        "Spoken reading",
+        "Meaning"
+      ],
+      "rows": [
+        [
+          "In the living room",
+          "거실에 소파가 있어요.",
+          "거시레",
+          "There is a sofa in the living room."
+        ],
+        [
+          "On the desk",
+          "책상 위에 책이 있어요.",
+          "책쌍 우이에 채기",
+          "There is a book on the desk."
+        ],
+        [
+          "Inside the fridge",
+          "냉장고 안에 물이 있어요.",
+          "아네 무리",
+          "There is water inside the fridge."
+        ],
+        [
+          "Next to the bed",
+          "침대 옆에 옷장이 있어요.",
+          "여페 옫짱이",
+          "There is a closet next to the bed."
+        ]
+      ],
+      "note": "Position words follow the noun: 책상 위 (on top of desk), 냉장고 안 (inside fridge), 침대 옆 (next to bed)."
+    },
+    {
+      "type": "practice",
+      "title": {
+        "en": "Practice A — Match the room with its typical furniture or appliance",
+        "ko": "방에 어울리는 가구나 가전을 골라요"
+      },
+      "items": [
+        {
+          "q": "거실에 편안한 ___가 있어요 (소파 / 침대) →",
+          "a": "소파"
+        },
+        {
+          "q": "부엌에 음식을 보관하는 ___가 있어요 (냉장고 / 옷장) →",
+          "a": "냉장고"
+        },
+        {
+          "q": "침실에 푹신한 ___가 있어요 (침대 / 식탁) →",
+          "a": "침대"
+        },
+        {
+          "q": "화장실에서 손을 씻고 ___를 써요 (수건 / 책상) →",
+          "a": "수건"
+        },
+        {
+          "q": "공부방에 컴퓨터와 ___이 있어요 (책상 / 세탁기) →",
+          "a": "책상"
+        },
+        {
+          "q": "현관에서 ___을 벗고 집으로 들어가요 (신발 / 냄비) →",
+          "a": "신발"
+        }
+      ]
+    },
+    {
+      "type": "practice",
+      "title": {
+        "en": "Practice B — Choose the position word (위 / 안 / 옆 / 아래)",
+        "ko": "알맞은 위치 단어를 골라요"
+      },
+      "items": [
+        {
+          "q": "책상 ___에 스탠드 조명이 있어요 (on top) →",
+          "a": "위"
+        },
+        {
+          "q": "냉장고 ___에 시원한 생수가 들어 있어요 (inside) →",
+          "a": "안"
+        },
+        {
+          "q": "침대 ___에 떨어진 양말이 있어요 (underneath) →",
+          "a": "아래"
+        },
+        {
+          "q": "소파 ___에 작은 탁자가 있어요 (next to) →",
+          "a": "옆"
+        },
+        {
+          "q": "옷장 ___에 코트와 셔츠가 걸려 있어요 (inside) →",
+          "a": "안"
+        },
+        {
+          "q": "식탁 ___에 맛있는 과일 바구니가 놓여 있어요 (on top) →",
+          "a": "위"
+        }
+      ]
+    },
+    {
+      "type": "practice",
+      "title": {
+        "en": "Practice C — Write the Korean word for each home item",
+        "ko": "집과 가구 단어를 한국어로 써요"
+      },
+      "items": [
+        {
+          "q": "living room →",
+          "a": "거실"
+        },
+        {
+          "q": "kitchen →",
+          "a": "부엌"
+        },
+        {
+          "q": "refrigerator →",
+          "a": "냉장고"
+        },
+        {
+          "q": "desk →",
+          "a": "책상"
+        },
+        {
+          "q": "bed →",
+          "a": "침대"
+        },
+        {
+          "q": "bathroom / restroom →",
+          "a": "화장실"
+        }
+      ]
+    }
+  ],
+  "howto": [
+    "Study the room vocabulary and furniture items with their correct pronunciations.",
+    "Practice using position words (위, 아래, 앞, 뒤, 안, 옆) with the location particle 에.",
+    "Complete Practice A to C and verify your results against the answer key."
+  ],
+  "koSummary": "아파트 · 거실 · 침실 · 부엌 등 집과 방의 명칭, 침대 · 책상 · 냉장고 등 가구와 가전, 그리고 위치 표현(위 · 아래 · 안 · 옆)을 정리했어요. 연습 A~C를 풀고 정답지로 확인하세요."
+}

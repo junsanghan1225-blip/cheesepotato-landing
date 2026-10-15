@@ -1,0 +1,210 @@
+{
+  "id": "ida-anida-itta-eopda",
+  "title": {
+    "en": "이다 vs 아니다 and 있다 vs 없다",
+    "ko": "이다 · 아니다 · 있다 · 없다 비교"
+  },
+  "sub": {
+    "en": "Identity (to be / not to be) vs Existence & Possession (to exist / not to exist, have / not have)",
+    "ko": "신분·정체 표현(이다/아니다)과 존재·소유 표현(있다/없다) 완벽 구분"
+  },
+  "desc": {
+    "en": "Free printable Korean worksheet comparing 이다 (to be), 아니다 (to not be), 있다 (to have/exist), and 없다 (to not have/exist): grammar rules, particle pairings, contrast tables, practice exercises and an answer key."
+  },
+  "level": "A1",
+  "sections": [
+    {
+      "type": "table",
+      "title": {
+        "en": "Identity vs Existence: The Four Fundamental Verbs",
+        "ko": "정체와 존재의 4대 기본 어휘"
+      },
+      "cols": [
+        "Word",
+        "Core meaning",
+        "Particle needed on noun",
+        "Example sentence"
+      ],
+      "rows": [
+        [
+          "이다 (-이에요 / -예요)",
+          "To be (identity / definition)",
+          "None (attaches directly to noun)",
+          "저는 학생이에요. (I am a student.)"
+        ],
+        [
+          "아니다 (이/가 아니에요)",
+          "To not be (negating identity)",
+          "Noun + 이/가",
+          "저는 의사가 아니에요. (I am not a doctor.)"
+        ],
+        [
+          "있다 (이/가 있어요)",
+          "To exist / To have (location/possession)",
+          "Noun + 이/가 (at place에)",
+          "지금 시간이 있어요. (I have time.)"
+        ],
+        [
+          "없다 (이/가 없어요)",
+          "To not exist / To not have",
+          "Noun + 이/가 (at place에)",
+          "지갑에 돈이 없어요. (I have no money.)"
+        ]
+      ],
+      "note": "Crucial rule: 이에요/예요 connects directly to the noun with NO particle. In contrast, 아니에요, 있어요, and 없어요 all require the subject particle 이/가."
+    },
+    {
+      "type": "table",
+      "title": {
+        "en": "Conjugation & Particle Matching Forms",
+        "ko": "받침에 따른 형태 변화"
+      },
+      "cols": [
+        "Base verb",
+        "After consonant (받침 O)",
+        "After vowel (받침 X)",
+        "Past tense form"
+      ],
+      "rows": [
+        [
+          "이다 (to be)",
+          "선생님이에요",
+          "의사예요",
+          "이었어요 / 였어요"
+        ],
+        [
+          "아니다 (not to be)",
+          "선생님이 아니에요",
+          "의사가 아니에요",
+          "아니었어요"
+        ],
+        [
+          "있다 (to exist/have)",
+          "우산이 있어요",
+          "시계가 있어요",
+          "있었어요"
+        ],
+        [
+          "없다 (not to exist/have)",
+          "우산이 없어요",
+          "시계가 없어요",
+          "없었어요"
+        ]
+      ],
+      "note": "Pronunciation: 아니었어요 is pronounced [아니어써요], 있었어요 is pronounced [이써써요], 없었어요 is pronounced [업써써요]."
+    },
+    {
+      "type": "text",
+      "title": {
+        "en": "How to Choose Between 이다/아니다 and 있다/없다",
+        "ko": "이다/아니다와 있다/없다를 고르는 기준"
+      },
+      "text": "Ask yourself what the sentence describes: If you are explaining WHAT a person or thing IS, use Noun + 이에요/예요 (or 이/가 아니에요 for negative). If you are describing WHERE an object is located or WHAT someone OWNS/HAS, use Item + 이/가 (장소에) 있어요/없어요. Remember: never say '안 이에요' (use 아니에요) and never say '안 있어요' (use 없어요)."
+    },
+    {
+      "type": "practice",
+      "title": {
+        "en": "Practice A — Fill in the right form of 이다 or 아니다",
+        "ko": "이다와 아니다를 알맞게 채워요"
+      },
+      "items": [
+        {
+          "q": "저는 한국 사람___ (이에요 / 예요) →",
+          "a": "이에요"
+        },
+        {
+          "q": "이거는 따뜻한 커피___ (이에요 / 예요) →",
+          "a": "예요"
+        },
+        {
+          "q": "제 친구는 학생___ 아니에요 (이 / 가) →",
+          "a": "이"
+        },
+        {
+          "q": "이거는 제 가방___ 아니에요 (이 / 가) →",
+          "a": "이"
+        },
+        {
+          "q": "저는 의사___ 아니에요. 간호사예요 (이 / 가) →",
+          "a": "가"
+        },
+        {
+          "q": "저 사람은 유명한 가수가 ___ (아니에요 / 없어요) →",
+          "a": "아니에요"
+        }
+      ]
+    },
+    {
+      "type": "practice",
+      "title": {
+        "en": "Practice B — Choose between 이다/아니다 and 있다/없다",
+        "ko": "문맥에 알맞은 동사를 골라요"
+      },
+      "items": [
+        {
+          "q": "지금 지갑에 현금이 ___ (없어요 / 아니에요) →",
+          "a": "없어요"
+        },
+        {
+          "q": "저는 일본 사람이 ___ (아니에요 / 없어요) →",
+          "a": "아니에요"
+        },
+        {
+          "q": "교실 안에 선생님이 ___ (있어요 / 이에요) →",
+          "a": "있어요"
+        },
+        {
+          "q": "저분은 우리 한국어 선생님___ (이에요 / 있어요) →",
+          "a": "이에요"
+        },
+        {
+          "q": "오늘 중요한 약속이 있어서 시간이 ___ (없어요 / 아니에요) →",
+          "a": "없어요"
+        },
+        {
+          "q": "이 음료수는 사과주스가 ___ (아니에요 / 없어요) →",
+          "a": "아니에요"
+        }
+      ]
+    },
+    {
+      "type": "practice",
+      "title": {
+        "en": "Practice C — Complete the sentence with the appropriate ending or particle",
+        "ko": "알맞은 어미나 조사를 완성해요"
+      },
+      "items": [
+        {
+          "q": "책상 위에 한국어 책이 ___ (there is / exists) →",
+          "a": "있어요"
+        },
+        {
+          "q": "저는 미국 사람이 ___ (am not) →",
+          "a": "아니에요"
+        },
+        {
+          "q": "비가 오는데 가방에 우산이 ___ (don't have) →",
+          "a": "없어요"
+        },
+        {
+          "q": "이 사람은 제 친구 민수___ (is) →",
+          "a": "예요"
+        },
+        {
+          "q": "도서관에 재미있는 소설책___ 많이 있어요 (particle: 이 / 가) →",
+          "a": "이"
+        },
+        {
+          "q": "서랍 안에 열쇠___ 없어서 문을 못 열어요 (particle: 이 / 가) →",
+          "a": "가"
+        }
+      ]
+    }
+  ],
+  "howto": [
+    "Distinguish identity sentences (what something is: 이에요/아니에요) from existence/possession sentences (where something is or what you have: 있어요/없어요).",
+    "Pay attention to particles: 이에요/예요 attaches directly without a particle; 아니에요 and 있어요/없어요 always require 이/가.",
+    "Complete Practice A to C and verify each sentence with the answer key."
+  ],
+  "koSummary": "신분과 사물의 정체를 나타내는 이다(-이에요/예요)와 아니다(이/가 아니에요), 존재와 소유를 나타내는 있다/없다의 문법적 차이와 조사 결합 규칙을 정리했습니다. 연습 A~C를 풀고 정답지로 확인하세요."
+}
