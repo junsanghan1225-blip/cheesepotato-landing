@@ -7459,3 +7459,6 @@ button.hero-how { border:none; font:inherit; font-weight:700; cursor:pointer; }
 .ex-hint { margin-top:10px; padding:10px 12px; border-radius:10px; background:var(--tint); font-size:14px; line-height:1.6; }
 .sty .ds-btns { flex-direction:column; align-items:stretch; }
 .sty .ds-btns button { width:100%; }
+
+/* 친구 초대 보상 알림(운영자 2026-10-16) — 아래쪽에 7초 떠 있다 사라진다 */
+.ref-note{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom));transform:translateX(-50%);z-index:9999;max-width:min(92vw,420px);padding:12px 16px;border-radius:14px;background:#1B1512;color:#fff;font-size:14.5px;line-height:1.5;box-shadow:0 8px 28px rgba(0,0,0,.28);text-align:center}
