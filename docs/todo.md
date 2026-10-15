@@ -8,7 +8,7 @@
 ### 🔥 이번 주 (몇 분씩)
 | # | 할 일 | 어디 · 어떻게 |
 |---|---|---|
-| 1 | Search Console 「색인 생성 요청」 — 새 쪽 열두 개 + Sitemaps 에 `sitemap.xml` 다시 제출. 주소: `/korean-name/` `/korean-age/` `/for-teachers.html` `/my/eps-topik/` `/korean-zodiac/` `/korean-proverb/` `/my-korean-name/` `/korean-birthday/` `/korean-word-today/` `/hangul-worksheet/` **`/en/topik-writing/` `/en/topik-reading/` `/en/topik-listening/`** | URL 검사 칸에 주소 → 맨 위 상자의 「색인 생성 요청」 |
+| 1 | Search Console 「색인 생성 요청」 — 새 쪽 열두 개 + `/topik-grammar-list/` + Sitemaps 에 `sitemap.xml` 다시 제출. 주소: `/korean-name/` `/korean-age/` `/for-teachers.html` `/my/eps-topik/` `/korean-zodiac/` `/korean-proverb/` `/my-korean-name/` `/korean-birthday/` `/korean-word-today/` `/hangul-worksheet/` **`/en/topik-writing/` `/en/topik-reading/` `/en/topik-listening/`** | URL 검사 칸에 주소 → 맨 위 상자의 「색인 생성 요청」 |
 | 2 | 선생님 5명에게 메시지 보내기 → 메일 오면 반 화면 「선생님 계정」에 올리기 | `docs/ops/teacher-pilot.md`(그대로 복사할 글) |
 | 3 | 다음 TOPIK 시험 날짜(공식 공지) 알려 주기 | 받으면 D-30 부트캠프를 만든다(`docs/plans/topik-exam-wave.md`) |
 | 5 | 만들기 도구 그림(이름 도장 · 띠 카드 · 포춘쿠키 · 생일 카드)을 인스타 스토리에 + 링크 스티커 | 첫 공유 예시 — 도구 쪽에서 만들어 저장 |
@@ -39,7 +39,6 @@
 | 11f | **발음 표시 눈으로 확인** — 머지 뒤 사전 쪽(예: `/dictionary/혈액형.html`) 아무거나 10개를 열어 「Pronounced […]」가 맞는지 봐 주세요. 틀린 것이 있으면 낱말만 알려 주시면 규칙을 고쳐요 | 운영자 |
 | 11g | **알림 메일 실제로 받아 보기** — 설정에서 「매일 공부 알림 메일」을 켜고(확인 창 → 확인) 시각을 지금 시각으로 → 다음 정각 5분쯤 메일이 오는지, 스팸함 확인, 맨 아래 「그만 받기」가 되는지 | 운영자 |
 | 11h | **도우미 이어 묻기 시험** — 로그인하고 도우미에 낱말을 묻고 「예문 하나 더」로 이어 물어 보기 | 운영자 |
-| 11i | **쓰기 답안 공유 SQL 실행** — Supabase SQL Editor 에서 `db/add_writing_share.sql` 한 번(먼저 `add_community.sql` 이 돌려져 있어야 함). 그 뒤 TOPIK 쓰기 53·54 를 AI 채점하고 「내 답안을 …」 체크 → 올리기 → 「다른 학생 답안 보기」 확인 | 운영자 |
 | 11i | **새 메일(cheesepotato@everykoreans.com)로 바꿀 곳 — 사이트 밖**: 앱 저장소(cheesepotatoapp)의 문의 주소 · 플레이스토어 개발자 연락처 · Polar · Resend 계정 메일 · Search Console · Clarity · Supabase 알림. (사이트 쪽은 Claude 가 바꿈) | 운영자 · 앱 때 |
 | 11 | Polar 에서 지금 유료 사용자 수 | PRD 기준선 |
 | 12 | PRD ⚠ 남은 것(90일 숫자 · 부트캠프 · 기관 요금 · EPS 시기 · 언어 · iOS) | `docs/prd.md` 10항 |
@@ -65,11 +64,12 @@
 | 4 | 원본 영상 → 고화질 · 소리 · 썸네일 | 원본 받으면 |
 | 5 | Clarity: 유럽 방문자가 한 사람으로 묶이는지 확인 | 다음 주 CSV |
 | 6 | PRD ⚠ 채워 확정 | 운영자 답 받으면 |
-| 7 | 앱 개인정보 문서(`cheesepotatoapp/docs/privacy-policy.md`)와 사이트 `privacy.html` 맞추기(Polar 줄 등 어긋남) | 운영자 OK |
+| 7 | (2026-10-15 사이트 `privacy.html` 에 「쓰기 답안 공유」 단락을 손으로 넣음 — `tools/build-privacy.js` 는 옛 경로를 가리켜 다시 돌리면 덮어쓰니 돌리지 않는다) 앱 개인정보 문서(`cheesepotatoapp/docs/privacy-policy.md`)와 사이트 `privacy.html` 맞추기(Polar 줄 등 어긋남) | 운영자 OK |
 
-| 8 | **TOPIK 노출 다음 단계**(운영자 고르면): ① 영어 TOPIK 가이드 글 10편(안티 지시서) ② 「TOPIK 낱말 목록 · Anki 내려받기」 쪽 ③ 「TOPIK 문법 목록」 쪽 | 운영자 OK |
+| 8 | **TOPIK 노출 다음 단계**: ① 영어 TOPIK 가이드 글(9편 들어옴 · 1편 보류) ② 낱말 목록 쪽 ✅ ③ 문법 목록 쪽 ✅(2026-10-15 `/topik-grammar-list/`) — 머지 뒤 Search Console 색인 요청 필요 | 운영자 |
 
 ## ✅ 끝난 것
+- 2026-10-15 SQL `db/add_writing_share.sql`(TOPIK 쓰기 답안 공유 — 표 2개 · 신고) 운영자가 돌림. 다음: 53·54 를 AI 채점 → 「내 답안을…」 체크 → 올리기 → 「다른 학생 답안 보기」 눈으로 확인(운영자)
 - 2026-10-14 SQL `db/add_class_submit.sql`(숙제 제출 · 사진 저장소) · `db/add_teacher_requests.sql`(선생님 신청) 돌림 — 다음: 머지 뒤 선생님 · 학생 계정으로 흐름 눈으로 확인
 - 2026-10-12 안티 「한국 이름 2묶음」 시킴 → 119개 넣음(11b)
 - 2026-10-12 `ask-helper` 배포 · 알림 메일(Resend 인증 · Secrets · SQL · `daily-reminder` 배포 · GitHub 설정 · 시험 성공) 설정 끝(11d)
@@ -77,4 +77,4 @@
 - 2026-10-11 SQL `db/add_classes_more_kinds.sql` 돌림(숙제 종류 10가지 · 번역 포함)
 - 2026-10-10 쿠키 동의 줄(#286) · 안티 결과 vi · ja 1묶음 + 중국어 3묶음(#285) · PRD 초안 · 작업 체계 정리 · 효율 도구(preflight · ag-status · check-docs) · CLAUDE.md 표준 순서 · TOPIK 예상 급수 · 무료 도구 쪽 둘 · 소개 쪽 · 믿음 한 줄 · 이름 도장 · 선생님 쪽 · 미얀마어 EPS 초안 · 검색 자료 반영(#290) · 「1:1 수업 1,700회+」 확인(머지로) · 미얀마어 EPS 쪽 열기 · 이름 도장 모양 넷 + 사이드바 「만들기」(#293) · 중국어 화면 끝 · 메뉴에 켬 · 낱말 뜻 vi · ja 2 ~ 8묶음
 - 2026-10-09 앱 오류 알림(cheesepotatoapp#7, SQL 돌림) · 개인정보 오류 기록 고지(#284) · 로드맵(#283)
-- (운영자 · 앱) 앱 새 레슨 블록 — 앱 저장소 브랜치 `claude/app-native-learn`(커밋 「앱: 레슨 새 블록 8종」)을 받아 `npx.cmd eas-cli update --branch preview --message "레슨 새 블록"` 으로 올린다. 웹이 먼저 올라가 있어야(lesson-extra) 새 블록이 뜬다. 폰에서 「첫 마디 · 저는 ~예요」 레슨을 열어 낱말 카드 · 짧은 글 · 받아쓰기 · 내 문장 쓰기 · 문장 늘리기 · 자기 점검이 나오는지 확인(활용 표는 「문장 뼈대 · 어제와 내일」).
+- (운영자 · 앱) 앱 새 레슨 블록 — 앱 저장소 브랜치 `claude/app-native-learn`(커밋 「앱: 레슨 새 블록 8종」 + 「레슨 나가기 확인 · 이어하기 · 틀린 문제 다시 풀기 · 오답 노트 아직이에요」 2741b91)을 받아 `npx.cmd eas-cli update --branch preview --message "레슨 새 블록 · 이어하기"` 으로 올린다. 웹이 먼저 올라가 있어야(lesson-extra) 새 블록이 뜬다. 폰에서 「첫 마디 · 저는 ~예요」 레슨을 열어 낱말 카드 · 짧은 글 · 받아쓰기 · 내 문장 쓰기 · 문장 늘리기 · 자기 점검이 나오는지 확인(활용 표는 「문장 뼈대 · 어제와 내일」).

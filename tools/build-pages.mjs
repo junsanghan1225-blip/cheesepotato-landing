@@ -3113,6 +3113,7 @@ for (const f of wsDir(join(ROOT, 'docs/worksheets'))) if (f.endsWith('.json') &&
 urls.push({ loc: '/worksheet/', freq: 'monthly', pri: '0.8' });
 for (const id of WS_IDS) urls.push({ loc: `/worksheet/${id}.html`, freq: 'monthly', pri: '0.6' });
 urls.push({ loc: '/topik-vocabulary-list/', freq: 'monthly', pri: '0.8' });
+urls.push({ loc: '/topik-grammar-list/', freq: 'monthly', pri: '0.8' });
 urls.push({ loc: '/for-teachers.html', freq: 'monthly', pri: '0.6' });
 urls.push({ loc: '/my/eps-topik/', freq: 'monthly', pri: '0.6' });   // 미얀마어 EPS(운영자 2026-10-10 「열어줘」)
 for (const loc of ['/pricing.html', '/terms.html', '/refund.html']) urls.push({ loc, freq: 'yearly', pri: '0.3' });

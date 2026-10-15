@@ -75,7 +75,7 @@ ${BAND.map(li).join('\n')}
 <h2>Grammar list</h2>
 <p>${GR.length} Korean grammar patterns grouped as Beginner, Intermediate and Advanced (our own levels — not an official TOPIK grammar list), each with an English meaning, its form and an example sentence.</p>
 <table class="dl"><tbody><tr><td>Korean grammar patterns</td><td>${GR.length}</td><td><a href="/downloads/korean-grammar-list.csv" download>CSV</a></td><td><a href="/downloads/korean-grammar-list-anki.txt" download>Anki</a></td></tr></tbody></table>
-<p>Browse them online: <a href="/sentence/">all grammar patterns with dialogues</a>.</p>
+<p>Browse them online: <a href="/topik-grammar-list/">the full grammar list</a> · <a href="/sentence/">all grammar patterns with dialogues</a>.</p>
 <h2>How to use</h2>
 <ul>
   <li><strong>CSV</strong> opens in Excel, Google Sheets and Numbers (UTF-8, so Korean letters display correctly). Columns: Korean, part of speech, English, Vietnamese, Japanese, example (Korean and English), level.</li>
@@ -100,3 +100,56 @@ ${BAND.map(li).join('\n')}
 mkdirSync(join(ROOT, 'topik-vocabulary-list'), { recursive: true });
 writeFileSync(join(ROOT, 'topik-vocabulary-list', 'index.html'), page);
 console.log(`TOPIK 낱말 내려받기 — 파일 ${BAND.length * 2}개 → downloads/ · 쪽 1개 → topik-vocabulary-list/ (낱말 ${ALL.length}개)`);
+
+/* TOPIK 문법 목록 쪽(운영자 2026-10-15 「TOPIK 노출 ③」) — 문법 290개를 우리 단계(초급 · 중급 · 고급)별 표로 한 쪽에. 급수는 TOPIK 공식이 아님을 쓴다. */
+const GR_BY = ['beginner', 'intermediate', 'advanced'].map((lv) => ({ lv, name: LVN[lv], list: GR.filter(({ p }) => p.lv === lv) })).filter((g) => g.list.length);
+const he = (x) => String(x ?? '').replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+const grRow = ({ p }) => `<tr><td><a href="/sentence/${p.id}.html">${he(p.name)}</a></td><td>${he(GRAMMAR_EN[p.id].desc)}</td><td lang="ko">${he(p.ex)}</td></tr>`;
+const gpage = `<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TOPIK Grammar List — ${GR.length} Korean Grammar Patterns, Free CSV &amp; Anki | CheesePotato</title>
+<meta name="description" content="${GR.length} Korean grammar patterns for TOPIK preparation, grouped Beginner, Intermediate and Advanced, each with an English meaning and an example sentence. Free CSV and Anki download.">
+<link rel="canonical" href="https://everykoreans.com/topik-grammar-list/">
+<!-- 생성물: node tools/build-downloads.mjs (build-pages 가 부른다). 손으로 고치지 않는다. -->
+<script src="/gtm.js" async></script>
+<script src="/analytics.js" defer></script>
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta property="og:title" content="TOPIK Grammar List — ${GR.length} Korean Grammar Patterns">
+<meta property="og:description" content="Beginner to advanced Korean grammar with meanings and examples. Free CSV and Anki download.">
+<meta property="og:url" content="https://everykoreans.com/topik-grammar-list/">
+<meta property="og:image" content="https://everykoreans.com/logo-256.png">
+<link rel="stylesheet" href="/vendor/pretendard.css">
+<link rel="stylesheet" href="/page.css">
+<style>.dl{width:100%;min-width:0;border-collapse:collapse;margin:14px 0}.dl th,.dl td{text-align:left;padding:10px 8px;border-bottom:1px solid var(--line);font-size:15px;vertical-align:top}.dl td:first-child{font-weight:700;white-space:nowrap}.dl td:last-child{color:var(--ink-3)}.dl td{overflow-wrap:anywhere}@media(max-width:640px){.dl{table-layout:fixed}.dl td:last-child,.dl th:last-child{display:none}.dl th:first-child,.dl td:first-child{white-space:normal;width:36%}.dl th:nth-child(2){width:64%}.dl th,.dl td{padding:10px 6px}}</style>
+</head>
+<body>
+<header class="hd"><div class="hd-in">
+  <a href="/"><img src="/logo.png" alt=""><span>치즈감자 CheesePotato</span></a>
+</div></header>
+<main>
+<h1>TOPIK grammar list — ${GR.length} patterns, free download</h1>
+<p>${GR.length} Korean grammar patterns you meet on the way to TOPIK, grouped as ${GR_BY.map((g) => `${g.name} (${g.list.length})`).join(', ')}. Each has an English meaning and an original example sentence; tap a pattern for its full page with dialogues. The levels are our own teaching levels — this is <strong>not</strong> an official TOPIK grammar list.</p>
+<p><a href="/downloads/korean-grammar-list.csv" download>Download CSV</a> · <a href="/downloads/korean-grammar-list-anki.txt" download>Download Anki deck</a> · <a href="/topik-vocabulary-list/">TOPIK vocabulary list</a></p>
+${GR_BY.map((g) => `<h2>${g.name} — ${g.list.length} patterns</h2>
+<table class="dl"><thead><tr><th>Pattern</th><th>Meaning</th><th>Example</th></tr></thead><tbody>
+${g.list.map(grRow).join('\n')}
+</tbody></table>`).join('\n')}
+<div class="next">
+  <h3>Practice these patterns</h3>
+  <p>Fill-in, sentence building and conjugation drills for every grammar point — free.</p>
+  <div class="btns">
+    <a class="btn main" href="/?utm_source=tool&amp;utm_medium=topik_grammar_list#learn/sentence">Practice grammar — free →</a>
+    <a class="btn sub" href="/en/topik-reading/">Free TOPIK practice</a>
+  </div>
+</div>
+<p class="ft">Made by a Korean teacher · <a href="/about.html">About</a> · <a href="/privacy.html">Privacy</a></p>
+</main>
+</body>
+</html>
+`;
+mkdirSync(join(ROOT, 'topik-grammar-list'), { recursive: true });
+writeFileSync(join(ROOT, 'topik-grammar-list', 'index.html'), gpage);
+console.log(`TOPIK 문법 목록 쪽 1개 → topik-grammar-list/ (문법 ${GR.length}개)`);
