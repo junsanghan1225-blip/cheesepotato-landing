@@ -7462,3 +7462,8 @@ button.hero-how { border:none; font:inherit; font-weight:700; cursor:pointer; }
 
 /* 친구 초대 보상 알림(운영자 2026-10-16) — 아래쪽에 7초 떠 있다 사라진다 */
 .ref-note{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom));transform:translateX(-50%);z-index:9999;max-width:min(92vw,420px);padding:12px 16px;border-radius:14px;background:#1B1512;color:#fff;font-size:14.5px;line-height:1.5;box-shadow:0 8px 28px rgba(0,0,0,.28);text-align:center}
+
+/* 레벨테스트 「어떻게 볼까요」 장 위쪽 문제 말 한 줄(운영자 2026-10-17 「A」) */
+.lt-langrow { display:flex; align-items:center; justify-content:center; gap:8px; margin:4px 0 14px; font-size:13.5px; color:var(--ink-3); }
+.lt-langrow button { font:inherit; font-size:13.5px; font-weight:700; padding:6px 14px; border-radius:999px; border:1px solid var(--line); background:var(--surface,#fff); color:var(--ink-2); cursor:pointer; }
+.lt-langrow button.on { border-color:var(--orange); color:var(--ink); background:var(--tint,#FDF0E2); }

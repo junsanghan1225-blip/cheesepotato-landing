@@ -40,7 +40,7 @@
 ">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <!-- 구글 태그 관리자. 구글이 주는 인라인 코드조각은 CSP 가 막아서 gtm.js 로 뺐다. -->
-<script src="gtm.js?v=b75cf28e" async></script>
+<script src="gtm.js?v=806c0279" async></script>
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <!-- 제목과 설명을 두 말로 쓴다. 이 사이트를 찾을 사람은 한국어를 **배우는**
@@ -126,13 +126,13 @@
      Pretendard 는 통짜(2.0MB) 대신 조각난 쪽을 쓴다 — 브라우저가
      unicode-range 를 보고 화면에 실제로 나온 글자가 든 조각만 받는다.
      그래서 저장소는 무거워졌지만 학습자가 받는 양은 오히려 줄었다. -->
-<link rel="stylesheet" href="vendor/pretendard.css?v=b75cf28e">
-<link rel="stylesheet" href="vendor/pressstart2p.css?v=b75cf28e">
+<link rel="stylesheet" href="vendor/pretendard.css?v=806c0279">
+<link rel="stylesheet" href="vendor/pressstart2p.css?v=806c0279">
 <!-- 화면 상자 안에서만 쓰는 CSS 는 여기서 갈라 받는다. media="print" 라
      첫 페인트를 안 막고, 다 받아지면 app.js 가 media 를 all 로 바꾼다.
      자바스크립트가 없으면 <noscript> 쪽이 그냥 평범하게 걸린다. -->
-<link id="viewsCss" rel="stylesheet" href="app-views.css?v=b75cf28e" media="print">
-<noscript><link rel="stylesheet" href="app-views.css?v=b75cf28e"></noscript>
+<link id="viewsCss" rel="stylesheet" href="app-views.css?v=806c0279" media="print">
+<noscript><link rel="stylesheet" href="app-views.css?v=806c0279"></noscript>
 
 <style>
 /* ══════════════════════════════════════════════════════════════
@@ -805,6 +805,10 @@ html[data-lv] .hm-tour { display:none; }   /* 레벨이 있는 학생은 「오�
 /* 첫 화면 위쪽 「맞는 순서로」(2026-10-08) — 큰 단추 하나 + 길 카드 넷이 비스듬히 쌓인 그림 */
 .hero-steps h1 { letter-spacing:-.03em; }
 .hero-acts { display:flex; flex-wrap:wrap; gap:10px; margin-top:22px; }
+/* 영어 쪽은 글자가 길어 단추 줄이 한 줄에서 두 줄로 늘면서 아래가 통째로 밀렸다(CLS 0.11 — Clarity 2026-10-16, 운영자 「B」). 큰 단추는 늘 윗줄, 작은 둘은 늘 아랫줄로 말과 상관없이 같은 모양 */
+.hero-acts::before { content:''; flex-basis:100%; order:1; height:0; margin-top:-10px; }
+.hero-acts .hero-go { order:0; }
+.hero-acts .hero-how { order:2; }
 .hero-go { min-height:56px; padding:14px 26px; border:none; border-radius:16px; background:var(--ink); color:var(--surface); font:inherit; font-size:17px; font-weight:800; cursor:pointer; }
 .hero-go:hover { filter:brightness(1.12); }
 .hero-how { display:inline-flex; align-items:center; min-height:56px; padding:14px 22px; border-radius:16px; background:var(--tint); color:var(--ink); font-weight:700; text-decoration:none; }
@@ -4285,9 +4289,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <div id="hlpScrim" class="hlp-scrim"></div>
 <aside id="hlpPanel" class="hlp-panel" aria-label="한국어 도우미" aria-hidden="true"></aside>
 
-<script src="app.js?v=b75cf28e"></script>
-<script type="module" src="app.module.js?v=b75cf28e"></script>
+<script src="app.js?v=806c0279"></script>
+<script type="module" src="app.module.js?v=806c0279"></script>
 
-<script src="analytics.js?v=b75cf28e" defer></script>
+<script src="analytics.js?v=806c0279" defer></script>
 </body>
 </html>
