@@ -17,5 +17,5 @@
 1. 애플 개발자 계정 만들기 → 알려 주기.
 2. Claude: 앱 `app.json` iOS 항목 점검(아이콘 1024 · 화면 방향 · 권한 글) + 로그인(4.8) 대응 + `npx tsc --noEmit`.
 3. 운영자: `npx.cmd eas-cli build -p ios --profile production` → `eas submit -p ios`(애플 계정 로그인) → TestFlight 로 아이폰 확인.
-4. 스토어 글 · 스크린샷(아이폰 6.7인치 / 6.5인치 ⚠ 크기 규칙 확인) · 개인정보(App Privacy) 답변은 `docs/store-listing.md` · `docs/data-safety.md` 를 바탕으로 Claude 가 초안.
+4. 스토어 글 · 스크린샷(아이폰 6.7인치 / 6.5인치 ⚠ 크기 규칙 확인) · 개인정보(App Privacy) 답변은 앱 저장소(cheesepotatoapp)의 store-listing · data-safety 문서를 바탕으로 Claude 가 초안.
 5. 심사 제출 → 걸리면 이유 알려 주기.
