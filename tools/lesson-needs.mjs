@@ -13,7 +13,7 @@ const DIR = path.join(ROOT, 'docs/lesson-blocks');
 const done = {};
 for (const f of fs.existsSync(DIR) ? fs.readdirSync(DIR) : []) if (/^[^_].*\.json$/.test(f)) done[f.replace('.json', '')] = JSON.parse(fs.readFileSync(path.join(DIR, f), 'utf8'));
 
-const kind = (c) => c.id === 'hangul' ? 'hangul' : /^(im|ad)-/.test(c.id) ? 'nuance' : 'beginner';   // 한글 · 중고급 뉘앙스 · 초급(첫 마디 · 문장 뼈대 · 초급 문법)
+const kind = (c) => c.id === 'hangul' ? 'hangul' : /^(im|ad)-/.test(c.id) ? 'nuance' : /^bg-d-/.test(c.id) ? 'dialog' : /^bg-irr/.test(c.id) ? 'irregular' : 'beginner';   // 한글 · 중고급 뉘앙스 · 대화 · 불규칙 · 초급(첫 마디 · 문장 뼈대 · 초급 문법) — 대화 · 불규칙은 레슨 대격변 5단계
 const need = (c, l) => {
   const have = {}; for (const b of l.blocks || []) have[b.t] = (have[b.t] || 0) + 1;
   const title = `${l.title?.ko || ''} ${l.title?.en || ''}`;
@@ -22,6 +22,19 @@ const need = (c, l) => {
   const k = kind(c);
   if (k === 'hangul') {
     n.push({ t: 'listen', n: 2, why: '소리 구분 — 비슷한 소리(예: ㅂ / ㅍ · ㅓ / ㅗ) 듣고 고르기. 이 레슨의 글자로' });
+    n.push({ t: 'cando', n: 1, why: '이제 할 수 있어요 — 이 레슨 목표 2~3줄(영어)' });
+  } else if (k === 'dialog') {
+    n.push({ t: 'passage', n: 1, why: '짧은 대화 3~4줄(두 사람이 번갈아 말하는 줄, 이 레슨 장면 · 문형으로) + 바로 뒤에 이해 문제 choice 2개(누가 무엇을 · 어디서 …)' });
+    n.push({ t: 'vocab', n: 1, why: '이 장면에서 쓰는 낱말 카드 4~6개(영어 뜻, 예문 한 줄)' });
+    n.push({ t: 'dictate', n: 1, why: '대화 속 한 마디 듣고 받아쓰기(상대에게 하는 말 한 문장)' });
+    n.push({ t: 'write', n: 1, why: '대화에 답하기 — 장면을 주고 내 한마디 쓰기(must 에 이 레슨 문형 조각)' });
+    n.push({ t: 'cando', n: 1, why: '이제 할 수 있어요 — 이 장면에서 할 수 있는 말 2~3줄(영어)' });
+  } else if (k === 'irregular') {
+    n.push({ t: 'conj', n: 2, why: '불규칙 활용 표 — 이 레슨의 불규칙 낱말 3~5개씩 두 표(verbs, forms 는 present · past · future · and · mod 중). 정답은 도구가 채운다' });
+    n.push({ t: 'correct', n: 2, why: '규칙처럼 잘못 활용한 문장 고치기(예: 「덥어요」→「더워요」) — 한 곳만 틀리게' });
+    n.push({ t: 'vocab', n: 1, why: '이 레슨의 불규칙 낱말 카드 4~6개' });
+    n.push({ t: 'dictate', n: 1, why: '불규칙 활용이 들어간 짧은 문장 듣고 받아쓰기' });
+    n.push({ t: 'write', n: 1, why: '배운 불규칙 낱말로 내 문장 하나 쓰기' });
     n.push({ t: 'cando', n: 1, why: '이제 할 수 있어요 — 이 레슨 목표 2~3줄(영어)' });
   } else if (k === 'beginner') {
     n.push({ t: 'vocab', n: 1, why: '이 레슨에서 쓰는 낱말 카드 4~6개(영어 뜻, 예문 한 줄)' });
