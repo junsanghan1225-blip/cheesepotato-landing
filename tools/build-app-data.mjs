@@ -165,6 +165,12 @@ const grammarBody = JSON.stringify(gcats);
 fs.writeFileSync(path.join(OUT, 'grammar.json'), grammarBody);
 const grammar = { h: crypto.createHash('sha1').update(grammarBody).digest('hex').slice(0, 8), n: gcats.reduce((a, c) => a + c.points.length, 0) };
 
+/* 레슨 ↔ 문법 짝(레슨 대격변 — 앱의 약점 지도 꼬리표 `g:<문법 id>`). 웹 path-map.js 와 같은 자료. */
+const { PATH_GRAMMAR } = await import(pathToFileURL(path.join(ROOT, 'path-map.js')).href);
+const pathGrammarBody = JSON.stringify(PATH_GRAMMAR);
+fs.writeFileSync(path.join(OUT, 'path-grammar.json'), pathGrammarBody);
+const pathGrammar = { h: crypto.createHash('sha1').update(pathGrammarBody).digest('hex').slice(0, 8), n: Object.keys(PATH_GRAMMAR).length };
+
 /* 레벨 테스트 — 앱 「공부 → 레벨 테스트」. 웹 「전체」 목적의 문제 풀(429문항, 레벨 0~7)과 레벨표.
    레벨표는 app.module.js 의 LT_LEVELS 와 같다(바뀌면 여기도 — check-app-data 가 코스 id 가 실제 있는지 본다).
    한 줄 = [레벨, 종류, 문제(지문 포함), 보기, 정답 번호, 풀이]. */
@@ -193,7 +199,7 @@ const convo = mk('convo', CONVO);
 const stories = mk('stories', STORIES);
 
 const paths = Object.fromEntries(Object.entries(PATHS).map(([k, p]) => [k, { ko: p.ko, en: p.en, courses: pathCourses(p.lvs) }]));
-const manifest = { schema: 1, paths, courses, grammarPairs, topik, writing, mock: mockMeta, vocab, games, ui, dict, grammar, leveltest, translate, convo, stories };
+const manifest = { schema: 1, paths, courses, grammarPairs, topik, writing, mock: mockMeta, vocab, games, ui, dict, grammar, pathGrammar, leveltest, translate, convo, stories };
 manifest.v = crypto.createHash('sha1').update(JSON.stringify(manifest)).digest('hex').slice(0, 8);
 fs.writeFileSync(path.join(OUT, 'manifest.json'), JSON.stringify(manifest));
 const nL = courses.reduce((a, c) => a + c.lessons.length, 0);
