@@ -1,0 +1,533 @@
+{
+  "bg-irr-02-01": [
+    {
+      "t": "conj",
+      "h": "Irregular ㄷ Verbs (ㄷ shifts to ㄹ)",
+      "forms": [
+        "present",
+        "past",
+        "future"
+      ],
+      "verbs": [
+        {
+          "v": "듣다",
+          "pos": "동사",
+          "en": "to listen"
+        },
+        {
+          "v": "걷다",
+          "pos": "동사",
+          "en": "to walk"
+        },
+        {
+          "v": "묻다",
+          "pos": "동사",
+          "en": "to inquire / ask"
+        }
+      ]
+    },
+    {
+      "t": "conj",
+      "h": "Regular ㄷ Verbs (ㄷ stays ㄷ)",
+      "forms": [
+        "present",
+        "past",
+        "future"
+      ],
+      "verbs": [
+        {
+          "v": "받다",
+          "pos": "동사",
+          "en": "to receive"
+        },
+        {
+          "v": "닫다",
+          "pos": "동사",
+          "en": "to close"
+        },
+        {
+          "v": "믿다",
+          "pos": "동사",
+          "en": "to believe"
+        }
+      ]
+    },
+    {
+      "t": "correct",
+      "q": "Fix the mistake.",
+      "wrong": "라디오에서 좋아하는 노래를 듣었어요.",
+      "answers": [
+        "라디오에서 좋아하는 노래를 들었어요.",
+        "라디오에서 좋아하는 노래를 들었어요"
+      ],
+      "hint": "Before a vowel ending (-었어요), ㄷ in 듣다 transforms into ㄹ → 들었어요.",
+      "why": "듣다 is a ㄷ-irregular verb, changing to 들었어요 in the past tense."
+    },
+    {
+      "t": "correct",
+      "q": "Fix the mistake.",
+      "wrong": "점심 먹고 공원에서 걷었어요.",
+      "answers": [
+        "점심 먹고 공원에서 걸었어요.",
+        "점심 먹고 공원에서 걸었어요"
+      ],
+      "hint": "Before a vowel ending, ㄷ in 걷다 changes to ㄹ → 걸었어요.",
+      "why": "걷다 is irregular before vowel endings, conjugating into 걸었어요."
+    },
+    {
+      "t": "vocab",
+      "h": "Words for this lesson",
+      "items": [
+        {
+          "ko": "듣다",
+          "en": "to listen",
+          "ex": "음악을 자주 들어요."
+        },
+        {
+          "ko": "걷다",
+          "en": "to walk",
+          "ex": "공원에서 산책하며 걸어요."
+        },
+        {
+          "ko": "묻다",
+          "en": "to ask / inquire",
+          "ex": "길을 몰라서 경찰에게 물어요."
+        },
+        {
+          "ko": "받다",
+          "en": "to receive (regular)",
+          "ex": "생일 선물을 받았어요."
+        },
+        {
+          "ko": "닫다",
+          "en": "to close (regular)",
+          "ex": "추워서 창문을 닫아요."
+        }
+      ]
+    },
+    {
+      "t": "dictate",
+      "say": "음악을 자주 들어요",
+      "answers": [
+        "음악을 자주 들어요",
+        "음악 자주 들어요"
+      ],
+      "hint": "I often listen to music.",
+      "why": "듣다 shifts ㄷ to ㄹ before vowel ending -어요 → 들어요."
+    },
+    {
+      "t": "write",
+      "q": "Write one sentence about listening to music using 음악 and 들어요.",
+      "must": [
+        "들어요"
+      ],
+      "sample": "저는 매일 음악을 들어요.",
+      "why": "듣다 conjugates into 들어요 in the polite present."
+    },
+    {
+      "t": "cando",
+      "items": [
+        "Conjugate ㄷ-irregular verbs like 듣다 and 걷다 before vowels",
+        "Distinguish irregular ㄷ verbs from regular ㄷ verbs like 받다 and 닫다"
+      ]
+    }
+  ],
+  "bg-irr-02-02": [
+    {
+      "t": "conj",
+      "h": "르 Irregular Verbs ①",
+      "forms": [
+        "present",
+        "past",
+        "future"
+      ],
+      "verbs": [
+        {
+          "v": "모르다",
+          "pos": "동사",
+          "en": "to not know"
+        },
+        {
+          "v": "빠르다",
+          "pos": "형용사",
+          "en": "to be fast"
+        },
+        {
+          "v": "다르다",
+          "pos": "형용사",
+          "en": "to be different"
+        }
+      ]
+    },
+    {
+      "t": "conj",
+      "h": "르 Irregular Verbs ②",
+      "forms": [
+        "present",
+        "past",
+        "future"
+      ],
+      "verbs": [
+        {
+          "v": "고르다",
+          "pos": "동사",
+          "en": "to choose / pick"
+        },
+        {
+          "v": "부르다",
+          "pos": "동사",
+          "en": "to sing / call"
+        },
+        {
+          "v": "자르다",
+          "pos": "동사",
+          "en": "to cut"
+        }
+      ]
+    },
+    {
+      "t": "correct",
+      "q": "Fix the mistake.",
+      "wrong": "그 사람 이름을 잘 모르아요.",
+      "answers": [
+        "그 사람 이름을 잘 몰라요.",
+        "그 사람 이름을 잘 몰라요"
+      ],
+      "hint": "르 verbs drop ㅡ and add an extra ㄹ beneath the preceding syllable: 모르다 → 몰라요.",
+      "why": "In 르-irregular verbs, 르 becomes double ㄹ: 모르- + -아요 → 몰라요."
+    },
+    {
+      "t": "correct",
+      "q": "Fix the mistake.",
+      "wrong": "지하철이 버스보다 빠라요.",
+      "answers": [
+        "지하철이 버스보다 빨라요.",
+        "지하철이 버스보다 빨라요"
+      ],
+      "hint": "빠르다 inserts an extra ㄹ into the first syllable: 빠르다 → 빨라요.",
+      "why": "르 doubles into ㄹㄹ: 빠르- + -아요 → 빨라요."
+    },
+    {
+      "t": "vocab",
+      "h": "Words for this lesson",
+      "items": [
+        {
+          "ko": "모르다",
+          "en": "to not know",
+          "ex": "그 사람을 잘 몰라요."
+        },
+        {
+          "ko": "빠르다",
+          "en": "to be fast",
+          "ex": "지하철이 정말 빨라요."
+        },
+        {
+          "ko": "다르다",
+          "en": "to be different",
+          "ex": "생각이 서로 달라요."
+        },
+        {
+          "ko": "부르다",
+          "en": "to call / sing",
+          "ex": "친구 이름을 불러요."
+        },
+        {
+          "ko": "고르다",
+          "en": "to choose",
+          "ex": "가게에서 옷을 골라요."
+        }
+      ]
+    },
+    {
+      "t": "dictate",
+      "say": "지하철이 정말 빨라요",
+      "answers": [
+        "지하철이 정말 빨라요"
+      ],
+      "hint": "The subway is really fast.",
+      "why": "빠르다 conjugates to 빨라요 with doubled ㄹ."
+    },
+    {
+      "t": "write",
+      "q": "Write one sentence stating that you do not know the answer using 답 and 몰라요.",
+      "must": [
+        "몰라요"
+      ],
+      "sample": "저는 답을 몰라요.",
+      "why": "모르다 conjugates into 몰라요."
+    },
+    {
+      "t": "cando",
+      "items": [
+        "Drop ㅡ and insert a supporting ㄹ when conjugating 르 verbs",
+        "Conjugate common 르 verbs like 모르다 and 빠르다 into 해요 form"
+      ]
+    }
+  ],
+  "bg-irr-02-03": [
+    {
+      "t": "conj",
+      "h": "르 Verbs with Bright Vowels (take -라요)",
+      "forms": [
+        "present",
+        "past",
+        "future"
+      ],
+      "verbs": [
+        {
+          "v": "빠르다",
+          "pos": "형용사",
+          "en": "to be fast"
+        },
+        {
+          "v": "모르다",
+          "pos": "동사",
+          "en": "to not know"
+        },
+        {
+          "v": "고르다",
+          "pos": "동사",
+          "en": "to choose"
+        }
+      ]
+    },
+    {
+      "t": "conj",
+      "h": "르 Verbs with Dark Vowels (take -러요)",
+      "forms": [
+        "present",
+        "past",
+        "future"
+      ],
+      "verbs": [
+        {
+          "v": "부르다",
+          "pos": "동사",
+          "en": "to sing / call"
+        },
+        {
+          "v": "누르다",
+          "pos": "동사",
+          "en": "to press"
+        },
+        {
+          "v": "기르다",
+          "pos": "동사",
+          "en": "to raise / grow"
+        }
+      ]
+    },
+    {
+      "t": "correct",
+      "q": "Fix the mistake.",
+      "wrong": "노래방에서 노래를 불라요.",
+      "answers": [
+        "노래방에서 노래를 불러요.",
+        "노래방에서 노래를 불러요"
+      ],
+      "hint": "The vowel in 부 is ㅜ (dark vowel), so it takes -러요, not -라요: 불러요.",
+      "why": "부르다 has the dark vowel ㅜ, requiring vowel harmony with -러요 → 불러요."
+    },
+    {
+      "t": "correct",
+      "q": "Fix the mistake.",
+      "wrong": "엘리베이터 버튼을 누라요.",
+      "answers": [
+        "엘리베이터 버튼을 눌러요.",
+        "엘리베이터 버튼을 눌러요"
+      ],
+      "hint": "누르다 doubles the ㄹ and takes -러요: 눌러요.",
+      "why": "누르다 is a 르-irregular verb, doubling ㄹ with vowel ㅜ taking -러요 → 눌러요."
+    },
+    {
+      "t": "vocab",
+      "h": "Words for this lesson",
+      "items": [
+        {
+          "ko": "부르다",
+          "en": "to sing / call",
+          "ex": "노래방에서 노래를 불러요."
+        },
+        {
+          "ko": "누르다",
+          "en": "to press",
+          "ex": "벨을 눌러요."
+        },
+        {
+          "ko": "기르다",
+          "en": "to raise / grow",
+          "ex": "집에서 강아지를 길러요."
+        },
+        {
+          "ko": "고르다",
+          "en": "to choose",
+          "ex": "좋은 선물을 골라요."
+        },
+        {
+          "ko": "빠르다",
+          "en": "to be fast",
+          "ex": "발걸음이 빨라요."
+        }
+      ]
+    },
+    {
+      "t": "dictate",
+      "say": "친구와 노래를 불러요",
+      "answers": [
+        "친구와 노래를 불러요",
+        "친구랑 노래를 불러요"
+      ],
+      "hint": "I sing a song with my friend.",
+      "why": "부르다 doubles ㄹ and takes -러요 → 불러요."
+    },
+    {
+      "t": "write",
+      "q": "Write one sentence about pressing a button using 버튼 and 눌러요.",
+      "must": [
+        "눌러요"
+      ],
+      "sample": "엘리베이터 버튼을 눌러요.",
+      "why": "누르다 conjugates to 눌러요."
+    },
+    {
+      "t": "cando",
+      "items": [
+        "Apply vowel harmony to 르 verbs: -라요 for ㅏ/ㅗ stems and -러요 for others",
+        "Conjugate dark vowel 르 verbs such as 부르다 and 누르다 accurately"
+      ]
+    }
+  ],
+  "bg-irr-02-04": [
+    {
+      "t": "conj",
+      "h": "르 Irregular Verbs (Double ㄹ)",
+      "forms": [
+        "present",
+        "past",
+        "future"
+      ],
+      "verbs": [
+        {
+          "v": "다르다",
+          "pos": "형용사",
+          "en": "to be different"
+        },
+        {
+          "v": "모르다",
+          "pos": "동사",
+          "en": "to not know"
+        },
+        {
+          "v": "빠르다",
+          "pos": "형용사",
+          "en": "to be fast"
+        }
+      ]
+    },
+    {
+      "t": "conj",
+      "h": "Plain ㅡ Drop Verbs (No Double ㄹ)",
+      "forms": [
+        "present",
+        "past",
+        "future"
+      ],
+      "verbs": [
+        {
+          "v": "쓰다",
+          "pos": "동사",
+          "en": "to write / use"
+        },
+        {
+          "v": "끄다",
+          "pos": "동사",
+          "en": "to turn off"
+        },
+        {
+          "v": "아프다",
+          "pos": "형용사",
+          "en": "to be sick / hurt"
+        }
+      ]
+    },
+    {
+      "t": "correct",
+      "q": "Fix the mistake.",
+      "wrong": "감기에 걸려서 목이 알파요.",
+      "answers": [
+        "감기에 걸려서 목이 아파요.",
+        "감기에 걸려서 목이 아파요"
+      ],
+      "hint": "아프다 is a plain ㅡ drop verb, not a 르 verb! Simply drop ㅡ: 아프- → 아파요.",
+      "why": "아프다 ends in ㅍ+ㅡ, which simply drops ㅡ without inserting extra ㄹ: 아파요."
+    },
+    {
+      "t": "correct",
+      "q": "Fix the mistake.",
+      "wrong": "두 사람의 성격이 완전 다라요.",
+      "answers": [
+        "두 사람의 성격이 완전 달라요.",
+        "두 사람의 성격이 완전 달라요"
+      ],
+      "hint": "다르다 is a 르-irregular verb, doubling the ㄹ: 달라요.",
+      "why": "다르다 requires an extra supporting ㄹ before vowel endings: 달라요."
+    },
+    {
+      "t": "vocab",
+      "h": "Words for this lesson",
+      "items": [
+        {
+          "ko": "다르다",
+          "en": "to be different",
+          "ex": "서로 모양이 달라요."
+        },
+        {
+          "ko": "아프다",
+          "en": "to be sick / hurt",
+          "ex": "머리가 조금 아파요."
+        },
+        {
+          "ko": "끄다",
+          "en": "to turn off",
+          "ex": "자기 전에 불을 꺼요."
+        },
+        {
+          "ko": "쓰다",
+          "en": "to write",
+          "ex": "공책에 글씨를 써요."
+        },
+        {
+          "ko": "빠르다",
+          "en": "to be fast",
+          "ex": "시간이 참 빨라요."
+        }
+      ]
+    },
+    {
+      "t": "dictate",
+      "say": "방에 불을 꺼요",
+      "answers": [
+        "방에 불을 꺼요",
+        "방의 불을 꺼요"
+      ],
+      "hint": "I turn off the light in the room.",
+      "why": "끄다 is a plain ㅡ drop verb, conjugating directly into 꺼요."
+    },
+    {
+      "t": "write",
+      "q": "Write one sentence stating that two things are different using 서로 and 달라요.",
+      "must": [
+        "달라요"
+      ],
+      "sample": "두 사람은 성격이 서로 달라요.",
+      "why": "다르다 doubles the consonant ㄹ to become 달라요."
+    },
+    {
+      "t": "cando",
+      "items": [
+        "Differentiate 르-irregular verbs from regular ㅡ-drop verbs like 아프다 and 끄다",
+        "Avoid mistakenly adding extra ㄹ to plain ㅡ-drop stems"
+      ]
+    }
+  ]
+}

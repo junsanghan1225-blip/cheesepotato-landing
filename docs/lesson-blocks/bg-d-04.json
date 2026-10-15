@@ -1,0 +1,392 @@
+{
+  "bg-d-04-01": [
+    {
+      "t": "passage",
+      "h": "Listen to the dialogue",
+      "ko": [
+        "어제 할머니 댁에 다녀오셨어요?",
+        "네, 어머니와 함께 다녀왔어요.",
+        "할머니께서 많이 좋아하셨어요?",
+        "네, 선물을 받으시고 정말 기뻐하셨어요."
+      ],
+      "en": [
+        "Did you visit grandmother's house yesterday?",
+        "Yes, I went together with my mother.",
+        "Did grandmother like it a lot?",
+        "Yes, she received the gift and was very glad."
+      ]
+    },
+    {
+      "t": "choice",
+      "q": "Who went to grandmother's house yesterday?",
+      "options": [
+        "The second speaker and their mother",
+        "The grandmother alone",
+        "The teacher"
+      ],
+      "answer": 0,
+      "why": "The speaker answers '어머니와 함께 다녀왔어요' (I went together with my mother)."
+    },
+    {
+      "t": "choice",
+      "q": "How did grandmother react to the gift?",
+      "options": [
+        "She was very glad and liked it",
+        "She asked to exchange it",
+        "She was indifferent"
+      ],
+      "answer": 0,
+      "why": "The passage states '선물을 받으시고 정말 기뻐하셨어요' (She received the gift and was very glad)."
+    },
+    {
+      "t": "vocab",
+      "h": "Words for this scene",
+      "items": [
+        {
+          "ko": "다녀오시다",
+          "en": "to visit / drop by (hon.)",
+          "ex": "어디 다녀오셨어요?"
+        },
+        {
+          "ko": "좋아하시다",
+          "en": "to like (honorific)",
+          "ex": "과일을 좋아하세요."
+        },
+        {
+          "ko": "기뻐하시다",
+          "en": "to be glad (honorific)",
+          "ex": "할머니께서 기뻐하셨어요."
+        },
+        {
+          "ko": "받으시다",
+          "en": "to receive (honorific)",
+          "ex": "선물을 받으셨어요."
+        },
+        {
+          "ko": "어제",
+          "en": "yesterday",
+          "ex": "어제 병원에 가셨어요."
+        }
+      ]
+    },
+    {
+      "t": "dictate",
+      "say": "할머니께서 많이 좋아하셨어요",
+      "answers": [
+        "할머니께서 많이 좋아하셨어요",
+        "할머니가 많이 좋아하셨어요"
+      ],
+      "hint": "Grandmother liked it very much.",
+      "why": "The past honorific form is -(으)셨어요 → 좋아하셨어요."
+    },
+    {
+      "t": "write",
+      "q": "State that the teacher went to the hospital yesterday using 선생님께서, 어제, and 가셨어요.",
+      "must": [
+        "선생님께서",
+        "가셨어요"
+      ],
+      "sample": "선생님께서 어제 병원에 가셨어요.",
+      "why": "The past honorific for 가다 is 가셨어요."
+    },
+    {
+      "t": "cando",
+      "items": [
+        "Express past actions of senior persons with -(으)셨어요",
+        "Distinguish present -(으)세요 from past -(으)셨어요 based on time context"
+      ]
+    }
+  ],
+  "bg-d-04-02": [
+    {
+      "t": "passage",
+      "h": "Listen to the dialogue",
+      "ko": [
+        "손님 여러분, 오늘 회의에 대표님께서 참석하십니다.",
+        "대표님께서 언제 도착하십니까?",
+        "오후 두 시에 이곳으로 오십니다.",
+        "네, 회의실 준비를 마치겠습니다."
+      ],
+      "en": [
+        "Ladies and gentlemen, the representative is attending today's meeting.",
+        "When will the representative arrive?",
+        "He will arrive here at two in the afternoon.",
+        "Understood, I will finish preparing the meeting room."
+      ]
+    },
+    {
+      "t": "choice",
+      "q": "Who is attending the meeting today?",
+      "options": [
+        "The representative / CEO",
+        "The interns",
+        "The students"
+      ],
+      "answer": 0,
+      "why": "The announcement states '오늘 회의에 대표님께서 참석하십니다' (The representative is attending today's meeting)."
+    },
+    {
+      "t": "choice",
+      "q": "What time will the representative arrive?",
+      "options": [
+        "At 2 PM",
+        "At 10 AM",
+        "At 6 PM"
+      ],
+      "answer": 0,
+      "why": "The speaker confirms '오후 두 시에 이곳으로 오십니다' (He will arrive here at two in the afternoon)."
+    },
+    {
+      "t": "vocab",
+      "h": "Words for this scene",
+      "items": [
+        {
+          "ko": "참석하시다",
+          "en": "to attend (formal honorific)",
+          "ex": "회의에 참석하십니다."
+        },
+        {
+          "ko": "도착하시다",
+          "en": "to arrive (formal honorific)",
+          "ex": "잠시 후 도착하십니다."
+        },
+        {
+          "ko": "회의실",
+          "en": "meeting room",
+          "ex": "회의실에 계십니다."
+        },
+        {
+          "ko": "대표님",
+          "en": "company head / representative",
+          "ex": "대표님께서 발표하십니다."
+        },
+        {
+          "ko": "손님",
+          "en": "guest / customer",
+          "ex": "손님 여러분 환영합니다."
+        }
+      ]
+    },
+    {
+      "t": "dictate",
+      "say": "오후 두 시에 이곳으로 오십니다",
+      "answers": [
+        "오후 두 시에 이곳으로 오십니다",
+        "오후 2시에 이곳으로 오십니다"
+      ],
+      "hint": "He will arrive here at two in the afternoon.",
+      "why": "Formal honorific statement combines stem 오- with -십니다 → 오십니다."
+    },
+    {
+      "t": "write",
+      "q": "Write a formal sentence saying that the department head arrives shortly using 부장님께서 and 도착하십니다.",
+      "must": [
+        "부장님께서",
+        "도착하십니다"
+      ],
+      "sample": "부장님께서 곧 도착하십니다.",
+      "why": "Use -(으)십니다 for formal workplace announcements."
+    },
+    {
+      "t": "cando",
+      "items": [
+        "Use -(으)십니다 / -(으)십니까 in formal settings, announcements, and presentations",
+        "Avoid mistakenly attaching -시- to inanimate objects"
+      ]
+    }
+  ],
+  "bg-d-04-03": [
+    {
+      "t": "passage",
+      "h": "Listen to the dialogue",
+      "ko": [
+        "손님, 어떤 음료를 드시겠어요?",
+        "따뜻한 아메리카노 한 잔 부탁합니다.",
+        "디저트도 같이 주문하시겠어요?",
+        "아니요, 커피만 마실게요."
+      ],
+      "en": [
+        "Sir/Ma'am, what beverage would you like?",
+        "One warm Americano, please.",
+        "Would you also like to order dessert?",
+        "No, I will only have coffee."
+      ]
+    },
+    {
+      "t": "choice",
+      "q": "What beverage does the customer order?",
+      "options": [
+        "Warm Americano",
+        "Iced latte",
+        "Green tea"
+      ],
+      "answer": 0,
+      "why": "The customer answers '따뜻한 아메리카노 한 잔 부탁합니다' (One warm Americano, please)."
+    },
+    {
+      "t": "choice",
+      "q": "Does the customer order dessert?",
+      "options": [
+        "No, only coffee",
+        "Yes, chocolate cake",
+        "Yes, cookies"
+      ],
+      "answer": 0,
+      "why": "The customer declines: '아니요, 커피만 마실게요' (No, I will only have coffee)."
+    },
+    {
+      "t": "vocab",
+      "h": "Words for this scene",
+      "items": [
+        {
+          "ko": "주시겠어요",
+          "en": "would you give (polite request)",
+          "ex": "메뉴판 좀 주시겠어요?"
+        },
+        {
+          "ko": "드시겠어요",
+          "en": "would you like to eat/drink (formal offer)",
+          "ex": "무엇을 드시겠어요?"
+        },
+        {
+          "ko": "주문하시다",
+          "en": "to order (honorific)",
+          "ex": "주문하시겠어요?"
+        },
+        {
+          "ko": "음료",
+          "en": "beverage / drink",
+          "ex": "따뜻한 음료를 마셔요."
+        },
+        {
+          "ko": "디저트",
+          "en": "dessert",
+          "ex": "디저트를 골라요."
+        }
+      ]
+    },
+    {
+      "t": "dictate",
+      "say": "손님 어떤 음료를 드시겠어요",
+      "answers": [
+        "손님 어떤 음료를 드시겠어요",
+        "손님, 어떤 음료를 드시겠어요"
+      ],
+      "hint": "Sir/Ma'am, what beverage would you like?",
+      "why": "-(으)시겠어요? offers something politely to a customer or someone senior."
+    },
+    {
+      "t": "write",
+      "q": "Politely offer tea to a customer using 차 and 드시겠어요.",
+      "must": [
+        "드시겠어요"
+      ],
+      "sample": "손님, 따뜻한 차 드시겠어요?",
+      "why": "-(으)시겠어요? expresses a considerate and polite offer."
+    },
+    {
+      "t": "cando",
+      "items": [
+        "Ask preferences or offer choices using -(으)실래요? and -(으)시겠어요?",
+        "Select the right honorific level between casual offers and service settings"
+      ]
+    }
+  ],
+  "bg-d-04-04": [
+    {
+      "t": "passage",
+      "h": "Listen to the dialogue",
+      "ko": [
+        "과장님, 어제 출장 잘 다녀오셨어요?",
+        "네, 잘 다녀왔습니다. 사장님께서는 회의실에 계십니까?",
+        "네, 지금 회의실에서 손님과 이야기하십니다.",
+        "알겠습니다. 회의 끝나면 뵈러 가겠습니다."
+      ],
+      "en": [
+        "Manager, did your business trip go well yesterday?",
+        "Yes, it went well. Is the president in the meeting room?",
+        "Yes, he is currently speaking with a guest in the meeting room.",
+        "I see. I will go see him after the meeting finishes."
+      ]
+    },
+    {
+      "t": "choice",
+      "q": "Where did the manager go yesterday?",
+      "options": [
+        "On a business trip",
+        "On vacation",
+        "To the hospital"
+      ],
+      "answer": 0,
+      "why": "The colleague asks '어제 출장 잘 다녀오셨어요?' (Did your business trip go well yesterday?)."
+    },
+    {
+      "t": "choice",
+      "q": "What is the president doing in the meeting room?",
+      "options": [
+        "Talking with a guest",
+        "Reading reports",
+        "Taking a rest"
+      ],
+      "answer": 0,
+      "why": "The colleague explains '지금 회의실에서 손님과 이야기하십니다' (He is currently speaking with a guest)."
+    },
+    {
+      "t": "vocab",
+      "h": "Words for this scene",
+      "items": [
+        {
+          "ko": "출장",
+          "en": "business trip",
+          "ex": "출장을 다녀왔어요."
+        },
+        {
+          "ko": "다녀오시다",
+          "en": "to visit / go and come back (hon.)",
+          "ex": "출장 잘 다녀오셨어요?"
+        },
+        {
+          "ko": "이야기하시다",
+          "en": "to talk / converse (hon.)",
+          "ex": "손님과 이야기하세요."
+        },
+        {
+          "ko": "과장님",
+          "en": "manager / section chief",
+          "ex": "과장님께서 결재하십니다."
+        },
+        {
+          "ko": "사장님",
+          "en": "president / CEO",
+          "ex": "사장님께서 회의를 시작하십니다."
+        }
+      ]
+    },
+    {
+      "t": "dictate",
+      "say": "어제 출장 잘 다녀오셨어요",
+      "answers": [
+        "어제 출장 잘 다녀오셨어요"
+      ],
+      "hint": "Did your business trip go well yesterday?",
+      "why": "Past honorific form uses -(으)셨어요."
+    },
+    {
+      "t": "write",
+      "q": "Ask a colleague if the director is in the office right now using 사장님께서 and 계세요.",
+      "must": [
+        "사장님께서",
+        "계세요"
+      ],
+      "sample": "사장님께서 지금 사무실에 계세요?",
+      "why": "Use 계세요 when asking about the location of a senior person."
+    },
+    {
+      "t": "cando",
+      "items": [
+        "Switch between -(으)세요, -(으)셨어요, and -(으)십니다 depending on tense and setting",
+        "Coordinate honorific nouns with matching verb endings in workplace situations"
+      ]
+    }
+  ]
+}
