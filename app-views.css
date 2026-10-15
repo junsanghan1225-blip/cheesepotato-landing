@@ -7422,3 +7422,10 @@ button.hero-how { border:none; font:inherit; font-weight:700; cursor:pointer; }
 .tw-share-i p { margin:0 0 8px; white-space:pre-wrap; line-height:1.7; font-size:15px; }
 .tw-share-f { display:flex; justify-content:space-between; align-items:center; font-size:12px; color:var(--ink-3); }
 .tw-share-f button { border:none; background:none; color:var(--ink-3); font:inherit; text-decoration:underline; cursor:pointer; }
+/* 레슨 단계 막대(2026-10-15) — 배우기 · 연습 · 만들기 · 점검 */
+.ls-steps { display:flex; gap:6px; justify-content:center; padding:0 0 8px; font-size:12px; font-weight:700; color:var(--ink-3); }
+.ls-steps[hidden] { display:none; }
+.ls-steps span { padding:3px 10px; border-radius:999px; background:var(--tint); transition:background .2s, color .2s; }
+.ls-steps span.on { background:var(--ink); color:var(--surface); }
+.ls-steps span.done { color:var(--ok,#2f7d4f); }
+.ls-steps span.done::before { content:'✓ '; }
