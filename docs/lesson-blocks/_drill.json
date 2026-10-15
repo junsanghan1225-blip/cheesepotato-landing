@@ -1,0 +1,2812 @@
+[
+ {
+  "g": "23-1",
+  "name": "N이다",
+  "lv": "beginner",
+  "n": 27,
+  "lessons": [
+   "fw-02",
+   "fw-03",
+   "fw-05",
+   "fw-06",
+   "bg-05-01",
+   "bg-05-03",
+   "bg-05-04"
+  ]
+ },
+ {
+  "g": "23-2",
+  "name": "N이/가 있다·없다",
+  "lv": "beginner",
+  "n": 11,
+  "lessons": [
+   "bg-06-01",
+   "bg-06-04"
+  ]
+ },
+ {
+  "g": "23-3",
+  "name": "숫자 (한자어 · 순우리말)",
+  "lv": "beginner",
+  "n": 32,
+  "lessons": [
+   "fw-04",
+   "fw-05",
+   "bg-35-01",
+   "bg-35-02",
+   "bg-35-03",
+   "bg-35-04"
+  ]
+ },
+ {
+  "g": "23-4",
+  "name": "날짜와 요일",
+  "lv": "beginner",
+  "n": 0,
+  "lessons": []
+ },
+ {
+  "g": "23-5",
+  "name": "시간",
+  "lv": "beginner",
+  "n": 0,
+  "lessons": []
+ },
+ {
+  "g": "24-1",
+  "name": "A/V-(스)ㅂ니다",
+  "lv": "beginner",
+  "n": 55,
+  "lessons": [
+   "gr-03",
+   "bg-d-04-02",
+   "bg-d-04-04",
+   "ad-02-01-01",
+   "ad-02-01-02",
+   "ad-02-01-03",
+   "ad-02-01-04",
+   "bg-28-01",
+   "bg-28-02",
+   "bg-28-03",
+   "bg-28-04"
+  ]
+ },
+ {
+  "g": "24-2",
+  "name": "A/V-아/어요",
+  "lv": "beginner",
+  "n": 40,
+  "lessons": [
+   "gr-01",
+   "bg-d-01-01",
+   "bg-d-01-02",
+   "bg-d-01-03",
+   "bg-d-01-04",
+   "bg-07-01",
+   "bg-07-02",
+   "bg-07-03",
+   "bg-07-04"
+  ]
+ },
+ {
+  "g": "24-3",
+  "name": "A/V-았/었어요",
+  "lv": "beginner",
+  "n": 24,
+  "lessons": [
+   "gr-02",
+   "bg-10-01",
+   "bg-10-02",
+   "bg-10-03",
+   "bg-10-04"
+  ]
+ },
+ {
+  "g": "24-4",
+  "name": "V-(으)ㄹ 거예요 ①",
+  "lv": "beginner",
+  "n": 16,
+  "lessons": [
+   "gr-02",
+   "bg-d-02-02",
+   "bg-d-02-03",
+   "bg-d-02-04"
+  ]
+ },
+ {
+  "g": "24-5",
+  "name": "V-고 있다 ①",
+  "lv": "beginner",
+  "n": 19,
+  "lessons": [
+   "gr-03",
+   "bg-11-01",
+   "bg-11-02",
+   "bg-11-03",
+   "bg-11-04"
+  ]
+ },
+ {
+  "g": "24-6",
+  "name": "A/V-았/었었어요",
+  "lv": "beginner",
+  "n": 0,
+  "lessons": []
+ },
+ {
+  "g": "25-1",
+  "name": "단어 부정 (있다↔없다, 알다↔모르다)",
+  "lv": "beginner",
+  "n": 10,
+  "lessons": [
+   "bg-05-02",
+   "bg-05-04"
+  ]
+ },
+ {
+  "g": "25-2",
+  "name": "안 A/V-아/어요",
+  "lv": "beginner",
+  "n": 20,
+  "lessons": [
+   "gr-04",
+   "bg-09-01",
+   "bg-09-03",
+   "bg-09-04"
+  ]
+ },
+ {
+  "g": "25-3",
+  "name": "못 V-아/어요",
+  "lv": "beginner",
+  "n": 24,
+  "lessons": [
+   "gr-04",
+   "bg-09-02",
+   "bg-09-03",
+   "bg-09-04",
+   "bg-20-04"
+  ]
+ },
+ {
+  "g": "26-1",
+  "name": "N이/가",
+  "lv": "beginner",
+  "n": 6,
+  "lessons": [
+   "bg-06-04",
+   "bg-04-01"
+  ]
+ },
+ {
+  "g": "26-2",
+  "name": "N은/는",
+  "lv": "beginner",
+  "n": 19,
+  "lessons": [
+   "gr-05",
+   "bg-08-02",
+   "bg-08-03",
+   "bg-08-04",
+   "bg-04-02"
+  ]
+ },
+ {
+  "g": "26-3",
+  "name": "N을/를",
+  "lv": "beginner",
+  "n": 18,
+  "lessons": [
+   "gr-05",
+   "bg-08-01",
+   "bg-08-03",
+   "bg-08-04"
+  ]
+ },
+ {
+  "g": "26-4",
+  "name": "N와/과, N(이)랑, N하고",
+  "lv": "beginner",
+  "n": 12,
+  "lessons": [
+   "bg-33-01",
+   "bg-33-04"
+  ]
+ },
+ {
+  "g": "26-5",
+  "name": "N의",
+  "lv": "beginner",
+  "n": 0,
+  "lessons": []
+ },
+ {
+  "g": "26-6",
+  "name": "N에 ① (장소·시간)",
+  "lv": "beginner",
+  "n": 15,
+  "lessons": [
+   "gr-06",
+   "bg-06-02",
+   "bg-06-03"
+  ]
+ },
+ {
+  "g": "26-7",
+  "name": "N에 ② (방향·단위)",
+  "lv": "beginner",
+  "n": 0,
+  "lessons": []
+ },
+ {
+  "g": "26-8",
+  "name": "N에서",
+  "lv": "beginner",
+  "n": 9,
+  "lessons": [
+   "gr-06",
+   "bg-06-02"
+  ]
+ },
+ {
+  "g": "26-9",
+  "name": "N에서 N까지, N부터 N까지",
+  "lv": "beginner",
+  "n": 7,
+  "lessons": [
+   "bg-32-02"
+  ]
+ },
+ {
+  "g": "26-10",
+  "name": "N에게/한테",
+  "lv": "beginner",
+  "n": 19,
+  "lessons": [
+   "bg-31-01",
+   "bg-31-02",
+   "bg-31-04"
+  ]
+ },
+ {
+  "g": "26-11",
+  "name": "N도",
+  "lv": "beginner",
+  "n": 9,
+  "lessons": [
+   "gr-07",
+   "bg-33-03"
+  ]
+ },
+ {
+  "g": "26-12",
+  "name": "N만",
+  "lv": "beginner",
+  "n": 10,
+  "lessons": [
+   "gr-07",
+   "bg-32-03"
+  ]
+ },
+ {
+  "g": "26-13",
+  "name": "N밖에",
+  "lv": "beginner",
+  "n": 13,
+  "lessons": [
+   "bg-32-03",
+   "bg-32-04"
+  ]
+ },
+ {
+  "g": "26-14",
+  "name": "N(으)로",
+  "lv": "beginner",
+  "n": 13,
+  "lessons": [
+   "bg-31-03",
+   "bg-31-04"
+  ]
+ },
+ {
+  "g": "26-15",
+  "name": "N(이)나 ① (선택)",
+  "lv": "beginner",
+  "n": 12,
+  "lessons": [
+   "bg-33-02",
+   "bg-33-04"
+  ]
+ },
+ {
+  "g": "26-16",
+  "name": "N(이)나 ② (많음)",
+  "lv": "beginner",
+  "n": 7,
+  "lessons": [
+   "bg-33-02"
+  ]
+ },
+ {
+  "g": "26-17",
+  "name": "N쯤",
+  "lv": "beginner",
+  "n": 0,
+  "lessons": []
+ },
+ {
+  "g": "26-18",
+  "name": "N처럼, N같이",
+  "lv": "beginner",
+  "n": 7,
+  "lessons": [
+   "bg-32-01"
+  ]
+ },
+ {
+  "g": "26-19",
+  "name": "N보다",
+  "lv": "beginner",
+  "n": 12,
+  "lessons": [
+   "bg-32-01",
+   "bg-32-04"
+  ]
+ },
+ {
+  "g": "26-20",
+  "name": "N마다",
+  "lv": "beginner",
+  "n": 7,
+  "lessons": [
+   "bg-33-03"
+  ]
+ },
+ {
+  "g": "27-1",
+  "name": "A/V-고",
+  "lv": "beginner",
+  "n": 18,
+  "lessons": [
+   "gr-08",
+   "bg-13-01",
+   "bg-13-03",
+   "bg-13-04"
+  ]
+ },
+ {
+  "g": "27-2",
+  "name": "V-거나",
+  "lv": "beginner",
+  "n": 3,
+  "lessons": [
+   "bg-15-03"
+  ]
+ },
+ {
+  "g": "27-3",
+  "name": "A/V-지만",
+  "lv": "beginner",
+  "n": 18,
+  "lessons": [
+   "gr-08",
+   "bg-13-02",
+   "bg-13-03",
+   "bg-13-04"
+  ]
+ },
+ {
+  "g": "27-4",
+  "name": "A/V-(으)ㄴ/는데 ①",
+  "lv": "beginner",
+  "n": 16,
+  "lessons": [
+   "bg-16-01",
+   "bg-16-02",
+   "bg-16-03",
+   "bg-16-04"
+  ]
+ },
+ {
+  "g": "28-1",
+  "name": "N 전에, V-기 전에",
+  "lv": "beginner",
+  "n": 9,
+  "lessons": [
+   "bg-12-01",
+   "bg-12-04"
+  ]
+ },
+ {
+  "g": "28-2",
+  "name": "N 후에, V-(으)ㄴ 후에",
+  "lv": "beginner",
+  "n": 4,
+  "lessons": [
+   "bg-12-02"
+  ]
+ },
+ {
+  "g": "28-3",
+  "name": "V-고 나서",
+  "lv": "beginner",
+  "n": 0,
+  "lessons": []
+ },
+ {
+  "g": "28-4",
+  "name": "V-아/어서 (순서)",
+  "lv": "beginner",
+  "n": 0,
+  "lessons": []
+ },
+ {
+  "g": "28-5",
+  "name": "N 때, A/V-(으)ㄹ 때",
+  "lv": "beginner",
+  "n": 5,
+  "lessons": [
+   "bg-12-03"
+  ]
+ },
+ {
+  "g": "28-6",
+  "name": "V-(으)면서",
+  "lv": "beginner",
+  "n": 8,
+  "lessons": [
+   "bg-15-02",
+   "bg-15-04"
+  ]
+ },
+ {
+  "g": "28-7",
+  "name": "N 중, V-는 중",
+  "lv": "beginner",
+  "n": 0,
+  "lessons": []
+ },
+ {
+  "g": "28-8",
+  "name": "V-자마자",
+  "lv": "beginner",
+  "n": 0,
+  "lessons": []
+ },
+ {
+  "g": "28-9",
+  "name": "N 동안, V-는 동안",
+  "lv": "beginner",
+  "n": 4,
+  "lessons": [
+   "bg-12-04"
+  ]
+ },
+ {
+  "g": "28-10",
+  "name": "V-(으)ㄴ 지",
+  "lv": "beginner",
+  "n": 0,
+  "lessons": []
+ },
+ {
+  "g": "29-1",
+  "name": "V-(으)ㄹ 수 있다/없다",
+  "lv": "beginner",
+  "n": 17,
+  "lessons": [
+   "bg-20-01",
+   "bg-20-02",
+   "bg-20-03",
+   "bg-20-04"
+  ]
+ },
+ {
+  "g": "29-2",
+  "name": "V-(으)ㄹ 줄 알다/모르다",
+  "lv": "beginner",
+  "n": 5,
+  "lessons": [
+   "bg-20-01"
+  ]
+ },
+ {
+  "g": "30-1",
+  "name": "V-(으)세요",
+  "lv": "beginner",
+  "n": 23,
+  "lessons": [
+   "bg-d-03-01",
+   "bg-d-03-03",
+   "bg-17-01",
+   "bg-17-04",
+   "bg-22-04"
+  ]
+ },
+ {
+  "g": "30-2",
+  "name": "V-지 마세요",
+  "lv": "beginner",
+  "n": 17,
+  "lessons": [
+   "bg-19-01",
+   "bg-19-02",
+   "bg-19-03",
+   "bg-19-04"
+  ]
+ },
+ {
+  "g": "30-3",
+  "name": "A/V-아/어야 되다/하다",
+  "lv": "beginner",
+  "n": 13,
+  "lessons": [
+   "bg-18-02",
+   "bg-18-03",
+   "bg-18-04"
+  ]
+ },
+ {
+  "g": "30-4",
+  "name": "A/V-아/어도 되다",
+  "lv": "beginner",
+  "n": 13,
+  "lessons": [
+   "bg-18-01",
+   "bg-18-03",
+   "bg-18-04"
+  ]
+ },
+ {
+  "g": "30-5",
+  "name": "A/V-(으)면 안 되다",
+  "lv": "beginner",
+  "n": 4,
+  "lessons": [
+   "bg-19-03"
+  ]
+ },
+ {
+  "g": "30-6",
+  "name": "A/V-지 않아도 되다",
+  "lv": "beginner",
+  "n": 0,
+  "lessons": []
+ },
+ {
+  "g": "31-1",
+  "name": "V-고 싶다",
+  "lv": "beginner",
+  "n": 11,
+  "lessons": [
+   "bg-d-02-01",
+   "bg-d-02-03",
+   "bg-d-02-04"
+  ]
+ },
+ {
+  "g": "31-2",
+  "name": "A/V-았/었으면 좋겠다",
+  "lv": "beginner",
+  "n": 15,
+  "lessons": [
+   "bg-25-02",
+   "bg-25-03",
+   "bg-25-04"
+  ]
+ },
+ {
+  "g": "32-1",
+  "name": "A/V-아/어서 (이유)",
+  "lv": "beginner",
+  "n": 13,
+  "lessons": [
+   "bg-14-01",
+   "bg-14-03",
+   "bg-14-04"
+  ]
+ },
+ {
+  "g": "32-2",
+  "name": "A/V-(으)니까 ①",
+  "lv": "beginner",
+  "n": 13,
+  "lessons": [
+   "bg-14-02",
+   "bg-14-03",
+   "bg-14-04"
+  ]
+ },
+ {
+  "g": "32-3",
+  "name": "N 때문에, A/V-기 때문에",
+  "lv": "beginner",
+  "n": 0,
+  "lessons": []
+ },
+ {
+  "g": "33-1",
+  "name": "V-아/어 주세요, V-아/어 주시겠어요?",
+  "lv": "beginner",
+  "n": 12,
+  "lessons": [
+   "bg-17-02",
+   "bg-17-03",
+   "bg-17-04"
+  ]
+ },
+ {
+  "g": "33-2",
+  "name": "V-아/어 줄게요, V-아/어 줄까요?",
+  "lv": "beginner",
+  "n": 0,
+  "lessons": []
+ },
+ {
+  "g": "34-1",
+  "name": "V-아/어 보다",
+  "lv": "beginner",
+  "n": 14,
+  "lessons": [
+   "bg-22-01",
+   "bg-22-03",
+   "bg-22-04"
+  ]
+ },
+ {
+  "g": "34-2",
+  "name": "V-(으)ㄴ 적이 있다/없다",
+  "lv": "beginner",
+  "n": 9,
+  "lessons": [
+   "bg-22-02",
+   "bg-22-03"
+  ]
+ },
+ {
+  "g": "35-1",
+  "name": "V-(으)ㄹ까요? ① (제안)",
+  "lv": "beginner",
+  "n": 9,
+  "lessons": [
+   "bg-21-01",
+   "bg-21-04"
+  ]
+ },
+ {
+  "g": "35-2",
+  "name": "V-(으)ㄹ까요? ② (의향)",
+  "lv": "beginner",
+  "n": 0,
+  "lessons": []
+ },
+ {
+  "g": "35-3",
+  "name": "V-(으)ㅂ시다",
+  "lv": "beginner",
+  "n": 16,
+  "lessons": [
+   "bg-d-05-02",
+   "bg-d-05-04",
+   "bg-21-01"
+  ]
+ },
+ {
+  "g": "35-4",
+  "name": "V-(으)시겠어요?",
+  "lv": "beginner",
+  "n": 11,
+  "lessons": [
+   "bg-d-04-03",
+   "bg-d-04-04"
+  ]
+ },
+ {
+  "g": "35-5",
+  "name": "V-(으)ㄹ래요? ①",
+  "lv": "beginner",
+  "n": 9,
+  "lessons": [
+   "bg-d-04-03",
+   "bg-21-03"
+  ]
+ },
+ {
+  "g": "36-1",
+  "name": "A/V-겠어요 ① (의지)",
+  "lv": "beginner",
+  "n": 0,
+  "lessons": []
+ },
+ {
+  "g": "36-2",
+  "name": "V-(으)ㄹ게요",
+  "lv": "beginner",
+  "n": 8,
+  "lessons": [
+   "bg-21-02",
+   "bg-21-04"
+  ]
+ },
+ {
+  "g": "36-3",
+  "name": "V-(으)ㄹ래요 ② (의지)",
+  "lv": "beginner",
+  "n": 0,
+  "lessons": []
+ },
+ {
+  "g": "37-1",
+  "name": "A/V-(으)ㄴ/는데 ② (배경)",
+  "lv": "beginner",
+  "n": 0,
+  "lessons": []
+ },
+ {
+  "g": "37-2",
+  "name": "V-(으)니까 ② (발견)",
+  "lv": "beginner",
+  "n": 0,
+  "lessons": []
+ },
+ {
+  "g": "38-1",
+  "name": "V-(으)러 가다/오다",
+  "lv": "beginner",
+  "n": 10,
+  "lessons": [
+   "bg-23-01",
+   "bg-23-04"
+  ]
+ },
+ {
+  "g": "38-2",
+  "name": "V-(으)려고",
+  "lv": "beginner",
+  "n": 10,
+  "lessons": [
+   "bg-23-02",
+   "bg-23-04"
+  ]
+ },
+ {
+  "g": "38-3",
+  "name": "V-(으)려고 하다",
+  "lv": "beginner",
+  "n": 5,
+  "lessons": [
+   "bg-23-02"
+  ]
+ },
+ {
+  "g": "38-4",
+  "name": "N을/를 위해서, V-기 위해서",
+  "lv": "beginner",
+  "n": 0,
+  "lessons": []
+ },
+ {
+  "g": "38-5",
+  "name": "V-기로 하다",
+  "lv": "beginner",
+  "n": 10,
+  "lessons": [
+   "bg-23-03",
+   "bg-26-04"
+  ]
+ },
+ {
+  "g": "39-1",
+  "name": "A/V-(으)면",
+  "lv": "beginner",
+  "n": 8,
+  "lessons": [
+   "bg-15-01",
+   "bg-15-04"
+  ]
+ },
+ {
+  "g": "39-2",
+  "name": "V-(으)려면",
+  "lv": "beginner",
+  "n": 0,
+  "lessons": []
+ },
+ {
+  "g": "39-3",
+  "name": "A/V-아/어도",
+  "lv": "beginner",
+  "n": 0,
+  "lessons": []
+ },
+ {
+  "g": "40-1",
+  "name": "A/V-겠어요 ② (추측)",
+  "lv": "beginner",
+  "n": 0,
+  "lessons": []
+ },
+ {
+  "g": "40-2",
+  "name": "A/V-(으)ㄹ 거예요 ② (추측)",
+  "lv": "beginner",
+  "n": 3,
+  "lessons": [
+   "im-03-01-01"
+  ]
+ },
+ {
+  "g": "40-3",
+  "name": "A/V-(으)ㄹ까요? ③ (추측)",
+  "lv": "beginner",
+  "n": 0,
+  "lessons": []
+ },
+ {
+  "g": "40-4",
+  "name": "A/V-(으)ㄴ/는/(으)ㄹ 것 같다",
+  "lv": "beginner",
+  "n": 35,
+  "lessons": [
+   "im-03-01-01",
+   "im-03-01-02",
+   "im-03-01-03",
+   "im-03-01-04",
+   "bg-24-01",
+   "bg-24-02",
+   "bg-24-03",
+   "bg-24-04"
+  ]
+ },
+ {
+  "g": "41-1",
+  "name": "관형형 -(으)ㄴ/-는/-(으)ㄹ N",
+  "lv": "beginner",
+  "n": 37,
+  "lessons": [
+   "ad-01-01-01",
+   "ad-01-01-02",
+   "bg-27-01",
+   "bg-27-02",
+   "bg-27-03",
+   "bg-27-04"
+  ]
+ },
+ {
+  "g": "41-2",
+  "name": "A/V-기",
+  "lv": "beginner",
+  "n": 17,
+  "lessons": [
+   "bg-34-01",
+   "bg-34-03",
+   "bg-34-04"
+  ]
+ },
+ {
+  "g": "41-3",
+  "name": "A-게",
+  "lv": "beginner",
+  "n": 9,
+  "lessons": [
+   "bg-26-02",
+   "bg-26-03"
+  ]
+ },
+ {
+  "g": "41-4",
+  "name": "A-아/어하다",
+  "lv": "beginner",
+  "n": 0,
+  "lessons": []
+ },
+ {
+  "g": "42-1",
+  "name": "V-고 있다 ② (착용)",
+  "lv": "beginner",
+  "n": 0,
+  "lessons": []
+ },
+ {
+  "g": "42-2",
+  "name": "V-아/어 있다",
+  "lv": "beginner",
+  "n": 0,
+  "lessons": []
+ },
+ {
+  "g": "42-3",
+  "name": "A-아/어지다",
+  "lv": "beginner",
+  "n": 0,
+  "lessons": []
+ },
+ {
+  "g": "42-4",
+  "name": "V-게 되다",
+  "lv": "beginner",
+  "n": 10,
+  "lessons": [
+   "bg-26-01",
+   "bg-26-04"
+  ]
+ },
+ {
+  "g": "43-1",
+  "name": "A/V-(으)ㄴ/는지",
+  "lv": "beginner",
+  "n": 0,
+  "lessons": []
+ },
+ {
+  "g": "43-2",
+  "name": "V-는 데 걸리다/들다",
+  "lv": "beginner",
+  "n": 0,
+  "lessons": []
+ },
+ {
+  "g": "43-3",
+  "name": "A/V-지요?",
+  "lv": "beginner",
+  "n": 9,
+  "lessons": [
+   "bg-30-03"
+  ]
+ },
+ {
+  "g": "44-1",
+  "name": "A/V-군요/는군요",
+  "lv": "beginner",
+  "n": 28,
+  "lessons": [
+   "im-03-01-02",
+   "im-03-01-03",
+   "im-03-01-04",
+   "im-03-02-03",
+   "bg-30-02",
+   "bg-30-04"
+  ]
+ },
+ {
+  "g": "44-2",
+  "name": "A/V-네요",
+  "lv": "beginner",
+  "n": 16,
+  "lessons": [
+   "im-03-02-03",
+   "bg-30-01",
+   "bg-30-04"
+  ]
+ },
+ {
+  "g": "45-1",
+  "name": "A-(으)ㄴ가요?, V-나요?",
+  "lv": "beginner",
+  "n": 0,
+  "lessons": []
+ },
+ {
+  "g": "45-2",
+  "name": "A/V-(으)ㄴ/는데요",
+  "lv": "beginner",
+  "n": 8,
+  "lessons": [
+   "bg-16-03",
+   "bg-16-04"
+  ]
+ },
+ {
+  "g": "46-1",
+  "name": "직접 인용",
+  "lv": "beginner",
+  "n": 0,
+  "lessons": []
+ },
+ {
+  "g": "46-2",
+  "name": "간접 인용",
+  "lv": "beginner",
+  "n": 0,
+  "lessons": []
+ },
+ {
+  "g": "46-3",
+  "name": "간접 인용 축약형",
+  "lv": "beginner",
+  "n": 0,
+  "lessons": []
+ },
+ {
+  "g": "47-1",
+  "name": "'ㅡ' 불규칙",
+  "lv": "beginner",
+  "n": 11,
+  "lessons": [
+   "bg-irr-01-01",
+   "bg-irr-01-04"
+  ]
+ },
+ {
+  "g": "47-2",
+  "name": "'ㄹ' 불규칙",
+  "lv": "beginner",
+  "n": 0,
+  "lessons": []
+ },
+ {
+  "g": "47-3",
+  "name": "'ㅂ' 불규칙",
+  "lv": "beginner",
+  "n": 11,
+  "lessons": [
+   "bg-irr-01-02",
+   "bg-irr-01-04"
+  ]
+ },
+ {
+  "g": "47-4",
+  "name": "'ㄷ' 불규칙",
+  "lv": "beginner",
+  "n": 14,
+  "lessons": [
+   "bg-irr-01-03",
+   "bg-irr-02-01",
+   "bg-irr-02-04"
+  ]
+ },
+ {
+  "g": "47-5",
+  "name": "'르' 불규칙",
+  "lv": "beginner",
+  "n": 12,
+  "lessons": [
+   "bg-irr-02-02",
+   "bg-irr-02-03",
+   "bg-irr-02-04"
+  ]
+ },
+ {
+  "g": "47-6",
+  "name": "'ㅅ' 불규칙",
+  "lv": "beginner",
+  "n": 0,
+  "lessons": []
+ },
+ {
+  "g": "47-7",
+  "name": "'ㅎ' 불규칙",
+  "lv": "beginner",
+  "n": 0,
+  "lessons": []
+ },
+ {
+  "g": "48-1",
+  "name": "-아/어 보이다",
+  "lv": "intermediate",
+  "n": 4,
+  "lessons": [
+   "im-c48-01"
+  ]
+ },
+ {
+  "g": "48-2",
+  "name": "-(으)ㄴ/는 모양이다",
+  "lv": "intermediate",
+  "n": 4,
+  "lessons": [
+   "im-c48-01"
+  ]
+ },
+ {
+  "g": "48-3",
+  "name": "-(으)ㄹ 텐데",
+  "lv": "intermediate",
+  "n": 9,
+  "lessons": [
+   "im-c48-02",
+   "im-c48-04"
+  ]
+ },
+ {
+  "g": "48-4",
+  "name": "-(으)ㄹ 테니까",
+  "lv": "intermediate",
+  "n": 9,
+  "lessons": [
+   "im-c48-02",
+   "im-c48-04"
+  ]
+ },
+ {
+  "g": "48-5",
+  "name": "-(으)ㄹ걸요",
+  "lv": "intermediate",
+  "n": 4,
+  "lessons": [
+   "im-c48-03"
+  ]
+ },
+ {
+  "g": "48-6",
+  "name": "-(으)ㄴ/는/(으)ㄹ 줄 몰랐다",
+  "lv": "intermediate",
+  "n": 0,
+  "lessons": []
+ },
+ {
+  "g": "48-7",
+  "name": "-(으)ㄹ지도 모르다",
+  "lv": "intermediate",
+  "n": 4,
+  "lessons": [
+   "im-c48-03"
+  ]
+ },
+ {
+  "g": "49-1",
+  "name": "-기는 하지만",
+  "lv": "intermediate",
+  "n": 9,
+  "lessons": [
+   "im-c49-01",
+   "im-c49-04"
+  ]
+ },
+ {
+  "g": "49-2",
+  "name": "-(으)ㄴ/는 반면에",
+  "lv": "intermediate",
+  "n": 9,
+  "lessons": [
+   "im-c49-02",
+   "im-c49-04"
+  ]
+ },
+ {
+  "g": "49-3",
+  "name": "-(으)ㄴ/는데도",
+  "lv": "intermediate",
+  "n": 4,
+  "lessons": [
+   "im-c49-03"
+  ]
+ },
+ {
+  "g": "50-1",
+  "name": "서술체 (-(느)ㄴ다)",
+  "lv": "intermediate",
+  "n": 29,
+  "lessons": [
+   "ad-02-01-01",
+   "ad-02-01-02",
+   "ad-02-01-03",
+   "ad-02-01-04",
+   "im-c50-01",
+   "im-c50-03",
+   "im-c50-04"
+  ]
+ },
+ {
+  "g": "50-2",
+  "name": "반말체",
+  "lv": "intermediate",
+  "n": 13,
+  "lessons": [
+   "im-c50-02",
+   "im-c50-03",
+   "im-c50-04"
+  ]
+ },
+ {
+  "g": "51-1",
+  "name": "-거든요",
+  "lv": "intermediate",
+  "n": 9,
+  "lessons": [
+   "im-c51-01",
+   "im-c51-04"
+  ]
+ },
+ {
+  "g": "51-2",
+  "name": "-잖아요",
+  "lv": "intermediate",
+  "n": 17,
+  "lessons": [
+   "im-03-02-02",
+   "im-03-02-04",
+   "im-c51-01",
+   "im-c51-04"
+  ]
+ },
+ {
+  "g": "51-3",
+  "name": "-느라고",
+  "lv": "intermediate",
+  "n": 23,
+  "lessons": [
+   "im-02-02-01",
+   "im-02-02-02",
+   "im-02-02-03",
+   "im-02-02-04",
+   "im-02-03-01",
+   "im-02-03-03"
+  ]
+ },
+ {
+  "g": "51-4",
+  "name": "-는 바람에",
+  "lv": "intermediate",
+  "n": 21,
+  "lessons": [
+   "im-02-02-03",
+   "im-02-03-01",
+   "im-02-03-02",
+   "im-02-03-03",
+   "im-02-03-04"
+  ]
+ },
+ {
+  "g": "51-5",
+  "name": "-(으)ㄴ/는 탓에",
+  "lv": "intermediate",
+  "n": 4,
+  "lessons": [
+   "im-c51-02"
+  ]
+ },
+ {
+  "g": "51-6",
+  "name": "-고 해서",
+  "lv": "intermediate",
+  "n": 4,
+  "lessons": [
+   "im-c51-03"
+  ]
+ },
+ {
+  "g": "51-7",
+  "name": "-(으)ㄹ까 봐",
+  "lv": "intermediate",
+  "n": 4,
+  "lessons": [
+   "im-c51-02"
+  ]
+ },
+ {
+  "g": "52-1",
+  "name": "-다고요?",
+  "lv": "intermediate",
+  "n": 9,
+  "lessons": [
+   "im-c52-01",
+   "im-c52-04"
+  ]
+ },
+ {
+  "g": "52-2",
+  "name": "-다고 하던데",
+  "lv": "intermediate",
+  "n": 4,
+  "lessons": [
+   "im-c52-02"
+  ]
+ },
+ {
+  "g": "52-3",
+  "name": "-다면서요?",
+  "lv": "intermediate",
+  "n": 9,
+  "lessons": [
+   "im-c52-03",
+   "im-c52-04"
+  ]
+ },
+ {
+  "g": "52-4",
+  "name": "-다니요?",
+  "lv": "intermediate",
+  "n": 16,
+  "lessons": [
+   "im-03-02-01",
+   "im-03-02-02",
+   "im-03-02-04",
+   "im-c52-03"
+  ]
+ },
+ {
+  "g": "53-1",
+  "name": "-(으)ㄹ까 하다",
+  "lv": "intermediate",
+  "n": 9,
+  "lessons": [
+   "im-c53-01",
+   "im-c53-04"
+  ]
+ },
+ {
+  "g": "53-2",
+  "name": "-고자",
+  "lv": "intermediate",
+  "n": 4,
+  "lessons": [
+   "im-c53-01"
+  ]
+ },
+ {
+  "g": "53-3",
+  "name": "-(으)려던 참이다",
+  "lv": "intermediate",
+  "n": 9,
+  "lessons": [
+   "im-c53-02",
+   "im-c53-04"
+  ]
+ },
+ {
+  "g": "53-4",
+  "name": "-(으)ㄹ 겸",
+  "lv": "intermediate",
+  "n": 4,
+  "lessons": [
+   "im-c53-02"
+  ]
+ },
+ {
+  "g": "53-5",
+  "name": "-아/어야지요",
+  "lv": "intermediate",
+  "n": 4,
+  "lessons": [
+   "im-c53-03"
+  ]
+ },
+ {
+  "g": "54-1",
+  "name": "-(으)ㄹ 만하다",
+  "lv": "intermediate",
+  "n": 9,
+  "lessons": [
+   "im-c54-01",
+   "im-c54-04"
+  ]
+ },
+ {
+  "g": "54-2",
+  "name": "-도록 하다",
+  "lv": "intermediate",
+  "n": 4,
+  "lessons": [
+   "im-c54-02"
+  ]
+ },
+ {
+  "g": "54-3",
+  "name": "-지 그래요?",
+  "lv": "intermediate",
+  "n": 9,
+  "lessons": [
+   "im-c54-03",
+   "im-c54-04"
+  ]
+ },
+ {
+  "g": "55-1",
+  "name": "-던",
+  "lv": "intermediate",
+  "n": 21,
+  "lessons": [
+   "ad-01-01-01",
+   "ad-01-01-02",
+   "ad-01-01-03",
+   "ad-01-01-04",
+   "im-c55-01"
+  ]
+ },
+ {
+  "g": "55-2",
+  "name": "-더라고요",
+  "lv": "intermediate",
+  "n": 9,
+  "lessons": [
+   "im-c55-02",
+   "im-c55-04"
+  ]
+ },
+ {
+  "g": "55-3",
+  "name": "-던데요",
+  "lv": "intermediate",
+  "n": 9,
+  "lessons": [
+   "im-c55-03",
+   "im-c55-04"
+  ]
+ },
+ {
+  "g": "56-1",
+  "name": "단어 피동 (-이/히/리/기-)",
+  "lv": "intermediate",
+  "n": 9,
+  "lessons": [
+   "im-c56-01",
+   "im-c56-04"
+  ]
+ },
+ {
+  "g": "56-2",
+  "name": "-아/어지다",
+  "lv": "intermediate",
+  "n": 9,
+  "lessons": [
+   "im-c56-02",
+   "im-c56-04"
+  ]
+ },
+ {
+  "g": "56-3",
+  "name": "-게 되다",
+  "lv": "intermediate",
+  "n": 4,
+  "lessons": [
+   "im-c56-03"
+  ]
+ },
+ {
+  "g": "57-1",
+  "name": "단어 사동 (-이/히/리/기/우/추-)",
+  "lv": "intermediate",
+  "n": 13,
+  "lessons": [
+   "im-c57-01",
+   "im-c57-02",
+   "im-c57-04"
+  ]
+ },
+ {
+  "g": "57-2",
+  "name": "-게 하다",
+  "lv": "intermediate",
+  "n": 9,
+  "lessons": [
+   "im-c57-03",
+   "im-c57-04"
+  ]
+ },
+ {
+  "g": "58-1",
+  "name": "-아/어야",
+  "lv": "intermediate",
+  "n": 13,
+  "lessons": [
+   "im-c58-01",
+   "im-c58-03",
+   "im-c58-04"
+  ]
+ },
+ {
+  "g": "58-2",
+  "name": "-거든",
+  "lv": "intermediate",
+  "n": 13,
+  "lessons": [
+   "im-c58-02",
+   "im-c58-03",
+   "im-c58-04"
+  ]
+ },
+ {
+  "g": "59-1",
+  "name": "-(으)ㄹ 뿐만 아니라",
+  "lv": "intermediate",
+  "n": 9,
+  "lessons": [
+   "im-c59-01",
+   "im-c59-04"
+  ]
+ },
+ {
+  "g": "59-2",
+  "name": "-(으)ㄴ/는 데다가",
+  "lv": "intermediate",
+  "n": 9,
+  "lessons": [
+   "im-c59-02",
+   "im-c59-04"
+  ]
+ },
+ {
+  "g": "59-3",
+  "name": "조차",
+  "lv": "intermediate",
+  "n": 4,
+  "lessons": [
+   "im-c59-03"
+  ]
+ },
+ {
+  "g": "59-4",
+  "name": "만 해도",
+  "lv": "intermediate",
+  "n": 4,
+  "lessons": [
+   "im-c59-03"
+  ]
+ },
+ {
+  "g": "60-1",
+  "name": "-는 길에",
+  "lv": "intermediate",
+  "n": 9,
+  "lessons": [
+   "im-c60-01",
+   "im-c60-04"
+  ]
+ },
+ {
+  "g": "60-2",
+  "name": "-다가",
+  "lv": "intermediate",
+  "n": 13,
+  "lessons": [
+   "im-c60-02",
+   "im-c60-03",
+   "im-c60-04"
+  ]
+ },
+ {
+  "g": "61-1",
+  "name": "-(으)ㄹ 정도로",
+  "lv": "intermediate",
+  "n": 9,
+  "lessons": [
+   "im-c61-01",
+   "im-c61-04"
+  ]
+ },
+ {
+  "g": "61-2",
+  "name": "만 하다",
+  "lv": "intermediate",
+  "n": 4,
+  "lessons": [
+   "im-c61-02"
+  ]
+ },
+ {
+  "g": "61-3",
+  "name": "-(으)ㄴ/는/(으)ㄹ 만큼",
+  "lv": "intermediate",
+  "n": 9,
+  "lessons": [
+   "im-c61-03",
+   "im-c61-04"
+  ]
+ },
+ {
+  "g": "62-1",
+  "name": "아무나 / 아무거나 / 아무 데나",
+  "lv": "intermediate",
+  "n": 9,
+  "lessons": [
+   "im-c62-01",
+   "im-c62-04"
+  ]
+ },
+ {
+  "g": "62-2",
+  "name": "(이)나 (아쉬운 선택)",
+  "lv": "intermediate",
+  "n": 4,
+  "lessons": [
+   "im-c62-02"
+  ]
+ },
+ {
+  "g": "62-3",
+  "name": "(이)라도",
+  "lv": "intermediate",
+  "n": 4,
+  "lessons": [
+   "im-c62-02"
+  ]
+ },
+ {
+  "g": "62-4",
+  "name": "-든지 -든지",
+  "lv": "intermediate",
+  "n": 9,
+  "lessons": [
+   "im-c62-03",
+   "im-c62-04"
+  ]
+ },
+ {
+  "g": "62-5",
+  "name": "-(으)ㄴ/는 대신에",
+  "lv": "intermediate",
+  "n": 4,
+  "lessons": [
+   "im-c62-03"
+  ]
+ },
+ {
+  "g": "63-1",
+  "name": "만에",
+  "lv": "intermediate",
+  "n": 9,
+  "lessons": [
+   "im-c63-01",
+   "im-c63-04"
+  ]
+ },
+ {
+  "g": "63-2",
+  "name": "-아/어 가지고",
+  "lv": "intermediate",
+  "n": 4,
+  "lessons": [
+   "im-c63-02"
+  ]
+ },
+ {
+  "g": "63-3",
+  "name": "-았/었다가",
+  "lv": "intermediate",
+  "n": 13,
+  "lessons": [
+   "im-c60-03",
+   "im-c63-03",
+   "im-c63-04"
+  ]
+ },
+ {
+  "g": "63-4",
+  "name": "-고서",
+  "lv": "intermediate",
+  "n": 4,
+  "lessons": [
+   "im-c63-03"
+  ]
+ },
+ {
+  "g": "64-1",
+  "name": "-고 보니",
+  "lv": "intermediate",
+  "n": 4,
+  "lessons": [
+   "im-c64-01"
+  ]
+ },
+ {
+  "g": "64-2",
+  "name": "-다 보니",
+  "lv": "intermediate",
+  "n": 9,
+  "lessons": [
+   "im-c64-01",
+   "im-c64-04"
+  ]
+ },
+ {
+  "g": "64-3",
+  "name": "-다 보면",
+  "lv": "intermediate",
+  "n": 0,
+  "lessons": []
+ },
+ {
+  "g": "64-4",
+  "name": "-더니",
+  "lv": "intermediate",
+  "n": 9,
+  "lessons": [
+   "im-c64-02",
+   "im-c64-04"
+  ]
+ },
+ {
+  "g": "64-5",
+  "name": "-았/었더니",
+  "lv": "intermediate",
+  "n": 4,
+  "lessons": [
+   "im-c64-02"
+  ]
+ },
+ {
+  "g": "64-6",
+  "name": "-다가는",
+  "lv": "intermediate",
+  "n": 4,
+  "lessons": [
+   "im-c64-03"
+  ]
+ },
+ {
+  "g": "64-7",
+  "name": "-(으)ㄴ/는 셈이다",
+  "lv": "intermediate",
+  "n": 4,
+  "lessons": [
+   "im-c64-03"
+  ]
+ },
+ {
+  "g": "65-1",
+  "name": "-아/어 놓다",
+  "lv": "intermediate",
+  "n": 9,
+  "lessons": [
+   "im-c65-01",
+   "im-c65-04"
+  ]
+ },
+ {
+  "g": "65-2",
+  "name": "-아/어 두다",
+  "lv": "intermediate",
+  "n": 4,
+  "lessons": [
+   "im-c65-01"
+  ]
+ },
+ {
+  "g": "65-3",
+  "name": "-(으)ㄴ 채로",
+  "lv": "intermediate",
+  "n": 9,
+  "lessons": [
+   "im-c65-02",
+   "im-c65-04"
+  ]
+ },
+ {
+  "g": "65-4",
+  "name": "-(으)ㄴ/는 대로",
+  "lv": "intermediate",
+  "n": 4,
+  "lessons": [
+   "im-c65-03"
+  ]
+ },
+ {
+  "g": "66-1",
+  "name": "-(으)ㄴ/는 편이다",
+  "lv": "intermediate",
+  "n": 9,
+  "lessons": [
+   "im-c66-01",
+   "im-c66-04"
+  ]
+ },
+ {
+  "g": "66-2",
+  "name": "스럽다",
+  "lv": "intermediate",
+  "n": 8,
+  "lessons": [
+   "im-c66-02",
+   "im-c66-03"
+  ]
+ },
+ {
+  "g": "66-3",
+  "name": "답다",
+  "lv": "intermediate",
+  "n": 9,
+  "lessons": [
+   "im-c66-03",
+   "im-c66-04"
+  ]
+ },
+ {
+  "g": "67-1",
+  "name": "얼마나 -(으)ㄴ/는지 모르다",
+  "lv": "intermediate",
+  "n": 9,
+  "lessons": [
+   "im-c67-01",
+   "im-c67-04"
+  ]
+ },
+ {
+  "g": "67-2",
+  "name": "-(으)ㄹ 수밖에 없다",
+  "lv": "intermediate",
+  "n": 9,
+  "lessons": [
+   "im-c67-02",
+   "im-c67-04"
+  ]
+ },
+ {
+  "g": "67-3",
+  "name": "-(으)ㄹ 뿐이다",
+  "lv": "intermediate",
+  "n": 4,
+  "lessons": [
+   "im-c67-03"
+  ]
+ },
+ {
+  "g": "67-4",
+  "name": "(이)야말로",
+  "lv": "intermediate",
+  "n": 4,
+  "lessons": [
+   "im-c67-03"
+  ]
+ },
+ {
+  "g": "68-1",
+  "name": "-게 (목적)",
+  "lv": "intermediate",
+  "n": 9,
+  "lessons": [
+   "im-c68-01",
+   "im-c68-04"
+  ]
+ },
+ {
+  "g": "68-2",
+  "name": "-도록",
+  "lv": "intermediate",
+  "n": 13,
+  "lessons": [
+   "im-c68-02",
+   "im-c68-03",
+   "im-c68-04"
+  ]
+ },
+ {
+  "g": "69-1",
+  "name": "-았/었다가 (완료 후 전환)",
+  "lv": "intermediate",
+  "n": 4,
+  "lessons": [
+   "im-c69-01"
+  ]
+ },
+ {
+  "g": "69-2",
+  "name": "-았/었던",
+  "lv": "intermediate",
+  "n": 8,
+  "lessons": [
+   "ad-01-01-03",
+   "im-c69-01"
+  ]
+ },
+ {
+  "g": "69-3",
+  "name": "-아/어 버리다",
+  "lv": "intermediate",
+  "n": 9,
+  "lessons": [
+   "im-c69-02",
+   "im-c69-04"
+  ]
+ },
+ {
+  "g": "69-4",
+  "name": "-고 말다",
+  "lv": "intermediate",
+  "n": 9,
+  "lessons": [
+   "im-c69-03",
+   "im-c69-04"
+  ]
+ },
+ {
+  "g": "70-1",
+  "name": "-(으)나 마나",
+  "lv": "intermediate",
+  "n": 13,
+  "lessons": [
+   "im-c70-01",
+   "im-c70-03",
+   "im-c70-04"
+  ]
+ },
+ {
+  "g": "70-2",
+  "name": "-아/어 봤자",
+  "lv": "intermediate",
+  "n": 13,
+  "lessons": [
+   "im-c70-02",
+   "im-c70-03",
+   "im-c70-04"
+  ]
+ },
+ {
+  "g": "71-1",
+  "name": "-(느)ㄴ다면",
+  "lv": "intermediate",
+  "n": 9,
+  "lessons": [
+   "im-c71-01",
+   "im-c71-04"
+  ]
+ },
+ {
+  "g": "71-2",
+  "name": "-았/었더라면",
+  "lv": "intermediate",
+  "n": 9,
+  "lessons": [
+   "im-c71-02",
+   "im-c71-04"
+  ]
+ },
+ {
+  "g": "71-3",
+  "name": "-(으)ㄹ 뻔하다",
+  "lv": "intermediate",
+  "n": 4,
+  "lessons": [
+   "im-c71-03"
+  ]
+ },
+ {
+  "g": "72-1",
+  "name": "-(으)ㄹ걸 그랬다",
+  "lv": "intermediate",
+  "n": 13,
+  "lessons": [
+   "im-c72-01",
+   "im-c72-03",
+   "im-c72-04"
+  ]
+ },
+ {
+  "g": "72-2",
+  "name": "-았/었어야 했는데",
+  "lv": "intermediate",
+  "n": 13,
+  "lessons": [
+   "im-c72-02",
+   "im-c72-03",
+   "im-c72-04"
+  ]
+ },
+ {
+  "g": "73-1",
+  "name": "-곤 하다",
+  "lv": "intermediate",
+  "n": 9,
+  "lessons": [
+   "im-c73-01",
+   "im-c73-04"
+  ]
+ },
+ {
+  "g": "73-2",
+  "name": "-기는요",
+  "lv": "intermediate",
+  "n": 9,
+  "lessons": [
+   "im-c73-02",
+   "im-c73-04"
+  ]
+ },
+ {
+  "g": "73-3",
+  "name": "-(으)ㄴ/는 척하다",
+  "lv": "intermediate",
+  "n": 4,
+  "lessons": [
+   "im-c73-03"
+  ]
+ },
+ {
+  "g": "1-1",
+  "name": "-느니",
+  "lv": "advanced",
+  "n": 9,
+  "lessons": [
+   "ad-c01-01",
+   "ad-c01-04"
+  ]
+ },
+ {
+  "g": "1-2",
+  "name": "-(으)ㄹ 바에야",
+  "lv": "advanced",
+  "n": 9,
+  "lessons": [
+   "ad-c01-01",
+   "ad-c01-04"
+  ]
+ },
+ {
+  "g": "1-3",
+  "name": "-건 -건",
+  "lv": "advanced",
+  "n": 4,
+  "lessons": [
+   "ad-c01-02"
+  ]
+ },
+ {
+  "g": "1-4",
+  "name": "-(느)ㄴ다기보다는",
+  "lv": "advanced",
+  "n": 4,
+  "lessons": [
+   "ad-c01-03"
+  ]
+ },
+ {
+  "g": "2-1",
+  "name": "보고",
+  "lv": "advanced",
+  "n": 4,
+  "lessons": [
+   "ad-c02-01"
+  ]
+ },
+ {
+  "g": "2-2",
+  "name": "-(느)ㄴ다니까",
+  "lv": "advanced",
+  "n": 9,
+  "lessons": [
+   "ad-c02-01",
+   "ad-c02-04"
+  ]
+ },
+ {
+  "g": "2-3",
+  "name": "-(느)ㄴ다면서",
+  "lv": "advanced",
+  "n": 4,
+  "lessons": [
+   "ad-c02-02"
+  ]
+ },
+ {
+  "g": "2-4",
+  "name": "에 의하면",
+  "lv": "advanced",
+  "n": 9,
+  "lessons": [
+   "ad-c02-03",
+   "ad-c02-04"
+  ]
+ },
+ {
+  "g": "3-1",
+  "name": "-(으)ㅁ",
+  "lv": "advanced",
+  "n": 9,
+  "lessons": [
+   "ad-c03-01",
+   "ad-c03-04"
+  ]
+ },
+ {
+  "g": "3-2",
+  "name": "-는 데",
+  "lv": "advanced",
+  "n": 4,
+  "lessons": [
+   "ad-c03-02"
+  ]
+ },
+ {
+  "g": "3-3",
+  "name": "-는 바",
+  "lv": "advanced",
+  "n": 9,
+  "lessons": [
+   "ad-c03-03",
+   "ad-c03-04"
+  ]
+ },
+ {
+  "g": "4-1",
+  "name": "(으)로 인해서",
+  "lv": "advanced",
+  "n": 4,
+  "lessons": [
+   "ad-c04-01"
+  ]
+ },
+ {
+  "g": "4-2",
+  "name": "-는 통에",
+  "lv": "advanced",
+  "n": 4,
+  "lessons": [
+   "ad-c04-01"
+  ]
+ },
+ {
+  "g": "4-3",
+  "name": "(으)로 말미암아",
+  "lv": "advanced",
+  "n": 0,
+  "lessons": []
+ },
+ {
+  "g": "4-4",
+  "name": "-느니만큼",
+  "lv": "advanced",
+  "n": 4,
+  "lessons": [
+   "ad-c04-02"
+  ]
+ },
+ {
+  "g": "4-5",
+  "name": "-는 이상",
+  "lv": "advanced",
+  "n": 4,
+  "lessons": [
+   "ad-c04-02"
+  ]
+ },
+ {
+  "g": "4-6",
+  "name": "-기로서니",
+  "lv": "advanced",
+  "n": 4,
+  "lessons": [
+   "ad-c04-03"
+  ]
+ },
+ {
+  "g": "4-7",
+  "name": "-기에 망정이지",
+  "lv": "advanced",
+  "n": 4,
+  "lessons": [
+   "ad-c04-03"
+  ]
+ },
+ {
+  "g": "4-8",
+  "name": "-(느)ㄴ답시고",
+  "lv": "advanced",
+  "n": 0,
+  "lessons": []
+ },
+ {
+  "g": "4-9",
+  "name": "-(으)ㅁ으로써",
+  "lv": "advanced",
+  "n": 5,
+  "lessons": [
+   "ad-c04-04"
+  ]
+ },
+ {
+  "g": "4-10",
+  "name": "-기에",
+  "lv": "advanced",
+  "n": 5,
+  "lessons": [
+   "ad-c04-04"
+  ]
+ },
+ {
+  "g": "4-11",
+  "name": "-길래",
+  "lv": "advanced",
+  "n": 0,
+  "lessons": []
+ },
+ {
+  "g": "5-1",
+  "name": "-더라도",
+  "lv": "advanced",
+  "n": 9,
+  "lessons": [
+   "ad-c05-01",
+   "ad-c05-04"
+  ]
+ },
+ {
+  "g": "5-2",
+  "name": "-(으)ㄹ지라도",
+  "lv": "advanced",
+  "n": 9,
+  "lessons": [
+   "ad-c05-01",
+   "ad-c05-04"
+  ]
+ },
+ {
+  "g": "5-3",
+  "name": "-(으)ㄴ들",
+  "lv": "advanced",
+  "n": 4,
+  "lessons": [
+   "ad-c05-02"
+  ]
+ },
+ {
+  "g": "5-4",
+  "name": "-(으)ㄹ망정",
+  "lv": "advanced",
+  "n": 4,
+  "lessons": [
+   "ad-c05-02"
+  ]
+ },
+ {
+  "g": "5-5",
+  "name": "-(느)ㄴ다고 치다",
+  "lv": "advanced",
+  "n": 4,
+  "lessons": [
+   "ad-c05-03"
+  ]
+ },
+ {
+  "g": "5-6",
+  "name": "-는 셈치다",
+  "lv": "advanced",
+  "n": 4,
+  "lessons": [
+   "ad-c05-03"
+  ]
+ },
+ {
+  "g": "6-1",
+  "name": "-기가 무섭게",
+  "lv": "advanced",
+  "n": 13,
+  "lessons": [
+   "ad-c06-01",
+   "ad-c06-03",
+   "ad-c06-04"
+  ]
+ },
+ {
+  "g": "6-2",
+  "name": "-자",
+  "lv": "advanced",
+  "n": 13,
+  "lessons": [
+   "ad-c06-02",
+   "ad-c06-03",
+   "ad-c06-04"
+  ]
+ },
+ {
+  "g": "7-1",
+  "name": "-는 한",
+  "lv": "advanced",
+  "n": 9,
+  "lessons": [
+   "ad-c07-01",
+   "ad-c07-04"
+  ]
+ },
+ {
+  "g": "7-2",
+  "name": "-(으)ㄹ라치면",
+  "lv": "advanced",
+  "n": 4,
+  "lessons": [
+   "ad-c07-01"
+  ]
+ },
+ {
+  "g": "7-3",
+  "name": "-노라면",
+  "lv": "advanced",
+  "n": 4,
+  "lessons": [
+   "ad-c07-02"
+  ]
+ },
+ {
+  "g": "7-4",
+  "name": "-느냐에 달려 있다",
+  "lv": "advanced",
+  "n": 9,
+  "lessons": [
+   "ad-c07-03",
+   "ad-c07-04"
+  ]
+ },
+ {
+  "g": "7-5",
+  "name": "-기 나름이다",
+  "lv": "advanced",
+  "n": 4,
+  "lessons": [
+   "ad-c07-03"
+  ]
+ },
+ {
+  "g": "8-1",
+  "name": "은/는 대로",
+  "lv": "advanced",
+  "n": 13,
+  "lessons": [
+   "ad-c08-01",
+   "ad-c08-03",
+   "ad-c08-04"
+  ]
+ },
+ {
+  "g": "8-2",
+  "name": "-는 김에",
+  "lv": "advanced",
+  "n": 13,
+  "lessons": [
+   "ad-c08-02",
+   "ad-c08-03",
+   "ad-c08-04"
+  ]
+ },
+ {
+  "g": "9-1",
+  "name": "-건만",
+  "lv": "advanced",
+  "n": 9,
+  "lessons": [
+   "ad-c09-01",
+   "ad-c09-04"
+  ]
+ },
+ {
+  "g": "9-2",
+  "name": "-고도",
+  "lv": "advanced",
+  "n": 4,
+  "lessons": [
+   "ad-c09-02"
+  ]
+ },
+ {
+  "g": "9-3",
+  "name": "-(으)ㅁ에도 불구하고",
+  "lv": "advanced",
+  "n": 9,
+  "lessons": [
+   "ad-c09-03",
+   "ad-c09-04"
+  ]
+ },
+ {
+  "g": "10-1",
+  "name": "-듯이",
+  "lv": "advanced",
+  "n": 13,
+  "lessons": [
+   "ad-c10-01",
+   "ad-c10-03",
+   "ad-c10-04"
+  ]
+ },
+ {
+  "g": "10-2",
+  "name": "-다시피 하다",
+  "lv": "advanced",
+  "n": 13,
+  "lessons": [
+   "ad-c10-02",
+   "ad-c10-03",
+   "ad-c10-04"
+  ]
+ },
+ {
+  "g": "11-1",
+  "name": "-거니와",
+  "lv": "advanced",
+  "n": 9,
+  "lessons": [
+   "ad-c11-01",
+   "ad-c11-04"
+  ]
+ },
+ {
+  "g": "11-2",
+  "name": "-기는커녕",
+  "lv": "advanced",
+  "n": 4,
+  "lessons": [
+   "ad-c11-02"
+  ]
+ },
+ {
+  "g": "11-3",
+  "name": "-(으)ㄹ뿐더러",
+  "lv": "advanced",
+  "n": 9,
+  "lessons": [
+   "ad-c11-01",
+   "ad-c11-04"
+  ]
+ },
+ {
+  "g": "11-4",
+  "name": "-되",
+  "lv": "advanced",
+  "n": 4,
+  "lessons": [
+   "ad-c11-03"
+  ]
+ },
+ {
+  "g": "11-5",
+  "name": "마저",
+  "lv": "advanced",
+  "n": 4,
+  "lessons": [
+   "ad-c11-02"
+  ]
+ },
+ {
+  "g": "11-6",
+  "name": "을/를 비롯해서",
+  "lv": "advanced",
+  "n": 4,
+  "lessons": [
+   "ad-c11-03"
+  ]
+ },
+ {
+  "g": "12-1",
+  "name": "-아/어 대다",
+  "lv": "advanced",
+  "n": 9,
+  "lessons": [
+   "ad-c12-01",
+   "ad-c12-04"
+  ]
+ },
+ {
+  "g": "12-2",
+  "name": "-기 일쑤이다",
+  "lv": "advanced",
+  "n": 9,
+  "lessons": [
+   "ad-c12-02",
+   "ad-c12-04"
+  ]
+ },
+ {
+  "g": "12-3",
+  "name": "-는 둥 마는 둥 하다",
+  "lv": "advanced",
+  "n": 4,
+  "lessons": [
+   "ad-c12-03"
+  ]
+ },
+ {
+  "g": "13-1",
+  "name": "-(으)리만치",
+  "lv": "advanced",
+  "n": 13,
+  "lessons": [
+   "ad-c13-01",
+   "ad-c13-03",
+   "ad-c13-04"
+  ]
+ },
+ {
+  "g": "13-2",
+  "name": "-다 못해",
+  "lv": "advanced",
+  "n": 13,
+  "lessons": [
+   "ad-c13-02",
+   "ad-c13-03",
+   "ad-c13-04"
+  ]
+ },
+ {
+  "g": "14-1",
+  "name": "-(느)ㄴ다는 것이",
+  "lv": "advanced",
+  "n": 9,
+  "lessons": [
+   "ad-c14-01",
+   "ad-c14-04"
+  ]
+ },
+ {
+  "g": "14-2",
+  "name": "-(으)려다 말다",
+  "lv": "advanced",
+  "n": 9,
+  "lessons": [
+   "ad-c14-02",
+   "ad-c14-04"
+  ]
+ },
+ {
+  "g": "14-3",
+  "name": "-(으)려더니",
+  "lv": "advanced",
+  "n": 4,
+  "lessons": [
+   "ad-c14-03"
+  ]
+ },
+ {
+  "g": "15-1",
+  "name": "-는 듯이",
+  "lv": "advanced",
+  "n": 4,
+  "lessons": [
+   "ad-c15-01"
+  ]
+ },
+ {
+  "g": "15-2",
+  "name": "-(느)ㄴ다는 듯이",
+  "lv": "advanced",
+  "n": 4,
+  "lessons": [
+   "ad-c15-01"
+  ]
+ },
+ {
+  "g": "15-3",
+  "name": "-는 듯하다",
+  "lv": "advanced",
+  "n": 4,
+  "lessons": [
+   "ad-c15-02"
+  ]
+ },
+ {
+  "g": "15-4",
+  "name": "-(으)ㄹ 게 뻔하다",
+  "lv": "advanced",
+  "n": 9,
+  "lessons": [
+   "ad-c15-02",
+   "ad-c15-04"
+  ]
+ },
+ {
+  "g": "15-5",
+  "name": "-(으)ㄹ 법하다",
+  "lv": "advanced",
+  "n": 4,
+  "lessons": [
+   "ad-c15-03"
+  ]
+ },
+ {
+  "g": "15-6",
+  "name": "-(으)ㄹ 리가 없다",
+  "lv": "advanced",
+  "n": 4,
+  "lessons": [
+   "ad-c15-03"
+  ]
+ },
+ {
+  "g": "15-7",
+  "name": "-기 십상이다",
+  "lv": "advanced",
+  "n": 5,
+  "lessons": [
+   "ad-c15-04"
+  ]
+ },
+ {
+  "g": "16-1",
+  "name": "-기 마련이다",
+  "lv": "advanced",
+  "n": 13,
+  "lessons": [
+   "ad-c16-01",
+   "ad-c16-03",
+   "ad-c16-04"
+  ]
+ },
+ {
+  "g": "16-2",
+  "name": "-는 법이다",
+  "lv": "advanced",
+  "n": 13,
+  "lessons": [
+   "ad-c16-02",
+   "ad-c16-03",
+   "ad-c16-04"
+  ]
+ },
+ {
+  "g": "17-1",
+  "name": "-는가 하면",
+  "lv": "advanced",
+  "n": 9,
+  "lessons": [
+   "ad-c17-01",
+   "ad-c17-04"
+  ]
+ },
+ {
+  "g": "17-2",
+  "name": "-느니 -느니 하다",
+  "lv": "advanced",
+  "n": 4,
+  "lessons": [
+   "ad-c17-02"
+  ]
+ },
+ {
+  "g": "17-3",
+  "name": "-(으)랴 -(으)랴",
+  "lv": "advanced",
+  "n": 4,
+  "lessons": [
+   "ad-c17-03"
+  ]
+ },
+ {
+  "g": "17-4",
+  "name": "(이)며 (이)며",
+  "lv": "advanced",
+  "n": 5,
+  "lessons": [
+   "ad-c17-04"
+  ]
+ },
+ {
+  "g": "18-1",
+  "name": "-(으)ㄴ 끝에",
+  "lv": "advanced",
+  "n": 9,
+  "lessons": [
+   "ad-c18-01",
+   "ad-c18-04"
+  ]
+ },
+ {
+  "g": "18-2",
+  "name": "-아/어 내다",
+  "lv": "advanced",
+  "n": 4,
+  "lessons": [
+   "ad-c18-02"
+  ]
+ },
+ {
+  "g": "18-3",
+  "name": "-(으)ㄴ 나머지",
+  "lv": "advanced",
+  "n": 4,
+  "lessons": [
+   "ad-c18-03"
+  ]
+ },
+ {
+  "g": "18-4",
+  "name": "-데요",
+  "lv": "advanced",
+  "n": 5,
+  "lessons": [
+   "ad-c18-04"
+  ]
+ },
+ {
+  "g": "19-1",
+  "name": "-는 가운데",
+  "lv": "advanced",
+  "n": 9,
+  "lessons": [
+   "ad-c19-01",
+   "ad-c19-04"
+  ]
+ },
+ {
+  "g": "19-2",
+  "name": "-는 마당에",
+  "lv": "advanced",
+  "n": 4,
+  "lessons": [
+   "ad-c19-02"
+  ]
+ },
+ {
+  "g": "19-3",
+  "name": "치고",
+  "lv": "advanced",
+  "n": 4,
+  "lessons": [
+   "ad-c19-03"
+  ]
+ },
+ {
+  "g": "19-4",
+  "name": "-(으)ㅁ에 따라",
+  "lv": "advanced",
+  "n": 5,
+  "lessons": [
+   "ad-c19-04"
+  ]
+ },
+ {
+  "g": "20-1",
+  "name": "여간 -지 않다",
+  "lv": "advanced",
+  "n": 9,
+  "lessons": [
+   "ad-c20-01",
+   "ad-c20-04"
+  ]
+ },
+ {
+  "g": "20-2",
+  "name": "-기가 이를 데 없다",
+  "lv": "advanced",
+  "n": 9,
+  "lessons": [
+   "ad-c20-02",
+   "ad-c20-04"
+  ]
+ },
+ {
+  "g": "20-3",
+  "name": "-(으)려야 -(으)ㄹ 수가 없다",
+  "lv": "advanced",
+  "n": 4,
+  "lessons": [
+   "ad-c20-03"
+  ]
+ },
+ {
+  "g": "21-1",
+  "name": "하오체",
+  "lv": "advanced",
+  "n": 13,
+  "lessons": [
+   "ad-c21-01",
+   "ad-c21-03",
+   "ad-c21-04"
+  ]
+ },
+ {
+  "g": "21-2",
+  "name": "하게체",
+  "lv": "advanced",
+  "n": 13,
+  "lessons": [
+   "ad-c21-02",
+   "ad-c21-03",
+   "ad-c21-04"
+  ]
+ },
+ {
+  "g": "22-1",
+  "name": "-(으)므로, -(으)나, -(으)며",
+  "lv": "advanced",
+  "n": 4,
+  "lessons": [
+   "ad-c22-01"
+  ]
+ },
+ {
+  "g": "22-2",
+  "name": "피동과 사동",
+  "lv": "advanced",
+  "n": 4,
+  "lessons": [
+   "ad-c22-02"
+  ]
+ },
+ {
+  "g": "22-3",
+  "name": "-(으)세라, -는 양, -는 한편, -(으)ㄹ 턱이 없다",
+  "lv": "advanced",
+  "n": 9,
+  "lessons": [
+   "ad-c22-03",
+   "ad-c22-04"
+  ]
+ }
+]
