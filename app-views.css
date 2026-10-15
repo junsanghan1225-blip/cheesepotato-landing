@@ -7378,3 +7378,22 @@ body.cls-pres-on { overflow:hidden; }
 @keyframes lsFade { from { opacity:0; transform:translateY(8px); } to { opacity:1; transform:none; } }
 @media (prefers-reduced-motion: reduce) { #lessonView.ls-fade .ls-body { animation:none; } }
 .ll-r { color:var(--orange); font-weight:800; }
+
+/* 레슨 새 블록 2(2026-10-15) — 짧은 글 · 자기 점검 · 활용 표 */
+.psg { display:flex; flex-direction:column; gap:2px; padding:14px 16px; border:1px solid var(--line); border-radius:var(--r-l); background:var(--surface); }
+.psg-l { text-align:left; padding:6px 0; border:0; background:none; font:inherit; font-size:18px; line-height:1.7; color:var(--ink); cursor:pointer; word-break:keep-all; }
+.psg-e { padding:0 0 6px; font-size:13.5px; color:var(--ink-3); line-height:1.5; }
+.psg-t { margin-top:8px; }
+.cd { display:flex; flex-direction:column; gap:8px; }
+.cd-r { display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:8px; padding:10px 14px; border:1px solid var(--line); border-radius:var(--r-l); background:var(--surface); font-size:14.5px; color:var(--ink); }
+.cd-b { display:flex; gap:6px; }
+.cd-b button { padding:6px 12px; border:1px solid var(--line); border-radius:999px; background:none; font:inherit; font-size:13px; font-weight:700; color:var(--ink-2); cursor:pointer; }
+.cd-y.on { background:#1D7A55; border-color:#1D7A55; color:#fff; } .cd-n.on { background:var(--orange); border-color:var(--orange); color:#fff; }
+.cj-w { overflow-x:auto; }
+.cj { border-collapse:collapse; width:100%; table-layout:fixed; }
+.cj th, .cj td { padding:8px 6px; text-align:left; font-size:13.5px; }
+.cj thead th { color:var(--ink-3); font-weight:700; font-size:12px; }
+.cj tbody th b { display:block; font-size:16px; color:var(--ink); } .cj tbody th small { color:var(--ink-3); font-weight:400; }
+.cj-in { width:100%; min-width:0; box-sizing:border-box; padding:8px 6px; border:1.5px solid var(--line); border-radius:10px; background:var(--surface); color:var(--ink); font:inherit; font-size:14px; }
+.cj tbody th { width:24%; }
+.cj-in.ok { border-color:#1D7A55; background:rgba(29,122,85,.1); } .cj-in.no { border-color:#C4551C; background:rgba(196,85,28,.1); }

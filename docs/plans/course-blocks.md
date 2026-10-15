@@ -12,7 +12,13 @@
 | `vocab` | `{ t, h?, items:[{ko,en,ex?}] }` 3~8개, 눌러 듣기 · ☆ 내 단어장 | 읽기 — 첫 문제 앞 |
 | `dictate` | `{ t, say, answers?, hint?, why? }` 듣고 쓰기(build 채점기) | 풀기 — 끝 |
 | `write` | `{ t, q, must?[], min?, sample, why? }` 내 문장(정답 없음, must 조각 포함 + 길이), 두 번 못 하면 예시 | 풀기 — 끝 |
+| `conj` | `{ t, forms[], verbs:[{v,pos,en}] }` 활용 표 — 정답은 빌드가 ko-conj 로 채움 | 풀기 |
+| `passage` | `{ t, ko[], en[] }` 짧은 글(줄마다 듣기 · 영어 보기), 뒤에 `choice` 이해 문제 | 읽기 — 첫 문제 앞 |
+| `expand` | `{ t, base, steps[] }` 문장 늘리기 — 화면이 「순서 맞추기」 여러 칸으로 풀어 씀 | 풀기 — 끝 |
+| `cando` | `{ t, items[] }` 「이제 할 수 있어요」 자기 점검 — 「아직이에요」는 이 기기에 기억 | 읽기 — 끝 |
 | 기존 `listen` · `correct` · `choice` · `cloze` · `build` | 그대로 — 더 쓴다 | 풀기 |
+
+**지난 시간 복습(코드만)**: 새 레슨을 열 때 앞에서 끝낸 레슨의 문제 3개를 섞어 낸다(자기 점검에서 「아직이에요」인 레슨 먼저, 말하기 · 짝 맞추기는 제외). 끝낸 레슨이 없으면 안 낸다.
 
 ## 데이터 자리 (원래 레슨은 건드리지 않는다)
 - 원본: `docs/lesson-blocks/<코스 id>.json` = `{ "<레슨 id>": [ 블록…, 각 블록에 at?: 번호 ] }`
@@ -26,7 +32,7 @@
 | 한글(`hangul`) | 11 | listen ×2 — 비슷한 소리 구분(받아쓰기는 한글 자판이 어려워 뺌) |
 | 초급(`first-words` · `grammar-core` · `bg-*`) | 172 | vocab · dictate · write · (고치기가 없으면) correct · (제목에 비교가 있으면) compare |
 | 중고급 뉘앙스(`im-*` · `ad-*`) | 216 | compare · correct · vocab · dictate · write |
-→ 새 블록 약 1,750개. 안티 그래비티 묶음(지시 `docs/antigravity/antigravity-lesson-blocks-task.md`): 코스 몇 개씩, 한 묶음 = PR 하나.
+→ 새 블록 약 3,100개(+ 짧은 글 이해 문제 약 800개). 안티 그래비티 묶음(지시 `docs/antigravity/antigravity-lesson-blocks-task.md`): 코스 몇 개씩, 한 묶음 = PR 하나.
 
 ## 단계
 1. **틀(끝)** — 새 블록 4종 화면 · 합치기 · 검사 도구 · 처방 표 · 시범(`first-words` fw-02, `grammar-core` gr-02).

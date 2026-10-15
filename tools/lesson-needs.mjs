@@ -22,18 +22,26 @@ const need = (c, l) => {
   const k = kind(c);
   if (k === 'hangul') {
     n.push({ t: 'listen', n: 2, why: '소리 구분 — 비슷한 소리(예: ㅂ / ㅍ · ㅓ / ㅗ) 듣고 고르기. 이 레슨의 글자로' });
+    n.push({ t: 'cando', n: 1, why: '이제 할 수 있어요 — 이 레슨 목표 2~3줄(영어)' });
   } else if (k === 'beginner') {
     n.push({ t: 'vocab', n: 1, why: '이 레슨에서 쓰는 낱말 카드 4~6개(영어 뜻, 예문 한 줄)' });
     n.push({ t: 'dictate', n: 1, why: '이 레슨 문형의 짧은 문장 하나 듣고 받아쓰기' });
     n.push({ t: 'write', n: 1, why: '배운 문형으로 내 문장 하나 쓰기(must 에 문형 조각)' });
     if (!have.correct) n.push({ t: 'correct', n: 1, why: '이 레슨 문형에서 흔한 실수 한 문장 고치기' });
     if (vs) n.push({ t: 'compare', n: 1, why: '제목에 비교가 있다 — 나란히 비교' });
+    n.push({ t: 'conj', n: 1, why: '활용 표 — 이 레슨 낱말 중 동사 · 형용사 3~5개(verbs), forms 는 present · past · future 중 이 레슨에 맞는 것. 정답은 도구가 채운다' });
+    n.push({ t: 'expand', n: 1, why: '문장 늘리기 — 이 레슨 문형의 짧은 문장에서 조각을 한 개씩 얹어 2~3단계로 길게' });
+    n.push({ t: 'passage', n: 1, why: '짧은 글 2~4줄(이 레슨 문법 · 낱말로) + 바로 뒤에 이해 문제 choice 2개' });
+    n.push({ t: 'cando', n: 1, why: '이제 할 수 있어요 — 이 레슨 목표 2~3줄(영어)' });
   } else {
     n.push({ t: 'compare', n: 1, why: '뉘앙스 차이가 이 레슨의 핵심 — 둘을 나란히 비교(a · b 에 뜻풀이와 예문)' });
     n.push({ t: 'correct', n: 1, why: '두 문법을 바꿔 쓴 틀린 문장 고치기' });
     n.push({ t: 'vocab', n: 1, why: '이 레슨 예문의 핵심 낱말 카드 4~6개' });
     n.push({ t: 'dictate', n: 1, why: '이 레슨의 대표 문장 듣고 받아쓰기' });
     n.push({ t: 'write', n: 1, why: '배운 문법으로 내 문장 하나 쓰기' });
+    n.push({ t: 'expand', n: 1, why: '문장 늘리기 — 이 레슨 문법의 짧은 문장에서 조각을 얹어 2~3단계로 길게' });
+    n.push({ t: 'passage', n: 1, why: '짧은 글 3~4줄(이 레슨 문법이 글 속에서 쓰이게) + 바로 뒤에 이해 문제 choice 2개' });
+    n.push({ t: 'cando', n: 1, why: '이제 할 수 있어요 — 이 레슨 목표 2~3줄(영어)' });
   }
   return { id: l.id, title: l.title, kind: k, have, need: n, done: !!done[c.id]?.[l.id] };
 };
