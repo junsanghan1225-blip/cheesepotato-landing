@@ -1,0 +1,1533 @@
+{
+ "5-4": [
+  {
+   "t": "choice",
+   "q": "Choose the sentence expressing a firm resolve to maintain principles even in adverse conditions.",
+   "options": [
+    "손해를 볼망정 부정한 방법으로 이익을 얻지는 않겠습니다.",
+    "손해를 보는 통에 부정한 방법으로 이익을 얻지 않겠습니다.",
+    "손해를 보기에 망정이지 원칙을 지켰습니다."
+   ],
+   "answer": 0,
+   "why": "「-(으)ㄹ망정」 expresses that while conceding the negative premise ('even though suffering a loss'), one will adhere to one's principles."
+  },
+  {
+   "t": "cloze",
+   "sentence": "굶[을망정] 비겁하게 남에게 손을 벌리지는 않겠다.",
+   "answer": "을망정",
+   "options": [
+    "을망정",
+    "는 통에",
+    "기 나름에"
+   ],
+   "why": "「굶다」 ends with a consonant (받침 ㅁ), so attach 「-을망정」: 「굶을망정」."
+  },
+  {
+   "t": "build",
+   "q": "Say: “Though my body is weary, my mind is comfortable.”",
+   "answers": [
+    "몸은 피곤할망정 마음은 편해요.",
+    "몸은 고단할망정 마음은 편안합니다."
+   ],
+   "hint": "Use 「피곤할망정」."
+  },
+  {
+   "t": "dictate",
+   "say": "가난할망정 불의와 타협하지는 않겠습니다.",
+   "answers": [
+    "가난할망정 불의와 타협하지는 않겠습니다."
+   ]
+  }
+ ],
+ "5-5": [
+  {
+   "t": "choice",
+   "q": "Choose the sentence assuming an assertion to be true for the sake of argument.",
+   "options": [
+    "그 사람 말이 다 맞다고 치더라도 절차를 무시하면 안 되지요.",
+    "그 사람 말이 다 맞는 통에 절차를 무시하면 안 되지요.",
+    "그 사람 말이 다 맞기에 망정이지 절차를 무시하면 안 되지요."
+   ],
+   "answer": 0,
+   "why": "「-(느)ㄴ다고 치다」 supposes or concedes a premise ('even assuming that is true') to make a point."
+  },
+  {
+   "t": "cloze",
+   "sentence": "바빴다고 [치더라도] 미리 연락 한 통은 남겼어야 마땅합니다.",
+   "answer": "치더라도",
+   "options": [
+    "치더라도",
+    "마당에",
+    "셈치고"
+   ],
+   "why": "The pattern 「-다고 치더라도」 expresses 'even granting that one was busy'."
+  },
+  {
+   "t": "correct",
+   "q": "Fix the speech citation ending for an action verb before 「고 치다」.",
+   "wrong": "그 사실을 몰랐는다고 쳐도 책임을 완전히 피할 수는 없어요.",
+   "answers": [
+    "그 사실을 몰랐다고 쳐도 책임을 완전히 피할 수는 없어요."
+   ],
+   "hint": "Past tense verb takes 「-았/었다고」: 「몰랐다고 쳐도」.",
+   "why": "Connect past tense stems with 「-았/었다고 치다」: 「몰랐다고 쳐도」."
+  },
+  {
+   "t": "build",
+   "q": "Say: “Even granting that he made a mistake, that was too harsh.”",
+   "answers": [
+    "실수했다고 쳐도 너무 심했어요.",
+    "실수했다고 치더라도 너무 심했어요."
+   ],
+   "hint": "Use 「실수했다고 쳐도」."
+  },
+  {
+   "t": "dictate",
+   "say": "그 계획이 성공한다고 쳐도 예산이 너무 많이 듭니다.",
+   "answers": [
+    "그 계획이 성공한다고 쳐도 예산이 너무 많이 듭니다."
+   ]
+  }
+ ],
+ "5-6": [
+  {
+   "t": "choice",
+   "q": "Choose the sentence where someone decides to mentally treat a situation as something else.",
+   "options": [
+    "이번 한 번만 속는 셈치고 다시 믿어 보겠습니다.",
+    "이번 한 번만 속는 통에 다시 믿어 보겠습니다.",
+    "이번 한 번만 속느니만큼 다시 믿어 보겠습니다."
+   ],
+   "answer": 0,
+   "why": "「-는 셈치다」 means to consider or treat something as if it were the case ('considering myself deceived, I'll trust once more')."
+  },
+  {
+   "t": "cloze",
+   "sentence": "오늘 하루는 세상에 [없는] 셈치고 집에서 푹 쉬었어요.",
+   "answer": "없는",
+   "options": [
+    "없는",
+    "없을",
+    "없은"
+   ],
+   "why": "Attach 「-는 셈치다」 to 「없다」: 「없는 셈치고」."
+  },
+  {
+   "t": "correct",
+   "q": "Fix the unnatural connector before 「하고」.",
+   "wrong": "돈을 버리는 셈치기로 하고 낡은 가구를 처분했어요.",
+   "answers": [
+    "돈을 버리는 셈치고 낡은 가구를 처분했어요."
+   ],
+   "hint": "Use the standard idiom 「-는 셈치고」 directly.",
+   "why": "The established idiomatic pattern is 「-는 셈치고」: 「버리는 셈치고」."
+  },
+  {
+   "t": "build",
+   "q": "Say: “Consider it a donation and buy one.”",
+   "answers": [
+    "좋은 일에 기부하는 셈치고 하나 사세요.",
+    "기부하는 셈치고 하나 사 주세요."
+   ],
+   "hint": "Use 「기부하는 셈치고」."
+  },
+  {
+   "t": "dictate",
+   "say": "친구를 돕는 셈치고 주말에 이사를 거들어 주었습니다.",
+   "answers": [
+    "친구를 돕는 셈치고 주말에 이사를 거들어 주었습니다."
+   ]
+  }
+ ],
+ "7-2": [
+  {
+   "t": "choice",
+   "q": "Choose the sentence describing an annoying disruption that always happens whenever one attempts an action.",
+   "options": [
+    "주말에 잠 좀 잘라치면 꼭 공사 소리가 시끄럽게 들려요.",
+    "주말에 잠 좀 자노라면 꼭 공사 소리가 시끄럽게 들려요.",
+    "주말에 잠 좀 자기 나름이라 공사 소리가 들려요."
+   ],
+   "answer": 0,
+   "why": "「-(으)ㄹ라치면」 highlights a recurring untimely interruption whenever one intends to do something."
+  },
+  {
+   "t": "cloze",
+   "sentence": "마음잡고 공부 좀 [할라치면] 친구들에게서 놀자고 연락이 와요.",
+   "answer": "할라치면",
+   "options": [
+    "할라치면",
+    "하노라면",
+    "하느니만큼"
+   ],
+   "why": "Attach 「-ㄹ라치면」 to verb stem 「하-」 to express being interrupted: 「할라치면」."
+  },
+  {
+   "t": "correct",
+   "q": "Fix the consonant-ending verb conjugation before 「-라치면」.",
+   "wrong": "밥 한 끼 편히 먹라치면 꼭 손님이 찾아와요.",
+   "answers": [
+    "밥 한 끼 편히 먹을라치면 꼭 손님이 찾아와요."
+   ],
+   "hint": "「먹다」 has a final consonant (받침 ㄱ), so attach 「-을라치면」.",
+   "why": "Stems ending in a consonant take 「-을라치면」: 「먹을라치면」."
+  },
+  {
+   "t": "build",
+   "q": "Say: “Whenever I try to rest, urgent work always comes up.”",
+   "answers": [
+    "좀 쉴라치면 꼭 급한 일이 생겨요.",
+    "조금 쉴라치면 늘 급한 일이 생겨요."
+   ],
+   "hint": "Use 「쉴라치면」."
+  },
+  {
+   "t": "dictate",
+   "say": "외출할라치면 하필 소나기가 쏟아져서 나가지 못했어요.",
+   "answers": [
+    "외출할라치면 하필 소나기가 쏟아져서 나가지 못했어요."
+   ]
+  }
+ ],
+ "7-3": [
+  {
+   "t": "choice",
+   "q": "Choose the literary sentence expressing a discovery that emerges as an action continues.",
+   "options": [
+    "숲길을 조용히 걷노라면 복잡했던 마음이 저절로 차분해집니다.",
+    "숲길을 조용히 걸을라치면 마음이 저절로 차분해집니다.",
+    "숲길을 조용히 걷는 통에 마음이 저절로 차분해집니다."
+   ],
+   "answer": 0,
+   "why": "「-노라면」 is a poetic or reflective connective meaning 'as one continues to do something over time'."
+  },
+  {
+   "t": "cloze",
+   "sentence": "맑은 새소리를 [듣노라면] 마음이 한없이 평화로워집니다.",
+   "answer": "듣노라면",
+   "options": [
+    "듣노라면",
+    "들을라치면",
+    "듣는 마당에"
+   ],
+   "why": "Attach 「-노라면」 to verb stem 「듣-」: 「듣노라면」."
+  },
+  {
+   "t": "correct",
+   "q": "Fix the tense error before 「-노라면」.",
+   "wrong": "푸른 바다를 바라보았노라면 가슴속 응어리가 씻겨 내려갑니다.",
+   "answers": [
+    "푸른 바다를 바라보노라면 가슴속 응어리가 씻겨 내려갑니다."
+   ],
+   "hint": "Attach 「-노라면」 directly to the basic verb stem without past tense 「-았-」.",
+   "why": "「-노라면」 connects to the base stem: 「바라보노라면」."
+  },
+  {
+   "t": "build",
+   "q": "Say: “If you endure steadily, good days will surely come.”",
+   "answers": [
+    "묵묵히 견디노라면 좋은 날이 반드시 올 것입니다.",
+    "꾸준히 견디노라면 좋은 날이 올 것입니다."
+   ],
+   "hint": "Use 「견디노라면 좋은 날이」."
+  },
+  {
+   "t": "dictate",
+   "say": "어린 시절 사진을 들여다보노라면 옛 추억이 새록새록 떠오릅니다.",
+   "answers": [
+    "어린 시절 사진을 들여다보노라면 옛 추억이 새록새록 떠오릅니다."
+   ]
+  }
+ ],
+ "7-5": [
+  {
+   "t": "choice",
+   "q": "Choose the sentence meaning that the outcome depends entirely on one's attitude or method.",
+   "options": [
+    "어려운 시험도 마음먹기 나름이라 충분히 통과할 수 있어요.",
+    "어려운 시험도 마음먹을라치면 통과할 수 있어요.",
+    "어려운 시험도 마음먹는 통에 통과할 수 있어요."
+   ],
+   "answer": 0,
+   "why": "「-기 나름이다」 means 'it depends on how one does something'."
+  },
+  {
+   "t": "cloze",
+   "sentence": "세상 모든 일은 긍정적으로 [생각하기] 나름이라고 봅니다.",
+   "answer": "생각하기",
+   "options": [
+    "생각하기",
+    "생각하는",
+    "생각할"
+   ],
+   "why": "Use the nominalized form with 「-기 나름이다」: 「생각하기 나름이다」."
+  },
+  {
+   "t": "correct",
+   "q": "Fix the nominalizer before 「나름이다」.",
+   "wrong": "프로젝트의 성패는 팀원들이 어떻게 협력하는 나름입니다.",
+   "answers": [
+    "프로젝트의 성패는 팀원들이 어떻게 협력하기 나름입니다."
+   ],
+   "hint": "Use 「-기 나름이다」 instead of 「-는 나름이다」.",
+   "why": "The pattern requires 「-기 나름이다」: 「협력하기 나름입니다」."
+  },
+  {
+   "t": "build",
+   "q": "Say: “The outcome depends entirely on how hard you try.”",
+   "answers": [
+    "결과는 스스로 노력하기 나름이에요.",
+    "결과는 자신이 노력하기 나름이에요."
+   ],
+   "hint": "Use 「노력하기 나름이에요」."
+  },
+  {
+   "t": "dictate",
+   "say": "인생은 자기 자신이 어떻게 가꾸어 가기 나름입니다.",
+   "answers": [
+    "인생은 자기 자신이 어떻게 가꾸어 가기 나름입니다."
+   ]
+  }
+ ],
+ "9-2": [
+  {
+   "t": "choice",
+   "q": "Choose the sentence describing acting contrarily or shamelessly after doing something.",
+   "options": [
+    "잘못을 분명히 알고도 모른 척 발뺌을 하더군요.",
+    "잘못을 분명히 아노라면 모른 척 발뺌을 하더군요.",
+    "잘못을 분명히 알라치면 모른 척 발뺌을 하더군요."
+   ],
+   "answer": 0,
+   "why": "「-고도」 contrasts an action with an unexpected or shameless subsequent behavior ('even while knowing, he pretended not to')."
+  },
+  {
+   "t": "cloze",
+   "sentence": "위험하다는 경고를 [듣고도] 무모하게 눈 덮인 산에 올랐어요.",
+   "answer": "듣고도",
+   "options": [
+    "듣고도",
+    "들으랴",
+    "듣는 마당에"
+   ],
+   "why": "Attach 「-고도」 to verb stem 「듣-」: 「듣고도」."
+  },
+  {
+   "t": "correct",
+   "q": "Fix the tense error before 「-고도」.",
+   "wrong": "직접 자기 눈으로 보았고도 도저히 믿기지 않는 표정이었어요.",
+   "answers": [
+    "직접 자기 눈으로 보고도 도저히 믿기지 않는 표정이었어요."
+   ],
+   "hint": "Attach 「-고도」 to the basic verb stem without past tense marker 「-았-」.",
+   "why": "Connect directly to the stem: 「보고도」."
+  },
+  {
+   "t": "build",
+   "q": "Say: “He made a promise and still completely forgot it.”",
+   "answers": [
+    "단단히 약속을 하고도 까맣게 잊어버렸어요.",
+    "약속을 하고도 까맣게 잊어버렸어요."
+   ],
+   "hint": "Use 「약속을 하고도」."
+  },
+  {
+   "t": "dictate",
+   "say": "도움을 받고도 고맙다는 인사 한마디 하지 않았습니다.",
+   "answers": [
+    "도움을 받고도 고맙다는 인사 한마디 하지 않았습니다."
+   ]
+  }
+ ],
+ "11-2": [
+  {
+   "t": "choice",
+   "q": "Choose the sentence emphasizing that far from getting the expected result, the opposite happened.",
+   "options": [
+    "칭찬을 받기는커녕 지적과 잔소리만 잔뜩 들었어요.",
+    "칭찬을 받느니만큼 지적과 잔소리만 잔뜩 들었어요.",
+    "칭찬을 받기에 망정이지 잔소리만 잔뜩 들었어요."
+   ],
+   "answer": 0,
+   "why": "「-기는커녕」 strongly negates an expectation and emphasizes that a far worse or contrary situation occurred."
+  },
+  {
+   "t": "cloze",
+   "sentence": "주말에 푹 [쉬기는커녕] 밀린 집안일을 하느라 더 피곤해졌어요.",
+   "answer": "쉬기는커녕",
+   "options": [
+    "쉬기는커녕",
+    "쉬는 통에",
+    "쉬기 나름에"
+   ],
+   "why": "Attach 「-기는커녕」 to verb stem 「쉬-」: 「쉬기는커녕」."
+  },
+  {
+   "t": "correct",
+   "q": "Fix the omission of the nominalizer before 「커녕」.",
+   "wrong": "돈을 모으는커녕 빚만 늘어나서 걱정입니다.",
+   "answers": [
+    "돈을 모으기는커녕 빚만 늘어나서 걱정입니다."
+   ],
+   "hint": "Verbs take 「-기는커녕」, not 「-는커녕」.",
+   "why": "Verbs require the nominalizing suffix 「-기」 before 「는커녕」: 「모으기는커녕」."
+  },
+  {
+   "t": "build",
+   "q": "Say: “Far from thanking me, he got angry instead.”",
+   "answers": [
+    "고마워하기는커녕 오히려 화를 냈어요.",
+    "고마워하기는커녕 도리어 화를 냈어요."
+   ],
+   "hint": "Use 「고마워하기는커녕」."
+  },
+  {
+   "t": "dictate",
+   "say": "감기가 낫기는커녕 기침이 더 심해져서 병원에 갔습니다.",
+   "answers": [
+    "감기가 낫기는커녕 기침이 더 심해져서 병원에 갔습니다."
+   ]
+  }
+ ],
+ "11-4": [
+  {
+   "t": "choice",
+   "q": "Choose the formal regulation sentence permitting an action while imposing a strict condition.",
+   "options": [
+    "자유롭게 토론하되 타인을 비방하는 발언은 삼가시기 바랍니다.",
+    "자유롭게 토론하는 통에 비방하는 발언을 삼가세요.",
+    "자유롭게 토론하느니만큼 비방하는 발언을 삼가세요."
+   ],
+   "answer": 0,
+   "why": "「-되」 is a formal connective granting permission or stating a fact while attaching a necessary caveat or condition."
+  },
+  {
+   "t": "cloze",
+   "sentence": "전시실 내 사진 촬영은 [허용하되] 삼각대와 플래시 사용은 금지합니다.",
+   "answer": "허용하되",
+   "options": [
+    "허용하되",
+    "허용하노라면",
+    "허용하는 마당에"
+   ],
+   "why": "Attach conditional restrictive ending 「-되」 to verb stem 「허용하-」: 「허용하되」."
+  },
+  {
+   "t": "correct",
+   "q": "Fix the spelling mistake in the restrictive connective ending.",
+   "wrong": "모임에 참석하돼 다른 사람에게 피해를 주지 마세요.",
+   "answers": [
+    "모임에 참석하되 다른 사람에게 피해를 주지 마세요."
+   ],
+   "hint": "The correct spelling is 「-되」, not 「-돼」.",
+   "why": "The connective ending is written 「-되」: 「참석하되」."
+  },
+  {
+   "t": "build",
+   "q": "Say: “You may borrow the equipment, but please handle it with care.”",
+   "answers": [
+    "장비는 대여하되 조심해서 다루세요.",
+    "장비는 빌려 쓰되 조심해서 다루어 주세요."
+   ],
+   "hint": "Use 「대여하되」 or 「빌려 쓰되」."
+  },
+  {
+   "t": "dictate",
+   "say": "비판은 자유롭게 하되 현실적인 대안을 함께 제시해야 합니다.",
+   "answers": [
+    "비판은 자유롭게 하되 현실적인 대안을 함께 제시해야 합니다."
+   ]
+  }
+ ],
+ "11-5": [
+  {
+   "t": "choice",
+   "q": "Choose the sentence expressing grief that even the very last remaining hope has vanished.",
+   "options": [
+    "마지막 한 줄기 희망마저 물거품처럼 사라져 버렸습니다.",
+    "마지막 한 줄기 희망을 비롯해서 사라져 버렸습니다.",
+    "마지막 한 줄기 희망치고 사라져 버렸습니다."
+   ],
+   "answer": 0,
+   "why": "「마저」 emphasizes that even the final, last remaining entity has been negatively affected."
+  },
+  {
+   "t": "cloze",
+   "sentence": "집으로 가는 막차 버스[마저] 끊겨서 결국 택시를 탔어요.",
+   "answer": "마저",
+   "options": [
+    "마저",
+    "치고",
+    "대로"
+   ],
+   "why": "Attach 「마저」 to denote the last remaining transport being cut off: 「버스마저」."
+  },
+  {
+   "t": "correct",
+   "q": "Fix the redundant particle attached after 「마저」.",
+   "wrong": "끝까지 믿었던 동료마저가 등을 돌릴 줄은 꿈에도 몰랐어요.",
+   "answers": [
+    "끝까지 믿었던 동료마저 등을 돌릴 줄은 꿈에도 몰랐어요."
+   ],
+   "hint": "Remove the subject particle 「가」; 「마저」 directly attaches to the noun.",
+   "why": "Auxiliary particle 「마저」 serves the role of subject marker without 「가」: 「동료마저」."
+  },
+  {
+   "t": "build",
+   "q": "Say: “Even the smartphone I cherished broke down.”",
+   "answers": [
+    "아끼던 스마트폰마저 고장이 나 버렸어요.",
+    "아끼던 휴대폰마저 고장이 났어요."
+   ],
+   "hint": "Use 「스마트폰마저」."
+  },
+  {
+   "t": "dictate",
+   "say": "마지막 남은 비상금마저 병원비로 다 쓰고 말았습니다.",
+   "answers": [
+    "마지막 남은 비상금마저 병원비로 다 쓰고 말았습니다."
+   ]
+  }
+ ],
+ "11-6": [
+  {
+   "t": "choice",
+   "q": "Choose the formal sentence citing a primary representative item and encompassing others.",
+   "options": [
+    "서울을 비롯해서 전국 주요 도시에 호우 경보가 발령되었습니다.",
+    "서울마저 전국 주요 도시에 호우 경보가 발령되었습니다.",
+    "서울치고 전국 주요 도시에 호우 경보가 발령되었습니다."
+   ],
+   "answer": 0,
+   "why": "「을/를 비롯해서」 specifies a leading example to represent an entire group ('including Seoul, major cities nationwide')."
+  },
+  {
+   "t": "cloze",
+   "sentence": "학장님을 [비롯해서] 여러 교수님께서 입학식에 참석하셨습니다.",
+   "answer": "비롯해서",
+   "options": [
+    "비롯해서",
+    "셈치고",
+    "치고는"
+   ],
+   "why": "Use 「을/를 비롯해서」 to present the key representative figure: 「학장님을 비롯해서」."
+  },
+  {
+   "t": "correct",
+   "q": "Fix the particle error before 「비롯해서」.",
+   "wrong": "대표이사가 비롯해서 전 임직원이 봉사활동에 동참했습니다.",
+   "answers": [
+    "대표이사를 비롯해서 전 임직원이 봉사활동에 동참했습니다."
+   ],
+   "hint": "The expression requires object marker 「을/를」: 「대표이사를 비롯해서」.",
+   "why": "Use 「을/를 비롯해서」: 「대표이사를 비롯해서」."
+  },
+  {
+   "t": "build",
+   "q": "Say: “The mayor, along with many citizens, attended the event.”",
+   "answers": [
+    "시장을 비롯해서 많은 시민이 행사에 참석했어요.",
+    "시장을 비롯해서 수많은 시민이 행사에 참여했습니다."
+   ],
+   "hint": "Use 「시장을 비롯해서」."
+  },
+  {
+   "t": "dictate",
+   "say": "한국을 비롯해서 아시아 여러 국가가 협정에 공동 서명했습니다.",
+   "answers": [
+    "한국을 비롯해서 아시아 여러 국가가 협정에 공동 서명했습니다."
+   ]
+  }
+ ],
+ "12-3": [
+  {
+   "t": "choice",
+   "q": "Choose the sentence describing doing an action carelessly or half-heartedly.",
+   "options": [
+    "바빠서 아침밥을 먹는 둥 마는 둥 하고 급히 뛰어나갔어요.",
+    "바빠서 아침밥을 먹느니만큼 급히 뛰어나갔어요.",
+    "바빠서 아침밥을 먹을라치면 급히 뛰어나갔어요."
+   ],
+   "answer": 0,
+   "why": "「-는 둥 마는 둥 하다」 indicates doing an action cursorily or barely at all."
+  },
+  {
+   "t": "cloze",
+   "sentence": "너무 졸려서 선생님 설명을 [듣는] 둥 마는 둥 흘려들었어요.",
+   "answer": "듣는",
+   "options": [
+    "듣는",
+    "들은",
+    "들을"
+   ],
+   "why": "The pattern requires present modifier 「-는 둥 마는 둥 하다」: 「듣는 둥 마는 둥」."
+  },
+  {
+   "t": "correct",
+   "q": "Fix the tense error in the modifier before 「둥 마는 둥」.",
+   "wrong": "시험 전날 긴장해서 밤새 잠을 잔 둥 만 둥 했어요.",
+   "answers": [
+    "시험 전날 긴장해서 밤새 잠을 자는 둥 마는 둥 했어요."
+   ],
+   "hint": "Use present modifier 「-는 둥 마는 둥」: 「자는 둥 마는 둥」.",
+   "why": "The fixed grammatical construction uses 「-는 둥 마는 둥」: 「자는 둥 마는 둥」."
+  },
+  {
+   "t": "build",
+   "q": "Say: “He gave an insincere answer, barely responding to my question.”",
+   "answers": [
+    "그 사람은 내 질문에 대답을 하는 둥 마는 둥 했어요.",
+    "그는 질문에 대답을 하는 둥 마는 둥 넘겼어요."
+   ],
+   "hint": "Use 「대답을 하는 둥 마는 둥 했어요」."
+  },
+  {
+   "t": "dictate",
+   "say": "시간에 쫓겨서 보고서를 읽는 둥 마는 둥 대충 넘겨보았습니다.",
+   "answers": [
+    "시간에 쫓겨서 보고서를 읽는 둥 마는 둥 대충 넘겨보았습니다."
+   ]
+  }
+ ],
+ "14-3": [
+  {
+   "t": "choice",
+   "q": "Choose the sentence where an impending sign led to the anticipated result occurring.",
+   "options": [
+    "하늘이 잔뜩 찌푸리려더니 결국 장대비가 쏟아지네요.",
+    "하늘이 잔뜩 찌푸리는 통에 결국 장대비가 쏟아지네요.",
+    "하늘이 잔뜩 찌푸리기에 망정이지 장대비가 쏟아지네요."
+   ],
+   "answer": 0,
+   "why": "「-(으)려더니」 expresses that a sign of something about to happen materialized into reality."
+  },
+  {
+   "t": "cloze",
+   "sentence": "바람이 차가워[지려더니] 기온이 영하로 뚝 떨어졌어요.",
+   "answer": "지려더니",
+   "options": [
+    "지려더니",
+    "지는 통에",
+    "지느니만큼"
+   ],
+   "why": "Attach 「-려더니」 to verb stem 「차가워지-」: 「차가워지려더니」."
+  },
+  {
+   "t": "correct",
+   "q": "Fix the redundant conjugation error before 「-려더니」.",
+   "wrong": "감기에 걸릴려더니 하루 종일 으슬으슬 춥고 열이 나요.",
+   "answers": [
+    "감기에 걸리려더니 하루 종일 으슬으슬 춥고 열이 나요."
+   ],
+   "hint": "「걸리다」 ends in a vowel, so attach 「-려더니」 without extra ㄹ.",
+   "why": "Vowel stems take 「-려더니」 directly: 「걸리려더니」."
+  },
+  {
+   "t": "build",
+   "q": "Say: “It looked like it was going to snow, and indeed big snowflakes are falling.”",
+   "answers": [
+    "눈이 오려더니 정말 함박눈이 쏟아지네요.",
+    "눈이 내리려더니 정말 함박눈이 펑펑 내리네요."
+   ],
+   "hint": "Use 「눈이 오려더니」."
+  },
+  {
+   "t": "dictate",
+   "say": "아침부터 목이 따끔거리려더니 결국 심한 목감기에 걸렸습니다.",
+   "answers": [
+    "아침부터 목이 따끔거리려더니 결국 심한 목감기에 걸렸습니다."
+   ]
+  }
+ ],
+ "15-1": [
+  {
+   "t": "choice",
+   "q": "Choose the sentence describing acting as though something were true to create an impression.",
+   "options": [
+    "모든 내막을 이미 훤히 아는 듯이 의미심장한 미소를 지었습니다.",
+    "모든 내막을 이미 훤히 아는 통에 미소를 지었습니다.",
+    "모든 내막을 이미 훤히 아느니만큼 미소를 지었습니다."
+   ],
+   "answer": 0,
+   "why": "「-는 듯이」 describes an action performed as if a certain situation were true."
+  },
+  {
+   "t": "cloze",
+   "sentence": "마치 그림 속의 한 [장면인] 듯이 눈앞의 풍경이 아름다웠습니다.",
+   "answer": "장면인",
+   "options": [
+    "장면인",
+    "장면일",
+    "장면이는"
+   ],
+   "why": "Noun copula takes 「-인 듯이」: 「장면인 듯이」."
+  },
+  {
+   "t": "correct",
+   "q": "Fix the redundant particle after adverbial 「듯이」.",
+   "wrong": "아무 일도 일어나지 않은 듯이로 태연하게 행동했어요.",
+   "answers": [
+    "아무 일도 일어나지 않은 듯이 태연하게 행동했어요."
+   ],
+   "hint": "Remove 「로」; 「듯이」 already serves as an adverbial marker.",
+   "why": "「-는 듯이」 modifies predicates directly without 「로」: 「않은 듯이」."
+  },
+  {
+   "t": "build",
+   "q": "Say: “He walked ahead confidently as if knowing the road well.”",
+   "answers": [
+    "길을 훤히 아는 듯이 앞장서서 걸어갔어요.",
+    "길을 잘 아는 듯이 앞장서서 걸어갔습니다."
+   ],
+   "hint": "Use 「아는 듯이」."
+  },
+  {
+   "t": "dictate",
+   "say": "시간이 멈춘 듯이 도서관 안은 숨소리조차 들리지 않았습니다.",
+   "answers": [
+    "시간이 멈춘 듯이 도서관 안은 숨소리조차 들리지 않았습니다."
+   ]
+  }
+ ],
+ "15-2": [
+  {
+   "t": "choice",
+   "q": "Choose the sentence describing communicating a feeling or thought through gesture rather than words.",
+   "options": [
+    "도저히 납득할 수 없다는 듯이 고개를 세차게 저었습니다.",
+    "도저히 납득할 수 없는 통에 고개를 저었습니다.",
+    "도저히 납득할 수 없기에 망정이지 고개를 저었습니다."
+   ],
+   "answer": 0,
+   "why": "「-(느)ㄴ다는 듯이」 conveys acting as if explicitly stating something through expression or bodily attitude."
+  },
+  {
+   "t": "cloze",
+   "sentence": "무슨 큰 잘못이라도 [저질렀다는] 듯이 사람을 매섭게 쳐다보더군요.",
+   "answer": "저질렀다는",
+   "options": [
+    "저질렀다는",
+    "저지르는",
+    "저지를"
+   ],
+   "why": "The quote reflects a past action: 「저질렀다는 듯이」."
+  },
+  {
+   "t": "correct",
+   "q": "Fix the speech citation ending for an adjective before 「다는 듯이」.",
+   "wrong": "너무 기뻐서 어쩔 줄 모르는다는 듯이 환하게 웃었어요.",
+   "answers": [
+    "너무 기뻐서 어쩔 줄 모른다는 듯이 환하게 웃었어요."
+   ],
+   "hint": "「모르다」 takes 「-ㄴ다는 듯이」: 「모른다는 듯이」.",
+   "why": "Conjugate as 「모른다는 듯이」."
+  },
+  {
+   "t": "build",
+   "q": "Say: “He nodded as if saying he understood everything.”",
+   "answers": [
+    "다 이해했다는 듯이 고개를 끄덕였어요.",
+    "모두 알겠다는 듯이 고개를 끄덕였습니다."
+   ],
+   "hint": "Use 「이해했다는 듯이」 or 「알겠다는 듯이」."
+  },
+  {
+   "t": "dictate",
+   "say": "이제 더는 상관하지 않겠다는 듯이 차갑게 등을 돌렸습니다.",
+   "answers": [
+    "이제 더는 상관하지 않겠다는 듯이 차갑게 등을 돌렸습니다."
+   ]
+  }
+ ],
+ "15-3": [
+  {
+   "t": "choice",
+   "q": "Choose the sentence offering a gentle, literary conjecture about a present situation.",
+   "options": [
+    "창밖이 조용한 것을 보니 내리던 눈이 그친 듯합니다.",
+    "창밖이 조용한 것을 보니 내리던 눈이 그치는 통입니다.",
+    "창밖이 조용한 것을 보니 내리던 눈이 그치느니만큼입니다."
+   ],
+   "answer": 0,
+   "why": "「-는 듯하다」 provides a polished, restrained supposition or conjecture."
+  },
+  {
+   "t": "cloze",
+   "sentence": "자세한 정황을 살펴보니 상대방의 주장이 [사실인] 듯해요.",
+   "answer": "사실인",
+   "options": [
+    "사실인",
+    "사실일",
+    "사실이는"
+   ],
+   "why": "Noun copula takes 「-인 듯하다」: 「사실인 듯해요」."
+  },
+  {
+   "t": "correct",
+   "q": "Fix the compound ending error before the auxiliary predicate.",
+   "wrong": "사무실 불이 모두 꺼져 있는 걸 보니 다들 퇴근한 듯이해요.",
+   "answers": [
+    "사무실 불이 모두 꺼져 있는 걸 보니 다들 퇴근한 듯해요.",
+    "사무실 불이 모두 꺼져 있는 걸 보니 다들 퇴근한 듯합니다."
+   ],
+   "hint": "Use the conjecture auxiliary 「-ㄴ 듯하다」, not 「듯이하다」.",
+   "why": "The conjecture ending is 「-(으)ㄴ/는 듯하다」: 「퇴근한 듯해요」."
+  },
+  {
+   "t": "build",
+   "q": "Say: “Judging by the clouds, it seems rain will fall soon.”",
+   "answers": [
+    "먹구름을 보니 곧 비가 올 듯해요.",
+    "먹구름이 낀 걸 보니 곧 비가 올 듯합니다."
+   ],
+   "hint": "Use 「비가 올 듯해요」."
+  },
+  {
+   "t": "dictate",
+   "say": "갈등의 불씨가 완전히 꺼지지 않고 아직 남아 있는 듯합니다.",
+   "answers": [
+    "갈등의 불씨가 완전히 꺼지지 않고 아직 남아 있는 듯합니다."
+   ]
+  }
+ ],
+ "15-5": [
+  {
+   "t": "choice",
+   "q": "Choose the sentence expressing sympathetic validation that a reaction is entirely natural and plausible.",
+   "options": [
+    "오랫동안 고생했으니 이제 지칠 법도 하지요.",
+    "오랫동안 고생했으니 이제 지치는 통이지요.",
+    "오랫동안 고생했으니 이제 지치기에 망정이지요."
+   ],
+   "answer": 0,
+   "why": "「-(으)ㄹ 법하다」 indicates that a state or feeling is completely understandable, natural, and expected."
+  },
+  {
+   "t": "cloze",
+   "sentence": "모호한 표현 때문에 충분히 오해를 [살] 법한 상황이었습니다.",
+   "answer": "살",
+   "options": [
+    "살",
+    "사는",
+    "산"
+   ],
+   "why": "Verb 「사다」 takes 「-ㄹ 법하다」: 「오해를 살 법한」."
+  },
+  {
+   "t": "correct",
+   "q": "Fix the consonant-ending verb conjugation before 「법하다」.",
+   "wrong": "그런 상황이었다면 누구라도 의심을 품으을 법해요.",
+   "answers": [
+    "그런 상황이었다면 누구라도 의심을 품을 법해요."
+   ],
+   "hint": "「품다」 takes 「-을 법하다」: 「품을 법해요」.",
+   "why": "Attach 「-을 법하다」 to consonant stem 「품-」: 「품을 법해요」."
+  },
+  {
+   "t": "build",
+   "q": "Say: “Anyone would have been surprised in that situation.”",
+   "answers": [
+    "그 상황이면 누구라도 크게 놀랄 법해요.",
+    "그런 상황에서는 누구라도 놀랄 법합니다."
+   ],
+   "hint": "Use 「놀랄 법해요」."
+  },
+  {
+   "t": "dictate",
+   "say": "매일 야근을 이어갔으니 건강에 무리가 올 법도 합니다.",
+   "answers": [
+    "매일 야근을 이어갔으니 건강에 무리가 올 법도 합니다."
+   ]
+  }
+ ],
+ "15-6": [
+  {
+   "t": "choice",
+   "q": "Choose the sentence expressing strong, definitive conviction that a proposition is impossible.",
+   "options": [
+    "항상 정직한 민수 씨가 거짓말을 했을 리가 없어요.",
+    "항상 정직한 민수 씨가 거짓말을 할 법해요.",
+    "항상 정직한 민수 씨가 거짓말을 하기 십상이에요."
+   ],
+   "answer": 0,
+   "why": "「-(으)ㄹ 리가 없다」 emphatically denies the possibility of something occurring."
+  },
+  {
+   "t": "cloze",
+   "sentence": "평소 시간 약속을 철저히 지키는 분이 약속을 [잊었을] 리가 없습니다.",
+   "answer": "잊었을",
+   "options": [
+    "잊었을",
+    "잊는",
+    "잊을라치면"
+   ],
+   "why": "Denying past occurrence takes past conjecture modifier 「-았/었을 리가 없다」: 「잊었을 리가 없습니다」."
+  },
+  {
+   "t": "correct",
+   "q": "Fix the irregular verb conjugation before 「리가 없다」.",
+   "wrong": "오늘 같은 공휴일에 우체국이 문을 열을 리가 없어요.",
+   "answers": [
+    "오늘 같은 공휴일에 우체국이 문을 열 리가 없어요."
+   ],
+   "hint": "「열다」 has an ㄹ final consonant, so attach 「리가 없다」 directly: 「열 리가」.",
+   "why": "ㄹ irregular verbs combine directly as 「열 리가 없다」."
+  },
+  {
+   "t": "build",
+   "q": "Say: “There is no way he did that intentionally.”",
+   "answers": [
+    "그 사람이 일부러 그랬을 리가 없어요.",
+    "그 사람이 일부러 그랬을 리가 없습니다."
+   ],
+   "hint": "Use 「일부러 그랬을 리가 없어요」."
+  },
+  {
+   "t": "dictate",
+   "say": "그토록 꼼꼼하게 검토했는데 중대한 오류가 있을 리 없습니다.",
+   "answers": [
+    "그토록 꼼꼼하게 검토했는데 중대한 오류가 있을 리 없습니다."
+   ]
+  }
+ ],
+ "15-7": [
+  {
+   "t": "choice",
+   "q": "Choose the sentence advising caution against a very likely negative pitfall.",
+   "options": [
+    "감정에 치우쳐 성급하게 판단하면 후회하기 십상이에요.",
+    "감정에 치우쳐 성급하게 판단하면 후회할 법해요.",
+    "감정에 치우쳐 성급하게 판단하면 후회할 리가 없어요."
+   ],
+   "answer": 0,
+   "why": "「-기 십상이다」 indicates that an adverse outcome is very easy or likely to happen if one is not careful."
+  },
+  {
+   "t": "cloze",
+   "sentence": "빙판길에서 속도를 내다가는 큰 사고로 [이어지기] 십상입니다.",
+   "answer": "이어지기",
+   "options": [
+    "이어지기",
+    "이어지는",
+    "이어질"
+   ],
+   "why": "The pattern requires nominalizer 「-기 십상이다」: 「이어지기 십상입니다」."
+  },
+  {
+   "t": "correct",
+   "q": "Fix the verb modifier error before 「십상이다」.",
+   "wrong": "어두운 밤길을 혼자 걸어가면 길을 잃는 십상입니다.",
+   "answers": [
+    "어두운 밤길을 혼자 걸어가면 길을 잃기 십상입니다."
+   ],
+   "hint": "Use nominalizer 「-기」 before 「십상이다」: 「잃기 십상입니다」.",
+   "why": "The grammar pattern is 「-기 십상이다」: 「잃기 십상입니다」."
+  },
+  {
+   "t": "build",
+   "q": "Say: “If you don't check carefully, you are prone to making mistakes.”",
+   "answers": [
+    "꼼꼼히 확인하지 않으면 실수하기 십상이에요.",
+    "자세히 살피지 않으면 실수하기 십상입니다."
+   ],
+   "hint": "Use 「실수하기 십상이에요」."
+  },
+  {
+   "t": "dictate",
+   "say": "환절기에 얇은 옷을 입고 다니면 감기에 걸리기 십상입니다.",
+   "answers": [
+    "환절기에 얇은 옷을 입고 다니면 감기에 걸리기 십상입니다."
+   ]
+  }
+ ],
+ "17-2": [
+  {
+   "t": "choice",
+   "q": "Choose the sentence describing people gossiping back and forth with endless opinions.",
+   "options": [
+    "다들 디자인이 좋으니 나쁘니 하며 한마디씩 참견을 하더군요.",
+    "다들 디자인이 좋은 통에 한마디씩 참견을 하더군요.",
+    "다들 디자인이 좋기에 망정이지 한마디씩 참견을 하더군요."
+   ],
+   "answer": 0,
+   "why": "「-느니 -느니 하다」 lists contrasting verbal criticisms or commentary that people chatter about."
+  },
+  {
+   "t": "cloze",
+   "sentence": "약속 장소에 가[느니] 마느니 다투다가 결국 모임 시간이 훌쩍 지나갔어요.",
+   "answer": "느니",
+   "options": [
+    "느니",
+    "노라면",
+    "을라치면"
+   ],
+   "why": "Complete the pair 「가느니 마느니」: 「가느니 마느니」."
+  },
+  {
+   "t": "correct",
+   "q": "Fix the incorrect pairing form in the recurring debate.",
+   "wrong": "모임에 참석할 것이느니 말 것이느니 하며 시간을 낭비했어요.",
+   "answers": [
+    "모임에 참석하느니 마느니 하며 시간을 낭비했어요."
+   ],
+   "hint": "Pair action verbs with 「-느니 마느니」: 「참석하느니 마느니」.",
+   "why": "Use the standard parallel form 「-느니 마느니 하다」: 「참석하느니 마느니」."
+  },
+  {
+   "t": "build",
+   "q": "Say: “They argued back and forth whether to accept it or not.”",
+   "answers": [
+    "제안을 받느니 마느니 하며 말다툼을 벌였어요.",
+    "조건을 받느니 마느니 하며 입씨름을 했어요."
+   ],
+   "hint": "Use 「받느니 마느니 하며」."
+  },
+  {
+   "t": "dictate",
+   "say": "음식이 짜느니 싱겁느니 하며 끊임없이 불평을 늘어놓았습니다.",
+   "answers": [
+    "음식이 짜느니 싱겁느니 하며 끊임없이 불평을 늘어놓았습니다."
+   ]
+  }
+ ],
+ "17-3": [
+  {
+   "t": "choice",
+   "q": "Choose the sentence vividly portraying being overwhelmed by juggling multiple simultaneous tasks.",
+   "options": [
+    "회사 업무 처리하랴 시험공부하랴 하루 스물네 시간이 부족해요.",
+    "회사 업무 처리하는 통에 시험공부하기 나름이에요.",
+    "회사 업무 처리하느니만큼 시험공부하노라면 부족해요."
+   ],
+   "answer": 0,
+   "why": "「-(으)랴 -(으)랴」 lists multiple hectic tasks causing extreme busyness."
+  },
+  {
+   "t": "cloze",
+   "sentence": "손님맞이 음식 준비[하랴] 집 안 청소하랴 눈코 뜰 새 없이 바빴어요.",
+   "answer": "하랴",
+   "options": [
+    "하랴",
+    "하는 마당에",
+    "하느니"
+   ],
+   "why": "Attach 「-(으)랴」 to parallel verbs: 「준비하랴 ... 청소하랴」."
+  },
+  {
+   "t": "correct",
+   "q": "Fix the consonant-ending verb conjugation before 「-랴」.",
+   "wrong": "걸려오는 전화 받느랴 손님 응대하랴 정신이 하나도 없었어요.",
+   "answers": [
+    "걸려오는 전화 받으랴 손님 응대하랴 정신이 하나도 없었어요."
+   ],
+   "hint": "「받다」 ends with a consonant (받침 ㄷ), so attach 「-으랴」: 「받으랴」.",
+   "why": "Stems with final consonants take 「-으랴」: 「받으랴」."
+  },
+  {
+   "t": "build",
+   "q": "Say: “I am so busy working and studying that the day is too short.”",
+   "answers": [
+    "일하랴 공부하랴 하루가 너무 짧아요.",
+    "일하랴 공부하랴 하루가 너무 짧습니다."
+   ],
+   "hint": "Use 「일하랴 공부하랴」."
+  },
+  {
+   "t": "dictate",
+   "say": "우는 아이 달래랴 밀린 빨래하랴 쉴 틈이 전혀 없었습니다.",
+   "answers": [
+    "우는 아이 달래랴 밀린 빨래하랴 쉴 틈이 전혀 없었습니다."
+   ]
+  }
+ ],
+ "17-4": [
+  {
+   "t": "choice",
+   "q": "Choose the sentence listing various diverse objects comprehensively.",
+   "options": [
+    "방 안 가득 옷이며 신발이며 온갖 물건이 어지럽게 널려 있었어요.",
+    "방 안 가득 옷마저 신발마저 어지럽게 널려 있었어요.",
+    "방 안 가득 옷치고 신발치고 어지럽게 널려 있었어요."
+   ],
+   "answer": 0,
+   "why": "「(이)며 (이)며」 enumerates multiple items of a category comprehensively."
+  },
+  {
+   "t": "cloze",
+   "sentence": "책상 위에 수많은 공책[이며] 필통이며 어지럽게 놓여 있었어요.",
+   "answer": "이며",
+   "options": [
+    "이며",
+    "며",
+    "치고"
+   ],
+   "why": "「공책」 ends with consonant 받침 ㄱ, so attach 「이며」: 「공책이며」."
+  },
+  {
+   "t": "correct",
+   "q": "Fix the particle choice for a vowel-ending noun in parallel enumeration.",
+   "wrong": "가게에 들어가 사과이며 포도며 제철 과일을 잔뜩 샀어요.",
+   "answers": [
+    "가게에 들어가 사과며 포도며 제철 과일을 잔뜩 샀어요."
+   ],
+   "hint": "「사과」 ends with a vowel, so attach 「며」 without 「이」.",
+   "why": "Nouns ending in a vowel take 「며」: 「사과며」."
+  },
+  {
+   "t": "build",
+   "q": "Say: “The living room was full of toys and picture books.”",
+   "answers": [
+    "거실에 장난감이며 그림책이며 가득했어요.",
+    "거실에 장난감이며 동화책이며 가득 쌓여 있었어요."
+   ],
+   "hint": "Use 「장난감이며 그림책이며」."
+  },
+  {
+   "t": "dictate",
+   "say": "부모님이며 친구들이며 모두가 한마음으로 축하해 주었습니다.",
+   "answers": [
+    "부모님이며 친구들이며 모두가 한마음으로 축하해 주었습니다."
+   ]
+  }
+ ],
+ "18-2": [
+  {
+   "t": "choice",
+   "q": "Choose the sentence highlighting successfully overcoming obstacles to accomplish something difficult.",
+   "options": [
+    "수많은 시행착오 끝에 마침내 획기적인 신기술을 개발해 냈습니다.",
+    "수많은 시행착오 끝에 마침내 신기술을 개발하는 통입니다.",
+    "수많은 시행착오 끝에 마침내 신기술을 개발하기 나름입니다."
+   ],
+   "answer": 0,
+   "why": "「-아/어 내다」 expresses perseverance in overcoming adversity to achieve a difficult result."
+  },
+  {
+   "t": "cloze",
+   "sentence": "가혹한 시련 속에서도 포기하지 않고 끝까지 고통을 [참아] 냈어요.",
+   "answer": "참아",
+   "options": [
+    "참아",
+    "참고",
+    "참을"
+   ],
+   "why": "Combine 「참다」 with 「-아/어 내다」: 「참아 냈어요」."
+  },
+  {
+   "t": "correct",
+   "q": "Fix the vowel harmony conjugation in 「-아/어 내다」.",
+   "wrong": "어려운 난제를 밤샘 토론 끝에 마침내 풀아 냈습니다.",
+   "answers": [
+    "어려운 난제를 밤샘 토론 끝에 마침내 풀어 냈습니다."
+   ],
+   "hint": "「풀다」 takes 「-어 내다」, yielding 「풀어 냈다」.",
+   "why": "Since the stem vowel is ㅜ, conjugate as 「풀어 냈습니다」."
+  },
+  {
+   "t": "build",
+   "q": "Say: “In the end, our team pulled off that difficult project.”",
+   "answers": [
+    "우리 팀이 결국 그 어려운 프로젝트를 해냈어요.",
+    "저희 팀이 마침내 그 힘든 프로젝트를 해냈습니다."
+   ],
+   "hint": "Use 「해냈어요」."
+  },
+  {
+   "t": "dictate",
+   "say": "모두가 불가능하다고 여겼던 과제를 끝내 완벽히 완수해 냈습니다.",
+   "answers": [
+    "모두가 불가능하다고 여겼던 과제를 끝내 완벽히 완수해 냈습니다."
+   ]
+  }
+ ],
+ "18-3": [
+  {
+   "t": "choice",
+   "q": "Choose the sentence where an overwhelming emotion or condition leads to an unintended mistake.",
+   "options": [
+    "시험장에서 너무 긴장한 나머지 쉬운 문제마저 틀리고 말았어요.",
+    "시험장에서 너무 긴장하는 통에 문제마저 쉬운 셈이에요.",
+    "시험장에서 너무 긴장하느니만큼 틀리고 말았어요."
+   ],
+   "answer": 0,
+   "why": "「-(으)ㄴ 나머지」 expresses that an excessive state or emotion led directly to an undesirable outcome."
+  },
+  {
+   "t": "cloze",
+   "sentence": "합격 통보를 받고 너무 기쁜 [나머지] 길거리에서 펄쩍 뛰었어요.",
+   "answer": "나머지",
+   "options": [
+    "나머지",
+    "통에",
+    "마당에"
+   ],
+   "why": "Complete the construction 「-(으)ㄴ 나머지」: 「기쁜 나머지」."
+  },
+  {
+   "t": "correct",
+   "q": "Fix the unnecessary particle attached after 「나머지」.",
+   "wrong": "너무 당황한 나머지에 머릿속이 하얘져서 아무 말도 못 했어요.",
+   "answers": [
+    "너무 당황한 나머지 머릿속이 하얘져서 아무 말도 못 했어요."
+   ],
+   "hint": "Use 「나머지」 adverbially without adding the dative particle 「에」.",
+   "why": "「-(으)ㄴ 나머지」 is used directly as an adverbial clause: 「당황한 나머지」."
+  },
+  {
+   "t": "build",
+   "q": "Say: “Being in too much of a hurry, I left my bag in the subway.”",
+   "answers": [
+    "너무 서두른 나머지 지하철에 가방을 두고 내렸어요.",
+    "지나치게 서두른 나머지 지하철에 가방을 두고 내렸습니다."
+   ],
+   "hint": "Use 「서두른 나머지」."
+  },
+  {
+   "t": "dictate",
+   "say": "지나치게 욕심을 부린 나머지 소중한 기회를 모두 날려 버렸습니다.",
+   "answers": [
+    "지나치게 욕심을 부린 나머지 소중한 기회를 모두 날려 버렸습니다."
+   ]
+  }
+ ],
+ "18-4": [
+  {
+   "t": "choice",
+   "q": "Choose the sentence where the speaker shares their own firsthand past observation.",
+   "options": [
+    "어제 새로 문을 연 카페에 가 봤는데 분위기가 아주 아늑하데요.",
+    "어제 새로 문을 연 카페에 가 봤는데 분위기가 아주 아늑하대요.",
+    "어제 새로 문을 연 카페에 가 봤는데 분위기가 아늑한 통이에요."
+   ],
+   "answer": 0,
+   "why": "「-데요」 shares the speaker's direct firsthand experience/recollection (whereas 「-대요」 reports hearsay)."
+  },
+  {
+   "t": "cloze",
+   "sentence": "직접 만나서 대화를 나눠 보니 인상이 참 [따뜻하데요].",
+   "answer": "따뜻하데요",
+   "options": [
+    "따뜻하데요",
+    "따뜻하대요",
+    "따뜻하는 마당에"
+   ],
+   "why": "Use 「-데요」 to convey firsthand direct impression: 「따뜻하데요」."
+  },
+  {
+   "t": "correct",
+   "q": "Fix the hearsay ending used incorrectly for personal firsthand experience.",
+   "wrong": "지난 주말에 새로 개봉한 영화를 직접 봤는데 생각보다 재미있대요.",
+   "answers": [
+    "지난 주말에 새로 개봉한 영화를 직접 봤는데 생각보다 재미있데요."
+   ],
+   "hint": "For personal firsthand recollection, use 「-데요」 instead of hearsay 「-대요」.",
+   "why": "Use 「-데요」 when recalling personal direct experience: 「재미있데요」."
+  },
+  {
+   "t": "build",
+   "q": "Say: “I listened to that lecture myself, and it was really useful.”",
+   "answers": [
+    "제가 직접 강의를 들어 보니까 참 유익하데요.",
+    "직접 강의를 들으니 참 유익하데요."
+   ],
+   "hint": "Use 「유익하데요」."
+  },
+  {
+   "t": "dictate",
+   "say": "오랜만에 고향 마을에 가 보니까 거리가 몰라보게 달라졌데요.",
+   "answers": [
+    "오랜만에 고향 마을에 가 보니까 거리가 몰라보게 달라졌데요."
+   ]
+  }
+ ],
+ "19-2": [
+  {
+   "t": "choice",
+   "q": "Choose the sentence arguing that an action is inappropriate given the dire or final circumstance reached.",
+   "options": [
+    "팀이 해체되는 마당에 네 탓 내 탓 따져서 무엇하겠습니까?",
+    "팀이 해체되는 통에 네 탓 내 탓 따져서 무엇하겠습니까?",
+    "팀이 해체되느니만큼 네 탓 내 탓 따져서 무엇하겠습니까?"
+   ],
+   "answer": 0,
+   "why": "「-는 마당에」 refers to an extreme, grave, or final juncture reached ('now that it has come to this')."
+  },
+  {
+   "t": "cloze",
+   "sentence": "모두가 허리띠를 졸라매야 할 [마당에] 낭비를 일삼아서는 안 됩니다.",
+   "answer": "마당에",
+   "options": [
+    "마당에",
+    "통에",
+    "나머지"
+   ],
+   "why": "Complete the construction 「-(으)ㄹ/는 마당에」: 「졸라매야 할 마당에」."
+  },
+  {
+   "t": "correct",
+   "q": "Fix the redundant particle attached after 「마당에」.",
+   "wrong": "오랜 정을 끝내고 갈라서는 마당에로 서로 비난하지 맙시다.",
+   "answers": [
+    "오랜 정을 끝내고 갈라서는 마당에 서로 비난하지 맙시다."
+   ],
+   "hint": "Remove 「로」; 「-는 마당에」 is the complete connective phrase.",
+   "why": "The phrase is used as 「-는 마당에」 without extra particles: 「갈라서는 마당에」."
+  },
+  {
+   "t": "build",
+   "q": "Say: “At a time when competitors are moving ahead, we cannot just rest.”",
+   "answers": [
+    "경쟁사가 앞서가는 마당에 우리만 쉴 수는 없어요.",
+    "경쟁 기업이 앞서가는 마당에 가만히 있을 수는 없습니다."
+   ],
+   "hint": "Use 「앞서가는 마당에」."
+  },
+  {
+   "t": "dictate",
+   "say": "온 나라가 경제적 위기를 겪는 마당에 사리사욕을 채워서는 안 됩니다.",
+   "answers": [
+    "온 나라가 경제적 위기를 겪는 마당에 사리사욕을 채워서는 안 됩니다."
+   ]
+  }
+ ],
+ "19-3": [
+  {
+   "t": "choice",
+   "q": "Choose the sentence expressing that something is surprisingly accomplished given that it is done by a beginner.",
+   "options": [
+    "운전을 배운 지 한 달 된 초보자치고 주차를 참 능숙하게 하네요.",
+    "운전을 배운 지 한 달 된 초보자마저 주차를 능숙하게 하네요.",
+    "운전을 배운 지 한 달 된 초보자를 비롯해서 주차를 잘하네요."
+   ],
+   "answer": 0,
+   "why": "「치고」 (or 「치고는」) evaluates someone's skill as impressive relative to their category (a beginner)."
+  },
+  {
+   "t": "cloze",
+   "sentence": "한겨울 날씨[치고] 오늘은 바람도 잔잔하고 꽤 따뜻합니다.",
+   "answer": "치고",
+   "options": [
+    "치고",
+    "마저",
+    "대로"
+   ],
+   "why": "Attach 「치고」 to evaluate an unexpected temperature relative to winter: 「날씨치고」."
+  },
+  {
+   "t": "build",
+   "q": "Say: “For a beginner, he plays tennis really well.”",
+   "answers": [
+    "초보자치고 테니스를 정말 잘 치네요.",
+    "초보자치고 테니스를 참 잘 치는군요."
+   ],
+   "hint": "Use 「초보자치고」."
+  },
+  {
+   "t": "dictate",
+   "say": "어린아이치고 호기심을 갖지 않는 아이는 한 명도 없습니다.",
+   "answers": [
+    "어린아이치고 호기심을 갖지 않는 아이는 한 명도 없습니다."
+   ]
+  }
+ ],
+ "19-4": [
+  {
+   "t": "choice",
+   "q": "Choose the formal analytical sentence describing a correlated change in two variables.",
+   "options": [
+    "국민 소득 수준이 향상됨에 따라 문화생활에 대한 지출이 크게 늘었습니다.",
+    "국민 소득 수준이 향상되는 통에 지출이 늘었습니다.",
+    "국민 소득 수준이 향상되기에 망정이지 지출이 늘었습니다."
+   ],
+   "answer": 0,
+   "why": "「-(으)ㅁ에 따라」 formally specifies that changes in one phenomenon correspond proportionally with changes in another."
+  },
+  {
+   "t": "cloze",
+   "sentence": "디지털 기술이 급속히 [발전함에] 따라 업무 방식도 혁신적으로 바뀌고 있습니다.",
+   "answer": "발전함에",
+   "options": [
+    "발전함에",
+    "발전하는 마당에",
+    "발전하노라면"
+   ],
+   "why": "Attach 「-(으)ㅁ에 따라」 to verb stem 「발전하-」: 「발전함에 따라」."
+  },
+  {
+   "t": "correct",
+   "q": "Fix the redundant particle placement before 「따라」.",
+   "wrong": "기온이 지속적으로 상승함에 따라로 전력 소비량이 급증했습니다.",
+   "answers": [
+    "기온이 지속적으로 상승함에 따라 전력 소비량이 급증했습니다."
+   ],
+   "hint": "Remove 「로」; the connective expression is 「-(으)ㅁ에 따라」.",
+   "why": "The construction is 「-(으)ㅁ에 따라」: 「상승함에 따라」."
+  },
+  {
+   "t": "build",
+   "q": "Say: “As technology develops, automated systems are spreading widely.”",
+   "answers": [
+    "기술이 발전함에 따라 자동화 시스템이 널리 보급되고 있습니다.",
+    "기술이 발전함에 따라 자동화 시스템이 확산되고 있습니다."
+   ],
+   "hint": "Use 「발전함에 따라」."
+  },
+  {
+   "t": "dictate",
+   "say": "물가가 가파르게 상승함에 따라 서민 가계의 부담이 날로 가중되고 있습니다.",
+   "answers": [
+    "물가가 가파르게 상승함에 따라 서민 가계의 부담이 날로 가중되고 있습니다."
+   ]
+  }
+ ],
+ "20-3": [
+  {
+   "t": "choice",
+   "q": "Choose the sentence expressing an intense psychological impossibility despite desperately wanting to.",
+   "options": [
+    "선생님의 은혜는 평생 잊으려야 잊을 수가 없습니다.",
+    "선생님의 은혜는 평생 잊을 법합니다.",
+    "선생님의 은혜는 평생 잊기 십상입니다."
+   ],
+   "answer": 0,
+   "why": "「-(으)려야 -(으)ㄹ 수가 없다」 repeats a verb to convey that no matter how much one tries, it is utterly impossible."
+  },
+  {
+   "t": "cloze",
+   "sentence": "일정이 너무 빡빡해서 주말에도 피로를 [풀려야] 풀 수가 없어요.",
+   "answer": "풀려야",
+   "options": [
+    "풀려야",
+    "푸노라면",
+    "풀라치면"
+   ],
+   "why": "Attach 「-려야」 to verb stem 「풀-」 in the parallel structure: 「풀려야 풀 수가 없다」."
+  },
+  {
+   "t": "correct",
+   "q": "Fix the corrupted attempt clause in the impossibility structure.",
+   "wrong": "그 당시의 억울했던 심정은 잊으려고야 잊을 수가 없어요.",
+   "answers": [
+    "그 당시의 억울했던 심정은 잊으려야 잊을 수가 없어요."
+   ],
+   "hint": "The grammatical form is 「-으려야」, not 「-으려고야」.",
+   "why": "Use the standard pattern 「-(으)려야 -(으)ㄹ 수가 없다」: 「잊으려야 잊을 수가」."
+  },
+  {
+   "t": "build",
+   "q": "Say: “It is so noisy that I cannot sleep even if I try.”",
+   "answers": [
+    "주변이 너무 시끄러워서 자려야 잘 수가 없어요.",
+    "너무 시끄러워서 잠을 자려야 잘 수가 없습니다."
+   ],
+   "hint": "Use 「자려야 잘 수가 없어요」."
+  },
+  {
+   "t": "dictate",
+   "say": "아무리 외면하려야 외면할 수 없는 엄연한 현실을 직시해야 합니다.",
+   "answers": [
+    "아무리 외면하려야 외면할 수 없는 엄연한 현실을 직시해야 합니다."
+   ]
+  }
+ ],
+ "22-1": [
+  {
+   "t": "choice",
+   "q": "Choose the formal written announcement sentence connecting cause and addition with written endings.",
+   "options": [
+    "본관 보수 공사가 진행되므로 출입을 통제하며 우회로를 이용 바랍니다.",
+    "본관 보수 공사가 진행되는 통에 출입을 통제하노라면 이용하세요.",
+    "본관 보수 공사가 진행되기에 망정이지 출입을 통제합니다."
+   ],
+   "answer": 0,
+   "why": "「-(으)므로」 (cause) and 「-(으)며」 (addition) are quintessential formal written connectives."
+  },
+  {
+   "t": "cloze",
+   "sentence": "본 기기는 휴대성이 [우수하며] 에너지 효율 또한 매우 뛰어납니다.",
+   "answer": "우수하며",
+   "options": [
+    "우수하며",
+    "우수하는 마당에",
+    "우수하노라면"
+   ],
+   "why": "Connect parallel positive qualities in written style with 「-(으)며」: 「우수하며」."
+  },
+  {
+   "t": "correct",
+   "q": "Fix the contradictory connective where contrast was intended instead of cause.",
+   "wrong": "외관은 매우 화려하므로 실용성이 부족하여 큰 호응을 얻지 못했다.",
+   "answers": [
+    "외관은 매우 화려하나 실용성이 부족하여 큰 호응을 얻지 못했다."
+   ],
+   "hint": "Use the formal adversative connective 「-(으)나」 ('however') instead of causal 「-(으)므로」.",
+   "why": "Connect contrasting propositions in formal prose with 「-(으)나」: 「화려하나」."
+  },
+  {
+   "t": "build",
+   "q": "Say: “The library will be closed today due to construction, so please understand.” (Written formal)",
+   "answers": [
+    "공사로 인하여 오늘 휴관하므로 양해 바랍니다.",
+    "내부 공사가 진행 중이므로 오늘 도서관은 휴관합니다."
+   ],
+   "hint": "Use 「휴관하므로 양해 바랍니다」."
+  },
+  {
+   "t": "dictate",
+   "say": "기상 악화로 인하여 항공편 운항이 중단되었으므로 양해 바랍니다.",
+   "answers": [
+    "기상 악화로 인하여 항공편 운항이 중단되었으므로 양해 바랍니다."
+   ]
+  }
+ ],
+ "22-2": [
+  {
+   "t": "choice",
+   "q": "Choose the sentence correctly utilizing a passive verb describing a spontaneous physical action.",
+   "options": [
+    "강한 돌풍에 창문이 저절로 덜컹거리며 닫혔습니다.",
+    "강한 돌풍에 창문이 저절로 덜컹거리며 닫았습니다.",
+    "강한 돌풍에 창문이 저절로 덜컹거리며 닫게 했습니다."
+   ],
+   "answer": 0,
+   "why": "「닫히다」 is the proper passive form of 「닫다」 describing the window being closed by wind."
+  },
+  {
+   "t": "cloze",
+   "sentence": "어머니께서 추위에 떨고 있는 아이에게 따뜻한 스웨터를 [입혔어요].",
+   "answer": "입혔어요",
+   "options": [
+    "입혔어요",
+    "입었어요",
+    "입어졌어요"
+   ],
+   "why": "Causative verb 「입히다」 is used when making/helping someone else wear clothes: 「입혔어요」."
+  },
+  {
+   "t": "correct",
+   "q": "Fix the redundant double passive expression.",
+   "wrong": "안개가 너무 짙어서 바다 멀리 있는 등대가 잘 안 보여졌어요.",
+   "answers": [
+    "안개가 너무 짙어서 바다 멀리 있는 등대가 잘 안 보였어요."
+   ],
+   "hint": "「보이다」 is already passive; avoid double passive 「-어지다」.",
+   "why": "Avoid unnecessary double passive: use standard passive 「보였어요」."
+  },
+  {
+   "t": "build",
+   "q": "Say: “The door was blown shut by the strong wind.”",
+   "answers": [
+    "세찬 바람에 문이 저절로 닫혔어요.",
+    "강한 바람에 문이 저절로 닫혔습니다."
+   ],
+   "hint": "Use passive 「닫혔어요」."
+  },
+  {
+   "t": "dictate",
+   "say": "경찰이 끈질긴 추적 끝에 달아나던 용의자를 붙잡았습니다.",
+   "answers": [
+    "경찰이 끈질긴 추적 끝에 달아나던 용의자를 붙잡았습니다."
+   ]
+  }
+ ]
+}
