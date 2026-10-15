@@ -158,3 +158,4 @@
 - 2026-10-15 레슨 대격변 5단계(안티 블록 지시문 정리) — ① 레슨 블록 지시서에 17묶음 순서표 · 「대화 / 불규칙」 종류별 처방(`tools/lesson-needs.mjs` 에 dialog · irregular 종류 추가) ② 집중 훈련 추가 문제: 지시서 `antigravity-drill-blocks-task.md` + `docs/drill-blocks/` → `tools/build-drill-blocks.mjs` → `drill-extra.json`(검사 `check-drill-blocks`, CI 에 추가), 웹 · 앱 집중 훈련이 모자란 문법 문제를 여기서 끌어 씀 ③ `tools/drill-needs.mjs`(문법별 풀 문제 수 점검 → `docs/lesson-blocks/_drill.json`): 문법 290개 중 레슨이 붙은 248개, 그중 풀 문제 8개 밑 91개(필요 약 343문제).
 - 2026-10-15 안티 포르투갈어(브라질) 화면 3묶음(1,500개) 검토해 넣음 — 검사 통과, pt-BR · 「você」 확인(「AI」는 지시대로 영어 그대로). 메뉴는 6묶음 뒤에 켬.
 - 2026-10-15 포르투갈어(브라질) 화면 6묶음(2,645개) 검토해 넣고 메뉴 켬(`app.js` LANGS 끝 1) — 결제 문구 · 숫자 · 이름 확인, 원어민 검토는 아직. llms.txt · FAQ(JSON-LD 포함) · 앱 소개 줄 · /vi/ /ja/ FAQ 번역을 「11개 언어」로.
+- 2026-10-15 화면 언어 우즈베크어(라틴 문자 · 「Siz」) 추가 시작 — 빈 사전 `docs/i18n/uz.json` · `i18n-uz.js` 길만 깔고 메뉴는 숨김(6묶음 검토 뒤 켬). 지시문 `antigravity-i18n-uz-task.md`.
