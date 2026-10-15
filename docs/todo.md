@@ -8,7 +8,7 @@
 ### 🔥 이번 주 (몇 분씩)
 | # | 할 일 | 어디 · 어떻게 |
 |---|---|---|
-| 1 | Search Console 「색인 생성 요청」 — 새 쪽 열두 개 + Sitemaps 에 `sitemap.xml` 다시 제출. 주소: `/korean-name/` `/korean-age/` `/for-teachers.html` `/my/eps-topik/` `/korean-zodiac/` `/korean-proverb/` `/my-korean-name/` `/korean-birthday/` `/korean-word-today/` `/hangul-worksheet/` **`/en/topik-writing/` `/en/topik-reading/` `/en/topik-listening/`** | URL 검사 칸에 주소 → 맨 위 상자의 「색인 생성 요청」 |
+| 1 | Search Console 「색인 생성 요청」 — 새 쪽 열두 개 + `/topik-grammar-list/` + Sitemaps 에 `sitemap.xml` 다시 제출. 주소: `/korean-name/` `/korean-age/` `/for-teachers.html` `/my/eps-topik/` `/korean-zodiac/` `/korean-proverb/` `/my-korean-name/` `/korean-birthday/` `/korean-word-today/` `/hangul-worksheet/` **`/en/topik-writing/` `/en/topik-reading/` `/en/topik-listening/`** | URL 검사 칸에 주소 → 맨 위 상자의 「색인 생성 요청」 |
 | 2 | 선생님 5명에게 메시지 보내기 → 메일 오면 반 화면 「선생님 계정」에 올리기 | `docs/ops/teacher-pilot.md`(그대로 복사할 글) |
 | 3 | 다음 TOPIK 시험 날짜(공식 공지) 알려 주기 | 받으면 D-30 부트캠프를 만든다(`docs/plans/topik-exam-wave.md`) |
 | 5 | 만들기 도구 그림(이름 도장 · 띠 카드 · 포춘쿠키 · 생일 카드)을 인스타 스토리에 + 링크 스티커 | 첫 공유 예시 — 도구 쪽에서 만들어 저장 |
@@ -66,7 +66,7 @@
 | 6 | PRD ⚠ 채워 확정 | 운영자 답 받으면 |
 | 7 | (2026-10-15 사이트 `privacy.html` 에 「쓰기 답안 공유」 단락을 손으로 넣음 — `tools/build-privacy.js` 는 옛 경로를 가리켜 다시 돌리면 덮어쓰니 돌리지 않는다) 앱 개인정보 문서(`cheesepotatoapp/docs/privacy-policy.md`)와 사이트 `privacy.html` 맞추기(Polar 줄 등 어긋남) | 운영자 OK |
 
-| 8 | **TOPIK 노출 다음 단계**(운영자 고르면): ① 영어 TOPIK 가이드 글 10편(안티 지시서) ② 「TOPIK 낱말 목록 · Anki 내려받기」 쪽 ③ 「TOPIK 문법 목록」 쪽 | 운영자 OK |
+| 8 | **TOPIK 노출 다음 단계**: ① 영어 TOPIK 가이드 글(9편 들어옴 · 1편 보류) ② 낱말 목록 쪽 ✅ ③ 문법 목록 쪽 ✅(2026-10-15 `/topik-grammar-list/`) — 머지 뒤 Search Console 색인 요청 필요 | 운영자 |
 
 ## ✅ 끝난 것
 - 2026-10-15 SQL `db/add_writing_share.sql`(TOPIK 쓰기 답안 공유 — 표 2개 · 신고) 운영자가 돌림. 다음: 53·54 를 AI 채점 → 「내 답안을…」 체크 → 올리기 → 「다른 학생 답안 보기」 눈으로 확인(운영자)
