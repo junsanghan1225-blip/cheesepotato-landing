@@ -32,7 +32,7 @@
   const para = (text, o = {}) => `<w:p><w:pPr>${o.brk ? '<w:pageBreakBefore/>' : ''}<w:spacing w:before="${o.before || 0}" w:after="${o.after ?? 80}"/>${o.jc ? `<w:jc w:val="${o.jc}"/>` : ''}</w:pPr>` +
     `<w:r><w:rPr>${FONT}${o.b ? '<w:b/>' : ''}${o.color ? `<w:color w:val="${o.color}"/>` : ''}<w:sz w:val="${o.sz || 20}"/></w:rPr><w:t xml:space="preserve">${xe(text)}</w:t></w:r></w:p>`;
   /* 빈칸(.nw-line) 은 밑줄 글자로 */
-  const txt = (n) => { let r = ''; n.childNodes.forEach((c) => { r += c.nodeType === 3 ? c.textContent : c.classList?.contains('nw-line') ? '__________' : txt(c); }); return r.replace(/\s+/g, ' ').trim(); };
+  const txt = (n) => { let r = ''; n.childNodes.forEach((c) => { r += c.nodeType === 3 ? c.textContent : c.classList?.contains('nw-line') || c.classList?.contains('ws-blank') || c.classList?.contains('ws-line') ? '__________' : txt(c); }); return r.replace(/\s+/g, ' ').trim(); };
   const tbl = (t) => {
     const rows = [...t.rows]; const n = Math.max(...rows.map((r) => r.cells.length)), w = Math.floor(10200 / n);
     const bd = ['top', 'left', 'bottom', 'right', 'insideH', 'insideV'].map((x) => `<w:${x} w:val="single" w:sz="4" w:color="999999"/>`).join('');
@@ -47,7 +47,11 @@
         const k = c.classList;
         if (c.matches('table')) { out += tbl(c); first = false; }
         else if (k.contains('nw-tw')) walk(c);
-        else if (k.contains('nw-h')) P(txt(c), { sz: 32, b: 1, after: 60 });
+        else if (k.contains('nw-h') || c.matches('h1')) P(txt(c), { sz: 32, b: 1, after: 60 });
+        else if (c.matches('h2')) P(txt(c), { sz: 22, b: 1, before: 180, after: 80 });
+        else if (k.contains('ws-kicker')) P(txt(c), { sz: 18, b: 1, color: '9C4A1A', before: 120, after: 40 });
+        else if (k.contains('ws-top')) P([...c.children].map(txt).join('        '), { sz: 18, color: '555555', after: 120 });
+        else if (k.contains('ws-wl')) P('________________________________________________', { color: 'AAAAAA', after: 120 });
         else if (k.contains('nw-h3')) P(txt(c), { sz: 22, b: 1, before: 180, after: 80 });
         else if (k.contains('nw-g')) P(txt(c), { sz: 20, b: 1, before: 100, after: 40 });
         else if (k.contains('nw-top')) P([...c.children].map(txt).join('        '), { sz: 18, color: '555555', after: 120 });
@@ -76,7 +80,10 @@
     a.href = URL.createObjectURL(blob); a.download = name; document.body.appendChild(a); a.click(); a.remove();
     setTimeout(() => URL.revokeObjectURL(a.href), 4000);
   }
-  const slug = location.pathname.replace(/\/+$/, '').split('/').pop() || 'worksheet';
+  const slug = (location.pathname.replace(/\/+$/, '').split('/').pop() || 'worksheet').replace(/\.html$/, '');
   document.getElementById('nwDocx')?.addEventListener('click', () => docx('.nw-work', `${slug}.docx`));
   document.getElementById('nwAnsDocx')?.addEventListener('click', () => docx('.nw-ans', `${slug}-answers.docx`));
+  /* 문법 학습지(worksheet/<id>.html) — 쪽은 .ws-p, 정답지는 .ws-key, Pro 잠금 안내(.ws-lock)는 뺀다 */
+  document.getElementById('wsDocx')?.addEventListener('click', () => docx('.ws-p:not(.ws-key):not(.ws-lock)', `grammar-${slug}.docx`));
+  document.getElementById('wsAnsDocx')?.addEventListener('click', () => docx('.ws-p.ws-key', `grammar-${slug}-answers.docx`));
 })();
