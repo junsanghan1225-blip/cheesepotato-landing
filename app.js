@@ -353,9 +353,9 @@ const PT = () => PT_SETS[ptLevel] || PT_SETS.normal;
    번역 언어는 영어 화면을 바탕으로 사전에서 바꾼다(cpTr) — 사전에 없는 글귀는 영어 그대로. */
 /* [코드, 메뉴 이름, 단추 글자, 번역 다 됨] — 운영자 2026-10-07 「베트남어 · 일본어 먼저」(분석: 중국 방문은 머문 시간 0초라 봇으로 보임).
    번역이 다 들어오기 전에는 메뉴에 안 보인다(빈 사전이면 영어만 나와 헷갈린다). 미리 보기는 주소 끝에 ?i18n=all. */
-const LANGS = [['ko', '한국어', 'KO', 1], ['en', 'English', 'EN', 1], ['vi', 'Tiếng Việt', 'VI', 1], ['ja', '日本語', '日', 1], ['zh', '中文（简体）', '中', 1], ['id', 'Bahasa Indonesia', 'ID', 1], ['ne', 'नेपाली', 'NE', 1], ['my', 'မြန်မာ', 'MY', 1], ['ru', 'Русский', 'RU', 1], ['mn', 'Монгол', 'MN', 0]];   // 0 = 번역이 끝나기 전에는 메뉴에 안 보인다(?i18n=all 로만)
+const LANGS = [['ko', '한국어', 'KO', 1], ['en', 'English', 'EN', 1], ['vi', 'Tiếng Việt', 'VI', 1], ['ja', '日本語', '日', 1], ['zh', '中文（简体）', '中', 1], ['id', 'Bahasa Indonesia', 'ID', 1], ['ne', 'नेपाली', 'NE', 1], ['my', 'မြန်မာ', 'MY', 1], ['ru', 'Русский', 'RU', 1], ['mn', 'Монгол', 'MN', 1]];   // 0 = 번역이 끝나기 전에는 메뉴에 안 보인다(?i18n=all 로만)
 const langShown = () => LANGS.filter((x) => x[3] || /[?&]i18n=all/.test(location.search));
-const I18N_URL = { vi: './i18n-vi.js?v=c4db4e80', ja: './i18n-ja.js?v=c4db4e80', zh: './i18n-zh.js?v=c4db4e80', id: './i18n-id.js?v=c4db4e80', ne: './i18n-ne.js?v=c4db4e80', my: './i18n-my.js?v=c4db4e80', ru: './i18n-ru.js?v=c4db4e80', mn: './i18n-mn.js?v=c4db4e80' };
+const I18N_URL = { vi: './i18n-vi.js?v=a7a3cdb2', ja: './i18n-ja.js?v=a7a3cdb2', zh: './i18n-zh.js?v=a7a3cdb2', id: './i18n-id.js?v=a7a3cdb2', ne: './i18n-ne.js?v=a7a3cdb2', my: './i18n-my.js?v=a7a3cdb2', ru: './i18n-ru.js?v=a7a3cdb2', mn: './i18n-mn.js?v=a7a3cdb2' };
 const trMemo = new Map();
 window.cpTr = (en) => {
   const L = window.cpI18n, s = String(en ?? '');
