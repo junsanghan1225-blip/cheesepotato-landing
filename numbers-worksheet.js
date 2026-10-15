@@ -2,10 +2,16 @@
    인쇄는 브라우저 인쇄(PDF 로 저장). 「정답지」를 누르면 정답 쪽만 인쇄한다. CSP 때문에 인라인 스크립트 대신 이 파일. */
 (function () {
   const body = document.body;
-  const go = (ans) => { body.classList.toggle('show-ans', ans); window.print(); };
+  /* 파일 이름(운영자 2026-10-15 「받을 때 깔끔하게 · 정렬해서」): Cheesepotato_<단계>_<제목>_<Worksheet | Answers>
+     학습지 쪽의 <meta name="ws-file"> 에서 앞부분을 읽는다. .docx 도, 「PDF 로 저장」의 기본 이름(= 문서 제목)도 같은 이름으로. */
+  const fileBase = () => document.querySelector('meta[name="ws-file"]')?.content || (location.pathname.replace(/\/+$/, '').split('/').pop() || 'worksheet').replace(/\.html$/, '');
+  const fname = (kind, ext) => `${fileBase()}_${kind}${ext || ''}`;
+  const oldTitle = document.title;
+  const printAs = (kind) => { document.title = fname(kind); window.print(); };
+  const go = (ans) => { body.classList.toggle('show-ans', ans); printAs(ans ? 'Answers' : 'Worksheet'); };
   document.getElementById('nwPrint')?.addEventListener('click', () => go(false));
   document.getElementById('nwAns')?.addEventListener('click', () => go(true));
-  window.addEventListener('afterprint', () => body.classList.remove('show-ans'));
+  window.addEventListener('afterprint', () => { body.classList.remove('show-ans'); document.title = oldTitle; });
 
   /* ── 워드(.docx) 로 받기 (운영자 2026-10-15 「PDF 도 좋은데 docx 로도」) ──
      화면에 그려진 학습지(.nw-work / .nw-ans)를 그대로 읽어 .docx 를 만든다 — 별도 자료 · 라이브러리 없이(CSP 때문에 외부 스크립트 대신).
@@ -80,10 +86,10 @@
     a.href = URL.createObjectURL(blob); a.download = name; document.body.appendChild(a); a.click(); a.remove();
     setTimeout(() => URL.revokeObjectURL(a.href), 4000);
   }
-  const slug = (location.pathname.replace(/\/+$/, '').split('/').pop() || 'worksheet').replace(/\.html$/, '');
-  document.getElementById('nwDocx')?.addEventListener('click', () => docx('.nw-work', `${slug}.docx`));
-  document.getElementById('nwAnsDocx')?.addEventListener('click', () => docx('.nw-ans', `${slug}-answers.docx`));
+  document.getElementById('nwDocx')?.addEventListener('click', () => docx('.nw-work', fname('Worksheet', '.docx')));
+  document.getElementById('nwAnsDocx')?.addEventListener('click', () => docx('.nw-ans', fname('Answers', '.docx')));
   /* 문법 학습지(worksheet/<id>.html) — 쪽은 .ws-p, 정답지는 .ws-key, Pro 잠금 안내(.ws-lock)는 뺀다 */
-  document.getElementById('wsDocx')?.addEventListener('click', () => docx('.ws-p:not(.ws-key):not(.ws-lock)', `grammar-${slug}.docx`));
-  document.getElementById('wsAnsDocx')?.addEventListener('click', () => docx('.ws-p.ws-key', `grammar-${slug}-answers.docx`));
+  document.getElementById('wsPrint')?.addEventListener('click', () => printAs('Worksheet'));
+  document.getElementById('wsDocx')?.addEventListener('click', () => docx('.ws-p:not(.ws-key):not(.ws-lock)', fname('Worksheet', '.docx')));
+  document.getElementById('wsAnsDocx')?.addEventListener('click', () => docx('.ws-p.ws-key', fname('Answers', '.docx')));
 })();

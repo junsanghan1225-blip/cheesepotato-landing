@@ -96,6 +96,7 @@ const WAY_GO = {
   sentence: () => goLearn('sentence'),
   reading:  () => goLearn('reading'),
   convo:    () => goLearn('convo'),
+  quiz:     () => goLearn('quiz'),   // 첫 화면 「문제 하나 먼저」(2026-10-15) — 검색으로 온 사람이 가입 · 테스트 전에 한 문제부터
   games:    () => window.cpOpen && window.cpOpen('games'),
   /* 제품 둘러보기 칸(2026-10-07) */
   levelTest: () => goLevelTest(),
@@ -103,7 +104,7 @@ const WAY_GO = {
   glossary: () => window.cpOpen && window.cpOpen('words'),
 };
 /* 첫 화면 두 문(.hm-door, 2026-10-05)도 같은 길로 */
-document.querySelectorAll('.way[data-go], .hm-door[data-go], .hm-rec-row[data-go], .hm-banner[data-go], .hm-tour-t[data-go], .hs-card[data-go]').forEach((b) => {
+document.querySelectorAll('.way[data-go], .hm-door[data-go], .hm-rec-row[data-go], .hm-banner[data-go], .hm-tour-t[data-go], .hs-card[data-go], .hero-try[data-go]').forEach((b) => {
   b.addEventListener('click', () => { const f = WAY_GO[b.dataset.go]; if (f) f(); });
 });
 
@@ -355,7 +356,7 @@ const PT = () => PT_SETS[ptLevel] || PT_SETS.normal;
    번역이 다 들어오기 전에는 메뉴에 안 보인다(빈 사전이면 영어만 나와 헷갈린다). 미리 보기는 주소 끝에 ?i18n=all. */
 const LANGS = [['ko', '한국어', 'KO', 1], ['en', 'English', 'EN', 1], ['vi', 'Tiếng Việt', 'VI', 1], ['ja', '日本語', '日', 1], ['zh', '中文（简体）', '中', 1], ['id', 'Bahasa Indonesia', 'ID', 1], ['ne', 'नेपाली', 'NE', 1], ['my', 'မြန်မာ', 'MY', 1], ['ru', 'Русский', 'RU', 1], ['mn', 'Монгол', 'MN', 1]];   // 0 = 번역이 끝나기 전에는 메뉴에 안 보인다(?i18n=all 로만)
 const langShown = () => LANGS.filter((x) => x[3] || /[?&]i18n=all/.test(location.search));
-const I18N_URL = { vi: './i18n-vi.js?v=a7a3cdb2', ja: './i18n-ja.js?v=a7a3cdb2', zh: './i18n-zh.js?v=a7a3cdb2', id: './i18n-id.js?v=a7a3cdb2', ne: './i18n-ne.js?v=a7a3cdb2', my: './i18n-my.js?v=a7a3cdb2', ru: './i18n-ru.js?v=a7a3cdb2', mn: './i18n-mn.js?v=a7a3cdb2' };
+const I18N_URL = { vi: './i18n-vi.js?v=1fede4a8', ja: './i18n-ja.js?v=1fede4a8', zh: './i18n-zh.js?v=1fede4a8', id: './i18n-id.js?v=1fede4a8', ne: './i18n-ne.js?v=1fede4a8', my: './i18n-my.js?v=1fede4a8', ru: './i18n-ru.js?v=1fede4a8', mn: './i18n-mn.js?v=1fede4a8' };
 const trMemo = new Map();
 window.cpTr = (en) => {
   const L = window.cpI18n, s = String(en ?? '');

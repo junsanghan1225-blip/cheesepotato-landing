@@ -7397,3 +7397,28 @@ body.cls-pres-on { overflow:hidden; }
 .cj-in { width:100%; min-width:0; box-sizing:border-box; padding:8px 6px; border:1.5px solid var(--line); border-radius:10px; background:var(--surface); color:var(--ink); font:inherit; font-size:14px; }
 .cj tbody th { width:24%; }
 .cj-in.ok { border-color:#1D7A55; background:rgba(29,122,85,.1); } .cj-in.no { border-color:#C4551C; background:rgba(196,85,28,.1); }
+
+/* 자료실 문법 학습지 서가 · 문법 쪽 학습지 링크(2026-10-15) */
+.sf-sec { margin:34px 0 4px; padding-top:18px; border-top:1px solid var(--line); font-size:16px; font-weight:800; color:var(--ink); }
+.sf-book.pro { filter:saturate(.55) brightness(.92); }
+a.gc-link { text-decoration:none; display:inline-block; }
+.wn-ans { margin:8px 0 0; font-size:15px; color:var(--ink); }
+.wn-ans em { font-style:normal; font-size:12px; font-weight:800; color:#fff; background:var(--ok,#2f7d4f); border-radius:6px; padding:1px 7px; margin-right:6px; }
+.wn-run-txt { display:grid; gap:10px; margin:14px 0; }
+.wn-weak { display:grid; gap:6px; margin:0 0 16px; padding:12px; border:1px solid var(--line); border-radius:14px; background:var(--card,#fff); }
+.wn-weak > b { font-size:13px; color:var(--ink-3); }
+.wn-wk { display:flex; align-items:center; gap:8px; width:100%; padding:10px 12px; border:1px solid var(--line); border-radius:10px; background:transparent; color:var(--ink); font:inherit; text-align:left; cursor:pointer; }
+.wn-wk span { flex:1; min-width:0; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+.wn-wk em { font-style:normal; font-size:12px; color:#b4531f; font-weight:700; }
+.wn-wk i { font-style:normal; color:var(--ink-3); }
+
+button.hero-how { border:none; font:inherit; font-weight:700; cursor:pointer; }
+@media (max-width:600px) { .hero-acts a.hero-how { display:none; } }   /* 폰에서는 길 카드가 바로 아래라 「길 둘러보기」는 뺀다 */
+/* 쓰기 답안 공유(2026-10-15) */
+.tw-share { margin-top:14px; }
+.tw-share-c { display:flex; gap:8px; align-items:flex-start; margin:8px 0 10px; font-size:14px; line-height:1.5; }
+.tw-share-c input { margin-top:3px; }
+.tw-share-i { margin-top:10px; padding:12px; border:1px solid var(--line); border-radius:12px; background:var(--card,#fff); }
+.tw-share-i p { margin:0 0 8px; white-space:pre-wrap; line-height:1.7; font-size:15px; }
+.tw-share-f { display:flex; justify-content:space-between; align-items:center; font-size:12px; color:var(--ink-3); }
+.tw-share-f button { border:none; background:none; color:var(--ink-3); font:inherit; text-decoration:underline; cursor:pointer; }
