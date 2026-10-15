@@ -1,0 +1,530 @@
+{
+  "bg-irr-01-01": [
+    {
+      "t": "conj",
+      "h": "ㅡ Irregular Adjectives",
+      "forms": [
+        "present",
+        "past",
+        "future"
+      ],
+      "verbs": [
+        {
+          "v": "아프다",
+          "pos": "형용사",
+          "en": "to hurt"
+        },
+        {
+          "v": "바쁘다",
+          "pos": "형용사",
+          "en": "to be busy"
+        },
+        {
+          "v": "배고프다",
+          "pos": "형용사",
+          "en": "to be hungry"
+        }
+      ]
+    },
+    {
+      "t": "conj",
+      "h": "ㅡ Irregular Stems without preceding vowel",
+      "forms": [
+        "present",
+        "past",
+        "future"
+      ],
+      "verbs": [
+        {
+          "v": "예쁘다",
+          "pos": "형용사",
+          "en": "to be pretty"
+        },
+        {
+          "v": "쓰다",
+          "pos": "동사",
+          "en": "to write / use"
+        },
+        {
+          "v": "크다",
+          "pos": "형용사",
+          "en": "to be big"
+        }
+      ]
+    },
+    {
+      "t": "correct",
+      "q": "Fix the mistake.",
+      "wrong": "머리가 아프어요.",
+      "answers": [
+        "머리가 아파요.",
+        "머리가 아파요"
+      ],
+      "hint": "The vowel ㅡ drops before vowels; since the preceding vowel is ㅏ, attach -아요.",
+      "why": "아프다 drops ㅡ and takes -아요 because the stem vowel is ㅏ → 아파요."
+    },
+    {
+      "t": "correct",
+      "q": "Fix the mistake.",
+      "wrong": "요즘 일이 많아서 정말 바뻐요.",
+      "answers": [
+        "요즘 일이 많아서 정말 바빠요.",
+        "일이 많아서 정말 바빠요."
+      ],
+      "hint": "바쁘다 drops ㅡ; the vowel before it is ㅏ, so it takes -아요.",
+      "why": "바쁘- drops ㅡ, leaving 바- (vowel ㅏ), which combines with -아요 → 바빠요."
+    },
+    {
+      "t": "vocab",
+      "h": "Words for this lesson",
+      "items": [
+        {
+          "ko": "아프다",
+          "en": "to hurt",
+          "ex": "머리가 아파요."
+        },
+        {
+          "ko": "바쁘다",
+          "en": "to be busy",
+          "ex": "요즘 정말 바빠요."
+        },
+        {
+          "ko": "배고프다",
+          "en": "to be hungry",
+          "ex": "저 지금 배고파요."
+        },
+        {
+          "ko": "예쁘다",
+          "en": "to be pretty",
+          "ex": "옷이 정말 예뻐요."
+        },
+        {
+          "ko": "쓰다",
+          "en": "to write",
+          "ex": "편지를 써요."
+        }
+      ]
+    },
+    {
+      "t": "dictate",
+      "say": "요즘 정말 바빠요",
+      "answers": [
+        "요즘 정말 바빠요"
+      ],
+      "hint": "I'm really busy these days.",
+      "why": "바쁘다 drops ㅡ and attaches 아요 to become 바빠요."
+    },
+    {
+      "t": "write",
+      "q": "State that your head hurts using 머리가 and 아파요.",
+      "must": [
+        "머리가",
+        "아파요"
+      ],
+      "sample": "오늘 머리가 아파요.",
+      "why": "아프다 loses ㅡ and takes -아요: 머리가 아파요."
+    },
+    {
+      "t": "cando",
+      "items": [
+        "Drop stem vowel ㅡ when conjugating before vowel endings",
+        "Determine whether -아요 or -어요 follows based on the preceding vowel"
+      ]
+    }
+  ],
+  "bg-irr-01-02": [
+    {
+      "t": "conj",
+      "h": "ㅂ Irregular Weather and Taste",
+      "forms": [
+        "present",
+        "past",
+        "future"
+      ],
+      "verbs": [
+        {
+          "v": "춥다",
+          "pos": "형용사",
+          "en": "to be cold"
+        },
+        {
+          "v": "덥다",
+          "pos": "형용사",
+          "en": "to be hot"
+        },
+        {
+          "v": "맵다",
+          "pos": "형용사",
+          "en": "to be spicy"
+        }
+      ]
+    },
+    {
+      "t": "conj",
+      "h": "ㅂ Irregular Difficulty and Weight",
+      "forms": [
+        "present",
+        "past",
+        "future"
+      ],
+      "verbs": [
+        {
+          "v": "어렵다",
+          "pos": "형용사",
+          "en": "to be difficult"
+        },
+        {
+          "v": "쉽다",
+          "pos": "형용사",
+          "en": "to be easy"
+        },
+        {
+          "v": "무겁다",
+          "pos": "형용사",
+          "en": "to be heavy"
+        }
+      ]
+    },
+    {
+      "t": "correct",
+      "q": "Fix the mistake.",
+      "wrong": "오늘 날씨가 너무 춥어요.",
+      "answers": [
+        "오늘 날씨가 너무 추워요.",
+        "날씨가 너무 추워요."
+      ],
+      "hint": "ㅂ changes to 우 before vowel endings: 추우 + 어요 → 추워요.",
+      "why": "춥다 is a ㅂ-irregular adjective. ㅂ becomes 우 before vowels → 추워요."
+    },
+    {
+      "t": "correct",
+      "q": "Fix the mistake.",
+      "wrong": "이 찌개가 정말 맵어요.",
+      "answers": [
+        "이 찌개가 정말 매워요.",
+        "찌개가 정말 매워요."
+      ],
+      "hint": "맵다 changes ㅂ to 우 before -어요: 매우 + 어요 → 매워요.",
+      "why": "맵다 drops ㅂ to add 우, conjugating to 매워요."
+    },
+    {
+      "t": "vocab",
+      "h": "Words for this lesson",
+      "items": [
+        {
+          "ko": "춥다",
+          "en": "to be cold",
+          "ex": "오늘 너무 추워요."
+        },
+        {
+          "ko": "덥다",
+          "en": "to be hot",
+          "ex": "날씨가 더워요."
+        },
+        {
+          "ko": "맵다",
+          "en": "to be spicy",
+          "ex": "음식이 매워요."
+        },
+        {
+          "ko": "어렵다",
+          "en": "to be difficult",
+          "ex": "한국어가 어려워요."
+        },
+        {
+          "ko": "쉽다",
+          "en": "to be easy",
+          "ex": "시험이 쉬워요."
+        }
+      ]
+    },
+    {
+      "t": "dictate",
+      "say": "오늘 너무 더워요",
+      "answers": [
+        "오늘 너무 더워요"
+      ],
+      "hint": "It's so hot today.",
+      "why": "덥다 turns ㅂ into 우, attaching -어요 to become 더워요."
+    },
+    {
+      "t": "write",
+      "q": "State that Korean is easy using 한국어가 and 쉬워요.",
+      "must": [
+        "한국어가",
+        "쉬워요"
+      ],
+      "sample": "한국어가 정말 쉬워요.",
+      "why": "쉽다 conjugates to 쉬워요 before vowel endings."
+    },
+    {
+      "t": "cando",
+      "items": [
+        "Conjugate ㅂ-irregular adjectives into the -워요 form before vowels",
+        "Distinguish regular ㅂ verbs like 입다 (입어요) from irregular adjectives"
+      ]
+    }
+  ],
+  "bg-irr-01-03": [
+    {
+      "t": "conj",
+      "h": "ㄷ Irregular Action Verbs",
+      "forms": [
+        "present",
+        "past",
+        "future"
+      ],
+      "verbs": [
+        {
+          "v": "듣다",
+          "pos": "동사",
+          "en": "to listen"
+        },
+        {
+          "v": "걷다",
+          "pos": "동사",
+          "en": "to walk"
+        },
+        {
+          "v": "묻다",
+          "pos": "동사",
+          "en": "to ask"
+        }
+      ]
+    },
+    {
+      "t": "conj",
+      "h": "ㄷ Verbs with and/mod forms",
+      "forms": [
+        "present",
+        "and",
+        "mod"
+      ],
+      "verbs": [
+        {
+          "v": "듣다",
+          "pos": "동사",
+          "en": "to listen"
+        },
+        {
+          "v": "걷다",
+          "pos": "동사",
+          "en": "to walk"
+        },
+        {
+          "v": "묻다",
+          "pos": "동사",
+          "en": "to ask"
+        }
+      ]
+    },
+    {
+      "t": "correct",
+      "q": "Fix the mistake.",
+      "wrong": "매일 방에서 음악을 듣어요.",
+      "answers": [
+        "매일 방에서 음악을 들어요."
+      ],
+      "hint": "ㄷ changes to ㄹ before vowel endings like -어요: 들어요.",
+      "why": "듣다 is a ㄷ-irregular verb: 듣 + 어요 becomes 들어요."
+    },
+    {
+      "t": "correct",
+      "q": "Fix the mistake.",
+      "wrong": "친구와 함께 공원을 걷어요.",
+      "answers": [
+        "친구와 함께 공원을 걸어요."
+      ],
+      "hint": "걷다 turns ㄷ into ㄹ before -어요: 걸어요.",
+      "why": "걷다 changes ㄷ to ㄹ before vowel endings → 걸어요."
+    },
+    {
+      "t": "vocab",
+      "h": "Words for this lesson",
+      "items": [
+        {
+          "ko": "듣다",
+          "en": "to listen",
+          "ex": "음악을 들어요."
+        },
+        {
+          "ko": "걷다",
+          "en": "to walk",
+          "ex": "공원을 걸어요."
+        },
+        {
+          "ko": "묻다",
+          "en": "to ask",
+          "ex": "길을 물어요."
+        },
+        {
+          "ko": "라디오",
+          "en": "radio",
+          "ex": "라디오를 들어요."
+        },
+        {
+          "ko": "이어폰",
+          "en": "earphones",
+          "ex": "이어폰으로 들어요."
+        }
+      ]
+    },
+    {
+      "t": "dictate",
+      "say": "방에서 음악을 들어요",
+      "answers": [
+        "방에서 음악을 들어요"
+      ],
+      "hint": "I listen to music in my room.",
+      "why": "듣다 changes ㄷ to ㄹ before vowel endings: 들어요."
+    },
+    {
+      "t": "write",
+      "q": "State that you walk in the park using 공원을 and 걸어요.",
+      "must": [
+        "공원을",
+        "걸어요"
+      ],
+      "sample": "매일 공원을 걸어요.",
+      "why": "걷다 turns ㄷ to ㄹ before -어요: 공원을 걸어요."
+    },
+    {
+      "t": "cando",
+      "items": [
+        "Change stem consonant ㄷ to ㄹ before vowel endings",
+        "Keep ㄷ intact before consonant endings like -고 and -지만"
+      ]
+    }
+  ],
+  "bg-irr-01-04": [
+    {
+      "t": "conj",
+      "h": "Regular vs Irregular ㄷ Verbs",
+      "forms": [
+        "present",
+        "past",
+        "future"
+      ],
+      "verbs": [
+        {
+          "v": "듣다",
+          "pos": "동사",
+          "en": "to listen"
+        },
+        {
+          "v": "닫다",
+          "pos": "동사",
+          "en": "to close"
+        },
+        {
+          "v": "받다",
+          "pos": "동사",
+          "en": "to receive"
+        }
+      ]
+    },
+    {
+      "t": "conj",
+      "h": "Regular vs Irregular ㅂ Verbs",
+      "forms": [
+        "present",
+        "past",
+        "future"
+      ],
+      "verbs": [
+        {
+          "v": "춥다",
+          "pos": "형용사",
+          "en": "to be cold"
+        },
+        {
+          "v": "입다",
+          "pos": "동사",
+          "en": "to wear"
+        },
+        {
+          "v": "돕다",
+          "pos": "동사",
+          "en": "to help"
+        }
+      ]
+    },
+    {
+      "t": "correct",
+      "q": "Fix the mistake.",
+      "wrong": "추우니까 창문을 달아요.",
+      "answers": [
+        "추우니까 창문을 닫아요."
+      ],
+      "hint": "닫다 (to close) is a REGULAR verb: it keeps its ㄷ → 닫아요.",
+      "why": "닫다 is regular and does NOT soften ㄷ to ㄹ: 닫아요 (not 달아요)."
+    },
+    {
+      "t": "correct",
+      "q": "Fix the mistake.",
+      "wrong": "따뜻한 코트를 이워요.",
+      "answers": [
+        "따뜻한 코트를 입어요."
+      ],
+      "hint": "입다 (to wear) is a REGULAR verb: it keeps ㅂ → 입어요.",
+      "why": "입다 is regular and does not change ㅂ to 우: 입어요 (not 이워요)."
+    },
+    {
+      "t": "vocab",
+      "h": "Words for this lesson",
+      "items": [
+        {
+          "ko": "닫다",
+          "en": "to close",
+          "ex": "문을 닫아요."
+        },
+        {
+          "ko": "받다",
+          "en": "to receive",
+          "ex": "선물을 받아요."
+        },
+        {
+          "ko": "입다",
+          "en": "to wear",
+          "ex": "코트를 입어요."
+        },
+        {
+          "ko": "선물",
+          "en": "gift / present",
+          "ex": "생일 선물을 받아요."
+        },
+        {
+          "ko": "창문",
+          "en": "window",
+          "ex": "창문을 닫아요."
+        }
+      ]
+    },
+    {
+      "t": "dictate",
+      "say": "바람이 불어서 문을 닫아요",
+      "answers": [
+        "바람이 불어서 문을 닫아요"
+      ],
+      "hint": "Because the wind blows, I close the door.",
+      "why": "닫다 is regular and attaches -아요 to become 닫아요."
+    },
+    {
+      "t": "write",
+      "q": "State that you wear warm clothes using 옷을 and 입어요.",
+      "must": [
+        "옷을",
+        "입어요"
+      ],
+      "sample": "따뜻한 옷을 입어요.",
+      "why": "입다 is regular and attaches -어요 to become 입어요."
+    },
+    {
+      "t": "cando",
+      "items": [
+        "Sort regular ㄷ/ㅂ verbs from irregular ones without error",
+        "Prevent misapplying irregular rules to regular words like 닫다 and 입다"
+      ]
+    }
+  ]
+}
