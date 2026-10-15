@@ -129,6 +129,7 @@ const head = (title, desc, url, jsonld = '') => `<!DOCTYPE html>
 <meta property="og:image" content="https://everykoreans.com/logo-256.png">
 ${jsonld}<link rel="stylesheet" href="/vendor/pretendard.css">
 <link rel="stylesheet" href="/page.css">
+<script src="/numbers-worksheet.js" defer></script>
 <style>${CSS}</style>
 </head>
 <body>
@@ -145,8 +146,8 @@ const LOCK = (p) => `<section class="ws-p ws-lock"><h2>🔒 연습 · 정답은 
 <div class="ws-acts"><a class="btn main" href="/?utm_source=worksheet&amp;utm_medium=pro_lock#pro">Pro 7일 무료로 시작 · Try Pro free</a><a class="btn sub" href="/worksheet/">무료 학습지 보기 · Free worksheets</a></div></section>`;
 const NAV = (p, pro) => `<nav class="ws-nav"><a href="/worksheet/${pro ? 'pro/' : ''}">← 문법 학습지 목록 · All worksheets</a> · <a href="/sentence/${p.id}.html">이 문법 자세히 · Grammar page</a></nav>`;
 const wrap = (p, body, pro) => `<div class="ws-doc">${NAV(p, pro)}
-<p class="ws-intro">인쇄하거나 PDF 로 저장해서 쓰세요(브라우저의 인쇄 → PDF 로 저장). · Print or save as PDF.</p>
-<div class="ws-acts"><button type="button" class="btn main" onclick="window.print()">🖨️ Print / save as PDF</button><a class="btn sub" href="/?utm_source=worksheet&amp;utm_medium=${p.id}#learn/sentence/${p.id}">Practise this grammar online — free →</a></div>
+<p class="ws-intro">인쇄하거나 PDF · Word 파일로 받아 쓰세요(브라우저의 인쇄 → PDF 로 저장). · Print, save as PDF, or download Word.</p>
+<div class="ws-acts"><button type="button" class="btn main" onclick="window.print()">Print / save as PDF</button><button type="button" class="btn sub" id="wsDocx">Word (.docx)</button>${pro ? '<button type="button" class="btn sub" id="wsAnsDocx">Answer key (.docx)</button>' : ''}<a class="btn sub" href="/?utm_source=worksheet&amp;utm_medium=${p.id}#learn/sentence/${p.id}">Practise this grammar online — free →</a></div>
 ${body}
 </div>
 <p class="ft">Made by a Korean teacher · <a href="/about.html">About</a> · <a href="/worksheet/">All grammar worksheets</a> · <a href="/privacy.html">Privacy</a></p>`;
