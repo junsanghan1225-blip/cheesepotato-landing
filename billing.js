@@ -46,6 +46,8 @@ export const billingLive = () => ON && !!BILLING.checkoutUrl;
 let sub = null;   // { status, plan, current_period_end, manage_url } | null
 /* 반 학생은 Pro 무료(운영자 결정 2026-10-06) — 보관하지 않은 반에 들어 있으면 true. db 의 is_pro() 와 같은 규칙(db/add_class_pro.sql). */
 let classPro = false;
+/* 친구 초대 보너스(db/add_referrals.sql) — 가장 늦은 끝나는 날. is_pro() 와 같은 규칙 */
+let bonusUntil = 0;
 
 /* 표의 status(polar-webhook 이 적는다): active · trialing · past_due(결제 실패, 재시도 중) · canceled.
    예약 해지는 기간이 끝날 때까지 active 로 남고, 끝나야(Polar 의 subscription.revoked) canceled 가 된다.
@@ -59,13 +61,16 @@ function subPro() {
   if (['active', 'trialing', 'past_due'].includes(sub.status)) return true;
   return sub.status === 'canceled' && !!sub.current_period_end && Date.parse(sub.current_period_end) > Date.now();
 }
-export const isPro = () => classPro || subPro();
+const bonusPro = () => bonusUntil > Date.now();
+export const isPro = () => classPro || subPro() || bonusPro();
+/* 구독 · 반 없이 초대 보너스로만 Pro 인가 — 끝나는 날(ms)을 돌려준다, 아니면 0 */
+export const proBonusUntil = () => (bonusPro() && !classPro && !subPro() ? bonusUntil : 0);
 export const proInfo = () => sub;
 /* 구독 없이 반 학생이라 Pro 인가 — 계정 칸에 「반 학생이라 무료」를 보이고, 결제 단추를 내밀지 않게 */
 export const proByClass = () => classPro && !subPro();
 
 export async function loadPro(sb, session) {
-  if (!session) { sub = null; classPro = false; return false; }
+  if (!session) { sub = null; classPro = false; bonusUntil = 0; return false; }
   const { data, error } = await sb.from('subscriptions')
     .select('status, plan, current_period_end, manage_url')
     .eq('user_id', session.user.id).maybeSingle();
@@ -77,6 +82,11 @@ export async function loadPro(sb, session) {
     const { data: rows, error: e2 } = await sb.from('class_members').select('class_id, classes(archived)').eq('user_id', session.user.id);
     classPro = !e2 && (rows || []).some((r) => r.classes && !r.classes.archived);
   } catch (e) { classPro = false; }
+  /* 초대 보너스 — 내 줄만 읽힌다(RLS). 표가 아직 없으면(db/add_referrals.sql 전) 없는 것으로 */
+  try {
+    const { data: bz, error: e3 } = await sb.from('pro_bonus').select('until').eq('user_id', session.user.id).order('until', { ascending: false }).limit(1);
+    bonusUntil = !e3 && bz && bz[0] ? Date.parse(bz[0].until) || 0 : 0;
+  } catch (e) { bonusUntil = 0; }
   return isPro();
 }
 
