@@ -1,0 +1,391 @@
+{
+  "bg-d-05-01": [
+    {
+      "t": "passage",
+      "h": "Listen to the dialogue",
+      "ko": [
+        "승객 여러분, 비행기가 곧 착륙합니다.",
+        "좌석 벨트를 매 주십시오.",
+        "모든 전자기기의 전원을 꺼 주십시오.",
+        "안전한 여행이 되시기 바랍니다."
+      ],
+      "en": [
+        "Passengers, the plane will land shortly.",
+        "Please fasten your seatbelts.",
+        "Please turn off all electronic devices.",
+        "We wish you a safe trip."
+      ]
+    },
+    {
+      "t": "choice",
+      "q": "What is the plane about to do?",
+      "options": [
+        "Land shortly",
+        "Take off",
+        "Turn around"
+      ],
+      "answer": 0,
+      "why": "The announcement states '비행기가 곧 착륙합니다' (The plane will land shortly)."
+    },
+    {
+      "t": "choice",
+      "q": "What are passengers requested to do with electronic devices?",
+      "options": [
+        "Turn off the power",
+        "Turn on airplane mode",
+        "Keep using them"
+      ],
+      "answer": 0,
+      "why": "The announcement says '모든 전자기기의 전원을 꺼 주십시오' (Please turn off all electronic devices)."
+    },
+    {
+      "t": "vocab",
+      "h": "Words for this scene",
+      "items": [
+        {
+          "ko": "착륙하다",
+          "en": "to land",
+          "ex": "비행기가 곧 착륙해요."
+        },
+        {
+          "ko": "승객",
+          "en": "passenger",
+          "ex": "승객 여러분 안녕하십니까."
+        },
+        {
+          "ko": "좌석 벨트",
+          "en": "seatbelt",
+          "ex": "좌석 벨트를 착용하세요."
+        },
+        {
+          "ko": "전자기기",
+          "en": "electronic device",
+          "ex": "전자기기를 꺼 주세요."
+        },
+        {
+          "ko": "전원",
+          "en": "power (source)",
+          "ex": "전원을 끄십시오."
+        }
+      ]
+    },
+    {
+      "t": "dictate",
+      "say": "좌석 벨트를 매 주십시오",
+      "answers": [
+        "좌석 벨트를 매 주십시오",
+        "좌석벨트를 매 주십시오"
+      ],
+      "hint": "Please fasten your seatbelt.",
+      "why": "-(으)십시오 is the formal imperative ending used in public announcements."
+    },
+    {
+      "t": "write",
+      "q": "Write a formal instruction to wait a moment using 잠시만 and 기다리십시오.",
+      "must": [
+        "잠시만",
+        "기다리십시오"
+      ],
+      "sample": "손님, 잠시만 기다리십시오.",
+      "why": "Use -십시오 for polite formal instructions in service settings."
+    },
+    {
+      "t": "cando",
+      "items": [
+        "Understand and use formal instructions with -(으)십시오 in public announcements",
+        "Distinguish between casual requests with -아/어 주세요 and formal commands"
+      ]
+    }
+  ],
+  "bg-d-05-02": [
+    {
+      "t": "passage",
+      "h": "Listen to the dialogue",
+      "ko": [
+        "여러분, 자리에 앉아 주시기 바랍니다.",
+        "이제 오늘의 회의를 시작하십시다.",
+        "먼저 다 함께 큰 박수로 환영하십시다.",
+        "그럼 첫 번째 순서를 진행하겠습니다."
+      ],
+      "en": [
+        "Everyone, please take your seats.",
+        "Now, let us begin today's meeting.",
+        "First, let us all welcome our guests with a big round of applause.",
+        "Then, we will proceed with the first part of the program."
+      ]
+    },
+    {
+      "t": "choice",
+      "q": "What event is taking place?",
+      "options": [
+        "A formal meeting",
+        "A sports match",
+        "A graduation party"
+      ],
+      "answer": 0,
+      "why": "The host announces '이제 오늘의 회의를 시작하십시다' (Now, let us begin today's meeting)."
+    },
+    {
+      "t": "choice",
+      "q": "What does the host suggest doing first?",
+      "options": [
+        "Welcoming with a big applause",
+        "Eating lunch",
+        "Singing an anthem"
+      ],
+      "answer": 0,
+      "why": "The host says '다 함께 큰 박수로 환영하십시다' (Let us all welcome with a big round of applause)."
+    },
+    {
+      "t": "vocab",
+      "h": "Words for this scene",
+      "items": [
+        {
+          "ko": "회의",
+          "en": "meeting / conference",
+          "ex": "회의를 시작해요."
+        },
+        {
+          "ko": "박수",
+          "en": "applause / clapping",
+          "ex": "큰 박수를 쳐요."
+        },
+        {
+          "ko": "환영하다",
+          "en": "to welcome",
+          "ex": "손님을 환영해요."
+        },
+        {
+          "ko": "순서",
+          "en": "order / program step",
+          "ex": "다음 순서로 넘어가요."
+        },
+        {
+          "ko": "진행하다",
+          "en": "to proceed / conduct",
+          "ex": "행사를 진행해요."
+        }
+      ]
+    },
+    {
+      "t": "dictate",
+      "say": "이제 회의를 시작하십시다",
+      "answers": [
+        "이제 회의를 시작하십시다"
+      ],
+      "hint": "Now let us begin the meeting.",
+      "why": "-(으)십시다 proposes an action to a group formally."
+    },
+    {
+      "t": "write",
+      "q": "Propose starting the meeting together in a formal gathering using 회의를 and 시작하십시다.",
+      "must": [
+        "회의를",
+        "시작하십시다"
+      ],
+      "sample": "다 같이 회의를 시작하십시다.",
+      "why": "-(으)십시다 is used by a host or leader proposing an action to a group."
+    },
+    {
+      "t": "cando",
+      "items": [
+        "Formally propose collective action with -(으)십시다 as a host or moderator",
+        "Know when to choose softer alternatives like -(으)실까요? for individual elders"
+      ]
+    }
+  ],
+  "bg-d-05-03": [
+    {
+      "t": "passage",
+      "h": "Listen to the dialogue",
+      "ko": [
+        "선생님, 과제에 대해 질문이 하나 있습니다.",
+        "네, 편하게 여쭤보세요.",
+        "내일 연구실로 찾아뵙고 말씀드려도 될까요?",
+        "네, 내일 오후 세 시에 만나요."
+      ],
+      "en": [
+        "Teacher, I have a question regarding the assignment.",
+        "Sure, please ask comfortably.",
+        "May I visit your office tomorrow and speak with you?",
+        "Yes, let's meet tomorrow at three in the afternoon."
+      ]
+    },
+    {
+      "t": "choice",
+      "q": "Why does the student want to visit the teacher's office?",
+      "options": [
+        "To ask a question about an assignment",
+        "To return a borrowed book",
+        "To ask for an extension"
+      ],
+      "answer": 0,
+      "why": "The student says '과제에 대해 질문이 하나 있습니다' (I have a question regarding the assignment)."
+    },
+    {
+      "t": "choice",
+      "q": "When does the teacher agree to meet?",
+      "options": [
+        "Tomorrow at 3 PM",
+        "Today at noon",
+        "Next Monday morning"
+      ],
+      "answer": 0,
+      "why": "The teacher confirms '내일 오후 세 시에 만나요' (Yes, let's meet tomorrow at three in the afternoon)."
+    },
+    {
+      "t": "vocab",
+      "h": "Words for this scene",
+      "items": [
+        {
+          "ko": "여쭙다",
+          "en": "to ask / inquire (humble 묻다)",
+          "ex": "선생님께 여쭤봐요."
+        },
+        {
+          "ko": "뵙다",
+          "en": "to meet / see (humble 보다/만나다)",
+          "ex": "내일 찾아뵙겠습니다."
+        },
+        {
+          "ko": "말씀드리다",
+          "en": "to tell / speak (humble 말하다)",
+          "ex": "나중에 말씀드릴게요."
+        },
+        {
+          "ko": "드리다",
+          "en": "to give (humble 주다)",
+          "ex": "선물을 드려요."
+        },
+        {
+          "ko": "모시다",
+          "en": "to accompany / escort (humble)",
+          "ex": "할머니를 모셔요."
+        }
+      ]
+    },
+    {
+      "t": "dictate",
+      "say": "내일 연구실로 찾아뵙겠습니다",
+      "answers": [
+        "내일 연구실로 찾아뵙겠습니다"
+      ],
+      "hint": "I will visit your office to see you tomorrow.",
+      "why": "뵙다 is the humble verb for seeing/meeting someone senior."
+    },
+    {
+      "t": "write",
+      "q": "Humbly say you will ask the teacher using 선생님께 and 여쭤볼게요.",
+      "must": [
+        "선생님께",
+        "여쭤볼게요"
+      ],
+      "sample": "선생님께 여쭤보고 다시 연락드릴게요.",
+      "why": "Use 여쭙다 when asking a question to someone senior."
+    },
+    {
+      "t": "cando",
+      "items": [
+        "Lower the speaker with humble words like 드리다, 여쭙다, 뵙다, and 모시다",
+        "Distinguish subject honorification (-시-) from humble object honorification"
+      ]
+    }
+  ],
+  "bg-d-05-04": [
+    {
+      "t": "passage",
+      "h": "Listen to the dialogue",
+      "ko": [
+        "할머니, 무거운 짐은 제가 들어 드릴게요.",
+        "고맙다. 병원까지 같이 가 주겠니?",
+        "네, 제가 병원까지 편하게 모실게요.",
+        "정말 고맙구나. 조심히 다녀오자."
+      ],
+      "en": [
+        "Grandmother, let me carry that heavy bag for you.",
+        "Thank you. Could you go with me to the hospital?",
+        "Yes, I will comfortably escort you to the hospital.",
+        "Thank you so much. Let's go carefully."
+      ]
+    },
+    {
+      "t": "choice",
+      "q": "What does the speaker offer to do for grandmother?",
+      "options": [
+        "Carry her heavy luggage",
+        "Buy her groceries",
+        "Call a taxi"
+      ],
+      "answer": 0,
+      "why": "The speaker says '무거운 짐은 제가 들어 드릴게요' (Let me carry that heavy bag for you)."
+    },
+    {
+      "t": "choice",
+      "q": "Where are they going together?",
+      "options": [
+        "To the hospital",
+        "To the community center",
+        "To the market"
+      ],
+      "answer": 0,
+      "why": "Grandmother asks '병원까지 같이 가 주겠니?' and the speaker agrees."
+    },
+    {
+      "t": "vocab",
+      "h": "Words for this scene",
+      "items": [
+        {
+          "ko": "들어 드리다",
+          "en": "to carry for someone senior",
+          "ex": "짐을 들어 드려요."
+        },
+        {
+          "ko": "모시다",
+          "en": "to escort / accompany (humble)",
+          "ex": "부모님을 모셔요."
+        },
+        {
+          "ko": "무겁다",
+          "en": "to be heavy",
+          "ex": "가방이 무거워요."
+        },
+        {
+          "ko": "짐",
+          "en": "luggage / baggage",
+          "ex": "짐이 많아요."
+        },
+        {
+          "ko": "병원",
+          "en": "hospital / clinic",
+          "ex": "병원에 다녀와요."
+        }
+      ]
+    },
+    {
+      "t": "dictate",
+      "say": "제가 병원까지 모실게요",
+      "answers": [
+        "제가 병원까지 모실게요"
+      ],
+      "hint": "I will escort you to the hospital.",
+      "why": "모시다 is used when taking or escorting someone senior."
+    },
+    {
+      "t": "write",
+      "q": "Humbly offer to carry luggage for grandmother using 짐을 and 들어 드릴게요.",
+      "must": [
+        "짐을",
+        "들어 드릴게요"
+      ],
+      "sample": "할머니, 짐을 들어 드릴게요.",
+      "why": "Use -아/어 드리다 when doing a helpful action for someone senior."
+    },
+    {
+      "t": "cando",
+      "items": [
+        "Combine subject honorification and humble expressions smoothly in one conversation",
+        "Choose the most appropriate polite and humble phrasing for real-world interactions"
+      ]
+    }
+  ]
+}
