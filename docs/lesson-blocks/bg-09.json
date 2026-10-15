@@ -1,0 +1,655 @@
+{
+  "bg-09-01": [
+    {
+      "t": "vocab",
+      "h": "Words for this lesson",
+      "items": [
+        {
+          "ko": "술",
+          "en": "alcohol",
+          "ex": "술을 안 마셔요."
+        },
+        {
+          "ko": "주말",
+          "en": "weekend",
+          "ex": "주말에는 일 안 해요."
+        },
+        {
+          "ko": "일",
+          "en": "work",
+          "ex": "회사에서 일해요."
+        },
+        {
+          "ko": "공부",
+          "en": "study",
+          "ex": "공부 안 해요."
+        },
+        {
+          "ko": "커피",
+          "en": "coffee",
+          "ex": "커피를 안 마셔요."
+        }
+      ]
+    },
+    {
+      "t": "dictate",
+      "say": "저는 커피를 안 마셔요",
+      "answers": [
+        "저는 커피를 안 마셔요",
+        "전 커피를 안 마셔요"
+      ],
+      "hint": "I don't drink coffee.",
+      "why": "안 sits directly before the verb 마셔요."
+    },
+    {
+      "t": "write",
+      "q": "State that you do not work on weekends using 일 and 안 해요.",
+      "must": [
+        "일",
+        "안 해요"
+      ],
+      "sample": "주말에는 일 안 해요.",
+      "why": "하다 verbs split so that 안 sits right before 해요: 일 안 해요."
+    },
+    {
+      "t": "correct",
+      "q": "Fix the mistake.",
+      "wrong": "저는 오늘 안 운동해요.",
+      "answers": [
+        "저는 오늘 운동 안 해요.",
+        "전 오늘 운동 안 해요."
+      ],
+      "hint": "하다 verbs split: put 안 inside right before 해요.",
+      "why": "Action verbs ending in -하다 split: 운동 안 해요 (not 안 운동해요)."
+    },
+    {
+      "t": "conj",
+      "h": "Fill the forms",
+      "forms": [
+        "present",
+        "past",
+        "future"
+      ],
+      "verbs": [
+        {
+          "v": "마시다",
+          "pos": "동사",
+          "en": "to drink"
+        },
+        {
+          "v": "일하다",
+          "pos": "동사",
+          "en": "to work"
+        },
+        {
+          "v": "운동하다",
+          "pos": "동사",
+          "en": "to exercise"
+        }
+      ]
+    },
+    {
+      "t": "expand",
+      "base": {
+        "tokens": [
+          "커피를",
+          "안 마셔요"
+        ],
+        "en": "I don't drink coffee."
+      },
+      "steps": [
+        {
+          "tokens": [
+            "저는",
+            "커피를",
+            "안 마셔요"
+          ],
+          "en": "I don't drink coffee."
+        },
+        {
+          "tokens": [
+            "저는",
+            "오늘",
+            "커피를",
+            "안 마셔요"
+          ],
+          "en": "I don't drink coffee today."
+        }
+      ]
+    },
+    {
+      "t": "passage",
+      "h": "Read a little",
+      "ko": [
+        "저는 술을 안 마셔요.",
+        "그리고 커피도 안 마셔요.",
+        "오늘은 학교에 안 가요.",
+        "집에서 편하게 쉬어요."
+      ],
+      "en": [
+        "I do not drink alcohol.",
+        "And I do not drink coffee either.",
+        "I am not going to school today.",
+        "I rest comfortably at home."
+      ]
+    },
+    {
+      "t": "choice",
+      "q": "Where does the speaker rest today?",
+      "options": [
+        "At home",
+        "At school",
+        "At the cafe"
+      ],
+      "answer": 0,
+      "why": "The text says '집에서 편하게 쉬어요' (I rest comfortably at home)."
+    },
+    {
+      "t": "choice",
+      "q": "What drinks does the speaker avoid?",
+      "options": [
+        "Alcohol and coffee",
+        "Tea and juice",
+        "Water and milk"
+      ],
+      "answer": 0,
+      "why": "The text states '저는 술을 안 마셔요. 그리고 커피도 안 마셔요.'"
+    },
+    {
+      "t": "cando",
+      "items": [
+        "Form negative statements using short negation 안",
+        "Correctly split -하다 verbs by placing 안 right before 해요"
+      ]
+    }
+  ],
+  "bg-09-02": [
+    {
+      "t": "vocab",
+      "h": "Words for this lesson",
+      "items": [
+        {
+          "ko": "매운 음식",
+          "en": "spicy food",
+          "ex": "매운 음식을 못 먹어요."
+        },
+        {
+          "ko": "수영",
+          "en": "swimming",
+          "ex": "수영 못 해요."
+        },
+        {
+          "ko": "바쁘다",
+          "en": "to be busy",
+          "ex": "바빠서 못 가요."
+        },
+        {
+          "ko": "아직",
+          "en": "yet / still",
+          "ex": "아직 잘 못 해요."
+        },
+        {
+          "ko": "길",
+          "en": "road / way",
+          "ex": "길을 못 찾아요."
+        }
+      ]
+    },
+    {
+      "t": "dictate",
+      "say": "저는 매운 음식을 못 먹어요",
+      "answers": [
+        "저는 매운 음식을 못 먹어요",
+        "전 매운 음식을 못 먹어요"
+      ],
+      "hint": "I cannot eat spicy food.",
+      "why": "Inability due to bodily intolerance uses 못: 못 먹어요."
+    },
+    {
+      "t": "write",
+      "q": "State that you cannot swim using 수영 and 못 해요.",
+      "must": [
+        "수영",
+        "못 해요"
+      ],
+      "sample": "저는 수영 못 해요.",
+      "why": "Lack of skill or inability uses 못, splitting 하다: 수영 못 해요."
+    },
+    {
+      "t": "correct",
+      "q": "Fix the mistake.",
+      "wrong": "저는 수영을 못수영해요.",
+      "answers": [
+        "저는 수영을 못 해요.",
+        "저는 수영 못 해요.",
+        "전 수영 못 해요."
+      ],
+      "hint": "Put 못 right before 해요: 수영을 못 해요.",
+      "why": "하다 verbs split so that 못 precedes 해요: 수영을 못 해요."
+    },
+    {
+      "t": "conj",
+      "h": "Fill the forms",
+      "forms": [
+        "present",
+        "past",
+        "future"
+      ],
+      "verbs": [
+        {
+          "v": "가다",
+          "pos": "동사",
+          "en": "to go"
+        },
+        {
+          "v": "수영하다",
+          "pos": "동사",
+          "en": "to swim"
+        },
+        {
+          "v": "먹다",
+          "pos": "동사",
+          "en": "to eat"
+        }
+      ]
+    },
+    {
+      "t": "expand",
+      "base": {
+        "tokens": [
+          "오늘",
+          "못 가요"
+        ],
+        "en": "I cannot go today."
+      },
+      "steps": [
+        {
+          "tokens": [
+            "오늘은",
+            "바빠서",
+            "못 가요"
+          ],
+          "en": "Because I'm busy today, I cannot go."
+        },
+        {
+          "tokens": [
+            "저는",
+            "오늘은",
+            "바빠서",
+            "못 가요"
+          ],
+          "en": "As for me, because I'm busy today, I cannot go."
+        }
+      ]
+    },
+    {
+      "t": "passage",
+      "h": "Read a little",
+      "ko": [
+        "저는 매운 음식을 못 먹어요.",
+        "그래서 떡볶이를 못 먹어요.",
+        "친구는 수영을 못 해요.",
+        "오늘은 바빠서 모임에 못 가요."
+      ],
+      "en": [
+        "I cannot eat spicy food.",
+        "Therefore I cannot eat tteokbokki.",
+        "My friend cannot swim.",
+        "Because I am busy today, I cannot go to the gathering."
+      ]
+    },
+    {
+      "t": "choice",
+      "q": "Why does the speaker avoid tteokbokki?",
+      "options": [
+        "Because they cannot eat spicy food",
+        "Because they dislike rice cakes",
+        "Because it is expensive"
+      ],
+      "answer": 0,
+      "why": "The speaker says '저는 매운 음식을 못 먹어요. 그래서 떡볶이를 못 먹어요.'"
+    },
+    {
+      "t": "choice",
+      "q": "Why can't the speaker go to the gathering?",
+      "options": [
+        "Because they are busy today",
+        "Because they are sick",
+        "Because it is raining"
+      ],
+      "answer": 0,
+      "why": "The text states '오늘은 바빠서 모임에 못 가요' (Because I am busy today, I cannot go to the gathering)."
+    },
+    {
+      "t": "cando",
+      "items": [
+        "Express physical inability or external impossibility using 못",
+        "Split -하다 verbs naturally with 못 (예: 수영 못 해요)"
+      ]
+    }
+  ],
+  "bg-09-03": [
+    {
+      "t": "vocab",
+      "h": "Words for this lesson",
+      "items": [
+        {
+          "ko": "땅콩",
+          "en": "peanut",
+          "ex": "땅콩을 못 먹어요."
+        },
+        {
+          "ko": "고기",
+          "en": "meat",
+          "ex": "고기를 안 먹어요."
+        },
+        {
+          "ko": "채식",
+          "en": "vegetarianism",
+          "ex": "채식해서 고기를 안 먹어요."
+        },
+        {
+          "ko": "표",
+          "en": "ticket",
+          "ex": "표가 없어서 못 봐요."
+        },
+        {
+          "ko": "운전",
+          "en": "driving",
+          "ex": "운전해서 술을 못 마셔요."
+        }
+      ]
+    },
+    {
+      "t": "dictate",
+      "say": "저는 고기를 안 먹어요",
+      "answers": [
+        "저는 고기를 안 먹어요",
+        "전 고기를 안 먹어요"
+      ],
+      "hint": "I don't eat meat.",
+      "why": "안 먹어요 expresses personal choice, such as being a vegetarian."
+    },
+    {
+      "t": "write",
+      "q": "Explain that you cannot drink because you are driving using 운전 and 못 마셔요.",
+      "must": [
+        "못 마셔요"
+      ],
+      "sample": "운전해서 술을 못 마셔요.",
+      "why": "An external restriction like driving requires 못: 못 마셔요."
+    },
+    {
+      "t": "correct",
+      "q": "Fix the mistake.",
+      "wrong": "저는 안 고기를 먹어요.",
+      "answers": [
+        "저는 고기를 안 먹어요.",
+        "전 고기를 안 먹어요."
+      ],
+      "hint": "안 goes right before the verb (고기를 안 먹어요), not before the object.",
+      "why": "The negative 안 comes directly before the verb: 고기를 안 먹어요."
+    },
+    {
+      "t": "conj",
+      "h": "Fill the forms",
+      "forms": [
+        "present",
+        "past",
+        "future"
+      ],
+      "verbs": [
+        {
+          "v": "먹다",
+          "pos": "동사",
+          "en": "to eat"
+        },
+        {
+          "v": "마시다",
+          "pos": "동사",
+          "en": "to drink"
+        },
+        {
+          "v": "가다",
+          "pos": "동사",
+          "en": "to go"
+        }
+      ]
+    },
+    {
+      "t": "expand",
+      "base": {
+        "tokens": [
+          "고기를",
+          "안 먹어요"
+        ],
+        "en": "I don't eat meat."
+      },
+      "steps": [
+        {
+          "tokens": [
+            "채식해서",
+            "고기를",
+            "안 먹어요"
+          ],
+          "en": "Being vegetarian, I don't eat meat."
+        },
+        {
+          "tokens": [
+            "저는",
+            "채식해서",
+            "고기를",
+            "안 먹어요"
+          ],
+          "en": "As for me, being vegetarian, I don't eat meat."
+        }
+      ]
+    },
+    {
+      "t": "passage",
+      "h": "Read a little",
+      "ko": [
+        "수진이는 채식주의자라서 고기를 안 먹어요.",
+        "민수는 땅콩 알레르기가 있어서 땅콩을 못 먹어요.",
+        "저는 오늘 운전해서 술을 못 마셔요.",
+        "하지만 시원한 주스는 마셔요."
+      ],
+      "en": [
+        "Sujin is vegetarian, so she does not eat meat.",
+        "Minsu has a peanut allergy, so he cannot eat peanuts.",
+        "Because I drive today, I cannot drink alcohol.",
+        "However, I drink refreshing juice."
+      ]
+    },
+    {
+      "t": "choice",
+      "q": "Why does Sujin not eat meat?",
+      "options": [
+        "She is vegetarian by choice",
+        "She has an allergy",
+        "Meat was sold out"
+      ],
+      "answer": 0,
+      "why": "The text explains '수진이는 채식주의자라서 고기를 안 먹어요' (Sujin is vegetarian, so she does not eat meat)."
+    },
+    {
+      "t": "choice",
+      "q": "Why can't Minsu eat peanuts?",
+      "options": [
+        "He has a peanut allergy",
+        "He doesn't like nuts",
+        "He is fasting"
+      ],
+      "answer": 0,
+      "why": "The passage notes '민수는 땅콩 알레르기가 있어서 땅콩을 못 먹어요' (Minsu has a peanut allergy)."
+    },
+    {
+      "t": "cando",
+      "items": [
+        "Distinguish between deliberate choice (안) and inability/circumstance (못)",
+        "Politely decline food or drinks with socially appropriate nuance"
+      ]
+    }
+  ],
+  "bg-09-04": [
+    {
+      "t": "vocab",
+      "h": "Words for this lesson",
+      "items": [
+        {
+          "ko": "뜨겁다",
+          "en": "to be hot (touch/temp)",
+          "ex": "물이 안 뜨거워요."
+        },
+        {
+          "ko": "차갑다",
+          "en": "to be cold (touch)",
+          "ex": "물이 안 차가워요."
+        },
+        {
+          "ko": "비싸다",
+          "en": "to be expensive",
+          "ex": "이 옷은 안 비싸요."
+        },
+        {
+          "ko": "깨끗하다",
+          "en": "to be clean",
+          "ex": "방이 안 깨끗해요."
+        },
+        {
+          "ko": "친절하다",
+          "en": "to be kind",
+          "ex": "직원이 안 친절해요."
+        }
+      ]
+    },
+    {
+      "t": "dictate",
+      "say": "오늘은 날씨가 안 추워요",
+      "answers": [
+        "오늘은 날씨가 안 추워요"
+      ],
+      "hint": "The weather isn't cold today.",
+      "why": "Descriptive adjectives only take 안, never 못: 안 추워요."
+    },
+    {
+      "t": "write",
+      "q": "State that the food is not expensive using 안 and 비싸요.",
+      "must": [
+        "안 비싸요"
+      ],
+      "sample": "이 음식은 안 비싸요.",
+      "why": "Adjectives describe states and are negated with 안: 안 비싸요."
+    },
+    {
+      "t": "correct",
+      "q": "Fix the mistake.",
+      "wrong": "이 옷은 전혀 못 비싸요.",
+      "answers": [
+        "이 옷은 전혀 안 비싸요."
+      ],
+      "hint": "Adjectives cannot take 못; use 안 instead.",
+      "why": "비싸다 is an adjective describing price, so negate it with 안: 안 비싸요."
+    },
+    {
+      "t": "conj",
+      "h": "Fill the forms",
+      "forms": [
+        "present",
+        "past",
+        "future"
+      ],
+      "verbs": [
+        {
+          "v": "크다",
+          "pos": "형용사",
+          "en": "to be big"
+        },
+        {
+          "v": "작다",
+          "pos": "형용사",
+          "en": "to be small"
+        },
+        {
+          "v": "비싸다",
+          "pos": "형용사",
+          "en": "to be expensive"
+        }
+      ]
+    },
+    {
+      "t": "expand",
+      "base": {
+        "tokens": [
+          "날씨가",
+          "안 추워요"
+        ],
+        "en": "The weather is not cold."
+      },
+      "steps": [
+        {
+          "tokens": [
+            "오늘은",
+            "날씨가",
+            "안 추워요"
+          ],
+          "en": "Today the weather is not cold."
+        },
+        {
+          "tokens": [
+            "한국은",
+            "오늘은",
+            "날씨가",
+            "안 추워요"
+          ],
+          "en": "In Korea, today the weather is not cold."
+        }
+      ]
+    },
+    {
+      "t": "passage",
+      "h": "Read a little",
+      "ko": [
+        "오늘 날씨는 전혀 안 추워요.",
+        "방이 아주 넓고 안 비싸요.",
+        "식당 직원이 정말 친절해요.",
+        "음식도 안 맵고 맛있어요."
+      ],
+      "en": [
+        "The weather today is not cold at all.",
+        "The room is very spacious and not expensive.",
+        "The restaurant staff is really kind.",
+        "The food is also not spicy and delicious."
+      ]
+    },
+    {
+      "t": "choice",
+      "q": "How is the weather today?",
+      "options": [
+        "Not cold at all",
+        "Freezing cold",
+        "Very hot"
+      ],
+      "answer": 0,
+      "why": "The text states '오늘 날씨는 전혀 안 추워요' (The weather today is not cold at all)."
+    },
+    {
+      "t": "choice",
+      "q": "How is the room described?",
+      "options": [
+        "Spacious and not expensive",
+        "Small and cheap",
+        "Expensive and noisy"
+      ],
+      "answer": 0,
+      "why": "The passage says '방이 아주 넓고 안 비싸요' (The room is very spacious and not expensive)."
+    },
+    {
+      "t": "cando",
+      "items": [
+        "Negate descriptive adjectives accurately with 안 (and avoid 못)",
+        "Recognize that descriptive -하다 adjectives do not split (안 친절해요)"
+      ]
+    }
+  ]
+}
