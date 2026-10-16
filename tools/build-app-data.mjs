@@ -3,6 +3,8 @@
    - manifest.json : 길(basic · mid · adv) 순서 · 코스 목록(제목 · 이모지 · 레슨 id · 분) · v(내용이 바뀌면 바뀌는 값)
    - lessons/<코스 id>.json : 그 코스의 레슨들(블록 포함)
    - grammar-pairs.json : 헷갈리는 문법 비교 퀴즈(문법 이름 · 뜻 포함)
+   - eps.json : EPS-TOPIK 연습 문항(웹 eps.js 그대로)
+   - reading.json : 읽기 연습 지문(웹 reading.js 그대로 — 짧은 글 · 긴 글 × 초 · 중 · 고급)
    - topik-<reading|listening>-<I|II>.json : TOPIK 연습 문항 + 유형 목록(blueprint)
    길 순서는 app.module.js 의 MY_LEVEL_COURSES · PATHS 와 같다 — 거기서 읽어 오니 웹에서 순서를 바꾸면 따라온다.
    원본은 courses*.js. 이 폴더는 생성물이라 손으로 고치지 않는다(node tools/build-app-data.mjs). */
@@ -61,6 +63,16 @@ const pairs = GRAMMAR_PAIRS.map((x) => ({ id: x.id, title: x.title, gist: x.gist
 const pairsBody = JSON.stringify(pairs);
 fs.writeFileSync(path.join(OUT, 'grammar-pairs.json'), pairsBody);
 const grammarPairs = { h: crypto.createHash('sha1').update(pairsBody).digest('hex').slice(0, 8), n: pairs.length, q: pairs.reduce((a, x) => a + x.quiz.length, 0) };
+/* EPS-TOPIK 연습 — 앱 「EPS」 화면(웹뷰 제거, 2026-10-17). 웹 eps.js 그대로(문항 100 · 유형 8). 기출 아님. */
+const EPSM = await import(pathToFileURL(path.join(ROOT, 'eps.js')).href);
+const epsBody = JSON.stringify({ types: EPSM.EPS_TYPES, items: EPSM.EPS_ITEMS });
+fs.writeFileSync(path.join(OUT, 'eps.json'), epsBody);
+const eps = { h: crypto.createHash('sha1').update(epsBody).digest('hex').slice(0, 8), n: EPSM.EPS_ITEMS.length };
+/* 읽기 연습 — 앱 「읽기」 화면(웹뷰 제거, 2026-10-17). 웹 reading.js 의 READING({short|long}→{beginner|intermediate|advanced}→지문들)을 그대로. 채점은 앱이 같은 규칙(keys 의 k 를 띄어쓰기 없이 견줌)으로 한다. */
+const { READING: RD } = await import(pathToFileURL(path.join(ROOT, 'reading.js')).href);
+const readingBody = JSON.stringify(RD);
+fs.writeFileSync(path.join(OUT, 'reading.json'), readingBody);
+const reading = { h: crypto.createHash('sha1').update(readingBody).digest('hex').slice(0, 8), n: Object.values(RD).reduce((a, lv) => a + Object.values(lv).reduce((b, l) => b + l.length, 0), 0) };
 /* TOPIK 연습(읽기 · 듣기, I · II) — 앱 「TOPIK」 탭. 문항은 전부 창작(기출 아님). 쓰기 · 모의고사는 아직 웹 화면으로. */
 const T1 = await import(pathToFileURL(path.join(ROOT, 'topik.js')).href);
 const T2 = await import(pathToFileURL(path.join(ROOT, 'topik2.js')).href);
@@ -199,7 +211,7 @@ const convo = mk('convo', CONVO);
 const stories = mk('stories', STORIES);
 
 const paths = Object.fromEntries(Object.entries(PATHS).map(([k, p]) => [k, { ko: p.ko, en: p.en, courses: pathCourses(p.lvs) }]));
-const manifest = { schema: 1, paths, courses, grammarPairs, topik, writing, mock: mockMeta, vocab, games, ui, dict, grammar, pathGrammar, leveltest, translate, convo, stories };
+const manifest = { schema: 1, paths, courses, grammarPairs, reading, eps, topik, writing, mock: mockMeta, vocab, games, ui, dict, grammar, pathGrammar, leveltest, translate, convo, stories };
 manifest.v = crypto.createHash('sha1').update(JSON.stringify(manifest)).digest('hex').slice(0, 8);
 fs.writeFileSync(path.join(OUT, 'manifest.json'), JSON.stringify(manifest));
 const nL = courses.reduce((a, c) => a + c.lessons.length, 0);
