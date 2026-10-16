@@ -1,0 +1,679 @@
+{
+  "bg-19-01": [
+    {
+      "t": "vocab",
+      "h": "Words for this lesson",
+      "items": [
+        {
+          "ko": "가지 마세요",
+          "en": "please do not go",
+          "ex": "위험하니까 혼자 가지 마세요."
+        },
+        {
+          "ko": "먹지 마세요",
+          "en": "please do not eat",
+          "ex": "찬 음식을 너무 많이 먹지 마세요."
+        },
+        {
+          "ko": "보지 마세요",
+          "en": "please do not look / watch",
+          "ex": "어두운 방에서 텔레비전을 보지 마세요."
+        },
+        {
+          "ko": "걱정하지 마세요",
+          "en": "please do not worry",
+          "ex": "제가 도와줄 테니까 걱정하지 마세요."
+        },
+        {
+          "ko": "찍지 마세요",
+          "en": "please do not take photos",
+          "ex": "박물관 안에서 사진을 찍지 마세요."
+        }
+      ]
+    },
+    {
+      "t": "dictate",
+      "say": "혼자 밖에 가지 마세요",
+      "answers": [
+        "혼자 밖에 가지 마세요"
+      ],
+      "hint": "Please do not go outside alone.",
+      "why": "Attach -지 마세요 directly to the verb stem 가-: 가지 마세요."
+    },
+    {
+      "t": "write",
+      "q": "Write a polite sentence telling someone not to eat late at night, using 밤에 and 먹지 마세요.",
+      "must": [
+        "밤에",
+        "먹지 마세요"
+      ],
+      "sample": "건강을 위해 밤에 라면을 먹지 마세요.",
+      "why": "Attach -지 마세요 directly to 먹- without any stem change."
+    },
+    {
+      "t": "conj",
+      "h": "Fill the forms",
+      "forms": [
+        "present",
+        "past",
+        "and"
+      ],
+      "verbs": [
+        {
+          "v": "가다",
+          "pos": "동사",
+          "en": "to go"
+        },
+        {
+          "v": "먹다",
+          "pos": "동사",
+          "en": "to eat"
+        },
+        {
+          "v": "보다",
+          "pos": "동사",
+          "en": "to look / watch"
+        },
+        {
+          "v": "찍다",
+          "pos": "동사",
+          "en": "to take (a photo)"
+        }
+      ]
+    },
+    {
+      "t": "expand",
+      "base": {
+        "tokens": [
+          "먹지",
+          "마세요"
+        ],
+        "en": "Please do not eat."
+      },
+      "steps": [
+        {
+          "tokens": [
+            "찬",
+            "음식을",
+            "먹지",
+            "마세요"
+          ],
+          "en": "Please do not eat cold food."
+        },
+        {
+          "tokens": [
+            "배가",
+            "아프면",
+            "찬",
+            "음식을",
+            "먹지",
+            "마세요"
+          ],
+          "en": "If your stomach hurts, please do not eat cold food."
+        }
+      ]
+    },
+    {
+      "t": "passage",
+      "h": "Read a little",
+      "ko": [
+        "동생이 감기에 걸려서 기침을 많이 해요.",
+        "의사 선생님이 동생에게 차가운 물을 마시지 마세요라고 말씀하셨어요.",
+        "그리고 밖에 나가지 마세요, 집에서 푹 쉬세요라고 하셨어요."
+      ],
+      "en": [
+        "My younger sibling caught a cold and coughs a lot.",
+        "The doctor told my sibling, 'Please do not drink cold water.'",
+        "And the doctor said, 'Please do not go outside, and rest well at home.'"
+      ]
+    },
+    {
+      "t": "choice",
+      "q": "What did the doctor tell the younger sibling not to drink?",
+      "options": [
+        "Cold water",
+        "Warm tea",
+        "Hot soup"
+      ],
+      "answer": 0,
+      "why": "The passage says '차가운 물을 마시지 마세요라고 말씀하셨어요' (Told them not to drink cold water)."
+    },
+    {
+      "t": "choice",
+      "q": "Where did the doctor tell the sibling to rest?",
+      "options": [
+        "At home",
+        "At the playground",
+        "At the swimming pool"
+      ],
+      "answer": 0,
+      "why": "The passage states '밖에 나가지 마세요, 집에서 푹 쉬세요' (Do not go outside, rest well at home)."
+    },
+    {
+      "t": "cando",
+      "items": [
+        "I can form polite negative requests using -지 마세요",
+        "I can attach -지 마세요 directly to verb stems regardless of vowel or batchim"
+      ]
+    }
+  ],
+  "bg-19-02": [
+    {
+      "t": "vocab",
+      "h": "Words for this lesson",
+      "items": [
+        {
+          "ko": "만지지 마세요",
+          "en": "please do not touch",
+          "ex": "젖은 손으로 만지지 마세요."
+        },
+        {
+          "ko": "울지 마세요",
+          "en": "please do not cry",
+          "ex": "슬픈 영화를 봐도 울지 마세요."
+        },
+        {
+          "ko": "듣지 마세요",
+          "en": "please do not listen",
+          "ex": "이상한 소문은 듣지 마세요."
+        },
+        {
+          "ko": "열지 마세요",
+          "en": "please do not open",
+          "ex": "비가 오니까 창문을 열지 마세요."
+        },
+        {
+          "ko": "건너지 마세요",
+          "en": "please do not cross",
+          "ex": "빨간불에 길을 건너지 마세요."
+        }
+      ]
+    },
+    {
+      "t": "dictate",
+      "say": "창문을 열지 마세요",
+      "answers": [
+        "창문을 열지 마세요"
+      ],
+      "hint": "Please do not open the window.",
+      "why": "ㄹ-stem verbs like 열다 keep ㄹ before -지 마세요: 열지 마세요."
+    },
+    {
+      "t": "write",
+      "q": "Write a polite warning telling someone not to touch a picture with their hands, using 손으로 and 만지지 마세요.",
+      "must": [
+        "손으로",
+        "만지지 마세요"
+      ],
+      "sample": "그림을 손으로 만지지 마세요.",
+      "why": "Attach -지 마세요 directly to the stem 만지-: 만지지 마세요."
+    },
+    {
+      "t": "correct",
+      "q": "Fix the mistake.",
+      "wrong": "슬퍼하지 말고 이제 우지 마세요.",
+      "answers": [
+        "슬퍼하지 말고 이제 울지 마세요.",
+        "슬퍼하지 말고 이제 울지 마세요"
+      ],
+      "hint": "Before -지 마세요, ㄹ-stem verbs like 울다 do NOT drop ㄹ!",
+      "why": "-지 마세요 attaches directly to the intact stem 울-: 울지 마세요."
+    },
+    {
+      "t": "conj",
+      "h": "Fill the forms",
+      "forms": [
+        "present",
+        "past",
+        "and"
+      ],
+      "verbs": [
+        {
+          "v": "열다",
+          "pos": "동사",
+          "en": "to open"
+        },
+        {
+          "v": "울다",
+          "pos": "동사",
+          "en": "to cry"
+        },
+        {
+          "v": "듣다",
+          "pos": "동사",
+          "en": "to listen"
+        },
+        {
+          "v": "만지다",
+          "pos": "동사",
+          "en": "to touch"
+        }
+      ]
+    },
+    {
+      "t": "expand",
+      "base": {
+        "tokens": [
+          "건너지",
+          "마세요"
+        ],
+        "en": "Please do not cross."
+      },
+      "steps": [
+        {
+          "tokens": [
+            "도로를",
+            "건너지",
+            "마세요"
+          ],
+          "en": "Please do not cross the road."
+        },
+        {
+          "tokens": [
+            "위험하니까",
+            "도로를",
+            "건너지",
+            "마세요"
+          ],
+          "en": "Because it is dangerous, please do not cross the road."
+        }
+      ]
+    },
+    {
+      "t": "passage",
+      "h": "Read a little",
+      "ko": [
+        "오늘 우리 반 학생들은 역사 박물관에 견학을 갔어요.",
+        "안내 선생님이 오래된 물건을 손으로 만지지 마세요라고 주의를 주셨어요.",
+        "그리고 전시실 문을 함부로 열지 마세요라고 말씀하셨어요."
+      ],
+      "en": [
+        "Today our class students went on a field trip to the history museum.",
+        "The guide teacher warned us, 'Please do not touch the old artifacts with your hands.'",
+        "And the teacher said, 'Please do not open the exhibition room doors carelessly.'"
+      ]
+    },
+    {
+      "t": "choice",
+      "q": "What did the guide teacher tell the students not to touch?",
+      "options": [
+        "The old artifacts in the museum",
+        "Their own backpacks",
+        "The school bus seats"
+      ],
+      "answer": 0,
+      "why": "The passage says '오래된 물건을 손으로 만지지 마세요라고 주의를 주셨어요'."
+    },
+    {
+      "t": "choice",
+      "q": "What else did the teacher tell the students not to do?",
+      "options": [
+        "Do not open the exhibition room doors carelessly",
+        "Do not read the information signs",
+        "Do not take notes in a notebook"
+      ],
+      "answer": 0,
+      "why": "The passage states '전시실 문을 함부로 열지 마세요라고 말씀하셨어요'."
+    },
+    {
+      "t": "cando",
+      "items": [
+        "I can keep irregular stems intact before -지 마세요 (듣지 마세요, 울지 마세요, 열지 마세요)",
+        "I can understand and give clear warnings using -지 마세요"
+      ]
+    }
+  ],
+  "bg-19-03": [
+    {
+      "t": "vocab",
+      "h": "Words for this lesson",
+      "items": [
+        {
+          "ko": "통화하면 안 돼요",
+          "en": "you must not talk on the phone",
+          "ex": "열람실 안에서 통화하면 안 돼요."
+        },
+        {
+          "ko": "주차하면 안 돼요",
+          "en": "you must not park",
+          "ex": "소화전 앞에 주차하면 안 돼요."
+        },
+        {
+          "ko": "들어가면 안 돼요",
+          "en": "you must not enter",
+          "ex": "공사 중이라서 들어가면 안 돼요."
+        },
+        {
+          "ko": "무리하지 마세요",
+          "en": "please do not overdo it / overwork",
+          "ex": "몸이 약하니까 무리하지 마세요."
+        },
+        {
+          "ko": "마시지 마세요",
+          "en": "please do not drink",
+          "ex": "목이 아플 때는 찬물을 마시지 마세요."
+        }
+      ]
+    },
+    {
+      "t": "dictate",
+      "say": "여기서 통화하면 안 돼요",
+      "answers": [
+        "여기서 통화하면 안 돼요"
+      ],
+      "hint": "You must not talk on the phone here.",
+      "why": "-(으)면 안 돼요 states a strict rule or public prohibition."
+    },
+    {
+      "t": "write",
+      "q": "Write one sentence stating a rule that you must not park here, using 여기에 and 주차하면 안 돼요.",
+      "must": [
+        "여기에",
+        "주차하면 안 돼요"
+      ],
+      "sample": "출입구 앞이라서 여기에 주차하면 안 돼요.",
+      "why": "Use -(으)면 안 돼요 to state an objective rule or regulation."
+    },
+    {
+      "t": "correct",
+      "q": "Fix the mistake.",
+      "wrong": "친구가 시험 때문에 불안해하니까 너무 걱정하면 안 돼요라고 위로했어요.",
+      "answers": [
+        "친구가 시험 때문에 불안해하니까 너무 걱정하지 마세요라고 위로했어요.",
+        "친구가 시험 때문에 불안해하니까 너무 걱정하지 마세요라고 위로했어요"
+      ],
+      "hint": "When comforting someone's feelings, use -지 마세요 (걱정하지 마세요), not rule prohibition -(으)면 안 돼요!",
+      "why": "걱정하면 안 돼요 sounds like forbidding an emotion by rule; warm comfort requires 걱정하지 마세요."
+    },
+    {
+      "t": "compare",
+      "h": "Polite Advice (-지 마세요) vs Rule Prohibition (-(으)면 안 돼요)",
+      "a": {
+        "h": "-지 마세요 (정중한 만류 · 위로 · 조언)",
+        "d": "Politely asks the listener not to do something, or warmly comforts them.",
+        "ex": [
+          "너무 **걱정하지 마세요**. — Please don't worry too much.",
+          "감기 걸렸을 때 찬물을 **마시지 마세요**. — Please don't drink cold water when you have a cold."
+        ]
+      },
+      "b": {
+        "h": "-(으)면 안 돼요 (규칙 · 법률 · 금지)",
+        "d": "States an objective rule, law, or social regulation ('must not / not allowed').",
+        "ex": [
+          "도서관에서 **통화하면 안 돼요**. — You must not talk on the phone in the library.",
+          "여기에 **주차하면 안 돼요**. — You are not allowed to park here."
+        ]
+      },
+      "tip": "Use -(으)면 안 돼요 to explain general rules and laws; use -지 마세요 for personal advice, requests, and emotional reassurance."
+    },
+    {
+      "t": "conj",
+      "h": "Fill the forms",
+      "forms": [
+        "present",
+        "past",
+        "future"
+      ],
+      "verbs": [
+        {
+          "v": "받다",
+          "pos": "동사",
+          "en": "to receive / answer (a call)"
+        },
+        {
+          "v": "마시다",
+          "pos": "동사",
+          "en": "to drink"
+        },
+        {
+          "v": "열다",
+          "pos": "동사",
+          "en": "to open"
+        },
+        {
+          "v": "자다",
+          "pos": "동사",
+          "en": "to sleep"
+        }
+      ]
+    },
+    {
+      "t": "expand",
+      "base": {
+        "tokens": [
+          "통화하면",
+          "안 돼요"
+        ],
+        "en": "You must not talk on the phone."
+      },
+      "steps": [
+        {
+          "tokens": [
+            "도서관에서",
+            "통화하면",
+            "안 돼요"
+          ],
+          "en": "You must not talk on the phone in the library."
+        },
+        {
+          "tokens": [
+            "조용한",
+            "도서관에서",
+            "통화하면",
+            "안 돼요"
+          ],
+          "en": "You must not talk on the phone in a quiet library."
+        }
+      ]
+    },
+    {
+      "t": "passage",
+      "h": "Read a little",
+      "ko": [
+        "영화관 안에서는 지켜야 할 예절이 있어요.",
+        "영화가 시작되면 휴대폰으로 통화하면 안 돼요.",
+        "그리고 앞사람 의자를 발로 차지 마세요."
+      ],
+      "en": [
+        "Inside a movie theater, there is etiquette we must follow.",
+        "Once the movie starts, you must not talk on the phone.",
+        "And please do not kick the seat of the person in front of you."
+      ]
+    },
+    {
+      "t": "choice",
+      "q": "What rule applies once the movie starts in the theater?",
+      "options": [
+        "You must not talk on your mobile phone",
+        "You must stand up and clap",
+        "You must open the emergency doors"
+      ],
+      "answer": 0,
+      "why": "The passage says '영화가 시작되면 휴대폰으로 통화하면 안 돼요' (Once the movie starts, you must not talk on the phone)."
+    },
+    {
+      "t": "choice",
+      "q": "What polite etiquette request is given regarding the person in front of you?",
+      "options": [
+        "Please do not kick their seat",
+        "Please ask for their ticket",
+        "Please borrow their glasses"
+      ],
+      "answer": 0,
+      "why": "The passage states '앞사람 의자를 발로 차지 마세요' (Please do not kick the seat in front of you)."
+    },
+    {
+      "t": "cando",
+      "items": [
+        "I can distinguish between personal advice (-지 마세요) and strict rules (-(으)면 안 돼요)",
+        "I can use warm reassurance expressions like 걱정하지 마세요 and 무리하지 마세요"
+      ]
+    }
+  ],
+  "bg-19-04": [
+    {
+      "t": "vocab",
+      "h": "Words for this lesson",
+      "items": [
+        {
+          "ko": "뛰지 마세요",
+          "en": "please do not run",
+          "ex": "복도가 미끄러우니까 뛰지 마세요."
+        },
+        {
+          "ko": "놓지 마세요",
+          "en": "please do not let go",
+          "ex": "안전 손잡이를 놓지 마세요."
+        },
+        {
+          "ko": "떠들지 마세요",
+          "en": "please do not make noise / chat loudly",
+          "ex": "교실 안에서 크게 떠들지 마세요."
+        },
+        {
+          "ko": "피우지 마세요",
+          "en": "please do not smoke",
+          "ex": "금연 구역에서 담배를 피우지 마세요."
+        },
+        {
+          "ko": "긴장하지 마세요",
+          "en": "please do not be nervous",
+          "ex": "면접 볼 때 너무 긴장하지 마세요."
+        }
+      ]
+    },
+    {
+      "t": "dictate",
+      "say": "복도에서 뛰지 마세요",
+      "answers": [
+        "복도에서 뛰지 마세요"
+      ],
+      "hint": "Please do not run in the hallway.",
+      "why": "뛰다 attaches -지 마세요 for a public safety notice."
+    },
+    {
+      "t": "write",
+      "q": "Write a warm sentence comforting a nervous friend before an exam, using 너무 and 긴장하지 마세요.",
+      "must": [
+        "너무",
+        "긴장하지 마세요"
+      ],
+      "sample": "열심히 준비했으니까 너무 긴장하지 마세요.",
+      "why": "Use 긴장하지 마세요 to warmly reassure someone who feels anxious."
+    },
+    {
+      "t": "correct",
+      "q": "Fix the mistake.",
+      "wrong": "독서실 안에서는 큰 소리로 떠드지 마세요.",
+      "answers": [
+        "독서실 안에서는 큰 소리로 떠들지 마세요.",
+        "독서실 안에서는 큰 소리로 떠들지 마세요"
+      ],
+      "hint": "떠들다 is a ㄹ-stem verb, and ㄹ does NOT drop before -지 마세요!",
+      "why": "Keep the ㄹ intact before -지 마세요: 떠들지 마세요."
+    },
+    {
+      "t": "conj",
+      "h": "Fill the forms",
+      "forms": [
+        "present",
+        "past",
+        "and"
+      ],
+      "verbs": [
+        {
+          "v": "뛰다",
+          "pos": "동사",
+          "en": "to run"
+        },
+        {
+          "v": "놓다",
+          "pos": "동사",
+          "en": "to let go / put down"
+        },
+        {
+          "v": "피우다",
+          "pos": "동사",
+          "en": "to smoke / bloom"
+        },
+        {
+          "v": "잡다",
+          "pos": "동사",
+          "en": "to hold / catch"
+        }
+      ]
+    },
+    {
+      "t": "expand",
+      "base": {
+        "tokens": [
+          "뛰지",
+          "마세요"
+        ],
+        "en": "Please do not run."
+      },
+      "steps": [
+        {
+          "tokens": [
+            "승강장에서",
+            "뛰지",
+            "마세요"
+          ],
+          "en": "Please do not run on the platform."
+        },
+        {
+          "tokens": [
+            "지하철",
+            "승강장에서",
+            "뛰지",
+            "마세요"
+          ],
+          "en": "Please do not run on the subway platform."
+        }
+      ]
+    },
+    {
+      "t": "passage",
+      "h": "Read a little",
+      "ko": [
+        "지하철역 에스컬레이터 옆에 안전 안내문이 붙어 있어요.",
+        "안내문에는 손잡이를 놓지 마세요, 그리고 걷거나 뛰지 마세요라고 적혀 있어요.",
+        "안전 규칙을 지키면 모두가 편안하게 지하철을 이용할 수 있어요."
+      ],
+      "en": [
+        "A safety notice is posted next to the subway station escalator.",
+        "On the notice, it is written: 'Please do not let go of the handrail, and please do not walk or run.'",
+        "If everyone follows the safety rules, we can all use the subway comfortably."
+      ]
+    },
+    {
+      "t": "choice",
+      "q": "What two warnings are written on the escalator safety notice?",
+      "options": [
+        "Do not let go of the handrail, and do not walk or run",
+        "Do not bring bags, and do not wear hats",
+        "Do not read books, and do not drink water"
+      ],
+      "answer": 0,
+      "why": "The passage says '손잡이를 놓지 마세요, 그리고 걷거나 뛰지 마세요라고 적혀 있어요'."
+    },
+    {
+      "t": "choice",
+      "q": "What happens if everyone follows the safety rules?",
+      "options": [
+        "Everyone can use the subway comfortably",
+        "The subway ticket becomes free",
+        "The train arrives ten minutes early"
+      ],
+      "answer": 0,
+      "why": "The passage states '안전 규칙을 지키면 모두가 편안하게 지하철을 이용할 수 있어요'."
+    },
+    {
+      "t": "cando",
+      "items": [
+        "I can read and understand common public prohibition signs in Korea",
+        "I can offer warm encouragement like 긴장하지 마세요 and 부담 갖지 마세요"
+      ]
+    }
+  ]
+}
