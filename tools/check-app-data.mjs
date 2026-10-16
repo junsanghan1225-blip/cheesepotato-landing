@@ -32,6 +32,15 @@ else {
   for (const x of gp) { if (!x.a?.name || !x.b?.name) err(`${x.id}: 문법 이름이 비었다`); for (const q of x.quiz) if (!q.q.includes('___') || (q.ans !== 'a' && q.ans !== 'b')) err(`${x.id}: 퀴즈 모양이 이상하다 — ${q.q}`); }
   if (man.grammarPairs?.n !== gp.length) err('manifest 의 grammarPairs 가 낡았다');
 }
+const EPSSRC = await import(pathToFileURL(path.join(ROOT, 'eps.js')).href);
+const epf = path.join(ROOT, 'app-data/eps.json');
+if (!fs.existsSync(epf)) err('app-data/eps.json 이 없다');
+else {
+  const ep = JSON.parse(fs.readFileSync(epf, 'utf8'));
+  if (ep.items?.length !== EPSSRC.EPS_ITEMS.length) err(`EPS ${ep.items?.length}문항 — 원본 ${EPSSRC.EPS_ITEMS.length}문항`);
+  for (const x of ep.items || []) if (!x.id || !x.question || x.options?.length !== 4 || !(x.answer >= 0 && x.answer < 4) || !ep.types?.[x.sec]?.[x.type]) err(`EPS ${x.id}: 모양이 틀렸다`);
+  if (man.eps?.n !== ep.items?.length) err('manifest 의 eps 가 낡았다');
+}
 const { READING: RDSRC } = await import(pathToFileURL(path.join(ROOT, 'reading.js')).href);
 const rdf = path.join(ROOT, 'app-data/reading.json');
 if (!fs.existsSync(rdf)) err('app-data/reading.json 이 없다');
