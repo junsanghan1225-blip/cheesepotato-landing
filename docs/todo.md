@@ -8,7 +8,6 @@
 ### 운영자 (순서대로, 각 몇 분)
 | # | 할 일 | 어떻게 |
 |---|---|---|
-| 0 | **SQL 한 번**: `db/add_profile_sync.sql`(약점 기록 · 스타일을 기기 사이에 이어 줌) — 머지된 뒤 SQL Editor 에 붙여 Run → 「SQL 돌렸어」 | `docs/plans/lesson-redesign.md` 7단계 |
 | 1 | **친구 초대 확인** (5분) | 로그인 → 설정 「친구 초대」 문구가 「둘 다 Pro 30일」로 바뀌었는지 → 그 링크를 시크릿 창에서 열어 새 계정 가입 → 「Pro 30일이 열렸어요」 알림 + 두 계정 모두 Pro 인지. 안 되면 화면 캡처를 주세요. |
 | 2 | **안티에 5묶음 보내기** | `docs/antigravity/보낼말.md` 1번(5묶음: bg-14~19). 올라오면 「안티가 올렸어」 |
 | 3 | **Clarity 「Dead click」 히트맵 캡처** 2장 | Clarity → Heatmaps → 첫 화면 · `/topik-writing/` → 「Dead clicks」 보기 (아무 반응 없는 클릭 19%의 위치를 찾는다) |
@@ -97,6 +96,7 @@
 | 8 | **TOPIK 노출 다음 단계**: ① 영어 TOPIK 가이드 글(9편 들어옴 · 1편 보류) ② 낱말 목록 쪽 ✅ ③ 문법 목록 쪽 ✅(2026-10-15 `/topik-grammar-list/`) — 머지 뒤 Search Console 색인 요청 필요 | 운영자 |
 
 ## ✅ 끝난 것
+- 2026-10-17 SQL `db/add_profile_sync.sql`(약점 기록 · 스타일 · 속도 서버 저장) 운영자가 돌림. 다음: 폰 ↔ 컴퓨터로 이어지는지 확인.
 - 2026-10-16 Search Console 실적 내보내기(3개월) 받음 → `docs/analytics/2026-10-16-search-console.md`. 다음: 2주 뒤 순위 다시 보기.
 - 2026-10-16 SQL `db/add_referrals.sql`(친구 초대 → 둘 다 Pro 30일 — 표 3개 · is_pro 보너스) 운영자가 돌림. 다음: 실제 가입으로 보상 확인.
 - 2026-10-15 SQL `db/add_writing_share.sql`(TOPIK 쓰기 답안 공유 — 표 2개 · 신고) 운영자가 돌림. 다음: 53·54 를 AI 채점 → 「내 답안을…」 체크 → 올리기 → 「다른 학생 답안 보기」 눈으로 확인(운영자)
