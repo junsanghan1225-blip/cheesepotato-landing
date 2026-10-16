@@ -7467,3 +7467,40 @@ button.hero-how { border:none; font:inherit; font-weight:700; cursor:pointer; }
 .lt-langrow { display:flex; align-items:center; justify-content:center; gap:8px; margin:4px 0 14px; font-size:13.5px; color:var(--ink-3); }
 .lt-langrow button { font:inherit; font-size:13.5px; font-weight:700; padding:6px 14px; border-radius:999px; border:1px solid var(--line); background:var(--surface,#fff); color:var(--ink-2); cursor:pointer; }
 .lt-langrow button.on { border-color:var(--orange); color:var(--ink); background:var(--tint,#FDF0E2); }
+
+/* 구간 머리 · 미니 테스트 — 꾸밈 없이 문제에 집중(운영자 2026-10-17 「산타토익처럼」) */
+.ut-h { display:flex; align-items:center; gap:10px; margin:20px 2px 8px; }
+.ut-no { width:24px; height:24px; border-radius:50%; background:var(--ink); color:var(--surface); font-size:12px; font-weight:800; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+.ut-name { flex:1; font-size:15px; font-weight:800; color:var(--ink); word-break:keep-all; }
+.ut-n { font-size:12.5px; font-weight:700; color:var(--ink-3); font-variant-numeric:tabular-nums; }
+.ut-go { background:var(--tint); }
+.ut-go .my-row-t b { color:var(--ink); }
+.ut { max-width:640px; margin:0 auto; display:flex; flex-direction:column; gap:14px; padding:4px 0 24px; }
+.ut-top { display:flex; align-items:center; gap:12px; }
+.ut-x { background:none; border:0; font-size:20px; color:var(--ink-3); cursor:pointer; padding:4px 6px; }
+.ut-bar { flex:1; height:6px; border-radius:6px; background:var(--line-2); overflow:hidden; }
+.ut-bar i { display:block; height:100%; background:var(--ink); transition:width .3s ease; }
+.ut-cnt { font-size:13px; font-weight:700; color:var(--ink-3); font-variant-numeric:tabular-nums; }
+.ut-k { margin:6px 0 0; font-size:13px; font-weight:700; color:var(--ink-3); }
+.ut-q { font-size:20px; font-weight:700; line-height:1.55; color:var(--ink); word-break:keep-all; }
+.ut-q small { display:block; margin-top:6px; font-size:14px; font-weight:500; color:var(--ink-3); }
+.ut-opts { display:flex; flex-direction:column; gap:10px; }
+.ut-o { display:flex; align-items:center; gap:12px; width:100%; min-height:54px; text-align:left; padding:12px 16px; border-radius:14px; border:1.5px solid var(--line); background:var(--surface); color:var(--ink); font:inherit; font-size:16px; font-weight:600; cursor:pointer; transition:border-color .15s, background .15s; }
+.ut-o span { width:24px; height:24px; border-radius:50%; background:var(--line-2); font-size:12px; font-weight:800; display:flex; align-items:center; justify-content:center; flex-shrink:0; color:var(--ink-2); }
+.ut-o:hover:not([disabled]) { border-color:var(--ink-3); }
+.ut-o.ok { border-color:#12704f; background:rgba(18,112,79,.08); }
+.ut-o.ok span { background:#12704f; color:#fff; }
+.ut-o.bad { border-color:#c0392b; background:rgba(192,57,43,.07); }
+.ut-o.dim { opacity:.55; }
+.ut-o[disabled] { cursor:default; }
+.ut-why { border-radius:14px; padding:14px 16px; background:var(--tint); font-size:14.5px; line-height:1.6; color:var(--ink); }
+.ut-why.ok b { color:#12704f; } .ut-why.bad b { color:#c0392b; }
+.ut-why p { margin:6px 0 0; }
+.ut-next, .ut-again { min-height:52px; border-radius:14px; border:0; background:var(--ink); color:var(--surface); font:inherit; font-size:16px; font-weight:800; cursor:pointer; padding:0 20px; }
+.ut-again { background:none; color:var(--ink); border:1.5px solid var(--line); }
+.ut-btns { display:flex; flex-direction:column; gap:10px; margin-top:6px; }
+.ut-res { text-align:center; }
+.ut-res .my-rows { text-align:left; }
+.ut-score { font-size:56px; font-weight:900; color:var(--ink); line-height:1.1; }
+.ut-score small { font-size:22px; color:var(--ink-3); }
+.ut-msg { margin:0; font-size:15px; line-height:1.6; color:var(--ink-2); word-break:keep-all; }
