@@ -44,6 +44,7 @@
 ### 📱 앱
 | # | 할 일 | 어디 |
 |---|---|---|
+| 0 | **앱 웹뷰 완전 제거 — 시작 전 두 가지**: ① 확인용 앱(`npx.cmd eas-cli update --channel preview --environment preview`)으로 폰에서 레슨 · 오늘 · 약점 지도 · 번역 · 회화 · 반 숙제를 둘러보고 이상한 곳 알려 주기 → 「앱 PR 머지해줘」 ② 선생님 도구(반 만들기 · 숙제 내기)를 앱에서 「웹에서 열기(기본 브라우저)」로 둘지 알려 주기 | 앱 저장소의 webview-removal 문서 |
 | 6 | 확인용 앱을 폰에서 보기 → 「앱 PR 머지해줘」 | 앱 PR cheesepotatoapp#8 (별점 · 바로 고치기) |
 | 7 | 정식 앱 빌드 올리기 + Play Console 데이터 보안 「비정상 종료 로그 · 진단」 체크 | 앱 `docs/ota-updates.md` · `docs/data-safety.md` |
 | 8 | 앱 PR #1(홍보 자료 안내) 넣을지 | cheesepotatoapp#1 |
