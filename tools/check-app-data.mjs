@@ -32,6 +32,18 @@ else {
   for (const x of gp) { if (!x.a?.name || !x.b?.name) err(`${x.id}: 문법 이름이 비었다`); for (const q of x.quiz) if (!q.q.includes('___') || (q.ans !== 'a' && q.ans !== 'b')) err(`${x.id}: 퀴즈 모양이 이상하다 — ${q.q}`); }
   if (man.grammarPairs?.n !== gp.length) err('manifest 의 grammarPairs 가 낡았다');
 }
+const { READING: RDSRC } = await import(pathToFileURL(path.join(ROOT, 'reading.js')).href);
+const rdf = path.join(ROOT, 'app-data/reading.json');
+if (!fs.existsSync(rdf)) err('app-data/reading.json 이 없다');
+else {
+  const rd = JSON.parse(fs.readFileSync(rdf, 'utf8')); let n = 0;
+  for (const len of Object.keys(RDSRC)) for (const lv of Object.keys(RDSRC[len])) {
+    const src = RDSRC[len][lv], got = rd[len]?.[lv] || [];
+    if (got.length !== src.length) err(`읽기 ${len}/${lv}: ${got.length}편 — 원본 ${src.length}편`);
+    for (const x of got) { n++; if (!x.id || !x.passage || !x.question || !x.model || !Array.isArray(x.keys) || !x.keys.length || x.keys.some((k) => !Array.isArray(k.k) || !k.k.length || !k.why)) err(`읽기 ${x.id}: 모양이 틀렸다`); }
+  }
+  if (man.reading?.n !== n) err('manifest 의 reading 이 낡았다');
+}
 const TOPIK_SRC = { 'reading-I': (await import(pathToFileURL(path.join(ROOT, 'topik.js')).href)).TOPIK_READING, 'reading-II': (await import(pathToFileURL(path.join(ROOT, 'topik2.js')).href)).TOPIK2_READING };
 const TL = await import(pathToFileURL(path.join(ROOT, 'topik-listening.js')).href);
 TOPIK_SRC['listening-I'] = TL.TOPIKL_ITEMS; TOPIK_SRC['listening-II'] = TL.TOPIKL2_ITEMS;
