@@ -12,8 +12,8 @@ const fmt = (n) => Number(n || 0).toLocaleString('ko-KR');
 const pct = (a, b) => (b ? Math.round((a / b) * 100) : 0);
 const sec = (ms) => (ms == null ? '—' : ms < 1000 ? `${Math.round(ms)}ms` : `${(ms / 1000).toFixed(1)}초`);
 
-const SEC = { all: '전체', lesson: '레슨', drill: '집중 훈련', topik_read: 'TOPIK 읽기', topik_listen: 'TOPIK 듣기', topik_write: 'TOPIK 쓰기', mock: '모의고사', leveltest: '레벨 테스트' };
-const KIND = { choice: '고르기', listen: '듣기', cloze: '빈칸', type: '쓰기', order: '배열', build: '문장 만들기', translate: '번역', correct: '오류 찾기', conj: '활용 표', pair: '짝', speak: '말하기', ai: 'AI 채점' };
+const SEC = { all: '전체', lesson: '레슨', drill: '집중 훈련', topik_read: 'TOPIK 읽기', topik_listen: 'TOPIK 듣기', topik_write: 'TOPIK 쓰기', mock: '모의고사', leveltest: '레벨 테스트', other: '낱말 · 문법 연습 · 번역' };
+const KIND = { pick: '보기 고르기', card: '카드 넘기기', choice: '고르기', listen: '듣기', cloze: '빈칸', type: '쓰기', order: '배열', build: '문장 만들기', translate: '번역', correct: '오류 찾기', conj: '활용 표', pair: '짝', speak: '말하기', ai: 'AI 채점' };
 const TAGLAB = (t) => t.startsWith('g:') ? `문법 ${t.slice(2)}` : t.startsWith('k:') ? `종류 · ${KIND[t.slice(2)] || t.slice(2)}` : t;
 
 let days = 28, fSec = 'all', fTag = null, data = null, sortKey = 'rate', sortDir = 1, q = '';
