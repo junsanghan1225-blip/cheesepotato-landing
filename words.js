@@ -1246,6 +1246,7 @@ export function wordsInit(D) {
     if (!c || c.stage !== 0 || run.fb) return;
     const ok = c.opts[i] === c.w;
     run.fb = { ok, pick: i };
+    if (!c.test) logW(c, 'pick', ok);
     if (c.test) {
       testMark(c, ok);
       draw();
@@ -1265,7 +1266,10 @@ export function wordsInit(D) {
     draw();
   }
   /* 시험: 문제마다 적고, 끝에 낱말마다 한 번 채점한다(한 낱말이 두 문제로 나와도 기록은 한 번). */
+  /* 풀이 기록(운영자 2026-10-17) — 섹션은 아직 'other'(answer_events 의 sec 검사 값에 없어서 새 값을 보내면 묶음 전체가 거절된다). 항목 머리 w: 가 낱말. 낱말 하나의 한 답. 내용은 낱말 머리와 맞음 · 틀림뿐 */
+  const logW = (c, kind, ok) => { try { D.alog?.({ sec: 'other', item: 'w:' + idOf(c.w), kind, ok, tries: (c.miss || 0) + 1, label: c.w.h, tags: c.w.l ? ['l:' + c.w.l] : null }); } catch (e) { /* 기록은 화면을 막지 않는다 */ } };
   function testMark(c, ok) {
+    logW(c, 'pick', ok);
     run.answered++; if (ok) run.score++;
     const id = idOf(c.w);
     run.res[id] = run.res[id] === 'no' || !ok ? 'no' : 'know';
@@ -1280,6 +1284,7 @@ export function wordsInit(D) {
     const near = !exact && a.length > 1 && dist(jamo(a), jamo(h), 1) <= 1;
     const ok = exact || near;
     run.fb = { ok, near, said };
+    if (!c.test) logW(c, 'type', ok);
     if (c.test) testMark(c, ok);
     else if (!ok) { c.miss++; run.q.splice(Math.min(3, run.q.length), 0, c); }
     else finishWord(c);
@@ -1296,6 +1301,7 @@ export function wordsInit(D) {
     const c = run.cur;
     if (!c) return;
     run.res[idOf(c.w)] = how;
+    if (!c.again) logW(c, 'card', how === 'know' ? true : how === 'no' ? false : null);
     grade(idOf(c.w), how);
     if (how === 'no') run.q.push({ w: c.w, again: true });
     advance();
