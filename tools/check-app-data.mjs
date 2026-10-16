@@ -14,6 +14,19 @@ const want = COURSES.filter((c) => c.lessons.length);
 if (man.courses.length !== want.length) err(`코스 ${man.courses.length}개 — 원본은 ${want.length}개(자료가 바뀌었으면 node tools/build-app-data.mjs)`);
 const ids = new Set(man.courses.map((c) => c.id));
 for (const c of man.courses) { if (!c.title?.ko || !c.title?.en) err(`코스 ${c.id}: 제목이 비었다(ko · en 둘 다 있어야 앱에 보인다)`); for (const l of c.lessons) if (!l.title?.ko || !l.title?.en) err(`레슨 ${l.id}: 제목이 비었다`); }
+// 구간: 길의 코스가 모두 어느 한 구간에 들고, 구간마다 미니 테스트 문제(고르기 · 빈칸)가 10개 이상 있어야 한다
+if (!Array.isArray(man.units) || !man.units.length) err('manifest 에 구간(units)이 없다');
+else {
+  const inUnit = new Map();
+  for (const u of man.units) for (const id of u.courses) { if (!ids.has(id)) err(`구간 ${u.id} 의 코스 ${id} 가 목록에 없다`); if (inUnit.has(id)) err(`코스 ${id} 가 구간 ${inUnit.get(id)} · ${u.id} 둘에 들었다`); inUnit.set(id, u.id); }
+  for (const p of Object.values(man.paths)) for (const id of p.courses) if (!inUnit.has(id)) err(`길의 코스 ${id} 가 어느 구간에도 없다`);
+  for (const u of man.units) {
+    if (u.lv <= 0) continue;   // 한글 구간은 글자 읽기라 미니 테스트 대신 레슨 안 연습으로 본다
+    let n = 0;
+    for (const id of u.courses) { const f = path.join(ROOT, 'app-data/lessons', id + '.json'); if (!fs.existsSync(f)) continue; for (const l of JSON.parse(fs.readFileSync(f, 'utf8'))) for (const b of l.blocks || []) if ((b.t === 'choice' && Array.isArray(b.options)) || (b.t === 'cloze' && Array.isArray(b.options) && b.options.includes(b.answer))) n++; }
+    if (n < 10) err(`구간 ${u.id} 의 미니 테스트 문제가 ${n}개뿐이다(10개 필요)`);
+  }
+}
 for (const [k, p] of Object.entries(man.paths)) { if (!p.courses.length) err(`길 ${k} 에 코스가 없다`); for (const id of p.courses) if (!ids.has(id)) err(`길 ${k} 의 코스 ${id} 가 목록에 없다`); }
 let nL = 0, nB = 0;
 for (const c of want) {

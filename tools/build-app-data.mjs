@@ -29,6 +29,21 @@ const levelCourses = (L) => {
   const want = L === 6 ? 'Intermediate' : 'Advanced';
   return COURSES.filter((c) => c.level === want && c.lessons.length);
 };
+/* 구간(app.module.js 의 MY_UNITS · myUnits 와 같은 규칙) — 앱이 「구간 ① …」 머리와 미니 테스트를 그린다 */
+const mu = src.match(/const MY_UNITS = (\{[\s\S]*?\n\});/);
+if (!mu) throw new Error('app.module.js 에서 MY_UNITS 를 못 찾았다');
+const MY_UNITS = new Function(`return ${mu[1]}`)();
+const unitsOf = (L) => {
+  const list = levelCourses(L), def = MY_UNITS[L];
+  const units = def
+    ? def.map((u, i) => ({ id: `u${L}-${i + 1}`, lv: L, ko: u.ko, en: u.en, courses: u.c.filter((id) => list.some((c) => c.id === id)) }))
+    : Array.from({ length: Math.ceil(list.length / 5) }, (_, i) => ({ id: `u${L}-${i + 1}`, lv: L, ko: `${L === 6 ? '중급' : '고급'} 구간 ${i + 1}`, en: `${L === 6 ? 'Intermediate' : 'Advanced'} unit ${i + 1}`, courses: list.slice(i * 5, i * 5 + 5).map((c) => c.id) }));
+  const used = new Set(units.flatMap((u) => u.courses));
+  const rest = list.filter((c) => !used.has(c.id)).map((c) => c.id);
+  if (rest.length && units.length) units[units.length - 1].courses.push(...rest);
+  return units.filter((u) => u.courses.length);
+};
+const units = [0, 1, 2, 3, 4, 5, 6, 7].flatMap(unitsOf);
 const pathCourses = (lvs) => { const seen = new Set(), out = []; for (const L of lvs) for (const c of levelCourses(L)) if (!seen.has(c.id)) { seen.add(c.id); out.push(c.id); } return out; };
 const PATHS = {
   basic: { lvs: [0, 1, 2, 3, 4, 5], ko: '기초부터', en: 'From the basics' },
@@ -211,7 +226,7 @@ const convo = mk('convo', CONVO);
 const stories = mk('stories', STORIES);
 
 const paths = Object.fromEntries(Object.entries(PATHS).map(([k, p]) => [k, { ko: p.ko, en: p.en, courses: pathCourses(p.lvs) }]));
-const manifest = { schema: 1, paths, courses, grammarPairs, reading, eps, topik, writing, mock: mockMeta, vocab, games, ui, dict, grammar, pathGrammar, leveltest, translate, convo, stories };
+const manifest = { schema: 1, paths, units, courses, grammarPairs, reading, eps, topik, writing, mock: mockMeta, vocab, games, ui, dict, grammar, pathGrammar, leveltest, translate, convo, stories };
 manifest.v = crypto.createHash('sha1').update(JSON.stringify(manifest)).digest('hex').slice(0, 8);
 fs.writeFileSync(path.join(OUT, 'manifest.json'), JSON.stringify(manifest));
 const nL = courses.reduce((a, c) => a + c.lessons.length, 0);
