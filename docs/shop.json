@@ -166,21 +166,21 @@
       "status": "planned"
     },
     {
-      "id": "topik2-writing-200",
+      "id": "topik2-writing-51-52",
       "series": "topik",
       "color": "#6B3FA0",
       "level": "TOPIK II",
       "title": {
-        "en": "TOPIK II Writing 51–54: 200 Practice Questions",
-        "ko": "TOPIK II 쓰기 51~54번 200제"
+        "en": "TOPIK II Writing 51–52: 100 Practice Questions",
+        "ko": "TOPIK II 쓰기 51~52번 100제"
       },
       "sub": {
-        "en": "Sentence completion to the 700-character essay, with model answers.",
-        "ko": "문장 완성부터 700자 글쓰기까지 · 모범 답안"
+        "en": "Practical and explanatory text completion, with model answers and scoring points.",
+        "ko": "실용문 · 설명문 빈칸 쓰기 · 모범 답안과 채점 포인트"
       },
       "about": {
-        "en": "200 original writing tasks for questions 51–54 — fill-in sentences, the graph description and the long essay — each with a model answer and the points a grader looks for. Original practice material, not past papers.",
-        "ko": "51~54번 새로 만든 쓰기 문제 200개 — 문장 채우기 · 도표 설명 · 긴 글. 문제마다 모범 답안과 채점에서 보는 점. 기출 아님."
+        "en": "100 original questions for 51 and 52 — one sentence per blank, in the right style. Each has several accepted answers, the scoring point and the mistakes that lose marks. Original practice material, not past papers.",
+        "ko": "51 · 52번 새로 만든 문제 100개 — 빈칸마다 문체에 맞는 한 문장. 문제마다 가능한 답 여러 개, 채점 포인트, 감점 실수. 기출 아님."
       },
       "for": {
         "en": [
@@ -194,28 +194,65 @@
       },
       "toc": [
         {
-          "en": "How questions 51–54 are scored",
-          "ko": "51~54번 채점 기준"
+          "en": "Question 51: practical text (50)",
+          "ko": "51번 실용문 50문항"
         },
         {
-          "en": "Questions 51–52: sentence completion",
-          "ko": "51~52번 문장 완성"
+          "en": "Question 52: explanatory text (50)",
+          "ko": "52번 설명문 50문항"
         },
         {
-          "en": "Question 53: describing a graph",
-          "ko": "53번 도표 설명"
-        },
-        {
-          "en": "Question 54: the long essay",
-          "ko": "54번 긴 글쓰기"
-        },
-        {
-          "en": "Model answers",
-          "ko": "모범 답안"
+          "en": "Answer key with scoring points",
+          "ko": "정답 · 채점 포인트"
         }
       ],
       "trim": "B5 (182 × 257 mm)",
-      "pages": "약 260쪽 (예정)",
+      "pages": "약 74쪽 (시안)",
+      "status": "planned"
+    },
+    {
+      "id": "topik2-writing-53-54",
+      "series": "topik",
+      "color": "#6B3FA0",
+      "level": "TOPIK II",
+      "title": {
+        "en": "TOPIK II Writing 53–54: 100 Practice Questions",
+        "ko": "TOPIK II 쓰기 53~54번 100제"
+      },
+      "sub": {
+        "en": "Describe data in 300 characters, argue in 700 — with scored samples.",
+        "ko": "자료 설명 300자 · 논술 700자 · 상중하 답안과 채점"
+      },
+      "about": {
+        "en": "100 original questions for 53 and 54 with a model answer, scoring criteria and three sample answers (high / middle / low) with scores and reasons. Original practice material, not past papers.",
+        "ko": "53 · 54번 새로 만든 문제 100개 — 모범 답안, 채점 기준, 상 · 중 · 하 예시 답안(점수와 이유). 기출 아님."
+      },
+      "for": {
+        "en": [
+          "TOPIK II (levels 3–6) test takers",
+          "Learners who struggle with the essay"
+        ],
+        "ko": [
+          "TOPIK II (3~6급) 응시생",
+          "긴 글쓰기가 어려운 학습자"
+        ]
+      },
+      "toc": [
+        {
+          "en": "Question 53: describing data (50)",
+          "ko": "53번 자료 설명 50문항"
+        },
+        {
+          "en": "Question 54: the long essay (50)",
+          "ko": "54번 논술 50문항"
+        },
+        {
+          "en": "Model answers and scored samples",
+          "ko": "모범 답안 · 점수별 예시"
+        }
+      ],
+      "trim": "B5 (182 × 257 mm)",
+      "pages": "약 220쪽 (시안)",
       "status": "planned"
     }
   ],
