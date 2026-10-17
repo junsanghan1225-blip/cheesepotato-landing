@@ -43,7 +43,7 @@ const CSS = `
 @font-face{font-family:'Pretendard Variable';font-weight:45 920;src:local('Pretendard Variable')}
 @page{size:${W}mm ${H}mm;margin:22mm 17mm 24mm 22mm}
 @page:left{margin:22mm 22mm 24mm 17mm;
-  @top-left{content:${cssStr(B.title.en.toUpperCase())};font:600 6.8pt 'Pretendard Variable';letter-spacing:.12em;color:#9a9288;vertical-align:bottom;padding-bottom:5mm}
+  @top-left{content:${cssStr(B.title.en.toUpperCase())};white-space:nowrap;font:600 6.8pt 'Pretendard Variable';letter-spacing:.12em;color:#9a9288;vertical-align:bottom;padding-bottom:5mm}
   @bottom-left{content:counter(page);font:700 8.5pt 'Pretendard Variable';color:${ACC};vertical-align:top;padding-top:6mm}}
 @page:right{
   @bottom-right{content:counter(page);font:700 8.5pt 'Pretendard Variable';color:${ACC};vertical-align:top;padding-top:6mm}}
@@ -51,8 +51,8 @@ const CSS = `
 @page plain:left{margin:22mm 22mm 24mm 17mm}
 @page plain:right{margin:22mm 17mm 24mm 22mm}
 @page part{margin:0;@top-left{content:none}@top-right{content:none}@bottom-left{content:none}@bottom-right{content:none}}
-${units.map((u) => `@page ${unitCss(u)}:right{@top-right{content:${cssStr(`UNIT ${String(u.no).padStart(2, '0')}  ·  ${u.title.en.toUpperCase()}`)};font:600 6.8pt 'Pretendard Variable';letter-spacing:.12em;color:#9a9288;vertical-align:bottom;padding-bottom:5mm}}
-@page ${unitCss(u)}:left{@top-left{content:${cssStr(B.title.en.toUpperCase())}}}`).join('\n')}
+${units.map((u) => `@page ${unitCss(u)}:right{@top-right{content:${cssStr(`UNIT ${String(u.no).padStart(2, '0')}  ·  ${u.title.ko}`)};white-space:nowrap;font:600 6.8pt 'Pretendard Variable';letter-spacing:.1em;color:#9a9288;vertical-align:bottom;padding-bottom:5mm}}
+@page ${unitCss(u)}:left{@top-left{content:${cssStr(B.title.en.toUpperCase())};white-space:nowrap}}`).join('\n')}
 @page unitopen{margin:0;@top-left{content:none}@top-right{content:none}@bottom-left{content:none}@bottom-right{content:none}}
 *{box-sizing:border-box;margin:0;padding:0}
 html{-webkit-print-color-adjust:exact;print-color-adjust:exact}
@@ -175,6 +175,7 @@ function partPage(p) {
   return `<div class="blk pd"><div class="no">PART ${p.no}</div><div class="big">${String(p.no).padStart(2, '0')}</div><h2>${esc(p.title.ko)}</h2><h3>${esc(p.title.en)}</h3>
 <div class="list">${p.sheets.map((s) => { const u = units.find((x) => x.id === s.id); return `Unit ${String(u.no).padStart(2, '0')} &nbsp; ${esc(s.title.en)}`; }).join('<br>')}</div></div>`;
 }
+const qw = (items) => { const m = Math.max(...items.filter((x) => !x.q.includes('___')).map((x) => [...x.q].length), 0); return m <= 12 ? '34%' : m <= 22 ? '48%' : m <= 34 ? '60%' : '72%'; };
 function unitBlock(u) {
   const secs = u.sections;
   const open = `<div class="blk uo ${unitCss(u)}" style="page:unitopen"><div class="band"></div><div class="pn">PART ${u.part.no} · ${esc(u.part.title.en.toUpperCase())}</div><div class="no">UNIT ${String(u.no).padStart(2, '0')}</div>
@@ -192,7 +193,7 @@ function unitBlock(u) {
       return `<div class="sec"${s.rows.length <= 8 ? ' style="break-inside:avoid"' : ''}>${sr(si)}${secLabel(s)}<table><thead><tr>${s.cols.map((c) => `<th>${esc(c)}</th>`).join('')}</tr></thead><tbody>${s.rows.map((r) => `<tr>${r.map((c, i) => `<td${tipCols[i] ? ' class="tip"' : ''}>${esc(c)}</td>`).join('')}</tr>`).join('')}</tbody></table>${s.note ? `<div class="note">${esc(s.note)}</div>` : ''}</div>`;
     }
     if (s.type === 'text') return `<div class="sec">${sr(si)}${secLabel(s)}<div class="note">${esc(s.text)}</div></div>`;
-    return `<div class="sec">${sr(si)}${secLabel(s)}${s.hint ? `<div class="hint">${esc(s.hint)}</div>` : ''}<ol class="pr">${s.items.map((x) => `<li>${qLine(x.q)}</li>`).join('')}</ol></div>`;
+    return `<div class="sec">${sr(si)}${secLabel(s)}${s.hint ? `<div class="hint">${esc(s.hint)}</div>` : ''}<ol class="pr" style="--qw:${qw(s.items)}">${s.items.map((x) => `<li${x.q.includes('___') ? ' class="fill"' : ''}>${qLine(x.q)}</li>`).join('')}</ol></div>`;
   }).join('\n');
   if (CLASSIC) return `<div class="blk ${unitCss(u)}" style="page:${unitCss(u)}">${u._head}${body}</div>`;
   return open + `<div class="blk ${unitCss(u)}" style="page:${unitCss(u)}">${body}</div>`;
@@ -241,26 +242,27 @@ const reviewSheet = () => `<div class="blk plain rv"><h2>Review checklist · 검
 const memoBlock = (n) => Array.from({ length: n }, () => `<div class="blk plain memo"><h2>Notes · 메모</h2>${'<div class="rule"></div>'.repeat(22)}</div>`).join('');
 
 /* ── 쪽 찍기 ── */
-const reviewTop = REVIEW ? `@page:left{@top-center{content:"REVIEW COPY · 검수본";font:800 6.8pt 'Pretendard Variable';letter-spacing:.2em;color:#c0392b;vertical-align:bottom;padding-bottom:5mm;white-space:nowrap}}@page:right{@top-center{content:"REVIEW COPY · 검수본";font:800 6.8pt 'Pretendard Variable';letter-spacing:.2em;color:#c0392b;vertical-align:bottom;padding-bottom:5mm}}` : '';
+const reviewTop = REVIEW ? `@page:left{@bottom-center{content:"REVIEW COPY · 검수본";white-space:nowrap;font:800 6.4pt 'Pretendard Variable';letter-spacing:.2em;color:#c0392b;vertical-align:top;padding-top:6mm}}@page:right{@bottom-center{content:"REVIEW COPY · 검수본";white-space:nowrap;font:800 6.4pt 'Pretendard Variable';letter-spacing:.2em;color:#c0392b;vertical-align:top;padding-top:6mm}}` : '';
 const CLASSIC_CSS = `
 body{font-size:9.4pt;line-height:1.6;color:#111}
 /* 정석풍 — 남색 한 가지 · 면 채우기 없이 선과 글자만(운영자 「더 깔끔하게 수학의 정석처럼」) */
-.sec{margin:0 0 7mm}
-.sec>h3{display:grid;grid-template-columns:auto 1fr;column-gap:3.2mm;align-items:baseline;border-bottom:.35mm solid ${ACC};padding-bottom:1.4mm;margin-bottom:3mm;font-size:11.5pt}
+.sec{margin:0 0 5.5mm}
+.sec>h3{display:grid;grid-template-columns:auto 1fr;grid-template-rows:auto auto;column-gap:3mm;row-gap:.2mm;align-items:center;border-bottom:.35mm solid ${ACC};padding-bottom:1.1mm;margin-bottom:2.4mm;font-size:11.2pt;line-height:1.3}
 .sec>h3:before{display:none}
-.lab{grid-row:1/3;align-self:start;font-style:normal;border:.3mm solid ${ACC};color:${ACC};font-size:7.4pt;font-weight:800;letter-spacing:.04em;padding:.7mm 2.6mm;border-radius:0;line-height:1.5;white-space:nowrap}
-.sec>h3 span{grid-column:2}.sec>h3 small{grid-column:2;margin:0;font-size:8.4pt;color:#5a6780;font-weight:500}.sec>h3:not(:has(.lab)) span{grid-column:1/3}
+.lab{grid-row:1;align-self:center;font-style:normal;border:.3mm solid ${ACC};color:${ACC};font-size:7.4pt;font-weight:800;letter-spacing:.04em;padding:.7mm 2.6mm;border-radius:0;line-height:1.5;white-space:nowrap}
+.sec>h3 span{grid-column:2;grid-row:1}.sec>h3 small{grid-column:2;grid-row:2;margin:0;font-size:8.2pt;line-height:1.25;color:#5a6780;font-weight:500}.sec>h3:not(:has(.lab)) span{grid-column:1/3}
 table{border-top:.45mm solid ${ACC};border-bottom:.45mm solid ${ACC}}
-th{background:transparent;color:${ACC};border:0;border-bottom:.25mm solid ${ACC};font-size:7.8pt;font-weight:800;letter-spacing:.02em;padding:1.8mm 3mm}
-tbody tr:nth-child(even) td,tr:nth-child(even) td{background:transparent}td{border-bottom:.15mm solid #cfd6e2;padding:1.7mm 3mm}tr:last-child td{border-bottom:0}td:first-child{color:${ACC}}td.tip{color:#6b7a92}
-.note{border:0;border-left:.9mm solid ${ACC};background:transparent;color:#111;padding:1.2mm 0 1.2mm 3.6mm;margin-top:3mm}.note b{color:${ACC}}
+th{background:transparent;color:${ACC};border:0;border-bottom:.25mm solid ${ACC};font-size:7.6pt;font-weight:800;letter-spacing:.02em;padding:1.4mm 3mm;line-height:1.25}
+tbody tr:nth-child(even) td,tr:nth-child(even) td{background:transparent}td{border-bottom:.15mm solid #cfd6e2;padding:1.35mm 3mm;line-height:1.35}tr:last-child td{border-bottom:0}td:first-child{color:${ACC}}td.tip{color:#6b7a92}
+.note{border:0;border-left:.9mm solid ${ACC};background:transparent;color:#111;padding:.8mm 0 .8mm 3.2mm;margin-top:2.4mm;line-height:1.5}.note b{color:${ACC}}
 .pr li{border-bottom:0;min-height:8.4mm}.pr li:before{content:counter(q) '.';border:0;border-radius:0;background:transparent;color:${ACC};width:6mm;height:auto;font-size:9pt;font-weight:800;justify-content:flex-start;margin:0}
-.pr .ln{border-bottom:.2mm solid #8e9ab0}.pr .bl{border-bottom:.2mm solid #8e9ab0}
+.pr li{display:grid;grid-template-columns:6mm var(--qw,48%) 1fr;column-gap:3mm;align-items:end;padding:1mm 0}.pr li.fill{grid-template-columns:6mm 1fr}.pr li.fill .ln{display:none}
+.pr .q{font-weight:500;line-height:1.45;padding-bottom:.4mm}.pr .ln{flex:none;min-width:0;height:4.8mm;border-bottom:.2mm solid #8e9ab0;margin:0}.pr .bl{border-bottom:.2mm solid #8e9ab0}
 .uh{display:block;padding-bottom:3mm;border-bottom:.35mm solid ${ACC};margin-bottom:1.2mm;position:relative}
 .uh:after{content:'';position:absolute;left:0;right:0;bottom:-1.6mm;border-bottom:1.1mm solid ${ACC}}
-.uh .un{display:block;width:auto;height:auto;background:transparent;color:${ACC};font-size:8pt;font-weight:800;letter-spacing:.3em;margin-bottom:2mm}
+.uh .un{display:block;width:auto;height:auto;background:transparent;color:${ACC};font-size:7.6pt;font-weight:800;letter-spacing:.24em;margin-bottom:1.4mm;line-height:1.2}
 .uh .ut small{display:none}.uh .ut h2{font-size:23pt;line-height:1.2;font-weight:800;color:#111}.uh .ut h3{font-size:11pt;font-weight:500;color:#5a6780;margin-top:1mm}
-.us{margin:6mm 0 7mm;font-size:9.2pt;color:#2a3550;padding:0;border:0}.us small{display:block;margin-top:.8mm;color:#6b7a92;font-size:8.4pt}
+.us{margin:4.6mm 0 5mm;font-size:9.2pt;color:#2a3550;padding:0;border:0}.us small{display:block;margin-top:.8mm;color:#6b7a92;font-size:8.4pt}
 .pd{background:#fff !important;color:#111 !important;padding:70mm 24mm 0 !important}.pd:before,.pd:after{display:none !important}
 .pd .no{color:${ACC};opacity:1}.pd .big{color:${ACC};opacity:1;font-size:96pt;font-weight:800;margin:4mm 0 5mm}.pd h2{color:#111;font-size:26pt;padding-bottom:4mm;border-bottom:1.1mm solid ${ACC}}.pd h3{color:#5a6780;opacity:1}.pd .list{color:#2a3550;opacity:1;margin-top:8mm}
 .toc .pt,.ak .u h4 span,.ix .ini,.memo h2{color:${ACC}}.how li:before{background:${ACC}}
