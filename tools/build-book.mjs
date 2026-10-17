@@ -229,23 +229,29 @@ function tocPage(starts) {
 /* 문제은행 책 — 번호마다 「풀이 방법」 쪽(topik-writing.js 의 TW_GUIDE): 무엇을 묻는지 · 풀이 순서 · 표현 · 자주 하는 실수 */
 function qGuidePage(p) {
   const q = partQ(p); const g = TWM?.TW_GUIDE?.[q]; if (!g) return '';
+  const pt = TWM.TW_QS.find((x) => x.q === q)?.pt;
   const both = (o) => `${esc(o.en)} <small>· ${esc(o.ko)}</small>`;
-  return `<div class="blk plain gd"><h2>How to solve Question ${q}</h2><div class="k">${q}번 풀이 방법 · ${esc(g.time.ko)} (${esc(g.time.en)})</div>
-<p class="note" style="margin:1mm 0 3mm">${esc(g.what.en)}<br><span style="color:#5a6780">${esc(g.what.ko)}</span></p>
-<h3 style="font-size:10.4pt;margin:3mm 0 1.4mm;color:#1f3a68">Steps · 풀이 순서</h3>
-<ol style="margin:0 0 2mm;padding-left:5mm;font-size:9.4pt;line-height:1.55">${g.steps.map((x) => `<li>${esc(x.en)}<br><small style="color:#5a6780">${esc(x.ko)}</small></li>`).join('')}</ol>
-<h3 style="font-size:10.4pt;margin:3mm 0 1.4mm;color:#1f3a68">Useful expressions · 쓸 수 있는 표현</h3>
+  return `<div class="blk plain gd"><h2>How to solve Question ${q}</h2><div class="k">${q}번 풀이 방법</div>
+<div class="chips"><span class="chip"><b>${esc(g.time.ko)}</b>${esc(g.time.en)}</span>${pt ? `<span class="chip"><b>${pt}점</b>${pt} points</span>` : ''}</div>
+<div class="bx tip">${legend('tip')}<div class="tt">${esc(g.what.en)}<br><small style="color:#5a6780">${esc(g.what.ko)}</small></div></div>
+<h3 class="gh">Steps · 풀이 순서</h3>
+<div class="stp">${g.steps.map((x, i) => `<div class="st"><i>${i + 1}</i><div><b>${esc(x.en)}</b><small>${esc(x.ko)}</small></div></div>`).join('')}</div>
+<h3 class="gh">Useful expressions · 쓸 수 있는 표현</h3>
 <table><thead><tr><th>Use · 쓰임</th><th>Expressions · 표현</th></tr></thead><tbody>${g.phrases.map((x) => `<tr><td>${both(x)}</td><td>${esc(x.ex)}</td></tr>`).join('')}</tbody></table>
-${boxHtml('warn', g.mistakes.map((x) => `${x.en} / ${x.ko}`).join('\n'))}</div>`;
+<div class="bx warn">${legend('warn')}<ul class="mk">${g.mistakes.map((x) => `<li>${esc(x.en)}<small>${esc(x.ko)}</small></li>`).join('')}</ul></div></div>`;
 }
 /* 쓰기 책 보강(docs/writing-book/extras.json) — 번호마다 「채점 기준」 쪽 + 「예시 풀이」 쪽. 문항 글 · 모범답안 · 상중하 답안은 topik-writing.js 에서 그대로. */
 const EXTRAS = (() => { try { return JSON.parse(fs.readFileSync(path.join(ROOT, 'docs/writing-book/extras.json'), 'utf8')); } catch { return {}; } })();
 const bi = (o) => `${esc(o.en)}<br><small style="color:#5a6780">${esc(o.ko)}</small>`;
 function qScorePage(p) {
   const q = partQ(p); const e = EXTRAS[q]; if (!e) return '';
+  const pt = TWM.TW_QS.find((x) => x.q === q)?.pt;
+  const smp = TWM.TW_ITEMS.find((x) => x.id === e.worked?.item)?.samples || [];
+  const AREA = { content: '내용', structure: '구성', language: '언어' };
+  const ladder = smp.length ? `<h3 class="gh">Sample scores · 예시 답안 점수 <small style="font-weight:500;color:#5a6780">(${esc(e.worked.item)})</small></h3><div class="lad">${smp.map((sm) => `<div class="rw"><b>${esc(sm.level)}</b><div class="bar"><span style="width:${Math.round(sm.total / pt * 100)}%"></span></div><em>${sm.total}<small>/${pt}</small></em></div><div class="why">${Object.entries(sm.scores || {}).map(([k, v]) => `${AREA[k] || k} ${v}`).join(' · ')} — ${esc(sm.why)}</div>`).join('')}</div>` : '';
   return `<div class="blk plain gd"><h2>How Question ${q} is scored</h2><div class="k">${q}번 채점 기준</div>
-<p class="note" style="margin:1mm 0 3mm">${esc(e.scoring.en)}<br><span style="color:#5a6780">${esc(e.scoring.ko)}</span></p>
-<table><thead><tr><th>Area · 영역</th><th>High score · 높은 점수</th><th>Lost points · 감점</th></tr></thead><tbody>${e.criteria.map((c) => `<tr><td>${bi(c.k)}</td><td>${bi(c.hi)}</td><td>${bi(c.lo)}</td></tr>`).join('')}</tbody></table></div>`;
+<div class="total"><div class="big">${pt}<small>pts · 점</small></div><p>${esc(e.scoring.en)}<small>${esc(e.scoring.ko)}</small></p></div>
+<div class="sc3" style="--n:${e.criteria.length}">${e.criteria.map((c) => `<div class="sc"><h4>${esc(c.k.en)}<small>${esc(c.k.ko)}</small></h4><div class="hi"><i>✓</i><div>${bi(c.hi)}</div></div><div class="lo"><i>✗</i><div>${bi(c.lo)}</div></div></div>`).join('')}</div>${ladder}</div>`;
 }
 function qWorkedPage(p) {
   const q = partQ(p); const e = EXTRAS[q]?.worked; if (!e) return '';
@@ -383,6 +389,13 @@ tbody tr:nth-child(even) td,tr:nth-child(even) td{background:transparent}td{bord
 .bx .lg{position:absolute;left:3mm;top:-2.1mm;background:#fff;padding:0 1.8mm;display:flex;align-items:center;gap:1.2mm;font-size:6.8pt;font-weight:800;letter-spacing:.12em;color:var(--c);line-height:1.2}
 .bx .lg svg{width:3.3mm;height:3.3mm;stroke:var(--c);fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}.bx .lg small{font-weight:600;letter-spacing:0;color:#6b7a92;font-size:6.8pt}
 .flow{display:flex;align-items:stretch;gap:1.2mm;margin-top:2mm}.flow .fs{flex:1;border:.3mm solid ${ACC};border-radius:1.6mm;padding:2.4mm 1.8mm;text-align:center;background:#fff;display:flex;flex-direction:column;gap:.8mm;justify-content:center}.flow .fs b{font-size:8.8pt;color:${ACC}}.flow .fs span{font-size:7pt;color:#5a6780;line-height:1.3}.flow .fs.bl{background:${TINT};border-style:dashed}.flow .ar{align-self:center;color:${ACC};font-style:normal;font-weight:800;font-size:10pt}
+.gd .chips{display:flex;gap:2mm;margin:1mm 0 3mm}.gd .chip{display:inline-flex;align-items:baseline;gap:1.6mm;border:.3mm solid ${ACC};border-radius:5mm;padding:.9mm 3.2mm;font-size:7.6pt;color:#5a6780}.gd .chip b{font-size:9.4pt;color:${ACC}}
+.gd h3.gh{font-size:10.4pt;margin:3.2mm 0 1.2mm;color:${ACC}}
+.stp{display:flex;flex-direction:column;gap:1.1mm}.stp .st{display:flex;gap:3mm;align-items:flex-start;border:.25mm solid #d6dce8;border-radius:1.6mm;padding:1.2mm 3mm;background:#fff}.stp .st i{flex:none;width:6mm;height:6mm;border-radius:50%;background:${ACC};color:#fff;font:800 8.4pt/6mm 'Pretendard Variable';text-align:center;font-style:normal}.stp .st b{display:block;font-size:9pt;font-weight:600;line-height:1.4}.stp .st small{display:block;font-size:7.8pt;color:#5a6780;margin-top:.4mm}
+.bx .mk{list-style:none;display:flex;flex-direction:column;gap:1.6mm}.bx .mk li{font-size:8.8pt;line-height:1.4;padding-left:4.2mm;position:relative}.bx .mk li:before{content:"✗";position:absolute;left:0;color:#B3322D;font-weight:800}.bx .mk small{display:block;font-size:7.8pt;color:#5a6780}
+.gd .total{display:flex;gap:5mm;align-items:center;margin:1mm 0 4mm;padding:3mm 4mm;background:${TINT};border-radius:2mm}.gd .total .big{font:800 26pt/1 'Pretendard Variable';color:${ACC};white-space:nowrap}.gd .total .big small{font-size:8pt;font-weight:600;margin-left:1.2mm;color:#5a6780}.gd .total p{font-size:9pt;line-height:1.45}.gd .total p small{display:block;font-size:7.8pt;color:#5a6780;margin-top:.6mm}
+.sc3{display:grid;grid-template-columns:repeat(var(--n),1fr);gap:2.4mm}.sc{border:.3mm solid ${ACC};border-radius:1.8mm;overflow:hidden;background:#fff}.sc h4{background:${ACC};color:#fff;padding:1.8mm 2.4mm;font-size:9pt}.sc h4 small{display:block;font-size:7.4pt;font-weight:500;opacity:.8}.sc .hi,.sc .lo{display:flex;gap:1.8mm;padding:2.2mm 2.4mm;font-size:8.2pt;line-height:1.4}.sc .hi{background:#eef6ef}.sc .lo{background:#fbefee;border-top:.2mm solid #fff}.sc i{flex:none;font-style:normal;font-weight:800}.sc .hi i{color:#2e7d4f}.sc .lo i{color:#B3322D}.sc small{font-size:7.2pt}
+.lad .rw{display:flex;align-items:center;gap:2.4mm;margin-top:2.2mm}.lad .rw b{width:7mm;font-size:9.4pt;color:${ACC}}.lad .bar{flex:1;height:3.4mm;background:#e8ecf3;border-radius:2mm;overflow:hidden}.lad .bar span{display:block;height:100%;background:${ACC}}.lad em{font:800 11pt "Pretendard Variable";font-style:normal;width:21mm;white-space:nowrap;text-align:right}.lad em small{font-size:7.4pt;font-weight:500;color:#5a6780}.lad .why{font-size:8pt;color:#44506a;line-height:1.4;margin:.6mm 0 0 9.4mm}
 .bx .pp{display:flex;flex-direction:column;gap:2.2mm}.pt1 .fl{display:flex;align-items:center;flex-wrap:wrap;gap:0}
 .nd{display:inline-flex;align-items:center;padding:1.2mm 2.8mm;border-radius:1.3mm;font-weight:800}.nd.sl{border:.3mm dashed ${ACC};background:#F1F4FA;color:${ACC};font-size:8pt}.nd.fx{background:${ACC};color:#fff;font-size:9.6pt}
 .lk{font-style:normal;width:4mm;text-align:center;color:#9aa6bb;font-weight:800}.mn{margin-left:3mm;font-size:8.4pt;color:#2a3550}
