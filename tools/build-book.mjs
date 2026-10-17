@@ -4,7 +4,7 @@
    - interior.pdf : 속표지 · 판권면 · 머리말 · 쓰는 법 · 목차 · 단원 · 정답 · 찾아보기 · 메모(총 쪽수가 짝수가 되게). B5 182×257mm, 안쪽 여백이 넓은 좌우 쪽.
    - cover-spread.pdf : 뒤표지 + 책등 + 앞표지 한 장(재단 여유 3mm). 책등 너비는 쪽수 × 종이 두께로 계산(인쇄소가 정해 주는 값으로 다시 계산할 것).
    - --theme classic : 「수학의 정석」풍 판(운영자 2026-10-17 「수학의 정석처럼 깔끔하게」) — 남색 한 가지 · 핵심 정리 / 참고 / 연습 이름표 · 단원은 쪽 맨 위에서 바로 시작(빈 표지 쪽 없음). 결과는 <out>/<id>-classic/.
-   - --review : 검수본(interior-review.pdf) — 쪽 위에 「REVIEW COPY」, 칸마다 빨간 출처 표시(학습지 id · §번호 — 「고칠 곳」을 말하면 바로 원본을 찾는다) + 맨 끝 검수 체크표. 운영자 2026-10-17 「검수는 내가 다 한다」.
+   - --review : 검수본(interior-review.pdf) + 같은 내용의 글 판 review-text.md(다른 AI · 사람이 읽고 검사하기 쉽게 — 출처 · 블록 종류 · 정답 포함) — 쪽 위에 「REVIEW COPY」, 칸마다 빨간 출처 표시(학습지 id · §번호 — 「고칠 곳」을 말하면 바로 원본을 찾는다) + 맨 끝 검수 체크표. 운영자 2026-10-17 「검수는 내가 다 한다」.
    - 목차의 쪽 번호는 블록(속표지 · 각 단원 …)을 따로 찍어 쪽수를 세어 더한 값이다(PDF 안의 /Type /Page 수).
    만든 PDF 는 파는 파일이라 저장소에 두지 않는다(out 기본값 books-out/ 은 .gitignore). 문장은 전부 우리 학습지(창작) — 기출 아님.
    브라우저는 smoke.mjs 처럼 PLAYWRIGHT_PATH · CHROMIUM_PATH 로 바꿀 수 있다. */
@@ -360,6 +360,24 @@ fs.mkdirSync(dir, { recursive: true });
 const interior = await pdf(final);
 const realTotal = countPages(interior) - (REVIEW ? countPages(await pdf(reviewSheet())) : 0);
 fs.writeFileSync(path.join(dir, REVIEW ? 'interior-review.pdf' : 'interior.pdf'), interior);
+if (REVIEW) {
+  /* 글 판 — 단원 · 칸마다 출처(학습지id · §번호) · 블록 종류 · 표 · 설명 · 연습(정답 포함) */
+  const md = [`# ${B.title.en} · ${B.title.ko} — review text`, '', `단원 ${units.length} · 출처 표기 = 「학습지id · §칸번호」`, ''];
+  for (const u of units) {
+    md.push(`## Unit ${String(u.no).padStart(2, '0')} · ${u.title.en} · ${u.title.ko}  [${u.id}]`, `> ${u.sub.en} / ${u.sub.ko}`, '');
+    u.sections.forEach((x, i) => {
+      const k = CLASSIC && x.type !== 'practice' && x.type !== 'table' ? (kindOf(u, i, x) === 'ref' ? 'note' : kindOf(u, i, x)) : x.type;
+      md.push(`### §${i + 1} · ${x.type} · ${x.title.en}${x.title.ko ? ` / ${x.title.ko}` : ''}   (${u.id} · §${i + 1})`);
+      if (x.type === 'table') { md.push(`| ${x.cols.join(' | ')} |`, `|${x.cols.map(() => '---').join('|')}|`, ...x.rows.map((r) => `| ${r.join(' | ')} |`)); if (x.note) md.push('', `[${kindOf(u, i, x)}] ${x.note}`); }
+      else if (x.type === 'text') md.push(`[${k}] ${x.text}`);
+      else { if (x.hint) md.push(`(hint) ${x.hint}`); x.items.forEach((q, n) => md.push(`${n + 1}. ${q.q}  →  **${q.a}**`)); }
+      const pat = (B.patterns || {})[`${u.id}:${i + 1}`];
+      if (pat) md.push('', '[pattern] ' + pat.map((r) => r.p.map(([t, kk]) => (kk === 's' ? `[${t}]` : t)).join(' + ') + ` → ${r.en}${r.ex ? ` · e.g. ${r.ex}${r.exEn ? ` (${r.exEn})` : ''}` : ''}`).join(' | '));
+      md.push('');
+    });
+  }
+  fs.writeFileSync(path.join(dir, 'review-text.md'), md.join('\n'));
+}
 
 /* ── 표지(뒤 + 책등 + 앞) ── */
 const spine = Math.round((Math.ceil(realTotal / 2) * T.paperMm + 0.6) * 10) / 10;
