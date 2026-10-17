@@ -218,6 +218,7 @@ function tocPage(starts) {
   const ln = (n, en, ko, p) => `<div class="ln"><span class="n">${n}</span><span class="t">${esc(en)}<small>${esc(ko)}</small></span><span class="d"></span><span class="p">${p ?? '··'}</span></div>`;
   h += ln('', 'Preface · How to use this book', '머리말 · 쓰는 법', starts?.preface);
   if (!B.noGuide) h += ln('', 'How this book is organized', '이 책의 구성 · 블록 읽는 법', starts?.guide);
+  if (FRONT_LIST.length) { h += `<div class="pt">BEFORE YOU START · <span style="color:#9a9288;font-weight:500">시작하기 전에</span></div>`; for (const [k, en, ko] of FRONT_LIST) h += ln('', en, ko, starts?.front?.[k]); }
   for (const p of parts) {
     h += `<div class="pt">PART ${p.no} · ${esc(p.title.en.toUpperCase())} <span style="color:#9a9288;font-weight:500">${esc(p.title.ko)}</span></div>`;
     for (const s of p.sheets) { const u = units.find((x) => x.id === s.id); h += ln(String(u.no).padStart(2, '0'), s.title.en, s.title.ko, starts?.unit[u.no]); }
@@ -269,6 +270,68 @@ function qWorkedPage(p) {
   return x.blanks ? `<div class="blk plain gd">${head}${task}${stepsHtml}${ansHtml}</div>`
     : `<div class="blk plain gd">${head}${task}${stepsHtml}</div><div class="blk plain gd"><h2>Worked example · Question ${q} <small style="font-weight:500;color:#5a6780">(continued · 이어서)</small></h2>${ansHtml}</div>`;
 }
+/* ── 쓰기 책 앞부분(B.front = "5152" | "5354") — 시험 소개 · 계획표 · 원고지 · 말→글 · 자가 점검표 + QR(운영자 2026-10-18 「앞에 넣어줘 · 예쁘게」). 자료 docs/writing-book/front.json · qr.json */
+const FRONT = B.front ? JSON.parse(fs.readFileSync(path.join(ROOT, 'docs/writing-book/front.json'), 'utf8')) : null;
+const QRS = B.front ? JSON.parse(fs.readFileSync(path.join(ROOT, 'docs/writing-book/qr.json'), 'utf8'))[B.front] : null;
+const bi2 = (o) => `${esc(o.en)}<small>${esc(o.ko)}</small>`;
+const qrBox = () => `<div class="qrb"><div class="qr">${QRS.svg}</div><div><b>Practice online · free AI scoring</b><small>스마트폰으로 찍으면 무료 쓰기 연습 · AI 채점 쪽으로 갑니다</small><span>everykoreans.com/topik-writing</span></div></div>`;
+const fmHead = (en, ko) => `<h2>${esc(en)}</h2><div class="k">${esc(ko)}</div>`;
+function fmExam() {
+  const f = FRONT.exam; const seg = [['51', 4], ['52', 4], ['53', 12], ['54', 25], ['✓', 5]];
+  return `<div class="blk plain gd fm">${fmHead(f.title.en, f.title.ko)}
+<p class="lead">${bi2(f.intro)}</p>
+<table><thead><tr><th>Q</th><th>Task · 유형</th><th>Points · 배점</th><th>Length · 분량</th><th>Time · 권장(분)</th></tr></thead><tbody>${f.rows.map((r) => `<tr><td><b>${r[0]}</b></td><td>${esc(r[1])}</td><td>${r[2]}</td><td>${esc(r[3])}</td><td>${r[4]}</td></tr>`).join('')}</tbody></table>
+<h3 class="gh">50 minutes · 50분 쓰는 순서</h3>
+<div class="tbar">${seg.map(([k, m]) => `<span style="flex:${m}"><b>${k}</b>${m}′</span>`).join('')}</div>
+<p class="note2">${bi2(f.timeNote)}</p>
+<div class="bx tip">${legend('tip')}<div class="tt">${f.areas.map((a) => `${esc(a.en)}<br><small style="color:#5a6780">${esc(a.ko)}</small>`).join('<br>')}</div></div>
+${qrBox()}</div>`;
+}
+function fmPlan() {
+  const pl = FRONT.plan[B.front]; const out = [];
+  for (let i = 0; i < pl.weeks.length; i += 4) {
+    const grp = pl.weeks.slice(i, i + 4);
+    out.push(`<div class="blk plain gd fm">${i === 0 ? fmHead(pl.title.en, pl.title.ko) + `<p class="lead">${bi2(pl.sub)}</p>` : fmHead(pl.title.en + ' (cont.)', pl.title.ko + ' (이어서)')}
+<div class="wk">${grp.map((w, j) => `<div class="wc2 c${(i + j) % 4}"><h4>${bi2(w.t)}</h4>${w.d.map((d, k) => `<div class="dy"><i></i><b>D${k + 1}</b><span>${esc(d)}</span></div>`).join('')}</div>`).join('')}</div>${i === 0 ? '' : ''}</div>`);
+  }
+  return out.join('\n');
+}
+const goji = (text, cols) => {
+  const ch = [...text]; const cells = [];
+  for (let i = 0; i < ch.length; i++) { const c = ch[i]; if (/\d/.test(c)) { let d = c; if (/\d/.test(ch[i + 1] || '')) d += ch[++i]; cells.push(d); } else cells.push(c); }
+  const flat = ['']; 
+  for (const c of cells) {
+    if (c === ' ') { if (flat.length % cols === 0) continue; flat.push(''); continue; }
+    if ((c === '.' || c === ',') && flat.length % cols === 0) { flat[flat.length - 1] += c; continue; }
+    flat.push(c);
+  }
+  while (flat.length % cols) flat.push('');
+  return `<div class="gj" style="--c:${cols}">${flat.map((c) => `<i${/^\d\d$/.test(c) ? ' class="dd"' : ''}>${esc(c)}</i>`).join('')}</div>`;
+};
+function fmGoji() {
+  const f = FRONT.wongoji;
+  return `<div class="blk plain gd fm">${fmHead(f.title.en, f.title.ko)}
+<ol class="rl">${f.rules.map(([r]) => `<li>${bi2(r)}</li>`).join('')}</ol>
+<h3 class="gh">Example · 예시</h3>${goji(f.sample, f.cols)}
+<p class="note2">${esc(f.sample)}</p>
+<div class="bx more">${legend('more')}<div class="tt">${esc(f.caution.en)}<br><small style="color:#5a6780">${esc(f.caution.ko)}</small></div></div></div>`;
+}
+function fmWritten() {
+  const f = FRONT.written; const tb = (rows, l, r) => `<table><thead><tr><th>${l}</th><th>${r}</th></tr></thead><tbody>${rows.map(([a, b]) => `<tr><td>${esc(a)}</td><td class="to"><b>${esc(b)}</b></td></tr>`).join('')}</tbody></table>`;
+  return `<div class="blk plain gd fm">${fmHead(f.title.en, f.title.ko)}<p class="lead">${bi2(f.intro)}</p>
+<div class="two"><div><h3 class="gh">Words · 낱말</h3>${tb(f.words, 'Spoken · 말', 'Written · 글')}</div><div><h3 class="gh">Endings · 문장 끝</h3>${tb(f.ends, 'Spoken · 말', 'Written · 글')}</div></div>
+<div class="bx tip">${legend('tip')}<div class="tt">${esc(f.note.en)}<br><small style="color:#5a6780">${esc(f.note.ko)}</small></div></div></div>`;
+}
+function fmCheck() {
+  const g = FRONT.check[B.front].groups;
+  return `<div class="blk plain gd fm">${fmHead('Self-check · Before you hand in', '자가 점검표 · 내기 전에')}
+<div class="ck">${g.map(([k, items]) => `<div class="cg"><h4>${bi2(k)}</h4>${items.map((it) => `<div class="ci"><i></i><span>${esc(it.en)}<small>${esc(it.ko)}</small></span></div>`).join('')}</div>`).join('')}</div>
+<h3 class="gh">Score log · 점수 기록</h3>
+<table class="lg2"><thead><tr><th>Date · 날짜</th><th>Q · 문제</th><th>Score · 점수</th><th>What to fix · 고칠 것</th></tr></thead><tbody>${Array.from({ length: 6 }, () => '<tr><td></td><td></td><td></td><td></td></tr>').join('')}</tbody></table>
+${qrBox()}</div>`;
+}
+const FRONT_LIST = B.front ? [['fm1', 'Exam overview', '시험 소개', fmExam], ['fm2', FRONT.plan[B.front].title.en, FRONT.plan[B.front].title.ko, fmPlan], ['fm3', 'Answer grid (원고지)', '원고지 쓰기법', fmGoji], ['fm4', 'Spoken → written', '말 → 글 바꾸기 표', fmWritten], ['fm5', 'Self-check', '자가 점검표', fmCheck]] : [];
+
 function partPage(p) {
   return `<div class="blk pd"><div class="no">PART ${p.no}</div><div class="big">${String(p.no).padStart(2, '0')}</div><h2>${esc(p.title.ko)}</h2><h3>${esc(p.title.en)}</h3>
 <div class="list">${p.sheets.map((s) => { const u = units.find((x) => x.id === s.id); return `Unit ${String(u.no).padStart(2, '0')} &nbsp; ${esc(s.title.en)}`; }).join('<br>')}</div></div>`;
@@ -396,6 +459,15 @@ tbody tr:nth-child(even) td,tr:nth-child(even) td{background:transparent}td{bord
 .gd .total{display:flex;gap:5mm;align-items:center;margin:1mm 0 4mm;padding:3mm 4mm;background:${TINT};border-radius:2mm}.gd .total .big{font:800 26pt/1 'Pretendard Variable';color:${ACC};white-space:nowrap}.gd .total .big small{font-size:8pt;font-weight:600;margin-left:1.2mm;color:#5a6780}.gd .total p{font-size:9pt;line-height:1.45}.gd .total p small{display:block;font-size:7.8pt;color:#5a6780;margin-top:.6mm}
 .sc3{display:grid;grid-template-columns:repeat(var(--n),1fr);gap:2.4mm}.sc{border:.3mm solid ${ACC};border-radius:1.8mm;overflow:hidden;background:#fff}.sc h4{background:${ACC};color:#fff;padding:1.8mm 2.4mm;font-size:9pt}.sc h4 small{display:block;font-size:7.4pt;font-weight:500;opacity:.8}.sc .hi,.sc .lo{display:flex;gap:1.8mm;padding:2.2mm 2.4mm;font-size:8.2pt;line-height:1.4}.sc .hi{background:#eef6ef}.sc .lo{background:#fbefee;border-top:.2mm solid #fff}.sc i{flex:none;font-style:normal;font-weight:800}.sc .hi i{color:#2e7d4f}.sc .lo i{color:#B3322D}.sc small{font-size:7.2pt}
 .lad .rw{display:flex;align-items:center;gap:2.4mm;margin-top:2.2mm}.lad .rw b{width:7mm;font-size:9.4pt;color:${ACC}}.lad .bar{flex:1;height:3.4mm;background:#e8ecf3;border-radius:2mm;overflow:hidden}.lad .bar span{display:block;height:100%;background:${ACC}}.lad em{font:800 11pt "Pretendard Variable";font-style:normal;width:21mm;white-space:nowrap;text-align:right}.lad em small{font-size:7.4pt;font-weight:500;color:#5a6780}.lad .why{font-size:8pt;color:#44506a;line-height:1.4;margin:.6mm 0 0 9.4mm}
+.fm .lead{font-size:9.4pt;line-height:1.5;margin:1mm 0 3mm}.fm .lead small{display:block;font-size:8pt;color:#5a6780}.fm .note2{font-size:8pt;color:#5a6780;margin:1.2mm 0 3mm}.fm .note2 small{display:block}
+.tbar{display:flex;gap:.8mm;margin-top:1.6mm}.tbar span{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:2mm 0;border-radius:1.4mm;background:${ACC};color:#fff;font-size:8pt;min-width:9mm}.tbar span:nth-child(odd){opacity:.86}.tbar span:last-child{background:#7a8aa6}.tbar b{font-size:10pt}
+.qrb{display:flex;gap:4mm;align-items:center;margin-top:5mm;padding:3mm 4mm;border:.3mm solid ${ACC};border-radius:2mm;background:${TINT}}.qrb .qr svg{width:22mm;height:22mm;display:block}.qrb b{display:block;font-size:10pt;color:${ACC}}.qrb small{display:block;font-size:8pt;color:#44506a;margin:.8mm 0}.qrb span{font-size:8pt;font-weight:700;color:${ACC}}
+.wk{display:grid;grid-template-columns:1fr 1fr;gap:3.2mm;margin-top:2mm}.wc2{border-radius:2mm;overflow:hidden;border:.3mm solid var(--wc,#1F3A68);background:#fff}.wc2 h4{background:var(--wc,#1F3A68);color:#fff;padding:2mm 2.6mm;font-size:8.6pt;line-height:1.3}.wc2 h4 small{display:block;font-size:7.2pt;font-weight:500;opacity:.85}.wc2 .dy{display:flex;align-items:center;gap:1.8mm;padding:1.8mm 2.4mm;border-top:.2mm solid #e3e8f0;font-size:8pt}.wc2 .dy i{flex:none;width:3.6mm;height:3.6mm;border:.35mm solid var(--wc,#1F3A68);border-radius:.8mm}.wc2 .dy b{flex:none;width:6mm;color:var(--wc,#1F3A68);font-size:7.6pt}.wc2.c0{--wc:#1F3A68}.wc2.c1{--wc:#2a7a6a}.wc2.c2{--wc:#a8641e}.wc2.c3{--wc:#7a3d8a}
+.rl{padding-left:5mm;display:flex;flex-direction:column;gap:2mm;font-size:9pt;line-height:1.45}.rl li::marker{color:${ACC};font-weight:800}.rl small{display:block;font-size:7.8pt;color:#5a6780}
+.gj{display:grid;grid-template-columns:repeat(var(--c),10mm);width:max-content;border-left:.25mm solid #7a8aa6;border-top:.25mm solid #7a8aa6;margin:1.6mm 0}.gj i{width:10mm;height:10mm;border-right:.25mm solid #7a8aa6;border-bottom:.25mm solid #7a8aa6;display:flex;align-items:center;justify-content:center;font-style:normal;font-size:12pt;color:#111}.gj i.dd{font-size:10pt;letter-spacing:-.2mm}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:4mm;margin-bottom:3mm}.two table{font-size:8.2pt}.two td.to b{color:${ACC}}
+.ck{display:grid;grid-template-columns:1fr 1fr;gap:3mm}.ck .cg{border:.3mm solid #d0d8e6;border-radius:1.8mm;padding:2.2mm 2.8mm;background:#fff}.ck .cg h4{font-size:9pt;color:${ACC};margin-bottom:1.4mm}.ck h4 small{font-size:7.4pt;color:#5a6780;font-weight:500;margin-left:1mm}.ck .ci{display:flex;gap:2mm;padding:.9mm 0;font-size:8pt;line-height:1.35}.ck .ci i{flex:none;width:3.4mm;height:3.4mm;margin-top:.5mm;border:.35mm solid ${ACC};border-radius:.8mm}.ck .ci small{display:block;font-size:7.2pt;color:#5a6780}
+.lg2 td{height:7.2mm}
 .bx .pp{display:flex;flex-direction:column;gap:2.2mm}.pt1 .fl{display:flex;align-items:center;flex-wrap:wrap;gap:0}
 .nd{display:inline-flex;align-items:center;padding:1.2mm 2.8mm;border-radius:1.3mm;font-weight:800}.nd.sl{border:.3mm dashed ${ACC};background:#F1F4FA;color:${ACC};font-size:8pt}.nd.fx{background:${ACC};color:#fff;font-size:9.6pt}
 .lk{font-style:normal;width:4mm;text-align:center;color:#9aa6bb;font-weight:800}.mn{margin-left:3mm;font-size:8.4pt;color:#2a3550}
@@ -440,7 +512,7 @@ const countPages = (buf) => (buf.toString('latin1').match(/\/Type\s*\/Page(?![s\
 
 const entries = indexEntries();
 const blocks = B.compact ? parts.flatMap((p) => p.sheets.map((sh) => { const u = units.find((x) => x.id === sh.id); return [`unit${u.no}`, unitBlock(u)]; })) : [
-  ['title', titlePage()], ['copyright', copyrightPage()], ['preface', prefacePage()], ['how', howPage()], ...(B.noGuide ? [] : [['guide', guidePage()]]), ['toc', tocPage(null)],
+  ['title', titlePage()], ['copyright', copyrightPage()], ['preface', prefacePage()], ['how', howPage()], ...(B.noGuide ? [] : [['guide', guidePage()]]), ['toc', tocPage(null)], ...FRONT_LIST.map(([k, , , fn]) => [k, fn()]),
   ...parts.flatMap((p) => [[`part${p.no}`, partPage(p)], ...(TWM ? [[`qguide${p.no}`, qGuidePage(p)], [`qscore${p.no}`, qScorePage(p)], [`qworked${p.no}`, qWorkedPage(p)]] : []), ...p.sheets.map((s) => { const u = units.find((x) => x.id === s.id); return [`unit${u.no}`, unitBlock(u)]; })]),
   ['answers', answersBlock()], ...(B.noIndex ? [] : [['index', indexBlock(entries)]]),
 ];
@@ -452,7 +524,7 @@ if (!B.compact) { blocks.push(['memo', memoBlock(memoPages)]); counts.memo = mem
 /* 시작 쪽 = 앞 블록 쪽수의 합 + 1 */
 let at = 1; const start = {};
 for (const [k] of blocks) { start[k] = at; at += counts[k]; }
-const starts = { preface: start.preface, guide: start.guide, unit: Object.fromEntries(units.map((u) => [u.no, start[`unit${u.no}`] + 1])), answers: start.answers, index: start.index, memo: start.memo };
+const starts = { front: Object.fromEntries(FRONT_LIST.map(([k]) => [k, start[k]])), preface: start.preface, guide: start.guide, unit: Object.fromEntries(units.map((u) => [u.no, start[`unit${u.no}`] + 1])), answers: start.answers, index: start.index, memo: start.memo };
 // 단원 첫 쪽(표지 쪽)은 목차에 그 단원의 첫 쪽으로 적는다 — unit 블록은 첫 쪽이 단원 표지이므로 start 그대로가 맞다
 for (const u of units) starts.unit[u.no] = start[`unit${u.no}`];
 const final = blocks.map(([k, html]) => (k === 'toc' ? tocPage(starts) : html)).join('\n') + (REVIEW ? reviewSheet() : '');
