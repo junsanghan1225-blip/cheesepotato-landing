@@ -1,0 +1,431 @@
+{
+  "id": "basic-verbs-adjectives",
+  "title": {
+    "en": "Essential Verbs & Adjectives",
+    "ko": "꼭 필요한 동사 · 형용사"
+  },
+  "sub": {
+    "en": "The most useful everyday verbs and describing words, with their polite present",
+    "ko": "가장 자주 쓰는 동사와 형용사 — 해요체 현재형까지"
+  },
+  "desc": {
+    "en": "Free printable Korean worksheet of essential everyday verbs and adjectives with dictionary form, polite present form and meaning, plus opposites, fill-in practice and an answer key."
+  },
+  "level": "A1",
+  "sections": [
+    {
+      "type": "table",
+      "title": {
+        "en": "Everyday action verbs",
+        "ko": "일상 동사"
+      },
+      "cols": [
+        "Dictionary form",
+        "Polite present",
+        "Meaning",
+        "Example"
+      ],
+      "rows": [
+        [
+          "가다",
+          "가요",
+          "to go",
+          "학교에 가요."
+        ],
+        [
+          "오다",
+          "와요",
+          "to come",
+          "친구가 와요."
+        ],
+        [
+          "먹다",
+          "먹어요",
+          "to eat",
+          "밥을 먹어요."
+        ],
+        [
+          "마시다",
+          "마셔요",
+          "to drink",
+          "물을 마셔요."
+        ],
+        [
+          "보다",
+          "봐요",
+          "to see / to watch",
+          "영화를 봐요."
+        ],
+        [
+          "읽다",
+          "읽어요",
+          "to read",
+          "책을 읽어요."
+        ],
+        [
+          "사다",
+          "사요",
+          "to buy",
+          "빵을 사요."
+        ],
+        [
+          "만나다",
+          "만나요",
+          "to meet",
+          "친구를 만나요."
+        ],
+        [
+          "자다",
+          "자요",
+          "to sleep",
+          "집에서 자요."
+        ],
+        [
+          "일어나다",
+          "일어나요",
+          "to get up",
+          "일곱 시에 일어나요."
+        ],
+        [
+          "주다",
+          "줘요",
+          "to give",
+          "친구에게 줘요."
+        ],
+        [
+          "받다",
+          "받아요",
+          "to receive",
+          "선물을 받아요."
+        ],
+        [
+          "배우다",
+          "배워요",
+          "to learn",
+          "한국어를 배워요."
+        ],
+        [
+          "가르치다",
+          "가르쳐요",
+          "to teach",
+          "한국어를 가르쳐요."
+        ],
+        [
+          "열다",
+          "열어요",
+          "to open",
+          "문을 열어요."
+        ],
+        [
+          "닫다",
+          "닫아요",
+          "to close",
+          "문을 닫아요."
+        ]
+      ],
+      "note": "Dictionary form (사전형) always ends in 다. Use the polite present (해요체) when you speak."
+    },
+    {
+      "type": "table",
+      "title": {
+        "en": "Adjectives are verbs too",
+        "ko": "형용사도 동사처럼"
+      },
+      "cols": [
+        "Dictionary form",
+        "Polite present",
+        "Meaning",
+        "Example"
+      ],
+      "rows": [
+        [
+          "좋다",
+          "좋아요",
+          "to be good",
+          "날씨가 좋아요."
+        ],
+        [
+          "많다",
+          "많아요",
+          "to be many / much",
+          "사람이 많아요."
+        ],
+        [
+          "작다",
+          "작아요",
+          "to be small",
+          "방이 작아요."
+        ],
+        [
+          "크다",
+          "커요",
+          "to be big",
+          "집이 커요."
+        ],
+        [
+          "높다",
+          "높아요",
+          "to be high / tall",
+          "산이 높아요."
+        ],
+        [
+          "낮다",
+          "낮아요",
+          "to be low",
+          "의자가 낮아요."
+        ],
+        [
+          "길다",
+          "길어요",
+          "to be long",
+          "머리가 길어요."
+        ],
+        [
+          "짧다",
+          "짧아요",
+          "to be short",
+          "치마가 짧아요."
+        ],
+        [
+          "멀다",
+          "멀어요",
+          "to be far",
+          "학교가 멀어요."
+        ],
+        [
+          "싸다",
+          "싸요",
+          "to be cheap",
+          "사과가 싸요."
+        ],
+        [
+          "맛있다",
+          "맛있어요",
+          "to be delicious",
+          "김밥이 맛있어요."
+        ],
+        [
+          "재미있다",
+          "재미있어요",
+          "to be fun",
+          "영화가 재미있어요."
+        ],
+        [
+          "바쁘다",
+          "바빠요",
+          "to be busy",
+          "오늘 바빠요."
+        ],
+        [
+          "예쁘다",
+          "예뻐요",
+          "to be pretty",
+          "꽃이 예뻐요."
+        ]
+      ],
+      "note": "A describing word works like a verb: 좋아요 means “it is good”. The subject usually takes 이/가."
+    },
+    {
+      "type": "table",
+      "title": {
+        "en": "Opposites",
+        "ko": "반대말"
+      },
+      "cols": [
+        "Word",
+        "Opposite",
+        "Word",
+        "Opposite"
+      ],
+      "rows": [
+        [
+          "오다 (come)",
+          "가다 (go)",
+          "열다 (open)",
+          "닫다 (close)"
+        ],
+        [
+          "주다 (give)",
+          "받다 (receive)",
+          "크다 (big)",
+          "작다 (small)"
+        ],
+        [
+          "높다 (high)",
+          "낮다 (low)",
+          "길다 (long)",
+          "짧다 (short)"
+        ],
+        [
+          "앉다 (sit)",
+          "서다 (stand)",
+          "싸다 (cheap)",
+          "비싸다 (expensive)"
+        ]
+      ],
+      "note": "Learn words in pairs — you remember two words for the price of one."
+    },
+    {
+      "type": "text",
+      "title": {
+        "en": "Stems ending in ㅡ",
+        "ko": "ㅡ 로 끝나는 어간"
+      },
+      "text": "When the stem ends in ㅡ, drop the ㅡ and look at the vowel before it. 크다 → 커요 (no vowel before → use 어). 바쁘다 → 바빠요 (바 has ㅏ → 아). 예쁘다 → 예뻐요 (예 has ㅖ → 어)."
+    },
+    {
+      "type": "practice",
+      "title": {
+        "en": "Practice A — Match the meaning",
+        "ko": "뜻에 맞는 동사를 써요"
+      },
+      "items": [
+        {
+          "q": "to eat →",
+          "a": "먹다"
+        },
+        {
+          "q": "to give →",
+          "a": "주다"
+        },
+        {
+          "q": "to read →",
+          "a": "읽다"
+        },
+        {
+          "q": "to sleep →",
+          "a": "자다"
+        },
+        {
+          "q": "to learn →",
+          "a": "배우다"
+        },
+        {
+          "q": "to open →",
+          "a": "열다"
+        },
+        {
+          "q": "to meet →",
+          "a": "만나다"
+        },
+        {
+          "q": "to buy →",
+          "a": "사다"
+        }
+      ]
+    },
+    {
+      "type": "practice",
+      "title": {
+        "en": "Practice B — Write the polite present",
+        "ko": "해요체로 바꿔 써요"
+      },
+      "items": [
+        {
+          "q": "사다 →",
+          "a": "사요"
+        },
+        {
+          "q": "자다 →",
+          "a": "자요"
+        },
+        {
+          "q": "받다 →",
+          "a": "받아요"
+        },
+        {
+          "q": "열다 →",
+          "a": "열어요"
+        },
+        {
+          "q": "작다 →",
+          "a": "작아요"
+        },
+        {
+          "q": "재미있다 →",
+          "a": "재미있어요"
+        },
+        {
+          "q": "크다 →",
+          "a": "커요"
+        },
+        {
+          "q": "예쁘다 →",
+          "a": "예뻐요"
+        }
+      ]
+    },
+    {
+      "type": "practice",
+      "title": {
+        "en": "Practice C — Write the opposite",
+        "ko": "반대말을 써요"
+      },
+      "items": [
+        {
+          "q": "오다 →",
+          "a": "가다"
+        },
+        {
+          "q": "열다 →",
+          "a": "닫다"
+        },
+        {
+          "q": "주다 →",
+          "a": "받다"
+        },
+        {
+          "q": "크다 →",
+          "a": "작다"
+        },
+        {
+          "q": "높다 →",
+          "a": "낮다"
+        },
+        {
+          "q": "길다 →",
+          "a": "짧다"
+        }
+      ]
+    },
+    {
+      "type": "practice",
+      "title": {
+        "en": "Practice D — Fill in the blank",
+        "ko": "알맞은 말을 써요"
+      },
+      "items": [
+        {
+          "q": "산이 ___. (높다)",
+          "a": "높아요"
+        },
+        {
+          "q": "방이 ___. (작다)",
+          "a": "작아요"
+        },
+        {
+          "q": "김밥이 ___. (맛있다)",
+          "a": "맛있어요"
+        },
+        {
+          "q": "저는 한국어를 ___. (배우다)",
+          "a": "배워요"
+        },
+        {
+          "q": "학교가 ___. (멀다)",
+          "a": "멀어요"
+        },
+        {
+          "q": "오늘은 ___. (바쁘다)",
+          "a": "바빠요"
+        }
+      ]
+    }
+  ],
+  "howto": [
+    "Read each table aloud. Cover the English column and test yourself.",
+    "Notice that adjectives (좋다, 크다) take the same endings as verbs.",
+    "Do practice A–D, then check with the answer key."
+  ],
+  "koSummary": "일상에서 가장 많이 쓰는 동사 16개와 형용사 14개를 사전형 · 해요체 · 뜻 · 예문으로 익히고, 반대말 짝과 ㅡ 로 끝나는 어간(크다 → 커요)까지 연습합니다."
+}

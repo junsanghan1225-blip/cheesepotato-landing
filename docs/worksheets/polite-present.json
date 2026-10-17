@@ -1,0 +1,355 @@
+{
+  "id": "polite-present",
+  "title": {
+    "en": "Polite Present Tense: -아요 / -어요 / 해요",
+    "ko": "해요체 현재형 만들기"
+  },
+  "sub": {
+    "en": "How to turn a dictionary form into the everyday polite present tense",
+    "ko": "사전형(-다)을 일상 존댓말 현재형으로 바꾸는 법"
+  },
+  "desc": {
+    "en": "Free printable Korean worksheet on the polite present tense: stems, -아요 vs -어요, 하다 verbs and common contractions (가요, 와요, 봐요, 마셔요), with practice exercises and an answer key."
+  },
+  "level": "A1",
+  "sections": [
+    {
+      "type": "text",
+      "title": {
+        "en": "The rule in one line",
+        "ko": "한 줄 규칙"
+      },
+      "text": "Remove 다 from the dictionary form to get the stem. If the last vowel of the stem is ㅏ or ㅗ, add 아요. Otherwise add 어요. Verbs ending in 하다 become 해요."
+    },
+    {
+      "type": "table",
+      "title": {
+        "en": "Stems with ㅏ or ㅗ → add -아요",
+        "ko": "ㅏ · ㅗ 로 끝나는 어간 → -아요"
+      },
+      "cols": [
+        "Dictionary form",
+        "Stem",
+        "Polite present",
+        "Meaning"
+      ],
+      "rows": [
+        [
+          "좋다",
+          "좋-",
+          "좋아요",
+          "to be good"
+        ],
+        [
+          "살다",
+          "살-",
+          "살아요",
+          "to live"
+        ],
+        [
+          "앉다",
+          "앉-",
+          "앉아요",
+          "to sit"
+        ],
+        [
+          "받다",
+          "받-",
+          "받아요",
+          "to receive"
+        ],
+        [
+          "가다",
+          "가-",
+          "가요",
+          "to go (가 + 아요 → 가요)"
+        ],
+        [
+          "오다",
+          "오-",
+          "와요",
+          "to come (오 + 아요 → 와요)"
+        ],
+        [
+          "보다",
+          "보-",
+          "봐요",
+          "to see / to watch (보 + 아요 → 봐요)"
+        ]
+      ],
+      "note": "When the stem ends in a vowel, the 아 merges with it: 가 + 아요 = 가요 (not 가아요)."
+    },
+    {
+      "type": "table",
+      "title": {
+        "en": "All other stems → add -어요",
+        "ko": "그 밖의 어간 → -어요"
+      },
+      "cols": [
+        "Dictionary form",
+        "Stem",
+        "Polite present",
+        "Meaning"
+      ],
+      "rows": [
+        [
+          "먹다",
+          "먹-",
+          "먹어요",
+          "to eat"
+        ],
+        [
+          "읽다",
+          "읽-",
+          "읽어요",
+          "to read"
+        ],
+        [
+          "있다",
+          "있-",
+          "있어요",
+          "to exist / to have"
+        ],
+        [
+          "없다",
+          "없-",
+          "없어요",
+          "to not exist / to not have"
+        ],
+        [
+          "마시다",
+          "마시-",
+          "마셔요",
+          "to drink (시 + 어요 → 셔요)"
+        ],
+        [
+          "주다",
+          "주-",
+          "줘요",
+          "to give (주 + 어요 → 줘요)"
+        ],
+        [
+          "배우다",
+          "배우-",
+          "배워요",
+          "to learn (우 + 어요 → 워요)"
+        ],
+        [
+          "기다리다",
+          "기다리-",
+          "기다려요",
+          "to wait (리 + 어요 → 려요)"
+        ]
+      ],
+      "note": "The 어 merges with a vowel-ending stem too: 시 → 셔, 주 → 줘, 우 → 워, 리 → 려."
+    },
+    {
+      "type": "table",
+      "title": {
+        "en": "하다 verbs → 해요",
+        "ko": "하다 동사 → 해요"
+      },
+      "cols": [
+        "Dictionary form",
+        "Polite present",
+        "Meaning"
+      ],
+      "rows": [
+        [
+          "하다",
+          "해요",
+          "to do"
+        ],
+        [
+          "공부하다",
+          "공부해요",
+          "to study"
+        ],
+        [
+          "일하다",
+          "일해요",
+          "to work"
+        ],
+        [
+          "운동하다",
+          "운동해요",
+          "to exercise"
+        ],
+        [
+          "말하다",
+          "말해요",
+          "to speak / to say"
+        ],
+        [
+          "좋아하다",
+          "좋아해요",
+          "to like"
+        ]
+      ],
+      "note": "Any noun + 하다 follows the same rule: 요리하다 → 요리해요 (to cook)."
+    },
+    {
+      "type": "practice",
+      "title": {
+        "en": "Practice A — Write the polite present",
+        "ko": "해요체로 바꿔 써요"
+      },
+      "items": [
+        {
+          "q": "가다 →",
+          "a": "가요"
+        },
+        {
+          "q": "먹다 →",
+          "a": "먹어요"
+        },
+        {
+          "q": "읽다 →",
+          "a": "읽어요"
+        },
+        {
+          "q": "좋다 →",
+          "a": "좋아요"
+        },
+        {
+          "q": "마시다 →",
+          "a": "마셔요"
+        },
+        {
+          "q": "공부하다 →",
+          "a": "공부해요"
+        },
+        {
+          "q": "오다 →",
+          "a": "와요"
+        },
+        {
+          "q": "보다 →",
+          "a": "봐요"
+        },
+        {
+          "q": "주다 →",
+          "a": "줘요"
+        },
+        {
+          "q": "일하다 →",
+          "a": "일해요"
+        }
+      ]
+    },
+    {
+      "type": "practice",
+      "title": {
+        "en": "Practice B — Choose 아요 or 어요",
+        "ko": "-아요 / -어요 중 알맞은 것을 써요"
+      },
+      "hint": "Look at the last vowel of the stem.",
+      "items": [
+        {
+          "q": "앉다 → 앉___",
+          "a": "아요"
+        },
+        {
+          "q": "먹다 → 먹___",
+          "a": "어요"
+        },
+        {
+          "q": "받다 → 받___",
+          "a": "아요"
+        },
+        {
+          "q": "있다 → 있___",
+          "a": "어요"
+        },
+        {
+          "q": "살다 → 살___",
+          "a": "아요"
+        },
+        {
+          "q": "읽다 → 읽___",
+          "a": "어요"
+        }
+      ]
+    },
+    {
+      "type": "practice",
+      "title": {
+        "en": "Practice C — Fill in the verb",
+        "ko": "괄호 안의 동사를 알맞게 바꿔요"
+      },
+      "items": [
+        {
+          "q": "저는 커피를 ___. (마시다)",
+          "a": "마셔요"
+        },
+        {
+          "q": "저는 친구를 ___. (만나다)",
+          "a": "만나요"
+        },
+        {
+          "q": "저는 책을 ___. (읽다)",
+          "a": "읽어요"
+        },
+        {
+          "q": "저는 한국어를 ___. (공부하다)",
+          "a": "공부해요"
+        },
+        {
+          "q": "저는 집에 ___. (가다)",
+          "a": "가요"
+        },
+        {
+          "q": "저는 영화를 ___. (보다)",
+          "a": "봐요"
+        },
+        {
+          "q": "저는 사진을 ___. (찍다)",
+          "a": "찍어요"
+        },
+        {
+          "q": "저는 집에서 ___. (쉬다)",
+          "a": "쉬어요"
+        }
+      ]
+    },
+    {
+      "type": "practice",
+      "title": {
+        "en": "Practice D — Say it in Korean",
+        "ko": "한국어로 말해요"
+      },
+      "items": [
+        {
+          "q": "I eat rice. →",
+          "a": "밥을 먹어요"
+        },
+        {
+          "q": "I drink water. →",
+          "a": "물을 마셔요"
+        },
+        {
+          "q": "I study Korean. →",
+          "a": "한국어를 공부해요"
+        },
+        {
+          "q": "I watch a movie. →",
+          "a": "영화를 봐요"
+        },
+        {
+          "q": "I read a book. →",
+          "a": "책을 읽어요"
+        },
+        {
+          "q": "I go to school. →",
+          "a": "학교에 가요"
+        }
+      ]
+    }
+  ],
+  "howto": [
+    "Read the three tables aloud, then fill in practice A–D and check with the answer key.",
+    "Remember the single rule: ㅏ or ㅗ before 다 → 아요; everything else → 어요; 하다 → 해요.",
+    "Teachers: ask students to say each answer aloud before writing it."
+  ],
+  "koSummary": "사전형에서 다를 떼고(어간), 마지막 모음이 ㅏ · ㅗ 이면 -아요, 그 밖은 -어요, 하다는 해요가 됩니다. 가요 · 와요 · 봐요 · 마셔요 · 줘요처럼 모음이 합쳐지는 것도 연습합니다."
+}
