@@ -787,6 +787,12 @@ function courseHub(courses) {
 }
 
 /* ── TOPIK 쓰기 한 쪽 ──────────────────────────────────────── */
+/* 「밑줄 친 부분」 문항 — 지문 속 mark 에 밑줄을 긋는다(없으면 「밑줄 친」이라 묻는데 밑줄이 없다) */
+const ulMark = (text, mark) => {
+  const s = String(text ?? ''), m = String(mark || '');
+  const at = m ? s.indexOf(m) : -1;
+  return at < 0 ? esc(s) : esc(s.slice(0, at)) + '<u>' + esc(m) + '</u>' + esc(s.slice(at + m.length));
+};
 function twPage(it) {
   const q = TW_QS.find((x) => x.q === it.q);
   const lvKo = LV_KO[it.lv] || '중급';
@@ -949,7 +955,7 @@ function trPage(it) {
     `<span class="badge">${esc(grade.ko)} · ${esc(tx.ko)}</span>`,
     `<h1>${esc(it.topic)}</h1>`,
     `<p class="sub">${esc(examName)} ${it.slot}번 · ${esc(tx.ko)} · ${esc(tx.en)}</p>`,
-    `<div class="ex">${esc(it.passage)}</div>`,
+    `<div class="ex">${ulMark(it.passage, it.mark)}</div>`,
     `<p class="desc">${esc(it.question)}</p>`,
     optsAndAnswer(it.options, it.answer, it.why),
     `<a class="cta more" href="/#learn/topik/${esc(it.exam)}/reading/${esc(it.id)}">비슷한 문제 더 풀기 →` +
@@ -1150,7 +1156,7 @@ function epsPage(it) {
     `<p class="sub">${esc(sec.ko)} ${n} · ${esc(tx.ko)} · ${esc(tx.en)}${it.sec === 'listening' ? ' · 대본 · Script' : ''}</p>`,
     picTop,
     script,
-    it.passage ? `<div class="ex">${esc(it.passage)}</div>` : '',
+    it.passage ? `<div class="ex">${ulMark(it.passage, it.mark)}</div>` : '',
     `<p class="desc"${it.sec === 'listening' ? ' style="margin-top:20px"' : ''}>${esc(it.question)}</p>`,
     /* 정답 · 해설은 접어 둔다(읽기 · 듣기 쪽과 같은 까닭 — optsAndAnswer). 그림 보기의 정답 그림도 그 안에. */
     `<ul class="opts" data-ans="${it.answer}">` + it.options.map((o, i) => `<li tabindex="0" role="button"><span class="onum">${ONUM[i] || i + 1}</span>${esc(o)}</li>`).join('') + '</ul>' +
