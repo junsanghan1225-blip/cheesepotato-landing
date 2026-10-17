@@ -38,10 +38,11 @@ const bankSheet = (id) => {
     sections: chunk.map((x, i) => ({ type: 'writing', raw: x, title: { en: `${(n - 1) * 10 + i + 1}. ${x.title}`, ko: '' }, items: [{ q: x.title, a: x.blanks ? x.blanks.map((b) => `${b.mark} ${b.answers[0]}`).join(' ') : x.model }] })) };
 };
 /* 유형 묶음 「g51-recruit」 = B.groups 에 적은 문항 id 들(유형별로 나눈 책, 운영자 2026-10-18 「유형별로 나누고 유형마다 안내를」) */
+const grpNo = {};   // 유형 묶음 안 문제 번호는 책 순서대로 이어서(51번 1~50) — 계획표 · 정답과 같은 번호
 const groupSheet = (id) => {
-  const g = B.groups[id]; const all = TW.filter((x) => x.q === g.q);
+  const g = B.groups[id]; grpNo[g.q] = grpNo[g.q] || 0;
   return { id, title: g.title, sub: g.sub, sections: g.items.map((iid, i) => { const x = TW.find((t) => t.id === iid); if (!x) throw new Error('없는 문항 ' + iid);
-    return { type: 'writing', raw: x, title: { en: `${all.indexOf(x) + 1}. ${x.title}`, ko: '' }, items: [{ q: x.title, a: x.blanks ? x.blanks.map((b) => `${b.mark} ${b.answers[0]}`).join(' ') : x.model }] }; }) };
+    return { type: 'writing', raw: x, title: { en: `${++grpNo[g.q]}. ${x.title}`, ko: '' }, items: [{ q: x.title, a: x.blanks ? x.blanks.map((b) => `${b.mark} ${b.answers[0]}`).join(' ') : x.model }] }; }) };
 };
 const partQ = (p) => { for (const u of p.units) { const m = /^w(\d\d):/.exec(u) || /^g(\d\d)-/.exec(u); if (m) return Number(m[1]); } return NaN; };
 const sheet = (id) => B.inline?.[id] ? B.inline[id] : /^g\d\d-/.test(id) ? groupSheet(id) : /^w\d\d:\d+$/.test(id) ? bankSheet(id) : JSON.parse(fs.readFileSync(path.join(ROOT, `docs/worksheets/${id}.json`), 'utf8'));

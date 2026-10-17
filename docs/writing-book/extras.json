@@ -1,79 +1,287 @@
 {
-  "_note": "TOPIK 쓰기 책 보강(운영자 2026-10-18 「채점 기준 · 예시 풀이 · 답안 분석」). 유형마다 채점 기준 표(criteria)와 예시 풀이(worked). 문항 글 · 모범답안 · 상중하 답안은 topik-writing.js 에서 그대로 가져온다 — 여기에는 풀이 단계와 해설만. 배점은 TW_QS(총점)만 쓰고 영역별 최대점은 적지 않는다(공식 세부 배점을 지어내지 않기 위해).",
-  "51": {
-    "scoring": { "en": "10 points in all: 5 points per blank. Each blank is read for meaning and for grammar.", "ko": "총 10점 — 빈칸 하나에 5점. 빈칸마다 내용(문맥에 맞는가)과 언어(문법 · 문체)를 함께 봅니다." },
-    "criteria": [
-      { "k": { "en": "Content", "ko": "내용" }, "hi": { "en": "The sentence answers what the text needs at that spot (request, ability, reason).", "ko": "그 자리에 필요한 뜻(요청 · 가능 · 이유)이 정확히 들어 있다." }, "lo": { "en": "The meaning is opposite or off-topic (e.g. “cannot join” after “even without a camera”).", "ko": "뜻이 반대이거나 동떨어져 있다(‘카메라가 없어도’ 뒤에 ‘가입할 수 없습니다’)." } },
-      { "k": { "en": "Language", "ko": "언어" }, "hi": { "en": "One complete sentence in the register of the text; correct endings and particles.", "ko": "지문의 문체에 맞는 완전한 한 문장. 어미 · 조사가 맞다." }, "lo": { "en": "Casual or polite-informal ending (-해요), a broken ending, or a missing particle.", "ko": "해요체 · 반말 종결, 어미 오류, 조사 빠짐." } }
-    ],
-    "worked": {
-      "item": "w51-1",
-      "steps": [
-        { "en": "Name the text type: a club recruitment notice, so the style is formal (-ㅂ니다).", "ko": "글의 종류부터 정한다 — 동아리 모집 안내문이므로 격식체(-ㅂ니다)." },
-        { "en": "㉠ follows “even without a camera, anyone with a smartphone…”. The sentence must say what anyone can do: ability.", "ko": "㉠은 ‘카메라가 없어도 스마트폰만 있으면 누구나’ 뒤 — 누구나 할 수 있는 일, 곧 가능 표현." },
-        { "en": "㉡ ends a recruitment notice: a polite request (-기 바랍니다).", "ko": "㉡은 모집 안내문의 끝 — 정중한 요청(-기 바랍니다)." },
-        { "en": "Write one sentence each and check the ending against the text: -습니다 / -ㅂ니다.", "ko": "한 문장씩 쓰고 끝을 지문과 맞춘다 — -습니다 / -ㅂ니다." }
-      ],
-      "analysis": [
-        { "en": "Full marks: “가입하실 수 있습니다.” (ability, formal) and “지원을 바랍니다.” (request, formal).", "ko": "만점: ‘가입하실 수 있습니다.’(가능, 격식) · ‘지원을 바랍니다.’(요청, 격식)." },
-        { "en": "Lower marks: right meaning, wrong register — “가입할 수 있어요.”", "ko": "감점: 뜻은 맞지만 문체가 어긋남 — ‘가입할 수 있어요.’" },
-        { "en": "No marks: meaning reversed — “가입할 수 없습니다.”", "ko": "0점: 뜻이 반대 — ‘가입할 수 없습니다.’" }
-      ]
-    }
+ "_note": "TOPIK 쓰기 책 보강(운영자 2026-10-18 「채점 기준 · 예시 풀이 · 답안 분석」). 유형마다 채점 기준 표(criteria)와 예시 풀이(worked). 문항 글 · 모범답안 · 상중하 답안은 topik-writing.js 에서 그대로 가져온다 — 여기에는 풀이 단계와 해설만. 배점은 TW_QS(총점)만 쓰고 영역별 최대점은 적지 않는다(공식 세부 배점을 지어내지 않기 위해).",
+ "51": {
+  "scoring": {
+   "en": "10 points in all: 5 points per blank. Each blank is read for meaning and for grammar.",
+   "ko": "총 10점 — 빈칸 하나에 5점. 빈칸마다 내용(문맥에 맞는가)과 언어(문법 · 문체)를 함께 봅니다."
   },
-  "52": {
-    "scoring": { "en": "10 points in all: 5 points per blank, read for meaning and for the plain written style.", "ko": "총 10점 — 빈칸 하나에 5점. 뜻과 -(느)ㄴ다체를 함께 봅니다." },
-    "criteria": [
-      { "k": { "en": "Content", "ko": "내용" }, "hi": { "en": "Follows the direction set by the link word (however → contrast, therefore → result).", "ko": "연결어가 정한 방향(그러나 → 반대, 따라서 → 결과)을 따른다." }, "lo": { "en": "Ignores the link word; the sentence points the wrong way.", "ko": "연결어를 놓쳐 방향이 거꾸로다." } },
-      { "k": { "en": "Language", "ko": "언어" }, "hi": { "en": "Plain style (-ㄴ다 / -는다 / -이다 / -아야 한다) and a predicate that fits the subject.", "ko": "-(느)ㄴ다체이고 주어에 맞는 서술어다." }, "lo": { "en": "-해요 or -합니다 endings; an adjective with a verb ending.", "ko": "해요체 · 합니다체, 형용사에 동사 어미." } }
-    ],
-    "worked": {
-      "item": "w52-1",
-      "steps": [
-        { "en": "Read the link words around each blank: “but” before the second sentence, “therefore” before ㉡.", "ko": "빈칸 앞뒤 연결어를 먼저 읽는다 — 둘째 문장 앞 ‘그러나’, ㉡ 앞 ‘따라서’." },
-        { "en": "㉠: the subject is “emotion control”; lack of sleep makes it harder. Write the result.", "ko": "㉠: 주어는 ‘감정 조절이’ — 수면이 부족하면 어떻게 되는지, 결과를 쓴다." },
-        { "en": "㉡: “therefore” + what to do for health → an obligation: -아/어야 한다.", "ko": "㉡: ‘따라서’ 뒤 건강을 위해 할 일 → 당위 표현 -아/어야 한다." },
-        { "en": "Close both sentences in the plain style and check the subject–predicate match.", "ko": "둘 다 -(느)ㄴ다체로 닫고 주어와 서술어가 맞는지 본다." }
-      ],
-      "analysis": [
-        { "en": "Full marks: “어려워진다.” / “잠을 자야 한다.” — direction and style both right.", "ko": "만점: ‘어려워진다.’ / ‘잠을 자야 한다.’ — 방향과 문체 모두 맞다." },
-        { "en": "Lower marks: “어려워져요.” — direction right, style wrong.", "ko": "감점: ‘어려워져요.’ — 방향은 맞고 문체가 틀림." },
-        { "en": "No marks: “쉬워진다.” — contradicts the sentence before it.", "ko": "0점: ‘쉬워진다.’ — 앞 문장과 모순." }
-      ]
+  "criteria": [
+   {
+    "k": {
+     "en": "Content",
+     "ko": "내용"
+    },
+    "hi": {
+     "en": "The sentence answers what the text needs at that spot (request, ability, reason).",
+     "ko": "그 자리에 필요한 뜻(요청 · 가능 · 이유)이 정확히 들어 있다."
+    },
+    "lo": {
+     "en": "The meaning is opposite or off-topic (e.g. “cannot join” after “even without a camera”).",
+     "ko": "뜻이 반대이거나 동떨어져 있다(‘카메라가 없어도’ 뒤에 ‘가입할 수 없습니다’)."
     }
-  },
-  "53": {
-    "scoring": { "en": "30 points in all, read in three areas: content and task, structure, language. The sample answers below show how a high, middle and low answer score.", "ko": "총 30점 — 내용 및 과제 수행 · 글의 전개 구조 · 언어 사용 세 영역으로 봅니다. 아래 예시 답안으로 상 · 중 · 하가 어떻게 점수를 받는지 보세요." },
-    "criteria": [
-      { "k": { "en": "Content & task", "ko": "내용 및 과제 수행" }, "hi": { "en": "Every item in the data is in the answer (source, change, causes) with the right numbers.", "ko": "자료의 항목(조사 개요 · 변화 · 원인)이 빠짐없이, 숫자까지 정확히 들어 있다." }, "lo": { "en": "Numbers missing or wrong; opinion instead of data.", "ko": "숫자가 빠지거나 틀리고, 자료 대신 의견을 쓴다." } },
-      { "k": { "en": "Structure", "ko": "글의 전개 구조" }, "hi": { "en": "Overview → change → causes, joined by link phrases (according to the survey, in addition).", "ko": "개요 → 변화 → 원인 순서이고 ‘조사 결과에 따르면’ ‘또한’ 같은 연결 표지가 있다." }, "lo": { "en": "Facts listed in no order; no link phrases.", "ko": "순서 없이 사실만 늘어놓고 연결 표지가 없다." } },
-      { "k": { "en": "Language", "ko": "언어 사용" }, "hi": { "en": "Plain style; data-report phrases (-것으로 나타났다, 그 뒤를 이었다); %p for percentage points.", "ko": "-(느)ㄴ다체와 자료 설명 표현(‘-것으로 나타났다’ ‘그 뒤를 이었다’), %p 구별." }, "lo": { "en": "-해요 / -합니다 endings and spoken words; fewer than 200 characters.", "ko": "해요체 · 합니다체와 구어, 200자 미만." } }
-    ],
-    "worked": {
-      "item": "w53-1",
-      "steps": [
-        { "en": "Underline every number and label in the data box (source, 1,000 adults, 27% → 35%, three causes).", "ko": "자료 상자의 숫자와 이름표에 모두 밑줄 — 기관, 성인 1,000명, 27% → 35%, 원인 셋." },
-        { "en": "Plan three sentences: who surveyed whom → how the rate changed (8%p) → the causes in rank order.", "ko": "세 덩어리로 짠다 — 누가 누구를 조사했나 → 비율이 어떻게 변했나(8%p) → 원인을 순위대로." },
-        { "en": "Write in the plain style; open the second part with 조사 결과에 따르면, join causes with 또한.", "ko": "-(느)ㄴ다체로 쓴다. 둘째 덩어리는 ‘조사 결과에 따르면’, 원인은 ‘또한’으로 잇는다." },
-        { "en": "Check: 200–300 characters, 8%p not 8%, ranks in the right order.", "ko": "점검 — 200~300자, 8%가 아니라 8%포인트, 순위가 맞는지." }
-      ]
+   },
+   {
+    "k": {
+     "en": "Language",
+     "ko": "언어"
+    },
+    "hi": {
+     "en": "One complete sentence in the register of the text; correct endings and particles.",
+     "ko": "지문의 문체에 맞는 완전한 한 문장. 어미 · 조사가 맞다."
+    },
+    "lo": {
+     "en": "Casual or polite-informal ending (-해요), a broken ending, or a missing particle.",
+     "ko": "해요체 · 반말 종결, 어미 오류, 조사 빠짐."
     }
-  },
-  "54": {
-    "scoring": { "en": "50 points in all, read in three areas. Covering all three sub-questions in separate paragraphs is the base of a high score.", "ko": "총 50점 — 세 영역으로 봅니다. 세부 과제 셋을 문단으로 나누어 다 쓰는 것이 높은 점수의 바탕입니다." },
-    "criteria": [
-      { "k": { "en": "Content & task", "ko": "내용 및 과제 수행" }, "hi": { "en": "All three sub-questions answered, with reasons or examples.", "ko": "세부 과제 셋에 모두 답하고 이유 · 예를 든다." }, "lo": { "en": "Only one sub-question; personal story instead of an argument.", "ko": "과제 하나만 쓰거나 주장 대신 개인 이야기만 쓴다." } },
-      { "k": { "en": "Structure", "ko": "글의 전개 구조" }, "hi": { "en": "Introduction – body – conclusion in separate paragraphs; one idea per paragraph.", "ko": "서론 – 본론 – 결론이 문단으로 나뉘고 문단마다 생각이 하나다." }, "lo": { "en": "One block of text with no paragraphs.", "ko": "문단 없이 한 덩어리." } },
-      { "k": { "en": "Language", "ko": "언어 사용" }, "hi": { "en": "Plain style held throughout; varied connectors (왜냐하면 … 때문이다, 반면에, 따라서) and advanced vocabulary.", "ko": "-(느)ㄴ다체를 끝까지 지키고 다양한 연결(‘왜냐하면 … 때문이다’ ‘반면에’ ‘따라서’)과 높은 수준의 어휘를 쓴다." }, "lo": { "en": "-해요 endings, repeated simple connectors, spoken words; under 600 characters.", "ko": "해요체, 같은 연결어 반복, 구어, 600자 미만." } }
-    ],
-    "worked": {
-      "item": "w54-1",
-      "steps": [
-        { "en": "Read the three sub-questions and give each its own paragraph: good effects, why bad habits are hard to change, what to do.", "ko": "세부 과제 셋을 읽고 문단 하나씩 배정한다 — 좋은 습관의 영향 · 나쁜 습관이 바뀌기 어려운 이유 · 실천 방법." },
-        { "en": "Write the opening in two sentences: state the theme and your claim.", "ko": "서론은 두 문장 — 주제를 열고 주장을 밝힌다." },
-        { "en": "Body: one reason or example per sub-question; connect with 반면에, 왜냐하면 … 때문이다.", "ko": "본론: 과제마다 이유나 예 하나 — ‘반면에’ ‘왜냐하면 … 때문이다’로 잇는다." },
-        { "en": "Conclusion with 따라서 and a concrete action; then count characters (600–700) and check every ending is the plain style.", "ko": "결론은 ‘따라서’와 구체적 행동. 마지막에 글자 수(600~700자)와 종결어미를 점검한다." }
-      ]
+   }
+  ],
+  "worked": {
+   "item": "w51-1",
+   "steps": [
+    {
+     "en": "Name the text type: a club recruitment notice, so the style is formal (-ㅂ니다).",
+     "ko": "글의 종류부터 정한다 — 동아리 모집 안내문이므로 격식체(-ㅂ니다)."
+    },
+    {
+     "en": "㉠ follows “even without a camera, anyone with a smartphone…”. The sentence must say what anyone can do: ability.",
+     "ko": "㉠은 ‘카메라가 없어도 스마트폰만 있으면 누구나’ 뒤 — 누구나 할 수 있는 일, 곧 가능 표현."
+    },
+    {
+     "en": "㉡ ends a recruitment notice: a polite request (-기 바랍니다).",
+     "ko": "㉡은 모집 안내문의 끝 — 정중한 요청(-기 바랍니다)."
+    },
+    {
+     "en": "Write one sentence each and check the ending against the text: -습니다 / -ㅂ니다.",
+     "ko": "한 문장씩 쓰고 끝을 지문과 맞춘다 — -습니다 / -ㅂ니다."
     }
+   ],
+   "analysis": [
+    {
+     "en": "Full marks: “가입하실 수 있습니다.” (ability, formal) and “지원을 바랍니다.” (request, formal).",
+     "ko": "만점: ‘가입하실 수 있습니다.’(가능, 격식) · ‘지원을 바랍니다.’(요청, 격식)."
+    },
+    {
+     "en": "Lower marks: right meaning, wrong register — “가입할 수 있어요.”",
+     "ko": "감점: 뜻은 맞지만 문체가 어긋남 — ‘가입할 수 있어요.’"
+    },
+    {
+     "en": "No marks: meaning reversed — “가입할 수 없습니다.”",
+     "ko": "0점: 뜻이 반대 — ‘가입할 수 없습니다.’"
+    }
+   ]
   }
+ },
+ "52": {
+  "scoring": {
+   "en": "10 points in all: 5 points per blank, read for meaning and for the plain written style.",
+   "ko": "총 10점 — 빈칸 하나에 5점. 뜻과 -(느)ㄴ다체를 함께 봅니다."
+  },
+  "criteria": [
+   {
+    "k": {
+     "en": "Content",
+     "ko": "내용"
+    },
+    "hi": {
+     "en": "Follows the direction set by the link word (however → contrast, therefore → result).",
+     "ko": "연결어가 정한 방향(그러나 → 반대, 따라서 → 결과)을 따른다."
+    },
+    "lo": {
+     "en": "Ignores the link word; the sentence points the wrong way.",
+     "ko": "연결어를 놓쳐 방향이 거꾸로다."
+    }
+   },
+   {
+    "k": {
+     "en": "Language",
+     "ko": "언어"
+    },
+    "hi": {
+     "en": "Plain style (-ㄴ다 / -는다 / -이다 / -아야 한다) and a predicate that fits the subject.",
+     "ko": "-(느)ㄴ다체이고 주어에 맞는 서술어다."
+    },
+    "lo": {
+     "en": "-해요 or -합니다 endings; an adjective with a verb ending.",
+     "ko": "해요체 · 합니다체, 형용사에 동사 어미."
+    }
+   }
+  ],
+  "worked": {
+   "item": "w52-1",
+   "steps": [
+    {
+     "en": "Read the link words around each blank: “but” before the second sentence, “therefore” before ㉡.",
+     "ko": "빈칸 앞뒤 연결어를 먼저 읽는다 — 둘째 문장 앞 ‘그러나’, ㉡ 앞 ‘따라서’."
+    },
+    {
+     "en": "㉠: the subject is “emotion control”; lack of sleep makes it harder. Write the result.",
+     "ko": "㉠: 주어는 ‘감정 조절이’ — 수면이 부족하면 어떻게 되는지, 결과를 쓴다."
+    },
+    {
+     "en": "㉡: “therefore” + what to do for health → an obligation: -아/어야 한다.",
+     "ko": "㉡: ‘따라서’ 뒤 건강을 위해 할 일 → 당위 표현 -아/어야 한다."
+    },
+    {
+     "en": "Close both sentences in the plain style and check the subject–predicate match.",
+     "ko": "둘 다 -(느)ㄴ다체로 닫고 주어와 서술어가 맞는지 본다."
+    }
+   ],
+   "analysis": [
+    {
+     "en": "Full marks: “어려워진다.” / “잠을 자야 한다.” — direction and style both right.",
+     "ko": "만점: ‘어려워진다.’ / ‘잠을 자야 한다.’ — 방향과 문체 모두 맞다."
+    },
+    {
+     "en": "Lower marks: “어려워져요.” — direction right, style wrong.",
+     "ko": "감점: ‘어려워져요.’ — 방향은 맞고 문체가 틀림."
+    },
+    {
+     "en": "No marks: “쉬워진다.” — contradicts the sentence before it.",
+     "ko": "0점: ‘쉬워진다.’ — 앞 문장과 모순."
+    }
+   ]
+  }
+ },
+ "53": {
+  "scoring": {
+   "en": "30 points in all, read in three areas: content and task, structure, language. The sample answers below show how a high, middle and low answer score.",
+   "ko": "총 30점 — 내용 및 과제 수행 · 글의 전개 구조 · 언어 사용 세 영역으로 봅니다. 아래 예시 답안으로 상 · 중 · 하가 어떻게 점수를 받는지 보세요."
+  },
+  "criteria": [
+   {
+    "k": {
+     "en": "Content & task",
+     "ko": "내용 및 과제 수행"
+    },
+    "hi": {
+     "en": "Every item in the data is in the answer (source, change, causes) with the right numbers.",
+     "ko": "자료의 항목(조사 개요 · 변화 · 원인)이 빠짐없이, 숫자까지 정확히 들어 있다."
+    },
+    "lo": {
+     "en": "Numbers missing or wrong; opinion instead of data.",
+     "ko": "숫자가 빠지거나 틀리고, 자료 대신 의견을 쓴다."
+    }
+   },
+   {
+    "k": {
+     "en": "Structure",
+     "ko": "글의 전개 구조"
+    },
+    "hi": {
+     "en": "Overview → change → causes, joined by link phrases (according to the survey, in addition).",
+     "ko": "개요 → 변화 → 원인 순서이고 ‘조사 결과에 따르면’ ‘또한’ 같은 연결 표지가 있다."
+    },
+    "lo": {
+     "en": "Facts listed in no order; no link phrases.",
+     "ko": "순서 없이 사실만 늘어놓고 연결 표지가 없다."
+    }
+   },
+   {
+    "k": {
+     "en": "Language",
+     "ko": "언어 사용"
+    },
+    "hi": {
+     "en": "Plain style; data-report phrases (-것으로 나타났다, 그 뒤를 이었다); %p for percentage points.",
+     "ko": "-(느)ㄴ다체와 자료 설명 표현(‘-것으로 나타났다’ ‘그 뒤를 이었다’), %p 구별."
+    },
+    "lo": {
+     "en": "-해요 / -합니다 endings and spoken words; fewer than 200 characters.",
+     "ko": "해요체 · 합니다체와 구어, 200자 미만."
+    }
+   }
+  ],
+  "worked": {
+   "item": "w53-1",
+   "steps": [
+    {
+     "en": "Underline every number and label in the data box (source, 1,000 adults, 27% → 35%, three causes).",
+     "ko": "자료 상자의 숫자와 이름표에 모두 밑줄 — 기관, 성인 1,000명, 27% → 35%, 원인 셋."
+    },
+    {
+     "en": "Plan three sentences: who surveyed whom → how the rate changed (8%p) → the causes in rank order.",
+     "ko": "세 덩어리로 짠다 — 누가 누구를 조사했나 → 비율이 어떻게 변했나(8%p) → 원인을 순위대로."
+    },
+    {
+     "en": "Write in the plain style; open the second part with 조사 결과에 따르면, join causes with 또한.",
+     "ko": "-(느)ㄴ다체로 쓴다. 둘째 덩어리는 ‘조사 결과에 따르면’, 원인은 ‘또한’으로 잇는다."
+    },
+    {
+     "en": "Check: 200–300 characters, 8%p not 8%, ranks in the right order.",
+     "ko": "점검 — 200~300자, 8%가 아니라 8%포인트, 순위가 맞는지."
+    }
+   ]
+  }
+ },
+ "54": {
+  "scoring": {
+   "en": "50 points in all, read in three areas. Covering all three sub-questions in separate paragraphs is the base of a high score.",
+   "ko": "총 50점 — 세 영역으로 봅니다. 세부 과제 셋을 문단으로 나누어 다 쓰는 것이 높은 점수의 바탕입니다."
+  },
+  "criteria": [
+   {
+    "k": {
+     "en": "Content & task",
+     "ko": "내용 및 과제 수행"
+    },
+    "hi": {
+     "en": "All three sub-questions answered, with reasons or examples.",
+     "ko": "세부 과제 셋에 모두 답하고 이유 · 예를 든다."
+    },
+    "lo": {
+     "en": "Only one sub-question; personal story instead of an argument.",
+     "ko": "과제 하나만 쓰거나 주장 대신 개인 이야기만 쓴다."
+    }
+   },
+   {
+    "k": {
+     "en": "Structure",
+     "ko": "글의 전개 구조"
+    },
+    "hi": {
+     "en": "Introduction – body – conclusion in separate paragraphs; one idea per paragraph.",
+     "ko": "서론 – 본론 – 결론이 문단으로 나뉘고 문단마다 생각이 하나다."
+    },
+    "lo": {
+     "en": "One block of text with no paragraphs.",
+     "ko": "문단 없이 한 덩어리."
+    }
+   },
+   {
+    "k": {
+     "en": "Language",
+     "ko": "언어 사용"
+    },
+    "hi": {
+     "en": "Plain style held throughout; varied connectors (왜냐하면 … 때문이다, 반면에, 따라서) and advanced vocabulary.",
+     "ko": "-(느)ㄴ다체를 끝까지 지키고 다양한 연결(‘왜냐하면 … 때문이다’ ‘반면에’ ‘따라서’)과 높은 수준의 어휘를 쓴다."
+    },
+    "lo": {
+     "en": "-해요 endings, repeated simple connectors, spoken words; under 600 characters.",
+     "ko": "해요체, 같은 연결어 반복, 구어, 600자 미만."
+    }
+   }
+  ],
+  "worked": {
+   "item": "w54-1",
+   "steps": [
+    {
+     "en": "Read the three sub-questions: the first two are answered in the body, the last in the final paragraph.",
+     "ko": "세부 과제 셋을 읽는다 — 앞의 두 질문은 본론에, 마지막 질문은 끝 문단에 답한다."
+    },
+    {
+     "en": "Write the opening in two sentences: state the theme and your claim.",
+     "ko": "서론은 두 문장 — 주제를 열고 주장을 밝힌다."
+    },
+    {
+     "en": "Body: one reason or example per sub-question; connect with 반면에, 왜냐하면 … 때문이다.",
+     "ko": "본론: 과제마다 이유나 예 하나 — ‘반면에’ ‘왜냐하면 … 때문이다’로 잇는다."
+    },
+    {
+     "en": "Conclusion with 따라서 and a concrete action; then count characters (600–700) and check every ending is the plain style.",
+     "ko": "결론은 ‘따라서’와 구체적 행동. 마지막에 글자 수(600~700자)와 종결어미를 점검한다."
+    }
+   ]
+  }
+ }
 }
