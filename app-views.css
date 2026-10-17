@@ -7506,3 +7506,7 @@ button.hero-how { border:none; font:inherit; font-weight:700; cursor:pointer; }
 .ut-score { font-size:56px; font-weight:900; color:var(--ink); line-height:1.1; }
 .ut-score small { font-size:22px; color:var(--ink-3); }
 .ut-msg { margin:0; font-size:15px; line-height:1.6; color:var(--ink-2); word-break:keep-all; }
+
+/* 일본어 · 중국어 · 미얀마어는 띄어쓰기가 거의 없어서 keep-all 이면 한 줄로 쭉 이어져 화면 밖으로 나간다(2026-10-17 언어 전환 점검) —
+   글자 사이 어디서든 줄을 바꾼다. 한국어 · 영어 등은 그대로. */
+html[lang="ja"] *, html[lang="zh"] *, html[lang^="zh-"] *, html[lang="my"] * { word-break: normal !important; overflow-wrap: anywhere; }
