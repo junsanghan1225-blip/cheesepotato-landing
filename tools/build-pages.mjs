@@ -202,6 +202,8 @@ h2 small{font-weight:500;font-size:12.5px;margin-left:4px;opacity:.8}
 .cat{border:1px solid var(--line);background:var(--card);border-radius:16px;padding:16px 16px 14px}
 .more{margin-top:10px}.more summary{cursor:pointer;font-size:13.5px;font-weight:700;color:var(--ink2);list-style:none}
 .more summary::-webkit-details-marker{display:none}.more[open] summary{margin-bottom:10px}
+.bkbox{display:flex;gap:14px;align-items:center;margin:28px 0 8px;padding:16px 18px;border:1px solid var(--line,#e7e2d9);border-radius:14px;background:var(--surface,#fff);text-decoration:none;color:inherit}
+.bkbox:hover{border-color:var(--ink,#222)}.bkbox .bk-i{font-size:34px;line-height:1}.bkbox b{display:block;font-size:15.5px}.bkbox small{display:block;color:var(--ink-3,#777);font-size:13px;line-height:1.6;margin-top:3px}.bkbox em{font-style:normal;font-weight:700;font-size:13px;margin-top:6px;display:block}
 .next{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin:14px 0 0}
 @media(min-width:640px){.next{grid-template-columns:repeat(3,1fr)}}
 .next a{border:1px solid var(--line);background:var(--card);border-radius:14px;padding:12px;text-decoration:none;font-size:13px;color:var(--dim);line-height:1.4}
@@ -830,6 +832,7 @@ function twPage(it) {
        가 이 번호를 받아 목록 대신 이 문항을 바로 연다. */
     `<a class="cta" href="/#learn/writing/${esc(it.id)}">직접 써 보기<span>Write it yourself — length and register checked as you type</span></a>`,
     '</details>',
+    twBook(),
     LT_LINK,
   ].filter(Boolean).join('\n');
 
@@ -865,6 +868,11 @@ const hubNext = (skip, n = 6) => '<h2>치즈감자에서 함께 · Also free her
   ['/#words', '단어 1만 개', '10,000 words · daily review'], ['/#games', '단어 게임', 'Word Potatoes · Korean Wordle'],
 ].filter(([h]) => h !== skip).slice(0, n).map(([h, b, s]) => `<a href="${h}"><b>${b}</b>${s}</a>`).join('') + '</div>';
 
+/* 쓰기 쪽 아래 책 안내(운영자 2026-10-18 「학생 들어올 때 밑에 책을 팔자 — 100제 + 쓰는 노하우」). 사람 첨삭보다 책이 먼저. */
+const twBook = () => '<a class="bkbox" href="/shop/topik2-writing-53-54/"><span class="bk-i">📘</span><span><b>TOPIK II 쓰기 100제 + 쓰는 노하우</b>' +
+  '<small>시간 배분 · 단계별 풀이법 · 꼭 쓰는 표현 · 흔한 감점 — 문항 100개를 인쇄해서 손으로 풀고, 뒤쪽 정답 · 채점 기준으로 스스로 점검합니다. 51~52번 / 53~54번 두 권.<br>' +
+  '100 original practice tasks with the how-to: timing, step-by-step method, must-know phrases, common point losses. PDF, $9.90 each.</small><em>책 보기 · See the books →</em></span></a>';
+
 function twSections(items) {
   return TW_QS.map((g) => {
     const mine = items.filter((x) => x.q === g.q);
@@ -885,6 +893,7 @@ function twHub(items) {
     hubWhy([['① 문항 고르기', '51 · 52 · 53 · 54번 유형'], ['② 직접 쓰기', '가입 없이 브라우저에서'], ['③ 채점 · 비교', 'AI 채점(하루 2번 무료) + 모범답안']], ' style="grid-template-columns:repeat(auto-fit,minmax(220px,1fr))"'),
     '<h2>유형별 문항 · Tasks by type</h2>',
     sections,
+    twBook(),
     '<p class="hub-note">레벨이 궁금하면 <a href="/?lt=1&utm_source=hub">3분 레벨테스트 →</a> · Not sure of your level? Take the 3-min test.</p>',
     hubNext('/topik-writing/', 3),
   ].join('\n');
