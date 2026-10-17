@@ -19,12 +19,12 @@ const CHROMIUM = process.env.CHROMIUM_PATH || '/opt/pw-browsers/chromium';
 const args = process.argv.slice(2);
 const bookId = args.find((a) => !a.startsWith('--'));
 const REVIEW = args.includes('--review');
-const THEME = args.includes('--theme') ? args[args.indexOf('--theme') + 1] : 'brand';
-const CLASSIC = THEME === 'classic';
 const outDir = path.resolve(ROOT, args.includes('--out') ? args[args.indexOf('--out') + 1] : 'books-out');
 if (!bookId) { console.error('사용: node tools/build-book.mjs <책 id> [--out 폴더]   (책 틀: docs/books/<id>.json)'); process.exit(1); }
 
 const B = JSON.parse(fs.readFileSync(path.join(ROOT, `docs/books/${bookId}.json`), 'utf8'));
+const THEME = args.includes('--theme') ? args[args.indexOf('--theme') + 1] : (B.theme || 'brand');
+const CLASSIC = THEME === 'classic';
 const sheet = (id) => JSON.parse(fs.readFileSync(path.join(ROOT, `docs/worksheets/${id}.json`), 'utf8'));
 const esc = (x) => String(x ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 const cssStr = (x) => '"' + String(x).replace(/\\/g, '\\\\').replace(/"/g, '\\"') + '"';
@@ -126,7 +126,8 @@ td:first-child{font-weight:800;font-size:10.4pt;color:#1d1a17}td.tip{color:#8a82
 /* ── 블록 만들기 ── */
 const pair = (o, cls = '') => `<p class="en${cls}">${esc(o.en)}</p>`;
 const LAB = { table: '핵심 정리', text: '참고', practice: '연습' };
-const secLabel = (s) => `<h3>${CLASSIC ? `<em class="lab">${LAB[s.type]}</em>` : ''}<span>${esc(s.title.en)}</span>${s.title.ko ? `<small>${esc(s.title.ko)}</small>` : ''}</h3>`;
+let secNo = '';
+const secLabel = (s) => `<h3>${CLASSIC ? `<em class="lab">${LAB[s.type]} ${secNo}</em>` : ''}<span>${esc(s.title.en)}</span>${s.title.ko ? `<small>${esc(s.title.ko)}</small>` : ''}</h3>`;
 const qLine = (q) => q.includes('___')
   ? `<span class="q">${esc(q.replace(/\s*→\s*$/, '')).replace(/___/g, '<span class="bl"></span>')}</span><span class="ln" style="visibility:hidden;min-width:0"></span>`
   : `<span class="q">${esc(q)}</span><span class="ln"></span>`;
@@ -180,11 +181,12 @@ function unitBlock(u) {
 <div class="ttl"><h2>${esc(u.title.ko)}</h2><h3>${esc(u.title.en)}</h3><p class="sub">${esc(u.sub.en)}<small>${esc(u.sub.ko)}</small></p></div>
 <div class="in"><b>IN THIS UNIT · 이 단원에서</b><ol>${secs.map((s) => `<li>${esc(s.title.en)}${s.title.ko ? `<small>${esc(s.title.ko)}</small>` : ''}</li>`).join('')}</ol></div></div>`;
   if (CLASSIC) {
-    const head = `<div class="uh"><div class="un">${String(u.no).padStart(2, '0')}</div><div class="ut"><small>PART ${u.part.no} · ${esc(u.part.title.en.toUpperCase())}</small><h2>${esc(u.title.ko)}</h2><h3>${esc(u.title.en)}</h3></div></div><p class="us">${esc(u.sub.en)}<small>${esc(u.sub.ko)}</small></p>`;
+    const head = `<div class="uh"><div class="un">UNIT ${String(u.no).padStart(2, '0')} &nbsp;·&nbsp; PART ${u.part.no} ${esc(u.part.title.en.toUpperCase())}</div><div class="ut"><h2>${esc(u.title.ko)}</h2><h3>${esc(u.title.en)}</h3></div></div><p class="us">${esc(u.sub.en)}<small>${esc(u.sub.ko)}</small></p>`;
     u._head = head;
   }
   const sr = (i) => (REVIEW ? `<span class="src">${esc(u.id)} · §${i + 1} · ${esc(secs[i].type)}</span>` : '');
   const body = secs.map((s, si) => {
+    secNo = `${u.no}-${si + 1}`;
     if (s.type === 'table') {
       const tipCols = s.cols.map((c) => /reading|tip|sound|pronunc/i.test(c));
       return `<div class="sec"${s.rows.length <= 8 ? ' style="break-inside:avoid"' : ''}>${sr(si)}${secLabel(s)}<table><thead><tr>${s.cols.map((c) => `<th>${esc(c)}</th>`).join('')}</tr></thead><tbody>${s.rows.map((r) => `<tr>${r.map((c, i) => `<td${tipCols[i] ? ' class="tip"' : ''}>${esc(c)}</td>`).join('')}</tr>`).join('')}</tbody></table>${s.note ? `<div class="note">${esc(s.note)}</div>` : ''}</div>`;
@@ -241,18 +243,28 @@ const memoBlock = (n) => Array.from({ length: n }, () => `<div class="blk plain 
 /* ── 쪽 찍기 ── */
 const reviewTop = REVIEW ? `@page:left{@top-center{content:"REVIEW COPY · 검수본";font:800 6.8pt 'Pretendard Variable';letter-spacing:.2em;color:#c0392b;vertical-align:bottom;padding-bottom:5mm;white-space:nowrap}}@page:right{@top-center{content:"REVIEW COPY · 검수본";font:800 6.8pt 'Pretendard Variable';letter-spacing:.2em;color:#c0392b;vertical-align:bottom;padding-bottom:5mm}}` : '';
 const CLASSIC_CSS = `
-.sec>h3:before{display:none}.sec>h3{display:grid;grid-template-columns:auto 1fr;column-gap:3mm;align-items:center;border-bottom:.5mm solid ${ACC};padding-bottom:1.6mm;margin-bottom:3mm}.lab{grid-row:1/3;align-self:center}.sec>h3 span{grid-column:2}.sec>h3 small{grid-column:2;margin:0;font-size:8.6pt}.sec>h3:not(:has(.lab)) span{grid-column:1/3}
-.lab{flex:none;font-style:normal;background:${ACC};color:#fff;font-size:7.6pt;font-weight:800;letter-spacing:.06em;padding:.9mm 3.4mm;border-radius:0 3mm 3mm 0;margin-left:-0.2mm}
-th{background:#DCE5F2;color:${ACC};border-top:.45mm solid ${ACC};border-bottom:.3mm solid ${ACC};font-size:7.8pt}
-tbody tr:nth-child(even) td,tr:nth-child(even) td{background:transparent}td{border-bottom:.2mm solid #c9d3e3}td:first-child{color:${ACC}}td.tip{color:#6b7a92}
-.note{border:.3mm solid ${ACC};border-left-width:1.5mm;background:#fff;color:#1d1a17}.note b{color:${ACC}}
-.pr li:before{border-radius:1mm;background:${ACC};color:#fff;border:0;font-size:7.6pt}
-.uh{display:flex;gap:5mm;align-items:flex-end;padding-bottom:3mm;border-bottom:.9mm solid ${ACC};margin-bottom:2mm}
-.uh .un{flex:none;width:21mm;height:21mm;border-radius:2mm;background:${ACC};color:#fff;font-size:30pt;font-weight:900;display:flex;align-items:center;justify-content:center;letter-spacing:-.02em}
-.uh .ut small{display:block;font-size:7pt;font-weight:800;letter-spacing:.18em;color:${ACC}}.uh .ut h2{font-size:21pt;line-height:1.2;margin-top:1mm}.uh .ut h3{font-size:11pt;font-weight:600;color:#55627a;margin-top:.5mm}
-.us{font-size:9.4pt;color:#3d4a62;margin:0 0 6mm;padding-bottom:2.4mm;border-bottom:.2mm solid #c9d3e3}.us small{display:block;color:#7a869b;font-size:8.6pt;margin-top:.6mm}
-.pd{background:${ACC} !important}.pd:before,.pd:after{display:none !important}.pd .big{opacity:1}
+body{font-size:9.4pt;line-height:1.6;color:#111}
+/* 정석풍 — 남색 한 가지 · 면 채우기 없이 선과 글자만(운영자 「더 깔끔하게 수학의 정석처럼」) */
+.sec{margin:0 0 7mm}
+.sec>h3{display:grid;grid-template-columns:auto 1fr;column-gap:3.2mm;align-items:baseline;border-bottom:.35mm solid ${ACC};padding-bottom:1.4mm;margin-bottom:3mm;font-size:11.5pt}
+.sec>h3:before{display:none}
+.lab{grid-row:1/3;align-self:start;font-style:normal;border:.3mm solid ${ACC};color:${ACC};font-size:7.4pt;font-weight:800;letter-spacing:.04em;padding:.7mm 2.6mm;border-radius:0;line-height:1.5;white-space:nowrap}
+.sec>h3 span{grid-column:2}.sec>h3 small{grid-column:2;margin:0;font-size:8.4pt;color:#5a6780;font-weight:500}.sec>h3:not(:has(.lab)) span{grid-column:1/3}
+table{border-top:.45mm solid ${ACC};border-bottom:.45mm solid ${ACC}}
+th{background:transparent;color:${ACC};border:0;border-bottom:.25mm solid ${ACC};font-size:7.8pt;font-weight:800;letter-spacing:.02em;padding:1.8mm 3mm}
+tbody tr:nth-child(even) td,tr:nth-child(even) td{background:transparent}td{border-bottom:.15mm solid #cfd6e2;padding:1.7mm 3mm}tr:last-child td{border-bottom:0}td:first-child{color:${ACC}}td.tip{color:#6b7a92}
+.note{border:0;border-left:.9mm solid ${ACC};background:transparent;color:#111;padding:1.2mm 0 1.2mm 3.6mm;margin-top:3mm}.note b{color:${ACC}}
+.pr li{border-bottom:0;min-height:8.4mm}.pr li:before{content:counter(q) '.';border:0;border-radius:0;background:transparent;color:${ACC};width:6mm;height:auto;font-size:9pt;font-weight:800;justify-content:flex-start;margin:0}
+.pr .ln{border-bottom:.2mm solid #8e9ab0}.pr .bl{border-bottom:.2mm solid #8e9ab0}
+.uh{display:block;padding-bottom:3mm;border-bottom:.35mm solid ${ACC};margin-bottom:1.2mm;position:relative}
+.uh:after{content:'';position:absolute;left:0;right:0;bottom:-1.6mm;border-bottom:1.1mm solid ${ACC}}
+.uh .un{display:block;width:auto;height:auto;background:transparent;color:${ACC};font-size:8pt;font-weight:800;letter-spacing:.3em;margin-bottom:2mm}
+.uh .ut small{display:none}.uh .ut h2{font-size:23pt;line-height:1.2;font-weight:800;color:#111}.uh .ut h3{font-size:11pt;font-weight:500;color:#5a6780;margin-top:1mm}
+.us{margin:6mm 0 7mm;font-size:9.2pt;color:#2a3550;padding:0;border:0}.us small{display:block;margin-top:.8mm;color:#6b7a92;font-size:8.4pt}
+.pd{background:#fff !important;color:#111 !important;padding:70mm 24mm 0 !important}.pd:before,.pd:after{display:none !important}
+.pd .no{color:${ACC};opacity:1}.pd .big{color:${ACC};opacity:1;font-size:96pt;font-weight:800;margin:4mm 0 5mm}.pd h2{color:#111;font-size:26pt;padding-bottom:4mm;border-bottom:1.1mm solid ${ACC}}.pd h3{color:#5a6780;opacity:1}.pd .list{color:#2a3550;opacity:1;margin-top:8mm}
 .toc .pt,.ak .u h4 span,.ix .ini,.memo h2{color:${ACC}}.how li:before{background:${ACC}}
+.ak .u h4{border-bottom-color:${ACC}}.tp .rule{background:${ACC}}
 `;
 const shell = (body) => `<!doctype html><html lang="en"><head><meta charset="utf-8"><link rel="stylesheet" href="/vendor/pretendard.css"><style>${CSS}${CLASSIC ? CLASSIC_CSS : ''}${reviewTop}</style></head><body>${body}</body></html>`;
 let pages = new Map();
@@ -296,7 +308,7 @@ const starts = { preface: start.preface, unit: Object.fromEntries(units.map((u) 
 for (const u of units) starts.unit[u.no] = start[`unit${u.no}`];
 const final = blocks.map(([k, html]) => (k === 'toc' ? tocPage(starts) : html)).join('\n') + (REVIEW ? reviewSheet() : '');
 
-const dir = path.join(outDir, bookId + (CLASSIC ? '-classic' : ''));
+const dir = path.join(outDir, bookId + (THEME !== (B.theme || 'brand') ? `-${THEME}` : ''));
 fs.mkdirSync(dir, { recursive: true });
 const interior = await pdf(final);
 const realTotal = countPages(interior) - (REVIEW ? countPages(await pdf(reviewSheet())) : 0);
@@ -338,7 +350,7 @@ const { potatoLevel, cheeseLevel } = await import(path.join(ROOT, 'levels.js'));
 const classicCover = CLASSIC ? `.front{background:#1F3A68}.front .g,.front .c1,.front .c2{display:none}.front .z:before{content:'';position:absolute;left:0;right:0;top:0;height:1px}
 .front .ser{color:#D9B35B;letter-spacing:.34em}.front h1{font-weight:800;margin-top:26mm;font-size:42pt;letter-spacing:-.01em}.front h2{color:#C5D1E6;font-weight:500}.front .rule{background:#D9B35B;height:.8mm;width:26mm}.front .sub{color:#C5D1E6}
 .front .badge{background:transparent;color:#D9B35B;border:.6mm solid #D9B35B;border-radius:1.5mm;padding:2mm 5mm}.front .mk{position:absolute;right:${T.bleed + 18}mm;top:${T.bleed + 66}mm;display:flex;gap:2mm;opacity:.95}.front .mk i{display:block;width:26mm;height:26mm}.front .mk svg{width:100%;height:100%}
-.back{background:#EEF2F8}` : '';
+.back{background:#F4F6FA}.mk2{position:absolute;left:${T.bleed + 18}mm;bottom:${T.bleed + 38}mm;display:flex;gap:2mm}.mk2 i{display:block;width:16mm;height:16mm}.mk2 svg{width:100%;height:100%}` : '';
 const coverHtml = `<!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="/vendor/pretendard.css"><style>${coverCss}${classicCover}</style></head><body>
 <div class="back"><div class="ser">${esc(B.series.en)} · ${esc(B.level)}</div>
 <h3>${esc(B.sub.ko)}</h3><h4>${esc(B.sub.en)}</h4>
@@ -347,9 +359,9 @@ const coverHtml = `<!doctype html><html><head><meta charset="utf-8"><link rel="s
 <div class="pts">${parts.map((p) => `<div><b>PART ${p.no}</b> ${esc(p.title.ko)} <span>${esc(p.title.en)}</span></div>`).join('')}</div>
 <div class="for">For complete beginners and A1 classes · 완전 초급과 A1 수업에<br>${esc(B.web)}</div>
 <div class="pr"><b>정가 ○○,○○○원</b> (예정)<br>${esc(B.publisher.ko)} · ${esc(B.publisher.en)}</div>
-<div class="bar">ISBN barcode<br>발급 후 이 자리에 · 40×25mm 이상</div></div>
+${CLASSIC ? `<div class="mk2"><i>${potatoLevel(3).icon}</i><i>${cheeseLevel(2).icon}</i></div>` : ''}<div class="bar">ISBN barcode<br>발급 후 이 자리에 · 40×25mm 이상</div></div>
 <div class="spine"><div class="t">${esc(B.title.ko)} <small>${esc(B.title.en)}</small></div><div class="p">${esc(B.publisher.en.toUpperCase())}</div></div>
-<div class="front">${CLASSIC ? `<div class="mk"><i>${potatoLevel(3).icon}</i><i>${cheeseLevel(2).icon}</i></div>` : ''}<div class="g">ㄱㄴㄷ ㄹㅁㅂ ㅅㅇㅈ ㅊㅋㅌ ㅍㅎ 가나 다라</div><div class="c1"></div><div class="c2"></div>
+<div class="front"><div class="g">ㄱㄴㄷ ㄹㅁㅂ ㅅㅇㅈ ㅊㅋㅌ ㅍㅎ 가나 다라</div><div class="c1"></div><div class="c2"></div>
 <div class="z"><div class="ser">${esc(B.series.en)}</div><h1>${esc(B.title.ko)}</h1><h2>${esc(B.title.en)}</h2><div class="rule"></div><p class="sub">${esc(B.sub.en)}</p>
 <div class="lv"><span class="badge">${esc(B.level)} · BEGINNER</span><div class="by"><b>${esc(B.author.ko)} · ${esc(B.author.en)}</b><span>${esc(B.publisher.en.toUpperCase())}</span></div></div></div></div>
 </body></html>`;
