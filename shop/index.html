@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Every Koreans Books — Korean Books &amp; Worksheet Shop | CheesePotato</title>
+<meta name="description" content="Korean workbooks, TOPIK practice books and printable worksheet PDFs with answer keys — made by a Korean teacher.">
+<link rel="canonical" href="https://everykoreans.com/shop/">
+<!-- 생성물 — 손으로 고치지 말 것. docs/worksheets/*.json 을 고치고 node tools/build-sheets.mjs -->
+<script src="/gtm.js" async></script>
+<script src="/analytics.js" defer></script>
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta property="og:title" content="Every Koreans Books — Korean Books &amp; Worksheet Shop">
+<meta property="og:description" content="Korean workbooks, TOPIK practice books and printable worksheet PDFs with answer keys — made by a Korean teacher.">
+<meta property="og:url" content="https://everykoreans.com/shop/">
+<meta property="og:image" content="https://everykoreans.com/logo-256.png">
+<link rel="stylesheet" href="/vendor/pretendard.css">
+<link rel="stylesheet" href="/page.css">
+<script src="/numbers-worksheet.js" defer></script>
+<style>
+.nw-paper { background:#fff; border:1px solid var(--line); border-radius:12px; padding:22px; margin:18px 0; color:#1B1512; }
+.nw-top { display:flex; justify-content:space-between; gap:12px; font-size:13px; color:var(--ink-3); border-bottom:1px solid var(--line); padding-bottom:8px; }
+.nw-h { font-size:22px; font-weight:800; margin:14px 0 2px; }
+.nw-c { table-layout:fixed; }
+.nw-c th:nth-child(1) { width:20%; } .nw-c th:nth-child(2) { width:34%; } .nw-c th:nth-child(3) { width:32%; } .nw-c th:nth-child(4) { width:14%; }
+.nw-g { font-size:14px; font-weight:800; margin:12px 0 4px; color:#1B1512; }
+.nw-sub { font-size:13.5px; color:var(--ink-3); margin:0 0 10px; }
+.nw-h3 { font-size:15px; font-weight:800; margin:18px 0 8px; color:var(--orange-deep); }
+.nw-tw { overflow-x:auto; margin:0 0 8px; }
+.nw-t { width:100%; border-collapse:collapse; font-size:14px; margin:0; }
+.nw-t th, .nw-t td { border:1px solid #cfc7bd; padding:5px 7px; text-align:center; }
+.nw-t th { background:#fff3e6; font-weight:800; }
+.nw-t td.l { text-align:left; }
+.nw-t .k { font-weight:800; font-size:15px; }
+.nw-two { display:grid; grid-template-columns:1fr 1fr; gap:10px; }
+.nw-two > div { border:1px solid #cfc7bd; border-radius:10px; padding:8px 10px; font-size:13.5px; line-height:1.6; }
+.nw-two b { color:var(--orange-deep); }
+.nw-q { display:grid; grid-template-columns:1fr 1fr; gap:6px 18px; font-size:15px; }
+.nw-q li { list-style:none; padding:5px 0; border-bottom:1px dashed #cfc7bd; }
+.nw-q ol { margin:0; padding:0; }
+.nw-line { display:inline-block; min-width:90px; border-bottom:1.5px solid #1B1512; height:1em; vertical-align:bottom; }
+.nw-circle { letter-spacing:.04em; }
+.nw-ans { display:none; }
+.nw-bar { display:grid; gap:8px; margin:20px 0 12px; }
+.nw-row { display:flex; align-items:center; flex-wrap:wrap; gap:8px; }
+.nw-row > span { width:96px; font-size:13.5px; font-weight:700; color:var(--ink-3); }
+.nw-b { min-height:40px; padding:8px 18px; border:1px solid var(--line); border-radius:8px; background:var(--surface); color:var(--ink); font:inherit; font-size:14px; font-weight:700; cursor:pointer; }
+.nw-b:hover { border-color:var(--ink); }
+.nw-b.dark { background:var(--ink); border-color:var(--ink); color:var(--bg); }
+body.show-ans .nw-ans { display:block; }
+body.show-ans .nw-work { display:none; }
+.nw-foot { margin-top:14px; font-size:12px; color:var(--ink-3); text-align:center; }
+@media (max-width:560px) { .nw-two, .nw-q { grid-template-columns:1fr; } .nw-paper { padding:14px; } .nw-t { min-width:480px; font-size:13px; } }
+@media print {
+  @page { size:A4; margin:11mm; }
+  body { background:#fff; }
+  .hd, .no-print, .ft, h1, h1 + p { display:none !important; }
+  main { padding:0 !important; max-width:none; }
+  .box { border:0; padding:0; margin:0; }
+  .nw-paper { border:0; padding:0; margin:0; -webkit-print-color-adjust:exact; print-color-adjust:exact; font-size:12.5px; }
+  .nw-t { font-size:12px; } .nw-t th, .nw-t td { padding:3px 5px; }
+  .nw-h3 { margin:11px 0 5px; } .nw-q { font-size:13px; } .nw-q li { padding:3px 0; }
+  .nw-two > div { font-size:12px; padding:5px 8px; }
+  .pg { break-after:page; }
+}
+</style>
+<style>
+.shop-hero{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:6px 0 14px;border-bottom:2px solid var(--ink);margin-bottom:8px}
+.shop-hero b{font-size:15px;letter-spacing:.5px}.shop-hero small{color:var(--ink-3)}
+.shop-nav{display:flex;gap:14px;flex-wrap:wrap;font-size:14px;font-weight:700;margin:10px 0 4px}.shop-nav a{color:var(--ink);text-decoration:none}
+.bk-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:22px 18px;margin:18px 0}
+.bk-item{text-decoration:none;color:var(--ink)}.bk-item:hover .bk-cover{transform:translateY(-3px)}
+.bk-item h3{font-size:15px;margin:10px 0 2px;line-height:1.35}.bk-item p{margin:0;font-size:13px;color:var(--ink-3)}
+.bk-badge{display:inline-block;font-size:11px;font-weight:800;padding:2px 8px;border-radius:99px;background:var(--tint);margin-top:6px}
+.bk-cover{position:relative;aspect-ratio:182/257;border-radius:3px 8px 8px 3px;background:var(--c);color:#fff;padding:16px 14px 14px 20px;display:flex;flex-direction:column;box-shadow:inset 6px 0 0 rgba(0,0,0,.18),0 10px 22px rgba(0,0,0,.18);transition:transform .2s;overflow:hidden}
+.bk-cover:after{content:'';position:absolute;right:-30%;bottom:-18%;width:90%;aspect-ratio:1;border-radius:50%;background:rgba(255,255,255,.12)}
+.bk-ser{font-size:9px;font-weight:800;letter-spacing:1.5px;opacity:.85}
+.bk-cover b{font-size:19px;line-height:1.25;margin-top:12px;word-break:keep-all}
+.bk-cover i{font-style:normal;font-size:11px;opacity:.9;margin-top:6px;line-height:1.35}
+.bk-lv{margin-top:auto;align-self:flex-start;font-size:11px;font-weight:800;background:#fff;color:var(--c);padding:3px 9px;border-radius:99px;position:relative;z-index:1}
+.bk-pub{font-size:9px;opacity:.85;margin-top:8px;position:relative;z-index:1}
+.bk-cover.big{width:240px;flex:none}.bk-cover.big b{font-size:28px}.bk-cover.big i{font-size:14px}.bk-cover.big .bk-ser,.bk-cover.big .bk-pub{font-size:11px}.bk-cover.big .bk-lv{font-size:13px}
+.bk-detail{display:flex;gap:28px;align-items:flex-start;margin:18px 0}
+.bk-info{flex:1;min-width:0}.bk-info h1{margin:4px 0 2px}.bk-ko{color:var(--ink-3);margin:0 0 10px}
+.bk-spec{width:100%;min-width:0 !important;table-layout:fixed;border-collapse:collapse;font-size:14px;margin:14px 0}.bk-spec td{overflow-wrap:anywhere}.bk-spec th{text-align:left;color:var(--ink-3);font-weight:600;width:96px;padding:6px 0}.bk-spec td{padding:6px 0}
+.bk-toc{counter-reset:none;padding-left:0;list-style:none}.bk-toc li{padding:9px 0;border-top:1px solid var(--line)}.bk-toc small{display:block;color:var(--ink-3)}
+.shop-card{display:flex;gap:20px;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:20px;margin:18px 0}
+.shop-pk{flex:0 0 110px;height:150px;border-radius:8px;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#fff;background:#C4551C}
+.shop-pk.lv-A2{background:#2F6FDB}.shop-pk.lv-all{background:#1F1F1F}.shop-pk b{font-size:40px;line-height:1}.shop-pk small{opacity:.85;margin-top:6px}
+.shop-body{flex:1;min-width:0}.shop-body h3{margin:0}.shop-price{font-size:22px;font-weight:800;margin:10px 0}.shop-price small{font-size:13px;font-weight:500;color:var(--ink-3)}
+.shop-soon{opacity:.6;cursor:default}
+.shop-body details{margin-top:12px}.shop-body ul{margin:8px 0 0;padding-left:18px;columns:2;font-size:14px}
+.shop-row{display:flex;align-items:center;gap:12px;padding:10px 0;border-top:1px solid var(--line)}.shop-row:first-child{border-top:0}
+.shop-lv{font-size:12px;font-weight:800;color:var(--ink-3);width:28px}.shop-t{flex:1;min-width:0}.shop-t small{display:block;color:var(--ink-3)}
+.shop-row .btn{min-height:40px;padding:8px 14px;font-size:14px;white-space:nowrap}
+@media (max-width:600px){.bk-info{width:100%}.bk-info h1{font-size:26px;overflow-wrap:anywhere}.shop-hero .btn{display:none}.bk-spec th{width:84px}.bk-grid{grid-template-columns:repeat(2,1fr);gap:18px 14px}.bk-detail{flex-direction:column}.bk-cover.big{width:200px;align-self:center}.shop-card{flex-direction:column}.shop-pk{flex:none;width:100%;height:96px;flex-direction:row;gap:10px}.shop-body ul{columns:1}}
+</style>
+</head>
+<body>
+<header class="hd"><div class="hd-in">
+  <a href="/"><img src="/logo.png" alt=""><span>치즈감자 CheesePotato</span></a>
+</div></header>
+<main>
+<div class="shop-hero"><span><b>EVERY KOREANS BOOKS</b><br><small>에브리코리안즈 출판 · Korean books &amp; worksheets by a Korean teacher</small></span><a class="btn sub" href="/worksheets/">Free worksheets</a></div>
+<nav class="shop-nav"><a href="/shop/#books">Books · 책</a><a href="/shop/#packs">Worksheet packs · 묶음</a><a href="/shop/#singles">Single sheets · 낱장</a></nav>
+<h1 id="books">Books</h1>
+<p>책 · original Korean workbooks and TOPIK practice books. TOPIK questions are newly written in the official format — not past papers.</p>
+<div class="bk-grid">
+<a class="bk-item" href="/shop/first-steps-workbook/"><div class="bk-cover" style="--c:#E8642C"><span class="bk-ser">WORKBOOK SERIES</span><b>한국어 첫걸음 워크북</b><i>Korean First Steps Workbook</i><span class="bk-lv">A1</span><span class="bk-pub">Every Koreans Books</span></div><h3>Korean First Steps Workbook</h3><p>한국어 첫걸음 워크북</p><span class="bk-badge">Coming soon · 출간 예정</span></a>
+<a class="bk-item" href="/shop/elementary-grammar-workbook/"><div class="bk-cover" style="--c:#2F6FDB"><span class="bk-ser">WORKBOOK SERIES</span><b>초급 한국어 문법 워크북</b><i>Elementary Korean Grammar Workbook</i><span class="bk-lv">A2</span><span class="bk-pub">Every Koreans Books</span></div><h3>Elementary Korean Grammar Workbook</h3><p>초급 한국어 문법 워크북</p><span class="bk-badge">Coming soon · 출간 예정</span></a>
+<a class="bk-item" href="/shop/topik1-reading-mock/"><div class="bk-cover" style="--c:#12704F"><span class="bk-ser">TOPIK SERIES</span><b>TOPIK I 읽기 실전 모의고사 10회</b><i>TOPIK I Reading — 10 Practice Tests</i><span class="bk-lv">TOPIK I</span><span class="bk-pub">Every Koreans Books</span></div><h3>TOPIK I Reading — 10 Practice Tests</h3><p>TOPIK I 읽기 실전 모의고사 10회</p><span class="bk-badge">Coming soon · 출간 예정</span></a>
+<a class="bk-item" href="/shop/topik2-writing-200/"><div class="bk-cover" style="--c:#6B3FA0"><span class="bk-ser">TOPIK SERIES</span><b>TOPIK II 쓰기 51~54번 200제</b><i>TOPIK II Writing 51–54: 200 Practice Questions</i><span class="bk-lv">TOPIK II</span><span class="bk-pub">Every Koreans Books</span></div><h3>TOPIK II Writing 51–54: 200 Practice Questions</h3><p>TOPIK II 쓰기 51~54번 200제</p><span class="bk-badge">Coming soon · 출간 예정</span></a>
+</div>
+<h2 id="packs">Worksheet packs · 학습지 묶음</h2>
+<p>Every worksheet stays free to use on the site — the packs are clean print-ready PDFs you keep.</p>
+<div class="shop-card"><div class="shop-pk lv-A1"><b>19</b><small>A1 · PDF</small></div>
+  <div class="shop-body"><h3>Beginner Worksheet Pack (A1)</h3><p class="bk-ko">초급 학습지 묶음 (A1)</p><p>Hangul, greetings, everyday words and basic grammar — every sheet with an answer key.</p>
+    <p class="shop-price">$9.99 <small>· 19 sheets + answer keys · PDF download</small></p>
+    <span class="btn sub shop-soon" aria-disabled="true">Coming soon · 준비 중</span>
+    <details><summary>What is inside (19)</summary><ul><li><a href="/colors-shapes-opposites-worksheet/">Colors, Shapes &amp; Opposite Adjectives</a> · 색깔 · 모양 · 반대말 형용사</li><li><a href="/days-months-dates-worksheet/">Days, months &amp; dates</a> · 요일 · 월 · 날짜</li><li><a href="/demonstratives-worksheet/">Korean Demonstratives: 이 · 그 · 저</a> · 지시어: 이 · 그 · 저</li><li><a href="/directions-transportation-worksheet/">Directions &amp; Transportation</a> · 길 묻기 · 교통 · 방향</li><li><a href="/family-terms-worksheet/">Family Terms &amp; Honorifics</a> · 가족 호칭과 높임말</li><li><a href="/food-ordering-taste-worksheet/">Food Ordering, Menus &amp; Taste</a> · 음식 주문 · 메뉴 · 맛 표현</li><li><a href="/greetings-self-introduction-worksheet/">Greetings &amp; Self-Introduction</a> · 인사말과 자기소개</li><li><a href="/hangul-alphabet-worksheet/">Hangul Alphabet: Consonants &amp; Vowels</a> · 한글 자음과 모음</li><li><a href="/hangul-batchim-worksheet/">Hangul Batchim &amp; Sound Rules</a> · 받침과 소리 규칙</li><li><a href="/health-hospital-worksheet/">Body Parts, Illness &amp; Hospital</a> · 몸 · 아플 때 쓰는 말 · 병원</li><li><a href="/hobbies-leisure-sports-worksheet/">Hobbies, Leisure &amp; Sports</a> · 취미 · 여가 · 운동</li><li><a href="/house-rooms-furniture-worksheet/">House, Rooms &amp; Furniture</a> · 집 · 방 · 가구</li><li><a href="/ida-anida-itta-eopda-worksheet/">이다 vs 아니다 and 있다 vs 없다</a> · 이다 · 아니다 · 있다 · 없다 비교</li><li><a href="/korean-particles-worksheet/">Essential Korean Particles</a> · 기초 필수 조사</li><li><a href="/location-places-exist-worksheet/">Location, Places &amp; Existence</a> · 위치 · 장소 · 있다/없다</li><li><a href="/question-words-worksheet/">Korean Question Words</a> · 의문사: 누구 · 언제 · 어디 · 무엇 · 왜</li><li><a href="/school-classroom-worksheet/">School &amp; Classroom Expressions</a> · 학교 · 교실 표현</li><li><a href="/shopping-prices-clothes-worksheet/">Shopping, Prices &amp; Clothing</a> · 쇼핑 · 가격 · 옷 · 크기</li><li><a href="/weather-seasons-temperature-worksheet/">Weather, Seasons &amp; Temperature</a> · 날씨 · 계절 · 기온</li></ul></details></div></div>
+<div class="shop-card"><div class="shop-pk lv-A2"><b>10</b><small>A2 · PDF</small></div>
+  <div class="shop-body"><h3>Elementary Worksheet Pack (A2)</h3><p class="bk-ko">초중급 학습지 묶음 (A2)</p><p>Linking, honorifics, irregular verbs, speech levels and more — with answer keys.</p>
+    <p class="shop-price">$7.99 <small>· 10 sheets + answer keys · PDF download</small></p>
+    <span class="btn sub shop-soon" aria-disabled="true">Coming soon · 준비 중</span>
+    <details><summary>What is inside (10)</summary><ul><li><a href="/adjective-noun-modifiers-worksheet/">Noun-Modifying Adjectives: -(으)ㄴ</a> · 형용사로 명사 꾸미기</li><li><a href="/connectors-reason-worksheet/">Cause, Reason &amp; Sentence Connectors</a> · 이유와 이어 주는 말: -아서/어서 · -(으)니까 · 그리고 · 그래서</li><li><a href="/honorific-si-worksheet/">Honorific Suffix: -(으)시-</a> · 높임 표현: -(으)시-</li><li><a href="/irregular-verbs-worksheet/">Irregular Verbs: ㅂ, ㄷ &amp; 르</a> · 동사 · 형용사 불규칙 활용: ㅂ · ㄷ · 르</li><li><a href="/negation-tenses-worksheet/">Negation &amp; Tenses</a> · 부정과 시제: 안 · 못 · 과거 · 미래</li><li><a href="/onomatopoeia-mimetic-words-worksheet/">Korean Onomatopoeia &amp; Mimetic Words</a> · 의성어와 의태어</li><li><a href="/reported-speech-worksheet/">Reported speech: -다고 · -냐고 · -자고 · -(으)라고</a> · 간접 인용</li><li><a href="/speech-levels-worksheet/">Speech Levels: 해요체, 합쇼체 &amp; 반말</a> · 해요체 · 합쇼체 · 반말 — 말투 바꾸기</li><li><a href="/suggestions-promises-worksheet/">Suggestions &amp; Promises: -(으)ㄹ까요? · -(으)ㄹ래요? · -(으)ㄹ게요</a> · 전화 · 약속 잡기: -(으)ㄹ까요? · -(으)ㄹ래요? · -(으)ㄹ게요</li><li><a href="/wishes-obligations-permissions-worksheet/">Wishes, Obligations &amp; Permissions</a> · 하고 싶다 · 해야 하다 · 해도 되다</li></ul></details></div></div>
+<div class="shop-card"><div class="shop-pk lv-all"><b>29</b><small>A1–A2 · PDF</small></div>
+  <div class="shop-body"><h3>All Worksheets Bundle</h3><p class="bk-ko">학습지 전체 묶음</p><p>Every worksheet in one download, plus new sheets added to the bundle.</p>
+    <p class="shop-price">$14.99 <small>· 29 sheets + answer keys · PDF download</small></p>
+    <span class="btn sub shop-soon" aria-disabled="true">Coming soon · 준비 중</span>
+    <details><summary>What is inside (29)</summary><ul><li><a href="/adjective-noun-modifiers-worksheet/">Noun-Modifying Adjectives: -(으)ㄴ</a> · 형용사로 명사 꾸미기</li><li><a href="/colors-shapes-opposites-worksheet/">Colors, Shapes &amp; Opposite Adjectives</a> · 색깔 · 모양 · 반대말 형용사</li><li><a href="/connectors-reason-worksheet/">Cause, Reason &amp; Sentence Connectors</a> · 이유와 이어 주는 말: -아서/어서 · -(으)니까 · 그리고 · 그래서</li><li><a href="/days-months-dates-worksheet/">Days, months &amp; dates</a> · 요일 · 월 · 날짜</li><li><a href="/demonstratives-worksheet/">Korean Demonstratives: 이 · 그 · 저</a> · 지시어: 이 · 그 · 저</li><li><a href="/directions-transportation-worksheet/">Directions &amp; Transportation</a> · 길 묻기 · 교통 · 방향</li><li><a href="/family-terms-worksheet/">Family Terms &amp; Honorifics</a> · 가족 호칭과 높임말</li><li><a href="/food-ordering-taste-worksheet/">Food Ordering, Menus &amp; Taste</a> · 음식 주문 · 메뉴 · 맛 표현</li><li><a href="/greetings-self-introduction-worksheet/">Greetings &amp; Self-Introduction</a> · 인사말과 자기소개</li><li><a href="/hangul-alphabet-worksheet/">Hangul Alphabet: Consonants &amp; Vowels</a> · 한글 자음과 모음</li><li><a href="/hangul-batchim-worksheet/">Hangul Batchim &amp; Sound Rules</a> · 받침과 소리 규칙</li><li><a href="/health-hospital-worksheet/">Body Parts, Illness &amp; Hospital</a> · 몸 · 아플 때 쓰는 말 · 병원</li><li><a href="/hobbies-leisure-sports-worksheet/">Hobbies, Leisure &amp; Sports</a> · 취미 · 여가 · 운동</li><li><a href="/honorific-si-worksheet/">Honorific Suffix: -(으)시-</a> · 높임 표현: -(으)시-</li><li><a href="/house-rooms-furniture-worksheet/">House, Rooms &amp; Furniture</a> · 집 · 방 · 가구</li><li><a href="/ida-anida-itta-eopda-worksheet/">이다 vs 아니다 and 있다 vs 없다</a> · 이다 · 아니다 · 있다 · 없다 비교</li><li><a href="/irregular-verbs-worksheet/">Irregular Verbs: ㅂ, ㄷ &amp; 르</a> · 동사 · 형용사 불규칙 활용: ㅂ · ㄷ · 르</li><li><a href="/korean-particles-worksheet/">Essential Korean Particles</a> · 기초 필수 조사</li><li><a href="/location-places-exist-worksheet/">Location, Places &amp; Existence</a> · 위치 · 장소 · 있다/없다</li><li><a href="/negation-tenses-worksheet/">Negation &amp; Tenses</a> · 부정과 시제: 안 · 못 · 과거 · 미래</li><li><a href="/onomatopoeia-mimetic-words-worksheet/">Korean Onomatopoeia &amp; Mimetic Words</a> · 의성어와 의태어</li><li><a href="/question-words-worksheet/">Korean Question Words</a> · 의문사: 누구 · 언제 · 어디 · 무엇 · 왜</li><li><a href="/reported-speech-worksheet/">Reported speech: -다고 · -냐고 · -자고 · -(으)라고</a> · 간접 인용</li><li><a href="/school-classroom-worksheet/">School &amp; Classroom Expressions</a> · 학교 · 교실 표현</li><li><a href="/shopping-prices-clothes-worksheet/">Shopping, Prices &amp; Clothing</a> · 쇼핑 · 가격 · 옷 · 크기</li><li><a href="/speech-levels-worksheet/">Speech Levels: 해요체, 합쇼체 &amp; 반말</a> · 해요체 · 합쇼체 · 반말 — 말투 바꾸기</li><li><a href="/suggestions-promises-worksheet/">Suggestions &amp; Promises: -(으)ㄹ까요? · -(으)ㄹ래요? · -(으)ㄹ게요</a> · 전화 · 약속 잡기: -(으)ㄹ까요? · -(으)ㄹ래요? · -(으)ㄹ게요</li><li><a href="/weather-seasons-temperature-worksheet/">Weather, Seasons &amp; Temperature</a> · 날씨 · 계절 · 기온</li><li><a href="/wishes-obligations-permissions-worksheet/">Wishes, Obligations &amp; Permissions</a> · 하고 싶다 · 해야 하다 · 해도 되다</li></ul></details></div></div>
+<h2 id="singles">Single worksheets · 낱장</h2>
+<p>$1.99 each · 학습지 한 장(정답지 포함) PDF</p>
+<div class="box">
+  <div class="shop-row"><span class="shop-lv">A2</span><span class="shop-t"><a href="/adjective-noun-modifiers-worksheet/">Noun-Modifying Adjectives: -(으)ㄴ</a><small>형용사로 명사 꾸미기</small></span><span class="btn sub shop-soon" aria-disabled="true">Coming soon · 준비 중</span></div>
+  <div class="shop-row"><span class="shop-lv">A1</span><span class="shop-t"><a href="/colors-shapes-opposites-worksheet/">Colors, Shapes &amp; Opposite Adjectives</a><small>색깔 · 모양 · 반대말 형용사</small></span><span class="btn sub shop-soon" aria-disabled="true">Coming soon · 준비 중</span></div>
+  <div class="shop-row"><span class="shop-lv">A2</span><span class="shop-t"><a href="/connectors-reason-worksheet/">Cause, Reason &amp; Sentence Connectors</a><small>이유와 이어 주는 말: -아서/어서 · -(으)니까 · 그리고 · 그래서</small></span><span class="btn sub shop-soon" aria-disabled="true">Coming soon · 준비 중</span></div>
+  <div class="shop-row"><span class="shop-lv">A1</span><span class="shop-t"><a href="/days-months-dates-worksheet/">Days, months &amp; dates</a><small>요일 · 월 · 날짜</small></span><span class="btn sub shop-soon" aria-disabled="true">Coming soon · 준비 중</span></div>
+  <div class="shop-row"><span class="shop-lv">A1</span><span class="shop-t"><a href="/demonstratives-worksheet/">Korean Demonstratives: 이 · 그 · 저</a><small>지시어: 이 · 그 · 저</small></span><span class="btn sub shop-soon" aria-disabled="true">Coming soon · 준비 중</span></div>
+  <div class="shop-row"><span class="shop-lv">A1</span><span class="shop-t"><a href="/directions-transportation-worksheet/">Directions &amp; Transportation</a><small>길 묻기 · 교통 · 방향</small></span><span class="btn sub shop-soon" aria-disabled="true">Coming soon · 준비 중</span></div>
+  <div class="shop-row"><span class="shop-lv">A1</span><span class="shop-t"><a href="/family-terms-worksheet/">Family Terms &amp; Honorifics</a><small>가족 호칭과 높임말</small></span><span class="btn sub shop-soon" aria-disabled="true">Coming soon · 준비 중</span></div>
+  <div class="shop-row"><span class="shop-lv">A1</span><span class="shop-t"><a href="/food-ordering-taste-worksheet/">Food Ordering, Menus &amp; Taste</a><small>음식 주문 · 메뉴 · 맛 표현</small></span><span class="btn sub shop-soon" aria-disabled="true">Coming soon · 준비 중</span></div>
+  <div class="shop-row"><span class="shop-lv">A1</span><span class="shop-t"><a href="/greetings-self-introduction-worksheet/">Greetings &amp; Self-Introduction</a><small>인사말과 자기소개</small></span><span class="btn sub shop-soon" aria-disabled="true">Coming soon · 준비 중</span></div>
+  <div class="shop-row"><span class="shop-lv">A1</span><span class="shop-t"><a href="/hangul-alphabet-worksheet/">Hangul Alphabet: Consonants &amp; Vowels</a><small>한글 자음과 모음</small></span><span class="btn sub shop-soon" aria-disabled="true">Coming soon · 준비 중</span></div>
+  <div class="shop-row"><span class="shop-lv">A1</span><span class="shop-t"><a href="/hangul-batchim-worksheet/">Hangul Batchim &amp; Sound Rules</a><small>받침과 소리 규칙</small></span><span class="btn sub shop-soon" aria-disabled="true">Coming soon · 준비 중</span></div>
+  <div class="shop-row"><span class="shop-lv">A1</span><span class="shop-t"><a href="/health-hospital-worksheet/">Body Parts, Illness &amp; Hospital</a><small>몸 · 아플 때 쓰는 말 · 병원</small></span><span class="btn sub shop-soon" aria-disabled="true">Coming soon · 준비 중</span></div>
+  <div class="shop-row"><span class="shop-lv">A1</span><span class="shop-t"><a href="/hobbies-leisure-sports-worksheet/">Hobbies, Leisure &amp; Sports</a><small>취미 · 여가 · 운동</small></span><span class="btn sub shop-soon" aria-disabled="true">Coming soon · 준비 중</span></div>
+  <div class="shop-row"><span class="shop-lv">A2</span><span class="shop-t"><a href="/honorific-si-worksheet/">Honorific Suffix: -(으)시-</a><small>높임 표현: -(으)시-</small></span><span class="btn sub shop-soon" aria-disabled="true">Coming soon · 준비 중</span></div>
+  <div class="shop-row"><span class="shop-lv">A1</span><span class="shop-t"><a href="/house-rooms-furniture-worksheet/">House, Rooms &amp; Furniture</a><small>집 · 방 · 가구</small></span><span class="btn sub shop-soon" aria-disabled="true">Coming soon · 준비 중</span></div>
+  <div class="shop-row"><span class="shop-lv">A1</span><span class="shop-t"><a href="/ida-anida-itta-eopda-worksheet/">이다 vs 아니다 and 있다 vs 없다</a><small>이다 · 아니다 · 있다 · 없다 비교</small></span><span class="btn sub shop-soon" aria-disabled="true">Coming soon · 준비 중</span></div>
+  <div class="shop-row"><span class="shop-lv">A2</span><span class="shop-t"><a href="/irregular-verbs-worksheet/">Irregular Verbs: ㅂ, ㄷ &amp; 르</a><small>동사 · 형용사 불규칙 활용: ㅂ · ㄷ · 르</small></span><span class="btn sub shop-soon" aria-disabled="true">Coming soon · 준비 중</span></div>
+  <div class="shop-row"><span class="shop-lv">A1</span><span class="shop-t"><a href="/korean-particles-worksheet/">Essential Korean Particles</a><small>기초 필수 조사</small></span><span class="btn sub shop-soon" aria-disabled="true">Coming soon · 준비 중</span></div>
+  <div class="shop-row"><span class="shop-lv">A1</span><span class="shop-t"><a href="/location-places-exist-worksheet/">Location, Places &amp; Existence</a><small>위치 · 장소 · 있다/없다</small></span><span class="btn sub shop-soon" aria-disabled="true">Coming soon · 준비 중</span></div>
+  <div class="shop-row"><span class="shop-lv">A2</span><span class="shop-t"><a href="/negation-tenses-worksheet/">Negation &amp; Tenses</a><small>부정과 시제: 안 · 못 · 과거 · 미래</small></span><span class="btn sub shop-soon" aria-disabled="true">Coming soon · 준비 중</span></div>
+  <div class="shop-row"><span class="shop-lv">A2</span><span class="shop-t"><a href="/onomatopoeia-mimetic-words-worksheet/">Korean Onomatopoeia &amp; Mimetic Words</a><small>의성어와 의태어</small></span><span class="btn sub shop-soon" aria-disabled="true">Coming soon · 준비 중</span></div>
+  <div class="shop-row"><span class="shop-lv">A1</span><span class="shop-t"><a href="/question-words-worksheet/">Korean Question Words</a><small>의문사: 누구 · 언제 · 어디 · 무엇 · 왜</small></span><span class="btn sub shop-soon" aria-disabled="true">Coming soon · 준비 중</span></div>
+  <div class="shop-row"><span class="shop-lv">A2</span><span class="shop-t"><a href="/reported-speech-worksheet/">Reported speech: -다고 · -냐고 · -자고 · -(으)라고</a><small>간접 인용</small></span><span class="btn sub shop-soon" aria-disabled="true">Coming soon · 준비 중</span></div>
+  <div class="shop-row"><span class="shop-lv">A1</span><span class="shop-t"><a href="/school-classroom-worksheet/">School &amp; Classroom Expressions</a><small>학교 · 교실 표현</small></span><span class="btn sub shop-soon" aria-disabled="true">Coming soon · 준비 중</span></div>
+  <div class="shop-row"><span class="shop-lv">A1</span><span class="shop-t"><a href="/shopping-prices-clothes-worksheet/">Shopping, Prices &amp; Clothing</a><small>쇼핑 · 가격 · 옷 · 크기</small></span><span class="btn sub shop-soon" aria-disabled="true">Coming soon · 준비 중</span></div>
+  <div class="shop-row"><span class="shop-lv">A2</span><span class="shop-t"><a href="/speech-levels-worksheet/">Speech Levels: 해요체, 합쇼체 &amp; 반말</a><small>해요체 · 합쇼체 · 반말 — 말투 바꾸기</small></span><span class="btn sub shop-soon" aria-disabled="true">Coming soon · 준비 중</span></div>
+  <div class="shop-row"><span class="shop-lv">A2</span><span class="shop-t"><a href="/suggestions-promises-worksheet/">Suggestions &amp; Promises: -(으)ㄹ까요? · -(으)ㄹ래요? · -(으)ㄹ게요</a><small>전화 · 약속 잡기: -(으)ㄹ까요? · -(으)ㄹ래요? · -(으)ㄹ게요</small></span><span class="btn sub shop-soon" aria-disabled="true">Coming soon · 준비 중</span></div>
+  <div class="shop-row"><span class="shop-lv">A1</span><span class="shop-t"><a href="/weather-seasons-temperature-worksheet/">Weather, Seasons &amp; Temperature</a><small>날씨 · 계절 · 기온</small></span><span class="btn sub shop-soon" aria-disabled="true">Coming soon · 준비 중</span></div>
+  <div class="shop-row"><span class="shop-lv">A2</span><span class="shop-t"><a href="/wishes-obligations-permissions-worksheet/">Wishes, Obligations &amp; Permissions</a><small>하고 싶다 · 해야 하다 · 해도 되다</small></span><span class="btn sub shop-soon" aria-disabled="true">Coming soon · 준비 중</span></div>
+</div>
+<div class="next">
+  <h3>How buying works</h3>
+  <p>Payment is handled by Polar, our payment partner. Digital files download right after paying and arrive by email. Printed books will be sold through bookstores when published. See <a href="/refund.html">refunds</a> · <a href="/terms.html">terms</a>.</p>
+</div>
+<p class="ft">Every Koreans Books · 에브리코리안즈 출판 · <a href="/about.html">About</a> · <a href="/worksheets/">Free worksheets</a></p>
+</main>
+</body>
+</html>

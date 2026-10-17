@@ -1,5 +1,6 @@
 #!/usr/bin/env node
-/* 학습지 틀 — docs/worksheets/<id>.json → /<id>-worksheet/index.html (인쇄용 A4 학습지 + 정답지) + /worksheets/index.html(목록).
+/* 학습지 틀 — docs/worksheets/<id>.json → /<id>-worksheet/index.html (인쇄용 A4 학습지 + 정답지) + /worksheets/index.html(목록)
+   + /shop/index.html(상점 — docs/shop.json).
    운영자 2026-10-14 「이런 학습지 많이 만들자」 — 수사 학습지(손으로 쓴 쪽)와 같은 모양을 자료 한 파일로 찍어 낸다.
    자료를 늘리는 일은 안티 그래비티 · Claude 가 JSON 만 쓰면 된다(지시 docs/antigravity/antigravity-worksheets-task.md, 검사 check-sheets).
    JSON 모양은 docs/worksheets/_schema.md. 인쇄 단추는 numbers-worksheet.js(id nwPrint · nwAns)를 같이 쓴다.
@@ -162,9 +163,141 @@ ${rows.map(([u, en, ko, lv, d]) => `  <p><a class="btn sub" href="${u}"><b>${esc
 ` + foot;
 }
 
+/* ── 상점(/shop/) — 1인 출판사 온라인 서점(운영자 2026-10-17 「상점 페이지부터」 · 「1인 출판 온라인 서점 페이지」) ──
+   자료는 docs/shop.json, 책 계획은 docs/plans/books.md. 학습지 쪽은 무료 그대로 두고, 파는 것은 인쇄용 PDF(학습지 + 정답지 · 묶음)와 앞으로 낼 책.
+   결제는 이미 쓰는 Polar 의 「한 번 사는 상품 + 파일 다운로드」— 링크(buy.polar.sh)가 없는 상품은 「준비 중」으로만 보인다.
+   파는 파일(PDF)은 공개 저장소에 두지 않는다(누구나 받아 갈 수 있으니) — Polar 상품에 올린다.
+   책 표지는 그림 파일 없이 CSS 로 그린다(제목 · 시리즈 색 · 급) — 진짜 표지가 나오면 cover 칸에 그림 경로를 넣는다. */
+const SHOP = JSON.parse(fs.readFileSync(path.join(ROOT, 'docs/shop.json'), 'utf8'));
+const POLAR = /^https:\/\/buy\.polar\.sh\/[A-Za-z0-9_-]+$/;
+for (const p of SHOP.packs) {
+  if (!/^[a-z0-9-]+$/.test(p.id) || !p.title?.en || !p.title?.ko || !/^\d+\.\d{2}$/.test(p.price)) bad.push(`docs/shop.json ${p.id}: id · title · price(0.00)`);
+  if (p.polar && !POLAR.test(p.polar)) bad.push(`docs/shop.json ${p.id}: polar 는 https://buy.polar.sh/… 링크`);
+}
+for (const [id, u] of Object.entries(SHOP.singles || {})) {
+  if (!sheets.some((w) => w.id === id)) bad.push(`docs/shop.json singles: 없는 학습지 ${id}`);
+  if (u && !POLAR.test(u)) bad.push(`docs/shop.json singles.${id}: polar 는 https://buy.polar.sh/… 링크`);
+}
+for (const k of SHOP.books) {
+  if (!/^[a-z0-9-]+$/.test(k.id) || !k.title?.en || !k.title?.ko || !k.about?.en || !/^#[0-9A-Fa-f]{6}$/.test(k.color || '')) bad.push(`docs/shop.json 책 ${k.id}: id · title · about · color(#RRGGBB)`);
+  if (k.polar && !POLAR.test(k.polar)) bad.push(`docs/shop.json 책 ${k.id}: polar 는 https://buy.polar.sh/… 링크`);
+}
+const pub = SHOP.publisher;
+const packSheets = (p) => sheets.filter((w) => p.level === 'all' || w.level === p.level);
+/* 책 목차 — 워크북은 그 급 학습지 제목이 곧 단원(자료에서 바로), 나머지는 shop.json 의 toc */
+const bookToc = (k) => k.sheets ? sheets.filter((w) => w.level === k.sheets).map((w, i) => ({ en: `Unit ${i + 1}. ${w.title.en}`, ko: w.title.ko, u: `/${w.id}-worksheet/` })) : (k.toc || []);
+const buy = (url, price, label) => url
+  ? `<a class="btn main" href="${esc(url)}" rel="noopener">${esc(label)} · $${esc(price)}</a>`
+  : `<span class="btn sub shop-soon" aria-disabled="true">Coming soon · 준비 중</span>`;
+const cover = (k, big) => `<div class="bk-cover${big ? ' big' : ''}" style="--c:${esc(k.color)}"><span class="bk-ser">${esc(k.series === 'topik' ? 'TOPIK SERIES' : 'WORKBOOK SERIES')}</span><b>${esc(k.title.ko)}</b><i>${esc(k.title.en)}</i><span class="bk-lv">${esc(k.level)}</span><span class="bk-pub">${esc(pub.en)}</span></div>`;
+const STATUS = { planned: ['Coming soon', '출간 예정'], on: ['Available', '판매 중'] };
+const SHOP_CSS = `<style>
+.shop-hero{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:6px 0 14px;border-bottom:2px solid var(--ink);margin-bottom:8px}
+.shop-hero b{font-size:15px;letter-spacing:.5px}.shop-hero small{color:var(--ink-3)}
+.shop-nav{display:flex;gap:14px;flex-wrap:wrap;font-size:14px;font-weight:700;margin:10px 0 4px}.shop-nav a{color:var(--ink);text-decoration:none}
+.bk-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:22px 18px;margin:18px 0}
+.bk-item{text-decoration:none;color:var(--ink)}.bk-item:hover .bk-cover{transform:translateY(-3px)}
+.bk-item h3{font-size:15px;margin:10px 0 2px;line-height:1.35}.bk-item p{margin:0;font-size:13px;color:var(--ink-3)}
+.bk-badge{display:inline-block;font-size:11px;font-weight:800;padding:2px 8px;border-radius:99px;background:var(--tint);margin-top:6px}
+.bk-cover{position:relative;aspect-ratio:182/257;border-radius:3px 8px 8px 3px;background:var(--c);color:#fff;padding:16px 14px 14px 20px;display:flex;flex-direction:column;box-shadow:inset 6px 0 0 rgba(0,0,0,.18),0 10px 22px rgba(0,0,0,.18);transition:transform .2s;overflow:hidden}
+.bk-cover:after{content:'';position:absolute;right:-30%;bottom:-18%;width:90%;aspect-ratio:1;border-radius:50%;background:rgba(255,255,255,.12)}
+.bk-ser{font-size:9px;font-weight:800;letter-spacing:1.5px;opacity:.85}
+.bk-cover b{font-size:19px;line-height:1.25;margin-top:12px;word-break:keep-all}
+.bk-cover i{font-style:normal;font-size:11px;opacity:.9;margin-top:6px;line-height:1.35}
+.bk-lv{margin-top:auto;align-self:flex-start;font-size:11px;font-weight:800;background:#fff;color:var(--c);padding:3px 9px;border-radius:99px;position:relative;z-index:1}
+.bk-pub{font-size:9px;opacity:.85;margin-top:8px;position:relative;z-index:1}
+.bk-cover.big{width:240px;flex:none}.bk-cover.big b{font-size:28px}.bk-cover.big i{font-size:14px}.bk-cover.big .bk-ser,.bk-cover.big .bk-pub{font-size:11px}.bk-cover.big .bk-lv{font-size:13px}
+.bk-detail{display:flex;gap:28px;align-items:flex-start;margin:18px 0}
+.bk-info{flex:1;min-width:0}.bk-info h1{margin:4px 0 2px}.bk-ko{color:var(--ink-3);margin:0 0 10px}
+.bk-spec{width:100%;min-width:0 !important;table-layout:fixed;border-collapse:collapse;font-size:14px;margin:14px 0}.bk-spec td{overflow-wrap:anywhere}.bk-spec th{text-align:left;color:var(--ink-3);font-weight:600;width:96px;padding:6px 0}.bk-spec td{padding:6px 0}
+.bk-toc{counter-reset:none;padding-left:0;list-style:none}.bk-toc li{padding:9px 0;border-top:1px solid var(--line)}.bk-toc small{display:block;color:var(--ink-3)}
+.shop-card{display:flex;gap:20px;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:20px;margin:18px 0}
+.shop-pk{flex:0 0 110px;height:150px;border-radius:8px;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#fff;background:#C4551C}
+.shop-pk.lv-A2{background:#2F6FDB}.shop-pk.lv-all{background:#1F1F1F}.shop-pk b{font-size:40px;line-height:1}.shop-pk small{opacity:.85;margin-top:6px}
+.shop-body{flex:1;min-width:0}.shop-body h3{margin:0}.shop-price{font-size:22px;font-weight:800;margin:10px 0}.shop-price small{font-size:13px;font-weight:500;color:var(--ink-3)}
+.shop-soon{opacity:.6;cursor:default}
+.shop-body details{margin-top:12px}.shop-body ul{margin:8px 0 0;padding-left:18px;columns:2;font-size:14px}
+.shop-row{display:flex;align-items:center;gap:12px;padding:10px 0;border-top:1px solid var(--line)}.shop-row:first-child{border-top:0}
+.shop-lv{font-size:12px;font-weight:800;color:var(--ink-3);width:28px}.shop-t{flex:1;min-width:0}.shop-t small{display:block;color:var(--ink-3)}
+.shop-row .btn{min-height:40px;padding:8px 14px;font-size:14px;white-space:nowrap}
+@media (max-width:600px){.bk-info{width:100%}.bk-info h1{font-size:26px;overflow-wrap:anywhere}.shop-hero .btn{display:none}.bk-spec th{width:84px}.bk-grid{grid-template-columns:repeat(2,1fr);gap:18px 14px}.bk-detail{flex-direction:column}.bk-cover.big{width:200px;align-self:center}.shop-card{flex-direction:column}.shop-pk{flex:none;width:100%;height:96px;flex-direction:row;gap:10px}.shop-body ul{columns:1}}
+</style>
+`;
+const shopHead = () => `<div class="shop-hero"><span><b>${esc(pub.en.toUpperCase())}</b><br><small>${esc(pub.ko)} · Korean books &amp; worksheets by a Korean teacher</small></span><a class="btn sub" href="/worksheets/">Free worksheets</a></div>
+<nav class="shop-nav"><a href="/shop/#books">Books · 책</a><a href="/shop/#packs">Worksheet packs · 묶음</a><a href="/shop/#singles">Single sheets · 낱장</a></nav>`;
+const shopFoot = `<div class="next">
+  <h3>How buying works</h3>
+  <p>Payment is handled by Polar, our payment partner. Digital files download right after paying and arrive by email. Printed books will be sold through bookstores when published. See <a href="/refund.html">refunds</a> · <a href="/terms.html">terms</a>.</p>
+</div>
+<p class="ft">${esc(pub.en)} · ${esc(pub.ko)} · <a href="/about.html">About</a> · <a href="/worksheets/">Free worksheets</a></p>
+`;
+function shopPage() {
+  const books = SHOP.books.map((k) => `<a class="bk-item" href="/shop/${k.id}/">${cover(k)}<h3>${esc(k.title.en)}</h3><p>${esc(k.title.ko)}</p><span class="bk-badge">${esc(STATUS[k.status]?.[0] || k.status)} · ${esc(STATUS[k.status]?.[1] || '')}</span></a>`).join('\n');
+  const packs = SHOP.packs.map((p) => {
+    const ws = packSheets(p);
+    return `<div class="shop-card"><div class="shop-pk lv-${esc(p.level)}"><b>${ws.length}</b><small>${esc(p.level === 'all' ? 'A1–A2' : p.level)} · PDF</small></div>
+  <div class="shop-body"><h3>${esc(p.title.en)}</h3><p class="bk-ko">${esc(p.title.ko)}</p><p>${esc(p.sub.en)}</p>
+    <p class="shop-price">$${esc(p.price)} <small>· ${ws.length} sheets + answer keys · PDF download</small></p>
+    ${buy(p.polar, p.price, 'Buy the pack')}
+    <details><summary>What is inside (${ws.length})</summary><ul>${ws.map((w) => `<li><a href="/${w.id}-worksheet/">${esc(w.title.en)}</a> · ${esc(w.title.ko)}</li>`).join('')}</ul></details></div></div>`;
+  }).join('\n');
+  const singles = sheets.map((w) => `  <div class="shop-row"><span class="shop-lv">${esc(w.level)}</span><span class="shop-t"><a href="/${w.id}-worksheet/">${esc(w.title.en)}</a><small>${esc(w.title.ko)}</small></span>${buy(SHOP.singles?.[w.id], SHOP.singlePrice, 'PDF')}</div>`).join('\n');
+  return head(`${pub.en} — Korean Books & Worksheet Shop`, 'Korean workbooks, TOPIK practice books and printable worksheet PDFs with answer keys — made by a Korean teacher.', '/shop/', SHOP_CSS) +
+`${shopHead()}
+<h1 id="books">Books</h1>
+<p>책 · original Korean workbooks and TOPIK practice books. TOPIK questions are newly written in the official format — not past papers.</p>
+<div class="bk-grid">
+${books}
+</div>
+<h2 id="packs">Worksheet packs · 학습지 묶음</h2>
+<p>Every worksheet stays free to use on the site — the packs are clean print-ready PDFs you keep.</p>
+${packs}
+<h2 id="singles">Single worksheets · 낱장</h2>
+<p>$${esc(SHOP.singlePrice)} each · 학습지 한 장(정답지 포함) PDF</p>
+<div class="box">
+${singles}
+</div>
+${shopFoot}` + foot;
+}
+function bookPage(k) {
+  const toc = bookToc(k);
+  const st = STATUS[k.status] || [k.status, ''];
+  return head(`${k.title.en} — ${pub.en}`, `${k.sub.en} ${st[0]}.`, `/shop/${k.id}/`, SHOP_CSS) +
+`${shopHead()}
+<div class="bk-detail">
+${cover(k, true)}
+<div class="bk-info">
+  <span class="bk-badge">${esc(st[0])} · ${esc(st[1])}</span>
+  <h1>${esc(k.title.en)}</h1>
+  <p class="bk-ko">${esc(k.title.ko)}</p>
+  <p><b>${esc(k.sub.en)}</b><br>${esc(k.sub.ko)}</p>
+  <table class="bk-spec">
+    <tr><th>Level · 급</th><td>${esc(k.level)}</td></tr>
+    <tr><th>Size · 판형</th><td>${esc(k.trim || '')}</td></tr>
+    <tr><th>Pages · 쪽수</th><td>${esc(k.pages || '')}</td></tr>
+    <tr><th>Publisher</th><td>${esc(pub.en)} · ${esc(pub.ko)}</td></tr>
+    <tr><th>ISBN</th><td>${esc(k.isbn || 'To be assigned · 출간 때 붙음')}</td></tr>
+  </table>
+  ${buy(k.polar, k.price || '', 'Buy')}
+</div>
+</div>
+<h2>About this book · 책 소개</h2>
+<p>${esc(k.about.en)}</p>
+<p class="bk-ko">${esc(k.about.ko)}</p>
+<h2>Who it is for · 이런 분께</h2>
+<ul>${k.for.en.map((x, i) => `<li>${esc(x)} <small class="bk-ko">· ${esc(k.for.ko[i] || '')}</small></li>`).join('')}</ul>
+<h2>Contents · 목차</h2>
+<ol class="bk-toc">${toc.map((t) => `<li>${t.u ? `<a href="${t.u}">${esc(t.en)}</a>` : esc(t.en)}<small>${esc(t.ko)}</small></li>`).join('')}</ol>
+${k.sheets ? '<p>Each unit is based on a free worksheet on this site — open any unit above to try it now.</p>' : ''}
+<p><a class="btn sub" href="/shop/">← All books</a></p>
+${shopFoot}` + foot;
+}
+
 if (bad.length) { console.error('학습지 자료에 문제가 있다:\n  - ' + bad.join('\n  - ')); process.exit(1); }
 const out = new Map(sheets.map((w) => [`${w.id}-worksheet/index.html`, sheetPage(w)]));
 out.set('worksheets/index.html', hubPage());
+out.set('shop/index.html', shopPage());
+for (const k of SHOP.books) out.set(`shop/${k.id}/index.html`, bookPage(k));
 /* 자료실(#library)이 한 번에 펼쳐 보여 주는 목록 — 손으로 쓴 쪽 + 만든 쪽 */
 out.set('worksheets/list.json', JSON.stringify([...hand.map(([u, en, ko, lv]) => ({ u, en, ko, lv })), ...sheets.map((w) => ({ u: `/${w.id}-worksheet/`, en: w.title.en, ko: w.title.ko, lv: w.level }))]) + '\n');
 let diff = 0;

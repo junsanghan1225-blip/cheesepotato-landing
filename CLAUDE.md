@@ -80,7 +80,7 @@
   | `docs/i18n/strings.json`(화면 글자 목록) · `i18n-<언어>.js`(화면 번역 사전) | 코드의 t() · index.html data-en → `node tools/i18n-extract.mjs`; `docs/i18n/<언어>.json`(안티 번역) → `node tools/build-i18n.mjs`(검사 `check-i18n`) |
   | `expressions.js`(「단어」 표현 탭 — 사자성어 · 속담 · 관용 표현) | `vocab/data/expressions.json`(안티 · Claude 검토, 검사 `check-expressions`) → `node tools/build-expressions.mjs` |
   | `app-data/`(앱이 읽는 코스 · 레슨 JSON — 앱은 이걸 받아 폰에 저장) | `courses*.js` · `app.module.js` 의 `MY_LEVEL_COURSES` · `docs/i18n/app-strings.json`(앱이 뽑은 화면 글자) · `docs/i18n/app-<언어>.json`(앱 번역) → `node tools/build-app-data.mjs`(build-pages 가 끝에 같이 부른다, 검사 `check-app-data`) |
-  | `<id>-worksheet/` · `worksheets/`(인쇄용 학습지 + 정답지 · 목록. 손으로 쓴 `numbers-worksheet/` · `hangul-worksheet/` 는 제외) | `docs/worksheets/<id>.json`(안티 · Claude 검토, 모양 `docs/worksheets/_schema.md`, 검사 `check-sheets`) → `node tools/build-sheets.mjs` |
+  | `<id>-worksheet/` · `worksheets/`(인쇄용 학습지 + 정답지 · 목록. 손으로 쓴 `numbers-worksheet/` · `hangul-worksheet/` 는 제외) · `shop/`(상점 · 책 쪽) | `docs/worksheets/<id>.json`(안티 · Claude 검토, 모양 `docs/worksheets/_schema.md`, 검사 `check-sheets`) · `docs/shop.json`(상품 · 책, 계획 `docs/plans/books.md`) → `node tools/build-sheets.mjs` |
   | `vocab-topik1.js` · `vocab-topik2.js` · `vocab-topik2-ex/`(TOPIK II 예문 조각, 500개씩) | `vocab/data/topik1.json` · `topik2.json`(B급 이상만) → `node tools/build-vocab.mjs` |
 - **검사:** 올리기 전에 **`node tools/preflight.mjs` 한 줄** — 자국 찍기 · 확인, 문법, CI(`check.yml`)의 검사 전부를 같은 차례로.
   첫 쪽 · `llms.txt` 의 숫자(문항 수 등)가 바뀌면 `check-geo` 가, 없는 문서 경로는 `check-docs` 가 알려 준다.

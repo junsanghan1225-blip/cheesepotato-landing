@@ -1,0 +1,227 @@
+{
+  "_note": "상점(/shop/) 상품 목록 — 운영자 2026-10-17 「상점 페이지부터」 · 「1인 출판 온라인 서점 페이지」. 책 계획은 docs/plans/books.md. 고치면 node tools/build-sheets.mjs. price 는 Claude 제안값(운영자가 정함). polar 가 비어 있으면 「준비 중」 단추만 보인다 — Polar 대시보드에서 상품(파일 다운로드 혜택)을 만들고 buy.polar.sh 링크를 붙이면 「사기」 단추가 켜진다. 학습지 쪽(/<id>-worksheet/)은 무료 그대로 두고, 파는 것은 인쇄용 PDF 파일(학습지 + 정답지)이다.",
+  "currency": "USD",
+  "singlePrice": "1.99",
+  "singles": {},
+  "packs": [
+    {
+      "id": "pack-a1",
+      "level": "A1",
+      "title": {
+        "en": "Beginner Worksheet Pack (A1)",
+        "ko": "초급 학습지 묶음 (A1)"
+      },
+      "sub": {
+        "en": "Hangul, greetings, everyday words and basic grammar — every sheet with an answer key.",
+        "ko": "한글 · 인사 · 생활 낱말 · 기초 문법 — 모두 정답지 포함"
+      },
+      "price": "9.99",
+      "polar": ""
+    },
+    {
+      "id": "pack-a2",
+      "level": "A2",
+      "title": {
+        "en": "Elementary Worksheet Pack (A2)",
+        "ko": "초중급 학습지 묶음 (A2)"
+      },
+      "sub": {
+        "en": "Linking, honorifics, irregular verbs, speech levels and more — with answer keys.",
+        "ko": "이어 주는 말 · 높임 · 불규칙 · 말투 — 정답지 포함"
+      },
+      "price": "7.99",
+      "polar": ""
+    },
+    {
+      "id": "pack-all",
+      "level": "all",
+      "title": {
+        "en": "All Worksheets Bundle",
+        "ko": "학습지 전체 묶음"
+      },
+      "sub": {
+        "en": "Every worksheet in one download, plus new sheets added to the bundle.",
+        "ko": "모든 학습지를 한 번에 — 새 학습지가 생기면 묶음에 더해 드려요"
+      },
+      "price": "14.99",
+      "polar": ""
+    }
+  ],
+  "books": [
+    {
+      "id": "first-steps-workbook",
+      "series": "workbook",
+      "color": "#E8642C",
+      "level": "A1",
+      "title": {
+        "en": "Korean First Steps Workbook",
+        "ko": "한국어 첫걸음 워크북"
+      },
+      "sub": {
+        "en": "Hangul, greetings and everyday words — write, check, repeat.",
+        "ko": "한글 · 인사 · 생활 낱말 — 쓰고, 맞춰 보고, 다시"
+      },
+      "about": {
+        "en": "A beginner workbook built from our most-used free worksheets: Hangul and final consonants first, then greetings, numbers and dates, family, food, shopping and the basic particles. Every unit has a short explanation, tables to copy, practice and an answer key at the back.",
+        "ko": "가장 많이 쓰인 무료 학습지로 만든 첫 워크북. 한글 · 받침부터 인사 · 날짜 · 가족 · 음식 · 쇼핑 · 기초 조사까지, 단원마다 짧은 설명 · 따라 쓰는 표 · 연습 · 뒤쪽 정답."
+      },
+      "for": {
+        "en": [
+          "Complete beginners who just learned (or want to learn) Hangul",
+          "Teachers who need homework sheets for A1 classes",
+          "Self-learners who like writing things down"
+        ],
+        "ko": [
+          "한글을 막 배운(배우려는) 완전 초급",
+          "A1 반 숙제가 필요한 선생님",
+          "손으로 써야 외워지는 독학자"
+        ]
+      },
+      "sheets": "A1",
+      "trim": "B5 (182 × 257 mm)",
+      "pages": "약 120쪽 (예정)",
+      "status": "planned"
+    },
+    {
+      "id": "elementary-grammar-workbook",
+      "series": "workbook",
+      "color": "#2F6FDB",
+      "level": "A2",
+      "title": {
+        "en": "Elementary Korean Grammar Workbook",
+        "ko": "초급 한국어 문법 워크북"
+      },
+      "sub": {
+        "en": "Linking, honorifics, irregular verbs and speech levels.",
+        "ko": "이어 주는 말 · 높임 · 불규칙 · 말투"
+      },
+      "about": {
+        "en": "The next step after First Steps: the grammar that trips up A2 learners, one unit at a time — reasons and connectors, -(으)시-, ㅂ/ㄷ/르 irregulars, speech levels, reported speech and making plans, each with drills and answers.",
+        "ko": "첫걸음 다음 단계 — A2 에서 자주 막히는 문법을 단원별로: 이유 · 이어 주는 말, -(으)시-, ㅂ·ㄷ·르 불규칙, 말투, 간접 인용, 약속 잡기. 단원마다 연습 · 정답."
+      },
+      "for": {
+        "en": [
+          "Learners who finished Hangul and basic sentences",
+          "Students preparing for TOPIK I",
+          "Teachers running A2 classes"
+        ],
+        "ko": [
+          "한글 · 기초 문장을 끝낸 학습자",
+          "TOPIK I 준비생",
+          "A2 반 선생님"
+        ]
+      },
+      "sheets": "A2",
+      "trim": "B5 (182 × 257 mm)",
+      "pages": "약 90쪽 (예정)",
+      "status": "planned"
+    },
+    {
+      "id": "topik1-reading-mock",
+      "series": "topik",
+      "color": "#12704F",
+      "level": "TOPIK I",
+      "title": {
+        "en": "TOPIK I Reading — 10 Practice Tests",
+        "ko": "TOPIK I 읽기 실전 모의고사 10회"
+      },
+      "sub": {
+        "en": "400 original questions in the real test format, with explanations.",
+        "ko": "실제 시험 형식의 새로 만든 문제 400개 · 풀이 포함"
+      },
+      "about": {
+        "en": "Ten full TOPIK I reading tests (40 questions each) written in the official format by a Korean teacher. These are original practice questions — not past exam papers. Answers and short explanations are at the back.",
+        "ko": "TOPIK I 읽기 40문항 × 10회. 한국어 선생님이 공식 형식에 맞춰 새로 만든 연습 문제다(기출 아님). 뒤쪽에 정답과 짧은 풀이."
+      },
+      "for": {
+        "en": [
+          "TOPIK I (levels 1–2) test takers",
+          "Learners who want timed reading practice"
+        ],
+        "ko": [
+          "TOPIK I (1~2급) 응시생",
+          "시간을 재고 읽기 연습하려는 학습자"
+        ]
+      },
+      "toc": [
+        {
+          "en": "How the TOPIK I reading test works",
+          "ko": "TOPIK I 읽기 시험 안내"
+        },
+        {
+          "en": "Practice Tests 1–10 (40 questions each)",
+          "ko": "모의고사 1~10회 (회당 40문항)"
+        },
+        {
+          "en": "Answers and explanations",
+          "ko": "정답과 풀이"
+        },
+        {
+          "en": "Score chart",
+          "ko": "점수 기록표"
+        }
+      ],
+      "trim": "B5 (182 × 257 mm)",
+      "pages": "약 240쪽 (예정)",
+      "status": "planned"
+    },
+    {
+      "id": "topik2-writing-200",
+      "series": "topik",
+      "color": "#6B3FA0",
+      "level": "TOPIK II",
+      "title": {
+        "en": "TOPIK II Writing 51–54: 200 Practice Questions",
+        "ko": "TOPIK II 쓰기 51~54번 200제"
+      },
+      "sub": {
+        "en": "Sentence completion to the 700-character essay, with model answers.",
+        "ko": "문장 완성부터 700자 글쓰기까지 · 모범 답안"
+      },
+      "about": {
+        "en": "200 original writing tasks for questions 51–54 — fill-in sentences, the graph description and the long essay — each with a model answer and the points a grader looks for. Original practice material, not past papers.",
+        "ko": "51~54번 새로 만든 쓰기 문제 200개 — 문장 채우기 · 도표 설명 · 긴 글. 문제마다 모범 답안과 채점에서 보는 점. 기출 아님."
+      },
+      "for": {
+        "en": [
+          "TOPIK II (levels 3–6) test takers",
+          "Learners who struggle with the essay"
+        ],
+        "ko": [
+          "TOPIK II (3~6급) 응시생",
+          "긴 글쓰기가 어려운 학습자"
+        ]
+      },
+      "toc": [
+        {
+          "en": "How questions 51–54 are scored",
+          "ko": "51~54번 채점 기준"
+        },
+        {
+          "en": "Questions 51–52: sentence completion",
+          "ko": "51~52번 문장 완성"
+        },
+        {
+          "en": "Question 53: describing a graph",
+          "ko": "53번 도표 설명"
+        },
+        {
+          "en": "Question 54: the long essay",
+          "ko": "54번 긴 글쓰기"
+        },
+        {
+          "en": "Model answers",
+          "ko": "모범 답안"
+        }
+      ],
+      "trim": "B5 (182 × 257 mm)",
+      "pages": "약 260쪽 (예정)",
+      "status": "planned"
+    }
+  ],
+  "publisher": {
+    "en": "Every Koreans Books",
+    "ko": "에브리코리안즈 출판",
+    "_note": "출판사 이름은 운영자가 정한다(⚠) — 출판사 신고 때 쓰는 이름과 같아야 한다."
+  }
+}
