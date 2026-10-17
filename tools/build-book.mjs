@@ -127,8 +127,11 @@ td:first-child{font-weight:800;font-size:10.4pt;color:#1d1a17}td.tip{color:#8a82
 const pair = (o, cls = '') => `<p class="en${cls}">${esc(o.en)}</p>`;
 const LAB = { table: '핵심 정리', text: '참고', practice: '연습' };
 /* 정석풍 블록 — 핵심 정리 · 참고 · 연습 + 팁(TIP) · 주의(WARNING) · 더 알아보기(MORE). 표 끝 설명과 글 칸이 어느 블록인지는 책 틀의 blocks(「단원id:칸번호」)에서 — 없으면 표 설명은 TIP, 글 칸은 참고. */
-const BLK = { tip: ['TIP', '팁'], warn: ['WARNING', '주의'], more: ['MORE', '더 알아보기'] };
+const BLK = { tip: ['TIP', '팁'], warn: ['WARNING', '주의'], more: ['MORE', '더 알아보기'], pattern: ['PATTERN', '문형'] };
 const kindOf = (u, si, s) => (B.blocks || {})[`${u.id}:${si + 1}`] || (s.type === 'table' ? 'tip' : 'ref');
+/* 문형 블록 — 갈아 끼우는 자리(점선 상자)와 고정 부분(굵은 글자 + 밑줄)을 한눈에. 책 틀의 patterns(「단원id:칸번호」)에 칸마다 [글자, s(자리) | f(고정)] 로 적는다. */
+const patHtml = (rows) => `<div class="bx pat"><span class="tg">PATTERN<small>문형</small></span><div class="pp">${rows.map((r) => `<div class="pt1"><div class="ch">${r.p.map(([t, k], i) => `${i ? '<i class="pl">+</i>' : ''}<span class="${k === 's' ? 'sl' : 'fx'}">${esc(t)}</span>`).join('')}<i class="ar">→</i><span class="mn">${esc(r.en)}</span></div>${r.ex ? `<div class="eg"><b>e.g.</b> ${esc(r.ex)}${r.exEn ? ` <span>(${esc(r.exEn)})</span>` : ''}</div>` : ''}</div>`).join('')}</div></div>`;
+const blockHtml = (u, si, s, text) => { const k = kindOf(u, si, s); const pat = (B.patterns || {})[`${u.id}:${si + 1}`]; return k === 'pattern' && pat ? patHtml(pat) : boxHtml(k === 'pattern' ? 'tip' : k, text); };
 const boxHtml = (kind, text) => `<div class="bx ${kind}"><span class="tg">${BLK[kind][0]}<small>${BLK[kind][1]}</small></span><span class="tt">${esc(text)}</span></div>`;
 let secNo = '';
 const secLabel = (s, lab) => `<h3>${CLASSIC ? `<em class="lab">${lab || LAB[s.type]} ${secNo}</em>` : ''}<span>${esc(s.title.en)}</span>${s.title.ko ? `<small>${esc(s.title.ko)}</small>` : ''}</h3>`;
@@ -169,6 +172,7 @@ const GUIDE = [
   ['practice', '연습 · Practice', '줄 위에 직접 쓰고, 뒤쪽 정답으로 확인합니다.', 'Write on the line, then check the Answer Key at the back.'],
   ['tip', 'TIP · 팁', '더 자연스럽게 말하는 요령, 알아 두면 편한 규칙.', 'A handy shortcut or a more natural way to say it.'],
   ['warn', 'WARNING · 주의', '자주 하는 실수와 예외. 틀리기 쉬운 곳은 꼭 읽으세요.', 'Common mistakes and exceptions — read these before you practise.'],
+  ['pattern', 'PATTERN · 문형', '자주 쓰는 문장 틀. 점선 상자 자리에 내 낱말을 갈아 끼우세요.', 'A sentence frame. Swap your own word into the dashed slot.'],
   ['more', 'MORE · 더 알아보기', '소리 변화, 유래 같은 덧붙임. 지금 몰라도 괜찮고, 궁금할 때 읽으세요.', 'Sound changes, origins and extras. Optional — read when curious.'],
 ];
 function guidePage() {
@@ -176,6 +180,7 @@ function guidePage() {
     if (k === 'table') return `<div class="sec"><h3><em class="lab">핵심 정리 1-1</em><span>Key words</span></h3><table><thead><tr><th>Korean</th><th>English</th></tr></thead><tbody><tr><td>안녕하세요</td><td>Hello</td></tr><tr><td>감사합니다</td><td>Thank you</td></tr></tbody></table></div>`;
     if (k === 'ref') return `<div class="sec"><h3><em class="lab">참고 1-3</em><span>How it works</span></h3><div class="note">Explains why the pattern behaves the way it does.</div></div>`;
     if (k === 'practice') return `<div class="sec"><h3><em class="lab">연습 1-4</em><span>Practice A</span></h3><ol class="pr" style="--qw:40%"><li><span class="q">가 + ㄴ →</span><span class="ln"></span></li><li><span class="q">나 + ㅁ →</span><span class="ln"></span></li></ol></div>`;
+    if (k === 'pattern') return patHtml([{ p: [['Place', 's'], ['이/가', 'f'], ['어디예요?', 'f']], en: 'Where is [place]?', ex: '화장실이 어디예요?', exEn: 'Where is the restroom?' }]);
     return boxHtml(k, { tip: 'Short, useful, and often what native speakers really say.', warn: 'The mistake learners make most often — and how to avoid it.', more: 'Extra background you can skip on the first read.' }[k]);
   };
   return `<div class="blk plain gd"><h2>How this book is organized</h2><div class="k">이 책의 구성 — 블록 읽는 법</div>${GUIDE.map(([k, t, ko, en]) => `<div class="row"><div class="mini">${mini(k)}</div><div class="d"><b>${t}</b>${en}<small>${ko}</small></div></div>`).join('')}
@@ -213,11 +218,11 @@ function unitBlock(u) {
     secNo = `${u.no}-${si + 1}`;
     if (s.type === 'table') {
       const tipCols = s.cols.map((c) => /reading|tip|sound|pronunc/i.test(c));
-      return `<div class="sec"${s.rows.length <= 8 ? ' style="break-inside:avoid"' : ''}>${sr(si)}${secLabel(s)}<table><thead><tr>${s.cols.map((c) => `<th>${esc(c)}</th>`).join('')}</tr></thead><tbody>${s.rows.map((r) => `<tr>${r.map((c, i) => `<td${tipCols[i] ? ' class="tip"' : ''}>${esc(c)}</td>`).join('')}</tr>`).join('')}</tbody></table>${s.note ? (CLASSIC ? boxHtml(kindOf(u, si, s), s.note) : `<div class="note">${esc(s.note)}</div>`) : ''}</div>`;
+      return `<div class="sec"${s.rows.length <= 8 ? ' style="break-inside:avoid"' : ''}>${sr(si)}${secLabel(s)}<table><thead><tr>${s.cols.map((c) => `<th>${esc(c)}</th>`).join('')}</tr></thead><tbody>${s.rows.map((r) => `<tr>${r.map((c, i) => `<td${tipCols[i] ? ' class="tip"' : ''}>${esc(c)}</td>`).join('')}</tr>`).join('')}</tbody></table>${s.note ? (CLASSIC ? blockHtml(u, si, s, s.note) : `<div class="note">${esc(s.note)}</div>`) : ''}</div>`;
     }
     if (s.type === 'text') {
       const k = CLASSIC ? kindOf(u, si, s) : 'ref';
-      if (k !== 'ref') return `<div class="sec">${sr(si)}${secLabel(s, BLK[k][1])}${boxHtml(k, s.text)}</div>`;
+      if (k !== 'ref') return `<div class="sec">${sr(si)}${secLabel(s, BLK[k][1])}${blockHtml(u, si, s, s.text)}</div>`;
       return `<div class="sec">${sr(si)}${secLabel(s)}<div class="note">${esc(s.text)}</div></div>`;
     }
     return `<div class="sec">${sr(si)}${secLabel(s)}${s.hint ? `<div class="hint">${esc(s.hint)}</div>` : ''}<ol class="pr" style="--qw:${qw(s.items)}">${s.items.map((x) => `<li${x.q.includes('___') ? ' class="fill"' : ''}>${qLine(x.q)}</li>`).join('')}</ol></div>`;
@@ -284,8 +289,9 @@ tbody tr:nth-child(even) td,tr:nth-child(even) td{background:transparent}td{bord
 .bx{display:flex;gap:3.2mm;align-items:flex-start;margin-top:2.6mm;padding:2mm 3.2mm;background:#F2F5FA;border-top:.3mm solid ${ACC};border-bottom:.3mm solid ${ACC};font-size:8.6pt;line-height:1.5;color:#111;break-inside:avoid}
 .bx .tg{flex:none;min-width:17mm;border:.3mm solid ${ACC};color:${ACC};font-size:6.8pt;font-weight:800;letter-spacing:.1em;padding:.3mm 2mm;line-height:1.35;text-align:center;margin-top:.2mm}.bx .tg small{display:block;font-size:6.6pt;font-weight:600;letter-spacing:0}.bx .tt{flex:1}
 .bx.warn{background:#FBF2F1;border-color:#9B2C2C}.bx.warn .tg{border-color:#9B2C2C;color:#9B2C2C}
+.bx.pat{display:flex;background:#fff;border-top:.4mm solid ${ACC};border-bottom:.4mm solid ${ACC};align-items:center}.bx.pat .tg{background:${ACC};color:#fff}.bx.pat .pp{flex:1;display:flex;flex-direction:column;gap:2.2mm}.pt1 .ch{display:flex;align-items:center;flex-wrap:wrap;gap:1.6mm}.sl{border:.3mm dashed ${ACC};background:#EAF0FA;color:${ACC};font-weight:700;font-size:8pt;padding:.9mm 2.4mm;border-radius:1.2mm}.fx{font-weight:800;font-size:10.4pt;color:#111;border-bottom:.5mm solid ${ACC};padding:.2mm .6mm}.pl{font-style:normal;color:#8e9ab0;font-weight:700}.ar{font-style:normal;color:${ACC};font-weight:800;margin:0 1mm}.mn{font-size:8.4pt;color:#2a3550}.eg{margin:.8mm 0 0 0;font-size:8.4pt;color:#3d4a62}.eg b{color:${ACC};font-size:7pt;letter-spacing:.06em;margin-right:1mm}.eg span{color:#6b7a92}
 .bx.more{background:#fff;border-top:.3mm dashed ${ACC};border-bottom:.3mm dashed ${ACC}}.bx.more .tg{border-style:dashed}
-.gd h2{font-size:20pt;margin-bottom:1mm}.gd .k{font-size:10.5pt;color:#5a6780;margin-bottom:5mm}.gd .row{display:grid;grid-template-columns:70mm 1fr;gap:6mm;padding:3.4mm 0;border-top:.2mm solid #cfd6e2;align-items:start;break-inside:avoid}.gd .row:first-of-type{border-top:.4mm solid ${ACC}}.gd .row .d b{display:block;font-size:9.6pt;margin-bottom:.8mm}.gd .row .d{font-size:8.6pt;line-height:1.5;color:#2a3550}.gd .row .d small{display:block;color:#6b7a92;font-size:8pt;margin-top:.6mm}.gd .mini{font-size:7.8pt}.gd .mini .sec>h3{margin-bottom:1.4mm;font-size:9pt}.gd .mini table{font-size:7.6pt}.gd .mini .bx,.gd .mini .note{margin-top:0;font-size:7.8pt}.gd .mini .pr li{min-height:6mm}
+.gd h2{font-size:20pt;margin-bottom:1mm}.gd .k{font-size:10.5pt;color:#5a6780;margin-bottom:5mm}.gd .row{display:grid;grid-template-columns:70mm 1fr;gap:6mm;padding:3.4mm 0;border-top:.2mm solid #cfd6e2;align-items:start;break-inside:avoid}.gd .row:first-of-type{border-top:.4mm solid ${ACC}}.gd .row .d b{display:block;font-size:9.6pt;margin-bottom:.8mm}.gd .row .d{font-size:8.6pt;line-height:1.5;color:#2a3550}.gd .row .d small{display:block;color:#6b7a92;font-size:8pt;margin-top:.6mm}.gd .mini{font-size:7.8pt}.gd .mini .sec>h3{margin-bottom:1.4mm;font-size:9pt}.gd .mini table{font-size:7.6pt}.gd .mini .bx.pat{flex-direction:column;align-items:flex-start;gap:1.6mm}.gd .mini .fx{font-size:9pt}.gd .mini .bx,.gd .mini .note{margin-top:0;font-size:7.8pt}.gd .mini .pr li{min-height:6mm}
 .tipbox{display:flex;gap:3.2mm;align-items:flex-start;margin-top:2.6mm;padding:2mm 3.2mm;background:#F2F5FA;border-top:.3mm solid ${ACC};border-bottom:.3mm solid ${ACC};font-size:8.6pt;line-height:1.5;color:#111;break-inside:avoid}.tipbox .tg{flex:none;border:.3mm solid ${ACC};color:${ACC};font-size:6.8pt;font-weight:800;letter-spacing:.1em;padding:.3mm 2mm;line-height:1.5;margin-top:.2mm}.tipbox .tt{flex:1}
 .note{break-inside:avoid;border:0;border-left:.9mm solid ${ACC};background:transparent;color:#111;padding:.8mm 0 .8mm 3.2mm;margin-top:2.4mm;line-height:1.5}.note b{color:${ACC}}
 .pr li{border-bottom:0;min-height:8.4mm}.pr li:before{content:counter(q) '.';border:0;border-radius:0;background:transparent;color:${ACC};width:6mm;height:auto;font-size:9pt;font-weight:800;justify-content:flex-start;margin:0}

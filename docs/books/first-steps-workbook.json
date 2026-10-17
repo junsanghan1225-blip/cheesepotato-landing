@@ -126,8 +126,8 @@
     "hangul-batchim:1": "tip",
     "hangul-batchim:2": "tip",
     "greetings-self-introduction:1": "warn",
-    "greetings-self-introduction:2": "tip",
-    "greetings-self-introduction:3": "tip",
+    "greetings-self-introduction:2": "pattern",
+    "greetings-self-introduction:3": "pattern",
     "ida-anida-itta-eopda:1": "warn",
     "ida-anida-itta-eopda:2": "more",
     "demonstratives:1": "tip",
@@ -141,9 +141,9 @@
     "days-months-dates:2": "tip",
     "family-terms:1": "warn",
     "family-terms:2": "tip",
-    "location-places-exist:1": "tip",
-    "location-places-exist:2": "tip",
-    "location-places-exist:3": "tip",
+    "location-places-exist:1": "pattern",
+    "location-places-exist:2": "pattern",
+    "location-places-exist:3": "pattern",
     "colors-shapes-opposites:1": "tip",
     "colors-shapes-opposites:2": "more",
     "colors-shapes-opposites:3": "tip",
@@ -153,23 +153,300 @@
     "school-classroom:1": "more",
     "school-classroom:2": "more",
     "school-classroom:3": "more",
-    "food-ordering-taste:1": "tip",
+    "food-ordering-taste:1": "pattern",
     "food-ordering-taste:2": "warn",
     "food-ordering-taste:3": "warn",
     "shopping-prices-clothes:1": "tip",
     "shopping-prices-clothes:2": "tip",
     "shopping-prices-clothes:3": "tip",
     "directions-transportation:1": "tip",
-    "directions-transportation:2": "tip",
-    "directions-transportation:3": "tip",
+    "directions-transportation:2": "pattern",
+    "directions-transportation:3": "pattern",
     "weather-seasons-temperature:1": "more",
     "weather-seasons-temperature:2": "tip",
     "weather-seasons-temperature:3": "tip",
     "hobbies-leisure-sports:1": "tip",
     "hobbies-leisure-sports:2": "tip",
     "hobbies-leisure-sports:3": "more",
-    "health-hospital:1": "tip",
+    "health-hospital:1": "pattern",
     "health-hospital:2": "more",
     "health-hospital:3": "more"
+  },
+  "patterns": {
+    "greetings-self-introduction:2": [
+      {
+        "p": [
+          [
+            "Country",
+            "s"
+          ],
+          [
+            "사람",
+            "f"
+          ]
+        ],
+        "en": "person / nationality",
+        "ex": "한국 사람"
+      },
+      {
+        "p": [
+          [
+            "Country",
+            "s"
+          ],
+          [
+            "어",
+            "f"
+          ]
+        ],
+        "en": "language",
+        "ex": "한국어"
+      }
+    ],
+    "greetings-self-introduction:3": [
+      {
+        "p": [
+          [
+            "Noun",
+            "s"
+          ],
+          [
+            "이에요",
+            "f"
+          ]
+        ],
+        "en": "after a consonant",
+        "ex": "학생이에요",
+        "exEn": "student"
+      },
+      {
+        "p": [
+          [
+            "Noun",
+            "s"
+          ],
+          [
+            "예요",
+            "f"
+          ]
+        ],
+        "en": "after a vowel",
+        "ex": "의사예요",
+        "exEn": "doctor"
+      }
+    ],
+    "location-places-exist:1": [
+      {
+        "p": [
+          [
+            "Noun",
+            "s"
+          ],
+          [
+            "Position",
+            "s"
+          ],
+          [
+            "에 있어요",
+            "f"
+          ]
+        ],
+        "en": "It is at / on / in …",
+        "ex": "책상 위에 있어요",
+        "exEn": "It is on the desk"
+      }
+    ],
+    "location-places-exist:2": [
+      {
+        "p": [
+          [
+            "Place",
+            "s"
+          ],
+          [
+            "이/가",
+            "f"
+          ],
+          [
+            "어디에 있어요?",
+            "f"
+          ]
+        ],
+        "en": "Where is [place]?",
+        "ex": "화장실이 어디에 있어요?",
+        "exEn": "Where is the restroom?"
+      }
+    ],
+    "location-places-exist:3": [
+      {
+        "p": [
+          [
+            "Noun",
+            "s"
+          ],
+          [
+            "이/가",
+            "f"
+          ],
+          [
+            "있어요",
+            "f"
+          ]
+        ],
+        "en": "have",
+        "ex": "우산이 있어요",
+        "exEn": "I have an umbrella"
+      },
+      {
+        "p": [
+          [
+            "Noun",
+            "s"
+          ],
+          [
+            "이/가",
+            "f"
+          ],
+          [
+            "없어요",
+            "f"
+          ]
+        ],
+        "en": "don't have",
+        "ex": "시간이 없어요",
+        "exEn": "I don't have time"
+      }
+    ],
+    "food-ordering-taste:1": [
+      {
+        "p": [
+          [
+            "Food",
+            "s"
+          ],
+          [
+            "Quantity",
+            "s"
+          ],
+          [
+            "주세요",
+            "f"
+          ]
+        ],
+        "en": "…, please",
+        "ex": "비빔밥 하나 주세요",
+        "exEn": "One bibimbap, please"
+      }
+    ],
+    "directions-transportation:2": [
+      {
+        "p": [
+          [
+            "Place",
+            "s"
+          ],
+          [
+            "이/가",
+            "f"
+          ],
+          [
+            "어디예요?",
+            "f"
+          ]
+        ],
+        "en": "Where is [place]?"
+      },
+      {
+        "p": [
+          [
+            "Place",
+            "s"
+          ],
+          [
+            "에",
+            "f"
+          ],
+          [
+            "어떻게 가요?",
+            "f"
+          ]
+        ],
+        "en": "How do I get to [place]?"
+      }
+    ],
+    "directions-transportation:3": [
+      {
+        "p": [
+          [
+            "Vehicle",
+            "s"
+          ],
+          [
+            "을/를",
+            "f"
+          ],
+          [
+            "타다",
+            "f"
+          ]
+        ],
+        "en": "ride a vehicle"
+      },
+      {
+        "p": [
+          [
+            "Vehicle",
+            "s"
+          ],
+          [
+            "에서",
+            "f"
+          ],
+          [
+            "내리다",
+            "f"
+          ]
+        ],
+        "en": "get off a vehicle"
+      },
+      {
+        "p": [
+          [
+            "Vehicle",
+            "s"
+          ],
+          [
+            "(으)로",
+            "f"
+          ],
+          [
+            "갈아타다",
+            "f"
+          ]
+        ],
+        "en": "transfer to a vehicle"
+      }
+    ],
+    "health-hospital:1": [
+      {
+        "p": [
+          [
+            "Body part",
+            "s"
+          ],
+          [
+            "이/가",
+            "f"
+          ],
+          [
+            "아파요",
+            "f"
+          ]
+        ],
+        "en": "[body part] hurts",
+        "ex": "머리가 아파요 · 배가 아파요",
+        "exEn": "I have a headache · I have a stomachache"
+      }
+    ]
   }
 }
