@@ -75,11 +75,12 @@
     "ko": "53번 · 자료 설명"
    },
    "units": [
-    "w53:1",
-    "w53:2",
-    "w53:3",
-    "w53:4",
-    "w53:5"
+    "ig53-trend",
+    "g53-trend",
+    "ig53-status",
+    "g53-status",
+    "ig53-opinion",
+    "g53-opinion"
    ]
   },
   {
@@ -88,15 +89,998 @@
     "ko": "54번 · 논술"
    },
    "units": [
-    "w54:1",
-    "w54:2",
-    "w54:3",
-    "w54:4",
-    "w54:5"
+    "ig54-matter",
+    "g54-matter",
+    "ig54-problem",
+    "g54-problem",
+    "ig54-twosides",
+    "g54-twosides"
    ]
   }
  ],
  "noGuide": true,
  "noIndex": true,
- "front": "5354"
+ "front": "5354",
+ "groups": {
+  "g53-trend": {
+   "q": 53,
+   "title": {
+    "en": "Q53 · Change over time and its causes",
+    "ko": "53번 · 변화 추이와 원인"
+   },
+   "sub": {
+    "en": "The rate changes between two years; then the causes in rank order.",
+    "ko": "두 시점의 비율 변화와, 순위로 말하는 원인"
+   },
+   "items": [
+    "w53-1",
+    "w53-4",
+    "w53-6",
+    "w53-8",
+    "w53-10",
+    "w53-16",
+    "w53-18",
+    "w53-28",
+    "w53-31",
+    "w53-32",
+    "w53-34",
+    "w53-35",
+    "w53-36",
+    "w53-37",
+    "w53-39",
+    "w53-40",
+    "w53-41",
+    "w53-42",
+    "w53-45",
+    "w53-47",
+    "w53-49",
+    "w53-50"
+   ]
+  },
+  "g53-status": {
+   "q": 53,
+   "title": {
+    "en": "Q53 · Present situation and reasons",
+    "ko": "53번 · 현황과 이유"
+   },
+   "sub": {
+    "en": "How many people do something, and why.",
+    "ko": "얼마나 하는지, 왜 하는지"
+   },
+   "items": [
+    "w53-2",
+    "w53-3",
+    "w53-5",
+    "w53-7",
+    "w53-11",
+    "w53-12",
+    "w53-13",
+    "w53-14",
+    "w53-15",
+    "w53-17",
+    "w53-19",
+    "w53-20",
+    "w53-21",
+    "w53-22",
+    "w53-23",
+    "w53-25",
+    "w53-26",
+    "w53-27",
+    "w53-30",
+    "w53-33",
+    "w53-38",
+    "w53-43",
+    "w53-44"
+   ]
+  },
+  "g53-opinion": {
+   "q": 53,
+   "title": {
+    "en": "Q53 · Opinions and evaluation",
+    "ko": "53번 · 인식 · 평가"
+   },
+   "sub": {
+    "en": "What people think: positive reasons and worries.",
+    "ko": "사람들의 생각 — 긍정적인 이유와 우려"
+   },
+   "items": [
+    "w53-9",
+    "w53-24",
+    "w53-29",
+    "w53-46",
+    "w53-48"
+   ]
+  },
+  "g54-matter": {
+   "q": 54,
+   "title": {
+    "en": "Q54 · Why it matters and how to do it",
+    "ko": "54번 · 의미 · 중요성과 실천 방법"
+   },
+   "sub": {
+    "en": "Why it matters → what makes it hard → what to do.",
+    "ko": "왜 중요한가 → 무엇이 어려운가 → 어떻게 할까"
+   },
+   "items": [
+    "w54-1",
+    "w54-2",
+    "w54-3",
+    "w54-5",
+    "w54-9",
+    "w54-14",
+    "w54-18",
+    "w54-19",
+    "w54-22",
+    "w54-27",
+    "w54-29",
+    "w54-31",
+    "w54-32",
+    "w54-33",
+    "w54-35",
+    "w54-38",
+    "w54-40",
+    "w54-44",
+    "w54-48",
+    "w54-50"
+   ]
+  },
+  "g54-problem": {
+   "q": 54,
+   "title": {
+    "en": "Q54 · A problem, its causes and solutions",
+    "ko": "54번 · 문제 · 원인 · 해결 방안"
+   },
+   "sub": {
+    "en": "What is wrong → why → what to do about it.",
+    "ko": "무엇이 문제인가 → 왜 생겼나 → 어떻게 풀까"
+   },
+   "items": [
+    "w54-6",
+    "w54-7",
+    "w54-10",
+    "w54-13",
+    "w54-15",
+    "w54-16",
+    "w54-17",
+    "w54-20",
+    "w54-21",
+    "w54-24",
+    "w54-25",
+    "w54-26",
+    "w54-28",
+    "w54-30",
+    "w54-34",
+    "w54-37",
+    "w54-39",
+    "w54-41",
+    "w54-42",
+    "w54-45",
+    "w54-46",
+    "w54-47",
+    "w54-49"
+   ]
+  },
+  "g54-twosides": {
+   "q": 54,
+   "title": {
+    "en": "Q54 · Two sides: for and against, pros and cons",
+    "ko": "54번 · 찬반 · 장단점"
+   },
+   "sub": {
+    "en": "Weigh both sides, then state your position.",
+    "ko": "두 면을 따져 보고 내 입장을 밝힙니다"
+   },
+   "items": [
+    "w54-4",
+    "w54-8",
+    "w54-11",
+    "w54-12",
+    "w54-23",
+    "w54-36",
+    "w54-43"
+   ]
+  }
+ },
+ "inline": {
+  "ig53-trend": {
+   "id": "ig53-trend",
+   "title": {
+    "en": "Guide · Change over time",
+    "ko": "안내 · 변화 추이와 원인"
+   },
+   "sub": {
+    "en": "Two years, one change, three causes.",
+    "ko": "두 시점 · 변화 하나 · 원인 셋"
+   },
+   "sections": [
+    {
+     "type": "flow",
+     "title": {
+      "en": "Shape of the text",
+      "ko": "글의 틀"
+     },
+     "steps": [
+      {
+       "ko": "조사 개요",
+       "en": "Who surveyed whom",
+       "blank": false
+      },
+      {
+       "ko": "변화 · 폭",
+       "en": "Change and size",
+       "blank": false
+      },
+      {
+       "ko": "원인 1~3위",
+       "en": "Causes in order",
+       "blank": false
+      },
+      {
+       "ko": "정리",
+       "en": "Wrap-up",
+       "blank": false
+      }
+     ]
+    },
+    {
+     "type": "text",
+     "title": {
+      "en": "How to read this type",
+      "ko": "이 유형 읽는 법"
+     },
+     "text": "The data shows a rate in two years and the causes ranked. Report who surveyed whom, the change with its size (use %p for a change in percentages), then the causes from the highest.\n두 시점의 비율과 순위가 있는 원인이 나옵니다. 누가 누구를 조사했는지 → 변화와 그 크기(비율의 차이는 %p) → 원인을 높은 순서로 씁니다."
+    },
+    {
+     "type": "table",
+     "title": {
+      "en": "Key expressions",
+      "ko": "주요 표현"
+     },
+     "cols": [
+      "Use · 쓰임",
+      "Expression · 표현",
+      "Example · 예"
+     ],
+     "rows": [
+      [
+       "조사 개요 Survey",
+       "-에서 -을/를 대상으로 조사하였다",
+       "한국통계연구원에서 성인 1,000명을 대상으로 조사하였다."
+      ],
+      [
+       "변화 Change",
+       "-에서 -(으)로 증가한 것으로 나타났다",
+       "27%에서 35%로 증가한 것으로 나타났다."
+      ],
+      [
+       "폭 Size",
+       "-%포인트 증가하였다",
+       "8%포인트 증가하였다."
+      ],
+      [
+       "순위 Rank",
+       "-이/가 가장 높았으며 -이/가 그 뒤를 이었다",
+       "미혼 증가가 42%로 가장 높았으며 직장이 그 뒤를 이었다."
+      ],
+      [
+       "추가 Also",
+       "또한 -도 -%를 차지하였다",
+       "또한 독거노인 증가도 27%를 차지하였다."
+      ]
+     ]
+    },
+    {
+     "type": "text",
+     "title": {
+      "en": "Watch out",
+      "ko": "조심할 것"
+     },
+     "text": "“8%” and “8%p” are different: a rise from 27% to 35% is 8%p.\nDo not add your opinion; every sentence comes from the data.\n“8%”와 “8%p”는 다릅니다(27%→35%는 8%p). 내 의견을 쓰지 마세요 — 모든 문장은 자료에서 나와야 합니다."
+    },
+    {
+     "type": "practice",
+     "title": {
+      "en": "Warm-up · Fill in or fix",
+      "ko": "준비 운동 · 채우기 · 고치기"
+     },
+     "items": [
+      {
+       "q": "두 시점의 차이: 27%에서 35%로 8%______ 증가하였다.",
+       "a": "포인트 (%p)"
+      },
+      {
+       "q": "미혼 증가가 42%로 가장 높았으며 직장이 31%로 그 ______ .",
+       "a": "뒤를 이었다"
+      },
+      {
+       "q": "고치기: 늘어났어요. →",
+       "a": "증가하였다. / 증가한 것으로 나타났다."
+      },
+      {
+       "q": "고치기: 그리고 노인도 27%예요. →",
+       "a": "또한 고령화에 따른 독거노인 증가도 27%를 차지하였다."
+      },
+      {
+       "q": "조사 ______ 에 따르면 비율이 높아진 것으로 나타났다.",
+       "a": "결과"
+      }
+     ]
+    }
+   ]
+  },
+  "ig53-status": {
+   "id": "ig53-status",
+   "title": {
+    "en": "Guide · Present situation and reasons",
+    "ko": "안내 · 현황과 이유"
+   },
+   "sub": {
+    "en": "How many do it, and why.",
+    "ko": "얼마나 하는지, 왜 하는지"
+   },
+   "sections": [
+    {
+     "type": "flow",
+     "title": {
+      "en": "Shape of the text",
+      "ko": "글의 틀"
+     },
+     "steps": [
+      {
+       "ko": "조사 개요",
+       "en": "Who surveyed whom",
+       "blank": false
+      },
+      {
+       "ko": "핵심 수치",
+       "en": "Main figure",
+       "blank": false
+      },
+      {
+       "ko": "이유 1~3위",
+       "en": "Reasons in order",
+       "blank": false
+      },
+      {
+       "ko": "정리",
+       "en": "Wrap-up",
+       "blank": false
+      }
+     ]
+    },
+    {
+     "type": "text",
+     "title": {
+      "en": "How to read this type",
+      "ko": "이 유형 읽는 법"
+     },
+     "text": "No change over time here: the data gives how many people do something and the reasons, ranked. Open with the survey, state the main figure, then the reasons from the top.\n시간에 따른 변화가 아니라 현재 상태입니다. 몇 %가 하는지와 이유(순위)가 나옵니다. 조사 개요 → 핵심 수치 → 이유를 높은 순서로 씁니다."
+    },
+    {
+     "type": "table",
+     "title": {
+      "en": "Key expressions",
+      "ko": "주요 표현"
+     },
+     "cols": [
+      "Use · 쓰임",
+      "Expression · 표현",
+      "Example · 예"
+     ],
+     "rows": [
+      [
+       "조사 개요 Survey",
+       "-을/를 대상으로 조사한 결과",
+       "성인 800명을 대상으로 조사한 결과"
+      ],
+      [
+       "수치 Figure",
+       "응답자의 -%가 -(으)ㄴ 경험이 있다고 답하였다",
+       "응답자의 60%가 이용한 경험이 있다고 답하였다."
+      ],
+      [
+       "이유 Reason",
+       "-기 때문이라는 응답이 가장 많았다",
+       "편리하기 때문이라는 응답이 가장 많았다."
+      ],
+      [
+       "다음 Next",
+       "그 다음으로 -이/가 -%였다",
+       "그 다음으로 가격이 저렴하다는 응답이 25%였다."
+      ],
+      [
+       "정리 Wrap-up",
+       "-(으)ㄴ 것으로 조사되었다",
+       "이처럼 이용이 늘고 있는 것으로 조사되었다."
+      ]
+     ]
+    },
+    {
+     "type": "text",
+     "title": {
+      "en": "Watch out",
+      "ko": "조심할 것"
+     },
+     "text": "Do not turn “60% of respondents” into “everyone”.\nKeep to the order in the data: top reason first.\n“응답자의 60%”를 “사람들은 모두”로 바꾸지 마세요. 자료의 순서(1위 이유부터)를 지키세요."
+    },
+    {
+     "type": "practice",
+     "title": {
+      "en": "Warm-up · Fill in or fix",
+      "ko": "준비 운동 · 채우기 · 고치기"
+     },
+     "items": [
+      {
+       "q": "응답자의 60%가 이용한 경험이 있다고 ______ .",
+       "a": "답하였다"
+      },
+      {
+       "q": "편리하기 ______ 이용한다는 응답이 가장 많았다.",
+       "a": "때문에"
+      },
+      {
+       "q": "그 ______ 으로 가격이 저렴하다는 응답이 25%였다.",
+       "a": "다음"
+      },
+      {
+       "q": "고치기: 많은 사람들이 좋아해요. →",
+       "a": "많은 응답자가 선호하는 것으로 나타났다."
+      },
+      {
+       "q": "고치기: 이유는 편해서예요. →",
+       "a": "이유는 편리하기 때문이다."
+      }
+     ]
+    }
+   ]
+  },
+  "ig53-opinion": {
+   "id": "ig53-opinion",
+   "title": {
+    "en": "Guide · Opinions and evaluation",
+    "ko": "안내 · 인식 · 평가"
+   },
+   "sub": {
+    "en": "What people think, and what worries them.",
+    "ko": "사람들의 생각과 우려"
+   },
+   "sections": [
+    {
+     "type": "flow",
+     "title": {
+      "en": "Shape of the text",
+      "ko": "글의 틀"
+     },
+     "steps": [
+      {
+       "ko": "조사 개요",
+       "en": "Who surveyed whom",
+       "blank": false
+      },
+      {
+       "ko": "전체 평가",
+       "en": "Overall view",
+       "blank": false
+      },
+      {
+       "ko": "긍정 이유 · 우려",
+       "en": "Reasons and worries",
+       "blank": false
+      },
+      {
+       "ko": "정리",
+       "en": "Wrap-up",
+       "blank": false
+      }
+     ]
+    },
+    {
+     "type": "text",
+     "title": {
+      "en": "How to read this type",
+      "ko": "이 유형 읽는 법"
+     },
+     "text": "The data shows how people evaluate something: how many are positive and why, and what worries them. Report both sides without taking sides.\n사람들이 무엇을 어떻게 평가하는지가 나옵니다. 긍정적인 비율과 이유, 우려하는 점을 모두 씁니다. 어느 한쪽 편을 들지 마세요."
+    },
+    {
+     "type": "table",
+     "title": {
+      "en": "Key expressions",
+      "ko": "주요 표현"
+     },
+     "cols": [
+      "Use · 쓰임",
+      "Expression · 표현",
+      "Example · 예"
+     ],
+     "rows": [
+      [
+       "긍정 Positive",
+       "-(으)ㄹ 것이라고 긍정적으로 평가하였다",
+       "편리할 것이라고 긍정적으로 평가하였다."
+      ],
+      [
+       "이유 Reason",
+       "-이/가 가장 큰 이유로 꼽혔다",
+       "시간 절약이 가장 큰 이유로 꼽혔다."
+      ],
+      [
+       "우려 Worry",
+       "한편 -에 대한 우려도 나타났다",
+       "한편 개인정보에 대한 우려도 나타났다."
+      ],
+      [
+       "반면 Contrast",
+       "반면 -(이)라는 응답도 -%였다",
+       "반면 불안하다는 응답도 20%였다."
+      ],
+      [
+       "기대 Hope",
+       "-을/를 기대하는 것으로 조사되었다",
+       "서비스 확대를 기대하는 것으로 조사되었다."
+      ]
+     ]
+    },
+    {
+     "type": "text",
+     "title": {
+      "en": "Watch out",
+      "ko": "조심할 것"
+     },
+     "text": "Do not write “좋다 / 나쁘다” in your own voice.\nUse “-것으로 나타났다” to report, not to claim.\n내 목소리로 “좋다 · 나쁘다”라고 쓰지 마세요. “-것으로 나타났다”는 보고하는 말이지 주장하는 말이 아닙니다."
+    },
+    {
+     "type": "practice",
+     "title": {
+      "en": "Warm-up · Fill in or fix",
+      "ko": "준비 운동 · 채우기 · 고치기"
+     },
+     "items": [
+      {
+       "q": "응답자의 70%가 긍정적으로 ______ .",
+       "a": "평가하였다"
+      },
+      {
+       "q": "편리함이 가장 큰 이유로 ______ .",
+       "a": "꼽혔다"
+      },
+      {
+       "q": "______ 개인정보 문제를 우려하는 응답도 20%였다.",
+       "a": "한편 / 반면"
+      },
+      {
+       "q": "고치기: 대부분 좋아한대요. →",
+       "a": "대부분의 응답자가 긍정적으로 평가한 것으로 나타났다."
+      },
+      {
+       "q": "고치기: 걱정도 있어요. →",
+       "a": "우려도 나타났다."
+      }
+     ]
+    }
+   ]
+  },
+  "ig54-matter": {
+   "id": "ig54-matter",
+   "title": {
+    "en": "Guide · Why it matters and how to do it",
+    "ko": "안내 · 의미와 실천 방법"
+   },
+   "sub": {
+    "en": "Importance, obstacle, method.",
+    "ko": "중요성 · 걸림돌 · 방법"
+   },
+   "sections": [
+    {
+     "type": "flow",
+     "title": {
+      "en": "Shape of the text",
+      "ko": "글의 틀"
+     },
+     "steps": [
+      {
+       "ko": "서론",
+       "en": "Introduction",
+       "blank": false
+      },
+      {
+       "ko": "중요성",
+       "en": "Why it matters",
+       "blank": false
+      },
+      {
+       "ko": "걸림돌",
+       "en": "What makes it hard",
+       "blank": false
+      },
+      {
+       "ko": "방법",
+       "en": "What to do",
+       "blank": false
+      },
+      {
+       "ko": "결론",
+       "en": "Conclusion",
+       "blank": false
+      }
+     ]
+    },
+    {
+     "type": "text",
+     "title": {
+      "en": "How to read this type",
+      "ko": "이 유형 읽는 법"
+     },
+     "text": "You are asked why something matters, what makes it hard, and what to do. Give each question its own paragraph and finish with a short conclusion.\n무엇이 왜 중요한지, 무엇이 어렵게 만드는지, 어떻게 할지를 묻습니다. 질문마다 문단을 하나씩 쓰고 짧은 결론으로 마칩니다."
+    },
+    {
+     "type": "table",
+     "title": {
+      "en": "Key expressions",
+      "ko": "주요 표현"
+     },
+     "cols": [
+      "Use · 쓰임",
+      "Expression · 표현",
+      "Example · 예"
+     ],
+     "rows": [
+      [
+       "서론 Open",
+       "-은/는 오늘날 중요한 문제로 대두되고 있다",
+       "건강한 습관은 오늘날 중요한 문제로 대두되고 있다."
+      ],
+      [
+       "중요성 Matters",
+       "-은/는 -에 큰 도움이 된다",
+       "운동은 건강에 큰 도움이 된다."
+      ],
+      [
+       "이유 Because",
+       "왜냐하면 -기 때문이다",
+       "왜냐하면 몸의 기능이 좋아지기 때문이다."
+      ],
+      [
+       "예 Example",
+       "예를 들어 -",
+       "예를 들어 매일 걷는 사람은 …"
+      ],
+      [
+       "방법 Method",
+       "이를 위해서는 -아/어야 한다",
+       "이를 위해서는 작은 목표부터 세워야 한다."
+      ],
+      [
+       "결론 Close",
+       "따라서 -(으)ㄹ 필요가 있다",
+       "따라서 꾸준히 실천할 필요가 있다."
+      ]
+     ]
+    },
+    {
+     "type": "text",
+     "title": {
+      "en": "Watch out",
+      "ko": "조심할 것"
+     },
+     "text": "One paragraph for each question; do not mix them.\nDo not answer with only a personal story: give a reason or example for each point.\n질문마다 문단을 나누고 섞지 마세요. 개인 경험만 쓰지 말고 각 주장에 이유나 예를 붙이세요."
+    },
+    {
+     "type": "practice",
+     "title": {
+      "en": "Warm-up · Fill in or fix",
+      "ko": "준비 운동 · 채우기 · 고치기"
+     },
+     "items": [
+      {
+       "q": "규칙적인 운동은 건강에 도움이 ______ .",
+       "a": "된다"
+      },
+      {
+       "q": "습관을 바꾸기 어려운 것은 익숙한 행동을 유지하려 하기 ______ 이다.",
+       "a": "때문"
+      },
+      {
+       "q": "이를 실천하 ______ 작은 목표부터 세워야 한다.",
+       "a": "기 위해서는"
+      },
+      {
+       "q": "고치기: 이건 정말 중요해요. →",
+       "a": "이는 매우 중요하다."
+      },
+      {
+       "q": "______ 꾸준한 실천이 필요하다. (결론의 첫 연결어)",
+       "a": "따라서 / 그러므로"
+      }
+     ]
+    }
+   ]
+  },
+  "ig54-problem": {
+   "id": "ig54-problem",
+   "title": {
+    "en": "Guide · A problem and its solution",
+    "ko": "안내 · 문제 · 원인 · 해결"
+   },
+   "sub": {
+    "en": "Problem, cause, effect, solution.",
+    "ko": "문제 · 원인 · 영향 · 해결"
+   },
+   "sections": [
+    {
+     "type": "flow",
+     "title": {
+      "en": "Shape of the text",
+      "ko": "글의 틀"
+     },
+     "steps": [
+      {
+       "ko": "서론",
+       "en": "Introduction",
+       "blank": false
+      },
+      {
+       "ko": "문제 · 원인",
+       "en": "Problem and cause",
+       "blank": false
+      },
+      {
+       "ko": "영향",
+       "en": "Effect",
+       "blank": false
+      },
+      {
+       "ko": "해결 방안",
+       "en": "Solution",
+       "blank": false
+      },
+      {
+       "ko": "결론",
+       "en": "Conclusion",
+       "blank": false
+      }
+     ]
+    },
+    {
+     "type": "text",
+     "title": {
+      "en": "How to read this type",
+      "ko": "이 유형 읽는 법"
+     },
+     "text": "The three questions follow a line: what is wrong, why it happened or what it causes, and what to do. Keep that order and give solutions at two levels: individual and society.\n세 질문이 한 줄로 이어집니다 — 무엇이 문제인가, 왜 생겼고 무엇을 낳는가, 어떻게 풀 것인가. 순서를 지키고 해결 방안은 개인과 사회 두 층위로 쓰세요."
+    },
+    {
+     "type": "table",
+     "title": {
+      "en": "Key expressions",
+      "ko": "주요 표현"
+     },
+     "cols": [
+      "Use · 쓰임",
+      "Expression · 표현",
+      "Example · 예"
+     ],
+     "rows": [
+      [
+       "문제 Problem",
+       "-이/가 사회 문제로 대두되고 있다",
+       "일회용품 사용이 사회 문제로 대두되고 있다."
+      ],
+      [
+       "원인 Cause",
+       "이는 -에서 비롯된다",
+       "이는 편리함을 중시하는 소비 문화에서 비롯된다."
+      ],
+      [
+       "영향 Effect",
+       "-을/를 초래한다 · -(으)ㄹ 우려가 있다",
+       "환경 오염을 초래한다."
+      ],
+      [
+       "해결 Solve",
+       "이를 해결하기 위해서는 -아/어야 한다",
+       "이를 해결하기 위해서는 제도가 마련되어야 한다."
+      ],
+      [
+       "층위 Two levels",
+       "개인적으로는 -고 사회적으로는 -",
+       "개인적으로는 줄이고 사회적으로는 규제해야 한다."
+      ],
+      [
+       "결론 Close",
+       "따라서 -을/를 위한 노력이 필요하다",
+       "따라서 모두의 노력이 필요하다."
+      ]
+     ]
+    },
+    {
+     "type": "text",
+     "title": {
+      "en": "Watch out",
+      "ko": "조심할 것"
+     },
+     "text": "Do not skip the cause and jump to the solution.\nGive both levels (personal and social), not only “각자 노력해야 한다”.\n원인을 건너뛰고 해결로 가지 마세요. “각자 노력해야 한다”만 쓰지 말고 개인과 사회 두 층위를 쓰세요."
+    },
+    {
+     "type": "practice",
+     "title": {
+      "en": "Warm-up · Fill in or fix",
+      "ko": "준비 운동 · 채우기 · 고치기"
+     },
+     "items": [
+      {
+       "q": "이러한 현상은 경쟁 문화에서 ______ .",
+       "a": "비롯된다"
+      },
+      {
+       "q": "문제를 방치하면 사회적 비용이 ______ .",
+       "a": "증가한다 / 커진다"
+      },
+      {
+       "q": "이를 해결하기 위해서는 개인적으로는 ______ 사회적으로는 제도를 마련해야 한다.",
+       "a": "노력하고"
+      },
+      {
+       "q": "고치기: 그래서 문제가 많아졌어요. →",
+       "a": "따라서 문제가 증가하였다."
+      },
+      {
+       "q": "이 문제는 개인의 힘으로 풀기 어렵다. ______ 사회적 대책이 필요하다.",
+       "a": "따라서 / 그러므로"
+      }
+     ]
+    }
+   ]
+  },
+  "ig54-twosides": {
+   "id": "ig54-twosides",
+   "title": {
+    "en": "Guide · For and against, pros and cons",
+    "ko": "안내 · 찬반 · 장단점"
+   },
+   "sub": {
+    "en": "Weigh both sides, then choose.",
+    "ko": "양쪽을 따져 보고 입장을 정하기"
+   },
+   "sections": [
+    {
+     "type": "flow",
+     "title": {
+      "en": "Shape of the text",
+      "ko": "글의 틀"
+     },
+     "steps": [
+      {
+       "ko": "서론",
+       "en": "Introduction",
+       "blank": false
+      },
+      {
+       "ko": "장점 · 찬성",
+       "en": "For",
+       "blank": false
+      },
+      {
+       "ko": "단점 · 우려",
+       "en": "Against",
+       "blank": false
+      },
+      {
+       "ko": "내 입장 · 대안",
+       "en": "My view",
+       "blank": false
+      },
+      {
+       "ko": "결론",
+       "en": "Conclusion",
+       "blank": false
+      }
+     ]
+    },
+    {
+     "type": "text",
+     "title": {
+      "en": "How to read this type",
+      "ko": "이 유형 읽는 법"
+     },
+     "text": "You must show both sides (advantages and problems, or reasons for and against) and then say what you think and how to reduce the downside. State your position clearly and keep it to the end.\n두 면(장점과 문제점, 찬성과 반대의 근거)을 보여 준 뒤 내 생각과 단점을 줄이는 방법을 씁니다. 입장을 분명히 밝히고 끝까지 유지하세요."
+    },
+    {
+     "type": "table",
+     "title": {
+      "en": "Key expressions",
+      "ko": "주요 표현"
+     },
+     "cols": [
+      "Use · 쓰임",
+      "Expression · 표현",
+      "Example · 예"
+     ],
+     "rows": [
+      [
+       "입장 Position",
+       "나는 -에 찬성한다 · 반대한다",
+       "나는 이 제도의 도입에 찬성한다."
+      ],
+      [
+       "장점 Merit",
+       "-(이)라는 장점이 있다",
+       "시간을 아낄 수 있다는 장점이 있다."
+      ],
+      [
+       "대비 Contrast",
+       "-는 장점이 있는 반면 -는 단점이 있다",
+       "편리한 반면 집중하기 어렵다는 단점이 있다."
+      ],
+      [
+       "근거 Basis",
+       "그 근거는 -기 때문이다",
+       "그 근거는 안전을 높일 수 있기 때문이다."
+      ],
+      [
+       "보완 Remedy",
+       "이를 보완하기 위해서는 -아/어야 한다",
+       "이를 보완하기 위해서는 기준을 마련해야 한다."
+      ],
+      [
+       "결론 Close",
+       "따라서 -(으)ㄹ 필요가 있다",
+       "따라서 신중하게 도입할 필요가 있다."
+      ]
+     ]
+    },
+    {
+     "type": "text",
+     "title": {
+      "en": "Watch out",
+      "ko": "조심할 것"
+     },
+     "text": "Say clearly which side you take; do not end with “both are fine”.\nDo not use “좋다 / 나쁘다” alone: name the advantage or the problem.\n어느 쪽인지 분명히 쓰세요(“둘 다 좋다”로 끝내지 마세요). “좋다 · 나쁘다”만 쓰지 말고 장점이나 문제점을 구체적으로 쓰세요."
+    },
+    {
+     "type": "practice",
+     "title": {
+      "en": "Warm-up · Fill in or fix",
+      "ko": "준비 운동 · 채우기 · 고치기"
+     },
+     "items": [
+      {
+       "q": "나는 이 제도의 도입에 ______ . (찬성)",
+       "a": "찬성한다"
+      },
+      {
+       "q": "시간과 장소의 제약이 없는 장점이 있는 ______ 집중도가 떨어지는 단점이 있다.",
+       "a": "반면"
+      },
+      {
+       "q": "그 근거는 안전을 높일 수 있기 ______ 이다.",
+       "a": "때문"
+      },
+      {
+       "q": "고치기: 좋기도 하고 나쁘기도 해요. →",
+       "a": "장점도 있고 단점도 있다."
+      },
+      {
+       "q": "부작용을 줄이기 위한 보완책이 ______ .",
+       "a": "필요하다"
+      }
+     ]
+    }
+   ]
+  }
+ },
+ "blocks": {
+  "ig53-trend:2": "tip",
+  "ig53-trend:4": "warn",
+  "ig53-status:2": "tip",
+  "ig53-status:4": "warn",
+  "ig53-opinion:2": "tip",
+  "ig53-opinion:4": "warn",
+  "ig54-matter:2": "tip",
+  "ig54-matter:4": "warn",
+  "ig54-problem:2": "tip",
+  "ig54-problem:4": "warn",
+  "ig54-twosides:2": "tip",
+  "ig54-twosides:4": "warn"
+ }
 }
