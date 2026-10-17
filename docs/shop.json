@@ -1,5 +1,5 @@
 {
-  "_note": "상점(/shop/) 상품 목록 — 운영자 2026-10-17 「상점 페이지부터」 · 「1인 출판 온라인 서점 페이지」. 책 계획은 docs/plans/books.md. 고치면 node tools/build-sheets.mjs. price 는 Claude 제안값(운영자가 정함). polar 가 비어 있으면 「준비 중」 단추만 보인다 — Polar 대시보드에서 상품(파일 다운로드 혜택)을 만들고 buy.polar.sh 링크를 붙이면 「사기」 단추가 켜진다. 학습지 쪽(/<id>-worksheet/)은 무료 그대로 두고, 파는 것은 인쇄용 PDF 파일(학습지 + 정답지)이다.",
+  "_note": "상점(/shop/) 상품 목록 — 운영자 2026-10-17 「상점 페이지부터」 · 「1인 출판 온라인 서점 페이지」. 책 계획은 docs/plans/books.md. 고치면 node tools/build-sheets.mjs. 책 가격은 PDF 9.90 달러로 통일(운영자 2026-10-17). 학습지 묶음 · 낱장 가격은 Claude 제안값. polar 가 비어 있으면 「준비 중」 단추만 보인다 — Polar 대시보드에서 상품(파일 다운로드 혜택)을 만들고 buy.polar.sh 링크를 붙이면 「사기」 단추가 켜진다. 학습지 쪽(/<id>-worksheet/)은 무료 그대로 두고, 파는 것은 인쇄용 PDF 파일(학습지 + 정답지)이다.",
   "currency": "USD",
   "singlePrice": "1.99",
   "singles": {},
@@ -80,7 +80,8 @@
       "sheets": "A1",
       "trim": "B5 (182 × 257 mm)",
       "pages": "약 120쪽 (예정)",
-      "status": "planned"
+      "status": "planned",
+      "price": "9.90"
     },
     {
       "id": "elementary-grammar-workbook",
@@ -114,7 +115,8 @@
       "sheets": "A2",
       "trim": "B5 (182 × 257 mm)",
       "pages": "약 90쪽 (예정)",
-      "status": "planned"
+      "status": "planned",
+      "price": "9.90"
     },
     {
       "id": "topik1-reading-mock",
@@ -163,7 +165,8 @@
       ],
       "trim": "B5 (182 × 257 mm)",
       "pages": "약 240쪽 (예정)",
-      "status": "planned"
+      "status": "planned",
+      "price": "9.90"
     },
     {
       "id": "topik2-writing-51-52",
@@ -208,7 +211,8 @@
       ],
       "trim": "B5 (182 × 257 mm)",
       "pages": "약 74쪽 (시안)",
-      "status": "planned"
+      "status": "planned",
+      "price": "9.90"
     },
     {
       "id": "topik2-writing-53-54",
@@ -253,7 +257,8 @@
       ],
       "trim": "B5 (182 × 257 mm)",
       "pages": "약 220쪽 (시안)",
-      "status": "planned"
+      "status": "planned",
+      "price": "9.90"
     }
   ],
   "publisher": {

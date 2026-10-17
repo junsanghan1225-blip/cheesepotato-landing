@@ -797,14 +797,16 @@ function twPage(it) {
     `<span class="badge">${lvKo} · ${esc(q ? q.ko : '')} · ${q ? q.pt : ''}점</span>`,
     `<h1>${esc(it.title)}</h1>`,
     `<p class="sub">${esc(it.cond)}</p>`,
-    /* 맨 위에 「직접 써 보기」(운영자 2026-10-09 — Clarity: 쓰기 문항 쪽에 온 사람이 9초 만에 모범답안만 보고 떠난다). 이 문항이 앱에서 바로 열린다 */
-    `<a class="cta tw-try" href="/?utm_source=twpage#learn/writing/${encodeURIComponent(it.id)}">✍️ 이 문항 직접 써 보고 AI 점수 받기 →<span>Write this task yourself and get an AI score — free</span></a>`,
+    /* 문항 먼저 → 바로 아래에 「직접 써 보기」 → 정답 · 채점은 접어 둔다(운영자 2026-10-17 「바로 답부터 나오고 엉망」 — 먼저 풀고 우리 사이트로 넘어가게). 접어도 글은 쪽 안에 그대로 있다.
+       (2026-10-09 Clarity: 쓰기 문항 쪽에 온 사람이 9초 만에 모범답안만 보고 떠난다 — 그래서 직접 써 보기 단추를 문항 바로 밑에 둔다) */
     '<h2>문항 · Task</h2>',
     `<p class="desc">${esc(it.passage)}</p>`,
     it.data ? '<div class="facts">' + it.data.map((d) =>
       `<div class="fact"><span>${esc(d)}</span></div>`).join('') + '</div>' : '',
     it.tasks ? '<h2>다뤄야 할 것 · Must cover</h2><ul class="pts">' +
       it.tasks.map((x) => `<li>${esc(x)}</li>`).join('') + '</ul>' : '',
+    `<a class="cta tw-try" href="/?utm_source=twpage#learn/writing/${encodeURIComponent(it.id)}">✍️ 이 문항 직접 써 보고 AI 점수 받기 →<span>Write this task yourself and get an AI score — free</span></a>`,
+    '<details class="more tw-ans"><summary>정답 · 채점 포인트 보기 — 먼저 써 본 뒤에 열어 보세요 · Model answer &amp; scoring (try first)</summary>',
     it.model ? `<h2>모범답안 · Model answer</h2><div class="ex">${esc(it.model).replace(/\n/g, '<br>')}</div>` : '',
     /* 51·52번(빈칸형)은 model 대신 blanks 배열로 답을 담는다 — 빈칸마다
        정답이 하나가 아니라 2~3개 표현이 모두 맞으므로, 화면(twReveal)과
@@ -822,10 +824,12 @@ function twPage(it) {
         `<div class="fact"><b>${esc(k)}</b><span>${esc(v)}</span></div>`).join('') + '</div>' : '',
     '<h2>흔한 감점 요인 · Common deductions</h2><ul class="pts">' +
       it.deduct.map((d) => `<li>${esc(d)}</li>`).join('') + '</ul>',
+
     /* 문항 번호까지 붙여 보낸다(#learn/writing/51-1) — 목록으로 떨어지면
        방금 읽은 이 문항을 다시 찾아야 한다. app.module.js 의 openLearnSub
        가 이 번호를 받아 목록 대신 이 문항을 바로 연다. */
     `<a class="cta" href="/#learn/writing/${esc(it.id)}">직접 써 보기<span>Write it yourself — length and register checked as you type</span></a>`,
+    '</details>',
     LT_LINK,
   ].filter(Boolean).join('\n');
 
@@ -849,24 +853,24 @@ function twPage(it) {
 
 
 /* ── 모음 쪽 공용 조각 ─────────────────────────────────────── */
-const hubWhy = (cells) => `<ul class="why">${cells.map(([b, s]) => `<li><b>${b}</b>${s}</li>`).join('')}</ul>`;
+const hubWhy = (cells, style = '') => `<ul class="why"${style}>${cells.map(([b, s]) => `<li><b>${b}</b>${s}</li>`).join('')}</ul>`;
 const hubCtas = (main, alt) => `<div class="ctas"><a class="cta" href="${main[0].replace('/#', '/?utm_source=hub#')}">${main[1]}<span>${main[2]}</span></a>` +
   (alt ? `<a class="cta alt" href="${alt[0]}">${alt[1]}<span>${alt[2]}</span></a>` : '') + '</div>';
 /* 유형마다 처음 n 개만 펼치고 나머지는 접는다 — 200 개를 한 번에 늘어놓으면 무엇부터 할지 모른다. */
 const chipList = (list, li, n = 8) => `<ul class="pts">${list.slice(0, n).map(li).join('')}</ul>` +
   (list.length > n ? `<details class="more"><summary>＋ 나머지 ${list.length - n}개 모두 보기 · See all ${list.length}</summary><ul class="pts">${list.slice(n).map(li).join('')}</ul></details>` : '');
-const hubNext = (skip) => '<h2>치즈감자에서 함께 · Also free here</h2><div class="next">' + [
+const hubNext = (skip, n = 6) => '<h2>치즈감자에서 함께 · Also free here</h2><div class="next">' + [
   ['/topik-writing/', 'TOPIK 쓰기', 'Writing 51–54 · AI scores'], ['/topik-reading/', 'TOPIK 읽기', 'Reading by question type'],
   ['/topik-listening/', 'TOPIK 듣기', 'Listening with transcripts'], ['/?lt=1&utm_source=hub', '3분 레벨테스트', '3-min level test → your path'],
   ['/#words', '단어 1만 개', '10,000 words · daily review'], ['/#games', '단어 게임', 'Word Potatoes · Korean Wordle'],
-].filter(([h]) => h !== skip).slice(0, 6).map(([h, b, s]) => `<a href="${h}"><b>${b}</b>${s}</a>`).join('') + '</div>';
+].filter(([h]) => h !== skip).slice(0, n).map(([h, b, s]) => `<a href="${h}"><b>${b}</b>${s}</a>`).join('') + '</div>';
 
 function twSections(items) {
   return TW_QS.map((g) => {
     const mine = items.filter((x) => x.q === g.q);
     if (!mine.length) return '';
     return `<div class="cat"><h3>${esc(g.ko)} · ${g.pt}점</h3><p>${esc(g.en)}</p>` +
-      chipList(mine, (x) => `<li><a href="/topik-writing/${esc(x.id)}.html">${esc(x.title)}</a></li>`) + '</div>';
+      chipList(mine, (x) => `<li><a href="/topik-writing/${esc(x.id)}.html">${esc(x.title)}</a></li>`, 4) + '</div>';
   }).filter(Boolean).join('\n');
 }
 function twHub(items) {
@@ -874,15 +878,15 @@ function twHub(items) {
 
   const body = [
     '<nav class="crumb"><a href="/">치즈감자</a> › TOPIK 쓰기</nav>',
-    `<h1>TOPIK II 쓰기 연습 문항 ${items.length}개</h1>`,
-    '<p class="lead">51~54번 유형으로 직접 써 보는 연습 문항입니다. 문항마다 모범답안과 채점 포인트, 흔한 감점 요인이 붙어 있습니다.<br>' +
-    '<b>기출문제가 아니라 같은 유형으로 새로 쓴 창작 문항입니다.</b><br>' +
-    `${items.length} original TOPIK II writing practice tasks with model answers and scoring notes.</p>`,
-    hubWhy([['200문항 · 200 tasks', '51~54번 유형 그대로'], ['AI 채점 · AI scoring', '무료 하루 2번 · free 2/day'], ['모범답안 · Model answers', '채점 포인트 · 감점 요인'], ['가입 없이 · No sign-up', '브라우저에서 바로']]),
-    hubCtas(['/#learn/topik/II/writing', '✍️ AI 채점으로 바로 써 보기', 'Write now and get an AI score — free'], ['/?lt=1&utm_source=hub', '🧭 내 TOPIK 레벨 3분 테스트', 'Not sure of your level? 3-min test']),
-    '<p class="hub-note">아래에서 유형을 골라 문항 하나를 열어도 돼요 — 모범답안 · 채점 포인트가 함께 있어요. Pick any task below to see a model answer.</p>',
+    '<h1>TOPIK II 쓰기 — 쓰면 바로 AI 채점</h1>',
+    `<p class="lead">51~54번 유형 연습 문항 ${items.length}개. 모범답안 · 채점 포인트 · 감점 요인까지 한 곳에서. <small>기출이 아닌 창작 문항입니다.</small><br>` +
+    `${items.length} original TOPIK II writing tasks — write, get an AI score, compare with the model answer.</p>`,
+    hubCtas(['/#learn/topik/II/writing', '✍️ AI 채점으로 바로 써 보기', 'Write now and get an AI score — free']),
+    hubWhy([['① 문항 고르기', '51 · 52 · 53 · 54번 유형'], ['② 직접 쓰기', '가입 없이 브라우저에서'], ['③ 채점 · 비교', 'AI 채점(하루 2번 무료) + 모범답안']], ' style="grid-template-columns:repeat(auto-fit,minmax(220px,1fr))"'),
+    '<h2>유형별 문항 · Tasks by type</h2>',
     sections,
-    hubNext('/topik-writing/'),
+    '<p class="hub-note">레벨이 궁금하면 <a href="/?lt=1&utm_source=hub">3분 레벨테스트 →</a> · Not sure of your level? Take the 3-min test.</p>',
+    hubNext('/topik-writing/', 3),
   ].join('\n');
 
   return page({
