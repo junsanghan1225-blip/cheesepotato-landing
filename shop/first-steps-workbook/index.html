@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Korean First Steps Workbook — Every Koreans Books | CheesePotato</title>
+<meta name="description" content="Hangul, greetings and everyday words — write, check, repeat. Coming soon.">
+<link rel="canonical" href="https://everykoreans.com/shop/first-steps-workbook/">
+<!-- 생성물 — 손으로 고치지 말 것. docs/worksheets/*.json 을 고치고 node tools/build-sheets.mjs -->
+<script src="/gtm.js" async></script>
+<script src="/analytics.js" defer></script>
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta property="og:title" content="Korean First Steps Workbook — Every Koreans Books">
+<meta property="og:description" content="Hangul, greetings and everyday words — write, check, repeat. Coming soon.">
+<meta property="og:url" content="https://everykoreans.com/shop/first-steps-workbook/">
+<meta property="og:image" content="https://everykoreans.com/logo-256.png">
+<link rel="stylesheet" href="/vendor/pretendard.css">
+<link rel="stylesheet" href="/page.css">
+<script src="/numbers-worksheet.js" defer></script>
+<style>
+.nw-paper { background:#fff; border:1px solid var(--line); border-radius:12px; padding:22px; margin:18px 0; color:#1B1512; }
+.nw-top { display:flex; justify-content:space-between; gap:12px; font-size:13px; color:var(--ink-3); border-bottom:1px solid var(--line); padding-bottom:8px; }
+.nw-h { font-size:22px; font-weight:800; margin:14px 0 2px; }
+.nw-c { table-layout:fixed; }
+.nw-c th:nth-child(1) { width:20%; } .nw-c th:nth-child(2) { width:34%; } .nw-c th:nth-child(3) { width:32%; } .nw-c th:nth-child(4) { width:14%; }
+.nw-g { font-size:14px; font-weight:800; margin:12px 0 4px; color:#1B1512; }
+.nw-sub { font-size:13.5px; color:var(--ink-3); margin:0 0 10px; }
+.nw-h3 { font-size:15px; font-weight:800; margin:18px 0 8px; color:var(--orange-deep); }
+.nw-tw { overflow-x:auto; margin:0 0 8px; }
+.nw-t { width:100%; border-collapse:collapse; font-size:14px; margin:0; }
+.nw-t th, .nw-t td { border:1px solid #cfc7bd; padding:5px 7px; text-align:center; }
+.nw-t th { background:#fff3e6; font-weight:800; }
+.nw-t td.l { text-align:left; }
+.nw-t .k { font-weight:800; font-size:15px; }
+.nw-two { display:grid; grid-template-columns:1fr 1fr; gap:10px; }
+.nw-two > div { border:1px solid #cfc7bd; border-radius:10px; padding:8px 10px; font-size:13.5px; line-height:1.6; }
+.nw-two b { color:var(--orange-deep); }
+.nw-q { display:grid; grid-template-columns:1fr 1fr; gap:6px 18px; font-size:15px; }
+.nw-q li { list-style:none; padding:5px 0; border-bottom:1px dashed #cfc7bd; }
+.nw-q ol { margin:0; padding:0; }
+.nw-line { display:inline-block; min-width:90px; border-bottom:1.5px solid #1B1512; height:1em; vertical-align:bottom; }
+.nw-circle { letter-spacing:.04em; }
+.nw-ans { display:none; }
+.nw-bar { display:grid; gap:8px; margin:20px 0 12px; }
+.nw-row { display:flex; align-items:center; flex-wrap:wrap; gap:8px; }
+.nw-row > span { width:96px; font-size:13.5px; font-weight:700; color:var(--ink-3); }
+.nw-b { min-height:40px; padding:8px 18px; border:1px solid var(--line); border-radius:8px; background:var(--surface); color:var(--ink); font:inherit; font-size:14px; font-weight:700; cursor:pointer; }
+.nw-b:hover { border-color:var(--ink); }
+.nw-b.dark { background:var(--ink); border-color:var(--ink); color:var(--bg); }
+body.show-ans .nw-ans { display:block; }
+body.show-ans .nw-work { display:none; }
+.nw-foot { margin-top:14px; font-size:12px; color:var(--ink-3); text-align:center; }
+@media (max-width:560px) { .nw-two, .nw-q { grid-template-columns:1fr; } .nw-paper { padding:14px; } .nw-t { min-width:480px; font-size:13px; } }
+@media print {
+  @page { size:A4; margin:11mm; }
+  body { background:#fff; }
+  .hd, .no-print, .ft, h1, h1 + p { display:none !important; }
+  main { padding:0 !important; max-width:none; }
+  .box { border:0; padding:0; margin:0; }
+  .nw-paper { border:0; padding:0; margin:0; -webkit-print-color-adjust:exact; print-color-adjust:exact; font-size:12.5px; }
+  .nw-t { font-size:12px; } .nw-t th, .nw-t td { padding:3px 5px; }
+  .nw-h3 { margin:11px 0 5px; } .nw-q { font-size:13px; } .nw-q li { padding:3px 0; }
+  .nw-two > div { font-size:12px; padding:5px 8px; }
+  .pg { break-after:page; }
+}
+</style>
+<style>
+.shop-hero{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:6px 0 14px;border-bottom:2px solid var(--ink);margin-bottom:8px}
+.shop-hero b{font-size:15px;letter-spacing:.5px}.shop-hero small{color:var(--ink-3)}
+.shop-nav{display:flex;gap:14px;flex-wrap:wrap;font-size:14px;font-weight:700;margin:10px 0 4px}.shop-nav a{color:var(--ink);text-decoration:none}
+.bk-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:22px 18px;margin:18px 0}
+.bk-item{text-decoration:none;color:var(--ink)}.bk-item:hover .bk-cover{transform:translateY(-3px)}
+.bk-item h3{font-size:15px;margin:10px 0 2px;line-height:1.35}.bk-item p{margin:0;font-size:13px;color:var(--ink-3)}
+.bk-badge{display:inline-block;font-size:11px;font-weight:800;padding:2px 8px;border-radius:99px;background:var(--tint);margin-top:6px}
+.bk-cover{position:relative;aspect-ratio:182/257;border-radius:3px 8px 8px 3px;background:var(--c);color:#fff;padding:16px 14px 14px 20px;display:flex;flex-direction:column;box-shadow:inset 6px 0 0 rgba(0,0,0,.18),0 10px 22px rgba(0,0,0,.18);transition:transform .2s;overflow:hidden}
+.bk-cover:after{content:'';position:absolute;right:-30%;bottom:-18%;width:90%;aspect-ratio:1;border-radius:50%;background:rgba(255,255,255,.12)}
+.bk-ser{font-size:9px;font-weight:800;letter-spacing:1.5px;opacity:.85}
+.bk-cover b{font-size:19px;line-height:1.25;margin-top:12px;word-break:keep-all}
+.bk-cover i{font-style:normal;font-size:11px;opacity:.9;margin-top:6px;line-height:1.35}
+.bk-lv{margin-top:auto;align-self:flex-start;font-size:11px;font-weight:800;background:#fff;color:var(--c);padding:3px 9px;border-radius:99px;position:relative;z-index:1}
+.bk-pub{font-size:9px;opacity:.85;margin-top:8px;position:relative;z-index:1}
+.bk-cover.big{width:240px;flex:none}.bk-cover.big b{font-size:28px}.bk-cover.big i{font-size:14px}.bk-cover.big .bk-ser,.bk-cover.big .bk-pub{font-size:11px}.bk-cover.big .bk-lv{font-size:13px}
+.bk-detail{display:flex;gap:28px;align-items:flex-start;margin:18px 0}
+.bk-info{flex:1;min-width:0}.bk-info h1{margin:4px 0 2px}.bk-ko{color:var(--ink-3);margin:0 0 10px}
+.bk-spec{width:100%;min-width:0 !important;table-layout:fixed;border-collapse:collapse;font-size:14px;margin:14px 0}.bk-spec td{overflow-wrap:anywhere}.bk-spec th{text-align:left;color:var(--ink-3);font-weight:600;width:96px;padding:6px 0}.bk-spec td{padding:6px 0}
+.bk-toc{counter-reset:none;padding-left:0;list-style:none}.bk-toc li{padding:9px 0;border-top:1px solid var(--line)}.bk-toc small{display:block;color:var(--ink-3)}
+.shop-card{display:flex;gap:20px;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:20px;margin:18px 0}
+.shop-pk{flex:0 0 110px;height:150px;border-radius:8px;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#fff;background:#C4551C}
+.shop-pk.lv-A2{background:#2F6FDB}.shop-pk.lv-all{background:#1F1F1F}.shop-pk b{font-size:40px;line-height:1}.shop-pk small{opacity:.85;margin-top:6px}
+.shop-body{flex:1;min-width:0}.shop-body h3{margin:0}.shop-price{font-size:22px;font-weight:800;margin:10px 0}.shop-price small{font-size:13px;font-weight:500;color:var(--ink-3)}
+.shop-soon{opacity:.6;cursor:default}
+.shop-body details{margin-top:12px}.shop-body ul{margin:8px 0 0;padding-left:18px;columns:2;font-size:14px}
+.shop-row{display:flex;align-items:center;gap:12px;padding:10px 0;border-top:1px solid var(--line)}.shop-row:first-child{border-top:0}
+.shop-lv{font-size:12px;font-weight:800;color:var(--ink-3);width:28px}.shop-t{flex:1;min-width:0}.shop-t small{display:block;color:var(--ink-3)}
+.shop-row .btn{min-height:40px;padding:8px 14px;font-size:14px;white-space:nowrap}
+@media (max-width:600px){.bk-info{width:100%}.bk-info h1{font-size:26px;overflow-wrap:anywhere}.shop-hero .btn{display:none}.bk-spec th{width:84px}.bk-grid{grid-template-columns:repeat(2,1fr);gap:18px 14px}.bk-detail{flex-direction:column}.bk-cover.big{width:200px;align-self:center}.shop-card{flex-direction:column}.shop-pk{flex:none;width:100%;height:96px;flex-direction:row;gap:10px}.shop-body ul{columns:1}}
+</style>
+</head>
+<body>
+<header class="hd"><div class="hd-in">
+  <a href="/"><img src="/logo.png" alt=""><span>치즈감자 CheesePotato</span></a>
+</div></header>
+<main>
+<div class="shop-hero"><span><b>EVERY KOREANS BOOKS</b><br><small>에브리코리안즈 출판 · Korean books &amp; worksheets by a Korean teacher</small></span><a class="btn sub" href="/worksheets/">Free worksheets</a></div>
+<nav class="shop-nav"><a href="/shop/#books">Books · 책</a><a href="/shop/#packs">Worksheet packs · 묶음</a><a href="/shop/#singles">Single sheets · 낱장</a></nav>
+<div class="bk-detail">
+<div class="bk-cover big" style="--c:#E8642C"><span class="bk-ser">WORKBOOK SERIES</span><b>한국어 첫걸음 워크북</b><i>Korean First Steps Workbook</i><span class="bk-lv">A1</span><span class="bk-pub">Every Koreans Books</span></div>
+<div class="bk-info">
+  <span class="bk-badge">Coming soon · 출간 예정</span>
+  <h1>Korean First Steps Workbook</h1>
+  <p class="bk-ko">한국어 첫걸음 워크북</p>
+  <p><b>Hangul, greetings and everyday words — write, check, repeat.</b><br>한글 · 인사 · 생활 낱말 — 쓰고, 맞춰 보고, 다시</p>
+  <table class="bk-spec">
+    <tr><th>Level · 급</th><td>A1</td></tr>
+    <tr><th>Size · 판형</th><td>B5 (182 × 257 mm)</td></tr>
+    <tr><th>Pages · 쪽수</th><td>약 120쪽 (예정)</td></tr>
+    <tr><th>Publisher</th><td>Every Koreans Books · 에브리코리안즈 출판</td></tr>
+    <tr><th>ISBN</th><td>To be assigned · 출간 때 붙음</td></tr>
+  </table>
+  <span class="btn sub shop-soon" aria-disabled="true">Coming soon · 준비 중</span>
+</div>
+</div>
+<h2>About this book · 책 소개</h2>
+<p>A beginner workbook built from our most-used free worksheets: Hangul and final consonants first, then greetings, numbers and dates, family, food, shopping and the basic particles. Every unit has a short explanation, tables to copy, practice and an answer key at the back.</p>
+<p class="bk-ko">가장 많이 쓰인 무료 학습지로 만든 첫 워크북. 한글 · 받침부터 인사 · 날짜 · 가족 · 음식 · 쇼핑 · 기초 조사까지, 단원마다 짧은 설명 · 따라 쓰는 표 · 연습 · 뒤쪽 정답.</p>
+<h2>Who it is for · 이런 분께</h2>
+<ul><li>Complete beginners who just learned (or want to learn) Hangul <small class="bk-ko">· 한글을 막 배운(배우려는) 완전 초급</small></li><li>Teachers who need homework sheets for A1 classes <small class="bk-ko">· A1 반 숙제가 필요한 선생님</small></li><li>Self-learners who like writing things down <small class="bk-ko">· 손으로 써야 외워지는 독학자</small></li></ul>
+<h2>Contents · 목차</h2>
+<ol class="bk-toc"><li><a href="/colors-shapes-opposites-worksheet/">Unit 1. Colors, Shapes &amp; Opposite Adjectives</a><small>색깔 · 모양 · 반대말 형용사</small></li><li><a href="/days-months-dates-worksheet/">Unit 2. Days, months &amp; dates</a><small>요일 · 월 · 날짜</small></li><li><a href="/demonstratives-worksheet/">Unit 3. Korean Demonstratives: 이 · 그 · 저</a><small>지시어: 이 · 그 · 저</small></li><li><a href="/directions-transportation-worksheet/">Unit 4. Directions &amp; Transportation</a><small>길 묻기 · 교통 · 방향</small></li><li><a href="/family-terms-worksheet/">Unit 5. Family Terms &amp; Honorifics</a><small>가족 호칭과 높임말</small></li><li><a href="/food-ordering-taste-worksheet/">Unit 6. Food Ordering, Menus &amp; Taste</a><small>음식 주문 · 메뉴 · 맛 표현</small></li><li><a href="/greetings-self-introduction-worksheet/">Unit 7. Greetings &amp; Self-Introduction</a><small>인사말과 자기소개</small></li><li><a href="/hangul-alphabet-worksheet/">Unit 8. Hangul Alphabet: Consonants &amp; Vowels</a><small>한글 자음과 모음</small></li><li><a href="/hangul-batchim-worksheet/">Unit 9. Hangul Batchim &amp; Sound Rules</a><small>받침과 소리 규칙</small></li><li><a href="/health-hospital-worksheet/">Unit 10. Body Parts, Illness &amp; Hospital</a><small>몸 · 아플 때 쓰는 말 · 병원</small></li><li><a href="/hobbies-leisure-sports-worksheet/">Unit 11. Hobbies, Leisure &amp; Sports</a><small>취미 · 여가 · 운동</small></li><li><a href="/house-rooms-furniture-worksheet/">Unit 12. House, Rooms &amp; Furniture</a><small>집 · 방 · 가구</small></li><li><a href="/ida-anida-itta-eopda-worksheet/">Unit 13. 이다 vs 아니다 and 있다 vs 없다</a><small>이다 · 아니다 · 있다 · 없다 비교</small></li><li><a href="/korean-particles-worksheet/">Unit 14. Essential Korean Particles</a><small>기초 필수 조사</small></li><li><a href="/location-places-exist-worksheet/">Unit 15. Location, Places &amp; Existence</a><small>위치 · 장소 · 있다/없다</small></li><li><a href="/question-words-worksheet/">Unit 16. Korean Question Words</a><small>의문사: 누구 · 언제 · 어디 · 무엇 · 왜</small></li><li><a href="/school-classroom-worksheet/">Unit 17. School &amp; Classroom Expressions</a><small>학교 · 교실 표현</small></li><li><a href="/shopping-prices-clothes-worksheet/">Unit 18. Shopping, Prices &amp; Clothing</a><small>쇼핑 · 가격 · 옷 · 크기</small></li><li><a href="/weather-seasons-temperature-worksheet/">Unit 19. Weather, Seasons &amp; Temperature</a><small>날씨 · 계절 · 기온</small></li></ol>
+<p>Each unit is based on a free worksheet on this site — open any unit above to try it now.</p>
+<p><a class="btn sub" href="/shop/">← All books</a></p>
+<div class="next">
+  <h3>How buying works</h3>
+  <p>Payment is handled by Polar, our payment partner. Digital files download right after paying and arrive by email. Printed books will be sold through bookstores when published. See <a href="/refund.html">refunds</a> · <a href="/terms.html">terms</a>.</p>
+</div>
+<p class="ft">Every Koreans Books · 에브리코리안즈 출판 · <a href="/about.html">About</a> · <a href="/worksheets/">Free worksheets</a></p>
+</main>
+</body>
+</html>
