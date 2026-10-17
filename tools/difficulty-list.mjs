@@ -4,10 +4,10 @@
    묶음: writing(200) · listening(165) · reading-i(400) · reading-ii-a(앞 305) · reading-ii-b(뒤 300) */
 import fs from 'node:fs';
 import path from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { fileURLToPath, pathToFileURL } from 'node:url';
 
 const ROOT = path.join(path.dirname(fileURLToPath(import.meta.url)), '..');
-const imp = (f) => import(path.join(ROOT, f));
+const imp = (f) => import(pathToFileURL(path.join(ROOT, f)).href);
 const SETS = {
   'writing': async () => (await imp('topik-writing.js')).TW_ITEMS.map((x) => ({ id: x.id, tag: `${x.q}번 ${x.lv}`, text: `${x.title} — ${x.passage}` })),
   'listening': async () => { const m = await imp('topik-listening.js'); return [...m.TOPIKL_ITEMS, ...m.TOPIKL2_ITEMS].map((x) => ({ id: x.id, tag: `${x.exam || ''} ${x.slot}번 ${x.type} ${x.grade}급`, text: `${x.q} / ${(Array.isArray(x.script) ? x.script.map((l) => l.text).join(' ') : x.script)}` })); },
