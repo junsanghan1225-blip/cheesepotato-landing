@@ -126,8 +126,12 @@ td:first-child{font-weight:800;font-size:10.4pt;color:#1d1a17}td.tip{color:#8a82
 /* ── 블록 만들기 ── */
 const pair = (o, cls = '') => `<p class="en${cls}">${esc(o.en)}</p>`;
 const LAB = { table: '핵심 정리', text: '참고', practice: '연습' };
+/* 정석풍 블록 — 핵심 정리 · 참고 · 연습 + 팁(TIP) · 주의(WARNING) · 더 알아보기(MORE). 표 끝 설명과 글 칸이 어느 블록인지는 책 틀의 blocks(「단원id:칸번호」)에서 — 없으면 표 설명은 TIP, 글 칸은 참고. */
+const BLK = { tip: ['TIP', '팁'], warn: ['WARNING', '주의'], more: ['MORE', '더 알아보기'] };
+const kindOf = (u, si, s) => (B.blocks || {})[`${u.id}:${si + 1}`] || (s.type === 'table' ? 'tip' : 'ref');
+const boxHtml = (kind, text) => `<div class="bx ${kind}"><span class="tg">${BLK[kind][0]}<small>${BLK[kind][1]}</small></span><span class="tt">${esc(text)}</span></div>`;
 let secNo = '';
-const secLabel = (s) => `<h3>${CLASSIC ? `<em class="lab">${LAB[s.type]} ${secNo}</em>` : ''}<span>${esc(s.title.en)}</span>${s.title.ko ? `<small>${esc(s.title.ko)}</small>` : ''}</h3>`;
+const secLabel = (s, lab) => `<h3>${CLASSIC ? `<em class="lab">${lab || LAB[s.type]} ${secNo}</em>` : ''}<span>${esc(s.title.en)}</span>${s.title.ko ? `<small>${esc(s.title.ko)}</small>` : ''}</h3>`;
 const qLine = (q) => q.includes('___')
   ? `<span class="q">${esc(q.replace(/\s*→\s*$/, '')).replace(/___/g, '<span class="bl"></span>')}</span><span class="ln" style="visibility:hidden;min-width:0"></span>`
   : `<span class="q">${esc(q)}</span><span class="ln"></span>`;
@@ -159,10 +163,29 @@ ${B.preface.en.map((t, i) => `<p class="en">${esc(t)}</p><p class="ko">${esc(B.p
 function howPage() {
   return `<div class="blk plain"><div class="pf how"><h2>How to use this book</h2><div class="k">이 책 쓰는 법</div><ol>${B.howto.en.map((t, i) => `<li><div><b>${esc(t)}</b><span>${esc(B.howto.ko[i])}</span></div></li>`).join('')}</ol></div></div>`;
 }
+const GUIDE = [
+  ['table', '핵심 정리 · Key Points', '읽고 소리 내 말하고 따라 쓰는 표. 단원의 뼈대입니다.', 'Tables to read aloud, copy and revisit — the backbone of each unit.'],
+  ['ref', '참고 · Note', '규칙이 어떻게 움직이는지 풀어 쓴 설명입니다.', 'A short explanation of how the pattern works.'],
+  ['practice', '연습 · Practice', '줄 위에 직접 쓰고, 뒤쪽 정답으로 확인합니다.', 'Write on the line, then check the Answer Key at the back.'],
+  ['tip', 'TIP · 팁', '더 자연스럽게 말하는 요령, 알아 두면 편한 규칙.', 'A handy shortcut or a more natural way to say it.'],
+  ['warn', 'WARNING · 주의', '자주 하는 실수와 예외. 틀리기 쉬운 곳은 꼭 읽으세요.', 'Common mistakes and exceptions — read these before you practise.'],
+  ['more', 'MORE · 더 알아보기', '소리 변화, 유래 같은 덧붙임. 지금 몰라도 괜찮고, 궁금할 때 읽으세요.', 'Sound changes, origins and extras. Optional — read when curious.'],
+];
+function guidePage() {
+  const mini = (k) => {
+    if (k === 'table') return `<div class="sec"><h3><em class="lab">핵심 정리 1-1</em><span>Key words</span></h3><table><thead><tr><th>Korean</th><th>English</th></tr></thead><tbody><tr><td>안녕하세요</td><td>Hello</td></tr><tr><td>감사합니다</td><td>Thank you</td></tr></tbody></table></div>`;
+    if (k === 'ref') return `<div class="sec"><h3><em class="lab">참고 1-3</em><span>How it works</span></h3><div class="note">Explains why the pattern behaves the way it does.</div></div>`;
+    if (k === 'practice') return `<div class="sec"><h3><em class="lab">연습 1-4</em><span>Practice A</span></h3><ol class="pr" style="--qw:40%"><li><span class="q">가 + ㄴ →</span><span class="ln"></span></li><li><span class="q">나 + ㅁ →</span><span class="ln"></span></li></ol></div>`;
+    return boxHtml(k, { tip: 'Short, useful, and often what native speakers really say.', warn: 'The mistake learners make most often — and how to avoid it.', more: 'Extra background you can skip on the first read.' }[k]);
+  };
+  return `<div class="blk plain gd"><h2>How this book is organized</h2><div class="k">이 책의 구성 — 블록 읽는 법</div>${GUIDE.map(([k, t, ko, en]) => `<div class="row"><div class="mini">${mini(k)}</div><div class="d"><b>${t}</b>${en}<small>${ko}</small></div></div>`).join('')}
+<p style="margin-top:5mm;font-size:8.6pt;color:#2a3550;line-height:1.55"><b>번호 읽는 법 · Numbering</b> — 「핵심 정리 5-2」 = 5단원의 두 번째 칸. “Key Points 5-2” is the second block of Unit 5. 정답과 찾아보기는 책 뒤쪽에 있습니다 · The Answer Key and Index are at the back.</p></div>`;
+}
 function tocPage(starts) {
   let h = `<div class="blk plain"><div class="toc"><h2>Contents · 목차</h2>`;
   const ln = (n, en, ko, p) => `<div class="ln"><span class="n">${n}</span><span class="t">${esc(en)}<small>${esc(ko)}</small></span><span class="d"></span><span class="p">${p ?? '··'}</span></div>`;
   h += ln('', 'Preface · How to use this book', '머리말 · 쓰는 법', starts?.preface);
+  h += ln('', 'How this book is organized', '이 책의 구성 · 블록 읽는 법', starts?.guide);
   for (const p of parts) {
     h += `<div class="pt">PART ${p.no} · ${esc(p.title.en.toUpperCase())} <span style="color:#9a9288;font-weight:500">${esc(p.title.ko)}</span></div>`;
     for (const s of p.sheets) { const u = units.find((x) => x.id === s.id); h += ln(String(u.no).padStart(2, '0'), s.title.en, s.title.ko, starts?.unit[u.no]); }
@@ -190,9 +213,13 @@ function unitBlock(u) {
     secNo = `${u.no}-${si + 1}`;
     if (s.type === 'table') {
       const tipCols = s.cols.map((c) => /reading|tip|sound|pronunc/i.test(c));
-      return `<div class="sec"${s.rows.length <= 8 ? ' style="break-inside:avoid"' : ''}>${sr(si)}${secLabel(s)}<table><thead><tr>${s.cols.map((c) => `<th>${esc(c)}</th>`).join('')}</tr></thead><tbody>${s.rows.map((r) => `<tr>${r.map((c, i) => `<td${tipCols[i] ? ' class="tip"' : ''}>${esc(c)}</td>`).join('')}</tr>`).join('')}</tbody></table>${s.note ? `<div class="note">${esc(s.note)}</div>` : ''}</div>`;
+      return `<div class="sec"${s.rows.length <= 8 ? ' style="break-inside:avoid"' : ''}>${sr(si)}${secLabel(s)}<table><thead><tr>${s.cols.map((c) => `<th>${esc(c)}</th>`).join('')}</tr></thead><tbody>${s.rows.map((r) => `<tr>${r.map((c, i) => `<td${tipCols[i] ? ' class="tip"' : ''}>${esc(c)}</td>`).join('')}</tr>`).join('')}</tbody></table>${s.note ? (CLASSIC ? boxHtml(kindOf(u, si, s), s.note) : `<div class="note">${esc(s.note)}</div>`) : ''}</div>`;
     }
-    if (s.type === 'text') return `<div class="sec">${sr(si)}${secLabel(s)}<div class="note">${esc(s.text)}</div></div>`;
+    if (s.type === 'text') {
+      const k = CLASSIC ? kindOf(u, si, s) : 'ref';
+      if (k !== 'ref') return `<div class="sec">${sr(si)}${secLabel(s, BLK[k][1])}${boxHtml(k, s.text)}</div>`;
+      return `<div class="sec">${sr(si)}${secLabel(s)}<div class="note">${esc(s.text)}</div></div>`;
+    }
     return `<div class="sec">${sr(si)}${secLabel(s)}${s.hint ? `<div class="hint">${esc(s.hint)}</div>` : ''}<ol class="pr" style="--qw:${qw(s.items)}">${s.items.map((x) => `<li${x.q.includes('___') ? ' class="fill"' : ''}>${qLine(x.q)}</li>`).join('')}</ol></div>`;
   }).join('\n');
   if (CLASSIC) return `<div class="blk ${unitCss(u)}" style="page:${unitCss(u)}">${u._head}${body}</div>`;
@@ -251,10 +278,16 @@ body{font-size:9.4pt;line-height:1.6;color:#111}
 .sec>h3:before{display:none}
 .lab{grid-row:1;align-self:center;font-style:normal;border:.3mm solid ${ACC};color:${ACC};font-size:7.4pt;font-weight:800;letter-spacing:.04em;padding:.7mm 2.6mm;border-radius:0;line-height:1.5;white-space:nowrap}
 .sec>h3 span{grid-column:2;grid-row:1}.sec>h3 small{grid-column:2;grid-row:2;margin:0;font-size:8.2pt;line-height:1.25;color:#5a6780;font-weight:500}.sec>h3:not(:has(.lab)) span{grid-column:1/3}
-table{border-top:.45mm solid ${ACC};border-bottom:.45mm solid ${ACC}}
-th{background:transparent;color:${ACC};border:0;border-bottom:.25mm solid ${ACC};font-size:7.6pt;font-weight:800;letter-spacing:.02em;padding:1.4mm 3mm;line-height:1.25}
-tbody tr:nth-child(even) td,tr:nth-child(even) td{background:transparent}td{border-bottom:.15mm solid #cfd6e2;padding:1.35mm 3mm;line-height:1.35}tr:last-child td{border-bottom:0}td:first-child{color:${ACC}}td.tip{color:#6b7a92}
-.note{border:0;border-left:.9mm solid ${ACC};background:transparent;color:#111;padding:.8mm 0 .8mm 3.2mm;margin-top:2.4mm;line-height:1.5}.note b{color:${ACC}}
+table{border-top:0;border-bottom:.4mm solid ${ACC};font-size:8.6pt}
+th{background:transparent;color:${ACC};border:0;border-bottom:.25mm solid ${ACC};font-size:7.6pt;font-weight:800;letter-spacing:.02em;padding:1mm 3mm 1.2mm;line-height:1.2;vertical-align:bottom}
+tbody tr:nth-child(even) td,tr:nth-child(even) td{background:transparent}td{border-bottom:.15mm solid #cfd6e2;padding:1.05mm 3mm;line-height:1.3;font-size:8.6pt}td:first-child{font-size:8.9pt;font-weight:700}tr:last-child td{border-bottom:0}td:first-child{color:${ACC}}td.tip{color:#6b7a92}
+.bx{display:flex;gap:3.2mm;align-items:flex-start;margin-top:2.6mm;padding:2mm 3.2mm;background:#F2F5FA;border-top:.3mm solid ${ACC};border-bottom:.3mm solid ${ACC};font-size:8.6pt;line-height:1.5;color:#111;break-inside:avoid}
+.bx .tg{flex:none;min-width:17mm;border:.3mm solid ${ACC};color:${ACC};font-size:6.8pt;font-weight:800;letter-spacing:.1em;padding:.3mm 2mm;line-height:1.35;text-align:center;margin-top:.2mm}.bx .tg small{display:block;font-size:6.6pt;font-weight:600;letter-spacing:0}.bx .tt{flex:1}
+.bx.warn{background:#FBF2F1;border-color:#9B2C2C}.bx.warn .tg{border-color:#9B2C2C;color:#9B2C2C}
+.bx.more{background:#fff;border-top:.3mm dashed ${ACC};border-bottom:.3mm dashed ${ACC}}.bx.more .tg{border-style:dashed}
+.gd h2{font-size:20pt;margin-bottom:1mm}.gd .k{font-size:10.5pt;color:#5a6780;margin-bottom:5mm}.gd .row{display:grid;grid-template-columns:70mm 1fr;gap:6mm;padding:3.4mm 0;border-top:.2mm solid #cfd6e2;align-items:start;break-inside:avoid}.gd .row:first-of-type{border-top:.4mm solid ${ACC}}.gd .row .d b{display:block;font-size:9.6pt;margin-bottom:.8mm}.gd .row .d{font-size:8.6pt;line-height:1.5;color:#2a3550}.gd .row .d small{display:block;color:#6b7a92;font-size:8pt;margin-top:.6mm}.gd .mini{font-size:7.8pt}.gd .mini .sec>h3{margin-bottom:1.4mm;font-size:9pt}.gd .mini table{font-size:7.6pt}.gd .mini .bx,.gd .mini .note{margin-top:0;font-size:7.8pt}.gd .mini .pr li{min-height:6mm}
+.tipbox{display:flex;gap:3.2mm;align-items:flex-start;margin-top:2.6mm;padding:2mm 3.2mm;background:#F2F5FA;border-top:.3mm solid ${ACC};border-bottom:.3mm solid ${ACC};font-size:8.6pt;line-height:1.5;color:#111;break-inside:avoid}.tipbox .tg{flex:none;border:.3mm solid ${ACC};color:${ACC};font-size:6.8pt;font-weight:800;letter-spacing:.1em;padding:.3mm 2mm;line-height:1.5;margin-top:.2mm}.tipbox .tt{flex:1}
+.note{break-inside:avoid;border:0;border-left:.9mm solid ${ACC};background:transparent;color:#111;padding:.8mm 0 .8mm 3.2mm;margin-top:2.4mm;line-height:1.5}.note b{color:${ACC}}
 .pr li{border-bottom:0;min-height:8.4mm}.pr li:before{content:counter(q) '.';border:0;border-radius:0;background:transparent;color:${ACC};width:6mm;height:auto;font-size:9pt;font-weight:800;justify-content:flex-start;margin:0}
 .pr li{display:grid;grid-template-columns:6mm var(--qw,48%) 1fr;column-gap:3mm;align-items:end;padding:1mm 0}.pr li.fill{grid-template-columns:6mm 1fr}.pr li.fill .ln{display:none}
 .pr .q{font-weight:500;line-height:1.45;padding-bottom:.4mm}.pr .ln{flex:none;min-width:0;height:4.8mm;border-bottom:.2mm solid #8e9ab0;margin:0}.pr .bl{border-bottom:.2mm solid #8e9ab0}
@@ -293,7 +326,7 @@ const countPages = (buf) => (buf.toString('latin1').match(/\/Type\s*\/Page(?![s\
 
 const entries = indexEntries();
 const blocks = [
-  ['title', titlePage()], ['copyright', copyrightPage()], ['preface', prefacePage()], ['how', howPage()], ['toc', tocPage(null)],
+  ['title', titlePage()], ['copyright', copyrightPage()], ['preface', prefacePage()], ['how', howPage()], ['guide', guidePage()], ['toc', tocPage(null)],
   ...parts.flatMap((p) => [[`part${p.no}`, partPage(p)], ...p.sheets.map((s) => { const u = units.find((x) => x.id === s.id); return [`unit${u.no}`, unitBlock(u)]; })]),
   ['answers', answersBlock()], ['index', indexBlock(entries)],
 ];
@@ -305,7 +338,7 @@ blocks.push(['memo', memoBlock(memoPages)]); counts.memo = memoPages; total += m
 /* 시작 쪽 = 앞 블록 쪽수의 합 + 1 */
 let at = 1; const start = {};
 for (const [k] of blocks) { start[k] = at; at += counts[k]; }
-const starts = { preface: start.preface, unit: Object.fromEntries(units.map((u) => [u.no, start[`unit${u.no}`] + 1])), answers: start.answers, index: start.index, memo: start.memo };
+const starts = { preface: start.preface, guide: start.guide, unit: Object.fromEntries(units.map((u) => [u.no, start[`unit${u.no}`] + 1])), answers: start.answers, index: start.index, memo: start.memo };
 // 단원 첫 쪽(표지 쪽)은 목차에 그 단원의 첫 쪽으로 적는다 — unit 블록은 첫 쪽이 단원 표지이므로 start 그대로가 맞다
 for (const u of units) starts.unit[u.no] = start[`unit${u.no}`];
 const final = blocks.map(([k, html]) => (k === 'toc' ? tocPage(starts) : html)).join('\n') + (REVIEW ? reviewSheet() : '');

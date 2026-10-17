@@ -5,17 +5,37 @@
   "theme": "classic",
   "color": "#E8642C",
   "tint": "#FFF3EA",
-  "series": { "en": "WORKBOOK SERIES", "ko": "워크북 시리즈" },
-  "title": { "en": "Korean First Steps Workbook", "ko": "한국어 첫걸음 워크북" },
-  "sub": { "en": "Hangul, greetings and everyday words — write, check, repeat.", "ko": "한글 · 인사 · 생활 낱말 — 쓰고, 맞춰 보고, 다시" },
+  "series": {
+    "en": "WORKBOOK SERIES",
+    "ko": "워크북 시리즈"
+  },
+  "title": {
+    "en": "Korean First Steps Workbook",
+    "ko": "한국어 첫걸음 워크북"
+  },
+  "sub": {
+    "en": "Hangul, greetings and everyday words — write, check, repeat.",
+    "ko": "한글 · 인사 · 생활 낱말 — 쓰고, 맞춰 보고, 다시"
+  },
   "level": "A1",
-  "trim": { "w": 182, "h": 257, "bleed": 3, "paperMm": 0.11 },
-  "author": { "en": "Junsang", "ko": "준상" },
+  "trim": {
+    "w": 182,
+    "h": 257,
+    "bleed": 3,
+    "paperMm": 0.11
+  },
+  "author": {
+    "en": "Junsang",
+    "ko": "준상"
+  },
   "authorAbout": {
     "en": "Junsang is a Korean teacher. He has taught Korean for about two years and led over 1,700 lessons with students from many different cultural backgrounds.",
     "ko": "준상은 한국어 교사입니다. 약 2년 동안 다양한 문화권의 학생들과 1,700회가 넘는 수업을 했습니다."
   },
-  "publisher": { "en": "Every Koreans Books", "ko": "에브리코리안즈 출판" },
+  "publisher": {
+    "en": "Every Koreans Books",
+    "ko": "에브리코리안즈 출판"
+  },
   "web": "everykoreans.com",
   "preface": {
     "en": [
@@ -48,9 +68,108 @@
     ]
   },
   "parts": [
-    { "title": { "en": "Start Reading & Writing", "ko": "읽고 쓰기 시작" }, "units": ["hangul-alphabet", "hangul-batchim"] },
-    { "title": { "en": "Your First Sentences", "ko": "첫 문장 만들기" }, "units": ["greetings-self-introduction", "ida-anida-itta-eopda", "demonstratives", "korean-particles", "question-words"] },
-    { "title": { "en": "Talking About My World", "ko": "내 주변 이야기" }, "units": ["days-months-dates", "family-terms", "location-places-exist", "colors-shapes-opposites", "house-rooms-furniture", "school-classroom"] },
-    { "title": { "en": "Out and About", "ko": "밖으로 나가요" }, "units": ["food-ordering-taste", "shopping-prices-clothes", "directions-transportation", "weather-seasons-temperature", "hobbies-leisure-sports", "health-hospital"] }
-  ]
+    {
+      "title": {
+        "en": "Start Reading & Writing",
+        "ko": "읽고 쓰기 시작"
+      },
+      "units": [
+        "hangul-alphabet",
+        "hangul-batchim"
+      ]
+    },
+    {
+      "title": {
+        "en": "Your First Sentences",
+        "ko": "첫 문장 만들기"
+      },
+      "units": [
+        "greetings-self-introduction",
+        "ida-anida-itta-eopda",
+        "demonstratives",
+        "korean-particles",
+        "question-words"
+      ]
+    },
+    {
+      "title": {
+        "en": "Talking About My World",
+        "ko": "내 주변 이야기"
+      },
+      "units": [
+        "days-months-dates",
+        "family-terms",
+        "location-places-exist",
+        "colors-shapes-opposites",
+        "house-rooms-furniture",
+        "school-classroom"
+      ]
+    },
+    {
+      "title": {
+        "en": "Out and About",
+        "ko": "밖으로 나가요"
+      },
+      "units": [
+        "food-ordering-taste",
+        "shopping-prices-clothes",
+        "directions-transportation",
+        "weather-seasons-temperature",
+        "hobbies-leisure-sports",
+        "health-hospital"
+      ]
+    }
+  ],
+  "blocks": {
+    "hangul-alphabet:1": "tip",
+    "hangul-alphabet:2": "tip",
+    "hangul-batchim:1": "tip",
+    "hangul-batchim:2": "tip",
+    "greetings-self-introduction:1": "warn",
+    "greetings-self-introduction:2": "tip",
+    "greetings-self-introduction:3": "tip",
+    "ida-anida-itta-eopda:1": "warn",
+    "ida-anida-itta-eopda:2": "more",
+    "demonstratives:1": "tip",
+    "demonstratives:2": "tip",
+    "korean-particles:1": "tip",
+    "korean-particles:2": "warn",
+    "korean-particles:3": "warn",
+    "question-words:1": "warn",
+    "question-words:2": "tip",
+    "days-months-dates:1": "more",
+    "days-months-dates:2": "tip",
+    "family-terms:1": "warn",
+    "family-terms:2": "tip",
+    "location-places-exist:1": "tip",
+    "location-places-exist:2": "tip",
+    "location-places-exist:3": "tip",
+    "colors-shapes-opposites:1": "tip",
+    "colors-shapes-opposites:2": "more",
+    "colors-shapes-opposites:3": "tip",
+    "house-rooms-furniture:1": "more",
+    "house-rooms-furniture:2": "more",
+    "house-rooms-furniture:3": "tip",
+    "school-classroom:1": "more",
+    "school-classroom:2": "more",
+    "school-classroom:3": "more",
+    "food-ordering-taste:1": "tip",
+    "food-ordering-taste:2": "warn",
+    "food-ordering-taste:3": "warn",
+    "shopping-prices-clothes:1": "tip",
+    "shopping-prices-clothes:2": "tip",
+    "shopping-prices-clothes:3": "tip",
+    "directions-transportation:1": "tip",
+    "directions-transportation:2": "tip",
+    "directions-transportation:3": "tip",
+    "weather-seasons-temperature:1": "more",
+    "weather-seasons-temperature:2": "tip",
+    "weather-seasons-temperature:3": "tip",
+    "hobbies-leisure-sports:1": "tip",
+    "hobbies-leisure-sports:2": "tip",
+    "hobbies-leisure-sports:3": "more",
+    "health-hospital:1": "tip",
+    "health-hospital:2": "more",
+    "health-hospital:3": "more"
+  }
 }

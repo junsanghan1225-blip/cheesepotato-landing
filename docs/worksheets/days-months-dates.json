@@ -75,7 +75,7 @@
       "type": "table",
       "title": {
         "en": "Months",
-        "ko": "월"
+        "ko": "월 이름 (1~12월)"
       },
       "cols": [
         "Month",
