@@ -74,7 +74,7 @@ ${units.map((u) => `@page ${unitCss(u)}:right{@top-right{content:${cssStr(`UNIT 
 @page ${unitCss(u)}:left{@top-left{content:${cssStr(B.title.en.toUpperCase())};white-space:nowrap}}`).join('\n')}
 @page unitopen{margin:0;@top-left{content:none}@top-right{content:none}@bottom-left{content:none}@bottom-right{content:none}}
 /* ㉠ ㉡ 는 글꼴에 없어 그림 글자(이모지)로 떨어진다 — 동그라미 글자로 직접 그린다 */
-.cm{display:inline-block;min-width:1.55em;height:1.55em;line-height:1.5em;text-align:center;border:.9pt solid currentColor;border-radius:50%;font-size:.9em;font-weight:800;vertical-align:-.22em;margin:0 .12em;font-family:'Pretendard Variable',sans-serif}
+.cm{display:inline-block;width:1.2em;height:1.2em;vertical-align:-.2em;margin:0 .12em}
 *{box-sizing:border-box;margin:0;padding:0}
 html{-webkit-print-color-adjust:exact;print-color-adjust:exact}
 body{font:400 9.6pt/1.55 'Pretendard Variable',sans-serif;color:#1d1a17;word-break:keep-all}
@@ -487,7 +487,10 @@ tbody tr:nth-child(even) td,tr:nth-child(even) td{background:transparent}td{bord
 .toc .pt,.ak .u h4 span,.ix .ini,.memo h2{color:${ACC}}.how li:before{background:${ACC}}
 .ak .u h4{border-bottom-color:${ACC}}.tp .rule{background:${ACC}}
 `;
-const shell = (body) => `<!doctype html><html lang="en"><head><meta charset="utf-8"><link rel="stylesheet" href="/vendor/pretendard.css"><style>${CSS}${CLASSIC ? CLASSIC_CSS : ''}${reviewTop}</style></head><body>${body.replace(/[㉠㉡㉢]/g, (c) => `<span class="cm">${{ '㉠': 'ㄱ', '㉡': 'ㄴ', '㉢': 'ㄷ' }[c]}</span>`)}</body></html>`;
+/* ㉠ ㉡ ㉢ — 글꼴에 없는 글자라 동그라미 + 자음을 선으로 직접 그린다(글꼴 자음은 칸 안에서 위 · 아래로 쏠려 보였다 — 운영자 2026-10-18 「위치가 이상하다」) */
+const CMP = { '㉠': 'M6.6 6.4H13.6V13.6', '㉡': 'M6.6 6.4V13.6H13.6', '㉢': 'M13.6 6.4H6.6V13.6H13.6' };
+const CM = Object.fromEntries(Object.entries(CMP).map(([k, d]) => [k, `<svg class="cm" viewBox="0 0 20 20" aria-label="${k}"><circle cx="10" cy="10" r="9" fill="none" stroke="currentColor" stroke-width="1.1"/><path d="${d}" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="miter"/></svg>`]));
+const shell = (body) => `<!doctype html><html lang="en"><head><meta charset="utf-8"><link rel="stylesheet" href="/vendor/pretendard.css"><style>${CSS}${CLASSIC ? CLASSIC_CSS : ''}${reviewTop}</style></head><body>${body.replace(/[㉠㉡㉢]/g, (c) => CM[c])}</body></html>`;
 let pages = new Map();
 const server = http.createServer((req, res) => {
   const u = decodeURIComponent(new URL(req.url, 'http://x').pathname);
