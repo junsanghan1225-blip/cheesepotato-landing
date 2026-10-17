@@ -1,0 +1,578 @@
+{
+  "im-c72-01": [
+    {
+      "t": "compare",
+      "h": "-(으)ㄹ걸 그랬다 vs -(으)ㄹ 것 같다",
+      "a": {
+        "h": "-(으)ㄹ걸 그랬다",
+        "d": "지나간 일에 대해 '그렇게 하는 편이 더 좋았을 텐데' 하고 가벼운 아쉬움과 후회를 나타냅니다.",
+        "ex": [
+          "날씨가 이렇게 쌀쌀할 줄 알았으면 두꺼운 외투를 입고 올**걸 그랬어요**. — If I had known weather would be this chilly, I should have worn a thick coat."
+        ]
+      },
+      "b": {
+        "h": "-(으)ㄹ 것 같다",
+        "d": "현재나 미래의 일에 대해 자신의 느낌이나 생각을 조심스럽게 추측할 때 씁니다.",
+        "ex": [
+          "날씨가 쌀쌀해서 감기에 걸**릴 것 같아요**. — Because weather is chilly, I feel like I might catch a cold."
+        ]
+      },
+      "tip": "이미 지나간 과거 선택에 대한 아쉬움에는 독백조의 '-(으)ㄹ걸 그랬다'를 씁니다."
+    },
+    {
+      "t": "correct",
+      "q": "Fix the mistake.",
+      "wrong": "비가 쏟아질 줄 알았으면 아침에 우산을 미리 챙길 것 같았어요.",
+      "answers": [
+        "비가 쏟아질 줄 알았으면 아침에 우산을 미리 챙길걸 그랬어요."
+      ],
+      "hint": "우산을 챙기지 않은 과거 선택에 대한 아쉬움을 나타내는 어미를 씁니다.",
+      "why": "과거에 그렇게 하지 않은 것에 대한 후회와 아쉬움에는 '-(으)ㄹ걸 그랬다'가 올바릅니다."
+    },
+    {
+      "t": "vocab",
+      "h": "Words for this lesson",
+      "items": [
+        {
+          "ko": "외투",
+          "en": "overcoat",
+          "ex": "두꺼운 외투를 걸치고 나갔습니다."
+        },
+        {
+          "ko": "쌀쌀하다",
+          "en": "chilly",
+          "ex": "바람이 불어 날씨가 제법 쌀쌀해요."
+        },
+        {
+          "ko": "미리 해 둘걸",
+          "en": "should have done earlier",
+          "ex": "과제를 주말에 미리 해 둘걸 그랬어요."
+        },
+        {
+          "ko": "후회스럽다",
+          "en": "regretful",
+          "ex": "기회를 놓친 것이 몹시 후회스럽습니다."
+        }
+      ]
+    },
+    {
+      "t": "dictate",
+      "say": "날씨가 이렇게 쌀쌀할 줄 알았으면 두꺼운 외투를 입고 올걸 그랬어요",
+      "answers": [
+        "날씨가 이렇게 쌀쌀할 줄 알았으면 두꺼운 외투를 입고 올걸 그랬어요"
+      ],
+      "hint": "두꺼운 외투를 입지 않고 나온 것에 대한 아쉬움입니다.",
+      "why": "가벼운 후회를 나타내는 '-(으)ㄹ걸 그랬다'의 대표적인 실생활 표현입니다."
+    },
+    {
+      "t": "write",
+      "q": "Write a sentence using '신청할걸 그랬어요' to express regret about missing a deadline.",
+      "must": [
+        "신청할걸 그랬어요"
+      ],
+      "sample": "마감 기간이 지나기 전에 그 유익한 강좌를 미리 신청할걸 그랬어요.",
+      "why": "선택하지 않은 과거 행위에 대한 아쉬움을 '-(으)ㄹ걸 그랬다'로 나타냅니다."
+    },
+    {
+      "t": "expand",
+      "base": {
+        "tokens": [
+          "외투를",
+          "입을걸 그랬어요."
+        ],
+        "en": "I should have worn a coat."
+      },
+      "steps": [
+        {
+          "tokens": [
+            "따뜻한",
+            "외투를",
+            "입을걸 그랬어요."
+          ],
+          "en": "I should have worn a warm coat."
+        },
+        {
+          "tokens": [
+            "날씨가 이렇게 추울 줄 알았으면",
+            "따뜻한 외투를",
+            "입을걸 그랬어요."
+          ],
+          "en": "If I had known weather would be this cold, I should have worn a warm coat."
+        }
+      ]
+    },
+    {
+      "t": "passage",
+      "h": "Read a little",
+      "ko": [
+        "오후가 되자 갑자기 찬 바람이 불며 기온이 뚝 떨어졌습니다.",
+        "아침에 집을 나설 때 일기예보를 확인하고 따뜻한 스웨터를 입고 올걸 그랬어요.",
+        "얇은 셔츠 차림이라 퇴근길이 몹시 춥겠지만 다음부터는 날씨를 꼭 챙겨 봐야겠습니다."
+      ],
+      "en": [
+        "Come afternoon, cold wind suddenly blew and temperature dropped sharply.",
+        "When leaving home this morning, I should have checked weather forecast and worn a warm sweater.",
+        "Dressed only in a thin shirt, commute home will be very cold, but I must check weather from next time."
+      ]
+    },
+    {
+      "t": "choice",
+      "q": "글쓴이가 아쉬워하고 있는 점은 무엇인가요?",
+      "options": [
+        "따뜻한 스웨터를 챙겨 입고 나오지 않은 것",
+        "오후에 친구를 만나지 못한 것"
+      ],
+      "answer": 0,
+      "why": "본문에서 '따뜻한 스웨터를 입고 올걸 그랬다'고 아쉬워하고 있습니다."
+    },
+    {
+      "t": "choice",
+      "q": "글쓴이가 다음부터 실천하기로 한 다짐은 무엇인가요?",
+      "options": [
+        "아침에 날씨 예보를 꼭 챙겨 보는 것",
+        "회사에 출근하지 않는 것"
+      ],
+      "answer": 0,
+      "why": "본문 마지막 줄에 '다음부터는 날씨를 꼭 챙겨 봐야겠다'고 다짐했습니다."
+    },
+    {
+      "t": "cando",
+      "items": [
+        "I can express mild regrets and personal hindsight using -(으)ㄹ걸 그랬다",
+        "I can naturally voice casual disappointments about daily choices in Korean"
+      ]
+    }
+  ],
+  "im-c72-02": [
+    {
+      "t": "compare",
+      "h": "-았/었어야 했는데 vs -(으)ㄹ걸 그랬다",
+      "a": {
+        "h": "-았/었어야 했는데",
+        "d": "마땅히 지켰어야 할 의무나 도리를 다하지 못해 무거운 자책감과 깊은 사과를 전할 때 씁니다.",
+        "ex": [
+          "어려운 부탁을 들어주신 선배님께 진작 식사라도 대접했**어야 했는데** 늦었습니다. — I should have treated senior who granted a favor to a meal sooner, but I'm late."
+        ]
+      },
+      "b": {
+        "h": "-(으)ㄹ걸 그랬다",
+        "d": "개인적인 가벼운 선택에 대한 아쉬움이나 사소한 미련을 가볍게 털어놓을 때 씁니다.",
+        "ex": [
+          "주말에 시간이 많았을 때 방 청소를 미리 해 둘**걸 그랬어요**. — I should have cleaned my room in advance when I had lots of time on weekend."
+        ]
+      },
+      "tip": "도리상의 책임감, 결례에 대한 진심 어린 반성에는 '-았/었어야 했는데'가 적절합니다."
+    },
+    {
+      "t": "correct",
+      "q": "Fix the mistake.",
+      "wrong": "도움을 주신 은사님께 진작 찾아뵙고 인사를 드릴걸 제 불찰로 늦었습니다.",
+      "answers": [
+        "도움을 주신 은사님께 진작 찾아뵙고 인사를 드렸어야 했는데 제 불찰로 늦었습니다."
+      ],
+      "hint": "도리를 다하지 못한 무거운 자책과 사죄를 담을 때는 '-았/었어야 했는데'를 씁니다.",
+      "why": "은사님께 대한 예의와 도리를 다하지 못한 깊은 사과이므로 '-았/었어야 했는데'가 맞습니다."
+    },
+    {
+      "t": "vocab",
+      "h": "Words for this lesson",
+      "items": [
+        {
+          "ko": "도리",
+          "en": "duty/proper way",
+          "ex": "인간으로서 지켜야 할 마땅한 도리입니다."
+        },
+        {
+          "ko": "자책하다",
+          "en": "to reprove oneself",
+          "ex": "내 잘못이라며 깊이 자책했습니다."
+        },
+        {
+          "ko": "진작",
+          "en": "earlier/sooner",
+          "ex": "진작 말씀드렸어야 했는데 죄송합니다."
+        },
+        {
+          "ko": "안일하다",
+          "en": "complacent/lax",
+          "ex": "안일한 태도로 대처하다가 일을 그르쳤어요."
+        }
+      ]
+    },
+    {
+      "t": "dictate",
+      "say": "선배님께 진작 감사의 인사를 드렸어야 했는데 제 불찰로 너무 늦었습니다",
+      "answers": [
+        "선배님께 진작 감사의 인사를 드렸어야 했는데 제 불찰로 너무 늦었습니다"
+      ],
+      "hint": "마땅히 했어야 할 인사를 늦게 드려 사과하는 문장입니다.",
+      "why": "도리와 예의상의 지체를 정중하게 사과하는 '-았/었어야 했는데'의 전형입니다."
+    },
+    {
+      "t": "write",
+      "q": "Write a sentence using '확인했어야 했는데' to express regret over failing to check beforehand.",
+      "must": [
+        "확인했어야 했는데"
+      ],
+      "sample": "중요한 계약서를 보내기 전에 오타가 없는지 꼼꼼히 확인했어야 했는데 죄송합니다.",
+      "why": "마땅한 주의 의무를 다하지 못한 자책을 나타냅니다."
+    },
+    {
+      "t": "expand",
+      "base": {
+        "tokens": [
+          "정비소에",
+          "갔어야 했는데."
+        ],
+        "en": "I should have gone to the garage."
+      },
+      "steps": [
+        {
+          "tokens": [
+            "차가 이상할 때",
+            "정비소에",
+            "갔어야 했는데."
+          ],
+          "en": "When the car felt odd, I should have gone to the garage."
+        },
+        {
+          "tokens": [
+            "차가 이상한 소리를 낼 때 바로",
+            "정비소에 갔어야 했는데",
+            "후회돼요."
+          ],
+          "en": "When the car made strange noises, I should have gone to the garage right away; I regret it."
+        }
+      ]
+    },
+    {
+      "t": "passage",
+      "h": "Read a little",
+      "ko": [
+        "고객센터에 접수된 불편 사항을 가볍게 넘긴 제 안일함이 큰 문제로 번졌습니다.",
+        "이상 징후가 보고되었을 때 현장에 즉시 나가 원인을 꼼꼼히 규명했어야 했는데 그러지 못했습니다.",
+        "피해를 입으신 고객 여러분께 머리 숙여 깊이 사죄드리며 재발 방지에 온 힘을 다하겠습니다."
+      ],
+      "en": [
+        "My complacency in taking complaints lightly at the call center escalated into a major issue.",
+        "When abnormal signs were reported, I should have gone to the site immediately and investigated causes thoroughly, but failed to do so.",
+        "I bow my head and deeply apologize to affected customers, putting all efforts into preventing recurrence."
+      ]
+    },
+    {
+      "t": "choice",
+      "q": "글쓴이가 깊이 자책하고 있는 자신의 잘못은 무엇인가요?",
+      "options": [
+        "고객의 불편 사항 보고를 안일하게 넘기고 즉시 확인하지 않은 것",
+        "고객센터 운영 시간을 너무 길게 늘린 것"
+      ],
+      "answer": 0,
+      "why": "본문에 '이상 징후가 보고되었을 때 현장에 나가 원인을 규명했어야 했는데 그러지 못했다'고 자책했습니다."
+    },
+    {
+      "t": "choice",
+      "q": "글쓴이가 고객들에게 약속한 향후 태도는 무엇인가요?",
+      "options": [
+        "재발 방지에 온 힘을 다하겠다고 약속함",
+        "고객의 불만을 더 이상 받지 않겠다고 선언함"
+      ],
+      "answer": 0,
+      "why": "본문 마지막 줄에 '재발 방지에 온 힘을 다하겠다'고 다짐했습니다."
+    },
+    {
+      "t": "cando",
+      "items": [
+        "I can articulate duty and deep self-reproach using -았/었어야 했는데",
+        "I can deliver mature and sincere apologies acknowledging my responsibility"
+      ]
+    }
+  ],
+  "im-c72-03": [
+    {
+      "t": "compare",
+      "h": "-지 말았어야 했는데 vs -지 말걸 그랬다",
+      "a": {
+        "h": "-지 말았어야 했는데",
+        "d": "해서는 안 될 잘못이나 부당한 행동을 저지른 뒤 깊은 뉘우침과 도덕적 후회를 나타냅니다.",
+        "ex": [
+          "친구의 소중한 비밀을 다른 사람에게 절대로 누설하**지 말았어야 했는데** 후회스럽습니다. — I should never have divulged my friend's precious secret to others; I regret it deeply."
+        ]
+      },
+      "b": {
+        "h": "-지 말걸 그랬다",
+        "d": "하지 않는 편이 더 좋았을 사소한 실수나 개인적 섭섭함에 대해 가볍게 뉘우칩니다.",
+        "ex": [
+          "내일 시험인데 새벽까지 게임을 하**지 말걸 그랬어요**. — I have an exam tomorrow; I shouldn't have played games until dawn."
+        ]
+      },
+      "tip": "도덕적 금기나 신뢰를 깨뜨린 행동에는 '-지 말았어야 했는데'를 씁니다."
+    },
+    {
+      "t": "correct",
+      "q": "Fix the mistake.",
+      "wrong": "화가 난다고 해서 소중한 친구에게 그런 심한 말을 하지 않을걸 그랬어요.",
+      "answers": [
+        "화가 난다고 해서 소중한 친구에게 그런 심한 말을 하지 말걸 그랬어요.",
+        "화가 난다고 해서 소중한 친구에게 그런 심한 말을 하지 말았어야 했는데 후회스러워요."
+      ],
+      "hint": "부정의 후회 어미는 '-지 말걸 그랬다' 또는 '-지 말았어야 했는데'입니다.",
+      "why": "부정 보조용언 '말다'를 활용하여 '하지 말걸 그랬어요'로 바르게 표현해야 합니다."
+    },
+    {
+      "t": "vocab",
+      "h": "Words for this lesson",
+      "items": [
+        {
+          "ko": "누설하다",
+          "en": "to divulge/leak",
+          "ex": "기밀을 외부로 누설하지 마십시오."
+        },
+        {
+          "ko": "내뱉다",
+          "en": "to spit out/utter rashly",
+          "ex": "홧김에 거친 말을 내뱉고 말았습니다."
+        },
+        {
+          "ko": "주체하다",
+          "en": "to control/contain",
+          "ex": "솟구치는 분노를 주체하지 못했어요."
+        },
+        {
+          "ko": "뉘우치다",
+          "en": "to repent/regret",
+          "ex": "잘못을 솔직히 뉘우치고 사과했습니다."
+        }
+      ]
+    },
+    {
+      "t": "dictate",
+      "say": "친구의 비밀을 다른 사람에게 절대로 말하지 말았어야 했는데 후회스러워요",
+      "answers": [
+        "친구의 비밀을 다른 사람에게 절대로 말하지 말았어야 했는데 후회스러워요"
+      ],
+      "hint": "하지 말았어야 할 행동을 저지른 깊은 후회입니다.",
+      "why": "금기시되는 행동을 어긴 것에 대한 깊은 뉘우침을 나타내는 '-지 말았어야 했는데' 문장입니다."
+    },
+    {
+      "t": "write",
+      "q": "Write a sentence using '먹지 말걸 그랬어요' to express regret about eating late at night.",
+      "must": [
+        "먹지 말걸 그랬어요"
+      ],
+      "sample": "밤늦은 시간에 라면을 그렇게 배부르게 먹지 말걸 그랬어요.",
+      "why": "하지 말았어야 할 사소한 선택에 대한 후회를 '-지 말걸 그랬다'로 나타냅니다."
+    },
+    {
+      "t": "expand",
+      "base": {
+        "tokens": [
+          "심한 말을",
+          "하지 말걸 그랬어요."
+        ],
+        "en": "I shouldn't have said harsh words."
+      },
+      "steps": [
+        {
+          "tokens": [
+            "상처 주는 거친",
+            "말을",
+            "하지 말걸 그랬어요."
+          ],
+          "en": "I shouldn't have said hurtful, harsh words."
+        },
+        {
+          "tokens": [
+            "화가 난다고 해서 친구에게",
+            "상처 주는 거친 말을",
+            "하지 말걸 그랬어요."
+          ],
+          "en": "Just because I was angry, I shouldn't have spoken harsh, hurtful words to my friend."
+        }
+      ]
+    },
+    {
+      "t": "passage",
+      "h": "Read a little",
+      "ko": [
+        "어제 회의 중에 동료의 작은 실수를 감싸주지 못하고 날카롭게 비판했습니다.",
+        "화가 났더라도 여러 사람 앞에서 상대방의 자존심을 짓밟지 말았어야 했는데 제 성숙함이 부족했습니다.",
+        "오늘 출근길에 진심을 담은 쪽지와 커피를 건네며 용서를 구하려 합니다."
+      ],
+      "en": [
+        "In yesterday's meeting, I failed to protect my colleague's small mistake and criticized sharply.",
+        "Even if upset, I shouldn't have trampled on their pride in front of many people; my maturity was lacking.",
+        "On my commute today, I intend to ask for forgiveness by handing a sincere note and coffee."
+      ]
+    },
+    {
+      "t": "choice",
+      "q": "글쓴이가 뉘우치고 있는 잘못은 무엇인가요?",
+      "options": [
+        "회의 시간에 여러 사람 앞에서 동료의 자존심을 상하게 한 것",
+        "회의 시간에 지각하여 참석하지 못한 것"
+      ],
+      "answer": 0,
+      "why": "본문에 '여러 사람 앞에서 상대방의 자존심을 짓밟지 말았어야 했다'고 적혀 있습니다."
+    },
+    {
+      "t": "choice",
+      "q": "글쓴이가 화해를 위해 준비한 행동은 무엇인가요?",
+      "options": [
+        "진심을 담은 쪽지와 커피를 건네며 용서를 구하는 것",
+        "동료를 다른 팀으로 보내도록 건의하는 것"
+      ],
+      "answer": 0,
+      "why": "본문 마지막 줄에 '진심을 담은 쪽지와 커피를 건네며 용서를 구하려 한다'고 했습니다."
+    },
+    {
+      "t": "cando",
+      "items": [
+        "I can express negative regrets (things I shouldn't have done) using -지 말았어야 했는데",
+        "I can admit moral shortcomings with integrity and seek reconciliation"
+      ]
+    }
+  ],
+  "im-c72-04": [
+    {
+      "t": "compare",
+      "h": "진심 어린 사과와 교훈의 화법",
+      "a": {
+        "h": "책임 있는 사과 (-았/었어야 했는데)",
+        "d": "자신의 불찰과 부족함을 솔직하게 인정하며 정중하게 고개 숙일 때 씁니다.",
+        "ex": [
+          "진작 찾아뵙고 인사를 드렸**어야 했는데** 제 불찰로 늦어져 송구합니다. — I should have visited and greeted you earlier, but I am deeply sorry for being late due to my negligence."
+        ]
+      },
+      "b": {
+        "h": "미래의 다짐 (교훈 공유)",
+        "d": "후회에 머무르지 않고 배운 교훈을 바탕으로 더 성숙한 관계를 약속합니다.",
+        "ex": [
+          "내 고집만 앞세우지 말았어야 했는데 이번 일을 통해 진정한 배려를 배웠습니다. — I shouldn't have put only my stubbornness first, but through this, I learned true consideration."
+        ]
+      },
+      "tip": "사과는 변명 대신 '제 불찰'을 인정하고, 배운 교훈과 재발 방지 약속을 덧붙일 때 가장 감동적입니다."
+    },
+    {
+      "t": "correct",
+      "q": "Fix the mistake.",
+      "wrong": "진작 찾아뵙고 인사를 드릴걸 제 불찰로 늦어져 송구합니다.",
+      "answers": [
+        "진작 찾아뵙고 인사를 드렸어야 했는데 제 불찰로 늦어져 송구합니다."
+      ],
+      "hint": "'송구합니다'와 어울리는 정중하고 책임 있는 사과 표현을 완성하세요.",
+      "why": "격식 있는 정중한 사죄 문맥에는 가벼운 탄식인 '-ㄹ걸' 대신 '-았/었어야 했는데'가 맞습니다."
+    },
+    {
+      "t": "vocab",
+      "h": "Words for this lesson",
+      "items": [
+        {
+          "ko": "불찰",
+          "en": "negligence/indiscretion",
+          "ex": "모든 것은 제 부주의와 불찰 탓입니다."
+        },
+        {
+          "ko": "송구하다",
+          "en": "deeply sorry/regretful",
+          "ex": "심려를 끼쳐 드려 대단히 송구합니다."
+        },
+        {
+          "ko": "다름을 인정하다",
+          "en": "acknowledge differences",
+          "ex": "서로의 다름을 인정하며 대화해요."
+        },
+        {
+          "ko": "고집을 앞세우다",
+          "en": "put stubbornness first",
+          "ex": "내 고집만 앞세우면 갈등이 생깁니다."
+        }
+      ]
+    },
+    {
+      "t": "dictate",
+      "say": "진작 찾아뵙고 인사를 드렸어야 했는데 제 불찰로 늦어져 송구합니다",
+      "answers": [
+        "진작 찾아뵙고 인사를 드렸어야 했는데 제 불찰로 늦어져 송구합니다"
+      ],
+      "hint": "늦어진 인사와 불찰에 대해 정중하게 사죄합니다.",
+      "why": "공식 비즈니스와 어른에 대한 예의에서 널리 쓰이는 격식 있는 사과 문장입니다."
+    },
+    {
+      "t": "write",
+      "q": "Write a sentence using '세울걸 그랬어요' to express mild regret about not making a plan.",
+      "must": [
+        "세울걸 그랬어요"
+      ],
+      "sample": "주말 날씨가 이렇게 화창할 줄 알았으면 나들이 계획을 미리 세울걸 그랬어요.",
+      "why": "미리 계획을 세우지 않은 아쉬움을 '-(으)ㄹ걸 그랬다'로 나타냅니다."
+    },
+    {
+      "t": "expand",
+      "base": {
+        "tokens": [
+          "진심으로",
+          "사과를 드립니다."
+        ],
+        "en": "I sincerely offer an apology."
+      },
+      "steps": [
+        {
+          "tokens": [
+            "늦었지만 머리 숙여",
+            "사과를 드립니다."
+          ],
+          "en": "Though late, I bow my head and offer an apology."
+        },
+        {
+          "tokens": [
+            "진작 찾아뵙고 인사를 드렸어야 했는데",
+            "제 불찰로 늦어져",
+            "사과를 드립니다."
+          ],
+          "en": "I should have visited and greeted you earlier, but delayed by my fault, I offer an apology."
+        }
+      ]
+    },
+    {
+      "t": "passage",
+      "h": "Read a little",
+      "ko": [
+        "김 팀장님, 어제 기획 회의에서 제 의견만 고집하여 회의 분위기를 흐려 송구합니다.",
+        "팀원들의 소중한 피드백을 더 열린 마음으로 경청했어야 했는데 제 조급함이 앞섰습니다.",
+        "이번 일을 계기로 서로의 다름을 존중하는 소통의 지혜를 깊이 배웠습니다."
+      ],
+      "en": [
+        "Team Leader Kim, I am deeply sorry for clouding the meeting atmosphere yesterday by insisting only on my opinion.",
+        "I should have listened to valuable feedback from team members with a more open mind, but my impatience came first.",
+        "Taking this incident as an opportunity, I deeply learned the wisdom of communication respecting differences."
+      ]
+    },
+    {
+      "t": "choice",
+      "q": "글쓴이가 팀장님께 사과하는 이유는 무엇인가요?",
+      "options": [
+        "어제 회의에서 제 의견만 고집하여 분위기를 흐려서",
+        "회의 자료를 인쇄하지 않고 출근해서"
+      ],
+      "answer": 0,
+      "why": "본문에 '제 의견만 고집하여 회의 분위기를 흐려 송구하다'고 밝혔습니다."
+    },
+    {
+      "t": "choice",
+      "q": "글쓴이가 이번 경험을 통해 얻은 교훈은 무엇인가요?",
+      "options": [
+        "서로의 다름을 존중하는 소통의 지혜를 배운 것",
+        "앞으로는 회의에 일절 발언하지 않기로 한 것"
+      ],
+      "answer": 0,
+      "why": "본문 마지막 줄에 '서로의 다름을 존중하는 소통의 지혜를 깊이 배웠다'고 적혀 있습니다."
+    },
+    {
+      "t": "cando",
+      "items": [
+        "I can deliver mature apologies combining self-reflection with learned lessons",
+        "I can rebuild trust and strengthen interpersonal relationships professionally"
+      ]
+    }
+  ]
+}
