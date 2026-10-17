@@ -3,6 +3,7 @@
    node tools/build-book.mjs <책 id> [--out 폴더] [--review]   docs/books/<id>.json + docs/worksheets/*.json → <out>/<id>/interior.pdf · cover-spread.pdf · front-cover.png
    - interior.pdf : 속표지 · 판권면 · 머리말 · 쓰는 법 · 목차 · 단원 · 정답 · 찾아보기 · 메모(총 쪽수가 짝수가 되게). B5 182×257mm, 안쪽 여백이 넓은 좌우 쪽.
    - cover-spread.pdf : 뒤표지 + 책등 + 앞표지 한 장(재단 여유 3mm). 책등 너비는 쪽수 × 종이 두께로 계산(인쇄소가 정해 주는 값으로 다시 계산할 것).
+   - --theme classic : 「수학의 정석」풍 판(운영자 2026-10-17 「수학의 정석처럼 깔끔하게」) — 남색 한 가지 · 핵심 정리 / 참고 / 연습 이름표 · 단원은 쪽 맨 위에서 바로 시작(빈 표지 쪽 없음). 결과는 <out>/<id>-classic/.
    - --review : 검수본(interior-review.pdf) — 쪽 위에 「REVIEW COPY」, 칸마다 빨간 출처 표시(학습지 id · §번호 — 「고칠 곳」을 말하면 바로 원본을 찾는다) + 맨 끝 검수 체크표. 운영자 2026-10-17 「검수는 내가 다 한다」.
    - 목차의 쪽 번호는 블록(속표지 · 각 단원 …)을 따로 찍어 쪽수를 세어 더한 값이다(PDF 안의 /Type /Page 수).
    만든 PDF 는 파는 파일이라 저장소에 두지 않는다(out 기본값 books-out/ 은 .gitignore). 문장은 전부 우리 학습지(창작) — 기출 아님.
@@ -18,6 +19,8 @@ const CHROMIUM = process.env.CHROMIUM_PATH || '/opt/pw-browsers/chromium';
 const args = process.argv.slice(2);
 const bookId = args.find((a) => !a.startsWith('--'));
 const REVIEW = args.includes('--review');
+const THEME = args.includes('--theme') ? args[args.indexOf('--theme') + 1] : 'brand';
+const CLASSIC = THEME === 'classic';
 const outDir = path.resolve(ROOT, args.includes('--out') ? args[args.indexOf('--out') + 1] : 'books-out');
 if (!bookId) { console.error('사용: node tools/build-book.mjs <책 id> [--out 폴더]   (책 틀: docs/books/<id>.json)'); process.exit(1); }
 
@@ -27,7 +30,7 @@ const esc = (x) => String(x ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').
 const cssStr = (x) => '"' + String(x).replace(/\\/g, '\\\\').replace(/"/g, '\\"') + '"';
 const HAN = /[가-힣]/;
 const T = B.trim, W = T.w, H = T.h;
-const ACC = B.color, TINT = B.tint;
+const ACC = CLASSIC ? '#1F3A68' : B.color, TINT = CLASSIC ? '#EEF2F8' : B.tint;
 
 /* ── 단원 모으기 ── */
 const parts = B.parts.map((p, pi) => ({ ...p, no: pi + 1, sheets: p.units.map((id) => sheet(id)) }));
@@ -115,14 +118,15 @@ td:first-child{font-weight:800;font-size:10.4pt;color:#1d1a17}td.tip{color:#8a82
 .ak .a{font-size:7.9pt;line-height:1.5;color:#2c2722}.ak .a b{color:${ACC};margin-right:1mm}.ak .set{margin-bottom:1mm}
 .ix .cols{column-count:3;column-gap:6mm;font-size:7.8pt;line-height:1.4}.ix .ini{break-after:avoid;margin:2.4mm 0 1mm;font-size:10pt;font-weight:900;color:${ACC};break-inside:avoid}
 .ix .e{break-inside:avoid;padding:.35mm 0;border-bottom:.15mm solid #eee7dc}.ix .e b{font-weight:800}.ix .e span{color:#6d655c}.ix .e i{font-style:normal;float:right;color:${ACC};font-weight:700;font-size:7pt}
-.src{display:block;font:600 6.4pt 'Pretendard Variable';color:#c0392b;letter-spacing:.04em;margin-bottom:1mm}
+.src{break-after:avoid;display:block;font:600 6.4pt 'Pretendard Variable';color:#c0392b;letter-spacing:.04em;margin-bottom:1mm}
 .rv h2{font-size:18pt;margin-bottom:1mm}.rv .k{font-size:9.5pt;color:#6d655c;margin-bottom:5mm}.rv table td{padding:1.6mm 2mm;font-weight:500;font-size:8.2pt}.rv th{font-size:7pt;padding:1.6mm 2mm}.rv td.c{width:12mm;text-align:center;color:#bbb}
 .memo h2{font-size:14pt;margin-bottom:6mm;color:${ACC}}.memo .rule{height:8mm;border-bottom:.25mm solid #d8d0c4}
 `;
 
 /* ── 블록 만들기 ── */
 const pair = (o, cls = '') => `<p class="en${cls}">${esc(o.en)}</p>`;
-const secLabel = (s) => `<h3><span>${esc(s.title.en)}</span>${s.title.ko ? `<small>${esc(s.title.ko)}</small>` : ''}</h3>`;
+const LAB = { table: '핵심 정리', text: '참고', practice: '연습' };
+const secLabel = (s) => `<h3>${CLASSIC ? `<em class="lab">${LAB[s.type]}</em>` : ''}<span>${esc(s.title.en)}</span>${s.title.ko ? `<small>${esc(s.title.ko)}</small>` : ''}</h3>`;
 const qLine = (q) => q.includes('___')
   ? `<span class="q">${esc(q.replace(/\s*→\s*$/, '')).replace(/___/g, '<span class="bl"></span>')}</span><span class="ln" style="visibility:hidden;min-width:0"></span>`
   : `<span class="q">${esc(q)}</span><span class="ln"></span>`;
@@ -175,6 +179,10 @@ function unitBlock(u) {
   const open = `<div class="blk uo ${unitCss(u)}" style="page:unitopen"><div class="band"></div><div class="pn">PART ${u.part.no} · ${esc(u.part.title.en.toUpperCase())}</div><div class="no">UNIT ${String(u.no).padStart(2, '0')}</div>
 <div class="ttl"><h2>${esc(u.title.ko)}</h2><h3>${esc(u.title.en)}</h3><p class="sub">${esc(u.sub.en)}<small>${esc(u.sub.ko)}</small></p></div>
 <div class="in"><b>IN THIS UNIT · 이 단원에서</b><ol>${secs.map((s) => `<li>${esc(s.title.en)}${s.title.ko ? `<small>${esc(s.title.ko)}</small>` : ''}</li>`).join('')}</ol></div></div>`;
+  if (CLASSIC) {
+    const head = `<div class="uh"><div class="un">${String(u.no).padStart(2, '0')}</div><div class="ut"><small>PART ${u.part.no} · ${esc(u.part.title.en.toUpperCase())}</small><h2>${esc(u.title.ko)}</h2><h3>${esc(u.title.en)}</h3></div></div><p class="us">${esc(u.sub.en)}<small>${esc(u.sub.ko)}</small></p>`;
+    u._head = head;
+  }
   const sr = (i) => (REVIEW ? `<span class="src">${esc(u.id)} · §${i + 1} · ${esc(secs[i].type)}</span>` : '');
   const body = secs.map((s, si) => {
     if (s.type === 'table') {
@@ -184,6 +192,7 @@ function unitBlock(u) {
     if (s.type === 'text') return `<div class="sec">${sr(si)}${secLabel(s)}<div class="note">${esc(s.text)}</div></div>`;
     return `<div class="sec">${sr(si)}${secLabel(s)}${s.hint ? `<div class="hint">${esc(s.hint)}</div>` : ''}<ol class="pr">${s.items.map((x) => `<li>${qLine(x.q)}</li>`).join('')}</ol></div>`;
   }).join('\n');
+  if (CLASSIC) return `<div class="blk ${unitCss(u)}" style="page:${unitCss(u)}">${u._head}${body}</div>`;
   return open + `<div class="blk ${unitCss(u)}" style="page:${unitCss(u)}">${body}</div>`;
 }
 function answersBlock() {
@@ -230,8 +239,22 @@ const reviewSheet = () => `<div class="blk plain rv"><h2>Review checklist · 검
 const memoBlock = (n) => Array.from({ length: n }, () => `<div class="blk plain memo"><h2>Notes · 메모</h2>${'<div class="rule"></div>'.repeat(22)}</div>`).join('');
 
 /* ── 쪽 찍기 ── */
-const reviewTop = REVIEW ? `@page:left{@top-center{content:"REVIEW COPY · 검수본";font:800 6.8pt 'Pretendard Variable';letter-spacing:.2em;color:#c0392b;vertical-align:bottom;padding-bottom:5mm}}@page:right{@top-center{content:"REVIEW COPY · 검수본";font:800 6.8pt 'Pretendard Variable';letter-spacing:.2em;color:#c0392b;vertical-align:bottom;padding-bottom:5mm}}` : '';
-const shell = (body) => `<!doctype html><html lang="en"><head><meta charset="utf-8"><link rel="stylesheet" href="/vendor/pretendard.css"><style>${CSS}${reviewTop}</style></head><body>${body}</body></html>`;
+const reviewTop = REVIEW ? `@page:left{@top-center{content:"REVIEW COPY · 검수본";font:800 6.8pt 'Pretendard Variable';letter-spacing:.2em;color:#c0392b;vertical-align:bottom;padding-bottom:5mm;white-space:nowrap}}@page:right{@top-center{content:"REVIEW COPY · 검수본";font:800 6.8pt 'Pretendard Variable';letter-spacing:.2em;color:#c0392b;vertical-align:bottom;padding-bottom:5mm}}` : '';
+const CLASSIC_CSS = `
+.sec>h3:before{display:none}.sec>h3{display:grid;grid-template-columns:auto 1fr;column-gap:3mm;align-items:center;border-bottom:.5mm solid ${ACC};padding-bottom:1.6mm;margin-bottom:3mm}.lab{grid-row:1/3;align-self:center}.sec>h3 span{grid-column:2}.sec>h3 small{grid-column:2;margin:0;font-size:8.6pt}.sec>h3:not(:has(.lab)) span{grid-column:1/3}
+.lab{flex:none;font-style:normal;background:${ACC};color:#fff;font-size:7.6pt;font-weight:800;letter-spacing:.06em;padding:.9mm 3.4mm;border-radius:0 3mm 3mm 0;margin-left:-0.2mm}
+th{background:#DCE5F2;color:${ACC};border-top:.45mm solid ${ACC};border-bottom:.3mm solid ${ACC};font-size:7.8pt}
+tbody tr:nth-child(even) td,tr:nth-child(even) td{background:transparent}td{border-bottom:.2mm solid #c9d3e3}td:first-child{color:${ACC}}td.tip{color:#6b7a92}
+.note{border:.3mm solid ${ACC};border-left-width:1.5mm;background:#fff;color:#1d1a17}.note b{color:${ACC}}
+.pr li:before{border-radius:1mm;background:${ACC};color:#fff;border:0;font-size:7.6pt}
+.uh{display:flex;gap:5mm;align-items:flex-end;padding-bottom:3mm;border-bottom:.9mm solid ${ACC};margin-bottom:2mm}
+.uh .un{flex:none;width:21mm;height:21mm;border-radius:2mm;background:${ACC};color:#fff;font-size:30pt;font-weight:900;display:flex;align-items:center;justify-content:center;letter-spacing:-.02em}
+.uh .ut small{display:block;font-size:7pt;font-weight:800;letter-spacing:.18em;color:${ACC}}.uh .ut h2{font-size:21pt;line-height:1.2;margin-top:1mm}.uh .ut h3{font-size:11pt;font-weight:600;color:#55627a;margin-top:.5mm}
+.us{font-size:9.4pt;color:#3d4a62;margin:0 0 6mm;padding-bottom:2.4mm;border-bottom:.2mm solid #c9d3e3}.us small{display:block;color:#7a869b;font-size:8.6pt;margin-top:.6mm}
+.pd{background:${ACC} !important}.pd:before,.pd:after{display:none !important}.pd .big{opacity:1}
+.toc .pt,.ak .u h4 span,.ix .ini,.memo h2{color:${ACC}}.how li:before{background:${ACC}}
+`;
+const shell = (body) => `<!doctype html><html lang="en"><head><meta charset="utf-8"><link rel="stylesheet" href="/vendor/pretendard.css"><style>${CSS}${CLASSIC ? CLASSIC_CSS : ''}${reviewTop}</style></head><body>${body}</body></html>`;
 let pages = new Map();
 const server = http.createServer((req, res) => {
   const u = decodeURIComponent(new URL(req.url, 'http://x').pathname);
@@ -273,7 +296,7 @@ const starts = { preface: start.preface, unit: Object.fromEntries(units.map((u) 
 for (const u of units) starts.unit[u.no] = start[`unit${u.no}`];
 const final = blocks.map(([k, html]) => (k === 'toc' ? tocPage(starts) : html)).join('\n') + (REVIEW ? reviewSheet() : '');
 
-const dir = path.join(outDir, bookId);
+const dir = path.join(outDir, bookId + (CLASSIC ? '-classic' : ''));
 fs.mkdirSync(dir, { recursive: true });
 const interior = await pdf(final);
 const realTotal = countPages(interior) - (REVIEW ? countPages(await pdf(reviewSheet())) : 0);
@@ -311,8 +334,12 @@ body{width:${CW}mm;height:${CH}mm;font-family:'Pretendard Variable',sans-serif;p
 .back .bar{position:absolute;right:${T.bleed + 18}mm;bottom:${T.bleed + 14}mm;width:62mm;height:34mm;background:#fff;border:.3mm dashed #c9bfae;display:flex;align-items:center;justify-content:center;text-align:center;font-size:7.4pt;color:#a49a8a;line-height:1.5}
 .back .pr{position:absolute;left:${T.bleed + 18}mm;bottom:${T.bleed + 14}mm;font-size:8.4pt;color:#6d655c;line-height:1.6}.back .pr b{font-size:9.8pt;color:#1d1a17}
 `;
-const ul = units.slice(0, 5);
-const coverHtml = `<!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="/vendor/pretendard.css"><style>${coverCss}</style></head><body>
+const { potatoLevel, cheeseLevel } = await import(path.join(ROOT, 'levels.js'));
+const classicCover = CLASSIC ? `.front{background:#1F3A68}.front .g,.front .c1,.front .c2{display:none}.front .z:before{content:'';position:absolute;left:0;right:0;top:0;height:1px}
+.front .ser{color:#D9B35B;letter-spacing:.34em}.front h1{font-weight:800;margin-top:26mm;font-size:42pt;letter-spacing:-.01em}.front h2{color:#C5D1E6;font-weight:500}.front .rule{background:#D9B35B;height:.8mm;width:26mm}.front .sub{color:#C5D1E6}
+.front .badge{background:transparent;color:#D9B35B;border:.6mm solid #D9B35B;border-radius:1.5mm;padding:2mm 5mm}.front .mk{position:absolute;right:${T.bleed + 18}mm;top:${T.bleed + 66}mm;display:flex;gap:2mm;opacity:.95}.front .mk i{display:block;width:26mm;height:26mm}.front .mk svg{width:100%;height:100%}
+.back{background:#EEF2F8}` : '';
+const coverHtml = `<!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="/vendor/pretendard.css"><style>${coverCss}${classicCover}</style></head><body>
 <div class="back"><div class="ser">${esc(B.series.en)} · ${esc(B.level)}</div>
 <h3>${esc(B.sub.ko)}</h3><h4>${esc(B.sub.en)}</h4>
 <p>${esc(B.preface.ko[0])}</p>
@@ -322,7 +349,7 @@ const coverHtml = `<!doctype html><html><head><meta charset="utf-8"><link rel="s
 <div class="pr"><b>정가 ○○,○○○원</b> (예정)<br>${esc(B.publisher.ko)} · ${esc(B.publisher.en)}</div>
 <div class="bar">ISBN barcode<br>발급 후 이 자리에 · 40×25mm 이상</div></div>
 <div class="spine"><div class="t">${esc(B.title.ko)} <small>${esc(B.title.en)}</small></div><div class="p">${esc(B.publisher.en.toUpperCase())}</div></div>
-<div class="front"><div class="g">ㄱㄴㄷ ㄹㅁㅂ ㅅㅇㅈ ㅊㅋㅌ ㅍㅎ 가나 다라</div><div class="c1"></div><div class="c2"></div>
+<div class="front">${CLASSIC ? `<div class="mk"><i>${potatoLevel(3).icon}</i><i>${cheeseLevel(2).icon}</i></div>` : ''}<div class="g">ㄱㄴㄷ ㄹㅁㅂ ㅅㅇㅈ ㅊㅋㅌ ㅍㅎ 가나 다라</div><div class="c1"></div><div class="c2"></div>
 <div class="z"><div class="ser">${esc(B.series.en)}</div><h1>${esc(B.title.ko)}</h1><h2>${esc(B.title.en)}</h2><div class="rule"></div><p class="sub">${esc(B.sub.en)}</p>
 <div class="lv"><span class="badge">${esc(B.level)} · BEGINNER</span><div class="by"><b>${esc(B.author.ko)} · ${esc(B.author.en)}</b><span>${esc(B.publisher.en.toUpperCase())}</span></div></div></div></div>
 </body></html>`;
