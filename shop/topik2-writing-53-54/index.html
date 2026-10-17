@@ -74,6 +74,15 @@ body.show-ans .nw-work { display:none; }
 .bk-badge{display:inline-block;font-size:11px;font-weight:800;padding:2px 8px;border-radius:99px;background:var(--tint);margin-top:6px}
 .bk-cover{position:relative;aspect-ratio:182/257;border-radius:3px 8px 8px 3px;background:var(--c);color:#fff;padding:16px 14px 14px 20px;display:flex;flex-direction:column;box-shadow:inset 6px 0 0 rgba(0,0,0,.18),0 10px 22px rgba(0,0,0,.18);transition:transform .2s;overflow:hidden}
 .bk-cover:after{content:'';position:absolute;right:-30%;bottom:-18%;width:90%;aspect-ratio:1;border-radius:50%;background:rgba(255,255,255,.12)}
+.bk-cover.bk-img{padding:0;background:none;overflow:hidden}.bk-cover.bk-img:after{display:none}.bk-cover.bk-img img{display:block;width:100%;height:100%;object-fit:cover}
+.pg-head{background:var(--tint);border-radius:16px;padding:20px 22px;margin:22px 0}.pg-head h2{border:0;padding:0;margin:0 0 6px;font-size:22px;line-height:1.35;word-break:keep-all}.pg-head p{margin:6px 0 0}
+.pg-feat{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:14px 0}.pg-feat div{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:14px}.pg-feat b{display:block;font-size:15px;margin:6px 0 4px}.pg-feat span{font-size:13px;color:var(--ink-3);line-height:1.55}.pg-feat i{font-style:normal;font-size:24px}
+.pg-toc{border:1px solid var(--line);border-radius:14px;overflow:hidden;margin:12px 0}.pg-toc h3{margin:0;padding:10px 16px;background:var(--tint);font-size:14px}.pg-toc div{display:flex;justify-content:space-between;gap:10px;padding:8px 16px;border-top:1px solid var(--line);font-size:14px}.pg-toc em{font-style:normal;color:var(--ink-3);white-space:nowrap}
+.pg-pv{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:12px 0}.pg-pv a{display:block;text-decoration:none;color:var(--ink);font-size:12px}.pg-pv img{display:block;width:100%;height:auto;border:1px solid var(--line);border-radius:6px;box-shadow:0 4px 12px rgba(0,0,0,.08)}.pg-pv span{display:block;margin-top:4px}
+.lb{display:none;position:fixed;inset:0;z-index:50;background:rgba(10,12,18,.88);align-items:center;justify-content:center;padding:16px}.lb:target{display:flex}.lb img{max-width:100%;max-height:calc(100vh - 80px);border-radius:6px;background:#fff}.lb .lbn{position:absolute;bottom:14px;left:0;right:0;display:flex;justify-content:center;gap:10px}.lb .lbn a{color:#fff;border:1px solid rgba(255,255,255,.5);border-radius:99px;padding:8px 16px;text-decoration:none;font-size:14px}.lb .lbx{position:absolute;top:10px;right:14px;color:#fff;font-size:30px;text-decoration:none;line-height:1}
+.pg-author{display:flex;gap:14px;align-items:flex-start;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px;margin:12px 0}.pg-author b{font-size:17px}.pg-author p{margin:4px 0 0}
+.pg-faq details{border-top:1px solid var(--line);padding:10px 0}.pg-faq summary{cursor:pointer;font-weight:700}.pg-faq p{margin:8px 0 0}
+@media (max-width:700px){.pg-feat{grid-template-columns:1fr}.pg-pv{grid-template-columns:repeat(2,1fr)}.pg-head h2{font-size:19px}}
 .bk-ser{font-size:9px;font-weight:800;letter-spacing:1.5px;opacity:.85}
 .bk-cover b{font-size:19px;line-height:1.25;margin-top:12px;word-break:keep-all}
 .bk-cover i{font-style:normal;font-size:11px;opacity:.9;margin-top:6px;line-height:1.35}
@@ -127,6 +136,7 @@ body.show-ans .nw-work { display:none; }
 <ul><li>TOPIK II (levels 3–6) test takers <small class="bk-ko">· TOPIK II (3~6급) 응시생</small></li><li>Learners who struggle with the essay <small class="bk-ko">· 긴 글쓰기가 어려운 학습자</small></li></ul>
 <h2>Contents · 목차</h2>
 <ol class="bk-toc"><li>Question 53: describing data (50)<small>53번 자료 설명 50문항</small></li><li>Question 54: the long essay (50)<small>54번 논술 50문항</small></li><li>Model answers and scored samples<small>모범 답안 · 점수별 예시</small></li></ol>
+
 
 <p><a class="btn sub" href="/shop/">← All books</a></p>
 <div class="next">
