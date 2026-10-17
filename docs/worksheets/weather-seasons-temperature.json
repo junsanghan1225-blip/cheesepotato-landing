@@ -112,8 +112,8 @@
         "ko": "날씨 표현을 해요체로 완성해요"
       },
       "items": [
-        { "q": "It is raining: 비가 ___ →", "a": "와요" },
-        { "q": "It is snowing: 눈이 ___ →", "a": "와요" },
+        { "q": "It is raining: 비가 ___ (오다) →", "a": "와요" },
+        { "q": "It is snowing: 눈이 ___ (오다) →", "a": "와요" },
         { "q": "The sky is clear: 하늘이 ___ (맑다) →", "a": "맑아요" },
         { "q": "The wind is blowing: 바람이 ___ (불다) →", "a": "불어요" },
         { "q": "It is cloudy: 날씨가 ___ (흐리다) →", "a": "흐려요" }

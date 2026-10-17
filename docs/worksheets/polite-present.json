@@ -320,7 +320,7 @@
       },
       "items": [
         {
-          "q": "I eat rice. →",
+          "q": "I eat rice. (omit 저는) →",
           "a": "밥을 먹어요"
         },
         {

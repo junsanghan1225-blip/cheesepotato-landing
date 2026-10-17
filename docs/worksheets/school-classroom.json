@@ -169,13 +169,13 @@
         [
           "I don't understand",
           "잘 모르겠어요.",
-          "잘 모르갣써요",
+          "잘 모르게써요",
           "When the explanation is unclear"
         ],
         [
           "I understood",
           "네, 알겠습니다.",
-          "알갣씀니다",
+          "알겓씀니다",
           "Confirming comprehension (formal)"
         ],
         [
@@ -197,7 +197,7 @@
           "Asking for the meaning of a word"
         ]
       ],
-      "note": "알겠습니다 is pronounced [알갣씀니다] due to tensification (ㅅ→ㅆ) and nasalization (ㅂ+ㄴ → ㅁㄴ)."
+      "note": "알겠습니다 is pronounced [알겓씀니다] due to tensification (겠 [ㄷ] + ㅅ → ㅆ) and nasalization (ㅂ+ㄴ → ㅁㄴ)."
     },
     {
       "type": "practice",

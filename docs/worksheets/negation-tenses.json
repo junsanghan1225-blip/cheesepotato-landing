@@ -26,12 +26,12 @@
         "Example sentence"
       ],
       "rows": [
-        ["안 + Verb / Adj", "Short negation (will)", "Do not / Will not (personal choice)", "오늘 학교에 안 가요."],
+        ["안 + Verb / Adj", "Short negation (will)", "Do not / Is not / Will not (simple or personal choice)", "오늘 학교에 안 가요."],
         ["못 + Verb", "Short negation (ability)", "Cannot (inability or obstacle)", "매운 음식을 못 먹어요."],
         ["Verb / Adj + -지 않다", "Long negation (formal)", "Do not (written / polite statement)", "그 영화를 보지 않았어요."],
         ["Verb + -지 못하다", "Long negation (ability)", "Cannot (formal inability)", "시간이 없어서 가지 못해요."]
       ],
-      "note": "Vital distinction: 안 indicates choice ('I don't'); 못 indicates lack of ability or circumstantial impossibility ('I can't'). 못 is never used with adjectives."
+      "note": "Vital distinction: 안 is a simple or willing negation ('I don't / it isn't'); 못 indicates lack of ability or circumstantial impossibility ('I can't'). 못 is never used with adjectives."
     },
     {
       "type": "table",

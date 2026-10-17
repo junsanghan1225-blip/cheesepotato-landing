@@ -174,14 +174,14 @@
         },
         {
           "q": "Straight ahead →",
-          "a": "앞으로 / 곧장"
+          "a": "앞으로 / 곧장 / 직진"
         },
         {
           "q": "Across the street →",
           "a": "건너편 / 맞은편"
         },
         {
-          "q": "Between the buildings →",
+          "q": "Between (two things) →",
           "a": "사이"
         }
       ]

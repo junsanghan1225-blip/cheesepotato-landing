@@ -71,20 +71,20 @@
         [
           "Older brother (female speaker)",
           "오빠",
-          "오빠",
+          "—",
           "Used by females"
         ],
         [
           "Older sister (female speaker)",
           "언니",
-          "언니",
+          "—",
           "Used by females"
         ],
         [
           "Younger sibling",
           "동생",
-          "남동생 / 여동생",
-          "Little brother / sister"
+          "—",
+          "Little brother (남동생) / little sister (여동생)"
         ]
       ],
       "note": "Korean words for older siblings depend on the speaker: a male says 형 and 누나, while a female says 오빠 and 언니."
@@ -118,7 +118,7 @@
           "Meal / Rice",
           "밥",
           "진지",
-          "진지 잡수셨어요?"
+          "진지 드세요."
         ],
         [
           "House",
