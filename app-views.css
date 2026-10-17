@@ -7548,3 +7548,6 @@ html[lang="ja"] *, html[lang="zh"] *, html[lang^="zh-"] *, html[lang="my"] * { w
 .tw-g-ph li { display:grid; grid-template-columns:96px 1fr; gap:8px; padding:5px 0; border-top:1px solid var(--line); } .tw-g-ph li:first-child { border-top:0; } .tw-g-ph b { font-size:13px; } .tw-g-ph span { color:var(--ink-2); }
 .tw-g-mk li { padding:3px 0 3px 14px; position:relative; color:var(--ink-2); } .tw-g-mk li::before { content:'•'; position:absolute; left:2px; color:var(--red, #B0452B); }
 @media (max-width:420px) { .tw-g-ph li { grid-template-columns:1fr; gap:0; } }
+
+/* 난이도 ●○○ (쓰기 · 유형별 줄) */
+.tq-diff { font-size:11px; font-weight:800; letter-spacing:.08em; white-space:nowrap; } .tq-diff.d1 { color:#3a8f5b; } .tq-diff.d2 { color:#d98a1a; } .tq-diff.d3 { color:#c0432b; }
