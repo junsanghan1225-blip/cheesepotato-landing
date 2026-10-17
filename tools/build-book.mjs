@@ -225,7 +225,7 @@ function unitBlock(u) {
       if (k !== 'ref') return `<div class="sec">${sr(si)}${secLabel(s, BLK[k][1])}${blockHtml(u, si, s, s.text)}</div>`;
       return `<div class="sec">${sr(si)}${secLabel(s)}<div class="note">${esc(s.text)}</div></div>`;
     }
-    return `<div class="sec">${sr(si)}${secLabel(s)}${s.hint ? `<div class="hint">${esc(s.hint)}</div>` : ''}<ol class="pr" style="--qw:${qw(s.items)}">${s.items.map((x) => `<li${x.q.includes('___') ? ' class="fill"' : ''}>${qLine(x.q)}</li>`).join('')}</ol></div>`;
+    return `<div class="sec"${s.items.length <= 8 ? ' style="break-inside:avoid"' : ''}>${sr(si)}${secLabel(s)}${s.hint ? `<div class="hint">${esc(s.hint)}</div>` : ''}<ol class="pr" style="--qw:${qw(s.items)}">${s.items.map((x) => `<li${x.q.includes('___') ? ' class="fill"' : ''}>${qLine(x.q)}</li>`).join('')}</ol></div>`;
   }).join('\n');
   if (CLASSIC) return `<div class="blk ${unitCss(u)}" style="page:${unitCss(u)}">${u._head}${body}</div>`;
   return open + `<div class="blk ${unitCss(u)}" style="page:${unitCss(u)}">${body}</div>`;

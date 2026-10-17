@@ -1,0 +1,383 @@
+{
+  "id": "numbers-counters",
+  "title": {
+    "en": "Numbers & Counters",
+    "ko": "숫자와 세는 말"
+  },
+  "sub": {
+    "en": "Sino-Korean and native Korean numbers, and the counters that go with them",
+    "ko": "한자어 수 · 고유어 수와 단위(세는 말)"
+  },
+  "desc": {
+    "en": "Free printable Korean worksheet on Sino-Korean and native Korean numbers, the counters 개, 명, 마리, 권, 잔, 시, 분, 살 and 원, with practice exercises and an answer key."
+  },
+  "level": "A1",
+  "sections": [
+    {
+      "type": "table",
+      "title": {
+        "en": "Sino-Korean numbers (일, 이, 삼…)",
+        "ko": "한자어 수"
+      },
+      "cols": [
+        "Number",
+        "Korean",
+        "Number",
+        "Korean"
+      ],
+      "rows": [
+        [
+          "0",
+          "영 / 공",
+          "10",
+          "십"
+        ],
+        [
+          "1",
+          "일",
+          "20",
+          "이십"
+        ],
+        [
+          "2",
+          "이",
+          "30",
+          "삼십"
+        ],
+        [
+          "3",
+          "삼",
+          "100",
+          "백"
+        ],
+        [
+          "4",
+          "사",
+          "1,000",
+          "천"
+        ],
+        [
+          "5",
+          "오",
+          "10,000",
+          "만"
+        ],
+        [
+          "6",
+          "육",
+          "15",
+          "십오"
+        ],
+        [
+          "7",
+          "칠",
+          "27",
+          "이십칠"
+        ],
+        [
+          "8",
+          "팔",
+          "65",
+          "육십오"
+        ],
+        [
+          "9",
+          "구",
+          "99",
+          "구십구"
+        ]
+      ],
+      "note": "Use Sino-Korean numbers for dates, money, phone numbers, minutes, floors and addresses."
+    },
+    {
+      "type": "table",
+      "title": {
+        "en": "Native Korean numbers (하나, 둘, 셋…)",
+        "ko": "고유어 수"
+      },
+      "cols": [
+        "Number",
+        "Korean",
+        "Before a counter",
+        "Number",
+        "Korean"
+      ],
+      "rows": [
+        [
+          "1",
+          "하나",
+          "한",
+          "10",
+          "열"
+        ],
+        [
+          "2",
+          "둘",
+          "두",
+          "20",
+          "스물 (스무)"
+        ],
+        [
+          "3",
+          "셋",
+          "세",
+          "30",
+          "서른"
+        ],
+        [
+          "4",
+          "넷",
+          "네",
+          "40",
+          "마흔"
+        ],
+        [
+          "5",
+          "다섯",
+          "다섯",
+          "50",
+          "쉰"
+        ],
+        [
+          "6",
+          "여섯",
+          "여섯",
+          "",
+          ""
+        ],
+        [
+          "7",
+          "일곱",
+          "일곱",
+          "",
+          ""
+        ],
+        [
+          "8",
+          "여덟",
+          "여덟",
+          "",
+          ""
+        ],
+        [
+          "9",
+          "아홉",
+          "아홉",
+          "",
+          ""
+        ]
+      ],
+      "note": "Before a counter, 하나 → 한, 둘 → 두, 셋 → 세, 넷 → 네, 스물 → 스무."
+    },
+    {
+      "type": "table",
+      "title": {
+        "en": "Counters",
+        "ko": "세는 말"
+      },
+      "cols": [
+        "Counter",
+        "Used for",
+        "Number type",
+        "Example"
+      ],
+      "rows": [
+        [
+          "개",
+          "things",
+          "native",
+          "사과 세 개"
+        ],
+        [
+          "명",
+          "people",
+          "native",
+          "학생 두 명"
+        ],
+        [
+          "마리",
+          "animals",
+          "native",
+          "고양이 한 마리"
+        ],
+        [
+          "권",
+          "books",
+          "native",
+          "책 두 권"
+        ],
+        [
+          "잔",
+          "cups, glasses",
+          "native",
+          "커피 한 잔"
+        ],
+        [
+          "병",
+          "bottles",
+          "native",
+          "물 한 병"
+        ],
+        [
+          "살",
+          "age",
+          "native",
+          "스무 살"
+        ],
+        [
+          "시",
+          "o'clock",
+          "native",
+          "세 시"
+        ],
+        [
+          "분",
+          "minutes",
+          "Sino-Korean",
+          "십오 분"
+        ],
+        [
+          "원",
+          "won (money)",
+          "Sino-Korean",
+          "오천 원"
+        ]
+      ],
+      "note": "Number first, counter after: 사과 세 개 (three apples) — the noun comes before the number."
+    },
+    {
+      "type": "text",
+      "title": {
+        "en": "Telling the time",
+        "ko": "시간 말하기"
+      },
+      "text": "Hours use native numbers + 시 and minutes use Sino-Korean numbers + 분. 3:15 → 세 시 십오 분. 7:30 → 일곱 시 삼십 분 (or 일곱 시 반). 11:05 → 열한 시 오 분."
+    },
+    {
+      "type": "practice",
+      "title": {
+        "en": "Practice A — Write in Hangul (Sino-Korean)",
+        "ko": "한자어 수로 한글로 써요"
+      },
+      "items": [
+        {
+          "q": "15 →",
+          "a": "십오"
+        },
+        {
+          "q": "27 →",
+          "a": "이십칠"
+        },
+        {
+          "q": "40 →",
+          "a": "사십"
+        },
+        {
+          "q": "2,000원 →",
+          "a": "이천 원"
+        },
+        {
+          "q": "50,000원 →",
+          "a": "오만 원"
+        },
+        {
+          "q": "100 →",
+          "a": "백"
+        }
+      ]
+    },
+    {
+      "type": "practice",
+      "title": {
+        "en": "Practice B — Native numbers with counters",
+        "ko": "고유어 수 + 세는 말"
+      },
+      "items": [
+        {
+          "q": "사과 3개 →",
+          "a": "사과 세 개"
+        },
+        {
+          "q": "학생 2명 →",
+          "a": "학생 두 명"
+        },
+        {
+          "q": "커피 1잔 →",
+          "a": "커피 한 잔"
+        },
+        {
+          "q": "책 4권 →",
+          "a": "책 네 권"
+        },
+        {
+          "q": "고양이 5마리 →",
+          "a": "고양이 다섯 마리"
+        },
+        {
+          "q": "물 2병 →",
+          "a": "물 두 병"
+        }
+      ]
+    },
+    {
+      "type": "practice",
+      "title": {
+        "en": "Practice C — Tell the time",
+        "ko": "시각을 한글로 써요"
+      },
+      "items": [
+        {
+          "q": "3:15 →",
+          "a": "세 시 십오 분"
+        },
+        {
+          "q": "7:30 →",
+          "a": "일곱 시 삼십 분"
+        },
+        {
+          "q": "11:05 →",
+          "a": "열한 시 오 분"
+        },
+        {
+          "q": "12:40 →",
+          "a": "열두 시 사십 분"
+        },
+        {
+          "q": "9:20 →",
+          "a": "아홉 시 이십 분"
+        }
+      ]
+    },
+    {
+      "type": "practice",
+      "title": {
+        "en": "Practice D — Say your age and the price",
+        "ko": "나이와 값을 말해요"
+      },
+      "items": [
+        {
+          "q": "20 years old →",
+          "a": "스무 살"
+        },
+        {
+          "q": "30 years old →",
+          "a": "서른 살"
+        },
+        {
+          "q": "3,500원 →",
+          "a": "삼천오백 원"
+        },
+        {
+          "q": "12,000원 →",
+          "a": "만 이천 원"
+        }
+      ]
+    }
+  ],
+  "howto": [
+    "Learn the two number systems separately: Sino-Korean for money and minutes, native for counting things and hours.",
+    "Read the counters table aloud, then do practice A–D and check the answer key.",
+    "Teachers: ask students to count real objects in the room using 개."
+  ],
+  "koSummary": "한자어 수(일 이 삼)는 날짜 · 돈 · 분에, 고유어 수(하나 둘 셋)는 물건 · 나이 · 시에 씁니다. 세는 말(개 · 명 · 마리 · 권 · 잔 · 병 · 살 · 시 · 분 · 원)과 시각 읽는 법을 연습합니다."
+}
