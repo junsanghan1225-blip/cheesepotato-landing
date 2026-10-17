@@ -1,0 +1,100 @@
+{
+ "_note": "책 한 권의 틀 — node tools/build-book.mjs topik2-writing-53-54. 단원 「wQQ:N」 = TOPIK II 쓰기 QQ번의 N번째 10문항(topik-writing.js, 전부 창작 — 기출 아님). 지은이 · 신고번호 · ISBN · 정가 · 발행일은 비어 있는 자리.",
+ "id": "topik2-writing-53-54",
+ "edition": "Draft proof · 시안",
+ "theme": "classic",
+ "color": "#6B3FA0",
+ "tint": "#F3EEFA",
+ "series": {
+  "en": "TOPIK SERIES",
+  "ko": "TOPIK 시리즈"
+ },
+ "title": {
+  "en": "TOPIK II Writing 53–54: 100 Practice Questions",
+  "ko": "TOPIK II 쓰기 53~54번 100제"
+ },
+ "sub": {
+  "en": "Describe the data in 300 characters, argue your view in 700 — with scored samples.",
+  "ko": "자료 설명 300자 · 논술 700자 · 상중하 답안과 채점"
+ },
+ "level": "TOPIK II",
+ "trim": {
+  "w": 182,
+  "h": 257,
+  "bleed": 3,
+  "paperMm": 0.11
+ },
+ "author": {
+  "en": "Junsang",
+  "ko": "준상"
+ },
+ "authorAbout": {
+  "en": "Junsang is a Korean teacher. He has taught Korean for about two years and led over 1,700 lessons with students from many different cultural backgrounds.",
+  "ko": "준상은 한국어 교사입니다. 약 2년 동안 다양한 문화권의 학생들과 1,700회가 넘는 수업을 했습니다."
+ },
+ "publisher": {
+  "en": "Every Koreans Books",
+  "ko": "에브리코리안즈 출판"
+ },
+ "web": "everykoreans.com",
+ "preface": {
+  "en": [
+   "Questions 53 and 54 are the long writing tasks. In 53 you turn a chart or survey into 200–300 characters of plain, accurate prose; in 54 you build a 600–700 character argument.",
+   "This book gives you 100 original questions (50 for each) with a model answer, scoring points and sample answers at three levels, each with its score and the reason.",
+   "Write by hand in the ruled area (the small numbers count characters), then compare with the answer key. Reading the lower-level samples shows you exactly where points are lost."
+  ],
+  "ko": [
+   "53번과 54번은 긴 글쓰기입니다. 53번은 도표 · 설문을 200~300자의 정확한 글로, 54번은 600~700자의 논리적인 글로 씁니다.",
+   "이 책에는 시험 형식을 본뜬 창작 문제 100개(각 50개)와 모범 답안, 채점 기준, 상 · 중 · 하 세 수준의 예시 답안(점수와 이유 포함)이 있습니다.",
+   "줄 칸에 손으로 쓰고(작은 숫자는 글자 수), 뒤쪽 정답과 비교하세요. 낮은 수준의 예시를 읽으면 어디서 점수를 잃는지 보입니다."
+  ]
+ },
+ "howto": {
+  "en": [
+   "Read the task and mark the required points.",
+   "Plan in two minutes: opening, body, closing.",
+   "Write in the plain -(느)ㄴ다 style. Count characters with the small numbers.",
+   "Compare with the model answer and the three scored samples.",
+   "Rewrite your answer after a few days.",
+   "Free practice and more books: everykoreans.com"
+  ],
+  "ko": [
+   "문제를 읽고 꼭 써야 할 점에 표시하세요.",
+   "2분 동안 서론 · 본론 · 결론을 짜세요.",
+   "-(느)ㄴ다체로 쓰세요. 작은 숫자로 글자 수를 세세요.",
+   "모범 답안과 세 예시 답안을 비교하세요.",
+   "며칠 뒤에 다시 써 보세요.",
+   "무료 연습 · 더 많은 책: everykoreans.com"
+  ]
+ },
+ "parts": [
+  {
+   "title": {
+    "en": "Question 53 · Describing Data",
+    "ko": "53번 · 자료 설명"
+   },
+   "units": [
+    "w53:1",
+    "w53:2",
+    "w53:3",
+    "w53:4",
+    "w53:5"
+   ]
+  },
+  {
+   "title": {
+    "en": "Question 54 · Argumentative Essay",
+    "ko": "54번 · 논술"
+   },
+   "units": [
+    "w54:1",
+    "w54:2",
+    "w54:3",
+    "w54:4",
+    "w54:5"
+   ]
+  }
+ ],
+ "noGuide": true,
+ "noIndex": true
+}
