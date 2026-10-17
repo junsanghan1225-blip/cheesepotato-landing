@@ -7510,3 +7510,26 @@ button.hero-how { border:none; font:inherit; font-weight:700; cursor:pointer; }
 /* 일본어 · 중국어 · 미얀마어는 띄어쓰기가 거의 없어서 keep-all 이면 한 줄로 쭉 이어져 화면 밖으로 나간다(2026-10-17 언어 전환 점검) —
    글자 사이 어디서든 줄을 바꾼다. 한국어 · 영어 등은 그대로. */
 html[lang="ja"] *, html[lang="zh"] *, html[lang^="zh-"] *, html[lang="my"] * { word-break: normal !important; overflow-wrap: anywhere; }
+
+/* TOPIK 연습 고르기 — 탭 셋(모의고사 · 유형별 · 내 기록) + 한 줄 목록(2026-10-17 운영자 「정신없다 · 가시성」). 카드 열몇 장 대신 줄. */
+.tq-tabs { display:flex; gap:4px; padding:4px; margin:14px 0 14px; border-radius:14px; background:var(--surface-2, rgba(var(--ink-rgb),.06)); }
+.tq-tabs button { flex:1 1 0; min-width:0; padding:10px 8px; border:none; border-radius:11px; background:none; font:inherit; font-size:14.5px; font-weight:700; color:var(--ink-3); cursor:pointer; white-space:nowrap; }
+.tq-tabs button i { font-style:normal; font-size:11.5px; font-weight:800; margin-left:5px; padding:1px 6px; border-radius:99px; background:rgba(var(--ink-rgb),.08); }
+.tq-tabs button[aria-selected="true"] { background:var(--surface); color:var(--ink); box-shadow:0 1px 6px rgba(var(--ink-rgb),.12); }
+.tq-pane[hidden] { display:none; }
+.tq-pane-note { margin:0 2px 10px; font-size:13px; line-height:1.55; color:var(--ink-3); }
+.tq-rows { display:flex; flex-direction:column; border:1px solid var(--line); border-radius:16px; background:var(--surface); overflow:hidden; }
+.tq-row { display:flex; align-items:center; gap:12px; width:100%; padding:14px 14px; border:0; border-top:1px solid var(--line); background:none; font:inherit; text-align:left; color:var(--ink); cursor:pointer; }
+.tq-row:first-child { border-top:0; } .tq-row:hover { background:var(--surface-2, rgba(var(--ink-rgb),.04)); }
+.tq-row-n { flex:none; width:30px; height:30px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:14px; font-weight:800; background:var(--tint, rgba(var(--ink-rgb),.06)); color:var(--orange-deep, var(--ink)); }
+.tq-row-b { flex:1 1 auto; min-width:0; display:flex; flex-direction:column; gap:2px; }
+.tq-row-b b { font-size:15.5px; font-weight:800; display:flex; align-items:center; gap:8px; flex-wrap:wrap; }
+.tq-row-b b em { font-style:normal; font-size:11px; font-weight:800; padding:2px 8px; border-radius:99px; background:var(--orange, #F07A2E); color:#fff; }
+.tq-row-b small { font-size:12.5px; color:var(--ink-3); line-height:1.4; }
+.tq-bar { display:block; height:5px; margin-top:5px; border-radius:99px; background:rgba(var(--ink-rgb),.08); overflow:hidden; } .tq-bar u { display:block; height:100%; border-radius:99px; background:var(--orange, #F07A2E); }
+.tq-row-s { flex:none; font-size:13px; font-weight:800; color:var(--orange-deep, var(--ink)); white-space:nowrap; }
+.tq-row.rec { background:rgba(240,122,46,.07); } .tq-row.tq-locked .tq-row-s { color:var(--ink-3); }
+.tq-hold-wrap { margin:14px 0 0; }
+/* 약점 · 시험 계획 · 점수 기록은 「내 기록」 탭에서만 */
+#tqPick:not([data-tab="me"]) #tqRecord, #tqPick:not([data-tab="me"]) #tqLog { display:none !important; }
+@media (max-width:420px) { .tq-row { padding:12px 10px; gap:10px; } .tq-row-s { font-size:12px; } }
