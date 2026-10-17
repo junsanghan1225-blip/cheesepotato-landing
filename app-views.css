@@ -7535,3 +7535,16 @@ html[lang="ja"] *, html[lang="zh"] *, html[lang^="zh-"] *, html[lang="my"] * { w
 @media (max-width:420px) { .tq-row { padding:12px 10px; gap:10px; } .tq-row-s { font-size:12px; } }
 #tlPick:not([data-tab="me"]) #tlRecord { display:none !important; }
 #tqBodyWrite:not([data-tab="me"]) #twRecord { display:none !important; }
+
+/* TOPIK 쓰기 — 유형 설명 · 풀이 방법 카드 */
+.tw-guide { margin:0 0 12px; border:1px solid var(--ink); border-radius:16px; background:var(--surface); }
+.tw-guide > summary { cursor:pointer; list-style:none; padding:14px 16px; display:flex; align-items:center; justify-content:space-between; gap:10px; font-weight:800; font-size:15px; }
+.tw-guide > summary::-webkit-details-marker { display:none; } .tw-guide > summary em { font-style:normal; font-size:12px; font-weight:700; color:var(--ink-3); } .tw-guide > summary::after { content:'▾'; color:var(--ink-3); } .tw-guide[open] > summary::after { content:'▴'; }
+.tw-guide > :not(summary) { margin-left:16px; margin-right:16px; } .tw-guide > :last-child { margin-bottom:16px; }
+.tw-g-what { font-size:14px; line-height:1.65; color:var(--ink-2); margin-top:0; }
+.tw-g-steps { padding-left:20px; font-size:14px; line-height:1.65; } .tw-g-steps li { margin:3px 0; }
+.tw-g-h { font-size:12.5px; font-weight:800; letter-spacing:.02em; color:var(--orange-deep); margin-top:12px; margin-bottom:4px; } .tw-g-h.warn { color:var(--red, #B0452B); }
+.tw-g-ph, .tw-g-mk { list-style:none; padding:0; margin-top:0; font-size:13.5px; line-height:1.55; }
+.tw-g-ph li { display:grid; grid-template-columns:96px 1fr; gap:8px; padding:5px 0; border-top:1px solid var(--line); } .tw-g-ph li:first-child { border-top:0; } .tw-g-ph b { font-size:13px; } .tw-g-ph span { color:var(--ink-2); }
+.tw-g-mk li { padding:3px 0 3px 14px; position:relative; color:var(--ink-2); } .tw-g-mk li::before { content:'•'; position:absolute; left:2px; color:var(--red, #B0452B); }
+@media (max-width:420px) { .tw-g-ph li { grid-template-columns:1fr; gap:0; } }

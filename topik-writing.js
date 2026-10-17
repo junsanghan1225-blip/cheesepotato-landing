@@ -6436,3 +6436,95 @@ export const TW_QS = [
   { q: 53, ko: '53번 · 자료 설명',   en: '53 · Describing data',  pt: 30 },
   { q: 54, ko: '54번 · 논술',        en: '54 · Essay',            pt: 50 },
 ];
+
+/* 유형별 설명 · 풀이 방식(운영자 2026-10-17 「토픽 쓰기는 설명도 조금 들어가야 하고 유형별로 나누고 그에 맞는 풀이 방식」).
+   쓰기 고르기 화면의 「풀이 방법」 카드와 쓰기 책 두 권의 번호 첫머리가 같이 쓴다. 문항 · 모범답안은 창작이고 여기는 방법만 적는다.
+   시험 형식(번호 · 배점 · 분량)은 위 TW_QS · 각 문항의 min/max 와 같게 둔다. */
+export const TW_GUIDE = {
+  51: {
+    time: { ko: '권장 4분', en: 'About 4 min' },
+    what: { ko: '안내문 · 공고 · 이메일 같은 실용문의 빈칸 ㉠ ㉡ 에 알맞은 한 문장을 쓴다. 문장은 짧지만 문체와 문맥이 맞아야 점수가 난다.', en: 'Fill blanks ㉠ and ㉡ of a notice, ad or e-mail with one fitting sentence each. Short, but style and context must match.' },
+    steps: [
+      { ko: '글의 종류(모집 · 판매 · 분실 · 안내 · 신청)를 정한다.', en: 'Name the text type: recruiting, selling, lost item, notice, application.' },
+      { ko: '빈칸 앞 문장이 이유 · 요청 · 가능 · 결과 중 무엇을 부르는지 정한다.', en: 'Decide what the sentence before the blank calls for: reason, request, ability or result.' },
+      { ko: '지문의 문체(-ㅂ니다 / -(으)세요 / -아요)에 끝을 맞춘다.', en: 'Match the ending of the text (-ㅂ니다, -(으)세요 or -아요).' },
+      { ko: '지문의 낱말을 되풀이하지 않고 한 문장으로 쓴다.', en: 'One sentence, without repeating words from the text.' },
+    ],
+    phrases: [
+      { ko: '가능', en: 'Ability', ex: '-(으)ㄹ 수 있습니다 · -아/어도 됩니다' },
+      { ko: '요청 · 부탁', en: 'Request', ex: '-아/어 주시기 바랍니다 · -아/어 주시면 감사하겠습니다' },
+      { ko: '이유 · 사정', en: 'Reason', ex: '-게 되었습니다 · -기 때문에 · -아/어서' },
+      { ko: '계획 · 의도', en: 'Plan', ex: '-(으)려고 합니다 · -(으)ㄹ 예정입니다' },
+      { ko: '금지 · 주의', en: 'Prohibition', ex: '-(으)면 안 됩니다 · -지 마시기 바랍니다' },
+    ],
+    mistakes: [
+      { ko: '해요체 · 반말로 쓴다(문체 불일치).', en: 'Slipping into -해요 or casual speech.' },
+      { ko: '앞 문장의 양보 · 이유를 못 읽고 반대로 쓴다.', en: 'Misreading the concession or reason before the blank.' },
+      { ko: '-(으)시- 를 자기 행동에 쓴다.', en: 'Using -(으)시- for your own action.' },
+    ],
+  },
+  52: {
+    time: { ko: '권장 4분', en: 'About 4 min' },
+    what: { ko: '설명문의 빈칸 ㉠ ㉡ 에 -(느)ㄴ다체로 한 문장씩 쓴다. 앞뒤 연결어(그러나 · 따라서 …)가 방향을 알려 준다.', en: 'Fill blanks ㉠ and ㉡ of an explanatory text in the plain -(느)ㄴ다 style. Linking words (그러나, 따라서 …) show the direction.' },
+    steps: [
+      { ko: '빈칸 앞뒤의 연결어를 먼저 본다 — 반대 · 결과 · 추가 · 이유 중 방향이 정해진다.', en: 'Read the linking words around the blank first: contrast, result, addition or reason.' },
+      { ko: '앞 문장과 같은 주어 · 같은 종류의 서술로 잇는다.', en: 'Continue with the same subject and kind of statement.' },
+      { ko: '끝을 -(느)ㄴ다체(-ㄴ다 / -는다 / -이다 / -(으)ㄹ 수 있다 / -아/어야 한다)로 닫는다.', en: 'End in the plain style: -ㄴ다 / -는다 / -이다 / -(으)ㄹ 수 있다 / -아/어야 한다.' },
+    ],
+    phrases: [
+      { ko: '그러나 · 하지만 뒤', en: 'After "however"', ex: '앞과 반대 — -지 않는다 · 어렵다' },
+      { ko: '따라서 · 그러므로 뒤', en: 'After "therefore"', ex: '결론 — -아/어야 한다 · -는 것이 필요하다' },
+      { ko: '또한 · 아울러 뒤', en: 'After "also"', ex: '같은 방향 — -기도 한다 · -(으)ㄹ 수 있다' },
+      { ko: '왜냐하면 뒤', en: 'After "because"', ex: '이유 — -기 때문이다' },
+    ],
+    mistakes: [
+      { ko: '합니다체 · 해요체로 쓴다.', en: 'Using -ㅂ니다 or -해요.' },
+      { ko: '그러나 뒤에 같은 방향 내용을 쓴다(논리 어긋남).', en: 'Writing the same direction after "however".' },
+      { ko: '형용사 어간에 동사 어미를 붙인다.', en: 'Adding a verb ending to an adjective stem.' },
+    ],
+  },
+  53: {
+    time: { ko: '권장 12분 · 200~300자', en: 'About 12 min · 200–300 characters' },
+    what: { ko: '표 · 그래프 · 조사 자료를 보이는 대로 정확히 글로 옮긴다. 내 의견은 쓰지 않고, 제목은 시키지 않으면 쓰지 않는다.', en: 'Turn a chart, table or survey into accurate prose. No personal opinion; no title unless asked.' },
+    steps: [
+      { ko: '① 개요 — 누가 · 무엇에 대해 · 조사했는지(조사 기관 · 대상).', en: '① Overview: who surveyed whom, about what.' },
+      { ko: '② 변화 — 언제에서 언제, 몇 %에서 몇 %로, 몇 %p 증가 · 감소.', en: '② Change: from when to when, from x% to y%, by how many points.' },
+      { ko: '③ 원인 · 순위 — 1위 · 2위 · 3위를 비율과 함께.', en: '③ Causes or ranking with percentages.' },
+      { ko: '④ (자료에 근거할 때만) 전망 · 정리 한 문장.', en: '④ A closing line, only if the data supports it.' },
+    ],
+    phrases: [
+      { ko: '조사했다', en: 'Surveyed', ex: '~을/를 대상으로 ~에 대해 조사하였다 · 조사 결과 ~(으)로 나타났다' },
+      { ko: '늘었다', en: 'Increased', ex: '~에서 ~(으)로 증가하였다 · ~%p 증가하였다' },
+      { ko: '줄었다', en: 'Decreased', ex: '~에서 ~(으)로 감소하였다 · 절반으로 줄었다' },
+      { ko: '순위', en: 'Ranking', ex: '가장 높았으며 · 1위를 차지하였다 · 그 뒤를 이었다' },
+      { ko: '정리', en: 'Summing up', ex: '이처럼 · 이와 같이 · ~(으)ㄹ 전망이다' },
+    ],
+    mistakes: [
+      { ko: '%와 %p, 연도 · 숫자를 자료와 다르게 쓴다.', en: 'Mixing up % and %p, or copying numbers wrongly.' },
+      { ko: '자료에 없는 의견 · 전망을 지어 쓴다.', en: 'Inventing opinions not in the data.' },
+      { ko: '글자 수(띄어쓰기 포함)가 모자라거나 넘는다.', en: 'Under or over the length (spaces count).' },
+    ],
+  },
+  54: {
+    time: { ko: '권장 25분 · 600~700자', en: 'About 25 min · 600–700 characters' },
+    what: { ko: '주어진 주제와 세 가지 질문에 모두 답하면서 서론 · 본론 · 결론이 이어지는 하나의 글을 쓴다. 가장 점수가 큰 문항이다.', en: 'Answer all three guiding questions in one organised essay: introduction, body, conclusion. The biggest score.' },
+    steps: [
+      { ko: '지시문의 세 질문에 번호를 매기고, 각각 한 문단의 뼈대(이유 + 예)를 메모한다(2분).', en: 'Number the three questions and jot an outline for each (2 min).' },
+      { ko: '서론 2~3문장: 주제를 소개하고 문제를 제기한다.', en: 'Introduction, 2–3 sentences: introduce the topic and raise the issue.' },
+      { ko: '본론 ① ②: 질문마다 「주장 → 이유 → 예」 순서로 쓴다.', en: 'Body: for each question, claim → reason → example.' },
+      { ko: '결론: 셋째 질문(해결 · 노력)과 마무리 한 문장. 문단을 나눈다.', en: 'Conclusion: answer the third question and close. Use paragraphs.' },
+    ],
+    phrases: [
+      { ko: '서론', en: 'Opening', ex: '~은/는 ~(으)ㄴ/는 문제이다 · ~에 대해 생각해 볼 필요가 있다' },
+      { ko: '이유 · 예', en: 'Reason, example', ex: '이는 ~기 때문이다 · 예를 들어 ~' },
+      { ko: '대비', en: 'Contrast', ex: '반면에 · 그러나 · 오히려' },
+      { ko: '더하기', en: 'Addition', ex: '또한 · 아울러 · 더욱이' },
+      { ko: '결론', en: 'Closing', ex: '따라서 · 결국 · ~아/어야 할 것이다' },
+    ],
+    mistakes: [
+      { ko: '서론만 길고 결론이 없다.', en: 'A long introduction and no conclusion.' },
+      { ko: '문단을 나누지 않거나 질문 하나를 빠뜨린다.', en: 'No paragraphs, or one question skipped.' },
+      { ko: '구어체(근데 · 너무 · 되게)를 쓴다.', en: 'Spoken words like 근데, 너무, 되게.' },
+    ],
+  },
+};
