@@ -74,7 +74,7 @@ ${units.map((u) => `@page ${unitCss(u)}:right{@top-right{content:${cssStr(`UNIT 
 @page ${unitCss(u)}:left{@top-left{content:${cssStr(B.title.en.toUpperCase())};white-space:nowrap}}`).join('\n')}
 @page unitopen{margin:0;@top-left{content:none}@top-right{content:none}@bottom-left{content:none}@bottom-right{content:none}}
 /* ㉠ ㉡ 는 글꼴에 없어 그림 글자(이모지)로 떨어진다 — 동그라미 글자로 직접 그린다 */
-.cm{display:inline-block;min-width:1.25em;height:1.25em;line-height:1.2em;text-align:center;border:.8pt solid currentColor;border-radius:50%;font-size:.78em;font-weight:700;vertical-align:.08em;margin:0 .1em}
+.cm{display:inline-block;min-width:1.55em;height:1.55em;line-height:1.5em;text-align:center;border:.9pt solid currentColor;border-radius:50%;font-size:.9em;font-weight:800;vertical-align:-.22em;margin:0 .12em;font-family:'Pretendard Variable',sans-serif}
 *{box-sizing:border-box;margin:0;padding:0}
 html{-webkit-print-color-adjust:exact;print-color-adjust:exact}
 body{font:400 9.6pt/1.55 'Pretendard Variable',sans-serif;color:#1d1a17;word-break:keep-all}
