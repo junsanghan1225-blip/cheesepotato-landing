@@ -7551,3 +7551,6 @@ html[lang="ja"] *, html[lang="zh"] *, html[lang^="zh-"] *, html[lang="my"] * { w
 
 /* 난이도 ●○○ (쓰기 · 유형별 줄) */
 .tq-diff { font-size:11px; font-weight:800; letter-spacing:.08em; white-space:nowrap; } .tq-diff.d1 { color:#3a8f5b; } .tq-diff.d2 { color:#d98a1a; } .tq-diff.d3 { color:#c0432b; }
+
+/* 레슨 끝 가입 권유 — 그날 두 번째부터는 한 줄 */
+.ls-join.slim { display:flex; align-items:center; justify-content:space-between; gap:10px; padding:10px 14px; } .ls-join.slim span { font-size:13.5px; font-weight:700; } .ls-join.slim .pt-next { width:auto; padding:8px 16px; }

@@ -891,8 +891,9 @@ function twHub(items) {
 
   return page({
     url: '/topik-writing/', kind: 'website', extraHead: hubHreflang('/topik-writing/'),
-    title: `TOPIK II 쓰기 연습 문항 ${items.length}개 — 51·52·53·54번 | CheesePotato`,
-    desc: clip(`TOPIK II 쓰기 51~54번 유형 연습 문항 ${items.length}개. 모범답안과 채점 기준, 감점 요인까지. 기출이 아닌 창작 문항입니다.`),
+    /* 「토픽 쓰기 연습」「topik 쓰기 연습 문제」가 우리 쪽으로 클릭이 나는 질의(Search Console 2026-10-18: 클릭률 15~31%, 순위 5~9) — 제목에 「토픽」을 같이 둔다 */
+    title: `TOPIK(토픽) II 쓰기 연습 문항 ${items.length}개 — 51·52·53·54번 | CheesePotato`,
+    desc: clip(`토픽 쓰기 연습: TOPIK II 쓰기 51~54번 유형 연습 문항 ${items.length}개. 모범답안과 채점 기준, 감점 요인까지. 기출이 아닌 창작 문항입니다.`),
     body,
     jsonld: [crumbLd([['치즈감자', '/'], ['TOPIK 쓰기', '/topik-writing/']])],
   });
