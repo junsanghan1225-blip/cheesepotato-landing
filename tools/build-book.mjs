@@ -30,14 +30,21 @@ const THEME = args.includes('--theme') ? args[args.indexOf('--theme') + 1] : (B.
 const CLASSIC = THEME === 'classic';
 /* 문제은행 단원 「w51:2」 = TOPIK II 쓰기 51번의 2번째 10문항(topik-writing.js). 학습지 JSON 대신 이 자리에서 단원 모양으로 만든다. */
 const BANKQ = { 51: ['Practical Text Completion', '실용문 완성', 'Fill each blank with one sentence that fits the text and its style.', '각 빈칸에 지문의 문체에 맞는 한 문장을 써요'], 52: ['Explanatory Text Completion', '설명문 완성', 'Fill each blank with one sentence in the -(느)ㄴ다 style.', '각 빈칸에 -(느)ㄴ다체로 한 문장을 써요'], 53: ['Describing Data', '자료 설명하기', 'Write 200–300 characters describing the data.', '자료를 보고 200~300자로 써요'], 54: ['Argumentative Essay', '논술', 'Write 600–700 characters giving your own view.', '자신의 생각을 600~700자로 써요'] };
-const TWM = B.needTW || B.parts.some((p) => p.units.some((u) => /^w\d\d:/.test(u))) ? await import(path.join(ROOT, 'topik-writing.js')) : null;
+const TWM = B.needTW || B.parts.some((p) => p.units.some((u) => /^(w\d\d:|g\d\d-)/.test(u))) ? await import(path.join(ROOT, 'topik-writing.js')) : null;
 const TW = TWM ? TWM.TW_ITEMS : [];
 const bankSheet = (id) => {
   const [, q, n] = id.match(/^w(\d\d):(\d+)$/).map(Number); const L = BANKQ[q]; const chunk = TW.filter((x) => x.q === q).slice((n - 1) * 10, n * 10);
   return { id, title: { en: `Q${q} · ${L[0]} · Set ${n}`, ko: `${q}번 · ${L[1]} · ${n}세트` }, sub: { en: L[2], ko: L[3] },
     sections: chunk.map((x, i) => ({ type: 'writing', raw: x, title: { en: `${(n - 1) * 10 + i + 1}. ${x.title}`, ko: '' }, items: [{ q: x.title, a: x.blanks ? x.blanks.map((b) => `${b.mark} ${b.answers[0]}`).join(' ') : x.model }] })) };
 };
-const sheet = (id) => B.inline?.[id] ? B.inline[id] : /^w\d\d:\d+$/.test(id) ? bankSheet(id) : JSON.parse(fs.readFileSync(path.join(ROOT, `docs/worksheets/${id}.json`), 'utf8'));
+/* 유형 묶음 「g51-recruit」 = B.groups 에 적은 문항 id 들(유형별로 나눈 책, 운영자 2026-10-18 「유형별로 나누고 유형마다 안내를」) */
+const groupSheet = (id) => {
+  const g = B.groups[id]; const all = TW.filter((x) => x.q === g.q);
+  return { id, title: g.title, sub: g.sub, sections: g.items.map((iid, i) => { const x = TW.find((t) => t.id === iid); if (!x) throw new Error('없는 문항 ' + iid);
+    return { type: 'writing', raw: x, title: { en: `${all.indexOf(x) + 1}. ${x.title}`, ko: '' }, items: [{ q: x.title, a: x.blanks ? x.blanks.map((b) => `${b.mark} ${b.answers[0]}`).join(' ') : x.model }] }; }) };
+};
+const partQ = (p) => { for (const u of p.units) { const m = /^w(\d\d):/.exec(u) || /^g(\d\d)-/.exec(u); if (m) return Number(m[1]); } return NaN; };
+const sheet = (id) => B.inline?.[id] ? B.inline[id] : /^g\d\d-/.test(id) ? groupSheet(id) : /^w\d\d:\d+$/.test(id) ? bankSheet(id) : JSON.parse(fs.readFileSync(path.join(ROOT, `docs/worksheets/${id}.json`), 'utf8'));
 const esc = (x) => String(x ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 const cssStr = (x) => '"' + String(x).replace(/\\/g, '\\\\').replace(/"/g, '\\"') + '"';
 const HAN = /[가-힣]/;
@@ -66,6 +73,8 @@ const CSS = `
 ${units.map((u) => `@page ${unitCss(u)}:right{@top-right{content:${cssStr(`UNIT ${String(u.no).padStart(2, '0')}  ·  ${u.title.ko}`)};white-space:nowrap;font:600 6.8pt 'Pretendard Variable';letter-spacing:.1em;color:#9a9288;vertical-align:bottom;padding-bottom:5mm}}
 @page ${unitCss(u)}:left{@top-left{content:${cssStr(B.title.en.toUpperCase())};white-space:nowrap}}`).join('\n')}
 @page unitopen{margin:0;@top-left{content:none}@top-right{content:none}@bottom-left{content:none}@bottom-right{content:none}}
+/* ㉠ ㉡ 는 글꼴에 없어 그림 글자(이모지)로 떨어진다 — 동그라미 글자로 직접 그린다 */
+.cm{display:inline-block;min-width:1.25em;height:1.25em;line-height:1.2em;text-align:center;border:.8pt solid currentColor;border-radius:50%;font-size:.78em;font-weight:700;vertical-align:.08em;margin:0 .1em}
 *{box-sizing:border-box;margin:0;padding:0}
 html{-webkit-print-color-adjust:exact;print-color-adjust:exact}
 body{font:400 9.6pt/1.55 'Pretendard Variable',sans-serif;color:#1d1a17;word-break:keep-all}
@@ -137,7 +146,7 @@ td:first-child{font-weight:800;font-size:10.4pt;color:#1d1a17}td.tip{color:#8a82
 
 /* ── 블록 만들기 ── */
 const pair = (o, cls = '') => `<p class="en${cls}">${esc(o.en)}</p>`;
-const LAB = { table: '핵심 정리', text: '참고', practice: '연습', writing: '문제', example: '예시' };
+const LAB = { flow: '글의 틀', table: '핵심 정리', text: '참고', practice: '연습', writing: '문제', example: '예시' };
 /* 정석풍 블록 — 핵심 정리 · 참고 · 연습 + 팁(TIP) · 주의(WARNING) · 더 알아보기(MORE). 표 끝 설명과 글 칸이 어느 블록인지는 책 틀의 blocks(「단원id:칸번호」)에서 — 없으면 표 설명은 TIP, 글 칸은 참고. */
 const BLK = { tip: ['TIP', '팁'], warn: ['WARNING', '주의'], more: ['MORE', '더 알아보기'], pattern: ['PATTERN', '문형'] };
 const kindOf = (u, si, s) => (B.blocks || {})[`${u.id}:${si + 1}`] || (s.type === 'table' ? 'tip' : 'ref');
@@ -219,7 +228,7 @@ function tocPage(starts) {
 }
 /* 문제은행 책 — 번호마다 「풀이 방법」 쪽(topik-writing.js 의 TW_GUIDE): 무엇을 묻는지 · 풀이 순서 · 표현 · 자주 하는 실수 */
 function qGuidePage(p) {
-  const q = Number((/^w(\d\d):/.exec(p.units[0]) || [])[1]); const g = TWM?.TW_GUIDE?.[q]; if (!g) return '';
+  const q = partQ(p); const g = TWM?.TW_GUIDE?.[q]; if (!g) return '';
   const both = (o) => `${esc(o.en)} <small>· ${esc(o.ko)}</small>`;
   return `<div class="blk plain gd"><h2>How to solve Question ${q}</h2><div class="k">${q}번 풀이 방법 · ${esc(g.time.ko)} (${esc(g.time.en)})</div>
 <p class="note" style="margin:1mm 0 3mm">${esc(g.what.en)}<br><span style="color:#5a6780">${esc(g.what.ko)}</span></p>
@@ -233,13 +242,13 @@ ${boxHtml('warn', g.mistakes.map((x) => `${x.en} / ${x.ko}`).join('\n'))}</div>`
 const EXTRAS = (() => { try { return JSON.parse(fs.readFileSync(path.join(ROOT, 'docs/writing-book/extras.json'), 'utf8')); } catch { return {}; } })();
 const bi = (o) => `${esc(o.en)}<br><small style="color:#5a6780">${esc(o.ko)}</small>`;
 function qScorePage(p) {
-  const q = Number((/^w(\d\d):/.exec(p.units[0]) || [])[1]); const e = EXTRAS[q]; if (!e) return '';
+  const q = partQ(p); const e = EXTRAS[q]; if (!e) return '';
   return `<div class="blk plain gd"><h2>How Question ${q} is scored</h2><div class="k">${q}번 채점 기준</div>
 <p class="note" style="margin:1mm 0 3mm">${esc(e.scoring.en)}<br><span style="color:#5a6780">${esc(e.scoring.ko)}</span></p>
 <table><thead><tr><th>Area · 영역</th><th>High score · 높은 점수</th><th>Lost points · 감점</th></tr></thead><tbody>${e.criteria.map((c) => `<tr><td>${bi(c.k)}</td><td>${bi(c.hi)}</td><td>${bi(c.lo)}</td></tr>`).join('')}</tbody></table></div>`;
 }
 function qWorkedPage(p) {
-  const q = Number((/^w(\d\d):/.exec(p.units[0]) || [])[1]); const e = EXTRAS[q]?.worked; if (!e) return '';
+  const q = partQ(p); const e = EXTRAS[q]?.worked; if (!e) return '';
   const x = TWM.TW_ITEMS.find((i) => i.id === e.item); if (!x) throw new Error('없는 문항 ' + e.item);
   const task = x.blanks ? `<div class="wp">${esc(x.passage)}</div>` : `<div class="wp">${esc(x.passage)}</div>${x.data ? `<ul class="wd">${x.data.map((d) => `<li>${esc(d)}</li>`).join('')}</ul>` : ''}`;
   const ans = x.blanks ? x.blanks.map((b) => `<div class="wl"><b>${esc(b.mark)}</b><span class="wans">${b.answers.slice(0, 2).map(esc).join(' &nbsp;/&nbsp; ')}</span></div>`).join('')
@@ -293,6 +302,7 @@ function unitBlock(u) {
       if (k !== 'ref') return `<div class="sec">${sr(si)}${secLabel(s, BLK[k][1])}${blockHtml(u, si, s, s.text)}</div>`;
       return `<div class="sec">${sr(si)}${secLabel(s)}<div class="note">${esc(s.text)}</div></div>`;
     }
+    if (s.type === 'flow') return `<div class="sec">${sr(si)}${secLabel(s)}<div class="flow">${s.steps.map((st) => `<div class="fs${st.blank ? ' bl' : ''}"><b>${esc(st.ko)}</b><span>${esc(st.en)}</span></div>`).join('<i class="ar">→</i>')}</div></div>`;
     if (s.type === 'example') return `<div class="sec">${sr(si)}${secLabel(s)}${exampleHtml(s)}</div>`;
     if (s.type === 'writing') return `<div class="sec wq">${sr(si)}${secLabel(s)}${writingHtml(s.raw)}</div>`;
     return `<div class="sec"${s.items.length <= 8 ? ' style="break-inside:avoid"' : ''}>${sr(si)}${secLabel(s)}${s.hint ? `<div class="hint">${esc(s.hint)}</div>` : ''}<ol class="pr" style="--qw:${qw(s.items)}">${s.items.map((x) => `<li${x.q.includes('___') ? ' class="fill"' : ''}>${qLine(x.q)}</li>`).join('')}</ol></div>`;
@@ -372,6 +382,7 @@ tbody tr:nth-child(even) td,tr:nth-child(even) td{background:transparent}td{bord
 .bx.warn{--c:#B3322D}.bx.more{--c:#5B6B86;border-style:dashed}.bx.pattern{--c:${ACC}}.bx.tip{--c:#2F5DA8}
 .bx .lg{position:absolute;left:3mm;top:-2.1mm;background:#fff;padding:0 1.8mm;display:flex;align-items:center;gap:1.2mm;font-size:6.8pt;font-weight:800;letter-spacing:.12em;color:var(--c);line-height:1.2}
 .bx .lg svg{width:3.3mm;height:3.3mm;stroke:var(--c);fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}.bx .lg small{font-weight:600;letter-spacing:0;color:#6b7a92;font-size:6.8pt}
+.flow{display:flex;align-items:stretch;gap:1.2mm;margin-top:2mm}.flow .fs{flex:1;border:.3mm solid ${ACC};border-radius:1.6mm;padding:2.4mm 1.8mm;text-align:center;background:#fff;display:flex;flex-direction:column;gap:.8mm;justify-content:center}.flow .fs b{font-size:8.8pt;color:${ACC}}.flow .fs span{font-size:7pt;color:#5a6780;line-height:1.3}.flow .fs.bl{background:${TINT};border-style:dashed}.flow .ar{align-self:center;color:${ACC};font-style:normal;font-weight:800;font-size:10pt}
 .bx .pp{display:flex;flex-direction:column;gap:2.2mm}.pt1 .fl{display:flex;align-items:center;flex-wrap:wrap;gap:0}
 .nd{display:inline-flex;align-items:center;padding:1.2mm 2.8mm;border-radius:1.3mm;font-weight:800}.nd.sl{border:.3mm dashed ${ACC};background:#F1F4FA;color:${ACC};font-size:8pt}.nd.fx{background:${ACC};color:#fff;font-size:9.6pt}
 .lk{font-style:normal;width:4mm;text-align:center;color:#9aa6bb;font-weight:800}.mn{margin-left:3mm;font-size:8.4pt;color:#2a3550}
@@ -391,7 +402,7 @@ tbody tr:nth-child(even) td,tr:nth-child(even) td{background:transparent}td{bord
 .toc .pt,.ak .u h4 span,.ix .ini,.memo h2{color:${ACC}}.how li:before{background:${ACC}}
 .ak .u h4{border-bottom-color:${ACC}}.tp .rule{background:${ACC}}
 `;
-const shell = (body) => `<!doctype html><html lang="en"><head><meta charset="utf-8"><link rel="stylesheet" href="/vendor/pretendard.css"><style>${CSS}${CLASSIC ? CLASSIC_CSS : ''}${reviewTop}</style></head><body>${body}</body></html>`;
+const shell = (body) => `<!doctype html><html lang="en"><head><meta charset="utf-8"><link rel="stylesheet" href="/vendor/pretendard.css"><style>${CSS}${CLASSIC ? CLASSIC_CSS : ''}${reviewTop}</style></head><body>${body.replace(/[㉠㉡㉢]/g, (c) => `<span class="cm">${{ '㉠': 'ㄱ', '㉡': 'ㄴ', '㉢': 'ㄷ' }[c]}</span>`)}</body></html>`;
 let pages = new Map();
 const server = http.createServer((req, res) => {
   const u = decodeURIComponent(new URL(req.url, 'http://x').pathname);

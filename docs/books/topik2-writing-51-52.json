@@ -52,6 +52,7 @@
  },
  "howto": {
   "en": [
+   "Each type starts with a guide page: how to read it, key expressions and a warm-up. Do the guide first, then the questions.",
    "Read the whole passage first. Decide who is speaking and to whom.",
    "Check the style of the sentences around the blank (formal -ㅂ니다 or plain -(느)ㄴ다) and match it.",
    "Write one natural sentence per blank. Do not repeat words from the text.",
@@ -60,6 +61,7 @@
    "Free practice and more books: everykoreans.com"
   ],
   "ko": [
+   "유형마다 안내 쪽으로 시작합니다 — 읽는 법 · 주요 표현 · 준비 운동. 안내를 먼저 하고 문제를 푸세요.",
    "지문 전체를 먼저 읽으세요. 누가 누구에게 하는 말인지 정합니다.",
    "빈칸 앞뒤 문장의 문체(-ㅂ니다체 또는 -(느)ㄴ다체)를 확인하고 맞추세요.",
    "빈칸마다 자연스러운 한 문장을 쓰세요. 지문의 낱말을 되풀이하지 않습니다.",
@@ -75,11 +77,14 @@
     "ko": "51번 · 실용문 완성"
    },
    "units": [
-    "w51:1",
-    "w51:2",
-    "w51:3",
-    "w51:4",
-    "w51:5"
+    "ig51-recruit",
+    "g51-recruit",
+    "ig51-sell",
+    "g51-sell",
+    "ig51-notice",
+    "g51-notice",
+    "ig51-ask",
+    "g51-ask"
    ]
   },
   {
@@ -88,14 +93,1167 @@
     "ko": "52번 · 설명문 완성"
    },
    "units": [
-    "w52:1",
-    "w52:2",
-    "w52:3",
-    "w52:4",
-    "w52:5"
+    "ig52-why",
+    "g52-why",
+    "ig52-effect",
+    "g52-effect",
+    "ig52-contrast",
+    "g52-contrast"
    ]
   }
  ],
  "noGuide": true,
- "noIndex": true
+ "noIndex": true,
+ "groups": {
+  "g51-recruit": {
+   "q": 51,
+   "title": {
+    "en": "Q51 · Recruiting & inviting",
+    "ko": "51번 · 모집 · 초대"
+   },
+   "sub": {
+    "en": "Notices that ask people to join, apply or come.",
+    "ko": "사람을 모으거나 초대하는 글"
+   },
+   "items": [
+    "w51-1",
+    "w51-4",
+    "w51-5",
+    "w51-10",
+    "w51-12",
+    "w51-15",
+    "w51-19",
+    "w51-20",
+    "w51-30",
+    "w51-34",
+    "w51-38",
+    "w51-45",
+    "w51-50"
+   ]
+  },
+  "g51-sell": {
+   "q": 51,
+   "title": {
+    "en": "Q51 · Selling, giving away, lost & found",
+    "ko": "51번 · 판매 · 나눔 · 분실"
+   },
+   "sub": {
+    "en": "Posts about things: selling, giving, losing, finding.",
+    "ko": "물건을 팔거나 나누고 잃어버리고 찾는 글"
+   },
+   "items": [
+    "w51-2",
+    "w51-3",
+    "w51-6",
+    "w51-9",
+    "w51-18",
+    "w51-21",
+    "w51-29",
+    "w51-40"
+   ]
+  },
+  "g51-notice": {
+   "q": 51,
+   "title": {
+    "en": "Q51 · Notices & announcements",
+    "ko": "51번 · 공지 · 안내"
+   },
+   "sub": {
+    "en": "Official notices: dates, reasons, requests for understanding.",
+    "ko": "일시 · 이유 · 양해를 알리는 안내문"
+   },
+   "items": [
+    "w51-7",
+    "w51-16",
+    "w51-24",
+    "w51-27",
+    "w51-31",
+    "w51-33",
+    "w51-35",
+    "w51-36",
+    "w51-37",
+    "w51-41",
+    "w51-44",
+    "w51-48",
+    "w51-49"
+   ]
+  },
+  "g51-ask": {
+   "q": 51,
+   "title": {
+    "en": "Q51 · Inquiries, applications & requests",
+    "ko": "51번 · 문의 · 신청 · 요청"
+   },
+   "sub": {
+    "en": "Messages to a teacher, office or shop: ask, apply, request.",
+    "ko": "교수님 · 담당자 · 가게에 묻고 신청하고 부탁하는 글"
+   },
+   "items": [
+    "w51-8",
+    "w51-11",
+    "w51-13",
+    "w51-14",
+    "w51-17",
+    "w51-22",
+    "w51-23",
+    "w51-25",
+    "w51-26",
+    "w51-28",
+    "w51-32",
+    "w51-39",
+    "w51-42",
+    "w51-43",
+    "w51-46",
+    "w51-47"
+   ]
+  },
+  "g52-why": {
+   "q": 52,
+   "title": {
+    "en": "Q52 · Why it happens (causes & principles)",
+    "ko": "52번 · 원인 · 원리"
+   },
+   "sub": {
+    "en": "Explanations of why something happens.",
+    "ko": "왜 그런지 설명하는 글"
+   },
+   "items": [
+    "w52-6",
+    "w52-11",
+    "w52-19",
+    "w52-23",
+    "w52-26",
+    "w52-31",
+    "w52-32",
+    "w52-33",
+    "w52-34",
+    "w52-36",
+    "w52-37",
+    "w52-38",
+    "w52-40",
+    "w52-41",
+    "w52-42",
+    "w52-44",
+    "w52-45",
+    "w52-46",
+    "w52-47",
+    "w52-48",
+    "w52-49",
+    "w52-50"
+   ]
+  },
+  "g52-effect": {
+   "q": 52,
+   "title": {
+    "en": "Q52 · Effects & influence",
+    "ko": "52번 · 효과 · 영향"
+   },
+   "sub": {
+    "en": "Explanations of what something does to us.",
+    "ko": "무엇이 어떤 영향을 주는지 설명하는 글"
+   },
+   "items": [
+    "w52-1",
+    "w52-5",
+    "w52-8",
+    "w52-12",
+    "w52-13",
+    "w52-14",
+    "w52-16",
+    "w52-17",
+    "w52-18",
+    "w52-20",
+    "w52-21",
+    "w52-24",
+    "w52-25",
+    "w52-27",
+    "w52-28",
+    "w52-29",
+    "w52-30",
+    "w52-35",
+    "w52-39",
+    "w52-43"
+   ]
+  },
+  "g52-contrast": {
+   "q": 52,
+   "title": {
+    "en": "Q52 · Contrast & caution",
+    "ko": "52번 · 대조 · 주의"
+   },
+   "sub": {
+    "en": "Texts that turn with “however” or warn about too much.",
+    "ko": "‘그러나’로 방향이 바뀌거나 지나침을 경계하는 글"
+   },
+   "items": [
+    "w52-2",
+    "w52-3",
+    "w52-4",
+    "w52-7",
+    "w52-9",
+    "w52-10",
+    "w52-15",
+    "w52-22"
+   ]
+  }
+ },
+ "inline": {
+  "ig51-recruit": {
+   "id": "ig51-recruit",
+   "title": {
+    "en": "Guide · Recruiting & inviting",
+    "ko": "안내 · 모집 · 초대"
+   },
+   "sub": {
+    "en": "Who can join, and how to ask them politely.",
+    "ko": "누가 참여하는지, 정중하게 부탁하는 법"
+   },
+   "sections": [
+    {
+     "type": "flow",
+     "title": {
+      "en": "Shape of the text",
+      "ko": "글의 틀"
+     },
+     "steps": [
+      {
+       "ko": "무엇을 하는 모임인가",
+       "en": "Who we are",
+       "blank": false
+      },
+      {
+       "ko": "활동 · 조건",
+       "en": "What we do",
+       "blank": false
+      },
+      {
+       "ko": "㉠ 참여 자격",
+       "en": "Who can join",
+       "blank": true
+      },
+      {
+       "ko": "㉡ 부탁 · 초대",
+       "en": "Invitation",
+       "blank": true
+      }
+     ]
+    },
+    {
+     "type": "text",
+     "title": {
+      "en": "How to read this type",
+      "ko": "이 유형 읽는 법"
+     },
+     "text": "These notices gather people. The first blank usually says who can join or what the group does; the last blank closes with a polite request or invitation. Keep the formal -ㅂ니다 style of the text.\n사람을 모으거나 초대하는 글입니다. 앞 빈칸에는 누가 참여할 수 있는지 · 무엇을 하는지가, 마지막 빈칸에는 정중한 부탁 · 초대가 들어갑니다. 지문의 격식체(-ㅂ니다)를 지키세요."
+    },
+    {
+     "type": "table",
+     "title": {
+      "en": "Key expressions",
+      "ko": "주요 표현"
+     },
+     "cols": [
+      "Use · 쓰임",
+      "Expression · 표현",
+      "Example · 예"
+     ],
+     "rows": [
+      [
+       "모집 Recruit",
+       "-을/를 모집합니다 · 구합니다",
+       "신입 회원을 모집합니다."
+      ],
+      [
+       "참여 자격 Who can join",
+       "-(으)ㄹ 수 있습니다",
+       "누구나 참여하실 수 있습니다."
+      ],
+      [
+       "신청 부탁 Ask to apply",
+       "-아/어 주시기 바랍니다",
+       "신청해 주시기 바랍니다."
+      ],
+      [
+       "초대 Invite",
+       "-에 초대합니다",
+       "전시회에 여러분을 초대합니다."
+      ],
+      [
+       "관심 Interest",
+       "-에 관심이 있는 분은",
+       "관심이 있는 분은 연락해 주십시오."
+      ],
+      [
+       "마감 Deadline",
+       "-까지 신청하실 수 있습니다",
+       "금요일까지 신청하실 수 있습니다."
+      ],
+      [
+       "기대 Hope",
+       "-을/를 기다리겠습니다",
+       "많은 참여를 기다리겠습니다."
+      ]
+     ]
+    },
+    {
+     "type": "text",
+     "title": {
+      "en": "Watch out",
+      "ko": "조심할 것"
+     },
+     "text": "Do not slip into -해요 (“신청해 주세요” is too casual here).\nDo not repeat the recruiting sentence from the text.\nDo not use -(으)시- for your own group: “저희가 모집하십니다” ✗.\n해요체(“신청해 주세요”)로 흐르지 마세요. 지문의 모집 문장을 되풀이하지 마세요. 내 쪽에 -(으)시-를 쓰지 마세요(“저희가 모집하십니다” ✗)."
+    },
+    {
+     "type": "practice",
+     "title": {
+      "en": "Warm-up · Fill in or fix",
+      "ko": "준비 운동 · 채우기 · 고치기"
+     },
+     "items": [
+      {
+       "q": "관심이 있는 분은 연락해 ______ . (요청, 격식)",
+       "a": "주십시오 / 주시기 바랍니다"
+      },
+      {
+       "q": "카메라가 없어도 누구나 참여할 ______ . (가능, 격식)",
+       "a": "수 있습니다"
+      },
+      {
+       "q": "전시회에 여러분을 ______ . (초대, 격식)",
+       "a": "초대합니다"
+      },
+      {
+       "q": "늦지 않게 신청해 주시기 ______ .",
+       "a": "바랍니다"
+      },
+      {
+       "q": "고치기: 같이 할 사람을 찾아요. →",
+       "a": "함께할 사람을 찾습니다."
+      },
+      {
+       "q": "고치기: 많이 와 주세요! →",
+       "a": "많은 참석을 바랍니다. / 많이 참석해 주시기 바랍니다."
+      }
+     ]
+    }
+   ]
+  },
+  "ig51-sell": {
+   "id": "ig51-sell",
+   "title": {
+    "en": "Guide · Selling, giving away, lost & found",
+    "ko": "안내 · 판매 · 나눔 · 분실"
+   },
+   "sub": {
+    "en": "Condition, reason and how to get in touch.",
+    "ko": "상태 · 사정 · 연락 방법"
+   },
+   "sections": [
+    {
+     "type": "flow",
+     "title": {
+      "en": "Shape of the text",
+      "ko": "글의 틀"
+     },
+     "steps": [
+      {
+       "ko": "무엇인가",
+       "en": "The item",
+       "blank": false
+      },
+      {
+       "ko": "상태 · 사정",
+       "en": "Condition / reason",
+       "blank": false
+      },
+      {
+       "ko": "㉠ 상태 · 조건",
+       "en": "Condition",
+       "blank": true
+      },
+      {
+       "ko": "㉡ 연락 방법",
+       "en": "How to reach me",
+       "blank": true
+      }
+     ]
+    },
+    {
+     "type": "text",
+     "title": {
+      "en": "How to read this type",
+      "ko": "이 유형 읽는 법"
+     },
+     "text": "Posts about things. One blank gives the condition or the reason (moving away, rarely used); the other says how to collect it or get in touch. Keep -ㅂ니다 and polite requests.\n물건을 팔거나 나누고, 잃어버리거나 찾는 글입니다. 한 빈칸은 상태나 사정(이사 · 거의 안 씀)을, 다른 빈칸은 가져가는 법 · 연락 방법을 씁니다. -ㅂ니다체와 정중한 부탁을 지키세요."
+    },
+    {
+     "type": "table",
+     "title": {
+      "en": "Key expressions",
+      "ko": "주요 표현"
+     },
+     "cols": [
+      "Use · 쓰임",
+      "Expression · 표현",
+      "Example · 예"
+     ],
+     "rows": [
+      [
+       "판매 Sell",
+       "-ㅂ니다 · 팝니다",
+       "자전거를 팝니다."
+      ],
+      [
+       "나눔 Give away",
+       "무료로 드립니다 · 나눔합니다",
+       "책상을 무료로 드립니다."
+      ],
+      [
+       "상태 Condition",
+       "-아/어서 상태가 좋습니다",
+       "한 번밖에 쓰지 않아서 상태가 좋습니다."
+      ],
+      [
+       "연락 Contact",
+       "-아/어 주시기 바랍니다",
+       "관심이 있으신 분은 연락해 주시기 바랍니다."
+      ],
+      [
+       "분실 Lost",
+       "-을/를 잃어버렸습니다 · 찾습니다",
+       "지갑을 잃어버렸습니다."
+      ],
+      [
+       "습득 Found",
+       "-을/를 보관하고 있습니다",
+       "관리사무소에서 보관하고 있습니다."
+      ],
+      [
+       "사례 Reward",
+       "사례하겠습니다",
+       "찾아 주시는 분께 사례하겠습니다."
+      ]
+     ]
+    },
+    {
+     "type": "text",
+     "title": {
+      "en": "Watch out",
+      "ko": "조심할 것"
+     },
+     "text": "“팔아요” ✗ → “팝니다” ✓. “연락 줘요” ✗ → “연락 주시기 바랍니다” ✓.\nOne sentence per blank, in the same style as the text.\n“팔아요”가 아니라 “팝니다”, “연락 줘요”가 아니라 “연락 주시기 바랍니다”. 빈칸마다 한 문장, 지문과 같은 문체로."
+    },
+    {
+     "type": "practice",
+     "title": {
+      "en": "Warm-up · Fill in or fix",
+      "ko": "준비 운동 · 채우기 · 고치기"
+     },
+     "items": [
+      {
+       "q": "찾아 주시는 분께 ______ . (사례)",
+       "a": "사례하겠습니다"
+      },
+      {
+       "q": "사용하던 책상을 무료로 ______ . (나눔)",
+       "a": "드립니다 / 나눔합니다"
+      },
+      {
+       "q": "관심이 있으신 분은 아래 번호로 ______ 주시기 바랍니다.",
+       "a": "연락해"
+      },
+      {
+       "q": "이어폰을 ______ . (잃어버림)",
+       "a": "잃어버렸습니다 / 찾습니다"
+      },
+      {
+       "q": "고치기: 지갑을 주웠어요. →",
+       "a": "지갑을 주웠습니다. / 지갑을 습득하였습니다."
+      }
+     ]
+    }
+   ]
+  },
+  "ig51-notice": {
+   "id": "ig51-notice",
+   "title": {
+    "en": "Guide · Notices & announcements",
+    "ko": "안내 · 공지 · 안내문"
+   },
+   "sub": {
+    "en": "Date, reason, and a request for understanding.",
+    "ko": "일시 · 이유 · 양해 부탁"
+   },
+   "sections": [
+    {
+     "type": "flow",
+     "title": {
+      "en": "Shape of the text",
+      "ko": "글의 틀"
+     },
+     "steps": [
+      {
+       "ko": "인사 · 대상",
+       "en": "Greeting",
+       "blank": false
+      },
+      {
+       "ko": "일시 · 내용",
+       "en": "Date / what",
+       "blank": false
+      },
+      {
+       "ko": "㉠ 이유 · 불편",
+       "en": "Reason / trouble",
+       "blank": true
+      },
+      {
+       "ko": "㉡ 양해 · 협조",
+       "en": "Request",
+       "blank": true
+      }
+     ]
+    },
+    {
+     "type": "text",
+     "title": {
+      "en": "How to read this type",
+      "ko": "이 유형 읽는 법"
+     },
+     "text": "Notices from an office or building. They give the date and the reason (safety, repair), then ask readers to understand or cooperate. The last blank is often an apology or a request.\n건물 · 기관의 안내문입니다. 일시와 이유(안전 · 공사)를 알린 뒤 양해나 협조를 부탁합니다. 마지막 빈칸은 사과나 부탁인 경우가 많습니다."
+    },
+    {
+     "type": "table",
+     "title": {
+      "en": "Key expressions",
+      "ko": "주요 표현"
+     },
+     "cols": [
+      "Use · 쓰임",
+      "Expression · 표현",
+      "Example · 예"
+     ],
+     "rows": [
+      [
+       "알림 Announce",
+       "-을/를 알려 드립니다 · 안내해 드립니다",
+       "공사 일정을 안내해 드립니다."
+      ],
+      [
+       "기간 Period",
+       "-부터 -까지 진행됩니다",
+       "10일부터 15일까지 진행됩니다."
+      ],
+      [
+       "이유 Reason",
+       "-을/를 위해 -을/를 실시합니다",
+       "안전을 위해 점검을 실시합니다."
+      ],
+      [
+       "사과 Apology",
+       "불편을 드려 죄송합니다",
+       "이용에 불편을 드려 죄송합니다."
+      ],
+      [
+       "양해 Understanding",
+       "양해해 주시기 바랍니다",
+       "주민 여러분의 양해를 부탁드립니다."
+      ],
+      [
+       "협조 Cooperation",
+       "협조해 주시기 바랍니다",
+       "많은 협조를 부탁드립니다."
+      ],
+      [
+       "이용 제한 Restriction",
+       "-을/를 이용할 수 없습니다",
+       "엘리베이터를 이용할 수 없습니다."
+      ]
+     ]
+    },
+    {
+     "type": "text",
+     "title": {
+      "en": "Watch out",
+      "ko": "조심할 것"
+     },
+     "text": "“공사해요” ✗ → “공사가 진행됩니다” ✓. “이해해 주세요” ✗ → “양해해 주시기 바랍니다” ✓.\nA notice speaks for an office: keep it formal and impersonal.\n공지는 기관이 말하는 글입니다 — 격식체로, 개인적인 말투를 피하세요."
+    },
+    {
+     "type": "practice",
+     "title": {
+      "en": "Warm-up · Fill in or fix",
+      "ko": "준비 운동 · 채우기 · 고치기"
+     },
+     "items": [
+      {
+       "q": "공사로 불편을 드려 ______ .",
+       "a": "죄송합니다"
+      },
+      {
+       "q": "주민 여러분의 많은 ______ 부탁드립니다.",
+       "a": "협조를"
+      },
+      {
+       "q": "점검 시간에는 승강기를 ______ . (이용 불가)",
+       "a": "이용하실 수 없습니다 / 이용할 수 없습니다"
+      },
+      {
+       "q": "안전을 ______ 정기 점검을 실시합니다.",
+       "a": "위해"
+      },
+      {
+       "q": "고치기: 내일 공사해요. 이해해 주세요. →",
+       "a": "내일 공사가 진행됩니다. 양해해 주시기 바랍니다."
+      }
+     ]
+    }
+   ]
+  },
+  "ig51-ask": {
+   "id": "ig51-ask",
+   "title": {
+    "en": "Guide · Inquiries, applications & requests",
+    "ko": "안내 · 문의 · 신청 · 요청"
+   },
+   "sub": {
+    "en": "Humble, polite language to a person you respect.",
+    "ko": "높여야 하는 사람에게 쓰는 겸손한 말"
+   },
+   "sections": [
+    {
+     "type": "flow",
+     "title": {
+      "en": "Shape of the text",
+      "ko": "글의 틀"
+     },
+     "steps": [
+      {
+       "ko": "인사 · 소개",
+       "en": "Who I am",
+       "blank": false
+      },
+      {
+       "ko": "용건",
+       "en": "Why I write",
+       "blank": false
+      },
+      {
+       "ko": "㉠ 내 사정 · 필요",
+       "en": "My situation",
+       "blank": true
+      },
+      {
+       "ko": "㉡ 부탁 · 질문",
+       "en": "My request",
+       "blank": true
+      }
+     ]
+    },
+    {
+     "type": "text",
+     "title": {
+      "en": "How to read this type",
+      "ko": "이 유형 읽는 법"
+     },
+     "text": "You write to a professor, an office or a shop. Use the humble forms (문의드립니다, 부탁드립니다, 신청하고자 합니다). One blank states your situation or need; the other asks the question or makes the request.\n교수님 · 담당자 · 가게에 쓰는 글입니다. 겸손한 표현(문의드립니다 · 부탁드립니다 · 신청하고자 합니다)을 씁니다. 한 빈칸은 내 사정 · 필요를, 다른 빈칸은 질문 · 부탁을 씁니다."
+    },
+    {
+     "type": "table",
+     "title": {
+      "en": "Key expressions",
+      "ko": "주요 표현"
+     },
+     "cols": [
+      "Use · 쓰임",
+      "Expression · 표현",
+      "Example · 예"
+     ],
+     "rows": [
+      [
+       "문의 Inquire",
+       "-에 대해 문의드립니다",
+       "수강료에 대해 문의드립니다."
+      ],
+      [
+       "신청 Apply",
+       "-을/를 신청하고자 합니다",
+       "강의실 대여를 신청하고자 합니다."
+      ],
+      [
+       "부탁 Request",
+       "-기를 부탁드립니다",
+       "추천서를 써 주시기를 부탁드립니다."
+      ],
+      [
+       "감사 Thanks in advance",
+       "-아/어 주시면 감사하겠습니다",
+       "답변해 주시면 감사하겠습니다."
+      ],
+      [
+       "확인 Confirm",
+       "-는지 알고 싶습니다",
+       "환불이 가능한지 알고 싶습니다."
+      ],
+      [
+       "사정 Reason",
+       "-아/어서 · 개인 사정으로",
+       "개인 사정으로 수강을 취소하려고 합니다."
+      ],
+      [
+       "회신 Reply",
+       "회신을 기다리겠습니다",
+       "빠른 회신을 기다리겠습니다."
+      ]
+     ]
+    },
+    {
+     "type": "text",
+     "title": {
+      "en": "Watch out",
+      "ko": "조심할 것"
+     },
+     "text": "“답해 주십시오” sounds like an order to a professor → “답변해 주시면 감사하겠습니다”.\nNever use -(으)시- for your own action.\n교수님께 “답해 주십시오”는 명령처럼 들립니다 → “답변해 주시면 감사하겠습니다”. 내 행동에는 -(으)시-를 쓰지 않습니다."
+    },
+    {
+     "type": "practice",
+     "title": {
+      "en": "Warm-up · Fill in or fix",
+      "ko": "준비 운동 · 채우기 · 고치기"
+     },
+     "items": [
+      {
+       "q": "수강을 ______ 하고자 합니다.",
+       "a": "신청"
+      },
+      {
+       "q": "답변해 주시면 ______ .",
+       "a": "감사하겠습니다"
+      },
+      {
+       "q": "환불이 가능한지 ______ . (알고 싶음)",
+       "a": "알고 싶습니다"
+      },
+      {
+       "q": "추천서를 써 주시기를 ______ .",
+       "a": "부탁드립니다"
+      },
+      {
+       "q": "고치기: 환불해 줘요. →",
+       "a": "환불해 주시기 바랍니다. / 환불을 부탁드립니다."
+      }
+     ]
+    }
+   ]
+  },
+  "ig52-why": {
+   "id": "ig52-why",
+   "title": {
+    "en": "Guide · Why it happens",
+    "ko": "안내 · 원인 · 원리"
+   },
+   "sub": {
+    "en": "Cause words and the plain style.",
+    "ko": "이유를 나타내는 말과 -(느)ㄴ다체"
+   },
+   "sections": [
+    {
+     "type": "flow",
+     "title": {
+      "en": "Shape of the text",
+      "ko": "글의 틀"
+     },
+     "steps": [
+      {
+       "ko": "현상",
+       "en": "The phenomenon",
+       "blank": false
+      },
+      {
+       "ko": "이유 설명",
+       "en": "Why",
+       "blank": false
+      },
+      {
+       "ko": "㉠ 과정 · 결과",
+       "en": "Process / result",
+       "blank": true
+      },
+      {
+       "ko": "㉡ 정리",
+       "en": "Wrap-up",
+       "blank": true
+      }
+     ]
+    },
+    {
+     "type": "text",
+     "title": {
+      "en": "How to read this type",
+      "ko": "이 유형 읽는 법"
+     },
+     "text": "The text explains why something happens. A blank often needs a reason ending in -기 때문이다, or a result that follows. Close in the plain style (-ㄴ다\n-는다\n-이다).\n왜 그런지 설명하는 글입니다. 빈칸에는 -기 때문이다로 끝나는 이유나, 그 결과가 들어갑니다. -(느)ㄴ다체(-ㄴ다\n-는다\n-이다)로 닫으세요."
+    },
+    {
+     "type": "table",
+     "title": {
+      "en": "Key expressions",
+      "ko": "주요 표현"
+     },
+     "cols": [
+      "Use · 쓰임",
+      "Expression · 표현",
+      "Example · 예"
+     ],
+     "rows": [
+      [
+       "이유 Reason",
+       "-기 때문이다",
+       "열이 나기 때문이다."
+      ],
+      [
+       "설명 Explain",
+       "이는 -기 때문이다",
+       "이는 공기가 건조하기 때문이다."
+      ],
+      [
+       "이유 Because",
+       "왜냐하면 -기 때문이다",
+       "왜냐하면 빛이 흩어지기 때문이다."
+      ],
+      [
+       "과정 Process",
+       "-(으)면 -게 된다",
+       "빛을 받으면 줄기가 휘게 된다."
+      ],
+      [
+       "결과 Result",
+       "그 결과 · 따라서",
+       "그 결과 체온이 일정하게 유지된다."
+      ],
+      [
+       "목적 Purpose",
+       "-기 위해 -(으)ㄴ다",
+       "열을 식히기 위해 땀이 난다."
+      ]
+     ]
+    },
+    {
+     "type": "text",
+     "title": {
+      "en": "Watch out",
+      "ko": "조심할 것"
+     },
+     "text": "“왜냐하면” must end in “-기 때문이다”, not “-아서”.\nDo not end with -해요 / -합니다: use the plain style.\n“왜냐하면”은 “-기 때문이다”로 끝맺습니다. -해요 · -합니다로 끝내지 말고 -(느)ㄴ다체로 쓰세요."
+    },
+    {
+     "type": "practice",
+     "title": {
+      "en": "Warm-up · Fill in or fix",
+      "ko": "준비 운동 · 채우기 · 고치기"
+     },
+     "items": [
+      {
+       "q": "가스가 눈을 자극하 ______ 때문이다.",
+       "a": "기"
+      },
+      {
+       "q": "열을 식히기 ______ 땀이 난다.",
+       "a": "위해"
+      },
+      {
+       "q": "그 ______ 몸의 온도가 일정하게 유지된다.",
+       "a": "결과"
+      },
+      {
+       "q": "고치기: 땀이 나요. →",
+       "a": "땀이 난다."
+      },
+      {
+       "q": "고치기: 겨울에는 정전기가 많이 생겨요. →",
+       "a": "겨울에는 정전기가 많이 생긴다."
+      }
+     ]
+    }
+   ]
+  },
+  "ig52-effect": {
+   "id": "ig52-effect",
+   "title": {
+    "en": "Guide · Effects & influence",
+    "ko": "안내 · 효과 · 영향"
+   },
+   "sub": {
+    "en": "Influence verbs and closing advice.",
+    "ko": "영향을 나타내는 말과 마무리 조언"
+   },
+   "sections": [
+    {
+     "type": "flow",
+     "title": {
+      "en": "Shape of the text",
+      "ko": "글의 틀"
+     },
+     "steps": [
+      {
+       "ko": "주제",
+       "en": "Topic",
+       "blank": false
+      },
+      {
+       "ko": "좋은 영향",
+       "en": "Good effect",
+       "blank": false
+      },
+      {
+       "ko": "㉠ 구체적 결과",
+       "en": "Concrete result",
+       "blank": true
+      },
+      {
+       "ko": "㉡ 조언 · 정리",
+       "en": "Advice",
+       "blank": true
+      }
+     ]
+    },
+    {
+     "type": "text",
+     "title": {
+      "en": "How to read this type",
+      "ko": "이 유형 읽는 법"
+     },
+     "text": "The text says what something does to health or the mind. A blank often needs “has an influence on” or a result, and the last blank may give advice (-는 것이 좋다).\n무엇이 건강 · 마음에 어떤 영향을 주는지 설명합니다. 빈칸에는 ‘영향을 미친다’ 같은 말이나 결과가, 마지막 빈칸에는 조언(-는 것이 좋다)이 올 수 있습니다."
+    },
+    {
+     "type": "table",
+     "title": {
+      "en": "Key expressions",
+      "ko": "주요 표현"
+     },
+     "cols": [
+      "Use · 쓰임",
+      "Expression · 표현",
+      "Example · 예"
+     ],
+     "rows": [
+      [
+       "영향 Influence",
+       "-에 영향을 미친다",
+       "수면은 기억력에 영향을 미친다."
+      ],
+      [
+       "도움 Helps",
+       "-에 도움이 된다",
+       "걷기는 건강에 도움이 된다."
+      ],
+      [
+       "향상 Improves",
+       "-이/가 높아진다 · 좋아진다",
+       "집중력이 높아진다."
+      ],
+      [
+       "추가 Not only",
+       "-뿐만 아니라 -도",
+       "체력뿐만 아니라 정신 건강에도 좋다."
+      ],
+      [
+       "조언 Advice",
+       "-는 것이 좋다 · -아/어야 한다",
+       "규칙적으로 운동하는 것이 좋다."
+      ],
+      [
+       "가능 Possible",
+       "-(으)ㄹ 수 있다",
+       "스트레스를 줄일 수 있다."
+      ]
+     ]
+    },
+    {
+     "type": "text",
+     "title": {
+      "en": "Watch out",
+      "ko": "조심할 것"
+     },
+     "text": "Use -(으)ㄹ 수 있다 for possibilities; avoid “always” claims.\nKeep one subject per sentence so the predicate fits.\n가능성은 -(으)ㄹ 수 있다로, “항상 ~한다”처럼 단정하지 마세요. 문장마다 주어를 하나로 두어 서술어가 맞게 하세요."
+    },
+    {
+     "type": "practice",
+     "title": {
+      "en": "Warm-up · Fill in or fix",
+      "ko": "준비 운동 · 채우기 · 고치기"
+     },
+     "items": [
+      {
+       "q": "걷기는 건강에 도움이 ______ .",
+       "a": "된다"
+      },
+      {
+       "q": "스트레스는 면역력에 나쁜 영향을 ______ .",
+       "a": "미친다"
+      },
+      {
+       "q": "규칙적인 운동은 체력뿐만 ______ 정신 건강에도 좋다.",
+       "a": "아니라"
+      },
+      {
+       "q": "충분히 잠을 자는 것이 ______ .",
+       "a": "좋다"
+      },
+      {
+       "q": "고치기: 웃으면 기분이 좋아져요. →",
+       "a": "웃으면 기분이 좋아진다."
+      }
+     ]
+    }
+   ]
+  },
+  "ig52-contrast": {
+   "id": "ig52-contrast",
+   "title": {
+    "en": "Guide · Contrast & caution",
+    "ko": "안내 · 대조 · 주의"
+   },
+   "sub": {
+    "en": "Turn the text with “however”.",
+    "ko": "‘그러나’로 방향을 바꾸는 법"
+   },
+   "sections": [
+    {
+     "type": "flow",
+     "title": {
+      "en": "Shape of the text",
+      "ko": "글의 틀"
+     },
+     "steps": [
+      {
+       "ko": "일반적인 생각",
+       "en": "What people think",
+       "blank": false
+      },
+      {
+       "ko": "그러나",
+       "en": "However",
+       "blank": false
+      },
+      {
+       "ko": "㉠ 반대 사실",
+       "en": "The other side",
+       "blank": true
+      },
+      {
+       "ko": "㉡ 균형 · 결론",
+       "en": "Balance",
+       "blank": true
+      }
+     ]
+    },
+    {
+     "type": "text",
+     "title": {
+      "en": "How to read this type",
+      "ko": "이 유형 읽는 법"
+     },
+     "text": "These texts turn with 그러나\n하지만, or warn that too much is harmful. The blank after the link word must point the opposite way; the final blank often states the balance (-는 것이 중요하다).\n‘그러나 · 하지만’으로 방향이 바뀌거나 지나침을 경계하는 글입니다. 연결어 뒤 빈칸은 앞과 반대 방향이고, 마지막 빈칸은 균형(-는 것이 중요하다)을 말하는 경우가 많습니다."
+    },
+    {
+     "type": "table",
+     "title": {
+      "en": "Key expressions",
+      "ko": "주요 표현"
+     },
+     "cols": [
+      "Use · 쓰임",
+      "Expression · 표현",
+      "Example · 예"
+     ],
+     "rows": [
+      [
+       "대조 Contrast",
+       "그러나 · 하지만 · 반면에",
+       "그러나 지나치면 오히려 해롭다."
+      ],
+      [
+       "양보 Although",
+       "-기는 하지만 · -지만",
+       "도움이 되기는 하지만 한계가 있다."
+      ],
+      [
+       "지나침 Too much",
+       "지나치면 오히려 -(으)ㄹ 수 있다",
+       "지나치면 오히려 해로울 수 있다."
+      ],
+      [
+       "조건 In order to",
+       "-(으)려면 -아/어야 한다",
+       "성공하려면 꾸준히 해야 한다."
+      ],
+      [
+       "결론 Therefore",
+       "따라서 · 그러므로",
+       "따라서 적당히 하는 것이 중요하다."
+      ],
+      [
+       "주의 Be careful",
+       "-지 않도록 주의해야 한다",
+       "무리하지 않도록 주의해야 한다."
+      ]
+     ]
+    },
+    {
+     "type": "text",
+     "title": {
+      "en": "Watch out",
+      "ko": "조심할 것"
+     },
+     "text": "After 그러나 the sentence must point the other way; do not add 그리고.\nEnd in the plain style.\n그러나 뒤 문장은 앞과 반대 방향이어야 합니다(그리고를 붙이지 마세요). -(느)ㄴ다체로 닫으세요."
+    },
+    {
+     "type": "practice",
+     "title": {
+      "en": "Warm-up · Fill in or fix",
+      "ko": "준비 운동 · 채우기 · 고치기"
+     },
+     "items": [
+      {
+       "q": "계획은 중요하다. ______ 지나치게 빡빡하면 포기하기 쉽다.",
+       "a": "그러나 / 하지만"
+      },
+      {
+       "q": "적당히 먹는 것이 ______ .",
+       "a": "중요하다"
+      },
+      {
+       "q": "지나치게 많이 마시면 ______ 해로울 수 있다.",
+       "a": "오히려"
+      },
+      {
+       "q": "무리하지 ______ 주의해야 한다.",
+       "a": "않도록"
+      },
+      {
+       "q": "고치기: 너무 많이 하면 힘들어요. →",
+       "a": "너무 많이 하면 힘들다."
+      }
+     ]
+    }
+   ]
+  }
+ },
+ "blocks": {
+  "ig51-recruit:2": "tip",
+  "ig51-recruit:4": "warn",
+  "ig51-sell:2": "tip",
+  "ig51-sell:4": "warn",
+  "ig51-notice:2": "tip",
+  "ig51-notice:4": "warn",
+  "ig51-ask:2": "tip",
+  "ig51-ask:4": "warn",
+  "ig52-why:2": "tip",
+  "ig52-why:4": "warn",
+  "ig52-effect:2": "tip",
+  "ig52-effect:4": "warn",
+  "ig52-contrast:2": "tip",
+  "ig52-contrast:4": "warn"
+ }
 }
