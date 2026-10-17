@@ -224,6 +224,31 @@ function qGuidePage(p) {
 <table><thead><tr><th>Use · 쓰임</th><th>Expressions · 표현</th></tr></thead><tbody>${g.phrases.map((x) => `<tr><td>${both(x)}</td><td>${esc(x.ex)}</td></tr>`).join('')}</tbody></table>
 ${boxHtml('warn', g.mistakes.map((x) => `${x.en} / ${x.ko}`).join('\n'))}</div>`;
 }
+/* 쓰기 책 보강(docs/writing-book/extras.json) — 번호마다 「채점 기준」 쪽 + 「예시 풀이」 쪽. 문항 글 · 모범답안 · 상중하 답안은 topik-writing.js 에서 그대로. */
+const EXTRAS = (() => { try { return JSON.parse(fs.readFileSync(path.join(ROOT, 'docs/writing-book/extras.json'), 'utf8')); } catch { return {}; } })();
+const bi = (o) => `${esc(o.en)}<br><small style="color:#5a6780">${esc(o.ko)}</small>`;
+function qScorePage(p) {
+  const q = Number((/^w(\d\d):/.exec(p.units[0]) || [])[1]); const e = EXTRAS[q]; if (!e) return '';
+  return `<div class="blk plain gd"><h2>How Question ${q} is scored</h2><div class="k">${q}번 채점 기준</div>
+<p class="note" style="margin:1mm 0 3mm">${esc(e.scoring.en)}<br><span style="color:#5a6780">${esc(e.scoring.ko)}</span></p>
+<table><thead><tr><th>Area · 영역</th><th>High score · 높은 점수</th><th>Lost points · 감점</th></tr></thead><tbody>${e.criteria.map((c) => `<tr><td>${bi(c.k)}</td><td>${bi(c.hi)}</td><td>${bi(c.lo)}</td></tr>`).join('')}</tbody></table></div>`;
+}
+function qWorkedPage(p) {
+  const q = Number((/^w(\d\d):/.exec(p.units[0]) || [])[1]); const e = EXTRAS[q]?.worked; if (!e) return '';
+  const x = TWM.TW_ITEMS.find((i) => i.id === e.item); if (!x) throw new Error('없는 문항 ' + e.item);
+  const task = x.blanks ? `<div class="wp">${esc(x.passage)}</div>` : `<div class="wp">${esc(x.passage)}</div>${x.data ? `<ul class="wd">${x.data.map((d) => `<li>${esc(d)}</li>`).join('')}</ul>` : ''}`;
+  const ans = x.blanks ? x.blanks.map((b) => `<div class="wl"><b>${esc(b.mark)}</b><span class="wans">${b.answers.slice(0, 2).map(esc).join(' &nbsp;/&nbsp; ')}</span></div>`).join('')
+    : `<div class="wp" style="white-space:pre-line">${esc(x.model)}</div>`;
+  const an = (e.analysis || []).map((a) => `<li>${bi(a)}</li>`).join('')
+    || (x.samples || []).map((sm) => `<li><b>${esc(sm.level)} · ${sm.total}점</b> — ${esc(sm.why)}</li>`).join('');
+  const h3 = (t) => `<h3 style="font-size:10.4pt;margin:3mm 0 1.4mm;color:#1f3a68">${t}</h3>`;
+  const stepsHtml = `${h3('Step by step · 풀이 순서')}<ol style="margin:0 0 2mm;padding-left:5mm;font-size:9.4pt;line-height:1.55">${e.steps.map((st) => `<li>${bi(st)}</li>`).join('')}</ol>`;
+  const ansHtml = `${h3('Model answer · 모범답안')}${ans}${an ? `${h3('Answer analysis · 답안 분석')}<ul style="margin:0;padding-left:5mm;font-size:9.2pt;line-height:1.55">${an}</ul>` : ''}`;
+  const head = `<h2>Worked example · Question ${q}</h2><div class="k">${q}번 예시 풀이 — ${esc(x.title)}</div>`;
+  /* 53 · 54번은 모범답안이 길어 한 쪽에 안 들어간다 — 문제 · 풀이 순서 / 모범답안 · 분석으로 두 쪽 */
+  return x.blanks ? `<div class="blk plain gd">${head}${task}${stepsHtml}${ansHtml}</div>`
+    : `<div class="blk plain gd">${head}${task}${stepsHtml}</div><div class="blk plain gd"><h2>Worked example · Question ${q} <small style="font-weight:500;color:#5a6780">(continued · 이어서)</small></h2>${ansHtml}</div>`;
+}
 function partPage(p) {
   return `<div class="blk pd"><div class="no">PART ${p.no}</div><div class="big">${String(p.no).padStart(2, '0')}</div><h2>${esc(p.title.ko)}</h2><h3>${esc(p.title.en)}</h3>
 <div class="list">${p.sheets.map((s) => { const u = units.find((x) => x.id === s.id); return `Unit ${String(u.no).padStart(2, '0')} &nbsp; ${esc(s.title.en)}`; }).join('<br>')}</div></div>`;
@@ -387,7 +412,7 @@ const countPages = (buf) => (buf.toString('latin1').match(/\/Type\s*\/Page(?![s\
 const entries = indexEntries();
 const blocks = B.compact ? parts.flatMap((p) => p.sheets.map((sh) => { const u = units.find((x) => x.id === sh.id); return [`unit${u.no}`, unitBlock(u)]; })) : [
   ['title', titlePage()], ['copyright', copyrightPage()], ['preface', prefacePage()], ['how', howPage()], ...(B.noGuide ? [] : [['guide', guidePage()]]), ['toc', tocPage(null)],
-  ...parts.flatMap((p) => [[`part${p.no}`, partPage(p)], ...(TWM ? [[`qguide${p.no}`, qGuidePage(p)]] : []), ...p.sheets.map((s) => { const u = units.find((x) => x.id === s.id); return [`unit${u.no}`, unitBlock(u)]; })]),
+  ...parts.flatMap((p) => [[`part${p.no}`, partPage(p)], ...(TWM ? [[`qguide${p.no}`, qGuidePage(p)], [`qscore${p.no}`, qScorePage(p)], [`qworked${p.no}`, qWorkedPage(p)]] : []), ...p.sheets.map((s) => { const u = units.find((x) => x.id === s.id); return [`unit${u.no}`, unitBlock(u)]; })]),
   ['answers', answersBlock()], ...(B.noIndex ? [] : [['index', indexBlock(entries)]]),
 ];
 const counts = {};
