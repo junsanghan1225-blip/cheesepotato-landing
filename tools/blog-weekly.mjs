@@ -1,6 +1,6 @@
 // 블로그 주간 정리 초안 — 그 주 인스타에 올린 낱말 · 문법 · 오늘의 TOPIK 을 글 한 편으로 묶는다(운영자 결정 2026-10-03).
 //
-//   node tools/blog-weekly.mjs [--end 2026-10-11]        끝 날(한국 날짜, 비우면 오늘)부터 거꾸로 7일
+//   node tools/blog-weekly.mjs [--end 2026-10-11] [--days 4]   끝 날(한국 날짜, 비우면 오늘)부터 거꾸로 7일(--days 로 바꿈 — 주 2회 올릴 때는 4: 수요일 · 일요일 글이 겹치지 않게)
 //
 // 매일 자동 글을 찍어 내면 검색에서 「대량 자동 생성」으로 보일 수 있어 **일주일에 한 편, 초안으로만** 만든다.
 // blog.js 맨 앞에 글을 넣고 끝난다 — 워크플로(.github/workflows/blog-weekly.yml)가 build-pages · stamp 를 돌려 PR 로 올리고,
@@ -21,7 +21,8 @@ export const OP_NOTE = '<!-- 운영자 한마디 -->';
 
 const end = arg('end') || todayKst();
 if (!/^\d{4}-\d{2}-\d{2}$/.test(end)) { console.error('날짜는 2026-10-11 꼴로'); process.exit(1); }
-const start = addDays(end, -6);
+const NDAYS = Math.max(1, Math.min(14, Number(arg('days', 7)) || 7));   // 운영자 2026-10-17 「블로그는 주 2회」 → 워크플로가 4일씩(수 · 일)
+const start = addDays(end, -(NDAYS - 1));
 const id = `weekly-korean-${end}`;
 
 const [P, V, S, G, GW, T] = await Promise.all(['insta-pick.js', 'vocab-topik1.js', 'sentences.js', 'grammar-en.js', 'grammar-words.js', 'topik.js'].map(imp));
@@ -29,7 +30,7 @@ const pick = P.makePicker({ VOCAB: V.VOCAB, VOCAB_TOPICS: V.VOCAB_TOPICS, SB_CAT
 const blogSrc = fs.readFileSync(path.join(ROOT, 'blog.js'), 'utf8');
 if (blogSrc.includes(`id: '${id}'`) || blogSrc.includes(`"id": "${id}"`)) { console.log(`이미 있는 글 — ${id}`); process.exit(0); }
 
-const days = Array.from({ length: 7 }, (_, i) => addDays(start, i));
+const days = Array.from({ length: NDAYS }, (_, i) => addDays(start, i));
 const topics = [], grams = [], quiz = [], seen = new Set();
 for (const d of days) {
   const x = pick.day(d);

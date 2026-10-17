@@ -27,7 +27,8 @@ const THEME = args.includes('--theme') ? args[args.indexOf('--theme') + 1] : (B.
 const CLASSIC = THEME === 'classic';
 /* 문제은행 단원 「w51:2」 = TOPIK II 쓰기 51번의 2번째 10문항(topik-writing.js). 학습지 JSON 대신 이 자리에서 단원 모양으로 만든다. */
 const BANKQ = { 51: ['Practical Text Completion', '실용문 완성', 'Fill each blank with one sentence that fits the text and its style.', '각 빈칸에 지문의 문체에 맞는 한 문장을 써요'], 52: ['Explanatory Text Completion', '설명문 완성', 'Fill each blank with one sentence in the -(느)ㄴ다 style.', '각 빈칸에 -(느)ㄴ다체로 한 문장을 써요'], 53: ['Describing Data', '자료 설명하기', 'Write 200–300 characters describing the data.', '자료를 보고 200~300자로 써요'], 54: ['Argumentative Essay', '논술', 'Write 600–700 characters giving your own view.', '자신의 생각을 600~700자로 써요'] };
-const TW = B.parts.some((p) => p.units.some((u) => /^w\d\d:/.test(u))) ? (await import(path.join(ROOT, 'topik-writing.js'))).TW_ITEMS : [];
+const TWM = B.parts.some((p) => p.units.some((u) => /^w\d\d:/.test(u))) ? await import(path.join(ROOT, 'topik-writing.js')) : null;
+const TW = TWM ? TWM.TW_ITEMS : [];
 const bankSheet = (id) => {
   const [, q, n] = id.match(/^w(\d\d):(\d+)$/).map(Number); const L = BANKQ[q]; const chunk = TW.filter((x) => x.q === q).slice((n - 1) * 10, n * 10);
   return { id, title: { en: `Q${q} · ${L[0]} · Set ${n}`, ko: `${q}번 · ${L[1]} · ${n}세트` }, sub: { en: L[2], ko: L[3] },
@@ -211,6 +212,18 @@ function tocPage(starts) {
   h += ln('', 'Answer Key', '정답', starts?.answers) + (B.noIndex ? '' : ln('', 'Index', '찾아보기', starts?.index)) + ln('', 'Notes', '메모', starts?.memo);
   return h + '</div></div>';
 }
+/* 문제은행 책 — 번호마다 「풀이 방법」 쪽(topik-writing.js 의 TW_GUIDE): 무엇을 묻는지 · 풀이 순서 · 표현 · 자주 하는 실수 */
+function qGuidePage(p) {
+  const q = Number((/^w(\d\d):/.exec(p.units[0]) || [])[1]); const g = TWM?.TW_GUIDE?.[q]; if (!g) return '';
+  const both = (o) => `${esc(o.en)} <small>· ${esc(o.ko)}</small>`;
+  return `<div class="blk plain gd"><h2>How to solve Question ${q}</h2><div class="k">${q}번 풀이 방법 · ${esc(g.time.ko)} (${esc(g.time.en)})</div>
+<p class="note" style="margin:1mm 0 3mm">${esc(g.what.en)}<br><span style="color:#5a6780">${esc(g.what.ko)}</span></p>
+<h3 style="font-size:10.4pt;margin:3mm 0 1.4mm;color:#1f3a68">Steps · 풀이 순서</h3>
+<ol style="margin:0 0 2mm;padding-left:5mm;font-size:9.4pt;line-height:1.55">${g.steps.map((x) => `<li>${esc(x.en)}<br><small style="color:#5a6780">${esc(x.ko)}</small></li>`).join('')}</ol>
+<h3 style="font-size:10.4pt;margin:3mm 0 1.4mm;color:#1f3a68">Useful expressions · 쓸 수 있는 표현</h3>
+<table><thead><tr><th>Use · 쓰임</th><th>Expressions · 표현</th></tr></thead><tbody>${g.phrases.map((x) => `<tr><td>${both(x)}</td><td>${esc(x.ex)}</td></tr>`).join('')}</tbody></table>
+${boxHtml('warn', g.mistakes.map((x) => `${x.en} / ${x.ko}`).join('\n'))}</div>`;
+}
 function partPage(p) {
   return `<div class="blk pd"><div class="no">PART ${p.no}</div><div class="big">${String(p.no).padStart(2, '0')}</div><h2>${esc(p.title.ko)}</h2><h3>${esc(p.title.en)}</h3>
 <div class="list">${p.sheets.map((s) => { const u = units.find((x) => x.id === s.id); return `Unit ${String(u.no).padStart(2, '0')} &nbsp; ${esc(s.title.en)}`; }).join('<br>')}</div></div>`;
@@ -366,7 +379,7 @@ const countPages = (buf) => (buf.toString('latin1').match(/\/Type\s*\/Page(?![s\
 const entries = indexEntries();
 const blocks = [
   ['title', titlePage()], ['copyright', copyrightPage()], ['preface', prefacePage()], ['how', howPage()], ...(B.noGuide ? [] : [['guide', guidePage()]]), ['toc', tocPage(null)],
-  ...parts.flatMap((p) => [[`part${p.no}`, partPage(p)], ...p.sheets.map((s) => { const u = units.find((x) => x.id === s.id); return [`unit${u.no}`, unitBlock(u)]; })]),
+  ...parts.flatMap((p) => [[`part${p.no}`, partPage(p)], ...(TWM ? [[`qguide${p.no}`, qGuidePage(p)]] : []), ...p.sheets.map((s) => { const u = units.find((x) => x.id === s.id); return [`unit${u.no}`, unitBlock(u)]; })]),
   ['answers', answersBlock()], ...(B.noIndex ? [] : [['index', indexBlock(entries)]]),
 ];
 const counts = {};
