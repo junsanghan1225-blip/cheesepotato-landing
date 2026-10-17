@@ -84,7 +84,7 @@
         { "q": "Right where the speaker stands: ___에 앉으세요 (Sit here) →", "a": "여기" },
         { "q": "Where the listener is: ___는 날씨가 어때요? (How is the weather there?) →", "a": "거기" },
         { "q": "Far spot across the road: ___에 편의점이 있어요 (Over there) →", "a": "저기" },
-        { "q": "Calling restaurant server: ___요! (Excuse me!) →", "a": "저기" },
+        { "q": "Getting the attention of someone far away: ___요! (Excuse me!) →", "a": "저기" },
         { "q": "Come toward the speaker: ___로 오세요 (Come this way) →", "a": "여기" }
       ]
     },

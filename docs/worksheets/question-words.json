@@ -74,7 +74,7 @@
         { "q": "저 사람은 ___예요? (Who is that person?)", "a": "누구" },
         { "q": "시험이 ___예요? (When is the exam?)", "a": "언제" },
         { "q": "집이 ___예요? (Where is your house?)", "a": "어디" },
-        { "q": "이것은 ___예요? (What is this?)", "a": "뭐" },
+        { "q": "이것은 ___예요? (What is this? — spoken form)", "a": "뭐" },
         { "q": "오늘 ___ 늦었어요? (Why are you late today?)", "a": "왜" },
         { "q": "공항에 ___ 가요? (How do you get to the airport?)", "a": "어떻게" }
       ]

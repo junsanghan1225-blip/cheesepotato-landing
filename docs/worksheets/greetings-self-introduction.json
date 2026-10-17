@@ -41,7 +41,7 @@
         [
           "안녕히 계세요",
           "Goodbye (stay well)",
-          "Said by the person leaving",
+          "Said to the person staying",
           "—"
         ],
         [
@@ -121,7 +121,7 @@
           "타갈로그어"
         ]
       ],
-      "note": "Formula: Country + 사람 = person/nationality (e.g., 한국 사람). Country + 어 = language (e.g., 한국어)."
+      "note": "Formula: Country + 사람 = person/nationality (e.g., 한국 사람). Country + 어 = language for many countries (e.g., 한국어); exceptions: 미국 → 영어, 필리핀 → 타갈로그어."
     },
     {
       "type": "table",

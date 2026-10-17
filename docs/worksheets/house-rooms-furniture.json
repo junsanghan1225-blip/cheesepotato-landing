@@ -181,7 +181,7 @@
         [
           "On the desk",
           "책상 위에 책이 있어요.",
-          "책쌍 우이에 채기",
+          "책쌍 위에 채기",
           "There is a book on the desk."
         ],
         [
@@ -202,8 +202,8 @@
     {
       "type": "practice",
       "title": {
-        "en": "Practice A — Match the room with its typical furniture or appliance",
-        "ko": "방에 어울리는 가구나 가전을 골라요"
+        "en": "Practice A — Match the room with its typical item or furniture",
+        "ko": "방에 어울리는 물건이나 가구를 골라요"
       },
       "items": [
         {
