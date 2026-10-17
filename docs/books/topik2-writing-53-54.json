@@ -206,11 +206,11 @@
     "w54-2",
     "w54-3",
     "w54-5",
+    "w54-7",
     "w54-9",
     "w54-14",
     "w54-18",
     "w54-19",
-    "w54-22",
     "w54-27",
     "w54-29",
     "w54-31",
@@ -236,7 +236,6 @@
    },
    "items": [
     "w54-6",
-    "w54-7",
     "w54-10",
     "w54-13",
     "w54-15",
@@ -244,6 +243,7 @@
     "w54-17",
     "w54-20",
     "w54-21",
+    "w54-22",
     "w54-24",
     "w54-25",
     "w54-26",
@@ -432,12 +432,12 @@
        "blank": false
       },
       {
-       "ko": "핵심 수치",
-       "en": "Main figure",
+       "ko": "핵심 수치 · 변화",
+       "en": "Main figure and change",
        "blank": false
       },
       {
-       "ko": "이유 1~3위",
+       "ko": "이유 · 목적 1~3위",
        "en": "Reasons in order",
        "blank": false
       },
@@ -454,7 +454,7 @@
       "en": "How to read this type",
       "ko": "이 유형 읽는 법"
      },
-     "text": "No change over time here: the data gives how many people do something and the reasons, ranked. Open with the survey, state the main figure, then the reasons from the top.\n시간에 따른 변화가 아니라 현재 상태입니다. 몇 %가 하는지와 이유(순위)가 나옵니다. 조사 개요 → 핵심 수치 → 이유를 높은 순서로 씁니다."
+     "text": "The data may show a rise or fall, but here the question is why people do it or what they use it for: reasons, purposes, preferences, ranked. Give the change in one sentence, then spend the rest on the reasons.\n자료에 증감이 있어도 이 유형에서 묻는 것은 사람들이 왜 · 무엇을 위해 하는가입니다 — 이유 · 목적 · 선호(순위). 변화는 한 문장으로 쓰고 나머지는 이유에 쓰세요."
     },
     {
      "type": "table",
@@ -580,7 +580,7 @@
       "en": "How to read this type",
       "ko": "이 유형 읽는 법"
      },
-     "text": "The data shows how people evaluate something: how many are positive and why, and what worries them. Report both sides without taking sides.\n사람들이 무엇을 어떻게 평가하는지가 나옵니다. 긍정적인 비율과 이유, 우려하는 점을 모두 씁니다. 어느 한쪽 편을 들지 마세요."
+     "text": "The data shows how people evaluate something and why. Report the reasons for the positive view from the top, and mention worries or drawbacks only if the data has them.\n사람들이 무엇을 어떻게 평가하는지와 그 이유가 나옵니다. 긍정적인 이유를 높은 순서로 쓰고, 우려 · 단점은 자료에 있을 때만 함께 쓰세요."
     },
     {
      "type": "table",
@@ -684,23 +684,13 @@
        "blank": false
       },
       {
-       "ko": "중요성",
-       "en": "Why it matters",
+       "ko": "본론 · 중요성과 걸림돌",
+       "en": "Body: why and what makes it hard",
        "blank": false
       },
       {
-       "ko": "걸림돌",
-       "en": "What makes it hard",
-       "blank": false
-      },
-      {
-       "ko": "방법",
-       "en": "What to do",
-       "blank": false
-      },
-      {
-       "ko": "결론",
-       "en": "Conclusion",
+       "ko": "방법 + 결론",
+       "en": "Method and conclusion",
        "blank": false
       }
      ]
@@ -711,7 +701,7 @@
       "en": "How to read this type",
       "ko": "이 유형 읽는 법"
      },
-     "text": "You are asked why something matters, what makes it hard, and what to do. Give each question its own paragraph and finish with a short conclusion.\n무엇이 왜 중요한지, 무엇이 어렵게 만드는지, 어떻게 할지를 묻습니다. 질문마다 문단을 하나씩 쓰고 짧은 결론으로 마칩니다."
+     "text": "You are asked why something matters, what makes it hard, and what to do. Write three paragraphs: an introduction; a body that answers the first two questions; and a last paragraph with the method and a short conclusion.\n무엇이 왜 중요한지, 무엇이 어렵게 만드는지, 어떻게 할지를 묻습니다. 세 문단으로 쓰세요 — 서론, 앞의 두 질문에 답하는 본론, 방법과 짧은 결론을 쓰는 마지막 문단."
     },
     {
      "type": "table",
@@ -815,28 +805,18 @@
      },
      "steps": [
       {
-       "ko": "서론",
-       "en": "Introduction",
+       "ko": "서론 · 문제",
+       "en": "Introduction and the problem",
        "blank": false
       },
       {
-       "ko": "문제 · 원인",
-       "en": "Problem and cause",
+       "ko": "본론 · 원인과 영향",
+       "en": "Body: causes and effects",
        "blank": false
       },
       {
-       "ko": "영향",
-       "en": "Effect",
-       "blank": false
-      },
-      {
-       "ko": "해결 방안",
-       "en": "Solution",
-       "blank": false
-      },
-      {
-       "ko": "결론",
-       "en": "Conclusion",
+       "ko": "해결 방안 + 결론",
+       "en": "Solutions and conclusion",
        "blank": false
       }
      ]
@@ -847,7 +827,7 @@
       "en": "How to read this type",
       "ko": "이 유형 읽는 법"
      },
-     "text": "The three questions follow a line: what is wrong, why it happened or what it causes, and what to do. Keep that order and give solutions at two levels: individual and society.\n세 질문이 한 줄로 이어집니다 — 무엇이 문제인가, 왜 생겼고 무엇을 낳는가, 어떻게 풀 것인가. 순서를 지키고 해결 방안은 개인과 사회 두 층위로 쓰세요."
+     "text": "The three questions follow a line: what is wrong, why it happened or what it causes, and what to do. Write three paragraphs: the problem; the causes and effects; then solutions at two levels (individual and society) with a conclusion.\n세 질문이 한 줄로 이어집니다 — 무엇이 문제인가, 왜 생겼고 무엇을 낳는가, 어떻게 풀 것인가. 세 문단으로 쓰세요 — 문제, 원인과 영향, 개인과 사회 두 층위의 해결 방안과 결론."
     },
     {
      "type": "table",
@@ -951,28 +931,18 @@
      },
      "steps": [
       {
-       "ko": "서론",
-       "en": "Introduction",
+       "ko": "서론 · 입장",
+       "en": "Introduction and position",
        "blank": false
       },
       {
-       "ko": "장점 · 찬성",
-       "en": "For",
+       "ko": "본론 · 장점과 단점",
+       "en": "Body: both sides",
        "blank": false
       },
       {
-       "ko": "단점 · 우려",
-       "en": "Against",
-       "blank": false
-      },
-      {
-       "ko": "내 입장 · 대안",
-       "en": "My view",
-       "blank": false
-      },
-      {
-       "ko": "결론",
-       "en": "Conclusion",
+       "ko": "대안 + 결론",
+       "en": "Remedy and conclusion",
        "blank": false
       }
      ]
@@ -983,7 +953,7 @@
       "en": "How to read this type",
       "ko": "이 유형 읽는 법"
      },
-     "text": "You must show both sides (advantages and problems, or reasons for and against) and then say what you think and how to reduce the downside. State your position clearly and keep it to the end.\n두 면(장점과 문제점, 찬성과 반대의 근거)을 보여 준 뒤 내 생각과 단점을 줄이는 방법을 씁니다. 입장을 분명히 밝히고 끝까지 유지하세요."
+     "text": "Some questions ask you to choose a side (for / against); others ask you to weigh benefits and problems and say how to keep the good and reduce the bad. Either way, show both sides, state your view clearly and keep it to the end.\n찬성 · 반대를 고르는 문제도, 장점과 문제점을 따져 보고 좋은 점은 살리고 나쁜 점은 줄이는 방법을 묻는 문제도 있습니다. 어느 쪽이든 양면을 보여 주고, 내 생각을 분명히 밝히고, 끝까지 유지하세요."
     },
     {
      "type": "table",

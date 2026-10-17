@@ -38,10 +38,11 @@ const bankSheet = (id) => {
     sections: chunk.map((x, i) => ({ type: 'writing', raw: x, title: { en: `${(n - 1) * 10 + i + 1}. ${x.title}`, ko: '' }, items: [{ q: x.title, a: x.blanks ? x.blanks.map((b) => `${b.mark} ${b.answers[0]}`).join(' ') : x.model }] })) };
 };
 /* 유형 묶음 「g51-recruit」 = B.groups 에 적은 문항 id 들(유형별로 나눈 책, 운영자 2026-10-18 「유형별로 나누고 유형마다 안내를」) */
+const grpNo = {};   // 유형 묶음 안 문제 번호는 책 순서대로 이어서(51번 1~50) — 계획표 · 정답과 같은 번호
 const groupSheet = (id) => {
-  const g = B.groups[id]; const all = TW.filter((x) => x.q === g.q);
+  const g = B.groups[id]; grpNo[g.q] = grpNo[g.q] || 0;
   return { id, title: g.title, sub: g.sub, sections: g.items.map((iid, i) => { const x = TW.find((t) => t.id === iid); if (!x) throw new Error('없는 문항 ' + iid);
-    return { type: 'writing', raw: x, title: { en: `${all.indexOf(x) + 1}. ${x.title}`, ko: '' }, items: [{ q: x.title, a: x.blanks ? x.blanks.map((b) => `${b.mark} ${b.answers[0]}`).join(' ') : x.model }] }; }) };
+    return { type: 'writing', raw: x, title: { en: `${++grpNo[g.q]}. ${x.title}`, ko: '' }, items: [{ q: x.title, a: x.blanks ? x.blanks.map((b) => `${b.mark} ${b.answers[0]}`).join(' ') : x.model }] }; }) };
 };
 const partQ = (p) => { for (const u of p.units) { const m = /^w(\d\d):/.exec(u) || /^g(\d\d)-/.exec(u); if (m) return Number(m[1]); } return NaN; };
 const sheet = (id) => B.inline?.[id] ? B.inline[id] : /^g\d\d-/.test(id) ? groupSheet(id) : /^w\d\d:\d+$/.test(id) ? bankSheet(id) : JSON.parse(fs.readFileSync(path.join(ROOT, `docs/worksheets/${id}.json`), 'utf8'));
@@ -549,11 +550,26 @@ if (REVIEW) {
       md.push(`### §${i + 1} · ${x.type} · ${x.title.en}${x.title.ko ? ` / ${x.title.ko}` : ''}   (${u.id} · §${i + 1})`);
       if (x.type === 'table') { md.push(`| ${x.cols.join(' | ')} |`, `|${x.cols.map(() => '---').join('|')}|`, ...x.rows.map((r) => `| ${r.join(' | ')} |`)); if (x.note) md.push('', `[${kindOf(u, i, x)}] ${x.note}`); }
       else if (x.type === 'text') md.push(`[${k}] ${x.text}`);
-      else { if (x.hint) md.push(`(hint) ${x.hint}`); x.items.forEach((q, n) => md.push(`${n + 1}. ${q.q}  →  **${q.a}**`)); }
+      else if (x.type === 'flow') md.push(x.steps.map((st) => `${st.ko} (${st.en})`).join(' → '));
+      else if (x.items) { if (x.hint) md.push(`(hint) ${x.hint}`); x.items.forEach((q, n) => md.push(`${n + 1}. ${q.q}  →  **${q.a}**`)); }
       const pat = (B.patterns || {})[`${u.id}:${i + 1}`];
       if (pat) md.push('', '[pattern] ' + pat.map((r) => r.p.map(([t, kk]) => (kk === 's' ? `[${t}]` : t)).join(' + ') + ` → ${r.en}${r.ex ? ` · e.g. ${r.ex}${r.exEn ? ` (${r.exEn})` : ''}` : ''}`).join(' | '));
       md.push('');
     });
+  }
+  if (B.front) {   // 앞부분 · 유형 풀이 · 채점 기준 · 예시 풀이도 검수 글에 — 단원에 안 들어 있는 글(Argon 검수용)
+    const bl = (o) => (o && o.en ? `${o.en} / ${o.ko}` : String(o));
+    const f = FRONT; const pl = f.plan[B.front];
+    md.push('## Front matter · 앞부분', '', '### 시험 소개 (front.exam)', bl(f.exam.intro), ...f.exam.rows.map((r) => `- Q${r[0]} · ${r[1]} · ${r[2]}점 · ${r[3]} · 권장 ${r[4]}분`), ...f.exam.areas.map(bl), '',
+      `### ${bl(pl.title)} (front.plan)`, bl(pl.sub), ...pl.weeks.map((w) => `- ${bl(w.t)}: ${w.d.join(' | ')}`), '',
+      '### 원고지 쓰기법 (front.wongoji)', ...f.wongoji.rules.map(([r], n) => `${n + 1}. ${bl(r)}`), `예시 문장: ${f.wongoji.sample}`, bl(f.wongoji.caution), '',
+      '### 말 → 글 바꾸기 표 (front.written)', bl(f.written.intro), '| 말 | 글 |', '|---|---|', ...f.written.words.concat(f.written.ends).map(([a, b]) => `| ${a} | ${b} |`), bl(f.written.note), '',
+      '### 자가 점검표 (front.check)', ...f.check[B.front].groups.flatMap(([k, its]) => [`- ${bl(k)}`, ...its.map((it) => `  - ${bl(it)}`)]), '');
+    for (const p of parts) {
+      const q = partQ(p); const g = TWM.TW_GUIDE[q]; const e = EXTRAS[q];
+      md.push(`## Q${q} 풀이 방법 · 채점 기준 · 예시 풀이`, '', `### ${q}번 풀이 방법 (TW_GUIDE)`, `${g.time.ko} · ${bl(g.what)}`, ...g.steps.map((x, n) => `${n + 1}. ${bl(x)}`), '표현:', ...g.phrases.map((x) => `- ${bl(x)}: ${x.ex}`), '자주 하는 실수:', ...g.mistakes.map((x) => `- ${bl(x)}`), '');
+      if (e) md.push(`### ${q}번 채점 기준 (extras.${q})`, bl(e.scoring), ...e.criteria.map((c) => `- ${bl(c.k)} · 높은 점수: ${bl(c.hi)} · 감점: ${bl(c.lo)}`), '', `### ${q}번 예시 풀이 (extras.${q}.worked · 문항 ${e.worked.item})`, ...e.worked.steps.map((x, n) => `${n + 1}. ${bl(x)}`), ...(e.worked.analysis || []).map((x) => `- 분석: ${bl(x)}`), '');
+    }
   }
   fs.writeFileSync(path.join(dir, 'review-text.md'), md.join('\n'));
 }

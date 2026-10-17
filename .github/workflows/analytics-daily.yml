@@ -1,0 +1,53 @@
+# 매일 사이트 성과 모으기 — GA4 + Search Console → CSV + 「일간 성과 요약」을 `analytics-data` 가지에 쌓는다(운영자 2026-10-18).
+# 이 가지는 사이트로 올라가지 않는다(Pages 는 main). 설정 순서는 docs/ops/analytics-api-setup.md — 아래 세 값이 없으면 조용히 건너뛴다.
+#   Secrets  → GOOGLE_SA_KEY   (서비스 계정 키 JSON 전체)
+#   Variables → GA_PROPERTY_ID (GA4 속성 번호) · SC_SITE (예: sc-domain:everykoreans.com)
+name: analytics-daily
+
+on:
+  schedule:
+    - cron: '10 22 * * *'     # 매일 한국 07:10 — 어제 하루가 GA4 에 확정된 뒤
+  workflow_dispatch:
+    inputs:
+      date:
+        description: '기준일 YYYY-MM-DD (비우면 어제, 한국 날짜)'
+        default: ''
+
+permissions:
+  contents: write
+
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+      - name: 모으기
+        id: run
+        env:
+          GA_PROPERTY_ID: ${{ vars.GA_PROPERTY_ID }}
+          SC_SITE: ${{ vars.SC_SITE }}
+          GOOGLE_SA_KEY: ${{ secrets.GOOGLE_SA_KEY }}
+        run: |
+          if [ -z "$GOOGLE_SA_KEY" ] || [ -z "$GA_PROPERTY_ID" ] || [ -z "$SC_SITE" ]; then
+            echo "::notice::GOOGLE_SA_KEY · GA_PROPERTY_ID · SC_SITE 가 아직 없어요 — docs/ops/analytics-api-setup.md 대로 설정하면 켜집니다."
+            echo "skip=1" >> $GITHUB_OUTPUT; exit 0
+          fi
+          D='${{ inputs.date }}'; [ -z "$D" ] && D=$(TZ=Asia/Seoul date -d yesterday +%F)
+          echo "date=$D" >> $GITHUB_OUTPUT
+          node tools/analytics-daily.mjs --date "$D" --out "$RUNNER_TEMP/an/$D"
+          cat "$RUNNER_TEMP/an/$D/일간 성과 요약.md" >> $GITHUB_STEP_SUMMARY
+      - name: analytics-data 가지에 쌓기
+        if: steps.run.outputs.skip != '1'
+        run: |
+          D='${{ steps.run.outputs.date }}'
+          URL="https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git"
+          mkdir "$RUNNER_TEMP/ad" && cd "$RUNNER_TEMP/ad" && git init -q
+          git remote add origin "$URL"
+          if git fetch -q origin analytics-data 2>/dev/null; then git checkout -q -B analytics-data FETCH_HEAD; else git checkout -q --orphan analytics-data; fi
+          mkdir -p "daily/$D" && cp "$RUNNER_TEMP/an/$D/"* "daily/$D/"
+          cp "$RUNNER_TEMP/an/$D/일간 성과 요약.md" latest.md
+          git config user.name 'cheesepotato-analytics'; git config user.email 'actions@users.noreply.github.com'
+          git add -A && git commit -qm "성과 $D" && git push -q origin analytics-data
