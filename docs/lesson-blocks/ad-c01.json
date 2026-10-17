@@ -1,0 +1,605 @@
+{
+  "ad-c01-01": [
+    {
+      "t": "compare",
+      "h": "-느니 vs -(으)ㄹ 바에야 (차악의 배제와 결단)",
+      "a": {
+        "h": "-느니 (두 행동을 수평적으로 대조)",
+        "d": "앞선 행동을 하느니 뒤의 행동이 차라리 낫다고 견줄 때 (부사 '차라리'와 자주 호응)",
+        "ex": [
+          "거짓말을 하**느니** 차라리 솔직하게 혼나는 편이 낫습니다. — Rather than tell a lie, it is better to be scolded honestly."
+        ]
+      },
+      "b": {
+        "h": "-(으)ㄹ 바에야 (극단적 최악 전제)",
+        "d": "앞의 상황을 최악으로 전제하고 그럴 바에는 다른 단호한 선택을 하겠다는 강한 어조",
+        "ex": [
+          "이렇게 무성의하게 일할 **바에야** 아예 시작도 하지 마세요. — If you are going to work so insincerely, do not even start."
+        ]
+      },
+      "tip": "단순히 뒤가 낫다고 비교할 때는 -느니 차라리, 앞의 상황을 단호히 거부할 때는 -(으)ㄹ 바에야를 씁니다."
+    },
+    {
+      "t": "correct",
+      "q": "Fix the mistake.",
+      "wrong": "그런 부당한 대우를 받으느니 차라리 사직서를 내겠습니다.",
+      "answers": [
+        "그런 부당한 대우를 받느니 차라리 사직서를 내겠습니다."
+      ],
+      "hint": "동사 어간 '받-' 뒤에 '-느니'가 결합할 때 매개모음 '으'가 들어가지 않습니다.",
+      "why": "받침 있는 동사 어간 뒤에도 그대로 '-느니'가 결합하여 '받느니'가 됩니다."
+    },
+    {
+      "t": "vocab",
+      "h": "Words for this lesson",
+      "items": [
+        {
+          "ko": "하느니",
+          "en": "rather than doing",
+          "ex": "포기하느니 도전하겠어요."
+        },
+        {
+          "ko": "차라리",
+          "en": "rather, preferably",
+          "ex": "차라리 집에서 쉴래요."
+        },
+        {
+          "ko": "바에야",
+          "en": "rather than (strong rejection)",
+          "ex": "그럴 바에야 그만두세요."
+        },
+        {
+          "ko": "대안",
+          "en": "alternative",
+          "ex": "합리적인 대안을 찾았습니다."
+        },
+        {
+          "ko": "결단",
+          "en": "determination, decision",
+          "ex": "단호한 결단을 내렸어요."
+        }
+      ]
+    },
+    {
+      "t": "dictate",
+      "say": "마음에 없는 빈말을 하느니 차라리 침묵을 지키는 편이 낫습니다",
+      "answers": [
+        "마음에 없는 빈말을 하느니 차라리 침묵을 지키는 편이 낫습니다"
+      ],
+      "hint": "마음에 없는 말을 하느니 침묵하겠다는 결단을 나타내는 문장입니다.",
+      "why": "-느니 차라리 구문을 활용한 비교 표현입니다."
+    },
+    {
+      "t": "write",
+      "q": "Write one sentence expressing a preference between two alternatives using -느니 차라리.",
+      "must": [
+        "느니 차라리"
+      ],
+      "sample": "후회할 일을 하느니 차라리 조금 힘들더라도 바른 길을 가겠습니다.",
+      "why": "'느니 차라리'를 넣어 두 행동 중 더 나은 대안을 선택하는 문장을 씁니다."
+    },
+    {
+      "t": "expand",
+      "base": {
+        "tokens": [
+          "포기하느니 차라리",
+          "도전하겠습니다."
+        ],
+        "en": "Rather than giving up, I will take the challenge."
+      },
+      "steps": [
+        {
+          "tokens": [
+            "쉽게 포기하느니 차라리",
+            "끝까지 도전하겠습니다."
+          ],
+          "en": "Rather than giving up easily, I will challenge until the end."
+        },
+        {
+          "tokens": [
+            "시작도 전에 쉽게 포기하느니 차라리",
+            "실패하더라도",
+            "끝까지 도전하겠습니다."
+          ],
+          "en": "Rather than giving up easily before starting, even if failing, I will challenge to the end."
+        }
+      ]
+    },
+    {
+      "t": "passage",
+      "h": "Read a little",
+      "ko": [
+        "두 가지 선택지 중에서 어느 쪽도 만족스럽지 않을 때 한국어에서는 비교 어미를 씁니다.",
+        "-느니는 두 선택을 차분하게 견주며 뒤의 행동이 낫다고 말할 때 호응 부사 '차라리'와 자주 쓰입니다.",
+        "반면 -(으)ㄹ 바에야는 앞의 상황을 최악으로 규정하고 단호하게 거부할 때 더 강한 어조를 띱니다."
+      ],
+      "en": [
+        "When neither of two choices is satisfactory, comparative endings are used in Korean.",
+        "-느니 calmly weighs two options and often pairs with '차라리' to indicate the latter is better.",
+        "Meanwhile, -(으)ㄹ 바에야 sets the former as the worst case and expresses firm rejection."
+      ]
+    },
+    {
+      "t": "choice",
+      "q": "-느니와 자주 함께 쓰이는 부사는 무엇인가요?",
+      "options": [
+        "차라리",
+        "오히려"
+      ],
+      "answer": 0,
+      "hint": "둘째 줄의 호응 부사를 확인하세요.",
+      "why": "호응 부사 '차라리'와 자주 쓰인다고 했습니다."
+    },
+    {
+      "t": "choice",
+      "q": "-(으)ㄹ 바에야는 어떤 어조를 띠나요?",
+      "options": [
+        "앞 상황에 대한 강한 거부와 단호함",
+        "부드러운 타협과 권유"
+      ],
+      "answer": 0,
+      "hint": "셋째 줄의 어조 설명을 확인하세요.",
+      "why": "앞의 상황을 단호하게 거부할 때 더 강한 어조를 띤다고 명시되었습니다."
+    },
+    {
+      "t": "cando",
+      "items": [
+        "I can express clear choices between alternatives using -느니 and -(으)ㄹ 바에야.",
+        "I can employ '차라리' appropriately with comparative rejection clauses."
+      ]
+    }
+  ],
+  "ad-c01-02": [
+    {
+      "t": "compare",
+      "h": "비가 오건 눈이 오건 vs 좋건 싫건 (-건 -건 무관함)",
+      "a": {
+        "h": "비가 오건 눈이 오건 (외부 조건 무관)",
+        "d": "날씨나 환경의 변화에 영향을 받지 않고 행동을 지속할 때",
+        "ex": [
+          "비가 오**건** 눈이 오**건** 선수들은 매일 아침 운동장에 모입니다. — Whether it rains or snows, players gather at the field every morning."
+        ]
+      },
+      "b": {
+        "h": "좋건 싫건 (개인적 호불호 무관)",
+        "d": "개인의 감정과 무관하게 마땅히 완수해야 할 책무를 강조할 때",
+        "ex": [
+          "기분이 좋**건** 싫**건** 맡은 임무는 끝까지 책임져야 합니다. — Whether you like it or not, you must take responsibility for assigned duties."
+        ]
+      },
+      "tip": "양극단의 상반된 조건을 나열하여 '어느 쪽이든 상관없이 동일함'을 나타냅니다."
+    },
+    {
+      "t": "correct",
+      "q": "Fix the mistake.",
+      "wrong": "일이 잘되든 안되건 간에 최선을 다해야 합니다.",
+      "answers": [
+        "일이 잘되건 안되건 간에 최선을 다해야 합니다.",
+        "일이 잘되든 안되든 간에 최선을 다해야 합니다."
+      ],
+      "hint": "대등한 나열 어미의 짝은 '-건 -건'이나 '-든 -든'으로 형태를 통일해야 합니다.",
+      "why": "앞뒤의 어미를 대등하게 '-건 -건'으로 맞추어 써야 자연스럽습니다."
+    },
+    {
+      "t": "vocab",
+      "h": "Words for this lesson",
+      "items": [
+        {
+          "ko": "오건",
+          "en": "whether it comes",
+          "ex": "비가 오건 상관없어요."
+        },
+        {
+          "ko": "가건",
+          "en": "whether you go",
+          "ex": "가건 말건 네 마음이야."
+        },
+        {
+          "ko": "크건",
+          "en": "whether it is big",
+          "ex": "크건 작건 소중해요."
+        },
+        {
+          "ko": "작건",
+          "en": "whether it is small",
+          "ex": "작건 크건 똑같습니다."
+        },
+        {
+          "ko": "구애받지",
+          "en": "unconstrained, unhindered",
+          "ex": "조건에 구애받지 않습니다."
+        }
+      ]
+    },
+    {
+      "t": "dictate",
+      "say": "남들이 칭찬하건 비난하건 자신의 원칙을 흔들림 없이 지켜야 합니다",
+      "answers": [
+        "남들이 칭찬하건 비난하건 자신의 원칙을 흔들림 없이 지켜야 합니다"
+      ],
+      "hint": "타인의 평가와 무관하게 원칙을 지키자는 내용의 문장입니다.",
+      "why": "상반된 조건에 구애받지 않음을 나타내는 '-건 -건' 구문입니다."
+    },
+    {
+      "t": "write",
+      "q": "Write one sentence stating that weather does not affect actions using -건 -건.",
+      "must": [
+        "덥건 춥건"
+      ],
+      "sample": "날씨가 덥건 춥건 매일 아침 거르지 않고 운동을 합니다.",
+      "why": "'덥건 춥건'을 포함하여 날씨에 구애받지 않는 꾸준함을 표현합니다."
+    },
+    {
+      "t": "expand",
+      "base": {
+        "tokens": [
+          "좋건 싫건",
+          "해야 합니다."
+        ],
+        "en": "Whether you like it or not, you must do it."
+      },
+      "steps": [
+        {
+          "tokens": [
+            "마음에 들든",
+            "좋건 싫건",
+            "맡은 일은 해야 합니다."
+          ],
+          "en": "Whether pleasing or not, you must do the assigned job."
+        },
+        {
+          "tokens": [
+            "자신의 감정에 따라",
+            "좋건 싫건",
+            "공적인 책임은",
+            "반드시 다해야 합니다."
+          ],
+          "en": "Regardless of personal feelings, you must fulfill public responsibilities."
+        }
+      ]
+    },
+    {
+      "t": "passage",
+      "h": "Read a little",
+      "ko": [
+        "-건 -건은 대립하거나 상반되는 두 상황을 나열하여 어떤 경우든 결과가 동일함을 밝힙니다.",
+        "일상 대화뿐 아니라 공식 연설에서도 외부 조건에 흔들리지 않는 굳은 의지를 천명할 때 애용됩니다.",
+        "'크건 작건', '가건 말건'처럼 반의어 쌍과 결합하여 군더더기 없는 명쾌한 문장을 만듭니다."
+      ],
+      "en": [
+        "-건 -건 lists two opposite or contrasting situations, showing outcomes are identical either way.",
+        "It is favored in daily speech as well as formal addresses to declare steadfast will.",
+        "Pairing with antonyms like 'big or small', it produces clear, concise sentences."
+      ]
+    },
+    {
+      "t": "choice",
+      "q": "-건 -건이 나타내는 의미는 무엇인가요?",
+      "options": [
+        "어느 쪽이든 결과가 동일함",
+        "두 가지 중 하나를 반드시 고름"
+      ],
+      "answer": 0,
+      "hint": "첫째 줄의 의미 설명을 확인하세요.",
+      "why": "어떤 경우든 결과가 동일함을 밝힌다고 했습니다."
+    },
+    {
+      "t": "choice",
+      "q": "-건 -건은 주로 어떤 낱말 쌍과 잘 어울리나요?",
+      "options": [
+        "반의어 쌍",
+        "외래어 쌍"
+      ],
+      "answer": 0,
+      "hint": "셋째 줄의 결합 어휘를 확인하세요.",
+      "why": "크건 작건처럼 반의어 쌍과 결합한다고 했습니다."
+    },
+    {
+      "t": "cando",
+      "items": [
+        "I can express indifference to external conditions using -건 -건.",
+        "I can pair antonymous verbs and adjectives with -건 -건 seamlessly."
+      ]
+    }
+  ],
+  "ad-c01-03": [
+    {
+      "t": "compare",
+      "h": "쉰다기보다는 vs 비싸다기보다는 (-(느)ㄴ다기보다는 품사 결합)",
+      "a": {
+        "h": "쉰다기보다는 (동사 결합)",
+        "d": "동사 어간에 받침이 없으면 -ㄴ다기보다는, 받침이 있으면 -는다기보다는 결합",
+        "ex": [
+          "쉬러 간**다기보다는** 생각을 정리하러 혼자 여행을 떠났습니다. — Rather than going to rest, I left on a solo trip to organize my thoughts."
+        ]
+      },
+      "b": {
+        "h": "비싸다기보다는 (형용사 결합)",
+        "d": "형용사 어간에는 받침 유무와 상관없이 -다기보다는 결합",
+        "ex": [
+          "가격이 비싸**다기보다는** 품질에 비해 다소 아쉽다는 뜻입니다. — Rather than it being expensive, it means slightly disappointing for the quality."
+        ]
+      },
+      "tip": "동사는 '-(느)ㄴ다기보다는', 형용사는 '-다기보다는'을 결합합니다."
+    },
+    {
+      "t": "correct",
+      "q": "Fix the mistake.",
+      "wrong": "가격이 비싼다기보다는 품질이 그에 미치지 못하는 것이 문제입니다.",
+      "answers": [
+        "가격이 비싸다기보다는 품질이 그에 미치지 못하는 것이 문제입니다."
+      ],
+      "hint": "형용사 '비싸다' 뒤에는 '-다기보다는'이 결합합니다.",
+      "why": "형용사 어간 뒤이므로 '비싼다기보다는'이 아니라 '비싸다기보다는'이 맞습니다."
+    },
+    {
+      "t": "vocab",
+      "h": "Words for this lesson",
+      "items": [
+        {
+          "ko": "쉰다기보다는",
+          "en": "rather than resting",
+          "ex": "쉰다기보다는 생각 중이에요."
+        },
+        {
+          "ko": "일한다기보다는",
+          "en": "rather than working",
+          "ex": "일한다기보다는 배우고 있어요."
+        },
+        {
+          "ko": "성공했다기보다는",
+          "en": "rather than succeeding",
+          "ex": "성공했다기보다는 배웠습니다."
+        },
+        {
+          "ko": "재정의",
+          "en": "redefinition",
+          "ex": "개념을 새롭게 재정의했어요."
+        },
+        {
+          "ko": "본질",
+          "en": "essence, nature",
+          "ex": "문제의 본질을 파악했습니다."
+        }
+      ]
+    },
+    {
+      "t": "dictate",
+      "say": "포기했다기보다는 더 나은 기회를 위해 한 걸음 물러선 것입니다",
+      "answers": [
+        "포기했다기보다는 더 나은 기회를 위해 한 걸음 물러선 것입니다"
+      ],
+      "hint": "상황을 재정의하여 설명하는 고급스러운 문장입니다.",
+      "why": "포기가 아닌 전략적 후퇴임을 나타내는 '-(느)ㄴ다기보다는' 표현입니다."
+    },
+    {
+      "t": "write",
+      "q": "Write one sentence rephrasing a situation using -다기보다는 or -(느)ㄴ다기보다는.",
+      "must": [
+        "다기보다는"
+      ],
+      "sample": "실패했다기보다는 새로운 도전의 과정에서 귀중한 경험을 쌓았습니다.",
+      "why": "'다기보다는'을 포함하여 성숙한 재평가 문장을 작성합니다."
+    },
+    {
+      "t": "expand",
+      "base": {
+        "tokens": [
+          "일한다기보다는",
+          "즐기는 편입니다."
+        ],
+        "en": "Rather than working, I tend to enjoy it."
+      },
+      "steps": [
+        {
+          "tokens": [
+            "억지로 일한다기보다는",
+            "배우며 즐기는 편입니다."
+          ],
+          "en": "Rather than working by force, I tend to learn and enjoy."
+        },
+        {
+          "tokens": [
+            "생계를 위해 억지로 일한다기보다는",
+            "스스로 성장하는 과정을",
+            "즐기는 편입니다."
+          ],
+          "en": "Rather than working by force for a living, I tend to enjoy growing myself."
+        }
+      ]
+    },
+    {
+      "t": "passage",
+      "h": "Read a little",
+      "ko": [
+        "토론이나 인터뷰에서 상대방의 단정적인 표현을 우아하게 교정할 때 -(느)ㄴ다기보다는을 씁니다.",
+        "이 문형은 앞의 진술을 전면 부정하기보다 본질에 더 가까운 시각을 정중히 제시하는 기능을 합니다.",
+        "형용사에는 '-다기보다는', 동사에는 '-(느)ㄴ다기보다는'이 결합하므로 품사 구분에 유의해야 합니다."
+      ],
+      "en": [
+        "In debates or interviews, -(느)ㄴ다기보다는 is used to gracefully adjust categorical statements.",
+        "Rather than flatly denying previous statements, it politely proposes a more accurate view.",
+        "Note that adjectives attach -다기보다는 while verbs take -(느)ㄴ다기보다는."
+      ]
+    },
+    {
+      "t": "choice",
+      "q": "-(느)ㄴ다기보다는 표현은 언제 유용한가요?",
+      "options": [
+        "본질에 가까운 시각을 정중히 제시할 때",
+        "상대방의 의견을 거칠게 비난할 때"
+      ],
+      "answer": 0,
+      "hint": "둘째 줄의 기능 설명을 확인하세요.",
+      "why": "본질에 더 가까운 시각을 정중히 제시할 때 유용하다고 했습니다."
+    },
+    {
+      "t": "choice",
+      "q": "형용사 뒤에는 어떤 꼴로 결합하나요?",
+      "options": [
+        "-다기보다는",
+        "-는다기보다는"
+      ],
+      "answer": 0,
+      "hint": "셋째 줄의 품사 결합 규칙을 보세요.",
+      "why": "형용사에는 '-다기보다는'이 결합합니다."
+    },
+    {
+      "t": "cando",
+      "items": [
+        "I can nuance statements by proposing more accurate definitions with -(느)ㄴ다기보다는.",
+        "I can distinguish adjective (-다기보다는) and verb (-(느)ㄴ다기보다는) forms."
+      ]
+    }
+  ],
+  "ad-c01-04": [
+    {
+      "t": "compare",
+      "h": "-느니 차라리 vs -(느)ㄴ다기보다는 (협상 화법)",
+      "a": {
+        "h": "-느니 차라리 (단호한 소신 제시)",
+        "d": "손해나 타협 대신 더 나은 대안을 강력하게 천명할 때",
+        "ex": [
+          "무리하게 일정을 강행하**느니 차라리** 출시일을 늦추어 품질을 높입시다. — Rather than force the schedule recklessly, let's delay release and boost quality."
+        ]
+      },
+      "b": {
+        "h": "-(느)ㄴ다기보다는 (부드러운 조율)",
+        "d": "상대의 제안을 존중하면서도 초점을 다른 방향으로 부드럽게 유도할 때",
+        "ex": [
+          "반대한다기보다는 안전성을 먼저 꼼꼼히 검증하자는 취지입니다. — Rather than opposing, the intent is to verify safety meticulously first."
+        ]
+      },
+      "tip": "단호하게 대안을 고수할 때는 -느니 차라리, 상대와 의견을 조율할 때는 -(느)ㄴ다기보다는을 씁니다."
+    },
+    {
+      "t": "correct",
+      "q": "Fix the mistake.",
+      "wrong": "협상을 파기할 바에야 한 걸음 양보해 절충점을 찾느니 차라리 낫습니다.",
+      "answers": [
+        "협상을 파기할 바에야 한 걸음 양보해 절충점을 찾는 편이 낫습니다."
+      ],
+      "hint": "-(으)ㄹ 바에야와 -느니 차라리가 한 문장에 중복되지 않도록 문장을 정리합니다.",
+      "why": "앞 절에서 '-(으)ㄹ 바에야'로 전제했으므로 뒤 절은 '절충점을 찾는 편이 낫습니다'로 맺어야 자연스럽습니다."
+    },
+    {
+      "t": "vocab",
+      "h": "Words for this lesson",
+      "items": [
+        {
+          "ko": "협상",
+          "en": "negotiation",
+          "ex": "협상 테이블에 마주 앉았어요."
+        },
+        {
+          "ko": "절충점",
+          "en": "compromise, middle ground",
+          "ex": "서로의 절충점을 찾았습니다."
+        },
+        {
+          "ko": "대안",
+          "en": "alternative proposal",
+          "ex": "건설적인 대안을 제시했어요."
+        },
+        {
+          "ko": "조율",
+          "en": "tuning, coordination",
+          "ex": "부서 간 의견을 조율합니다."
+        },
+        {
+          "ko": "소신",
+          "en": "conviction, belief",
+          "ex": "자신의 소신을 밝혔습니다."
+        }
+      ]
+    },
+    {
+      "t": "dictate",
+      "say": "무리한 조건으로 계약을 맺느니 차라리 시간을 두고 재협상하는 것이 현명합니다",
+      "answers": [
+        "무리한 조건으로 계약을 맺느니 차라리 시간을 두고 재협상하는 것이 현명합니다"
+      ],
+      "hint": "협상 테이블에서 현명한 대안을 제시하는 비즈니스 문장입니다.",
+      "why": "무리한 강행보다 신중한 재협상이 낫다는 소신을 전달합니다."
+    },
+    {
+      "t": "write",
+      "q": "Write one negotiation statement offering a reasonable alternative using -느니 차라리.",
+      "must": [
+        "느니 차라리"
+      ],
+      "sample": "부실한 부품을 쓰느니 차라리 제작 기간을 늘려서 품질을 높입시다.",
+      "why": "'느니 차라리'를 활용하여 품질 우선의 협상 대안을 제시합니다."
+    },
+    {
+      "t": "expand",
+      "base": {
+        "tokens": [
+          "무리하게 강행하느니 차라리",
+          "조율합시다."
+        ],
+        "en": "Rather than forcing recklessly, let's coordinate."
+      },
+      "steps": [
+        {
+          "tokens": [
+            "일정을 무리하게 강행하느니 차라리",
+            "다시 조율합시다."
+          ],
+          "en": "Rather than forcing the schedule recklessly, let's coordinate again."
+        },
+        {
+          "tokens": [
+            "품질을 포기하고 일정을 무리하게 강행하느니 차라리",
+            "출시 시점을",
+            "원점에서 다시 조율합시다."
+          ],
+          "en": "Rather than sacrificing quality and forcing schedules, let's coordinate release timing from scratch."
+        }
+      ]
+    },
+    {
+      "t": "passage",
+      "h": "Read a little",
+      "ko": [
+        "비즈니스 협상 테이블에서는 극단적인 대립을 피하면서도 자기 소신을 관철하는 어휘력이 중요합니다.",
+        "손해를 보면서 서두르느니 차라리 꼼꼼히 점검하자는 제안은 상대에게 신뢰를 줍니다.",
+        "또한 상대의 주장을 반박하기보다 대안의 가치를 부각할 때 협상의 성사율이 비약적으로 높아집니다."
+      ],
+      "en": [
+        "At the negotiation table, vocabulary asserting one's beliefs while avoiding conflict is vital.",
+        "Proposing to review carefully rather than rushing at a loss builds trust with counterparts.",
+        "Also, emphasizing the value of alternatives over outright rebuttal increases deal success."
+      ]
+    },
+    {
+      "t": "choice",
+      "q": "협상 테이블에서 상대에게 신뢰를 주는 제안 방식은 무엇인가요?",
+      "options": [
+        "손해를 감수하느니 차라리 꼼꼼히 점검하자고 제안하기",
+        "일방적으로 상대방의 주장을 깎아내리기"
+      ],
+      "answer": 0,
+      "hint": "둘째 줄의 신뢰를 주는 제안 방식을 보세요.",
+      "why": "서두르느니 차라리 꼼꼼히 점검하자는 제안이 신뢰를 준다고 했습니다."
+    },
+    {
+      "t": "choice",
+      "q": "협상 성사율을 높이기 위해 부각해야 할 점은 무엇인가요?",
+      "options": [
+        "대안의 가치",
+        "상대의 약점"
+      ],
+      "answer": 0,
+      "hint": "셋째 줄의 성사율 상승 요인을 확인하세요.",
+      "why": "대안의 가치를 부각할 때 협상 성사율이 높아진다고 했습니다."
+    },
+    {
+      "t": "cando",
+      "items": [
+        "I can navigate high-stakes negotiations using strategic alternative phrasing.",
+        "I can politely disagree and offer constructive substitutes in business meetings."
+      ]
+    }
+  ]
+}
