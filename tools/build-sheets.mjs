@@ -189,7 +189,7 @@ const bookToc = (k) => k.sheets ? sheets.filter((w) => w.level === k.sheets).map
 const buy = (url, price, label) => url
   ? `<a class="btn main" href="${esc(url)}" rel="noopener">${esc(label)} · $${esc(price)}</a>`
   : `<span class="btn sub shop-soon" aria-disabled="true">Coming soon · 준비 중</span>`;
-const cover = (k, big) => `<div class="bk-cover${big ? ' big' : ''}" style="--c:${esc(k.color)}"><span class="bk-ser">${esc(k.series === 'topik' ? 'TOPIK SERIES' : 'WORKBOOK SERIES')}</span><b>${esc(k.title.ko)}</b><i>${esc(k.title.en)}</i><span class="bk-lv">${esc(k.level)}</span><span class="bk-pub">${esc(pub.en)}</span></div>`;
+const cover = (k, big) => k.coverImg ? `<div class="bk-cover bk-img${big ? ' big' : ''}"><img src="${esc(k.coverImg)}" alt="${esc(k.title.ko)} — ${esc(k.title.en)}" width="700" height="995"${big ? '' : ' loading="lazy"'}></div>` : `<div class="bk-cover${big ? ' big' : ''}" style="--c:${esc(k.color)}"><span class="bk-ser">${esc(k.series === 'topik' ? 'TOPIK SERIES' : 'WORKBOOK SERIES')}</span><b>${esc(k.title.ko)}</b><i>${esc(k.title.en)}</i><span class="bk-lv">${esc(k.level)}</span><span class="bk-pub">${esc(pub.en)}</span></div>`;
 const STATUS = { planned: ['Coming soon', '출간 예정'], on: ['Available', '판매 중'] };
 const SHOP_CSS = `<style>
 .shop-hero{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:6px 0 14px;border-bottom:2px solid var(--ink);margin-bottom:8px}
@@ -201,6 +201,15 @@ const SHOP_CSS = `<style>
 .bk-badge{display:inline-block;font-size:11px;font-weight:800;padding:2px 8px;border-radius:99px;background:var(--tint);margin-top:6px}
 .bk-cover{position:relative;aspect-ratio:182/257;border-radius:3px 8px 8px 3px;background:var(--c);color:#fff;padding:16px 14px 14px 20px;display:flex;flex-direction:column;box-shadow:inset 6px 0 0 rgba(0,0,0,.18),0 10px 22px rgba(0,0,0,.18);transition:transform .2s;overflow:hidden}
 .bk-cover:after{content:'';position:absolute;right:-30%;bottom:-18%;width:90%;aspect-ratio:1;border-radius:50%;background:rgba(255,255,255,.12)}
+.bk-cover.bk-img{padding:0;background:none;overflow:hidden}.bk-cover.bk-img:after{display:none}.bk-cover.bk-img img{display:block;width:100%;height:100%;object-fit:cover}
+.pg-head{background:var(--tint);border-radius:16px;padding:20px 22px;margin:22px 0}.pg-head h2{border:0;padding:0;margin:0 0 6px;font-size:22px;line-height:1.35;word-break:keep-all}.pg-head p{margin:6px 0 0}
+.pg-feat{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:14px 0}.pg-feat div{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:14px}.pg-feat b{display:block;font-size:15px;margin:6px 0 4px}.pg-feat span{font-size:13px;color:var(--ink-3);line-height:1.55}.pg-feat i{font-style:normal;font-size:24px}
+.pg-toc{border:1px solid var(--line);border-radius:14px;overflow:hidden;margin:12px 0}.pg-toc h3{margin:0;padding:10px 16px;background:var(--tint);font-size:14px}.pg-toc div{display:flex;justify-content:space-between;gap:10px;padding:8px 16px;border-top:1px solid var(--line);font-size:14px}.pg-toc em{font-style:normal;color:var(--ink-3);white-space:nowrap}
+.pg-pv{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:12px 0}.pg-pv a{display:block;text-decoration:none;color:var(--ink);font-size:12px}.pg-pv img{display:block;width:100%;height:auto;border:1px solid var(--line);border-radius:6px;box-shadow:0 4px 12px rgba(0,0,0,.08)}.pg-pv span{display:block;margin-top:4px}
+.lb{display:none;position:fixed;inset:0;z-index:50;background:rgba(10,12,18,.88);align-items:center;justify-content:center;padding:16px}.lb:target{display:flex}.lb img{max-width:100%;max-height:calc(100vh - 80px);border-radius:6px;background:#fff}.lb .lbn{position:absolute;bottom:14px;left:0;right:0;display:flex;justify-content:center;gap:10px}.lb .lbn a{color:#fff;border:1px solid rgba(255,255,255,.5);border-radius:99px;padding:8px 16px;text-decoration:none;font-size:14px}.lb .lbx{position:absolute;top:10px;right:14px;color:#fff;font-size:30px;text-decoration:none;line-height:1}
+.pg-author{display:flex;gap:14px;align-items:flex-start;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px;margin:12px 0}.pg-author b{font-size:17px}.pg-author p{margin:4px 0 0}
+.pg-faq details{border-top:1px solid var(--line);padding:10px 0}.pg-faq summary{cursor:pointer;font-weight:700}.pg-faq p{margin:8px 0 0}
+@media (max-width:700px){.pg-feat{grid-template-columns:1fr}.pg-pv{grid-template-columns:repeat(2,1fr)}.pg-head h2{font-size:19px}}
 .bk-ser{font-size:9px;font-weight:800;letter-spacing:1.5px;opacity:.85}
 .bk-cover b{font-size:19px;line-height:1.25;margin-top:12px;word-break:keep-all}
 .bk-cover i{font-style:normal;font-size:11px;opacity:.9;margin-top:6px;line-height:1.35}
@@ -259,6 +268,26 @@ ${singles}
 </div>
 ${shopFoot}` + foot;
 }
+/* Yes24 식 책 쪽(운영자 2026-10-18 「판매페이지 · 미리보기 · 책소개」) — shop.json 책에 page 가 있으면 소개 · 특징 · 미리보기 · 저자 · 책 정보 · 자주 묻는 질문을 더 보여 준다. 미리보기 그림은 assets/books/<id>/pv-N.jpg, 크게 보기는 CSS :target(스크립트 없음). */
+const bi3 = (o) => `${esc(o.en)}<br><small class="bk-ko">${esc(o.ko)}</small>`;
+function richBody(k) {
+  const g = k.page; const n = g.previews.length;
+  const pv = g.previews.map((c, i) => `<a href="#pv${i + 1}"><img src="/assets/books/${esc(k.id)}/pv-${i + 1}.jpg" alt="${esc(c[0])} — ${esc(c[1])}" loading="lazy" width="749" height="1058"><span>${esc(c[0])} · ${esc(c[1])}</span></a>`).join('');
+  const lb = g.previews.map((c, i) => `<div class="lb" id="pv${i + 1}"><a class="lbx" href="#preview" aria-label="Close">×</a><img src="/assets/books/${esc(k.id)}/pv-${i + 1}.jpg" alt="${esc(c[0])}" width="749" height="1058"><div class="lbn"><a href="#pv${i === 0 ? n : i}">‹ Prev</a><a href="#pv${i + 2 > n ? 1 : i + 2}">Next ›</a></div></div>`).join('');
+  return `<div class="pg-head"><h2>${esc(g.headline.ko)}</h2><p><b>${esc(g.headline.en)}</b></p><p>${esc(g.lead.en)}<br><span class="bk-ko">${esc(g.lead.ko)}</span></p></div>
+<h2>Features · 이 책의 특징</h2>
+<div class="pg-feat">${g.features.map((f) => `<div><i>${f.ic}</i><b>${esc(f.t.en)} <span style="font-weight:500;color:var(--ink-3)">· ${esc(f.t.ko)}</span></b><span>${esc(f.d.en)}<br>${esc(f.d.ko)}</span></div>`).join('')}</div>
+@@SPLIT@@<h2 id="preview">Preview · 미리보기</h2>
+<p class="bk-ko">${esc(g.previewNote.en)} · ${esc(g.previewNote.ko)}</p>
+<div class="pg-pv">${pv}</div>${lb}
+<h2>Author · 지은이</h2>
+<div class="pg-author"><div><b>${esc(g.author.name.ko)} · ${esc(g.author.name.en)}</b><p>${esc(g.author.bio.en)}</p><p class="bk-ko">${esc(g.author.bio.ko)}</p></div></div>
+<h2>Book details · 책 정보</h2>
+<table class="bk-spec">${g.specs.map(([a, b]) => `<tr><th>${esc(a)}</th><td>${esc(b)}</td></tr>`).join('')}</table>
+<h2>FAQ · 자주 묻는 질문</h2>
+<div class="pg-faq">${g.faq.map(([q, a]) => `<details><summary>${esc(q.en)} · ${esc(q.ko)}</summary><p>${esc(a.en)}</p><p class="bk-ko">${esc(a.ko)}</p></details>`).join('')}</div>`;
+}
+const tocRich = (k) => k.page.contents.map((c) => `<div class="pg-toc"><h3>${esc(c.part.en)} · ${esc(c.part.ko)}</h3>${c.items.map(([t, p]) => `<div><span>${esc(t)}</span><em>${esc(p)}</em></div>`).join('')}</div>`).join('') + '<p class="bk-ko">쪽 번호는 책에 인쇄된 번호입니다 · Page numbers are those printed in the book.</p>';
 function bookPage(k) {
   const toc = bookToc(k);
   const st = STATUS[k.status] || [k.status, ''];
@@ -276,19 +305,20 @@ ${cover(k, true)}
     <tr><th>Size · 판형</th><td>${esc(k.trim || '')}</td></tr>
     <tr><th>Pages · 쪽수</th><td>${esc(k.pages || '')}</td></tr>
     <tr><th>Publisher</th><td>${esc(pub.en)} · ${esc(pub.ko)}</td></tr>
-    <tr><th>ISBN</th><td>${esc(k.isbn || 'To be assigned · 출간 때 붙음')}</td></tr>
+    ${k.page ? '<tr><th>Format · 형태</th><td>PDF · digital edition · 디지털판</td></tr>' : `<tr><th>ISBN</th><td>${esc(k.isbn || 'To be assigned · 출간 때 붙음')}</td></tr>`}
   </table>
   ${buy(k.polar, k.price || '', 'Buy')}
 </div>
 </div>
-<h2>About this book · 책 소개</h2>
+${k.page ? richBody(k).split('@@SPLIT@@')[0] : `<h2>About this book · 책 소개</h2>
 <p>${esc(k.about.en)}</p>
-<p class="bk-ko">${esc(k.about.ko)}</p>
+<p class="bk-ko">${esc(k.about.ko)}</p>`}
 <h2>Who it is for · 이런 분께</h2>
 <ul>${k.for.en.map((x, i) => `<li>${esc(x)} <small class="bk-ko">· ${esc(k.for.ko[i] || '')}</small></li>`).join('')}</ul>
 <h2>Contents · 목차</h2>
-<ol class="bk-toc">${toc.map((t) => `<li>${t.u ? `<a href="${t.u}">${esc(t.en)}</a>` : esc(t.en)}<small>${esc(t.ko)}</small></li>`).join('')}</ol>
+${k.page?.contents ? tocRich(k) : ''}<ol class="bk-toc"${k.page?.contents ? ' hidden' : ''}>${toc.map((t) => `<li>${t.u ? `<a href="${t.u}">${esc(t.en)}</a>` : esc(t.en)}<small>${esc(t.ko)}</small></li>`).join('')}</ol>
 ${k.sheets ? '<p>Each unit is based on a free worksheet on this site — open any unit above to try it now.</p>' : ''}
+${k.page ? richBody(k).split('@@SPLIT@@')[1] : ''}
 <p><a class="btn sub" href="/shop/">← All books</a></p>
 ${shopFoot}` + foot;
 }

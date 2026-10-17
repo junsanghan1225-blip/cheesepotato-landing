@@ -17,6 +17,7 @@
   "en": "Describe the data in 300 characters, argue your view in 700 — with scored samples.",
   "ko": "자료 설명 300자 · 논술 700자 · 상중하 답안과 채점"
  },
+ "levelTag": "WRITING",
  "level": "TOPIK II",
  "trim": {
   "w": 182,
@@ -96,5 +97,6 @@
   }
  ],
  "noGuide": true,
- "noIndex": true
+ "noIndex": true,
+ "front": "5354"
 }
