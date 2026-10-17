@@ -4,6 +4,7 @@
    - interior.pdf : 속표지 · 판권면 · 머리말 · 쓰는 법 · 목차 · 단원 · 정답 · 찾아보기 · 메모(총 쪽수가 짝수가 되게). B5 182×257mm, 안쪽 여백이 넓은 좌우 쪽.
    - cover-spread.pdf : 뒤표지 + 책등 + 앞표지 한 장(재단 여유 3mm). 책등 너비는 쪽수 × 종이 두께로 계산(인쇄소가 정해 주는 값으로 다시 계산할 것).
    - --theme classic : 「수학의 정석」풍 판(운영자 2026-10-17 「수학의 정석처럼 깔끔하게」) — 남색 한 가지 · 핵심 정리 / 참고 / 연습 이름표 · 단원은 쪽 맨 위에서 바로 시작(빈 표지 쪽 없음). 결과는 <out>/<id>-classic/.
+   - --digital : 파는 PDF 판 — 판권면의 출판사 신고번호 · ISBN · 발행일 자리표시를 빼고 「디지털판」으로 적는다. 앞표지를 첫 쪽으로 붙이는 것은 scratch 병합(pdf-lib) 단계.
    - --review : 검수본(interior-review.pdf) + 같은 내용의 글 판 review-text.md(다른 AI · 사람이 읽고 검사하기 쉽게 — 출처 · 블록 종류 · 정답 포함) — 쪽 위에 「REVIEW COPY」, 칸마다 빨간 출처 표시(학습지 id · §번호 — 「고칠 곳」을 말하면 바로 원본을 찾는다) + 맨 끝 검수 체크표. 운영자 2026-10-17 「검수는 내가 다 한다」.
    - 목차의 쪽 번호는 블록(속표지 · 각 단원 …)을 따로 찍어 쪽수를 세어 더한 값이다(PDF 안의 /Type /Page 수).
    만든 PDF 는 파는 파일이라 저장소에 두지 않는다(out 기본값 books-out/ 은 .gitignore). 문장은 전부 우리 학습지(창작) — 기출 아님.
@@ -19,6 +20,8 @@ const CHROMIUM = process.env.CHROMIUM_PATH || '/opt/pw-browsers/chromium';
 const args = process.argv.slice(2);
 const bookId = args.find((a) => !a.startsWith('--'));
 const REVIEW = args.includes('--review');
+/* --digital : 파는 PDF(전자책) — 종이책 자리표시(출판사 신고번호 · ISBN · 발행일 · 바코드)를 빼고 「디지털판」으로 적는다(운영자 2026-10-18 「책 PDF 최종」). */
+const DIGITAL = args.includes('--digital');
 const outDir = path.resolve(ROOT, args.includes('--out') ? args[args.indexOf('--out') + 1] : 'books-out');
 if (!bookId) { console.error('사용: node tools/build-book.mjs <책 id> [--out 폴더]   (책 틀: docs/books/<id>.json)'); process.exit(1); }
 
@@ -161,10 +164,12 @@ function copyrightPage() {
 <p>${esc(B.sub.en)}<br>${esc(B.sub.ko)}</p>
 <dl><dt>Author · 지은이</dt><dd>${esc(B.author.ko)} (${esc(B.author.en)})</dd>
 <dt>Publisher · 펴낸곳</dt><dd>${esc(B.publisher.ko)} · ${esc(B.publisher.en)}</dd>
-<dt>Publisher no.</dt><dd class="ph">출판사 신고번호 — 신고 후 기재</dd>
+${DIGITAL ? `<dt>Format · 형태</dt><dd>Digital edition (PDF) · 디지털판(PDF) — print it at home or at a print shop · 집이나 인쇄소에서 인쇄해 쓰세요</dd>
+<dt>Edition · 판</dt><dd>${esc(B.digitalEdition || 'First digital edition · 디지털판 초판')}</dd>
+<dt>Published · 발행</dt><dd>${new Date().toISOString().slice(0, 7).replace('-', '.')}</dd>` : `<dt>Publisher no.</dt><dd class="ph">출판사 신고번호 — 신고 후 기재</dd>
 <dt>ISBN</dt><dd class="ph">발급 후 기재 · to be assigned</dd>
 <dt>Edition · 판</dt><dd>${esc(B.edition)}</dd>
-<dt>Printed · 발행일</dt><dd class="ph">○○○○년 ○월 ○일</dd>
+<dt>Printed · 발행일</dt><dd class="ph">○○○○년 ○월 ○일</dd>`}
 <dt>Web</dt><dd>${esc(B.web)}</dd></dl>
 <p>All sentences, tables and exercises in this book were written for it. They are original practice material.<br>이 책의 낱말 · 문장 · 연습은 모두 이 책을 위해 새로 쓴 것입니다.</p>
 <p>© ${esc(B.publisher.en)}. All rights reserved. No part of this book may be reproduced without written permission, except for brief quotations in reviews or for classroom use by the purchaser.<br>저작권법에 따라 보호받는 책으로, 무단 복제와 전재를 금합니다.</p>
@@ -503,7 +508,7 @@ ${CLASSIC ? `<div class="mk2"><i>${potatoLevel(3).icon}</i><i>${cheeseLevel(2).i
 <div class="spine"><div class="t">${esc(B.title.ko)} <small>${esc(B.title.en)}</small></div><div class="p">${esc(B.publisher.en.toUpperCase())}</div></div>
 <div class="front"><div class="g">ㄱㄴㄷ ㄹㅁㅂ ㅅㅇㅈ ㅊㅋㅌ ㅍㅎ 가나 다라</div><div class="c1"></div><div class="c2"></div>
 <div class="z"><div class="ser">${esc(B.series.en)}</div><h1>${esc(B.title.ko)}</h1><h2>${esc(B.title.en)}</h2><div class="rule"></div><p class="sub">${esc(B.sub.en)}</p>
-<div class="lv"><span class="badge">${esc(B.level)} · BEGINNER</span><div class="by"><b>${esc(B.author.ko)} · ${esc(B.author.en)}</b><span>${esc(B.publisher.en.toUpperCase())}</span></div></div></div></div>
+<div class="lv"><span class="badge">${esc(B.level)} · ${esc(B.levelTag || "BEGINNER")}</span><div class="by"><b>${esc(B.author.ko)} · ${esc(B.author.en)}</b><span>${esc(B.publisher.en.toUpperCase())}</span></div></div></div></div>
 </body></html>`;
 pages.set('cur', coverHtml);
 await pg.goto(`${BASE}/__book.html`, { waitUntil: 'networkidle' });
