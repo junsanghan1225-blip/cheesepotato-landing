@@ -27,14 +27,14 @@ const THEME = args.includes('--theme') ? args[args.indexOf('--theme') + 1] : (B.
 const CLASSIC = THEME === 'classic';
 /* 문제은행 단원 「w51:2」 = TOPIK II 쓰기 51번의 2번째 10문항(topik-writing.js). 학습지 JSON 대신 이 자리에서 단원 모양으로 만든다. */
 const BANKQ = { 51: ['Practical Text Completion', '실용문 완성', 'Fill each blank with one sentence that fits the text and its style.', '각 빈칸에 지문의 문체에 맞는 한 문장을 써요'], 52: ['Explanatory Text Completion', '설명문 완성', 'Fill each blank with one sentence in the -(느)ㄴ다 style.', '각 빈칸에 -(느)ㄴ다체로 한 문장을 써요'], 53: ['Describing Data', '자료 설명하기', 'Write 200–300 characters describing the data.', '자료를 보고 200~300자로 써요'], 54: ['Argumentative Essay', '논술', 'Write 600–700 characters giving your own view.', '자신의 생각을 600~700자로 써요'] };
-const TWM = B.parts.some((p) => p.units.some((u) => /^w\d\d:/.test(u))) ? await import(path.join(ROOT, 'topik-writing.js')) : null;
+const TWM = B.needTW || B.parts.some((p) => p.units.some((u) => /^w\d\d:/.test(u))) ? await import(path.join(ROOT, 'topik-writing.js')) : null;
 const TW = TWM ? TWM.TW_ITEMS : [];
 const bankSheet = (id) => {
   const [, q, n] = id.match(/^w(\d\d):(\d+)$/).map(Number); const L = BANKQ[q]; const chunk = TW.filter((x) => x.q === q).slice((n - 1) * 10, n * 10);
   return { id, title: { en: `Q${q} · ${L[0]} · Set ${n}`, ko: `${q}번 · ${L[1]} · ${n}세트` }, sub: { en: L[2], ko: L[3] },
     sections: chunk.map((x, i) => ({ type: 'writing', raw: x, title: { en: `${(n - 1) * 10 + i + 1}. ${x.title}`, ko: '' }, items: [{ q: x.title, a: x.blanks ? x.blanks.map((b) => `${b.mark} ${b.answers[0]}`).join(' ') : x.model }] })) };
 };
-const sheet = (id) => /^w\d\d:\d+$/.test(id) ? bankSheet(id) : JSON.parse(fs.readFileSync(path.join(ROOT, `docs/worksheets/${id}.json`), 'utf8'));
+const sheet = (id) => B.inline?.[id] ? B.inline[id] : /^w\d\d:\d+$/.test(id) ? bankSheet(id) : JSON.parse(fs.readFileSync(path.join(ROOT, `docs/worksheets/${id}.json`), 'utf8'));
 const esc = (x) => String(x ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 const cssStr = (x) => '"' + String(x).replace(/\\/g, '\\\\').replace(/"/g, '\\"') + '"';
 const HAN = /[가-힣]/;
@@ -134,7 +134,7 @@ td:first-child{font-weight:800;font-size:10.4pt;color:#1d1a17}td.tip{color:#8a82
 
 /* ── 블록 만들기 ── */
 const pair = (o, cls = '') => `<p class="en${cls}">${esc(o.en)}</p>`;
-const LAB = { table: '핵심 정리', text: '참고', practice: '연습', writing: '문제' };
+const LAB = { table: '핵심 정리', text: '참고', practice: '연습', writing: '문제', example: '예시' };
 /* 정석풍 블록 — 핵심 정리 · 참고 · 연습 + 팁(TIP) · 주의(WARNING) · 더 알아보기(MORE). 표 끝 설명과 글 칸이 어느 블록인지는 책 틀의 blocks(「단원id:칸번호」)에서 — 없으면 표 설명은 TIP, 글 칸은 참고. */
 const BLK = { tip: ['TIP', '팁'], warn: ['WARNING', '주의'], more: ['MORE', '더 알아보기'], pattern: ['PATTERN', '문형'] };
 const kindOf = (u, si, s) => (B.blocks || {})[`${u.id}:${si + 1}`] || (s.type === 'table' ? 'tip' : 'ref');
@@ -228,6 +228,12 @@ function partPage(p) {
   return `<div class="blk pd"><div class="no">PART ${p.no}</div><div class="big">${String(p.no).padStart(2, '0')}</div><h2>${esc(p.title.ko)}</h2><h3>${esc(p.title.en)}</h3>
 <div class="list">${p.sheets.map((s) => { const u = units.find((x) => x.id === s.id); return `Unit ${String(u.no).padStart(2, '0')} &nbsp; ${esc(s.title.en)}`; }).join('<br>')}</div></div>`;
 }
+/* 한 장 요약 · 풀이 쪽의 「예시」 — 우리 창작 문항(topik-writing.js)의 지문 + 모범답안 */
+function exampleHtml(s) {
+  const x = TWM.TW_ITEMS.find((i) => i.id === s.item); if (!x) throw new Error('없는 문항 ' + s.item);
+  if (x.blanks) return `<div class="wp">${esc(x.passage)}</div>${x.blanks.map((b) => `<div class="wl"><b>${esc(b.mark)}</b><span class="wans">${b.answers.slice(0, 2).map(esc).join(' &nbsp;/&nbsp; ')}</span></div>`).join('')}`;
+  return `${s.showData && x.data ? `<ul class="wd">${x.data.map((d) => `<li>${esc(d)}</li>`).join('')}</ul>` : ''}<div class="wp" style="white-space:pre-line">${esc(x.model)}</div>`;
+}
 const wlines = (n, per = 30) => `<div class="wg">${Array.from({ length: n }, (_, i) => `<div class="wr">${(i + 1) % 5 === 0 ? `<i>${(i + 1) * per}</i>` : ''}</div>`).join('')}</div>`;
 function writingHtml(x) {
   const cond = x.cond ? `<div class="wc">${esc(x.cond)}</div>` : '';
@@ -257,6 +263,7 @@ function unitBlock(u) {
       if (k !== 'ref') return `<div class="sec">${sr(si)}${secLabel(s, BLK[k][1])}${blockHtml(u, si, s, s.text)}</div>`;
       return `<div class="sec">${sr(si)}${secLabel(s)}<div class="note">${esc(s.text)}</div></div>`;
     }
+    if (s.type === 'example') return `<div class="sec">${sr(si)}${secLabel(s)}${exampleHtml(s)}</div>`;
     if (s.type === 'writing') return `<div class="sec wq">${sr(si)}${secLabel(s)}${writingHtml(s.raw)}</div>`;
     return `<div class="sec"${s.items.length <= 8 ? ' style="break-inside:avoid"' : ''}>${sr(si)}${secLabel(s)}${s.hint ? `<div class="hint">${esc(s.hint)}</div>` : ''}<ol class="pr" style="--qw:${qw(s.items)}">${s.items.map((x) => `<li${x.q.includes('___') ? ' class="fill"' : ''}>${qLine(x.q)}</li>`).join('')}</ol></div>`;
   }).join('\n');
@@ -314,6 +321,7 @@ const memoBlock = (n) => Array.from({ length: n }, () => `<div class="blk plain 
 /* ── 쪽 찍기 ── */
 const reviewTop = REVIEW ? `@page:left{@bottom-center{content:"REVIEW COPY · 검수본";white-space:nowrap;font:800 6.4pt 'Pretendard Variable';letter-spacing:.2em;color:#c0392b;vertical-align:top;padding-top:6mm}}@page:right{@bottom-center{content:"REVIEW COPY · 검수본";white-space:nowrap;font:800 6.4pt 'Pretendard Variable';letter-spacing:.2em;color:#c0392b;vertical-align:top;padding-top:6mm}}` : '';
 const CLASSIC_CSS = `
+.bx .tt{white-space:pre-line}.wans{flex:1;font-size:9.6pt;color:#1f3a68;padding-bottom:.6mm;border-bottom:.25mm solid #c5cfdf}
 .wp{border:.25mm solid #b9c3d6;background:#f6f8fc;padding:3mm 3.6mm;font-size:9.6pt;line-height:1.8;margin:1mm 0 2mm}.wc{font-size:8pt;color:#5a6780;margin:0 0 1.6mm}
 .wl{display:flex;align-items:flex-end;gap:2.4mm;margin:2.4mm 0}.wl b{color:${ACC};font-size:11pt}.wln{flex:1;border-bottom:.25mm solid #8e9ab0;height:7mm}
 .wd{margin:0 0 2mm 5mm;padding:0;font-size:9pt;line-height:1.55;color:#2a3550}.wt{margin:0 0 2mm 6mm;padding:0;font-size:9pt;line-height:1.55}
@@ -377,7 +385,7 @@ async function pdf(html, opts = {}) {
 const countPages = (buf) => (buf.toString('latin1').match(/\/Type\s*\/Page(?![s\w])/g) || []).length;
 
 const entries = indexEntries();
-const blocks = [
+const blocks = B.compact ? parts.flatMap((p) => p.sheets.map((sh) => { const u = units.find((x) => x.id === sh.id); return [`unit${u.no}`, unitBlock(u)]; })) : [
   ['title', titlePage()], ['copyright', copyrightPage()], ['preface', prefacePage()], ['how', howPage()], ...(B.noGuide ? [] : [['guide', guidePage()]]), ['toc', tocPage(null)],
   ...parts.flatMap((p) => [[`part${p.no}`, partPage(p)], ...(TWM ? [[`qguide${p.no}`, qGuidePage(p)]] : []), ...p.sheets.map((s) => { const u = units.find((x) => x.id === s.id); return [`unit${u.no}`, unitBlock(u)]; })]),
   ['answers', answersBlock()], ...(B.noIndex ? [] : [['index', indexBlock(entries)]]),
@@ -386,7 +394,7 @@ const counts = {};
 for (const [k, html] of blocks) counts[k] = countPages(await pdf(html));
 let total = Object.values(counts).reduce((a, b) => a + b, 0);
 const memoPages = (total + 1) % 2 === 0 ? 1 : 2;   // 메모 쪽은 1~2쪽 — 총 쪽수는 짝수(인쇄 · 제본)
-blocks.push(['memo', memoBlock(memoPages)]); counts.memo = memoPages; total += memoPages;
+if (!B.compact) { blocks.push(['memo', memoBlock(memoPages)]); counts.memo = memoPages; total += memoPages; }
 /* 시작 쪽 = 앞 블록 쪽수의 합 + 1 */
 let at = 1; const start = {};
 for (const [k] of blocks) { start[k] = at; at += counts[k]; }
@@ -400,6 +408,8 @@ fs.mkdirSync(dir, { recursive: true });
 const interior = await pdf(final);
 const realTotal = countPages(interior) - (REVIEW ? countPages(await pdf(reviewSheet())) : 0);
 fs.writeFileSync(path.join(dir, REVIEW ? 'interior-review.pdf' : 'interior.pdf'), interior);
+/* 한 장 요약(compact) — 표지 · 판권면 · 목차 없이 단원 쪽만. 업무 형식 이름(B.file)으로도 한 부 둔다. */
+if (B.compact && !REVIEW) { fs.writeFileSync(path.join(dir, `${B.file || bookId}.pdf`), interior); await browser.close(); server.close(); console.log(`요약 ${bookId}: ${countPages(interior)}쪽 → ${path.join(dir, `${B.file || bookId}.pdf`)}`); process.exit(0); }
 if (REVIEW) {
   /* 글 판 — 단원 · 칸마다 출처(학습지id · §번호) · 블록 종류 · 표 · 설명 · 연습(정답 포함) */
   const md = [`# ${B.title.en} · ${B.title.ko} — review text`, '', `단원 ${units.length} · 출처 표기 = 「학습지id · §칸번호」`, ''];
