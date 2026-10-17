@@ -7533,3 +7533,4 @@ html[lang="ja"] *, html[lang="zh"] *, html[lang^="zh-"] *, html[lang="my"] * { w
 /* 약점 · 시험 계획 · 점수 기록은 「내 기록」 탭에서만 */
 #tqPick:not([data-tab="me"]) #tqRecord, #tqPick:not([data-tab="me"]) #tqLog { display:none !important; }
 @media (max-width:420px) { .tq-row { padding:12px 10px; gap:10px; } .tq-row-s { font-size:12px; } }
+#tlPick:not([data-tab="me"]) #tlRecord { display:none !important; }
