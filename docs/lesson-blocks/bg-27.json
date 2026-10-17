@@ -1,0 +1,646 @@
+{
+  "bg-27-01": [
+    {
+      "t": "vocab",
+      "h": "Words for this lesson",
+      "items": [
+        {
+          "ko": "산 책",
+          "en": "the book (I) bought",
+          "ex": "어제 서점에서 산 책이에요."
+        },
+        {
+          "ko": "듣는 노래",
+          "en": "the song (I am) listening to",
+          "ex": "지금 듣는 노래 제목이 뭐예요?"
+        },
+        {
+          "ko": "만날 사람",
+          "en": "the person (I will) meet",
+          "ex": "내일 오후에 만날 사람이 있어요."
+        },
+        {
+          "ko": "먹은 음식",
+          "en": "the food (I) ate",
+          "ex": "어제 저녁에 먹은 음식이 맛있었어요."
+        },
+        {
+          "ko": "마시는 커피",
+          "en": "the coffee (I am) drinking",
+          "ex": "매일 아침 마시는 커피예요."
+        }
+      ]
+    },
+    {
+      "t": "dictate",
+      "say": "어제 본 영화가 재미있었어요",
+      "answers": [
+        "어제 본 영화가 재미있었어요",
+        "어제 본 영화가 재미있었어요."
+      ],
+      "hint": "The movie I watched yesterday was fun.",
+      "why": "Past modifier -(으)ㄴ attaches to 보- to modify 영화: 보- + -ㄴ = 본 영화."
+    },
+    {
+      "t": "write",
+      "q": "Describe the song you are currently listening to using 지금 듣는 and 노래예요.",
+      "must": [
+        "지금 듣는",
+        "노래예요"
+      ],
+      "sample": "이 노래는 제가 지금 듣는 노래예요.",
+      "why": "Present modifier -는 attaches to the action verb 듣다: 듣- + -는 = 듣는 노래."
+    },
+    {
+      "t": "conj",
+      "h": "Fill the forms",
+      "forms": [
+        "present",
+        "past",
+        "future"
+      ],
+      "verbs": [
+        {
+          "v": "보다",
+          "pos": "동사",
+          "en": "to watch / see"
+        },
+        {
+          "v": "듣다",
+          "pos": "동사",
+          "en": "to listen"
+        },
+        {
+          "v": "사다",
+          "pos": "동사",
+          "en": "to buy"
+        },
+        {
+          "v": "먹다",
+          "pos": "동사",
+          "en": "to eat"
+        }
+      ]
+    },
+    {
+      "t": "expand",
+      "base": {
+        "tokens": [
+          "본",
+          "영화예요"
+        ],
+        "en": "It is a movie I watched."
+      },
+      "steps": [
+        {
+          "tokens": [
+            "어제",
+            "본",
+            "영화예요"
+          ],
+          "en": "It is the movie I watched yesterday."
+        },
+        {
+          "tokens": [
+            "극장에서",
+            "어제",
+            "본",
+            "영화예요"
+          ],
+          "en": "It is the movie I watched yesterday at the theater."
+        },
+        {
+          "tokens": [
+            "친구와 함께",
+            "극장에서",
+            "어제",
+            "본",
+            "영화예요"
+          ],
+          "en": "It is the movie I watched yesterday at the theater with a friend."
+        }
+      ]
+    },
+    {
+      "t": "passage",
+      "h": "Read a little",
+      "ko": [
+        "제가 어제 친구와 함께 본 영화가 정말 재미있었어요.",
+        "그리고 영화를 본 후에 마신 커피도 아주 향기로웠어요.",
+        "다음에 또 친구와 함께 좋은 영화를 보러 가고 싶어요."
+      ],
+      "en": [
+        "The movie I watched with my friend yesterday was really interesting.",
+        "And the coffee I drank after watching the movie was very fragrant too.",
+        "Next time, I want to go watch a good movie together with my friend again."
+      ]
+    },
+    {
+      "t": "choice",
+      "q": "How was the movie the writer watched yesterday?",
+      "options": [
+        "Really interesting",
+        "Boring and loud",
+        "Sad and scary"
+      ],
+      "answer": 0,
+      "why": "The text says '제가 어제 친구와 함께 본 영화가 정말 재미있었어요'."
+    },
+    {
+      "t": "choice",
+      "q": "What did the writer drink after watching the movie?",
+      "options": [
+        "Fragrant coffee",
+        "Cold water",
+        "Orange juice"
+      ],
+      "answer": 0,
+      "why": "The text states '영화를 본 후에 마신 커피도 아주 향기로웠어요'."
+    },
+    {
+      "t": "cando",
+      "items": [
+        "Turn verbs into noun modifiers to describe people, things, and places",
+        "Recognize the past -(으)ㄴ and present -는 modifier endings"
+      ]
+    }
+  ],
+  "bg-27-02": [
+    {
+      "t": "vocab",
+      "h": "Words for this lesson",
+      "items": [
+        {
+          "ko": "끝난 후에",
+          "en": "after it ends",
+          "ex": "수업이 끝난 후에 만나요."
+        },
+        {
+          "ko": "갈 때",
+          "en": "when going",
+          "ex": "학교에 갈 때 버스를 타요."
+        },
+        {
+          "ko": "읽을 수 있다",
+          "en": "can read",
+          "ex": "한글을 쉽게 읽을 수 있어요."
+        },
+        {
+          "ko": "온 것 같다",
+          "en": "seems to have come",
+          "ex": "밖을 보니 비가 온 것 같아요."
+        },
+        {
+          "ko": "가 본 적",
+          "en": "experience of going",
+          "ex": "한국에 가 본 적이 있어요."
+        }
+      ]
+    },
+    {
+      "t": "dictate",
+      "say": "수업이 끝난 후에 만나요",
+      "answers": [
+        "수업이 끝난 후에 만나요",
+        "수업이 끝난 후에 만나요."
+      ],
+      "hint": "Let's meet after class ends.",
+      "why": "Past modifier -(으)ㄴ connects with 후 (after): 끝나- + -ㄴ 후에."
+    },
+    {
+      "t": "write",
+      "q": "Suggest having coffee when there is free time using 시간이 있을 때 and 커피 마셔요.",
+      "must": [
+        "시간이 있을 때",
+        "커피 마셔요"
+      ],
+      "sample": "시간이 있을 때 같이 커피 마셔요.",
+      "why": "The time noun 때 takes the modifier -(으)ㄹ: 있- + -(으)ㄹ 때 = 있을 때."
+    },
+    {
+      "t": "conj",
+      "h": "Fill the forms",
+      "forms": [
+        "present",
+        "past",
+        "future"
+      ],
+      "verbs": [
+        {
+          "v": "끝나다",
+          "pos": "동사",
+          "en": "to end / finish"
+        },
+        {
+          "v": "만나다",
+          "pos": "동사",
+          "en": "to meet"
+        },
+        {
+          "v": "타다",
+          "pos": "동사",
+          "en": "to ride"
+        },
+        {
+          "v": "읽다",
+          "pos": "동사",
+          "en": "to read"
+        }
+      ]
+    },
+    {
+      "t": "expand",
+      "base": {
+        "tokens": [
+          "끝난 후에",
+          "만나요"
+        ],
+        "en": "Let's meet after it ends."
+      },
+      "steps": [
+        {
+          "tokens": [
+            "수업이",
+            "끝난 후에",
+            "만나요"
+          ],
+          "en": "Let's meet after class ends."
+        },
+        {
+          "tokens": [
+            "오늘 오후에",
+            "수업이",
+            "끝난 후에",
+            "만나요"
+          ],
+          "en": "This afternoon, let's meet after class ends."
+        }
+      ]
+    },
+    {
+      "t": "passage",
+      "h": "Read a little",
+      "ko": [
+        "오늘 오후 수업이 끝난 후에 친구와 도서관에 갔어요.",
+        "도서관에 갈 때 버스를 탔는데 사람이 많았어요.",
+        "우리는 조용한 자리에서 주말에 읽을 책을 함께 빌렸어요."
+      ],
+      "en": [
+        "This afternoon after class ended, I went to the library with a friend.",
+        "When going to the library, I rode the bus and there were many people.",
+        "In a quiet spot, we borrowed books together to read over the weekend."
+      ]
+    },
+    {
+      "t": "choice",
+      "q": "Where did the writer go after class ended?",
+      "options": [
+        "To the library",
+        "To the airport",
+        "To a coffee shop"
+      ],
+      "answer": 0,
+      "why": "The text says '오늘 오후 수업이 끝난 후에 친구와 도서관에 갔어요'."
+    },
+    {
+      "t": "choice",
+      "q": "What did they do at the library?",
+      "options": [
+        "Borrowed books to read over the weekend",
+        "Ate lunch with the librarian",
+        "Practiced singing loudly"
+      ],
+      "answer": 0,
+      "why": "The text states '우리는 조용한 자리에서 주말에 읽을 책을 함께 빌렸어요'."
+    },
+    {
+      "t": "cando",
+      "items": [
+        "Understand how 8 major grammar structures share the noun-modifying master key",
+        "Express conditions, abilities, and time sequences with confidence"
+      ]
+    }
+  ],
+  "bg-27-03": [
+    {
+      "t": "vocab",
+      "h": "Words for this lesson",
+      "items": [
+        {
+          "ko": "좋아하는 음식",
+          "en": "food (I) like / favorite food",
+          "ex": "제가 가장 좋아하는 음식은 비빔밥이에요."
+        },
+        {
+          "ko": "마신 커피",
+          "en": "coffee (I) drank",
+          "ex": "아침에 마신 커피가 맛있었어요."
+        },
+        {
+          "ko": "갈 곳",
+          "en": "place to go",
+          "ex": "내일 갈 곳을 미리 찾아봤어요."
+        },
+        {
+          "ko": "읽는 책",
+          "en": "book (I am) reading",
+          "ex": "요즘 읽는 책이 아주 감동적이에요."
+        },
+        {
+          "ko": "만날 사람",
+          "en": "person (I will) meet",
+          "ex": "오늘 오후에 만날 사람이 친구예요."
+        }
+      ]
+    },
+    {
+      "t": "dictate",
+      "say": "좋아하는 음식은 불고기예요",
+      "answers": [
+        "좋아하는 음식은 불고기예요",
+        "좋아하는 음식은 불고기예요."
+      ],
+      "hint": "My favorite food is bulgogi.",
+      "why": "Present verb modifier -는 attaches to 좋아하다 to modify 음식: 좋아하는 음식."
+    },
+    {
+      "t": "write",
+      "q": "Describe the book you read yesterday using 어제 읽은 책 and 정말 감동적이었어요.",
+      "must": [
+        "어제 읽은 책",
+        "정말 감동적이었어요"
+      ],
+      "sample": "어제 읽은 책이 정말 감동적이었어요.",
+      "why": "Past modifier -(으)ㄴ attaches to 읽다 to modify 책: 읽- + -은 = 읽은 책."
+    },
+    {
+      "t": "conj",
+      "h": "Fill the forms",
+      "forms": [
+        "present",
+        "past",
+        "future"
+      ],
+      "verbs": [
+        {
+          "v": "좋아하다",
+          "pos": "동사",
+          "en": "to like"
+        },
+        {
+          "v": "마시다",
+          "pos": "동사",
+          "en": "to drink"
+        },
+        {
+          "v": "읽다",
+          "pos": "동사",
+          "en": "to read"
+        },
+        {
+          "v": "찾다",
+          "pos": "동사",
+          "en": "to search / find"
+        }
+      ]
+    },
+    {
+      "t": "expand",
+      "base": {
+        "tokens": [
+          "좋아하는",
+          "음식이에요"
+        ],
+        "en": "It is food I like."
+      },
+      "steps": [
+        {
+          "tokens": [
+            "제가",
+            "좋아하는",
+            "음식이에요"
+          ],
+          "en": "It is food that I like."
+        },
+        {
+          "tokens": [
+            "제가 가장",
+            "좋아하는",
+            "음식이에요"
+          ],
+          "en": "It is the food that I like the most."
+        }
+      ]
+    },
+    {
+      "t": "passage",
+      "h": "Read a little",
+      "ko": [
+        "제가 요즘 매일 아침 마시는 차는 따뜻한 보리차예요.",
+        "어제 서점에서 산 책을 읽으면서 차를 한 잔 마셔요.",
+        "내일 서점에 갈 친구에게도 이 책을 추천하고 싶어요."
+      ],
+      "en": [
+        "The tea I drink every morning these days is warm barley tea.",
+        "I drink a cup of tea while reading the book I bought at the bookstore yesterday.",
+        "I also want to recommend this book to my friend who will go to the bookstore tomorrow."
+      ]
+    },
+    {
+      "t": "choice",
+      "q": "What does the writer drink every morning these days?",
+      "options": [
+        "Warm barley tea",
+        "Iced black coffee",
+        "Cold sweet milk"
+      ],
+      "answer": 0,
+      "why": "The text says '제가 요즘 매일 아침 마시는 차는 따뜻한 보리차예요'."
+    },
+    {
+      "t": "choice",
+      "q": "Which book is the writer reading?",
+      "options": [
+        "The book bought at the bookstore yesterday",
+        "A dictionary borrowed from a library",
+        "A magazine found on a bus"
+      ],
+      "answer": 0,
+      "why": "The text says '어제 서점에서 산 책을 읽으면서 차를 한 잔 마셔요'."
+    },
+    {
+      "t": "cando",
+      "items": [
+        "Create custom phrases modifying nouns in past, present, and future",
+        "Talk naturally about favorite foods, books, and upcoming appointments"
+      ]
+    }
+  ],
+  "bg-27-04": [
+    {
+      "t": "vocab",
+      "h": "Words for this lesson",
+      "items": [
+        {
+          "ko": "예약하다",
+          "en": "to reserve",
+          "ex": "주말에 볼 영화를 미리 예약했어요."
+        },
+        {
+          "ko": "마음에 들다",
+          "en": "to like / suit one's taste",
+          "ex": "어제 산 옷이 마음에 들어요."
+        },
+        {
+          "ko": "향기롭다",
+          "en": "to be fragrant",
+          "ex": "지금 마시는 커피가 향기로워요."
+        },
+        {
+          "ko": "할 일",
+          "en": "things to do",
+          "ex": "내일 할 일이 많아요."
+        },
+        {
+          "ko": "초대하다",
+          "en": "to invite",
+          "ex": "파티에 초대할 사람 명단을 적었어요."
+        }
+      ]
+    },
+    {
+      "t": "dictate",
+      "say": "어제 산 옷이 아주 마음에 들어요",
+      "answers": [
+        "어제 산 옷이 아주 마음에 들어요",
+        "어제 산 옷이 아주 마음에 들어요."
+      ],
+      "hint": "I really like the clothes I bought yesterday.",
+      "why": "Past modifier -(으)ㄴ attaches to 사다: 사- + -ㄴ = 산 옷."
+    },
+    {
+      "t": "write",
+      "q": "Talk about reserving a movie to watch on the weekend using 주말에 볼 영화 and 미리 예약했어요.",
+      "must": [
+        "주말에 볼 영화",
+        "미리 예약했어요"
+      ],
+      "sample": "주말에 볼 영화를 미리 예약했어요.",
+      "why": "Future modifier -(으)ㄹ attaches to 보다 to modify 영화: 보- + -ㄹ = 볼 영화."
+    },
+    {
+      "t": "correct",
+      "q": "Fix the mistake.",
+      "wrong": "지금 내가 마신 커피가 정말 향기롭고 맛있어요.",
+      "answers": [
+        "지금 내가 마시는 커피가 정말 향기롭고 맛있어요.",
+        "지금 내가 마시는 커피가 정말 향기롭고 맛있어요"
+      ],
+      "hint": "For an action taking place right now (지금), use present modifier -는: 마시다 → 마시는 커피.",
+      "why": "An action happening at present uses -는 to modify a noun: 지금 마시는 커피."
+    },
+    {
+      "t": "conj",
+      "h": "Fill the forms",
+      "forms": [
+        "present",
+        "past",
+        "future"
+      ],
+      "verbs": [
+        {
+          "v": "예약하다",
+          "pos": "동사",
+          "en": "to reserve"
+        },
+        {
+          "v": "향기롭다",
+          "pos": "형용사",
+          "en": "to be fragrant"
+        },
+        {
+          "v": "초대하다",
+          "pos": "동사",
+          "en": "to invite"
+        },
+        {
+          "v": "만들다",
+          "pos": "동사",
+          "en": "to make"
+        }
+      ]
+    },
+    {
+      "t": "expand",
+      "base": {
+        "tokens": [
+          "볼 영화를",
+          "예약했어요"
+        ],
+        "en": "I reserved a movie to watch."
+      },
+      "steps": [
+        {
+          "tokens": [
+            "주말에",
+            "볼 영화를",
+            "예약했어요"
+          ],
+          "en": "I reserved a movie to watch on the weekend."
+        },
+        {
+          "tokens": [
+            "친구와 함께",
+            "주말에",
+            "볼 영화를",
+            "예약했어요"
+          ],
+          "en": "I reserved a movie to watch on the weekend together with a friend."
+        }
+      ]
+    },
+    {
+      "t": "passage",
+      "h": "Read a little",
+      "ko": [
+        "어제 백화점에서 산 옷이 아주 마음에 들어요.",
+        "지금 마시는 따뜻한 커피도 기분을 좋게 해 줘요.",
+        "이번 주말에 친구와 함께 볼 영화도 미리 예매해 두었어요."
+      ],
+      "en": [
+        "I really like the clothes I bought yesterday at the department store.",
+        "The warm coffee I am drinking right now makes me feel good too.",
+        "I have also reserved in advance the movie I will watch together with my friend this weekend."
+      ]
+    },
+    {
+      "t": "choice",
+      "q": "Where did the writer buy clothes yesterday?",
+      "options": [
+        "At the department store",
+        "At a convenience store",
+        "At an airport shop"
+      ],
+      "answer": 0,
+      "why": "The text states '어제 백화점에서 산 옷이 아주 마음에 들어요'."
+    },
+    {
+      "t": "choice",
+      "q": "What did the writer reserve in advance for the weekend?",
+      "options": [
+        "A movie to watch with a friend",
+        "A hotel room in Busan",
+        "A seat on an airplane"
+      ],
+      "answer": 0,
+      "why": "The text says '이번 주말에 친구와 함께 볼 영화도 미리 예매해 두었어요'."
+    },
+    {
+      "t": "cando",
+      "items": [
+        "Freely combine past, present, and future modifiers in continuous conversation",
+        "Speak about daily routines, past experiences, and future plans seamlessly"
+      ]
+    }
+  ]
+}

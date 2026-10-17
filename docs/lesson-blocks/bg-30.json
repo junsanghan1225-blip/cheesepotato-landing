@@ -1,0 +1,643 @@
+{
+  "bg-30-01": [
+    {
+      "t": "vocab",
+      "h": "Words for this lesson",
+      "items": [
+        {
+          "ko": "맛있네요",
+          "en": "it's delicious! (exclamation)",
+          "ex": "와, 이 빵 정말 맛있네요!"
+        },
+        {
+          "ko": "춥네요",
+          "en": "it's cold! (exclamation)",
+          "ex": "오늘 날씨가 참 춥네요."
+        },
+        {
+          "ko": "예쁘네요",
+          "en": "it's pretty! (exclamation)",
+          "ex": "입으신 옷이 참 예쁘네요."
+        },
+        {
+          "ko": "빠르네요",
+          "en": "it's fast! (exclamation)",
+          "ex": "시간이 정말 빠르네요."
+        },
+        {
+          "ko": "잘하시네요",
+          "en": "you do so well! (compliment)",
+          "ex": "한국어를 정말 잘하시네요."
+        }
+      ]
+    },
+    {
+      "t": "dictate",
+      "say": "이 커피 정말 맛있네요",
+      "answers": [
+        "이 커피 정말 맛있네요",
+        "이 커피 정말 맛있네요."
+      ],
+      "hint": "Wow, this coffee is really delicious!",
+      "why": "-네요 directly expresses real-time pleasant exclamation upon tasting: 맛있- + -네요 = 맛있네요!"
+    },
+    {
+      "t": "write",
+      "q": "Praise someone's Korean speaking ability using 한국어를 and 정말 잘하시네요.",
+      "must": [
+        "한국어를",
+        "정말 잘하시네요"
+      ],
+      "sample": "한국어를 정말 잘하시네요!",
+      "why": "-네요 attaches directly to honorific stem 잘하시- to express spontaneous admiration."
+    },
+    {
+      "t": "conj",
+      "h": "Fill the forms",
+      "forms": [
+        "present",
+        "past",
+        "future"
+      ],
+      "verbs": [
+        {
+          "v": "맛있다",
+          "pos": "형용사",
+          "en": "to be delicious"
+        },
+        {
+          "v": "춥다",
+          "pos": "형용사",
+          "en": "to be cold"
+        },
+        {
+          "v": "예쁘다",
+          "pos": "형용사",
+          "en": "to be pretty"
+        },
+        {
+          "v": "빠르다",
+          "pos": "형용사",
+          "en": "to be fast"
+        }
+      ]
+    },
+    {
+      "t": "expand",
+      "base": {
+        "tokens": [
+          "정말",
+          "맛있네요"
+        ],
+        "en": "It's really delicious!"
+      },
+      "steps": [
+        {
+          "tokens": [
+            "이 음식",
+            "정말",
+            "맛있네요"
+          ],
+          "en": "This food is really delicious!"
+        },
+        {
+          "tokens": [
+            "직접 만드신",
+            "이 음식",
+            "정말",
+            "맛있네요"
+          ],
+          "en": "This food you made yourself is really delicious!"
+        }
+      ]
+    },
+    {
+      "t": "passage",
+      "h": "Read a little",
+      "ko": [
+        "친구 집에 놀러 갔더니 친구가 직접 만든 피자를 주었어요.",
+        "한 입 먹어 보니 치즈도 부드럽고 정말 맛있네요.",
+        "친구가 요리를 이렇게 잘하는 줄 몰랐어요."
+      ],
+      "en": [
+        "When I visited my friend's house, my friend gave me pizza they made themselves.",
+        "Taking a bite, the cheese is soft and wow, it's really delicious.",
+        "I didn't know my friend was so good at cooking."
+      ]
+    },
+    {
+      "t": "choice",
+      "q": "What did the friend give to the writer?",
+      "options": [
+        "Pizza made by the friend",
+        "Store-bought cake",
+        "A cup of iced tea"
+      ],
+      "answer": 0,
+      "why": "The text says '친구가 직접 만든 피자를 주었어요'."
+    },
+    {
+      "t": "choice",
+      "q": "What was the writer's immediate reaction upon taking a bite?",
+      "options": [
+        "The cheese is soft and really delicious",
+        "The crust is too salty and dry",
+        "The pizza was completely cold"
+      ],
+      "answer": 0,
+      "why": "The text states '한 입 먹어 보니 치즈도 부드럽고 정말 맛있네요'."
+    },
+    {
+      "t": "cando",
+      "items": [
+        "Express spontaneous admiration and surprise upon experiencing sensations with -네요",
+        "Compliment friends immediately on looks, skills, and food"
+      ]
+    }
+  ],
+  "bg-30-02": [
+    {
+      "t": "vocab",
+      "h": "Words for this lesson",
+      "items": [
+        {
+          "ko": "그렇군요",
+          "en": "I see / so that's how it is",
+          "ex": "아, 그런 사정이 있었군요."
+        },
+        {
+          "ko": "사정",
+          "en": "circumstances / situation",
+          "ex": "개인적인 사정이 있었어요."
+        },
+        {
+          "ko": "바쁘시군요",
+          "en": "you must be busy / I see you are busy",
+          "ex": "요즘 일 때문에 많이 바쁘시군요."
+        },
+        {
+          "ko": "휴일",
+          "en": "holiday / day off",
+          "ex": "내일이 회사 휴일이군요."
+        },
+        {
+          "ko": "오래",
+          "en": "for a long time",
+          "ex": "한국에서 오래 사셨군요."
+        }
+      ]
+    },
+    {
+      "t": "dictate",
+      "say": "아 그런 사정이 있었군요",
+      "answers": [
+        "아 그런 사정이 있었군요",
+        "아, 그런 사정이 있었군요",
+        "아 그런 사정이 있었군요.",
+        "아, 그런 사정이 있었군요."
+      ],
+      "hint": "Ah, so that kind of situation existed, I see.",
+      "why": "-군요 expresses realization upon learning new information or explanations from others."
+    },
+    {
+      "t": "write",
+      "q": "Acknowledge someone living in Korea for a long time using 한국에서 오래 and 사셨군요.",
+      "must": [
+        "한국에서 오래",
+        "사셨군요"
+      ],
+      "sample": "한국에서 오래 사셨군요.",
+      "why": "-군요 with honorific past -셨- conveys understanding upon hearing someone's background."
+    },
+    {
+      "t": "conj",
+      "h": "Fill the forms",
+      "forms": [
+        "present",
+        "past",
+        "future"
+      ],
+      "verbs": [
+        {
+          "v": "그렇다",
+          "pos": "형용사",
+          "en": "to be so"
+        },
+        {
+          "v": "바쁘다",
+          "pos": "형용사",
+          "en": "to be busy"
+        },
+        {
+          "v": "살다",
+          "pos": "동사",
+          "en": "to live"
+        },
+        {
+          "v": "알다",
+          "pos": "동사",
+          "en": "to know"
+        }
+      ]
+    },
+    {
+      "t": "expand",
+      "base": {
+        "tokens": [
+          "그렇군요",
+          "몰랐어요"
+        ],
+        "en": "I see, I didn't know."
+      },
+      "steps": [
+        {
+          "tokens": [
+            "아",
+            "그런 사정이었군요",
+            "몰랐어요"
+          ],
+          "en": "Ah, so that was the situation, I didn't know."
+        },
+        {
+          "tokens": [
+            "이제 이야기를 들으니",
+            "그런 사정이었군요",
+            "몰랐어요"
+          ],
+          "en": "Now that I hear your story, I see that was the situation, I didn't know."
+        }
+      ]
+    },
+    {
+      "t": "passage",
+      "h": "Read a little",
+      "ko": [
+        "회사 동료가 오늘 피곤해 보여서 무슨 일이 있는지 물어봤어요.",
+        "동료가 어젯밤에 늦게까지 프로젝트 보고서를 작성했다고 말했어요.",
+        "이야기를 듣고 나니 동료가 왜 피곤한지 이해가 되었고 '정말 고생하셨군요'라고 위로했어요."
+      ],
+      "en": [
+        "My coworker looked tired today, so I asked what happened.",
+        "My coworker told me they wrote a project report until late last night.",
+        "After hearing the story, I understood why they were tired and consoled them: 'You really worked hard!'"
+      ]
+    },
+    {
+      "t": "choice",
+      "q": "Why was the coworker tired today?",
+      "options": [
+        "Because they wrote a report until late last night",
+        "Because they went running at 5 AM",
+        "Because they watched TV all morning"
+      ],
+      "answer": 0,
+      "why": "The text says '동료가 어젯밤에 늦게까지 프로젝트 보고서를 작성했다고 말했어요'."
+    },
+    {
+      "t": "choice",
+      "q": "How did the speaker react upon hearing the reason?",
+      "options": [
+        "Said 'You really worked hard' with understanding",
+        "Told them not to drink any coffee",
+        "Laughed and asked for snacks"
+      ],
+      "answer": 0,
+      "why": "The text states '정말 고생하셨군요'라고 위로했어요."
+    },
+    {
+      "t": "cando",
+      "items": [
+        "React thoughtfully to new information and explanations using -군요",
+        "Show empathy and active listening in everyday dialogues"
+      ]
+    }
+  ],
+  "bg-30-03": [
+    {
+      "t": "vocab",
+      "h": "Words for this lesson",
+      "items": [
+        {
+          "ko": "좋지요",
+          "en": "it is good, isn't it? (seeking agreement)",
+          "ex": "오늘 날씨 참 좋지요?"
+        },
+        {
+          "ko": "맞지요",
+          "en": "that's right, isn't it? (confirmation)",
+          "ex": "내일 약속이 2시 맞지요?"
+        },
+        {
+          "ko": "재미있죠",
+          "en": "it's fun, right? (spoken -죠)",
+          "ex": "한국어 공부 정말 재미있죠?"
+        },
+        {
+          "ko": "푸르다",
+          "en": "to be blue (sky / sea)",
+          "ex": "가을 하늘이 참 푸르죠?"
+        },
+        {
+          "ko": "확인하다",
+          "en": "to confirm / check",
+          "ex": "회의 시간을 다시 확인했어요."
+        }
+      ]
+    },
+    {
+      "t": "dictate",
+      "say": "오늘 날씨 정말 좋지요",
+      "answers": [
+        "오늘 날씨 정말 좋지요",
+        "오늘 날씨 정말 좋지요?",
+        "오늘 날씨 정말 좋죠",
+        "오늘 날씨 정말 좋죠?"
+      ],
+      "hint": "The weather is really nice today, isn't it?",
+      "why": "-지요 (or spoken -죠) seeks agreement from the listener about an obvious or shared fact."
+    },
+    {
+      "t": "write",
+      "q": "Double check the meeting schedule using 내일 회의 and 2시지요?.",
+      "must": [
+        "내일 회의",
+        "2시지요?"
+      ],
+      "sample": "내일 회의 시간이 2시지요?",
+      "why": "Use -지요? to confirm information you believe to be true."
+    },
+    {
+      "t": "conj",
+      "h": "Fill the forms",
+      "forms": [
+        "present",
+        "past",
+        "future"
+      ],
+      "verbs": [
+        {
+          "v": "좋다",
+          "pos": "형용사",
+          "en": "to be good"
+        },
+        {
+          "v": "맞다",
+          "pos": "동사",
+          "en": "to be correct / fit"
+        },
+        {
+          "v": "재미있다",
+          "pos": "형용사",
+          "en": "to be fun"
+        },
+        {
+          "v": "확인하다",
+          "pos": "동사",
+          "en": "to confirm"
+        }
+      ]
+    },
+    {
+      "t": "expand",
+      "base": {
+        "tokens": [
+          "날씨가",
+          "좋지요?"
+        ],
+        "en": "The weather is nice, isn't it?"
+      },
+      "steps": [
+        {
+          "tokens": [
+            "오늘",
+            "날씨가",
+            "좋지요?"
+          ],
+          "en": "Today the weather is nice, isn't it?"
+        },
+        {
+          "tokens": [
+            "오늘",
+            "날씨가",
+            "정말 따뜻하고",
+            "좋지요?"
+          ],
+          "en": "Today the weather is really warm and nice, isn't it?"
+        }
+      ]
+    },
+    {
+      "t": "passage",
+      "h": "Read a little",
+      "ko": [
+        "점심시간에 동료들과 함께 회사 근처 공원으로 산책을 나갔어요.",
+        "하늘도 푸르고 바람도 솔솔 불어서 '오늘 날씨 정말 좋지요?'라고 물었어요.",
+        "동료들도 모두 고개를 끄덕이며 '네, 정말 따뜻하네요'라고 대답했어요."
+      ],
+      "en": [
+        "During lunchtime, I went for a walk to the park near the company with coworkers.",
+        "The sky was blue and a gentle breeze blew, so I asked: 'The weather is really nice today, isn't it?'",
+        "My coworkers all nodded and answered: 'Yes, it's really warm!'"
+      ]
+    },
+    {
+      "t": "choice",
+      "q": "Where did the writer go with coworkers during lunchtime?",
+      "options": [
+        "For a walk to the park near the company",
+        "To a department store to shop",
+        "To an underground train station"
+      ],
+      "answer": 0,
+      "why": "The text says '회사 근처 공원으로 산책을 나갔어요'."
+    },
+    {
+      "t": "choice",
+      "q": "How did the coworkers react when the writer asked about the weather?",
+      "options": [
+        "They nodded and agreed that it was warm",
+        "They complained that it was raining",
+        "They ran back inside immediately"
+      ],
+      "answer": 0,
+      "why": "The text states '동료들도 모두 고개를 끄덕이며 네, 정말 따뜻하네요라고 대답했어요'."
+    },
+    {
+      "t": "cando",
+      "items": [
+        "Seek agreement or confirm shared facts with -지요? and spoken -죠?",
+        "Engage friendly small-talk reactions in daily interactions"
+      ]
+    }
+  ],
+  "bg-30-04": [
+    {
+      "t": "vocab",
+      "h": "Words for this lesson",
+      "items": [
+        {
+          "ko": "맞장구",
+          "en": "conversational reaction / chiming in",
+          "ex": "대화할 때 맞장구를 잘 쳐요."
+        },
+        {
+          "ko": "대단하다",
+          "en": "to be amazing / great",
+          "ex": "직접 만들다니 대단하시네요!"
+        },
+        {
+          "ko": "동창",
+          "en": "school alumnus / classmate",
+          "ex": "두 사람이 대학교 동창이었군요."
+        },
+        {
+          "ko": "멋있다",
+          "en": "to be cool / stylish",
+          "ex": "영화 주인공이 정말 멋있죠?"
+        },
+        {
+          "ko": "소감",
+          "en": "impression / thoughts",
+          "ex": "영화를 본 소감을 나눴어요."
+        }
+      ]
+    },
+    {
+      "t": "dictate",
+      "say": "와 정말 대단하시네요",
+      "answers": [
+        "와 정말 대단하시네요",
+        "와 정말 대단하시네요!",
+        "와, 정말 대단하시네요!"
+      ],
+      "hint": "Wow, you are really amazing!",
+      "why": "-네요 conveys real-time spontaneous praise upon seeing someone's skill: 대단하시네요!"
+    },
+    {
+      "t": "write",
+      "q": "Chime into conversation with praise for someone's cooking using 직접 만든 and 정말 맛있네요.",
+      "must": [
+        "직접 만든",
+        "정말 맛있네요"
+      ],
+      "sample": "직접 만든 음식이 정말 맛있네요!",
+      "why": "-네요 expresses immediate sensory delight and sincere compliment: 맛있네요!"
+    },
+    {
+      "t": "correct",
+      "q": "Fix the mistake.",
+      "wrong": "친구의 설명에 새로 깨달았을 때: 아, 그렇네요!",
+      "answers": [
+        "아, 그렇군요!",
+        "아 그렇군요!",
+        "아, 그렇군요",
+        "아 그렇군요"
+      ],
+      "hint": "When realizing new information from someone's explanation, use 그렇군요 instead of sensory reaction 그렇네요.",
+      "why": "Realizing information heard from others uses -군요: 아, 그렇군요!"
+    },
+    {
+      "t": "conj",
+      "h": "Fill the forms",
+      "forms": [
+        "present",
+        "past",
+        "future"
+      ],
+      "verbs": [
+        {
+          "v": "대단하다",
+          "pos": "형용사",
+          "en": "to be amazing"
+        },
+        {
+          "v": "멋있다",
+          "pos": "형용사",
+          "en": "to be cool / stylish"
+        },
+        {
+          "v": "나누다",
+          "pos": "동사",
+          "en": "to share / divide"
+        },
+        {
+          "v": "웃다",
+          "pos": "동사",
+          "en": "to smile / laugh"
+        }
+      ]
+    },
+    {
+      "t": "expand",
+      "base": {
+        "tokens": [
+          "정말",
+          "대단하시네요!"
+        ],
+        "en": "You are really amazing!"
+      },
+      "steps": [
+        {
+          "tokens": [
+            "직접 만드시다니",
+            "정말",
+            "대단하시네요!"
+          ],
+          "en": "Making it yourself, you are really amazing!"
+        },
+        {
+          "tokens": [
+            "이 어려운 요리를",
+            "직접 만드시다니",
+            "정말",
+            "대단하시네요!"
+          ],
+          "en": "Making this difficult dish yourself, you are really amazing!"
+        }
+      ]
+    },
+    {
+      "t": "passage",
+      "h": "Read a little",
+      "ko": [
+        "한국 친구와 대화할 때는 적절한 반응으로 맞장구를 치는 것이 좋아요.",
+        "맛있는 음식을 함께 먹을 때는 '정말 맛있네요!'라고 감탄하고, 새로운 소식을 들었을 때는 '아, 그렇군요!'라고 공감해요.",
+        "그리고 상대방과 이미 아는 생각을 나눌 때는 '맞지요?'라고 확인하면 대화가 한층 부드러워져요."
+      ],
+      "en": [
+        "When conversing with a Korean friend, chiming in with suitable reactions is great.",
+        "When eating delicious food together, exclaim 'It's really delicious! (-네요)', and when hearing new news, empathize with 'Ah, I see! (-군요)'.",
+        "And when sharing known thoughts with the other person, confirming with 'That's right, isn't it? (-지요)' makes the conversation much smoother."
+      ]
+    },
+    {
+      "t": "choice",
+      "q": "What should you say when tasting delicious food together to exclaim with delight?",
+      "options": [
+        "'정말 맛있네요!' (It's really delicious!)",
+        "'정말 맛없을 거예요' (It will not be delicious)",
+        "'정말 먹지 마십시오' (Please do not eat)"
+      ],
+      "answer": 0,
+      "why": "The text says '맛있는 음식을 함께 먹을 때는 정말 맛있네요!라고 감탄하고'."
+    },
+    {
+      "t": "choice",
+      "q": "What is the effect of using appropriate reaction words in Korean conversation?",
+      "options": [
+        "The conversation becomes much smoother and warmer",
+        "The other person stops talking",
+        "The conversation quickly becomes an argument"
+      ],
+      "answer": 0,
+      "why": "The text concludes '대화가 한층 부드러워져요' (the conversation becomes much smoother)."
+    },
+    {
+      "t": "cando",
+      "items": [
+        "Skillfully alternate between -네요, -군요, and -지요 in lively Korean conversations",
+        "Be an engaging and responsive conversation partner using natural 맞장구 expressions"
+      ]
+    }
+  ]
+}
