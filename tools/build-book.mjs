@@ -1,8 +1,9 @@
 #!/usr/bin/env node
 /* 책 틀 — 우리 학습지 자료로 인쇄용 책 PDF 를 찍는다(운영자 2026-10-17 「정말 책처럼 — 표지 디자인부터 속지 · 목차까지」, 계획 docs/plans/books.md).
-   node tools/build-book.mjs <책 id> [--out 폴더]     docs/books/<id>.json + docs/worksheets/*.json → <out>/<id>/interior.pdf · cover-spread.pdf · front-cover.png
+   node tools/build-book.mjs <책 id> [--out 폴더] [--review]   docs/books/<id>.json + docs/worksheets/*.json → <out>/<id>/interior.pdf · cover-spread.pdf · front-cover.png
    - interior.pdf : 속표지 · 판권면 · 머리말 · 쓰는 법 · 목차 · 단원 · 정답 · 찾아보기 · 메모(총 쪽수가 짝수가 되게). B5 182×257mm, 안쪽 여백이 넓은 좌우 쪽.
    - cover-spread.pdf : 뒤표지 + 책등 + 앞표지 한 장(재단 여유 3mm). 책등 너비는 쪽수 × 종이 두께로 계산(인쇄소가 정해 주는 값으로 다시 계산할 것).
+   - --review : 검수본(interior-review.pdf) — 쪽 위에 「REVIEW COPY」, 칸마다 빨간 출처 표시(학습지 id · §번호 — 「고칠 곳」을 말하면 바로 원본을 찾는다) + 맨 끝 검수 체크표. 운영자 2026-10-17 「검수는 내가 다 한다」.
    - 목차의 쪽 번호는 블록(속표지 · 각 단원 …)을 따로 찍어 쪽수를 세어 더한 값이다(PDF 안의 /Type /Page 수).
    만든 PDF 는 파는 파일이라 저장소에 두지 않는다(out 기본값 books-out/ 은 .gitignore). 문장은 전부 우리 학습지(창작) — 기출 아님.
    브라우저는 smoke.mjs 처럼 PLAYWRIGHT_PATH · CHROMIUM_PATH 로 바꿀 수 있다. */
@@ -16,6 +17,7 @@ const PW = process.env.PLAYWRIGHT_PATH || '/opt/node22/lib/node_modules/playwrig
 const CHROMIUM = process.env.CHROMIUM_PATH || '/opt/pw-browsers/chromium';
 const args = process.argv.slice(2);
 const bookId = args.find((a) => !a.startsWith('--'));
+const REVIEW = args.includes('--review');
 const outDir = path.resolve(ROOT, args.includes('--out') ? args[args.indexOf('--out') + 1] : 'books-out');
 if (!bookId) { console.error('사용: node tools/build-book.mjs <책 id> [--out 폴더]   (책 틀: docs/books/<id>.json)'); process.exit(1); }
 
@@ -113,6 +115,8 @@ td:first-child{font-weight:800;font-size:10.4pt;color:#1d1a17}td.tip{color:#8a82
 .ak .a{font-size:7.9pt;line-height:1.5;color:#2c2722}.ak .a b{color:${ACC};margin-right:1mm}.ak .set{margin-bottom:1mm}
 .ix .cols{column-count:3;column-gap:6mm;font-size:7.8pt;line-height:1.4}.ix .ini{break-after:avoid;margin:2.4mm 0 1mm;font-size:10pt;font-weight:900;color:${ACC};break-inside:avoid}
 .ix .e{break-inside:avoid;padding:.35mm 0;border-bottom:.15mm solid #eee7dc}.ix .e b{font-weight:800}.ix .e span{color:#6d655c}.ix .e i{font-style:normal;float:right;color:${ACC};font-weight:700;font-size:7pt}
+.src{display:block;font:600 6.4pt 'Pretendard Variable';color:#c0392b;letter-spacing:.04em;margin-bottom:1mm}
+.rv h2{font-size:18pt;margin-bottom:1mm}.rv .k{font-size:9.5pt;color:#6d655c;margin-bottom:5mm}.rv table td{padding:1.6mm 2mm;font-weight:500;font-size:8.2pt}.rv th{font-size:7pt;padding:1.6mm 2mm}.rv td.c{width:12mm;text-align:center;color:#bbb}
 .memo h2{font-size:14pt;margin-bottom:6mm;color:${ACC}}.memo .rule{height:8mm;border-bottom:.25mm solid #d8d0c4}
 `;
 
@@ -171,13 +175,14 @@ function unitBlock(u) {
   const open = `<div class="blk uo ${unitCss(u)}" style="page:unitopen"><div class="band"></div><div class="pn">PART ${u.part.no} · ${esc(u.part.title.en.toUpperCase())}</div><div class="no">UNIT ${String(u.no).padStart(2, '0')}</div>
 <div class="ttl"><h2>${esc(u.title.ko)}</h2><h3>${esc(u.title.en)}</h3><p class="sub">${esc(u.sub.en)}<small>${esc(u.sub.ko)}</small></p></div>
 <div class="in"><b>IN THIS UNIT · 이 단원에서</b><ol>${secs.map((s) => `<li>${esc(s.title.en)}${s.title.ko ? `<small>${esc(s.title.ko)}</small>` : ''}</li>`).join('')}</ol></div></div>`;
-  const body = secs.map((s) => {
+  const sr = (i) => (REVIEW ? `<span class="src">${esc(u.id)} · §${i + 1} · ${esc(secs[i].type)}</span>` : '');
+  const body = secs.map((s, si) => {
     if (s.type === 'table') {
       const tipCols = s.cols.map((c) => /reading|tip|sound|pronunc/i.test(c));
-      return `<div class="sec"${s.rows.length <= 8 ? ' style="break-inside:avoid"' : ''}>${secLabel(s)}<table><thead><tr>${s.cols.map((c) => `<th>${esc(c)}</th>`).join('')}</tr></thead><tbody>${s.rows.map((r) => `<tr>${r.map((c, i) => `<td${tipCols[i] ? ' class="tip"' : ''}>${esc(c)}</td>`).join('')}</tr>`).join('')}</tbody></table>${s.note ? `<div class="note">${esc(s.note)}</div>` : ''}</div>`;
+      return `<div class="sec"${s.rows.length <= 8 ? ' style="break-inside:avoid"' : ''}>${sr(si)}${secLabel(s)}<table><thead><tr>${s.cols.map((c) => `<th>${esc(c)}</th>`).join('')}</tr></thead><tbody>${s.rows.map((r) => `<tr>${r.map((c, i) => `<td${tipCols[i] ? ' class="tip"' : ''}>${esc(c)}</td>`).join('')}</tr>`).join('')}</tbody></table>${s.note ? `<div class="note">${esc(s.note)}</div>` : ''}</div>`;
     }
-    if (s.type === 'text') return `<div class="sec">${secLabel(s)}<div class="note">${esc(s.text)}</div></div>`;
-    return `<div class="sec">${secLabel(s)}${s.hint ? `<div class="hint">${esc(s.hint)}</div>` : ''}<ol class="pr">${s.items.map((x) => `<li>${qLine(x.q)}</li>`).join('')}</ol></div>`;
+    if (s.type === 'text') return `<div class="sec">${sr(si)}${secLabel(s)}<div class="note">${esc(s.text)}</div></div>`;
+    return `<div class="sec">${sr(si)}${secLabel(s)}${s.hint ? `<div class="hint">${esc(s.hint)}</div>` : ''}<ol class="pr">${s.items.map((x) => `<li>${qLine(x.q)}</li>`).join('')}</ol></div>`;
   }).join('\n');
   return open + `<div class="blk ${unitCss(u)}" style="page:${unitCss(u)}">${body}</div>`;
 }
@@ -221,10 +226,12 @@ function indexBlock(entries) {
   }
   return h + '</div></div>';
 }
+const reviewSheet = () => `<div class="blk plain rv"><h2>Review checklist · 검수 체크표</h2><div class="k">한 단원씩 훑고 ○ / ✕ 를 적으세요. 고칠 곳은 빨간 출처(예: greetings-self-introduction · §2)와 번호로 알려 주시면 됩니다.</div><table><thead><tr><th>Unit</th><th>사실 Facts</th><th>오타 Typos</th><th>번역 English</th><th>난이도 Level</th><th>정답 Answers</th><th>메모 Notes</th></tr></thead><tbody>${units.map((u) => `<tr><td>${String(u.no).padStart(2, '0')} ${esc(u.title.en)}</td><td class="c">☐</td><td class="c">☐</td><td class="c">☐</td><td class="c">☐</td><td class="c">☐</td><td></td></tr>`).join('')}</tbody></table></div>`;
 const memoBlock = (n) => Array.from({ length: n }, () => `<div class="blk plain memo"><h2>Notes · 메모</h2>${'<div class="rule"></div>'.repeat(22)}</div>`).join('');
 
 /* ── 쪽 찍기 ── */
-const shell = (body) => `<!doctype html><html lang="en"><head><meta charset="utf-8"><link rel="stylesheet" href="/vendor/pretendard.css"><style>${CSS}</style></head><body>${body}</body></html>`;
+const reviewTop = REVIEW ? `@page:left{@top-center{content:"REVIEW COPY · 검수본";font:800 6.8pt 'Pretendard Variable';letter-spacing:.2em;color:#c0392b;vertical-align:bottom;padding-bottom:5mm}}@page:right{@top-center{content:"REVIEW COPY · 검수본";font:800 6.8pt 'Pretendard Variable';letter-spacing:.2em;color:#c0392b;vertical-align:bottom;padding-bottom:5mm}}` : '';
+const shell = (body) => `<!doctype html><html lang="en"><head><meta charset="utf-8"><link rel="stylesheet" href="/vendor/pretendard.css"><style>${CSS}${reviewTop}</style></head><body>${body}</body></html>`;
 let pages = new Map();
 const server = http.createServer((req, res) => {
   const u = decodeURIComponent(new URL(req.url, 'http://x').pathname);
@@ -264,13 +271,13 @@ for (const [k] of blocks) { start[k] = at; at += counts[k]; }
 const starts = { preface: start.preface, unit: Object.fromEntries(units.map((u) => [u.no, start[`unit${u.no}`] + 1])), answers: start.answers, index: start.index, memo: start.memo };
 // 단원 첫 쪽(표지 쪽)은 목차에 그 단원의 첫 쪽으로 적는다 — unit 블록은 첫 쪽이 단원 표지이므로 start 그대로가 맞다
 for (const u of units) starts.unit[u.no] = start[`unit${u.no}`];
-const final = blocks.map(([k, html]) => (k === 'toc' ? tocPage(starts) : html)).join('\n');
+const final = blocks.map(([k, html]) => (k === 'toc' ? tocPage(starts) : html)).join('\n') + (REVIEW ? reviewSheet() : '');
 
 const dir = path.join(outDir, bookId);
 fs.mkdirSync(dir, { recursive: true });
 const interior = await pdf(final);
-const realTotal = countPages(interior);
-fs.writeFileSync(path.join(dir, 'interior.pdf'), interior);
+const realTotal = countPages(interior) - (REVIEW ? countPages(await pdf(reviewSheet())) : 0);
+fs.writeFileSync(path.join(dir, REVIEW ? 'interior-review.pdf' : 'interior.pdf'), interior);
 
 /* ── 표지(뒤 + 책등 + 앞) ── */
 const spine = Math.round((Math.ceil(realTotal / 2) * T.paperMm + 0.6) * 10) / 10;
@@ -329,4 +336,5 @@ await front.screenshot({ path: path.join(dir, 'front-cover.png') });
 await browser.close(); server.close();
 
 console.log(`책 ${bookId}: 속지 ${realTotal}쪽(계산 ${total}쪽) · 단원 ${units.length} · 찾아보기 ${entries.length}개 · 책등 ${spine}mm(종이 ${T.paperMm}mm/장 가정) → ${path.relative(ROOT, dir)}/`);
+if (REVIEW) console.log('검수본: interior-review.pdf(맨 끝에 검수 체크표)');
 if (realTotal !== total) console.warn(`⚠ 블록별 쪽수 합(${total})과 한 번에 찍은 쪽수(${realTotal})가 다르다 — 목차 쪽 번호를 확인할 것`);
