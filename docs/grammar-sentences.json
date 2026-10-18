@@ -17909,6 +17909,31 @@
       "ko": "단풍이 곱게 물들기 시작한 걸 보니 어느덧 깊은 가을이 찾아온 모양이다.",
       "en": "Seeing maple leaves turn colorful, deep autumn seems to have arrived already.",
       "lv": 3
+    },
+    {
+      "ko": "벌써 잠든 모양이다.",
+      "en": "It looks like they are already asleep.",
+      "lv": 1
+    },
+    {
+      "ko": "비가 그친 모양이다.",
+      "en": "It looks like the rain has stopped.",
+      "lv": 1
+    },
+    {
+      "ko": "밖이 조용한 걸 보니 모두 떠난 모양이다.",
+      "en": "Seeing it quiet outside, it seems everyone has left.",
+      "lv": 2
+    },
+    {
+      "ko": "불이 꺼진 것을 보니 퇴근한 모양이다.",
+      "en": "Seeing the lights off, it seems they went home.",
+      "lv": 2
+    },
+    {
+      "ko": "소포가 아직 도착하지 않은 것을 보니 배송이 늦어지는 모양이다.",
+      "en": "Seeing the package not yet arrived, delivery seems delayed.",
+      "lv": 3
     }
   ],
   "48-3": [
@@ -18507,6 +18532,16 @@
       "ko": "처음 도전한 요리 대회에서 기대 이상의 우수한 성적을 거둘 줄 몰랐습니다.",
       "en": "I didn't know I would achieve excellent results beyond expectations in my first cooking contest.",
       "lv": 3
+    },
+    {
+      "ko": "길이 이렇게 막힐 줄 몰랐어요.",
+      "en": "I didn't know the traffic would be this heavy.",
+      "lv": 1
+    },
+    {
+      "ko": "오늘 시험이 이렇게 어려울 줄 몰랐습니다.",
+      "en": "I didn't know today's exam would be this difficult.",
+      "lv": 2
     }
   ],
   "48-7": [
@@ -18937,6 +18972,31 @@
     {
       "ko": "청년 창업 정책은 도전 의식을 북돋우는 반면에 사후 관리 시스템이 미흡합니다.",
       "en": "While youth startup policies encourage challenging spirit, follow-up management is deficient.",
+      "lv": 3
+    },
+    {
+      "ko": "이 노트북은 가벼운 반면에 배터리 소모가 다소 빠른 편입니다.",
+      "en": "This laptop is light, while battery consumption is rather quick.",
+      "lv": 3
+    },
+    {
+      "ko": "외식은 편리한 반면에 매일 먹다 보면 건강을 해치기 쉽습니다.",
+      "en": "Eating out is convenient, while eating daily easily harms health.",
+      "lv": 3
+    },
+    {
+      "ko": "온라인 강의는 편리한 반면에 교수와의 직접적인 소통에는 한계가 있어요.",
+      "en": "Online lectures are convenient, while direct communication with professors has limits.",
+      "lv": 3
+    },
+    {
+      "ko": "이 카메라는 화질이 뛰어난 반면에 크기가 커서 휴대하기에는 불편해요.",
+      "en": "This camera has superb image quality, while being bulky makes carrying inconvenient.",
+      "lv": 3
+    },
+    {
+      "ko": "신도시는 시설이 현대적인 반면에 대중교통 인프라는 아직 부족한 편입니다.",
+      "en": "The new city has modern amenities, while public transit infrastructure is still lacking.",
       "lv": 3
     }
   ],
@@ -19667,6 +19727,36 @@
     {
       "ko": "잘못된 소문이 일파만파 퍼진 탓에 무고한 피해자가 극심한 정신적 고통을 겪었습니다.",
       "en": "Innocent victims suffered severe mental agony due to false rumors spreading widely.",
+      "lv": 3
+    },
+    {
+      "ko": "눈이 내린 탓에 미끄러워요.",
+      "en": "It is slippery because snow fell.",
+      "lv": 1
+    },
+    {
+      "ko": "바람이 세찬 탓에 추웠습니다.",
+      "en": "It was cold because the wind was strong.",
+      "lv": 1
+    },
+    {
+      "ko": "출퇴근길에 교통사고가 발생한 탓에 도로 전체가 꽉 막히고 말았습니다.",
+      "en": "Because a traffic accident occurred during rush hour, the whole road was blocked.",
+      "lv": 3
+    },
+    {
+      "ko": "갑자기 기온이 뚝 떨어진 탓에 수도관이 얼어붙어 큰 불편을 겪었습니다.",
+      "en": "Because temperature dropped suddenly, water pipes froze causing great inconvenience.",
+      "lv": 3
+    },
+    {
+      "ko": "가뭄이 오랫동안 지속된 탓에 저수지 바닥이 거북이 등처럼 갈라졌어요.",
+      "en": "Because drought persisted long, reservoir bottoms cracked like turtle shells.",
+      "lv": 3
+    },
+    {
+      "ko": "무리하게 야간 산행을 감행한 탓에 짙은 어둠 속에서 조난당할 뻔했습니다.",
+      "en": "Because they rashly ventured into night hiking, they almost got stranded in the dark.",
       "lv": 3
     }
   ],
@@ -23428,6 +23518,46 @@
       "ko": "휴가철인 데다가 연휴까지 맞물려 전국 고속도로가 극심한 정체를 빚고 있습니다.",
       "en": "Besides holiday season, weekends overlapped causing expressway congestion nationwide.",
       "lv": 3
+    },
+    {
+      "ko": "음식이 맛있는 데다가 양도 아주 푸짐해요.",
+      "en": "The food is delicious, and portions are generous too.",
+      "lv": 2
+    },
+    {
+      "ko": "방이 아늑한 데다가 전망도 무척 훌륭합니다.",
+      "en": "The room is cozy, and the view is wonderful too.",
+      "lv": 2
+    },
+    {
+      "ko": "가격이 저렴한 데다가 품질까지 믿을 수 있어요.",
+      "en": "The price is affordable, and quality is trustworthy too.",
+      "lv": 2
+    },
+    {
+      "ko": "비바람이 거세게 몰아치는 데다가 안개까지 자욱해서 앞이 전혀 보이지 않았습니다.",
+      "en": "Fierce storm raged, and thick fog rolled in so nothing was visible at all.",
+      "lv": 3
+    },
+    {
+      "ko": "업무량이 과도하게 늘어난 데다가 마감일마저 촉박해서 야근을 피할 수 없었어요.",
+      "en": "Workload increased excessively, and deadlines were tight so overtime was inevitable.",
+      "lv": 3
+    },
+    {
+      "ko": "이 스마트폰은 성능이 뛰어난 데다가 배터리 수명도 길어서 고객 만족도가 높습니다.",
+      "en": "This smartphone has superior performance, and battery life is long with high satisfaction.",
+      "lv": 3
+    },
+    {
+      "ko": "대중교통 접근성이 뛰어난 데다가 주변 편의시설도 잘 갖추어져 생활하기 편리합니다.",
+      "en": "Public transit access is excellent, and amenities are well equipped for convenient living.",
+      "lv": 3
+    },
+    {
+      "ko": "원자재 가격이 급등한 데다가 인건비 부담까지 겹쳐서 제조업계의 시름이 깊어졌습니다.",
+      "en": "Raw material prices soared, and labor cost burdens overlapped deepening manufacturing woes.",
+      "lv": 3
     }
   ],
   "59-3": [
@@ -24467,6 +24597,31 @@
       "ko": "고된 훈련을 이겨낸 만큼 국제 대회에서 값진 메달을 목에 걸었습니다.",
       "en": "Hung valuable medals around neck as much as enduring tough training.",
       "lv": 3
+    },
+    {
+      "ko": "땀 흘려 연습한 만큼 기량을 발휘했습니다.",
+      "en": "As much as practiced with sweat, showed skills.",
+      "lv": 2
+    },
+    {
+      "ko": "서로를 배려하는 만큼 우정도 더욱 돈독해졌어요.",
+      "en": "As much as caring for each other, friendship deepened.",
+      "lv": 2
+    },
+    {
+      "ko": "일찍 서두른 만큼 약속에 여유 있게 도착했습니다.",
+      "en": "As much as rushing early, arrived at the appointment with time to spare.",
+      "lv": 2
+    },
+    {
+      "ko": "사람들이 기대한 만큼 공연의 완성도가 매우 높았습니다.",
+      "en": "As much as people anticipated, the performance quality was very high.",
+      "lv": 2
+    },
+    {
+      "ko": "환경 보호를 생활 속에서 실천한 만큼 자연 생태계는 깨끗하게 복원될 것입니다.",
+      "en": "As much as practicing environmental protection, nature will be cleanly restored.",
+      "lv": 3
     }
   ],
   "62-1": [
@@ -25181,6 +25336,51 @@
     {
       "ko": "게임에 시간을 쏟는 대신에 전문 자격증 취득을 위해 공부를 시작했습니다.",
       "en": "Instead of pouring time into games, started studying for professional licenses.",
+      "lv": 3
+    },
+    {
+      "ko": "휴일에 출근하는 대신에 평일에 대체 휴가를 씁니다.",
+      "en": "Instead of working on holidays, I take alternate leave on weekdays.",
+      "lv": 2
+    },
+    {
+      "ko": "엘리베이터를 타는 대신에 계단으로 걸어 올라갔어요.",
+      "en": "Instead of taking the elevator, I walked up the stairs.",
+      "lv": 2
+    },
+    {
+      "ko": "선물을 돈으로 주는 대신에 정성스러운 손편지를 썼습니다.",
+      "en": "Instead of giving money as a gift, I wrote a heartfelt handwritten letter.",
+      "lv": 2
+    },
+    {
+      "ko": "이 노트북은 무거운 대신에 처리 속도가 매우 빠릅니다.",
+      "en": "This laptop is heavy, but processing speed is very fast instead.",
+      "lv": 2
+    },
+    {
+      "ko": "해외로 멀리 여행을 떠나는 대신에 조용한 시골 한옥에서 온전히 휴식했습니다.",
+      "en": "Instead of traveling far abroad, I relaxed completely at a quiet rural hanok.",
+      "lv": 3
+    },
+    {
+      "ko": "인스턴트 음식을 자주 사 먹는 대신에 신선한 채소 위주로 식단을 바꿨어요.",
+      "en": "Instead of buying instant food often, I changed my diet mainly to fresh vegetables.",
+      "lv": 3
+    },
+    {
+      "ko": "무리하게 개발 일정을 앞당기는 대신에 철저한 안전성 검증을 거쳐 출시했습니다.",
+      "en": "Instead of rushing the schedule, we released it after thorough safety verification.",
+      "lv": 3
+    },
+    {
+      "ko": "값비싼 명품 브랜드를 소비하는 대신에 환경을 생각하는 친환경 제품을 애용합니다.",
+      "en": "Instead of consuming expensive luxury brands, I cherish eco-friendly products.",
+      "lv": 3
+    },
+    {
+      "ko": "자극적인 영상을 시청하는 대신에 인문학 고전을 읽으며 내면의 성장을 도모했습니다.",
+      "en": "Instead of watching provocative videos, I read classic humanities seeking inner growth.",
       "lv": 3
     }
   ],
