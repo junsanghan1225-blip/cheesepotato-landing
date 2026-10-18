@@ -2964,438 +2964,1307 @@
    }
   }
  ],
- "grow": [
+ "quests": [
   {
-   "id": "g-intro",
-   "icon": "🙋",
+   "id": "q-live",
+   "lv": 1,
+   "icon": "🏠",
    "title": {
-    "ko": "나를 소개해요",
-    "en": "Introduce yourself"
+    "ko": "사는 곳",
+    "en": "Where I live"
    },
-   "intro": {
-    "ko": "사는 곳 · 동네 · 하는 일을 한 문장으로 이어 봐요.",
-    "en": "Link where you live, your area and what you do."
+   "situation": {
+    "ko": "새 친구에게 내가 사는 곳을 소개해요.",
+    "en": "Tell a new friend about where you live."
    },
-   "suggest": [
-    "nde",
-    "go"
+   "cues": [
+    "어디에 살아요?",
+    "거기는 어때요?"
    ],
-   "qs": [
-    {
-     "ko": "어디에 살아요?",
-     "en": "Where do you live?",
-     "frame": {
-      "ko": "저는 ___에 살아요.",
-      "en": "I live in ___."
-     },
-     "ex": {
-      "ko": "저는 서울에 살아요.",
-      "en": "I live in Seoul."
-     }
+   "frame": {
+    "ko": "저는 ___에 사는데 거기는 ___.",
+    "en": "I live in ___, and there ___."
+   },
+   "req": {
+    "conn": [
+     "nde"
+    ],
+    "clauses": 2,
+    "one": true,
+    "polite": true
+   },
+   "model": {
+    "ko": "저는 서울에 사는데 거기는 아주 조용해요.",
+    "en": "I live in Seoul, and it is very quiet there."
+   },
+   "bonus": {
+    "req": {
+     "conn": [
+      "nde"
+     ],
+     "clauses": 3
     },
-    {
-     "ko": "그곳은 어때요?",
-     "en": "What is it like there?",
-     "frame": {
-      "ko": "거기는 ___.",
-      "en": "It is ___ there."
-     },
-     "ex": {
-      "ko": "거기는 아주 조용해요.",
-      "en": "It is very quiet there."
-     }
-    },
-    {
-     "ko": "거기에서 무엇을 해요?",
-     "en": "What do you do there?",
-     "frame": {
-      "ko": "저는 ___.",
-      "en": "I ___."
-     },
-     "ex": {
-      "ko": "저는 주말에 산책을 해요.",
-      "en": "I take walks on weekends."
-     }
-    }
-   ]
+    "model": "저는 서울에 사는데 거기는 아주 조용하고 공원이 많아요."
+   },
+   "mode": "write"
   },
   {
-   "id": "g-day",
+   "id": "q-like",
+   "lv": 1,
+   "icon": "🎵",
+   "title": {
+    "ko": "좋아하는 것",
+    "en": "Something I like"
+   },
+   "situation": {
+    "ko": "좋아하는 것과 잘 못 하는 것을 한 문장으로 말해요.",
+    "en": "Say what you like and what you cannot do well in one sentence."
+   },
+   "cues": [
+    "무엇을 좋아해요?",
+    "그런데 잘 못 하는 것은요?"
+   ],
+   "frame": {
+    "ko": "저는 ___을/를 좋아하지만 ___.",
+    "en": "I like ___, but ___."
+   },
+   "req": {
+    "conn": [
+     "jiman"
+    ],
+    "clauses": 2,
+    "one": true,
+    "polite": true
+   },
+   "model": {
+    "ko": "저는 음악을 좋아하지만 노래는 잘 못 해요.",
+    "en": "I like music, but I am not good at singing."
+   },
+   "bonus": {
+    "req": {
+     "conn": [
+      "jiman",
+      "aseo"
+     ],
+     "clauses": 3
+    },
+    "model": "저는 음악을 좋아하지만 노래는 잘 못 해서 자주 연습해요."
+   },
+   "mode": "write"
+  },
+  {
+   "id": "q-rain",
+   "lv": 1,
+   "icon": "🌧️",
+   "title": {
+    "ko": "비 오는 날",
+    "en": "A rainy day"
+   },
+   "situation": {
+    "ko": "오늘 날씨 때문에 무엇을 하는지 말해요.",
+    "en": "Say what you do because of today's weather."
+   },
+   "cues": [
+    "날씨가 어때요?",
+    "그래서 뭐 해요?"
+   ],
+   "frame": {
+    "ko": "___아서/어서 ___.",
+    "en": "Because ___, I ___."
+   },
+   "req": {
+    "conn": [
+     "aseo"
+    ],
+    "clauses": 2,
+    "one": true,
+    "polite": true
+   },
+   "model": {
+    "ko": "비가 와서 오늘은 집에 있어요.",
+    "en": "It rains, so I stay home today."
+   },
+   "bonus": {
+    "req": {
+     "conn": [
+      "aseo",
+      "go"
+     ],
+     "clauses": 3
+    },
+    "model": "비가 와서 집에서 영화를 보고 커피를 마셔요."
+   },
+   "mode": "write"
+  },
+  {
+   "id": "q-day",
+   "lv": 2,
    "icon": "☀️",
    "title": {
     "ko": "내 하루",
     "en": "My day"
    },
-   "intro": {
-    "ko": "아침 · 낮 · 저녁을 끊지 말고 이어 말해 봐요.",
-    "en": "Link morning, daytime and evening without stopping."
+   "situation": {
+    "ko": "아침부터 저녁까지를 끊지 않고 말해요.",
+    "en": "Tell your day from morning to evening without stopping."
    },
-   "suggest": [
-    "go",
-    "go"
+   "cues": [
+    "아침에 뭐 해요?",
+    "그다음에는요?",
+    "저녁에는요?"
    ],
-   "qs": [
-    {
-     "ko": "아침에 뭐 해요?",
-     "en": "What do you do in the morning?",
-     "frame": {
-      "ko": "아침에 ___.",
-      "en": "In the morning I ___."
-     },
-     "ex": {
-      "ko": "아침에 커피를 마셔요.",
-      "en": "I drink coffee in the morning."
-     }
+   "req": {
+    "conn": [
+     "go",
+     "aseo"
+    ],
+    "clauses": 3,
+    "one": true,
+    "polite": true
+   },
+   "model": {
+    "ko": "아침에 커피를 마시고 학교에 가서 공부해요.",
+    "en": "I drink coffee in the morning, go to school, and study."
+   },
+   "bonus": {
+    "req": {
+     "conn": [
+      "go",
+      "aseo"
+     ],
+     "clauses": 4
     },
-    {
-     "ko": "그다음에는요?",
-     "en": "And then?",
-     "frame": {
-      "ko": "___.",
-      "en": "___."
-     },
-     "ex": {
-      "ko": "버스를 타고 학교에 가요.",
-      "en": "I take a bus to school."
-     }
-    },
-    {
-     "ko": "저녁에는요?",
-     "en": "And in the evening?",
-     "frame": {
-      "ko": "저녁에는 ___.",
-      "en": "In the evening I ___."
-     },
-     "ex": {
-      "ko": "저녁에는 집에서 쉬어요.",
-      "en": "In the evening I rest at home."
-     }
-    }
-   ]
+    "model": "아침에 커피를 마시고 학교에 가서 공부하고 저녁에 쉬어요."
+   },
+   "mode": "write"
   },
   {
-   "id": "g-like",
-   "icon": "🎵",
-   "title": {
-    "ko": "좋아하는 것",
-    "en": "Something you like"
-   },
-   "intro": {
-    "ko": "좋아하는 것과 잘 못 하는 것을 -지만으로 이어 봐요.",
-    "en": "Link what you like and what you cannot do well with -지만."
-   },
-   "suggest": [
-    "jiman",
-    "aseo"
-   ],
-   "qs": [
-    {
-     "ko": "무엇을 좋아해요?",
-     "en": "What do you like?",
-     "frame": {
-      "ko": "저는 ___을/를 좋아해요.",
-      "en": "I like ___."
-     },
-     "ex": {
-      "ko": "저는 음악을 좋아해요.",
-      "en": "I like music."
-     }
-    },
-    {
-     "ko": "그런데 잘 못 하는 것은요?",
-     "en": "But what are you not good at?",
-     "frame": {
-      "ko": "___은/는 잘 못 해요.",
-      "en": "I am not good at ___."
-     },
-     "ex": {
-      "ko": "노래는 잘 못 해요.",
-      "en": "I am not good at singing."
-     }
-    },
-    {
-     "ko": "그래서 어떻게 해요?",
-     "en": "So what do you do?",
-     "frame": {
-      "ko": "저는 ___.",
-      "en": "I ___."
-     },
-     "ex": {
-      "ko": "집에서 자주 연습해요.",
-      "en": "I practice at home often."
-     }
-    }
-   ]
-  },
-  {
-   "id": "g-korean",
+   "id": "q-korean",
+   "lv": 2,
    "icon": "📖",
    "title": {
     "ko": "한국어 공부",
     "en": "Studying Korean"
    },
-   "intro": {
-    "ko": "어렵다 · 재미있다 · 그래서 어떻게 한다 — 세 마디를 이어 봐요.",
-    "en": "Hard, fun, and what you do about it — link the three."
+   "situation": {
+    "ko": "한국어 공부가 어떤지, 그래서 어떻게 하는지 말해요.",
+    "en": "Say how Korean is for you and what you do about it."
    },
-   "suggest": [
-    "jiman",
-    "aseo"
+   "cues": [
+    "한국어는 어때요?",
+    "그래도 어때요?",
+    "그래서 어떻게 해요?"
    ],
-   "qs": [
-    {
-     "ko": "한국어는 어때요?",
-     "en": "How is Korean?",
-     "frame": {
-      "ko": "한국어는 ___.",
-      "en": "Korean is ___."
-     },
-     "ex": {
-      "ko": "한국어는 어려워요.",
-      "en": "Korean is hard."
-     }
+   "req": {
+    "conn": [
+     "jiman",
+     "aseo"
+    ],
+    "clauses": 3,
+    "one": true,
+    "polite": true
+   },
+   "model": {
+    "ko": "한국어는 어렵지만 재미있어서 매일 공부해요.",
+    "en": "Korean is hard, but fun, so I study every day."
+   },
+   "bonus": {
+    "req": {
+     "conn": [
+      "jiman",
+      "aseo"
+     ],
+     "clauses": 4
     },
-    {
-     "ko": "좋은 점은 뭐예요?",
-     "en": "What is good about it?",
-     "frame": {
-      "ko": "___.",
-      "en": "___."
-     },
-     "ex": {
-      "ko": "재미있어요.",
-      "en": "It is fun."
-     }
-    },
-    {
-     "ko": "그래서 어떻게 해요?",
-     "en": "So what do you do?",
-     "frame": {
-      "ko": "저는 ___.",
-      "en": "I ___."
-     },
-     "ex": {
-      "ko": "저는 매일 조금씩 공부해요.",
-      "en": "I study a little every day."
-     }
-    }
-   ]
+    "model": "한국어는 어렵지만 재미있어서 매일 공부하고 친구와 이야기해요."
+   },
+   "mode": "write"
   },
   {
-   "id": "g-weekend",
+   "id": "q-weekend",
+   "lv": 2,
    "icon": "🌦️",
    "title": {
     "ko": "이번 주말",
     "en": "This weekend"
    },
-   "intro": {
-    "ko": "계획 · 날씨 · 그러면 어떻게 할지 — 「-는데」와 「-(으)면」으로 이어 봐요.",
-    "en": "Plan, weather, and what you will do — link with -는데 and -(으)면."
+   "situation": {
+    "ko": "계획과 날씨와 '그러면'을 한 문장에 담아요.",
+    "en": "Put a plan, the weather and 'in that case' in one sentence."
    },
-   "suggest": [
-    "nde",
-    "myeon"
+   "cues": [
+    "이번 주말에 뭐 해요?",
+    "날씨는 어때요?",
+    "그러면 어떻게 해요?"
    ],
-   "qs": [
-    {
-     "ko": "이번 주말에 뭐 해요?",
-     "en": "What are you doing this weekend?",
-     "frame": {
-      "ko": "이번 주말에 ___.",
-      "en": "This weekend I ___."
-     },
-     "ex": {
-      "ko": "친구를 만나요.",
-      "en": "I meet a friend."
-     }
+   "req": {
+    "conn": [
+     "nde",
+     "myeon"
+    ],
+    "clauses": 3,
+    "one": true,
+    "polite": true
+   },
+   "model": {
+    "ko": "친구를 만나는데 비가 오면 집에서 영화를 봐요.",
+    "en": "I am meeting a friend, but if it rains we watch a movie at home."
+   },
+   "bonus": {
+    "req": {
+     "conn": [
+      "nde",
+      "myeon"
+     ],
+     "clauses": 4
     },
-    {
-     "ko": "날씨는 어때요?",
-     "en": "How is the weather?",
-     "frame": {
-      "ko": "___.",
-      "en": "___."
-     },
-     "ex": {
-      "ko": "비가 와요.",
-      "en": "It rains."
-     }
-    },
-    {
-     "ko": "그러면 어떻게 해요?",
-     "en": "Then what do you do?",
-     "frame": {
-      "ko": "저는 ___.",
-      "en": "I ___."
-     },
-     "ex": {
-      "ko": "집에서 영화를 봐요.",
-      "en": "I watch a movie at home."
-     }
-    }
-   ]
+    "model": "친구를 만나는데 비가 오면 집에서 영화를 보고 같이 밥을 먹어요."
+   },
+   "mode": "write"
   },
   {
-   "id": "g-food",
-   "icon": "🍙",
+   "id": "q-town",
+   "lv": 3,
+   "icon": "🌳",
    "title": {
-    "ko": "좋아하는 음식",
-    "en": "Food you like"
+    "ko": "우리 동네",
+    "en": "My neighborhood"
    },
-   "intro": {
-    "ko": "좋아하는 음식 · 그 이유 · 얼마나 자주 먹는지를 이어 봐요.",
-    "en": "Link the food, the reason and how often you eat it."
+   "situation": {
+    "ko": "동네의 좋은 점과 아쉬운 점, 그리고 하는 일까지 한 문장으로 소개해요.",
+    "en": "Introduce good points, small downsides and what you do, in one sentence."
    },
-   "suggest": [
-    "nde",
-    "aseo"
+   "cues": [
+    "어떤 동네예요?",
+    "아쉬운 점은요?",
+    "그래서 무엇을 해요?"
    ],
-   "qs": [
-    {
-     "ko": "무슨 음식을 좋아해요?",
-     "en": "What food do you like?",
-     "frame": {
-      "ko": "저는 ___을/를 좋아해요.",
-      "en": "I like ___."
-     },
-     "ex": {
-      "ko": "저는 김밥을 좋아해요.",
-      "en": "I like gimbap."
-     }
+   "req": {
+    "conn": [
+     "nde",
+     "jiman"
+    ],
+    "clauses": 4,
+    "words": [
+     "조용",
+     "공원"
+    ],
+    "one": true,
+    "distinct": true,
+    "polite": true
+   },
+   "model": {
+    "ko": "제가 사는 동네는 조용한데 사람이 적지만 공원이 있어서 저녁마다 산책해요.",
+    "en": "My neighborhood is quiet and has few people, but there is a park, so I walk every evening."
+   },
+   "bonus": {
+    "req": {
+     "conn": [
+      "nde",
+      "jiman"
+     ],
+     "clauses": 5,
+     "distinct": true
     },
-    {
-     "ko": "어떤 점이 좋아요?",
-     "en": "What is good about it?",
-     "frame": {
-      "ko": "___.",
-      "en": "___."
-     },
-     "ex": {
-      "ko": "값이 싸요.",
-      "en": "It is cheap."
-     }
-    },
-    {
-     "ko": "얼마나 자주 먹어요?",
-     "en": "How often do you eat it?",
-     "frame": {
-      "ko": "___.",
-      "en": "___."
-     },
-     "ex": {
-      "ko": "일주일에 두 번 먹어요.",
-      "en": "I eat it twice a week."
-     }
-    }
-   ]
+    "model": "제가 사는 동네는 조용한데 사람이 적지만 공원이 있어서 저녁마다 산책하고 친구도 만나요."
+   },
+   "mode": "write"
   },
   {
-   "id": "g-ramen",
-   "icon": "🍜",
-   "title": {
-    "ko": "라면 끓이는 법",
-    "en": "How to cook ramen"
-   },
-   "intro": {
-    "ko": "차례를 설명할 때는 「-고」로 이으면 끊기지 않아요.",
-    "en": "Use -고 to link steps when you explain."
-   },
-   "suggest": [
-    "go",
-    "go"
-   ],
-   "qs": [
-    {
-     "ko": "먼저 뭐 해요?",
-     "en": "What do you do first?",
-     "frame": {
-      "ko": "먼저 ___.",
-      "en": "First I ___."
-     },
-     "ex": {
-      "ko": "냄비에 물을 끓여요.",
-      "en": "I boil water in a pot."
-     }
-    },
-    {
-     "ko": "그다음에는요?",
-     "en": "And next?",
-     "frame": {
-      "ko": "그다음에 ___.",
-      "en": "Next I ___."
-     },
-     "ex": {
-      "ko": "면과 스프를 넣어요.",
-      "en": "I put in the noodles and the soup base."
-     }
-    },
-    {
-     "ko": "마지막으로요?",
-     "en": "And lastly?",
-     "frame": {
-      "ko": "마지막으로 ___.",
-      "en": "Lastly I ___."
-     },
-     "ex": {
-      "ko": "오 분 뒤에 먹어요.",
-      "en": "I eat it five minutes later."
-     }
-    }
-   ]
-  },
-  {
-   "id": "g-friend",
+   "id": "q-friend",
+   "lv": 3,
    "icon": "🧑‍🤝‍🧑",
    "title": {
     "ko": "내 친구",
     "en": "My friend"
    },
-   "intro": {
-    "ko": "친구가 누구인지 · 어떤 사람인지 · 무엇을 같이 하는지를 이어 봐요.",
-    "en": "Link who your friend is, what they are like and what you do together."
+   "situation": {
+    "ko": "친구가 누구인지, 어떤 사람인지, 같이 하면 어떤지를 한 문장으로 말해요.",
+    "en": "Say who your friend is, what they are like and how it feels to do things together."
    },
-   "suggest": [
-    "nde",
-    "go"
+   "cues": [
+    "친구가 누구예요?",
+    "어떤 사람이에요?",
+    "같이 하면 어때요?"
    ],
-   "qs": [
-    {
-     "ko": "누구를 소개할까요?",
-     "en": "Who will you introduce?",
-     "frame": {
-      "ko": "제 친구는 ___이에요/예요.",
-      "en": "My friend is ___."
-     },
-     "ex": {
-      "ko": "제 친구는 민수예요.",
-      "en": "My friend is Minsu."
-     }
+   "req": {
+    "conn": [
+     "nde",
+     "go"
+    ],
+    "clauses": 4,
+    "words": [
+     "친절",
+     "운동"
+    ],
+    "one": true,
+    "distinct": true,
+    "polite": true
+   },
+   "model": {
+    "ko": "제 친구는 민수인데 아주 친절하고 같이 운동하면 정말 재미있어요.",
+    "en": "My friend is Minsu, very kind, and exercising together is really fun."
+   },
+   "bonus": {
+    "req": {
+     "clauses": 5,
+     "distinct": true
     },
-    {
-     "ko": "어떤 사람이에요?",
-     "en": "What is that person like?",
-     "frame": {
-      "ko": "___은/는 ___.",
-      "en": "___ is ___."
-     },
-     "ex": {
-      "ko": "민수는 친절해요.",
-      "en": "Minsu is kind."
-     }
+    "model": "제 친구는 민수인데 아주 친절하고 같이 운동하면 정말 재미있어서 자주 만나요."
+   },
+   "mode": "write"
+  },
+  {
+   "id": "q-eat",
+   "lv": 3,
+   "icon": "🍙",
+   "title": {
+    "ko": "맛집 추천",
+    "en": "Recommend a place"
+   },
+   "situation": {
+    "ko": "식당을 이유와 함께 추천해요. (-(으)니까 뒤에는 권유가 잘 어울려요.)",
+    "en": "Recommend a restaurant with reasons. (-(으)니까 pairs well with a suggestion.)"
+   },
+   "cues": [
+    "어떤 식당이에요?",
+    "왜 좋아요?",
+    "그러니까 어떻게 하세요?"
+   ],
+   "req": {
+    "conn": [
+     "nikka"
+    ],
+    "clauses": 3,
+    "words": [
+     "맛있",
+     "싸"
+    ],
+    "one": true,
+    "polite": true
+   },
+   "model": {
+    "ko": "이 식당은 맛있고 값도 싸니까 한번 가 보세요.",
+    "en": "This place is tasty and cheap, so give it a try."
+   },
+   "bonus": {
+    "req": {
+     "conn": [
+      "nikka",
+      "myeon"
+     ],
+     "clauses": 4
     },
-    {
-     "ko": "같이 무엇을 해요?",
-     "en": "What do you do together?",
-     "frame": {
-      "ko": "우리는 같이 ___.",
-      "en": "We ___ together."
-     },
-     "ex": {
-      "ko": "우리는 같이 운동해요.",
-      "en": "We exercise together."
-     }
-    }
+    "model": "이 식당은 맛있고 값도 싸니까 시간이 있으면 한번 가 보세요."
+   },
+   "mode": "write"
+  },
+  {
+   "id": "q-dream",
+   "lv": 4,
+   "icon": "⭐",
+   "title": {
+    "ko": "나의 꿈",
+    "en": "My dream"
+   },
+   "situation": {
+    "ko": "지금의 어려움에서 앞으로의 꿈까지, 이음말 다섯 마디로 이어요.",
+    "en": "From today's difficulty to your dream — five linked clauses."
+   },
+   "cues": [
+    "지금은 어때요?",
+    "어떻게 하면 돼요?",
+    "앞으로 뭐 하고 싶어요?"
+   ],
+   "req": {
+    "conn": [
+     "jiman",
+     "myeon"
+    ],
+    "clauses": 5,
+    "one": true,
+    "distinct": true,
+    "minWords": 12,
+    "polite": true
+   },
+   "model": {
+    "ko": "지금은 한국어가 어렵지만 매일 연습하면 잘할 수 있으니까 한국에 가서 일하고 싶어요.",
+    "en": "Korean is hard now, but if I practice daily I can do well, so I want to go to Korea and work."
+   },
+   "bonus": {
+    "req": {
+     "clauses": 6,
+     "distinct": true,
+     "minWords": 15
+    },
+    "model": "지금은 한국어가 어렵지만 매일 연습하면 잘할 수 있으니까 한국에 가서 일하고 싶고 가족도 소개하고 싶어요."
+   },
+   "mode": "write"
+  },
+  {
+   "id": "q-trip",
+   "lv": 4,
+   "icon": "✈️",
+   "title": {
+    "ko": "한국 여행 계획",
+    "en": "A trip to Korea"
+   },
+   "situation": {
+    "ko": "이유 · 계획 · 조건 · 하고 싶은 일을 한 문장에 담아요.",
+    "en": "Reason, plan, condition and activities in a single sentence."
+   },
+   "cues": [
+    "왜 한국에 가요?",
+    "언제 가요?",
+    "가면 뭐 해요?"
+   ],
+   "req": {
+    "conn": [
+     "aseo",
+     "nde",
+     "myeon"
+    ],
+    "clauses": 5,
+    "one": true,
+    "distinct": true,
+    "minWords": 12,
+    "polite": true
+   },
+   "model": {
+    "ko": "친구가 한국에 살아서 이번 겨울에 가는데 눈이 오면 같이 스키를 타고 맛집도 갈 거예요.",
+    "en": "My friend lives in Korea, so I go this winter, and if it snows we will ski and visit good restaurants."
+   },
+   "bonus": {
+    "req": {
+     "clauses": 6,
+     "distinct": false
+    },
+    "model": "친구가 한국에 살아서 이번 겨울에 가는데 눈이 오면 같이 스키를 타고 맛집도 가고 선물도 살 거예요."
+   },
+   "mode": "write"
+  },
+  {
+   "id": "q-merge1",
+   "lv": 5,
+   "icon": "🧩",
+   "title": {
+    "ko": "쪼개진 문장 합치기 ①",
+    "en": "Merge the pieces ①"
+   },
+   "situation": {
+    "ko": "네 개의 짧은 문장을 한 문장으로 합쳐요. 낱말은 모두 살려요.",
+    "en": "Merge four short sentences into one. Keep every key word."
+   },
+   "cues": [
+    "서울 · 회사 · 버스 · 책"
+   ],
+   "source": [
+    "저는 서울에 살아요.",
+    "회사는 멀어요.",
+    "그래서 버스를 타요.",
+    "버스에서 책을 읽어요."
+   ],
+   "req": {
+    "minConns": 3,
+    "clauses": 4,
+    "words": [
+     "서울",
+     "회사",
+     "버스",
+     "책"
+    ],
+    "one": true,
+    "polite": true
+   },
+   "model": {
+    "ko": "서울에 사는데 회사가 멀어서 버스를 타고 책을 읽어요.",
+    "en": "I live in Seoul, my office is far, so I take a bus and read a book."
+   },
+   "bonus": {
+    "req": {
+     "minConns": 4,
+     "words": [
+      "커피"
+     ]
+    },
+    "model": "서울에 사는데 회사가 멀어서 버스를 타고 책을 읽고 커피도 마셔요."
+   },
+   "mode": "write"
+  },
+  {
+   "id": "q-merge2",
+   "lv": 5,
+   "icon": "🧩",
+   "title": {
+    "ko": "쪼개진 문장 합치기 ②",
+    "en": "Merge the pieces ②"
+   },
+   "situation": {
+    "ko": "어제 있었던 일을 한 문장으로 합쳐요. 낱말은 모두 살려요.",
+    "en": "Merge the events of yesterday into one sentence. Keep every key word."
+   },
+   "cues": [
+    "친구 · 밥 · 영화 · 피곤"
+   ],
+   "source": [
+    "친구가 왔어요.",
+    "같이 밥을 먹었어요.",
+    "영화도 봤어요.",
+    "피곤했어요."
+   ],
+   "req": {
+    "minConns": 3,
+    "clauses": 4,
+    "words": [
+     "친구",
+     "밥",
+     "영화",
+     "피곤"
+    ],
+    "one": true,
+    "polite": true
+   },
+   "model": {
+    "ko": "친구가 와서 같이 밥을 먹고 영화도 봤지만 피곤했어요.",
+    "en": "A friend came, we ate together and watched a movie, but I was tired."
+   },
+   "bonus": {
+    "req": {
+     "minConns": 4,
+     "words": [
+      "커피"
+     ]
+    },
+    "model": "친구가 와서 같이 밥을 먹고 커피를 마시고 영화도 봤지만 피곤했어요."
+   },
+   "mode": "write"
+  },
+  {
+   "id": "c-rain",
+   "mode": "continue",
+   "lv": 1,
+   "icon": "☔",
+   "title": {
+    "ko": "비가 오는데",
+    "en": "\"비가 오는데…\""
+   },
+   "situation": {
+    "ko": "첫 마디가 주어졌어요. 이음말로 이어서 문장을 길게 키워요.",
+    "en": "You get the first clause. Grow the sentence with linking endings."
+   },
+   "req": {
+    "keep": "비가 오는데",
+    "clauses": 4,
+    "minConns": 3,
+    "one": true,
+    "polite": true
+   },
+   "model": {
+    "ko": "비가 오는데 우산이 없어서 편의점에 가서 하나 샀어요.",
+    "en": "It is raining and I had no umbrella, so I went to a store and bought one."
+   },
+   "start": "비가 오는데 "
+  },
+  {
+   "id": "c-time",
+   "mode": "continue",
+   "lv": 1,
+   "icon": "⏰",
+   "title": {
+    "ko": "시간이 없지만",
+    "en": "\"시간이 없지만…\""
+   },
+   "situation": {
+    "ko": "첫 마디가 주어졌어요. 이음말로 이어서 문장을 길게 키워요.",
+    "en": "You get the first clause. Grow the sentence with linking endings."
+   },
+   "req": {
+    "keep": "시간이 없지만",
+    "clauses": 4,
+    "minConns": 3,
+    "one": true,
+    "polite": true
+   },
+   "model": {
+    "ko": "시간이 없지만 친구가 보고 싶어서 잠깐 만나면 좋겠어요.",
+    "en": "I have no time, but I miss my friend, so it would be nice to meet briefly."
+   },
+   "start": "시간이 없지만 "
+  },
+  {
+   "id": "c-hungry",
+   "mode": "continue",
+   "lv": 2,
+   "icon": "🍜",
+   "title": {
+    "ko": "배가 고파서",
+    "en": "\"배가 고파서…\""
+   },
+   "situation": {
+    "ko": "첫 마디가 주어졌어요. 이음말로 이어서 문장을 길게 키워요.",
+    "en": "You get the first clause. Grow the sentence with linking endings."
+   },
+   "req": {
+    "keep": "배가 고파서",
+    "clauses": 4,
+    "minConns": 3,
+    "one": true,
+    "polite": true
+   },
+   "model": {
+    "ko": "배가 고파서 식당에 갔는데 사람이 많으면 다른 곳으로 가요.",
+    "en": "I was hungry and went to a restaurant, but if it is crowded I go elsewhere."
+   },
+   "start": "배가 고파서 "
+  },
+  {
+   "id": "c-hard",
+   "mode": "continue",
+   "lv": 2,
+   "icon": "💪",
+   "title": {
+    "ko": "한국어가 어렵지만",
+    "en": "\"한국어가 어렵지만…\""
+   },
+   "situation": {
+    "ko": "첫 마디가 주어졌어요. 이음말로 이어서 문장을 길게 키워요.",
+    "en": "You get the first clause. Grow the sentence with linking endings."
+   },
+   "req": {
+    "keep": "한국어가 어렵지만",
+    "clauses": 4,
+    "minConns": 3,
+    "one": true,
+    "polite": true
+   },
+   "model": {
+    "ko": "한국어가 어렵지만 재미있고 친구도 많아서 계속 공부하고 싶어요.",
+    "en": "Korean is hard, but fun and I have many friends, so I want to keep studying."
+   },
+   "start": "한국어가 어렵지만 "
+  },
+  {
+   "id": "c-weekend",
+   "mode": "continue",
+   "lv": 3,
+   "icon": "🌤️",
+   "title": {
+    "ko": "주말에 시간이 있으면",
+    "en": "\"주말에 시간이 있으면…\""
+   },
+   "situation": {
+    "ko": "첫 마디가 주어졌어요. 이음말을 서로 다르게 써서 키워요.",
+    "en": "You get the first clause. Use different endings as you grow it."
+   },
+   "req": {
+    "keep": "주말에 시간이 있으면",
+    "clauses": 4,
+    "minConns": 3,
+    "one": true,
+    "distinct": true,
+    "polite": true
+   },
+   "model": {
+    "ko": "주말에 시간이 있으면 친구를 만나는데 날씨가 좋으니까 공원에 가요.",
+    "en": "If I have time on weekends I meet a friend, and since the weather is nice we go to the park."
+   },
+   "start": "주말에 시간이 있으면 "
+  },
+  {
+   "id": "c-seoul",
+   "mode": "continue",
+   "lv": 3,
+   "icon": "🏙️",
+   "title": {
+    "ko": "저는 서울에 사는데",
+    "en": "\"저는 서울에 사는데…\""
+   },
+   "situation": {
+    "ko": "첫 마디가 주어졌어요. 다섯 마디까지 키워 보세요.",
+    "en": "You get the first clause. Grow it to five clauses."
+   },
+   "req": {
+    "keep": "저는 서울에 사는데",
+    "clauses": 5,
+    "minConns": 4,
+    "one": true,
+    "distinct": true,
+    "polite": true
+   },
+   "model": {
+    "ko": "저는 서울에 사는데 회사가 멀어서 아침에 일찍 일어나면 버스에서 책을 읽고 커피를 마셔요.",
+    "en": "I live in Seoul, but my office is far, so if I get up early I read and drink coffee on the bus."
+   },
+   "start": "저는 서울에 사는데 "
+  },
+  {
+   "id": "f-reason",
+   "mode": "fix",
+   "lv": 1,
+   "icon": "🔧",
+   "title": {
+    "ko": "이음말이 안 맞아요",
+    "en": "Wrong ending"
+   },
+   "situation": {
+    "ko": "이유인데 「-지만」을 썼어요. 뜻에 맞게 고쳐 쓰세요.",
+    "en": "The sentence uses -지만 but means a reason. Fix it."
+   },
+   "req": {
+    "conn": [
+     "aseo"
+    ],
+    "no": [
+     "jiman"
+    ],
+    "words": [
+     "배",
+     "밥"
+    ],
+    "one": true,
+    "polite": true
+   },
+   "model": {
+    "ko": "배가 고파서 밥을 먹어요.",
+    "en": "I am hungry, so I eat."
+   },
+   "start": "배가 고프지만 밥을 먹어요."
+  },
+  {
+   "id": "f-contrast",
+   "mode": "fix",
+   "lv": 1,
+   "icon": "🔧",
+   "title": {
+    "ko": "반대인데 이유로 썼어요",
+    "en": "Wrong ending"
+   },
+   "situation": {
+    "ko": "반대의 뜻인데 「-아서」를 썼어요. 뜻에 맞게 고쳐 쓰세요.",
+    "en": "The sentence uses -아서 but means a contrast. Fix it."
+   },
+   "req": {
+    "conn": [
+     "jiman"
+    ],
+    "no": [
+     "aseo"
+    ],
+    "words": [
+     "공부",
+     "시험"
+    ],
+    "one": true,
+    "polite": true
+   },
+   "model": {
+    "ko": "공부를 열심히 했지만 시험이 어려웠어요.",
+    "en": "I studied hard, but the test was difficult."
+   },
+   "start": "공부를 열심히 해서 시험이 어려웠어요."
+  },
+  {
+   "id": "f-chop",
+   "mode": "fix",
+   "lv": 2,
+   "icon": "✂️",
+   "title": {
+    "ko": "끊긴 문장 잇기 ①",
+    "en": "Join the pieces ①"
+   },
+   "situation": {
+    "ko": "짧게 끊긴 세 문장을 한 문장으로 이어 쓰세요. 낱말은 살려요.",
+    "en": "Join these three choppy sentences into one. Keep the words."
+   },
+   "req": {
+    "minConns": 2,
+    "clauses": 3,
+    "words": [
+     "집",
+     "저녁",
+     "샤워"
+    ],
+    "one": true,
+    "polite": true
+   },
+   "model": {
+    "ko": "집에 가서 저녁을 먹고 샤워를 해요.",
+    "en": "I go home, eat dinner and take a shower."
+   },
+   "start": "저는 집에 가요. 저녁을 먹어요. 샤워를 해요."
+  },
+  {
+   "id": "f-chop2",
+   "mode": "fix",
+   "lv": 2,
+   "icon": "✂️",
+   "title": {
+    "ko": "끊긴 문장 잇기 ②",
+    "en": "Join the pieces ②"
+   },
+   "situation": {
+    "ko": "짧게 끊긴 세 문장을 한 문장으로 이어 쓰세요. 낱말은 살려요.",
+    "en": "Join these three choppy sentences into one. Keep the words."
+   },
+   "req": {
+    "minConns": 2,
+    "clauses": 3,
+    "words": [
+     "카페",
+     "책",
+     "친구"
+    ],
+    "one": true,
+    "polite": true
+   },
+   "model": {
+    "ko": "카페에 가서 책을 읽는데 친구가 와요.",
+    "en": "I go to a cafe and read, and then a friend comes."
+   },
+   "start": "카페에 가요. 책을 읽어요. 친구가 와요."
+  },
+  {
+   "id": "f-missing",
+   "mode": "fix",
+   "lv": 3,
+   "icon": "🔗",
+   "title": {
+    "ko": "이음말이 빠졌어요",
+    "en": "Missing ending"
+   },
+   "situation": {
+    "ko": "마디 사이에 이음말이 없어요. -아서 · -(으)니까 · -지만 중에서 알맞은 것을 넣어 한 문장으로 쓰세요.",
+    "en": "The clauses have no linking endings. Add -아서, -(으)니까 or -지만 so it becomes one sentence."
+   },
+   "req": {
+    "minConns": 2,
+    "clauses": 3,
+    "words": [
+     "날씨",
+     "옷",
+     "나가"
+    ],
+    "one": true,
+    "polite": true
+   },
+   "model": {
+    "ko": "날씨가 추우니까 옷을 입고 나가요.",
+    "en": "It is cold, so I put on clothes and go out."
+   },
+   "start": "날씨가 추워요 옷을 입어요 나가요"
+  },
+  {
+   "id": "f-many",
+   "mode": "fix",
+   "lv": 3,
+   "icon": "🚂",
+   "title": {
+    "ko": "-고만 너무 많아요",
+    "en": "Too many -고"
+   },
+   "situation": {
+    "ko": "-고로만 이어서 단조로워요. 서로 다른 이음말을 세 가지 이상 써서 고쳐 쓰세요.",
+    "en": "It only uses -고 and sounds flat. Rewrite with at least three different endings."
+   },
+   "req": {
+    "minConns": 3,
+    "distinct": true,
+    "words": [
+     "일어나",
+     "학교",
+     "공부"
+    ],
+    "one": true,
+    "polite": true
+   },
+   "model": {
+    "ko": "일찍 일어나서 학교에 가는데 공부하고 집에 와요.",
+    "en": "I get up early, go to school, study and come home."
+   },
+   "start": "일찍 일어나고 세수하고 학교에 가고 공부하고 집에 와요."
+  },
+  {
+   "id": "t-seoul",
+   "mode": "translate",
+   "lv": 2,
+   "icon": "🌏",
+   "title": {
+    "ko": "서울 · 회사 · 버스",
+    "en": "Seoul, office, bus"
+   },
+   "situation": {
+    "ko": "뜻을 한국어 한 문장으로 말해 보세요. 이음말: -는데 · -아서",
+    "en": "Say the meaning in one Korean sentence. Endings: -는데, -아서."
+   },
+   "req": {
+    "conn": [
+     "nde",
+     "aseo"
+    ],
+    "clauses": 3,
+    "words": [
+     "서울",
+     "회사",
+     "버스"
+    ],
+    "one": true,
+    "polite": true
+   },
+   "model": {
+    "ko": "서울에 사는데 회사가 멀어서 버스를 타요.",
+    "en": "I live in Seoul, and my office is far, so I take the bus."
+   },
+   "meaning": "I live in Seoul, but my office is far, so I take the bus.",
+   "hints": [
+    "서울",
+    "회사",
+    "멀다",
+    "버스",
+    "타다"
    ]
+  },
+  {
+   "id": "t-coffee",
+   "mode": "translate",
+   "lv": 2,
+   "icon": "🌏",
+   "title": {
+    "ko": "커피 · 밤",
+    "en": "Coffee, night"
+   },
+   "situation": {
+    "ko": "뜻을 한국어 한 문장으로 말해 보세요. 이음말: -지만 · -(으)니까",
+    "en": "Say the meaning in one Korean sentence. Endings: -지만, -(으)니까."
+   },
+   "req": {
+    "conn": [
+     "jiman",
+     "nikka"
+    ],
+    "clauses": 3,
+    "words": [
+     "커피",
+     "밤"
+    ],
+    "one": true,
+    "polite": true
+   },
+   "model": {
+    "ko": "저는 커피를 좋아하지만 밤에는 잠을 못 자니까 안 마셔요.",
+    "en": "I like coffee, but I cannot sleep if I drink it at night, so I do not."
+   },
+   "meaning": "I like coffee, but I do not drink it at night because I cannot sleep.",
+   "hints": [
+    "커피",
+    "밤",
+    "좋아하다",
+    "자다",
+    "마시다"
+   ]
+  },
+  {
+   "id": "t-tomorrow",
+   "mode": "translate",
+   "lv": 3,
+   "icon": "🌏",
+   "title": {
+    "ko": "내일 · 영화",
+    "en": "Tomorrow, movie"
+   },
+   "situation": {
+    "ko": "뜻을 한국어 한 문장으로 말해 보세요. 이음말: -(으)면 · -고",
+    "en": "Say the meaning in one Korean sentence. Endings: -(으)면, -고."
+   },
+   "req": {
+    "conn": [
+     "myeon",
+     "go"
+    ],
+    "clauses": 3,
+    "words": [
+     "내일",
+     "영화"
+    ],
+    "one": true,
+    "polite": true
+   },
+   "model": {
+    "ko": "내일 비가 오면 집에 있고 영화를 볼 거예요.",
+    "en": "If it rains tomorrow, I will stay home and watch a movie."
+   },
+   "meaning": "If it rains tomorrow, I will stay home and watch a movie.",
+   "hints": [
+    "내일",
+    "비",
+    "오다",
+    "집",
+    "영화"
+   ]
+  },
+  {
+   "id": "t-friend",
+   "mode": "translate",
+   "lv": 3,
+   "icon": "🌏",
+   "title": {
+    "ko": "친구 · 모두",
+    "en": "Friend, everyone"
+   },
+   "situation": {
+    "ko": "뜻을 한국어 한 문장으로 말해 보세요. 이음말: -고 · -아서",
+    "en": "Say the meaning in one Korean sentence. Endings: -고, -아서."
+   },
+   "req": {
+    "conn": [
+     "go",
+     "aseo"
+    ],
+    "clauses": 3,
+    "words": [
+     "친구",
+     "모두"
+    ],
+    "one": true,
+    "polite": true
+   },
+   "model": {
+    "ko": "제 친구는 친절하고 재미있어서 모두 좋아해요.",
+    "en": "My friend is kind and funny, so everyone likes him."
+   },
+   "meaning": "My friend is kind and funny, so everyone likes him.",
+   "hints": [
+    "친구",
+    "친절하다",
+    "재미있다",
+    "모두",
+    "좋아하다"
+   ]
+  },
+  {
+   "id": "t-lunch",
+   "mode": "translate",
+   "lv": 4,
+   "icon": "🌏",
+   "title": {
+    "ko": "점심 · 간식",
+    "en": "Lunch, snack"
+   },
+   "situation": {
+    "ko": "뜻을 한국어 한 문장으로 말해 보세요. 이음말: -지만 · -아서 (과거도 괜찮아요)",
+    "en": "Say the meaning in one Korean sentence. Endings: -지만, -아서 (past is fine)."
+   },
+   "req": {
+    "conn": [
+     "jiman",
+     "aseo"
+    ],
+    "clauses": 3,
+    "words": [
+     "점심",
+     "간식"
+    ],
+    "one": true,
+    "polite": true
+   },
+   "model": {
+    "ko": "점심을 먹었지만 아직 배가 고파서 간식을 먹을 거예요.",
+    "en": "I ate lunch, but I am still hungry, so I will have a snack."
+   },
+   "meaning": "I ate lunch, but I am still hungry, so I will have a snack.",
+   "hints": [
+    "점심",
+    "먹다",
+    "아직",
+    "배고프다",
+    "간식"
+   ]
+  },
+  {
+   "id": "t-trip",
+   "mode": "translate",
+   "lv": 4,
+   "icon": "🌏",
+   "title": {
+    "ko": "여행 · 돈",
+    "en": "Travel, money"
+   },
+   "situation": {
+    "ko": "뜻을 한국어 한 문장으로 말해 보세요. 이음말을 세 가지 이상 쓰세요.",
+    "en": "Say the meaning in one Korean sentence. Use at least three endings."
+   },
+   "req": {
+    "minConns": 3,
+    "clauses": 4,
+    "words": [
+     "여행",
+     "돈"
+    ],
+    "one": true,
+    "polite": true
+   },
+   "model": {
+    "ko": "여행을 가고 싶었지만 돈이 없어서 일하고 돈을 모았어요.",
+    "en": "I wanted to travel but had no money, so I worked and saved."
+   },
+   "meaning": "I wanted to travel, but I had no money, so I worked and saved up.",
+   "hints": [
+    "여행",
+    "가고 싶다",
+    "돈",
+    "없다",
+    "일하다",
+    "모으다"
+   ]
+  },
+  {
+   "id": "s-yesterday",
+   "mode": "speak",
+   "lv": 2,
+   "icon": "⏱",
+   "title": {
+    "ko": "어제 한 일",
+    "en": "What I did yesterday"
+   },
+   "situation": {
+    "ko": "40초 안에 쉬지 않고, 이음말 두 개 이상으로 이어 말해요.",
+    "en": "Speak for up to 40 seconds without stopping, linking with two or more endings."
+   },
+   "req": {
+    "clauses": 3,
+    "minConns": 2,
+    "one": true,
+    "polite": true
+   },
+   "model": {
+    "ko": "어제는 아침에 일어나서 친구를 만났는데 날씨가 좋아서 공원을 걸었어요.",
+    "en": "Yesterday I got up, met a friend, and since the weather was nice we walked in the park."
+   },
+   "timer": 40
+  },
+  {
+   "id": "s-season",
+   "mode": "speak",
+   "lv": 2,
+   "icon": "⏱",
+   "title": {
+    "ko": "좋아하는 계절",
+    "en": "A season I like"
+   },
+   "situation": {
+    "ko": "40초 안에 쉬지 않고, 이음말 두 개 이상으로 이어 말해요.",
+    "en": "Speak for up to 40 seconds without stopping, linking with two or more endings."
+   },
+   "req": {
+    "clauses": 3,
+    "minConns": 2,
+    "one": true,
+    "polite": true
+   },
+   "model": {
+    "ko": "저는 가을을 좋아하는데 날씨가 시원하고 단풍이 예뻐서 자주 산책해요.",
+    "en": "I like autumn: the weather is cool and the leaves are pretty, so I walk often."
+   },
+   "timer": 40
+  },
+  {
+   "id": "s-family",
+   "mode": "speak",
+   "lv": 3,
+   "icon": "⏱",
+   "title": {
+    "ko": "우리 가족",
+    "en": "My family"
+   },
+   "situation": {
+    "ko": "40초 안에 쉬지 않고, 이음말 세 개 이상으로 이어 말해요.",
+    "en": "Speak for up to 40 seconds without stopping, linking with three or more endings."
+   },
+   "req": {
+    "clauses": 4,
+    "minConns": 3,
+    "one": true,
+    "polite": true
+   },
+   "model": {
+    "ko": "우리 가족은 네 명인데 부모님은 부산에 사시고 저는 서울에서 일해서 자주 못 만나요.",
+    "en": "We are four; my parents live in Busan and I work in Seoul, so we rarely meet."
+   },
+   "timer": 40
+  },
+  {
+   "id": "s-hometown",
+   "mode": "speak",
+   "lv": 3,
+   "icon": "⏱",
+   "title": {
+    "ko": "내 고향",
+    "en": "My hometown"
+   },
+   "situation": {
+    "ko": "40초 안에 쉬지 않고, 이음말 세 개 이상으로 이어 말해요.",
+    "en": "Speak for up to 40 seconds without stopping, linking with three or more endings."
+   },
+   "req": {
+    "clauses": 4,
+    "minConns": 3,
+    "one": true,
+    "polite": true
+   },
+   "model": {
+    "ko": "제 고향은 작은 바다 마을인데 조용하지만 여름에는 사람이 많으니까 가 보세요.",
+    "en": "My hometown is a small seaside town; it is quiet, but in summer it is crowded, so go and see."
+   },
+   "timer": 40
+  },
+  {
+   "id": "s-want",
+   "mode": "speak",
+   "lv": 4,
+   "icon": "⏱",
+   "title": {
+    "ko": "가 보고 싶은 곳",
+    "en": "A place I want to visit"
+   },
+   "situation": {
+    "ko": "40초 안에 쉬지 않고, 이음말 세 개 이상으로 이어 말해요.",
+    "en": "Speak for up to 40 seconds without stopping, linking with three or more endings."
+   },
+   "req": {
+    "clauses": 4,
+    "minConns": 3,
+    "one": true,
+    "polite": true
+   },
+   "model": {
+    "ko": "한국에서는 제주도에 가 보고 싶은데 비행기가 비싸지만 친구와 같이 가면 괜찮아요.",
+    "en": "In Korea I want to visit Jeju; the flight is pricey, but it is fine if I go with a friend."
+   },
+   "timer": 40
+  },
+  {
+   "id": "s-school",
+   "mode": "speak",
+   "lv": 4,
+   "icon": "⏱",
+   "title": {
+    "ko": "학교 · 일",
+    "en": "School and work"
+   },
+   "situation": {
+    "ko": "40초 안에 쉬지 않고, 이음말 세 개 이상으로 이어 말해요.",
+    "en": "Speak for up to 40 seconds without stopping, linking with three or more endings."
+   },
+   "req": {
+    "clauses": 4,
+    "minConns": 3,
+    "one": true,
+    "polite": true
+   },
+   "model": {
+    "ko": "저는 학교에 다니는데 수업이 끝나면 카페에서 일하고 밤에는 집에서 공부해요.",
+    "en": "I go to school, and after class I work at a cafe and study at home at night."
+   },
+   "timer": 40
   }
  ]
 }

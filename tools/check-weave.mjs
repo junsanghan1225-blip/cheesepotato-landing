@@ -79,21 +79,32 @@ for (const s of D.stories || []) {
   const w = s.write;
   if (!w || !bi(w.prompt) || !Array.isArray(w.cues) || w.cues.length < 2 || !(w.minSentences >= 3 && w.minSentences <= 6) || !(w.minConnectors >= 2 && w.minConnectors <= n - 1)) bad.push(`${at}: write 는 prompt(ko · en) · cues 2개 이상 · minSentences 3~6 · minConnectors 2~${n - 1}`);
 }
-/* 긴 문장 만들기 장면(운영자 2026-10-18 「스스로 만들게 · 긴 문장」) — 예시 답이 6가지 이음말로 모두 바뀌어야 한다(화면이 자동으로 이어 주는 말) */
-const { linkClause, WV_RELS } = await import(pathToFileURL(path.join(ROOT, 'weave-link.js')).href);
-const PRED = buildPred(), RIDS = WV_RELS.map((r) => r.id), gseen = new Set();
-for (const g of D.grow || []) {
-  const at = `장면 ${g.id}`;
-  if (!/^g-[a-z0-9-]+$/.test(g.id || '') || gseen.has(g.id)) bad.push(`${at}: id 는 g- 로 시작하는 영문 소문자 · 숫자 · - 이고 겹치면 안 된다`); gseen.add(g.id);
-  if (!bi(g.title) || !bi(g.intro) || !g.icon) bad.push(`${at}: icon · title · intro(ko · en)`);
-  if (!Array.isArray(g.suggest) || g.suggest.length !== 2 || !g.suggest.every((x) => RIDS.includes(x))) bad.push(`${at}: suggest 는 이음말 id 2개(${RIDS.join(' ')})`);
-  if (!Array.isArray(g.qs) || g.qs.length !== 3) { bad.push(`${at}: 질문은 3개`); continue; }
-  g.qs.forEach((q, i) => {
-    const qt = `${at} 질문 ${i + 1}`;
-    if (!bi(q) || !bi(q.frame) || !bi(q.ex)) return bad.push(`${qt}: ko · en · frame · ex(각각 ko · en)`);
-    if (!/[.]$/.test(q.ex.ko.trim()) || !/요\.$/.test(q.ex.ko.trim())) bad.push(`${qt}: 예시 답은 해요체(…요.)로 끝나야 한다 — ${q.ex.ko}`);
-    for (const r of RIDS) if (!linkClause(q.ex.ko, r, PRED)) bad.push(`${qt}: 예시 답의 마지막 말을 「${r}」로 바꿀 수 없다(낱말 표에 없다) — ${q.ex.ko}`);
-  });
+/* 문장 열차 과제(운영자 2026-10-18 「다 한 번에 쓰게 · 로직이 너무 쉽다 · 다 비슷하다」, 계획 docs/plans/weave-fluency.md 7)
+   mode: write(상황 퀘스트) · continue(이어 쓰기) · fix(고쳐 쓰기) · translate(영어 → 한 문장) · speak(즉석 말하기).
+   핵심 검사: **모범 답이 자기 조건을 모두 채워야** 한다(화면의 인식기와 같은 weave-link.js 로) · 고쳐 쓰기의 처음 글은 조건을 **못 채워야** 한다(진짜 고칠 거리) */
+const { analyze, buildForms, evalReq } = await import(pathToFileURL(path.join(ROOT, 'weave-link.js')).href);
+const PRED = buildPred(), FORMS = buildForms(PRED), MODES = ['write', 'continue', 'fix', 'translate', 'speak'], qseen = new Set();
+const allOk = (req, text) => evalReq(req, analyze(text, FORMS), text).every((c) => c.ok);
+const failing = (req, text) => evalReq(req, analyze(text, FORMS), text).filter((c) => !c.ok).map((c) => c.ko).join(' · ');
+for (const q of D.quests || []) {
+  const at = `과제 ${q.id}`;
+  if (!/^[a-z0-9-]+$/.test(q.id || '') || qseen.has(q.id)) bad.push(`${at}: id 는 영문 소문자 · 숫자 · - 이고 겹치면 안 된다`); qseen.add(q.id);
+  if (!MODES.includes(q.mode) || !(q.lv >= 1 && q.lv <= 5) || !q.icon || !bi(q.title) || !bi(q.situation)) { bad.push(`${at}: mode(${MODES.join('/')}) · lv 1~5 · icon · title · situation(ko · en)`); continue; }
+  if (!q.req || typeof q.req !== 'object' || !bi(q.model)) { bad.push(`${at}: req · model(ko · en)`); continue; }
+  if (!allOk(q.req, q.model.ko)) bad.push(`${at}: 모범 답이 자기 조건을 못 채운다 — ${failing(q.req, q.model.ko)} — ${q.model.ko}`);
+  if (q.mode === 'continue') {
+    if (!q.start || q.req.keep !== q.start.trim() || !q.model.ko.startsWith(q.req.keep)) bad.push(`${at}: continue 는 start 가 있고 req.keep 과 같고 모범 답이 그것으로 시작해야 한다`);
+  }
+  if (q.mode === 'fix') {
+    if (!q.start) bad.push(`${at}: fix 는 고칠 글(start)이 있어야 한다`);
+    else if (allOk(q.req, q.start)) bad.push(`${at}: 고칠 글이 이미 조건을 다 채운다(고칠 거리가 없다) — ${q.start}`);
+  }
+  if (q.mode === 'translate' && (typeof q.meaning !== 'string' || !q.meaning.trim() || !Array.isArray(q.hints) || q.hints.length < 3)) bad.push(`${at}: translate 는 meaning(영어)과 hints 3개 이상`);
+  if (q.mode === 'speak' && !(q.timer >= 20 && q.timer <= 90)) bad.push(`${at}: speak 는 timer 20~90 초`);
+  if (q.bonus) {
+    if (!q.bonus.req || !q.bonus.model) bad.push(`${at}: bonus 는 req · model`);
+    else { const both = { ...q.req, ...q.bonus.req }; if (!allOk(both, q.bonus.model)) bad.push(`${at}: 보너스 모범 답이 조건을 못 채운다 — ${failing(both, q.bonus.model)} — ${q.bonus.model}`); }
+  }
 }
 if (bad.length) { console.error(`이야기 만들기 자료에 문제가 있다 (${bad.length}곳):\n  - ${bad.slice(0, 60).join('\n  - ')}`); process.exit(1); }
-console.log(`이야기 만들기 검사 — 통과 (접속사 ${CON.size}개 · 이야기 ${(D.stories || []).length}편 · 긴 문장 장면 ${(D.grow || []).length}개)`);
+console.log(`이야기 만들기 검사 — 통과 (접속사 ${CON.size}개 · 이야기 ${(D.stories || []).length}편 · 문장 열차 과제 ${(D.quests || []).length}개)`);
