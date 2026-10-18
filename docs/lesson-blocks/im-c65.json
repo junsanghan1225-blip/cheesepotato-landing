@@ -1,0 +1,626 @@
+{
+  "im-c65-01": [
+    {
+      "t": "compare",
+      "h": "-아/어 놓다 (외부로 드러난 준비 완료) vs -아/어 두다 (보존과 장기적 대비)",
+      "a": {
+        "h": "-아/어 놓다 (Visible arrangement for near future)",
+        "d": "Completes an action and leaves it in plain sight or accessible for immediate use.",
+        "ex": [
+          "손님맞이를 위해 식탁 위에 과일을 깨끗이 **씻어 놓았어요**. — For welcoming guests, I washed fruits and laid them out on the table."
+        ]
+      },
+      "b": {
+        "h": "-아/어 두다 (Safe storage for long-term preparedness)",
+        "d": "Safeguards an item, data, or resource in a secure place for unexpected future needs.",
+        "ex": [
+          "만약의 사태에 대비해 중요한 서류를 금고에 안전하게 **보관해 두었습니다**. — In preparation for emergencies, I safely stored important papers in the safe."
+        ]
+      },
+      "tip": "Think of 놓다 as \"placing out ready to be used\" (열어 놓다, 켜 놓다, 써 놓다) and 두다 as \"tucking away for future security\" (저장해 두다, 적어 두다, 아껴 두다)."
+    },
+    {
+      "t": "correct",
+      "q": "Fix the sentence where saving a digital backup file into secure cloud storage used an awkward form.",
+      "wrong": "컴퓨터 고장에 대비해 외장 하드에 백업 파일을 복사해 봤어요.",
+      "answers": [
+        "컴퓨터 고장에 대비해 외장 하드에 백업 파일을 복사해 두었어요.",
+        "컴퓨터 고장에 대비해 외장 하드에 백업 파일을 복사해 두었어요",
+        "컴퓨터 고장에 대비해 외장 하드에 백업 파일을 복사해 두었습니다.",
+        "컴퓨터 고장에 대비해 외장 하드에 백업 파일을 복사해 두었습니다"
+      ],
+      "hint": "Use the safe preparedness marker -아/어 두다: 복사해 두었어요.",
+      "why": "Saving backup data to prepare against computer breakdown requires the secure preservation marker -아/어 두다."
+    },
+    {
+      "t": "vocab",
+      "h": "Words for this lesson",
+      "items": [
+        {
+          "ko": "비축하다",
+          "en": "to store up / stockpile",
+          "ex": "비상식량을 미리 넉넉히 비축해 두었습니다."
+        },
+        {
+          "ko": "보관하다",
+          "en": "to store / keep safely",
+          "ex": "귀중품은 은행 금고에 안전하게 보관하세요."
+        },
+        {
+          "ko": "환기하다",
+          "en": "to ventilate",
+          "ex": "창문을 활짝 열어 실내 공기를 환기해 놓았다."
+        },
+        {
+          "ko": "설정하다",
+          "en": "to set up / configure",
+          "ex": "스마트폰 알람을 오전 일곱 시로 설정해 두었습니다."
+        },
+        {
+          "ko": "출력하다",
+          "en": "to print out",
+          "ex": "회의 자료를 미리 스무 부 출력해 놓았어요."
+        }
+      ]
+    },
+    {
+      "t": "dictate",
+      "say": "손님들이 도착하기 전에 거실 청소를 끝내고 시원한 음료수를 준비해 놓았어요",
+      "answers": [
+        "손님들이 도착하기 전에 거실 청소를 끝내고 시원한 음료수를 준비해 놓았어요",
+        "손님들이 도착하기 전에 거실 청소를 끝내고 시원한 음료수를 준비해 놓았어요."
+      ],
+      "hint": "Before guests arrived, I finished cleaning the living room and prepared cool beverages.",
+      "why": "Preparation ready in plain view: 준비해 놓았어요."
+    },
+    {
+      "t": "write",
+      "q": "Write a sentence stating that you saved your passport copy in your email for emergencies, using 메일에 and 저장해 두었어요.",
+      "must": [
+        "메일에",
+        "저장해 두었어요"
+      ],
+      "sample": "해외여행 중 분실에 대비해 여권 사본을 이메일에 안전하게 저장해 두었어요.",
+      "why": "Using -아/어 두다 for safeguarding data for future safety."
+    },
+    {
+      "t": "expand",
+      "base": {
+        "tokens": [
+          "서류를",
+          "정리해 놓았어요."
+        ],
+        "en": "I organized the papers."
+      },
+      "steps": [
+        {
+          "tokens": [
+            "회의 시작 전에 서류를",
+            "책상 위에 가지런히",
+            "정리해 놓았어요."
+          ],
+          "en": "Before the meeting started, I neatly organized the papers on the desk."
+        },
+        {
+          "tokens": [
+            "중요한 임원 회의 시작 전에 발표 서류를",
+            "참석자들의 자리마다 빠짐없이",
+            "깔끔하게 출력해서 정리해 놓았어요."
+          ],
+          "en": "Before the important executive meeting started, I printed presentation papers neatly and organized them without exception at each attendee seat."
+        }
+      ]
+    },
+    {
+      "t": "passage",
+      "h": "Read a little",
+      "ko": [
+        "내일부터 시작되는 장기 해외 출장을 앞두고 사무실 업무를 차분히 정리했다.",
+        "회의실에는 다음 주 팀원들이 사용할 프로젝트 자료들을 출력하여 책상에 놓아두었다.",
+        "만약의 연락 두절에 대비해 비상 연락망과 인수인계 문서를 클라우드에 안전하게 저장해 두었다."
+      ],
+      "en": [
+        "Ahead of a long overseas business trip starting tomorrow, I calmly wrapped up office tasks.",
+        "In the conference room, I printed project materials for teammates next week and laid them on desks.",
+        "To prepare against any loss of contact, I safely stored the emergency contact list and handover documents in the cloud."
+      ]
+    },
+    {
+      "t": "choice",
+      "q": "Where did the speaker place the printed project materials for coworkers?",
+      "options": [
+        "Laid them on conference room desks for easy access (출력하여 놓아두었다)",
+        "Threw them into the recycle bin",
+        "Locked them inside a briefcase taken abroad"
+      ],
+      "answer": 0,
+      "why": "Sentence two records: 프로젝트 자료들을 출력하여 책상에 놓아두었다."
+    },
+    {
+      "t": "choice",
+      "q": "Why were handover documents uploaded to the cloud?",
+      "options": [
+        "To preserve them safely for emergencies (-아/어 두다)",
+        "To show off computing skills",
+        "To delete them permanently"
+      ],
+      "answer": 0,
+      "why": "Sentence three notes saving files in cloud storage for preparedness (-아/어 두다)."
+    },
+    {
+      "t": "cando",
+      "items": [
+        "I can differentiate visible near-term arrangements (-아/어 놓다) from long-term safe keeping (-아/어 두다).",
+        "I can prepare professional handovers, backups, and hospitable settings meticulously."
+      ]
+    }
+  ],
+  "im-c65-02": [
+    {
+      "t": "compare",
+      "h": "-(으)ㄴ 채로 (기존 상태 유지한 채 행동) vs -아/어서 (이유 또는 순차)",
+      "a": {
+        "h": "-(으)ㄴ 채로 (Maintaining an ongoing static condition)",
+        "d": "Performs action B while maintaining state A unchanged, often contrary to standard expectations.",
+        "ex": [
+          "너무 피곤해서 안경을 **쓴 채로** 잠이 들어 버렸어요. — Because I was so tired, I fell asleep with my glasses on."
+        ]
+      },
+      "b": {
+        "h": "-아/어서 (Causal or sequential transition)",
+        "d": "Connects two actions where state A triggers B or changes into B.",
+        "ex": [
+          "안경을 **써서** 글씨가 아주 선명하게 보여요. — Because I put on glasses, the letters look very clear."
+        ]
+      },
+      "tip": "-(으)ㄴ 채로 highlights continuing with shoes on (신은 채로), clothes on (입은 채로), or lights on (켠 채로) where they would normally be removed or altered."
+    },
+    {
+      "t": "correct",
+      "q": "Fix the sentence where keeping shoes on indoors was inappropriately phrased.",
+      "wrong": "급한 마음에 신발을 신어서 방 안으로 뛰어 들어갔어요.",
+      "answers": [
+        "급한 마음에 신발을 신은 채로 방 안으로 뛰어 들어갔어요.",
+        "급한 마음에 신발을 신은 채로 방 안으로 뛰어 들어갔어요",
+        "급한 마음에 신발을 신은 채 방 안으로 뛰어 들어갔습니다.",
+        "급한 마음에 신발을 신은 채 방 안으로 뛰어 들어갔습니다"
+      ],
+      "hint": "Use the preserved state marker -(으)ㄴ 채로: 신은 채로.",
+      "why": "Entering the room while keeping shoes on is a maintained state, requiring 신은 채로."
+    },
+    {
+      "t": "vocab",
+      "h": "Words for this lesson",
+      "items": [
+        {
+          "ko": "유지하다",
+          "en": "to maintain / preserve",
+          "ex": "건강한 생활 습관을 꾸준히 유지하세요."
+        },
+        {
+          "ko": "방치하다",
+          "en": "to leave unattended / neglect",
+          "ex": "고장 난 기계를 그대로 방치하면 위험합니다."
+        },
+        {
+          "ko": "콘택트렌즈",
+          "en": "contact lens",
+          "ex": "렌즈를 낀 채로 자면 각막에 해롭습니다."
+        },
+        {
+          "ko": "단정하다",
+          "en": "neat / tidy",
+          "ex": "옷차림을 단정하게 정돈하고 면접장에 들어갔다."
+        },
+        {
+          "ko": "엉겁결에",
+          "en": "in spite of oneself / inadvertently",
+          "ex": "엉겁결에 대답을 해 버리고 말았어요."
+        }
+      ]
+    },
+    {
+      "t": "dictate",
+      "say": "어젯밤에 창문을 열어 둔 채로 잠들어서 아침에 목감기에 걸렸어요",
+      "answers": [
+        "어젯밤에 창문을 열어 둔 채로 잠들어서 아침에 목감기에 걸렸어요",
+        "어젯밤에 창문을 열어 둔 채로 잠들어서 아침에 목감기에 걸렸어요."
+      ],
+      "hint": "Last night I fell asleep with windows left open, so I caught a throat cold in the morning.",
+      "why": "Maintained state connector: 열어 둔 채로."
+    },
+    {
+      "t": "write",
+      "q": "Write a sentence warning that sleeping with contact lenses on damages eye health, using 렌즈를 낀 채로 and 해롭습니다.",
+      "must": [
+        "렌즈를 낀 채로",
+        "해롭습니다"
+      ],
+      "sample": "콘택트렌즈를 낀 채로 잠자리에 들면 눈 각막 건강에 매우 해롭습니다.",
+      "why": "Using -(으)ㄴ 채로 to depict leaving lenses on."
+    },
+    {
+      "t": "expand",
+      "base": {
+        "tokens": [
+          "불을 켠 채로",
+          "잠이 들었어요."
+        ],
+        "en": "With lights on, I fell asleep."
+      },
+      "steps": [
+        {
+          "tokens": [
+            "거실의 환한 불을 켠 채로",
+            "소파에서 피곤하여",
+            "깜빡 잠이 들었어요."
+          ],
+          "en": "With the living room bright lights on, tired on the sofa, I blinked into sleep."
+        },
+        {
+          "tokens": [
+            "야근 후 거실의 환한 전등 불을 켠 채로",
+            "옷도 갈아입지 못하고 소파 위에서",
+            "너무 피곤하여 그대로 깊은 잠이 들었어요."
+          ],
+          "en": "After overtime with bright living room lights on, without even changing clothes on the sofa, I was so tired that I fell into a deep sleep as is."
+        }
+      ]
+    },
+    {
+      "t": "passage",
+      "h": "Read a little",
+      "ko": [
+        "주말 오후 피로가 몰려와 침대에 누웠다가 나도 모르게 잠에 빠져들었다.",
+        "눈을 감은 채로 잔잔한 음악을 듣다가 두 시간이나 깊은 잠을 잤다.",
+        "잠에서 깨어나니 안경을 쓴 채로 잠들었던 탓에 눈가가 조금 뻐근했다."
+      ],
+      "en": [
+        "On a weekend afternoon fatigue flooded in, so lying on bed, I fell asleep without realizing.",
+        "Listening to calm music with eyes closed, I slept deeply for two hours.",
+        "Waking up from sleep, because I fell asleep with my glasses on, the area around my eyes was slightly stiff."
+      ]
+    },
+    {
+      "t": "choice",
+      "q": "How was the speaker listening to calm music before falling asleep?",
+      "options": [
+        "With eyes closed (눈을 감은 채로)",
+        "While dancing vigorously in the yard",
+        "While eating spicy noodles"
+      ],
+      "answer": 0,
+      "why": "Sentence two records: 눈을 감은 채로 잔잔한 음악을 듣다가."
+    },
+    {
+      "t": "choice",
+      "q": "Why did the speaker feel stiffness around their eyes upon waking?",
+      "options": [
+        "Because they fell asleep with glasses on (안경을 쓴 채로)",
+        "Because they rubbed soap into their eyes",
+        "Because they stayed awake all night"
+      ],
+      "answer": 0,
+      "why": "Sentence three explains: 안경을 쓴 채로 잠들었던 탓에 눈가가 조금 뻐근했다."
+    },
+    {
+      "t": "cando",
+      "items": [
+        "I can describe actions performed while maintaining ongoing static states with -(으)ㄴ 채로.",
+        "I can talk about inadvertent slips like sleeping in clothes or leaving lights on."
+      ]
+    }
+  ],
+  "im-c65-03": [
+    {
+      "t": "compare",
+      "h": "-(으)ㄴ/는 대로 (지침 준수: ~와 같이) vs -자마자 (시간적 즉시성)",
+      "a": {
+        "h": "-(으)ㄴ/는 대로 (Faithful conformity / direct imitation)",
+        "d": "Carries out an action exactly in accordance with instructions, guidelines, or feelings.",
+        "ex": [
+          "선생님이 **가르쳐 주신 대로** 문제를 차근차근 풀었어요. — I solved the problems step by step exactly as the teacher taught."
+        ]
+      },
+      "b": {
+        "h": "-(으)ㄴ/는 대로 (Immediate instant trigger in future)",
+        "d": "As soon as an anticipated event takes place, follows up with immediate action.",
+        "ex": [
+          "회의가 **끝나는 대로** 곧바로 연락드리겠습니다. — As soon as the meeting ends, I will contact you immediately."
+        ]
+      },
+      "tip": "In past/present, -(으)ㄴ 대로 means \"just as, in conformity with\" (본 대로, 들은 대로). In future/trigger clauses, -는 대로 means \"as soon as\" (도착하는 대로, 끝나는 대로)."
+    },
+    {
+      "t": "correct",
+      "q": "Fix the sentence where reporting facts as witnessed used an inappropriate ending.",
+      "wrong": "법정에서 거짓 없이 본 대로만 말자마자 증언하세요.",
+      "answers": [
+        "법정에서 거짓 없이 본 대로 사실대로 증언하세요.",
+        "법정에서 거짓 없이 본 대로 사실대로 증언하세요",
+        "법정에서 거짓 없이 본 대로만 증언해 주십시오.",
+        "법정에서 거짓 없이 본 대로만 증언해 주십시오"
+      ],
+      "hint": "Use conformity marker 본 대로: 본 대로 사실대로 증언하세요.",
+      "why": "Testifying faithfully in conformity with what was seen requires 본 대로."
+    },
+    {
+      "t": "vocab",
+      "h": "Words for this lesson",
+      "items": [
+        {
+          "ko": "지침",
+          "en": "guideline / directive",
+          "ex": "정부의 안전 지침을 철저히 준수하세요."
+        },
+        {
+          "ko": "설명서",
+          "en": "instruction manual",
+          "ex": "조립 설명서에 적힌 순서대로 만들었다."
+        },
+        {
+          "ko": "있는 그대로",
+          "en": "as is / without distortion",
+          "ex": "사실을 왜곡하지 말고 있는 그대로 전하세요."
+        },
+        {
+          "ko": "복귀하다",
+          "en": "to return to one’s post",
+          "ex": "출장을 마치는 대로 부서로 복귀하겠습니다."
+        },
+        {
+          "ko": "순서대로",
+          "en": "in sequence",
+          "ex": "안내 방송에 따라 순서대로 탑승하세요."
+        }
+      ]
+    },
+    {
+      "t": "dictate",
+      "say": "가구 조립 설명서에 적혀 있는 대로 부품을 하나씩 조립했어요",
+      "answers": [
+        "가구 조립 설명서에 적혀 있는 대로 부품을 하나씩 조립했어요",
+        "가구 조립 설명서에 적혀 있는 대로 부품을 하나씩 조립했어요."
+      ],
+      "hint": "I assembled the parts one by one exactly as written in the furniture assembly manual.",
+      "why": "Conformity to instructions: 적혀 있는 대로."
+    },
+    {
+      "t": "write",
+      "q": "Write a business promise stating that you will send materials as soon as the meeting ends, using 끝나는 대로 and 자료를.",
+      "must": [
+        "끝나는 대로",
+        "자료를"
+      ],
+      "sample": "오늘 부서 회의가 끝나는 대로 검토하신 자료를 이메일로 보내드리겠습니다.",
+      "why": "Using -는 대로 to indicate immediate follow-up upon meeting conclusion."
+    },
+    {
+      "t": "expand",
+      "base": {
+        "tokens": [
+          "도착하는 대로",
+          "연락해 주세요."
+        ],
+        "en": "As soon as you arrive, please contact me."
+      },
+      "steps": [
+        {
+          "tokens": [
+            "출장지 호텔에 무사히 도착하는 대로",
+            "잊지 말고 가족들에게",
+            "연락해 주세요."
+          ],
+          "en": "As soon as you arrive safely at the business trip hotel, please contact family without forgetting."
+        },
+        {
+          "tokens": [
+            "먼 길을 이동하여 출장지 호텔에 무사히 도착하는 대로",
+            "안심할 수 있게 잊지 말고",
+            "곧바로 전화로 소식을 연락해 주세요."
+          ],
+          "en": "As soon as you arrive safely at the business trip hotel after traveling a long way, please reach out with news by phone right away so we can be at ease."
+        }
+      ]
+    },
+    {
+      "t": "passage",
+      "h": "Read a little",
+      "ko": [
+        "새로 산 조립식 책상을 설명서에 적힌 대로 차근차근 조립해 나갔다.",
+        "나사와 부품을 순서대로 맞추다 보니 생각보다 어렵지 않게 완성할 수 있었다.",
+        "작업이 끝나는 대로 책상 위에 컴퓨터와 스탠드를 올려놓고 새 학기 공부를 준비했다."
+      ],
+      "en": [
+        "I assembled the newly bought flat-pack desk step by step exactly as written in the manual.",
+        "Fitting screws and parts in order, I was able to complete it without much difficulty.",
+        "As soon as work finished, I placed computer and lamp on the desk and prepared for new semester studies."
+      ]
+    },
+    {
+      "t": "choice",
+      "q": "How did the author assemble the newly bought desk?",
+      "options": [
+        "Step by step as written in the manual (설명서에 적힌 대로)",
+        "Without looking at parts and hammering randomly",
+        "Paid a stranger on the street to assemble it"
+      ],
+      "answer": 0,
+      "why": "Sentence one states: 설명서에 적힌 대로 차근차근 조립해 나갔다."
+    },
+    {
+      "t": "choice",
+      "q": "What meaning does 작업이 끝나는 대로 carry in the last sentence?",
+      "options": [
+        "Immediately upon concluding the desk assembly task",
+        "After taking a three-week vacation",
+        "Only if someone orders them to do so"
+      ],
+      "answer": 0,
+      "why": "-는 대로 expresses an immediate consecutive action once the milestone completes."
+    },
+    {
+      "t": "cando",
+      "items": [
+        "I can follow instructions and recipes precisely using -(으)ㄴ 대로.",
+        "I can promise prompt business follow-ups upon event triggers using -는 대로."
+      ]
+    }
+  ],
+  "im-c65-04": [
+    {
+      "t": "compare",
+      "h": "무미건조한 상황 설명 vs 상태와 정황을 살린 섬세한 묘사",
+      "a": {
+        "h": "무미건조한 설명 (Dry factual description)",
+        "d": "Mentions actions without portraying the underlying visual states or deliberate preparation.",
+        "ex": [
+          "청소했어요. 공부했어요. 불을 껐어요. — Cleaned. Studied. Turned off lights."
+        ]
+      },
+      "b": {
+        "h": "섬세한 정황 묘사 (Nuanced atmospheric depiction)",
+        "d": "Blends intentional readiness (-아/어 두다), ongoing state (-(으)ㄴ 채로), and promptness (-는 대로).",
+        "ex": [
+          "자료를 **출력해 둔 채로** 회의가 **끝나는 대로** 팀원들과 논의할 준비를 마쳤어요. — With materials kept printed out, I finished preparations to discuss with teammates as soon as the meeting ends."
+        ]
+      },
+      "tip": "Combining -아/어 두다, -(으)ㄴ 채로, and -는 대로 creates vivid, professional portrayals of office readiness and daily routines."
+    },
+    {
+      "t": "correct",
+      "q": "Fix the sentence where an immediate follow-up response was awkwardly formed with a static marker.",
+      "wrong": "고객님의 문의 사항이 접수된 채로 즉시 답변을 드리겠습니다.",
+      "answers": [
+        "고객님의 문의 사항이 접수되는 대로 즉시 답변을 드리겠습니다.",
+        "고객님의 문의 사항이 접수되는 대로 즉시 답변을 드리겠습니다",
+        "고객님의 문의가 접수되는 대로 신속하게 답변해 드리겠습니다.",
+        "고객님의 문의가 접수되는 대로 신속하게 답변해 드리겠습니다"
+      ],
+      "hint": "Use the immediate trigger connector -는 대로: 접수되는 대로.",
+      "why": "Promising prompt reply as soon as an inquiry arrives requires the temporal trigger 접수되는 대로."
+    },
+    {
+      "t": "vocab",
+      "h": "Words for this lesson",
+      "items": [
+        {
+          "ko": "정황",
+          "en": "circumstances / context",
+          "ex": "사고 당시의 정황을 면밀히 조사했습니다."
+        },
+        {
+          "ko": "신속하다",
+          "en": "prompt / swift",
+          "ex": "고객의 불편 사항을 신속하게 처리해 드렸어요."
+        },
+        {
+          "ko": "인수인계",
+          "en": "handover of duties",
+          "ex": "후임자에게 모든 업무를 꼼꼼히 인수인계했다."
+        },
+        {
+          "ko": "접수되다",
+          "en": "to be received / registered",
+          "ex": "온라인 신청서가 정상적으로 접수되었습니다."
+        },
+        {
+          "ko": "꼼꼼하다",
+          "en": "meticulous / detailed",
+          "ex": "서류를 꼼꼼하게 검토하여 실수를 줄였습니다."
+        }
+      ]
+    },
+    {
+      "t": "dictate",
+      "say": "회의 준비를 미리 마쳐 둔 채로 거래처 손님이 도착하는 대로 맞이했어요",
+      "answers": [
+        "회의 준비를 미리 마쳐 둔 채로 거래처 손님이 도착하는 대로 맞이했어요",
+        "회의 준비를 미리 마쳐 둔 채로 거래처 손님이 도착하는 대로 맞이했어요."
+      ],
+      "hint": "With meeting preparations concluded in advance, as soon as clients arrived I welcomed them.",
+      "why": "Pairing maintained preparation with instant greeting: 마쳐 둔 채로 ... 도착하는 대로."
+    },
+    {
+      "t": "write",
+      "q": "Write a sentence promising to share review results as soon as the team lead examines the document, using 검토하시는 대로 and 결과를.",
+      "must": [
+        "검토하시는 대로",
+        "결과를"
+      ],
+      "sample": "팀장님께서 보고서를 검토하시는 대로 최종 승인 결과를 전달해 드리겠습니다.",
+      "why": "Using honorific -시는 대로 to promise immediate reporting."
+    },
+    {
+      "t": "expand",
+      "base": {
+        "tokens": [
+          "확인하는 대로",
+          "답변해 드릴게요."
+        ],
+        "en": "As soon as I check, I will reply."
+      },
+      "steps": [
+        {
+          "tokens": [
+            "보내주신 계약서를 꼼꼼히 확인하는 대로",
+            "오늘 안으로",
+            "답변해 드릴게요."
+          ],
+          "en": "As soon as I check the contract you sent meticulously, I will reply within today."
+        },
+        {
+          "tokens": [
+            "담당 부서에서 보내주신 세부 계약서를 꼼꼼히 확인하는 대로",
+            "수정 사항을 정리하여 오늘 안으로",
+            "상세하게 검토 결과를 답변해 드릴게요."
+          ],
+          "en": "As soon as I check the detailed contract sent by the department meticulously, I will organize amendments and reply with review results in detail within today."
+        }
+      ]
+    },
+    {
+      "t": "passage",
+      "h": "Read a little",
+      "ko": [
+        "중요한 신제품 발표회를 앞두고 행사장에 필요한 모든 장비를 점검해 두었다.",
+        "무대 조명을 켜 둔 채로 음향 마이크와 스크린을 수차례 테스트했다.",
+        "초대된 관람객들이 입장하는 대로 자리를 안내해 드려 행사를 성공적으로 시작했다."
+      ],
+      "en": [
+        "Ahead of the important new product presentation, I checked all necessary equipment at the venue in advance.",
+        "With stage lights left on, I tested microphones and screens several times.",
+        "As soon as invited audience members entered, I guided them to seats and opened the event successfully."
+      ]
+    },
+    {
+      "t": "choice",
+      "q": "How did staff test audio and screens on the stage?",
+      "options": [
+        "While keeping stage lights turned on (무대 조명을 켜 둔 채로)",
+        "In complete pitch-black darkness without sound",
+        "After sending all audience members away"
+      ],
+      "answer": 0,
+      "why": "Sentence two records: 무대 조명을 켜 둔 채로 음향 마이크와 스크린을 테스트했다."
+    },
+    {
+      "t": "choice",
+      "q": "What operational procedure was followed as audience members arrived?",
+      "options": [
+        "Guided them to seats as soon as they entered (입장하는 대로 자리를 안내)",
+        "Locked entrance doors and made them wait outside in the rain",
+        "Cancelled the presentation on the spot"
+      ],
+      "answer": 0,
+      "why": "Sentence three states: 관람객들이 입장하는 대로 자리를 안내해 드렸다."
+    },
+    {
+      "t": "cando",
+      "items": [
+        "I can portray complex event management and operational states with precision.",
+        "I can coordinate professional reception and hospitality etiquette smoothly."
+      ]
+    }
+  ]
+}

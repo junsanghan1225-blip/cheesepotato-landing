@@ -1,0 +1,579 @@
+{
+  "im-c69-01": [
+    {
+      "t": "compare",
+      "h": "-았/었다가 vs -았/었던",
+      "a": {
+        "h": "-았/었다가",
+        "d": "앞의 과거 행동이 완료된 직후 다른 행동으로 전환되거나 반대 상황이 벌어짐을 나타냅니다.",
+        "ex": [
+          "어제 백화점에 갔**다가** 마음에 드는 코트가 있어서 사 버렸어요. — I went to the department store yesterday, and ended up buying a coat I liked."
+        ]
+      },
+      "b": {
+        "h": "-았/었던",
+        "d": "과거에 완료되었거나 지속되었던 일, 지금은 그렇지 않은 추억을 회상할 때 뒤 명사를 꾸밉니다.",
+        "ex": [
+          "우리 둘이서 밤새도록 고민했**던** 프로젝트가 드디어 끝났네요. — The project that the two of us pondered all night has finally ended."
+        ]
+      },
+      "tip": "동작의 급반전이나 다른 행동으로의 전환은 '-았/었다가', 아련한 과거 회상에는 '-았/었던'을 씁니다."
+    },
+    {
+      "t": "correct",
+      "q": "Fix the mistake.",
+      "wrong": "어제 서점에 갔던 읽고 싶었던 책이 매진되어 그냥 나왔어요.",
+      "answers": [
+        "어제 서점에 갔다가 읽고 싶었던 책이 매진되어 그냥 나왔어요."
+      ],
+      "hint": "서점에 도착한 뒤 책이 없어 되돌아 나온 동작의 전환을 나타내야 합니다.",
+      "why": "어떤 장소에 갔다가 반대되는 상황이 이어지는 접속에는 '-았/었다가'가 올바릅니다."
+    },
+    {
+      "t": "vocab",
+      "h": "Words for this lesson",
+      "items": [
+        {
+          "ko": "발자취",
+          "en": "footprints/traces",
+          "ex": "역사적 인물의 발자취를 따라 걸었습니다."
+        },
+        {
+          "ko": "머물렀던",
+          "en": "that had stayed",
+          "ex": "우리가 머물렀던 숙소는 아주 아늑했어요."
+        },
+        {
+          "ko": "들렀다가",
+          "en": "having stopped by",
+          "ex": "은행에 들렀다가 서점에 갈 예정입니다."
+        },
+        {
+          "ko": "되돌아오다",
+          "en": "to return back",
+          "ex": "길을 잘못 들어 다시 되돌아왔어요."
+        }
+      ]
+    },
+    {
+      "t": "dictate",
+      "say": "친구 집에 들렀다가 비가 쏟아져서 바로 집으로 돌아왔어요",
+      "answers": [
+        "친구 집에 들렀다가 비가 쏟아져서 바로 집으로 돌아왔어요"
+      ],
+      "hint": "친구 집에 들렀던 동작에서 집으로 돌아온 전환입니다.",
+      "why": "완료된 선행 동작 후의 전환을 나타내는 '-았/었다가'의 자연스러운 예문입니다."
+    },
+    {
+      "t": "write",
+      "q": "Write a sentence using '자주 가던' to describe a memorable place from your past.",
+      "must": [
+        "자주 가던"
+      ],
+      "sample": "학창 시절에 친구들과 자주 가던 작은 분식집이 아직도 기억납니다.",
+      "why": "과거의 지속적 습관이나 추억을 회상하는 관형사형 어미를 활용합니다."
+    },
+    {
+      "t": "expand",
+      "base": {
+        "tokens": [
+          "옷을",
+          "환불했어요."
+        ],
+        "en": "I refunded the clothes."
+      },
+      "steps": [
+        {
+          "tokens": [
+            "백화점에 가서",
+            "옷을",
+            "환불했어요."
+          ],
+          "en": "I went to the department store and refunded the clothes."
+        },
+        {
+          "tokens": [
+            "어제 샀던 옷을",
+            "백화점에 갔다가",
+            "환불했어요."
+          ],
+          "en": "Having gone to the department store, I refunded the clothes I bought yesterday."
+        }
+      ]
+    },
+    {
+      "t": "passage",
+      "h": "Read a little",
+      "ko": [
+        "오랜만에 어린 시절을 보냈던 옛 동네를 찾아갔습니다.",
+        "자주 가던 골목 분식집에 들렀다가 우연히 초등학교 동창을 마주쳤어요.",
+        "반가운 마음에 한참 동안 서서 옛 추억을 나누었습니다."
+      ],
+      "en": [
+        "After a long time, I visited the old neighborhood where I spent my childhood.",
+        "Stopping by the alley snack bar I used to frequent, I bumped into an elementary school friend by chance.",
+        "Thrilled to meet, we stood for a long time sharing old memories."
+      ]
+    },
+    {
+      "t": "choice",
+      "q": "글쓴이가 초등학교 동창을 만난 장소는 어디인가요?",
+      "options": [
+        "어릴 때 자주 가던 분식집",
+        "현재 살고 있는 회사 근처"
+      ],
+      "answer": 0,
+      "why": "본문에 '자주 가던 골목 분식집에 들렀다가 우연히 마주쳤다'고 적혀 있습니다."
+    },
+    {
+      "t": "choice",
+      "q": "글의 내용과 일치하지 않는 것은 무엇인가요?",
+      "options": [
+        "동창과 서로 모르는 척 지나쳤다.",
+        "글쓴이는 어린 시절을 보낸 옛 동네를 방문했다."
+      ],
+      "answer": 0,
+      "why": "반가운 마음에 한참 동안 서서 추억을 나누었다고 했으므로 모르는 척 지나치지 않았습니다."
+    },
+    {
+      "t": "cando",
+      "items": [
+        "I can contrast past sequential shifts (-았/었다가) and nostalgic past memories (-았/었던)",
+        "I can vividly recount past travels and unexpected encounters"
+      ]
+    }
+  ],
+  "im-c69-02": [
+    {
+      "t": "compare",
+      "h": "-아/어 버리다 (홀가분함 vs 아쉬움)",
+      "a": {
+        "h": "홀가분한 해치움",
+        "d": "부담스럽던 일이나 걱정을 완전히 끝마쳐 마음이 후련할 때 씁니다.",
+        "ex": [
+          "주말 동안 미루어 두었던 대청소를 깨끗하게 다 끝내 **버렸어요**. — I finished up all the big cleaning I had put off over the weekend."
+        ]
+      },
+      "b": {
+        "h": "진한 아쉬움과 후회",
+        "d": "원치 않거나 아까운 일이 일어나 안타까운 감정의 여운이 남을 때 씁니다.",
+        "ex": [
+          "월급을 받자마자 카드값으로 전부 다 써 **버렸어요**. — As soon as I got my paycheck, I spent it all on credit card bills."
+        ]
+      },
+      "tip": "문맥에 따라 마음이 후련한 '시원한 해치움'과 돌이킬 수 없는 '아쉬운 실수'의 두 감정을 담습니다."
+    },
+    {
+      "t": "correct",
+      "q": "Fix the mistake.",
+      "wrong": "너무 화가 난 나머지 친구에게 비밀을 다 털어놓고 말았버렸어요.",
+      "answers": [
+        "너무 화가 난 나머지 친구에게 비밀을 다 털어놓아 버렸어요.",
+        "너무 화가 난 나머지 친구에게 비밀을 다 털어놓고 말았어요."
+      ],
+      "hint": "'-아/어 버리다'와 '-고 말다' 중 하나의 완료 보조용언만 바르게 씁니다.",
+      "why": "두 완료 표현을 겹쳐 쓰지 않고 '-아/어 버리다' 하나로 깔끔하게 표현해야 합니다."
+    },
+    {
+      "t": "vocab",
+      "h": "Words for this lesson",
+      "items": [
+        {
+          "ko": "홀가분하다",
+          "en": "lighthearted/carefree",
+          "ex": "과제를 제출하고 나니 마음이 홀가분해요."
+        },
+        {
+          "ko": "다 써 버리다",
+          "en": "to spend completely",
+          "ex": "용돈을 하루 만에 다 써 버렸습니다."
+        },
+        {
+          "ko": "털어놓다",
+          "en": "to confess/confide",
+          "ex": "친구에게 속마음을 솔직하게 털어놓았어요."
+        },
+        {
+          "ko": "아쉬움",
+          "en": "regret/lingering sorrow",
+          "ex": "마지막 인사를 나누며 아쉬움이 남았습니다."
+        }
+      ]
+    },
+    {
+      "t": "dictate",
+      "say": "그동안 마음속에 담아 두었던 걱정을 친구에게 다 털어놓아 버렸어요",
+      "answers": [
+        "그동안 마음속에 담아 두었던 걱정을 친구에게 다 털어놓아 버렸어요"
+      ],
+      "hint": "걱정을 전부 털어놓아 홀가분해진 감정의 완료입니다.",
+      "why": "마음의 부담을 시원하게 해치웠음을 나타내는 '-아/어 버리다' 표현입니다."
+    },
+    {
+      "t": "write",
+      "q": "Write a sentence using '다 먹어 버렸어요' to describe finishing all the delicious food.",
+      "must": [
+        "다 먹어 버렸어요"
+      ],
+      "sample": "너무 배가 고파서 식탁에 있던 간식을 순식간에 다 먹어 버렸어요.",
+      "why": "남김없이 완결 지은 행동의 홀가분함이나 아쉬움을 '-아/어 버리다'로 나타냅니다."
+    },
+    {
+      "t": "expand",
+      "base": {
+        "tokens": [
+          "숙제를",
+          "끝냈어요."
+        ],
+        "en": "I finished my homework."
+      },
+      "steps": [
+        {
+          "tokens": [
+            "밀렸던",
+            "숙제를",
+            "끝냈어요."
+          ],
+          "en": "I finished the backlogged homework."
+        },
+        {
+          "tokens": [
+            "주말 동안 밀렸던",
+            "숙제를 시원하게 다 끝내",
+            "버렸어요."
+          ],
+          "en": "I finished up all the homework that piled up over the weekend completely."
+        }
+      ]
+    },
+    {
+      "t": "passage",
+      "h": "Read a little",
+      "ko": [
+        "몇 달 동안 나를 짓누르던 중요한 시험이 드디어 끝났습니다.",
+        "시험지를 제출하고 시험장 문을 나서는 순간 무거운 짐을 다 벗어 버린 기분이었어요.",
+        "친구들과 맛있는 저녁을 먹으며 그동안 쌓였던 스트레스를 완전히 날려 버렸습니다."
+      ],
+      "en": [
+        "The important exam that weighed on me for months has finally ended.",
+        "The moment I submitted the test and stepped out of the hall, I felt like shedding all heavy burdens.",
+        "Eating a delicious dinner with friends, I blew away all accumulated stress completely."
+      ]
+    },
+    {
+      "t": "choice",
+      "q": "글쓴이가 시험장을 나설 때 느낀 기분은 어떠했나요?",
+      "options": [
+        "무거운 짐을 다 벗어 버린 듯 홀가분했다.",
+        "앞으로 볼 시험이 더 걱정스러웠다."
+      ],
+      "answer": 0,
+      "why": "본문에 '무거운 짐을 다 벗어 버린 기분이었다'고 서술되어 있습니다."
+    },
+    {
+      "t": "choice",
+      "q": "글쓴이가 스트레스를 날려 버린 방법은 무엇인가요?",
+      "options": [
+        "친구들과 맛있는 저녁을 먹으면서",
+        "혼자 도서관에 남아 공부하면서"
+      ],
+      "answer": 0,
+      "why": "본문에서 '친구들과 맛있는 저녁을 먹으며 스트레스를 완전히 날려 버렸다'고 했습니다."
+    },
+    {
+      "t": "cando",
+      "items": [
+        "I can convey both sweet relief and lingering regret using -아/어 버리다",
+        "I can express post-task emotional catharsis naturally in Korean"
+      ]
+    }
+  ],
+  "im-c69-03": [
+    {
+      "t": "compare",
+      "h": "-고 말다 vs -아/어 버리다",
+      "a": {
+        "h": "-고 말다",
+        "d": "끝까지 피하고 싶었으나 결국 원치 않던 안타까운 결말에 도달했을 때의 비장함과 아쉬움을 나타냅니다.",
+        "ex": [
+          "서로 자존심을 굽히지 않고 다투다가 결국 소중한 우정에 금이 가**고 말았습니다**. — Fighting without bending pride, their precious friendship ended up cracked."
+        ]
+      },
+      "b": {
+        "h": "-아/어 버리다",
+        "d": "홀가분함과 아쉬움의 양면성을 가지며, 일상 구어에서 가볍고 자연스럽게 완료를 나타냅니다.",
+        "ex": [
+          "그 이야기를 듣고 깜짝 놀라 커피를 쏟아 **버렸어요**. — Hearing that story, I was startled and ended up spilling coffee."
+        ]
+      },
+      "tip": "피치 못할 비극적 결말이나 무거운 후회에는 문학적 무게감을 지닌 '-고 말다'가 깊은 울림을 줍니다."
+    },
+    {
+      "t": "correct",
+      "q": "Fix the mistake.",
+      "wrong": "오랜 시간 열심히 준비했던 시험에서 아쉽게 떨어져 버리고 말았습니다.",
+      "answers": [
+        "오랜 시간 열심히 준비했던 시험에서 아쉽게 떨어지고 말았습니다."
+      ],
+      "hint": "안타까운 결과에 도달했음을 나타내는 '-고 말다' 표현을 바르게 정돈하세요.",
+      "why": "보조용언 '버리다'와 '말다'를 중복하지 않고 '떨어지고 말았습니다'로 단정하게 씁니다."
+    },
+    {
+      "t": "vocab",
+      "h": "Words for this lesson",
+      "items": [
+        {
+          "ko": "안타깝다",
+          "en": "regrettable/pitiful",
+          "ex": "기회를 놓쳐서 정말 안타까워요."
+        },
+        {
+          "ko": "결말",
+          "en": "conclusion/ending",
+          "ex": "영화의 비극적인 결말에 눈물이 났습니다."
+        },
+        {
+          "ko": "금이 가다",
+          "en": "to crack (relationship)",
+          "ex": "사소한 오해로 두 사람 사이에 금이 갔어요."
+        },
+        {
+          "ko": "눈물을 흘리다",
+          "en": "to shed tears",
+          "ex": "슬픈 소식을 듣고 끝내 눈물을 흘렸습니다."
+        }
+      ]
+    },
+    {
+      "t": "dictate",
+      "say": "약속 시간을 지키려 서둘렀지만 결국 지각하고 말았어요",
+      "answers": [
+        "약속 시간을 지키려 서둘렀지만 결국 지각하고 말았어요"
+      ],
+      "hint": "노력했으나 결국 원치 않던 지각이라는 결과에 도달했습니다.",
+      "why": "원하지 않는 안타까운 결과의 종결을 나타낼 때 '-고 말다'를 씁니다."
+    },
+    {
+      "t": "write",
+      "q": "Write a sentence using '떨어지고 말았어요' to describe failing an exam despite efforts.",
+      "must": [
+        "떨어지고 말았어요"
+      ],
+      "sample": "최선을 다해 준비했지만 마지막 면접에서 떨어지고 말았어요.",
+      "why": "피하고 싶었던 안타까운 결말을 나타내는 '-고 말다'를 활용합니다."
+    },
+    {
+      "t": "expand",
+      "base": {
+        "tokens": [
+          "비밀을",
+          "말했어요."
+        ],
+        "en": "I told the secret."
+      },
+      "steps": [
+        {
+          "tokens": [
+            "참지 못하고",
+            "비밀을",
+            "말했어요."
+          ],
+          "en": "Unable to endure, I told the secret."
+        },
+        {
+          "tokens": [
+            "친구에게 절대로 말하지 않으려던",
+            "비밀을 참지 못하고 털어놓고",
+            "말았어요."
+          ],
+          "en": "Unable to hold it, I ended up blurting out the secret I intended never to tell my friend."
+        }
+      ]
+    },
+    {
+      "t": "passage",
+      "h": "Read a little",
+      "ko": [
+        "어제 중요한 축구 경기에서 우리 팀은 연장전까지 치열하게 맞섰습니다.",
+        "선수들 모두가 부상을 무릅쓰고 뛰었지만 경기 종료 직전에 결승골을 내주고 말았어요.",
+        "끝내 패배하고 말았지만 마지막 순간까지 포기하지 않았던 투혼은 감동적이었습니다."
+      ],
+      "en": [
+        "In yesterday's important soccer match, our team clashed fiercely into extra time.",
+        "All players ran risking injuries, but we ended up conceding the winning goal right before the end.",
+        "Though we ended up losing in the end, the fighting spirit that never gave up until the last moment was moving."
+      ]
+    },
+    {
+      "t": "choice",
+      "q": "우리 팀이 경기 종료 직전에 겪은 안타까운 결말은 무엇인가요?",
+      "options": [
+        "상대 팀에게 결승골을 내주고 만 것",
+        "선수들이 모두 경기장을 떠나 버린 것"
+      ],
+      "answer": 0,
+      "why": "본문에 '경기 종료 직전에 결승골을 내주고 말았다'고 적혀 있습니다."
+    },
+    {
+      "t": "choice",
+      "q": "패배에도 불구하고 감동을 준 점은 무엇인가요?",
+      "options": [
+        "마지막 순간까지 포기하지 않았던 투혼",
+        "경기 전날 밤새도록 휴식을 취한 것"
+      ],
+      "answer": 0,
+      "why": "본문 마지막 줄에 '마지막 순간까지 포기하지 않았던 투혼은 감동적이었다'고 서술되어 있습니다."
+    },
+    {
+      "t": "cando",
+      "items": [
+        "I can express poignant and unintended final outcomes using -고 말다",
+        "I can convey deep dramatic gravity in narratives and reflective writing"
+      ]
+    }
+  ],
+  "im-c69-04": [
+    {
+      "t": "compare",
+      "h": "완료 표현의 정서 조율 (-았/었다가 vs -아/어 버리다 vs -고 말다)",
+      "a": {
+        "h": "감정의 홀가분한 해소",
+        "d": "복잡한 고민이나 숙제를 말끔히 끝내고 새로운 시작을 맞이할 때 '-아/어 버리다'를 씁니다.",
+        "ex": [
+          "그동안 망설이던 일을 오늘 아침에 시원하게 결정해 **버렸어요**. — I went ahead and made the decision refreshingly this morning on what I had hesitated about."
+        ]
+      },
+      "b": {
+        "h": "안타까운 결과의 여운",
+        "d": "노력에도 불구하고 원치 않는 결과가 발생해 깊은 여운을 남길 때 '-고 말다'를 씁니다.",
+        "ex": [
+          "오해를 풀려고 만났다가 오히려 감정만 상하**고 말았습니다**. — We met to clear up the misunderstanding, but ended up only hurting feelings instead."
+        ]
+      },
+      "tip": "실전 대화에서는 반전(-았/었다가), 시원함(-아/어 버리다), 안타까움(-고 말다)을 상황에 맞게 골라 씁니다."
+    },
+    {
+      "t": "correct",
+      "q": "Fix the mistake.",
+      "wrong": "백화점에 구경하러 갔던 마음에 쏙 드는 코트를 즉석에서 사 버렸어요.",
+      "answers": [
+        "백화점에 구경하러 갔다가 마음에 쏙 드는 코트를 즉석에서 사 버렸어요."
+      ],
+      "hint": "구경하러 간 행동에서 구매로 이어진 반전과 전환을 나타내야 합니다.",
+      "why": "과거 완료 후 전환되는 문맥이므로 관형사형 '갔던'이 아니라 접속형 '갔다가'가 올바릅니다."
+    },
+    {
+      "t": "vocab",
+      "h": "Words for this lesson",
+      "items": [
+        {
+          "ko": "여운",
+          "en": "lingering feeling/aftertaste",
+          "ex": "영화가 끝난 후에도 깊은 여운이 남았어요."
+        },
+        {
+          "ko": "머리를 맞대다",
+          "en": "put heads together",
+          "ex": "어려운 문제를 풀기 위해 머리를 맞댔습니다."
+        },
+        {
+          "ko": "결단을 내리다",
+          "en": "make a firm decision",
+          "ex": "망설이지 않고 과감하게 결단을 내렸어요."
+        },
+        {
+          "ko": "속 시원하다",
+          "en": "feel completely relieved",
+          "ex": "진실을 밝히고 나니 속이 시원합니다."
+        }
+      ]
+    },
+    {
+      "t": "dictate",
+      "say": "힘들었던 프로젝트가 드디어 모두 끝나 버려서 속이 시원해요",
+      "answers": [
+        "힘들었던 프로젝트가 드디어 모두 끝나 버려서 속이 시원해요"
+      ],
+      "hint": "고된 일이 완전히 끝난 뒤의 홀가분한 심정입니다.",
+      "why": "완료 후의 홀가분함을 나타내는 '-아/어 버리다'의 전형적인 구어체 문장입니다."
+    },
+    {
+      "t": "write",
+      "q": "Write a sentence using '사 버렸어요' to describe an impulse or determined purchase.",
+      "must": [
+        "사 버렸어요"
+      ],
+      "sample": "세일 마감 직전이라 평소 갖고 싶었던 가방을 그냥 사 버렸어요.",
+      "why": "마음먹고 해치우거나 결단을 내린 완료를 '-아/어 버리다'로 표현합니다."
+    },
+    {
+      "t": "expand",
+      "base": {
+        "tokens": [
+          "프로젝트가",
+          "끝났습니다."
+        ],
+        "en": "The project ended."
+      },
+      "steps": [
+        {
+          "tokens": [
+            "밤샘 작업 끝에",
+            "프로젝트가",
+            "끝났습니다."
+          ],
+          "en": "After overnight work, the project ended."
+        },
+        {
+          "tokens": [
+            "머리를 맞대고 고민했던",
+            "프로젝트가 드디어 성공적으로 끝나",
+            "버렸습니다."
+          ],
+          "en": "The project that we pondered putting our heads together has finally ended successfully."
+        }
+      ]
+    },
+    {
+      "t": "passage",
+      "h": "Read a little",
+      "ko": [
+        "수현 씨, 어제 쇼핑몰에는 다녀오셨어요?",
+        "네, 아이쇼핑만 하려고 갔다가 마음에 쏙 드는 코트를 충동구매해 버렸어요.",
+        "예산은 초과했지만 오랫동안 찾던 디자인이라 후회는 전혀 없어요."
+      ],
+      "en": [
+        "Suhyeon, did you go to the shopping mall yesterday?",
+        "Yes, I went just to window-shop, but ended up impulse-buying a coat I fell in love with.",
+        "It exceeded my budget, but it was a design I had sought for so long, so I have no regrets at all."
+      ]
+    },
+    {
+      "t": "choice",
+      "q": "수현 씨가 원래 쇼핑몰에 가려고 했던 의도는 무엇인가요?",
+      "options": [
+        "아이쇼핑만 하려고",
+        "환불을 받으려고"
+      ],
+      "answer": 0,
+      "why": "본문에서 '아이쇼핑만 하려고 갔다가'라고 말했습니다."
+    },
+    {
+      "t": "choice",
+      "q": "수현 씨가 코트를 사고 후회하지 않는 이유는 무엇인가요?",
+      "options": [
+        "오랫동안 찾던 마음에 드는 디자인이라서",
+        "가격이 생각보다 너무 저렴해서"
+      ],
+      "answer": 0,
+      "why": "'오랫동안 찾던 디자인이라 후회는 전혀 없다'고 대답했습니다."
+    },
+    {
+      "t": "cando",
+      "items": [
+        "I can blend past shifts, decisive completions, and lingering regrets in real dialogue",
+        "I can tell dramatic personal stories with rich emotional nuances"
+      ]
+    }
+  ]
+}

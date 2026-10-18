@@ -1,0 +1,626 @@
+{
+  "im-c48-01": [
+    {
+      "t": "compare",
+      "h": "-아/어 보이다 (Visual Impression) vs -(으)ㄴ/는 모양이다 (Inference from Clues)",
+      "a": {
+        "h": "-아/어 보이다 (Direct visual impression)",
+        "d": "Used to describe what someone or something looks like based on what you directly see right in front of you.",
+        "ex": [
+          "얼굴이 창백해서 오늘 좀 **아파 보여요**. — You look a bit sick today because your face is pale."
+        ]
+      },
+      "b": {
+        "h": "-(으)ㄴ/는 모양이다 (Inference based on circumstantial clues)",
+        "d": "Used to infer or deduce another person's situation or external events from visible traces, signs, or evidence.",
+        "ex": [
+          "불이 꺼진 걸 보니 사무실에 아무도 **없는 모양이에요**. — Seeing the lights are off, there must be no one in the office."
+        ]
+      },
+      "tip": "Use -아/어 보이다 for immediate look/appearance; use -(으)ㄴ/는 모양이다 when putting clues together to guess a hidden fact. Never use -(으)ㄴ/는 모양이다 for yourself."
+    },
+    {
+      "t": "correct",
+      "q": "Fix the unnatural sentence that incorrectly uses -(으)ㄴ/는 모양이다 to talk about one's own internal feeling.",
+      "wrong": "제가 배가 고픈 모양이에요. 밥 먹으러 가요.",
+      "answers": [
+        "제가 배가 너무 고파요. 밥 먹으러 가요.",
+        "제가 배가 고파요. 밥 먹으러 가요",
+        "배가 고파요. 밥 먹으러 가요.",
+        "배가 고파요. 밥 먹으러 가요"
+      ],
+      "hint": "You directly feel your own hunger, so state it directly: 배가 너무 고파요.",
+      "why": "-(으)ㄴ/는 모양이다 is an inference based on clues and is never used to guess one's own immediate sensations."
+    },
+    {
+      "t": "vocab",
+      "h": "Words for this lesson",
+      "items": [
+        {
+          "ko": "피곤해 보이다",
+          "en": "to look tired",
+          "ex": "오늘따라 안색이 많이 피곤해 보여요."
+        },
+        {
+          "ko": "하품을 하다",
+          "en": "to yawn",
+          "ex": "민수 씨가 계속 하품을 하네요."
+        },
+        {
+          "ko": "짐작하다",
+          "en": "to guess / to infer",
+          "ex": "정황을 보고 결과를 짐작했어요."
+        },
+        {
+          "ko": "단서",
+          "en": "clue / evidence",
+          "ex": "여러 단서를 모아 상황을 파악해요."
+        },
+        {
+          "ko": "흔적",
+          "en": "trace / sign",
+          "ex": "비가 온 흔적이 곳곳에 남아 있어요."
+        }
+      ]
+    },
+    {
+      "t": "dictate",
+      "say": "불이 꺼진 걸 보니 사무실에 아무도 없는 모양이에요",
+      "answers": [
+        "불이 꺼진 걸 보니 사무실에 아무도 없는 모양이에요",
+        "불이 꺼진 걸 보니 사무실에 아무도 없는 모양이에요."
+      ],
+      "hint": "Seeing the lights off, it looks like no one is in the office.",
+      "why": "Inference based on circumstantial clues taking -(으)ㄴ/는 모양이다."
+    },
+    {
+      "t": "write",
+      "q": "Write a sentence noting with care that your colleague looks very tired today, using 친구가 오늘따라 무척 and 피곤해 보여요.",
+      "must": [
+        "친구가 오늘따라 무척",
+        "피곤해 보여요"
+      ],
+      "sample": "친구가 오늘따라 무척 피곤해 보여요.",
+      "why": "Describing direct visual appearance using -아/어 보이다."
+    },
+    {
+      "t": "expand",
+      "base": {
+        "tokens": [
+          "무척",
+          "피곤해 보여요."
+        ],
+        "en": "You look very tired."
+      },
+      "steps": [
+        {
+          "tokens": [
+            "어젯밤 늦게까지 일해서",
+            "무척",
+            "피곤해 보여요."
+          ],
+          "en": "Having worked late last night, you look very tired."
+        },
+        {
+          "tokens": [
+            "어젯밤 늦게까지 야근을 해서 그런지",
+            "오늘 아침 회의에서",
+            "얼굴이 무척 피곤해 보여요."
+          ],
+          "en": "Perhaps because you worked overtime late last night, your face looks very tired in this morning's meeting."
+        }
+      ]
+    },
+    {
+      "t": "passage",
+      "h": "Read a little",
+      "ko": [
+        "오후 회의 시간에 민수 씨가 연신 하품을 하며 집중하지 못하고 있어요.",
+        "눈이 빨갛고 다크서클이 짙은 걸 보니 어젯밤에 거의 잠을 못 잔 모양이에요.",
+        "건강을 위해 무리하지 말고 오늘은 일찍 퇴근하면 좋겠어요."
+      ],
+      "en": [
+        "During the afternoon meeting, Minsu keeps yawning and cannot concentrate.",
+        "Seeing that his eyes are red and dark circles are deep, he must have hardly slept last night.",
+        "I hope he doesn't push himself too hard for his health and goes home early today."
+      ]
+    },
+    {
+      "t": "choice",
+      "q": "What clue led the writer to infer that Minsu barely slept last night?",
+      "options": [
+        "His red eyes and deep dark circles while continuously yawning",
+        "He told everyone directly before the meeting started",
+        "He drank five cups of strong iced coffee"
+      ],
+      "answer": 0,
+      "why": "The passage mentions '눈이 빨갛고 다크서클이 짙은 걸 보니' as the clue."
+    },
+    {
+      "t": "choice",
+      "q": "What does the writer suggest for Minsu?",
+      "options": [
+        "Not overdoing it and heading home early today",
+        "Working extra hours through the weekend",
+        "Giving an extra presentation right away"
+      ],
+      "answer": 0,
+      "why": "The writer says '무리하지 말고 오늘은 일찍 퇴근하면 좋겠어요'."
+    },
+    {
+      "t": "cando",
+      "items": [
+        "I can state visual impressions using -아/어 보이다.",
+        "I can deduce situations from circumstantial clues using -(으)ㄴ/는 모양이다 without applying it awkwardly to myself."
+      ]
+    }
+  ],
+  "im-c48-02": [
+    {
+      "t": "compare",
+      "h": "-(으)ㄹ 텐데 (Considerate Care) vs -(으)ㄹ 테니까 (Promised Action / Reason)",
+      "a": {
+        "h": "-(으)ㄹ 텐데 (Anticipating circumstance with care/concern)",
+        "d": "Used to express empathetic concern or provide background context for a suggestion/consolation.",
+        "ex": [
+          "많이 **바쁘실 텐데** 귀한 시간 내주셔서 감사합니다. — You must be very busy, thank you for sparing valuable time."
+        ]
+      },
+      "b": {
+        "h": "-(으)ㄹ 테니까 (Promising one's role or stating confirmed condition)",
+        "d": "Used when volunteering to handle one part of a task, followed by an instruction, request, or proposal to the listener.",
+        "ex": [
+          "제가 회의실을 **예약할 테니까** 지수 씨는 자료를 준비해 주세요. — I will reserve the meeting room, so please prepare the materials."
+        ]
+      },
+      "tip": "Follow -(으)ㄹ 텐데 with consolation or care; follow -(으)ㄹ 테니까 with requests, commands, or suggestions (-(으)세요, -(으)ㅂ시다)."
+    },
+    {
+      "t": "correct",
+      "q": "Fix the awkward sentence when dividing work tasks with a partner.",
+      "wrong": "제가 발표 자료를 만들 텐데 지수 씨는 발표를 맡아 주세요.",
+      "answers": [
+        "제가 발표 자료를 만들 테니까 지수 씨는 발표를 맡아 주세요.",
+        "제가 발표 자료를 만들 테니까 지수 씨는 발표를 맡아 주세요",
+        "제가 발표 자료를 준비할 테니까 지수 씨는 발표를 맡아 주세요.",
+        "제가 발표 자료를 준비할 테니까 지수 씨는 발표를 맡아 주세요"
+      ],
+      "hint": "When stating your promised contribution to prompt partner action, use -(으)ㄹ 테니까: 만들 테니까 지수 씨는...",
+      "why": "Committing one's action as the condition for a request requires -(으)ㄹ 테니까 rather than -(으)ㄹ 텐데."
+    },
+    {
+      "t": "vocab",
+      "h": "Words for this lesson",
+      "items": [
+        {
+          "ko": "앞장서다",
+          "en": "to take the lead / go first",
+          "ex": "길을 잘 아니까 제가 앞장설게요."
+        },
+        {
+          "ko": "배려하다",
+          "en": "to be considerate / thoughtful",
+          "ex": "상대방의 입장을 먼저 배려해요."
+        },
+        {
+          "ko": "미끄럽다",
+          "en": "to be slippery",
+          "ex": "빙판길이 미끄러우니 조심하세요."
+        },
+        {
+          "ko": "맡다",
+          "en": "to take charge of / reserve",
+          "ex": "제가 커피 살 테니 자리 좀 맡아 줘요."
+        },
+        {
+          "ko": "출력하다",
+          "en": "to print out",
+          "ex": "회의 자료는 제가 출력할게요."
+        }
+      ]
+    },
+    {
+      "t": "dictate",
+      "say": "길이 미끄러울 테니까 조심해서 천천히 걸어가세요",
+      "answers": [
+        "길이 미끄러울 테니까 조심해서 천천히 걸어가세요",
+        "길이 미끄러울 테니까 조심해서 천천히 걸어가세요."
+      ],
+      "hint": "The road will be slippery, so please walk slowly with care.",
+      "why": "Giving advice based on an anticipated condition using -(으)ㄹ 테니까."
+    },
+    {
+      "t": "write",
+      "q": "Write a courteous thank-you sentence acknowledging a busy guest's effort, using 많이 바쁘실 텐데 and 와 주셔서 진심으로 감사드립니다.",
+      "must": [
+        "많이 바쁘실 텐데",
+        "와 주셔서 진심으로 감사드립니다"
+      ],
+      "sample": "많이 바쁘실 텐데 와 주셔서 진심으로 감사드립니다.",
+      "why": "Expressing sincere gratitude while acknowledging the guest's busy schedule with -(으)ㄹ 텐데."
+    },
+    {
+      "t": "expand",
+      "base": {
+        "tokens": [
+          "조심해서",
+          "걸어가세요."
+        ],
+        "en": "Please walk carefully."
+      },
+      "steps": [
+        {
+          "tokens": [
+            "길이 미끄러울 테니까",
+            "조심해서",
+            "천천히 걸어가세요."
+          ],
+          "en": "The road will be slippery, so please walk slowly with care."
+        },
+        {
+          "tokens": [
+            "어젯밤 내린 눈으로 길이 미끄러울 테니까",
+            "바닥을 잘 살피며",
+            "조심해서 천천히 걸어가세요."
+          ],
+          "en": "Because roads will be slippery from last night's snow, watch your step and walk slowly with care."
+        }
+      ]
+    },
+    {
+      "t": "passage",
+      "h": "Read a little",
+      "ko": [
+        "퇴근 시간이 다가오자 창밖으로 함박눈이 펑펑 쏟아지기 시작했어요.",
+        "도로가 꽁꽁 얼어붙어 운전하기 위험할 텐데 대중교통을 이용하는 편이 훨씬 안전해요.",
+        "제가 지하철역까지 우산을 씌워 드릴 테니까 서둘러 함께 나가요."
+      ],
+      "en": [
+        "As quitting time approached, heavy snowflakes began pouring outside the window.",
+        "The roads will freeze solid and driving would be dangerous, so using public transit is much safer.",
+        "I will share my umbrella to the subway station, so let's hurry and head out together."
+      ]
+    },
+    {
+      "t": "choice",
+      "q": "Why does the speaker recommend public transit instead of driving?",
+      "options": [
+        "Roads will freeze and driving will be dangerous (운전하기 위험할 텐데)",
+        "The subway fares are discounted today",
+        "All parking lots are completely closed"
+      ],
+      "answer": 0,
+      "why": "The passage notes '도로가 꽁꽁 얼어붙어 운전하기 위험할 텐데'."
+    },
+    {
+      "t": "choice",
+      "q": "What supportive action does the speaker volunteer to do for their colleague?",
+      "options": [
+        "Share an umbrella walking to the subway station (우산을 씌워 드릴 테니까)",
+        "Buy a car for the colleague",
+        "Stay overnight together at the office"
+      ],
+      "answer": 0,
+      "why": "The text states '제가 지하철역까지 우산을 씌워 드릴 테니까 서둘러 함께 나가요'."
+    },
+    {
+      "t": "cando",
+      "items": [
+        "I can preface friendly suggestions with considerate empathy using -(으)ㄹ 텐데.",
+        "I can assign roles and coordinate collaborative tasks smoothly using -(으)ㄹ 테니까."
+      ]
+    }
+  ],
+  "im-c48-03": [
+    {
+      "t": "compare",
+      "h": "-(으)ㄹ걸요 (Light Presumption) vs -(으)ㄹ지도 몰라요 (Uncertain Contingency)",
+      "a": {
+        "h": "-(으)ㄹ걸요 (Fairly confident guess / gentle rebuttal)",
+        "d": "Used when gently offering a reasonably confident guess, often slightly correcting what the listener assumed.",
+        "ex": [
+          "지금 가면 식당 문을 벌써 **닫았을걸요**. — If you go now, the restaurant is probably already closed."
+        ]
+      },
+      "b": {
+        "h": "-(으)ㄹ지도 몰라요 (Low certainty / potential contingency)",
+        "d": "Used when an outcome is not certain but cannot be ruled out, advising precaution just in case.",
+        "ex": [
+          "오후에 소나기가 **내릴지도 몰라요**. — It might shower this afternoon, so take an umbrella."
+        ]
+      },
+      "tip": "Use -(으)ㄹ걸요 for plausible hunches ('I bet...'); use -(으)ㄹ지도 몰라요 for unpredictable risks ('might / could')."
+    },
+    {
+      "t": "correct",
+      "q": "Fix the sentence advising someone to pack an umbrella for an unpredictable chance of rain.",
+      "wrong": "오후에 비가 올걸요 미리 우산을 챙기세요.",
+      "answers": [
+        "오후에 비가 올지도 모르니까 미리 우산을 챙기세요.",
+        "오후에 비가 올지도 모르니까 미리 우산을 챙기세요",
+        "오후에 비가 올지도 모르니 미리 우산을 챙기세요.",
+        "오후에 비가 올지도 모르니 미리 우산을 챙기세요"
+      ],
+      "hint": "To warn about an uncertain possibility so someone can prepare, use -(으)ㄹ지도 모르다: 비가 올지도 모르니까...",
+      "why": "Advising precaution for uncertain contingencies requires -(으)ㄹ지도 모르다, whereas -(으)ㄹ걸요 is a casual conclusion."
+    },
+    {
+      "t": "vocab",
+      "h": "Words for this lesson",
+      "items": [
+        {
+          "ko": "매진되다",
+          "en": "to be sold out",
+          "ex": "기차표가 벌써 매진되었을걸요."
+        },
+        {
+          "ko": "대비하다",
+          "en": "to prepare for / provide against",
+          "ex": "갑작스러운 비에 미리 대비해요."
+        },
+        {
+          "ko": "변덕스럽다",
+          "en": "to be fickle / unpredictable",
+          "ex": "봄철 날씨는 참 변덕스러워요."
+        },
+        {
+          "ko": "배제하다",
+          "en": "to exclude / rule out",
+          "ex": "가능성을 완전히 배제할 수는 없어요."
+        },
+        {
+          "ko": "어쩌면",
+          "en": "perhaps / by some chance",
+          "ex": "어쩌면 그 소문이 사실일지도 몰라요."
+        }
+      ]
+    },
+    {
+      "t": "dictate",
+      "say": "지금 출발해도 퇴근 시간이라 길이 많이 막힐걸요",
+      "answers": [
+        "지금 출발해도 퇴근 시간이라 길이 많이 막힐걸요",
+        "지금 출발해도 퇴근 시간이라 길이 많이 막힐걸요."
+      ],
+      "hint": "Even if you leave now, it is rush hour so the road is probably heavily congested.",
+      "why": "Gentle confident presumption with rising nuance: 막힐걸요."
+    },
+    {
+      "t": "write",
+      "q": "Write a considerate sentence telling your friend to head out first because you might be late, using 혹시 늦을지도 모르니까 and 먼저 출발하세요.",
+      "must": [
+        "혹시 늦을지도 모르니까",
+        "먼저 출발하세요"
+      ],
+      "sample": "혹시 늦을지도 모르니까 먼저 출발하세요.",
+      "why": "Using -(으)ㄹ지도 모르다 combined with -(으)니까 to explain a contingency."
+    },
+    {
+      "t": "expand",
+      "base": {
+        "tokens": [
+          "벌써",
+          "끝났을걸요."
+        ],
+        "en": "It is probably already over."
+      },
+      "steps": [
+        {
+          "tokens": [
+            "인기가 많아서",
+            "티켓 예매가 벌써",
+            "끝났을걸요."
+          ],
+          "en": "Because it is so popular, ticket bookings are probably already over."
+        },
+        {
+          "tokens": [
+            "그 공연은 인기가 워낙 많아서",
+            "지금 사이트에 접속해도",
+            "티켓 예매가 벌써 끝났을걸요."
+          ],
+          "en": "That performance is so very popular that even if you access the site now, ticket bookings are probably already over."
+        }
+      ]
+    },
+    {
+      "t": "passage",
+      "h": "Read a little",
+      "ko": [
+        "주말에 친구들과 함께 유명한 놀이공원에 놀러 가기로 계획을 세웠어요.",
+        "요즘 날씨가 변덕스러워서 주말에 갑자기 비가 내릴지도 몰라요.",
+        "인기 있는 놀이기구는 줄이 길어서 오전 일찍 가야 탈 수 있을걸요."
+      ],
+      "en": [
+        "I made plans with friends to visit a famous amusement park this weekend.",
+        "The weather is unpredictable these days, so it might rain suddenly on the weekend.",
+        "Lines for popular rides will be long, so you probably have to arrive early in the morning to ride them."
+      ]
+    },
+    {
+      "t": "choice",
+      "q": "What uncertain risk is the writer concerned about regarding the weekend?",
+      "options": [
+        "It might suddenly rain due to fickle weather (비가 내릴지도 몰라요)",
+        "The amusement park might be closed permanently",
+        "The subway lines might stop running entirely"
+      ],
+      "answer": 0,
+      "why": "The text states '요즘 날씨가 변덕스러워서 주말에 갑자기 비가 내릴지도 몰라요'."
+    },
+    {
+      "t": "choice",
+      "q": "What realistic estimate does the writer give about the popular rides?",
+      "options": [
+        "They probably need to arrive early in the morning to ride them (일찍 가야 탈 수 있을걸요)",
+        "Nobody visits the amusement park on weekends",
+        "Rides can be boarded instantly without queuing"
+      ],
+      "answer": 0,
+      "why": "The text says '줄이 길어서 오전 일찍 가야 탈 수 있을걸요'."
+    },
+    {
+      "t": "cando",
+      "items": [
+        "I can gently offer conversational hunches using -(으)ㄹ걸요.",
+        "I can plan ahead for uncertain possibilities using -(으)ㄹ지도 모르다."
+      ]
+    }
+  ],
+  "im-c48-04": [
+    {
+      "t": "compare",
+      "h": "-(으)ㄹ 텐데 (Caring Perspective) vs -(으)ㄹ 테니까 (Active Division of Work)",
+      "a": {
+        "h": "-(으)ㄹ 텐데 (Softening with empathy)",
+        "d": "Used in polite requests to acknowledge the other person's burden or circumstances first.",
+        "ex": [
+          "먼 길 오시느라 **힘드셨을 텐데** 편안한 자리에 앉으세요. — It must have been tiring traveling such a long way, please take a comfortable seat."
+        ]
+      },
+      "b": {
+        "h": "-(으)ㄹ 테니까 (Taking on initiative)",
+        "d": "Used in collaborative settings to proactively declare your task, making the colleague's role clear and easy.",
+        "ex": [
+          "제가 회의록을 **정리할 테니까** 팀장님께는 과장님이 보고해 주세요. — I will organize the meeting notes, so please report to the team leader, Manager."
+        ]
+      },
+      "tip": "Start with -(으)ㄹ 텐데 to soften requests respectfully; use -(으)ㄹ 테니까 to take charge of your part and guide teamwork."
+    },
+    {
+      "t": "correct",
+      "q": "Fix the unnatural sentence when dividing responsibilities during team preparation.",
+      "wrong": "제가 회의실을 정리할 텐데 지훈 씨는 손님을 배웅해 주세요.",
+      "answers": [
+        "제가 회의실을 정리할 테니까 지훈 씨는 손님을 배웅해 주세요.",
+        "제가 회의실을 정리할 테니까 지훈 씨는 손님을 배웅해 주세요",
+        "제가 회의실을 치울 테니까 지훈 씨는 손님을 배웅해 주세요.",
+        "제가 회의실을 치울 테니까 지훈 씨는 손님을 배웅해 주세요"
+      ],
+      "hint": "Promising to handle room cleanup to ask Jihoon to see guests off takes -(으)ㄹ 테니까: 정리할 테니까 지훈 씨는...",
+      "why": "Volunteering an action as the reason for asking someone to do something requires -(으)ㄹ 테니까."
+    },
+    {
+      "t": "vocab",
+      "h": "Words for this lesson",
+      "items": [
+        {
+          "ko": "완곡어법",
+          "en": "euphemism / circumlocution",
+          "ex": "완곡어법은 거절할 때 상대의 기분을 배려해요."
+        },
+        {
+          "ko": "신뢰를 쌓다",
+          "en": "to build trust",
+          "ex": "진솔한 대화로 동료와 신뢰를 쌓아요."
+        },
+        {
+          "ko": "배웅하다",
+          "en": "to see someone off",
+          "ex": "먼 길 가시는 손님을 입구까지 배웅했어요."
+        },
+        {
+          "ko": "분담하다",
+          "en": "to divide / share tasks",
+          "ex": "업무를 효율적으로 분담해서 끝냅시다."
+        },
+        {
+          "ko": "긴장을 풀다",
+          "en": "to relieve tension / relax",
+          "ex": "따뜻한 차를 마시며 긴장을 풀었어요."
+        }
+      ]
+    },
+    {
+      "t": "dictate",
+      "say": "먼 길 오시느라 힘드셨을 텐데 따뜻한 차 한잔 드시면서 쉬세요",
+      "answers": [
+        "먼 길 오시느라 힘드셨을 텐데 따뜻한 차 한잔 드시면서 쉬세요",
+        "먼 길 오시느라 힘드셨을 텐데 따뜻한 차 한잔 드시면서 쉬세요."
+      ],
+      "hint": "You must have been exhausted traveling far, please relax while drinking a warm cup of tea.",
+      "why": "Polite empathetic hospitality using -(으)ㄹ 텐데."
+    },
+    {
+      "t": "write",
+      "q": "Write a professional sentence volunteering to print out materials and asking your manager only to review them, using 제가 회의 자료를 출력할 테니까 and 과장님은 확인만 해 주세요.",
+      "must": [
+        "제가 회의 자료를 출력할 테니까",
+        "과장님은 확인만 해 주세요"
+      ],
+      "sample": "제가 회의 자료를 출력할 테니까 과장님은 확인만 해 주세요.",
+      "why": "Allocating roles proactively in the workplace using -(으)ㄹ 테니까."
+    },
+    {
+      "t": "expand",
+      "base": {
+        "tokens": [
+          "편안하게",
+          "쉬세요."
+        ],
+        "en": "Please rest comfortably."
+      },
+      "steps": [
+        {
+          "tokens": [
+            "많이 힘드셨을 텐데",
+            "따뜻한 차 드시면서",
+            "편안하게 쉬세요."
+          ],
+          "en": "You must have been very tired, please drink warm tea and rest comfortably."
+        },
+        {
+          "tokens": [
+            "먼 길 찾아오시느라 많이 힘드셨을 텐데",
+            "창가 자리에 앉아 따뜻한 차 드시면서",
+            "편안하게 쉬세요."
+          ],
+          "en": "You must have been very tired coming from afar, so please sit by the window with warm tea and rest comfortably."
+        }
+      ]
+    },
+    {
+      "t": "passage",
+      "h": "Read a little",
+      "ko": [
+        "외부 귀빈들이 우리 사무실을 방문하셨을 때 어떻게 맞이해야 할지 늘 고민이었어요.",
+        "오늘 선배님께서 '먼 길 오시느라 피곤하셨을 텐데 차 한잔 드세요'라며 상대를 먼저 배려하셨어요.",
+        "작은 배려의 말 한마디가 상대방의 긴장을 풀어 주고 신뢰를 쌓는 바탕이 되었어요."
+      ],
+      "en": [
+        "I was always worried about how to greet external VIPs when they visited our office.",
+        "Today, my senior showed consideration first by saying, 'You must be tired from the long trip, please have a cup of tea.'",
+        "A single warm word of consideration relieved the guest's tension and laid the foundation for building trust."
+      ]
+    },
+    {
+      "t": "choice",
+      "q": "How did the senior greet the visiting guests with consideration?",
+      "options": [
+        "By acknowledging their tiring journey and offering warm tea (피곤하셨을 텐데 차 한잔 드세요)",
+        "By immediately demanding a signed contract",
+        "By remaining silent and pointing to an empty chair"
+      ],
+      "answer": 0,
+      "why": "The text states '먼 길 오시느라 피곤하셨을 텐데 차 한잔 드세요라며 상대를 먼저 배려하셨어요'."
+    },
+    {
+      "t": "choice",
+      "q": "What positive result came from the senior's considerate greeting?",
+      "options": [
+        "It relaxed the visitor's tension and laid a foundation of trust",
+        "The meeting was instantly cancelled",
+        "The visitor left the building right away"
+      ],
+      "answer": 0,
+      "why": "The text explains '상대방의 긴장을 풀어 주고 신뢰를 쌓는 바탕이 되었어요'."
+    },
+    {
+      "t": "cando",
+      "items": [
+        "I can ease social interactions with empathetic consideration using -(으)ㄹ 텐데.",
+        "I can coordinate teamwork smoothly and respectfully using -(으)ㄹ 테니까 in real workplace conversations."
+      ]
+    }
+  ]
+}
