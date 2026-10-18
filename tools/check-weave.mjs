@@ -6,7 +6,8 @@
              gap.role 이 정답 접속사의 역할 · 문장이 이미 접속사로 시작하지 않음. */
 import fs from 'node:fs';
 import path from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { fileURLToPath, pathToFileURL } from 'node:url';
+import { buildPred } from './weave-pred.mjs';
 const ROOT = path.join(path.dirname(fileURLToPath(import.meta.url)), '..');
 const FILE = path.join(ROOT, 'docs/weave.json');
 if (!fs.existsSync(FILE)) { console.log('이야기 만들기 검사 — 파일 없음(통과)'); process.exit(0); }
@@ -78,5 +79,21 @@ for (const s of D.stories || []) {
   const w = s.write;
   if (!w || !bi(w.prompt) || !Array.isArray(w.cues) || w.cues.length < 2 || !(w.minSentences >= 3 && w.minSentences <= 6) || !(w.minConnectors >= 2 && w.minConnectors <= n - 1)) bad.push(`${at}: write 는 prompt(ko · en) · cues 2개 이상 · minSentences 3~6 · minConnectors 2~${n - 1}`);
 }
+/* 긴 문장 만들기 장면(운영자 2026-10-18 「스스로 만들게 · 긴 문장」) — 예시 답이 6가지 이음말로 모두 바뀌어야 한다(화면이 자동으로 이어 주는 말) */
+const { linkClause, WV_RELS } = await import(pathToFileURL(path.join(ROOT, 'weave-link.js')).href);
+const PRED = buildPred(), RIDS = WV_RELS.map((r) => r.id), gseen = new Set();
+for (const g of D.grow || []) {
+  const at = `장면 ${g.id}`;
+  if (!/^g-[a-z0-9-]+$/.test(g.id || '') || gseen.has(g.id)) bad.push(`${at}: id 는 g- 로 시작하는 영문 소문자 · 숫자 · - 이고 겹치면 안 된다`); gseen.add(g.id);
+  if (!bi(g.title) || !bi(g.intro) || !g.icon) bad.push(`${at}: icon · title · intro(ko · en)`);
+  if (!Array.isArray(g.suggest) || g.suggest.length !== 2 || !g.suggest.every((x) => RIDS.includes(x))) bad.push(`${at}: suggest 는 이음말 id 2개(${RIDS.join(' ')})`);
+  if (!Array.isArray(g.qs) || g.qs.length !== 3) { bad.push(`${at}: 질문은 3개`); continue; }
+  g.qs.forEach((q, i) => {
+    const qt = `${at} 질문 ${i + 1}`;
+    if (!bi(q) || !bi(q.frame) || !bi(q.ex)) return bad.push(`${qt}: ko · en · frame · ex(각각 ko · en)`);
+    if (!/[.]$/.test(q.ex.ko.trim()) || !/요\.$/.test(q.ex.ko.trim())) bad.push(`${qt}: 예시 답은 해요체(…요.)로 끝나야 한다 — ${q.ex.ko}`);
+    for (const r of RIDS) if (!linkClause(q.ex.ko, r, PRED)) bad.push(`${qt}: 예시 답의 마지막 말을 「${r}」로 바꿀 수 없다(낱말 표에 없다) — ${q.ex.ko}`);
+  });
+}
 if (bad.length) { console.error(`이야기 만들기 자료에 문제가 있다 (${bad.length}곳):\n  - ${bad.slice(0, 60).join('\n  - ')}`); process.exit(1); }
-console.log(`이야기 만들기 검사 — 통과 (접속사 ${CON.size}개 · 이야기 ${(D.stories || []).length}편)`);
+console.log(`이야기 만들기 검사 — 통과 (접속사 ${CON.size}개 · 이야기 ${(D.stories || []).length}편 · 긴 문장 장면 ${(D.grow || []).length}개)`);

@@ -1299,5 +1299,439 @@
     "minConnectors": 2
    }
   }
+ ],
+ "grow": [
+  {
+   "id": "g-intro",
+   "icon": "🙋",
+   "title": {
+    "ko": "나를 소개해요",
+    "en": "Introduce yourself"
+   },
+   "intro": {
+    "ko": "사는 곳 · 동네 · 하는 일을 한 문장으로 이어 봐요.",
+    "en": "Link where you live, your area and what you do."
+   },
+   "suggest": [
+    "nde",
+    "go"
+   ],
+   "qs": [
+    {
+     "ko": "어디에 살아요?",
+     "en": "Where do you live?",
+     "frame": {
+      "ko": "저는 ___에 살아요.",
+      "en": "I live in ___."
+     },
+     "ex": {
+      "ko": "저는 서울에 살아요.",
+      "en": "I live in Seoul."
+     }
+    },
+    {
+     "ko": "그곳은 어때요?",
+     "en": "What is it like there?",
+     "frame": {
+      "ko": "거기는 ___.",
+      "en": "It is ___ there."
+     },
+     "ex": {
+      "ko": "거기는 아주 조용해요.",
+      "en": "It is very quiet there."
+     }
+    },
+    {
+     "ko": "거기에서 무엇을 해요?",
+     "en": "What do you do there?",
+     "frame": {
+      "ko": "저는 ___.",
+      "en": "I ___."
+     },
+     "ex": {
+      "ko": "저는 주말에 산책을 해요.",
+      "en": "I take walks on weekends."
+     }
+    }
+   ]
+  },
+  {
+   "id": "g-day",
+   "icon": "☀️",
+   "title": {
+    "ko": "내 하루",
+    "en": "My day"
+   },
+   "intro": {
+    "ko": "아침 · 낮 · 저녁을 끊지 말고 이어 말해 봐요.",
+    "en": "Link morning, daytime and evening without stopping."
+   },
+   "suggest": [
+    "go",
+    "go"
+   ],
+   "qs": [
+    {
+     "ko": "아침에 뭐 해요?",
+     "en": "What do you do in the morning?",
+     "frame": {
+      "ko": "아침에 ___.",
+      "en": "In the morning I ___."
+     },
+     "ex": {
+      "ko": "아침에 커피를 마셔요.",
+      "en": "I drink coffee in the morning."
+     }
+    },
+    {
+     "ko": "그다음에는요?",
+     "en": "And then?",
+     "frame": {
+      "ko": "___.",
+      "en": "___."
+     },
+     "ex": {
+      "ko": "버스를 타고 학교에 가요.",
+      "en": "I take a bus to school."
+     }
+    },
+    {
+     "ko": "저녁에는요?",
+     "en": "And in the evening?",
+     "frame": {
+      "ko": "저녁에는 ___.",
+      "en": "In the evening I ___."
+     },
+     "ex": {
+      "ko": "저녁에는 집에서 쉬어요.",
+      "en": "In the evening I rest at home."
+     }
+    }
+   ]
+  },
+  {
+   "id": "g-like",
+   "icon": "🎵",
+   "title": {
+    "ko": "좋아하는 것",
+    "en": "Something you like"
+   },
+   "intro": {
+    "ko": "좋아하는 것과 잘 못 하는 것을 -지만으로 이어 봐요.",
+    "en": "Link what you like and what you cannot do well with -지만."
+   },
+   "suggest": [
+    "jiman",
+    "aseo"
+   ],
+   "qs": [
+    {
+     "ko": "무엇을 좋아해요?",
+     "en": "What do you like?",
+     "frame": {
+      "ko": "저는 ___을/를 좋아해요.",
+      "en": "I like ___."
+     },
+     "ex": {
+      "ko": "저는 음악을 좋아해요.",
+      "en": "I like music."
+     }
+    },
+    {
+     "ko": "그런데 잘 못 하는 것은요?",
+     "en": "But what are you not good at?",
+     "frame": {
+      "ko": "___은/는 잘 못 해요.",
+      "en": "I am not good at ___."
+     },
+     "ex": {
+      "ko": "노래는 잘 못 해요.",
+      "en": "I am not good at singing."
+     }
+    },
+    {
+     "ko": "그래서 어떻게 해요?",
+     "en": "So what do you do?",
+     "frame": {
+      "ko": "저는 ___.",
+      "en": "I ___."
+     },
+     "ex": {
+      "ko": "집에서 자주 연습해요.",
+      "en": "I practice at home often."
+     }
+    }
+   ]
+  },
+  {
+   "id": "g-korean",
+   "icon": "📖",
+   "title": {
+    "ko": "한국어 공부",
+    "en": "Studying Korean"
+   },
+   "intro": {
+    "ko": "어렵다 · 재미있다 · 그래서 어떻게 한다 — 세 마디를 이어 봐요.",
+    "en": "Hard, fun, and what you do about it — link the three."
+   },
+   "suggest": [
+    "jiman",
+    "aseo"
+   ],
+   "qs": [
+    {
+     "ko": "한국어는 어때요?",
+     "en": "How is Korean?",
+     "frame": {
+      "ko": "한국어는 ___.",
+      "en": "Korean is ___."
+     },
+     "ex": {
+      "ko": "한국어는 어려워요.",
+      "en": "Korean is hard."
+     }
+    },
+    {
+     "ko": "좋은 점은 뭐예요?",
+     "en": "What is good about it?",
+     "frame": {
+      "ko": "___.",
+      "en": "___."
+     },
+     "ex": {
+      "ko": "재미있어요.",
+      "en": "It is fun."
+     }
+    },
+    {
+     "ko": "그래서 어떻게 해요?",
+     "en": "So what do you do?",
+     "frame": {
+      "ko": "저는 ___.",
+      "en": "I ___."
+     },
+     "ex": {
+      "ko": "저는 매일 조금씩 공부해요.",
+      "en": "I study a little every day."
+     }
+    }
+   ]
+  },
+  {
+   "id": "g-weekend",
+   "icon": "🌦️",
+   "title": {
+    "ko": "이번 주말",
+    "en": "This weekend"
+   },
+   "intro": {
+    "ko": "계획 · 날씨 · 그러면 어떻게 할지 — 「-는데」와 「-(으)면」으로 이어 봐요.",
+    "en": "Plan, weather, and what you will do — link with -는데 and -(으)면."
+   },
+   "suggest": [
+    "nde",
+    "myeon"
+   ],
+   "qs": [
+    {
+     "ko": "이번 주말에 뭐 해요?",
+     "en": "What are you doing this weekend?",
+     "frame": {
+      "ko": "이번 주말에 ___.",
+      "en": "This weekend I ___."
+     },
+     "ex": {
+      "ko": "친구를 만나요.",
+      "en": "I meet a friend."
+     }
+    },
+    {
+     "ko": "날씨는 어때요?",
+     "en": "How is the weather?",
+     "frame": {
+      "ko": "___.",
+      "en": "___."
+     },
+     "ex": {
+      "ko": "비가 와요.",
+      "en": "It rains."
+     }
+    },
+    {
+     "ko": "그러면 어떻게 해요?",
+     "en": "Then what do you do?",
+     "frame": {
+      "ko": "저는 ___.",
+      "en": "I ___."
+     },
+     "ex": {
+      "ko": "집에서 영화를 봐요.",
+      "en": "I watch a movie at home."
+     }
+    }
+   ]
+  },
+  {
+   "id": "g-food",
+   "icon": "🍙",
+   "title": {
+    "ko": "좋아하는 음식",
+    "en": "Food you like"
+   },
+   "intro": {
+    "ko": "좋아하는 음식 · 그 이유 · 얼마나 자주 먹는지를 이어 봐요.",
+    "en": "Link the food, the reason and how often you eat it."
+   },
+   "suggest": [
+    "nde",
+    "aseo"
+   ],
+   "qs": [
+    {
+     "ko": "무슨 음식을 좋아해요?",
+     "en": "What food do you like?",
+     "frame": {
+      "ko": "저는 ___을/를 좋아해요.",
+      "en": "I like ___."
+     },
+     "ex": {
+      "ko": "저는 김밥을 좋아해요.",
+      "en": "I like gimbap."
+     }
+    },
+    {
+     "ko": "어떤 점이 좋아요?",
+     "en": "What is good about it?",
+     "frame": {
+      "ko": "___.",
+      "en": "___."
+     },
+     "ex": {
+      "ko": "값이 싸요.",
+      "en": "It is cheap."
+     }
+    },
+    {
+     "ko": "얼마나 자주 먹어요?",
+     "en": "How often do you eat it?",
+     "frame": {
+      "ko": "___.",
+      "en": "___."
+     },
+     "ex": {
+      "ko": "일주일에 두 번 먹어요.",
+      "en": "I eat it twice a week."
+     }
+    }
+   ]
+  },
+  {
+   "id": "g-ramen",
+   "icon": "🍜",
+   "title": {
+    "ko": "라면 끓이는 법",
+    "en": "How to cook ramen"
+   },
+   "intro": {
+    "ko": "차례를 설명할 때는 「-고」로 이으면 끊기지 않아요.",
+    "en": "Use -고 to link steps when you explain."
+   },
+   "suggest": [
+    "go",
+    "go"
+   ],
+   "qs": [
+    {
+     "ko": "먼저 뭐 해요?",
+     "en": "What do you do first?",
+     "frame": {
+      "ko": "먼저 ___.",
+      "en": "First I ___."
+     },
+     "ex": {
+      "ko": "냄비에 물을 끓여요.",
+      "en": "I boil water in a pot."
+     }
+    },
+    {
+     "ko": "그다음에는요?",
+     "en": "And next?",
+     "frame": {
+      "ko": "그다음에 ___.",
+      "en": "Next I ___."
+     },
+     "ex": {
+      "ko": "면과 스프를 넣어요.",
+      "en": "I put in the noodles and the soup base."
+     }
+    },
+    {
+     "ko": "마지막으로요?",
+     "en": "And lastly?",
+     "frame": {
+      "ko": "마지막으로 ___.",
+      "en": "Lastly I ___."
+     },
+     "ex": {
+      "ko": "오 분 뒤에 먹어요.",
+      "en": "I eat it five minutes later."
+     }
+    }
+   ]
+  },
+  {
+   "id": "g-friend",
+   "icon": "🧑‍🤝‍🧑",
+   "title": {
+    "ko": "내 친구",
+    "en": "My friend"
+   },
+   "intro": {
+    "ko": "친구가 누구인지 · 어떤 사람인지 · 무엇을 같이 하는지를 이어 봐요.",
+    "en": "Link who your friend is, what they are like and what you do together."
+   },
+   "suggest": [
+    "nde",
+    "go"
+   ],
+   "qs": [
+    {
+     "ko": "누구를 소개할까요?",
+     "en": "Who will you introduce?",
+     "frame": {
+      "ko": "제 친구는 ___이에요/예요.",
+      "en": "My friend is ___."
+     },
+     "ex": {
+      "ko": "제 친구는 민수예요.",
+      "en": "My friend is Minsu."
+     }
+    },
+    {
+     "ko": "어떤 사람이에요?",
+     "en": "What is that person like?",
+     "frame": {
+      "ko": "___은/는 ___.",
+      "en": "___ is ___."
+     },
+     "ex": {
+      "ko": "민수는 친절해요.",
+      "en": "Minsu is kind."
+     }
+    },
+    {
+     "ko": "같이 무엇을 해요?",
+     "en": "What do you do together?",
+     "frame": {
+      "ko": "우리는 같이 ___.",
+      "en": "We ___ together."
+     },
+     "ex": {
+      "ko": "우리는 같이 운동해요.",
+      "en": "We exercise together."
+     }
+    }
+   ]
+  }
  ]
 }
