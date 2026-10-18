@@ -1416,5 +1416,705 @@
       "en": "Since it is a holiday, do you think there will be a lot of traffic on the road?",
       "why": "휴일 도로에 차량이 많아 정체되는 상황을 짐작해 물어볼 때 알맞은 동사는 「막히다」입니다."
     }
+  ],
+  "65-1": [
+    {
+      "stem": "손님들이 오시기 전에 회의실 테이블을 깨끗하게 ( ).",
+      "options": [
+        "정리해 놓았어요",
+        "정리하자마자요",
+        "정리하더라도요",
+        "정리할수록요"
+      ],
+      "answer": 0,
+      "sentence": "손님들이 오시기 전에 회의실 테이블을 깨끗하게 정리해 놓았어요.",
+      "en": "I organized the conference room table cleanly before the guests arrived.",
+      "why": "어떤 동작을 미리 해 두고 그 완료된 상태를 지속시킴을 나타내므로 「-아/어 놓다」가 알맞습니다."
+    },
+    {
+      "stem": "환기를 시키려고 거실의 큰 창문을 활짝 ( ) 외출했어요.",
+      "options": [
+        "닫아 놓고",
+        "열어 놓고",
+        "숨겨 놓고",
+        "부숴 놓고"
+      ],
+      "answer": 1,
+      "sentence": "환기를 시키려고 거실의 큰 창문을 활짝 열어 놓고 외출했어요.",
+      "en": "To ventilate the room, I opened wide the big living room window and went out.",
+      "why": "환기를 목적으로 취하는 알맞은 행동은 창문을 개방하는 것이므로 「열어 놓고」가 맞습니다."
+    }
+  ],
+  "65-2": [
+    {
+      "stem": "나중에 다시 찾아볼 때를 대비해서 중요한 연락처를 수첩에 ( ).",
+      "options": [
+        "적더라도요",
+        "적자마자요",
+        "적어 두었어요",
+        "적을수록요"
+      ],
+      "answer": 2,
+      "sentence": "나중에 다시 찾아볼 때를 대비해서 중요한 연락처를 수첩에 적어 두었어요.",
+      "en": "In preparation for looking it up again later, I wrote down the important contact number in my notebook.",
+      "why": "미래의 필요나 쓰임을 위해 어떤 행동을 미리 완료해 둠을 나타내므로 「-아/어 두다」가 알맞습니다."
+    },
+    {
+      "stem": "퇴근하기 전에 컴퓨터에 작업한 문서 파일을 안전하게 ( ).",
+      "options": [
+        "거절해 두었어요",
+        "삭제해 두었어요",
+        "포기해 두었어요",
+        "저장해 두었어요"
+      ],
+      "answer": 3,
+      "sentence": "퇴근하기 전에 컴퓨터에 작업한 문서 파일을 안전하게 저장해 두었어요.",
+      "en": "Before leaving work, I safely saved the document files worked on the computer.",
+      "why": "작업한 문서를 안전하게 보존하는 행동이므로 「저장해 두었어요」가 가장 자연스럽습니다."
+    }
+  ],
+  "65-3": [
+    {
+      "stem": "너무 피곤해서 소파에 겉옷을 ( ) 잠이 들어 버렸어요.",
+      "options": [
+        "입은 채로",
+        "입자마자",
+        "입더라도",
+        "입을수록"
+      ],
+      "answer": 0,
+      "sentence": "너무 피곤해서 소파에 겉옷을 입은 채로 잠이 들어 버렸어요.",
+      "en": "Because I was so tired, I fell asleep on the sofa with my outer coat on.",
+      "why": "앞의 동작이 완료된 상태가 그대로 유지된 채 뒤의 행동이 일어남을 나타내므로 「-(으)ㄴ 채로」가 알맞습니다."
+    },
+    {
+      "stem": "사무실에 컴퓨터 전원을 ( ) 퇴근하면 전력이 낭비돼요.",
+      "options": [
+        "끈 채로",
+        "켠 채로",
+        "숨긴 채로",
+        "버린 채로"
+      ],
+      "answer": 1,
+      "sentence": "사무실에 컴퓨터 전원을 켠 채로 퇴근하면 전력이 낭비돼요.",
+      "en": "If you leave work with the computer power left on in the office, electricity is wasted.",
+      "why": "전력이 낭비되는 원인 상태이므로 전원이 켜져 있는 상태를 뜻하는 「켠 채로」가 맞습니다."
+    }
+  ],
+  "65-4": [
+    {
+      "stem": "회사 상사께서 업무 지침서에 ( ) 그대로 업무를 처리했습니다.",
+      "options": [
+        "설명하더라도",
+        "설명하자마자",
+        "설명하신 대로",
+        "설명하느라고"
+      ],
+      "answer": 2,
+      "sentence": "회사 상사께서 업무 지침서에 설명하신 대로 그대로 업무를 처리했습니다.",
+      "en": "I processed the work exactly as the company supervisor explained in the work manual.",
+      "why": "앞의 내용이나 지시와 똑같은 방식으로 행함을 나타낼 때는 「-(으)ㄴ/는 대로」를 씁니다."
+    },
+    {
+      "stem": "회의에서 결정된 계획에 ( ) 업무를 차질 없이 진행했습니다.",
+      "options": [
+        "도망치는 대로",
+        "의심하는 대로",
+        "망설이는 대로",
+        "따르는 대로"
+      ],
+      "answer": 3,
+      "sentence": "회의에서 결정된 계획에 따르는 대로 업무를 차질 없이 진행했습니다.",
+      "en": "Following the plan decided in the meeting, we proceeded with the work without a hitch.",
+      "why": "결정된 계획에 순응하여 이행함을 나타내므로 「따르는 대로」가 자연스럽습니다."
+    }
+  ],
+  "66-1": [
+    {
+      "stem": "민수 씨는 대인관계가 원만하고 성격이 사교적이고 ( ).",
+      "options": [
+        "밝은 편이다",
+        "밝자마자다",
+        "밝더라도다",
+        "밝을수록이다"
+      ],
+      "answer": 0,
+      "sentence": "민수 씨는 대인관계가 원만하고 성격이 사교적이고 밝은 편이다.",
+      "en": "Minsu has good interpersonal relationships, and his personality is sociable and on the bright side.",
+      "why": "대체로 어떤 특성이나 부류에 속함을 부드럽게 나타낼 때는 「-(으)ㄴ/는 편이다」를 씁니다."
+    },
+    {
+      "stem": "저는 아침잠이 많아서 주말에는 보통 늦게까지 ( ) 편이다.",
+      "options": [
+        "뛰는",
+        "자는",
+        "걷는",
+        "노래하는"
+      ],
+      "answer": 1,
+      "sentence": "저는 아침잠이 많아서 주말에는 보통 늦게까지 자는 편이다.",
+      "en": "I sleep a lot in the morning, so on weekends I usually sleep in late.",
+      "why": "아침잠이 많다는 앞 문맥과 어울리는 행동은 잠을 청하는 「자는」입니다."
+    }
+  ],
+  "66-2": [
+    {
+      "stem": "국제 대회에서 우승을 차지한 우리 대표팀 선수들이 매우 ( ).",
+      "options": [
+        "자랑할게요",
+        "자랑하세요",
+        "자랑스러워요",
+        "자랑하더군요"
+      ],
+      "answer": 2,
+      "sentence": "국제 대회에서 우승을 차지한 우리 대표팀 선수들이 매우 자랑스러워요.",
+      "en": "Our national team athletes who won first place in the international competition are very admirable and make us proud.",
+      "why": "명사 뒤에 붙어 '그러한 성질이나 느낌이 있음'을 나타내는 형용사 파생 접미사는 「-스럽다」입니다."
+    },
+    {
+      "stem": "처음 만난 사람에게 너무 사적인 질문을 건네는 것은 ( ) 행동이에요.",
+      "options": [
+        "평화스러운",
+        "자랑스러운",
+        "사랑스러운",
+        "실례스러운"
+      ],
+      "answer": 3,
+      "sentence": "처음 만난 사람에게 너무 사적인 질문을 건네는 것은 실례스러운 행동이에요.",
+      "en": "Asking overly personal questions to someone you meet for the first time is impolite behavior.",
+      "why": "처음 만난 사람에게 지나친 사적 질문을 하는 것은 예의에 어긋나므로 「실례스러운」이 알맞습니다."
+    }
+  ],
+  "66-3": [
+    {
+      "stem": "어떤 위기 상황 속에서도 흔들리지 않는 모습이 진정한 ( ).",
+      "options": [
+        "지도자답네요",
+        "지도자처럼요",
+        "지도자만큼요",
+        "지도자대로요"
+      ],
+      "answer": 0,
+      "sentence": "어떤 위기 상황 속에서도 흔들리지 않는 모습이 진정한 지도자답네요.",
+      "en": "Showing steadfastness even in any crisis situation is truly worthy of a leader.",
+      "why": "명사 뒤에 붙어 그 자격이나 성질에 꼭 들어맞음을 나타내는 형용사화 접미사는 「-답다」입니다."
+    },
+    {
+      "stem": "어려운 과제를 솔선수범하여 해결하는 모습이 참된 ( ) 모습이었어요.",
+      "options": [
+        "아이다운",
+        "어른다운",
+        "도둑다운",
+        "악당다운"
+      ],
+      "answer": 1,
+      "sentence": "어려운 과제를 솔선수범하여 해결하는 모습이 참된 어른다운 모습이었어요.",
+      "en": "Taking the initiative to solve difficult tasks was truly behavior worthy of an adult.",
+      "why": "솔선수범하여 성숙하게 문제를 해결하는 성숙한 인품을 비유하므로 「어른다운」이 맞습니다."
+    }
+  ],
+  "67-1": [
+    {
+      "stem": "오랫동안 간절히 원하던 시험에 최종 합격해서 ( ) 몰라요.",
+      "options": [
+        "얼마나 기쁘자마자",
+        "얼마나 기쁘더라도",
+        "얼마나 기쁜지",
+        "얼마나 기쁠수록"
+      ],
+      "answer": 2,
+      "sentence": "오랫동안 간절히 원하던 시험에 최종 합격해서 얼마나 기쁜지 몰라요.",
+      "en": "I passed the exam I earnestly wanted for a long time, so you have no idea how delighted I am.",
+      "why": "어떤 상태나 감정의 극심한 정도를 강조하여 감탄을 나타낼 때는 「얼마나 -(으)ㄴ/는지 모르다」를 씁니다."
+    },
+    {
+      "stem": "오늘 오후에 갑자기 내린 소나기가 ( ) 몰라요.",
+      "options": [
+        "얼마나 따뜻한지",
+        "얼마나 가벼운지",
+        "얼마나 조용한지",
+        "얼마나 세찬지"
+      ],
+      "answer": 3,
+      "sentence": "오늘 오후에 갑자기 내린 소나기가 얼마나 세찬지 몰라요.",
+      "en": "The shower that suddenly fell this afternoon was so intense you wouldn't believe.",
+      "why": "빗줄기가 강하고 격렬함을 나타내므로 「얼마나 세찬지」가 맞습니다."
+    }
+  ],
+  "67-2": [
+    {
+      "stem": "기상청의 태풍 경보로 여객선 운항이 전면 ( ).",
+      "options": [
+        "중단될 수밖에 없었어요",
+        "중단되자마자였어요",
+        "중단되더라도였어요",
+        "중단될수록이었어요"
+      ],
+      "answer": 0,
+      "sentence": "기상청의 태풍 경보로 여객선 운항이 전면 중단될 수밖에 없었어요.",
+      "en": "Passenger ferry operations had no choice but to be completely suspended due to the meteorological agency's typhoon warning.",
+      "why": "다른 방법이나 선택의 여지가 전혀 없이 불가피한 귀결임을 나타낼 때는 「-(으)ㄹ 수밖에 없다」를 씁니다."
+    },
+    {
+      "stem": "중요한 시험을 코앞에 두고 있으니 열심히 공부에 ( ) 없어요.",
+      "options": [
+        "포기할 수밖에",
+        "집중할 수밖에",
+        "망설일 수밖에",
+        "거절할 수밖에"
+      ],
+      "answer": 1,
+      "sentence": "중요한 시험을 코앞에 두고 있으니 열심히 공부에 집중할 수밖에 없어요.",
+      "en": "With an important exam right around the corner, I have no choice but to focus hard on studying.",
+      "why": "시험을 앞두고 마땅히 취해야 할 불가피한 학습 자세이므로 「집중할 수밖에」가 맞습니다."
+    }
+  ],
+  "67-3": [
+    {
+      "stem": "저는 공직자로서 규정에 따라 맡은 바 임무를 ( ).",
+      "options": [
+        "수행하더라도다",
+        "수행하자마자다",
+        "수행했을 뿐이다",
+        "수행할수록이다"
+      ],
+      "answer": 2,
+      "sentence": "저는 공직자로서 규정에 따라 맡은 바 임무를 수행했을 뿐이다.",
+      "en": "As a public official, I merely carried out my assigned duties in accordance with regulations.",
+      "why": "오직 그 행동 하나에 한정되며 그 이상의 다른 의도나 이유가 없음을 단호히 밝힐 때는 「-(으)ㄹ 뿐이다」를 씁니다."
+    },
+    {
+      "stem": "어려운 환경에서도 자신의 꿈을 잃지 않고 꿋꿋하게 ( ) 뿐이다.",
+      "options": [
+        "포기할",
+        "물러설",
+        "도망칠",
+        "나아갈"
+      ],
+      "answer": 3,
+      "sentence": "어려운 환경에서도 자신의 꿈을 잃지 않고 꿋꿋하게 나아갈 뿐이다.",
+      "en": "Even in difficult environments, without losing one's dream, one simply perseveres forward.",
+      "why": "꿈을 향해 꿋꿋하게 전진하는 긍정적인 행동을 나타내므로 「나아갈」이 가장 알맞습니다."
+    }
+  ],
+  "67-4": [
+    {
+      "stem": "실패를 두려워하지 않는 도전 정신( ) 성공으로 이끄는 열쇠예요.",
+      "options": [
+        "이야말로",
+        "치고는",
+        "마저도",
+        "조차도"
+      ],
+      "answer": 0,
+      "sentence": "실패를 두려워하지 않는 도전 정신이야말로 성공으로 이끄는 열쇠예요.",
+      "en": "A challenging spirit unafraid of failure is truly the key leading to success.",
+      "why": "문장의 화제를 특히 강하게 지정하여 '다른 것이 아니라 바로 이것'임을 강조하는 조사는 「(이)야말로」입니다."
+    },
+    {
+      "stem": "어려울 때 곁을 지켜주는 진실한 ( ) 인생의 가장 값진 보물이에요.",
+      "options": [
+        "원수야말로",
+        "친구야말로",
+        "적이야말로",
+        "경쟁자야말로"
+      ],
+      "answer": 1,
+      "sentence": "어려울 때 곁을 지켜주는 진실한 친구야말로 인생의 가장 값진 보물이에요.",
+      "en": "A true friend who stays by your side when times are tough is truly the most valuable treasure in life.",
+      "why": "어려울 때 곁을 지켜주는 소중한 사람을 지칭하므로 「친구야말로」가 가장 알맞습니다."
+    }
+  ],
+  "68-1": [
+    {
+      "stem": "회의에 참석한 모든 사람이 발표 내용을 정확하게 ( ) 마이크를 켰어요.",
+      "options": [
+        "듣더라도",
+        "듣자마자",
+        "듣게",
+        "들을수록"
+      ],
+      "answer": 2,
+      "sentence": "회의에 참석한 모든 사람이 발표 내용을 정확하게 듣게 마이크를 켰어요.",
+      "en": "I turned on the microphone so that everyone attending the meeting could hear the presentation accurately.",
+      "why": "뒤 절 행동(마이크 켬)의 목적이나 결과를 나타내는 연결어미로는 목적의 「-게」가 알맞습니다."
+    },
+    {
+      "stem": "아이들이 밤에 불안해하지 않고 편안하게 ( ) 방 안에 은은한 조명을 켜 두었어요.",
+      "options": [
+        "화내게",
+        "울게",
+        "뛰게",
+        "잠들게"
+      ],
+      "answer": 3,
+      "sentence": "아이들이 밤에 불안해하지 않고 편안하게 잠들게 방 안에 은은한 조명을 켜 두었어요.",
+      "en": "I left a soft light on in the room so that the children could fall asleep comfortably at night without feeling anxious.",
+      "why": "밤에 편안한 수면을 유도하기 위한 목적이므로 「잠들게」가 가장 알맞습니다."
+    }
+  ],
+  "69-1": [
+    {
+      "stem": "백화점에서 마음에 드는 모자를 ( ) 거울을 보고 다시 벗었어요.",
+      "options": [
+        "써 보았다가",
+        "써 보자마자",
+        "써 보더라도",
+        "써 볼수록"
+      ],
+      "answer": 0,
+      "sentence": "백화점에서 마음에 드는 모자를 써 보았다가 거울을 보고 다시 벗었어요.",
+      "en": "I tried on a hat I liked at the department store, but looked in the mirror and took it off again.",
+      "why": "선행 동작이 완료된 후 그 동작과 반대되거나 다른 방향의 동작으로 전환될 때는 「-았/었다가」를 씁니다."
+    },
+    {
+      "stem": "외출하려고 집 밖으로 ( ) 우산을 잊어버린 것이 생각나서 다시 들어왔어요.",
+      "options": [
+        "숨었다가",
+        "나갔다가",
+        "누웠다가",
+        "앉았다가"
+      ],
+      "answer": 1,
+      "sentence": "외출하려고 집 밖으로 나갔다가 우산을 잊어버린 것이 생각나서 다시 들어왔어요.",
+      "en": "I went out of the house to go out, but came back in after remembering that I had forgotten my umbrella.",
+      "why": "외출을 위해 밖으로 나갔다가 우산을 챙기러 귀가한 상황이므로 「나갔다가」가 맞습니다."
+    }
+  ],
+  "69-2": [
+    {
+      "stem": "어릴 적에 가족들과 함께 즐거운 추억을 ( ) 바닷가에 다시 찾아갔어요.",
+      "options": [
+        "만들면",
+        "만들려고",
+        "만들었던",
+        "만들느라"
+      ],
+      "answer": 2,
+      "sentence": "어릴 적에 가족들과 함께 즐거운 추억을 만들었던 바닷가에 다시 찾아갔어요.",
+      "en": "I revisited the seaside where I had made enjoyable memories with my family in my childhood.",
+      "why": "과거에 이미 완료되었거나 지속되었던 과거의 사건을 회상하여 뒤의 명사를 수식할 때는 「-았/었던」을 씁니다."
+    },
+    {
+      "stem": "대학생 시절에 매일 열심히 ( ) 도서관 열람실이 아직도 그대로네요.",
+      "options": [
+        "수영했던",
+        "노래했던",
+        "요리했던",
+        "공부했던"
+      ],
+      "answer": 3,
+      "sentence": "대학생 시절에 매일 열심히 공부했던 도서관 열람실이 아직도 그대로네요.",
+      "en": "The library reading room where I studied hard every day in my college years is still just as it was.",
+      "why": "도서관 열람실이라는 장소에서 매일 수행했던 행위이므로 「공부했던」이 자연스럽습니다."
+    }
+  ],
+  "69-3": [
+    {
+      "stem": "평소에 아끼던 귀중한 만년필을 실수로 길에 ( ) 마음이 너무 아파요.",
+      "options": [
+        "떨어뜨려 버리다니",
+        "떨어뜨리자마자",
+        "떨어뜨리더라도",
+        "떨어뜨릴수록"
+      ],
+      "answer": 0,
+      "sentence": "평소에 아끼던 귀중한 만년필을 실수로 길에 떨어뜨려 버리다니 마음이 너무 아파요.",
+      "en": "To have accidentally dropped on the road the precious fountain pen I treasured usually makes my heart ache so much.",
+      "why": "어떤 동작이 끝나서 아쉬움이나 서운함 등의 심리적 부담을 나타낼 때는 「-아/어 버리다」를 씁니다."
+    },
+    {
+      "stem": "너무 바빠서 중요한 약속 시간을 깜빡 ( ) 곤란한 처지에 놓였습니다.",
+      "options": [
+        "지켜 버리다니",
+        "잊어 버리다니",
+        "도와 버리다니",
+        "알려 버리다니"
+      ],
+      "answer": 1,
+      "sentence": "너무 바빠서 중요한 약속 시간을 깜빡 잊어 버리다니 곤란한 처지에 놓였습니다.",
+      "en": "To have completely forgotten the important appointment time because I was so busy put me in an awkward predicament.",
+      "why": "약속 시간을 기억하지 못해 곤란해진 상황이므로 「잊다」의 활용형인 「잊어 버리다니」가 맞습니다."
+    }
+  ],
+  "69-4": [
+    {
+      "stem": "끝까지 최선을 다해 달렸지만 결국 결승선을 앞두고 ( ).",
+      "options": [
+        "넘어지더라도였습니다",
+        "넘어지자마자였습니다",
+        "넘어지고 말았습니다",
+        "넘어질수록이었습니다"
+      ],
+      "answer": 2,
+      "sentence": "끝까지 최선을 다해 달렸지만 결국 결승선을 앞두고 넘어지고 말았습니다.",
+      "en": "I ran giving my best until the end, but in the end fell right before the finish line.",
+      "why": "원치 않는 결과나 안타까운 상황이 결국 발생해 버렸음을 나타낼 때는 「-고 말다」를 씁니다."
+    },
+    {
+      "stem": "밤을 새워 정성껏 작성한 보고서 파일을 실수로 ( ) 말았어요.",
+      "options": [
+        "보관하고",
+        "저장하고",
+        "복사하고",
+        "삭제하고"
+      ],
+      "answer": 3,
+      "sentence": "밤을 새워 정성껏 작성한 보고서 파일을 실수로 삭제하고 말았어요.",
+      "en": "I ended up accidentally deleting the report file that I had stayed up all night drafting meticulously.",
+      "why": "실수로 문서를 날려버려 안타까운 상황이므로 「삭제하고」가 가장 알맞습니다."
+    }
+  ],
+  "70-1": [
+    {
+      "stem": "이미 심사가 완료된 서류이니 지금 다시 ( ) 결과는 바뀌지 않아요.",
+      "options": [
+        "검토하나 마나",
+        "검토하자마자",
+        "검토하더라도",
+        "검토할수록"
+      ],
+      "answer": 0,
+      "sentence": "이미 심사가 완료된 서류이니 지금 다시 검토하나 마나 결과는 바뀌지 않아요.",
+      "en": "Since the documents have already been screened, whether you review them again now or not, the result won't change.",
+      "why": "어떤 행동을 해 보아도 기대하는 효과나 변화가 없음을 나타낼 때는 「-(으)나 마나」를 씁니다."
+    },
+    {
+      "stem": "공연이 이미 시작했으니 지금 극장에 ( ) 입장할 수 없을 거예요.",
+      "options": [
+        "쉬나 마나",
+        "달려가나 마나",
+        "자나 마나",
+        "멈추나 마나"
+      ],
+      "answer": 1,
+      "sentence": "공연이 이미 시작했으니 지금 극장에 달려가나 마나 입장할 수 없을 거예요.",
+      "en": "The performance has already started, so whether you rush to the theater now or not, you won't be able to enter.",
+      "why": "극장으로 서둘러 이동해도 소용없다는 문맥이므로 「달려가나 마나」가 맞습니다."
+    }
+  ],
+  "70-2": [
+    {
+      "stem": "지금 와서 지난 실수를 후회해 ( ) 이미 엎질러진 물이에요.",
+      "options": [
+        "보더라도",
+        "보자마자",
+        "봤자",
+        "볼수록"
+      ],
+      "answer": 2,
+      "sentence": "지금 와서 지난 실수를 후회해 봤자 이미 엎질러진 물이에요.",
+      "en": "Even if you regret your past mistakes at this point, it is already spilt milk.",
+      "why": "어떤 행동을 가정하여 시도해 보아도 아무런 소용이나 가치가 없음을 단호히 나타낼 때는 「-아/어 봤자」를 씁니다."
+    },
+    {
+      "stem": "열차 출발 시간이 1분 남아서 지금 ( ) 놓칠 것이 뻔해요.",
+      "options": [
+        "앉아 봤자",
+        "숨어 봤자",
+        "잠들어 봤자",
+        "뛰어가 봤자"
+      ],
+      "answer": 3,
+      "sentence": "열차 출발 시간이 1분 남아서 지금 뛰어가 봤자 놓칠 것이 뻔해요.",
+      "en": "With only 1 minute left before the train departs, even if you run now, it's obvious you'll miss it.",
+      "why": "열차를 타기 위해 신속히 이동해 보아도 불가능한 상황이므로 「뛰어가 봤자」가 자연스럽습니다."
+    }
+  ],
+  "71-2": [
+    {
+      "stem": "사전에 일기예보를 꼼꼼하게 ( ) 비에 젖지 않았을 텐데 아쉽네요.",
+      "options": [
+        "확인했더라면",
+        "확인하자마자",
+        "확인하더라도",
+        "확인할수록"
+      ],
+      "answer": 0,
+      "sentence": "사전에 일기예보를 꼼꼼하게 확인했더라면 비에 젖지 않았을 텐데 아쉽네요.",
+      "en": "If only I had checked the weather forecast meticulously beforehand, I wouldn't have gotten soaked in the rain, which is a pity.",
+      "why": "과거의 사실과 반대되는 상황을 가정하여 아쉬움이나 후회를 나타낼 때는 「-았/었더라면」을 씁니다."
+    },
+    {
+      "stem": "출발하기 전에 지도를 미리 ( ) 낯선 골목에서 길을 헤매지 않았을 거예요.",
+      "options": [
+        "포기했더라면",
+        "살펴봤더라면",
+        "거절했더라면",
+        "망설였더라면"
+      ],
+      "answer": 1,
+      "sentence": "출발하기 전에 지도를 미리 살펴봤더라면 낯선 골목에서 길을 헤매지 않았을 거예요.",
+      "en": "If I had looked over the map in advance before departing, I wouldn't have gotten lost in an unfamiliar alley.",
+      "why": "길을 잃지 않기 위해 지도를 사전 확인하는 행동을 가정하고 있으므로 「살펴봤더라면」이 맞습니다."
+    }
+  ],
+  "71-3": [
+    {
+      "stem": "얼어붙은 빙판길에서 미끄러져 하마터면 다리를 ( ) 큰일 날 뻔했어요.",
+      "options": [
+        "다치더라도",
+        "다치자마자",
+        "다칠 뻔하다니",
+        "다칠수록"
+      ],
+      "answer": 2,
+      "sentence": "얼어붙은 빙판길에서 미끄러져 하마터면 다리를 다칠 뻔하다니 큰일 날 뻔했어요.",
+      "en": "To have almost injured my leg after slipping on an icy road, it was almost a disaster.",
+      "why": "하마터면 어떤 부정적인 일이 일어날 지경까지 갔으나 실제로는 일어나지 않았음을 나타낼 때는 「-(으)ㄹ 뻔하다」를 씁니다."
+    },
+    {
+      "stem": "교통 체증으로 공항에 늦게 도착해 비행기를 ( ) 가슴을 쓸어내렸어요.",
+      "options": [
+        "도착할 뻔하다니",
+        "탈 뻔하다니",
+        "예약할 뻔하다니",
+        "놓칠 뻔하다니"
+      ],
+      "answer": 3,
+      "sentence": "교통 체증으로 공항에 늦게 도착해 비행기를 놓칠 뻔하다니 가슴을 쓸어내렸어요.",
+      "en": "To have almost missed the airplane after arriving late at the airport due to traffic congestion, I heaved a sigh of relief.",
+      "why": "늦게 도착하여 탑승하지 못할 위험에 처했던 상황이므로 「놓칠 뻔하다니」가 맞습니다."
+    }
+  ],
+  "72-1": [
+    {
+      "stem": "오후에 날씨가 이렇게 쌀쌀해질 줄 알았으면 두꺼운 외투를 ( ).",
+      "options": [
+        "입고 올걸 그랬어요",
+        "입자마자였어요",
+        "입더라도였어요",
+        "입을수록이었어요"
+      ],
+      "answer": 0,
+      "sentence": "오후에 날씨가 이렇게 쌀쌀해질 줄 알았으면 두꺼운 외투를 입고 올걸 그랬어요.",
+      "en": "If I knew the weather would get this chilly in the afternoon, I should have worn and brought a thick coat.",
+      "why": "과거에 하지 않은 행동에 대해 아쉬워하거나 후회함을 부드럽게 나타낼 때는 「-(으)ㄹ걸 그랬다」를 씁니다."
+    },
+    {
+      "stem": "전시회 관람객이 주말에 이렇게 많을 줄 알았으면 미리 입장권을 ( ).",
+      "options": [
+        "버려 둘걸 그랬어요",
+        "예매해 둘걸 그랬어요",
+        "숨겨 둘걸 그랬어요",
+        "찢어 둘걸 그랬어요"
+      ],
+      "answer": 1,
+      "sentence": "전시회 관람객이 주말에 이렇게 많을 줄 알았으면 미리 입장권을 예매해 둘걸 그랬어요.",
+      "en": "If I knew there would be this many exhibition visitors on the weekend, I should have booked tickets in advance.",
+      "why": "많은 인파 속에서 원활한 입장을 위해 사전에 표를 확보하지 못한 것을 후회하므로 「예매해 둘걸 그랬어요」가 맞습니다."
+    }
+  ],
+  "72-2": [
+    {
+      "stem": "중요한 비즈니스 미팅인데 차가 막혀 늦다니 더 일찍 ( ).",
+      "options": [
+        "출발하더라도인데 죄송합니다",
+        "출발하자마자인데 죄송합니다",
+        "출발했어야 했는데 죄송합니다",
+        "출발할수록인데 죄송합니다"
+      ],
+      "answer": 2,
+      "sentence": "중요한 비즈니스 미팅인데 차가 막혀 늦다니 더 일찍 출발했어야 했는데 죄송합니다.",
+      "en": "To be late for an important business meeting because of traffic, I should have left earlier, I am sorry.",
+      "why": "과거에 마땅히 행했어야 할 의무나 책임을 다하지 못한 것에 대한 강한 후회와 반성을 나타낼 때는 「-았/었어야 했는데」를 씁니다."
+    },
+    {
+      "stem": "친구의 기분을 상하게 만든 말실수를 깨닫고 진작에 ( ) 후회돼요.",
+      "options": [
+        "외면했어야 했는데",
+        "비웃었어야 했는데",
+        "화냈어야 했는데",
+        "사과했어야 했는데"
+      ],
+      "answer": 3,
+      "sentence": "친구의 기분을 상하게 만든 말실수를 깨닫고 진작에 사과했어야 했는데 후회돼요.",
+      "en": "Realizing my slip of the tongue that hurt my friend's feelings, I regret that I should have apologized much sooner.",
+      "why": "말실수에 대해 마땅히 취했어야 할 사후 행동은 용서를 구하는 「사과했어야 했는데」입니다."
+    }
+  ],
+  "73-1": [
+    {
+      "stem": "회사 업무로 마음이 답답할 때면 퇴근길에 한강 변을 ( ).",
+      "options": [
+        "산책하곤 하지요",
+        "산책하자마자요",
+        "산책하더라도요",
+        "산책할수록요"
+      ],
+      "answer": 0,
+      "sentence": "회사 업무로 마음이 답답할 때면 퇴근길에 한강 변을 산책하곤 하지요.",
+      "en": "When my mind feels suffocated with company work, I often walk along the Han River on my way home.",
+      "why": "과거부터 현재까지 어떤 행동을 규칙적 또는 습관적으로 되풀이함을 나타낼 때는 「-곤 하다」를 씁니다."
+    },
+    {
+      "stem": "주말 오후에는 집 근처 도서관에 들러 유익한 인문학 서적을 ( ).",
+      "options": [
+        "버리곤 하는데요",
+        "읽곤 하는데요",
+        "찢곤 하는데요",
+        "숨기곤 하는데요"
+      ],
+      "answer": 1,
+      "sentence": "주말 오후에는 집 근처 도서관에 들러 유익한 인문학 서적을 읽곤 하는데요.",
+      "en": "On weekend afternoons, I often drop by the library near home and read informative humanities books.",
+      "why": "도서관에서 유익한 책을 접하며 즐기는 일반적인 독서 행위이므로 「읽곤 하는데요」가 맞습니다."
+    }
+  ],
+  "73-2": [
+    {
+      "stem": "발표 준비를 완벽하게 하셨다고 칭찬해 주셨지만 ( ) 아직 부족한 점이 많습니다.",
+      "options": [
+        "완벽하더라도",
+        "완벽하자마자",
+        "완벽하기는요",
+        "완벽할수록"
+      ],
+      "answer": 2,
+      "sentence": "발표 준비를 완벽하게 하셨다고 칭찬해 주셨지만 완벽하기는요 아직 부족한 점이 많습니다.",
+      "en": "You praised me that I prepared the presentation perfectly, but far from perfect, I still have many shortcomings.",
+      "why": "상대방의 칭찬이나 동의에 대해 겸손하게 부인하거나 반박할 때는 종결어미 「-기는요」를 씁니다."
+    },
+    {
+      "stem": "한국어를 원어민처럼 능숙하게 구사하신다고 들었는데 ( ) 아직 배울 게 많아요.",
+      "options": [
+        "포기하기는요",
+        "못하기는요",
+        "싫어하기는요",
+        "잘하기는요"
+      ],
+      "answer": 3,
+      "sentence": "한국어를 원어민처럼 능숙하게 구사하신다고 들었는데 잘하기는요 아직 배울 게 많아요.",
+      "en": "I heard you speak Korean fluently like a native speaker, but far from good, I still have much to learn.",
+      "why": "유창하다는 칭찬에 대해 겸양의 태도로 자신을 낮추는 말이므로 「잘하기는요」가 가장 자연스럽습니다."
+    }
+  ],
+  "73-3": [
+    {
+      "stem": "실제로는 그 사실을 잘 알지도 못하면서 남들 앞에서 ( ) 큰 망신을 당했어요.",
+      "options": [
+        "아는 척하다가",
+        "알자마자",
+        "알더라도",
+        "알수록"
+      ],
+      "answer": 0,
+      "sentence": "실제로는 그 사실을 잘 알지도 못하면서 남들 앞에서 아는 척하다가 큰 망신을 당했어요.",
+      "en": "While not actually knowing the facts well, pretending to know in front of others led to great embarrassment.",
+      "why": "실제 상태와 다르게 거짓으로 꾸며서 그럴듯하게 행동함을 나타낼 때는 「-(으)ㄴ/는 척하다」를 씁니다."
+    },
+    {
+      "stem": "길에서 우연히 마주친 옛 친구를 보고도 반갑지 않아 ( ) 지나쳤어요.",
+      "options": [
+        "잘 본 척하다가",
+        "못 본 척하다가",
+        "다 본 척하다가",
+        "더 본 척하다가"
+      ],
+      "answer": 1,
+      "sentence": "길에서 우연히 마주친 옛 친구를 보고도 반갑지 않아 못 본 척하다가 지나쳤어요.",
+      "en": "Even upon seeing an old friend encountered by chance on the street, I wasn't glad and walked past pretending not to see.",
+      "why": "상대를 인식했음에도 보고도 보지 못한 것처럼 행동한 상황이므로 「못 본 척하다가」가 알맞습니다."
+    }
   ]
 }
