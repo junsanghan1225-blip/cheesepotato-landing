@@ -537,6 +537,381 @@
     "ko": "틀리게 말해도 당황하지 마세요. 이 말로 고치고 계속 말하는 것이 능숙한 말하기예요.",
     "en": "Do not panic when you slip. Correct it with this and keep going — that is what fluent speakers do."
    }
+  },
+  {
+   "id": "geureona",
+   "ko": "그러나",
+   "role": "contrast",
+   "lv": "intermediate",
+   "en": "however · but (formal/written)",
+   "use": {
+    "ko": "앞의 내용과 반대되거나 다른 사실을 뒤에 이어 쓸 때(글에서 많이 씀)",
+    "en": "Connects an opposite or contrasting fact; mostly used in writing and formal speech"
+   },
+   "ex": [
+    {
+     "ko": "모두가 열심히 준비했습니다. 그러나 결과는 아쉬웠습니다.",
+     "en": "Everyone prepared hard. However, the result was disappointing."
+    },
+    {
+     "ko": "그는 많은 어려움을 겪었습니다. 그러나 끝까지 포기하지 않았습니다.",
+     "en": "He went through many difficulties. However, he did not give up until the end."
+    }
+   ],
+   "tip": {
+    "ko": "「하지만」과 뜻은 같지만, 글말이나 공식 발표에서 주로 쓰여요.",
+    "en": "Same meaning as 하지만, but mostly used in written texts and formal presentations."
+   }
+  },
+  {
+   "id": "geureochiman",
+   "ko": "그렇지만",
+   "role": "contrast",
+   "lv": "beginner",
+   "en": "but · however",
+   "use": {
+    "ko": "앞의 사실을 인정하면서도 그와 다른 생각이나 사실을 말할 때",
+    "en": "Acknowledges the previous point while introducing a contrasting fact or thought"
+   },
+   "ex": [
+    {
+     "ko": "한국어는 발음이 어려워요. 그렇지만 정말 재미있어요.",
+     "en": "Korean pronunciation is difficult. But it is really fun."
+    },
+    {
+     "ko": "비가 와서 길이 미끄러워요. 그렇지만 약속 장소에 꼭 갈 거예요.",
+     "en": "It is raining so the road is slippery. But I will definitely go to the appointment."
+    }
+   ],
+   "tip": {
+    "ko": "「하지만」보다 앞의 상황을 '그렇다'고 받아들이는 느낌이 더 강해요.",
+    "en": "More strongly acknowledges the previous situation ('that is true, but') compared to 하지만."
+   }
+  },
+  {
+   "id": "geureomeuro",
+   "ko": "그러므로",
+   "role": "result",
+   "lv": "intermediate",
+   "en": "therefore · hence",
+   "use": {
+    "ko": "앞의 내용이 뒤 내용의 까닭이나 근거가 될 때(논리적인 글말)",
+    "en": "Used when the preceding statement is the logical cause or reason for the following statement (formal/written)"
+   },
+   "ex": [
+    {
+     "ko": "건강은 무엇보다 소중합니다. 그러므로 규칙적인 운동이 꼭 필요합니다.",
+     "en": "Health is precious above all else. Therefore, regular exercise is essential."
+    },
+    {
+     "ko": "시간이 촉박합니다. 그러므로 우리는 서둘러 결정을 내려야 합니다.",
+     "en": "Time is pressing. Therefore, we must make a decision quickly."
+    }
+   ],
+   "tip": {
+    "ko": "「그래서」의 격식 있는 표현으로, 주장하는 글이나 논설문에서 써요.",
+    "en": "A formal version of 그래서, commonly used in argumentative essays and editorials."
+   }
+  },
+  {
+   "id": "ttohan",
+   "ko": "또한",
+   "role": "add",
+   "lv": "intermediate",
+   "en": "also · in addition · furthermore",
+   "use": {
+    "ko": "앞의 사실에 비슷한 다른 사실을 나란히 보탤 때(격식체 · 글말)",
+    "en": "Adds another similar fact alongside the preceding one (formal and written)"
+   },
+   "ex": [
+    {
+     "ko": "이 도서관은 책이 다양합니다. 또한 시설도 매우 깨끗합니다.",
+     "en": "This library has a diverse collection of books. In addition, its facilities are very clean."
+    },
+    {
+     "ko": "문화 체험은 언어 학습에 큰 도움이 됩니다. 또한 시야를 넓혀 줍니다.",
+     "en": "Cultural experiences greatly help language learning. Furthermore, they broaden one's perspective."
+    }
+   ],
+   "tip": {
+    "ko": "글에서 「또」나 「그리고」 대신 점잖게 덧붙일 때 어울려요.",
+    "en": "A dignified alternative to 또 or 그리고 in formal writing."
+   }
+  },
+  {
+   "id": "geuppunman-anira",
+   "ko": "그뿐만 아니라",
+   "role": "add",
+   "lv": "intermediate",
+   "en": "not only that · besides",
+   "use": {
+    "ko": "앞의 사실에 그치지 않고 그 이상의 내용이 더해질 때",
+    "en": "Indicates that something does not stop at the preceding fact but goes beyond it with more"
+   },
+   "ex": [
+    {
+     "ko": "그는 친절합니다. 그뿐만 아니라 일도 매우 꼼꼼하게 잘합니다.",
+     "en": "He is kind. Not only that, he also does his work very meticulously and well."
+    },
+    {
+     "ko": "이 앱은 무료입니다. 그뿐만 아니라 광고도 전혀 없습니다.",
+     "en": "This app is free. Besides that, there are no advertisements at all."
+    }
+   ],
+   "tip": {
+    "ko": "앞뒤 내용이 같은 긍정 또는 같은 부정의 방향이어야 자연스러워요.",
+    "en": "Both preceding and following sentences should share the same tone (both positive or both negative)."
+   }
+  },
+  {
+   "id": "banmyeone",
+   "ko": "반면에",
+   "role": "contrast",
+   "lv": "intermediate",
+   "en": "on the other hand · whereas",
+   "use": {
+    "ko": "두 가지 사실이나 대상을 서로 맞세워 비교할 때",
+    "en": "Used to compare and contrast two different facts, aspects, or subjects"
+   },
+   "ex": [
+    {
+     "ko": "형은 외향적이고 말이 많아요. 반면에 동생은 조용하고 차분해요.",
+     "en": "The older brother is outgoing and talkative. On the other hand, the younger one is quiet and calm."
+    },
+    {
+     "ko": "도시는 생활이 편리합니다. 반면에 소음과 공해가 심합니다.",
+     "en": "Cities offer convenient living. On the other hand, noise and pollution are severe."
+    }
+   ],
+   "tip": {
+    "ko": "단순한 반대가 아니라 두 대상의 서로 다른 장단점이나 성격을 대조할 때 써요.",
+    "en": "Used specifically to contrast different characteristics, pros, and cons rather than simple negation."
+   }
+  },
+  {
+   "id": "jeug",
+   "ko": "즉",
+   "role": "summary",
+   "lv": "intermediate",
+   "en": "in other words · that is to say",
+   "use": {
+    "ko": "앞의 말을 다른 말로 바꾸어 알기 쉽게 다시 설명하거나 요약할 때",
+    "en": "Rephrases or summarizes the previous statement in clearer terms"
+   },
+   "ex": [
+    {
+     "ko": "물가가 계속 오르고 있습니다. 즉 돈의 가치가 떨어지고 있다는 뜻입니다.",
+     "en": "Prices continue to rise. In other words, the value of money is falling."
+    },
+    {
+     "ko": "우리는 모두 만장일치로 찬성했습니다. 즉 반대한 사람이 한 명도 없었습니다.",
+     "en": "We all agreed unanimously. That is to say, not a single person opposed."
+    }
+   ],
+   "tip": {
+    "ko": "어려운 표현 뒤에 핵심을 한 번 더 짚어 줄 때 유용해요.",
+    "en": "Useful for highlighting the core point right after a complex explanation."
+   }
+  },
+  {
+   "id": "icheoreom",
+   "ko": "이처럼",
+   "role": "summary",
+   "lv": "intermediate",
+   "en": "like this · as such · in this way",
+   "use": {
+    "ko": "앞에서 든 구체적인 사실이나 예를 바탕으로 결론을 이끌어 낼 때",
+    "en": "Draws a conclusion or generalization based on the concrete facts or examples given earlier"
+   },
+   "ex": [
+    {
+     "ko": "많은 사람들이 봉사에 참여했습니다. 이처럼 작은 정성이 모여 큰 기적을 만듭니다.",
+     "en": "Many people participated in volunteering. In this way, small sincere efforts gather to create a great miracle."
+    },
+    {
+     "ko": "규칙적인 식사와 수면이 중요합니다. 이처럼 생활 습관이 건강을 좌우합니다.",
+     "en": "Regular meals and sleep are important. As such, daily habits determine one's health."
+    }
+   ],
+   "tip": {
+    "ko": "글의 마지막 문단에서 앞에서 말한 근거를 종합하여 마무리할 때 자주 써요.",
+    "en": "Frequently used in the concluding paragraph of a text to wrap up discussed points."
+   }
+  },
+  {
+   "id": "geuttae",
+   "ko": "그때",
+   "role": "order",
+   "lv": "beginner",
+   "en": "at that time · then",
+   "use": {
+    "ko": "앞에서 말한 바로 그 순간이나 시점을 가리킬 때",
+    "en": "Refers to the specific moment or time frame mentioned right before"
+   },
+   "ex": [
+    {
+     "ko": "길을 걷고 있었어요. 그때 갑자기 휴대전화 벨이 울렸어요.",
+     "en": "I was walking down the street. At that time, my phone suddenly rang."
+    },
+    {
+     "ko": "처음 한국에 왔을 때 혼자였어요. 그때 이 친구가 따뜻하게 도와주었어요.",
+     "en": "When I first came to Korea, I was alone. At that time, this friend helped me warmly."
+    }
+   ],
+   "tip": {
+    "ko": "옛날 이야기나 지난 일을 시간 순서대로 풀어나갈 때 자연스러워요.",
+    "en": "Natural when narrating past stories or personal experiences chronologically."
+   }
+  },
+  {
+   "id": "geureodaga",
+   "ko": "그러다가",
+   "role": "order",
+   "lv": "intermediate",
+   "en": "and then · while doing so",
+   "use": {
+    "ko": "앞의 행동이나 상태가 이어지던 중에 다른 일이나 변화가 일어날 때",
+    "en": "Used when a new event or change occurs in the middle of an ongoing action or state"
+   },
+   "ex": [
+    {
+     "ko": "오후 내내 비가 내렸어요. 그러다가 저녁 무렵에 맑게 개었어요.",
+     "en": "It rained all afternoon. And then, toward evening, it cleared up brightly."
+    },
+    {
+     "ko": "공원에서 한참 동안 산책을 했어요. 그러다가 우연히 옛 친구를 만났어요.",
+     "en": "I took a walk in the park for a long time. And then, by chance, I ran into an old friend."
+    }
+   ],
+   "tip": {
+    "ko": "어떤 일이 계속되다가 '갑자기 다른 상황으로 바뀔 때' 써요.",
+    "en": "Expresses a shift where an ongoing situation transitions into something different."
+   }
+  },
+  {
+   "id": "hanpyeon",
+   "ko": "한편",
+   "role": "contrast",
+   "lv": "intermediate",
+   "en": "meanwhile · on the other hand",
+   "use": {
+    "ko": "앞의 이야기와 동시에 진행되는 다른 쪽의 상황이나 새로운 화제를 꺼낼 때",
+    "en": "Introduces another situation taking place concurrently or shifts the topic to another side"
+   },
+   "ex": [
+    {
+     "ko": "선수들은 경기 준비에 집중하고 있습니다. 한편 관중들은 경기장 밖에서 줄을 서고 있습니다.",
+     "en": "The athletes are focusing on game preparations. Meanwhile, spectators are lining up outside the stadium."
+    },
+    {
+     "ko": "이 영화는 액션 장면이 화려합니다. 한편 잔잔한 감동도 함께 선사합니다.",
+     "en": "This movie has splendid action scenes. On the other hand, it also delivers quiet emotional resonance."
+    }
+   ],
+   "tip": {
+    "ko": "뉴스나 보도문에서 화면이나 장소를 다른 쪽으로 전환할 때 대표적으로 쓰는 말이에요.",
+    "en": "A classic transition word used in news reports to shift focus to another setting or scene."
+   }
+  },
+  {
+   "id": "sasireun",
+   "ko": "사실은",
+   "role": "contrast",
+   "lv": "beginner",
+   "en": "actually · in fact · to be honest",
+   "use": {
+    "ko": "겉으로 드러난 상황과 달리 진짜 속마음이나 진실을 털어놓을 때",
+    "en": "Reveals true feelings or the actual truth contrary to outward appearances"
+   },
+   "ex": [
+    {
+     "ko": "제가 바쁘다고 말했지요? 사실은 몸이 좀 아파서 쉬고 싶었어요.",
+     "en": "I told you I was busy, right? Actually, I felt sick and wanted to rest."
+    },
+    {
+     "ko": "어려운 시험이라고 생각했어요. 사실은 준비를 많이 못 해서 긴장했던 거예요.",
+     "en": "I thought it was a difficult exam. In fact, I was nervous because I hadn't prepared enough."
+    }
+   ],
+   "tip": {
+    "ko": "대화에서 상대방에게 솔직한 이유나 비밀을 말할 때 부드러운 분위기를 만들어요.",
+    "en": "Creates a soft, sincere atmosphere in conversations when disclosing real reasons."
+   }
+  },
+  {
+   "id": "mullon",
+   "ko": "물론",
+   "role": "condition",
+   "lv": "intermediate",
+   "en": "of course · naturally · certainly",
+   "use": {
+    "ko": "상대방의 생각이나 당연한 사실을 먼저 받아들여 인정할 때",
+    "en": "Used to concede or naturally affirm an obvious fact before presenting one's view"
+   },
+   "ex": [
+    {
+     "ko": "외국어 공부는 시간이 많이 듭니다. 물론 꾸준한 노력이 제일 중요합니다.",
+     "en": "Studying a foreign language takes a lot of time. Naturally, steady effort is most important."
+    },
+    {
+     "ko": "새로운 도전에는 위험이 따릅니다. 물론 그만큼 배울 점도 많습니다.",
+     "en": "New challenges involve risks. Of course, there is also much to learn from them."
+    }
+   ],
+   "tip": {
+    "ko": "「물론 ~지만」처럼 뒤에 반전이나 보완을 덧붙이는 전제로 자주 쓰여요.",
+    "en": "Often serves as a foundation for a slight twist or qualification ('Of course..., but...')."
+   }
+  },
+  {
+   "id": "gapjagi",
+   "ko": "갑자기",
+   "role": "order",
+   "lv": "beginner",
+   "en": "suddenly · all of a sudden",
+   "use": {
+    "ko": "예상하지 못한 일이 순식간에 일어났음을 나타낼 때",
+    "en": "Expresses that an unexpected event occurred in an instant"
+   },
+   "ex": [
+    {
+     "ko": "하늘이 어두워졌어요. 갑자기 소나기가 쏟아지기 시작했어요.",
+     "en": "The sky darkened. Suddenly, a downpour began to fall."
+    },
+    {
+     "ko": "공부를 하고 있었어요. 갑자기 방 안의 불이 꺼졌어요.",
+     "en": "I was studying. All of a sudden, the light in the room turned off."
+    }
+   ],
+   "tip": {
+    "ko": "이야기의 긴장감을 높이고 다음 사건으로 빠르게 넘어갈 때 생동감을 줘요.",
+    "en": "Heightens narrative tension and adds vividness when moving swiftly to the next event."
+   }
+  },
+  {
+   "id": "dasi-malhae",
+   "ko": "다시 말해",
+   "role": "summary",
+   "lv": "intermediate",
+   "en": "in other words · to put it another way",
+   "use": {
+    "ko": "앞의 내용을 더 알기 쉽거나 직관적인 말로 다시 풀어서 전달할 때",
+    "en": "Rephrases the prior content in more accessible or direct words"
+   },
+   "ex": [
+    {
+     "ko": "그는 매일 하루도 빠짐없이 연습했습니다. 다시 말해 엄청난 노력을 기울인 것입니다.",
+     "en": "He practiced every single day without exception. In other words, he invested enormous effort."
+    },
+    {
+     "ko": "이번 기회를 놓치면 1년을 기다려야 합니다. 다시 말해 이번이 마지막 기회입니다.",
+     "en": "If we miss this opportunity, we must wait a year. To put it another way, this is our last chance."
+    }
+   ],
+   "tip": {
+    "ko": "「즉」과 비슷하지만 대화체와 글말 모두에서 자연스럽게 쓸 수 있어요.",
+    "en": "Similar to 즉, but versatile in both spoken conversation and written prose."
+   }
   }
  ],
  "stories": [
