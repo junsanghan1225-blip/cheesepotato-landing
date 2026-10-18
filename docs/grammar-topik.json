@@ -29,5 +29,705 @@
       "en": "That restaurant's food is delicious, and the prices are low as well.",
       "why": "「-(으)ㄹ뿐더러」는 앞의 내용에 뒤의 내용을 더할 때 씁니다. 앞말에 붙여 씁니다."
     }
+  ],
+  "23-1": [
+    {
+      "stem": "저 분은 우리 학교 ( ).",
+      "options": [
+        "선생님을",
+        "선생님이다",
+        "선생님과",
+        "선생님에게"
+      ],
+      "answer": 1,
+      "sentence": "저 분은 우리 학교 선생님이다.",
+      "en": "That person is our school teacher.",
+      "why": "문장의 서술어로 대상을 지정할 때 명사 뒤에 서술격 조사 「이다」를 씁니다."
+    },
+    {
+      "stem": "이곳은 책을 빌리는 ( )이다.",
+      "options": [
+        "도서관",
+        "운동장",
+        "수영장",
+        "정류장"
+      ],
+      "answer": 0,
+      "sentence": "이곳은 책을 빌리는 도서관이다.",
+      "en": "This place is a library where people borrow books.",
+      "why": "책을 빌리는 장소의 명칭으로 「도서관」이 가장 알맞습니다."
+    }
+  ],
+  "23-3": [
+    {
+      "stem": "사과가 바구니에 ( ) 개 있습니다.",
+      "options": [
+        "오",
+        "다섯째",
+        "다섯",
+        "오번"
+      ],
+      "answer": 2,
+      "sentence": "사과가 바구니에 다섯 개 있습니다.",
+      "en": "There are five apples in the basket.",
+      "why": "물건의 개수를 셀 때 단위 명사 「개」 앞에는 순우리말 수사 「다섯」을 씁니다."
+    },
+    {
+      "stem": "교실에 학생이 ( ) 명 앉아 있습니다.",
+      "options": [
+        "열",
+        "십",
+        "열째",
+        "십번"
+      ],
+      "answer": 0,
+      "sentence": "교실에 학생이 열 명 앉아 있습니다.",
+      "en": "Ten students are sitting in the classroom.",
+      "why": "사람의 수를 셀 때 단위 명사 「명」 앞에는 순우리말 수사 「열」을 씁니다."
+    }
+  ],
+  "23-4": [
+    {
+      "stem": "일요일 다음 날은 ( )입니다.",
+      "options": [
+        "화요일",
+        "수요일",
+        "월요일",
+        "목요일"
+      ],
+      "answer": 2,
+      "sentence": "일요일 다음 날은 월요일입니다.",
+      "en": "The day after Sunday is Monday.",
+      "why": "일요일 바로 다음 요일은 「월요일」입니다."
+    },
+    {
+      "stem": "한 해의 첫 번째 달은 ( )입니다.",
+      "options": [
+        "일월",
+        "이월",
+        "삼월",
+        "사월"
+      ],
+      "answer": 0,
+      "sentence": "한 해의 첫 번째 달은 일월입니다.",
+      "en": "The first month of the year is January.",
+      "why": "일 년 중 가장 첫 번째 달은 「일월」입니다."
+    }
+  ],
+  "23-5": [
+    {
+      "stem": "지금은 오후 세 시 ( ) 분입니다.",
+      "options": [
+        "서른",
+        "삼십",
+        "셋",
+        "세"
+      ],
+      "answer": 1,
+      "sentence": "지금은 오후 세 시 삼십 분입니다.",
+      "en": "It is currently 3:30 in the afternoon.",
+      "why": "시간에서 「분」을 나타낼 때는 한자어 수사 「삼십」을 씁니다."
+    },
+    {
+      "stem": "우리는 아침 ( ) 시에 만납니다.",
+      "options": [
+        "팔",
+        "여덟째",
+        "여덟번",
+        "여덟"
+      ],
+      "answer": 3,
+      "sentence": "우리는 아침 여덟 시에 만납니다.",
+      "en": "We meet at eight in the morning.",
+      "why": "시간에서 「시」를 나타낼 때는 순우리말 수사 「여덟」을 씁니다."
+    }
+  ],
+  "24-2": [
+    {
+      "stem": "날씨가 참 ( ).",
+      "options": [
+        "따뜻하고",
+        "따뜻하면",
+        "따뜻해요",
+        "따뜻하지만"
+      ],
+      "answer": 2,
+      "sentence": "날씨가 참 따뜻해요.",
+      "en": "The weather is really warm.",
+      "why": "현재 상태를 친근하게 서술하는 종결 어미로 「-아/어요」 형태인 「따뜻해요」가 알맞습니다."
+    },
+    {
+      "stem": "아침마다 공원에서 가볍게 ( ).",
+      "options": [
+        "달려요",
+        "달리면",
+        "달리고",
+        "달리지만"
+      ],
+      "answer": 0,
+      "sentence": "아침마다 공원에서 가볍게 달려요.",
+      "en": "I run lightly in the park every morning.",
+      "why": "현재 규칙적으로 반복하는 동작을 나타내는 종결 어미로 「달려요」가 알맞습니다."
+    }
+  ],
+  "24-3": [
+    {
+      "stem": "어제 친구와 영화를 ( ).",
+      "options": [
+        "보아요",
+        "보겠어요",
+        "보았어요",
+        "보네요"
+      ],
+      "answer": 2,
+      "sentence": "어제 친구와 영화를 보았어요.",
+      "en": "Yesterday I watched a movie with a friend.",
+      "why": "과거 시점인 「어제」 일어난 동작을 서술하므로 과거 시제 어미 「-았/었어요」가 알맞습니다."
+    },
+    {
+      "stem": "점심에 시원한 냉면을 ( ).",
+      "options": [
+        "먹었어요",
+        "입었어요",
+        "신었어요",
+        "들었어요"
+      ],
+      "answer": 0,
+      "sentence": "점심에 시원한 냉면을 먹었어요.",
+      "en": "I ate refreshing cold noodles for lunch.",
+      "why": "음식을 섭취한 과거 동작을 나타내므로 「먹었어요」가 알맞습니다."
+    }
+  ],
+  "24-4": [
+    {
+      "stem": "내일 도서관에서 책을 ( ).",
+      "options": [
+        "읽었어요",
+        "읽을 거예요",
+        "읽고 있어요",
+        "읽었을 거예요"
+      ],
+      "answer": 1,
+      "sentence": "내일 도서관에서 책을 읽을 거예요.",
+      "en": "I will read a book at the library tomorrow.",
+      "why": "미래 시점인 「내일」의 계획이나 예정된 동작을 나타내므로 「-(으)ㄹ 거예요」가 알맞습니다."
+    },
+    {
+      "stem": "이번 주말에 부산으로 여행을 ( ) 거예요.",
+      "options": [
+        "가고",
+        "가면",
+        "가서",
+        "갈"
+      ],
+      "answer": 3,
+      "sentence": "이번 주말에 부산으로 여행을 갈 거예요.",
+      "en": "I will go on a trip to Busan this weekend.",
+      "why": "미래 계획을 나타내는 「-(으)ㄹ 거예요」에서 받침 없는 동사 어간 「가-」에는 「갈」이 결합합니다."
+    }
+  ],
+  "24-5": [
+    {
+      "stem": "지금 거실에서 음악을 ( ).",
+      "options": [
+        "듣겠어요",
+        "듣고 있어요",
+        "들었어요",
+        "들으면 돼요"
+      ],
+      "answer": 1,
+      "sentence": "지금 거실에서 음악을 듣고 있어요.",
+      "en": "I am listening to music in the living room now.",
+      "why": "현재 시점인 「지금」 진행 중인 동작을 나타내므로 진행형 어미 「-고 있다」가 알맞습니다."
+    },
+    {
+      "stem": "방에서 시험공부를 열심히 ( ) 있어요.",
+      "options": [
+        "하고",
+        "하면",
+        "해서",
+        "하니"
+      ],
+      "answer": 0,
+      "sentence": "방에서 시험공부를 열심히 하고 있어요.",
+      "en": "I am studying hard for the exam in my room.",
+      "why": "진행형 보조 용언 「있다」 앞에는 동사 어간에 연결 어미 「-고」가 붙은 「하고」가 결합합니다."
+    }
+  ],
+  "24-6": [
+    {
+      "stem": "어렸을 때 피아노를 ( ).",
+      "options": [
+        "배워요",
+        "배우겠어요",
+        "배웠었어요",
+        "배울 거예요"
+      ],
+      "answer": 2,
+      "sentence": "어렸을 때 피아노를 배웠었어요.",
+      "en": "I had learned piano when I was young.",
+      "why": "과거에 완료되어 현재는 지속되지 않는 과거의 경험을 나타내므로 대과거 어미 「-았/었었어요」가 알맞습니다."
+    },
+    {
+      "stem": "작년에는 머리가 꽤 ( )었어요.",
+      "options": [
+        "기",
+        "길",
+        "길었",
+        "길고"
+      ],
+      "answer": 2,
+      "sentence": "작년에는 머리가 꽤 길었었어요.",
+      "en": "My hair was quite long last year.",
+      "why": "과거의 상태를 나타내는 「-았/었었어요」에서 형용사 「길다」 뒤에는 「길었-」이 결합하여 「길었었어요」가 됩니다."
+    }
+  ],
+  "25-1": [
+    {
+      "stem": "지갑에 돈이 하나도 ( ).",
+      "options": [
+        "있어요",
+        "없어요",
+        "많아요",
+        "좋아요"
+      ],
+      "answer": 1,
+      "sentence": "지갑에 돈이 하나도 없어요.",
+      "en": "There is no money at all in my wallet.",
+      "why": "부사 「하나도」와 호응하여 소유나 존재의 부정을 나타내는 형용사는 「없어요」입니다."
+    },
+    {
+      "stem": "그 사람의 전화번호를 전혀 ( ).",
+      "options": [
+        "몰라요",
+        "알아요",
+        "들어요",
+        "봐요"
+      ],
+      "answer": 0,
+      "sentence": "그 사람의 전화번호를 전혀 몰라요.",
+      "en": "I don't know that person's phone number at all.",
+      "why": "부정 호응 부사 「전혀」와 어울려 지식이나 정보가 없음을 나타내는 동사는 「몰라요」입니다."
+    }
+  ],
+  "25-2": [
+    {
+      "stem": "배가 안 고파서 밥을 ( ) 먹어요.",
+      "options": [
+        "못",
+        "안",
+        "잘",
+        "더"
+      ],
+      "answer": 1,
+      "sentence": "배가 안 고파서 밥을 안 먹어요.",
+      "en": "I am not hungry, so I don't eat rice.",
+      "why": "주체의 단순한 의지로 어떤 행동을 하지 않을 때는 동사 앞에 부정 부사 「안」을 씁니다."
+    },
+    {
+      "stem": "오늘은 날씨가 춥지 않아서 외투를 안 ( ).",
+      "options": [
+        "신어요",
+        "써요",
+        "입어요",
+        "껴요"
+      ],
+      "answer": 2,
+      "sentence": "오늘은 날씨가 춥지 않아서 외투를 안 입어요.",
+      "en": "The weather is not cold today, so I don't wear an overcoat.",
+      "why": "외투나 옷을 몸에 걸치는 동작을 나타내는 동사는 「입다」이므로 「안 입어요」가 알맞습니다."
+    }
+  ],
+  "25-3": [
+    {
+      "stem": "다리를 다쳐서 운동을 ( ) 해요.",
+      "options": [
+        "안",
+        "못",
+        "잘",
+        "더"
+      ],
+      "answer": 1,
+      "sentence": "다리를 다쳐서 운동을 못 해요.",
+      "en": "I hurt my leg, so I cannot exercise.",
+      "why": "부상이나 외적 상황 때문에 능동적으로 행동할 수 없을 때는 능력 부정 부사 「못」을 씁니다."
+    },
+    {
+      "stem": "매운 음식을 잘 못 ( ).",
+      "options": [
+        "먹어요",
+        "마셔요",
+        "입어요",
+        "봐요"
+      ],
+      "answer": 0,
+      "sentence": "매운 음식을 잘 못 먹어요.",
+      "en": "I cannot eat spicy food well.",
+      "why": "음식을 섭취할 능력이 부족함을 나타낼 때는 동사 「먹다」의 부정형인 「못 먹어요」가 알맞습니다."
+    }
+  ],
+  "26-6": [
+    {
+      "stem": "저는 주말( ) 공원에 갑니다.",
+      "options": [
+        "을",
+        "에",
+        "의",
+        "로"
+      ],
+      "answer": 1,
+      "sentence": "저는 주말에 공원에 갑니다.",
+      "en": "I go to the park on weekends.",
+      "why": "동작이 일어나는 시점이나 때를 나타낼 때는 시간 명사 뒤에 조사 「에」를 씁니다."
+    },
+    {
+      "stem": "아침 일찍 ( )에 가서 공부해요.",
+      "options": [
+        "시계",
+        "도서관",
+        "달력",
+        "계절"
+      ],
+      "answer": 1,
+      "sentence": "아침 일찍 도서관에 가서 공부해요.",
+      "en": "I go to the library early in the morning and study.",
+      "why": "방문하여 공부할 수 있는 목적지 장소 명사로 「도서관」이 가장 알맞습니다."
+    }
+  ],
+  "26-7": [
+    {
+      "stem": "이 사과는 한 개( ) 천 원입니다.",
+      "options": [
+        "에",
+        "를",
+        "도",
+        "만"
+      ],
+      "answer": 0,
+      "sentence": "이 사과는 한 개에 천 원입니다.",
+      "en": "These apples are 1,000 won each.",
+      "why": "가격이나 셈의 기준이 되는 단위 명사 뒤에는 조사 「에」를 씁니다."
+    },
+    {
+      "stem": "감기약을 하루에 세 ( ) 드세요.",
+      "options": [
+        "시간",
+        "날",
+        "번",
+        "월"
+      ],
+      "answer": 2,
+      "sentence": "감기약을 하루에 세 번 드세요.",
+      "en": "Please take this cold medicine three times a day.",
+      "why": "하루를 기준으로 복용하는 횟수를 나타내는 단위 명사는 「번」입니다."
+    }
+  ],
+  "26-14": [
+    {
+      "stem": "학교에 지하철( ) 통학합니다.",
+      "options": [
+        "을",
+        "에",
+        "과",
+        "로"
+      ],
+      "answer": 3,
+      "sentence": "학교에 지하철로 통학합니다.",
+      "en": "I commute to school by subway.",
+      "why": "교통수단이나 방법을 나타낼 때 받침 'ㄹ'로 끝나는 명사 뒤에는 조사 「로」를 씁니다."
+    },
+    {
+      "stem": "가위( ) 종이를 반으로 잘랐어요.",
+      "options": [
+        "로",
+        "를",
+        "에",
+        "은"
+      ],
+      "answer": 0,
+      "sentence": "가위로 종이를 반으로 잘랐어요.",
+      "en": "I cut the paper in half with scissors.",
+      "why": "행위에 사용되는 도구나 수단을 나타낼 때 받침 없는 명사 뒤에는 조사 「로」를 씁니다."
+    }
+  ],
+  "26-15": [
+    {
+      "stem": "목이 마르니 주스( ) 물을 마십시다.",
+      "options": [
+        "도",
+        "나",
+        "만",
+        "를"
+      ],
+      "answer": 1,
+      "sentence": "목이 마르니 주스나 물을 마십시다.",
+      "en": "Since I'm thirsty, let's drink juice or water.",
+      "why": "둘 이상의 대상 중 하나를 선택함을 나타낼 때 받침 없는 명사 뒤에는 보조사 「나」를 씁니다."
+    },
+    {
+      "stem": "주말에는 영화나 ( )을 봅니다.",
+      "options": [
+        "연극",
+        "음식",
+        "소리",
+        "바람"
+      ],
+      "answer": 0,
+      "sentence": "주말에는 영화나 연극을 봅니다.",
+      "en": "On weekends, I watch movies or plays.",
+      "why": "「영화」와 함께 시각적으로 관람할 수 있는 문화 활동의 선택 항목으로 「연극」이 알맞습니다."
+    }
+  ],
+  "26-16": [
+    {
+      "stem": "어제 피곤해서 열 시간( ) 잤어요.",
+      "options": [
+        "에서",
+        "보다",
+        "에게",
+        "이나"
+      ],
+      "answer": 3,
+      "sentence": "어제 피곤해서 열 시간이나 잤어요.",
+      "en": "Yesterday, being tired, I slept for as many as ten hours.",
+      "why": "수량이 예상보다 많아 놀라움을 나타낼 때 받침 있는 수량 명사 뒤에 보조사 「이나」를 씁니다."
+    },
+    {
+      "stem": "사과를 혼자서 다섯 개( ) 먹었습니다.",
+      "options": [
+        "나",
+        "도",
+        "만",
+        "를"
+      ],
+      "answer": 0,
+      "sentence": "사과를 혼자서 다섯 개나 먹었습니다.",
+      "en": "I ate as many as five apples by myself.",
+      "why": "수량이 생각보다 많음을 강조할 때 받침 없는 단위 명사 뒤에 보조사 「나」를 씁니다."
+    }
+  ],
+  "27-1": [
+    {
+      "stem": "형은 키가 ( ) 동생은 작아요.",
+      "options": [
+        "크면",
+        "커서",
+        "크고",
+        "크니까"
+      ],
+      "answer": 2,
+      "sentence": "형은 키가 크고 동생은 작아요.",
+      "en": "The older brother is tall, and the younger sibling is short.",
+      "why": "두 가지 대조되는 사실을 대등하게 나열하여 연결할 때는 연결 어미 「-고」를 씁니다."
+    },
+    {
+      "stem": "바람이 불고 날씨가 몹시 ( ).",
+      "options": [
+        "따뜻해요",
+        "더워요",
+        "맑아요",
+        "추워요"
+      ],
+      "answer": 3,
+      "sentence": "바람이 불고 날씨가 몹시 추워요.",
+      "en": "The wind blows, and the weather is very cold.",
+      "why": "바람이 부는 상황과 자연스럽게 나열되어 연결되는 겨울 날씨 표현으로 「추워요」가 알맞습니다."
+    }
+  ],
+  "27-4": [
+    {
+      "stem": "밥을 ( ) 전화가 왔어요.",
+      "options": [
+        "먹으면",
+        "먹는데",
+        "먹거나",
+        "먹으려고"
+      ],
+      "answer": 1,
+      "sentence": "밥을 먹는데 전화가 왔어요.",
+      "en": "While I was eating a meal, the phone rang.",
+      "why": "어떤 행동을 하고 있는 상황이나 배경을 제시할 때 동사 어간 뒤에 「-는데」를 씁니다."
+    },
+    {
+      "stem": "값은 ( ) 품질은 아주 좋습니다.",
+      "options": [
+        "싼데",
+        "싸서",
+        "싸면",
+        "싸고"
+      ],
+      "answer": 0,
+      "sentence": "값은 싼데 품질은 아주 좋습니다.",
+      "en": "The price is low, but the quality is very good.",
+      "why": "가격이 저렴함에도 품질이 우수하다는 대조적 배경을 설명할 때 형용사 뒤에 「-ㄴ데」가 알맞습니다."
+    }
+  ],
+  "28-2": [
+    {
+      "stem": "저녁 식사를 ( ) 산책을 했습니다.",
+      "options": [
+        "마친 후에",
+        "마치러",
+        "마치거나",
+        "마치는데"
+      ],
+      "answer": 0,
+      "sentence": "저녁 식사를 마친 후에 산책을 했습니다.",
+      "en": "After finishing dinner, I took a walk.",
+      "why": "선행 동작이 완료된 뒤 다음 행동을 함을 나타내므로 「-(으)ㄴ 후에」가 알맞습니다."
+    },
+    {
+      "stem": "수업이 ( ) 후에 도서관에 가요.",
+      "options": [
+        "끝날",
+        "끝나고",
+        "끝난",
+        "끝나면"
+      ],
+      "answer": 2,
+      "sentence": "수업이 끝난 후에 도서관에 가요.",
+      "en": "After class ends, I go to the library.",
+      "why": "시간적 선후 관계를 나타내는 「후에」 앞에는 과거 관형형 어미가 붙은 「끝난」이 알맞습니다."
+    }
+  ],
+  "28-4": [
+    {
+      "stem": "사과를 깨끗이 ( ) 먹었어요.",
+      "options": [
+        "씻으면",
+        "씻어서",
+        "씻으러",
+        "씻거나"
+      ],
+      "answer": 1,
+      "sentence": "사과를 깨끗이 씻어서 먹었어요.",
+      "en": "I washed the apple cleanly and ate it.",
+      "why": "앞의 동작을 완료한 상태로 뒤의 동작을 이어 행하는 시간적 순서를 나타낼 때 「-아/어서」를 씁니다."
+    },
+    {
+      "stem": "편의점에 가서 우유를 ( ).",
+      "options": [
+        "잤어요",
+        "탔어요",
+        "샀어요",
+        "입었어요"
+      ],
+      "answer": 2,
+      "sentence": "편의점에 가서 우유를 샀어요.",
+      "en": "I went to the convenience store and bought milk.",
+      "why": "편의점에 가서 하는 자연스러운 후속 동작으로 물건을 구매함을 뜻하는 「샀어요」가 알맞습니다."
+    }
+  ],
+  "28-5": [
+    {
+      "stem": "밥을 ( ) 숟가락을 사용합니다.",
+      "options": [
+        "먹어서",
+        "먹으면",
+        "먹으려고",
+        "먹을 때"
+      ],
+      "answer": 3,
+      "sentence": "밥을 먹을 때 숟가락을 사용합니다.",
+      "en": "When eating rice, we use a spoon.",
+      "why": "어떤 동작이나 상황이 일어나는 시점이나 시간을 나타낼 때는 「-(으)ㄹ 때」를 씁니다."
+    },
+    {
+      "stem": "비가 ( ) 때는 우산을 씁니다.",
+      "options": [
+        "올",
+        "오고",
+        "오면",
+        "와서"
+      ],
+      "answer": 0,
+      "sentence": "비가 올 때는 우산을 씁니다.",
+      "en": "When it rains, we use an umbrella.",
+      "why": "때를 나타내는 의존 명사 「때」 앞에는 관형형 어미 「-(으)ㄹ」이 결합한 「올」이 알맞습니다."
+    }
+  ],
+  "28-7": [
+    {
+      "stem": "지금은 회의를 ( ) 중입니다.",
+      "options": [
+        "해서",
+        "하는",
+        "하면",
+        "하러"
+      ],
+      "answer": 1,
+      "sentence": "지금은 회의를 하는 중입니다.",
+      "en": "I am currently in the middle of having a meeting.",
+      "why": "동작이 현재 진행되고 있음을 나타낼 때 동사 어간 뒤에 「-는 중」을 씁니다."
+    },
+    {
+      "stem": "선생님께서 전화를 ( ) 중이십니다.",
+      "options": [
+        "받으시는",
+        "받으시면",
+        "받으러",
+        "받으셔서"
+      ],
+      "answer": 0,
+      "sentence": "선생님께서 전화를 받으시는 중이십니다.",
+      "en": "The teacher is currently answering a phone call.",
+      "why": "주체 높임 선어말 어미가 포함된 진행형 표현으로 관형형 어미가 붙은 「받으시는」이 알맞습니다."
+    }
+  ],
+  "28-10": [
+    {
+      "stem": "한국에 ( ) 일 년이 지났어요.",
+      "options": [
+        "오러",
+        "오고",
+        "온 지",
+        "오면"
+      ],
+      "answer": 2,
+      "sentence": "한국에 온 지 일 년이 지났어요.",
+      "en": "It has been one year since I came to Korea.",
+      "why": "어떤 동작이 이루어진 시점부터 일정한 시간이 흘렀음을 나타낼 때는 「-(으)ㄴ 지」를 씁니다."
+    },
+    {
+      "stem": "운동을 ( ) 세 달이 되었습니다.",
+      "options": [
+        "시작하러",
+        "시작하면",
+        "시작하고",
+        "시작한 지"
+      ],
+      "answer": 3,
+      "sentence": "운동을 시작한 지 세 달이 되었습니다.",
+      "en": "It has been three months since I started exercising.",
+      "why": "동작이 시작된 이래로 경과한 시간을 나타낼 때는 관형형 어미와 의존 명사가 결합한 「시작한 지」가 알맞습니다."
+    }
+  ],
+  "29-1": [
+    {
+      "stem": "한국 노래를 잘 ( ) 수 있어요.",
+      "options": [
+        "부르고",
+        "부를",
+        "부르면",
+        "불러서"
+      ],
+      "answer": 1,
+      "sentence": "한국 노래를 잘 부를 수 있어요.",
+      "en": "I can sing Korean songs well.",
+      "why": "동작을 할 수 있는 능력이나 가능성을 나타낼 때 받침 없는 동사 어간 뒤에는 「부를 수 있다」가 알맞습니다."
+    },
+    {
+      "stem": "열심히 연습하면 피아노를 잘 ( ) 수 있어요.",
+      "options": [
+        "칠",
+        "치고",
+        "치면",
+        "쳐서"
+      ],
+      "answer": 0,
+      "sentence": "열심히 연습하면 피아노를 잘 칠 수 있어요.",
+      "en": "If you practice hard, you can play the piano well.",
+      "why": "가능성을 나타내는 「-(으)ㄹ 수 있다」에서 받침 없는 동사 어간 「치-」 뒤에는 「칠」이 결합합니다."
+    }
   ]
 }
