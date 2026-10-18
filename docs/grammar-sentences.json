@@ -680,6 +680,96 @@
       "ko": "어제 시험 문제는 전체에서 팔십 퍼센트쯤 맞았어요.",
       "en": "I got about 80 percent of the questions right on yesterdays exam.",
       "lv": 3
+    },
+    {
+      "ko": "오후 네 시쯤 만나요.",
+      "en": "Let's meet around 4 p.m.",
+      "lv": 1
+    },
+    {
+      "ko": "사탕 열 개쯤 남았어요.",
+      "en": "About ten candies are left.",
+      "lv": 1
+    },
+    {
+      "ko": "삼십 분쯤 걸려요.",
+      "en": "It takes about thirty minutes.",
+      "lv": 1
+    },
+    {
+      "ko": "만원쯤 들었어요.",
+      "en": "It cost about 10,000 won.",
+      "lv": 1
+    },
+    {
+      "ko": "오십 미터쯤 가세요.",
+      "en": "Please go about fifty meters.",
+      "lv": 1
+    },
+    {
+      "ko": "내일 정오쯤 끝나요.",
+      "en": "It finishes around noon tomorrow.",
+      "lv": 1
+    },
+    {
+      "ko": "회의실에 사람들이 서른 명쯤 모여 있어요.",
+      "en": "Around thirty people are gathered in the meeting room.",
+      "lv": 2
+    },
+    {
+      "ko": "국수는 한 그릇에 팔천 원쯤 해요.",
+      "en": "Noodles are around 8,000 won per bowl.",
+      "lv": 2
+    },
+    {
+      "ko": "정류장에서 버스를 십오 분쯤 기다렸어요.",
+      "en": "I waited about fifteen minutes for the bus at the stop.",
+      "lv": 2
+    },
+    {
+      "ko": "우리 집에서 학교까지 이 킬로미터쯤 돼요.",
+      "en": "It is about two kilometers from our house to school.",
+      "lv": 2
+    },
+    {
+      "ko": "마트에서 사과를 여섯 개쯤 샀어요.",
+      "en": "I bought about six apples at the mart.",
+      "lv": 2
+    },
+    {
+      "ko": "저녁 여덟 시쯤 친구가 도착할 거예요.",
+      "en": "My friend will arrive around 8 in the evening.",
+      "lv": 2
+    },
+    {
+      "ko": "주말 바비큐 파티에 스무 명쯤 초대할 계획이에요.",
+      "en": "I plan to invite about twenty people to weekend BBQ party.",
+      "lv": 3
+    },
+    {
+      "ko": "지하철역에서 목적지 건물까지 걸어가면 대략 십 분쯤 걸려요.",
+      "en": "Walking from subway station to destination building takes about 10 minutes.",
+      "lv": 3
+    },
+    {
+      "ko": "새로 산 외투는 원래 가격에서 삼십 퍼센트쯤 할인받았어요.",
+      "en": "The newly bought coat was discounted about thirty percent from original.",
+      "lv": 3
+    },
+    {
+      "ko": "한국어 시험에서 구십 점쯤 받을 것 같아요.",
+      "en": "I think I will receive around ninety points in the Korean exam.",
+      "lv": 3
+    },
+    {
+      "ko": "부산에서 출발한 열차가 지연되어 밤 열한 시쯤 도착했어요.",
+      "en": "The train from Busan was delayed, arriving around 11 at night.",
+      "lv": 3
+    },
+    {
+      "ko": "도서관 서가에 역사책이 오백 권쯤 꽂혀 있어요.",
+      "en": "About five hundred history books are shelved on the library bookcase.",
+      "lv": 3
     }
   ],
   "26-18": [
@@ -741,6 +831,96 @@
     {
       "ko": "어머니의 품처럼 포근하고 아늑한 방이에요.",
       "en": "It is a cozy room warm like a mothers embrace.",
+      "lv": 3
+    },
+    {
+      "ko": "달처럼 밝아요.",
+      "en": "It is bright like the moon.",
+      "lv": 1
+    },
+    {
+      "ko": "호랑이처럼 용감해요.",
+      "en": "Brave like a tiger.",
+      "lv": 1
+    },
+    {
+      "ko": "비단같이 부드러워요.",
+      "en": "Soft like silk.",
+      "lv": 1
+    },
+    {
+      "ko": "꽃처럼 활짝 웃어요.",
+      "en": "Smiles brightly like a flower.",
+      "lv": 1
+    },
+    {
+      "ko": "바위처럼 든든해요.",
+      "en": "Reliable like a rock.",
+      "lv": 1
+    },
+    {
+      "ko": "보석같이 빛나요.",
+      "en": "Shines like a jewel.",
+      "lv": 1
+    },
+    {
+      "ko": "맑은 가을 하늘이 바다처럼 푸르고 높아요.",
+      "en": "The clear autumn sky is blue and high like the sea.",
+      "lv": 2
+    },
+    {
+      "ko": "어린아이의 미소가 천사처럼 순수하고 아름다워요.",
+      "en": "The child's smile is pure and beautiful like an angel.",
+      "lv": 2
+    },
+    {
+      "ko": "민수는 거북이처럼 느리지만 끈기 있게 걸어요.",
+      "en": "Minsu is slow like a turtle, but walks tenaciously.",
+      "lv": 2
+    },
+    {
+      "ko": "산속 맑은 샘물이 얼음같이 차갑고 시원해요.",
+      "en": "The clear mountain spring water is cold and fresh like ice.",
+      "lv": 2
+    },
+    {
+      "ko": "새처럼 자유롭게 하늘을 날아보고 싶어요.",
+      "en": "I want to fly freely in the sky like a bird.",
+      "lv": 2
+    },
+    {
+      "ko": "어머니의 따스한 손길은 봄바람처럼 포근해요.",
+      "en": "Mother's warm hand is cozy like a spring breeze.",
+      "lv": 2
+    },
+    {
+      "ko": "선생님의 따뜻한 위로는 언제나 마른 땅의 단비처럼 고마워요.",
+      "en": "The teacher's warm consolation is always thankful like sweet rain on dry land.",
+      "lv": 3
+    },
+    {
+      "ko": "지수는 무대 위에서 전문 무용수처럼 우아하게 춤을 췄어요.",
+      "en": "Jisu danced elegantly on stage like a professional dancer.",
+      "lv": 3
+    },
+    {
+      "ko": "칠흑 같은 밤하늘에 반딧불이가 별빛처럼 반짝반짝 빛나고 있어요.",
+      "en": "In pitch-black night sky, fireflies sparkle like starlight.",
+      "lv": 3
+    },
+    {
+      "ko": "험한 파도를 헤치고 나아가는 배는 불사조같이 굳세어 보여요.",
+      "en": "A ship advancing through rough waves looks sturdy like a phoenix.",
+      "lv": 3
+    },
+    {
+      "ko": "오랜 소나무가 든든한 파수꾼처럼 숲을 지켜요.",
+      "en": "An old pine tree guards the forest like a reliable sentry.",
+      "lv": 3
+    },
+    {
+      "ko": "할머니의 정성이 담긴 된장찌개는 고향의 흙냄새처럼 구수해요.",
+      "en": "Doenjang stew with grandma's devotion is savory like hometown soil scent.",
       "lv": 3
     }
   ],
@@ -804,6 +984,96 @@
       "ko": "소설책을 읽는 것이 영화를 보는 것보다 흥미로워요.",
       "en": "Reading novels is more exciting than watching movies.",
       "lv": 3
+    },
+    {
+      "ko": "낮보다 밤이 시원해요.",
+      "en": "Night is cooler than day.",
+      "lv": 1
+    },
+    {
+      "ko": "꽃보다 사람이 아름다워요.",
+      "en": "People are more beautiful than flowers.",
+      "lv": 1
+    },
+    {
+      "ko": "말보다 실천이 중요해요.",
+      "en": "Action is more important than words.",
+      "lv": 1
+    },
+    {
+      "ko": "사탕보다 과일이 달아요.",
+      "en": "Fruit is sweeter than candy.",
+      "lv": 1
+    },
+    {
+      "ko": "바다보다 산이 좋아요.",
+      "en": "I like mountains better than the sea.",
+      "lv": 1
+    },
+    {
+      "ko": "오늘보다 내일이 따뜻해요.",
+      "en": "Tomorrow is warmer than today.",
+      "lv": 1
+    },
+    {
+      "ko": "지하철이 시내버스보다 훨씬 정체 없이 빨라요.",
+      "en": "The subway is much faster than city bus without traffic.",
+      "lv": 2
+    },
+    {
+      "ko": "이 가방은 디자인보다 실용성이 더 돋보여요.",
+      "en": "This bag stands out more for practicality than design.",
+      "lv": 2
+    },
+    {
+      "ko": "형은 축구보다 농구를 훨씬 더 잘해요.",
+      "en": "My brother plays basketball much better than soccer.",
+      "lv": 2
+    },
+    {
+      "ko": "겨울보다 초봄의 쌀쌀한 바람이 더 차가워요.",
+      "en": "Early spring's chilly wind is colder than winter.",
+      "lv": 2
+    },
+    {
+      "ko": "혼자보다 친구와 함께 먹는 식사가 좋아요.",
+      "en": "Dining together with a friend is better than eating alone.",
+      "lv": 2
+    },
+    {
+      "ko": "소설책보다 역사책이 내게는 더 흥미진진해요.",
+      "en": "History books are more exciting to me than novels.",
+      "lv": 2
+    },
+    {
+      "ko": "건강을 지키는 데는 값비싼 보약보다 규칙적인 운동이 효과적이에요.",
+      "en": "Regular exercise is more effective for health than expensive medicine.",
+      "lv": 3
+    },
+    {
+      "ko": "지수는 다른 어떤 과목보다 외국어 회화 공부를 재미있어해요.",
+      "en": "Jisu finds studying foreign language conversation funner than other subjects.",
+      "lv": 3
+    },
+    {
+      "ko": "복잡한 도심의 소음보다 조용한 시골의 풀벌레 소리가 평화로워요.",
+      "en": "Quiet countryside grass bug sounds are more peaceful than urban noise.",
+      "lv": 3
+    },
+    {
+      "ko": "겉으로 보이는 화려함보다 사람의 진실한 마음가짐이 훨씬 소중해요.",
+      "en": "A person's truthful mindset is much more precious than outward splendor.",
+      "lv": 3
+    },
+    {
+      "ko": "주메뉴보다 반찬으로 나오는 달걀말이가 더 인기예요.",
+      "en": "The rolled omelet served as a side dish is more popular than main menu.",
+      "lv": 3
+    },
+    {
+      "ko": "말보다 작은 행동을 직접 보여주는 편이 나아요.",
+      "en": "Directly showing small actions is better than words.",
+      "lv": 3
     }
   ],
   "26-20": [
@@ -865,6 +1135,96 @@
     {
       "ko": "지역마다 고유한 전통 축제와 행사가 열려요.",
       "en": "Traditional festivals and events unique to each region are held.",
+      "lv": 3
+    },
+    {
+      "ko": "시간마다 알람이 울려요.",
+      "en": "An alarm rings every hour.",
+      "lv": 1
+    },
+    {
+      "ko": "골목마다 가로등이 켜져요.",
+      "en": "Streetlights turn on in every alley.",
+      "lv": 1
+    },
+    {
+      "ko": "달마다 월급을 받아요.",
+      "en": "I receive salary every month.",
+      "lv": 1
+    },
+    {
+      "ko": "방마다 창문이 있어요.",
+      "en": "There is a window in every room.",
+      "lv": 1
+    },
+    {
+      "ko": "사람마다 얼굴이 달라요.",
+      "en": "Every person's face is different.",
+      "lv": 1
+    },
+    {
+      "ko": "꽃마다 향기가 달라요.",
+      "en": "Every flower's scent is different.",
+      "lv": 1
+    },
+    {
+      "ko": "토요일마다 동호회 사람들과 축구를 즐겨요.",
+      "en": "Every Saturday, I enjoy soccer with club members.",
+      "lv": 2
+    },
+    {
+      "ko": "이 지하철은 삼 분마다 역에 들어와요.",
+      "en": "This subway enters the station every three minutes.",
+      "lv": 2
+    },
+    {
+      "ko": "집집마다 마당에 예쁜 화분을 내놓았어요.",
+      "en": "Every house put pretty flowerpots in the yard.",
+      "lv": 2
+    },
+    {
+      "ko": "책상마다 최신 컴퓨터가 한 대씩 있어요.",
+      "en": "There is one latest computer on every desk.",
+      "lv": 2
+    },
+    {
+      "ko": "계절마다 새로운 옷을 사러 백화점에 가요.",
+      "en": "Every season, I go to department store to buy new clothes.",
+      "lv": 2
+    },
+    {
+      "ko": "밤마다 잠들기 전에 따뜻한 우유를 마셔요.",
+      "en": "Every night before sleeping, I drink warm milk.",
+      "lv": 2
+    },
+    {
+      "ko": "일요일 아침마다 온 가족이 모여 맛있는 식사를 함께해요.",
+      "en": "Every Sunday morning, the whole family gathers and eats delicious meal together.",
+      "lv": 3
+    },
+    {
+      "ko": "지하철 환승역마다 노약자를 위한 엘리베이터가 설치되어 있어요.",
+      "en": "Elevators for the elderly and disabled are installed at every subway transfer station.",
+      "lv": 3
+    },
+    {
+      "ko": "도서관은 층마다 전공별 참고 서적을 구비해 두었어요.",
+      "en": "The library equips reference books by major on each floor.",
+      "lv": 3
+    },
+    {
+      "ko": "해마다 가을이 찾아오면 설악산 단풍을 보러 관광객이 몰려요.",
+      "en": "Every year when autumn arrives, tourists flock to see Seoraksan foliage.",
+      "lv": 3
+    },
+    {
+      "ko": "선생님께서는 시험을 마친 학생마다 따뜻한 격려와 조언을 건네셨어요.",
+      "en": "The teacher offered warm encouragement and advice to every student after exam.",
+      "lv": 3
+    },
+    {
+      "ko": "마을 골목마다 피어난 장미꽃이 지나가는 행인들의 눈길을 사로잡아요.",
+      "en": "Roses blooming in every village alley captivate the attention of passersby.",
       "lv": 3
     }
   ],
@@ -928,6 +1288,96 @@
       "ko": "휴일에는 밀린 빨래를 하거나 방 청소를 끝내요.",
       "en": "On holidays, I do overdue laundry or finish cleaning the room.",
       "lv": 3
+    },
+    {
+      "ko": "뛰거나 천천히 걸어요.",
+      "en": "I run or walk slowly.",
+      "lv": 1
+    },
+    {
+      "ko": "웃거나 소리 내어 울어요.",
+      "en": "I laugh or cry out loud.",
+      "lv": 1
+    },
+    {
+      "ko": "사거나 가게에서 빌려요.",
+      "en": "I buy or borrow from a shop.",
+      "lv": 1
+    },
+    {
+      "ko": "이기거나 게임에서 져요.",
+      "en": "I win or lose in the game.",
+      "lv": 1
+    },
+    {
+      "ko": "받거나 직접 편지를 써요.",
+      "en": "I receive or directly write a letter.",
+      "lv": 1
+    },
+    {
+      "ko": "타거나 걸어서 학교에 가요.",
+      "en": "I ride or walk to school.",
+      "lv": 1
+    },
+    {
+      "ko": "주말에는 집에서 낮잠을 자거나 책을 읽어요.",
+      "en": "On weekends, I take a nap at home or read books.",
+      "lv": 2
+    },
+    {
+      "ko": "몸이 아프면 병원에 가거나 푹 쉬세요.",
+      "en": "If your body hurts, go to hospital or rest well.",
+      "lv": 2
+    },
+    {
+      "ko": "여름에는 시원한 수박을 먹거나 냉면을 먹어요.",
+      "en": "In summer, I eat cold watermelon or cold noodles.",
+      "lv": 2
+    },
+    {
+      "ko": "출근할 때는 버스를 타거나 지하철을 이용해요.",
+      "en": "When commuting, I take a bus or use the subway.",
+      "lv": 2
+    },
+    {
+      "ko": "생일에는 선물을 주거나 축하 카드를 써요.",
+      "en": "On birthdays, I give gifts or write a congratulation card.",
+      "lv": 2
+    },
+    {
+      "ko": "시간이 나면 강아지와 산책하거나 음악을 감상해요.",
+      "en": "When free, I walk the puppy or appreciate music.",
+      "lv": 2
+    },
+    {
+      "ko": "답답할 때는 탁 트인 바다를 보거나 산에 올라요.",
+      "en": "When feeling stuffy, I view the open sea or climb mountains.",
+      "lv": 3
+    },
+    {
+      "ko": "궁금한 내용이 생기면 인터넷으로 검색하거나 도서관 사전에서 찾아요.",
+      "en": "When curious, I search on internet or look up in library dictionaries.",
+      "lv": 3
+    },
+    {
+      "ko": "휴가 기간에는 제주도로 여행을 떠나거나 집에서 조용히 독서해요.",
+      "en": "During vacation, I travel to Jeju Island or read quietly at home.",
+      "lv": 3
+    },
+    {
+      "ko": "문제가 생기면 동료와 상의하거나 도움을 청하세요.",
+      "en": "When a problem arises, consult a colleague or ask for help.",
+      "lv": 3
+    },
+    {
+      "ko": "저녁 식사 후에 산책로를 걷거나 자전거를 타요.",
+      "en": "After dinner, I walk along the trail or ride a bicycle.",
+      "lv": 3
+    },
+    {
+      "ko": "외국인과 대화할 때는 몸짓을 쓰거나 쉬운 말을 골라요.",
+      "en": "When conversing with foreigners, I use gestures or choose easy words.",
+      "lv": 3
     }
   ],
   "27-3": [
@@ -989,6 +1439,96 @@
     {
       "ko": "식당이 골목에 있지만 손님들이 끊이지 않고 찾아와요.",
       "en": "Though the eatery is in an alley, customers visit continuously.",
+      "lv": 3
+    },
+    {
+      "ko": "힘들지만 보람이 있어요.",
+      "en": "It is tough, but rewarding.",
+      "lv": 1
+    },
+    {
+      "ko": "늦었지만 지금이라도 가요.",
+      "en": "It is late, but I go even now.",
+      "lv": 1
+    },
+    {
+      "ko": "어둡지만 등불을 켜요.",
+      "en": "It is dark, but I turn on the lamp.",
+      "lv": 1
+    },
+    {
+      "ko": "서툴지만 정성을 다해요.",
+      "en": "I am clumsy, but I do my best.",
+      "lv": 1
+    },
+    {
+      "ko": "추웠지만 마음은 따뜻해요.",
+      "en": "It was cold, but my heart is warm.",
+      "lv": 1
+    },
+    {
+      "ko": "멀지만 자주 찾아가요.",
+      "en": "It is far, but I visit often.",
+      "lv": 1
+    },
+    {
+      "ko": "외모는 무섭지만 성격은 아주 다정해요.",
+      "en": "Appearance is scary, but personality is very tender.",
+      "lv": 2
+    },
+    {
+      "ko": "일은 고되지만 보수가 꽤 넉넉해요.",
+      "en": "Work is tough, but pay is quite generous.",
+      "lv": 2
+    },
+    {
+      "ko": "이 옷은 얇지만 보온성이 참 뛰어나요.",
+      "en": "This clothing is thin, but warmth retention is superb.",
+      "lv": 2
+    },
+    {
+      "ko": "눈이 많이 내렸지만 도로는 얼지 않았어요.",
+      "en": "Much snow fell, but roads did not freeze.",
+      "lv": 2
+    },
+    {
+      "ko": "동생은 나이는 어리지만 생각이 매우 깊어요.",
+      "en": "The younger sibling is young in age, but thoughts are deep.",
+      "lv": 2
+    },
+    {
+      "ko": "값은 저렴하지만 음식 맛이 제법 훌륭해요.",
+      "en": "Price is cheap, but food taste is quite great.",
+      "lv": 2
+    },
+    {
+      "ko": "어려운 형편이지만 이웃을 돕는 일에 늘 앞장서고 있어요.",
+      "en": "Though in difficult circumstances, always leading in helping neighbors.",
+      "lv": 3
+    },
+    {
+      "ko": "등산로는 험하고 가팔랐지만 정상에서 바라본 풍경은 정말 장관이었어요.",
+      "en": "Hiking trail was rough and steep, but scenery from summit was magnificent.",
+      "lv": 3
+    },
+    {
+      "ko": "목소리는 조금 작았지만 전하고자 하는 뜻은 분명하게 전달되었어요.",
+      "en": "Voice was a bit small, but intended meaning was conveyed clearly.",
+      "lv": 3
+    },
+    {
+      "ko": "개발에 어려움이 따랐지만 성공적으로 완성했어요.",
+      "en": "Though difficulties arose during development, it was completed successfully.",
+      "lv": 3
+    },
+    {
+      "ko": "지수는 몸살감기로 아팠지만 맡은 일을 책임감 있게 완수했어요.",
+      "en": "Jisu was sick with body-ache cold, but responsibly completed assigned work.",
+      "lv": 3
+    },
+    {
+      "ko": "처음에는 두렵고 막막했지만 동료들의 격려 덕분에 용기를 얻었어요.",
+      "en": "At first fearful and at a loss, gained courage thanks to colleagues' cheers.",
       "lv": 3
     }
   ],
@@ -1052,6 +1592,96 @@
       "ko": "요리를 하기 전에 필요한 재료를 모두 꺼냈어요.",
       "en": "Before cooking, I took out all necessary ingredients.",
       "lv": 3
+    },
+    {
+      "ko": "출근하기 전에 씻어요.",
+      "en": "I wash up before going to work.",
+      "lv": 1
+    },
+    {
+      "ko": "수영하기 전에 준비운동해요.",
+      "en": "I do warm-up exercises before swimming.",
+      "lv": 1
+    },
+    {
+      "ko": "사기 전에 입어 봐요.",
+      "en": "I try it on before buying.",
+      "lv": 1
+    },
+    {
+      "ko": "결정하기 전에 생각해요.",
+      "en": "I think before deciding.",
+      "lv": 1
+    },
+    {
+      "ko": "타기 전에 표를 사요.",
+      "en": "I buy a ticket before boarding.",
+      "lv": 1
+    },
+    {
+      "ko": "들어가기 전에 노크해요.",
+      "en": "I knock before entering.",
+      "lv": 1
+    },
+    {
+      "ko": "약국에서 약을 복용하기 전에 설명서를 읽어요.",
+      "en": "Before taking medicine from pharmacy, I read instructions.",
+      "lv": 2
+    },
+    {
+      "ko": "컴퓨터를 끄기 전에 작업 파일을 저장했어요.",
+      "en": "Before turning off computer, I saved work file.",
+      "lv": 2
+    },
+    {
+      "ko": "해외로 출국하기 전에 환전을 미리 해두었어요.",
+      "en": "Before leaving abroad, I exchanged money in advance.",
+      "lv": 2
+    },
+    {
+      "ko": "집에서 나가기 전에 가스 밸브를 확인하세요.",
+      "en": "Before going out of house, please check gas valve.",
+      "lv": 2
+    },
+    {
+      "ko": "새로운 도시로 이사하기 전에 집을 둘러봤어요.",
+      "en": "Before moving to a new city, I looked around houses.",
+      "lv": 2
+    },
+    {
+      "ko": "음식을 조리하기 전에 손을 깨끗이 씻었어요.",
+      "en": "Before cooking food, I washed hands cleanly.",
+      "lv": 2
+    },
+    {
+      "ko": "중요한 발표를 시작하기 전에 발표 자료를 차분하게 재검토했어요.",
+      "en": "Before starting important presentation, calmly re-reviewed materials.",
+      "lv": 3
+    },
+    {
+      "ko": "운전하기 전에 타이어 공기압을 꼼꼼히 점검해 두었어요.",
+      "en": "Before driving, I meticulously checked tire pressure.",
+      "lv": 3
+    },
+    {
+      "ko": "도장을 찍기 전에 조항 내용을 변호사와 상담했어요.",
+      "en": "Before stamping the seal, I consulted clauses with a lawyer.",
+      "lv": 3
+    },
+    {
+      "ko": "무대에 올라가기 전에 심호흡을 하며 마음을 가라앉혔어요.",
+      "en": "Before stepping onto the stage, I took deep breaths and calmed down.",
+      "lv": 3
+    },
+    {
+      "ko": "서류를 제출하기 전에 오탈자가 없는지 꼼꼼히 살폈어요.",
+      "en": "Before submitting documents, I meticulously checked for typos.",
+      "lv": 3
+    },
+    {
+      "ko": "인터넷 쇼핑몰에서 물건을 결제하기 전에 상품 후기를 읽어보세요.",
+      "en": "Before paying for item at internet mall, please read product reviews.",
+      "lv": 3
     }
   ],
   "28-3": [
@@ -1113,6 +1743,96 @@
     {
       "ko": "한국어를 열심히 배우고 나서 한국 여행을 떠나고 싶어요.",
       "en": "After studying Korean hard, I want to travel to Korea.",
+      "lv": 3
+    },
+    {
+      "ko": "자고 나서 힘이 나요.",
+      "en": "After sleeping, I feel energetic.",
+      "lv": 1
+    },
+    {
+      "ko": "뛰고 나서 숨을 골라요.",
+      "en": "After running, I catch breath.",
+      "lv": 1
+    },
+    {
+      "ko": "차를 마시고 나서 떠나요.",
+      "en": "After drinking tea, I leave.",
+      "lv": 1
+    },
+    {
+      "ko": "책을 덮고 나서 생각해요.",
+      "en": "After closing book, I ponder.",
+      "lv": 1
+    },
+    {
+      "ko": "씻고 나서 밥상 차려요.",
+      "en": "After washing, I set the dining table.",
+      "lv": 1
+    },
+    {
+      "ko": "문 잠그고 나서 출발해요.",
+      "en": "After locking door, I depart.",
+      "lv": 1
+    },
+    {
+      "ko": "따뜻한 차를 마시고 나서 마음을 진정시켰어요.",
+      "en": "After drinking warm tea, I calmed my mind.",
+      "lv": 2
+    },
+    {
+      "ko": "양치하고 나서 거울을 보며 웃었어요.",
+      "en": "After brushing teeth, I smiled looking at mirror.",
+      "lv": 2
+    },
+    {
+      "ko": "밀린 설거지를 끝내고 나서 편안하게 쉬었어요.",
+      "en": "After finishing piled-up dishes, I rested comfortably.",
+      "lv": 2
+    },
+    {
+      "ko": "헬스장에서 땀을 흘리고 나서 찬물을 마셨어요.",
+      "en": "After sweating at gym, I drank cold water.",
+      "lv": 2
+    },
+    {
+      "ko": "옷을 입어 보고 나서 거울을 봤어요.",
+      "en": "After trying on clothes, I looked in the mirror.",
+      "lv": 2
+    },
+    {
+      "ko": "물건값을 계산하고 나서 영수증을 꼼꼼히 챙겼어요.",
+      "en": "After paying for items, I carefully packed receipt.",
+      "lv": 2
+    },
+    {
+      "ko": "퇴근하고 나서 노을을 바라보며 산책로를 조용히 걸었어요.",
+      "en": "After leaving work, I quietly walked trail viewing sunset.",
+      "lv": 3
+    },
+    {
+      "ko": "공연을 성공적으로 마치고 나서 안도의 한숨을 내쉬었어요.",
+      "en": "After successfully finishing the performance, breathed a sigh of relief.",
+      "lv": 3
+    },
+    {
+      "ko": "기기를 구입하고 나서 설명서를 한 장씩 정독했어요.",
+      "en": "After purchasing device, read manual page by page closely.",
+      "lv": 3
+    },
+    {
+      "ko": "김장을 담그고 나서 삶은 돼지고기를 맛있게 먹었어요.",
+      "en": "After making kimchi, ate boiled pork deliciously.",
+      "lv": 3
+    },
+    {
+      "ko": "준비를 완벽히 마치고 나서 열쇠를 주머니에 넣었어요.",
+      "en": "After perfectly finishing prep, put key in pocket.",
+      "lv": 3
+    },
+    {
+      "ko": "퍼즐을 혼자 힘으로 완성하고 나서 성취감을 맛보았어요.",
+      "en": "After completing puzzle on my own, tasted sense of achievement.",
       "lv": 3
     }
   ],
@@ -1176,6 +1896,96 @@
       "ko": "동생이 텔레비전을 보면서 즐겁게 팝콘을 집어 먹어요.",
       "en": "My sibling happily munches on popcorn while watching television.",
       "lv": 3
+    },
+    {
+      "ko": "울면서 이야기를 했어요.",
+      "en": "I talked while crying.",
+      "lv": 1
+    },
+    {
+      "ko": "노래하면서 기타를 쳐요.",
+      "en": "I play the guitar while singing.",
+      "lv": 1
+    },
+    {
+      "ko": "손뼉을 치면서 환호해요.",
+      "en": "I cheer while clapping hands.",
+      "lv": 1
+    },
+    {
+      "ko": "손을 흔들면서 배웅해요.",
+      "en": "I see off while waving hands.",
+      "lv": 1
+    },
+    {
+      "ko": "차를 마시면서 대화해요.",
+      "en": "We converse while drinking tea.",
+      "lv": 1
+    },
+    {
+      "ko": "신문을 보면서 끄덕여요.",
+      "en": "I nod while viewing the newspaper.",
+      "lv": 1
+    },
+    {
+      "ko": "경치를 감상하면서 호숫가를 천천히 걸었어요.",
+      "en": "Appreciating the scenery, I slowly walked the lakeshore.",
+      "lv": 2
+    },
+    {
+      "ko": "민수는 웃으면서 동료들에게 커피를 건넸어요.",
+      "en": "Smiling, Minsu handed coffee to his colleagues.",
+      "lv": 2
+    },
+    {
+      "ko": "메모를 하면서 회의 내용을 귀담아들었어요.",
+      "en": "Taking notes, I listened attentively to the meeting.",
+      "lv": 2
+    },
+    {
+      "ko": "맛있는 팝콘을 먹으면서 흥미진진한 영화를 봤어요.",
+      "en": "Eating delicious popcorn, I watched an exciting movie.",
+      "lv": 2
+    },
+    {
+      "ko": "자전거를 타면서 시원한 강바람을 쐬었어요.",
+      "en": "Riding a bicycle, I enjoyed the cool river breeze.",
+      "lv": 2
+    },
+    {
+      "ko": "라디오를 들으면서 주방에서 저녁 요리를 해요.",
+      "en": "Listening to the radio, I cook dinner in the kitchen.",
+      "lv": 2
+    },
+    {
+      "ko": "선생님은 학생들을 바라보면서 수업을 진행하셨어요.",
+      "en": "The teacher conducted class while looking warmly at students.",
+      "lv": 3
+    },
+    {
+      "ko": "지수는 질문에 대답하면서 손가락으로 칠판의 글씨를 가리켰어요.",
+      "en": "While answering questions, Jisu pointed at words on the board.",
+      "lv": 3
+    },
+    {
+      "ko": "출근길 지하철에 서 있으면서 영어 단어장을 꼼꼼히 외웠어요.",
+      "en": "Standing in the commute subway, I memorized English vocabulary.",
+      "lv": 3
+    },
+    {
+      "ko": "가족들이 식탁에 둘러앉아 저녁을 먹으면서 하루 일과를 나눴어요.",
+      "en": "Sitting around the dinner table, family shared their daily routines.",
+      "lv": 3
+    },
+    {
+      "ko": "빗소리를 들으면서 따뜻한 차를 마시는 여유를 즐겼어요.",
+      "en": "Listening to rain, I enjoyed the leisure of drinking warm tea.",
+      "lv": 3
+    },
+    {
+      "ko": "컴퓨터 화면을 주시하면서 양손으로 키보드를 빠르게 두드렸어요.",
+      "en": "Watching the computer screen, I typed quickly on the keyboard.",
+      "lv": 3
     }
   ],
   "28-8": [
@@ -1237,6 +2047,96 @@
     {
       "ko": "가게 문을 열자마자 손님들이 줄을 서서 들어왔어요.",
       "en": "As soon as the store opened, customers lined up and came in.",
+      "lv": 3
+    },
+    {
+      "ko": "앉자마자 일어났어요.",
+      "en": "I stood up as soon as I sat down.",
+      "lv": 1
+    },
+    {
+      "ko": "닫자마자 소리가 났어요.",
+      "en": "A sound was heard as soon as it closed.",
+      "lv": 1
+    },
+    {
+      "ko": "듣자마자 깜짝 놀랐어요.",
+      "en": "I was startled as soon as I heard it.",
+      "lv": 1
+    },
+    {
+      "ko": "보자마자 마음에 들었어요.",
+      "en": "I liked it as soon as I saw it.",
+      "lv": 1
+    },
+    {
+      "ko": "타자마자 출발했어요.",
+      "en": "It departed as soon as I got on.",
+      "lv": 1
+    },
+    {
+      "ko": "닿자마자 차가웠어요.",
+      "en": "It felt cold as soon as it touched.",
+      "lv": 1
+    },
+    {
+      "ko": "문을 열자마자 시원한 바람이 불어왔어요.",
+      "en": "A cool breeze blew in as soon as I opened the door.",
+      "lv": 2
+    },
+    {
+      "ko": "침대에 눕자마자 깊은 잠에 빠져들었어요.",
+      "en": "I fell into a deep sleep as soon as I lay on bed.",
+      "lv": 2
+    },
+    {
+      "ko": "벨이 울리자마자 서둘러 현관으로 나갔어요.",
+      "en": "I hurried to the front door as soon as the bell rang.",
+      "lv": 2
+    },
+    {
+      "ko": "수업이 끝나자마자 운동장으로 달려갔어요.",
+      "en": "I ran to the playground as soon as class ended.",
+      "lv": 2
+    },
+    {
+      "ko": "버스가 정차하자마자 승객들이 우르르 내렸어요.",
+      "en": "Passengers poured out as soon as the bus stopped.",
+      "lv": 2
+    },
+    {
+      "ko": "편지를 받자마자 봉투를 뜯어 읽었어요.",
+      "en": "I opened the envelope and read as soon as I got the letter.",
+      "lv": 2
+    },
+    {
+      "ko": "시험지를 받자마자 첫 문제부터 빠르게 풀었어요.",
+      "en": "I solved from the first question quickly upon receiving the test.",
+      "lv": 3
+    },
+    {
+      "ko": "공항 입국장에 들어서자마자 오랜만에 만난 가족과 뜨겁게 포옹했어요.",
+      "en": "I hugged my family warmly as soon as I entered arrivals.",
+      "lv": 3
+    },
+    {
+      "ko": "컴퓨터 전원을 켜자마자 밀린 업무 메일들을 꼼꼼하게 확인했어요.",
+      "en": "I checked overdue emails as soon as I turned on the computer.",
+      "lv": 3
+    },
+    {
+      "ko": "가수가 등장하자마자 관객들의 뜨거운 함성이 터져 나왔어요.",
+      "en": "Audience's cheers erupted as soon as the singer appeared.",
+      "lv": 3
+    },
+    {
+      "ko": "알람이 울리자마자 이불을 박차고 일어나 세수를 했어요.",
+      "en": "As soon as the alarm rang, I got out of bed and washed my face.",
+      "lv": 3
+    },
+    {
+      "ko": "주문이 들어가자마자 주방장이 능숙하게 요리를 시작했어요.",
+      "en": "The chef skillfully began cooking as soon as the order was placed.",
       "lv": 3
     }
   ],
@@ -1300,6 +2200,96 @@
       "ko": "도서관 안에서는 다른 사람을 위해 조용히 이야기하세요.",
       "en": "Please speak quietly for others inside the library.",
       "lv": 3
+    },
+    {
+      "ko": "잠시만 기다리세요.",
+      "en": "Please wait for a moment.",
+      "lv": 1
+    },
+    {
+      "ko": "안으로 들어오세요.",
+      "en": "Please come inside.",
+      "lv": 1
+    },
+    {
+      "ko": "이름을 적으세요.",
+      "en": "Please write down your name.",
+      "lv": 1
+    },
+    {
+      "ko": "천천히 걸으세요.",
+      "en": "Please walk slowly.",
+      "lv": 1
+    },
+    {
+      "ko": "안전벨트를 매세요.",
+      "en": "Please fasten your seatbelt.",
+      "lv": 1
+    },
+    {
+      "ko": "창문을 닫으세요.",
+      "en": "Please close the window.",
+      "lv": 1
+    },
+    {
+      "ko": "외출할 때는 마스크를 꼭 착용하세요.",
+      "en": "Please make sure to wear a mask when going outside.",
+      "lv": 2
+    },
+    {
+      "ko": "엘리베이터가 오면 먼저 타세요.",
+      "en": "When the elevator arrives, please board first.",
+      "lv": 2
+    },
+    {
+      "ko": "신발을 벗고 실내화로 갈아 신으세요.",
+      "en": "Please take off your shoes and change into slippers.",
+      "lv": 2
+    },
+    {
+      "ko": "준비된 자료를 한 장씩 가져가세요.",
+      "en": "Please take one sheet of the prepared materials.",
+      "lv": 2
+    },
+    {
+      "ko": "퇴근하기 전에 컴퓨터 전원을 끄세요.",
+      "en": "Please turn off your computer before leaving work.",
+      "lv": 2
+    },
+    {
+      "ko": "손잡이를 잡고 천천히 계단을 내려가세요.",
+      "en": "Please hold the handrail and walk down the stairs slowly.",
+      "lv": 2
+    },
+    {
+      "ko": "불편한 점이 있으면 즉시 안내 데스크로 문의하세요.",
+      "en": "If any inconvenience occurs, please inquire at the front desk.",
+      "lv": 3
+    },
+    {
+      "ko": "늦지 않도록 출발 시간을 미리 여유 있게 잡으세요.",
+      "en": "Please leave plenty of time so that you are not late.",
+      "lv": 3
+    },
+    {
+      "ko": "계약서를 작성하기 전에 중요 조항들을 꼼꼼하게 살피세요.",
+      "en": "Please examine the important clauses carefully before signing.",
+      "lv": 3
+    },
+    {
+      "ko": "무거운 짐을 들 때는 허리 부상에 유의하세요.",
+      "en": "Please be careful of back injuries when lifting heavy loads.",
+      "lv": 3
+    },
+    {
+      "ko": "승강장과 열차 사이 틈이 넓으니 주의하세요.",
+      "en": "Please watch your step as the gap to the train is wide.",
+      "lv": 3
+    },
+    {
+      "ko": "도서관 내에서는 정숙을 유지하고 휴대전화는 진동으로 바꾸세요.",
+      "en": "Please keep quiet in library and set phones to vibrate.",
+      "lv": 3
     }
   ],
   "30-2": [
@@ -1361,6 +2351,96 @@
     {
       "ko": "병원 내부에서는 다른 환자들을 배려하여 전화를 받지 마세요.",
       "en": "Please do not take calls inside the hospital out of consideration for other patients.",
+      "lv": 3
+    },
+    {
+      "ko": "담배를 피우지 마세요.",
+      "en": "Please do not smoke.",
+      "lv": 1
+    },
+    {
+      "ko": "길에 쓰레기 버리지 마세요.",
+      "en": "Do not litter on the street.",
+      "lv": 1
+    },
+    {
+      "ko": "소리 지르지 마세요.",
+      "en": "Please do not shout.",
+      "lv": 1
+    },
+    {
+      "ko": "잔디밭에 들어가지 마세요.",
+      "en": "Please do not enter the lawn.",
+      "lv": 1
+    },
+    {
+      "ko": "거짓말하지 마세요.",
+      "en": "Please do not tell lies.",
+      "lv": 1
+    },
+    {
+      "ko": "포기하지 마세요.",
+      "en": "Please do not give up.",
+      "lv": 1
+    },
+    {
+      "ko": "위험하니 난간에 기대지 마세요.",
+      "en": "It is dangerous, so do not lean against the railing.",
+      "lv": 2
+    },
+    {
+      "ko": "출입 금지 구역에 들어가지 마세요.",
+      "en": "Please do not enter restricted areas.",
+      "lv": 2
+    },
+    {
+      "ko": "문이 닫힐 때 억지로 타지 마세요.",
+      "en": "Do not force your way in when doors close.",
+      "lv": 2
+    },
+    {
+      "ko": "차 안에서 안전벨트를 풀지 마세요.",
+      "en": "Do not unfasten your seatbelt in the car.",
+      "lv": 2
+    },
+    {
+      "ko": "길거리에서 다른 사람을 밀치지 마세요.",
+      "en": "Do not push other people on the street.",
+      "lv": 2
+    },
+    {
+      "ko": "시험 중에 휴대전화를 만지지 마세요.",
+      "en": "Do not touch your mobile phone during the exam.",
+      "lv": 2
+    },
+    {
+      "ko": "위험한 도로변에서 공놀이를 하지 마세요.",
+      "en": "Please do not play ball games along dangerous roadsides.",
+      "lv": 3
+    },
+    {
+      "ko": "지하철 환승 통로에서 뛰거나 스마트폰을 보며 걷지 마세요.",
+      "en": "Do not run or walk watching smartphones in transfer aisles.",
+      "lv": 3
+    },
+    {
+      "ko": "검증되지 않은 뜬소문을 인터넷 게시판에 함부로 퍼뜨리지 마세요.",
+      "en": "Do not carelessly spread unverified rumors on the web.",
+      "lv": 3
+    },
+    {
+      "ko": "영화 상영 중에 휴대폰을 환하게 켜지 마세요.",
+      "en": "Do not brightly turn on your phone screen during movies.",
+      "lv": 3
+    },
+    {
+      "ko": "야생 동물에게 사람이 먹는 가공식품을 먹이로 던져주지 마세요.",
+      "en": "Do not toss processed human food as feed to wild animals.",
+      "lv": 3
+    },
+    {
+      "ko": "개인정보가 담긴 중요한 서류를 아무 데나 방치하지 마세요.",
+      "en": "Do not leave confidential documents containing personal data around.",
       "lv": 3
     }
   ],
@@ -3346,6 +4426,96 @@
       "ko": "방학 동안 영어 회화나 컴퓨터를 배울 생각이에요.",
       "en": "During vacation, I plan to learn English conversation or computers.",
       "lv": 3
+    },
+    {
+      "ko": "녹차나 홍차를 마셔요.",
+      "en": "I drink green tea or black tea.",
+      "lv": 1
+    },
+    {
+      "ko": "사과나 배를 골라요.",
+      "en": "I choose an apple or a pear.",
+      "lv": 1
+    },
+    {
+      "ko": "소설이나 시를 읽어요.",
+      "en": "I read novels or poems.",
+      "lv": 1
+    },
+    {
+      "ko": "바지나 치마를 입어요.",
+      "en": "I wear pants or a skirt.",
+      "lv": 1
+    },
+    {
+      "ko": "바나나나 귤을 주세요.",
+      "en": "Please give me bananas or tangerines.",
+      "lv": 1
+    },
+    {
+      "ko": "농구나 축구를 해요.",
+      "en": "I play basketball or soccer.",
+      "lv": 1
+    },
+    {
+      "ko": "점심으로 비빔밥이나 라면을 먹을래요.",
+      "en": "For lunch, I would like to eat bibimbap or ramen.",
+      "lv": 2
+    },
+    {
+      "ko": "주말에 가족과 수목원이나 공원에 가요.",
+      "en": "On weekends I go to an arboretum or park with family.",
+      "lv": 2
+    },
+    {
+      "ko": "생일에 책이나 상품권을 받고 싶어요.",
+      "en": "I want to receive a book or a gift certificate for my birthday.",
+      "lv": 2
+    },
+    {
+      "ko": "문구점에서 가위나 풀을 사야 해요.",
+      "en": "I need to buy scissors or glue at the stationery store.",
+      "lv": 2
+    },
+    {
+      "ko": "가벼운 감기에는 따뜻한 차나 물을 마셔요.",
+      "en": "For a mild cold, I drink warm tea or water.",
+      "lv": 2
+    },
+    {
+      "ko": "심심할 때는 음악이나 라디오를 들어요.",
+      "en": "When I am bored, I listen to music or radio.",
+      "lv": 2
+    },
+    {
+      "ko": "퇴근 후에는 가벼운 스트레칭이나 요가를 하며 쉬어요.",
+      "en": "After work, I rest while doing light stretching or yoga.",
+      "lv": 3
+    },
+    {
+      "ko": "명절에는 오랜만에 만난 친척들과 윷놀이나 카드놀이를 즐겨요.",
+      "en": "During holidays, I enjoy yut nori or card games with relatives.",
+      "lv": 3
+    },
+    {
+      "ko": "스트레스가 쌓이면 친한 친구와 수다나 노래방을 찾아요.",
+      "en": "When stressed, I seek chatting or karaoke with close friends.",
+      "lv": 3
+    },
+    {
+      "ko": "이번 연휴에는 조용한 사찰이나 바닷가 마을로 여행을 가요.",
+      "en": "This holiday, I am traveling to a quiet temple or seaside village.",
+      "lv": 3
+    },
+    {
+      "ko": "출출한 야식으로는 담백한 메밀국수나 죽이 속을 편하게 해줘요.",
+      "en": "For a late-night snack, light buckwheat noodles or porridge feels easy.",
+      "lv": 3
+    },
+    {
+      "ko": "주말에는 집에서 밀린 청소나 빨래를 차근차근 정리해요.",
+      "en": "On weekends, I steadily sort out overdue cleaning or laundry at home.",
+      "lv": 3
     }
   ],
   "26-16": [
@@ -3407,6 +4577,96 @@
     {
       "ko": "어제 할인 행사에서 옷을 일곱 벌이나 샀어요.",
       "en": "I bought as many as seven pieces of clothing at the discount sale yesterday.",
+      "lv": 3
+    },
+    {
+      "ko": "다섯 그릇이나 비웠어요.",
+      "en": "I emptied five bowls.",
+      "lv": 1
+    },
+    {
+      "ko": "삼십 분이나 늦었어요.",
+      "en": "I was thirty minutes late.",
+      "lv": 1
+    },
+    {
+      "ko": "일곱 병이나 마셨어요.",
+      "en": "I drank seven bottles.",
+      "lv": 1
+    },
+    {
+      "ko": "스무 쪽이나 읽었어요.",
+      "en": "I read twenty pages.",
+      "lv": 1
+    },
+    {
+      "ko": "오십 명이나 모였어요.",
+      "en": "As many as fifty people gathered.",
+      "lv": 1
+    },
+    {
+      "ko": "여섯 번이나 확인했어요.",
+      "en": "I checked as many as six times.",
+      "lv": 1
+    },
+    {
+      "ko": "오늘 계단을 십 층이나 걸어 올라갔어요.",
+      "en": "Today I walked up ten floors of stairs.",
+      "lv": 2
+    },
+    {
+      "ko": "어제는 저녁을 두 그릇이나 먹었어요.",
+      "en": "Yesterday I ate two bowls of dinner.",
+      "lv": 2
+    },
+    {
+      "ko": "마트에서 신선한 귤을 세 상자나 샀어요.",
+      "en": "I bought as many as three boxes of fresh tangerines at the mart.",
+      "lv": 2
+    },
+    {
+      "ko": "도서관에 재미있는 소설책이 천 권이나 있어요.",
+      "en": "There are as many as a thousand interesting novel books in library.",
+      "lv": 2
+    },
+    {
+      "ko": "교통 체증으로 차에서 두 시간이나 머물렀어요.",
+      "en": "Due to traffic congestion, I stayed in the car for two hours.",
+      "lv": 2
+    },
+    {
+      "ko": "민수는 오늘 골을 세 개나 넣었어요.",
+      "en": "Minsu scored three goals today.",
+      "lv": 2
+    },
+    {
+      "ko": "어젯밤에 야근하느라 회사에서 서류를 오십 장이나 작성했어요.",
+      "en": "Working overtime last night, I drafted fifty sheets of documents at company.",
+      "lv": 3
+    },
+    {
+      "ko": "콩쿠르를 위해 같은 곡을 백 번이나 연습했어요.",
+      "en": "I practiced the same piece a hundred times for the competition.",
+      "lv": 3
+    },
+    {
+      "ko": "폭설로 도로에서 차들이 다섯 시간이나 꼼짝 못 했어요.",
+      "en": "Due to heavy snow, cars could not move on roads for five hours.",
+      "lv": 3
+    },
+    {
+      "ko": "유명한 빵집 앞에 아침부터 백 명이나 줄을 섰어요.",
+      "en": "In front of the famous bakery, a hundred people queued from morning.",
+      "lv": 3
+    },
+    {
+      "ko": "비행기를 타고 유럽까지 열네 시간이나 쉬지 않고 날아갔어요.",
+      "en": "Taking a flight, I flew fourteen hours nonstop to Europe.",
+      "lv": 3
+    },
+    {
+      "ko": "선생님께서는 학생들의 작문 과제를 밤새 삼십 편이나 첨삭하셨어요.",
+      "en": "The teacher edited thirty student essay assignments throughout the night.",
       "lv": 3
     }
   ],
@@ -3470,6 +4730,96 @@
       "ko": "퇴근하고 장을 보고 집에서 저녁을 먹었어요.",
       "en": "I left work, did groceries, and ate dinner at home.",
       "lv": 3
+    },
+    {
+      "ko": "바람이 불고 비가 내려요.",
+      "en": "The wind blows and rain falls.",
+      "lv": 1
+    },
+    {
+      "ko": "책을 읽고 잠을 자요.",
+      "en": "I read a book and sleep.",
+      "lv": 1
+    },
+    {
+      "ko": "물을 끓이고 차를 타요.",
+      "en": "I boil water and brew tea.",
+      "lv": 1
+    },
+    {
+      "ko": "창문을 열고 환기해요.",
+      "en": "I open the window and ventilate.",
+      "lv": 1
+    },
+    {
+      "ko": "신발을 신고 밖으로 나가요.",
+      "en": "I put on shoes and go outside.",
+      "lv": 1
+    },
+    {
+      "ko": "방이 조용하고 깨끗해요.",
+      "en": "The room is quiet and clean.",
+      "lv": 1
+    },
+    {
+      "ko": "지수는 노래도 잘 부르고 춤도 춰요.",
+      "en": "Jisu sings songs well and dances too.",
+      "lv": 2
+    },
+    {
+      "ko": "사과를 깎아서 접시에 담고 포크를 챙겼어요.",
+      "en": "I peeled apples, put them on plate, and got forks.",
+      "lv": 2
+    },
+    {
+      "ko": "가방에서 필통을 꺼내고 공책을 펼쳤어요.",
+      "en": "I took pencil case out of bag and opened notebook.",
+      "lv": 2
+    },
+    {
+      "ko": "동생은 거실에서 그림을 그리고 형은 쉬어요.",
+      "en": "The younger sibling draws pictures in living room, older brother rests.",
+      "lv": 2
+    },
+    {
+      "ko": "아침 식사를 챙겨 먹고 출근길에 올랐어요.",
+      "en": "I ate breakfast and set out on my commute.",
+      "lv": 2
+    },
+    {
+      "ko": "하늘이 푸르고 맑은 공기가 상쾌하게 느껴져요.",
+      "en": "The sky is blue and the clear air feels refreshing.",
+      "lv": 2
+    },
+    {
+      "ko": "방 청소를 끝내고 맛있는 간식을 만들어 먹었어요.",
+      "en": "I finished cleaning the room and made delicious snacks.",
+      "lv": 3
+    },
+    {
+      "ko": "선생님은 문제를 설명하시고 학생들의 질문을 받으셨어요.",
+      "en": "The teacher explained the problems and took students' questions.",
+      "lv": 3
+    },
+    {
+      "ko": "퇴근길에 저녁거리를 사고 집 앞 공원을 걸었어요.",
+      "en": "On commute, I bought dinner ingredients and walked in the park.",
+      "lv": 3
+    },
+    {
+      "ko": "비가 그치고 먹구름이 걷히자 무지개가 떴어요.",
+      "en": "As the rain stopped and clouds cleared, a rainbow appeared.",
+      "lv": 3
+    },
+    {
+      "ko": "컴퓨터 전원을 켜고 메일함에 도착한 편지를 확인했어요.",
+      "en": "I turned on the computer and checked the mail in my inbox.",
+      "lv": 3
+    },
+    {
+      "ko": "도서관에서 필요한 자료를 꼼꼼하게 찾고 메모장에 요약해 두었어요.",
+      "en": "In the library, I meticulously searched needed data and summarized in memo.",
+      "lv": 3
     }
   ],
   "27-4": [
@@ -3531,6 +4881,96 @@
     {
       "ko": "길이 많이 막히는데 지하철을 타는 게 어때요?",
       "en": "Traffic is heavily jammed; how about taking the subway?",
+      "lv": 3
+    },
+    {
+      "ko": "목마른데 물 좀 주세요.",
+      "en": "I am thirsty, please give me water.",
+      "lv": 1
+    },
+    {
+      "ko": "졸린데 커피 마셔요.",
+      "en": "I am sleepy, so I drink coffee.",
+      "lv": 1
+    },
+    {
+      "ko": "조용한데 음악 틀어요.",
+      "en": "It is quiet, so I turn on music.",
+      "lv": 1
+    },
+    {
+      "ko": "더운데 에어컨 켤까요?",
+      "en": "It is hot, shall I turn on the AC?",
+      "lv": 1
+    },
+    {
+      "ko": "늦었는데 서둘러 출발해요.",
+      "en": "It is late, so let's start quickly.",
+      "lv": 1
+    },
+    {
+      "ko": "심심한데 밖에 나갈까요?",
+      "en": "I am bored, shall we go outside?",
+      "lv": 1
+    },
+    {
+      "ko": "비가 그쳤는데 이제 우산을 접을까요?",
+      "en": "The rain stopped, shall we fold the umbrella now?",
+      "lv": 2
+    },
+    {
+      "ko": "이 신발은 편한데 색상이 조금 어두워요.",
+      "en": "These shoes are comfortable, but the color is a bit dark.",
+      "lv": 2
+    },
+    {
+      "ko": "약속 시간에 늦었는데 택시를 탈까요?",
+      "en": "We are late for the appointment time, shall we take a taxi?",
+      "lv": 2
+    },
+    {
+      "ko": "냉장고가 비었는데 장 보러 갈까요?",
+      "en": "The fridge is empty, shall we go grocery shopping?",
+      "lv": 2
+    },
+    {
+      "ko": "날씨가 제법 쌀쌀한데 따뜻하게 입으세요.",
+      "en": "The weather is quite chilly, please dress warmly.",
+      "lv": 2
+    },
+    {
+      "ko": "시험공부를 많이 했는데 문제가 어려웠어요.",
+      "en": "I studied a lot for the exam, but the questions were hard.",
+      "lv": 2
+    },
+    {
+      "ko": "일이 끝났는데 쉬면서 차 한 잔 하실래요?",
+      "en": "Work is done, would you like to rest and have tea?",
+      "lv": 3
+    },
+    {
+      "ko": "지수가 열심히 설명해 주었는데 내용이 복잡해서 이해하기 어려워요.",
+      "en": "Jisu explained hard, but the content is complex and hard to understand.",
+      "lv": 3
+    },
+    {
+      "ko": "출퇴근길 도로가 혼잡한데 지하철을 이용하는 편이 훨씬 빠르겠어요.",
+      "en": "Commute road is congested, using subway would be much faster.",
+      "lv": 3
+    },
+    {
+      "ko": "소설책이 두꺼운데 이야기가 흥미진진해서 금방 읽혀요.",
+      "en": "The novel is thick, but the story is exciting so it reads quickly.",
+      "lv": 3
+    },
+    {
+      "ko": "화면이 멈췄는데 전원을 껐다 켜 볼까요?",
+      "en": "The screen froze, shall we turn the power off and on?",
+      "lv": 3
+    },
+    {
+      "ko": "카페에 손님이 많은데 빈자리가 있는지 살펴봐요.",
+      "en": "There are many guests in the cafe, let's see if there are empty seats.",
       "lv": 3
     }
   ],
@@ -3594,6 +5034,96 @@
       "ko": "저녁을 배불리 먹은 후에 동네 공원을 가볍게 걸어요.",
       "en": "After eating a hearty dinner, I walk lightly in the neighborhood park.",
       "lv": 3
+    },
+    {
+      "ko": "일어난 후에 물 마셔요.",
+      "en": "After waking up, I drink water.",
+      "lv": 1
+    },
+    {
+      "ko": "청소한 후에 창문 열어요.",
+      "en": "After cleaning, I open window.",
+      "lv": 1
+    },
+    {
+      "ko": "결제한 후에 영수증 받아요.",
+      "en": "After paying, I receive receipt.",
+      "lv": 1
+    },
+    {
+      "ko": "도착한 후에 짐 풀어요.",
+      "en": "After arriving, I unpack luggage.",
+      "lv": 1
+    },
+    {
+      "ko": "공부한 후에 간식 먹어요.",
+      "en": "After studying, I eat snacks.",
+      "lv": 1
+    },
+    {
+      "ko": "주문한 후에 자리에 앉아요.",
+      "en": "After ordering, I sit at seat.",
+      "lv": 1
+    },
+    {
+      "ko": "등산을 마친 후에 시원한 물을 마셨어요.",
+      "en": "After finishing hiking, I drank cool water.",
+      "lv": 2
+    },
+    {
+      "ko": "이메일을 보낸 후에 상대방에게 전화를 걸었어요.",
+      "en": "After sending email, I made a call to other party.",
+      "lv": 2
+    },
+    {
+      "ko": "빨래를 넌 후에 거실 바닥을 닦았어요.",
+      "en": "After hanging laundry, I wiped living room floor.",
+      "lv": 2
+    },
+    {
+      "ko": "책을 다 읽은 후에 감상문을 작성했어요.",
+      "en": "After finishing reading book, I wrote review.",
+      "lv": 2
+    },
+    {
+      "ko": "신발을 신어 본 후에 바로 샀어요.",
+      "en": "After trying on the shoes, I bought them right away.",
+      "lv": 2
+    },
+    {
+      "ko": "회의가 끝난 후에 동료들과 점심을 먹었어요.",
+      "en": "After meeting ended, I ate lunch with colleagues.",
+      "lv": 2
+    },
+    {
+      "ko": "시험을 마친 후에 친구들과 제주도로 여행을 떠났어요.",
+      "en": "After finishing the exam, I traveled to Jeju with friends.",
+      "lv": 3
+    },
+    {
+      "ko": "건강검진을 받은 후에 의사 선생님의 소견을 경청했어요.",
+      "en": "After receiving a health checkup, I listened closely to doctor's opinion.",
+      "lv": 3
+    },
+    {
+      "ko": "부품을 교체한 후에 프로그램이 훨씬 빠르게 실행돼요.",
+      "en": "After replacing parts, the program runs much faster.",
+      "lv": 3
+    },
+    {
+      "ko": "문을 닫은 후에 번 돈을 차분히 정산했어요.",
+      "en": "After closing the door, I calmly settled earned money.",
+      "lv": 3
+    },
+    {
+      "ko": "이사한 후에 이웃 주민들에게 떡을 돌리며 인사했어요.",
+      "en": "After moving, I greeted neighbors sharing rice cakes.",
+      "lv": 3
+    },
+    {
+      "ko": "전자기기를 충전한 후에 플러그를 콘센트에서 반드시 뽑아 두세요.",
+      "en": "After charging electronic device, be sure to unplug from outlet.",
+      "lv": 3
     }
   ],
   "28-4": [
@@ -3655,6 +5185,96 @@
     {
       "ko": "사진을 찍어서 부모님께 바로 보내 드렸어요.",
       "en": "I took photos and sent them to my parents right away.",
+      "lv": 3
+    },
+    {
+      "ko": "물 끓여서 라면 넣어요.",
+      "en": "Boil water and add ramen.",
+      "lv": 1
+    },
+    {
+      "ko": "문 열어서 바람 쐬어요.",
+      "en": "Open window and get fresh air.",
+      "lv": 1
+    },
+    {
+      "ko": "돈 모아서 자전거 사요.",
+      "en": "Save money and buy a bicycle.",
+      "lv": 1
+    },
+    {
+      "ko": "우유 데워서 코코아 타요.",
+      "en": "Warm milk and make cocoa.",
+      "lv": 1
+    },
+    {
+      "ko": "달걀 삶아서 소금 찍어요.",
+      "en": "Boil egg and dip in salt.",
+      "lv": 1
+    },
+    {
+      "ko": "신발 신어서 밖으로 나가요.",
+      "en": "Put on shoes and step outside.",
+      "lv": 1
+    },
+    {
+      "ko": "마트에서 식빵을 사서 딸기잼을 발랐어요.",
+      "en": "I bought bread at the mart and spread strawberry jam.",
+      "lv": 2
+    },
+    {
+      "ko": "바다에서 조개를 주워서 모래성을 쌓았어요.",
+      "en": "I picked shells at the beach and built a sandcastle.",
+      "lv": 2
+    },
+    {
+      "ko": "신선한 토마토를 갈아서 시원한 주스를 만들었어요.",
+      "en": "I ground fresh tomatoes and made cool juice.",
+      "lv": 2
+    },
+    {
+      "ko": "편지를 정성껏 접어서 예쁜 봉투에 넣었어요.",
+      "en": "I carefully folded letter and put in pretty envelope.",
+      "lv": 2
+    },
+    {
+      "ko": "서점에 들러서 베스트셀러 소설을 골랐어요.",
+      "en": "I stopped by bookstore and picked a bestselling novel.",
+      "lv": 2
+    },
+    {
+      "ko": "선물을 포장해서 리본을 예쁘게 묶었어요.",
+      "en": "I wrapped the gift and tied ribbon prettily.",
+      "lv": 2
+    },
+    {
+      "ko": "시장에서 채소와 고기를 사와서 불고기를 맛있게 볶았어요.",
+      "en": "Bought veggies and meat at market, stir-fried bulgogi deliciously.",
+      "lv": 3
+    },
+    {
+      "ko": "지수는 도서관에 가서 시험공부를 열심히 하고 집으로 돌아왔어요.",
+      "en": "Jisu went to library, studied hard for exam, and returned home.",
+      "lv": 3
+    },
+    {
+      "ko": "일어나서 따뜻한 물로 샤워하고 상쾌하게 출근했어요.",
+      "en": "Got up, showered with warm water, and commuted refreshingly.",
+      "lv": 3
+    },
+    {
+      "ko": "고추를 따서 햇볕에 바짝 말려 고춧가루를 빻았어요.",
+      "en": "Picked peppers, dried them in sun, and ground chili powder.",
+      "lv": 3
+    },
+    {
+      "ko": "친구를 만나서 커피를 마시며 추억을 이야기했어요.",
+      "en": "Met friend, drank coffee and talked about memories.",
+      "lv": 3
+    },
+    {
+      "ko": "컴퓨터를 켜서 메일함을 열어 중요한 업무 연락을 확인했어요.",
+      "en": "Turned on computer, opened mailbox, and checked important work contact.",
       "lv": 3
     }
   ],
@@ -3718,6 +5338,96 @@
       "ko": "비가 내릴 때는 따뜻한 부침개를 부쳐 먹어요.",
       "en": "When rain falls, I fry and eat warm pancakes.",
       "lv": 3
+    },
+    {
+      "ko": "추울 때 외투를 입어요.",
+      "en": "Wear a coat when it is cold.",
+      "lv": 1
+    },
+    {
+      "ko": "외출할 때 문을 잠가요.",
+      "en": "Lock the door when going out.",
+      "lv": 1
+    },
+    {
+      "ko": "출근할 때 버스를 타요.",
+      "en": "I take the bus when commuting.",
+      "lv": 1
+    },
+    {
+      "ko": "휴가 때 바다에 가요.",
+      "en": "I go to the sea during vacation.",
+      "lv": 1
+    },
+    {
+      "ko": "아플 때 약을 먹어요.",
+      "en": "Take medicine when sick.",
+      "lv": 1
+    },
+    {
+      "ko": "심심할 때 만화책을 읽어요.",
+      "en": "Read comic books when bored.",
+      "lv": 1
+    },
+    {
+      "ko": "잠잘 때 은은한 조명을 켜 둬요.",
+      "en": "When sleeping, I leave a soft light on.",
+      "lv": 2
+    },
+    {
+      "ko": "어려울 때 친구가 큰 힘이 되었어요.",
+      "en": "When in difficulty, my friend was a great strength.",
+      "lv": 2
+    },
+    {
+      "ko": "화가 날 때는 심호흡을 깊게 해요.",
+      "en": "When angry, I take deep breaths.",
+      "lv": 2
+    },
+    {
+      "ko": "주말에 시간이 날 때 영화를 봐요.",
+      "en": "When free on weekends, I watch movies.",
+      "lv": 2
+    },
+    {
+      "ko": "퇴근할 때 마트에 들러 과일을 샀어요.",
+      "en": "When leaving work, I dropped by the mart to buy fruit.",
+      "lv": 2
+    },
+    {
+      "ko": "초등학생 때 피아노를 처음 배웠어요.",
+      "en": "I first learned the piano in elementary school.",
+      "lv": 2
+    },
+    {
+      "ko": "중요한 결정을 내릴 때는 주변 사람들의 의견을 경청해요.",
+      "en": "When making important decisions, I listen to others' opinions.",
+      "lv": 3
+    },
+    {
+      "ko": "감기 기운이 있을 때는 따뜻한 유자차를 마셔요.",
+      "en": "When catching a cold, I drink warm citron tea.",
+      "lv": 3
+    },
+    {
+      "ko": "지수는 피곤할 때마다 조용한 음악을 들으며 마음을 달래요.",
+      "en": "Whenever tired, Jisu listens to quiet music to soothe her mind.",
+      "lv": 3
+    },
+    {
+      "ko": "무거운 짐을 들 때는 무릎을 굽히세요.",
+      "en": "When lifting heavy loads, bend your knees.",
+      "lv": 3
+    },
+    {
+      "ko": "여행을 갈 때는 미리 지도를 확인해 두세요.",
+      "en": "When traveling, check maps in advance.",
+      "lv": 3
+    },
+    {
+      "ko": "오래 작업할 때는 눈의 피로를 풀어주어야 해요.",
+      "en": "When working for long hours, you must relieve eye fatigue.",
+      "lv": 3
     }
   ],
   "28-7": [
@@ -3779,6 +5489,96 @@
     {
       "ko": "부모님께 드릴 생일 선물을 고르는 중이에요.",
       "en": "I am choosing a birthday present for my parents.",
+      "lv": 3
+    },
+    {
+      "ko": "청소하는 중이에요.",
+      "en": "I am cleaning.",
+      "lv": 1
+    },
+    {
+      "ko": "회의 준비하는 중이에요.",
+      "en": "I am preparing for the meeting.",
+      "lv": 1
+    },
+    {
+      "ko": "운동하는 중이에요.",
+      "en": "I am working out.",
+      "lv": 1
+    },
+    {
+      "ko": "요리하는 중이에요.",
+      "en": "I am cooking.",
+      "lv": 1
+    },
+    {
+      "ko": "통화하는 중이에요.",
+      "en": "I am on the phone.",
+      "lv": 1
+    },
+    {
+      "ko": "출근하는 중이에요.",
+      "en": "I am on my way to work.",
+      "lv": 1
+    },
+    {
+      "ko": "퇴근하고 집으로 걸어가는 중이에요.",
+      "en": "I am walking home after work.",
+      "lv": 2
+    },
+    {
+      "ko": "서점에서 흥미로운 책을 찾는 중이에요.",
+      "en": "I am looking for an interesting book at the bookstore.",
+      "lv": 2
+    },
+    {
+      "ko": "식당에서 맛있는 점심을 주문하는 중이에요.",
+      "en": "I am ordering a delicious lunch at the restaurant.",
+      "lv": 2
+    },
+    {
+      "ko": "주말 여행 계획을 세우는 중이에요.",
+      "en": "I am making weekend travel plans.",
+      "lv": 2
+    },
+    {
+      "ko": "새로운 언어를 열심히 배우는 중이에요.",
+      "en": "I am diligently learning a new language.",
+      "lv": 2
+    },
+    {
+      "ko": "거실에서 청소기를 돌리는 중이에요.",
+      "en": "I am running the vacuum cleaner in the living room.",
+      "lv": 2
+    },
+    {
+      "ko": "내일 있을 중요한 발표를 위해 대본을 연습하는 중이에요.",
+      "en": "I am practicing the script for tomorrow's important presentation.",
+      "lv": 3
+    },
+    {
+      "ko": "지수는 도서관 열람실에서 국가 공인 자격증을 공부하는 중이에요.",
+      "en": "Jisu is studying for a certificate in the library reading room.",
+      "lv": 3
+    },
+    {
+      "ko": "혼잡 시간을 피해 지하철로 약속 장소에 이동하는 중이에요.",
+      "en": "Avoiding rush hour, I am heading to the meeting spot by subway.",
+      "lv": 3
+    },
+    {
+      "ko": "고객들의 다양한 요구 사항을 정리하여 보고서를 작성하는 중이에요.",
+      "en": "Organizing customer requirements, I am drafting a report.",
+      "lv": 3
+    },
+    {
+      "ko": "선생님께서 학생들의 시험 답안지를 한 장씩 채점하시는 중이에요.",
+      "en": "The teacher is grading students' exam papers one by one.",
+      "lv": 3
+    },
+    {
+      "ko": "보안 프로그램을 설치하고 오류를 점검하는 중이에요.",
+      "en": "I am installing security software and checking for errors.",
       "lv": 3
     }
   ],
@@ -3842,6 +5642,96 @@
       "ko": "선생님이 설명하시는 동안 학생들은 필기를 해요.",
       "en": "Students take notes while the teacher explains.",
       "lv": 3
+    },
+    {
+      "ko": "요리하는 동안 기다려요.",
+      "en": "Please wait while I cook.",
+      "lv": 1
+    },
+    {
+      "ko": "비 내리는 동안 머물러요.",
+      "en": "Stay inside while it rains.",
+      "lv": 1
+    },
+    {
+      "ko": "숨 쉬는 동안 희망해요.",
+      "en": "I hope while I breathe.",
+      "lv": 1
+    },
+    {
+      "ko": "청소하는 동안 창문 열어요.",
+      "en": "Open the window while cleaning.",
+      "lv": 1
+    },
+    {
+      "ko": "길 걷는 동안 생각해요.",
+      "en": "I think while walking along the street.",
+      "lv": 1
+    },
+    {
+      "ko": "끓는 동안 컵 꺼내요.",
+      "en": "Take out cups while it boils.",
+      "lv": 1
+    },
+    {
+      "ko": "친구가 전화를 받는 동안 밖에서 서성였어요.",
+      "en": "I lingered outside while my friend took a phone call.",
+      "lv": 2
+    },
+    {
+      "ko": "엘리베이터를 타고 올라가는 동안 거울을 보았어요.",
+      "en": "I looked in the mirror while riding up the elevator.",
+      "lv": 2
+    },
+    {
+      "ko": "세탁기가 빨래를 하는 동안 커피를 마셨어요.",
+      "en": "I drank coffee while the washing machine ran.",
+      "lv": 2
+    },
+    {
+      "ko": "비행기가 하늘을 나는 동안 창밖을 구경했어요.",
+      "en": "I viewed outside while the airplane flew in the sky.",
+      "lv": 2
+    },
+    {
+      "ko": "선생님이 출석을 부르시는 동안 조용히 기다렸어요.",
+      "en": "We waited quietly while the teacher took attendance.",
+      "lv": 2
+    },
+    {
+      "ko": "자동차가 신호 대기하는 동안 음악을 들었어요.",
+      "en": "I listened to music while the car waited for the signal.",
+      "lv": 2
+    },
+    {
+      "ko": "컴퓨터 프로그램이 업데이트되는 동안 책상 주변을 깔끔하게 정리했어요.",
+      "en": "I tidied up the desk while the software was updating.",
+      "lv": 3
+    },
+    {
+      "ko": "주방에서 저녁을 준비하는 동안 거실 바닥을 닦았어요.",
+      "en": "While dinner was being prepared in kitchen, I wiped living room floor.",
+      "lv": 3
+    },
+    {
+      "ko": "지하철로 이동하는 동안 스마트폰으로 주요 뉴스를 읽었어요.",
+      "en": "I read headline news on my phone while riding the subway.",
+      "lv": 3
+    },
+    {
+      "ko": "정회되는 동안 로비에 모여 따뜻한 커피를 나눴어요.",
+      "en": "During the recess, we gathered in lobby and shared warm coffee.",
+      "lv": 3
+    },
+    {
+      "ko": "신호가 바뀌는 동안 보행자들은 횡단보도 앞에서 대기했어요.",
+      "en": "Pedestrians waited in front of the crosswalk for the light.",
+      "lv": 3
+    },
+    {
+      "ko": "책을 대출하는 동안 직원이 반납 일정을 안내해 주었어요.",
+      "en": "The staff explained the return date while checking out books.",
+      "lv": 3
     }
   ],
   "28-10": [
@@ -3903,6 +5793,96 @@
     {
       "ko": "새 아파트로 이사한 지 한 달 만에 적응했어요.",
       "en": "I adapted in just a month since moving to the new apartment.",
+      "lv": 3
+    },
+    {
+      "ko": "헤어진 지 오래됐어요.",
+      "en": "It has been long since we parted.",
+      "lv": 1
+    },
+    {
+      "ko": "먹은 지 한 시간이에요.",
+      "en": "It has been one hour since I ate.",
+      "lv": 1
+    },
+    {
+      "ko": "이사한 지 삼 일째예요.",
+      "en": "It is the third day since I moved.",
+      "lv": 1
+    },
+    {
+      "ko": "시작한 지 오 분이에요.",
+      "en": "It has been five minutes since starting.",
+      "lv": 1
+    },
+    {
+      "ko": "졸업한 지 삼 년이에요.",
+      "en": "It has been three years since graduation.",
+      "lv": 1
+    },
+    {
+      "ko": "출발한 지 십 분이에요.",
+      "en": "It has been ten minutes since departing.",
+      "lv": 1
+    },
+    {
+      "ko": "여기서 산 지 삼 년이에요.",
+      "en": "It has been three years since living here.",
+      "lv": 2
+    },
+    {
+      "ko": "스마트폰을 구입한 지 며칠 안 지났어요.",
+      "en": "Not many days have passed since buying a smartphone.",
+      "lv": 2
+    },
+    {
+      "ko": "운전면허를 취득한 지 일 년이에요.",
+      "en": "It has been one year since getting my driver's license.",
+      "lv": 2
+    },
+    {
+      "ko": "외국 생활을 시작한 지 반년이 흘렀어요.",
+      "en": "Half a year has passed since starting life abroad.",
+      "lv": 2
+    },
+    {
+      "ko": "책을 읽은 지 십 년이 넘었어요.",
+      "en": "It has been over ten years since reading the book.",
+      "lv": 2
+    },
+    {
+      "ko": "친구와 소식이 끊긴 지 오래되었어요.",
+      "en": "It has been a long time since losing contact with friend.",
+      "lv": 2
+    },
+    {
+      "ko": "회사를 퇴사한 지 삼 개월이라는 시간이 흘렀어요.",
+      "en": "Three months of time have passed since leaving the company.",
+      "lv": 3
+    },
+    {
+      "ko": "결혼기념일을 축하해 드린 지 벌써 일주일이 지났어요.",
+      "en": "A week has already passed since celebrating the anniversary.",
+      "lv": 3
+    },
+    {
+      "ko": "수술을 받은 지 두 달 만에 건강을 회복했어요.",
+      "en": "I recovered my health within two months after surgery.",
+      "lv": 3
+    },
+    {
+      "ko": "아파트가 완공된 지 일 년도 채 안 됐어요.",
+      "en": "It has not even been a year since the apartment was finished.",
+      "lv": 3
+    },
+    {
+      "ko": "동아리에 가입한 지 얼마 안 되었지만 잘 적응했어요.",
+      "en": "Though it hasn't been long since joining the club, I adapted well.",
+      "lv": 3
+    },
+    {
+      "ko": "시스템을 업그레이드한 지 며칠 만에 오류가 풀렸어요.",
+      "en": "Errors were fixed within days after upgrading the system.",
       "lv": 3
     }
   ],
@@ -3966,6 +5946,96 @@
       "ko": "미리 인터넷으로 예매하면 할인된 표를 살 수 있어요.",
       "en": "If you book in advance on the internet, you can buy discounted tickets.",
       "lv": 3
+    },
+    {
+      "ko": "혼자 걸을 수 있어요.",
+      "en": "I can walk alone.",
+      "lv": 1
+    },
+    {
+      "ko": "노래를 잘할 수 있어요.",
+      "en": "I can sing well.",
+      "lv": 1
+    },
+    {
+      "ko": "빨리 읽을 수 있어요.",
+      "en": "I can read fast.",
+      "lv": 1
+    },
+    {
+      "ko": "더 기다릴 수 있어요.",
+      "en": "I can wait longer.",
+      "lv": 1
+    },
+    {
+      "ko": "이름을 쓸 수 있어요.",
+      "en": "I can write my name.",
+      "lv": 1
+    },
+    {
+      "ko": "멀리 던질 수 있어요.",
+      "en": "I can throw it far.",
+      "lv": 1
+    },
+    {
+      "ko": "비가 그치면 공원에서 산책할 수 있어요.",
+      "en": "When the rain stops, we can take a walk in the park.",
+      "lv": 2
+    },
+    {
+      "ko": "가까이 가면 볼 수 있어요.",
+      "en": "If you get closer, you can see it.",
+      "lv": 2
+    },
+    {
+      "ko": "지하철을 타면 정시에 도착할 수 있어요.",
+      "en": "If we take the subway, we can arrive on time.",
+      "lv": 2
+    },
+    {
+      "ko": "열심히 배우면 유창하게 말할 수 있어요.",
+      "en": "If you study hard, you can speak fluently.",
+      "lv": 2
+    },
+    {
+      "ko": "도서관에 가면 조용히 공부할 수 있어요.",
+      "en": "If you go to the library, you can study quietly.",
+      "lv": 2
+    },
+    {
+      "ko": "절약하면 원하는 물건을 살 수 있어요.",
+      "en": "If you save, you can buy what you want.",
+      "lv": 2
+    },
+    {
+      "ko": "일찍 출발하면 교통 체증을 피할 수 있어요.",
+      "en": "If you leave early, you can avoid traffic congestion.",
+      "lv": 3
+    },
+    {
+      "ko": "가입하면 다양한 할인 혜택을 누릴 수 있어요.",
+      "en": "Signing up allows you to enjoy various discounts.",
+      "lv": 3
+    },
+    {
+      "ko": "유산소 운동을 꾸준히 하면 체력을 기를 수 있어요.",
+      "en": "Doing cardio steadily allows you to build stamina.",
+      "lv": 3
+    },
+    {
+      "ko": "사전 예약하면 기다리지 않고 진료를 받을 수 있어요.",
+      "en": "With advance reservation, you can get care without waiting.",
+      "lv": 3
+    },
+    {
+      "ko": "손재주가 뛰어나서 가구를 새것처럼 고칠 수 있어요.",
+      "en": "Being dexterous, I can fix furniture like new.",
+      "lv": 3
+    },
+    {
+      "ko": "외국인 친구와 대화하면 회화 실력을 높일 수 있어요.",
+      "en": "Talking with foreign friends can improve conversation skills.",
+      "lv": 3
     }
   ],
   "29-2": [
@@ -4027,6 +6097,96 @@
     {
       "ko": "기본적인 한자를 읽고 자기 이름을 쓸 줄 알아요.",
       "en": "He knows how to read basic Chinese characters and write his own name.",
+      "lv": 3
+    },
+    {
+      "ko": "빵을 구울 줄 알아요.",
+      "en": "I know how to bake bread.",
+      "lv": 1
+    },
+    {
+      "ko": "스키를 탈 줄 알아요.",
+      "en": "I know how to ski.",
+      "lv": 1
+    },
+    {
+      "ko": "편지를 쓸 줄 알아요.",
+      "en": "I know how to write letters.",
+      "lv": 1
+    },
+    {
+      "ko": "노를 저을 줄 알아요.",
+      "en": "I know how to row a boat.",
+      "lv": 1
+    },
+    {
+      "ko": "바둑을 둘 줄 알아요.",
+      "en": "I know how to play baduk.",
+      "lv": 1
+    },
+    {
+      "ko": "그림을 그릴 줄 알아요.",
+      "en": "I know how to draw pictures.",
+      "lv": 1
+    },
+    {
+      "ko": "된장찌개를 아주 맛있게 끓일 줄 알아요.",
+      "en": "I know how to boil soybean paste stew very deliciously.",
+      "lv": 2
+    },
+    {
+      "ko": "한복을 단정하고 곱게 입을 줄 알아요.",
+      "en": "I know how to wear hanbok neatly and gracefully.",
+      "lv": 2
+    },
+    {
+      "ko": "김치를 집에서 직접 담글 줄 알아요.",
+      "en": "I know how to make kimchi at home myself.",
+      "lv": 2
+    },
+    {
+      "ko": "편집 프로그램을 자유롭게 다룰 줄 알아요.",
+      "en": "I know how to use editing software freely.",
+      "lv": 2
+    },
+    {
+      "ko": "악기인 하모니카를 멋지게 불 줄 알아요.",
+      "en": "I know how to play the harmonica wonderfully.",
+      "lv": 2
+    },
+    {
+      "ko": "종이접기 책을 보고 접을 줄 알아요.",
+      "en": "I know how to fold by looking at an origami book.",
+      "lv": 2
+    },
+    {
+      "ko": "손재주가 좋아서 따뜻한 목도리를 뜰 줄 알아요.",
+      "en": "Being dexterous, I know how to knit a warm scarf.",
+      "lv": 3
+    },
+    {
+      "ko": "낚시를 배워서 민물고기를 척척 낚을 줄 알아요.",
+      "en": "Having learned fishing, I know how to catch freshwater fish readily.",
+      "lv": 3
+    },
+    {
+      "ko": "요리를 배워서 이탈리아 파스타를 만들 줄 알아요.",
+      "en": "Having learned cooking, I know how to make Italian pasta.",
+      "lv": 3
+    },
+    {
+      "ko": "가죽 공예를 배워서 예쁜 지갑을 만들 줄 알아요.",
+      "en": "Having learned leathercraft, I know how to make pretty wallets.",
+      "lv": 3
+    },
+    {
+      "ko": "시골에서 살아서 뗏목을 안전하게 몰 줄 알아요.",
+      "en": "Having lived in countryside, I know how to steer a raft safely.",
+      "lv": 3
+    },
+    {
+      "ko": "컴퓨터를 잘 알아서 고장난 부품을 바꿀 줄 알아요.",
+      "en": "I understand computers well and know how to swap faulty parts.",
       "lv": 3
     }
   ],
@@ -4090,6 +6250,96 @@
       "ko": "감기가 심해지기 전에 따뜻한 물을 자주 마셔야 해요.",
       "en": "Before the cold gets worse, you must drink warm water frequently.",
       "lv": 3
+    },
+    {
+      "ko": "숙제를 끝내야 돼요.",
+      "en": "I must finish my homework.",
+      "lv": 1
+    },
+    {
+      "ko": "일찍 일어나야 해요.",
+      "en": "I have to wake up early.",
+      "lv": 1
+    },
+    {
+      "ko": "표를 사야 돼요.",
+      "en": "I have to buy a ticket.",
+      "lv": 1
+    },
+    {
+      "ko": "방을 치워야 해요.",
+      "en": "I must tidy up my room.",
+      "lv": 1
+    },
+    {
+      "ko": "조용히 해야 돼요.",
+      "en": "You have to be quiet.",
+      "lv": 1
+    },
+    {
+      "ko": "약속을 지켜야 해요.",
+      "en": "I have to keep my promises.",
+      "lv": 1
+    },
+    {
+      "ko": "도서관 책은 제때 반납해야 돼요.",
+      "en": "Library books must be returned on time.",
+      "lv": 2
+    },
+    {
+      "ko": "건강을 위해 채소를 골고루 먹어야 해요.",
+      "en": "You have to eat various vegetables for health.",
+      "lv": 2
+    },
+    {
+      "ko": "신호등이 초록불로 바뀔 때 건너야 돼요.",
+      "en": "You must cross when the traffic light turns green.",
+      "lv": 2
+    },
+    {
+      "ko": "외출 후에는 손발을 깨끗이 씻어야 해요.",
+      "en": "You should wash your hands and feet after going out.",
+      "lv": 2
+    },
+    {
+      "ko": "비행기 탑승 전에 여권을 제시해야 돼요.",
+      "en": "You must present your passport before boarding.",
+      "lv": 2
+    },
+    {
+      "ko": "밤늦은 시간에는 이웃을 배려해야 해요.",
+      "en": "We must be considerate of neighbors late at night.",
+      "lv": 2
+    },
+    {
+      "ko": "계약서 서명 전에 모든 조항을 면밀하게 검토해야 돼요.",
+      "en": "You must closely review all terms before signing contracts.",
+      "lv": 3
+    },
+    {
+      "ko": "지진 발생 시 머리를 보호하고 대피해야 해요.",
+      "en": "In earthquakes, protect your head and evacuate quickly.",
+      "lv": 3
+    },
+    {
+      "ko": "보고서를 완성하려면 정확한 통계 자료를 수집해야 돼요.",
+      "en": "To finish reports, you must collect accurate statistics.",
+      "lv": 3
+    },
+    {
+      "ko": "취업 면접에서는 자신감 있는 태도로 솔직하게 답변해야 해요.",
+      "en": "You should answer frankly with a confident attitude in interviews.",
+      "lv": 3
+    },
+    {
+      "ko": "비행 전에는 물을 충분히 마시고 쉬어야 돼요.",
+      "en": "Drink plenty of water and rest well before flying.",
+      "lv": 3
+    },
+    {
+      "ko": "교통 법규를 철저히 지켜 안전을 확보해야 해요.",
+      "en": "Strictly observe traffic rules to ensure everyone's safety.",
+      "lv": 3
     }
   ],
   "30-4": [
@@ -4151,6 +6401,96 @@
     {
       "ko": "급한 용무가 있으시면 먼저 자리에서 일어나도 돼요.",
       "en": "If you have urgent business, you may stand up from your seat first.",
+      "lv": 3
+    },
+    {
+      "ko": "물 마셔도 돼요?",
+      "en": "May I drink water?",
+      "lv": 1
+    },
+    {
+      "ko": "여기 앉아도 돼요.",
+      "en": "You may sit here.",
+      "lv": 1
+    },
+    {
+      "ko": "먼저 가도 돼요.",
+      "en": "You may leave first.",
+      "lv": 1
+    },
+    {
+      "ko": "문 열어도 돼요?",
+      "en": "May I open the door?",
+      "lv": 1
+    },
+    {
+      "ko": "책 봐도 돼요.",
+      "en": "You may look at the book.",
+      "lv": 1
+    },
+    {
+      "ko": "쉬어도 돼요.",
+      "en": "You may take a rest.",
+      "lv": 1
+    },
+    {
+      "ko": "이 컴퓨터를 잠시 사용해도 돼요?",
+      "en": "May I use this computer for a moment?",
+      "lv": 2
+    },
+    {
+      "ko": "필요한 서류를 지금 제출해도 돼요.",
+      "en": "You may submit the required documents now.",
+      "lv": 2
+    },
+    {
+      "ko": "음악을 조금 작게 틀어도 돼요?",
+      "en": "May I play the music a little softer?",
+      "lv": 2
+    },
+    {
+      "ko": "실내에서 겉옷을 편하게 벗어도 돼요.",
+      "en": "You can comfortably take off your coat inside.",
+      "lv": 2
+    },
+    {
+      "ko": "남은 음식을 포장해 가도 돼요?",
+      "en": "May I take the remaining food to go?",
+      "lv": 2
+    },
+    {
+      "ko": "궁금한 점은 나중에 메일로 보내도 돼요.",
+      "en": "You can send any questions later by email.",
+      "lv": 2
+    },
+    {
+      "ko": "행사장에 일찍 도착하신 분들은 로비 대기실에서 기다려도 돼요.",
+      "en": "Those arriving early may wait in the lobby waiting room.",
+      "lv": 3
+    },
+    {
+      "ko": "바쁘면 내일 오전에 회의 자료를 넘겨도 돼요.",
+      "en": "If busy, you can hand over meeting materials tomorrow.",
+      "lv": 3
+    },
+    {
+      "ko": "온라인 강의는 편한 시간에 반복해서 들어도 돼요.",
+      "en": "You may replay online lectures anytime at your convenience.",
+      "lv": 3
+    },
+    {
+      "ko": "특별한 규정이 없으니 편안한 평상복 차림으로 참석해도 돼요.",
+      "en": "With no strict rules, you can attend in casual attire.",
+      "lv": 3
+    },
+    {
+      "ko": "졸음이 오면 무리하지 말고 잠시 눈을 붙여도 돼요.",
+      "en": "If feeling sleepy, you may rest your eyes for a moment.",
+      "lv": 3
+    },
+    {
+      "ko": "도서관 회원은 전자책을 모바일 기기로 자유롭게 열람해도 돼요.",
+      "en": "Library members may freely view e-books on mobile devices.",
       "lv": 3
     }
   ],
@@ -4214,6 +6554,96 @@
       "ko": "음주 후에는 절대로 자동차를 운전하면 안 되겠습니다.",
       "en": "After drinking alcohol, you must never drive a car.",
       "lv": 3
+    },
+    {
+      "ko": "여기 버리면 안 되죠.",
+      "en": "You must not throw it here.",
+      "lv": 1
+    },
+    {
+      "ko": "손대면 안 되겠습니다.",
+      "en": "You must not touch it.",
+      "lv": 1
+    },
+    {
+      "ko": "늦게 자면 안 되나요?",
+      "en": "Must I not sleep late?",
+      "lv": 1
+    },
+    {
+      "ko": "뛰어내리면 안 되죠.",
+      "en": "You must not jump off.",
+      "lv": 1
+    },
+    {
+      "ko": "남기면 안 되겠습니다.",
+      "en": "You must not leave it.",
+      "lv": 1
+    },
+    {
+      "ko": "소리치면 안 되나요?",
+      "en": "Must I not yell?",
+      "lv": 1
+    },
+    {
+      "ko": "열람실에서 통화하면 안 되죠.",
+      "en": "You must not call in the reading room.",
+      "lv": 2
+    },
+    {
+      "ko": "운전 중에 신호위반하면 안 되겠습니다.",
+      "en": "You must not violate signals while driving.",
+      "lv": 2
+    },
+    {
+      "ko": "아이를 차에 혼자 두면 안 되죠.",
+      "en": "You must not leave a child alone in a car.",
+      "lv": 2
+    },
+    {
+      "ko": "상한 음식을 아깝다고 먹으면 안 되나요?",
+      "en": "Is it not allowed to eat spoiled food?",
+      "lv": 2
+    },
+    {
+      "ko": "약속 시간을 마음대로 어기면 안 되겠습니다.",
+      "en": "You must not break appointment times at will.",
+      "lv": 2
+    },
+    {
+      "ko": "시험 볼 때 곁눈질하면 안 되죠.",
+      "en": "You must not glance sideways during exams.",
+      "lv": 2
+    },
+    {
+      "ko": "횡단보도를 건널 때 스마트폰을 보면 안 되죠.",
+      "en": "You must not watch phones while crossing.",
+      "lv": 3
+    },
+    {
+      "ko": "문이 닫힐 때 억지로 타면 안 되겠습니다.",
+      "en": "You must not board forcibly as doors close.",
+      "lv": 3
+    },
+    {
+      "ko": "인터넷에 타인을 비방하는 글을 올리면 안 되죠.",
+      "en": "You must not post slanderous writing online.",
+      "lv": 3
+    },
+    {
+      "ko": "가스 불을 켠 채로 외출하면 안 되겠습니다.",
+      "en": "You must not go out leaving gas fire on.",
+      "lv": 3
+    },
+    {
+      "ko": "회사의 중요한 비밀을 외부에 누설하면 안 되죠.",
+      "en": "You must not leak important company secrets.",
+      "lv": 3
+    },
+    {
+      "ko": "약 복용 중에 술을 마시면 안 되겠습니다.",
+      "en": "You must not drink alcohol while taking medicine.",
+      "lv": 3
     }
   ],
   "30-6": [
@@ -4275,6 +6705,96 @@
     {
       "ko": "충분히 건강하니 영양제를 과하게 챙겨 먹지 않아도 되겠습니다.",
       "en": "Being sufficiently healthy, you do not have to over-take supplements.",
+      "lv": 3
+    },
+    {
+      "ko": "서두르지 않아도 되죠.",
+      "en": "You do not have to hurry.",
+      "lv": 1
+    },
+    {
+      "ko": "다 먹지 않아도 되나요?",
+      "en": "Do I not have to finish it all?",
+      "lv": 1
+    },
+    {
+      "ko": "일찍 일어나지 않아도 되겠습니다.",
+      "en": "You do not have to wake up early.",
+      "lv": 1
+    },
+    {
+      "ko": "돈 내지 않아도 되죠.",
+      "en": "You do not have to pay money.",
+      "lv": 1
+    },
+    {
+      "ko": "걱정하지 않아도 되나요?",
+      "en": "Do I not need to worry?",
+      "lv": 1
+    },
+    {
+      "ko": "기다리지 않아도 되겠습니다.",
+      "en": "You do not have to wait.",
+      "lv": 1
+    },
+    {
+      "ko": "내일은 휴일이라 출근하지 않아도 되죠.",
+      "en": "Tomorrow is a holiday, so no need to work.",
+      "lv": 2
+    },
+    {
+      "ko": "짐이 가벼우니 돕지 않아도 되겠습니다.",
+      "en": "The luggage is light, so no need to help.",
+      "lv": 2
+    },
+    {
+      "ko": "배부르면 억지로 먹지 않아도 되나요?",
+      "en": "Do I not have to force-eat if full?",
+      "lv": 2
+    },
+    {
+      "ko": "실내가 따뜻하니 외투를 입지 않아도 되죠.",
+      "en": "Indoors is warm, so no need for a coat.",
+      "lv": 2
+    },
+    {
+      "ko": "미리 결제했으니 표를 사지 않아도 되죠.",
+      "en": "Already paid, so no need to buy tickets.",
+      "lv": 2
+    },
+    {
+      "ko": "날씨가 맑아서 우산을 챙기지 않아도 되겠습니다.",
+      "en": "Weather is clear, so no need for an umbrella.",
+      "lv": 2
+    },
+    {
+      "ko": "자동 이체를 신청했으니 직접 납부하지 않아도 되죠.",
+      "en": "Applied auto-transfer, so no need to pay directly.",
+      "lv": 3
+    },
+    {
+      "ko": "자료를 미리 복사했으니 출력하지 않아도 되겠습니다.",
+      "en": "Copied materials in advance, so no need to print.",
+      "lv": 3
+    },
+    {
+      "ko": "온라인으로 신청했으니 사무실을 방문하지 않아도 되죠.",
+      "en": "Applied online, so no need to visit the office.",
+      "lv": 3
+    },
+    {
+      "ko": "충분히 잠을 잤으니 낮잠을 자지 않아도 되겠습니다.",
+      "en": "Slept enough, so no need to take a nap.",
+      "lv": 3
+    },
+    {
+      "ko": "식사가 제공되니 도시락을 싸 오지 않아도 되죠.",
+      "en": "Meals are provided, so no need to bring a lunchbox.",
+      "lv": 3
+    },
+    {
+      "ko": "모바일 결제가 지원되니 현금을 챙기지 않아도 되겠습니다.",
+      "en": "Mobile pay is supported, so no need to bring cash.",
       "lv": 3
     }
   ],
