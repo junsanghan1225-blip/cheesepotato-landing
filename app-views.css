@@ -7618,3 +7618,5 @@ html[lang="ja"] *, html[lang="zh"] *, html[lang^="zh-"] *, html[lang="my"] * { w
 .wv-role h3 { font-size:15px; margin:22px 0 8px; } .wv-con { margin-bottom:10px; } .wv-ck { font-size:22px; }
 .wv-ex { margin:8px 0; font-size:15.5px; line-height:1.6; } .wv-ex small { display:block; color:var(--ink-3); font-size:12.5px; } .wv-tip { margin:8px 0 0; font-size:13.5px; color:var(--ink-2,#555); }
 @media (max-width:420px) { .wv-opts { grid-template-columns:1fr 1fr; } .wv-s { font-size:15px; } }
+
+.gp-ts-tag { display:inline-block; padding:1px 7px; margin-right:4px; border-radius:6px; background:var(--ink,#1a1410); color:#fff; font-size:11px; font-weight:800; letter-spacing:.4px; vertical-align:1px; }
