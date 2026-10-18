@@ -716,5 +716,705 @@
       "en": "If you practice hard, you can play the piano well.",
       "why": "가능성을 나타내는 「-(으)ㄹ 수 있다」에서 받침 없는 동사 어간 「치-」 뒤에는 「칠」이 결합합니다."
     }
+  ],
+  "29-2": [
+    {
+      "stem": "어릴 때 피아노를 배워서 칠 ( ) 알아요.",
+      "options": [
+        "줄",
+        "수",
+        "것",
+        "데"
+      ],
+      "answer": 0,
+      "sentence": "어릴 때 피아노를 배워서 칠 줄 알아요.",
+      "en": "I learned piano when I was young, so I know how to play it.",
+      "why": "방법이나 기술을 배워서 알고 있음을 나타낼 때는 의존 명사 「줄」을 써서 「-(으)ㄹ 줄 알다」로 표현합니다."
+    },
+    {
+      "stem": "한국어를 열심히 배워서 한국어 신문을 ( ) 줄 알아요.",
+      "options": [
+        "읽을",
+        "입을",
+        "신을",
+        "탈"
+      ],
+      "answer": 0,
+      "sentence": "한국어를 열심히 배워서 한국어 신문을 읽을 줄 알아요.",
+      "en": "I studied Korean hard, so I know how to read Korean newspapers.",
+      "why": "목적어인 「신문」을 처리하는 적절한 동작 동사는 「읽다」입니다."
+    }
+  ],
+  "30-3": [
+    {
+      "stem": "비행기를 타려면 여권을 꼭 ( ).",
+      "options": [
+        "보여 줘야 해요",
+        "보여 줘도 돼요",
+        "보여 주면 안 돼요",
+        "보여 줄 뻔했어요"
+      ],
+      "answer": 0,
+      "sentence": "비행기를 타려면 여권을 꼭 보여 줘야 해요.",
+      "en": "If you want to board an airplane, you must show your passport.",
+      "why": "탑승 시 의무적으로 지켜야 하는 필수 사항을 나타낼 때 당위의 표현 「-아/어야 하다」를 씁니다."
+    },
+    {
+      "stem": "몸이 아플 때는 무리하지 말고 푹 ( ) 돼요.",
+      "options": [
+        "쉬어야",
+        "일해야",
+        "달려야",
+        "떠나야"
+      ],
+      "answer": 0,
+      "sentence": "몸이 아플 때는 무리하지 말고 푹 쉬어야 돼요.",
+      "en": "When you are sick, do not overexert yourself and get plenty of rest.",
+      "why": "몸이 아프고 무리하지 말라는 맥락에서 부사 「푹」과 결합하여 휴식을 권하는 동사는 「쉬다」입니다."
+    }
+  ],
+  "30-4": [
+    {
+      "stem": "사진 촬영이 가능한 곳이니 사진을 찍( ) 돼요.",
+      "options": [
+        "어도",
+        "으러",
+        "자마자",
+        "으려고"
+      ],
+      "answer": 0,
+      "sentence": "사진 촬영이 가능한 곳이니 사진을 찍어도 돼요.",
+      "en": "Photography is allowed here, so you may take pictures.",
+      "why": "어떤 행동을 해도 괜찮다고 허락할 때는 어미 「-아/어도 되다」를 씁니다."
+    },
+    {
+      "stem": "이 자리는 비어 있으니 편하게 ( ) 돼요.",
+      "options": [
+        "앉아도",
+        "신어도",
+        "입어도",
+        "닫아도"
+      ],
+      "answer": 0,
+      "sentence": "이 자리는 비어 있으니 편하게 앉아도 돼요.",
+      "en": "This seat is vacant, so you may sit down comfortably.",
+      "why": "비어 있는 「자리」를 이용할 때 자연스러운 행동 동사는 「앉다」입니다."
+    }
+  ],
+  "30-5": [
+    {
+      "stem": "빨간 불일 때는 횡단보도를 건너( ) 되지요.",
+      "options": [
+        "면 안",
+        "어도",
+        "자마자",
+        "으려고"
+      ],
+      "answer": 0,
+      "sentence": "빨간 불일 때는 횡단보도를 건너면 안 되지요.",
+      "en": "You must not cross the crosswalk when the light is red, of course.",
+      "why": "어떤 행동을 금지하거나 제약할 때는 연결 어미와 부정 부사를 결합한 「-(으)면 안 되다」를 씁니다."
+    },
+    {
+      "stem": "운전할 때 휴대전화를 ( ) 안 되지요.",
+      "options": [
+        "사용하면",
+        "청소하면",
+        "구경하면",
+        "주문하면"
+      ],
+      "answer": 0,
+      "sentence": "운전할 때 휴대전화를 사용하면 안 되지요.",
+      "en": "You must not use a mobile phone while driving, of course.",
+      "why": "운전 중에 조작하거나 쓰는 대상인 「휴대전화」와 결합하는 동사는 「사용하다」입니다."
+    }
+  ],
+  "31-2": [
+    {
+      "stem": "이번 주말에는 날씨가 맑( ) 좋겠어요.",
+      "options": [
+        "았으면",
+        "으러",
+        "을수록",
+        "자마자"
+      ],
+      "answer": 0,
+      "sentence": "이번 주말에는 날씨가 맑았으면 좋겠어요.",
+      "en": "I hope the weather will be clear this weekend.",
+      "why": "바람이나 희망을 나타낼 때 형용사 어간에 과거형 선어말어미와 결합한 「-았/었으면 좋겠다」를 씁니다."
+    },
+    {
+      "stem": "열심히 공부했으니 시험에 꼭 ( ) 좋겠어요.",
+      "options": [
+        "합격했으면",
+        "지각했으면",
+        "취소했으면",
+        "출발했으면"
+      ],
+      "answer": 0,
+      "sentence": "열심히 공부했으니 시험에 꼭 합격했으면 좋겠어요.",
+      "en": "I studied hard, so I hope I pass the exam.",
+      "why": "시험을 열심히 준비한 후에 바라는 긍정적인 결과는 「합격하다」입니다."
+    }
+  ],
+  "32-1": [
+    {
+      "stem": "어제 늦게 ( ) 오늘 아침에 늦잠을 잤어요.",
+      "options": [
+        "자서",
+        "자러",
+        "자려고",
+        "자자마자"
+      ],
+      "answer": 0,
+      "sentence": "어제 늦게 자서 오늘 아침에 늦잠을 잤어요.",
+      "en": "I went to bed late yesterday, so I overslept this morning.",
+      "why": "뒤 절 결과(늦잠)의 자연스러운 원인이나 이유를 나타낼 때는 연결 어미 「-아/어서」를 씁니다."
+    },
+    {
+      "stem": "날씨가 너무 ( ) 에어컨을 켰어요.",
+      "options": [
+        "더워서",
+        "추워서",
+        "흐려서",
+        "맑아서"
+      ],
+      "answer": 0,
+      "sentence": "날씨가 너무 더워서 에어컨을 켰어요.",
+      "en": "The weather was so hot that I turned on the air conditioner.",
+      "why": "에어컨을 켜는 원인이 되는 기온 상태를 나타내는 형용사는 「더워서」입니다."
+    }
+  ],
+  "32-2": [
+    {
+      "stem": "눈이 내리( ) 미끄러지지 않게 조심하세요.",
+      "options": [
+        "니까",
+        "어서",
+        "으려고",
+        "자마자"
+      ],
+      "answer": 0,
+      "sentence": "눈이 내리니까 미끄러지지 않게 조심하세요.",
+      "en": "It is snowing, so please be careful not to slip.",
+      "why": "뒤 절에 명령이나 권유(「-세요」)가 올 때 원인을 나타내는 연결 어미는 「-아/어서」 대신 「-(으)니까」를 씁니다."
+    },
+    {
+      "stem": "길이 많이 ( ) 지하철을 탑시다.",
+      "options": [
+        "막히니까",
+        "넓으니까",
+        "조용하니까",
+        "깨끗하니까"
+      ],
+      "answer": 0,
+      "sentence": "길이 많이 막히니까 지하철을 탑시다.",
+      "en": "The traffic is heavy, so let's take the subway.",
+      "why": "지하철 이용을 권유하는 이유로 도로 상황을 나타내는 표현은 「막히다」가 가장 적절합니다."
+    }
+  ],
+  "33-1": [
+    {
+      "stem": "무거운 짐을 들고 있으니 문 좀 열어 ( ).",
+      "options": [
+        "주세요",
+        "놓으세요",
+        "버리세요",
+        "오세요"
+      ],
+      "answer": 0,
+      "sentence": "무거운 짐을 들고 있으니 문 좀 열어 주세요.",
+      "en": "I am holding heavy luggage, so please open the door for me.",
+      "why": "상대방에게 나를 위한 도움을 정중하게 부탁할 때는 「-아/어 주세요」를 씁니다."
+    },
+    {
+      "stem": "길을 잘 모르겠는데 지도 좀 ( ) 주세요.",
+      "options": [
+        "보여",
+        "걸어",
+        "입어",
+        "닫아"
+      ],
+      "answer": 0,
+      "sentence": "길을 잘 모르겠는데 지도 좀 보여 주세요.",
+      "en": "I don't know the way well, so please show me the map.",
+      "why": "길을 안내받기 위해 상대방에게 요청할 수 있는 행동은 지도를 「보여 주다」입니다."
+    }
+  ],
+  "33-2": [
+    {
+      "stem": "가방이 무거워 보이는데 제가 들어 ( ).",
+      "options": [
+        "줄게요",
+        "볼게요",
+        "갈게요",
+        "올게요"
+      ],
+      "answer": 0,
+      "sentence": "가방이 무거워 보이는데 제가 들어 줄게요.",
+      "en": "Your bag looks heavy, so I will carry it for you.",
+      "why": "상대방의 어려움을 돕겠다는 호의의 뜻을 나타낼 때는 보조 동사 「-아/어 줄게요」를 씁니다."
+    },
+    {
+      "stem": "맛있는 한국 음식을 제가 직접 ( ) 줄게요.",
+      "options": [
+        "요리해",
+        "청소해",
+        "운전해",
+        "출발해"
+      ],
+      "answer": 0,
+      "sentence": "맛있는 한국 음식을 제가 직접 요리해 줄게요.",
+      "en": "I will personally cook delicious Korean food for you.",
+      "why": "목적어인 「음식」을 만들어 대접하겠다는 행동으로는 「요리하다」가 알맞습니다."
+    }
+  ],
+  "34-1": [
+    {
+      "stem": "제주도는 경치가 아주 아름다우니 꼭 한번 가 ( ).",
+      "options": [
+        "보세요",
+        "놓으세요",
+        "두세요",
+        "주세요"
+      ],
+      "answer": 0,
+      "sentence": "제주도는 경치가 아주 아름다우니 꼭 한번 가 보세요.",
+      "en": "Jeju Island's scenery is very beautiful, so be sure to visit there once.",
+      "why": "부사 「한번」과 어울려 시도나 경험을 권유할 때는 보조 동사 「-아/어 보다」를 씁니다."
+    },
+    {
+      "stem": "새로 나온 노래가 정말 좋으니 한번 ( ) 보세요.",
+      "options": [
+        "들어",
+        "입어",
+        "타",
+        "마셔"
+      ],
+      "answer": 0,
+      "sentence": "새로 나온 노래가 정말 좋으니 한번 들어 보세요.",
+      "en": "The newly released song is really good, so please give it a listen.",
+      "why": "「노래」를 감상하는 행위를 나타내는 동사는 「듣다(들어 보다)」입니다."
+    }
+  ],
+  "34-2": [
+    {
+      "stem": "해외여행을 혼자서 ( ) 적이 있어요.",
+      "options": [
+        "가 본",
+        "가 볼",
+        "가 보러",
+        "가 보자"
+      ],
+      "answer": 0,
+      "sentence": "해외여행을 혼자서 가 본 적이 있어요.",
+      "en": "I have traveled abroad by myself before.",
+      "why": "과거의 경험을 나타내는 의존 명사 「적」 앞에는 관형사형 전성 어미 「-(으)ㄴ」이 옵니다."
+    },
+    {
+      "stem": "경주에 가서 불국사를 ( ) 적이 있어요.",
+      "options": [
+        "구경한",
+        "요리한",
+        "주문한",
+        "세탁한"
+      ],
+      "answer": 0,
+      "sentence": "경주에 가서 불국사를 구경한 적이 있어요.",
+      "en": "I have visited and sightseen Bulguksa temple in Gyeongju before.",
+      "why": "관광지나 명소인 「불국사」를 둘러본 경험을 나타내는 알맞은 동사는 「구경하다」입니다."
+    }
+  ],
+  "35-1": [
+    {
+      "stem": "수업이 끝난 후에 같이 도서관에 ( )?",
+      "options": [
+        "갈까요",
+        "갑니다",
+        "가려고",
+        "가자마자"
+      ],
+      "answer": 0,
+      "sentence": "수업이 끝난 후에 같이 도서관에 갈까요?",
+      "en": "Shall we go to the library together after class finishes?",
+      "why": "상대방에게 어떤 행동을 함께 하자고 제안하며 물어볼 때는 종결 어미 「-(으)ㄹ까요?」를 씁니다."
+    },
+    {
+      "stem": "점심시간인데 따뜻한 국수를 ( )?",
+      "options": [
+        "먹을까요",
+        "입을까요",
+        "신을까요",
+        "탈까요"
+      ],
+      "answer": 0,
+      "sentence": "점심시간인데 따뜻한 국수를 먹을까요?",
+      "en": "It's lunchtime, shall we eat some warm noodles?",
+      "why": "음식인 「국수」를 함께 섭취하자고 제안할 때 적절한 동사는 「먹다」입니다."
+    }
+  ],
+  "35-2": [
+    {
+      "stem": "손에 짐이 많은데 제가 ( )?",
+      "options": [
+        "들어 드릴까요",
+        "들어 드립니다",
+        "들어 드리려고",
+        "들어 드리자마자"
+      ],
+      "answer": 0,
+      "sentence": "손에 짐이 많은데 제가 들어 드릴까요?",
+      "en": "You have lots of luggage in your hands, shall I carry it for you?",
+      "why": "상대방을 위해 어떤 행동을 해 줄지 상대의 뜻을 물어볼 때는 「-(으)ㄹ까요?」를 씁니다."
+    },
+    {
+      "stem": "방 안이 너무 더운데 에어컨을 ( )?",
+      "options": [
+        "틀까요",
+        "입을까요",
+        "신을까요",
+        "닦을까요"
+      ],
+      "answer": 0,
+      "sentence": "방 안이 너무 더운데 에어컨을 틀까요?",
+      "en": "The room is too hot, shall I turn on the air conditioner?",
+      "why": "더운 실내에서 기기인 에어컨을 가동할지 물어볼 때 알맞은 동사는 「틀다」입니다."
+    }
+  ],
+  "35-3": [
+    {
+      "stem": "점심시간이 되었으니 다 함께 식사하러 ( ).",
+      "options": [
+        "갑시다",
+        "갑니다",
+        "가려고",
+        "가자마자"
+      ],
+      "answer": 0,
+      "sentence": "점심시간이 되었으니 다 함께 식사하러 갑시다.",
+      "en": "It has become lunchtime, so let us all go to have a meal together.",
+      "why": "함께 어떤 행동을 하자고 격식체로 권유하고 청유할 때는 종결 어미 「-(으)ㅂ시다」를 씁니다."
+    },
+    {
+      "stem": "한국어 실력을 키우기 위해 매일 한국어 책을 ( ).",
+      "options": [
+        "읽읍시다",
+        "입읍시다",
+        "신읍시다",
+        "씻읍시다"
+      ],
+      "answer": 0,
+      "sentence": "한국어 실력을 키우기 위해 매일 한국어 책을 읽읍시다.",
+      "en": "In order to improve our Korean skills, let's read Korean books every day.",
+      "why": "목적어인 「책」을 읽고 공부하는 행위를 나타내는 동사는 「읽다」입니다."
+    }
+  ],
+  "35-5": [
+    {
+      "stem": "퇴근하고 시원한 맥주 한잔하러 ( )?",
+      "options": [
+        "갈래요",
+        "갑니다",
+        "가려고",
+        "가자마자"
+      ],
+      "answer": 0,
+      "sentence": "퇴근하고 시원한 맥주 한잔하러 갈래요?",
+      "en": "After work, do you want to go have a cold beer?",
+      "why": "가까운 사이에 무엇을 함께 할지 편안하게 물어보며 제안할 때는 종결 어미 「-(으)ㄹ래요?」를 씁니다."
+    },
+    {
+      "stem": "점심에 시원한 냉면을 ( )?",
+      "options": [
+        "먹을래요",
+        "입을래요",
+        "신을래요",
+        "탈래요"
+      ],
+      "answer": 0,
+      "sentence": "점심에 시원한 냉면을 먹을래요?",
+      "en": "Shall we eat refreshing cold noodles for lunch?",
+      "why": "음식인 「냉면」을 함께 먹자고 편하게 제안할 때 알맞은 동사는 「먹다」입니다."
+    }
+  ],
+  "36-1": [
+    {
+      "stem": "어려운 일이지만 끝까지 최선을 다하( ).",
+      "options": [
+        "겠어요",
+        "았어요",
+        "자마자",
+        "으려고"
+      ],
+      "answer": 0,
+      "sentence": "어려운 일이지만 끝까지 최선을 다하겠어요.",
+      "en": "It is a difficult task, but I will do my best until the end.",
+      "why": "앞으로 자신이 어떤 일을 끝까지 해내겠다는 굳은 의지를 나타낼 때 어미 「-겠어요」를 씁니다."
+    },
+    {
+      "stem": "약속 시간에 늦지 않도록 일찍 ( ).",
+      "options": [
+        "출발하겠어요",
+        "지각하겠어요",
+        "취소하겠어요",
+        "포기하겠어요"
+      ],
+      "answer": 0,
+      "sentence": "약속 시간에 늦지 않도록 일찍 출발하겠어요.",
+      "en": "I will depart early so that I won't be late for the appointment.",
+      "why": "약속에 늦지 않으려고 취하는 능동적인 행동 의지로 「출발하다」가 알맞습니다."
+    }
+  ],
+  "36-3": [
+    {
+      "stem": "다들 외출했지만 저는 그냥 집에서 ( ).",
+      "options": [
+        "쉴래요",
+        "쉬세요",
+        "쉬네요",
+        "쉬려고"
+      ],
+      "answer": 0,
+      "sentence": "다들 외출했지만 저는 그냥 집에서 쉴래요.",
+      "en": "Everyone went out, but I will just rest at home.",
+      "why": "화자 자신의 선택이나 의지를 편안하게 나타낼 때 어미 「-(으)ㄹ래요」를 씁니다."
+    },
+    {
+      "stem": "저는 목이 마르니 시원한 주스를 ( ).",
+      "options": [
+        "마실래요",
+        "입을래요",
+        "신을래요",
+        "탈래요"
+      ],
+      "answer": 0,
+      "sentence": "저는 목이 마르니 시원한 주스를 마실래요.",
+      "en": "Since I am thirsty, I will drink refreshing juice.",
+      "why": "음료인 「주스」를 마시겠다는 자신의 뜻을 나타내는 동사는 「마시다」입니다."
+    }
+  ],
+  "37-1": [
+    {
+      "stem": "지금 회의 중( ) 잠시 후에 다시 전화해 주세요.",
+      "options": [
+        "인데",
+        "이어서",
+        "이라서",
+        "이려고"
+      ],
+      "answer": 0,
+      "sentence": "지금 회의 중인데 잠시 후에 다시 전화해 주세요.",
+      "en": "I am in a meeting right now, so please call me back in a little while.",
+      "why": "본론을 말하기 전에 현재 상황을 배경으로 제시하고 뒤에 부탁·요청을 이끌 때 「-는데(인데)」를 씁니다."
+    },
+    {
+      "stem": "배가 많이 ( ) 같이 식사하러 가실래요?",
+      "options": [
+        "고픈데",
+        "부른데",
+        "따뜻한데",
+        "조용한데"
+      ],
+      "answer": 0,
+      "sentence": "배가 많이 고픈데 같이 식사하러 가실래요?",
+      "en": "I am very hungry, would you like to go have a meal together?",
+      "why": "함께 식사하자고 제안하는 배경 상황으로 알맞은 신체 상태는 「배가 고프다」입니다."
+    }
+  ],
+  "37-2": [
+    {
+      "stem": "아침에 창문을 열어 보( ) 눈이 내리고 있었어요.",
+      "options": [
+        "니까",
+        "아서",
+        "으려고",
+        "자마자"
+      ],
+      "answer": 0,
+      "sentence": "아침에 창문을 열어 보니까 눈이 내리고 있었어요.",
+      "en": "When I opened the window in the morning, I found that snow was falling.",
+      "why": "어떤 동작을 한 후 새로운 사실이나 상황을 발견했음을 나타낼 때는 연결 어미 「-(으)니까」를 씁니다."
+    },
+    {
+      "stem": "한국에 직접 와서 ( ) 한국 사람들이 아주 친절해요.",
+      "options": [
+        "살아보니까",
+        "요리해보니까",
+        "입어보니까",
+        "닫아보니까"
+      ],
+      "answer": 0,
+      "sentence": "한국에 직접 와서 살아보니까 한국 사람들이 아주 친절해요.",
+      "en": "Now that I have come and lived in Korea in person, I find Korean people very kind.",
+      "why": "한국에 와서 지내며 사람들의 성향을 알게 된 생활 경험을 나타내는 동사는 「살아보다」입니다."
+    }
+  ],
+  "38-5": [
+    {
+      "stem": "이번 방학에는 친구와 제주도로 여행을 가( ).",
+      "options": [
+        "기로 하였습니다",
+        "자마자 하였습니다",
+        "으러 하였습니다",
+        "느라고 하였습니다"
+      ],
+      "answer": 0,
+      "sentence": "이번 방학에는 친구와 제주도로 여행을 가기로 하였습니다.",
+      "en": "During this vacation, I decided to go on a trip to Jeju Island with a friend.",
+      "why": "앞으로의 계획이나 약속을 정했음을 나타낼 때 동사 뒤에 표현 「-기로 하다」를 씁니다."
+    },
+    {
+      "stem": "시험공부를 열심히 하기 위해 주말 약속을 ( ) 하였습니다.",
+      "options": [
+        "취소하기로",
+        "출발하기로",
+        "주문하기로",
+        "청소하기로"
+      ],
+      "answer": 0,
+      "sentence": "시험공부를 열심히 하기 위해 주말 약속을 취소하기로 하였습니다.",
+      "en": "In order to study hard for the exam, I decided to cancel my weekend appointments.",
+      "why": "시험공부에 집중하기 위해 기존에 잡혀 있던 약속을 없애는 행동은 「취소하다」입니다."
+    }
+  ],
+  "39-1": [
+    {
+      "stem": "길을 잘 모르겠( ) 주변 사람에게 물어보세요.",
+      "options": [
+        "으면",
+        "어서",
+        "으러",
+        "자마자"
+      ],
+      "answer": 0,
+      "sentence": "길을 잘 모르겠으면 주변 사람에게 물어보세요.",
+      "en": "If you don't know the way well, please ask people nearby.",
+      "why": "가정이나 조건을 제시하고 뒤에 권유나 명령을 할 때는 조건 연결 어미 「-(으)면」을 씁니다."
+    },
+    {
+      "stem": "날씨가 ( ) 한강에 가서 자전거를 탑시다.",
+      "options": [
+        "좋으면",
+        "나쁘면",
+        "어두우면",
+        "시끄러우면"
+      ],
+      "answer": 0,
+      "sentence": "날씨가 좋으면 한강에 가서 자전거를 탑시다.",
+      "en": "If the weather is nice, let's go to the Han River and ride bicycles.",
+      "why": "야외에서 자전거를 타기에 알맞은 기상 조건은 날씨가 「좋다」입니다."
+    }
+  ],
+  "39-3": [
+    {
+      "stem": "배가 고( ) 음식을 너무 급하게 먹지 마세요.",
+      "options": [
+        "파도",
+        "프면",
+        "프러",
+        "프자마자"
+      ],
+      "answer": 0,
+      "sentence": "배가 고파도 음식을 너무 급하게 먹지 마세요.",
+      "en": "Even if you are hungry, do not eat food too quickly.",
+      "why": "앞의 상태와 무관하게 뒤의 권고나 제한을 나타낼 때는 양보의 연결 어미 「-아/어도」를 씁니다."
+    },
+    {
+      "stem": "약이 조금 ( ) 건강을 위해 꼭 드세요.",
+      "options": [
+        "써도",
+        "달아도",
+        "짜도",
+        "싱거워도"
+      ],
+      "answer": 0,
+      "sentence": "약이 조금 써도 건강을 위해 꼭 드세요.",
+      "en": "Even if the medicine is a little bitter, make sure to take it for your health.",
+      "why": "약의 전형적인 미각 특성이자 복용을 꺼리게 만드는 요소는 「쓰다」입니다."
+    }
+  ],
+  "40-1": [
+    {
+      "stem": "하루 종일 쉬지 않고 일해서 정말 힘들( ).",
+      "options": [
+        "겠어요",
+        "자마자",
+        "으려고",
+        "으러"
+      ],
+      "answer": 0,
+      "sentence": "하루 종일 쉬지 않고 일해서 정말 힘들겠어요.",
+      "en": "You worked all day without resting, so you must be really tired.",
+      "why": "상대방의 힘든 정황을 보고 그 상태를 헤아려 짐작할 때는 추측의 어미 「-겠어요」를 씁니다."
+    },
+    {
+      "stem": "식탁 위에 차려진 음식이 참 ( ).",
+      "options": [
+        "맛있겠어요",
+        "무겁겠어요",
+        "시끄럽겠어요",
+        "빠르겠어요"
+      ],
+      "answer": 0,
+      "sentence": "식탁 위에 차려진 음식이 참 맛있겠어요.",
+      "en": "The food served on the table looks really delicious.",
+      "why": "정성껏 차려진 음식을 눈으로 보고 느끼는 감상적 추측으로 알맞은 형용사는 「맛있겠어요」입니다."
+    }
+  ],
+  "40-2": [
+    {
+      "stem": "지금 출발하면 한 시간 뒤에는 도착( ).",
+      "options": [
+        "할 거예요",
+        "하자마자",
+        "하려고",
+        "하러"
+      ],
+      "answer": 0,
+      "sentence": "지금 출발하면 한 시간 뒤에는 도착할 거예요.",
+      "en": "If we depart now, we will probably arrive in one hour.",
+      "why": "현재 상황을 바탕으로 미래에 일어날 상황을 미루어 짐작할 때 「-(으)ㄹ 거예요」를 씁니다."
+    },
+    {
+      "stem": "내일은 구름이 걷히고 날씨가 아주 ( ) 거예요.",
+      "options": [
+        "맑을",
+        "흐릴",
+        "어두울",
+        "더러울"
+      ],
+      "answer": 0,
+      "sentence": "내일은 구름이 걷히고 날씨가 아주 맑을 거예요.",
+      "en": "Tomorrow the clouds will clear away and the weather will probably be very sunny.",
+      "why": "구름이 걷힌다는 조건 뒤에 이어질 화창한 날씨를 짐작하는 표현으로 「맑을」이 알맞습니다."
+    }
+  ],
+  "40-3": [
+    {
+      "stem": "다음 주 시험이 많이 ( )?",
+      "options": [
+        "어려울까요",
+        "어렵습니다",
+        "어려우려고",
+        "어렵자마자"
+      ],
+      "answer": 0,
+      "sentence": "다음 주 시험이 많이 어려울까요?",
+      "en": "Will the exam next week be very difficult, do you think?",
+      "why": "앞으로 있을 상황에 대해 의문을 품고 함께 헤아려 짐작할 때 추측 의문형 어미 「-(으)ㄹ까요?」를 씁니다."
+    },
+    {
+      "stem": "휴일이라서 도로에 차가 많이 ( )?",
+      "options": [
+        "막힐까요",
+        "맑을까요",
+        "밝을까요",
+        "짧을까요"
+      ],
+      "answer": 0,
+      "sentence": "휴일이라서 도로에 차가 많이 막힐까요?",
+      "en": "Since it is a holiday, do you think there will be a lot of traffic on the road?",
+      "why": "휴일 도로에 차량이 많아 정체되는 상황을 짐작해 물어볼 때 알맞은 동사는 「막히다」입니다."
+    }
   ]
 }
