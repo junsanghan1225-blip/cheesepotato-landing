@@ -1416,5 +1416,705 @@
       "en": "Since it is a holiday, do you think there will be a lot of traffic on the road?",
       "why": "휴일 도로에 차량이 많아 정체되는 상황을 짐작해 물어볼 때 알맞은 동사는 「막히다」입니다."
     }
+  ],
+  "1-1": [
+    {
+      "stem": "남에게 기대어 사( ) 스스로 노력해서 일어서겠다.",
+      "options": [
+        "느니",
+        "자마자",
+        "던데",
+        "도록"
+      ],
+      "answer": 0,
+      "sentence": "남에게 기대어 사느니 스스로 노력해서 일어서겠다.",
+      "en": "Rather than living dependent on others, I will strive to stand on my own.",
+      "why": "「-느니」는 앞의 행동을 하기보다 뒤의 행동을 선택하겠다는 뜻을 나타냅니다."
+    },
+    {
+      "stem": "하루 종일 방에 갇혀 지내느니 밖으로 나가 ( )을 하는 편이 낫겠다.",
+      "options": [
+        "후회",
+        "운동",
+        "결석",
+        "지각"
+      ],
+      "answer": 1,
+      "sentence": "하루 종일 방에 갇혀 지내느니 밖으로 나가 운동을 하는 편이 낫겠다.",
+      "en": "Rather than staying trapped in a room all day, it would be better to go outside and exercise.",
+      "why": "방에 갇혀 있는 것보다 건강하고 활동적인 행동인 「운동」을 하는 편이 낫다는 문맥이 자연스럽습니다."
+    }
+  ],
+  "1-2": [
+    {
+      "stem": "품질이 낮은 물건을 싸게 살 ( ) 돈을 더 주고 좋은 것을 사겠다.",
+      "options": [
+        "겸",
+        "나머지",
+        "바에야",
+        "채로"
+      ],
+      "answer": 2,
+      "sentence": "품질이 낮은 물건을 싸게 살 바에야 돈을 더 주고 좋은 것을 사겠다.",
+      "en": "Rather than buying low-quality goods cheaply, I would rather pay more and buy something good.",
+      "why": "「-(으)ㄹ 바에야」는 차라리 더 나은 다른 쪽을 택하겠다는 뜻을 나타냅니다."
+    },
+    {
+      "stem": "중도에 그만둘 바에야 처음부터 시작도 ( ) 편이 낫다.",
+      "options": [
+        "마련인",
+        "법인",
+        "셈인",
+        "안 하는"
+      ],
+      "answer": 3,
+      "sentence": "중도에 그만둘 바에야 처음부터 시작도 안 하는 편이 낫다.",
+      "en": "If you are going to quit midway, it is better not to even start from the beginning.",
+      "why": "중간에 그만둘 바에는 시작조차 하지 않는 것이 낫다는 문맥이므로 「안 하는」이 알맞습니다."
+    }
+  ],
+  "1-3": [
+    {
+      "stem": "남들이 믿건 안 ( ) 그것은 분명히 일어난 사실이다.",
+      "options": [
+        "믿건",
+        "믿으면",
+        "믿어서",
+        "믿으므로"
+      ],
+      "answer": 0,
+      "sentence": "남들이 믿건 안 믿건 그것은 분명히 일어난 사실이다.",
+      "en": "Whether others believe it or not, that is clearly a fact that occurred.",
+      "why": "앞의 「믿건」과 짝을 이루어 둘 중 어느 쪽이든 상관없음을 나타내는 「-건」이 알맞습니다."
+    },
+    {
+      "stem": "결과가 성공적이건 실패로 끝나건 이번 경험은 우리에게 큰 ( )이 될 것이다.",
+      "options": [
+        "부담",
+        "자산",
+        "손실",
+        "위험"
+      ],
+      "answer": 1,
+      "sentence": "결과가 성공적이건 실패로 끝나건 이번 경험은 우리에게 큰 자산이 될 것이다.",
+      "en": "Whether the result is a success or ends in failure, this experience will be a great asset to us.",
+      "why": "성공이든 실패든 상관없이 앞으로 도움이 되는 소중한 가치가 된다는 문맥이므로 「자산」이 알맞습니다."
+    }
+  ],
+  "1-4": [
+    {
+      "stem": "승패에 집착한( ) 경기를 즐기려는 태도가 필요하다.",
+      "options": [
+        "다시피",
+        "자마자",
+        "다기보다는",
+        "을망정"
+      ],
+      "answer": 2,
+      "sentence": "승패에 집착한다기보다는 경기를 즐기려는 태도가 필요하다.",
+      "en": "Rather than obsessing over winning or losing, an attitude of enjoying the game is needed.",
+      "why": "「-(느)ㄴ다기보다는」은 앞의 내용보다 뒤의 내용이 더 알맞거나 바람직하다고 고쳐 말할 때 씁니다."
+    },
+    {
+      "stem": "그 책은 지식을 전달한다기보다는 독자의 ( )을 자극하는 이야기로 가득하다.",
+      "options": [
+        "부담",
+        "불만",
+        "상실",
+        "상상력"
+      ],
+      "answer": 3,
+      "sentence": "그 책은 지식을 전달한다기보다는 독자의 상상력을 자극하는 이야기로 가득하다.",
+      "en": "Rather than conveying knowledge, that book is full of stories that stimulate the reader's imagination.",
+      "why": "단순 지식 전달이 아니라 독자의 생각을 넓혀 주는 긍정적 요소인 「상상력」을 자극한다는 문맥이 알맞습니다."
+    }
+  ],
+  "2-1": [
+    {
+      "stem": "부장님께서 나( ) 이번 기획안을 다시 검토하라고 지시하셨다.",
+      "options": [
+        "보고",
+        "조차",
+        "마저",
+        "치고"
+      ],
+      "answer": 0,
+      "sentence": "부장님께서 나보고 이번 기획안을 다시 검토하라고 지시하셨다.",
+      "en": "The director told me to review this proposal again.",
+      "why": "「보고」는 어떤 행동이나 말을 듣는 대상을 가리키는 조사로, '나에게 지시하다'의 뜻을 나타냅니다."
+    },
+    {
+      "stem": "동생이 나보고 주말에 같이 ( )에 가자고 졸랐다.",
+      "options": [
+        "사고",
+        "놀이공원",
+        "질병",
+        "고민"
+      ],
+      "answer": 1,
+      "sentence": "동생이 나보고 주말에 같이 놀이공원에 가자고 졸랐다.",
+      "en": "My younger sibling begged me to go to the amusement park together over the weekend.",
+      "why": "주말에 함께 가자고 조를 만한 즐거운 장소인 「놀이공원」이 문맥상 가장 자연스럽습니다."
+    }
+  ],
+  "2-2": [
+    {
+      "stem": "조금만 기다리면 회의가 곧 끝난( ) 자리에 앉아 계세요.",
+      "options": [
+        "더라도",
+        "느라고",
+        "다니까",
+        "자마자"
+      ],
+      "answer": 2,
+      "sentence": "조금만 기다리면 회의가 곧 끝난다니까 자리에 앉아 계세요.",
+      "en": "I said the meeting will be over shortly, so please remain seated.",
+      "why": "「-(느)ㄴ다니까」는 자기가 한 말을 다시 강조하여 상대방에게 전할 때 씁니다."
+    },
+    {
+      "stem": "내가 이번 프로젝트를 반드시 ( )한다니까 팀원들이 안도했다.",
+      "options": [
+        "포기",
+        "중단",
+        "지연",
+        "완수"
+      ],
+      "answer": 3,
+      "sentence": "내가 이번 프로젝트를 반드시 완수한다니까 팀원들이 안도했다.",
+      "en": "When I said I would definitely complete this project, the team members felt relieved.",
+      "why": "팀원들이 안도할 수 있도록 프로젝트를 끝까지 해내겠다는 뜻의 「완수」가 가장 알맞습니다."
+    }
+  ],
+  "2-4": [
+    {
+      "stem": "정부 발표( ) 다음 달부터 대중교통 요금이 인상된다고 합니다.",
+      "options": [
+        "에 의하면",
+        "에 비해서",
+        "에 반해서",
+        "에 비추어"
+      ],
+      "answer": 0,
+      "sentence": "정부 발표에 의하면 다음 달부터 대중교통 요금이 인상된다고 합니다.",
+      "en": "According to the government announcement, public transportation fares will increase starting next month.",
+      "why": "「에 의하면」은 전해 들은 정보의 출처나 근거를 밝힐 때 씁니다."
+    },
+    {
+      "stem": "최근 발표된 연구 ( )에 의하면 규칙적인 운동이 기억력을 향상시킨다고 한다.",
+      "options": [
+        "사고",
+        "결과",
+        "실패",
+        "지연"
+      ],
+      "answer": 1,
+      "sentence": "최근 발표된 연구 결과에 의하면 규칙적인 운동이 기억력을 향상시킨다고 한다.",
+      "en": "According to recently published research findings, regular exercise improves memory.",
+      "why": "연구를 통해 밝혀진 내용이나 사실을 가리키는 「결과」가 문맥상 가장 알맞습니다."
+    }
+  ],
+  "3-1": [
+    {
+      "stem": "이 서류에 적힌 내용이 모두 사실( ) 증명합니다.",
+      "options": [
+        "기로",
+        "자마자",
+        "임을",
+        "더라도"
+      ],
+      "answer": 2,
+      "sentence": "이 서류에 적힌 내용이 모두 사실임을 증명합니다.",
+      "en": "I certify that all details written in this document are true.",
+      "why": "「-(으)ㅁ」은 문장을 명사처럼 만들어 격식적인 증명이나 확인의 대상으로 삼을 때 씁니다."
+    },
+    {
+      "stem": "이번 실험을 통해 신약의 ( )이 입증되었음을 알려 드립니다.",
+      "options": [
+        "부작용",
+        "결함",
+        "위험",
+        "효능"
+      ],
+      "answer": 3,
+      "sentence": "이번 실험을 통해 신약의 효능이 입증되었음을 알려 드립니다.",
+      "en": "We inform you that the efficacy of the new medicine has been proven through this experiment.",
+      "why": "신약 실험을 통해 긍정적으로 입증되어 알릴 만한 특성인 「효능」이 가장 알맞습니다."
+    }
+  ],
+  "3-3": [
+    {
+      "stem": "이번 사건에 대해 우리가 파악하( )에 따르면 피해는 크지 않습니다.",
+      "options": [
+        "는 바",
+        "는 셈",
+        "는 길",
+        "는 탓"
+      ],
+      "answer": 0,
+      "sentence": "이번 사건에 대해 우리가 파악하는 바에 따르면 피해는 크지 않습니다.",
+      "en": "According to what we have grasped regarding this incident, the damage is not large.",
+      "why": "「-는 바」는 어떤 내용이나 사실을 격식 있게 받아 이어 말할 때 씁니다."
+    },
+    {
+      "stem": "이번 계획이 성공적으로 추진되기를 간절히 ( )하는 바입니다.",
+      "options": [
+        "비판",
+        "희망",
+        "거부",
+        "지연"
+      ],
+      "answer": 1,
+      "sentence": "이번 계획이 성공적으로 추진되기를 간절히 희망하는 바입니다.",
+      "en": "We earnestly hope that this plan will be pursued successfully.",
+      "why": "계획이 잘 이루어지기를 바라는 마음을 격식 있게 나타내므로 「희망」이 알맞습니다."
+    }
+  ],
+  "4-1": [
+    {
+      "stem": "극심한 가뭄( ) 농작물의 수확량이 크게 감소했습니다.",
+      "options": [
+        "에 비추어",
+        "에 못지않게",
+        "으로 인해서",
+        "에 더불어"
+      ],
+      "answer": 2,
+      "sentence": "극심한 가뭄으로 인해서 농작물의 수확량이 크게 감소했습니다.",
+      "en": "Due to the severe drought, crop yields decreased significantly.",
+      "why": "「(으)로 인해서」는 어떤 일이나 상황이 직접적인 원인이 되어 결과가 생겼음을 격식 있게 밝힐 때 씁니다."
+    },
+    {
+      "stem": "갑작스러운 폭설로 인해서 항공기 ( )이 줄줄이 취소되었다.",
+      "options": [
+        "제작",
+        "지연",
+        "출항",
+        "운항"
+      ],
+      "answer": 3,
+      "sentence": "갑작스러운 폭설로 인해서 항공기 운항이 줄줄이 취소되었다.",
+      "en": "Due to the sudden heavy snowfall, flights were cancelled one after another.",
+      "why": "폭설로 인해 취소되는 항공기의 활동은 비행기가 운행하는 것을 뜻하는 「운항」이 알맞습니다."
+    }
+  ],
+  "4-2": [
+    {
+      "stem": "주변 사람들이 시끄럽게 떠드( ) 중요한 전화 통화를 제대로 못 했다.",
+      "options": [
+        "는 통에",
+        "는 셈치고",
+        "는 한편",
+        "는 마당에"
+      ],
+      "answer": 0,
+      "sentence": "주변 사람들이 시끄럽게 떠드는 통에 중요한 전화 통화를 제대로 못 했다.",
+      "en": "Because the people around me were making a fuss and being noisy, I couldn't make an important phone call properly.",
+      "why": "「-는 통에」는 정신없고 복잡한 상황이 원인이 되어 좋지 않은 결과가 생겼을 때 씁니다."
+    },
+    {
+      "stem": "갑자기 정전이 일어나는 통에 컴퓨터에 작업하던 ( )를 날려 버렸다.",
+      "options": [
+        "포부",
+        "자료",
+        "서류",
+        "기회"
+      ],
+      "answer": 1,
+      "sentence": "갑자기 정전이 일어나는 통에 컴퓨터에 작업하던 자료를 날려 버렸다.",
+      "en": "Because there was a sudden power outage, I lost the files I was working on on the computer.",
+      "why": "컴퓨터로 작업하다 정전으로 잃어버릴 수 있는 대상은 「자료」가 가장 알맞습니다."
+    }
+  ],
+  "4-3": [
+    {
+      "stem": "운전자의 부주의( ) 대형 교통사고가 발생하고 말았다.",
+      "options": [
+        "에 힘입어",
+        "에 앞서",
+        "로 말미암아",
+        "에 달하여"
+      ],
+      "answer": 2,
+      "sentence": "운전자의 부주의로 말미암아 대형 교통사고가 발생하고 말았다.",
+      "en": "A major traffic accident occurred due to the driver's carelessness.",
+      "why": "「(으)로 말미암아」는 어떤 원인이나 이유로 인해 부정적인 사건이나 결과가 일어났음을 나타낼 때 씁니다."
+    },
+    {
+      "stem": "이번 수해로 말미암아 수많은 ( )이 집을 잃고 대피소에 머물고 있다.",
+      "options": [
+        "주민",
+        "상인",
+        "행인",
+        "이재민"
+      ],
+      "answer": 3,
+      "sentence": "이번 수해로 말미암아 수많은 이재민이 집을 잃고 대피소에 머물고 있다.",
+      "en": "Due to this flood damage, numerous disaster victims have lost their homes and are staying in shelters.",
+      "why": "수해나 재난으로 인해 집을 잃고 피해를 입은 사람들을 가리키는 말은 「이재민」이 알맞습니다."
+    }
+  ],
+  "4-4": [
+    {
+      "stem": "모든 팀원이 심혈을 기울여 준비하( ) 반드시 좋은 결실을 맺을 것이다.",
+      "options": [
+        "느니만큼",
+        "려거든",
+        "자마자",
+        "더라도"
+      ],
+      "answer": 0,
+      "sentence": "모든 팀원이 심혈을 기울여 준비하느니만큼 반드시 좋은 결실을 맺을 것이다.",
+      "en": "Inasmuch as all team members have prepared with utmost dedication, it will surely bear good fruit.",
+      "why": "「-느니만큼」은 앞의 내용이 뒤의 결과나 기대를 뒷받침하는 충분한 근거나 이유가 됨을 나타냅니다."
+    },
+    {
+      "stem": "국가대표 선수들이 흘린 땀방울이 많은 노력을 대변하느니만큼 이번 대회에서 값진 ( )를 거두었다.",
+      "options": [
+        "찬사",
+        "성과",
+        "위기",
+        "격려"
+      ],
+      "answer": 1,
+      "sentence": "국가대표 선수들이 흘린 땀방울이 많은 노력을 대변하느니만큼 이번 대회에서 값진 성과를 거두었다.",
+      "en": "Inasmuch as the sweat shed by the national team athletes represents their immense effort, they achieved valuable results in this tournament.",
+      "why": "많은 노력에 상응하는 긍정적인 결실을 거두었다는 맥락이므로 「성과」가 가장 알맞습니다."
+    }
+  ],
+  "4-5": [
+    {
+      "stem": "한 국가의 국민으로 살아가( ) 법과 질서를 준수할 의무가 있다.",
+      "options": [
+        "는 한편",
+        "는 바람에",
+        "는 이상",
+        "는 셈치고"
+      ],
+      "answer": 2,
+      "sentence": "한 국가의 국민으로 살아가는 이상 법과 질서를 준수할 의무가 있다.",
+      "en": "As long as one lives as a citizen of a nation, one has the duty to abide by law and order.",
+      "why": "「-는 이상」은 앞의 조건이나 사실이 확정되었으니 뒤의 당연한 의무나 각오가 따라야 함을 나타냅니다."
+    },
+    {
+      "stem": "우리 회사에 입사 지원서를 제출하는 이상 공정한 ( ) 과정을 거치게 됩니다.",
+      "options": [
+        "조작",
+        "방해",
+        "외면",
+        "심사"
+      ],
+      "answer": 3,
+      "sentence": "우리 회사에 입사 지원서를 제출하는 이상 공정한 심사 과정을 거치게 됩니다.",
+      "en": "As long as you submit an application to our company, you will undergo a fair evaluation process.",
+      "why": "입사 지원서를 냈을 때 받게 되는 정당하고 올바른 평가는 「심사」입니다."
+    }
+  ],
+  "4-6": [
+    {
+      "stem": "아무리 마음이 급하( ) 신호를 위반해서 운전하면 안 된다.",
+      "options": [
+        "기로서니",
+        "자마자",
+        "더라도",
+        "느라면"
+      ],
+      "answer": 0,
+      "sentence": "아무리 마음이 급하기로서니 신호를 위반해서 운전하면 안 된다.",
+      "en": "No matter how much of a hurry you are in, you should not run a red light while driving.",
+      "why": "「-기로서니」는 아무리 앞의 상황이 그렇다고 해도 뒤의 행동은 지나치거나 옳지 않음을 나타냅니다."
+    },
+    {
+      "stem": "아무리 의견 차이가 크기로서니 상대방에게 ( )을 퍼붓는 것은 옳지 않다.",
+      "options": [
+        "비난",
+        "폭언",
+        "원망",
+        "불평"
+      ],
+      "answer": 1,
+      "sentence": "아무리 의견 차이가 크기로서니 상대방에게 폭언을 퍼붓는 것은 옳지 않다.",
+      "en": "Even if there is a big difference of opinion, pouring abusive language on the other party is not right.",
+      "why": "의견이 달라도 해서는 안 될 부적절하고 심한 말은 「폭언」입니다."
+    }
+  ],
+  "4-7": [
+    {
+      "stem": "자동차 안전띠를 단단히 맸( ) 하마터면 크게 다칠 뻔했다.",
+      "options": [
+        "을 텐데",
+        "을지언정",
+        "기에 망정이지",
+        "을 리 없이"
+      ],
+      "answer": 2,
+      "sentence": "자동차 안전띠를 단단히 맸기에 망정이지 하마터면 크게 다칠 뻔했다.",
+      "en": "It was fortunate that I had fastened my car seatbelt tightly, otherwise I could have been seriously injured.",
+      "why": "「-기에 망정이지」는 다행히 그 일을 해서 큰 불행이나 사고를 면했음을 나타낼 때 씁니다."
+    },
+    {
+      "stem": "주민들이 초기에 ( )을 신속하게 진압했기에 망정이지 큰불로 번질 뻔했다.",
+      "options": [
+        "소동",
+        "갈등",
+        "혼란",
+        "불길"
+      ],
+      "answer": 3,
+      "sentence": "주민들이 초기에 불길을 신속하게 진압했기에 망정이지 큰불로 번질 뻔했다.",
+      "en": "It was fortunate that the residents quickly extinguished the flames in the early stage, otherwise it almost spread into a massive fire.",
+      "why": "큰불로 번지기 전에 신속하게 진압할 수 있는 것은 「불길」이 알맞습니다."
+    }
+  ],
+  "4-8": [
+    {
+      "stem": "동생은 고장 난 시계를 고친( ) 분해해 놓고는 결국 망가뜨렸다.",
+      "options": [
+        "답시고",
+        "다시피",
+        "자마자",
+        "더라도"
+      ],
+      "answer": 0,
+      "sentence": "동생은 고장 난 시계를 고친답시고 분해해 놓고는 결국 망가뜨렸다.",
+      "en": "Under the pretense of fixing the broken clock, my younger sibling disassembled it and ended up ruining it.",
+      "why": "「-(느)ㄴ답시고」는 어떤 의도로 행동했으나 결과가 오히려 불만스럽거나 어설플 때 씁니다."
+    },
+    {
+      "stem": "스스로 문제를 해결한답시고 고집을 부리다가 더 큰 ( )을 초래했다.",
+      "options": [
+        "행운",
+        "혼란",
+        "성공",
+        "보람"
+      ],
+      "answer": 1,
+      "sentence": "스스로 문제를 해결한답시고 고집을 부리다가 더 큰 혼란을 초래했다.",
+      "en": "Under the pretense of solving the problem on one's own, being stubborn brought about greater confusion.",
+      "why": "어설프게 고집을 부려 부정적인 결과를 낳았다는 문맥이므로 「혼란」이 알맞습니다."
+    }
+  ],
+  "4-10": [
+    {
+      "stem": "도서관 안이 매우 조용하( ) 책장을 넘기는 소리도 조심스러웠다.",
+      "options": [
+        "자마자",
+        "더라도",
+        "기에",
+        "느라면"
+      ],
+      "answer": 2,
+      "sentence": "도서관 안이 매우 조용하기에 책장을 넘기는 소리도 조심스러웠다.",
+      "en": "Because it was very quiet inside the library, even the sound of turning pages made me cautious.",
+      "why": "「-기에」는 어떤 행동이나 판단을 하게 된 원인이나 근거를 나타낼 때 씁니다."
+    },
+    {
+      "stem": "지원자의 서류가 매우 성실하게 작성되었기에 면접 ( )를 부여하기로 결정했다.",
+      "options": [
+        "자유",
+        "권리",
+        "지위",
+        "기회"
+      ],
+      "answer": 3,
+      "sentence": "지원자의 서류가 매우 성실하게 작성되었기에 면접 기회를 부여하기로 결정했다.",
+      "en": "Because the applicant's documents were prepared very diligently, we decided to grant an interview opportunity.",
+      "why": "성실한 서류를 보고 부여할 수 있는 긍정적인 제안은 「기회」가 알맞습니다."
+    }
+  ],
+  "4-11": [
+    {
+      "stem": "백화점에서 신상품을 특별 할인하( ) 망설이지 않고 하나 샀다.",
+      "options": [
+        "길래",
+        "느라고",
+        "자마자",
+        "더라도"
+      ],
+      "answer": 0,
+      "sentence": "백화점에서 신상품을 특별 할인하길래 망설이지 않고 하나 샀다.",
+      "en": "Because the department store was giving a special discount on new products, I bought one without hesitation.",
+      "why": "「-길래」는 구어에서 어떤 사실이나 상황이 행동의 원인이나 계기가 되었음을 나타낼 때 씁니다."
+    },
+    {
+      "stem": "친구가 맛있는 저녁 식사를 대접하길래 제가 ( )을 계산했습니다.",
+      "options": [
+        "벌금",
+        "커피값",
+        "술값",
+        "밥값"
+      ],
+      "answer": 1,
+      "sentence": "친구가 맛있는 저녁 식사를 대접하길래 제가 커피값을 계산했습니다.",
+      "en": "Because my friend treated me to a delicious dinner, I paid for the coffee.",
+      "why": "식사 대접에 대한 보답으로 부담 없이 계산할 수 있는 것은 「커피값」이 알맞습니다."
+    }
+  ],
+  "5-2": [
+    {
+      "stem": "앞길이 험난할( ) 우리는 끝까지 우리의 길을 걸어가겠다.",
+      "options": [
+        "수록",
+        "망정",
+        "지라도",
+        "테니"
+      ],
+      "answer": 2,
+      "sentence": "앞길이 험난할지라도 우리는 끝까지 우리의 길을 걸어가겠다.",
+      "en": "Even if the road ahead may be rough, we will walk our path to the very end.",
+      "why": "「-(으)ㄹ지라도」는 앞의 상황을 가정하여 인정하면서도 뒤의 의지나 사실에 영향을 주지 않음을 나타내는 양보 표현입니다."
+    },
+    {
+      "stem": "비록 지금은 미약할지라도 끊임없이 노력한다면 위대한 ( )을 이룰 수 있다.",
+      "options": [
+        "체념",
+        "방황",
+        "좌절",
+        "업적"
+      ],
+      "answer": 3,
+      "sentence": "비록 지금은 미약할지라도 끊임없이 노력한다면 위대한 업적을 이룰 수 있다.",
+      "en": "Even if it may be feeble right now, if you make continuous efforts, you can achieve a great accomplishment.",
+      "why": "노력을 거듭하여 이룰 수 있는 훌륭하고 값진 결실은 「업적」이 알맞습니다."
+    }
+  ],
+  "5-3": [
+    {
+      "stem": "이미 엎질러진 물을 뒤늦게 안타까워한( ) 되돌릴 수 있겠습니까?",
+      "options": [
+        "들",
+        "자마자",
+        "더라도",
+        "기에"
+      ],
+      "answer": 0,
+      "sentence": "이미 엎질러진 물을 뒤늦게 안타까워한들 되돌릴 수 있겠습니까?",
+      "en": "Even if you regret the spilled milk belatedly, can you turn it back?",
+      "why": "「-(으)ㄴ들」은 앞의 일을 인정하더라도 소용이 없거나 의미가 없음을 반문할 때 씁니다."
+    },
+    {
+      "stem": "아무리 세상의 모든 부귀영화를 다 누린들 ( )을 잃으면 무슨 의미가 있겠는가?",
+      "options": [
+        "비판",
+        "건강",
+        "불안",
+        "고통"
+      ],
+      "answer": 1,
+      "sentence": "아무리 세상의 모든 부귀영화를 다 누린들 건강을 잃으면 무슨 의미가 있겠는가?",
+      "en": "Even if you enjoy all the wealth and honor in the world, what meaning does it have if you lose your health?",
+      "why": "부귀영화보다 소중하여 잃었을 때 모든 것이 무의미해지는 가치는 「건강」이 알맞습니다."
+    }
+  ],
+  "5-4": [
+    {
+      "stem": "이번 시험에서 탈락할( ) 부정행위는 결코 저지르지 않겠다.",
+      "options": [
+        "수록",
+        "테니",
+        "망정",
+        "자마자"
+      ],
+      "answer": 2,
+      "sentence": "이번 시험에서 탈락할망정 부정행위는 결코 저지르지 않겠다.",
+      "en": "Even though I might fail this exam, I will never commit an act of cheating.",
+      "why": "「-(으)ㄹ망정」은 앞의 나쁜 결과를 감수할지언정 뒤의 원칙이나 신념을 지키겠다는 뜻을 나타냅니다."
+    },
+    {
+      "stem": "사업에서 막대한 금전적 손해를 볼망정 고객과의 ( )는 반드시 지키겠다.",
+      "options": [
+        "시비",
+        "거리",
+        "태도",
+        "신뢰"
+      ],
+      "answer": 3,
+      "sentence": "사업에서 막대한 금전적 손해를 볼망정 고객과의 신뢰는 반드시 지키겠다.",
+      "en": "Even if we suffer immense financial losses in business, we will definitely maintain our trust with customers.",
+      "why": "손해를 보더라도 반드시 지켜야 할 고객과의 소중한 관계는 「신뢰」가 알맞습니다."
+    }
+  ],
+  "5-5": [
+    {
+      "stem": "그 제안을 받아들인( ) 예산이 너무 많이 듭니다.",
+      "options": [
+        "다고 치더라도",
+        "자마자",
+        "더라도",
+        "느라고"
+      ],
+      "answer": 0,
+      "sentence": "그 제안을 받아들인다고 치더라도 예산이 너무 많이 듭니다.",
+      "en": "Even supposing that we accept that proposal, it costs too much budget.",
+      "why": "「-(느)ㄴ다고 치다」는 사실이 아니거나 확실하지 않더라도 일단 그렇다고 가정할 때 씁니다."
+    },
+    {
+      "stem": "이번 계획이 성공한다고 치더라도 사후 ( ) 대책이 없으면 무용지물이다.",
+      "options": [
+        "방해",
+        "관리",
+        "포기",
+        "태만"
+      ],
+      "answer": 1,
+      "sentence": "이번 계획이 성공한다고 치더라도 사후 관리 대책이 없으면 무용지물이다.",
+      "en": "Even supposing this plan succeeds, it will be useless without follow-up management measures.",
+      "why": "성공 이후에도 지속적으로 유지하고 보살피기 위한 대책을 뜻하므로 「관리」가 알맞습니다."
+    }
+  ],
+  "5-6": [
+    {
+      "stem": "이번 실패는 비싼 인생 공부를 하( ) 훌훌 털어버리자.",
+      "options": [
+        "는 통에",
+        "는 한편",
+        "는 셈치고",
+        "는 마당에"
+      ],
+      "answer": 2,
+      "sentence": "이번 실패는 비싼 인생 공부를 하는 셈치고 훌훌 털어버리자.",
+      "en": "Let's shake off this failure, considering it a valuable life lesson.",
+      "why": "「-는 셈치다」는 실제와는 다르지만 마음속으로 그렇게 여기고 넘어가려 할 때 씁니다."
+    },
+    {
+      "stem": "어려운 이웃에게 따뜻한 ( )를 하는 셈치고 작은 정성을 보탰다.",
+      "options": [
+        "봉사",
+        "위로",
+        "배려",
+        "기부"
+      ],
+      "answer": 3,
+      "sentence": "어려운 이웃에게 따뜻한 기부를 하는 셈치고 작은 정성을 보탰다.",
+      "en": "Considering it a warm donation to neighbors in need, I contributed a small token of sincerity.",
+      "why": "어려운 이웃을 돕기 위해 정성을 보태는 행위는 「기부」가 가장 알맞습니다."
+    }
+  ],
+  "6-1": [
+    {
+      "stem": "유명 가수의 콘서트 티켓이 오픈되( ) 전석 매진되었다.",
+      "options": [
+        "기가 무섭게",
+        "는 셈치고",
+        "기에 앞서",
+        "는 통에"
+      ],
+      "answer": 0,
+      "sentence": "유명 가수의 콘서트 티켓이 오픈되기가 무섭게 전석 매진되었다.",
+      "en": "As soon as the famous singer's concert tickets opened, all seats were sold out.",
+      "why": "「-기가 무섭게」는 어떤 일이 끝나자마자 매우 빠르게 다음 일이 일어남을 강조할 때 씁니다."
+    },
+    {
+      "stem": "비행기가 활주로에 ( )하기가 무섭게 승객들이 일제히 안전벨트를 풀었다.",
+      "options": [
+        "출항",
+        "착륙",
+        "침몰",
+        "우회"
+      ],
+      "answer": 1,
+      "sentence": "비행기가 활주로에 착륙하기가 무섭게 승객들이 일제히 안전벨트를 풀었다.",
+      "en": "As soon as the airplane landed on the runway, passengers unfastened their seatbelts all at once.",
+      "why": "비행기가 활주로에 닿아 내리는 동작은 「착륙」이 알맞습니다."
+    }
   ]
 }
