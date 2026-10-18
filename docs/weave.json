@@ -537,6 +537,381 @@
     "ko": "틀리게 말해도 당황하지 마세요. 이 말로 고치고 계속 말하는 것이 능숙한 말하기예요.",
     "en": "Do not panic when you slip. Correct it with this and keep going — that is what fluent speakers do."
    }
+  },
+  {
+   "id": "geureona",
+   "ko": "그러나",
+   "role": "contrast",
+   "lv": "intermediate",
+   "en": "however · but (formal/written)",
+   "use": {
+    "ko": "앞의 내용과 반대되거나 다른 사실을 뒤에 이어 쓸 때(글에서 많이 씀)",
+    "en": "Connects an opposite or contrasting fact; mostly used in writing and formal speech"
+   },
+   "ex": [
+    {
+     "ko": "모두가 열심히 준비했습니다. 그러나 결과는 아쉬웠습니다.",
+     "en": "Everyone prepared hard. However, the result was disappointing."
+    },
+    {
+     "ko": "그는 많은 어려움을 겪었습니다. 그러나 끝까지 포기하지 않았습니다.",
+     "en": "He went through many difficulties. However, he did not give up until the end."
+    }
+   ],
+   "tip": {
+    "ko": "「하지만」과 뜻은 같지만, 글말이나 공식 발표에서 주로 쓰여요.",
+    "en": "Same meaning as 하지만, but mostly used in written texts and formal presentations."
+   }
+  },
+  {
+   "id": "geureochiman",
+   "ko": "그렇지만",
+   "role": "contrast",
+   "lv": "beginner",
+   "en": "but · however",
+   "use": {
+    "ko": "앞의 사실을 인정하면서도 그와 다른 생각이나 사실을 말할 때",
+    "en": "Acknowledges the previous point while introducing a contrasting fact or thought"
+   },
+   "ex": [
+    {
+     "ko": "한국어는 발음이 어려워요. 그렇지만 정말 재미있어요.",
+     "en": "Korean pronunciation is difficult. But it is really fun."
+    },
+    {
+     "ko": "비가 와서 길이 미끄러워요. 그렇지만 약속 장소에 꼭 갈 거예요.",
+     "en": "It is raining so the road is slippery. But I will definitely go to the appointment."
+    }
+   ],
+   "tip": {
+    "ko": "「하지만」보다 앞의 상황을 '그렇다'고 받아들이는 느낌이 더 강해요.",
+    "en": "More strongly acknowledges the previous situation ('that is true, but') compared to 하지만."
+   }
+  },
+  {
+   "id": "geureomeuro",
+   "ko": "그러므로",
+   "role": "result",
+   "lv": "intermediate",
+   "en": "therefore · hence",
+   "use": {
+    "ko": "앞의 내용이 뒤 내용의 까닭이나 근거가 될 때(논리적인 글말)",
+    "en": "Used when the preceding statement is the logical cause or reason for the following statement (formal/written)"
+   },
+   "ex": [
+    {
+     "ko": "건강은 무엇보다 소중합니다. 그러므로 규칙적인 운동이 꼭 필요합니다.",
+     "en": "Health is precious above all else. Therefore, regular exercise is essential."
+    },
+    {
+     "ko": "시간이 촉박합니다. 그러므로 우리는 서둘러 결정을 내려야 합니다.",
+     "en": "Time is pressing. Therefore, we must make a decision quickly."
+    }
+   ],
+   "tip": {
+    "ko": "「그래서」의 격식 있는 표현으로, 주장하는 글이나 논설문에서 써요.",
+    "en": "A formal version of 그래서, commonly used in argumentative essays and editorials."
+   }
+  },
+  {
+   "id": "ttohan",
+   "ko": "또한",
+   "role": "add",
+   "lv": "intermediate",
+   "en": "also · in addition · furthermore",
+   "use": {
+    "ko": "앞의 사실에 비슷한 다른 사실을 나란히 보탤 때(격식체 · 글말)",
+    "en": "Adds another similar fact alongside the preceding one (formal and written)"
+   },
+   "ex": [
+    {
+     "ko": "이 도서관은 책이 다양합니다. 또한 시설도 매우 깨끗합니다.",
+     "en": "This library has a diverse collection of books. In addition, its facilities are very clean."
+    },
+    {
+     "ko": "문화 체험은 언어 학습에 큰 도움이 됩니다. 또한 시야를 넓혀 줍니다.",
+     "en": "Cultural experiences greatly help language learning. Furthermore, they broaden one's perspective."
+    }
+   ],
+   "tip": {
+    "ko": "글에서 「또」나 「그리고」 대신 점잖게 덧붙일 때 어울려요.",
+    "en": "A dignified alternative to 또 or 그리고 in formal writing."
+   }
+  },
+  {
+   "id": "geuppunman-anira",
+   "ko": "그뿐만 아니라",
+   "role": "add",
+   "lv": "intermediate",
+   "en": "not only that · besides",
+   "use": {
+    "ko": "앞의 사실에 그치지 않고 그 이상의 내용이 더해질 때",
+    "en": "Indicates that something does not stop at the preceding fact but goes beyond it with more"
+   },
+   "ex": [
+    {
+     "ko": "그는 친절합니다. 그뿐만 아니라 일도 매우 꼼꼼하게 잘합니다.",
+     "en": "He is kind. Not only that, he also does his work very meticulously and well."
+    },
+    {
+     "ko": "이 앱은 무료입니다. 그뿐만 아니라 광고도 전혀 없습니다.",
+     "en": "This app is free. Besides that, there are no advertisements at all."
+    }
+   ],
+   "tip": {
+    "ko": "앞뒤 내용이 같은 긍정 또는 같은 부정의 방향이어야 자연스러워요.",
+    "en": "Both preceding and following sentences should share the same tone (both positive or both negative)."
+   }
+  },
+  {
+   "id": "banmyeone",
+   "ko": "반면에",
+   "role": "contrast",
+   "lv": "intermediate",
+   "en": "on the other hand · whereas",
+   "use": {
+    "ko": "두 가지 사실이나 대상을 서로 맞세워 비교할 때",
+    "en": "Used to compare and contrast two different facts, aspects, or subjects"
+   },
+   "ex": [
+    {
+     "ko": "형은 외향적이고 말이 많아요. 반면에 동생은 조용하고 차분해요.",
+     "en": "The older brother is outgoing and talkative. On the other hand, the younger one is quiet and calm."
+    },
+    {
+     "ko": "도시는 생활이 편리합니다. 반면에 소음과 공해가 심합니다.",
+     "en": "Cities offer convenient living. On the other hand, noise and pollution are severe."
+    }
+   ],
+   "tip": {
+    "ko": "단순한 반대가 아니라 두 대상의 서로 다른 장단점이나 성격을 대조할 때 써요.",
+    "en": "Used specifically to contrast different characteristics, pros, and cons rather than simple negation."
+   }
+  },
+  {
+   "id": "jeug",
+   "ko": "즉",
+   "role": "summary",
+   "lv": "intermediate",
+   "en": "in other words · that is to say",
+   "use": {
+    "ko": "앞의 말을 다른 말로 바꾸어 알기 쉽게 다시 설명하거나 요약할 때",
+    "en": "Rephrases or summarizes the previous statement in clearer terms"
+   },
+   "ex": [
+    {
+     "ko": "물가가 계속 오르고 있습니다. 즉 돈의 가치가 떨어지고 있다는 뜻입니다.",
+     "en": "Prices continue to rise. In other words, the value of money is falling."
+    },
+    {
+     "ko": "우리는 모두 만장일치로 찬성했습니다. 즉 반대한 사람이 한 명도 없었습니다.",
+     "en": "We all agreed unanimously. That is to say, not a single person opposed."
+    }
+   ],
+   "tip": {
+    "ko": "어려운 표현 뒤에 핵심을 한 번 더 짚어 줄 때 유용해요.",
+    "en": "Useful for highlighting the core point right after a complex explanation."
+   }
+  },
+  {
+   "id": "icheoreom",
+   "ko": "이처럼",
+   "role": "summary",
+   "lv": "intermediate",
+   "en": "like this · as such · in this way",
+   "use": {
+    "ko": "앞에서 든 구체적인 사실이나 예를 바탕으로 결론을 이끌어 낼 때",
+    "en": "Draws a conclusion or generalization based on the concrete facts or examples given earlier"
+   },
+   "ex": [
+    {
+     "ko": "많은 사람들이 봉사에 참여했습니다. 이처럼 작은 정성이 모여 큰 기적을 만듭니다.",
+     "en": "Many people participated in volunteering. In this way, small sincere efforts gather to create a great miracle."
+    },
+    {
+     "ko": "규칙적인 식사와 수면이 중요합니다. 이처럼 생활 습관이 건강을 좌우합니다.",
+     "en": "Regular meals and sleep are important. As such, daily habits determine one's health."
+    }
+   ],
+   "tip": {
+    "ko": "글의 마지막 문단에서 앞에서 말한 근거를 종합하여 마무리할 때 자주 써요.",
+    "en": "Frequently used in the concluding paragraph of a text to wrap up discussed points."
+   }
+  },
+  {
+   "id": "geuttae",
+   "ko": "그때",
+   "role": "order",
+   "lv": "beginner",
+   "en": "at that time · then",
+   "use": {
+    "ko": "앞에서 말한 바로 그 순간이나 시점을 가리킬 때",
+    "en": "Refers to the specific moment or time frame mentioned right before"
+   },
+   "ex": [
+    {
+     "ko": "길을 걷고 있었어요. 그때 갑자기 휴대전화 벨이 울렸어요.",
+     "en": "I was walking down the street. At that time, my phone suddenly rang."
+    },
+    {
+     "ko": "처음 한국에 왔을 때 혼자였어요. 그때 이 친구가 따뜻하게 도와주었어요.",
+     "en": "When I first came to Korea, I was alone. At that time, this friend helped me warmly."
+    }
+   ],
+   "tip": {
+    "ko": "옛날 이야기나 지난 일을 시간 순서대로 풀어나갈 때 자연스러워요.",
+    "en": "Natural when narrating past stories or personal experiences chronologically."
+   }
+  },
+  {
+   "id": "geureodaga",
+   "ko": "그러다가",
+   "role": "order",
+   "lv": "intermediate",
+   "en": "and then · while doing so",
+   "use": {
+    "ko": "앞의 행동이나 상태가 이어지던 중에 다른 일이나 변화가 일어날 때",
+    "en": "Used when a new event or change occurs in the middle of an ongoing action or state"
+   },
+   "ex": [
+    {
+     "ko": "오후 내내 비가 내렸어요. 그러다가 저녁 무렵에 맑게 개었어요.",
+     "en": "It rained all afternoon. And then, toward evening, it cleared up brightly."
+    },
+    {
+     "ko": "공원에서 한참 동안 산책을 했어요. 그러다가 우연히 옛 친구를 만났어요.",
+     "en": "I took a walk in the park for a long time. And then, by chance, I ran into an old friend."
+    }
+   ],
+   "tip": {
+    "ko": "어떤 일이 계속되다가 '갑자기 다른 상황으로 바뀔 때' 써요.",
+    "en": "Expresses a shift where an ongoing situation transitions into something different."
+   }
+  },
+  {
+   "id": "hanpyeon",
+   "ko": "한편",
+   "role": "contrast",
+   "lv": "intermediate",
+   "en": "meanwhile · on the other hand",
+   "use": {
+    "ko": "앞의 이야기와 동시에 진행되는 다른 쪽의 상황이나 새로운 화제를 꺼낼 때",
+    "en": "Introduces another situation taking place concurrently or shifts the topic to another side"
+   },
+   "ex": [
+    {
+     "ko": "선수들은 경기 준비에 집중하고 있습니다. 한편 관중들은 경기장 밖에서 줄을 서고 있습니다.",
+     "en": "The athletes are focusing on game preparations. Meanwhile, spectators are lining up outside the stadium."
+    },
+    {
+     "ko": "이 영화는 액션 장면이 화려합니다. 한편 잔잔한 감동도 함께 선사합니다.",
+     "en": "This movie has splendid action scenes. On the other hand, it also delivers quiet emotional resonance."
+    }
+   ],
+   "tip": {
+    "ko": "뉴스나 보도문에서 화면이나 장소를 다른 쪽으로 전환할 때 대표적으로 쓰는 말이에요.",
+    "en": "A classic transition word used in news reports to shift focus to another setting or scene."
+   }
+  },
+  {
+   "id": "sasireun",
+   "ko": "사실은",
+   "role": "contrast",
+   "lv": "beginner",
+   "en": "actually · in fact · to be honest",
+   "use": {
+    "ko": "겉으로 드러난 상황과 달리 진짜 속마음이나 진실을 털어놓을 때",
+    "en": "Reveals true feelings or the actual truth contrary to outward appearances"
+   },
+   "ex": [
+    {
+     "ko": "제가 바쁘다고 말했지요? 사실은 몸이 좀 아파서 쉬고 싶었어요.",
+     "en": "I told you I was busy, right? Actually, I felt sick and wanted to rest."
+    },
+    {
+     "ko": "어려운 시험이라고 생각했어요. 사실은 준비를 많이 못 해서 긴장했던 거예요.",
+     "en": "I thought it was a difficult exam. In fact, I was nervous because I hadn't prepared enough."
+    }
+   ],
+   "tip": {
+    "ko": "대화에서 상대방에게 솔직한 이유나 비밀을 말할 때 부드러운 분위기를 만들어요.",
+    "en": "Creates a soft, sincere atmosphere in conversations when disclosing real reasons."
+   }
+  },
+  {
+   "id": "mullon",
+   "ko": "물론",
+   "role": "contrast",
+   "lv": "intermediate",
+   "en": "of course · naturally · certainly",
+   "use": {
+    "ko": "상대방의 생각이나 당연한 사실을 먼저 받아들여 인정할 때",
+    "en": "Used to concede or naturally affirm an obvious fact before presenting one's view"
+   },
+   "ex": [
+    {
+     "ko": "외국어 공부는 시간이 많이 듭니다. 물론 꾸준한 노력이 제일 중요합니다.",
+     "en": "Studying a foreign language takes a lot of time. Naturally, steady effort is most important."
+    },
+    {
+     "ko": "새로운 도전에는 위험이 따릅니다. 물론 그만큼 배울 점도 많습니다.",
+     "en": "New challenges involve risks. Of course, there is also much to learn from them."
+    }
+   ],
+   "tip": {
+    "ko": "「물론 ~지만」처럼 뒤에 반전이나 보완을 덧붙이는 전제로 자주 쓰여요.",
+    "en": "Often serves as a foundation for a slight twist or qualification ('Of course..., but...')."
+   }
+  },
+  {
+   "id": "gapjagi",
+   "ko": "갑자기",
+   "role": "order",
+   "lv": "beginner",
+   "en": "suddenly · all of a sudden",
+   "use": {
+    "ko": "예상하지 못한 일이 순식간에 일어났음을 나타낼 때",
+    "en": "Expresses that an unexpected event occurred in an instant"
+   },
+   "ex": [
+    {
+     "ko": "하늘이 어두워졌어요. 갑자기 소나기가 쏟아지기 시작했어요.",
+     "en": "The sky darkened. Suddenly, a downpour began to fall."
+    },
+    {
+     "ko": "공부를 하고 있었어요. 갑자기 방 안의 불이 꺼졌어요.",
+     "en": "I was studying. All of a sudden, the light in the room turned off."
+    }
+   ],
+   "tip": {
+    "ko": "이야기의 긴장감을 높이고 다음 사건으로 빠르게 넘어갈 때 생동감을 줘요.",
+    "en": "Heightens narrative tension and adds vividness when moving swiftly to the next event."
+   }
+  },
+  {
+   "id": "dasi-malhae",
+   "ko": "다시 말해",
+   "role": "summary",
+   "lv": "intermediate",
+   "en": "in other words · to put it another way",
+   "use": {
+    "ko": "앞의 내용을 더 알기 쉽거나 직관적인 말로 다시 풀어서 전달할 때",
+    "en": "Rephrases the prior content in more accessible or direct words"
+   },
+   "ex": [
+    {
+     "ko": "그는 매일 하루도 빠짐없이 연습했습니다. 다시 말해 엄청난 노력을 기울인 것입니다.",
+     "en": "He practiced every single day without exception. In other words, he invested enormous effort."
+    },
+    {
+     "ko": "이번 기회를 놓치면 1년을 기다려야 합니다. 다시 말해 이번이 마지막 기회입니다.",
+     "en": "If we miss this opportunity, we must wait a year. To put it another way, this is our last chance."
+    }
+   ],
+   "tip": {
+    "ko": "「즉」과 비슷하지만 대화체와 글말 모두에서 자연스럽게 쓸 수 있어요.",
+    "en": "Similar to 즉, but versatile in both spoken conversation and written prose."
+   }
   }
  ],
  "stories": [
@@ -2958,6 +3333,1666 @@
      "함께 간 사람",
      "한 일",
      "여행 소감"
+    ],
+    "minSentences": 4,
+    "minConnectors": 2
+   }
+  },
+  {
+   "id": "w-im-commute",
+   "tier": "intermediate",
+   "kind": "tell",
+   "title": {
+    "ko": "출퇴근길의 변화",
+    "en": "Changes in my daily commute"
+   },
+   "sentences": [
+    {
+     "ko": "지난달부터 회사까지 자전거로 출퇴근하기 시작했어요.",
+     "en": "Starting last month, I began commuting to work by bicycle.",
+     "key": [
+      "지난달부터",
+      "자전거로"
+     ],
+     "step": "when"
+    },
+    {
+     "ko": "지하철이 너무 혼잡해서 아침마다 피곤했거든요.",
+     "en": "The subway was so crowded that I felt tired every morning.",
+     "key": [
+      "지하철이",
+      "피곤했거든요"
+     ],
+     "step": "do"
+    },
+    {
+     "ko": "시원한 바람을 맞으며 강변 도로를 달려요.",
+     "en": "I ride along the riverside road feeling the cool breeze.",
+     "key": [
+      "강변 도로를",
+      "달려요"
+     ],
+     "step": "do"
+    },
+    {
+     "ko": "운동도 되고 하루를 활기차게 시작할 수 있어요.",
+     "en": "I get exercise and can start the day energetically.",
+     "key": [
+      "활기차게",
+      "시작할"
+     ],
+     "step": "feel"
+    },
+    {
+     "ko": "앞으로도 날씨가 좋으면 계속 자전거를 탈 거예요.",
+     "en": "I will continue riding my bicycle in the future whenever the weather is good.",
+     "key": [
+      "자전거를",
+      "탈 거예요"
+     ],
+     "step": "end"
+    }
+   ],
+   "gaps": [
+    {
+     "ans": "waenyahamyeon",
+     "opts": [
+      "waenyahamyeon",
+      "geuraeseo",
+      "hajiman",
+      "geureomyeon"
+     ],
+     "role": "reason",
+     "why": {
+      "ko": "앞서 자전거를 타기 시작한 구체적인 원인(지하철 혼잡)을 설명하니까 「왜냐하면」이에요.",
+      "en": "It explains the specific reason (subway congestion) for switching to a bicycle: 왜냐하면."
+     }
+    },
+    {
+     "ans": "geuraeseo",
+     "opts": [
+      "geuraeseo",
+      "hajiman",
+      "waenyahamyeon",
+      "geureomyeon"
+     ],
+     "role": "result",
+     "why": {
+      "ko": "피곤함을 피하고자 자전거로 강변 도로를 달리는 행동으로 이어지므로 「그래서」예요.",
+      "en": "To avoid fatigue, it led to riding along the riverside: 그래서."
+     }
+    },
+    {
+     "ans": "gedaga",
+     "opts": [
+      "gedaga",
+      "hajiman",
+      "geuraeseo",
+      "geureomyeon"
+     ],
+     "role": "add",
+     "why": {
+      "ko": "기분 좋게 달리는 것에 더해 운동 효과와 활력이라는 장점을 덧붙이니까 「게다가」예요.",
+      "en": "It adds exercise and energy on top of the pleasant ride: 게다가."
+     }
+    },
+    {
+     "ans": "ttaraseo",
+     "opts": [
+      "ttaraseo",
+      "hajiman",
+      "majimageuro",
+      "geureomyeon"
+     ],
+     "role": "result",
+     "why": {
+      "ko": "출퇴근길이 건강에 유익하다는 판단을 바탕으로 앞으로도 계속하겠다는 결론에 이르므로 「따라서」예요.",
+      "en": "Based on the benefits, it concludes with a commitment to continue: 따라서."
+     }
+    }
+   ],
+   "links": [
+    {
+     "from": 1,
+     "hint": {
+      "ko": "이전의 피로와 현재의 상쾌함을 한 문장으로",
+      "en": "Join past fatigue and present freshness into one sentence"
+     },
+     "ans": "지하철이 너무 혼잡해서 아침마다 피곤했는데 시원한 바람을 맞으며 강변 도로를 달려요.",
+     "opts": [
+      "지하철이 너무 혼잡해서 아침마다 피곤했는데 시원한 바람을 맞으며 강변 도로를 달려요.",
+      "지하철이 너무 혼잡해서 아침마다 피곤해서 시원한 바람을 맞으며 강변 도로를 달려요.",
+      "지하철이 너무 혼잡해서 아침마다 피곤하고 시원한 바람을 맞으며 강변 도로를 달려요.",
+      "지하철이 너무 혼잡해서 아침마다 피곤하면 시원한 바람을 맞으며 강변 도로를 달려요."
+     ],
+     "why": {
+      "ko": "피곤했던 배경 상황과 달리 상쾌하게 달리는 상황을 대조적으로 잇기 위해 「-는데」를 써요.",
+      "en": "To link past tired background with the fresh present ride, use -는데."
+     }
+    },
+    {
+     "from": 2,
+     "hint": {
+      "ko": "이유 → 결과로 한 문장으로",
+      "en": "Join as reason → result"
+     },
+     "ans": "시원한 바람을 맞으며 강변 도로를 달려서 운동도 되고 하루를 활기차게 시작할 수 있어요.",
+     "opts": [
+      "시원한 바람을 맞으며 강변 도로를 달려서 운동도 되고 하루를 활기차게 시작할 수 있어요.",
+      "시원한 바람을 맞으며 강변 도로를 달리고 운동도 되고 하루를 활기차게 시작할 수 있어요.",
+      "시원한 바람을 맞으며 강변 도로를 달리지만 운동도 되고 하루를 활기차게 시작할 수 있어요.",
+      "시원한 바람을 맞으며 강변 도로를 달리면 운동도 되고 하루를 활기차게 시작할 수 있어요."
+     ],
+     "why": {
+      "ko": "강변을 달리는 행위가 활기찬 하루를 여는 원인이 되므로 「-어서」예요.",
+      "en": "Riding along the river is the reason for starting an energetic day, so use -어서."
+     }
+    }
+   ],
+   "write": {
+    "prompt": {
+     "ko": "출퇴근길이나 등하굣길의 변화를 접속사 두 개 이상 넣어 네 문장 이상 써 보세요.",
+     "en": "Write four or more sentences about changes in your daily commute, using at least two connectors."
+    },
+    "cues": [
+     "교통수단",
+     "바꾼 이유",
+     "좋아진 점",
+     "앞으로의 생각"
+    ],
+    "minSentences": 4,
+    "minConnectors": 2
+   }
+  },
+  {
+   "id": "w-im-healthy-habit",
+   "tier": "intermediate",
+   "kind": "explain",
+   "title": {
+    "ko": "건강을 위한 작은 습관",
+    "en": "Small habits for healthy living"
+   },
+   "sentences": [
+    {
+     "ko": "건강한 삶을 위해서는 일상 속 작은 습관이 중요해요.",
+     "en": "For a healthy life, small daily habits are important.",
+     "key": [
+      "건강한 삶을",
+      "작은 습관이"
+     ],
+     "step": "point"
+    },
+    {
+     "ko": "거창한 운동 계획은 꾸준히 지키기 어렵기 때문이에요.",
+     "en": "It is because grand exercise plans are hard to maintain consistently.",
+     "key": [
+      "거창한",
+      "지키기 어렵기"
+     ],
+     "step": "reason"
+    },
+    {
+     "ko": "엘리베이터 대신 계단을 이용하거나 물을 자주 마셔요.",
+     "en": "Use stairs instead of elevators or drink water frequently.",
+     "key": [
+      "엘리베이터",
+      "계단을"
+     ],
+     "step": "example"
+    },
+    {
+     "ko": "사소한 실천이 쌓여 몸과 마음에 활력을 줘요.",
+     "en": "Trivial actions accumulate and give vitality to body and mind.",
+     "key": [
+      "사소한",
+      "활력을"
+     ],
+     "step": "result"
+    },
+    {
+     "ko": "오늘부터 실천할 수 있는 작은 일부터 시작해 보세요.",
+     "en": "Start today with small things you can put into practice.",
+     "key": [
+      "오늘부터",
+      "시작해 보세요"
+     ],
+     "step": "recap"
+    }
+   ],
+   "gaps": [
+    {
+     "ans": "waenyahamyeon",
+     "opts": [
+      "waenyahamyeon",
+      "geuraeseo",
+      "hajiman",
+      "geureomyeon"
+     ],
+     "role": "reason",
+     "why": {
+      "ko": "작은 습관이 중요한 이유를 「-기 때문이에요」로 밝히고 있으므로 「왜냐하면」이에요.",
+      "en": "The next sentence explains why small habits matter with -기 때문이에요: 왜냐하면."
+     }
+    },
+    {
+     "ans": "yereul-deureo",
+     "opts": [
+      "yereul-deureo",
+      "geureomyeon",
+      "hajiman",
+      "geuraeseo"
+     ],
+     "role": "example",
+     "why": {
+      "ko": "일상 속 실천 방법의 구체적인 예로 계단 이용과 물 마시기를 드니까 「예를 들어」예요.",
+      "en": "It provides stair climbing and water drinking as concrete examples: 예를 들어."
+     }
+    },
+    {
+     "ans": "geureomyeon",
+     "opts": [
+      "geureomyeon",
+      "hajiman",
+      "geuraeseo",
+      "waenyahamyeon"
+     ],
+     "role": "condition",
+     "why": {
+      "ko": "생활 속 습관을 실천하면 활력이 생긴다는 조건과 결과의 연결이므로 「그러면」이에요.",
+      "en": "Practicing those habits leads to vitality: 그러면."
+     }
+    },
+    {
+     "ans": "ttaraseo",
+     "opts": [
+      "ttaraseo",
+      "hajiman",
+      "majimageuro",
+      "geureomyeon"
+     ],
+     "role": "result",
+     "why": {
+      "ko": "작은 실천의 효과를 종합하여 실천을 권유하는 마무리 결론이므로 「따라서」예요.",
+      "en": "Concluding with an encouraging call to action based on the benefits: 따라서."
+     }
+    }
+   ],
+   "links": [
+    {
+     "from": 3,
+     "hint": {
+      "ko": "이유 → 권유로 한 문장으로",
+      "en": "Join as reason → suggestion"
+     },
+     "ans": "사소한 실천이 쌓여 몸과 마음에 활력을 주니까 오늘부터 실천할 수 있는 작은 일부터 시작해 보세요.",
+     "opts": [
+      "사소한 실천이 쌓여 몸과 마음에 활력을 주니까 오늘부터 실천할 수 있는 작은 일부터 시작해 보세요.",
+      "사소한 실천이 쌓여 몸과 마음에 활력을 줘서 오늘부터 실천할 수 있는 작은 일부터 시작해 보세요.",
+      "사소한 실천이 쌓여 몸과 마음에 활력을 주지만 오늘부터 실천할 수 있는 작은 일부터 시작해 보세요.",
+      "사소한 실천이 쌓여 몸과 마음에 활력을 주면 오늘부터 실천할 수 있는 작은 일부터 시작해 보세요."
+     ],
+     "why": {
+      "ko": "뒤에 「~해 보세요」 같은 권유가 오면 이유를 말하는 말은 「-(으)니까」예요.",
+      "en": "When a suggestion (~해 보세요) follows, the reason is given with -(으)니까."
+     }
+    },
+    {
+     "from": 2,
+     "hint": {
+      "ko": "조건 → 결과로 한 문장으로",
+      "en": "Join condition → result into one sentence"
+     },
+     "ans": "엘리베이터 대신 계단을 이용하거나 물을 자주 마시면 사소한 실천이 쌓여 몸과 마음에 활력을 줘요.",
+     "opts": [
+      "엘리베이터 대신 계단을 이용하거나 물을 자주 마시면 사소한 실천이 쌓여 몸과 마음에 활력을 줘요.",
+      "엘리베이터 대신 계단을 이용하거나 물을 자주 마셔서 사소한 실천이 쌓여 몸과 마음에 활력을 줘요.",
+      "엘리베이터 대신 계단을 이용하거나 물을 자주 마시지만 사소한 실천이 쌓여 몸과 마음에 활력을 줘요.",
+      "엘리베이터 대신 계단을 이용하거나 물을 자주 마시고 사소한 실천이 쌓여 몸과 마음에 활력을 줘요."
+     ],
+     "why": {
+      "ko": "계단 이용 등의 행동이 이루어질 때 생기는 긍정적 결과를 가정하므로 조건 어미 「-(으)면」을 써요.",
+      "en": "To state the positive outcome that follows taking the stairs, use -(으)면."
+     }
+    }
+   ],
+   "write": {
+    "prompt": {
+     "ko": "건강을 위해 실천하는 작은 습관을 접속사 두 개 이상 넣어 네 문장 이상 써 보세요.",
+     "en": "Write four or more sentences about small habits you practice for health, using at least two connectors."
+    },
+    "cues": [
+     "나만의 습관",
+     "실천 방법",
+     "몸의 변화",
+     "느낀 점"
+    ],
+    "minSentences": 4,
+    "minConnectors": 2
+   }
+  },
+  {
+   "id": "w-im-weekend-farm",
+   "tier": "intermediate",
+   "kind": "tell",
+   "title": {
+    "ko": "주말농장 가꾸기",
+    "en": "Tending a weekend garden"
+   },
+   "sentences": [
+    {
+     "ko": "지난봄에 가족들과 함께 작은 주말농장을 분양받았어요.",
+     "en": "Last spring, my family and I rented a small weekend garden plot.",
+     "key": [
+      "지난봄에",
+      "주말농장을"
+     ],
+     "step": "when"
+    },
+    {
+     "ko": "주말마다 아이들과 밭에 나가 상추와 토마토를 심었어요.",
+     "en": "Every weekend, I went out to the field with my kids and planted lettuce and tomatoes.",
+     "key": [
+      "아이들과",
+      "상추와"
+     ],
+     "step": "who"
+    },
+    {
+     "ko": "처음에는 흙을 파고 물을 주는 일이 꽤 힘들었어요.",
+     "en": "At first, digging soil and watering was quite tiring.",
+     "key": [
+      "처음에는",
+      "힘들었어요"
+     ],
+     "step": "do"
+    },
+    {
+     "ko": "열매가 자라는 모습을 보니 큰 보람을 느꼈어요.",
+     "en": "Seeing the fruits grow gave me a great sense of fulfillment.",
+     "key": [
+      "열매가",
+      "보람을"
+     ],
+     "step": "feel"
+    },
+    {
+     "ko": "직접 기른 싱싱한 채소로 온 가족이 식탁을 차렸어요.",
+     "en": "The whole family prepared dinner with freshly grown vegetables.",
+     "key": [
+      "채소로",
+      "식탁을 차렸어요"
+     ],
+     "step": "end"
+    }
+   ],
+   "gaps": [
+    {
+     "ans": "geurigo",
+     "opts": [
+      "geurigo",
+      "hajiman",
+      "geureomyeon",
+      "waenyahamyeon"
+     ],
+     "role": "add",
+     "why": {
+      "ko": "농장을 분양받은 사실에 이어 주말마다 모종을 심은 활동을 순서대로 더하니까 「그리고」예요.",
+      "en": "It adds planting vegetables every weekend after getting the plot: 그리고."
+     }
+    },
+    {
+     "ans": "geureonde",
+     "opts": [
+      "geureonde",
+      "geuraeseo",
+      "waenyahamyeon",
+      "geureomyeon"
+     ],
+     "role": "contrast",
+     "why": {
+      "ko": "즐거운 시작과 달리 실제 농사일이 힘들었다는 상황의 전환을 나타내므로 「그런데」예요.",
+      "en": "It shifts to the unexpected physical difficulty of gardening: 그런데."
+     }
+    },
+    {
+     "ans": "hajiman",
+     "opts": [
+      "hajiman",
+      "geuraeseo",
+      "waenyahamyeon",
+      "geureomyeon"
+     ],
+     "role": "contrast",
+     "why": {
+      "ko": "일은 힘들었지만 열매를 보며 보람을 느꼈다는 반대 감정을 대비하므로 「하지만」이에요.",
+      "en": "Contrasting hard labor with the feeling of reward: 하지만."
+     }
+    },
+    {
+     "ans": "gyeolgug",
+     "opts": [
+      "gyeolgug",
+      "majimageuro",
+      "hajiman",
+      "geureomyeon"
+     ],
+     "role": "summary",
+     "why": {
+      "ko": "수고와 보람의 과정을 거쳐 직접 수확한 채소로 식탁을 차리는 최종 결실에 이르므로 「결국」이에요.",
+      "en": "Arriving at the final fruitful outcome of enjoying the harvest: 결국."
+     }
+    }
+   ],
+   "links": [
+    {
+     "from": 0,
+     "hint": {
+      "ko": "앞의 일 때문에 뒤의 일을 했다고 한 문장으로",
+      "en": "Join as: because of the first, I did the second"
+     },
+     "ans": "지난봄에 가족들과 함께 작은 주말농장을 분양받아서 주말마다 아이들과 밭에 나가 상추와 토마토를 심었어요.",
+     "opts": [
+      "지난봄에 가족들과 함께 작은 주말농장을 분양받아서 주말마다 아이들과 밭에 나가 상추와 토마토를 심었어요.",
+      "지난봄에 가족들과 함께 작은 주말농장을 분양받고 주말마다 아이들과 밭에 나가 상추와 토마토를 심었어요.",
+      "지난봄에 가족들과 함께 작은 주말농장을 분양받지만 주말마다 아이들과 밭에 나가 상추와 토마토를 심었어요.",
+      "지난봄에 가족들과 함께 작은 주말농장을 분양받으면 주말마다 아이들과 밭에 나가 상추와 토마토를 심었어요."
+     ],
+     "why": {
+      "ko": "농장을 분양받은 계기가 모종을 심는 활동으로 이어지므로 원인·계기의 어미 「-아서」를 써요.",
+      "en": "Getting the garden plot is the reason for planting seedlings, so use -아서."
+     }
+    },
+    {
+     "from": 2,
+     "hint": {
+      "ko": "고생과 보람을 대비하여 한 문장으로",
+      "en": "Contrast hard work and rewarding feeling into one sentence"
+     },
+     "ans": "처음에는 흙을 파고 물을 주는 일이 꽤 힘들었지만 열매가 자라는 모습을 보니 큰 보람을 느꼈어요.",
+     "opts": [
+      "처음에는 흙을 파고 물을 주는 일이 꽤 힘들었지만 열매가 자라는 모습을 보니 큰 보람을 느꼈어요.",
+      "처음에는 흙을 파고 물을 주는 일이 꽤 힘들어서 열매가 자라는 모습을 보니 큰 보람을 느꼈어요.",
+      "처음에는 흙을 파고 물을 주는 일이 꽤 힘들고 열매가 자라는 모습을 보니 큰 보람을 느꼈어요.",
+      "처음에는 흙을 파고 물을 주는 일이 꽤 힘들면 열매가 자라는 모습을 보니 큰 보람을 느꼈어요."
+     ],
+     "why": {
+      "ko": "힘들었던 고생과 뿌듯했던 보람이라는 상반된 감정을 연결할 때는 대조 어미 「-지만」을 써요.",
+      "en": "To contrast the hardship with the sense of reward, use -지만."
+     }
+    }
+   ],
+   "write": {
+    "prompt": {
+     "ko": "식물을 기르거나 농사를 체험한 이야기를 접속사 두 개 이상 넣어 네 문장 이상 써 보세요.",
+     "en": "Write four or more sentences about growing plants or gardening, using at least two connectors."
+    },
+    "cues": [
+     "기른 식물",
+     "관리 과정",
+     "힘들었던 점",
+     "수확의 기쁨"
+    ],
+    "minSentences": 4,
+    "minConnectors": 2
+   }
+  },
+  {
+   "id": "w-im-remote-work",
+   "tier": "intermediate",
+   "kind": "explain",
+   "title": {
+    "ko": "재택근무의 경험",
+    "en": "My experience with remote work"
+   },
+   "sentences": [
+    {
+     "ko": "재택근무는 출퇴근 시간을 아낄 수 있어 매우 편리해요.",
+     "en": "Remote work is very convenient because it saves commute time.",
+     "key": [
+      "재택근무는",
+      "편리해요"
+     ],
+     "step": "point"
+    },
+    {
+     "ko": "혼자 일하다 보면 일과 휴식의 경계가 흐려지기 쉬워요.",
+     "en": "Working alone makes it easy to blur the boundary between work and rest.",
+     "key": [
+      "혼자",
+      "경계가"
+     ],
+     "step": "reason"
+    },
+    {
+     "ko": "동료들과 얼굴을 마주보고 소통할 기회가 줄어들어요.",
+     "en": "Opportunities for face-to-face communication with colleagues decrease.",
+     "key": [
+      "동료들과",
+      "소통할"
+     ],
+     "step": "reason"
+    },
+    {
+     "ko": "스스로 일정을 엄격하게 관리하는 노력이 반드시 필요해요.",
+     "en": "Strict self-discipline in managing one's schedule is essential.",
+     "key": [
+      "스스로",
+      "일정을"
+     ],
+     "step": "result"
+    },
+    {
+     "ko": "계획적으로 일하면 업무 효율을 크게 높일 수 있어요.",
+     "en": "Working methodically can greatly increase work efficiency.",
+     "key": [
+      "계획적으로",
+      "효율을"
+     ],
+     "step": "recap"
+    }
+   ],
+   "gaps": [
+    {
+     "ans": "hajiman",
+     "opts": [
+      "hajiman",
+      "geuraeseo",
+      "waenyahamyeon",
+      "geureomyeon"
+     ],
+     "role": "contrast",
+     "why": {
+      "ko": "시간 절약이라는 장점 뒤에 일과 휴식의 경계가 흐려진다는 단점을 대비하므로 「하지만」이에요.",
+      "en": "Contrasting convenience with blurred work-life boundaries: 하지만."
+     }
+    },
+    {
+     "ans": "gedaga",
+     "opts": [
+      "gedaga",
+      "hajiman",
+      "geuraeseo",
+      "geureomyeon"
+     ],
+     "role": "add",
+     "why": {
+      "ko": "경계가 흐려지는 문제에 더해 동료와의 소통 부족이라는 어려움을 보태니까 「게다가」예요.",
+      "en": "Adding lack of communication on top of blurred boundaries: 게다가."
+     }
+    },
+    {
+     "ans": "ttaraseo",
+     "opts": [
+      "ttaraseo",
+      "hajiman",
+      "majimageuro",
+      "geureomyeon"
+     ],
+     "role": "result",
+     "why": {
+      "ko": "재택근무의 여러 단점을 극복하기 위해 자기 관리가 필요하다는 결론을 내리므로 「따라서」예요.",
+      "en": "Concluding that strict self-management is necessary: 따라서."
+     }
+    },
+    {
+     "ans": "geureomyeon",
+     "opts": [
+      "geureomyeon",
+      "hajiman",
+      "geuraeseo",
+      "waenyahamyeon"
+     ],
+     "role": "condition",
+     "why": {
+      "ko": "계획적으로 일하면 효율이 올라간다는 조건과 결과를 잇는 말이므로 「그러면」이에요.",
+      "en": "Linking structured work to higher productivity as condition → result: 그러면."
+     }
+    }
+   ],
+   "links": [
+    {
+     "from": 0,
+     "hint": {
+      "ko": "장점과 단점을 대비하여 한 문장으로",
+      "en": "Contrast pros and cons into one sentence"
+     },
+     "ans": "재택근무는 출퇴근 시간을 아낄 수 있어 매우 편리하지만 혼자 일하다 보면 일과 휴식의 경계가 흐려지기 쉬워요.",
+     "opts": [
+      "재택근무는 출퇴근 시간을 아낄 수 있어 매우 편리하지만 혼자 일하다 보면 일과 휴식의 경계가 흐려지기 쉬워요.",
+      "재택근무는 출퇴근 시간을 아낄 수 있어 매우 편리해서 혼자 일하다 보면 일과 휴식의 경계가 흐려지기 쉬워요.",
+      "재택근무는 출퇴근 시간을 아낄 수 있어 매우 편리하고 혼자 일하다 보면 일과 휴식의 경계가 흐려지기 쉬워요.",
+      "재택근무는 출퇴근 시간을 아낄 수 있어 매우 편리하면 혼자 일하다 보면 일과 휴식의 경계가 흐려지기 쉬워요."
+     ],
+     "why": {
+      "ko": "편리한 장점과 피로한 단점을 상반되게 연결할 때는 대조 어미 「-지만」을 써요.",
+      "en": "To contrast convenient benefits with fatigue drawbacks, use -지만."
+     }
+    },
+    {
+     "from": 1,
+     "hint": {
+      "ko": "두 가지 어려움을 나란히 묶어 한 문장으로",
+      "en": "Combine two difficulties side by side into one sentence"
+     },
+     "ans": "혼자 일하다 보면 일과 휴식의 경계가 흐려지기 쉽고 동료들과 얼굴을 마주보고 소통할 기회가 줄어들어요.",
+     "opts": [
+      "혼자 일하다 보면 일과 휴식의 경계가 흐려지기 쉽고 동료들과 얼굴을 마주보고 소통할 기회가 줄어들어요.",
+      "혼자 일하다 보면 일과 휴식의 경계가 흐려지기 쉬워서 동료들과 얼굴을 마주보고 소통할 기회가 줄어들어요.",
+      "혼자 일하다 보면 일과 휴식의 경계가 흐려지기 쉽지만 동료들과 얼굴을 마주보고 소통할 기회가 줄어들어요.",
+      "혼자 일하다 보면 일과 휴식의 경계가 흐려지기 쉬우면 동료들과 얼굴을 마주보고 소통할 기회가 줄어들어요."
+     ],
+     "why": {
+      "ko": "경계가 흐려지는 점과 소통이 줄어드는 두 단점을 대등하게 나열하므로 연결 어미 「-고」를 써요.",
+      "en": "To list two disadvantages side by side, use -고."
+     }
+    }
+   ],
+   "write": {
+    "prompt": {
+     "ko": "재택근무나 온라인 수업의 경험을 접속사 두 개 이상 넣어 네 문장 이상 써 보세요.",
+     "en": "Write four or more sentences about remote work or online classes, using at least two connectors."
+    },
+    "cues": [
+     "장점",
+     "단점",
+     "어려웠던 점",
+     "해결 방법"
+    ],
+    "minSentences": 4,
+    "minConnectors": 2
+   }
+  },
+  {
+   "id": "w-im-learning-challenge",
+   "tier": "intermediate",
+   "kind": "tell",
+   "title": {
+    "ko": "외국어 학습의 고비",
+    "en": "Overcoming learning plateaus"
+   },
+   "sentences": [
+    {
+     "ko": "한국어를 배운 지 일 년쯤 지났을 때 큰 고비가 찾아왔어요.",
+     "en": "About a year after learning Korean, a big plateau arrived.",
+     "key": [
+      "한국어를",
+      "고비가"
+     ],
+     "step": "when"
+    },
+    {
+     "ko": "어휘와 문법이 점점 어려워져서 실력이 늘지 않는 느낌이었어요.",
+     "en": "Vocabulary and grammar became harder, so it felt like my skill was not improving.",
+     "key": [
+      "어휘와",
+      "실력이"
+     ],
+     "step": "do"
+    },
+    {
+     "ko": "포기하지 않고 매일 짧은 한국어 일기를 꾸준히 썼어요.",
+     "en": "Without giving up, I steadily wrote a short Korean diary every day.",
+     "key": [
+      "포기하지",
+      "일기를"
+     ],
+     "step": "do"
+    },
+    {
+     "ko": "자연스럽게 문장을 표현하는 힘이 생겨서 자신감을 되찾았어요.",
+     "en": "I gained the ability to express sentences naturally and regained confidence.",
+     "key": [
+      "자연스럽게",
+      "자신감을"
+     ],
+     "step": "feel"
+    },
+    {
+     "ko": "꾸준함이야말로 실력을 키우는 가장 확실한 열쇠예요.",
+     "en": "Steadiness is indeed the surest key to improving skills.",
+     "key": [
+      "꾸준함이야말로",
+      "열쇠예요"
+     ],
+     "step": "end"
+    }
+   ],
+   "gaps": [
+    {
+     "ans": "waenyahamyeon",
+     "opts": [
+      "waenyahamyeon",
+      "geuraeseo",
+      "hajiman",
+      "geureomyeon"
+     ],
+     "role": "reason",
+     "why": {
+      "ko": "고비가 찾아왔던 구체적인 이유(어휘와 문법의 난관)를 밝혀 주니까 「왜냐하면」이에요.",
+      "en": "It explains why the learning plateau occurred: 왜냐하면."
+     }
+    },
+    {
+     "ans": "geuraedo",
+     "opts": [
+      "geuraedo",
+      "geuraeseo",
+      "waenyahamyeon",
+      "geureomyeon"
+     ],
+     "role": "contrast",
+     "why": {
+      "ko": "어려운 침체기에도 불구하고 포기하지 않고 실천을 이어갔으므로 「그래도」예요.",
+      "en": "Even so, continuing without giving up: 그래도."
+     }
+    },
+    {
+     "ans": "gyeolgug",
+     "opts": [
+      "gyeolgug",
+      "majimageuro",
+      "hajiman",
+      "geureomyeon"
+     ],
+     "role": "summary",
+     "why": {
+      "ko": "매일 일기를 쓴 꾸준한 노력 끝에 자신감을 되찾는 결실에 이르므로 「결국」이에요.",
+      "en": "Reaching the rewarding result after persistent effort: 결국."
+     }
+    },
+    {
+     "ans": "ttaraseo",
+     "opts": [
+      "ttaraseo",
+      "hajiman",
+      "majimageuro",
+      "geureomyeon"
+     ],
+     "role": "result",
+     "why": {
+      "ko": "자신의 극복 경험을 통해 꾸준함의 가치라는 교훈적 결론을 내리니까 「따라서」예요.",
+      "en": "Drawing a valuable conclusion from the personal experience: 따라서."
+     }
+    }
+   ],
+   "links": [
+    {
+     "from": 1,
+     "hint": {
+      "ko": "어려움과 노력을 대비하여 한 문장으로",
+      "en": "Contrast difficulty and continued effort into one sentence"
+     },
+     "ans": "어휘와 문법이 점점 어려워져서 실력이 늘지 않는 느낌이었지만 포기하지 않고 매일 짧은 한국어 일기를 꾸준히 썼어요.",
+     "opts": [
+      "어휘와 문법이 점점 어려워져서 실력이 늘지 않는 느낌이었지만 포기하지 않고 매일 짧은 한국어 일기를 꾸준히 썼어요.",
+      "어휘와 문법이 점점 어려워져서 실력이 늘지 않는 느낌이어서 포기하지 않고 매일 짧은 한국어 일기를 꾸준히 썼어요.",
+      "어휘와 문법이 점점 어려워져서 실력이 늘지 않는 느낌이고 포기하지 않고 매일 짧은 한국어 일기를 꾸준히 썼어요.",
+      "어휘와 문법이 점점 어려워져서 실력이 늘지 않는 느낌이면 포기하지 않고 매일 짧은 한국어 일기를 꾸준히 썼어요."
+     ],
+     "why": {
+      "ko": "실력이 정체된 느낌이었음에도 포기하지 않았다는 역경 극복을 나타낼 때는 대조 어미 「-지만」을 써요.",
+      "en": "To express overcoming hardship despite a stagnation plateau, use -지만."
+     }
+    },
+    {
+     "from": 2,
+     "hint": {
+      "ko": "노력 → 성과로 한 문장으로",
+      "en": "Join effort → achievement into one sentence"
+     },
+     "ans": "포기하지 않고 매일 짧은 한국어 일기를 꾸준히 써서 자연스럽게 문장을 표현하는 힘이 생겨서 자신감을 되찾았어요.",
+     "opts": [
+      "포기하지 않고 매일 짧은 한국어 일기를 꾸준히 써서 자연스럽게 문장을 표현하는 힘이 생겨서 자신감을 되찾았어요.",
+      "포기하지 않고 매일 짧은 한국어 일기를 꾸준히 쓰고 자연스럽게 문장을 표현하는 힘이 생겨서 자신감을 되찾았어요.",
+      "포기하지 않고 매일 짧은 한국어 일기를 꾸준히 쓰지만 자연스럽게 문장을 표현하는 힘이 생겨서 자신감을 되찾았어요.",
+      "포기하지 않고 매일 짧은 한국어 일기를 꾸준히 쓰면 자연스럽게 문장을 표현하는 힘이 생겨서 자신감을 되찾았어요."
+     ],
+     "why": {
+      "ko": "일기를 쓴 노력이 자신감을 회복한 원인이 되므로 「-어서」예요.",
+      "en": "Writing a diary is the cause of regaining confidence, so use -어서."
+     }
+    }
+   ],
+   "write": {
+    "prompt": {
+     "ko": "무언가를 배우며 겪었던 어려움과 극복 과정을 접속사 두 개 이상 넣어 네 문장 이상 써 보세요.",
+     "en": "Write four or more sentences about a learning difficulty and how you overcame it, using at least two connectors."
+    },
+    "cues": [
+     "배운 분야",
+     "겪었던 고비",
+     "극복 노력",
+     "얻은 교훈"
+    ],
+    "minSentences": 4,
+    "minConnectors": 2
+   }
+  },
+  {
+   "id": "w-im-coffee-culture",
+   "tier": "intermediate",
+   "kind": "explain",
+   "title": {
+    "ko": "한국의 카페 문화",
+    "en": "Korean cafe culture"
+   },
+   "sentences": [
+    {
+     "ko": "한국에는 골목마다 개성 있고 아늑한 카페가 정말 많아요.",
+     "en": "In Korea, there are truly many unique and cozy cafes in every alley.",
+     "key": [
+      "한국에는",
+      "카페가"
+     ],
+     "step": "point"
+    },
+    {
+     "ko": "사람들이 단순히 음료만 마시는 공간이 아니기 때문이에요.",
+     "en": "It is because it is not merely a space where people drink beverages.",
+     "key": [
+      "사람들이",
+      "공간이"
+     ],
+     "step": "reason"
+    },
+    {
+     "ko": "공부를 하거나 조용히 독서와 업무에 집중하기도 해요.",
+     "en": "People study or quietly focus on reading and work.",
+     "key": [
+      "공부를",
+      "독서와"
+     ],
+     "step": "example"
+    },
+    {
+     "ko": "카페는 현대인들에게 집 같은 편안한 공간이 되었어요.",
+     "en": "Cafes have become a comfortable, home-like space for modern people.",
+     "key": [
+      "카페는",
+      "공간이"
+     ],
+     "step": "result"
+    },
+    {
+     "ko": "한국에 오시면 다양한 테마의 동네 카페를 꼭 방문해 보세요.",
+     "en": "When you come to Korea, be sure to visit neighborhood cafes with diverse themes.",
+     "key": [
+      "한국에",
+      "방문해 보세요"
+     ],
+     "step": "recap"
+    }
+   ],
+   "gaps": [
+    {
+     "ans": "waenyahamyeon",
+     "opts": [
+      "waenyahamyeon",
+      "geuraeseo",
+      "hajiman",
+      "geureomyeon"
+     ],
+     "role": "reason",
+     "why": {
+      "ko": "카페가 많은 이유를 「-기 때문이에요」로 설명하고 있으므로 「왜냐하면」이에요.",
+      "en": "The next sentence explains why cafes abound using -기 때문이에요: 왜냐하면."
+     }
+    },
+    {
+     "ans": "yereul-deureo",
+     "opts": [
+      "yereul-deureo",
+      "geureomyeon",
+      "hajiman",
+      "geuraeseo"
+     ],
+     "role": "example",
+     "why": {
+      "ko": "음료 외에 카페에서 이루어지는 다양한 활동의 구체적 예시를 드니까 「예를 들어」예요.",
+      "en": "It gives studying and working as concrete examples of activities in cafes: 예를 들어."
+     }
+    },
+    {
+     "ans": "ttaraseo",
+     "opts": [
+      "ttaraseo",
+      "hajiman",
+      "majimageuro",
+      "geureomyeon"
+     ],
+     "role": "result",
+     "why": {
+      "ko": "다양한 활동이 이루어지기 때문에 집 같은 공간으로 자리 잡았다는 결론이므로 「따라서」예요.",
+      "en": "It concludes that cafes have become a second living space: 따라서."
+     }
+    },
+    {
+     "ans": "geuraeseo",
+     "opts": [
+      "geuraeseo",
+      "hajiman",
+      "geureomyeon",
+      "majimageuro"
+     ],
+     "role": "result",
+     "why": {
+      "ko": "카페 문화의 매력을 바탕으로 방문을 권유하는 흐름이므로 「그래서」예요.",
+      "en": "Encouraging a visit based on the appealing cafe culture: 그래서."
+     }
+    }
+   ],
+   "links": [
+    {
+     "from": 3,
+     "hint": {
+      "ko": "이유 → 권유로 한 문장으로",
+      "en": "Join as reason → suggestion"
+     },
+     "ans": "카페는 현대인들에게 집 같은 편안한 공간이 되었으니까 한국에 오시면 다양한 테마의 동네 카페를 꼭 방문해 보세요.",
+     "opts": [
+      "카페는 현대인들에게 집 같은 편안한 공간이 되었으니까 한국에 오시면 다양한 테마의 동네 카페를 꼭 방문해 보세요.",
+      "카페는 현대인들에게 집 같은 편안한 공간이 되어서 한국에 오시면 다양한 테마의 동네 카페를 꼭 방문해 보세요.",
+      "카페는 현대인들에게 집 같은 편안한 공간이 되었지만 한국에 오시면 다양한 테마의 동네 카페를 꼭 방문해 보세요.",
+      "카페는 현대인들에게 집 같은 편안한 공간이 되었고 한국에 오시면 다양한 테마의 동네 카페를 꼭 방문해 보세요."
+     ],
+     "why": {
+      "ko": "뒤에 「~해 보세요」 같은 권유가 오면 이유를 말하는 말은 「-(으)니까」예요.",
+      "en": "When a suggestion (~해 보세요) follows, the reason is given with -(으)니까."
+     }
+    },
+    {
+     "from": 2,
+     "hint": {
+      "ko": "이유 → 결과로 한 문장으로",
+      "en": "Join as reason → result"
+     },
+     "ans": "공부를 하거나 조용히 독서와 업무에 집중하기도 해서 카페는 현대인들에게 편안한 제이의 생활 공간이 되었어요.",
+     "opts": [
+      "공부를 하거나 조용히 독서와 업무에 집중하기도 해서 카페는 현대인들에게 편안한 제이의 생활 공간이 되었어요.",
+      "공부를 하거나 조용히 독서와 업무에 집중하기도 하고 카페는 현대인들에게 편안한 제이의 생활 공간이 되었어요.",
+      "공부를 하거나 조용히 독서와 업무에 집중하기도 하지만 카페는 현대인들에게 편안한 제이의 생활 공간이 되었어요.",
+      "공부를 하거나 조용히 독서와 업무에 집중하기도 하면 카페는 현대인들에게 편안한 제이의 생활 공간이 되었어요."
+     ],
+     "why": {
+      "ko": "다양한 활동이 제이의 생활 공간이 된 원인이 되므로 연결 어미 「-어서」를 써요.",
+      "en": "Diverse activities are the reason cafes became a second home, so use -어서."
+     }
+    }
+   ],
+   "write": {
+    "prompt": {
+     "ko": "내가 좋아하는 카페나 카페 문화를 접속사 두 개 이상 넣어 네 문장 이상 써 보세요.",
+     "en": "Write four or more sentences about your favorite cafe or cafe culture, using at least two connectors."
+    },
+    "cues": [
+     "카페 분위기",
+     "자주 하는 일",
+     "좋아하는 메뉴",
+     "나에게 주는 의미"
+    ],
+    "minSentences": 4,
+    "minConnectors": 2
+   }
+  },
+  {
+   "id": "w-im-eco-life",
+   "tier": "intermediate",
+   "kind": "explain",
+   "title": {
+    "ko": "일회용품 줄이기 실천",
+    "en": "Practicing zero waste"
+   },
+   "sentences": [
+    {
+     "ko": "환경을 보호하기 위해 일회용품을 줄이는 생활을 시작했어요.",
+     "en": "To protect the environment, I started a lifestyle of reducing disposables.",
+     "key": [
+      "환경을",
+      "일회용품을"
+     ],
+     "step": "point"
+    },
+    {
+     "ko": "외출할 때 언제나 개인 텀블러와 장바구니를 챙겨요.",
+     "en": "Whenever going out, I always pack a personal tumbler and shopping bag.",
+     "key": [
+      "외출할",
+      "텀블러와"
+     ],
+     "step": "how"
+    },
+    {
+     "ko": "식당이나 카페에서 플라스틱 빨대 사용을 정중히 거절해요.",
+     "en": "At restaurants or cafes, I politely decline plastic straws.",
+     "key": [
+      "식당이나",
+      "빨대"
+     ],
+     "step": "how"
+    },
+    {
+     "ko": "쓰레기 배출량이 눈에 띄게 줄어들어요.",
+     "en": "The amount of trash drops noticeably.",
+     "key": [
+      "쓰레기",
+      "줄어들어요"
+     ],
+     "step": "result"
+    },
+    {
+     "ko": "작은 실천이 모여 깨끗한 지구를 만든다고 확신해요.",
+     "en": "I am convinced that small practices gather to make a clean earth.",
+     "key": [
+      "작은",
+      "지구를"
+     ],
+     "step": "recap"
+    }
+   ],
+   "gaps": [
+    {
+     "ans": "meonjeo",
+     "opts": [
+      "meonjeo",
+      "geudaeume",
+      "majimageuro",
+      "geuraeseo"
+     ],
+     "role": "order",
+     "why": {
+      "ko": "일회용품 줄이기의 첫 번째 실천 항목으로 텀블러 챙기기를 시작하므로 「먼저」예요.",
+      "en": "Packing a tumbler is the first practical step: 먼저."
+     }
+    },
+    {
+     "ans": "geudaeume",
+     "opts": [
+      "geudaeume",
+      "meonjeo",
+      "majimageuro",
+      "hajiman"
+     ],
+     "role": "order",
+     "why": {
+      "ko": "소지품 준비 다음 단계로 매장에서 빨대 거절하기를 이어가므로 「그다음에」예요.",
+      "en": "Declining straws at stores is the subsequent step: 그다음에."
+     }
+    },
+    {
+     "ans": "geureomyeon",
+     "opts": [
+      "geureomyeon",
+      "hajiman",
+      "waenyahamyeon",
+      "majimageuro"
+     ],
+     "role": "condition",
+     "why": {
+      "ko": "빨대를 거절하는 실천을 하면 쓰레기가 줄어든다는 조건과 결과의 연결이라 「그러면」이에요.",
+      "en": "Refusing straws leads to less trash — condition and result: 그러면."
+     }
+    },
+    {
+     "ans": "ttaraseo",
+     "opts": [
+      "ttaraseo",
+      "hajiman",
+      "majimageuro",
+      "geureomyeon"
+     ],
+     "role": "result",
+     "why": {
+      "ko": "경험을 바탕으로 환경 보호에 대한 확신으로 결론짓는 문맥이므로 「따라서」예요.",
+      "en": "Concluding with conviction based on personal practice: 따라서."
+     }
+    }
+   ],
+   "links": [
+    {
+     "from": 1,
+     "hint": {
+      "ko": "두 가지 실천을 나란히 한 문장으로",
+      "en": "Join two practices side by side into one sentence"
+     },
+     "ans": "외출할 때 언제나 개인 텀블러와 장바구니를 챙기고 식당이나 카페에서 플라스틱 빨대 사용을 정중히 거절해요.",
+     "opts": [
+      "외출할 때 언제나 개인 텀블러와 장바구니를 챙기고 식당이나 카페에서 플라스틱 빨대 사용을 정중히 거절해요.",
+      "외출할 때 언제나 개인 텀블러와 장바구니를 챙겨서 식당이나 카페에서 플라스틱 빨대 사용을 정중히 거절해요.",
+      "외출할 때 언제나 개인 텀블러와 장바구니를 챙기지만 식당이나 카페에서 플라스틱 빨대 사용을 정중히 거절해요.",
+      "외출할 때 언제나 개인 텀블러와 장바구니를 챙기면 식당이나 카페에서 플라스틱 빨대 사용을 정중히 거절해요."
+     ],
+     "why": {
+      "ko": "텀블러 챙기기와 빨대 거절하기라는 두 친환경 실천을 나란히 대등하게 묶을 때는 「-고」예요.",
+      "en": "To combine two eco-friendly actions side by side, use -고."
+     }
+    },
+    {
+     "from": 2,
+     "hint": {
+      "ko": "만약 ~하면 이라는 조건으로 한 문장으로",
+      "en": "Join as an “if” condition"
+     },
+     "ans": "식당이나 카페에서 플라스틱 빨대 사용을 정중히 거절하면 쓰레기 배출량이 눈에 띄게 줄어들어요.",
+     "opts": [
+      "식당이나 카페에서 플라스틱 빨대 사용을 정중히 거절하면 쓰레기 배출량이 눈에 띄게 줄어들어요.",
+      "식당이나 카페에서 플라스틱 빨대 사용을 정중히 거절해서 쓰레기 배출량이 눈에 띄게 줄어들어요.",
+      "식당이나 카페에서 플라스틱 빨대 사용을 정중히 거절하지만 쓰레기 배출량이 눈에 띄게 줄어들어요.",
+      "식당이나 카페에서 플라스틱 빨대 사용을 정중히 거절하는데 쓰레기 배출량이 눈에 띄게 줄어들어요."
+     ],
+     "why": {
+      "ko": "앞의 일이 조건이고 뒤가 그 결과일 때는 「-(으)면」이에요.",
+      "en": "When the first part is a condition and the second its result, use -(으)면."
+     }
+    }
+   ],
+   "write": {
+    "prompt": {
+     "ko": "환경을 위해 일상에서 실천하는 노력을 접속사 두 개 이상 넣어 네 문장 이상 써 보세요.",
+     "en": "Write four or more sentences about your daily eco-friendly efforts, using at least two connectors."
+    },
+    "cues": [
+     "시작한 계기",
+     "구체적인 실천",
+     "느낀 점",
+     "지구에 대한 생각"
+    ],
+    "minSentences": 4,
+    "minConnectors": 2
+   }
+  },
+  {
+   "id": "w-im-career-change",
+   "tier": "intermediate",
+   "kind": "tell",
+   "title": {
+    "ko": "새로운 진로 도전",
+    "en": "Challenging a new career"
+   },
+   "sentences": [
+    {
+     "ko": "삼 년간 다니던 직장을 그만두고 새로운 도전을 결심했어요.",
+     "en": "I quit the workplace I had worked at for three years and decided on a new challenge.",
+     "key": [
+      "직장을",
+      "결심했어요"
+     ],
+     "step": "when"
+    },
+    {
+     "ko": "평소 관심이 많았던 소프트웨어 개발을 배우기로 했어요.",
+     "en": "I decided to learn software development, which I was usually interested in.",
+     "key": [
+      "소프트웨어",
+      "배우기로"
+     ],
+     "step": "who"
+    },
+    {
+     "ko": "매일 늦은 밤까지 코딩 실습과 프로젝트에 몰두했어요.",
+     "en": "Every day until late at night, I immersed myself in coding practice and projects.",
+     "key": [
+      "코딩",
+      "몰두했어요"
+     ],
+     "step": "do"
+    },
+    {
+     "ko": "원하는 프로그램을 직접 완성하면서 커다란 성취감을 얻었어요.",
+     "en": "Building programs myself gave me a tremendous sense of accomplishment.",
+     "key": [
+      "프로그램을",
+      "성취감을"
+     ],
+     "step": "feel"
+    },
+    {
+     "ko": "마침내 꿈꾸던 정보기술 기업에 당당히 취업했어요.",
+     "en": "Finally, I proudly got employed at the IT company I had dreamed of.",
+     "key": [
+      "정보기술",
+      "취업했어요"
+     ],
+     "step": "end"
+    }
+   ],
+   "gaps": [
+    {
+     "ans": "geuraeseo",
+     "opts": [
+      "geuraeseo",
+      "hajiman",
+      "waenyahamyeon",
+      "geureomyeon"
+     ],
+     "role": "result",
+     "why": {
+      "ko": "이직 결심에 따라 소프트웨어 개발을 배우는 구체적 결정으로 이어지니까 「그래서」예요.",
+      "en": "Deciding to take on a challenge led to learning software development: 그래서."
+     }
+    },
+    {
+     "ans": "geurigo",
+     "opts": [
+      "geurigo",
+      "hajiman",
+      "geureomyeon",
+      "waenyahamyeon"
+     ],
+     "role": "add",
+     "why": {
+      "ko": "진로 결정 뒤에 밤늦게까지 공부에 몰두했던 과정을 순서대로 덧붙이니까 「그리고」예요.",
+      "en": "It adds studying late into the night after deciding the career path: 그리고."
+     }
+    },
+    {
+     "ans": "geureonde",
+     "opts": [
+      "geureonde",
+      "geuraeseo",
+      "waenyahamyeon",
+      "geureomyeon"
+     ],
+     "role": "contrast",
+     "why": {
+      "ko": "힘든 공부 과정 속에서 성취감을 발견했다는 감정의 전환을 나타내므로 「그런데」예요.",
+      "en": "Transitioning to discovering a sense of achievement amidst hard study: 그런데."
+     }
+    },
+    {
+     "ans": "gyeolgug",
+     "opts": [
+      "gyeolgug",
+      "majimageuro",
+      "hajiman",
+      "geureomyeon"
+     ],
+     "role": "summary",
+     "why": {
+      "ko": "끈기 있는 몰두와 성취 끝에 취업이라는 최종 목표를 이루었으므로 「결국」이에요.",
+      "en": "Finally achieving employment through persistent dedication: 결국."
+     }
+    }
+   ],
+   "links": [
+    {
+     "from": 0,
+     "hint": {
+      "ko": "결심한 이유로 선택했다고 한 문장으로",
+      "en": "Join as: because of the decision, I chose"
+     },
+     "ans": "삼 년간 다니던 직장을 그만두고 새로운 도전을 결심해서 평소 관심이 많았던 소프트웨어 개발을 배우기로 했어요.",
+     "opts": [
+      "삼 년간 다니던 직장을 그만두고 새로운 도전을 결심해서 평소 관심이 많았던 소프트웨어 개발을 배우기로 했어요.",
+      "삼 년간 다니던 직장을 그만두고 새로운 도전을 결심하고 평소 관심이 많았던 소프트웨어 개발을 배우기로 했어요.",
+      "삼 년간 다니던 직장을 그만두고 새로운 도전을 결심하지만 평소 관심이 많았던 소프트웨어 개발을 배우기로 했어요.",
+      "삼 년간 다니던 직장을 그만두고 새로운 도전을 결심하면 평소 관심이 많았던 소프트웨어 개발을 배우기로 했어요."
+     ],
+     "why": {
+      "ko": "도전 결심이 새로운 분야를 공부하게 된 계기이자 원인이 되므로 「-어서」를 써요.",
+      "en": "The decision to challenge myself led to studying software, so use -어서."
+     }
+    },
+    {
+     "from": 2,
+     "hint": {
+      "ko": "몰두와 그 소감을 한 문장으로",
+      "en": "Join immersion and resulting feeling into one sentence"
+     },
+     "ans": "매일 늦은 밤까지 코딩 실습과 프로젝트에 몰두했는데 원하는 프로그램을 직접 완성하면서 커다란 성취감을 얻었어요.",
+     "opts": [
+      "매일 늦은 밤까지 코딩 실습과 프로젝트에 몰두했는데 원하는 프로그램을 직접 완성하면서 커다란 성취감을 얻었어요.",
+      "매일 늦은 밤까지 코딩 실습과 프로젝트에 몰두해서 원하는 프로그램을 직접 완성하면서 커다란 성취감을 얻었어요.",
+      "매일 늦은 밤까지 코딩 실습과 프로젝트에 몰두하고 원하는 프로그램을 직접 완성하면서 커다란 성취감을 얻었어요.",
+      "매일 늦은 밤까지 코딩 실습과 프로젝트에 몰두하면 원하는 프로그램을 직접 완성하면서 커다란 성취감을 얻었어요."
+     ],
+     "why": {
+      "ko": "몰두했던 배경 상황을 제시하고 뒤이어 얻은 성취감을 연결할 때는 「-는데」를 써요.",
+      "en": "To set up the late-night immersion as context before stating the achievement, use -는데."
+     }
+    }
+   ],
+   "write": {
+    "prompt": {
+     "ko": "새로운 분야에 도전했던 경험을 접속사 두 개 이상 넣어 네 문장 이상 써 보세요.",
+     "en": "Write four or more sentences about taking on a new challenge, using at least two connectors."
+    },
+    "cues": [
+     "도전 계기",
+     "노력 과정",
+     "보람찬 순간",
+     "얻은 결과"
+    ],
+    "minSentences": 4,
+    "minConnectors": 2
+   }
+  },
+  {
+   "id": "w-im-city-rural",
+   "tier": "intermediate",
+   "kind": "explain",
+   "title": {
+    "ko": "도시와 시골의 삶",
+    "en": "Life in city vs countryside"
+   },
+   "sentences": [
+    {
+     "ko": "도시는 편리한 대중교통과 풍부한 문화 시설을 갖추고 있어요.",
+     "en": "Cities have convenient public transit and abundant cultural facilities.",
+     "key": [
+      "도시는",
+      "문화 시설을"
+     ],
+     "step": "point"
+    },
+    {
+     "ko": "복잡한 교통과 답답한 공기 때문에 피로가 쌓이기 쉬워요.",
+     "en": "Due to heavy traffic and stuffy air, fatigue easily builds up.",
+     "key": [
+      "복잡한",
+      "피로가"
+     ],
+     "step": "reason"
+    },
+    {
+     "ko": "시골에 가면 자연 속에서 여유와 평온함을 누릴 수 있어요.",
+     "en": "When going to the countryside, one can enjoy leisure and peace in nature.",
+     "key": [
+      "시골에",
+      "평온함을"
+     ],
+     "step": "example"
+    },
+    {
+     "ko": "자신의 생활 방식과 가치관에 맞는 환경을 찾는 일이 중요해요.",
+     "en": "Finding an environment that fits one's lifestyle and values is important.",
+     "key": [
+      "자신의",
+      "환경을"
+     ],
+     "step": "result"
+    },
+    {
+     "ko": "각자의 상황에 따라 최선의 삶터를 현명하게 선택해야 해요.",
+     "en": "According to one's situation, one must wisely choose the best dwelling place.",
+     "key": [
+      "각자의",
+      "선택해야"
+     ],
+     "step": "recap"
+    }
+   ],
+   "gaps": [
+    {
+     "ans": "hajiman",
+     "opts": [
+      "hajiman",
+      "geuraeseo",
+      "waenyahamyeon",
+      "geureomyeon"
+     ],
+     "role": "contrast",
+     "why": {
+      "ko": "도시의 편리함이라는 장점 뒤에 피로와 공해라는 단점을 대비하므로 「하지만」이에요.",
+      "en": "Contrasting the convenience of cities with the stress of traffic and pollution: 하지만."
+     }
+    },
+    {
+     "ans": "geuraedo",
+     "opts": [
+      "geuraedo",
+      "geuraeseo",
+      "waenyahamyeon",
+      "geureomyeon"
+     ],
+     "role": "contrast",
+     "why": {
+      "ko": "도시의 복잡함에도 불구하고 시골에서는 자연의 여유를 찾을 수 있다는 대안을 보여 주므로 「그래도」예요.",
+      "en": "Showing countryside leisure as an alternative despite city stress: 그래도."
+     }
+    },
+    {
+     "ans": "ttaraseo",
+     "opts": [
+      "ttaraseo",
+      "hajiman",
+      "majimageuro",
+      "geureomyeon"
+     ],
+     "role": "result",
+     "why": {
+      "ko": "도시와 시골의 장단점을 종합하여 나에게 맞는 환경을 찾아야 한다는 결론이므로 「따라서」예요.",
+      "en": "Concluding that finding the right personal fit matters based on comparing both: 따라서."
+     }
+    },
+    {
+     "ans": "geuraeseo",
+     "opts": [
+      "geuraeseo",
+      "hajiman",
+      "geureomyeon",
+      "majimageuro"
+     ],
+     "role": "result",
+     "why": {
+      "ko": "현명한 선택이 필요하다는 최종 정리로 글을 매듭짓고 있으므로 「그래서」예요.",
+      "en": "Rounding out with a call for wise choices: 그래서."
+     }
+    }
+   ],
+   "links": [
+    {
+     "from": 0,
+     "hint": {
+      "ko": "장점과 단점을 대비하여 한 문장으로",
+      "en": "Contrast pros and cons into one sentence"
+     },
+     "ans": "도시는 편리한 대중교통과 풍부한 문화 시설을 갖추고 있지만 복잡한 교통과 답답한 공기 때문에 피로가 쌓이기 쉬워요.",
+     "opts": [
+      "도시는 편리한 대중교통과 풍부한 문화 시설을 갖추고 있지만 복잡한 교통과 답답한 공기 때문에 피로가 쌓이기 쉬워요.",
+      "도시는 편리한 대중교통과 풍부한 문화 시설을 갖추고 있어서 복잡한 교통과 답답한 공기 때문에 피로가 쌓이기 쉬워요.",
+      "도시는 편리한 대중교통과 풍부한 문화 시설을 갖추고 있고 복잡한 교통과 답답한 공기 때문에 피로가 쌓이기 쉬워요.",
+      "도시는 편리한 대중교통과 풍부한 문화 시설을 갖추고 있으면 복잡한 교통과 답답한 공기 때문에 피로가 쌓이기 쉬워요."
+     ],
+     "why": {
+      "ko": "도시의 편리함과 그에 수반되는 피로를 대조적으로 잇기 위해 「-지만」을 써요.",
+      "en": "To contrast city convenience with accompanying fatigue, use -지만."
+     }
+    },
+    {
+     "from": 1,
+     "hint": {
+      "ko": "단점과 대안을 대비하여 한 문장으로",
+      "en": "Contrast the downside and the alternative"
+     },
+     "ans": "복잡한 교통과 답답한 공기 때문에 피로가 쌓이기 쉽지만 시골에 가면 자연 속에서 여유와 평온함을 누릴 수 있어요.",
+     "opts": [
+      "복잡한 교통과 답답한 공기 때문에 피로가 쌓이기 쉽지만 시골에 가면 자연 속에서 여유와 평온함을 누릴 수 있어요.",
+      "복잡한 교통과 답답한 공기 때문에 피로가 쌓이기 쉬워서 시골에 가면 자연 속에서 여유와 평온함을 누릴 수 있어요.",
+      "복잡한 교통과 답답한 공기 때문에 피로가 쌓이기 쉽고 시골에 가면 자연 속에서 여유와 평온함을 누릴 수 있어요.",
+      "복잡한 교통과 답답한 공기 때문에 피로가 쌓이기 쉬우면 시골에 가면 자연 속에서 여유와 평온함을 누릴 수 있어요."
+     ],
+     "why": {
+      "ko": "앞과 뒤가 서로 대비될 때는 「-지만」이에요.",
+      "en": "When the two parts contrast, use -지만."
+     }
+    }
+   ],
+   "write": {
+    "prompt": {
+     "ko": "도시 생활과 시골 생활 중 선호하는 삶을 접속사 두 개 이상 넣어 네 문장 이상 써 보세요.",
+     "en": "Write four or more sentences about whether you prefer city or rural living, using at least two connectors."
+    },
+    "cues": [
+     "선호하는 곳",
+     "그곳의 장점",
+     "아쉬운 점",
+     "나의 가치관"
+    ],
+    "minSentences": 4,
+    "minConnectors": 2
+   }
+  },
+  {
+   "id": "w-im-cooking-dinner",
+   "tier": "intermediate",
+   "kind": "tell",
+   "title": {
+    "ko": "퇴근 후 나를 위한 요리",
+    "en": "Cooking dinner for myself after work"
+   },
+   "sentences": [
+    {
+     "ko": "바쁜 하루 업무를 마치고 피곤한 몸으로 집에 돌아왔어요.",
+     "en": "After finishing a busy day's work, I returned home with a tired body.",
+     "key": [
+      "바쁜",
+      "돌아왔어요"
+     ],
+     "step": "when"
+    },
+    {
+     "ko": "배달 음식 대신 직접 건강한 된장찌개를 끓였어요.",
+     "en": "Instead of delivery food, I cooked a healthy soybean paste stew myself.",
+     "key": [
+      "배달",
+      "된장찌개를"
+     ],
+     "step": "do"
+    },
+    {
+     "ko": "신선한 두부와 애호박을 썰어 넣고 보글보글 끓였어요.",
+     "en": "I sliced fresh tofu and zucchini into the pot and let it simmer.",
+     "key": [
+      "신선한",
+      "끓였어요"
+     ],
+     "step": "do"
+    },
+    {
+     "ko": "구수한 냄새가 온 집 안에 퍼지며 지친 마음이 녹아내렸어요.",
+     "en": "The savory aroma filled the entire house, melting away my weary mind.",
+     "key": [
+      "구수한",
+      "녹아내렸어요"
+     ],
+     "step": "feel"
+    },
+    {
+     "ko": "정성스레 차린 따뜻한 한 끼가 큰 위로를 선물해 주었어요.",
+     "en": "A warm, lovingly prepared meal gifted me great comfort.",
+     "key": [
+      "정성스레",
+      "위로를"
+     ],
+     "step": "end"
+    }
+   ],
+   "gaps": [
+    {
+     "ans": "geureonde",
+     "opts": [
+      "geureonde",
+      "geuraeseo",
+      "waenyahamyeon",
+      "geureomyeon"
+     ],
+     "role": "contrast",
+     "why": {
+      "ko": "피곤한 귀가 후 쉽게 배달을 시키는 대신 직접 요리를 시작한 전환을 보여 주므로 「그런데」예요.",
+      "en": "Shifting from coming home tired to choosing home cooking over takeout: 그런데."
+     }
+    },
+    {
+     "ans": "geurigo",
+     "opts": [
+      "geurigo",
+      "hajiman",
+      "geureomyeon",
+      "waenyahamyeon"
+     ],
+     "role": "add",
+     "why": {
+      "ko": "된장찌개를 끓이기로 한 뒤 재료를 손질해 넣는 조리 과정을 순서대로 덧붙이니까 「그리고」예요.",
+      "en": "Adding the detailed preparation of ingredients: 그리고."
+     }
+    },
+    {
+     "ans": "geuraeseo",
+     "opts": [
+      "geuraeseo",
+      "hajiman",
+      "waenyahamyeon",
+      "geureomyeon"
+     ],
+     "role": "result",
+     "why": {
+      "ko": "정성껏 끓인 찌개 냄새 덕분에 지친 마음이 녹아내리는 긍정적 결과로 이어져서 「그래서」예요.",
+      "en": "The delicious smell leading to mental relaxation: 그래서."
+     }
+    },
+    {
+     "ans": "gyeolgug",
+     "opts": [
+      "gyeolgug",
+      "majimageuro",
+      "hajiman",
+      "geureomyeon"
+     ],
+     "role": "summary",
+     "why": {
+      "ko": "직접 차린 한 끼가 하루의 피로를 풀어 주는 따뜻한 위로로 마무리되므로 「결국」이에요.",
+      "en": "Concluding that the self-prepared meal brought true comfort: 결국."
+     }
+    }
+   ],
+   "links": [
+    {
+     "from": 0,
+     "hint": {
+      "ko": "피로와 의지적인 행동을 대비하여 한 문장으로",
+      "en": "Contrast tiredness with positive action into one sentence"
+     },
+     "ans": "바쁜 하루 업무를 마치고 피곤한 몸으로 집에 돌아왔지만 배달 음식 대신 직접 건강한 된장찌개를 끓였어요.",
+     "opts": [
+      "바쁜 하루 업무를 마치고 피곤한 몸으로 집에 돌아왔지만 배달 음식 대신 직접 건강한 된장찌개를 끓였어요.",
+      "바쁜 하루 업무를 마치고 피곤한 몸으로 집에 돌아와서 배달 음식 대신 직접 건강한 된장찌개를 끓였어요.",
+      "바쁜 하루 업무를 마치고 피곤한 몸으로 집에 돌아오고 배달 음식 대신 직접 건강한 된장찌개를 끓였어요.",
+      "바쁜 하루 업무를 마치고 피곤한 몸으로 집에 돌아오면 배달 음식 대신 직접 건강한 된장찌개를 끓였어요."
+     ],
+     "why": {
+      "ko": "몸은 피곤했으나 배달 대신 직접 요리했다는 반전의 행동을 대조할 때 연결 어미 「-지만」을 써요.",
+      "en": "To contrast tiredness with the decision to cook directly, use -지만."
+     }
+    },
+    {
+     "from": 2,
+     "hint": {
+      "ko": "조리 상황과 퍼져나가는 느낌을 한 문장으로",
+      "en": "Join cooking scene and spreading aroma into one sentence"
+     },
+     "ans": "신선한 두부와 애호박을 썰어 넣고 보글보글 끓이는데 구수한 냄새가 온 집 안에 퍼지며 지친 마음이 녹아내렸어요.",
+     "opts": [
+      "신선한 두부와 애호박을 썰어 넣고 보글보글 끓이는데 구수한 냄새가 온 집 안에 퍼지며 지친 마음이 녹아내렸어요.",
+      "신선한 두부와 애호박을 썰어 넣고 보글보글 끓여서 구수한 냄새가 온 집 안에 퍼지며 지친 마음이 녹아내렸어요.",
+      "신선한 두부와 애호박을 썰어 넣고 보글보글 끓이고 구수한 냄새가 온 집 안에 퍼지며 지친 마음이 녹아내렸어요.",
+      "신선한 두부와 애호박을 썰어 넣고 보글보글 끓이면 구수한 냄새가 온 집 안에 퍼지며 지친 마음이 녹아내렸어요."
+     ],
+     "why": {
+      "ko": "찌개가 끓는 요리 상황을 배경으로 제시하고 향기와 힐링의 느낌을 연결할 때는 「-는데」를 써요.",
+      "en": "To set up the simmering stew as background before describing the aroma, use -는데."
+     }
+    }
+   ],
+   "write": {
+    "prompt": {
+     "ko": "퇴근 후 나를 위해 음식을 만들거나 힐링했던 경험을 접속사 두 개 이상 넣어 네 문장 이상 써 보세요.",
+     "en": "Write four or more sentences about cooking or relaxing for yourself after work, using at least two connectors."
+    },
+    "cues": [
+     "퇴근 후 기분",
+     "준비한 음식",
+     "요리 과정",
+     "느낀 위로"
     ],
     "minSentences": 4,
     "minConnectors": 2
