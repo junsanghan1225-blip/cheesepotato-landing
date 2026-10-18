@@ -1,0 +1,608 @@
+{
+  "ad-c04-01": [
+    {
+      "t": "compare",
+      "h": "(으)로 인해서 vs -는 통에 (공식적 원인 vs 어수선한 핑계)",
+      "a": {
+        "h": "(으)로 인해서 (공식적·객관적 원인)",
+        "d": "뉴스나 공문서에서 중대한 사회적·자연적 사건의 객관적 원인을 밝힐 때",
+        "ex": [
+          "기습적인 폭설**로 인해서** 고속도로 통행이 전면 통제되었습니다. — Due to the surprise heavy snow, highway traffic was completely suspended."
+        ]
+      },
+      "b": {
+        "h": "-는 통에 (혼란스러운 부정적 탓)",
+        "d": "주변이 몹시 소란스럽거나 어수선하여 예상치 못한 부정적 결과를 겪었을 때",
+        "ex": [
+          "아이들이 거실에서 시끄럽게 떠드**는 통에** 전화를 제대로 못 받았습니다. — Because the kids were making a noise in the living room, I could not take the call."
+        ]
+      },
+      "tip": "공식적이고 중대한 인과관계에는 '(으)로 인해서', 소란스럽고 어수선한 탓에는 '-는 통에'를 씁니다."
+    },
+    {
+      "t": "correct",
+      "q": "Fix the mistake.",
+      "wrong": "지하철 고장인 통에 출근 시간에 대규모 지각 사태가 벌어졌습니다.",
+      "answers": [
+        "지하철 고장으로 인해서 출근 시간에 대규모 지각 사태가 벌어졌습니다.",
+        "지하철이 고장 난 통에 출근 시간에 대규모 지각 사태가 벌어졌습니다."
+      ],
+      "hint": "명사 뒤에는 '(으)로 인해서'를 쓰거나, 동사 관형사형 '고장 난 통에'로 수정해야 합니다.",
+      "why": "명사 '지하철 고장'에 '인 통에'는 어법에 맞지 않으므로 '(으)로 인해서'가 올바릅니다."
+    },
+    {
+      "t": "vocab",
+      "h": "Words for this lesson",
+      "items": [
+        {
+          "ko": "인해서",
+          "en": "due to, because of",
+          "ex": "사고로 인해서 지연됐어요."
+        },
+        {
+          "ko": "말미암아",
+          "en": "arising from, caused by",
+          "ex": "오해로 말미암아 다퉜습니다."
+        },
+        {
+          "ko": "는 통에",
+          "en": "in the middle of chaos, in the turmoil of",
+          "ex": "떠드는 통에 못 들었어요."
+        },
+        {
+          "ko": "결항",
+          "en": "flight cancellation",
+          "ex": "기상 악화로 결항되었습니다."
+        },
+        {
+          "ko": "혼란",
+          "en": "confusion, turmoil",
+          "ex": "큰 혼란을 겪었습니다."
+        }
+      ]
+    },
+    {
+      "t": "dictate",
+      "say": "갑작스러운 폭우로 인해서 도심 주요 도로가 침수되어 교통이 전면 통제되었습니다",
+      "answers": [
+        "갑작스러운 폭우로 인해서 도심 주요 도로가 침수되어 교통이 전면 통제되었습니다"
+      ],
+      "hint": "폭우로 인한 도심 침수와 교통 통제를 보도하는 문장입니다.",
+      "why": "공식 보도문에 어울리는 중대한 원인 규명 '(으)로 인해서' 구문입니다."
+    },
+    {
+      "t": "write",
+      "q": "Write one formal sentence describing a problem caused by severe weather using (으)로 인해서.",
+      "must": [
+        "로 인해서"
+      ],
+      "sample": "폭설로 인해서 도로 통행이 전면 통제되었습니다.",
+      "why": "'로 인해서'를 넣어 자연재해로 인한 객관적 인과관계를 기술합니다."
+    },
+    {
+      "t": "expand",
+      "base": {
+        "tokens": [
+          "폭우로 인해서",
+          "침수되었습니다."
+        ],
+        "en": "It was flooded due to heavy rain."
+      },
+      "steps": [
+        {
+          "tokens": [
+            "기습적인 폭우로 인해서",
+            "지하 주차장이",
+            "침수되었습니다."
+          ],
+          "en": "The basement parking lot was flooded due to surprise heavy rain."
+        },
+        {
+          "tokens": [
+            "밤사이 쏟아진 기습적인 폭우로 인해서",
+            "도심 저지대 주택과 도로가",
+            "일제히 침수되었습니다."
+          ],
+          "en": "Low-lying houses and roads downtown were flooded all at once due to torrential rain overnight."
+        }
+      ]
+    },
+    {
+      "t": "passage",
+      "h": "Read a little",
+      "ko": [
+        "원인을 나타내는 표현은 글과 말의 분위기에 따라 엄격하게 갈립니다.",
+        "(으)로 인해서와 (으)로 말미암과는 뉴스나 공문서에서 중대한 사회적 결과의 원인을 객관적으로 밝힙니다.",
+        "반면 -는 통에는 주변이 매우 어수선하거나 혼란스러운 탓에 부정적인 결과를 겪었을 때 핑계로 씁니다."
+      ],
+      "en": [
+        "Cause-and-effect expressions divide strictly according to tone and situational formality.",
+        "(으)로 인해서 and (으)로 말미암아 objectively state causes of grave outcomes in news or documents.",
+        "In contrast, -는 통에 is used when hectic turmoil leads to an undesirable consequence."
+      ]
+    },
+    {
+      "t": "choice",
+      "q": "뉴스 보도나 공문서에서 객관적 원인을 밝힐 때 적절한 표현은 무엇인가요?",
+      "options": [
+        "(으)로 인해서",
+        "-는 통에"
+      ],
+      "answer": 0,
+      "hint": "둘째 줄의 객관적 원인 표현을 확인하세요.",
+      "why": "뉴스나 공문서에서는 (으)로 인해서나 (으)로 말미암과를 쓴다고 했습니다."
+    },
+    {
+      "t": "choice",
+      "q": "-는 통에는 주로 어떤 상황에서 쓰이나요?",
+      "options": [
+        "어수선하고 혼란스러운 부정적 상황",
+        "경사스럽고 축하할 만한 상황"
+      ],
+      "answer": 0,
+      "hint": "셋째 줄의 -는 통에 사용 환경을 확인하세요.",
+      "why": "매우 어수선하거나 혼란스러운 탓에 부정적 결과를 겪었을 때 씁니다."
+    },
+    {
+      "t": "cando",
+      "items": [
+        "I can distinguish formal causes ((으)로 인해서) from hectic excuses (-는 통에).",
+        "I can describe grave public incidents using (으)로 말미암아 and (으)로 인해서."
+      ]
+    }
+  ],
+  "ad-c04-02": [
+    {
+      "t": "compare",
+      "h": "-느니만큼 vs -는 이상 (당연한 귀결과 단호한 결심)",
+      "a": {
+        "h": "-느니만큼 (당연한 대가와 가치)",
+        "d": "앞선 노력이나 자격에 걸맞게 당연히 그에 상응하는 마땅한 결과가 뒤따름",
+        "ex": [
+          "오랫동안 피땀 흘려 준비했**느니만큼** 반드시 값진 결실을 맺을 것입니다. — As we prepared dedicating blood and sweat long, we will surely bear valuable fruit."
+        ]
+      },
+      "b": {
+        "h": "-는 이상 (물러설 수 없는 각오)",
+        "d": "어떤 전제가 성립된 이상 뒤로 물러서거나 회피할 수 없는 단호한 결의와 의무",
+        "ex": [
+          "계약서에 정식으로 서명하**는 이상** 약속된 기한을 반드시 준수해야 합니다. — As long as signing contract officially, you must observe promised deadline."
+        ]
+      },
+      "tip": "그만한 노력에 따른 당연한 결과에는 -느니만큼, 전제된 상황에 대한 확고한 책임에는 -는 이상을 씁니다."
+    },
+    {
+      "t": "correct",
+      "q": "Fix the mistake.",
+      "wrong": "시험이 코앞으로 다가왔는 이상 게으름을 피울 수 없습니다.",
+      "answers": [
+        "시험이 코앞으로 다가온 이상 게으름을 피울 수 없습니다."
+      ],
+      "hint": "이미 완료된 과거 사실을 전제할 때는 관형사형 '-(으)ㄴ 이상'을 씁니다.",
+      "why": "'다가왔는 이상'이 아니라 동사의 과거 관형사형 '다가온 이상'이 문법적으로 올바릅니다."
+    },
+    {
+      "t": "vocab",
+      "h": "Words for this lesson",
+      "items": [
+        {
+          "ko": "느니만큼",
+          "en": "insofar as, as much as",
+          "ex": "노력했느니만큼 기대가 커요."
+        },
+        {
+          "ko": "는 이상",
+          "en": "as long as, now that",
+          "ex": "시작한 이상 끝내야 합니다."
+        },
+        {
+          "ko": "자격",
+          "en": "qualification, entitlement",
+          "ex": "대표로서의 자격을 갖췄어요."
+        },
+        {
+          "ko": "귀결",
+          "en": "natural outcome, conclusion",
+          "ex": "당연한 귀결로 보입니다."
+        },
+        {
+          "ko": "각오",
+          "en": "determination, resolve",
+          "ex": "단단히 각오를 다졌습니다."
+        }
+      ]
+    },
+    {
+      "t": "dictate",
+      "say": "국민의 신뢰를 받는 공직자인 이상 청렴한 자세를 지켜야 마땅합니다",
+      "answers": [
+        "국민의 신뢰를 받는 공직자인 이상 청렴한 자세를 지켜야 마땅합니다"
+      ],
+      "hint": "공직자로서의 당연한 책무와 청렴한 자세를 강조하는 문장입니다.",
+      "why": "신분이나 조건을 전제로 한 당위성을 나타내는 '-는 이상' 구문입니다."
+    },
+    {
+      "t": "write",
+      "q": "Write one sentence stating a commitment based on a condition using -는 이상.",
+      "must": [
+        "는 이상"
+      ],
+      "sample": "프로젝트를 맡는 이상 끝까지 최선을 다하겠습니다.",
+      "why": "'는 이상'을 넣어 물러설 수 없는 책임감을 나타내는 문장을 씁니다."
+    },
+    {
+      "t": "expand",
+      "base": {
+        "tokens": [
+          "시작한 이상",
+          "끝내야 합니다."
+        ],
+        "en": "Now that we started, we must finish."
+      },
+      "steps": [
+        {
+          "tokens": [
+            "한번 시작한 이상",
+            "책임지고 완벽히",
+            "끝내야 합니다."
+          ],
+          "en": "Once started, we must take responsibility and finish perfectly."
+        },
+        {
+          "tokens": [
+            "팀의 리더로서 한번 시작한 이상",
+            "어떠한 난관이 닥치더라도",
+            "성공적으로 끝내야 합니다."
+          ],
+          "en": "As team leader once started, whatever hurdles arise, I must finish successfully."
+        }
+      ]
+    },
+    {
+      "t": "passage",
+      "h": "Read a little",
+      "ko": [
+        "-느니만큼은 앞선 노력이나 조건에 걸맞게 당연히 그에 상응하는 결과가 뒤따름을 뜻합니다.",
+        "반면 -는 이상은 어떤 상황이 기정사실화된 전제 아래 결코 물러설 수 없는 단호한 결심을 나타냅니다.",
+        "두 표현 모두 고급 화자가 자신의 논리적 정당성과 굳건한 책임감을 피력할 때 핵심적인 역할을 합니다."
+      ],
+      "en": [
+        "-느니만큼 indicates that a fitting result will naturally follow preceding efforts or merits.",
+        "On the other hand, -는 이상 shows firm resolve that cannot be backed out of under given premises.",
+        "Both play vital roles when advanced speakers assert logical justification and strong responsibility."
+      ]
+    },
+    {
+      "t": "choice",
+      "q": "이미 정해진 사실을 전제로 뒤로 물러설 수 없는 결의를 나타내는 문법은 무엇인가요?",
+      "options": [
+        "-는 이상",
+        "-을 텐데"
+      ],
+      "answer": 0,
+      "hint": "둘째 줄의 단호한 결심 표현을 확인하세요.",
+      "why": "기정사실화된 전제 아래 결코 물러설 수 없는 결심은 '-는 이상'입니다."
+    },
+    {
+      "t": "choice",
+      "q": "앞선 노력이나 가치에 걸맞은 결과를 당연하게 기대할 때 쓰는 어미는 무엇인가요?",
+      "options": [
+        "-느니만큼",
+        "-는 통에"
+      ],
+      "answer": 0,
+      "hint": "첫째 줄의 걸맞은 결과 표현을 확인하세요.",
+      "why": "노력이나 조건에 걸맞은 상응 결과를 뜻할 때는 '-느니만큼'을 씁니다."
+    },
+    {
+      "t": "cando",
+      "items": [
+        "I can express reasonable entitlement and expected results using -느니만큼.",
+        "I can state irrevocable commitment and duty using -는 이상."
+      ]
+    }
+  ],
+  "ad-c04-03": [
+    {
+      "t": "compare",
+      "h": "-기로서니 vs -기에 망정이지 (질책과 안도의 뉘앙스)",
+      "a": {
+        "h": "-기로서니 (지나침에 대한 질책)",
+        "d": "앞 절의 상황을 인정하더라도 뒤 절의 지나친 행동이나 태도를 결코 용납할 수 없다고 꾸짖음",
+        "ex": [
+          "아무리 화가 나**기로서니** 어른에게 말대꾸를 하면 됩니까? — However angry you may be, should you talk back to an elder?"
+        ]
+      },
+      "b": {
+        "h": "-기에 망정이지 (다행스러운 안도)",
+        "d": "앞의 다행스러운 조건 덕분에 최악의 화를 겨우 면했음을 가슴 쓸어내리며 표현함",
+        "ex": [
+          "안전벨트를 맸**기에 망정이지** 하마터면 큰 부상을 입을 뻔했습니다. — Fortunately I wore a seatbelt; otherwise I would almost have suffered severe injuries."
+        ]
+      },
+      "tip": "상대의 지나친 처신을 나무랄 때는 '아무리 -기로서니', 불행 중 다행으로 위기를 모면했을 때는 '-기에 망정이지'를 씁니다."
+    },
+    {
+      "t": "correct",
+      "q": "Fix the mistake.",
+      "wrong": "사고가 날 뻔했는데 안전벨트를 매기로서니 다치지 않았습니다.",
+      "answers": [
+        "사고가 날 뻔했는데 안전벨트를 맸기에 망정이지 다칠 뻔했습니다.",
+        "사고가 날 뻔했는데 안전벨트를 맸기에 망정이지 큰일 날 뻔했습니다."
+      ],
+      "hint": "불행 중 다행으로 위기를 피했을 때는 '-기에 망정이지 ~ -(으)ㄹ 뻔했다' 구문으로 호응합니다.",
+      "why": "안도의 뉘앙스를 나타내는 표현은 '-기로서니'가 아니라 '-기에 망정이지'입니다."
+    },
+    {
+      "t": "vocab",
+      "h": "Words for this lesson",
+      "items": [
+        {
+          "ko": "기로서니",
+          "en": "even if... how could...",
+          "ex": "바쁘기로서니 끼니는 챙겨야죠."
+        },
+        {
+          "ko": "기에 망정이지",
+          "en": "fortunately... otherwise...",
+          "ex": "우산을 챙겼기에 망정이지요."
+        },
+        {
+          "ko": "ㄴ답시고",
+          "en": "pretending to, under guise of",
+          "ex": "도와준답시고 방해만 했어요."
+        },
+        {
+          "ko": "질책",
+          "en": "reproach, rebuke",
+          "ex": "따끔한 질책을 들었습니다."
+        },
+        {
+          "ko": "다행히",
+          "en": "fortunately",
+          "ex": "다행히 큰 피해는 없었어요."
+        }
+      ]
+    },
+    {
+      "t": "dictate",
+      "say": "미리 예방 접종을 맞았기에 망정이지 하마터면 독감에 걸려 고생할 뻔했습니다",
+      "answers": [
+        "미리 예방 접종을 맞았기에 망정이지 하마터면 독감에 걸려 고생할 뻔했습니다"
+      ],
+      "hint": "예방 접종 덕분에 위기를 모면했음을 가슴 쓸어내리며 말하는 문장입니다.",
+      "why": "'-기에 망정이지'와 '하마터면 ~ -(으)ㄹ 뻔했다'의 완벽한 호응입니다."
+    },
+    {
+      "t": "write",
+      "q": "Write one sentence expressing relief over avoiding danger using -기에 망정이지.",
+      "must": [
+        "기에 망정이지"
+      ],
+      "sample": "미리 브레이크를 밟았기에 망정이지 큰 사고가 날 뻔했어요.",
+      "why": "'기에 망정이지'를 넣어 불행 중 다행으로 위기를 피한 안도를 표현합니다."
+    },
+    {
+      "t": "expand",
+      "base": {
+        "tokens": [
+          "일찍 출발했기에 망정이지",
+          "지각할 뻔했어요."
+        ],
+        "en": "Fortunately I left early, otherwise I'd almost have been late."
+      },
+      "steps": [
+        {
+          "tokens": [
+            "오늘 아침에 일찍 출발했기에 망정이지",
+            "교통 체증 때문에",
+            "지각할 뻔했어요."
+          ],
+          "en": "Fortunately I left early this morning, otherwise I'd almost have been late due to traffic."
+        },
+        {
+          "tokens": [
+            "도로가 꽉 막혔는데 일찍 출발했기에 망정이지",
+            "하마터면 중요한 면접에",
+            "지각할 뻔했어요."
+          ],
+          "en": "Roads were jam-packed; fortunately I left early, otherwise I'd almost have missed the interview."
+        }
+      ]
+    },
+    {
+      "t": "passage",
+      "h": "Read a little",
+      "ko": [
+        "화자의 주관적인 감정 평가가 실린 이유 표현들은 뉘앙스를 정확히 가려 써야 합니다.",
+        "-기로서니는 '아무리 ~기로서니' 형태로 쓰여 상대방의 지나친 처신을 나무라고 반박할 때 씁니다.",
+        "반면 -기에 망정이지는 불행 중 다행으로 위기를 모면했을 때 가슴을 쓸어내리며 안도할 때 씁니다."
+      ],
+      "en": [
+        "Subjective emotional cause expressions must be used with precise distinction in nuances.",
+        "-기로서니 pairs with '아무리 ~기로서니' to reprimand and counter someone's excessive actions.",
+        "In contrast, -기에 망정이지 expresses relief when barely avoiding misfortune by luck."
+      ]
+    },
+    {
+      "t": "choice",
+      "q": "상대의 지나친 행동에 대해 반박하고 꾸짖을 때 쓰는 문형은 무엇인가요?",
+      "options": [
+        "아무리 ~기로서니",
+        "다행히 ~기에 망정이지"
+      ],
+      "answer": 0,
+      "hint": "둘째 줄의 꾸짖음 문형을 확인하세요.",
+      "why": "상대방의 지나친 처신을 나무라고 반박할 때는 '아무리 ~기로서니'를 씁니다."
+    },
+    {
+      "t": "choice",
+      "q": "위기를 모면하고 가슴을 쓸어내리며 다행스러워할 때 쓰는 문법은 무엇인가요?",
+      "options": [
+        "-기에 망정이지",
+        "-(느)ㄴ답시고"
+      ],
+      "answer": 0,
+      "hint": "셋째 줄의 안도 문법을 확인하세요.",
+      "why": "불행 중 다행으로 위기를 모면했을 때는 '-기에 망정이지'를 씁니다."
+    },
+    {
+      "t": "cando",
+      "items": [
+        "I can scold inappropriate excesses using '아무리 -기로서니'.",
+        "I can voice relief over narrowly averted disasters using -기에 망정이지."
+      ]
+    }
+  ],
+  "ad-c04-04": [
+    {
+      "t": "compare",
+      "h": "-(으)ㅁ으로써 vs -길래 (수단 격식체 vs 구어 행동 계기)",
+      "a": {
+        "h": "-(으)ㅁ으로써 (격식 문어 — 수단과 달성)",
+        "d": "공식 연설, 학술 논문, 기안서에서 어떤 목표를 달성하는 도구와 수단을 정중히 서술함",
+        "ex": [
+          "신재생 에너지 개발을 확대하**으로써** 탄소 배출을 획기적으로 감축할 수 있습니다. — By expanding renewable energy development, we can reduce carbon emissions innovatively."
+        ]
+      },
+      "b": {
+        "h": "-길래 (일상 구어 — 행동 유발 계기)",
+        "d": "상대방의 말이나 눈앞의 상황을 보고 어떤 행동을 일으킨 구어적 계기를 털어놓을 때",
+        "ex": [
+          "날씨가 너무 화창하**길래** 기분 전환 삼아 공원에 산책하러 나왔어요. — The weather was so sunny that I came out for a stroll in the park to refresh."
+        ]
+      },
+      "tip": "공식적인 수단 서술에는 '-(으)ㅁ으로써', 일상적인 개인 행동의 계기에는 '-길래'를 씁니다."
+    },
+    {
+      "t": "correct",
+      "q": "Fix the mistake.",
+      "wrong": "(학술 논문 결론) 신재생 에너지를 확대하길래 온실가스 배출을 줄일 수 있습니다.",
+      "answers": [
+        "(학술 논문 결론) 신재생 에너지를 확대함으로써 온실가스 배출을 줄일 수 있습니다."
+      ],
+      "hint": "학술 논문이나 공식 보고서에서 수단과 방법을 나타낼 때는 격식체 어미 '-(으)ㅁ으로써'를 씁니다.",
+      "why": "논문의 격식에 어울리는 수단 표현은 구어체 '-길래'가 아니라 문어체 '-(으)ㅁ으로써'입니다."
+    },
+    {
+      "t": "vocab",
+      "h": "Words for this lesson",
+      "items": [
+        {
+          "ko": "으로써",
+          "en": "by doing, through",
+          "ex": "실천함으로써 입증했어요."
+        },
+        {
+          "ko": "기에",
+          "en": "as, since (formal)",
+          "ex": "중요한 자리이기에 참석했습니다."
+        },
+        {
+          "ko": "길래",
+          "en": "because (conversational trigger)",
+          "ex": "비가 오길래 우산을 썼어요."
+        },
+        {
+          "ko": "계기",
+          "en": "opportunity, trigger",
+          "ex": "새로운 삶의 계기가 되었습니다."
+        },
+        {
+          "ko": "수단",
+          "en": "means, method",
+          "ex": "평화로운 해결 수단이에요."
+        }
+      ]
+    },
+    {
+      "t": "dictate",
+      "say": "상호 신뢰를 구축함으로써 양국 간의 협력 관계를 한층 공고히 발전시켰습니다",
+      "answers": [
+        "상호 신뢰를 구축함으로써 양국 간의 협력 관계를 한층 공고히 발전시켰습니다"
+      ],
+      "hint": "신뢰 구축을 수단으로 협력 관계를 발전시켰다는 품격 높은 외교 문장입니다.",
+      "why": "수단과 방법을 공식적으로 기술하는 '-(으)ㅁ으로써' 구문입니다."
+    },
+    {
+      "t": "write",
+      "q": "Write one formal sentence describing a method to solve problems using -(으)ㅁ으로써.",
+      "must": [
+        "함으로써"
+      ],
+      "sample": "서로 양보하고 협력함으로써 당면한 위기를 극복합시다.",
+      "why": "'함으로써'를 포함하여 격식 높은 협력 방안 문장을 작성합니다."
+    },
+    {
+      "t": "expand",
+      "base": {
+        "tokens": [
+          "대화를 나눔으로써",
+          "해결했습니다."
+        ],
+        "en": "We solved it by sharing dialogue."
+      },
+      "steps": [
+        {
+          "tokens": [
+            "진솔한 대화를 나눔으로써",
+            "오랜 오해와 갈등을",
+            "해결했습니다."
+          ],
+          "en": "We solved long misunderstandings and conflicts by sharing candid dialogue."
+        },
+        {
+          "tokens": [
+            "노사가 한자리에 모여 진솔한 대화를 나눔으로써",
+            "첨예했던 파업 갈등을",
+            "원만하게 해결했습니다."
+          ],
+          "en": "By labor and management sharing candid talks, they smoothly resolved sharp strike conflicts."
+        }
+      ]
+    },
+    {
+      "t": "passage",
+      "h": "Read a little",
+      "ko": [
+        "인과와 수단을 서술할 때도 문체적 격식에 따라 어미 선택이 달라집니다.",
+        "학술 논문이나 정부 공문서에서는 어떤 목표를 이루는 수단으로 '-(으)ㅁ으로써'를 즐겨 씁니다.",
+        "반면 사적인 일상 대화에서 다른 사람의 말이나 주변 상황을 보고 행동을 옮긴 계기는 '-길래'를 씁니다."
+      ],
+      "en": [
+        "In describing causes and means, suffix choice varies depending on stylistic formality.",
+        "In academic papers or government documents, -(으)ㅁ으로써 is favored as means to achieve a goal.",
+        "On the other hand, in casual conversation, -길래 states the trigger that prompted one's action."
+      ]
+    },
+    {
+      "t": "choice",
+      "q": "논문이나 공문서에서 수단과 방법을 나타내는 격식체 어미는 무엇인가요?",
+      "options": [
+        "-(으)ㅁ으로써",
+        "-길래"
+      ],
+      "answer": 0,
+      "hint": "둘째 줄의 격식 수단 어미를 확인하세요.",
+      "why": "학술 논문이나 공문서에서는 목표를 이루는 수단으로 '-(으)ㅁ으로써'를 씁니다."
+    },
+    {
+      "t": "choice",
+      "q": "일상 대화에서 어떤 상황을 보고 행동을 일으킨 계기를 나타낼 때 쓰는 어미는 무엇인가요?",
+      "options": [
+        "-길래",
+        "-(으)ㅁ으로써"
+      ],
+      "answer": 0,
+      "hint": "셋째 줄의 일상 대화 계기 어미를 확인하세요.",
+      "why": "행동을 옮긴 사적인 계기는 '-길래'를 쓴다고 했습니다."
+    },
+    {
+      "t": "cando",
+      "items": [
+        "I can describe strategic means using -(으)ㅁ으로써 in formal writings.",
+        "I can distinguish conversational trigger suffix -길래 from formal -(으)ㅁ으로써."
+      ]
+    }
+  ]
+}

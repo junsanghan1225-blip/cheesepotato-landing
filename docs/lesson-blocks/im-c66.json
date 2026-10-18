@@ -1,0 +1,626 @@
+{
+  "im-c66-01": [
+    {
+      "t": "compare",
+      "h": "단정적 단언 (이다 / 하다) vs 완곡한 성향 표현 (-(으)ㄴ/는 편이다)",
+      "a": {
+        "h": "단정적 직설 어투 (Direct assertive tone)",
+        "d": "Categorizes attributes definitively, which can sound rigid or overgeneralized.",
+        "ex": [
+          "저는 아침잠이 **많아요**. — I sleep in a lot in the morning."
+        ]
+      },
+      "b": {
+        "h": "완곡한 성향 표현 (-(으)ㄴ/는 편이다, Soft tendency)",
+        "d": "Softens general tendencies modestly, indicating a general inclination without absolute absolutes.",
+        "ex": [
+          "저는 아침잠이 비교적 **많은 편이에요**. — I am on the side of sleeping in comparatively more in mornings."
+        ]
+      },
+      "tip": "Conjugation rules: Present verbs take -는 편이다 (잘 먹는 편이다). Present adjectives with batchim take -은 편이다 (많은 편이다), without batchim take -ㄴ 편이다 (조용한 편이다)."
+    },
+    {
+      "t": "correct",
+      "q": "Fix the adjective conjugation error with 편이다 for the adjective 조용하다.",
+      "wrong": "우리 동네는 주택가라서 밤에는 아주 조용는 편이에요.",
+      "answers": [
+        "우리 동네는 주택가라서 밤에는 아주 조용한 편이에요.",
+        "우리 동네는 주택가라서 밤에는 아주 조용한 편이에요",
+        "우리 동네는 주택가라서 밤에는 매우 조용한 편입니다.",
+        "우리 동네는 주택가라서 밤에는 매우 조용한 편입니다"
+      ],
+      "hint": "Adjective 조용하다 has no batchim, so attach -ㄴ 편이다: 조용한 편이에요.",
+      "why": "Adjectives conjugate with -(으)ㄴ 편이다; 조용하다 has vowel ending so it becomes 조용한 편이다."
+    },
+    {
+      "t": "vocab",
+      "h": "Words for this lesson",
+      "items": [
+        {
+          "ko": "성향",
+          "en": "tendency / inclination",
+          "ex": "사람마다 성격과 소비 성향이 다릅니다."
+        },
+        {
+          "ko": "완곡하다",
+          "en": "euphemistic / roundabout / gentle",
+          "ex": "부탁을 완곡하게 거절하여 예의를 지켰다."
+        },
+        {
+          "ko": "외향적",
+          "en": "extroverted / outgoing",
+          "ex": "성격이 외향적이라 친구를 쉽게 사귑니다."
+        },
+        {
+          "ko": "내성적",
+          "en": "introverted / reserved",
+          "ex": "내성적인 성격이지만 맡은 일은 꼼꼼해요."
+        },
+        {
+          "ko": "싱겁다",
+          "en": "bland / lightly seasoned",
+          "ex": "건강을 위해 음식을 조금 싱겁게 먹는 편입니다."
+        }
+      ]
+    },
+    {
+      "t": "dictate",
+      "say": "저는 매운 음식을 잘 못 먹어서 자극적이지 않고 담백하게 먹는 편이에요",
+      "answers": [
+        "저는 매운 음식을 잘 못 먹어서 자극적이지 않고 담백하게 먹는 편이에요",
+        "저는 매운 음식을 잘 못 먹어서 자극적이지 않고 담백하게 먹는 편이에요."
+      ],
+      "hint": "Because I cannot eat spicy food well, I tend to eat mild and plain foods without strong spices.",
+      "why": "Soft general inclination: 담백하게 먹는 편이에요."
+    },
+    {
+      "t": "write",
+      "q": "Write a gentle sentence describing that your apartment neighborhood is very safe and quiet, using 조용한 편이고 and 안전해요.",
+      "must": [
+        "조용한 편이고",
+        "안전해요"
+      ],
+      "sample": "저희 동네는 주변이 아주 조용한 편이고 밤길도 무척 안전해요.",
+      "why": "Using adjective + -ㄴ 편이다 to softly describe living surroundings."
+    },
+    {
+      "t": "expand",
+      "base": {
+        "tokens": [
+          "말이",
+          "적은 편이에요."
+        ],
+        "en": "I am on the quiet side."
+      },
+      "steps": [
+        {
+          "tokens": [
+            "처음 만난 사람 앞에서는",
+            "낯을 가려서 말이",
+            "다소 적은 편이에요."
+          ],
+          "en": "In front of people met for the first time, being shy, I am on the somewhat quiet side."
+        },
+        {
+          "tokens": [
+            "처음 보는 낯선 사람들 앞에서는",
+            "수줍음을 많이 타서 낯가림으로 말이",
+            "다소 적고 조용한 편이에요."
+          ],
+          "en": "In front of unfamiliar strangers seen for the first time, feeling quite shy, my speech is on the rather quiet side."
+        }
+      ]
+    },
+    {
+      "t": "passage",
+      "h": "Read a little",
+      "ko": [
+        "새로 이사 온 동네는 지하철역이 가까워 대중교통이 무척 편리한 편이다.",
+        "주변에 공원과 도서관이 인접해 있어 주말 여가를 보내기에도 쾌적한 편이다.",
+        "주민들도 서로 친절하고 다정하여 동네 분위기가 전반적으로 매우 따뜻한 편이다."
+      ],
+      "en": [
+        "In the neighborhood newly moved into, public transit is on the very convenient side because the subway station is close.",
+        "Because parks and libraries are adjacent nearby, spending weekend leisure is also on the pleasant side.",
+        "Residents are also kind and friendly to one another, so neighborhood atmosphere is generally on the very warm side."
+      ]
+    },
+    {
+      "t": "choice",
+      "q": "Why is public transit described as convenient in the new neighborhood?",
+      "options": [
+        "Because the subway station is close nearby (지하철역이 가까워 편리한 편)",
+        "Because everyone is given free private helicopters",
+        "Because all roads are closed to cars"
+      ],
+      "answer": 0,
+      "why": "Sentence one states: 지하철역이 가까워 대중교통이 무척 편리한 편이다."
+    },
+    {
+      "t": "choice",
+      "q": "What stylistic impression does -(으)ㄴ/는 편이다 convey throughout the text?",
+      "options": [
+        "Soft, balanced, and objective description without sweeping extreme overstatements",
+        "Sharp, biting satire and anger",
+        "A strict military decree"
+      ],
+      "answer": 0,
+      "why": "-(으)ㄴ/는 편이다 softens descriptions into moderate, reasonable assessments."
+    },
+    {
+      "t": "cando",
+      "items": [
+        "I can describe personal habits, diets, and personalities softly with -(으)ㄴ/는 편이다.",
+        "I can evaluate neighborhood environments, services, and traits with gentle modesty."
+      ]
+    }
+  ],
+  "im-c66-02": [
+    {
+      "t": "compare",
+      "h": "명사 + 스럽다 (그런 느낌·성질이 풍김) vs 순수 형용사",
+      "a": {
+        "h": "명사 + 스럽다 (Infused with that aura or characteristic)",
+        "d": "Derives adjectives from nouns to describe possessing that quality, feeling, or appearance.",
+        "ex": [
+          "신입 사원의 당찬 태도가 무척 **자랑스러워요**. — The new employee’s bold attitude makes me very proud."
+        ]
+      },
+      "b": {
+        "h": "순수 고유 형용사 (Inherent direct qualities)",
+        "d": "Directly describes color, shape, or sensory perceptions without noun-derivative suffixes.",
+        "ex": [
+          "가을 하늘이 무척 **높고 푸르다**. — The autumn sky is high and blue."
+        ]
+      },
+      "tip": "Classic -스럽다 pairs: 어른스럽다 (mature), 자연스럽다 (natural), 사랑스럽다 (lovely), 조심스럽다 (cautious), 부담스럽다 (burdensome), 당황스럽다 (flustered)."
+    },
+    {
+      "t": "correct",
+      "q": "Fix the awkward phrase when describing an adult-like mature child.",
+      "wrong": "그 어린이는 나이에 비해 생각이 참 어른답네요.",
+      "answers": [
+        "그 어린이는 나이에 비해 생각이 참 어른스럽네요.",
+        "그 어린이는 나이에 비해 생각이 참 어른스럽네요",
+        "그 어린아이는 생각하는 깊이가 참 어른스럽습니다.",
+        "그 어린아이는 생각하는 깊이가 참 어른스럽습니다"
+      ],
+      "hint": "A child resembling an adult uses 어른스럽다 (not 어른답다): 어른스럽네요.",
+      "why": "A child is NOT actually an adult; possessing adult-like qualities requires 어른스럽다, whereas -답다 is reserved for people who actually hold that identity."
+    },
+    {
+      "t": "vocab",
+      "h": "Words for this lesson",
+      "items": [
+        {
+          "ko": "어른스럽다",
+          "en": "mature / adult-like",
+          "ex": "어린 나이에도 배려심이 깊고 어른스러워요."
+        },
+        {
+          "ko": "자연스럽다",
+          "en": "natural",
+          "ex": "한국어 발음이 원어민처럼 자연스럽습니다."
+        },
+        {
+          "ko": "사랑스럽다",
+          "en": "lovely / adorable",
+          "ex": "방긋방긋 웃는 아기의 표정이 참 사랑스럽다."
+        },
+        {
+          "ko": "조심스럽다",
+          "en": "cautious / careful",
+          "ex": "민감한 질문이라 조심스럽게 여쭈어보았습니다."
+        },
+        {
+          "ko": "부담스럽다",
+          "en": "burdensome / overwhelming",
+          "ex": "너무 과한 선물은 받기에 부담스러워요."
+        }
+      ]
+    },
+    {
+      "t": "dictate",
+      "say": "어려운 처지에 놓인 이웃을 스스로 돕는 모습이 참 자랑스럽고 대견하네요",
+      "answers": [
+        "어려운 처지에 놓인 이웃을 스스로 돕는 모습이 참 자랑스럽고 대견하네요",
+        "어려운 처지에 놓인 이웃을 스스로 돕는 모습이 참 자랑스럽고 대견하네요."
+      ],
+      "hint": "Seeing them help struggling neighbors on their own is truly proud and admirable.",
+      "why": "Adjective with -스럽다: 자랑스럽고."
+    },
+    {
+      "t": "write",
+      "q": "Write a sentence praising a foreign friend’s natural Korean conversation, using 대화가 and 자연스러워요.",
+      "must": [
+        "대화가",
+        "자연스러워요"
+      ],
+      "sample": "한국에 온 지 얼마 안 되었는데 원어민과의 일상 대화가 참 자연스러워요.",
+      "why": "Using 자연스럽다 to compliment fluent natural communication."
+    },
+    {
+      "t": "expand",
+      "base": {
+        "tokens": [
+          "태도가",
+          "어른스러워요."
+        ],
+        "en": "The attitude is mature."
+      },
+      "steps": [
+        {
+          "tokens": [
+            "어린 동생인데도 생각이 깊고",
+            "행동과 태도가",
+            "참 어른스러워요."
+          ],
+          "en": "Although a young sibling, thinking is deep and behavior and attitude are very mature."
+        },
+        {
+          "tokens": [
+            "초등학교에 다니는 어린 동생인데도 어른들을 공경하고",
+            "매사에 남을 먼저 배려하는 행동과 태도가",
+            "정말 대견하고 어른스러워요."
+          ],
+          "en": "Even though an elementary school sibling, respecting elders and putting others first in everything, their attitude is truly admirable and mature."
+        }
+      ]
+    },
+    {
+      "t": "passage",
+      "h": "Read a little",
+      "ko": [
+        "낯선 무대에 혼자 올라 발표를 준비하려니 마음이 몹시 부담스러웠다.",
+        "하지만 심호흡을 하고 차분하게 연습한 대로 발표를 이어가자 점차 분위기가 자연스러워졌다.",
+        "발표가 끝난 후 관객들의 뜨거운 박수를 받으니 뿌듯하고 자랑스러운 마음이 차올랐다."
+      ],
+      "en": [
+        "Preparing to present alone on an unfamiliar stage, I felt very burdened inside.",
+        "However, taking deep breaths and presenting calmly as practiced, the atmosphere gradually became natural.",
+        "Receiving warm applause from the audience after the presentation, a proud and fulfilled feeling welled up."
+      ]
+    },
+    {
+      "t": "choice",
+      "q": "How did the speaker initially feel before stepping onto the stage alone?",
+      "options": [
+        "Felt very burdened inside (몹시 부담스러웠다)",
+        "Felt completely bored and sleepy",
+        "Felt furious at the organizers"
+      ],
+      "answer": 0,
+      "why": "Sentence one states: 혼자 올라 발표를 준비하려니 마음이 몹시 부담스러웠다."
+    },
+    {
+      "t": "choice",
+      "q": "What emotional change occurred after receiving audience applause?",
+      "options": [
+        "A proud and fulfilled feeling welled up (자랑스러운 마음이 차올랐다)",
+        "Felt ashamed and ran away crying",
+        "Demanded money from audience members"
+      ],
+      "answer": 0,
+      "why": "Sentence three notes: 뿌듯하고 자랑스러운 마음이 차올랐다."
+    },
+    {
+      "t": "cando",
+      "items": [
+        "I can form evocative descriptive adjectives using noun + 스럽다.",
+        "I can express complex feelings like feeling burdened (부담스럽다), proud (자랑스럽다), or cautious (조심스럽다)."
+      ]
+    }
+  ],
+  "im-c66-03": [
+    {
+      "t": "compare",
+      "h": "명사 + 답다 (신분·자격에 걸맞음) vs 명사 + 스럽다 (닮음·느낌 풍김)",
+      "a": {
+        "h": "명사 + 답다 (True to one’s identity / worthy of the role)",
+        "d": "The subject ACTUALLY possesses that identity/role and lives up to its highest expectations and values.",
+        "ex": [
+          "어려운 위기 속에서도 리더로서 **지도자답게** 결단을 내렸어요. — In difficult crisis, as a leader, they made decisions like a true leader."
+        ]
+      },
+      "b": {
+        "h": "명사 + 스럽다 (Simulative likeness / aura)",
+        "d": "The subject resembles that quality, even when they do not officially hold that title (e.g. child behaving maturely).",
+        "ex": [
+          "어린 동생이 의젓하게 행동하니 제법 **어른스럽네요**. — My young sibling behaves with composure, looking quite adult-like."
+        ]
+      },
+      "tip": "Contrast: 어른답다 (an adult living up to adult duties) vs 어른스럽다 (a child acting like an adult). 학생답다 (a student acting like a student) vs 학생스럽다 (unnatural)."
+    },
+    {
+      "t": "correct",
+      "q": "Fix the sentence where an actual professional athlete living up to fair sportsmanship was awkwardly phrased.",
+      "wrong": "국가대표 선수가 끝까지 정정당당하게 싸우는 모습이 프로스럽네요.",
+      "answers": [
+        "국가대표 선수가 끝까지 정정당당하게 싸우는 모습이 프로답네요.",
+        "국가대표 선수가 끝까지 정정당당하게 싸우는 모습이 프로답네요",
+        "국가대표 선수가 끝까지 정정당당하게 싸우는 모습이 참 선수답습니다.",
+        "국가대표 선수가 끝까지 정정당당하게 싸우는 모습이 참 선수답습니다"
+      ],
+      "hint": "An actual professional living up to their title uses -답다: 프로답네요.",
+      "why": "A professional sports player demonstrating genuine professionalism calls for -답다 (프로답다), not -스럽다."
+    },
+    {
+      "t": "vocab",
+      "h": "Words for this lesson",
+      "items": [
+        {
+          "ko": "걸맞다",
+          "en": "to be suited for / worthy of",
+          "ex": "그 명성에 걸맞은 훌륭한 실력을 보여주었다."
+        },
+        {
+          "ko": "정정당당하다",
+          "en": "fair and square",
+          "ex": "정정당당하게 승부에 임하여 우승을 거머쥐었다."
+        },
+        {
+          "ko": "청렴하다",
+          "en": "clean / incorruptible",
+          "ex": "공직자로서 평생 청렴한 삶을 살았습니다."
+        },
+        {
+          "ko": "품격",
+          "en": "dignity / class",
+          "ex": "말 한마디에서 깊은 인품과 품격이 느껴져요."
+        },
+        {
+          "ko": "본분",
+          "en": "duty / proper role",
+          "ex": "학생으로서 학업에 충실한 것이 본분입니다."
+        }
+      ]
+    },
+    {
+      "t": "dictate",
+      "say": "어려움에 처한 이웃을 먼저 배려하고 돕는 것이 진정한 어른다운 태도입니다",
+      "answers": [
+        "어려움에 처한 이웃을 먼저 배려하고 돕는 것이 진정한 어른다운 태도입니다",
+        "어려움에 처한 이웃을 먼저 배려하고 돕는 것이 진정한 어른다운 태도입니다."
+      ],
+      "hint": "Considering and helping neighbors in difficulty first is truly an attitude worthy of an adult.",
+      "why": "Worthy of adult identity: 어른다운 태도."
+    },
+    {
+      "t": "write",
+      "q": "Write a sentence stating that studying hard and showing good manners is student-like behavior, using 학생다운 and 행동입니다.",
+      "must": [
+        "학생다운",
+        "행동입니다"
+      ],
+      "sample": "수업에 성실히 참여하고 예의를 지키는 것이 가장 학생다운 올바른 행동입니다.",
+      "why": "Using 명사 + 답다 for behavior fitting a student."
+    },
+    {
+      "t": "expand",
+      "base": {
+        "tokens": [
+          "선수답게",
+          "최선을 다했어요."
+        ],
+        "en": "Like a true athlete, they did their best."
+      },
+      "steps": [
+        {
+          "tokens": [
+            "부상에도 불구하고 국가대표 선수답게",
+            "경기 끝까지",
+            "최선을 다했어요."
+          ],
+          "en": "Despite injury, worthy of a national athlete, they did their best until the end of the match."
+        },
+        {
+          "tokens": [
+            "갑작스러운 부상에도 불구하고 국가대표 프로 선수답게",
+            "포기하지 않고 경기 마지막 휘슬이 울릴 때까지",
+            "투혼을 발휘하여 정정당당히 최선을 다했어요."
+          ],
+          "en": "Despite sudden injury, like a true national pro athlete, without giving up until the final whistle, they displayed fighting spirit and fairly did their best."
+        }
+      ]
+    },
+    {
+      "t": "passage",
+      "h": "Read a little",
+      "ko": [
+        "결승전에서 아쉽게 패배했지만 우리 팀 주장은 의연한 미소를 잃지 않았다.",
+        "상대 팀 라커룸을 찾아가 우승을 진심으로 축하해 주는 모습은 진정한 스포츠맨다운 품격을 보여주었다.",
+        "승패를 떠나 서로를 존중하는 태도야말로 프로 선수답다고 모두가 입을 모아 칭찬했다."
+      ],
+      "en": [
+        "Although regrettably defeated in the finals, our team captain did not lose a serene smile.",
+        "Visiting the opponent locker room and genuinely congratulating their victory showed dignity worthy of a true sportsman.",
+        "Everyone praised in unison that respecting each other regardless of victory or defeat is truly professional."
+      ]
+    },
+    {
+      "t": "choice",
+      "q": "How did the team captain demonstrate sportsmanship after defeat?",
+      "options": [
+        "Visited the opposing locker room to congratulate them sincerely (진심으로 축하해 줌)",
+        "Refused to shake hands and argued with referees",
+        "Threw equipment onto the stadium floor"
+      ],
+      "answer": 0,
+      "why": "Sentence two records: 상대 팀 라커룸을 찾아가 우승을 진심으로 축하해 주는 모습."
+    },
+    {
+      "t": "choice",
+      "q": "Why is -답다 (스포츠맨답다, 프로답다) used to describe the captain?",
+      "options": [
+        "Because the captain genuinely is an athlete who lived up to the ideal virtues of the role",
+        "Because the captain pretended to be an athlete while being an actor",
+        "Because the captain broke the rules"
+      ],
+      "answer": 0,
+      "why": "-답다 characterizes an actual role holder fulfilling the honorable expectations of their title."
+    },
+    {
+      "t": "cando",
+      "items": [
+        "I can differentiate genuine role worthiness (-답다) from external stylistic resemblance (-스럽다).",
+        "I can praise integrity, sportsmanship, and leadership with refined Korean etiquette."
+      ]
+    }
+  ],
+  "im-c66-04": [
+    {
+      "t": "compare",
+      "h": "상투적인 칭찬 vs 인품과 격조를 살린 품격 있는 칭찬",
+      "a": {
+        "h": "상투적 단편 칭찬 (Cliché plain compliment)",
+        "d": "Repeats elementary praise without conveying deeper character appreciation.",
+        "ex": [
+          "착해요. 일 잘해요. 똑똑해요. — Good. Works well. Smart."
+        ]
+      },
+      "b": {
+        "h": "격조 높은 품격 칭찬 (Dignified character compliment)",
+        "d": "Harmonizes -ㄴ 편이다 (gentle evaluation), -스럽다 (charming demeanor), and -답다 (professional excellence).",
+        "ex": [
+          "매사에 **조심스러운 편이면서도** 위기 때는 **리더답게** 결단력 있게 행동하세요. — While on the prudent side in daily tasks, in crises you act decisively like a true leader."
+        ]
+      },
+      "tip": "In business and social gatherings, praising coworkers with -답다 and -스럽다 demonstrates native linguistic sophistication."
+    },
+    {
+      "t": "correct",
+      "q": "Fix the sentence where an office compliment on a manager’s leadership was awkwardly constructed.",
+      "wrong": "김 부장님은 온화한 편이면서도 부장스럽게 팀원들을 잘 이끌어 주세요.",
+      "answers": [
+        "김 부장님은 온화한 편이면서도 부장답게 팀원들을 잘 이끌어 주세요.",
+        "김 부장님은 온화한 편이면서도 부장답게 팀원들을 잘 이끌어 주세요",
+        "김 부장님은 온화한 편이면서도 리더답게 팀원들을 잘 이끄십니다.",
+        "김 부장님은 온화한 편이면서도 리더답게 팀원들을 잘 이끄십니다"
+      ],
+      "hint": "A manager living up to their leadership title requires -답다: 부장답게 / 리더답게.",
+      "why": "Acting with the competence and authority fitting a manager requires 부장답게 or 리더답게."
+    },
+    {
+      "t": "vocab",
+      "h": "Words for this lesson",
+      "items": [
+        {
+          "ko": "인품",
+          "en": "character / personal integrity",
+          "ex": "선생님의 훌륭한 인품에 깊은 감명을 받았습니다."
+        },
+        {
+          "ko": "결단력",
+          "en": "decisiveness",
+          "ex": "위기 상황에서는 리더의 빠른 결단력이 중요해요."
+        },
+        {
+          "ko": "온화하다",
+          "en": "gentle / mild",
+          "ex": "부장님의 온화한 성품 덕분에 부서 분위기가 밝습니다."
+        },
+        {
+          "ko": "귀감",
+          "en": "model / exemplar",
+          "ex": "동료의 성실한 태도는 모든 사원들에게 큰 귀감이 됩니다."
+        },
+        {
+          "ko": "덕망",
+          "en": "virtue and prestige",
+          "ex": "덕망 높은 원로 교수님께서 특별 강연을 해주셨다."
+        }
+      ]
+    },
+    {
+      "t": "dictate",
+      "say": "어려운 순간에도 평정심을 잃지 않고 침착하게 문제를 해결하는 모습이 참 든든하고 프로답네요",
+      "answers": [
+        "어려운 순간에도 평정심을 잃지 않고 침착하게 문제를 해결하는 모습이 참 든든하고 프로답네요",
+        "어려운 순간에도 평정심을 잃지 않고 침착하게 문제를 해결하는 모습이 참 든든하고 프로답네요."
+      ],
+      "hint": "Solving problems calmly without losing composure even in difficult moments is truly reassuring and professional.",
+      "why": "High-praise character compliment: 프로답네요."
+    },
+    {
+      "t": "write",
+      "q": "Write a warm recommendation letter sentence praising a coworker’s professional character, using 성실한 편이고 and 리더답게.",
+      "must": [
+        "성실한 편이고",
+        "리더답게"
+      ],
+      "sample": "이 사원은 평소 매사에 무척 성실한 편이고 협동 과제에서는 리더답게 팀을 잘 이끕니다.",
+      "why": "Blending -ㄴ 편이다 with -답게 to write a polished commendation."
+    },
+    {
+      "t": "expand",
+      "base": {
+        "tokens": [
+          "인품이 훌륭하고",
+          "프로답습니다."
+        ],
+        "en": "Character is superb and professional."
+      },
+      "steps": [
+        {
+          "tokens": [
+            "우리 팀장님은 평소 인품이 훌륭하고",
+            "어려운 업무에서도",
+            "언제나 프로답습니다."
+          ],
+          "en": "Our team leader has superb character usually and is always professional even in difficult tasks."
+        },
+        {
+          "tokens": [
+            "부서원들을 따뜻하게 배려하시는 우리 팀장님은 평소 인품이 훌륭하고",
+            "돌발적인 위기 상황에서도 흔들림 없이",
+            "언제나 든든한 최고 리더답고 프로답습니다."
+          ],
+          "en": "Our team lead who warmly cares for department members has superb character, and without shaking even in sudden crises, is always dependable like a top leader and professional."
+        }
+      ]
+    },
+    {
+      "t": "passage",
+      "h": "Read a little",
+      "ko": [
+        "새로 부임한 프로젝트 총괄 책임자는 온화하고 경청을 잘하는 편이다.",
+        "직원들의 작은 의견에도 귀를 기울이는 태도가 매우 자연스럽고 인간미가 넘친다.",
+        "복잡한 갈등이 발생했을 때도 공정하게 중재하는 모습이 참으로 존경받는 리더답다."
+      ],
+      "en": [
+        "The newly appointed project director is on the gentle side and listens attentively.",
+        "The attitude of listening closely even to staff’s small opinions is very natural and overflowing with human warmth.",
+        "Mediating fairly even when complex conflicts arise is truly worthy of an admired leader."
+      ]
+    },
+    {
+      "t": "choice",
+      "q": "How is the newly appointed project director evaluated in daily interactions?",
+      "options": [
+        "Gentle, attentive in listening, and genuinely natural with human warmth",
+        "Authoritarian, shouting orders, and refusing input",
+        "Never appears in the office"
+      ],
+      "answer": 0,
+      "why": "Sentences one and two state: 온화하고 경청을 잘하는 편이며 자연스럽고 인간미가 넘친다."
+    },
+    {
+      "t": "choice",
+      "q": "Why does the passage conclude with 존경받는 리더답다?",
+      "options": [
+        "Because the director fairly mediates conflicts, exemplifying ideal leadership virtues (-답다)",
+        "Because the director promised bonuses to everyone",
+        "Because the director cancelled all projects"
+      ],
+      "answer": 0,
+      "why": "Sentence three concludes: 공정하게 중재하는 모습이 참으로 존경받는 리더답다."
+    },
+    {
+      "t": "cando",
+      "items": [
+        "I can praise colleagues, mentors, and partners with elevated linguistic refinement.",
+        "I can blend -ㄴ 편이다, -스럽다, and -답다 into cohesive character commendations."
+      ]
+    }
+  ]
+}
