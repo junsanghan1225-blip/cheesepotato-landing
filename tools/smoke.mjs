@@ -29,7 +29,7 @@ const BASE = `http://localhost:${server.address().port}/`;
 /* 화면 주소(해시). 로그인이 필요한 곳은 로그인 문이 뜨는 것까지만 본다. */
 const ROUTES = [
   '', '#learn', '#learn/courses', '#learn/mine', '#learn/path', '#learn/path/basic', '#learn/topik', '#learn/topik/I/reading', '#learn/topik/II/reading', '#learn/topik/I/listening',
-  '#learn/topik/mock/I/1', '#learn/sentence', '#learn/reading', '#learn/convo', '#learn/translate', '#learn/qna', '#learn/class', '#learn/lectures', '#learn/stories', '#learn/eps',
+  '#learn/topik/mock/I/1', '#learn/sentence', '#learn/reading', '#learn/convo', '#learn/translate', '#learn/weave', '#learn/weave/connectors', '#learn/weave/w-rain', '#learn/qna', '#learn/class', '#learn/lectures', '#learn/stories', '#learn/eps',
   '#words', '#games', '#blocks', '#chosung', '#potdle', '#quiz', '#num', '#pro', '#dictionary', '#learn/report',
 ];
 const only = process.argv.includes('--only') ? process.argv[process.argv.indexOf('--only') + 1] : '';

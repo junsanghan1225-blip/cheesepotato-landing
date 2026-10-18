@@ -7556,3 +7556,25 @@ html[lang="ja"] *, html[lang="zh"] *, html[lang^="zh-"] *, html[lang="my"] * { w
 
 /* 레슨 끝 가입 권유 — 그날 두 번째부터는 한 줄 */
 .ls-join.slim { display:flex; align-items:center; justify-content:space-between; gap:10px; padding:10px 14px; } .ls-join.slim span { font-size:13.5px; font-weight:700; } .ls-join.slim .pt-next { width:auto; padding:8px 16px; }
+
+/* 이야기 만들기(2026-10-18) */
+.wv-steps { display:flex; gap:6px; margin:10px 0 12px; font-size:12.5px; font-weight:700; }
+.wv-steps span { flex:1; text-align:center; padding:6px 4px; border-radius:99px; background:var(--tint,#f4efe6); color:var(--ink-3); }
+.wv-steps span.on { background:var(--ink); color:#fff; } .wv-steps span.done { background:var(--orange-tint,#ffe9d9); color:var(--orange-deep,#c4551c); }
+.wv-pool, .wv-placed { display:flex; flex-direction:column; gap:8px; margin:10px 0; padding:0; list-style:none; }
+.wv-s { display:flex; gap:10px; align-items:center; text-align:left; width:100%; padding:11px 14px; border:1px solid var(--line); border-radius:12px; background:var(--surface,#fff); font:inherit; font-size:15.5px; color:var(--ink); cursor:pointer; line-height:1.5; }
+.wv-s:hover { border-color:var(--ink); } .wv-s.on { background:var(--tint,#fff6ec); border-color:var(--orange,#e8642c); }
+.wv-s span { flex:none; width:22px; height:22px; border-radius:50%; background:var(--orange,#e8642c); color:#fff; font-size:12px; font-weight:800; display:flex; align-items:center; justify-content:center; }
+.wv-gap { padding:12px 14px; background:var(--tint,#f7f3ec); border-radius:12px; margin:10px 0; line-height:1.7; font-size:15.5px; }
+.wv-gap p { margin:0; } .wv-blank { margin-top:4px !important; } .wv-blank b { padding:1px 8px; border-radius:8px; } .wv-blank b.ok { background:#e8f5ec; color:#1d6b3f; } .wv-blank b.no { background:#fdf0ec; color:#B0452B; }
+.wv-gap small { display:block; margin-top:6px; color:var(--ink-3); font-size:12.5px; }
+.wv-opts { display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:10px 0; }
+.wv-opt { padding:12px 8px; border:1px solid var(--line); border-radius:12px; background:var(--surface,#fff); font:inherit; font-size:17px; font-weight:700; color:var(--ink); cursor:pointer; }
+.wv-opt small { display:block; font-size:11.5px; font-weight:500; color:var(--ink-3); margin-top:2px; }
+.wv-opt:hover:not(:disabled) { border-color:var(--ink); } .wv-opt.right { background:#e8f5ec; border-color:#2e7d4f; } .wv-opt.wrong { background:#fdf0ec; border-color:#B0452B; } .wv-opt:disabled { cursor:default; }
+.wv-cues { display:flex; flex-wrap:wrap; gap:6px; margin:8px 0; } .wv-chip { padding:3px 10px; border-radius:99px; background:var(--tint,#f4efe6); font-size:13px; font-weight:600; }
+.wv-check { list-style:none; padding:0; margin:10px 0; font-size:14.5px; } .wv-check li.ok { color:#1d6b3f; } .wv-check li.no { color:#B0452B; }
+.wv-model { padding:12px 14px; background:var(--tint,#f7f3ec); border-radius:12px; line-height:1.9; font-size:16px; } .wv-mine { background:#fff; border:1px dashed var(--line); }
+.wv-role h3 { font-size:15px; margin:22px 0 8px; } .wv-con { margin-bottom:10px; } .wv-ck { font-size:22px; }
+.wv-ex { margin:8px 0; font-size:15.5px; line-height:1.6; } .wv-ex small { display:block; color:var(--ink-3); font-size:12.5px; } .wv-tip { margin:8px 0 0; font-size:13.5px; color:var(--ink-2,#555); }
+@media (max-width:420px) { .wv-opts { grid-template-columns:1fr 1fr; } .wv-s { font-size:15px; } }
