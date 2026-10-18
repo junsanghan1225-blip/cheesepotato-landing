@@ -8725,6 +8725,96 @@
       "ko": "위기 속에서 침착하게 팀을 이끈 팀장님의 리더십은 모두가 본받을 만하다.",
       "en": "The team leader's leadership calmly guiding the team in crisis is worth emulating by everyone.",
       "lv": 3
+    },
+    {
+      "ko": "이 노래는 여러 번 들을 만하다.",
+      "en": "This song is worth listening to multiple times.",
+      "lv": 1
+    },
+    {
+      "ko": "그 오래된 도시는 꼭 가볼 만하다.",
+      "en": "That old city is definitely worth visiting.",
+      "lv": 1
+    },
+    {
+      "ko": "어머니의 조언은 마음에 깊이 새길 만하다.",
+      "en": "Mother's advice is worth deeply taking to heart.",
+      "lv": 1
+    },
+    {
+      "ko": "이 추위는 따뜻한 옷으로 견딜 만하다.",
+      "en": "This cold is bearable with warm clothes.",
+      "lv": 1
+    },
+    {
+      "ko": "오늘 배운 내용은 시험에 나올 만하다.",
+      "en": "The content learned today is likely to appear on the exam.",
+      "lv": 1
+    },
+    {
+      "ko": "선배가 추천해 준 강좌는 들을 만하다.",
+      "en": "The course recommended by senior is worth taking.",
+      "lv": 1
+    },
+    {
+      "ko": "주말에 가족들과 함께 방문하기에 충분히 가볼 만하다.",
+      "en": "It is well worth visiting together with family on weekends.",
+      "lv": 2
+    },
+    {
+      "ko": "그 소설은 청소년들이 꼭 한 번 읽어볼 만하다.",
+      "en": "That novel is well worth reading at least once for youth.",
+      "lv": 2
+    },
+    {
+      "ko": "동네 뒷산의 일출 광경은 새벽에 올라갈 만하다.",
+      "en": "The sunrise view on the hill is worth climbing in dawn.",
+      "lv": 2
+    },
+    {
+      "ko": "이번에 새로 개봉한 다큐멘터리 영화는 깊이 생각할 만하다.",
+      "en": "The newly released documentary film is worth thinking deeply about.",
+      "lv": 2
+    },
+    {
+      "ko": "시장 골목의 손만두는 줄을 서서 기다릴 만하다.",
+      "en": "Handmade dumplings in the market alley are worth waiting in line for.",
+      "lv": 2
+    },
+    {
+      "ko": "그 청년의 열정과 도전 정신은 크게 칭찬할 만하다.",
+      "en": "That youth's passion and challenge spirit are worth greatly praising.",
+      "lv": 2
+    },
+    {
+      "ko": "어려운 위기 상황에서도 흔들리지 않는 굳은 의지는 존경할 만하다.",
+      "en": "Firm will that does not shake even in crisis is worth respecting.",
+      "lv": 3
+    },
+    {
+      "ko": "지역 주민들이 자발적으로 조성한 생태 공원은 모범 사례로 꼽힐 만하다.",
+      "en": "The ecological park voluntarily created by residents is worth citing as an exemplary case.",
+      "lv": 3
+    },
+    {
+      "ko": "오랜 세월 전통을 지켜온 장인의 숭고한 솜씨는 감탄할 만하다.",
+      "en": "The noble skill of the craftsman preserving tradition for long years is worth admiring.",
+      "lv": 3
+    },
+    {
+      "ko": "환경 오염 문제를 날카롭게 고발한 기사는 널리 알릴 만하다.",
+      "en": "The article sharply exposing pollution issues is worth publicizing widely.",
+      "lv": 3
+    },
+    {
+      "ko": "회사의 위기를 극복해 낸 팀원들의 눈부신 활약은 포상할 만하다.",
+      "en": "The team members' brilliant efforts overcoming the company crisis are worth rewarding.",
+      "lv": 3
+    },
+    {
+      "ko": "새로 도입된 복지 제도는 모든 직원이 반길 만하다는 반응입니다.",
+      "en": "The newly introduced welfare system receives reactions that all staff welcome it.",
+      "lv": 3
     }
   ],
   "54-2": [
@@ -8786,6 +8876,96 @@
     {
       "ko": "환경 보호와 에너지 절약을 실천하기 위해 쓰레기 분리배출을 생활화하도록 하자.",
       "en": "Let's make waste sorting a daily habit to practice environmental protection and energy saving.",
+      "lv": 3
+    },
+    {
+      "ko": "내일은 일찍 출발하도록 하세요.",
+      "en": "Please make sure to leave early tomorrow.",
+      "lv": 1
+    },
+    {
+      "ko": "회의 준비를 철저히 하도록 하겠습니다.",
+      "en": "I will make sure to prepare for the meeting thoroughly.",
+      "lv": 1
+    },
+    {
+      "ko": "모두 자리에 단정히 앉도록 하세요.",
+      "en": "Everyone please be seated neatly.",
+      "lv": 1
+    },
+    {
+      "ko": "약속 시간을 꼭 지키도록 하지요.",
+      "en": "Let's make sure to keep the appointment time.",
+      "lv": 1
+    },
+    {
+      "ko": "비밀을 다른 사람에게 말하지 않도록 하세요.",
+      "en": "Please make sure not to tell the secret to others.",
+      "lv": 1
+    },
+    {
+      "ko": "매일 아침 가볍게 운동하도록 하겠습니다.",
+      "en": "I will make sure to exercise lightly every morning.",
+      "lv": 1
+    },
+    {
+      "ko": "안전을 위해 작업장에서는 반드시 안전모를 착용하도록 하세요.",
+      "en": "For safety, please make sure to wear helmets in the workplace.",
+      "lv": 2
+    },
+    {
+      "ko": "환자의 안정을 위해 면회 시간을 엄격히 제한하도록 하겠습니다.",
+      "en": "To stabilize the patient, we will strictly limit visiting hours.",
+      "lv": 2
+    },
+    {
+      "ko": "중요한 파일은 매일 외장하드에 백업해 두도록 하세요.",
+      "en": "Please make sure to back up important files daily on an external drive.",
+      "lv": 2
+    },
+    {
+      "ko": "고객들의 소중한 의견을 서비스 개선에 적극 반영하도록 하지요.",
+      "en": "Let's make sure to actively reflect customers' precious feedback into improvements.",
+      "lv": 2
+    },
+    {
+      "ko": "시험 전날에는 무리하지 말고 일찍 잠자리에 들도록 하세요.",
+      "en": "On the eve of exams, please make sure not to overexert and sleep early.",
+      "lv": 2
+    },
+    {
+      "ko": "다음 주 회의 전까지 최종 보고서를 완성하도록 하겠습니다.",
+      "en": "I will make sure to finish the final report before next week's meeting.",
+      "lv": 2
+    },
+    {
+      "ko": "취약 계층 주민들이 겨울을 따뜻하게 보내도록 난방비를 지원하도록 하겠습니다.",
+      "en": "We will support heating expenses so vulnerable residents spend winter warmly.",
+      "lv": 3
+    },
+    {
+      "ko": "개인 정보 유출 사고를 방지하기 위해 정기적으로 비밀번호를 변경하도록 하세요.",
+      "en": "To prevent privacy leak accidents, please make sure to change passwords periodically.",
+      "lv": 3
+    },
+    {
+      "ko": "신제품 출시 일정에 차질이 없도록 모든 부서가 긴밀히 협력하도록 하지요.",
+      "en": "Let's have all departments cooperate closely so product launch schedules have no setbacks.",
+      "lv": 3
+    },
+    {
+      "ko": "에너지 소비를 절감하기 위해 사용하지 않는 플러그는 모두 뽑아 두도록 하세요.",
+      "en": "To cut energy consumption, please make sure to unplug all unused cords.",
+      "lv": 3
+    },
+    {
+      "ko": "교통 혼잡을 줄이기 위해 축제 기간 동안 대중교통을 증편하도록 하겠습니다.",
+      "en": "To reduce traffic congestion, we will increase public transport during festival periods.",
+      "lv": 3
+    },
+    {
+      "ko": "어린이 보호 구역에서는 규정 속도를 준수하고 각별히 주의하도록 하세요.",
+      "en": "In school zones, please comply with speed limits and take exceptional care.",
       "lv": 3
     }
   ],
@@ -8849,6 +9029,96 @@
       "ko": "중요한 서류는 잃어버리기 전에 복사해 두지 그래요?",
       "en": "Why don't you make a copy before losing the important document?",
       "lv": 3
+    },
+    {
+      "ko": "잠시 쉬었다 가지 그래요?",
+      "en": "Why don't you take a short break before going?",
+      "lv": 1
+    },
+    {
+      "ko": "따뜻한 차나 한잔 마시지 그래요?",
+      "en": "Why don't you drink a cup of warm tea?",
+      "lv": 1
+    },
+    {
+      "ko": "모자를 쓰고 나가지 그래요?",
+      "en": "Why don't you wear a hat and go out?",
+      "lv": 1
+    },
+    {
+      "ko": "선생님께 먼저 여쭤보지 그래요?",
+      "en": "Why don't you ask the teacher first?",
+      "lv": 1
+    },
+    {
+      "ko": "사진을 한 장 찍지 그래요?",
+      "en": "Why don't you take a picture?",
+      "lv": 1
+    },
+    {
+      "ko": "마음 편하게 생각하지 그래요?",
+      "en": "Why don't you think comfortably?",
+      "lv": 1
+    },
+    {
+      "ko": "목이 많이 아프면 따뜻한 물을 자주 마시지 그래요?",
+      "en": "If your throat hurts a lot, why don't you drink warm water often?",
+      "lv": 2
+    },
+    {
+      "ko": "혼자 끙끙 앓지 말고 친구에게 털어놓지 그래요?",
+      "en": "Instead of suffering alone, why don't you confide in a friend?",
+      "lv": 2
+    },
+    {
+      "ko": "날씨도 쌀쌀한데 두꺼운 외투를 챙겨 입지 그래요?",
+      "en": "Since the weather is chilly, why don't you put on a thick coat?",
+      "lv": 2
+    },
+    {
+      "ko": "길이 복잡하면 스마트폰 지도를 보면서 찾아가지 그래요?",
+      "en": "If the road is complicated, why don't you find your way checking smartphone maps?",
+      "lv": 2
+    },
+    {
+      "ko": "몸 상태가 안 좋으면 오늘은 일찍 퇴근하지 그래요?",
+      "en": "If you're not in good condition, why don't you leave work early today?",
+      "lv": 2
+    },
+    {
+      "ko": "서로 오해가 쌓이기 전에 직접 만나서 대화하지 그래요?",
+      "en": "Before misunderstandings pile up, why don't you meet directly and talk?",
+      "lv": 2
+    },
+    {
+      "ko": "진로 문제로 고민이 깊다면 학교 상담 센터를 찾아가 전문가와 의논하지 그래요?",
+      "en": "If career worries are deep, why don't you visit the counseling center and consult experts?",
+      "lv": 3
+    },
+    {
+      "ko": "컴퓨터를 보느라 눈이 피로하면 창밖 먼 산을 바라보며 쉬지 그래요?",
+      "en": "If eyes are tired from looking at computers, why don't you rest looking at distant mountains?",
+      "lv": 3
+    },
+    {
+      "ko": "실수를 두려워하여 망설이지만 말고 자신감을 갖고 새로운 일에 도전하지 그래요?",
+      "en": "Instead of hesitating in fear of mistakes, why don't you challenge new things with confidence?",
+      "lv": 3
+    },
+    {
+      "ko": "혼자 모든 업무를 감당하려 하지 말고 동료들에게 도움을 솔직히 요청하지 그래요?",
+      "en": "Instead of shouldering all work alone, why don't you honestly ask colleagues for help?",
+      "lv": 3
+    },
+    {
+      "ko": "부모님께서 걱정하시기 전에 출장지에 무사히 잘 도착했다고 안부 전화를 드리지 그래요?",
+      "en": "Before parents worry, why don't you call to let them know you arrived safely?",
+      "lv": 3
+    },
+    {
+      "ko": "매일 반복되는 단조로운 일상이 지루하다면 주말을 활용해 새로운 취미를 배워보지 그래요?",
+      "en": "If monotonous daily routines feel boring, why don't you learn a new hobby on weekends?",
+      "lv": 3
     }
   ],
   "55-1": [
@@ -8910,6 +9180,96 @@
     {
       "ko": "서랍 속에 넣어 두었던 쓰던 노트를 꺼내 추억을 떠올렸어요.",
       "en": "I pulled out the used notebook from the drawer and recalled fond memories.",
+      "lv": 3
+    },
+    {
+      "ko": "어릴 때 살던 집이에요.",
+      "en": "This is the house I used to live in when young.",
+      "lv": 1
+    },
+    {
+      "ko": "자주 가던 식당이 문을 닫았어요.",
+      "en": "The restaurant I frequently visited closed down.",
+      "lv": 1
+    },
+    {
+      "ko": "내가 읽던 책이 어디 갔지?",
+      "en": "Where did the book I was reading go?",
+      "lv": 1
+    },
+    {
+      "ko": "어제 입던 옷을 세탁기에 넣었어요.",
+      "en": "I put the clothes I was wearing yesterday into the washing machine.",
+      "lv": 1
+    },
+    {
+      "ko": "아까 마시던 커피를 다 마셨어요.",
+      "en": "I finished the coffee I was drinking earlier.",
+      "lv": 1
+    },
+    {
+      "ko": "함께 일하던 동료가 이직했어요.",
+      "en": "A colleague who used to work with me transferred jobs.",
+      "lv": 1
+    },
+    {
+      "ko": "초등학교 시절에 매일 건너던 징검다리가 여전히 그대로 있네요.",
+      "en": "The stepping stones I crossed daily in elementary school remain just as they were.",
+      "lv": 2
+    },
+    {
+      "ko": "학창 시절에 즐겨 듣던 라디오 방송 프로그램이 종영되었어요.",
+      "en": "The radio show I enjoyed listening to in school days ended.",
+      "lv": 2
+    },
+    {
+      "ko": "작년에 자주 찾던 단골 카페가 다른 곳으로 이전했습니다.",
+      "en": "The regular cafe I often visited last year relocated to another place.",
+      "lv": 2
+    },
+    {
+      "ko": "할머니께서 손수 짜 주시던 따뜻한 털스웨터가 생각나요.",
+      "en": "I remember the warm knit sweater grandmother personally knitted for me.",
+      "lv": 2
+    },
+    {
+      "ko": "주말마다 산책하러 가던 숲길 산책로가 공사로 막혔어요.",
+      "en": "The forest walking trail where I walked every weekend was blocked by construction.",
+      "lv": 2
+    },
+    {
+      "ko": "책상 서랍 깊숙한 곳에서 예전에 쓰던 만년필을 발견했어요.",
+      "en": "I found an old fountain pen I used to write with deep in the drawer.",
+      "lv": 2
+    },
+    {
+      "ko": "어린 시절 동네 골목길에서 친구들과 해 질 녘까지 뛰놀던 기억이 생생합니다.",
+      "en": "Memories of running around alleys until sunset with friends in childhood remain vivid.",
+      "lv": 3
+    },
+    {
+      "ko": "대학 시절 배낭여행을 떠나 낯선 도시에서 머물던 게스트하우스가 그리워요.",
+      "en": "I miss the guesthouse where I stayed in unfamiliar cities backpacking in college.",
+      "lv": 3
+    },
+    {
+      "ko": "가족들과 주말마다 찾아가 텃밭을 일구며 채소를 가꾸던 주말농장이 생각납니다.",
+      "en": "I remember the weekend farm where we tilled garden plots and grew vegetables with family.",
+      "lv": 3
+    },
+    {
+      "ko": "어려운 형편 속에서도 학업의 꿈을 키워 가던 청년이 훌륭한 학자가 되었어요.",
+      "en": "The youth who nurtured academic dreams amid hardship became an outstanding scholar.",
+      "lv": 3
+    },
+    {
+      "ko": "퇴직 후 시골로 내려가 평화로운 전원생활을 누리던 선배를 오랜만에 만났습니다.",
+      "en": "I met after a long time a senior enjoying peaceful rural life after retirement.",
+      "lv": 3
+    },
+    {
+      "ko": "신입 사원 시절 밤을 새우며 열정적으로 추진하던 첫 프로젝트가 떠올라요.",
+      "en": "I recall my first project passionately driven while staying up nights as a rookie.",
       "lv": 3
     }
   ],
@@ -8973,6 +9333,96 @@
       "ko": "새로 이사한 동네를 산책해 보니까 조용하고 주변 편의 시설도 좋더라고요.",
       "en": "Strolling around the new neighborhood, it was quiet and amenities were great.",
       "lv": 3
+    },
+    {
+      "ko": "그 식당 음식이 참 맛있더라고요.",
+      "en": "That restaurant's food was really delicious.",
+      "lv": 1
+    },
+    {
+      "ko": "오늘 날씨가 생각보다 춥더라고요.",
+      "en": "Today's weather was colder than I thought.",
+      "lv": 1
+    },
+    {
+      "ko": "새로 산 신발이 아주 편하더라고요.",
+      "en": "The newly bought shoes were very comfortable.",
+      "lv": 1
+    },
+    {
+      "ko": "영화 결말이 정말 감동적이더라고요.",
+      "en": "The movie's ending was truly touching.",
+      "lv": 1
+    },
+    {
+      "ko": "도서관에 사람이 꽤 많더라고요.",
+      "en": "There were quite a lot of people in the library.",
+      "lv": 1
+    },
+    {
+      "ko": "지하철이 버스보다 훨씬 빠르더라고요.",
+      "en": "The subway was much faster than the bus.",
+      "lv": 1
+    },
+    {
+      "ko": "직접 가 보니까 바다 경치가 사진보다 훨씬 아름답더라고요.",
+      "en": "Going there in person, the sea view was much more beautiful than photos.",
+      "lv": 2
+    },
+    {
+      "ko": "처음에는 어려웠는데 차근차근 배우니 한국어 회화도 제법 늘더라고요.",
+      "en": "At first difficult, learning step by step my Korean conversation improved nicely.",
+      "lv": 2
+    },
+    {
+      "ko": "할인 행사 첫날이라 그런지 백화점 매장에 손님들이 가득하더라고요.",
+      "en": "Perhaps because of the first sale day, department store shops were packed.",
+      "lv": 2
+    },
+    {
+      "ko": "퇴근 시간대라 고속도로 진입로가 심하게 정체되더라고요.",
+      "en": "Being rush hour, highway entrance lanes were heavily congested.",
+      "lv": 2
+    },
+    {
+      "ko": "선배가 권해 준 소설이 밤을 새울 만큼 흥미진진하더라고요.",
+      "en": "The novel recommended by senior was gripping enough to stay up all night.",
+      "lv": 2
+    },
+    {
+      "ko": "직접 김치를 담가 보니까 정성과 손이 많이 가더라고요.",
+      "en": "Making kimchi myself, it required a lot of care and hands.",
+      "lv": 2
+    },
+    {
+      "ko": "해외 전시회에 참가해 보니 우리 중소기업 기술력이 세계 시장에서도 통하더라고요.",
+      "en": "Attending the overseas expo, our SME technology proved competitive in global markets.",
+      "lv": 3
+    },
+    {
+      "ko": "동네 주민들이 자발적으로 골목길 꽃밭을 가꾸니 마을 분위기가 몰라보게 밝아지더라고요.",
+      "en": "As residents voluntarily tended flowerbeds, village atmosphere brightened beyond recognition.",
+      "lv": 3
+    },
+    {
+      "ko": "복잡한 법률 용어를 알기 쉽게 풀어 설명해 주셔서 비전문가도 쉽게 이해하더라고요.",
+      "en": "Explaining complicated legal terms easily, even non-experts understood with ease.",
+      "lv": 3
+    },
+    {
+      "ko": "신제품 시연회 현장에서 관람객들의 반응을 직접 살펴보니 기대 이상으로 뜨겁더라고요.",
+      "en": "Observing visitors' reactions at the demo site, interest was hotter than expected.",
+      "lv": 3
+    },
+    {
+      "ko": "기후 변화로 인해 봄가을이 점점 짧아지고 여름 폭염은 해마다 심해지더라고요.",
+      "en": "Due to climate change, springs and autumns shortened and summer heat waves intensified yearly.",
+      "lv": 3
+    },
+    {
+      "ko": "노후 준비를 위해 일찍부터 연금 상품을 알아보고 꾸준히 저축하는 동료들이 많더라고요.",
+      "en": "Colleagues investigating pension products early and saving steadily for retirement were many.",
+      "lv": 3
     }
   ],
   "55-3": [
@@ -9034,6 +9484,96 @@
     {
       "ko": "백화점 매장을 둘러보니까 벌써 겨울옷을 진열해 놓았던데요.",
       "en": "Looking around the store, they had already displayed winter clothes.",
+      "lv": 3
+    },
+    {
+      "ko": "그 커피숍 분위기가 아늑하던데요.",
+      "en": "That coffee shop's atmosphere was cozy.",
+      "lv": 1
+    },
+    {
+      "ko": "오늘 아침 기온이 꽤 쌀쌀하던데요.",
+      "en": "This morning's temperature was quite chilly.",
+      "lv": 1
+    },
+    {
+      "ko": "민수 씨가 노래를 아주 잘하던데요.",
+      "en": "Minsu sang very well.",
+      "lv": 1
+    },
+    {
+      "ko": "새로 개봉한 영화가 꽤 볼만하던데요.",
+      "en": "The newly released movie was quite worth watching.",
+      "lv": 1
+    },
+    {
+      "ko": "공항으로 가는 길이 많이 막히던데요.",
+      "en": "The road to the airport was heavily jammed.",
+      "lv": 1
+    },
+    {
+      "ko": "할머니 건강이 이전보다 훨씬 좋아지셨던데요.",
+      "en": "Grandmother's health improved much more than before.",
+      "lv": 1
+    },
+    {
+      "ko": "어제 개막한 도자기 전시회에 관람객이 제법 많던데요.",
+      "en": "There were quite a lot of visitors at the pottery exhibition opened yesterday.",
+      "lv": 2
+    },
+    {
+      "ko": "동네 공원 산책로 주변에 가을 코스모스가 활짝 피었던데요.",
+      "en": "Autumn cosmos flowers bloomed brightly along the neighborhood park trail.",
+      "lv": 2
+    },
+    {
+      "ko": "그 식당은 신선한 제철 해산물을 사용해서 국물이 시원하던데요.",
+      "en": "Using fresh seasonal seafood, that restaurant's soup was refreshing.",
+      "lv": 2
+    },
+    {
+      "ko": "퇴근길 지하철 환승 통로가 공사 중이라 지나가기 복잡하던데요.",
+      "en": "Because the transfer passage was under construction, passing through was complicated.",
+      "lv": 2
+    },
+    {
+      "ko": "고향 텃밭에서 직접 기른 감자를 한 상자 보내오셨던데요.",
+      "en": "Friend's parents sent a box of potatoes personally grown in their garden plot.",
+      "lv": 2
+    },
+    {
+      "ko": "사무실 근처 새로 오픈한 베이커리 빵이 금방 매진되던데요.",
+      "en": "Breads at the new bakery near the office sold out quickly.",
+      "lv": 2
+    },
+    {
+      "ko": "무역 박람회에 다녀왔는데 친환경 에너지 분야에 대한 관심이 대단히 높던데요.",
+      "en": "Visiting the trade fair, interest in eco-friendly energy was very high.",
+      "lv": 3
+    },
+    {
+      "ko": "전통 시장 현대화 사업을 추진한 덕분에 통로가 넓어지고 쇼핑하기가 한결 편리해졌던데요.",
+      "en": "Thanks to market modernization projects, aisles broadened and shopping became far more convenient.",
+      "lv": 3
+    },
+    {
+      "ko": "청년 창업가들이 개발한 모바일 앱이 출시 일주일 만에 상위권에 올랐던데요.",
+      "en": "Mobile apps developed by youth founders climbed to top ranks within a week.",
+      "lv": 3
+    },
+    {
+      "ko": "어려운 이웃을 돕기 위한 연말 자선 바자회에 수많은 자원봉사자들이 적극 참여했던데요.",
+      "en": "Numerous volunteers actively participated in the year-end charity bazaar helping neighbors.",
+      "lv": 3
+    },
+    {
+      "ko": "도시 재생을 통해 방치되었던 폐공장이 멋진 문화 예술 공간으로 탈바꿈했던데요.",
+      "en": "Through urban regeneration, the abandoned factory transformed into a cultural art space.",
+      "lv": 3
+    },
+    {
+      "ko": "단풍 절정기를 맞아 전국에서 찾아온 등산객들로 주차장이 이른 아침부터 붐비던데요.",
+      "en": "Greeting peak autumn foliage, parking lots crowded with hikers from nationwide early morning.",
       "lv": 3
     }
   ],
@@ -9097,6 +9637,96 @@
       "ko": "좁은 주차장에 차가 빽빽하게 주차되어 문이 안 열렸어요.",
       "en": "Cars were packed tightly in the parking lot so the door wouldn't open.",
       "lv": 3
+    },
+    {
+      "ko": "창밖으로 파란 바다가 보여요.",
+      "en": "The blue sea is seen outside the window.",
+      "lv": 1
+    },
+    {
+      "ko": "멀리서 아름다운 노랫소리가 들려요.",
+      "en": "A beautiful singing sound is heard from afar.",
+      "lv": 1
+    },
+    {
+      "ko": "바람 때문에 방문이 쾅 닫혔어요.",
+      "en": "The room door slammed shut due to wind.",
+      "lv": 1
+    },
+    {
+      "ko": "경찰관에게 도둑이 현장에서 잡혔습니다.",
+      "en": "The thief was caught on the spot by police.",
+      "lv": 1
+    },
+    {
+      "ko": "서랍 속에 중요한 서류가 잠겨 있어요.",
+      "en": "Important documents are locked in the drawer.",
+      "lv": 1
+    },
+    {
+      "ko": "신간 소설이 서점에서 순식간에 다 팔려요.",
+      "en": "The new novel sells out in an instant in bookstores.",
+      "lv": 1
+    },
+    {
+      "ko": "갑작스러운 폭설로 마을로 통하는 산길이 전면 끊겼어요.",
+      "en": "Mountain roads leading to the village were completely cut off by heavy snow.",
+      "lv": 2
+    },
+    {
+      "ko": "도서관 서가에 손때 묻은 고서가 가지런히 꽂혀 있습니다.",
+      "en": "Dog-eared old books are neatly placed in library shelves.",
+      "lv": 2
+    },
+    {
+      "ko": "어린 아기가 엄마 품에 안겨 평온하게 새근새근 잠들었어요.",
+      "en": "The baby fell asleep peacefully held in mother's arms.",
+      "lv": 2
+    },
+    {
+      "ko": "식탁 위에 김이 모락모락 나는 따뜻한 찌개가 놓였습니다.",
+      "en": "A steaming hot stew was placed on the dining table.",
+      "lv": 2
+    },
+    {
+      "ko": "여름철 숲길을 걷다가 모기에 여러 군데 물렸어요.",
+      "en": "While walking a forest trail in summer, I was bitten by mosquitoes in several spots.",
+      "lv": 2
+    },
+    {
+      "ko": "소나기가 그치고 하늘에 무지개가 선명하게 걸렸어요.",
+      "en": "The rain stopped and a rainbow hung distinctly in the sky.",
+      "lv": 2
+    },
+    {
+      "ko": "안개 자욱한 강 건너편으로 높은 산봉우리의 윤곽이 희미하게 보입니다.",
+      "en": "Outlines of high mountain peaks are faintly seen across the foggy river.",
+      "lv": 3
+    },
+    {
+      "ko": "한밤중 고요한 숲속에서 풀벌레 우는 소리가 맑고 청아하게 들려왔어요.",
+      "en": "Clear and crisp sounds of chirping insects were heard in the quiet forest at midnight.",
+      "lv": 3
+    },
+    {
+      "ko": "강한 태풍이 몰아치자 오래된 가로수가 맥없이 부러지고 창문이 심하게 흔들렸어요.",
+      "en": "As the strong typhoon blew, old street trees broke helplessly and windows shook severely.",
+      "lv": 3
+    },
+    {
+      "ko": "주민들의 지속적인 건의 끝에 위험했던 보행로 환경이 안전하게 바뀌었습니다.",
+      "en": "Following residents' continuous petitions, the dangerous pedestrian environment was changed safely.",
+      "lv": 3
+    },
+    {
+      "ko": "오랜 연구 끝에 완성된 학술 논문이 권위 있는 국제 학술지에 실렸습니다.",
+      "en": "The research paper completed after long study was published in a prestigious journal.",
+      "lv": 3
+    },
+    {
+      "ko": "보안 구역 출입문이 이중 전자 잠금장치로 굳게 잠겼습니다.",
+      "en": "The security zone entrance door was firmly locked with double electronic locks.",
+      "lv": 3
     }
   ],
   "56-2": [
@@ -9159,6 +9789,96 @@
       "ko": "낡은 컴퓨터 프로그램이 새 버전으로 자동 업데이트되어 기능이 개선되었어요.",
       "en": "The old computer program was auto-updated to a new version, improving features.",
       "lv": 3
+    },
+    {
+      "ko": "봄이 오니 날씨가 따뜻해졌어요.",
+      "en": "As spring comes, the weather got warm.",
+      "lv": 1
+    },
+    {
+      "ko": "겨울이 되면서 밤이 길어졌습니다.",
+      "en": "With winter, nights grew longer.",
+      "lv": 1
+    },
+    {
+      "ko": "비가 그치고 하늘이 맑아졌어요.",
+      "en": "The rain stopped and the sky cleared.",
+      "lv": 1
+    },
+    {
+      "ko": "방 청소를 하니 아주 깨끗해졌네요.",
+      "en": "Cleaning the room, it became very clean.",
+      "lv": 1
+    },
+    {
+      "ko": "약을 먹고 두통이 많이 좋아졌어요.",
+      "en": "Taking medicine, the headache got much better.",
+      "lv": 1
+    },
+    {
+      "ko": "휴식을 취하니 기분이 한결 편안해졌습니다.",
+      "en": "Taking a rest, my mood felt far more comfortable.",
+      "lv": 1
+    },
+    {
+      "ko": "꾸준히 운동을 시작한 후로 체력이 눈에 띄게 좋아졌어요.",
+      "en": "After starting steady exercise, stamina visibly improved.",
+      "lv": 2
+    },
+    {
+      "ko": "도로 확장 공사가 끝나면서 출퇴근길 도로가 훨씬 넓어졌습니다.",
+      "en": "As road expansion finished, commute roads became much wider.",
+      "lv": 2
+    },
+    {
+      "ko": "친구의 진심 어린 위로 덕분에 가라앉았던 마음이 따뜻해졌어요.",
+      "en": "Thanks to friend's heartfelt comfort, my sinking heart warmed up.",
+      "lv": 2
+    },
+    {
+      "ko": "가을바람이 솔솔 불어오더니 아침저녁 기온이 훌쩍 쌀쌀해졌네요.",
+      "en": "As autumn breezes blew softly, morning and evening temps turned much chillier.",
+      "lv": 2
+    },
+    {
+      "ko": "오래된 골목길에 가로등이 새로 설치되어 밤길이 훨씬 밝아졌습니다.",
+      "en": "Streetlights installed on old alleys made night roads much brighter.",
+      "lv": 2
+    },
+    {
+      "ko": "수개월간 훈련을 거치며 팀원들 사이의 신뢰가 더욱 단단해졌어요.",
+      "en": "Undergoing training for months, trust among team members grew firmer.",
+      "lv": 2
+    },
+    {
+      "ko": "대중교통 인프라가 대폭 확충되면서 수도권 외곽 도시들의 접근성이 눈에 띄게 좋아졌습니다.",
+      "en": "With transit infrastructure expanding, accessibility of outer metropolitan cities improved noticeably.",
+      "lv": 3
+    },
+    {
+      "ko": "친환경 소재를 적용한 신제품이 출시되면서 기업의 친환경 이미지가 한층 두터워졌어요.",
+      "en": "As eco-products launched, corporate eco image grew much firmer.",
+      "lv": 3
+    },
+    {
+      "ko": "세대 간의 솔직한 대화와 소통을 통해 서로 간의 마음이 한결 부드러워졌습니다.",
+      "en": "Through open intergenerational dialogue, mutual feelings became far softer.",
+      "lv": 3
+    },
+    {
+      "ko": "도시 재생 사업을 추진하면서 방치되었던 낡은 골목길이 한층 쾌적해졌습니다.",
+      "en": "Promoting urban regeneration projects, neglected old alleys became much more pleasant.",
+      "lv": 3
+    },
+    {
+      "ko": "직원 복지 제도가 대폭 개선되면서 근무 만족도와 업무 몰입도가 뚜렷하게 높아졌습니다.",
+      "en": "With employee benefits improving, job satisfaction and focus grew distinctly higher.",
+      "lv": 3
+    },
+    {
+      "ko": "다양한 문화 예술 축제가 연중 열리면서 지역 주민들의 문화생활이 한층 풍요로워졌어요.",
+      "en": "With diverse arts festivals held year-round, cultural life of residents became richer.",
+      "lv": 3
     }
   ],
   "56-3": [
@@ -9215,6 +9935,101 @@
     {
       "ko": "오랜 해외 생활 끝에 마침내 고향으로 완전히 돌아오게 되었습니다.",
       "en": "After long overseas life, I finally came to return completely to my hometown.",
+      "lv": 3
+    },
+    {
+      "ko": "한국으로 유학을 오게 되었습니다.",
+      "en": "I came to study abroad in Korea.",
+      "lv": 1
+    },
+    {
+      "ko": "좋은 소식을 전하게 되어 기뻐요.",
+      "en": "I am glad to share good news.",
+      "lv": 1
+    },
+    {
+      "ko": "어쩌다 보니 혼자 여행하게 되었습니다.",
+      "en": "Somehow I ended up traveling alone.",
+      "lv": 1
+    },
+    {
+      "ko": "내일부터 새 회사로 출근하게 되었습니다.",
+      "en": "From tomorrow I come to report to a new company.",
+      "lv": 1
+    },
+    {
+      "ko": "장학금을 받게 되어 정말 보람차요.",
+      "en": "Receiving the scholarship, it is truly rewarding.",
+      "lv": 1
+    },
+    {
+      "ko": "주말마다 동호회 활동에 참여하게 되었어요.",
+      "en": "I came to participate in club activities every weekend.",
+      "lv": 1
+    },
+    {
+      "ko": "다음 주부터 수영을 배우게 되었어요.",
+      "en": "From next week, I came to learn swimming.",
+      "lv": 1
+    },
+    {
+      "ko": "부서 이동 발령을 받아 새로운 업무를 담당하게 되었습니다.",
+      "en": "Receiving transfer orders, I came to take charge of new duties.",
+      "lv": 2
+    },
+    {
+      "ko": "해외 지사 파견 대상자로 선발되어 출국하게 되었어요.",
+      "en": "Selected for overseas dispatch, I came to depart the country.",
+      "lv": 2
+    },
+    {
+      "ko": "우연한 기회로 방송에 출연하게 되어 값진 경험을 쌓았습니다.",
+      "en": "By chance appearing on broadcast, I gained valuable experience.",
+      "lv": 2
+    },
+    {
+      "ko": "오랜 노력 끝에 원하던 자격증 시험에 합격하게 되었습니다.",
+      "en": "After long effort, I came to pass the desired license exam.",
+      "lv": 2
+    },
+    {
+      "ko": "따뜻한 배려 덕분에 낯선 동네에 금방 적응하게 되었어요.",
+      "en": "Thanks to warm consideration, I came to adjust quickly to the town.",
+      "lv": 2
+    },
+    {
+      "ko": "취미 생활을 시작하면서 다양한 분야의 사람들을 만나게 되었습니다.",
+      "en": "Starting hobbies, I came to meet people across diverse fields.",
+      "lv": 2
+    },
+    {
+      "ko": "정부의 청년 창업 지원 사업 대상자로 선정되어 창업 자금을 지원받게 되었습니다.",
+      "en": "Selected for government youth startup support, I came to receive funding.",
+      "lv": 3
+    },
+    {
+      "ko": "묵묵히 헌신해 온 공로를 인정받아 이번에 영예로운 표창을 받게 되었어요.",
+      "en": "Recognized for dedicated service, I came to receive an honorable citation.",
+      "lv": 3
+    },
+    {
+      "ko": "공동 연구를 진행하면서 첨단 과학 기술 동향을 깊이 있게 배우게 되었습니다.",
+      "en": "Conducting joint research, I came to learn tech trends deeply.",
+      "lv": 3
+    },
+    {
+      "ko": "시민 단체 활동에 참여하면서 기후 위기의 심각성을 온몸으로 깨닫게 되었어요.",
+      "en": "Participating in civic activities, I came to realize the climate crisis keenly.",
+      "lv": 3
+    },
+    {
+      "ko": "갑작스러운 부상으로 오랫동안 준비해 온 체육 대회 출전을 포기하게 되었습니다.",
+      "en": "Due to sudden injury, I came to forfeit competing in athletic games.",
+      "lv": 3
+    },
+    {
+      "ko": "주민들의 성금 모금 덕분에 난치병 환아의 수술비를 전액 마련하게 되었어요.",
+      "en": "Thanks to residents' donations, we came to fully raise surgical funds.",
       "lv": 3
     }
   ],
@@ -9278,6 +10093,96 @@
       "ko": "감기 기운이 있는 아이를 침대에 눕히고 따뜻한 이불을 덮어 주었어요.",
       "en": "I laid the child with a cold in bed and covered him with a warm blanket.",
       "lv": 3
+    },
+    {
+      "ko": "엄마가 아기에게 우유를 먹여요.",
+      "en": "Mom feeds milk to the baby.",
+      "lv": 1
+    },
+    {
+      "ko": "추운 날씨에 아이에게 두꺼운 옷을 입혔어요.",
+      "en": "In cold weather, I dressed the child in thick clothes.",
+      "lv": 1
+    },
+    {
+      "ko": "재미있는 농담으로 친구들을 크게 웃겼어요.",
+      "en": "With a funny joke, I made friends laugh loudly.",
+      "lv": 1
+    },
+    {
+      "ko": "아침 일찍 알람 소리가 나를 깨웠습니다.",
+      "en": "Early morning alarm sound woke me up.",
+      "lv": 1
+    },
+    {
+      "ko": "방 온도를 적정 수준으로 낮추세요.",
+      "en": "Please lower the room temperature to an appropriate level.",
+      "lv": 1
+    },
+    {
+      "ko": "남은 음식은 버리지 말고 냉장고에 남기세요.",
+      "en": "Don't throw away leftover food, leave it in the fridge.",
+      "lv": 1
+    },
+    {
+      "ko": "회의 시작 시간을 삼십 분가량 뒤로 늦추기로 결정했습니다.",
+      "en": "We decided to delay the meeting start time backward by thirty minutes.",
+      "lv": 2
+    },
+    {
+      "ko": "정류장에서 기다리던 친구를 내 차에 태우고 함께 출발했어요.",
+      "en": "I gave my waiting friend a ride in my car and departed together.",
+      "lv": 2
+    },
+    {
+      "ko": "품질 혁신을 통해 브랜드의 세계적 인지도를 한층 높였습니다.",
+      "en": "Through quality innovation, we raised global brand recognition higher.",
+      "lv": 2
+    },
+    {
+      "ko": "안전을 위해 콘센트를 뽑고 사무실을 완전히 비웠습니다.",
+      "en": "For safety, we unplugged cords and completely vacated the office.",
+      "lv": 2
+    },
+    {
+      "ko": "어려운 사정에 처한 영세 골목 상권을 살려야 합니다.",
+      "en": "We must revitalize small alley commerce in difficult situations.",
+      "lv": 2
+    },
+    {
+      "ko": "출근길에 세탁소에 정장을 맡기고 가벼운 발걸음으로 지하철을 탔어요.",
+      "en": "On the commute I entrusted my suit to cleaners and boarded the subway.",
+      "lv": 2
+    },
+    {
+      "ko": "불필요한 생산 원가를 대폭 낮추고 제품 안전 기준을 엄격하게 높여야 합니다.",
+      "en": "Enterprises must lower unnecessary production costs and strictly raise safety standards.",
+      "lv": 3
+    },
+    {
+      "ko": "선생님께서는 흥미진진한 역사 이야기로 학생들의 꺼져 가던 학업 호기심을 활짝 깨우셨습니다.",
+      "en": "The teacher brightly awakened students' fading curiosity with interesting history stories.",
+      "lv": 3
+    },
+    {
+      "ko": "탈진해 쓰러진 천연기념물 야생 동물을 정성스레 치료해 마침내 살렸어요.",
+      "en": "Painstakingly treating the collapsed natural monument wild animal, we finally saved it.",
+      "lv": 3
+    },
+    {
+      "ko": "복잡한 도시 일상을 잠시 비우고 자연 속에서 몸과 마음을 달랬습니다.",
+      "en": "Vacating busy city life, I soothed mind and body in nature.",
+      "lv": 3
+    },
+    {
+      "ko": "사원들의 잠재 역량을 끌어올리기 위해 실전 중심의 직무 연수를 맡겼습니다.",
+      "en": "To raise staff potential, we entrusted practice-oriented job training.",
+      "lv": 3
+    },
+    {
+      "ko": "환경 오염을 줄이기 위해 탄소 배출 저감 시설 가동을 늦추지 않았습니다.",
+      "en": "To reduce environmental pollution, we did not delay operating carbon reduction facilities.",
+      "lv": 3
     }
   ],
   "57-2": [
@@ -9339,6 +10244,96 @@
     {
       "ko": "새로 들어온 신입 사원들이 회사에 빠르게 적응하게 하세요.",
       "en": "Please make sure the new hires adapt quickly to the company.",
+      "lv": 3
+    },
+    {
+      "ko": "손님을 너무 오래 기다리게 하지 마세요.",
+      "en": "Do not make guests wait too long.",
+      "lv": 1
+    },
+    {
+      "ko": "부모님을 항상 기쁘게 하고 싶어요.",
+      "en": "I always want to make my parents pleased.",
+      "lv": 1
+    },
+    {
+      "ko": "학생들이 스스로 생각하게 하세요.",
+      "en": "Make students think for themselves.",
+      "lv": 1
+    },
+    {
+      "ko": "어린아이를 너무 슬프게 하지 마세요.",
+      "en": "Do not make the child too sad.",
+      "lv": 1
+    },
+    {
+      "ko": "실내 음악 소리를 조용하게 하세요.",
+      "en": "Please make the indoor music volume quiet.",
+      "lv": 1
+    },
+    {
+      "ko": "모두가 자유롭게 토론하게 하지요.",
+      "en": "Let's make everyone discuss freely.",
+      "lv": 1
+    },
+    {
+      "ko": "감동적인 연설로 청중 모두를 눈물 흘리게 하였습니다.",
+      "en": "With a touching speech, she moved all the audience to tears.",
+      "lv": 2
+    },
+    {
+      "ko": "어린이들이 마음껏 뛰어놀며 창의성을 기르게 하세요.",
+      "en": "Let children run freely and cultivate creativity.",
+      "lv": 2
+    },
+    {
+      "ko": "중요한 발표를 앞두고 사람을 지나치게 긴장하게 하지 마세요.",
+      "en": "Before important presentations, don't make people overly nervous.",
+      "lv": 2
+    },
+    {
+      "ko": "신선한 공기가 통하도록 창문을 열어 환기하게 하세요.",
+      "en": "Open windows letting fresh air pass to ventilate indoors.",
+      "lv": 2
+    },
+    {
+      "ko": "엄격한 규칙만 강조하여 직원들의 사기를 저하시키게 하지 맙시다.",
+      "en": "Let's not lower staff morale by emphasizing only strict rules.",
+      "lv": 2
+    },
+    {
+      "ko": "시민들이 밤길을 안심하고 걷도록 조명을 밝게 하였습니다.",
+      "en": "We brightened lighting so citizens walk night roads safely.",
+      "lv": 2
+    },
+    {
+      "ko": "사회적 약자들이 부당하게 불이익을 당하게 하지 않도록 법적 장치를 마련해야 합니다.",
+      "en": "We must arrange legal measures so the disadvantaged aren't disadvantaged.",
+      "lv": 3
+    },
+    {
+      "ko": "팀원 각자의 창의적 아이디어를 자유롭게 발휘하게 하는 개방적인 문화를 조성합시다.",
+      "en": "Let's create an open culture allowing members to express ideas freely.",
+      "lv": 3
+    },
+    {
+      "ko": "위생 관리와 소독을 철저히 하여 감염병이 확산하지 못하게 하였습니다.",
+      "en": "We made sure infectious diseases cannot spread through thorough hygiene and disinfection.",
+      "lv": 3
+    },
+    {
+      "ko": "불필요한 규제를 과감히 혁파하여 신생 기업들이 자유롭게 경쟁하게 하였습니다.",
+      "en": "We reformed unnecessary regulations so startups compete freely.",
+      "lv": 3
+    },
+    {
+      "ko": "복잡한 행정 절차를 대폭 간소화하여 민원인들을 헛걸음하게 하지 않겠습니다.",
+      "en": "We will simplify complex procedures so citizens aren't made to make wasted trips.",
+      "lv": 3
+    },
+    {
+      "ko": "청소년들이 올바른 가치관을 정립하고 건강하게 성장하게 하는 교육이 절실합니다.",
+      "en": "Education helping youth establish right values and grow healthily is urgent.",
       "lv": 3
     }
   ],
@@ -9402,6 +10397,96 @@
       "ko": "아무리 힘든 역경이 닥쳐도 포기하지 않아야 목표를 마침내 이룰 수 있어요.",
       "en": "No matter how tough adversity strikes, only if you don't give up can you reach goals.",
       "lv": 3
+    },
+    {
+      "ko": "직접 눈으로 봐야 믿을 수 있어요.",
+      "en": "Only when seeing with one's own eyes can one believe.",
+      "lv": 1
+    },
+    {
+      "ko": "잠을 충분히 자야 피로가 풀려요.",
+      "en": "Only when sleeping sufficiently does fatigue lift.",
+      "lv": 1
+    },
+    {
+      "ko": "기초가 튼튼해야 높이 쌓을 수 있습니다.",
+      "en": "Only when foundations are solid can one build high.",
+      "lv": 1
+    },
+    {
+      "ko": "밥을 잘 먹어야 힘이 나요.",
+      "en": "Only when eating meals well does strength come.",
+      "lv": 1
+    },
+    {
+      "ko": "약속 장소에 정시에 도착해야 합니다.",
+      "en": "One must arrive at the appointment spot on time.",
+      "lv": 1
+    },
+    {
+      "ko": "매일 연습해야 실력이 빠르게 늘어요.",
+      "en": "Only when practicing daily does skill improve quickly.",
+      "lv": 1
+    },
+    {
+      "ko": "용법에 맞게 복용해야 좋은 효능을 볼 수 있어요.",
+      "en": "Only when taken according to usage does it show good effects.",
+      "lv": 2
+    },
+    {
+      "ko": "상대방 의견을 경청해야 진정한 소통이 이루어질 수 있습니다.",
+      "en": "Only when listening to others' opinions does communication occur.",
+      "lv": 2
+    },
+    {
+      "ko": "두려워하지 않고 도전해야 값진 성공을 거둘 수 있어요.",
+      "en": "Only when challenging without fear can one achieve success.",
+      "lv": 2
+    },
+    {
+      "ko": "사전 조사를 거쳐야 프로젝트가 차질 없이 진행돼요.",
+      "en": "Only when undergoing prior research does the project proceed smoothly.",
+      "lv": 2
+    },
+    {
+      "ko": "주민들의 적극적인 협조와 참여가 뒷받침되어야 마을 공동체가 발전합니다.",
+      "en": "Only when residents' active cooperation backs it does the community develop.",
+      "lv": 2
+    },
+    {
+      "ko": "평소에 체력을 길러야 힘든 일도 해낼 수 있어요.",
+      "en": "Only when building stamina ordinarily can one accomplish tough tasks.",
+      "lv": 2
+    },
+    {
+      "ko": "지속 가능한 성장을 위해서는 눈앞의 이익보다 사회적 책임을 다해야 합니다.",
+      "en": "For sustainable growth, one must fulfill social responsibility before near gains.",
+      "lv": 3
+    },
+    {
+      "ko": "세대 간의 깊은 갈등을 근본적으로 치유하려면 서로의 아픔을 진심으로 보듬어야 해요.",
+      "en": "To fundamentally heal intergenerational conflicts, we must sincerely embrace each other's pains.",
+      "lv": 3
+    },
+    {
+      "ko": "위기에 직면했을수록 구성원 모두가 한마음으로 지혜를 모아야 극복할 수 있습니다.",
+      "en": "Facing crisis, all members must gather wisdom with one mind to overcome.",
+      "lv": 3
+    },
+    {
+      "ko": "공정하고 투명한 인사 평가 시스템이 확립되어야 임직원들의 사기와 업무 몰입도가 높아집니다.",
+      "en": "Only when fair evaluation systems are established do morale and dedication rise.",
+      "lv": 3
+    },
+    {
+      "ko": "생태계의 다양성을 보존해야 후손들에게 건강한 삶의 터전을 물려줄 수 있어요.",
+      "en": "Only when preserving ecosystem diversity can we pass down healthy living grounds to posterity.",
+      "lv": 3
+    },
+    {
+      "ko": "소비자 권익을 철저히 보호해야 건전한 유통 질서가 바로 설 수 있습니다.",
+      "en": "Only when consumer rights are strictly protected can healthy market order stand upright.",
+      "lv": 3
     }
   ],
   "58-2": [
@@ -9463,6 +10548,96 @@
     {
       "ko": "이번 주말에 특별한 약속이 없거든 교외로 드라이브나 다녀옵시다.",
       "en": "If you have no special plans this weekend, let's take a drive to the suburbs.",
+      "lv": 3
+    },
+    {
+      "ko": "집에 도착하거든 바로 전화해 주세요.",
+      "en": "When you arrive home, please call right away.",
+      "lv": 1
+    },
+    {
+      "ko": "도움이 필요하거든 언제든지 말씀하세요.",
+      "en": "If you need help, please speak anytime.",
+      "lv": 1
+    },
+    {
+      "ko": "시간이 나거든 우리 집에 놀러 오세요.",
+      "en": "When you have time, come over to my house to play.",
+      "lv": 1
+    },
+    {
+      "ko": "음식이 입에 맞지 않거든 남기셔도 됩니다.",
+      "en": "If the food doesn't suit your taste, you may leave it.",
+      "lv": 1
+    },
+    {
+      "ko": "날씨가 춥거든 외투를 챙겨 입어라.",
+      "en": "If the weather is cold, put on a coat.",
+      "lv": 1
+    },
+    {
+      "ko": "모르는 단어가 나오거든 사전을 찾아보세요.",
+      "en": "If unfamiliar words appear, look them up in the dictionary.",
+      "lv": 1
+    },
+    {
+      "ko": "서울역에 도착하거든 출구 앞에서 기다리지 말고 대합실로 오세요.",
+      "en": "When you arrive at Seoul Station, don't wait at the exit and come to the waiting room.",
+      "lv": 2
+    },
+    {
+      "ko": "궁금한 사항이 생기거든 주저하지 말고 담당자에게 직접 문의하세요.",
+      "en": "If questions arise, don't hesitate and inquire with the manager directly.",
+      "lv": 2
+    },
+    {
+      "ko": "부작용이 나타나거든 즉시 복용을 중단하고 병원에 가세요.",
+      "en": "If side effects appear, stop taking it immediately and go to clinic.",
+      "lv": 2
+    },
+    {
+      "ko": "회의 일정이 변경되거든 팀원들에게 미리 메신저로 공지해 주세요.",
+      "en": "If meeting schedules change, notify team members via messenger beforehand.",
+      "lv": 2
+    },
+    {
+      "ko": "주말에 특별한 약속이 없거든 근교로 드라이브나 다녀옵시다.",
+      "en": "If you have no special weekend plans, let's go on a drive to the suburbs.",
+      "lv": 2
+    },
+    {
+      "ko": "사무실 문을 열고 나가거든 반드시 조명과 냉난방기를 끄세요.",
+      "en": "When you leave the office, make sure to turn off lights and air conditioning.",
+      "lv": 2
+    },
+    {
+      "ko": "해외에서 긴급 상황이 발생하거든 현지 대사관에 즉시 연락하세요.",
+      "en": "If emergency situations arise abroad, contact the local embassy immediately.",
+      "lv": 3
+    },
+    {
+      "ko": "불공정 조항이 발견되거든 서명을 보류하고 재검토를 즉각 요구하세요.",
+      "en": "If unfair clauses are discovered, withhold signing and demand re-examination.",
+      "lv": 3
+    },
+    {
+      "ko": "돌발 변수가 생기거든 당황하지 말고 상사와 차분히 상의하십시오.",
+      "en": "If unexpected variables arise, don't panic and consult calmly with your boss.",
+      "lv": 3
+    },
+    {
+      "ko": "환자의 호흡이 가빠지거든 지체 없이 응급 호출 벨을 누르세요.",
+      "en": "If the patient's breathing quickens, press the emergency call bell without delay.",
+      "lv": 3
+    },
+    {
+      "ko": "사업 추진 중 난관에 부딪히거든 기본 원칙부터 다시 점검해 보세요.",
+      "en": "If hitting obstacles pursuing business, re-examine from basic principles.",
+      "lv": 3
+    },
+    {
+      "ko": "중대한 제품 결함을 발견하거든 관계 당국에 신속하게 신고해 주시기 바랍니다.",
+      "en": "If discovering major product defects, please report promptly to relevant authorities.",
       "lv": 3
     }
   ],
@@ -9526,6 +10701,96 @@
       "ko": "대중교통은 교통비를 절약할 뿐만 아니라 환경 보호에도 크게 기여합니다.",
       "en": "Taking public transit not only saves costs but contributes to environmental care.",
       "lv": 3
+    },
+    {
+      "ko": "그는 친절할 뿐만 아니라 성실해요.",
+      "en": "He is not only kind but also diligent.",
+      "lv": 1
+    },
+    {
+      "ko": "이 사과는 달 뿐만 아니라 싱싱해요.",
+      "en": "This apple is not only sweet but also fresh.",
+      "lv": 1
+    },
+    {
+      "ko": "방이 넓을 뿐만 아니라 아주 밝아요.",
+      "en": "The room is not only spacious but very bright.",
+      "lv": 1
+    },
+    {
+      "ko": "음식이 맛있을 뿐만 아니라 가격도 착해요.",
+      "en": "The food is not only delicious but the price is reasonable.",
+      "lv": 1
+    },
+    {
+      "ko": "그녀는 노래를 잘할 뿐만 아니라 예뻐요.",
+      "en": "She not only sings well but is pretty.",
+      "lv": 1
+    },
+    {
+      "ko": "공기가 맑을 뿐만 아니라 풍경도 아름다워요.",
+      "en": "The air is not only clear but scenery is beautiful.",
+      "lv": 1
+    },
+    {
+      "ko": "이 옷은 디자인이 세련될 뿐만 아니라 활동하기 편해요.",
+      "en": "These clothes are not only stylish but comfortable to move in.",
+      "lv": 2
+    },
+    {
+      "ko": "외국어를 유창하게 할 뿐만 아니라 일도 잘해요.",
+      "en": "Not only speaking foreign languages fluently, he also works well.",
+      "lv": 2
+    },
+    {
+      "ko": "이 청소기는 소음이 적을 뿐만 아니라 흡입력도 뛰어납니다.",
+      "en": "This vacuum not only has low noise but superior suction power.",
+      "lv": 2
+    },
+    {
+      "ko": "호텔 전망이 훌륭할 뿐만 아니라 교통도 매우 편리해요.",
+      "en": "The hotel view is not only great but transport is very convenient.",
+      "lv": 2
+    },
+    {
+      "ko": "이 책은 내용이 유익할 뿐만 아니라 흥미진진하게 읽혀요.",
+      "en": "This book is not only informative but reads excitingly.",
+      "lv": 2
+    },
+    {
+      "ko": "그 식당은 밑반찬이 정갈할 뿐만 아니라 사장님도 친절하세요.",
+      "en": "That restaurant not only has neat side dishes but a friendly owner.",
+      "lv": 2
+    },
+    {
+      "ko": "그 신기술은 에너지 소비를 대폭 줄일 뿐만 아니라 탄소 배출도 줄입니다.",
+      "en": "The new tech not only drastically cuts energy consumption but carbon emissions.",
+      "lv": 3
+    },
+    {
+      "ko": "지역 도서관은 책을 대출해 줄 뿐만 아니라 다양한 문화 강좌도 운영해요.",
+      "en": "Local libraries not only lend books but run various cultural lectures.",
+      "lv": 3
+    },
+    {
+      "ko": "신제품은 내구성이 우수할 뿐만 아니라 친환경 재활용 소재를 사용하여 각광받고 있습니다.",
+      "en": "The new product not only has superior durability but uses recycled materials.",
+      "lv": 3
+    },
+    {
+      "ko": "저소득층을 지원할 뿐만 아니라 청소년 장학 사업도 활발히 펼칩니다.",
+      "en": "Not only supporting low-income groups, it also runs youth scholarships.",
+      "lv": 3
+    },
+    {
+      "ko": "업무 시스템은 작업 속도를 높일 뿐만 아니라 오류도 획기적으로 줄여줘요.",
+      "en": "The work system not only raises speed but drastically cuts errors.",
+      "lv": 3
+    },
+    {
+      "ko": "한옥 마을은 고즈넉한 정취를 간직할 뿐만 아니라 전통문화 체험도 제공합니다.",
+      "en": "The hanok village not only preserves quiet charm but offers traditional experiences.",
+      "lv": 3
     }
   ],
   "59-2": [
@@ -9587,6 +10852,96 @@
     {
       "ko": "환율이 급격히 오른데다가 원자재 가격까지 상승해서 중견 기업들의 수출 부담이 큽니다.",
       "en": "On top of surging exchange rates, raw material costs rose, burdening exporters.",
+      "lv": 3
+    },
+    {
+      "ko": "비가 내리는데다가 바람도 세차게 불어요.",
+      "en": "Besides rain falling, the wind blows fiercely.",
+      "lv": 1
+    },
+    {
+      "ko": "머리가 아픈데다가 열도 펄펄 나요.",
+      "en": "Besides a headache, fever runs high.",
+      "lv": 1
+    },
+    {
+      "ko": "길이 좁은데다가 차도 많이 다녀요.",
+      "en": "Besides the road being narrow, many cars pass.",
+      "lv": 1
+    },
+    {
+      "ko": "일이 많은데다가 마감도 코앞이에요.",
+      "en": "Besides much work, the deadline is right ahead.",
+      "lv": 1
+    },
+    {
+      "ko": "방이 추운데다가 웃풍도 심하게 들어요.",
+      "en": "Besides the room being cold, drafts are severe.",
+      "lv": 1
+    },
+    {
+      "ko": "물가가 비싼데다가 환율까지 치솟았어요.",
+      "en": "Besides prices being high, exchange rates soared.",
+      "lv": 1
+    },
+    {
+      "ko": "주말이라 손님이 많은데다가 직원까지 부족해서 몹시 바빴어요.",
+      "en": "Being the weekend, besides having many guests staff was short so very busy.",
+      "lv": 2
+    },
+    {
+      "ko": "도로가 빙판길인데다가 짙은 안개까지 끼어 운전하기 위험했습니다.",
+      "en": "Besides the road being icy, thick fog gathered making driving dangerous.",
+      "lv": 2
+    },
+    {
+      "ko": "배터리가 방전된데다가 충전기도 잃어버려서 연락을 전혀 못 했어요.",
+      "en": "Besides a dead battery, I lost my charger so couldn't contact at all.",
+      "lv": 2
+    },
+    {
+      "ko": "야근이 잦은데다가 수면까지 부족해서 만성 피로에 시달리고 있습니다.",
+      "en": "Besides frequent overtime, sleep was lacking so I suffer chronic fatigue.",
+      "lv": 2
+    },
+    {
+      "ko": "컴퓨터가 오래된데다가 바이러스까지 감염되어 부팅조차 되지 않아요.",
+      "en": "Besides an old computer, it was virus-infected so won't even boot.",
+      "lv": 2
+    },
+    {
+      "ko": "목소리가 작은데다가 소음까지 커서 말소리가 잘 안 들렸어요.",
+      "en": "Besides a soft voice, noise was loud so words weren't heard well.",
+      "lv": 2
+    },
+    {
+      "ko": "폭우로 하천이 범람한데다가 산사태 위험까지 겹쳐 주민들이 긴급히 안전지대로 대피했습니다.",
+      "en": "Besides rivers overflowing from downpours, landslide danger overlapped so residents evacuated.",
+      "lv": 3
+    },
+    {
+      "ko": "원자재 가격이 급등한데다가 인건비 부담까지 가중되어 중소 제조업체들의 채산성이 극도로 악화되었어요.",
+      "en": "Besides raw material prices jumping, labor costs increased worsening profitability.",
+      "lv": 3
+    },
+    {
+      "ko": "휴가철인데다가 연휴까지 맞물려 전국 고속도로가 극심한 정체를 빚고 있습니다.",
+      "en": "Besides holiday season, weekends overlapped causing expressway congestion nationwide.",
+      "lv": 3
+    },
+    {
+      "ko": "시험 일정이 촉박한데다가 과제량도 만만치 않아서 수험생들이 밤잠을 설치며 공부하고 있어요.",
+      "en": "Besides tight exam schedules, assignment load was heavy so students study sleeplessly.",
+      "lv": 3
+    },
+    {
+      "ko": "가뭄이 지속된데다가 폭염 특보까지 연일 발효되어 농작물 피해가 눈덩이처럼 불어나고 있습니다.",
+      "en": "Besides continuing drought, heat wave warnings took effect snowballing crop damages.",
+      "lv": 3
+    },
+    {
+      "ko": "환절기라 일교차가 심한데다가 미세먼지 수치까지 나빠서 호흡기 질환 환자가 급증하고 있어요.",
+      "en": "Besides huge daily temp range, fine dust worsened causing respiratory patients to surge.",
       "lv": 3
     }
   ],
@@ -9650,6 +11005,96 @@
       "ko": "어두운 밤길에 불빛조차 하나 없어서 스마트폰 손전등을 켜고 걸어갔어요.",
       "en": "There was not even a single light on the dark road, so I walked with phone light.",
       "lv": 3
+    },
+    {
+      "ko": "너무 지쳐서 걸을 힘조차 없어요.",
+      "en": "Too exhausted, I have not even strength to walk.",
+      "lv": 1
+    },
+    {
+      "ko": "그 사람의 이름조차 기억나지 않아요.",
+      "en": "I cannot even remember that person's name.",
+      "lv": 1
+    },
+    {
+      "ko": "목이 아파서 물조차 못 마시겠어요.",
+      "en": "My throat hurts so I cannot even drink water.",
+      "lv": 1
+    },
+    {
+      "ko": "가장 친한 친구조차 나를 몰라봤어요.",
+      "en": "Even my best friend did not recognize me.",
+      "lv": 1
+    },
+    {
+      "ko": "너무 놀라서 비명조차 지르지 못했습니다.",
+      "en": "Too shocked, I could not even scream.",
+      "lv": 1
+    },
+    {
+      "ko": "내일 날씨조차 예측하기 어렵네요.",
+      "en": "It is hard to predict even tomorrow's weather.",
+      "lv": 1
+    },
+    {
+      "ko": "눈보라가 심하게 몰아쳐서 앞 건물조차 제대로 보이지 않았습니다.",
+      "en": "Blizzards blowing fiercely, even the front building wasn't visible properly.",
+      "lv": 2
+    },
+    {
+      "ko": "너무 바빠서 점심 식사조차 거르고 하루 종일 일했어요.",
+      "en": "Being so busy, I even skipped lunch and worked all day.",
+      "lv": 2
+    },
+    {
+      "ko": "정전으로 가로등 불빛조차 꺼져 동네가 온통 암흑에 휩싸였어요.",
+      "en": "Due to blackout, even streetlights went out wrapping the town in darkness.",
+      "lv": 2
+    },
+    {
+      "ko": "동료조차 내 말을 의심하니 억울함을 감출 수 없더군요.",
+      "en": "Even colleagues doubted my words so I couldn't hide feeling wronged.",
+      "lv": 2
+    },
+    {
+      "ko": "산속이라 스마트폰 신호조차 잡히지 않아 외부와 완전히 단절되었어요.",
+      "en": "Being in mountains, even phone signals weren't caught disconnecting outside.",
+      "lv": 2
+    },
+    {
+      "ko": "가뭄으로 바닥이 말라 잡초조차 자라지 못하고 시들어 버렸습니다.",
+      "en": "Due to drought, ground dried up so even weeds withered away.",
+      "lv": 2
+    },
+    {
+      "ko": "극심한 스트레스로 인해 밤마다 뜬눈으로 지새우며 잠조차 편히 이루지 못했습니다.",
+      "en": "Due to severe stress, I spent nights with eyes open unable to even sleep peacefully.",
+      "lv": 3
+    },
+    {
+      "ko": "경제적 어려움으로 하루 한 끼 식사조차 힘든 위기 가정이 늘고 있어요.",
+      "en": "Due to economic hardship, crisis families struggling with even one meal rise.",
+      "lv": 3
+    },
+    {
+      "ko": "보안 구역이라 최고 책임자조차 사전 승인 없이 함부로 출입할 수 없습니다.",
+      "en": "Being security zones, even top officials cannot enter casually without prior approval.",
+      "lv": 3
+    },
+    {
+      "ko": "고립된 산간 마을 주민들은 생필품조차 공급받지 못해 큰 불편을 겪고 있습니다.",
+      "en": "Isolated villagers suffered great inconvenience unable to receive even necessities.",
+      "lv": 3
+    },
+    {
+      "ko": "전문 용어로 가득 찬 설명서라 일반인은 첫 페이지조차 읽기 어려워요.",
+      "en": "Manual filled with jargon, ordinary people find even the first page hard.",
+      "lv": 3
+    },
+    {
+      "ko": "헌신해 온 일터에서 따뜻한 위로의 말 한마디조차 듣지 못하고 물러났습니다.",
+      "en": "At the dedicated workplace, retired without hearing even a single warm word.",
+      "lv": 3
     }
   ],
   "59-4": [
@@ -9711,6 +11156,96 @@
     {
       "ko": "몇 달 전만 해도 비어 있던 상가에 인기 가게들이 들어섰어요.",
       "en": "Just a few months ago, empty shopping centers already welcomed popular stores.",
+      "lv": 3
+    },
+    {
+      "ko": "작년만 해도 눈이 많이 내렸어요.",
+      "en": "Just last year, snow fell a lot.",
+      "lv": 1
+    },
+    {
+      "ko": "어제만 해도 날씨가 무척 따뜻했어요.",
+      "en": "Just yesterday, the weather was very warm.",
+      "lv": 1
+    },
+    {
+      "ko": "우리 동네만 해도 공원이 세 개예요.",
+      "en": "In our neighborhood alone, there are three parks.",
+      "lv": 1
+    },
+    {
+      "ko": "오전만 해도 비가 내리지 않았습니다.",
+      "en": "Just this morning, rain did not fall.",
+      "lv": 1
+    },
+    {
+      "ko": "지난주만 해도 꽃이 피지 않았어요.",
+      "en": "Just last week, flowers hadn't bloomed.",
+      "lv": 1
+    },
+    {
+      "ko": "서울만 해도 지하철 노선이 정말 많아요.",
+      "en": "In Seoul alone, subway lines are really numerous.",
+      "lv": 1
+    },
+    {
+      "ko": "십 년 전만 해도 이 주변은 허허벌판이었는데 상전벽해네요.",
+      "en": "Ten years ago this area was empty fields, what a transformation.",
+      "lv": 2
+    },
+    {
+      "ko": "출근 시간만 해도 지하철에 발 디딜 틈 없어요.",
+      "en": "Just during rush hour, there's no room to step on the subway.",
+      "lv": 2
+    },
+    {
+      "ko": "우리 학교만 해도 전국에서 모인 다양한 학생들이 많습니다.",
+      "en": "In our school alone, there are many students gathered nationwide.",
+      "lv": 2
+    },
+    {
+      "ko": "불과 며칠 전만 해도 건강하셨던 할머니께서 갑자기 입원하셨어요.",
+      "en": "Grandmother who was healthy just days ago suddenly got hospitalized.",
+      "lv": 2
+    },
+    {
+      "ko": "한 달 전만 해도 한국어를 전혀 못했어요.",
+      "en": "Just a month ago, I couldn't speak Korean at all.",
+      "lv": 2
+    },
+    {
+      "ko": "골목길만 해도 가로등이 없어 밤이면 매우 어둡고 으스스합니다.",
+      "en": "Alleys alone lack streetlights, very dark and spooky at night.",
+      "lv": 2
+    },
+    {
+      "ko": "이십 세기 초만 해도 상상조차 못 했던 우주여행이 현실로 다가오고 있습니다.",
+      "en": "Space travel unimaginable in the early 20th century is approaching reality.",
+      "lv": 3
+    },
+    {
+      "ko": "우리 회사만 해도 매년 수백 명의 청년 구직자들이 입사 지원서를 제출합니다.",
+      "en": "In our company alone, hundreds of youth job seekers submit applications yearly.",
+      "lv": 3
+    },
+    {
+      "ko": "십 년 전만 해도 스마트폰은 낯선 기기였지만 이제는 생활 필수품이 되었어요.",
+      "en": "Ten years ago smartphones were unfamiliar, but now they became daily essentials.",
+      "lv": 3
+    },
+    {
+      "ko": "수도권 지역만 해도 매일 수백만 명의 시민들이 대중교통을 이용해 출퇴근길에 오릅니다.",
+      "en": "In the capital area alone, millions of citizens commute via public transport daily.",
+      "lv": 3
+    },
+    {
+      "ko": "멸종 위기에 처했던 야생 동물이 생태 복원 사업으로 개체수를 회복했어요.",
+      "en": "Endangered wild animals recovered population through ecological restoration projects.",
+      "lv": 3
+    },
+    {
+      "ko": "재래시장만 해도 대형 마트와 다른 따뜻한 인정과 활기를 느낄 수 있습니다.",
+      "en": "In traditional markets alone, one can feel warm kindness and vitality.",
       "lv": 3
     }
   ],
@@ -9774,6 +11309,96 @@
       "ko": "아침 일찍 조깅하러 한강 변으로 나가는 길에 시원한 새벽 공기를 마셨어요.",
       "en": "On the way out to Han River to jog early, I breathed cool dawn air.",
       "lv": 3
+    },
+    {
+      "ko": "퇴근하는 길에 빵을 사 왔어요.",
+      "en": "On the way home from work, I bought bread.",
+      "lv": 1
+    },
+    {
+      "ko": "학교에 가는 길에 친구를 만났습니다.",
+      "en": "On the way to school, I met a friend.",
+      "lv": 1
+    },
+    {
+      "ko": "집에 돌아오는 길에 편의점에 들렀어요.",
+      "en": "On the way returning home, I stopped by a convenience store.",
+      "lv": 1
+    },
+    {
+      "ko": "출근하는 길에 지하철 표를 샀어요.",
+      "en": "On the commute, I bought a subway ticket.",
+      "lv": 1
+    },
+    {
+      "ko": "도서관에 가는 길에 책을 반납했습니다.",
+      "en": "On the way to the library, I returned books.",
+      "lv": 1
+    },
+    {
+      "ko": "산책하는 길에 예쁜 꽃을 보았어요.",
+      "en": "On the walking route, I saw pretty flowers.",
+      "lv": 1
+    },
+    {
+      "ko": "마트에 가는 길에 우연히 옛 은사님을 마주쳤어요.",
+      "en": "On the way to the mart, I ran into my old teacher.",
+      "lv": 2
+    },
+    {
+      "ko": "시내로 나가는 길에 세탁소에 맡겨 둔 정장을 찾아왔습니다.",
+      "en": "On the way downtown, I picked up the suit left at the cleaners.",
+      "lv": 2
+    },
+    {
+      "ko": "병원에 가는 길에 차가 막혀 예약에 늦을 뻔했어요.",
+      "en": "On the way to the hospital, traffic jammed almost delaying appointments.",
+      "lv": 2
+    },
+    {
+      "ko": "서울로 올라오는 길에 휴게소에 들러 맛있는 호두과자를 샀어요.",
+      "en": "Returning to Seoul, I stopped by a rest stop to buy walnut cakes.",
+      "lv": 2
+    },
+    {
+      "ko": "우체국에 가는 길에 문구점에 들러 테이프를 샀습니다.",
+      "en": "On the way to the post office, I stopped at stationery for tape.",
+      "lv": 2
+    },
+    {
+      "ko": "집들이에 가는 길에 정성스럽게 포장한 과일 바구니를 샀어요.",
+      "en": "On the way to housewarming, I bought a packaged fruit basket.",
+      "lv": 2
+    },
+    {
+      "ko": "부모님 댁에 내려가는 길에 휴게소에 들러 지역 특산물을 샀습니다.",
+      "en": "On the drive to parents' home, stopped at rest stops for specialties.",
+      "lv": 3
+    },
+    {
+      "ko": "미팅을 마치고 호텔로 돌아오는 길에 이국적인 야경을 사진에 담았어요.",
+      "en": "Returning to hotel after meetings, I captured exotic night views in photos.",
+      "lv": 3
+    },
+    {
+      "ko": "북한산으로 등산하러 가는 길에 김밥집에 들러 점심 도시락을 포장했습니다.",
+      "en": "Heading to Bukhansan for hiking, we stopped by a shop for lunch boxes.",
+      "lv": 3
+    },
+    {
+      "ko": "미팅 장소로 이동하는 길에 가로수가 쓰러져 차를 우회 도로로 돌려야 했어요.",
+      "en": "Moving to meeting spots, street trees fell so we had to detour.",
+      "lv": 3
+    },
+    {
+      "ko": "퇴근하는 길에 시장 골목에 들러 신선한 제철 과일과 나물을 사 왔습니다.",
+      "en": "On commute, stopped by market alleys and bought fresh fruits and greens.",
+      "lv": 3
+    },
+    {
+      "ko": "지하철역으로 걸어가는 길에 거리 악사의 감미로운 버스킹 연주를 감상했어요.",
+      "en": "Walking to the subway, I enjoyed a street busker's sweet performance.",
+      "lv": 3
     }
   ],
   "60-2": [
@@ -9835,6 +11460,96 @@
     {
       "ko": "중요한 발표를 준비하다가 목이 쉬어서 따뜻한 유자차를 계속 마셨어요.",
       "en": "While preparing an important presentation, my throat hoarsened so I drank tea.",
+      "lv": 3
+    },
+    {
+      "ko": "길을 걷다가 친구를 만났어요.",
+      "en": "While walking the street, I met a friend.",
+      "lv": 1
+    },
+    {
+      "ko": "텔레비전을 보다가 깜빡 잠이 들었습니다.",
+      "en": "While watching TV, I dozed off.",
+      "lv": 1
+    },
+    {
+      "ko": "책을 읽다가 커피를 쏟았어요.",
+      "en": "While reading a book, I spilled coffee.",
+      "lv": 1
+    },
+    {
+      "ko": "운전하다가 신호에 걸려 멈췄습니다.",
+      "en": "While driving, I stopped at the signal.",
+      "lv": 1
+    },
+    {
+      "ko": "청소하다가 잃어버린 반지를 찾았어요.",
+      "en": "While cleaning, I found my lost ring.",
+      "lv": 1
+    },
+    {
+      "ko": "자전거를 타다가 길에 넘어졌어요.",
+      "en": "While riding a bicycle, I fell on the road.",
+      "lv": 1
+    },
+    {
+      "ko": "주방에서 요리하다가 뜨거운 냄비 손잡이에 손을 살짝 데었어요.",
+      "en": "While cooking in the kitchen, I slightly burned my hand on the pot handle.",
+      "lv": 2
+    },
+    {
+      "ko": "도서관에서 공부하다가 머리가 지끈거려 밖으로 바람 쐬러 나왔습니다.",
+      "en": "Studying in the library, my head ached so I came out for fresh air.",
+      "lv": 2
+    },
+    {
+      "ko": "공원에서 조깅하다가 발목을 삐끗해서 벤치에 앉아 쉬었어요.",
+      "en": "Jogging in the park, I sprained my ankle and rested on a bench.",
+      "lv": 2
+    },
+    {
+      "ko": "스마트폰을 보면서 걷다가 계단에서 헛디뎌 넘어질 뻔했습니다.",
+      "en": "Walking looking at a smartphone, I missed a step and almost fell.",
+      "lv": 2
+    },
+    {
+      "ko": "친구와 수다를 떨다가 지하철 내릴 역을 지나쳐 버렸어요.",
+      "en": "Chatting with a friend, I missed the subway station to get off.",
+      "lv": 2
+    },
+    {
+      "ko": "이사 짐을 정리하다가 학창 시절 일기장을 우연히 발견했습니다.",
+      "en": "Sorting moving luggage, I accidentally found my school diary.",
+      "lv": 2
+    },
+    {
+      "ko": "사무실에서 컴퓨터 작업을 집중해서 하다가 갑작스러운 정전으로 작업 문서를 날릴 뻔했어요.",
+      "en": "Focusing on computer work, I almost lost documents due to sudden power outages.",
+      "lv": 3
+    },
+    {
+      "ko": "빗길에 고속도로를 주행하다가 앞차가 급제동하는 바람에 간발의 차이로 추돌 사고를 피했습니다.",
+      "en": "Driving on rainy highways, I avoided collision by a hairbreadth as the front car braked.",
+      "lv": 3
+    },
+    {
+      "ko": "도자기를 빚다가 사소한 실수로 형태가 찌그러져 처음부터 다시 시작했어요.",
+      "en": "Shaping pottery, the form distorted from a minor error so I restarted.",
+      "lv": 3
+    },
+    {
+      "ko": "낯선 골목길을 걷다가 길을 잃었지만 친절한 주민의 안내를 받았습니다.",
+      "en": "Walking unfamiliar alleys, I got lost but received kind local guidance.",
+      "lv": 3
+    },
+    {
+      "ko": "기획안을 작성하다가 막히는 부분이 생겨 선배에게 조언을 구하고 해결책을 찾았어요.",
+      "en": "Writing proposals, got stuck so sought senior advice and found solutions.",
+      "lv": 3
+    },
+    {
+      "ko": "정상으로 올라가다가 갑자기 소나기가 쏟아져 인근 정자로 서둘러 비를 피했습니다.",
+      "en": "Climbing towards peak, sudden showers poured so hurried to shelters.",
       "lv": 3
     }
   ],
@@ -9898,6 +11613,96 @@
       "ko": "콘서트장에 관객이 구름처럼 몰려와 발 디딜 틈조차 없을 정도로 붐볐습니다.",
       "en": "Audiences gathered like clouds, packed to the extent of no footholds.",
       "lv": 3
+    },
+    {
+      "ko": "눈물이 왈칵 쏟아질 정도로 기뻤어요.",
+      "en": "I was pleased to the point tears poured.",
+      "lv": 1
+    },
+    {
+      "ko": "배가 빵빵하게 부를 정도로 먹었습니다.",
+      "en": "I ate to the point my belly was full.",
+      "lv": 1
+    },
+    {
+      "ko": "앞이 전혀 안 보일 정도로 어두워요.",
+      "en": "It is dark to the point the front is invisible.",
+      "lv": 1
+    },
+    {
+      "ko": "숨이 가쁘게 찰 정도로 열심히 뛰었어요.",
+      "en": "I ran hard to the point of running out of breath.",
+      "lv": 1
+    },
+    {
+      "ko": "다리가 후들거릴 정도로 산을 올랐습니다.",
+      "en": "I climbed mountains to the point legs trembled.",
+      "lv": 1
+    },
+    {
+      "ko": "목소리가 안 나올 정도로 소리쳤어요.",
+      "en": "I shouted to the point my voice wouldn't come out.",
+      "lv": 1
+    },
+    {
+      "ko": "소나기가 앞을 분간하기 어려울 정도로 거세게 쏟아져 내렸습니다.",
+      "en": "Showers poured fiercely to the point the front was hard to discern.",
+      "lv": 2
+    },
+    {
+      "ko": "어제 하루 종일 걸어서 발바닥이 후끈거릴 정도로 피곤해요.",
+      "en": "Walked all day yesterday, tired to the point soles burned.",
+      "lv": 2
+    },
+    {
+      "ko": "콘서트장의 함성 소리가 귀가 먹먹할 정도로 대단히 컸어요.",
+      "en": "Shouts at the concert hall were huge to the point ears felt clogged.",
+      "lv": 2
+    },
+    {
+      "ko": "우스꽝스러운 표정 연기는 배꼽을 잡을 정도로 정말 웃겼습니다.",
+      "en": "The funny facial acting was hilarious to the point of holding bellies.",
+      "lv": 2
+    },
+    {
+      "ko": "추억이 담긴 영화라 가슴이 뭉클할 정도로 감동을 받았어요.",
+      "en": "Movie holding memories, touched to the point the chest swelled.",
+      "lv": 2
+    },
+    {
+      "ko": "한파로 손발이 꽁꽁 얼 정도로 날씨가 매섭게 추웠습니다.",
+      "en": "Freezing bitterly in cold waves to the point hands and feet froze.",
+      "lv": 2
+    },
+    {
+      "ko": "체험 행사에 인파가 몰려 발 디딜 틈이 없을 정도로 성황을 이루었습니다.",
+      "en": "Crowds gathered at events, packed to the point of no room to step.",
+      "lv": 3
+    },
+    {
+      "ko": "극심한 가뭄으로 저수지 바닥이 거북이 등껍질처럼 쩍쩍 갈라질 정도로 메말라 버렸어요.",
+      "en": "Severe drought, the reservoir bed dried to the point of cracking like turtle shells.",
+      "lv": 3
+    },
+    {
+      "ko": "폭풍우가 거세게 몰아쳐서 해안가 방파제를 집어삼킬 정도로 높은 파도가 무섭게 일었습니다.",
+      "en": "Storms blew fiercely, waves rose scary to the point of swallowing breakwaters.",
+      "lv": 3
+    },
+    {
+      "ko": "정성을 쏟은 프로젝트가 성공하여 밤잠을 설칠 정도로 뿌듯하고 기뻤습니다.",
+      "en": "Project succeeded, proud and joyful to the point of tossing sleeplessly.",
+      "lv": 3
+    },
+    {
+      "ko": "지진의 여파로 고층 아파트 건물이 육안으로 흔들림을 느낄 정도로 심하게 요동쳤어요.",
+      "en": "Earthquake aftermath, high-rise buildings shook violently to the point shaking was felt by eyes.",
+      "lv": 3
+    },
+    {
+      "ko": "온정의 손길 덕분에 창고가 가득 찰 정도로 구호물품이 모였습니다.",
+      "en": "Thanks to warm hands, relief goods gathered to the point warehouses filled.",
+      "lv": 3
     }
   ],
   "61-2": [
@@ -9959,6 +11764,96 @@
     {
       "ko": "저 멀리 보이는 유람선 크기가 가까이서 보니 거대한 빌딩만 하더라고요.",
       "en": "The cruise ship seen far away was as massive as a huge building up close.",
+      "lv": 3
+    },
+    {
+      "ko": "그 수박은 아기 머리만 해요.",
+      "en": "That watermelon is as big as a baby's head.",
+      "lv": 1
+    },
+    {
+      "ko": "강아지가 내 손바닥만 하네요.",
+      "en": "The puppy is as big as my palm.",
+      "lv": 1
+    },
+    {
+      "ko": "얼굴이 작은 주먹만 합니다.",
+      "en": "The face is as small as a fist.",
+      "lv": 1
+    },
+    {
+      "ko": "우박 크기가 골프공만 했어요.",
+      "en": "Hail size was as big as a golf ball.",
+      "lv": 1
+    },
+    {
+      "ko": "고양이 눈이 방울만 해졌어요.",
+      "en": "The cat's eyes became as big as bells.",
+      "lv": 1
+    },
+    {
+      "ko": "물고기 크기가 팔뚝만 하더군요.",
+      "en": "The fish size was as big as a forearm.",
+      "lv": 1
+    },
+    {
+      "ko": "해변에서 주운 조개껍데기가 어린아이 손바닥만 해서 신기했어요.",
+      "en": "The seashell picked on the beach was big as a child's palm, fascinating.",
+      "lv": 2
+    },
+    {
+      "ko": "정원에서 따온 탐스러운 호박이 거의 집채만 하더군요.",
+      "en": "The appetizing pumpkin picked from the garden was almost house-sized.",
+      "lv": 2
+    },
+    {
+      "ko": "너무 깜짝 놀라서 동생의 두 눈이 쟁반만 해졌습니다.",
+      "en": "So shocked, my sibling's eyes grew as big as trays.",
+      "lv": 2
+    },
+    {
+      "ko": "골목길에서 마주친 커다란 진돗개가 송아지만 해서 깜짝 놀랐어요.",
+      "en": "The big Jindo dog met in the alley was calf-sized so I was shocked.",
+      "lv": 2
+    },
+    {
+      "ko": "밭에서 캔 무가 어른 종아리만 해서 다들 감탄했습니다.",
+      "en": "Radishes dug from the field were calf-sized, all admired.",
+      "lv": 2
+    },
+    {
+      "ko": "낚시터에서 갓 낚아 올린 잉어가 어른 팔뚝만 하더라고요.",
+      "en": "Carp freshly caught from the fishing ground was as big as an adult forearm.",
+      "lv": 2
+    },
+    {
+      "ko": "수족관 대형 수조 안을 헤엄치는 바다거북의 등딱지 크기가 커다란 식탁만 했습니다.",
+      "en": "The turtle carapace swimming in the large aquarium tank was as big as a dining table.",
+      "lv": 3
+    },
+    {
+      "ko": "쏟아진 우박이 어린아이 주먹만 해서 농작물에 큰 피해를 주었어요.",
+      "en": "Hailstones fallen were child-fist sized causing damage to crops.",
+      "lv": 3
+    },
+    {
+      "ko": "발견한 거대한 종유석이 오래된 고목나무 기둥만 해서 장관이었습니다.",
+      "en": "Discovered giant stalactites were big as old tree trunks, splendid.",
+      "lv": 3
+    },
+    {
+      "ko": "할머니가 파시는 왕만두가 어른 손바닥만 해서 한 개만 먹어도 배불러요.",
+      "en": "King dumplings sold by grandmother were palm-sized, filling with just one.",
+      "lv": 3
+    },
+    {
+      "ko": "공원에 둥지를 튼 야생 독수리의 날개 길이가 성인 키만 하더군요.",
+      "en": "Wild eagles nesting in the park had wingspans big as adult height.",
+      "lv": 3
+    },
+    {
+      "ko": "공룡 화석의 대퇴골 뼈가 어른 몸통만 해서 압도적인 위용을 자랑했습니다.",
+      "en": "Dinosaur femur bones were big as adult torsos, boasting majesty.",
       "lv": 3
     }
   ],
@@ -10022,6 +11917,96 @@
       "ko": "수험생들이 간절하게 합격을 바란만큼 기쁜 소식을 듣고 모두 함께 환호성을 질렀어요.",
       "en": "As much as test-takers wished to pass, hearing the news all cheered together.",
       "lv": 3
+    },
+    {
+      "ko": "내가 노력한만큼 좋은 결과가 나왔어요.",
+      "en": "Good results came out as much as I worked hard.",
+      "lv": 1
+    },
+    {
+      "ko": "먹을만큼 적당히 덜어 드세요.",
+      "en": "Scoop out reasonably as much as you will eat.",
+      "lv": 1
+    },
+    {
+      "ko": "간절히 기다린만큼 보람이 크네요.",
+      "en": "As much as I waited earnestly, rewards are great.",
+      "lv": 1
+    },
+    {
+      "ko": "원하는만큼 자유롭게 가져가셔도 좋습니다.",
+      "en": "You may take freely as much as you want.",
+      "lv": 1
+    },
+    {
+      "ko": "준비한만큼 시험을 잘 치렀습니다.",
+      "en": "I took the exam well as much as I prepared.",
+      "lv": 1
+    },
+    {
+      "ko": "바란만큼 꿈이 이루어지기를 응원해요.",
+      "en": "I cheer for dreams to come true as much as hoped.",
+      "lv": 1
+    },
+    {
+      "ko": "땀 흘려 연습한만큼 실전 경기에서 뛰어난 기량을 발휘했습니다.",
+      "en": "Displayed outstanding skill in actual match as much as sweated practicing.",
+      "lv": 2
+    },
+    {
+      "ko": "서로를 깊이 배려하고 아끼는만큼 두 사람의 우정이 돈독해졌어요.",
+      "en": "Two people's friendship deepened as much as caring for each other deeply.",
+      "lv": 2
+    },
+    {
+      "ko": "일찍 부지런히 서두른만큼 약속 장소에 여유 있게 도착했습니다.",
+      "en": "Arrived comfortably at the spot as much as hurried diligently.",
+      "lv": 2
+    },
+    {
+      "ko": "정성껏 가꾼만큼 가을 들판에 풍성한 결실을 맺었어요.",
+      "en": "As much as it was cared for with devotion, we reaped an abundant harvest in the autumn fields.",
+      "lv": 2
+    },
+    {
+      "ko": "사람들이 기대한만큼 이번 연극 공연은 완성도가 대단히 높았습니다.",
+      "en": "The performance had high quality as much as people expected.",
+      "lv": 2
+    },
+    {
+      "ko": "책임을 다하고 실천한만큼 동료들에게 두터운 신망을 얻었어요.",
+      "en": "Earned deep trust from colleagues as much as fulfilling duty.",
+      "lv": 2
+    },
+    {
+      "ko": "학생들이 공모전을 위해 밤낮으로 고민하고 노력한만큼 참신하고 창의적인 작품들이 탄생했습니다.",
+      "en": "Novel works were born as much as students pondered and worked day and night.",
+      "lv": 3
+    },
+    {
+      "ko": "이웃들에게 온정을 베푼만큼 우리 사회는 더욱 밝고 건강해질 것입니다.",
+      "en": "Society will become healthier as much as bestowing warmth upon neighbors.",
+      "lv": 3
+    },
+    {
+      "ko": "위험 요소를 철저히 대비한만큼 돌발 상황에도 침착하게 대처했어요.",
+      "en": "Coped calmly even in sudden situations as much as preparing risks.",
+      "lv": 3
+    },
+    {
+      "ko": "경제 회복을 간절히 염원한만큼 마침내 어두운 불황의 터널을 벗어났습니다.",
+      "en": "Finally escaped recession tunnels as much as wishing for recovery.",
+      "lv": 3
+    },
+    {
+      "ko": "환경 보호를 실천한만큼 우리의 아름다운 강산이 깨끗하게 보존될 것입니다.",
+      "en": "Rivers and mountains will be preserved cleanly as much as eco protection.",
+      "lv": 3
+    },
+    {
+      "ko": "고된 훈련을 이겨낸만큼 국제 대회에서 값진 메달을 목에 걸었습니다.",
+      "en": "Hung valuable medals around neck as much as enduring tough training.",
+      "lv": 3
     }
   ],
   "62-1": [
@@ -10083,6 +12068,96 @@
     {
       "ko": "아무나 다룰 수 없는 장비라서 반드시 자격증을 갖춘 기사가 조작해야 해요.",
       "en": "It is precise equipment not anyone can use, so certified techs must operate.",
+      "lv": 3
+    },
+    {
+      "ko": "이 문은 아무나 열 수 없어요.",
+      "en": "Not just anyone can open this door.",
+      "lv": 1
+    },
+    {
+      "ko": "배가 고프니 아무거나 빨리 먹자.",
+      "en": "Being hungry, let's eat anything quickly.",
+      "lv": 1
+    },
+    {
+      "ko": "가방을 아무 데나 던져 두지 마세요.",
+      "en": "Don't throw your bag anywhere.",
+      "lv": 1
+    },
+    {
+      "ko": "비밀번호를 아무에게나 알려주면 안 돼요.",
+      "en": "You must not give the password to just anyone.",
+      "lv": 1
+    },
+    {
+      "ko": "메뉴판에서 아무거나 먹고 싶은 걸 골라라.",
+      "en": "Choose anything you want to eat from the menu.",
+      "lv": 1
+    },
+    {
+      "ko": "신발을 아무 데나 벗어 놓지 맙시다.",
+      "en": "Let's not take off shoes anywhere.",
+      "lv": 1
+    },
+    {
+      "ko": "정밀 장비라서 아무나 함부로 손대면 안 됩니다.",
+      "en": "Because it is precision equipment, not just anyone should touch it carelessly.",
+      "lv": 2
+    },
+    {
+      "ko": "시간이 부족하니 고민하지 말고 아무거나 얼른 시켜 먹어요.",
+      "en": "Time is short, let's order anything quickly without worrying.",
+      "lv": 2
+    },
+    {
+      "ko": "주차장이 아닌 아무 데나 주차하면 즉시 과태료가 부과됩니다.",
+      "en": "Parking anywhere outside parking lots incurs immediate fines.",
+      "lv": 2
+    },
+    {
+      "ko": "내부 기밀문서는 신원 미확인된 아무에게나 보여줄 수 없습니다.",
+      "en": "Internal confidential documents cannot be shown to unverified people.",
+      "lv": 2
+    },
+    {
+      "ko": "가리지 않아서 여행지 길거리 음식은 아무거나 잘 먹어요.",
+      "en": "Not picky, I eat any street food sold at travel spots well.",
+      "lv": 2
+    },
+    {
+      "ko": "쓰레기를 아무 데나 함부로 버리는 행위는 엄격히 금지됩니다.",
+      "en": "Dumping trash anywhere casually is strictly prohibited.",
+      "lv": 2
+    },
+    {
+      "ko": "연구소 시설이라 허가증 없는 사람은 아무나 들어올 수 없습니다.",
+      "en": "Being research lab facilities, no unauthorized person can enter.",
+      "lv": 3
+    },
+    {
+      "ko": "조난자에게는 당장 마실 수 있는 물이라면 아무거나 소중한 생명수였습니다.",
+      "en": "To victims, any drinkable water was precious water of life.",
+      "lv": 3
+    },
+    {
+      "ko": "비상대피로에는 안전을 위해 개인 짐을 아무 데나 방치하면 안 됩니다.",
+      "en": "In escape routes, personal luggage must never be left anywhere.",
+      "lv": 3
+    },
+    {
+      "ko": "전문 분야라 아무나 단기간에 쉽게 해낼 수 있는 일이 아닙니다.",
+      "en": "A specialized field, not a task anyone can easily accomplish quickly.",
+      "lv": 3
+    },
+    {
+      "ko": "귀가할 때는 길거리 아무 데서나 택시를 잡지 말고 앱을 쓰세요.",
+      "en": "Going home, don't hail taxis anywhere on streets but use apps.",
+      "lv": 3
+    },
+    {
+      "ko": "오지 탐험에서는 검증되지 않은 음식은 아무거나 섭취하지 않도록 유의하세요.",
+      "en": "In remote exploration, be careful not to ingest unverified foods.",
       "lv": 3
     }
   ],
@@ -10146,6 +12221,96 @@
       "ko": "복잡한 생각은 잠시 잊어버리고 좋아하는 만화책이나 보면서 머리를 식히고 싶어요.",
       "en": "Forgetting complex thoughts, I want to cool my head just reading comics.",
       "lv": 3
+    },
+    {
+      "ko": "비도 오는데 영화나 한 편 볼까요?",
+      "en": "Since it rains, shall we just watch a movie?",
+      "lv": 1
+    },
+    {
+      "ko": "배가 고프니 라면이나 끓여 먹자.",
+      "en": "Being hungry, let's just boil ramen to eat.",
+      "lv": 1
+    },
+    {
+      "ko": "할 일도 없는데 잠이나 자야겠어요.",
+      "en": "Having nothing to do, I should just sleep.",
+      "lv": 1
+    },
+    {
+      "ko": "주말에 집에서 밀린 청소나 하려고요.",
+      "en": "On the weekend, I plan to just do piled-up cleaning at home.",
+      "lv": 1
+    },
+    {
+      "ko": "날씨도 쌀쌀한데 따뜻한 국물이나 마실래요.",
+      "en": "Weather is chilly, I'll just drink warm broth.",
+      "lv": 1
+    },
+    {
+      "ko": "친구를 기다리는 동안 서점에서 책이나 읽었어.",
+      "en": "While waiting for a friend, I just read books in the bookstore.",
+      "lv": 1
+    },
+    {
+      "ko": "시간이 많이 남았으니 근처 카페에서 차나 한잔 마십시다.",
+      "en": "Much time left, let's just drink tea at a nearby cafe.",
+      "lv": 2
+    },
+    {
+      "ko": "계획이 취소되어 아쉬운 대로 동네 공원 산책이나 다녀왔어요.",
+      "en": "Plans canceled, made best of it just walking neighborhood parks.",
+      "lv": 2
+    },
+    {
+      "ko": "냉장고에 마땅한 반찬이 없어서 계란프라이나 부쳐 밥을 먹었습니다.",
+      "en": "No proper side dishes in fridge, just fried eggs and ate rice.",
+      "lv": 2
+    },
+    {
+      "ko": "생각은 잠시 접어두고 신나는 음악이나 들으며 기분을 전환해요.",
+      "en": "Putting thoughts aside, let's refresh mood just listening to music.",
+      "lv": 2
+    },
+    {
+      "ko": "표를 구하지 못했으니 아쉬운 대로 기차 여행이나 떠나야겠네요.",
+      "en": "Couldn't get tickets, so I should just leave on train trips.",
+      "lv": 2
+    },
+    {
+      "ko": "비가 쏟아져 외출을 포기하고 침대에서 낮잠이나 푹 잤어요.",
+      "en": "Raining hard, gave up outing and just took a long nap in bed.",
+      "lv": 2
+    },
+    {
+      "ko": "비행기가 취소되었으니 아쉬운 대로 공항 근처 호텔에서 휴식이나 취해야겠습니다.",
+      "en": "Flights canceled, let's just take a rest at airport hotels.",
+      "lv": 3
+    },
+    {
+      "ko": "휴가를 길게 못 냈으니 주말에 펜션에서 바비큐나 구워 먹고 올래요.",
+      "en": "Couldn't take long leave, will just roast barbecue at cabins on weekend.",
+      "lv": 3
+    },
+    {
+      "ko": "야외 행사가 취소되었으니 실내 강당에서 윷놀이나 하면서 아쉬움을 달랩시다.",
+      "en": "Outdoor events canceled, let's soothe regrets playing yutnori indoors.",
+      "lv": 3
+    },
+    {
+      "ko": "퇴근길 비도 오고 울적한데 포장마차에서 뜨끈한 어묵 국물에 떡볶이나 먹고 가야겠어요.",
+      "en": "Rain pouring on commute and feeling gloomy, will drop by stalls for fishcake soup and tteokbokki.",
+      "lv": 3
+    },
+    {
+      "ko": "눈이 피로하니 옥상에 올라가 시원한 바람이나 쐬고 내려옵시다.",
+      "en": "Eyes being fatigued, let's go up to roof and get cool breezes.",
+      "lv": 3
+    },
+    {
+      "ko": "약속이 취소되었으니 그동안 밀렸던 전자책이나 몰아서 실컷 읽을래요.",
+      "en": "Appointment canceled, will just binge read piled-up e-books.",
+      "lv": 3
     }
   ],
   "62-3": [
@@ -10207,6 +12372,96 @@
     {
       "ko": "낯선 도시에 혼자 떨어져 무섭거든 가까운 경찰서나 파출소라도 찾아가세요.",
       "en": "If scared alone in an unfamiliar city, visit at least a nearby police box.",
+      "lv": 3
+    },
+    {
+      "ko": "물이라도 한 모금 마시세요.",
+      "en": "Please drink at least a sip of water.",
+      "lv": 1
+    },
+    {
+      "ko": "잠시라도 자리에 앉아 쉬어라.",
+      "en": "Sit down and rest at least for a while.",
+      "lv": 1
+    },
+    {
+      "ko": "짧은 문자라도 한 통 보내 줘.",
+      "en": "Send at least a short text message.",
+      "lv": 1
+    },
+    {
+      "ko": "늦었지만 지금이라도 시작하면 됩니다.",
+      "en": "Though late, it's fine to start even now.",
+      "lv": 1
+    },
+    {
+      "ko": "따뜻한 국물이라도 좀 드시겠어요?",
+      "en": "Would you like to have at least some warm soup?",
+      "lv": 1
+    },
+    {
+      "ko": "사소한 성의라도 감사히 받겠습니다.",
+      "en": "I will gratefully accept even small sincerity.",
+      "lv": 1
+    },
+    {
+      "ko": "식사를 거르지 말고 김밥이라도 한 줄 사서 드세요.",
+      "en": "Don't skip meals, buy and eat at least a roll of kimbap.",
+      "lv": 2
+    },
+    {
+      "ko": "바쁘시더라도 단 오 분이라도 가벼운 스트레칭을 해 보세요.",
+      "en": "Even if busy, try doing light stretching for at least five minutes.",
+      "lv": 2
+    },
+    {
+      "ko": "얼굴을 직접 마주하지 못하더라도 안부 전화라도 자주 드립시다.",
+      "en": "Even if unable to meet face to face, let's make greeting calls at least.",
+      "lv": 2
+    },
+    {
+      "ko": "날씨가 너무 무더우니 휴대용 선풍기라도 켜서 더위를 식히세요.",
+      "en": "Weather being so sweltering, cool heat turning on at least a portable fan.",
+      "lv": 2
+    },
+    {
+      "ko": "직접 참석하지 못하면 회의 요약본이라도 메일로 보내 주세요.",
+      "en": "If you cannot attend directly, send at least meeting summaries via email.",
+      "lv": 2
+    },
+    {
+      "ko": "큰 선물은 준비하지 못했지만 작은 꽃다발이라도 드리고 싶었습니다.",
+      "en": "Couldn't prepare big gifts, but wished to give at least a small bouquet.",
+      "lv": 2
+    },
+    {
+      "ko": "넉넉히 돕지는 못하지만 작은 성금이라도 정성껏 보태고 싶습니다.",
+      "en": "Cannot help lavishly, but wish to add at least small donations.",
+      "lv": 3
+    },
+    {
+      "ko": "고향에 내려가지 못하더라도 부모님께 영상 통화라도 드려서 안부를 전하세요.",
+      "en": "Even if unable to visit hometown, make video calls at least to parents.",
+      "lv": 3
+    },
+    {
+      "ko": "갑작스러운 교통사고로 당황스럽더라도 현장 사진과 블랙박스 영상이라도 꼼꼼히 확보해 두어야 합니다.",
+      "en": "Even if flustered in accidents, secure at least site photos and dashcam footage thoroughly.",
+      "lv": 3
+    },
+    {
+      "ko": "바쁘고 피곤하더라도 하루에 삼십 분이라도 온전한 휴식 시간을 가지세요.",
+      "en": "Even if busy, take at least thirty minutes a day for complete rest.",
+      "lv": 3
+    },
+    {
+      "ko": "외국에서 길을 잃거든 당황하지 말고 가까운 파출소나 편의점이라도 찾아가 도움을 청하세요.",
+      "en": "If lost abroad, don't panic and visit at least nearby police or convenience stores for help.",
+      "lv": 3
+    },
+    {
+      "ko": "계약 체결 전에는 의심스러운 조항이 없는지 전문가에게 자문이라도 구해야 합니다.",
+      "en": "Before signing contracts, definitely seek at least consultations from experts.",
       "lv": 3
     }
   ],
@@ -10270,6 +12525,96 @@
       "ko": "취업하든지 진학하든지 자신의 적성과 꿈을 가장 먼저 고려해야 합니다.",
       "en": "Whether preparing for jobs or grad school, consider aptitude first.",
       "lv": 3
+    },
+    {
+      "ko": "가든지 머물든지 스스로 결정해라.",
+      "en": "Whether to go or stay, decide for yourself.",
+      "lv": 1
+    },
+    {
+      "ko": "차를 마시든지 커피를 마시든지 해.",
+      "en": "Whether you drink tea or coffee, do so.",
+      "lv": 1
+    },
+    {
+      "ko": "믿든지 안 믿든지 그건 진실입니다.",
+      "en": "Whether you believe it or not, that is truth.",
+      "lv": 1
+    },
+    {
+      "ko": "타든지 걷든지 마음대로 골라 보세요.",
+      "en": "Whether taking rides or walking, choose as you like.",
+      "lv": 1
+    },
+    {
+      "ko": "웃든지 울든지 솔직하게 표현하세요.",
+      "en": "Whether you laugh or cry, express honestly.",
+      "lv": 1
+    },
+    {
+      "ko": "오든지 가든지 나는 신경 안 써.",
+      "en": "Whether you come or go, I don't care.",
+      "lv": 1
+    },
+    {
+      "ko": "버스를 타든지 지하철을 타든지 도착 시간은 거의 비슷해요.",
+      "en": "Whether taking the bus or subway, arrival time is almost similar.",
+      "lv": 2
+    },
+    {
+      "ko": "식당에서 밥을 먹든지 배달을 시키든지 편한 쪽으로 정합시다.",
+      "en": "Whether eating out at restaurants or ordering delivery, decide comfortably.",
+      "lv": 2
+    },
+    {
+      "ko": "주말에 영화를 보든지 운동을 하든지 알차게 시간을 보내요.",
+      "en": "Whether watching movies or exercising on weekends, spend time fruitfully.",
+      "lv": 2
+    },
+    {
+      "ko": "인터넷으로 신청하든지 주민센터를 직접 방문하든지 기한 내에 접수하세요.",
+      "en": "Whether applying online or visiting community centers directly, submit in time.",
+      "lv": 2
+    },
+    {
+      "ko": "혼자 해결하든지 도움을 청하든지 오늘 중으로 끝내야 합니다.",
+      "en": "Whether solving alone or asking help, finish within today.",
+      "lv": 2
+    },
+    {
+      "ko": "외국어를 배우든지 악기를 배우든지 새로운 취미를 가져 봐요.",
+      "en": "Whether learning foreign languages or instruments, try having new hobbies.",
+      "lv": 2
+    },
+    {
+      "ko": "대학원에 진학하든지 취업하든지 자신의 적성과 진로를 먼저 고려해야 합니다.",
+      "en": "Whether entering grad school or finding jobs, consider aptitude first.",
+      "lv": 3
+    },
+    {
+      "ko": "온라인으로 듣든지 학원에 다니든지 매일 꾸준히 복습하는 태도가 중요합니다.",
+      "en": "Whether listening online or attending academies, reviewing daily is key.",
+      "lv": 3
+    },
+    {
+      "ko": "등산을 가든지 캠핑을 떠나든지 일기예보를 미리 꼼꼼하게 확인해야 해요.",
+      "en": "Whether hiking or camping, check weather forecasts thoroughly beforehand.",
+      "lv": 3
+    },
+    {
+      "ko": "사과를 하든지 해명을 하든지 상대방을 직접 만나 솔직하게 이야기하세요.",
+      "en": "Whether apologizing or explaining, meet directly and speak honestly.",
+      "lv": 3
+    },
+    {
+      "ko": "직접 참여하든지 측면에서 지원하든지 팀 모두가 한마음으로 뜻을 모아야 합니다.",
+      "en": "Whether participating or supporting, all team must unite in one mind.",
+      "lv": 3
+    },
+    {
+      "ko": "주식을 투자하든지 부동산을 매입하든지 철저한 위험 관리가 우선되어야 합니다.",
+      "en": "Whether investing in stocks or buying real estate, risk management comes first.",
+      "lv": 3
     }
   ],
   "62-5": [
@@ -10331,6 +12676,96 @@
     {
       "ko": "이번 휴가에는 멀리 여행을 떠나는대신에 조용한 숲속 펜션에서 온전히 휴식을 취했어요.",
       "en": "Instead of traveling far this holiday, I rested fully at a quiet cabin.",
+      "lv": 3
+    },
+    {
+      "ko": "외식하는대신에 집밥을 맛있게 먹었어요.",
+      "en": "Instead of dining out, I ate home food deliciously.",
+      "lv": 1
+    },
+    {
+      "ko": "월급이 적은대신에 출퇴근이 정말 편해요.",
+      "en": "In exchange for lower salary, commute is truly convenient.",
+      "lv": 1
+    },
+    {
+      "ko": "자전거를 타는대신에 오늘은 걸어왔습니다.",
+      "en": "Instead of riding a bicycle, I walked today.",
+      "lv": 1
+    },
+    {
+      "ko": "방이 좁은대신에 햇빛이 잘 들어요.",
+      "en": "In exchange for the room being small, sunlight enters well.",
+      "lv": 1
+    },
+    {
+      "ko": "옷이 비싼대신에 품질이 매우 훌륭합니다.",
+      "en": "In exchange for clothes being expensive, quality is great.",
+      "lv": 1
+    },
+    {
+      "ko": "커피를 마시는대신에 시원한 보리차를 마셨어요.",
+      "en": "Instead of drinking coffee, I drank cool barley tea.",
+      "lv": 1
+    },
+    {
+      "ko": "휴일에 출근해 근무하는대신에 평일에 대체 휴가를 쓰기로 했습니다.",
+      "en": "Instead of working on holidays, decided to take alternative leave on weekdays.",
+      "lv": 2
+    },
+    {
+      "ko": "위치가 외진대신에 음식 가격이 저렴하고 아주 맛있어요.",
+      "en": "In exchange for remote location, food is cheap and delicious.",
+      "lv": 2
+    },
+    {
+      "ko": "엘리베이터를 타는대신에 계단으로 걸어 올라가니 운동도 되고 상쾌하네요.",
+      "en": "Walking stairs instead of taking elevators gives exercise and feels fresh.",
+      "lv": 2
+    },
+    {
+      "ko": "자가용으로 가는대신에 지하철을 타면 길이 안 막혀요.",
+      "en": "Instead of going by car, taking the subway avoids traffic jams.",
+      "lv": 2
+    },
+    {
+      "ko": "선물을 돈으로 주는대신에 정성스러운 손편지를 직접 써서 전달했습니다.",
+      "en": "Instead of giving gifts as money, I wrote and delivered heartfelt letters.",
+      "lv": 2
+    },
+    {
+      "ko": "이 노트북은 무거운대신에 그래픽 처리 성능이 대단히 뛰어납니다.",
+      "en": "In exchange for being heavy, this laptop's graphic processing performance is superb.",
+      "lv": 2
+    },
+    {
+      "ko": "해외로 멀리 여행을 떠나는대신에 조용한 시골 한옥에서 온전히 휴식을 취하며 힐링했습니다.",
+      "en": "Instead of traveling far abroad, I healed fully resting at a quiet rural hanok.",
+      "lv": 3
+    },
+    {
+      "ko": "인스턴트 패스트푸드를 자주 사 먹는대신에 신선한 유기농 채소로 식단을 건강하게 바꿨어요.",
+      "en": "Instead of buying fast food, I healthily changed diets to fresh organic vegetables.",
+      "lv": 3
+    },
+    {
+      "ko": "신제품 개발 일정을 무리하게 앞당기는대신에 안전성 검증을 철저히 거쳐 완성도를 극대화했습니다.",
+      "en": "Instead of rushing product launch, we maximized quality through thorough safety verification.",
+      "lv": 3
+    },
+    {
+      "ko": "아파트를 분양받는대신에 쾌적한 전원주택을 지어 친환경적인 삶을 선택했습니다.",
+      "en": "Instead of buying apartments, built suburban homes choosing eco-friendly life.",
+      "lv": 3
+    },
+    {
+      "ko": "값비싼 명품 브랜드를 무분별하게 소비하는대신에 환경을 생각하는 업사이클링 제품을 애용하기로 했어요.",
+      "en": "Instead of consuming luxury brands recklessly, decided to use eco-friendly upcycled goods.",
+      "lv": 3
+    },
+    {
+      "ko": "게임에 시간을 쏟는대신에 전문 자격증 취득을 위해 공부를 시작했습니다.",
+      "en": "Instead of pouring time into games, started studying for professional licenses.",
       "lv": 3
     }
   ],
