@@ -6300,6 +6300,463 @@
     "en": "I go to school, and after class I work at a cafe and study at home at night."
    },
    "timer": 40
+  },
+  {
+   "id": "q-weather",
+   "mode": "write",
+   "lv": 1,
+   "icon": "❄️",
+   "title": {
+    "ko": "좋아하는 계절",
+    "en": "Favorite season"
+   },
+   "situation": {
+    "ko": "친구에게 가장 좋아하는 계절과 그 이유를 소개해요.",
+    "en": "Tell a friend your favorite season and the reason."
+   },
+   "cues": [
+    "무슨 계절을 좋아해요?",
+    "왜 좋아해요?"
+   ],
+   "frame": {
+    "ko": "저는 ___을 좋아해서 ___.",
+    "en": "I like ___, so ___."
+   },
+   "req": {
+    "conn": [
+     "aseo"
+    ],
+    "clauses": 2,
+    "one": true,
+    "polite": true
+   },
+   "model": {
+    "ko": "저는 겨울을 좋아해서 눈이 오기를 기다려요.",
+    "en": "I like winter, so I wait for snow to fall."
+   },
+   "bonus": {
+    "req": {
+     "conn": [
+      "aseo",
+      "go"
+     ],
+     "clauses": 3
+    },
+    "model": "저는 겨울을 좋아해서 눈이 오기를 기다리고 스키도 타요."
+   }
+  },
+  {
+   "id": "q-cafe",
+   "mode": "write",
+   "lv": 1,
+   "icon": "☕",
+   "title": {
+    "ko": "카페와 음료",
+    "en": "Cafe and drinks"
+   },
+   "situation": {
+    "ko": "카페에서 좋아하는 음료와 다른 음료를 마시는 때를 이야기해요.",
+    "en": "Talk about drinks you like at cafes and when you choose others."
+   },
+   "cues": [
+    "어떤 음료를 좋아해요?",
+    "하지만 밤에는 무엇을 마셔요?"
+   ],
+   "frame": {
+    "ko": "저는 ___를 좋아하지만 밤에는 ___.",
+    "en": "I like ___, but at night ___."
+   },
+   "req": {
+    "conn": [
+     "jiman"
+    ],
+    "clauses": 2,
+    "one": true,
+    "polite": true
+   },
+   "model": {
+    "ko": "저는 커피를 좋아하지만 밤에는 녹차를 마셔요.",
+    "en": "I like coffee, but at night I drink green tea."
+   },
+   "bonus": {
+    "req": {
+     "conn": [
+      "jiman",
+      "aseo"
+     ],
+     "clauses": 3
+    },
+    "model": "저는 커피를 좋아하지만 밤에는 잠이 안 와서 녹차를 마셔요."
+   }
+  },
+  {
+   "id": "q-exercise",
+   "mode": "write",
+   "lv": 2,
+   "icon": "🏃",
+   "title": {
+    "ko": "퇴근 후 운동",
+    "en": "Workout after work"
+   },
+   "situation": {
+    "ko": "퇴근하고 운동을 할 때의 기분을 친구에게 말해요.",
+    "en": "Tell a friend how you feel when working out after work."
+   },
+   "cues": [
+    "퇴근하고 무엇을 해요?",
+    "샤워를 하면 어때요?"
+   ],
+   "frame": {
+    "ko": "퇴근 후에 ___를 하고 ___를 하면 기분이 ___.",
+    "en": "After work I do ___, and when I do ___, I feel ___."
+   },
+   "req": {
+    "conn": [
+     "go"
+    ],
+    "clauses": 3,
+    "words": [
+     "운동",
+     "기분"
+    ],
+    "one": true,
+    "polite": true
+   },
+   "model": {
+    "ko": "퇴근 후에 운동을 하고 샤워를 하면 기분이 아주 상쾌해요.",
+    "en": "After work, I exercise and take a shower, and it feels very refreshing."
+   },
+   "bonus": {
+    "req": {
+     "clauses": 4,
+     "distinct": true
+    },
+    "model": "퇴근 후에 운동을 하고 샤워를 하면 기분이 좋아져서 푹 자요."
+   }
+  },
+  {
+   "id": "q-cook",
+   "mode": "write",
+   "lv": 2,
+   "icon": "🍳",
+   "title": {
+    "ko": "주말 요리",
+    "en": "Cooking on the weekend"
+   },
+   "situation": {
+    "ko": "주말에 집에서 직접 요리하는 장점을 동료에게 소개해요.",
+    "en": "Tell a colleague the benefits of cooking at home on weekends."
+   },
+   "cues": [
+    "주말에 무엇을 해요?",
+    "직접 하면 왜 좋아요?"
+   ],
+   "frame": {
+    "ko": "주말에는 ___ 요리를 하니까 ___.",
+    "en": "On weekends I cook ___, so ___."
+   },
+   "req": {
+    "conn": [
+     "nikka"
+    ],
+    "clauses": 3,
+    "words": [
+     "요리",
+     "맛있"
+    ],
+    "one": true,
+    "polite": true
+   },
+   "model": {
+    "ko": "주말에는 집에서 직접 요리를 하니까 돈도 아끼고 맛있어요.",
+    "en": "On weekends I cook at home myself, so I save money and it is delicious."
+   },
+   "bonus": {
+    "req": {
+     "conn": [
+      "nikka",
+      "go"
+     ],
+     "clauses": 4
+    },
+    "model": "주말에는 집에서 직접 요리를 하니까 돈도 아끼고 맛있어서 친구도 초대해요."
+   }
+  },
+  {
+   "id": "q-subway",
+   "mode": "write",
+   "lv": 2,
+   "icon": "🚇",
+   "title": {
+    "ko": "출퇴근 지하철",
+    "en": "Commuting by subway"
+   },
+   "situation": {
+    "ko": "출근길 지하철 상황과 내가 느끼는 점을 말해요.",
+    "en": "Describe the subway during morning commute and how you feel."
+   },
+   "cues": [
+    "무엇을 타요?",
+    "출근 시간에는 어때요?"
+   ],
+   "frame": {
+    "ko": "지하철을 타는데 ___ 많아서 ___.",
+    "en": "I take the subway, but because there are many ___, ___."
+   },
+   "req": {
+    "conn": [
+     "nde",
+     "aseo"
+    ],
+    "clauses": 3,
+    "words": [
+     "지하철"
+    ],
+    "one": true,
+    "polite": true
+   },
+   "model": {
+    "ko": "지하철을 타는데 출근 시간에는 사람이 많아서 조금 힘들어요.",
+    "en": "I take the subway, but during commute hours there are many people, so it is a bit tough."
+   },
+   "bonus": {
+    "req": {
+     "conn": [
+      "nde",
+      "aseo",
+      "go"
+     ],
+     "clauses": 4
+    },
+    "model": "지하철을 타는데 출근 시간에는 사람이 많아서 힘들고 음악을 들어요."
+   }
+  },
+  {
+   "id": "q-shopping",
+   "mode": "write",
+   "lv": 3,
+   "icon": "🛍️",
+   "title": {
+    "ko": "인터넷 쇼핑",
+    "en": "Online shopping"
+   },
+   "situation": {
+    "ko": "인터넷 쇼핑의 장점과 조심할 점을 후배에게 조언해요.",
+    "en": "Advise a junior on the pros and things to be careful of in online shopping."
+   },
+   "cues": [
+    "가격은 어때요?",
+    "사진과 다를 수 있나요?",
+    "어떻게 하면 실패하지 않아요?"
+   ],
+   "req": {
+    "conn": [
+     "jiman",
+     "myeon"
+    ],
+    "clauses": 4,
+    "words": [
+     "가격",
+     "사진"
+    ],
+    "one": true,
+    "distinct": true,
+    "polite": true
+   },
+   "model": {
+    "ko": "인터넷 쇼핑은 가격이 싸지만 사진과 다를 수 있으니까 후기를 꼼꼼히 읽으면 실패하지 않아요.",
+    "en": "Online shopping has cheap prices, but items can differ from photos, so if you read reviews carefully you will not fail."
+   },
+   "bonus": {
+    "req": {
+     "clauses": 5,
+     "distinct": true
+    },
+    "model": "인터넷 쇼핑은 가격이 싸지만 사진과 다를 수 있어서 후기를 읽고 사이즈를 확인하면 실패하지 않아요."
+   }
+  },
+  {
+   "id": "q-pet",
+   "mode": "write",
+   "lv": 3,
+   "icon": "🐕",
+   "title": {
+    "ko": "반려동물과의 하루",
+    "en": "A day with my pet"
+   },
+   "situation": {
+    "ko": "반려동물을 키울 때의 어려움과 함께할 때의 기쁨을 소개해요.",
+    "en": "Share the difficulties of raising a pet and the joy of being together."
+   },
+   "cues": [
+    "어떤 반려동물을 키워요?",
+    "손이 많이 가나요?",
+    "함께 산책하면 어때요?"
+   ],
+   "req": {
+    "conn": [
+     "nde",
+     "jiman"
+    ],
+    "clauses": 4,
+    "words": [
+     "강아지",
+     "행복"
+    ],
+    "one": true,
+    "distinct": true,
+    "polite": true
+   },
+   "model": {
+    "ko": "집에서 귀여운 강아지를 키우는데 손이 많이 가지만 산책을 같이하면 정말 행복해요.",
+    "en": "I raise a cute puppy at home, and while it takes a lot of care, I feel truly happy when walking together."
+   },
+   "bonus": {
+    "req": {
+     "clauses": 5,
+     "distinct": true
+    },
+    "model": "집에서 귀여운 강아지를 키우는데 손이 많이 가지만 매일 산책을 하고 놀아 주면 행복해서 힘이 나요."
+   }
+  },
+  {
+   "id": "q-vacation",
+   "mode": "write",
+   "lv": 3,
+   "icon": "🏖️",
+   "title": {
+    "ko": "여름휴가 계획",
+    "en": "Summer vacation plan"
+   },
+   "situation": {
+    "ko": "휴가 때 떠나고 싶은 여행지와 거기서 하고 싶은 활동을 말해요.",
+    "en": "Talk about your dream vacation destination and activities you want to do."
+   },
+   "cues": [
+    "어디로 가고 싶어요?",
+    "날씨가 좋으면 무엇을 해요?",
+    "어떤 시간을 보내고 싶어요?"
+   ],
+   "req": {
+    "conn": [
+     "aseo",
+     "myeon"
+    ],
+    "clauses": 4,
+    "words": [
+     "바다",
+     "휴식"
+    ],
+    "one": true,
+    "distinct": true,
+    "polite": true
+   },
+   "model": {
+    "ko": "바다를 보고 싶어서 강릉에 가는데 날씨가 좋으면 해변을 걸으며 조용하게 휴식을 즐겨요.",
+    "en": "I want to see the sea, so I am going to Gangneung, and if the weather is nice, I walk on the beach and enjoy quiet relaxation."
+   },
+   "bonus": {
+    "req": {
+     "clauses": 5,
+     "distinct": true
+    },
+    "model": "바다를 보고 싶어서 강릉에 가는데 날씨가 좋으면 해변을 걷고 커피를 마시며 휴식을 즐겨요."
+   }
+  },
+  {
+   "id": "q-interview",
+   "mode": "write",
+   "lv": 4,
+   "icon": "💼",
+   "title": {
+    "ko": "취업 면접 자기소개",
+    "en": "Interview self-introduction"
+   },
+   "situation": {
+    "ko": "면접관에게 자신의 프로젝트 경험과 극복 과정, 각오를 한 문장으로 말해요.",
+    "en": "Tell the interviewers your project experience, overcoming challenges and determination in one sentence."
+   },
+   "cues": [
+    "프로젝트에서 어떤 점이 부족했나요?",
+    "어떻게 노력해서 해결했나요?",
+    "앞으로 어떻게 일하고 싶나요?"
+   ],
+   "req": {
+    "conn": [
+     "nde",
+     "jiman",
+     "nikka"
+    ],
+    "clauses": 5,
+    "words": [
+     "경험",
+     "노력"
+    ],
+    "one": true,
+    "distinct": true,
+    "minWords": 12,
+    "polite": true
+   },
+   "model": {
+    "ko": "처음 프로젝트를 진행하는데 경험이 부족하지만 열심히 노력해서 문제를 해결했으니까 앞으로 더 잘할 수 있어요.",
+    "en": "I am working on a project for the first time and lack experience, but I worked hard and solved problems, so I can do even better in the future."
+   },
+   "bonus": {
+    "req": {
+     "clauses": 6,
+     "distinct": true,
+     "minWords": 15
+    },
+    "model": "처음 프로젝트를 진행하는데 경험이 부족하지만 열심히 노력해서 문제를 해결하고 좋은 결과를 얻었으니까 앞으로 더 잘할 수 있어요."
+   }
+  },
+  {
+   "id": "q-merge3",
+   "mode": "write",
+   "lv": 5,
+   "icon": "🧩",
+   "title": {
+    "ko": "쪼개진 문장 합치기 ③",
+    "en": "Merge the pieces ③"
+   },
+   "situation": {
+    "ko": "네 개의 짧은 문장을 한 문장으로 합쳐요. 낱말은 모두 살려요.",
+    "en": "Merge four short sentences into one. Keep every key word."
+   },
+   "cues": [
+    "도서관 · 시험 · 공부 · 합격"
+   ],
+   "source": [
+    "주말마다 도서관에 가요.",
+    "다음 달에 중요한 시험이 있어요.",
+    "열심히 공부해요.",
+    "꼭 합격할 거예요."
+   ],
+   "req": {
+    "minConns": 3,
+    "clauses": 4,
+    "words": [
+     "도서관",
+     "시험",
+     "공부",
+     "합격"
+    ],
+    "one": true,
+    "polite": true
+   },
+   "model": {
+    "ko": "주말마다 도서관에 가는데 다음 달에 중요한 시험이 있어서 열심히 공부하고 꼭 합격할 거예요.",
+    "en": "I go to the library every weekend, and because I have an important exam next month, I study hard and will surely pass."
+   },
+   "bonus": {
+    "req": {
+     "minConns": 4,
+     "words": [
+      "친구"
+     ]
+    },
+    "model": "주말마다 도서관에 가는데 다음 달에 시험이 있어서 친구를 만나고 열심히 공부해서 꼭 합격할 거예요."
+   }
   }
  ]
 }
