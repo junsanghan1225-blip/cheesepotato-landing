@@ -14,6 +14,14 @@ const D = fs.existsSync(FILE) ? JSON.parse(fs.readFileSync(FILE, 'utf8')) : {};
 const done = (id) => Array.isArray(D[id]) && D[id].length >= 9;
 const a = process.argv[2];
 if (!a) { console.error('사용: node tools/show-grammar.mjs <id | id..id | --todo 단계 | --short N [단계]>'); process.exit(1); }
+if (a === '--topik-todo') {   // 화면 「이렇게 쓰였어요」에 TOPIK 문장이 없고 TOPIK 스타일 문항(docs/grammar-topik.json)도 아직 없는 문법
+  const lv = process.argv[3] || 'all';
+  const { GRAMMAR_USAGE: U } = await import(pathToFileURL(path.join(ROOT, 'grammar-usage.js')).href);
+  const TF = path.join(ROOT, 'docs/grammar-topik.json'), TD = fs.existsSync(TF) ? JSON.parse(fs.readFileSync(TF, 'utf8')) : {};
+  const L = PTS.filter((p) => (lv === 'all' || p.lv === lv) && !U[p.id]?.length && !(TD[p.id] || []).length);
+  console.log(`${lv} — TOPIK 문장 · 문항이 아직 없는 문법 ${L.length}개: ${L.map((p) => p.id).join(' ')}`);
+  process.exit(0);
+}
 if (a === '--short') {   // 문장이 N개보다 적은 문법(늘리는 일 — 운영자 2026-10-18 「문법마다 50개」 → 우선 30개)
   const n = Number(process.argv[3] || 30), lv = process.argv[4] || 'all';
   const L = PTS.filter((p) => (lv === 'all' || p.lv === lv) && (D[p.id]?.length || 0) < n);

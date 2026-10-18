@@ -1,0 +1,33 @@
+{
+  "_note": "문법별 TOPIK 스타일 문항(안티 · Claude 검토) — 지시 docs/antigravity/antigravity-grammar-topik-task.md, 검사 node tools/check-grammar-topik.mjs. 처음 두 개는 모양 보기(Claude 가 씀).",
+  "59-1": [
+    {
+      "stem": "이 방은 넓을 ( ) 밝아요.",
+      "options": [
+        "뿐만 아니라",
+        "때문에",
+        "대신에",
+        "만큼"
+      ],
+      "answer": 0,
+      "sentence": "이 방은 넓을 뿐만 아니라 밝아요.",
+      "en": "This room is not only spacious but also bright.",
+      "why": "「-(으)ㄹ 뿐만 아니라」는 앞의 일에 뒤의 일을 더합니다. 앞뒤가 같은 방향(넓다 · 밝다)이라 알맞습니다."
+    }
+  ],
+  "11-3": [
+    {
+      "stem": "그 식당은 음식이 맛있을( ) 가격도 저렴합니다.",
+      "options": [
+        "뿐더러",
+        "때문에",
+        "는데도",
+        "더라도"
+      ],
+      "answer": 0,
+      "sentence": "그 식당은 음식이 맛있을뿐더러 가격도 저렴합니다.",
+      "en": "That restaurant's food is delicious, and the prices are low as well.",
+      "why": "「-(으)ㄹ뿐더러」는 앞의 내용에 뒤의 내용을 더할 때 씁니다. 앞말에 붙여 씁니다."
+    }
+  ]
+}
