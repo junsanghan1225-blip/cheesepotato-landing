@@ -51,11 +51,12 @@ export function grammarMarkRe(name) {
   const jam = /^[ㄴㄹㅁㅂ]/.exec(tpl);
   if (jam && !kind.startsWith('(으)ㄴ/는')) { tpl = tpl.slice(1); before = `(?<=${withF(jam[0])}${/^\s/.test(tpl) ? '\\s' : ''})`; tpl = tpl.trim(); }
   else if (kind === '아/어') { before = `(?<=${withF('')}${/^\s/.test(tpl) ? '\\s' : ''})`; }
+  const spAfterLead = /^\s/.test(tpl);   // 「-(으)ㄹ 줄 몰랐다」처럼 앞 꼴 뒤를 띄어 쓰는 문법 — 아래 trim 이 이 띄어쓰기를 지워 「올 줄」을 못 찾았다(2026-10-18)
   tpl = tpl.replace(/([가-힣]+)\/[가-힣]+/g, '$1').replace(/\?$/, '').trim();
   /* 「-(으)ㄴ/는 대로」 — 앞은 꾸미는 꼴(ㄴ 받침 · 는, /(으)ㄹ 이면 ㄹ 받침도). 「차례대로」(토씨)를 거른다 */
   if (kind.startsWith('(으)ㄴ/는')) {
     tpl = tpl.replace(/^ㄴ\/는/, '');
-    const sp = /^\s/.test(tpl) ? '\\s' : '';
+    const sp = spAfterLead ? '\\s' : '';
     before = `(?<=(?:${withF('ㄴ')}|는${kind.includes('ㄹ') ? `|${withF('ㄹ')}` : ''})${sp})`;
   }
   if (/\s/.test(tpl)) tpl = tpl.replace(/다$/, '');
