@@ -1416,5 +1416,705 @@
       "en": "Since it is a holiday, do you think there will be a lot of traffic on the road?",
       "why": "휴일 도로에 차량이 많아 정체되는 상황을 짐작해 물어볼 때 알맞은 동사는 「막히다」입니다."
     }
+  ],
+  "6-2": [
+    {
+      "stem": "경보음이 울리( ) 직원들이 질서정연하게 건물 밖으로 대피했다.",
+      "options": [
+        "자",
+        "느라고",
+        "더라도",
+        "던데"
+      ],
+      "answer": 0,
+      "sentence": "경보음이 울리자 직원들이 질서정연하게 건물 밖으로 대피했다.",
+      "en": "As soon as the alarm sounded, employees evacuated the building in an orderly manner.",
+      "why": "「-자」는 앞의 일이 끝나자마자 곧바로 뒤의 일이 이어짐을 나타내는 연결 어미입니다."
+    },
+    {
+      "stem": "새벽녘에 짙은 안개가 걷히자 저 멀리 웅장한 ( )이 모습을 드러냈다.",
+      "options": [
+        "소음",
+        "산맥",
+        "오염",
+        "갈등"
+      ],
+      "answer": 1,
+      "sentence": "새벽녘에 짙은 안개가 걷히자 저 멀리 웅장한 산맥이 모습을 드러냈다.",
+      "en": "As the thick fog cleared at dawn, the magnificent mountain range revealed itself far in the distance.",
+      "why": "안개가 걷힌 뒤 웅장하게 모습을 드러낼 수 있는 자연물은 「산맥」이 가장 알맞습니다."
+    }
+  ],
+  "7-1": [
+    {
+      "stem": "양측이 서로 양보하지 않( ) 이번 협상은 결코 타결될 수 없다.",
+      "options": [
+        "는 통에",
+        "는 한편",
+        "는 한",
+        "는 셈치고"
+      ],
+      "answer": 2,
+      "sentence": "양측이 서로 양보하지 않는 한 이번 협상은 결코 타결될 수 없다.",
+      "en": "As long as both sides do not make mutual concessions, this negotiation can never be settled.",
+      "why": "「-는 한」은 앞의 조건이나 상태가 지속되는 동안을 전제로 삼을 때 씁니다."
+    },
+    {
+      "stem": "우리가 지속적으로 연구 개발에 투자하는 한 기술적 ( ) 유지할 수 있다.",
+      "options": [
+        "한계를",
+        "격차를",
+        "오류를",
+        "우위를"
+      ],
+      "answer": 3,
+      "sentence": "우리가 지속적으로 연구 개발에 투자하는 한 기술적 우위를 유지할 수 있다.",
+      "en": "As long as we continuously invest in research and development, we can maintain technological superiority.",
+      "why": "꾸준한 투자를 통해 유지할 수 있는 긍정적인 경쟁력은 「우위」가 알맞습니다."
+    }
+  ],
+  "7-2": [
+    {
+      "stem": "모처럼 주말에 가족과 외출할( ) 하필이면 비가 쏟아진다.",
+      "options": [
+        "라치면",
+        "더라도",
+        "느라고",
+        "자마자"
+      ],
+      "answer": 0,
+      "sentence": "모처럼 주말에 가족과 외출할라치면 하필이면 비가 쏟아진다.",
+      "en": "Whenever I try to go out with my family on the weekend, it invariably pours with rain.",
+      "why": "「-(으)ㄹ라치면」은 어떤 일을 하려고 할 때마다 얄밉게 방해나 곤란한 일이 생길 때 씁니다."
+    },
+    {
+      "stem": "퇴근 후 집에서 편히 ( )라치면 회사에서 급한 연락이 걸려온다.",
+      "options": [
+        "싸울",
+        "쉴",
+        "떠날",
+        "달릴"
+      ],
+      "answer": 1,
+      "sentence": "퇴근 후 집에서 편히 쉴라치면 회사에서 급한 연락이 걸려온다.",
+      "en": "Whenever I try to rest comfortably at home after work, an urgent call comes from the company.",
+      "why": "퇴근 후 집에서 편안하게 하고자 하는 행동은 「쉬다」이므로 「쉴」이 알맞습니다."
+    }
+  ],
+  "7-3": [
+    {
+      "stem": "산 정상에서 붉게 타오르는 노을을 바라보( ) 온갖 시름이 잊혀진다.",
+      "options": [
+        "더라도",
+        "자마자",
+        "노라면",
+        "느라고"
+      ],
+      "answer": 2,
+      "sentence": "산 정상에서 붉게 타오르는 노을을 바라보노라면 온갖 시름이 잊혀진다.",
+      "en": "As I gaze at the red burning sunset from the mountain top, all worries are forgotten.",
+      "why": "「-노라면」은 어떤 행동을 계속하다 보면 자연스럽게 어떤 상태나 심경에 이르게 됨을 나타냅니다."
+    },
+    {
+      "stem": "묵묵히 자신의 자리에서 최선을 다하노라면 언젠가 반드시 ( )의 순간이 찾아온다.",
+      "options": [
+        "절망",
+        "후회",
+        "위기",
+        "영광"
+      ],
+      "answer": 3,
+      "sentence": "묵묵히 자신의 자리에서 최선을 다하노라면 언젠가 반드시 영광의 순간이 찾아온다.",
+      "en": "If you silently do your best in your place, the moment of glory will surely arrive someday.",
+      "why": "자신의 자리에서 묵묵히 노력하여 맞이하게 될 보람찬 순간은 「영광」이 가장 알맞습니다."
+    }
+  ],
+  "7-5": [
+    {
+      "stem": "주어진 환경을 어떻게 활용하는가는 전적으로 각자가 노력하( )다.",
+      "options": [
+        "기 나름이",
+        "는 셈이",
+        "는 편이",
+        "는 김이"
+      ],
+      "answer": 0,
+      "sentence": "주어진 환경을 어떻게 활용하는가는 전적으로 각자가 노력하기 나름이다.",
+      "en": "How one utilizes the given environment depends entirely on how hard each person tries.",
+      "why": "「-기 나름이다」는 어떤 행동이나 방식에 따라 결과가 달라짐을 나타냅니다."
+    },
+    {
+      "stem": "동일한 상황이라도 개인이 어떻게 ( )하기 나름이다.",
+      "options": [
+        "포기",
+        "해석",
+        "방해",
+        "외면"
+      ],
+      "answer": 1,
+      "sentence": "동일한 상황이라도 개인이 어떻게 해석하기 나름이다.",
+      "en": "Even in the same situation, it depends entirely on how an individual interprets it.",
+      "why": "상황을 바라보고 이해하는 방식을 뜻하는 「해석」이 문맥상 가장 알맞습니다."
+    }
+  ],
+  "8-1": [
+    {
+      "stem": "선배는 선배( ) 후배는 후배대로 각자의 위치에서 최선을 다해야 한다.",
+      "options": [
+        "에게",
+        "마저",
+        "대로",
+        "조차"
+      ],
+      "answer": 2,
+      "sentence": "선배는 선배대로 후배는 후배대로 각자의 위치에서 최선을 다해야 한다.",
+      "en": "Seniors in their own way and juniors in theirs must do their best in their respective positions.",
+      "why": "「은/는 대로」는 앞에 나온 명사를 반복하여 각각 저마다의 사정이나 위치가 따로 있음을 나타냅니다."
+    },
+    {
+      "stem": "부모는 부모대로 자녀는 자녀대로 서로에 대한 ( ) 표현해야 한다.",
+      "options": [
+        "간섭을",
+        "비난을",
+        "원망을",
+        "감사를"
+      ],
+      "answer": 3,
+      "sentence": "부모는 부모대로 자녀는 자녀대로 서로에 대한 감사를 표현해야 한다.",
+      "en": "Parents in their own way and children in theirs should express gratitude toward each other.",
+      "why": "가족 간에 서로에게 전해야 할 긍정적이고 올바른 마음은 「감사」가 가장 알맞습니다."
+    }
+  ],
+  "8-2": [
+    {
+      "stem": "서점에 들러 전공 서적을 사( ) 읽고 싶었던 소설도 골랐다.",
+      "options": [
+        "는 김에",
+        "는 셈치고",
+        "는 통에",
+        "는 한편"
+      ],
+      "answer": 0,
+      "sentence": "서점에 들러 전공 서적을 사는 김에 읽고 싶었던 소설도 골랐다.",
+      "en": "While stopping by the bookstore to buy a major textbook, I also picked out a novel I had wanted to read.",
+      "why": "「-는 김에」는 어떤 주된 일을 하는 기회에 다른 일을 곁들여 함께 함을 나타냅니다."
+    },
+    {
+      "stem": "주말을 맞아 집 안을 대청소하는 김에 겨우내 묵은 ( ) 깨끗이 빨았다.",
+      "options": [
+        "쓰레기를",
+        "이불을",
+        "비리를",
+        "낙서를"
+      ],
+      "answer": 1,
+      "sentence": "주말을 맞아 집 안을 대청소하는 김에 겨우내 묵은 이불을 깨끗이 빨았다.",
+      "en": "Taking the opportunity of spring cleaning the house over the weekend, I thoroughly washed the bedclothes used throughout the winter.",
+      "why": "대청소할 때 빨래하여 깨끗하게 할 수 있는 침구류는 「이불」이 알맞습니다."
+    }
+  ],
+  "9-1": [
+    {
+      "stem": "부모님이 자식을 위해 온 정성을 쏟으셨( ) 자식은 부모의 뜻을 몰라주었다.",
+      "options": [
+        "자마자",
+        "더라도",
+        "건만",
+        "느라고"
+      ],
+      "answer": 2,
+      "sentence": "부모님이 자식을 위해 온 정성을 쏟으셨건만 자식은 부모의 뜻을 몰라주었다.",
+      "en": "Although the parents poured all their devotion into their child, the child failed to appreciate their intentions.",
+      "why": "「-건만」은 앞의 사실이나 기대와 달리 뒤에 서운하고 아쉬운 결과가 이어짐을 나타내는 문어체 표현입니다."
+    },
+    {
+      "stem": "철저한 보안 시스템을 갖추었건만 뜻밖의 ( ) 사고가 발생하고 말았다.",
+      "options": [
+        "승진",
+        "환영",
+        "포상",
+        "해킹"
+      ],
+      "answer": 3,
+      "sentence": "철저한 보안 시스템을 갖추었건만 뜻밖의 해킹 사고가 발생하고 말았다.",
+      "en": "Although a thorough security system was put in place, an unexpected hacking accident occurred.",
+      "why": "보안 시스템에도 불구하고 발생하는 전자적 침해 사고는 「해킹」이 알맞습니다."
+    }
+  ],
+  "9-3": [
+    {
+      "stem": "치열한 경쟁률( ) 지원자는 당당히 최종 면접에 합격했다.",
+      "options": [
+        "임에도 불구하고",
+        "에 비해서",
+        "에 못지않게",
+        "에 힘입어"
+      ],
+      "answer": 0,
+      "sentence": "치열한 경쟁률임에도 불구하고 지원자는 당당히 최종 면접에 합격했다.",
+      "en": "Despite the fierce competition rate, the applicant confidently passed the final interview.",
+      "why": "「-(으)ㅁ에도 불구하고」는 앞의 불리한 조건이나 방해에도 굴하지 않고 뒤의 결과가 일어남을 격식 있게 나타냅니다."
+    },
+    {
+      "stem": "충분한 사전 준비를 거쳤음에도 불구하고 현장에서 예기치 못한 ( ) 발생했다.",
+      "options": [
+        "호평이",
+        "오류가",
+        "칭찬이",
+        "성공이"
+      ],
+      "answer": 1,
+      "sentence": "충분한 사전 준비를 거쳤음에도 불구하고 현장에서 예기치 못한 오류가 발생했다.",
+      "en": "Despite having undergone thorough prior preparation, an unexpected error occurred on site.",
+      "why": "철저히 준비했음에도 불구하고 현장에서 발생할 수 있는 부정적인 돌발 상황은 「오류」가 알맞습니다."
+    }
+  ],
+  "10-1": [
+    {
+      "stem": "아침 햇살이 창문을 통해 방 안을 환하게 비추( ) 희망찬 새날이 밝았다.",
+      "options": [
+        "자마자",
+        "더라도",
+        "듯이",
+        "느라고"
+      ],
+      "answer": 2,
+      "sentence": "아침 햇살이 창문을 통해 방 안을 환하게 비추듯이 희망찬 새날이 밝았다.",
+      "en": "Just as the morning sunlight brightly illuminates the room through the window, a hopeful new day has dawned.",
+      "why": "「-듯이」는 앞의 사실이나 상태를 빗대어 뒤의 내용과 흡사함을 나타내는 비유 표현입니다."
+    },
+    {
+      "stem": "시간이 멈추지 않고 흘러가듯이 우리의 인생도 끊임없이 ( )하고 있다.",
+      "options": [
+        "퇴보",
+        "정체",
+        "단절",
+        "변화"
+      ],
+      "answer": 3,
+      "sentence": "시간이 멈추지 않고 흘러가듯이 우리의 인생도 끊임없이 변화하고 있다.",
+      "en": "Just as time flows without stopping, our lives are also continuously changing.",
+      "why": "시간의 흐름처럼 멈추지 않고 계속해서 바뀌어 나아가는 모습을 뜻하는 「변화」가 가장 알맞습니다."
+    }
+  ],
+  "10-2": [
+    {
+      "stem": "그 선수는 부상 이후 매일 훈련장에서 살( ) 하며 재기에 성공했다.",
+      "options": [
+        "다시피",
+        "자마자",
+        "더라도",
+        "느라고"
+      ],
+      "answer": 0,
+      "sentence": "그 선수는 부상 이후 매일 훈련장에서 살다시피 하며 재기에 성공했다.",
+      "en": "After his injury, that athlete practically lived in the training camp every day and succeeded in making a comeback.",
+      "why": "「-다시피 하다」는 실제로 그러한 것은 아니지만 거의 그와 다름없는 상태임을 나타냅니다."
+    },
+    {
+      "stem": "수험생은 시험 직전에 핵심 요약 노트를 통째로 ( )다시피 하며 복습했다.",
+      "options": [
+        "버리",
+        "외우",
+        "태우",
+        "찢"
+      ],
+      "answer": 1,
+      "sentence": "수험생은 시험 직전에 핵심 요약 노트를 통째로 외우다시피 하며 복습했다.",
+      "en": "Right before the exam, the test-taker reviewed by practically memorizing the key summary notes entirely.",
+      "why": "요약 노트를 통째로 머릿속에 집어넣는 복습 행동은 「외우다」이므로 「외우」가 알맞습니다."
+    }
+  ],
+  "11-1": [
+    {
+      "stem": "이 도시는 교통망이 편리하( ) 문화 시설도 잘 갖추어져 있어 살기 좋다.",
+      "options": [
+        "더라도",
+        "자마자",
+        "거니와",
+        "느라고"
+      ],
+      "answer": 2,
+      "sentence": "이 도시는 교통망이 편리하거니와 문화 시설도 잘 갖추어져 있어 살기 좋다.",
+      "en": "This city not only has convenient transportation networks, but also well-equipped cultural facilities, making it a good place to live.",
+      "why": "「-거니와」는 앞의 사실을 인정하면서 거기에 더하여 뒤의 사실을 덧붙여 말할 때 씁니다."
+    },
+    {
+      "stem": "그 지원자는 실무 경력이 풍부하거니와 원활한 ( ) 능력까지 겸비하고 있다.",
+      "options": [
+        "지각",
+        "불화",
+        "단절",
+        "소통"
+      ],
+      "answer": 3,
+      "sentence": "그 지원자는 실무 경력이 풍부하거니와 원활한 소통 능력까지 겸비하고 있다.",
+      "en": "That applicant not only has abundant practical experience, but also possesses smooth communication skills.",
+      "why": "원활하게 이루어지는 긍정적인 대인관계 및 업무 능력은 「소통」이 알맞습니다."
+    }
+  ],
+  "11-4": [
+    {
+      "stem": "회의 시간에 자유롭게 발언하( ) 타인의 인격을 존중해야 한다.",
+      "options": [
+        "되",
+        "자",
+        "느라고",
+        "더라도"
+      ],
+      "answer": 0,
+      "sentence": "회의 시간에 자유롭게 발언하되 타인의 인격을 존중해야 한다.",
+      "en": "You may speak freely during the meeting, but you must respect the dignity of others.",
+      "why": "「-되」는 앞의 내용을 허용하거나 인정하면서 뒤에 일정한 제한이나 조건을 덧붙일 때 씁니다."
+    },
+    {
+      "stem": "신제품에 대한 참신한 아이디어를 제안하되 실현 ( ) 반드시 고려해야 한다.",
+      "options": [
+        "위험을",
+        "가능성을",
+        "손실을",
+        "오류를"
+      ],
+      "answer": 1,
+      "sentence": "신제품에 대한 참신한 아이디어를 제안하되 실현 가능성을 반드시 고려해야 한다.",
+      "en": "Propose creative ideas for the new product, but you must definitely consider feasibility.",
+      "why": "아이디어가 실제로 구현될 수 있는지 따져보는 조건은 「가능성」이 알맞습니다."
+    }
+  ],
+  "11-5": [
+    {
+      "stem": "폭설로 인해 시내버스는 물론 마지막 지하철( ) 운행을 중단했다.",
+      "options": [
+        "치고",
+        "에게",
+        "마저",
+        "대로"
+      ],
+      "answer": 2,
+      "sentence": "폭설로 인해 시내버스는 물론 마지막 지하철마저 운행을 중단했다.",
+      "en": "Due to the heavy snow, not to mention city buses, even the last subway suspended operations.",
+      "why": "「마저」는 이미 어떤 상황에 더하여 마지막 남은 하나까지 포함됨을 나타내는 보조사입니다."
+    },
+    {
+      "stem": "믿었던 동료마저 회사를 떠나자 부서 전체에 깊은 ( ) 감돌았다.",
+      "options": [
+        "활기가",
+        "안도감이",
+        "자신감이",
+        "상실감이"
+      ],
+      "answer": 3,
+      "sentence": "믿었던 동료마저 회사를 떠나자 부서 전체에 깊은 상실감이 감돌았다.",
+      "en": "When even the trusted colleague left the company, a deep sense of loss hung over the entire department.",
+      "why": "소중한 동료마저 떠났을 때 구성원들이 느끼는 슬프고 허전한 마음은 「상실감」이 알맞습니다."
+    }
+  ],
+  "11-6": [
+    {
+      "stem": "한국( ) 아시아 여러 국가가 이번 기후변화 협약에 서명했다.",
+      "options": [
+        "을 비롯해서",
+        "을 대신해서",
+        "을 피해서",
+        "을 넘어서"
+      ],
+      "answer": 0,
+      "sentence": "한국을 비롯해서 아시아 여러 국가가 이번 기후변화 협약에 서명했다.",
+      "en": "Several Asian countries, including South Korea, signed this climate change agreement.",
+      "why": "「을/를 비롯해서」는 여럿 가운데 대표적인 대상을 먼저 내세울 때 씁니다."
+    },
+    {
+      "stem": "이번 자선 바자회에는 지역 주민들을 비롯해서 많은 ( ) 참여했다.",
+      "options": [
+        "비판자가",
+        "자원봉사자가",
+        "구경꾼이",
+        "방관자가"
+      ],
+      "answer": 1,
+      "sentence": "이번 자선 바자회에는 지역 주민들을 비롯해서 많은 자원봉사자가 참여했다.",
+      "en": "Many volunteers, including local residents, participated in this charity bazaar.",
+      "why": "자선 바자회를 돕기 위해 적극적으로 참여할 사람들은 「자원봉사자」가 가장 알맞습니다."
+    }
+  ],
+  "12-1": [
+    {
+      "stem": "옆집 공사장에서 하루 종일 시끄럽게 쿵쿵거려 ( ) 두통이 생겼다.",
+      "options": [
+        "자마자",
+        "더라도",
+        "대서",
+        "느라고"
+      ],
+      "answer": 2,
+      "sentence": "옆집 공사장에서 하루 종일 시끄럽게 쿵쿵거려 대서 두통이 생겼다.",
+      "en": "Because the neighboring construction site kept banging noisily all day long, I got a headache.",
+      "why": "「-아/어 대다」는 같은 행동을 지나칠 정도로 심하게 반복함을 부정적으로 나타낼 때 씁니다."
+    },
+    {
+      "stem": "경기장에서 관중들이 심판의 부당한 판정에 거세게 ( ) 퍼부어 댔다.",
+      "options": [
+        "칭찬을",
+        "격려를",
+        "환호를",
+        "항의를"
+      ],
+      "answer": 3,
+      "sentence": "경기장에서 관중들이 심판의 부당한 판정에 거세게 항의를 퍼부어 댔다.",
+      "en": "In the stadium, spectators poured fierce protests against the referee's unfair decision.",
+      "why": "심판의 부당한 판정에 맞서 관중들이 강하게 쏟아낼 수 있는 것은 「항의」가 알맞습니다."
+    }
+  ],
+  "12-2": [
+    {
+      "stem": "검토 과정을 소홀히 하면 중요한 세부 사항을 놓치( )다.",
+      "options": [
+        "기 일쑤이",
+        "는 셈이",
+        "는 편이",
+        "기 나름이"
+      ],
+      "answer": 0,
+      "sentence": "검토 과정을 소홀히 하면 중요한 세부 사항을 놓치기 일쑤이다.",
+      "en": "If you neglect the review process, you are prone to missing important details.",
+      "why": "「-기 일쑤이다」는 좋지 않은 일이나 실수가 빈번하게 일어남을 나타냅니다."
+    },
+    {
+      "stem": "초보 운전자는 좁은 골목길에서 다른 차량과 ( )하기 일쑤이다.",
+      "options": [
+        "화해",
+        "접촉",
+        "경쟁",
+        "협력"
+      ],
+      "answer": 1,
+      "sentence": "초보 운전자는 좁은 골목길에서 다른 차량과 접촉하기 일쑤이다.",
+      "en": "Novice drivers are prone to having contact collisions with other vehicles in narrow alleyways.",
+      "why": "좁은 길에서 운전 미숙으로 차끼리 부딪히는 가벼운 사고를 뜻하는 「접촉」이 알맞습니다."
+    }
+  ],
+  "12-3": [
+    {
+      "stem": "시간에 쫓긴 직원은 점심을 먹( ) 하고 곧장 사무실로 복귀했다.",
+      "options": [
+        "는 한편",
+        "는 바람에",
+        "는 둥 마는 둥",
+        "는 셈치고"
+      ],
+      "answer": 2,
+      "sentence": "시간에 쫓긴 직원은 점심을 먹는 둥 마는 둥 하고 곧장 사무실로 복귀했다.",
+      "en": "Pressed for time, the employee barely ate lunch and returned straight to the office.",
+      "why": "「-는 둥 마는 둥 하다」는 어떤 행동을 제대로 하지 않고 건성으로 대충 넘김을 나타냅니다."
+    },
+    {
+      "stem": "학생은 텔레비전을 켜 놓은 채 숙제를 하는 둥 마는 둥 하더니 결국 ( ) 받았다.",
+      "options": [
+        "상장을",
+        "칭찬을",
+        "장학금을",
+        "꾸중을"
+      ],
+      "answer": 3,
+      "sentence": "학생은 텔레비전을 켜 놓은 채 숙제를 하는 둥 마는 둥 하더니 결국 꾸중을 받았다.",
+      "en": "The student barely did homework with the TV turned on, and eventually got scolded.",
+      "why": "숙제를 성의 없이 건성으로 하다가 받게 되는 부정적인 질책은 「꾸중」이 알맞습니다."
+    }
+  ],
+  "13-1": [
+    {
+      "stem": "그 신인가수는 신인이라 믿기지 않( ) 뛰어난 무대 장악력을 보여주었다.",
+      "options": [
+        "으리만치",
+        "더라도",
+        "자마자",
+        "느라고"
+      ],
+      "answer": 0,
+      "sentence": "그 신인가수는 신인이라 믿기지 않으리만치 뛰어난 무대 장악력을 보여주었다.",
+      "en": "That rookie singer showed outstanding stage presence, so much so that it was hard to believe he was a rookie.",
+      "why": "「-(으)리만치」는 그 정도로 심하거나 대단함을 나타내는 문어적인 정도 표현입니다."
+    },
+    {
+      "stem": "산골 마을의 밤하늘에는 눈이 시리만치 영롱한 ( ) 총총히 떠 있었다.",
+      "options": [
+        "구름이",
+        "별빛이",
+        "안개가",
+        "연기가"
+      ],
+      "answer": 1,
+      "sentence": "산골 마을의 밤하늘에는 눈이 시리만치 영롱한 별빛이 총총히 떠 있었다.",
+      "en": "In the night sky of the mountain village, bright starlight, dazzling enough to make one's eyes ache, was dotted densely.",
+      "why": "맑은 밤하늘에 영롱하고 눈부시게 빛나는 것은 「별빛」이 가장 어울립니다."
+    }
+  ],
+  "13-2": [
+    {
+      "stem": "계속되는 부당한 처우를 참( ) 노동자들은 결국 파업에 돌입했다.",
+      "options": [
+        "느라고",
+        "자마자",
+        "다 못해",
+        "더라도"
+      ],
+      "answer": 2,
+      "sentence": "계속되는 부당한 처우를 참다 못해 노동자들은 결국 파업에 돌입했다.",
+      "en": "Unable to endure the continuous unfair treatment any longer, the workers eventually went on strike.",
+      "why": "「-다 못해」는 어떤 상태나 행동이 한계에 이르러 더 이상 견디지 못하고 극단적인 행동을 취할 때 씁니다."
+    },
+    {
+      "stem": "아이의 얼굴이 질병의 고통으로 하얗다 못해 ( ) 빛을 띠고 있었다.",
+      "options": [
+        "붉은",
+        "노란",
+        "검은",
+        "파란"
+      ],
+      "answer": 3,
+      "sentence": "아이의 얼굴이 질병의 고통으로 하얗다 못해 파란 빛을 띠고 있었다.",
+      "en": "The child's face, suffering from the pain of illness, was beyond pale and took on a bluish hue.",
+      "why": "극심한 고통이나 공포로 얼굴에 핏기가 완전히 가신 상태를 표현할 때는 '파란 빛'이 어울립니다."
+    }
+  ],
+  "14-1": [
+    {
+      "stem": "친구에게 메시지를 보낸( ) 실수로 회사 단체 대화방에 올려 버렸다.",
+      "options": [
+        "다는 것이",
+        "다시피",
+        "자마자",
+        "더라도"
+      ],
+      "answer": 0,
+      "sentence": "친구에게 메시지를 보낸다는 것이 실수로 회사 단체 대화방에 올려 버렸다.",
+      "en": "Intending to send a message to a friend, by mistake I posted it in the company group chat.",
+      "why": "「-(느)ㄴ다는 것이」는 원래 하려던 의도와 달리 엉뚱하거나 실수로 다른 행동을 했을 때 씁니다."
+    },
+    {
+      "stem": "컴퓨터 화면의 저장 버튼을 누른다는 것이 실수로 ( ) 버튼을 눌러 버렸다.",
+      "options": [
+        "복사",
+        "삭제",
+        "수정",
+        "인쇄"
+      ],
+      "answer": 1,
+      "sentence": "컴퓨터 화면의 저장 버튼을 누른다는 것이 실수로 삭제 버튼을 눌러 버렸다.",
+      "en": "Intending to press the save button on the computer screen, I accidentally pressed the delete button.",
+      "why": "저장하려다 실수로 눌렀을 때 작업 내용이 사라질 수 있는 반대 성격의 버튼은 「삭제」입니다."
+    }
+  ],
+  "14-2": [
+    {
+      "stem": "회의 중에 의견을 말하( ) 분위기가 너무 무거워서 참았다.",
+      "options": [
+        "느라고",
+        "자마자",
+        "려다 말고",
+        "더라도"
+      ],
+      "answer": 2,
+      "sentence": "회의 중에 의견을 말하려다 말고 분위기가 너무 무거워서 참았다.",
+      "en": "I was about to state my opinion during the meeting, but stopped because the atmosphere was too heavy.",
+      "why": "「-(으)려다 말다」는 어떤 행동을 하려고 마음먹었다가 도중에 그만두었음을 나타냅니다."
+    },
+    {
+      "stem": "백화점에서 마음에 드는 코트를 구입하려다 말고 가격이 너무 ( ) 그냥 나왔다.",
+      "options": [
+        "저렴해서",
+        "적당해서",
+        "괜찮아서",
+        "비싸서"
+      ],
+      "answer": 3,
+      "sentence": "백화점에서 마음에 드는 코트를 구입하려다 말고 가격이 너무 비싸서 그냥 나왔다.",
+      "en": "I was about to buy a coat I liked at the department store, but stopped and just walked out because the price was too expensive.",
+      "why": "물건을 사려다가 중간에 그만두고 나온 이유로 가장 적절한 것은 가격이 「비싸서」입니다."
+    }
+  ],
+  "14-3": [
+    {
+      "stem": "오후부터 하늘이 잔뜩 흐려지( ) 결국 장대비가 세차게 쏟아졌다.",
+      "options": [
+        "려더니",
+        "더라도",
+        "자마자",
+        "느라고"
+      ],
+      "answer": 0,
+      "sentence": "오후부터 하늘이 잔뜩 흐려지려더니 결국 장대비가 세차게 쏟아졌다.",
+      "en": "The sky was getting completely overcast in the afternoon, and eventually heavy rain poured down.",
+      "why": "「-(으)려더니」는 앞서 어떤 일이 일어날 조짐을 보이더니 결국 그렇게 되었음을 나타냅니다."
+    },
+    {
+      "stem": "동생이 주말에 방 청소를 하려더니 책상 위만 대충 치우고 ( ) 보러 나갔다.",
+      "options": [
+        "벌금을",
+        "영화를",
+        "세금을",
+        "시험을"
+      ],
+      "answer": 1,
+      "sentence": "동생이 주말에 방 청소를 하려더니 책상 위만 대충 치우고 영화를 보러 나갔다.",
+      "en": "My younger sibling intended to clean the room over the weekend, but just tidied the desk roughly and went out to watch a movie.",
+      "why": "청소를 대충 하고 밖으로 나가서 즐길 수 있는 문화생활은 「영화」가 알맞습니다."
+    }
+  ],
+  "15-1": [
+    {
+      "stem": "그는 이번 사건의 전말을 이미 훤히 다 아( ) 태연하게 미소를 지었다.",
+      "options": [
+        "는 통에",
+        "는 한편",
+        "는 듯이",
+        "는 셈치고"
+      ],
+      "answer": 2,
+      "sentence": "그는 이번 사건의 전말을 이미 훤히 다 아는 듯이 태연하게 미소를 지었다.",
+      "en": "He calmly smiled as if he already knew the full story of this incident thoroughly.",
+      "why": "「-는 듯이」는 마치 실제로 그러한 것처럼 태도나 행동을 취함을 비유적으로 나타냅니다."
+    },
+    {
+      "stem": "그는 아무것도 모르는 듯이 천진난만한 ( ) 지으며 고개를 갸웃거렸다.",
+      "options": [
+        "분노를",
+        "비난을",
+        "원망을",
+        "표정을"
+      ],
+      "answer": 3,
+      "sentence": "그는 아무것도 모르는 듯이 천진난만한 표정을 지으며 고개를 갸웃거렸다.",
+      "en": "As if knowing nothing, he tilted his head with an innocent expression.",
+      "why": "천진난만하게 짓는 얼굴 모양을 나타내는 말은 「표정」이 알맞습니다."
+    }
+  ],
+  "15-2": [
+    {
+      "stem": "그는 이번 제안에 전적으로 동의한( ) 고개를 깊게 끄덕였다.",
+      "options": [
+        "다는 듯이",
+        "다시피",
+        "자마자",
+        "더라도"
+      ],
+      "answer": 0,
+      "sentence": "그는 이번 제안에 전적으로 동의한다는 듯이 고개를 깊게 끄덕였다.",
+      "en": "As if agreeing entirely with this proposal, he nodded his head deeply.",
+      "why": "「-(느)ㄴ다는 듯이」는 말 대신 행동이나 표정으로 어떤 뜻을 넌지시 드러낼 때 씁니다."
+    },
+    {
+      "stem": "어려운 과제를 성공적으로 완수한 아이는 ( )한다는 듯이 어깨를 으쓱거렸다.",
+      "options": [
+        "자책",
+        "자랑",
+        "후회",
+        "비관"
+      ],
+      "answer": 1,
+      "sentence": "어려운 과제를 성공적으로 완수한 아이는 자랑한다는 듯이 어깨를 으쓱거렸다.",
+      "en": "Having successfully completed a difficult assignment, the child shrugged shoulders proudly as if boasting.",
+      "why": "과제를 마친 뒤 뿌듯하고 의기양양하게 어깨를 으쓱이는 태도는 「자랑」이 가장 어울립니다."
+    }
   ]
 }
