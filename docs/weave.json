@@ -6300,6 +6300,259 @@
     "en": "I go to school, and after class I work at a cafe and study at home at night."
    },
    "timer": 40
+  },
+  {
+   "id": "s-my-room",
+   "mode": "speak",
+   "lv": 2,
+   "icon": "🛏️",
+   "title": {
+    "ko": "내 방 소개",
+    "en": "My room"
+   },
+   "situation": {
+    "ko": "40초 안에 쉬지 않고, 이음말 두 개 이상으로 이어 말해요.",
+    "en": "Speak for up to 40 seconds without stopping, linking with two or more endings."
+   },
+   "req": {
+    "clauses": 3,
+    "minConns": 2,
+    "one": true,
+    "polite": true
+   },
+   "model": {
+    "ko": "제 방은 조금 작지만 아늑하고 창문이 커서 낮에는 햇빛이 아주 잘 들어와요.",
+    "en": "My room is a bit small but cozy, and the window is large, so sunlight comes in very well during the day."
+   },
+   "timer": 40
+  },
+  {
+   "id": "s-fav-food",
+   "mode": "speak",
+   "lv": 2,
+   "icon": "🍲",
+   "title": {
+    "ko": "좋아하는 한국 음식",
+    "en": "Favorite Korean food"
+   },
+   "situation": {
+    "ko": "40초 안에 쉬지 않고, 이음말 두 개 이상으로 이어 말해요.",
+    "en": "Speak for up to 40 seconds without stopping, linking with two or more endings."
+   },
+   "req": {
+    "clauses": 3,
+    "minConns": 2,
+    "one": true,
+    "polite": true
+   },
+   "model": {
+    "ko": "저는 매운 김치찌개를 아주 좋아하는데 국물이 시원하고 고기도 맛있어서 자주 먹어요.",
+    "en": "I really like spicy kimchi stew; the broth is refreshing and the meat is tasty, so I eat it often."
+   },
+   "timer": 40
+  },
+  {
+   "id": "s-hobby-free",
+   "mode": "speak",
+   "lv": 2,
+   "icon": "🎮",
+   "title": {
+    "ko": "주말 취미 생활",
+    "en": "Weekend hobbies"
+   },
+   "situation": {
+    "ko": "40초 안에 쉬지 않고, 이음말 두 개 이상으로 이어 말해요.",
+    "en": "Speak for up to 40 seconds without stopping, linking with two or more endings."
+   },
+   "req": {
+    "clauses": 3,
+    "minConns": 2,
+    "one": true,
+    "polite": true
+   },
+   "model": {
+    "ko": "주말에는 집에서 음악을 듣고 쉬는데 날씨가 좋으면 밖으로 나가서 자전거를 타요.",
+    "en": "On weekends I listen to music and rest at home, but if the weather is nice, I go outside and ride a bicycle."
+   },
+   "timer": 40
+  },
+  {
+   "id": "s-best-travel",
+   "mode": "speak",
+   "lv": 3,
+   "icon": "✈️",
+   "title": {
+    "ko": "가장 기억에 남는 여행",
+    "en": "Most memorable trip"
+   },
+   "situation": {
+    "ko": "40초 안에 쉬지 않고, 이음말 세 개 이상으로 이어 말해요.",
+    "en": "Speak for up to 40 seconds without stopping, linking with three or more endings."
+   },
+   "req": {
+    "clauses": 4,
+    "minConns": 3,
+    "one": true,
+    "polite": true
+   },
+   "model": {
+    "ko": "작년에 친구들과 부산에 놀러 갔는데 푸른 바다가 예쁘고 음식도 맛있어서 정말 잊을 수 없어요.",
+    "en": "Last year I visited Busan with friends; the blue sea was pretty and the food was delicious, so I truly cannot forget it."
+   },
+   "timer": 40
+  },
+  {
+   "id": "s-exercise-routine",
+   "mode": "speak",
+   "lv": 3,
+   "icon": "🏃",
+   "title": {
+    "ko": "나의 운동 습관",
+    "en": "My workout routine"
+   },
+   "situation": {
+    "ko": "40초 안에 쉬지 않고, 이음말 세 개 이상으로 이어 말해요.",
+    "en": "Speak for up to 40 seconds without stopping, linking with three or more endings."
+   },
+   "req": {
+    "clauses": 4,
+    "minConns": 3,
+    "one": true,
+    "polite": true
+   },
+   "model": {
+    "ko": "아침마다 공원에서 조깅을 하는데 처음에는 힘들었지만 매일 달리니까 체력이 좋아져서 하루가 활기차요.",
+    "en": "I jog in the park every morning; it was hard at first, but running daily improved my stamina, so my day is energetic."
+   },
+   "timer": 40
+  },
+  {
+   "id": "s-weekend-plan",
+   "mode": "speak",
+   "lv": 3,
+   "icon": "📅",
+   "title": {
+    "ko": "이번 주말 계획",
+    "en": "Plans for this weekend"
+   },
+   "situation": {
+    "ko": "40초 안에 쉬지 않고, 이음말 세 개 이상으로 이어 말해요.",
+    "en": "Speak for up to 40 seconds without stopping, linking with three or more endings."
+   },
+   "req": {
+    "clauses": 4,
+    "minConns": 3,
+    "one": true,
+    "polite": true
+   },
+   "model": {
+    "ko": "이번 주말에는 친구 생일 파티가 있어서 백화점에 가는데 예쁜 선물을 사고 케이크도 함께 먹을 거예요.",
+    "en": "This weekend is my friend's birthday party, so I will go to the department store, buy a nice gift, and eat cake together."
+   },
+   "timer": 40
+  },
+  {
+   "id": "s-cafe-life",
+   "mode": "speak",
+   "lv": 3,
+   "icon": "☕",
+   "title": {
+    "ko": "내가 자주 가는 카페",
+    "en": "My favorite cafe"
+   },
+   "situation": {
+    "ko": "40초 안에 쉬지 않고, 이음말 세 개 이상으로 이어 말해요.",
+    "en": "Speak for up to 40 seconds without stopping, linking with three or more endings."
+   },
+   "req": {
+    "clauses": 4,
+    "minConns": 3,
+    "one": true,
+    "polite": true
+   },
+   "model": {
+    "ko": "집 근처 골목에 작은 카페가 있는데 분위기가 아늑하고 음악도 좋아서 주말마다 책을 읽으러 가요.",
+    "en": "There is a small cafe in the alley near my house; the atmosphere is cozy and the music is nice, so I go read every weekend."
+   },
+   "timer": 40
+  },
+  {
+   "id": "s-worry-now",
+   "mode": "speak",
+   "lv": 4,
+   "icon": "💭",
+   "title": {
+    "ko": "요즘 하고 있는 고민",
+    "en": "My current worries"
+   },
+   "situation": {
+    "ko": "40초 안에 쉬지 않고, 이음말 세 개 이상으로 이어 말해요.",
+    "en": "Speak for up to 40 seconds without stopping, linking with three or more endings."
+   },
+   "req": {
+    "clauses": 4,
+    "minConns": 3,
+    "distinct": true,
+    "one": true,
+    "polite": true
+   },
+   "model": {
+    "ko": "요즘 시험 준비로 바쁜데 잠이 부족해서 피곤하지만 이번 주만 버티면 방학이 시작되니까 기대돼요.",
+    "en": "I am busy preparing for exams and tired from lack of sleep, but if I endure this week vacation begins, so I look forward to it."
+   },
+   "timer": 40
+  },
+  {
+   "id": "s-future-job",
+   "mode": "speak",
+   "lv": 4,
+   "icon": "💼",
+   "title": {
+    "ko": "앞으로 하고 싶은 일",
+    "en": "What I want to do in the future"
+   },
+   "situation": {
+    "ko": "30초 안에 쉬지 않고, 이음말 세 개 이상으로 이어 말해요.",
+    "en": "Speak for up to 30 seconds without stopping, linking with three or more endings."
+   },
+   "req": {
+    "clauses": 4,
+    "minConns": 3,
+    "distinct": true,
+    "one": true,
+    "polite": true
+   },
+   "model": {
+    "ko": "앞으로 무역 회사에서 일하고 싶은데 실력이 아직 부족하지만 매일 연습하면 꿈을 이룰 수 있으니까 최선을 다해요.",
+    "en": "I want to work at a trading company; my skills are still lacking, but if I practice every day I can achieve my dream, so I do my best."
+   },
+   "timer": 30
+  },
+  {
+   "id": "s-pet-friend",
+   "mode": "speak",
+   "lv": 4,
+   "icon": "🐾",
+   "title": {
+    "ko": "사랑스러운 반려동물",
+    "en": "My lovely pet"
+   },
+   "situation": {
+    "ko": "30초 안에 쉬지 않고, 이음말 세 개 이상으로 이어 말해요.",
+    "en": "Speak for up to 30 seconds without stopping, linking with three or more endings."
+   },
+   "req": {
+    "clauses": 4,
+    "minConns": 3,
+    "distinct": true,
+    "one": true,
+    "polite": true
+   },
+   "model": {
+    "ko": "우리 집 고양이는 낯가림이 심한데 맛있는 간식을 주면 금방 다가오고 무릎에서 잠들어서 너무 사랑스러워요.",
+    "en": "My cat is very shy around strangers, but if I give it tasty snacks it approaches quickly and falls asleep on my lap, which is so lovely."
+   },
+   "timer": 30
   }
  ]
 }
