@@ -26,6 +26,7 @@ const words = (k) => k.trim().split(/\s+/).length, chars = (k) => k.replace(/\s/
 /* 「N에서 N까지, N부터 N까지」 — 짝으로 쓰는 꼴(앞 · 뒤)을 찾아 둔다. 문장에 짝 하나는 다 있어야 한다 */
 const pairsOf = (name) => String(name).split(/,\s*/).map((x) => /^N([가-힣]+)\s+N([가-힣]+)$/.exec(x.trim())).filter(Boolean).map((m) => new RegExp(`${m[1]}.*${m[2]}`));
 const bad = [];
+const everyWhere = new Map();   // 문장 → 처음 나온 문법 — 다른 문법에 같은 문장이 또 나오면 안 된다(운영자 2026-10-18 「중복 없게」)
 let have = 0;
 const ids = new Set(PTS.map((p) => p.id));
 for (const [id, arr] of Object.entries(D)) {
@@ -46,6 +47,7 @@ for (const [id, arr] of Object.entries(D)) {
     if (!/[.?!]$/.test(ko)) bad.push(`${at(i)}: 문장 끝에 . ? ! 이 있어야 한다 — ${ko}`);
     if (/[　㉠㉡㉢]|\(\s*\)|___|\.\.\./.test(ko)) bad.push(`${at(i)}: 빈칸 표시가 들어 있다 — ${ko}`);
     if (seen.has(ko)) bad.push(`${at(i)}: 같은 문법 안에서 겹친다 — ${ko}`); seen.add(ko);
+    if (everyWhere.has(ko) && everyWhere.get(ko) !== id) bad.push(`${at(i)}: 다른 문법(${everyWhere.get(ko)})에도 같은 문장이 있다 — ${ko}`); else everyWhere.set(ko, id);
     if (shown.has(ko)) bad.push(`${at(i)}: 위 예문 · 대화와 같은 문장이다(되풀이) — ${ko}`);
     const [mw, mc] = (LIM[p.lv] || LIM.advanced)[x.lv];
     if (words(ko) > mw || chars(ko) > mc) bad.push(`${at(i)}: 단계 ${x.lv} 는 ${mw}어절 · ${mc}자 안쪽 (지금 ${words(ko)}어절 · ${chars(ko)}자) — ${ko}`);

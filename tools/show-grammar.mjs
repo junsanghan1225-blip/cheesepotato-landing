@@ -13,7 +13,13 @@ const FILE = path.join(ROOT, 'docs/grammar-sentences.json');
 const D = fs.existsSync(FILE) ? JSON.parse(fs.readFileSync(FILE, 'utf8')) : {};
 const done = (id) => Array.isArray(D[id]) && D[id].length >= 9;
 const a = process.argv[2];
-if (!a) { console.error('사용: node tools/show-grammar.mjs <id | id..id | --todo 단계>'); process.exit(1); }
+if (!a) { console.error('사용: node tools/show-grammar.mjs <id | id..id | --todo 단계 | --short N [단계]>'); process.exit(1); }
+if (a === '--short') {   // 문장이 N개보다 적은 문법(늘리는 일 — 운영자 2026-10-18 「문법마다 50개」 → 우선 30개)
+  const n = Number(process.argv[3] || 30), lv = process.argv[4] || 'all';
+  const L = PTS.filter((p) => (lv === 'all' || p.lv === lv) && (D[p.id]?.length || 0) < n);
+  console.log(`${lv} — ${n}개보다 적은 문법 ${L.length}개: ${L.map((p) => p.id).join(' ')}`);
+  process.exit(0);
+}
 if (a === '--todo') {
   const lv = process.argv[3] || 'all';
   const L = PTS.filter((p) => (lv === 'all' || p.lv === lv) && !done(p.id));
@@ -25,5 +31,7 @@ if (a.includes('..')) { const [f, t] = a.split('..'); const i = PTS.findIndex((p
 else list = PTS.filter((p) => p.id === a);
 if (!list.length) { console.error(`없다: ${a}`); process.exit(1); }
 for (const p of list) {
-  console.log(`\n=== ${p.id} [${p.lv}] ${p.name}${done(p.id) ? '  (이미 씀)' : ''}\n  뜻: ${p.desc}\n  예문: ${p.ex}\n  더: ${(SB_MORE[p.id] || p.more || []).join(' | ')}\n  대화: ${(Array.isArray(p.dlg) ? p.dlg : []).join(' / ')}`);
+  const have = (D[p.id] || []).map((x) => `${x.lv}:${x.ko}`);
+  console.log(`\n=== ${p.id} [${p.lv}] ${p.name}${done(p.id) ? `  (이미 ${have.length}개 씀)` : ''}\n  뜻: ${p.desc}\n  예문: ${p.ex}\n  더: ${(SB_MORE[p.id] || p.more || []).join(' | ')}\n  대화: ${(Array.isArray(p.dlg) ? p.dlg : []).join(' / ')}`);
+  if (have.length) console.log(`  지금 있는 문장(겹치지 말 것): ${have.join(' | ')}`);
 }
