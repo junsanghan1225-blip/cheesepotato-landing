@@ -1,0 +1,627 @@
+{
+  "ad-c19-01": [
+    {
+      "t": "compare",
+      "h": "-는 가운데 vs -는 중에 (공식적 배경·정황 vs 물리적 시간 진행)",
+      "a": {
+        "h": "-는 가운데 (사건을 둘러싼 공식적 배경과 사회적 정황)",
+        "d": "중대한 사건, 회담, 위기 등이 전개되는 거시적 환경이나 공식적 분위기를 배경으로 깔 때",
+        "ex": [
+          "국제 유가가 연일 폭등하**는 가운데**, 주요 기업들이 비상 경영 체제에 돌입했습니다. — Amid soaring oil prices, firms entered emergency management."
+        ]
+      },
+      "b": {
+        "h": "-는 중에 (일상적 물리적 시간의 한복판)",
+        "d": "단순히 어떤 동작이나 일상적 사건이 진행되고 있는 시점의 중간을 가리킬 때",
+        "ex": [
+          "식사를 하**는 중에** 갑자기 급한 업무 전화가 걸려왔습니다. — In the middle of having a meal, an urgent call came."
+        ]
+      },
+      "tip": "뉴스 보도와 공식 보고서의 거시적 정황 서술에는 '-는 가운데'를 씁니다."
+    },
+    {
+      "t": "correct",
+      "q": "Fix the mistake.",
+      "wrong": "환호성이 터지는 가운데 모두 조용히 해라.",
+      "answers": [
+        "참가자들의 열띤 환호가 이어지는 가운데, 행사는 성황리에 마무리되었다."
+      ],
+      "hint": "'-는 가운데'는 공식적 배경 정황을 서술하는 어미이므로 어색한 명령형을 바른 서술문으로 고칩니다.",
+      "why": "공식 정황 묘사 구문 뒤에 단절적인 명령형이 결합된 오류를 자연스러운 행사 서술문으로 바로잡습니다."
+    },
+    {
+      "t": "vocab",
+      "h": "Words for this lesson",
+      "items": [
+        {
+          "ko": "폭등하는 가운데",
+          "en": "amid soaring prices",
+          "ex": "물가가 폭등하는 가운데 고통이 커요."
+        },
+        {
+          "ko": "우려 속에",
+          "en": "amid deep concerns",
+          "ex": "우려 속에 회담이 시작되었습니다."
+        },
+        {
+          "ko": "거시적",
+          "en": "macroscopic, big-picture",
+          "ex": "거시적 안목으로 시장을 분석했습니다."
+        },
+        {
+          "ko": "비상 경영",
+          "en": "contingency/emergency management",
+          "ex": "비상 경영 체제를 선포했어요."
+        },
+        {
+          "ko": "성황리에",
+          "en": "with great success, in grand style",
+          "ex": "박람회가 성황리에 폐막했습니다."
+        }
+      ]
+    },
+    {
+      "t": "dictate",
+      "say": "글로벌 공급망 교란이 장기화되는 가운데 각국 정부는 핵심 전략 물자 비축에 총력을 기울이고 있습니다",
+      "answers": [
+        "글로벌 공급망 교란이 장기화되는 가운데 각국 정부는 핵심 전략 물자 비축에 총력을 기울이고 있습니다"
+      ],
+      "hint": "공급망 위기 속에서 전략 물자 비축에 총력을 기울인다는 경제 뉴스를 받아써 보세요.",
+      "why": "거시적 경제 정황을 객관적으로 제시하는 전문 보도체 '-는 가운데' 문장입니다."
+    },
+    {
+      "t": "write",
+      "q": "Write one formal press release sentence using 지켜보는 가운데.",
+      "must": [
+        "지켜보는 가운데"
+      ],
+      "sample": "전 세계의 언론과 전문가들이 숨죽여 지켜보는 가운데 양국 정상 간의 역사적인 평화 회담이 시작되었습니다.",
+      "why": "'지켜보는 가운데'를 넣어 엄숙한 긴장감이 감도는 정상회담 정황을 품격 있게 서술합니다."
+    },
+    {
+      "t": "expand",
+      "base": {
+        "tokens": [
+          "개막했습니다.",
+          "행사가"
+        ],
+        "en": "Event opened."
+      },
+      "steps": [
+        {
+          "tokens": [
+            "많은 시민들의 뜨거운 성원 가운데",
+            "국제 문화 페스티벌 행사가",
+            "화려하게",
+            "개막했습니다."
+          ],
+          "en": "Amid citizens' passionate support, international festival opened."
+        },
+        {
+          "tokens": [
+            "전 세계 50여 개국 대표단과 시민들이 함께 지켜보는 가운데",
+            "평화와 화합을 기원하는 연례 문화 교류 축제 행사가",
+            "웅장한 오케스트라 선율과 함께",
+            "화려하게 개막했습니다."
+          ],
+          "en": "Amid global delegates watching, annual cultural festival opened with grand orchestral melody."
+        }
+      ]
+    },
+    {
+      "t": "passage",
+      "h": "Read a little",
+      "ko": [
+        "신문 기사나 공식 브리핑에서 사건의 맥락을 전달할 때 '-는 가운데'는 시야를 넓혀주는 창문입니다.",
+        "하나의 단편적 사실만을 전달하지 않고, 그 사건을 둘러싼 시대적 기류와 사회적 정황을 한눈에 담아냅니다.",
+        "'찬반 논란이 팽팽한 가운데', '우려와 기대가 교차하는 가운데'처럼 복합적인 분위기를 유려하게 요약합니다."
+      ],
+      "en": [
+        "In journalism and briefings, '-는 가운데' is a window widening perspectives when delivering context.",
+        "Rather than stating isolated facts, it captures prevailing currents and societal context at a glance.",
+        "It fluently summarizes complex atmospheres: 'amid sharp controversy', 'amid mixed hopes and worries'."
+      ]
+    },
+    {
+      "t": "choice",
+      "q": "'-는 가운데'가 기사나 보고서에서 주로 담당하는 서술적 기능은?",
+      "options": [
+        "사건을 둘러싼 시대적 기류나 거시적 배경 정황을 공식적으로 제시함",
+        "화자의 사적이고 주관적인 감정만을 여과 없이 토로함"
+      ],
+      "answer": 0,
+      "hint": "둘째 줄의 시대적 기류와 사회적 정황 설명을 보세요.",
+      "why": "사건을 둘러싼 시대적 기류와 사회적 정황을 한눈에 담아낸다고 했습니다."
+    },
+    {
+      "t": "choice",
+      "q": "이 표현과 자주 결합하는 대표적인 정황 명사구는 무엇인가요?",
+      "options": [
+        "찬반 논란이 팽팽한 가운데 · 우려 속에",
+        "밥을 꼭꼭 씹는 가운데"
+      ],
+      "answer": 0,
+      "hint": "셋째 줄의 대표적인 관용 결합을 확인하세요.",
+      "why": "'찬반 논란이 팽팽한 가운데', '우려와 기대가 교차하는 가운데'처럼 거시적 정황에 쓰입니다."
+    },
+    {
+      "t": "cando",
+      "items": [
+        "I can establish macro-societal context and background atmosphere using -는 가운데.",
+        "I can draft polished diplomatic and business press releases in formal Korean."
+      ]
+    }
+  ],
+  "ad-c19-02": [
+    {
+      "t": "compare",
+      "h": "-는 마당에 vs -는 가운데 (벼랑 끝 막다른 국면 vs 공식적 배경 정황)",
+      "a": {
+        "h": "-는 마당에 (막다른 골목이나 벼랑 끝의 급박한 처지)",
+        "d": "사태가 극단으로 치달아 생사가 오가는 마당에 한가한 소리를 하거나 엉뚱한 행동을 할 때 꼬집음",
+        "ex": [
+          "회사가 부도 위기에 처하**는 마당에** 네 탓 내 탓 따지고 있을 때가 아닙니다. — Facing bankruptcy, it is no time to play the blame game."
+        ]
+      },
+      "b": {
+        "h": "-는 가운데 (객관적이고 차분한 배경 설명)",
+        "d": "위기나 사건이 전개되고 있음을 객관적인 정황으로 차분히 진술할 때",
+        "ex": [
+          "불황이 지속되**는 가운데** 신규 채용을 소폭 확대했습니다. — Amid ongoing slump, recruitment was slightly expanded."
+        ]
+      },
+      "tip": "벼랑 끝 위기에서 부적절한 태도를 준엄하게 꾸짖을 때는 '-는 마당에'를 씁니다."
+    },
+    {
+      "t": "correct",
+      "q": "Fix the mistake.",
+      "wrong": "경기가 아주 좋은 마당에 투자하지 마라.",
+      "answers": [
+        "회사가 존폐 위기에 처한 마당에 사리사욕을 챙겨서는 안 된다.",
+        "경기가 회복되는 좋은 마당에 투자 확대를 망설일 이유가 없다."
+      ],
+      "hint": "'-는 마당에'는 급박한 처지나 중대한 계기를 환기하므로 자연스러운 경각심 문장으로 정돈합니다.",
+      "why": "막다른 국면 환기와 어울리지 않는 문장을 바로잡아 위기 상황에서의 경각심을 일깨우는 문장으로 수정합니다."
+    },
+    {
+      "t": "vocab",
+      "h": "Words for this lesson",
+      "items": [
+        {
+          "ko": "처한 마당에",
+          "en": "at this critical juncture, facing this plight",
+          "ex": "위기에 처한 마당에 힘을 합쳐야죠."
+        },
+        {
+          "ko": "판국에",
+          "en": "in this critical situation, in this state of affairs",
+          "ex": "이 판국에 싸우면 어쩝니까."
+        },
+        {
+          "ko": "사리사욕",
+          "en": "selfish interests and desires",
+          "ex": "사리사욕을 버리고 헌신했습니다."
+        },
+        {
+          "ko": "벼랑 끝",
+          "en": "edge of a cliff, brink of ruin",
+          "ex": "벼랑 끝 전술을 구사했어요."
+        },
+        {
+          "ko": "경각심",
+          "en": "sense of alert, vigilance",
+          "ex": "안전에 대한 경각심을 일깨웠습니다."
+        }
+      ]
+    },
+    {
+      "t": "dictate",
+      "say": "생사의 갈림길에 선 위급한 마당에 사소한 감정싸움으로 시간을 낭비해서는 안 됩니다",
+      "answers": [
+        "생사의 갈림길에 선 위급한 마당에 사소한 감정싸움으로 시간을 낭비해서는 안 됩니다"
+      ],
+      "hint": "위급한 마당에 감정싸움으로 시간을 낭비하지 말라는 엄중한 호소를 받아써 보세요.",
+      "why": "벼랑 끝 위기 국면을 환기하며 단결을 촉구하는 '-는 마당에' 문장입니다."
+    },
+    {
+      "t": "write",
+      "q": "Write one urgent wake-up call sentence using 처해 있는 마당에.",
+      "must": [
+        "처해 있는 마당에"
+      ],
+      "sample": "회사의 존망이 걸린 절체절명의 위기에 처해 있는 마당에 부서 간 이기주의를 부리는 것은 자멸의 지름길이다.",
+      "why": "'처해 있는 마당에'를 넣어 절체절명의 위기 앞 내부 분열을 준엄하게 꾸짖습니다."
+    },
+    {
+      "t": "expand",
+      "base": {
+        "tokens": [
+          "따질 때가",
+          "아닙니다."
+        ],
+        "en": "It is no time to argue."
+      },
+      "steps": [
+        {
+          "tokens": [
+            "국가 경제가 흔들리는 마당에",
+            "정파적 이익을",
+            "따질 때가",
+            "아닙니다."
+          ],
+          "en": "Economy shaking, no time to argue partisan interests."
+        },
+        {
+          "tokens": [
+            "국가적 재난으로 온 국민이 고통받고 있는 엄중한 마당에",
+            "소모적인 정쟁과 시시비비를",
+            "한가하게 따질 때가",
+            "결코 아닙니다."
+          ],
+          "en": "Amid national disaster, it is never the time to leisurely argue partisan strifes."
+        }
+      ]
+    },
+    {
+      "t": "passage",
+      "h": "Read a little",
+      "ko": [
+        "위기관리 회의나 결단의 순간에 '-는 마당에'는 방심한 자들을 뒤흔드는 경종의 언어입니다.",
+        "집안에 불이 났는데 패물을 챙기려 들 듯이, 급박한 처지를 망각한 안이한 태도를 서릿발처럼 질타합니다.",
+        "상황의 위중함을 단숨에 직시하게 함으로써 내부 갈등을 봉합하고 총력 대응을 이끌어내는 힘을 발휘합니다."
+      ],
+      "en": [
+        "In crisis meetings, '-는 마당에' is a language of alarm bells shaking those off guard.",
+        "Like grabbing jewelry while the house burns, it frostily rebukes complacency oblivious to desperate plights.",
+        "Forcing direct confrontation with gravity, it seals internal divisions and rallies all-out responses."
+      ]
+    },
+    {
+      "t": "choice",
+      "q": "'-는 마당에'가 대화나 글에서 발휘하는 가장 강력한 수사적 효용은?",
+      "options": [
+        "막다른 위기 처지를 환기하여 안이한 태도를 질타하고 경각심을 일깨움",
+        "느긋한 휴가를 즐기며 세월을 관조하게 함"
+      ],
+      "answer": 0,
+      "hint": "첫째 줄의 경종의 언어 설명을 확인하세요.",
+      "why": "방심한 자들을 뒤흔드는 경종의 언어로, 안이한 태도를 질타하고 경각심을 일깨운다고 했습니다."
+    },
+    {
+      "t": "choice",
+      "q": "이 표현과 의미 맥락상 유사하게 쓰이는 유의어 구문은?",
+      "options": [
+        "-는 판국에",
+        "-는 둥 마는 둥"
+      ],
+      "answer": 0,
+      "hint": "어휘 목록의 '판국에' 설명을 보세요.",
+      "why": "'이 판국에', '-는 판국에'와 의미 맥락이 긴밀하게 통합니다."
+    },
+    {
+      "t": "choice",
+      "q": "조직의 내부 분열을 질타하고 위기 극복의 결속을 이끌어낼 때 쓰는 표현은?",
+      "options": [
+        "-는 마당에",
+        "-는 중에"
+      ],
+      "answer": 0,
+      "hint": "셋째 줄의 총력 대응 유도 표현을 확인하세요.",
+      "why": "상황의 위중함을 직시하게 하여 총력 대응을 이끄는 것은 '-는 마당에'입니다."
+    },
+    {
+      "t": "cando",
+      "items": [
+        "I can sound urgent wake-up calls during crises using the critical juncture pattern -는 마당에.",
+        "I can rebuke organizational complacency and demand unity at fateful crossroads."
+      ]
+    }
+  ],
+  "ad-c19-03": [
+    {
+      "t": "compare",
+      "h": "치고 (예외 없는 절대 규칙) vs 치고는 (기준 대비 의외의 편차)",
+      "a": {
+        "h": "명사 + 치고 (예외 없는 100% 포괄)",
+        "d": "뒤에 부정어나 반어 의문문이 와서 '그 부류에 속하는 대상 치고 예외가 전혀 없다'고 규정할 때",
+        "ex": [
+          "사람**치고** 실수 한 번 하지 않은 사람은 세상에 없습니다. — Among humans, no one hasn't made a mistake."
+        ]
+      },
+      "b": {
+        "h": "명사 + 치고는 (일반적 평균 대비 의외성)",
+        "d": "그 범주가 일반적으로 지니는 표준적인 기대치에 비해 뜻밖으로 뛰어나거나 모자랄 때",
+        "ex": [
+          "한국에서 거주한 지 1년밖에 안 된 외국인**치고는** 발음이 무척 정확합니다. — For a foreigner residing 1 year, pronunciation is very precise."
+        ]
+      },
+      "tip": "예외가 하나도 없다고 할 때는 '치고', 기준 대비 의외의 편차를 짚을 때는 '치고는'을 씁니다."
+    },
+    {
+      "t": "correct",
+      "q": "Fix the mistake.",
+      "wrong": "겨울 날씨치고는 날씨가 춥지 않은 날이 없다.",
+      "answers": [
+        "겨울 날씨치고 날씨가 춥지 않은 날이 없다.",
+        "겨울 날씨치고는 오늘은 비교적 포근한 편이다."
+      ],
+      "hint": "예외 없음을 강조할 때는 '치고'를 쓰고, 기준 대비 의외의 편차를 나타낼 때는 '치고는'을 씁니다.",
+      "why": "예외 없는 전면 부정을 이끌 때는 '치고는'이 아니라 '치고'가 문법적으로 바릅니다."
+    },
+    {
+      "t": "vocab",
+      "h": "Words for this lesson",
+      "items": [
+        {
+          "ko": "치고",
+          "en": "among (with no exception, in negative)",
+          "ex": "인간치고 완벽한 자는 없어요."
+        },
+        {
+          "ko": "치고는",
+          "en": "for, considering the benchmark",
+          "ex": "가격치고는 성능이 훌륭합니다."
+        },
+        {
+          "ko": "의외성",
+          "en": "unexpectedness, surprise",
+          "ex": "기대를 뛰어넘는 의외성을 지녔어요."
+        },
+        {
+          "ko": "편차",
+          "en": "deviation, variation",
+          "ex": "기준 대비 편차가 큽니다."
+        },
+        {
+          "ko": "포괄",
+          "en": "comprehensiveness, coverage",
+          "ex": "전 부류를 빠짐없이 포괄합니다."
+        }
+      ]
+    },
+    {
+      "t": "dictate",
+      "say": "첫 작품치고는 완성도가 놀라우리만치 뛰어나 심사위원 전원의 만장일치 찬사를 받았습니다",
+      "answers": [
+        "첫 작품치고는 완성도가 놀라우리만치 뛰어나 심사위원 전원의 만장일치 찬사를 받았습니다"
+      ],
+      "hint": "첫 작품치고는 완성도가 뛰어나 만장일치 찬사를 받았다는 심사평을 받아써 보세요.",
+      "why": "기준치 대비 의외의 탁월함을 칭찬하는 조사 '치고는' 문장입니다."
+    },
+    {
+      "t": "write",
+      "q": "Write one universal human truth sentence using 사람치고.",
+      "must": [
+        "사람치고"
+      ],
+      "sample": "세상에 사람치고 자신의 꿈과 행복을 소중히 여기지 않는 이는 아무도 없다.",
+      "why": "'사람치고'와 부정어를 결합하여 예외 없는 보편적 인간성을 서술합니다."
+    },
+    {
+      "t": "expand",
+      "base": {
+        "tokens": [
+          "뛰어납니다.",
+          "성능이"
+        ],
+        "en": "Performance is superior."
+      },
+      "steps": [
+        {
+          "tokens": [
+            "저렴한 보급형 모델치고는",
+            "기대 이상으로 제품의",
+            "성능이",
+            "뛰어납니다."
+          ],
+          "en": "For an inexpensive model, product performance is surprisingly superior."
+        },
+        {
+          "tokens": [
+            "가격이 매우 저렴한 초소형 보급형 모델치고는",
+            "전문가용 못지않게 내구성과 처리 속도라는",
+            "핵심적인 하드웨어 성능이",
+            "놀랍도록 뛰어납니다."
+          ],
+          "en": "For a cheap mini model, hardware performance like durability is surprisingly superior."
+        }
+      ]
+    },
+    {
+      "t": "passage",
+      "h": "Read a little",
+      "ko": [
+        "한국어의 보조사 '치고'와 '치고는'은 기준을 설정하고 사물을 평가하는 지적 도구입니다.",
+        "'치고'는 부정어와 호응하여 '부모치고 자식을 사랑하지 않는 자가 없다'처럼 예외 없는 절대적 진리를 규정합니다.",
+        "반면 '치고는'은 '초보자치고는 제법 능숙하다'처럼 범주의 통념을 깨뜨리는 의외의 편차를 짚어냅니다."
+      ],
+      "en": [
+        "Auxiliary particles '치고' and '치고는' are intellectual tools setting criteria and assessing subjects.",
+        "'치고' pairs with negatives defining absolute truths without exception, like 'no parent doesn't love their child'.",
+        "Conversely, '치고는' highlights surprising deviations breaking stereotypes, like 'quite skilled for a novice'."
+      ]
+    },
+    {
+      "t": "choice",
+      "q": "뒤에 부정문과 결합하여 '그 범주에 속하는 대상 중 예외가 전혀 없음'을 나타내는 조사는?",
+      "options": [
+        "치고",
+        "치고는"
+      ],
+      "answer": 0,
+      "hint": "둘째 줄의 부정어 호응 절대 진리 조사를 보세요.",
+      "why": "부정어와 호응하여 예외 없는 절대적 진리를 규정하는 것은 '치고'입니다."
+    },
+    {
+      "t": "choice",
+      "q": "일반적인 표준 기준에 비해 '의외의 뛰어남이나 뜻밖의 편차'를 나타내는 조사는?",
+      "options": [
+        "치고는",
+        "치고"
+      ],
+      "answer": 0,
+      "hint": "셋째 줄의 의외의 편차 조사 설명을 확인하세요.",
+      "why": "통념을 깨뜨리는 의외의 편차를 짚어내는 것은 '치고는'입니다."
+    },
+    {
+      "t": "cando",
+      "items": [
+        "I can assert universal axioms with absolute certainty using 치고 with negatives.",
+        "I can express nuanced evaluations against normative benchmarks using 치고는."
+      ]
+    }
+  ],
+  "ad-c19-04": [
+    {
+      "t": "compare",
+      "h": "-(으)ㅁ에 따라 vs -아서/어서 (시대 추세 연동 vs 단순 원인 결과)",
+      "a": {
+        "h": "-(으)ㅁ에 따라 (거시적 트렌드와 변수의 동조 연동)",
+        "d": "인구 구조 변화, 기술 혁신 등 거시적 환경이 변화함에 비례하여 후속 사태가 체계적으로 연동될 때",
+        "ex": [
+          "고령화 사회가 급격히 진행**됨에 따라**, 실버 산업의 시장 규모가 폭발적으로 성장하고 있습니다. — As aging progresses, silver industry grows."
+        ]
+      },
+      "b": {
+        "h": "-아서/어서 (단순한 인과 관계)",
+        "d": "선행 사건이 뒤 사건의 단순한 계기나 원인이 되었음을 일상적으로 말할 때",
+        "ex": [
+          "날씨가 너무 더워서 에어컨을 켰습니다. — The weather was so hot that I turned on AC."
+        ]
+      },
+      "tip": "통계 보고서, 학술 논문, 경제 전망에서 비례적 추세 연동을 기술할 때는 '-(으)ㅁ에 따라'를 씁니다."
+    },
+    {
+      "t": "correct",
+      "q": "Fix the mistake.",
+      "wrong": "인공지능 기술이 발전함에 따라 일자리가 변하니 공부를 많이 해라.",
+      "answers": [
+        "인공지능 기술이 고도화됨에 따라 산업 전반의 고용 지형도 빠르게 재편되고 있습니다."
+      ],
+      "hint": "'-(으)ㅁ에 따라'는 학술 및 통계 보고용 격식체이므로 어색한 일상 명령형을 바른 보고문으로 고칩니다.",
+      "why": "격식 있는 트렌드 분석 구문 뒤에 가벼운 명령형이 결합된 어조 불일치를 해결하여 전문 보고문으로 수정합니다."
+    },
+    {
+      "t": "vocab",
+      "h": "Words for this lesson",
+      "items": [
+        {
+          "ko": "진행됨에 따라",
+          "en": "as it progresses, with the progress of",
+          "ex": "공사가 진행됨에 따라 차질이 줄었어요."
+        },
+        {
+          "ko": "증가함에 따라",
+          "en": "as it increases, in proportion to rise",
+          "ex": "수요가 증가함에 따라 가격이 올랐습니다."
+        },
+        {
+          "ko": "연동",
+          "en": "linkage, interlocking correlation",
+          "ex": "물가와 임금의 연동성을 검토했습니다."
+        },
+        {
+          "ko": "추세",
+          "en": "trend, tendency",
+          "ex": "글로벌 시장의 최신 추세를 반영했어요."
+        },
+        {
+          "ko": "재편",
+          "en": "reorganization, realignment",
+          "ex": "산업 생태계가 빠르게 재편되고 있습니다."
+        }
+      ]
+    },
+    {
+      "t": "dictate",
+      "say": "친환경 에너지에 대한 글로벌 수요가 급증함에 따라 관련 핵심 광물의 국제 시세도 가파른 상승세를 보이고 있습니다",
+      "answers": [
+        "친환경 에너지에 대한 글로벌 수요가 급증함에 따라 관련 핵심 광물의 국제 시세도 가파른 상승세를 보이고 있습니다"
+      ],
+      "hint": "친환경 수요가 급증함에 따라 광물 시세가 상승하고 있다는 전문 경제 브리핑을 받아써 보세요.",
+      "why": "트렌드의 비례적 연동성을 완벽하게 전달하는 최고급 보고체 '-(으)ㅁ에 따라' 문장입니다."
+    },
+    {
+      "t": "write",
+      "q": "Write one statistical trend analysis sentence using 다변화됨에 따라.",
+      "must": [
+        "다변화됨에 따라"
+      ],
+      "sample": "소비자들의 라이프스타일이 고도화되고 다변화됨에 따라 맞춤형 구독 서비스 시장이 급격히 팽창하고 있습니다.",
+      "why": "'다변화됨에 따라'를 넣어 소비자 취향 변화와 시장 성장의 비례적 상관관계를 작성합니다."
+    },
+    {
+      "t": "expand",
+      "base": {
+        "tokens": [
+          "증가하고",
+          "있습니다."
+        ],
+        "en": "It is increasing."
+      },
+      "steps": [
+        {
+          "tokens": [
+            "디지털 전환이 가속화됨에 따라",
+            "사이버 보안에 대한 투자가",
+            "크게 증가하고",
+            "있습니다."
+          ],
+          "en": "As digital transformation accelerates, cyber security investment increases."
+        },
+        {
+          "tokens": [
+            "전 산업에 걸쳐 인공지능 기반의 디지털 전환이 가속화됨에 따라",
+            "기업들의 핵심 데이터 보호를 위한 보안 인프라 투자가",
+            "매년 두 자릿수 이상으로",
+            "크게 증가하고 있습니다."
+          ],
+          "en": "As AI transformation accelerates, security infra investment grows by double digits."
+        }
+      ]
+    },
+    {
+      "t": "passage",
+      "h": "Read a little",
+      "ko": [
+        "경제 전망과 정부 정책 백서의 척추를 이루는 표현은 바로 '-(으)ㅁ에 따라'입니다.",
+        "하나의 변수가 이동할 때 다른 사회적 변수가 체계적으로 발맞추어 움직이는 동조 관계를 가장 엄밀하게 규정합니다.",
+        "TOPIK 53번 도표 서술과 학술 논문에서 과학적 객관성과 통찰력을 보증하는 최고급 연결 형식입니다."
+      ],
+      "en": [
+        "The spine of economic outlooks and policy whitepapers is indeed '-(으)ㅁ에 따라'.",
+        "It strictly defines synchronized correlations where one variable moves in tandem with another.",
+        "In TOPIK Task 53 chart descriptions and academic papers, it guarantees scientific objectivity."
+      ]
+    },
+    {
+      "t": "choice",
+      "q": "거시적 트렌드나 특정 변수의 변화에 비례하여 다른 사태가 연동됨을 기술하는 최고급 어미는?",
+      "options": [
+        "-(으)ㅁ에 따라",
+        "-(으)려더니"
+      ],
+      "answer": 0,
+      "hint": "둘째 줄의 동조 관계 규정 설명을 보세요.",
+      "why": "변수들이 발맞추어 움직이는 동조 관계를 가장 엄밀하게 규정하는 것은 '-(으)ㅁ에 따라'입니다."
+    },
+    {
+      "t": "choice",
+      "q": "이 표현이 특히 필수적으로 요구되는 공인 시험 및 학술 영역은?",
+      "options": [
+        "TOPIK 쓰기 도표 분석과 정부 정책 백서",
+        "동화책 구연과 연극 대본"
+      ],
+      "answer": 0,
+      "hint": "셋째 줄의 활용 영역을 확인하세요.",
+      "why": "TOPIK 53번 도표 서술과 정책 백서에서 과학적 객관성을 보증한다고 했습니다."
+    },
+    {
+      "t": "cando",
+      "items": [
+        "I can draft publication-ready economic whitepapers tracing variable correlations using -(으)ㅁ에 따라.",
+        "I can master TOPIK Question 53 chart analyses with impeccable analytical precision."
+      ]
+    }
+  ]
+}
