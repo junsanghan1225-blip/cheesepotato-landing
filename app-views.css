@@ -7641,3 +7641,6 @@ html[lang="ja"] *, html[lang="zh"] *, html[lang^="zh-"] *, html[lang="my"] * { w
 .wv-tl { position:relative; padding-left:20px; } .wv-tl::before { content:''; position:absolute; left:7px; top:14px; bottom:14px; width:3px; border-radius:2px; background:#d9cfbf; }
 .wv-tl .wv-task { position:relative; } .wv-tl .wv-task::before { content:''; position:absolute; left:-19px; top:50%; width:11px; height:11px; margin-top:-6px; border-radius:50%; background:#fff; border:3px solid #cbbfae; } .wv-tl .wv-task.done::before { border-color:#2e9d5f; background:#2e9d5f; }
 @media (prefers-reduced-motion: reduce) { .wv-parade, .wv-puff, .wv-wagon, .wv-car.pop, .wv-hitch.pop, .wv-mic.rec { animation:none; } }
+
+.wv-ask { margin:2px 0 4px; } .wv-ask-b { padding:7px 12px; border:1.5px solid var(--orange,#e8642c); border-radius:99px; background:#fff; color:var(--orange-deep,#c4551c); font:inherit; font-size:13.5px; font-weight:800; cursor:pointer; } .wv-ask-b small { font-weight:700; opacity:.7; }
+.wv-tip-box { margin:6px 0 4px; padding:10px 12px; border-radius:12px; background:#fffbe6; border:1px solid #efe0a0; font-size:14.5px; line-height:1.55; animation:wvpop .35s ease-out; }
