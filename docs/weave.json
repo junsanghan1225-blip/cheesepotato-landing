@@ -6300,6 +6300,323 @@
     "en": "I go to school, and after class I work at a cafe and study at home at night."
    },
    "timer": 40
+  },
+  {
+   "id": "f-cond-reason",
+   "mode": "fix",
+   "lv": 1,
+   "icon": "🔧",
+   "title": {
+    "ko": "이유인데 조건을 썼어요",
+    "en": "Used condition instead of reason"
+   },
+   "situation": {
+    "ko": "비가 와서 우산을 쓰는 이유인데 「-(으)면」을 썼어요. 뜻에 맞게 고쳐 쓰세요.",
+    "en": "The sentence uses -(으)면 for a reason. Fix it with a causal ending."
+   },
+   "req": {
+    "conn": [
+     "aseo"
+    ],
+    "no": [
+     "myeon"
+    ],
+    "words": [
+     "비",
+     "우산"
+    ],
+    "one": true,
+    "polite": true
+   },
+   "model": {
+    "ko": "비가 와서 우산을 썼어요.",
+    "en": "It rained, so I used an umbrella."
+   },
+   "start": "비가 오면 우산을 썼어요."
+  },
+  {
+   "id": "f-contrast-go",
+   "mode": "fix",
+   "lv": 1,
+   "icon": "🔧",
+   "title": {
+    "ko": "반대인데 -고를 썼어요",
+    "en": "Used -고 instead of contrast"
+   },
+   "situation": {
+    "ko": "가격은 비싸지만 맛있는 반대 내용인데 「-고」를 썼어요. 뜻에 맞게 고쳐 쓰세요.",
+    "en": "The sentence expresses contrast but uses -고. Rewrite with -지만."
+   },
+   "req": {
+    "conn": [
+     "jiman"
+    ],
+    "no": [
+     "go"
+    ],
+    "words": [
+     "가격",
+     "맛"
+    ],
+    "one": true,
+    "polite": true
+   },
+   "model": {
+    "ko": "가격이 비싸지만 맛은 정말 좋아요.",
+    "en": "The price is expensive, but the taste is really good."
+   },
+   "start": "가격이 비싸고 맛은 정말 좋아요."
+  },
+  {
+   "id": "f-chop-morning",
+   "mode": "fix",
+   "lv": 2,
+   "icon": "✂️",
+   "title": {
+    "ko": "끊긴 문장 잇기 — 아침",
+    "en": "Join morning sentences"
+   },
+   "situation": {
+    "ko": "짧게 끊긴 세 문장을 한 문장으로 이어 쓰세요. 낱말은 살려요.",
+    "en": "Join these three choppy sentences into one sentence. Keep the key words."
+   },
+   "req": {
+    "minConns": 2,
+    "clauses": 3,
+    "words": [
+     "아침",
+     "사과",
+     "버스"
+    ],
+    "one": true,
+    "polite": true
+   },
+   "model": {
+    "ko": "아침에 일어나서 사과를 먹고 버스를 타요.",
+    "en": "I get up in the morning, eat an apple, and take a bus."
+   },
+   "start": "아침에 일어나요. 사과를 먹어요. 버스를 타요."
+  },
+  {
+   "id": "f-chop-weekend",
+   "mode": "fix",
+   "lv": 2,
+   "icon": "✂️",
+   "title": {
+    "ko": "끊긴 문장 잇기 — 주말",
+    "en": "Join weekend sentences"
+   },
+   "situation": {
+    "ko": "짧게 끊긴 문장들을 한 문장으로 자연스럽게 이어 쓰세요.",
+    "en": "Join these choppy sentences into a natural single sentence."
+   },
+   "req": {
+    "minConns": 2,
+    "clauses": 3,
+    "words": [
+     "영화관",
+     "표",
+     "카페"
+    ],
+    "one": true,
+    "polite": true
+   },
+   "model": {
+    "ko": "주말에 영화관에 갔는데 표가 없어서 카페에 가요.",
+    "en": "I went to the cinema on the weekend, but there were no tickets, so I go to a cafe."
+   },
+   "start": "주말에 영화관에 가요. 표가 없어요. 카페에 가요."
+  },
+  {
+   "id": "f-miss-time",
+   "mode": "fix",
+   "lv": 2,
+   "icon": "🔗",
+   "title": {
+    "ko": "이음말이 빠졌어요 — 약속",
+    "en": "Missing ending — appointment"
+   },
+   "situation": {
+    "ko": "문장 사이에 이음말이 빠졌어요. 알맞은 이음말을 넣어 한 문장으로 쓰세요.",
+    "en": "Linking endings are missing. Add appropriate endings to make one sentence."
+   },
+   "req": {
+    "minConns": 2,
+    "clauses": 3,
+    "words": [
+     "시간",
+     "서둘러",
+     "약속"
+    ],
+    "one": true,
+    "polite": true
+   },
+   "model": {
+    "ko": "시간이 늦었으니까 서둘러서 약속에 가요.",
+    "en": "It is late, so I hurry and go to the appointment."
+   },
+   "start": "시간이 늦었어요 서둘러요 약속에 가요"
+  },
+  {
+   "id": "f-miss-food",
+   "mode": "fix",
+   "lv": 3,
+   "icon": "🔗",
+   "title": {
+    "ko": "이음말이 빠졌어요 — 식당",
+    "en": "Missing ending — restaurant"
+   },
+   "situation": {
+    "ko": "이음말이 없이 끊어져 있어요. 서로 다른 이음말을 넣어 자연스럽게 이으세요.",
+    "en": "The sentence is disconnected without endings. Add different endings naturally."
+   },
+   "req": {
+    "minConns": 2,
+    "clauses": 3,
+    "distinct": true,
+    "words": [
+     "배",
+     "식당",
+     "메뉴"
+    ],
+    "one": true,
+    "polite": true
+   },
+   "model": {
+    "ko": "배가 고파서 식당에 들어가고 메뉴를 골라요.",
+    "en": "I am hungry, so I enter a restaurant and choose from the menu."
+   },
+   "start": "배가 고파요 식당에 들어가요 메뉴를 골라요"
+  },
+  {
+   "id": "f-repeat-go",
+   "mode": "fix",
+   "lv": 3,
+   "icon": "🚂",
+   "title": {
+    "ko": "-고만 반복돼요",
+    "en": "Only -고 repeated"
+   },
+   "situation": {
+    "ko": "-고만 반복해서 문장이 단조로워요. 세 가지 이상의 다른 이음말을 써서 고치세요.",
+    "en": "Only -고 is repeated, making it monotonous. Rewrite using at least three different endings."
+   },
+   "req": {
+    "minConns": 3,
+    "distinct": true,
+    "words": [
+     "도서관",
+     "책",
+     "시험공부"
+    ],
+    "one": true,
+    "polite": true
+   },
+   "model": {
+    "ko": "도서관에 가서 책을 빌리는데 자리에 앉으면 시험공부를 해요.",
+    "en": "I go to the library and borrow a book, and when I sit in a seat I study for exams."
+   },
+   "start": "도서관에 가고 책을 빌리고 열람실에 앉고 시험공부를 해요."
+  },
+  {
+   "id": "f-repeat-nde",
+   "mode": "fix",
+   "lv": 3,
+   "icon": "🚂",
+   "title": {
+    "ko": "-는데만 반복돼요",
+    "en": "Only -는데 repeated"
+   },
+   "situation": {
+    "ko": "-는데만 거듭 써서 어색해요. 알맞은 다른 이음말들로 자연스럽게 바꾸세요.",
+    "en": "-는데 is repeated awkwardly. Replace with appropriate diverse linking endings."
+   },
+   "req": {
+    "minConns": 3,
+    "distinct": true,
+    "words": [
+     "친구",
+     "연습",
+     "발음"
+    ],
+    "one": true,
+    "polite": true
+   },
+   "model": {
+    "ko": "한국 친구가 많아서 자주 연습하고 발음이 어렵지만 재미있어요.",
+    "en": "I have many Korean friends so I practice often, and pronunciation is difficult but fun."
+   },
+   "start": "한국 친구가 많은데 한국어를 연습하는데 발음이 어려운데 재미있어요."
+  },
+  {
+   "id": "f-polite-end",
+   "mode": "fix",
+   "lv": 4,
+   "icon": "💬",
+   "title": {
+    "ko": "반말 끝을 존댓말로",
+    "en": "Change blunt ending to polite"
+   },
+   "situation": {
+    "ko": "반말로 끝나고 문장이 중간에 끊겼어요. 정중한 해요체(~요) 한 문장으로 고쳐 쓰세요.",
+    "en": "The sentence ends bluntly and is broken in the middle. Rewrite as a polite single sentence ending in ~요."
+   },
+   "req": {
+    "conn": [
+     "aseo"
+    ],
+    "no": [
+     "jiman"
+    ],
+    "words": [
+     "친구",
+     "공항",
+     "마중"
+    ],
+    "one": true,
+    "polite": true
+   },
+   "model": {
+    "ko": "친구가 한국에 와서 공항에 마중을 가요.",
+    "en": "My friend came to Korea, so I go to the airport to meet them."
+   },
+   "start": "친구가 한국에 와. 그래서 공항에 마중을 가."
+  },
+  {
+   "id": "f-mix-complex",
+   "mode": "fix",
+   "lv": 4,
+   "icon": "🧩",
+   "title": {
+    "ko": "어색한 긴 문장 다듬기",
+    "en": "Polish awkward long sentence"
+   },
+   "situation": {
+    "ko": "이음말 뜻이 어긋나고 중간에 문장이 끊겼어요. 자연스러운 한 문장으로 완성하세요.",
+    "en": "The endings clash in meaning and the sentence breaks midway. Make it a natural single sentence."
+   },
+   "req": {
+    "conn": [
+     "aseo",
+     "go"
+    ],
+    "no": [
+     "jiman"
+    ],
+    "clauses": 3,
+    "words": [
+     "날씨",
+     "기분",
+     "산책"
+    ],
+    "one": true,
+    "polite": true
+   },
+   "model": {
+    "ko": "날씨가 맑아서 기분이 좋고 공원에서 산책을 해요.",
+    "en": "The weather is sunny, so I feel good and take a walk in the park."
+   },
+   "start": "날씨가 맑지만 기분이 좋아요. 그래서 산책을 해요."
   }
  ]
 }
