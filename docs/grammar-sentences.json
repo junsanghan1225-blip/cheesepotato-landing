@@ -28231,6 +28231,96 @@
       "ko": "거센 비바람이 창문을 세차게 흔들어 대는 소리에 밤새 뜬눈으로 지새워야 했습니다.",
       "en": "At sound of fierce storm violently rattling window, I had to stay up all night with eyes open.",
       "lv": 3
+    },
+    {
+      "ko": "동생이 배가 고프다며 보채 댔어요.",
+      "en": "My sibling pestered me repeatedly saying they were hungry.",
+      "lv": 1
+    },
+    {
+      "ko": "바람이 창문을 거세게 흔들어 댔습니다.",
+      "en": "The wind rattled the window violently.",
+      "lv": 1
+    },
+    {
+      "ko": "까마귀가 아침부터 시끄럽게 울어 댔다.",
+      "en": "The crow cawed loudly since morning.",
+      "lv": 1
+    },
+    {
+      "ko": "개가 낯선 사람을 보고 짖어 댔어요.",
+      "en": "The dog barked repeatedly at the stranger.",
+      "lv": 1
+    },
+    {
+      "ko": "아이가 장난감을 사 달라며 졸라 댔다.",
+      "en": "The child nagged repeatedly to buy a toy.",
+      "lv": 1
+    },
+    {
+      "ko": "친구들이 내 실수를 자꾸 놀려 댔어요.",
+      "en": "Friends teased me repeatedly about my mistake.",
+      "lv": 1
+    },
+    {
+      "ko": "기차 안에서 갓난아기가 그치지 않고 울어 대서 진땀을 뺐어요.",
+      "en": "In the train, an infant cried non-stop, making me sweat.",
+      "lv": 2
+    },
+    {
+      "ko": "폭우가 쏟아지는 밤에 천둥이 쉼 없이 쳐 댔습니다.",
+      "en": "On a night with pouring rain, thunder struck relentlessly.",
+      "lv": 2
+    },
+    {
+      "ko": "옆집 공사장에서 드릴 소리가 하루 종일 울려 대니 머리가 아파요.",
+      "en": "Drill sounds echoed all day from the next construction site, giving me a headache.",
+      "lv": 2
+    },
+    {
+      "ko": "손님이 주문을 늦게 받는다며 직원에게 마구 쏘아대며 화를 냈어요.",
+      "en": "The guest snapped harshly at the staff complaining about late service.",
+      "lv": 2
+    },
+    {
+      "ko": "야생 멧돼지가 농작물 밭을 마구 헤집어 대서 큰 피해를 보았습니다.",
+      "en": "Wild boars dug up the crop field recklessly, causing heavy damage.",
+      "lv": 2
+    },
+    {
+      "ko": "모닥불 속에서 장작이 요란하게 타닥거리며 타올라 댔어요.",
+      "en": "Firewood crackled loudly and flared up in the campfire.",
+      "lv": 2
+    },
+    {
+      "ko": "상대 진영의 거센 공격수들이 우리 수비진을 집요하게 흔들어 대며 빈틈을 노렸습니다.",
+      "en": "Opponents' aggressive strikers persistently shook our defense seeking an opening.",
+      "lv": 3
+    },
+    {
+      "ko": "선거 유세 차량들이 골목마다 확성기를 크게 틀어 대서 주민들의 원성이 자자했습니다.",
+      "en": "Campaign vehicles blasted loudspeakers in alleys, causing widespread complaints from residents.",
+      "lv": 3
+    },
+    {
+      "ko": "사소한 오해로 시작된 언쟁 끝에 서로에게 감정 섞인 비난을 마구 퍼부어 댔습니다.",
+      "en": "After arguing from a minor misunderstanding, they hurled emotional accusations at each other.",
+      "lv": 3
+    },
+    {
+      "ko": "태풍의 강한 돌풍이 가로수를 뿌리째 뽑을 듯이 거칠게 몰아쳐 댔어요.",
+      "en": "Fierce gusts from the typhoon lashed violently as if uprooting roadside trees.",
+      "lv": 3
+    },
+    {
+      "ko": "악덕 고리대금업자들이 밤낮없이 찾아와 현관문을 쾅쾅 두드려 대며 공포감을 조성했습니다.",
+      "en": "Predatory loan sharks banged on the door day and night, instilling sheer terror.",
+      "lv": 3
+    },
+    {
+      "ko": "무더운 여름밤 불빛 주위로 하루살이 떼가 어지럽게 날아들어 댔습니다.",
+      "en": "On hot summer nights, swarms of mayflies flew hectically around the light.",
+      "lv": 3
     }
   ],
   "12-2": [
@@ -28292,6 +28382,96 @@
     {
       "ko": "무리하게 욕심을 부리다가는 건강과 재산을 한꺼번에 잃어버리기 일쑤이지요.",
       "en": "If acting excessively greedy, losing health and fortune all at once is routine.",
+      "lv": 3
+    },
+    {
+      "ko": "급하게 서두르면 실수를 하기 일쑤이지요.",
+      "en": "If you rush in a hurry, it is easy to make mistakes.",
+      "lv": 1
+    },
+    {
+      "ko": "겨울에는 빙판길에서 넘어지기 일쑤이다.",
+      "en": "In winter, slipping on icy roads is common.",
+      "lv": 1
+    },
+    {
+      "ko": "밤늦게 과식하면 소화가 안 되기 일쑤이지요.",
+      "en": "Overeating late at night easily leads to indigestion.",
+      "lv": 1
+    },
+    {
+      "ko": "서두르다 보면 지갑을 깜빡 잊기 일쑤이다.",
+      "en": "When in a hurry, it is common to forget one's wallet.",
+      "lv": 1
+    },
+    {
+      "ko": "준비를 안 하면 발표를 망치기 일쑤이지요.",
+      "en": "Without preparation, it is easy to ruin a presentation.",
+      "lv": 1
+    },
+    {
+      "ko": "피곤할 때는 지하철에서 졸기 일쑤이다.",
+      "en": "When tired, it is common to doze off on the subway.",
+      "lv": 1
+    },
+    {
+      "ko": "낯선 도시에 처음 가면 골목길에서 길을 잃기 일쑤이지요.",
+      "en": "When visiting an unfamiliar city for the first time, getting lost in alleys is common.",
+      "lv": 2
+    },
+    {
+      "ko": "환절기에는 일교차가 심해서 감기에 쉽게 걸리기 일쑤이다.",
+      "en": "Between seasons with big temperature swings, easily catching a cold is common.",
+      "lv": 2
+    },
+    {
+      "ko": "계획을 꼼꼼하게 세우지 않으면 약속 시간을 어기기 일쑤이지요.",
+      "en": "Without making thorough plans, breaking appointment times is common.",
+      "lv": 2
+    },
+    {
+      "ko": "감정이 격해진 상태로 대화하면 사소한 일로 다투기 일쑤이다.",
+      "en": "Talking while emotions are heightened easily leads to bickering over minor matters.",
+      "lv": 2
+    },
+    {
+      "ko": "유행만 좇다 보면 자기만의 개성을 잃어버리기 일쑤이지요.",
+      "en": "Following only trends easily leads to losing one's own individuality.",
+      "lv": 2
+    },
+    {
+      "ko": "충분한 수면을 취하지 못하면 낮 동안 집중력이 흐려지기 일쑤이다.",
+      "en": "Without sufficient sleep, daytime concentration easily gets blurred.",
+      "lv": 2
+    },
+    {
+      "ko": "기초 개념을 확실히 다지지 않고 진도만 나가면 응용문제에서 막히기 일쑤이지요.",
+      "en": "Advancing without mastering basic concepts easily leads to getting stuck in applied problems.",
+      "lv": 3
+    },
+    {
+      "ko": "계약서를 면밀히 검토하지 않고 서명하면 나중에 큰 법적 분쟁에 휘말리기 일쑤이다.",
+      "en": "Signing a contract without close review easily embroils one in big legal disputes.",
+      "lv": 3
+    },
+    {
+      "ko": "한쪽 입장만을 일방적으로 대변하는 언론 보도는 대중의 눈과 귀를 흐리기 일쑤이지요.",
+      "en": "Media reports representing only one side easily cloud the eyes and ears of the public.",
+      "lv": 3
+    },
+    {
+      "ko": "현장 경험이 부족한 이론만으로는 돌발적인 위기 상황에 제대로 대처하지 못하기 일쑤이다.",
+      "en": "Theory lacking field experience easily fails to handle sudden crisis situations properly.",
+      "lv": 3
+    },
+    {
+      "ko": "스트레스를 제때 건전하게 해소하지 못하면 만성 피로와 무기력증에 빠지기 일쑤이지요.",
+      "en": "Failing to relieve stress properly in time easily falls into chronic fatigue and lethargy.",
+      "lv": 3
+    },
+    {
+      "ko": "전문가의 조언을 무시한 채 독단적으로 사업을 추진하다가는 막대한 손실을 보기 일쑤이다.",
+      "en": "Pushing a business arbitrarily while ignoring expert advice easily incurs huge losses.",
       "lv": 3
     }
   ],
@@ -28355,6 +28535,96 @@
       "ko": "상대방의 진솔한 사과를 듣는 둥 마는 둥 하며 외면하는 태도는 예의에 어긋납니다.",
       "en": "Barely listening and ignoring the other person's sincere apology is against etiquette.",
       "lv": 3
+    },
+    {
+      "ko": "아침을 먹는 둥 마는 둥 하고 나갔어요.",
+      "en": "I left after barely eating breakfast.",
+      "lv": 1
+    },
+    {
+      "ko": "방 청소를 하는 둥 마는 둥 하지요.",
+      "en": "Cleaning the room is done half-heartedly.",
+      "lv": 1
+    },
+    {
+      "ko": "시험공부를 하는 둥 마는 둥 하더니 떨어졌어요.",
+      "en": "He studied half-heartedly and then failed.",
+      "lv": 1
+    },
+    {
+      "ko": "잠을 자는 둥 마는 둥 하고 출근했다.",
+      "en": "I went to work having barely slept.",
+      "lv": 1
+    },
+    {
+      "ko": "숙제를 하는 둥 마는 둥 하고 놀러 갔어요.",
+      "en": "He went to play after barely touching his homework.",
+      "lv": 1
+    },
+    {
+      "ko": "친구의 조언을 듣는 둥 마는 둥 하지요.",
+      "en": "He listens to friends' advice half-heartedly.",
+      "lv": 1
+    },
+    {
+      "ko": "시간에 쫓겨 점심을 먹는 둥 마는 둥 하고 회의에 들어갔어요.",
+      "en": "Pressed for time, I went into the meeting after barely finishing lunch.",
+      "lv": 2
+    },
+    {
+      "ko": "중요한 설명을 듣는 둥 마는 둥 하더니 결국 길을 잘못 들었군요.",
+      "en": "Listening half-heartedly to crucial instructions, he ended up taking the wrong way.",
+      "lv": 2
+    },
+    {
+      "ko": "세수를 하는 둥 마는 둥 하고 급하게 모자를 눌러썼습니다.",
+      "en": "Washing up barely in haste, I pulled down my cap quickly.",
+      "lv": 2
+    },
+    {
+      "ko": "책장을 넘기는 둥 마는 둥 하며 딴생각에 푹 빠져 있더군요.",
+      "en": "Turning pages half-heartedly, he was lost in another thought.",
+      "lv": 2
+    },
+    {
+      "ko": "치통이 너무 심해서 음식을 씹는 둥 마는 둥 하고 내려놓았습니다.",
+      "en": "Due to severe toothache, I barely chewed food and set down the spoon.",
+      "lv": 2
+    },
+    {
+      "ko": "영화를 보는 둥 마는 둥 하더니 줄거리조차 전혀 기억하지 못해요.",
+      "en": "Watching the movie half-heartedly, he cannot even remember the plot at all.",
+      "lv": 2
+    },
+    {
+      "ko": "마감 시간에 쫓긴 작가는 원고 교정을 보는 둥 마는 둥 하고 출판사로 넘겼습니다.",
+      "en": "Chased by deadlines, the author barely proofread the manuscript before sending it.",
+      "lv": 3
+    },
+    {
+      "ko": "시차 적응이 안 되어 밤새 침대에서 뒤척이며 자는 둥 마는 둥 하고 일어났지요.",
+      "en": "Unable to adjust to jet lag, I tossed and turned, barely sleeping before getting up.",
+      "lv": 3
+    },
+    {
+      "ko": "귓가를 맴도는 소음 때문에 강사의 강의를 듣는 둥 마는 둥 하며 집중하지 못했습니다.",
+      "en": "Because of buzzing noise, I listened half-heartedly to the lecture without focus.",
+      "lv": 3
+    },
+    {
+      "ko": "촉박한 일정 속에서 준비 운동을 하는 둥 마는 둥 하고 경기에 나서다 부상을 당했군요.",
+      "en": "On a tight schedule, he barely warmed up before entering the game and got injured.",
+      "lv": 3
+    },
+    {
+      "ko": "면접관의 질문에 귀를 기울이는 둥 마는 둥 하며 성의 없이 단답형으로 대답하더군요.",
+      "en": "Hardly listening to interviewers' questions, he answered insincerely in short phrases.",
+      "lv": 3
+    },
+    {
+      "ko": "보고서를 훑어보는 둥 마는 둥 하고 서명한 팀장은 나중에 큰 결함을 발견했습니다.",
+      "en": "The team leader signed having barely skimmed the report, later finding major defects.",
+      "lv": 3
     }
   ],
   "13-1": [
@@ -28416,6 +28686,96 @@
     {
       "ko": "새벽안개 짙게 깔린 숲길은 비현실적이리만치 몽환적인 분위기를 자아내고 있었습니다.",
       "en": "Forest path covered in morning fog created dreamy atmosphere to point of being unreal.",
+      "lv": 3
+    },
+    {
+      "ko": "그는 놀라우리만치 계산이 빨라요.",
+      "en": "He is surprisingly quick at calculations.",
+      "lv": 1
+    },
+    {
+      "ko": "바다가 눈부시리만치 푸르고 아름다웠습니다.",
+      "en": "The sea was dazzlingly blue and beautiful.",
+      "lv": 1
+    },
+    {
+      "ko": "상처가 믿기지 않으리만치 말끔히 나았다.",
+      "en": "The wound healed unbelievably cleanly.",
+      "lv": 1
+    },
+    {
+      "ko": "목소리가 지겨우리만치 귀에 거슬렸어요.",
+      "en": "The voice was tiresomely grating on the ears.",
+      "lv": 1
+    },
+    {
+      "ko": "가을 하늘이 시리도록 푸르리만치 맑았습니다.",
+      "en": "The autumn sky was so clear as to be piercingly blue.",
+      "lv": 1
+    },
+    {
+      "ko": "태도가 어처구니없으리만치 당당하더군요.",
+      "en": "His attitude was absurdly confident.",
+      "lv": 1
+    },
+    {
+      "ko": "피아노 연주가 흠잡을 데 없으리만치 완벽해서 감탄을 자아냈어요.",
+      "en": "The piano performance was flawlessly perfect, eliciting admiration.",
+      "lv": 2
+    },
+    {
+      "ko": "날씨가 견디기 힘들리만치 무더워서 바깥출입을 자제했습니다.",
+      "en": "The weather was unbeatably sweltering, so I refrained from going out.",
+      "lv": 2
+    },
+    {
+      "ko": "오랜 친구처럼 편안하리만치 대화가 막힘없이 술술 이어졌어요.",
+      "en": "Conversations flowed smoothly and comfortably like with an old friend.",
+      "lv": 2
+    },
+    {
+      "ko": "그 어린아이는 소름이 돋으리만치 정확하게 음정을 짚어 냈습니다.",
+      "en": "That young child hit pitches with spine-chilling precision.",
+      "lv": 2
+    },
+    {
+      "ko": "시험 결과가 기대 이상이리만치 만족스러워서 기쁨을 감추지 못했어요.",
+      "en": "The exam result was satisfying beyond expectations, so I couldn't hide joy.",
+      "lv": 2
+    },
+    {
+      "ko": "협상이 지루하리만치 길어져서 참석자들 모두 지쳐 버렸습니다.",
+      "en": "The negotiation dragged on tiresomely long, exhausting all attendees.",
+      "lv": 2
+    },
+    {
+      "ko": "신기술의 발전 속도는 상상을 초월하리만치 빨라서 전문가들조차 혀를 내두르고 있습니다.",
+      "en": "The speed of new tech development is unimaginably fast, stunning even experts.",
+      "lv": 3
+    },
+    {
+      "ko": "비극적인 사건 현장은 차마 눈 뜨고 보기 어려우리만치 처참하여 탄식을 자아냈습니다.",
+      "en": "The tragic incident scene was painfully miserable to look at, evoking sorrow.",
+      "lv": 3
+    },
+    {
+      "ko": "낯선 이국땅에서 베풀어 준 주민들의 온정은 눈물겨우리만치 따뜻하고 고마웠습니다.",
+      "en": "The kindness shown by locals in a foreign land was tearfully warm and grateful.",
+      "lv": 3
+    },
+    {
+      "ko": "구조대의 필사적인 노력은 기적에 가까우리만치 놀라운 생환 소식을 전해 주었습니다.",
+      "en": "Rescue teams' desperate efforts delivered miraculous news of survival.",
+      "lv": 3
+    },
+    {
+      "ko": "억울한 누명을 쓴 주인공의 사연은 가슴이 미어지리만치 애절하여 관객들을 울렸습니다.",
+      "en": "The wrongly accused protagonist's story was heartbreakingly sorrowful, moving viewers to tears.",
+      "lv": 3
+    },
+    {
+      "ko": "현대 사회의 경쟁은 냉혹하리만치 치열하여 잠시라도 방심하면 낙오하기 쉽습니다.",
+      "en": "Modern competition is ruthlessly fierce, making it easy to fall behind if careless.",
       "lv": 3
     }
   ],
@@ -28479,6 +28839,96 @@
       "ko": "오랜 병간호에 지치다 못해 가족들 모두가 심신이 극도로 피폐해지고 말았습니다.",
       "en": "Exhausted beyond endurance by long nursing, all family members became extremely fatigued.",
       "lv": 3
+    },
+    {
+      "ko": "배가 고프다 못해 속이 쓰려요.",
+      "en": "I am so hungry that my stomach aches.",
+      "lv": 1
+    },
+    {
+      "ko": "보다 못해 제가 직접 나섰습니다.",
+      "en": "Unable to watch any longer, I stepped in myself.",
+      "lv": 1
+    },
+    {
+      "ko": "애가 타다 못해 발을 동동 굴렀습니다.",
+      "en": "So anxious that I stamped my feet anxiously.",
+      "lv": 1
+    },
+    {
+      "ko": "답답하다 못해 한숨이 절로 나왔다.",
+      "en": "So frustrated that a sigh came out naturally.",
+      "lv": 1
+    },
+    {
+      "ko": "참다 못해 한마디 쏘아붙였습니다.",
+      "en": "Unable to bear it any longer, I snapped a remark.",
+      "lv": 1
+    },
+    {
+      "ko": "피곤하다 못해 정신이 멍하더군요.",
+      "en": "So tired that my mind was completely blank.",
+      "lv": 1
+    },
+    {
+      "ko": "연체된 도서 반납을 기다리다 못해 서점에서 새로 구입했습니다.",
+      "en": "Unable to wait for overdue book returns, I bought a new copy at the bookstore.",
+      "lv": 2
+    },
+    {
+      "ko": "억지 주장을 듣다 못해 회의장을 박차고 나와 버렸어요.",
+      "en": "Unable to stand unreasonable claims any longer, I stormed out of the meeting.",
+      "lv": 2
+    },
+    {
+      "ko": "아이가 칭얼거리는 소리를 참다 못해 과자를 쥐여 주었습니다.",
+      "en": "Unable to endure the child's whining, I handed over a snack.",
+      "lv": 2
+    },
+    {
+      "ko": "밀려드는 업무에 시달리다 못해 휴직계를 내기로 결심했지요.",
+      "en": "Suffering from overwhelming tasks, I decided to take a leave of absence.",
+      "lv": 2
+    },
+    {
+      "ko": "국물이 졸다 못해 까맣게 타서 냄비를 버려야 했습니다.",
+      "en": "The broth boiled down until burnt black, so I had to discard the pot.",
+      "lv": 2
+    },
+    {
+      "ko": "무관심한 태도에 실망하다 못해 결국 깊은 배신감을 느꼈어요.",
+      "en": "Disappointed by indifferent attitudes, I ended up feeling deep betrayal.",
+      "lv": 2
+    },
+    {
+      "ko": "악성 루머가 도를 넘다 못해 가족들에게까지 피해를 주자 법적 대응에 나섰습니다.",
+      "en": "When malicious rumors crossed the line harming family, legal action was taken.",
+      "lv": 3
+    },
+    {
+      "ko": "극심한 생활고에 시달리다 못해 정든 고향을 등지고 먼 타향으로 떠나야 했습니다.",
+      "en": "Suffering from severe hardship, I had to leave my hometown for foreign lands.",
+      "lv": 3
+    },
+    {
+      "ko": "연일 계속되는 폭염에 지치다 못해 쓰러지는 온열 질환자가 속출하고 있습니다.",
+      "en": "Exhausted by consecutive heatwaves, heatstroke patients collapsing are surfacing constantly.",
+      "lv": 3
+    },
+    {
+      "ko": "상대방의 비열한 반칙을 보다 못해 심판에게 강력하게 항의하며 판정을 요구했습니다.",
+      "en": "Unable to overlook foul play, I protested strongly to the referee demanding a call.",
+      "lv": 3
+    },
+    {
+      "ko": "부당한 인사 처우를 견디다 못해 노조와 함께 단체 행동에 돌입하기로 결의했습니다.",
+      "en": "Unable to endure unjust treatment, we resolved to initiate collective action with the union.",
+      "lv": 3
+    },
+    {
+      "ko": "거듭되는 거짓 변명에 분노하다 못해 허탈한 웃음마저 터져 나오고 말았습니다.",
+      "en": "Beyond anger at repeated false excuses, even hollow laughter burst out.",
+      "lv": 3
     }
   ],
   "14-1": [
@@ -28540,6 +28990,96 @@
     {
       "ko": "비용을 대폭 절감한다는 것이 조잡한 부품을 구입하여 결함을 초래했습니다.",
       "en": "Intending to drastically cut costs, buying shoddy parts resulted in defects.",
+      "lv": 3
+    },
+    {
+      "ko": "도와준다는 것이 도리어 방해가 되었어요.",
+      "en": "Meaning to help, it actually became a hindrance.",
+      "lv": 1
+    },
+    {
+      "ko": "문을 닫는다는 것이 활짝 열어 두었네요.",
+      "en": "Meaning to close the door, I left it wide open.",
+      "lv": 1
+    },
+    {
+      "ko": "불을 끈다는 것이 텔레비전을 껐습니다.",
+      "en": "Meaning to turn off the light, I turned off the TV.",
+      "lv": 1
+    },
+    {
+      "ko": "소금을 친다는 것이 설탕을 쳤더군요.",
+      "en": "Meaning to add salt, I added sugar.",
+      "lv": 1
+    },
+    {
+      "ko": "칭찬한다는 것이 무안을 주고 말았어요.",
+      "en": "Meaning to praise, I ended up embarrassing them.",
+      "lv": 1
+    },
+    {
+      "ko": "메시지를 보낸다는 것이 단체방에 올렸습니다.",
+      "en": "Meaning to send a direct message, I posted it in the group chat.",
+      "lv": 1
+    },
+    {
+      "ko": "친구를 위로한다는 것이 오히려 상처를 주는 말을 내뱉고 말았어요.",
+      "en": "Meaning to comfort a friend, I ended up uttering hurtful words instead.",
+      "lv": 2
+    },
+    {
+      "ko": "물건을 새로 산다는 것이 엉뚱한 제품을 결제해 버렸습니다.",
+      "en": "Meaning to buy new items, I mistakenly paid for completely wrong products.",
+      "lv": 2
+    },
+    {
+      "ko": "찌개에 간장을 넣는다는 것이 식초를 들이부어 음식을 망쳤지요.",
+      "en": "Meaning to add soy sauce to stew, I poured vinegar and ruined the dish.",
+      "lv": 2
+    },
+    {
+      "ko": "조용히 빠져나간다는 것이 의자를 넘어뜨려 큰 소리를 냈습니다.",
+      "en": "Meaning to slip out quietly, I knocked over a chair making loud noise.",
+      "lv": 2
+    },
+    {
+      "ko": "알람을 오전으로 맞춘다는 것이 오후로 설정해 늦잠을 잤어요.",
+      "en": "Meaning to set alarm for AM, I set it to PM and overslept.",
+      "lv": 2
+    },
+    {
+      "ko": "약속 장소를 알려 준다는 것이 옛날 주소를 전송하고 말았더군요.",
+      "en": "Meaning to share the venue, I ended up sending the old address.",
+      "lv": 2
+    },
+    {
+      "ko": "분위기를 부드럽게 띄운다는 것이 무리한 농담을 던져 좌중을 싸늘하게 얼어붙게 했습니다.",
+      "en": "Meaning to soften the mood, cracking an awkward joke chilled the whole room.",
+      "lv": 3
+    },
+    {
+      "ko": "부하 직원의 사기를 북돋운다는 것이 과도한 부담감을 안겨 주어 역효과를 냈습니다.",
+      "en": "Meaning to boost staff morale, giving excessive pressure produced the opposite effect.",
+      "lv": 3
+    },
+    {
+      "ko": "오류를 바로잡는다는 것이 다른 핵심 프로그램 코드마저 엉망으로 꼬이게 만들었습니다.",
+      "en": "Meaning to fix an error, it tangled up other core program codes terribly.",
+      "lv": 3
+    },
+    {
+      "ko": "기밀을 철저히 보안 유지한다는 것이 실수로 외부 인사에게 이메일을 전송해 버렸습니다.",
+      "en": "Meaning to keep secrets secure, I accidentally sent the email to external personnel.",
+      "lv": 3
+    },
+    {
+      "ko": "갈등을 중재한다는 것이 편파적인 판정을 내려 오히려 양측의 감정의 골만 깊게 만들었습니다.",
+      "en": "Meaning to mediate conflicts, giving biased judgments only deepened mutual emotional rifts.",
+      "lv": 3
+    },
+    {
+      "ko": "예산을 절약한다는 것이 품질이 조악한 자재를 납품받아 대규모 하자 보수가 발생했습니다.",
+      "en": "Meaning to save budget, receiving poor materials caused massive defect repairs.",
       "lv": 3
     }
   ],
@@ -28603,6 +29143,96 @@
       "ko": "고가의 최신형 전자 기기로 교체하려다 말고 기존 기기를 수리해 쓰기로 했습니다.",
       "en": "Intending to replace with high-end gadget, I stopped and decided to repair existing device.",
       "lv": 3
+    },
+    {
+      "ko": "전화를 걸려다 말고 시계를 보았습니다.",
+      "en": "I was about to make a call, but stopped and checked the watch.",
+      "lv": 1
+    },
+    {
+      "ko": "화를 내려다 말고 꾹 참았어요.",
+      "en": "I was about to get angry, but held it in.",
+      "lv": 1
+    },
+    {
+      "ko": "따지려다 말고 그냥 돌아섰습니다.",
+      "en": "I was about to argue, but stopped and just turned away.",
+      "lv": 1
+    },
+    {
+      "ko": "옷을 사려다 말고 도로 내려놓았어요.",
+      "en": "I was about to buy clothes, but put them back down.",
+      "lv": 1
+    },
+    {
+      "ko": "한마디 하려다 말고 입을 다물었다.",
+      "en": "I was about to say something, but stopped and kept silent.",
+      "lv": 1
+    },
+    {
+      "ko": "진실을 털어놓으려다 말고 망설였습니다.",
+      "en": "I was about to confess the truth, but stopped and hesitated.",
+      "lv": 1
+    },
+    {
+      "ko": "버스를 타려다 말고 날씨가 좋아 천천히 걷기로 했습니다.",
+      "en": "I was about to take a bus, but chose to walk slowly due to good weather.",
+      "lv": 2
+    },
+    {
+      "ko": "편지를 부치려다 말고 마음이 변해 서랍 깊숙이 넣어 두었어요.",
+      "en": "I was about to mail the letter, but changed my mind and stored it in a drawer.",
+      "lv": 2
+    },
+    {
+      "ko": "솔직하게 고백하려다 말고 상대방의 굳은 표정에 움츠러들었습니다.",
+      "en": "I was about to confess frankly, but shrank back at their stern expression.",
+      "lv": 2
+    },
+    {
+      "ko": "질문을 던지려다 말고 진행을 방해할까 봐 손을 내렸지요.",
+      "en": "I was about to ask questions, but lowered my hand fearing disruption.",
+      "lv": 2
+    },
+    {
+      "ko": "외출하려다 말고 빗방울이 떨어지길래 우산을 챙기러 돌아섰습니다.",
+      "en": "I was about to go out, but turned back for an umbrella seeing raindrops.",
+      "lv": 2
+    },
+    {
+      "ko": "항의 글을 올리려다 말고 오해일 수도 있겠다는 생각에 지웠어요.",
+      "en": "I was about to post a complaint, but erased it thinking it could be a misunderstanding.",
+      "lv": 2
+    },
+    {
+      "ko": "사직서를 제출하려다 말고 가족들의 얼굴이 눈에 밟혀 조용히 서류 봉투를 집어넣었습니다.",
+      "en": "About to submit resignation, thoughts of family held me back so I quietly put it away.",
+      "lv": 3
+    },
+    {
+      "ko": "계약을 취소하려다 말고 위약금 부담이 너무 커서 다시 한번 협상을 시도해 보기로 했습니다.",
+      "en": "About to cancel contracts, high penalties made me attempt renegotiation once more.",
+      "lv": 3
+    },
+    {
+      "ko": "상대방의 비리를 폭로하려다 말고 무고한 피해자가 생길까 염려되어 발표를 유보했습니다.",
+      "en": "About to expose wrongdoings, I withheld announcements fearing innocent victims.",
+      "lv": 3
+    },
+    {
+      "ko": "중고차를 처분하려다 말고 손때 묻은 추억들이 아쉬워 조금 더 타 보기로 마음먹었습니다.",
+      "en": "About to sell the used car, fond memories made me decide to drive it longer.",
+      "lv": 3
+    },
+    {
+      "ko": "회의에서 반대 의견을 내세우려다 말고 팀 전체의 단합을 위해 한발 물러서기로 결정했습니다.",
+      "en": "About to voice objections, I stepped back for unity of the entire team.",
+      "lv": 3
+    },
+    {
+      "ko": "늦은 밤 야식을 주문하려다 말고 내일 있을 건강검진 생각에 주문 버튼에서 손을 뗐습니다.",
+      "en": "About to order late snacks, thinking of tomorrow's checkup made me take my hands off.",
+      "lv": 3
     }
   ],
   "14-3": [
@@ -28664,6 +29294,96 @@
     {
       "ko": "오랜 노력 끝에 목표를 달성하려더니 마지막 순간의 사소한 부주의로 실패했습니다.",
       "en": "Seeming about to achieve goal after long effort, failed due to minor carelessness at last moment.",
+      "lv": 3
+    },
+    {
+      "ko": "비가 오려더니 하늘이 맑아졌어요.",
+      "en": "It seemed like it would rain, but the sky cleared up.",
+      "lv": 1
+    },
+    {
+      "ko": "유학을 가려더니 취업을 했더군요.",
+      "en": "He was going to study abroad, but got a job instead.",
+      "lv": 1
+    },
+    {
+      "ko": "운동을 시작하려더니 작심삼일이었네요.",
+      "en": "He was going to start exercising, but gave up in three days.",
+      "lv": 1
+    },
+    {
+      "ko": "산책하려더니 바람이 불어 포기했다.",
+      "en": "I was going to take a walk, but gave up because the wind blew.",
+      "lv": 1
+    },
+    {
+      "ko": "화해하려더니 또 언성을 높이더군요.",
+      "en": "They were going to reconcile, but raised their voices again.",
+      "lv": 1
+    },
+    {
+      "ko": "낮잠을 자려더니 전화가 울려 깼습니다.",
+      "en": "I was going to take a nap, but the phone rang and woke me up.",
+      "lv": 1
+    },
+    {
+      "ko": "아침에는 눈이 내리려더니 오후가 되자 따뜻한 햇살이 비치네요.",
+      "en": "It looked like snow in the morning, but warm sunlight shone in the afternoon.",
+      "lv": 2
+    },
+    {
+      "ko": "새 차를 사려더니 자금 사정이 여의치 않아 중고차로 바꿨더군요.",
+      "en": "He planned to buy a new car, but bought a used one due to tight finances.",
+      "lv": 2
+    },
+    {
+      "ko": "사업을 확장하려더니 경기 불황 탓에 기존 매장마저 줄였습니다.",
+      "en": "He tried expanding business, but downsized existing stores due to recession.",
+      "lv": 2
+    },
+    {
+      "ko": "자격증을 따려더니 바쁜 회사 업무 때문에 도중에 그만두었지요.",
+      "en": "He intended to get a license, but quit halfway due to busy work.",
+      "lv": 2
+    },
+    {
+      "ko": "다이어트를 하려더니 저녁마다 야식을 챙겨 먹어서 살이 쪘어요.",
+      "en": "She planned on dieting, but gained weight eating late snacks every evening.",
+      "lv": 2
+    },
+    {
+      "ko": "고향으로 귀농하려더니 가족들의 반대에 부딪혀 도시에 남았습니다.",
+      "en": "He tried returning to farming, but stayed in the city facing family opposition.",
+      "lv": 2
+    },
+    {
+      "ko": "대규모 해외 투자를 유치하려더니 글로벌 경제 위기로 인해 모든 협상이 중단되었습니다.",
+      "en": "Seeking large foreign investment, all negotiations were halted due to economic crisis.",
+      "lv": 3
+    },
+    {
+      "ko": "신기술 특허를 출원하려더니 선행 기술과의 유사성이 지적되어 서류를 대폭 수정했습니다.",
+      "en": "Applying for patent, documents were revised heavily due to similarity with prior art.",
+      "lv": 3
+    },
+    {
+      "ko": "주말에 온 가족이 캠핑을 떠나려더니 갑작스러운 폭우 예보로 일정을 전면 취소했습니다.",
+      "en": "Planning family camping on weekend, schedule was fully canceled due to heavy rain forecasts.",
+      "lv": 3
+    },
+    {
+      "ko": "전원주택을 지어 이사하려더니 토지 용도 변경 문제에 부딪혀 계획이 틀어지고 말았지요.",
+      "en": "Planning to build a country house, plans went awry facing zoning issues.",
+      "lv": 3
+    },
+    {
+      "ko": "신제품을 이번 분기에 출시하려더니 부품 수급 차질로 인해 출시일이 다음 달로 미뤄졌습니다.",
+      "en": "Releasing new product this quarter, launch was delayed to next month from supply hiccups.",
+      "lv": 3
+    },
+    {
+      "ko": "대대적인 조직 개편을 단행하려더니 노조의 강력한 반발로 난항을 겪고 있습니다.",
+      "en": "Executing major reorganization, it is facing difficulties due to strong union backlash.",
       "lv": 3
     }
   ],
@@ -28727,6 +29447,96 @@
       "ko": "마치 꿈속을 헤매는 듯이 비현실적이고 몽환적인 풍경이 눈앞에 펼쳐졌습니다.",
       "en": "Unreal, dreamy landscape unfolded before eyes as if wandering in a dream.",
       "lv": 3
+    },
+    {
+      "ko": "물 흐르는 듯이 춤을 추었습니다.",
+      "en": "Danced as smoothly as flowing water.",
+      "lv": 1
+    },
+    {
+      "ko": "도망치는 듯이 서둘러 자리를 떴어요.",
+      "en": "Hastily left the seat as if fleeing.",
+      "lv": 1
+    },
+    {
+      "ko": "하늘을 나는 듯이 기분이 상쾌했습니다.",
+      "en": "Felt refreshed as if flying in the sky.",
+      "lv": 1
+    },
+    {
+      "ko": "비가 쏟아지는 듯이 땀을 흘렸다.",
+      "en": "Sweated as if rain was pouring.",
+      "lv": 1
+    },
+    {
+      "ko": "바람이 부는 듯이 조용히 스쳐 지나갔어요.",
+      "en": "Silently passed by as if a breeze blew.",
+      "lv": 1
+    },
+    {
+      "ko": "불타는 듯이 붉은 노을이 번졌습니다.",
+      "en": "A sunset red as if burning spread out.",
+      "lv": 1
+    },
+    {
+      "ko": "눈 녹는 듯이 모든 앙금과 오해가 깨끗하게 사라졌습니다.",
+      "en": "All grudges and misunderstandings melted away cleanly like melting snow.",
+      "lv": 2
+    },
+    {
+      "ko": "쫓기는 듯이 허겁지겁 짐을 챙겨 문밖으로 나섰어요.",
+      "en": "In a hurry as if chased, I packed up and stepped out the door.",
+      "lv": 2
+    },
+    {
+      "ko": "꿈을 꾸는 듯이 신비로운 풍경에 넋을 잃고 바라보았습니다.",
+      "en": "Mesmerized by mystical scenery as if dreaming, I gazed speechlessly.",
+      "lv": 2
+    },
+    {
+      "ko": "숨이 멎는 듯이 아름다운 야경에 모두가 탄성을 질렀지요.",
+      "en": "Everyone gasped at the breathtakingly beautiful night view.",
+      "lv": 2
+    },
+    {
+      "ko": "구름 위를 걷는 듯이 발걸음이 한없이 가볍고 경쾌했습니다.",
+      "en": "My steps were endlessly light and lively as if walking on clouds.",
+      "lv": 2
+    },
+    {
+      "ko": "번개가 치는 듯이 순식간에 기발한 아이디어가 머릿속에 떠올랐어요.",
+      "en": "An ingenious idea popped into mind in a flash like striking lightning.",
+      "lv": 2
+    },
+    {
+      "ko": "파도가 몰아치는 듯이 웅장한 오케스트라의 선율이 콘서트홀을 가득 메웠습니다.",
+      "en": "Grand orchestral melodies surged like crashing waves, filling the concert hall.",
+      "lv": 3
+    },
+    {
+      "ko": "마치 온 세상을 다 품는 듯이 두 팔을 활짝 벌렸습니다.",
+      "en": "Spread both arms wide as if embracing the whole world.",
+      "lv": 3
+    },
+    {
+      "ko": "폭풍우가 휘몰아치는 듯이 거친 세월을 이겨 내고 마침내 정상의 자리에 우뚝 섰습니다.",
+      "en": "Overcoming stormy turbulent years, they finally stood tall at the peak.",
+      "lv": 3
+    },
+    {
+      "ko": "바닥없는 늪으로 빨려 들어가는 듯이 깊은 절망감 속에서도 희망의 끈을 놓지 않았습니다.",
+      "en": "Even in bottomless despair as if sinking into swamp, they held onto hope.",
+      "lv": 3
+    },
+    {
+      "ko": "봄바람이 살랑살랑 부는 듯이 따사로운 어머니의 손길이 지친 이마를 어루만져 주었습니다.",
+      "en": "Mother's gentle touch caressed my tired forehead like softly blowing spring breezes.",
+      "lv": 3
+    },
+    {
+      "ko": "얼어붙은 대지를 뚫고 새싹이 돋아나는 듯이 강인한 생명력을 여실히 보여 주었습니다.",
+      "en": "It vividly showed resilient vitality as if sprouts bursting through frozen earth.",
+      "lv": 3
     }
   ],
   "15-2": [
@@ -28788,6 +29598,96 @@
     {
       "ko": "오랜 방황을 끝내고 고향으로 돌아간다는 듯이 편안하고 안도하는 표정을 지었습니다.",
       "en": "He wore comfortable and relieved expression as if returning home ending long wandering.",
+      "lv": 3
+    },
+    {
+      "ko": "아무것도 모른다는 듯이 고개를 갸웃거렸어요.",
+      "en": "Tilted head as if knowing nothing at all.",
+      "lv": 1
+    },
+    {
+      "ko": "모든 것을 이해한다는 듯이 고개를 끄덕였습니다.",
+      "en": "Nodded as if understanding everything.",
+      "lv": 1
+    },
+    {
+      "ko": "정말 감사한다는 듯이 두 손을 꼭 잡았어요.",
+      "en": "Held both hands tightly as if truly thankful.",
+      "lv": 1
+    },
+    {
+      "ko": "전혀 상관하지 않는다는 듯이 어깨를 으쓱했다.",
+      "en": "Shrugged shoulders as if it mattered not at all.",
+      "lv": 1
+    },
+    {
+      "ko": "어서 떠난다는 듯이 서둘러 손짓을 하더군요.",
+      "en": "Hurriedly gestured as if urging to leave quickly.",
+      "lv": 1
+    },
+    {
+      "ko": "결코 지지 않는다는 듯이 주먹을 쥐었습니다.",
+      "en": "Clenched fists as if never losing.",
+      "lv": 1
+    },
+    {
+      "ko": "도무지 믿지 못한다는 듯이 눈을 동그랗게 뜨고 쳐다보았습니다.",
+      "en": "Stared wide-eyed as if completely unable to believe.",
+      "lv": 2
+    },
+    {
+      "ko": "내 제안에 전적으로 동의한다는 듯이 환하게 웃으며 악수를 청했어요.",
+      "en": "Smiled brightly asking for handshake as if fully agreeing to my proposal.",
+      "lv": 2
+    },
+    {
+      "ko": "상대방의 주장을 비웃는다는 듯이 차가운 냉소를 흘리며 돌아섰습니다.",
+      "en": "Turned away with cold sneer as if mocking opponent's claim.",
+      "lv": 2
+    },
+    {
+      "ko": "이제 한시름 놓는다는 듯이 안도의 깊은 한숨을 내쉬더군요.",
+      "en": "Breathed deep sigh of relief as if finally putting worries aside.",
+      "lv": 2
+    },
+    {
+      "ko": "자신의 능력을 과시한다는 듯이 값비싼 명품 시계를 슬쩍 보여 주었습니다.",
+      "en": "Subtly showed expensive luxury watch as if flaunting own ability.",
+      "lv": 2
+    },
+    {
+      "ko": "우리 약속을 다 잊어버린다는 듯이 딴청을 피우며 먼 산만 바라보았어요.",
+      "en": "Feigned ignorance looking away as if forgetting our promise.",
+      "lv": 2
+    },
+    {
+      "ko": "세상 모든 진리를 꿰뚫어 본다는 듯이 노인은 그윽한 눈빛으로 허공을 응시했습니다.",
+      "en": "The elder gazed into space with serene eyes as if penetrating all worldly truths.",
+      "lv": 3
+    },
+    {
+      "ko": "자신의 결백을 끝까지 증명한다는 듯이 수사관 앞에서 당당한 태도로 진술했습니다.",
+      "en": "Testified confidently before investigators as if proving innocence till the end.",
+      "lv": 3
+    },
+    {
+      "ko": "당장이라도 자리를 박차고 일어난다는 듯이 의자를 거칠게 뒤로 밀어젖혔습니다.",
+      "en": "Shoved the chair back roughly as if jumping up from the seat right away.",
+      "lv": 3
+    },
+    {
+      "ko": "경쟁사의 도발 따위는 신경 쓰지 않는다는 듯이 차분하고 의연하게 대처해 나갔습니다.",
+      "en": "Responded calmly and resolutely as if never minding rivals' provocations.",
+      "lv": 3
+    },
+    {
+      "ko": "자신이 당연히 이긴다는 듯이 우승 트로피를 번쩍 들어 올려 환호했습니다.",
+      "en": "Cheered lifting championship trophy high as if winning was a matter of course.",
+      "lv": 3
+    },
+    {
+      "ko": "어려운 상황을 혼자 힘으로 돌파한다는 듯이 비장한 각오를 밝히며 출사표를 던졌습니다.",
+      "en": "Announced solemn resolution throwing down gauntlet as if overcoming hardships alone.",
       "lv": 3
     }
   ],
@@ -28851,6 +29751,96 @@
       "ko": "환경 보호를 위한 시민들의 자발적 실천이 점차 정착되는 듯하여 기대가 큽니다.",
       "en": "Citizens' voluntary practices for environment seem taking root, raising expectations.",
       "lv": 3
+    },
+    {
+      "ko": "밖에서 차가운 비가 내리는 듯하지요.",
+      "en": "It seems cold rain is falling outside.",
+      "lv": 1
+    },
+    {
+      "ko": "동생이 요즘 밤잠을 설치는 듯하다.",
+      "en": "My sibling seems to toss and turn at night lately.",
+      "lv": 1
+    },
+    {
+      "ko": "모두가 그 소식을 이미 아는 듯하지요.",
+      "en": "Everyone seems to already know that news.",
+      "lv": 1
+    },
+    {
+      "ko": "그는 내 눈길을 일부러 피하는 듯하다.",
+      "en": "He seems to intentionally avoid my gaze.",
+      "lv": 1
+    },
+    {
+      "ko": "누군가 밖에서 문을 두드리는 듯하지요.",
+      "en": "Someone seems to be knocking on the door outside.",
+      "lv": 1
+    },
+    {
+      "ko": "그녀는 속마음을 숨기며 웃는 듯하다.",
+      "en": "She seems to smile while hiding inner feelings.",
+      "lv": 1
+    },
+    {
+      "ko": "요즘 경기 회복에 대한 기대감이 시장에 널리 퍼지는 듯하지요.",
+      "en": "Expectations of economic recovery seem spreading widely across markets lately.",
+      "lv": 2
+    },
+    {
+      "ko": "두 사람은 서로에게 호감을 느끼며 점차 가까워지는 듯하다.",
+      "en": "The two seem getting closer gradually feeling mutual attraction.",
+      "lv": 2
+    },
+    {
+      "ko": "복잡한 법적 분쟁이 원만한 합의점을 찾아가는 듯하지요.",
+      "en": "Complex legal disputes seem moving toward finding amicable compromise.",
+      "lv": 2
+    },
+    {
+      "ko": "기후 변화로 인해 사계절의 경계가 점점 모호해지는 듯하다.",
+      "en": "Boundaries between four seasons seem becoming increasingly vague from climate change.",
+      "lv": 2
+    },
+    {
+      "ko": "새로 부임한 팀장이 부서원들의 의견을 경청하려 노력하는 듯하지요.",
+      "en": "The new team leader seems trying to listen to team members' opinions.",
+      "lv": 2
+    },
+    {
+      "ko": "환자의 건강 상태가 치료 덕분에 빠르게 호전되는 듯하다.",
+      "en": "Patient's health condition seems improving quickly thanks to treatments.",
+      "lv": 2
+    },
+    {
+      "ko": "첨단 인공지능 기술의 급격한 발전이 현대 사회 구조를 송두리째 뒤바꾸는 듯하지요.",
+      "en": "Rapid advancement of cutting-edge AI technology seems overturning modern social structures completely.",
+      "lv": 3
+    },
+    {
+      "ko": "오랜 갈등의 골을 메우고 화합을 이루기 위한 양측의 대화가 무르익는 듯하다.",
+      "en": "Dialogue between both sides to bridge prolonged discord and achieve harmony seems maturing.",
+      "lv": 3
+    },
+    {
+      "ko": "친환경 신재생 에너지에 대한 국제적 투자가 전례 없이 크게 증가하는 듯하지요.",
+      "en": "International investment in eco-friendly renewable energy seems increasing unprecedentedly.",
+      "lv": 3
+    },
+    {
+      "ko": "장기적인 경기 침체로 인해 청년층의 구직 활동이 심각하게 위축되는 듯하다.",
+      "en": "Job seeking activities of youths seem shrinking severely due to prolonged economic recession.",
+      "lv": 3
+    },
+    {
+      "ko": "세계 각국이 글로벌 무역 패권을 차지하기 위해 치열한 총력전을 벌이는 듯하지요.",
+      "en": "Countries worldwide seem waging fierce all-out wars to seize global trade hegemony.",
+      "lv": 3
+    },
+    {
+      "ko": "문화 예술 콘텐츠의 다양성이 대중의 창의적 감수성을 풍요롭게 자극하는 듯하다.",
+      "en": "Diversity of cultural art contents seems richly stimulating public creative sensibility.",
+      "lv": 3
     }
   ],
   "15-4": [
@@ -28912,6 +29902,96 @@
     {
       "ko": "서로의 입장만 고집하며 타협하지 않는다면 파국을 맞이할 게 뻔하지요.",
       "en": "If insisting only on own stances without compromising, meeting ruin is obvious.",
+      "lv": 3
+    },
+    {
+      "ko": "지금 출발하면 늦을 게 뻔하다.",
+      "en": "If we leave now, being late is obvious.",
+      "lv": 1
+    },
+    {
+      "ko": "거짓말을 하면 들통날 게 뻔하지요.",
+      "en": "If you tell a lie, getting caught is obvious.",
+      "lv": 1
+    },
+    {
+      "ko": "그렇게 먹다가는 배탈이 날 게 뻔하다.",
+      "en": "If you eat like that, getting a stomachache is obvious.",
+      "lv": 1
+    },
+    {
+      "ko": "무리하게 투자하면 실패할 게 뻔하지요.",
+      "en": "Investing recklessly will obviously fail.",
+      "lv": 1
+    },
+    {
+      "ko": "준비가 부족하니 시험을 망칠 게 뻔하다.",
+      "en": "Lacking preparation, ruining the exam is obvious.",
+      "lv": 1
+    },
+    {
+      "ko": "그 사람 성격에 거절할 게 뻔하지요.",
+      "en": "Given his personality, refusing is obvious.",
+      "lv": 1
+    },
+    {
+      "ko": "비가 오는데 우산을 안 챙겼으니 옷이 흠뻑 젖을 게 뻔하다.",
+      "en": "Not bringing an umbrella while raining, clothes getting soaked is obvious.",
+      "lv": 2
+    },
+    {
+      "ko": "검토도 없이 서류를 제출했다가는 상사에게 호되게 꾸중 들을 게 뻔하지요.",
+      "en": "Submitting papers without review, getting scolded severely by boss is obvious.",
+      "lv": 2
+    },
+    {
+      "ko": "비좁은 도로에 무리하게 진입하다가는 교통 체증을 유발할 게 뻔하다.",
+      "en": "Entering narrow roads forcibly, causing traffic congestion is obvious.",
+      "lv": 2
+    },
+    {
+      "ko": "철저한 사전 답사도 없이 산에 올랐다가는 조난당할 게 뻔하지요.",
+      "en": "Climbing mountains without thorough reconnaissance, getting stranded is obvious.",
+      "lv": 2
+    },
+    {
+      "ko": "약관을 제대로 확인하지 않고 계약하면 나중에 큰 손해를 볼 게 뻔하다.",
+      "en": "Signing without checking terms properly, incurring big losses later is obvious.",
+      "lv": 2
+    },
+    {
+      "ko": "규칙을 상습적으로 위반하면 결국 퇴학 처분을 당할 게 뻔하지요.",
+      "en": "Habitually violating regulations, eventually facing expulsion is obvious.",
+      "lv": 2
+    },
+    {
+      "ko": "기본적인 안전 수칙을 지키지 않은 건설 현장에서는 대형 인명 사고가 일어날 게 뻔하다.",
+      "en": "At construction sites ignoring safety rules, major casualty accidents will obviously happen.",
+      "lv": 3
+    },
+    {
+      "ko": "소비자들의 요구를 무시하고 구시대적 제품만 고집하다가는 시장에서 도태될 게 뻔하지요.",
+      "en": "Ignoring consumer demands and sticking to obsolete products will obviously lead to market elimination.",
+      "lv": 3
+    },
+    {
+      "ko": "객관적인 검증 없이 가짜 뉴스를 무분별하게 퍼뜨리면 엄청난 사회적 혼란을 야기할 게 뻔하다.",
+      "en": "Indiscriminately spreading fake news without objective verification will obviously cause enormous social chaos.",
+      "lv": 3
+    },
+    {
+      "ko": "충분한 자본금 없이 무리하게 사업을 확장하려 들다가는 순식간에 부도를 맞을 게 뻔하지요.",
+      "en": "Expanding business aggressively without capital, facing immediate bankruptcy is obvious.",
+      "lv": 3
+    },
+    {
+      "ko": "환경 오염 물질을 무단으로 방출하는 행위는 주변 생태계를 완전히 파괴할 게 뻔하다.",
+      "en": "Discharging environmental pollutants unauthorized will obviously destroy surrounding ecosystems completely.",
+      "lv": 3
+    },
+    {
+      "ko": "상대방의 자존심을 짓밟는 언행을 일삼다가는 주변의 모든 신뢰를 잃어버릴 게 뻔하지요.",
+      "en": "Habitually stomping on others' self-esteem, losing all surrounding trust is obvious.",
       "lv": 3
     }
   ],
@@ -28975,6 +30055,96 @@
       "ko": "세계적인 권위를 자랑하는 대회에서 우승을 차지했으니 온 국민이 환호할 법하다.",
       "en": "Winning championship in world-authoritative contest, it's likely the whole nation cheers.",
       "lv": 3
+    },
+    {
+      "ko": "그럴듯한 소문이라 믿을 법하다.",
+      "en": "It is a plausible rumor, so it is quite likely to be believed.",
+      "lv": 1
+    },
+    {
+      "ko": "그 정도 실력이면 합격할 법하다.",
+      "en": "With that level of skill, passing is quite likely.",
+      "lv": 1
+    },
+    {
+      "ko": "오랜 세월이 흘렀으니 잊힐 법하다.",
+      "en": "Since long years passed, being forgotten is quite likely.",
+      "lv": 1
+    },
+    {
+      "ko": "피로가 누적되었으니 쓰러질 법하다.",
+      "en": "Fatigue having accumulated, collapsing is quite likely.",
+      "lv": 1
+    },
+    {
+      "ko": "충분히 연습했으니 우승할 법하다.",
+      "en": "Having practiced sufficiently, winning is quite likely.",
+      "lv": 1
+    },
+    {
+      "ko": "그렇게 노력했으니 칭찬받을 법하다.",
+      "en": "Having put in such effort, receiving praise is quite likely.",
+      "lv": 1
+    },
+    {
+      "ko": "밤낮없이 연구에 매진했으니 훌륭한 학술 논문을 완성할 법하다.",
+      "en": "Devoting to research day and night, completing an excellent academic paper is quite likely.",
+      "lv": 2
+    },
+    {
+      "ko": "매일 꾸준히 조깅을 했으니 기초 체력이 몰라보게 좋아질 법하다.",
+      "en": "Jogging steadily every day, basic physical stamina improving noticeably is quite likely.",
+      "lv": 2
+    },
+    {
+      "ko": "수많은 고난을 겪었으니 인생의 깊은 지혜를 깨달을 법하다.",
+      "en": "Having endured numerous tribulations, realizing deep life wisdom is quite likely.",
+      "lv": 2
+    },
+    {
+      "ko": "가격이 저렴하고 실용적이니 많은 고객에게 인기를 끌 법하다.",
+      "en": "Being cheap and practical, gaining popularity among many customers is quite likely.",
+      "lv": 2
+    },
+    {
+      "ko": "오랫동안 호흡을 맞춘 단짝이니 눈빛만 봐도 통할 법하다.",
+      "en": "Being partners who synced for long, communicating just through eye glances is quite likely.",
+      "lv": 2
+    },
+    {
+      "ko": "워낙 음식 솜씨가 뛰어나니 차린 식당마다 대박이 날 법하다.",
+      "en": "Her cooking skills being exceptional, every opened restaurant hitting jackpot is quite likely.",
+      "lv": 2
+    },
+    {
+      "ko": "철저한 품질 관리와 혁신적인 디자인을 도입했으니 글로벌 시장에서 두각을 나타낼 법하다.",
+      "en": "Introducing strict quality control and innovative designs, excelling in global markets is quite likely.",
+      "lv": 3
+    },
+    {
+      "ko": "국민들의 전폭적인 신뢰와 지지를 얻었으니 당면한 개혁 과제를 성공적으로 완수할 법하다.",
+      "en": "Gaining full trust and support of citizens, successfully accomplishing pending reform tasks is quite likely.",
+      "lv": 3
+    },
+    {
+      "ko": "체계적인 위기 대응 시스템을 구축해 두었으니 돌발적인 자연재해에도 피해를 최소화할 법하다.",
+      "en": "Building systematic crisis response systems, minimizing damage in sudden natural disasters is quite likely.",
+      "lv": 3
+    },
+    {
+      "ko": "유망한 신산업 분야에 과감히 투자했으니 향후 높은 경제적 수익률을 창출할 법하다.",
+      "en": "Investing boldly in promising new industries, generating high economic returns ahead is quite likely.",
+      "lv": 3
+    },
+    {
+      "ko": "구성원 간의 원활한 소통 문화를 정착시켰으니 부서 간 협업 시너지가 극대화될 법하다.",
+      "en": "Settling smooth communication culture among members, maximizing cross-department synergy is quite likely.",
+      "lv": 3
+    },
+    {
+      "ko": "탁월한 외교적 역량을 발휘했으니 첨예하게 대립하던 국제 분쟁을 평화롭게 매듭지을 법하다.",
+      "en": "Demonstrating superior diplomatic capability, concluding sharply contested international disputes peacefully is quite likely.",
+      "lv": 3
     }
   ],
   "15-6": [
@@ -29036,6 +30206,96 @@
     {
       "ko": "모든 시민이 법과 원칙을 준수하는 민주 사회에서 불의가 승리할 리가 없습니다.",
       "en": "In democratic society where citizens obey laws, there's no way injustice triumphs.",
+      "lv": 3
+    },
+    {
+      "ko": "지도자로서 책임을 회피할 리가 없다.",
+      "en": "As a leader, there is no way he evades responsibility.",
+      "lv": 1
+    },
+    {
+      "ko": "열심히 공부했으니 떨어질 리가 없지요.",
+      "en": "Having studied hard, there is no way he failed.",
+      "lv": 1
+    },
+    {
+      "ko": "친한 친구가 나를 속일 리가 없다.",
+      "en": "There is no way my close friend tricked me.",
+      "lv": 1
+    },
+    {
+      "ko": "비밀을 다른 사람에게 누설할 리가 없지요.",
+      "en": "There is no way they leaked the secret to others.",
+      "lv": 1
+    },
+    {
+      "ko": "철저히 점검했으니 고장 날 리가 없다.",
+      "en": "Having inspected thoroughly, there is no way it broke down.",
+      "lv": 1
+    },
+    {
+      "ko": "그 착한 아이가 거짓말할 리가 없지요.",
+      "en": "There is no way that kind child told a lie.",
+      "lv": 1
+    },
+    {
+      "ko": "성실하기로 소문난 직원이 무단결근을 할 리가 없지요.",
+      "en": "There is no way an employee famous for diligence was absent without leave.",
+      "lv": 2
+    },
+    {
+      "ko": "오랜 세월을 함께한 동료가 내 진심을 모를 리가 없다.",
+      "en": "There is no way a colleague of long years does not know my sincerity.",
+      "lv": 2
+    },
+    {
+      "ko": "엄격한 안전 검사를 거친 놀이기구가 쉽게 오작동할 리가 없지요.",
+      "en": "There is no way rides that passed strict safety inspections malfunction easily.",
+      "lv": 2
+    },
+    {
+      "ko": "전문 의사가 환자의 중대한 증상을 오진할 리가 없다.",
+      "en": "There is no way a specialist doctor misdiagnosed a critical symptom of a patient.",
+      "lv": 2
+    },
+    {
+      "ko": "정직하게 평생을 살아오신 부모님이 부당한 이익을 탐할 리가 없지요.",
+      "en": "There is no way parents who lived honestly their whole lives coveted unjust profits.",
+      "lv": 2
+    },
+    {
+      "ko": "정교하게 암호화된 전산망 시스템이 외부 해킹에 무너질 리가 없다.",
+      "en": "There is no way an elaborately encrypted network collapsed to external hacking.",
+      "lv": 2
+    },
+    {
+      "ko": "공정하고 투명한 절차를 거쳐 선발된 인재들이 직무 윤리를 저버릴 리가 없지요.",
+      "en": "There is no way talents selected through fair procedures abandoned job ethics.",
+      "lv": 3
+    },
+    {
+      "ko": "수많은 검증 과정을 거쳐 출시된 신약에 치명적인 부작용 결함이 존재할 리가 없다.",
+      "en": "There is no way fatal side effects exist in new medicines released through verification.",
+      "lv": 3
+    },
+    {
+      "ko": "오랜 전통을 자랑하는 유서 깊은 장인이 값싼 모조품을 만들어 속일 리가 없지요.",
+      "en": "There is no way historic artisans boasting long traditions crafted cheap fakes to deceive.",
+      "lv": 3
+    },
+    {
+      "ko": "수십 년간 쌓아 올린 굳건한 신뢰 관계가 사소한 말실수 하나로 깨질 리가 없다.",
+      "en": "There is no way solid trust built over decades broke over a single minor slip of the tongue.",
+      "lv": 3
+    },
+    {
+      "ko": "철통같은 보안 경비 태세를 유지하는 군사 기지에 불순 세력이 잠입할 리가 없지요.",
+      "en": "There is no way subversive forces infiltrated military bases maintaining ironclad security.",
+      "lv": 3
+    },
+    {
+      "ko": "모든 법적 요건을 완벽하게 구비한 건축 허가 신청이 정당한 사유 없이 반려될 리가 없다.",
+      "en": "There is no way building permit applications meeting all requirements were rejected without just cause.",
       "lv": 3
     }
   ],
@@ -29099,6 +30359,96 @@
       "ko": "확인되지 않은 루머를 맹신하다가는 사회적인 혼란과 불필요한 갈등을 초래하기 십상이다.",
       "en": "Blindly trusting unconfirmed rumors, causing social confusion and conflict is apt.",
       "lv": 3
+    },
+    {
+      "ko": "빙판길에서 뛰다가는 넘어지기 십상이지요.",
+      "en": "Running on icy paths makes slipping easy.",
+      "lv": 1
+    },
+    {
+      "ko": "밤샘 작업을 하면 몸살이 나기 십상이다.",
+      "en": "Working all night makes getting sick easy.",
+      "lv": 1
+    },
+    {
+      "ko": "감정적으로 대응하면 일을 그르치기 십상이지요.",
+      "en": "Reacting emotionally makes ruining things easy.",
+      "lv": 1
+    },
+    {
+      "ko": "무리한 욕심을 부리면 사기당하기 십상이다.",
+      "en": "Being overly greedy makes being scammed easy.",
+      "lv": 1
+    },
+    {
+      "ko": "확인 없이 서두르면 실수를 저지르기 십상이지요.",
+      "en": "Rushing without checking makes committing blunders easy.",
+      "lv": 1
+    },
+    {
+      "ko": "눈길에서는 차가 미끄러지기 십상이다.",
+      "en": "On snowy roads, cars skidding is easy.",
+      "lv": 1
+    },
+    {
+      "ko": "준비 운동 없이 차가운 계곡물에 뛰어들었다가는 심장마비에 걸리기 십상이지요.",
+      "en": "Jumping into cold valley water without warmup makes suffering heart attacks easy.",
+      "lv": 2
+    },
+    {
+      "ko": "출처가 불분명한 소문을 무턱대고 믿다가는 큰 낭패를 보기 십상이다.",
+      "en": "Blindly trusting rumors of unclear origins makes facing severe setbacks easy.",
+      "lv": 2
+    },
+    {
+      "ko": "지나치게 고집만 내세우다가는 주변 사람들로부터 고립되기 십상이지요.",
+      "en": "Pushing stubbornness excessively makes becoming isolated from people around easy.",
+      "lv": 2
+    },
+    {
+      "ko": "초보자가 안전장비 없이 암벽을 오르다가는 큰 사고를 당하기 십상이다.",
+      "en": "Beginners climbing rocks without safety gear makes suffering big accidents easy.",
+      "lv": 2
+    },
+    {
+      "ko": "과소비를 일삼으며 저축하지 않다가는 노후에 극심한 빈곤에 시달리기 십상이지요.",
+      "en": "Overspending without saving makes suffering severe poverty in old age easy.",
+      "lv": 2
+    },
+    {
+      "ko": "세부 조항을 안 살피고 계약하면 빚더미에 앉기 십상이다.",
+      "en": "Signing without examining clauses makes falling into debt easy.",
+      "lv": 2
+    },
+    {
+      "ko": "변화하는 시장 트렌드를 제때 읽지 못하고 안주하다가는 기업 경쟁력을 상실하기 십상이지요.",
+      "en": "Failing to read evolving market trends and settling makes losing corporate competitiveness easy.",
+      "lv": 3
+    },
+    {
+      "ko": "건강 이상 신호를 대수롭지 않게 넘기다가는 돌이킬 수 없는 만성 중병을 얻기 십상이다.",
+      "en": "Dismissing health abnormality signals lightly makes contracting irreversible chronic illnesses easy.",
+      "lv": 3
+    },
+    {
+      "ko": "대중의 일시적인 환호에 도취되어 오만해지다가는 한순간에 바닥으로 추락하기 십상이지요.",
+      "en": "Becoming arrogant intoxicated by fleeting cheers of the public makes crashing to the bottom easy.",
+      "lv": 3
+    },
+    {
+      "ko": "체계적인 사업 타당성 검토 없이 무작정 창업에 뛰어들었다가는 전 재산을 탕진하기 십상이다.",
+      "en": "Plunging into startups recklessly without feasibility studies makes squandering one's entire fortune easy.",
+      "lv": 3
+    },
+    {
+      "ko": "충분한 수면과 휴식을 취하지 않고 과로를 지속하다가는 면역력이 급격히 떨어지기 십상이지요.",
+      "en": "Continuing overwork without adequate rest and sleep makes immunity dropping sharply easy.",
+      "lv": 3
+    },
+    {
+      "ko": "원칙 없는 무분별한 규제 완화는 자칫 금융 시장의 건전성을 심각하게 훼손하기 십상이다.",
+      "en": "Indiscriminate deregulation without principles makes severely undermining financial soundness easy.",
+      "lv": 3
     }
   ],
   "16-1": [
@@ -29160,6 +30510,96 @@
     {
       "ko": "자연의 순리를 거스르며 무분별하게 개발하면 환경 재앙이 닥치기 마련이지요.",
       "en": "Developing recklessly defying nature's order, environmental disasters are bound to strike.",
+      "lv": 3
+    },
+    {
+      "ko": "사람은 누구나 늙기 마련이다.",
+      "en": "Everyone is bound to grow old.",
+      "lv": 1
+    },
+    {
+      "ko": "비밀은 언젠가 밝혀지기 마련이지요.",
+      "en": "Secrets are bound to be revealed someday.",
+      "lv": 1
+    },
+    {
+      "ko": "물은 위에서 아래로 흐르기 마련이다.",
+      "en": "Water is bound to flow from high to low.",
+      "lv": 1
+    },
+    {
+      "ko": "노력한 만큼 결실을 얻기 마련이지요.",
+      "en": "One is bound to reap fruit as much as one strived.",
+      "lv": 1
+    },
+    {
+      "ko": "계절은 순서대로 바뀌기 마련이다.",
+      "en": "Seasons are bound to change in order.",
+      "lv": 1
+    },
+    {
+      "ko": "처음에는 누구나 서툴기 마련이지요.",
+      "en": "Everyone is bound to be clumsy at first.",
+      "lv": 1
+    },
+    {
+      "ko": "감정을 억누르기만 하면 언젠가 폭발하기 마련이지요.",
+      "en": "Suppressing emotions endlessly is bound to explode someday.",
+      "lv": 2
+    },
+    {
+      "ko": "준비 없이 시작한 일은 벽에 부딪히기 마련이다.",
+      "en": "Tasks started without preparation are bound to hit a wall.",
+      "lv": 2
+    },
+    {
+      "ko": "시간이 흐르면 아픈 기억도 잊히기 마련이지요.",
+      "en": "With passing time, painful memories are bound to fade.",
+      "lv": 2
+    },
+    {
+      "ko": "기초가 부실한 건축물은 쉽게 무너지기 마련이다.",
+      "en": "Buildings with weak foundations are bound to collapse easily.",
+      "lv": 2
+    },
+    {
+      "ko": "진심으로 다가가면 마음의 문이 열리기 마련이지요.",
+      "en": "Approaching sincerely, the door of mind is bound to open.",
+      "lv": 2
+    },
+    {
+      "ko": "욕심을 지나치게 부리면 화를 부르기 마련이다.",
+      "en": "Excessive greed is bound to bring misfortune.",
+      "lv": 2
+    },
+    {
+      "ko": "아무리 견고한 권력이라도 대중의 신뢰를 잃으면 무너지기 마련이지요.",
+      "en": "No matter how solid power is, it is bound to crumble when losing public trust.",
+      "lv": 3
+    },
+    {
+      "ko": "새로운 기술이 등장하면 기존 산업 구조는 급격한 변화를 겪기 마련이다.",
+      "en": "When new technologies emerge, conventional industry structures are bound to undergo rapid shifts.",
+      "lv": 3
+    },
+    {
+      "ko": "공정하지 못한 보상 체계는 조직 구성원들의 사기를 저하시키기 마련이지요.",
+      "en": "Unfair compensation systems are bound to lower morale of organization members.",
+      "lv": 3
+    },
+    {
+      "ko": "자연의 순리를 거스르는 무분별한 개발은 재앙을 초래하기 마련이다.",
+      "en": "Reckless development going against nature's laws is bound to incur disasters.",
+      "lv": 3
+    },
+    {
+      "ko": "서로 다른 가치관이 충돌하는 과정에서 갈등은 발생하기 마련이지요.",
+      "en": "In processes where differing values clash, conflicts are bound to arise.",
+      "lv": 3
+    },
+    {
+      "ko": "뿌린 대로 거둔다는 옛말처럼 선한 행동은 좋은 보답을 받기 마련이다.",
+      "en": "As the old saying goes you reap what you sow, good deeds are bound to receive good returns.",
       "lv": 3
     }
   ],
@@ -29223,6 +30663,96 @@
       "ko": "역사의 교훈을 망각한 민족에게는 동일한 비극이 되풀이되는 법이지요.",
       "en": "A nation forgetting history's lessons is bound to repeat identical tragedies.",
       "lv": 3
+    },
+    {
+      "ko": "비 온 뒤에 땅이 굳는 법이지요.",
+      "en": "The ground is bound to harden after rain.",
+      "lv": 1
+    },
+    {
+      "ko": "정직한 사람이 인정받는 법이다.",
+      "en": "An honest person is bound to be recognized.",
+      "lv": 1
+    },
+    {
+      "ko": "밤이 지나면 아침이 밝아 오는 법이지요.",
+      "en": "When night passes, morning is bound to dawn.",
+      "lv": 1
+    },
+    {
+      "ko": "급하게 먹는 밥이 체하는 법이다.",
+      "en": "Food eaten in haste is bound to cause indigestion.",
+      "lv": 1
+    },
+    {
+      "ko": "고생 끝에 낙이 오는 법이지요.",
+      "en": "Joy is bound to come at the end of hardship.",
+      "lv": 1
+    },
+    {
+      "ko": "달도 차면 기우는 법이다.",
+      "en": "The moon is bound to wane once full.",
+      "lv": 1
+    },
+    {
+      "ko": "거짓말은 할수록 눈덩이처럼 불어나는 법이지요.",
+      "en": "Lies are bound to snowball the more one tells them.",
+      "lv": 2
+    },
+    {
+      "ko": "역사는 끊임없이 앞으로 전진하는 법이다.",
+      "en": "History is bound to advance forward relentlessly.",
+      "lv": 2
+    },
+    {
+      "ko": "사소한 실천이 모여 큰 변화를 만드는 법이지요.",
+      "en": "Small practices gathered are bound to create great change.",
+      "lv": 2
+    },
+    {
+      "ko": "뿌리가 깊은 나무는 바람에 흔들리지 않는 법이다.",
+      "en": "Deep-rooted trees are bound not to sway in the wind.",
+      "lv": 2
+    },
+    {
+      "ko": "정성을 다해 씨앗을 뿌리면 싹이 트는 법이지요.",
+      "en": "Sowing seeds with devotion, sprouts are bound to emerge.",
+      "lv": 2
+    },
+    {
+      "ko": "위기 속에서도 지혜로운 사람은 활로를 찾는 법이다.",
+      "en": "Wise people are bound to find a way out even in crises.",
+      "lv": 2
+    },
+    {
+      "ko": "오만함에 빠져 주변을 경시하는 지도자는 민심을 잃고 몰락하는 법이지요.",
+      "en": "Leaders disregarding others in arrogance are bound to lose public support and fall.",
+      "lv": 3
+    },
+    {
+      "ko": "진실을 은폐하려는 시도는 더 큰 사회적 혼란과 파장을 부르는 법이다.",
+      "en": "Attempts to conceal truths are bound to bring greater social turmoil and fallout.",
+      "lv": 3
+    },
+    {
+      "ko": "고난과 역경을 견뎌 낸 사람만이 성장의 달콤한 열매를 맛보는 법이지요.",
+      "en": "Only those who weathered tribulations are bound to taste sweet fruits of growth.",
+      "lv": 3
+    },
+    {
+      "ko": "법과 질서를 존중하지 않는 사회는 결국 무질서와 혼돈에 빠지는 법이다.",
+      "en": "Societies not respecting laws and order are bound to fall into chaos eventually.",
+      "lv": 3
+    },
+    {
+      "ko": "진정한 친구는 어려울 때 곁을 지키며 손을 내밀어 주는 법이지요.",
+      "en": "True friends are bound to stay by one's side and lend hands in hard times.",
+      "lv": 3
+    },
+    {
+      "ko": "자신의 잘못을 솔직히 인정하는 용기가 더 큰 존경을 이끌어 내는 법이다.",
+      "en": "Courage to admit one's faults honestly is bound to bring greater respect.",
+      "lv": 3
     }
   ],
   "17-1": [
@@ -29284,6 +30814,96 @@
     {
       "ko": "누군가는 새로운 탄생을 축복하는가 하면 누군가는 작별의 슬픔에 눈물을 흘립니다.",
       "en": "While someone blesses a new birth, someone sheds tears in sorrow of farewell.",
+      "lv": 3
+    },
+    {
+      "ko": "기뻐서 우는가 하면 웃기도 했습니다.",
+      "en": "Crying for joy on one hand, laughing too.",
+      "lv": 1
+    },
+    {
+      "ko": "찬성하는가 하면 반대하는 사람도 있어요.",
+      "en": "Approving on one hand, some oppose too.",
+      "lv": 1
+    },
+    {
+      "ko": "낮에는 일하는가 하면 밤에는 공부해요.",
+      "en": "Working by day on one hand, studying by night.",
+      "lv": 1
+    },
+    {
+      "ko": "칭찬하는가 하면 매섭게 꾸짖기도 했다.",
+      "en": "Praising on one hand, scolding sternly too.",
+      "lv": 1
+    },
+    {
+      "ko": "바람이 세차게 부는가 하면 비가 쏟아졌어요.",
+      "en": "Wind blowing hard on one hand, rain poured too.",
+      "lv": 1
+    },
+    {
+      "ko": "노래를 부르는가 하면 춤도 추더군요.",
+      "en": "Singing songs on one hand, dancing too.",
+      "lv": 1
+    },
+    {
+      "ko": "앞장서서 이끄는가 하면 뒤에서 묵묵히 지원하는 동료도 있습니다.",
+      "en": "Leading in front on one hand, colleagues support silently behind too.",
+      "lv": 2
+    },
+    {
+      "ko": "긍정적인 평가가 나오는가 하면 우려 섞인 시선도 공존하더군요.",
+      "en": "Positive reviews coming out on one hand, worried looks coexist too.",
+      "lv": 2
+    },
+    {
+      "ko": "첨단 기술을 적극 도입하는가 하면 전통 방식을 고수하기도 해요.",
+      "en": "Actively adopting new tech on one hand, sticking to traditional ways too.",
+      "lv": 2
+    },
+    {
+      "ko": "도심에서 화려하게 사는가 하면 귀농을 택하는 이들도 있습니다.",
+      "en": "Living lavishly in cities on one hand, some choose rural farming too.",
+      "lv": 2
+    },
+    {
+      "ko": "과감한 투자를 단행하는가 하면 보수적으로 지출을 줄이기도 해요.",
+      "en": "Making bold investments on one hand, reducing spending conservatively too.",
+      "lv": 2
+    },
+    {
+      "ko": "친절하게 환대하는가 하면 차갑게 거리를 두는 이도 있더군요.",
+      "en": "Welcoming kindly on one hand, keeping cold distances too.",
+      "lv": 2
+    },
+    {
+      "ko": "어떤 국가는 급격한 경제 성장을 구가하는가 하면 다른 국가는 빈곤에 허덕이고 있습니다.",
+      "en": "Some countries enjoy rapid economic growth on one hand, while others suffer poverty.",
+      "lv": 3
+    },
+    {
+      "ko": "한쪽에서는 평화 협정을 촉구하는가 하면 다른 한쪽에서는 군비 경쟁을 벌이고 있습니다.",
+      "en": "One side urges peace pacts on one hand, while the other side pursues arms races.",
+      "lv": 3
+    },
+    {
+      "ko": "자율적인 근무 환경을 장려하는가 하면 엄격한 성과 지표로 직원을 평가하기도 합니다.",
+      "en": "Encouraging autonomous work setups on one hand, evaluating staff by strict metrics too.",
+      "lv": 3
+    },
+    {
+      "ko": "온라인 쇼핑몰이 급성장하는가 하면 오프라인 매장들은 폐업 위기에 내몰리고 있습니다.",
+      "en": "Online stores grow rapidly on one hand, while offline stores face risks of closure.",
+      "lv": 3
+    },
+    {
+      "ko": "기후 변화를 극복하려는 노력이 이어지는가 하면 탄소 배출량은 계속 증가하고 있습니다.",
+      "en": "Efforts to overcome climate change continue on one hand, while carbon emissions keep rising.",
+      "lv": 3
+    },
+    {
+      "ko": "문화적 다양성을 포용하려는 움직임이 있는가 하면 차별과 편견 또한 여전히 잔존합니다.",
+      "en": "Movements embracing cultural diversity exist on one hand, while prejudice still persists.",
       "lv": 3
     }
   ],
@@ -29347,6 +30967,96 @@
       "ko": "영화 결말을 두고 명작이니 졸작이니 하며 영화 관람객들 사이에서 갑론을박이 벌어졌어요.",
       "en": "Heated debate occurred among audiences arguing whether movie ending was masterpiece or flop.",
       "lv": 3
+    },
+    {
+      "ko": "오느니 마느니 하며 시간을 끌었어요.",
+      "en": "Dragging time arguing whether to come or not.",
+      "lv": 1
+    },
+    {
+      "ko": "크니 작으니 하며 물건을 골랐습니다.",
+      "en": "Choosing items arguing whether big or small.",
+      "lv": 1
+    },
+    {
+      "ko": "사느니 마느니 하며 망설이더군요.",
+      "en": "Hesitating arguing whether to buy or not.",
+      "lv": 1
+    },
+    {
+      "ko": "쉽느니 어렵느니 하며 불평을 했다.",
+      "en": "Complaining arguing whether easy or hard.",
+      "lv": 1
+    },
+    {
+      "ko": "가깝니 머니 하며 길을 헤맸어요.",
+      "en": "Wandering arguing whether near or far.",
+      "lv": 1
+    },
+    {
+      "ko": "옳으니 그르니 하며 말다툼을 벌였습니다.",
+      "en": "Quarreling arguing whether right or wrong.",
+      "lv": 1
+    },
+    {
+      "ko": "디자인이 좋으니 나쁘니 하며 온종일 옷만 구경했습니다.",
+      "en": "Looking at clothes all day arguing whether design was good or bad.",
+      "lv": 2
+    },
+    {
+      "ko": "회의 안건을 두고 하느니 마느니 하며 결론을 내리지 못했어요.",
+      "en": "Failing to conclude arguing whether to do meeting agendas or not.",
+      "lv": 2
+    },
+    {
+      "ko": "방이 좁으니 넓으니 하며 집을 구하는 데 애를 먹었습니다.",
+      "en": "Struggling to find a house arguing whether rooms were small or spacious.",
+      "lv": 2
+    },
+    {
+      "ko": "반찬이 싱겁니 짜니 하며 식사 내내 투정을 부리더군요.",
+      "en": "Complaining throughout the meal arguing whether side dishes were bland or salty.",
+      "lv": 2
+    },
+    {
+      "ko": "주말 여행지를 두고 산이 좋으니 바다가 좋으니 하며 의견이 갈렸어요.",
+      "en": "Opinions divided arguing whether mountains were good or beaches were good.",
+      "lv": 2
+    },
+    {
+      "ko": "상대방의 실수를 두고 네 탓이니 내 탓이니 하며 책임을 떠넘겼습니다.",
+      "en": "Shifting blame arguing whether it was your fault or my fault.",
+      "lv": 2
+    },
+    {
+      "ko": "정부의 정책을 두고 실효성이 있느니 없느니 하며 정치권에서 격렬한 공방이 벌어졌습니다.",
+      "en": "Fierce disputes broke out in politics arguing whether government policy was effective.",
+      "lv": 3
+    },
+    {
+      "ko": "회사의 합병안을 둘러싸고 주주들이 이득이니 손해니 하며 치열한 설전을 펼쳤습니다.",
+      "en": "Shareholders waged heated debates arguing whether the merger was profitable or loss-making.",
+      "lv": 3
+    },
+    {
+      "ko": "신도시 개발을 앞두고 투기 열풍이 부느니 마느니 하며 부동산 시장이 술렁이고 있습니다.",
+      "en": "The real estate market is unsettled arguing whether speculative fever would blow.",
+      "lv": 3
+    },
+    {
+      "ko": "직장 내 복지 제도를 개선하며 지원금을 늘리느니 휴가를 늘리느니 하며 논의가 길어졌어요.",
+      "en": "Discussions dragged on arguing whether to increase grants or increase vacations.",
+      "lv": 3
+    },
+    {
+      "ko": "새로운 기술 도입을 두고 시기상조니 필수적이니 하며 임원진 사이에 의견이 엇갈렸습니다.",
+      "en": "Executives' opinions diverged arguing whether adopting new tech was premature or essential.",
+      "lv": 3
+    },
+    {
+      "ko": "축제 프로그램을 기획하며 전통 공연을 넣느니 현대 음악을 넣느니 하며 갑론을박했습니다.",
+      "en": "Debated back and forth arguing whether to include traditional shows or modern music.",
+      "lv": 3
     }
   ],
   "17-3": [
@@ -29408,6 +31118,96 @@
     {
       "ko": "아이들 등하교 챙기랴 직장 업무 처리하랴 맞벌이 부부의 하루는 전쟁터 같습니다.",
       "en": "Dual-income couples' day is like battlefield, taking care of kids' schooling and handling work.",
+      "lv": 3
+    },
+    {
+      "ko": "일하랴 공부하랴 몸이 두 개라도 모자라요.",
+      "en": "Even two bodies wouldn't be enough working and studying.",
+      "lv": 1
+    },
+    {
+      "ko": "밥하랴 빨래하랴 쉴 틈이 없습니다.",
+      "en": "No time to rest, cooking and doing laundry.",
+      "lv": 1
+    },
+    {
+      "ko": "전화 받으랴 서류 정리하랴 바빴어요.",
+      "en": "Busy answering calls and organizing documents.",
+      "lv": 1
+    },
+    {
+      "ko": "짐 챙기랴 표 끊으랴 정신이 없었다.",
+      "en": "Frantic packing luggage and getting tickets.",
+      "lv": 1
+    },
+    {
+      "ko": "아이 달래랴 운전하랴 진땀을 흘렸습니다.",
+      "en": "Sweated soothing the child and driving.",
+      "lv": 1
+    },
+    {
+      "ko": "손님 맞으랴 안내하랴 눈코 뜰 새 없어요.",
+      "en": "Extremely busy welcoming guests and guiding them.",
+      "lv": 1
+    },
+    {
+      "ko": "환자 돌보랴 차트 정리하랴 간호사들은 한시도 쉴 수가 없었습니다.",
+      "en": "Nurses could not rest a moment, caring for patients and updating charts.",
+      "lv": 2
+    },
+    {
+      "ko": "시험 준비하랴 아르바이트하랴 대학생의 청춘은 고단하기만 합니다.",
+      "en": "College life is exhausting, preparing for exams and doing part-time jobs.",
+      "lv": 2
+    },
+    {
+      "ko": "신제품 출시 준비하랴 마케팅 전략 짜랴 마케팅팀이 밤을 새웠어요.",
+      "en": "The marketing team stayed up, preparing product launch and devising marketing strategies.",
+      "lv": 2
+    },
+    {
+      "ko": "이사 갈 집 알아보랴 대출 심사받으랴 주말 내내 발품을 팔았습니다.",
+      "en": "Sold footwork all weekend, looking for houses and undergoing loan reviews.",
+      "lv": 2
+    },
+    {
+      "ko": "축제 부스 설치하랴 재료 구입하랴 동아리 회원들이 분주히 움직였지요.",
+      "en": "Club members moved briskly, installing festival booths and purchasing materials.",
+      "lv": 2
+    },
+    {
+      "ko": "공사 현장 감독하랴 자재 수급 챙기랴 현장 소장님은 늘 뛰어다닙니다.",
+      "en": "Site manager is always running around, overseeing construction and managing materials.",
+      "lv": 2
+    },
+    {
+      "ko": "폭설로 마비된 도로 복구하랴 고립된 주민 구조하랴 구조대원들이 사투를 벌였습니다.",
+      "en": "Rescuers fought desperately, restoring snow-paralyzed roads and rescuing isolated residents.",
+      "lv": 3
+    },
+    {
+      "ko": "해외 지사 설립 추진하랴 현지 규제 검토하랴 기획조정실은 눈코 뜰 새 없이 바쁩니다.",
+      "en": "The planning office is frantically busy, promoting foreign branches and reviewing local regulations.",
+      "lv": 3
+    },
+    {
+      "ko": "졸업 논문 작성하랴 취업 박람회 참가하랴 졸업반 학생들은 피로에 지쳐 있었습니다.",
+      "en": "Graduating students were exhausted, writing graduation theses and attending job fairs.",
+      "lv": 3
+    },
+    {
+      "ko": "태풍 피해 농가 지원하랴 제방 보강 공사하랴 지자체 공무원들이 비상근무에 돌입했습니다.",
+      "en": "Civil servants entered emergency duty, supporting typhoon-hit farms and reinforcing embankments.",
+      "lv": 3
+    },
+    {
+      "ko": "대규모 국제회의 의전 챙기랴 통역 배치하랴 실무진의 긴장감은 극에 달해 있었습니다.",
+      "en": "Working-level staff tension peaked, managing international protocols and deploying interpreters.",
+      "lv": 3
+    },
+    {
+      "ko": "신규 매장 인테리어 감독하랴 직원 채용 면접 보랴 가맹점 본부는 쉴 틈이 없었습니다.",
+      "en": "Franchise headquarters had no rest, supervising store interior and conducting job interviews.",
       "lv": 3
     }
   ],
@@ -29471,6 +31271,96 @@
       "ko": "부모님의 헌신이며 스승의 가르침이며 내 성장의 든든한 밑거름이 되어 주었습니다.",
       "en": "Parents' devotion, teachers' teachings, and all became solid foundation for my growth.",
       "lv": 3
+    },
+    {
+      "ko": "옷이며 모자며 잔뜩 샀어요.",
+      "en": "Bought heaps of clothes and hats.",
+      "lv": 1
+    },
+    {
+      "ko": "사과며 배며 과일이 풍성합니다.",
+      "en": "Fruits like apples and pears are abundant.",
+      "lv": 1
+    },
+    {
+      "ko": "연필이며 공책이며 필기도구를 챙겼어요.",
+      "en": "Packed stationery including pencils and notebooks.",
+      "lv": 1
+    },
+    {
+      "ko": "바다며 하늘이며 온통 푸른빛이었다.",
+      "en": "The sea, sky, and all were entirely shades of blue.",
+      "lv": 1
+    },
+    {
+      "ko": "꽃이며 나무며 싱그럽게 피어났습니다.",
+      "en": "Flowers, trees, and all bloomed freshly.",
+      "lv": 1
+    },
+    {
+      "ko": "삼촌이며 이모며 온 가족이 모였어요.",
+      "en": "Uncles, aunts, and whole family gathered.",
+      "lv": 1
+    },
+    {
+      "ko": "서류며 장부며 책상 위에 어지럽게 널려 있었습니다.",
+      "en": "Documents and account books were scattered messily on the desk.",
+      "lv": 2
+    },
+    {
+      "ko": "산이며 호수며 빼어난 자연경관에 감탄이 절로 나왔어요.",
+      "en": "Admiration burst out naturally at superb scenery of mountains and lakes.",
+      "lv": 2
+    },
+    {
+      "ko": "그릇이며 냄비며 주방 용품을 새것으로 모두 교체했습니다.",
+      "en": "Replaced all kitchenware like dishes and pots with brand new ones.",
+      "lv": 2
+    },
+    {
+      "ko": "음악이며 미술이며 다방면에 걸쳐 뛰어난 재능을 발휘하더군요.",
+      "en": "Showed outstanding talent across diverse fields like music and art.",
+      "lv": 2
+    },
+    {
+      "ko": "골목길이며 상점이며 거리마다 옛 정취가 고스란히 남아 있습니다.",
+      "en": "Old nostalgic charms remain intact along every alley and shop.",
+      "lv": 2
+    },
+    {
+      "ko": "채소며 해산물이며 신선한 식재료가 시장 바닥에 즐비했어요.",
+      "en": "Fresh ingredients like vegetables and seafood lined the market floor.",
+      "lv": 2
+    },
+    {
+      "ko": "화려한 무대 연출이며 배우들의 열연이며 관객들의 심금을 울리기에 충분했습니다.",
+      "en": "Splendid stage production and actors' passionate performances touched audience hearts.",
+      "lv": 3
+    },
+    {
+      "ko": "세련된 인테리어며 친절한 서비스며 호텔의 품격을 한층 더 높여 주었습니다.",
+      "en": "Refined interior and friendly service elevated the prestige of the hotel.",
+      "lv": 3
+    },
+    {
+      "ko": "첨단 편의 시설이며 사통팔달의 교통망이며 살기 좋은 주거 요건을 두루 갖추었습니다.",
+      "en": "Equipped with advanced amenities and well-connected transport, residential conditions are superb.",
+      "lv": 3
+    },
+    {
+      "ko": "정갈한 남도 음식이며 넉넉한 인심이며 여행자들의 발길을 사로잡는 매력이 넘칩니다.",
+      "en": "Neat southern cuisine and generous hospitality captivate travelers with overflowing charm.",
+      "lv": 3
+    },
+    {
+      "ko": "정교한 도자기며 화려한 나전칠기며 전통 공예품의 우수성을 널리 알리고 있습니다.",
+      "en": "Exquisite ceramics and mother-of-pearl lacquerware promote excellence of traditional crafts.",
+      "lv": 3
+    },
+    {
+      "ko": "웅장한 폭포수며 울창한 원시림이며 자연의 경이로움에 압도당하는 순간이었습니다.",
+      "en": "Magnificent waterfalls and dense primeval forests overwhelmed us with nature's wonders.",
+      "lv": 3
     }
   ],
   "18-1": [
@@ -29532,6 +31422,96 @@
     {
       "ko": "험난한 눈보라와 혹한을 견뎌낸 끝에 원정대가 마침내 에베레스트 정상에 우뚝 섰습니다.",
       "en": "After enduring harsh blizzards and severe cold, expedition stood tall on Everest summit.",
+      "lv": 3
+    },
+    {
+      "ko": "오랜 고민 끝에 결정을 내렸습니다.",
+      "en": "After long agonizing, I made a decision.",
+      "lv": 1
+    },
+    {
+      "ko": "오랜 기간 연구한 끝에 신물질을 개발했어요.",
+      "en": "After long research, they developed a new material.",
+      "lv": 1
+    },
+    {
+      "ko": "상대방을 끈질기게 설득한 끝에 계약을 성사시켰다.",
+      "en": "After persistently persuading them, we finalized the contract.",
+      "lv": 1
+    },
+    {
+      "ko": "한참 동안 침묵한 끝에 입을 열었습니다.",
+      "en": "After a long silence, he opened his mouth.",
+      "lv": 1
+    },
+    {
+      "ko": "치열한 접전 끝에 승리를 거두었어요.",
+      "en": "After fierce combat, we reaped victory.",
+      "lv": 1
+    },
+    {
+      "ko": "오랜 세월 방황한 끝에 꿈을 찾았습니다.",
+      "en": "After long wandering, I found my dream.",
+      "lv": 1
+    },
+    {
+      "ko": "수차례 협상을 벌인 끝에 원만한 합의점을 도출해 냈습니다.",
+      "en": "After conducting negotiations several times, we derived an amicable compromise.",
+      "lv": 2
+    },
+    {
+      "ko": "밤새 머리를 맞대고 고민한 끝에 마침내 해결책을 찾아냈어요.",
+      "en": "After putting heads together all night, we finally found a solution.",
+      "lv": 2
+    },
+    {
+      "ko": "치열한 경합을 펼친 끝에 최종 합격자로 당당히 선발되었습니다.",
+      "en": "After fierce competition, I was proudly selected as the final candidate.",
+      "lv": 2
+    },
+    {
+      "ko": "온갖 시행착오를 겪은 끝에 독창적인 제조 기술을 완성했습니다.",
+      "en": "After undergoing all kinds of trial and error, we completed original techniques.",
+      "lv": 2
+    },
+    {
+      "ko": "끈질기게 반대파를 설득한 끝에 주민 투표에서 과반 찬성을 얻었어요.",
+      "en": "After persistently persuading opponents, we won majority approval in voting.",
+      "lv": 2
+    },
+    {
+      "ko": "수소문하며 샅샅이 수색한 끝에 실종된 아이를 무사히 찾아냈습니다.",
+      "en": "After inquiring and searching thoroughly, we safely located the missing child.",
+      "lv": 2
+    },
+    {
+      "ko": "수개월간 이어진 마라톤 협의를 거친 끝에 역사적인 평화 선언문 채택에 합의했습니다.",
+      "en": "After marathon consultations for months, we agreed on adopting historic peace declaration.",
+      "lv": 3
+    },
+    {
+      "ko": "수많은 난관과 실패의 좌절을 딛고 일어선 끝에 기적 같은 성공 신화를 일궈 냈습니다.",
+      "en": "After rising above failures and tribulations, they built a miraculous success story.",
+      "lv": 3
+    },
+    {
+      "ko": "전문가들의 자문과 여론 수렴 과정을 거친 끝에 새로운 교육 정책 안을 확정 발표했습니다.",
+      "en": "After expert consultations and public feedback, they announced the new education policy.",
+      "lv": 3
+    },
+    {
+      "ko": "각고의 노력과 헌신으로 연구 개발에 매달린 끝에 세계 최초로 핵심 기술을 국산화했습니다.",
+      "en": "After dedicated R&D efforts, we localized core technology for the first time globally.",
+      "lv": 3
+    },
+    {
+      "ko": "오랜 갈등으로 치열하게 다툰 끝에 마침내 화해 권고안을 전격적으로 수용하기로 했습니다.",
+      "en": "After fierce disputes over prolonged conflicts, both sides accepted reconciliation recommendations.",
+      "lv": 3
+    },
+    {
+      "ko": "험난한 산악 지형을 밤낮없이 탐사한 끝에 멸종 위기에 처한 희귀 동물을 발견했습니다.",
+      "en": "After exploring rugged terrain day and night, we found endangered rare animals.",
       "lv": 3
     }
   ],
@@ -29595,6 +31575,96 @@
       "ko": "거센 파도와 싸우며 조난당한 어선 선원들을 무사히 구조해 내는 기적을 일궜습니다.",
       "en": "Battling fierce waves, achieved miracle of safely rescuing stranded fishing boat sailors.",
       "lv": 3
+    },
+    {
+      "ko": "어려운 수학 문제를 기어이 풀어냈습니다.",
+      "en": "I finally solved the difficult math problem.",
+      "lv": 1
+    },
+    {
+      "ko": "차가운 겨울바람을 꿋꿋이 이겨 냈다.",
+      "en": "Steadfastly overcame the freezing winter wind.",
+      "lv": 1
+    },
+    {
+      "ko": "위기를 극복하고 마침내 살아남아 냈어요.",
+      "en": "Overcame crisis and survived in the end.",
+      "lv": 1
+    },
+    {
+      "ko": "잃어버린 보물을 끝내 찾아냈습니다.",
+      "en": "Finally found the lost treasure.",
+      "lv": 1
+    },
+    {
+      "ko": "모두의 힘을 모아 기적을 일궈 냈다.",
+      "en": "Gathered everyone's strength and wrought a miracle.",
+      "lv": 1
+    },
+    {
+      "ko": "약속한 납기를 차질 없이 지켜 냈어요.",
+      "en": "Kept promised delivery deadline without disruptions.",
+      "lv": 1
+    },
+    {
+      "ko": "철저한 문헌 고증을 통해 잊힌 옛 역사를 복원해 냈습니다.",
+      "en": "Restored forgotten ancient history through thorough document verification.",
+      "lv": 2
+    },
+    {
+      "ko": "가혹한 시련을 버텨 내고 최고의 명창으로 우뚝 섰어요.",
+      "en": "Endured harsh trials and stood tall as a supreme master singer.",
+      "lv": 2
+    },
+    {
+      "ko": "독창적인 아이디어를 바탕으로 획기적인 신상품을 개발해 냈습니다.",
+      "en": "Developed ground-breaking new products based on creative ideas.",
+      "lv": 2
+    },
+    {
+      "ko": "끈질긴 추적 수사 끝에 연쇄 절도범의 신원을 확인해 냈어요.",
+      "en": "Identified serial burglar's identity after persistent tracing investigations.",
+      "lv": 2
+    },
+    {
+      "ko": "외부의 압력과 간섭을 물리치고 언론의 독립성을 굳건히 지켜 냈습니다.",
+      "en": "Fended off external pressure and firmly preserved media independence.",
+      "lv": 2
+    },
+    {
+      "ko": "적자투성이였던 기업을 흑자로 전환하는 놀라운 경영 성과를 일궈 냈어요.",
+      "en": "Wrought amazing performance turning a deficit enterprise into surplus.",
+      "lv": 2
+    },
+    {
+      "ko": "열악한 제작 환경 속에서도 완성도 높은 독립 영화 한 편을 훌륭히 완성해 냈습니다.",
+      "en": "Wonderfully completed high-quality independent film despite poor production conditions.",
+      "lv": 3
+    },
+    {
+      "ko": "거센 비바람과 폭풍우를 뚫고 조난당한 등산객 전원을 무사히 구출해 내는 쾌거를 거두었습니다.",
+      "en": "Achieved splendid feat of safely rescuing all stranded hikers braving storms.",
+      "lv": 3
+    },
+    {
+      "ko": "기존의 고정관념을 과감히 깨부수고 전혀 새로운 예술적 패러다임을 당당히 창조해 냈습니다.",
+      "en": "Boldly shattered conventional stereotypes and proudly created entirely new art paradigms.",
+      "lv": 3
+    },
+    {
+      "ko": "각고의 피땀 어린 훈련을 통해 신체적 한계를 뛰어넘는 놀라운 인간 승리를 일궈 냈습니다.",
+      "en": "Wrought amazing human triumph overcoming physical limits through grueling training.",
+      "lv": 3
+    },
+    {
+      "ko": "국제 사회의 치열한 외교전 속에서 국익을 지키는 유리한 협상안을 당당히 이끌어 냈습니다.",
+      "en": "Proudly derived advantageous negotiation deals protecting national interests in diplomatic battles.",
+      "lv": 3
+    },
+    {
+      "ko": "수많은 연구진의 헌신적인 희생과 노력으로 난치병 치료의 새로운 돌파구를 마침내 열어 냈습니다.",
+      "en": "Finally opened new breakthroughs in treating incurable diseases through researchers' dedication.",
+      "lv": 3
     }
   ],
   "18-3": [
@@ -29656,6 +31726,96 @@
     {
       "ko": "승리에 너무 도취된 나머지 상대 팀에 대한 기본적인 예의를 저버리고 말았습니다.",
       "en": "Intoxicated with victory, ended up abandoning basic courtesy toward opposing team.",
+      "lv": 3
+    },
+    {
+      "ko": "서두른 나머지 우산을 깜빡 두고 나왔어요.",
+      "en": "In such a hurry, I forgot my umbrella.",
+      "lv": 1
+    },
+    {
+      "ko": "놀란 나머지 한동안 말문이 막혔습니다.",
+      "en": "So startled, speech was blocked for a while.",
+      "lv": 1
+    },
+    {
+      "ko": "지친 나머지 길가에 주저앉고 말았다.",
+      "en": "So exhausted, I slumped down on the roadside.",
+      "lv": 1
+    },
+    {
+      "ko": "집중한 나머지 시간 가는 줄 몰랐어요.",
+      "en": "So focused, I lost track of time.",
+      "lv": 1
+    },
+    {
+      "ko": "방심한 나머지 치명적인 실수를 저질렀습니다.",
+      "en": "Being careless, I committed a fatal blunder.",
+      "lv": 1
+    },
+    {
+      "ko": "안도한 나머지 다리에 힘이 풀렸어요.",
+      "en": "So relieved, the strength drained from my legs.",
+      "lv": 1
+    },
+    {
+      "ko": "너무 반가운 나머지 체통도 잊고 와락 껴안았습니다.",
+      "en": "Overjoyed, I forgot all decorum and embraced them tightly.",
+      "lv": 2
+    },
+    {
+      "ko": "일에 몰두한 나머지 점심 식사 시간마저 훌쩍 넘겨 버렸어요.",
+      "en": "Immersed in work, I let lunchtime pass by completely.",
+      "lv": 2
+    },
+    {
+      "ko": "호기심에 눈이 먼 나머지 위험한 동굴 속으로 깊이 들어갔습니다.",
+      "en": "Blinded by curiosity, they ventured deep into the dangerous cave.",
+      "lv": 2
+    },
+    {
+      "ko": "시험에 합격한 기쁨을 주체하지 못한 나머지 환호성을 질렀어요.",
+      "en": "Unable to contain joy of passing, I shouted cheers.",
+      "lv": 2
+    },
+    {
+      "ko": "비관적인 생각에 사로잡힌 나머지 모든 희망을 지레 포기해 버렸습니다.",
+      "en": "Seized by pessimistic thoughts, they prematurely gave up all hope.",
+      "lv": 2
+    },
+    {
+      "ko": "승리를 확신한 나머지 마지막 순간에 결정적인 방심을 하고 말았어요.",
+      "en": "Certain of victory, they let their guard down decisively at the last moment.",
+      "lv": 2
+    },
+    {
+      "ko": "자신의 주장만을 강요한 나머지 오랜 시간 쌓아 온 소중한 우정에 금이 가고 말았습니다.",
+      "en": "Insisting only on own claims, precious friendship built over long years cracked.",
+      "lv": 3
+    },
+    {
+      "ko": "단기적인 이익에만 눈이 어두워진 나머지 장기적인 기업 성장의 기틀을 망가뜨리고 말았습니다.",
+      "en": "Blinded by short-term profits, they ruined foundations for long-term growth.",
+      "lv": 3
+    },
+    {
+      "ko": "극심한 스트레스를 견디지 못한 나머지 결국 건강을 해치고 병원 신세를 지게 되었습니다.",
+      "en": "Unable to bear severe stress, they ultimately ruined health and ended up hospitalized.",
+      "lv": 3
+    },
+    {
+      "ko": "원망과 분노에 휩싸인 나머지 냉철한 이성을 잃고 돌이킬 수 없는 실책을 범했습니다.",
+      "en": "Engulfed in resentment and rage, they lost cool reason and committed irreversible errors.",
+      "lv": 3
+    },
+    {
+      "ko": "과도한 욕심을 부린 나머지 무리하게 빚을 내어 투자하다가 전 재산을 날렸습니다.",
+      "en": "Being excessively greedy, investing on heavy debts cost their entire fortune.",
+      "lv": 3
+    },
+    {
+      "ko": "주변의 만류를 무시한 나머지 혼자 위험한 등산로에 올랐다가 조난 위기에 처했습니다.",
+      "en": "Ignoring advice around, climbing dangerous mountain paths alone led to stranding risks.",
       "lv": 3
     }
   ],
@@ -29719,6 +31879,96 @@
       "ko": "직접 요리를 배워 집에서 음식을 만들어 보니 정성과 시간이 이만저만 들지 않데요.",
       "en": "Learning cooking and making food at home, immense devotion and time were needed.",
       "lv": 3
+    },
+    {
+      "ko": "그 식당 찌개가 아주 얼큰하데요.",
+      "en": "That restaurant's stew tasted very spicy.",
+      "lv": 1
+    },
+    {
+      "ko": "직접 가 보니 경치가 참 빼어나데요.",
+      "en": "Visiting personally, the scenery was truly splendid.",
+      "lv": 1
+    },
+    {
+      "ko": "새로 이사한 집이 생각보다 넓데요.",
+      "en": "The newly moved house was more spacious than expected.",
+      "lv": 1
+    },
+    {
+      "ko": "주말이라 그런지 도로가 꽉 막히데요.",
+      "en": "Perhaps because of weekend, roads were heavily congested.",
+      "lv": 1
+    },
+    {
+      "ko": "친구를 만나 보니 아주 건강해 보이데요.",
+      "en": "Meeting my friend, he looked very healthy.",
+      "lv": 1
+    },
+    {
+      "ko": "그 가게 빵이 정말 달콤하고 부드럽데요.",
+      "en": "That bakery's bread was really sweet and soft.",
+      "lv": 1
+    },
+    {
+      "ko": "오랜만에 모교를 방문해 보니 교정이 참 많이 변했데요.",
+      "en": "Visiting alma mater after long, school grounds changed very much.",
+      "lv": 2
+    },
+    {
+      "ko": "직접 농사를 지어 보니 농부들의 노고가 정말 대단하데요.",
+      "en": "Farming myself, farmers' hard work felt truly tremendous.",
+      "lv": 2
+    },
+    {
+      "ko": "공연을 관람해 보았더니 무대 효과가 무척 화려하고 웅장하데요.",
+      "en": "Watching the performance, stage effects were very colorful and grand.",
+      "lv": 2
+    },
+    {
+      "ko": "그 회사의 신제품을 써 보니까 작동법이 아주 간편하데요.",
+      "en": "Using that company's new product, operations were very convenient.",
+      "lv": 2
+    },
+    {
+      "ko": "지방 소도시에 가 보았더니 인심이 참 따뜻하고 정겹데요.",
+      "en": "Visiting a provincial town, locals' hearts were warm and affectionate.",
+      "lv": 2
+    },
+    {
+      "ko": "선배의 조언을 귀담아들으니 문제 해결의 실마리가 잡히데요.",
+      "en": "Listening closely to senior's advice, clues to solving problems were found.",
+      "lv": 2
+    },
+    {
+      "ko": "새로 조성된 생태 공원을 둘러보니 도심 속 휴식처로 손색이 전혀 없데요.",
+      "en": "Strolling the newly built eco-park, it served perfectly as an urban retreat.",
+      "lv": 3
+    },
+    {
+      "ko": "해외 현지 시장 조사를 다녀와 보니 우리 제품에 대한 선호도가 꽤 높데요.",
+      "en": "Returning from foreign market research, preference for our products was quite high.",
+      "lv": 3
+    },
+    {
+      "ko": "대규모 문화 축제 현장에 가 보니까 남녀노소 모두가 활기차게 즐기데요.",
+      "en": "Visiting the large cultural festival, people of all ages enjoyed dynamically.",
+      "lv": 3
+    },
+    {
+      "ko": "선진국의 복지 시설을 견학해 보았더니 세심한 배려가 구석구석 돋보이데요.",
+      "en": "Touring welfare facilities in advanced countries, attentive care stood out everywhere.",
+      "lv": 3
+    },
+    {
+      "ko": "오랜 역사 유적지를 꼼꼼히 답사해 보니 조상들의 슬기와 지혜가 실로 놀랍데요.",
+      "en": "Investigating old historical sites, ancestors' wisdom was truly amazing.",
+      "lv": 3
+    },
+    {
+      "ko": "청년 창업가들의 열정적인 발표를 들어 보니 번뜩이는 아이디어가 무척 신선하데요.",
+      "en": "Listening to young entrepreneurs' presentations, sparkling ideas were very fresh.",
+      "lv": 3
     }
   ],
   "19-1": [
@@ -29780,6 +32030,96 @@
     {
       "ko": "기후 위기에 대한 경각심이 높아지는 가운데 전 세계가 탄소 중립을 위한 실천에 나섰습니다.",
       "en": "Amid rising awareness of climate crisis, whole world stepped forward for carbon neutrality.",
+      "lv": 3
+    },
+    {
+      "ko": "눈발이 흩날리는 가운데 경기가 시작되었습니다.",
+      "en": "Game started amid fluttering snowflakes.",
+      "lv": 1
+    },
+    {
+      "ko": "모두가 주목하는 가운데 회의가 열렸어요.",
+      "en": "Meeting opened amid everyone paying close attention.",
+      "lv": 1
+    },
+    {
+      "ko": "어둠이 짙어지는 가운데 등불을 밝혔습니다.",
+      "en": "Lit lanterns amid deepening darkness.",
+      "lv": 1
+    },
+    {
+      "ko": "긴장감이 감도는 가운데 추첨을 진행했어요.",
+      "en": "Held drawing amid lingering tension.",
+      "lv": 1
+    },
+    {
+      "ko": "찬바람이 부는 가운데 촛불을 지켰습니다.",
+      "en": "Guarded candles amid blowing cold winds.",
+      "lv": 1
+    },
+    {
+      "ko": "격려가 쏟아지는 가운데 출발선에 섰어요.",
+      "en": "Stood at starting line amid pouring encouragement.",
+      "lv": 1
+    },
+    {
+      "ko": "폭풍우가 거세게 몰아치는 가운데 구조선이 현장으로 긴급 출동했습니다.",
+      "en": "Rescue boats dispatched urgently to the site amid raging storms.",
+      "lv": 2
+    },
+    {
+      "ko": "양측의 첨예한 갈등이 지속되는 가운데 평화 회담이 성사되었어요.",
+      "en": "Peace talks were realized amid ongoing sharp conflicts on both sides.",
+      "lv": 2
+    },
+    {
+      "ko": "경제적 불확실성이 커지는 가운데 기업들은 신규 투자를 주저하고 있습니다.",
+      "en": "Corporations hesitate new investments amid growing economic uncertainties.",
+      "lv": 2
+    },
+    {
+      "ko": "수많은 인파가 운집하는 가운데 성화 봉송 행사가 성대하게 열렸지요.",
+      "en": "Torch relay took place grandly amid massive crowds gathering.",
+      "lv": 2
+    },
+    {
+      "ko": "기후 변화에 따른 우려가 확산하는 가운데 국제 환경 협약이 체결되었습니다.",
+      "en": "International climate pact was signed amid spreading worries over climate change.",
+      "lv": 2
+    },
+    {
+      "ko": "철저한 보안 경비가 펼쳐지는 가운데 정상 회담이 성공리에 마무리되었어요.",
+      "en": "Summit concluded successfully amid ironclad security operations underway.",
+      "lv": 2
+    },
+    {
+      "ko": "전 세계적인 경기 침체 우려가 고조되는 가운데 기술 혁신을 주도하는 기업들이 부상하고 있습니다.",
+      "en": "Firms leading technological innovation emerge amid escalating fears of global recession.",
+      "lv": 3
+    },
+    {
+      "ko": "고령화와 저출산이 가속화되는 가운데 정부는 실효성 있는 인구 대책 마련에 부심하고 있습니다.",
+      "en": "The government struggles for population measures amid accelerating low birthrates and aging.",
+      "lv": 3
+    },
+    {
+      "ko": "국제 사회의 긴장이 팽팽하게 고조되는 가운데 외교적 해법을 모색하기 위한 대화가 시작되었습니다.",
+      "en": "Dialogues began to seek diplomatic solutions amid tensions mounting sharply worldwide.",
+      "lv": 3
+    },
+    {
+      "ko": "미래 에너지 패권을 둘러싼 경쟁이 격화하는 가운데 친환경 신기술 개발이 활발히 진행 중입니다.",
+      "en": "Eco-friendly tech developments advance briskly amid intensifying competition for energy hegemony.",
+      "lv": 3
+    },
+    {
+      "ko": "사회적 양극화 현상이 심화하는 가운데 취약 계층을 위한 사회 안전망 확충이 시급합니다.",
+      "en": "Expanding social safety nets for vulnerable classes is urgent amid deepening social polarization.",
+      "lv": 3
+    },
+    {
+      "ko": "디지털 전환이 급격하게 이루어지는 가운데 사이버 보안 역량을 강화하려는 움직임이 활발합니다.",
+      "en": "Moves to strengthen cyber security capacities are vibrant amid rapid digital transformations.",
       "lv": 3
     }
   ],
@@ -29843,6 +32183,96 @@
       "ko": "어려운 이웃들이 한파 속에서 고통받는 마당에 호화로운 잔치를 벌이는 것은 부끄럽습니다.",
       "en": "With needy neighbors suffering in cold snap, throwing lavish feasts is shameful.",
       "lv": 3
+    },
+    {
+      "ko": "다 끝나는 마당에 시비를 걸지 마세요.",
+      "en": "Do not pick fights when everything is ending.",
+      "lv": 1
+    },
+    {
+      "ko": "서로 헤어지는 마당에 악수나 합시다.",
+      "en": "Let us shake hands since we are parting.",
+      "lv": 1
+    },
+    {
+      "ko": "모두 떠나는 마당에 홀로 남았습니다.",
+      "en": "Left alone when everyone was leaving.",
+      "lv": 1
+    },
+    {
+      "ko": "새롭게 시작하는 마당에 힘을 냅시다.",
+      "en": "Let us cheer up as we start afresh.",
+      "lv": 1
+    },
+    {
+      "ko": "살아남는 마당에 자존심이 무슨 소용입니까?",
+      "en": "What use is pride when we are surviving?",
+      "lv": 1
+    },
+    {
+      "ko": "비가 쏟아지는 마당에 어딜 가겠어요?",
+      "en": "Where would we go when rain is pouring?",
+      "lv": 1
+    },
+    {
+      "ko": "조직이 와해되는 마당에 사소한 밥그릇 싸움을 벌일 때가 아닙니다.",
+      "en": "Now is not the time to fight over rice bowls when organizations collapse.",
+      "lv": 2
+    },
+    {
+      "ko": "경기가 급격히 위축되는 마당에 과도한 사업 확장은 위험합니다.",
+      "en": "Aggressive business expansions are dangerous when markets contract rapidly.",
+      "lv": 2
+    },
+    {
+      "ko": "모든 비밀이 만천하에 드러나는 마당에 변명은 통하지 않아요.",
+      "en": "Excuses won't work when all secrets are revealed to the whole world.",
+      "lv": 2
+    },
+    {
+      "ko": "생사의 갈림길에 서 있는 마당에 재산이 무슨 가치가 있겠습니까?",
+      "en": "What value does wealth have when standing at crossroads of life and death?",
+      "lv": 2
+    },
+    {
+      "ko": "모두가 허리띠를 졸라매는 마당에 흥청망청 과소비해서는 안 됩니다.",
+      "en": "We should not spend lavishly when everyone tightens belts.",
+      "lv": 2
+    },
+    {
+      "ko": "팀 전체가 협력하는 마당에 혼자 겉돌아서는 곤란하지요.",
+      "en": "It is unacceptable to stay detached alone when the whole team cooperates.",
+      "lv": 2
+    },
+    {
+      "ko": "글로벌 공급망이 붕괴되는 마당에 자국 우선주의만 고집해서는 세계 경제가 공멸하고 맙니다.",
+      "en": "The global economy will perish sticking to nationalism when supply chains collapse.",
+      "lv": 3
+    },
+    {
+      "ko": "기후 재앙으로 인류 생존이 위협받는 마당에 환경 규제를 완화하자는 주장은 어불성설입니다.",
+      "en": "Demands to relax environmental rules are absurd when climate disasters threaten survival.",
+      "lv": 3
+    },
+    {
+      "ko": "국가적 위기 극복을 위해 온 국민이 단합하는 마당에 정치적 정쟁을 일삼아서는 안 됩니다.",
+      "en": "We should not wage political strife when all citizens unite to overcome national crises.",
+      "lv": 3
+    },
+    {
+      "ko": "기업의 존폐가 걸린 구조조정을 추진하는 마당에 임직원 간의 소통 부재는 치명적입니다.",
+      "en": "Lack of communication among staff is fatal when pursuing restructuring for company survival.",
+      "lv": 3
+    },
+    {
+      "ko": "첨단 인공지능이 일자리를 위협하는 마당에 전통 교육 방식만을 고수할 수는 없습니다.",
+      "en": "We cannot adhere only to traditional education when AI threatens jobs.",
+      "lv": 3
+    },
+    {
+      "ko": "시장의 판도가 송두리째 뒤흔들리는 마당에 과거의 성공 방식에 얽매여서는 살아남기 힘듭니다.",
+      "en": "It is hard to survive clinging to past methods when market dynamics shake entirely.",
+      "lv": 3
     }
   ],
   "19-3": [
@@ -29905,6 +32335,96 @@
       "ko": "출시된 지 얼마 되지 않은 신생 브랜드치고 고객 만족도가 압도적으로 높습니다.",
       "en": "For a nascent brand launched recently, customer satisfaction is overwhelmingly high.",
       "lv": 3
+    },
+    {
+      "ko": "어린아이치고 참 침착하더군요.",
+      "en": "For a young child, he was very calm.",
+      "lv": 1
+    },
+    {
+      "ko": "오래된 건물치고 관리가 아주 잘되었습니다.",
+      "en": "For an old building, it was very well maintained.",
+      "lv": 1
+    },
+    {
+      "ko": "중고 가구치고 흠집 하나 없어요.",
+      "en": "For used furniture, there isn't a single scratch.",
+      "lv": 1
+    },
+    {
+      "ko": "첫 작품치고 완성도가 매우 높았습니다.",
+      "en": "For a debut work, completeness was very high.",
+      "lv": 1
+    },
+    {
+      "ko": "싼 가격치고 원단이 참 부드럽네요.",
+      "en": "For a cheap price, fabric is very soft.",
+      "lv": 1
+    },
+    {
+      "ko": "늦가을치고 날씨가 무척 포근했습니다.",
+      "en": "For late autumn, weather was very mild.",
+      "lv": 1
+    },
+    {
+      "ko": "초보 운전자치고 주차 실력이 베테랑 못지않게 능숙하네요.",
+      "en": "For a novice driver, parking skills are as proficient as a veteran.",
+      "lv": 2
+    },
+    {
+      "ko": "동네 작은 서점치고 인문학 서적이 매우 알차게 구비되어 있습니다.",
+      "en": "For a small bookstore, humanities books are very substantially stocked.",
+      "lv": 2
+    },
+    {
+      "ko": "아마추어 마라토너치고 완주 기록이 국가대표 수준에 버금가더군요.",
+      "en": "For an amateur marathoner, finish time rivaled national athletes.",
+      "lv": 2
+    },
+    {
+      "ko": "연습 기간이 짧았던 것치고 무대 안무를 완벽히 소화해 냈습니다.",
+      "en": "Considering short practice, they executed stage choreography perfectly.",
+      "lv": 2
+    },
+    {
+      "ko": "수도권 외곽 아파트치고 대중교통 접근성이 대단히 뛰어납니다.",
+      "en": "For an apartment in suburban areas, public transport access is exceptional.",
+      "lv": 2
+    },
+    {
+      "ko": "수험생치고 표정이 아주 밝고 활기차서 보기 좋았어요.",
+      "en": "For an examinee, his bright and cheerful expression was pleasant.",
+      "lv": 2
+    },
+    {
+      "ko": "창업한 지 채 일 년도 되지 않은 벤처 기업치고 거둔 매출 실적이 경이롭습니다.",
+      "en": "For a venture founded under a year ago, recorded sales performance is marvelous.",
+      "lv": 3
+    },
+    {
+      "ko": "정규 미술 교육을 받지 않은 비전공자치고 화폭에 담긴 예술적 깊이가 남다릅니다.",
+      "en": "For a non-major without formal training, artistic depth on canvas is extraordinary.",
+      "lv": 3
+    },
+    {
+      "ko": "외딴 시골 산골짜기에 위치한 식당치고 주말마다 찾아오는 미식가 손님이 끊이지 않아요.",
+      "en": "For a restaurant in remote valleys, gourmet visitors stream endlessly every weekend.",
+      "lv": 3
+    },
+    {
+      "ko": "역사가 짧은 신생 오케스트라치고 단원들의 완벽한 앙상블과 연주력이 눈부십니다.",
+      "en": "For a new orchestra with short history, members' ensemble and performance dazzle.",
+      "lv": 3
+    },
+    {
+      "ko": "별다른 마케팅 홍보를 펼치지 않은 소설치고 베스트셀러 순위권에 오른 저력이 대단합니다.",
+      "en": "For a novel without marketing, potential climbing bestseller lists is tremendous.",
+      "lv": 3
+    },
+    {
+      "ko": "체구가 다소 왜소한 체격의 선수치고 경기장에서 뿜어내는 폭발적인 파워가 놀랍습니다.",
+      "en": "For an athlete of rather small physique, explosive power on field is astounding.",
+      "lv": 3
     }
   ],
   "19-4": [
@@ -29966,6 +32486,96 @@
     {
       "ko": "인공지능 산업이 급성장함에 따라 윤리적 기준 마련의 시급성이 크게 대두되고 있습니다.",
       "en": "As AI industry grows rapidly, urgency of establishing ethical standards emerges.",
+      "lv": 3
+    },
+    {
+      "ko": "물가가 상승함에 따라 부담이 커졌어요.",
+      "en": "As prices rose, burdens grew.",
+      "lv": 1
+    },
+    {
+      "ko": "수요가 급증함에 따라 가격도 올랐습니다.",
+      "en": "As demand surged, prices rose too.",
+      "lv": 1
+    },
+    {
+      "ko": "세월이 흐름에 따라 많은 것이 변했다.",
+      "en": "As years passed, many things changed.",
+      "lv": 1
+    },
+    {
+      "ko": "지식이 쌓임에 따라 안목이 넓어졌지요.",
+      "en": "As knowledge accumulated, horizons broadened.",
+      "lv": 1
+    },
+    {
+      "ko": "기온이 내려감에 따라 얼음이 얼었습니다.",
+      "en": "As temperature dropped, ice formed.",
+      "lv": 1
+    },
+    {
+      "ko": "법률이 개정됨에 따라 규정이 바뀌었어요.",
+      "en": "As laws were revised, rules changed.",
+      "lv": 1
+    },
+    {
+      "ko": "기술 혁신이 가속화됨에 따라 새로운 직업군이 속속 생겨나고 있습니다.",
+      "en": "As tech innovation accelerates, new occupations emerge one after another.",
+      "lv": 2
+    },
+    {
+      "ko": "대중교통망이 확충됨에 따라 출퇴근 소요 시간이 대폭 단축되었어요.",
+      "en": "As public transit expands, commuting times shortened significantly.",
+      "lv": 2
+    },
+    {
+      "ko": "소득 수준이 향상됨에 따라 여가 생활에 대한 관심이 급증했습니다.",
+      "en": "As income levels improve, interest in leisure life surges.",
+      "lv": 2
+    },
+    {
+      "ko": "친환경 자동차 보급이 늘어남에 따라 충전소 인프라도 빠르게 구축되고 있어요.",
+      "en": "As eco-friendly cars spread, charging infrastructures build up fast.",
+      "lv": 2
+    },
+    {
+      "ko": "글로벌 교역 규모가 팽창함에 따라 다자간 무역 협정의 중요성이 커졌습니다.",
+      "en": "As global trade expands, importance of multilateral pacts grows.",
+      "lv": 2
+    },
+    {
+      "ko": "원자재 수급 불안이 장기화됨에 따라 제조업체의 생산 원가 부담이 가중되었습니다.",
+      "en": "As raw material instability prolongs, production cost burdens on manufacturers increase.",
+      "lv": 2
+    },
+    {
+      "ko": "인공지능과 빅데이터 기술이 융합됨에 따라 전통적 금융 서비스가 비약적으로 진화하고 있습니다.",
+      "en": "As AI and big data merge, conventional financial services evolve exponentially.",
+      "lv": 3
+    },
+    {
+      "ko": "초고령 사회 진입이 가시화됨에 따라 국가적인 연금 제도 개혁의 필요성이 절실해지고 있습니다.",
+      "en": "As entering super-aged society nears, urgency of national pension reforms becomes desperate.",
+      "lv": 3
+    },
+    {
+      "ko": "탄소 배출 규제가 국제적으로 강화됨에 따라 친환경 청정에너지로의 전환이 급물살을 타고 있습니다.",
+      "en": "As carbon regulations tighten globally, transition to clean energy gathers rapid momentum.",
+      "lv": 3
+    },
+    {
+      "ko": "원격 근무와 유연근무제가 확산됨에 따라 전통적인 사무실 중심의 기업 문화가 크게 달라졌습니다.",
+      "en": "As remote work spreads, traditional office-centered corporate cultures change dramatically.",
+      "lv": 3
+    },
+    {
+      "ko": "디지털 헬스케어 산업이 급성장함에 따라 개인 맞춤형 예방 의료 서비스가 보편화되고 있습니다.",
+      "en": "As digital healthcare grows rapidly, personalized preventive medical services become common.",
+      "lv": 3
+    },
+    {
+      "ko": "국제 유가와 원자재 가격이 급등함에 따라 글로벌 무역 수지 적자 폭이 크게 확대되었습니다.",
+      "en": "As oil and raw material prices soar, global trade balance deficits expand heavily.",
       "lv": 3
     }
   ],
