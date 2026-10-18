@@ -1416,5 +1416,705 @@
       "en": "Since it is a holiday, do you think there will be a lot of traffic on the road?",
       "why": "휴일 도로에 차량이 많아 정체되는 상황을 짐작해 물어볼 때 알맞은 동사는 「막히다」입니다."
     }
+  ],
+  "48-1": [
+    {
+      "stem": "안색이 안 좋아 보여서 걱정했는데 많이 ( ) 정말 다행이에요.",
+      "options": [
+        "밝아 보이다니",
+        "밝게 하더니",
+        "밝기 때문에",
+        "밝도록 해서"
+      ],
+      "answer": 0,
+      "sentence": "안색이 안 좋아 보여서 걱정했는데 많이 밝아 보이다니 정말 다행이에요.",
+      "en": "I was worried because your complexion didn't look good, so I'm very relieved that it looks bright.",
+      "why": "겉으로 드러난 상태를 보고 판단하는 감상을 나타내므로 「-아/어 보이다」가 알맞습니다."
+    },
+    {
+      "stem": "실제 나이보다 훨씬 ( ) 보이다는 말을 들으면 누구나 기분이 좋아요.",
+      "options": [
+        "늙어",
+        "젊어",
+        "멀어",
+        "길어"
+      ],
+      "answer": 1,
+      "sentence": "실제 나이보다 훨씬 젊어 보이다는 말을 들으면 누구나 기분이 좋아요.",
+      "en": "Anyone feels happy when they hear that they look much younger than their actual age.",
+      "why": "실제 나이보다 어리게 느껴지는 긍정적인 상황이므로 「젊어」가 들어가는 것이 알맞습니다."
+    }
+  ],
+  "48-2": [
+    {
+      "stem": "불이 꺼지고 밖이 조용한 것을 보니 관객들이 모두 ( ).",
+      "options": [
+        "나가야 하겠다",
+        "나가기로 했다",
+        "나간 모양이다",
+        "나가기 마련이다"
+      ],
+      "answer": 2,
+      "sentence": "불이 꺼지고 밖이 조용한 것을 보니 관객들이 모두 나간 모양이다.",
+      "en": "Seeing that the lights are off and it is quiet outside, it seems all the spectators have left.",
+      "why": "어떤 상황을 근거로 삼아 추측할 때는 「-(으)ㄴ/는 모양이다」를 씁니다."
+    },
+    {
+      "stem": "가방을 챙겨서 급하게 뛰어나가는 걸 보니 약속에 ( ) 모양이다.",
+      "options": [
+        "적은",
+        "빠른",
+        "쉬운",
+        "늦은"
+      ],
+      "answer": 3,
+      "sentence": "가방을 챙겨서 급하게 뛰어나가는 걸 보니 약속에 늦은 모양이다.",
+      "en": "Seeing that they grabbed their bag and rushed out, it seems they are late for an appointment.",
+      "why": "가방을 챙겨 급하게 뛰어가는 행동의 원인으로는 약속에 늦었다는 추측이 가장 자연스럽습니다."
+    }
+  ],
+  "48-3": [
+    {
+      "stem": "퇴근 시간이라 도로가 많이 ( ) 지하철을 타는 편이 낫겠어요.",
+      "options": [
+        "복잡할 텐데",
+        "복잡하지만",
+        "복잡하도록",
+        "복잡하느라고"
+      ],
+      "answer": 0,
+      "sentence": "퇴근 시간이라 도로가 많이 복잡할 텐데 지하철을 타는 편이 낫겠어요.",
+      "en": "Since it is rush hour, the roads will be very congested, so it would be better to take the subway.",
+      "why": "화자의 강한 추측을 전제로 뒤의 행동을 제안하므로 「-(으)ㄹ 텐데」가 알맞습니다."
+    },
+    {
+      "stem": "하루 종일 서서 일하느라 다리가 많이 ( ) 어서 앉아서 쉬세요.",
+      "options": [
+        "작을 텐데",
+        "아플 텐데",
+        "시원할 텐데",
+        "밝을 텐데"
+      ],
+      "answer": 1,
+      "sentence": "하루 종일 서서 일하느라 다리가 많이 아플 텐데 어서 앉아서 쉬세요.",
+      "en": "Your legs must hurt a lot from standing and working all day, so please sit down and rest.",
+      "why": "온종일 서서 일한 사람의 다리 상태를 걱정하며 권유하는 상황이므로 「아플 텐데」가 맞습니다."
+    }
+  ],
+  "48-4": [
+    {
+      "stem": "제가 설거지를 ( ) 당신은 거실을 정리해 주세요.",
+      "options": [
+        "하더라도",
+        "하지만",
+        "할 테니까",
+        "하느라면"
+      ],
+      "answer": 2,
+      "sentence": "제가 설거지를 할 테니까 당신은 거실을 정리해 주세요.",
+      "en": "I will do the dishes, so please tidy up the living room.",
+      "why": "화자가 자신의 의지를 밝히며 상대방에게 다른 행동을 부탁할 때는 「-(으)ㄹ 테니까」를 씁니다."
+    },
+    {
+      "stem": "오후에는 기온이 크게 떨어져 날씨가 ( ) 테니까 두꺼운 외투를 챙기세요.",
+      "options": [
+        "따뜻할",
+        "더울",
+        "맑을",
+        "추울"
+      ],
+      "answer": 3,
+      "sentence": "오후에는 기온이 크게 떨어져 날씨가 추울 테니까 두꺼운 외투를 챙기세요.",
+      "en": "Temperatures will drop sharply in the afternoon so it will be cold, so take a thick coat.",
+      "why": "기온이 크게 떨어져 두꺼운 외투가 필요한 이유이므로 날씨가 「추울」 것이라는 추측이 맞습니다."
+    }
+  ],
+  "48-5": [
+    {
+      "stem": "그 식당은 주말마다 손님이 많아서 미리 예약하지 않으면 자리가 ( ).",
+      "options": [
+        "없을걸요",
+        "없을수록요",
+        "없자마자요",
+        "없다시피요"
+      ],
+      "answer": 0,
+      "sentence": "그 식당은 주말마다 손님이 많아서 미리 예약하지 않으면 자리가 없을걸요.",
+      "en": "That restaurant is crowded every weekend, so if you don't make a reservation in advance, there probably won't be any seats.",
+      "why": "자신의 가벼운 추측이나 짐작을 부드럽게 표현할 때는 종결어미 「-(으)ㄹ걸요」를 씁니다."
+    },
+    {
+      "stem": "김 대리님은 오늘 아침 일찍 출장 가셔서 지금쯤 회사에 ( ).",
+      "options": [
+        "많을걸요",
+        "없을걸요",
+        "빠를걸요",
+        "높을걸요"
+      ],
+      "answer": 1,
+      "sentence": "김 대리님은 오늘 아침 일찍 출장 가셔서 지금쯤 회사에 없을걸요.",
+      "en": "Manager Kim went on a business trip early this morning, so he probably isn't at the office by now.",
+      "why": "출장을 갔으므로 현재 회사에 존재하지 않는다는 추측이 합당하므로 「없을걸요」가 알맞습니다."
+    }
+  ],
+  "48-6": [
+    {
+      "stem": "오늘 시험 문제가 이렇게 ( ) 시험공부를 더 많이 할 걸 그랬어요.",
+      "options": [
+        "어려워야 했는데",
+        "어렵기로 했는데",
+        "어려울 줄 몰랐는데",
+        "어려운 법인데"
+      ],
+      "answer": 2,
+      "sentence": "오늘 시험 문제가 이렇게 어려울 줄 몰랐는데 시험공부를 더 많이 할 걸 그랬어요.",
+      "en": "I didn't know today's exam questions would be this difficult; I should have studied more.",
+      "why": "예상하지 못했던 사실에 대한 놀라움이나 아쉬움을 나타내므로 「-(으)ㄹ 줄 몰랐다」가 알맞습니다."
+    },
+    {
+      "stem": "친구가 갑자기 비밀을 다른 사람에게 ( ) 줄 몰랐어요.",
+      "options": [
+        "닫을",
+        "들을",
+        "배울",
+        "말할"
+      ],
+      "answer": 3,
+      "sentence": "친구가 갑자기 비밀을 다른 사람에게 말할 줄 몰랐어요.",
+      "en": "I didn't know that my friend would suddenly tell the secret to others.",
+      "why": "비밀을 다른 사람에게 누설하는 행위이므로 「말할」이 가장 자연스럽습니다."
+    }
+  ],
+  "48-7": [
+    {
+      "stem": "산속은 기온 변화가 심해서 저녁에 갑자기 비가 ( ) 우비를 준비하세요.",
+      "options": [
+        "내릴지도 모르니까",
+        "내리려던 참이라",
+        "내리는 바람에",
+        "내릴 리가 없어서"
+      ],
+      "answer": 0,
+      "sentence": "산속은 기온 변화가 심해서 저녁에 갑자기 비가 내릴지도 모르니까 우비를 준비하세요.",
+      "en": "Temperature changes are severe in the mountains, so rain might fall suddenly in the evening, so prepare a raincoat.",
+      "why": "불확실한 상황이나 일어날 가능성이 있는 일을 대비할 때는 「-(으)ㄹ지도 모르다」를 씁니다."
+    },
+    {
+      "stem": "그 소문이 전혀 근거 없는 거짓이 아니라 ( ) 모르겠어요.",
+      "options": [
+        "비밀일지도",
+        "사실일지도",
+        "계획일지도",
+        "소원일지도"
+      ],
+      "answer": 1,
+      "sentence": "그 소문이 전혀 근거 없는 거짓이 아니라 사실일지도 모르겠어요.",
+      "en": "That rumor might not be completely groundless falsehood, but actually true.",
+      "why": "거짓과 대비되어 소문의 진위를 나타내는 말이므로 「사실일지도」가 들어가는 것이 알맞습니다."
+    }
+  ],
+  "49-2": [
+    {
+      "stem": "이 휴대폰은 화면이 크고 선명한 ( ) 배터리가 다소 빨리 닳아요.",
+      "options": [
+        "탓에",
+        "바람에",
+        "반면에",
+        "통에"
+      ],
+      "answer": 2,
+      "sentence": "이 휴대폰은 화면이 크고 선명한 반면에 배터리가 다소 빨리 닳아요.",
+      "en": "This phone has a large and vivid screen, whereas the battery drains somewhat quickly.",
+      "why": "앞의 장점(화면 선명)과 뒤의 단점(배터리 소모)을 서로 대조하여 나타내므로 「-(으)ㄴ/는 반면에」가 알맞습니다."
+    },
+    {
+      "stem": "외출할 때 낮에는 기온이 ( ) 반면에 밤에는 찬 바람이 불어요.",
+      "options": [
+        "어두운",
+        "복잡한",
+        "조용한",
+        "따뜻한"
+      ],
+      "answer": 3,
+      "sentence": "외출할 때 낮에는 기온이 따뜻한 반면에 밤에는 찬 바람이 불어요.",
+      "en": "When going out, temperatures are warm during the day, whereas cold wind blows at night.",
+      "why": "밤의 찬 바람과 대조되는 낮의 온화한 기온을 나타내므로 「따뜻한」이 맞습니다."
+    }
+  ],
+  "49-3": [
+    {
+      "stem": "매일 밤늦게까지 열심히 ( ) 시험 결과가 생각만큼 좋지 않았어요.",
+      "options": [
+        "공부했는데도",
+        "공부하려는데",
+        "공부하느라고",
+        "공부할 겸"
+      ],
+      "answer": 0,
+      "sentence": "매일 밤늦게까지 열심히 공부했는데도 시험 결과가 생각만큼 좋지 않았어요.",
+      "en": "Even though I studied hard until late every night, the exam results were not as good as expected.",
+      "why": "앞의 노력에도 불구하고 예상과 다른 결과가 나왔음을 나타내므로 대립과 양보의 「-(으)ㄴ/는데도」가 알맞습니다."
+    },
+    {
+      "stem": "새벽 두 시가 넘은 ( ) 창밖의 도시는 여전히 환하게 밝았어요.",
+      "options": [
+        "방법인데도",
+        "시간인데도",
+        "약속인데도",
+        "소식인데도"
+      ],
+      "answer": 1,
+      "sentence": "새벽 두 시가 넘은 시간인데도 창밖의 도시는 여전히 환하게 밝았어요.",
+      "en": "Even though it was past two in the morning, the city outside the window was still brightly lit.",
+      "why": "새벽 두 시라는 시점을 가리키므로 「시간인데도」가 문맥에 가장 자연스럽습니다."
+    }
+  ],
+  "50-1": [
+    {
+      "stem": "현대 사회에서는 인터넷을 통해 전 세계의 다양한 정보를 손쉽게 ( ).",
+      "options": [
+        "얻습니다",
+        "얻어요",
+        "얻는다",
+        "얻더군요"
+      ],
+      "answer": 2,
+      "sentence": "현대 사회에서는 인터넷을 통해 전 세계의 다양한 정보를 손쉽게 얻는다.",
+      "en": "In modern society, people easily obtain diverse information from around the world through the internet.",
+      "why": "객관적인 사실이나 일반적인 현상을 설명하는 격식 있는 글말에서는 서술체 종결어미 「-ㄴ/는다」를 씁니다."
+    },
+    {
+      "stem": "자연보호를 위해 일회용품 사용을 줄이고 분리수거를 철저히 ( ).",
+      "options": [
+        "망설인다",
+        "포기한다",
+        "거절한다",
+        "실천한다"
+      ],
+      "answer": 3,
+      "sentence": "자연보호를 위해 일회용품 사용을 줄이고 분리수거를 철저히 실천한다.",
+      "en": "For environmental protection, we reduce the use of disposable products and thoroughly practice separate recycling.",
+      "why": "자연보호를 위해 줄이고 철저히 행하는 긍정적인 행동이므로 「실천한다」가 알맞습니다."
+    }
+  ],
+  "50-2": [
+    {
+      "stem": "친구가 나에게 \"주말에 우리 집에 놀러 ( )?\"라고 물었어.",
+      "options": [
+        "올래",
+        "오세요",
+        "오십니까",
+        "오시지요"
+      ],
+      "answer": 0,
+      "sentence": "친구가 나에게 \"주말에 우리 집에 놀러 올래?\"라고 물었어.",
+      "en": "My friend asked me, \"Do you want to come hang out at my place this weekend?\"",
+      "why": "또래 친구 사이에 친근하게 의사를 묻는 반말체 대화이므로 「-ㄹ래」가 맞습니다."
+    },
+    {
+      "stem": "어제 빌려준 한국어 ( ) 정말 유익하고 재미있었어.",
+      "options": [
+        "길",
+        "책",
+        "문",
+        "방"
+      ],
+      "answer": 1,
+      "sentence": "어제 빌려준 한국어 책 정말 유익하고 재미있었어.",
+      "en": "The Korean book you lent me yesterday was really informative and interesting.",
+      "why": "읽고 유익하며 재미있을 수 있는 대상이자 빌려줄 수 있는 물건은 「책」입니다."
+    }
+  ],
+  "51-3": [
+    {
+      "stem": "어젯밤에 축구 경기를 ( ) 오늘 아침 알람 소리를 못 들었어요.",
+      "options": [
+        "보더라도",
+        "보자마자",
+        "보느라고",
+        "보려던 참에"
+      ],
+      "answer": 2,
+      "sentence": "어젯밤에 축구 경기를 보느라고 오늘 아침 알람 소리를 못 들었어요.",
+      "en": "Because I was watching a soccer match last night, I couldn't hear my morning alarm today.",
+      "why": "앞의 주체적인 행위에 집중하느라 뒤의 부정적인 결과가 발생했음을 나타내므로 「-느라고」가 알맞습니다."
+    },
+    {
+      "stem": "새로 이사 갈 집을 ( ) 주말 내내 쉴 틈이 없었어요.",
+      "options": [
+        "잊느라고",
+        "버리느라고",
+        "닫느라고",
+        "구하느라고"
+      ],
+      "answer": 3,
+      "sentence": "새로 이사 갈 집을 구하느라고 주말 내내 쉴 틈이 없었어요.",
+      "en": "I had no time to rest all weekend because I was looking for a new house to move into.",
+      "why": "이사 갈 집을 탐색하고 찾는 행동이므로 「구하느라고」가 자연스럽습니다."
+    }
+  ],
+  "51-5": [
+    {
+      "stem": "갑작스러운 폭설로 도로가 얼어붙은 ( ) 출근길 교통이 마비되었습니다.",
+      "options": [
+        "탓에",
+        "덕분에",
+        "김에",
+        "길에"
+      ],
+      "answer": 0,
+      "sentence": "갑작스러운 폭설로 도로가 얼어붙은 탓에 출근길 교통이 마비되었습니다.",
+      "en": "Because the roads froze over due to sudden heavy snow, morning commute traffic was paralyzed.",
+      "why": "원인으로 인해 부정적인 결과(교통 마비)가 생겼을 때 부정적 원인을 나타내는 명사구는 「-(으)ㄴ/는 탓에」입니다."
+    },
+    {
+      "stem": "어젯밤에 매운 음식을 무리하게 ( ) 탓에 아침부터 배가 아파요.",
+      "options": [
+        "버린",
+        "먹은",
+        "씻은",
+        "접은"
+      ],
+      "answer": 1,
+      "sentence": "어젯밤에 매운 음식을 무리하게 먹은 탓에 아침부터 배가 아파요.",
+      "en": "Because I recklessly ate spicy food last night, my stomach hurts since morning.",
+      "why": "배탈의 원인이 되는 행위로 매운 음식을 섭취한 것이므로 「먹은」이 맞습니다."
+    }
+  ],
+  "51-6": [
+    {
+      "stem": "휴일인데 집안에만 있자니 답답하기도 ( ) 근처 공원으로 산책을 나왔어요.",
+      "options": [
+        "하려다가",
+        "하다시피",
+        "하고 해서",
+        "하는 대신에"
+      ],
+      "answer": 2,
+      "sentence": "휴일인데 집안에만 있자니 답답하기도 하고 해서 근처 공원으로 산책을 나왔어요.",
+      "en": "It was a holiday and staying only at home felt stifling among other reasons, so I came out to the nearby park for a walk.",
+      "why": "여러 가지 이유 중에서 대표적인 이유 하나를 들어 행동의 배경을 설명할 때는 「-고 해서」를 씁니다."
+    },
+    {
+      "stem": "비도 오고 ( ) 집에서 따뜻한 부침개를 부쳐 먹었어요.",
+      "options": [
+        "와서",
+        "봐서",
+        "가서",
+        "해서"
+      ],
+      "answer": 3,
+      "sentence": "비도 오고 해서 집에서 따뜻한 부침개를 부쳐 먹었어요.",
+      "en": "It was raining among other things, so we fried and ate warm pancakes at home.",
+      "why": "「-기도 하고 해서」 또는 「-고 해서」 꼴로 여러 정황 중 하나를 들 때 쓰이므로 「해서」가 맞습니다."
+    }
+  ],
+  "52-1": [
+    {
+      "stem": "항상 손님이 줄을 서던 식당이 다음 달에 ( )? 믿을 수가 없네요.",
+      "options": [
+        "폐업한다고요",
+        "폐업하도록요",
+        "폐업하느라고요",
+        "폐업할수록요"
+      ],
+      "answer": 0,
+      "sentence": "항상 손님이 줄을 서던 식당이 다음 달에 폐업한다고요? 믿을 수가 없네요.",
+      "en": "That restaurant where customers always lined up is going out of business next month? I cannot believe it.",
+      "why": "상대방에게 들은 놀라운 사실을 다시 확인하거나 반문할 때는 「-다고요?」를 씁니다."
+    },
+    {
+      "stem": "내일 발표회 일정이 다음 주로 ( )? 미처 몰랐어요.",
+      "options": [
+        "판매한다고요",
+        "연기되었다고요",
+        "도착했다고요",
+        "수리한다고요"
+      ],
+      "answer": 1,
+      "sentence": "내일 발표회 일정이 다음 주로 연기되었다고요? 미처 몰랐어요.",
+      "en": "Tomorrow's presentation schedule has been postponed to next week? I had no idea.",
+      "why": "일정이 다음 주로 늦춰진 상황을 가리키는 말이므로 「연기되었다고요」가 가장 알맞습니다."
+    }
+  ],
+  "52-2": [
+    {
+      "stem": "주말에 산에 단풍이 아주 ( ) 우리도 이번 주에 등산 갈까요?",
+      "options": [
+        "아름다울수록",
+        "아름답자마자",
+        "아름답다고 하던데",
+        "아름답느라고"
+      ],
+      "answer": 2,
+      "sentence": "주말에 산에 단풍이 아주 아름답다고 하던데 우리도 이번 주에 등산 갈까요?",
+      "en": "I heard that the autumn foliage in the mountains is very beautiful, so shall we also go hiking this week?",
+      "why": "다른 사람에게 들은 사실을 회상하여 화제로 삼으며 권유할 때는 「-다고 하던데」가 알맞습니다."
+    },
+    {
+      "stem": "시내에 새로 개업한 미술관이 시설이 아주 ( ) 하던데 함께 구경 갈래요?",
+      "options": [
+        "맵다고",
+        "짜다고",
+        "달다고",
+        "좋다고"
+      ],
+      "answer": 3,
+      "sentence": "시내에 새로 개업한 미술관이 시설이 아주 좋다고 하던데 함께 구경 갈래요?",
+      "en": "I heard that the facilities at the newly opened art museum downtown are very good; shall we go check it out together?",
+      "why": "미술관의 시설을 묘사하는 긍정적인 표현이므로 「좋다고」가 자연스럽습니다. 맛을 나타내는 '짜다, 달다, 맵다'는 어울리지 않습니다."
+    }
+  ],
+  "52-4": [
+    {
+      "stem": "우리 팀이 이번 대회에서 1등으로 ( )? 정말 꿈만 같아요.",
+      "options": [
+        "우승했다니요",
+        "우승하자마자",
+        "우승할수록",
+        "우승하느라고"
+      ],
+      "answer": 0,
+      "sentence": "우리 팀이 이번 대회에서 1등으로 우승했다니요? 정말 꿈만 같아요.",
+      "en": "That our team won first place in this competition? It really feels like a dream.",
+      "why": "믿기 어려운 놀라운 사실이나 소식을 듣고 감탄하거나 반문할 때는 「-다니요?」를 씁니다."
+    },
+    {
+      "stem": "한마디 상의도 없이 중요한 계약을 ( )? 도저히 납득할 수 없어요.",
+      "options": [
+        "보관했다니요",
+        "파기했다니요",
+        "출력했다니요",
+        "복사했다니요"
+      ],
+      "answer": 1,
+      "sentence": "한마디 상의도 없이 중요한 계약을 파기했다니요? 도저히 납득할 수 없어요.",
+      "en": "That you terminated an important contract without a word of consultation? I cannot accept that at all.",
+      "why": "상의도 없이 일방적으로 취소하여 화를 내는 상황이므로 계약을 깨뜨렸다는 뜻의 「파기했다니요」가 가장 알맞습니다."
+    }
+  ],
+  "53-1": [
+    {
+      "stem": "오래된 가구를 정리하고 이번 주말에 새 소파를 ( ).",
+      "options": [
+        "구입하자마자요",
+        "구입하느라고요",
+        "구입할까 하는데요",
+        "구입할수록요"
+      ],
+      "answer": 2,
+      "sentence": "오래된 가구를 정리하고 이번 주말에 새 소파를 구입할까 하는데요.",
+      "en": "I've organized old furniture and am thinking about purchasing a new sofa this weekend.",
+      "why": "자신의 계획이나 막연한 의도를 밝힐 때는 「-(으)ㄹ까 하다」가 알맞습니다."
+    },
+    {
+      "stem": "퇴근하고 집에 가는 길에 서점에 들러 책을 한 권 ( ) 하는데요.",
+      "options": [
+        "날까",
+        "팔까",
+        "탈까",
+        "살까"
+      ],
+      "answer": 3,
+      "sentence": "퇴근하고 집에 가는 길에 서점에 들러 책을 한 권 살까 하는데요.",
+      "en": "On my way home after work, I'm thinking of dropping by a bookstore to buy a book.",
+      "why": "서점에 들러 책을 구매하고자 하는 의도를 나타내므로 「살까」가 알맞습니다."
+    }
+  ],
+  "53-3": [
+    {
+      "stem": "안 그래도 목이 말라서 시원한 음료수를 ( ) 마침 잘 사 오셨네요.",
+      "options": [
+        "마시려던 참이었는데",
+        "마시기 마련인데",
+        "마시도록 했는데",
+        "마시는 대신에"
+      ],
+      "answer": 0,
+      "sentence": "안 그래도 목이 말라서 시원한 음료수를 마시려던 참이었는데 마침 잘 사 오셨네요.",
+      "en": "I was actually just about to drink a cold beverage because I was thirsty, so it's great that you bought one.",
+      "why": "마침 어떤 행동을 하려고 마음먹고 있던 순간임을 나타내므로 「-(으)려던 참이다」가 알맞습니다."
+    },
+    {
+      "stem": "잊지 않고 거래처에 서류를 이메일로 ( ) 참이었어요.",
+      "options": [
+        "받으려던",
+        "보내려던",
+        "숨기려던",
+        "버리려던"
+      ],
+      "answer": 1,
+      "sentence": "잊지 않고 거래처에 서류를 이메일로 보내려던 참이었어요.",
+      "en": "I was just about to send the documents to the client by email without forgetting.",
+      "why": "거래처에 서류를 전송하려고 준비하던 상황이므로 「보내려던」이 가장 자연스럽습니다."
+    }
+  ],
+  "53-4": [
+    {
+      "stem": "기분 전환도 ( ) 친구도 만날 겸 주말에 부산으로 여행을 떠났어요.",
+      "options": [
+        "하느라면",
+        "하는 대신",
+        "할 겸",
+        "하자마자"
+      ],
+      "answer": 2,
+      "sentence": "기분 전환도 할 겸 친구도 만날 겸 주말에 부산으로 여행을 떠났어요.",
+      "en": "I went on a trip to Busan over the weekend to get a change of pace and also meet a friend.",
+      "why": "두 가지 이상의 목적이나 의도를 나란히 묶어 행동의 이유를 나타낼 때는 「-(으)ㄹ 겸」을 씁니다."
+    },
+    {
+      "stem": "한국의 역사도 배울 겸 서울의 고궁을 ( ) 겸 주말에 종로에 갔어요.",
+      "options": [
+        "거절할",
+        "수리할",
+        "포기할",
+        "구경할"
+      ],
+      "answer": 3,
+      "sentence": "한국의 역사도 배울 겸 서울의 고궁을 구경할 겸 주말에 종로에 갔어요.",
+      "en": "I went to Jongno on the weekend both to learn Korean history and to tour ancient palaces in Seoul.",
+      "why": "고궁을 둘러보고 감상하는 행동이 목적이므로 「구경할」이 알맞습니다."
+    }
+  ],
+  "53-5": [
+    {
+      "stem": "한 번 맡은 업무는 책임감을 가지고 끝까지 성실하게 ( ).",
+      "options": [
+        "해내야지요",
+        "해내자마자요",
+        "해내더라도요",
+        "해낼수록요"
+      ],
+      "answer": 0,
+      "sentence": "한 번 맡은 업무는 책임감을 가지고 끝까지 성실하게 해내야지요.",
+      "en": "Once assigned a task, one must carry it out diligently with responsibility until the end.",
+      "why": "당연히 지켜야 할 당위성이나 스스로의 다짐을 강조할 때는 종결어미 「-아/어야지요」가 알맞습니다."
+    },
+    {
+      "stem": "주변에 어려운 이웃이 있으면 서로 발 벗고 나서서 ( ).",
+      "options": [
+        "잡아야지요",
+        "도와야지요",
+        "닫아야지요",
+        "잊어야지요"
+      ],
+      "answer": 1,
+      "sentence": "주변에 어려운 이웃이 있으면 서로 발 벗고 나서서 도와야지요.",
+      "en": "If there are neighbors in difficulty around us, we should step forward and help each other.",
+      "why": "어려운 이웃에게 베풀어야 할 마땅한 도리이므로 「돕다」의 활용형인 「도와야지요」가 알맞습니다."
+    }
+  ],
+  "54-1": [
+    {
+      "stem": "이 소설은 전 세계 독자들에게 널리 ( ) 생각합니다.",
+      "options": [
+        "추천하자마자",
+        "추천하느라고",
+        "추천할 만하다고",
+        "추천할수록"
+      ],
+      "answer": 2,
+      "sentence": "이 소설은 전 세계 독자들에게 널리 추천할 만하다고 생각합니다.",
+      "en": "I think this novel is worthy of being widely recommended to readers around the world.",
+      "why": "어떤 대상이 충분한 가치나 자격을 지니고 있음을 평가할 때는 「-(으)ㄹ 만하다」를 씁니다."
+    },
+    {
+      "stem": "이 식당은 음식 맛도 훌륭하고 가격도 저렴해서 손님을 ( ) 봅니다.",
+      "options": [
+        "숨길 만하다고",
+        "버릴 만하다고",
+        "피할 만하다고",
+        "모실 만하다고"
+      ],
+      "answer": 3,
+      "sentence": "이 식당은 음식 맛도 훌륭하고 가격도 저렴해서 손님을 모실 만하다고 봅니다.",
+      "en": "This restaurant has great food and affordable prices, so I deem it worthy of hosting guests.",
+      "why": "맛과 가격이 훌륭하여 손님을 정중히 대접하기에 적합하다는 판단이므로 「모실 만하다고」가 알맞습니다."
+    }
+  ],
+  "54-3": [
+    {
+      "stem": "혼자서 끙끙 앓으며 고민하지 말고 선배에게 조언을 ( )?",
+      "options": [
+        "구하지 그래요",
+        "구하자마자",
+        "구할수록",
+        "구하느라고"
+      ],
+      "answer": 0,
+      "sentence": "혼자서 끙끙 앓으며 고민하지 말고 선배에게 조언을 구하지 그래요?",
+      "en": "Rather than agonizing over it alone, why don't you seek advice from a senior?",
+      "why": "상대방에게 다른 대안이나 행동을 부드럽게 제안하거나 권유할 때는 「-지 그래요?」를 씁니다."
+    },
+    {
+      "stem": "오랜 시간 컴퓨터를 봐서 눈이 피로하면 먼 산을 바라보며 잠시 ( )?",
+      "options": [
+        "뛰지 그래요",
+        "쉬지 그래요",
+        "울지 그래요",
+        "화내지 그래요"
+      ],
+      "answer": 1,
+      "sentence": "오랜 시간 컴퓨터를 봐서 눈이 피로하면 먼 산을 바라보며 잠시 쉬지 그래요?",
+      "en": "If your eyes are fatigued from looking at the computer for a long time, why don't you rest for a moment while gazing at distant mountains?",
+      "why": "눈의 피로를 풀기 위해 권할 수 있는 행동은 휴식을 취하는 「쉬지 그래요」입니다."
+    }
+  ],
+  "55-1": [
+    {
+      "stem": "여기는 제가 대학교에 다닐 때 자주 ( ) 골목 카페예요.",
+      "options": [
+        "찾아가면",
+        "찾아가려고",
+        "찾아가던",
+        "찾아가느라"
+      ],
+      "answer": 2,
+      "sentence": "여기는 제가 대학교에 다닐 때 자주 찾아가던 골목 카페예요.",
+      "en": "This is an alley cafe that I used to visit frequently when I was in college.",
+      "why": "과거에 주기적 또는 반복적으로 행했던 동작을 회상하여 뒤의 명사를 수식하므로 회상 관형사형 어미 「-던」이 알맞습니다."
+    },
+    {
+      "stem": "어릴 때 부모님과 함께 살던 고향 ( )에 오랜만에 방문했어요.",
+      "options": [
+        "돈",
+        "차",
+        "옷",
+        "집"
+      ],
+      "answer": 3,
+      "sentence": "어릴 때 부모님과 함께 살던 고향 집에 오랜만에 방문했어요.",
+      "en": "After a long time, I visited my hometown house where I used to live with my parents when I was young.",
+      "why": "부모님과 함께 생활(살다)할 수 있는 주거 공간이자 고향에 있는 대상은 「집」입니다."
+    }
+  ],
+  "55-3": [
+    {
+      "stem": "지난 주말에 새로 개봉한 영화를 봤는데 생각보다 영상미가 아주 ( ).",
+      "options": [
+        "뛰어나던데요",
+        "뛰어나자마자요",
+        "뛰어날수록요",
+        "뛰어나느라고요"
+      ],
+      "answer": 0,
+      "sentence": "지난 주말에 새로 개봉한 영화를 봤는데 생각보다 영상미가 아주 뛰어나던데요.",
+      "en": "I watched the newly released movie last weekend, and the visual beauty was remarkably outstanding.",
+      "why": "화자가 직접 경험하거나 목격한 과거의 사실을 회상하여 상대방에게 느낌을 전달할 때는 「-던데요」를 씁니다."
+    },
+    {
+      "stem": "퇴근 시간에 역 근처 도로를 지나가 보니 차들이 꼼짝도 못 하고 ( ).",
+      "options": [
+        "달리던데요",
+        "밀리던데요",
+        "날던데요",
+        "사라지던데요"
+      ],
+      "answer": 1,
+      "sentence": "퇴근 시간에 역 근처 도로를 지나가 보니 차들이 꼼짝도 못 하고 밀리던데요.",
+      "en": "Passing through the road near the station during rush hour, cars couldn't move at all and were congested.",
+      "why": "차가 꼼짝 못 하고 교통 정체로 막혀 있는 상태를 회상하여 전하는 것이므로 「밀리던데요」가 맞습니다."
+    }
   ]
 }
