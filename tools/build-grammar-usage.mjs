@@ -33,6 +33,8 @@ for (const it of [...(L.TOPIKL_ITEMS || []), ...(L.TOPIKL2_ITEMS || [])]) {
 }
 const { TW_ITEMS } = await imp('topik-writing.js');
 for (const it of TW_ITEMS) add(it.passage, '', [`TOPIK Ⅱ 쓰기 ${it.q}번 연습`, `TOPIK II Writing Q${it.q} practice`], `/topik-writing/${it.id}.html`, 0);
+/* 쓰기 53 · 54번 모범답안(우리가 쓴 글말) — 고급 문법이 많이 쓰인다. 문법에서 「TOPIK 에서 풀어 보기」로 바로 가는 쪽을 넓힌다(운영자 2026-10-18 「문법마다 TOPIK 문장이 있고 없고」) */
+for (const it of TW_ITEMS) if (it.model) add(it.model, '', [`TOPIK Ⅱ 쓰기 ${it.q}번 모범답안`, `TOPIK II Writing Q${it.q} model answer`], `/topik-writing/${it.id}.html`, 0);
 const { READING } = await imp('reading.js');
 for (const g of Object.values(READING)) for (const list of Object.values(g)) for (const it of list) add(it.passage, '', ['읽기 연습', 'Reading practice'], '', 1);
 const { VOCAB } = await imp('vocab-topik1.js');
