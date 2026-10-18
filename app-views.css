@@ -7618,3 +7618,31 @@ html[lang="ja"] *, html[lang="zh"] *, html[lang^="zh-"] *, html[lang="my"] * { w
 .wv-role h3 { font-size:15px; margin:22px 0 8px; } .wv-con { margin-bottom:10px; } .wv-ck { font-size:22px; }
 .wv-ex { margin:8px 0; font-size:15.5px; line-height:1.6; } .wv-ex small { display:block; color:var(--ink-3); font-size:12.5px; } .wv-tip { margin:8px 0 0; font-size:13.5px; color:var(--ink-2,#555); }
 @media (max-width:420px) { .wv-opts { grid-template-columns:1fr 1fr; } .wv-s { font-size:15px; } }
+
+.gp-ts-tag { display:inline-block; padding:1px 7px; margin-right:4px; border-radius:6px; background:var(--ink,#1a1410); color:#fff; font-size:11px; font-weight:800; letter-spacing:.4px; vertical-align:1px; }
+
+/* 문장 열차 — 재미 붙이기(2026-10-18) */
+.wv-coach { display:flex; align-items:center; gap:10px; margin:10px 0 4px; padding:10px 12px; border-radius:14px; background:#fff6ec; border:1px solid #f1d2b3; }
+.wv-coach-ic { font-size:28px; flex:none; } .wv-coach p { margin:0; flex:1; font-size:14.5px; line-height:1.5; font-weight:600; } .wv-score { font-style:normal; flex:none; font-size:12.5px; font-weight:800; padding:3px 9px; border-radius:99px; background:var(--ink,#1a1410); color:#fff; }
+@keyframes wvpop { 0% { transform:scale(.3) translateY(8px); opacity:0; } 70% { transform:scale(1.12); opacity:1; } 100% { transform:scale(1); } }
+.wv-car.pop, .wv-hitch.pop { animation:wvpop .42s cubic-bezier(.3,1.5,.5,1); }
+.wv-parade { display:flex; align-items:flex-end; gap:2px; margin:10px 0 2px; font-size:34px; overflow:hidden; animation:wvgo 1.1s cubic-bezier(.2,.8,.3,1); }
+.wv-engine { order:-1; } .wv-puff { font-size:22px; margin-right:4px; opacity:.7; animation:wvpuff 1.2s ease-out; }
+.wv-wagon { animation:wvwag .6s ease-out backwards; } .wv-wagon:nth-child(3) { animation-delay:.08s; } .wv-wagon:nth-child(4) { animation-delay:.16s; } .wv-wagon:nth-child(5) { animation-delay:.24s; } .wv-wagon:nth-child(6) { animation-delay:.32s; } .wv-wagon:nth-child(7) { animation-delay:.4s; }
+@keyframes wvgo { from { transform:translateX(-90%); } to { transform:translateX(0); } } @keyframes wvpuff { from { transform:translateX(-30px) scale(.4); opacity:0; } to { opacity:.7; } } @keyframes wvwag { from { transform:translateX(-14px); opacity:0; } }
+.wv-fx { margin:6px 0 0; font-size:14px; font-weight:700; } .wv-pass .wv-score { margin-left:6px; }
+.wv-rank { display:flex; flex-wrap:wrap; align-items:center; gap:6px 10px; margin:10px 0 8px; } .wv-rank-b { padding:4px 12px; border-radius:99px; background:var(--ink,#1a1410); color:#fff; font-weight:800; font-size:14px; } .wv-rank small { color:var(--ink-3); font-size:12.5px; }
+.wv-stats { display:flex; gap:10px; margin-left:auto; font-size:13px; font-weight:700; }
+.wv-daily { display:flex; align-items:center; gap:12px; width:100%; margin:6px 0; padding:12px 14px; text-align:left; border:2px solid var(--orange,#e8642c); border-radius:14px; background:linear-gradient(135deg,#fff6ec,#fff); font:inherit; cursor:pointer; }
+.wv-daily.done { border-color:#b9dcc4; background:#f1f8f3; } .wv-daily-ic { font-size:26px; } .wv-daily > span:nth-child(2) { flex:1; min-width:0; } .wv-daily small { display:block; font-size:11.5px; font-weight:800; color:var(--orange-deep,#c4551c); } .wv-daily b { display:block; font-size:16px; } .wv-daily em { font-style:normal; font-size:12.5px; color:var(--ink-3); } .wv-daily-go { font-weight:800; font-size:13px; }
+.wv-rand { width:100%; margin:4px 0 8px; padding:10px; border:1px dashed var(--line); border-radius:12px; background:transparent; font:inherit; font-size:14.5px; font-weight:700; cursor:pointer; } .wv-rand:hover { border-color:var(--ink); }
+.wv-dex { margin:14px 0 4px; } .wv-dex > b { font-size:14px; } .wv-dex-row { display:flex; flex-wrap:wrap; gap:6px; margin-top:6px; }
+.wv-dx { display:inline-flex; align-items:baseline; gap:5px; padding:4px 10px; border-radius:99px; border:1.5px dashed #cbbfae; color:#b3a899; font-size:13px; font-weight:800; font-style:normal; } .wv-dx small { font-size:11px; font-weight:700; } .wv-dx.on { border:1.5px solid var(--c,#999); background:var(--c,#999); color:#fff; }
+.wv-tl { position:relative; padding-left:20px; } .wv-tl::before { content:''; position:absolute; left:7px; top:14px; bottom:14px; width:3px; border-radius:2px; background:#d9cfbf; }
+.wv-tl .wv-task { position:relative; } .wv-tl .wv-task::before { content:''; position:absolute; left:-19px; top:50%; width:11px; height:11px; margin-top:-6px; border-radius:50%; background:#fff; border:3px solid #cbbfae; } .wv-tl .wv-task.done::before { border-color:#2e9d5f; background:#2e9d5f; }
+@media (prefers-reduced-motion: reduce) { .wv-parade, .wv-puff, .wv-wagon, .wv-car.pop, .wv-hitch.pop, .wv-mic.rec { animation:none; } }
+
+.wv-ask { margin:2px 0 4px; } .wv-ask-b { padding:7px 12px; border:1.5px solid var(--orange,#e8642c); border-radius:99px; background:#fff; color:var(--orange-deep,#c4551c); font:inherit; font-size:13.5px; font-weight:800; cursor:pointer; } .wv-ask-b small { font-weight:700; opacity:.7; }
+.wv-tip-box { margin:6px 0 4px; padding:10px 12px; border-radius:12px; background:#fffbe6; border:1px solid #efe0a0; font-size:14.5px; line-height:1.55; animation:wvpop .35s ease-out; }
+
+.wd-x-hero b small { font-size:13px; font-weight:700; opacity:.8; }
