@@ -1416,5 +1416,705 @@
       "en": "Since it is a holiday, do you think there will be a lot of traffic on the road?",
       "why": "휴일 도로에 차량이 많아 정체되는 상황을 짐작해 물어볼 때 알맞은 동사는 「막히다」입니다."
     }
+  ],
+  "56-1": [
+    {
+      "stem": "창밖으로 파란 가을 하늘과 붉은 단풍이 아름답게 ( ).",
+      "options": [
+        "보여요",
+        "봐요",
+        "보여줘요",
+        "보겠어요"
+      ],
+      "answer": 0,
+      "sentence": "창밖으로 파란 가을 하늘과 붉은 단풍이 아름답게 보여요.",
+      "en": "Outside the window, the blue autumn sky and red maple leaves are beautifully seen.",
+      "why": "자연스러운 시각 대상이 눈에 들어오는 피동 상황이므로 「보이다」의 활용형인 「보여요」가 맞습니다."
+    },
+    {
+      "stem": "바람이 세게 불어서 활짝 열려 있던 창문이 쾅 ( ).",
+      "options": [
+        "열렸어요",
+        "닫혔어요",
+        "걸렸어요",
+        "끊겼어요"
+      ],
+      "answer": 1,
+      "sentence": "바람이 세게 불어서 활짝 열려 있던 창문이 쾅 닫혔어요.",
+      "en": "Because the wind blew hard, the wide open window slammed shut.",
+      "why": "바람으로 인해 창문이 소리를 내며 저절로 닫히는 피동 상황이므로 「닫혔어요」가 가장 자연스럽습니다."
+    }
+  ],
+  "56-2": [
+    {
+      "stem": "이 고전 소설은 뛰어난 문학성을 인정받아 세계 여러 나라 언어로 ( ).",
+      "options": [
+        "번역시키었어요",
+        "번역했어요",
+        "번역되었어요",
+        "번역하게 했어요"
+      ],
+      "answer": 2,
+      "sentence": "이 고전 소설은 뛰어난 문학성을 인정받아 세계 여러 나라 언어로 번역되었어요.",
+      "en": "Recognized for its outstanding literary merit, this classic novel was translated into languages of many countries worldwide.",
+      "why": "소설이 번역의 대상이 되어 수동적으로 처리된 피동형 표현이므로 「번역되었어요」가 알맞습니다."
+    },
+    {
+      "stem": "오랫동안 정성껏 준비해 온 축제 일정이 갑작스러운 폭우로 ( ).",
+      "options": [
+        "출발되었어요",
+        "축하되었어요",
+        "보호되었어요",
+        "취소되었어요"
+      ],
+      "answer": 3,
+      "sentence": "오랫동안 정성껏 준비해 온 축제 일정이 갑작스러운 폭우로 취소되었어요.",
+      "en": "The festival schedule that had been prepared with long diligence was cancelled due to sudden heavy rain.",
+      "why": "폭우라는 기상 악화로 인해 일정이 무산된 피동 상태를 나타내므로 「취소되었어요」가 맞습니다."
+    }
+  ],
+  "56-3": [
+    {
+      "stem": "새로운 프로젝트를 총괄하는 막중한 책임을 ( ).",
+      "options": [
+        "맡게 되었습니다",
+        "맡아 버렸습니다",
+        "맡아야 했습니다",
+        "맡으려고 했습니다"
+      ],
+      "answer": 0,
+      "sentence": "새로운 프로젝트를 총괄하는 막중한 책임을 맡게 되었습니다.",
+      "en": "I came to take on the heavy responsibility of overseeing the new project.",
+      "why": "회사의 인사나 상황의 흐름에 따라 어떤 역할을 부여받게 되었음을 나타내는 「-게 되다」가 알맞습니다."
+    },
+    {
+      "stem": "해외 지사로 발령이 나서 다음 달부터 싱가포르에서 ( ) 되었습니다.",
+      "options": [
+        "포기하게",
+        "근무하게",
+        "퇴직하게",
+        "구경하게"
+      ],
+      "answer": 1,
+      "sentence": "해외 지사로 발령이 나서 다음 달부터 싱가포르에서 근무하게 되었습니다.",
+      "en": "Having been assigned to an overseas branch, I came to work in Singapore starting next month.",
+      "why": "해외 지사로 발령을 받아 그곳에서 직장 생활을 수행하는 행위이므로 「근무하게」가 맞습니다."
+    }
+  ],
+  "57-1": [
+    {
+      "stem": "어머니께서 감기에 걸려 누워 있는 아이에게 따뜻한 죽을 ( ).",
+      "options": [
+        "잡수셨어요",
+        "먹으셨어요",
+        "먹이셨어요",
+        "식사하셨어요"
+      ],
+      "answer": 2,
+      "sentence": "어머니께서 감기에 걸려 누워 있는 아이에게 따뜻한 죽을 먹이셨어요.",
+      "en": "Mother fed warm porridge to the child lying down with a cold.",
+      "why": "다른 사람(아이)으로 하여금 음식을 먹게 하는 사동 표현이므로 사동사 「먹이다」의 존칭형 「먹이셨어요」가 맞습니다."
+    },
+    {
+      "stem": "아침에 늦잠을 잔 동생을 서둘러 ( ) 학교에 보냈어요.",
+      "options": [
+        "낮춰서",
+        "속여서",
+        "숨겨서",
+        "깨워서"
+      ],
+      "answer": 3,
+      "sentence": "아침에 늦잠을 잔 동생을 서둘러 깨워서 학교에 보냈어요.",
+      "en": "I hurried and woke up my younger sibling who overslept in the morning, and sent them to school.",
+      "why": "잠에서 일어나도록 만드는 사동 행위이므로 사동사 「깨우다」의 활용형인 「깨워서」가 알맞습니다."
+    }
+  ],
+  "58-1": [
+    {
+      "stem": "꾸준히 운동하고 식습관을 ( ) 건강을 유지할 수 있어요.",
+      "options": [
+        "개선해야",
+        "개선하더라도",
+        "개선하느라고",
+        "개선하자마자"
+      ],
+      "answer": 0,
+      "sentence": "꾸준히 운동하고 식습관을 개선해야 건강을 유지할 수 있어요.",
+      "en": "Only if you exercise steadily and improve your eating habits can you maintain your health.",
+      "why": "뒤의 필수적인 결과(건강 유지)를 이루기 위한 선행 조건이나 필수 요건을 나타내므로 「-아/어야」가 알맞습니다."
+    },
+    {
+      "stem": "원하는 대학에 합격하려면 평소에 성실하게 ( ) 해요.",
+      "options": [
+        "노래해야",
+        "공부해야",
+        "운전해야",
+        "요리해야"
+      ],
+      "answer": 1,
+      "sentence": "원하는 대학에 합격하려면 평소에 성실하게 공부해야 해요.",
+      "en": "If you want to pass your desired university, you must study diligently on a regular basis.",
+      "why": "원하는 대학에 합격하기 위해 필수적으로 수행해야 하는 학업 활동이므로 「공부해야」가 맞습니다."
+    }
+  ],
+  "58-2": [
+    {
+      "stem": "공항에 무사히 ( ) 가족들이 걱정하지 않도록 바로 전화하세요.",
+      "options": [
+        "도착하더라도",
+        "도착하느라고",
+        "도착하거든",
+        "도착할수록"
+      ],
+      "answer": 2,
+      "sentence": "공항에 무사히 도착하거든 가족들이 걱정하지 않도록 바로 전화하세요.",
+      "en": "Once you arrive safely at the airport, call right away so your family doesn't worry.",
+      "why": "조건이 충족되었을 때 뒤에 명령이나 부탁, 권유를 이끌어내는 연결어미로는 「-거든」이 알맞습니다."
+    },
+    {
+      "stem": "회의가 ( ) 상의드릴 중요한 안건이 있으니 잠깐 기다려 주세요.",
+      "options": [
+        "다치거든",
+        "망하거든",
+        "잃거든",
+        "끝나거든"
+      ],
+      "answer": 3,
+      "sentence": "회의가 끝나거든 상의드릴 중요한 안건이 있으니 잠깐 기다려 주세요.",
+      "en": "Once the meeting ends, I have an important agenda to discuss, so please wait a moment.",
+      "why": "진행 중인 회의가 완료되는 시점을 나타내므로 「끝나거든」이 문맥상 가장 알맞습니다."
+    }
+  ],
+  "59-2": [
+    {
+      "stem": "이 식당은 음식 맛이 아주 ( ) 직원들도 친절해서 손님이 끊이지 않아요.",
+      "options": [
+        "훌륭한 데다가",
+        "훌륭하자마자",
+        "훌륭하더라도",
+        "훌륭하느라고"
+      ],
+      "answer": 0,
+      "sentence": "이 식당은 음식 맛이 아주 훌륭한 데다가 직원들도 친절해서 손님이 끊이지 않아요.",
+      "en": "This restaurant not only has excellent food, but the staff is also friendly, so customers never cease.",
+      "why": "앞의 장점에 더해 또 다른 좋은 점을 추가하여 강조하므로 첨가의 「-(으)ㄴ/는 데다가」가 알맞습니다."
+    },
+    {
+      "stem": "새로 이사한 원룸은 지하철역에서 ( ) 데다가 주변 편의시설도 잘 갖추어져 있어요.",
+      "options": [
+        "먼",
+        "가까운",
+        "좁은",
+        "어두운"
+      ],
+      "answer": 1,
+      "sentence": "새로 이사한 원룸은 지하철역에서 가까운 데다가 주변 편의시설도 잘 갖추어져 있어요.",
+      "en": "The newly moved studio apartment is not only close to the subway station, but also well equipped with surrounding amenities.",
+      "why": "편의시설이 잘 갖추어져 있다는 장점과 대등하게 호응하는 긍정적인 입지 조건은 「가까운」입니다."
+    }
+  ],
+  "59-3": [
+    {
+      "stem": "극심한 피로 때문에 너무 지쳐서 손가락 하나 움직일 힘( ) 없었어요.",
+      "options": [
+        "처럼",
+        "만큼",
+        "조차",
+        "마다"
+      ],
+      "answer": 2,
+      "sentence": "극심한 피로 때문에 너무 지쳐서 손가락 하나 움직일 힘조차 없었어요.",
+      "en": "I was so exhausted from extreme fatigue that I didn't even have the strength to move a single finger.",
+      "why": "가장 기본적이거나 사소한 것까지 부정하며 극한의 상황을 강조하는 보조사는 「조차」입니다."
+    },
+    {
+      "stem": "갑작스러운 사고 소식에 너무 큰 충격을 받아서 ( ) 안 나왔어요.",
+      "options": [
+        "하품조차",
+        "기침조차",
+        "재채기조차",
+        "눈물조차"
+      ],
+      "answer": 3,
+      "sentence": "갑작스러운 사고 소식에 너무 큰 충격을 받아서 눈물조차 안 나왔어요.",
+      "en": "I was in such great shock at the sudden news of the accident that not even tears came out.",
+      "why": "엄청난 슬픔이나 충격으로 감정 표현인 눈물마저 흘리지 못하는 극단적 상태를 나타내므로 「눈물조차」가 자연스럽습니다."
+    }
+  ],
+  "59-4": [
+    {
+      "stem": "우리 동네( ) 공원이 세 군데나 있어서 산책하기에 참 좋아요.",
+      "options": [
+        "만 해도",
+        "치고는",
+        "조차도",
+        "마저도"
+      ],
+      "answer": 0,
+      "sentence": "우리 동네만 해도 공원이 세 군데나 있어서 산책하기에 참 좋아요.",
+      "en": "In our neighborhood alone, there are three parks, so it's very nice for walking.",
+      "why": "전체 중에서 하나의 대표적인 예를 들어 뒤의 사실을 뒷받침할 때는 「만 해도」를 씁니다."
+    },
+    {
+      "stem": "요즘 물가가 너무 올라서 매일 먹는 ( ) 가격이 두 배나 뛰었어요.",
+      "options": [
+        "자동차만 해도",
+        "달걀만 해도",
+        "컴퓨터만 해도",
+        "피아노만 해도"
+      ],
+      "answer": 1,
+      "sentence": "요즘 물가가 너무 올라서 매일 먹는 달걀만 해도 가격이 두 배나 뛰었어요.",
+      "en": "Prices have risen so much recently that eggs alone, which we eat every day, have doubled in price.",
+      "why": "「매일 먹는」이라는 수식어와 어울리는 일상 식료품의 예시로는 「달걀만 해도」가 맞습니다."
+    }
+  ],
+  "61-1": [
+    {
+      "stem": "가족들과 함께 본 영화가 너무 감동적이어서 눈물이 ( ) 펑펑 울었어요.",
+      "options": [
+        "나더라도",
+        "나자마자",
+        "날 정도로",
+        "나느라고"
+      ],
+      "answer": 2,
+      "sentence": "가족들과 함께 본 영화가 너무 감동적이어서 눈물이 날 정도로 펑펑 울었어요.",
+      "en": "The movie I watched with my family was so moving that I wept tears copiously.",
+      "why": "어떤 상태나 행동의 극심한 정도를 비유적으로 표현할 때는 「-(으)ㄹ 정도로」를 씁니다."
+    },
+    {
+      "stem": "축제 거리에 발 디딜 틈이 ( ) 인파가 가득 몰려들었어요.",
+      "options": [
+        "높을 정도로",
+        "많을 정도로",
+        "넓을 정도로",
+        "없을 정도로"
+      ],
+      "answer": 3,
+      "sentence": "축제 거리에 발 디딜 틈이 없을 정도로 인파가 가득 몰려들었어요.",
+      "en": "Crowds flocked so densely that there was not even room to step on the festival street.",
+      "why": "사람이 매우 많이 몰려 공간의 여유가 전혀 없음을 나타내므로 「없을 정도로」가 가장 적절합니다."
+    }
+  ],
+  "61-2": [
+    {
+      "stem": "할아버지 댁 텃밭에서 방금 수확한 사과가 어린아이 ( ).",
+      "options": [
+        "주먹만 해요",
+        "주먹처럼요",
+        "주먹만큼요",
+        "주먹대로요"
+      ],
+      "answer": 0,
+      "sentence": "할아버지 댁 텃밭에서 방금 수확한 사과가 어린아이 주먹만 해요.",
+      "en": "The apple just harvested from grandfather's garden is the size of a child's fist.",
+      "why": "명사 뒤에 붙어 그 대상의 크기나 부피, 정도가 비슷함을 나타내는 보조사는 「만 하다」입니다."
+    },
+    {
+      "stem": "남태평양의 작은 섬마을에서 바다거북이 어른 ( ) 크기로 헤엄치고 있었어요.",
+      "options": [
+        "귀만 한",
+        "등만 한",
+        "코만 한",
+        "눈만 한"
+      ],
+      "answer": 1,
+      "sentence": "남태평양의 작은 섬마을에서 바다거북이 어른 등만 한 크기로 헤엄치고 있었어요.",
+      "en": "In a small island village in the South Pacific, sea turtles the size of an adult's back were swimming.",
+      "why": "바다거북의 커다란 몸집을 비유하기에 알맞은 신체 부위는 「등만 한」입니다."
+    }
+  ],
+  "61-3": [
+    {
+      "stem": "어려운 과제를 맡았지만 스스로 최선을 다해 ( ) 만족스러운 결과를 얻었어요.",
+      "options": [
+        "노력하느라고",
+        "노력하자마자",
+        "노력한 만큼",
+        "노력할수록"
+      ],
+      "answer": 2,
+      "sentence": "어려운 과제를 맡았지만 스스로 최선을 다해 노력한 만큼 만족스러운 결과를 얻었어요.",
+      "en": "I took on a difficult assignment, but as much as I did my best, I achieved satisfying results.",
+      "why": "선행 행위의 수고나 분량에 비례하여 그에 상응하는 결과를 얻었음을 나타내므로 「-(으)ㄴ/는 만큼」이 알맞습니다."
+    },
+    {
+      "stem": "뷔페식당에서는 남기지 않고 자신이 ( ) 먹을 만큼만 접시에 담아야 해요.",
+      "options": [
+        "무섭게",
+        "어렵게",
+        "슬프게",
+        "맛있게"
+      ],
+      "answer": 3,
+      "sentence": "뷔페식당에서는 남기지 않고 자신이 맛있게 먹을 만큼만 접시에 담아야 해요.",
+      "en": "At a buffet restaurant, you should take onto your plate only as much as you can eat deliciously without leaving leftovers.",
+      "why": "음식을 즐겁고 만족스럽게 섭취하는 상태를 나타내므로 「맛있게」가 자연스럽습니다."
+    }
+  ],
+  "62-1": [
+    {
+      "stem": "보안이 엄격한 연구 시설이라 관계자가 아니면 ( ) 들어갈 수 없어요.",
+      "options": [
+        "아무나",
+        "아무거나",
+        "아무 데나",
+        "아무쪼록"
+      ],
+      "answer": 0,
+      "sentence": "보안이 엄격한 연구 시설이라 관계자가 아니면 아무나 들어갈 수 없어요.",
+      "en": "Because it is a strictly secured research facility, not just anyone can enter unless they are authorized personnel.",
+      "why": "특정되지 않은 불특정 사람을 가리키는 대명사이므로 사람을 지칭하는 「아무나」가 맞습니다."
+    },
+    {
+      "stem": "배가 너무 고파서 메뉴를 가리지 않고 ( ) 다 잘 먹을 수 있어요.",
+      "options": [
+        "아무나",
+        "아무거나",
+        "아무 때나",
+        "아무 데나"
+      ],
+      "answer": 1,
+      "sentence": "배가 너무 고파서 메뉴를 가리지 않고 아무거나 다 잘 먹을 수 있어요.",
+      "en": "I am so hungry that without being picky about the menu, I can eat anything well.",
+      "why": "음식이나 사물 등 특정되지 않은 대상을 가리키므로 사물을 지칭하는 「아무거나」가 맞습니다."
+    }
+  ],
+  "62-2": [
+    {
+      "stem": "주말인데 비도 오고 약속도 없으니 집에서 밀린 ( ) 봐야겠어요.",
+      "options": [
+        "영화만큼",
+        "영화처럼",
+        "영화나",
+        "영화마다"
+      ],
+      "answer": 2,
+      "sentence": "주말인데 비도 오고 약속도 없으니 집에서 밀린 영화나 봐야겠어요.",
+      "en": "It's the weekend and raining with no plans, so I might as well watch backed-up movies at home.",
+      "why": "가장 만족스러운 최선은 아니지만 마땅한 대안이 없을 때 차선책을 고르는 조사는 「(이)나」입니다."
+    },
+    {
+      "stem": "점심시간이 15분밖에 안 남았으니 근처 편의점에서 ( ) 사 먹자.",
+      "options": [
+        "한정식이나",
+        "소고기나",
+        "삼계탕이나",
+        "삼각김밥이나"
+      ],
+      "answer": 3,
+      "sentence": "점심시간이 15분밖에 안 남았으니 근처 편의점에서 삼각김밥이나 사 먹자.",
+      "en": "There are only 15 minutes left of lunch break, so let's just buy and eat triangle kimbap at a nearby convenience store.",
+      "why": "짧은 시간 안에 편의점에서 간단히 해결할 수 있는 음식으로는 「삼각김밥이나」가 가장 어울립니다."
+    }
+  ],
+  "62-3": [
+    {
+      "stem": "먼 길을 오시느라 목이 많이 마르실 텐데 시원한 ( ) 한 잔 드세요.",
+      "options": [
+        "물이라도",
+        "물처럼",
+        "물만큼",
+        "물마다"
+      ],
+      "answer": 0,
+      "sentence": "먼 길을 오시느라 목이 많이 마르실 텐데 시원한 물이라도 한 잔 드세요.",
+      "en": "You must be very thirsty from coming a long way, so please have at least a glass of cold water.",
+      "why": "최선은 아니지만 차선의 것으로 대접하거나 권할 때 겸양과 정성을 담아 쓰는 조사는 「(이)라도」입니다."
+    },
+    {
+      "stem": "바쁜 일정으로 직접 만나지 못한다면 짧은 ( ) 보내서 안부를 전하세요.",
+      "options": [
+        "선물세트라도",
+        "문자메시지라도",
+        "식사라도",
+        "여행이라도"
+      ],
+      "answer": 1,
+      "sentence": "바쁜 일정으로 직접 만나지 못한다면 짧은 문자메시지라도 보내서 안부를 전하세요.",
+      "en": "If you cannot meet in person due to a busy schedule, send at least a short text message to convey your regards.",
+      "why": "「보내서」와 어울리며 짧게 안부를 전할 수 있는 비대면 수단은 「문자메시지라도」가 자연스럽습니다."
+    }
+  ],
+  "62-4": [
+    {
+      "stem": "주말에 산으로 ( ) 바다로 가든지 네가 원하는 곳으로 여행을 떠나자.",
+      "options": [
+        "가면서",
+        "가려고",
+        "가든지",
+        "가느라고"
+      ],
+      "answer": 2,
+      "sentence": "주말에 산으로 가든지 바다로 가든지 네가 원하는 곳으로 여행을 떠나자.",
+      "en": "Whether we go to the mountains or go to the sea on the weekend, let's go on a trip wherever you want.",
+      "why": "어느 것을 선택해도 상관없음을 나타내며 나열하는 연결어미는 「-든지 -든지」입니다."
+    },
+    {
+      "stem": "식사 후에 따뜻한 녹차를 ( ) 시원한 주스를 마시든지 자유롭게 고르세요.",
+      "options": [
+        "흘리든지",
+        "버리든지",
+        "숨기든지",
+        "마시든지"
+      ],
+      "answer": 3,
+      "sentence": "식사 후에 따뜻한 녹차를 마시든지 시원한 주스를 마시든지 자유롭게 고르세요.",
+      "en": "After meals, choose freely whether you drink warm green tea or drink cold juice.",
+      "why": "음료(녹차)를 섭취하는 동작이므로 「마시든지」가 맞습니다."
+    }
+  ],
+  "62-5": [
+    {
+      "stem": "이 회사는 기본급이 다소 ( ) 다양한 복지 혜택과 성과급을 많이 줘요.",
+      "options": [
+        "적은 대신에",
+        "적자마자",
+        "적을수록",
+        "적느라고"
+      ],
+      "answer": 0,
+      "sentence": "이 회사는 기본급이 다소 적은 대신에 다양한 복지 혜택과 성과급을 많이 줘요.",
+      "en": "While the base salary at this company is somewhat low, they provide diverse welfare benefits and large bonuses instead.",
+      "why": "앞의 부정적인 사실(기본급 적음)을 뒤의 긍정적인 혜택으로 보상하거나 대체하므로 「-(으)ㄴ/는 대신에」가 알맞습니다."
+    },
+    {
+      "stem": "친구가 이사를 ( ) 대신에 저는 맛있는 저녁 식사를 대접했어요.",
+      "options": [
+        "거절한",
+        "도와준",
+        "방해한",
+        "외면한"
+      ],
+      "answer": 1,
+      "sentence": "친구가 이사를 도와준 대신에 저는 맛있는 저녁 식사를 대접했어요.",
+      "en": "In exchange for my friend helping with moving, I treated them to a delicious dinner.",
+      "why": "저녁 식사를 대접하는 보답의 원인이 되는 호의적인 행동은 「도와준」입니다."
+    }
+  ],
+  "63-1": [
+    {
+      "stem": "대학을 졸업하고 취업 준비로 바쁘게 지내다 5년 ( ) 고향 친구들을 만났어요.",
+      "options": [
+        "마다",
+        "동안",
+        "만에",
+        "부터"
+      ],
+      "answer": 2,
+      "sentence": "대학을 졸업하고 취업 준비로 바쁘게 지내다 5년 만에 고향 친구들을 만났어요.",
+      "en": "After graduating from college and staying busy with job hunting, I met my hometown friends after 5 years.",
+      "why": "어떤 일이 있고 난 후 그만한 시간이 흐른 뒤에 다음 사건이 일어났음을 나타내는 조사는 「만에」입니다."
+    },
+    {
+      "stem": "기나긴 장마가 끝나고 거의 한 ( ) 파란 하늘이 맑게 드러났어요.",
+      "options": [
+        "손 만에",
+        "발 만에",
+        "입 만에",
+        "달 만에"
+      ],
+      "answer": 3,
+      "sentence": "기나긴 장마가 끝나고 거의 한 달 만에 파란 하늘이 맑게 드러났어요.",
+      "en": "After the long rainy season ended, blue skies clearly emerged after almost a month.",
+      "why": "장마가 지속된 시간의 단위를 나타내는 명사로는 「달 만에」가 자연스럽습니다."
+    }
+  ],
+  "63-2": [
+    {
+      "stem": "소풍 갈 때 먹으려고 아침 일찍 맛있는 김밥을 ( ) 공원으로 출발했어요.",
+      "options": [
+        "싸 가지고",
+        "싸자마자",
+        "싸더라도",
+        "싸느라고"
+      ],
+      "answer": 0,
+      "sentence": "소풍 갈 때 먹으려고 아침 일찍 맛있는 김밥을 싸 가지고 공원으로 출발했어요.",
+      "en": "To eat on the picnic, I made delicious kimbap early in the morning and set off for the park with it.",
+      "why": "앞의 행동으로 얻은 대상을 지니거나 완료한 상태를 유지한 채 뒤의 행동을 이어갈 때는 구어체 연결어미 「-아/어 가지고」를 씁니다."
+    },
+    {
+      "stem": "서점에서 새로 출간된 소설책을 한 권 ( ) 근처 조용한 카페로 향했어요.",
+      "options": [
+        "팔 가지고",
+        "사 가지고",
+        "울 가지고",
+        "웃 가지고"
+      ],
+      "answer": 1,
+      "sentence": "서점에서 새로 출간된 소설책을 한 권 사 가지고 근처 조용한 카페로 향했어요.",
+      "en": "I bought a newly published novel at the bookstore and headed to a quiet nearby cafe with it.",
+      "why": "서점에서 책을 구입하여 소지한 상태로 이동하는 문맥이므로 「사 가지고」가 맞습니다."
+    }
+  ],
+  "63-3": [
+    {
+      "stem": "백화점에서 마음에 드는 코트를 ( ) 가격이 너무 비싸서 그냥 내려놓았어요.",
+      "options": [
+        "입어 보더라도",
+        "입어 보자마자",
+        "입어 보았다가",
+        "입어 볼수록"
+      ],
+      "answer": 2,
+      "sentence": "백화점에서 마음에 드는 코트를 입어 보았다가 가격이 너무 비싸서 그냥 내려놓았어요.",
+      "en": "I tried on a coat I liked at the department store, but put it down because the price was too expensive.",
+      "why": "어떤 행동이나 상태가 완료된 후 그것이 계기가 되어 반대되거나 다른 행동으로 전환될 때는 「-았/었다가」를 씁니다."
+    },
+    {
+      "stem": "날씨가 맑아서 산책하러 밖으로 ( ) 갑자기 소나기가 내려서 집으로 돌아왔어요.",
+      "options": [
+        "내려왔다가",
+        "들어왔다가",
+        "올라갔다가",
+        "나갔다가"
+      ],
+      "answer": 3,
+      "sentence": "날씨가 맑아서 산책하러 밖으로 나갔다가 갑자기 소나기가 내려서 집으로 돌아왔어요.",
+      "en": "Because the weather was clear, I went out for a walk, but returned home when it suddenly poured.",
+      "why": "산책을 위해 밖으로 이동했다가 다시 집으로 귀가한 상황이므로 「나갔다가」가 가장 자연스럽습니다."
+    }
+  ],
+  "63-4": [
+    {
+      "stem": "계약서에 적힌 조건들을 꼼꼼하게 ( ) 서명을 해야 후회가 없어요.",
+      "options": [
+        "확인하고서",
+        "확인하자마자",
+        "확인하더라도",
+        "확인할수록"
+      ],
+      "answer": 0,
+      "sentence": "계약서에 적힌 조건들을 꼼꼼하게 확인하고서 서명을 해야 후회가 없어요.",
+      "en": "Only after meticulously checking the conditions written in the contract and signing will you have no regrets.",
+      "why": "앞의 선행 동작이 완전히 끝난 후 그것을 바탕으로 다음 행동을 진행함을 나타낼 때는 「-고서」를 씁니다."
+    },
+    {
+      "stem": "병원에서 의사 선생님의 진료를 받고 약을 ( ) 푹 쉬었어요.",
+      "options": [
+        "버리고서",
+        "먹고서",
+        "감추고서",
+        "쏟고서"
+      ],
+      "answer": 1,
+      "sentence": "병원에서 의사 선생님의 진료를 받고 약을 먹고서 푹 쉬었어요.",
+      "en": "After receiving medical treatment from the doctor at the hospital and taking medicine, I took a good rest.",
+      "why": "병을 치료하기 위해 약을 복용하는 정상적인 행동이므로 「먹고서」가 맞습니다."
+    }
+  ],
+  "64-1": [
+    {
+      "stem": "새로 입사한 동료와 대화를 ( ) 같은 고등학교를 졸업한 후배였어요.",
+      "options": [
+        "나누더라도",
+        "나누자마자",
+        "나누고 보니",
+        "나누느라고"
+      ],
+      "answer": 2,
+      "sentence": "새로 입사한 동료와 대화를 나누고 보니 같은 고등학교를 졸업한 후배였어요.",
+      "en": "After having a conversation with the newly joined colleague, it turned out he was a junior from the same high school.",
+      "why": "어떤 행동을 하고 난 결과 새로운 사실을 깨닫거나 발견했음을 나타낼 때는 「-고 보니」를 씁니다."
+    },
+    {
+      "stem": "집에 돌아와 장바구니를 ( ) 마트에서 사려던 계란을 빠뜨렸더군요.",
+      "options": [
+        "던져보고 보니",
+        "닫아보고 보니",
+        "숨겨보고 보니",
+        "열어보고 보니"
+      ],
+      "answer": 3,
+      "sentence": "집에 돌아와 장바구니를 열어보고 보니 마트에서 사려던 계란을 빠뜨렸더군요.",
+      "en": "After coming home and opening up the grocery basket, I found that I had left out the eggs I intended to buy at the mart.",
+      "why": "물건이 제대로 들어있는지 확인하기 위해 장바구니 안을 살피는 행위이므로 「열어보고 보니」가 자연스럽습니다."
+    }
+  ],
+  "64-5": [
+    {
+      "stem": "주말 내내 아무 생각 없이 푹 ( ) 그동안 쌓였던 피로가 말끔히 풀렸어요.",
+      "options": [
+        "잤더니",
+        "자자마자",
+        "자더라도",
+        "자느라고"
+      ],
+      "answer": 0,
+      "sentence": "주말 내내 아무 생각 없이 푹 잤더니 그동안 쌓였던 피로가 말끔히 풀렸어요.",
+      "en": "Because I slept deeply all weekend without thinking about anything, all the accumulated fatigue was cleanly relieved.",
+      "why": "화자가 과거에 한 행동의 결과로 뒤의 새로운 상태나 현상이 일어났음을 나타내는 연결어미는 「-았/었더니」입니다."
+    },
+    {
+      "stem": "길을 몰라서 지나가는 경찰관에게 위치를 ( ) 아주 친절하게 알려주셨어요.",
+      "options": [
+        "감췄더니",
+        "물어봤더니",
+        "막았더니",
+        "피했더니"
+      ],
+      "answer": 1,
+      "sentence": "길을 몰라서 지나가는 경찰관에게 위치를 물어봤더니 아주 친절하게 알려주셨어요.",
+      "en": "Because I didn't know the way, I asked a passing police officer for the location, and he kindly explained it.",
+      "why": "길 안내를 받기 위해 질문을 한 상황이므로 「물어봤더니」가 맞습니다."
+    }
+  ],
+  "64-6": [
+    {
+      "stem": "수업 시간에 계속 딴청을 ( ) 시험에서 좋은 성적을 받기 어려워요.",
+      "options": [
+        "피우더라도",
+        "피우자마자",
+        "피우다가는",
+        "피울수록"
+      ],
+      "answer": 2,
+      "sentence": "수업 시간에 계속 딴청을 피우다가는 시험에서 좋은 성적을 받기 어려워요.",
+      "en": "If you keep not paying attention in class, it will be difficult to get good grades on exams.",
+      "why": "앞의 부정적인 행동이 계속될 경우 나쁜 결과로 이어질 것임을 경고할 때는 「-다가는」을 씁니다."
+    },
+    {
+      "stem": "매일 밤늦게까지 스마트폰을 보며 ( ) 건강을 크게 해칠 수 있어요.",
+      "options": [
+        "일을 안 하다가는",
+        "운동을 안 하다가는",
+        "밥을 안 먹다가는",
+        "잠을 안 자다가는"
+      ],
+      "answer": 3,
+      "sentence": "매일 밤늦게까지 스마트폰을 보며 잠을 안 자다가는 건강을 크게 해칠 수 있어요.",
+      "en": "If you don't sleep while looking at your smartphone until late every night, you could seriously harm your health.",
+      "why": "밤늦게 스마트폰을 보느라 수면을 취하지 않는 행위를 경고하고 있으므로 「잠을 안 자다가는」이 가장 적절합니다."
+    }
+  ],
+  "64-7": [
+    {
+      "stem": "할인 쿠폰과 포인트를 함께 사용했으니 정가보다 절반이나 저렴하게 ( ).",
+      "options": [
+        "구입한 셈이다",
+        "구입하자마자다",
+        "구입하더라도다",
+        "구입할수록이다"
+      ],
+      "answer": 0,
+      "sentence": "할인 쿠폰과 포인트를 함께 사용했으니 정가보다 절반이나 저렴하게 구입한 셈이다.",
+      "en": "Since I used a discount coupon and points together, it is practically like I purchased it at half the regular price.",
+      "why": "사실상 어떤 결과와 다름없음을 계산하거나 평가하여 결론을 내릴 때는 「-(으)ㄴ/는 셈이다」를 씁니다."
+    },
+    {
+      "stem": "오랫동안 공들여 준비했던 기획안 작성을 오늘로 모두 ( ) 셈이다.",
+      "options": [
+        "버린",
+        "마친",
+        "숨긴",
+        "놓친"
+      ],
+      "answer": 1,
+      "sentence": "오랫동안 공들여 준비했던 기획안 작성을 오늘로 모두 마친 셈이다.",
+      "en": "With today, I have practically completed all the proposal drafting that had been prepared with long effort.",
+      "why": "기획안 작성을 끝마쳤다는 긍정적인 결론을 나타내므로 「마친」이 가장 적절합니다."
+    }
   ]
 }
