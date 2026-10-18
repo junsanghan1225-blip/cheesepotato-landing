@@ -8,7 +8,9 @@
   "condition": "조건",
   "reason": "이유",
   "example": "예",
-  "summary": "마무리"
+  "summary": "마무리",
+  "hold": "시간 벌기",
+  "fix": "고쳐 말하기"
  },
  "connectors": [
   {
@@ -409,6 +411,131 @@
    "tip": {
     "ko": "앞에 시간 · 과정이 있을 때 어울려요.",
     "en": "Fits when a process or time has come before."
+   }
+  },
+  {
+   "id": "eum",
+   "ko": "음",
+   "role": "hold",
+   "lv": "beginner",
+   "en": "um… · well…",
+   "use": {
+    "ko": "말이 막혔을 때 생각할 시간을 벌 때",
+    "en": "Buys thinking time when you get stuck"
+   },
+   "ex": [
+    {
+     "ko": "음, 어디가 좋을까요?",
+     "en": "Um, where would be good?"
+    },
+    {
+     "ko": "음… 저는 커피를 마실게요.",
+     "en": "Well… I'll have coffee."
+    }
+   ],
+   "tip": {
+    "ko": "말없이 멈추는 것보다 「음…」 하고 이어 가는 편이 자연스러워요. 너무 길게 끌지는 마세요.",
+    "en": "Saying 「음…」 and carrying on sounds more natural than going silent. Do not drag it out."
+   }
+  },
+  {
+   "id": "mworalkka",
+   "ko": "뭐랄까",
+   "role": "hold",
+   "lv": "beginner",
+   "en": "how should I put it · let me see",
+   "use": {
+    "ko": "딱 맞는 말이 안 떠올라 찾을 때",
+    "en": "When you are searching for the right word"
+   },
+   "ex": [
+    {
+     "ko": "그 사람은 뭐랄까, 조금 조용해요.",
+     "en": "That person is, how should I put it, a little quiet."
+    },
+    {
+     "ko": "이 음식은 뭐랄까, 고향 맛이에요.",
+     "en": "This food is, how to say, the taste of home."
+    }
+   ],
+   "tip": {
+    "ko": "말이 안 떠오르면 이 말을 하고 아는 낱말로 돌려 말하세요. 멈추는 것보다 훨씬 좋아요.",
+    "en": "If the word will not come, say this and go around it with words you know. Much better than stopping."
+   }
+  },
+  {
+   "id": "jamkkanmanyo",
+   "ko": "잠깐만요",
+   "role": "hold",
+   "lv": "beginner",
+   "en": "just a moment",
+   "use": {
+    "ko": "생각을 정리할 시간이 필요할 때",
+    "en": "When you need a moment to organize your thoughts"
+   },
+   "ex": [
+    {
+     "ko": "잠깐만요, 생각해 볼게요.",
+     "en": "Just a moment, let me think."
+    },
+    {
+     "ko": "잠깐만요, 다시 말씀드릴게요.",
+     "en": "Just a moment, let me say it again."
+    }
+   ],
+   "tip": {
+    "ko": "말이 막혔을 때 쓸 수 있는 가장 쉬운 말이에요. 「잠깐만요」 다음에는 꼭 이어서 말하세요.",
+    "en": "The easiest line for when you are stuck. Always carry on speaking after it."
+   }
+  },
+  {
+   "id": "dasi-malhamyeon",
+   "ko": "다시 말하면",
+   "role": "fix",
+   "lv": "beginner",
+   "en": "in other words · let me put it again",
+   "use": {
+    "ko": "말한 것을 더 쉽게 · 더 정확하게 고쳐 말할 때",
+    "en": "To restate something more simply or more exactly"
+   },
+   "ex": [
+    {
+     "ko": "저는 한국어가 어려워요. 다시 말하면, 말하기가 어려워요.",
+     "en": "Korean is hard for me. In other words, speaking is hard."
+    },
+    {
+     "ko": "다시 말하면, 내일은 못 가요.",
+     "en": "In other words, I cannot go tomorrow."
+    }
+   ],
+   "tip": {
+    "ko": "말하다가 잘못 말했을 때 처음부터 다시 하지 말고 이 말로 고쳐서 이어 가세요.",
+    "en": "If you misspeak, do not restart from the top. Fix it with this line and move on."
+   }
+  },
+  {
+   "id": "ani-geuge-anira",
+   "ko": "아니, 그게 아니라",
+   "role": "fix",
+   "lv": "beginner",
+   "en": "no, I mean · no, it is not that",
+   "use": {
+    "ko": "틀리게 말한 것을 바로 고칠 때",
+    "en": "To correct what you just said"
+   },
+   "ex": [
+    {
+     "ko": "어제 갔어요. 아니, 그게 아니라 그저께 갔어요.",
+     "en": "I went yesterday. No, I mean the day before yesterday."
+    },
+    {
+     "ko": "아니, 그게 아니라 오늘 시험이 있어요.",
+     "en": "No, I mean there is a test today."
+    }
+   ],
+   "tip": {
+    "ko": "틀리게 말해도 당황하지 마세요. 이 말로 고치고 계속 말하는 것이 능숙한 말하기예요.",
+    "en": "Do not panic when you slip. Correct it with this and keep going — that is what fluent speakers do."
    }
   }
  ],
@@ -963,6 +1090,213 @@
     ],
     "minSentences": 4,
     "minConnectors": 3
+   }
+  },
+  {
+   "id": "w-intro-me",
+   "tier": "beginner",
+   "kind": "intro",
+   "title": {
+    "ko": "저를 소개합니다",
+    "en": "Let me introduce myself"
+   },
+   "sentences": [
+    {
+     "ko": "저는 민수예요.",
+     "en": "I am Minsu.",
+     "key": [
+      "민수"
+     ],
+     "step": "who"
+    },
+    {
+     "ko": "서울에 살아요.",
+     "en": "I live in Seoul.",
+     "key": [
+      "서울",
+      "살아요"
+     ],
+     "step": "where"
+    },
+    {
+     "ko": "회사는 조금 멀어요.",
+     "en": "My office is a little far.",
+     "key": [
+      "회사",
+      "멀어요"
+     ],
+     "step": "where"
+    },
+    {
+     "ko": "매일 버스에서 책을 읽어요.",
+     "en": "I read a book on the bus every day.",
+     "key": [
+      "매일",
+      "버스",
+      "책"
+     ],
+     "step": "do"
+    },
+    {
+     "ko": "시간이 빨리 가기 때문이에요.",
+     "en": "It is because time passes quickly.",
+     "key": [
+      "시간",
+      "빨리"
+     ],
+     "step": "why"
+    },
+    {
+     "ko": "저는 책 읽는 시간이 제일 좋아요.",
+     "en": "My favorite time is reading time.",
+     "key": [
+      "책 읽는 시간",
+      "제일"
+     ],
+     "step": "like"
+    }
+   ],
+   "gaps": [
+    {
+     "ans": "geurigo",
+     "opts": [
+      "geurigo",
+      "hajiman",
+      "geuraeseo",
+      "waenyahamyeon"
+     ],
+     "role": "add",
+     "why": {
+      "ko": "이름과 사는 곳은 나를 소개하는 이어지는 두 가지 정보라서 「그리고」예요.",
+      "en": "Name and home are two pieces of information in a row: 그리고."
+     }
+    },
+    {
+     "ans": "geureonde",
+     "opts": [
+      "geureonde",
+      "geuraeseo",
+      "waenyahamyeon",
+      "geureomyeon"
+     ],
+     "role": "contrast",
+     "why": {
+      "ko": "서울에 사는데 회사가 멀다는 것은 기대와 조금 달라서 「그런데」예요.",
+      "en": "Living in Seoul yet the office being far is a small surprise: 그런데."
+     }
+    },
+    {
+     "ans": "geuraeseo",
+     "opts": [
+      "geuraeseo",
+      "hajiman",
+      "geureomyeon",
+      "majimageuro"
+     ],
+     "role": "result",
+     "why": {
+      "ko": "회사가 멀다는 이유로 버스에서 책을 읽는 결과가 생겨서 「그래서」예요.",
+      "en": "The office being far leads to reading on the bus: reason → result, 그래서."
+     }
+    },
+    {
+     "ans": "waenyahamyeon",
+     "opts": [
+      "waenyahamyeon",
+      "geuraeseo",
+      "hajiman",
+      "geureomyeon"
+     ],
+     "role": "reason",
+     "why": {
+      "ko": "뒤 문장이 「-기 때문이에요」로 끝나고 앞 일의 이유를 말하니까 「왜냐하면」이에요.",
+      "en": "The next sentence ends in -기 때문이에요 and gives the reason: 왜냐하면."
+     }
+    },
+    {
+     "ans": "geuraeseo",
+     "opts": [
+      "geuraeseo",
+      "hajiman",
+      "waenyahamyeon",
+      "geureomyeon"
+     ],
+     "role": "result",
+     "why": {
+      "ko": "시간이 빨리 가서 그 시간이 좋아진 것이라 이유 → 결과, 「그래서」예요.",
+      "en": "Time passes quickly, so that time became a favorite: reason → result, 그래서."
+     }
+    }
+   ],
+   "links": [
+    {
+     "from": 0,
+     "hint": {
+      "ko": "둘을 나란히 더해 한 문장으로",
+      "en": "Join the two as one sentence (adding)"
+     },
+     "ans": "저는 민수이고 서울에 살아요.",
+     "opts": [
+      "저는 민수이고 서울에 살아요.",
+      "저는 민수여서 서울에 살아요.",
+      "저는 민수이니까 서울에 살아요.",
+      "저는 민수이지만 서울에 살아요."
+     ],
+     "why": {
+      "ko": "이름과 사는 곳을 나란히 더하는 말은 「-(이)고」예요.",
+      "en": "To add two facts side by side, use -(이)고."
+     }
+    },
+    {
+     "from": 1,
+     "hint": {
+      "ko": "기대와 다른 것을 한 문장으로",
+      "en": "Join as a surprise or contrast"
+     },
+     "ans": "서울에 사는데 회사는 조금 멀어요.",
+     "opts": [
+      "서울에 사는데 회사는 조금 멀어요.",
+      "서울에 살고 회사는 조금 멀어요.",
+      "서울에 살아서 회사는 조금 멀어요.",
+      "서울에 살면 회사는 조금 멀어요."
+     ],
+     "why": {
+      "ko": "앞 사실 때문에 기대한 것과 다르다고 말할 때는 「-는데」예요.",
+      "en": "-는데 sets up a fact and then says something unexpected."
+     }
+    },
+    {
+     "from": 2,
+     "hint": {
+      "ko": "이유 → 결과로 한 문장으로",
+      "en": "Join as reason → result"
+     },
+     "ans": "회사는 조금 멀어서 매일 버스에서 책을 읽어요.",
+     "opts": [
+      "회사는 조금 멀어서 매일 버스에서 책을 읽어요.",
+      "회사는 조금 멀고 매일 버스에서 책을 읽어요.",
+      "회사는 조금 멀지만 매일 버스에서 책을 읽어요.",
+      "회사는 조금 멀면 매일 버스에서 책을 읽어요."
+     ],
+     "why": {
+      "ko": "앞이 이유이고 뒤가 그 결과일 때는 「-아서/어서」예요.",
+      "en": "When the first part is the reason and the second the result, use -아서/어서."
+     }
+    }
+   ],
+   "write": {
+    "prompt": {
+     "ko": "나를 소개하는 이야기를 접속사 두 개 이상 넣어 네 문장 이상 써 보세요. 이름 · 사는 곳 · 하는 일 · 좋아하는 것이 들어가면 좋아요.",
+     "en": "Write four or more sentences introducing yourself, using at least two connectors. Include your name, where you live, what you do and what you like."
+    },
+    "cues": [
+     "이름",
+     "사는 곳",
+     "하는 일",
+     "좋아하는 것"
+    ],
+    "minSentences": 4,
+    "minConnectors": 2
    }
   }
  ]
