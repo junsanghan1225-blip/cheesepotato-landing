@@ -13,16 +13,16 @@
    어느 날 갑자기 다른 코드가 실려 왔다.
    이제 vendor/ 안에 받아 두고 CSP 로 바깥을 막는다. 버전을 올릴 때는
    tools/vendor.mjs 의 PIN 을 고치고 다시 돌린다. */
-import { createClient } from './vendor/supabase-js.js?v=72c2f29d';
+import { createClient } from './vendor/supabase-js.js?v=99b0f205';
 // TOPIK 읽기 "문제 풀이 영상" 목록. 아주 작은 파일이라(id 목록뿐) 다른
 // 자료처럼 갈래를 열 때 지연 로딩하지 않고 그냥 처음부터 받는다.
-import { TQ_VIDEO_IDS } from './topik-video.js?v=72c2f29d';
+import { TQ_VIDEO_IDS } from './topik-video.js?v=99b0f205';
 // 코스 아이콘 — 이모지 대신 선 아이콘(course-icons.js 머리말)
 // 구독(Paddle) — billing.js 머리말
-import { BILLING, billingLive, isPro, proInfo, proByClass, proBonusUntil, loadPro, openCheckout, waitPro } from './billing.js?v=72c2f29d';
-import { myLevelBadge, potatoLevel, cheeseLevel, CHEESE_OF_LEVEL } from './levels.js?v=72c2f29d';
-import { courseIcon } from './course-icons.js?v=72c2f29d';
-import { AUDIO_REMOTE, audioKey } from './audio-key.js?v=72c2f29d';
+import { BILLING, billingLive, isPro, proInfo, proByClass, proBonusUntil, loadPro, openCheckout, waitPro } from './billing.js?v=99b0f205';
+import { myLevelBadge, potatoLevel, cheeseLevel, CHEESE_OF_LEVEL } from './levels.js?v=99b0f205';
+import { courseIcon } from './course-icons.js?v=99b0f205';
+import { AUDIO_REMOTE, audioKey } from './audio-key.js?v=99b0f205';
 // 앱(package.json)과 같은 줄기를 쓴다. 갈리면 앱에서는 읽히는 파일이
 // 여기서는 안 읽히는(또는 그 반대) 일이 생긴다.
 /* 엑셀 라이브러리는 422KB — 이 판에서 가장 무거운 조각이다. 그런데 쓰는
@@ -34,7 +34,7 @@ import { AUDIO_REMOTE, audioKey } from './audio-key.js?v=72c2f29d';
    자국(?v=)은 tools/stamp.mjs 가 아래 줄에 알아서 붙인다 — 정적으로 쓰든
    동적으로 쓰든 같은 글자를 찾으므로 바꿔도 그대로 찍힌다. */
 let XLSX = null;
-const needXLSX = async () => (XLSX ??= await import('./vendor/xlsx.js?v=72c2f29d'));
+const needXLSX = async () => (XLSX ??= await import('./vendor/xlsx.js?v=99b0f205'));
 // 커리큘럼. 내용과 엔진을 갈라 두면 글을 고치다 화면을 깨지 않는다.
 // 갈래 목록(drawSections)·코스(drawCourses)·문제만 풀기(dqDraw) 를 열 때만
 // 받는다 — 배우기 갈래 목록도 안 본 사람에게 코스 71개 레슨을 다 물릴
@@ -42,9 +42,9 @@ const needXLSX = async () => (XLSX ??= await import('./vendor/xlsx.js?v=72c2f29d
 let COURSES = [], coursesP = null;
 /* 앱은 courses.js 대신 courses-lite.js 를 받는다 — 중·고급 레슨 본문을 뺀 목록이다
    (tools/build-courses-lite.mjs). 본문은 그 레슨을 열 때 upperBlocksNeed() 가 채운다. */
-const coursesNeed = () => (coursesP ??= import('./courses-lite.js?v=72c2f29d').then((m) => { COURSES = m.COURSES; }));
+const coursesNeed = () => (coursesP ??= import('./courses-lite.js?v=99b0f205').then((m) => { COURSES = m.COURSES; }));
 let upperP = null;
-const upperBlocksNeed = () => (upperP ??= coursesNeed().then(() => import('./courses-grammar-detailed.js?v=72c2f29d')).then((m) => {
+const upperBlocksNeed = () => (upperP ??= coursesNeed().then(() => import('./courses-grammar-detailed.js?v=99b0f205')).then((m) => {
   const byId = new Map(m.DETAILED_GRAMMAR_COURSES.flatMap((c) => c.lessons.map((l) => [l.id, l.blocks])));
   for (const c of COURSES) for (const l of c.lessons) if (!l.blocks && byId.has(l.id)) { l.blocks = byId.get(l.id); delete l.lazy; }
 }));
@@ -59,7 +59,7 @@ const blocksNeed = async (course) => { if (course.lessons.some((l) => !l.blocks)
    tqGloss 는 그대로 동기다 — 아직 안 왔으면 빈 뜻을 돌려주고, 부르는
    쪽은 이미 "사전에 없는 말"을 다룰 줄 안다. */
 let GLOSSARY = {}, GLOSS_LANGS = {}, glossP = null;
-const glossNeed = () => (glossP ??= import('./glossary.js?v=72c2f29d').then((m) => {
+const glossNeed = () => (glossP ??= import('./glossary.js?v=99b0f205').then((m) => {
   GLOSSARY = m.GLOSSARY; GLOSS_LANGS = m.GLOSS_LANGS;
   dictBuildEntries();
 }).catch((e) => {
@@ -67,12 +67,12 @@ const glossNeed = () => (glossP ??= import('./glossary.js?v=72c2f29d').then((m) 
   glossP = null;
   throw e;
 }));
-import { glossFind } from './gloss-find.js?v=72c2f29d';
+import { glossFind } from './gloss-find.js?v=99b0f205';
 /* 홈 화면 "오늘의 단어" 카드. 표제어·품사·짧은 뜻풀이 3개만 든
    작은 자료라(사전 전체 356KB 와 달리) 홈에 들어오면 바로 받는다 —
    빈 카드로 몇 초 떠 있는 것보다 낫다. */
 let WOTD_POOL = [], wotdP = null;
-const wotdNeed = () => (wotdP ??= import('./wotd.js?v=72c2f29d').then((m) => {
+const wotdNeed = () => (wotdP ??= import('./wotd.js?v=99b0f205').then((m) => {
   WOTD_POOL = m.WOTD_POOL;
 }).catch((e) => { wotdP = null; throw e; }));
 /* 그날의 낱말을 고른다. 한국 자정을 기준으로 하루씩 넘어가게
@@ -109,7 +109,7 @@ function hmQuizRender() {
   const box = $('hmQuiz');
   if (!box || box.dataset.done) return;
   box.dataset.done = '1';
-  const go = () => (hmQuizP ??= Promise.all([import('./topik.js?v=72c2f29d'), import('./insta-pick.js?v=72c2f29d')])).then(([tk, ip]) => {
+  const go = () => (hmQuizP ??= Promise.all([import('./topik.js?v=99b0f205'), import('./insta-pick.js?v=99b0f205')])).then(([tk, ip]) => {
     const q = ip.quizOfDay(tk.TOPIK_READING);
     if (!q) { box.hidden = true; return; }
     box.innerHTML = `<div class="hm-quiz-k"><b>${esc(t('오늘의 TOPIK 1문제', "Today's TOPIK question"))}</b><span>${esc(t(`TOPIK I · ${q.grade}급 · 기출 아님`, `TOPIK I · level ${q.grade} · not a past paper`))}</span></div>` +
@@ -141,11 +141,11 @@ window.wotdRender = () => { wotdRender(); hmQuizRender(); hmDoorIcons(); try { t
    나중 화면은 그 약속(??=)을 그대로 쓴다. */
 let GRAMMAR = [], GRAMMAR_EN = {}, grammarP = null;
 const grammarNeed = () => (grammarP ??= Promise.all([
-  import('./grammar.js?v=72c2f29d'), import('./grammar-en.js?v=72c2f29d'),
+  import('./grammar.js?v=99b0f205'), import('./grammar-en.js?v=99b0f205'),
 ]).then(([a, b]) => { GRAMMAR = a.GRAMMAR; GRAMMAR_EN = b.GRAMMAR_EN; }));
-import { grammarScan } from './grammar-find.js?v=72c2f29d';
+import { grammarScan } from './grammar-find.js?v=99b0f205';
 /* 문법 이름 → 예문에서 칠할 꼴. 쓰임 보기 도구(tools/build-grammar-usage.mjs)와 같은 것을 써서 찾은 곳과 칠한 곳이 어긋나지 않게. */
-import { grammarMarkRe } from './grammar-mark.js?v=72c2f29d';
+import { grammarMarkRe } from './grammar-mark.js?v=99b0f205';
 // TOPIK 쓰기·듣기 문항. 읽기(topik.js·topik2.js)와 같은 tqNeedData() 로
 // 함께 받는다 — 유형 연습(topik) 갈래 하나가 세 기술을 다 쓰므로 따로
 // 가를 까닭이 없다. 값은 tqNeedData 정의부에서 채운다.
@@ -162,7 +162,7 @@ let GRAMMAR_DRILL = {}, GRAMMAR_USAGE = {}, GRAMMAR_WORDS = {}, GRAMMAR_PRACTICE
 let GRAMMAR_PAIRS = [], sbDataReady = false;   // 헷갈리는 문법 비교(grammar-pairs.js, 2026-10-06)
 /* 쓰임 보기(tools/build-grammar-usage.mjs 생성물) — TOPIK 연습 · 읽기 지문 · 낱말 예문에서 그 문법이 쓰인 문장 */
 /* 같이 알면 좋은 단어(tools/build-grammar-words.mjs 생성물, 원본 docs/grammar-words.json) */
-const sbNeed = () => (sbDataP ??= Promise.all([import('./sentences.js?v=72c2f29d'), import('./grammar-drill.js?v=72c2f29d'), import('./grammar-usage.js?v=72c2f29d'), import('./grammar-words.js?v=72c2f29d'), import('./grammar-pairs.js?v=72c2f29d')]).then(([m, d, u, w, gp]) => {
+const sbNeed = () => (sbDataP ??= Promise.all([import('./sentences.js?v=99b0f205'), import('./grammar-drill.js?v=99b0f205'), import('./grammar-usage.js?v=99b0f205'), import('./grammar-words.js?v=99b0f205'), import('./grammar-pairs.js?v=99b0f205')]).then(([m, d, u, w, gp]) => {
   GRAMMAR_PAIRS = gp.GRAMMAR_PAIRS || [];
   sbDataReady = true;
   GRAMMAR_DRILL = d.GRAMMAR_DRILL || {}; GRAMMAR_USAGE = u.GRAMMAR_USAGE || {}; GRAMMAR_PRACTICE = u.GRAMMAR_PRACTICE || {}; GRAMMAR_WORDS = w.GRAMMAR_WORDS || {};
@@ -176,7 +176,7 @@ const sbNeed = () => (sbDataP ??= Promise.all([import('./sentences.js?v=72c2f29d
 // 숫자 게임의 읽기와 문제 만들기. 화면을 모르는 순수 계산이라 따로 뒀다.
 // 게임 목록에서 「숫자 읽기」를 시작할 때만 받는다 — XLSX 와 같은 자리다.
 let makeRound = null;
-const needNumbers = async () => (makeRound ??= (await import('./numbers.js?v=72c2f29d')).makeRound);
+const needNumbers = async () => (makeRound ??= (await import('./numbers.js?v=99b0f205')).makeRound);
 
 // 이 키는 공개돼도 되는 값이다. 이미 APK 안에 같은 것이 들어 있고,
 // 접근을 막는 건 키가 아니라 테이블에 걸린 RLS 다.
@@ -372,8 +372,8 @@ let tqDataP = null;
    유형 연습(topik) 갈래 하나가 이 넷을 다 쓰므로 갈라 봤자 요청만
    늘어난다. */
 const tqNeedData = () => (tqDataP ??= Promise.all([
-  import('./topik.js?v=72c2f29d'), import('./topik2.js?v=72c2f29d'),
-  import('./topik-writing.js?v=72c2f29d'), import('./topik-listening.js?v=72c2f29d'), import('./difficulty.js?v=72c2f29d'),
+  import('./topik.js?v=99b0f205'), import('./topik2.js?v=99b0f205'),
+  import('./topik-writing.js?v=99b0f205'), import('./topik-listening.js?v=99b0f205'), import('./difficulty.js?v=99b0f205'),
 ]).then(([a, b, c, d, e]) => {
   TQ_DATA.I  = { reading: a.TOPIK_READING,  blueprint: a.TOPIK_BLUEPRINT,  slots: a.TOPIK_SLOTS };
   TQ_DATA.II = { reading: b.TOPIK2_READING, blueprint: b.TOPIK2_BLUEPRINT, slots: b.TOPIK2_SLOTS };
@@ -385,14 +385,14 @@ const tqNeedData = () => (tqDataP ??= Promise.all([
 let READING = null, rdP = null;
 // 지문의 밑줄 문법 말풍선이 GRAMMAR 를 쓰므로 같이 받아 둔다.
 const rdNeed = () => (rdP ??= Promise.all([
-  import('./reading.js?v=72c2f29d'), grammarNeed(),
+  import('./reading.js?v=99b0f205'), grammarNeed(),
 ]).then(([m]) => { READING = m.READING; }));
 
 let CONVO = null, cvP = null;
-const cvNeed = () => (cvP ??= import('./convo.js?v=72c2f29d').then((m) => { CONVO = m.CONVO; }));
+const cvNeed = () => (cvP ??= import('./convo.js?v=99b0f205').then((m) => { CONVO = m.CONVO; }));
 /* 동화책 — 배우기 › 동화책을 열 때 받는다. 문법 밑줄 · 낱말 뜻(rdGrammarify)을 쓰니 grammarNeed 도 같이 */
 let STORIES = [], bkP = null;
-const bkNeed = () => (bkP ??= Promise.all([import('./stories.js?v=72c2f29d'), grammarNeed()]).then(([m]) => { STORIES = m.STORIES; }));
+const bkNeed = () => (bkP ??= Promise.all([import('./stories.js?v=99b0f205'), grammarNeed()]).then(([m]) => { STORIES = m.STORIES; }));
 
 /* 배우기를 열면 여섯 다 미리 불을 붙인다. 기다리지 않는다 — 갈래 목록은
    이 자료가 없어도 그려지고, 사람이 갈래를 고르는 사이에 도착한다.
@@ -666,9 +666,9 @@ $('dictBtn').addEventListener('click', () => { const go = !showing('wordsView');
    합쳐 200KB 남짓(압축)이라 첫 화면 모두에게 물릴 까닭이 없다. 사이트 공용 도구는 넘겨준다. */
 let wordsApi = null, wordsP = null;
 /* TOPIK II 예문은 500개씩 조각으로 따로 받는다(tools/build-vocab.mjs) — 조각 주소는 이 파일의 자국을 빌린다. */
-const VOCAB2_URL = './vocab-topik2.js?v=72c2f29d';
+const VOCAB2_URL = './vocab-topik2.js?v=99b0f205';
 const wordsNeed = () => (wordsP ??= Promise.all([
-  import('./words.js?v=72c2f29d'), import('./vocab-topik1.js?v=72c2f29d'), import(VOCAB2_URL),
+  import('./words.js?v=99b0f205'), import('./vocab-topik1.js?v=99b0f205'), import(VOCAB2_URL),
 ]).then(([m, d, d2]) => {
   wordsApi = m.wordsInit({
     root: $('wordsRoot'), t, esc, track, alog, say, glossFind, glossNeed, ICON: DICT_SAY_ICON,
@@ -683,7 +683,7 @@ const wordsNeed = () => (wordsP ??= Promise.all([
     mark: (sub) => window.cpMark('words', sub),
     today: (slot, topic) => { tdMark(slot); clsMark('vocab', topic || null, {}); actLog('vocab'); },   // topic — 주제별 단어 숙제(db/update_cls_mark_vocab.sql)
     pron: (text) => window.ptWith?.(text),
-    loadExpr: () => import('./expressions.js?v=72c2f29d').then((m) => m.EXPR),   // 사자성어 · 속담 · 관용 표현(tools/build-expressions.mjs)
+    loadExpr: () => import('./expressions.js?v=99b0f205').then((m) => m.EXPR),   // 사자성어 · 속담 · 관용 표현(tools/build-expressions.mjs)
     loadRefs: (k) => import(VOCAB2_URL.replace('vocab-topik2.js', `topik-refs/${k}.js`)).then((m) => m.R),   // 낱말의 TOPIK 쓰임(tools/build-topik-refs.mjs)
     openTopik: (p) => { window.cpOpen('learn', p); },
     askAI: wdAskAI,   // 세션을 끝내면 「오늘」 카드의 낱말 · 복습 칸 · 반 숙제(단어 세션)
@@ -772,7 +772,7 @@ async function vocabSync() {
   if (!wordsP) return;
   const { data: { session } } = await sb.auth.getSession();
   if (!session) return;
-  const m = await import('./words.js?v=72c2f29d');
+  const m = await import('./words.js?v=99b0f205');
   const ok = await m.syncVocab(async () => {
     const { data, error } = await sb.from('settings').select('vocab').eq('user_id', session.user.id).maybeSingle();
     return error ? undefined : (data?.vocab || {});
@@ -1086,14 +1086,14 @@ let dictOpen = null;  // 지금 "더 보기"(예문·뜻풀이)를 펼쳐 둔 �
    평소엔 안 쓰는 522KB 를 첫 화면 모두에게 물릴 까닭이 없다. */
 let dictSensesP = null;
 const dictLoadSenses = () => (dictSensesP ??=
-  import('./glossary-senses.js?v=72c2f29d').then((m) => m.SENSES).catch(() => ({})));
+  import('./glossary-senses.js?v=99b0f205').then((m) => m.SENSES).catch(() => ({})));
 
 /* 예문. 국립국어원 자료엔 없어서 Gemini 로 새로 지은 것이다(있는 만큼만
    — docs/antigravity/glossary-examples-gemini-prompt.md 참고). 뜻풀이와 같은 자리에서
    같이 받는다 — 펼치는 손짓 하나에 몰아 두는 편이 화면이 덜 복잡하다. */
 let dictExamplesP = null;
 const dictLoadExamples = () => (dictExamplesP ??=
-  import('./glossary-examples.js?v=72c2f29d').then((m) => m.EXAMPLES).catch(() => ({})));
+  import('./glossary-examples.js?v=99b0f205').then((m) => m.EXAMPLES).catch(() => ({})));
 
 function dictVisible() {
   const q = dictQuery.trim().toLowerCase();
@@ -10522,7 +10522,7 @@ let TRAVEL_CATEGORIES = null;
 let TRAVEL_PHRASES = null;
 let TRAVEL_VOCAB = null;
 let tvP = null;
-const tvNeed = () => (tvP ??= import('./travel-data.js?v=72c2f29d').then((m) => {
+const tvNeed = () => (tvP ??= import('./travel-data.js?v=99b0f205').then((m) => {
   TRAVEL_CATEGORIES = m.TRAVEL_CATEGORIES;
   TRAVEL_PHRASES = m.TRAVEL_PHRASES;
   TRAVEL_VOCAB = m.TRAVEL_VOCAB;
@@ -15492,7 +15492,7 @@ function sbWsPrint() {
   window.print();
 }
 async function wsPrint() {
-  const [, sm] = await Promise.all([tvNeed(), import('./sentences.js?v=72c2f29d')]);
+  const [, sm] = await Promise.all([tvNeed(), import('./sentences.js?v=99b0f205')]);
   if (!TRAVEL_CATEGORIES) return;
   track('학습지인쇄');
   const GP = new Map(sm.SB_CATS.flatMap((c) => c.points).map((p) => [p.id, p]));
@@ -15777,7 +15777,7 @@ async function gameVocabWords(min, have = []) {
   const push = (word, meaning) => { if (word && meaning && !seen.has(word)) { seen.add(word); out.push({ word, meaning }); } };
   guestRead().forEach((g) => push(g.word, g.meaning));
   try {
-    const d = await import('./vocab-topik1.js?v=72c2f29d');
+    const d = await import('./vocab-topik1.js?v=99b0f205');
     let st = {};
     try { st = JSON.parse(localStorage.getItem('cp-words-v1') || '{}').w || {}; } catch (e) {}
     const mean = (w) => w.s || w.e.split(';')[0];
@@ -16154,12 +16154,12 @@ let blkMod = null;
 async function blkOpen() {
   if (!blkMod) {
     $('blkRoot').innerHTML = `<p class="blk-wait">${esc(t('불러오는 중…', 'Loading…'))}</p>`;
-    try { blkMod = await import('./word-blocks.js?v=72c2f29d'); } catch (e) { $('blkRoot').innerHTML = `<p class="blk-wait">${esc(t('게임을 못 불러왔어요. 새로고침해 주세요.', 'Could not load the game. Please refresh.'))}</p>`; return; }
+    try { blkMod = await import('./word-blocks.js?v=99b0f205'); } catch (e) { $('blkRoot').innerHTML = `<p class="blk-wait">${esc(t('게임을 못 불러왔어요. 새로고침해 주세요.', 'Could not load the game. Please refresh.'))}</p>`; return; }
     blkMod.blkBind($('blkRoot'));
     blkMod.blkMount({
       root: $('blkRoot'), t, esc, say, track, save: saveWords,
       vocab: async (two) => {
-        const [a, b] = await Promise.all([import('./vocab-topik1.js?v=72c2f29d'), two ? import(VOCAB2_URL) : null]);
+        const [a, b] = await Promise.all([import('./vocab-topik1.js?v=99b0f205'), two ? import(VOCAB2_URL) : null]);
         return b ? [...a.VOCAB, ...b.VOCAB] : a.VOCAB;
       },
     });
@@ -16178,14 +16178,14 @@ const gameToast = (msg) => {
   clearTimeout(gameToast.t); gameToast.t = setTimeout(() => el.classList.remove('on'), 1800);
 };
 const gameVocab = async (two) => {
-  const [a, b] = await Promise.all([import('./vocab-topik1.js?v=72c2f29d'), two ? import(VOCAB2_URL) : null]);
+  const [a, b] = await Promise.all([import('./vocab-topik1.js?v=99b0f205'), two ? import(VOCAB2_URL) : null]);
   return b ? [...a.VOCAB, ...b.VOCAB] : a.VOCAB;
 };
 let chsMod = null, pdlMod = null;
 async function chsOpen() {
   if (!chsMod) {
     $('chsRoot').innerHTML = `<p class="blk-wait">${esc(t('불러오는 중…', 'Loading…'))}</p>`;
-    try { chsMod = await import('./chosung.js?v=72c2f29d'); } catch (e) { $('chsRoot').innerHTML = `<p class="blk-wait">${esc(t('게임을 못 불러왔어요. 새로고침해 주세요.', 'Could not load the game. Please refresh.'))}</p>`; return; }
+    try { chsMod = await import('./chosung.js?v=99b0f205'); } catch (e) { $('chsRoot').innerHTML = `<p class="blk-wait">${esc(t('게임을 못 불러왔어요. 새로고침해 주세요.', 'Could not load the game. Please refresh.'))}</p>`; return; }
     chsMod.chsBind($('chsRoot'));
     chsMod.chsMount({ root: $('chsRoot'), t, esc, say, track, save: saveWords, toast: gameToast, vocab: gameVocab });
     return;
@@ -16195,7 +16195,7 @@ async function chsOpen() {
 async function pdlOpenView() {
   if (!pdlMod) {
     $('pdlRoot').innerHTML = `<p class="blk-wait">${esc(t('불러오는 중…', 'Loading…'))}</p>`;
-    try { pdlMod = await import('./potdle.js?v=72c2f29d'); } catch (e) { $('pdlRoot').innerHTML = `<p class="blk-wait">${esc(t('게임을 못 불러왔어요. 새로고침해 주세요.', 'Could not load the game. Please refresh.'))}</p>`; return; }
+    try { pdlMod = await import('./potdle.js?v=99b0f205'); } catch (e) { $('pdlRoot').innerHTML = `<p class="blk-wait">${esc(t('게임을 못 불러왔어요. 새로고침해 주세요.', 'Could not load the game. Please refresh.'))}</p>`; return; }
     pdlMod.pdlBind($('pdlRoot'));
     pdlMod.pdlMount({ root: $('pdlRoot'), t, esc, say, track, save: saveWords, toast: gameToast, vocab: gameVocab });
     return;
@@ -16341,7 +16341,7 @@ function ltAdaptNext() {
    낱말 급수를 우리 레벨(L)에 얹는다: TOPIK I 1급 생활 낱말 L2 · 그 밖 L3, 2급 생활 L4 · 그 밖 L5, TOPIK II 3 · 4급 L6, 5 · 6급 L7.
    오답 보기는 같은 레벨 · 같은 품사에서, 뜻이 겹치지 않게 고른다. */
 let ltVocabP = null;
-const ltVocabPool = () => (ltVocabP ??= Promise.all([import('./vocab-topik1.js?v=72c2f29d'), import(VOCAB2_URL)]).then(([a, b]) => {
+const ltVocabPool = () => (ltVocabP ??= Promise.all([import('./vocab-topik1.js?v=99b0f205'), import(VOCAB2_URL)]).then(([a, b]) => {
   const en = (w) => String(w.s || w.e || '').split(';')[0].trim();
   /* 2026-10-05 부터 낱말마다 우리 레벨(v, tools/vocab-level.mjs)이 있다 — 그것을 그대로 쓴다. 옛 자료(v 없음)는 급수로 어림. */
   const lvOf = (w) => w.v || (w.l === 1 ? 3 : w.l === 2 ? 5 : w.l <= 4 ? 6 : 7);
@@ -16875,7 +16875,7 @@ $('lrWrap').addEventListener('click', (ev) => {
    주소: #learn/translate · #learn/translate/<글 id> */
 let TRANSLATE_SETS = null;
 const trNeed = () => TRANSLATE_SETS ? Promise.resolve() :
-  import('./translate.js?v=72c2f29d').then((m) => { TRANSLATE_SETS = m.TRANSLATE_SETS || []; });
+  import('./translate.js?v=99b0f205').then((m) => { TRANSLATE_SETS = m.TRANSLATE_SETS || []; });
 const TR_DONE = 'cp_tr_done';
 const TR_TIERS = [['beginner', '초급', 'Beginner'], ['intermediate', '중급', 'Intermediate'], ['advanced', '고급', 'Advanced']];
 let trTier = null, tr = null;   // tr = { id, i, val, res: ''|'ok'|'no'|'self', hint, ok }
@@ -16982,17 +16982,17 @@ $('trWrap').addEventListener('keydown', (ev) => {
    주소: #learn/weave · #learn/weave/connectors · #learn/weave/<이야기 id> */
 let WEAVE = null;
 const wvNeed = () => WEAVE ? Promise.resolve() :
-  import('./weave.js?v=72c2f29d').then((m) => { WEAVE = { roles: m.WEAVE_ROLES || {}, con: m.WEAVE_CONNECTORS || [], stories: m.WEAVE_STORIES || [] }; });
+  import('./weave.js?v=99b0f205').then((m) => { WEAVE = { roles: m.WEAVE_ROLES || {}, con: m.WEAVE_CONNECTORS || [], stories: m.WEAVE_STORIES || [] }; });
 const WV_DONE = 'cp_wv_done';
 const WV_TIERS = [['beginner', '초급', 'Beginner'], ['intermediate', '중급', 'Intermediate']];
-const WV_ROLE_EN = { add: 'Adding', order: 'Order', result: 'Result', contrast: 'Contrast', condition: 'Condition', reason: 'Reason', example: 'Example', summary: 'Wrap-up' };
-let wvTier = null, wv = null;   // wv = { id, step: 'order'|'gap'|'write'|'end', order, ans, ores, gi, pick, gok, val, wres }
+const WV_ROLE_EN = { add: 'Adding', order: 'Order', result: 'Result', contrast: 'Contrast', condition: 'Condition', reason: 'Reason', example: 'Example', summary: 'Wrap-up', hold: 'Buying time', fix: 'Fixing what you said' };
+let wvTier = null, wv = null, wvTid = 0;   // wv = { id, step: 'order'|'gap'|'write'|'end', order, ans, ores, gi, pick, gok, val, wres }
 const wvCon = (id) => WEAVE.con.find((c) => c.id === id);
 const wvStory = (id) => WEAVE.stories.find((x) => x.id === id);
 const wvTierDefault = () => { try { const v = localStorage.getItem('cp_wv_tier'); if (WV_TIERS.some(([k]) => k === v)) return v; } catch (e) {} return (ltLoadLevel()?.lv || 0) >= 6 ? 'intermediate' : 'beginner'; };
 const wvModel = (st) => st.sentences.map((x, i) => (i ? `${wvCon(st.gaps[i - 1].ans).ko} ` : '') + x.ko).join(' ');
 function wvShuffle(n) { let o = Array.from({ length: n }, (_, i) => i); for (let k = 0; k < 8 && o.every((v, i) => v === i); k++) o = o.slice().sort(() => Math.random() - 0.5); return o; }
-function wvStart(st) { wv = { id: st.id, step: 'order', order: wvShuffle(st.sentences.length), ans: [], ores: '', gi: 0, pick: null, gok: 0, val: '', wres: null }; }
+function wvStart(st) { wv = { id: st.id, step: 'order', order: wvShuffle(st.sentences.length), ans: [], ores: '', gi: 0, pick: null, gok: 0, val: '', wres: null, li: 0, lpick: null, lok: 0, fr: 0, run: 0, took: [], peek: false }; }
 async function wvDraw(id) {
   await Promise.all([wvNeed(), sbNeed()]);
   wvTier ??= wvTierDefault();
@@ -17001,6 +17001,7 @@ async function wvDraw(id) {
   if (!st) wv = null;
   window.cpMark('learn', st ? `weave/${st.id}` : id === 'connectors' ? 'weave/connectors' : 'weave');
   $('wvBody').innerHTML = st ? wvStoryHtml(st) : id === 'connectors' ? wvConHtml() : wvListHtml();
+  wvTick();
 }
 function wvTabsHtml(on) {
   return `<div class="tr-tiers wv-tabs" role="tablist"><button type="button" role="tab" class="tr-tier${on === 'story' ? ' on' : ''}" data-wvtab="story">🧵 ${esc(t('이야기', 'Stories'))}</button><button type="button" role="tab" class="tr-tier${on === 'con' ? ' on' : ''}" data-wvtab="con">🔗 ${esc(t('접속사 카드', 'Connector cards'))} <small>${WEAVE.con.length}</small></button></div>`;
@@ -17022,14 +17023,70 @@ function wvConHtml() {
         c.ex.map((e) => `<div class="wv-ex"><div>${esc(e.ko).split(esc(c.ko)).join(`<mark class="gp-mk">${esc(c.ko)}</mark>`)}</div><small lang="en">${esc(e.en)}</small></div>`).join('') +
         `<p class="wv-tip">💡 ${esc(t(c.tip.ko, c.tip.en))}</p></div>`).join('') + '</section>').join('');
 }
-function wvStepsHtml(step) {
-  const S = [['order', t('① 순서', '1 Order')], ['gap', t('② 접속사', '2 Connectors')], ['write', t('③ 쓰기', '3 Write')]];
-  const at = step === 'end' ? 3 : S.findIndex(([k]) => k === step);
-  return `<div class="wv-steps">${S.map(([k, l], i) => `<span class="${i < at ? 'done' : i === at ? 'on' : ''}">${esc(l)}</span>`).join('')}</div>`;
+function wvStepsHtml(step, st) {
+  const ladder = !!st?.kind;
+  const S = ladder
+    ? [['order', t('① 순서', '1 Order')], ['gap', t('② 접속사', '2 Link')], ['join', t('③ 잇기', '3 Join')], ['frame', t('④ 틀', '4 Frame')], ['fade', t('⑤ 사라짐', '5 Fade')], ['write', t('⑥ 쓰기', '6 Write')]]
+    : [['order', t('① 순서', '1 Order')], ['gap', t('② 접속사', '2 Connectors')], ['write', t('③ 쓰기', '3 Write')]];
+  const at = step === 'end' ? S.length : S.findIndex(([k]) => k === step);
+  return `<div class="wv-steps${ladder ? ' wv6' : ''}">${S.map(([k, l], i) => `<span class="${i < at ? 'done' : i === at ? 'on' : ''}">${esc(l)}</span>`).join('')}</div>`;
 }
+/* ── 이음 사다리(운영자 2026-10-18 「소개 · 설명이 어렵고 말이 끊긴다」, 계획 docs/plans/weave-fluency.md) ──
+   kind 가 있는 이야기만: ③ 이어 한 문장으로(links) → ④ 틀 보며 말하기(step 칩) → ⑤ 사라지는 이야기(글이 점점 사라지고 목표 시간이 줄어든다) → ⑥ 쓰기.
+   말하기는 소리를 듣고 채점하지 않는다 — 학생이 소리 내어 말하고 시간을 재고 스스로 확인한다. */
+const WV_STEP_LBL = { who: ['누구예요?', 'Who?'], where: ['어디예요?', 'Where?'], do: ['무엇을 해요?', 'What?'], like: ['좋아하는 것', 'What you like'], why: ['왜요?', 'Why?'], wish: ['앞으로', 'Looking ahead'],
+  point: ['하고 싶은 말', 'Main point'], reason: ['이유', 'Reason'], example: ['예', 'Example'], how: ['방법 · 차례', 'How · steps'], result: ['결과', 'Result'], recap: ['다시 한 번', 'Recap'],
+  when: ['언제', 'When'], feel: ['느낌', 'Feeling'], end: ['끝', 'Ending'], 'tell:who': ['누구와?', 'With whom?'], 'tell:do': ['무슨 일?', 'What happened?'] };
+const wvStepLbl = (kind, k) => { const a = WV_STEP_LBL[`${kind}:${k}`] || WV_STEP_LBL[k] || [k, k]; return t(a[0], a[1]); };
+const WV_FADE = [[1.6, '핵심어와 접속사만 보고 말해 보세요', 'Speak from the key words and connectors'], [1.9, '핵심어만 보고 말해 보세요', 'Speak from the key words only'], [2.2, '틀(순서)만 보고 말해 보세요', 'Speak from the frame only']];
+function wvTick() {
+  clearInterval(wvTid); wvTid = 0;
+  if (!wv?.run || !$('wvClock')) return;
+  const upd = () => { const e = $('wvClock'); if (!e) { clearInterval(wvTid); return; } e.textContent = Math.round((Date.now() - wv.run) / 1000) + t('초', 's'); };
+  upd(); wvTid = setInterval(upd, 250);
+}
+function wvJoinHtml(st, head) {
+  const l = st.links[wv.li], a = st.sentences[l.from], b = st.sentences[l.from + 1], done = wv.lpick != null, ok = done && wv.lpick === l.ans;
+  return head + `<div class="tr-bar"><i style="width:${Math.round((wv.li / st.links.length) * 100)}%"></i></div>` +
+    `<div class="gp-card"><div class="gp-h"><b>③ ${esc(t('이어서 한 문장으로', 'Join them into one sentence'))}</b><span>${wv.li + 1} / ${st.links.length}</span></div>` +
+    `<p class="gp-sub">${esc(t('문장을 끝내지 않고 이어 말하면 덜 끊겨요.', 'Linking instead of stopping makes your speech flow.'))}</p>` +
+    `<div class="wv-gap"><p>${esc(a.ko)}</p><p>${esc(b.ko)}</p><small>${esc(t(l.hint.ko, l.hint.en))}</small></div>` +
+    `<div class="wv-lopts">${l.opts.map((o) => `<button type="button" class="wv-opt${done ? (o === l.ans ? ' right' : o === wv.lpick ? ' wrong' : '') : ''}" data-wvlopt="${esc(o)}"${done ? ' disabled' : ''}>${esc(o)}</button>`).join('')}</div>` +
+    (done ? `<p class="gp-msg ${ok ? 'ok' : ''}">${ok ? '✓ ' + esc(t('맞았어요!', 'Correct!')) : esc(t('정답은 위의 초록색이에요.', 'The answer is the green one.'))} ${esc(t(l.why.ko, l.why.en))}</p><div class="gp-row"><button type="button" class="pt-next" data-wvlnext="1">${esc(wv.li + 1 >= st.links.length ? t('다음 — 틀 보며 말하기', 'Next: speak with the frame') : t('다음', 'Next'))}</button></div>` : '') + '</div>';
+}
+function wvLinesHtml(st, mode) {
+  return `<ol class="wv-lines">${st.sentences.map((x, i) => {
+    const con = i ? `<mark class="gp-mk">${esc(wvCon(st.gaps[i - 1].ans).ko)}</mark> ` : '';
+    const lbl = `<span class="wv-chip">${esc(wvStepLbl(st.kind, x.step))}</span>`;
+    if (mode === 'full') return `<li>${lbl}<span>${con}${esc(x.ko)}</span></li>`;
+    if (mode === 'keys+con') return `<li>${con}${esc(x.key.join(' · '))}</li>`;
+    if (mode === 'keys') return `<li>${esc(x.key.join(' · '))}</li>`;
+    return `<li>${lbl}</li>`;
+  }).join('')}</ol>`;
+}
+function wvFrameHtml(st, head) {
+  return head + `<div class="gp-card"><div class="gp-h"><b>④ ${esc(t('틀을 보며 말하기', 'Speak along the frame'))}</b></div>` +
+    `<p class="gp-sub">${esc(t('소리 내어 두세 번 읽어 보세요. 칸(틀)을 보면 다음 말이 떠올라요. 문장 사이는 멈추지 말고 접속사로 이어요.', 'Read it aloud two or three times. The frame tells you what comes next. Do not stop between sentences — join them with the connectors.'))}</p>` +
+    wvLinesHtml(st, 'full') +
+    `<div class="gp-row"><button type="button" class="pt-ghost" data-wvsay="1">🔊 ${esc(t('듣기', 'Listen'))}</button><button type="button" class="pt-next" data-wvgo="fade">${esc(t('읽었어요 → 사라지는 이야기', 'Done → fading story'))}</button></div></div>`;
+}
+function wvFadeHtml(st, head) {
+  const r = wv.fr, chars = wvModel(st).replace(/\s/g, '').length, target = Math.max(15, Math.round(chars / WV_FADE[r][0] / 5) * 5), took = wv.took[r];
+  const mode = ['keys+con', 'keys', 'frame'][r];
+  return head + `<div class="gp-card"><div class="gp-h"><b>⑤ ${esc(t('사라지는 이야기', 'Fading story'))}</b><span>${r + 1} / 3</span></div>` +
+    `<p class="gp-sub">${esc(t(WV_FADE[r][1], WV_FADE[r][2]))} · ${esc(t(`목표 ${target}초 안쪽`, `aim for under ${target}s`))}</p>` +
+    wvLinesHtml(st, mode) +
+    (took == null
+      ? `<div class="gp-row">${wv.run ? `<span class="wv-clock" id="wvClock">0${esc(t('초', 's'))}</span><button type="button" class="pt-next" data-wvstop="1">${esc(t('다 말했어요', 'I finished'))}</button>` : `<button type="button" class="pt-next" data-wvstart="1">▶ ${esc(t('시작 — 소리 내어 말하기', 'Start — say it aloud'))}</button>`}</div>`
+      : `<p class="gp-msg ${took <= target ? 'ok' : ''}">${took <= target ? '✓ ' : ''}${esc(t(`${took}초 걸렸어요(목표 ${target}초). ${took <= target ? '막히지 않고 이어 말했어요!' : '괜찮아요, 한 번 더 하면 빨라져요.'}`, `${took}s (aim ${target}s). ${took <= target ? 'You kept going!' : 'Fine — one more round gets faster.'}`))}</p>` +
+        `<div class="gp-row"><button type="button" class="pt-ghost" data-wvfagain="1">${esc(t('다시 하기', 'Again'))}</button>${r < 2 ? `<button type="button" class="pt-next" data-wvfnext="1">${esc(t('다음 — 글이 더 사라져요', 'Next: even less text'))}</button>` : `<button type="button" class="pt-next" data-wvgo="write">${esc(t('다음 — 내 이야기 쓰기', 'Next: write your own'))}</button>`}</div>`) +
+    `<button type="button" class="wv-peek" data-wvpeek="1">👀 ${esc(wv.peek ? t('정답 숨기기', 'Hide the model') : t('막히면 정답 보기', 'Stuck? Peek'))}</button>` +
+    (wv.peek ? `<p class="wv-model">${st.sentences.map((x, i) => (i ? `<mark class="gp-mk">${esc(wvCon(st.gaps[i - 1].ans).ko)}</mark> ` : '') + esc(x.ko)).join(' ')}</p>` : '') + '</div>';
+}
+const wvKitHtml = () => { const k = WEAVE.con.filter((c) => c.role === 'hold' || c.role === 'fix'); return k.length ? `<p class="gp-sub">${esc(t('말이 막히면 멈추지 말고 이 말을 하고 이어 가요:', 'If you get stuck, say one of these and keep going:'))}</p><p class="wv-cues">${k.map((c) => `<span class="wv-chip" title="${esc(c.en)}">${esc(c.ko)}</span>`).join('')}</p>` : ''; };
 function wvStoryHtml(st) {
   const n = st.sentences.length;
-  const head = `<button type="button" class="wb-out" data-wvback="1">← ${esc(t('이야기 목록', 'All stories'))}</button><div class="tr-head"><span>${esc(t(WV_TIERS.find(([k]) => k === st.tier)[1], WV_TIERS.find(([k]) => k === st.tier)[2]))}</span><b>${esc(t(st.title.ko, st.title.en))}</b></div>` + wvStepsHtml(wv.step);
+  const head = `<button type="button" class="wb-out" data-wvback="1">← ${esc(t('이야기 목록', 'All stories'))}</button><div class="tr-head"><span>${esc(t(WV_TIERS.find(([k]) => k === st.tier)[1], WV_TIERS.find(([k]) => k === st.tier)[2]))}</span><b>${esc(t(st.title.ko, st.title.en))}</b></div>` + wvStepsHtml(wv.step, st);
   if (wv.step === 'order') {
     const used = new Set(wv.ans);
     return head + `<div class="gp-card"><div class="gp-h"><b>① ${esc(t('이야기 순서대로 놓기', 'Put the sentences in story order'))}</b><span>${wv.ans.length} / ${n}</span></div>` +
@@ -17047,12 +17104,15 @@ function wvStoryHtml(st) {
       `<div class="wv-opts">${g.opts.map((o) => { const c = wvCon(o); return `<button type="button" class="wv-opt${done ? (o === g.ans ? ' right' : o === wv.pick ? ' wrong' : '') : ''}" data-wvopt="${esc(o)}"${done ? ' disabled' : ''}>${esc(c.ko)}<small>${esc(t(WEAVE.roles[c.role], WV_ROLE_EN[c.role]))}</small></button>`; }).join('')}</div>` +
       (done ? `<p class="gp-msg ${ok ? 'ok' : ''}">${ok ? '✓ ' + esc(t('맞았어요!', 'Correct!')) : esc(t(`정답은 「${wvCon(g.ans).ko}」예요.`, `The answer is “${wvCon(g.ans).ko}”.`))} ${esc(t(g.why.ko, g.why.en))}</p><div class="gp-row"><button type="button" class="pt-next" data-wvgnext="1">${esc(wv.gi + 1 < st.gaps.length ? t('다음', 'Next') : t('다음 — 내 이야기 쓰기', 'Next: write your story'))}</button></div>` : '') + '</div>';
   }
+  if (wv.step === 'join' && st.links) return wvJoinHtml(st, head);
+  if (wv.step === 'frame') return wvFrameHtml(st, head);
+  if (wv.step === 'fade') return wvFadeHtml(st, head);
   if (wv.step === 'write') {
-    const w = st.write, r = wv.wres;
+    const w = st.write, r = wv.wres, kit = st.kind ? wvKitHtml() : '';
     return head + `<div class="gp-card"><div class="gp-h"><b>③ ${esc(t('내 이야기 쓰기', 'Write your own story'))}</b></div>` +
       `<p>${esc(t(w.prompt.ko, w.prompt.en))}</p><p class="wv-cues">${w.cues.map((c) => `<span class="wv-chip">${esc(c)}</span>`).join('')}</p>` +
       `<p class="gp-sub">${esc(t(`문장 ${w.minSentences}개 이상 · 접속사(문장 맨 앞) ${w.minConnectors}개 이상`, `At least ${w.minSentences} sentences · at least ${w.minConnectors} connectors at sentence starts`))}</p>` +
-      `<textarea id="wvIn" class="sb-in tr-in" rows="5" lang="ko" autocomplete="off" spellcheck="false" placeholder="${esc(t('여기에 써 보세요', 'Write here'))}">${esc(wv.val)}</textarea>` +
+      kit + `<textarea id="wvIn" class="sb-in tr-in" rows="5" lang="ko" autocomplete="off" spellcheck="false" placeholder="${esc(t('여기에 써 보세요', 'Write here'))}">${esc(wv.val)}</textarea>` +
       (r ? `<ul class="wv-check"><li class="${r.sOk ? 'ok' : 'no'}">${r.sOk ? '✓' : '✗'} ${esc(t(`문장 ${r.sents}개 (${w.minSentences}개 이상)`, `${r.sents} sentences (need ${w.minSentences}+)`))}</li>` +
         `<li class="${r.cOk ? 'ok' : 'no'}">${r.cOk ? '✓' : '✗'} ${esc(t(`접속사 ${r.used.length}개${r.used.length ? ': ' + r.used.map((x) => wvCon(x).ko).join(' · ') : ''} (${w.minConnectors}개 이상)`, `${r.used.length} connectors${r.used.length ? ': ' + r.used.map((x) => wvCon(x).ko).join(', ') : ''} (need ${w.minConnectors}+)`))}</li></ul>` : '') +
       '<div class="gp-row">' + (r ? `<button type="button" class="pt-next" data-wvgo="end">${esc(t('모범 이야기 보기', 'See the model story'))}</button>` : '') +
@@ -17060,7 +17120,7 @@ function wvStoryHtml(st) {
   }
   const d = wv.gok, tot = st.gaps.length, nx = WEAVE.stories.filter((x) => x.tier === st.tier), nxt = nx[nx.indexOf(st) + 1];
   return head + `<div class="gp-card tr-end"><b>✅ ${esc(t('한 편 끝!', 'Story finished!'))}</b><p class="gp-msg ok">${esc(t(`접속사 ${tot}곳 중 ${d}곳 맞았어요.`, `${d} of ${tot} connectors right.`))}</p>` +
-    `<p class="gp-sub">${esc(t('모범 이야기', 'Model story'))}</p><p class="wv-model">${st.sentences.map((x, i) => (i ? `<mark class="gp-mk">${esc(wvCon(st.gaps[i - 1].ans).ko)}</mark> ` : '') + esc(x.ko)).join(' ')}</p>` +
+    (wv.took.some((x) => x) ? `<p class="gp-sub">${esc(t('말하기 시간', 'Speaking times'))}: ${wv.took.map((x, i) => x ? esc(t(`${i + 1}단계 ${x}초`, `round ${i + 1}: ${x}s`)) : '').filter(Boolean).join(' · ')}</p>` : '') + `<p class="gp-sub">${esc(t('모범 이야기', 'Model story'))}</p><p class="wv-model">${st.sentences.map((x, i) => (i ? `<mark class="gp-mk">${esc(wvCon(st.gaps[i - 1].ans).ko)}</mark> ` : '') + esc(x.ko)).join(' ')}</p>` +
     (wv.val ? `<p class="gp-sub">${esc(t('내 이야기', 'My story'))}</p><p class="wv-model wv-mine">${esc(wv.val)}</p>` : '') +
     `<div class="gp-row"><button type="button" class="pt-ghost" data-wvset="${esc(st.id)}">${esc(t('다시 하기', 'Again'))}</button>${nxt ? `<button type="button" class="pt-next" data-wvset="${esc(nxt.id)}">${esc(t('다음 이야기 →', 'Next story →'))}</button>` : ''}</div></div>`;
 }
@@ -17094,7 +17154,20 @@ $('wvWrap').addEventListener('click', (ev) => {
     alog({ sec: 'other', item: `wv:${st.id}:${wv.gi}`, kind: 'choice', ok, tries: 1, label: String(st.title.ko).slice(0, 80) });
     wvDraw(st.id); return;
   }
-  if (q('[data-wvgnext]')) { wv.pick = null; wv.gi++; if (wv.gi >= st.gaps.length) { wv.step = 'write'; wv.gi = 0; } wvDraw(st.id); window.scrollTo(0, 0); return; }
+  if (q('[data-wvgnext]')) { wv.pick = null; wv.gi++; if (wv.gi >= st.gaps.length) { wv.step = st.kind ? 'join' : 'write'; wv.gi = 0; } wvDraw(st.id); window.scrollTo(0, 0); return; }
+  if (q('[data-wvlopt]')) {
+    if (wv.lpick != null) return;
+    wv.lpick = q('[data-wvlopt]').dataset.wvlopt; if (wv.lpick === st.links[wv.li].ans) wv.lok++;
+    alog({ sec: 'other', item: `wv:${st.id}:link${wv.li}`, kind: 'choice', ok: wv.lpick === st.links[wv.li].ans, tries: 1, label: String(st.title.ko).slice(0, 80) });
+    wvDraw(st.id); return;
+  }
+  if (q('[data-wvlnext]')) { wv.lpick = null; wv.li++; if (wv.li >= st.links.length) { wv.step = 'frame'; wv.li = 0; } wvDraw(st.id); window.scrollTo(0, 0); return; }
+  if (q('[data-wvsay]')) { say(wvModel(st)); return; }
+  if (q('[data-wvstart]')) { wv.run = Date.now(); wvDraw(st.id); return; }
+  if (q('[data-wvstop]')) { wv.took[wv.fr] = Math.max(1, Math.round((Date.now() - wv.run) / 1000)); wv.run = 0; track('이야기말하기'); wvDraw(st.id); return; }
+  if (q('[data-wvfagain]')) { wv.took[wv.fr] = undefined; wv.peek = false; wvDraw(st.id); return; }
+  if (q('[data-wvfnext]')) { wv.fr++; wv.peek = false; wvDraw(st.id); window.scrollTo(0, 0); return; }
+  if (q('[data-wvpeek]')) { wv.peek = !wv.peek; wvDraw(st.id); return; }
   if (q('[data-wvcheck]')) { wvWriteCheck(st); return; }
 });
 
@@ -17107,7 +17180,7 @@ $('wvWrap').addEventListener('click', (ev) => {
    주소: #learn/path · #learn/path/<길> · #learn/path/<길>/<레슨 id> */
 let PATH_GRAMMAR = null;
 const pathNeed = () => PATH_GRAMMAR ? Promise.resolve() :
-  import('./path-map.js?v=72c2f29d').then((m) => { PATH_GRAMMAR = m.PATH_GRAMMAR || {}; });
+  import('./path-map.js?v=99b0f205').then((m) => { PATH_GRAMMAR = m.PATH_GRAMMAR || {}; });
 const PATHS = [
   { id: 'basic', icon: '🥔', lvs: [0, 1, 2, 3, 4, 5], ko: '기초부터', en: 'From the basics',
     subKo: '한글 · 첫 문장부터 초급 끝까지', subEn: 'Hangul and first sentences up to upper beginner' },
@@ -18209,10 +18282,10 @@ $('ltPurposeGrid').addEventListener('click', (ev) => {
    빠지고, 고쳐 올려도 브라우저가 예전 문제를 계속 들고 있게 된다. */
 let LT_CUSTOM = { overall: [], reading: [], writing: [], listening: [] };
 let ltCustomOverallP = null, ltCustomReadingP = null, ltCustomWritingP = null, ltCustomListeningP = null;
-const ltCustomOverallNeed = () => (ltCustomOverallP ??= import('./leveltest-overall.js?v=72c2f29d').then((m) => { LT_CUSTOM.overall = m.LT_CUSTOM_OVERALL; }));
-const ltCustomReadingNeed = () => (ltCustomReadingP ??= import('./leveltest-reading.js?v=72c2f29d').then((m) => { LT_CUSTOM.reading = m.LT_CUSTOM_READING; }));
-const ltCustomWritingNeed = () => (ltCustomWritingP ??= import('./leveltest-writing.js?v=72c2f29d').then((m) => { LT_CUSTOM.writing = m.LT_CUSTOM_WRITING; }));
-const ltCustomListeningNeed = () => (ltCustomListeningP ??= import('./leveltest-listening.js?v=72c2f29d').then((m) => { LT_CUSTOM.listening = m.LT_CUSTOM_LISTENING; }));
+const ltCustomOverallNeed = () => (ltCustomOverallP ??= import('./leveltest-overall.js?v=99b0f205').then((m) => { LT_CUSTOM.overall = m.LT_CUSTOM_OVERALL; }));
+const ltCustomReadingNeed = () => (ltCustomReadingP ??= import('./leveltest-reading.js?v=99b0f205').then((m) => { LT_CUSTOM.reading = m.LT_CUSTOM_READING; }));
+const ltCustomWritingNeed = () => (ltCustomWritingP ??= import('./leveltest-writing.js?v=99b0f205').then((m) => { LT_CUSTOM.writing = m.LT_CUSTOM_WRITING; }));
+const ltCustomListeningNeed = () => (ltCustomListeningP ??= import('./leveltest-listening.js?v=99b0f205').then((m) => { LT_CUSTOM.listening = m.LT_CUSTOM_LISTENING; }));
 const LT_CUSTOM_NEED = {
   overall: ltCustomOverallNeed, reading: ltCustomReadingNeed,
   writing: ltCustomWritingNeed, listening: ltCustomListeningNeed,
@@ -18948,7 +19021,7 @@ async function ltWeekHtml(level, grade) {
     const lessonMins = list.reduce((x, c) => x + c.lessons.reduce((y, l) => y + (l.minutes || 7), 0), 0);
     let nWords = 0;
     try {
-      const [a, b] = await Promise.all([import('./vocab-topik1.js?v=72c2f29d'), import(VOCAB2_URL)]);
+      const [a, b] = await Promise.all([import('./vocab-topik1.js?v=99b0f205'), import(VOCAB2_URL)]);
       nWords = [...a.VOCAB, ...b.VOCAB].filter((w) => w.v === L).length;
     } catch (e) { /* 낱말 자료를 못 받으면 레슨만으로 어림 */ }
     const dL = lessonMins ? Math.ceil((lessonMins * LV_NEED.lessons) / (mainMin * 5 / 7)) : 0;
@@ -19587,7 +19660,7 @@ function hlpEnScore(q, gloss) {
 }
 /* 베트남어 · 일본어 뜻으로 찾기(운영자 2026-10-11 「E」) — 작은 색인(search-tr.js, tools/build-search.mjs)을 화면 말이 vi · ja 이거나 그 글자로 칠 때만 받는다 */
 let hlpTr = null, hlpTrP = null, hlpEnMap = null;
-const hlpTrNeed = () => (hlpTrP ??= import('./search-tr.js?v=72c2f29d').then((m) => { hlpTr = m.SEARCH_TR; }).catch(() => { hlpTrP = null; }));
+const hlpTrNeed = () => (hlpTrP ??= import('./search-tr.js?v=99b0f205').then((m) => { hlpTr = m.SEARCH_TR; }).catch(() => { hlpTrP = null; }));
 const HLP_JA = /[぀-ヿ一-鿿]/, HLP_VI = /[ăâđêôơưàáạảãèéẹẻẽìíịỉĩòóọỏõùúụủũỳýỵỷỹ]/i;
 function hlpTrLang(q) {
   if (/[가-힣ㄱ-ㅎㅏ-ㅣ]/.test(q)) return '';
@@ -20411,7 +20484,7 @@ function fbMount(host, place, level = null) {
    openSection 이 epsDraw 를 부른다. let · const 면 그때 「초기화 전 접근」으로 죽는다. */
 var EPS = null;
 var epsP = null;
-function epsNeed() { return (epsP ??= import('./eps.js?v=72c2f29d').then((m) => { EPS = m; })); }
+function epsNeed() { return (epsP ??= import('./eps.js?v=99b0f205').then((m) => { EPS = m; })); }
 const EPS_SECS = ['reading', 'listening'];
 const EPS_MOCK_SEC = 70 * 60;
 const EPS_NUM = ['①', '②', '③', '④'];
@@ -20835,7 +20908,7 @@ const SS_PAGES = [
   ['블로그', 'Blog', 'blog/', '블로그 blog 글'],
 ];
 let ssIdx = null, ssP = null, ssT = 0;
-const ssNeed = () => (ssP ??= import('./search-index.js?v=72c2f29d').then((m) => { ssIdx = m.SEARCH_INDEX; }).catch(() => { ssP = null; }));
+const ssNeed = () => (ssP ??= import('./search-index.js?v=99b0f205').then((m) => { ssIdx = m.SEARCH_INDEX; }).catch(() => { ssP = null; }));
 const ssNorm = (s) => String(s || '').toLowerCase().replace(/[\s\-~]+/g, '');
 /* 문법 이름의 다른 꼴 — 「A/V-아/어서」를 「-아서」 · 「-어서」로도, 「-(으)니까」를 「-니까」 · 「-으니까」로도 찾게 */
 const ssGramForms = (name) => {
@@ -20971,7 +21044,7 @@ async function clsDraw(sub) {
 }
 /* 숙제 고르는 자료(레슨 · 문법 · TOPIK · 회화 · 동화책 · 번역 · 단어 주제) 불러오기 — 반 화면 · 「숙제로 내기」 단추가 같이 쓴다 */
 async function clsCatNeed() {
-  await Promise.all([coursesNeed(), sbNeed(), tqNeedData(), cvNeed(), bkNeed(), trNeed(), Promise.all([import('./vocab-topik1.js?v=72c2f29d'), import(VOCAB2_URL)]).then(([m, m2]) => { if (!clsVTopics) {
+  await Promise.all([coursesNeed(), sbNeed(), tqNeedData(), cvNeed(), bkNeed(), trNeed(), Promise.all([import('./vocab-topik1.js?v=99b0f205'), import(VOCAB2_URL)]).then(([m, m2]) => { if (!clsVTopics) {
     /* 주제마다 낱말 수(두 과정) — 낱말이 없는 주제는 숙제로 못 고르게(새 작은 주제는 안티 그래비티가 낱말을 붙인 뒤에 채워진다) */
     clsVN = new Map(); for (const w of [...m.VOCAB, ...m2.VOCAB]) for (const x of w.t || []) { clsVN.set(x, (clsVN.get(x) || 0) + 1); const a = x.split('/')[0]; clsVN.set(a, (clsVN.get(a) || 0) + 1); }
     clsVTopics = m.VOCAB_TOPICS; clsCat = null; } })]).catch(() => {});
@@ -21207,7 +21280,7 @@ async function clsJoin(code, name) {
 /* QR — qrcode-lib.js(MIT, Kazuhiko Arase)를 이 칸을 열 때만 받는다. CSP 때문에 우리 도메인에 둔다 */
 let clsQrLib = null;
 const clsQrNeed = () => (clsQrLib ??= new Promise((ok, no) => {
-  const sc = document.createElement('script'); sc.src = './qrcode-lib.js?v=72c2f29d'; sc.onload = () => ok(window.qrcode); sc.onerror = no; document.head.appendChild(sc);
+  const sc = document.createElement('script'); sc.src = './qrcode-lib.js?v=99b0f205'; sc.onload = () => ok(window.qrcode); sc.onerror = no; document.head.appendChild(sc);
 }));
 /* 치즈감자 QR 카드(운영자 2026-10-07 「QR 을 귀엽게 — 치즈감자 스타일로」): 둥근 점 · 갈색 둥근 모서리 눈 · 가운데 치즈감자 얼굴 ·
    위에 주황 띠와 반 이름, 아래 「찍고 로그인하면 바로」. 보이는 그림과 저장하는 PNG 가 같은 캔버스 하나다.
