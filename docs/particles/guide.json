@@ -1,0 +1,27 @@
+{
+ "_note": "조사 책 앞쪽 「조사, 이렇게 공부하세요」 단원(운영자 2026-10-18 「효과적으로 어떻게 하는지 알려주고」). tools/build-particles-book.mjs 가 읽는다.",
+ "id": "pt-guide",
+ "title": { "en": "How to study particles", "ko": "조사, 이렇게 공부하세요" },
+ "sub": { "en": "A five-step loop for every unit, a review schedule and a four-week plan.", "ko": "단원마다 다섯 단계 · 복습 때 · 4주 계획" },
+ "sections": [
+  { "type": "text", "title": { "en": "Why particles are different", "ko": "조사는 왜 다른가" }, "text": "Particles are tiny, so the ear skips them — yet they change the meaning. You do not learn them by understanding a rule once. You learn them by meeting them in many sentences until the right one “sounds right”.\n조사는 짧아서 귀가 지나치기 쉽지만 뜻을 바꿉니다. 규칙을 한 번 이해한다고 되는 것이 아니라, 여러 문장에서 만나 맞는 쪽이 「소리로 맞다」고 느껴질 때까지 가야 합니다." },
+  { "type": "flow", "title": { "en": "The five-step loop · about 20 minutes a unit", "ko": "한 단원 다섯 단계 · 약 20분" }, "steps": [
+    { "ko": "① 소리 내어 읽기 — 예문 6개", "en": "Read the six examples aloud", "blank": false },
+    { "ko": "② 가리고 떠올리기 — 영어를 보고 한국어로", "en": "Cover the Korean, say it from the English", "blank": false },
+    { "ko": "③ 채우기 · 고치기 — 연필로", "en": "Do the fill-in and fix-the-mistake sets", "blank": true },
+    { "ko": "④ 내 문장 쓰기 — 내 이야기 2문장", "en": "Write two sentences about your own life", "blank": true },
+    { "ko": "⑤ 정답 확인 — 틀린 것에 표시", "en": "Check the key and mark every miss", "blank": false } ] },
+  { "type": "table", "title": { "en": "Spaced review · when to come back", "ko": "다시 보는 때" }, "cols": ["When · 언제", "What · 무엇을", "Time · 시간"], "rows": [
+    ["Next day · 다음 날", "Redo only the questions you missed", "5 min"],
+    ["Day 3 · 3일 뒤", "Cover the Korean in the example table and say all six aloud", "5 min"],
+    ["Day 7 · 7일 뒤", "Do one review test from the back of the book", "10 min"],
+    ["Day 21 · 3주 뒤", "Redo the matching “Choose the right particle” unit", "10 min"] ] },
+  { "type": "table", "title": { "en": "Four-week plan", "ko": "4주 계획" }, "cols": ["Week · 주", "Units · 단원", "Goal · 목표"], "rows": [
+    ["1", "Core markers: 이/가 · 은/는 · 을/를 · 의", "Pick the right form by the final consonant without thinking"],
+    ["2", "Place, time & direction: 에 · 에서 · 에서~까지 · 에게/한테", "Tell “is there” from “does there”"],
+    ["3", "Together, also & only: 와/과 · 도 · 만 · 밖에 · (이)나", "Add meaning with one small word"],
+    ["4", "Ways, amounts & comparing, then the “Choose” units and review tests", "Mix everything, a little faster each time"] ] },
+  { "type": "text", "title": { "en": "Four habits that work", "ko": "효과 보는 습관 네 가지" }, "text": "1. Ask two questions about each noun: what is its job (who / where / with what / how many)? does it end in a consonant?\n2. Keep an error log: copy every sentence you miss onto one page and reread it before each new unit.\n3. Say first, then write. Saying makes the particle sound natural; writing fixes the spelling.\n4. Listen for particles: pick one a day and count how often you hear it in Korean you watch or listen to.\n1. 낱말마다 두 가지를 물어요: 「무슨 역할인가(누가 · 어디 · 무엇으로 · 얼마나)」, 「받침이 있나」.\n2. 틀린 문장 노트: 틀린 문장을 한 쪽에 모아 새 단원 전에 다시 읽어요.\n3. 먼저 말하고, 그다음 쓰세요. 말하면 소리가 익고, 쓰면 맞춤법이 잡힙니다.\n4. 들으며 찾기: 하루에 조사 하나를 정해 보고 듣는 한국어에서 몇 번 나오는지 세어 보세요." },
+  { "type": "text", "title": { "en": "More practice online", "ko": "사이트에서 더 연습" }, "text": "Each particle has more practice sentences, free, at everykoreans.com under Learn → Grammar. Use it for the next-day review.\neverykoreans.com 의 「배우기 → 문법」에서 조사마다 연습 문장을 더 풀 수 있어요(무료). 다음 날 복습에 쓰세요." }
+ ]
+}

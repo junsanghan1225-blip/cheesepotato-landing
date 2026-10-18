@@ -47,6 +47,14 @@ function blank(id, ko) {
   }
   return { q: ko.slice(0, m.index) + '___' + ko.slice(m.index + m[0].length), a };
 }
+/* 받침 때문에 꼴이 둘인 조사 — 반대 꼴로 바꾸면 틀린 문장이 된다(고치기 문제). 에 ↔ 에서 는 26-6 만(장소에 있다 → 에서 ✗) */
+const SWAP = { '26-1': { 이: '가', 가: '이' }, '26-2': { 은: '는', 는: '은' }, '26-3': { 을: '를', 를: '을' }, '26-14': { 으로: '로', 로: '으로' }, '26-15': { 이나: '나', 나: '이나' }, '26-16': { 이나: '나', 나: '이나' }, '26-6': { 에: '에서' } };
+function wrong(id, ko) {
+  const b = blank(id, ko); if (!b) return null;
+  const bad = SWAP[id][b.a]; if (!bad) return null;
+  const at = b.q.indexOf('___');
+  return { q: `고치기: ${b.q.slice(0, at)}${bad}${b.q.slice(at + 3)} →`, a: b.q.slice(0, at) + b.a + b.q.slice(at + 3) };
+}
 const stripQ = (s) => String(s || '').replace(/[「」]/g, '');
 
 function unit(id) {
@@ -54,8 +62,10 @@ function unit(id) {
   const used = new Set();
   const take = (lv, from, n, ok = () => true) => { const out = []; for (let i = 0; i < S.length && out.length < n; i++) { const s = S[i]; if (s.lv === lv && !used.has(i) && i >= from && ok(s)) { used.add(i); out.push(s); } } return out; };
   const ex = [...take(1, 0, 3), ...take(2, 0, 2), ...take(3, 0, 1)];
-  const fill = [...take(1, 0, 3, (s) => blank(id, s.ko)), ...take(2, 0, 3, (s) => blank(id, s.ko)), ...take(3, 0, 2, (s) => blank(id, s.ko))];
-  const tr = take(1, 0, 3);
+  const okB = (s) => blank(id, s.ko);
+  const fill = [...take(1, 0, 4, okB), ...take(2, 0, 5, okB), ...take(3, 0, 3, okB)];
+  const fixes = (SWAP[id] ? [...take(1, 0, 2, okB), ...take(2, 0, 3, okB)] : []).map((s) => wrong(id, s.ko)).filter(Boolean);
+  const tr = take(1, 0, 3); tr.push(...take(2, 0, 3 - tr.length), ...take(3, 0, 3 - tr.length));
   const showForm = FORMS[id].join(' · ');
   const sections = [
     { type: 'text', title: { en: 'Meaning', ko: '뜻' }, text: `${stripQ(en.desc)}\n${p.desc}` },
@@ -63,7 +73,9 @@ function unit(id) {
     { type: 'table', title: { en: 'Examples', ko: '예문' }, cols: ['Particle · 조사', 'Example · 예', 'English'], rows: ex.map((s) => [(new RegExp(`(?<=[가-힣])(${FORMS[id].join('|')})(?=[\\s.,!?]|$)`).exec(s.ko) || [showForm])[0], s.ko, s.en]) },
     { type: 'text', title: { en: 'Watch out', ko: '조심할 것' }, text: stripQ(en.care) },
     { type: 'practice', title: { en: `Fill in the particle · ${hint(FORMS[id], id)}`, ko: '조사 채우기' }, items: fill.map((s) => { const b = blank(id, s.ko); return { q: `${b.q}  (${s.en})`, a: b.a }; }) },
+    ...(fixes.length ? [{ type: 'practice', title: { en: 'Fix the mistake', ko: '틀린 곳 고치기' }, hint: 'Each sentence has one wrong particle. Write the correct sentence.', items: fixes }] : []),
     { type: 'practice', title: { en: 'Say it in Korean', ko: '한국어로 말하기' }, hint: 'Model answers are in the Answer Key.', items: tr.map((s) => ({ q: s.en, a: s.ko })) },
+    { type: 'practice', title: { en: 'Your turn', ko: '내 문장 쓰기' }, hint: 'Use the particle in true sentences about your own life. Say each one aloud.', items: [{ q: `Write about your family or friends, using ${hint(FORMS[id], id)}. →`, a: '(Your own sentence · 내 문장)' }, { q: `Write about what you did today, using ${hint(FORMS[id], id)}. →`, a: '(Your own sentence · 내 문장)' }] },
   ];
   return { id: `pt-${id}`, title: { en: p.name.replace(/^N/, '').trim() ? `${p.name}` : p.name, ko: p.name }, sub: { en: stripQ(en.desc).split(/(?<=\.)\s/)[0], ko: p.desc.split(/(?<=[.다요])\s/)[0] }, sections };
 }
@@ -75,8 +87,11 @@ const contrast = (c) => ({ id: c.id, title: c.title, sub: c.sub, sections: [
 ] });
 const review = (r) => ({ id: r.id, title: r.title, sub: { en: 'Mixed practice — every particle in the book.', ko: '섞어서 풀기' }, sections: [{ type: 'practice', title: { en: 'Fill in the particle', ko: '조사 채우기' }, items: r.items.map(([q, a]) => ({ q, a })) }] });
 
+const GUIDE = JSON.parse(fs.readFileSync(path.join(ROOT, 'docs/particles/guide.json'), 'utf8'));
 const inline = {}, blocks = {};
-const parts = PART_UNITS.map((pt) => ({ title: { en: pt.en, ko: pt.ko }, units: pt.ids.map((id) => { const u = unit(id); inline[u.id] = u; blocks[`${u.id}:1`] = 'ref'; blocks[`${u.id}:2`] = 'tip'; blocks[`${u.id}:3`] = 'ref'; blocks[`${u.id}:4`] = 'warn'; return u.id; }) }));
+inline[GUIDE.id] = GUIDE;
+GUIDE.sections.forEach((sec, i) => { blocks[`${GUIDE.id}:${i + 1}`] = sec.type === 'table' ? 'ref' : i === 4 ? 'tip' : 'ref'; });
+const parts = [{ title: { en: 'Start here', ko: '시작하기' }, units: [GUIDE.id] }, ...PART_UNITS.map((pt) => ({ title: { en: pt.en, ko: pt.ko }, units: pt.ids.map((id) => { const u = unit(id); inline[u.id] = u; blocks[`${u.id}:1`] = 'ref'; blocks[`${u.id}:2`] = 'tip'; blocks[`${u.id}:3`] = 'ref'; blocks[`${u.id}:4`] = 'warn'; return u.id; }) }))];
 parts.push({ title: { en: 'Choose the right particle', ko: '헷갈리는 조사 가르기' }, units: CT.units.map((c) => { const u = contrast(c); inline[u.id] = u; blocks[`${u.id}:1`] = 'ref'; blocks[`${u.id}:2`] = 'ref'; blocks[`${u.id}:3`] = 'warn'; return u.id; }) });
 parts.push({ title: { en: 'Review tests', ko: '종합 연습' }, units: CT.reviews.map((r) => { const u = review(r); inline[u.id] = u; return u.id; }) });
 

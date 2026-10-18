@@ -1,50 +1,820 @@
 {
  "_note": "조사 책의 「헷갈리는 조사 가르기」 단원(Claude 가 씀, 안티 검토 가능). 생성기 tools/build-particles-book.mjs 가 읽는다. 문항은 정답이 하나뿐인 것만(상황 · 괄호 힌트로 가른다).",
  "units": [
-  { "id": "ct-topic-subject", "title": { "en": "은/는 or 이/가?", "ko": "은/는 vs 이/가" }, "sub": { "en": "Topic or subject: the two pairs that confuse everyone.", "ko": "화제인가 주어인가 — 가장 헷갈리는 두 쌍" },
-    "intro": { "en": "은/는 sets up a topic or contrasts two things. 이/가 names who or what does something, especially new information and the answer to “who / what”.", "ko": "은/는은 화제를 꺼내거나 둘을 견줄 때, 이/가는 누가 · 무엇이 하는지를 말할 때(새 정보 · 「누가 · 뭐가」의 답) 씁니다." },
-    "table": { "cols": ["Situation · 상황", "은 / 는", "이 / 가"], "rows": [["Introducing yourself · 나를 소개할 때", "저는 학생이에요.", ""], ["Answer to 누가 / 뭐가 · 질문의 답", "", "민수가 왔어요."], ["Contrasting two things · 둘을 견줄 때", "커피는 좋아하지만 차는 안 좋아해요.", ""], ["New thing appears · 새로운 것이 나올 때", "", "저기 고양이가 있어요."]] },
-    "warn": { "en": "With a question word (누가, 뭐가, 어디가) the answer uses 이/가, not 은/는.", "ko": "의문사(누가 · 뭐가 · 어디가)가 있는 질문의 답에는 은/는이 아니라 이/가를 씁니다." },
-    "items": [ ["A: 누가 왔어요? B: 민수___ 왔어요.", "가"], ["저___ 한국 사람이에요. (introducing yourself)", "는"], ["A: 뭐가 맛있어요? B: 불고기___ 맛있어요.", "가"], ["커피___ 좋아하지만 차___ 안 좋아해요. (contrast)", "는 / 는"], ["저기 고양이___ 있어요. (a new thing)", "가"], ["제 이름___ 민수예요. (introducing)", "은"] ] },
-  { "id": "ct-place-action", "title": { "en": "에 or 에서?", "ko": "에 vs 에서" }, "sub": { "en": "Where something is, or where an action happens.", "ko": "있는 곳인가, 하는 곳인가" },
-    "intro": { "en": "에 marks where something exists, a destination or a time. 에서 marks where an action takes place, or a starting point.", "ko": "에는 있는 곳 · 가는 곳 · 때, 에서는 일이 일어나는 곳 · 출발점에 씁니다." },
-    "table": { "cols": ["Use · 쓰임", "에", "에서"], "rows": [["Exists · 있다 / 없다", "집에 있어요.", ""], ["Goes to · 가다 / 오다", "학교에 가요.", ""], ["Time · 때", "7시에 일어나요.", ""], ["Action happens · 하는 곳", "", "도서관에서 공부해요."], ["Starts from · 출발", "", "집에서 나왔어요."]] },
-    "warn": { "en": "Ask yourself: is something simply there (에), or is someone doing something there (에서)?", "ko": "그냥 있나(에), 거기서 무언가를 하나(에서)를 물어 보세요." },
-    "items": [ ["책상 위___ 책이 있어요.", "에"], ["도서관___ 공부해요.", "에서"], ["내일 학교___ 가요.", "에"], ["카페___ 친구를 만나요.", "에서"], ["아침 7시___ 일어나요.", "에"], ["공원___ 운동했어요.", "에서"] ] },
-  { "id": "ct-give-receive", "title": { "en": "에게/한테 or 에?", "ko": "에게/한테 vs 에" }, "sub": { "en": "People and animals, or things and places.", "ko": "사람 · 동물인가, 물건 · 장소인가" },
-    "intro": { "en": "에게 and 한테 (more casual) go with people and animals. For things and places use 에. 께 is the polite form of 에게.", "ko": "사람 · 동물에는 에게 · 한테(한테가 더 말하는 느낌), 물건 · 장소에는 에를 씁니다. 높일 때는 께." },
-    "table": { "cols": ["Receiver · 받는 쪽", "Particle", "Example"], "rows": [["Person · 사람", "에게 / 한테", "친구에게 선물을 줬어요."], ["Animal · 동물", "에게 / 한테", "강아지한테 밥을 줘요."], ["Thing · 물건", "에", "꽃에 물을 줘요."], ["Place · 장소", "에", "회사에 전화했어요."]] },
-    "warn": { "en": "Same verb 주다: 친구에게 줘요 (to a friend) but 꽃에 물을 줘요 (to a flower).", "ko": "같은 「주다」도 사람에게는 에게, 꽃 같은 물건에는 에를 씁니다." },
-    "items": [ ["친구___ 선물을 줬어요. (에게 / 한테)", "에게 / 한테"], ["꽃___ 물을 줘요. (thing)", "에"], ["엄마___ 편지를 썼어요. (person)", "에게 / 한테"], ["회사___ 전화했어요. (place)", "에"], ["강아지___ 밥을 줘요. (animal)", "에게 / 한테"], ["동생___ 책을 빌려줬어요. (person)", "에게 / 한테"] ] },
-  { "id": "ct-tool-direction", "title": { "en": "(으)로 or 에?", "ko": "(으)로 vs 에" }, "sub": { "en": "How you go and what you use, or where you end up.", "ko": "방법 · 도구 · 방향인가, 도착점인가" },
-    "intro": { "en": "(으)로 shows a tool, a means of transport, a language or a direction. Use 로 after a vowel or ㄹ, and 으로 after any other consonant.", "ko": "(으)로는 도구 · 교통수단 · 언어 · 방향에 씁니다. 모음이나 ㄹ 받침 뒤에는 로, 그 밖의 받침 뒤에는 으로." },
-    "table": { "cols": ["Use · 쓰임", "After vowel / ㄹ → 로", "After consonant → 으로"], "rows": [["Transport · 교통", "버스로 가요.", "택시로 가요? (택시: 모음)"], ["Tool · 도구", "칼로 잘라요.", "손으로 먹어요."], ["Language · 언어", "한국어로 말해요.", "영어로 써요. (영어: 모음)"], ["Direction · 방향", "왼쪽으로 가세요.", "오른쪽으로 가세요."]] },
-    "warn": { "en": "Words ending in ㄹ take 로: 지하철로, 서울로. All other consonants take 으로: 손으로, 연필로 (연필 ends in ㄹ → 로).", "ko": "ㄹ 받침은 로(지하철로 · 연필로), 그 밖의 받침은 으로(손으로 · 오른쪽으로)." },
-    "items": [ ["지하철___ 가요. (transport)", "로"], ["칼___ 잘라요. (tool)", "로"], ["손___ 먹어요. (tool)", "으로"], ["오른쪽___ 가세요. (direction)", "으로"], ["한국어___ 말해요. (language)", "로"], ["연필___ 써요. (tool)", "로"] ] },
-  { "id": "ct-with", "title": { "en": "와/과, 하고, (이)랑", "ko": "와/과 · 하고 · (이)랑" }, "sub": { "en": "“And / with”: formal, neutral and spoken.", "ko": "「~와」: 격식 · 보통 · 말하는 투" },
-    "intro": { "en": "All three mean “and / with”. 와/과 is written and formal, 하고 is neutral, (이)랑 is the most spoken. 하고 never changes form.", "ko": "셋 다 「와 · 과 · 함께」의 뜻입니다. 와/과는 글 · 격식, 하고는 보통, (이)랑은 말할 때 가장 많이 씁니다. 하고는 모양이 안 바뀝니다." },
-    "table": { "cols": ["Particle", "After vowel", "After consonant"], "rows": [["와 / 과 (written)", "친구와", "동생과"], ["하고 (neutral)", "친구하고", "동생하고"], ["(이)랑 (spoken)", "친구랑", "동생이랑"]] },
-    "warn": { "en": "(이)랑 takes 이랑 after a consonant, 랑 after a vowel. 하고 needs no change.", "ko": "(이)랑은 받침 뒤에 이랑, 모음 뒤에 랑. 하고는 그대로 씁니다." },
-    "items": [ ["친구___ 영화를 봤어요. (spoken)", "랑"], ["동생___ 놀았어요. (spoken)", "이랑"], ["선생님___ 이야기했어요. (neutral)", "하고"], ["부모님___ 여행을 갔어요. (written / formal)", "과"], ["친구___ 점심을 먹었어요. (written / formal)", "와"], ["책___ 공책을 샀어요. (neutral)", "하고"] ] },
-  { "id": "ct-also-only", "title": { "en": "도, 만, 밖에", "ko": "도 · 만 · 밖에" }, "sub": { "en": "Also, only, and “nothing but”.", "ko": "또한 · 오직 · 그것뿐" },
-    "intro": { "en": "도 = also / too. 만 = only. 밖에 also means “only” but must be followed by a negative: 천 원밖에 없어요 (I only have 1,000 won).", "ko": "도는 「~도」, 만은 「오직 ~」, 밖에는 「~뿐」이라는 뜻인데 뒤에 꼭 부정(없다 · 안 · 못)이 옵니다." },
-    "table": { "cols": ["Particle", "Meaning", "Example"], "rows": [["도", "also, too", "저도 학생이에요."], ["만", "only", "물만 마셨어요."], ["밖에 + negative", "nothing but, only", "천 원밖에 없어요."]] },
-    "warn": { "en": "밖에 always needs a negative ending. 만 works with positive or negative.", "ko": "밖에는 부정 문장과만 쓰고, 만은 긍정 · 부정 모두 됩니다." },
-    "items": [ ["저___ 학생이에요. (me too)", "도"], ["물___ 마셨어요. (only water)", "만"], ["천 원___ 없어요. (only 1,000 won — negative)", "밖에"], ["친구___ 왔어요. (the friend too)", "도"], ["커피___ 마셨어요. (only coffee)", "만"], ["한 명___ 안 왔어요. (only one person — negative)", "밖에"] ] },
-  { "id": "ct-na", "title": { "en": "(이)나: “or” and “as many as”", "ko": "(이)나 ① 선택 · ② 많음" }, "sub": { "en": "One particle, two jobs.", "ko": "한 조사, 두 가지 쓰임" },
-    "intro": { "en": "(이)나 offers a choice (“or”) with 커피나 차, and also says a number is more than expected (“as many as”) with 세 시간이나.", "ko": "(이)나는 둘 중에 고르는 「또는」(커피나 차), 그리고 생각보다 많다는 뜻(세 시간이나)으로 씁니다." },
-    "table": { "cols": ["Job · 쓰임", "Example", "Meaning"], "rows": [["Choice · 선택", "커피나 차를 마셔요.", "coffee or tea"], ["Surprising amount · 많음", "세 시간이나 기다렸어요.", "waited as long as three hours"]] },
-    "warn": { "en": "After a vowel use 나, after a consonant use 이나.", "ko": "모음 뒤에는 나, 받침 뒤에는 이나." },
-    "items": [ ["커피___ 차를 마셔요. (coffee or tea)", "나"], ["책___ 영화를 볼까요? (a book or a movie)", "이나"], ["밥을 세 그릇___ 먹었어요. (as many as three)", "이나"], ["두 시간___ 기다렸어요. (as long as two hours)", "이나"], ["콜라___ 주스를 주세요. (cola or juice)", "나"], ["친구가 열 명___ 왔어요. (as many as ten)", "이나"] ] },
-  { "id": "ct-from-to", "title": { "en": "에서~까지 or 부터~까지?", "ko": "에서 ~ 까지 vs 부터 ~ 까지" }, "sub": { "en": "From where, from when.", "ko": "어디서부터 · 언제부터" },
-    "intro": { "en": "Use 에서 ~ 까지 for places (from A to B) and 부터 ~ 까지 for times (from X to Y). 에서 can also pair with 까지 for starting points.", "ko": "장소에는 에서 ~ 까지, 시간에는 부터 ~ 까지를 씁니다." },
-    "table": { "cols": ["Use · 쓰임", "From", "To"], "rows": [["Place · 장소", "집에서", "학교까지 걸어요."], ["Time · 시간", "9시부터", "6시까지 일해요."]] },
-    "warn": { "en": "Places pair with 에서, times pair with 부터.", "ko": "장소 ↔ 에서, 시간 ↔ 부터를 짝으로 외우세요." },
-    "items": [ ["집___ 학교까지 30분 걸려요.", "에서"], ["9시___ 6시까지 일해요.", "부터"], ["월요일___ 금요일까지 수업이 있어요.", "부터"], ["서울___ 부산까지 KTX로 가요.", "에서"], ["아침___ 저녁까지 비가 와요.", "부터"], ["회사___ 집까지 지하철로 가요.", "에서"] ] }
+  {
+   "id": "ct-topic-subject",
+   "title": {
+    "en": "은/는 or 이/가?",
+    "ko": "은/는 vs 이/가"
+   },
+   "sub": {
+    "en": "Topic or subject: the two pairs that confuse everyone.",
+    "ko": "화제인가 주어인가 — 가장 헷갈리는 두 쌍"
+   },
+   "intro": {
+    "en": "은/는 sets up a topic or contrasts two things. 이/가 names who or what does something, especially new information and the answer to “who / what”.",
+    "ko": "은/는은 화제를 꺼내거나 둘을 견줄 때, 이/가는 누가 · 무엇이 하는지를 말할 때(새 정보 · 「누가 · 뭐가」의 답) 씁니다."
+   },
+   "table": {
+    "cols": [
+     "Situation · 상황",
+     "은 / 는",
+     "이 / 가"
+    ],
+    "rows": [
+     [
+      "Introducing yourself · 나를 소개할 때",
+      "저는 학생이에요.",
+      ""
+     ],
+     [
+      "Answer to 누가 / 뭐가 · 질문의 답",
+      "",
+      "민수가 왔어요."
+     ],
+     [
+      "Contrasting two things · 둘을 견줄 때",
+      "커피는 좋아하지만 차는 안 좋아해요.",
+      ""
+     ],
+     [
+      "New thing appears · 새로운 것이 나올 때",
+      "",
+      "저기 고양이가 있어요."
+     ]
+    ]
+   },
+   "warn": {
+    "en": "With a question word (누가, 뭐가, 어디가) the answer uses 이/가, not 은/는.",
+    "ko": "의문사(누가 · 뭐가 · 어디가)가 있는 질문의 답에는 은/는이 아니라 이/가를 씁니다."
+   },
+   "items": [
+    [
+     "A: 누가 왔어요? B: 민수___ 왔어요.",
+     "가"
+    ],
+    [
+     "저___ 한국 사람이에요. (introducing yourself)",
+     "는"
+    ],
+    [
+     "A: 뭐가 맛있어요? B: 불고기___ 맛있어요.",
+     "가"
+    ],
+    [
+     "커피___ 좋아하지만 차___ 안 좋아해요. (contrast)",
+     "는 / 는"
+    ],
+    [
+     "저기 고양이___ 있어요. (a new thing)",
+     "가"
+    ],
+    [
+     "제 이름___ 민수예요. (introducing)",
+     "은"
+    ]
+   ]
+  },
+  {
+   "id": "ct-place-action",
+   "title": {
+    "en": "에 or 에서?",
+    "ko": "에 vs 에서"
+   },
+   "sub": {
+    "en": "Where something is, or where an action happens.",
+    "ko": "있는 곳인가, 하는 곳인가"
+   },
+   "intro": {
+    "en": "에 marks where something exists, a destination or a time. 에서 marks where an action takes place, or a starting point.",
+    "ko": "에는 있는 곳 · 가는 곳 · 때, 에서는 일이 일어나는 곳 · 출발점에 씁니다."
+   },
+   "table": {
+    "cols": [
+     "Use · 쓰임",
+     "에",
+     "에서"
+    ],
+    "rows": [
+     [
+      "Exists · 있다 / 없다",
+      "집에 있어요.",
+      ""
+     ],
+     [
+      "Goes to · 가다 / 오다",
+      "학교에 가요.",
+      ""
+     ],
+     [
+      "Time · 때",
+      "7시에 일어나요.",
+      ""
+     ],
+     [
+      "Action happens · 하는 곳",
+      "",
+      "도서관에서 공부해요."
+     ],
+     [
+      "Starts from · 출발",
+      "",
+      "집에서 나왔어요."
+     ]
+    ]
+   },
+   "warn": {
+    "en": "Ask yourself: is something simply there (에), or is someone doing something there (에서)?",
+    "ko": "그냥 있나(에), 거기서 무언가를 하나(에서)를 물어 보세요."
+   },
+   "items": [
+    [
+     "책상 위___ 책이 있어요.",
+     "에"
+    ],
+    [
+     "도서관___ 공부해요.",
+     "에서"
+    ],
+    [
+     "내일 학교___ 가요.",
+     "에"
+    ],
+    [
+     "카페___ 친구를 만나요.",
+     "에서"
+    ],
+    [
+     "아침 7시___ 일어나요.",
+     "에"
+    ],
+    [
+     "공원___ 운동했어요.",
+     "에서"
+    ]
+   ]
+  },
+  {
+   "id": "ct-give-receive",
+   "title": {
+    "en": "에게/한테 or 에?",
+    "ko": "에게/한테 vs 에"
+   },
+   "sub": {
+    "en": "People and animals, or things and places.",
+    "ko": "사람 · 동물인가, 물건 · 장소인가"
+   },
+   "intro": {
+    "en": "에게 and 한테 (more casual) go with people and animals. For things and places use 에. 께 is the polite form of 에게.",
+    "ko": "사람 · 동물에는 에게 · 한테(한테가 더 말하는 느낌), 물건 · 장소에는 에를 씁니다. 높일 때는 께."
+   },
+   "table": {
+    "cols": [
+     "Receiver · 받는 쪽",
+     "Particle",
+     "Example"
+    ],
+    "rows": [
+     [
+      "Person · 사람",
+      "에게 / 한테",
+      "친구에게 선물을 줬어요."
+     ],
+     [
+      "Animal · 동물",
+      "에게 / 한테",
+      "강아지한테 밥을 줘요."
+     ],
+     [
+      "Thing · 물건",
+      "에",
+      "꽃에 물을 줘요."
+     ],
+     [
+      "Place · 장소",
+      "에",
+      "회사에 전화했어요."
+     ]
+    ]
+   },
+   "warn": {
+    "en": "Same verb 주다: 친구에게 줘요 (to a friend) but 꽃에 물을 줘요 (to a flower).",
+    "ko": "같은 「주다」도 사람에게는 에게, 꽃 같은 물건에는 에를 씁니다."
+   },
+   "items": [
+    [
+     "친구___ 선물을 줬어요. (에게 / 한테)",
+     "에게 / 한테"
+    ],
+    [
+     "꽃___ 물을 줘요. (thing)",
+     "에"
+    ],
+    [
+     "엄마___ 편지를 썼어요. (person)",
+     "에게 / 한테"
+    ],
+    [
+     "회사___ 전화했어요. (place)",
+     "에"
+    ],
+    [
+     "강아지___ 밥을 줘요. (animal)",
+     "에게 / 한테"
+    ],
+    [
+     "동생___ 책을 빌려줬어요. (person)",
+     "에게 / 한테"
+    ]
+   ]
+  },
+  {
+   "id": "ct-tool-direction",
+   "title": {
+    "en": "(으)로 or 에?",
+    "ko": "(으)로 vs 에"
+   },
+   "sub": {
+    "en": "How you go and what you use, or where you end up.",
+    "ko": "방법 · 도구 · 방향인가, 도착점인가"
+   },
+   "intro": {
+    "en": "(으)로 shows a tool, a means of transport, a language or a direction. Use 로 after a vowel or ㄹ, and 으로 after any other consonant.",
+    "ko": "(으)로는 도구 · 교통수단 · 언어 · 방향에 씁니다. 모음이나 ㄹ 받침 뒤에는 로, 그 밖의 받침 뒤에는 으로."
+   },
+   "table": {
+    "cols": [
+     "Use · 쓰임",
+     "After vowel / ㄹ → 로",
+     "After consonant → 으로"
+    ],
+    "rows": [
+     [
+      "Transport · 교통",
+      "버스로 가요.",
+      "택시로 가요? (택시: 모음)"
+     ],
+     [
+      "Tool · 도구",
+      "칼로 잘라요.",
+      "손으로 먹어요."
+     ],
+     [
+      "Language · 언어",
+      "한국어로 말해요.",
+      "영어로 써요. (영어: 모음)"
+     ],
+     [
+      "Direction · 방향",
+      "왼쪽으로 가세요.",
+      "오른쪽으로 가세요."
+     ]
+    ]
+   },
+   "warn": {
+    "en": "Words ending in ㄹ take 로: 지하철로, 서울로. All other consonants take 으로: 손으로, 연필로 (연필 ends in ㄹ → 로).",
+    "ko": "ㄹ 받침은 로(지하철로 · 연필로), 그 밖의 받침은 으로(손으로 · 오른쪽으로)."
+   },
+   "items": [
+    [
+     "지하철___ 가요. (transport)",
+     "로"
+    ],
+    [
+     "칼___ 잘라요. (tool)",
+     "로"
+    ],
+    [
+     "손___ 먹어요. (tool)",
+     "으로"
+    ],
+    [
+     "오른쪽___ 가세요. (direction)",
+     "으로"
+    ],
+    [
+     "한국어___ 말해요. (language)",
+     "로"
+    ],
+    [
+     "연필___ 써요. (tool)",
+     "로"
+    ]
+   ]
+  },
+  {
+   "id": "ct-with",
+   "title": {
+    "en": "와/과, 하고, (이)랑",
+    "ko": "와/과 · 하고 · (이)랑"
+   },
+   "sub": {
+    "en": "“And / with”: formal, neutral and spoken.",
+    "ko": "「~와」: 격식 · 보통 · 말하는 투"
+   },
+   "intro": {
+    "en": "All three mean “and / with”. 와/과 is written and formal, 하고 is neutral, (이)랑 is the most spoken. 하고 never changes form.",
+    "ko": "셋 다 「와 · 과 · 함께」의 뜻입니다. 와/과는 글 · 격식, 하고는 보통, (이)랑은 말할 때 가장 많이 씁니다. 하고는 모양이 안 바뀝니다."
+   },
+   "table": {
+    "cols": [
+     "Particle",
+     "After vowel",
+     "After consonant"
+    ],
+    "rows": [
+     [
+      "와 / 과 (written)",
+      "친구와",
+      "동생과"
+     ],
+     [
+      "하고 (neutral)",
+      "친구하고",
+      "동생하고"
+     ],
+     [
+      "(이)랑 (spoken)",
+      "친구랑",
+      "동생이랑"
+     ]
+    ]
+   },
+   "warn": {
+    "en": "(이)랑 takes 이랑 after a consonant, 랑 after a vowel. 하고 needs no change.",
+    "ko": "(이)랑은 받침 뒤에 이랑, 모음 뒤에 랑. 하고는 그대로 씁니다."
+   },
+   "items": [
+    [
+     "친구___ 영화를 봤어요. (spoken)",
+     "랑"
+    ],
+    [
+     "동생___ 놀았어요. (spoken)",
+     "이랑"
+    ],
+    [
+     "선생님___ 이야기했어요. (neutral)",
+     "하고"
+    ],
+    [
+     "부모님___ 여행을 갔어요. (written / formal)",
+     "과"
+    ],
+    [
+     "친구___ 점심을 먹었어요. (written / formal)",
+     "와"
+    ],
+    [
+     "책___ 공책을 샀어요. (neutral)",
+     "하고"
+    ]
+   ]
+  },
+  {
+   "id": "ct-also-only",
+   "title": {
+    "en": "도, 만, 밖에",
+    "ko": "도 · 만 · 밖에"
+   },
+   "sub": {
+    "en": "Also, only, and “nothing but”.",
+    "ko": "또한 · 오직 · 그것뿐"
+   },
+   "intro": {
+    "en": "도 = also / too. 만 = only. 밖에 also means “only” but must be followed by a negative: 천 원밖에 없어요 (I only have 1,000 won).",
+    "ko": "도는 「~도」, 만은 「오직 ~」, 밖에는 「~뿐」이라는 뜻인데 뒤에 꼭 부정(없다 · 안 · 못)이 옵니다."
+   },
+   "table": {
+    "cols": [
+     "Particle",
+     "Meaning",
+     "Example"
+    ],
+    "rows": [
+     [
+      "도",
+      "also, too",
+      "저도 학생이에요."
+     ],
+     [
+      "만",
+      "only",
+      "물만 마셨어요."
+     ],
+     [
+      "밖에 + negative",
+      "nothing but, only",
+      "천 원밖에 없어요."
+     ]
+    ]
+   },
+   "warn": {
+    "en": "밖에 always needs a negative ending. 만 works with positive or negative.",
+    "ko": "밖에는 부정 문장과만 쓰고, 만은 긍정 · 부정 모두 됩니다."
+   },
+   "items": [
+    [
+     "저___ 학생이에요. (me too)",
+     "도"
+    ],
+    [
+     "물___ 마셨어요. (only water)",
+     "만"
+    ],
+    [
+     "천 원___ 없어요. (only 1,000 won — negative)",
+     "밖에"
+    ],
+    [
+     "친구___ 왔어요. (the friend too)",
+     "도"
+    ],
+    [
+     "커피___ 마셨어요. (only coffee)",
+     "만"
+    ],
+    [
+     "한 명___ 안 왔어요. (only one person — negative)",
+     "밖에"
+    ]
+   ]
+  },
+  {
+   "id": "ct-na",
+   "title": {
+    "en": "(이)나: “or” and “as many as”",
+    "ko": "(이)나 ① 선택 · ② 많음"
+   },
+   "sub": {
+    "en": "One particle, two jobs.",
+    "ko": "한 조사, 두 가지 쓰임"
+   },
+   "intro": {
+    "en": "(이)나 offers a choice (“or”) with 커피나 차, and also says a number is more than expected (“as many as”) with 세 시간이나.",
+    "ko": "(이)나는 둘 중에 고르는 「또는」(커피나 차), 그리고 생각보다 많다는 뜻(세 시간이나)으로 씁니다."
+   },
+   "table": {
+    "cols": [
+     "Job · 쓰임",
+     "Example",
+     "Meaning"
+    ],
+    "rows": [
+     [
+      "Choice · 선택",
+      "커피나 차를 마셔요.",
+      "coffee or tea"
+     ],
+     [
+      "Surprising amount · 많음",
+      "세 시간이나 기다렸어요.",
+      "waited as long as three hours"
+     ]
+    ]
+   },
+   "warn": {
+    "en": "After a vowel use 나, after a consonant use 이나.",
+    "ko": "모음 뒤에는 나, 받침 뒤에는 이나."
+   },
+   "items": [
+    [
+     "커피___ 차를 마셔요. (coffee or tea)",
+     "나"
+    ],
+    [
+     "책___ 영화를 볼까요? (a book or a movie)",
+     "이나"
+    ],
+    [
+     "밥을 세 그릇___ 먹었어요. (as many as three)",
+     "이나"
+    ],
+    [
+     "두 시간___ 기다렸어요. (as long as two hours)",
+     "이나"
+    ],
+    [
+     "콜라___ 주스를 주세요. (cola or juice)",
+     "나"
+    ],
+    [
+     "친구가 열 명___ 왔어요. (as many as ten)",
+     "이나"
+    ]
+   ]
+  },
+  {
+   "id": "ct-from-to",
+   "title": {
+    "en": "에서~까지 or 부터~까지?",
+    "ko": "에서 ~ 까지 vs 부터 ~ 까지"
+   },
+   "sub": {
+    "en": "From where, from when.",
+    "ko": "어디서부터 · 언제부터"
+   },
+   "intro": {
+    "en": "Use 에서 ~ 까지 for places (from A to B) and 부터 ~ 까지 for times (from X to Y). 에서 can also pair with 까지 for starting points.",
+    "ko": "장소에는 에서 ~ 까지, 시간에는 부터 ~ 까지를 씁니다."
+   },
+   "table": {
+    "cols": [
+     "Use · 쓰임",
+     "From",
+     "To"
+    ],
+    "rows": [
+     [
+      "Place · 장소",
+      "집에서",
+      "학교까지 걸어요."
+     ],
+     [
+      "Time · 시간",
+      "9시부터",
+      "6시까지 일해요."
+     ]
+    ]
+   },
+   "warn": {
+    "en": "Places pair with 에서, times pair with 부터.",
+    "ko": "장소 ↔ 에서, 시간 ↔ 부터를 짝으로 외우세요."
+   },
+   "items": [
+    [
+     "집___ 학교까지 30분 걸려요.",
+     "에서"
+    ],
+    [
+     "9시___ 6시까지 일해요.",
+     "부터"
+    ],
+    [
+     "월요일___ 금요일까지 수업이 있어요.",
+     "부터"
+    ],
+    [
+     "서울___ 부산까지 KTX로 가요.",
+     "에서"
+    ],
+    [
+     "아침___ 저녁까지 비가 와요.",
+     "부터"
+    ],
+    [
+     "회사___ 집까지 지하철로 가요.",
+     "에서"
+    ]
+   ]
+  }
  ],
  "reviews": [
-  { "id": "rv-1", "title": { "en": "Review test 1", "ko": "종합 연습 1" }, "items": [ ["저___ 한국어를 배워요. (introducing)", "는"], ["책상 위___ 가방이 있어요.", "에"], ["도서관___ 책을 읽어요.", "에서"], ["친구___ 편지를 썼어요. (person)", "에게 / 한테"], ["버스___ 학교에 가요.", "로"], ["물___ 마셨어요. (only water)", "만"], ["저___ 커피를 마셨어요. (me too)", "도"], ["커피___ 차를 주세요. (or)", "나"] ] },
-  { "id": "rv-2", "title": { "en": "Review test 2", "ko": "종합 연습 2" }, "items": [ ["A: 누가 갔어요? B: 동생___ 갔어요.", "이"], ["서울___ 부산까지 가요. (place)", "에서"], ["9시___ 5시까지 공부해요. (time)", "부터"], ["연필___ 써요. (tool)", "로"], ["고양이___ 밥을 줘요. (animal)", "한테 / 에게"], ["천 원___ 없어요. (negative)", "밖에"], ["친구___ 점심을 먹었어요. (spoken)", "랑"], ["아침 8시___ 일어나요. (time)", "에"] ] },
-  { "id": "rv-3", "title": { "en": "Review test 3", "ko": "종합 연습 3" }, "items": [ ["책___ 읽어요. (object)", "을"], ["사과___ 먹어요. (object)", "를"], ["손___ 먹어요. (tool)", "으로"], ["여기___ 처음이에요? (topic)", "는"], ["한국어___ 이야기해요. (language)", "로"], ["하루에 커피를 다섯 잔___ 마셨어요. (as many as five)", "이나"], ["엄마___ 선물을 드렸어요. (polite: to Mom)", "께"], ["이 가방___ 비싸요. (contrast with the other)", "은"] ] }
+  {
+   "id": "rv-1",
+   "title": {
+    "en": "Review test 1",
+    "ko": "종합 연습 1"
+   },
+   "items": [
+    [
+     "저___ 한국어를 배워요. (introducing)",
+     "는"
+    ],
+    [
+     "책상 위___ 가방이 있어요.",
+     "에"
+    ],
+    [
+     "도서관___ 책을 읽어요.",
+     "에서"
+    ],
+    [
+     "친구___ 편지를 썼어요. (person)",
+     "에게 / 한테"
+    ],
+    [
+     "버스___ 학교에 가요.",
+     "로"
+    ],
+    [
+     "물___ 마셨어요. (only water)",
+     "만"
+    ],
+    [
+     "저___ 커피를 마셨어요. (me too)",
+     "도"
+    ],
+    [
+     "커피___ 차를 주세요. (or)",
+     "나"
+    ]
+   ]
+  },
+  {
+   "id": "rv-2",
+   "title": {
+    "en": "Review test 2",
+    "ko": "종합 연습 2"
+   },
+   "items": [
+    [
+     "A: 누가 갔어요? B: 동생___ 갔어요.",
+     "이"
+    ],
+    [
+     "서울___ 부산까지 가요. (place)",
+     "에서"
+    ],
+    [
+     "9시___ 5시까지 공부해요. (time)",
+     "부터"
+    ],
+    [
+     "연필___ 써요. (tool)",
+     "로"
+    ],
+    [
+     "고양이___ 밥을 줘요. (animal)",
+     "한테 / 에게"
+    ],
+    [
+     "천 원___ 없어요. (negative)",
+     "밖에"
+    ],
+    [
+     "친구___ 점심을 먹었어요. (spoken)",
+     "랑"
+    ],
+    [
+     "아침 8시___ 일어나요. (time)",
+     "에"
+    ]
+   ]
+  },
+  {
+   "id": "rv-3",
+   "title": {
+    "en": "Review test 3",
+    "ko": "종합 연습 3"
+   },
+   "items": [
+    [
+     "책___ 읽어요. (object)",
+     "을"
+    ],
+    [
+     "사과___ 먹어요. (object)",
+     "를"
+    ],
+    [
+     "손___ 먹어요. (tool)",
+     "으로"
+    ],
+    [
+     "여기___ 처음이에요? (topic)",
+     "는"
+    ],
+    [
+     "한국어___ 이야기해요. (language)",
+     "로"
+    ],
+    [
+     "하루에 커피를 다섯 잔___ 마셨어요. (as many as five)",
+     "이나"
+    ],
+    [
+     "엄마___ 선물을 드렸어요. (polite: to Mom)",
+     "께"
+    ],
+    [
+     "이 가방___ 비싸요. (contrast with the other)",
+     "은"
+    ]
+   ]
+  },
+  {
+   "id": "rv-4",
+   "title": {
+    "en": "Review test 4",
+    "ko": "종합 연습 4"
+   },
+   "items": [
+    [
+     "저___ 한국 음식___ 좋아해요. (topic / object)",
+     "는 / 을"
+    ],
+    [
+     "동생___ 학교___ 가요. (subject / to)",
+     "이 / 에"
+    ],
+    [
+     "친구___ 도서관___ 공부했어요. (with / at)",
+     "랑 / 하고 · 에서"
+    ],
+    [
+     "아침 7시___ 일어나서 버스___ 학교에 가요. (time / by)",
+     "에 / 로"
+    ],
+    [
+     "선생님___ 질문했어요. (to a teacher, polite)",
+     "께"
+    ],
+    [
+     "이 가방___ 저 가방___ 더 비싸요. (than)",
+     "이 / 보다"
+    ],
+    [
+     "커피___ 마셨어요. (only)",
+     "만"
+    ],
+    [
+     "사과___ 먹었어요. (an object — 사과 has no final consonant)",
+     "를"
+    ]
+   ]
+  },
+  {
+   "id": "rv-5",
+   "title": {
+    "en": "Review test 5",
+    "ko": "종합 연습 5"
+   },
+   "items": [
+    [
+     "이건 동생___ 우산이에요. (possessive)",
+     "의"
+    ],
+    [
+     "집___ 회사까지 한 시간 걸려요. (place)",
+     "에서"
+    ],
+    [
+     "두 시___ 네 시까지 회의가 있어요. (time)",
+     "부터"
+    ],
+    [
+     "물___ 마셨어요. (only water)",
+     "만"
+    ],
+    [
+     "천 원___ 없어요. (only, with a negative)",
+     "밖에"
+    ],
+    [
+     "주말___ 등산을 해요. (every)",
+     "마다"
+    ],
+    [
+     "한 시간___ 걸려요. (about)",
+     "쯤"
+    ],
+    [
+     "가수___ 노래를 잘해요. (like)",
+     "처럼"
+    ]
+   ]
+  },
+  {
+   "id": "rv-6",
+   "title": {
+    "en": "Review test 6",
+    "ko": "종합 연습 6"
+   },
+   "items": [
+    [
+     "A: 뭐가 맛있어요? B: 김치찌개___ 맛있어요.",
+     "가"
+    ],
+    [
+     "A: 누구___ 만났어요? B: 친구___ 만났어요. (object)",
+     "를 / 를"
+    ],
+    [
+     "연필___ 써요. (tool)",
+     "로"
+    ],
+    [
+     "손___ 먹어요. (tool)",
+     "으로"
+    ],
+    [
+     "강아지___ 밥을 줘요. (animal)",
+     "한테 / 에게"
+    ],
+    [
+     "책___ 영화를 볼까요? (a book or a movie)",
+     "이나"
+    ],
+    [
+     "저___ 학생이에요. (me too)",
+     "도"
+    ],
+    [
+     "책상 위___ 안경이 있어요.",
+     "에"
+    ]
+   ]
+  }
  ]
 }
