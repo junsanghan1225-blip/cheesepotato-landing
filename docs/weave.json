@@ -1298,6 +1298,1671 @@
     "minSentences": 4,
     "minConnectors": 2
    }
+  },
+  {
+   "id": "w-intro-family",
+   "tier": "beginner",
+   "kind": "intro",
+   "title": {
+    "ko": "우리 가족",
+    "en": "My family"
+   },
+   "sentences": [
+    {
+     "ko": "우리 가족은 모두 네 명이에요.",
+     "en": "There are four people in my family.",
+     "key": [
+      "가족",
+      "네 명"
+     ],
+     "step": "who"
+    },
+    {
+     "ko": "부모님과 동생이 함께 살아요.",
+     "en": "My parents, younger sibling, and I live together.",
+     "key": [
+      "부모님",
+      "동생",
+      "살아요"
+     ],
+     "step": "where"
+    },
+    {
+     "ko": "주말마다 다 같이 저녁을 먹어요.",
+     "en": "We have dinner together every weekend.",
+     "key": [
+      "주말마다",
+      "저녁",
+      "먹어요"
+     ],
+     "step": "do"
+    },
+    {
+     "ko": "서로 바빠서 대화할 시간이 부족하기 때문이에요.",
+     "en": "It is because we are busy and lack time to talk.",
+     "key": [
+      "대화할",
+      "시간",
+      "부족하기"
+     ],
+     "step": "why"
+    },
+    {
+     "ko": "저는 가족과 이야기하는 시간이 가장 소중해요.",
+     "en": "The time I spend talking with my family is the most precious to me.",
+     "key": [
+      "가족",
+      "이야기하는 시간",
+      "소중해요"
+     ],
+     "step": "like"
+    }
+   ],
+   "gaps": [
+    {
+     "ans": "geurigo",
+     "opts": [
+      "geurigo",
+      "hajiman",
+      "geuraeseo",
+      "waenyahamyeon"
+     ],
+     "role": "add",
+     "why": {
+      "ko": "가족 수에 이어 함께 사는 사람을 덧붙여 소개하니까 「그리고」예요.",
+      "en": "It adds who lives together after stating the family size: 그리고."
+     }
+    },
+    {
+     "ans": "geuraeseo",
+     "opts": [
+      "geuraeseo",
+      "hajiman",
+      "waenyahamyeon",
+      "geureomyeon"
+     ],
+     "role": "result",
+     "why": {
+      "ko": "함께 살아서 주말마다 저녁을 같이 먹는 자연스러운 흐름이라 「그래서」예요.",
+      "en": "Living together naturally leads to having weekend dinner together: 그래서."
+     }
+    },
+    {
+     "ans": "waenyahamyeon",
+     "opts": [
+      "waenyahamyeon",
+      "geurigo",
+      "hajiman",
+      "geureomyeon"
+     ],
+     "role": "reason",
+     "why": {
+      "ko": "뒤 문장이 이유를 나타내는 「-기 때문이에요」로 끝나서 「왜냐하면」이에요.",
+      "en": "The next sentence ends in -기 때문이에요 and provides the reason: 왜냐하면."
+     }
+    },
+    {
+     "ans": "geuraeseo",
+     "opts": [
+      "geuraeseo",
+      "hajiman",
+      "geureomyeon",
+      "majimageuro"
+     ],
+     "role": "result",
+     "why": {
+      "ko": "대화 시간이 부족하여 가족과 이야기하는 시간이 가장 소중하게 느껴지니까 「그래서」예요.",
+      "en": "Because talking time is scarce, that time feels most precious: 그래서."
+     }
+    }
+   ],
+   "links": [
+    {
+     "from": 0,
+     "hint": {
+      "ko": "둘을 나란히 더해 한 문장으로",
+      "en": "Join the two as one sentence (adding)"
+     },
+     "ans": "우리 가족은 모두 네 명이고 부모님과 동생이 함께 살아요.",
+     "opts": [
+      "우리 가족은 모두 네 명이고 부모님과 동생이 함께 살아요.",
+      "우리 가족은 모두 네 명이어서 부모님과 동생이 함께 살아요.",
+      "우리 가족은 모두 네 명이지만 부모님과 동생이 함께 살아요.",
+      "우리 가족은 모두 네 명이면 부모님과 동생이 함께 살아요."
+     ],
+     "why": {
+      "ko": "가족 구성원의 수와 함께 사는 사실을 대등하게 더할 때는 「-(이)고」예요.",
+      "en": "To add the number of members and who lives together side by side, use -(이)고."
+     }
+    },
+    {
+     "from": 1,
+     "hint": {
+      "ko": "이유 → 결과로 한 문장으로",
+      "en": "Join as reason → result"
+     },
+     "ans": "부모님과 동생이 함께 살아서 주말마다 다 같이 저녁을 먹어요.",
+     "opts": [
+      "부모님과 동생이 함께 살아서 주말마다 다 같이 저녁을 먹어요.",
+      "부모님과 동생이 함께 살고 주말마다 다 같이 저녁을 먹어요.",
+      "부모님과 동생이 함께 살지만 주말마다 다 같이 저녁을 먹어요.",
+      "부모님과 동생이 함께 살면 주말마다 다 같이 저녁을 먹어요."
+     ],
+     "why": {
+      "ko": "함께 사는 것이 주말 식사의 원인이 되므로 「-아서/어서」예요.",
+      "en": "Living together is the reason for having weekend dinner together, so use -아서/어서."
+     }
+    }
+   ],
+   "write": {
+    "prompt": {
+     "ko": "우리 가족을 소개하는 이야기를 접속사 두 개 이상 넣어 네 문장 이상 써 보세요.",
+     "en": "Write four or more sentences introducing your family, using at least two connectors."
+    },
+    "cues": [
+     "가족 수",
+     "사는 곳",
+     "함께 하는 일",
+     "좋아하는 점"
+    ],
+    "minSentences": 4,
+    "minConnectors": 2
+   }
+  },
+  {
+   "id": "w-intro-friend",
+   "tier": "beginner",
+   "kind": "intro",
+   "title": {
+    "ko": "내 친구 지수",
+    "en": "My friend Jisu"
+   },
+   "sentences": [
+    {
+     "ko": "제 제일 친한 친구는 지수예요.",
+     "en": "My closest friend is Jisu.",
+     "key": [
+      "친구는",
+      "지수예요"
+     ],
+     "step": "who"
+    },
+    {
+     "ko": "우리는 고등학교 때 처음 만났어요.",
+     "en": "We first met in high school.",
+     "key": [
+      "고등학교",
+      "만났어요"
+     ],
+     "step": "do"
+    },
+    {
+     "ko": "지금은 서로 다른 대학에 다녀요.",
+     "en": "Now we attend different universities.",
+     "key": [
+      "대학에",
+      "다녀요"
+     ],
+     "step": "do"
+    },
+    {
+     "ko": "주말마다 만나서 카페에 자주 가요.",
+     "en": "We meet every weekend and often go to cafes.",
+     "key": [
+      "주말마다",
+      "카페에",
+      "가요"
+     ],
+     "step": "like"
+    },
+    {
+     "ko": "이야기를 나누면 마음이 편안해지기 때문이에요.",
+     "en": "It is because talking together makes my heart comfortable.",
+     "key": [
+      "마음이",
+      "편안해지기"
+     ],
+     "step": "why"
+    }
+   ],
+   "gaps": [
+    {
+     "ans": "geurigo",
+     "opts": [
+      "geurigo",
+      "hajiman",
+      "geuraeseo",
+      "waenyahamyeon"
+     ],
+     "role": "add",
+     "why": {
+      "ko": "친구 이름에 이어 처음 만난 시기를 덧붙여 말하니까 「그리고」예요.",
+      "en": "It adds when we first met right after introducing the friend: 그리고."
+     }
+    },
+    {
+     "ans": "geureonde",
+     "opts": [
+      "geureonde",
+      "geuraeseo",
+      "waenyahamyeon",
+      "geureomyeon"
+     ],
+     "role": "contrast",
+     "why": {
+      "ko": "고등학교 때 친해졌지만 지금은 다른 대학에 다닌다는 변화를 나타내어 「그런데」예요.",
+      "en": "Meeting in high school contrasting with now going to different colleges: 그런데."
+     }
+    },
+    {
+     "ans": "hajiman",
+     "opts": [
+      "hajiman",
+      "geuraeseo",
+      "waenyahamyeon",
+      "geureomyeon"
+     ],
+     "role": "contrast",
+     "why": {
+      "ko": "대학은 다르지만 여전히 주말마다 자주 만난다는 반대 상황이라 「하지만」이에요.",
+      "en": "Attending different colleges yet still meeting often on weekends: 하지만."
+     }
+    },
+    {
+     "ans": "waenyahamyeon",
+     "opts": [
+      "waenyahamyeon",
+      "geurigo",
+      "hajiman",
+      "geureomyeon"
+     ],
+     "role": "reason",
+     "why": {
+      "ko": "뒤 문장이 이유를 밝히는 「-기 때문이에요」로 끝나서 「왜냐하면」이에요.",
+      "en": "The next sentence ends in -기 때문이에요 and gives the reason: 왜냐하면."
+     }
+    }
+   ],
+   "links": [
+    {
+     "from": 1,
+     "hint": {
+      "ko": "과거와 현재의 다른 상황을 한 문장으로",
+      "en": "Join past and present differences into one sentence"
+     },
+     "ans": "우리는 고등학교 때 처음 만났지만 지금은 서로 다른 대학에 다녀요.",
+     "opts": [
+      "우리는 고등학교 때 처음 만났지만 지금은 서로 다른 대학에 다녀요.",
+      "우리는 고등학교 때 처음 만나서 지금은 서로 다른 대학에 다녀요.",
+      "우리는 고등학교 때 처음 만나고 지금은 서로 다른 대학에 다녀요.",
+      "우리는 고등학교 때 처음 만나면 지금은 서로 다른 대학에 다녀요."
+     ],
+     "why": {
+      "ko": "앞 사실과 뒤 사실이 서로 대조될 때는 연결 어미 「-지만」을 써요.",
+      "en": "When the front fact and the back fact contrast, use -지만."
+     }
+    },
+    {
+     "from": 2,
+     "hint": {
+      "ko": "기대와 다른 반대 상황을 한 문장으로",
+      "en": "Join as an unexpected contrast"
+     },
+     "ans": "지금은 서로 다른 대학에 다니는데 주말마다 만나서 카페에 자주 가요.",
+     "opts": [
+      "지금은 서로 다른 대학에 다니는데 주말마다 만나서 카페에 자주 가요.",
+      "지금은 서로 다른 대학에 다녀서 주말마다 만나서 카페에 자주 가요.",
+      "지금은 서로 다른 대학에 다니고 주말마다 만나서 카페에 자주 가요.",
+      "지금은 서로 다른 대학에 다니면 주말마다 만나서 카페에 자주 가요."
+     ],
+     "why": {
+      "ko": "배경 사실과 대조되는 반전의 상황을 연결할 때는 「-는데」를 써요.",
+      "en": "To link a background fact with an unexpected continuing action, use -는데."
+     }
+    }
+   ],
+   "write": {
+    "prompt": {
+     "ko": "친한 친구를 소개하는 이야기를 접속사 두 개 이상 넣어 네 문장 이상 써 보세요.",
+     "en": "Write four or more sentences introducing a close friend, using at least two connectors."
+    },
+    "cues": [
+     "친구 이름",
+     "만난 때",
+     "함께 하는 일",
+     "좋아하는 이유"
+    ],
+    "minSentences": 4,
+    "minConnectors": 2
+   }
+  },
+  {
+   "id": "w-intro-town",
+   "tier": "beginner",
+   "kind": "intro",
+   "title": {
+    "ko": "우리 동네",
+    "en": "My neighborhood"
+   },
+   "sentences": [
+    {
+     "ko": "제가 사는 곳은 조용한 동네예요.",
+     "en": "The place where I live is a quiet neighborhood.",
+     "key": [
+      "조용한",
+      "동네예요"
+     ],
+     "step": "who"
+    },
+    {
+     "ko": "근처에 큰 공원과 도서관이 있어요.",
+     "en": "There is a big park and a library nearby.",
+     "key": [
+      "공원과",
+      "도서관이"
+     ],
+     "step": "where"
+    },
+    {
+     "ko": "저녁마다 공원에서 가볍게 산책해요.",
+     "en": "I take a light walk in the park every evening.",
+     "key": [
+      "저녁마다",
+      "산책해요"
+     ],
+     "step": "do"
+    },
+    {
+     "ko": "나무가 많아서 공기가 아주 맑아요.",
+     "en": "There are many trees, so the air is very clean.",
+     "key": [
+      "나무가",
+      "맑아요"
+     ],
+     "step": "like"
+    },
+    {
+     "ko": "살수록 편안하고 정이 들기 때문이에요.",
+     "en": "It is because the more I live here, the more comfortable and attached I feel.",
+     "key": [
+      "살수록",
+      "정이 들기"
+     ],
+     "step": "why"
+    }
+   ],
+   "gaps": [
+    {
+     "ans": "geurigo",
+     "opts": [
+      "geurigo",
+      "hajiman",
+      "geuraeseo",
+      "waenyahamyeon"
+     ],
+     "role": "add",
+     "why": {
+      "ko": "동네 소개에 이어 주변 편의 시설을 덧붙여 소개하니까 「그리고」예요.",
+      "en": "It adds neighborhood facilities after introducing the town: 그리고."
+     }
+    },
+    {
+     "ans": "geuraeseo",
+     "opts": [
+      "geuraeseo",
+      "hajiman",
+      "waenyahamyeon",
+      "geureomyeon"
+     ],
+     "role": "result",
+     "why": {
+      "ko": "근처에 공원이 있어서 저녁 산책을 하는 결과로 이어지므로 「그래서」예요.",
+      "en": "Having a park nearby leads to taking evening walks: 그래서."
+     }
+    },
+    {
+     "ans": "tto",
+     "opts": [
+      "tto",
+      "hajiman",
+      "geuraeseo",
+      "geureomyeon"
+     ],
+     "role": "add",
+     "why": {
+      "ko": "산책 이야기 뒤에 동네의 또 다른 장점(맑은 공기)을 덧붙이니까 「또」예요.",
+      "en": "It adds another good point about the neighborhood after walking: 또."
+     }
+    },
+    {
+     "ans": "waenyahamyeon",
+     "opts": [
+      "waenyahamyeon",
+      "geurigo",
+      "hajiman",
+      "geureomyeon"
+     ],
+     "role": "reason",
+     "why": {
+      "ko": "뒤 문장이 동네를 좋아하는 이유(「-기 때문이에요」)를 밝히니까 「왜냐하면」이에요.",
+      "en": "The next sentence ends in -기 때문이에요 and gives the reason: 왜냐하면."
+     }
+    }
+   ],
+   "links": [
+    {
+     "from": 0,
+     "hint": {
+      "ko": "배경과 주변 시설을 한 문장으로",
+      "en": "Join neighborhood background and facilities into one sentence"
+     },
+     "ans": "제가 사는 곳은 조용한 동네인데 근처에 큰 공원과 도서관이 있어요.",
+     "opts": [
+      "제가 사는 곳은 조용한 동네인데 근처에 큰 공원과 도서관이 있어요.",
+      "제가 사는 곳은 조용한 동네여서 근처에 큰 공원과 도서관이 있어요.",
+      "제가 사는 곳은 조용한 동네이고 근처에 큰 공원과 도서관이 있어요.",
+      "제가 사는 곳은 조용한 동네이면 근처에 큰 공원과 도서관이 있어요."
+     ],
+     "why": {
+      "ko": "어떤 장소를 배경으로 제시하고 시설을 설명할 때는 「-ㄴ데」를 써요.",
+      "en": "To introduce a location as a background before detailing facilities, use -ㄴ데."
+     }
+    },
+    {
+     "from": 1,
+     "hint": {
+      "ko": "이유 → 결과로 한 문장으로",
+      "en": "Join as reason → result"
+     },
+     "ans": "근처에 큰 공원과 도서관이 있어서 저녁마다 공원에서 가볍게 산책해요.",
+     "opts": [
+      "근처에 큰 공원과 도서관이 있어서 저녁마다 공원에서 가볍게 산책해요.",
+      "근처에 큰 공원과 도서관이 있고 저녁마다 공원에서 가볍게 산책해요.",
+      "근처에 큰 공원과 도서관이 있지만 저녁마다 공원에서 가볍게 산책해요.",
+      "근처에 큰 공원과 도서관이 있으면 저녁마다 공원에서 가볍게 산책해요."
+     ],
+     "why": {
+      "ko": "공원이 있는 것이 산책을 하는 이유가 되므로 「-어서」예요.",
+      "en": "Having a park is the reason for taking walks, so use -어서."
+     }
+    }
+   ],
+   "write": {
+    "prompt": {
+     "ko": "내가 사는 동네를 소개하는 이야기를 접속사 두 개 이상 넣어 네 문장 이상 써 보세요.",
+     "en": "Write four or more sentences introducing your neighborhood, using at least two connectors."
+    },
+    "cues": [
+     "동네 분위기",
+     "근처 시설",
+     "동네에서 하는 일",
+     "좋아하는 이유"
+    ],
+    "minSentences": 4,
+    "minConnectors": 2
+   }
+  },
+  {
+   "id": "w-intro-hobby",
+   "tier": "beginner",
+   "kind": "intro",
+   "title": {
+    "ko": "내 취미",
+    "en": "My hobby"
+   },
+   "sentences": [
+    {
+     "ko": "제 취미는 사진 찍기예요.",
+     "en": "My hobby is taking photos.",
+     "key": [
+      "취미는",
+      "사진"
+     ],
+     "step": "who"
+    },
+    {
+     "ko": "쉬는 날마다 카메라를 들고 나가요.",
+     "en": "I go out with my camera on my days off.",
+     "key": [
+      "카메라를",
+      "나가요"
+     ],
+     "step": "do"
+    },
+    {
+     "ko": "주로 계절 꽃과 풍경을 찍어요.",
+     "en": "I mainly photograph seasonal flowers and scenery.",
+     "key": [
+      "꽃과",
+      "찍어요"
+     ],
+     "step": "like"
+    },
+    {
+     "ko": "아름다운 순간을 영원히 남길 수 있기 때문이에요.",
+     "en": "It is because I can preserve beautiful moments forever.",
+     "key": [
+      "순간을",
+      "남길"
+     ],
+     "step": "why"
+    },
+    {
+     "ko": "나중에는 제 사진전을 꼭 열고 싶어요.",
+     "en": "Later, I really want to hold my own photo exhibition.",
+     "key": [
+      "사진전을",
+      "열고 싶어요"
+     ],
+     "step": "wish"
+    }
+   ],
+   "gaps": [
+    {
+     "ans": "geuraeseo",
+     "opts": [
+      "geuraeseo",
+      "hajiman",
+      "waenyahamyeon",
+      "geureomyeon"
+     ],
+     "role": "result",
+     "why": {
+      "ko": "사진이 취미라서 카메라를 들고 나가는 행동으로 이어지니까 「그래서」예요.",
+      "en": "Photography being a hobby leads to going out with a camera: 그래서."
+     }
+    },
+    {
+     "ans": "geurigo",
+     "opts": [
+      "geurigo",
+      "hajiman",
+      "geuraeseo",
+      "waenyahamyeon"
+     ],
+     "role": "add",
+     "why": {
+      "ko": "밖으로 나간다는 사실에 이어 무엇을 찍는지 덧붙여 설명하니까 「그리고」예요.",
+      "en": "It adds what I photograph after mentioning going outside: 그리고."
+     }
+    },
+    {
+     "ans": "waenyahamyeon",
+     "opts": [
+      "waenyahamyeon",
+      "geurigo",
+      "hajiman",
+      "geureomyeon"
+     ],
+     "role": "reason",
+     "why": {
+      "ko": "뒤 문장이 이유를 밝히는 「-기 때문이에요」로 끝나서 「왜냐하면」이에요.",
+      "en": "The next sentence ends in -기 때문이에요 and states the reason: 왜냐하면."
+     }
+    },
+    {
+     "ans": "geuraeseo",
+     "opts": [
+      "geuraeseo",
+      "hajiman",
+      "geureomyeon",
+      "majimageuro"
+     ],
+     "role": "result",
+     "why": {
+      "ko": "사진 찍는 일이 소중해서 앞으로 사진전을 열고 싶다는 소망으로 이어지므로 「그래서」예요.",
+      "en": "Valuing photo moments leads to the wish of holding an exhibition: 그래서."
+     }
+    }
+   ],
+   "links": [
+    {
+     "from": 0,
+     "hint": {
+      "ko": "이유 → 결과로 한 문장으로",
+      "en": "Join as reason → result"
+     },
+     "ans": "제 취미는 사진 찍기여서 쉬는 날마다 카메라를 들고 나가요.",
+     "opts": [
+      "제 취미는 사진 찍기여서 쉬는 날마다 카메라를 들고 나가요.",
+      "제 취미는 사진 찍기이고 쉬는 날마다 카메라를 들고 나가요.",
+      "제 취미는 사진 찍기이지만 쉬는 날마다 카메라를 들고 나가요.",
+      "제 취미는 사진 찍기이면 쉬는 날마다 카메라를 들고 나가요."
+     ],
+     "why": {
+      "ko": "취미가 원인이 되어 나가는 행동의 결과가 생기므로 「-어서/여서」예요.",
+      "en": "The hobby is the reason for going out with a camera, so use -여서."
+     }
+    },
+    {
+     "from": 1,
+     "hint": {
+      "ko": "연속되는 행동을 한 문장으로",
+      "en": "Join consecutive actions into one sentence"
+     },
+     "ans": "쉬는 날마다 카메라를 들고 나가고 주로 계절 꽃과 풍경을 찍어요.",
+     "opts": [
+      "쉬는 날마다 카메라를 들고 나가고 주로 계절 꽃과 풍경을 찍어요.",
+      "쉬는 날마다 카메라를 들고 나가서 주로 계절 꽃과 풍경을 찍어요.",
+      "쉬는 날마다 카메라를 들고 나가지만 주로 계절 꽃과 풍경을 찍어요.",
+      "쉬는 날마다 카메라를 들고 나가면 주로 계절 꽃과 풍경을 찍어요."
+     ],
+     "why": {
+      "ko": "외출하는 행동과 사진을 찍는 행동을 나란히 이어 줄 때는 「-고」예요.",
+      "en": "To list the action of going out and taking photos side by side, use -고."
+     }
+    }
+   ],
+   "write": {
+    "prompt": {
+     "ko": "자신의 취미를 소개하는 이야기를 접속사 두 개 이상 넣어 네 문장 이상 써 보세요.",
+     "en": "Write four or more sentences introducing your hobby, using at least two connectors."
+    },
+    "cues": [
+     "취미",
+     "자주 하는 일",
+     "좋아하는 이유",
+     "앞으로의 바람"
+    ],
+    "minSentences": 4,
+    "minConnectors": 2
+   }
+  },
+  {
+   "id": "w-explain-why-korean",
+   "tier": "beginner",
+   "kind": "explain",
+   "title": {
+    "ko": "한국어를 공부하는 이유",
+    "en": "Why I study Korean"
+   },
+   "sentences": [
+    {
+     "ko": "저는 매일 한국어를 열심히 공부해요.",
+     "en": "I study Korean hard every day.",
+     "key": [
+      "한국어를",
+      "공부해요"
+     ],
+     "step": "point"
+    },
+    {
+     "ko": "한국 드라마와 노래를 정말 좋아하기 때문이에요.",
+     "en": "It is because I really like Korean dramas and songs.",
+     "key": [
+      "드라마와",
+      "노래를"
+     ],
+     "step": "reason"
+    },
+    {
+     "ko": "자막 없이 한국 방송을 보고 싶어요.",
+     "en": "I want to watch Korean broadcasts without subtitles.",
+     "key": [
+      "자막",
+      "방송을"
+     ],
+     "step": "reason"
+    },
+    {
+     "ko": "좋아하는 배우의 인터뷰를 직접 이해하고 싶어요.",
+     "en": "I want to understand my favorite actor's interview directly.",
+     "key": [
+      "배우의",
+      "인터뷰를"
+     ],
+     "step": "example"
+    },
+    {
+     "ko": "한국어 공부는 언제나 즐거워요.",
+     "en": "Studying Korean is always enjoyable.",
+     "key": [
+      "한국어 공부는",
+      "즐거워요"
+     ],
+     "step": "recap"
+    }
+   ],
+   "gaps": [
+    {
+     "ans": "waenyahamyeon",
+     "opts": [
+      "waenyahamyeon",
+      "geuraeseo",
+      "hajiman",
+      "geureomyeon"
+     ],
+     "role": "reason",
+     "why": {
+      "ko": "뒤 문장이 공부하는 이유를 밝히는 「-기 때문이에요」로 끝나서 「왜냐하면」이에요.",
+      "en": "The next sentence ends in -기 때문이에요 and states the reason: 왜냐하면."
+     }
+    },
+    {
+     "ans": "tto",
+     "opts": [
+      "tto",
+      "hajiman",
+      "geuraeseo",
+      "geureomyeon"
+     ],
+     "role": "add",
+     "why": {
+      "ko": "드라마를 좋아하는 이유에 이어 자막 없이 보고 싶다는 이유를 덧붙이니까 「또」예요.",
+      "en": "It adds wanting to watch without subtitles on top of liking dramas: 또."
+     }
+    },
+    {
+     "ans": "yereul-deureo",
+     "opts": [
+      "yereul-deureo",
+      "geurigo",
+      "hajiman",
+      "geuraeseo"
+     ],
+     "role": "example",
+     "why": {
+      "ko": "방송을 보고 싶다는 바람의 구체적인 예로 배우 인터뷰를 드니까 「예를 들어」예요.",
+      "en": "It gives an actor's interview as a concrete example of watching broadcasts: 예를 들어."
+     }
+    },
+    {
+     "ans": "geuraeseo",
+     "opts": [
+      "geuraeseo",
+      "hajiman",
+      "geureomyeon",
+      "majimageuro"
+     ],
+     "role": "result",
+     "why": {
+      "ko": "명확한 목표가 있어서 공부가 즐겁다는 결론에 이르므로 「그래서」예요.",
+      "en": "Having clear goals leads to enjoying the study: 그래서."
+     }
+    }
+   ],
+   "links": [
+    {
+     "from": 2,
+     "hint": {
+      "ko": "두 가지 바람을 나란히 더해 한 문장으로",
+      "en": "Join two wishes side by side into one sentence"
+     },
+     "ans": "자막 없이 한국 방송을 보고 싶고 좋아하는 배우의 인터뷰를 직접 이해하고 싶어요.",
+     "opts": [
+      "자막 없이 한국 방송을 보고 싶고 좋아하는 배우의 인터뷰를 직접 이해하고 싶어요.",
+      "자막 없이 한국 방송을 보고 싶어서 좋아하는 배우의 인터뷰를 직접 이해하고 싶어요.",
+      "자막 없이 한국 방송을 보고 싶지만 좋아하는 배우의 인터뷰를 직접 이해하고 싶어요.",
+      "자막 없이 한국 방송을 보고 싶으면 좋아하는 배우의 인터뷰를 직접 이해하고 싶어요."
+     ],
+     "why": {
+      "ko": "방송 보기와 인터뷰 이해하기라는 두 가지 소망을 나란히 연결할 때는 「-고」예요.",
+      "en": "To connect two wishes side by side, use -고."
+     }
+    },
+    {
+     "from": 3,
+     "hint": {
+      "ko": "이유 → 결과로 한 문장으로",
+      "en": "Join as reason → result"
+     },
+     "ans": "좋아하는 배우의 인터뷰를 직접 이해하고 싶어서 한국어 공부는 언제나 즐거워요.",
+     "opts": [
+      "좋아하는 배우의 인터뷰를 직접 이해하고 싶어서 한국어 공부는 언제나 즐거워요.",
+      "좋아하는 배우의 인터뷰를 직접 이해하고 싶고 한국어 공부는 언제나 즐거워요.",
+      "좋아하는 배우의 인터뷰를 직접 이해하고 싶지만 한국어 공부는 언제나 즐거워요.",
+      "좋아하는 배우의 인터뷰를 직접 이해하고 싶으면 한국어 공부는 언제나 즐거워요."
+     ],
+     "why": {
+      "ko": "이해하고 싶다는 마음이 공부를 즐겁게 만드는 원인이 되므로 「-어서」예요.",
+      "en": "Wanting to understand is the reason for enjoying Korean studies, so use -어서."
+     }
+    }
+   ],
+   "write": {
+    "prompt": {
+     "ko": "한국어를 공부하는 이유를 접속사 두 개 이상 넣어 네 문장 이상 써 보세요.",
+     "en": "Write four or more sentences about why you study Korean, using at least two connectors."
+    },
+    "cues": [
+     "공부 습관",
+     "한국 문화 관심",
+     "구체적인 목표",
+     "공부 소감"
+    ],
+    "minSentences": 4,
+    "minConnectors": 2
+   }
+  },
+  {
+   "id": "w-explain-ramen",
+   "tier": "beginner",
+   "kind": "explain",
+   "title": {
+    "ko": "라면 끓이는 법",
+    "en": "How to cook ramen"
+   },
+   "sentences": [
+    {
+     "ko": "라면은 집에서 쉽게 끓일 수 있어요.",
+     "en": "You can easily cook ramen at home.",
+     "key": [
+      "라면은",
+      "끓일"
+     ],
+     "step": "point"
+    },
+    {
+     "ko": "냄비에 적당한 양의 물을 부어요.",
+     "en": "Pour an appropriate amount of water into a pot.",
+     "key": [
+      "냄비에",
+      "물을"
+     ],
+     "step": "how"
+    },
+    {
+     "ko": "물이 끓으면 면과 수프를 넣어요.",
+     "en": "When the water boils, put in the noodles and soup.",
+     "key": [
+      "물이",
+      "면과"
+     ],
+     "step": "how"
+    },
+    {
+     "ko": "삼 분 동안 센 불로 더 끓여요.",
+     "en": "Boil for three more minutes over high heat.",
+     "key": [
+      "삼 분",
+      "끓여요"
+     ],
+     "step": "how"
+    },
+    {
+     "ko": "맛있는 라면이 금방 완성돼요.",
+     "en": "Delicious ramen is finished in no time.",
+     "key": [
+      "라면이",
+      "완성돼요"
+     ],
+     "step": "result"
+    }
+   ],
+   "gaps": [
+    {
+     "ans": "meonjeo",
+     "opts": [
+      "meonjeo",
+      "geudaeume",
+      "majimageuro",
+      "geuraeseo"
+     ],
+     "role": "order",
+     "why": {
+      "ko": "요리의 첫 번째 순서로 물을 붓는 동작을 시작하니까 「먼저」예요.",
+      "en": "It begins the first step of cooking by pouring water: 먼저."
+     }
+    },
+    {
+     "ans": "geudaeume",
+     "opts": [
+      "geudaeume",
+      "meonjeo",
+      "majimageuro",
+      "hajiman"
+     ],
+     "role": "order",
+     "why": {
+      "ko": "물을 끓인 뒤 면과 수프를 넣는 다음 단계이므로 「그다음에」예요.",
+      "en": "Putting in noodles and soup is the next step after boiling water: 그다음에."
+     }
+    },
+    {
+     "ans": "geurigo",
+     "opts": [
+      "geurigo",
+      "hajiman",
+      "geuraeseo",
+      "waenyahamyeon"
+     ],
+     "role": "add",
+     "why": {
+      "ko": "재료를 넣은 후 삼 분간 끓이는 과정을 순서대로 덧붙이니까 「그리고」예요.",
+      "en": "It adds boiling for three minutes after putting in the ingredients: 그리고."
+     }
+    },
+    {
+     "ans": "geureomyeon",
+     "opts": [
+      "geureomyeon",
+      "hajiman",
+      "geuraeseo",
+      "waenyahamyeon"
+     ],
+     "role": "condition",
+     "why": {
+      "ko": "삼 분 동안 끓이면 라면이 완성된다는 조건에 따른 결과이므로 「그러면」이에요.",
+      "en": "If you boil it for three minutes, the ramen will be finished: 그러면."
+     }
+    }
+   ],
+   "links": [
+    {
+     "from": 1,
+     "hint": {
+      "ko": "순서대로 이어 한 문장으로",
+      "en": "Join in sequence as one sentence"
+     },
+     "ans": "냄비에 적당한 양의 물을 붓고 물이 끓으면 면과 수프를 넣어요.",
+     "opts": [
+      "냄비에 적당한 양의 물을 붓고 물이 끓으면 면과 수프를 넣어요.",
+      "냄비에 적당한 양의 물을 부어서 물이 끓으면 면과 수프를 넣어요.",
+      "냄비에 적당한 양의 물을 붓지만 물이 끓으면 면과 수프를 넣어요.",
+      "냄비에 적당한 양의 물을 부으면 물이 끓으면 면과 수프를 넣어요."
+     ],
+     "why": {
+      "ko": "순차적으로 일어나는 두 가지 조리 동작을 대등하게 이을 때는 「-고」예요.",
+      "en": "To connect two cooking actions occurring in sequence, use -고."
+     }
+    },
+    {
+     "from": 2,
+     "hint": {
+      "ko": "조리 과정을 순서대로 이어 한 문장으로",
+      "en": "Join cooking steps sequentially into one sentence"
+     },
+     "ans": "물이 끓으면 면과 수프를 넣고 삼 분 동안 센 불로 더 끓여요.",
+     "opts": [
+      "물이 끓으면 면과 수프를 넣고 삼 분 동안 센 불로 더 끓여요.",
+      "물이 끓으면 면과 수프를 넣어서 삼 분 동안 센 불로 더 끓여요.",
+      "물이 끓으면 면과 수프를 넣지만 삼 분 동안 센 불로 더 끓여요.",
+      "물이 끓으면 면과 수프를 넣으면 삼 분 동안 센 불로 더 끓여요."
+     ],
+     "why": {
+      "ko": "재료를 넣는 동작에 이어 더 끓이는 동작을 나란히 연결할 때는 「-고」예요.",
+      "en": "To link putting in ingredients and further boiling, use -고."
+     }
+    }
+   ],
+   "write": {
+    "prompt": {
+     "ko": "라면을 끓이는 방법을 접속사 두 개 이상 넣어 네 문장 이상 써 보세요.",
+     "en": "Write four or more sentences explaining how to cook ramen, using at least two connectors."
+    },
+    "cues": [
+     "물 붓기",
+     "면 넣기",
+     "끓이는 시간",
+     "완성된 모습"
+    ],
+    "minSentences": 4,
+    "minConnectors": 2
+   }
+  },
+  {
+   "id": "w-explain-way",
+   "tier": "beginner",
+   "kind": "explain",
+   "title": {
+    "ko": "우리 집에 오는 길",
+    "en": "The way to my house"
+   },
+   "sentences": [
+    {
+     "ko": "우리 집은 지하철역에서 아주 가까워요.",
+     "en": "My house is very close to the subway station.",
+     "key": [
+      "우리 집은",
+      "가까워요"
+     ],
+     "step": "point"
+    },
+    {
+     "ko": "일 번 출구로 나와서 직진해요.",
+     "en": "Come out of Exit 1 and go straight.",
+     "key": [
+      "일 번 출구로",
+      "직진해요"
+     ],
+     "step": "how"
+    },
+    {
+     "ko": "사거리에서 횡단보도를 건너요.",
+     "en": "Cross the crosswalk at the intersection.",
+     "key": [
+      "사거리에서",
+      "건너요"
+     ],
+     "step": "how"
+    },
+    {
+     "ko": "편의점을 끼고 골목으로 들어가요.",
+     "en": "Turn by the convenience store into the alley.",
+     "key": [
+      "편의점을",
+      "골목으로"
+     ],
+     "step": "how"
+    },
+    {
+     "ko": "하얀색 건물이 바로 보여요.",
+     "en": "You will see a white building right away.",
+     "key": [
+      "하얀색",
+      "보여요"
+     ],
+     "step": "result"
+    }
+   ],
+   "gaps": [
+    {
+     "ans": "meonjeo",
+     "opts": [
+      "meonjeo",
+      "geudaeume",
+      "majimageuro",
+      "geuraeseo"
+     ],
+     "role": "order",
+     "why": {
+      "ko": "길을 찾는 첫 번째 단계로 출구에서 나오는 동작을 가리키니까 「먼저」예요.",
+      "en": "It points to the first step of exiting the station: 먼저."
+     }
+    },
+    {
+     "ans": "geudaeume",
+     "opts": [
+      "geudaeume",
+      "meonjeo",
+      "majimageuro",
+      "hajiman"
+     ],
+     "role": "order",
+     "why": {
+      "ko": "직진한 뒤 사거리에서 건너는 다음 차례 행동을 나타내므로 「그다음에」예요.",
+      "en": "Crossing at the intersection is the next step after going straight: 그다음에."
+     }
+    },
+    {
+     "ans": "geurigo",
+     "opts": [
+      "geurigo",
+      "hajiman",
+      "geuraeseo",
+      "waenyahamyeon"
+     ],
+     "role": "add",
+     "why": {
+      "ko": "길을 찾아가는 순서에 편의점 골목으로 들어가는 동작을 덧붙이니까 「그리고」예요.",
+      "en": "It adds entering the alley by the convenience store to the route: 그리고."
+     }
+    },
+    {
+     "ans": "geureomyeon",
+     "opts": [
+      "geureomyeon",
+      "hajiman",
+      "geuraeseo",
+      "waenyahamyeon"
+     ],
+     "role": "condition",
+     "why": {
+      "ko": "골목으로 들어가면 건물이 보인다는 조건과 결과를 잇는 말이므로 「그러면」이에요.",
+      "en": "Entering the alley leads to seeing the building: 그러면."
+     }
+    }
+   ],
+   "links": [
+    {
+     "from": 1,
+     "hint": {
+      "ko": "순서대로 이어 한 문장으로",
+      "en": "Join in sequence as one sentence"
+     },
+     "ans": "일 번 출구로 나와서 직진하고 사거리에서 횡단보도를 건너요.",
+     "opts": [
+      "일 번 출구로 나와서 직진하고 사거리에서 횡단보도를 건너요.",
+      "일 번 출구로 나와서 직진해서 사거리에서 횡단보도를 건너요.",
+      "일 번 출구로 나와서 직진하지만 사거리에서 횡단보도를 건너요.",
+      "일 번 출구로 나와서 직진하면 사거리에서 횡단보도를 건너요."
+     ],
+     "why": {
+      "ko": "직진한 후 건너는 차례대로의 동작을 나란히 연결할 때는 「-고」예요.",
+      "en": "To link moving straight and then crossing in sequence, use -고."
+     }
+    },
+    {
+     "from": 2,
+     "hint": {
+      "ko": "길 안내 동작을 이어 한 문장으로",
+      "en": "Join direction steps into one sentence"
+     },
+     "ans": "사거리에서 횡단보도를 건너고 편의점을 끼고 골목으로 들어가요.",
+     "opts": [
+      "사거리에서 횡단보도를 건너고 편의점을 끼고 골목으로 들어가요.",
+      "사거리에서 횡단보도를 건너서 편의점을 끼고 골목으로 들어가요.",
+      "사거리에서 횡단보도를 건너지만 편의점을 끼고 골목으로 들어가요.",
+      "사거리에서 횡단보도를 건너면 편의점을 끼고 골목으로 들어가요."
+     ],
+     "why": {
+      "ko": "건넌 뒤 골목으로 향하는 두 동작을 자연스럽게 묶을 때는 「-고」예요.",
+      "en": "To group crossing and heading into the alley together, use -고."
+     }
+    }
+   ],
+   "write": {
+    "prompt": {
+     "ko": "우리 집에 오는 길을 설명하는 이야기를 접속사 두 개 이상 넣어 네 문장 이상 써 보세요.",
+     "en": "Write four or more sentences explaining the way to your house, using at least two connectors."
+    },
+    "cues": [
+     "가까운 역",
+     "출구",
+     "방향",
+     "도착 건물"
+    ],
+    "minSentences": 4,
+    "minConnectors": 2
+   }
+  },
+  {
+   "id": "w-explain-food",
+   "tier": "beginner",
+   "kind": "explain",
+   "title": {
+    "ko": "내가 좋아하는 김밥",
+    "en": "My favorite food, gimbap"
+   },
+   "sentences": [
+    {
+     "ko": "제가 가장 좋아하는 음식은 김밥이에요.",
+     "en": "My favorite food is gimbap.",
+     "key": [
+      "음식은",
+      "김밥이에요"
+     ],
+     "step": "point"
+    },
+    {
+     "ko": "맛있고 가격도 부담 없이 저렴하기 때문이에요.",
+     "en": "It is because it is delicious and affordably inexpensive.",
+     "key": [
+      "맛있고",
+      "저렴하기"
+     ],
+     "step": "reason"
+    },
+    {
+     "ko": "언제 어디서나 간편하게 먹을 수 있어요.",
+     "en": "You can eat it conveniently anytime and anywhere.",
+     "key": [
+      "간편하게",
+      "먹을"
+     ],
+     "step": "reason"
+    },
+    {
+     "ko": "소풍이나 여행을 갈 때 항상 챙겨요.",
+     "en": "When going on a picnic or trip, I always pack it.",
+     "key": [
+      "소풍이나",
+      "챙겨요"
+     ],
+     "step": "example"
+    },
+    {
+     "ko": "김밥은 언제 먹어도 정말 맛있어요.",
+     "en": "Gimbap is truly delicious whenever I eat it.",
+     "key": [
+      "김밥은",
+      "맛있어요"
+     ],
+     "step": "recap"
+    }
+   ],
+   "gaps": [
+    {
+     "ans": "waenyahamyeon",
+     "opts": [
+      "waenyahamyeon",
+      "geuraeseo",
+      "hajiman",
+      "geureomyeon"
+     ],
+     "role": "reason",
+     "why": {
+      "ko": "뒤 문장이 김밥을 좋아하는 이유를 밝히는 「-기 때문이에요」로 끝나서 「왜냐하면」이에요.",
+      "en": "The next sentence ends in -기 때문이에요 and gives the reason: 왜냐하면."
+     }
+    },
+    {
+     "ans": "gedaga",
+     "opts": [
+      "gedaga",
+      "hajiman",
+      "geuraeseo",
+      "geureomyeon"
+     ],
+     "role": "add",
+     "why": {
+      "ko": "맛과 가격에 더해 간편하다는 장점을 한층 더 강하게 보태니까 「게다가」예요.",
+      "en": "It adds another strong advantage, convenience, on top of taste and price: 게다가."
+     }
+    },
+    {
+     "ans": "geuraeseo",
+     "opts": [
+      "geuraeseo",
+      "hajiman",
+      "waenyahamyeon",
+      "geureomyeon"
+     ],
+     "role": "result",
+     "why": {
+      "ko": "간편하게 먹을 수 있어서 소풍 때 항상 챙긴다는 결과로 이어지니까 「그래서」예요.",
+      "en": "Being convenient leads to packing it for picnics: 그래서."
+     }
+    },
+    {
+     "ans": "geuraeseo",
+     "opts": [
+      "geuraeseo",
+      "hajiman",
+      "geureomyeon",
+      "majimageuro"
+     ],
+     "role": "result",
+     "why": {
+      "ko": "여러 장점과 추억 덕분에 최고의 음식이라고 마무리하므로 「그래서」예요.",
+      "en": "All the reasons lead to concluding it is truly delicious: 그래서."
+     }
+    }
+   ],
+   "links": [
+    {
+     "from": 2,
+     "hint": {
+      "ko": "이유 → 결과로 한 문장으로",
+      "en": "Join as reason → result"
+     },
+     "ans": "언제 어디서나 간편하게 먹을 수 있어서 소풍이나 여행을 갈 때 항상 챙겨요.",
+     "opts": [
+      "언제 어디서나 간편하게 먹을 수 있어서 소풍이나 여행을 갈 때 항상 챙겨요.",
+      "언제 어디서나 간편하게 먹을 수 있고 소풍이나 여행을 갈 때 항상 챙겨요.",
+      "언제 어디서나 간편하게 먹을 수 있지만 소풍이나 여행을 갈 때 항상 챙겨요.",
+      "언제 어디서나 간편하게 먹을 수 있으면 소풍이나 여행을 갈 때 항상 챙겨요."
+     ],
+     "why": {
+      "ko": "간편함이 소풍에 챙겨 가는 행동의 원인이 되므로 「-어서」예요.",
+      "en": "Convenience is the reason for packing it on picnics, so use -어서."
+     }
+    },
+    {
+     "from": 3,
+     "hint": {
+      "ko": "경험과 느낌을 나란히 한 문장으로",
+      "en": "Join experience and impression into one sentence"
+     },
+     "ans": "소풍이나 여행을 갈 때 항상 챙기는데 김밥은 언제 먹어도 정말 맛있어요.",
+     "opts": [
+      "소풍이나 여행을 갈 때 항상 챙기는데 김밥은 언제 먹어도 정말 맛있어요.",
+      "소풍이나 여행을 갈 때 항상 챙겨서 김밥은 언제 먹어도 정말 맛있어요.",
+      "소풍이나 여행을 갈 때 항상 챙기고 김밥은 언제 먹어도 정말 맛있어요.",
+      "소풍이나 여행을 갈 때 항상 챙기면 김밥은 언제 먹어도 정말 맛있어요."
+     ],
+     "why": {
+      "ko": "소풍 때 챙기는 배경 상황 뒤에 전반적인 감상을 덧붙일 때는 「-는데」예요.",
+      "en": "To set up the picnic habit as background before expressing overall impressions, use -는데."
+     }
+    }
+   ],
+   "write": {
+    "prompt": {
+     "ko": "내가 좋아하는 음식을 소개하는 이야기를 접속사 두 개 이상 넣어 네 문장 이상 써 보세요.",
+     "en": "Write four or more sentences introducing your favorite food, using at least two connectors."
+    },
+    "cues": [
+     "음식 이름",
+     "맛과 특징",
+     "자주 먹는 때",
+     "좋아하는 이유"
+    ],
+    "minSentences": 4,
+    "minConnectors": 2
+   }
+  },
+  {
+   "id": "w-tell-yesterday",
+   "tier": "beginner",
+   "kind": "tell",
+   "title": {
+    "ko": "어제 있었던 일",
+    "en": "What happened yesterday"
+   },
+   "sentences": [
+    {
+     "ko": "어제 오후에 서점에 갔어요.",
+     "en": "Yesterday afternoon, I went to a bookstore.",
+     "key": [
+      "어제",
+      "서점에"
+     ],
+     "step": "when"
+    },
+    {
+     "ko": "읽고 싶었던 한국어 소설을 골랐어요.",
+     "en": "I picked out a Korean novel that I had wanted to read.",
+     "key": [
+      "소설을",
+      "골랐어요"
+     ],
+     "step": "do"
+    },
+    {
+     "ko": "근처 카페에 들어가서 책을 읽었어요.",
+     "en": "I went into a nearby cafe and read the book.",
+     "key": [
+      "카페에",
+      "책을"
+     ],
+     "step": "do"
+    },
+    {
+     "ko": "이야기가 아주 흥미진진해서 감동적이었어요.",
+     "en": "The story was very exciting and moving.",
+     "key": [
+      "이야기가",
+      "감동적이었어요"
+     ],
+     "step": "feel"
+    },
+    {
+     "ko": "정말 뿌듯하고 즐거운 하루를 보냈어요.",
+     "en": "I spent a truly rewarding and enjoyable day.",
+     "key": [
+      "즐거운",
+      "보냈어요"
+     ],
+     "step": "end"
+    }
+   ],
+   "gaps": [
+    {
+     "ans": "geurigo",
+     "opts": [
+      "geurigo",
+      "hajiman",
+      "geuraeseo",
+      "waenyahamyeon"
+     ],
+     "role": "add",
+     "why": {
+      "ko": "서점에 간 뒤 책을 고른 행동을 순서대로 더하니까 「그리고」예요.",
+      "en": "It adds picking out a book after going to the bookstore: 그리고."
+     }
+    },
+    {
+     "ans": "geuraeseo",
+     "opts": [
+      "geuraeseo",
+      "hajiman",
+      "waenyahamyeon",
+      "geureomyeon"
+     ],
+     "role": "result",
+     "why": {
+      "ko": "책을 골랐기 때문에 읽으려고 카페에 들어간 결과가 이어져서 「그래서」예요.",
+      "en": "Picking the book led to going to a cafe to read it: 그래서."
+     }
+    },
+    {
+     "ans": "geureonde",
+     "opts": [
+      "geureonde",
+      "geuraeseo",
+      "waenyahamyeon",
+      "geureomyeon"
+     ],
+     "role": "contrast",
+     "why": {
+      "ko": "책을 읽어 보니 이야기가 기대 이상으로 감동적이었다는 전환을 보여 주어 「그런데」예요.",
+      "en": "It introduces the impression after reading the book: 그런데."
+     }
+    },
+    {
+     "ans": "geuraeseo",
+     "opts": [
+      "geuraeseo",
+      "hajiman",
+      "geureomyeon",
+      "majimageuro"
+     ],
+     "role": "result",
+     "why": {
+      "ko": "책이 아주 재미있었던 덕분에 즐거운 하루를 보냈다는 결말이므로 「그래서」예요.",
+      "en": "Enjoying the book resulted in a happy day: 그래서."
+     }
+    }
+   ],
+   "links": [
+    {
+     "from": 0,
+     "hint": {
+      "ko": "이동과 목적을 한 문장으로",
+      "en": "Join movement and purpose into one sentence"
+     },
+     "ans": "어제 오후에 서점에 가서 읽고 싶었던 한국어 소설을 골랐어요.",
+     "opts": [
+      "어제 오후에 서점에 가서 읽고 싶었던 한국어 소설을 골랐어요.",
+      "어제 오후에 서점에 가고 읽고 싶었던 한국어 소설을 골랐어요.",
+      "어제 오후에 서점에 가지만 읽고 싶었던 한국어 소설을 골랐어요.",
+      "어제 오후에 서점에 가면 읽고 싶었던 한국어 소설을 골랐어요."
+     ],
+     "why": {
+      "ko": "장소로 이동하여 목적한 동작을 행할 때는 연결 어미 「-아서/어서」를 써요.",
+      "en": "To express moving to a place and carrying out an action, use -아서/어서."
+     }
+    },
+    {
+     "from": 1,
+     "hint": {
+      "ko": "순서대로 한 문장으로",
+      "en": "Join in sequence as one sentence"
+     },
+     "ans": "읽고 싶었던 한국어 소설을 고르고 근처 카페에 들어가서 책을 읽었어요.",
+     "opts": [
+      "읽고 싶었던 한국어 소설을 고르고 근처 카페에 들어가서 책을 읽었어요.",
+      "읽고 싶었던 한국어 소설을 골라서 근처 카페에 들어가서 책을 읽었어요.",
+      "읽고 싶었던 한국어 소설을 고르지만 근처 카페에 들어가서 책을 읽었어요.",
+      "읽고 싶었던 한국어 소설을 고르면 근처 카페에 들어가서 책을 읽었어요."
+     ],
+     "why": {
+      "ko": "책을 고른 후 카페로 이동해 읽은 순차적 행동을 나란히 연결할 때는 「-고」예요.",
+      "en": "To link picking a book and then heading to a cafe sequentially, use -고."
+     }
+    }
+   ],
+   "write": {
+    "prompt": {
+     "ko": "어제 있었던 일을 접속사 두 개 이상 넣어 네 문장 이상 써 보세요.",
+     "en": "Write four or more sentences about what happened yesterday, using at least two connectors."
+    },
+    "cues": [
+     "때와 장소",
+     "한 일",
+     "느낀 점",
+     "하루의 마무리"
+    ],
+    "minSentences": 4,
+    "minConnectors": 2
+   }
+  },
+  {
+   "id": "w-tell-trip",
+   "tier": "beginner",
+   "kind": "tell",
+   "title": {
+    "ko": "지난 부산 여행",
+    "en": "My past trip to Busan"
+   },
+   "sentences": [
+    {
+     "ko": "지난 주말에 기차를 타고 부산으로 떠났어요.",
+     "en": "Last weekend, I took the train and set off for Busan.",
+     "key": [
+      "지난 주말에",
+      "부산으로"
+     ],
+     "step": "when"
+    },
+    {
+     "ko": "친한 친구와 둘이서 같이 갔어요.",
+     "en": "I went together with a close friend.",
+     "key": [
+      "친구와",
+      "같이"
+     ],
+     "step": "who"
+    },
+    {
+     "ko": "해운대 바다를 구경하고 맛있는 생선회를 먹었어요.",
+     "en": "We enjoyed Haeundae beach and ate delicious raw fish.",
+     "key": [
+      "바다를",
+      "생선회를"
+     ],
+     "step": "do"
+    },
+    {
+     "ko": "푸른 파도를 보니까 스트레스가 다 풀렸어요.",
+     "en": "Looking at the blue waves relieved all my stress.",
+     "key": [
+      "파도를",
+      "스트레스가"
+     ],
+     "step": "feel"
+    },
+    {
+     "ko": "다음 휴가 때 꼭 다시 가고 싶어요.",
+     "en": "I definitely want to go again during the next vacation.",
+     "key": [
+      "다음 휴가",
+      "가고 싶어요"
+     ],
+     "step": "end"
+    }
+   ],
+   "gaps": [
+    {
+     "ans": "geurigo",
+     "opts": [
+      "geurigo",
+      "hajiman",
+      "geuraeseo",
+      "waenyahamyeon"
+     ],
+     "role": "add",
+     "why": {
+      "ko": "여행 출발에 이어 함께 간 동행을 덧붙여 소개하니까 「그리고」예요.",
+      "en": "It adds the travel companion after introducing the departure: 그리고."
+     }
+    },
+    {
+     "ans": "geuraeseo",
+     "opts": [
+      "geuraeseo",
+      "hajiman",
+      "waenyahamyeon",
+      "geureomyeon"
+     ],
+     "role": "result",
+     "why": {
+      "ko": "부산에 도착해서 바다를 구경하고 식사를 한 행동으로 이어져서 「그래서」예요.",
+      "en": "Arriving in Busan led to enjoying the beach and dining: 그래서."
+     }
+    },
+    {
+     "ans": "tto",
+     "opts": [
+      "tto",
+      "hajiman",
+      "geuraeseo",
+      "geureomyeon"
+     ],
+     "role": "add",
+     "why": {
+      "ko": "맛있는 음식을 먹은 이야기 뒤에 느낀 감정(스트레스 해소)을 보태어 말하니까 「또」예요.",
+      "en": "It adds the feeling of stress relief after enjoying food: 또."
+     }
+    },
+    {
+     "ans": "geuraeseo",
+     "opts": [
+      "geuraeseo",
+      "hajiman",
+      "geureomyeon",
+      "majimageuro"
+     ],
+     "role": "result",
+     "why": {
+      "ko": "여행이 아주 만족스러웠기 때문에 다시 가고 싶다는 소망으로 마무리되므로 「그래서」예요.",
+      "en": "Because the trip was satisfying, it concludes with wanting to visit again: 그래서."
+     }
+    }
+   ],
+   "links": [
+    {
+     "from": 1,
+     "hint": {
+      "ko": "동반과 활동을 이어 한 문장으로",
+      "en": "Join companion and activity into one sentence"
+     },
+     "ans": "친한 친구와 둘이서 같이 가서 해운대 바다를 구경하고 맛있는 생선회를 먹었어요.",
+     "opts": [
+      "친한 친구와 둘이서 같이 가서 해운대 바다를 구경하고 맛있는 생선회를 먹었어요.",
+      "친한 친구와 둘이서 같이 가고 해운대 바다를 구경하고 맛있는 생선회를 먹었어요.",
+      "친한 친구와 둘이서 같이 가지만 해운대 바다를 구경하고 맛있는 생선회를 먹었어요.",
+      "친한 친구와 둘이서 같이 가면 해운대 바다를 구경하고 맛있는 생선회를 먹었어요."
+     ],
+     "why": {
+      "ko": "친구와 동행하여 장소에 도착해 활동을 펼칠 때는 「-아서/어서」예요.",
+      "en": "To express going with a friend and then engaging in activities there, use -아서/어서."
+     }
+    },
+    {
+     "from": 3,
+     "hint": {
+      "ko": "이유 → 결과로 한 문장으로",
+      "en": "Join as reason → result"
+     },
+     "ans": "푸른 파도를 보니까 스트레스가 다 풀려서 다음 휴가 때 꼭 다시 가고 싶어요.",
+     "opts": [
+      "푸른 파도를 보니까 스트레스가 다 풀려서 다음 휴가 때 꼭 다시 가고 싶어요.",
+      "푸른 파도를 보니까 스트레스가 다 풀리고 다음 휴가 때 꼭 다시 가고 싶어요.",
+      "푸른 파도를 보니까 스트레스가 다 풀리지만 다음 휴가 때 꼭 다시 가고 싶어요.",
+      "푸른 파도를 보니까 스트레스가 다 풀리면 다음 휴가 때 꼭 다시 가고 싶어요."
+     ],
+     "why": {
+      "ko": "스트레스가 풀린 만족감이 다시 방문하고 싶은 원인이 되므로 「-어서」예요.",
+      "en": "Relieving stress is the reason for wanting to visit again, so use -어서."
+     }
+    }
+   ],
+   "write": {
+    "prompt": {
+     "ko": "지난 여행을 소개하는 이야기를 접속사 두 개 이상 넣어 네 문장 이상 써 보세요.",
+     "en": "Write four or more sentences about a past trip, using at least two connectors."
+    },
+    "cues": [
+     "여행 시기",
+     "함께 간 사람",
+     "한 일",
+     "여행 소감"
+    ],
+    "minSentences": 4,
+    "minConnectors": 2
+   }
   }
  ]
 }
