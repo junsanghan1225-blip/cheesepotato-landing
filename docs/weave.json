@@ -6300,6 +6300,401 @@
     "en": "I go to school, and after class I work at a cafe and study at home at night."
    },
    "timer": 40
+  },
+  {
+   "id": "t-weather-rain",
+   "mode": "translate",
+   "lv": 1,
+   "icon": "🌏",
+   "title": {
+    "ko": "비 · 우산",
+    "en": "Rain, umbrella"
+   },
+   "situation": {
+    "ko": "뜻을 한국어 한 문장으로 말해 보세요. 이음말: -아서 · -고",
+    "en": "Say the meaning in one Korean sentence. Endings: -아서, -고."
+   },
+   "req": {
+    "conn": [
+     "aseo",
+     "go"
+    ],
+    "clauses": 3,
+    "words": [
+     "비",
+     "우산",
+     "학교"
+    ],
+    "one": true,
+    "polite": true
+   },
+   "model": {
+    "ko": "비가 와서 우산을 쓰고 학교에 가요.",
+    "en": "It is raining, so I use an umbrella and go to school."
+   },
+   "meaning": "It is raining, so I take an umbrella and go to school.",
+   "hints": [
+    "비",
+    "오다",
+    "우산",
+    "쓰다",
+    "학교",
+    "가다"
+   ]
+  },
+  {
+   "id": "t-korean-learn",
+   "mode": "translate",
+   "lv": 2,
+   "icon": "🌏",
+   "title": {
+    "ko": "한국어 · 연습",
+    "en": "Korean, practice"
+   },
+   "situation": {
+    "ko": "뜻을 한국어 한 문장으로 말해 보세요. 이음말: -지만 · -아서",
+    "en": "Say the meaning in one Korean sentence. Endings: -지만, -아서."
+   },
+   "req": {
+    "conn": [
+     "jiman",
+     "aseo"
+    ],
+    "clauses": 3,
+    "words": [
+     "한국어",
+     "공부"
+    ],
+    "one": true,
+    "polite": true
+   },
+   "model": {
+    "ko": "한국어는 어렵지만 재미있어서 매일 열심히 공부해요.",
+    "en": "Korean is difficult, but it is fun, so I study hard every day."
+   },
+   "meaning": "Korean is difficult, but it is interesting, so I study hard every day.",
+   "hints": [
+    "한국어",
+    "어렵다",
+    "재미있다",
+    "열심히",
+    "공부하다"
+   ]
+  },
+  {
+   "id": "t-cooking-dinner",
+   "mode": "translate",
+   "lv": 2,
+   "icon": "🌏",
+   "title": {
+    "ko": "저녁 · 요리",
+    "en": "Dinner, cooking"
+   },
+   "situation": {
+    "ko": "뜻을 한국어 한 문장으로 말해 보세요. 이음말: -아서 · -고",
+    "en": "Say the meaning in one Korean sentence. Endings: -아서, -고."
+   },
+   "req": {
+    "conn": [
+     "aseo",
+     "go"
+    ],
+    "clauses": 3,
+    "words": [
+     "저녁",
+     "가족"
+    ],
+    "one": true,
+    "polite": true
+   },
+   "model": {
+    "ko": "집에 가서 저녁을 만들고 가족과 함께 먹어요.",
+    "en": "I go home, cook dinner and eat together with my family."
+   },
+   "meaning": "I go home, make dinner, and eat with my family.",
+   "hints": [
+    "집",
+    "가다",
+    "저녁",
+    "만들다",
+    "가족",
+    "먹다"
+   ]
+  },
+  {
+   "id": "t-shopping-weekend",
+   "mode": "translate",
+   "lv": 3,
+   "icon": "🌏",
+   "title": {
+    "ko": "주말 · 백화점",
+    "en": "Weekend, department store"
+   },
+   "situation": {
+    "ko": "뜻을 한국어 한 문장으로 말해 보세요. 이음말: -(으)면 · -는데",
+    "en": "Say the meaning in one Korean sentence. Endings: -(으)면, -는데."
+   },
+   "req": {
+    "conn": [
+     "myeon",
+     "nde"
+    ],
+    "clauses": 3,
+    "words": [
+     "주말",
+     "백화점",
+     "옷"
+    ],
+    "one": true,
+    "polite": true
+   },
+   "model": {
+    "ko": "주말에 시간이 있으면 백화점에 가는데 새 옷을 살 거예요.",
+    "en": "If I have time on the weekend, I go to the department store and will buy new clothes."
+   },
+   "meaning": "If I have time this weekend, I will go to the department store to buy new clothes.",
+   "hints": [
+    "주말",
+    "시간",
+    "있다",
+    "백화점",
+    "가다",
+    "옷"
+   ]
+  },
+  {
+   "id": "t-exercise-health",
+   "mode": "translate",
+   "lv": 3,
+   "icon": "🌏",
+   "title": {
+    "ko": "공원 · 운동",
+    "en": "Park, exercise"
+   },
+   "situation": {
+    "ko": "뜻을 한국어 한 문장으로 말해 보세요. 이음말: -(으)면 · -고",
+    "en": "Say the meaning in one Korean sentence. Endings: -(으)면, -고."
+   },
+   "req": {
+    "conn": [
+     "myeon",
+     "go"
+    ],
+    "clauses": 3,
+    "words": [
+     "날씨",
+     "공원",
+     "운동"
+    ],
+    "one": true,
+    "polite": true
+   },
+   "model": {
+    "ko": "날씨가 좋으면 공원에서 운동을 하고 건강을 관리해요.",
+    "en": "If the weather is good, I exercise in the park and manage my health."
+   },
+   "meaning": "If the weather is good, I exercise in the park and stay healthy.",
+   "hints": [
+    "날씨",
+    "좋다",
+    "공원",
+    "운동하다",
+    "건강"
+   ]
+  },
+  {
+   "id": "t-subway-late",
+   "mode": "translate",
+   "lv": 3,
+   "icon": "🌏",
+   "title": {
+    "ko": "지하철 · 약속",
+    "en": "Subway, appointment"
+   },
+   "situation": {
+    "ko": "뜻을 한국어 한 문장으로 말해 보세요. 이음말: -는데 · -아서",
+    "en": "Say the meaning in one Korean sentence. Endings: -는데, -아서."
+   },
+   "req": {
+    "conn": [
+     "nde",
+     "aseo"
+    ],
+    "clauses": 3,
+    "words": [
+     "지하철",
+     "약속"
+    ],
+    "one": true,
+    "polite": true
+   },
+   "model": {
+    "ko": "지하철에 사람이 많은데 약속에 늦을 것 같아서 빨리 걸어요.",
+    "en": "There are many people on the subway, and I might be late for the appointment, so I walk fast."
+   },
+   "meaning": "The subway is crowded and I might be late for the meeting, so I walk fast.",
+   "hints": [
+    "지하철",
+    "사람",
+    "많다",
+    "늦다",
+    "약속",
+    "걷다"
+   ]
+  },
+  {
+   "id": "t-library-exam",
+   "mode": "translate",
+   "lv": 3,
+   "icon": "🌏",
+   "title": {
+    "ko": "시험 · 도서관",
+    "en": "Exam, library"
+   },
+   "situation": {
+    "ko": "뜻을 한국어 한 문장으로 말해 보세요. 이음말: -(으)니까 · -아서",
+    "en": "Say the meaning in one Korean sentence. Endings: -(으)니까, -아서."
+   },
+   "req": {
+    "conn": [
+     "nikka",
+     "aseo"
+    ],
+    "clauses": 3,
+    "words": [
+     "시험",
+     "도서관",
+     "공부"
+    ],
+    "one": true,
+    "polite": true
+   },
+   "model": {
+    "ko": "내일 중요한 시험이 있으니까 도서관에 가서 밤늦게까지 공부해요.",
+    "en": "Because I have an important exam tomorrow, I go to the library and study until late at night."
+   },
+   "meaning": "Because I have an important exam tomorrow, I go to the library and study.",
+   "hints": [
+    "내일",
+    "중요하다",
+    "시험",
+    "도서관",
+    "공부하다"
+   ]
+  },
+  {
+   "id": "t-tired-sleep",
+   "mode": "translate",
+   "lv": 4,
+   "icon": "🌏",
+   "title": {
+    "ko": "평일 · 주말",
+    "en": "Weekdays, weekend"
+   },
+   "situation": {
+    "ko": "뜻을 한국어 한 문장으로 말해 보세요. 이음말을 세 가지 이상 쓰세요.",
+    "en": "Say the meaning in one Korean sentence. Use at least three endings."
+   },
+   "req": {
+    "minConns": 3,
+    "clauses": 4,
+    "words": [
+     "평일",
+     "주말",
+     "집"
+    ],
+    "one": true,
+    "polite": true
+   },
+   "model": {
+    "ko": "평일에는 일하느라 바쁘고 피곤하지만 주말이 되면 집에서 푹 쉬어요.",
+    "en": "On weekdays I am busy and tired from work, but when the weekend comes I rest well at home."
+   },
+   "meaning": "On weekdays I am busy and tired, but on weekends I can rest deeply at home.",
+   "hints": [
+    "평일",
+    "바쁘다",
+    "피곤하다",
+    "주말",
+    "집",
+    "쉬다"
+   ]
+  },
+  {
+   "id": "t-travel-photo",
+   "mode": "translate",
+   "lv": 4,
+   "icon": "🌏",
+   "title": {
+    "ko": "제주도 · 사진",
+    "en": "Jeju Island, photos"
+   },
+   "situation": {
+    "ko": "뜻을 한국어 한 문장으로 말해 보세요. 이음말을 세 가지 이상 쓰세요.",
+    "en": "Say the meaning in one Korean sentence. Use at least three endings."
+   },
+   "req": {
+    "minConns": 3,
+    "clauses": 4,
+    "words": [
+     "제주도",
+     "경치",
+     "사진"
+    ],
+    "one": true,
+    "polite": true
+   },
+   "model": {
+    "ko": "제주도에 갔는데 경치가 아름다워서 사진을 많이 찍고 소중한 추억을 남겼어요.",
+    "en": "I went to Jeju Island, and because the scenery was beautiful, I took many photos and made precious memories."
+   },
+   "meaning": "I visited Jeju Island and the scenery was gorgeous, so I took photos and made good memories.",
+   "hints": [
+    "제주도",
+    "가다",
+    "경치",
+    "아름답다",
+    "사진",
+    "추억"
+   ]
+  },
+  {
+   "id": "t-concert-ticket",
+   "mode": "translate",
+   "lv": 5,
+   "icon": "🌏",
+   "title": {
+    "ko": "콘서트 · 예매",
+    "en": "Concert, ticket"
+   },
+   "situation": {
+    "ko": "뜻을 한국어 한 문장으로 말해 보세요. 이음말을 세 가지 이상 쓰세요.",
+    "en": "Say the meaning in one Korean sentence. Use at least three endings."
+   },
+   "req": {
+    "minConns": 3,
+    "clauses": 4,
+    "words": [
+     "콘서트",
+     "표",
+     "친구"
+    ],
+    "one": true,
+    "polite": true
+   },
+   "model": {
+    "ko": "가수의 콘서트에 가고 싶었지만 표가 없어서 예매를 못 하고 친구와 아쉬워했어요.",
+    "en": "I wanted to go to the singer's concert, but there were no tickets so I could not book and felt disappointed with my friend."
+   },
+   "meaning": "I wanted to go to my favorite singer's concert, but tickets sold out so I was disappointed with my friend.",
+   "hints": [
+    "가수",
+    "콘서트",
+    "표",
+    "매진",
+    "친구",
+    "아쉽다"
+   ]
   }
  ]
 }
