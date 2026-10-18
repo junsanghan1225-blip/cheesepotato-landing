@@ -25,7 +25,7 @@ jobs:
           for c in check-geo check-data check-courses check-honorific check-sentences \
                    check-topik check-glossary check-blog check-dom check-convo \
                    check-numbers check-reading check-listening check-seeds check-pron check-ko-pron check-leveltest check-writing check-eps check-vocab check-expressions check-i18n check-conj \
-                   check-glossary-examples check-stories check-grammar-practice check-grammar-pairs check-path-map check-app-data check-translate check-layout check-sheets check-lesson-blocks check-drill-blocks check-grammar-sentences check-grammar-topik check-docs; do
+                   check-glossary-examples check-stories check-grammar-practice check-grammar-pairs check-path-map check-app-data check-translate check-layout check-sheets check-lesson-blocks check-drill-blocks check-grammar-sentences check-grammar-topik check-weave check-docs; do
             echo "::group::$c"
             node tools/$c.mjs
             echo "::endgroup::"
