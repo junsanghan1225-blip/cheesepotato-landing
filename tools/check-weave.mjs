@@ -11,6 +11,7 @@ const ROOT = path.join(path.dirname(fileURLToPath(import.meta.url)), '..');
 const FILE = path.join(ROOT, 'docs/weave.json');
 if (!fs.existsSync(FILE)) { console.log('이야기 만들기 검사 — 파일 없음(통과)'); process.exit(0); }
 const D = JSON.parse(fs.readFileSync(FILE, 'utf8'));
+const KIND_STEPS = { intro: ['who', 'where', 'do', 'like', 'why', 'wish'], explain: ['point', 'reason', 'example', 'how', 'result', 'recap'], tell: ['when', 'who', 'do', 'feel', 'end'] };
 const bad = [], TIERS = ['beginner', 'intermediate', 'advanced'], ROLES = Object.keys(D.roles || {});
 const bi = (o) => o && typeof o.ko === 'string' && o.ko.trim() && typeof o.en === 'string' && o.en.trim();
 const CON = new Map();
@@ -47,6 +48,33 @@ for (const s of D.stories || []) {
     if (g.role !== a.role) bad.push(`${gt}: role(${g.role}) 이 정답 접속사의 역할(${a.role})과 다르다`);
     if (!bi(g.why)) bad.push(`${gt}: why 는 ko · en`);
   });
+  /* 이음 사다리 판(운영자 2026-10-18 「설명 · 소개가 어렵고 말이 끊긴다」, 계획 docs/plans/weave-fluency.md) — kind 가 있는 이야기만 아래를 더 본다 */
+  if (s.kind !== undefined) {
+    const steps = KIND_STEPS[s.kind];
+    if (!steps) bad.push(`${at}: kind 는 ${Object.keys(KIND_STEPS).join(' · ')} 중 하나`);
+    (s.sentences || []).forEach((x, i) => {
+      const xt = `${at} 문장 ${i + 1}`;
+      if (!Array.isArray(x.key) || x.key.length < 1 || x.key.length > 3) bad.push(`${xt}: key 는 낱말 1~3개`);
+      else for (const k of x.key) if (!x.ko.includes(k)) bad.push(`${xt}: key 「${k}」 가 문장에 그대로 없다 — ${x.ko}`);
+      if (steps && !steps.includes(x.step)) bad.push(`${xt}: step 은 ${steps.join(' · ')} 중 하나(지금 ${x.step})`);
+    });
+    if (steps && s.sentences?.[0]?.step !== steps[0]) bad.push(`${at}: 첫 문장의 step 은 ${steps[0]}`);
+    const lk = s.links;
+    if (!Array.isArray(lk) || lk.length < 2 || lk.length > 3) bad.push(`${at}: links(이어 한 문장으로)는 2~3개`);
+    else {
+      const froms = new Set();
+      lk.forEach((l, i) => {
+        const lt = `${at} links ${i + 1}`;
+        if (!Number.isInteger(l.from) || l.from < 0 || l.from > n - 2 || froms.has(l.from)) bad.push(`${lt}: from 은 0~${n - 2} 의 서로 다른 숫자(문장 from 과 from+1 을 잇는다)`); froms.add(l.from);
+        if (!bi(l.hint) || !bi(l.why)) bad.push(`${lt}: hint · why 는 ko · en`);
+        if (!Array.isArray(l.opts) || l.opts.length !== 4 || new Set(l.opts).size !== 4 || !l.opts.includes(l.ans)) return bad.push(`${lt}: 보기는 서로 다른 4개이고 정답(ans)이 들어 있어야 한다`);
+        for (const o of l.opts) if (!/[.?!]$/.test(o) || /[.?!]./.test(o)) bad.push(`${lt}: 보기는 마침표가 맨 끝에 하나뿐인 한 문장이어야 한다 — ${o}`);
+        const a = s.sentences?.[l.from]?.key?.[0];   // 정답은 두 문장의 핵심어를 다 담아야 한다(문장을 새로 쓰지 않는다)
+        const b = s.sentences?.[l.from + 1]?.key?.[0];
+        if (a && b && !(l.ans.includes(a) && l.ans.includes(b))) bad.push(`${lt}: 정답에 두 문장의 핵심어(${a} · ${b})가 다 들어 있어야 한다 — ${l.ans}`);
+      });
+    }
+  }
   const w = s.write;
   if (!w || !bi(w.prompt) || !Array.isArray(w.cues) || w.cues.length < 2 || !(w.minSentences >= 3 && w.minSentences <= 6) || !(w.minConnectors >= 2 && w.minConnectors <= n - 1)) bad.push(`${at}: write 는 prompt(ko · en) · cues 2개 이상 · minSentences 3~6 · minConnectors 2~${n - 1}`);
 }
