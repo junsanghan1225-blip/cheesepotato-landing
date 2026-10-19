@@ -13,25 +13,28 @@ let EPS = [], file = null, seconds = null;
 
 $('rss').textContent = `${SB}/storage/v1/object/public/podcast/feed.xml`;
 
-/* ── 표지: 1280×720 — 흰 바탕 · 가운데 큰 제목 · 아래에 그 편의 표현을 작게(운영자 2026-10-19 「흰 바탕이 마음에 들어, 표현은 주제별로 작게」) ── */
+/* ── 표지: 1280×720 — 크림 바탕 · 말풍선에 그 편의 표현 · 왼쪽 아래 제목 · 오른쪽 아래 마스코트(운영자 2026-10-19 「편별 표지는 D3」) ── */
+let mascot = null;
+const loadMascot = () => mascot || (mascot = new Promise((res) => { const im = new Image(); im.onload = () => res(im); im.onerror = () => res(null); im.src = 'logo-clear.png'; }));
 async function cover(e) {
   const c = $('cv'), g = c.getContext('2d');
-  try { await document.fonts.load('800 40px "Pretendard Variable"'); await document.fonts.load('600 30px "Pretendard Variable"'); } catch (x) { /* 글꼴이 늦어도 기본 글꼴로 그린다 */ }
+  try { await document.fonts.load('900 40px "Pretendard Variable"'); await document.fonts.load('800 40px "Pretendard Variable"'); } catch (x) { /* 글꼴이 늦어도 기본 글꼴로 그린다 */ }
+  const mas = await loadMascot();
   const F = '"Pretendard Variable", Pretendard, sans-serif';
-  const fit = (txt, wt, size, max) => { let z = size; do { g.font = `${wt} ${z}px ${F}`; z -= 2; } while (g.measureText(txt).width > max && z > 16); };
-  const mid = (txt, y) => g.fillText(txt, (1280 - g.measureText(txt).width) / 2, y);
-  g.fillStyle = '#fff'; g.fillRect(0, 0, 1280, 720);
-  g.fillStyle = '#E1682B'; g.beginPath(); g.arc(640, 92, 9, 0, Math.PI * 2); g.fill();
-  g.fillStyle = '#1B1512'; fit('Expressions', 800, 150, 900);
-  mid('Korean', 230); mid('Expressions', 230 + parseInt(g.font.match(/(\d+)px/)[1], 10) * 1.05);
-  /* 표현은 두 줄로 — 앞 세 개 · 나머지, 작고 연하게 */
-  const list = e.exprs.slice(0, 6), half = Math.ceil(list.length / 2);
-  g.fillStyle = '#5a4d41';
-  if (list.length === 1) { fit(list[0], 700, 64, 1000); mid(list[0], 545); }   // 한 편 = 표현 하나면 조금 크게
-  else [list.slice(0, half), list.slice(half)].filter((r) => r.length).forEach((row, i) => {
-    const line = row.join('   ·   '); fit(line, 600, 34, 1060); mid(line, 520 + i * 54);
-  });
-  g.fillStyle = '#8C7A66'; fit('EP ' + e.ep + '  ·  3-min lessons', 700, 28, 600); mid('EP ' + e.ep + '  ·  3-min lessons', 668);
+  const fit = (txt, wt, size, max) => { let z = size; do { g.font = `${wt} ${z}px ${F}`; z -= 2; } while (g.measureText(txt).width > max && z > 16); return z + 2; };
+  g.fillStyle = '#F2EEE4'; g.fillRect(0, 0, 1280, 720);
+  /* 말풍선 */
+  g.fillStyle = '#fff'; g.beginPath(); g.roundRect(70, 40, 1140, 360, 70); g.fill();
+  g.beginPath(); g.moveTo(330, 392); g.lineTo(450, 392); g.lineTo(380, 470); g.closePath(); g.fill();
+  const word = e.exprs[0] ? e.exprs[0] + '?' : '';
+  g.fillStyle = '#1B1512'; fit(word, 900, 170, 1000);
+  g.fillText(word, (1280 - g.measureText(word).width) / 2, 255);
+  /* 제목 · 편 번호 */
+  g.fillStyle = '#1B1512'; const z = fit('Expressions', 800, 84, 500); g.fillText('Korean', 70, 535);
+  g.fillStyle = '#E1682B'; g.fillText('Expressions', 70, 535 + z * 1.02);
+  g.fillStyle = '#8C7A66'; g.font = `700 26px ${F}`; g.fillText('EP ' + e.ep + '  ·  3-min lessons', 74, 690);
+  /* 마스코트 */
+  if (mas) { const w = 330, h = w * mas.height / mas.width; g.drawImage(mas, 1280 - w - 60, 720 - h - 24, w, h); }
 }
 const cur = () => EPS.find((x) => x.ep === $('ep').value);
 function drawEp() { const e = cur(); if (!e) return; $('epInfo').textContent = e.head; cover(e); }

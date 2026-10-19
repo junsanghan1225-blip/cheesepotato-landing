@@ -22,10 +22,18 @@ const { SB_CATS } = await import('../sentences.js');
 const { GRAMMAR_EN } = await import('../grammar-en.js');
 const LVN = { beginner: 'Beginner', intermediate: 'Intermediate', advanced: 'Advanced' };
 const GR = SB_CATS.flatMap((c) => c.points.map((p) => ({ p, cat: c }))).filter(({ p }) => GRAMMAR_EN[p.id]);
+/* 낱말 · 문법 내려받기 — 1 · 2급 파일만 로그인 없이(맛보기). 나머지는 /download/ 문(로그인한 사람만 받는다, 운영자 2026-10-19 「너무 무료로 다 풀면 안 돼 · A」).
+   ⚠ 진짜 문이다(B) — 로그인해야 받는 파일은 사이트(downloads/)에 두지 않고 private-downloads/ 로 구워(저장소에 안 둔다) 액션 downloads-sync 가 Supabase 비공개 저장 칸에 올린다.
+   로그인한 사람만 /download/ 에서 임시 주소를 받는다(db/add_downloads.sql). 낱말 원자료 자체(vocab/data)는 사이트 학습 화면이 쓰므로 공개 — 막는 것은 내려받기용 묶음 파일이다. */
+const FREE = new Set(['topik-level-1', 'topik-level-2', 'topik-level-1-anki', 'topik-level-2-anki']);
+const dl = (name, label) => (FREE.has(name) ? `<a href="/downloads/${name}${name.endsWith('-anki') ? '.txt' : '.csv'}" download>${label}</a>`
+  : `<a href="/download/?f=/downloads/${name}${name.endsWith('-anki') ? '.txt' : '.csv'}" rel="nofollow">${label} <small>🔒 free account</small></a>`);
 const cell = (s) => `"${String(s ?? '').replace(/"/g, '""')}"`;
 const clean = (s) => String(s ?? '').replace(/[\t\r\n]+/g, ' ').trim();
 const ex = (w) => w.examples?.[0] || {};
+const dirOf = (name) => (FREE.has(name) ? 'downloads' : 'private-downloads');   // 로그인해야 받는 파일은 사이트에 두지 않는다(B — 운영자 2026-10-19)
 mkdirSync(join(ROOT, 'downloads'), { recursive: true });
+mkdirSync(join(ROOT, 'private-downloads'), { recursive: true });
 const counts = {};
 for (const b of BAND) {
   const ws = ALL.filter((w) => b.lv.includes(w.level)).sort((x, y) => x.level - y.level || (y.freq || 0) - (x.freq || 0));
@@ -33,15 +41,15 @@ for (const b of BAND) {
   const head = ['Korean', 'Part of speech', 'English', 'Vietnamese', 'Japanese', 'Example (Korean)', 'Example (English)', 'TOPIK level'];
   const rows = ws.map((w) => [w.head, w.pos, w.en, w.tr?.vi, w.tr?.ja, ex(w).ko, ex(w).en, w.level]);
   // 엑셀이 한글을 깨지 않게 BOM
-  writeFileSync(join(ROOT, 'downloads', `${b.id}.csv`), '﻿' + [head, ...rows].map((r) => r.map(cell).join(',')).join('\r\n') + '\r\n');
+  writeFileSync(join(ROOT, dirOf(b.id), `${b.id}.csv`), '﻿' + [head, ...rows].map((r) => r.map(cell).join(',')).join('\r\n') + '\r\n');
   // Anki: 탭으로 나눈 글 — 앞면 = 한국어, 뒷면 = 뜻 · 예문. 가져올 때 「HTML 허용」을 켜면 줄바꿈 <br> 이 보인다
   const anki = ws.map((w) => [w.head, `${clean(w.en)}${w.tr?.vi ? ` · ${clean(w.tr.vi)}` : ''}${w.tr?.ja ? ` · ${clean(w.tr.ja)}` : ''}<br>${clean(ex(w).ko)}<br>${clean(ex(w).en)}`, `${b.id}`].join('\t'));
-  writeFileSync(join(ROOT, 'downloads', `${b.id}-anki.txt`), '#separator:tab\n#html:true\n#tags column:3\n' + anki.join('\n') + '\n');
+  writeFileSync(join(ROOT, dirOf(`${b.id}-anki`), `${b.id}-anki.txt`), '#separator:tab\n#html:true\n#tags column:3\n' + anki.join('\n') + '\n');
 }
-writeFileSync(join(ROOT, 'downloads', 'korean-grammar-list.csv'), '\ufeff' + [['Grammar pattern', 'Level', 'Category', 'Meaning (English)', 'Form', 'Watch out', 'Example (Korean)'],
+writeFileSync(join(ROOT, dirOf('korean-grammar-list'), 'korean-grammar-list.csv'), '\ufeff' + [['Grammar pattern', 'Level', 'Category', 'Meaning (English)', 'Form', 'Watch out', 'Example (Korean)'],
   ...GR.map(({ p, cat }) => [p.name, LVN[p.lv] || p.lv, cat.en, GRAMMAR_EN[p.id].desc, GRAMMAR_EN[p.id].form, GRAMMAR_EN[p.id].care, p.ex])].map((r) => r.map(cell).join(',')).join('\r\n') + '\r\n');
-writeFileSync(join(ROOT, 'downloads', 'korean-grammar-list-anki.txt'), '#separator:tab\n#html:true\n#tags column:3\n' + GR.map(({ p }) => [p.name, `${clean(GRAMMAR_EN[p.id].desc)}${GRAMMAR_EN[p.id].form ? `<br>${clean(GRAMMAR_EN[p.id].form)}` : ''}<br>${clean(p.ex)}`, `grammar-${p.lv}`].join('\t')).join('\n') + '\n');
-const li = (b) => `<tr><td>${b.name}</td><td>${counts[b.id].toLocaleString('en-US')}</td><td><a href="/downloads/${b.id}.csv" download>CSV</a></td><td><a href="/downloads/${b.id}-anki.txt" download>Anki</a></td></tr>`;
+writeFileSync(join(ROOT, dirOf('korean-grammar-list-anki'), 'korean-grammar-list-anki.txt'), '#separator:tab\n#html:true\n#tags column:3\n' + GR.map(({ p }) => [p.name, `${clean(GRAMMAR_EN[p.id].desc)}${GRAMMAR_EN[p.id].form ? `<br>${clean(GRAMMAR_EN[p.id].form)}` : ''}<br>${clean(p.ex)}`, `grammar-${p.lv}`].join('\t')).join('\n') + '\n');
+const li = (b) => `<tr><td>${b.name}</td><td>${counts[b.id].toLocaleString('en-US')}</td><td>${dl(b.id, 'CSV')}</td><td>${dl(b.id + '-anki', 'Anki')}</td></tr>`;
 const page = `<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -57,7 +65,9 @@ const page = `<!DOCTYPE html>
 <meta property="og:title" content="TOPIK Vocabulary List — Free CSV & Anki Download">
 <meta property="og:description" content="${ALL.length.toLocaleString('en-US')} TOPIK words, Levels 1–6, with meanings and examples. Free.">
 <meta property="og:url" content="https://everykoreans.com/topik-vocabulary-list/">
-<meta property="og:image" content="https://everykoreans.com/logo-256.png">
+<meta property="og:image" content="https://everykoreans.com/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
 <link rel="stylesheet" href="/vendor/pretendard.css">
 <link rel="stylesheet" href="/page.css">
 <style>.dl{width:100%;border-collapse:collapse;margin:14px 0}.dl th,.dl td{text-align:left;padding:10px 8px;border-bottom:1px solid var(--line);font-size:15px}.dl td:nth-child(2){color:var(--ink-3)}.dl a{font-weight:700}</style>
@@ -68,13 +78,13 @@ const page = `<!DOCTYPE html>
 </div></header>
 <main>
 <h1>TOPIK vocabulary list — free download</h1>
-<p>${ALL.length.toLocaleString('en-US')} Korean words for TOPIK Levels 1–6, each with an English meaning, Vietnamese and Japanese glosses, and an original example sentence. Pick a level and download it as a spreadsheet (CSV) or as a text file you can import into Anki.</p>
+<p>${ALL.length.toLocaleString('en-US')} Korean words for TOPIK Levels 1–6, each with an English meaning, Vietnamese and Japanese glosses, and an original example sentence. Pick a level and download it as a spreadsheet (CSV) or as a text file you can import into Anki. Levels 1–2 download instantly; the other lists need a free account (one click to sign up).</p>
 <table class="dl"><thead><tr><th>Level</th><th>Words</th><th>Spreadsheet</th><th>Anki deck</th></tr></thead><tbody>
 ${BAND.map(li).join('\n')}
 </tbody></table>
 <h2>Grammar list</h2>
 <p>${GR.length} Korean grammar patterns grouped as Beginner, Intermediate and Advanced (our own levels — not an official TOPIK grammar list), each with an English meaning, its form and an example sentence.</p>
-<table class="dl"><tbody><tr><td>Korean grammar patterns</td><td>${GR.length}</td><td><a href="/downloads/korean-grammar-list.csv" download>CSV</a></td><td><a href="/downloads/korean-grammar-list-anki.txt" download>Anki</a></td></tr></tbody></table>
+<table class="dl"><tbody><tr><td>Korean grammar patterns</td><td>${GR.length}</td><td>${dl('korean-grammar-list', 'CSV')}</td><td>${dl('korean-grammar-list-anki', 'Anki')}</td></tr></tbody></table>
 <p>Browse them online: <a href="/topik-grammar-list/">the full grammar list</a> · <a href="/sentence/">all grammar patterns with dialogues</a>.</p>
 <h2>How to use</h2>
 <ul>
@@ -120,7 +130,9 @@ const gpage = `<!DOCTYPE html>
 <meta property="og:title" content="TOPIK Grammar List — ${GR.length} Korean Grammar Patterns">
 <meta property="og:description" content="Beginner to advanced Korean grammar with meanings and examples. Free CSV and Anki download.">
 <meta property="og:url" content="https://everykoreans.com/topik-grammar-list/">
-<meta property="og:image" content="https://everykoreans.com/logo-256.png">
+<meta property="og:image" content="https://everykoreans.com/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
 <link rel="stylesheet" href="/vendor/pretendard.css">
 <link rel="stylesheet" href="/page.css">
 <style>.dl{width:100%;min-width:0;border-collapse:collapse;margin:14px 0}.dl th,.dl td{text-align:left;padding:10px 8px;border-bottom:1px solid var(--line);font-size:15px;vertical-align:top}.dl td:first-child{font-weight:700;white-space:nowrap}.dl td:last-child{color:var(--ink-3)}.dl td{overflow-wrap:anywhere}@media(max-width:640px){.dl{table-layout:fixed}.dl td:last-child,.dl th:last-child{display:none}.dl th:first-child,.dl td:first-child{white-space:normal;width:36%}.dl th:nth-child(2){width:64%}.dl th,.dl td{padding:10px 6px}}</style>
@@ -132,7 +144,7 @@ const gpage = `<!DOCTYPE html>
 <main>
 <h1>TOPIK grammar list — ${GR.length} patterns, free download</h1>
 <p>${GR.length} Korean grammar patterns you meet on the way to TOPIK, grouped as ${GR_BY.map((g) => `${g.name} (${g.list.length})`).join(', ')}. Each has an English meaning and an original example sentence; tap a pattern for its full page with dialogues. The levels are our own teaching levels — this is <strong>not</strong> an official TOPIK grammar list.</p>
-<p><a href="/downloads/korean-grammar-list.csv" download>Download CSV</a> · <a href="/downloads/korean-grammar-list-anki.txt" download>Download Anki deck</a> · <a href="/topik-vocabulary-list/">TOPIK vocabulary list</a></p>
+<p>${dl('korean-grammar-list', 'Download CSV')} · ${dl('korean-grammar-list-anki', 'Download Anki deck')} · <a href="/topik-vocabulary-list/">TOPIK vocabulary list</a></p>
 ${GR_BY.map((g) => `<h2>${g.name} — ${g.list.length} patterns</h2>
 <table class="dl"><thead><tr><th>Pattern</th><th>Meaning</th><th>Example</th></tr></thead><tbody>
 ${g.list.map(grRow).join('\n')}

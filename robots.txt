@@ -15,6 +15,7 @@ Disallow: /record.html
 Disallow: /worksheet/pro/
 Disallow: /shorts.html
 Disallow: /podcast.html
+Disallow: /download/
 Disallow: /connect.html
 Disallow: /record/
 

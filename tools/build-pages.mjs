@@ -306,11 +306,13 @@ function page({ url, title, desc, body, kind = 'article', jsonld, extraCss = '',
 <meta property="og:locale:alternate" content="${lang === 'ko' ? 'en_US' : 'ko_KR'}">
 <meta property="og:title" content="${esc(title)}">
 <meta property="og:description" content="${esc(desc)}">
-<meta property="og:image" content="${SITE}/logo.png">
+<meta property="og:image" content="${SITE}/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="${esc(title)}">
 <meta name="twitter:description" content="${esc(desc)}">
-<meta name="twitter:image" content="${SITE}/logo.png">
+<meta name="twitter:image" content="${SITE}/og-image.jpg">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
 <link rel="stylesheet" href="/vendor/pretendard.css">
 <script src="${PAGE_JS}" defer></script>${extraHead}${[].concat(jsonld ?? []).map(ld).join('')}

@@ -25,7 +25,7 @@
 1. `https://everykoreans.com/podcast.html` 맨 아래 **방송 목록 주소**(`…/podcast/feed.xml`)를 복사한다.
 2. [Spotify for Creators](https://creators.spotify.com) → 새 방송 → **이미 방송이 있어요 / RSS 가져오기** → 위 주소 붙여 넣기 → 메일 확인 코드 입력 → 완료.
 3. 이후 새 에피소드는 방송 목록에 저절로 들어가고, 스포티파이가 알아서 가져간다(몇 시간 걸릴 수 있다).
-- 방송 표지는 `podcast-cover.jpg`(1400×1400, 흰 바탕 · 표현 3개 작게 — 운영자 2026-10-19 확정, 사이트에 올라가 있음)를 쓴다. 편별 표지는 올리기 쪽(`podcast.js` cover)이 같은 틀로 저절로 만든다. 이름 · 소개 · 확인 메일(`cheesepotato@everykoreans.com` — 방송 목록은 공개라 개인 메일 대신 사업용 주소, 운영자 2026-10-19)은 `tools/podcast-post.mjs` 의 `feed()` 에서 고친다.
+- 방송 대표 표지는 `podcast-cover.jpg`(1400×1400, 흰 바탕 · 「치즈감자와 공부하는 한국어」 · 마스코트 — 운영자 2026-10-19 시안 R3 확정, 사이트에 올라가 있음)를 쓴다. 편별 표지는 올리기 쪽(`podcast.js` cover)이 시안 D3 모양(말풍선에 그 편의 표현 + 마스코트)으로 저절로 만든다. 이름 · 소개 · 확인 메일(`cheesepotato@everykoreans.com` — 방송 목록은 공개라 개인 메일 대신 사업용 주소, 운영자 2026-10-19)은 `tools/podcast-post.mjs` 의 `feed()` 에서 고친다.
 - 스포티파이의 대본(자막) 기능 · 조건은 **확인하지 못했다** — 스포티파이 안내를 보고 필요하면 알려 주기.
 
 ## 매번 (녹음 올리기)
