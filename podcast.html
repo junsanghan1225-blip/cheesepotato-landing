@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>치즈감자 팟캐스트 올리기</title>
+<link rel="icon" href="favicon-32.png">
+<link rel="stylesheet" href="vendor/pretendard.css">
+<!-- 치즈감자 팟캐스트 올리기 — 녹음 파일을 고르면 표지 그림은 저절로 만들고, 제목 · 설명은 대본(docs/podcast)에서 가져와
+     대기열(podcast_queue)에 올린다. 30분마다 액션(podcast-post)이 유튜브에 올리고 스포티파이가 읽는 방송 목록(feed.xml)을 만든다.
+     운영자 전용(noindex) — 코드는 podcast.js, 순서는 docs/ops/podcast-auto.md. -->
+<style>
+:root { --bg:#F2EEE4; --card:#fff; --line:#E4DED1; --ink:#1B1512; --dim:#8C7A66; --or:#E1682B; --red:#D33A2C; --green:#2E9B5B; }
+@media (prefers-color-scheme: dark) { :root { --bg:#161411; --card:#211E1A; --line:#38332C; --ink:#F2EEE6; --dim:#8A8376; --or:#F08A45; } }
+* { box-sizing:border-box; }
+[hidden] { display:none !important; }
+body { margin:0; background:var(--bg); color:var(--ink); font-family:"Pretendard Variable", Pretendard, sans-serif; }
+button, select, input { font-family:inherit; font-size:15px; color:inherit; }
+main { max-width:640px; margin:0 auto; padding:16px; display:flex; flex-direction:column; gap:14px; }
+h1 { font-size:20px; margin:8px 0 0; }
+.box { background:var(--card); border:1px solid var(--line); border-radius:14px; padding:14px; display:flex; flex-direction:column; gap:10px; }
+.box h2 { margin:0; font-size:15px; font-weight:800; }
+.row { display:flex; flex-wrap:wrap; gap:8px; align-items:center; }
+.btn { border:1px solid var(--line); background:var(--card); border-radius:10px; padding:10px 14px; cursor:pointer; font-weight:700; min-height:44px; }
+.btn.main { background:var(--or); border-color:var(--or); color:#fff; }
+.btn:disabled { opacity:.45; cursor:default; }
+select, input[type=text] { width:100%; border:1px solid var(--line); background:var(--card); border-radius:10px; padding:10px; min-height:44px; }
+.muted { color:var(--dim); font-size:13px; line-height:1.5; }
+.done { color:var(--green); font-weight:700; }
+.err { color:var(--red); font-weight:700; }
+canvas { width:100%; height:auto; border-radius:10px; border:1px solid var(--line); display:block; }
+audio { width:100%; }
+.q { display:flex; justify-content:space-between; gap:8px; font-size:14px; padding:6px 0; border-top:1px solid var(--line); }
+.q:first-of-type { border-top:0; }
+code { background:rgba(128,128,128,.15); padding:2px 6px; border-radius:6px; word-break:break-all; }
+</style>
+</head>
+<body>
+<main>
+  <h1>🎙️ 팟캐스트 올리기</h1>
+  <p class="muted" id="who">로그인을 확인하는 중…</p>
+
+  <section class="box">
+    <h2>1. 에피소드 고르기</h2>
+    <select id="ep"></select>
+    <p class="muted" id="epInfo"></p>
+  </section>
+
+  <section class="box">
+    <h2>2. 녹음 파일</h2>
+    <input type="file" id="file" accept="audio/*,.mp3,.m4a,.wav,.webm,.ogg">
+    <audio id="audio" controls hidden></audio>
+    <p class="muted" id="fileInfo">mp3 · m4a 를 고르세요(한 파일 50MB 까지). 폰 녹음 앱에서 만든 파일도 돼요.</p>
+  </section>
+
+  <section class="box">
+    <h2>3. 표지(저절로 만들어요)</h2>
+    <canvas id="cv" width="1280" height="720"></canvas>
+    <p class="muted">영상 · 유튜브 표지에 쓰는 그림이에요. 에피소드를 바꾸면 같이 바뀌어요.</p>
+  </section>
+
+  <section class="box">
+    <h2>4. 올리기</h2>
+    <div class="row"><button class="btn main" id="up" disabled>📤 대기열에 올리기</button></div>
+    <p class="muted" id="msg">파일을 고르면 단추가 켜져요. 올리면 30분 안에 유튜브에 올라가요(처음에는 비공개로).</p>
+  </section>
+
+  <section class="box">
+    <h2>대기열</h2>
+    <div id="queue" class="muted">불러오는 중…</div>
+  </section>
+
+  <section class="box">
+    <h2>스포티파이 · 방송 목록 주소</h2>
+    <p class="muted">스포티파이 「새 방송 가져오기(RSS)」 칸에 한 번만 넣어요.</p>
+    <code id="rss"></code>
+  </section>
+</main>
+<script type="module" src="podcast.js"></script>
+</body>
+</html>

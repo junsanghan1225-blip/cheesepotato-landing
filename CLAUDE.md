@@ -86,6 +86,7 @@
   | `<id>-worksheet/` · `worksheets/`(인쇄용 학습지 + 정답지 · 목록. 손으로 쓴 `numbers-worksheet/` · `hangul-worksheet/` 는 제외) · `shop/`(상점 · 책 쪽) | `docs/worksheets/<id>.json`(안티 · Claude 검토, 모양 `docs/worksheets/_schema.md`, 검사 `check-sheets`) · `docs/shop.json`(상품 · 책, 계획 `docs/plans/books.md`) → `node tools/build-sheets.mjs` |
   | `books-out/`(책 PDF — 파는 파일이라 저장소에 안 둔다) | `docs/books/<id>.json`(책 틀) + `docs/worksheets/*.json` → `node tools/build-book.mjs <id>`(계획 `docs/plans/books.md`) |
   | `difficulty.js`(TOPIK 문항 난이도 1·2·3 — 안티가 매긴 값) | `docs/difficulty/<묶음>.json`(안티 · Claude 검토, 지시 `docs/antigravity/antigravity-difficulty-task.md`, 검사 `node tools/difficulty-list.mjs <묶음> --check`) → `node tools/build-difficulty.mjs` |
+  | `podcast-episodes.json`(팟캐스트 올리기 쪽 에피소드 목록) | `docs/podcast/ep*.md`(대본) → `node tools/build-podcast.mjs` |
   | `vocab-topik1.js` · `vocab-topik2.js` · `vocab-topik2-ex/`(TOPIK II 예문 조각, 500개씩) | `vocab/data/topik1.json` · `topik2.json`(B급 이상만) → `node tools/build-vocab.mjs` |
 - **검사:** 올리기 전에 **`node tools/preflight.mjs` 한 줄** — 자국 찍기 · 확인, 문법, CI(`check.yml`)의 검사 전부를 같은 차례로.
   첫 쪽 · `llms.txt` 의 숫자(문항 수 등)가 바뀌면 `check-geo` 가, 없는 문서 경로는 `check-docs` 가 알려 준다.
