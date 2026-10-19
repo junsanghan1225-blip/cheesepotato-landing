@@ -5,6 +5,7 @@
      GA_PROPERTY_ID   GA4 속성 번호(숫자, 비밀 아님)
      SC_SITE          Search Console 속성(예: sc-domain:everykoreans.com 또는 https://everykoreans.com/)
      GOOGLE_SA_KEY    서비스 계정 키 JSON 전체(비밀)
+     POLAR_READ_TOKEN   (있으면) Polar 읽기 전용 토큰(비밀) — 어제 결제 · 구독 숫자가 붙는다. 없거나 실패해도 위 숫자는 그대로 모인다
      CLARITY_API_TOKEN  (있으면) Clarity 데이터 내보내기 토큰(비밀) — 「최근 24시간」 요약이 붙는다. 없거나 실패해도 위 숫자는 그대로 모인다
    라이브러리 없이 Node 만 쓴다(서비스 계정 JWT → 토큰 → REST). 설정 순서는 docs/ops/analytics-api-setup.md.
    --fake : 가짜 숫자로 모양만 확인(키 없이 시험) */
@@ -78,6 +79,39 @@ async function clarity() {
 }
 const clInfoLine = (info) => Object.entries(info || {}).filter(([, v]) => v !== null && v !== '').map(([k, v]) => k + ' ' + (typeof v === 'number' ? Math.round(v * 100) / 100 : v)).join(' · ');
 
+/* ── Polar(결제) — 읽기 전용 토큰. 어제(한국 날짜) 주문 · 지금 구독 중인 수. 필드 이름이 다르면 조용히 비워 두고 이유를 적는다. ── */
+async function polarGet(pathq) {
+  const r = await fetch('https://api.polar.sh/v1/' + pathq, { headers: { authorization: 'Bearer ' + process.env.POLAR_READ_TOKEN } });
+  const t = await r.text();
+  if (!r.ok) throw new Error('Polar ' + r.status + ': ' + t.slice(0, 160));
+  return JSON.parse(t);
+}
+const kstDate = (iso) => new Date(new Date(iso).getTime() + 9 * 3600e3).toISOString().slice(0, 10);
+async function polar() {
+  if (FAKE) return { orders: [{ name: 'Pro 월', n: 1, cents: 499 }], total: 1, cents: 499, subs: 7, allOrders: 12, note: '' };
+  if (!process.env.POLAR_READ_TOKEN) return null;
+  const out = { orders: [], total: 0, cents: 0, subs: null, allOrders: null, note: '' };
+  try {
+    const by = new Map();
+    for (let page = 1; page <= 5; page++) {                    // 최근 주문부터 — 하루치만 필요해서 5쪽(500건)이면 충분
+      const j = await polarGet(`orders/?limit=100&page=${page}&sorting=-created_at`);
+      const items = j.items || [];
+      if (page === 1) out.allOrders = j.pagination?.total_count ?? null;
+      for (const o of items) {
+        if (kstDate(o.created_at) !== DATE) continue;
+        const name = o.product?.name || o.description || '(이름 없음)';
+        const cents = num(o.net_amount ?? o.amount ?? o.total_amount);
+        const b = by.get(name) || { name, n: 0, cents: 0 }; b.n++; b.cents += cents; by.set(name, b);
+        out.total++; out.cents += cents;
+      }
+      if (!items.length || kstDate(items[items.length - 1].created_at) < DATE || page >= (j.pagination?.max_page || 1)) break;
+    }
+    out.orders = [...by.values()];
+  } catch (e) { out.note = '주문: ' + String(e.message || e); return out; }
+  try { const j = await polarGet('subscriptions/?active=true&limit=1'); out.subs = j.pagination?.total_count ?? null; } catch (e) { out.note = '구독: ' + String(e.message || e); }
+  return out;
+}
+
 async function collect() {
   if (FAKE) {
     return {
@@ -121,6 +155,15 @@ function summary(d) {
   L.push('## 검색 (Search Console)', '', `확정된 가장 최근 하루(${SC_END}): 클릭 ${fmt(sd[0])} · 노출 ${fmt(sd[1])}`, '');
   L.push(...table(`검색어 TOP 20 (${SC_START} ~ ${SC_END})`, ['검색어', '클릭', '노출', '클릭률', '평균 순위'], d.scQ.map((r) => [r[0], fmt(r[1]), fmt(r[2]), pct(num(r[3])), num(r[4]).toFixed(1)])));
   L.push(...table('검색에서 많이 열린 쪽 TOP 10', ['쪽', '클릭', '노출', '클릭률', '평균 순위'], d.scP.map((r) => [r[0], fmt(r[1]), fmt(r[2]), pct(num(r[3])), num(r[4]).toFixed(1)])));
+  if (d.pl) {
+    L.push(`## 결제 (Polar, ${DATE} 한국 날짜)`, '');
+    if (d.pl.note) L.push(`> Polar 일부를 못 받았어요: ${d.pl.note}`, '');
+    L.push(`- 어제 주문 **${fmt(d.pl.total)}건** · 금액 **$${(d.pl.cents / 100).toFixed(2)}**(Polar 가 알려 준 순금액 기준)`);
+    d.pl.orders.forEach((o) => L.push(`  - ${o.name}: ${fmt(o.n)}건 · $${(o.cents / 100).toFixed(2)}`));
+    if (d.pl.subs !== null) L.push(`- 지금 구독 중: **${fmt(d.pl.subs)}명**`);
+    if (d.pl.allOrders !== null) L.push(`- 지금까지 주문 합계: ${fmt(d.pl.allOrders)}건`);
+    L.push('> 숫자의 기준은 Polar 화면입니다. 환불 · 취소는 이 줄에 반영되지 않을 수 있어요.', '');
+  }
   if (d.cl) {
     L.push('## Clarity (최근 24시간 — 날짜 기준이 아니라 호출한 시각 기준)', '');
     if (d.cl.note) L.push(`> Clarity 일부를 못 받았어요: ${d.cl.note}`, '');
@@ -135,6 +178,7 @@ function summary(d) {
 
 const d = await collect();
 d.cl = await clarity();
+d.pl = await polar();
 fs.mkdirSync(OUT, { recursive: true });
 const w = (name, head, rows) => fs.writeFileSync(path.join(OUT, name), toCsv(head, rows));
 w('ga-개요.csv', ['방문자', '새방문자', '세션', '조회수', '평균참여시간(초)', '참여율'], d.overview);
