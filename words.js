@@ -13,7 +13,16 @@
  * say · track · 사전)는 deps 로 받는다 — 여기서 따로 만들면 언어 · 소리 · 분석이 두 벌이 된다. */
 
 const SESSION = 10;                       // 한 세션 낱말 수 — 하루 분량이 작고 끝이 보이게
-const INTERVAL = [1, 1, 3, 7, 14, 30];    // 상자 번호 → 다음 복습까지 날 수 (0 = 새로 · 몰라요)
+const INTERVAL = [1, 1, 3, 7, 14, 30, 60];    // 상자 번호 → 다음 복습까지 날 수 (0 = 새로 · 몰라요) — 아래 grade 가 낱말마다 기억 정도로 늘리고 줄인다
+/* 하루 양(Anki 의 「하루 복습 수 · 새 카드 수」처럼) — 기기마다 저장. rev = 한 번에 하는 복습 수(0 = 전부), add = 하루에 새로 외울 낱말 수(0 = 제한 없음, 넘어도 막지 않고 알려만 준다). */
+const CAP_KEY = 'cp-words-cap', NEW_KEY = 'cp-words-new';
+const CAP_REV = [10, 20, 30, 50, 0], CAP_ADD = [0, 10, 20, 30];
+function caps() {
+  try { const c = JSON.parse(localStorage.getItem(CAP_KEY) || '{}'); return { rev: CAP_REV.includes(c.rev) ? c.rev : 30, add: CAP_ADD.includes(c.add) ? c.add : 0 }; } catch (e) { return { rev: 30, add: 0 }; }
+}
+function setCap(k, v) { try { localStorage.setItem(CAP_KEY, JSON.stringify({ ...caps(), [k]: v })); } catch (e) { /* 막힌 브라우저 — 기본값으로 */ } }
+const newToday = () => { try { const n = JSON.parse(localStorage.getItem(NEW_KEY) || '{}'); return n.d === today() ? n.n || 0 : 0; } catch (e) { return 0; } };
+function bumpNew() { try { localStorage.setItem(NEW_KEY, JSON.stringify({ d: today(), n: newToday() + 1 })); } catch (e) { /* 세지 못해도 공부는 계속 */ } }
 const KEY = 'cp-words-v1';
 const RECENT = 'cp-words-recent';
 
@@ -118,10 +127,14 @@ export async function syncVocab(get, put) {
 /* 한 낱말을 채점해 상자를 옮긴다. know = 한 칸 위로, unsure = 그 자리(내일 다시), no = 처음으로(내일). */
 function grade(id, how) {
   const now = today();
+  if (!S.w[id]) bumpNew();   // 처음 채점하는 낱말 = 오늘 새로 외운 낱말
   const [box = 0, , ok = 0, bad = 0] = S.w[id] || [];
   const nb = how === 'know' ? Math.min(box + 1, INTERVAL.length - 1) : how === 'unsure' ? Math.max(box, 1) : 0;
-  const due = now + (how === 'know' ? INTERVAL[nb] : 1);
-  S.w[id] = [nb, due, ok + (how === 'know' ? 1 : 0), bad + (how === 'no' ? 1 : 0), Date.now()];
+  const ok2 = ok + (how === 'know' ? 1 : 0), bad2 = bad + (how === 'no' ? 1 : 0);
+  /* 낱말마다 간격을 늘리고 줄인다(Anki 처럼): 네 번 넘게 맞히고 틀린 적이 없으면 1.5배, 틀린 게 맞힌 것보다 많으면 0.7배. 모든 낱말이 같은 간격이던 것을 고침. */
+  const ease = ok2 >= 4 && bad2 === 0 ? 1.5 : bad2 >= 2 && bad2 > ok2 ? 0.7 : 1;
+  const due = now + (how === 'know' ? Math.max(1, Math.round(INTERVAL[nb] * ease)) : 1);
+  S.w[id] = [nb, due, ok2, bad2, Date.now()];
   S.days[now] = (S.days[now] || 0) + 1;
   save();
 }
@@ -484,7 +497,7 @@ export function wordsInit(D) {
     const path = myPath();
     const hr = new Date().getHours();
     const hello = hr < 5 || hr >= 18 ? t('좋은 저녁이에요!', 'Good evening!') : hr < 12 ? t('좋은 아침이에요!', 'Good morning!') : t('좋은 오후예요!', 'Good afternoon!');
-    const dueLine = d.length ? `<button type="button" class="wd-due" data-act="review"><span>${esc(t('① 오늘 복습', '① Review today'))}</span><b>${d.length}</b><em>${esc(t('먼저 하기 →', 'Do first →'))}</em></button>` : '';
+    const dueLine = d.length ? `<button type="button" class="wd-due" data-act="review"><span>${esc(t('① 오늘 복습', '① Review today'))}</span><b>${caps().rev && d.length > caps().rev ? caps().rev : d.length}${caps().rev && d.length > caps().rev ? `<small> / ${d.length}</small>` : ''}</b><em>${esc(t('먼저 하기 →', 'Do first →'))}</em></button>` : '';
     if (!path) return `<div class="wd-today"><div class="wd-hello"><p class="wd-hello-k">${esc(hello)}</p></div>${potHero()}${dueLine}</div>`;
     const list = listFor(path.topic), ss = sessionsOf(path.topic), n = nextSession(path.topic);
     const ws = n == null ? [] : ss[n];
@@ -507,7 +520,7 @@ export function wordsInit(D) {
         <p class="wd-day-m">${esc(mean(w))}</p>
         <div class="wd-day-btns">
           <button type="button" class="dict-say wd-day-say" data-say="${esc(w.h)}" aria-label="${esc(t('발음 듣기', 'Play'))}">${icon}<span>${esc(t('듣기', 'Listen'))}</span></button>
-          <button type="button" class="wd-day-go" data-act="session" data-topic="${esc(path.topic)}" data-n="${n}">${esc(got ? t(`이어서 · ${ws.length - got}개 남음`, `Continue · ${ws.length - got} left`) : t(`오늘 ${ws.length}개 시작`, `Start today’s ${ws.length}`))}${ico('arrow')}</button>
+          <button type="button" class="wd-day-go" data-act="session" data-topic="${esc(path.topic)}" data-n="${n}">${esc(caps().add && newToday() >= caps().add ? t(`오늘 새 낱말 ${newToday()}개 완료 — 더 해도 돼요`, `${newToday()} new words done today — keep going if you like`) : got ? t(`이어서 · ${ws.length - got}개 남음`, `Continue · ${ws.length - got} left`) : t(`오늘 ${ws.length}개 시작`, `Start today’s ${ws.length}`))}${ico('arrow')}</button>
         </div>
         <div class="wd-day-rest">${ws.map((x) => `<button type="button" class="${learned(idOf(x)) ? 'ok' : x === w ? 'on' : ''}" data-word="${esc(x.h)}">${esc(x.h)}</button>`).join('')}</div>
       </div>` : `<div class="wd-day"><span class="wd-day-k">${esc(pathName)}</span><b class="wd-choose-t">${esc(t('이 길의 낱말을 다 봤어요!', 'You have seen every word on this path!'))}</b></div>`}
@@ -1019,10 +1032,20 @@ export function wordsInit(D) {
       <div class="wd-list">${list.map((w) => wordRow(w)).join('')}</div>`;
   }
 
+  /* 하루 양 — 「한 번에 복습」 · 「하루 새 낱말」. 눌러서 바꾼다(기기에 저장). */
+  function capsHtml() {
+    const c = caps();
+    const row = (k, label, opts, cur, fmt) => `<div class="wd-cap"><span>${esc(label)}</span>${opts.map((v) => `<button type="button" class="${v === cur ? 'on' : ''}" data-act="cap" data-k="${k}" data-v="${v}">${esc(fmt(v))}</button>`).join('')}</div>`;
+    return `<div class="wd-caps"><h3 class="wd-h3">${esc(t('하루 양 정하기', 'Daily amount'))}</h3>
+      ${row('rev', t('한 번에 복습', 'Review per round'), CAP_REV, c.rev, (v) => (v ? String(v) : t('전부', 'All')))}
+      ${row('add', t('하루 새 낱말', 'New words a day'), CAP_ADD, c.add, (v) => (v ? String(v) : t('제한 없음', 'No limit')))}
+      <p class="wd-cap-note">${esc(t('복습이 너무 쌓이면 한 번에 하는 양을 줄여 보세요. 새 낱말 목표를 넘어도 막지는 않고 알려만 드려요.', 'If reviews pile up, lower the round size. Passing the new-word goal never blocks you — you just get a note.'))}</p></div>`;
+  }
+
   function drawReview() {
     const d = due();
-    if (!d.length) return `<p class="wd-none">${esc(t('오늘 복습할 낱말이 없어요. 새 낱말을 외우면 1 · 3 · 7 · 14 · 30일 뒤에 다시 불러 드려요.', 'Nothing due today. New words come back after 1, 3, 7, 14 and 30 days.'))}</p>`;
-    return `<p class="wd-lead">${esc(t(`오늘 다시 볼 낱말 ${d.length}개`, `${d.length} words due today`))}</p>
+    if (!d.length) return `<p class="wd-none">${esc(t('오늘 복습할 낱말이 없어요. 새 낱말을 외우면 1 · 3 · 7 · 14 · 30일 뒤에 다시 불러 드려요(잘 아는 낱말은 더 길게, 자주 틀리는 낱말은 더 짧게).', 'Nothing due today. New words come back after 1, 3, 7, 14 and 30 days (longer for words you know well, shorter for ones you miss).'))}</p>`;
+    return `<p class="wd-lead">${esc(t(`오늘 다시 볼 낱말 ${d.length}개`, `${d.length} words due today`))}</p>${capsHtml()}
       <button type="button" class="wd-btn" data-act="review">${esc(t('복습 시작', 'Start review'))}</button>
       <div class="wd-list">${d.slice(0, 50).map((w) => wordRow(w)).join('')}</div>`;
   }
@@ -1034,7 +1057,7 @@ export function wordsInit(D) {
     const max = Math.max(1, ...week.map((d) => S.days[d] || 0));
     const weak = Object.entries(S.w).filter(([id, v]) => v[3] >= 2 && v[3] > v[2] && byId.has(id))
       .sort((a, b) => b[1][3] - a[1][3]).slice(0, 20).map(([id]) => byId.get(id));
-    return `<div class="wd-stats">
+    return `${capsHtml()}<div class="wd-stats">
       <div><b>${got.toLocaleString()}</b><span>${esc(t('외운 낱말', 'Words learned'))}</span></div>
       <div><b>${streak()}</b><span>${esc(t('연속 일수', 'Day streak'))}</span></div>
       <div><b>${S.days[now] || 0}</b><span>${esc(t('오늘 푼 수', 'Answered today'))}</span></div>
@@ -1574,8 +1597,9 @@ export function wordsInit(D) {
     if (act === 'stage') { const o = openStages.get(a.dataset.topic) || new Set(), k = +a.dataset.k; o.has(k) ? o.delete(k) : o.add(k); openStages.set(a.dataset.topic, o); return draw(); }
     if (act === 'qclear') { const q = root.querySelector('#wdQ'); q.value = ''; q.dispatchEvent(new Event('input', { bubbles: true })); q.focus(); return; }
     if (act === 'group') { group = ['goal', 'level'].includes(a.dataset.group) ? a.dataset.group : 'topic'; try { localStorage.setItem('cp-words-group', group); } catch (e) {} return draw(); }
+    if (act === 'cap') { const k = a.dataset.k, v = +a.dataset.v; if ((k === 'rev' && CAP_REV.includes(v)) || (k === 'add' && CAP_ADD.includes(v))) { setCap(k, v); D.track?.('단어하루양'); } return draw(); }
     if (act === 'pathchange') return D.openTest?.();   // 길은 레벨테스트 목표로 바꾼다
-    if (act === 'review') { if (window.cpGateRecords?.()) return; const d = due().slice(0, 30); view = { tab: 'pick', pick: { words: d, from: null, title: t(`복습 ${d.length}개`, `Review ${d.length}`), back: 'data-tab="home"' } }; mark('review'); return draw(); }
+    if (act === 'review') { if (window.cpGateRecords?.()) return; const d = due().slice(0, caps().rev || Infinity); view = { tab: 'pick', pick: { words: d, from: null, title: t(`복습 ${d.length}개`, `Review ${d.length}`), back: 'data-tab="home"' } }; mark('review'); return draw(); }
     if (act === 'starstudy') { const d = starIds().map((id) => byId.get(id)).filter(Boolean); view = { tab: 'pick', pick: { words: d, from: null, title: t(`별표 ${d.length}개`, `Starred ${d.length}`), back: 'data-tab="mine"' } }; return draw(); }
     if (act === 'star') {
       const id = a.dataset.id;

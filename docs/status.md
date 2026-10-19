@@ -80,6 +80,7 @@
 
 ## 11. 단어 — 잘게 나눈 주제 · 단어 한 장 새 화면 · 표현 자료
 - **단어 — 잘게 나눈 주제 · 단어 한 장 새 화면 · 표현 자료**(운영자 요청 2026-10-07): `vocab/taxonomy.json` 에 작은 주제 71칸 더함(모두 166, 옛 칸은 그대로 — 감정 기쁨/슬픔/화 … · 학용품 · 전자기기 · 정치 …). 낱말 1만 개에 새 칸 붙이기는 안티(`docs/antigravity/antigravity-vocab-retag-task.md`, 1,000개 × 11묶음, `topics` 만 더하기). · **2026-10-18 「표현」 탭을 셋으로**: 단어 탭 줄에 사자성어 · 속담 · 관용표현이 각각 탭(`#words/idiom4` · `#words/proverb` · `#words/idiom`)
+- **단어 복습 — Anki 에서 배운 것**(운영자 2026-10-19): 낱말마다 간격 조정(잘 아는 낱말 1.5배 · 자주 틀리는 낱말 0.7배, 상자 맨 위 60일) + 「하루 양 정하기」(한 번에 복습 · 하루 새 낱말, 진도 탭과 복습 탭에서 고름 — 기기에 저장). `words.js` `grade` · `caps`.
   사자성어 · 속담 · 관용 표현 각 150 은 안티(`docs/antigravity/antigravity-expressions-task.md` → `vocab/data/expressions.json`, 검사 `check-expressions`) — 화면은 「단어」 「표현」 탭(`words.js` drawExpr · drawExprOne · 퀴즈 10문제, 주소 `#words/expr` · `#words/expr/<id>`, 운영자 2026-10-07). 속담 · 관용 표현은 들어오면 `build-expressions` 만 다시.
   단어 한 장(`words.js` drawWord): 탭 뜻 · 여러 뜻(사전 뜻풀이) · 어원 · 한자(같은 한자 낱말, 자료 `j`) · 관련 말 · AI 질문(ask-korean, `wdAskAI`) + 아래 고정 「발음 연습(window.ptWith) · 다음 낱말」. 주제 화면에 작은 주제 칩 · 「둘러보기」에 주제 찾기, 주소 `#words/topic/feelings~joy`.
   반 숙제 「단어 · 주제」(ref = 주제 id) — 그 주제 세션만 센다(`db/update_cls_mark_vocab.sql`, 운영자가 SQL Editor 에서).

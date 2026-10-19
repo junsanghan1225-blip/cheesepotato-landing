@@ -7646,3 +7646,13 @@ html[lang="ja"] *, html[lang="zh"] *, html[lang^="zh-"] *, html[lang="my"] * { w
 .wv-tip-box { margin:6px 0 4px; padding:10px 12px; border-radius:12px; background:#fffbe6; border:1px solid #efe0a0; font-size:14.5px; line-height:1.55; animation:wvpop .35s ease-out; }
 
 .wd-x-hero b small { font-size:13px; font-weight:700; opacity:.8; }
+
+/* 단어 하루 양 고르기(복습 · 새 낱말) */
+.wd-caps { margin:12px 0 14px; padding:12px 14px; border:1px solid var(--line, #e6dfd2); border-radius:14px; background:var(--surface, #fff); }
+.wd-caps .wd-h3 { margin:0 0 8px; }
+.wd-cap { display:flex; flex-wrap:wrap; align-items:center; gap:6px; margin:6px 0; }
+.wd-cap > span { flex:0 0 100%; font-size:13px; font-weight:700; opacity:.8; }
+.wd-cap button { border:1px solid var(--line, #e6dfd2); background:transparent; color:inherit; border-radius:999px; padding:6px 12px; font:inherit; font-size:13px; cursor:pointer; min-height:34px; }
+.wd-cap button.on { background:#f4a42b; border-color:#f4a42b; color:#2b2118; font-weight:700; }
+.wd-cap-note { margin:8px 0 0; font-size:12px; opacity:.7; line-height:1.5; }
+.wd-due b small { font-size:.6em; opacity:.7; font-weight:500; }
