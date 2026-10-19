@@ -13,28 +13,25 @@ let EPS = [], file = null, seconds = null;
 
 $('rss').textContent = `${SB}/storage/v1/object/public/podcast/feed.xml`;
 
-/* ── 표지: 1280×720 — 크림 바탕 · 큰 제목 · 오른쪽 흰 카드에 표현 5개 ── */
+/* ── 표지: 1280×720 — 흰 바탕 · 가운데 큰 제목 · 아래에 그 편의 표현을 작게(운영자 2026-10-19 「흰 바탕이 마음에 들어, 표현은 주제별로 작게」) ── */
 async function cover(e) {
   const c = $('cv'), g = c.getContext('2d');
   try { await document.fonts.load('800 40px "Pretendard Variable"'); await document.fonts.load('600 30px "Pretendard Variable"'); } catch (x) { /* 글꼴이 늦어도 기본 글꼴로 그린다 */ }
   const F = '"Pretendard Variable", Pretendard, sans-serif';
-  g.fillStyle = '#F2EEE4'; g.fillRect(0, 0, 1280, 720);
-  g.fillStyle = '#E1682B'; g.fillRect(0, 0, 18, 720);
-  g.fillStyle = '#1B1512'; g.textBaseline = 'alphabetic';
-  /* 글자가 칸을 넘으면 크기를 줄여 맞춘다 */
-  const fit = (txt, wt, size, max) => { let z = size; do { g.font = `${wt} ${z}px ${F}`; z -= 2; } while (g.measureText(txt).width > max && z > 20); };
-  fit('Expressions', 800, 120, 540); g.fillText('Korean', 70, 250); g.fillText('Expressions', 70, 380);
-  g.fillStyle = '#E1682B'; g.beginPath(); g.roundRect(70, 430, 190, 62, 31); g.fill();
-  g.fillStyle = '#fff'; g.font = `800 34px ${F}`; g.fillText(`EP ${e.ep}`, 104, 473);
-  g.fillStyle = '#1B1512'; g.font = `600 30px ${F}`; g.fillText('everykoreans.com', 70, 640);
-  g.fillStyle = '#fff'; g.beginPath(); g.roundRect(640, 70, 570, 580, 28); g.fill();
-  g.strokeStyle = '#E4DED1'; g.lineWidth = 2; g.stroke();
-  const list = e.exprs.slice(0, 6);
-  const step = Math.min(92, 500 / Math.max(1, list.length));
-  list.forEach((t, i) => {
-    g.fillStyle = '#E1682B'; g.font = `800 46px ${F}`; g.fillText(String(i + 1), 684, 168 + i * step + 12);
-    g.fillStyle = '#1B1512'; fit(t, 800, 46, 440); g.fillText(t, 740, 168 + i * step + 12);
+  const fit = (txt, wt, size, max) => { let z = size; do { g.font = `${wt} ${z}px ${F}`; z -= 2; } while (g.measureText(txt).width > max && z > 16); };
+  const mid = (txt, y) => g.fillText(txt, (1280 - g.measureText(txt).width) / 2, y);
+  g.fillStyle = '#fff'; g.fillRect(0, 0, 1280, 720);
+  g.fillStyle = '#E1682B'; g.beginPath(); g.arc(640, 92, 9, 0, Math.PI * 2); g.fill();
+  g.fillStyle = '#1B1512'; fit('Expressions', 800, 150, 900);
+  mid('Korean', 230); mid('Expressions', 230 + parseInt(g.font.match(/(\d+)px/)[1], 10) * 1.05);
+  /* 표현은 두 줄로 — 앞 세 개 · 나머지, 작고 연하게 */
+  const list = e.exprs.slice(0, 6), half = Math.ceil(list.length / 2);
+  g.fillStyle = '#5a4d41';
+  if (list.length === 1) { fit(list[0], 700, 64, 1000); mid(list[0], 545); }   // 한 편 = 표현 하나면 조금 크게
+  else [list.slice(0, half), list.slice(half)].filter((r) => r.length).forEach((row, i) => {
+    const line = row.join('   ·   '); fit(line, 600, 34, 1060); mid(line, 520 + i * 54);
   });
+  g.fillStyle = '#8C7A66'; fit('EP ' + e.ep + '  ·  3-min lessons', 700, 28, 600); mid('EP ' + e.ep + '  ·  3-min lessons', 668);
 }
 const cur = () => EPS.find((x) => x.ep === $('ep').value);
 function drawEp() { const e = cur(); if (!e) return; $('epInfo').textContent = e.head; cover(e); }
