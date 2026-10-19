@@ -152,7 +152,7 @@ function hubPage() {
 `<h1>Free Korean worksheets</h1>
 <p>학습지 모음 · print, save as PDF or Word · every worksheet has an answer key</p>
 <div class="box">
-${rows.map(([u, en, ko, lv, d]) => `  <p><a class="btn sub" href="${u}"><b>${esc(en)}</b> · ${esc(ko)}${lv ? ` · ${esc(lv)}` : ''}</a>${d ? `<br><small>${esc(d)}</small>` : ''}</p>`).join('\n')}
+${rows.map(([u, en, ko, lv, d]) => `  <p><a class="btn sub" href="${u}"><span style="text-align:left"><b>${esc(en)}</b> · ${esc(ko)}${lv ? ` · ${esc(lv)}` : ''}</span></a>${d ? `<br><small>${esc(d)}</small>` : ''}</p>`).join('\n')}
 </div>
 <div class="next">
   <h3>Want a worksheet we do not have yet?</h3>
