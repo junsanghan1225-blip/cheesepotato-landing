@@ -1,0 +1,4218 @@
+{
+ "overall": [
+  {
+   "metricName": "DeadClickCount",
+   "information": [
+    {
+     "sessionsCount": 149,
+     "sessionsWithMetricPercentage": 6.04,
+     "sessionsWithoutMetricPercentage": 93.96,
+     "pagesViews": 10,
+     "subTotal": 52
+    }
+   ]
+  },
+  {
+   "metricName": "ExcessiveScroll",
+   "information": [
+    {
+     "sessionsCount": 149,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0
+    }
+   ]
+  },
+  {
+   "metricName": "RageClickCount",
+   "information": [
+    {
+     "sessionsCount": 149,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0
+    }
+   ]
+  },
+  {
+   "metricName": "QuickbackClick",
+   "information": [
+    {
+     "sessionsCount": 149,
+     "sessionsWithMetricPercentage": 2.01,
+     "sessionsWithoutMetricPercentage": 97.99,
+     "pagesViews": 4,
+     "subTotal": 4
+    }
+   ]
+  },
+  {
+   "metricName": "ScriptErrorCount",
+   "information": [
+    {
+     "sessionsCount": 149,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0
+    }
+   ]
+  },
+  {
+   "metricName": "ErrorClickCount",
+   "information": [
+    {
+     "sessionsCount": 149,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0
+    }
+   ]
+  },
+  {
+   "metricName": "ScrollDepth",
+   "information": [
+    {
+     "averageScrollDepth": 69.7
+    }
+   ]
+  },
+  {
+   "metricName": "Traffic",
+   "information": [
+    {
+     "totalSessionCount": 149,
+     "totalBotSessionCount": 83,
+     "distinctUserCount": 137,
+     "pagesPerSessionPercentage": 1.25503355704698
+    }
+   ]
+  },
+  {
+   "metricName": "EngagementTime",
+   "information": [
+    {
+     "totalTime": 106,
+     "activeTime": 55
+    }
+   ]
+  },
+  {
+   "metricName": "Browser",
+   "information": [
+    {
+     "name": "Chrome",
+     "sessionsCount": 82
+    },
+    {
+     "name": "MobileSafari",
+     "sessionsCount": 54
+    },
+    {
+     "name": "ChromeMobile",
+     "sessionsCount": 7
+    },
+    {
+     "name": "Edge",
+     "sessionsCount": 4
+    },
+    {
+     "name": "MiuiBrowser",
+     "sessionsCount": 1
+    },
+    {
+     "name": "SamsungInternet",
+     "sessionsCount": 1
+    }
+   ]
+  },
+  {
+   "metricName": "Device",
+   "information": [
+    {
+     "name": "PC",
+     "sessionsCount": 85
+    },
+    {
+     "name": "Mobile",
+     "sessionsCount": 52
+    },
+    {
+     "name": "Tablet",
+     "sessionsCount": 12
+    }
+   ]
+  },
+  {
+   "metricName": "OS",
+   "information": [
+    {
+     "name": "Linux",
+     "sessionsCount": 70
+    },
+    {
+     "name": "IOS",
+     "sessionsCount": 54
+    },
+    {
+     "name": "Windows",
+     "sessionsCount": 11
+    },
+    {
+     "name": "Android",
+     "sessionsCount": 10
+    },
+    {
+     "name": "MacOSX",
+     "sessionsCount": 4
+    }
+   ]
+  },
+  {
+   "metricName": "Country",
+   "information": [
+    {
+     "name": "Turkey",
+     "sessionsCount": 105
+    },
+    {
+     "name": "Korea, Republic of",
+     "sessionsCount": 20
+    },
+    {
+     "name": "Australia",
+     "sessionsCount": 4
+    },
+    {
+     "name": "Viet Nam",
+     "sessionsCount": 4
+    },
+    {
+     "name": "India",
+     "sessionsCount": 3
+    },
+    {
+     "name": "Israel",
+     "sessionsCount": 2
+    },
+    {
+     "name": "Saudi Arabia",
+     "sessionsCount": 2
+    },
+    {
+     "name": "Spain",
+     "sessionsCount": 2
+    },
+    {
+     "name": "United States",
+     "sessionsCount": 2
+    },
+    {
+     "name": "Indonesia",
+     "sessionsCount": 1
+    }
+   ]
+  },
+  {
+   "metricName": "PageTitle",
+   "information": [
+    {
+     "name": "치즈감자 웹사이트 — 무료 한국어 학습과 TOPIK 연습 | Learn Korean Free",
+     "sessionsCount": 47
+    },
+    {
+     "name": "TOPIK(토픽) II 쓰기 연습 문항 200개 — 51·52·53·54번 | CheesePotato",
+     "sessionsCount": 25
+    },
+    {
+     "name": "TOPIK 51번 연습 — 동아리 모집 | CheesePotato",
+     "sessionsCount": 24
+    },
+    {
+     "name": "TOPIK II 쓰기 연습 문항 200개 — 51·52·53·54번 | CheesePotato",
+     "sessionsCount": 9
+    },
+    {
+     "name": "TOPIK 51번 연습 — 물건 판매 글 | CheesePotato",
+     "sessionsCount": 6
+    },
+    {
+     "name": "TOPIK No. 51 Antrenmanı — Kulüp Üye Alımı | CheesePotato",
+     "sessionsCount": 5
+    },
+    {
+     "name": "TOPIK Vocabulary List — Free CSV & Anki Download (Levels 1–6) | CheesePotato",
+     "sessionsCount": 5
+    },
+    {
+     "name": "TOPIK 52번 연습 — 수면과 건강 | CheesePotato",
+     "sessionsCount": 4
+    },
+    {
+     "name": "TOPIK 54번 연습 — 습관의 힘 | CheesePotato",
+     "sessionsCount": 4
+    },
+    {
+     "name": "TOPIK II Writing 53–54: 100 Practice Questions — Every Koreans Books | CheesePotato",
+     "sessionsCount": 3
+    }
+   ]
+  },
+  {
+   "metricName": "ReferrerUrl",
+   "information": [
+    {
+     "name": "everykoreans.com",
+     "sessionsCount": 87
+    },
+    {
+     "name": "com.google.android.googlequicksearchbox",
+     "sessionsCount": 11
+    },
+    {
+     "name": "www.google.com",
+     "sessionsCount": 7
+    },
+    {
+     "name": "www.bing.com",
+     "sessionsCount": 4
+    },
+    {
+     "name": "accounts.google.com",
+     "sessionsCount": 2
+    },
+    {
+     "name": "gemini.google.com",
+     "sessionsCount": 1
+    }
+   ]
+  },
+  {
+   "metricName": "PopularPages",
+   "information": [
+    {
+     "url": "https://everykoreans.com/",
+     "visitsCount": 47
+    },
+    {
+     "url": "https://everykoreans.com/topik-writing/",
+     "visitsCount": 35
+    },
+    {
+     "url": "https://everykoreans.com/topik-writing/w51-1.html",
+     "visitsCount": 29
+    },
+    {
+     "url": "https://everykoreans.com/topik-writing/w51-2.html",
+     "visitsCount": 7
+    },
+    {
+     "url": "https://everykoreans.com/topik-vocabulary-list/",
+     "visitsCount": 5
+    },
+    {
+     "url": "https://everykoreans.com/topik-writing/w52-1.html",
+     "visitsCount": 4
+    },
+    {
+     "url": "https://everykoreans.com/topik-writing/w54-1.html",
+     "visitsCount": 4
+    },
+    {
+     "url": "https://everykoreans.com/en/topik-listening/",
+     "visitsCount": 3
+    },
+    {
+     "url": "https://everykoreans.com/shop/topik2-writing-53-54/",
+     "visitsCount": 3
+    },
+    {
+     "url": "https://everykoreans.com/korean-word-for/who.html",
+     "visitsCount": 2
+    }
+   ]
+  }
+ ],
+ "byUrl": [
+  {
+   "metricName": "DeadClickCount",
+   "information": [
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/?utm_source=twpage#learn/writing/w54-1"
+    },
+    {
+     "sessionsCount": 5,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/topik-writing/?utm_source=chatgpt.com"
+    },
+    {
+     "sessionsCount": 2,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/korean-word-for/who.html"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/dictionary/%ED%95%A0%EB%A8%B8%EB%8B%88.html"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/compare/69.html"
+    },
+    {
+     "sessionsCount": 29,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/topik-writing/w51-1.html"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/compare/61.html"
+    },
+    {
+     "sessionsCount": 2,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/?utm_source=twpage#learn/writing/w52-1"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/topik-reading/t2-348.html"
+    },
+    {
+     "sessionsCount": 2,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/en/topik-listening/"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/dictionary/%EA%B0%80%EB%A5%B4%EC%B9%98%EB%8B%A4.html"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/?src=pwa"
+    },
+    {
+     "sessionsCount": 2,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/?lang=en&utm_source=hub#learn/topik/I/listening"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/#words/expr/xi-105"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/?src=pwa#account"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/?utm_source=dict#words/w/%EA%B0%80%EB%A5%B4%EC%B9%98%EB%8B%A4"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/#learn/topik/II/writing"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/dictionary/%EB%9C%B8%ED%95%98%EB%8B%A4.html"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/dictionary/%EC%9D%BC%EC%A2%85.html"
+    },
+    {
+     "sessionsCount": 2,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/worksheets/?utm_source=chatgpt.com"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/topik-vocabulary-list/"
+    },
+    {
+     "sessionsCount": 2,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/#learn/weave"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/topik2-words/?utm_source=chatgpt.com"
+    },
+    {
+     "sessionsCount": 19,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/?utm_source=twpage#learn/writing/w51-1"
+    },
+    {
+     "sessionsCount": 4,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/topik-writing/w52-1.html"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/en/topik-listening/?utm_source=chatgpt.com"
+    },
+    {
+     "sessionsCount": 7,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/topik-writing/w51-2.html"
+    },
+    {
+     "sessionsCount": 2,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/#learn/translate/b-quote-statement"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/dictionary/%EB%B0%98%EC%A7%9D.html"
+    },
+    {
+     "sessionsCount": 7,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/?utm_source=twpage#learn/writing/w51-2"
+    },
+    {
+     "sessionsCount": 2,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/#learn"
+    },
+    {
+     "sessionsCount": 3,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/?utm_source=hub#learn/topik/II/writing"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/#words/expr"
+    },
+    {
+     "sessionsCount": 2,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/topik-writing/w51-6.html"
+    },
+    {
+     "sessionsCount": 30,
+     "sessionsWithMetricPercentage": 3.33,
+     "sessionsWithoutMetricPercentage": 96.67,
+     "pagesViews": 1,
+     "subTotal": 2,
+     "Url": "https://everykoreans.com/topik-writing/"
+    },
+    {
+     "sessionsCount": 4,
+     "sessionsWithMetricPercentage": 50,
+     "sessionsWithoutMetricPercentage": 50,
+     "pagesViews": 2,
+     "subTotal": 2,
+     "Url": "https://everykoreans.com/topik-vocabulary-list/?utm_source=chatgpt.com"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 100,
+     "sessionsWithoutMetricPercentage": 0,
+     "pagesViews": 1,
+     "subTotal": 1,
+     "Url": "https://everykoreans.com/korean-word-for/choose.html"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/#words/idiom"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/?code=f41477d4-dd9e-4f3c-a858-beb84e14b172#wordbook"
+    },
+    {
+     "sessionsCount": 2,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/#words/learn"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/dictionary/%EB%A9%94%EB%8B%A4.html"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/#learn/weave/connectors"
+    },
+    {
+     "sessionsCount": 4,
+     "sessionsWithMetricPercentage": 50,
+     "sessionsWithoutMetricPercentage": 50,
+     "pagesViews": 3,
+     "subTotal": 44,
+     "Url": "https://everykoreans.com/topik-writing/w54-1.html"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 100,
+     "sessionsWithoutMetricPercentage": 0,
+     "pagesViews": 1,
+     "subTotal": 1,
+     "Url": "https://everykoreans.com/#words"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/korean-word-for/two.html"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 100,
+     "sessionsWithoutMetricPercentage": 0,
+     "pagesViews": 1,
+     "subTotal": 1,
+     "Url": "https://everykoreans.com/?lang=vi&utm_source=chatgpt.com"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/#words/topic/function/6"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/topik2-words/school.html"
+    },
+    {
+     "sessionsCount": 3,
+     "sessionsWithMetricPercentage": 33.33,
+     "sessionsWithoutMetricPercentage": 66.67,
+     "pagesViews": 1,
+     "subTotal": 1,
+     "Url": "https://everykoreans.com/shop/topik2-writing-53-54/"
+    },
+    {
+     "sessionsCount": 3,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/"
+    },
+    {
+     "sessionsCount": 2,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/topik-writing/w51-5.html"
+    }
+   ]
+  },
+  {
+   "metricName": "ExcessiveScroll",
+   "information": [
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/?utm_source=twpage#learn/writing/w54-1"
+    },
+    {
+     "sessionsCount": 5,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/topik-writing/?utm_source=chatgpt.com"
+    },
+    {
+     "sessionsCount": 2,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/korean-word-for/who.html"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/dictionary/%ED%95%A0%EB%A8%B8%EB%8B%88.html"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/compare/69.html"
+    },
+    {
+     "sessionsCount": 29,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/topik-writing/w51-1.html"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/compare/61.html"
+    },
+    {
+     "sessionsCount": 2,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/?utm_source=twpage#learn/writing/w52-1"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/topik-reading/t2-348.html"
+    },
+    {
+     "sessionsCount": 2,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/en/topik-listening/"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/dictionary/%EA%B0%80%EB%A5%B4%EC%B9%98%EB%8B%A4.html"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/?src=pwa"
+    },
+    {
+     "sessionsCount": 2,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/?lang=en&utm_source=hub#learn/topik/I/listening"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/#words/expr/xi-105"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/?src=pwa#account"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/?utm_source=dict#words/w/%EA%B0%80%EB%A5%B4%EC%B9%98%EB%8B%A4"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/#learn/topik/II/writing"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/dictionary/%EB%9C%B8%ED%95%98%EB%8B%A4.html"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/dictionary/%EC%9D%BC%EC%A2%85.html"
+    },
+    {
+     "sessionsCount": 2,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/worksheets/?utm_source=chatgpt.com"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/topik-vocabulary-list/"
+    },
+    {
+     "sessionsCount": 2,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/#learn/weave"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/topik2-words/?utm_source=chatgpt.com"
+    },
+    {
+     "sessionsCount": 19,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/?utm_source=twpage#learn/writing/w51-1"
+    },
+    {
+     "sessionsCount": 4,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/topik-writing/w52-1.html"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/en/topik-listening/?utm_source=chatgpt.com"
+    },
+    {
+     "sessionsCount": 7,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/topik-writing/w51-2.html"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/dictionary/%EB%B0%98%EC%A7%9D.html"
+    },
+    {
+     "sessionsCount": 2,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/#learn/translate/b-quote-statement"
+    },
+    {
+     "sessionsCount": 7,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/?utm_source=twpage#learn/writing/w51-2"
+    },
+    {
+     "sessionsCount": 2,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/#learn"
+    },
+    {
+     "sessionsCount": 3,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/?utm_source=hub#learn/topik/II/writing"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/#words/expr"
+    },
+    {
+     "sessionsCount": 2,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/topik-writing/w51-6.html"
+    },
+    {
+     "sessionsCount": 30,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/topik-writing/"
+    },
+    {
+     "sessionsCount": 4,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/topik-vocabulary-list/?utm_source=chatgpt.com"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/korean-word-for/choose.html"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/#words/idiom"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/?code=f41477d4-dd9e-4f3c-a858-beb84e14b172#wordbook"
+    },
+    {
+     "sessionsCount": 2,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/#words/learn"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/dictionary/%EB%A9%94%EB%8B%A4.html"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/#learn/weave/connectors"
+    },
+    {
+     "sessionsCount": 4,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/topik-writing/w54-1.html"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/#words"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/korean-word-for/two.html"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/?lang=vi&utm_source=chatgpt.com"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/#words/topic/function/6"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/topik2-words/school.html"
+    },
+    {
+     "sessionsCount": 3,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/shop/topik2-writing-53-54/"
+    },
+    {
+     "sessionsCount": 3,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/"
+    },
+    {
+     "sessionsCount": 2,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/topik-writing/w51-5.html"
+    }
+   ]
+  },
+  {
+   "metricName": "RageClickCount",
+   "information": [
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/?utm_source=twpage#learn/writing/w54-1"
+    },
+    {
+     "sessionsCount": 5,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/topik-writing/?utm_source=chatgpt.com"
+    },
+    {
+     "sessionsCount": 2,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/korean-word-for/who.html"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/dictionary/%ED%95%A0%EB%A8%B8%EB%8B%88.html"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/compare/69.html"
+    },
+    {
+     "sessionsCount": 29,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/topik-writing/w51-1.html"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/compare/61.html"
+    },
+    {
+     "sessionsCount": 2,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/?utm_source=twpage#learn/writing/w52-1"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/topik-reading/t2-348.html"
+    },
+    {
+     "sessionsCount": 2,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/en/topik-listening/"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/dictionary/%EA%B0%80%EB%A5%B4%EC%B9%98%EB%8B%A4.html"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/?src=pwa"
+    },
+    {
+     "sessionsCount": 2,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/?lang=en&utm_source=hub#learn/topik/I/listening"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/#words/expr/xi-105"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/?src=pwa#account"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/?utm_source=dict#words/w/%EA%B0%80%EB%A5%B4%EC%B9%98%EB%8B%A4"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/#learn/topik/II/writing"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/dictionary/%EB%9C%B8%ED%95%98%EB%8B%A4.html"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/dictionary/%EC%9D%BC%EC%A2%85.html"
+    },
+    {
+     "sessionsCount": 2,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/worksheets/?utm_source=chatgpt.com"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/topik-vocabulary-list/"
+    },
+    {
+     "sessionsCount": 2,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/#learn/weave"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/topik2-words/?utm_source=chatgpt.com"
+    },
+    {
+     "sessionsCount": 19,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/?utm_source=twpage#learn/writing/w51-1"
+    },
+    {
+     "sessionsCount": 4,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/topik-writing/w52-1.html"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/en/topik-listening/?utm_source=chatgpt.com"
+    },
+    {
+     "sessionsCount": 7,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/topik-writing/w51-2.html"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/dictionary/%EB%B0%98%EC%A7%9D.html"
+    },
+    {
+     "sessionsCount": 2,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/#learn/translate/b-quote-statement"
+    },
+    {
+     "sessionsCount": 7,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/?utm_source=twpage#learn/writing/w51-2"
+    },
+    {
+     "sessionsCount": 2,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/#learn"
+    },
+    {
+     "sessionsCount": 3,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/?utm_source=hub#learn/topik/II/writing"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/#words/expr"
+    },
+    {
+     "sessionsCount": 2,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/topik-writing/w51-6.html"
+    },
+    {
+     "sessionsCount": 30,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/topik-writing/"
+    },
+    {
+     "sessionsCount": 4,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/topik-vocabulary-list/?utm_source=chatgpt.com"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/korean-word-for/choose.html"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/#words/idiom"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/?code=f41477d4-dd9e-4f3c-a858-beb84e14b172#wordbook"
+    },
+    {
+     "sessionsCount": 2,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/#words/learn"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/dictionary/%EB%A9%94%EB%8B%A4.html"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/#learn/weave/connectors"
+    },
+    {
+     "sessionsCount": 4,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/topik-writing/w54-1.html"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/#words"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/korean-word-for/two.html"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/?lang=vi&utm_source=chatgpt.com"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/#words/topic/function/6"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/topik2-words/school.html"
+    },
+    {
+     "sessionsCount": 3,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/shop/topik2-writing-53-54/"
+    },
+    {
+     "sessionsCount": 3,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/"
+    },
+    {
+     "sessionsCount": 2,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/topik-writing/w51-5.html"
+    }
+   ]
+  },
+  {
+   "metricName": "QuickbackClick",
+   "information": [
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/?utm_source=twpage#learn/writing/w54-1"
+    },
+    {
+     "sessionsCount": 5,
+     "sessionsWithMetricPercentage": 20,
+     "sessionsWithoutMetricPercentage": 80,
+     "pagesViews": 1,
+     "subTotal": 1,
+     "Url": "https://everykoreans.com/topik-writing/?utm_source=chatgpt.com"
+    },
+    {
+     "sessionsCount": 2,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/korean-word-for/who.html"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/dictionary/%ED%95%A0%EB%A8%B8%EB%8B%88.html"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/compare/69.html"
+    },
+    {
+     "sessionsCount": 29,
+     "sessionsWithMetricPercentage": 3.45,
+     "sessionsWithoutMetricPercentage": 96.55,
+     "pagesViews": 1,
+     "subTotal": 1,
+     "Url": "https://everykoreans.com/topik-writing/w51-1.html"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/compare/61.html"
+    },
+    {
+     "sessionsCount": 2,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/?utm_source=twpage#learn/writing/w52-1"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/topik-reading/t2-348.html"
+    },
+    {
+     "sessionsCount": 2,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/en/topik-listening/"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 100,
+     "sessionsWithoutMetricPercentage": 0,
+     "pagesViews": 1,
+     "subTotal": 1,
+     "Url": "https://everykoreans.com/dictionary/%EA%B0%80%EB%A5%B4%EC%B9%98%EB%8B%A4.html"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/?src=pwa"
+    },
+    {
+     "sessionsCount": 2,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/?lang=en&utm_source=hub#learn/topik/I/listening"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/#words/expr/xi-105"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/?src=pwa#account"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/?utm_source=dict#words/w/%EA%B0%80%EB%A5%B4%EC%B9%98%EB%8B%A4"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/#learn/topik/II/writing"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/dictionary/%EB%9C%B8%ED%95%98%EB%8B%A4.html"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/dictionary/%EC%9D%BC%EC%A2%85.html"
+    },
+    {
+     "sessionsCount": 2,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/worksheets/?utm_source=chatgpt.com"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/topik-vocabulary-list/"
+    },
+    {
+     "sessionsCount": 2,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/#learn/weave"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/topik2-words/?utm_source=chatgpt.com"
+    },
+    {
+     "sessionsCount": 4,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/topik-writing/w52-1.html"
+    },
+    {
+     "sessionsCount": 19,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/?utm_source=twpage#learn/writing/w51-1"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/en/topik-listening/?utm_source=chatgpt.com"
+    },
+    {
+     "sessionsCount": 7,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/topik-writing/w51-2.html"
+    },
+    {
+     "sessionsCount": 2,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/#learn/translate/b-quote-statement"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/dictionary/%EB%B0%98%EC%A7%9D.html"
+    },
+    {
+     "sessionsCount": 7,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/?utm_source=twpage#learn/writing/w51-2"
+    },
+    {
+     "sessionsCount": 2,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/#learn"
+    },
+    {
+     "sessionsCount": 3,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/?utm_source=hub#learn/topik/II/writing"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/#words/expr"
+    },
+    {
+     "sessionsCount": 2,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/topik-writing/w51-6.html"
+    },
+    {
+     "sessionsCount": 30,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/topik-writing/"
+    },
+    {
+     "sessionsCount": 4,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/topik-vocabulary-list/?utm_source=chatgpt.com"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/korean-word-for/choose.html"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/#words/idiom"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/?code=f41477d4-dd9e-4f3c-a858-beb84e14b172#wordbook"
+    },
+    {
+     "sessionsCount": 2,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/#words/learn"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/dictionary/%EB%A9%94%EB%8B%A4.html"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/#learn/weave/connectors"
+    },
+    {
+     "sessionsCount": 4,
+     "sessionsWithMetricPercentage": 25,
+     "sessionsWithoutMetricPercentage": 75,
+     "pagesViews": 1,
+     "subTotal": 1,
+     "Url": "https://everykoreans.com/topik-writing/w54-1.html"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/#words"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/korean-word-for/two.html"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/?lang=vi&utm_source=chatgpt.com"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/#words/topic/function/6"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/topik2-words/school.html"
+    },
+    {
+     "sessionsCount": 3,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/shop/topik2-writing-53-54/"
+    },
+    {
+     "sessionsCount": 3,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/"
+    },
+    {
+     "sessionsCount": 2,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/topik-writing/w51-5.html"
+    }
+   ]
+  },
+  {
+   "metricName": "ScriptErrorCount",
+   "information": [
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/?utm_source=twpage#learn/writing/w54-1"
+    },
+    {
+     "sessionsCount": 5,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/topik-writing/?utm_source=chatgpt.com"
+    },
+    {
+     "sessionsCount": 2,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/korean-word-for/who.html"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/dictionary/%ED%95%A0%EB%A8%B8%EB%8B%88.html"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/compare/69.html"
+    },
+    {
+     "sessionsCount": 29,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/topik-writing/w51-1.html"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/compare/61.html"
+    },
+    {
+     "sessionsCount": 2,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/?utm_source=twpage#learn/writing/w52-1"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/topik-reading/t2-348.html"
+    },
+    {
+     "sessionsCount": 2,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/en/topik-listening/"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/dictionary/%EA%B0%80%EB%A5%B4%EC%B9%98%EB%8B%A4.html"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/?src=pwa"
+    },
+    {
+     "sessionsCount": 2,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/?lang=en&utm_source=hub#learn/topik/I/listening"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/#words/expr/xi-105"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/?src=pwa#account"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/?utm_source=dict#words/w/%EA%B0%80%EB%A5%B4%EC%B9%98%EB%8B%A4"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/#learn/topik/II/writing"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/dictionary/%EB%9C%B8%ED%95%98%EB%8B%A4.html"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/dictionary/%EC%9D%BC%EC%A2%85.html"
+    },
+    {
+     "sessionsCount": 2,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/worksheets/?utm_source=chatgpt.com"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/topik-vocabulary-list/"
+    },
+    {
+     "sessionsCount": 2,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/#learn/weave"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/topik2-words/?utm_source=chatgpt.com"
+    },
+    {
+     "sessionsCount": 19,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/?utm_source=twpage#learn/writing/w51-1"
+    },
+    {
+     "sessionsCount": 4,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/topik-writing/w52-1.html"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/en/topik-listening/?utm_source=chatgpt.com"
+    },
+    {
+     "sessionsCount": 7,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/topik-writing/w51-2.html"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/dictionary/%EB%B0%98%EC%A7%9D.html"
+    },
+    {
+     "sessionsCount": 2,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/#learn/translate/b-quote-statement"
+    },
+    {
+     "sessionsCount": 7,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/?utm_source=twpage#learn/writing/w51-2"
+    },
+    {
+     "sessionsCount": 2,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/#learn"
+    },
+    {
+     "sessionsCount": 3,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/?utm_source=hub#learn/topik/II/writing"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/#words/expr"
+    },
+    {
+     "sessionsCount": 2,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/topik-writing/w51-6.html"
+    },
+    {
+     "sessionsCount": 30,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/topik-writing/"
+    },
+    {
+     "sessionsCount": 4,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/topik-vocabulary-list/?utm_source=chatgpt.com"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/korean-word-for/choose.html"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/#words/idiom"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/?code=f41477d4-dd9e-4f3c-a858-beb84e14b172#wordbook"
+    },
+    {
+     "sessionsCount": 2,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/#words/learn"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/dictionary/%EB%A9%94%EB%8B%A4.html"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/#learn/weave/connectors"
+    },
+    {
+     "sessionsCount": 4,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/topik-writing/w54-1.html"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/#words"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/korean-word-for/two.html"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/?lang=vi&utm_source=chatgpt.com"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/#words/topic/function/6"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/topik2-words/school.html"
+    },
+    {
+     "sessionsCount": 3,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/shop/topik2-writing-53-54/"
+    },
+    {
+     "sessionsCount": 3,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/"
+    },
+    {
+     "sessionsCount": 2,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/topik-writing/w51-5.html"
+    }
+   ]
+  },
+  {
+   "metricName": "ErrorClickCount",
+   "information": [
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/?utm_source=twpage#learn/writing/w54-1"
+    },
+    {
+     "sessionsCount": 5,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/topik-writing/?utm_source=chatgpt.com"
+    },
+    {
+     "sessionsCount": 2,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/korean-word-for/who.html"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/dictionary/%ED%95%A0%EB%A8%B8%EB%8B%88.html"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/compare/69.html"
+    },
+    {
+     "sessionsCount": 29,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/topik-writing/w51-1.html"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/compare/61.html"
+    },
+    {
+     "sessionsCount": 2,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/?utm_source=twpage#learn/writing/w52-1"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/topik-reading/t2-348.html"
+    },
+    {
+     "sessionsCount": 2,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/en/topik-listening/"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/dictionary/%EA%B0%80%EB%A5%B4%EC%B9%98%EB%8B%A4.html"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/?src=pwa"
+    },
+    {
+     "sessionsCount": 2,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/?lang=en&utm_source=hub#learn/topik/I/listening"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/#words/expr/xi-105"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/?src=pwa#account"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/?utm_source=dict#words/w/%EA%B0%80%EB%A5%B4%EC%B9%98%EB%8B%A4"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/#learn/topik/II/writing"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/dictionary/%EB%9C%B8%ED%95%98%EB%8B%A4.html"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/dictionary/%EC%9D%BC%EC%A2%85.html"
+    },
+    {
+     "sessionsCount": 2,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/worksheets/?utm_source=chatgpt.com"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/topik-vocabulary-list/"
+    },
+    {
+     "sessionsCount": 2,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/#learn/weave"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/topik2-words/?utm_source=chatgpt.com"
+    },
+    {
+     "sessionsCount": 4,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/topik-writing/w52-1.html"
+    },
+    {
+     "sessionsCount": 19,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/?utm_source=twpage#learn/writing/w51-1"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/en/topik-listening/?utm_source=chatgpt.com"
+    },
+    {
+     "sessionsCount": 7,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/topik-writing/w51-2.html"
+    },
+    {
+     "sessionsCount": 2,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/#learn/translate/b-quote-statement"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/dictionary/%EB%B0%98%EC%A7%9D.html"
+    },
+    {
+     "sessionsCount": 7,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/?utm_source=twpage#learn/writing/w51-2"
+    },
+    {
+     "sessionsCount": 2,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/#learn"
+    },
+    {
+     "sessionsCount": 3,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/?utm_source=hub#learn/topik/II/writing"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/#words/expr"
+    },
+    {
+     "sessionsCount": 2,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/topik-writing/w51-6.html"
+    },
+    {
+     "sessionsCount": 30,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/topik-writing/"
+    },
+    {
+     "sessionsCount": 4,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/topik-vocabulary-list/?utm_source=chatgpt.com"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/korean-word-for/choose.html"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/#words/idiom"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/?code=f41477d4-dd9e-4f3c-a858-beb84e14b172#wordbook"
+    },
+    {
+     "sessionsCount": 2,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/#words/learn"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/dictionary/%EB%A9%94%EB%8B%A4.html"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/#learn/weave/connectors"
+    },
+    {
+     "sessionsCount": 4,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/topik-writing/w54-1.html"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/#words"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/korean-word-for/two.html"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/?lang=vi&utm_source=chatgpt.com"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/#words/topic/function/6"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/topik2-words/school.html"
+    },
+    {
+     "sessionsCount": 3,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/shop/topik2-writing-53-54/"
+    },
+    {
+     "sessionsCount": 3,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/"
+    },
+    {
+     "sessionsCount": 2,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://everykoreans.com/topik-writing/w51-5.html"
+    }
+   ]
+  },
+  {
+   "metricName": "ScrollDepth",
+   "information": [
+    {
+     "averageScrollDepth": 100,
+     "Url": "https://everykoreans.com/?utm_source=twpage#learn/writing/w54-1"
+    },
+    {
+     "averageScrollDepth": 71.67,
+     "Url": "https://everykoreans.com/topik-writing/?utm_source=chatgpt.com"
+    },
+    {
+     "averageScrollDepth": 82,
+     "Url": "https://everykoreans.com/korean-word-for/who.html"
+    },
+    {
+     "averageScrollDepth": 20,
+     "Url": "https://everykoreans.com/dictionary/%ED%95%A0%EB%A8%B8%EB%8B%88.html"
+    },
+    {
+     "averageScrollDepth": 62,
+     "Url": "https://everykoreans.com/compare/69.html"
+    },
+    {
+     "averageScrollDepth": 79.57,
+     "Url": "https://everykoreans.com/topik-writing/w51-1.html"
+    },
+    {
+     "averageScrollDepth": 89,
+     "Url": "https://everykoreans.com/compare/61.html"
+    },
+    {
+     "averageScrollDepth": 70,
+     "Url": "https://everykoreans.com/?utm_source=twpage#learn/writing/w52-1"
+    },
+    {
+     "averageScrollDepth": 68,
+     "Url": "https://everykoreans.com/topik-reading/t2-348.html"
+    },
+    {
+     "averageScrollDepth": 61,
+     "Url": "https://everykoreans.com/en/topik-listening/"
+    },
+    {
+     "averageScrollDepth": 30,
+     "Url": "https://everykoreans.com/dictionary/%EA%B0%80%EB%A5%B4%EC%B9%98%EB%8B%A4.html"
+    },
+    {
+     "averageScrollDepth": 100,
+     "Url": "https://everykoreans.com/?src=pwa"
+    },
+    {
+     "averageScrollDepth": 97,
+     "Url": "https://everykoreans.com/?lang=en&utm_source=hub#learn/topik/I/listening"
+    },
+    {
+     "averageScrollDepth": 76,
+     "Url": "https://everykoreans.com/#words/expr/xi-105"
+    },
+    {
+     "averageScrollDepth": 100,
+     "Url": "https://everykoreans.com/?src=pwa#account"
+    },
+    {
+     "averageScrollDepth": 100,
+     "Url": "https://everykoreans.com/?utm_source=dict#words/w/%EA%B0%80%EB%A5%B4%EC%B9%98%EB%8B%A4"
+    },
+    {
+     "averageScrollDepth": 16,
+     "Url": "https://everykoreans.com/#learn/topik/II/writing"
+    },
+    {
+     "averageScrollDepth": 52,
+     "Url": "https://everykoreans.com/dictionary/%EB%9C%B8%ED%95%98%EB%8B%A4.html"
+    },
+    {
+     "averageScrollDepth": 59,
+     "Url": "https://everykoreans.com/dictionary/%EC%9D%BC%EC%A2%85.html"
+    },
+    {
+     "averageScrollDepth": 10,
+     "Url": "https://everykoreans.com/worksheets/?utm_source=chatgpt.com"
+    },
+    {
+     "averageScrollDepth": 38,
+     "Url": "https://everykoreans.com/topik-vocabulary-list/"
+    },
+    {
+     "averageScrollDepth": 93.5,
+     "Url": "https://everykoreans.com/#learn/weave"
+    },
+    {
+     "averageScrollDepth": 54,
+     "Url": "https://everykoreans.com/topik2-words/?utm_source=chatgpt.com"
+    },
+    {
+     "averageScrollDepth": 71.89,
+     "Url": "https://everykoreans.com/?utm_source=twpage#learn/writing/w51-1"
+    },
+    {
+     "averageScrollDepth": 59,
+     "Url": "https://everykoreans.com/topik-writing/w52-1.html"
+    },
+    {
+     "averageScrollDepth": 21.2,
+     "Url": "https://everykoreans.com/en/topik-listening/?utm_source=chatgpt.com"
+    },
+    {
+     "averageScrollDepth": 93.14,
+     "Url": "https://everykoreans.com/topik-writing/w51-2.html"
+    },
+    {
+     "averageScrollDepth": 85.5,
+     "Url": "https://everykoreans.com/#learn/translate/b-quote-statement"
+    },
+    {
+     "averageScrollDepth": 100,
+     "Url": "https://everykoreans.com/dictionary/%EB%B0%98%EC%A7%9D.html"
+    },
+    {
+     "averageScrollDepth": 77.29,
+     "Url": "https://everykoreans.com/?utm_source=twpage#learn/writing/w51-2"
+    },
+    {
+     "averageScrollDepth": 40,
+     "Url": "https://everykoreans.com/#learn"
+    },
+    {
+     "averageScrollDepth": 100,
+     "Url": "https://everykoreans.com/?utm_source=hub#learn/topik/II/writing"
+    },
+    {
+     "averageScrollDepth": 92,
+     "Url": "https://everykoreans.com/#words/expr"
+    },
+    {
+     "averageScrollDepth": 78.5,
+     "Url": "https://everykoreans.com/topik-writing/w51-6.html"
+    },
+    {
+     "averageScrollDepth": 51.23,
+     "Url": "https://everykoreans.com/topik-writing/"
+    },
+    {
+     "averageScrollDepth": 55.5,
+     "Url": "https://everykoreans.com/topik-vocabulary-list/?utm_source=chatgpt.com"
+    },
+    {
+     "averageScrollDepth": 62,
+     "Url": "https://everykoreans.com/korean-word-for/choose.html"
+    },
+    {
+     "averageScrollDepth": 88,
+     "Url": "https://everykoreans.com/#words/idiom"
+    },
+    {
+     "averageScrollDepth": 100,
+     "Url": "https://everykoreans.com/?code=f41477d4-dd9e-4f3c-a858-beb84e14b172#wordbook"
+    },
+    {
+     "averageScrollDepth": 100,
+     "Url": "https://everykoreans.com/#words/learn"
+    },
+    {
+     "averageScrollDepth": 30,
+     "Url": "https://everykoreans.com/dictionary/%EB%A9%94%EB%8B%A4.html"
+    },
+    {
+     "averageScrollDepth": 100,
+     "Url": "https://everykoreans.com/#learn/weave/connectors"
+    },
+    {
+     "averageScrollDepth": 82.29,
+     "Url": "https://everykoreans.com/topik-writing/w54-1.html"
+    },
+    {
+     "averageScrollDepth": 100,
+     "Url": "https://everykoreans.com/#words"
+    },
+    {
+     "averageScrollDepth": 97,
+     "Url": "https://everykoreans.com/korean-word-for/two.html"
+    },
+    {
+     "averageScrollDepth": 26,
+     "Url": "https://everykoreans.com/?lang=vi&utm_source=chatgpt.com"
+    },
+    {
+     "averageScrollDepth": 94,
+     "Url": "https://everykoreans.com/#words/topic/function/6"
+    },
+    {
+     "averageScrollDepth": 100,
+     "Url": "https://everykoreans.com/topik2-words/school.html"
+    },
+    {
+     "averageScrollDepth": 63.33,
+     "Url": "https://everykoreans.com/shop/topik2-writing-53-54/"
+    },
+    {
+     "averageScrollDepth": 48,
+     "Url": "https://everykoreans.com/"
+    },
+    {
+     "averageScrollDepth": 78,
+     "Url": "https://everykoreans.com/topik-writing/w51-5.html"
+    }
+   ]
+  },
+  {
+   "metricName": "Traffic",
+   "information": [
+    {
+     "totalSessionCount": 29,
+     "totalBotSessionCount": 0,
+     "distinctUserCount": 29,
+     "pagesPerSessionPercentage": 1.103448275862069,
+     "Url": "https://everykoreans.com/topik-writing/w51-1.html"
+    },
+    {
+     "totalSessionCount": 0,
+     "totalBotSessionCount": 1,
+     "distinctUserCount": 0,
+     "pagesPerSessionPercentage": null,
+     "Url": "https://everykoreans.com/dictionary/%EA%B1%B0%EC%B0%BD%ED%95%98%EB%8B%A4.html"
+    },
+    {
+     "totalSessionCount": 0,
+     "totalBotSessionCount": 1,
+     "distinctUserCount": 0,
+     "pagesPerSessionPercentage": null,
+     "Url": "https://everykoreans.com/dictionary/%EC%9C%A0%EB%8F%99%EC%A0%81.html"
+    },
+    {
+     "totalSessionCount": 0,
+     "totalBotSessionCount": 1,
+     "distinctUserCount": 0,
+     "pagesPerSessionPercentage": null,
+     "Url": "https://everykoreans.com/dictionary/%EC%B2%9C%EB%A7%89.html"
+    },
+    {
+     "totalSessionCount": 0,
+     "totalBotSessionCount": 1,
+     "distinctUserCount": 0,
+     "pagesPerSessionPercentage": null,
+     "Url": "https://everykoreans.com/dictionary/%EA%B0%90%EB%8F%8C%EB%8B%A4.html"
+    },
+    {
+     "totalSessionCount": 0,
+     "totalBotSessionCount": 1,
+     "distinctUserCount": 0,
+     "pagesPerSessionPercentage": null,
+     "Url": "https://everykoreans.com/dictionary/%EC%88%98%EC%B9%99.html"
+    },
+    {
+     "totalSessionCount": 0,
+     "totalBotSessionCount": 1,
+     "distinctUserCount": 0,
+     "pagesPerSessionPercentage": null,
+     "Url": "https://everykoreans.com/dictionary/%EB%AA%A9%EA%B2%A9%EC%9E%90.html"
+    },
+    {
+     "totalSessionCount": 0,
+     "totalBotSessionCount": 1,
+     "distinctUserCount": 0,
+     "pagesPerSessionPercentage": null,
+     "Url": "https://everykoreans.com/dictionary/%EC%9D%B4%EC%A3%BC%EC%97%AC%EC%84%B1.html"
+    },
+    {
+     "totalSessionCount": 0,
+     "totalBotSessionCount": 1,
+     "distinctUserCount": 0,
+     "pagesPerSessionPercentage": null,
+     "Url": "https://everykoreans.com/dictionary/%EC%A3%BC%EB%B0%A9.html"
+    },
+    {
+     "totalSessionCount": 2,
+     "totalBotSessionCount": 0,
+     "distinctUserCount": 1,
+     "pagesPerSessionPercentage": 1.5,
+     "Url": "https://everykoreans.com/en/topik-listening/"
+    },
+    {
+     "totalSessionCount": 1,
+     "totalBotSessionCount": 0,
+     "distinctUserCount": 1,
+     "pagesPerSessionPercentage": 3,
+     "Url": "https://everykoreans.com/dictionary/%EA%B0%80%EB%A5%B4%EC%B9%98%EB%8B%A4.html"
+    },
+    {
+     "totalSessionCount": 0,
+     "totalBotSessionCount": 1,
+     "distinctUserCount": 0,
+     "pagesPerSessionPercentage": null,
+     "Url": "https://everykoreans.com/topik-reading/tr-100.html"
+    },
+    {
+     "totalSessionCount": 2,
+     "totalBotSessionCount": 0,
+     "distinctUserCount": 2,
+     "pagesPerSessionPercentage": 5,
+     "Url": "https://everykoreans.com/?lang=en&utm_source=hub#learn/topik/I/listening"
+    },
+    {
+     "totalSessionCount": 0,
+     "totalBotSessionCount": 1,
+     "distinctUserCount": 0,
+     "pagesPerSessionPercentage": null,
+     "Url": "https://everykoreans.com/dictionary/%EC%99%80.html"
+    },
+    {
+     "totalSessionCount": 0,
+     "totalBotSessionCount": 1,
+     "distinctUserCount": 0,
+     "pagesPerSessionPercentage": null,
+     "Url": "https://everykoreans.com/dictionary/%EB%B3%B4%EC%A6%9D%EA%B8%88.html"
+    },
+    {
+     "totalSessionCount": 1,
+     "totalBotSessionCount": 0,
+     "distinctUserCount": 1,
+     "pagesPerSessionPercentage": 2,
+     "Url": "https://everykoreans.com/?src=pwa#account"
+    },
+    {
+     "totalSessionCount": 1,
+     "totalBotSessionCount": 0,
+     "distinctUserCount": 1,
+     "pagesPerSessionPercentage": 3,
+     "Url": "https://everykoreans.com/?utm_source=dict#words/w/%EA%B0%80%EB%A5%B4%EC%B9%98%EB%8B%A4"
+    },
+    {
+     "totalSessionCount": 0,
+     "totalBotSessionCount": 1,
+     "distinctUserCount": 0,
+     "pagesPerSessionPercentage": null,
+     "Url": "https://everykoreans.com/dictionary/%EC%9D%B4%EB%A6%AC%EC%A0%80%EB%A6%AC.html"
+    },
+    {
+     "totalSessionCount": 1,
+     "totalBotSessionCount": 0,
+     "distinctUserCount": 1,
+     "pagesPerSessionPercentage": 1,
+     "Url": "https://everykoreans.com/#learn/topik/II/writing"
+    },
+    {
+     "totalSessionCount": 0,
+     "totalBotSessionCount": 1,
+     "distinctUserCount": 0,
+     "pagesPerSessionPercentage": null,
+     "Url": "https://everykoreans.com/#learn/weave/w-intro-me"
+    },
+    {
+     "totalSessionCount": 1,
+     "totalBotSessionCount": 0,
+     "distinctUserCount": 1,
+     "pagesPerSessionPercentage": 1,
+     "Url": "https://everykoreans.com/dictionary/%EB%9C%B8%ED%95%98%EB%8B%A4.html"
+    },
+    {
+     "totalSessionCount": 1,
+     "totalBotSessionCount": 0,
+     "distinctUserCount": 1,
+     "pagesPerSessionPercentage": 1,
+     "Url": "https://everykoreans.com/dictionary/%EC%9D%BC%EC%A2%85.html"
+    },
+    {
+     "totalSessionCount": 0,
+     "totalBotSessionCount": 1,
+     "distinctUserCount": 0,
+     "pagesPerSessionPercentage": null,
+     "Url": "https://everykoreans.com/dictionary/%EA%BF%B0%EB%9A%AB%EB%8B%A4.html"
+    },
+    {
+     "totalSessionCount": 2,
+     "totalBotSessionCount": 0,
+     "distinctUserCount": 2,
+     "pagesPerSessionPercentage": 1,
+     "Url": "https://everykoreans.com/worksheets/?utm_source=chatgpt.com"
+    },
+    {
+     "totalSessionCount": 0,
+     "totalBotSessionCount": 1,
+     "distinctUserCount": 0,
+     "pagesPerSessionPercentage": null,
+     "Url": "https://everykoreans.com/dictionary/%EC%9E%85%EB%8B%A4.html"
+    },
+    {
+     "totalSessionCount": 0,
+     "totalBotSessionCount": 1,
+     "distinctUserCount": 0,
+     "pagesPerSessionPercentage": null,
+     "Url": "https://everykoreans.com/dictionary/%EC%A2%85%EB%AA%A9.html"
+    },
+    {
+     "totalSessionCount": 0,
+     "totalBotSessionCount": 1,
+     "distinctUserCount": 0,
+     "pagesPerSessionPercentage": null,
+     "Url": "https://everykoreans.com/dictionary/%EC%8D%B0%EB%A7%A4.html"
+    },
+    {
+     "totalSessionCount": 0,
+     "totalBotSessionCount": 1,
+     "distinctUserCount": 0,
+     "pagesPerSessionPercentage": null,
+     "Url": "https://everykoreans.com/topik-writing/w52-46.html"
+    },
+    {
+     "totalSessionCount": 2,
+     "totalBotSessionCount": 1,
+     "distinctUserCount": 1,
+     "pagesPerSessionPercentage": 7,
+     "Url": "https://everykoreans.com/#learn/weave"
+    },
+    {
+     "totalSessionCount": 0,
+     "totalBotSessionCount": 1,
+     "distinctUserCount": 0,
+     "pagesPerSessionPercentage": null,
+     "Url": "https://everykoreans.com/dictionary/%EB%8A%A6%EA%B2%A8%EC%9A%B8.html"
+    },
+    {
+     "totalSessionCount": 4,
+     "totalBotSessionCount": 0,
+     "distinctUserCount": 4,
+     "pagesPerSessionPercentage": 1,
+     "Url": "https://everykoreans.com/topik-writing/w52-1.html"
+    },
+    {
+     "totalSessionCount": 0,
+     "totalBotSessionCount": 1,
+     "distinctUserCount": 0,
+     "pagesPerSessionPercentage": null,
+     "Url": "https://everykoreans.com/dictionary/%EB%A8%B8%EB%AD%87%EA%B1%B0%EB%A6%AC%EB%8B%A4.html"
+    },
+    {
+     "totalSessionCount": 0,
+     "totalBotSessionCount": 1,
+     "distinctUserCount": 0,
+     "pagesPerSessionPercentage": null,
+     "Url": "https://everykoreans.com/dictionary/%EC%8B%A4%EB%A3%A8%EC%97%A3.html"
+    },
+    {
+     "totalSessionCount": 2,
+     "totalBotSessionCount": 0,
+     "distinctUserCount": 1,
+     "pagesPerSessionPercentage": 1,
+     "Url": "https://everykoreans.com/#learn/translate/b-quote-statement"
+    },
+    {
+     "totalSessionCount": 1,
+     "totalBotSessionCount": 0,
+     "distinctUserCount": 1,
+     "pagesPerSessionPercentage": 1,
+     "Url": "https://everykoreans.com/dictionary/%EB%B0%98%EC%A7%9D.html"
+    },
+    {
+     "totalSessionCount": 0,
+     "totalBotSessionCount": 1,
+     "distinctUserCount": 0,
+     "pagesPerSessionPercentage": null,
+     "Url": "https://everykoreans.com/topik-reading/tr-297.html"
+    },
+    {
+     "totalSessionCount": 0,
+     "totalBotSessionCount": 1,
+     "distinctUserCount": 0,
+     "pagesPerSessionPercentage": null,
+     "Url": "https://everykoreans.com/dictionary/%EB%AC%B4%EC%A7%80%EA%B0%9C.html"
+    },
+    {
+     "totalSessionCount": 7,
+     "totalBotSessionCount": 0,
+     "distinctUserCount": 7,
+     "pagesPerSessionPercentage": 1,
+     "Url": "https://everykoreans.com/?utm_source=twpage#learn/writing/w51-2"
+    },
+    {
+     "totalSessionCount": 0,
+     "totalBotSessionCount": 1,
+     "distinctUserCount": 0,
+     "pagesPerSessionPercentage": null,
+     "Url": "https://everykoreans.com/dictionary/%ED%95%98%EC%96%80%EC%83%89.html"
+    },
+    {
+     "totalSessionCount": 3,
+     "totalBotSessionCount": 0,
+     "distinctUserCount": 3,
+     "pagesPerSessionPercentage": 1.6666666666666667,
+     "Url": "https://everykoreans.com/?utm_source=hub#learn/topik/II/writing"
+    },
+    {
+     "totalSessionCount": 1,
+     "totalBotSessionCount": 0,
+     "distinctUserCount": 1,
+     "pagesPerSessionPercentage": 10,
+     "Url": "https://everykoreans.com/#words/expr"
+    },
+    {
+     "totalSessionCount": 30,
+     "totalBotSessionCount": 0,
+     "distinctUserCount": 29,
+     "pagesPerSessionPercentage": 1.1333333333333333,
+     "Url": "https://everykoreans.com/topik-writing/"
+    },
+    {
+     "totalSessionCount": 1,
+     "totalBotSessionCount": 0,
+     "distinctUserCount": 1,
+     "pagesPerSessionPercentage": 1,
+     "Url": "https://everykoreans.com/korean-word-for/choose.html"
+    },
+    {
+     "totalSessionCount": 1,
+     "totalBotSessionCount": 0,
+     "distinctUserCount": 1,
+     "pagesPerSessionPercentage": 2,
+     "Url": "https://everykoreans.com/?code=f41477d4-dd9e-4f3c-a858-beb84e14b172#wordbook"
+    },
+    {
+     "totalSessionCount": 2,
+     "totalBotSessionCount": 0,
+     "distinctUserCount": 1,
+     "pagesPerSessionPercentage": 6.5,
+     "Url": "https://everykoreans.com/#words/learn"
+    },
+    {
+     "totalSessionCount": 0,
+     "totalBotSessionCount": 1,
+     "distinctUserCount": 0,
+     "pagesPerSessionPercentage": null,
+     "Url": "https://everykoreans.com/dictionary/%EB%B6%80%EC%A7%80%EB%9F%B0%ED%9E%88.html"
+    },
+    {
+     "totalSessionCount": 0,
+     "totalBotSessionCount": 1,
+     "distinctUserCount": 0,
+     "pagesPerSessionPercentage": null,
+     "Url": "https://everykoreans.com/dictionary/%EC%82%B4%ED%8E%B4%EB%B3%B4%EB%8B%A4.html"
+    },
+    {
+     "totalSessionCount": 0,
+     "totalBotSessionCount": 1,
+     "distinctUserCount": 0,
+     "pagesPerSessionPercentage": null,
+     "Url": "https://everykoreans.com/dictionary/%EA%B0%80%ED%95%B4%EC%9E%90.html"
+    },
+    {
+     "totalSessionCount": 1,
+     "totalBotSessionCount": 1,
+     "distinctUserCount": 1,
+     "pagesPerSessionPercentage": 3,
+     "Url": "https://everykoreans.com/#learn/weave/connectors"
+    },
+    {
+     "totalSessionCount": 4,
+     "totalBotSessionCount": 0,
+     "distinctUserCount": 3,
+     "pagesPerSessionPercentage": 2.5,
+     "Url": "https://everykoreans.com/topik-writing/w54-1.html"
+    },
+    {
+     "totalSessionCount": 0,
+     "totalBotSessionCount": 1,
+     "distinctUserCount": 0,
+     "pagesPerSessionPercentage": null,
+     "Url": "https://everykoreans.com/dictionary/%EC%9D%B8.html"
+    },
+    {
+     "totalSessionCount": 0,
+     "totalBotSessionCount": 1,
+     "distinctUserCount": 0,
+     "pagesPerSessionPercentage": null,
+     "Url": "https://everykoreans.com/topik-writing/w52-39.html"
+    },
+    {
+     "totalSessionCount": 0,
+     "totalBotSessionCount": 1,
+     "distinctUserCount": 0,
+     "pagesPerSessionPercentage": null,
+     "Url": "https://everykoreans.com/dictionary/%EC%B0%B8%EC%8B%A0%ED%95%98%EB%8B%A4.html"
+    },
+    {
+     "totalSessionCount": 1,
+     "totalBotSessionCount": 0,
+     "distinctUserCount": 1,
+     "pagesPerSessionPercentage": 1,
+     "Url": "https://everykoreans.com/korean-word-for/two.html"
+    },
+    {
+     "totalSessionCount": 0,
+     "totalBotSessionCount": 1,
+     "distinctUserCount": 0,
+     "pagesPerSessionPercentage": null,
+     "Url": "https://everykoreans.com/dictionary/%ED%96%89%ED%95%98%EB%8B%A4.html"
+    },
+    {
+     "totalSessionCount": 0,
+     "totalBotSessionCount": 1,
+     "distinctUserCount": 0,
+     "pagesPerSessionPercentage": null,
+     "Url": "https://everykoreans.com/dictionary/%EB%8C%80%EB%B3%B8.html"
+    },
+    {
+     "totalSessionCount": 0,
+     "totalBotSessionCount": 1,
+     "distinctUserCount": 0,
+     "pagesPerSessionPercentage": null,
+     "Url": "https://everykoreans.com/dictionary/%EB%8C%80%EB%91%90.html"
+    },
+    {
+     "totalSessionCount": 0,
+     "totalBotSessionCount": 1,
+     "distinctUserCount": 0,
+     "pagesPerSessionPercentage": null,
+     "Url": "https://everykoreans.com/dictionary/%EA%B0%95%EB%8C%80%EA%B5%AD.html"
+    },
+    {
+     "totalSessionCount": 1,
+     "totalBotSessionCount": 0,
+     "distinctUserCount": 1,
+     "pagesPerSessionPercentage": 10,
+     "Url": "https://everykoreans.com/#words/topic/function/6"
+    },
+    {
+     "totalSessionCount": 1,
+     "totalBotSessionCount": 0,
+     "distinctUserCount": 1,
+     "pagesPerSessionPercentage": 1,
+     "Url": "https://everykoreans.com/topik2-words/school.html"
+    },
+    {
+     "totalSessionCount": 0,
+     "totalBotSessionCount": 1,
+     "distinctUserCount": 0,
+     "pagesPerSessionPercentage": null,
+     "Url": "https://everykoreans.com/dictionary/%EC%9D%B4%EB%A1%AD%EB%8B%A4.html"
+    },
+    {
+     "totalSessionCount": 0,
+     "totalBotSessionCount": 1,
+     "distinctUserCount": 0,
+     "pagesPerSessionPercentage": null,
+     "Url": "https://everykoreans.com/dictionary/%EC%95%8C%EB%A0%A4%EC%A3%BC%EB%8B%A4.html"
+    },
+    {
+     "totalSessionCount": 0,
+     "totalBotSessionCount": 1,
+     "distinctUserCount": 0,
+     "pagesPerSessionPercentage": null,
+     "Url": "https://everykoreans.com/dictionary/%EC%82%B0%EC%82%AC%ED%83%9C.html"
+    },
+    {
+     "totalSessionCount": 0,
+     "totalBotSessionCount": 1,
+     "distinctUserCount": 0,
+     "pagesPerSessionPercentage": null,
+     "Url": "https://everykoreans.com/dictionary/%EC%86%94%EC%A7%81%ED%95%A8.html"
+    },
+    {
+     "totalSessionCount": 0,
+     "totalBotSessionCount": 1,
+     "distinctUserCount": 0,
+     "pagesPerSessionPercentage": null,
+     "Url": "https://everykoreans.com/dictionary/%EA%B3%A0%EB%A0%B9%EC%B8%B5.html"
+    },
+    {
+     "totalSessionCount": 2,
+     "totalBotSessionCount": 0,
+     "distinctUserCount": 2,
+     "pagesPerSessionPercentage": 1,
+     "Url": "https://everykoreans.com/topik-writing/w51-5.html"
+    },
+    {
+     "totalSessionCount": 0,
+     "totalBotSessionCount": 1,
+     "distinctUserCount": 0,
+     "pagesPerSessionPercentage": null,
+     "Url": "https://everykoreans.com/topik-writing/w53-42.html"
+    },
+    {
+     "totalSessionCount": 0,
+     "totalBotSessionCount": 1,
+     "distinctUserCount": 0,
+     "pagesPerSessionPercentage": null,
+     "Url": "https://everykoreans.com/dictionary/%EC%97%B4%EC%9D%98.html"
+    },
+    {
+     "totalSessionCount": 0,
+     "totalBotSessionCount": 1,
+     "distinctUserCount": 0,
+     "pagesPerSessionPercentage": null,
+     "Url": "https://everykoreans.com/korean-word-for/feeling.html"
+    },
+    {
+     "totalSessionCount": 1,
+     "totalBotSessionCount": 0,
+     "distinctUserCount": 1,
+     "pagesPerSessionPercentage": 1,
+     "Url": "https://everykoreans.com/?utm_source=twpage#learn/writing/w54-1"
+    },
+    {
+     "totalSessionCount": 5,
+     "totalBotSessionCount": 0,
+     "distinctUserCount": 5,
+     "pagesPerSessionPercentage": 2,
+     "Url": "https://everykoreans.com/topik-writing/?utm_source=chatgpt.com"
+    },
+    {
+     "totalSessionCount": 0,
+     "totalBotSessionCount": 1,
+     "distinctUserCount": 0,
+     "pagesPerSessionPercentage": null,
+     "Url": "https://everykoreans.com/dictionary/%EA%B1%B0%EB%AD%87%ED%95%98%EB%8B%A4.html"
+    },
+    {
+     "totalSessionCount": 2,
+     "totalBotSessionCount": 0,
+     "distinctUserCount": 2,
+     "pagesPerSessionPercentage": 1,
+     "Url": "https://everykoreans.com/korean-word-for/who.html"
+    },
+    {
+     "totalSessionCount": 1,
+     "totalBotSessionCount": 0,
+     "distinctUserCount": 1,
+     "pagesPerSessionPercentage": 1,
+     "Url": "https://everykoreans.com/dictionary/%ED%95%A0%EB%A8%B8%EB%8B%88.html"
+    },
+    {
+     "totalSessionCount": 1,
+     "totalBotSessionCount": 0,
+     "distinctUserCount": 1,
+     "pagesPerSessionPercentage": 1,
+     "Url": "https://everykoreans.com/compare/69.html"
+    },
+    {
+     "totalSessionCount": 0,
+     "totalBotSessionCount": 1,
+     "distinctUserCount": 0,
+     "pagesPerSessionPercentage": null,
+     "Url": "https://everykoreans.com/dictionary/%EA%B8%B0%EB%B6%80.html"
+    },
+    {
+     "totalSessionCount": 1,
+     "totalBotSessionCount": 0,
+     "distinctUserCount": 1,
+     "pagesPerSessionPercentage": 2,
+     "Url": "https://everykoreans.com/compare/61.html"
+    },
+    {
+     "totalSessionCount": 2,
+     "totalBotSessionCount": 0,
+     "distinctUserCount": 2,
+     "pagesPerSessionPercentage": 1,
+     "Url": "https://everykoreans.com/?utm_source=twpage#learn/writing/w52-1"
+    },
+    {
+     "totalSessionCount": 0,
+     "totalBotSessionCount": 1,
+     "distinctUserCount": 0,
+     "pagesPerSessionPercentage": null,
+     "Url": "https://everykoreans.com/dictionary/%EA%B1%B0%EC%A3%BC.html"
+    },
+    {
+     "totalSessionCount": 0,
+     "totalBotSessionCount": 1,
+     "distinctUserCount": 0,
+     "pagesPerSessionPercentage": null,
+     "Url": "https://everykoreans.com/dictionary/%EB%AC%98%EC%A7%80.html"
+    },
+    {
+     "totalSessionCount": 0,
+     "totalBotSessionCount": 1,
+     "distinctUserCount": 0,
+     "pagesPerSessionPercentage": null,
+     "Url": "https://everykoreans.com/dictionary/%EA%B2%AC%EB%8E%8C%EB%82%B4%EB%8B%A4.html"
+    },
+    {
+     "totalSessionCount": 0,
+     "totalBotSessionCount": 1,
+     "distinctUserCount": 0,
+     "pagesPerSessionPercentage": null,
+     "Url": "https://everykoreans.com/dictionary/%EC%B6%A4%EC%B6%94%EB%8B%A4.html"
+    },
+    {
+     "totalSessionCount": 1,
+     "totalBotSessionCount": 0,
+     "distinctUserCount": 1,
+     "pagesPerSessionPercentage": 1,
+     "Url": "https://everykoreans.com/topik-reading/t2-348.html"
+    },
+    {
+     "totalSessionCount": 0,
+     "totalBotSessionCount": 1,
+     "distinctUserCount": 0,
+     "pagesPerSessionPercentage": null,
+     "Url": "https://everykoreans.com/dictionary/%EC%9D%98%EC%9B%90.html"
+    },
+    {
+     "totalSessionCount": 0,
+     "totalBotSessionCount": 1,
+     "distinctUserCount": 0,
+     "pagesPerSessionPercentage": null,
+     "Url": "https://everykoreans.com/dictionary/%EC%B0%BD%EC%A1%B0.html"
+    },
+    {
+     "totalSessionCount": 0,
+     "totalBotSessionCount": 1,
+     "distinctUserCount": 0,
+     "pagesPerSessionPercentage": null,
+     "Url": "https://everykoreans.com/dictionary/%EA%B2%BD%EC%9F%81%EC%A0%81.html"
+    },
+    {
+     "totalSessionCount": 0,
+     "totalBotSessionCount": 1,
+     "distinctUserCount": 0,
+     "pagesPerSessionPercentage": null,
+     "Url": "https://everykoreans.com/dictionary/%EC%8B%AC%EB%A6%AC%EC%A0%81.html"
+    },
+    {
+     "totalSessionCount": 0,
+     "totalBotSessionCount": 1,
+     "distinctUserCount": 0,
+     "pagesPerSessionPercentage": null,
+     "Url": "https://everykoreans.com/dictionary/%ED%99%9C%EB%8F%99%EB%B9%84.html"
+    },
+    {
+     "totalSessionCount": 0,
+     "totalBotSessionCount": 1,
+     "distinctUserCount": 0,
+     "pagesPerSessionPercentage": null,
+     "Url": "https://everykoreans.com/dictionary/%EA%B1%B7%EC%96%B4%EB%B6%99%EC%9D%B4%EB%8B%A4.html"
+    },
+    {
+     "totalSessionCount": 0,
+     "totalBotSessionCount": 1,
+     "distinctUserCount": 0,
+     "pagesPerSessionPercentage": null,
+     "Url": "https://everykoreans.com/topik-reading/tr-325.html"
+    },
+    {
+     "totalSessionCount": 0,
+     "totalBotSessionCount": 1,
+     "distinctUserCount": 0,
+     "pagesPerSessionPercentage": null,
+     "Url": "https://everykoreans.com/blog/travel-korean-survival-guide.html"
+    },
+    {
+     "totalSessionCount": 1,
+     "totalBotSessionCount": 0,
+     "distinctUserCount": 1,
+     "pagesPerSessionPercentage": 1,
+     "Url": "https://everykoreans.com/?src=pwa"
+    },
+    {
+     "totalSessionCount": 1,
+     "totalBotSessionCount": 0,
+     "distinctUserCount": 1,
+     "pagesPerSessionPercentage": 3,
+     "Url": "https://everykoreans.com/#words/expr/xi-105"
+    },
+    {
+     "totalSessionCount": 0,
+     "totalBotSessionCount": 1,
+     "distinctUserCount": 0,
+     "pagesPerSessionPercentage": null,
+     "Url": "https://everykoreans.com/dictionary/%EA%B8%B0%ED%95%84%EC%BD%94.html"
+    },
+    {
+     "totalSessionCount": 0,
+     "totalBotSessionCount": 1,
+     "distinctUserCount": 0,
+     "pagesPerSessionPercentage": null,
+     "Url": "https://everykoreans.com/dictionary/%ED%9D%AC%EC%86%8C%EC%8B%9D.html"
+    },
+    {
+     "totalSessionCount": 0,
+     "totalBotSessionCount": 1,
+     "distinctUserCount": 0,
+     "pagesPerSessionPercentage": null,
+     "Url": "https://everykoreans.com/dictionary/%EB%A7%8C%EB%81%BD.html"
+    },
+    {
+     "totalSessionCount": 1,
+     "totalBotSessionCount": 0,
+     "distinctUserCount": 1,
+     "pagesPerSessionPercentage": 1,
+     "Url": "https://everykoreans.com/topik-vocabulary-list/"
+    },
+    {
+     "totalSessionCount": 0,
+     "totalBotSessionCount": 1,
+     "distinctUserCount": 0,
+     "pagesPerSessionPercentage": null,
+     "Url": "https://everykoreans.com/dictionary/%EC%9D%B4%EC%96%B4.html"
+    },
+    {
+     "totalSessionCount": 0,
+     "totalBotSessionCount": 1,
+     "distinctUserCount": 0,
+     "pagesPerSessionPercentage": null,
+     "Url": "https://everykoreans.com/dictionary/%ED%96%89%EC%A0%95%EB%B6%80.html"
+    },
+    {
+     "totalSessionCount": 1,
+     "totalBotSessionCount": 0,
+     "distinctUserCount": 1,
+     "pagesPerSessionPercentage": 1,
+     "Url": "https://everykoreans.com/topik2-words/?utm_source=chatgpt.com"
+    },
+    {
+     "totalSessionCount": 0,
+     "totalBotSessionCount": 1,
+     "distinctUserCount": 0,
+     "pagesPerSessionPercentage": null,
+     "Url": "https://everykoreans.com/dictionary/%EC%82%AC%EC%B6%98%EA%B8%B0.html"
+    },
+    {
+     "totalSessionCount": 19,
+     "totalBotSessionCount": 0,
+     "distinctUserCount": 19,
+     "pagesPerSessionPercentage": 1.1578947368421053,
+     "Url": "https://everykoreans.com/?utm_source=twpage#learn/writing/w51-1"
+    },
+    {
+     "totalSessionCount": 0,
+     "totalBotSessionCount": 1,
+     "distinctUserCount": 0,
+     "pagesPerSessionPercentage": null,
+     "Url": "https://everykoreans.com/dictionary/%ED%9C%99.html"
+    },
+    {
+     "totalSessionCount": 1,
+     "totalBotSessionCount": 0,
+     "distinctUserCount": 1,
+     "pagesPerSessionPercentage": 8,
+     "Url": "https://everykoreans.com/en/topik-listening/?utm_source=chatgpt.com"
+    },
+    {
+     "totalSessionCount": 7,
+     "totalBotSessionCount": 0,
+     "distinctUserCount": 7,
+     "pagesPerSessionPercentage": 1,
+     "Url": "https://everykoreans.com/topik-writing/w51-2.html"
+    },
+    {
+     "totalSessionCount": 0,
+     "totalBotSessionCount": 1,
+     "distinctUserCount": 0,
+     "pagesPerSessionPercentage": null,
+     "Url": "https://everykoreans.com/dictionary/%EA%B0%88%EC%95%84%ED%83%80%EB%8B%A4.html"
+    },
+    {
+     "totalSessionCount": 0,
+     "totalBotSessionCount": 1,
+     "distinctUserCount": 0,
+     "pagesPerSessionPercentage": null,
+     "Url": "https://everykoreans.com/dictionary/%EB%85%B8%EB%9E%98%ED%95%98%EB%8B%A4.html"
+    },
+    {
+     "totalSessionCount": 0,
+     "totalBotSessionCount": 1,
+     "distinctUserCount": 0,
+     "pagesPerSessionPercentage": null,
+     "Url": "https://everykoreans.com/dictionary/%EC%84%A4%EB%AC%B8%EC%A7%80.html"
+    },
+    {
+     "totalSessionCount": 0,
+     "totalBotSessionCount": 1,
+     "distinctUserCount": 0,
+     "pagesPerSessionPercentage": null,
+     "Url": "https://everykoreans.com/dictionary/%EC%82%AC%EB%B0%A9.html"
+    },
+    {
+     "totalSessionCount": 2,
+     "totalBotSessionCount": 0,
+     "distinctUserCount": 2,
+     "pagesPerSessionPercentage": 1,
+     "Url": "https://everykoreans.com/#learn"
+    },
+    {
+     "totalSessionCount": 2,
+     "totalBotSessionCount": 0,
+     "distinctUserCount": 2,
+     "pagesPerSessionPercentage": 1,
+     "Url": "https://everykoreans.com/topik-writing/w51-6.html"
+    },
+    {
+     "totalSessionCount": 0,
+     "totalBotSessionCount": 1,
+     "distinctUserCount": 0,
+     "pagesPerSessionPercentage": null,
+     "Url": "https://everykoreans.com/dictionary/%EC%84%9C%EC%84%B1%EA%B1%B0%EB%A6%AC%EB%8B%A4.html"
+    },
+    {
+     "totalSessionCount": 4,
+     "totalBotSessionCount": 0,
+     "distinctUserCount": 1,
+     "pagesPerSessionPercentage": 1,
+     "Url": "https://everykoreans.com/topik-vocabulary-list/?utm_source=chatgpt.com"
+    },
+    {
+     "totalSessionCount": 1,
+     "totalBotSessionCount": 0,
+     "distinctUserCount": 1,
+     "pagesPerSessionPercentage": 10,
+     "Url": "https://everykoreans.com/#words/idiom"
+    },
+    {
+     "totalSessionCount": 0,
+     "totalBotSessionCount": 1,
+     "distinctUserCount": 0,
+     "pagesPerSessionPercentage": null,
+     "Url": "https://everykoreans.com/#learn/notes"
+    },
+    {
+     "totalSessionCount": 1,
+     "totalBotSessionCount": 0,
+     "distinctUserCount": 1,
+     "pagesPerSessionPercentage": 1,
+     "Url": "https://everykoreans.com/dictionary/%EB%A9%94%EB%8B%A4.html"
+    },
+    {
+     "totalSessionCount": 0,
+     "totalBotSessionCount": 1,
+     "distinctUserCount": 0,
+     "pagesPerSessionPercentage": null,
+     "Url": "https://everykoreans.com/dictionary/%EC%B2%98%EB%A6%AC%ED%95%98%EB%8B%A4.html"
+    },
+    {
+     "totalSessionCount": 0,
+     "totalBotSessionCount": 1,
+     "distinctUserCount": 0,
+     "pagesPerSessionPercentage": null,
+     "Url": "https://everykoreans.com/topik-reading/t2-316.html"
+    },
+    {
+     "totalSessionCount": 1,
+     "totalBotSessionCount": 0,
+     "distinctUserCount": 1,
+     "pagesPerSessionPercentage": 10,
+     "Url": "https://everykoreans.com/#words"
+    },
+    {
+     "totalSessionCount": 0,
+     "totalBotSessionCount": 1,
+     "distinctUserCount": 0,
+     "pagesPerSessionPercentage": null,
+     "Url": "https://everykoreans.com/dictionary/%EC%B4%88%EC%9D%8C%ED%8C%8C.html"
+    },
+    {
+     "totalSessionCount": 0,
+     "totalBotSessionCount": 1,
+     "distinctUserCount": 0,
+     "pagesPerSessionPercentage": null,
+     "Url": "https://everykoreans.com/dictionary/%ED%9D%98%EB%A0%A4%EB%B3%B4%EB%82%B4%EB%8B%A4.html"
+    },
+    {
+     "totalSessionCount": 1,
+     "totalBotSessionCount": 0,
+     "distinctUserCount": 1,
+     "pagesPerSessionPercentage": 1,
+     "Url": "https://everykoreans.com/?lang=vi&utm_source=chatgpt.com"
+    },
+    {
+     "totalSessionCount": 0,
+     "totalBotSessionCount": 1,
+     "distinctUserCount": 0,
+     "pagesPerSessionPercentage": null,
+     "Url": "https://everykoreans.com/dictionary/%EB%A9%8B%EC%A7%80%EB%8B%A4.html"
+    },
+    {
+     "totalSessionCount": 0,
+     "totalBotSessionCount": 1,
+     "distinctUserCount": 0,
+     "pagesPerSessionPercentage": null,
+     "Url": "https://everykoreans.com/dictionary/%EB%AA%85%ED%99%95%ED%95%98%EB%8B%A4.html"
+    },
+    {
+     "totalSessionCount": 0,
+     "totalBotSessionCount": 1,
+     "distinctUserCount": 0,
+     "pagesPerSessionPercentage": null,
+     "Url": "https://everykoreans.com/dictionary/%EA%B4%80%EB%A0%A8.html"
+    },
+    {
+     "totalSessionCount": 0,
+     "totalBotSessionCount": 1,
+     "distinctUserCount": 0,
+     "pagesPerSessionPercentage": null,
+     "Url": "https://everykoreans.com/dictionary/%EC%A0%9C%EC%9E%91.html"
+    },
+    {
+     "totalSessionCount": 0,
+     "totalBotSessionCount": 1,
+     "distinctUserCount": 0,
+     "pagesPerSessionPercentage": null,
+     "Url": "https://everykoreans.com/dictionary/%EC%8A%B9%EB%B6%80.html"
+    },
+    {
+     "totalSessionCount": 3,
+     "totalBotSessionCount": 0,
+     "distinctUserCount": 3,
+     "pagesPerSessionPercentage": 1.6666666666666667,
+     "Url": "https://everykoreans.com/shop/topik2-writing-53-54/"
+    },
+    {
+     "totalSessionCount": 3,
+     "totalBotSessionCount": 4,
+     "distinctUserCount": 2,
+     "pagesPerSessionPercentage": 5.333333333333333,
+     "Url": "https://everykoreans.com/"
+    },
+    {
+     "totalSessionCount": 0,
+     "totalBotSessionCount": 1,
+     "distinctUserCount": 0,
+     "pagesPerSessionPercentage": null,
+     "Url": "https://everykoreans.com/dictionary/%ED%94%84%EB%A6%AC%EC%82%AC%EC%9D%B4%EC%A6%88.html"
+    },
+    {
+     "totalSessionCount": 0,
+     "totalBotSessionCount": 1,
+     "distinctUserCount": 0,
+     "pagesPerSessionPercentage": null,
+     "Url": "https://everykoreans.com/korean-word-for/coupon.html"
+    },
+    {
+     "totalSessionCount": 0,
+     "totalBotSessionCount": 1,
+     "distinctUserCount": 0,
+     "pagesPerSessionPercentage": null,
+     "Url": "https://everykoreans.com/dictionary/%EB%94%B8%EB%A6%AC%EB%8B%A4.html"
+    }
+   ]
+  },
+  {
+   "metricName": "EngagementTime",
+   "information": [
+    {
+     "totalTime": 148,
+     "activeTime": 22,
+     "Url": "https://everykoreans.com/?utm_source=twpage#learn/writing/w54-1"
+    },
+    {
+     "totalTime": 12,
+     "activeTime": 11,
+     "Url": "https://everykoreans.com/topik-writing/?utm_source=chatgpt.com"
+    },
+    {
+     "totalTime": 183,
+     "activeTime": 183,
+     "Url": "https://everykoreans.com/korean-word-for/who.html"
+    },
+    {
+     "totalTime": 2,
+     "activeTime": 2,
+     "Url": "https://everykoreans.com/dictionary/%ED%95%A0%EB%A8%B8%EB%8B%88.html"
+    },
+    {
+     "totalTime": 5,
+     "activeTime": 5,
+     "Url": "https://everykoreans.com/compare/69.html"
+    },
+    {
+     "totalTime": 9,
+     "activeTime": 7,
+     "Url": "https://everykoreans.com/topik-writing/w51-1.html"
+    },
+    {
+     "totalTime": 10,
+     "activeTime": 10,
+     "Url": "https://everykoreans.com/compare/61.html"
+    },
+    {
+     "totalTime": 11,
+     "activeTime": 11,
+     "Url": "https://everykoreans.com/?utm_source=twpage#learn/writing/w52-1"
+    },
+    {
+     "totalTime": 4,
+     "activeTime": 4,
+     "Url": "https://everykoreans.com/topik-reading/t2-348.html"
+    },
+    {
+     "totalTime": 6,
+     "activeTime": 6,
+     "Url": "https://everykoreans.com/en/topik-listening/"
+    },
+    {
+     "totalTime": 15,
+     "activeTime": 15,
+     "Url": "https://everykoreans.com/dictionary/%EA%B0%80%EB%A5%B4%EC%B9%98%EB%8B%A4.html"
+    },
+    {
+     "totalTime": 589,
+     "activeTime": 570,
+     "Url": "https://everykoreans.com/?src=pwa"
+    },
+    {
+     "totalTime": 245,
+     "activeTime": 156,
+     "Url": "https://everykoreans.com/?lang=en&utm_source=hub#learn/topik/I/listening"
+    },
+    {
+     "totalTime": 8,
+     "activeTime": 8,
+     "Url": "https://everykoreans.com/#words/expr/xi-105"
+    },
+    {
+     "totalTime": 5,
+     "activeTime": 5,
+     "Url": "https://everykoreans.com/?src=pwa#account"
+    },
+    {
+     "totalTime": 13,
+     "activeTime": 13,
+     "Url": "https://everykoreans.com/?utm_source=dict#words/w/%EA%B0%80%EB%A5%B4%EC%B9%98%EB%8B%A4"
+    },
+    {
+     "totalTime": 87,
+     "activeTime": 30,
+     "Url": "https://everykoreans.com/#learn/topik/II/writing"
+    },
+    {
+     "totalTime": 0,
+     "activeTime": 0,
+     "Url": "https://everykoreans.com/dictionary/%EB%9C%B8%ED%95%98%EB%8B%A4.html"
+    },
+    {
+     "totalTime": 1,
+     "activeTime": 1,
+     "Url": "https://everykoreans.com/dictionary/%EC%9D%BC%EC%A2%85.html"
+    },
+    {
+     "totalTime": 6,
+     "activeTime": 6,
+     "Url": "https://everykoreans.com/worksheets/?utm_source=chatgpt.com"
+    },
+    {
+     "totalTime": 349,
+     "activeTime": 2,
+     "Url": "https://everykoreans.com/topik-vocabulary-list/"
+    },
+    {
+     "totalTime": 731,
+     "activeTime": 136,
+     "Url": "https://everykoreans.com/#learn/weave"
+    },
+    {
+     "totalTime": 6,
+     "activeTime": 6,
+     "Url": "https://everykoreans.com/topik2-words/?utm_source=chatgpt.com"
+    },
+    {
+     "totalTime": 79,
+     "activeTime": 73,
+     "Url": "https://everykoreans.com/?utm_source=twpage#learn/writing/w51-1"
+    },
+    {
+     "totalTime": 368,
+     "activeTime": 1,
+     "Url": "https://everykoreans.com/topik-writing/w52-1.html"
+    },
+    {
+     "totalTime": 11,
+     "activeTime": 11,
+     "Url": "https://everykoreans.com/en/topik-listening/?utm_source=chatgpt.com"
+    },
+    {
+     "totalTime": 5,
+     "activeTime": 5,
+     "Url": "https://everykoreans.com/topik-writing/w51-2.html"
+    },
+    {
+     "totalTime": 185,
+     "activeTime": 123,
+     "Url": "https://everykoreans.com/#learn/translate/b-quote-statement"
+    },
+    {
+     "totalTime": 156,
+     "activeTime": 16,
+     "Url": "https://everykoreans.com/dictionary/%EB%B0%98%EC%A7%9D.html"
+    },
+    {
+     "totalTime": 160,
+     "activeTime": 159,
+     "Url": "https://everykoreans.com/?utm_source=twpage#learn/writing/w51-2"
+    },
+    {
+     "totalTime": 1,
+     "activeTime": 1,
+     "Url": "https://everykoreans.com/#learn"
+    },
+    {
+     "totalTime": 16,
+     "activeTime": 16,
+     "Url": "https://everykoreans.com/?utm_source=hub#learn/topik/II/writing"
+    },
+    {
+     "totalTime": 495,
+     "activeTime": 30,
+     "Url": "https://everykoreans.com/#words/expr"
+    },
+    {
+     "totalTime": 3,
+     "activeTime": 3,
+     "Url": "https://everykoreans.com/topik-writing/w51-6.html"
+    },
+    {
+     "totalTime": 31,
+     "activeTime": 16,
+     "Url": "https://everykoreans.com/topik-writing/"
+    },
+    {
+     "totalTime": 67,
+     "activeTime": 6,
+     "Url": "https://everykoreans.com/topik-vocabulary-list/?utm_source=chatgpt.com"
+    },
+    {
+     "totalTime": 265,
+     "activeTime": 6,
+     "Url": "https://everykoreans.com/korean-word-for/choose.html"
+    },
+    {
+     "totalTime": 9,
+     "activeTime": 9,
+     "Url": "https://everykoreans.com/#words/idiom"
+    },
+    {
+     "totalTime": 30,
+     "activeTime": 12,
+     "Url": "https://everykoreans.com/?code=f41477d4-dd9e-4f3c-a858-beb84e14b172#wordbook"
+    },
+    {
+     "totalTime": 444,
+     "activeTime": 400,
+     "Url": "https://everykoreans.com/#words/learn"
+    },
+    {
+     "totalTime": 8,
+     "activeTime": 8,
+     "Url": "https://everykoreans.com/dictionary/%EB%A9%94%EB%8B%A4.html"
+    },
+    {
+     "totalTime": 503,
+     "activeTime": 312,
+     "Url": "https://everykoreans.com/#learn/weave/connectors"
+    },
+    {
+     "totalTime": 455,
+     "activeTime": 203,
+     "Url": "https://everykoreans.com/topik-writing/w54-1.html"
+    },
+    {
+     "totalTime": 423,
+     "activeTime": 48,
+     "Url": "https://everykoreans.com/#words"
+    },
+    {
+     "totalTime": 16,
+     "activeTime": 16,
+     "Url": "https://everykoreans.com/korean-word-for/two.html"
+    },
+    {
+     "totalTime": 164,
+     "activeTime": 46,
+     "Url": "https://everykoreans.com/?lang=vi&utm_source=chatgpt.com"
+    },
+    {
+     "totalTime": 383,
+     "activeTime": 41,
+     "Url": "https://everykoreans.com/#words/topic/function/6"
+    },
+    {
+     "totalTime": 19,
+     "activeTime": 19,
+     "Url": "https://everykoreans.com/topik2-words/school.html"
+    },
+    {
+     "totalTime": 5,
+     "activeTime": 5,
+     "Url": "https://everykoreans.com/shop/topik2-writing-53-54/"
+    },
+    {
+     "totalTime": 316,
+     "activeTime": 216,
+     "Url": "https://everykoreans.com/"
+    },
+    {
+     "totalTime": 0,
+     "activeTime": 0,
+     "Url": "https://everykoreans.com/topik-writing/w51-5.html"
+    }
+   ]
+  }
+ ],
+ "note": ""
+}

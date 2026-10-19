@@ -1,81 +1,83 @@
-# 일간 사이트 성과 — 2026-10-01
+# 일간 사이트 성과 — 2026-10-18
 
-> 자동으로 모은 숫자입니다(GA4 · Search Console). GA4 는 2026-10-01 하루, Search Console 은 2026-10-10 ~ 2026-10-16(7일, 2~3일 늦게 확정). **숫자의 기준은 GA4 / Search Console 화면입니다.**
+> 자동으로 모은 숫자입니다(GA4 · Search Console). GA4 는 2026-10-18 하루, Search Console 은 2026-10-10 ~ 2026-10-16(7일, 2~3일 늦게 확정). **숫자의 기준은 GA4 / Search Console 화면입니다.**
 
 ## 한눈에 (GA4, 하루)
 
 | 방문자 | 새 방문자 | 방문(세션) | 본 쪽 수 | 평균 머문 시간 | 참여율 |
 |---|---|---|---|---|---|
-| 34 | 30 | 50 | 57 | 295초 | 54.0% |
+| 61 | 44 | 78 | 351 | 324초 | 93.6% |
 
 ## 많이 본 쪽 TOP 10
 
 | 쪽 | 본 횟수 | 방문자 |
 |---|---|---|
-| / | 36 | 17 |
-| /lesson/im-c54-03.html | 2 | 1 |
-| /topik-writing/ | 2 | 2 |
-| /blog/seyo-family-english.html | 1 | 1 |
-| /course/bg-36.html | 1 | 1 |
-| /dictionary/결항되다.html | 1 | 1 |
-| /dictionary/그.html | 1 | 1 |
-| /dictionary/꿈속.html | 1 | 1 |
-| /dictionary/뛰어나오다.html | 1 | 1 |
-| /dictionary/뭘.html | 1 | 1 |
+| / | 79 | 17 |
+| /topik-writing/ | 52 | 11 |
+| /topik-writing/w53-4.html | 8 | 2 |
+| /topik-vocabulary-list/ | 6 | 3 |
+| /topik-writing/w51-1.html | 6 | 3 |
+| /topik-writing/w53-3.html | 6 | 1 |
+| /topik-writing/w53-7.html | 6 | 2 |
+| /topik-writing/w54-13.html | 6 | 1 |
+| /topik-writing/w54-2.html | 6 | 2 |
+| /korean-word-for/feeling.html | 5 | 2 |
 
 ## 어디서 왔나 (유입)
 
 | 채널 | 출처 / 매체 | 방문 |
 |---|---|---|
-| Organic Search | google / organic | 15 |
-| AI Assistant | chatgpt.com / ai-assistant | 12 |
-| Direct | (direct) / (none) | 12 |
-| Referral | accounts.google.com / referral | 9 |
-| AI Assistant | gemini.google.com / ai-assistant | 1 |
-| Referral | tagassistant.google.com / referral | 1 |
+| Direct | (direct) / (none) | 31 |
+| Organic Search | google / organic | 20 |
+| AI Assistant | chatgpt.com / ai-assistant | 10 |
+| Referral | chatgpt.com / referral | 6 |
+| Unassigned | hub / (not set) | 4 |
+| Organic Search | bing / organic | 3 |
+| Unassigned | twpage / (not set) | 3 |
+| Referral | accounts.google.com / referral | 1 |
 
 ## 나라별
 
 | 나라 | 방문자 | 방문 |
 |---|---|---|
-| South Korea | 15 | 24 |
-| China | 5 | 5 |
-| United States | 3 | 3 |
-| Canada | 1 | 1 |
-| India | 1 | 5 |
-| Indonesia | 1 | 1 |
-| Iran | 1 | 1 |
-| Jordan | 1 | 1 |
-| Kyrgyzstan | 1 | 1 |
-| Poland | 1 | 1 |
+| South Korea | 18 | 24 |
+| China | 15 | 15 |
+| Romania | 4 | 4 |
+| India | 3 | 3 |
+| Myanmar (Burma) | 3 | 3 |
+| United States | 3 | 4 |
+| Indonesia | 2 | 3 |
+| Japan | 2 | 8 |
+| Singapore | 2 | 2 |
+| Türkiye | 2 | 2 |
 
 ## 기기별
 
 | 기기 | 방문자 | 방문 |
 |---|---|---|
-| desktop | 23 | 33 |
-| mobile | 9 | 15 |
-| tablet | 2 | 2 |
+| desktop | 39 | 50 |
+| mobile | 21 | 26 |
+| tablet | 1 | 2 |
 
 ## 이벤트 TOP 15
 
 | 이벤트 | 횟수 |
 |---|---|
-| page_view | 57 |
-| session_start | 49 |
-| lesson_start | 41 |
-| first_visit | 30 |
-| scroll | 30 |
-| user_engagement | 28 |
-| lesson_complete | 25 |
-| level_test_start | 14 |
-| level_test_complete | 3 |
-| my_course_lesson | 3 |
-| click | 2 |
-| login | 2 |
-| my_course_words | 2 |
-| recommended_course_click | 2 |
-| my_course_pick_level | 1 |
+| page_view | 351 |
+| user_engagement | 165 |
+| scroll | 156 |
+| session_start | 79 |
+| first_visit | 44 |
+| lesson_start | 34 |
+| lesson_complete | 28 |
+| cp_screen | 27 |
+| form_submit | 9 |
+| word_save | 8 |
+| ai_grade_start | 7 |
+| words_open | 7 |
+| login | 4 |
+| file_download | 2 |
+| form_start | 2 |
 
 ## 검색 (Search Console)
 
@@ -121,44 +123,51 @@
 | https://everykoreans.com/dictionary/%EC%95%8C%EB%AA%B8.html | 2 | 44 | 4.5% | 9.9 |
 | https://everykoreans.com/topik-listening/lII-135.html | 2 | 3 | 66.7% | 2.0 |
 
+## 결제 (Polar, 2026-10-18 한국 날짜)
+
+- 어제 주문 **0건** · 금액 **$0.00**(Polar 가 알려 준 순금액 기준)
+- 지금 구독 중: **0명**
+- 지금까지 주문 합계: 0건
+> 숫자의 기준은 Polar 화면입니다. 환불 · 취소는 이 줄에 반영되지 않을 수 있어요.
+
 ## Clarity (최근 24시간 — 날짜 기준이 아니라 호출한 시각 기준)
 
 - **DeadClickCount**
-  - sessionsCount 147 · sessionsWithMetricPercentage 6.12 · sessionsWithoutMetricPercentage 93.88 · pagesViews 10 · subTotal 52
+  - sessionsCount 149 · sessionsWithMetricPercentage 6.04 · sessionsWithoutMetricPercentage 93.96 · pagesViews 10 · subTotal 52
 - **ExcessiveScroll**
-  - sessionsCount 147 · sessionsWithMetricPercentage 0 · sessionsWithoutMetricPercentage 100 · pagesViews 0 · subTotal 0
+  - sessionsCount 149 · sessionsWithMetricPercentage 0 · sessionsWithoutMetricPercentage 100 · pagesViews 0 · subTotal 0
 - **RageClickCount**
-  - sessionsCount 147 · sessionsWithMetricPercentage 0 · sessionsWithoutMetricPercentage 100 · pagesViews 0 · subTotal 0
+  - sessionsCount 149 · sessionsWithMetricPercentage 0 · sessionsWithoutMetricPercentage 100 · pagesViews 0 · subTotal 0
 - **QuickbackClick**
-  - sessionsCount 147 · sessionsWithMetricPercentage 2.04 · sessionsWithoutMetricPercentage 97.96 · pagesViews 4 · subTotal 4
+  - sessionsCount 149 · sessionsWithMetricPercentage 2.01 · sessionsWithoutMetricPercentage 97.99 · pagesViews 4 · subTotal 4
 - **ScriptErrorCount**
-  - sessionsCount 147 · sessionsWithMetricPercentage 0 · sessionsWithoutMetricPercentage 100 · pagesViews 0 · subTotal 0
+  - sessionsCount 149 · sessionsWithMetricPercentage 0 · sessionsWithoutMetricPercentage 100 · pagesViews 0 · subTotal 0
 - **ErrorClickCount**
-  - sessionsCount 147 · sessionsWithMetricPercentage 0 · sessionsWithoutMetricPercentage 100 · pagesViews 0 · subTotal 0
+  - sessionsCount 149 · sessionsWithMetricPercentage 0 · sessionsWithoutMetricPercentage 100 · pagesViews 0 · subTotal 0
 - **ScrollDepth**
   - averageScrollDepth 69.7
 - **Traffic**
-  - totalSessionCount 147 · totalBotSessionCount 83 · distinctUserCount 136 · pagesPerSessionPercentage 1.25
+  - totalSessionCount 149 · totalBotSessionCount 83 · distinctUserCount 137 · pagesPerSessionPercentage 1.26
 - **EngagementTime**
-  - totalTime 107 · activeTime 55
+  - totalTime 106 · activeTime 55
 - **Browser**
   - name Chrome · sessionsCount 82
-  - name MobileSafari · sessionsCount 53
-  - name ChromeMobile · sessionsCount 6
+  - name MobileSafari · sessionsCount 54
+  - name ChromeMobile · sessionsCount 7
 - **Device**
   - name PC · sessionsCount 85
-  - name Mobile · sessionsCount 50
+  - name Mobile · sessionsCount 52
   - name Tablet · sessionsCount 12
 - **OS**
   - name Linux · sessionsCount 70
-  - name IOS · sessionsCount 53
+  - name IOS · sessionsCount 54
   - name Windows · sessionsCount 11
 - **Country**
   - name Turkey · sessionsCount 105
   - name Korea, Republic of · sessionsCount 20
   - name Australia · sessionsCount 4
 - **PageTitle**
-  - name 치즈감자 웹사이트 — 무료 한국어 학습과 TOPIK 연습 | Learn Korean Free · sessionsCount 46
+  - name 치즈감자 웹사이트 — 무료 한국어 학습과 TOPIK 연습 | Learn Korean Free · sessionsCount 47
   - name TOPIK(토픽) II 쓰기 연습 문항 200개 — 51·52·53·54번 | CheesePotato · sessionsCount 25
   - name TOPIK 51번 연습 — 동아리 모집 | CheesePotato · sessionsCount 24
 - **ReferrerUrl**
@@ -166,7 +175,7 @@
   - name com.google.android.googlequicksearchbox · sessionsCount 11
   - name www.google.com · sessionsCount 7
 - **PopularPages**
-  - url https://everykoreans.com/ · visitsCount 46
+  - url https://everykoreans.com/ · visitsCount 47
   - url https://everykoreans.com/topik-writing/ · visitsCount 35
   - url https://everykoreans.com/topik-writing/w51-1.html · visitsCount 29
 
@@ -183,8 +192,8 @@
   - sessionsCount 1 · sessionsWithMetricPercentage 0 · sessionsWithoutMetricPercentage 100 · pagesViews 0 · subTotal 0 · Url https://everykoreans.com/?utm_source=twpage#learn/writing/w54-1
   - sessionsCount 5 · sessionsWithMetricPercentage 0 · sessionsWithoutMetricPercentage 100 · pagesViews 0 · subTotal 0 · Url https://everykoreans.com/topik-writing/?utm_source=chatgpt.com
   - sessionsCount 2 · sessionsWithMetricPercentage 0 · sessionsWithoutMetricPercentage 100 · pagesViews 0 · subTotal 0 · Url https://everykoreans.com/korean-word-for/who.html
-  - sessionsCount 1 · sessionsWithMetricPercentage 0 · sessionsWithoutMetricPercentage 100 · pagesViews 0 · subTotal 0 · Url https://everykoreans.com/compare/69.html
   - sessionsCount 1 · sessionsWithMetricPercentage 0 · sessionsWithoutMetricPercentage 100 · pagesViews 0 · subTotal 0 · Url https://everykoreans.com/dictionary/%ED%95%A0%EB%A8%B8%EB%8B%88.html
+  - sessionsCount 1 · sessionsWithMetricPercentage 0 · sessionsWithoutMetricPercentage 100 · pagesViews 0 · subTotal 0 · Url https://everykoreans.com/compare/69.html
   - sessionsCount 29 · sessionsWithMetricPercentage 0 · sessionsWithoutMetricPercentage 100 · pagesViews 0 · subTotal 0 · Url https://everykoreans.com/topik-writing/w51-1.html
 - **RageClickCount** (쪽별)
   - sessionsCount 1 · sessionsWithMetricPercentage 0 · sessionsWithoutMetricPercentage 100 · pagesViews 0 · subTotal 0 · Url https://everykoreans.com/?utm_source=twpage#learn/writing/w54-1
@@ -197,8 +206,8 @@
   - sessionsCount 1 · sessionsWithMetricPercentage 0 · sessionsWithoutMetricPercentage 100 · pagesViews 0 · subTotal 0 · Url https://everykoreans.com/?utm_source=twpage#learn/writing/w54-1
   - sessionsCount 5 · sessionsWithMetricPercentage 20 · sessionsWithoutMetricPercentage 80 · pagesViews 1 · subTotal 1 · Url https://everykoreans.com/topik-writing/?utm_source=chatgpt.com
   - sessionsCount 2 · sessionsWithMetricPercentage 0 · sessionsWithoutMetricPercentage 100 · pagesViews 0 · subTotal 0 · Url https://everykoreans.com/korean-word-for/who.html
-  - sessionsCount 1 · sessionsWithMetricPercentage 0 · sessionsWithoutMetricPercentage 100 · pagesViews 0 · subTotal 0 · Url https://everykoreans.com/compare/69.html
   - sessionsCount 1 · sessionsWithMetricPercentage 0 · sessionsWithoutMetricPercentage 100 · pagesViews 0 · subTotal 0 · Url https://everykoreans.com/dictionary/%ED%95%A0%EB%A8%B8%EB%8B%88.html
+  - sessionsCount 1 · sessionsWithMetricPercentage 0 · sessionsWithoutMetricPercentage 100 · pagesViews 0 · subTotal 0 · Url https://everykoreans.com/compare/69.html
   - sessionsCount 29 · sessionsWithMetricPercentage 3.45 · sessionsWithoutMetricPercentage 96.55 · pagesViews 1 · subTotal 1 · Url https://everykoreans.com/topik-writing/w51-1.html
 - **ScriptErrorCount** (쪽별)
   - sessionsCount 1 · sessionsWithMetricPercentage 0 · sessionsWithoutMetricPercentage 100 · pagesViews 0 · subTotal 0 · Url https://everykoreans.com/?utm_source=twpage#learn/writing/w54-1
