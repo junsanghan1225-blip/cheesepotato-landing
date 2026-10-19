@@ -265,3 +265,4 @@
 - 2026-10-19 낱말 · 문법 내려받기(CSV · Anki) 로그인 문 — 소프트 문(A): TOPIK 1 · 2급 파일만 그냥 받고 나머지(3~6급 · 전체 · 문법)는 `/download/` 에서 로그인해야 받음. 파일은 사이트에 그대로 있어 주소를 알면 우회됨(robots 로 검색 노출만 막음). 진짜로 막으려면 비공개 저장 칸으로 옮겨야 함(B, 필요하면 나중에)
 - 2026-10-19 내려받기 로그인 문 B(진짜 막기)로 올림 — 로그인해야 받는 CSV · Anki 16개를 사이트에서 빼고 Supabase 비공개 저장 칸(`downloads-private`, `db/add_downloads.sql`)으로. 액션 `downloads-sync` 가 올리고, `/download/` 가 로그인한 사람에게 임시 주소를 줌. 낱말 원자료(vocab/data)는 학습 화면용이라 공개 그대로. 무료 · 로그인 · Pro 를 어디서 가를지는 운영자가 정하는 중
 - 2026-10-19 링크 공유 카드(스레드 · 인스타 · 카톡 미리보기) — og:image 가 600×600 정사각 logo.png 라 가로 카드에서 위아래가 잘렸음 → 1200×630 `og-image.jpg`(노랑 원 + 스티커 마스코트 + 「Learn Korean — for free.」)로 바꾸고 og:image:width/height 를 넣음. 생성 쪽(build-pages · downloads · sheets · worksheets)도 같이
+- 2026-10-19 링크 공유 카드 확정 = 시안 K1(크림 점무늬 · 노랑 「치즈감자」 · 주황 스티커 「Learn Korean — free!」 · 마스코트, 주소 글자는 뺌 — 운영자). 쪽은 `og-image.jpg` 파일 이름만 가리켜서 그림만 바꿔도 다시 굽지 않는다
