@@ -72,7 +72,9 @@ const head = (title, desc, url, extra = '') => `<!DOCTYPE html>
 <meta property="og:title" content="${esc(title)}">
 <meta property="og:description" content="${esc(desc)}">
 <meta property="og:url" content="https://everykoreans.com${url}">
-<meta property="og:image" content="https://everykoreans.com/logo-256.png">
+<meta property="og:image" content="https://everykoreans.com/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
 <link rel="stylesheet" href="/vendor/pretendard.css">
 <link rel="stylesheet" href="/page.css">
 <script src="/numbers-worksheet.js" defer></script>
