@@ -1,6 +1,7 @@
 # 매일 사이트 성과 모으기 — GA4 + Search Console → CSV + 「일간 성과 요약」을 `analytics-data` 가지에 쌓는다(운영자 2026-10-18).
 # 이 가지는 사이트로 올라가지 않는다(Pages 는 main). 설정 순서는 docs/ops/analytics-api-setup.md — 아래 세 값이 없으면 조용히 건너뛴다.
 #   Secrets  → GOOGLE_SA_KEY   (서비스 계정 키 JSON 전체)
+#   Secrets  → CLARITY_API_TOKEN (선택 — 있으면 Clarity 24시간 요약도 붙는다)
 #   Variables → GA_PROPERTY_ID (GA4 속성 번호) · SC_SITE (예: sc-domain:everykoreans.com)
 name: analytics-daily
 
@@ -30,6 +31,7 @@ jobs:
           GA_PROPERTY_ID: ${{ vars.GA_PROPERTY_ID }}
           SC_SITE: ${{ vars.SC_SITE }}
           GOOGLE_SA_KEY: ${{ secrets.GOOGLE_SA_KEY }}
+          CLARITY_API_TOKEN: ${{ secrets.CLARITY_API_TOKEN }}
         run: |
           if [ -z "$GOOGLE_SA_KEY" ] || [ -z "$GA_PROPERTY_ID" ] || [ -z "$SC_SITE" ]; then
             echo "::notice::GOOGLE_SA_KEY · GA_PROPERTY_ID · SC_SITE 가 아직 없어요 — docs/ops/analytics-api-setup.md 대로 설정하면 켜집니다."
