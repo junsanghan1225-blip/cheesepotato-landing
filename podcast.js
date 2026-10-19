@@ -27,10 +27,11 @@ async function cover(e) {
   /* 표현은 두 줄로 — 앞 세 개 · 나머지, 작고 연하게 */
   const list = e.exprs.slice(0, 6), half = Math.ceil(list.length / 2);
   g.fillStyle = '#5a4d41';
-  [list.slice(0, half), list.slice(half)].filter((r) => r.length).forEach((row, i) => {
+  if (list.length === 1) { fit(list[0], 700, 64, 1000); mid(list[0], 545); }   // 한 편 = 표현 하나면 조금 크게
+  else [list.slice(0, half), list.slice(half)].filter((r) => r.length).forEach((row, i) => {
     const line = row.join('   ·   '); fit(line, 600, 34, 1060); mid(line, 520 + i * 54);
   });
-  g.fillStyle = '#8C7A66'; fit('EP ' + e.ep + '  ·  5-min lessons', 700, 28, 600); mid('EP ' + e.ep + '  ·  5-min lessons', 668);
+  g.fillStyle = '#8C7A66'; fit('EP ' + e.ep + '  ·  3-min lessons', 700, 28, 600); mid('EP ' + e.ep + '  ·  3-min lessons', 668);
 }
 const cur = () => EPS.find((x) => x.ep === $('ep').value);
 function drawEp() { const e = cur(); if (!e) return; $('epInfo').textContent = e.head; cover(e); }
