@@ -15,3 +15,6 @@ insta/out/
 
 # 책 PDF(파는 파일 — 저장소에 두지 않는다. tools/build-book.mjs 가 언제든 다시 찍는다)
 books-out/
+
+# 로그인해야 받는 내려받기 파일(CSV · Anki). build-downloads 가 굽고 액션 downloads-sync 가 Supabase 비공개 저장 칸에 올린다 — 사이트(공개)에 두지 않는다.
+private-downloads/

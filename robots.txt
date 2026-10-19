@@ -16,14 +16,6 @@ Disallow: /worksheet/pro/
 Disallow: /shorts.html
 Disallow: /podcast.html
 Disallow: /download/
-Disallow: /downloads/topik-level-3
-Disallow: /downloads/topik-level-4
-Disallow: /downloads/topik-level-5
-Disallow: /downloads/topik-level-6
-Disallow: /downloads/topik-1-all
-Disallow: /downloads/topik-2-all
-Disallow: /downloads/topik-all
-Disallow: /downloads/korean-grammar-list
 Disallow: /connect.html
 Disallow: /record/
 

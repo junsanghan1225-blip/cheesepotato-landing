@@ -1,5 +1,5 @@
 /* 낱말 · 문법 내려받기 문 — /download/?f=/downloads/<파일>. 사이트에 로그인한 세션이 있으면 파일을 받게 하고, 없으면 로그인 안내를 보인다.
-   소프트 문(운영자 2026-10-19 「A」): 파일은 사이트에 그냥 올라가 있다 — 주소를 아는 사람은 직접 받을 수 있다. 막는 것은 단추 · 검색 노출뿐. */
+   진짜 문(B, 운영자 2026-10-19): 파일은 사이트에 없다 — Supabase 비공개 저장 칸(downloads-private)에만 있고, 로그인한 사람만 임시 주소(60초)를 받아 내려받는다(db/add_downloads.sql). */
 import { createClient } from './vendor/supabase-js.js';
 
 const sb = createClient('https://tjgoevtvobvmlyefgxel.supabase.co',
@@ -14,9 +14,18 @@ const OK = /^\/downloads\/[a-z0-9-]+\.(csv|txt)$/;   // 이 폴더의 파일만 
   let session = null;
   try { session = (await sb.auth.getSession()).data.session; } catch (e) { /* 막힌 브라우저 — 로그인 안내로 */ }
   if (session) {
+    $('t').textContent = 'Preparing your download…'; $('m').textContent = '다운로드를 준비하는 중이에요.';
+    const name = f.split('/').pop();
+    const { data, error } = await sb.storage.from('downloads-private').createSignedUrl(name, 60, { download: name });
+    if (error || !data?.signedUrl) {
+      $('t').textContent = 'Could not start the download';
+      $('m').innerHTML = 'Please try again in a minute. If it keeps failing, tell us at <b>cheesepotato@everykoreans.com</b>.<br>잠시 뒤 다시 해 주세요.';
+      $('go').innerHTML = `<a class="btn" href="/download/?f=${encodeURIComponent(f).replace(/%2F/g, '/')}">Try again</a><br><a class="btn sub" href="/topik-vocabulary-list/">← Back to the lists</a>`;
+      return;
+    }
     $('t').textContent = 'Your download is starting…'; $('m').textContent = '다운로드를 시작해요.';
-    $('go').innerHTML = `<a class="btn" href="${f}" download>Download again</a><br><a class="btn sub" href="/topik-vocabulary-list/">← Back to the lists</a>`;
-    const a = document.createElement('a'); a.href = f; a.download = ''; document.body.appendChild(a); a.click(); a.remove();
+    $('go').innerHTML = `<a class="btn sub" href="/topik-vocabulary-list/">← Back to the lists</a>`;
+    const a = document.createElement('a'); a.href = data.signedUrl; a.download = name; document.body.appendChild(a); a.click(); a.remove();
     return;
   }
   $('t').textContent = 'Sign in to download';

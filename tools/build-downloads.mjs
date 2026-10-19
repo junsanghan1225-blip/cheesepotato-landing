@@ -23,14 +23,17 @@ const { GRAMMAR_EN } = await import('../grammar-en.js');
 const LVN = { beginner: 'Beginner', intermediate: 'Intermediate', advanced: 'Advanced' };
 const GR = SB_CATS.flatMap((c) => c.points.map((p) => ({ p, cat: c }))).filter(({ p }) => GRAMMAR_EN[p.id]);
 /* 낱말 · 문법 내려받기 — 1 · 2급 파일만 로그인 없이(맛보기). 나머지는 /download/ 문(로그인한 사람만 받는다, 운영자 2026-10-19 「너무 무료로 다 풀면 안 돼 · A」).
-   ⚠ 소프트 문이다 — 파일은 사이트에 그냥 올라가 있어서 주소를 아는 사람은 우회할 수 있다(robots 로 검색 노출만 막는다). 진짜로 막으려면 파일을 비공개 저장 칸으로 옮겨야 한다. */
+   ⚠ 진짜 문이다(B) — 로그인해야 받는 파일은 사이트(downloads/)에 두지 않고 private-downloads/ 로 구워(저장소에 안 둔다) 액션 downloads-sync 가 Supabase 비공개 저장 칸에 올린다.
+   로그인한 사람만 /download/ 에서 임시 주소를 받는다(db/add_downloads.sql). 낱말 원자료 자체(vocab/data)는 사이트 학습 화면이 쓰므로 공개 — 막는 것은 내려받기용 묶음 파일이다. */
 const FREE = new Set(['topik-level-1', 'topik-level-2', 'topik-level-1-anki', 'topik-level-2-anki']);
 const dl = (name, label) => (FREE.has(name) ? `<a href="/downloads/${name}${name.endsWith('-anki') ? '.txt' : '.csv'}" download>${label}</a>`
   : `<a href="/download/?f=/downloads/${name}${name.endsWith('-anki') ? '.txt' : '.csv'}" rel="nofollow">${label} <small>🔒 free account</small></a>`);
 const cell = (s) => `"${String(s ?? '').replace(/"/g, '""')}"`;
 const clean = (s) => String(s ?? '').replace(/[\t\r\n]+/g, ' ').trim();
 const ex = (w) => w.examples?.[0] || {};
+const dirOf = (name) => (FREE.has(name) ? 'downloads' : 'private-downloads');   // 로그인해야 받는 파일은 사이트에 두지 않는다(B — 운영자 2026-10-19)
 mkdirSync(join(ROOT, 'downloads'), { recursive: true });
+mkdirSync(join(ROOT, 'private-downloads'), { recursive: true });
 const counts = {};
 for (const b of BAND) {
   const ws = ALL.filter((w) => b.lv.includes(w.level)).sort((x, y) => x.level - y.level || (y.freq || 0) - (x.freq || 0));
@@ -38,14 +41,14 @@ for (const b of BAND) {
   const head = ['Korean', 'Part of speech', 'English', 'Vietnamese', 'Japanese', 'Example (Korean)', 'Example (English)', 'TOPIK level'];
   const rows = ws.map((w) => [w.head, w.pos, w.en, w.tr?.vi, w.tr?.ja, ex(w).ko, ex(w).en, w.level]);
   // 엑셀이 한글을 깨지 않게 BOM
-  writeFileSync(join(ROOT, 'downloads', `${b.id}.csv`), '﻿' + [head, ...rows].map((r) => r.map(cell).join(',')).join('\r\n') + '\r\n');
+  writeFileSync(join(ROOT, dirOf(b.id), `${b.id}.csv`), '﻿' + [head, ...rows].map((r) => r.map(cell).join(',')).join('\r\n') + '\r\n');
   // Anki: 탭으로 나눈 글 — 앞면 = 한국어, 뒷면 = 뜻 · 예문. 가져올 때 「HTML 허용」을 켜면 줄바꿈 <br> 이 보인다
   const anki = ws.map((w) => [w.head, `${clean(w.en)}${w.tr?.vi ? ` · ${clean(w.tr.vi)}` : ''}${w.tr?.ja ? ` · ${clean(w.tr.ja)}` : ''}<br>${clean(ex(w).ko)}<br>${clean(ex(w).en)}`, `${b.id}`].join('\t'));
-  writeFileSync(join(ROOT, 'downloads', `${b.id}-anki.txt`), '#separator:tab\n#html:true\n#tags column:3\n' + anki.join('\n') + '\n');
+  writeFileSync(join(ROOT, dirOf(`${b.id}-anki`), `${b.id}-anki.txt`), '#separator:tab\n#html:true\n#tags column:3\n' + anki.join('\n') + '\n');
 }
-writeFileSync(join(ROOT, 'downloads', 'korean-grammar-list.csv'), '\ufeff' + [['Grammar pattern', 'Level', 'Category', 'Meaning (English)', 'Form', 'Watch out', 'Example (Korean)'],
+writeFileSync(join(ROOT, dirOf('korean-grammar-list'), 'korean-grammar-list.csv'), '\ufeff' + [['Grammar pattern', 'Level', 'Category', 'Meaning (English)', 'Form', 'Watch out', 'Example (Korean)'],
   ...GR.map(({ p, cat }) => [p.name, LVN[p.lv] || p.lv, cat.en, GRAMMAR_EN[p.id].desc, GRAMMAR_EN[p.id].form, GRAMMAR_EN[p.id].care, p.ex])].map((r) => r.map(cell).join(',')).join('\r\n') + '\r\n');
-writeFileSync(join(ROOT, 'downloads', 'korean-grammar-list-anki.txt'), '#separator:tab\n#html:true\n#tags column:3\n' + GR.map(({ p }) => [p.name, `${clean(GRAMMAR_EN[p.id].desc)}${GRAMMAR_EN[p.id].form ? `<br>${clean(GRAMMAR_EN[p.id].form)}` : ''}<br>${clean(p.ex)}`, `grammar-${p.lv}`].join('\t')).join('\n') + '\n');
+writeFileSync(join(ROOT, dirOf('korean-grammar-list-anki'), 'korean-grammar-list-anki.txt'), '#separator:tab\n#html:true\n#tags column:3\n' + GR.map(({ p }) => [p.name, `${clean(GRAMMAR_EN[p.id].desc)}${GRAMMAR_EN[p.id].form ? `<br>${clean(GRAMMAR_EN[p.id].form)}` : ''}<br>${clean(p.ex)}`, `grammar-${p.lv}`].join('\t')).join('\n') + '\n');
 const li = (b) => `<tr><td>${b.name}</td><td>${counts[b.id].toLocaleString('en-US')}</td><td>${dl(b.id, 'CSV')}</td><td>${dl(b.id + '-anki', 'Anki')}</td></tr>`;
 const page = `<!DOCTYPE html>
 <html lang="en">
