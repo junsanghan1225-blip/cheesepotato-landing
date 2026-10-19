@@ -26,6 +26,7 @@ const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 
 /* 자국을 찍을 파일. 브라우저가 주소로 받아 가는 것만 넣는다. */
 const ASSETS = [
+  'download.js',   /* 낱말 · 문법 내려받기 문(/download/) */
   'podcast.js',   /* 팟캐스트 올리기 쪽(운영자 전용) — 브라우저가 옛 파일을 들고 있으면 새 표지가 안 보인다 */
   'app.js', 'app.module.js', 'analytics.js', 'gtm.js', 'course-icons.js', 'billing.js', 'audio-key.js',
   'courses.js', 'courses-lite.js', 'courses-grammar.js', 'courses-grammar-beginner.js',
@@ -97,7 +98,7 @@ const ASSETS = [
 /* glossary.js 도 자국을 박는 자리다 — 그 안의 GLOSS_LANGS 가 언어팩 주소를
    들고 있다. 생성물이라 build-glossary 를 돌린 뒤에 stamp 를 돌려야 한다. */
 const HOSTS = ['index.html', 'app.module.js', 'app.js', 'courses.js', 'sentences.js', 'glossary.js',
-               'grammar-find.js', 'podcast.html'];
+               'grammar-find.js', 'podcast.html', 'download/index.html'];
 
 const V = /\?v=[0-9a-f]{8}/g;
 const read = (f) => readFileSync(join(ROOT, f), 'utf8');
