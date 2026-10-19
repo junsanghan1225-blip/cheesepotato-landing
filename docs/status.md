@@ -106,6 +106,7 @@
   글 안의 `<!-- 운영자 한마디 -->` 를 운영자 말로 채운 뒤 머지(비어 있으면 check-blog 가 막는다). PR 을 열려면 저장소 설정
   「Allow GitHub Actions to create and approve pull requests」(운영자가 켠다).
 
+- **블로그 「오늘의 문법 4개」**(운영자 2026-10-19): 하루 1편 · 문법 4개 · 사이트 문법 자료(뜻 · 모양 · 예문 · 대화 · 영어)로 소개. 초안 PR → 「운영자 한마디」 → 머지. 앞 초안 PR 이 열려 있으면 그날은 건너뜀. `tools/blog-grammar.mjs` · `.github/workflows/blog-grammar.yml`(한국 19:37).
 
 ## 18. 선생님 · 1:1 수업
 - **선생님 · 1:1 수업**(운영자 결정 2026-10-03): `/teacher.html`(손으로 쓴 쪽, 스크립트 없음) — 신청은 **Preply**(큰 단추) · **WhatsApp**(문의).
