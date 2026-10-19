@@ -21,3 +21,10 @@
 - GA4 는 **어제 하루**, Search Console 은 **2~3일 늦게 확정된 7일**입니다(구글이 그렇게 줍니다).
 - 세 값(Secret 1 + Variable 2) 중 하나라도 없으면 그냥 건너뛰니 아무 문제 없습니다.
 - 숫자의 기준은 GA4 · Search Console 화면입니다. 자동 수집은 비교 · 추세용입니다.
+
+## Clarity 24시간 요약 붙이기 (선택 · 2026-10-19)
+1. Clarity → 설정 → 데이터 내보내기 → 새 API 토큰 만들기.
+2. GitHub 저장소 → Settings → Secrets and variables → Actions → **Secrets** 에 `CLARITY_API_TOKEN` 으로 넣는다(채팅 · 코드에 적지 않는다).
+3. 매일 수집(`analytics-daily`)이 돌 때 「일간 성과 요약」 맨 아래에 Clarity 24시간 숫자(문제 신호 · 쪽별)가 붙고, 원본은 `clarity-24시간.json` 으로 남는다.
+- 한계: Clarity 는 하루 호출이 적고(약 10번) 「최근 24시간」 묶음 숫자만 준다. 녹화 · 히트맵은 못 받는다. 토큰이 없거나 호출이 실패해도 GA4 · Search Console 수집은 그대로 간다(요약에 이유를 적는다).
+- 아직 **실제 토큰으로 시험하지 못했다** — 처음 도는 날 요약에 「Clarity 일부를 못 받았어요」가 나오면 그 문장을 Claude 에게 알려 주기(쪽별 묶음 이름이 다를 수 있다).

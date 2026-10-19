@@ -5,6 +5,7 @@
      GA_PROPERTY_ID   GA4 속성 번호(숫자, 비밀 아님)
      SC_SITE          Search Console 속성(예: sc-domain:everykoreans.com 또는 https://everykoreans.com/)
      GOOGLE_SA_KEY    서비스 계정 키 JSON 전체(비밀)
+     CLARITY_API_TOKEN  (있으면) Clarity 데이터 내보내기 토큰(비밀) — 「최근 24시간」 요약이 붙는다. 없거나 실패해도 위 숫자는 그대로 모인다
    라이브러리 없이 Node 만 쓴다(서비스 계정 JWT → 토큰 → REST). 설정 순서는 docs/ops/analytics-api-setup.md.
    --fake : 가짜 숫자로 모양만 확인(키 없이 시험) */
 import fs from 'node:fs';
@@ -58,6 +59,25 @@ async function sc(tok, body) {
   return (j.rows || []).map((x) => [...(x.keys || []), x.clicks, x.impressions, x.ctr, x.position]);
 }
 
+/* ── Clarity(데이터 내보내기 API) — 하루 호출이 적고(약 10번) 「최근 24시간」 묶음 숫자만 준다. 녹화 · 히트맵은 못 받는다.
+   실패해도 GA4 수집은 계속 간다 — 이유를 요약에 적는다. ── */
+async function clarityCall(dim) {
+  const u = 'https://www.clarity.ms/export-data/api/v1/project-live-insights?numOfDays=1' + (dim ? '&dimension1=' + encodeURIComponent(dim) : '');
+  const r = await fetch(u, { headers: { authorization: 'Bearer ' + process.env.CLARITY_API_TOKEN } });
+  const t = await r.text();
+  if (!r.ok) throw new Error('Clarity ' + r.status + ': ' + t.slice(0, 160));
+  return JSON.parse(t);
+}
+async function clarity() {
+  if (FAKE) return { overall: [{ metricName: 'RageClickCount', information: [{ sessionsCount: '12', sessionsWithMetricPercentage: 1.2 }] }], byUrl: [], note: '' };
+  if (!process.env.CLARITY_API_TOKEN) return null;
+  const out = { overall: [], byUrl: [], note: '' };
+  try { out.overall = await clarityCall(''); } catch (e) { out.note = String(e.message || e); return out; }
+  try { out.byUrl = await clarityCall('URL'); } catch (e) { out.note = '쪽별: ' + String(e.message || e); }
+  return out;
+}
+const clInfoLine = (info) => Object.entries(info || {}).filter(([, v]) => v !== null && v !== '').map(([k, v]) => k + ' ' + (typeof v === 'number' ? Math.round(v * 100) / 100 : v)).join(' · ');
+
 async function collect() {
   if (FAKE) {
     return {
@@ -101,11 +121,20 @@ function summary(d) {
   L.push('## 검색 (Search Console)', '', `확정된 가장 최근 하루(${SC_END}): 클릭 ${fmt(sd[0])} · 노출 ${fmt(sd[1])}`, '');
   L.push(...table(`검색어 TOP 20 (${SC_START} ~ ${SC_END})`, ['검색어', '클릭', '노출', '클릭률', '평균 순위'], d.scQ.map((r) => [r[0], fmt(r[1]), fmt(r[2]), pct(num(r[3])), num(r[4]).toFixed(1)])));
   L.push(...table('검색에서 많이 열린 쪽 TOP 10', ['쪽', '클릭', '노출', '클릭률', '평균 순위'], d.scP.map((r) => [r[0], fmt(r[1]), fmt(r[2]), pct(num(r[3])), num(r[4]).toFixed(1)])));
+  if (d.cl) {
+    L.push('## Clarity (최근 24시간 — 날짜 기준이 아니라 호출한 시각 기준)', '');
+    if (d.cl.note) L.push(`> Clarity 일부를 못 받았어요: ${d.cl.note}`, '');
+    const block = (title, arr) => { for (const m of arr || []) { const rows = (m.information || []).slice(0, title ? 6 : 3); if (!rows.length) continue; L.push(`- **${m.metricName}**${title ? ' (' + title + ')' : ''}`); rows.forEach((i) => L.push('  - ' + clInfoLine(i))); } };
+    block('', d.cl.overall); L.push('');
+    if (d.cl.byUrl?.length) { L.push('### 쪽(URL)별', ''); block('쪽별', d.cl.byUrl); L.push(''); }
+    L.push('> 참고: 이 숫자는 Clarity 화면의 요약과 같은 기준이며, 녹화 · 히트맵은 Clarity 화면에서 직접 보세요.', '');
+  }
   L.push('> 주의: 한국 · 베트남 등에서 오는 자동 접속(봇)이 숫자에 섞일 수 있습니다. 이상하게 높은 날은 나라 · 기기 · 이벤트 표를 같이 보세요.');
   return L.join('\n') + '\n';
 }
 
 const d = await collect();
+d.cl = await clarity();
 fs.mkdirSync(OUT, { recursive: true });
 const w = (name, head, rows) => fs.writeFileSync(path.join(OUT, name), toCsv(head, rows));
 w('ga-개요.csv', ['방문자', '새방문자', '세션', '조회수', '평균참여시간(초)', '참여율'], d.overview);
@@ -116,5 +145,6 @@ w('ga-기기.csv', ['기기', '방문자', '세션'], d.devices);
 w('ga-이벤트.csv', ['이벤트', '횟수'], d.events);
 w('sc-검색어.csv', ['검색어', '클릭', '노출', '클릭률', '평균순위'], d.scQ);
 w('sc-쪽.csv', ['쪽', '클릭', '노출', '클릭률', '평균순위'], d.scP);
+if (d.cl) fs.writeFileSync(path.join(OUT, 'clarity-24시간.json'), JSON.stringify(d.cl, null, 1));
 fs.writeFileSync(path.join(OUT, '일간 성과 요약.md'), summary(d));
 console.log(`분석 수집 ${DATE}${FAKE ? ' (가짜 숫자)' : ''} → ${path.relative(process.cwd(), OUT)}`);

@@ -4997,6 +4997,1666 @@
     "minSentences": 4,
     "minConnectors": 2
    }
+  },
+  {
+   "id": "w-adv-eco-packaging",
+   "tier": "advanced",
+   "kind": "explain",
+   "title": {
+    "ko": "친환경 포장재 사용의 필요성",
+    "en": "The Necessity of Eco-Friendly Packaging"
+   },
+   "sentences": [
+    {
+     "ko": "일회용 플라스틱 포장재는 생활 속에서 널리 쓰입니다.",
+     "en": "Disposable plastic packaging is widely used in daily life.",
+     "key": [
+      "일회용",
+      "포장재는"
+     ],
+     "step": "point"
+    },
+    {
+     "ko": "쉽게 썩지 않아 심각한 환경 오염을 초래합니다.",
+     "en": "It does not decay easily, causing severe environmental pollution.",
+     "key": [
+      "환경",
+      "초래합니다"
+     ],
+     "step": "reason"
+    },
+    {
+     "ko": "일부 기업은 옥수수 전분으로 만든 친환경 완충재를 도입했습니다.",
+     "en": "Some companies have introduced eco-friendly cushioning materials made from cornstarch.",
+     "key": [
+      "완충재를",
+      "도입했습니다"
+     ],
+     "step": "example"
+    },
+    {
+     "ko": "이러한 노력은 포장 쓰레기 배출량을 획기적으로 줄여 줍니다.",
+     "en": "These efforts dramatically reduce the amount of packaging waste emitted.",
+     "key": [
+      "쓰레기",
+      "줄여"
+     ],
+     "step": "result"
+    },
+    {
+     "ko": "지속 가능한 미래를 위해 녹색 소비를 적극 실천해야 합니다.",
+     "en": "We must actively practice green consumption for a sustainable future.",
+     "key": [
+      "지속",
+      "소비를"
+     ],
+     "step": "recap"
+    }
+   ],
+   "gaps": [
+    {
+     "ans": "geureona",
+     "opts": [
+      "geureona",
+      "ttaraseo",
+      "ttohan",
+      "geureomyeon"
+     ],
+     "role": "contrast",
+     "why": {
+      "ko": "일상 속 편리한 사용 뒤에 환경 오염이라는 부작용을 대조하므로 「그러나」입니다.",
+      "en": "Contrasting convenient daily use with the side effect of environmental pollution: 그러나."
+     }
+    },
+    {
+     "ans": "yereul-deureo",
+     "opts": [
+      "yereul-deureo",
+      "ttaraseo",
+      "geureona",
+      "ttohan"
+     ],
+     "role": "example",
+     "why": {
+      "ko": "친환경 소재를 채택한 기업의 구체적인 실천 사례를 제시하므로 「예를 들어」입니다.",
+      "en": "Presenting a concrete case of a company adopting eco-friendly materials: 예를 들어."
+     }
+    },
+    {
+     "ans": "ttaraseo",
+     "opts": [
+      "ttaraseo",
+      "yereul-deureo",
+      "geureona",
+      "ttohan"
+     ],
+     "role": "result",
+     "why": {
+      "ko": "친환경 소재 도입에 따른 쓰레기 감축 결과를 이끌어 내므로 「따라서」입니다.",
+      "en": "Leading to the result of waste reduction from adopting eco-friendly materials: 따라서."
+     }
+    },
+    {
+     "ans": "icheoreom",
+     "opts": [
+      "icheoreom",
+      "geureona",
+      "ttohan",
+      "geureomyeon"
+     ],
+     "role": "summary",
+     "why": {
+      "ko": "친환경 노력의 효과를 아우르며 녹색 소비 실천을 촉구하므로 「이처럼」입니다.",
+      "en": "Synthesizing the effects of eco-friendly efforts to urge green consumption: 이처럼."
+     }
+    }
+   ],
+   "links": [
+    {
+     "from": 0,
+     "hint": {
+      "ko": "널리 쓰이는 장점과 환경 오염이라는 문제를 대조하여 한 문장으로",
+      "en": "Contrast widespread use with environmental pollution into one sentence"
+     },
+     "ans": "일회용 플라스틱 포장재는 생활 속에서 널리 쓰이지만 쉽게 썩지 않아 심각한 환경 오염을 초래합니다.",
+     "opts": [
+      "일회용 플라스틱 포장재는 생활 속에서 널리 쓰이지만 쉽게 썩지 않아 심각한 환경 오염을 초래합니다.",
+      "일회용 플라스틱 포장재는 생활 속에서 널리 쓰여서 쉽게 썩지 않아 심각한 환경 오염을 초래합니다.",
+      "일회용 플라스틱 포장재는 생활 속에서 널리 쓰이고 쉽게 썩지 않아 심각한 환경 오염을 초래합니다.",
+      "일회용 플라스틱 포장재는 생활 속에서 널리 쓰이면 쉽게 썩지 않아 심각한 환경 오염을 초래합니다."
+     ],
+     "why": {
+      "ko": "널리 쓰이는 사실과 환경을 해치는 상반된 결과를 대비하므로 「-지만」을 씁니다.",
+      "en": "To contrast convenient widespread use with adverse environmental effects, use -지만."
+     }
+    },
+    {
+     "from": 3,
+     "hint": {
+      "ko": "친환경 노력의 긍정적 효과를 바탕으로 실천을 당부하여 한 문장으로",
+      "en": "Urge positive action based on the beneficial effects of eco-friendly efforts into one sentence"
+     },
+     "ans": "이러한 노력은 포장 쓰레기 배출량을 획기적으로 줄여 주므로 지속 가능한 미래를 위해 녹색 소비를 적극 실천해야 합니다.",
+     "opts": [
+      "이러한 노력은 포장 쓰레기 배출량을 획기적으로 줄여 주므로 지속 가능한 미래를 위해 녹색 소비를 적극 실천해야 합니다.",
+      "이러한 노력은 포장 쓰레기 배출량을 획기적으로 줄여 주지만 지속 가능한 미래를 위해 녹색 소비를 적극 실천해야 합니다.",
+      "이러한 노력은 포장 쓰레기 배출량을 획기적으로 줄여 주고 지속 가능한 미래를 위해 녹색 소비를 적극 실천해야 합니다.",
+      "이러한 노력은 포장 쓰레기 배출량을 획기적으로 줄여 주면 지속 가능한 미래를 위해 녹색 소비를 적극 실천해야 합니다."
+     ],
+     "why": {
+      "ko": "앞선 효과를 근거로 행동 실천을 이끌어 내므로 이유를 나타내는 어미 「-(으)므로」를 씁니다.",
+      "en": "To urge action based on preceding beneficial results, use the causal connective -(으)므로."
+     }
+    }
+   ],
+   "write": {
+    "prompt": {
+     "ko": "친환경 포장재 사용이나 녹색 소비에 대한 생각을 접속사 두 개 이상 넣어 네 문장 이상 써 보세요.",
+     "en": "Write four or more sentences about eco-friendly packaging or green consumption, using at least two connectors."
+    },
+    "cues": [
+     "일회용품",
+     "친환경",
+     "쓰레기",
+     "실천"
+    ],
+    "minSentences": 4,
+    "minConnectors": 2
+   }
+  },
+  {
+   "id": "w-adv-digital-divide",
+   "tier": "advanced",
+   "kind": "explain",
+   "title": {
+    "ko": "고령층 디지털 격차 해소",
+    "en": "Bridging the Digital Divide for Seniors"
+   },
+   "sentences": [
+    {
+     "ko": "디지털 기술의 발전은 일상생활을 매우 편리하게 바꿨습니다.",
+     "en": "The development of digital technology has made daily life very convenient.",
+     "key": [
+      "디지털",
+      "편리하게"
+     ],
+     "step": "point"
+    },
+    {
+     "ko": "키오스크와 스마트폰 사용에 서툰 노인들은 큰 소외감을 느낍니다.",
+     "en": "Elderly individuals unfamiliar with kiosks and smartphones feel great alienation.",
+     "key": [
+      "노인들은",
+      "소외감을"
+     ],
+     "step": "reason"
+    },
+    {
+     "ko": "기차표 예매나 음식 주문 과정에서 큰 불편을 겪습니다.",
+     "en": "They experience great inconvenience when booking train tickets or ordering food.",
+     "key": [
+      "기차표",
+      "불편을"
+     ],
+     "step": "example"
+    },
+    {
+     "ko": "지역사회 중심의 맞춤형 디지털 교육 프로그램을 확대해야 합니다.",
+     "en": "Community-centered customized digital education programs must be expanded.",
+     "key": [
+      "지역사회",
+      "디지털"
+     ],
+     "step": "result"
+    },
+    {
+     "ko": "모든 세대가 편리한 기술을 함께 누리는 사회를 만들어야 합니다.",
+     "en": "We must create a society where all generations enjoy convenient technology together.",
+     "key": [
+      "세대가",
+      "사회를"
+     ],
+     "step": "recap"
+    }
+   ],
+   "gaps": [
+    {
+     "ans": "banmyeone",
+     "opts": [
+      "banmyeone",
+      "ttaraseo",
+      "ttohan",
+      "geureomyeon"
+     ],
+     "role": "contrast",
+     "why": {
+      "ko": "디지털 기술의 편리함과 노인층이 겪는 소외감을 서로 대비하므로 「반면에」입니다.",
+      "en": "Contrasting technological convenience with alienation experienced by seniors: 반면에."
+     }
+    },
+    {
+     "ans": "yereul-deureo",
+     "opts": [
+      "yereul-deureo",
+      "banmyeone",
+      "geureomeuro",
+      "gedaga"
+     ],
+     "role": "example",
+     "why": {
+      "ko": "노인들이 일상에서 겪는 구체적인 불편 사례를 소개하므로 「예를 들어」입니다.",
+      "en": "Introducing specific daily inconveniences faced by the elderly: 예를 들어."
+     }
+    },
+    {
+     "ans": "geureomeuro",
+     "opts": [
+      "geureomeuro",
+      "yereul-deureo",
+      "geureona",
+      "ttohan"
+     ],
+     "role": "result",
+     "why": {
+      "ko": "디지털 소외 문제를 해결하기 위한 정책적 대안을 제시하므로 「그러므로」입니다.",
+      "en": "Proposing policy solutions to resolve digital alienation: 그러므로."
+     }
+    },
+    {
+     "ans": "dasi-malhae",
+     "opts": [
+      "dasi-malhae",
+      "geureona",
+      "geureomeuro",
+      "ttohan"
+     ],
+     "role": "summary",
+     "why": {
+      "ko": "모든 세대가 혜택을 누려야 한다는 중심 목표를 다시 정리하므로 「다시 말해」입니다.",
+      "en": "Restating the central goal that all generations should benefit: 다시 말해."
+     }
+    }
+   ],
+   "links": [
+    {
+     "from": 0,
+     "hint": {
+      "ko": "기술의 편리함과 노인층의 소외감을 대조하여 한 문장으로",
+      "en": "Contrast technological convenience with senior alienation into one sentence"
+     },
+     "ans": "디지털 기술의 발전은 일상생활을 매우 편리하게 바꿨지만 키오스크와 스마트폰 사용에 서툰 노인들은 큰 소외감을 느낍니다.",
+     "opts": [
+      "디지털 기술의 발전은 일상생활을 매우 편리하게 바꿨지만 키오스크와 스마트폰 사용에 서툰 노인들은 큰 소외감을 느낍니다.",
+      "디지털 기술의 발전은 일상생활을 매우 편리하게 바꿔서 키오스크와 스마트폰 사용에 서툰 노인들은 큰 소외감을 느낍니다.",
+      "디지털 기술의 발전은 일상생활을 매우 편리하게 바꾸고 키오스크와 스마트폰 사용에 서툰 노인들은 큰 소외감을 느낍니다.",
+      "디지털 기술의 발전은 일상생활을 매우 편리하게 바꾸면 키오스크와 스마트폰 사용에 서툰 노인들은 큰 소외감을 느낍니다."
+     ],
+     "why": {
+      "ko": "기술 발전의 긍정적인 면과 소외라는 부정적인 결과를 대비하므로 대조 어미 「-지만」을 씁니다.",
+      "en": "To contrast the positive side of tech advances with the negative result of alienation, use -지만."
+     }
+    },
+    {
+     "from": 2,
+     "hint": {
+      "ko": "일상의 불편함을 이유로 들어 교육의 필요성을 한 문장으로",
+      "en": "Link daily inconvenience as a reason for educational necessity into one sentence"
+     },
+     "ans": "기차표 예매나 음식 주문 과정에서 큰 불편을 겪으므로 지역사회 중심의 맞춤형 디지털 교육 프로그램을 확대해야 합니다.",
+     "opts": [
+      "기차표 예매나 음식 주문 과정에서 큰 불편을 겪으므로 지역사회 중심의 맞춤형 디지털 교육 프로그램을 확대해야 합니다.",
+      "기차표 예매나 음식 주문 과정에서 큰 불편을 겪지만 지역사회 중심의 맞춤형 디지털 교육 프로그램을 확대해야 합니다.",
+      "기차표 예매나 음식 주문 과정에서 큰 불편을 겪고 지역사회 중심의 맞춤형 디지털 교육 프로그램을 확대해야 합니다.",
+      "기차표 예매나 음식 주문 과정에서 큰 불편을 겪으면 지역사회 중심의 맞춤형 디지털 교육 프로그램을 확대해야 합니다."
+     ],
+     "why": {
+      "ko": "일상의 불편을 근거로 교육 확대라는 해결책을 이끌어 내므로 원인·이유 어미 「-(으)므로」를 씁니다.",
+      "en": "To derive the solution of educational expansion from daily inconveniences, use the causal connective -(으)므로."
+     }
+    }
+   ],
+   "write": {
+    "prompt": {
+     "ko": "디지털 소외 문제를 해결하는 방안을 접속사 두 개 이상 넣어 네 문장 이상 써 보세요.",
+     "en": "Write four or more sentences about solutions to digital alienation, using at least two connectors."
+    },
+    "cues": [
+     "디지털",
+     "노인",
+     "교육",
+     "배려"
+    ],
+    "minSentences": 4,
+    "minConnectors": 2
+   }
+  },
+  {
+   "id": "w-adv-lifelong-learning",
+   "tier": "advanced",
+   "kind": "explain",
+   "title": {
+    "ko": "현대 사회와 평생학습의 가치",
+    "en": "Modern Society and the Value of Lifelong Learning"
+   },
+   "sentences": [
+    {
+     "ko": "급변하는 현대 사회에서는 지속적인 자기 계발이 필수적입니다.",
+     "en": "In a rapidly changing modern society, continuous self-development is essential.",
+     "key": [
+      "현대",
+      "자기"
+     ],
+     "step": "point"
+    },
+    {
+     "ko": "새로운 지식과 기술을 배우지 않으면 시대 흐름에 뒤처집니다.",
+     "en": "If one does not learn new knowledge and technology, one falls behind the times.",
+     "key": [
+      "지식과",
+      "뒤처집니다"
+     ],
+     "step": "reason"
+    },
+    {
+     "ko": "은퇴 후에도 외국어나 컴퓨터 프로그램을 배우는 시민이 많습니다.",
+     "en": "Many citizens learn foreign languages or computer programs even after retirement.",
+     "key": [
+      "외국어나",
+      "시민이"
+     ],
+     "step": "example"
+    },
+    {
+     "ko": "배움의 기회는 개인의 삶에 새로운 활력과 성취감을 줍니다.",
+     "en": "Opportunities for learning provide fresh vitality and a sense of achievement to one's life.",
+     "key": [
+      "배움의",
+      "활력과"
+     ],
+     "step": "result"
+    },
+    {
+     "ko": "평생학습은 더 나은 미래를 열어 주는 가장 든든한 디딤돌입니다.",
+     "en": "Lifelong learning is the most reliable stepping stone toward a better future.",
+     "key": [
+      "평생학습은",
+      "디딤돌입니다"
+     ],
+     "step": "recap"
+    }
+   ],
+   "gaps": [
+    {
+     "ans": "jeug",
+     "opts": [
+      "jeug",
+      "ttaraseo",
+      "geureona",
+      "ttohan"
+     ],
+     "role": "summary",
+     "why": {
+      "ko": "자기 계발이 왜 필수적인지 뒤처진다는 위험으로 정리해 밝히므로 「즉」입니다.",
+      "en": "Restating why self-development is essential by highlighting the danger of falling behind: 즉."
+     }
+    },
+    {
+     "ans": "yereul-deureo",
+     "opts": [
+      "yereul-deureo",
+      "geureomeuro",
+      "banmyeone",
+      "ttohan"
+     ],
+     "role": "example",
+     "why": {
+      "ko": "배움을 실천하는 구체적인 사람들의 모습을 소개하므로 「예를 들어」입니다.",
+      "en": "Introducing specific examples of people practicing learning: 예를 들어."
+     }
+    },
+    {
+     "ans": "ttaraseo",
+     "opts": [
+      "ttaraseo",
+      "yereul-deureo",
+      "geureona",
+      "ttohan"
+     ],
+     "role": "result",
+     "why": {
+      "ko": "지속적인 배움이 가져다주는 긍정적인 결실을 서술하므로 「따라서」입니다.",
+      "en": "Describing the positive fruits brought by continuous learning: 따라서."
+     }
+    },
+    {
+     "ans": "icheoreom",
+     "opts": [
+      "icheoreom",
+      "ttaraseo",
+      "geureona",
+      "ttohan"
+     ],
+     "role": "summary",
+     "why": {
+      "ko": "평생학습이 지닌 근본적인 가치를 종합하여 결론을 맺으므로 「이처럼」입니다.",
+      "en": "Synthesizing the fundamental value of lifelong learning to conclude: 이처럼."
+     }
+    }
+   ],
+   "links": [
+    {
+     "from": 0,
+     "hint": {
+      "ko": "주장과 그 까닭을 이어서 한 문장으로",
+      "en": "Join the claim and its explanation"
+     },
+     "ans": "급변하는 현대 사회에서는 지속적인 자기 계발이 필수적인데 새로운 지식과 기술을 배우지 않으면 시대 흐름에 뒤처집니다.",
+     "opts": [
+      "급변하는 현대 사회에서는 지속적인 자기 계발이 필수적인데 새로운 지식과 기술을 배우지 않으면 시대 흐름에 뒤처집니다.",
+      "급변하는 현대 사회에서는 지속적인 자기 계발이 필수적이지만 새로운 지식과 기술을 배우지 않으면 시대 흐름에 뒤처집니다.",
+      "급변하는 현대 사회에서는 지속적인 자기 계발이 필수적이어서 새로운 지식과 기술을 배우지 않으면 시대 흐름에 뒤처집니다.",
+      "급변하는 현대 사회에서는 지속적인 자기 계발이 필수적이면 새로운 지식과 기술을 배우지 않으면 시대 흐름에 뒤처집니다."
+     ],
+     "why": {
+      "ko": "주장을 먼저 말하고 그 까닭을 덧붙여 설명할 때는 「-(으)ㄴ데」예요.",
+      "en": "To state a claim and then explain it, use -(으)ㄴ데."
+     }
+    },
+    {
+     "from": 3,
+     "hint": {
+      "ko": "배움이 주는 활력을 바탕으로 평생학습의 의의를 밝혀 한 문장으로",
+      "en": "Clarify the significance of lifelong learning based on the vitality it brings into one sentence"
+     },
+     "ans": "배움의 기회는 개인의 삶에 새로운 활력과 성취감을 주므로 평생학습은 더 나은 미래를 열어 주는 가장 든든한 디딤돌입니다.",
+     "opts": [
+      "배움의 기회는 개인의 삶에 새로운 활력과 성취감을 주므로 평생학습은 더 나은 미래를 열어 주는 가장 든든한 디딤돌입니다.",
+      "배움의 기회는 개인의 삶에 새로운 활력과 성취감을 주지만 평생학습은 더 나은 미래를 열어 주는 가장 든든한 디딤돌입니다.",
+      "배움의 기회는 개인의 삶에 새로운 활력과 성취감을 주면 평생학습은 더 나은 미래를 열어 주는 가장 든든한 디딤돌입니다.",
+      "배움의 기회는 개인의 삶에 새로운 활력과 성취감을 주고 평생학습은 더 나은 미래를 열어 주는 가장 든든한 디딤돌입니다."
+     ],
+     "why": {
+      "ko": "개인에게 활력을 주는 효과를 근거로 평생학습의 가치를 규정하므로 「-(으)므로」를 씁니다.",
+      "en": "To define the value of lifelong learning grounded in the vitality it brings individuals, use -(으)므로."
+     }
+    }
+   ],
+   "write": {
+    "prompt": {
+     "ko": "평생학습이나 새로운 배움의 필요성을 접속사 두 개 이상 넣어 네 문장 이상 써 보세요.",
+     "en": "Write four or more sentences about the necessity of lifelong learning or new studies, using at least two connectors."
+    },
+    "cues": [
+     "평생학습",
+     "자기계발",
+     "새로운배움",
+     "미래"
+    ],
+    "minSentences": 4,
+    "minConnectors": 2
+   }
+  },
+  {
+   "id": "w-adv-local-economy",
+   "tier": "advanced",
+   "kind": "explain",
+   "title": {
+    "ko": "지역 화폐와 골목 상권 상생",
+    "en": "Local Currency and Small Business Win-Win"
+   },
+   "sentences": [
+    {
+     "ko": "대형 유통업체의 확장은 골목 상권의 생존을 위협합니다.",
+     "en": "The expansion of large retailers threatens the survival of small local businesses.",
+     "key": [
+      "유통업체의",
+      "생존을"
+     ],
+     "step": "point"
+    },
+    {
+     "ko": "소상공인의 매출이 줄어들면 지역 경제의 기초가 흔들립니다.",
+     "en": "When small merchants' sales drop, the foundation of the local economy weakens.",
+     "key": [
+      "소상공인의",
+      "경제의"
+     ],
+     "step": "reason"
+    },
+    {
+     "ko": "여러 지방자치단체가 지역사랑 상품권을 발행하여 소비를 유도합니다.",
+     "en": "Several local governments issue local community gift certificates to encourage spending.",
+     "key": [
+      "상품권을",
+      "소비를"
+     ],
+     "step": "example"
+    },
+    {
+     "ko": "지역 내 소비가 늘어나 영세 상인들의 소득 증대에 기여합니다.",
+     "en": "Increased local spending contributes to boosting the income of small merchants.",
+     "key": [
+      "상인들의",
+      "기여합니다"
+     ],
+     "step": "result"
+    },
+    {
+     "ko": "공동체의 상생 발전을 위해 지역 상권을 아끼고 보호해야 합니다.",
+     "en": "We must cherish and protect local commercial districts for mutual community growth.",
+     "key": [
+      "공동체의",
+      "상권을"
+     ],
+     "step": "recap"
+    }
+   ],
+   "gaps": [
+    {
+     "ans": "ttohan",
+     "opts": [
+      "ttohan",
+      "geureona",
+      "ttaraseo",
+      "geureomyeon"
+     ],
+     "role": "add",
+     "why": {
+      "ko": "대형 업체의 확장 위협에 더해 지역 경제의 위기라는 문제를 보태므로 「또한」입니다.",
+      "en": "Adding the crisis of the local economy to the threat of large retail expansion: 또한."
+     }
+    },
+    {
+     "ans": "ttaraseo",
+     "opts": [
+      "ttaraseo",
+      "ttohan",
+      "geureona",
+      "yereul-deureo"
+     ],
+     "role": "result",
+     "why": {
+      "ko": "지역 경제의 위기를 극복하기 위한 대책으로 상품권 발행을 제시하므로 「따라서」입니다.",
+      "en": "Presenting gift certificate issuance as a solution to overcome local economic crisis: 따라서."
+     }
+    },
+    {
+     "ans": "gyeolgug",
+     "opts": [
+      "gyeolgug",
+      "ttaraseo",
+      "geureona",
+      "ttohan"
+     ],
+     "role": "summary",
+     "why": {
+      "ko": "상품권 정책이 낳은 최종적인 결실을 보여 주므로 「결국」입니다.",
+      "en": "Showing the ultimate outcome produced by the gift certificate policy: 결국."
+     }
+    },
+    {
+     "ans": "geureomeuro",
+     "opts": [
+      "geureomeuro",
+      "gyeolgug",
+      "geureona",
+      "ttohan"
+     ],
+     "role": "result",
+     "why": {
+      "ko": "지역 상권 활성화의 성과를 바탕으로 상생 실천을 촉구하므로 「그러므로」입니다.",
+      "en": "Urging mutual-growth practices based on the achievements of local district revival: 그러므로."
+     }
+    }
+   ],
+   "links": [
+    {
+     "from": 0,
+     "hint": {
+      "ko": "골목 상권의 위협과 지역 경제 침체의 우려를 나란히 연결하여 한 문장으로",
+      "en": "Connect the threat to local districts and worries of economic downturn side by side into one sentence"
+     },
+     "ans": "대형 유통업체의 확장은 골목 상권의 생존을 위협하고 소상공인의 매출이 줄어들면 지역 경제의 기초가 흔들립니다.",
+     "opts": [
+      "대형 유통업체의 확장은 골목 상권의 생존을 위협하고 소상공인의 매출이 줄어들면 지역 경제의 기초가 흔들립니다.",
+      "대형 유통업체의 확장은 골목 상권의 생존을 위협하지만 소상공인의 매출이 줄어들면 지역 경제의 기초가 흔들립니다.",
+      "대형 유통업체의 확장은 골목 상권의 생존을 위협하면 소상공인의 매출이 줄어들면 지역 경제의 기초가 흔들립니다.",
+      "대형 유통업체의 확장은 골목 상권의 생존을 위협하므로 소상공인의 매출이 줄어들면 지역 경제의 기초가 흔들립니다."
+     ],
+     "why": {
+      "ko": "골목 상권이 겪는 두 가지 부정적인 상황을 대등하게 이어 주므로 나열 어미 「-고」를 씁니다.",
+      "en": "To link two negative situations faced by local commercial districts side by side, use -고."
+     }
+    },
+    {
+     "from": 2,
+     "hint": {
+      "ko": "상품권 발행이라는 정책적 원인과 소득 증대라는 결과를 한 문장으로",
+      "en": "Connect policy cause of gift certificate issuance and result of income growth into one sentence"
+     },
+     "ans": "여러 지방자치단체가 지역사랑 상품권을 발행하여 소비를 유도하므로 지역 내 소비가 늘어나 영세 상인들의 소득 증대에 기여합니다.",
+     "opts": [
+      "여러 지방자치단체가 지역사랑 상품권을 발행하여 소비를 유도하므로 지역 내 소비가 늘어나 영세 상인들의 소득 증대에 기여합니다.",
+      "여러 지방자치단체가 지역사랑 상품권을 발행하여 소비를 유도하지만 지역 내 소비가 늘어나 영세 상인들의 소득 증대에 기여합니다.",
+      "여러 지방자치단체가 지역사랑 상품권을 발행하여 소비를 유도하면 지역 내 소비가 늘어나 영세 상인들의 소득 증대에 기여합니다.",
+      "여러 지방자치단체가 지역사랑 상품권을 발행하여 소비를 유도하고 지역 내 소비가 늘어나 영세 상인들의 소득 증대에 기여합니다."
+     ],
+     "why": {
+      "ko": "상품권 발행의 혜택이 상인들의 소득 증대로 이어지는 인과 관계를 나타내므로 「-(으)므로」를 씁니다.",
+      "en": "To express the causal link where gift certificate issuance leads to increased merchant income, use -(으)므로."
+     }
+    }
+   ],
+   "write": {
+    "prompt": {
+     "ko": "지역 화폐나 골목 상권 상생에 관한 생각을 접속사 두 개 이상 넣어 네 문장 이상 써 보세요.",
+     "en": "Write four or more sentences about local currency or small business co-prosperity, using at least two connectors."
+    },
+    "cues": [
+     "골목상권",
+     "지역화폐",
+     "소상공인",
+     "상생"
+    ],
+    "minSentences": 4,
+    "minConnectors": 2
+   }
+  },
+  {
+   "id": "w-adv-cultural-heritage",
+   "tier": "advanced",
+   "kind": "explain",
+   "title": {
+    "ko": "문화유산의 디지털 기록과 보존",
+    "en": "Digital Recording and Preservation of Cultural Heritage"
+   },
+   "sentences": [
+    {
+     "ko": "오랜 세월을 버텨 온 문화유산은 화재와 자연재해에 취약합니다.",
+     "en": "Cultural heritage that has withstood centuries remains vulnerable to fire and natural disasters.",
+     "key": [
+      "문화유산은",
+      "취약합니다"
+     ],
+     "step": "point"
+    },
+    {
+     "ko": "한 번 훼손된 유적과 유물은 원래 모습으로 복원하기 어렵습니다.",
+     "en": "Once damaged, historic sites and artifacts are difficult to restore to their original state.",
+     "key": [
+      "훼손된",
+      "복원하기"
+     ],
+     "step": "reason"
+    },
+    {
+     "ko": "정밀한 입체 스캔 기술로 고문서와 석탑을 디지털로 기록합니다.",
+     "en": "Ancient manuscripts and stone pagodas are digitally recorded using high-precision 3D scanning technology.",
+     "key": [
+      "고문서와",
+      "기록합니다"
+     ],
+     "step": "example"
+    },
+    {
+     "ko": "디지털 데이터는 재난 상황에서도 원형 복원의 핵심 기준이 됩니다.",
+     "en": "Digital data serves as a crucial standard for original restoration even during disasters.",
+     "key": [
+      "디지털",
+      "기준이"
+     ],
+     "step": "result"
+    },
+    {
+     "ko": "첨단 기술을 활용하여 소중한 역사를 후대에 온전히 물려주어야 합니다.",
+     "en": "We must utilize cutting-edge technology to pass down precious history intact to future generations.",
+     "key": [
+      "역사를",
+      "물려주어야"
+     ],
+     "step": "recap"
+    }
+   ],
+   "gaps": [
+    {
+     "ans": "gedaga",
+     "opts": [
+      "gedaga",
+      "geureona",
+      "ttaraseo",
+      "geureomyeon"
+     ],
+     "role": "add",
+     "why": {
+      "ko": "재해에 취약하다는 점에 더해 복원이 어렵다는 심각성을 보태므로 「게다가」입니다.",
+      "en": "Adding the difficulty of restoration to the vulnerability to disasters: 게다가."
+     }
+    },
+    {
+     "ans": "ttaraseo",
+     "opts": [
+      "ttaraseo",
+      "gedaga",
+      "geureona",
+      "geureomyeon"
+     ],
+     "role": "result",
+     "why": {
+      "ko": "훼손 위험을 방지하기 위해 디지털 기술을 도입하는 대안을 제시하므로 「따라서」입니다.",
+      "en": "Proposing digital technology adoption as a countermeasure against damage: 따라서."
+     }
+    },
+    {
+     "ans": "ttohan",
+     "opts": [
+      "ttohan",
+      "ttaraseo",
+      "geureona",
+      "yereul-deureo"
+     ],
+     "role": "add",
+     "why": {
+      "ko": "기록 자체를 넘어 재난 시 복원의 기준이 된다는 장점을 덧붙이므로 「또한」입니다.",
+      "en": "Adding the benefit of serving as a restoration standard during disasters beyond simple recording: 또한."
+     }
+    },
+    {
+     "ans": "icheoreom",
+     "opts": [
+      "icheoreom",
+      "ttaraseo",
+      "geureona",
+      "ttohan"
+     ],
+     "role": "summary",
+     "why": {
+      "ko": "디지털 보존의 가치를 정리하며 역사를 전수해야 한다는 결론을 이끌므로 「이처럼」입니다.",
+      "en": "Summarizing the value of digital preservation to conclude that history must be passed down: 이처럼."
+     }
+    }
+   ],
+   "links": [
+    {
+     "from": 0,
+     "hint": {
+      "ko": "문화유산의 취약성과 복원의 어려움을 나란히 엮어 한 문장으로",
+      "en": "Link the vulnerability of heritage and difficulty of restoration side by side into one sentence"
+     },
+     "ans": "오랜 세월을 버텨 온 문화유산은 화재와 자연재해에 취약하고 한 번 훼손된 유적과 유물은 원래 모습으로 복원하기 어렵습니다.",
+     "opts": [
+      "오랜 세월을 버텨 온 문화유산은 화재와 자연재해에 취약하고 한 번 훼손된 유적과 유물은 원래 모습으로 복원하기 어렵습니다.",
+      "오랜 세월을 버텨 온 문화유산은 화재와 자연재해에 취약하지만 한 번 훼손된 유적과 유물은 원래 모습으로 복원하기 어렵습니다.",
+      "오랜 세월을 버텨 온 문화유산은 화재와 자연재해에 취약하면 한 번 훼손된 유적과 유물은 원래 모습으로 복원하기 어렵습니다.",
+      "오랜 세월을 버텨 온 문화유산은 화재와 자연재해에 취약하므로 한 번 훼손된 유적과 유물은 원래 모습으로 복원하기 어렵습니다."
+     ],
+     "why": {
+      "ko": "문화재가 처한 위험과 복원의 한계라는 두 가지 사실을 대등하게 열거하므로 「-고」를 씁니다.",
+      "en": "To list the two facts of risk and restoration limits side by side, use -고."
+     }
+    },
+    {
+     "from": 3,
+     "hint": {
+      "ko": "디지털 기록의 유용성을 근거로 기술 활용의 필요성을 한 문장으로",
+      "en": "Urge the necessity of technology use based on the utility of digital data into one sentence"
+     },
+     "ans": "디지털 데이터는 재난 상황에서도 원형 복원의 핵심 기준이 되므로 첨단 기술을 활용하여 소중한 역사를 후대에 온전히 물려주어야 합니다.",
+     "opts": [
+      "디지털 데이터는 재난 상황에서도 원형 복원의 핵심 기준이 되므로 첨단 기술을 활용하여 소중한 역사를 후대에 온전히 물려주어야 합니다.",
+      "디지털 데이터는 재난 상황에서도 원형 복원의 핵심 기준이 되지만 첨단 기술을 활용하여 소중한 역사를 후대에 온전히 물려주어야 합니다.",
+      "디지털 데이터는 재난 상황에서도 원형 복원의 핵심 기준이 되고 첨단 기술을 활용하여 소중한 역사를 후대에 온전히 물려주어야 합니다.",
+      "디지털 데이터는 재난 상황에서도 원형 복원의 핵심 기준이 되면 첨단 기술을 활용하여 소중한 역사를 후대에 온전히 물려주어야 합니다."
+     ],
+     "why": {
+      "ko": "원형 복원의 기준이 된다는 장점을 이유로 삼아 기술 활용을 권유하므로 「-(으)므로」를 씁니다.",
+      "en": "To urge technology adoption using the benefit of enabling restoration as a rationale, use -(으)므로."
+     }
+    }
+   ],
+   "write": {
+    "prompt": {
+     "ko": "문화유산 보존과 디지털 기술에 대한 생각을 접속사 두 개 이상 넣어 네 문장 이상 써 보세요.",
+     "en": "Write four or more sentences about cultural preservation and digital technology, using at least two connectors."
+    },
+    "cues": [
+     "문화유산",
+     "디지털",
+     "복원",
+     "보존"
+    ],
+    "minSentences": 4,
+    "minConnectors": 2
+   }
+  },
+  {
+   "id": "w-adv-smart-city",
+   "tier": "advanced",
+   "kind": "explain",
+   "title": {
+    "ko": "스마트 도시와 대중교통 혁신",
+    "en": "Smart Cities and Public Transit Innovation"
+   },
+   "sentences": [
+    {
+     "ko": "급격한 도시화는 심각한 교통 혼잡과 대기 오염을 유발합니다.",
+     "en": "Rapid urbanization causes severe traffic congestion and air pollution.",
+     "key": [
+      "도시화는",
+      "교통"
+     ],
+     "step": "point"
+    },
+    {
+     "ko": "단순한 도로 확장만으로는 급증하는 차량 수요를 모두 감당하기 어렵습니다.",
+     "en": "Simply expanding roads cannot handle all the surging demand for vehicles.",
+     "key": [
+      "도로",
+      "차량"
+     ],
+     "step": "reason"
+    },
+    {
+     "ko": "사물인터넷 센서로 실시간 교통량을 분석해 신호 주기를 조절합니다.",
+     "en": "IoT sensors analyze real-time traffic volume to adjust traffic light cycles.",
+     "key": [
+      "센서로",
+      "신호"
+     ],
+     "step": "example"
+    },
+    {
+     "ko": "차량 정체 시간이 크게 줄고 에너지 소비도 절감됩니다.",
+     "en": "Vehicle congestion time decreases significantly and energy consumption is reduced.",
+     "key": [
+      "정체",
+      "에너지"
+     ],
+     "step": "result"
+    },
+    {
+     "ko": "지능형 교통 시스템은 지속 가능한 미래 도시의 핵심 축입니다.",
+     "en": "Intelligent transport systems are a core pillar of sustainable future cities.",
+     "key": [
+      "교통",
+      "핵심"
+     ],
+     "step": "recap"
+    }
+   ],
+   "gaps": [
+    {
+     "ans": "geureona",
+     "opts": [
+      "geureona",
+      "ttaraseo",
+      "ttohan",
+      "geureomyeon"
+     ],
+     "role": "contrast",
+     "why": {
+      "ko": "도시화로 인한 교통 문제와 도로 확장의 한계를 대비하므로 「그러나」입니다.",
+      "en": "Contrasting traffic issues from urbanization with the limits of road expansion: 그러나."
+     }
+    },
+    {
+     "ans": "ttaraseo",
+     "opts": [
+      "ttaraseo",
+      "geureona",
+      "ttohan",
+      "geureomyeon"
+     ],
+     "role": "result",
+     "why": {
+      "ko": "도로 확장의 한계를 극복하기 위해 첨단 신호 제어를 도입하므로 「따라서」입니다.",
+      "en": "Introducing advanced signal control to overcome road capacity limits: 따라서."
+     }
+    },
+    {
+     "ans": "gyeolgug",
+     "opts": [
+      "gyeolgug",
+      "ttaraseo",
+      "geureona",
+      "ttohan"
+     ],
+     "role": "summary",
+     "why": {
+      "ko": "지능형 교통 관리가 가져온 최종적인 개선 성과를 보여 주므로 「결국」입니다.",
+      "en": "Showing the ultimate improvement achieved by intelligent traffic management: 결국."
+     }
+    },
+    {
+     "ans": "icheoreom",
+     "opts": [
+      "icheoreom",
+      "ttaraseo",
+      "geureona",
+      "ttohan"
+     ],
+     "role": "summary",
+     "why": {
+      "ko": "스마트 교통 기술의 성과를 아우르며 미래 도시의 방향을 정리하므로 「이처럼」입니다.",
+      "en": "Synthesizing smart transit outcomes to summarize the future city direction: 이처럼."
+     }
+    }
+   ],
+   "links": [
+    {
+     "from": 0,
+     "hint": {
+      "ko": "도시 교통 문제의 심각성과 도로 확장의 한계를 대조하여 한 문장으로",
+      "en": "Contrast the severity of urban traffic problems with the limits of road expansion into one sentence"
+     },
+     "ans": "급격한 도시화는 심각한 교통 혼잡과 대기 오염을 유발하지만 단순한 도로 확장만으로는 급증하는 차량 수요를 모두 감당하기 어렵습니다.",
+     "opts": [
+      "급격한 도시화는 심각한 교통 혼잡과 대기 오염을 유발하지만 단순한 도로 확장만으로는 급증하는 차량 수요를 모두 감당하기 어렵습니다.",
+      "급격한 도시화는 심각한 교통 혼잡과 대기 오염을 유발해서 단순한 도로 확장만으로는 급증하는 차량 수요를 모두 감당하기 어렵습니다.",
+      "급격한 도시화는 심각한 교통 혼잡과 대기 오염을 유발하고 단순한 도로 확장만으로는 급증하는 차량 수요를 모두 감당하기 어렵습니다.",
+      "급격한 도시화는 심각한 교통 혼잡과 대기 오염을 유발하면 단순한 도로 확장만으로는 급증하는 차량 수요를 모두 감당하기 어렵습니다."
+     ],
+     "why": {
+      "ko": "교통 혼잡이라는 상황과 도로 확장으로 해결하기 어렵다는 한계를 대비하므로 「-지만」을 씁니다.",
+      "en": "To contrast traffic congestion with the difficulty of solving it via road expansion, use -지만."
+     }
+    },
+    {
+     "from": 2,
+     "hint": {
+      "ko": "실시간 신호 조절이라는 원인과 정체 감소라는 결과를 한 문장으로",
+      "en": "Connect real-time signal control as cause with reduced congestion as result into one sentence"
+     },
+     "ans": "사물인터넷 센서로 실시간 교통량을 분석해 신호 주기를 조절하므로 차량 정체 시간이 크게 줄고 에너지 소비도 절감됩니다.",
+     "opts": [
+      "사물인터넷 센서로 실시간 교통량을 분석해 신호 주기를 조절하므로 차량 정체 시간이 크게 줄고 에너지 소비도 절감됩니다.",
+      "사물인터넷 센서로 실시간 교통량을 분석해 신호 주기를 조절하지만 차량 정체 시간이 크게 줄고 에너지 소비도 절감됩니다.",
+      "사물인터넷 센서로 실시간 교통량을 분석해 신호 주기를 조절하고 차량 정체 시간이 크게 줄고 에너지 소비도 절감됩니다.",
+      "사물인터넷 센서로 실시간 교통량을 분석해 신호 주기를 조절하면 차량 정체 시간이 크게 줄고 에너지 소비도 절감됩니다."
+     ],
+     "why": {
+      "ko": "신호 제어가 가져오는 정체 감소 효과를 인과 관계로 설명하므로 이유 어미 「-(으)므로」를 씁니다.",
+      "en": "To explain the congestion reduction effect brought by signal control causally, use -(으)므로."
+     }
+    }
+   ],
+   "write": {
+    "prompt": {
+     "ko": "스마트 기술을 활용한 도시 교통 개선에 대해 접속사 두 개 이상 넣어 네 문장 이상 써 보세요.",
+     "en": "Write four or more sentences about improving urban transportation using smart technology, using at least two connectors."
+    },
+    "cues": [
+     "스마트도시",
+     "교통체증",
+     "센서",
+     "친환경"
+    ],
+    "minSentences": 4,
+    "minConnectors": 2
+   }
+  },
+  {
+   "id": "w-adv-workplace-wellness",
+   "tier": "advanced",
+   "kind": "explain",
+   "title": {
+    "ko": "직장인의 마음 건강과 기업의 역할",
+    "en": "Employees' Mental Health and Corporate Roles"
+   },
+   "sentences": [
+    {
+     "ko": "과도한 업무 스트레스는 직장인의 신체와 정신 건강을 해칩니다.",
+     "en": "Excessive work stress harms employees' physical and mental health.",
+     "key": [
+      "업무",
+      "스트레스는"
+     ],
+     "step": "point"
+    },
+    {
+     "ko": "만성 피로를 방치하면 번아웃 증후군으로 이어져 업무 집중력을 떨어뜨립니다.",
+     "en": "Leaving chronic fatigue unattended leads to burnout syndrome, reducing work focus.",
+     "key": [
+      "만성",
+      "집중력을"
+     ],
+     "step": "reason"
+    },
+    {
+     "ko": "전문 심리 상담과 유연 근무제를 도입하는 기업이 점차 늘어났습니다.",
+     "en": "More companies have gradually introduced professional psychological counseling and flexible hours.",
+     "key": [
+      "심리",
+      "기업이"
+     ],
+     "step": "example"
+    },
+    {
+     "ko": "직원의 심리적 안정은 창의적 아이디어 발굴과 생산성 향상으로 이어집니다.",
+     "en": "Employees' psychological stability leads to creative ideas and improved productivity.",
+     "key": [
+      "심리적",
+      "생산성"
+     ],
+     "step": "result"
+    },
+    {
+     "ko": "건강한 일터 조성을 위해 체계적인 복지 지원 제도를 강화해야 합니다.",
+     "en": "To build a healthy workplace, systematic welfare support systems must be strengthened.",
+     "key": [
+      "일터",
+      "복지"
+     ],
+     "step": "recap"
+    }
+   ],
+   "gaps": [
+    {
+     "ans": "geuppunman-anira",
+     "opts": [
+      "geuppunman-anira",
+      "geureona",
+      "ttaraseo",
+      "geureomyeon"
+     ],
+     "role": "add",
+     "why": {
+      "ko": "건강을 해친다는 점에 더해 업무 집중력 저하라는 문제를 추가하므로 「그뿐만 아니라」입니다.",
+      "en": "Adding reduced concentration to impaired health: 그뿐만 아니라."
+     }
+    },
+    {
+     "ans": "ttaraseo",
+     "opts": [
+      "ttaraseo",
+      "geuppunman-anira",
+      "geureona",
+      "yereul-deureo"
+     ],
+     "role": "result",
+     "why": {
+      "ko": "번아웃을 예방하기 위한 기업 차원의 대응책을 소개하므로 「따라서」입니다.",
+      "en": "Introducing corporate countermeasures to prevent burnout: 따라서."
+     }
+    },
+    {
+     "ans": "jeug",
+     "opts": [
+      "jeug",
+      "ttaraseo",
+      "geureona",
+      "ttohan"
+     ],
+     "role": "summary",
+     "why": {
+      "ko": "복지 지원 제도가 가져오는 핵심 효과를 명확하게 정리하므로 「즉」입니다.",
+      "en": "Clearly summarizing the core benefits brought by welfare support systems: 즉."
+     }
+    },
+    {
+     "ans": "geureomeuro",
+     "opts": [
+      "geureomeuro",
+      "jeug",
+      "geureona",
+      "ttohan"
+     ],
+     "role": "result",
+     "why": {
+      "ko": "생산성 향상이라는 효과를 근거로 복지 제도 강화를 촉구하므로 「그러므로」입니다.",
+      "en": "Urging the strengthening of welfare systems based on productivity gains: 그러므로."
+     }
+    }
+   ],
+   "links": [
+    {
+     "from": 0,
+     "hint": {
+      "ko": "스트레스의 악영향과 방치할 때 생기는 위험을 나란히 연결하여 한 문장으로",
+      "en": "Connect adverse stress effects and the danger of neglect side by side into one sentence"
+     },
+     "ans": "과도한 업무 스트레스는 직장인의 신체와 정신 건강을 해치고 만성 피로를 방치하면 번아웃 증후군으로 이어져 업무 집중력을 떨어뜨립니다.",
+     "opts": [
+      "과도한 업무 스트레스는 직장인의 신체와 정신 건강을 해치고 만성 피로를 방치하면 번아웃 증후군으로 이어져 업무 집중력을 떨어뜨립니다.",
+      "과도한 업무 스트레스는 직장인의 신체와 정신 건강을 해치지만 만성 피로를 방치하면 번아웃 증후군으로 이어져 업무 집중력을 떨어뜨립니다.",
+      "과도한 업무 스트레스는 직장인의 신체와 정신 건강을 해치면 만성 피로를 방치하면 번아웃 증후군으로 이어져 업무 집중력을 떨어뜨립니다.",
+      "과도한 업무 스트레스는 직장인의 신체와 정신 건강을 해쳐서 만성 피로를 방치하면 번아웃 증후군으로 이어져 업무 집중력을 떨어뜨립니다."
+     ],
+     "why": {
+      "ko": "스트레스가 일으키는 두 가지 폐해를 대등하게 나열하므로 「-고」를 씁니다.",
+      "en": "To list the two adverse effects caused by stress side by side, use -고."
+     }
+    },
+    {
+     "from": 3,
+     "hint": {
+      "ko": "직원 안정의 긍정적 효과를 근거로 제도 강화를 촉구하여 한 문장으로",
+      "en": "Urge system strengthening based on the positive effects of employee stability into one sentence"
+     },
+     "ans": "직원의 심리적 안정은 창의적 아이디어 발굴과 생산성 향상으로 이어지므로 건강한 일터 조성을 위해 체계적인 복지 지원 제도를 강화해야 합니다.",
+     "opts": [
+      "직원의 심리적 안정은 창의적 아이디어 발굴과 생산성 향상으로 이어지므로 건강한 일터 조성을 위해 체계적인 복지 지원 제도를 강화해야 합니다.",
+      "직원의 심리적 안정은 창의적 아이디어 발굴과 생산성 향상으로 이어지지만 건강한 일터 조성을 위해 체계적인 복지 지원 제도를 강화해야 합니다.",
+      "직원의 심리적 안정은 창의적 아이디어 발굴과 생산성 향상으로 이어지고 건강한 일터 조성을 위해 체계적인 복지 지원 제도를 강화해야 합니다.",
+      "직원의 심리적 안정은 창의적 아이디어 발굴과 생산성 향상으로 이어지면 건강한 일터 조성을 위해 체계적인 복지 지원 제도를 강화해야 합니다."
+     ],
+     "why": {
+      "ko": "생산성 향상이라는 유익한 결과를 바탕으로 제도적 지원 강화를 당부하므로 「-(으)므로」를 씁니다.",
+      "en": "To urge strengthening institutional support based on productivity gains, use -(으)므로."
+     }
+    }
+   ],
+   "write": {
+    "prompt": {
+     "ko": "직장인의 스트레스 관리와 복지에 대한 생각을 접속사 두 개 이상 넣어 네 문장 이상 써 보세요.",
+     "en": "Write four or more sentences about stress management and welfare for employees, using at least two connectors."
+    },
+    "cues": [
+     "스트레스",
+     "마음건강",
+     "복지제도",
+     "일터"
+    ],
+    "minSentences": 4,
+    "minConnectors": 2
+   }
+  },
+  {
+   "id": "w-adv-foreign-volunteer",
+   "tier": "advanced",
+   "kind": "tell",
+   "title": {
+    "ko": "해외 교육 봉사활동의 보람",
+    "en": "Fulfillment from Overseas Educational Volunteering"
+   },
+   "sentences": [
+    {
+     "ko": "지난 여름 방학에 몽골의 작은 시골 학교로 교육 봉사를 다녀왔습니다.",
+     "en": "Last summer vacation, I went on an educational volunteering trip to a small rural school in Mongolia.",
+     "key": [
+      "몽골의",
+      "학교로"
+     ],
+     "step": "when"
+    },
+    {
+     "ko": "열정 넘치는 대학생 동료들과 함께 한국어와 미술을 아이들에게 가르쳤습니다.",
+     "en": "Together with passionate college peers, I taught Korean and art to children.",
+     "key": [
+      "동료들과",
+      "한국어와"
+     ],
+     "step": "who"
+    },
+    {
+     "ko": "열악한 시설과 낯선 기후 탓에 처음에는 체력적으로 몹시 힘들었습니다.",
+     "en": "Due to poor facilities and unfamiliar climate, it was physically very tough at first.",
+     "key": [
+      "기후",
+      "체력적으로"
+     ],
+     "step": "do"
+    },
+    {
+     "ko": "아이들의 맑은 미소와 진심 어린 편지를 받고 깊은 감동을 느꼈습니다.",
+     "en": "Receiving the children's bright smiles and heartfelt letters, I felt deep emotion.",
+     "key": [
+      "미소와",
+      "감동을"
+     ],
+     "step": "feel"
+    },
+    {
+     "ko": "나눔의 참된 가치를 깨닫고 앞으로도 이웃을 돕는 삶을 살기로 다짐했습니다.",
+     "en": "Realizing the true value of sharing, I resolved to live a life helping neighbors in the future.",
+     "key": [
+      "나눔의",
+      "삶을"
+     ],
+     "step": "end"
+    }
+   ],
+   "gaps": [
+    {
+     "ans": "geuttae",
+     "opts": [
+      "geuttae",
+      "geureona",
+      "ttaraseo",
+      "ttohan"
+     ],
+     "role": "order",
+     "why": {
+      "ko": "봉사활동을 떠났던 당시에 함께한 동료와 활동을 서술하므로 「그때」입니다.",
+      "en": "Narrating companions and activities at the time of volunteering: 그때."
+     }
+    },
+    {
+     "ans": "geureona",
+     "opts": [
+      "geureona",
+      "ttaraseo",
+      "ttohan",
+      "geureomyeon"
+     ],
+     "role": "contrast",
+     "why": {
+      "ko": "보람찬 가르침 뒤에 닥친 열악한 환경과 체력적 한계를 대비하므로 「그러나」입니다.",
+      "en": "Contrasting rewarding teaching with harsh environments and physical limits: 그러나."
+     }
+    },
+    {
+     "ans": "geureodaga",
+     "opts": [
+      "geureodaga",
+      "geureona",
+      "ttaraseo",
+      "ttohan"
+     ],
+     "role": "order",
+     "why": {
+      "ko": "힘든 시간이 이어지던 중에 아이들의 따뜻한 마음을 만나 변화가 일어났으므로 「그러다가」입니다.",
+      "en": "Marking a turning point when receiving children's warmth amidst hardships: 그러다가."
+     }
+    },
+    {
+     "ans": "gyeolgug",
+     "opts": [
+      "gyeolgug",
+      "ttaraseo",
+      "geureona",
+      "ttohan"
+     ],
+     "role": "summary",
+     "why": {
+      "ko": "봉사 경험을 통해 얻은 궁극적인 삶의 깨달음을 맺으므로 「결국」입니다.",
+      "en": "Concluding the ultimate realization gained through the volunteering experience: 결국."
+     }
+    }
+   ],
+   "links": [
+    {
+     "from": 1,
+     "hint": {
+      "ko": "열정적인 봉사 활동과 체력적 한계의 어려움을 대비하여 한 문장으로",
+      "en": "Contrast passionate volunteer activities with physical hardships into one sentence"
+     },
+     "ans": "열정 넘치는 대학생 동료들과 함께 한국어와 미술을 아이들에게 가르쳤지만 열악한 시설과 낯선 기후 탓에 처음에는 체력적으로 몹시 힘들었습니다.",
+     "opts": [
+      "열정 넘치는 대학생 동료들과 함께 한국어와 미술을 아이들에게 가르쳤지만 열악한 시설과 낯선 기후 탓에 처음에는 체력적으로 몹시 힘들었습니다.",
+      "열정 넘치는 대학생 동료들과 함께 한국어와 미술을 아이들에게 가르쳐서 열악한 시설과 낯선 기후 탓에 처음에는 체력적으로 몹시 힘들었습니다.",
+      "열정 넘치는 대학생 동료들과 함께 한국어와 미술을 아이들에게 가르치고 열악한 시설과 낯선 기후 탓에 처음에는 체력적으로 몹시 힘들었습니다.",
+      "열정 넘치는 대학생 동료들과 함께 한국어와 미술을 아이들에게 가르치면 열악한 시설과 낯선 기후 탓에 처음에는 체력적으로 몹시 힘들었습니다."
+     ],
+     "why": {
+      "ko": "수업을 열심히 진행한 사실과 신체적 피로라는 대조적인 경험을 잇기 위해 「-지만」을 씁니다.",
+      "en": "To connect the enthusiastic teaching with contrasting physical fatigue, use -지만."
+     }
+    },
+    {
+     "from": 3,
+     "hint": {
+      "ko": "아이들에게 받은 감동을 계기로 삼아 다짐한 결심을 한 문장으로",
+      "en": "Connect the emotion felt from children as a reason for future resolution into one sentence"
+     },
+     "ans": "아이들의 맑은 미소와 진심 어린 편지를 받고 깊은 감동을 느껴서 나눔의 참된 가치를 깨닫고 앞으로도 이웃을 돕는 삶을 살기로 다짐했습니다.",
+     "opts": [
+      "아이들의 맑은 미소와 진심 어린 편지를 받고 깊은 감동을 느껴서 나눔의 참된 가치를 깨닫고 앞으로도 이웃을 돕는 삶을 살기로 다짐했습니다.",
+      "아이들의 맑은 미소와 진심 어린 편지를 받고 깊은 감동을 느끼지만 나눔의 참된 가치를 깨닫고 앞으로도 이웃을 돕는 삶을 살기로 다짐했습니다.",
+      "아이들의 맑은 미소와 진심 어린 편지를 받고 깊은 감동을 느끼면 나눔의 참된 가치를 깨닫고 앞으로도 이웃을 돕는 삶을 살기로 다짐했습니다.",
+      "아이들의 맑은 미소와 진심 어린 편지를 받고 깊은 감동을 느끼거나 나눔의 참된 가치를 깨닫고 앞으로도 이웃을 돕는 삶을 살기로 다짐했습니다."
+     ],
+     "why": {
+      "ko": "아이들의 사랑에서 얻은 감동이 결심으로 이어지는 계기를 나타내므로 원인 어미 「-아서/어서」를 씁니다.",
+      "en": "To express how emotion from the children led to a resolution, use -아서/어서."
+     }
+    }
+   ],
+   "write": {
+    "prompt": {
+     "ko": "자원봉사나 남을 도왔던 특별한 경험을 접속사 두 개 이상 넣어 네 문장 이상 써 보세요.",
+     "en": "Write four or more sentences about a special volunteering or helping experience, using at least two connectors."
+    },
+    "cues": [
+     "봉사활동",
+     "어려움",
+     "보람",
+     "다짐"
+    ],
+    "minSentences": 4,
+    "minConnectors": 2
+   }
+  },
+  {
+   "id": "w-adv-internship-project",
+   "tier": "advanced",
+   "kind": "tell",
+   "title": {
+    "ko": "기업 인턴십 연구 과제 수행",
+    "en": "Conducting an Enterprise Internship Research Project"
+   },
+   "sentences": [
+    {
+     "ko": "올해 초에 소프트웨어 개발 기업의 동계 연구 인턴십에 참여했습니다.",
+     "en": "Early this year, I participated in a winter research internship at a software development firm.",
+     "key": [
+      "연구",
+      "인턴십에"
+     ],
+     "step": "when"
+    },
+    {
+     "ko": "팀장님과 선배 개발자분들의 세심한 지도 아래 인공지능 모델을 분석했습니다.",
+     "en": "Under the careful guidance of the team lead and senior developers, I analyzed AI models.",
+     "key": [
+      "선배",
+      "개발자분들의"
+     ],
+     "step": "who"
+    },
+    {
+     "ko": "대규모 데이터 처리 과정에서 예상치 못한 오류가 반복해서 발생했습니다.",
+     "en": "Unexpected errors occurred repeatedly during the large-scale data processing.",
+     "key": [
+      "오류가",
+      "발생했습니다"
+     ],
+     "step": "do"
+    },
+    {
+     "ko": "수많은 시행착오 끝에 알고리즘을 최적화하고 최종 보고서를 완성하여 큰 성취감을 얻었습니다.",
+     "en": "After numerous trials and errors, I optimized the algorithm and completed the final report, gaining a great sense of achievement.",
+     "key": [
+      "알고리즘을",
+      "성취감을"
+     ],
+     "step": "feel"
+    },
+    {
+     "ko": "실무 역량을 기르고 직업에 대한 확신을 갖게 된 값진 시간이었습니다.",
+     "en": "It was a valuable time that built my practical competency and gave me confidence in my career.",
+     "key": [
+      "실무",
+      "역량을"
+     ],
+     "step": "end"
+    }
+   ],
+   "gaps": [
+    {
+     "ans": "geuttae",
+     "opts": [
+      "geuttae",
+      "geureona",
+      "ttaraseo",
+      "ttohan"
+     ],
+     "role": "order",
+     "why": {
+      "ko": "인턴십에 참여했을 당시 맡았던 역할과 팀 환경을 설명하므로 「그때」입니다.",
+      "en": "Explaining the assigned role and team environment at the time of internship: 그때."
+     }
+    },
+    {
+     "ans": "geureona",
+     "opts": [
+      "geureona",
+      "ttaraseo",
+      "ttohan",
+      "geureomyeon"
+     ],
+     "role": "contrast",
+     "why": {
+      "ko": "순조로운 시작과 달리 닥쳐온 데이터 오류 문제를 대조하므로 「그러나」입니다.",
+      "en": "Contrasting the smooth start with the unforeseen data error problem: 그러나."
+     }
+    },
+    {
+     "ans": "gyeolgug",
+     "opts": [
+      "gyeolgug",
+      "geureona",
+      "ttaraseo",
+      "ttohan"
+     ],
+     "role": "summary",
+     "why": {
+      "ko": "반복되는 오류를 극복하고 최적화를 이뤄 낸 결말을 나타내므로 「결국」입니다.",
+      "en": "Marking the outcome of overcoming repeated errors to achieve optimization: 결국."
+     }
+    },
+    {
+     "ans": "icheoreom",
+     "opts": [
+      "icheoreom",
+      "ttaraseo",
+      "geureona",
+      "ttohan"
+     ],
+     "role": "summary",
+     "why": {
+      "ko": "인턴십 과정 전체를 돌아보며 얻은 가치를 종합하여 마무리하므로 「이처럼」입니다.",
+      "en": "Synthesizing the value gained from looking back at the entire internship process: 이처럼."
+     }
+    }
+   ],
+   "links": [
+    {
+     "from": 1,
+     "hint": {
+      "ko": "연구 분석 과정과 예상치 못한 오류 발생을 대비하여 한 문장으로",
+      "en": "Contrast the research analysis process with unexpected error occurrences into one sentence"
+     },
+     "ans": "팀장님과 선배 개발자분들의 세심한 지도 아래 인공지능 모델을 분석했지만 대규모 데이터 처리 과정에서 예상치 못한 오류가 반복해서 발생했습니다.",
+     "opts": [
+      "팀장님과 선배 개발자분들의 세심한 지도 아래 인공지능 모델을 분석했지만 대규모 데이터 처리 과정에서 예상치 못한 오류가 반복해서 발생했습니다.",
+      "팀장님과 선배 개발자분들의 세심한 지도 아래 인공지능 모델을 분석해서 대규모 데이터 처리 과정에서 예상치 못한 오류가 반복해서 발생했습니다.",
+      "팀장님과 선배 개발자분들의 세심한 지도 아래 인공지능 모델을 분석하고 대규모 데이터 처리 과정에서 예상치 못한 오류가 반복해서 발생했습니다.",
+      "팀장님과 선배 개발자분들의 세심한 지도 아래 인공지능 모델을 분석하면 대규모 데이터 처리 과정에서 예상치 못한 오류가 반복해서 발생했습니다."
+     ],
+     "why": {
+      "ko": "선배들의 지도 속에 연구를 진행한 상황과 오류 발생이라는 장애를 대조하므로 「-지만」을 씁니다.",
+      "en": "To contrast conducting research under mentorship with encountering error obstacles, use -지만."
+     }
+    },
+    {
+     "from": 3,
+     "hint": {
+      "ko": "과제 완수에서 얻은 성취감을 근거로 인턴십의 가치를 한 문장으로",
+      "en": "Summarize the value of the internship based on the fulfillment gained from completing tasks into one sentence"
+     },
+     "ans": "수많은 시행착오 끝에 알고리즘을 최적화하고 최종 보고서를 완성하여 큰 성취감을 얻었으므로 실무 역량을 기르고 직업에 대한 확신을 갖게 된 값진 시간이었습니다.",
+     "opts": [
+      "수많은 시행착오 끝에 알고리즘을 최적화하고 최종 보고서를 완성하여 큰 성취감을 얻었으므로 실무 역량을 기르고 직업에 대한 확신을 갖게 된 값진 시간이었습니다.",
+      "수많은 시행착오 끝에 알고리즘을 최적화하고 최종 보고서를 완성하여 큰 성취감을 얻었지만 실무 역량을 기르고 직업에 대한 확신을 갖게 된 값진 시간이었습니다.",
+      "수많은 시행착오 끝에 알고리즘을 최적화하고 최종 보고서를 완성하여 큰 성취감을 얻으면 실무 역량을 기르고 직업에 대한 확신을 갖게 된 값진 시간이었습니다.",
+      "수많은 시행착오 끝에 알고리즘을 최적화하고 최종 보고서를 완성하여 큰 성취감을 얻거나 실무 역량을 기르고 직업에 대한 확신을 갖게 된 값진 시간이었습니다."
+     ],
+     "why": {
+      "ko": "성공적인 과제 완수가 직업적 확신으로 이어진 근거를 나타내므로 이유 어미 「-(으)므로」를 씁니다.",
+      "en": "To express the reason how successful task completion led to professional conviction, use -(으)므로."
+     }
+    }
+   ],
+   "write": {
+    "prompt": {
+     "ko": "직장 인턴십이나 프로젝트를 수행했던 경험을 접속사 두 개 이상 넣어 네 문장 이상 써 보세요.",
+     "en": "Write four or more sentences about an internship or project experience, using at least two connectors."
+    },
+    "cues": [
+     "인턴십",
+     "프로젝트",
+     "오류극복",
+     "성취감"
+    ],
+    "minSentences": 4,
+    "minConnectors": 2
+   }
+  },
+  {
+   "id": "w-adv-language-exchange",
+   "tier": "advanced",
+   "kind": "tell",
+   "title": {
+    "ko": "다문화 언어 교류 모임 참여기",
+    "en": "Participating in a Multicultural Language Exchange Group"
+   },
+   "sentences": [
+    {
+     "ko": "지난 학기 초에 외국인 유학생과 한국인 학생이 함께하는 언어 교류 모임에 가입했습니다.",
+     "en": "At the start of last semester, I joined a language exchange group with international and Korean students.",
+     "key": [
+      "유학생과",
+      "모임에"
+     ],
+     "step": "when"
+    },
+    {
+     "ko": "다양한 문화적 배경을 지닌 친구들과 매주 모여 일상 회화와 전공 공부를 나누었습니다.",
+     "en": "Every week, I gathered with friends from diverse cultural backgrounds to share daily conversation and major studies.",
+     "key": [
+      "친구들과",
+      "공부를"
+     ],
+     "step": "who"
+    },
+    {
+     "ko": "언어 장벽과 문화적 차이로 인해 처음에는 의사소통에 적잖은 오해가 생기기도 했습니다.",
+     "en": "Due to language barriers and cultural differences, considerable misunderstandings arose in communication at first.",
+     "key": [
+      "언어",
+      "오해가"
+     ],
+     "step": "do"
+    },
+    {
+     "ko": "마음을 열고 경청하는 태도를 배우면서 깊은 우정을 쌓고 시야를 넓혔습니다.",
+     "en": "Learning to listen with an open mind, I built deep friendships and broadened my horizons.",
+     "key": [
+      "경청하는",
+      "우정을"
+     ],
+     "step": "feel"
+    },
+    {
+     "ko": "문화적 다양성을 존중하는 세계 시민의 자세를 기르게 된 소중한 경험이었습니다.",
+     "en": "It was an invaluable experience that fostered the attitude of a global citizen respecting cultural diversity.",
+     "key": [
+      "다양성을",
+      "경험이었습니다"
+     ],
+     "step": "end"
+    }
+   ],
+   "gaps": [
+    {
+     "ans": "geuttae",
+     "opts": [
+      "geuttae",
+      "geureona",
+      "ttaraseo",
+      "ttohan"
+     ],
+     "role": "order",
+     "why": {
+      "ko": "모임에 들어간 뒤 주마다 이어진 활동과 친구들을 서술하므로 「그때」입니다.",
+      "en": "Narrating activities and friends that followed upon joining the group: 그때."
+     }
+    },
+    {
+     "ans": "geureona",
+     "opts": [
+      "geureona",
+      "ttaraseo",
+      "ttohan",
+      "geureomyeon"
+     ],
+     "role": "contrast",
+     "why": {
+      "ko": "즐거운 모임 뒤에 찾아온 언어와 문화적 차이의 어려움을 대비하므로 「그러나」입니다.",
+      "en": "Contrasting the enjoyable gatherings with difficulties of language and cultural barriers: 그러나."
+     }
+    },
+    {
+     "ans": "geureodaga",
+     "opts": [
+      "geureodaga",
+      "geureona",
+      "ttaraseo",
+      "ttohan"
+     ],
+     "role": "order",
+     "why": {
+      "ko": "오해의 시기를 거쳐 점차 소통 방식을 터득하며 관계가 발전했으므로 「그러다가」입니다.",
+      "en": "Marking progression as communication skills improved after the period of misunderstanding: 그러다가."
+     }
+    },
+    {
+     "ans": "icheoreom",
+     "opts": [
+      "icheoreom",
+      "ttaraseo",
+      "geureona",
+      "ttohan"
+     ],
+     "role": "summary",
+     "why": {
+      "ko": "언어 교류 활동이 남긴 삶의 교훈과 성장을 정리하여 마무리하므로 「이처럼」입니다.",
+      "en": "Summarizing the life lessons and personal growth left by the language exchange: 이처럼."
+     }
+    }
+   ],
+   "links": [
+    {
+     "from": 1,
+     "hint": {
+      "ko": "활발한 교류 활동과 초기 소통의 어려움을 대조하여 한 문장으로",
+      "en": "Contrast active exchange activities with early communication difficulties into one sentence"
+     },
+     "ans": "다양한 문화적 배경을 지닌 친구들과 매주 모여 일상 회화와 전공 공부를 나누었지만 언어 장벽과 문화적 차이로 인해 처음에는 의사소통에 적잖은 오해가 생기기도 했습니다.",
+     "opts": [
+      "다양한 문화적 배경을 지닌 친구들과 매주 모여 일상 회화와 전공 공부를 나누었지만 언어 장벽과 문화적 차이로 인해 처음에는 의사소통에 적잖은 오해가 생기기도 했습니다.",
+      "다양한 문화적 배경을 지닌 친구들과 매주 모여 일상 회화와 전공 공부를 나누어서 언어 장벽과 문화적 차이로 인해 처음에는 의사소통에 적잖은 오해가 생기기도 했습니다.",
+      "다양한 문화적 배경을 지닌 친구들과 매주 모여 일상 회화와 전공 공부를 나누고 언어 장벽과 문화적 차이로 인해 처음에는 의사소통에 적잖은 오해가 생기기도 했습니다.",
+      "다양한 문화적 배경을 지닌 친구들과 매주 모여 일상 회화와 전공 공부를 나누면 언어 장벽과 문화적 차이로 인해 처음에는 의사소통에 적잖은 오해가 생기기도 했습니다."
+     ],
+     "why": {
+      "ko": "정기적으로 모여 공부한 긍정적 측면과 문화적 오해라는 난관을 대비하므로 「-지만」을 씁니다.",
+      "en": "To contrast regular meetings with difficulties of cultural misunderstandings, use -지만."
+     }
+    },
+    {
+     "from": 3,
+     "hint": {
+      "ko": "우정을 쌓고 시야를 넓힌 성장을 바탕으로 활동의 의의를 한 문장으로",
+      "en": "Summarize the significance of the experience based on personal growth into one sentence"
+     },
+     "ans": "마음을 열고 경청하는 태도를 배우면서 깊은 우정을 쌓고 시야를 넓혔으므로 문화적 다양성을 존중하는 세계 시민의 자세를 기르게 된 소중한 경험이었습니다.",
+     "opts": [
+      "마음을 열고 경청하는 태도를 배우면서 깊은 우정을 쌓고 시야를 넓혔으므로 문화적 다양성을 존중하는 세계 시민의 자세를 기르게 된 소중한 경험이었습니다.",
+      "마음을 열고 경청하는 태도를 배우면서 깊은 우정을 쌓고 시야를 넓혔지만 문화적 다양성을 존중하는 세계 시민의 자세를 기르게 된 소중한 경험이었습니다.",
+      "마음을 열고 경청하는 태도를 배우면서 깊은 우정을 쌓고 시야를 넓히면 문화적 다양성을 존중하는 세계 시민의 자세를 기르게 된 소중한 경험이었습니다.",
+      "마음을 열고 경청하는 태도를 배우면서 깊은 우정을 쌓고 시야를 넓히거나 문화적 다양성을 존중하는 세계 시민의 자세를 기르게 된 소중한 경험이었습니다."
+     ],
+     "why": {
+      "ko": "경청과 우정을 통해 얻은 내적 성장을 이유로 들어 값진 경험이었음을 밝히므로 「-(으)므로」를 씁니다.",
+      "en": "To indicate how inner growth through listening and friendship made it a valuable experience, use -(으)므로."
+     }
+    }
+   ],
+   "write": {
+    "prompt": {
+     "ko": "외국인 친구나 다양한 배경의 사람들과 교류했던 경험을 접속사 두 개 이상 넣어 네 문장 이상 써 보세요.",
+     "en": "Write four or more sentences about exchanging with foreign friends or people from diverse backgrounds, using at least two connectors."
+    },
+    "cues": [
+     "언어교류",
+     "문화차이",
+     "경청",
+     "세계시민"
+    ],
+    "minSentences": 4,
+    "minConnectors": 2
+   }
   }
  ],
  "quests": [
@@ -6300,6 +7960,1693 @@
     "en": "I go to school, and after class I work at a cafe and study at home at night."
    },
    "timer": 40
+  },
+  {
+   "id": "q-weather",
+   "mode": "write",
+   "lv": 1,
+   "icon": "❄️",
+   "title": {
+    "ko": "좋아하는 계절",
+    "en": "Favorite season"
+   },
+   "situation": {
+    "ko": "친구에게 가장 좋아하는 계절과 그 이유를 소개해요.",
+    "en": "Tell a friend your favorite season and the reason."
+   },
+   "cues": [
+    "무슨 계절을 좋아해요?",
+    "왜 좋아해요?"
+   ],
+   "frame": {
+    "ko": "저는 ___을 좋아해서 ___.",
+    "en": "I like ___, so ___."
+   },
+   "req": {
+    "conn": [
+     "aseo"
+    ],
+    "clauses": 2,
+    "one": true,
+    "polite": true
+   },
+   "model": {
+    "ko": "저는 겨울을 좋아해서 눈이 오기를 기다려요.",
+    "en": "I like winter, so I wait for snow to fall."
+   },
+   "bonus": {
+    "req": {
+     "conn": [
+      "aseo",
+      "go"
+     ],
+     "clauses": 3
+    },
+    "model": "저는 겨울을 좋아해서 눈이 오기를 기다리고 스키도 타요."
+   }
+  },
+  {
+   "id": "q-cafe",
+   "mode": "write",
+   "lv": 1,
+   "icon": "☕",
+   "title": {
+    "ko": "카페와 음료",
+    "en": "Cafe and drinks"
+   },
+   "situation": {
+    "ko": "카페에서 좋아하는 음료와 다른 음료를 마시는 때를 이야기해요.",
+    "en": "Talk about drinks you like at cafes and when you choose others."
+   },
+   "cues": [
+    "어떤 음료를 좋아해요?",
+    "하지만 밤에는 무엇을 마셔요?"
+   ],
+   "frame": {
+    "ko": "저는 ___를 좋아하지만 밤에는 ___.",
+    "en": "I like ___, but at night ___."
+   },
+   "req": {
+    "conn": [
+     "jiman"
+    ],
+    "clauses": 2,
+    "one": true,
+    "polite": true
+   },
+   "model": {
+    "ko": "저는 커피를 좋아하지만 밤에는 녹차를 마셔요.",
+    "en": "I like coffee, but at night I drink green tea."
+   },
+   "bonus": {
+    "req": {
+     "conn": [
+      "jiman",
+      "aseo"
+     ],
+     "clauses": 3
+    },
+    "model": "저는 커피를 좋아하지만 밤에는 잠이 안 와서 녹차를 마셔요."
+   }
+  },
+  {
+   "id": "q-exercise",
+   "mode": "write",
+   "lv": 2,
+   "icon": "🏃",
+   "title": {
+    "ko": "퇴근 후 운동",
+    "en": "Workout after work"
+   },
+   "situation": {
+    "ko": "퇴근하고 운동을 할 때의 기분을 친구에게 말해요.",
+    "en": "Tell a friend how you feel when working out after work."
+   },
+   "cues": [
+    "퇴근하고 무엇을 해요?",
+    "샤워를 하면 어때요?"
+   ],
+   "frame": {
+    "ko": "퇴근 후에 ___를 하고 ___를 하면 기분이 ___.",
+    "en": "After work I do ___, and when I do ___, I feel ___."
+   },
+   "req": {
+    "conn": [
+     "go"
+    ],
+    "clauses": 3,
+    "words": [
+     "운동",
+     "기분"
+    ],
+    "one": true,
+    "polite": true
+   },
+   "model": {
+    "ko": "퇴근 후에 운동을 하고 샤워를 하면 기분이 아주 상쾌해요.",
+    "en": "After work, I exercise and take a shower, and it feels very refreshing."
+   },
+   "bonus": {
+    "req": {
+     "clauses": 4,
+     "distinct": true
+    },
+    "model": "퇴근 후에 운동을 하고 샤워를 하면 기분이 좋아져서 푹 자요."
+   }
+  },
+  {
+   "id": "q-cook",
+   "mode": "write",
+   "lv": 2,
+   "icon": "🍳",
+   "title": {
+    "ko": "주말 요리",
+    "en": "Cooking on the weekend"
+   },
+   "situation": {
+    "ko": "주말에 집에서 직접 요리하는 장점을 동료에게 소개해요.",
+    "en": "Tell a colleague the benefits of cooking at home on weekends."
+   },
+   "cues": [
+    "주말에 무엇을 해요?",
+    "직접 하면 왜 좋아요?"
+   ],
+   "frame": {
+    "ko": "주말에는 ___ 요리를 하니까 ___.",
+    "en": "On weekends I cook ___, so ___."
+   },
+   "req": {
+    "conn": [
+     "nikka"
+    ],
+    "clauses": 3,
+    "words": [
+     "요리",
+     "맛있"
+    ],
+    "one": true,
+    "polite": true
+   },
+   "model": {
+    "ko": "주말에는 집에서 직접 요리를 하니까 돈도 아끼고 맛있어요.",
+    "en": "On weekends I cook at home myself, so I save money and it is delicious."
+   },
+   "bonus": {
+    "req": {
+     "conn": [
+      "nikka",
+      "go"
+     ],
+     "clauses": 4
+    },
+    "model": "주말에는 집에서 직접 요리를 하니까 돈도 아끼고 맛있어서 친구도 초대해요."
+   }
+  },
+  {
+   "id": "q-subway",
+   "mode": "write",
+   "lv": 2,
+   "icon": "🚇",
+   "title": {
+    "ko": "출퇴근 지하철",
+    "en": "Commuting by subway"
+   },
+   "situation": {
+    "ko": "출근길 지하철 상황과 내가 느끼는 점을 말해요.",
+    "en": "Describe the subway during morning commute and how you feel."
+   },
+   "cues": [
+    "무엇을 타요?",
+    "출근 시간에는 어때요?"
+   ],
+   "frame": {
+    "ko": "지하철을 타는데 ___ 많아서 ___.",
+    "en": "I take the subway, but because there are many ___, ___."
+   },
+   "req": {
+    "conn": [
+     "nde",
+     "aseo"
+    ],
+    "clauses": 3,
+    "words": [
+     "지하철"
+    ],
+    "one": true,
+    "polite": true
+   },
+   "model": {
+    "ko": "지하철을 타는데 출근 시간에는 사람이 많아서 조금 힘들어요.",
+    "en": "I take the subway, but during commute hours there are many people, so it is a bit tough."
+   },
+   "bonus": {
+    "req": {
+     "conn": [
+      "nde",
+      "aseo",
+      "go"
+     ],
+     "clauses": 4
+    },
+    "model": "지하철을 타는데 출근 시간에는 사람이 많아서 힘들고 음악을 들어요."
+   }
+  },
+  {
+   "id": "q-shopping",
+   "mode": "write",
+   "lv": 3,
+   "icon": "🛍️",
+   "title": {
+    "ko": "인터넷 쇼핑",
+    "en": "Online shopping"
+   },
+   "situation": {
+    "ko": "인터넷 쇼핑의 장점과 조심할 점을 후배에게 조언해요.",
+    "en": "Advise a junior on the pros and things to be careful of in online shopping."
+   },
+   "cues": [
+    "가격은 어때요?",
+    "사진과 다를 수 있나요?",
+    "어떻게 하면 실패하지 않아요?"
+   ],
+   "req": {
+    "conn": [
+     "jiman",
+     "myeon"
+    ],
+    "clauses": 4,
+    "words": [
+     "가격",
+     "사진"
+    ],
+    "one": true,
+    "distinct": true,
+    "polite": true
+   },
+   "model": {
+    "ko": "인터넷 쇼핑은 가격이 싸지만 사진과 다를 수 있으니까 후기를 꼼꼼히 읽으면 실패하지 않아요.",
+    "en": "Online shopping has cheap prices, but items can differ from photos, so if you read reviews carefully you will not fail."
+   },
+   "bonus": {
+    "req": {
+     "clauses": 5,
+     "distinct": true
+    },
+    "model": "인터넷 쇼핑은 가격이 싸지만 사진과 다를 수 있어서 후기를 읽고 사이즈를 확인하면 실패하지 않아요."
+   }
+  },
+  {
+   "id": "q-pet",
+   "mode": "write",
+   "lv": 3,
+   "icon": "🐕",
+   "title": {
+    "ko": "반려동물과의 하루",
+    "en": "A day with my pet"
+   },
+   "situation": {
+    "ko": "반려동물을 키울 때의 어려움과 함께할 때의 기쁨을 소개해요.",
+    "en": "Share the difficulties of raising a pet and the joy of being together."
+   },
+   "cues": [
+    "어떤 반려동물을 키워요?",
+    "손이 많이 가나요?",
+    "함께 산책하면 어때요?"
+   ],
+   "req": {
+    "conn": [
+     "nde",
+     "jiman"
+    ],
+    "clauses": 4,
+    "words": [
+     "강아지",
+     "행복"
+    ],
+    "one": true,
+    "distinct": true,
+    "polite": true
+   },
+   "model": {
+    "ko": "집에서 귀여운 강아지를 키우는데 손이 많이 가지만 산책을 같이하면 정말 행복해요.",
+    "en": "I raise a cute puppy at home, and while it takes a lot of care, I feel truly happy when walking together."
+   },
+   "bonus": {
+    "req": {
+     "clauses": 5,
+     "distinct": true
+    },
+    "model": "집에서 귀여운 강아지를 키우는데 손이 많이 가지만 매일 산책을 하고 놀아 주면 행복해서 힘이 나요."
+   }
+  },
+  {
+   "id": "q-vacation",
+   "mode": "write",
+   "lv": 3,
+   "icon": "🏖️",
+   "title": {
+    "ko": "여름휴가 계획",
+    "en": "Summer vacation plan"
+   },
+   "situation": {
+    "ko": "휴가 때 떠나고 싶은 여행지와 거기서 하고 싶은 활동을 말해요.",
+    "en": "Talk about your dream vacation destination and activities you want to do."
+   },
+   "cues": [
+    "어디로 가고 싶어요?",
+    "날씨가 좋으면 무엇을 해요?",
+    "어떤 시간을 보내고 싶어요?"
+   ],
+   "req": {
+    "conn": [
+     "aseo",
+     "myeon"
+    ],
+    "clauses": 4,
+    "words": [
+     "바다",
+     "휴식"
+    ],
+    "one": true,
+    "distinct": true,
+    "polite": true
+   },
+   "model": {
+    "ko": "바다를 보고 싶어서 강릉에 가는데 날씨가 좋으면 해변을 걸으며 조용하게 휴식을 즐겨요.",
+    "en": "I want to see the sea, so I am going to Gangneung, and if the weather is nice, I walk on the beach and enjoy quiet relaxation."
+   },
+   "bonus": {
+    "req": {
+     "clauses": 5,
+     "distinct": true
+    },
+    "model": "바다를 보고 싶어서 강릉에 가는데 날씨가 좋으면 해변을 걷고 커피를 마시며 휴식을 즐겨요."
+   }
+  },
+  {
+   "id": "q-interview",
+   "mode": "write",
+   "lv": 4,
+   "icon": "💼",
+   "title": {
+    "ko": "취업 면접 자기소개",
+    "en": "Interview self-introduction"
+   },
+   "situation": {
+    "ko": "면접관에게 자신의 프로젝트 경험과 극복 과정, 각오를 한 문장으로 말해요.",
+    "en": "Tell the interviewers your project experience, overcoming challenges and determination in one sentence."
+   },
+   "cues": [
+    "프로젝트에서 어떤 점이 부족했나요?",
+    "어떻게 노력해서 해결했나요?",
+    "앞으로 어떻게 일하고 싶나요?"
+   ],
+   "req": {
+    "conn": [
+     "nde",
+     "jiman",
+     "nikka"
+    ],
+    "clauses": 5,
+    "words": [
+     "경험",
+     "노력"
+    ],
+    "one": true,
+    "distinct": true,
+    "minWords": 12,
+    "polite": true
+   },
+   "model": {
+    "ko": "처음 프로젝트를 진행하는데 경험이 부족하지만 열심히 노력해서 문제를 해결했으니까 앞으로 더 잘할 수 있어요.",
+    "en": "I am working on a project for the first time and lack experience, but I worked hard and solved problems, so I can do even better in the future."
+   },
+   "bonus": {
+    "req": {
+     "clauses": 6,
+     "distinct": true,
+     "minWords": 15
+    },
+    "model": "처음 프로젝트를 진행하는데 경험이 부족하지만 열심히 노력해서 문제를 해결하고 좋은 결과를 얻었으니까 앞으로 더 잘할 수 있어요."
+   }
+  },
+  {
+   "id": "q-merge3",
+   "mode": "write",
+   "lv": 5,
+   "icon": "🧩",
+   "title": {
+    "ko": "쪼개진 문장 합치기 ③",
+    "en": "Merge the pieces ③"
+   },
+   "situation": {
+    "ko": "네 개의 짧은 문장을 한 문장으로 합쳐요. 낱말은 모두 살려요.",
+    "en": "Merge four short sentences into one. Keep every key word."
+   },
+   "cues": [
+    "도서관 · 시험 · 공부 · 합격"
+   ],
+   "source": [
+    "주말마다 도서관에 가요.",
+    "다음 달에 중요한 시험이 있어요.",
+    "열심히 공부해요.",
+    "꼭 합격할 거예요."
+   ],
+   "req": {
+    "minConns": 3,
+    "clauses": 4,
+    "words": [
+     "도서관",
+     "시험",
+     "공부",
+     "합격"
+    ],
+    "one": true,
+    "polite": true
+   },
+   "model": {
+    "ko": "주말마다 도서관에 가는데 다음 달에 중요한 시험이 있어서 열심히 공부하고 꼭 합격할 거예요.",
+    "en": "I go to the library every weekend, and because I have an important exam next month, I study hard and will surely pass."
+   },
+   "bonus": {
+    "req": {
+     "minConns": 4,
+     "words": [
+      "친구"
+     ]
+    },
+    "model": "주말마다 도서관에 가는데 다음 달에 시험이 있어서 친구를 만나고 열심히 공부해서 꼭 합격할 거예요."
+   }
+  },
+  {
+   "id": "c-tired",
+   "mode": "continue",
+   "lv": 1,
+   "icon": "🥱",
+   "title": {
+    "ko": "몸은 피곤하지만",
+    "en": "\"몸은 피곤하지만…\""
+   },
+   "situation": {
+    "ko": "첫 마디가 주어졌어요. 이음말로 이어서 문장을 길게 키워요.",
+    "en": "You get the first clause. Grow the sentence with linking endings."
+   },
+   "req": {
+    "keep": "몸은 피곤하지만",
+    "clauses": 4,
+    "minConns": 3,
+    "one": true,
+    "polite": true
+   },
+   "model": {
+    "ko": "몸은 피곤하지만 친구를 만나서 맛있는 밥을 먹고 집으로 돌아왔어요.",
+    "en": "My body is tired, but I met a friend, ate delicious food and came back home."
+   },
+   "start": "몸은 피곤하지만 "
+  },
+  {
+   "id": "c-cooking",
+   "mode": "continue",
+   "lv": 1,
+   "icon": "🍳",
+   "title": {
+    "ko": "집에서 요리를 하고",
+    "en": "\"집에서 요리를 하고…\""
+   },
+   "situation": {
+    "ko": "첫 마디가 주어졌어요. 이음말로 이어서 문장을 길게 키워요.",
+    "en": "You get the first clause. Grow the sentence with linking endings."
+   },
+   "req": {
+    "keep": "집에서 요리를 하고",
+    "clauses": 4,
+    "minConns": 3,
+    "one": true,
+    "polite": true
+   },
+   "model": {
+    "ko": "집에서 요리를 하고 방을 청소해서 친구가 오면 같이 놀 거예요.",
+    "en": "I cooked at home and cleaned my room, so if my friend comes we will hang out together."
+   },
+   "start": "집에서 요리를 하고 "
+  },
+  {
+   "id": "c-early",
+   "mode": "continue",
+   "lv": 2,
+   "icon": "🌅",
+   "title": {
+    "ko": "아침에 일찍 일어나서",
+    "en": "\"아침에 일찍 일어나서…\""
+   },
+   "situation": {
+    "ko": "첫 마디가 주어졌어요. 이음말로 이어서 문장을 길게 키워요.",
+    "en": "You get the first clause. Grow the sentence with linking endings."
+   },
+   "req": {
+    "keep": "아침에 일찍 일어나서",
+    "clauses": 4,
+    "minConns": 3,
+    "one": true,
+    "polite": true
+   },
+   "model": {
+    "ko": "아침에 일찍 일어나서 운동을 하고 시원한 물을 마시면 상쾌해요.",
+    "en": "I woke up early in the morning, worked out, and drinking cool water feels refreshing."
+   },
+   "start": "아침에 일찍 일어나서 "
+  },
+  {
+   "id": "c-snow",
+   "mode": "continue",
+   "lv": 2,
+   "icon": "⛄",
+   "title": {
+    "ko": "겨울에 눈이 오면",
+    "en": "\"겨울에 눈이 오면…\""
+   },
+   "situation": {
+    "ko": "첫 마디가 주어졌어요. 이음말로 이어서 문장을 길게 키워요.",
+    "en": "You get the first clause. Grow the sentence with linking endings."
+   },
+   "req": {
+    "keep": "겨울에 눈이 오면",
+    "clauses": 4,
+    "minConns": 3,
+    "one": true,
+    "polite": true
+   },
+   "model": {
+    "ko": "겨울에 눈이 오면 길이 미끄러워서 걷기 힘들지만 풍경은 정말 아름다워요.",
+    "en": "When it snows in winter, roads are slippery so walking is hard, but the scenery is truly beautiful."
+   },
+   "start": "겨울에 눈이 오면 "
+  },
+  {
+   "id": "c-market",
+   "mode": "continue",
+   "lv": 2,
+   "icon": "🍎",
+   "title": {
+    "ko": "시장에 가는데",
+    "en": "\"시장에 가는데…\""
+   },
+   "situation": {
+    "ko": "첫 마디가 주어졌어요. 이음말로 이어서 문장을 길게 키워요.",
+    "en": "You get the first clause. Grow the sentence with linking endings."
+   },
+   "req": {
+    "keep": "시장에 가는데",
+    "clauses": 4,
+    "minConns": 3,
+    "one": true,
+    "polite": true
+   },
+   "model": {
+    "ko": "시장에 가는데 과일이 신선하고 값도 싸서 사과를 많이 샀어요.",
+    "en": "I am going to the market, and the fruit was fresh and cheap, so I bought many apples."
+   },
+   "start": "시장에 가는데 "
+  },
+  {
+   "id": "c-cold-weather",
+   "mode": "continue",
+   "lv": 3,
+   "icon": "🧣",
+   "title": {
+    "ko": "날씨가 추우니까",
+    "en": "\"날씨가 추우니까…\""
+   },
+   "situation": {
+    "ko": "첫 마디가 주어졌어요. 이음말로 이어서 문장을 길게 키워요.",
+    "en": "You get the first clause. Grow the sentence with linking endings."
+   },
+   "req": {
+    "keep": "날씨가 추우니까",
+    "clauses": 4,
+    "minConns": 3,
+    "one": true,
+    "distinct": true,
+    "polite": true
+   },
+   "model": {
+    "ko": "날씨가 추우니까 따뜻한 옷을 입고 모자를 쓰면 감기에 걸리지 않아요.",
+    "en": "Because the weather is cold, if you wear warm clothes and put on a hat you will not catch a cold."
+   },
+   "start": "날씨가 추우니까 "
+  },
+  {
+   "id": "c-bus-stop",
+   "mode": "continue",
+   "lv": 3,
+   "icon": "🚏",
+   "title": {
+    "ko": "버스 정류장에 왔는데",
+    "en": "\"버스 정류장에 왔는데…\""
+   },
+   "situation": {
+    "ko": "첫 마디가 주어졌어요. 이음말로 이어서 문장을 길게 키워요.",
+    "en": "You get the first clause. Grow the sentence with linking endings."
+   },
+   "req": {
+    "keep": "버스 정류장에 왔는데",
+    "clauses": 5,
+    "minConns": 4,
+    "one": true,
+    "distinct": true,
+    "polite": true
+   },
+   "model": {
+    "ko": "버스 정류장에 왔는데 차가 막혀서 늦을 것 같지만 서두르면 약속 시간에 도착해요.",
+    "en": "I arrived at the bus stop, but traffic was blocked so I might be late, but if I hurry I will arrive on time."
+   },
+   "start": "버스 정류장에 왔는데 "
+  },
+  {
+   "id": "c-money",
+   "mode": "continue",
+   "lv": 3,
+   "icon": "💳",
+   "title": {
+    "ko": "이번 달에 월급을 받으면",
+    "en": "\"이번 달에 월급을 받으면…\""
+   },
+   "situation": {
+    "ko": "첫 마디가 주어졌어요. 이음말로 이어서 문장을 길게 키워요.",
+    "en": "You get the first clause. Grow the sentence with linking endings."
+   },
+   "req": {
+    "keep": "이번 달에 월급을 받으면",
+    "clauses": 5,
+    "minConns": 4,
+    "one": true,
+    "distinct": true,
+    "polite": true
+   },
+   "model": {
+    "ko": "이번 달에 월급을 받으면 옷도 사고 부모님께 선물을 드리는데 돈이 남아서 저축도 할 거예요.",
+    "en": "When I receive my salary this month, I will buy clothes and give a gift to my parents, and because money remains I will save too."
+   },
+   "start": "이번 달에 월급을 받으면 "
+  },
+  {
+   "id": "c-vacation-travel",
+   "mode": "continue",
+   "lv": 4,
+   "icon": "🧳",
+   "title": {
+    "ko": "방학 동안 여행을 가고 싶지만",
+    "en": "\"방학 동안 여행을 가고 싶지만…\""
+   },
+   "situation": {
+    "ko": "첫 마디가 주어졌어요. 이음말로 이어서 문장을 길게 키워요.",
+    "en": "You get the first clause. Grow the sentence with linking endings."
+   },
+   "req": {
+    "keep": "방학 동안 여행을 가고 싶지만",
+    "clauses": 5,
+    "minConns": 4,
+    "one": true,
+    "distinct": true,
+    "polite": true
+   },
+   "model": {
+    "ko": "방학 동안 여행을 가고 싶지만 아르바이트를 해야 해서 시간이 없는데 돈을 모으면 다음 겨울에 꼭 갈 거예요.",
+    "en": "I want to travel during break, but I have to do part-time work so I have no time, but if I save money I will definitely go next winter."
+   },
+   "start": "방학 동안 여행을 가고 싶지만 "
+  },
+  {
+   "id": "c-language-study",
+   "mode": "continue",
+   "lv": 4,
+   "icon": "📖",
+   "title": {
+    "ko": "새로운 언어를 배우는데",
+    "en": "\"새로운 언어를 배우는데…\""
+   },
+   "situation": {
+    "ko": "첫 마디가 주어졌어요. 이음말로 이어서 문장을 길게 키워요.",
+    "en": "You get the first clause. Grow the sentence with linking endings."
+   },
+   "req": {
+    "keep": "새로운 언어를 배우는데",
+    "clauses": 5,
+    "minConns": 4,
+    "one": true,
+    "distinct": true,
+    "polite": true
+   },
+   "model": {
+    "ko": "새로운 언어를 배우는데 발음이 어렵지만 매일 연습하고 외국인 친구와 대화하니까 실력이 빠르게 늘어요.",
+    "en": "I am learning a new language, and pronunciation is hard, but practicing daily and conversing with foreign friends improves my skills rapidly."
+   },
+   "start": "새로운 언어를 배우는데 "
+  },
+  {
+   "id": "f-cond-reason",
+   "mode": "fix",
+   "lv": 1,
+   "icon": "🔧",
+   "title": {
+    "ko": "이유인데 조건을 썼어요",
+    "en": "Used condition instead of reason"
+   },
+   "situation": {
+    "ko": "비가 와서 우산을 쓰는 이유인데 「-(으)면」을 썼어요. 뜻에 맞게 고쳐 쓰세요.",
+    "en": "The sentence uses -(으)면 for a reason. Fix it with a causal ending."
+   },
+   "req": {
+    "conn": [
+     "aseo"
+    ],
+    "no": [
+     "myeon"
+    ],
+    "words": [
+     "비",
+     "우산"
+    ],
+    "one": true,
+    "polite": true
+   },
+   "model": {
+    "ko": "비가 와서 우산을 썼어요.",
+    "en": "It rained, so I used an umbrella."
+   },
+   "start": "비가 오면 우산을 썼어요."
+  },
+  {
+   "id": "f-contrast-go",
+   "mode": "fix",
+   "lv": 1,
+   "icon": "🔧",
+   "title": {
+    "ko": "반대인데 -고를 썼어요",
+    "en": "Used -고 instead of contrast"
+   },
+   "situation": {
+    "ko": "가격은 비싸지만 맛있는 반대 내용인데 「-고」를 썼어요. 뜻에 맞게 고쳐 쓰세요.",
+    "en": "The sentence expresses contrast but uses -고. Rewrite with -지만."
+   },
+   "req": {
+    "conn": [
+     "jiman"
+    ],
+    "no": [
+     "go"
+    ],
+    "words": [
+     "가격",
+     "맛"
+    ],
+    "one": true,
+    "polite": true
+   },
+   "model": {
+    "ko": "가격이 비싸지만 맛은 정말 좋아요.",
+    "en": "The price is expensive, but the taste is really good."
+   },
+   "start": "가격이 비싸고 맛은 정말 좋아요."
+  },
+  {
+   "id": "f-chop-morning",
+   "mode": "fix",
+   "lv": 2,
+   "icon": "✂️",
+   "title": {
+    "ko": "끊긴 문장 잇기 — 아침",
+    "en": "Join morning sentences"
+   },
+   "situation": {
+    "ko": "짧게 끊긴 세 문장을 한 문장으로 이어 쓰세요. 낱말은 살려요.",
+    "en": "Join these three choppy sentences into one sentence. Keep the key words."
+   },
+   "req": {
+    "minConns": 2,
+    "clauses": 3,
+    "words": [
+     "아침",
+     "사과",
+     "버스"
+    ],
+    "one": true,
+    "polite": true
+   },
+   "model": {
+    "ko": "아침에 일어나서 사과를 먹고 버스를 타요.",
+    "en": "I get up in the morning, eat an apple, and take a bus."
+   },
+   "start": "아침에 일어나요. 사과를 먹어요. 버스를 타요."
+  },
+  {
+   "id": "f-chop-weekend",
+   "mode": "fix",
+   "lv": 2,
+   "icon": "✂️",
+   "title": {
+    "ko": "끊긴 문장 잇기 — 주말",
+    "en": "Join weekend sentences"
+   },
+   "situation": {
+    "ko": "짧게 끊긴 문장들을 한 문장으로 자연스럽게 이어 쓰세요.",
+    "en": "Join these choppy sentences into a natural single sentence."
+   },
+   "req": {
+    "minConns": 2,
+    "clauses": 3,
+    "words": [
+     "영화관",
+     "표",
+     "카페"
+    ],
+    "one": true,
+    "polite": true
+   },
+   "model": {
+    "ko": "주말에 영화관에 가는데 표가 없어서 카페에 가요.",
+    "en": "I go to the cinema on the weekend, but there are no tickets, so I go to a cafe."
+   },
+   "start": "주말에 영화관에 가요. 표가 없어요. 카페에 가요."
+  },
+  {
+   "id": "f-miss-time",
+   "mode": "fix",
+   "lv": 2,
+   "icon": "🔗",
+   "title": {
+    "ko": "이음말이 빠졌어요 — 약속",
+    "en": "Missing ending — appointment"
+   },
+   "situation": {
+    "ko": "문장 사이에 이음말이 빠졌어요. 알맞은 이음말을 넣어 한 문장으로 쓰세요.",
+    "en": "Linking endings are missing. Add appropriate endings to make one sentence."
+   },
+   "req": {
+    "minConns": 2,
+    "clauses": 3,
+    "words": [
+     "시간",
+     "서둘러",
+     "약속"
+    ],
+    "one": true,
+    "polite": true
+   },
+   "model": {
+    "ko": "시간이 늦었으니까 서둘러서 약속에 가요.",
+    "en": "It is late, so I hurry and go to the appointment."
+   },
+   "start": "시간이 늦었어요 서둘러요 약속에 가요"
+  },
+  {
+   "id": "f-miss-food",
+   "mode": "fix",
+   "lv": 3,
+   "icon": "🔗",
+   "title": {
+    "ko": "이음말이 빠졌어요 — 식당",
+    "en": "Missing ending — restaurant"
+   },
+   "situation": {
+    "ko": "이음말이 없이 끊어져 있어요. 서로 다른 이음말을 넣어 자연스럽게 이으세요.",
+    "en": "The sentence is disconnected without endings. Add different endings naturally."
+   },
+   "req": {
+    "minConns": 2,
+    "clauses": 3,
+    "distinct": true,
+    "words": [
+     "배",
+     "식당",
+     "메뉴"
+    ],
+    "one": true,
+    "polite": true
+   },
+   "model": {
+    "ko": "배가 고파서 식당에 들어가고 메뉴를 골라요.",
+    "en": "I am hungry, so I enter a restaurant and choose from the menu."
+   },
+   "start": "배가 고파요 식당에 들어가요 메뉴를 골라요"
+  },
+  {
+   "id": "f-repeat-go",
+   "mode": "fix",
+   "lv": 3,
+   "icon": "🚂",
+   "title": {
+    "ko": "-고만 반복돼요",
+    "en": "Only -고 repeated"
+   },
+   "situation": {
+    "ko": "-고만 반복해서 문장이 단조로워요. 세 가지 이상의 다른 이음말을 써서 고치세요.",
+    "en": "Only -고 is repeated, making it monotonous. Rewrite using at least three different endings."
+   },
+   "req": {
+    "minConns": 3,
+    "distinct": true,
+    "words": [
+     "도서관",
+     "책",
+     "시험공부"
+    ],
+    "one": true,
+    "polite": true
+   },
+   "model": {
+    "ko": "도서관에 가서 책을 빌리는데 자리에 앉으면 시험공부를 해요.",
+    "en": "I go to the library and borrow a book, and when I sit in a seat I study for exams."
+   },
+   "start": "도서관에 가고 책을 빌리고 열람실에 앉고 시험공부를 해요."
+  },
+  {
+   "id": "f-repeat-nde",
+   "mode": "fix",
+   "lv": 3,
+   "icon": "🚂",
+   "title": {
+    "ko": "-는데만 반복돼요",
+    "en": "Only -는데 repeated"
+   },
+   "situation": {
+    "ko": "-는데만 거듭 써서 어색해요. 알맞은 다른 이음말들로 자연스럽게 바꾸세요.",
+    "en": "-는데 is repeated awkwardly. Replace with appropriate diverse linking endings."
+   },
+   "req": {
+    "minConns": 3,
+    "distinct": true,
+    "words": [
+     "친구",
+     "연습",
+     "발음"
+    ],
+    "one": true,
+    "polite": true
+   },
+   "model": {
+    "ko": "한국 친구가 많아서 자주 연습하고 발음이 어렵지만 재미있어요.",
+    "en": "I have many Korean friends so I practice often, and pronunciation is difficult but fun."
+   },
+   "start": "한국 친구가 많은데 한국어를 연습하는데 발음이 어려운데 재미있어요."
+  },
+  {
+   "id": "f-polite-end",
+   "mode": "fix",
+   "lv": 4,
+   "icon": "💬",
+   "title": {
+    "ko": "반말 끝을 존댓말로",
+    "en": "Change blunt ending to polite"
+   },
+   "situation": {
+    "ko": "반말로 끝나고 문장이 중간에 끊겼어요. 정중한 해요체(~요) 한 문장으로 고쳐 쓰세요.",
+    "en": "The sentence ends bluntly and is broken in the middle. Rewrite as a polite single sentence ending in ~요."
+   },
+   "req": {
+    "conn": [
+     "aseo"
+    ],
+    "no": [
+     "jiman"
+    ],
+    "words": [
+     "친구",
+     "공항",
+     "마중"
+    ],
+    "one": true,
+    "polite": true
+   },
+   "model": {
+    "ko": "친구가 한국에 와서 공항에 마중을 가요.",
+    "en": "My friend came to Korea, so I go to the airport to meet them."
+   },
+   "start": "친구가 한국에 와. 그래서 공항에 마중을 가."
+  },
+  {
+   "id": "f-mix-complex",
+   "mode": "fix",
+   "lv": 4,
+   "icon": "🧩",
+   "title": {
+    "ko": "어색한 긴 문장 다듬기",
+    "en": "Polish awkward long sentence"
+   },
+   "situation": {
+    "ko": "이음말 뜻이 어긋나고 중간에 문장이 끊겼어요. 자연스러운 한 문장으로 완성하세요.",
+    "en": "The endings clash in meaning and the sentence breaks midway. Make it a natural single sentence."
+   },
+   "req": {
+    "conn": [
+     "aseo",
+     "go"
+    ],
+    "no": [
+     "jiman"
+    ],
+    "clauses": 3,
+    "words": [
+     "날씨",
+     "기분",
+     "산책"
+    ],
+    "one": true,
+    "polite": true
+   },
+   "model": {
+    "ko": "날씨가 맑아서 기분이 좋고 공원에서 산책을 해요.",
+    "en": "The weather is sunny, so I feel good and take a walk in the park."
+   },
+   "start": "날씨가 맑지만 기분이 좋아요. 그래서 산책을 해요."
+  },
+  {
+   "id": "t-weather-rain",
+   "mode": "translate",
+   "lv": 1,
+   "icon": "🌏",
+   "title": {
+    "ko": "비 · 우산",
+    "en": "Rain, umbrella"
+   },
+   "situation": {
+    "ko": "뜻을 한국어 한 문장으로 말해 보세요. 이음말: -아서 · -고",
+    "en": "Say the meaning in one Korean sentence. Endings: -아서, -고."
+   },
+   "req": {
+    "conn": [
+     "aseo",
+     "go"
+    ],
+    "clauses": 3,
+    "words": [
+     "비",
+     "우산",
+     "학교"
+    ],
+    "one": true,
+    "polite": true
+   },
+   "model": {
+    "ko": "비가 와서 우산을 쓰고 학교에 가요.",
+    "en": "It is raining, so I use an umbrella and go to school."
+   },
+   "meaning": "It is raining, so I take an umbrella and go to school.",
+   "hints": [
+    "비",
+    "오다",
+    "우산",
+    "쓰다",
+    "학교",
+    "가다"
+   ]
+  },
+  {
+   "id": "t-korean-learn",
+   "mode": "translate",
+   "lv": 2,
+   "icon": "🌏",
+   "title": {
+    "ko": "한국어 · 연습",
+    "en": "Korean, practice"
+   },
+   "situation": {
+    "ko": "뜻을 한국어 한 문장으로 말해 보세요. 이음말: -지만 · -아서",
+    "en": "Say the meaning in one Korean sentence. Endings: -지만, -아서."
+   },
+   "req": {
+    "conn": [
+     "jiman",
+     "aseo"
+    ],
+    "clauses": 3,
+    "words": [
+     "한국어",
+     "공부"
+    ],
+    "one": true,
+    "polite": true
+   },
+   "model": {
+    "ko": "한국어는 어렵지만 재미있어서 매일 열심히 공부해요.",
+    "en": "Korean is difficult, but it is fun, so I study hard every day."
+   },
+   "meaning": "Korean is difficult, but it is interesting, so I study hard every day.",
+   "hints": [
+    "한국어",
+    "어렵다",
+    "재미있다",
+    "열심히",
+    "공부하다"
+   ]
+  },
+  {
+   "id": "t-cooking-dinner",
+   "mode": "translate",
+   "lv": 2,
+   "icon": "🌏",
+   "title": {
+    "ko": "저녁 · 요리",
+    "en": "Dinner, cooking"
+   },
+   "situation": {
+    "ko": "뜻을 한국어 한 문장으로 말해 보세요. 이음말: -아서 · -고",
+    "en": "Say the meaning in one Korean sentence. Endings: -아서, -고."
+   },
+   "req": {
+    "conn": [
+     "aseo",
+     "go"
+    ],
+    "clauses": 3,
+    "words": [
+     "저녁",
+     "가족"
+    ],
+    "one": true,
+    "polite": true
+   },
+   "model": {
+    "ko": "집에 가서 저녁을 만들고 가족과 함께 먹어요.",
+    "en": "I go home, cook dinner and eat together with my family."
+   },
+   "meaning": "I go home, make dinner, and eat with my family.",
+   "hints": [
+    "집",
+    "가다",
+    "저녁",
+    "만들다",
+    "가족",
+    "먹다"
+   ]
+  },
+  {
+   "id": "t-shopping-weekend",
+   "mode": "translate",
+   "lv": 3,
+   "icon": "🌏",
+   "title": {
+    "ko": "주말 · 백화점",
+    "en": "Weekend, department store"
+   },
+   "situation": {
+    "ko": "뜻을 한국어 한 문장으로 말해 보세요. 이음말: -(으)면 · -는데",
+    "en": "Say the meaning in one Korean sentence. Endings: -(으)면, -는데."
+   },
+   "req": {
+    "conn": [
+     "myeon",
+     "nde"
+    ],
+    "clauses": 3,
+    "words": [
+     "주말",
+     "백화점",
+     "옷"
+    ],
+    "one": true,
+    "polite": true
+   },
+   "model": {
+    "ko": "주말에 시간이 있으면 백화점에 가는데 새 옷을 살 거예요.",
+    "en": "If I have time on the weekend, I go to the department store and will buy new clothes."
+   },
+   "meaning": "If I have time this weekend, I will go to the department store to buy new clothes.",
+   "hints": [
+    "주말",
+    "시간",
+    "있다",
+    "백화점",
+    "가다",
+    "옷"
+   ]
+  },
+  {
+   "id": "t-exercise-health",
+   "mode": "translate",
+   "lv": 3,
+   "icon": "🌏",
+   "title": {
+    "ko": "공원 · 운동",
+    "en": "Park, exercise"
+   },
+   "situation": {
+    "ko": "뜻을 한국어 한 문장으로 말해 보세요. 이음말: -(으)면 · -고",
+    "en": "Say the meaning in one Korean sentence. Endings: -(으)면, -고."
+   },
+   "req": {
+    "conn": [
+     "myeon",
+     "go"
+    ],
+    "clauses": 3,
+    "words": [
+     "날씨",
+     "공원",
+     "운동"
+    ],
+    "one": true,
+    "polite": true
+   },
+   "model": {
+    "ko": "날씨가 좋으면 공원에서 운동을 하고 건강을 관리해요.",
+    "en": "If the weather is good, I exercise in the park and manage my health."
+   },
+   "meaning": "If the weather is good, I exercise in the park and stay healthy.",
+   "hints": [
+    "날씨",
+    "좋다",
+    "공원",
+    "운동하다",
+    "건강"
+   ]
+  },
+  {
+   "id": "t-subway-late",
+   "mode": "translate",
+   "lv": 3,
+   "icon": "🌏",
+   "title": {
+    "ko": "지하철 · 약속",
+    "en": "Subway, appointment"
+   },
+   "situation": {
+    "ko": "뜻을 한국어 한 문장으로 말해 보세요. 이음말: -는데 · -아서",
+    "en": "Say the meaning in one Korean sentence. Endings: -는데, -아서."
+   },
+   "req": {
+    "conn": [
+     "nde",
+     "aseo"
+    ],
+    "clauses": 3,
+    "words": [
+     "지하철",
+     "약속"
+    ],
+    "one": true,
+    "polite": true
+   },
+   "model": {
+    "ko": "지하철에 사람이 많은데 약속에 늦을 것 같아서 빨리 걸어요.",
+    "en": "There are many people on the subway, and I might be late for the appointment, so I walk fast."
+   },
+   "meaning": "The subway is crowded and I might be late for the meeting, so I walk fast.",
+   "hints": [
+    "지하철",
+    "사람",
+    "많다",
+    "늦다",
+    "약속",
+    "걷다"
+   ]
+  },
+  {
+   "id": "t-library-exam",
+   "mode": "translate",
+   "lv": 3,
+   "icon": "🌏",
+   "title": {
+    "ko": "시험 · 도서관",
+    "en": "Exam, library"
+   },
+   "situation": {
+    "ko": "뜻을 한국어 한 문장으로 말해 보세요. 이음말: -(으)니까 · -아서",
+    "en": "Say the meaning in one Korean sentence. Endings: -(으)니까, -아서."
+   },
+   "req": {
+    "conn": [
+     "nikka",
+     "aseo"
+    ],
+    "clauses": 3,
+    "words": [
+     "시험",
+     "도서관",
+     "공부"
+    ],
+    "one": true,
+    "polite": true
+   },
+   "model": {
+    "ko": "내일 중요한 시험이 있으니까 도서관에 가서 밤늦게까지 공부해요.",
+    "en": "Because I have an important exam tomorrow, I go to the library and study until late at night."
+   },
+   "meaning": "Because I have an important exam tomorrow, I go to the library and study.",
+   "hints": [
+    "내일",
+    "중요하다",
+    "시험",
+    "도서관",
+    "공부하다"
+   ]
+  },
+  {
+   "id": "t-tired-sleep",
+   "mode": "translate",
+   "lv": 4,
+   "icon": "🌏",
+   "title": {
+    "ko": "평일 · 주말",
+    "en": "Weekdays, weekend"
+   },
+   "situation": {
+    "ko": "뜻을 한국어 한 문장으로 말해 보세요. 이음말을 세 가지 이상 쓰세요.",
+    "en": "Say the meaning in one Korean sentence. Use at least three endings."
+   },
+   "req": {
+    "minConns": 3,
+    "clauses": 4,
+    "words": [
+     "평일",
+     "주말",
+     "집"
+    ],
+    "one": true,
+    "polite": true
+   },
+   "model": {
+    "ko": "평일에는 일하느라 바쁘고 피곤하지만 주말이 되면 집에서 푹 쉬어요.",
+    "en": "On weekdays I am busy and tired from work, but when the weekend comes I rest well at home."
+   },
+   "meaning": "On weekdays I am busy and tired, but on weekends I can rest deeply at home.",
+   "hints": [
+    "평일",
+    "바쁘다",
+    "피곤하다",
+    "주말",
+    "집",
+    "쉬다"
+   ]
+  },
+  {
+   "id": "t-travel-photo",
+   "mode": "translate",
+   "lv": 4,
+   "icon": "🌏",
+   "title": {
+    "ko": "제주도 · 사진",
+    "en": "Jeju Island, photos"
+   },
+   "situation": {
+    "ko": "뜻을 한국어 한 문장으로 말해 보세요. 이음말을 세 가지 이상 쓰세요.",
+    "en": "Say the meaning in one Korean sentence. Use at least three endings."
+   },
+   "req": {
+    "minConns": 3,
+    "clauses": 4,
+    "words": [
+     "제주도",
+     "경치",
+     "사진"
+    ],
+    "one": true,
+    "polite": true
+   },
+   "model": {
+    "ko": "제주도에 갔는데 경치가 아름다워서 사진을 많이 찍고 소중한 추억을 남겼어요.",
+    "en": "I went to Jeju Island, and because the scenery was beautiful, I took many photos and made precious memories."
+   },
+   "meaning": "I visited Jeju Island and the scenery was gorgeous, so I took photos and made good memories.",
+   "hints": [
+    "제주도",
+    "가다",
+    "경치",
+    "아름답다",
+    "사진",
+    "추억"
+   ]
+  },
+  {
+   "id": "t-concert-ticket",
+   "mode": "translate",
+   "lv": 5,
+   "icon": "🌏",
+   "title": {
+    "ko": "콘서트 · 예매",
+    "en": "Concert, ticket"
+   },
+   "situation": {
+    "ko": "뜻을 한국어 한 문장으로 말해 보세요. 이음말을 세 가지 이상 쓰세요.",
+    "en": "Say the meaning in one Korean sentence. Use at least three endings."
+   },
+   "req": {
+    "minConns": 3,
+    "clauses": 4,
+    "words": [
+     "콘서트",
+     "표",
+     "친구"
+    ],
+    "one": true,
+    "polite": true
+   },
+   "model": {
+    "ko": "가수의 콘서트에 가고 싶었지만 표가 없어서 예매를 못 하고 친구와 아쉬워했어요.",
+    "en": "I wanted to go to the singer's concert, but there were no tickets so I could not book and felt disappointed with my friend."
+   },
+   "meaning": "I wanted to go to my favorite singer's concert, but tickets sold out so I was disappointed with my friend.",
+   "hints": [
+    "가수",
+    "콘서트",
+    "표",
+    "매진",
+    "친구",
+    "아쉽다"
+   ]
+  },
+  {
+   "id": "s-my-room",
+   "mode": "speak",
+   "lv": 2,
+   "icon": "🛏️",
+   "title": {
+    "ko": "내 방 소개",
+    "en": "My room"
+   },
+   "situation": {
+    "ko": "40초 안에 쉬지 않고, 이음말 두 개 이상으로 이어 말해요.",
+    "en": "Speak for up to 40 seconds without stopping, linking with two or more endings."
+   },
+   "req": {
+    "clauses": 3,
+    "minConns": 2,
+    "one": true,
+    "polite": true
+   },
+   "model": {
+    "ko": "제 방은 조금 작지만 아늑하고 창문이 커서 낮에는 햇빛이 아주 잘 들어와요.",
+    "en": "My room is a bit small but cozy, and the window is large, so sunlight comes in very well during the day."
+   },
+   "timer": 40
+  },
+  {
+   "id": "s-fav-food",
+   "mode": "speak",
+   "lv": 2,
+   "icon": "🍲",
+   "title": {
+    "ko": "좋아하는 한국 음식",
+    "en": "Favorite Korean food"
+   },
+   "situation": {
+    "ko": "40초 안에 쉬지 않고, 이음말 두 개 이상으로 이어 말해요.",
+    "en": "Speak for up to 40 seconds without stopping, linking with two or more endings."
+   },
+   "req": {
+    "clauses": 3,
+    "minConns": 2,
+    "one": true,
+    "polite": true
+   },
+   "model": {
+    "ko": "저는 매운 김치찌개를 아주 좋아하는데 국물이 시원하고 고기도 맛있어서 자주 먹어요.",
+    "en": "I really like spicy kimchi stew; the broth is refreshing and the meat is tasty, so I eat it often."
+   },
+   "timer": 40
+  },
+  {
+   "id": "s-hobby-free",
+   "mode": "speak",
+   "lv": 2,
+   "icon": "🎮",
+   "title": {
+    "ko": "주말 취미 생활",
+    "en": "Weekend hobbies"
+   },
+   "situation": {
+    "ko": "40초 안에 쉬지 않고, 이음말 두 개 이상으로 이어 말해요.",
+    "en": "Speak for up to 40 seconds without stopping, linking with two or more endings."
+   },
+   "req": {
+    "clauses": 3,
+    "minConns": 2,
+    "one": true,
+    "polite": true
+   },
+   "model": {
+    "ko": "주말에는 집에서 음악을 듣고 쉬는데 날씨가 좋으면 밖으로 나가서 자전거를 타요.",
+    "en": "On weekends I listen to music and rest at home, but if the weather is nice, I go outside and ride a bicycle."
+   },
+   "timer": 40
+  },
+  {
+   "id": "s-best-travel",
+   "mode": "speak",
+   "lv": 3,
+   "icon": "✈️",
+   "title": {
+    "ko": "가장 기억에 남는 여행",
+    "en": "Most memorable trip"
+   },
+   "situation": {
+    "ko": "40초 안에 쉬지 않고, 이음말 세 개 이상으로 이어 말해요.",
+    "en": "Speak for up to 40 seconds without stopping, linking with three or more endings."
+   },
+   "req": {
+    "clauses": 4,
+    "minConns": 3,
+    "one": true,
+    "polite": true
+   },
+   "model": {
+    "ko": "작년에 친구들과 부산에 놀러 갔는데 푸른 바다가 예쁘고 음식도 맛있어서 정말 잊을 수 없어요.",
+    "en": "Last year I visited Busan with friends; the blue sea was pretty and the food was delicious, so I truly cannot forget it."
+   },
+   "timer": 40
+  },
+  {
+   "id": "s-exercise-routine",
+   "mode": "speak",
+   "lv": 3,
+   "icon": "🏃",
+   "title": {
+    "ko": "나의 운동 습관",
+    "en": "My workout routine"
+   },
+   "situation": {
+    "ko": "40초 안에 쉬지 않고, 이음말 세 개 이상으로 이어 말해요.",
+    "en": "Speak for up to 40 seconds without stopping, linking with three or more endings."
+   },
+   "req": {
+    "clauses": 4,
+    "minConns": 3,
+    "one": true,
+    "polite": true
+   },
+   "model": {
+    "ko": "아침마다 공원에서 조깅을 하는데 처음에는 힘들었지만 매일 달리니까 체력이 좋아져서 하루가 활기차요.",
+    "en": "I jog in the park every morning; it was hard at first, but running daily improved my stamina, so my day is energetic."
+   },
+   "timer": 40
+  },
+  {
+   "id": "s-weekend-plan",
+   "mode": "speak",
+   "lv": 3,
+   "icon": "📅",
+   "title": {
+    "ko": "이번 주말 계획",
+    "en": "Plans for this weekend"
+   },
+   "situation": {
+    "ko": "40초 안에 쉬지 않고, 이음말 세 개 이상으로 이어 말해요.",
+    "en": "Speak for up to 40 seconds without stopping, linking with three or more endings."
+   },
+   "req": {
+    "clauses": 4,
+    "minConns": 3,
+    "one": true,
+    "polite": true
+   },
+   "model": {
+    "ko": "이번 주말에는 친구 생일 파티가 있어서 백화점에 가는데 예쁜 선물을 사고 케이크도 함께 먹을 거예요.",
+    "en": "This weekend is my friend's birthday party, so I will go to the department store, buy a nice gift, and eat cake together."
+   },
+   "timer": 40
+  },
+  {
+   "id": "s-cafe-life",
+   "mode": "speak",
+   "lv": 3,
+   "icon": "☕",
+   "title": {
+    "ko": "내가 자주 가는 카페",
+    "en": "My favorite cafe"
+   },
+   "situation": {
+    "ko": "40초 안에 쉬지 않고, 이음말 세 개 이상으로 이어 말해요.",
+    "en": "Speak for up to 40 seconds without stopping, linking with three or more endings."
+   },
+   "req": {
+    "clauses": 4,
+    "minConns": 3,
+    "one": true,
+    "polite": true
+   },
+   "model": {
+    "ko": "집 근처 골목에 작은 카페가 있는데 분위기가 아늑하고 음악도 좋아서 주말마다 책을 읽으러 가요.",
+    "en": "There is a small cafe in the alley near my house; the atmosphere is cozy and the music is nice, so I go read every weekend."
+   },
+   "timer": 40
+  },
+  {
+   "id": "s-worry-now",
+   "mode": "speak",
+   "lv": 4,
+   "icon": "💭",
+   "title": {
+    "ko": "요즘 하고 있는 고민",
+    "en": "My current worries"
+   },
+   "situation": {
+    "ko": "40초 안에 쉬지 않고, 이음말 세 개 이상으로 이어 말해요.",
+    "en": "Speak for up to 40 seconds without stopping, linking with three or more endings."
+   },
+   "req": {
+    "clauses": 4,
+    "minConns": 3,
+    "distinct": true,
+    "one": true,
+    "polite": true
+   },
+   "model": {
+    "ko": "요즘 시험 준비로 바쁜데 잠이 부족해서 피곤하지만 이번 주만 버티면 방학이 시작되니까 기대돼요.",
+    "en": "I am busy preparing for exams and tired from lack of sleep, but if I endure this week vacation begins, so I look forward to it."
+   },
+   "timer": 40
+  },
+  {
+   "id": "s-future-job",
+   "mode": "speak",
+   "lv": 4,
+   "icon": "💼",
+   "title": {
+    "ko": "앞으로 하고 싶은 일",
+    "en": "What I want to do in the future"
+   },
+   "situation": {
+    "ko": "30초 안에 쉬지 않고, 이음말 세 개 이상으로 이어 말해요.",
+    "en": "Speak for up to 30 seconds without stopping, linking with three or more endings."
+   },
+   "req": {
+    "clauses": 4,
+    "minConns": 3,
+    "distinct": true,
+    "one": true,
+    "polite": true
+   },
+   "model": {
+    "ko": "앞으로 무역 회사에서 일하고 싶은데 실력이 아직 부족하지만 매일 연습하면 꿈을 이룰 수 있으니까 최선을 다해요.",
+    "en": "I want to work at a trading company; my skills are still lacking, but if I practice every day I can achieve my dream, so I do my best."
+   },
+   "timer": 30
+  },
+  {
+   "id": "s-pet-friend",
+   "mode": "speak",
+   "lv": 4,
+   "icon": "🐾",
+   "title": {
+    "ko": "사랑스러운 반려동물",
+    "en": "My lovely pet"
+   },
+   "situation": {
+    "ko": "30초 안에 쉬지 않고, 이음말 세 개 이상으로 이어 말해요.",
+    "en": "Speak for up to 30 seconds without stopping, linking with three or more endings."
+   },
+   "req": {
+    "clauses": 4,
+    "minConns": 3,
+    "distinct": true,
+    "one": true,
+    "polite": true
+   },
+   "model": {
+    "ko": "우리 집 고양이는 낯가림이 심한데 맛있는 간식을 주면 금방 다가오고 무릎에서 잠들어서 너무 사랑스러워요.",
+    "en": "My cat is very shy around strangers, but if I give it tasty snacks it approaches quickly and falls asleep on my lap, which is so lovely."
+   },
+   "timer": 30
   }
  ]
 }
