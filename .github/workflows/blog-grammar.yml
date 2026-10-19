@@ -1,0 +1,58 @@
+# 블로그 「오늘의 문법 4개」 초안 — 매일 저녁(한국 19:37) 사이트의 문법 자료로 글 한 편(문법 4개)을 만들어 PR 로 올린다(운영자 2026-10-19).
+# 초안으로만 — 머지하기 전에 운영자가 「운영자 한마디」를 Claude 에게 알려 주면 Claude 가 채워 머지한다(비어 있으면 check-blog 가 막는다).
+# 앞 초안 PR 이 아직 열려 있으면 새로 만들지 않는다(같은 자리를 건드려 서로 충돌하므로) — 머지하면 다음 날부터 이어진다.
+# PR 을 만들려면 저장소 설정 「Allow GitHub Actions to create and approve pull requests」가 켜져 있어야 한다(blog-weekly 와 같다).
+name: blog-grammar
+
+on:
+  schedule:
+    - cron: '37 10 * * *'    # 매일 한국 19:37 (blog-weekly 20:07 과 겹치지 않게)
+  workflow_dispatch:
+    inputs:
+      date:
+        description: '글 날짜 YYYY-MM-DD (비우면 오늘, 한국 날짜)'
+        default: ''
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  draft:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+      - name: 앞 초안이 아직 열려 있나
+        id: open
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          N=$(gh pr list --state open --json headRefName --jq '[.[]|select(.headRefName|startswith("blog-grammar-"))]|length')
+          echo "open=$N" >> $GITHUB_OUTPUT
+          [ "$N" != "0" ] && echo "::notice::앞 문법 초안 PR 이 아직 열려 있어 오늘은 건너뜁니다."
+          exit 0
+      - name: 초안 만들기
+        if: steps.open.outputs.open == '0'
+        id: mk
+        run: |
+          D='${{ inputs.date }}'; [ -z "$D" ] && D=$(TZ=Asia/Seoul date +%F)
+          echo "date=$D" >> $GITHUB_OUTPUT
+          node tools/blog-grammar.mjs --date "$D"
+          node tools/build-pages.mjs >/dev/null
+          node tools/stamp.mjs >/dev/null && node tools/stamp.mjs --check
+      - name: PR 로 올리기
+        if: steps.open.outputs.open == '0'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          [ -z "$(git status --porcelain)" ] && { echo "바뀐 것 없음(이미 있는 글)"; exit 0; }
+          B="blog-grammar-${{ steps.mk.outputs.date }}"
+          git config user.name 'cheesepotato-blog'
+          git config user.email 'actions@users.noreply.github.com'
+          git checkout -q -b "$B" && git add -A && git commit -qm "블로그 오늘의 문법 초안 ${{ steps.mk.outputs.date }}" && git push -q -u origin "$B"
+          gh pr create --head "$B" --base main --title "블로그 오늘의 문법 4개 초안 (${{ steps.mk.outputs.date }})" \
+            --body "사이트 문법 자료로 만든 「오늘의 문법 4개」 초안입니다. **운영자 한마디**를 Claude 에게 알려 주면 채워서 머지합니다(비어 있으면 check-blog 가 막습니다)." \
+            || echo "::warning::PR 을 못 만들었어요 — 저장소 설정 「Allow GitHub Actions to create and approve pull requests」를 켜 주세요. 가지 $B 는 올라가 있어요."
