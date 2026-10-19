@@ -257,3 +257,5 @@
 - 2026-10-19 팟캐스트(운영자가 직접 녹음, 자막은 유튜브 자동 자막 · 필요하면 Whisper 도구) — 표현 위주로 시작. 대본 3편(`docs/podcast/`)을 사이트 표현 자료(expressions)에서 그대로 가져와 씀. 이름(June / Junsang)은 [이름] 자리로 비움. 스포티파이 대본 기능 · 조건은 아직 확인 못 함
 - 2026-10-19 팟캐스트 자동 올리기 — 운영자가 녹음 파일을 `/podcast.html` 에 올리면 30분 안에 유튜브(소리 + 표지 영상)에 올리고 스포티파이용 방송 목록(feed.xml)을 갱신. 자막은 기본 유튜브 자동 자막(Whisper 는 PODCAST_SRT=on, 시험 전). 유튜브 열쇠는 쇼츠 공장과 같은 것. SQL `db/add_podcast.sql` · 변수 `PODCAST_AUTO`. 실제 유튜브 · 스포티파이로는 아직 시험 못 함
 - 2026-10-19 팟캐스트 표지 확정 — 흰 바탕 · 가운데 큰 「Korean Expressions」 · 주황 점 · 그 편의 표현을 작게(미니멀 시안 M1). 방송 표지 `podcast-cover.jpg`, 편별 표지는 `podcast.js` 가 같은 틀로 만듦
+- 2026-10-19 팟캐스트 올리기 쪽 새 표지가 안 보이던 것 = 브라우저가 옛 podcast.js 를 들고 있었음 → podcast.js · podcast.html 에도 자국(?v=)을 찍도록 stamp 에 넣음
+- 2026-10-19 팟캐스트 방송 목록(공개 feed.xml)의 소유자 메일 = cheesepotato@everykoreans.com(스포티파이 소유 확인 메일을 받는 주소 — 운영자가 알려 줌, 개인 메일은 공개 목록에 안 넣음)

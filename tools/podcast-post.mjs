@@ -108,6 +108,7 @@ async function feed() {
     <language>en</language>
     <description>Short Korean lessons about everyday expressions — meaning, example sentences and short dialogues. Free practice at everykoreans.com.</description>
     <itunes:author>CheesePotato · Everykoreans</itunes:author>
+    <itunes:owner><itunes:name>CheesePotato · Everykoreans</itunes:name><itunes:email>cheesepotato@everykoreans.com</itunes:email></itunes:owner>
     <itunes:explicit>false</itunes:explicit>
     <itunes:category text="Education"><itunes:category text="Language Learning"/></itunes:category>
     <itunes:image href="${SITE}/podcast-cover.jpg"/>
