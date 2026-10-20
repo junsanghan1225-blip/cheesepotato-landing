@@ -7656,3 +7656,12 @@ html[lang="ja"] *, html[lang="zh"] *, html[lang^="zh-"] *, html[lang="my"] * { w
 .wd-cap button.on { background:#f4a42b; border-color:#f4a42b; color:#2b2118; font-weight:700; }
 .wd-cap-note { margin:8px 0 0; font-size:12px; opacity:.7; line-height:1.5; }
 .wd-due b small { font-size:.6em; opacity:.7; font-weight:500; }
+
+/* 단어 › 팟캐스트 — 한 편씩 카드 */
+.wd-pod { display:grid; gap:12px; margin-top:12px; }
+.wd-pod-ep { background:var(--surface); border:1px solid var(--line); border-radius:16px; padding:14px 16px; }
+.wd-pod-ep h3 { margin:4px 0 6px; font-size:17px; line-height:1.35; }
+.wd-pod-ep p { margin:0 0 10px; font-size:14px; line-height:1.55; color:var(--ink-2); }
+.wd-pod-n { font-size:12px; color:var(--orange); letter-spacing:.02em; }
+.wd-pod-ep audio { width:100%; min-height:40px; }
+.wd-pod-desc { margin:0; font-size:14px; line-height:1.55; color:var(--ink-2); }
