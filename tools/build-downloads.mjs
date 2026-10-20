@@ -25,7 +25,7 @@ const GR = SB_CATS.flatMap((c) => c.points.map((p) => ({ p, cat: c }))).filter((
 /* 낱말 · 문법 내려받기 — 1 · 2급 파일만 로그인 없이(맛보기). 나머지는 /download/ 문(로그인한 사람만 받는다, 운영자 2026-10-19 「너무 무료로 다 풀면 안 돼 · A」).
    ⚠ 진짜 문이다(B) — 로그인해야 받는 파일은 사이트(downloads/)에 두지 않고 private-downloads/ 로 구워(저장소에 안 둔다) 액션 downloads-sync 가 Supabase 비공개 저장 칸에 올린다.
    로그인한 사람만 /download/ 에서 임시 주소를 받는다(db/add_downloads.sql). 낱말 원자료 자체(vocab/data)는 사이트 학습 화면이 쓰므로 공개 — 막는 것은 내려받기용 묶음 파일이다. */
-const FREE = new Set(['topik-level-1', 'topik-level-2', 'topik-level-1-anki', 'topik-level-2-anki']);
+const FREE = new Set(['topik-vocabulary-basic']);   // 국립국어원 자료만 담은 기본 목록 — 누구나. 우리가 쓴 뜻 · 예문이 든 풍부한 목록은 전부 로그인(운영자 2026-10-19 「나누기」)
 const dl = (name, label) => (FREE.has(name) ? `<a href="/downloads/${name}${name.endsWith('-anki') ? '.txt' : '.csv'}" download>${label}</a>`
   : `<a href="/download/?f=/downloads/${name}${name.endsWith('-anki') ? '.txt' : '.csv'}" rel="nofollow">${label} <small>🔒 free account</small></a>`);
 const cell = (s) => `"${String(s ?? '').replace(/"/g, '""')}"`;
@@ -39,13 +39,17 @@ for (const b of BAND) {
   const ws = ALL.filter((w) => b.lv.includes(w.level)).sort((x, y) => x.level - y.level || (y.freq || 0) - (x.freq || 0));
   counts[b.id] = ws.length;
   const head = ['Korean', 'Part of speech', 'English', 'Vietnamese', 'Japanese', 'Example (Korean)', 'Example (English)', 'TOPIK level'];
-  const rows = ws.map((w) => [w.head, w.pos, w.en, w.tr?.vi, w.tr?.ja, ex(w).ko, ex(w).en, w.level]);
+  const rows = ws.map((w) => [w.head, w.pos, w.en_simple || '', w.tr?.vi, w.tr?.ja, ex(w).ko, ex(w).en, w.level]);   // 영어 뜻 = 우리가 쓴 쉬운 영어(en_simple)
   // 엑셀이 한글을 깨지 않게 BOM
   writeFileSync(join(ROOT, dirOf(b.id), `${b.id}.csv`), '﻿' + [head, ...rows].map((r) => r.map(cell).join(',')).join('\r\n') + '\r\n');
   // Anki: 탭으로 나눈 글 — 앞면 = 한국어, 뒷면 = 뜻 · 예문. 가져올 때 「HTML 허용」을 켜면 줄바꿈 <br> 이 보인다
-  const anki = ws.map((w) => [w.head, `${clean(w.en)}${w.tr?.vi ? ` · ${clean(w.tr.vi)}` : ''}${w.tr?.ja ? ` · ${clean(w.tr.ja)}` : ''}<br>${clean(ex(w).ko)}<br>${clean(ex(w).en)}`, `${b.id}`].join('\t'));
+  const anki = ws.map((w) => [w.head, `${clean(w.en_simple)}${w.tr?.vi ? ` · ${clean(w.tr.vi)}` : ''}${w.tr?.ja ? ` · ${clean(w.tr.ja)}` : ''}<br>${clean(ex(w).ko)}<br>${clean(ex(w).en)}`, `${b.id}`].join('\t'));
   writeFileSync(join(ROOT, dirOf(`${b.id}-anki`), `${b.id}-anki.txt`), '#separator:tab\n#html:true\n#tags column:3\n' + anki.join('\n') + '\n');
 }
+/* 기본 목록(무료) — 한국어 낱말 · 품사 · 급수 · 출처. 국립국어원 자료만. 우리가 쓴 뜻 · 예문은 넣지 않는다 */
+const SRC = 'National Institute of Korean Language: International Standard Curriculum (KOGL Type 1); Korean Learners Dictionary (CC BY-SA 2.0 KR)';
+writeFileSync(join(ROOT, dirOf('topik-vocabulary-basic'), 'topik-vocabulary-basic.csv'), '\ufeff' + [['Korean', 'Part of speech', 'TOPIK level', 'Source'],
+  ...ALL.slice().sort((x, y) => x.level - y.level || (y.freq || 0) - (x.freq || 0)).map((w) => [w.head, w.pos, w.level, SRC])].map((r) => r.map(cell).join(',')).join('\r\n') + '\r\n');
 writeFileSync(join(ROOT, dirOf('korean-grammar-list'), 'korean-grammar-list.csv'), '\ufeff' + [['Grammar pattern', 'Level', 'Category', 'Meaning (English)', 'Form', 'Watch out', 'Example (Korean)'],
   ...GR.map(({ p, cat }) => [p.name, LVN[p.lv] || p.lv, cat.en, GRAMMAR_EN[p.id].desc, GRAMMAR_EN[p.id].form, GRAMMAR_EN[p.id].care, p.ex])].map((r) => r.map(cell).join(',')).join('\r\n') + '\r\n');
 writeFileSync(join(ROOT, dirOf('korean-grammar-list-anki'), 'korean-grammar-list-anki.txt'), '#separator:tab\n#html:true\n#tags column:3\n' + GR.map(({ p }) => [p.name, `${clean(GRAMMAR_EN[p.id].desc)}${GRAMMAR_EN[p.id].form ? `<br>${clean(GRAMMAR_EN[p.id].form)}` : ''}<br>${clean(p.ex)}`, `grammar-${p.lv}`].join('\t')).join('\n') + '\n');
@@ -78,7 +82,9 @@ const page = `<!DOCTYPE html>
 </div></header>
 <main>
 <h1>TOPIK vocabulary list — free download</h1>
-<p>${ALL.length.toLocaleString('en-US')} Korean words for TOPIK Levels 1–6, each with an English meaning, Vietnamese and Japanese glosses, and an original example sentence. Pick a level and download it as a spreadsheet (CSV) or as a text file you can import into Anki. Levels 1–2 download instantly; the other lists need a free account (one click to sign up).</p>
+<p>${ALL.length.toLocaleString('en-US')} Korean words for TOPIK Levels 1–6, each with a level. The <strong>basic list</strong> (Korean word, part of speech, level) is free to download — no account needed. The <strong>study lists</strong> below add English, Vietnamese and Japanese meanings and example sentences written by CheesePotato, as a spreadsheet (CSV) or an Anki deck; they need a free account (one click to sign up).</p>
+<table class="dl"><thead><tr><th>Basic list (all levels)</th><th>Words</th><th>Spreadsheet</th></tr></thead><tbody><tr><td>Korean · part of speech · level</td><td>${ALL.length.toLocaleString('en-US')}</td><td>${dl('topik-vocabulary-basic', 'CSV')}</td></tr></tbody></table>
+<h2>Study lists (free account)</h2>
 <table class="dl"><thead><tr><th>Level</th><th>Words</th><th>Spreadsheet</th><th>Anki deck</th></tr></thead><tbody>
 ${BAND.map(li).join('\n')}
 </tbody></table>
@@ -93,7 +99,7 @@ ${BAND.map(li).join('\n')}
   <li>Prefer to study online? Browse the same words by topic: <a href="/topik1-words/">TOPIK I words</a> · <a href="/topik2-words/">TOPIK II words</a> · <a href="/dictionary/">dictionary</a>.</li>
 </ul>
 <h2>About this list</h2>
-<p>Levels follow the National Institute of Korean Language’s <em>International Standard Curriculum for Korean Language Education</em> (국립국어원 「국제 통용 한국어 표준 교육과정」, Korea Open Government License Type 1). Meanings, glosses and example sentences were written by CheesePotato. The list is a study aid and is not an official TOPIK word list. Free for personal and classroom use — please keep this credit if you share it.</p>
+<p>Levels follow the National Institute of Korean Language’s <em>International Standard Curriculum for Korean Language Education</em> (국립국어원 「국제 통용 한국어 표준 교육과정」, Korea Open Government License Type 1). Korean headwords and parts of speech draw on the National Institute of Korean Language’s Korean Learners’ Dictionary (한국어기초사전, CC BY-SA 2.0 KR). English, Vietnamese and Japanese meanings and example sentences in the study lists were written by CheesePotato. The list is a study aid and is not an official TOPIK word list. Free for personal and classroom use — please keep this credit if you share it.</p>
 <div class="next">
   <h3>Learn these words with practice</h3>
   <p>Flashcards, quizzes and example sentences for every word — free.</p>
