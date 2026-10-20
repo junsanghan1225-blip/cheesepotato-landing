@@ -74,7 +74,7 @@ async function clarity() {
   if (!process.env.CLARITY_API_TOKEN) return null;
   const out = { overall: [], byUrl: [], note: '' };
   try { out.overall = await clarityCall(''); } catch (e) { out.note = String(e.message || e); return out; }
-  try { out.byUrl = await clarityCall('URL'); } catch (e) { out.note = '쪽별: ' + String(e.message || e); }
+  // 쪽(URL)별 호출은 Clarity 가 400 을 돌려줘서 뺐다(2026-10-20) — 전체 값에 쪽 제목 · 인기 쪽이 이미 들어 있다.
   return out;
 }
 const clInfoLine = (info) => Object.entries(info || {}).filter(([, v]) => v !== null && v !== '').map(([k, v]) => k + ' ' + (typeof v === 'number' ? Math.round(v * 100) / 100 : v)).join(' · ');
