@@ -14,7 +14,7 @@
 
 ## ✅ 끝난 것 (2026-10-19)
 - 팟캐스트 올리기(SQL · `PODCAST_AUTO` · 01편 유튜브 올림) · 스포티파이 방송 등록(처리 중 → 24시간 안에 노출) · 방송 목록 소유자 메일 `cheesepotato@everykoreans.com`
-- `db/add_downloads.sql`(내려받기 비공개 저장 칸) — 운영자가 SQL Editor 에서 실행함. 남은 것: PR #456 머지 → Actions `downloads-sync` Run workflow → 로그인 / 로그아웃 창으로 3급 CSV 시험(`docs/ops/downloads-gate.md`)
+- `db/add_downloads.sql`(내려받기 비공개 저장 칸) — 운영자가 SQL Editor 에서 실행함. `downloads-sync` 올리기 끝남(운영자 2026-10-20). 남은 것: 로그인 / 로그아웃 창으로 3급 CSV 시험(`docs/ops/downloads-gate.md`)
 
 ## 📌 2026-10-19 밤 — 남은 운영자 할 일 (내일 이어서)
 - 팟캐스트: 스포티파이에서 방송이 보이는지(24시간 안) · Episodes 에 1편이 있는지 → 유튜브 스튜디오에서 1편 소리 · 표지 확인 후 **공개로 바꾸기** → 02편(입이 가볍다)부터 같은 방식으로 녹음해 `/podcast.html` 에 올리기(대본 10편 `docs/podcast/`). 방송 이름을 한국어로 바꿀지 정하기. BGM 곡 2~3개(이용 조건 확인) 고르기.

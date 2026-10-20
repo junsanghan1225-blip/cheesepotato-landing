@@ -267,3 +267,4 @@
 - 2026-10-19 링크 공유 카드(스레드 · 인스타 · 카톡 미리보기) — og:image 가 600×600 정사각 logo.png 라 가로 카드에서 위아래가 잘렸음 → 1200×630 `og-image.jpg`(노랑 원 + 스티커 마스코트 + 「Learn Korean — for free.」)로 바꾸고 og:image:width/height 를 넣음. 생성 쪽(build-pages · downloads · sheets · worksheets)도 같이
 - 2026-10-19 링크 공유 카드 확정 = 시안 K1(크림 점무늬 · 노랑 「치즈감자」 · 주황 스티커 「Learn Korean — free!」 · 마스코트, 주소 글자는 뺌 — 운영자). 쪽은 `og-image.jpg` 파일 이름만 가리켜서 그림만 바꿔도 다시 굽지 않는다
 - 2026-10-19 내려받기 구성 — 국립국어원 자료(낱말 · 품사 · 급수)만 담은 **기본 목록 CSV 하나는 로그인 없이 무료**, 우리가 쓴 영어 · 베트남어 · 일본어 뜻과 예문이 든 풍부한 목록(CSV · Anki)과 문법은 로그인(운영자 「나누기」). 풍부한 목록의 영어 뜻은 en_simple(우리가 쓴 것)로 바꿈. 쪽에 한국어기초사전(CC BY-SA 2.0 KR) · 표준 교육과정(공공누리 1유형) 출처 표시. 이용 조건은 우리 문서 기준의 해석이며 법률 자문이 아님
+- 2026-10-20 내려받기 문 측정(운영자 「1번 3번」): /download/ 가 download_gate_view(문 앞) · download_gate_click(가입 누름) · download_start · download_error 를 GTM · Clarity 로 보낸다 — 가입 늘었는지는 GA4 이벤트로 본다. 일일 요약의 Clarity 「쪽별 400」은 그 호출을 빼서 없앴다.
