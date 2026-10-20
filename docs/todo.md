@@ -13,6 +13,7 @@
 > 갈래가 바뀌면 이 표의 그 줄만 고친다. 안티 일의 숫자는 여기 적지 않는다(STATUS 가 기준).
 
 - 📚 **출판 사업 준비 판** — `docs/plans/publishing-launch.md`(예스24 → 상점 → 네이버 → 아마존 → 종이책 → 쿠팡). 운영자 ⚠ 4가지(첫 책 이름 · 70권 구성 · 가격 · 파일 형식).
+- 📚 **이번 주 출판 순서** `docs/ops/publishing-week1.md` · 책 70권 목록 초안 `docs/plans/book-catalog-70.md`.
 ## ✅ 끝난 것 (2026-10-19)
 - 팟캐스트 올리기(SQL · `PODCAST_AUTO` · 01편 유튜브 올림) · 스포티파이 방송 등록(처리 중 → 24시간 안에 노출) · 방송 목록 소유자 메일 `cheesepotato@everykoreans.com`
 - `db/add_downloads.sql`(내려받기 비공개 저장 칸) — 운영자가 SQL Editor 에서 실행함. `downloads-sync` 올리기 끝남(운영자 2026-10-20). 남은 것: 로그인 / 로그아웃 창으로 3급 CSV 시험(`docs/ops/downloads-gate.md`)
