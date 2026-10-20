@@ -15,6 +15,7 @@
 
 ## 3. 진행 중인 큰 일: 「단어」 섹션
 - **진행 중인 큰 일: 「단어」 섹션** — 계획은 `docs/plans/vocab-plan.md`(1~7층, 운영자와 합의). TOPIK I 자료 1,930개(B급) 끝,
+  **팟캐스트 칸**(2026-10-20): 「단어」 탭 줄 끝 — 방송 목록 feed.xml 에서 올라온 편을 한 편씩(재생기). 한 칸 설명은 decisions 참고.
   **2단계(화면 `#words` · `words.js` · 내 단어장 연동) 끝, 3단계(낱말 쪽 보강 · `/topik1-words/`) · 4단계(받아쓰기 · 짝 맞추기 · 시험 · `/korean-word-for/`) 끝** — 지금 **5단계(자료 확장)**: TOPIK II 씨앗 8,183개(`vocab/data/topik2.json`, `tools/vocab-seed-topik2.mjs`),
   안 그래비티가 500개씩 채운다(`docs/antigravity/antigravity-vocab-topik2-task.md`) — 들어오면 검토. **17묶음까지 모두 끝(8,183개 전부 B급, 2026-10-01)**(올라오면 커밋이 있는지 먼저 본다).
 

@@ -374,6 +374,7 @@ export function wordsInit(D) {
     ['home', t('오늘', 'Today')], ['learn', t('외우기', 'Learn')],
     /* 사자성어 · 속담 · 관용표현은 각각 탭으로(운영자 2026-10-18 「관용표현을 메뉴로」) — 키는 x:<갈래> */
     ['x:idiom4', t('사자성어', 'Four-char idioms')], ['x:proverb', t('속담', 'Proverbs')], ['x:idiom', t('관용표현', 'Phrases')],
+    ['pod', t('팟캐스트', 'Podcast')],
     ['mine', t('내 단어장', 'My wordbook')], ['stats', t('기록', 'Progress')],
   ];
   /* 선 아이콘(SVG) — 이모지는 기기마다 모양 · 색이 달라 화면이 어수선해진다(운영자 요청: 이모지 → SVG). 24칸 · 글자 색을 따른다. */
@@ -1333,6 +1334,33 @@ export function wordsInit(D) {
   }
 
 
+  /* ── 팟캐스트(운영자 2026-10-20 「단어 › 표현 탭 안에, 한 편씩 깔끔하게」) ──
+     올라온 편은 스포티파이가 읽는 방송 목록(feed.xml, 공개 저장 칸)에서 그대로 읽는다 — 편이 늘면 손대지 않아도 목록이 자란다.
+     소리는 같은 칸의 공개 파일이라 <audio> 로 바로 튼다(CSP media-src 에 이미 있음). 탭을 열 때만 받는다. */
+  const POD_FEED = 'https://tjgoevtvobvmlyefgxel.supabase.co/storage/v1/object/public/podcast/feed.xml';
+  let POD = null, podP = null;
+  function podNeed() {
+    if (podP) return;
+    podP = fetch(POD_FEED, { cache: 'no-cache' }).then((r) => { if (!r.ok) throw new Error(r.status); return r.text(); }).then((xml) => {
+      const doc = new DOMParser().parseFromString(xml, 'application/xml');
+      const tx = (it, tag) => (it.getElementsByTagName(tag)[0]?.textContent || '').trim();
+      POD = [...doc.getElementsByTagName('item')].map((it) => ({
+        ep: tx(it, 'itunes:episode'), title: tx(it, 'title'), desc: tx(it, 'description'),
+        src: it.getElementsByTagName('enclosure')[0]?.getAttribute('url') || '', sec: +tx(it, 'itunes:duration') || 0,
+      })).filter((e) => /^https:\/\/tjgoevtvobvmlyefgxel\.supabase\.co\//.test(e.src)).sort((a, b) => (+b.ep || 0) - (+a.ep || 0));
+      if (view.tab === 'pod') draw();
+    }, () => { POD = []; podP = null; if (view.tab === 'pod') draw(); });
+  }
+  function drawPod() {
+    const head = `<p class="wd-pod-desc">${esc(t('3분 한국어 — 표현 하나를 뜻 · 예문 · 짧은 대화로. 한 편씩 들어 보세요.', 'Three-minute Korean — one expression per episode: meaning, examples and a short dialogue.'))}</p>`;
+    if (!POD) { podNeed(); return head + `<p class="wd-none">${esc(t('불러오는 중…', 'Loading…'))}</p>`; }
+    if (!POD.length) return head + `<p class="wd-none">${esc(t('아직 올라온 편이 없어요. 곧 올라와요!', 'No episodes yet — coming soon!'))}</p>`;
+    return head + `<div class="wd-pod">${POD.map((e) => `<article class="wd-pod-ep">
+      <b class="wd-pod-n">EP ${esc(e.ep)}${e.sec ? ` · ${Math.max(1, Math.round(e.sec / 60))} min` : ''}</b>
+      <h3>${esc(e.title)}</h3><p>${esc(e.desc.replace(/\s*More at everykoreans\.com.*$/, ''))}</p>
+      <audio controls preload="none" src="${esc(e.src)}"></audio></article>`).join('')}</div>`;
+  }
+
   /* ── 표현: 사자성어 · 속담 · 관용 표현(운영자 2026-10-07 「사자성어 · 속담 · 관용 표현도 — 뜻 · 예문 · 퀴즈」) ──
      자료는 expressions.js(tools/build-expressions.mjs ← vocab/data/expressions.json, 안티 · Claude 검토). 이 탭을 열 때만 받는다.
      속담 · 관용 표현은 아직 자료가 없다 — 칸은 보여 주고 「준비 중」으로. */
@@ -1454,6 +1482,7 @@ export function wordsInit(D) {
     else if (view.tab === 'mine') body = drawMine();
     else if (view.tab === 'word') body = drawWord(view.h);
     else if (view.tab === 'expr') body = drawExpr();
+    else if (view.tab === 'pod') body = drawPod();
     else if (view.tab === 'xone') body = drawExprOne(view.id);
     else body = drawHome();
     const hadFocus = document.activeElement?.id === 'wdQ';
@@ -1551,7 +1580,7 @@ export function wordsInit(D) {
       const go = () => {
         query = ''; run = null;
         if (tab.dataset.tab.startsWith('x:')) { xs.ty = tab.dataset.tab.slice(2); xs.lv = 0; xs.q = ''; xs.quiz = null; view = { tab: 'expr' }; mark(xs.ty); exprNeed(); return draw(); }
-        view = { tab: tab.dataset.tab }; mark(view.tab === 'home' ? '' : view.tab); draw();
+        view = { tab: tab.dataset.tab }; mark(view.tab === 'home' ? '' : view.tab); if (view.tab === 'pod') podNeed(); draw();
       };
       if (view.tab === 'study' && run?.cur) return ask({ title: t('공부를 그만할까요?', 'Stop now?'), msg: t('푼 것은 기록돼요.', 'What you answered is saved.'), ok: t('그만하기', 'Stop'), done: go });
       return go();
