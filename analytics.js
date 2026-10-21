@@ -146,7 +146,7 @@
    수업 신청(Preply) · WhatsApp 처럼 「사이트가 돈으로 이어지는 곳」이 몇 번 눌렸는지 보려고.
    teacher.html 처럼 app.module.js 가 없는 쪽에서도 돌아야 해서 여기 둔다. 링크는 그대로 열린다. */
 (function () {
-  var EN = { '수업신청클릭': 'lesson_booking_click', '왓츠앱클릭': 'whatsapp_click', '선생님쪽열기': 'teacher_page_click' };
+  var EN = { '수업신청클릭': 'lesson_booking_click', '왓츠앱클릭': 'whatsapp_click', '선생님쪽열기': 'teacher_page_click', '앱다운로드클릭': 'app_download_click' };
   document.addEventListener('click', function (ev) {
     var a = ev.target && ev.target.closest ? ev.target.closest('a[data-ev]') : null;
     if (!a) return;
