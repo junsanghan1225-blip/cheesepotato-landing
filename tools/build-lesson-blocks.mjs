@@ -15,6 +15,9 @@ const CHECK = process.argv.includes('--check');
 const bad = [];
 const { COURSES } = await import(pathToFileURL(path.join(ROOT, 'courses.js')).href);
 const { conjugate } = await import(pathToFileURL(path.join(ROOT, 'tools/ko-conj.mjs')).href);
+/* 문장 늘리기를 더 어렵게(운영자 2026-10-21): docs/expand-decoys.json = { "<레슨 id>": [ [단계1 틀린 조각…], [단계2 …] ] } — 틀린 조각을 칩에 섞는다.
+   원본(레슨 블록)은 안 건드리고 여기서 단계에 붙인다. 없으면 그대로. */
+const DECOYS = fs.existsSync(path.join(ROOT, 'docs/expand-decoys.json')) ? JSON.parse(fs.readFileSync(path.join(ROOT, 'docs/expand-decoys.json'), 'utf8')) : {};
 const lessonsOf = new Map(COURSES.map((c) => [c.id, new Set(c.lessons.map((l) => l.id))]));
 const str = (x) => typeof x === 'string' && x.trim().length > 0;
 const strs = (a, min = 1) => Array.isArray(a) && a.length >= min && a.every(str);
@@ -76,6 +79,16 @@ for (const f of files) {
   }
   const dd = {};
   for (const [lid, blocks] of Object.entries(d)) dd[lid] = (Array.isArray(blocks) ? blocks : []).map((b, i) => (b?.t === 'conj' && RULES.conj(b) === true ? expandConj(b, `${f} ${lid}[${i}]`) : b));
+  for (const [lid, blocks] of Object.entries(dd)) {
+    const dl = DECOYS[lid]; if (!dl) continue;
+    const ex = blocks.find((b) => b?.t === 'expand'); if (!ex) { bad.push(`docs/expand-decoys.json ${lid}: 이 레슨에 expand 가 없다`); continue; }
+    ex.steps = ex.steps.map((st, si) => {
+      const x = dl[si]; if (!x || !x.length) return st;
+      if (!strs(x) || x.length > 2) { bad.push(`docs/expand-decoys.json ${lid}[${si}]: 틀린 조각은 문자열 1~2개`); return st; }
+      if (x.some((y) => st.tokens.includes(y))) { bad.push(`docs/expand-decoys.json ${lid}[${si}]: 틀린 조각이 정답 조각과 같다`); return st; }
+      return { ...st, decoys: x };
+    });
+  }
   out.set(`${cid}.json`, JSON.stringify(dd) + '\n');
   index[cid] = Object.keys(d).length;
 }
