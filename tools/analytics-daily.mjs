@@ -131,7 +131,7 @@ async function collect() {
     q(['pagePath'], ['screenPageViews', 'activeUsers'], 10, sorted('screenPageViews')),
     q(['sessionDefaultChannelGroup', 'sessionSourceMedium'], ['sessions'], 10, sorted('sessions')),
     q(['country'], ['activeUsers', 'sessions'], 10, sorted('activeUsers')),
-    q(['eventName'], ['eventCount'], 15, sorted('eventCount')),
+    q(['eventName'], ['eventCount'], 100, sorted('eventCount'))   // 15개까지만 담으면 레벨테스트 완료 같은 낮은 순위 이벤트가 빠져 깔때기가 틀어진다(2026-10-21),
     q(['deviceCategory'], ['activeUsers', 'sessions'], 5, sorted('activeUsers')),
     sc(tok, { startDate: SC_END, endDate: SC_END, rowLimit: 1 }),
     sc(tok, { startDate: SC_START, endDate: SC_END, dimensions: ['query'], rowLimit: 20 }),
@@ -151,7 +151,10 @@ function summary(d) {
   L.push(...table('어디서 왔나 (유입)', ['채널', '출처 / 매체', '방문'], d.sources.map((r) => [r[0], r[1], fmt(r[2])])));
   L.push(...table('나라별', ['나라', '방문자', '방문'], d.countries.map((r) => [r[0], fmt(r[1]), fmt(r[2])])));
   L.push(...table('기기별', ['기기', '방문자', '방문'], d.devices.map((r) => [r[0], fmt(r[1]), fmt(r[2])])));
-  L.push(...table('이벤트 TOP 15', ['이벤트', '횟수'], d.events.map((r) => [r[0], fmt(r[1])])));
+  L.push(...table('이벤트 TOP 15', ['이벤트', '횟수'], d.events.slice(0, 15).map((r) => [r[0], fmt(r[1])])));
+  const KEY = ['lesson_start', 'lesson_complete', 'level_test_open', 'level_test_start', 'level_test_half', 'level_test_complete', 'sign_up', 'login', 'pro_view', 'checkout', 'paid', 'file_download', 'download_gate_view', 'download_gate_click', 'download_start'];
+  const ev = Object.fromEntries(d.events.map((r) => [r[0], r[1]]));
+  L.push(...table('핵심 이벤트(순위 밖이어도)', ['이벤트', '횟수'], KEY.filter((k) => ev[k] != null).map((k) => [k, fmt(ev[k])])));
   const sd = d.scDay[0] || [0, 0];
   L.push('## 검색 (Search Console)', '', `확정된 가장 최근 하루(${SC_END}): 클릭 ${fmt(sd[0])} · 노출 ${fmt(sd[1])}`, '');
   L.push(...table(`검색어 TOP 20 (${SC_START} ~ ${SC_END})`, ['검색어', '클릭', '노출', '클릭률', '평균 순위'], d.scQ.map((r) => [r[0], fmt(r[1]), fmt(r[2]), pct(num(r[3])), num(r[4]).toFixed(1)])));
