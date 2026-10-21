@@ -250,20 +250,20 @@
       "steps": [
         {
           "tokens": [
-            "작년에",
+            "어렸을 때",
             "서울에",
             "간 적이 있어요"
           ],
-          "en": "I have been to Seoul last year."
+          "en": "I went to Seoul once when I was young."
         },
         {
           "tokens": [
             "가족들과",
-            "작년에",
+            "어렸을 때",
             "서울에",
             "간 적이 있어요"
           ],
-          "en": "I have been to Seoul with my family last year."
+          "en": "I went to Seoul with my family once when I was young."
         }
       ]
     },
@@ -627,7 +627,7 @@
       "t": "cando",
       "items": [
         "Warmly recommend experiences to friends using -아/어 보세요",
-        "Conjugate irregular verbs (ㄷ, ㅂ, 르) correctly with -아/어 보세요"
+        "Conjugate regular and ㄷ-irregular verbs (듣다 → 들어 보세요) correctly with -아/어 보세요"
       ]
     }
   ]

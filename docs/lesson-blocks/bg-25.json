@@ -548,7 +548,7 @@
       "t": "compare",
       "h": "Gentle Advice -는 게 좋다 vs Hopeful Wish -았/었으면 좋겠다",
       "a": {
-        "h": "-는 게 좋다 (부드러운 권유·조언)",
+        "h": "-는 게 좋다 (gentle advice)",
         "d": "Gives gentle, caring advice to someone (*“It would be best to...”* or *“You had better...”*).",
         "ex": [
           "열이 나면 약을 **먹는 게 좋아요**. / If you have a fever, it's best to take medicine.",
@@ -556,7 +556,7 @@
         ]
       },
       "b": {
-        "h": "-았/었으면 좋겠다 (간절한 바람·소망)",
+        "h": "-았/었으면 좋겠다 (earnest wish)",
         "d": "Expresses a personal hope or wish about future circumstances (*“I hope that...”* or *“I wish...”*).",
         "ex": [
           "내일은 날씨가 **따뜻했으면 좋겠어요**. / I hope the weather will be warm tomorrow.",
