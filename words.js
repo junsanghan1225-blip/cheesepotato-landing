@@ -1357,7 +1357,7 @@ export function wordsInit(D) {
     if (!POD.length) return head + `<p class="wd-none">${esc(t('아직 올라온 편이 없어요. 곧 올라와요!', 'No episodes yet — coming soon!'))}</p>`;
     return head + `<div class="wd-pod">${POD.map((e) => `<article class="wd-pod-ep">
       <b class="wd-pod-n">EP ${esc(e.ep)}${e.sec ? ` · ${Math.max(1, Math.round(e.sec / 60))} min` : ''}</b>
-      <h3>${esc(e.title)}</h3><p>${esc(e.desc.replace(/\s*More at everykoreans\.com.*$/, ''))}</p>
+      <h3>${esc(e.title)}</h3><p>${esc(e.desc.split('\n').filter((l) => !/^(More |#)/.test(l)).join('\n').replace(/\s*More at everykoreans\.com.*$/, '').trim())}</p>
       <audio controls preload="none" src="${esc(e.src)}"></audio></article>`).join('')}</div>`;
   }
 

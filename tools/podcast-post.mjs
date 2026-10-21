@@ -51,7 +51,7 @@ function makeVideo(audio, cover, out) {
 async function toYouTube(row, file, cover) {
   const token = await googleToken();
   const size = statSync(file).size;
-  const meta = { snippet: { title: row.title, description: `${row.description}\n\n🎧 https://everykoreans.com`, tags: row.tags || [], categoryId: '27', defaultLanguage: 'en' },
+  const meta = { snippet: { title: row.title, description: row.description.includes('everykoreans.com') ? row.description : `${row.description}\n\n🎧 https://everykoreans.com`, tags: row.tags || [], categoryId: '27', defaultLanguage: 'en' },
     status: { privacyStatus: env.YT_PRIVACY || 'private', selfDeclaredMadeForKids: false } };
   const init = await fetch('https://www.googleapis.com/upload/youtube/v3/videos?uploadType=resumable&part=snippet,status', {
     method: 'POST', headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json; charset=UTF-8', 'X-Upload-Content-Type': 'video/mp4', 'X-Upload-Content-Length': String(size) }, body: JSON.stringify(meta) });
