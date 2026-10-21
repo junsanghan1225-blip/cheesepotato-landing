@@ -100,19 +100,19 @@
         {
           "tokens": [
             "저는",
-            "한국어",
+            "대학교",
             "학생이에요"
           ],
-          "en": "I am a Korean student."
+          "en": "I am a university student."
         },
         {
           "tokens": [
             "저는",
-            "지금",
-            "한국어",
+            "한국",
+            "대학교",
             "학생이에요"
           ],
-          "en": "I am a Korean student right now."
+          "en": "I am a student at a Korean university."
         }
       ]
     },
@@ -206,12 +206,12 @@
     },
     {
       "t": "write",
-      "q": "State that you are not a doctor using 아니에요.",
+      "q": "State that you are not a singer using 아니에요.",
       "must": [
-        "의사가",
+        "가수가",
         "아니에요"
       ],
-      "sample": "저는 의사가 아니에요.",
+      "sample": "저는 가수가 아니에요.",
       "why": "Use 이/가 아니에요: 의사 ends in a vowel so use 의사가 아니에요."
     },
     {
@@ -267,7 +267,7 @@
             "의사가",
             "아니에요"
           ],
-          "en": "I am not a doctor."
+          "en": "As for me, I am not a doctor."
         },
         {
           "tokens": [
@@ -370,11 +370,11 @@
     },
     {
       "t": "write",
-      "q": "Introduce an item as a Korean book using 책이에요.",
+      "q": "Introduce a desk using 책상이에요.",
       "must": [
-        "책이에요"
+        "책상이에요"
       ],
-      "sample": "이거는 한국어 책이에요.",
+      "sample": "이거는 책상이에요.",
       "why": "책 ends in a consonant (받침 ㄱ), so attach -이에요."
     },
     {
