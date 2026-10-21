@@ -114,14 +114,14 @@
       "t": "passage",
       "h": "Read a little",
       "ko": [
-        "할머니가 주말마다 우리 집에 오세요.",
+        "할머니께서 주말마다 우리 집에 오세요.",
         "할머니는 부엌에서 맛있는 불고기를 만드세요.",
-        "그리고 우리에게 따뜻할 때 많이 드세요라고 말씀하세요."
+        "그래서 저는 할머니께 “맛있게 드세요”라고 말씀드려요."
       ],
       "en": [
         "Grandmother comes to our house every weekend.",
         "Grandmother makes delicious bulgogi in the kitchen.",
-        "And she tells us to eat plenty while it is warm."
+        "So I say to Grandmother, “Please enjoy your meal.”"
       ]
     },
     {
@@ -271,7 +271,7 @@
       "h": "Read a little",
       "ko": [
         "저는 오늘 한국어 수업 시간에 모르는 표현이 있었어요.",
-        "선생님께 이 문장을 다시 한번 설명해 주세요라고 부탁했어요.",
+        "선생님께 “이 문장을 다시 한번 설명해 주세요”라고 부탁했어요.",
         "선생님이 칠판에 예문을 쓰고 친절하게 가르쳐 주셨어요."
       ],
       "en": [
@@ -289,7 +289,7 @@
         "Turn off the classroom lights"
       ],
       "answer": 0,
-      "why": "The passage says '선생님께 이 문장을 다시 한번 설명해 주세요라고 부탁했어요' (I asked the teacher to explain this sentence once more)."
+      "why": "The passage says '선생님께 “이 문장을 다시 한번 설명해 주세요”라고 부탁했어요' (I asked the teacher to explain this sentence once more)."
     },
     {
       "t": "choice",
@@ -438,37 +438,37 @@
       "t": "passage",
       "h": "Read a little",
       "ko": [
-        "할아버지가 큰 상자를 들고 계셨어요.",
-        "할아버지가 민수에게 이 상자 좀 같이 들어 주세요라고 말씀하셨어요.",
-        "민수는 기쁜 마음으로 할아버지를 도와드렸어요."
+        "옆집 아주머니가 큰 상자를 들고 계셨어요.",
+        "아주머니가 민수에게 “이 상자 좀 같이 들어 주세요”라고 말씀하셨어요.",
+        "민수는 기쁜 마음으로 아주머니를 도와드렸어요."
       ],
       "en": [
-        "Grandfather was holding a large box.",
-        "Grandfather said to Minsu, 'Please carry this box together with me.'",
-        "Minsu gladly helped Grandfather."
+        "A neighbor lady was holding a large box.",
+        "She said to Minsu, “Please carry this box together with me.”",
+        "Minsu gladly helped her."
       ]
     },
     {
       "t": "choice",
-      "q": "What did Grandfather ask Minsu to do?",
+      "q": "What did the neighbor ask Minsu to do?",
       "options": [
         "Help carry a large box together",
         "Call a taxi to the station",
         "Write an address on a letter"
       ],
       "answer": 0,
-      "why": "The passage says '이 상자 좀 같이 들어 주세요라고 말씀하셨어요' (Asked him to carry the box together)."
+      "why": "The passage says '“이 상자 좀 같이 들어 주세요”라고 말씀하셨어요' (Asked him to carry the box together)."
     },
     {
       "t": "choice",
-      "q": "How did Minsu respond to Grandfather's request?",
+      "q": "How did Minsu respond to her request?",
       "options": [
-        "He gladly helped him",
+        "He gladly helped her",
         "He said he was too busy",
         "He went inside to sleep"
       ],
       "answer": 0,
-      "why": "The passage states '민수는 기쁜 마음으로 할아버지를 도와드렸어요' (Minsu gladly helped Grandfather)."
+      "why": "The passage states '민수는 기쁜 마음으로 아주머니를 도와드렸어요' (Minsu gladly helped her)."
     },
     {
       "t": "cando",
@@ -544,7 +544,7 @@
       "t": "compare",
       "h": "General Directive -(으)세요 vs Favor Request -아/어 주세요",
       "a": {
-        "h": "-(으)세요 (상대방을 위한 권유·안내)",
+        "h": "-(으)세요 (for the listener)",
         "d": "Directs or invites the listener for their own comfort or as general etiquette.",
         "ex": [
           "손님, 여기 편하게 **앉으세요**. / Customer, please sit here comfortably.",
@@ -552,7 +552,7 @@
         ]
       },
       "b": {
-        "h": "-아/어 주세요 (나를 위한 부탁)",
+        "h": "-아/어 주세요 (a favor for me)",
         "d": "Politely asks the listener to perform an action for the speaker's benefit.",
         "ex": [
           "기사님, 서울역으로 **가 주세요**. / Driver, please take me to Seoul Station.",
@@ -628,8 +628,8 @@
       "h": "Read a little",
       "ko": [
         "지민 씨는 아침에 택시를 탔어요.",
-        "택시 기사님께 한국병원 앞으로 가 주세요라고 말했어요.",
-        "내릴 때 기사님이 지민 씨에게 조심히 가세요라고 인사하셨어요."
+        "택시 기사님께 “한국병원 앞으로 가 주세요”라고 말했어요.",
+        "내릴 때 기사님이 지민 씨에게 “조심히 가세요”라고 인사하셨어요."
       ],
       "en": [
         "Jimin took a taxi in the morning.",
@@ -657,7 +657,7 @@
         "Please wait a moment (잠깐 기다려 주세요)"
       ],
       "answer": 0,
-      "why": "The passage says '기사님이 지민 씨에게 조심히 가세요라고 인사하셨어요' (The driver greeted Jimin, 'Please go safely')."
+      "why": "The passage says '기사님이 지민 씨에게 “조심히 가세요”라고 인사하셨어요' (The driver greeted Jimin, 'Please go safely')."
     },
     {
       "t": "cando",

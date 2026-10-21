@@ -276,7 +276,7 @@ export const BEGINNER_STAGE2_COURSES = [
       {"t":"choice","q":"A friend calls and asks: “지금 뭐 하고 있어요?” You are in the middle of preparing lunch. What do you say?","options":["점심 준비하고 있어요.","점심 준비하고 에요.","점심 준비하요."],"answer":0,"why":"점심 준비하다 + -고 있어요 becomes **점심 준비하고 있어요**."},
       {"t":"choice","q":"You are on the bus heading to meet someone. How do you tell them?","options":["버스 타고 가고 있어요.","버스 타고 가고 에요.","버스 타고 가고 하요."],"answer":0,"why":"가다 + -고 있어요 becomes **가고 있어요**."},
       {"t":"pair","q":"Match each question with its natural continuous response.","pairs":[["지금 바빠요?","네, 보고서를 쓰고 있어요."],["어디에 있어요?","정류장에서 버스를 기다리고 있어요."],["통화 괜찮아요?","미안해요, 지금 운전하고 있어요."],["주말에 보통 뭐 해요?","집에서 영화를 봐요."]]},
-      {"t":"cloze","sentence":"A: 지금 어디예요? B: 약속 장소로 [가고 있어요].","answer":"가고 있어요","meaning":"A: Where are you now? B: I am on my way to the meeting place.","options":["가고 있어요","가고 에요","가고 하요","가고 이에요"],"keys":["가고 있어요","가고 에요","가고 하요","가고 이에요"],"why":"가다 + -고 있어요 → **가고 있어요** (statement form with period)."},
+      {"t":"cloze","sentence":"A: 지금 어디예요? B: 약속 장소로 [가고 있어요].","answer":"가고 있어요","meaning":"A: Where are you now? B: I am on my way to the meeting place.","options":["가고 있어요","가고 에요","가고 하요","가고 이에요"],"keys":["가고 있어요","가고 에요","가고 하요","가고 이에요"],"why":"가다 + -고 있어요 → **가고 있어요** (statement form)."},
       {"t":"type","q":"Reply that you are waiting for a friend: 「카페에서 친구를 ___ .」","answer":"기다리고 있어요","keys":["기다리고 있어요","기다리고 에요","기다리고 하요"],"why":"기다리다 + -고 있어요 becomes **기다리고 있어요**."},
       {"t":"speak","say":"미안해요, 지금 지하철을 타고 가고 있어서 나중에 전화할게요.","rom":"mi-an-hae-yo, ji-geum ji-ha-cheol-eul ta-go ga-go iss-eo-seo na-jung-e jeon-hwa-hal-ge-yo","q":"Read out loud: “Sorry, I am taking the subway right now so I will call you later.”"},
     ],
@@ -294,7 +294,7 @@ export const BEGINNER_STAGE2_COURSES = [
   emoji: '⏰',
   title: { ko:'시간을 말하는 자리: 전·후·때·기간', en:'Time Phrases: Before, After, When & Duration' },
   tagline: { ko:'-기 전에, -(으)ㄴ 후에, -(으)ㄹ 때, -(으)ㄴ 지를 덩어리로 익히기', en:'Chunked time expressions you use every single day.' },
-  blurb: { ko:'복잡한 문법 규칙을 분해하지 않고 덩어리로 먼저 말합니다. 일의 앞뒤와 걸린 시간을 자유롭게 표현하는 3강 코스입니다.',
+  blurb: { ko:'복잡한 문법 규칙을 분해하지 않고 덩어리로 먼저 말합니다. 일의 앞뒤와 걸린 시간을 자유롭게 표현하는 4강 코스입니다.',
            en:'Master time sequences as ready-made chunks before breaking down the grammar mechanics. Express before, after, when, and elapsed time.' },
   level: 'Beginner',
   needs: 'bg-11',
@@ -308,10 +308,10 @@ export const BEGINNER_STAGE2_COURSES = [
       { t:'text', md:'Two essential time chunks for sequencing events:\n\n1. **[Verb Stem] + -기 전에** = Before doing...\n2. **[Verb Stem-(으)ㄴ] + 후에** = After doing...\n\n밥 먹**기 전에** 손을 씻어요. / Before eating, I wash my hands.\n밥 먹**은 후에** 커피를 마셔요. / After eating, I drink coffee.' },
 
       { t:'table', head:['Verb','-기 전에 (Before)','-(으)ㄴ 후에 (After)'], rows:[
-        ['먹다 (to eat)','먹**기 전에**','먹**은 후에** (받침 ㅇ)'],
-        ['가다 (to go)','가**기 전에**','가**ㄴ 후에** (받침 없음)'],
-        ['자다 (to sleep)','자**기 전에**','자**ㄴ 후에** (받침 없음)'],
-        ['운동하다 (to exercise)','운동하**기 전에**','운동하**ㄴ 후에**'],
+        ['먹다 (to eat)','먹**기 전에**','먹**은 후에** (받침 있음)'],
+        ['가다 (to go)','가**기 전에**','**간 후에** (받침 없음)'],
+        ['자다 (to sleep)','자**기 전에**','**잔 후에** (받침 없음)'],
+        ['운동하다 (to exercise)','운동하**기 전에**','운동**한 후에**'],
       ]},
 
       { t:'chars', wide:true, items:[
@@ -401,7 +401,7 @@ export const BEGINNER_STAGE2_COURSES = [
 
       { t:'chars', wide:true, items:[
         { ch:'한국에 온 지 일 년 됐어요.', tip:'It’s been a year since I came to Korea.' },
-        { ch:'한국어를 배운 지 세 달 됐어요.', tip:'It’s been three months since I learned Korean.' },
+        { ch:'한국어를 배운 지 세 달 됐어요.', tip:'It’s been three months since I started learning Korean.' },
         { ch:'친구를 못 본 지 오래됐어요.', tip:'It’s been a long time since I saw my friend.' },
       ]},
 
@@ -466,7 +466,7 @@ export const BEGINNER_STAGE2_COURSES = [
   emoji: '🔄',
   title: { ko:'모양이 바뀌는 동사 ②: ㄷ과 르', en:'Verbs That Change Shape ②: ㄷ and 르' },
   tagline: { ko:'듣다·걷다, 그리고 가장 많이 쓰는 “몰라요”', en:'ㄷ changes to ㄹ, and 르 doubles: the verbs behind “몰라요”.' },
-  blurb: { ko:'음악을 듣고 길을 걷는 일상 동사 ㄷ 불규칙과, 초급 최다 발화인 “모르겠어요/몰라요”의 르 불규칙을 2강으로 정리합니다.',
+  blurb: { ko:'음악을 듣고 길을 걷는 일상 동사 ㄷ 불규칙과, 초급 최다 발화인 “모르겠어요/몰라요”의 르 불규칙을 4강으로 정리합니다.',
            en:'Meet ㄷ (듣다·걷다) which shifts to ㄹ before vowels, and 르 (모르다·빠르다) which powers everyday phrases like 몰라요.' },
   level: 'Beginner',
   needs: 'bg-12',

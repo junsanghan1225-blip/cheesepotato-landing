@@ -436,7 +436,7 @@
             "일 년",
             "됐어요"
           ],
-          "en": "It has been one year since I came to Korea."
+          "en": "As for me, it has been one year since I came to Korea."
         }
       ]
     },
@@ -451,7 +451,7 @@
       "en": [
         "I came to Korea last year.",
         "It has already been one year since I came to Korea.",
-        "It has been six months since I learned Korean."
+        "It has been six months since I started learning Korean."
       ]
     },
     {
@@ -474,7 +474,7 @@
         "One month"
       ],
       "answer": 0,
-      "why": "The text states '한국어를 배운 지는 육 개월 됐어요' (It has been six months since I learned Korean)."
+      "why": "The text states '한국어를 배운 지는 육 개월 됐어요' (It has been six months since I started learning Korean)."
     },
     {
       "t": "cando",

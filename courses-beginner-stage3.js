@@ -285,10 +285,10 @@ export const BEGINNER_STAGE3_COURSES = [
         options:['날씨가 좋으니까 공원에 갈까요?','날씨가 좋아서 공원에 갈까요?','날씨가 좋아서 공원에 가세요.','날씨가 좋아서 산책합시다.'], answer:0,
         why:'Suggestions like -갈까요? and commands like -세요 can never follow -아/어서. They require -(으)니까!' },
 
-      { t:'cloze', sentence:'더우니까 에어컨을 [켜세요].', answer:'켜세요',
-        options:['켜세요','켜서','켜고','켜지만'],
+      { t:'cloze', sentence:'[더우니까] 에어컨을 켜세요.', answer:'더우니까',
+        options:['더우니까','더워서','더우면','더워도'],
         meaning:'Since it is hot, please turn on the air conditioner.',
-        why:'-(으)니까 naturally leads into the imperative command 켜세요 (please turn on).' },
+        why:'Before a command like 켜세요 (please turn on), use the reason ending -(으)니까: 더우니까. -아/어서 (더워서) cannot lead into a command.' },
 
       { t:'correct', wrong:'날씨가 추워서 따뜻하게 입으세요.',
         answers:['날씨가 추우니까 따뜻하게 입으세요.','날씨가 추우니까 따뜻하게 입으세요'],
@@ -319,7 +319,7 @@ export const BEGINNER_STAGE3_COURSES = [
       {"t":"choice","q":"Which sentence naturally thanks someone for a gift?","options":["선물을 줘서 고마워요","선물을 주니까 고마워요","선물을 주어서고 고마워요"],"answer":0,"why":"Expressions of gratitude always take -아/어서: 주다 + -어서 → **줘서 고마워요**."},
       {"t":"pair","q":"Match each context with the appropriate conversational phrase.","pairs":[["Greeting a new friend","만나서 반가워요"],["Apologizing for late arrival","늦어서 죄송해요"],["Suggestion: take the subway","차가 막히니까 지하철 타요"],["Command: please dress warmly","추우니까 따뜻하게 입으세요"]]},
       {"t":"cloze","sentence":"오늘 날씨가 [좋으니까] 공원에 놀러 가요.","answer":"좋으니까","meaning":"Since the weather is nice today, let's go hang out at the park.","options":["좋으니까","좋아니까","좋개니까","좋고니까"],"keys":["좋으니까","좋아니까","좋개니까","좋고니까"],"why":"Before a suggestion or invitation (놀러 가요), you must use -(으)니까, never -아/어서."},
-      {"t":"type","q":"Conjugate 돕다 (to help) into the thanking phrase: 「친구야, 나를 ___ 고마워.」","answer":"도와줘서","keys":["도와줘서","돕아줘서","도와주개서"],"why":"Thanking expressions require -아/어서: 돕다 changes to 도와- + -줘서 → **도와줘서**."},
+      {"t":"type","q":"Conjugate 도와주다 (to help me) into the thanking phrase: 「저를 ___ 고마워요.」","answer":"도와줘서","keys":["도와줘서","돕아줘서","도와주개서"],"why":"Thanking expressions require -아/어서: 돕다 changes to 도와- + -줘서 → **도와줘서**."},
       {"t":"speak","say":"선생님, 친절하게 가르쳐 주셔서 진심으로 감사합니다.","rom":"seon-saeng-nim, chin-jeol-ha-ge ga-reu-chyeo ju-syeo-seo jin-sim-eu-ro gam-sa-ham-ni-da","q":"Say it aloud politely thanking a teacher."},
     ],
   },
@@ -336,8 +336,8 @@ export const BEGINNER_STAGE3_COURSES = [
   emoji: '🌿',
   title: { ko:'-(으)면 · -(으)면서 · -거나', en:'Conditions, While & Either/Or: -(으)면, -(으)면서, -거나' },
   tagline: { ko:'조건과 동시 동작, 선택으로 표현 넓히기', en:'If, while, and either/or in daily speech.' },
-  blurb: { ko:'"만약 ~하면", "~하면서", "이걸 하거나 저걸 해요"처럼 현실에서 가장 자주 쓰이는 연결 어미 셋을 배웁니다. -(으)면에서 처음 만나는 ㄹ 불규칙 탈락까지 정복합니다.',
-           en:'Express conditions (if), simultaneous actions (while doing), and choices between actions (either... or). Also master the essential ㄹ-drop rule when -(으) is attached.' },
+  blurb: { ko:'"만약 ~하면", "~하면서", "이걸 하거나 저걸 해요"처럼 현실에서 가장 자주 쓰이는 연결 어미 셋을 배웁니다. -(으)면에서 처음 만나는 ㄹ 받침 규칙(살다 → 살면)까지 정복합니다.',
+           en:'Express conditions (if), simultaneous actions (while doing), and choices between actions (either... or). Also master the essential ㄹ-stem rule: no 으 is added after ㄹ (살다 → 살면).' },
   level: 'Beginner',
   needs: 'bg-14',
   lessons: [
@@ -345,7 +345,7 @@ export const BEGINNER_STAGE3_COURSES = [
   /* ── 1 ─────────────────────────────────────────────────── */
   {
     id: 'bg-15-01',
-    title: { ko:'1강. 조건: -(으)면 과 ㄹ 탈락의 시작', en:'Lesson 1. If & When: -(으)면 and the ㄹ Rule' },
+    title: { ko:'1강. 조건: -(으)면 과 ㄹ 받침 규칙의 시작', en:'Lesson 1. If & When: -(으)면 and the ㄹ Rule' },
     minutes: 7,
     blocks: [
       { t:'text', md:'To say **“if”** or **“when”** a condition is met, attach **-(으)면** to the verb or adjective stem:\n- Stem with batchim → **-으면** *(먹다 → 먹으면)*\n- Stem without batchim → **-면** *(가다 → 가면)*' },
@@ -632,7 +632,7 @@ export const BEGINNER_STAGE3_COURSES = [
       {"t":"choice","q":"A coworker invites you to coffee, but you are very busy right now. Which response is the most polite and natural?","options":["죄송해요, 제가 지금 조금 바쁜데요…","바빠서 싫어요","바쁜데도 가요"],"answer":0,"why":"Ending with -ㄴ데요 softens the refusal gently: 바쁘다 + -ㄴ데요 → **바쁜데요…**."},
       {"t":"choice","q":"How do you conjugate ‘있다’ (to have/exist) into this background-setting form?","options":["있는데","있은데","있는대"],"answer":0,"why":"Words with 있다 / 없다 always attach -는데: 있 + 는데 → **있는데**."},
       {"t":"pair","q":"Match each verb/adjective type with its correct background ending.","pairs":[["Action verb (먹다)","먹는데"],["Descriptive adjective (예쁘다)","예쁜데"],["Existential verb (없다)","없는데"],["Noun (학생)","학생인데"]]},
-      {"t":"cloze","sentence":"지하철역에 가고 [싶은데], 어디로 가야 해요?","answer":"싶은데","meaning":"I'd like to go to the subway station, which way should I go?","options":["싶은데","싶는데","싶개데","싶고데"],"keys":["싶은데","싶는데","싶개데","싶고데"],"why":"싶다 is an adjective (with 받침 ㅂ), so it takes -은데: 싶 + 은데 → **싶은데**."},
+      {"t":"cloze","sentence":"지하철역에 가고 [싶은데], 어디로 가야 해요?","answer":"싶은데","meaning":"I'd like to go to the subway station, which way should I go?","options":["싶은데","싶는데","싶개데","싶고데"],"keys":["싶은데","싶는데","싶개데","싶고데"],"why":"싶다 is an adjective (with 받침 ㅍ), so it takes -은데: 싶 + 은데 → **싶은데**."},
       {"t":"type","q":"Conjugate 멀다 (to be far, ㄹ adjective) with -(으)ㄴ데: 「거기는 조금 ___ 지하철을 탈까요?」","answer":"먼데","keys":["먼데","멀은데","멀는데"],"why":"For ㄹ adjectives, ㄹ drops and attaches ㄴ데: 멀다 → **먼데**."},
       {"t":"speak","say":"죄송한데, 사진 한 장만 찍어 주실 수 있나요?","rom":"joe-song-han-de, sa-jin han jang-man jjig-eo ju-sil su iss-na-yo","q":"Say it aloud politely asking someone to take a photo."},
     ],
