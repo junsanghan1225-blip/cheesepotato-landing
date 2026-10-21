@@ -256,7 +256,7 @@ function shopPage() {
   return head(`${pub.en} — Korean Books & Worksheet Shop`, 'Korean workbooks, TOPIK practice books and printable worksheet PDFs with answer keys — made by a Korean teacher.', '/shop/', SHOP_CSS) +
 `${shopHead()}
 <h1 id="books">Books</h1>
-<p>책 · original Korean workbooks and TOPIK practice books. TOPIK questions are newly written in the official format — not past papers.</p>
+<p>책 · original Korean workbooks and TOPIK practice books. TOPIK questions are newly written in the official format — not past papers. These books are independent study aids and are not operated, endorsed or certified by NIIED or the TOPIK Center.</p>
 <div class="bk-grid">
 ${books}
 </div>

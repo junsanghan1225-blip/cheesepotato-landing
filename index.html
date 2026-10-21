@@ -40,7 +40,7 @@
 ">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <!-- 구글 태그 관리자. 구글이 주는 인라인 코드조각은 CSP 가 막아서 gtm.js 로 뺐다. -->
-<script src="gtm.js?v=3e385c24" async></script>
+<script src="gtm.js?v=a47cf07d" async></script>
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <!-- 제목과 설명을 두 말로 쓴다. 이 사이트를 찾을 사람은 한국어를 **배우는**
@@ -128,13 +128,13 @@
      Pretendard 는 통짜(2.0MB) 대신 조각난 쪽을 쓴다 — 브라우저가
      unicode-range 를 보고 화면에 실제로 나온 글자가 든 조각만 받는다.
      그래서 저장소는 무거워졌지만 학습자가 받는 양은 오히려 줄었다. -->
-<link rel="stylesheet" href="vendor/pretendard.css?v=3e385c24">
-<link rel="stylesheet" href="vendor/pressstart2p.css?v=3e385c24">
+<link rel="stylesheet" href="vendor/pretendard.css?v=a47cf07d">
+<link rel="stylesheet" href="vendor/pressstart2p.css?v=a47cf07d">
 <!-- 화면 상자 안에서만 쓰는 CSS 는 여기서 갈라 받는다. media="print" 라
      첫 페인트를 안 막고, 다 받아지면 app.js 가 media 를 all 로 바꾼다.
      자바스크립트가 없으면 <noscript> 쪽이 그냥 평범하게 걸린다. -->
-<link id="viewsCss" rel="stylesheet" href="app-views.css?v=3e385c24" media="print">
-<noscript><link rel="stylesheet" href="app-views.css?v=3e385c24"></noscript>
+<link id="viewsCss" rel="stylesheet" href="app-views.css?v=a47cf07d" media="print">
+<noscript><link rel="stylesheet" href="app-views.css?v=a47cf07d"></noscript>
 
 <style>
 /* ══════════════════════════════════════════════════════════════
@@ -804,6 +804,8 @@ html[data-lv] .hm-tour { display:none; }   /* 레벨이 있는 학생은 「오�
 .hm-rec-ic { display:grid; place-items:center; width:44px; height:44px; border-radius:12px; background:var(--orange); font-size:22px; }
 .hm-rec-ic.s { background:var(--tint); }
 .hm-rec .hero-link { justify-self:start; }
+.hero-app { display:inline-flex; align-items:center; gap:6px; margin-top:6px; padding:9px 14px; min-height:44px; border:1px solid var(--line); border-radius:12px; background:var(--card); color:var(--ink); font-size:14px; font-weight:700; text-decoration:none; }
+.hero-app:hover { border-color:var(--orange); }
 /* 첫 화면 위쪽 「맞는 순서로」(2026-10-08) — 큰 단추 하나 + 길 카드 넷이 비스듬히 쌓인 그림 */
 .hero-steps h1 { letter-spacing:-.03em; }
 .hero-acts { display:flex; flex-wrap:wrap; gap:10px; margin-top:22px; }
@@ -1946,7 +1948,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- 글자 크기 단추는 모의고사 화면(#tqPlay)으로 옮겼다. -->
     <button class="lang-btn" id="themeBtn" type="button" aria-label="어두운 모드로 바꾸기"><svg class="nav-svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg></button>
     <button class="lang-btn" id="langBtn" type="button" aria-label="Switch to English">EN</button>
-    <a class="hd-cta" href="https://play.google.com/store/apps/details?id=com.cheesepotato.app" target="_blank" rel="noopener noreferrer" id="hdCta" data-en="Download">다운로드</a>
+    <a class="hd-cta" href="https://play.google.com/store/apps/details?id=com.cheesepotato.app" target="_blank" rel="noopener noreferrer" id="hdCta" data-en="Download" data-ev="앱다운로드클릭" data-ev-from="머리줄">다운로드</a>
     <button class="menu-btn" id="menuBtn" type="button"
             aria-label="메뉴 열기" aria-expanded="false" aria-controls="sideNav">
       <span class="menu-bars"><i></i><i></i></span>
@@ -2182,7 +2184,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="side-foot">
     <!-- 헤더의 다운로드는 좁은 화면에서 숨는다. 여기 하나 더 둬서
          폰으로 온 사람도 받을 곳을 잃지 않는다. -->
-    <a class="side-cta" href="https://play.google.com/store/apps/details?id=com.cheesepotato.app" target="_blank" rel="noopener noreferrer" id="sideCta" data-en="⬇ Download">⬇ 다운로드</a>
+    <a class="side-cta" href="https://play.google.com/store/apps/details?id=com.cheesepotato.app" target="_blank" rel="noopener noreferrer" id="sideCta" data-en="⬇ Download" data-ev="앱다운로드클릭" data-ev-from="옆메뉴">⬇ 다운로드</a>
     <p class="side-note" data-en="Free · Android">무료 · 안드로이드</p>
   </div>
 </aside>
@@ -2237,6 +2239,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <a class="hero-trust" href="about.html" data-en="Made by a Korean teacher · 1,700+ one-to-one lessons · 1,370 original TOPIK questions →">한국어 선생님이 직접 만들었어요 · 1:1 수업 1,700회+ · TOPIK 창작 문항 1,370 →</a>
       <!-- 회원가입 — 로그인한 사람에게는 숨긴다(paintAuthNav) -->
       <button class="hero-link" id="heroSignupBtn" type="button" data-ko="회원가입 · 무료 — 기록을 기기마다 이어 보려면">Sign up · free — keep your progress on every device</button>
+      <!-- 앱 내려받기 유도(운영자 2026-10-21) — 첫 화면에서 바로 보이게. 눌림은 app_download_click(자리: 첫화면) -->
+      <a class="hero-app" href="https://play.google.com/store/apps/details?id=com.cheesepotato.app" target="_blank" rel="noopener noreferrer" data-ev="앱다운로드클릭" data-ev-from="첫화면" data-en="📱 Android app · Get it on Google Play">📱 안드로이드 앱 · Google Play 에서 받기</a>
     </div>
     <div class="hs-stack" aria-label="학습 길" data-en-aria="Learning paths">
       <button class="hs-card c1" type="button" data-go="pathBasic"><span class="hs-ic" data-lvl="potato:1" aria-hidden="true"></span>
@@ -2366,7 +2370,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <button class="hm-tile" type="button" id="streakGoBtn">
         <b data-en="Every day counts">매일 기록</b><span data-en="Days you finish a lesson add up.">레슨을 끝낸 날이 쌓여요.</span>
       </button>
-      <a class="hm-tile" href="https://play.google.com/store/apps/details?id=com.cheesepotato.app" target="_blank" rel="noopener noreferrer">
+      <a class="hm-tile" href="https://play.google.com/store/apps/details?id=com.cheesepotato.app" target="_blank" rel="noopener noreferrer" data-ev="앱다운로드클릭" data-ev-from="첫화면칸">
         <b data-en="Wordbook app">단어장 앱</b><span data-en="Snap a photo — AI fills in the meaning and an example.">사진을 찍으면 AI 가 뜻 · 예문을 채워요.</span>
       </a>
       <a class="hm-tile hm-wotd" id="wotdGoBtn" href="/dictionary/">
@@ -2493,7 +2497,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="dl-logo-wrap"><img class="dl-logo" src="logo-256.png" alt="치즈감자" width="54" height="54"></div>
     <div class="dl-title" data-en="Start today">지금 바로 시작하세요</div>
     <div class="dl-sub" data-en="Build your own wordbook for free<br>and study smarter">무료로 나만의 단어장을 만들고<br>더 스마트하게 언어를 공부하세요</div>
-    <a class="dl-btn" href="https://play.google.com/store/apps/details?id=com.cheesepotato.app" target="_blank" rel="noopener noreferrer" data-en="▶ Get it on Google Play">▶ Google Play 다운로드</a>
+    <a class="dl-btn" href="https://play.google.com/store/apps/details?id=com.cheesepotato.app" target="_blank" rel="noopener noreferrer" data-ev="앱다운로드클릭" data-ev-from="아래큰단추" data-en="▶ Get it on Google Play">▶ Google Play 다운로드</a>
     <!-- 예전엔 그냥 글자였다. Clarity 히트맵을 보니 다운로드 단추 바로
          아래라서 그런지 여기를 누르는 사람이 꽤 있었는데(죽은 클릭 —
          눌러도 아무 일도 안 일어남), 누르면 뭔가 반응이 있을 거라 기대한
@@ -4277,9 +4281,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <div id="hlpScrim" class="hlp-scrim"></div>
 <aside id="hlpPanel" class="hlp-panel" aria-label="한국어 도우미" aria-hidden="true"></aside>
 
-<script src="app.js?v=3e385c24"></script>
-<script type="module" src="app.module.js?v=3e385c24"></script>
+<script src="app.js?v=a47cf07d"></script>
+<script type="module" src="app.module.js?v=a47cf07d"></script>
 
-<script src="analytics.js?v=3e385c24" defer></script>
+<script src="analytics.js?v=a47cf07d" defer></script>
 </body>
 </html>
