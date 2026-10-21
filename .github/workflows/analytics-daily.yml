@@ -14,6 +14,9 @@ on:
       date:
         description: '기준일 YYYY-MM-DD (비우면 어제, 한국 날짜)'
         default: ''
+      from:
+        description: '지난 날 채우기 시작일 YYYY-MM-DD (비우면 안 채움 — 있으면 시작일~기준일을 하루씩 모은다)'
+        default: ''
 
 permissions:
   contents: write
@@ -40,9 +43,17 @@ jobs:
             echo "skip=1" >> $GITHUB_OUTPUT; exit 0
           fi
           D='${{ inputs.date }}'; [ -z "$D" ] && D=$(TZ=Asia/Seoul date -d yesterday +%F)
+          F='${{ inputs.from }}'
           echo "date=$D" >> $GITHUB_OUTPUT
-          node tools/analytics-daily.mjs --date "$D" --out "$RUNNER_TEMP/an/$D"
-          cat "$RUNNER_TEMP/an/$D/일간 성과 요약.md" >> $GITHUB_STEP_SUMMARY
+          if [ -n "$F" ]; then
+            echo "range=1" >> $GITHUB_OUTPUT
+            X="$F"; while [ "$(date -d "$X" +%s)" -le "$(date -d "$D" +%s)" ]; do
+              node tools/analytics-daily.mjs --past --date "$X" --out "$RUNNER_TEMP/an/$X"; X=$(date -d "$X + 1 day" +%F)
+            done
+          else
+            node tools/analytics-daily.mjs --date "$D" --out "$RUNNER_TEMP/an/$D"
+            cat "$RUNNER_TEMP/an/$D/일간 성과 요약.md" >> $GITHUB_STEP_SUMMARY
+          fi
       - name: analytics-data 가지에 쌓기
         if: steps.run.outputs.skip != '1'
         run: |
@@ -51,7 +62,8 @@ jobs:
           mkdir "$RUNNER_TEMP/ad" && cd "$RUNNER_TEMP/ad" && git init -q
           git remote add origin "$URL"
           if git fetch -q origin analytics-data 2>/dev/null; then git checkout -q -B analytics-data FETCH_HEAD; else git checkout -q --orphan analytics-data; fi
-          mkdir -p "daily/$D" && cp "$RUNNER_TEMP/an/$D/"* "daily/$D/"
-          cp "$RUNNER_TEMP/an/$D/일간 성과 요약.md" latest.md
+          for A in "$RUNNER_TEMP"/an/*/; do N=$(basename "$A"); mkdir -p "daily/$N" && cp "$A"* "daily/$N/"; done
+          # 지난 날 채우기는 latest.md 를 건드리지 않는다(어제 요약이 그대로 남게)
+          [ '${{ steps.run.outputs.range }}' != '1' ] && cp "$RUNNER_TEMP/an/$D/일간 성과 요약.md" latest.md || true
           git config user.name 'cheesepotato-analytics'; git config user.email 'actions@users.noreply.github.com'
           git add -A && git commit -qm "성과 $D" && git push -q origin analytics-data
