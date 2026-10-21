@@ -16,6 +16,7 @@ import crypto from 'node:crypto';
 const args = process.argv.slice(2);
 const arg = (k, d = '') => { const i = args.indexOf(k); return i >= 0 ? args[i + 1] : d; };
 const FAKE = args.includes('--fake');
+const PAST = args.includes('--past');                  // 지난 날 채우기 — Clarity(최근 24시간) · Polar(어제)는 그 날 값이 아니라서 뺀다
 const kstDay = (offset = 0) => { const d = new Date(Date.now() + 9 * 3600e3 + offset * 86400e3); return d.toISOString().slice(0, 10); };
 const DATE = arg('--date', kstDay(-1));                 // GA 는 어제(하루가 끝난 날)
 const SC_END = kstDay(-3);                              // Search Console 은 2~3일 늦게 확정된다
@@ -177,8 +178,8 @@ function summary(d) {
 }
 
 const d = await collect();
-d.cl = await clarity();
-d.pl = await polar();
+d.cl = PAST ? null : await clarity();
+d.pl = PAST ? null : await polar();
 fs.mkdirSync(OUT, { recursive: true });
 const w = (name, head, rows) => fs.writeFileSync(path.join(OUT, name), toCsv(head, rows));
 w('ga-개요.csv', ['방문자', '새방문자', '세션', '조회수', '평균참여시간(초)', '참여율'], d.overview);
