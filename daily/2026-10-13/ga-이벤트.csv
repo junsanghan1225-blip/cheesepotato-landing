@@ -1,0 +1,16 @@
+이벤트,횟수
+page_view,342
+scroll,164
+session_start,119
+user_engagement,106
+first_visit,92
+form_submit,40
+lesson_start,26
+file_download,18
+lesson_complete,14
+install_prompt_view,12
+word_blocks_start,12
+word_blocks_end,11
+cp_screen,9
+level_test_open,8
+level_test_open_home,8
