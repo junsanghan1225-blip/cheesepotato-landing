@@ -16,7 +16,8 @@
    lesson_complete · my_course_lesson · my_course_pick_level ·
    recommended_course_click · all_courses_click · drill_complete · word_save ·
    login · sign_up). 내려받기 문(/download/)은 download_gate_view ·
-   download_gate_click · download_start · download_error 를 흘린다. GTM 에서 「맞춤 이벤트」 트리거로 받는다. */
+   download_gate_click · download_start · download_error 를 흘린다. 레벨테스트 결과의 가입 칸은
+   level_test_join_view · level_test_join_click, 로그인 전 설정 건너뛰기는 level_test_quick_auto. GTM 에서 「맞춤 이벤트」 트리거로 받는다. */
 
 (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
