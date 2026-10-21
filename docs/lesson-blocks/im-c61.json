@@ -129,7 +129,7 @@
       "t": "choice",
       "q": "How intensely did the friends laugh while sharing old stories?",
       "options": [
-        "To the extent of tearing up and becoming breathless (눈물 나고 숨이 막힐 정도로)",
+        "To the extent of tearing up and becoming breathless",
         "They maintained polite smiles without making any noise",
         "They left the room in annoyance"
       ],
@@ -285,7 +285,7 @@
       "t": "choice",
       "q": "How are watermelons metaphorically characterized in grandmother’s garden?",
       "options": [
-        "As huge as a house among the vines (집채만 한 크기)",
+        "As huge as a house among the vines",
         "Tiny like pea seeds",
         "Completely rotten and dry"
       ],
@@ -441,7 +441,7 @@
       "t": "choice",
       "q": "Why is a marathon race described as honest in the passage?",
       "options": [
-        "Records emerge in proportion to the sweat drops poured into training (쏟아부은 땀방울만큼)",
+        "Records emerge in proportion to the sweat drops poured into training",
         "Any runner receives a gold medal regardless of running distance",
         "Speed is determined by wind speed rather than runners"
       ],
@@ -597,7 +597,7 @@
       "t": "choice",
       "q": "How was the vocal capability of the actors depicted in the musical review?",
       "options": [
-        "Overwhelming to the point of giving goosebumps (소름이 돋을 정도로 압도적)",
+        "Overwhelming to the point of giving goosebumps",
         "Quiet and whispering without microphones",
         "Poorly rehearsed and out of tune"
       ],

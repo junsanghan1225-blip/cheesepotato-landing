@@ -441,7 +441,7 @@
       "t": "choice",
       "q": "How does the passage illustrate the rapid spread of unmanned tech?",
       "options": [
-        "By citing the local convenience store as a representative example (편의점만 해도)",
+        "By citing the local convenience store as a representative example",
         "By interviewing a factory robot manufacturer in Europe",
         "By claiming that paper money was outlawed"
       ],
@@ -452,7 +452,7 @@
       "t": "choice",
       "q": "What minimal difficulty did seniors face initially according to the text?",
       "options": [
-        "They did not even know the basic method to operate the machines (다루는 법조차 몰라)",
+        "They did not even know the basic method to operate the machines",
         "They could not read standard Korean characters",
         "They forgot where their house was"
       ],

@@ -129,7 +129,7 @@
       "t": "choice",
       "q": "How long did it take for the author to revisit their old hometown?",
       "options": [
-        "Twenty years (이십 년 만에)",
+        "Twenty years",
         "Two weeks",
         "Five months"
       ],
@@ -285,7 +285,7 @@
       "t": "choice",
       "q": "Why was the author stranded on the commute yesterday?",
       "options": [
-        "Because the subway broke down (지하철이 고장 나 가지고)",
+        "Because the subway broke down",
         "Because of a street parade festival",
         "Because a snowstorm closed the doors"
       ],
@@ -296,7 +296,7 @@
       "t": "choice",
       "q": "What stylistic register is represented by the frequent use of -아/어 가지고 in the passage?",
       "options": [
-        "Lively, natural spoken conversational Korean (일상 구어체)",
+        "Lively, natural spoken conversational Korean",
         "An ancient Joseon dynasty formal royal decree",
         "A strict academic patent description"
       ],
@@ -441,7 +441,7 @@
       "t": "choice",
       "q": "Why did the author turn their car around at the department store?",
       "options": [
-        "Because the parking lot was completely full (주차장이 만차여서)",
+        "Because the parking lot was completely full",
         "Because the store was permanently out of business",
         "Because they forgot their credit card at home"
       ],
@@ -597,7 +597,7 @@
       "t": "choice",
       "q": "How long did the speaker work at the overseas branch before returning to Seoul?",
       "options": [
-        "Nearly five years (거의 오 년 만에)",
+        "Nearly five years",
         "Two months",
         "Ten days"
       ],
@@ -608,7 +608,7 @@
       "t": "choice",
       "q": "How did the speaker overcome the initial awkwardness on the first day?",
       "options": [
-        "Held a warm welcome party with coworkers first and shared chats (환영식을 하고서)",
+        "Held a warm welcome party with coworkers first and shared chats",
         "Resigned immediately and moved to another city",
         "Refused to talk to anyone at work"
       ],

@@ -128,7 +128,7 @@
       "t": "choice",
       "q": "Who did the writer go shopping with?",
       "options": [
-        "With younger sibling (동생과 함께)",
+        "With younger sibling",
         "With school teacher",
         "Alone"
       ],
@@ -139,7 +139,7 @@
       "t": "choice",
       "q": "What fruits did they put in the cart?",
       "options": [
-        "Apples and strawberries (사과와 딸기)",
+        "Apples and strawberries",
         "Bananas and grapes",
         "Watermelons and oranges"
       ],
@@ -301,7 +301,7 @@
       "t": "choice",
       "q": "How long did they have to wait outside?",
       "options": [
-        "As long as 30 minutes (30분이나)",
+        "As long as 30 minutes",
         "Only two minutes",
         "Three full hours"
       ],
@@ -312,7 +312,7 @@
       "t": "choice",
       "q": "What did they drink once they got a seat?",
       "options": [
-        "Coffee or beverages (커피나 음료수)",
+        "Coffee or beverages",
         "Hot soup",
         "Bottled wine"
       ],
@@ -467,7 +467,7 @@
       "t": "choice",
       "q": "When does the writer go to the library?",
       "options": [
-        "Every morning (아침마다)",
+        "Every morning",
         "Only on Sunday night",
         "Once a year"
       ],
@@ -639,7 +639,7 @@
       "t": "choice",
       "q": "What do they usually eat lightly for lunch?",
       "options": [
-        "Gimbap or tteokbokki (김밥이나 떡볶이)",
+        "Gimbap or tteokbokki",
         "Steak and wine",
         "Expensive course meal"
       ],
@@ -650,7 +650,7 @@
       "t": "choice",
       "q": "What does the friend also like doing?",
       "options": [
-        "Reading books (책 읽는 것)",
+        "Reading books",
         "Playing computer games",
         "Sleeping all day"
       ],

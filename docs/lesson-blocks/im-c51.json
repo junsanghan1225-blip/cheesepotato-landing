@@ -129,7 +129,7 @@
       "t": "choice",
       "q": "Why was Jisu originally planning to leave right at quitting time?",
       "options": [
-        "She had a personal appointment scheduled (약속이 있거든요)",
+        "She had a personal appointment scheduled",
         "She was fired from the company",
         "The office building lost electricity"
       ],
@@ -140,7 +140,7 @@
       "t": "choice",
       "q": "What shared event did Jisu's colleagues remind her of using -잖아요?",
       "options": [
-        "The company department dinner scheduled for that evening (부서 회식 있는 날이잖아요)",
+        "The company department dinner scheduled for that evening",
         "A marathon race on the weekend",
         "Cleaning the parking lot at midnight"
       ],
@@ -285,7 +285,7 @@
       "t": "choice",
       "q": "What was the direct reason the writer felt heavy-headed and exhausted this morning?",
       "options": [
-        "Tossing and turning looking at the phone late last night (잠을 설친 탓에)",
+        "Tossing and turning looking at the phone late last night",
         "Jogging 20 kilometers at dawn",
         "Eating too much spicy soup for breakfast"
       ],
@@ -296,7 +296,7 @@
       "t": "choice",
       "q": "What motivated the author to stay vigilant throughout the morning?",
       "options": [
-        "Fear of making a mistake during the important client meeting (실수라도 할까 봐)",
+        "Fear of making a mistake during the important client meeting",
         "Excitement about a lottery jackpot",
         "Anger at bad traffic"
       ],
@@ -441,7 +441,7 @@
       "t": "choice",
       "q": "Why did the writer stop by a warm eatery on their way home?",
       "options": [
-        "It was drizzling and their body felt sluggish and all (몸도 찌뿌둥하고 해서)",
+        "It was drizzling and their body felt sluggish and all",
         "The building had caught fire",
         "They were ordered to report to the police station"
       ],

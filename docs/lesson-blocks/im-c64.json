@@ -129,7 +129,7 @@
       "t": "choice",
       "q": "How did the author improve Korean listening and speaking skills?",
       "options": [
-        "Through daily watching Korean dramas and repeating speech (-다 보니)",
+        "Through daily watching Korean dramas and repeating speech",
         "By hiring twenty private tutors simultaneously",
         "By sleeping with textbooks under the pillow"
       ],
@@ -285,7 +285,7 @@
       "t": "choice",
       "q": "What contrast is highlighted between Minsoo and the speaker?",
       "options": [
-        "Observing Minsoo’s changes (-더니) vs describing the speaker’s personal result (-했더니)",
+        "Observing Minsoo’s changes vs describing the speaker’s personal result",
         "Minsoo gave up swimming while the speaker became a professional athlete",
         "Both fell ill from over-exercising"
       ],
@@ -296,7 +296,7 @@
       "t": "choice",
       "q": "What physical sensation did the speaker experience after jogging?",
       "options": [
-        "The body felt noticeably lighter in the morning (몸이 한결 가벼웠다)",
+        "The body felt noticeably lighter in the morning",
         "Severe leg injury requiring surgery",
         "Excessive fever and chills"
       ],
@@ -441,7 +441,7 @@
       "t": "choice",
       "q": "What warning does the passage issue about habitual overtime?",
       "options": [
-        "It can ruin one’s health even at a young age (몸을 망가뜨리기 십상이다)",
+        "It can ruin one’s health even at a young age",
         "It earns unlimited stock options",
         "It guarantees an immediate presidency"
       ],
@@ -452,7 +452,7 @@
       "t": "choice",
       "q": "How does the author evaluate the overall result of improved work efficiency?",
       "options": [
-        "Quality of life has practically improved twofold (두 배로 향상된 셈이다)",
+        "Quality of life has practically improved twofold",
         "The department decided to hire five hundred new clerks",
         "Company profits fell to absolute zero"
       ],
@@ -597,7 +597,7 @@
       "t": "choice",
       "q": "How did the entrepreneur identify service improvements on site?",
       "options": [
-        "Through continuously interacting and communicating with customers (-다 보니)",
+        "Through continuously interacting and communicating with customers",
         "By reading a fictional novel at home",
         "By asking competitors for trade secrets"
       ],
@@ -608,7 +608,7 @@
       "t": "choice",
       "q": "Why did the entrepreneur caution against rushing impatiently?",
       "options": [
-        "Because rushing impatiently is prone to botching things (서두르다가는 일을 그르치기 십상)",
+        "Because rushing impatiently is prone to botching things",
         "Because customers forbade fast service",
         "Because bank accounts were frozen"
       ],

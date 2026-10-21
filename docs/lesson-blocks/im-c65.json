@@ -129,7 +129,7 @@
       "t": "choice",
       "q": "Where did the speaker place the printed project materials for coworkers?",
       "options": [
-        "Laid them on conference room desks for easy access (출력하여 놓아두었다)",
+        "Laid them on conference room desks for easy access",
         "Threw them into the recycle bin",
         "Locked them inside a briefcase taken abroad"
       ],
@@ -140,7 +140,7 @@
       "t": "choice",
       "q": "Why were handover documents uploaded to the cloud?",
       "options": [
-        "To preserve them safely for emergencies (-아/어 두다)",
+        "To preserve them safely for emergencies",
         "To show off computing skills",
         "To delete them permanently"
       ],
@@ -285,7 +285,7 @@
       "t": "choice",
       "q": "How was the speaker listening to calm music before falling asleep?",
       "options": [
-        "With eyes closed (눈을 감은 채로)",
+        "With eyes closed",
         "While dancing vigorously in the yard",
         "While eating spicy noodles"
       ],
@@ -296,7 +296,7 @@
       "t": "choice",
       "q": "Why did the speaker feel stiffness around their eyes upon waking?",
       "options": [
-        "Because they fell asleep with glasses on (안경을 쓴 채로)",
+        "Because they fell asleep with glasses on",
         "Because they rubbed soap into their eyes",
         "Because they stayed awake all night"
       ],
@@ -441,7 +441,7 @@
       "t": "choice",
       "q": "How did the author assemble the newly bought desk?",
       "options": [
-        "Step by step as written in the manual (설명서에 적힌 대로)",
+        "Step by step as written in the manual",
         "Without looking at parts and hammering randomly",
         "Paid a stranger on the street to assemble it"
       ],
@@ -597,7 +597,7 @@
       "t": "choice",
       "q": "How did staff test audio and screens on the stage?",
       "options": [
-        "While keeping stage lights turned on (무대 조명을 켜 둔 채로)",
+        "While keeping stage lights turned on",
         "In complete pitch-black darkness without sound",
         "After sending all audience members away"
       ],
@@ -608,7 +608,7 @@
       "t": "choice",
       "q": "What operational procedure was followed as audience members arrived?",
       "options": [
-        "Guided them to seats as soon as they entered (입장하는 대로 자리를 안내)",
+        "Guided them to seats as soon as they entered",
         "Locked entrance doors and made them wait outside in the rain",
         "Cancelled the presentation on the spot"
       ],

@@ -294,7 +294,7 @@
       "t": "choice",
       "q": "What did the writer and friend build together?",
       "options": [
-        "Deep trust (깊은 믿음)",
+        "Deep trust",
         "A big business",
         "A house"
       ],
@@ -447,7 +447,7 @@
       "t": "choice",
       "q": "What test is the writer preparing for?",
       "options": [
-        "Korean proficiency test (한국어 능력 시험)",
+        "Korean proficiency test",
         "Driving license test",
         "English cooking test"
       ],
@@ -458,7 +458,7 @@
       "t": "choice",
       "q": "Whose help made the writer's skills improve?",
       "options": [
-        "Teacher's help (선생님의 도움)",
+        "Teacher's help",
         "Doctor's advice",
         "Nobody's help"
       ],
@@ -641,7 +641,7 @@
       "t": "choice",
       "q": "What can the writer write in Korean now?",
       "options": [
-        "Short diaries (짧은 일기)",
+        "Short diaries",
         "Long novels",
         "Newspaper articles"
       ],

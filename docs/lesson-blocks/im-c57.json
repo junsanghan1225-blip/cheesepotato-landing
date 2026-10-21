@@ -285,7 +285,7 @@
       "t": "choice",
       "q": "Why was the flight departure postponed in the text?",
       "options": [
-        "Due to sudden heavy snow (갑작스러운 폭설)",
+        "Due to sudden heavy snow",
         "Because all passengers overslept",
         "Because the airport runway was under construction"
       ],
@@ -597,7 +597,7 @@
       "t": "choice",
       "q": "What thoughtful deed did Deputy Kim offer coworkers on a rainy evening?",
       "options": [
-        "Gave coworkers a ride to the subway station in his car (태워 주었다)",
+        "Gave coworkers a ride to the subway station in his car",
         "Charged colleagues money for disposable plastic umbrellas",
         "Refused to talk and left the parking lot alone"
       ],

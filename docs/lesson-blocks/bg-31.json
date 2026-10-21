@@ -627,7 +627,7 @@
       "t": "choice",
       "q": "How did the writer send the letter to the teacher?",
       "options": [
-        "By mail (우편으로)",
+        "By mail",
         "By bicycle",
         "Handed in person"
       ],

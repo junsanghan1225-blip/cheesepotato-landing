@@ -441,7 +441,7 @@
       "t": "choice",
       "q": "Why did the author come to work in the Seoul planning team?",
       "options": [
-        "Due to regular company personnel transfer (인사 발령)",
+        "Due to regular company personnel transfer",
         "Because the author won an international lottery",
         "Because all other branch offices closed down permanently"
       ],
@@ -597,7 +597,7 @@
       "t": "choice",
       "q": "What happened to this afternoon’s flights?",
       "options": [
-        "All flights were canceled due to worsening weather (결항되었습니다)",
+        "All flights were canceled due to worsening weather",
         "Flights took off two hours earlier than scheduled",
         "All passengers were transferred to trains automatically"
       ],

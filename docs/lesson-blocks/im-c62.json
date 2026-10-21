@@ -129,7 +129,7 @@
       "t": "choice",
       "q": "How did the friends decide on their lunch menu?",
       "options": [
-        "They agreed to eat anything without being picky (아무거나 먹자)",
+        "They agreed to eat anything without being picky",
         "They booked a three-star luxury restaurant months ago",
         "They decided to skip lunch entirely"
       ],
@@ -285,7 +285,7 @@
       "t": "choice",
       "q": "What next-best activity did the friends choose when the museum closed?",
       "options": [
-        "Browsing new novels at a nearby bookstore (소설책이나 구경하기)",
+        "Browsing new novels at a nearby bookstore",
         "Returning home immediately and going to sleep",
         "Waiting outside the closed museum gates all day"
       ],
@@ -296,7 +296,7 @@
       "t": "choice",
       "q": "What kind gesture did the bookstore clerk offer wet customers?",
       "options": [
-        "Offered at least a cup of warm green tea (따뜻한 녹차라도)",
+        "Offered at least a cup of warm green tea",
         "Sold expensive raincoats at double price",
         "Demanded they pay an entrance fee"
       ],
@@ -441,7 +441,7 @@
       "t": "choice",
       "q": "How did the club president initially present the two location options?",
       "options": [
-        "Suggested choosing either place by majority vote (가든지 가든지)",
+        "Suggested choosing either place by majority vote",
         "Demanded everyone stay home and cancel the club",
         "Forced members to pay for private hotel rooms"
       ],
@@ -597,7 +597,7 @@
       "t": "choice",
       "q": "How did the team leader resolve the mounting workload pressure?",
       "options": [
-        "Readjusted priorities on core tasks instead of enforcing overtime (야근을 강행하는 대신에)",
+        "Readjusted priorities on core tasks instead of enforcing overtime",
         "Ordered employees to sleep at the office for a week",
         "Canceled the entire project unilaterally"
       ],
@@ -608,7 +608,7 @@
       "t": "choice",
       "q": "What attitude allowed teammates to conquer difficult tasks within deadline?",
       "options": [
-        "Flexible cooperation and mutual support (융통성 있게 협력)",
+        "Flexible cooperation and mutual support",
         "Blaming each other for delays",
         "Ignoring all supervisor guidelines"
       ],

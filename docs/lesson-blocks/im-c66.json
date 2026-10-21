@@ -129,7 +129,7 @@
       "t": "choice",
       "q": "Why is public transit described as convenient in the new neighborhood?",
       "options": [
-        "Because the subway station is close nearby (지하철역이 가까워 편리한 편)",
+        "Because the subway station is close nearby",
         "Because everyone is given free private helicopters",
         "Because all roads are closed to cars"
       ],
@@ -285,7 +285,7 @@
       "t": "choice",
       "q": "How did the speaker initially feel before stepping onto the stage alone?",
       "options": [
-        "Felt very burdened inside (몹시 부담스러웠다)",
+        "Felt very burdened inside",
         "Felt completely bored and sleepy",
         "Felt furious at the organizers"
       ],
@@ -296,7 +296,7 @@
       "t": "choice",
       "q": "What emotional change occurred after receiving audience applause?",
       "options": [
-        "A proud and fulfilled feeling welled up (자랑스러운 마음이 차올랐다)",
+        "A proud and fulfilled feeling welled up",
         "Felt ashamed and ran away crying",
         "Demanded money from audience members"
       ],
@@ -441,7 +441,7 @@
       "t": "choice",
       "q": "How did the team captain demonstrate sportsmanship after defeat?",
       "options": [
-        "Visited the opposing locker room to congratulate them sincerely (진심으로 축하해 줌)",
+        "Visited the opposing locker room to congratulate them sincerely",
         "Refused to shake hands and argued with referees",
         "Threw equipment onto the stadium floor"
       ],
@@ -608,7 +608,7 @@
       "t": "choice",
       "q": "Why does the passage conclude with 존경받는 리더답다?",
       "options": [
-        "Because the director fairly mediates conflicts, exemplifying ideal leadership virtues (-답다)",
+        "Because the director fairly mediates conflicts, exemplifying ideal leadership virtues",
         "Because the director promised bonuses to everyone",
         "Because the director cancelled all projects"
       ],

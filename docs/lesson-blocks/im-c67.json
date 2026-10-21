@@ -129,7 +129,7 @@
       "t": "choice",
       "q": "How did the speaker react upon hearing their childhood friend’s voice over the phone?",
       "options": [
-        "Heart was boundlessly overwhelmed with emotion (얼마나 가슴이 벅찼는지 모른다)",
+        "Heart was boundlessly overwhelmed with emotion",
         "Hung up immediately thinking it was spam",
         "Argued about who was taller"
       ],
@@ -296,7 +296,7 @@
       "t": "choice",
       "q": "What resolution was inevitable under the circumstances?",
       "options": [
-        "Changing to an alternative flight next morning (변경할 수밖에 없었다)",
+        "Changing to an alternative flight next morning",
         "Walking on foot along the highway to catch the plane",
         "Giving up travel forever"
       ],
@@ -441,7 +441,7 @@
       "t": "choice",
       "q": "How did the young citizen award recipient describe his rescue action?",
       "options": [
-        "Merely did what was natural as a human (마땅한 일을 했을 뿐이다)",
+        "Merely did what was natural as a human",
         "Demanded a large financial reward from the city",
         "Claimed he was an immortal superhero"
       ],
@@ -597,7 +597,7 @@
       "t": "choice",
       "q": "How did the CEO describe his gratitude toward employees at the anniversary ceremony?",
       "options": [
-        "Could not adequately put into words how grateful he was (얼마나 고마운지 모른다)",
+        "Could not adequately put into words how grateful he was",
         "Expressed regret for ever starting the business",
         "Demanded employees work unpaid night shifts"
       ],

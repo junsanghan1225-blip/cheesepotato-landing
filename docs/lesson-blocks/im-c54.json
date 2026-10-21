@@ -129,7 +129,7 @@
       "t": "choice",
       "q": "Why did Minu recommend the newly released movie to Jisu?",
       "options": [
-        "It features outstanding visual beauty and a solid story (영상미도 뛰어나고 스토리도 탄탄해서 볼 만해요)",
+        "It features outstanding visual beauty and a solid story",
         "The tickets were handed out for free on the street",
         "It was the only movie playing at midnight"
       ],
@@ -140,7 +140,7 @@
       "t": "choice",
       "q": "What helped Jisu make enjoyable weekend plans?",
       "options": [
-        "Minu's trustworthy movie recommendation (신뢰할 만한 추천)",
+        "Minu's trustworthy movie recommendation",
         "A sudden cancellation of all her upcoming classes",
         "Winning a lottery ticket at the train station"
       ],
@@ -285,7 +285,7 @@
       "t": "choice",
       "q": "What guideline was outlined in the company notice?",
       "options": [
-        "Turning off computers and locking doors when leaving work (끄고 문을 잠그도록 하세요)",
+        "Turning off computers and locking doors when leaving work",
         "Leaving all lights and equipment on overnight",
         "Throwing away all office stationery"
       ],
@@ -296,7 +296,7 @@
       "t": "choice",
       "q": "How did the employees respond to the notice?",
       "options": [
-        "They resolved to adhere strictly to the guidelines (철저히 지키도록 하겠다며 확인)",
+        "They resolved to adhere strictly to the guidelines",
         "They ignored the notice completely",
         "They filed a formal complaint against the general affairs team"
       ],
@@ -441,7 +441,7 @@
       "t": "choice",
       "q": "What gentle advice did the senior give upon seeing Hyeon-u's pale complexion?",
       "options": [
-        "Why not close your eyes for a bit if you are tired (잠깐 눈 좀 붙이지 그래요?)",
+        "Why not close your eyes for a bit if you are tired",
         "Do push-ups until the fatigue disappears",
         "Stay up for another whole night to work"
       ],
@@ -452,7 +452,7 @@
       "t": "choice",
       "q": "What did the senior say upon hearing Hyeon-u stayed up all night?",
       "options": [
-        "You should have told me earlier (진작 말하지 그랬어요)",
+        "You should have told me earlier",
         "You deserve to feel terrible today",
         "Never speak to me about assignments again"
       ],
@@ -597,7 +597,7 @@
       "t": "choice",
       "q": "How did Jimin describe the bread at the new bakery?",
       "options": [
-        "It is very much worth eating (먹을 만해요)",
+        "It is very much worth eating",
         "It was completely stale and tasteless",
         "It is far too expensive to ever buy"
       ],
@@ -608,7 +608,7 @@
       "t": "choice",
       "q": "What considerate follow-up suggestion did Jimin offer?",
       "options": [
-        "Dropping by briefly during lunch hour (점심시간에 잠깐 다녀오지 그래요?)",
+        "Dropping by briefly during lunch hour",
         "Ordering one hundred loaves to be delivered to the desk",
         "Giving up on ever eating bread again"
       ],

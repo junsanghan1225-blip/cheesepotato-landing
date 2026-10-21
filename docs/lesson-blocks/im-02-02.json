@@ -138,7 +138,7 @@
       "t": "choice",
       "q": "What negative outcome did the writer experience while organizing notes?",
       "options": [
-        "Couldn't eat dinner properly (저녁밥도 제대로 못 먹었어요)",
+        "Couldn't eat dinner properly",
         "Lost their student ID card",
         "Missed the last train home"
       ],
@@ -281,7 +281,7 @@
       "t": "choice",
       "q": "Why did the writer linger at the bus stop for 30 minutes?",
       "options": [
-        "Because of searching through pockets and bag for the wallet (찾느라고)",
+        "Because of searching through pockets and bag for the wallet",
         "Because the bus broke down",
         "Because of chatting with a friend"
       ],
@@ -435,7 +435,7 @@
       "t": "choice",
       "q": "What unexpected event stopped the subway on the way to work?",
       "options": [
-        "The subway broke down suddenly (고장 나는 바람에)",
+        "The subway broke down suddenly",
         "The driver took a lunch break",
         "The track was under construction"
       ],
@@ -446,7 +446,7 @@
       "t": "choice",
       "q": "Why was the writer completely out of breath?",
       "options": [
-        "Because of running breathlessly to the office (뛰느라고)",
+        "Because of running breathlessly to the office",
         "Because of carrying heavy luggage",
         "Because of climbing a high mountain"
       ],
@@ -591,7 +591,7 @@
       "t": "choice",
       "q": "Why was the morning report delayed?",
       "options": [
-        "Because of reviewing the revised contract from the client (계약서를 검토하느라고)",
+        "Because of reviewing the revised contract from the client",
         "Because the writer overslept",
         "Because the computer lost power"
       ],

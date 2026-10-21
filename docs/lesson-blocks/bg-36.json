@@ -126,7 +126,7 @@
       "t": "choice",
       "q": "What did the writer ask the passerby?",
       "options": [
-        "Where the subway station is (지하철역이 어디에 있어요?)",
+        "Where the subway station is",
         "What time it is",
         "How much the fruit is"
       ],
@@ -279,7 +279,7 @@
       "t": "choice",
       "q": "What did the manager ask Minsu?",
       "options": [
-        "Why he was late (왜 늦었는지)",
+        "Why he was late",
         "What he ate for breakfast",
         "Where he went on vacation"
       ],
@@ -290,7 +290,7 @@
       "t": "choice",
       "q": "What caused Minsu's commuting trouble?",
       "options": [
-        "Subway breakdown (지하철 고장)",
+        "Subway breakdown",
         "Heavy snowfall",
         "Oversleeping"
       ],
@@ -432,7 +432,7 @@
       "t": "choice",
       "q": "What did the teacher ask each student on the first day?",
       "options": [
-        "Which country they came from (어느 나라에서 왔는지)",
+        "Which country they came from",
         "How much their shoes cost",
         "Where they live in Seoul"
       ],
@@ -443,7 +443,7 @@
       "t": "choice",
       "q": "What did the students share about their weekend?",
       "options": [
-        "What food they ate (무슨 음식을 먹었는지)",
+        "What food they ate",
         "What clothes they bought",
         "Which movies they directed"
       ],
@@ -615,7 +615,7 @@
       "t": "choice",
       "q": "What did the writer ask the store clerk?",
       "options": [
-        "How much the bag was (얼마인지)",
+        "How much the bag was",
         "What the clerk's name was",
         "When the store closes"
       ],

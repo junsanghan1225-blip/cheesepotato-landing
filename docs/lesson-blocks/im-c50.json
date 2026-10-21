@@ -129,7 +129,7 @@
       "t": "choice",
       "q": "What is the stylistic feature of this passage?",
       "options": [
-        "An objective written narrative style (서술체) addressed to a general reading audience",
+        "An objective written narrative style addressed to a general reading audience",
         "A casual spoken chat between high school friends",
         "A formal military command"
       ],
@@ -285,7 +285,7 @@
       "t": "choice",
       "q": "Where did the author and their friend go together after class?",
       "options": [
-        "An alley snack shop to eat tteokbokki (골목 분식점)",
+        "An alley snack shop to eat tteokbokki",
         "An airport to catch a flight to Paris",
         "A formal five-star hotel ballroom"
       ],
@@ -296,7 +296,7 @@
       "t": "choice",
       "q": "What plan did the two friends make for the upcoming weekend?",
       "options": [
-        "Riding bicycles together at Han River Park (자전거 타러 가기로)",
+        "Riding bicycles together at Han River Park",
         "Taking an official university entrance test",
         "Staying awake 48 hours without food"
       ],
@@ -608,7 +608,7 @@
       "t": "choice",
       "q": "What rule of etiquette is advised when shifting to casual speech with friendly colleagues?",
       "options": [
-        "Dropping honorifics only under mutual consent (상호 합의 하에)",
+        "Dropping honorifics only under mutual consent",
         "Dropping honorifics unilaterally without asking",
         "Calling everyone by informal nicknames during formal meetings"
       ],

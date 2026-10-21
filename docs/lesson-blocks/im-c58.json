@@ -129,7 +129,7 @@
       "t": "choice",
       "q": "What is an indispensable condition to board flights to certain foreign destinations?",
       "options": [
-        "Receiving an entry visa in advance (사전에 비자 발급)",
+        "Receiving an entry visa in advance",
         "Purchasing five luxury suitcases at duty-free",
         "Booking a hotel room at the highest floor"
       ],
@@ -285,7 +285,7 @@
       "t": "choice",
       "q": "What does the passage suggest if the reader visits Insadong?",
       "options": [
-        "Drop by a traditional teahouse to drink chrysanthemum tea (전통 찻집 들르기)",
+        "Drop by a traditional teahouse to drink chrysanthemum tea",
         "Buy train tickets to leave Seoul immediately",
         "Avoid shopping and remain inside hotel rooms"
       ],
@@ -296,7 +296,7 @@
       "t": "choice",
       "q": "What grammatical clause types typically follow the connector -거든?",
       "options": [
-        "Commands, suggestions, or promises (명령 · 청유 · 약속)",
+        "Commands, suggestions, or promises",
         "Past tense factual descriptions",
         "Historical textbook chronologies"
       ],
@@ -452,7 +452,7 @@
       "t": "choice",
       "q": "Why is -거든 used in the last sentence of the passage?",
       "options": [
-        "Because a caution/reminder (챙기세요) follows once the banking business concludes",
+        "Because a caution/reminder follows once the banking business concludes",
         "Because the bank teller was angry",
         "Because the account was already closed yesterday"
       ],
@@ -597,7 +597,7 @@
       "t": "choice",
       "q": "What is mandatory to enter the exhibition hall?",
       "options": [
-        "Completing advance reservation (사전 예약 완료)",
+        "Completing advance reservation",
         "Wearing formal evening attire",
         "Presenting an overseas flight ticket"
       ],

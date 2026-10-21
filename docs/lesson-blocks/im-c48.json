@@ -285,7 +285,7 @@
       "t": "choice",
       "q": "Why does the speaker recommend public transit instead of driving?",
       "options": [
-        "Roads will freeze and driving will be dangerous (운전하기 위험할 텐데)",
+        "Roads will freeze and driving will be dangerous",
         "The subway fares are discounted today",
         "All parking lots are completely closed"
       ],
@@ -296,7 +296,7 @@
       "t": "choice",
       "q": "What supportive action does the speaker volunteer to do for their colleague?",
       "options": [
-        "Share an umbrella walking to the subway station (우산을 씌워 드릴 테니까)",
+        "Share an umbrella walking to the subway station",
         "Buy a car for the colleague",
         "Stay overnight together at the office"
       ],
@@ -441,7 +441,7 @@
       "t": "choice",
       "q": "What uncertain risk is the writer concerned about regarding the weekend?",
       "options": [
-        "It might suddenly rain due to fickle weather (비가 내릴지도 몰라요)",
+        "It might suddenly rain due to fickle weather",
         "The amusement park might be closed permanently",
         "The subway lines might stop running entirely"
       ],
@@ -452,7 +452,7 @@
       "t": "choice",
       "q": "What realistic estimate does the writer give about the popular rides?",
       "options": [
-        "They probably need to arrive early in the morning to ride them (일찍 가야 탈 수 있을걸요)",
+        "They probably need to arrive early in the morning to ride them",
         "Nobody visits the amusement park on weekends",
         "Rides can be boarded instantly without queuing"
       ],
@@ -597,7 +597,7 @@
       "t": "choice",
       "q": "How did the senior greet the visiting guests with consideration?",
       "options": [
-        "By acknowledging their tiring journey and offering warm tea (피곤하셨을 텐데 차 한잔 드세요)",
+        "By acknowledging their tiring journey and offering warm tea",
         "By immediately demanding a signed contract",
         "By remaining silent and pointing to an empty chair"
       ],

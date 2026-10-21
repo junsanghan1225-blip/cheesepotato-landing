@@ -127,7 +127,7 @@
       "t": "choice",
       "q": "What visible evidence prompted the writer's guess about rain?",
       "options": [
-        "People passing by holding umbrellas and dark clouds (우산을 쓰고 지나가는 모습)",
+        "People passing by holding umbrellas and dark clouds",
         "Snow piling on the trees",
         "A loud thunderstorm siren"
       ],
@@ -138,7 +138,7 @@
       "t": "choice",
       "q": "What general prediction does the writer make if the rain continues until evening?",
       "options": [
-        "Will probably run to the station (역까지 뛰어갈 것 같아요)",
+        "Will probably run to the station",
         "Will sleep over at the office",
         "Will call for a helicopter"
       ],
@@ -281,7 +281,7 @@
       "t": "choice",
       "q": "What clue made the writer guess that the bakery's bread is delicious?",
       "options": [
-        "Fragrant bread aroma and customers coming out smiling (향긋한 냄새와 손님들 표정)",
+        "Fragrant bread aroma and customers coming out smiling",
         "A huge discount billboard",
         "A TV broadcast truck parked outside"
       ],
@@ -437,7 +437,7 @@
       "t": "choice",
       "q": "What problem kept the colleague awake until dawn?",
       "options": [
-        "A project server failure (프로젝트 서버 장애)",
+        "A project server failure",
         "A toothache",
         "A noisy neighbor"
       ],
@@ -448,7 +448,7 @@
       "t": "choice",
       "q": "How did the writer empathize with the colleague?",
       "options": [
-        "Handed warm tea and validated their hardship with -겠군요 (고생 많으셨겠군요)",
+        "Handed warm tea and sympathized with their hardship",
         "Laughed and asked for free coffee",
         "Criticized their server management skills"
       ],
@@ -593,7 +593,7 @@
       "t": "choice",
       "q": "Why were the partner company visitors delayed on the expressway?",
       "options": [
-        "Expressway jammed due to heavy snow (폭설로 고속도로가 정체되어)",
+        "Expressway jammed due to heavy snow",
         "Car had a flat tire",
         "Took wrong turns repeatedly"
       ],
@@ -604,7 +604,7 @@
       "t": "choice",
       "q": "How did the host warmly greet the visitors upon hearing their ordeal?",
       "options": [
-        "Treated them to warm drinks and expressed polite empathy with -겠군요 (고생 많으셨겠군요)",
+        "Treated them to warm drinks and expressed polite empathy",
         "Scolded them for being late to the meeting",
         "Refused to start the presentation"
       ],

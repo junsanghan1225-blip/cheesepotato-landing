@@ -129,7 +129,7 @@
       "t": "choice",
       "q": "What delicious snack did the author buy on the commute home?",
       "options": [
-        "Piping hot bungeoppang from a street stall (따끈한 붕어빵)",
+        "Piping hot bungeoppang from a street stall",
         "An icy smoothie from a cafe",
         "A pack of salted peanuts from the train"
       ],
@@ -285,7 +285,7 @@
       "t": "choice",
       "q": "What unexpected item did the speaker discover while doing chores?",
       "options": [
-        "An old photo album tucked in a corner of the bookshelf (낡은 사진첩)",
+        "An old photo album tucked in a corner of the bookshelf",
         "An envelope filled with money under the floor",
         "A lost airline ticket to Japan"
       ],
@@ -296,7 +296,7 @@
       "t": "choice",
       "q": "What narrative thread connects the events in the passage?",
       "options": [
-        "One activity being interrupted by a new realization or transition mid-action (-다가)",
+        "One activity being interrupted by a new realization or transition mid-action",
         "A schedule planned meticulously with a timer",
         "A business conflict between coworkers"
       ],
@@ -441,7 +441,7 @@
       "t": "choice",
       "q": "Why did the author return the shirt ordered online?",
       "options": [
-        "Because the physical color differed from what appeared on screen (색상이 화면과 달라 반품)",
+        "Because the physical color differed from what appeared on screen",
         "Because the delivery arrived three months late",
         "Because the buttons were completely missing"
       ],
@@ -597,7 +597,7 @@
       "t": "choice",
       "q": "What mishap happened while the speaker was boiling the stew?",
       "options": [
-        "Added too much salt midway, making the soup salty (소금을 너무 많이 넣어 국물이 짜짐)",
+        "Added too much salt midway, making the soup salty",
         "The pot burned down completely and caught fire",
         "Spilled all the stew onto the kitchen floor"
       ],

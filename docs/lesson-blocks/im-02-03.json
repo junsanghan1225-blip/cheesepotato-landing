@@ -127,7 +127,7 @@
       "t": "choice",
       "q": "What sudden incident soiled the writer's suit pants?",
       "options": [
-        "A passing car splashed muddy water (흙탕물을 튀기는 바람에)",
+        "A passing car splashed muddy water",
         "Spilled hot coffee on them",
         "Sat on freshly painted park benches"
       ],
@@ -281,7 +281,7 @@
       "t": "choice",
       "q": "What sudden technical glitch occurred during flight payment?",
       "options": [
-        "Wi-Fi disconnected suddenly (와이파이가 끊어지는 바람에)",
+        "Wi-Fi disconnected suddenly",
         "Computer battery caught fire",
         "Credit card expired on the spot"
       ],
@@ -435,7 +435,7 @@
       "t": "choice",
       "q": "What initial incident caused the writer to wake up an hour late?",
       "options": [
-        "Smartphone alarm failed to ring due to an update error (알람이 울리지 않는 바람에)",
+        "Smartphone alarm failed to ring due to an update error",
         "The writer forgot to charge their phone",
         "The electricity was cut off across the city"
       ],
@@ -591,7 +591,7 @@
       "t": "choice",
       "q": "What problem occurred with the copy machine right before the meeting?",
       "options": [
-        "Paper jammed in the copier (용지가 걸리는 바람에)",
+        "Paper jammed in the copier",
         "Ran out of toner completely",
         "The copier caught on fire"
       ],
@@ -602,7 +602,7 @@
       "t": "choice",
       "q": "How does the speaker resolve the meeting materials issue in the meantime?",
       "options": [
-        "Shares tablet files with attendees and calls for repairs (태블릿 파일로 공유)",
+        "Shares tablet files with attendees and calls for repairs",
         "Cancels the meeting entirely",
         "Asks attendees to write notes by hand"
       ],

@@ -482,7 +482,7 @@
       "t": "choice",
       "q": "What did the writer buy at the vending machine?",
       "options": [
-        "Only water (물만)",
+        "Only water",
         "Snacks and coffee",
         "A newspaper"
       ],

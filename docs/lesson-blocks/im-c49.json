@@ -140,7 +140,7 @@
       "t": "choice",
       "q": "How does the writer view the nighttime noise around the studio?",
       "options": [
-        "It is a bit noisy, but overall satisfying due to great transit access (시끄럽기는 하지만)",
+        "It is a bit noisy, but overall satisfying due to great transit access",
         "It is totally unbearable and impossible to stay",
         "There is completely zero noise at any time"
       ],
@@ -285,7 +285,7 @@
       "t": "choice",
       "q": "What balanced contrast did the company note about their new product?",
       "options": [
-        "It is very portable, whereas battery life is somewhat short (편리한 반면에 배터리 지속 시간이 다소 짧음)",
+        "It is very portable, whereas battery life is somewhat short",
         "It is extremely heavy and has infinite battery life",
         "It cannot be carried outdoors under any circumstances"
       ],
@@ -441,7 +441,7 @@
       "t": "choice",
       "q": "What unexpected situation occurred right after the writer received the exam paper?",
       "options": [
-        "Mind went blank from nervousness despite thorough review (철저하게 복습했는데도)",
+        "Mind went blank from nervousness despite thorough review",
         "The professor cancelled the exam on the spot",
         "The test questions were identical to comic books"
       ],
@@ -608,7 +608,7 @@
       "t": "choice",
       "q": "When is -(으)ㄴ/는 반면에 best used in a workplace context according to the text?",
       "options": [
-        "When comparing indicators or metrics objectively (지표를 비교할 때)",
+        "When comparing indicators or metrics objectively",
         "When shouting angrily at colleagues",
         "When resigning from a company on the spot"
       ],

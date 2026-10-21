@@ -129,7 +129,7 @@
       "t": "choice",
       "q": "What did Junho leave open on his desk before leaving the house?",
       "options": [
-        "The novel he was in the middle of reading (읽던 소설책)",
+        "The novel he was in the middle of reading",
         "A brand new unopened dictionary",
         "A travel brochure he bought five minutes ago"
       ],
@@ -140,7 +140,7 @@
       "t": "choice",
       "q": "What memorable place did Junho spot while walking down the street?",
       "options": [
-        "The snack shop he used to frequent during school days (자주 다니던 분식집)",
+        "The snack shop he used to frequent during school days",
         "An airport he had never seen before",
         "A movie set under construction"
       ],
@@ -285,7 +285,7 @@
       "t": "choice",
       "q": "How did Minseo describe the newly opened cafe?",
       "options": [
-        "The coffee aroma was rich and desserts were neat and delicious (향도 진하고 디저트도 참 맛있더라고요)",
+        "The coffee aroma was rich and desserts were neat and delicious",
         "The coffee was cold and the staff was impolite",
         "The cafe had permanently shut down"
       ],
@@ -296,7 +296,7 @@
       "t": "choice",
       "q": "What did Minseo's colleagues decide to do after hearing her review?",
       "options": [
-        "Visit the cafe together during lunch hour (점심시간에 가 보기로 했습니다)",
+        "Visit the cafe together during lunch hour",
         "Protest against the opening of the cafe",
         "Order meals from an overseas restaurant"
       ],
@@ -441,7 +441,7 @@
       "t": "choice",
       "q": "What observation did the colleague share regarding Manager Kim's mood?",
       "options": [
-        "His facial expression looked very bright (표정이 아주 밝으시던데요)",
+        "His facial expression looked very bright",
         "He looked furious and broke his coffee cup",
         "He hadn't shown up at the office at all"
       ],
@@ -452,7 +452,7 @@
       "t": "choice",
       "q": "What did Dohyeon do after hearing his colleague's observation?",
       "options": [
-        "He went to Manager Kim's desk with an important agenda (중요한 안건을 들고 과장님 자리로 찾아갔습니다)",
+        "He went to Manager Kim's desk with an important agenda",
         "He went back home immediately",
         "He hid under his desk all afternoon"
       ],
@@ -597,7 +597,7 @@
       "t": "choice",
       "q": "What change did Seoyeon observe in the alley where she used to play as a child?",
       "options": [
-        "Many tall buildings had been erected (높은 빌딩들이 많이 들어섰더라고요)",
+        "Many tall buildings had been erected",
         "The whole area had turned into a desert",
         "A huge amusement park had been constructed"
       ],
@@ -608,7 +608,7 @@
       "t": "choice",
       "q": "What old familiar shop was still open in the neighborhood?",
       "options": [
-        "Her old regular stationery shop (단골 문구점은 여전히 문을 열고 있던데요)",
+        "Her old regular stationery shop",
         "A luxury yacht showroom",
         "A spaceship repair center"
       ],

@@ -285,7 +285,7 @@
       "t": "choice",
       "q": "What heard reputation did the friend cite as a background for suggesting the cultural venue?",
       "options": [
-        "The rooftop garden view is truly wonderful (옥상 정원 풍경이 아주 근사하다고 하던데)",
+        "The rooftop garden view is truly wonderful",
         "The building gives away free gold bars",
         "It is completely abandoned and dark"
       ],
@@ -441,7 +441,7 @@
       "t": "choice",
       "q": "What good news did the author celebrate with their colleague using -다면서요?",
       "options": [
-        "Being selected as the best employee for the project (최우수 사원으로 뽑혔다면서요)",
+        "Being selected as the best employee for the project",
         "Winning a sports championship trophy",
         "Purchasing an island in the Pacific"
       ],
@@ -452,7 +452,7 @@
       "t": "choice",
       "q": "What unexpected announcement did the colleague react to with dismay using -다니요?",
       "options": [
-        "The sudden merger and reorganization of their department (부서가 통폐합된다니요)",
+        "The sudden merger and reorganization of their department",
         "A mandatory dance competition",
         "Free ice cream distributed in the cafeteria"
       ],
@@ -597,7 +597,7 @@
       "t": "choice",
       "q": "What communication habit enriches Korean dialogue according to the passage?",
       "options": [
-        "Chiming in appropriately to news using tailored reported-speech endings (적절한 인용 어미로 맞장구)",
+        "Chiming in appropriately to news using tailored reported-speech endings",
         "Staring into space without saying anything",
         "Changing the subject completely whenever someone speaks"
       ],

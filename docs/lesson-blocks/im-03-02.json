@@ -129,7 +129,7 @@
       "t": "choice",
       "q": "What astonishing news did the writer hear from their college friend?",
       "options": [
-        "Graduated top of an overseas culinary school (수석으로 졸업했다니)",
+        "Graduated top of an overseas culinary school",
         "Won a million-dollar lottery",
         "Became an astronaut"
       ],
@@ -283,7 +283,7 @@
       "t": "choice",
       "q": "Why did the writer feel sad and empty?",
       "options": [
-        "A close coworker is transferring far away (멀리 간다니 섭섭했어요)",
+        "A close coworker is transferring far away",
         "The writer was assigned overtime work",
         "The favorite restaurant closed down"
       ],
@@ -294,7 +294,7 @@
       "t": "choice",
       "q": "What have the colleagues planned for this weekend?",
       "options": [
-        "Host a farewell party (송별회를 열기로 했어요)",
+        "Host a farewell party",
         "Cancel all projects",
         "Work overtime together"
       ],
@@ -437,7 +437,7 @@
       "t": "choice",
       "q": "What explanation did the coworker provide about the coffee?",
       "options": [
-        "It was cold brew slowly extracted with cold water for 12 hours (12시간 동안 우려낸 콜드브루)",
+        "It was cold brew slowly extracted with cold water for 12 hours",
         "It was instant coffee from a packet",
         "It contained five scoops of sugar"
       ],
@@ -448,7 +448,7 @@
       "t": "choice",
       "q": "How did the writer react upon hearing the reason?",
       "options": [
-        "Nodded in realization using -군요 (그래서 부드러웠군요)",
+        "Nodded in realization on hearing the reason",
         "Spit out the coffee in anger",
         "Refused to believe the coworker"
       ],
@@ -593,7 +593,7 @@
       "t": "choice",
       "q": "What did the writer remind their close coworker about?",
       "options": [
-        "Their dinner plan to eat pork belly after work (삼겹살 먹기로 한 약속)",
+        "Their dinner plan to eat pork belly after work",
         "The overdue tax report",
         "The manager's birthday party"
       ],
@@ -604,7 +604,7 @@
       "t": "choice",
       "q": "How did the coworker respond to the reminder?",
       "options": [
-        "Remembered with relief and packed his bag (웃으며 가방을 챙겼어요)",
+        "Remembered with relief and packed his bag",
         "Got angry and refused to go",
         "Forgot his wallet and stayed behind"
       ],

@@ -129,7 +129,7 @@
       "t": "choice",
       "q": "What casual weekend plan did Minsu share with his colleagues?",
       "options": [
-        "Visiting an art museum (미술관에나 갈까 해요)",
+        "Visiting an art museum",
         "Opening a private tutoring academy",
         "Moving to another country immediately"
       ],
@@ -140,7 +140,7 @@
       "t": "choice",
       "q": "Why did the CEO announce the establishment of a new foundation?",
       "options": [
-        "In order to contribute to the regional community (기여하고자)",
+        "In order to contribute to the regional community",
         "To buy new vehicles for personal use",
         "Because he was closing down the enterprise"
       ],
@@ -285,7 +285,7 @@
       "t": "choice",
       "q": "How did Minu respond to his colleague's coffee invitation?",
       "options": [
-        "He said he was just about to get up right at that moment (일어나려던 참이었어요)",
+        "He said he was just about to get up right at that moment",
         "He declined because he was writing an exam",
         "He got angry and asked them to leave"
       ],
@@ -296,7 +296,7 @@
       "t": "choice",
       "q": "What two purposes did the two colleagues have in heading to the cafe?",
       "options": [
-        "Refreshing their mood and walking (기분 전환도 할 겸 산책도 할 겸)",
+        "Refreshing their mood and walking",
         "Fixing a broken printer and sleeping",
         "Submitting resignations and meeting clients"
       ],
@@ -440,7 +440,7 @@
       "t": "choice",
       "q": "What self-resolution did Sujin make for the coming new year?",
       "options": [
-        "Exercising every morning without being lazy (운동해야지)",
+        "Exercising every morning without being lazy",
         "Buying an expensive sports car",
         "Sleeping until noon every day"
       ],
@@ -451,7 +451,7 @@
       "t": "choice",
       "q": "How did Sujin's senior encourage her resolution?",
       "options": [
-        "Affirming that health is top priority and she should put it into practice (실천해야지요)",
+        "Affirming that health is top priority and she should put it into practice",
         "Mocking her for making unrealistic plans",
         "Telling her to cancel her gym membership"
       ],
@@ -595,7 +595,7 @@
       "t": "choice",
       "q": "What did Yujin say when her team leader came looking for the report?",
       "options": [
-        "She was just about to print it out right at that moment (출력하려던 참이었어요)",
+        "She was just about to print it out right at that moment",
         "She had never seen the document before",
         "She refused to print it out"
       ],
@@ -606,7 +606,7 @@
       "t": "choice",
       "q": "What did Yujin propose to her colleague on the way home?",
       "options": [
-        "Catching fresh air and having tea together (바람도 쐴 겸 같이 차 한잔할까 해요)",
+        "Catching fresh air and having tea together",
         "Working through the night in the office",
         "Canceling all future meetings"
       ],
