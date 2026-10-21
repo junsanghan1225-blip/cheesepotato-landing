@@ -528,14 +528,14 @@
         "h": "무슨 + N (Category / What kind)",
         "d": "Asks for general category, name, or content (무슨 음식, 무슨 책, 무슨 일).",
         "ex": [
-          "**무슨** 노래를 들어요? — What song are you listening to?"
+          "**무슨** 노래를 들어요? / What song are you listening to?"
         ]
       },
       "b": {
         "h": "어느 + N (Selection / Which)",
         "d": "Used when choosing one option out of a limited or existing group (어느 나라, 어느 것, 어느 쪽).",
         "ex": [
-          "**어느** 나라 사람이에요? — Which country are you from?"
+          "**어느** 나라 사람이에요? / Which country are you from?"
         ]
       },
       "tip": "Use 무슨 for open names/categories; use 어느 for picking from available options."

@@ -7,14 +7,14 @@
         "h": "-아/어 놓다 (Visible arrangement for near future)",
         "d": "Completes an action and leaves it in plain sight or accessible for immediate use.",
         "ex": [
-          "손님맞이를 위해 식탁 위에 과일을 깨끗이 **씻어 놓았어요**. — For welcoming guests, I washed fruits and laid them out on the table."
+          "손님맞이를 위해 식탁 위에 과일을 깨끗이 **씻어 놓았어요**. / For welcoming guests, I washed fruits and laid them out on the table."
         ]
       },
       "b": {
         "h": "-아/어 두다 (Safe storage for long-term preparedness)",
         "d": "Safeguards an item, data, or resource in a secure place for unexpected future needs.",
         "ex": [
-          "만약의 사태에 대비해 중요한 서류를 금고에 안전하게 **보관해 두었습니다**. — In preparation for emergencies, I safely stored important papers in the safe."
+          "만약의 사태에 대비해 중요한 서류를 금고에 안전하게 **보관해 두었습니다**. / In preparation for emergencies, I safely stored important papers in the safe."
         ]
       },
       "tip": "Think of 놓다 as \"placing out ready to be used\" (열어 놓다, 켜 놓다, 써 놓다) and 두다 as \"tucking away for future security\" (저장해 두다, 적어 두다, 아껴 두다)."
@@ -163,14 +163,14 @@
         "h": "-(으)ㄴ 채로 (Maintaining an ongoing static condition)",
         "d": "Performs action B while maintaining state A unchanged, often contrary to standard expectations.",
         "ex": [
-          "너무 피곤해서 안경을 **쓴 채로** 잠이 들어 버렸어요. — Because I was so tired, I fell asleep with my glasses on."
+          "너무 피곤해서 안경을 **쓴 채로** 잠이 들어 버렸어요. / Because I was so tired, I fell asleep with my glasses on."
         ]
       },
       "b": {
         "h": "-아/어서 (Causal or sequential transition)",
         "d": "Connects two actions where state A triggers B or changes into B.",
         "ex": [
-          "안경을 **써서** 글씨가 아주 선명하게 보여요. — Because I put on glasses, the letters look very clear."
+          "안경을 **써서** 글씨가 아주 선명하게 보여요. / Because I put on glasses, the letters look very clear."
         ]
       },
       "tip": "-(으)ㄴ 채로 highlights continuing with shoes on (신은 채로), clothes on (입은 채로), or lights on (켠 채로) where they would normally be removed or altered."
@@ -319,14 +319,14 @@
         "h": "-(으)ㄴ/는 대로 (Faithful conformity / direct imitation)",
         "d": "Carries out an action exactly in accordance with instructions, guidelines, or feelings.",
         "ex": [
-          "선생님이 **가르쳐 주신 대로** 문제를 차근차근 풀었어요. — I solved the problems step by step exactly as the teacher taught."
+          "선생님이 **가르쳐 주신 대로** 문제를 차근차근 풀었어요. / I solved the problems step by step exactly as the teacher taught."
         ]
       },
       "b": {
         "h": "-(으)ㄴ/는 대로 (Immediate instant trigger in future)",
         "d": "As soon as an anticipated event takes place, follows up with immediate action.",
         "ex": [
-          "회의가 **끝나는 대로** 곧바로 연락드리겠습니다. — As soon as the meeting ends, I will contact you immediately."
+          "회의가 **끝나는 대로** 곧바로 연락드리겠습니다. / As soon as the meeting ends, I will contact you immediately."
         ]
       },
       "tip": "In past/present, -(으)ㄴ 대로 means \"just as, in conformity with\" (본 대로, 들은 대로). In future/trigger clauses, -는 대로 means \"as soon as\" (도착하는 대로, 끝나는 대로)."
@@ -475,14 +475,14 @@
         "h": "무미건조한 설명 (Dry factual description)",
         "d": "Mentions actions without portraying the underlying visual states or deliberate preparation.",
         "ex": [
-          "청소했어요. 공부했어요. 불을 껐어요. — Cleaned. Studied. Turned off lights."
+          "청소했어요. 공부했어요. 불을 껐어요. / Cleaned. Studied. Turned off lights."
         ]
       },
       "b": {
         "h": "섬세한 정황 묘사 (Nuanced atmospheric depiction)",
         "d": "Blends intentional readiness (-아/어 두다), ongoing state (-(으)ㄴ 채로), and promptness (-는 대로).",
         "ex": [
-          "자료를 **출력해 둔 채로** 회의가 **끝나는 대로** 팀원들과 논의할 준비를 마쳤어요. — With materials kept printed out, I finished preparations to discuss with teammates as soon as the meeting ends."
+          "자료를 **출력해 둔 채로** 회의가 **끝나는 대로** 팀원들과 논의할 준비를 마쳤어요. / With materials kept printed out, I finished preparations to discuss with teammates as soon as the meeting ends."
         ]
       },
       "tip": "Combining -아/어 두다, -(으)ㄴ 채로, and -는 대로 creates vivid, professional portrayals of office readiness and daily routines."

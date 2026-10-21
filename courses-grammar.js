@@ -28,8 +28,8 @@ export const GRAMMAR_COURSES = [
   emoji: '뼈',
   title: { ko:'문장 뼈대', en:'Building Sentences' },
   tagline: { ko:'모든 한국어 문장 뒤에 있는 장치.', en:'The machinery behind every Korean sentence.' },
-  blurb: { ko:'몇 마디는 이제 할 수 있습니다. 이제 그 문장이 어떻게 만들어지는지 배울 차례입니다 — 외운 문장만 반복하는 대신 직접 문장을 만들 수 있도록. 시제, 부정, 조사, 문장 연결까지 다룹니다.',
-           en:'You can say a few phrases. Now learn how they are built — so you can make your own instead of repeating ones you memorised. Tenses, negation, particles, and joining clauses.' },
+  blurb: { ko:'몇 마디는 이제 할 수 있습니다. 이제 그 문장이 어떻게 만들어지는지 배울 차례입니다, 외운 문장만 반복하는 대신 직접 문장을 만들 수 있도록. 시제, 부정, 조사, 문장 연결까지 다룹니다.',
+           en:'You can say a few phrases. Now learn how they are built, so you can make your own instead of repeating ones you memorised. Tenses, negation, particles, and joining clauses.' },
   level: 'After First Words',
   // needs 를 일부러 비워 둔다. 순서상으로는 First Words 다음이지만, 이미
   // 말을 좀 하는 사람이 문법만 보러 오는 경우가 많다. 그런 사람에게
@@ -43,26 +43,26 @@ export const GRAMMAR_COURSES = [
     minutes: 7,
     blocks: [
       { t:'text', md:'Every Korean verb and adjective in the dictionary ends in **다**: 가다 (go), 먹다 (eat), 예쁘다 (pretty).' },
-      { t:'text', md:'Nobody says 다 out loud. You chop it off, keep the front part — the **stem** — and glue a new ending on. That is the whole system.' },
+      { t:'text', md:'Nobody says 다 out loud. You chop it off, keep the front part, the **stem**: and glue a new ending on. That is the whole system.' },
 
       { t:'table',
         head:['Dictionary','Stem','Polite present'],
         rows:[
-          ['가다 — to go','가','가**요**'],
-          ['먹다 — to eat','먹','먹**어요**'],
-          ['하다 — to do','하','**해요**'],
+          ['가다: to go','가','가**요**'],
+          ['먹다: to eat','먹','먹**어요**'],
+          ['하다: to do','하','**해요**'],
         ]},
 
-      { t:'text', h:'Which ending — 아요 or 어요?',
+      { t:'text', h:'Which ending: 아요 or 어요?',
         md:'Look at the **last vowel of the stem**. If it is ㅏ or ㅗ, use 아요. Everything else takes 어요. And 하다 is irregular in a friendly way: it always becomes 해요.' },
 
       { t:'chars', items:[
-        { ch:'가요', rom:'ga-yo', tip:'가 + 아요. Two ㅏ sounds collapse into one — you never say 가아요.' },
+        { ch:'가요', rom:'ga-yo', tip:'가 + 아요. Two ㅏ sounds collapse into one, you never say 가아요.' },
         { ch:'먹어요', rom:'meo-geo-yo', tip:'먹 + 어요. The stem vowel is ㅓ, so 어요.' },
         { ch:'해요', rom:'hae-yo', tip:'하다 → 해요. Memorise this one; it turns up constantly.' },
       ]},
 
-      { t:'note', md:'**Adjectives conjugate too.** In English you need “is” — *it is pretty*. In Korean 예쁘다 becomes 예뻐요 and that is already a full sentence. No “to be” needed.' },
+      { t:'note', md:'**Adjectives conjugate too.** In English you need “is”, *it is pretty*. In Korean 예쁘다 becomes 예뻐요 and that is already a full sentence. No “to be” needed.' },
 
       { t:'choice', q:'공부하다 means “to study”. How do you say it politely?',
         options:['공부하요','공부해요','공부아요'], answer:1,
@@ -74,7 +74,7 @@ export const GRAMMAR_COURSES = [
 
       { t:'type', q:'Type the polite present form of 가다.',
         answer:'가요', keys:['가요','가아요','가어요','해요'],
-        why:'가 + 아요 contracts to 가요. You never say 가아요 — the two ㅏ merge.' },
+        why:'가 + 아요 contracts to 가요. You never say 가아요, the two ㅏ merge.' },
 
       { t:'speak', say:'저는 매일 공부해요', rom:'jeo-neun mae-il gong-bu-hae-yo', q:'“I study every day.”' },
     ],
@@ -129,7 +129,7 @@ export const GRAMMAR_COURSES = [
     blocks: [
       { t:'text', md:'해요 is the everyday polite form and it will carry you almost anywhere. But you will hear two others constantly, so you should recognise them.' },
 
-      { t:'text', h:'-(스)ㅂ니다 — the formal one',
+      { t:'text', h:'-(스)ㅂ니다: the formal one',
         md:'News anchors, job interviews, army, announcements, presentations. Vowel stem takes **ㅂ니다**, consonant stem takes **습니다**.' },
 
       { t:'table',
@@ -142,7 +142,7 @@ export const GRAMMAR_COURSES = [
 
       { t:'note', md:'You already know one: **감사합니다**. That is the formal form of 감사하다. Now you can see the machinery inside a phrase you had memorised whole.' },
 
-      { t:'text', h:'-고 있다 — happening right now',
+      { t:'text', h:'-고 있다: happening right now',
         md:'The equivalent of English *-ing*. Blessedly simple: it attaches to the bare stem with no vowel rules at all.' },
 
       { t:'chars', items:[
@@ -173,18 +173,18 @@ export const GRAMMAR_COURSES = [
       { t:'table',
         head:['','Means','Example'],
         rows:[
-          ['**안**','I choose not to','안 가요 — I am not going'],
-          ['**못**','I cannot','못 가요 — I cannot go'],
+          ['**안**','I choose not to','안 가요: I am not going'],
+          ['**못**','I cannot','못 가요: I cannot go'],
         ]},
 
       { t:'note', md:'**This distinction matters socially.** “안 갔어요” about a friend’s wedding sounds like you could not be bothered. “못 갔어요” says something prevented you. Same event, very different message.' },
 
       { t:'text', h:'The 하다 trap',
-        md:'With [noun + 하다] verbs, 안 goes **inside**, between the noun and 하다. 공부 안 해요 — not 안 공부해요.' },
+        md:'With [noun + 하다] verbs, 안 goes **inside**, between the noun and 하다. 공부 안 해요, not 안 공부해요.' },
 
       { t:'choice', q:'You broke your leg. “I can’t exercise.” (운동하다)',
         options:['운동 안 해요','운동 못 해요'], answer:1,
-        why:'A broken leg is not a choice — 못.' },
+        why:'A broken leg is not a choice: 못.' },
 
       { t:'choice', q:'Which is correct Korean?',
         options:['안 공부해요','공부 안 해요'], answer:1,
@@ -211,14 +211,14 @@ export const GRAMMAR_COURSES = [
       { t:'table',
         head:['Particle','Marks','After vowel / consonant'],
         rows:[
-          ['**이 / 가**','the subject — who does it','친구**가** / 눈**이**'],
-          ['**은 / 는**','the topic — “as for…”','저**는** / 학생**은**'],
-          ['**을 / 를**','the object — what it happens to','영화**를** / 책**을**'],
+          ['**이 / 가**','the subject: who does it','친구**가** / 눈**이**'],
+          ['**은 / 는**','the topic: “as for…”','저**는** / 학생**은**'],
+          ['**을 / 를**','the object: what it happens to','영화**를** / 책**을**'],
         ]},
 
       { t:'note', md:'The pattern repeats everywhere: **the form with the extra vowel goes after a consonant.** 이, 은, 을 follow consonants. 가, 는, 를 follow vowels. It is purely about keeping words easy to say.' },
 
-      { t:'text', h:'이/가 vs 은/는 — the one everyone struggles with',
+      { t:'text', h:'이/가 vs 은/는: the one everyone struggles with',
         md:'Rough rule that gets you far: 은/는 introduces or contrasts (**“as for me…”**), 이/가 points at who specifically did something. Native speakers feel this rather than think it, and so will you, eventually.' },
 
       { t:'chars', items:[
@@ -259,13 +259,13 @@ export const GRAMMAR_COURSES = [
           ['**에서**','*doing* something somewhere','도서관**에서** 공부해요'],
         ]},
 
-      { t:'note', md:'**Test yourself with the verb.** 있다/없다/가다/오다 → 에. Any action verb — eat, study, work, meet → 에서. 집에 있어요 (I am at home) but 집에서 쉬어요 (I rest at home).' },
+      { t:'note', md:'**Test yourself with the verb.** 있다/없다/가다/오다 → 에. Any action verb, eat, study, work, meet → 에서. 집에 있어요 (I am at home) but 집에서 쉬어요 (I rest at home).' },
 
       { t:'text', h:'에 also does time',
-        md:'세 시**에** (at 3), 주말**에** (on the weekend). But **never** with 어제, 오늘, 내일, 지금. 내일에 만나요 is wrong — just 내일 만나요.' },
+        md:'세 시**에** (at 3), 주말**에** (on the weekend). But **never** with 어제, 오늘, 내일, 지금. 내일에 만나요 is wrong, just 내일 만나요.' },
 
       { t:'text', h:'People take 에게 / 한테',
-        md:'Not 에. 친구**한테** 전화했어요 — I called my friend. 한테 is what you say out loud; 에게 is what you write.' },
+        md:'Not 에. 친구**한테** 전화했어요: I called my friend. 한테 is what you say out loud; 에게 is what you write.' },
 
       { t:'choice', q:'“I study at the library.”  도서관 ___ 공부해요',
         options:['에','에서'], answer:1,
@@ -294,19 +294,19 @@ export const GRAMMAR_COURSES = [
       { t:'table',
         head:['Particle','Means','Example'],
         rows:[
-          ['**도**','also, too','저**도** 가요 — I am going too'],
-          ['**만**','only','하나**만** 주세요 — just one, please'],
+          ['**도**','also, too','저**도** 가요: I am going too'],
+          ['**만**','only','하나**만** 주세요: just one, please'],
           ['**밖에**','only (and it is not enough)','천 원**밖에** 없어요'],
           ['**보다**','than','어제**보다** 따뜻해요'],
           ['**마다**','every','아침**마다** 운동해요'],
         ]},
 
-      { t:'note', md:'**밖에 always needs a negative after it.** 천 원밖에 없어요 — “I only have 1,000 won” and it is not enough. Saying 천 원밖에 있어요 is broken Korean. 만 has no such rule.' },
+      { t:'note', md:'**밖에 always needs a negative after it.** 천 원밖에 없어요, “I only have 1,000 won” and it is not enough. Saying 천 원밖에 있어요 is broken Korean. 만 has no such rule.' },
 
       { t:'text', h:'도 replaces, it does not stack',
-        md:'도 takes the place of 이/가 and 을/를 rather than joining them. 저**도** — never 저는도 or 저가도.' },
+        md:'도 takes the place of 이/가 and 을/를 rather than joining them. 저**도**, never 저는도 or 저가도.' },
 
-      { t:'choice', q:'“I only have 1,000 won.” — which is correct?',
+      { t:'choice', q:'“I only have 1,000 won.”: which is correct?',
         options:['천 원밖에 있어요','천 원밖에 없어요'], answer:1,
         why:'밖에 must be followed by a negative.' },
 
@@ -327,12 +327,12 @@ export const GRAMMAR_COURSES = [
     title: { ko:'두 문장 잇기', en:'Joining two sentences' },
     minutes: 8,
     blocks: [
-      { t:'text', md:'English joins sentences with separate words — *and, but, so*. Korean prefers to bend the first verb and glue the halves together. This is what makes speech sound fluent rather than chopped.' },
+      { t:'text', md:'English joins sentences with separate words, *and, but, so*. Korean prefers to bend the first verb and glue the halves together. This is what makes speech sound fluent rather than chopped.' },
 
       { t:'table',
         head:['Ending','Means','Example'],
         rows:[
-          ['**-고**','and','싸**고** 맛있어요 — cheap and tasty'],
+          ['**-고**','and','싸**고** 맛있어요: cheap and tasty'],
           ['**-지만**','but','어렵**지만** 재미있어요'],
           ['**-아/어서**','so, because','아파**서** 못 갔어요'],
           ['**-(으)니까**','because (with a request after)','추우**니까** 창문을 닫으세요'],
@@ -341,7 +341,7 @@ export const GRAMMAR_COURSES = [
       { t:'note', md:'**-아/어서 cannot be followed by a command.** “비가 와서 우산을 가져가세요” is wrong, even though it looks reasonable. Use -(으)니까 whenever the second half tells someone to do something. This one shows up in every exam.' },
 
       { t:'text', h:'-고 vs -아/어서 for sequences',
-        md:'밥을 먹**고** 갔어요 — I ate, then left. Two separate events. 시장에 가**서** 샀어요 — I went to the market **and bought it there**. The second half carries on from the first.' },
+        md:'밥을 먹**고** 갔어요: I ate, then left. Two separate events. 시장에 가**서** 샀어요, I went to the market **and bought it there**. The second half carries on from the first.' },
 
       { t:'choice', q:'Which is wrong?',
         options:['비가 오니까 우산을 가져가세요','비가 와서 우산을 가져가세요'], answer:1,

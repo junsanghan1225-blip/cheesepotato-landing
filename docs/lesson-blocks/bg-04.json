@@ -54,10 +54,10 @@
     {
       "t": "correct",
       "q": "Fix the mistake.",
-      "wrong": "누가 커피를 샀어요? — 저는 샀어요.",
+      "wrong": "누가 커피를 샀어요? / 저는 샀어요.",
       "answers": [
-        "누가 커피를 샀어요? — 제가 샀어요.",
-        "누가 커피를 샀어요? — 제가 샀어요"
+        "누가 커피를 샀어요? / 제가 샀어요.",
+        "누가 커피를 샀어요? / 제가 샀어요"
       ],
       "hint": "When answering 'Who' (누가?), identify the specific subject using 제가 instead of topic marker 저는.",
       "why": "Answering an information question '누가?' requires subject marker 이/가: 제가 샀어요."

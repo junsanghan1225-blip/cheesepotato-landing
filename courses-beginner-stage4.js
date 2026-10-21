@@ -43,7 +43,7 @@ export const BEGINNER_STAGE4_COURSES = [
     blocks: [
       { t:'text', md:'When you want to tell someone politely *“Please do this”*, attach **-(으)세요** to the verb stem:\n- Stem without batchim → **-세요** *(가다 → 가세요)*\n- Stem with batchim → **-으세요** *(앉다 → 앉으세요)*\n\n**Remember the ㄹ rule from Stage 3?**\nStems ending in **ㄹ** drop the ㄹ: **만들다 → 만드세요**, **살다 → 사세요**!' },
 
-      { t:'note', md:'**The Two Faces of -(으)세요**:\n\nMost textbooks only teach this as a command, but in real Korean it has a second huge job:\n\n1. **Polite command**: 여기 앉으세요. *(Please sit here.)*\n2. **Honorific statement or question**: Describing what a respected elder or teacher does!\n   - 선생님, 어디 **가세요**? *(Teacher, where are you going? — Not a command, just a respectful question!)*\n   - 아버지는 지금 책을 **읽으세요**. *(Father is reading a book.)*' },
+      { t:'note', md:'**The Two Faces of -(으)세요**:\n\nMost textbooks only teach this as a command, but in real Korean it has a second huge job:\n\n1. **Polite command**: 여기 앉으세요. *(Please sit here.)*\n2. **Honorific statement or question**: Describing what a respected elder or teacher does!\n   - 선생님, 어디 **가세요**? *(Teacher, where are you going? / Not a command, just a respectful question!)*\n   - 아버지는 지금 책을 **읽으세요**. *(Father is reading a book.)*' },
 
       { t:'table', head:['Verb','With -(으)세요','Meaning'], rows:[
         ['가다 (to go)','**가세요**','Please go / Where are you going?'],
@@ -276,7 +276,7 @@ export const BEGINNER_STAGE4_COURSES = [
     title: { ko:'3강. 실전 대조: 허락 vs 의무', en:'Lesson 3. Permission vs Obligation in Dialogue' },
     minutes: 7,
     blocks: [
-      { t:'text', md:'Notice the single-letter difference that completely changes the meaning:\n\n- **-아/어도 돼요?** *(May I? — Asking permission)*\n- **-아/어야 돼요?** *(Must I? — Asking about obligation)*\n\nMixing up **도** and **야** changes “May I leave?” into “Do I have to leave?”' },
+      { t:'text', md:'Notice the single-letter difference that completely changes the meaning:\n\n- **-아/어도 돼요?** *(May I? / Asking permission)*\n- **-아/어야 돼요?** *(Must I? / Asking about obligation)*\n\nMixing up **도** and **야** changes “May I leave?” into “Do I have to leave?”' },
 
       { t:'table', head:['Korean Sentence','Grammar','English Meaning'], rows:[
         ['여기 앉**아도** 돼요?','-아/어도 되다','**May I** sit here? (Permission)'],
@@ -317,7 +317,7 @@ export const BEGINNER_STAGE4_COURSES = [
   {
     id: "bg-18-04", title: {"ko":"4강. 실전 대화: 규칙 묻기·양해 구하기와 마감 지키기","en":"Lesson 4. Real-Life Conversation: Asking Rules, Permissions, and Deadlines"}, minutes: 5,
     blocks: [
-      {"t":"text","h":"Navigating Real-Life Situations with Permission and Obligation","md":"In daily life in Korea—at schools, cafes, offices, or public places—you will constantly use **-아/어도 돼요?** to ask if something is permitted and **-아/어야 돼요** to confirm what you must do:\n\n- **Checking rules / Asking permission:**\n  - 여기서 사진을 찍**어도 돼요?** (May I take photos here?)\n  - 이 음식을 먹**어도 돼요?** (May I eat this food?)\n- **Confirming deadlines / Requirements:**\n  - 보고서를 언제까지 내**야 돼요?** (By when do I have to submit the report?)\n  - 계산은 먼저 해**야 돼요.** (You have to pay in advance.)"},
+      {"t":"text","h":"Navigating Real-Life Situations with Permission and Obligation","md":"In daily life in Korea: at schools, cafes, offices, or public places, you will constantly use **-아/어도 돼요?** to ask if something is permitted and **-아/어야 돼요** to confirm what you must do:\n\n- **Checking rules / Asking permission:**\n  - 여기서 사진을 찍**어도 돼요?** (May I take photos here?)\n  - 이 음식을 먹**어도 돼요?** (May I eat this food?)\n- **Confirming deadlines / Requirements:**\n  - 보고서를 언제까지 내**야 돼요?** (By when do I have to submit the report?)\n  - 계산은 먼저 해**야 돼요.** (You have to pay in advance.)"},
       {"t":"table","head":["Place / Situation","Question (-아/어도 돼요?)","Answer / Rule (-아/어야 돼요)"],"rows":[["Museum / Gallery","사진을 찍어도 돼요?","플래시 없이 찍어야 돼요"],["Restaurant","카드로 계산해도 돼요?","카드로 결제하셔도 돼요"],["Classroom / Office","질문해도 돼요?","끝나고 질문하셔야 돼요"],["Library","음료를 마셔도 돼요?","음료는 밖에서 드셔야 돼요"]]},
       {"t":"note","md":"Both **-아/어야 되다** and **-아/어야 하다** mean “must / have to”. In spoken Korean, **되다** is used far more often, while **하다** is common in formal writing and public notices."},
       {"t":"chars","wide":true,"items":[{"ch":"실례지만 여기서 사진을 찍어도 돼요?","tip":"Excuse me, may I take photos here? (-아/어도 돼요 asking permission)"},{"ch":"과제를 내일까지 제출해야 돼요.","tip":"I have to submit the assignment by tomorrow. (-아/어야 돼요 obligation)"},{"ch":"이 버스를 타려면 교통카드를 찍어야 돼요.","tip":"To ride this bus, you must tap your transit card. (Requirement)"}]},
@@ -451,7 +451,7 @@ export const BEGINNER_STAGE4_COURSES = [
   id: 'bg-20',
   emoji: '💪',
   title: { ko:'할 수 있어요 / 없어요', en:'Ability & Possibility: -(으)ㄹ 수 있다 / 없다' },
-  tagline: { ko:'능력과 가능 말하기 — 할 수 있는 것과 없는 것', en:'Express what you can and cannot do.' },
+  tagline: { ko:'능력과 가능 말하기: 할 수 있는 것과 없는 것', en:'Express what you can and cannot do.' },
   blurb: { ko:'"한국어 할 수 있어요", "수영할 수 없어요"처럼 능력과 상황적 가능성을 말하는 법을 배웁니다. ㄹ 불규칙 탈락과 미래 관형형 조각의 결합을 미리 맛봅니다.',
            en:'Talk about abilities (skills you have) and possibilities (what circumstances permit). Learn the versatile -(으)ㄹ 수 있다 / 없다.' },
   level: 'Beginner',
@@ -510,7 +510,7 @@ export const BEGINNER_STAGE4_COURSES = [
     title: { ko:'2강. 상황적 가능성: 되는 상황과 안 되는 상황', en:'Lesson 2. Situational Possibility' },
     minutes: 6,
     blocks: [
-      { t:'text', md:'Beyond personal abilities, **-(으)ㄹ 수 있다 / 없다** is used when **circumstances allow or prevent** an action:\n\n- *“오늘은 바빠서 갈 수 없어요.”* (I can\'t go today because I\'m busy — not about leg ability, but schedule!)\n- *“여기서 사진을 찍을 수 있어요?”* (Can we take photos here? — asking about rules)' },
+      { t:'text', md:'Beyond personal abilities, **-(으)ㄹ 수 있다 / 없다** is used when **circumstances allow or prevent** an action:\n\n- *“오늘은 바빠서 갈 수 없어요.”* (I can\'t go today because I\'m busy, not about leg ability, but schedule!)\n- *“여기서 사진을 찍을 수 있어요?”* (Can we take photos here? / asking about rules)' },
 
       { t:'table', head:['Situation','Sentence','Meaning'], rows:[
         ['Schedule conflict','오늘은 바빠서 **갈 수 없어요**','Can\'t go because busy'],
@@ -728,7 +728,7 @@ export const BEGINNER_STAGE4_COURSES = [
   },
 
   {
-    id: "bg-21-04", title: {"ko":"4강. 실전 대화: 약속 정하기 종합 — 제안·수락·약속하기","en":"Lesson 4. Real-Life Conversation: Making Plans — Suggesting, Agreeing, and Committing"}, minutes: 5,
+    id: "bg-21-04", title: {"ko":"4강. 실전 대화: 약속 정하기 종합, 제안·수락·약속하기","en":"Lesson 4. Real-Life Conversation: Making Plans, Suggesting, Agreeing, and Committing"}, minutes: 5,
     blocks: [
       {"t":"text","h":"A Natural Flow for Making Plans with a Friend","md":"When planning an outing or activity with someone in Korean, you combine three key intention and proposal endings in a smooth conversational sequence:\n\n1. **Suggesting / Asking ideas (-(으)ㄹ까요?):**\n   - 이번 주말에 영화 **볼까요?** (Shall we watch a movie this weekend?)\n2. **Asking personal preference / Inviting (-(으)ㄹ래요?):**\n   - 몇 시에 만**날래요?** (What time would you like to meet?)\n3. **Making a commitment / Promise on the spot (-(으)ㄹ게요):**\n   - 제가 영화 표를 예매**할게요!** (I will book the tickets!)\n   - 그럼 제가 커피를 **살게요!** (Then I will buy the coffee!)"},
       {"t":"table","head":["Stage","Grammar Ending","Conversational Role","Example"],"rows":[["1. Proposal","-(으)ㄹ까요?","Shall we...? (inviting ideas)","점심 같이 먹을까요?"],["2. Preference","-(으)ㄹ래요?","Would you like to...? (asking intent)","비빔밥 먹을래요?"],["3. Agreement","-(으)ㅂ시다 / 좋아요","Let’s do that! (agreeing)","좋아요, 그렇게 합시다!"],["4. Commitment","-(으)ㄹ게요","I’ll do that! (promising)","제가 식당 예약할게요!"]]},

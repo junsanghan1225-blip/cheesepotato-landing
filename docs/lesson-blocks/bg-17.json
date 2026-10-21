@@ -547,16 +547,16 @@
         "h": "-(으)세요 (상대방을 위한 권유·안내)",
         "d": "Directs or invites the listener for their own comfort or as general etiquette.",
         "ex": [
-          "손님, 여기 편하게 **앉으세요**. — Customer, please sit here comfortably.",
-          "조심히 **들어가세요**. — Please go home safely."
+          "손님, 여기 편하게 **앉으세요**. / Customer, please sit here comfortably.",
+          "조심히 **들어가세요**. / Please go home safely."
         ]
       },
       "b": {
         "h": "-아/어 주세요 (나를 위한 부탁)",
         "d": "Politely asks the listener to perform an action for the speaker's benefit.",
         "ex": [
-          "기사님, 서울역으로 **가 주세요**. — Driver, please take me to Seoul Station.",
-          "추우니까 창문 좀 **닫아 주세요**. — Since it is cold, please close the window for me."
+          "기사님, 서울역으로 **가 주세요**. / Driver, please take me to Seoul Station.",
+          "추우니까 창문 좀 **닫아 주세요**. / Since it is cold, please close the window for me."
         ]
       },
       "tip": "Ask yourself who benefits: if it is for the listener's own good, use -(으)세요; if you are asking a favor for yourself, use -아/어 주세요."

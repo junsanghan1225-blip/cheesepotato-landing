@@ -26,7 +26,7 @@ export const BEGINNER_STAGE2_COURSES = [
   id: 'bg-10',
   emoji: '⏪',
   title: { ko:'과거 시제: -았/었-', en:'Past Tense: -았/었-' },
-  tagline: { ko:'어제 한 일 말하기 — 현재형과 같은 모음 규칙', en:'The same vowel rule as present, just in the past.' },
+  tagline: { ko:'어제 한 일 말하기: 현재형과 같은 모음 규칙', en:'The same vowel rule as present, just in the past.' },
   blurb: { ko:'-아요/-어요를 익힌 사람은 과거형을 거저 얻습니다. 어제 한 일, 지난 주말에 있었던 일을 말하는 2강 훈련입니다.',
            en:'If you know -아요/-어요, past tense is free: the vowel rule is identical. Talk about yesterday and what happened in two focused lessons.' },
   level: 'Beginner',
@@ -95,10 +95,10 @@ export const BEGINNER_STAGE2_COURSES = [
 
   {
     id: 'bg-10-02',
-    title: { ko:'2강. 어제 뭐 했어요? — 어제 한 일 말하기', en:'Lesson 2. What did you do yesterday?' },
+    title: { ko:'2강. 어제 뭐 했어요? / 어제 한 일 말하기', en:'Lesson 2. What did you do yesterday?' },
     minutes: 6,
     blocks: [
-      { t:'text', md:'Asking questions in the past tense uses the same magic trick you learned in Stage 1: **keep the word order and raise your intonation.**\n\n어제 뭐 **했어요?**  *(rising)* — What did you do yesterday?\n어제 친구 **만났어요.**  *(falling)* — I met a friend yesterday.' },
+      { t:'text', md:'Asking questions in the past tense uses the same magic trick you learned in Stage 1: **keep the word order and raise your intonation.**\n\n어제 뭐 **했어요?**  *(rising)*, What did you do yesterday?\n어제 친구 **만났어요.**  *(falling)*, I met a friend yesterday.' },
 
       { t:'chars', wide:true, items:[
         { ch:'어제 뭐 했어요?', tip:'What did you do yesterday?' },
@@ -106,7 +106,7 @@ export const BEGINNER_STAGE2_COURSES = [
         { ch:'아까 커피 마셨어요.', tip:'I drank coffee a little while ago. 아까 = earlier.' },
       ]},
 
-      { t:'note', md:'**Time words for the past:**\n- **어제** (yesterday) — takes *no* particle\n- **아까** (earlier today / a little while ago) — takes *no* particle\n- **지난주에** (last week) — takes **에**\n- **작년에** (last year) — takes **에**' },
+      { t:'note', md:'**Time words for the past:**\n- **어제** (yesterday) / takes *no* particle\n- **아까** (earlier today / a little while ago) / takes *no* particle\n- **지난주에** (last week) / takes **에**\n- **작년에** (last year) / takes **에**' },
 
       { t:'choice', q:'Which sentence has the correct particle pairing for time?',
         options:['지난주에 한국에 왔어요','어제에 영화를 봤어요','아까에 커피를 마셨어요','지금에 밥을 먹었어요'], answer:0,
@@ -129,7 +129,7 @@ export const BEGINNER_STAGE2_COURSES = [
 
       { t:'correct', wrong:'어제 학교에 가았어요.',
         answers:['어제 학교에 갔어요','어제 학교에 갔어요.'],
-        hint:'ㅏ + 았 merges into 았 — 가 + 았어요 contracts into 갔어요.',
+        hint:'ㅏ + 았 merges into 았: 가 + 았어요 contracts into 갔어요.',
         why:'가았어요 is uncontracted; the correct form is **갔어요**.' },
 
       { t:'translate', q:'Translate into Korean: **“I drank coffee earlier.”**  (earlier = 아까, coffee = 커피)',
@@ -183,7 +183,7 @@ export const BEGINNER_STAGE2_COURSES = [
   id: 'bg-11',
   emoji: '⏳',
   title: { ko:'진행형: -고 있다', en:'In Progress: -고 있다' },
-  tagline: { ko:'지금 이 순간 하고 있는 일 — 받침·모음 불문', en:'What you are doing right this second — no stem changes.' },
+  tagline: { ko:'지금 이 순간 하고 있는 일: 받침·모음 불문', en:'What you are doing right this second, no stem changes.' },
   blurb: { ko:'모음 조화도 받침 규칙도 없습니다. 어간에 -고 있어요만 붙이면 “지금 ~하는 중”이 됩니다.',
            en:'No vowel harmony and no consonant rules. Just attach -고 있어요 to say you are in the middle of doing something right now.' },
   level: 'Beginner',
@@ -305,7 +305,7 @@ export const BEGINNER_STAGE2_COURSES = [
     title: { ko:'1강. -기 전에 & -(으)ㄴ 후에', en:'Lesson 1. Before and After: -기 전에 & -(으)ㄴ 후에' },
     minutes: 6,
     blocks: [
-      { t:'text', md:'Two essential time chunks for sequencing events:\n\n1. **[Verb Stem] + -기 전에** = Before doing...\n2. **[Verb Stem-(으)ㄴ] + 후에** = After doing...\n\n밥 먹**기 전에** 손을 씻어요.  — Before eating, I wash my hands.\n밥 먹**은 후에** 커피를 마셔요.  — After eating, I drink coffee.' },
+      { t:'text', md:'Two essential time chunks for sequencing events:\n\n1. **[Verb Stem] + -기 전에** = Before doing...\n2. **[Verb Stem-(으)ㄴ] + 후에** = After doing...\n\n밥 먹**기 전에** 손을 씻어요. / Before eating, I wash my hands.\n밥 먹**은 후에** 커피를 마셔요. / After eating, I drink coffee.' },
 
       { t:'table', head:['Verb','-기 전에 (Before)','-(으)ㄴ 후에 (After)'], rows:[
         ['먹다 (to eat)','먹**기 전에**','먹**은 후에** (받침 ㅇ)'],
@@ -355,10 +355,10 @@ export const BEGINNER_STAGE2_COURSES = [
 
   {
     id: 'bg-12-02',
-    title: { ko:'2강. -(으)ㄹ 때 — 어떤 순간에', en:'Lesson 2. When / While: -(으)ㄹ 때' },
+    title: { ko:'2강. -(으)ㄹ 때: 어떤 순간에', en:'Lesson 2. When / While: -(으)ㄹ 때' },
     minutes: 5,
     blocks: [
-      { t:'text', md:'**-(으)ㄹ 때** means **when** or **at the time that**.\n\n- No 받침 → **-ㄹ 때**: 가다 → **갈 때** (when going)\n- Has 받침 → **-을 때**: 먹다 → **먹을 때** (when eating)\n- Stem ends in ㄹ: 살다 → **살 때** (when living)\n\n시간 **있을 때** 뭐 해요?  — What do you do when you have time?' },
+      { t:'text', md:'**-(으)ㄹ 때** means **when** or **at the time that**.\n\n- No 받침 → **-ㄹ 때**: 가다 → **갈 때** (when going)\n- Has 받침 → **-을 때**: 먹다 → **먹을 때** (when eating)\n- Stem ends in ㄹ: 살다 → **살 때** (when living)\n\n시간 **있을 때** 뭐 해요? / What do you do when you have time?' },
 
       { t:'chars', wide:true, items:[
         { ch:'한국에 갈 때 선물 샀어요.', tip:'I bought a gift when I went to Korea.' },
@@ -397,7 +397,7 @@ export const BEGINNER_STAGE2_COURSES = [
     title: { ko:'3강. -(으)ㄴ 지 [시간] 됐어요', en:'Lesson 3. Elapsed time: -(으)ㄴ 지 [time] 됐어요' },
     minutes: 5,
     blocks: [
-      { t:'text', md:'To say **“It has been [duration] since I did [action]”**, use:\n\n**[Verb-(으)ㄴ] 지 + [Time] + 됐어요**\n\n한국에 **온 지** 일 년 **됐어요**.  — It’s been a year since I came to Korea.\n한국어를 **배운 지** 세 달 **됐어요**.  — It’s been three months since I started learning Korean.' },
+      { t:'text', md:'To say **“It has been [duration] since I did [action]”**, use:\n\n**[Verb-(으)ㄴ] 지 + [Time] + 됐어요**\n\n한국에 **온 지** 일 년 **됐어요**. / It’s been a year since I came to Korea.\n한국어를 **배운 지** 세 달 **됐어요**. / It’s been three months since I started learning Korean.' },
 
       { t:'chars', wide:true, items:[
         { ch:'한국에 온 지 일 년 됐어요.', tip:'It’s been a year since I came to Korea.' },
@@ -474,7 +474,7 @@ export const BEGINNER_STAGE2_COURSES = [
 
   {
     id: 'bg-irr-02-01',
-    title: { ko:'1강. ㄷ이 ㄹ로 바뀐다 — 듣다 · 걷다', en:'Lesson 1. ㄷ shifts to ㄹ: 듣다 & 걷다' },
+    title: { ko:'1강. ㄷ이 ㄹ로 바뀐다: 듣다 · 걷다', en:'Lesson 1. ㄷ shifts to ㄹ: 듣다 & 걷다' },
     minutes: 6,
     blocks: [
       { t:'text', md:'When certain verbs ending in 받침 **ㄷ** meet an ending starting with a **vowel**, the ㄷ transforms into **ㄹ**.\n\n듣다 (to listen) → 들 + **어요** → **들어요**\n걷다 (to walk) → 걸 + **어요** → **걸어요**\n\nIn the past tense, the same thing happens: 들 + **었어요** → **들었어요**.' },
@@ -524,7 +524,7 @@ export const BEGINNER_STAGE2_COURSES = [
 
   {
     id: 'bg-irr-02-02',
-    title: { ko:'2강. 르가 ㄹㄹ로 합쳐진다 — 모르다 · 빠르다', en:'Lesson 2. 르 doubles to ㄹㄹ: 모르다 & 빠르다' },
+    title: { ko:'2강. 르가 ㄹㄹ로 합쳐진다: 모르다 · 빠르다', en:'Lesson 2. 르 doubles to ㄹㄹ: 모르다 & 빠르다' },
     minutes: 6,
     blocks: [
       { t:'text', md:'When a verb stem ends in **르**, two things happen before -아/어:\n1. The vowel **ㅡ drops out**.\n2. An extra **ㄹ attaches underneath** the preceding syllable!\n\n모르다 → 모 + ㄹ + 라요 → **몰라요** (I don’t know)\n빠르다 → 빠 + ㄹ + 라요 → **빨라요** (It’s fast)\n다르다 → 다 + ㄹ + 라요 → **달라요** (It’s different)' },

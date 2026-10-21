@@ -7,14 +7,14 @@
         "h": "단순 사실 나열 (-고)",
         "d": "Joins two facts neutrally without adding rhetorical emphasis.",
         "ex": [
-          "이 식당은 음식이 맛있고 가격이 저렴해요. — This restaurant has delicious food and cheap prices."
+          "이 식당은 음식이 맛있고 가격이 저렴해요. / This restaurant has delicious food and cheap prices."
         ]
       },
       "b": {
         "h": "대등 강조 덧붙임 (-(으)ㄹ 뿐만 아니라)",
         "d": "Emphasizes that quality A is already impressive, and an equally compelling quality B is also true.",
         "ex": [
-          "이 식당은 음식이 **맛있을 뿐만 아니라** 사장님도 매우 친절해요. — This restaurant is not only delicious, but the owner is also very kind."
+          "이 식당은 음식이 **맛있을 뿐만 아니라** 사장님도 매우 친절해요. / This restaurant is not only delicious, but the owner is also very kind."
         ]
       },
       "tip": "Both linked clauses must align in polarity: pair positives with positives, and negatives with negatives."
@@ -163,14 +163,14 @@
         "h": "대등 덧붙임 (-(으)ㄹ 뿐만 아니라)",
         "d": "Adds two parallel facts of equal stature side by side.",
         "ex": [
-          "성격이 **좋을 뿐만 아니라** 일도 잘해요. — Not only is personality great, but they also work well."
+          "성격이 **좋을 뿐만 아니라** 일도 잘해요. / Not only is personality great, but they also work well."
         ]
       },
       "b": {
         "h": "상황 누적·가중 (-(으)ㄴ/는 데다가)",
         "d": "Emphasizes that situation B piles on top of situation A, compounding the impact (금상첨화 or 설상가상).",
         "ex": [
-          "비가 **내리는 데다가** 강풍까지 불어서 우산이 뒤집혔어요. — On top of rain falling, strong wind blew, turning umbrellas inside out."
+          "비가 **내리는 데다가** 강풍까지 불어서 우산이 뒤집혔어요. / On top of rain falling, strong wind blew, turning umbrellas inside out."
         ]
       },
       "tip": "Conjugation check: Verbs use -는 데다가 (가는 데다가), Adjectives with final consonant use -은 데다가 (적은 데다가), without final consonant use -ㄴ 데다가 (비싼 데다가)."
@@ -319,14 +319,14 @@
         "h": "극단적 최소선 (조차 + 부정)",
         "d": "Emphasizes that even the most fundamental, basic, or easiest minimum was not met. Always pairs with negative predicates.",
         "ex": [
-          "너무 지치고 아파서 물**조차** 삼키지 못했어요. — I was so exhausted and ill that I could not even swallow water."
+          "너무 지치고 아파서 물**조차** 삼키지 못했어요. / I was so exhausted and ill that I could not even swallow water."
         ]
       },
       "b": {
         "h": "대표적 단일 사례 (만 해도)",
         "d": "Proves a general trend by picking a single concrete representative example.",
         "ex": [
-          "우리 동네**만 해도** 한 블록 안에 카페가 세 곳이에요. — Taking our neighborhood alone, there are three cafes within one block."
+          "우리 동네**만 해도** 한 블록 안에 카페가 세 곳이에요. / Taking our neighborhood alone, there are three cafes within one block."
         ]
       },
       "tip": "조차 demands negative verbs (못 하다, 없다, 모르다, 안 되다). 만 해도 can take both positive and negative sentences."
@@ -475,14 +475,14 @@
         "h": "단순 단문 나열 (Repetitive simple style)",
         "d": "Repeats basic conjunctions (그리고, 또), resulting in flat and unpersuasive prose.",
         "ex": [
-          "이 식당은 맛있어요. 그리고 친절해요. 그리고 자리도 없어요. — This place is good. And kind. And has no seats."
+          "이 식당은 맛있어요. 그리고 친절해요. 그리고 자리도 없어요. / This place is good. And kind. And has no seats."
         ]
       },
       "b": {
         "h": "다채로운 덧붙이기 융합 (Polished additive style)",
         "d": "Interweaves -(으)ㄹ 뿐만 아니라, -(으)ㄴ/는 데다가, 조차, and 만 해도 for layered eloquence.",
         "ex": [
-          "음식이 **맛있을 뿐만 아니라** 인근 상권**만 해도** 빈자리**조차** 찾기 힘들 만큼 인기예요. — Not only is food delicious, but taking the local commercial area alone, it is so popular that it is hard even to find an empty seat."
+          "음식이 **맛있을 뿐만 아니라** 인근 상권**만 해도** 빈자리**조차** 찾기 힘들 만큼 인기예요. / Not only is food delicious, but taking the local commercial area alone, it is so popular that it is hard even to find an empty seat."
         ]
       },
       "tip": "Varying additive particles enriches narrative depth in business pitches, restaurant reviews, and essay writing."

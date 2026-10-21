@@ -58,14 +58,14 @@
         "h": "-보다 (Than / Comparison)",
         "d": "Attached to the standard of comparison to indicate that something has more or less of a quality.",
         "ex": [
-          "기차가 버스**보다** 빨라요. — The train is faster than the bus."
+          "기차가 버스**보다** 빨라요. / The train is faster than the bus."
         ]
       },
       "b": {
         "h": "-처럼 (Like / As)",
         "d": "Attached to a noun to show similarity or resemblance in appearance, action, or manner.",
         "ex": [
-          "아이**처럼** 웃어요. — Smiles like a child."
+          "아이**처럼** 웃어요. / Smiles like a child."
         ]
       },
       "tip": "Use -보다 for differences (better, faster, bigger) and -처럼 for likeness (acting or looking like something)."
@@ -383,14 +383,14 @@
         "h": "-만 (Only / Just - Affirmative / Negative)",
         "d": "Can be used with either positive or negative verbs to state a simple focus or limitation.",
         "ex": [
-          "사과**만** 있어요. — There are only apples."
+          "사과**만** 있어요. / There are only apples."
         ]
       },
       "b": {
         "h": "-밖에 (Nothing but / Only - ALWAYS Negative)",
         "d": "MUST be followed by a negative verb (없어요, 안 해요, 못 가요) to emphasize insufficiency or lack.",
         "ex": [
-          "사과**밖에** 없어요. — There is nothing but apples."
+          "사과**밖에** 없어요. / There is nothing but apples."
         ]
       },
       "tip": "Never say 밖에 있어요 (incorrect!). Always pair -밖에 with 없어요, 안, or 못."
@@ -569,14 +569,14 @@
         "h": "-보다 (Comparison standard)",
         "d": "Compares two entities: X is more/less adjective than Y.",
         "ex": [
-          "여름**보다** 겨울이 좋아요. — I like winter more than summer."
+          "여름**보다** 겨울이 좋아요. / I like winter more than summer."
         ]
       },
       "b": {
         "h": "-밖에 (Exclusive limit - negative only)",
         "d": "Denies everything else except the noun, emphasizing scarcity with negative verbs.",
         "ex": [
-          "하나**밖에** 없어요. — There is only one left."
+          "하나**밖에** 없어요. / There is only one left."
         ]
       },
       "tip": "-보다 sets a relative comparison; -밖에 strictly excludes everything else under negative verbs."

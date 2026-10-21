@@ -213,14 +213,14 @@
         "h": "-(이)나 (Choice: 'Or')",
         "d": "Placed between nouns to offer or suggest one option among alternatives.",
         "ex": [
-          "주말에 영화**나** 책을 봐요. — I watch a movie or read a book on weekends."
+          "주말에 영화**나** 책을 봐요. / I watch a movie or read a book on weekends."
         ]
       },
       "b": {
         "h": "-(이)나 (Surprise: 'As many/much as')",
         "d": "Placed after a number or counter to express that the amount is surprisingly large.",
         "ex": [
-          "사과를 5개**나** 먹었어요! — I ate as many as 5 apples!"
+          "사과를 5개**나** 먹었어요! / I ate as many as 5 apples!"
         ]
       },
       "tip": "When attached to nouns it means 'or'; when attached to counting numbers it means 'wow, that many!'."
@@ -552,14 +552,14 @@
         "h": "-와 / -과 (Listing: 'And' / 'With')",
         "d": "Includes both elements together (A and B are both selected or involved).",
         "ex": [
-          "사과**와** 배를 모두 사요. — I buy both apples and pears."
+          "사과**와** 배를 모두 사요. / I buy both apples and pears."
         ]
       },
       "b": {
         "h": "-(이)나 (Choice: 'Or')",
         "d": "Selects one option among alternatives (either A or B).",
         "ex": [
-          "사과**나** 배를 하나만 사요. — I buy either an apple or a pear."
+          "사과**나** 배를 하나만 사요. / I buy either an apple or a pear."
         ]
       },
       "tip": "-와/과 means BOTH together; -(이)나 means EITHER one among choices."

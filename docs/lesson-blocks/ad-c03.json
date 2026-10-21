@@ -7,14 +7,14 @@
         "h": "확인함 (현재 명사형 종결)",
         "d": "받침 없는 어간에 -ㅁ, 받침 있는 어간에 -음을 붙여 현재 사실이나 상태를 간결하게 맺음",
         "ex": [
-          "금일 사내 보안 시스템에 이상이 없음을 **확인함.** — Confirmed that there is no abnormality in the internal security system today."
+          "금일 사내 보안 시스템에 이상이 없음을 **확인함.**: Confirmed that there is no abnormality in the internal security system today."
         ]
       },
       "b": {
         "h": "완료했음 (과거 명사형 종결)",
         "d": "-았/었음을 붙여 이미 완결된 조치나 조사를 공적으로 보고함",
         "ex": [
-          "요청하신 상반기 전산 서버 교체 작업을 모두 성공적으로 **완료했음.** — Successfully completed all replacement work for first-half computer servers as requested."
+          "요청하신 상반기 전산 서버 교체 작업을 모두 성공적으로 **완료했음.**, Successfully completed all replacement work for first-half computer servers as requested."
         ]
       },
       "tip": "공문서, 사내 공지, 공식 보고서에서 간결하고 단호한 어조로 끝맺을 때 -(으)ㅁ을 씁니다."
@@ -160,14 +160,14 @@
         "h": "-는 데 (의존명사 '데')",
         "d": "어떤 일을 하는 경우, 과정, 쓰임새를 나타내며 뒤에 '걸리다, 들다, 도움되다' 등이 이어질 때 띄어씀",
         "ex": [
-          "집을 구하**는 데** 석 달이 걸렸습니다. — It took three months to look for a house."
+          "집을 구하**는 데** 석 달이 걸렸습니다. / It took three months to look for a house."
         ]
       },
       "b": {
         "h": "-는데 (연결어미)",
         "d": "뒤 절의 배경이나 대조적인 상황을 제시하는 한 낱말이므로 붙여씀",
         "ex": [
-          "제가 지금 설명하**는데** 끼어들지 마세요. — I am explaining right now, so please do not interrupt."
+          "제가 지금 설명하**는데** 끼어들지 마세요. / I am explaining right now, so please do not interrupt."
         ]
       },
       "tip": "뒤에 '시간/비용이 들다', '도움이 되다'가 오면 띄어쓰는 의존명사 '-는 데'입니다."
@@ -312,14 +312,14 @@
         "h": "-는 바와 같이 (앞선 내용 재인용)",
         "d": "공문서나 회의에서 앞서 공지하거나 논의한 사실을 정중하게 환기할 때",
         "ex": [
-          "사전에 공지해 드린 **바와 같이** 오늘 오후 시스템 점검이 있습니다. — As previously announced, there is a system inspection this afternoon."
+          "사전에 공지해 드린 **바와 같이** 오늘 오후 시스템 점검이 있습니다. / As previously announced, there is a system inspection this afternoon."
         ]
       },
       "b": {
         "h": "-는 바이다 (공식적 입장 천명)",
         "d": "공식 선언문이나 기안서 결론부에서 자신의 확고한 입장을 밝힐 때",
         "ex": [
-          "본 위원회는 이번 개정안에 전적으로 동의하**는 바입니다.** — This committee agrees fully with this proposed amendment."
+          "본 위원회는 이번 개정안에 전적으로 동의하**는 바입니다.**, This committee agrees fully with this proposed amendment."
         ]
       },
       "tip": "'바'는 의존명사이므로 앞말과 반드시 띄어 쓰며, 재인용은 '바와 같이', 선언은 '바이다'를 씁니다."
@@ -463,14 +463,14 @@
         "h": "-(으)ㅁ / -기 바람 (종결부)",
         "d": "공문서 결론부에서 사실을 확정하거나 협조를 단호히 요청할 때",
         "ex": [
-          "기한 내에 관련 서류를 반드시 제출해 주시기 **바람.** — Please make sure to submit related documents within deadline."
+          "기한 내에 관련 서류를 반드시 제출해 주시기 **바람.**, Please make sure to submit related documents within deadline."
         ]
       },
       "b": {
         "h": "-는 데 / -는 바 (본문 기술부)",
         "d": "소요 자원 및 경과 과정(-는 데)이나 과거 논의 근거(-는 바)를 서술할 때",
         "ex": [
-          "논의된 **바와 같이** 시스템을 정착시키**는 데** 힘을 모읍시다. — As discussed, let's join forces in establishing the system."
+          "논의된 **바와 같이** 시스템을 정착시키**는 데** 힘을 모읍시다. / As discussed, let's join forces in establishing the system."
         ]
       },
       "tip": "본문에서 근거(-는 바)와 과정(-는 데)을 서술하고, 결론은 명사형(-(으)ㅁ, -기 바람)으로 맺습니다."

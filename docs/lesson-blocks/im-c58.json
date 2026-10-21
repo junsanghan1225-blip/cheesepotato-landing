@@ -7,14 +7,14 @@
         "h": "일반적 가정 (-(으)면)",
         "d": "Sets up a neutral possibility or habitual trigger; other options may still exist.",
         "ex": [
-          "시간이 **있으면** 책을 읽어요. — If I have time, I read books."
+          "시간이 **있으면** 책을 읽어요. / If I have time, I read books."
         ]
       },
       "b": {
         "h": "필수 전제 조건 (-아/어야)",
         "d": "Sets up an indispensable requirement; without it, the outcome is completely impossible.",
         "ex": [
-          "유효한 여권이 **있어야** 비행기에 탑승할 수 있어요. — Only by having a valid passport can you board the airplane."
+          "유효한 여권이 **있어야** 비행기에 탑승할 수 있어요. / Only by having a valid passport can you board the airplane."
         ]
       },
       "tip": "-아/어야 is frequently followed by can/cannot expressions (-(으)ㄹ 수 있다/없다) or essential results (비로소 알다)."
@@ -163,14 +163,14 @@
         "h": "연결 어미 -거든 (Conditional prompt)",
         "d": "Connects two clauses: if condition A happens in the future, follow through with instruction/promise B.",
         "ex": [
-          "집에 **도착하거든** 바로 손부터 씻어라. — When you arrive home, wash your hands right away."
+          "집에 **도착하거든** 바로 손부터 씻어라. / When you arrive home, wash your hands right away."
         ]
       },
       "b": {
         "h": "종결 어미 -거든요 (Sentential reason marker)",
         "d": "Placed at the very end of a statement to gently provide background context or reasons to the listener.",
         "ex": [
-          "오늘은 일찍 잘 거예요. 내일 일찍 **일어나야 하거든요**. — I will sleep early today, because I have to wake up early tomorrow."
+          "오늘은 일찍 잘 거예요. 내일 일찍 **일어나야 하거든요**. / I will sleep early today, because I have to wake up early tomorrow."
         ]
       },
       "tip": "Clause connector -거든 is strictly followed by imperative (명령), propositive (청유), or promissory (약속) sentences, not plain factual statements."
@@ -319,14 +319,14 @@
         "h": "필수 전제 (-아/어야)",
         "d": "Designates the one indispensable prerequisite without which the result is barred.",
         "ex": [
-          "비자를 **받아야** 출국할 수 있어요. — Only by receiving a visa can you leave the country."
+          "비자를 **받아야** 출국할 수 있어요. / Only by receiving a visa can you leave the country."
         ]
       },
       "b": {
         "h": "조건부 지시·명령 (-거든)",
         "d": "Sets a future trigger situation immediately followed by an action directive or promise.",
         "ex": [
-          "퇴근**하거든** 시원한 맥주 한잔하자. — When you get off work, let’s have a cold beer."
+          "퇴근**하거든** 시원한 맥주 한잔하자. / When you get off work, let’s have a cold beer."
         ]
       },
       "tip": "-(으)면 is general hypothesis without clause restrictions. -아/어야 stresses necessity. -거든 specifically anticipates an event and gives instructions."
@@ -475,14 +475,14 @@
         "h": "절차 규정 안내 (-아/어야)",
         "d": "States non-negotiable operational requirements, laws, and institutional standards.",
         "ex": [
-          "소방 시설 점검을 **통과해야** 영업 허가가 나옵니다. — Only by passing fire facility inspection will a business license be issued."
+          "소방 시설 점검을 **통과해야** 영업 허가가 나옵니다. / Only by passing fire facility inspection will a business license be issued."
         ]
       },
       "b": {
         "h": "행동 요청·협조 (-거든)",
         "d": "Invites cooperation or actions triggered by upcoming events.",
         "ex": [
-          "회의 자료가 **완성되거든** 팀장님께 먼저 보고해 주세요. — When meeting materials are completed, please report to the team lead first."
+          "회의 자료가 **완성되거든** 팀장님께 먼저 보고해 주세요. / When meeting materials are completed, please report to the team lead first."
         ]
       },
       "tip": "In official customer service, use -아/어야 for mandatory requirements, and -거든 for courteous situational guidance."

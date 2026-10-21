@@ -7,14 +7,14 @@
         "h": "(으)로 인해서 (공식적·객관적 원인)",
         "d": "뉴스나 공문서에서 중대한 사회적·자연적 사건의 객관적 원인을 밝힐 때",
         "ex": [
-          "기습적인 폭설**로 인해서** 고속도로 통행이 전면 통제되었습니다. — Due to the surprise heavy snow, highway traffic was completely suspended."
+          "기습적인 폭설**로 인해서** 고속도로 통행이 전면 통제되었습니다. / Due to the surprise heavy snow, highway traffic was completely suspended."
         ]
       },
       "b": {
         "h": "-는 통에 (혼란스러운 부정적 탓)",
         "d": "주변이 몹시 소란스럽거나 어수선하여 예상치 못한 부정적 결과를 겪었을 때",
         "ex": [
-          "아이들이 거실에서 시끄럽게 떠드**는 통에** 전화를 제대로 못 받았습니다. — Because the kids were making a noise in the living room, I could not take the call."
+          "아이들이 거실에서 시끄럽게 떠드**는 통에** 전화를 제대로 못 받았습니다. / Because the kids were making a noise in the living room, I could not take the call."
         ]
       },
       "tip": "공식적이고 중대한 인과관계에는 '(으)로 인해서', 소란스럽고 어수선한 탓에는 '-는 통에'를 씁니다."
@@ -159,14 +159,14 @@
         "h": "-느니만큼 (당연한 대가와 가치)",
         "d": "앞선 노력이나 자격에 걸맞게 당연히 그에 상응하는 마땅한 결과가 뒤따름",
         "ex": [
-          "오랫동안 피땀 흘려 준비했**느니만큼** 반드시 값진 결실을 맺을 것입니다. — As we prepared dedicating blood and sweat long, we will surely bear valuable fruit."
+          "오랫동안 피땀 흘려 준비했**느니만큼** 반드시 값진 결실을 맺을 것입니다. / As we prepared dedicating blood and sweat long, we will surely bear valuable fruit."
         ]
       },
       "b": {
         "h": "-는 이상 (물러설 수 없는 각오)",
         "d": "어떤 전제가 성립된 이상 뒤로 물러서거나 회피할 수 없는 단호한 결의와 의무",
         "ex": [
-          "계약서에 정식으로 서명하**는 이상** 약속된 기한을 반드시 준수해야 합니다. — As long as signing contract officially, you must observe promised deadline."
+          "계약서에 정식으로 서명하**는 이상** 약속된 기한을 반드시 준수해야 합니다. / As long as signing contract officially, you must observe promised deadline."
         ]
       },
       "tip": "그만한 노력에 따른 당연한 결과에는 -느니만큼, 전제된 상황에 대한 확고한 책임에는 -는 이상을 씁니다."
@@ -310,14 +310,14 @@
         "h": "-기로서니 (지나침에 대한 질책)",
         "d": "앞 절의 상황을 인정하더라도 뒤 절의 지나친 행동이나 태도를 결코 용납할 수 없다고 꾸짖음",
         "ex": [
-          "아무리 화가 나**기로서니** 어른에게 말대꾸를 하면 됩니까? — However angry you may be, should you talk back to an elder?"
+          "아무리 화가 나**기로서니** 어른에게 말대꾸를 하면 됩니까? / However angry you may be, should you talk back to an elder?"
         ]
       },
       "b": {
         "h": "-기에 망정이지 (다행스러운 안도)",
         "d": "앞의 다행스러운 조건 덕분에 최악의 화를 겨우 면했음을 가슴 쓸어내리며 표현함",
         "ex": [
-          "안전벨트를 맸**기에 망정이지** 하마터면 큰 부상을 입을 뻔했습니다. — Fortunately I wore a seatbelt; otherwise I would almost have suffered severe injuries."
+          "안전벨트를 맸**기에 망정이지** 하마터면 큰 부상을 입을 뻔했습니다. / Fortunately I wore a seatbelt; otherwise I would almost have suffered severe injuries."
         ]
       },
       "tip": "상대의 지나친 처신을 나무랄 때는 '아무리 -기로서니', 불행 중 다행으로 위기를 모면했을 때는 '-기에 망정이지'를 씁니다."
@@ -459,17 +459,17 @@
       "t": "compare",
       "h": "-(으)ㅁ으로써 vs -길래 (수단 격식체 vs 구어 행동 계기)",
       "a": {
-        "h": "-(으)ㅁ으로써 (격식 문어 — 수단과 달성)",
+        "h": "-(으)ㅁ으로써 (격식 문어: 수단과 달성)",
         "d": "공식 연설, 학술 논문, 기안서에서 어떤 목표를 달성하는 도구와 수단을 정중히 서술함",
         "ex": [
-          "신재생 에너지 개발을 확대하**으로써** 탄소 배출을 획기적으로 감축할 수 있습니다. — By expanding renewable energy development, we can reduce carbon emissions innovatively."
+          "신재생 에너지 개발을 확대하**으로써** 탄소 배출을 획기적으로 감축할 수 있습니다. / By expanding renewable energy development, we can reduce carbon emissions innovatively."
         ]
       },
       "b": {
-        "h": "-길래 (일상 구어 — 행동 유발 계기)",
+        "h": "-길래 (일상 구어: 행동 유발 계기)",
         "d": "상대방의 말이나 눈앞의 상황을 보고 어떤 행동을 일으킨 구어적 계기를 털어놓을 때",
         "ex": [
-          "날씨가 너무 화창하**길래** 기분 전환 삼아 공원에 산책하러 나왔어요. — The weather was so sunny that I came out for a stroll in the park to refresh."
+          "날씨가 너무 화창하**길래** 기분 전환 삼아 공원에 산책하러 나왔어요. / The weather was so sunny that I came out for a stroll in the park to refresh."
         ]
       },
       "tip": "공식적인 수단 서술에는 '-(으)ㅁ으로써', 일상적인 개인 행동의 계기에는 '-길래'를 씁니다."
