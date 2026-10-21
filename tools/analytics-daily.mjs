@@ -131,7 +131,7 @@ async function collect() {
     q(['pagePath'], ['screenPageViews', 'activeUsers'], 10, sorted('screenPageViews')),
     q(['sessionDefaultChannelGroup', 'sessionSourceMedium'], ['sessions'], 10, sorted('sessions')),
     q(['country'], ['activeUsers', 'sessions'], 10, sorted('activeUsers')),
-    q(['eventName'], ['eventCount'], 100, sorted('eventCount'))   // 15개까지만 담으면 레벨테스트 완료 같은 낮은 순위 이벤트가 빠져 깔때기가 틀어진다(2026-10-21),
+    q(['eventName'], ['eventCount'], 100, sorted('eventCount')),   // 15개까지만 담으면 레벨테스트 완료 같은 낮은 순위 이벤트가 빠져 깔때기가 틀어진다(2026-10-21),
     q(['deviceCategory'], ['activeUsers', 'sessions'], 5, sorted('activeUsers')),
     sc(tok, { startDate: SC_END, endDate: SC_END, rowLimit: 1 }),
     sc(tok, { startDate: SC_START, endDate: SC_END, dimensions: ['query'], rowLimit: 20 }),
