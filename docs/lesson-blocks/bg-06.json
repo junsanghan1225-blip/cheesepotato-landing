@@ -205,12 +205,12 @@
     },
     {
       "t": "write",
-      "q": "State where you study using 도서관 and 에서.",
+      "q": "State where you eat using 식당 and 에서.",
       "must": [
-        "도서관에서",
-        "공부해요"
+        "식당에서",
+        "먹어요"
       ],
-      "sample": "저는 도서관에서 공부해요.",
+      "sample": "저는 식당에서 밥을 먹어요.",
       "why": "Studying is an active behavior, so use the dynamic location marker 에서."
     },
     {
@@ -275,7 +275,7 @@
             "집에서",
             "공부해요"
           ],
-          "en": "I study at home every day."
+          "en": "As for me, I study at home every day."
         }
       ]
     },
@@ -438,7 +438,7 @@
             "커피를",
             "마셔요"
           ],
-          "en": "I drink coffee in the morning."
+          "en": "As for me, I drink coffee in the morning."
         }
       ]
     },
@@ -531,13 +531,12 @@
     },
     {
       "t": "write",
-      "q": "State that you have an umbrella at home using 집에 and 우산이 있어요.",
+      "q": "State what is in your bag or room using 에 and 이/가 있어요.",
       "must": [
-        "집에",
-        "우산이",
+        "에",
         "있어요"
       ],
-      "sample": "집에 우산이 있어요.",
+      "sample": "방에 책상이 있어요.",
       "why": "Location takes 에 and 우산 ends in a consonant ㄴ, taking the particle 이."
     },
     {

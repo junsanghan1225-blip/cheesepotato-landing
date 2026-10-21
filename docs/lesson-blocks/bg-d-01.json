@@ -104,13 +104,13 @@
         "점심시간인데 같이 밥 먹어요.",
         "좋아요, 식당에서 김밥을 먹어요.",
         "식사하고 도서관에서 책을 읽어요?",
-        "네, 도서관에서 한국어를 배워요."
+        "네, 도서관에서 한국어 책을 읽어요."
       ],
       "en": [
         "It is lunchtime, let's eat together.",
         "Sounds great, let's eat kimbap at the restaurant.",
         "Do you read books at the library after eating?",
-        "Yes, I learn Korean at the library."
+        "Yes, I read Korean books at the library."
       ]
     },
     {
@@ -302,7 +302,7 @@
       ],
       "en": [
         "The room is a bit warm, shall I open the window?",
-        "Yes, the breeze is cool, so please open the window.",
+        "Yes, since the breeze is cool, let's open the window.",
         "Where do you usually rest on weekends?",
         "I rest well at home and exercise in the park."
       ]
@@ -366,7 +366,7 @@
       "answers": [
         "시원하니까 창문을 열어요"
       ],
-      "hint": "Since it is cool, I open the window.",
+      "hint": "Since it is cool, let's open the window.",
       "why": "열다 has vowel ㅓ, taking -어요 to become 열어요."
     },
     {
