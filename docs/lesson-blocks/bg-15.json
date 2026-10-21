@@ -366,11 +366,11 @@
     },
     {
       "t": "write",
-      "q": "Write one sentence saying you drink coffee or tea in the morning, using 마시거나 or 커피나.",
+      "q": "Write one sentence saying you drink coffee or tea in the morning, using 마시거나.",
       "must": [
         "마시거나"
       ],
-      "sample": "아침에는 물을 마시거나 차를 마셔요.",
+      "sample": "아침에는 커피를 마시거나 차를 마셔요.",
       "why": "Attach -거나 directly to the verb stem 마시- to link two action options."
     },
     {
@@ -492,7 +492,7 @@
         {
           "ko": "만들면서",
           "en": "while making",
-          "ex": "노래를 부르면서 요리를 만들면서 웃어요."
+          "ex": "노래를 부르면서 음식을 만들어요."
         },
         {
           "ko": "걸으면서",

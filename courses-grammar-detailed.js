@@ -218,7 +218,7 @@ export const DETAILED_GRAMMAR_COURSES = [
           { t:'table',
             head:['Dictionary','Stem','받침','-(으)ㄹ 거예요'],
             rows:[
-              ['만나다: to meet','만나라','none','만나**ㄹ** → 만날 거예요'],
+              ['만나다: to meet','만나','none','만나**ㄹ** → 만날 거예요'],
               ['보다: to watch','보','none','보**ㄹ** → 볼 거예요'],
               ['읽다: to read','읽','has ㄱ','읽**을** 거예요'],
               ['먹다: to eat','먹','has ㄱ','먹**을** 거예요'],
@@ -285,7 +285,7 @@ export const DETAILED_GRAMMAR_COURSES = [
             rows:[
               ['언젠가 · 나중에 · 한 번쯤 (someday)','-고 싶어요','언젠가 가**고 싶어요**'],
               ['내일 · 다음 주 · 세 시에 (specific time)','-(으)ㄹ 거예요','내일 **갈 거예요**'],
-              ['표를 샀어요 · 약속했어요 (booked)','-(으)ㄹ 거예요','벌써 **갈 거예요**'],
+              ['표를 샀어요 · 약속했어요 (booked)','-(으)ㄹ 거예요','다음 주에 **갈 거예요**'],
               ['그냥 마음이 그래요 (just feel like it)','-고 싶어요','그냥 쉬**고 싶어요**'],
             ]},
 
@@ -394,8 +394,8 @@ export const DETAILED_GRAMMAR_COURSES = [
               ['가다: to go','none','가**세요**'],
               ['오다: to come','none','오**세요**'],
               ['바쁘다: to be busy','none','바쁘**세요**'],
-              ['앉다: to sit','yes (ㄴ)','앉**으세요**'],
-              ['읽다: to read','yes (ㄱ)','읽**으세요**'],
+              ['앉다: to sit','yes (ㄵ)','앉**으세요**'],
+              ['읽다: to read','yes (ㄺ)','읽**으세요**'],
               ['살다: to live','ㄹ (drops)','사**세요**'],
             ]},
 
@@ -412,7 +412,7 @@ export const DETAILED_GRAMMAR_COURSES = [
             meaning:'Grandma is sitting on the park bench.',
             options:['앉아요','앉으세요','앉았어요','앉을 거예요'],
             keys:['앉으세요','앉아요','앉았어요','앉을 거예요'],
-            why:'The subject is 할머니 (Grandma), someone senior. 앉다 has the batchim ㄴ, so it takes -으세요.' },
+            why:'The subject is 할머니 (Grandma), someone senior. 앉다 has the batchim ㄵ, so it takes -으세요.' },
 
           { t:'cloze', sentence:'사장님이 다음 주에 미국에서 [오세요].', answer:'오세요',
             meaning:'The boss is coming from the US next week.',
@@ -492,7 +492,7 @@ export const DETAILED_GRAMMAR_COURSES = [
           { t:'type', q:'아프다 (honorific) / “할머니, 어디 ___?” (use the honorific of 아프다)',
             answer:'편찮으세요',
             keys:['편찮으세요','아프세요','아팠어요','편찮았어요'],
-            why:'The honorific of 아프다 changes completely to 편찮다, which has the batchim ㅎ, so it takes -으세요.' },
+            why:'The honorific of 아프다 changes completely to 편찮다, which has the batchim ㄶ, so it takes -으세요.' },
 
           { t:'pair', q:'Match each plain word with its honorific form.',
             pairs:[
@@ -715,13 +715,13 @@ export const DETAILED_GRAMMAR_COURSES = [
             keys:['드십니까','먹습니까','드세요','드셨습니까'],
             why:'This is a question in a formal setting like a restaurant, so the question form -십니까 is used.' },
 
-          { t:'type', q:'앉다: “이쪽으로 ___.” (announcing to a meeting room, in the formal honorific)',
+          { t:'type', q:'앉다: “사장님께서 자리에 ___.” (describing what the boss does, in the formal honorific)',
             answer:'앉으십니다',
             keys:['앉으십니다','앉으세요','앉습니다','앉으셨습니다'],
             why:'There’s a batchim ㄴ, so -으십니다 attaches.' },
 
           { t:'choice', q:'Which sentence wrongly attaches an honorific to an object?',
-            options:['사장님께서 지금 오십니다','이 상품은 품절이십니다','손님, 이쪽으로 앉으십니다'], answer:1,
+            options:['사장님께서 지금 오십니다','이 상품은 품절이십니다','사장님께서 자리에 앉으십니다'], answer:1,
             why:'“이 상품은 품절이십니다” attaches -시- to a product (an object), which is incorrect. “품절입니다” is correct.' },
 
           { t:'order', q:'Put together “잠시 후 부장님께서 도착하십니다.”',
@@ -749,7 +749,7 @@ export const DETAILED_GRAMMAR_COURSES = [
             ]},
 
           { t:'text', h:'What this expression does',
-            md:'Besides -(으)세요?, there are several other ways to ask or offer something to someone senior. You pick one based on the setting.\n\nCasually, among friends → -(으)실래요?\n\nPolitely, as at a restaurant or in service → -(으)시겠어요?\n\nWhen asking about a plan → -(으)실 거예요?' },
+            md:'Besides -(으)세요?, there are several other ways to ask or offer something to someone senior. You pick one based on the setting.\n\nCasually, with a senior you are close to → -(으)실래요?\n\nPolitely, as at a restaurant or in service → -(으)시겠어요?\n\nWhen asking about a plan → -(으)실 거예요?' },
 
           { t:'table',
             head:['Dictionary form','-(으)실래요?'],
@@ -1144,7 +1144,7 @@ export const DETAILED_GRAMMAR_COURSES = [
           { t:'order', q:'Put together “할머니, 제가 짐을 들어 드릴게요.”',
             tokens:['할머니,','제가','짐을','들어 드릴게요.'], answer:['할머니,','제가','짐을','들어 드릴게요.'] },
 
-          { t:'speak', say:'제가 할머니를 모시고 병원에 다녀오겠습니다. 조심히 다녀오십시오.',
+          { t:'speak', say:'제가 할머니를 모시고 병원에 다녀오겠습니다. 걱정하지 마십시오.',
             q:'A humble word (모시다) and a formal command (-십시오) appear one after another here.' },
         ],
       },

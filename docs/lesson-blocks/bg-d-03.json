@@ -208,7 +208,7 @@
       "en": [
         "How old is your grandmother?",
         "She is seventy years old this year.",
-        "How is her health these days?",
+        "Is her health okay these days?",
         "Yes, she exercises every day, so she is very healthy."
       ]
     },
@@ -351,7 +351,7 @@
           "ex": "책을 읽으세요."
         },
         {
-          "ko": "만드시사",
+          "ko": "만드시다",
           "en": "to make (honorific, ㄹ drops)",
           "ex": "선생님께서 음식을 만드세요."
         },

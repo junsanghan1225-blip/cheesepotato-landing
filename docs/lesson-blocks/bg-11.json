@@ -205,9 +205,10 @@
     {
       "t": "correct",
       "q": "Fix the mistake.",
-      "wrong": "지금 부엌에서 요리를 만들고 에요.",
+      "wrong": "지금 부엌에서 음식을 만들고 에요.",
       "answers": [
-        "지금 부엌에서 요리를 만들고 있어요."
+        "지금 부엌에서 음식을 만들고 있어요.",
+        "지금 부엌에서 음식을 만들고 있어요"
       ],
       "hint": "The continuous progressive ending uses 있다: -고 있어요.",
       "why": "Progressive aspect attaches -고 있어요, not -고 에요."
@@ -369,7 +370,8 @@
       "q": "Fix the mistake.",
       "wrong": "오늘 날씨가 너무 춥고 있어요.",
       "answers": [
-        "오늘 날씨가 너무 추워요."
+        "오늘 날씨가 너무 추워요.",
+        "오늘 날씨가 너무 추워요"
       ],
       "hint": "Adjectives describe states and cannot take continuous -고 있다.",
       "why": "춥다 is an adjective, so use the simple present form 추워요 instead of 춥고 있어요."
@@ -378,7 +380,7 @@
       "t": "compare",
       "h": "Simple Present vs. Progressive (-고 있다)",
       "a": {
-        "h": "-아요 / -어요 (단순 현재)",
+        "h": "-아요 / -어요 (simple present)",
         "d": "General facts, daily habits, or permanent states.",
         "ex": [
           "매일 아침에 커피를 **마셔요**. / I drink coffee every morning.",
@@ -386,7 +388,7 @@
         ]
       },
       "b": {
-        "h": "-고 있어요 (현재 진행)",
+        "h": "-고 있어요 (in progress now)",
         "d": "Actions occurring right this second, or continuous clothing states.",
         "ex": [
           "지금 커피를 **마시고 있어요**. / I am drinking coffee right now.",
@@ -550,9 +552,10 @@
     {
       "t": "correct",
       "q": "Fix the mistake.",
-      "wrong": "A: 지금 어디예요? B: 약속 장소로 가고 이에요.",
+      "wrong": "약속 장소로 가고 이에요.",
       "answers": [
-        "A: 지금 어디예요? B: 약속 장소로 가고 있어요."
+        "약속 장소로 가고 있어요.",
+        "약속 장소로 가고 있어요"
       ],
       "hint": "The continuous progressive ending is -고 있어요, not -고 이에요.",
       "why": "가다 attaches -고 있어요: 약속 장소로 가고 있어요."
