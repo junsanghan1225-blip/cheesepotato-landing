@@ -111,7 +111,7 @@
             "친구를",
             "만났어요"
           ],
-          "en": "I met a friend yesterday, myself."
+          "en": "As for me, I met a friend yesterday."
         }
       ]
     },
@@ -336,7 +336,7 @@
         {
           "ko": "편지",
           "en": "letter",
-          "ex": "편지를 썼어요."
+          "ex": "편지가 왔어요."
         },
         {
           "ko": "일기",
@@ -439,7 +439,7 @@
         "저녁에는 도서관에서 책을 읽었어요."
       ],
       "en": [
-        "Because it was the weekend yesterday, I cleaned the house cleanly.",
+        "Because it was the weekend yesterday, I cleaned the house thoroughly.",
         "And I sat on the desk chair.",
         "I wrote a letter to send to my friend.",
         "In the evening, I read a book at the library."
@@ -599,13 +599,13 @@
         "어제는 날씨가 조금 추웠어요.",
         "하지만 따뜻한 옷을 입고 공원을 걸었어요.",
         "이어폰으로 좋은 음악을 들었어요.",
-        "어려운 이웃을 돕고 보람 있었어요."
+        "어려운 이웃을 도와서 보람이 있었어요."
       ],
       "en": [
         "Yesterday the weather was a little cold.",
         "However, I wore warm clothes and walked in the park.",
         "I listened to good music with earphones.",
-        "I helped neighbors in need and it was rewarding."
+        "I helped neighbors in need, and it was rewarding."
       ]
     },
     {
