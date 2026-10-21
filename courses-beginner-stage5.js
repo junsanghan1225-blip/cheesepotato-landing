@@ -67,9 +67,9 @@ export const BEGINNER_STAGE5_COURSES = [
       { t:'order', q:'Put in order: "I want to try going to Korea once."',
         tokens:['한국에','한번','가','보고','싶어요.'], answer:['한국에','한번','가','보고','싶어요.'] },
 
-      { t:'correct', wrong:'불고기를 맛하아 봤어요.',
+      { t:'correct', wrong:'불고기를 먹아 봤어요.',
         answers:['불고기를 먹어 봤어요.','불고기 먹어 봤어요.','불고기를 먹어 봤어요'],
-        hint:'Use 먹다 + -어 봤어요: 먹어 봤어요',
+        hint:'먹다 has the vowel ㅓ, so it takes -어: 먹어 봤어요',
         why:'To say you tried eating food, use 먹어 봤어요: 불고기를 먹어 봤어요.' },
 
       { t:'translate', q:'Have you tried eating Korean food?',
@@ -625,10 +625,10 @@ export const BEGINNER_STAGE5_COURSES = [
       { t:'order', q:'Put in order: "I hope the weather is good this weekend."',
         tokens:['이번','주말에','날씨가','좋았으면','좋겠어요.'], answer:['이번','주말에','날씨가','좋았으면','좋겠어요.'] },
 
-      { t:'correct', wrong:'내일 비가 안 오면 좋겠어요.',
-        answers:['내일 비가 안 왔으면 좋겠어요.','내일 비가 안 왔으면 좋겠어요'],
-        hint:'The wish pattern requires past -았/었-: 오- + -았으면 = 왔으면',
-        why:'The wish pattern requires -았/었으면: 비가 안 왔으면 좋겠어요.' },
+      { t:'correct', wrong:'내일 비가 안 오았으면 좋겠어요.',
+        answers:['내일 비가 안 왔으면 좋겠어요.','내일 비가 안 왔으면 좋겠어요','내일 비가 안 오면 좋겠어요.'],
+        hint:'Contract 오 + 았 into one syllable: 왔으면',
+        why:'오 + 았 contracts to 왔: 비가 안 왔으면 좋겠어요. (비가 안 오면 좋겠어요 is also fine Korean, but this lesson practises -았/었으면 좋겠어요.)' },
 
       { t:'translate', q:'I hope you get well soon.',
         answers:['빨리 나았으면 좋겠어요.','빨리 나았으면 좋겠어요'],
@@ -644,8 +644,8 @@ export const BEGINNER_STAGE5_COURSES = [
       {"t":"text","h":"Conjugating Wishes & Hopes","md":"To express a hope or wish (*“I hope that...”* or *“I wish...”*), attach **-았/었으면 좋겠어요** to verb and adjective stems. Even though it looks like past tense (**-았/었-**), it expresses a **future wish**!\n\n- Bright vowels (ㅏ, ㅗ) → **-았으면 좋겠어요** *(가다 → 갔으면, 좋다 → 좋았으면)*\n- Dark vowels (others) → **-었으면 좋겠어요** *(먹다 → 먹었으면, 쉬다 → 쉬었으면)*\n- 하다 verbs → **했으면 좋겠어요** *(합격하다 → 합격했으면)*\n\nBe mindful of irregular verbs: ㄷ becomes ㄹ (**듣다 → 들었으면**), and ㅅ drops before a vowel (**낫다 → 나았으면**)!"},
       {"t":"table","head":["Base Form","Vowel Pattern","-았/었으면 좋겠어요"],"rows":[["오다 (to come)","Bright (ㅗ)","비가 안 **왔으면 좋겠어요**"],["쉬다 (to rest)","Dark (ㅟ)","집에서 **쉬었으면 좋겠어요**"],["듣다 (ㄷ irregular)","ㄷ → ㄹ","좋은 소식을 **들었으면 좋겠어요**"],["낫다 (ㅅ irregular)","ㅅ drops","감기가 빨리 **나았으면 좋겠어요**"]]},
       {"t":"chars","wide":true,"items":[{"ch":"빨리 방학이 왔으면 좋겠어요.","tip":"I hope vacation comes soon."},{"ch":"주말에 비가 안 오고 맑았으면 좋겠어요.","tip":"I hope it doesn't rain and is clear on the weekend."},{"ch":"감기가 빨리 나았으면 좋겠어요.","tip":"I hope your cold gets better quickly."}]},
-      {"t":"choice","q":"Your friend caught a cold. How do you warmly say: \"I hope you get better quickly!\"? (낫다 = to recover from illness)","options":["빨리 나았으면 좋겠어요.","빨리 낫지 마세요.","빨리 낫으러 가요.","빨리 나으면 안 돼요."],"answer":0,"why":"낫다 is a ㅅ-irregular verb where ㅅ drops before a vowel: 낫- + -았으면 좋겠어요 = 나았으면 좋겠어요."},
-      {"t":"cloze","sentence":"이번 주말에는 날씨가 [좋았으면 좋겠어요].","answer":"좋았으면 좋겠어요","meaning":"I hope the weather is nice this weekend.","options":["좋았으면 좋겠어요","좋지 마세요","좋으러 가요","좋으면 안 돼요"],"keys":["좋았으면 좋겠어요","좋지 마세요","좋으러 가요","좋으면 안 돼요"],"why":"좋다 ends in bright vowel ㅗ, so attach -았으면 좋겠어요: 좋았으면 좋겠어요."},
+      {"t":"choice","q":"You hope your friend hears good news. How do you say: \"I hope you hear good news!\"? (듣다 = to hear)","options":["좋은 소식을 들었으면 좋겠어요.","좋은 소식을 듣지 마세요.","좋은 소식을 들으러 가요.","좋은 소식을 듣으면 안 돼요."],"answer":0,"why":"듣다 is a ㄷ-irregular verb: ㄷ becomes ㄹ before a vowel, so 듣- + -었으면 좋겠어요 = 들었으면 좋겠어요."},
+      {"t":"cloze","sentence":"빨리 방학이 [왔으면 좋겠어요].","answer":"왔으면 좋겠어요","meaning":"I hope vacation comes soon.","options":["왔으면 좋겠어요","오지 마세요","오러 가요","오면 안 돼요"],"keys":["왔으면 좋겠어요","오지 마세요","오러 가요","오면 안 돼요"],"why":"오다 + -았으면 좋겠어요 contracts to 왔으면 좋겠어요."},
       {"t":"type","q":"듣다 (to hear/listen) / Form the wish: 「내일 시험에서 좋은 소식을 ___ . (hope to hear)」","answer":"들었으면 좋겠어요","keys":["들었으면 좋겠어요","듣는 게 좋아요","듣지 마세요","들으면 안 돼요"],"why":"듣다 is a ㄷ-irregular verb where ㄷ changes to ㄹ: 듣- + -었으면 = 들었으면 좋겠어요."},
       {"t":"order","q":"Put the words in order: \"I hope my cold gets better quickly.\"","tokens":["감기가","빨리","나았으면","좋겠어요."],"answer":["감기가","빨리","나았으면","좋겠어요."]},
       {"t":"choice","q":"Which sentence expresses a wish for exam success?","options":["이번 시험에 꼭 합격했으면 좋겠어요.","이번 시험에 꼭 합격하지 마세요.","이번 시험에 꼭 합격하면 안 돼요.","이번 시험에 꼭 합격하러 가요."],"answer":0,"why":"합격하다 + -했으면 좋겠어요 = 합격했으면 좋겠어요 expresses a hopeful wish to pass the exam."},

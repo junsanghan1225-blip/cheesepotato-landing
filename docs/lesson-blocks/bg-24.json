@@ -55,7 +55,7 @@
       "t": "compare",
       "h": "Present Impression: Adjective -(으)ㄴ 것 같다 vs Verb -는 것 같다",
       "a": {
-        "h": "형용사 + -(으)ㄴ 것 같다 (현재 상태·느낌)",
+        "h": "형용사 + -(으)ㄴ 것 같다 (current state / feeling)",
         "d": "Attaches to adjective stems to soften an impression about a state or quality.",
         "ex": [
           "오늘 날씨가 조금 **더운 것 같아요**. / I think the weather is a bit hot today.",
@@ -63,7 +63,7 @@
         ]
       },
       "b": {
-        "h": "동사 + -는 것 같다 (현재 진행 동작 관찰)",
+        "h": "동사 + -는 것 같다 (observing an action in progress)",
         "d": "Attaches to action verb stems to guess what action is currently taking place.",
         "ex": [
           "창밖을 보니까 비가 **오는 것 같아요**. / Looking outside, it seems to be raining.",
@@ -137,12 +137,12 @@
       "h": "Read a little",
       "ko": [
         "창문을 열어 보니 밖에서 시원한 바람이 불어요.",
-        "하늘을 보니까 곧 비가 오는 것 같아요.",
+        "창밖을 보니까 지금 비가 오는 것 같아요.",
         "날씨가 조금 쌀쌀한 것 같아서 겉옷을 입었어요."
       ],
       "en": [
         "Opening the window, a cool breeze blows from outside.",
-        "Looking at the sky, it seems to be raining soon.",
+        "Looking outside, it seems to be raining right now.",
         "I felt that the weather was a bit chilly, so I put on a jacket."
       ]
     },
@@ -150,12 +150,12 @@
       "t": "choice",
       "q": "What did the writer observe looking at the sky?",
       "options": [
-        "It seems to be raining soon",
+        "It seems to be raining right now",
         "The sun is shining brightly",
         "Snow is falling heavily"
       ],
       "answer": 0,
-      "why": "The text says '하늘을 보니까 곧 비가 오는 것 같아요' (Looking at the sky, it seems to be raining soon)."
+      "why": "The text says '창밖을 보니까 지금 비가 오는 것 같아요' (Looking at the sky, it seems to be raining soon)."
     },
     {
       "t": "choice",

@@ -18,6 +18,9 @@ const { conjugate } = await import(pathToFileURL(path.join(ROOT, 'tools/ko-conj.
 /* 문장 늘리기를 더 어렵게(운영자 2026-10-21): docs/expand-decoys.json = { "<레슨 id>": [ [단계1 틀린 조각…], [단계2 …] ] } — 틀린 조각을 칩에 섞는다.
    원본(레슨 블록)은 안 건드리고 여기서 단계에 붙인다. 없으면 그대로. */
 const DECOYS = fs.existsSync(path.join(ROOT, 'docs/expand-decoys.json')) ? JSON.parse(fs.readFileSync(path.join(ROOT, 'docs/expand-decoys.json'), 'utf8')) : {};
+/* 쓰기 칸 지시문에서 정답 활용형 빼기(운영자 2026-10-21 「기본형으로 바꾼다」): docs/write-prompts.json = { "<레슨 id>": "새 지시문(q)" } — 레슨마다 쓰기 칸은 하나.
+   must(꼭 들어갈 조각) · sample 은 그대로, 지시문만 갈아 끼운다. 안티가 쓰고 Claude 가 검토한다. 없으면 그대로. */
+const WPROMPTS = fs.existsSync(path.join(ROOT, 'docs/write-prompts.json')) ? JSON.parse(fs.readFileSync(path.join(ROOT, 'docs/write-prompts.json'), 'utf8')) : {};
 const lessonsOf = new Map(COURSES.map((c) => [c.id, new Set(c.lessons.map((l) => l.id))]));
 const str = (x) => typeof x === 'string' && x.trim().length > 0;
 const strs = (a, min = 1) => Array.isArray(a) && a.length >= min && a.every(str);
@@ -80,6 +83,14 @@ for (const f of files) {
   const dd = {};
   for (const [lid, blocks] of Object.entries(d)) dd[lid] = (Array.isArray(blocks) ? blocks : []).map((b, i) => (b?.t === 'conj' && RULES.conj(b) === true ? expandConj(b, `${f} ${lid}[${i}]`) : b));
   for (const [lid, blocks] of Object.entries(dd)) {
+    const np = WPROMPTS[lid];
+    if (np != null) {
+      const wb = blocks.find((b) => b?.t === 'write');
+      if (!wb) bad.push(`docs/write-prompts.json ${lid}: 이 레슨에 write 가 없다`);
+      else if (!str(np)) bad.push(`docs/write-prompts.json ${lid}: 지시문은 비어 있지 않은 글`);
+      else if (np.includes(wb.sample.replace(/[.?!]+$/, ''))) bad.push(`docs/write-prompts.json ${lid}: 지시문에 정답 문장(sample)이 그대로 들어 있다`);
+      else wb.q = np;
+    }
     const dl = DECOYS[lid]; if (!dl) continue;
     const ex = blocks.find((b) => b?.t === 'expand'); if (!ex) { bad.push(`docs/expand-decoys.json ${lid}: 이 레슨에 expand 가 없다`); continue; }
     ex.steps = ex.steps.map((st, si) => {

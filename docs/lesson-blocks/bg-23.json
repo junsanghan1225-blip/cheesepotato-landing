@@ -534,9 +534,9 @@
     },
     {
       "t": "compare",
-      "h": "Movement Purpose -(으)러 vs General Intention -(으)려고 vs Decision -기로 하다",
+      "h": "Movement Purpose -(으)러 vs General Intention -(으)려고",
       "a": {
-        "h": "-(으)러 가다/오다 (이동의 목적)",
+        "h": "-(으)러 가다/오다 (purpose of going)",
         "d": "Expresses the purpose of going or coming somewhere; ONLY paired with movement verbs (가다, 오다, 다니다).",
         "ex": [
           "밥을 **먹으러** 식당에 가요. / I am going to the restaurant to eat.",
@@ -544,7 +544,7 @@
         ]
       },
       "b": {
-        "h": "-(으)려고 (넓은 의도·계획)",
+        "h": "-(으)려고 (general intention / plan)",
         "d": "Expresses general intention or goal to do something; can be paired with any main action verb.",
         "ex": [
           "친구에게 **주려고** 선물을 샀어요. / I bought a gift to give to a friend.",
