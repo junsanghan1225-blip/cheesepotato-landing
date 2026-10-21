@@ -57,7 +57,9 @@
       "wrong": "누가 커피를 샀어요? / 저는 샀어요.",
       "answers": [
         "누가 커피를 샀어요? / 제가 샀어요.",
-        "누가 커피를 샀어요? / 제가 샀어요"
+        "누가 커피를 샀어요? / 제가 샀어요",
+        "제가 샀어요.",
+        "제가 샀어요"
       ],
       "hint": "When answering 'Who' (누가?), identify the specific subject using 제가 instead of topic marker 저는.",
       "why": "Answering an information question '누가?' requires subject marker 이/가: 제가 샀어요."
@@ -127,13 +129,13 @@
       "h": "Read a little",
       "ko": [
         "창밖을 보니 갑자기 하얀 눈이 내려요.",
-        "식당 안에서는 벨 소리가 울리고 손님이 들어왔어요.",
-        "종업원이 '누가 주문하시겠어요?'라고 묻자 제가 손을 들었어요."
+        "교실 안에서는 벨 소리가 울리고 학생들이 들어왔어요.",
+        "선생님이 '누가 발표할까요?'라고 물었어요. 제가 손을 들었어요."
       ],
       "en": [
         "Looking out the window, white snow is suddenly falling.",
-        "Inside the restaurant, a bell rang and a guest entered.",
-        "When the staff asked 'Who would like to order?', I raised my hand."
+        "Inside the classroom, a bell rang and the students came in.",
+        "The teacher asked, 'Who will present?' I raised my hand."
       ]
     },
     {
@@ -149,7 +151,7 @@
     },
     {
       "t": "choice",
-      "q": "What did the writer do when the staff asked who would order?",
+      "q": "What did the writer do when the teacher asked who would present?",
       "options": [
         "Raised their hand",
         "Left the restaurant",
@@ -210,10 +212,10 @@
     },
     {
       "t": "write",
-      "q": "Contrast liking coffee but not tea using 커피는 좋아하지만 and 차는 안 마셔요.",
+      "q": "Contrast something you like with something you don’t, using 은/는 and -지만 (e.g. coffee vs tea).",
       "must": [
-        "커피는 좋아하지만",
-        "차는 안 마셔요"
+        "는",
+        "지만"
       ],
       "sample": "커피는 좋아하지만 차는 안 마셔요.",
       "why": "Using 은/는 on both items creates a clear contrast between coffee and tea."
@@ -221,10 +223,12 @@
     {
       "t": "correct",
       "q": "Fix the mistake.",
-      "wrong": "저는 사과가 좋아해요. 하지만 배가 안 좋아해요.",
+      "wrong": "저는 사과는 좋아해요. 하지만 배가 안 좋아해요.",
       "answers": [
         "저는 사과는 좋아해요. 하지만 배는 안 좋아해요.",
-        "저는 사과는 좋아해요. 하지만 배는 안 좋아해요"
+        "저는 사과는 좋아해요. 하지만 배는 안 좋아해요",
+        "저는 사과를 좋아해요. 하지만 배는 안 좋아해요.",
+        "저는 사과를 좋아해요. 하지만 배는 안 좋아해요"
       ],
       "hint": "When contrasting two different items (사과 vs 배), replace the subject particle with the contrast marker 은/는.",
       "why": "Contrasting two objects requires the contrast marker 은/는: 사과는 좋아해요. 하지만 배는 안 좋아해요."

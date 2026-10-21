@@ -98,7 +98,7 @@
           "안녕하세요.",
           "반가워요."
         ],
-        "en": "Hello. Nice to meet you."
+        "en": "Hello. Glad to see you."
       },
       "steps": [
         {
@@ -230,11 +230,11 @@
         {
           "tokens": [
             "저는",
-            "서울의",
+            "지금",
             "한국어",
             "학생이에요."
           ],
-          "en": "I am a Korean-language student in Seoul."
+          "en": "I am a Korean-language student now."
         }
       ]
     },
@@ -290,11 +290,11 @@
     },
     {
       "t": "write",
-      "q": "Ask what something near you is: “What is this?”",
+      "q": "Ask what something near the other person is: “What is that?”",
       "must": [
-        "이거 뭐예요"
+        "그거"
       ],
-      "sample": "이거 뭐예요?",
+      "sample": "그거 뭐예요?",
       "why": "Point to something near you and ask 이거 뭐예요?"
     },
     {
@@ -492,10 +492,10 @@
       "t": "expand",
       "base": {
         "tokens": [
-          "커피는",
+          "오천",
           "원이에요."
         ],
-        "en": "Coffee is: won."
+        "en": "It is 5,000 won."
       },
       "steps": [
         {
@@ -629,28 +629,28 @@
       "t": "expand",
       "base": {
         "tokens": [
-          "커피",
+          "물",
           "주세요."
         ],
-        "en": "Coffee, please."
+        "en": "Water, please."
       },
       "steps": [
         {
           "tokens": [
-            "커피",
-            "두 잔",
+            "물",
+            "한 잔",
             "주세요."
           ],
-          "en": "Two cups of coffee, please."
+          "en": "One glass of water, please."
         },
         {
           "tokens": [
-            "아이스",
-            "커피",
-            "두 잔",
+            "차가운",
+            "물",
+            "한 잔",
             "주세요."
           ],
-          "en": "Two iced coffees, please."
+          "en": "One glass of cold water, please."
         }
       ]
     },
@@ -711,7 +711,7 @@
       "must": [
         "어디예요"
       ],
-      "sample": "화장실 어디예요?",
+      "sample": "역 어디예요?",
       "why": "Put the location first, then ask 어디예요?"
     },
     {
@@ -768,28 +768,28 @@
       "t": "expand",
       "base": {
         "tokens": [
-          "화장실",
+          "역",
           "어디예요?"
         ],
-        "en": "Where is the restroom?"
+        "en": "Where is the station?"
       },
       "steps": [
         {
           "tokens": [
-            "여기",
-            "화장실",
+            "지하철",
+            "역",
             "어디예요?"
           ],
-          "en": "Where is the restroom here?"
+          "en": "Where is the subway station?"
         },
         {
           "tokens": [
             "저기요,",
-            "여기",
-            "화장실",
+            "지하철",
+            "역",
             "어디예요?"
           ],
-          "en": "Excuse me, where is the restroom here?"
+          "en": "Excuse me, where is the subway station?"
         }
       ]
     },
@@ -859,7 +859,11 @@
       "answers": [
         "한국어 몰라요.",
         "한국어 잘 몰라요.",
-        "한국어 몰라요"
+        "한국어 몰라요",
+        "아니요, 한국어 몰라요.",
+        "한국어를 몰라요.",
+        "한국어를 잘 몰라요.",
+        "아니요, 한국어 잘 몰라요."
       ],
       "hint": "Korean has a dedicated word for 'don't know'.",
       "why": "Use 몰라요 to say 'I don't know', not 아니요 알아요."
@@ -923,10 +927,11 @@
           "tokens": [
             "저는",
             "한국어",
+            "아주",
             "조금",
             "해요."
           ],
-          "en": "I speak a little Korean."
+          "en": "I speak only a tiny bit of Korean."
         }
       ]
     },
@@ -1053,22 +1058,22 @@
       "steps": [
         {
           "tokens": [
-            "여기",
+            "따뜻한",
             "커피",
             "두 잔",
             "주세요."
           ],
-          "en": "Two coffees here, please."
+          "en": "Two hot coffees, please."
         },
         {
           "tokens": [
-            "안녕하세요,",
-            "여기",
+            "저기요,",
+            "따뜻한",
             "커피",
             "두 잔",
             "주세요."
           ],
-          "en": "Hello, two coffees here, please."
+          "en": "Excuse me, two hot coffees, please."
         }
       ]
     },
@@ -1077,7 +1082,7 @@
       "items": [
         "I can carry out a complete basic purchase in Korean.",
         "I can greet, ask the price, order with quantities, and say thank you.",
-        "I can understand spoken responses like 가격 (price) and 여기 있어요 (here it is)."
+        "I can understand spoken responses like 사천 원이에요 (It is 4,000 won) and 여기 있어요 (here it is)."
       ]
     }
   ]

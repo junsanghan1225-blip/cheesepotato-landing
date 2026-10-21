@@ -39,23 +39,23 @@
    파일을 나눈 이유는 문법이 계속 늘어날 예정이라 한 파일에 두면
    고칠 곳을 찾기 어려워지기 때문이다.
    + 세분화된 뉘앙스 차이 문법 (초·중·고급 세부 코스)은 courses-grammar-detailed.js 에서 불러온다. */
-import { GRAMMAR_COURSES } from './courses-grammar.js?v=a47cf07d';
-import { DETAILED_GRAMMAR_COURSES } from './courses-grammar-detailed.js?v=a47cf07d';
-import { BEGINNER_GRAMMAR_COURSES } from './courses-grammar-beginner.js?v=a47cf07d';
+import { GRAMMAR_COURSES } from './courses-grammar.js?v=eb264ddb';
+import { DETAILED_GRAMMAR_COURSES } from './courses-grammar-detailed.js?v=eb264ddb';
+import { BEGINNER_GRAMMAR_COURSES } from './courses-grammar-beginner.js?v=eb264ddb';
 // 초급 1단계 — 설계는 docs/plans/curriculum-beginner.md
-import { BEGINNER_STAGE1_COURSES } from './courses-beginner-stage1.js?v=a47cf07d';
+import { BEGINNER_STAGE1_COURSES } from './courses-beginner-stage1.js?v=eb264ddb';
 // 초급 2단계 — 시간을 얹기
-import { BEGINNER_STAGE2_COURSES } from './courses-beginner-stage2.js?v=a47cf07d';
+import { BEGINNER_STAGE2_COURSES } from './courses-beginner-stage2.js?v=eb264ddb';
 // 초급 3단계 — 이어 말하기
-import { BEGINNER_STAGE3_COURSES } from './courses-beginner-stage3.js?v=a47cf07d';
+import { BEGINNER_STAGE3_COURSES } from './courses-beginner-stage3.js?v=eb264ddb';
 // 초급 4단계 — 상대에게
-import { BEGINNER_STAGE4_COURSES } from './courses-beginner-stage4.js?v=a47cf07d';
+import { BEGINNER_STAGE4_COURSES } from './courses-beginner-stage4.js?v=eb264ddb';
 // 초급 5단계 — 마음을 담기
-import { BEGINNER_STAGE5_COURSES } from './courses-beginner-stage5.js?v=a47cf07d';
+import { BEGINNER_STAGE5_COURSES } from './courses-beginner-stage5.js?v=eb264ddb';
 // 초급 6단계 — 다듬기
-import { BEGINNER_STAGE6_COURSES } from './courses-beginner-stage6.js?v=a47cf07d';
+import { BEGINNER_STAGE6_COURSES } from './courses-beginner-stage6.js?v=eb264ddb';
 // 초급 보충 — 110개 문법 목록에 없지만 실전에 꼭 필요한 것 (§8)
-import { BEGINNER_EXTRA_COURSES } from './courses-beginner-extra.js?v=a47cf07d';
+import { BEGINNER_EXTRA_COURSES } from './courses-beginner-extra.js?v=eb264ddb';
 
 export const COURSES = [
 
@@ -427,7 +427,7 @@ export const COURSES = [
   {
     id: 'hangul-08',
     title: { ko:'소리가 넘어갈 때', en:'Sounds that slide' },
-    seo: { title:'Korean linking sounds (연음) / how batchim moves to the next syllable', desc:'Why 한국어 is said ha-gu-geo: a final consonant slides into the next silent ㅇ. Free Hangul reading lesson with listening and speaking practice.' },
+    seo: { title:'Korean linking sounds (연음) / how batchim moves to the next syllable', desc:'Why 한국어 is said han-gu-geo: a final consonant slides into the next silent ㅇ. Free Hangul reading lesson with listening and speaking practice.' },
     minutes: 7,
     blocks: [
       { t:'text', md:'One last thing and you can read anything. When a block ends in a consonant and the **next block starts with ㅇ** (the silent placeholder), that consonant slides over into the empty seat.' },
@@ -435,7 +435,7 @@ export const COURSES = [
       { t:'table',
         head:['Written','Said','Meaning'],
         rows:[
-          ['한국어','**하 – 구 – 거**','Korean (language)'],
+          ['한국어','**한 – 구 – 거**','Korean (language)'],
           ['음악','**으 – 막**','music'],
           ['일요일','**이 – 료 – 일**','Sunday'],
         ]},
@@ -443,7 +443,7 @@ export const COURSES = [
       { t:'note', md:'Nothing is spelled wrong. Korean **spells the meaning and speaks the flow**, the same way English writes “want to” and says “wanna”.' },
 
       { t:'choice',
-        q:'한국어 is written 한 + 국 + 어. Why is it said “ha-gu-geo”?',
+        q:'한국어 is written 한 + 국 + 어. Why is it said “han-gu-geo”?',
         options:[
           'It is an exception you must memorise',
           'The ㄱ under 국 slides into the empty ㅇ of 어',
@@ -456,7 +456,7 @@ export const COURSES = [
         // 실제로는 두 덩어리(으-막)로 들린다
       },
 
-      { t:'speak', say:'한국어', rom:'ha-gu-geo  ·  “Korean”',
+      { t:'speak', say:'한국어', rom:'han-gu-geo  ·  “Korean”',
         q:'Say it the way it sounds, not the way it is spelled.' },
     ],
   },
