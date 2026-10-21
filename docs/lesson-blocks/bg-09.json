@@ -57,7 +57,9 @@
       "wrong": "저는 오늘 안 운동해요.",
       "answers": [
         "저는 오늘 운동 안 해요.",
-        "전 오늘 운동 안 해요."
+        "전 오늘 운동 안 해요.",
+        "저는 오늘 운동을 안 해요.",
+        "전 오늘 운동을 안 해요."
       ],
       "hint": "하다 verbs split: put 안 inside right before 해요.",
       "why": "Action verbs ending in -하다 split: 운동 안 해요 (not 안 운동해요)."
@@ -104,7 +106,7 @@
             "커피를",
             "안 마셔요"
           ],
-          "en": "I don't drink coffee."
+          "en": "As for me, I don't drink coffee."
         },
         {
           "tokens": [
@@ -218,11 +220,12 @@
     {
       "t": "correct",
       "q": "Fix the mistake.",
-      "wrong": "저는 수영을 못수영해요.",
+      "wrong": "저는 못 수영해요.",
       "answers": [
         "저는 수영을 못 해요.",
         "저는 수영 못 해요.",
-        "전 수영 못 해요."
+        "전 수영 못 해요.",
+        "전 수영을 못 해요."
       ],
       "hint": "Put 못 right before 해요: 수영을 못 해요.",
       "why": "하다 verbs split so that 못 precedes 해요: 수영을 못 해요."
@@ -257,7 +260,7 @@
       "t": "expand",
       "base": {
         "tokens": [
-          "오늘",
+          "오늘은",
           "못 가요"
         ],
         "en": "I cannot go today."
@@ -382,10 +385,11 @@
     {
       "t": "correct",
       "q": "Fix the mistake.",
-      "wrong": "저는 안 고기를 먹어요.",
+      "wrong": "저는 술을 마셔요 안.",
       "answers": [
-        "저는 고기를 안 먹어요.",
-        "전 고기를 안 먹어요."
+        "저는 술을 안 마셔요.",
+        "전 술을 안 마셔요.",
+        "저는 술 안 마셔요."
       ],
       "hint": "안 goes right before the verb (고기를 안 먹어요), not before the object.",
       "why": "The negative 안 comes directly before the verb: 고기를 안 먹어요."
@@ -597,12 +601,12 @@
         },
         {
           "tokens": [
-            "한국은",
             "오늘은",
+            "서울",
             "날씨가",
             "안 추워요"
           ],
-          "en": "In Korea, today the weather is not cold."
+          "en": "Today the weather in Seoul is not cold."
         }
       ]
     },

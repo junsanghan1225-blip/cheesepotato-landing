@@ -113,7 +113,7 @@
             "책을",
             "읽어요"
           ],
-          "en": "I read a book every day."
+          "en": "As for me, I read a book every day."
         }
       ]
     },
@@ -218,9 +218,10 @@
     {
       "t": "correct",
       "q": "Fix the mistake.",
-      "wrong": "오늘는 시간이 없어요.",
+      "wrong": "제 동생는 학생이에요.",
       "answers": [
-        "오늘은 시간이 없어요."
+        "제 동생은 학생이에요.",
+        "제 동생은 학생이에요"
       ],
       "hint": "오늘 ends in consonant ㄹ, so it attaches 은.",
       "why": "Nouns ending in a consonant take the topic particle 은: 오늘 + 은 → 오늘은."
@@ -369,11 +370,10 @@
     },
     {
       "t": "write",
-      "q": "Write a sentence saying that you learn Korean using 저는 and 한국어를.",
+      "q": "Write a sentence saying that you learn or study Korean using 저는 and 한국어를.",
       "must": [
         "저는",
-        "한국어를",
-        "배워요"
+        "한국어를"
       ],
       "sample": "저는 한국어를 배워요.",
       "why": "Standard Korean order: Topic (저는) + Object (한국어를) + Verb (배워요)."
@@ -431,7 +431,7 @@
             "사과를",
             "먹어요"
           ],
-          "en": "I eat an apple."
+          "en": "As for me, I eat an apple."
         },
         {
           "tokens": [
