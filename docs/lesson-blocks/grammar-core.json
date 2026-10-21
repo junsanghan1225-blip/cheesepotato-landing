@@ -336,7 +336,7 @@
       "en": [
         "Where are you now?",
         "I am working in the office.",
-        "I meet a friend in the afternoon."
+        "I am meeting a friend in the afternoon."
       ]
     },
     {
@@ -359,7 +359,7 @@
         "Going to the bank"
       ],
       "answer": 0,
-      "why": "오후에 친구를 만납니다: “I meet a friend in the afternoon.”"
+      "why": "오후에 친구를 만납니다: “I am meeting a friend in the afternoon.”"
     },
     {
       "t": "expand",
@@ -447,12 +447,14 @@
     {
       "t": "correct",
       "q": "Fix the mistake.",
-      "wrong": "다리가 아파서 운동을 안 해요.",
+      "wrong": "다리가 아파서 못 운동해요.",
       "answers": [
+        "다리가 아파서 운동 못 해요.",
         "다리가 아파서 운동을 못 해요.",
+        "다리가 아파서 운동 못 해요",
         "다리가 아파서 운동을 못 해요"
       ],
-      "hint": "A physical injury prevents you from doing it.",
+      "hint": "With 운동하다 (a 하다 verb), put 못 after the noun: 운동 못 해요.",
       "why": "When you are prevented by injury or inability, use 못, not 안."
     },
     {
@@ -611,7 +613,9 @@
       "wrong": "동생는 책을 읽어요.",
       "answers": [
         "동생은 책을 읽어요.",
-        "동생은 책을 읽어요"
+        "동생은 책을 읽어요",
+        "동생이 책을 읽어요.",
+        "동생이 책을 읽어요"
       ],
       "hint": "동생 ends in a consonant, so use 은.",
       "why": "Nouns ending in a consonant take 은: 동생은."
@@ -974,10 +978,10 @@
       "t": "expand",
       "base": {
         "tokens": [
-          "커피를",
+          "커피만",
           "마셔요."
         ],
-        "en": "I drink coffee."
+        "en": "I only drink coffee."
       },
       "steps": [
         {
@@ -1082,11 +1086,11 @@
     },
     {
       "t": "write",
-      "q": "Connect two contrasting facts using -지만 (e.g. difficult but fun).",
+      "q": "Connect two contrasting facts using -지만 (e.g. small but clean).",
       "must": [
         "지만"
       ],
-      "sample": "한국어는 어렵지만 재미있어요.",
+      "sample": "방은 작지만 깨끗해요.",
       "why": "Attach -지만 directly to the verb or adjective stem."
     },
     {
@@ -1147,7 +1151,7 @@
             "집에",
             "있어요."
           ],
-          "en": "Because it rained, I stay at home."
+          "en": "Because it is raining, I am staying home."
         },
         {
           "tokens": [
@@ -1156,7 +1160,7 @@
             "집에",
             "있어요."
           ],
-          "en": "Today, because it rained, I stay at home."
+          "en": "Today, because it is raining, I am staying home."
         }
       ]
     },
