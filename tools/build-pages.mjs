@@ -1329,15 +1329,19 @@ function wordPage(entry, prev, next) {
   /* 「hello in Korean」처럼 거꾸로(영어→한국어) 찾는 사람이 실제로 많다.
      제목 앞자리를 그 검색에 맞춘다 — 한국어 표제어는 어차피 본문 h1 과
      제목 뒷자리에 그대로 있어 한국어 쪽 검색도 놓치지 않는다. */
+  /* 2026-10-21(운영자 「사전 쪽 제목 개선」): 보강한 낱말 쪽(vocabPage)은 10-11 에 「뜻」을 앞에 붙였는데 이 쪽들은 빠져 있었다.
+     Search Console 에서 「알몸」 「새엄마」 「사회생활 뜻」 처럼 한국어로 뜻을 찾는 질의가 노출은 많고 클릭이 적었다 → 같은 모양으로. */
+  const romH = romanize(head);
   const title = firstEn
-    ? `${head} meaning — "${esc(firstEn)}" in Korean | CheesePotato`
+    ? `${head} 뜻${romH ? ` (${esc(romH)})` : ''} meaning — "${esc(firstEn)}" in Korean | CheesePotato`
     : `${head} 뜻 — 한국어 낱말 사전 | CheesePotato`;
   const senses = SENSES[head];
   const example = EXAMPLES[head];
   const headTag = pos ? `${head}(${pos})` : head;   // 품사가 없는 표제어(감탄사류)엔 빈 괄호를 안 붙인다
-  const desc = clip(senses?.length
-    ? `${headTag} — ${senses[0][0]}${senses[0][1] ? ` (${senses[0][1]})` : ''}`
-    : `${headTag} — ${en || '한국어 낱말'}`);
+  /* 뜻을 먼저, 뒤에 누를 까닭(소리 · 예문 · 무료) — vocabPage 설명과 같은 갈래. 이 쪽에 실제로 있는 것만 적는다 */
+  const desc = clip(`${head}${pos ? `(${pos})` : ''} 뜻 — ` + (senses?.length
+    ? `${senses[0][0]}${senses[0][1] ? ` (${senses[0][1]})` : ''}`
+    : `${en || '한국어 낱말'}`) + `. 🔊 Hear it${example ? ', see an example' : ''} and add it to your wordbook. Free, no sign-up.`);
 
   const body = [
     /* 보강한 낱말 쪽(vocabPage)과 같은 모양 — 로고 줄 · 첫 카드(낱말 · 로마자 · 뜻) · 예문 */
@@ -1439,7 +1443,7 @@ function vocabPage(w, prev, next) {
   const title = `${head} 뜻 (${rom}) meaning — "${firstEn}" in Korean | CheesePotato`;
   const posEn = POS_EN[w.p] ? ` ${POS_EN[w.p]}` : '';
   const ex = w.x[0]?.[0] ? ` Example: ${w.x[0][0]}` : '';
-  const desc = clip(`${head} 뜻 · ${head} (${rom}) means "${firstEn}" in Korean — a TOPIK ${isT2(w) ? 'II' : 'I'} level ${w.l}${posEn || ' word'}. 🔊 Hear it, examples in English${conj ? ', conjugation' : ''} and try a 1-minute quiz. Free, no sign-up.`);
+  const desc = clip(`${head} 뜻 · ${head} (${rom}) means "${firstEn}" in Korean — a TOPIK ${isT2(w) ? 'II' : 'I'} level ${w.l}${posEn || ' word'}. 🔊 Hear it · examples${conj ? ' · conjugation' : ''} · 1-minute quiz. Free.`);   // 2026-10-21: 155자 안에 끝나게 줄임 — 검색 결과에서 「Free, no…」처럼 잘리던 쪽이 많았다
 
   /* 미니 퀴즈 — 뜻 고르기 넷. 스크립트 없이 <details> 로 답을 편다(정적 쪽이라 CSP · 속도 걱정이 없다). */
   const rnd = seeded(head);
