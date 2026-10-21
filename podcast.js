@@ -44,7 +44,7 @@ function drawEp() { const e = cur(); if (!e) return; $('epInfo').textContent = e
   try {
     EPS = await (await fetch('podcast-episodes.json', { cache: 'no-cache' })).json();
     $('ep').innerHTML = EPS.map((e) => `<option value="${e.ep}">${e.ep} — ${e.head}</option>`).join('');
-    drawEp();
+    drawEp(); queueLoad();   // 번호 바꾸기 목록이 에피소드 목록을 쓰니, 목록이 온 뒤 한 번 더 그린다
   } catch (x) { $('epInfo').textContent = '에피소드 목록을 못 읽었어요(podcast-episodes.json).'; }
 })();
 $('ep').addEventListener('change', drawEp);
@@ -95,8 +95,42 @@ async function queueLoad() {
   const { data: { session } } = await sb.auth.getSession();
   $('who').textContent = session ? `로그인: ${session.user.email}` : '로그인이 안 돼 있어요 — everykoreans.com 에서 운영자 계정으로 로그인한 뒤 새로 고쳐 주세요.';
   if (!session) { $('queue').textContent = '로그인하면 대기열이 보여요.'; return; }
-  const { data, error } = await sb.from('podcast_queue').select('id,ep,status,yt,created_at,title').order('id', { ascending: false }).limit(10);
+  const { data, error } = await sb.from('podcast_queue').select('id,ep,status,yt,created_at,title,cover_path').order('id', { ascending: false }).limit(10);
   if (error) { $('queue').textContent = `대기열을 못 읽었어요(${error.message}) — db/add_podcast.sql 을 돌렸는지 봐 주세요.`; return; }
-  $('queue').innerHTML = data.length ? data.map((r) => `<div class="q"><span>EP ${r.ep} · ${r.created_at.slice(5, 10)}</span><span>${r.status === 'cancel' ? '🚫' : `유튜브 ${mark(r.yt)}`}${r.yt?.url ? ` <a href="${r.yt.url}" target="_blank" rel="noopener">보기</a>` : ''}</span></div>`).join('') : '아직 없어요.';
+  $('queue').innerHTML = data.length ? data.map((r) => `<div class="q" data-id="${r.id}"><span>EP ${r.ep} · ${r.created_at.slice(5, 10)}</span><span>${r.status === 'cancel' ? '🚫' : `유튜브 ${mark(r.yt)}`}${r.yt?.url ? ` <a href="${r.yt.url}" target="_blank" rel="noopener">보기</a>` : ''}</span>` +
+    (r.status === 'cancel' ? '' : `<span class="qa"><select class="qep" aria-label="바꿀 번호">${EPS.map((e) => `<option value="${e.ep}"${e.ep === r.ep ? ' selected' : ''}>${e.ep} — ${e.head}</option>`).join('')}</select> <button type="button" class="qfix" data-id="${r.id}">번호 바꾸기</button> <button type="button" class="qcancel" data-id="${r.id}">취소</button></span>`) + '</div>').join('') : '아직 없어요.';
 }
 queueLoad();
+
+/* ── 잘못 올렸을 때(운영자 2026-10-21 「배가 아프다인데 번호를 잘못 올렸어」) — 번호 바꾸기 · 취소 ──
+   번호를 바꾸면 그 편의 제목 · 설명 · 태그와 표지(번호 · 표현이 들어간 그림)를 새로 맞춘다. 표지는 덮어쓰지 않고 새 파일로 올린다
+   (저장 칸 정책이 「올리기」만 허용). 이미 유튜브에 올라갔다면(✅) 유튜브 쪽 제목 · 썸네일은 유튜브 스튜디오에서 직접 고쳐야 한다. */
+$('queue').addEventListener('click', async (ev) => {
+  const fix = ev.target.closest('.qfix'), cancel = ev.target.closest('.qcancel');
+  const btn = fix || cancel; if (!btn) return;
+  const row = btn.closest('.q'), id = Number(btn.dataset.id);
+  const say = (h) => { $('msg').innerHTML = h; };
+  btn.disabled = true;
+  try {
+    if (cancel) {
+      if (!window.confirm('이 줄을 취소할까요? 아직 유튜브에 안 올라갔다면 올라가지 않아요.')) { btn.disabled = false; return; }
+      const { error } = await sb.from('podcast_queue').update({ status: 'cancel' }).eq('id', id);
+      if (error) throw error;
+      say('<span class="done">취소했어요 ✓</span>');
+    } else {
+      const e = EPS.find((x) => x.ep === row.querySelector('.qep').value); if (!e) throw new Error('번호를 못 찾았어요');
+      const { data: r0, error: e0 } = await sb.from('podcast_queue').select('yt').eq('id', id).single();
+      if (e0) throw e0;
+      const prev = $('ep').value; $('ep').value = e.ep; cover(e);
+      const blob = await new Promise((res) => $('cv').toBlob(res, 'image/jpeg', 0.92));
+      $('ep').value = prev; drawEp();
+      const path = `${new Date(Date.now() + 9 * 36e5).toISOString().slice(0, 10)}/ep${e.ep}-${Date.now()}.jpg`;
+      const { error: eu } = await sb.storage.from('podcast').upload(path, blob, { contentType: 'image/jpeg', upsert: false });
+      if (eu) throw eu;
+      const { error } = await sb.from('podcast_queue').update({ ep: e.ep, title: e.title, description: e.description, tags: e.tags, cover_path: path }).eq('id', id);
+      if (error) throw error;
+      say(`<span class="done">EP ${e.ep} (${e.head}) 로 바꿨어요 ✓</span>` + (r0?.yt?.ok ? ' 이미 유튜브에 올라갔어요 — 유튜브 스튜디오에서 그 영상의 제목 · 설명 · 썸네일을 직접 고쳐 주세요. 스포티파이 목록은 다음 갱신 때 바뀌어요.' : ' 아직 유튜브에 안 올라갔다면 이 번호로 올라가요.'));
+    }
+    queueLoad();
+  } catch (x) { btn.disabled = false; say(`<span class="err">못 했어요: ${(x.message || x)}</span>`); }
+});
