@@ -7,14 +7,14 @@
         "h": "보고 (구어 청자 지칭 조사)",
         "d": "일상 대화에서 '에게/한테' 대신 말을 듣는 대상을 가리킬 때",
         "ex": [
-          "팀장님이 나**보고** 오늘 회의 자료를 정리하래요. — The team leader told me to organize today's meeting materials."
+          "팀장님이 나**보고** 오늘 회의 자료를 정리하래요. / The team leader told me to organize today's meeting materials."
         ]
       },
       "b": {
         "h": "-(느)ㄴ다니까 (답답함이나 재강조)",
         "d": "상대방이 내 말을 잘 안 믿거나 재촉할 때 답답함을 담아 되풀이함",
         "ex": [
-          "내가 벌써 서류를 제출했**다니까** 왜 자꾸 물어봐요? — I told you I already submitted documents, why do you keep asking?"
+          "내가 벌써 서류를 제출했**다니까** 왜 자꾸 물어봐요? / I told you I already submitted documents, why do you keep asking?"
         ]
       },
       "tip": "말의 수신자를 지칭할 때는 '명사 + 보고', 이미 한 말을 강조할 때는 '-(느)ㄴ다니까'를 씁니다."
@@ -160,14 +160,14 @@
         "h": "이사한다면서요? (동사 결합)",
         "d": "동사 어간에 받침이 없으면 -ㄴ다면서요?, 받침이 있으면 -는다면서요?",
         "ex": [
-          "다음 주말에 새집으로 **이사한다면서요?** — I heard you are moving to a new house next weekend?"
+          "다음 주말에 새집으로 **이사한다면서요?**: I heard you are moving to a new house next weekend?"
         ]
       },
       "b": {
         "h": "바쁘다면서요? (형용사 결합)",
         "d": "형용사 어간에는 받침 유무에 관계없이 그대로 -다면서요?",
         "ex": [
-          "요즘 눈코 뜰 새 없이 **바쁘다면서요?** 건강 잘 챙기세요. — I heard you are extremely busy these days? Take good care of health."
+          "요즘 눈코 뜰 새 없이 **바쁘다면서요?** 건강 잘 챙기세요. / I heard you are extremely busy these days? Take good care of health."
         ]
       },
       "tip": "동사는 '-(느)ㄴ다면서요?', 형용사는 '-다면서요?', 명사는 '-(이)라면서요?'를 씁니다."
@@ -312,14 +312,14 @@
         "h": "통계청 발표에 의하면 (공식 통계/수치)",
         "d": "공인된 기관의 조사 결과나 데이터를 객관적으로 인용할 때",
         "ex": [
-          "통계청 발표**에 의하면** 청년 고용률이 완만한 회복세를 보인다고 합니다. — According to the Statistics Korea announcement, youth employment shows a modest recovery."
+          "통계청 발표**에 의하면** 청년 고용률이 완만한 회복세를 보인다고 합니다. / According to the Statistics Korea announcement, youth employment shows a modest recovery."
         ]
       },
       "b": {
         "h": "보도에 의하면 (언론 매체 인용)",
         "d": "신문, 방송, 언론 기사의 보도 내용을 근거로 제시할 때",
         "ex": [
-          "외신 보도**에 의하면** 글로벌 정상회담이 다음 달 개최될 예정이라고 합니다. — According to foreign news reports, global summit is scheduled to be held next month."
+          "외신 보도**에 의하면** 글로벌 정상회담이 다음 달 개최될 예정이라고 합니다. / According to foreign news reports, global summit is scheduled to be held next month."
         ]
       },
       "tip": "출처 명사 뒤에 '에 의하면'을 붙이며, 문장 끝은 '-다고 합니다' 등 간접 인용과 호응합니다."
@@ -465,14 +465,14 @@
         "h": "사내 구어 보고 (보고 / -대요)",
         "d": "동료 간에 상사의 지시나 일정 변동을 편안하게 전달할 때",
         "ex": [
-          "팀장님이 김 대리**보고** 오늘 중으로 결재안 올리래요. — The team leader told Assistant Manager Kim to submit the approval draft today."
+          "팀장님이 김 대리**보고** 오늘 중으로 결재안 올리래요. / The team leader told Assistant Manager Kim to submit the approval draft today."
         ]
       },
       "b": {
         "h": "공식 기안 인용 (에 의하면 / -다고 함)",
         "d": "공식 문서나 임원 회의에서 시장 데이터와 출처를 정중히 밝힐 때",
         "ex": [
-          "시장 분석 자료**에 의하면** 신기술 도입 기업의 만족도가 높다고 합니다. — According to market analysis data, firms adopting new tech show high satisfaction."
+          "시장 분석 자료**에 의하면** 신기술 도입 기업의 만족도가 높다고 합니다. / According to market analysis data, firms adopting new tech show high satisfaction."
         ]
       },
       "tip": "동료 간 구어 전달에는 '보고/-(느)ㄴ대요', 공식 문서나 임원 보고에는 '에 의하면'을 씁니다."

@@ -294,7 +294,7 @@
       "t": "choice",
       "q": "What did the writer and friend build together?",
       "options": [
-        "Deep trust (깊은 믿음)",
+        "Deep trust",
         "A big business",
         "A house"
       ],
@@ -447,7 +447,7 @@
       "t": "choice",
       "q": "What test is the writer preparing for?",
       "options": [
-        "Korean proficiency test (한국어 능력 시험)",
+        "Korean proficiency test",
         "Driving license test",
         "English cooking test"
       ],
@@ -458,7 +458,7 @@
       "t": "choice",
       "q": "Whose help made the writer's skills improve?",
       "options": [
-        "Teacher's help (선생님의 도움)",
+        "Teacher's help",
         "Doctor's advice",
         "Nobody's help"
       ],
@@ -543,14 +543,14 @@
         "h": "-기 (Actions, Hobbies, & Patterns)",
         "d": "Used in active grammatical patterns (-기 전에, -기 시작하다, -기 쉽다) and to name hobbies/activities.",
         "ex": [
-          "밥 먹**기** 전에 손을 씻어요. — Wash hands before eating."
+          "밥 먹**기** 전에 손을 씻어요. / Wash hands before eating."
         ]
       },
       "b": {
         "h": "-(으)ㅁ (Fixed Nouns & Records)",
         "d": "Creates established standalone nouns (꿈, 잠, 도움, 믿음) and concise factual entries on forms (있음/없음).",
         "ex": [
-          "친구의 따뜻한 도**움**을 받았어요. — I received a friend's warm help."
+          "친구의 따뜻한 도**움**을 받았어요. / I received a friend's warm help."
         ]
       },
       "tip": "Use -기 for processes and fixed patterns; use -(으)ㅁ for solidified abstract nouns and written notes."
@@ -641,7 +641,7 @@
       "t": "choice",
       "q": "What can the writer write in Korean now?",
       "options": [
-        "Short diaries (짧은 일기)",
+        "Short diaries",
         "Long novels",
         "Newspaper articles"
       ],

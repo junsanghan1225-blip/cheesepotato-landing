@@ -538,14 +538,14 @@
         "h": "-에게 / -한테 (Person recipient)",
         "d": "Used when directing an action, speech, or object toward a human or animal receiver.",
         "ex": [
-          "친구**한테** 선물을 줘요. — I give a gift to my friend."
+          "친구**한테** 선물을 줘요. / I give a gift to my friend."
         ]
       },
       "b": {
         "h": "-(으)로 (Direction / Means)",
         "d": "Used when indicating a spatial direction toward a location, or a tool/transport method used.",
         "ex": [
-          "지하철**로** 학교에 가요. — I go to school by subway."
+          "지하철**로** 학교에 가요. / I go to school by subway."
         ]
       },
       "tip": "Use -에게/-한테 for living recipients, and -(으)로 for movement directions or tools."
@@ -627,7 +627,7 @@
       "t": "choice",
       "q": "How did the writer send the letter to the teacher?",
       "options": [
-        "By mail (우편으로)",
+        "By mail",
         "By bicycle",
         "Handed in person"
       ],

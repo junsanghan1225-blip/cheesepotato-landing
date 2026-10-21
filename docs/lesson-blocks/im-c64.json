@@ -7,14 +7,14 @@
         "h": "-고 보니 (Past single discovery)",
         "d": "Action was finished, and only afterwards was a surprising truth discovered.",
         "ex": [
-          "음식을 다 **먹고 보니** 그릇 밑에 머리카락이 있었어요. — After finishing all the food, I realized there was a hair under the bowl."
+          "음식을 다 **먹고 보니** 그릇 밑에 머리카락이 있었어요. / After finishing all the food, I realized there was a hair under the bowl."
         ]
       },
       "b": {
         "h": "-다 보니 (Continuous cumulative realization)",
         "d": "Engaging repeatedly in an action over time naturally led to a habit, result, or understanding.",
         "ex": [
-          "한국 친구들과 매일 **이야기하다 보니** 말하기 실력이 부쩍 늘었어요. — Through constantly talking with Korean friends, my speaking skills improved remarkably."
+          "한국 친구들과 매일 **이야기하다 보니** 말하기 실력이 부쩍 늘었어요. / Through constantly talking with Korean friends, my speaking skills improved remarkably."
         ]
       },
       "tip": "-고 보니 is for a single finished action. -다 보니 is for accumulated experience. -다 보면 looks to the future: \"if you keep doing it, you will see...\" (연습하다 보면 잘하게 돼요)."
@@ -129,7 +129,7 @@
       "t": "choice",
       "q": "How did the author improve Korean listening and speaking skills?",
       "options": [
-        "Through daily watching Korean dramas and repeating speech (-다 보니)",
+        "Through daily watching Korean dramas and repeating speech",
         "By hiring twenty private tutors simultaneously",
         "By sleeping with textbooks under the pillow"
       ],
@@ -163,14 +163,14 @@
         "h": "-더니 (Observer’s perspective on 2nd/3rd person)",
         "d": "The speaker witnessed another person’s action or past weather, which led to a contrast or change.",
         "ex": [
-          "친구가 어제 밤새 게임을 **하더니** 오늘 수업 시간에 졸고 있어요. — My friend played games all night yesterday, and now is nodding off in class."
+          "친구가 어제 밤새 게임을 **하더니** 오늘 수업 시간에 졸고 있어요. / My friend played games all night yesterday, and now is nodding off in class."
         ]
       },
       "b": {
         "h": "-았/었더니 (1st person direct experience outcome)",
         "d": "The speaker personally performed the action in the 1st person, resulting in a discovery, reaction, or consequence.",
         "ex": [
-          "아침에 따뜻한 차를 **마셨더니** 감기 기운이 한결 가라앉았어요. — I drank warm tea in the morning, and my cold symptoms subsided noticeably."
+          "아침에 따뜻한 차를 **마셨더니** 감기 기운이 한결 가라앉았어요. / I drank warm tea in the morning, and my cold symptoms subsided noticeably."
         ]
       },
       "tip": "Check the subject: Use -았/었더니 when \"I\" did the action (내가 했더니). Use -더니 when observing others or weather changes (친구가 열심히 하더니, 어제 춥더니)."
@@ -285,7 +285,7 @@
       "t": "choice",
       "q": "What contrast is highlighted between Minsoo and the speaker?",
       "options": [
-        "Observing Minsoo’s changes (-더니) vs describing the speaker’s personal result (-했더니)",
+        "Observing Minsoo’s changes vs describing the speaker’s personal result",
         "Minsoo gave up swimming while the speaker became a professional athlete",
         "Both fell ill from over-exercising"
       ],
@@ -296,7 +296,7 @@
       "t": "choice",
       "q": "What physical sensation did the speaker experience after jogging?",
       "options": [
-        "The body felt noticeably lighter in the morning (몸이 한결 가벼웠다)",
+        "The body felt noticeably lighter in the morning",
         "Severe leg injury requiring surgery",
         "Excessive fever and chills"
       ],
@@ -319,14 +319,14 @@
         "h": "-다가는 (Severe conditional warning)",
         "d": "Warns that if current negative behavior continues, a disastrous outcome will inevitably follow.",
         "ex": [
-          "그렇게 과속을 **하다가는** 큰 사고가 날 수 있어요. — If you keep speeding like that, a terrible accident could happen."
+          "그렇게 과속을 **하다가는** 큰 사고가 날 수 있어요. / If you keep speeding like that, a terrible accident could happen."
         ]
       },
       "b": {
         "h": "-(으)ㄴ/는 셈이다 (Virtual evaluation / summing up)",
         "d": "Concludes that, taking everything into account, the situation practically amounts to a certain result.",
         "ex": [
-          "목표의 구십 퍼센트를 달성했으니 이번 프로젝트는 **성공한 셈이에요**. — Having achieved ninety percent of targets, this project is practically a success."
+          "목표의 구십 퍼센트를 달성했으니 이번 프로젝트는 **성공한 셈이에요**. / Having achieved ninety percent of targets, this project is practically a success."
         ]
       },
       "tip": "Use -다가는 to urgently caution against reckless habits. Use -(으)ㄴ/는 셈이다 to deliver balanced summaries of achievements or costs."
@@ -441,7 +441,7 @@
       "t": "choice",
       "q": "What warning does the passage issue about habitual overtime?",
       "options": [
-        "It can ruin one’s health even at a young age (몸을 망가뜨리기 십상이다)",
+        "It can ruin one’s health even at a young age",
         "It earns unlimited stock options",
         "It guarantees an immediate presidency"
       ],
@@ -452,7 +452,7 @@
       "t": "choice",
       "q": "How does the author evaluate the overall result of improved work efficiency?",
       "options": [
-        "Quality of life has practically improved twofold (두 배로 향상된 셈이다)",
+        "Quality of life has practically improved twofold",
         "The department decided to hire five hundred new clerks",
         "Company profits fell to absolute zero"
       ],
@@ -475,14 +475,14 @@
         "h": "단편적 직관 진술 (Surface intuition)",
         "d": "States results without revealing the underlying discovery process or experiential depth.",
         "ex": [
-          "운동하니까 좋아요. 계속하세요. — Exercise is good. Keep doing it."
+          "운동하니까 좋아요. 계속하세요. / Exercise is good. Keep doing it."
         ]
       },
       "b": {
         "h": "깊이 있는 통찰 전달 (Insightful experiential narrative)",
         "d": "Articulates how repeated practice (-다 보니), direct trials (-았/었더니), and warnings (-다가는) combine for profound wisdom.",
         "ex": [
-          "무리하게 운동하**다가는** 다치기 쉽지만, 매일 조금씩 하**다 보면** 체력이 부쩍 늘어난 것을 실감하게 돼요. — While over-exercising risks injury, if you keep doing a little daily, you will feel your stamina noticeably expanding."
+          "무리하게 운동하**다가는** 다치기 쉽지만, 매일 조금씩 하**다 보면** 체력이 부쩍 늘어난 것을 실감하게 돼요. / While over-exercising risks injury, if you keep doing a little daily, you will feel your stamina noticeably expanding."
         ]
       },
       "tip": "Synthesizing trial outcomes (-고 보니), gradual adaptation (-다 보니), and realistic warnings (-다가는) creates persuasive essays and mentoring advice."
@@ -597,7 +597,7 @@
       "t": "choice",
       "q": "How did the entrepreneur identify service improvements on site?",
       "options": [
-        "Through continuously interacting and communicating with customers (-다 보니)",
+        "Through continuously interacting and communicating with customers",
         "By reading a fictional novel at home",
         "By asking competitors for trade secrets"
       ],
@@ -608,7 +608,7 @@
       "t": "choice",
       "q": "Why did the entrepreneur caution against rushing impatiently?",
       "options": [
-        "Because rushing impatiently is prone to botching things (서두르다가는 일을 그르치기 십상)",
+        "Because rushing impatiently is prone to botching things",
         "Because customers forbade fast service",
         "Because bank accounts were frozen"
       ],

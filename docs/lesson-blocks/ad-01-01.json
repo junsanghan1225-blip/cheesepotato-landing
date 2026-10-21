@@ -7,14 +7,14 @@
         "h": "-는 (현재 사실·진행)",
         "d": "현재 진행 중이거나 평소에 되풀이되는 일반적인 사실",
         "ex": [
-          "우리 회사에서 매일 점심을 같이 **먹는** 대리는 정말 친절해요. — The assistant manager I eat lunch with every day is very kind."
+          "우리 회사에서 매일 점심을 같이 **먹는** 대리는 정말 친절해요. / The assistant manager I eat lunch with every day is very kind."
         ]
       },
       "b": {
         "h": "-던 (과거 회고·중단)",
         "d": "과거에 자주 하던 습관이나 지속되다가 지금은 중단된 일",
         "ex": [
-          "예전에 자주 **만나던** 친구를 오랜만에 동창회에서 만났어요. — I met an old friend I used to meet often at the reunion."
+          "예전에 자주 **만나던** 친구를 오랜만에 동창회에서 만났어요. / I met an old friend I used to meet often at the reunion."
         ]
       },
       "tip": "지금도 하는 일이면 -는, 과거의 추억이나 중단된 일이면 -던을 고릅니다."
@@ -156,17 +156,17 @@
       "t": "compare",
       "h": "만드는 vs 만들던 (ㄹ 탈락 규칙)",
       "a": {
-        "h": "만드는 (현재 — ㄹ 탈락)",
+        "h": "만드는 (현재: ㄹ 탈락)",
         "d": "동사 어간 끝의 'ㄹ'이 'ㄴ' 앞에서 탈락하는 규칙",
         "ex": [
-          "빵을 손수 만**드는** 제빵사의 솜씨가 대단합니다. — The baker who makes bread by hand is very skillful."
+          "빵을 손수 만**드는** 제빵사의 솜씨가 대단합니다. / The baker who makes bread by hand is very skillful."
         ]
       },
       "b": {
-        "h": "만들던 (과거 회고 — ㄹ 유지)",
+        "h": "만들던 (과거 회고: ㄹ 유지)",
         "d": "'-던' 앞에서는 'ㄹ'이 탈락하지 않고 그대로 유지됨",
         "ex": [
-          "어릴 적에 종이로 만**들던** 비행기가 떠오릅니다. — I recall paper airplanes I used to make in childhood."
+          "어릴 적에 종이로 만**들던** 비행기가 떠오릅니다. / I recall paper airplanes I used to make in childhood."
         ]
       },
       "tip": "-는 앞에서는 ㄹ이 탈락하여 '만드는', -던 앞에서는 유지되어 '만들던'이 됩니다."
@@ -311,14 +311,14 @@
         "h": "-던 (미완료·지속)",
         "d": "과거에 하다가 중단되어 아직 남아 있거나 되풀이하던 상태",
         "ex": [
-          "책상 위에 마시**던** 커피잔이 그대로 놓여 있어요. — The cup of coffee I was drinking is still on the desk."
+          "책상 위에 마시**던** 커피잔이 그대로 놓여 있어요. / The cup of coffee I was drinking is still on the desk."
         ]
       },
       "b": {
         "h": "-았/었던 (완전 종료·단절)",
         "d": "과거에 완전히 끝나 현재와는 확연히 끊어진 일",
         "ex": [
-          "작년에 여행 갔**었던** 제주도 풍경이 아직도 눈에 선합니다. — The scenery of Jeju where I had traveled last year is still fresh in mind."
+          "작년에 여행 갔**었던** 제주도 풍경이 아직도 눈에 선합니다. / The scenery of Jeju where I had traveled last year is still fresh in mind."
         ]
       },
       "tip": "동작이 미완료 상태로 남아 있으면 -던, 완전히 끝나 지금과 단절되었으면 -았/었던을 씁니다."
@@ -463,14 +463,14 @@
         "h": "진행하던 (기존 업무)",
         "d": "이전부터 지속되어 오다 마무리 단계에 접어든 현안",
         "ex": [
-          "기존에 **진행하던** 프로젝트는 이번 달 안으로 완료됩니다. — The project we were working on will be completed within this month."
+          "기존에 **진행하던** 프로젝트는 이번 달 안으로 완료됩니다. / The project we were working on will be completed within this month."
         ]
       },
       "b": {
         "h": "추진할 (향후 계획)",
         "d": "앞으로 새롭게 시작하거나 계획 중인 미래 과제",
         "ex": [
-          "하반기에 새로 **추진할** 사업 계획서를 검토했습니다. — We reviewed the proposal for new businesses to pursue in the second half."
+          "하반기에 새로 **추진할** 사업 계획서를 검토했습니다. / We reviewed the proposal for new businesses to pursue in the second half."
         ]
       },
       "tip": "기존의 연속 과제는 -던, 미래 예정 과제는 -(으)ㄹ을 씁니다."

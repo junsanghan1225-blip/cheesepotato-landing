@@ -7,14 +7,14 @@
         "h": "기본 동사 (Base action)",
         "d": "The subject performs the action directly on their own body or object.",
         "ex": [
-          "아이가 식탁에 앉아 스스로 밥을 **먹었어요**. — The child sat at the table and ate rice by themselves."
+          "아이가 식탁에 앉아 스스로 밥을 **먹었어요**. / The child sat at the table and ate rice by themselves."
         ]
       },
       "b": {
         "h": "단어 사동사 (Causative action)",
         "d": "The subject causes another person or creature to perform the action or provides direct assistance.",
         "ex": [
-          "어머니가 식탁에서 아이에게 따뜻한 밥을 **먹였어요**. — The mother fed warm rice to the child at the table."
+          "어머니가 식탁에서 아이에게 따뜻한 밥을 **먹였어요**. / The mother fed warm rice to the child at the table."
         ]
       },
       "tip": "Common causative pairs: 먹다/먹이다, 입다/입히다, 앉다/앉히다, 읽다/읽히다, 남다/남기다."
@@ -163,14 +163,14 @@
         "h": "기본 동사 (Base state / action)",
         "d": "Describes the subject’s own action or time state.",
         "ex": [
-          "회의 시간이 예정보다 한 시간 **늦었어요**. — The meeting time was an hour late compared to schedule."
+          "회의 시간이 예정보다 한 시간 **늦었어요**. / The meeting time was an hour late compared to schedule."
         ]
       },
       "b": {
         "h": "특수 사동사 (-우/구/추-)",
         "d": "Changes or adjusts parameters, schedules, or states by human intervention.",
         "ex": [
-          "일정이 겹쳐서 회의 시간을 한 시간 **늦췄어요**. — Due to overlapping schedules, we postponed the meeting by one hour."
+          "일정이 겹쳐서 회의 시간을 한 시간 **늦췄어요**. / Due to overlapping schedules, we postponed the meeting by one hour."
         ]
       },
       "tip": "Key special causative verbs: 타다 → 태우다 (give a ride), 자다 → 재우다 (put to sleep), 늦다 → 늦추다 (delay/postpone), 낮다 → 낮추다 (lower)."
@@ -285,7 +285,7 @@
       "t": "choice",
       "q": "Why was the flight departure postponed in the text?",
       "options": [
-        "Due to sudden heavy snow (갑작스러운 폭설)",
+        "Due to sudden heavy snow",
         "Because all passengers overslept",
         "Because the airport runway was under construction"
       ],
@@ -319,14 +319,14 @@
         "h": "직접 사동 (Direct physical causative)",
         "d": "The subject physically performs the action directly onto the target object or person.",
         "ex": [
-          "어머니가 아기에게 직접 옷을 **입혔어요**. — Mother directly dressed the baby in clothes by hand."
+          "어머니가 아기에게 직접 옷을 **입혔어요**. / Mother directly dressed the baby in clothes by hand."
         ]
       },
       "b": {
         "h": "간접 사동 (-게 하다, Indirect causative)",
         "d": "The subject instructs, permits, or creates an environment for the target to act autonomously.",
         "ex": [
-          "선생님은 학생들이 스스로 교복을 **입게 했어요**. — The teacher had the students wear uniforms autonomously."
+          "선생님은 학생들이 스스로 교복을 **입게 했어요**. / The teacher had the students wear uniforms autonomously."
         ]
       },
       "tip": "-게 하다 can attach to virtually all verbs and adjectives, conveying indirect causation, permission, or causing emotions (기쁘게 하다, 슬프게 하다)."
@@ -475,14 +475,14 @@
         "h": "일방적 상황 진술 (Factual statement)",
         "d": "Merely mentions external conditions without addressing the other party’s inconvenience.",
         "ex": [
-          "길이 막혀서 약속에 늦었어요. — Traffic was jammed, so I arrived late."
+          "길이 막혀서 약속에 늦었어요. / Traffic was jammed, so I arrived late."
         ]
       },
       "b": {
         "h": "사동 배려 표현 (Empathetic causative apology)",
         "d": "Directly acknowledges the impact on the other party, expressing heartfelt empathy.",
         "ex": [
-          "차가 많이 막혀서 오래 **기다리게 해 드렸지요?** 죄송해요. — Traffic was heavy so I made you wait long, didn’t I? I am sorry."
+          "차가 많이 막혀서 오래 **기다리게 해 드렸지요?** 죄송해요. / Traffic was heavy so I made you wait long, didn’t I? I am sorry."
         ]
       },
       "tip": "In everyday Korean, using causative verbs like 기다리게 하다, 걱정하게 하다, and 태워 주다 creates warmth and builds strong interpersonal bonds."
@@ -597,7 +597,7 @@
       "t": "choice",
       "q": "What thoughtful deed did Deputy Kim offer coworkers on a rainy evening?",
       "options": [
-        "Gave coworkers a ride to the subway station in his car (태워 주었다)",
+        "Gave coworkers a ride to the subway station in his car",
         "Charged colleagues money for disposable plastic umbrellas",
         "Refused to talk and left the parking lot alone"
       ],

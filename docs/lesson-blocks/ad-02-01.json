@@ -7,14 +7,14 @@
         "h": "해요체 (친절·평범한 구어 격식)",
         "d": "일상적인 대화, 식당, 카페, 동료 간에 부드럽게 소통할 때",
         "ex": [
-          "주말에 가족들과 함께 근교로 나들이를 **가요.** — I go on an outing near the suburbs with family on weekends."
+          "주말에 가족들과 함께 근교로 나들이를 **가요.**: I go on an outing near the suburbs with family on weekends."
         ]
       },
       "b": {
         "h": "합쇼체 (공식 석상 최고 격식체)",
         "d": "뉴스 방송, 공식 회의, 사내 보고, 발표 등 정중한 자리",
         "ex": [
-          "지금부터 하반기 정기 주주총회를 정식으로 **시작하겠습니다.** — We will now officially begin the regular shareholders' meeting."
+          "지금부터 하반기 정기 주주총회를 정식으로 **시작하겠습니다.**, We will now officially begin the regular shareholders' meeting."
         ]
       },
       "tip": "일상적이고 부드러운 대화에는 해요체, 공식 회의나 발표에는 합쇼체를 씁니다."
@@ -159,14 +159,14 @@
         "h": "갑니다 (합쇼체 평서형)",
         "d": "청자를 직접 마주하고 정중하게 전달하는 종결어미",
         "ex": [
-          "저는 오늘 부산으로 출장을 **갑니다.** — I am going on a business trip to Busan today."
+          "저는 오늘 부산으로 출장을 **갑니다.**: I am going on a business trip to Busan today."
         ]
       },
       "b": {
         "h": "간다 (해라체 평서형)",
         "d": "신문, 서적, 논문 등 불특정 다수의 독자에게 사실을 기술하는 종결어미",
         "ex": [
-          "계절의 변화에 따라 철새들은 남쪽으로 **간다.** — Migratory birds head south following the change of seasons."
+          "계절의 변화에 따라 철새들은 남쪽으로 **간다.**: Migratory birds head south following the change of seasons."
         ]
       },
       "tip": "청자가 앞에 있는 대화/발표는 '갑니다', 독자를 향한 객관적 글은 '간다'를 씁니다."
@@ -309,17 +309,17 @@
       "t": "compare",
       "h": "발표했다 vs 발표했습니다 (청자 존재 여부)",
       "a": {
-        "h": "발표했다 (해라체 — 서술문/신문 기사)",
+        "h": "발표했다 (해라체: 서술문/신문 기사)",
         "d": "특정 청자 없이 객관적 사실만을 덤덤히 적는 글",
         "ex": [
-          "정부는 오늘 물가 안정을 위한 종합 대책을 **발표했다.** — The government announced comprehensive measures for price stabilization today."
+          "정부는 오늘 물가 안정을 위한 종합 대책을 **발표했다.**, The government announced comprehensive measures for price stabilization today."
         ]
       },
       "b": {
-        "h": "발표했습니다 (합쇼체 — 뉴스 진행/발표)",
+        "h": "발표했습니다 (합쇼체: 뉴스 진행/발표)",
         "d": "눈앞의 청자나 화면 너머의 시청자를 마주하고 정중히 전하는 말",
         "ex": [
-          "시청자 여러분, 정부가 방금 전 종합 대책을 **발표했습니다.** — Viewers, the government has just announced comprehensive measures."
+          "시청자 여러분, 정부가 방금 전 종합 대책을 **발표했습니다.**, Viewers, the government has just announced comprehensive measures."
         ]
       },
       "tip": "읽는 이가 특정되지 않은 인쇄 글은 '발표했다', 듣는 청자가 분명하면 '발표했습니다'를 씁니다."
@@ -465,14 +465,14 @@
         "h": "보고서 서술 (해라체/명사형)",
         "d": "공식 문서 본문에서 사실 관계를 건조하고 명료하게 서술함",
         "ex": [
-          "지난 분기 매출이 전년 동기 대비 15% **증가했다.** — Sales last quarter increased 15% year-on-year."
+          "지난 분기 매출이 전년 동기 대비 15% **증가했다.**, Sales last quarter increased 15% year-on-year."
         ]
       },
       "b": {
         "h": "구두 대면 보고 (합쇼체)",
         "d": "상사나 임원을 직접 마주 보고 정중하게 보고 말씀을 올림",
         "ex": [
-          "팀장님, 지난 분기 매출이 전년 동기 대비 15% **증가했습니다.** — Team leader, sales last quarter increased 15% year-on-year."
+          "팀장님, 지난 분기 매출이 전년 동기 대비 15% **증가했습니다.**, Team leader, sales last quarter increased 15% year-on-year."
         ]
       },
       "tip": "문서에는 '증가했다/증가함', 상사 앞 구두 보고에는 '증가했습니다'를 씁니다."

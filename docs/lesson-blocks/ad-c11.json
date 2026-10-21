@@ -7,14 +7,14 @@
     "h": "-거니와 (기정사실 인정 후 대등·추가)",
     "d": "앞 절의 사실을 당연한 것으로 인정함과 동시에 그에 버금가는 또 다른 사실을 품격 있게 덧붙일 때",
     "ex": [
-     "그는 학문적 깊이가 뛰어남**은 물론이거니와** 인품 또한 더할 나위 없이 훌륭합니다. — He possesses academic depth, and his character is equally flawless."
+     "그는 학문적 깊이가 뛰어남**은 물론이거니와** 인품 또한 더할 나위 없이 훌륭합니다. / He possesses academic depth, and his character is equally flawless."
     ]
    },
    "b": {
     "h": "-(으)ㄹ뿐더러 (앞선 사실에 얹어지는 점층적 배가)",
     "d": "앞선 사실에 그치지 않고 한 단계 더 나아간 사실이 누적되어 상황이 더욱 심화됨을 강조할 때",
     "ex": [
-     "이번 신제품은 가격이 저렴**할뿐더러** 내구성까지 뛰어나 시장의 호평을 받고 있습니다. — This product is cheap, and even durability is great."
+     "이번 신제품은 가격이 저렴**할뿐더러** 내구성까지 뛰어나 시장의 호평을 받고 있습니다. / This product is cheap, and even durability is great."
     ]
    },
    "tip": "기정사실의 우아한 인정과 대등 추가에는 '-거니와', 점층적 누적 강조에는 '-(으)ㄹ뿐더러'를 씁니다."
@@ -161,14 +161,14 @@
     "h": "-기는커녕 (기본 기대치의 완전한 배반)",
     "d": "마땅히 기대했던 기본 수준은 고사하고 도리어 그보다 훨씬 못한 부정적 결과가 닥쳤을 때",
     "ex": [
-     "칭찬을 듣**기는커녕** 터무니없는 트집과 질책만 잔뜩 받았습니다. — Far from receiving praise, I received absurd fault-finding."
+     "칭찬을 듣**기는커녕** 터무니없는 트집과 질책만 잔뜩 받았습니다. / Far from receiving praise, I received absurd fault-finding."
     ]
    },
    "b": {
     "h": "마저 (마지막 남은 기대나 보루의 상실)",
     "d": "이미 다른 것들을 다 잃은 상황에서 최후로 남겨두었던 마지막 한 가닥 희망마저 사라졌을 때",
     "ex": [
-     "믿었던 동료**마저** 등을 돌리자 진퇴양난의 위기에 빠졌습니다. — When even the trusted colleague turned back, fallen into impasse."
+     "믿었던 동료**마저** 등을 돌리자 진퇴양난의 위기에 빠졌습니다. / When even the trusted colleague turned back, fallen into impasse."
     ]
    },
    "tip": "기대치에 턱없이 미치지 못할 때는 '-기는커녕', 최후의 한 조각이 무너질 때는 '마저'를 씁니다."
@@ -314,14 +314,14 @@
     "h": "-되 (허용과 엄격한 단서 제약)",
     "d": "앞 절의 권한이나 사실을 전면적으로 인정하되, 반드시 준수해야 할 엄격한 예외·제한을 명시할 때",
     "ex": [
-     "사내 자율 근무를 전면 허용하**되**, 주간 핵심 협업 시간에는 필수 참석해야 합니다. — Allow flexible work, provided you attend core hours."
+     "사내 자율 근무를 전면 허용하**되**, 주간 핵심 협업 시간에는 필수 참석해야 합니다. / Allow flexible work, provided you attend core hours."
     ]
    },
    "b": {
     "h": "을/를 비롯해서 (대표 사례 필두 전체 포괄)",
     "d": "가장 상징적이고 대표적인 대상을 앞세워 그와 관련된 집단 전체를 포괄적으로 아우를 때",
     "ex": [
-     "대표이사**를 비롯한** 전 임직원이 이번 위기 극복 캠페인에 동참했습니다. — Starting with the CEO, all employees joined."
+     "대표이사**를 비롯한** 전 임직원이 이번 위기 극복 캠페인에 동참했습니다. / Starting with the CEO, all employees joined."
     ]
    },
    "tip": "사규나 계약서의 단서 조항에는 '-되', 대표 대상을 앞세운 전체 포괄에는 '을/를 비롯해서'를 씁니다."
@@ -468,14 +468,14 @@
     "h": "-거니와 (성과의 복합적 시너지 보고)",
     "d": "회사의 재무적 성취와 브랜드 가치 제고를 품격 있게 병렬하여 주주들의 신뢰를 얻을 때",
     "ex": [
-     "이번 분기 매출이 크게 신장되었**거니와** 해외 시장 개척 또한 성공적인 궤도에 올랐습니다. — Sales grew, and overseas market also succeeded."
+     "이번 분기 매출이 크게 신장되었**거니와** 해외 시장 개척 또한 성공적인 궤도에 올랐습니다. / Sales grew, and overseas market also succeeded."
     ]
    },
    "b": {
     "h": "-되 (책임 경영과 내부 통제 규정)",
     "d": "사업 부서에 과감한 예산 집행 자율권을 위임하되, 철저한 사후 감사 원칙을 못 박을 때",
     "ex": [
-     "신규 투자 집행은 부서장 전결로 추진하**되**, 결과에 대한 책임은 엄중히 묻는다. — Dept heads execute investments, provided accountability is strict."
+     "신규 투자 집행은 부서장 전결로 추진하**되**, 결과에 대한 책임은 엄중히 묻는다. / Dept heads execute investments, provided accountability is strict."
     ]
    },
    "tip": "경영 실적의 품격 있는 추가 보고에는 '-거니와', 내부 통제 단서 규정에는 '-되'를 씁니다."

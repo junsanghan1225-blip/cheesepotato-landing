@@ -109,7 +109,7 @@
         "Fruit"
       ],
       "answer": 0,
-      "why": "아침에 빵을 먹어요 — “I eat bread in the morning.”"
+      "why": "아침에 빵을 먹어요: “I eat bread in the morning.”"
     },
     {
       "t": "choice",
@@ -120,7 +120,7 @@
         "At a cafe"
       ],
       "answer": 0,
-      "why": "도서관에서 공부해요 — “I study at the library.”"
+      "why": "도서관에서 공부해요: “I study at the library.”"
     },
     {
       "t": "expand",
@@ -168,14 +168,14 @@
         "h": "-았/었어요",
         "d": "It already happened.",
         "ex": [
-          "어제 빵을 먹**었어요**. — I ate bread yesterday."
+          "어제 빵을 먹**었어요**. / I ate bread yesterday."
         ]
       },
       "b": {
         "h": "-(으)ㄹ 거예요",
-        "d": "It has not happened yet — a plan or a guess.",
+        "d": "It has not happened yet: a plan or a guess.",
         "ex": [
-          "내일 빵을 먹**을 거예요**. — I will eat bread tomorrow."
+          "내일 빵을 먹**을 거예요**. / I will eat bread tomorrow."
         ]
       },
       "tip": "Look for the time word first: 어제 (yesterday) → 았/었어요, 내일 (tomorrow) → (으)ㄹ 거예요."
@@ -348,7 +348,7 @@
         "Meeting a friend"
       ],
       "answer": 0,
-      "why": "사무실에서 일하고 있어요 — “I am working in the office.”"
+      "why": "사무실에서 일하고 있어요: “I am working in the office.”"
     },
     {
       "t": "choice",
@@ -359,7 +359,7 @@
         "Going to the bank"
       ],
       "answer": 0,
-      "why": "오후에 친구를 만납니다 — “I meet a friend in the afternoon.”"
+      "why": "오후에 친구를 만납니다: “I meet a friend in the afternoon.”"
     },
     {
       "t": "expand",
@@ -509,7 +509,7 @@
         "Because the gym is closed"
       ],
       "answer": 0,
-      "why": "시간이 없어서 못 가요 — “I have no time, so I cannot go.”"
+      "why": "시간이 없어서 못 가요: “I have no time, so I cannot go.”"
     },
     {
       "t": "choice",
@@ -520,7 +520,7 @@
         "Meets friends at the gym"
       ],
       "answer": 0,
-      "why": "운동을 안 하고 쉬어요 — “I do not exercise and rest.”"
+      "why": "운동을 안 하고 쉬어요: “I do not exercise and rest.”"
     },
     {
       "t": "expand",
@@ -670,7 +670,7 @@
         "A magazine"
       ],
       "answer": 0,
-      "why": "책을 읽어요 — “reads a book.”"
+      "why": "책을 읽어요: “reads a book.”"
     },
     {
       "t": "choice",
@@ -681,7 +681,7 @@
         "Juice"
       ],
       "answer": 0,
-      "why": "커피를 사 왔어요 — “bought and brought coffee.”"
+      "why": "커피를 사 왔어요: “bought and brought coffee.”"
     },
     {
       "t": "expand",
@@ -831,7 +831,7 @@
         "At the park"
       ],
       "answer": 0,
-      "why": "지금 집에 있어요 — “She is at home right now.”"
+      "why": "지금 집에 있어요: “She is at home right now.”"
     },
     {
       "t": "choice",
@@ -842,7 +842,7 @@
         "To the library"
       ],
       "answer": 0,
-      "why": "저녁에는 공원에 가요 — “In the evening, she goes to the park.”"
+      "why": "저녁에는 공원에 가요: “In the evening, she goes to the park.”"
     },
     {
       "t": "expand",
@@ -1022,7 +1022,7 @@
         "Only on weekends"
       ],
       "answer": 0,
-      "why": "아침마다 달려요 — “runs every morning.”"
+      "why": "아침마다 달려요: “runs every morning.”"
     },
     {
       "t": "choice",
@@ -1033,7 +1033,7 @@
         "Both are the same"
       ],
       "answer": 0,
-      "why": "수진이가 민수보다 빨라요 — “Sujin is faster than Minsu.”"
+      "why": "수진이가 민수보다 빨라요: “Sujin is faster than Minsu.”"
     },
     {
       "t": "cando",
@@ -1183,7 +1183,7 @@
         "It is very hot"
       ],
       "answer": 0,
-      "why": "춥지는 않아요 — “it is not cold.”"
+      "why": "춥지는 않아요: “it is not cold.”"
     },
     {
       "t": "choice",
@@ -1194,7 +1194,7 @@
         "To the library"
       ],
       "answer": 0,
-      "why": "카페에 갔어요 — “went to a cafe.”"
+      "why": "카페에 갔어요: “went to a cafe.”"
     },
     {
       "t": "cando",

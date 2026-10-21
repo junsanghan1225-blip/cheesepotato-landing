@@ -127,7 +127,7 @@
       "t": "choice",
       "q": "How many apples did the writer pick at the store?",
       "options": [
-        "Three apples (세 개)",
+        "Three apples",
         "Ten apples",
         "No apples"
       ],
@@ -281,7 +281,7 @@
       "t": "choice",
       "q": "How many cats does the writer's family have?",
       "options": [
-        "Two cats (두 마리)",
+        "Two cats",
         "Five cats",
         "One cat"
       ],
@@ -434,7 +434,7 @@
       "t": "choice",
       "q": "How many books did the writer pick?",
       "options": [
-        "Two books (두 권)",
+        "Two books",
         "Five books",
         "Ten books"
       ],
@@ -445,7 +445,7 @@
       "t": "choice",
       "q": "What did they order at the counter?",
       "options": [
-        "Two cups of iced coffee (커피 두 잔)",
+        "Two cups of iced coffee",
         "Three bottles of juice",
         "One piece of cake"
       ],
@@ -599,7 +599,7 @@
       "t": "choice",
       "q": "How many friends did the writer invite?",
       "options": [
-        "Three friends (세 명)",
+        "Three friends",
         "Ten friends",
         "One friend"
       ],
@@ -610,7 +610,7 @@
       "t": "choice",
       "q": "How old did the writer turn this year?",
       "options": [
-        "20 years old (스무 살)",
+        "20 years old",
         "30 years old",
         "15 years old"
       ],

@@ -7,14 +7,14 @@
         "h": "기간 + 동안 (Continuous uninterrupted duration)",
         "d": "Focuses simply on the entire duration throughout which an action persisted.",
         "ex": [
-          "저는 대학교에서 4년 **동안** 한국어를 공부했어요. — I studied Korean for four years at university."
+          "저는 대학교에서 4년 **동안** 한국어를 공부했어요. / I studied Korean for four years at university."
         ]
       },
       "b": {
         "h": "기간 + 만에 (Elapsed time before resumption / realization)",
         "d": "Emphasizes the specific interval that passed before an event reoccurred or reached completion.",
         "ex": [
-          "고등학교 졸업 후 십 년 **만에** 오랜 친구를 다시 만났어요. — After high school graduation, I met my longtime friend again after ten years."
+          "고등학교 졸업 후 십 년 **만에** 오랜 친구를 다시 만났어요. / After high school graduation, I met my longtime friend again after ten years."
         ]
       },
       "tip": "기간 + 만에 highlights reunion after long intervals (삼 년 만에 만났다) or completing something within a record time (두 시간 만에 다 끝냈다)."
@@ -129,7 +129,7 @@
       "t": "choice",
       "q": "How long did it take for the author to revisit their old hometown?",
       "options": [
-        "Twenty years (이십 년 만에)",
+        "Twenty years",
         "Two weeks",
         "Five months"
       ],
@@ -163,14 +163,14 @@
         "h": "-아/어 가지고 (Conversational colloquial connector)",
         "d": "Extremely popular in daily spoken Korean to link causes to effects or consecutive steps in casual narratives.",
         "ex": [
-          "어제 비가 많이 **와 가지고** 약속이 취소됐어요. — Yesterday it rained heavily, so the appointment got canceled."
+          "어제 비가 많이 **와 가지고** 약속이 취소됐어요. / Yesterday it rained heavily, so the appointment got canceled."
         ]
       },
       "b": {
         "h": "-아/어서 (Standard neutral connector)",
         "d": "The textbook and formal written standard for expressing reasons and temporal sequences.",
         "ex": [
-          "어제 비가 많이 **와서** 약속이 취소되었습니다. — Yesterday it rained heavily, so the appointment was canceled."
+          "어제 비가 많이 **와서** 약속이 취소되었습니다. / Yesterday it rained heavily, so the appointment was canceled."
         ]
       },
       "tip": "In friendly spoken chats, Koreans frequently use -아/어 가지고 (어제 너무 바빠 가지고, 돈을 모아 가지고). In written essays, news, or exams, stick to -아/어서."
@@ -285,7 +285,7 @@
       "t": "choice",
       "q": "Why was the author stranded on the commute yesterday?",
       "options": [
-        "Because the subway broke down (지하철이 고장 나 가지고)",
+        "Because the subway broke down",
         "Because of a street parade festival",
         "Because a snowstorm closed the doors"
       ],
@@ -296,7 +296,7 @@
       "t": "choice",
       "q": "What stylistic register is represented by the frequent use of -아/어 가지고 in the passage?",
       "options": [
-        "Lively, natural spoken conversational Korean (일상 구어체)",
+        "Lively, natural spoken conversational Korean",
         "An ancient Joseon dynasty formal royal decree",
         "A strict academic patent description"
       ],
@@ -319,14 +319,14 @@
         "h": "-았/었다가 (Action completion then counter-turn)",
         "d": "Action A is completely finished, and then directly reversed or followed by an unexpected opposite action.",
         "ex": [
-          "백화점에 **갔다가** 사람이 너무 많아서 그냥 돌아왔어요. — I went to the department store, but came right back because there were too many people."
+          "백화점에 **갔다가** 사람이 너무 많아서 그냥 돌아왔어요. / I went to the department store, but came right back because there were too many people."
         ]
       },
       "b": {
         "h": "-고서 (Preceding step definitively done before next)",
         "d": "Emphasizes that action A was fully completed first, serving as the premise or trigger for action B.",
         "ex": [
-          "손을 깨끗이 **씻고서** 식탁에 앉으세요. — Wash your hands cleanly first, and then sit at the dining table."
+          "손을 깨끗이 **씻고서** 식탁에 앉으세요. / Wash your hands cleanly first, and then sit at the dining table."
         ]
       },
       "tip": "-았/었다가 involves a turnaround or reversal (갔다가 오다, 샀다가 환불하다). -고서 involves a sequential progression strictly following a completed first step."
@@ -441,7 +441,7 @@
       "t": "choice",
       "q": "Why did the author turn their car around at the department store?",
       "options": [
-        "Because the parking lot was completely full (주차장이 만차여서)",
+        "Because the parking lot was completely full",
         "Because the store was permanently out of business",
         "Because they forgot their credit card at home"
       ],
@@ -475,14 +475,14 @@
         "h": "단조로운 나열 (Monotone timeline)",
         "d": "Repeats basic markers like 그리고, 그 후에, 다 한 후에 without natural vocal rhythm.",
         "ex": [
-          "친구를 만났어요. 그리고 밥 먹었어요. 그리고 차 마셨어요. — Met friend. And ate. And drank tea."
+          "친구를 만났어요. 그리고 밥 먹었어요. 그리고 차 마셨어요. / Met friend. And ate. And drank tea."
         ]
       },
       "b": {
         "h": "입체적 전후 담화 (Multi-layered chronological narrative)",
         "d": "Weaves 기간 + 만에, -아/어 가지고, and -고서 into an engaging real-world story.",
         "ex": [
-          "삼 년 **만에** 만난 친구와 밥을 든든히 **먹고서** 이야기하느라 시간 가는 줄 몰랐어요. — Reunited after three years, eating hearty food with my friend first, we lost track of time talking."
+          "삼 년 **만에** 만난 친구와 밥을 든든히 **먹고서** 이야기하느라 시간 가는 줄 몰랐어요. / Reunited after three years, eating hearty food with my friend first, we lost track of time talking."
         ]
       },
       "tip": "Mixing elapsed duration (만에), spoken causes (-아/어 가지고), and completed steps (-고서) elevates everyday storytelling."
@@ -597,7 +597,7 @@
       "t": "choice",
       "q": "How long did the speaker work at the overseas branch before returning to Seoul?",
       "options": [
-        "Nearly five years (거의 오 년 만에)",
+        "Nearly five years",
         "Two months",
         "Ten days"
       ],
@@ -608,7 +608,7 @@
       "t": "choice",
       "q": "How did the speaker overcome the initial awkwardness on the first day?",
       "options": [
-        "Held a warm welcome party with coworkers first and shared chats (환영식을 하고서)",
+        "Held a warm welcome party with coworkers first and shared chats",
         "Resigned immediately and moved to another city",
         "Refused to talk to anyone at work"
       ],

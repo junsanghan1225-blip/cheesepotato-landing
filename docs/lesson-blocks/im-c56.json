@@ -7,14 +7,14 @@
         "h": "능동사 (Subject performs action)",
         "d": "The subject initiates and directly carries out the action toward an object.",
         "ex": [
-          "동생이 바람이 불기 전에 창문을 **닫았어요**. — My sibling closed the window before the wind blew."
+          "동생이 바람이 불기 전에 창문을 **닫았어요**. / My sibling closed the window before the wind blew."
         ]
       },
       "b": {
         "h": "피동사 (Subject experiences action)",
         "d": "The subject undergoes the action or experiences a state caused by an external force or agent.",
         "ex": [
-          "거센 바람에 열려 있던 창문이 저절로 **닫혔어요**. — In the strong wind, the open window closed by itself."
+          "거센 바람에 열려 있던 창문이 저절로 **닫혔어요**. / In the strong wind, the open window closed by itself."
         ]
       },
       "tip": "In Korean, when describing natural occurrences, environmental changes, or accidental events, using passive verbs (-이/히/리/기-) sounds much more natural and objective than active verbs."
@@ -163,7 +163,7 @@
         "h": "올바른 -아/어지다 피동",
         "d": "Used with transitive base verbs lacking a suffixal passive form to describe resulting states.",
         "ex": [
-          "새로운 규칙이 드디어 **만들어졌어요**. — A new rule has finally been established."
+          "새로운 규칙이 드디어 **만들어졌어요**. / A new rule has finally been established."
         ]
       },
       "b": {
@@ -319,14 +319,14 @@
         "h": "주어의 직접적 의지 (-기로 하다)",
         "d": "Emphasizes that the subject made a conscious personal choice or plan.",
         "ex": [
-          "제가 직접 지원해서 서울 본사로 **가기로 했어요**. — I decided to go to Seoul headquarters through my own application."
+          "제가 직접 지원해서 서울 본사로 **가기로 했어요**. / I decided to go to Seoul headquarters through my own application."
         ]
       },
       "b": {
         "h": "환경과 상황의 결과 (-게 되다)",
         "d": "Expresses that outcomes developed naturally due to external circumstances, rules, or fate.",
         "ex": [
-          "회사 인사 발령으로 서울 본사에서 **일하게 되었어요**. — Due to personnel transfer, I came to work at Seoul headquarters."
+          "회사 인사 발령으로 서울 본사에서 **일하게 되었어요**. / Due to personnel transfer, I came to work at Seoul headquarters."
         ]
       },
       "tip": "-게 되다 is also used to deliver personal achievements with modesty, politely attributing success to good fortune or teamwork rather than boasting."
@@ -441,7 +441,7 @@
       "t": "choice",
       "q": "Why did the author come to work in the Seoul planning team?",
       "options": [
-        "Due to regular company personnel transfer (인사 발령)",
+        "Due to regular company personnel transfer",
         "Because the author won an international lottery",
         "Because all other branch offices closed down permanently"
       ],
@@ -475,14 +475,14 @@
         "h": "직설적 능동 표현 (Direct active tone)",
         "d": "Can sound accusatory or blunt by placing direct agency onto the conversation partner.",
         "ex": [
-          "네 목소리가 안 들려. 크게 말해. — I cannot hear your voice. Speak louder."
+          "네 목소리가 안 들려. 크게 말해. / I cannot hear your voice. Speak louder."
         ]
       },
       "b": {
         "h": "완곡한 피동 배려 (Soft passive consideration)",
         "d": "Attributes issues to the phone line, equipment, or environment, saving face for both speakers.",
         "ex": [
-          "지하철이라 그런지 목소리가 잘 **안 들려요**. — Perhaps because it is the subway, your voice is not heard well."
+          "지하철이라 그런지 목소리가 잘 **안 들려요**. / Perhaps because it is the subway, your voice is not heard well."
         ]
       },
       "tip": "In business and polite daily Korean, rephrasing awkward situations in passive voice softens potential blame and maintains harmonious etiquette."
@@ -597,7 +597,7 @@
       "t": "choice",
       "q": "What happened to this afternoon’s flights?",
       "options": [
-        "All flights were canceled due to worsening weather (결항되었습니다)",
+        "All flights were canceled due to worsening weather",
         "Flights took off two hours earlier than scheduled",
         "All passengers were transferred to trains automatically"
       ],

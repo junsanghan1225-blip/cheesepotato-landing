@@ -7,14 +7,14 @@
         "h": "이동 도중 편승 행동 (-는 길에)",
         "d": "Taking advantage of moving toward a destination (출근길, 퇴근길, 등굣길) to handle a quick errand or encounter.",
         "ex": [
-          "퇴근하**는 길에** 마트에 들러 우유를 샀어요. — On my way home from work, I dropped by the mart and bought milk."
+          "퇴근하**는 길에** 마트에 들러 우유를 샀어요. / On my way home from work, I dropped by the mart and bought milk."
         ]
       },
       "b": {
         "h": "진행 도중 중단·전환 (-다가)",
         "d": "Focuses on an ongoing action being stopped or interrupted by an unexpected event.",
         "ex": [
-          "밥을 먹**다가** 전화를 받았어요. — While eating, I answered the phone."
+          "밥을 먹**다가** 전화를 받았어요. / While eating, I answered the phone."
         ]
       },
       "tip": "-는 길에 attaches specifically to transit verbs of movement: 가다, 오다, 출근하다, 퇴근하다, 들르다, 나가다."
@@ -129,7 +129,7 @@
       "t": "choice",
       "q": "What delicious snack did the author buy on the commute home?",
       "options": [
-        "Piping hot bungeoppang from a street stall (따끈한 붕어빵)",
+        "Piping hot bungeoppang from a street stall",
         "An icy smoothie from a cafe",
         "A pack of salted peanuts from the train"
       ],
@@ -163,14 +163,14 @@
         "h": "원인·부정적 결과 (-느라고)",
         "d": "Focuses on the energy or time consumed by action A that caused delay or inability to do action B.",
         "ex": [
-          "시험공부를 **하느라고** 어제 잠을 전혀 못 잤어요. — Because of studying for the exam, I couldn’t sleep at all yesterday."
+          "시험공부를 **하느라고** 어제 잠을 전혀 못 잤어요. / Because of studying for the exam, I couldn’t sleep at all yesterday."
         ]
       },
       "b": {
         "h": "행동 도중 중단·사건 발생 (-다가)",
         "d": "Focuses on the sudden interruption of action A midway, transitioning into action or accident B.",
         "ex": [
-          "시험공부를 **하다가** 책상 위에서 깜빡 잠이 들었어요. — While studying for the exam, I dozed off on the desk."
+          "시험공부를 **하다가** 책상 위에서 깜빡 잠이 들었어요. / While studying for the exam, I dozed off on the desk."
         ]
       },
       "tip": "-다가 keeps the consonant stem as is without adding extra vowels: 듣다 becomes 듣다가 (not 들다가)."
@@ -285,7 +285,7 @@
       "t": "choice",
       "q": "What unexpected item did the speaker discover while doing chores?",
       "options": [
-        "An old photo album tucked in a corner of the bookshelf (낡은 사진첩)",
+        "An old photo album tucked in a corner of the bookshelf",
         "An envelope filled with money under the floor",
         "A lost airline ticket to Japan"
       ],
@@ -296,7 +296,7 @@
       "t": "choice",
       "q": "What narrative thread connects the events in the passage?",
       "options": [
-        "One activity being interrupted by a new realization or transition mid-action (-다가)",
+        "One activity being interrupted by a new realization or transition mid-action",
         "A schedule planned meticulously with a timer",
         "A business conflict between coworkers"
       ],
@@ -319,14 +319,14 @@
         "h": "미완료 도중 중단 (-다가)",
         "d": "Action A was incomplete or cut short right in the middle.",
         "ex": [
-          "옷을 입**다가** 단추가 툭 떨어졌어요. — While in the middle of putting on clothes, a button dropped off."
+          "옷을 입**다가** 단추가 툭 떨어졌어요. / While in the middle of putting on clothes, a button dropped off."
         ]
       },
       "b": {
         "h": "완료 후 반대 행동·복귀 (-았/었다가)",
         "d": "Action A was fully completed first, then reversed, undone, or followed by an opposite reaction.",
         "ex": [
-          "옷을 **샀다가** 사이즈가 안 맞아서 환불했어요. — I bought the clothes, but returned them because the size didn’t fit."
+          "옷을 **샀다가** 사이즈가 안 맞아서 환불했어요. / I bought the clothes, but returned them because the size didn’t fit."
         ]
       },
       "tip": "Classic reversible pairs: 열었다가 닫다, 켰다가 끄다, 탔다가 내리다, 갔다가 돌아오다, 샀다가 환불하다."
@@ -441,7 +441,7 @@
       "t": "choice",
       "q": "Why did the author return the shirt ordered online?",
       "options": [
-        "Because the physical color differed from what appeared on screen (색상이 화면과 달라 반품)",
+        "Because the physical color differed from what appeared on screen",
         "Because the delivery arrived three months late",
         "Because the buttons were completely missing"
       ],
@@ -475,14 +475,14 @@
         "h": "단편적 평면 서술 (Flat chronological statements)",
         "d": "Reports actions disconnectedly without conveying dynamic twists and turns.",
         "ex": [
-          "퇴근했어요. 마트에 갔어요. 요리했어요. 손을 다쳤어요. — I came home. Went to mart. Cooked. Hurt hand."
+          "퇴근했어요. 마트에 갔어요. 요리했어요. 손을 다쳤어요. / I came home. Went to mart. Cooked. Hurt hand."
         ]
       },
       "b": {
         "h": "입체적 전환 담화 (Dynamic shifting narrative)",
         "d": "Connects transit, pauses, and sudden turnarounds for a captivating real-world story.",
         "ex": [
-          "퇴근하**는 길에** 장을 봐서 찌개를 끓이**다가** 손을 살짝 베여서 밴드를 붙였어요. — On my way home I bought groceries, and while boiling stew I slightly nicked a finger, so I applied a band-aid."
+          "퇴근하**는 길에** 장을 봐서 찌개를 끓이**다가** 손을 살짝 베여서 밴드를 붙였어요. / On my way home I bought groceries, and while boiling stew I slightly nicked a finger, so I applied a band-aid."
         ]
       },
       "tip": "Skillful everyday Korean conversation brings daily anecdotes to life by chaining -는 길에, -다가, and -았/었다가."
@@ -597,7 +597,7 @@
       "t": "choice",
       "q": "What mishap happened while the speaker was boiling the stew?",
       "options": [
-        "Added too much salt midway, making the soup salty (소금을 너무 많이 넣어 국물이 짜짐)",
+        "Added too much salt midway, making the soup salty",
         "The pot burned down completely and caught fire",
         "Spilled all the stew onto the kitchen floor"
       ],

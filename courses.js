@@ -39,23 +39,23 @@
    파일을 나눈 이유는 문법이 계속 늘어날 예정이라 한 파일에 두면
    고칠 곳을 찾기 어려워지기 때문이다.
    + 세분화된 뉘앙스 차이 문법 (초·중·고급 세부 코스)은 courses-grammar-detailed.js 에서 불러온다. */
-import { GRAMMAR_COURSES } from './courses-grammar.js?v=9761d566';
-import { DETAILED_GRAMMAR_COURSES } from './courses-grammar-detailed.js?v=9761d566';
-import { BEGINNER_GRAMMAR_COURSES } from './courses-grammar-beginner.js?v=9761d566';
+import { GRAMMAR_COURSES } from './courses-grammar.js?v=fdc5df67';
+import { DETAILED_GRAMMAR_COURSES } from './courses-grammar-detailed.js?v=fdc5df67';
+import { BEGINNER_GRAMMAR_COURSES } from './courses-grammar-beginner.js?v=fdc5df67';
 // 초급 1단계 — 설계는 docs/plans/curriculum-beginner.md
-import { BEGINNER_STAGE1_COURSES } from './courses-beginner-stage1.js?v=9761d566';
+import { BEGINNER_STAGE1_COURSES } from './courses-beginner-stage1.js?v=fdc5df67';
 // 초급 2단계 — 시간을 얹기
-import { BEGINNER_STAGE2_COURSES } from './courses-beginner-stage2.js?v=9761d566';
+import { BEGINNER_STAGE2_COURSES } from './courses-beginner-stage2.js?v=fdc5df67';
 // 초급 3단계 — 이어 말하기
-import { BEGINNER_STAGE3_COURSES } from './courses-beginner-stage3.js?v=9761d566';
+import { BEGINNER_STAGE3_COURSES } from './courses-beginner-stage3.js?v=fdc5df67';
 // 초급 4단계 — 상대에게
-import { BEGINNER_STAGE4_COURSES } from './courses-beginner-stage4.js?v=9761d566';
+import { BEGINNER_STAGE4_COURSES } from './courses-beginner-stage4.js?v=fdc5df67';
 // 초급 5단계 — 마음을 담기
-import { BEGINNER_STAGE5_COURSES } from './courses-beginner-stage5.js?v=9761d566';
+import { BEGINNER_STAGE5_COURSES } from './courses-beginner-stage5.js?v=fdc5df67';
 // 초급 6단계 — 다듬기
-import { BEGINNER_STAGE6_COURSES } from './courses-beginner-stage6.js?v=9761d566';
+import { BEGINNER_STAGE6_COURSES } from './courses-beginner-stage6.js?v=fdc5df67';
 // 초급 보충 — 110개 문법 목록에 없지만 실전에 꼭 필요한 것 (§8)
-import { BEGINNER_EXTRA_COURSES } from './courses-beginner-extra.js?v=9761d566';
+import { BEGINNER_EXTRA_COURSES } from './courses-beginner-extra.js?v=fdc5df67';
 
 export const COURSES = [
 
@@ -70,7 +70,7 @@ export const COURSES = [
   title: { ko:'한글 읽기', en:'Read Korean' },
   tagline: { ko:'자음·모음부터 실제 단어 읽기까지.', en:'The alphabet, from zero to reading real words.' },
   blurb: { ko:'한글은 하루 만에 익힐 수 있도록 처음부터 설계된 글자입니다. 이 코스를 마치면 뜻은 몰라도 한국어를 소리 내어 읽을 수 있게 됩니다.',
-           en:'Hangul was invented on purpose, in one lifetime, to be learnable in a morning. Most people can read Korean out loud after this course — even without knowing what the words mean yet.' },
+           en:'Hangul was invented on purpose, in one lifetime, to be learnable in a morning. Most people can read Korean out loud after this course, even without knowing what the words mean yet.' },
   level: 'Start here',
   lessons: [
 
@@ -91,7 +91,7 @@ export const COURSES = [
         { ch:'ㄴ', rom:'n',     tip:'The tip of your tongue touching just behind your teeth.' },
         { ch:'ㅁ', rom:'m',     tip:'A mouth, closed. Square.' },
         { ch:'ㅅ', rom:'s',     tip:'A tooth. Air hissing past it.' },
-        { ch:'ㅇ', rom:'—',     tip:'An open throat. At the start of a syllable it is silent — a placeholder.' },
+        { ch:'ㅇ', rom:' / ',     tip:'An open throat. At the start of a syllable it is silent, a placeholder.' },
       ]},
 
       { t:'note', md:'**ㅇ is the strange one.** Korean syllables must start with a consonant, so when a syllable really starts with a vowel sound, ㅇ sits there holding the space and makes no sound at all.' },
@@ -99,17 +99,17 @@ export const COURSES = [
       { t:'choice',
         q:'Which letter is shaped like a closed mouth?',
         options:['ㄴ','ㅁ','ㅅ','ㅇ'], answer:1,
-        why:'ㅁ is a square — a mouth closing for “m”.' },
+        why:'ㅁ is a square: a mouth closing for “m”.' },
 
       { t:'choice',
         q:'You see 아 at the start of a word. What sound does ㅇ make here?',
         options:['“ng”','“o”','No sound at all','“a”'], answer:2,
-        why:'At the start of a syllable ㅇ is silent. It is only there so the vowel is not alone. (At the *bottom* it does make an “ng” sound — later.)' },
+        why:'At the start of a syllable ㅇ is silent. It is only there so the vowel is not alone. (At the *bottom* it does make an “ng” sound, later.)' },
 
       { t:'type',
         q:'Type the letter for “n”.',
         answer:'ㄴ', keys:['ㄱ','ㄴ','ㅁ','ㅅ','ㅇ'],
-        why:'ㄴ — tongue tip behind the teeth.' },
+        why:'ㄴ: tongue tip behind the teeth.' },
     ],
   },
 
@@ -117,7 +117,7 @@ export const COURSES = [
   {
     id: 'hangul-02',
     title: { ko:'모음 여섯 개, 획 두 개', en:'Six vowels, two strokes' },
-    seo: { title:'Korean vowels ㅏ ㅓ ㅗ ㅜ ㅡ ㅣ — Hangul vowel practice', desc:'The six basic Korean vowels, built from a long line and a short mark. Free Hangul lesson: how each vowel sounds, plus a quiz and typing practice.' },
+    seo: { title:'Korean vowels ㅏ ㅓ ㅗ ㅜ ㅡ ㅣ: Hangul vowel practice', desc:'The six basic Korean vowels, built from a long line and a short mark. Free Hangul lesson: how each vowel sounds, plus a quiz and typing practice.' },
     minutes: 7,
     blocks: [
       { t:'text', md:'Vowels are built from three pieces: a **long line**, and a **short mark** that can sit on either side of it.' },
@@ -145,7 +145,7 @@ export const COURSES = [
           'ㅗ is longer',
           'The short mark is above for ㅗ, below for ㅜ',
           'ㅜ is written twice as thick',
-          'Nothing — they sound the same'],
+          'Nothing: they sound the same'],
         answer:1,
         why:'Above = ㅗ (o). Below = ㅜ (u). Same idea as left/right on the vertical line.' },
 
@@ -159,7 +159,7 @@ export const COURSES = [
   {
     id: 'hangul-03',
     title: { ko:'글자가 블록이 되다', en:'Letters become blocks' },
-    seo: { title:'How Hangul syllable blocks work (가, 고) — reading practice', desc:'Why Korean stacks letters into blocks, and where the consonant goes. Free Hangul lesson with listening, matching and a quiz.' },
+    seo: { title:'How Hangul syllable blocks work (가, 고) / reading practice', desc:'Why Korean stacks letters into blocks, and where the consonant goes. Free Hangul lesson with listening, matching and a quiz.' },
     minutes: 8,
     blocks: [
       { t:'text', md:'Here is the part that makes Korean look hard and is actually the part that makes it easy.' },
@@ -173,7 +173,7 @@ export const COURSES = [
           ['Horizontal (ㅗ ㅜ ㅡ)','consonant **on top**, vowel **below**','ㄱ + ㅗ = 고'],
         ]},
 
-      { t:'note', md:'That is why 가 and 고 use the same consonant but look so different. The letter did not change — the *shelf* did.' },
+      { t:'note', md:'That is why 가 and 고 use the same consonant but look so different. The letter did not change, the *shelf* did.' },
 
       { t:'chars', items:[
         { ch:'가', rom:'ga' }, { ch:'나', rom:'na' }, { ch:'마', rom:'ma' }, { ch:'사', rom:'sa' }, { ch:'아', rom:'a' },
@@ -203,7 +203,7 @@ export const COURSES = [
   {
     id: 'hangul-04',
     title: { ko:'자음 다섯 개 더', en:'Five more consonants' },
-    seo: { title:'Korean consonants ㄷ ㄹ ㅂ ㅈ ㅎ — how to say ㄹ', desc:'Five more Hangul consonants, and how to say ㄹ (between r and l). Free lesson with listening, a quiz, typing and your first Korean word.' },
+    seo: { title:'Korean consonants ㄷ ㄹ ㅂ ㅈ ㅎ: how to say ㄹ', desc:'Five more Hangul consonants, and how to say ㄹ (between r and l). Free lesson with listening, a quiz, typing and your first Korean word.' },
     minutes: 7,
     blocks: [
       { t:'text', md:'You now have enough to read a lot. Five more and you have almost the whole set.' },
@@ -216,7 +216,7 @@ export const COURSES = [
         { ch:'ㅎ', rom:'h',     tip:'A lid, a line, and an open throat (ㅇ).' },
       ]},
 
-      { t:'note', md:'**Why “g / k”, “d / t”, “b / p”?** Korean does not hear these as two different letters. The same letter sounds softer between vowels and harder at the start. Native speakers do not notice the difference — you will not have to choose.' },
+      { t:'note', md:'**Why “g / k”, “d / t”, “b / p”?** Korean does not hear these as two different letters. The same letter sounds softer between vowels and harder at the start. Native speakers do not notice the difference, you will not have to choose.' },
 
       { t:'text', h:'ㄹ is the one to practise', md:'It is not the English r, and not quite the English l. Say **“butter”** the American way and freeze on that middle tap. That is ㄹ.' },
 
@@ -226,7 +226,7 @@ export const COURSES = [
         q:'ㄴ and ㄷ are related. How?',
         options:[
           'They sound identical',
-          'ㄷ is ㄴ with a line on top — same tongue position, stronger',
+          'ㄷ is ㄴ with a line on top: same tongue position, stronger',
           'ㄷ is only used at the end of words',
           'They are unrelated; the shapes are coincidence'],
         answer:1,
@@ -258,12 +258,12 @@ export const COURSES = [
           ['ㅜ','u','ㅠ','yu'],
         ]},
 
-      { t:'text', h:'Two more you need constantly', md:'These are not part of the pattern — just learn them.' },
+      { t:'text', h:'Two more you need constantly', md:'These are not part of the pattern, just learn them.' },
       { t:'chars', items:[
         { ch:'ㅐ', rom:'ae', tip:'as in c**a**t.' },
         { ch:'ㅔ', rom:'e',  tip:'as in b**e**d.' },
       ]},
-      { t:'note', md:'**ㅐ and ㅔ sound the same to most Koreans today.** They were different centuries ago. You do not need to hear a difference — you only need to spell them right, and that comes with words, not rules.' },
+      { t:'note', md:'**ㅐ and ㅔ sound the same to most Koreans today.** They were different centuries ago. You do not need to hear a difference, you only need to spell them right, and that comes with words, not rules.' },
 
       { t:'choice',
         q:'You know ㅗ is “o”. What is ㅛ?',
@@ -284,10 +284,10 @@ export const COURSES = [
   {
     id: 'hangul-11',
     title: { ko:'모음 두 개가 한 글자로', en:'Two vowels, one letter' },
-    seo: { title:'Korean compound vowels ㅘ ㅝ ㅢ ㅟ ㅚ — two vowels together', desc:'Two vowels written as one: ㅘ ㅙ ㅚ ㅝ ㅞ ㅟ ㅢ, how they sound and where the consonant sits. Free Hangul practice with listening, typing and real words.' },
+    seo: { title:'Korean compound vowels ㅘ ㅝ ㅢ ㅟ ㅚ, two vowels together', desc:'Two vowels written as one: ㅘ ㅙ ㅚ ㅝ ㅞ ㅟ ㅢ, how they sound and where the consonant sits. Free Hangul practice with listening, typing and real words.' },
     minutes: 7,
     blocks: [
-      { t:'text', md:'You know ㅗ and ㅏ. Put them together and you get **ㅘ — “wa”**. Korean builds its last vowels this way: **two vowels you already know, said fast, written as one**.' },
+      { t:'text', md:'You know ㅗ and ㅏ. Put them together and you get **ㅘ, “wa”**. Korean builds its last vowels this way: **two vowels you already know, said fast, written as one**.' },
 
       { t:'table',
         head:['Letter','Made from','Sound','A word'],
@@ -308,13 +308,13 @@ export const COURSES = [
 
       { t:'chars', items:[
         { ch:'과', rom:'gwa', tip:'ㄱ + ㅘ. As in 사과, apple.' },
-        { ch:'뭐', rom:'mwo', tip:'ㅁ + ㅝ. “What?” — you will hear it all day.' },
+        { ch:'뭐', rom:'mwo', tip:'ㅁ + ㅝ. “What?”: you will hear it all day.' },
         { ch:'화', rom:'hwa', tip:'ㅎ + ㅘ. As in 화장실, restroom.' },
         { ch:'귀', rom:'gwi', tip:'ㄱ + ㅟ. Ear.' },
         { ch:'의', rom:'ui',  tip:'ㅇ + ㅢ. As in 의자, chair.' },
       ]},
 
-      { t:'note', md:'**ㅙ, ㅚ and ㅞ sound almost the same** in everyday Seoul speech — all close to “we” in **we**t. Like ㅐ and ㅔ, you learn which one to write with each word.' },
+      { t:'note', md:'**ㅙ, ㅚ and ㅞ sound almost the same** in everyday Seoul speech, all close to “we” in **we**t. Like ㅐ and ㅔ, you learn which one to write with each word.' },
 
       { t:'text', h:'ㅢ changes with its place',
         md:'At the start of a word it is **ㅡ sliding into ㅣ**: 의사 (ui-sa, doctor). After a consonant it is said like ㅣ: 희망 sounds like “hi-mang”. You will meet the rest with real words.' },
@@ -328,7 +328,7 @@ export const COURSES = [
         options:['ㅗ + ㅓ','ㅜ + ㅓ','ㅜ + ㅏ','ㅡ + ㅓ'], answer:1,
         why:'ㅜ + ㅓ. ㅗ goes with ㅏ, ㅜ goes with ㅓ.' },
 
-      { t:'type', q:'Type the block “gwa” — the second half of 사과, apple.',
+      { t:'type', q:'Type the block “gwa”: the second half of 사과, apple.',
         answer:'과', keys:['과','궈','고','가'],
         why:'ㄱ in the corner, ㅘ wrapped around it.' },
 
@@ -344,7 +344,7 @@ export const COURSES = [
   {
     id: 'hangul-06',
     title: { ko:'거센소리와 된소리', en:'Harder and tenser' },
-    seo: { title:'Korean double consonants ㄲ ㄸ ㅃ ㅆ ㅉ — aspirated vs tense', desc:'Hear the difference between 가, 카 and 까. Free Hangul lesson on aspirated (ㅋ ㅌ ㅍ ㅊ) and tense double consonants (ㄲ ㄸ ㅃ ㅆ ㅉ) with listening practice.' },
+    seo: { title:'Korean double consonants ㄲ ㄸ ㅃ ㅆ ㅉ, aspirated vs tense', desc:'Hear the difference between 가, 카 and 까. Free Hangul lesson on aspirated (ㅋ ㅌ ㅍ ㅊ) and tense double consonants (ㄲ ㄸ ㅃ ㅆ ㅉ) with listening practice.' },
     minutes: 7,
     blocks: [
       { t:'text', md:'Korean splits consonants three ways where English has two. This is the one place English speakers need real practice.' },
@@ -356,20 +356,20 @@ export const COURSES = [
           ['ㄷ d','ㅌ t','ㄸ tt'],
           ['ㅂ b','ㅍ p','ㅃ pp'],
           ['ㅈ j','ㅊ ch','ㅉ jj'],
-          ['ㅅ s','—','ㅆ ss'],
+          ['ㅅ s',' / ','ㅆ ss'],
         ]},
 
       { t:'text', h:'How to feel the difference',
-        md:'Hold a slip of paper in front of your mouth.\n\n**Aspirated (ㅋㅌㅍㅊ)** — the paper jumps. Big puff.\n\n**Tense (ㄲㄸㅃㅆㅉ)** — the paper does not move at all. Throat tight, sound clipped.' },
+        md:'Hold a slip of paper in front of your mouth.\n\n**Aspirated (ㅋㅌㅍㅊ)**, the paper jumps. Big puff.\n\n**Tense (ㄲㄸㅃㅆㅉ)**, the paper does not move at all. Throat tight, sound clipped.' },
 
-      { t:'note', md:'Notice the writing follows the sound: **add a stroke** for aspirated, **write it twice** for tense. You are not memorising ten new letters — you are memorising two rules.' },
+      { t:'note', md:'Notice the writing follows the sound: **add a stroke** for aspirated, **write it twice** for tense. You are not memorising ten new letters, you are memorising two rules.' },
 
       { t:'listen', say:'카', q:'Listen. Plain or aspirated?', options:['가','카'], answer:1 },
       { t:'listen', say:'따', q:'Listen.', options:['다','타','따'], answer:2 },
 
       { t:'choice',
         q:'ㅃ is written as two ㅂ. What does doubling mean?',
-        options:['Say it twice','Say it longer','Tense — tight throat, no puff of air','It is the plural form'],
+        options:['Say it twice','Say it longer','Tense: tight throat, no puff of air','It is the plural form'],
         answer:2 },
 
       { t:'speak', say:'토끼', rom:'to-kki  ·  “rabbit”',
@@ -381,10 +381,10 @@ export const COURSES = [
   {
     id: 'hangul-07',
     title: { ko:'받침, 밑에 오는 글자', en:'The letter underneath' },
-    seo: { title:'Korean batchim (final consonants) — the 7 ending sounds', desc:'The letter underneath a Korean block: any consonant can sit there, but only seven sounds come out. Free Hangul batchim lesson with listening and typing.' },
+    seo: { title:'Korean batchim (final consonants) / the 7 ending sounds', desc:'The letter underneath a Korean block: any consonant can sit there, but only seven sounds come out. Free Hangul batchim lesson with listening and typing.' },
     minutes: 8,
     blocks: [
-      { t:'text', md:'So far every block has been consonant + vowel. But a syllable can end in a consonant too, and it goes **underneath**. Korean calls it 받침 (*batchim*) — “the support”.' },
+      { t:'text', md:'So far every block has been consonant + vowel. But a syllable can end in a consonant too, and it goes **underneath**. Korean calls it 받침 (*batchim*) / “the support”.' },
 
       { t:'chars', items:[
         { ch:'한', rom:'han', tip:'ㅎ + ㅏ + ㄴ. The ㄴ sits under.' },
@@ -393,7 +393,7 @@ export const COURSES = [
       ]},
 
       { t:'text', h:'Here is the useful part',
-        md:'Any consonant can sit down there — but when it does, it collapses into **only seven sounds**.' },
+        md:'Any consonant can sit down there, but when it does, it collapses into **only seven sounds**.' },
 
       { t:'table',
         head:['Written at the bottom','Actually sounds like'],
@@ -407,7 +407,7 @@ export const COURSES = [
           ['ㅇ','ㅇ  (ng)'],
         ]},
 
-      { t:'note', md:'**“Unreleased” means you stop the sound and hold it.** English “cat” lets the t out. Korean 갓 does not — the tongue arrives and stays. This one habit makes an accent sound much more natural.' },
+      { t:'note', md:'**“Unreleased” means you stop the sound and hold it.** English “cat” lets the t out. Korean 갓 does not, the tongue arrives and stays. This one habit makes an accent sound much more natural.' },
 
       { t:'choice',
         q:'Remember ㅇ was silent at the start of a block. What about at the bottom?',
@@ -417,7 +417,7 @@ export const COURSES = [
 
       { t:'listen', say:'방', q:'Listen for the ending.', options:['바','반','발','방'], answer:3 },
 
-      { t:'type', q:'Type the block “han” — ㅎ, ㅏ, and ㄴ underneath.',
+      { t:'type', q:'Type the block “han”: ㅎ, ㅏ, and ㄴ underneath.',
         answer:'한', keys:['한','항','핟','하'],
         why:'ㅎ on the left, ㅏ on the right, ㄴ underneath.' },
     ],
@@ -427,7 +427,7 @@ export const COURSES = [
   {
     id: 'hangul-08',
     title: { ko:'소리가 넘어갈 때', en:'Sounds that slide' },
-    seo: { title:'Korean linking sounds (연음) — how batchim moves to the next syllable', desc:'Why 한국어 is said ha-gu-geo: a final consonant slides into the next silent ㅇ. Free Hangul reading lesson with listening and speaking practice.' },
+    seo: { title:'Korean linking sounds (연음) / how batchim moves to the next syllable', desc:'Why 한국어 is said ha-gu-geo: a final consonant slides into the next silent ㅇ. Free Hangul reading lesson with listening and speaking practice.' },
     minutes: 7,
     blocks: [
       { t:'text', md:'One last thing and you can read anything. When a block ends in a consonant and the **next block starts with ㅇ** (the silent placeholder), that consonant slides over into the empty seat.' },
@@ -440,7 +440,7 @@ export const COURSES = [
           ['일요일','**이 – 료 – 일**','Sunday'],
         ]},
 
-      { t:'note', md:'Nothing is spelled wrong. Korean **spells the meaning and speaks the flow** — the same way English writes “want to” and says “wanna”.' },
+      { t:'note', md:'Nothing is spelled wrong. Korean **spells the meaning and speaks the flow**, the same way English writes “want to” and says “wanna”.' },
 
       { t:'choice',
         q:'한국어 is written 한 + 국 + 어. Why is it said “ha-gu-geo”?',
@@ -465,10 +465,10 @@ export const COURSES = [
   {
     id: 'hangul-09',
     title: { ko:'진짜 글자 읽어보기', en:'Read something real' },
-    seo: { title:'Read real Korean words — Hangul reading practice with loanwords', desc:'Put the whole alphabet to work: read coffee, taxi, computer and more in Korean. Free Hangul reading practice with matching and speaking.' },
+    seo: { title:'Read real Korean words: Hangul reading practice with loanwords', desc:'Put the whole alphabet to work: read coffee, taxi, computer and more in Korean. Free Hangul reading practice with matching and speaking.' },
     minutes: 8,
     blocks: [
-      { t:'text', md:'No new letters. Everything below uses only what you already know — and these are words you will actually meet on your first day in Korea.' },
+      { t:'text', md:'No new letters. Everything below uses only what you already know, and these are words you will actually meet on your first day in Korea.' },
 
       { t:'chars', items:[
         { ch:'커피', rom:'keo-pi · coffee' },
@@ -478,7 +478,7 @@ export const COURSES = [
         { ch:'컴퓨터', rom:'keom-pyu-teo · computer' },
       ]},
 
-      { t:'note', md:'Korean borrowed a lot of words. Once you can read, **hundreds of words are free** — you already know what they mean.' },
+      { t:'note', md:'Korean borrowed a lot of words. Once you can read, **hundreds of words are free**, you already know what they mean.' },
 
       { t:'choice', q:'You see 아이스크림 on a menu. What is it?',
         options:['Iced tea','Ice cream','A rice dish','Espresso'], answer:1,
@@ -486,7 +486,7 @@ export const COURSES = [
 
       { t:'type', q:'A sign says 화장실. It is somewhere you will need. Type what the first block is.',
         answer:'화', keys:['화','하','호','후'],
-        why:'화장실 (hwa-jang-sil) — toilet. ㅎ + ㅘ.' },
+        why:'화장실 (hwa-jang-sil) / toilet. ㅎ + ㅘ.' },
 
       { t:'pair', q:'Match the loanword to its meaning.',
         pairs:[['피자','pizza'],['빵','bread'],['우유','milk'],['치킨','chicken'],['라면','ramen']] },
@@ -500,10 +500,10 @@ export const COURSES = [
   {
     id: 'hangul-10',
     title: { ko:'증명', en:'Proof' },
-    seo: { title:'Hangul reading test — can you read Korean now?', desc:'A short test of the whole Korean alphabet: blocks, batchim and linking sounds. Free, no sign-up — listen, choose and read out loud.' },
+    seo: { title:'Hangul reading test: can you read Korean now?', desc:'A short test of the whole Korean alphabet: blocks, batchim and linking sounds. Free, no sign-up, listen, choose and read out loud.' },
     minutes: 6,
     blocks: [
-      { t:'text', md:'A short test with no new material. If you get through this, you can read Korean out loud — and that was supposed to take months.' },
+      { t:'text', md:'A short test with no new material. If you get through this, you can read Korean out loud, and that was supposed to take months.' },
 
       { t:'listen', say:'감사합니다', q:'Listen, then pick the spelling.',
         options:['감사함니다','감사합니다','갑사합니다','감사합미다'], answer:1 },
@@ -513,7 +513,7 @@ export const COURSES = [
 
       { t:'choice', q:'맛있어요 is said “ma-si-sseo-yo”. Why does the ㅅ move?',
         options:[
-          'It does not — that is a typo',
+          'It does not: that is a typo',
           'The batchim slides into the next block’s empty ㅇ',
           'ㅅ is always silent at the end',
           'Because the word is polite'],
@@ -527,7 +527,7 @@ export const COURSES = [
 
       { t:'speak', say:'저는 한국어를 읽을 수 있어요',
         rom:'jeo-neun han-gu-geo-reul il-geul su i-sseo-yo',
-        q:'“I can read Korean.” Say it — it is true now.' },
+        q:'“I can read Korean.” Say it: it is true now.' },
     ],
   },
 
@@ -546,7 +546,7 @@ export const COURSES = [
   title: { ko:'첫 마디', en:'First Words' },
   tagline: { ko:'하루를 버틸 만큼의 한국어.', en:'Enough Korean to get through a day.' },
   blurb: { ko:'인사, 주문, 가격, 길찾기. 여기 나오는 문장은 전부 첫 주에 바로 쓰게 될 말이고, 누구에게나 통하는 존댓말로 되어 있습니다.',
-           en:'Greetings, ordering, prices, directions. Every sentence here is one you will use in your first week — said the polite way that works with anyone, anywhere.' },
+           en:'Greetings, ordering, prices, directions. Every sentence here is one you will use in your first week, said the polite way that works with anyone, anywhere.' },
   level: 'After Hangul',
   needs: 'hangul',
   lessons: [
@@ -560,7 +560,7 @@ export const COURSES = [
 
       { t:'chars', items:[
         { ch:'안녕하세요', rom:'an-nyeong-ha-se-yo', tip:'Hello. Works morning, noon, night, stranger, boss, anyone.' },
-        { ch:'감사합니다', rom:'gam-sa-ham-ni-da', tip:'Thank you. Note: 합니다 is said “ham-ni-da” — the ㅂ turns into ㅁ before ㄴ.' },
+        { ch:'감사합니다', rom:'gam-sa-ham-ni-da', tip:'Thank you. Note: 합니다 is said “ham-ni-da”, the ㅂ turns into ㅁ before ㄴ.' },
         { ch:'죄송합니다', rom:'joe-song-ham-ni-da', tip:'I am sorry. Also used for “excuse me” when squeezing past someone.' },
       ]},
 
@@ -580,7 +580,7 @@ export const COURSES = [
 
   {
     id: 'fw-02',
-    title: { ko:'저는 ~예요', en:'I am —' },
+    title: { ko:'저는 ~예요', en:'I am: ' },
     minutes: 7,
     blocks: [
       { t:'text', md:'Korean sentences end with the verb, and the most useful verb is **“to be”**. In polite everyday speech it is 예요 / 이에요.' },
@@ -588,14 +588,14 @@ export const COURSES = [
       { t:'table',
         head:['If the word ends in…','Use','Example'],
         rows:[
-          ['a vowel','**예요**','저는 마크**예요** — I am Mark'],
-          ['a consonant','**이에요**','저는 학생**이에요** — I am a student'],
+          ['a vowel','**예요**','저는 마크**예요**: I am Mark'],
+          ['a consonant','**이에요**','저는 학생**이에요**: I am a student'],
         ]},
 
-      { t:'note', md:'Why two forms? Purely for the mouth. 마크이에요 is a mouthful; 마크예요 is not. Korean does this a lot — the grammar bends so the sentence stays easy to say.' },
+      { t:'note', md:'Why two forms? Purely for the mouth. 마크이에요 is a mouthful; 마크예요 is not. Korean does this a lot, the grammar bends so the sentence stays easy to say.' },
 
       { t:'text', h:'저는 = “as for me”',
-        md:'저 is “I” (humble). 는 marks it as the topic — “speaking of me…”. You will meet 는/은 everywhere.' },
+        md:'저 is “I” (humble). 는 marks it as the topic, “speaking of me…”. You will meet 는/은 everywhere.' },
 
       { t:'choice', q:'Your name is Anna. Which is right?',
         options:['저는 안나이에요','저는 안나예요'], answer:1,
@@ -603,7 +603,7 @@ export const COURSES = [
 
       { t:'choice', q:'You want to say “I am a student” (학생).',
         options:['저는 학생예요','저는 학생이에요'], answer:1,
-        why:'학생 ends in ㅇ — a consonant — so 이에요.' },
+        why:'학생 ends in ㅇ: a consonant: so 이에요.' },
 
       { t:'order', q:'Build “I am Korean.”  (한국 사람 = Korean person)',
         tokens:['저는','한국 사람','이에요'], answer:['저는','한국 사람','이에요'] },
@@ -634,7 +634,7 @@ export const COURSES = [
       { t:'order', q:'Build “What is this?”',
         tokens:['이거','뭐예요?'], answer:['이거','뭐예요?'] },
 
-      { t:'text', h:'And the answer', md:'Point, ask, and the reply comes back in the same shape: **이거 김치예요** — “this is kimchi”.' },
+      { t:'text', h:'And the answer', md:'Point, ask, and the reply comes back in the same shape: **이거 김치예요**, “this is kimchi”.' },
 
       { t:'speak', say:'이거 뭐예요?', rom:'i-geo mwo-ye-yo', q:'Rising at the end, like any question.' },
     ],
@@ -647,7 +647,7 @@ export const COURSES = [
     blocks: [
       { t:'text', md:'Korean has **two** number systems. That sounds terrible and is actually fine, because they do different jobs and you can learn one at a time.' },
 
-      { t:'text', h:'Sino-Korean — for money, dates, phone numbers',
+      { t:'text', h:'Sino-Korean: for money, dates, phone numbers',
         md:'This is the one that matters first, because it is the one prices use.' },
       { t:'table',
         head:['1','2','3','4','5','6','7','8','9','10'],
@@ -675,18 +675,18 @@ export const COURSES = [
 
   {
     id: 'fw-05',
-    title: { ko:'얼마예요? — 물건 사기', en:'How much? — buying things' },
+    title: { ko:'얼마예요? / 물건 사기', en:'How much? / buying things' },
     minutes: 7,
     blocks: [
       { t:'text', md:'Two phrases and a number, and you can shop anywhere in the country.' },
 
       { t:'chars', items:[
         { ch:'얼마예요?', rom:'eol-ma-ye-yo', tip:'How much is it?' },
-        { ch:'주세요', rom:'ju-se-yo', tip:'Please give me — the workhorse of ordering.' },
+        { ch:'주세요', rom:'ju-se-yo', tip:'Please give me: the workhorse of ordering.' },
         { ch:'이거 주세요', rom:'i-geo ju-se-yo', tip:'This one, please. Point and say it.' },
       ]},
 
-      { t:'note', md:'**주세요 solves almost everything.** Put any noun in front of it and you have a polite request. 물 주세요 — water, please. 계산서 주세요 — the bill, please.' },
+      { t:'note', md:'**주세요 solves almost everything.** Put any noun in front of it and you have a polite request. 물 주세요, water, please. 계산서 주세요: the bill, please.' },
 
       { t:'order', q:'Build “Please give me coffee.”  (커피 = coffee)',
         tokens:['커피','주세요'], answer:['커피','주세요'] },
@@ -695,7 +695,7 @@ export const COURSES = [
         options:['뭐예요?','얼마예요?','주세요'], answer:1 },
 
       { t:'text', h:'Counting things you buy',
-        md:'For small numbers of objects Korean uses the *other* number system with a counter word. You only need three: **하나, 둘, 셋** (1, 2, 3) → 하나 becomes **한**, 둘 becomes **두**, 셋 becomes **세** before a counter.\n\n커피 **두 잔** 주세요 — two cups of coffee, please.' },
+        md:'For small numbers of objects Korean uses the *other* number system with a counter word. You only need three: **하나, 둘, 셋** (1, 2, 3) → 하나 becomes **한**, 둘 becomes **두**, 셋 becomes **세** before a counter.\n\n커피 **두 잔** 주세요, two cups of coffee, please.' },
 
       { t:'speak', say:'이거 얼마예요?', rom:'i-geo eol-ma-ye-yo', q:'Point, then ask.' },
       { t:'speak', say:'커피 두 잔 주세요', rom:'keo-pi du jan ju-se-yo', q:'Order for two.' },
@@ -720,13 +720,13 @@ export const COURSES = [
       { t:'order', q:'Build “Where is the toilet?”',
         tokens:['화장실','어디예요?'], answer:['화장실','어디예요?'] },
 
-      { t:'note', md:'**Korean asks in one lump.** No “is”, no “the”, no word order gymnastics — noun, then question word, done. 역 어디예요? works exactly the same way.' },
+      { t:'note', md:'**Korean asks in one lump.** No “is”, no “the”, no word order gymnastics, noun, then question word, done. 역 어디예요? works exactly the same way.' },
 
       { t:'choice', q:'Someone answers 저기예요. What did they say?',
         options:['It is here','It is over there','I do not know','It is closed'], answer:1 },
 
       { t:'text', h:'One more that saves you',
-        md:'**여기요!** (yeo-gi-yo) — literally “here!”, used to call a server in a restaurant. Not rude at all; it is what everyone says.' },
+        md:'**여기요!** (yeo-gi-yo) / literally “here!”, used to call a server in a restaurant. Not rude at all; it is what everyone says.' },
 
       { t:'speak', say:'화장실 어디예요?', rom:'hwa-jang-sil eo-di-ye-yo', q:'Ask.' },
     ],
@@ -747,16 +747,16 @@ export const COURSES = [
       ]},
 
       { t:'text', h:'The sentence that buys you patience',
-        md:'**한국어 조금 해요** — “I speak a little Korean.”\n\nSay this early in a conversation and people slow down for you. It works far better than apologising.' },
+        md:'**한국어 조금 해요**: “I speak a little Korean.”\n\nSay this early in a conversation and people slow down for you. It works far better than apologising.' },
 
-      { t:'note', md:'**네 is not only “yes”.** Koreans say it constantly during a conversation to mean “I am with you”. If someone 네-네-네s while you talk, they are not agreeing to anything — they are listening.' },
+      { t:'note', md:'**네 is not only “yes”.** Koreans say it constantly during a conversation to mean “I am with you”. If someone 네-네-네s while you talk, they are not agreeing to anything, they are listening.' },
 
       { t:'order', q:'Build “I speak a little Korean.”',
         tokens:['한국어','조금','해요'], answer:['한국어','조금','해요'] },
 
       { t:'choice', q:'Someone asks you something you did not catch at all.',
         options:['네','조금','몰라요','아니요'], answer:2,
-        why:'몰라요 — “I do not know”. Honest and completely normal.' },
+        why:'몰라요: “I do not know”. Honest and completely normal.' },
 
       { t:'speak', say:'한국어 조금 해요', rom:'han-gu-geo jo-geum hae-yo', q:'The most useful sentence in this course.' },
     ],
@@ -767,7 +767,7 @@ export const COURSES = [
     title: { ko:'대화 한 편', en:'A whole conversation' },
     minutes: 8,
     blocks: [
-      { t:'text', md:'Nothing new. Everything below is something you already learned — put together the way it actually happens in a café.' },
+      { t:'text', md:'Nothing new. Everything below is something you already learned, put together the way it actually happens in a café.' },
 
       { t:'table',
         head:['','Korean','English'],
@@ -783,7 +783,7 @@ export const COURSES = [
           ['You','감사합니다','Thank you'],
         ]},
 
-      { t:'choice', q:'사천 원 — how much is that?',
+      { t:'choice', q:'사천 원: how much is that?',
         options:['400 won','4,000 won','40,000 won'], answer:1 },
 
       { t:'order', q:'Build “Two of these, please.”',
@@ -801,9 +801,9 @@ export const COURSES = [
         keys:['아메리카노','카페라떼','에스프레소','녹차'],
         why:'아메리카노(americano) · 카페라떼(café latte) · 에스프레소(espresso) · 녹차(green tea)' },
 
-      { t:'cloze', sentence:'얼마예요? — [사천 원]이에요', answer:'사천 원',
+      { t:'cloze', sentence:'얼마예요? / [사천 원]이에요', answer:'사천 원',
         audio:'얼마예요_사천_원이에요.mp3',
-        meaning:'How much is it? — It is 4,000 won.',
+        meaning:'How much is it? / It is 4,000 won.',
         options:['사천 원','이천 원','육천 원','만 원'],
         keys:['사천 원','이천 원','육천 원','만 원'],
         why:'사천=4천 · 이천=2천 · 육천=6천 · 만=10,000' },
@@ -815,9 +815,9 @@ export const COURSES = [
         keys:['어디','언제','누구','무엇'],
         why:'어디(where) · 언제(when) · 누구(who) · 무엇(what)' },
 
-      { t:'cloze', sentence:'맛있게 드세요! — [감사합니다]', answer:'감사합니다',
+      { t:'cloze', sentence:'맛있게 드세요! / [감사합니다]', answer:'감사합니다',
         audio:'맛있게_드세요_감사합니다.mp3',
-        meaning:'Enjoy your meal! — Thank you.',
+        meaning:'Enjoy your meal! / Thank you.',
         options:['감사합니다','안녕하세요','미안합니다','안녕히 가세요'],
         keys:['감사합니다','안녕하세요','미안합니다','안녕히 가세요'],
         why:'감사합니다(thank you) · 안녕하세요(hello) · 미안합니다(sorry) · 안녕히 가세요(goodbye)' },

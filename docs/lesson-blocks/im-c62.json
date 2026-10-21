@@ -7,14 +7,14 @@
         "h": "아무나 / 아무거나 / 아무 데나 (긍정문: 무차별적 수용)",
         "d": "Used in affirmative sentences to express that any person, any object, or any place is welcome without preference.",
         "ex": [
-          "배가 고프니 점심은 **아무거나** 다 잘 먹어요. — Since I am hungry, I can eat anything well for lunch."
+          "배가 고프니 점심은 **아무거나** 다 잘 먹어요. / Since I am hungry, I can eat anything well for lunch."
         ]
       },
       "b": {
         "h": "아무도 / 아무것도 / 아무 데도 (부정문: 전면 부정)",
         "d": "When paired with negative predicates (-지 않다, 없다, 모르다), the particles switch to -도, meaning nobody, nothing, and nowhere.",
         "ex": [
-          "휴일이라 거리에 **아무도** 지나가지 않아요. — Because it is a holiday, nobody passes by on the street."
+          "휴일이라 거리에 **아무도** 지나가지 않아요. / Because it is a holiday, nobody passes by on the street."
         ]
       },
       "tip": "In positive sentences with unconditional choices, use 아무나 (anyone), 아무거나 (anything), and 아무 데나 (anyplace). In negative statements, use 아무도, 아무것도, and 아무 데도."
@@ -129,7 +129,7 @@
       "t": "choice",
       "q": "How did the friends decide on their lunch menu?",
       "options": [
-        "They agreed to eat anything without being picky (아무거나 먹자)",
+        "They agreed to eat anything without being picky",
         "They booked a three-star luxury restaurant months ago",
         "They decided to skip lunch entirely"
       ],
@@ -163,14 +163,14 @@
         "h": "(이)나 (Acceptable next-best alternative)",
         "d": "Selects a second-best option when the ideal first choice is unavailable (\"might as well\").",
         "ex": [
-          "영화표가 매진되었으니 서점에 가서 **책이나** 읽읍시다. — Since movie tickets are sold out, let’s go to the bookstore and read books instead."
+          "영화표가 매진되었으니 서점에 가서 **책이나** 읽읍시다. / Since movie tickets are sold out, let’s go to the bookstore and read books instead."
         ]
       },
       "b": {
         "h": "(이)라도 (Thoughtful minimal offer / solace)",
         "d": "Offers or settles for a modest minimum so that the person is not left completely empty-handed.",
         "ex": [
-          "목이 많이 마르실 텐데 시원한 **물이라도** 한잔 드세요. — You must be very thirsty, please have at least a cup of cold water."
+          "목이 많이 마르실 텐데 시원한 **물이라도** 한잔 드세요. / You must be very thirsty, please have at least a cup of cold water."
         ]
       },
       "tip": "Use (이)나 when picking a substitute activity with casual acceptance, and (이)라도 when offering hospitable minimum comfort or solace."
@@ -285,7 +285,7 @@
       "t": "choice",
       "q": "What next-best activity did the friends choose when the museum closed?",
       "options": [
-        "Browsing new novels at a nearby bookstore (소설책이나 구경하기)",
+        "Browsing new novels at a nearby bookstore",
         "Returning home immediately and going to sleep",
         "Waiting outside the closed museum gates all day"
       ],
@@ -296,7 +296,7 @@
       "t": "choice",
       "q": "What kind gesture did the bookstore clerk offer wet customers?",
       "options": [
-        "Offered at least a cup of warm green tea (따뜻한 녹차라도)",
+        "Offered at least a cup of warm green tea",
         "Sold expensive raincoats at double price",
         "Demanded they pay an entrance fee"
       ],
@@ -319,14 +319,14 @@
         "h": "-든지 -든지 (Equal indifference to either choice)",
         "d": "Presents two alternative actions, indicating that choosing either option yields no difference.",
         "ex": [
-          "버스를 **타든지** 지하철을 **타든지** 편한 대로 선택하세요. — Whether you take the bus or take the subway, choose whichever is comfortable."
+          "버스를 **타든지** 지하철을 **타든지** 편한 대로 선택하세요. / Whether you take the bus or take the subway, choose whichever is comfortable."
         ]
       },
       "b": {
         "h": "-(으)ㄴ/는 대신에 (Compensatory trade-off)",
         "d": "Compensates for an action, replaces an alternative, or balances pros and cons.",
         "ex": [
-          "제가 점심을 **사는 대신에** 친구가 커피를 사기로 했어요. — In exchange for me buying lunch, my friend agreed to buy coffee."
+          "제가 점심을 **사는 대신에** 친구가 커피를 사기로 했어요. / In exchange for me buying lunch, my friend agreed to buy coffee."
         ]
       },
       "tip": "-든지 -든지 is for choosing among options without consequence. -(으)ㄴ/는 대신에 is for reciprocal trades or contrasting trade-offs."
@@ -441,7 +441,7 @@
       "t": "choice",
       "q": "How did the club president initially present the two location options?",
       "options": [
-        "Suggested choosing either place by majority vote (가든지 가든지)",
+        "Suggested choosing either place by majority vote",
         "Demanded everyone stay home and cancel the club",
         "Forced members to pay for private hotel rooms"
       ],
@@ -475,14 +475,14 @@
         "h": "경직된 직설적 표현 (Rigid blunt response)",
         "d": "Refuses options outright without offering middle ground, creating friction.",
         "ex": [
-          "그건 싫어요. 다른 거 해요. — I dislike that. Do something else."
+          "그건 싫어요. 다른 거 해요. / I dislike that. Do something else."
         ]
       },
       "b": {
         "h": "유연한 선택·절충 화법 (Flexible communicative compromise)",
         "d": "Smoothly balances options using (이)나, (이)라도, and 대신에 to satisfy both parties.",
         "ex": [
-          "오늘은 시간이 촉박하니 **간단한 거라도** 먹는 대신에 주말에 근사한 곳으로 가요. — Since time is tight today, in exchange for having at least something simple, let’s go somewhere fancy on the weekend."
+          "오늘은 시간이 촉박하니 **간단한 거라도** 먹는 대신에 주말에 근사한 곳으로 가요. / Since time is tight today, in exchange for having at least something simple, let’s go somewhere fancy on the weekend."
         ]
       },
       "tip": "Combining polite substitute offers with compensatory promises builds empathetic and polished social communication."
@@ -597,7 +597,7 @@
       "t": "choice",
       "q": "How did the team leader resolve the mounting workload pressure?",
       "options": [
-        "Readjusted priorities on core tasks instead of enforcing overtime (야근을 강행하는 대신에)",
+        "Readjusted priorities on core tasks instead of enforcing overtime",
         "Ordered employees to sleep at the office for a week",
         "Canceled the entire project unilaterally"
       ],
@@ -608,7 +608,7 @@
       "t": "choice",
       "q": "What attitude allowed teammates to conquer difficult tasks within deadline?",
       "options": [
-        "Flexible cooperation and mutual support (융통성 있게 협력)",
+        "Flexible cooperation and mutual support",
         "Blaming each other for delays",
         "Ignoring all supervisor guidelines"
       ],

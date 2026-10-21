@@ -7,14 +7,14 @@
         "h": "-곤 하다",
         "d": "마음이 복잡하거나 특정한 상황이 될 때마다 주기적으로 되풀이하는 습관을 나타냅니다.",
         "ex": [
-          "생각이 복잡할 때면 이어폰을 꽂고 잔잔한 클래식 음악을 듣**곤 해요**. — When thoughts are tangled, I plug in earphones and listen to calm classical music."
+          "생각이 복잡할 때면 이어폰을 꽂고 잔잔한 클래식 음악을 듣**곤 해요**. / When thoughts are tangled, I plug in earphones and listen to calm classical music."
         ]
       },
       "b": {
         "h": "-아/어 오다",
         "d": "과거 어느 시점부터 현재까지 중단 없이 쭉 지속되거나 이어져 온 동작의 흐름을 나타냅니다.",
         "ex": [
-          "고등학교 때부터 지금까지 매일 일기를 써 **왔어요**. — From high school until now, I have been writing a diary every day."
+          "고등학교 때부터 지금까지 매일 일기를 써 **왔어요**. / From high school until now, I have been writing a diary every day."
         ]
       },
       "tip": "특정 조건에서 주기적으로 반복되는 나만의 루틴에는 '-곤 하다'가 잘 어울립니다."
@@ -152,14 +152,14 @@
         "h": "-기는요",
         "d": "과분한 칭찬, 감사, 사과를 받았을 때 우아하고 정중하게 겸손의 미덕을 표할 때 씁니다.",
         "ex": [
-          "한국어를 원어민처럼 정말 잘하시네요! — 잘하**기는요**, 아직도 실수투성이라 더 배워야 합니다. — You speak Korean like a native! — Good? Not at all, I still make lots of mistakes and need to learn more."
+          "한국어를 원어민처럼 정말 잘하시네요! / 잘하**기는요**, 아직도 실수투성이라 더 배워야 합니다. / You speak Korean like a native! / Good? Not at all, I still make lots of mistakes and need to learn more."
         ]
       },
       "b": {
         "h": "-지요",
         "d": "상대방의 의견에 긍정적으로 동의하거나 스스로의 확신을 나타낼 때 씁니다.",
         "ex": [
-          "그분은 참 성실한 분이**지요**. — That person is truly a diligent person."
+          "그분은 참 성실한 분이**지요**. / That person is truly a diligent person."
         ]
       },
       "tip": "칭찬을 곧바로 인정하지 않고 부드럽게 사양하는 한국적 겸양의 미덕에는 '-기는요'가 최고입니다."
@@ -167,9 +167,9 @@
     {
       "t": "correct",
       "q": "Fix the mistake.",
-      "wrong": "한국어를 참 유창하게 잘하시네요! — 잘하지만요, 아직 배울 것이 많습니다.",
+      "wrong": "한국어를 참 유창하게 잘하시네요! / 잘하지만요, 아직 배울 것이 많습니다.",
       "answers": [
-        "한국어를 참 유창하게 잘하시네요! — 잘하기는요, 아직 배울 것이 많습니다."
+        "한국어를 참 유창하게 잘하시네요! / 잘하기는요, 아직 배울 것이 많습니다."
       ],
       "hint": "칭찬을 우아하게 받아넘기는 겸양의 종결 표현을 씁니다.",
       "why": "칭찬을 겸손하게 부인하며 낮추는 고유의 겸양 표현은 '-기는요'입니다."
@@ -295,14 +295,14 @@
         "h": "-(으)ㄴ/는 척하다",
         "d": "실제 사실이나 속마음과 다름에도 겉으로 그런 태도를 일부러 꾸며낼 때 씁니다.",
         "ex": [
-          "모두가 깜짝 놀랐지만 나는 침착하게 아무것도 모르**는 척했어요**. — Everyone was astonished, but I calmly pretended not to know anything."
+          "모두가 깜짝 놀랐지만 나는 침착하게 아무것도 모르**는 척했어요**. / Everyone was astonished, but I calmly pretended not to know anything."
         ]
       },
       "b": {
         "h": "-(으)ㄴ/는 셈이다",
         "d": "실제로는 완전히 같지 않지만 결과나 상황을 종합해 볼 때 그렇다고 칠 수 있음을 뜻합니다.",
         "ex": [
-          "열 문제 중 아홉 문제를 맞혔으니 거의 다 맞힌 **셈이에요**. — Having gotten nine out of ten right, it amounts to getting almost all right."
+          "열 문제 중 아홉 문제를 맞혔으니 거의 다 맞힌 **셈이에요**. / Having gotten nine out of ten right, it amounts to getting almost all right."
         ]
       },
       "tip": "일부러 시치미를 떼거나 꾸미는 태도에는 '-(으)ㄴ/는 척하다'를 씁니다."
@@ -439,14 +439,14 @@
         "h": "성숙한 배려 (-(으)ㄴ/는 척하다)",
         "d": "상대방의 난처한 실수나 아픔을 눈치채고도 체면을 위해 모르는 체 품어줄 때 씁니다.",
         "ex": [
-          "친구의 눈물을 보았지만 모르는 척하고 조용히 휴지를 건네주었습니다. — I saw my friend's tears, but pretended not to notice and quietly handed a tissue."
+          "친구의 눈물을 보았지만 모르는 척하고 조용히 휴지를 건네주었습니다. / I saw my friend's tears, but pretended not to notice and quietly handed a tissue."
         ]
       },
       "b": {
         "h": "성실한 자기관리 (-곤 하다) & 겸양 (-기는요)",
         "d": "칭찬을 낮추며 겸양을 지키고, 흔들릴 때마다 좋은 습관으로 평정심을 되찾습니다.",
         "ex": [
-          "전문가라니요, 잘하**기는요**. 긴장될 때마다 심호흡을 크게 세 번 하**곤 합니다**. — Expert? Good? Not at all. Whenever I get nervous, I take three deep breaths."
+          "전문가라니요, 잘하**기는요**. 긴장될 때마다 심호흡을 크게 세 번 하**곤 합니다**. / Expert? Good? Not at all. Whenever I get nervous, I take three deep breaths."
         ]
       },
       "tip": "중급 한국어의 완성은 겸손(-기는요), 절제된 습관(-곤 하다), 깊은 배려(-는 척하다)의 조화입니다."

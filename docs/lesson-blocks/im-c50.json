@@ -7,14 +7,14 @@
         "h": "서술체 (Written narrative plain form)",
         "d": "Used in newspaper articles, reports, diaries, and novels where the writer records facts objectively without addressing a specific spoken listener.",
         "ex": [
-          "정부가 오늘 새로운 경제 정책을 **발표했다**. — The government announced a new economic policy today."
+          "정부가 오늘 새로운 경제 정책을 **발표했다**. / The government announced a new economic policy today."
         ]
       },
       "b": {
         "h": "해요체 (Polite conversational form)",
         "d": "Used in daily spoken and polite written communication directly directed at an addressee.",
         "ex": [
-          "정부가 오늘 새로운 정책을 **발표했어요**. — The government announced a new policy today."
+          "정부가 오늘 새로운 정책을 **발표했어요**. / The government announced a new policy today."
         ]
       },
       "tip": "Use the narrative form (-(느)ㄴ다 for verbs, -다 for adjectives) when writing essays, exam answers, and journals. Avoid using it in spoken conversation with listeners."
@@ -129,7 +129,7 @@
       "t": "choice",
       "q": "What is the stylistic feature of this passage?",
       "options": [
-        "An objective written narrative style (서술체) addressed to a general reading audience",
+        "An objective written narrative style addressed to a general reading audience",
         "A casual spoken chat between high school friends",
         "A formal military command"
       ],
@@ -163,14 +163,14 @@
         "h": "반말체 (Informal casual speech)",
         "d": "Created by dropping '요' from the polite 해요체 form, used strictly with same-age friends or younger family members.",
         "ex": [
-          "지금 어디 가? 나랑 같이 점심 **먹자**. — Where are you going now? Let's eat lunch together with me."
+          "지금 어디 가? 나랑 같이 점심 **먹자**. / Where are you going now? Let's eat lunch together with me."
         ]
       },
       "b": {
         "h": "해요체 (Polite conversational form)",
         "d": "Used with colleagues, elders, teachers, or acquaintances to maintain polite friendliness.",
         "ex": [
-          "지금 어디 가세요? 저랑 같이 점심 **먹어요**. — Where are you going now? Please eat lunch together with me."
+          "지금 어디 가세요? 저랑 같이 점심 **먹어요**. / Where are you going now? Please eat lunch together with me."
         ]
       },
       "tip": "Dropping -요 produces casual talk: 가요 -> 가, 먹어요 -> 먹어. Only use with agreed peers and close friends."
@@ -285,7 +285,7 @@
       "t": "choice",
       "q": "Where did the author and their friend go together after class?",
       "options": [
-        "An alley snack shop to eat tteokbokki (골목 분식점)",
+        "An alley snack shop to eat tteokbokki",
         "An airport to catch a flight to Paris",
         "A formal five-star hotel ballroom"
       ],
@@ -296,7 +296,7 @@
       "t": "choice",
       "q": "What plan did the two friends make for the upcoming weekend?",
       "options": [
-        "Riding bicycles together at Han River Park (자전거 타러 가기로)",
+        "Riding bicycles together at Han River Park",
         "Taking an official university entrance test",
         "Staying awake 48 hours without food"
       ],
@@ -319,14 +319,14 @@
         "h": "서술체 (Written plain register)",
         "d": "Used in text for unspecified readers without conversational interactivity: '비가 내렸다', '학생들이 책을 읽는다'.",
         "ex": [
-          "오늘은 하루 종일 맑은 가을 날씨가 **이어졌다**. — Clear autumn weather continued all day today."
+          "오늘은 하루 종일 맑은 가을 날씨가 **이어졌다**. / Clear autumn weather continued all day today."
         ]
       },
       "b": {
         "h": "반말체 (Spoken casual register)",
         "d": "Used in direct spoken exchanges between close conversational partners: '비가 왔어', '책 읽어?'.",
         "ex": [
-          "오늘 하루 종일 날씨가 진짜 **좋았어**. — The weather was really nice all day today."
+          "오늘 하루 종일 날씨가 진짜 **좋았어**. / The weather was really nice all day today."
         ]
       },
       "tip": "Never confuse written narrative endings (-(느)ㄴ다) with casual spoken dialogue. Saying '나 밥 먹는다' in dialogue sounds like thinking aloud."
@@ -475,14 +475,14 @@
         "h": "격식체 (-(스)ㅂ니다 / -(스)ㅂ니까)",
         "d": "Used in presentations, official announcements, interviews, and formal workplace interactions.",
         "ex": [
-          "지금부터 상반기 프로젝트 최종 결과 보고를 **시작하겠습니다**. — We will now begin the first half project final results report."
+          "지금부터 상반기 프로젝트 최종 결과 보고를 **시작하겠습니다**. / We will now begin the first half project final results report."
         ]
       },
       "b": {
         "h": "비격식체 (-아요/어요 / 반말)",
         "d": "Used during private breaks, casual chats, and friendly social interaction outside strict proceedings.",
         "ex": [
-          "회의 끝나고 같이 커피 한잔하러 **갈까요**? — Shall we go drink a cup of coffee together after the meeting?"
+          "회의 끝나고 같이 커피 한잔하러 **갈까요**? / Shall we go drink a cup of coffee together after the meeting?"
         ]
       },
       "tip": "Switch naturally: use formal -(스)ㅂ니다 during podium presentations; switch to friendly -아요/어요 during lunchtime coffee."
@@ -608,7 +608,7 @@
       "t": "choice",
       "q": "What rule of etiquette is advised when shifting to casual speech with friendly colleagues?",
       "options": [
-        "Dropping honorifics only under mutual consent (상호 합의 하에)",
+        "Dropping honorifics only under mutual consent",
         "Dropping honorifics unilaterally without asking",
         "Calling everyone by informal nicknames during formal meetings"
       ],

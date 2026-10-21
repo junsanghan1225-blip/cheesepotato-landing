@@ -7,14 +7,14 @@
         "h": "-느라고 (Focus causing negative result)",
         "d": "Used when the speaker devoted continuous time and effort to an intentional action, causing a negative consequence or inability to do something else.",
         "ex": [
-          "시험공부를 **하느라고** 잠을 못 잤어요. — I couldn't sleep because I was studying for the exam."
+          "시험공부를 **하느라고** 잠을 못 잤어요. / I couldn't sleep because I was studying for the exam."
         ]
       },
       "b": {
         "h": "-어서/아서 (General cause and effect)",
         "d": "A neutral, general cause that can describe states, natural phenomena, or positive outcomes.",
         "ex": [
-          "열심히 공부**해서** 시험에 합격했어요. — I passed the exam because I studied hard."
+          "열심히 공부**해서** 시험에 합격했어요. / I passed the exam because I studied hard."
         ]
       },
       "tip": "-느라고 can only be used with active verbs and negative results, never with positive results or adjectives."
@@ -127,7 +127,7 @@
       "t": "choice",
       "q": "Why was the writer at the library until late at night?",
       "options": [
-        "Because of preparing for midterm exams (시험 준비를 하느라고)",
+        "Because of preparing for midterm exams",
         "Because of playing computer games",
         "Because of waiting for the rain to stop"
       ],
@@ -138,7 +138,7 @@
       "t": "choice",
       "q": "What negative outcome did the writer experience while organizing notes?",
       "options": [
-        "Couldn't eat dinner properly (저녁밥도 제대로 못 먹었어요)",
+        "Couldn't eat dinner properly",
         "Lost their student ID card",
         "Missed the last train home"
       ],
@@ -161,14 +161,14 @@
         "h": "Regular Verbs with -느라고",
         "d": "Directly attach -느라고 to the verb stem without tense markers (no -았/었-).",
         "ex": [
-          "책을 **읽느라고** 연락을 못 봤어요. — I missed the message because I was reading a book."
+          "책을 **읽느라고** 연락을 못 봤어요. / I missed the message because I was reading a book."
         ]
       },
       "b": {
         "h": "ㄹ-Batchim Verbs (ㄹ Drops)",
         "d": "When verbs end with ㄹ batchim, the final ㄹ drops before -느라고 (만들다 → 만드느라고, 놀다 → 노느라고).",
         "ex": [
-          "선물을 **만드느라고** 밤을 새웠어요. — I stayed up all night making a gift."
+          "선물을 **만드느라고** 밤을 새웠어요. / I stayed up all night making a gift."
         ]
       },
       "tip": "Never attach tense markers to -느라고 (did X = 하느라고, NOT 했느라고). Drop ㄹ for stems ending in ㄹ."
@@ -281,7 +281,7 @@
       "t": "choice",
       "q": "Why did the writer linger at the bus stop for 30 minutes?",
       "options": [
-        "Because of searching through pockets and bag for the wallet (찾느라고)",
+        "Because of searching through pockets and bag for the wallet",
         "Because the bus broke down",
         "Because of chatting with a friend"
       ],
@@ -315,14 +315,14 @@
         "h": "-느라고 (Subject's own focused activity)",
         "d": "Cause must be the subject's own continuous action. The subjects of the first and second clauses must be identical.",
         "ex": [
-          "운전**하느라고** 전화를 못 받았어요. — I couldn't answer the phone because I was driving."
+          "운전**하느라고** 전화를 못 받았어요. / I couldn't answer the phone because I was driving."
         ]
       },
       "b": {
         "h": "-는 바람에 (Sudden uncontrollable event)",
         "d": "Cause is an unexpected occurrence, natural event, or third party's action outside the speaker's control.",
         "ex": [
-          "비가 오**는 바람에** 옷이 다 젖었어요. — My clothes got soaked because it rained."
+          "비가 오**는 바람에** 옷이 다 젖었어요. / My clothes got soaked because it rained."
         ]
       },
       "tip": "Ask: 'Was this my own focused action?' If yes, use -느라고. If it was an unexpected accident or weather, use -는 바람에."
@@ -435,7 +435,7 @@
       "t": "choice",
       "q": "What unexpected event stopped the subway on the way to work?",
       "options": [
-        "The subway broke down suddenly (고장 나는 바람에)",
+        "The subway broke down suddenly",
         "The driver took a lunch break",
         "The track was under construction"
       ],
@@ -446,7 +446,7 @@
       "t": "choice",
       "q": "Why was the writer completely out of breath?",
       "options": [
-        "Because of running breathlessly to the office (뛰느라고)",
+        "Because of running breathlessly to the office",
         "Because of carrying heavy luggage",
         "Because of climbing a high mountain"
       ],
@@ -469,7 +469,7 @@
         "h": "-느라고 with sincere apology",
         "d": "Used politely in workplace or social settings to explain what pressing responsibility delayed you, followed by an apology.",
         "ex": [
-          "자료를 검토**하느라고** 보고가 늦어졌습니다. 죄송합니다. — I apologize that my report was delayed because I was reviewing data."
+          "자료를 검토**하느라고** 보고가 늦어졌습니다. 죄송합니다. / I apologize that my report was delayed because I was reviewing data."
         ]
       },
       "b": {
@@ -591,7 +591,7 @@
       "t": "choice",
       "q": "Why was the morning report delayed?",
       "options": [
-        "Because of reviewing the revised contract from the client (계약서를 검토하느라고)",
+        "Because of reviewing the revised contract from the client",
         "Because the writer overslept",
         "Because the computer lost power"
       ],

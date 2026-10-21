@@ -78,7 +78,7 @@
         "water"
       ],
       "answer": 0,
-      "why": "커피 여기 있어요 — “Here is your coffee.”"
+      "why": "커피 여기 있어요: “Here is your coffee.”"
     },
     {
       "t": "choice",
@@ -197,7 +197,7 @@
         "doctor"
       ],
       "answer": 0,
-      "why": "저는 학생이에요 — “I am a student.”"
+      "why": "저는 학생이에요: “I am a student.”"
     },
     {
       "t": "choice",
@@ -207,7 +207,7 @@
         "Yes"
       ],
       "answer": 0,
-      "why": "한국 사람이 아니에요 — “I am not Korean.”"
+      "why": "한국 사람이 아니에요: “I am not Korean.”"
     },
     {
       "t": "expand",
@@ -333,7 +333,7 @@
         "clock"
       ],
       "answer": 0,
-      "why": "한국어 책이에요 — “It is a Korean book.”"
+      "why": "한국어 책이에요: “It is a Korean book.”"
     },
     {
       "t": "choice",
@@ -344,7 +344,7 @@
         "coffee"
       ],
       "answer": 0,
-      "why": "제 가방이에요 — “It is my bag.”"
+      "why": "제 가방이에요: “It is my bag.”"
     },
     {
       "t": "expand",
@@ -495,7 +495,7 @@
           "커피는",
           "원이에요."
         ],
-        "en": "Coffee is — won."
+        "en": "Coffee is: won."
       },
       "steps": [
         {
@@ -612,7 +612,7 @@
         "2,000 won"
       ],
       "answer": 0,
-      "why": "한 잔에 삼천 원이에요 — 3,000 won per cup."
+      "why": "한 잔에 삼천 원이에요: 3,000 won per cup."
     },
     {
       "t": "choice",
@@ -623,7 +623,7 @@
         "Three cups"
       ],
       "answer": 0,
-      "why": "커피 두 잔 주세요 — two cups."
+      "why": "커피 두 잔 주세요: two cups."
     },
     {
       "t": "expand",
@@ -751,7 +751,7 @@
         "Coffee shop"
       ],
       "answer": 0,
-      "why": "지하철역 어디예요? — “Where is the subway station?”"
+      "why": "지하철역 어디예요? / “Where is the subway station?”"
     },
     {
       "t": "choice",
@@ -762,7 +762,7 @@
         "Across the bridge"
       ],
       "answer": 0,
-      "why": "저기 편의점 옆이에요 — “Next to the convenience store over there.”"
+      "why": "저기 편의점 옆이에요: “Next to the convenience store over there.”"
     },
     {
       "t": "expand",
@@ -888,7 +888,7 @@
         "Yes"
       ],
       "answer": 0,
-      "why": "아니요, 미국 사람이에요 — “No, I am American.”"
+      "why": "아니요, 미국 사람이에요: “No, I am American.”"
     },
     {
       "t": "choice",
@@ -899,7 +899,7 @@
         "Not at all"
       ],
       "answer": 0,
-      "why": "아니요, 조금 해요 — “No, I speak a little.”"
+      "why": "아니요, 조금 해요: “No, I speak a little.”"
     },
     {
       "t": "expand",
@@ -1027,7 +1027,7 @@
         "10,000 won"
       ],
       "answer": 0,
-      "why": "네, 팔천 원이에요 — “Yes, it is 8,000 won.”"
+      "why": "네, 팔천 원이에요: “Yes, it is 8,000 won.”"
     },
     {
       "t": "choice",

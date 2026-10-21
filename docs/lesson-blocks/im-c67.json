@@ -7,14 +7,14 @@
         "h": "얼마나 -(으)ㄴ/는지 모르다 (Rhetorical emotional depth)",
         "d": "Expresses that the extent of emotion, difficulty, or joy is so immense that words cannot adequately capture it.",
         "ex": [
-          "오랜만에 만난 친구가 건강한 모습을 보니 **얼마나 기쁜지 몰라요**. — Seeing my longtime friend healthy after so long, you don’t know how glad I am."
+          "오랜만에 만난 친구가 건강한 모습을 보니 **얼마나 기쁜지 몰라요**. / Seeing my longtime friend healthy after so long, you don’t know how glad I am."
         ]
       },
       "b": {
         "h": "단순 부사 (너무 / 정말, Direct adverbs)",
         "d": "Modifies adjectives straightforwardly without rhetorical suspense.",
         "ex": [
-          "친구를 다시 만나서 **정말** 기뻐요. — I am really glad to see my friend again."
+          "친구를 다시 만나서 **정말** 기뻐요. / I am really glad to see my friend again."
         ]
       },
       "tip": "In spoken conversation, using 얼마나 -(으)ㄴ/는지 몰라요 draws listeners in and conveys deep, heartfelt emotional intensity."
@@ -129,7 +129,7 @@
       "t": "choice",
       "q": "How did the speaker react upon hearing their childhood friend’s voice over the phone?",
       "options": [
-        "Heart was boundlessly overwhelmed with emotion (얼마나 가슴이 벅찼는지 모른다)",
+        "Heart was boundlessly overwhelmed with emotion",
         "Hung up immediately thinking it was spam",
         "Argued about who was taller"
       ],
@@ -163,14 +163,14 @@
         "h": "-(으)ㄹ 수밖에 없다 (Inevitable natural necessity)",
         "d": "Emphasizes that given the objective circumstances, there is absolutely no other choice or alternative.",
         "ex": [
-          "비행기 전산망이 마비되었으니 일정을 **연기할 수밖에 없어요**. — Since the airline computer network is paralyzed, we have no choice but to postpone the schedule."
+          "비행기 전산망이 마비되었으니 일정을 **연기할 수밖에 없어요**. / Since the airline computer network is paralyzed, we have no choice but to postpone the schedule."
         ]
       },
       "b": {
         "h": "-아야 하다 (Moral obligation / requirement)",
         "d": "Dictates what one ought to do according to rules or ethics.",
         "ex": [
-          "규정을 준수하기 위해 일정을 **연기해야 합니다**. — To comply with regulations, we must postpone the schedule."
+          "규정을 준수하기 위해 일정을 **연기해야 합니다**. / To comply with regulations, we must postpone the schedule."
         ]
       },
       "tip": "-(으)ㄹ 수밖에 없다 expresses that natural conditions or logical outcomes leave zero alternatives: 취소할 수밖에 없다, 비쌀 수밖에 없다."
@@ -296,7 +296,7 @@
       "t": "choice",
       "q": "What resolution was inevitable under the circumstances?",
       "options": [
-        "Changing to an alternative flight next morning (변경할 수밖에 없었다)",
+        "Changing to an alternative flight next morning",
         "Walking on foot along the highway to catch the plane",
         "Giving up travel forever"
       ],
@@ -319,14 +319,14 @@
         "h": "-(으)ㄹ 뿐이다 (Humble limitation / mere only)",
         "d": "Restricts the scope to just that single action or fact, modestly downplaying other interpretations.",
         "ex": [
-          "저는 당연히 해야 할 일을 **했을 뿐이에요**. — I merely did what duty naturally demanded."
+          "저는 당연히 해야 할 일을 **했을 뿐이에요**. / I merely did what duty naturally demanded."
         ]
       },
       "b": {
         "h": "(이)야말로 (The supreme essence / prime exemplar)",
         "d": "Highlights the subject as the undisputed epitome or defining core of the category.",
         "ex": [
-          "건강**이야말로** 인생에서 가장 값진 보물입니다. — Health is indeed the most precious treasure in life."
+          "건강**이야말로** 인생에서 가장 값진 보물입니다. / Health is indeed the most precious treasure in life."
         ]
       },
       "tip": "-(으)ㄹ 뿐이다 sets a modest ceiling (\"nothing more than that\"). (이)야말로 lifts the subject to the center stage (\"truly none other than\")."
@@ -441,7 +441,7 @@
       "t": "choice",
       "q": "How did the young citizen award recipient describe his rescue action?",
       "options": [
-        "Merely did what was natural as a human (마땅한 일을 했을 뿐이다)",
+        "Merely did what was natural as a human",
         "Demanded a large financial reward from the city",
         "Claimed he was an immortal superhero"
       ],
@@ -475,14 +475,14 @@
         "h": "평이한 발표 전달 (Flat informative style)",
         "d": "Delivers information factually but lacks emotional climax and memorable impact.",
         "ex": [
-          "기술이 중요해요. 열심히 해야 해요. 많은 변화가 있어요. — Tech is important. Must work hard. Many changes."
+          "기술이 중요해요. 열심히 해야 해요. 많은 변화가 있어요. / Tech is important. Must work hard. Many changes."
         ]
       },
       "b": {
         "h": "힘 있는 강조 연설 (High-impact emphatic delivery)",
         "d": "Arranges rhetorical wonder (얼마나 모르다), necessity (수밖에 없다), and core truths (이야말로).",
         "ex": [
-          "혁신**이야말로** 미래를 여는 열쇠이며, 끊임없이 도전**할 수밖에 없습니다**. — Innovation is indeed the key to opening the future, and we have no choice but to challenge tirelessly."
+          "혁신**이야말로** 미래를 여는 열쇠이며, 끊임없이 도전**할 수밖에 없습니다**. / Innovation is indeed the key to opening the future, and we have no choice but to challenge tirelessly."
         ]
       },
       "tip": "In business presentations, wedding congratulations, and debate speeches, placing emphatic markers transforms mundane talks into unforgettable oratory."
@@ -597,7 +597,7 @@
       "t": "choice",
       "q": "How did the CEO describe his gratitude toward employees at the anniversary ceremony?",
       "options": [
-        "Could not adequately put into words how grateful he was (얼마나 고마운지 모른다)",
+        "Could not adequately put into words how grateful he was",
         "Expressed regret for ever starting the business",
         "Demanded employees work unpaid night shifts"
       ],

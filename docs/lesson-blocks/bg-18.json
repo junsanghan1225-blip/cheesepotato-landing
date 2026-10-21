@@ -368,16 +368,16 @@
         "h": "-아/어도 돼요 (허락 · 괜찮음)",
         "d": "Asks or grants permission: 'May I...?' or 'You may / It is okay to...'",
         "ex": [
-          "여기 **앉아도 돼요**? — May I sit here?",
-          "이제 집에 **가도 돼요**. — You may go home now."
+          "여기 **앉아도 돼요**? / May I sit here?",
+          "이제 집에 **가도 돼요**. / You may go home now."
         ]
       },
       "b": {
         "h": "-아/어야 돼요 (의무 · 꼭 할 일)",
         "d": "States a rule, duty, or necessity: 'I must...' or 'Do I have to...?'",
         "ex": [
-          "신발을 **벗어야 돼요**. — You must take off your shoes.",
-          "오늘 숙제를 **해야 돼요**. — I have to do my homework today."
+          "신발을 **벗어야 돼요**. / You must take off your shoes.",
+          "오늘 숙제를 **해야 돼요**. / I have to do my homework today."
         ]
       },
       "tip": "Look closely at the syllable before 돼요: 도 means 'even if / permission' (may), while 야 means 'only if / obligation' (must)."

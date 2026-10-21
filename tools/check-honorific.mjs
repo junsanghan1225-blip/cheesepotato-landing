@@ -55,7 +55,7 @@ function compose(initial, medial, final) {
    말씀하시다·편찮으시다)은 따로 표시해 둔다 — 그 어간은 받침 규칙이
    아니라 자기 자신의 시를 떼고 어미를 잇는 다른 규칙을 따른다. */
 function stemInfo(dictForm) {
-  const dict = String(dictForm).split('—')[0].trim();
+  const dict = String(dictForm).split(/—|:/)[0].trim();
   if (!dict.endsWith('다')) return null;
   const stem = dict.slice(0, -1);
   if (!stem) return null;

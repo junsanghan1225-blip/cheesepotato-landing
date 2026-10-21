@@ -7,14 +7,14 @@
         "h": "은/는 대로 (개별 고유의 몫과 독립성)",
         "d": "각자의 개별성이나 고유한 역할을 인정하며 간섭 없이 따로따로 맡아서 처리할 때",
         "ex": [
-          "기획팀은 기획팀**대로**, 개발팀은 개발팀**대로** 각자의 일정에 맞춰 프로젝트를 진행합시다. — Let planning team proceed on its own, and dev team on its own."
+          "기획팀은 기획팀**대로**, 개발팀은 개발팀**대로** 각자의 일정에 맞춰 프로젝트를 진행합시다. / Let planning team proceed on its own, and dev team on its own."
         ]
       },
       "b": {
         "h": "-는 대로 (시간적 즉시성 및 따름)",
         "d": "어떤 행동이 일어나는 즉시, 혹은 제시된 지침과 원칙을 그대로 따를 때",
         "ex": [
-          "회의가 끝나**는 대로** 결과를 즉시 공유해 주시기 바랍니다. — As soon as the meeting ends, please share results immediately."
+          "회의가 끝나**는 대로** 결과를 즉시 공유해 주시기 바랍니다. / As soon as the meeting ends, please share results immediately."
         ]
       },
       "tip": "각자의 독립된 몫을 존중할 때는 명사 뒤에 '은/는 대로', 시간적 즉시성에는 동사 뒤에 '-는 대로'를 씁니다."
@@ -160,14 +160,14 @@
         "h": "-는 김에 (기왕 나선 기회의 동반 처리)",
         "d": "원래 하려던 주된 행동을 하는 참에, 그 좋은 기회를 살려 부수적인 다른 일까지 곁들여 처리할 때",
         "ex": [
-          "부산으로 출장을 가**는 김에** 오랜만에 옛 은사님도 찾아뵙고 오겠습니다. — While heading to Busan on business, I will visit my old mentor too."
+          "부산으로 출장을 가**는 김에** 오랜만에 옛 은사님도 찾아뵙고 오겠습니다. / While heading to Busan on business, I will visit my old mentor too."
         ]
       },
       "b": {
         "h": "-(으)면서 (물리적 두 동작의 동시 지속)",
         "d": "두 가지 독립된 물리적 행동이 동일한 시간대에 동시에 병행되고 있음을 묘사할 때",
         "ex": [
-          "커피를 마시**면서** 아침 신문을 차분하게 읽었습니다. — While drinking coffee, I calmly read the morning newspaper."
+          "커피를 마시**면서** 아침 신문을 차분하게 읽었습니다. / While drinking coffee, I calmly read the morning newspaper."
         ]
       },
       "tip": "기왕 나선 걸음에 곁들여 할 때는 '-는 김에', 물리적 동시 진행에는 '-(으)면서'를 씁니다."
@@ -314,14 +314,14 @@
         "h": "은/는 대로 (독립성과 수평적 분업)",
         "d": "각자의 책임 영역을 침범하지 않고 고유한 자율성을 수평적으로 존중할 때",
         "ex": [
-          "현장은 현장**대로**, 본부는 본부**대로** 각자의 위치에서 빈틈없이 방역에 힘써 주십시오. — Field on its own, headquarters on its own, stay diligent."
+          "현장은 현장**대로**, 본부는 본부**대로** 각자의 위치에서 빈틈없이 방역에 힘써 주십시오. / Field on its own, headquarters on its own, stay diligent."
         ]
       },
       "b": {
         "h": "-는 김에 (유기적 협업과 동선 시너지)",
         "d": "개별적인 움직임에 그치지 않고 한번 움직일 때 상호 연계하여 복합적 효과를 거둘 때",
         "ex": [
-          "현장 실사를 나**가는 김에** 인근 거래처의 재고 현황까지 함께 파악해 오겠습니다. — While going for on-site audit, I will check nearby client inventory."
+          "현장 실사를 나**가는 김에** 인근 거래처의 재고 현황까지 함께 파악해 오겠습니다. / While going for on-site audit, I will check nearby client inventory."
         ]
       },
       "tip": "따로따로 자율성을 존중할 때는 은/는 대로, 기회를 엮어 시너지를 낼 때는 -는 김에입니다."
@@ -468,14 +468,14 @@
         "h": "은/는 대로 (명확한 R&R 확립)",
         "d": "부서 간 업무 분장(R&R)을 문서화하고 침범 없는 독립적 실행을 강조할 때",
         "ex": [
-          "홍보는 홍보대로 미디어 채널을 가동하고, 지원팀은 지원팀대로 인프라를 점검하십시오. — PR run media channels, support team check infrastructure."
+          "홍보는 홍보대로 미디어 채널을 가동하고, 지원팀은 지원팀대로 인프라를 점검하십시오. / PR run media channels, support team check infrastructure."
         ]
       },
       "b": {
         "h": "-는 김에 (원스톱 업무 처리와 비용 절감)",
         "d": "주요 프로젝트나 이동 계획에 부수 과제를 결합하여 출장비와 시간을 대폭 절약할 때",
         "ex": [
-          "지방 공장을 방문하**는 김에** 인근 협력사 부품 수급 라인까지 원스톱으로 확인했습니다. — Visiting plant, checked nearby supplier lines one-stop."
+          "지방 공장을 방문하**는 김에** 인근 협력사 부품 수급 라인까지 원스톱으로 확인했습니다. / Visiting plant, checked nearby supplier lines one-stop."
         ]
       },
       "tip": "업무 분장(R&R) 보고에는 은/는 대로, 비용 절감 및 원스톱 효율화에는 -는 김에를 씁니다."

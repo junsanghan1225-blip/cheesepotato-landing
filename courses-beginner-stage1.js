@@ -39,7 +39,7 @@ export const BEGINNER_STAGE1_COURSES = [
 {
   id: 'bg-05',
   emoji: '🙋',
-  title: 'Am, Is, Are — 이에요 / 예요',
+  title: 'Am, Is, Are: 이에요 / 예요',
   tagline: 'Say who you are and what something is.',
   blurb: 'Korean has no separate word for “is”. You glue an ending onto the noun. Learn which ending goes where and you can already introduce yourself, name things, and say what something is not.',
   level: 'Beginner',
@@ -51,7 +51,7 @@ export const BEGINNER_STAGE1_COURSES = [
     title: 'Lesson 1. 저는 학생이에요',
     minutes: 6,
     blocks: [
-      { t:'text', md:'English needs a separate word — *I **am** a student*. Korean does not. The ending goes **onto the noun itself**.\n\n저는 학생**이에요**.  — I am a student.' },
+      { t:'text', md:'English needs a separate word: *I **am** a student*. Korean does not. The ending goes **onto the noun itself**.\n\n저는 학생**이에요**. / I am a student.' },
 
       { t:'text', h:'Which ending? Look at the last letter of the noun', md:'If the noun ends in a **consonant** (a 받침), use **-이에요**.\nIf it ends in a **vowel**, use **-예요**.' },
 
@@ -107,7 +107,7 @@ export const BEGINNER_STAGE1_COURSES = [
         answers:['저는 학생이에요','전 학생이에요'],
         bank:['저는','학생이에요','학생예요','의사예요','저를'],
         must:['학생이에요'],
-        hint:'Start with 저는. Then the noun with the right ending — 학생 ends in a consonant.',
+        hint:'Start with 저는. Then the noun with the right ending, 학생 ends in a consonant.',
         why:'저는 학생이에요. 전 is a shortened 저는 and is also fine in speech.' },
 
       { t:'speak', say:'저는 학생이에요.', rom:'jeo-neun hak-saeng-i-e-yo',
@@ -120,16 +120,16 @@ export const BEGINNER_STAGE1_COURSES = [
     title: 'Lesson 2. 학생이 아니에요',
     minutes: 6,
     blocks: [
-      { t:'text', md:'To say something is **not** so, you do not negate 이에요. You swap in a different word entirely: **아니에요**.\n\n저는 학생이 **아니에요**.  — I am not a student.' },
+      { t:'text', md:'To say something is **not** so, you do not negate 이에요. You swap in a different word entirely: **아니에요**.\n\n저는 학생이 **아니에요**. / I am not a student.' },
 
-      { t:'text', h:'One thing surprises everyone here', md:'The noun before 아니에요 takes **이/가**, not 은/는.\n\n저는 의사**가** 아니에요.  (○)\n저는 의사**는** 아니에요.  (△ — possible, but it means “*a doctor*, I am not — though maybe something else”)' },
+      { t:'text', h:'One thing surprises everyone here', md:'The noun before 아니에요 takes **이/가**, not 은/는.\n\n저는 의사**가** 아니에요.  (○)\n저는 의사**는** 아니에요.  (△, possible, but it means “*a doctor*, I am not, though maybe something else”)' },
 
       { t:'table', head:['Noun','Ends in','You say'], rows:[
         ['학생','consonant','학생**이** 아니에요'],
         ['의사','vowel','의사**가** 아니에요'],
       ]},
 
-      { t:'note', md:'Same split as yesterday: **이** after a consonant, **가** after a vowel. Notice 아니에요 itself never changes — only the particle in front of it does.' },
+      { t:'note', md:'Same split as yesterday: **이** after a consonant, **가** after a vowel. Notice 아니에요 itself never changes, only the particle in front of it does.' },
 
       { t:'chars', wide:true, items:[
         { ch:'저는 일본 사람이 아니에요.', tip:'I am not Japanese. 사람 + 이' },
@@ -139,7 +139,7 @@ export const BEGINNER_STAGE1_COURSES = [
 
       { t:'choice', q:'“이거는 물___ 아니에요.”  (물 = water, ends in ㄹ)',
         options:['물이','물가','물은','물을'], answer:0,
-        why:'아니에요 takes **이/가**, and 물 ends in a consonant → **물이**. 물은 is the topic particle and 물을 is the object particle — neither belongs in front of 아니에요.' },
+        why:'아니에요 takes **이/가**, and 물 ends in a consonant → **물이**. 물은 is the topic particle and 물을 is the object particle, neither belongs in front of 아니에요.' },
 
       { t:'cloze', sentence:'저는 의사[가] 아니에요.', answer:'가',
         meaning:'I am not a doctor.',
@@ -161,14 +161,14 @@ export const BEGINNER_STAGE1_COURSES = [
 
       { t:'choice', q:'Which sentence is built correctly?',
         options:['저는 일본 사람이 아니에요','저는 일본 사람은 아니다요','저는 일본 사람를 아니에요','저는 일본 사람이 안 이에요'], answer:0,
-        why:'아니에요 takes **이/가**, and 사람 ends in ㅁ → 사람이 아니에요. 를 is the object tag; 안 이에요 tries to negate 이에요 with 안, which Korean does not do — the negative word is 아니에요.' },
+        why:'아니에요 takes **이/가**, and 사람 ends in ㅁ → 사람이 아니에요. 를 is the object tag; 안 이에요 tries to negate 이에요 with 안, which Korean does not do, the negative word is 아니에요.' },
 
       { t:'build', q:'Write it yourself: **“I am not a doctor.”**',
         answers:['저는 의사가 아니에요','전 의사가 아니에요'],
         bank:['저는','의사가','의사는','아니에요','이에요'],
         must:['가 아니에요'],
-        hint:'The noun before 아니에요 takes 이/가 — and 의사 ends in a vowel.',
-        why:'저는 의사가 아니에요. 의사**는** 아니에요 is possible too, but it adds a contrast — “*a doctor* I am not, though maybe something else.”' },
+        hint:'The noun before 아니에요 takes 이/가: and 의사 ends in a vowel.',
+        why:'저는 의사가 아니에요. 의사**는** 아니에요 is possible too, but it adds a contrast, “*a doctor* I am not, though maybe something else.”' },
 
       { t:'speak', say:'저는 의사가 아니에요.', rom:'jeo-neun ui-sa-ga a-ni-e-yo',
         q:'Say it out loud: “I am not a doctor.”' },
@@ -176,7 +176,7 @@ export const BEGINNER_STAGE1_COURSES = [
   },
 
   {
-    id: "bg-05-03", title: {"ko":"3강. 이름과 물건 소개하기 — 이에요/예요 꼴 만들기","en":"Lesson 3. Naming People & Things — Forming 이에요/예요"}, minutes: 5,
+    id: "bg-05-03", title: {"ko":"3강. 이름과 물건 소개하기: 이에요/예요 꼴 만들기","en":"Lesson 3. Naming People & Things, Forming 이에요/예요"}, minutes: 5,
     blocks: [
       {"t":"text","h":"Expanding Your Introductions","md":"Now that you know **-이에요** follows a consonant and **-예요** follows a vowel, let's practice with names, nationalities, and everyday objects.\n\nNotice that Korean names ending in a consonant take **-이에요**, while names ending in a vowel take **-예요**."},
       {"t":"table","head":["Category","Word","Ends In","With Ending"],"rows":[["Name","민수 (Minsu)","Vowel ㅜ","민수**예요**"],["Name","지훈 (Jihoon)","Consonant ㄴ","지훈**이에요**"],["Object","시계 (clock/watch)","Vowel ㅔ","시계**예요**"],["Object","책 (book)","Consonant ㄱ","책**이에요**"]]},
@@ -193,7 +193,7 @@ export const BEGINNER_STAGE1_COURSES = [
   {
     id: "bg-05-04", title: {"ko":"4강. 헷갈리는 짝: 이에요/예요 vs. 아니에요","en":"Lesson 4. Sorting the Pair: 이에요/예요 vs. 아니에요"}, minutes: 5,
     blocks: [
-      {"t":"text","h":"Affirmative vs. Negative: The Particle Trap","md":"Beginners often get confused by what comes *in front of* the ending:\n\n1. **이에요 / 예요** attaches directly to the noun without any particle:\n**학생이에요** (I am a student — NO particle!)\n\n2. **아니에요** requires the subject particle **이/가**:\n**학생이 아니에요** (I am not a student).\n\nNever say *학생 안 이에요* or *학생을 아니에요*!"},
+      {"t":"text","h":"Affirmative vs. Negative: The Particle Trap","md":"Beginners often get confused by what comes *in front of* the ending:\n\n1. **이에요 / 예요** attaches directly to the noun without any particle:\n**학생이에요** (I am a student, NO particle!)\n\n2. **아니에요** requires the subject particle **이/가**:\n**학생이 아니에요** (I am not a student).\n\nNever say *학생 안 이에요* or *학생을 아니에요*!"},
       {"t":"table","head":["Noun","Is...","Is NOT..."],"rows":[["학생 (student)","학생**이에요**","학생**이 아니에요**"],["의사 (doctor)","의사**예요**","의사**가 아니에요**"],["물 (water)","물**이에요**","물**이 아니에요**"],["커피 (coffee)","커피**예요**","커피**가 아니에요**"]]},
       {"t":"note","md":"Remember: **이에요/예요** is a suffix glued to the noun. **아니에요** is an independent adjective word meaning 'to not be', which is why the noun before it needs the subject marker **이/가**."},
       {"t":"chars","wide":true,"items":[{"ch":"이거는 물이에요. 술이 아니에요.","tip":"This is water. It is not alcohol. (물 + 이에요 / 술 + 이 아니에요)"},{"ch":"저는 선생님이 아니에요. 학생이에요.","tip":"I am not a teacher. I am a student. (선생님 + 이 아니에요 / 학생 + 이에요)"},{"ch":"제 가방이 아니에요. 친구 가방이에요.","tip":"It's not my bag. It's my friend's bag."}]},
@@ -216,9 +216,9 @@ export const BEGINNER_STAGE1_COURSES = [
 {
   id: 'bg-06',
   emoji: '📍',
-  title: 'There Is, There Isn’t — 있어요 / 없어요',
+  title: 'There Is, There Isn’t: 있어요 / 없어요',
   tagline: 'Say what exists, what you have, and where it all is.',
-  blurb: 'Two words carry an enormous amount of everyday Korean: 있어요 and 없어요. They cover *there is*, *I have*, and *is located*. Along the way you meet 에 and 에서 — the pair that English speakers get wrong the longest.',
+  blurb: 'Two words carry an enormous amount of everyday Korean: 있어요 and 없어요. They cover *there is*, *I have*, and *is located*. Along the way you meet 에 and 에서, the pair that English speakers get wrong the longest.',
   level: 'Beginner',
   needs: 'bg-05',
   lessons: [
@@ -231,7 +231,7 @@ export const BEGINNER_STAGE1_COURSES = [
       { t:'text', md:'**있어요** = it exists / there is / I have.\n**없어요** = it does not exist / there is none / I don’t have.\n\nOne pair of words, three English translations. Korean does not separate *having* from *existing*.' },
 
       { t:'chars', wide:true, items:[
-        { ch:'시간 있어요?', tip:'Do you have time? — literally “time exists?”' },
+        { ch:'시간 있어요?', tip:'Do you have time? / literally “time exists?”' },
         { ch:'돈이 없어요.', tip:'I have no money.' },
         { ch:'화장실이 어디에 있어요?', tip:'Where is the bathroom?' },
       ]},
@@ -240,9 +240,9 @@ export const BEGINNER_STAGE1_COURSES = [
 
       { t:'text', h:'The thing that exists takes 이/가', md:'돈**이** 없어요.  ·  시간**이** 있어요.\n\nSame consonant/vowel split you already know.' },
 
-      { t:'choice', q:'“I have no money.” — 돈 ends in ㄴ, a consonant.',
+      { t:'choice', q:'“I have no money.”: 돈 ends in ㄴ, a consonant.',
         options:['돈이 없어요','돈가 없어요','돈이 안 있어요','돈을 없어요'], answer:0,
-        why:'돈 ends in a consonant → **이**. 돈가 uses the vowel form; 안 있어요 is not said in Korean — the negative word is 없어요; 을 marks an object, but 없어요 takes a subject.' },
+        why:'돈 ends in a consonant → **이**. 돈가 uses the vowel form; 안 있어요 is not said in Korean, the negative word is 없어요; 을 marks an object, but 없어요 takes a subject.' },
 
       { t:'cloze', sentence:'오늘은 시간이 [없어요].', answer:'없어요',
         meaning:'I don’t have time today.',
@@ -262,7 +262,7 @@ export const BEGINNER_STAGE1_COURSES = [
 
       { t:'choice', q:'Which is the correct way to say “I don’t have a younger sibling”?',
         options:['동생이 없어요','동생이 안 있어요','동생을 없어요','동생이 아니에요'], answer:0,
-        why:'The negative of 있어요 is the separate word **없어요** — 안 있어요 is not said. 을 is the object tag, and 아니에요 would mean “it is not a younger sibling”.' },
+        why:'The negative of 있어요 is the separate word **없어요**, 안 있어요 is not said. 을 is the object tag, and 아니에요 would mean “it is not a younger sibling”.' },
 
       { t:'order', q:'Build “Where is the bathroom?”',
         tokens:['화장실이','어디에','있어요'], answer:['화장실이','어디에','있어요'] },
@@ -271,7 +271,7 @@ export const BEGINNER_STAGE1_COURSES = [
         answers:['돈이 없어요','저는 돈이 없어요','전 돈이 없어요'],
         bank:['돈이','돈을','없어요','있어요','저는'],
         must:['없어요'],
-        hint:'The thing that does not exist takes 이/가 — and 돈 ends in a consonant.',
+        hint:'The thing that does not exist takes 이/가, and 돈 ends in a consonant.',
         why:'돈이 없어요. Adding 저는 at the front is fine and slightly more explicit.' },
 
       { t:'speak', say:'저는 지금 집에 있어요.', rom:'jeo-neun ji-geum jib-e iss-eo-yo',
@@ -284,11 +284,11 @@ export const BEGINNER_STAGE1_COURSES = [
     title: 'Lesson 2. 에 or 에서? Look at the verb',
     minutes: 7,
     blocks: [
-      { t:'text', md:'English uses *at* for both of these:\n\nI am **at** home.  ·  I study **at** home.\n\nKorean does not. It uses **에** for the first and **에서** for the second — and the choice is decided by **the verb**, not by the place.' },
+      { t:'text', md:'English uses *at* for both of these:\n\nI am **at** home.  ·  I study **at** home.\n\nKorean does not. It uses **에** for the first and **에서** for the second, and the choice is decided by **the verb**, not by the place.' },
 
       { t:'table', head:['Use','When','Example'], rows:[
-        ['**에**','the place where something **is**','집**에** 있어요 — I am at home'],
-        ['**에서**','the place where something **happens**','집**에서** 공부해요 — I study at home'],
+        ['**에**','the place where something **is**','집**에** 있어요: I am at home'],
+        ['**에서**','the place where something **happens**','집**에서** 공부해요: I study at home'],
       ]},
 
       { t:'note', md:'The test that always works: **ask what the verb is doing.**\n\n있다 · 없다 · 살다 · 가다 · 오다 → the place is a **location or destination** → **에**\nanything you *do* (먹다, 공부하다, 일하다, 만나다) → the place is a **stage for the action** → **에서**' },
@@ -333,8 +333,8 @@ export const BEGINNER_STAGE1_COURSES = [
         answers:['집에서 일해요','저는 집에서 일해요','전 집에서 일해요'],
         bank:['집에서','집에','일해요','일하요','저는'],
         must:['집에서'],
-        hint:'Working is something you *do*, so which one — 에 or 에서? And 하다 becomes 해요.',
-        why:'집에서 일해요. 집에 일해요 would be the classic mistake — 에 marks where something *is*, not where it happens.' },
+        hint:'Working is something you *do*, so which one, 에 or 에서? And 하다 becomes 해요.',
+        why:'집에서 일해요. 집에 일해요 would be the classic mistake, 에 marks where something *is*, not where it happens.' },
 
       { t:'speak', say:'저는 집에서 공부해요.', rom:'jeo-neun jib-e-seo gong-bu-hae-yo',
         q:'Say it out loud: “I study at home.”' },
@@ -346,19 +346,19 @@ export const BEGINNER_STAGE1_COURSES = [
     title: 'Lesson 3. 에 for time',
     minutes: 5,
     blocks: [
-      { t:'text', md:'The same **에** also marks **when** something happens.\n\n세 시**에** 만나요.  — Let’s meet at three.\n월요일**에** 가요.  — I go on Monday.' },
+      { t:'text', md:'The same **에** also marks **when** something happens.\n\n세 시**에** 만나요. / Let’s meet at three.\n월요일**에** 가요. / I go on Monday.' },
 
-      { t:'note', md:'**A few time words refuse 에.** 오늘 · 어제 · 내일 · 지금 · 매일 take no particle at all.\n\n내일 만나요.  (○)\n내일에 만나요.  (✗)\n\nThere is no rule to derive here — these are simply the common ones, and they are common enough that you will absorb them fast.' },
+      { t:'note', md:'**A few time words refuse 에.** 오늘 · 어제 · 내일 · 지금 · 매일 take no particle at all.\n\n내일 만나요.  (○)\n내일에 만나요.  (✗)\n\nThere is no rule to derive here, these are simply the common ones, and they are common enough that you will absorb them fast.' },
 
       { t:'chars', wide:true, items:[
         { ch:'아침에 커피를 마셔요.', tip:'I drink coffee in the morning.' },
         { ch:'주말에 뭐 해요?', tip:'What do you do on the weekend?' },
-        { ch:'내일 학교에 가요.', tip:'I go to school tomorrow. 내일 takes no 에 — but 학교 does.' },
+        { ch:'내일 학교에 가요.', tip:'I go to school tomorrow. 내일 takes no 에, but 학교 does.' },
       ]},
 
       { t:'choice', q:'Which sentence is wrong?',
         options:['일요일에 쉬어요','아침에 운동해요','내일에 만나요','세 시에 가요'], answer:2,
-        why:'내일 is one of the time words that take **no particle** — 내일 만나요. 일요일, 아침 and 세 시 all take **에** normally.' },
+        why:'내일 is one of the time words that take **no particle**, 내일 만나요. 일요일, 아침 and 세 시 all take **에** normally.' },
 
       { t:'cloze', sentence:'우리 일곱 시[에] 만나요.', answer:'에',
         meaning:'Let’s meet at seven.',
@@ -374,7 +374,7 @@ export const BEGINNER_STAGE1_COURSES = [
 
       { t:'choice', q:'Which of these time words takes **에**?',
         options:['주말','오늘','지금','매일'], answer:0,
-        why:'주말**에** 쉬어요. 오늘, 지금 and 매일 all take no particle — 오늘 바빠요, 지금 가요, 매일 운동해요.' },
+        why:'주말**에** 쉬어요. 오늘, 지금 and 매일 all take no particle, 오늘 바빠요, 지금 가요, 매일 운동해요.' },
 
       { t:'type', q:'“I drink coffee in the morning.”  아침___ 커피를 마셔요',
         answer:'에', keys:['에','에서','은'],
@@ -385,7 +385,7 @@ export const BEGINNER_STAGE1_COURSES = [
         bank:['일곱 시에','일곱 시','만나요','우리','만나에요'],
         must:['시에'],
         hint:'A clock time takes 에. And remember 만나요 does the inviting all by itself.',
-        why:'일곱 시에 만나요. The plain 해요 form said warmly is the everyday way to suggest something — no extra word needed.' },
+        why:'일곱 시에 만나요. The plain 해요 form said warmly is the everyday way to suggest something, no extra word needed.' },
 
       { t:'speak', say:'우리 일곱 시에 만나요.', rom:'u-ri il-gop si-e man-na-yo',
         q:'Say it out loud: “Let’s meet at seven.”' },
@@ -393,7 +393,7 @@ export const BEGINNER_STAGE1_COURSES = [
   },
 
   {
-    id: "bg-06-04", title: {"ko":"4강. 이/가 있어요와 없어요 — 명사 뒤에 바르게 붙이기","en":"Lesson 4. Forming 있어요 and 없어요 — Picking the Right Particles"}, minutes: 4,
+    id: "bg-06-04", title: {"ko":"4강. 이/가 있어요와 없어요: 명사 뒤에 바르게 붙이기","en":"Lesson 4. Forming 있어요 and 없어요: Picking the Right Particles"}, minutes: 4,
     blocks: [
       {"t":"text","h":"Attaching 있어요 and 없어요","md":"When you say what exists or what you have, the item takes **이** or **가** before **있어요** or **없어요**.\n\n• Consonant ending (받침): noun + **이 있어요 / 없어요**\n• Vowel ending (no 받침): noun + **가 있어요 / 없어요**"},
       {"t":"table","head":["Noun","Ends in","Positive (있어요)","Negative (없어요)"],"rows":[["가방 (bag)","Consonant (ㅇ)","가방이 있어요","가방이 없어요"],["우산 (umbrella)","Consonant (ㄴ)","우산이 있어요","우산이 없어요"],["친구 (friend)","Vowel (ㅜ)","친구가 있어요","친구가 없어요"],["열쇠 (key)","Vowel (ㅚ)","열쇠가 있어요","열쇠가 없어요"]]},
@@ -421,7 +421,7 @@ export const BEGINNER_STAGE1_COURSES = [
   emoji: '🎵',
   title: '하다 Verbs, and One Ending for Three Jobs',
   tagline: 'The biggest verb family, and why 해요 is a statement, a question and an invitation.',
-  blurb: 'Hundreds of Korean verbs are just a noun plus 하다 — so learning one pattern unlocks all of them at once. Then comes the discovery that surprises everyone: the same 해요 does three different jobs, and only your voice tells them apart.',
+  blurb: 'Hundreds of Korean verbs are just a noun plus 하다, so learning one pattern unlocks all of them at once. Then comes the discovery that surprises everyone: the same 해요 does three different jobs, and only your voice tells them apart.',
   level: 'Beginner',
   needs: 'bg-d-01',
   lessons: [
@@ -441,23 +441,23 @@ export const BEGINNER_STAGE1_COURSES = [
         ['전화 (phone call)','전화하다','전화**해요**'],
       ]},
 
-      { t:'note', md:'This means **every new 하다 noun you learn is a free verb.** Learn the noun 청소 (cleaning) and you can immediately say 청소해요. No conjugation to work out — the 하다 half always becomes 해요.' },
+      { t:'note', md:'This means **every new 하다 noun you learn is a free verb.** Learn the noun 청소 (cleaning) and you can immediately say 청소해요. No conjugation to work out, the 하다 half always becomes 해요.' },
 
       { t:'chars', wide:true, items:[
         { ch:'저는 매일 운동해요.', tip:'I exercise every day.' },
-        { ch:'카페에서 공부해요.', tip:'I study at the cafe. Note 에서 — studying is an action.' },
+        { ch:'카페에서 공부해요.', tip:'I study at the cafe. Note 에서: studying is an action.' },
         { ch:'친구한테 전화해요.', tip:'I call my friend.' },
       ]},
 
       { t:'choice', q:'“I cook at home.”',
         options:['집에서 요리해요','집에 요리해요','집에서 요리하요','집에서 요리에요'], answer:0,
-        why:'요리하다 is an action so the place takes **에서**, and 하다 becomes **해요**. 요리하요 is the mistake of conjugating 하다 regularly — it never does that. 요리에요 confuses the noun ending 이에요/예요 with a verb.' },
+        why:'요리하다 is an action so the place takes **에서**, and 하다 becomes **해요**. 요리하요 is the mistake of conjugating 하다 regularly, it never does that. 요리에요 confuses the noun ending 이에요/예요 with a verb.' },
 
       { t:'cloze', sentence:'저는 은행에서 [일해요].', answer:'일해요',
         meaning:'I work at a bank.',
         options:['일해요','일하요','일이에요','일에요'],
         keys:['일해요','일하요','일이에요','일에요'],
-        why:'하다 always turns into **해요**. 일하요 applies the regular rule, which 하다 refuses. 일이에요 means “it is work” — a noun sentence, not an action.' },
+        why:'하다 always turns into **해요**. 일하요 applies the regular rule, which 하다 refuses. 일이에요 means “it is work”, a noun sentence, not an action.' },
 
       { t:'type', q:'“I study every day.”  저는 매일 ___',
         answer:'공부해요', keys:['공부해요','공부하요','공부이에요'],
@@ -471,7 +471,7 @@ export const BEGINNER_STAGE1_COURSES = [
 
       { t:'choice', q:'You learn a new noun: 청소 (cleaning). How do you say “I clean”?',
         options:['청소해요','청소하요','청소이에요','청소가 해요'], answer:0,
-        why:'Any 하다 noun becomes a verb for free — 청소**해요**. That is the payoff of this pattern: every new 하다 noun is a new verb you can already conjugate.' },
+        why:'Any 하다 noun becomes a verb for free, 청소**해요**. That is the payoff of this pattern: every new 하다 noun is a new verb you can already conjugate.' },
 
       { t:'order', q:'Build “I exercise every day.”',
         tokens:['저는','매일','운동해요'], answer:['저는','매일','운동해요'] },
@@ -480,7 +480,7 @@ export const BEGINNER_STAGE1_COURSES = [
         answers:['카페에서 공부해요','저는 카페에서 공부해요','전 카페에서 공부해요'],
         bank:['카페에서','카페에','공부해요','공부하요','저는'],
         must:['카페에서'],
-        hint:'Studying is an action — so 에 or 에서? And 공부하다 becomes what?',
+        hint:'Studying is an action: so 에 or 에서? And 공부하다 becomes what?',
         why:'카페에서 공부해요. Two things at once here: the action place takes 에서, and 하다 always becomes 해요.' },
 
       { t:'speak', say:'저는 매일 운동해요.', rom:'jeo-neun mae-il un-dong-hae-yo',
@@ -501,17 +501,17 @@ export const BEGINNER_STAGE1_COURSES = [
         ['an invitation','커피 마셔요! *(bright, to someone)*','Let’s have coffee.'],
       ]},
 
-      { t:'note', md:'**Korean does not reorder words to ask a question.** English flips *you are* into *are you*. Korean leaves the sentence exactly as it is and lifts the end of it. This is why Korean questions feel so easy once you notice it — there is nothing extra to learn.' },
+      { t:'note', md:'**Korean does not reorder words to ask a question.** English flips *you are* into *are you*. Korean leaves the sentence exactly as it is and lifts the end of it. This is why Korean questions feel so easy once you notice it, there is nothing extra to learn.' },
 
       { t:'chars', wide:true, items:[
         { ch:'같이 밥 먹어요.', tip:'Falling: “I eat with them.” Bright and toward someone: “Let’s eat together.”' },
-        { ch:'어디 가요?', tip:'Where are you going? — rising at the end.' },
+        { ch:'어디 가요?', tip:'Where are you going? / rising at the end.' },
         { ch:'내일 만나요.', tip:'Statement, or the everyday way to say “See you tomorrow.”' },
       ]},
 
       { t:'choice', q:'Your friend says “주말에 영화 봐요!” warmly while looking at you. What is it?',
-        options:['An invitation — let’s watch a movie','A statement about their own weekend','A question about your weekend','A command telling you to watch'], answer:0,
-        why:'Said brightly toward you, the plain 해요 form is the everyday way to suggest doing something together. Falling and about themselves it would be a statement; rising it would be a question. A direct command would normally use **-(으)세요** — 보세요.' },
+        options:['An invitation: let’s watch a movie','A statement about their own weekend','A question about your weekend','A command telling you to watch'], answer:0,
+        why:'Said brightly toward you, the plain 해요 form is the everyday way to suggest doing something together. Falling and about themselves it would be a statement; rising it would be a question. A direct command would normally use **-(으)세요**, 보세요.' },
 
       { t:'cloze', sentence:'(친구에게) 우리 같이 밥 [먹어요].', answer:'먹어요',
         meaning:'(to a friend) Let’s eat together.',
@@ -530,7 +530,7 @@ export const BEGINNER_STAGE1_COURSES = [
 
       { t:'choice', q:'Written down, 어디 가요 could be two things. Which two?',
         options:['a question and a statement','a question and a command','a command and an invitation','a statement and a past tense'], answer:0,
-        why:'Rising, it asks *where are you going*; falling, it states *I am going somewhere*. A command would normally use **-(으)세요** — 가세요.' },
+        why:'Rising, it asks *where are you going*; falling, it states *I am going somewhere*. A command would normally use **-(으)세요**, 가세요.' },
 
       { t:'build', q:'Write it yourself: **“Where are you going?”**',
         answers:['어디 가요','어디에 가요','어디 가요?','어디에 가요?'],
@@ -554,7 +554,7 @@ export const BEGINNER_STAGE1_COURSES = [
       {"t":"choice","q":"How do you conjugate ‘산책하다’ (to take a walk) into polite present form?","options":["산책해요","산책하요","산책아요"],"answer":0,"why":"All verbs ending in -하다 conjugate to **-해요** in polite speech. 산책하요 and 산책아요 are incorrect forms."},
       {"t":"pair","q":"Match each noun with its correct conjugated verb form.","pairs":[["요리 (cooking)","요리해요"],["산책 (walking)","산책해요"],["이야기 (chatting)","이야기해요"],["쇼핑 (shopping)","쇼핑해요"]]},
       {"t":"cloze","sentence":"오늘 친구와 카페에서 [이야기해요].","answer":"이야기해요","meaning":"I chat with a friend at a cafe today.","options":["이야기해요","이야기하요","이야기하아요","이야기허요"],"keys":["이야기해요","이야기하요","이야기하아요","이야기허요"],"why":"Present polite form of 이야기하다 is **이야기해요**. 이야기하요 is incorrect."},
-      {"t":"type","q":"요리하다 (to cook) — Complete the statement: 「저녁에 집에서 ___ .」","answer":"요리해요","keys":["요리해요","요리하요","요리하아요"],"why":"요리하다 always conjugates to **요리해요** in polite speech."},
+      {"t":"type","q":"요리하다 (to cook) / Complete the statement: 「저녁에 집에서 ___ .」","answer":"요리해요","keys":["요리해요","요리하요","요리하아요"],"why":"요리하다 always conjugates to **요리해요** in polite speech."},
       {"t":"order","q":"Build the invitation: “Let’s walk together in the park!”","tokens":["공원에서","같이","산책해요!"],"answer":["공원에서","같이","산책해요!"]},
       {"t":"speak","say":"주말에 친구와 같이 산책해요!","rom":"ju-mal-e chin-gu-wa gat-i san-chaeg-hae-yo","q":"Say it out loud warmly as an invitation: “Let’s take a walk together with a friend this weekend!”"},
     ],
@@ -596,10 +596,10 @@ export const BEGINNER_STAGE1_COURSES = [
 
   {
     id: 'bg-08-01',
-    title: 'Lesson 1. 을 / 를 — the thing you act on',
+    title: 'Lesson 1. 을 / 를: the thing you act on',
     minutes: 6,
     blocks: [
-      { t:'text', md:'When a verb acts **on** something, that something gets tagged with **을** or **를**.\n\n커피**를** 마셔요.  — I drink coffee.\n밥**을** 먹어요.  — I eat rice.' },
+      { t:'text', md:'When a verb acts **on** something, that something gets tagged with **을** or **를**.\n\n커피**를** 마셔요. / I drink coffee.\n밥**을** 먹어요. / I eat rice.' },
 
       { t:'text', h:'Same split as always', md:'**을** after a consonant  ·  **를** after a vowel' },
 
@@ -610,12 +610,12 @@ export const BEGINNER_STAGE1_COURSES = [
         ['영화','vowel ㅏ','영화**를**'],
       ]},
 
-      { t:'note', md:'**Only verbs that act on something take 을/를.** 가다, 있다, 자다 do not act on anything — nothing gets the tag. 학교를 가요 is something you will hear, but 학교**에** 가요 is the form to learn: going has a destination, not an object.' },
+      { t:'note', md:'**Only verbs that act on something take 을/를.** 가다, 있다, 자다 do not act on anything, nothing gets the tag. 학교를 가요 is something you will hear, but 학교**에** 가요 is the form to learn: going has a destination, not an object.' },
 
       { t:'chars', wide:true, items:[
         { ch:'매일 책을 읽어요.', tip:'I read a book every day.' },
         { ch:'저는 영화를 봐요.', tip:'I watch a movie.' },
-        { ch:'친구를 만나요.', tip:'I meet a friend. In Korean the friend is acted on — so 를, not 에게.' },
+        { ch:'친구를 만나요.', tip:'I meet a friend. In Korean the friend is acted on, so 를, not 에게.' },
       ]},
 
       { t:'choice', q:'“I eat rice.”  밥 ends in ㅂ, a consonant.',
@@ -642,13 +642,13 @@ export const BEGINNER_STAGE1_COURSES = [
 
       { t:'choice', q:'Which sentence does **not** need 을/를?',
         options:['학교에 가요','밥을 먹어요','책을 읽어요','영화를 봐요'], answer:0,
-        why:'가다 does not act on anything — school is a destination, so it takes **에**. The other three all have something being eaten, read or watched.' },
+        why:'가다 does not act on anything: school is a destination, so it takes **에**. The other three all have something being eaten, read or watched.' },
 
       { t:'build', q:'Write it yourself: **“I read a book every day.”**  (every day = 매일)',
         answers:['저는 매일 책을 읽어요','매일 책을 읽어요','전 매일 책을 읽어요'],
         bank:['저는','매일','책을','책이','읽어요'],
         must:['책을'],
-        hint:'The book is the thing being read — so it takes the object tag. 책 ends in a consonant.',
+        hint:'The book is the thing being read, so it takes the object tag. 책 ends in a consonant.',
         why:'저는 매일 책을 읽어요. Dropping 저는 is perfectly natural in Korean when it is obvious who you mean.' },
 
       { t:'speak', say:'저는 매일 책을 읽어요.', rom:'jeo-neun mae-il chaeg-eul ilg-eo-yo',
@@ -658,10 +658,10 @@ export const BEGINNER_STAGE1_COURSES = [
 
   {
     id: 'bg-08-02',
-    title: 'Lesson 2. 은 / 는 — what you are talking about',
+    title: 'Lesson 2. 은 / 는: what you are talking about',
     minutes: 6,
     blocks: [
-      { t:'text', md:'You have been using this since your first sentence:\n\n**저는** 학생이에요.\n\n**은/는** puts a noun up front and says: *this is what I am talking about.* English often reaches for “as for…”.\n\n저**는** 커피를 마셔요.  — **As for me**, I drink coffee.' },
+      { t:'text', md:'You have been using this since your first sentence:\n\n**저는** 학생이에요.\n\n**은/는** puts a noun up front and says: *this is what I am talking about.* English often reaches for “as for…”.\n\n저**는** 커피를 마셔요. / **As for me**, I drink coffee.' },
 
       { t:'text', h:'Same split, one more time', md:'**은** after a consonant  ·  **는** after a vowel\n\n선생님**은**  ·  저**는**' },
 
@@ -670,10 +670,10 @@ export const BEGINNER_STAGE1_COURSES = [
       { t:'chars', wide:true, items:[
         { ch:'저는 한국 사람이에요.', tip:'As for me, I am Korean.' },
         { ch:'제 동생은 학생이에요.', tip:'My younger sibling is a student.' },
-        { ch:'오늘은 시간이 없어요.', tip:'Today, I have no time. 은/는 can mark time too — “as for today”.' },
+        { ch:'오늘은 시간이 없어요.', tip:'Today, I have no time. 은/는 can mark time too, “as for today”.' },
       ]},
 
-      { t:'text', h:'It also does contrast', md:'Put 은/는 on two things and the sentence sets them against each other.\n\n커피**는** 좋아해요. 그런데 차**는** 안 좋아해요.\n— I like coffee. But tea, I don’t.' },
+      { t:'text', h:'It also does contrast', md:'Put 은/는 on two things and the sentence sets them against each other.\n\n커피**는** 좋아해요. 그런데 차**는** 안 좋아해요.\n, I like coffee. But tea, I don’t.' },
 
       { t:'choice', q:'“My friend is a doctor.”  친구 ends in ㅜ, a vowel.',
         options:['제 친구는 의사예요','제 친구은 의사예요','제 친구를 의사예요','제 친구에 의사예요'], answer:0,
@@ -683,7 +683,7 @@ export const BEGINNER_STAGE1_COURSES = [
         meaning:'Today I have no time.',
         options:['은','는','을','에'],
         keys:['은','는','을','에'],
-        why:'오늘 ends in a consonant → **은**, setting today apart from other days. **는** is the vowel form, **을** marks an object, **에** marks time — but 오늘 is one of the words that refuses 에.' },
+        why:'오늘 ends in a consonant → **은**, setting today apart from other days. **는** is the vowel form, **을** marks an object, **에** marks time, but 오늘 is one of the words that refuses 에.' },
 
       { t:'order', q:'Build “As for me, I drink coffee.”',
         tokens:['저는','커피를','마셔요'], answer:['저는','커피를','마셔요'] },
@@ -696,13 +696,13 @@ export const BEGINNER_STAGE1_COURSES = [
 
       { t:'choice', q:'“커피는 좋아해요. 그런데 차는 안 좋아해요.” What is 은/는 doing here?',
         options:['setting two things against each other','marking what is acted on','marking a place','marking a time'], answer:0,
-        why:'Two 는 in a row sets up a contrast — coffee yes, tea no. Acting on something is 을/를, a place is 에/에서, a time is 에.' },
+        why:'Two 는 in a row sets up a contrast, coffee yes, tea no. Acting on something is 을/를, a place is 에/에서, a time is 에.' },
 
       { t:'build', q:'Write it yourself: **“As for me, I like coffee.”**  (like = 좋아해요)',
         answers:['저는 커피를 좋아해요','전 커피를 좋아해요'],
         bank:['저는','저를','커피를','커피는','좋아해요'],
         hint:'You are the one the sentence is about, and the coffee is what you act on.',
-        why:'저는 커피를 좋아해요. Swap 커피를 for 커피는 and you add a contrast — “coffee I like (but something else, not so much).”' },
+        why:'저는 커피를 좋아해요. Swap 커피를 for 커피는 and you add a contrast, “coffee I like (but something else, not so much).”' },
 
       { t:'speak', say:'저는 커피를 좋아해요.', rom:'jeo-neun keo-pi-reul joh-a-hae-yo',
         q:'Say it out loud: “As for me, I like coffee.”' },
@@ -730,7 +730,7 @@ export const BEGINNER_STAGE1_COURSES = [
       {"t":"text","h":"Topic vs. Object: Who vs. What","md":"How do you avoid mixing up **은/는** and **을/를**?\n\n- Ask: **“Who is doing the action or being discussed?”** → Use **은/는** (e.g., 저는, 친구는).\n- Ask: **“What is being eaten, bought, read, or watched?”** → Use **을/를** (e.g., 밥을, 책을).\n\nIf you swap them, the sentence turns upside down!"},
       {"t":"table","head":["Question to Ask","Particle","Role in Sentence","Example"],"rows":[["Who is doing it?","은 / 는","Topic (who we talk about)","**민수는** 책을 읽어요."],["What is acted on?","을 / 를","Direct Object (thing received)","민수는 **책을** 읽어요."],["What is being contrasted?","은 / 는 (on object)","Contrast / Special focus","커피**는** 마셔요. 차**는** 안 마셔요."]]},
       {"t":"note","md":"Notice that **은/는** can replace **을/를** when making a contrast! When you say **“사과는 좋아해요”**, it means: *Apples, I like (but something else, I might not)*."},
-      {"t":"chars","wide":true,"items":[{"ch":"수지는 노래를 들어요.","tip":"Suji listens to music. — Suji is topic (는), music is object (를)."},{"ch":"라면은 먹어요. 그런데 김밥은 안 먹어요.","tip":"Ramen I eat. But kimbap I don’t. — 은/는 shows contrast on foods."},{"ch":"선생님은 사과를 사요.","tip":"The teacher buys apples. — 선생님 is topic (은), 사과 is object (를)."}]},
+      {"t":"chars","wide":true,"items":[{"ch":"수지는 노래를 들어요.","tip":"Suji listens to music. / Suji is topic (는), music is object (를)."},{"ch":"라면은 먹어요. 그런데 김밥은 안 먹어요.","tip":"Ramen I eat. But kimbap I don’t. / 은/는 shows contrast on foods."},{"ch":"선생님은 사과를 사요.","tip":"The teacher buys apples. / 선생님 is topic (은), 사과 is object (를)."}]},
       {"t":"choice","q":"Which sentence means “My friend meets a teacher”?","options":["친구는 선생님을 만나요.","친구을 선생님는 만나요.","친구를 선생님은 만나요."],"answer":0,"why":"친구 is the one doing the action (topic: 는), and 선생님 is the person being met (object: 을)."},
       {"t":"choice","q":"In the sentence “저는 영화를 봐요”, what does 영화를 tell you?","options":["It is the object being watched","It is the person watching","It is the location of the action","It is the time of the action"],"answer":0,"why":"The particle **-를** marks the direct object of the verb 봐요 (watch)."},
       {"t":"pair","q":"Match each sentence with its correct English meaning.","pairs":[["저는 피자를 먹어요.","I eat pizza."],["피자는 좋아해요.","Pizza, I like (contrasting with other foods)."],["친구는 피자를 사요.","My friend buys pizza."],["오늘 점심은 피자예요.","Today's lunch is pizza."]]},
@@ -752,21 +752,21 @@ export const BEGINNER_STAGE1_COURSES = [
 {
   id: 'bg-09',
   emoji: '🚫',
-  title: 'Saying No — 안 and 못',
+  title: 'Saying No: 안 and 못',
   tagline: 'Don’t, and can’t. Korean keeps them apart.',
-  blurb: 'English says “I don’t” for both choosing not to and being unable to. Korean does not. 안 is about will, 못 is about ability — and picking the wrong one changes what you are telling people about yourself.',
+  blurb: 'English says “I don’t” for both choosing not to and being unable to. Korean does not. 안 is about will, 못 is about ability, and picking the wrong one changes what you are telling people about yourself.',
   level: 'Beginner',
   needs: 'bg-08',
   lessons: [
 
   {
     id: 'bg-09-01',
-    title: 'Lesson 1. 안 — I don’t',
+    title: 'Lesson 1. 안: I don’t',
     minutes: 5,
     blocks: [
-      { t:'text', md:'Put **안** directly in front of the verb.\n\n저는 커피를 **안** 마셔요.  — I don’t drink coffee.' },
+      { t:'text', md:'Put **안** directly in front of the verb.\n\n저는 커피를 **안** 마셔요. / I don’t drink coffee.' },
 
-      { t:'note', md:'**하다 verbs split.** 공부하다 does not become 안 공부해요 — the 안 goes **inside**, right before 하다:\n\n공부**를 안 해요**  or  공부 **안 해요**  (○)\n**안** 공부해요  (✗)\n\nThis catches everyone once. After that it feels natural, because 공부 is really a noun.' },
+      { t:'note', md:'**하다 verbs split.** 공부하다 does not become 안 공부해요, the 안 goes **inside**, right before 하다:\n\n공부**를 안 해요**  or  공부 **안 해요**  (○)\n**안** 공부해요  (✗)\n\nThis catches everyone once. After that it feels natural, because 공부 is really a noun.' },
 
       { t:'chars', wide:true, items:[
         { ch:'저는 술을 안 마셔요.', tip:'I don’t drink alcohol.' },
@@ -804,7 +804,7 @@ export const BEGINNER_STAGE1_COURSES = [
         answers:['저는 커피를 안 마셔요','커피를 안 마셔요','전 커피를 안 마셔요'],
         bank:['저는','커피를','안','못','마셔요'],
         must:['안 마셔요'],
-        hint:'안 goes directly in front of the verb — and the coffee is what you act on.',
+        hint:'안 goes directly in front of the verb, and the coffee is what you act on.',
         why:'저는 커피를 안 마셔요. Using 못 here would say you are *unable* to drink coffee, which is a different claim.' },
 
       { t:'speak', say:'오늘은 학교에 안 가요.', rom:'o-neul-eun hak-gyo-e an ga-yo',
@@ -814,10 +814,10 @@ export const BEGINNER_STAGE1_COURSES = [
 
   {
     id: 'bg-09-02',
-    title: 'Lesson 2. 못 — I can’t',
+    title: 'Lesson 2. 못: I can’t',
     minutes: 5,
     blocks: [
-      { t:'text', md:'**못** goes in the same slot as 안, but means something different: **I am unable to.**\n\n저는 수영을 **못** 해요.  — I can’t swim.\n\nNot a choice. A limit — no skill, no time, no permission, something in the way.' },
+      { t:'text', md:'**못** goes in the same slot as 안, but means something different: **I am unable to.**\n\n저는 수영을 **못** 해요. / I can’t swim.\n\nNot a choice. A limit, no skill, no time, no permission, something in the way.' },
 
       { t:'note', md:'**못 splits in 하다 verbs too**, exactly like 안:\n\n수영 **못 해요**  (○)  ·  **못** 수영해요  (✗)' },
 
@@ -857,7 +857,7 @@ export const BEGINNER_STAGE1_COURSES = [
         answers:['저는 매운 음식을 못 먹어요','매운 음식을 못 먹어요','전 매운 음식을 못 먹어요'],
         bank:['저는','매운 음식을','못','안','먹어요'],
         must:['못 먹어요'],
-        hint:'Your body refusing is not a choice — which of 안 / 못 is that?',
+        hint:'Your body refusing is not a choice, which of 안 / 못 is that?',
         why:'저는 매운 음식을 못 먹어요. 안 먹어요 would tell people you simply don’t care for spicy food.' },
 
       { t:'speak', say:'저는 매운 음식을 못 먹어요.', rom:'jeo-neun mae-un eum-sig-eul mot meog-eo-yo',
@@ -867,15 +867,15 @@ export const BEGINNER_STAGE1_COURSES = [
 
   {
     id: 'bg-09-03',
-    title: 'Lesson 3. 안 or 못 — will, or ability',
+    title: 'Lesson 3. 안 or 못: will, or ability',
     minutes: 6,
     blocks: [
-      { t:'text', md:'Now put them side by side. Same sentence, one word different, and you have said two very different things about yourself.\n\n술을 **안** 마셔요.  — I don’t drink. *(my choice)*\n술을 **못** 마셔요.  — I can’t drink. *(my body won’t let me)*' },
+      { t:'text', md:'Now put them side by side. Same sentence, one word different, and you have said two very different things about yourself.\n\n술을 **안** 마셔요. / I don’t drink. *(my choice)*\n술을 **못** 마셔요. / I can’t drink. *(my body won’t let me)*' },
 
       { t:'table', head:['','안','못'], rows:[
         ['means','choose not to','unable to'],
         ['about','will','ability or circumstance'],
-        ['고기를 …','안 먹어요 — I’m vegetarian','못 먹어요 — it makes me ill'],
+        ['고기를 …','안 먹어요: I’m vegetarian','못 먹어요: it makes me ill'],
       ]},
 
       { t:'note', md:'**This matters socially.** Turning down food with 안 먹어요 says you did not want it. 못 먹어요 says you cannot have it. Koreans hear the difference immediately, and the second one is the polite way out of a dish you must refuse.' },
@@ -906,12 +906,12 @@ export const BEGINNER_STAGE1_COURSES = [
         options:['오늘은 술을 못 마셔요','오늘은 술을 안 마셔요','오늘은 술을 잘 마셔요','오늘은 술을 다 마셔요'], answer:0,
         why:'Driving takes the choice away from you → **못**. 안 마셔요 would sound like you simply don’t feel like it, 잘 마셔요 says you drink well, 다 마셔요 says you drank it all.' },
 
-      { t:'build', q:'Write it yourself: **“I’m vegetarian, so I don’t eat meat.”** — just the second half: **“I don’t eat meat.”**  (meat = 고기)',
+      { t:'build', q:'Write it yourself: **“I’m vegetarian, so I don’t eat meat.”**, just the second half: **“I don’t eat meat.”**  (meat = 고기)',
         answers:['고기를 안 먹어요','저는 고기를 안 먹어요','전 고기를 안 먹어요'],
         bank:['저는','고기를','안','못','먹어요'],
         must:['안 먹어요'],
         hint:'Being vegetarian is a decision you made, not something stopping you.',
-        why:'고기를 안 먹어요. If you said 못 먹어요, people would assume an allergy or illness — and would worry rather than just cook something else.' },
+        why:'고기를 안 먹어요. If you said 못 먹어요, people would assume an allergy or illness, and would worry rather than just cook something else.' },
 
       { t:'speak', say:'저는 고기를 안 먹어요.', rom:'jeo-neun go-gi-reul an meog-eo-yo',
         q:'Say it out loud: “I don’t eat meat.”' },
@@ -924,7 +924,7 @@ export const BEGINNER_STAGE1_COURSES = [
       {"t":"text","h":"Where Negation Sits: Verbs vs. Adjectives","md":"How you negate depends on whether a word is an **action verb** or a **descriptive adjective**:\n\n1. **Actions (동사):** Put **안** or **못** right before the verb. For -하다 action verbs, split them: **공부 안 해요 / 운동 못 해요**.\n2. **Adjectives (형용사):** Use **안** only (never 못!). And do **not** split -하다 adjectives: **안 친절해요**, **안 따뜻해요**."},
       {"t":"table","head":["Type","Word","Affirmative","Negative with 안","Can it use 못?"],"rows":[["Action Verb","가다 (to go)","가요","안 가요","못 가요 (unable to go)"],["Action -하다","운동하다 (to exercise)","운동해요","운동 안 해요","못 해요 (unable to exercise)"],["Adjective","크다 (to be big)","커요","안 커요","No (못 커요 is wrong)"],["Adjective -하다","친절하다 (to be kind)","친절해요","안 친절해요","No (못 친절해요 is wrong)"]]},
       {"t":"note","md":"Why can't you use **못** with adjectives? Because **못** means *unable to do an action* due to ability or circumstance. An object cannot 'fail' at being small, warm, or pretty!"},
-      {"t":"chars","wide":true,"items":[{"ch":"오늘은 날씨가 안 추워요.","tip":"The weather isn’t cold today. — Adjective 추워요 takes 안, never 못."},{"ch":"방이 안 넓어요.","tip":"The room isn’t spacious. — Adjective 넓어요 takes 안."},{"ch":"지금 숙제 안 해요.","tip":"I’m not doing homework now. — Action noun 숙제 splits with 안 해요."}]},
+      {"t":"chars","wide":true,"items":[{"ch":"오늘은 날씨가 안 추워요.","tip":"The weather isn’t cold today. / Adjective 추워요 takes 안, never 못."},{"ch":"방이 안 넓어요.","tip":"The room isn’t spacious. / Adjective 넓어요 takes 안."},{"ch":"지금 숙제 안 해요.","tip":"I’m not doing homework now. / Action noun 숙제 splits with 안 해요."}]},
       {"t":"choice","q":"Which sentence correctly says “The water is not hot” (뜨겁다 is an adjective)?","options":["물이 안 뜨거워요.","물이 못 뜨거워요.","물이 뜨겁지 못해요."],"answer":0,"why":"뜨겁다 is an adjective (describes temperature), so it cannot use 못. Use **안 뜨거워요**."},
       {"t":"choice","q":"How do you say “He is not kind” using 친절하다 (adjective)?","options":["안 친절해요.","친절 안 해요.","친절 못 해요."],"answer":0,"why":"친절하다 is a descriptive adjective, not an action verb. Adjectives do not split, so put 안 at the front: **안 친절해요**."},
       {"t":"pair","q":"Match each phrase to its correct negative pattern.","pairs":[["전화하다 (action verb)","전화 안 해요"],["깨끗하다 (adjective)","안 깨끗해요"],["먹다 (action verb)","안 먹어요 / 못 먹어요"],["비싸다 (adjective)","안 비싸요"]]},
@@ -947,7 +947,7 @@ export const BEGINNER_STAGE1_COURSES = [
   id: 'bg-irr-01',
   emoji: '🔀',
   title: 'Verbs That Change Shape ①',
-  tagline: 'ㅡ and ㅂ — the two you meet in your first month.',
+  tagline: 'ㅡ and ㅂ: the two you meet in your first month.',
   blurb: 'Most textbooks park irregular verbs at the very end. That is too late: 아프다, 바쁘다, 덥다 and 맵다 are first-month words, and you will need them the week after you learn -아/어요. Here are the two patterns that cover them.',
   level: 'Beginner',
   needs: 'bg-d-01',
@@ -970,7 +970,7 @@ export const BEGINNER_STAGE1_COURSES = [
         ['쓰다','to write / use','**써요**'],
       ]},
 
-      { t:'note', md:'**Every stem ending in ㅡ does this — there are no exceptions.** That makes it the friendliest pattern in Korean. Notice how much you can already say: 아파요, 바빠요, 배고파요 are three of the most common sentences in daily life.' },
+      { t:'note', md:'**Every stem ending in ㅡ does this, there are no exceptions.** That makes it the friendliest pattern in Korean. Notice how much you can already say: 아파요, 바빠요, 배고파요 are three of the most common sentences in daily life.' },
 
       { t:'chars', wide:true, items:[
         { ch:'머리가 아파요.', tip:'I have a headache. 아프다 → 아파요' },
@@ -1010,7 +1010,7 @@ export const BEGINNER_STAGE1_COURSES = [
         bank:['머리가','머리를','아파요','아프어요','있어요'],
         must:['아파요'],
         hint:'The head is the thing doing the hurting, so it takes 이/가. And 아프다 loses its ㅡ.',
-        why:'머리가 아파요. This is the sentence you will use at a pharmacy — worth having ready.' },
+        why:'머리가 아파요. This is the sentence you will use at a pharmacy, worth having ready.' },
 
       { t:'speak', say:'머리가 아파요.', rom:'meo-ri-ga a-pa-yo',
         q:'Say it out loud: “My head hurts.”' },
@@ -1030,10 +1030,10 @@ export const BEGINNER_STAGE1_COURSES = [
         ['맵다','to be spicy','**매워요**'],
         ['어렵다','to be difficult','**어려워요**'],
         ['쉽다','to be easy','**쉬워요**'],
-        ['맛있다','to be tasty','맛있어요 — *regular, no change*'],
+        ['맛있다','to be tasty','맛있어요: *regular, no change*'],
       ]},
 
-      { t:'note', md:'**Not every ㅂ stem changes.** 입다 (to wear) and 좁다 (to be narrow) are regular: 입어요, 좁아요. There is no way to tell by looking — you learn which ones change as you meet them. The good news is that the irregular ones are mostly adjectives, and the common ones fit on the list above.' },
+      { t:'note', md:'**Not every ㅂ stem changes.** 입다 (to wear) and 좁다 (to be narrow) are regular: 입어요, 좁아요. There is no way to tell by looking, you learn which ones change as you meet them. The good news is that the irregular ones are mostly adjectives, and the common ones fit on the list above.' },
 
       { t:'chars', wide:true, items:[
         { ch:'오늘 너무 더워요.', tip:'It’s so hot today.' },
@@ -1053,7 +1053,7 @@ export const BEGINNER_STAGE1_COURSES = [
 
       { t:'choice', q:'One of these verbs does **not** change its ㅂ. Which?',
         options:['입다','덥다','맵다','어렵다'], answer:0,
-        why:'입다 is regular — 입어요. 덥다, 맵다 and 어렵다 all turn the ㅂ into 우: 더워요, 매워요, 어려워요.' },
+        why:'입다 is regular: 입어요. 덥다, 맵다 and 어렵다 all turn the ㅂ into 우: 더워요, 매워요, 어려워요.' },
 
       { t:'type', q:'“It’s cold today.”  오늘 ___  (춥다)',
         answer:'추워요', keys:['추워요','춥어요','추어요'],
@@ -1073,7 +1073,7 @@ export const BEGINNER_STAGE1_COURSES = [
         bank:['오늘','오늘은','너무','더워요','덥어요'],
         must:['더워요'],
         hint:'오늘 is one of the time words that take no 에. And 덥다 turns its ㅂ into 우.',
-        why:'오늘 너무 더워요. Adding 은 to 오늘 sets today apart from other days — both are natural.' },
+        why:'오늘 너무 더워요. Adding 은 to 오늘 sets today apart from other days, both are natural.' },
 
       { t:'speak', say:'오늘 너무 더워요.', rom:'o-neul neo-mu deow-eo-yo',
         q:'Say it out loud: “It’s so hot today.”' },
@@ -1090,7 +1090,7 @@ export const BEGINNER_STAGE1_COURSES = [
       {"t":"choice","q":"How do you conjugate ‘듣다’ (to listen) with -어요?","options":["들어요","듣어요","듣아요"],"answer":0,"why":"듣다 is a ㄷ-irregular verb. Before a vowel ending, ㄷ turns into ㄹ, and with -어요 it becomes **들어요**."},
       {"t":"pair","q":"Match each ㄷ-irregular verb with its polite present form.","pairs":[["듣다 (to listen)","들어요"],["걷다 (to walk)","걸어요"],["묻다 (to ask)","물어요"]]},
       {"t":"cloze","sentence":"날씨가 좋아서 친구와 공원을 [걸어요].","answer":"걸어요","meaning":"The weather is good, so I walk in the park with a friend.","options":["걸어요","걷어요","걸아요","걷아요"],"keys":["걸어요","걷어요","걸아요","걷아요"],"why":"걷다 turns ㄷ into ㄹ before -어요 → **걸어요**."},
-      {"t":"type","q":"듣다 (to listen) — Complete the sentence: 「매일 한국어 라디오를 ___ .」","answer":"들어요","keys":["들어요","듣어요","들아요"],"why":"듣다 changes ㄷ to ㄹ when attaching -어요, resulting in **들어요**."},
+      {"t":"type","q":"듣다 (to listen) / Complete the sentence: 「매일 한국어 라디오를 ___ .」","answer":"들어요","keys":["들어요","듣어요","들아요"],"why":"듣다 changes ㄷ to ㄹ when attaching -어요, resulting in **들어요**."},
       {"t":"order","q":"Arrange the words to say: “I listen to music in my room.”","tokens":["방에서","음악을","들어요"],"answer":["방에서","음악을","들어요"]},
       {"t":"speak","say":"매일 아침에 음악을 들으면서 공원을 걸어요.","rom":"mae-il a-chim-e eum-ag-eul deul-eu-myeon-seo gong-won-eul geol-eo-yo","q":"Read out loud: “Every morning I walk in the park while listening to music.”"},
     ],

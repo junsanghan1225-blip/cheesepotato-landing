@@ -569,16 +569,16 @@
         "h": "이에요 / 예요",
         "d": "Attaches directly to the noun with NO particle to state what something is.",
         "ex": [
-          "저는 학생**이에요**. — I am a student.",
-          "제 친구는 의사**예요**. — My friend is a doctor."
+          "저는 학생**이에요**. / I am a student.",
+          "제 친구는 의사**예요**. / My friend is a doctor."
         ]
       },
       "b": {
         "h": "이/가 아니에요",
         "d": "Requires the subject particle 이/가 before 아니에요 to state what something is not.",
         "ex": [
-          "저는 선생님**이 아니에요**. — I am not a teacher.",
-          "이거는 커피**가 아니에요**. — This is not coffee."
+          "저는 선생님**이 아니에요**. / I am not a teacher.",
+          "이거는 커피**가 아니에요**. / This is not coffee."
         ]
       },
       "tip": "Direct attachment with no particle for positive (이에요/예요); subject particle 이/가 required for negative (아니에요)."

@@ -7,14 +7,14 @@
         "h": "-던 (Past repetition or ongoing unfinished memory)",
         "d": "Modifies a noun to describe an action repeatedly done in the past, or started but left unfinished.",
         "ex": [
-          "어릴 때 친구들과 자주 **놀던** 골목길이에요. — This is the alley where I used to play often with friends when I was young."
+          "어릴 때 친구들과 자주 **놀던** 골목길이에요. / This is the alley where I used to play often with friends when I was young."
         ]
       },
       "b": {
         "h": "-(으)ㄴ (Completed past event)",
         "d": "Modifies a noun to describe a one-time event that took place and finished completely in the past.",
         "ex": [
-          "어제 도서관에서 **빌린** 책을 다 읽었어요. — I finished reading the book that I borrowed from the library yesterday."
+          "어제 도서관에서 **빌린** 책을 다 읽었어요. / I finished reading the book that I borrowed from the library yesterday."
         ]
       },
       "tip": "Use -던 for recurrent memories, habits, and unfinished tasks; use -(으)ㄴ for completed past actions."
@@ -129,7 +129,7 @@
       "t": "choice",
       "q": "What did Junho leave open on his desk before leaving the house?",
       "options": [
-        "The novel he was in the middle of reading (읽던 소설책)",
+        "The novel he was in the middle of reading",
         "A brand new unopened dictionary",
         "A travel brochure he bought five minutes ago"
       ],
@@ -140,7 +140,7 @@
       "t": "choice",
       "q": "What memorable place did Junho spot while walking down the street?",
       "options": [
-        "The snack shop he used to frequent during school days (자주 다니던 분식집)",
+        "The snack shop he used to frequent during school days",
         "An airport he had never seen before",
         "A movie set under construction"
       ],
@@ -163,14 +163,14 @@
         "h": "-더라고요 (Direct personal observation)",
         "d": "Used when the speaker directly experienced, saw, or tasted something and conveys that discovery vividly.",
         "ex": [
-          "어제 그 식당에 가 봤는데 밑반찬이 정갈하고 아주 **맛있더라고요**. — I went to that restaurant yesterday and the side dishes were neat and really delicious."
+          "어제 그 식당에 가 봤는데 밑반찬이 정갈하고 아주 **맛있더라고요**. / I went to that restaurant yesterday and the side dishes were neat and really delicious."
         ]
       },
       "b": {
         "h": "-대요 (Reporting second-hand information)",
         "d": "Used when conveying information heard indirectly from others without personal experience.",
         "ex": [
-          "그 식당은 밑반찬이 정갈하고 아주 **맛있대요**. — I hear that restaurant has neat side dishes and is very delicious."
+          "그 식당은 밑반찬이 정갈하고 아주 **맛있대요**. / I hear that restaurant has neat side dishes and is very delicious."
         ]
       },
       "tip": "Use -더라고요 only for your own firsthand experiences; use -대요 for what others told you."
@@ -285,7 +285,7 @@
       "t": "choice",
       "q": "How did Minseo describe the newly opened cafe?",
       "options": [
-        "The coffee aroma was rich and desserts were neat and delicious (향도 진하고 디저트도 참 맛있더라고요)",
+        "The coffee aroma was rich and desserts were neat and delicious",
         "The coffee was cold and the staff was impolite",
         "The cafe had permanently shut down"
       ],
@@ -296,7 +296,7 @@
       "t": "choice",
       "q": "What did Minseo's colleagues decide to do after hearing her review?",
       "options": [
-        "Visit the cafe together during lunch hour (점심시간에 가 보기로 했습니다)",
+        "Visit the cafe together during lunch hour",
         "Protest against the opening of the cafe",
         "Order meals from an overseas restaurant"
       ],
@@ -319,14 +319,14 @@
         "h": "-던데요 (Inviting dialogue or confirmation)",
         "d": "Delivers an observed fact while leaving the end of the sentence open to invite the listener's response or confirmation.",
         "ex": [
-          "아까 보니까 사무실에 불이 켜져 있**던데요**? — Seeing earlier, the office light was turned on?"
+          "아까 보니까 사무실에 불이 켜져 있**던데요**? / Seeing earlier, the office light was turned on?"
         ]
       },
       "b": {
         "h": "-더라고요 (Sharing experience as an informative statement)",
         "d": "Delivers a personal experience clearly with strong finality without expecting an immediate conversational turn.",
         "ex": [
-          "사무실에 가 보니까 불이 켜져 **있더라고요**. — When I went to the office, the lights were on."
+          "사무실에 가 보니까 불이 켜져 **있더라고요**. / When I went to the office, the lights were on."
         ]
       },
       "tip": "Use -던데요 to prompt the listener to join the conversation; use -더라고요 to report your own findings decisively."
@@ -441,7 +441,7 @@
       "t": "choice",
       "q": "What observation did the colleague share regarding Manager Kim's mood?",
       "options": [
-        "His facial expression looked very bright (표정이 아주 밝으시던데요)",
+        "His facial expression looked very bright",
         "He looked furious and broke his coffee cup",
         "He hadn't shown up at the office at all"
       ],
@@ -452,7 +452,7 @@
       "t": "choice",
       "q": "What did Dohyeon do after hearing his colleague's observation?",
       "options": [
-        "He went to Manager Kim's desk with an important agenda (중요한 안건을 들고 과장님 자리로 찾아갔습니다)",
+        "He went to Manager Kim's desk with an important agenda",
         "He went back home immediately",
         "He hid under his desk all afternoon"
       ],
@@ -475,14 +475,14 @@
         "h": "-더라고요 (Direct assertion of personal discovery)",
         "d": "Used to share a clear personal review or finding with firm confidence.",
         "ex": [
-          "어제 본 영화는 배우들 연기가 정말 **감동적이더라고요**. — In the movie I watched yesterday, the actors' performances were truly touching."
+          "어제 본 영화는 배우들 연기가 정말 **감동적이더라고요**. / In the movie I watched yesterday, the actors' performances were truly touching."
         ]
       },
       "b": {
         "h": "-던데요 (Observational prompt for reaction)",
         "d": "Used to convey an observation gently, allowing room for the listener to chime in or react.",
         "ex": [
-          "어제 그 영화 보니까 상영관에 관객이 꽉 차 **있던데요**? — When I watched that movie yesterday, the theater was packed with audiences?"
+          "어제 그 영화 보니까 상영관에 관객이 꽉 차 **있던데요**? / When I watched that movie yesterday, the theater was packed with audiences?"
         ]
       },
       "tip": "Use -더라고요 to state reviews; use -던데요 to invite interactive dialogue."
@@ -597,7 +597,7 @@
       "t": "choice",
       "q": "What change did Seoyeon observe in the alley where she used to play as a child?",
       "options": [
-        "Many tall buildings had been erected (높은 빌딩들이 많이 들어섰더라고요)",
+        "Many tall buildings had been erected",
         "The whole area had turned into a desert",
         "A huge amusement park had been constructed"
       ],
@@ -608,7 +608,7 @@
       "t": "choice",
       "q": "What old familiar shop was still open in the neighborhood?",
       "options": [
-        "Her old regular stationery shop (단골 문구점은 여전히 문을 열고 있던데요)",
+        "Her old regular stationery shop",
         "A luxury yacht showroom",
         "A spaceship repair center"
       ],
