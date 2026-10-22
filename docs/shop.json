@@ -210,9 +210,10 @@
     }
    ],
    "trim": "B5 (182 × 257 mm)",
-   "pages": "89쪽 (PDF · 표지 포함)",
-   "status": "planned",
+   "pages": "87쪽 (PDF · 표지 포함)",
+   "status": "on",
    "price": "9.90",
+  "polar": "https://buy.polar.sh/polar_cl_bi6QFC16s44llPfzyF8HQrnCi90g8AgVpfSNt4gBZKJ",
    "coverImg": "/assets/books/topik2-writing-51-52/cover.jpg",
    "page": {
     "headline": {
