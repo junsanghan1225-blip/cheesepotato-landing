@@ -27,7 +27,8 @@ alter table book_redemptions enable row level security;
 
 insert into book_codes (code, book) values
   ('CP-TW-ZSSGZW', 'topik2-writing-51-52'),
-  ('CP-FS-342TXN', 'first-steps-workbook')
+  ('CP-FS-342TXN', 'first-steps-workbook'),
+  ('CP-PW-5XD5QK', 'particles-workbook')
 on conflict (code) do nothing;
 
 -- 코드 입력. 결과: { ok, why?, days? }  why: login · badcode · expired · full · already
