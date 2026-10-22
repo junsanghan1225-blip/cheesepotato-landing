@@ -17,9 +17,9 @@ const EMAIL = 'cheesepotato@everykoreans.com';
 const UPDATED = '2026-10-04';
 const SELLER = {
   name: '에브리코리안즈 (everykoreans · 치즈감자)',
-  owner: '',        // 대표자
+  owner: '한준상',   // 대표자 (통신판매업신고증 · 출판사 신고확인증, 2026-10-22)
   bizNo: '202-43-01897',   // 사업자등록번호
-  mailOrder: '',    // 통신판매업 신고번호
+  mailOrder: '제 2026-수원영통-1263 호',    // 통신판매업 신고번호(수원시 영통구청, 2026-10-22). 주소 칸은 비워 둔다 — 신고서의 소재지가 집 주소라 공개 여부를 운영자가 정한다
   address: '',
 };
 

@@ -34,9 +34,9 @@
   "ko": "준상은 한국어 교사입니다. 약 2년 동안 다양한 문화권의 학생들과 1,700회가 넘는 수업을 했습니다."
  },
  "publisher": {
-  "en": "Every Koreans Books",
-  "ko": "에브리코리안즈 출판"
- },
+    "en": "Everykoreans",
+    "ko": "에브리코리안즈"
+  },
  "web": "everykoreans.com",
  "preface": {
   "en": [
