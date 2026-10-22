@@ -7251,7 +7251,8 @@ body.cls-pres-on { overflow:hidden; }
 .cls-req { display:flex; gap:8px; align-items:center; flex-wrap:wrap; }
 .cls-req > div { flex:1 1 220px; min-width:0; } .cls-req p { margin:2px 0 0; color:var(--ink-3); font-size:13px; } .cls-req small { color:var(--ink-3); }
 /* 콘텐츠에서 바로 숙제로 내기 · 다음 숙제 알림(2026-10-14) */
-.cls-fab { position:fixed; right:16px; bottom:calc(16px + env(safe-area-inset-bottom)); z-index:60; padding:12px 18px; border:0; border-radius:999px; background:var(--orange); color:#fff; font:inherit; font-size:15px; font-weight:800; box-shadow:0 6px 18px rgba(var(--ink-rgb),.28); cursor:pointer; }
+/* 한국어 도우미 단추(.hlp-fab, 오른쪽 아래 54px 동그라미)와 겹치지 않게 그 왼쪽에 둔다(운영자 2026-10-22 「겹치는 거」) */
+.cls-fab { position:fixed; right:84px; bottom:calc(23px + env(safe-area-inset-bottom)); z-index:60; padding:12px 18px; border:0; border-radius:999px; background:var(--orange); color:#fff; font:inherit; font-size:15px; font-weight:800; box-shadow:0 6px 18px rgba(var(--ink-rgb),.28); cursor:pointer; }
 .cls-fab[hidden] { display:none; }
 .cls-dlg-box small { color:var(--ink-3); font-weight:800; }
 .cls-q-cls { margin:0; font-weight:800; color:var(--ink-2); }
