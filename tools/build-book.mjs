@@ -168,16 +168,18 @@ const qLine = (q) => q.includes('___')
 function titlePage() {
   return `<div class="blk plain"><div class="tp"><span class="ser">${esc(B.series.en)}</span><h1>${esc(B.title.ko)}</h1><h2>${esc(B.title.en)}</h2><div class="rule"></div><span class="by">${esc(B.author.ko)} · ${esc(B.author.en)}</span><span class="pub">${esc(B.publisher.en.toUpperCase())}</span></div></div>`;
 }
+/* 출판사 신고(2026-10-20, 경기도 수원시 영통구청 — 운영자 「출판사 신고확인증」). 주소는 판권면에 적지 않는다(신고 주소가 집 주소라서 공개하지 않는다) */
+const PUBLISHER_NO = '제 2026-000158 호 (Reg. no. 2026-000158 · Suwon Yeongtong-gu, Gyeonggi-do)';
 function copyrightPage() {
   return `<div class="blk plain"><div class="cr">
 <h4>${esc(B.title.ko)} · ${esc(B.title.en)}</h4>
 <p>${esc(B.sub.en)}<br>${esc(B.sub.ko)}</p>
 <dl><dt>Author · 지은이</dt><dd>${esc(B.author.ko)} (${esc(B.author.en)})</dd>
 <dt>Publisher · 펴낸곳</dt><dd>${esc(B.publisher.ko)} · ${esc(B.publisher.en)}</dd>
+<dt>Publisher reg. no. · 출판사 신고번호</dt><dd>${PUBLISHER_NO}</dd>
 ${DIGITAL ? `<dt>Format · 형태</dt><dd>Digital edition (PDF) · 디지털판(PDF) — print it at home or at a print shop · 집이나 인쇄소에서 인쇄해 쓰세요</dd>
 <dt>Edition · 판</dt><dd>${esc(B.digitalEdition || 'First digital edition · 디지털판 초판')}</dd>
-<dt>Published · 발행</dt><dd>${new Date().toISOString().slice(0, 7).replace('-', '.')}</dd>` : `<dt>Publisher no.</dt><dd class="ph">출판사 신고번호 — 신고 후 기재</dd>
-<dt>ISBN</dt><dd class="ph">발급 후 기재 · to be assigned</dd>
+<dt>Published · 발행</dt><dd>${new Date().toISOString().slice(0, 7).replace('-', '.')}</dd>` : `<dt>ISBN</dt><dd class="ph">발급 후 기재 · to be assigned</dd>
 <dt>Edition · 판</dt><dd>${esc(B.edition)}</dd>
 <dt>Printed · 발행일</dt><dd class="ph">○○○○년 ○월 ○일</dd>`}
 <dt>Web</dt><dd>${esc(B.web)}</dd></dl>

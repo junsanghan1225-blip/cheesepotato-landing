@@ -240,7 +240,7 @@ const shopFoot = `<div class="next">
   <h3>How buying works</h3>
   <p>Payment is handled by Polar, our payment partner. Digital files download right after paying and arrive by email. Printed books will be sold through bookstores when published. See <a href="/refund.html">refunds</a> · <a href="/terms.html">terms</a>.</p>
 </div>
-<p class="ft">${esc(pub.en)} · ${esc(pub.ko)} · <a href="/about.html">About</a> · <a href="/worksheets/">Free worksheets</a></p>
+<p class="ft">${esc(pub.en)} · ${esc(pub.ko)} · 출판사 신고번호 제 2026-000158 호 · 통신판매업 신고번호 제 2026-수원영통-1263 호 · 사업자등록번호 202-43-01897 · <a href="/about.html">About</a> · <a href="/worksheets/">Free worksheets</a></p>
 `;
 function shopPage() {
   const books = SHOP.books.map((k) => `<a class="bk-item" href="/shop/${k.id}/">${cover(k)}<h3>${esc(k.title.en)}</h3><p>${esc(k.title.ko)}</p><span class="bk-badge">${esc(STATUS[k.status]?.[0] || k.status)} · ${esc(STATUS[k.status]?.[1] || '')}</span></a>`).join('\n');

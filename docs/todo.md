@@ -13,6 +13,7 @@
 > 갈래가 바뀌면 이 표의 그 줄만 고친다. 안티 일의 숫자는 여기 적지 않는다(STATUS 가 기준).
 
 - 📚 **출판 사업 준비 판** — `docs/plans/publishing-launch.md`(예스24 → 상점 → 네이버 → 아마존 → 종이책 → 쿠팡). 운영자 ⚠ 4가지(첫 책 이름 · 70권 구성 · 가격 · 파일 형식).
+- ✅ **출판사 신고 · 통신판매업 신고 완료**(2026-10-22) — 번호 반영함. 남은 것: ① 판매자 정보의 주소 공개 여부(집 주소) · 전화번호 ② 책 ISBN 신청 ③ Polar 상품 · 결제 링크 ④ 예스24 신청.
 - ✍️ **쓰기 칸 기본형 바꾸기(390개)** 안티 지시문 `docs/antigravity/antigravity-write-hints-task.md` — 코스 3~4개씩 시킴(`node tools/write-list.mjs --todo <코스 id>`).
 - 🔎 **품질 점검 기간**(2026-10-21~) — 새 콘텐츠 대신 점검: `docs/antigravity/antigravity-quality-audit-task.md`(영역 · 묶음 표).
 - 🧩 **문장 늘리기 더 어렵게** 안티 지시문 `docs/antigravity/antigravity-expand-decoys-task.md` — 안티에 붙여 넣으면 틀린 조각을 씀(361개 · 725단계).
