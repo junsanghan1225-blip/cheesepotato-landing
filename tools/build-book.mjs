@@ -446,7 +446,14 @@ function indexBlock(entries) {
   return h + '</div></div>';
 }
 const reviewSheet = () => `<div class="blk plain rv"><h2>Review checklist · 검수 체크표</h2><div class="k">한 단원씩 훑고 ○ / ✕ 를 적으세요. 고칠 곳은 빨간 출처(예: greetings-self-introduction · §2)와 번호로 알려 주시면 됩니다.</div><table><thead><tr><th>Unit</th><th>사실 Facts</th><th>오타 Typos</th><th>번역 English</th><th>난이도 Level</th><th>정답 Answers</th><th>메모 Notes</th></tr></thead><tbody>${units.map((u) => `<tr><td>${String(u.no).padStart(2, '0')} ${esc(u.title.en)}</td><td class="c">☐</td><td class="c">☐</td><td class="c">☐</td><td class="c">☐</td><td class="c">☐</td><td></td></tr>`).join('')}</tbody></table></div>`;
-const memoBlock = (n) => Array.from({ length: n }, () => `<div class="blk plain memo"><h2>Notes · 메모</h2>${'<div class="rule"></div>'.repeat(22)}</div>`).join('');
+/* 책 구매자 혜택 — docs/books/<id>.json 의 bonus {code, days}. 메모 첫 쪽 맨 위에 QR + 코드 + 눌러지는 주소 */
+const bonusBox = () => {
+  if (!B.bonus) return '';
+  const url = `${SITE_URL}/?bk=${B.bonus.code}&utm_source=book&utm_medium=bonus&utm_campaign=${encodeURIComponent(B.id)}`;
+  const q = qrLib(0, 'M'); q.addData(url); q.make();
+  return `<div class="qrb uq"><div class="qr">${q.createSvgTag({ cellSize: 3, margin: 0, scalable: true })}</div><div><b>Reader bonus · Pro free for ${B.bonus.days} days</b><small>이 책을 사신 분께 드리는 선물이에요. QR을 찍거나 아래 주소를 열고 로그인하면 Pro ${B.bonus.days}일이 열려요. 코드 ${esc(B.bonus.code)} (한 계정에 한 번)</small><a href="${esc(url)}">${esc(url.split('&utm')[0].replace('https://', ''))}</a></div></div>`;
+};
+const memoBlock = (n) => Array.from({ length: n }, (_, i) => `<div class="blk plain memo"><h2>Notes · 메모</h2>${i === 0 ? bonusBox() : ''}${'<div class="rule"></div>'.repeat(i === 0 && B.bonus ? 18 : 22)}</div>`).join('');
 
 /* ── 쪽 찍기 ── */
 const reviewTop = REVIEW ? `@page:left{@bottom-center{content:"REVIEW COPY · 검수본";white-space:nowrap;font:800 6.4pt 'Pretendard Variable';letter-spacing:.2em;color:#c0392b;vertical-align:top;padding-top:6mm}}@page:right{@bottom-center{content:"REVIEW COPY · 검수본";white-space:nowrap;font:800 6.4pt 'Pretendard Variable';letter-spacing:.2em;color:#c0392b;vertical-align:top;padding-top:6mm}}` : '';
