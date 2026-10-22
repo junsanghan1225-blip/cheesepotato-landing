@@ -229,6 +229,23 @@ function prefacePage() {
 ${B.preface.en.map((t, i) => `<p class="en">${esc(t)}</p><p class="ko">${esc(B.preface.ko[i])}</p>`).join('')}
 <div class="au"><b>${esc(B.author.en)}</b>: ${esc(B.authorAbout.en)}<br>${esc(B.authorAbout.ko)}</div></div></div>`;
 }
+
+/* ── 스스로 하는 공부(운영자 2026-10-22 「학생의 주도적인 학습을 유도」, 책 틀의 selfStudy: true) ──
+   근거(요약): 규칙을 내 말로 써 보기(스스로 만들어 내기) · 끄집어내 보기와 간격 두고 다시 보기(1일 · 3일 · 7일) · 자기 점검과 틀린 것 기록(스스로 조절하는 학습).
+   조사에 딱 맞춰 검증된 연구는 얇다 — 효과를 단정하지 않고 학습자가 쓰기 쉬운 도구로만 넣는다. */
+const cb = '<i class="cb"></i>';
+const isStudyUnit = (u) => B.selfStudy && !/guide|^rv-/.test(u.id);
+const selfCheck = (u) => !isStudyUnit(u) ? '' : `<div class="sc"><h4>My check · 나의 점검</h4>
+<div class="r"><b>My rule in my own words · 내 말로 규칙 쓰기</b><span class="tl"></span><span class="tl"></span></div>
+<div class="r2"><span><b>How sure am I? · 얼마나 자신 있나요</b> ${cb} Not yet · 아직 ${cb} Almost · 거의 ${cb} Sure · 확실</span><span><b>Come back · 다시 보기</b> ${cb} Day 1 · 1일 ${cb} Day 3 · 3일 ${cb} Day 7 · 7일</span></div></div>`;
+const studyMap = () => {
+  const rows = parts.flatMap((p) => p.sheets.filter((x) => isStudyUnit(x)).map((x) => units.find((y) => y.id === x.id)));
+  return `<div class="blk plain sm"><h2>Which particles do I know? · 내가 아는 조사는?</h2><div class="k">${esc(B.studyIntro?.en || 'Before you start, tick one box per row. Come back after the review tests and tick again in a different colour.')}<br>${esc(B.studyIntro?.ko || '시작하기 전에 줄마다 하나씩 표시하세요. 복습 시험을 마친 뒤 다른 색으로 한 번 더 표시해 보세요.')}</div>
+<table class="sm-t"><thead><tr><th>Unit</th><th>Particle · 조사</th><th>New · 처음</th><th>Seen it · 본 적 있음</th><th>I use it · 쓸 수 있음</th><th>After the book · 책 뒤</th></tr></thead><tbody>${rows.map((u) => `<tr><td>${String(u.no).padStart(2, '0')}</td><td>${esc(u.title.ko)}${u.title.en !== u.title.ko ? `<small>${esc(u.title.en)}</small>` : ''}</td><td>${cb}</td><td>${cb}</td><td>${cb}</td><td>${cb}</td></tr>`).join('')}</tbody></table></div>`;
+};
+const mistakeLog = (n) => Array.from({ length: n }, (_, i) => `<div class="blk plain ml"><h2>My mistake log · 틀린 문장 기록${n > 1 ? ` ${i + 1}` : ''}</h2><div class="k">${i === 0 ? esc('Copy a sentence you got wrong, fix it, and write WHY in your own words. Check this page again after a week. · 틀린 문장을 옮겨 쓰고, 고친 뒤, 왜 그런지 내 말로 적으세요. 일주일 뒤 이 쪽을 다시 보세요.') : ''}</div>
+<table class="ml-t"><thead><tr><th>Date · 날짜</th><th>My sentence · 내 문장</th><th>Fixed · 고친 문장</th><th>Why · 왜?</th></tr></thead><tbody>${'<tr><td></td><td></td><td></td><td></td></tr>'.repeat(11)}</tbody></table></div>`).join('');
+
 function howPage() {
   return `<div class="blk plain"><div class="pf how"><h2>How to use this book</h2><div class="k">이 책 쓰는 법</div><ol>${B.howto.en.map((t, i) => `<li><div><b>${esc(t)}</b><span>${esc(B.howto.ko[i])}</span></div></li>`).join('')}</ol></div></div>`;
 }
@@ -415,8 +432,8 @@ function unitBlock(u) {
     if (s.type === 'writing') return `<div class="sec wq">${sr(si)}${secLabel(s)}${writingHtml(s.raw)}</div>`;
     return `<div class="sec"${s.items.length <= 8 ? ' style="break-inside:avoid"' : ''}>${sr(si)}${secLabel(s)}${s.hint ? `<div class="hint">${esc(s.hint)}</div>` : ''}${s.think ? `<ol class="pr th">${s.items.map((x) => `<li><span class="q">${esc(x.q).replace(/___/g, '<span class="bl"></span>')}</span><span class="tl"></span><span class="tl"></span></li>`).join('')}</ol>` : `<ol class="pr" style="--qw:${qw(s.items)}">${s.items.map((x) => `<li${x.q.includes('___') ? ' class="fill"' : ''}>${qLine(x.q)}</li>`).join('')}</ol>`}</div>`;
   }).join('\n');
-  if (CLASSIC) return `<div class="blk ${unitCss(u)}" style="page:${unitCss(u)}">${u._head}${unitQr(u)}${body}</div>`;
-  return open + `<div class="blk ${unitCss(u)}" style="page:${unitCss(u)}">${body}${unitQr(u)}</div>`;
+  if (CLASSIC) return `<div class="blk ${unitCss(u)}" style="page:${unitCss(u)}">${u._head}${unitQr(u)}${body}${selfCheck(u)}</div>`;
+  return open + `<div class="blk ${unitCss(u)}" style="page:${unitCss(u)}">${body}${selfCheck(u)}${unitQr(u)}</div>`;
 }
 function answersBlock() {
   let h = `<div class="blk plain ak"><h2>Answer Key</h2><div class="k">정답</div>`;
@@ -523,6 +540,10 @@ tbody tr:nth-child(even) td,tr:nth-child(even) td{background:transparent}td{bord
 .note{break-inside:avoid;border:0;border-left:.9mm solid ${ACC};background:transparent;color:#111;padding:.8mm 0 .8mm 3.2mm;margin-top:2.4mm;line-height:1.5}.note b{color:${ACC}}
 .pr li{border-bottom:0;min-height:8.4mm}.pr li:before{content:counter(q) '.';border:0;border-radius:0;background:transparent;color:${ACC};width:6mm;height:auto;font-size:9pt;font-weight:800;justify-content:flex-start;margin:0}
 .pr li{display:grid;grid-template-columns:6mm var(--qw,48%) 1fr;column-gap:3mm;align-items:end;padding:1mm 0}.pr li.fill{grid-template-columns:6mm 1fr}.pr li.fill .ln{display:none}
+.sc{margin-top:5mm;padding:2.6mm 3.4mm;border:.3mm solid ${ACC};border-radius:2mm;background:${TINT};break-inside:avoid}.sc h4{display:block;background:none;border:0;padding:0;font-size:9pt;color:${ACC};letter-spacing:.04em;margin:0 0 1.5mm;font-weight:800}.sc .r b{display:block;font-size:8.4pt;margin-bottom:.6mm}.sc .tl{display:block;height:6.4mm;border-bottom:.25mm solid #9aa7bf}.sc .r2{margin-top:2mm;font-size:8pt;line-height:1.9}.sc .r2 span{display:block}.sc .r2 b{margin-right:1.5mm}
+.cb{display:inline-block;width:3.2mm;height:3.2mm;border:.3mm solid ${ACC};border-radius:.6mm;margin:0 .8mm 0 1.6mm;vertical-align:-.5mm;background:#fff}
+.sm h2,.ml h2{font-size:17pt;margin-bottom:1mm}.sm .k,.ml .k{font-size:9pt;color:#44506a;margin-bottom:3mm;line-height:1.55}
+.sm-t,.ml-t{width:100%;border-collapse:collapse;font-size:8.6pt}.sm-t th,.ml-t th{background:${TINT};border:.25mm solid #b9c3d6;padding:1.2mm;font-size:7.8pt}.sm-t td,.ml-t td{border:.25mm solid #cfd6e2;padding:1.2mm 1.6mm;vertical-align:middle}.sm-t td:first-child{width:9mm;text-align:center;font-weight:800;color:${ACC}}.sm-t td:nth-child(n+3){text-align:center;width:17mm}.sm-t small{display:block;color:#6d655c;font-size:7.4pt}.ml-t td{height:15.2mm}
 .pr.th li{display:block;position:relative;padding:1.4mm 0 1mm 6mm;min-height:0}.pr.th li:before{position:absolute;left:0;top:1.6mm}.pr.th .q{display:block}.pr.th .tl{display:block;height:7.2mm;border-bottom:.25mm solid #9aa7bf}
 .pr .q{font-weight:500;line-height:1.45;padding-bottom:.4mm}.pr .ln{flex:none;min-width:0;height:4.8mm;border-bottom:.2mm solid #8e9ab0;margin:0}.pr .bl{border-bottom:.2mm solid #8e9ab0}
 .uh{display:block;padding-bottom:3mm;border-bottom:.35mm solid ${ACC};margin-bottom:1.2mm;position:relative}
@@ -563,9 +584,9 @@ const countPages = (buf) => (buf.toString('latin1').match(/\/Type\s*\/Page(?![s\
 
 const entries = indexEntries();
 const blocks = B.compact ? parts.flatMap((p) => p.sheets.map((sh) => { const u = units.find((x) => x.id === sh.id); return [`unit${u.no}`, unitBlock(u)]; })) : [
-  ['title', titlePage()], ['copyright', copyrightPage()], ['preface', prefacePage()], ['how', howPage()], ...(B.noGuide ? [] : [['guide', guidePage()]]), ['toc', tocPage(null)], ...FRONT_LIST.map(([k, , , fn]) => [k, fn()]),
+  ['title', titlePage()], ['copyright', copyrightPage()], ['preface', prefacePage()], ['how', howPage()], ...(B.selfStudy ? [['studymap', studyMap()]] : []), ...(B.noGuide ? [] : [['guide', guidePage()]]), ['toc', tocPage(null)], ...FRONT_LIST.map(([k, , , fn]) => [k, fn()]),
   ...parts.flatMap((p) => [[`part${p.no}`, partPage(p)], ...(TWM ? [[`qguide${p.no}`, qGuidePage(p)], [`qscore${p.no}`, qScorePage(p)], [`qworked${p.no}`, qWorkedPage(p)]] : []), ...p.sheets.map((s) => { const u = units.find((x) => x.id === s.id); return [`unit${u.no}`, unitBlock(u)]; })]),
-  ['answers', answersBlock()], ...(B.noIndex ? [] : [['index', indexBlock(entries)]]),
+  ...(B.selfStudy ? [['mlog', mistakeLog(2)]] : []), ['answers', answersBlock()], ...(B.noIndex ? [] : [['index', indexBlock(entries)]]),
 ];
 const counts = {};
 for (const [k, html] of blocks) counts[k] = countPages(await pdf(html));
@@ -694,7 +715,7 @@ if (EPUB) {
   const O = (f) => path.join(ex, 'OEBPS', f);
   const xesc = (x) => String(x).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
   const chap = [];   // { id, file, title }
-  const skip = new Set(['toc', 'index', 'memo', 'title']);
+  const skip = new Set(['toc', 'index', 'memo', 'title', 'studymap', 'mlog']);
   const list = blocks.filter(([k]) => !skip.has(k));
   if (B.bonus) list.push(['bonus', `<div class="blk plain"><h2>Reader bonus · 구매자 혜택</h2>${bonusBox()}</div>`]);
   for (const [k, html] of list) {

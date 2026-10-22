@@ -54,7 +54,8 @@
       "Write your answers on the lines. Use pencil: you will want to do the page again.",
       "Check the Answer Key at the back. If you missed more than a few, re-read the tables and retry later.",
       "Look up any word in the Index. It tells you which unit it appears in.",
-      "Free lessons, games and more worksheets: everykoreans.com"
+      "Free lessons, games and more worksheets: everykoreans.com",
+      "Take charge of your own learning: tick the particle map before you start, write each rule in your own words in the \"My check\" box, come back after 1, 3 and 7 days, and log every mistake in the mistake log at the back."
     ],
     "ko": [
       "표를 소리 내 읽으세요. 소리가 글자와 다른 곳은 「읽기 팁」이 실제 발음을 보여 줍니다.",
@@ -62,7 +63,8 @@
       "답은 줄 위에 직접 쓰세요. 다시 풀고 싶어지니 연필로 쓰기를 권합니다.",
       "뒤쪽 정답으로 확인하세요. 틀린 것이 많으면 표를 다시 읽고 나중에 다시 풀어 보세요.",
       "낱말이 궁금하면 찾아보기에서 찾으세요. 어느 단원에 나오는지 알려 줍니다.",
-      "무료 레슨 · 게임 · 학습지 더 보기: everykoreans.com"
+      "무료 레슨 · 게임 · 학습지 더 보기: everykoreans.com",
+      "내 공부는 내가 이끄세요. 시작 전에 「조사 지도」에 표시하고, 단원마다 「나의 점검」에 규칙을 내 말로 쓰고, 1일 · 3일 · 7일 뒤에 다시 보고, 틀린 문장은 뒤쪽 틀린 문장 기록에 남기세요."
     ]
   },
   "parts": [
@@ -5208,5 +5210,6 @@
   "bonus": {
     "code": "CP-PW-5XD5QK",
     "days": 30
-  }
+  },
+  "selfStudy": true
 }
