@@ -303,3 +303,4 @@
 - 2026-10-22 책 구매자 혜택: 책 메모 쪽 QR · 코드(책마다 1개, Pro 30일, 한 계정 한 번, 한도 3000 · 2027-12-31까지). 사이트 ?bk=코드 → 로그인 뒤 db/add_book_codes.sql 의 redeem_book_code. 운영자가 SQL 을 돌려야 열린다.
 - 2026-10-22 Pro 이용자는 머리줄에 「⭐ PRO」 딱지(누르면 내 Pro 쪽). 책 코드(?bk=)로 Pro 가 열리면 작은 알림 대신 환영 카드(열린 것 3가지 · 배우기 / TOPIK 시작).
 - 2026-10-22 ePub(tools/build-book.mjs --epub, epubcheck 통과) · 세 번째 책 조사 워크북(구매자 코드 CP-PW-…) · 책 판매 글 docs/ops/book-listings.md. 코드 추가로 db/add_book_codes.sql 을 한 번 더 돌려야 한다(두 번 돌려도 안전).
+- 2026-10-22 md 정리(b): 안티 메모 2개를 docs/antigravity/ 로, docs/README.md 에 ops 주제별 안내. 끝난 지시서를 done/ 으로 모으는 일(a)은 보류(경로가 많이 엮여 있음).
