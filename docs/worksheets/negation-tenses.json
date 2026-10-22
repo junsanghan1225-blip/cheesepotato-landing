@@ -64,7 +64,7 @@
     {
       "type": "practice",
       "title": {
-        "en": "Practice A — Choose between 안 and 못",
+        "en": "Practice A: Choose between 안 and 못",
         "ko": "안/못 중 알맞은 부정어를 골라요"
       },
       "items": [
@@ -78,7 +78,7 @@
     {
       "type": "practice",
       "title": {
-        "en": "Practice B — Conjugate into the past tense (-았/었어요)",
+        "en": "Practice B: Conjugate into the past tense (-았/었어요)",
         "ko": "과거형으로 바꿔 써요"
       },
       "items": [
@@ -92,7 +92,7 @@
     {
       "type": "practice",
       "title": {
-        "en": "Practice C — Conjugate into the future tense (-(으)ㄹ 거예요)",
+        "en": "Practice C: Conjugate into the future tense (-(으)ㄹ 거예요)",
         "ko": "미래형으로 바꿔 써요"
       },
       "items": [
@@ -106,7 +106,7 @@
     {
       "type": "practice",
       "title": {
-        "en": "Practice D — Match the tense with the time adverb",
+        "en": "Practice D: Match the tense with the time adverb",
         "ko": "시간 부사에 맞는 시제 형태를 골라요"
       },
       "items": [

@@ -29,13 +29,13 @@
         [
           "House / Home",
           "집",
-          "—",
+          " / ",
           "Home or house in general"
         ],
         [
           "Apartment",
           "아파트",
-          "—",
+          " / ",
           "Apartment flat in a building"
         ],
         [
@@ -47,13 +47,13 @@
         [
           "Living room",
           "거실",
-          "—",
+          " / ",
           "Main common living room area"
         ],
         [
           "Bedroom",
           "침실 / 방",
-          "—",
+          " / ",
           "Room for sleeping"
         ],
         [
@@ -65,19 +65,19 @@
         [
           "Bathroom / Restroom",
           "화장실",
-          "—",
+          " / ",
           "Bathroom or toilet"
         ],
         [
           "Entrance foyer",
           "현관",
-          "—",
+          " / ",
           "Entryway where shoes are taken off"
         ],
         [
           "Balcony / Veranda",
           "베란다",
-          "—",
+          " / ",
           "Balcony or utility veranda"
         ]
       ],
@@ -99,7 +99,7 @@
         [
           "Bed",
           "침대",
-          "—",
+          " / ",
           "Furniture in the bedroom"
         ],
         [
@@ -111,19 +111,19 @@
         [
           "Chair",
           "의자",
-          "—",
+          " / ",
           "Seating paired with desk or table"
         ],
         [
           "Sofa / Couch",
           "소파",
-          "—",
+          " / ",
           "Furniture in the living room"
         ],
         [
           "Dining table",
           "식탁",
-          "—",
+          " / ",
           "Table in the kitchen / dining area"
         ],
         [
@@ -141,7 +141,7 @@
         [
           "Refrigerator",
           "냉장고",
-          "—",
+          " / ",
           "Appliance in the kitchen"
         ],
         [
@@ -153,7 +153,7 @@
         [
           "Television",
           "텔레비전",
-          "—",
+          " / ",
           "Appliance in the living room"
         ]
       ],
@@ -202,7 +202,7 @@
     {
       "type": "practice",
       "title": {
-        "en": "Practice A — Match the room with its typical item or furniture",
+        "en": "Practice A: Match the room with its typical item or furniture",
         "ko": "방에 어울리는 물건이나 가구를 골라요"
       },
       "items": [
@@ -235,7 +235,7 @@
     {
       "type": "practice",
       "title": {
-        "en": "Practice B — Choose the position word (위 / 안 / 옆 / 아래)",
+        "en": "Practice B: Choose the position word (위 / 안 / 옆 / 아래)",
         "ko": "알맞은 위치 단어를 골라요"
       },
       "items": [
@@ -268,7 +268,7 @@
     {
       "type": "practice",
       "title": {
-        "en": "Practice C — Write the Korean word for each home item",
+        "en": "Practice C: Write the Korean word for each home item",
         "ko": "집과 가구 단어를 한국어로 써요"
       },
       "items": [

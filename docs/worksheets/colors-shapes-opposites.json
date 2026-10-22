@@ -111,13 +111,13 @@
         [
           "Star",
           "별 모양",
-          "—",
+          " / ",
           "별 (star)"
         ],
         [
           "Heart",
           "하트 모양",
-          "—",
+          " / ",
           "하트 사탕 (heart candy)"
         ]
       ],
@@ -190,7 +190,7 @@
     {
       "type": "practice",
       "title": {
-        "en": "Practice A — Write the color in Korean",
+        "en": "Practice A: Write the color in Korean",
         "ko": "색깔 이름을 한국어로 써요"
       },
       "items": [
@@ -223,7 +223,7 @@
     {
       "type": "practice",
       "title": {
-        "en": "Practice B — Write the shape name",
+        "en": "Practice B: Write the shape name",
         "ko": "모양 이름을 한국어로 써요"
       },
       "items": [
@@ -248,7 +248,7 @@
     {
       "type": "practice",
       "title": {
-        "en": "Practice C — Write the opposite adjective",
+        "en": "Practice C: Write the opposite adjective",
         "ko": "반대말 형용사를 기본형으로 써요"
       },
       "items": [
@@ -281,7 +281,7 @@
     {
       "type": "practice",
       "title": {
-        "en": "Practice D — Choose the fitting opposite in context",
+        "en": "Practice D: Choose the fitting opposite in context",
         "ko": "문맥에 알맞은 반대말을 골라요"
       },
       "items": [

@@ -67,14 +67,14 @@
     {
       "type": "practice",
       "title": {
-        "en": "Practice A — Fill in the core question word",
+        "en": "Practice A: Fill in the core question word",
         "ko": "알맞은 의문사를 넣어요"
       },
       "items": [
         { "q": "저 사람은 ___예요? (Who is that person?)", "a": "누구" },
         { "q": "시험이 ___예요? (When is the exam?)", "a": "언제" },
         { "q": "집이 ___예요? (Where is your house?)", "a": "어디" },
-        { "q": "이것은 ___예요? (What is this? — spoken form)", "a": "뭐" },
+        { "q": "이것은 ___예요? (What is this? / spoken form)", "a": "뭐" },
         { "q": "오늘 ___ 늦었어요? (Why are you late today?)", "a": "왜" },
         { "q": "공항에 ___ 가요? (How do you get to the airport?)", "a": "어떻게" }
       ]
@@ -82,7 +82,7 @@
     {
       "type": "practice",
       "title": {
-        "en": "Practice B — Choose between 누구 and 누가",
+        "en": "Practice B: Choose between 누구 and 누가",
         "ko": "누구와 누가 중 알맞은 것을 골라요"
       },
       "items": [
@@ -96,7 +96,7 @@
     {
       "type": "practice",
       "title": {
-        "en": "Practice C — Choose between 몇, 얼마, and 얼마나",
+        "en": "Practice C: Choose between 몇, 얼마, and 얼마나",
         "ko": "몇, 얼마, 얼마나 중 알맞은 것을 골라요"
       },
       "items": [
@@ -110,7 +110,7 @@
     {
       "type": "practice",
       "title": {
-        "en": "Practice D — Match question and logical answer",
+        "en": "Practice D: Match question and logical answer",
         "ko": "질문에 어울리는 대답을 골라요"
       },
       "items": [

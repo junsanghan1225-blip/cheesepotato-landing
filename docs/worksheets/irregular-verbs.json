@@ -81,7 +81,7 @@
     {
       "type": "practice",
       "title": {
-        "en": "Practice A — Conjugate ㅂ-irregular words into 해요체",
+        "en": "Practice A: Conjugate ㅂ-irregular words into 해요체",
         "ko": "ㅂ 불규칙 단어를 해요체로 바꿔 써요"
       },
       "items": [
@@ -95,7 +95,7 @@
     {
       "type": "practice",
       "title": {
-        "en": "Practice B — Conjugate ㄷ verbs into 해요체 (Watch out for regular verbs!)",
+        "en": "Practice B: Conjugate ㄷ verbs into 해요체 (Watch out for regular verbs!)",
         "ko": "ㄷ 동사를 해요체로 바꿔 써요 (규칙 동사 주의)"
       },
       "items": [
@@ -109,7 +109,7 @@
     {
       "type": "practice",
       "title": {
-        "en": "Practice C — Conjugate 르-irregular words into 해요체",
+        "en": "Practice C: Conjugate 르-irregular words into 해요체",
         "ko": "르 불규칙 단어를 해요체로 바꿔 써요"
       },
       "items": [
@@ -123,7 +123,7 @@
     {
       "type": "practice",
       "title": {
-        "en": "Practice D — Choose the correct irregular conjugation",
+        "en": "Practice D: Choose the correct irregular conjugation",
         "ko": "올바른 활용형을 골라요"
       },
       "items": [

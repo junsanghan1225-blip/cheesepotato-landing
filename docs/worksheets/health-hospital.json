@@ -49,13 +49,13 @@
         "Reading tip"
       ],
       "rows": [
-        ["To have a cold", "감기에 걸리다", "감기에 걸렸어요", "—"],
-        ["To have a fever", "열이 나다", "열이 많이 나요", "—"],
-        ["To cough", "기침을 하다", "기침을 해요", "—"],
+        ["To have a cold", "감기에 걸리다", "감기에 걸렸어요", " / "],
+        ["To have a fever", "열이 나다", "열이 많이 나요", " / "],
+        ["To cough", "기침을 하다", "기침을 해요", " / "],
         ["To have a runny nose", "콧물이 나다", "콧물이 나요", "[콘무리 나요] (비음화)"],
-        ["To have diarrhea", "설사를 하다", "설사를 해요", "—"],
-        ["To have indigestion", "체하다", "체했어요", "—"],
-        ["To be hurt / injured", "다치다", "다쳤어요", "—"]
+        ["To have diarrhea", "설사를 하다", "설사를 해요", " / "],
+        ["To have indigestion", "체하다", "체했어요", " / "],
+        ["To be hurt / injured", "다치다", "다쳤어요", " / "]
       ],
       "note": "Notice spoken reading: 콧물이 나요 is pronounced [콘무리 나요]: nasalization (콧 [ㄷ] → ㄴ before ㅁ) and liaison."
     },
@@ -72,18 +72,18 @@
         "Reading tip"
       ],
       "rows": [
-        ["어디가 아프세요?", "Where does it hurt?", "Doctor or pharmacist asking", "—"],
+        ["어디가 아프세요?", "Where does it hurt?", "Doctor or pharmacist asking", " / "],
         ["두통약 좀 주세요", "Please give me headache medicine", "Buying medicine at pharmacy", "[두통냑] (ㄴ첨가)"],
         ["식후 30분에 드세요", "Take 30 minutes after meals", "Medication dosage instruction", "[시쿠] (격음화)"],
-        ["하루에 세 번 드세요", "Take three times a day", "Frequency instruction", "—"],
-        ["푹 쉬세요", "Please get plenty of rest", "Doctor's recommendation", "—"]
+        ["하루에 세 번 드세요", "Take three times a day", "Frequency instruction", " / "],
+        ["푹 쉬세요", "Please get plenty of rest", "Doctor's recommendation", " / "]
       ],
       "note": "Notice spoken reading: 식후 is pronounced [시쿠] (ㄱ+ㅎ → ㅋ), and 두통약 is pronounced [두통냑]."
     },
     {
       "type": "practice",
       "title": {
-        "en": "Practice A — Write the body part in Korean",
+        "en": "Practice A: Write the body part in Korean",
         "ko": "신체 부위 이름을 한국어로 써요"
       },
       "items": [
@@ -98,7 +98,7 @@
     {
       "type": "practice",
       "title": {
-        "en": "Practice B — Express pain with 아파요",
+        "en": "Practice B: Express pain with 아파요",
         "ko": "아파요를 써서 아픈 곳을 표현해요"
       },
       "items": [
@@ -112,7 +112,7 @@
     {
       "type": "practice",
       "title": {
-        "en": "Practice C — Choose the correct symptom expression",
+        "en": "Practice C: Choose the correct symptom expression",
         "ko": "알맞은 증상 표현을 골라요"
       },
       "items": [
@@ -126,7 +126,7 @@
     {
       "type": "practice",
       "title": {
-        "en": "Practice D — Complete clinic and pharmacy dialogues",
+        "en": "Practice D: Complete clinic and pharmacy dialogues",
         "ko": "병원과 약국 대화를 완성해요"
       },
       "items": [

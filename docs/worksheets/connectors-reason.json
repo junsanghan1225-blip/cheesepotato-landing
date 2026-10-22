@@ -76,7 +76,7 @@
     {
       "type": "practice",
       "title": {
-        "en": "Practice A — Connect verbs with -아서/어서",
+        "en": "Practice A: Connect verbs with -아서/어서",
         "ko": "모음 조화에 맞게 -아서/어서로 연결해요"
       },
       "items": [
@@ -91,7 +91,7 @@
     {
       "type": "practice",
       "title": {
-        "en": "Practice B — Choose between -아서/어서 and -(으)니까",
+        "en": "Practice B: Choose between -아서/어서 and -(으)니까",
         "ko": "-아서/어서와 -(으)니까 중 알맞은 것을 골라요"
       },
       "items": [
@@ -105,7 +105,7 @@
     {
       "type": "practice",
       "title": {
-        "en": "Practice C — Choose the correct sentence connector",
+        "en": "Practice C: Choose the correct sentence connector",
         "ko": "알맞은 접속 부사를 골라요"
       },
       "items": [
@@ -119,7 +119,7 @@
     {
       "type": "practice",
       "title": {
-        "en": "Practice D — Complete the reason sentence",
+        "en": "Practice D: Complete the reason sentence",
         "ko": "이유 문장을 완성해요"
       },
       "items": [
@@ -132,7 +132,7 @@
     }
   ],
   "howto": [
-    "Remember that -아서/어서 cannot be combined with imperative (-세요) or propositive (-(으)ㅂ시다, -(으)ㄹ까요) sentences — use -(으)니까 instead.",
+    "Remember that -아서/어서 cannot be combined with imperative (-세요) or propositive (-(으)ㅂ시다, -(으)ㄹ까요) sentences, use -(으)니까 instead.",
     "Practice vowel harmony: ㅏ/ㅗ takes -아서, other vowels take -어서, and 하다 becomes 해서.",
     "Complete Practice A to D and check your answers with the answer key."
   ],

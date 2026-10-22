@@ -9,7 +9,7 @@
     "ko": "이·그·저의 거리 기준, 장소 지시(여기·거기·저기), 사물 지시(이것·그것·저것)"
   },
   "desc": {
-    "en": "Free printable Korean worksheet on demonstratives: 이 (near speaker), 그 (near listener), and 저 (far from both) — with modifiers, objects (이것/그것/저것), places (여기/거기/저기), practice and an answer key."
+    "en": "Free printable Korean worksheet on demonstratives: 이 (near speaker), 그 (near listener), and 저 (far from both) / with modifiers, objects (이것/그것/저것), places (여기/거기/저기), practice and an answer key."
   },
   "level": "A1",
   "sections": [
@@ -63,7 +63,7 @@
     {
       "type": "practice",
       "title": {
-        "en": "Practice A — Choose 이, 그, or 저 based on distance",
+        "en": "Practice A: Choose 이, 그, or 저 based on distance",
         "ko": "거리 기준에 맞게 이, 그, 저 중 하나를 골라요"
       },
       "items": [
@@ -77,7 +77,7 @@
     {
       "type": "practice",
       "title": {
-        "en": "Practice B — Choose place words: 여기, 거기, 저기",
+        "en": "Practice B: Choose place words: 여기, 거기, 저기",
         "ko": "여기, 거기, 저기 중 알맞은 장소를 골라요"
       },
       "items": [
@@ -91,7 +91,7 @@
     {
       "type": "practice",
       "title": {
-        "en": "Practice C — Choose the spoken contraction",
+        "en": "Practice C: Choose the spoken contraction",
         "ko": "알맞은 줄임말을 골라요"
       },
       "items": [
@@ -105,7 +105,7 @@
     {
       "type": "practice",
       "title": {
-        "en": "Practice D — Complete the demonstrative sentence",
+        "en": "Practice D: Complete the demonstrative sentence",
         "ko": "문맥에 맞는 지시어를 넣어요"
       },
       "items": [

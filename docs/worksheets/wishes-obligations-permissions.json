@@ -78,7 +78,7 @@
     {
       "type": "practice",
       "title": {
-        "en": "Practice A — Express wishes with -고 싶다",
+        "en": "Practice A: Express wishes with -고 싶다",
         "ko": "-고 싶다로 소망을 표현해요"
       },
       "items": [
@@ -92,7 +92,7 @@
     {
       "type": "practice",
       "title": {
-        "en": "Practice B — Obligation with -아야/어야 해요",
+        "en": "Practice B: Obligation with -아야/어야 해요",
         "ko": "-아야/어야 해요로 의무를 표현해요"
       },
       "items": [
@@ -106,27 +106,27 @@
     {
       "type": "practice",
       "title": {
-        "en": "Practice C — Choose between permission and prohibition",
+        "en": "Practice C: Choose between permission and prohibition",
         "ko": "허락과 금지 중 알맞은 것을 골라요"
       },
       "items": [
-        { "q": "여기서 사진을 ___ (찍어도 돼요 / 찍으면 안 돼요) — Taking photos is allowed →", "a": "찍어도 돼요" },
-        { "q": "수업 중에 큰 소리로 ___ (떠들어도 돼요 / 떠들면 안 돼요) — Must not be loud →", "a": "떠들면 안 돼요" },
-        { "q": "질문이 있으면 ___ (물어봐도 돼요 / 물어보면 안 돼요) — May ask questions →", "a": "물어봐도 돼요" },
-        { "q": "박물관 전시품을 손으로 ___ (만져도 돼요 / 만지면 안 돼요) — Must not touch →", "a": "만지면 안 돼요" },
-        { "q": "피곤하면 방에서 ___ (쉬어도 돼요 / 쉬면 안 돼요) — You may rest →", "a": "쉬어도 돼요" }
+        { "q": "여기서 사진을 ___ (찍어도 돼요 / 찍으면 안 돼요) / Taking photos is allowed →", "a": "찍어도 돼요" },
+        { "q": "수업 중에 큰 소리로 ___ (떠들어도 돼요 / 떠들면 안 돼요) / Must not be loud →", "a": "떠들면 안 돼요" },
+        { "q": "질문이 있으면 ___ (물어봐도 돼요 / 물어보면 안 돼요) / May ask questions →", "a": "물어봐도 돼요" },
+        { "q": "박물관 전시품을 손으로 ___ (만져도 돼요 / 만지면 안 돼요) / Must not touch →", "a": "만지면 안 돼요" },
+        { "q": "피곤하면 방에서 ___ (쉬어도 돼요 / 쉬면 안 돼요) / You may rest →", "a": "쉬어도 돼요" }
       ]
     },
     {
       "type": "practice",
       "title": {
-        "en": "Practice D — Complete the sentence for the situation",
+        "en": "Practice D: Complete the sentence for the situation",
         "ko": "상황에 맞는 표현을 골라요"
       },
       "items": [
         { "q": "배가 너무 고파요. 라면을 먹___ (고 싶어요 / 어야 해요) →", "a": "고 싶어요" },
         { "q": "감기에 걸렸어요. 병원에 가___ (고 싶어요 / 야 해요) →", "a": "야 해요" },
-        { "q": "이 컴퓨터를 써도 ___ ? (돼요 / 싶어요) — Asking permission →", "a": "돼요" },
+        { "q": "이 컴퓨터를 써도 ___ ? (돼요 / 싶어요) / Asking permission →", "a": "돼요" },
         { "q": "도서관에서는 전화를 받으면 ___ (안 돼요 / 돼요) →", "a": "안 돼요" },
         { "q": "오늘 날씨가 좋아서 산책하___ (고 싶어요 / 면 안 돼요) →", "a": "고 싶어요" }
       ]

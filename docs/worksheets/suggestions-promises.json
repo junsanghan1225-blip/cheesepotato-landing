@@ -26,8 +26,8 @@
         "Reading tip"
       ],
       "rows": [
-        ["-(으)ㄹ까요?", "Shall we...? / Shall I...?", "We (suggestions) or I (offers to listener)", "—"],
-        ["-(으)ㄹ래요?", "Would you like to...? / Do you want to...?", "Asks listener's direct preference or intention", "—"],
+        ["-(으)ㄹ까요?", "Shall we...? / Shall I...?", "We (suggestions) or I (offers to listener)", " / "],
+        ["-(으)ㄹ래요?", "Would you like to...? / Do you want to...?", "Asks listener's direct preference or intention", " / "],
         ["-(으)ㄹ게요", "I will... (promise to listener)", "First person only ('I'), promising action to listener", "[ㄹ께요] (경음화)"]
       ],
       "note": "Notice spoken reading: -(으)ㄹ게요 is written with ㄱ but pronounced with a tense sound [ㄹ께요]. Never write 'ㄹ께요' in standard spelling."
@@ -67,10 +67,10 @@
         "Reading tip"
       ],
       "rows": [
-        ["여보세요", "Hello (on phone)", "Standard greeting when answering telephone", "—"],
-        ["몇 시에 만날까요?", "What time shall we meet?", "Deciding the meeting time", "—"],
-        ["어디서 만날까요?", "Where shall we meet?", "Deciding the meeting place", "—"],
-        ["이번 주말에 시간 있어요?", "Do you have time this weekend?", "Checking availability for an appointment", "—"],
+        ["여보세요", "Hello (on phone)", "Standard greeting when answering telephone", " / "],
+        ["몇 시에 만날까요?", "What time shall we meet?", "Deciding the meeting time", " / "],
+        ["어디서 만날까요?", "Where shall we meet?", "Deciding the meeting place", " / "],
+        ["이번 주말에 시간 있어요?", "Do you have time this weekend?", "Checking availability for an appointment", " / "],
         ["제가 10분 뒤에 다시 전화할게요", "I will call back in 10 minutes", "Promising to call back later", "[전화할께요]"]
       ],
       "note": "Natural conversation flow: A: 주말에 영화 볼래요? (Would you like to see a movie?) B: 좋아요! 몇 시에 만날까요? (Great! What time shall we meet?) A: 2시에 만나요. 제가 예매할게요 (Let's meet at 2. I'll book the tickets!)."
@@ -78,7 +78,7 @@
     {
       "type": "practice",
       "title": {
-        "en": "Practice A — Make suggestions with -(으)ㄹ까요?",
+        "en": "Practice A: Make suggestions with -(으)ㄹ까요?",
         "ko": "-(으)ㄹ까요?로 제안을 완성해요"
       },
       "items": [
@@ -92,7 +92,7 @@
     {
       "type": "practice",
       "title": {
-        "en": "Practice B — Ask preferences with -(으)ㄹ래요?",
+        "en": "Practice B: Ask preferences with -(으)ㄹ래요?",
         "ko": "-(으)ㄹ래요?로 상대방의 의사를 물어요"
       },
       "items": [
@@ -106,7 +106,7 @@
     {
       "type": "practice",
       "title": {
-        "en": "Practice C — Make promises with -(으)ㄹ게요",
+        "en": "Practice C: Make promises with -(으)ㄹ게요",
         "ko": "-(으)ㄹ게요로 약속을 표현해요"
       },
       "items": [
@@ -120,7 +120,7 @@
     {
       "type": "practice",
       "title": {
-        "en": "Practice D — Choose the fitting ending in dialogue",
+        "en": "Practice D: Choose the fitting ending in dialogue",
         "ko": "대화에 어울리는 어미를 골라요"
       },
       "items": [

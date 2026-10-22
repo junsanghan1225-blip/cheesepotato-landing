@@ -1,5 +1,5 @@
 {
- "_note": "상점(/shop/) 상품 목록 — 운영자 2026-10-17 「상점 페이지부터」 · 「1인 출판 온라인 서점 페이지」. 책 계획은 docs/plans/books.md. 고치면 node tools/build-sheets.mjs. 책 가격은 PDF 9.90 달러로 통일(운영자 2026-10-17). 학습지 묶음 · 낱장 가격은 Claude 제안값. polar 가 비어 있으면 「준비 중」 단추만 보인다 — Polar 대시보드에서 상품(파일 다운로드 혜택)을 만들고 buy.polar.sh 링크를 붙이면 「사기」 단추가 켜진다. 학습지 쪽(/<id>-worksheet/)은 무료 그대로 두고, 파는 것은 인쇄용 PDF 파일(학습지 + 정답지)이다.",
+ "_note": "상점(/shop/) 상품 목록: 운영자 2026-10-17 「상점 페이지부터」 · 「1인 출판 온라인 서점 페이지」. 책 계획은 docs/plans/books.md. 고치면 node tools/build-sheets.mjs. 책 가격은 PDF 9.90 달러로 통일(운영자 2026-10-17). 학습지 묶음 · 낱장 가격은 Claude 제안값. polar 가 비어 있으면 「준비 중」 단추만 보인다, Polar 대시보드에서 상품(파일 다운로드 혜택)을 만들고 buy.polar.sh 링크를 붙이면 「사기」 단추가 켜진다. 학습지 쪽(/<id>-worksheet/)은 무료 그대로 두고, 파는 것은 인쇄용 PDF 파일(학습지 + 정답지)이다.",
  "currency": "USD",
  "singlePrice": "1.99",
  "singles": {},
@@ -12,8 +12,8 @@
     "ko": "초급 학습지 묶음 (A1)"
    },
    "sub": {
-    "en": "Hangul, greetings, everyday words and basic grammar — every sheet with an answer key.",
-    "ko": "한글 · 인사 · 생활 낱말 · 기초 문법 — 모두 정답지 포함"
+    "en": "Hangul, greetings, everyday words and basic grammar, every sheet with an answer key.",
+    "ko": "한글 · 인사 · 생활 낱말 · 기초 문법: 모두 정답지 포함"
    },
    "price": "9.99",
    "polar": ""
@@ -26,8 +26,8 @@
     "ko": "초중급 학습지 묶음 (A2)"
    },
    "sub": {
-    "en": "Linking, honorifics, irregular verbs, speech levels and more — with answer keys.",
-    "ko": "이어 주는 말 · 높임 · 불규칙 · 말투 — 정답지 포함"
+    "en": "Linking, honorifics, irregular verbs, speech levels and more, with answer keys.",
+    "ko": "이어 주는 말 · 높임 · 불규칙 · 말투: 정답지 포함"
    },
    "price": "7.99",
    "polar": ""
@@ -41,7 +41,7 @@
    },
    "sub": {
     "en": "Every worksheet in one download, plus new sheets added to the bundle.",
-    "ko": "모든 학습지를 한 번에 — 새 학습지가 생기면 묶음에 더해 드려요"
+    "ko": "모든 학습지를 한 번에: 새 학습지가 생기면 묶음에 더해 드려요"
    },
    "price": "14.99",
    "polar": ""
@@ -58,8 +58,8 @@
     "ko": "한국어 첫걸음 워크북"
    },
    "sub": {
-    "en": "Hangul, greetings and everyday words — write, check, repeat.",
-    "ko": "한글 · 인사 · 생활 낱말 — 쓰고, 맞춰 보고, 다시"
+    "en": "Hangul, greetings and everyday words, write, check, repeat.",
+    "ko": "한글 · 인사 · 생활 낱말: 쓰고, 맞춰 보고, 다시"
    },
    "about": {
     "en": "A beginner workbook built from our most-used free worksheets: Hangul and final consonants first, then greetings, numbers and dates, family, food, shopping and the basic particles. Every unit has a short explanation, tables to copy, practice and an answer key at the back.",
@@ -97,8 +97,8 @@
     "ko": "이어 주는 말 · 높임 · 불규칙 · 말투"
    },
    "about": {
-    "en": "The next step after First Steps: the grammar that trips up A2 learners, one unit at a time — reasons and connectors, -(으)시-, ㅂ/ㄷ/르 irregulars, speech levels, reported speech and making plans, each with drills and answers.",
-    "ko": "첫걸음 다음 단계 — A2 에서 자주 막히는 문법을 단원별로: 이유 · 이어 주는 말, -(으)시-, ㅂ·ㄷ·르 불규칙, 말투, 간접 인용, 약속 잡기. 단원마다 연습 · 정답."
+    "en": "The next step after First Steps: the grammar that trips up A2 learners, one unit at a time, reasons and connectors, -(으)시-, ㅂ/ㄷ/르 irregulars, speech levels, reported speech and making plans, each with drills and answers.",
+    "ko": "첫걸음 다음 단계: A2 에서 자주 막히는 문법을 단원별로: 이유 · 이어 주는 말, -(으)시-, ㅂ·ㄷ·르 불규칙, 말투, 간접 인용, 약속 잡기. 단원마다 연습 · 정답."
    },
    "for": {
     "en": [
@@ -124,7 +124,7 @@
    "color": "#12704F",
    "level": "TOPIK I",
    "title": {
-    "en": "TOPIK I Reading — 10 Practice Tests",
+    "en": "TOPIK I Reading: 10 Practice Tests",
     "ko": "TOPIK I 읽기 실전 모의고사 10회"
    },
    "sub": {
@@ -132,7 +132,7 @@
     "ko": "실제 시험 형식의 새로 만든 문제 400개 · 풀이 포함"
    },
    "about": {
-    "en": "Ten full TOPIK I reading tests (40 questions each) written in the official format by a Korean teacher. These are original practice questions — not past exam papers. Answers and short explanations are at the back.",
+    "en": "Ten full TOPIK I reading tests (40 questions each) written in the official format by a Korean teacher. These are original practice questions, not past exam papers. Answers and short explanations are at the back.",
     "ko": "TOPIK I 읽기 40문항 × 10회. 한국어 선생님이 공식 형식에 맞춰 새로 만든 연습 문제다(기출 아님). 뒤쪽에 정답과 짧은 풀이."
    },
    "for": {
@@ -182,8 +182,8 @@
     "ko": "실용문 · 설명문 빈칸 쓰기 · 모범 답안과 채점 포인트"
    },
    "about": {
-    "en": "100 original questions for 51 and 52 — one sentence per blank, in the right style. Each has several accepted answers, the scoring point and the mistakes that lose marks. Original practice material, not past papers.",
-    "ko": "51 · 52번 새로 만든 문제 100개 — 빈칸마다 문체에 맞는 한 문장. 문제마다 가능한 답 여러 개, 채점 포인트, 감점 실수. 기출 아님."
+    "en": "100 original questions for 51 and 52, one sentence per blank, in the right style. Each has several accepted answers, the scoring point and the mistakes that lose marks. Original practice material, not past papers.",
+    "ko": "51 · 52번 새로 만든 문제 100개: 빈칸마다 문체에 맞는 한 문장. 문제마다 가능한 답 여러 개, 채점 포인트, 감점 실수. 기출 아님."
    },
    "for": {
     "en": [
@@ -220,7 +220,7 @@
      "ko": "51 · 52번, 유형부터 익히고 100문제로 굳히세요"
     },
     "lead": {
-     "en": "A TOPIK II writing workbook for the two fill-in questions. Every text type starts with a guide — how to read it, the key expressions, the traps — and is followed by original practice questions with model answers and scoring points.",
+     "en": "A TOPIK II writing workbook for the two fill-in questions. Every text type starts with a guide, how to read it, the key expressions, the traps, and is followed by original practice questions with model answers and scoring points.",
      "ko": "TOPIK II 쓰기의 빈칸 두 문항, 51번과 52번만 깊이 다룬 워크북입니다. 유형마다 읽는 법 · 주요 표현 · 함정을 먼저 익히고, 새로 만든 문제로 연습한 뒤 모범답안과 채점 포인트로 확인합니다."
     },
     "features": [
@@ -440,7 +440,7 @@
      ],
      [
       "Size · 판형",
-      "B5 182 × 257 mm — prints on A4 too · A4 인쇄 가능"
+      "B5 182 × 257 mm: prints on A4 too · A4 인쇄 가능"
      ],
      [
       "Language · 언어",
@@ -513,12 +513,12 @@
     "ko": "TOPIK II 쓰기 53~54번 100제"
    },
    "sub": {
-    "en": "Describe data in 300 characters, argue in 700 — with scored samples.",
+    "en": "Describe data in 300 characters, argue in 700, with scored samples.",
     "ko": "자료 설명 300자 · 논술 700자 · 상중하 답안과 채점"
    },
    "about": {
     "en": "100 original questions for 53 and 54 with a model answer, scoring criteria and three sample answers (high / middle / low) with scores and reasons. Original practice material, not past papers.",
-    "ko": "53 · 54번 새로 만든 문제 100개 — 모범 답안, 채점 기준, 상 · 중 · 하 예시 답안(점수와 이유). 기출 아님."
+    "ko": "53 · 54번 새로 만든 문제 100개: 모범 답안, 채점 기준, 상 · 중 · 하 예시 답안(점수와 이유). 기출 아님."
    },
    "for": {
     "en": [

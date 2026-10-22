@@ -30,13 +30,13 @@
           "이거 얼마예요?",
           "How much is this?",
           "Asking the price of an item",
-          "—"
+          " / "
         ],
         [
           "너무 비싸요",
           "It is too expensive",
           "Price reaction",
-          "—"
+          " / "
         ],
         [
           "조금만 깎아 주세요",
@@ -60,7 +60,7 @@
           "현금 영수증 주세요",
           "Cash receipt, please",
           "Asking for tax receipt",
-          "—"
+          " / "
         ]
       ],
       "note": "Prices in Korea always use Sino-Korean numbers + 원: 1,000원 = 천 원, 10,000원 = 만 원, 50,000원 = 오만 원."
@@ -172,7 +172,7 @@
     {
       "type": "practice",
       "title": {
-        "en": "Practice A — Write the price in Korean Hangul",
+        "en": "Practice A: Write the price in Korean Hangul",
         "ko": "가격을 한글로 써요"
       },
       "items": [
@@ -201,7 +201,7 @@
     {
       "type": "practice",
       "title": {
-        "en": "Practice B — Write the clothing item in Korean",
+        "en": "Practice B: Write the clothing item in Korean",
         "ko": "옷 이름을 한국어로 써요"
       },
       "items": [
@@ -230,28 +230,28 @@
     {
       "type": "practice",
       "title": {
-        "en": "Practice C — Choose the correct wearing verb (입어요 / 신어요 / 써요)",
+        "en": "Practice C: Choose the correct wearing verb (입어요 / 신어요 / 써요)",
         "ko": "알맞은 착용 동사를 골라요"
       },
       "items": [
         {
-          "q": "바지를 ___ (입어요 / 신어요) — I put on pants →",
+          "q": "바지를 ___ (입어요 / 신어요) / I put on pants →",
           "a": "입어요"
         },
         {
-          "q": "운동화를 ___ (신어요 / 입어요) — I put on sneakers →",
+          "q": "운동화를 ___ (신어요 / 입어요) / I put on sneakers →",
           "a": "신어요"
         },
         {
-          "q": "모자를 ___ (써요 / 입어요) — I put on a hat →",
+          "q": "모자를 ___ (써요 / 입어요) / I put on a hat →",
           "a": "써요"
         },
         {
-          "q": "양말을 ___ (신어요 / 써요) — I put on socks →",
+          "q": "양말을 ___ (신어요 / 써요) / I put on socks →",
           "a": "신어요"
         },
         {
-          "q": "코트를 ___ (입어요 / 신어요) — I put on a coat →",
+          "q": "코트를 ___ (입어요 / 신어요) / I put on a coat →",
           "a": "입어요"
         }
       ]
@@ -259,28 +259,28 @@
     {
       "type": "practice",
       "title": {
-        "en": "Practice D — Choose the fitting shopping expression",
+        "en": "Practice D: Choose the fitting shopping expression",
         "ko": "알맞은 쇼핑 표현을 골라요"
       },
       "items": [
         {
-          "q": "이거 ___ ? (얼마예요 / 어디예요) — How much is this? →",
+          "q": "이거 ___ ? (얼마예요 / 어디예요) / How much is this? →",
           "a": "얼마예요"
         },
         {
-          "q": "너무 ___ (비싸요 / 맛있어요) — It is too expensive →",
+          "q": "너무 ___ (비싸요 / 맛있어요) / It is too expensive →",
           "a": "비싸요"
         },
         {
-          "q": "사이즈가 딱 ___ (맞아요 / 써요) — The size fits just right →",
+          "q": "사이즈가 딱 ___ (맞아요 / 써요) / The size fits just right →",
           "a": "맞아요"
         },
         {
-          "q": "바지 한 ___ 주세요 (벌 / 켤레) — One pair of pants →",
+          "q": "바지 한 ___ 주세요 (벌 / 켤레) / One pair of pants →",
           "a": "벌"
         },
         {
-          "q": "신발 한 ___ 사요 (켤레 / 벌) — One pair of shoes →",
+          "q": "신발 한 ___ 사요 (켤레 / 벌) / One pair of shoes →",
           "a": "켤레"
         }
       ]

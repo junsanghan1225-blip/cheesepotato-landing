@@ -1,5 +1,5 @@
 {
- "_note": "책 한 권의 틀 — node tools/build-book.mjs topik2-writing-53-54. 단원 「wQQ:N」 = TOPIK II 쓰기 QQ번의 N번째 10문항(topik-writing.js, 전부 창작 — 기출 아님). 지은이 · 신고번호 · ISBN · 정가 · 발행일은 비어 있는 자리.",
+ "_note": "책 한 권의 틀: node tools/build-book.mjs topik2-writing-53-54. 단원 「wQQ:N」 = TOPIK II 쓰기 QQ번의 N번째 10문항(topik-writing.js, 전부 창작, 기출 아님). 지은이 · 신고번호 · ISBN · 정가 · 발행일은 비어 있는 자리.",
  "id": "topik2-writing-53-54",
  "edition": "Draft proof · 시안",
  "theme": "classic",
@@ -14,7 +14,7 @@
   "ko": "TOPIK II 쓰기 53~54번 100제"
  },
  "sub": {
-  "en": "Describe the data in 300 characters, argue your view in 700 — with scored samples.",
+  "en": "Describe the data in 300 characters, argue your view in 700, with scored samples.",
   "ko": "자료 설명 300자 · 논술 700자 · 상중하 답안과 채점"
  },
  "levelTag": "WRITING",
@@ -181,7 +181,7 @@
    },
    "sub": {
     "en": "What people think: positive reasons and worries.",
-    "ko": "사람들의 생각 — 긍정적인 이유와 우려"
+    "ko": "사람들의 생각: 긍정적인 이유와 우려"
    },
    "items": [
     "w53-9",
@@ -375,7 +375,7 @@
       "en": "Watch out",
       "ko": "조심할 것"
      },
-     "text": "“8%” and “8%p” are different: a rise from 27% to 35% is 8%p.\nDo not add your opinion; every sentence comes from the data.\n“8%”와 “8%p”는 다릅니다(27%→35%는 8%p). 내 의견을 쓰지 마세요 — 모든 문장은 자료에서 나와야 합니다."
+     "text": "“8%” and “8%p” are different: a rise from 27% to 35% is 8%p.\nDo not add your opinion; every sentence comes from the data.\n“8%”와 “8%p”는 다릅니다(27%→35%는 8%p). 내 의견을 쓰지 마세요, 모든 문장은 자료에서 나와야 합니다."
     },
     {
      "type": "practice",
@@ -454,7 +454,7 @@
       "en": "How to read this type",
       "ko": "이 유형 읽는 법"
      },
-     "text": "The data may show a rise or fall, but here the question is why people do it or what they use it for: reasons, purposes, preferences, ranked. Give the change in one sentence, then spend the rest on the reasons.\n자료에 증감이 있어도 이 유형에서 묻는 것은 사람들이 왜 · 무엇을 위해 하는가입니다 — 이유 · 목적 · 선호(순위). 변화는 한 문장으로 쓰고 나머지는 이유에 쓰세요."
+     "text": "The data may show a rise or fall, but here the question is why people do it or what they use it for: reasons, purposes, preferences, ranked. Give the change in one sentence, then spend the rest on the reasons.\n자료에 증감이 있어도 이 유형에서 묻는 것은 사람들이 왜 · 무엇을 위해 하는가입니다, 이유 · 목적 · 선호(순위). 변화는 한 문장으로 쓰고 나머지는 이유에 쓰세요."
     },
     {
      "type": "table",
@@ -701,7 +701,7 @@
       "en": "How to read this type",
       "ko": "이 유형 읽는 법"
      },
-     "text": "You are asked why something matters, what makes it hard, and what to do. Write three paragraphs: an introduction; a body that answers the first two questions; and a last paragraph with the method and a short conclusion.\n무엇이 왜 중요한지, 무엇이 어렵게 만드는지, 어떻게 할지를 묻습니다. 세 문단으로 쓰세요 — 서론, 앞의 두 질문에 답하는 본론, 방법과 짧은 결론을 쓰는 마지막 문단."
+     "text": "You are asked why something matters, what makes it hard, and what to do. Write three paragraphs: an introduction; a body that answers the first two questions; and a last paragraph with the method and a short conclusion.\n무엇이 왜 중요한지, 무엇이 어렵게 만드는지, 어떻게 할지를 묻습니다. 세 문단으로 쓰세요, 서론, 앞의 두 질문에 답하는 본론, 방법과 짧은 결론을 쓰는 마지막 문단."
     },
     {
      "type": "table",
@@ -827,7 +827,7 @@
       "en": "How to read this type",
       "ko": "이 유형 읽는 법"
      },
-     "text": "The three questions follow a line: what is wrong, why it happened or what it causes, and what to do. Write three paragraphs: the problem; the causes and effects; then solutions at two levels (individual and society) with a conclusion.\n세 질문이 한 줄로 이어집니다 — 무엇이 문제인가, 왜 생겼고 무엇을 낳는가, 어떻게 풀 것인가. 세 문단으로 쓰세요 — 문제, 원인과 영향, 개인과 사회 두 층위의 해결 방안과 결론."
+     "text": "The three questions follow a line: what is wrong, why it happened or what it causes, and what to do. Write three paragraphs: the problem; the causes and effects; then solutions at two levels (individual and society) with a conclusion.\n세 질문이 한 줄로 이어집니다, 무엇이 문제인가, 왜 생겼고 무엇을 낳는가, 어떻게 풀 것인가. 세 문단으로 쓰세요, 문제, 원인과 영향, 개인과 사회 두 층위의 해결 방안과 결론."
     },
     {
      "type": "table",

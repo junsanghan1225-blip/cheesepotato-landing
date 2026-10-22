@@ -10,6 +10,7 @@
    만든 PDF 는 파는 파일이라 저장소에 두지 않는다(out 기본값 books-out/ 은 .gitignore). 문장은 전부 우리 학습지(창작) — 기출 아님.
    브라우저는 smoke.mjs 처럼 PLAYWRIGHT_PATH · CHROMIUM_PATH 로 바꿀 수 있다. */
 import fs from 'node:fs';
+import { createRequire } from 'node:module';
 import http from 'node:http';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -51,6 +52,22 @@ const cssStr = (x) => '"' + String(x).replace(/\\/g, '\\\\').replace(/"/g, '\\"'
 const HAN = /[가-힣]/;
 const T = B.trim, W = T.w, H = T.h;
 const ACC = CLASSIC ? '#1F3A68' : B.color, TINT = CLASSIC ? '#EEF2F8' : B.tint;
+
+/* ── 단원 끝 QR(운영자 2026-10-22 「책과 앱이 연결되게」) ──
+   단원마다 그 주제의 사이트 쪽(있으면 <id>-worksheet/, 쓰기 책은 /topik-writing/)으로 가는 QR + PDF 안 눌러지는 링크.
+   주소에 utm 을 달아(book / qr / 책 id / 단원 id) 구글 애널리틱스에서 어느 책 · 어느 단원에서 오는지 센다. */
+const qrLib = createRequire(import.meta.url)(path.join(ROOT, 'qrcode-lib.js'));
+const SITE_URL = 'https://everykoreans.com';
+const unitUrl = (u) => {
+  const page = fs.existsSync(path.join(ROOT, `${u.id}-worksheet/index.html`)) ? `/${u.id}-worksheet/` : B.front ? '/topik-writing/' : '/';
+  return `${SITE_URL}${page}?utm_source=book&utm_medium=qr&utm_campaign=${encodeURIComponent(B.id)}&utm_content=${encodeURIComponent(u.id)}`;
+};
+const unitQr = (u) => {
+  const url = unitUrl(u), q = qrLib(0, 'M'); q.addData(url); q.make();
+  const svg = q.createSvgTag({ cellSize: 3, margin: 0, scalable: true });
+  const shown = url.split('?')[0].replace('https://', '');
+  return `<div class="qrb uq"><div class="qr">${svg}</div><div><b>Practice this unit online · free</b><small>스마트폰으로 찍으면 이 단원의 온라인 연습 쪽으로 가요. PDF판은 아래 주소를 눌러도 돼요.</small><a href="${esc(url)}">${esc(shown)}</a></div></div>`;
+};
 
 /* ── 단원 모으기 ── */
 const parts = B.parts.map((p, pi) => ({ ...p, no: pi + 1, sheets: p.units.map((id) => sheet(id)) }));
@@ -177,7 +194,7 @@ function copyrightPage() {
 <dl><dt>Author · 지은이</dt><dd>${esc(B.author.ko)} (${esc(B.author.en)})</dd>
 <dt>Publisher · 펴낸곳</dt><dd>${esc(B.publisher.ko)} · ${esc(B.publisher.en)}</dd>
 <dt>Publisher reg. no. · 출판사 신고번호</dt><dd>${PUBLISHER_NO}</dd>
-${DIGITAL ? `<dt>Format · 형태</dt><dd>Digital edition (PDF) · 디지털판(PDF) — print it at home or at a print shop · 집이나 인쇄소에서 인쇄해 쓰세요</dd>
+${DIGITAL ? `<dt>Format · 형태</dt><dd>Digital edition (PDF) · 디지털판(PDF) · print it at home or at a print shop · 집이나 인쇄소에서 인쇄해 쓰세요</dd>
 <dt>Edition · 판</dt><dd>${esc(B.digitalEdition || 'First digital edition · 디지털판 초판')}</dd>
 <dt>Published · 발행</dt><dd>${new Date().toISOString().slice(0, 7).replace('-', '.')}</dd>` : `<dt>ISBN</dt><dd class="ph">발급 후 기재 · to be assigned</dd>
 <dt>Edition · 판</dt><dd>${esc(B.edition)}</dd>
@@ -185,26 +202,26 @@ ${DIGITAL ? `<dt>Format · 형태</dt><dd>Digital edition (PDF) · 디지털판(
 <dt>Web</dt><dd>${esc(B.web)}</dd></dl>
 <p>All sentences, tables and exercises in this book were written for it. They are original practice material.<br>이 책의 낱말 · 문장 · 연습은 모두 이 책을 위해 새로 쓴 것입니다.</p>
 <p>© ${esc(B.publisher.en)}. All rights reserved. No part of this book may be reproduced without written permission, except for brief quotations in reviews or for classroom use by the purchaser.<br>저작권법에 따라 보호받는 책으로, 무단 복제와 전재를 금합니다.</p>
-<p>TOPIK is the name of an exam run by the National Institute for International Education (NIIED). This book is an independent study aid; it is not operated, endorsed or certified by NIIED or the TOPIK Center, and its questions are original — not past exam papers.<br>TOPIK 은 국립국제교육원의 시험 이름입니다. 이 책은 독자적으로 만든 학습서이며 국립국제교육원 · 한국어능력시험센터가 운영 · 제휴 · 인증하지 않았습니다. 문항은 모두 새로 만든 것으로 기출이 아닙니다.</p>
+<p>TOPIK is the name of an exam run by the National Institute for International Education (NIIED). This book is an independent study aid; it is not operated, endorsed or certified by NIIED or the TOPIK Center, and its questions are original, not past exam papers.<br>TOPIK 은 국립국제교육원의 시험 이름입니다. 이 책은 독자적으로 만든 학습서이며 국립국제교육원 · 한국어능력시험센터가 운영 · 제휴 · 인증하지 않았습니다. 문항은 모두 새로 만든 것으로 기출이 아닙니다.</p>
 <p>Typeset in Pretendard (SIL Open Font License 1.1).</p>
 </div></div>`;
 }
 function prefacePage() {
   return `<div class="blk plain"><div class="pf"><h2>Preface</h2><div class="k">머리말</div>
 ${B.preface.en.map((t, i) => `<p class="en">${esc(t)}</p><p class="ko">${esc(B.preface.ko[i])}</p>`).join('')}
-<div class="au"><b>${esc(B.author.en)}</b> — ${esc(B.authorAbout.en)}<br>${esc(B.authorAbout.ko)}</div></div></div>`;
+<div class="au"><b>${esc(B.author.en)}</b>: ${esc(B.authorAbout.en)}<br>${esc(B.authorAbout.ko)}</div></div></div>`;
 }
 function howPage() {
   return `<div class="blk plain"><div class="pf how"><h2>How to use this book</h2><div class="k">이 책 쓰는 법</div><ol>${B.howto.en.map((t, i) => `<li><div><b>${esc(t)}</b><span>${esc(B.howto.ko[i])}</span></div></li>`).join('')}</ol></div></div>`;
 }
 const GUIDE = [
-  ['table', '핵심 정리 · Key Points', '읽고 소리 내 말하고 따라 쓰는 표. 단원의 뼈대입니다.', 'Tables to read aloud, copy and revisit — the backbone of each unit.'],
+  ['table', '핵심 정리 · Key Points', '읽고 소리 내 말하고 따라 쓰는 표. 단원의 뼈대입니다.', 'Tables to read aloud, copy and revisit · the backbone of each unit.'],
   ['ref', '참고 · Note', '규칙이 어떻게 움직이는지 풀어 쓴 설명입니다.', 'A short explanation of how the pattern works.'],
   ['practice', '연습 · Practice', '줄 위에 직접 쓰고, 뒤쪽 정답으로 확인합니다.', 'Write on the line, then check the Answer Key at the back.'],
   ['tip', 'TIP · 팁', '더 자연스럽게 말하는 요령, 알아 두면 편한 규칙.', 'A handy shortcut or a more natural way to say it.'],
-  ['warn', 'WARNING · 주의', '자주 하는 실수와 예외. 틀리기 쉬운 곳은 꼭 읽으세요.', 'Common mistakes and exceptions — read these before you practise.'],
+  ['warn', 'WARNING · 주의', '자주 하는 실수와 예외. 틀리기 쉬운 곳은 꼭 읽으세요.', 'Common mistakes and exceptions · read these before you practise.'],
   ['pattern', 'PATTERN · 문형', '자주 쓰는 문장 틀. 점선 상자 자리에 내 낱말을 갈아 끼우세요.', 'A sentence frame. Swap your own word into the dashed slot.'],
-  ['more', 'MORE · 더 알아보기', '소리 변화, 유래 같은 덧붙임. 지금 몰라도 괜찮고, 궁금할 때 읽으세요.', 'Sound changes, origins and extras. Optional — read when curious.'],
+  ['more', 'MORE · 더 알아보기', '소리 변화, 유래 같은 덧붙임. 지금 몰라도 괜찮고, 궁금할 때 읽으세요.', 'Sound changes, origins and extras. Optional · read when curious.'],
 ];
 function guidePage() {
   const mini = (k) => {
@@ -212,10 +229,10 @@ function guidePage() {
     if (k === 'ref') return `<div class="sec"><h3><em class="lab">참고 1-3</em><span>How it works</span></h3><div class="note">Explains why the pattern behaves the way it does.</div></div>`;
     if (k === 'practice') return `<div class="sec"><h3><em class="lab">연습 1-4</em><span>Practice A</span></h3><ol class="pr" style="--qw:40%"><li><span class="q">가 + ㄴ →</span><span class="ln"></span></li><li><span class="q">나 + ㅁ →</span><span class="ln"></span></li></ol></div>`;
     if (k === 'pattern') return patHtml([{ p: [['Place', 's'], ['이/가', 'f'], ['어디예요?', 'f']], en: 'Where is [place]?' }]);
-    return boxHtml(k, { tip: 'Short, useful, and often what native speakers really say.', warn: 'The mistake learners make most often — and how to avoid it.', more: 'Extra background you can skip on the first read.' }[k]);
+    return boxHtml(k, { tip: 'Short, useful, and often what native speakers really say.', warn: 'The mistake learners make most often · and how to avoid it.', more: 'Extra background you can skip on the first read.' }[k]);
   };
-  return `<div class="blk plain gd"><h2>How this book is organized</h2><div class="k">이 책의 구성 — 블록 읽는 법</div>${GUIDE.map(([k, t, ko, en]) => `<div class="row"><div class="mini">${mini(k)}</div><div class="d"><b>${t}</b>${en}<small>${ko}</small></div></div>`).join('')}
-<p style="margin-top:2.4mm;font-size:8.2pt;color:#2a3550;line-height:1.5"><b>번호 읽는 법 · Numbering</b> — 「핵심 정리 5-2」 = 5단원의 두 번째 칸. “Key Points 5-2” is the second block of Unit 5. 정답과 찾아보기는 책 뒤쪽에 있습니다 · The Answer Key and Index are at the back.</p></div>`;
+  return `<div class="blk plain gd"><h2>How this book is organized</h2><div class="k">이 책의 구성 · 블록 읽는 법</div>${GUIDE.map(([k, t, ko, en]) => `<div class="row"><div class="mini">${mini(k)}</div><div class="d"><b>${t}</b>${en}<small>${ko}</small></div></div>`).join('')}
+<p style="margin-top:2.4mm;font-size:8.2pt;color:#2a3550;line-height:1.5"><b>번호 읽는 법 · Numbering</b>: 「핵심 정리 5-2」 = 5단원의 두 번째 칸. “Key Points 5-2” is the second block of Unit 5. 정답과 찾아보기는 책 뒤쪽에 있습니다 · The Answer Key and Index are at the back.</p></div>`;
 }
 function tocPage(starts) {
   let h = `<div class="blk plain"><div class="toc"><h2>Contents · 목차</h2>`;
@@ -253,7 +270,7 @@ function qScorePage(p) {
   const pt = TWM.TW_QS.find((x) => x.q === q)?.pt;
   const smp = TWM.TW_ITEMS.find((x) => x.id === e.worked?.item)?.samples || [];
   const AREA = { content: '내용', structure: '구성', language: '언어' };
-  const ladder = smp.length ? `<h3 class="gh">Sample scores · 예시 답안 점수 <small style="font-weight:500;color:#5a6780">(${esc(e.worked.item)})</small></h3><div class="lad">${smp.map((sm) => `<div class="rw"><b>${esc(sm.level)}</b><div class="bar"><span style="width:${Math.round(sm.total / pt * 100)}%"></span></div><em>${sm.total}<small>/${pt}</small></em></div><div class="why">${Object.entries(sm.scores || {}).map(([k, v]) => `${AREA[k] || k} ${v}`).join(' · ')} — ${esc(sm.why)}</div>`).join('')}</div>` : '';
+  const ladder = smp.length ? `<h3 class="gh">Sample scores · 예시 답안 점수 <small style="font-weight:500;color:#5a6780">(${esc(e.worked.item)})</small></h3><div class="lad">${smp.map((sm) => `<div class="rw"><b>${esc(sm.level)}</b><div class="bar"><span style="width:${Math.round(sm.total / pt * 100)}%"></span></div><em>${sm.total}<small>/${pt}</small></em></div><div class="why">${Object.entries(sm.scores || {}).map(([k, v]) => `${AREA[k] || k} ${v}`).join(' · ')} · ${esc(sm.why)}</div>`).join('')}</div>` : '';
   return `<div class="blk plain gd"><h2>How Question ${q} is scored</h2><div class="k">${q}번 채점 기준</div>
 <div class="total"><div class="big">${pt}<small>pts · 점</small></div><p>${esc(e.scoring.en)}<small>${esc(e.scoring.ko)}</small></p></div>
 <div class="sc3" style="--n:${e.criteria.length}">${e.criteria.map((c) => `<div class="sc"><h4>${esc(c.k.en)}<small>${esc(c.k.ko)}</small></h4><div class="hi"><i>✓</i><div>${bi(c.hi)}</div></div><div class="lo"><i>✗</i><div>${bi(c.lo)}</div></div></div>`).join('')}</div>${ladder}</div>`;
@@ -265,11 +282,11 @@ function qWorkedPage(p) {
   const ans = x.blanks ? x.blanks.map((b) => `<div class="wl"><b>${esc(b.mark)}</b><span class="wans">${b.answers.slice(0, 2).map(esc).join(' &nbsp;/&nbsp; ')}</span></div>`).join('')
     : `<div class="wp" style="white-space:pre-line">${esc(x.model)}</div>`;
   const an = (e.analysis || []).map((a) => `<li>${bi(a)}</li>`).join('')
-    || (x.samples || []).map((sm) => `<li><b>${esc(sm.level)} · ${sm.total}점</b> — ${esc(sm.why)}</li>`).join('');
+    || (x.samples || []).map((sm) => `<li><b>${esc(sm.level)} · ${sm.total}점</b>: ${esc(sm.why)}</li>`).join('');
   const h3 = (t) => `<h3 style="font-size:10.4pt;margin:3mm 0 1.4mm;color:#1f3a68">${t}</h3>`;
   const stepsHtml = `${h3('Step by step · 풀이 순서')}<ol style="margin:0 0 2mm;padding-left:5mm;font-size:9.4pt;line-height:1.55">${e.steps.map((st) => `<li>${bi(st)}</li>`).join('')}</ol>`;
   const ansHtml = `${h3('Model answer · 모범답안')}${ans}${an ? `${h3('Answer analysis · 답안 분석')}<ul style="margin:0;padding-left:5mm;font-size:9.2pt;line-height:1.55">${an}</ul>` : ''}`;
-  const head = `<h2>Worked example · Question ${q}</h2><div class="k">${q}번 예시 풀이 — ${esc(x.title)}</div>`;
+  const head = `<h2>Worked example · Question ${q}</h2><div class="k">${q}번 예시 풀이: ${esc(x.title)}</div>`;
   /* 53 · 54번은 모범답안이 길어 한 쪽에 안 들어간다 — 문제 · 풀이 순서 / 모범답안 · 분석으로 두 쪽 */
   return x.blanks ? `<div class="blk plain gd">${head}${task}${stepsHtml}${ansHtml}</div>`
     : `<div class="blk plain gd">${head}${task}${stepsHtml}</div><div class="blk plain gd"><h2>Worked example · Question ${q} <small style="font-weight:500;color:#5a6780">(continued · 이어서)</small></h2>${ansHtml}</div>`;
@@ -380,8 +397,8 @@ function unitBlock(u) {
     if (s.type === 'writing') return `<div class="sec wq">${sr(si)}${secLabel(s)}${writingHtml(s.raw)}</div>`;
     return `<div class="sec"${s.items.length <= 8 ? ' style="break-inside:avoid"' : ''}>${sr(si)}${secLabel(s)}${s.hint ? `<div class="hint">${esc(s.hint)}</div>` : ''}<ol class="pr" style="--qw:${qw(s.items)}">${s.items.map((x) => `<li${x.q.includes('___') ? ' class="fill"' : ''}>${qLine(x.q)}</li>`).join('')}</ol></div>`;
   }).join('\n');
-  if (CLASSIC) return `<div class="blk ${unitCss(u)}" style="page:${unitCss(u)}">${u._head}${body}</div>`;
-  return open + `<div class="blk ${unitCss(u)}" style="page:${unitCss(u)}">${body}</div>`;
+  if (CLASSIC) return `<div class="blk ${unitCss(u)}" style="page:${unitCss(u)}">${u._head}${unitQr(u)}${body}</div>`;
+  return open + `<div class="blk ${unitCss(u)}" style="page:${unitCss(u)}">${body}${unitQr(u)}</div>`;
 }
 function answersBlock() {
   let h = `<div class="blk plain ak"><h2>Answer Key</h2><div class="k">정답</div>`;
@@ -419,7 +436,7 @@ function indexEntries() {
   return [...map.values()].sort((a, b) => a.w.localeCompare(b.w, 'ko'));
 }
 function indexBlock(entries) {
-  let h = `<div class="blk plain ix"><h2>Index</h2><div class="k">찾아보기 — Korean words in this book and the unit they appear in</div><div class="cols">`;
+  let h = `<div class="blk plain ix"><h2>Index</h2><div class="k">찾아보기: Korean words in this book and the unit they appear in</div><div class="cols">`;
   let cur = '';
   for (const e of entries) {
     const c = ini(e.w);
@@ -429,7 +446,14 @@ function indexBlock(entries) {
   return h + '</div></div>';
 }
 const reviewSheet = () => `<div class="blk plain rv"><h2>Review checklist · 검수 체크표</h2><div class="k">한 단원씩 훑고 ○ / ✕ 를 적으세요. 고칠 곳은 빨간 출처(예: greetings-self-introduction · §2)와 번호로 알려 주시면 됩니다.</div><table><thead><tr><th>Unit</th><th>사실 Facts</th><th>오타 Typos</th><th>번역 English</th><th>난이도 Level</th><th>정답 Answers</th><th>메모 Notes</th></tr></thead><tbody>${units.map((u) => `<tr><td>${String(u.no).padStart(2, '0')} ${esc(u.title.en)}</td><td class="c">☐</td><td class="c">☐</td><td class="c">☐</td><td class="c">☐</td><td class="c">☐</td><td></td></tr>`).join('')}</tbody></table></div>`;
-const memoBlock = (n) => Array.from({ length: n }, () => `<div class="blk plain memo"><h2>Notes · 메모</h2>${'<div class="rule"></div>'.repeat(22)}</div>`).join('');
+/* 책 구매자 혜택 — docs/books/<id>.json 의 bonus {code, days}. 메모 첫 쪽 맨 위에 QR + 코드 + 눌러지는 주소 */
+const bonusBox = () => {
+  if (!B.bonus) return '';
+  const url = `${SITE_URL}/?bk=${B.bonus.code}&utm_source=book&utm_medium=bonus&utm_campaign=${encodeURIComponent(B.id)}`;
+  const q = qrLib(0, 'M'); q.addData(url); q.make();
+  return `<div class="qrb uq"><div class="qr">${q.createSvgTag({ cellSize: 3, margin: 0, scalable: true })}</div><div><b>Reader bonus · Pro free for ${B.bonus.days} days</b><small>이 책을 사신 분께 드리는 선물이에요. QR을 찍거나 아래 주소를 열고 로그인하면 Pro ${B.bonus.days}일이 열려요. 코드 ${esc(B.bonus.code)} (한 계정에 한 번)</small><a href="${esc(url)}">${esc(url.split('&utm')[0].replace('https://', ''))}</a></div></div>`;
+};
+const memoBlock = (n) => Array.from({ length: n }, (_, i) => `<div class="blk plain memo"><h2>Notes · 메모</h2>${i === 0 ? bonusBox() : ''}${'<div class="rule"></div>'.repeat(i === 0 && B.bonus ? 18 : 22)}</div>`).join('');
 
 /* ── 쪽 찍기 ── */
 const reviewTop = REVIEW ? `@page:left{@bottom-center{content:"REVIEW COPY · 검수본";white-space:nowrap;font:800 6.4pt 'Pretendard Variable';letter-spacing:.2em;color:#c0392b;vertical-align:top;padding-top:6mm}}@page:right{@bottom-center{content:"REVIEW COPY · 검수본";white-space:nowrap;font:800 6.4pt 'Pretendard Variable';letter-spacing:.2em;color:#c0392b;vertical-align:top;padding-top:6mm}}` : '';
@@ -465,6 +489,7 @@ tbody tr:nth-child(even) td,tr:nth-child(even) td{background:transparent}td{bord
 .lad .rw{display:flex;align-items:center;gap:2.4mm;margin-top:2.2mm}.lad .rw b{width:7mm;font-size:9.4pt;color:${ACC}}.lad .bar{flex:1;height:3.4mm;background:#e8ecf3;border-radius:2mm;overflow:hidden}.lad .bar span{display:block;height:100%;background:${ACC}}.lad em{font:800 11pt "Pretendard Variable";font-style:normal;width:21mm;white-space:nowrap;text-align:right}.lad em small{font-size:7.4pt;font-weight:500;color:#5a6780}.lad .why{font-size:8pt;color:#44506a;line-height:1.4;margin:.6mm 0 0 9.4mm}
 .fm .lead{font-size:9.4pt;line-height:1.5;margin:1mm 0 3mm}.fm .lead small{display:block;font-size:8pt;color:#5a6780}.fm .note2{font-size:8pt;color:#5a6780;margin:1.2mm 0 3mm}.fm .note2 small{display:block}
 .tbar{display:flex;gap:.8mm;margin-top:1.6mm}.tbar span{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:2mm 0;border-radius:1.4mm;background:${ACC};color:#fff;font-size:8pt;min-width:9mm}.tbar span:nth-child(odd){opacity:.86}.tbar span:last-child{background:#7a8aa6}.tbar b{font-size:10pt}
+.uq{margin:0 0 3mm;padding:1.5mm 3mm;gap:3mm;break-inside:avoid}.uq .qr svg{width:14mm;height:14mm}.uq b{font-size:8.5pt}.uq small{font-size:7pt;margin:.3mm 0}.uq a{display:block;margin-top:1mm;font-size:7pt;color:${ACC};text-decoration:none;word-break:break-all}
 .qrb{display:flex;gap:4mm;align-items:center;margin-top:5mm;padding:3mm 4mm;border:.3mm solid ${ACC};border-radius:2mm;background:${TINT}}.qrb .qr svg{width:22mm;height:22mm;display:block}.qrb b{display:block;font-size:10pt;color:${ACC}}.qrb small{display:block;font-size:8pt;color:#44506a;margin:.8mm 0}.qrb span{font-size:8pt;font-weight:700;color:${ACC}}
 .wk{display:grid;grid-template-columns:1fr 1fr;gap:3.2mm;margin-top:2mm}.wc2{border-radius:2mm;overflow:hidden;border:.3mm solid var(--wc,#1F3A68);background:#fff}.wc2 h4{background:var(--wc,#1F3A68);color:#fff;padding:2mm 2.6mm;font-size:8.6pt;line-height:1.3}.wc2 h4 small{display:block;font-size:7.2pt;font-weight:500;opacity:.85}.wc2 .dy{display:flex;align-items:center;gap:1.8mm;padding:1.8mm 2.4mm;border-top:.2mm solid #e3e8f0;font-size:8pt}.wc2 .dy i{flex:none;width:3.6mm;height:3.6mm;border:.35mm solid var(--wc,#1F3A68);border-radius:.8mm}.wc2 .dy b{flex:none;width:6mm;color:var(--wc,#1F3A68);font-size:7.6pt}.wc2.c0{--wc:#1F3A68}.wc2.c1{--wc:#2a7a6a}.wc2.c2{--wc:#a8641e}.wc2.c3{--wc:#7a3d8a}
 .rl{padding-left:5mm;display:flex;flex-direction:column;gap:2mm;font-size:9pt;line-height:1.45}.rl li::marker{color:${ACC};font-weight:800}.rl small{display:block;font-size:7.8pt;color:#5a6780}

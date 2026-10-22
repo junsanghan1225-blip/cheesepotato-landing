@@ -170,7 +170,7 @@
     {
       "type": "practice",
       "title": {
-        "en": "Practice A — Write the official consonant name",
+        "en": "Practice A: Write the official consonant name",
         "ko": "자음의 이름을 한글로 써요"
       },
       "items": [
@@ -203,7 +203,7 @@
     {
       "type": "practice",
       "title": {
-        "en": "Practice B — Combine consonant and vowel into one syllable",
+        "en": "Practice B: Combine consonant and vowel into one syllable",
         "ko": "자음과 모음을 합쳐서 한 글자로 써요"
       },
       "items": [
@@ -236,7 +236,7 @@
     {
       "type": "practice",
       "title": {
-        "en": "Practice C — Write the initial consonant of each word",
+        "en": "Practice C: Write the initial consonant of each word",
         "ko": "단어의 첫소리 자음을 써요"
       },
       "items": [
@@ -265,7 +265,7 @@
     {
       "type": "practice",
       "title": {
-        "en": "Practice D — Identify the vowel in the syllable",
+        "en": "Practice D: Identify the vowel in the syllable",
         "ko": "글자의 모음을 찾아 써요"
       },
       "items": [

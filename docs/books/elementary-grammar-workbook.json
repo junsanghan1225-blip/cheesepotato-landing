@@ -1,5 +1,5 @@
 {
- "_note": "책 한 권의 틀 — node tools/build-book.mjs elementary-grammar-workbook. 단원 = 학습지(docs/worksheets/<id>.json) 순서. 1권 틀과 같은 규칙. 지은이 · 펴낸이 · 신고번호 · ISBN · 정가 · 발행일은 비어 있는 자리.",
+ "_note": "책 한 권의 틀: node tools/build-book.mjs elementary-grammar-workbook. 단원 = 학습지(docs/worksheets/<id>.json) 순서. 1권 틀과 같은 규칙. 지은이 · 펴낸이 · 신고번호 · ISBN · 정가 · 발행일은 비어 있는 자리.",
  "id": "elementary-grammar-workbook",
  "edition": "Draft proof · 시안",
  "theme": "classic",
@@ -52,7 +52,7 @@
  "howto": {
   "en": [
    "Read the tables aloud. Where the sound differs from the spelling, a “reading tip” shows how it is really pronounced.",
-   "Cover the English column with a card and test yourself, then swap — cover the Korean.",
+   "Cover the English column with a card and test yourself, then swap, cover the Korean.",
    "Write your answers on the lines. Use pencil: you will want to do the page again.",
    "Check the Answer Key at the back. If you missed more than a few, re-read the tables and retry later.",
    "Look up any word in the Index. It tells you which unit it appears in.",

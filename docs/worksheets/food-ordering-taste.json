@@ -30,19 +30,19 @@
           "여기요 / 저기요",
           "Excuse me!",
           "Calling the server to your table",
-          "—"
+          " / "
         ],
         [
           "메뉴판 좀 주세요",
           "Please give me the menu",
           "Asking for the menu",
-          "—"
+          " / "
         ],
         [
           "물 좀 주세요",
           "Please give me water",
           "Asking for drinking water",
-          "—"
+          " / "
         ],
         [
           "비빔밥 하나 주세요",
@@ -60,13 +60,13 @@
           "얼마예요?",
           "How much is it?",
           "Asking for the price",
-          "—"
+          " / "
         ],
         [
           "계산해 주세요",
           "Check, please",
           "Asking to pay the bill",
-          "—"
+          " / "
         ]
       ],
       "note": "Standard pattern: [Food name] + [Quantity] + 주세요. For example: 비빔밥 하나 주세요 (One bibimbap, please)."
@@ -190,7 +190,7 @@
     {
       "type": "practice",
       "title": {
-        "en": "Practice A — Say it at the restaurant",
+        "en": "Practice A: Say it at the restaurant",
         "ko": "식당에서 하는 말을 완성해요"
       },
       "items": [
@@ -219,7 +219,7 @@
     {
       "type": "practice",
       "title": {
-        "en": "Practice B — Conjugate the taste adjective to 해요체",
+        "en": "Practice B: Conjugate the taste adjective to 해요체",
         "ko": "맛 형용사를 해요체로 바꿔 써요"
       },
       "items": [
@@ -248,7 +248,7 @@
     {
       "type": "practice",
       "title": {
-        "en": "Practice C — Choose the taste matching the food",
+        "en": "Practice C: Choose the taste matching the food",
         "ko": "음식에 어울리는 맛을 골라요"
       },
       "items": [
@@ -277,7 +277,7 @@
     {
       "type": "practice",
       "title": {
-        "en": "Practice D — Choose the right ordering unit",
+        "en": "Practice D: Choose the right ordering unit",
         "ko": "알맞은 세는 말을 골라요"
       },
       "items": [
