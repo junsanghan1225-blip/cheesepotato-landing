@@ -29,13 +29,13 @@
         [
           "Grandfather",
           "할아버지",
-          "—",
+          " / ",
           "Father's or mother's father"
         ],
         [
           "Grandmother",
           "할머니",
-          "—",
+          " / ",
           "Father's or mother's mother"
         ],
         [
@@ -71,19 +71,19 @@
         [
           "Older brother (female speaker)",
           "오빠",
-          "—",
+          " / ",
           "Used by females"
         ],
         [
           "Older sister (female speaker)",
           "언니",
-          "—",
+          " / ",
           "Used by females"
         ],
         [
           "Younger sibling",
           "동생",
-          "—",
+          " / ",
           "Little brother (남동생) / little sister (여동생)"
         ]
       ],
@@ -164,7 +164,7 @@
     {
       "type": "practice",
       "title": {
-        "en": "Practice A — Terms used by a male speaker",
+        "en": "Practice A: Terms used by a male speaker",
         "ko": "남자가 부르는 호칭을 써요"
       },
       "items": [
@@ -189,7 +189,7 @@
     {
       "type": "practice",
       "title": {
-        "en": "Practice B — Terms used by a female speaker",
+        "en": "Practice B: Terms used by a female speaker",
         "ko": "여자가 부르는 호칭을 써요"
       },
       "items": [
@@ -214,7 +214,7 @@
     {
       "type": "practice",
       "title": {
-        "en": "Practice C — Replace the plain word with its honorific partner",
+        "en": "Practice C: Replace the plain word with its honorific partner",
         "ko": "알맞은 높임말 단어로 바꿔 써요"
       },
       "items": [
@@ -247,7 +247,7 @@
     {
       "type": "practice",
       "title": {
-        "en": "Practice D — Choose the polite honorific expression",
+        "en": "Practice D: Choose the polite honorific expression",
         "ko": "알맞은 높임 표현을 골라요"
       },
       "items": [

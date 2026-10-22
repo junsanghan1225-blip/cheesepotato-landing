@@ -81,7 +81,7 @@
     {
       "type": "practice",
       "title": {
-        "en": "Practice A — Write the season in Korean",
+        "en": "Practice A: Write the season in Korean",
         "ko": "계절 이름을 한국어로 써요"
       },
       "items": [
@@ -94,7 +94,7 @@
     {
       "type": "practice",
       "title": {
-        "en": "Practice B — Write the temperature reading in Hangul",
+        "en": "Practice B: Write the temperature reading in Hangul",
         "ko": "기온을 한글로 써요"
       },
       "items": [
@@ -108,7 +108,7 @@
     {
       "type": "practice",
       "title": {
-        "en": "Practice C — Write the weather condition in polite present",
+        "en": "Practice C: Write the weather condition in polite present",
         "ko": "날씨 표현을 해요체로 완성해요"
       },
       "items": [
@@ -122,7 +122,7 @@
     {
       "type": "practice",
       "title": {
-        "en": "Practice D — Choose the fitting weather word",
+        "en": "Practice D: Choose the fitting weather word",
         "ko": "알맞은 계절과 날씨 단어를 골라요"
       },
       "items": [

@@ -30,7 +30,7 @@
           "안녕하세요",
           "Hello / Good morning",
           "Everyday polite greeting",
-          "—"
+          " / "
         ],
         [
           "반갑습니다",
@@ -42,13 +42,13 @@
           "안녕히 계세요",
           "Goodbye (stay well)",
           "Said to the person staying",
-          "—"
+          " / "
         ],
         [
           "안녕히 가세요",
           "Goodbye (go well)",
           "Said to the person leaving",
-          "—"
+          " / "
         ],
         [
           "감사합니다",
@@ -166,7 +166,7 @@
     {
       "type": "practice",
       "title": {
-        "en": "Practice A — Choose the fitting greeting",
+        "en": "Practice A: Choose the fitting greeting",
         "ko": "상황에 알맞은 인사말을 써요"
       },
       "items": [
@@ -195,7 +195,7 @@
     {
       "type": "practice",
       "title": {
-        "en": "Practice B — Write the nationality in Korean",
+        "en": "Practice B: Write the nationality in Korean",
         "ko": "국적을 한국어로 써요"
       },
       "items": [
@@ -224,7 +224,7 @@
     {
       "type": "practice",
       "title": {
-        "en": "Practice C — Write the occupation in Korean",
+        "en": "Practice C: Write the occupation in Korean",
         "ko": "직업을 한국어로 써요"
       },
       "items": [
@@ -253,7 +253,7 @@
     {
       "type": "practice",
       "title": {
-        "en": "Practice D — Complete the self-introduction sentence",
+        "en": "Practice D: Complete the self-introduction sentence",
         "ko": "자기소개 문장을 완성해요"
       },
       "items": [

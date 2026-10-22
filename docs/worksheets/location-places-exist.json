@@ -9,7 +9,7 @@
     "ko": "앞 · 뒤 · 위 · 아래 위치 표현, 주요 장소 명칭, 있다 · 없다 문장"
   },
   "desc": {
-    "en": "Free printable Korean worksheet on location words (위, 아래, 앞, 뒤), common places (학교, 집, 병원), and the existence verbs 있다 / 없다 with the location particle 에 — practice exercises and an answer key."
+    "en": "Free printable Korean worksheet on location words (위, 아래, 앞, 뒤), common places (학교, 집, 병원), and the existence verbs 있다 / 없다 with the location particle 에, practice exercises and an answer key."
   },
   "level": "A1",
   "sections": [
@@ -77,7 +77,7 @@
     {
       "type": "practice",
       "title": {
-        "en": "Practice A — Write the position word in Korean",
+        "en": "Practice A: Write the position word in Korean",
         "ko": "위치 단어를 한국어로 써요"
       },
       "items": [
@@ -92,7 +92,7 @@
     {
       "type": "practice",
       "title": {
-        "en": "Practice B — Write the place name in Korean",
+        "en": "Practice B: Write the place name in Korean",
         "ko": "장소 이름을 한국어로 써요"
       },
       "items": [
@@ -107,7 +107,7 @@
     {
       "type": "practice",
       "title": {
-        "en": "Practice C — Fill in the position word based on the English prompt",
+        "en": "Practice C: Fill in the position word based on the English prompt",
         "ko": "알맞은 위치 명사를 써요"
       },
       "items": [
@@ -121,7 +121,7 @@
     {
       "type": "practice",
       "title": {
-        "en": "Practice D — Choose 있어요 or 없어요",
+        "en": "Practice D: Choose 있어요 or 없어요",
         "ko": "있어요 / 없어요 중 알맞은 말을 골라요"
       },
       "items": [

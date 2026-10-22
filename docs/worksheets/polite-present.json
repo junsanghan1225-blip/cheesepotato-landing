@@ -191,7 +191,7 @@
     {
       "type": "practice",
       "title": {
-        "en": "Practice A — Write the polite present",
+        "en": "Practice A: Write the polite present",
         "ko": "해요체로 바꿔 써요"
       },
       "items": [
@@ -240,7 +240,7 @@
     {
       "type": "practice",
       "title": {
-        "en": "Practice B — Choose 아요 or 어요",
+        "en": "Practice B: Choose 아요 or 어요",
         "ko": "-아요 / -어요 중 알맞은 것을 써요"
       },
       "hint": "Look at the last vowel of the stem.",
@@ -274,7 +274,7 @@
     {
       "type": "practice",
       "title": {
-        "en": "Practice C — Fill in the verb",
+        "en": "Practice C: Fill in the verb",
         "ko": "괄호 안의 동사를 알맞게 바꿔요"
       },
       "items": [
@@ -315,7 +315,7 @@
     {
       "type": "practice",
       "title": {
-        "en": "Practice D — Say it in Korean",
+        "en": "Practice D: Say it in Korean",
         "ko": "한국어로 말해요"
       },
       "items": [

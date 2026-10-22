@@ -1,5 +1,5 @@
 {
- "_note": "책 한 권의 틀 — node tools/build-book.mjs topik2-writing-51-52. 단원 「wQQ:N」 = TOPIK II 쓰기 QQ번의 N번째 10문항(topik-writing.js, 전부 창작 — 기출 아님). 지은이 · 신고번호 · ISBN · 정가 · 발행일은 비어 있는 자리.",
+ "_note": "책 한 권의 틀: node tools/build-book.mjs topik2-writing-51-52. 단원 「wQQ:N」 = TOPIK II 쓰기 QQ번의 N번째 10문항(topik-writing.js, 전부 창작, 기출 아님). 지은이 · 신고번호 · ISBN · 정가 · 발행일은 비어 있는 자리.",
  "id": "topik2-writing-51-52",
  "edition": "Draft proof · 시안",
  "theme": "classic",
@@ -14,7 +14,7 @@
   "ko": "TOPIK II 쓰기 51~52번 100제"
  },
  "sub": {
-  "en": "Complete the practical text and the explanatory text — with model answers.",
+  "en": "Complete the practical text and the explanatory text, with model answers.",
   "ko": "실용문 · 설명문 빈칸 쓰기 · 모범 답안과 감점 포인트"
  },
  "levelTag": "WRITING",
@@ -40,7 +40,7 @@
  "web": "everykoreans.com",
  "preface": {
   "en": [
-   "Questions 51 and 52 ask for one sentence in each blank — only two sentences, but they decide a lot of your score. The trap is style: a notice needs the formal -ㅂ니다 style, an explanatory text needs -(느)ㄴ다.",
+   "Questions 51 and 52 ask for one sentence in each blank, only two sentences, but they decide a lot of your score. The trap is style: a notice needs the formal -ㅂ니다 style, an explanatory text needs -(느)ㄴ다.",
    "This book gives you 100 original questions (50 for each) in the style of the real test. All passages are newly written; none is a past exam question.",
    "Write your answer on the line, then check the answer key: several correct answers are listed for every blank, with the point examiners look for and the mistakes that lose points."
   ],
@@ -61,7 +61,7 @@
    "Free practice and more books: everykoreans.com"
   ],
   "ko": [
-   "유형마다 안내 쪽으로 시작합니다 — 읽는 법 · 주요 표현 · 준비 운동. 안내를 먼저 하고 문제를 푸세요.",
+   "유형마다 안내 쪽으로 시작합니다: 읽는 법 · 주요 표현 · 준비 운동. 안내를 먼저 하고 문제를 푸세요.",
    "지문 전체를 먼저 읽으세요. 누가 누구에게 하는 말인지 정합니다.",
    "빈칸 앞뒤 문장의 문체(-ㅂ니다체 또는 -(느)ㄴ다체)를 확인하고 맞추세요.",
    "빈칸마다 자연스러운 한 문장을 쓰세요. 지문의 낱말을 되풀이하지 않습니다.",
@@ -677,7 +677,7 @@
       "en": "Watch out",
       "ko": "조심할 것"
      },
-     "text": "“공사해요” ✗ → “공사가 진행됩니다” ✓. “이해해 주세요” ✗ → “양해해 주시기 바랍니다” ✓.\nA notice speaks for an office: keep it formal and impersonal.\n공지는 기관이 말하는 글입니다 — 격식체로, 개인적인 말투를 피하세요."
+     "text": "“공사해요” ✗ → “공사가 진행됩니다” ✓. “이해해 주세요” ✗ → “양해해 주시기 바랍니다” ✓.\nA notice speaks for an office: keep it formal and impersonal.\n공지는 기관이 말하는 글입니다, 격식체로, 개인적인 말투를 피하세요."
     },
     {
      "type": "practice",

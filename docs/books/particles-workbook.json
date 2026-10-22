@@ -1,5 +1,5 @@
 {
- "_note": "책 한 권의 틀 — tools/build-particles-book.mjs 가 만든다(손으로 고치지 않는다). node tools/build-book.mjs particles-workbook. 지은이 · 펴낸이 · 신고번호 · ISBN · 정가 · 발행일은 비어 있는 자리.",
+ "_note": "책 한 권의 틀: tools/build-particles-book.mjs 가 만든다(손으로 고치지 않는다). node tools/build-book.mjs particles-workbook. 지은이 · 펴낸이 · 신고번호 · ISBN · 정가 · 발행일은 비어 있는 자리.",
  "id": "particles-workbook",
  "edition": "Draft proof · 시안",
  "theme": "classic",
@@ -40,17 +40,17 @@
  "preface": {
   "en": [
    "Particles are the small words that glue Korean together: they tell you who does what, where, when and with whom. Get them right and your sentences sound natural; get them wrong and even simple ideas are hard to follow.",
-   "Each unit takes one particle: its meaning, its form, six examples, the trap to avoid, and practice. The “Choose the right particle” part then puts the look-alikes side by side — 은/는 vs 이/가, 에 vs 에서, and more — and the review tests mix everything."
+   "Each unit takes one particle: its meaning, its form, six examples, the trap to avoid, and practice. The “Choose the right particle” part then puts the look-alikes side by side, 은/는 vs 이/가, 에 vs 에서, and more: and the review tests mix everything."
   ],
   "ko": [
    "조사는 한국어를 이어 붙이는 작은 말입니다. 누가 무엇을 어디서 언제 누구와 하는지를 알려 줍니다. 조사를 맞게 쓰면 문장이 자연스럽고, 틀리면 쉬운 말도 알아듣기 어렵습니다.",
-   "단원마다 조사 하나씩 — 뜻 · 모양 · 예문 여섯 개 · 조심할 것 · 연습입니다. 「헷갈리는 조사 가르기」에서 비슷한 조사를 나란히 놓고 고르는 연습을 하고, 종합 연습에서 모두 섞어 풀어 봅니다."
+   "단원마다 조사 하나씩: 뜻 · 모양 · 예문 여섯 개 · 조심할 것 · 연습입니다. 「헷갈리는 조사 가르기」에서 비슷한 조사를 나란히 놓고 고르는 연습을 하고, 종합 연습에서 모두 섞어 풀어 봅니다."
   ]
  },
  "howto": {
   "en": [
    "Read the tables aloud. Where the sound differs from the spelling, a “reading tip” shows how it is really pronounced.",
-   "Cover the English column with a card and test yourself, then swap — cover the Korean.",
+   "Cover the English column with a card and test yourself, then swap, cover the Korean.",
    "Write your answers on the lines. Use pencil: you will want to do the page again.",
    "Check the Answer Key at the back. If you missed more than a few, re-read the tables and retry later.",
    "Look up any word in the Index. It tells you which unit it appears in.",
@@ -289,7 +289,7 @@
       "en": "Why particles are different",
       "ko": "조사는 왜 다른가"
      },
-     "text": "Particles are tiny, so the ear skips them — yet they change the meaning. You do not learn them by understanding a rule once. You learn them by meeting them in many sentences until the right one “sounds right”.\n조사는 짧아서 귀가 지나치기 쉽지만 뜻을 바꿉니다. 규칙을 한 번 이해한다고 되는 것이 아니라, 여러 문장에서 만나 맞는 쪽이 「소리로 맞다」고 느껴질 때까지 가야 합니다."
+     "text": "Particles are tiny, so the ear skips them, yet they change the meaning. You do not learn them by understanding a rule once. You learn them by meeting them in many sentences until the right one “sounds right”.\n조사는 짧아서 귀가 지나치기 쉽지만 뜻을 바꿉니다. 규칙을 한 번 이해한다고 되는 것이 아니라, 여러 문장에서 만나 맞는 쪽이 「소리로 맞다」고 느껴질 때까지 가야 합니다."
     },
     {
      "type": "flow",
@@ -299,27 +299,27 @@
      },
      "steps": [
       {
-       "ko": "① 소리 내어 읽기 — 예문 6개",
+       "ko": "① 소리 내어 읽기: 예문 6개",
        "en": "Read the six examples aloud",
        "blank": false
       },
       {
-       "ko": "② 가리고 떠올리기 — 영어를 보고 한국어로",
+       "ko": "② 가리고 떠올리기: 영어를 보고 한국어로",
        "en": "Cover the Korean, say it from the English",
        "blank": false
       },
       {
-       "ko": "③ 채우기 · 고치기 — 연필로",
+       "ko": "③ 채우기 · 고치기: 연필로",
        "en": "Do the fill-in and fix-the-mistake sets",
        "blank": true
       },
       {
-       "ko": "④ 내 문장 쓰기 — 내 이야기 2문장",
+       "ko": "④ 내 문장 쓰기: 내 이야기 2문장",
        "en": "Write two sentences about your own life",
        "blank": true
       },
       {
-       "ko": "⑤ 정답 확인 — 틀린 것에 표시",
+       "ko": "⑤ 정답 확인: 틀린 것에 표시",
        "en": "Check the key and mark every miss",
        "blank": false
       }
@@ -2630,7 +2630,7 @@
     "ko": "N밖에"
    },
    "sub": {
-    "en": "Nothing but that — and it feels like too little.",
+    "en": "Nothing but that: and it feels like too little.",
     "ko": "그것 말고는 없다는 뜻으로, 적어서 아쉽다는 느낌이 담깁니다."
    },
    "sections": [
@@ -2640,7 +2640,7 @@
       "en": "Meaning",
       "ko": "뜻"
      },
-     "text": "Nothing but that — and it feels like too little.\n그것 말고는 없다는 뜻으로, 적어서 아쉽다는 느낌이 담깁니다."
+     "text": "Nothing but that: and it feels like too little.\n그것 말고는 없다는 뜻으로, 적어서 아쉽다는 느낌이 담깁니다."
     },
     {
      "type": "text",
@@ -4145,7 +4145,7 @@
    },
    "sub": {
     "en": "Topic or subject: the two pairs that confuse everyone.",
-    "ko": "화제인가 주어인가 — 가장 헷갈리는 두 쌍"
+    "ko": "화제인가 주어인가: 가장 헷갈리는 두 쌍"
    },
    "sections": [
     {
@@ -4689,7 +4689,7 @@
        "a": "만"
       },
       {
-       "q": "천 원___ 없어요. (only 1,000 won — negative)",
+       "q": "천 원___ 없어요. (only 1,000 won: negative)",
        "a": "밖에"
       },
       {
@@ -4701,7 +4701,7 @@
        "a": "만"
       },
       {
-       "q": "한 명___ 안 왔어요. (only one person — negative)",
+       "q": "한 명___ 안 왔어요. (only one person: negative)",
        "a": "밖에"
       }
      ]
@@ -4887,7 +4887,7 @@
     "ko": "종합 연습 1"
    },
    "sub": {
-    "en": "Mixed practice — every particle in the book.",
+    "en": "Mixed practice: every particle in the book.",
     "ko": "섞어서 풀기"
    },
    "sections": [
@@ -4941,7 +4941,7 @@
     "ko": "종합 연습 2"
    },
    "sub": {
-    "en": "Mixed practice — every particle in the book.",
+    "en": "Mixed practice: every particle in the book.",
     "ko": "섞어서 풀기"
    },
    "sections": [
@@ -4995,7 +4995,7 @@
     "ko": "종합 연습 3"
    },
    "sub": {
-    "en": "Mixed practice — every particle in the book.",
+    "en": "Mixed practice: every particle in the book.",
     "ko": "섞어서 풀기"
    },
    "sections": [
@@ -5049,7 +5049,7 @@
     "ko": "종합 연습 4"
    },
    "sub": {
-    "en": "Mixed practice — every particle in the book.",
+    "en": "Mixed practice: every particle in the book.",
     "ko": "섞어서 풀기"
    },
    "sections": [
@@ -5089,7 +5089,7 @@
        "a": "만"
       },
       {
-       "q": "사과___ 먹었어요. (an object — 사과 has no final consonant)",
+       "q": "사과___ 먹었어요. (an object: 사과 has no final consonant)",
        "a": "를"
       }
      ]
@@ -5103,7 +5103,7 @@
     "ko": "종합 연습 5"
    },
    "sub": {
-    "en": "Mixed practice — every particle in the book.",
+    "en": "Mixed practice: every particle in the book.",
     "ko": "섞어서 풀기"
    },
    "sections": [
@@ -5157,7 +5157,7 @@
     "ko": "종합 연습 6"
    },
    "sub": {
-    "en": "Mixed practice — every particle in the book.",
+    "en": "Mixed practice: every particle in the book.",
     "ko": "섞어서 풀기"
    },
    "sections": [

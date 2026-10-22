@@ -27,8 +27,8 @@
         "Reading tip"
       ],
       "rows": [
-        ["가다 (vowel)", "To go", "가세요", "가십니다", "—"],
-        ["오다 (vowel)", "To come", "오세요", "오십니다", "—"],
+        ["가다 (vowel)", "To go", "가세요", "가십니다", " / "],
+        ["오다 (vowel)", "To come", "오세요", "오십니다", " / "],
         ["읽다 (consonant)", "To read", "읽으세요", "읽으십니다", "[일그세요] (연음)"],
         ["앉다 (consonant)", "To sit", "앉으세요", "앉으십니다", "[안즈세요] (연음)"],
         ["만들다 (ㄹ drop)", "To make", "만드세요", "만드십니다", "ㄹ drops before ㅅ"],
@@ -69,7 +69,7 @@
     {
       "type": "practice",
       "title": {
-        "en": "Practice A — Conjugate to honorific polite present (-(으)세요)",
+        "en": "Practice A: Conjugate to honorific polite present (-(으)세요)",
         "ko": "-(으)세요 형태로 바꿔 써요"
       },
       "items": [
@@ -84,7 +84,7 @@
     {
       "type": "practice",
       "title": {
-        "en": "Practice B — Replace with special honorific verbs",
+        "en": "Practice B: Replace with special honorific verbs",
         "ko": "특수 높임 동사로 바꿔 써요"
       },
       "items": [
@@ -98,12 +98,12 @@
     {
       "type": "practice",
       "title": {
-        "en": "Practice C — Choose between plain and honorific forms",
+        "en": "Practice C: Choose between plain and honorific forms",
         "ko": "상황에 맞는 표현을 골라요"
       },
       "items": [
         { "q": "선생님께서 교실에 ___ (가요 / 가세요) →", "a": "가세요" },
-        { "q": "제가 지금 숙제를 ___ (해요 / 하세요) — speaking about myself! →", "a": "해요" },
+        { "q": "제가 지금 숙제를 ___ (해요 / 하세요) / speaking about myself! →", "a": "해요" },
         { "q": "아버지께서 텔레비전을 ___ (봐요 / 보세요) →", "a": "보세요" },
         { "q": "할머니, 진지 ___ (드세요 / 먹으세요) →", "a": "드세요" },
         { "q": "손님, 여기 앉___ (으세요 / 아요) →", "a": "으세요" }
@@ -112,7 +112,7 @@
     {
       "type": "practice",
       "title": {
-        "en": "Practice D — Combine with honorific particles 께서 and 께",
+        "en": "Practice D: Combine with honorific particles 께서 and 께",
         "ko": "높임 조사 께서와 께를 맞게 골라요"
       },
       "items": [

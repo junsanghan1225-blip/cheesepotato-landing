@@ -82,7 +82,7 @@
           "지하철역이 어디예요?",
           "Where is the subway station?",
           "Asking for location",
-          "—"
+          " / "
         ],
         [
           "어떻게 가요?",
@@ -160,7 +160,7 @@
     {
       "type": "practice",
       "title": {
-        "en": "Practice A — Write the direction phrase in Korean",
+        "en": "Practice A: Write the direction phrase in Korean",
         "ko": "방향 표현을 한국어로 써요"
       },
       "items": [
@@ -189,7 +189,7 @@
     {
       "type": "practice",
       "title": {
-        "en": "Practice B — Write the transportation vehicle in Korean",
+        "en": "Practice B: Write the transportation vehicle in Korean",
         "ko": "교통수단 이름을 한국어로 써요"
       },
       "items": [
@@ -218,7 +218,7 @@
     {
       "type": "practice",
       "title": {
-        "en": "Practice C — Complete the direction question and answer",
+        "en": "Practice C: Complete the direction question and answer",
         "ko": "길 묻기 문장을 완성해요"
       },
       "items": [
@@ -247,28 +247,28 @@
     {
       "type": "practice",
       "title": {
-        "en": "Practice D — Choose the fitting transit verb",
+        "en": "Practice D: Choose the fitting transit verb",
         "ko": "알맞은 교통 동사를 골라요"
       },
       "items": [
         {
-          "q": "버스를 ___ (타요 / 내려요) — I get on the bus →",
+          "q": "버스를 ___ (타요 / 내려요) / I get on the bus →",
           "a": "타요"
         },
         {
-          "q": "지하철에서 ___ (내려요 / 타요) — I get off the subway →",
+          "q": "지하철에서 ___ (내려요 / 타요) / I get off the subway →",
           "a": "내려요"
         },
         {
-          "q": "2호선으로 ___ (갈아타요 / 멀어요) — Transfer to Line 2 →",
+          "q": "2호선으로 ___ (갈아타요 / 멀어요) / Transfer to Line 2 →",
           "a": "갈아타요"
         },
         {
-          "q": "학교까지 ___ 가요 (걸어서 / 내려서) — I go on foot →",
+          "q": "학교까지 ___ 가요 (걸어서 / 내려서) / I go on foot →",
           "a": "걸어서"
         },
         {
-          "q": "택시를 ___ (타요 / 걸려요) — Ride a taxi →",
+          "q": "택시를 ___ (타요 / 걸려요) / Ride a taxi →",
           "a": "타요"
         }
       ]

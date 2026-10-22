@@ -9,7 +9,7 @@
     "ko": "요일, 월 이름, 날짜 말하기, 오늘 · 어제 · 내일"
   },
   "desc": {
-    "en": "Free printable Korean worksheet on weekdays, months and dates: how to read 5월 5일, the irregular 유월 and 시월, today / yesterday / tomorrow, last / this / next week — with practice and an answer key."
+    "en": "Free printable Korean worksheet on weekdays, months and dates: how to read 5월 5일, the irregular 유월 and 시월, today / yesterday / tomorrow, last / this / next week, with practice and an answer key."
   },
   "level": "A1",
   "sections": [
@@ -179,7 +179,7 @@
     {
       "type": "practice",
       "title": {
-        "en": "Practice A — Write the date in Hangul",
+        "en": "Practice A: Write the date in Hangul",
         "ko": "날짜를 한글로 써요"
       },
       "items": [
@@ -212,7 +212,7 @@
     {
       "type": "practice",
       "title": {
-        "en": "Practice B — Weekdays in English",
+        "en": "Practice B: Weekdays in English",
         "ko": "요일을 영어로"
       },
       "items": [
@@ -245,7 +245,7 @@
     {
       "type": "practice",
       "title": {
-        "en": "Practice C — Today is Monday (월요일). Fill in the weekday",
+        "en": "Practice C: Today is Monday (월요일). Fill in the weekday",
         "ko": "오늘은 월요일이에요"
       },
       "items": [
@@ -270,7 +270,7 @@
     {
       "type": "practice",
       "title": {
-        "en": "Practice D — Say it in Korean",
+        "en": "Practice D: Say it in Korean",
         "ko": "한국어로 말해요"
       },
       "items": [

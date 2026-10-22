@@ -1,5 +1,5 @@
 {
-  "_note": "책 한 권의 틀 — node tools/build-book.mjs first-steps-workbook. 단원 = 학습지(docs/worksheets/<id>.json) 순서. 지은이 · 펴낸이 · 신고번호 · ISBN · 정가 · 발행일은 비어 있는 자리다(출판 준비가 되면 운영자가 채운다). 글은 우리 사이트 학습지를 책 쪽으로 옮긴 것.",
+  "_note": "책 한 권의 틀: node tools/build-book.mjs first-steps-workbook. 단원 = 학습지(docs/worksheets/<id>.json) 순서. 지은이 · 펴낸이 · 신고번호 · ISBN · 정가 · 발행일은 비어 있는 자리다(출판 준비가 되면 운영자가 채운다). 글은 우리 사이트 학습지를 책 쪽으로 옮긴 것.",
   "id": "first-steps-workbook",
   "edition": "Draft proof · 시안",
   "theme": "classic",
@@ -14,8 +14,8 @@
     "ko": "한국어 첫걸음 워크북"
   },
   "sub": {
-    "en": "Hangul, greetings and everyday words — write, check, repeat.",
-    "ko": "한글 · 인사 · 생활 낱말 — 쓰고, 맞춰 보고, 다시"
+    "en": "Hangul, greetings and everyday words, write, check, repeat.",
+    "ko": "한글 · 인사 · 생활 낱말: 쓰고, 맞춰 보고, 다시"
   },
   "level": "A1",
   "trim": {
@@ -39,7 +39,7 @@
   "web": "everykoreans.com",
   "preface": {
     "en": [
-      "This workbook grew out of the free worksheets on everykoreans.com. Learners kept asking for something they could hold, write in and carry around — so we gathered the most useful sheets into one book.",
+      "This workbook grew out of the free worksheets on everykoreans.com. Learners kept asking for something they could hold, write in and carry around, so we gathered the most useful sheets into one book.",
       "Each unit is one small topic. First a few clear tables to read, say aloud and copy; then four short sets of practice. Write straight into the book, check yourself with the answer key at the back, and come back a week later to try again.",
       "You do not need to finish it in order, but the book is arranged so each part makes the next one easier. Start with Hangul if the letters are new to you."
     ],
@@ -52,7 +52,7 @@
   "howto": {
     "en": [
       "Read the tables aloud. Where the sound differs from the spelling, a “reading tip” shows how it is really pronounced.",
-      "Cover the English column with a card and test yourself, then swap — cover the Korean.",
+      "Cover the English column with a card and test yourself, then swap, cover the Korean.",
       "Write your answers on the lines. Use pencil: you will want to do the page again.",
       "Check the Answer Key at the back. If you missed more than a few, re-read the tables and retry later.",
       "Look up any word in the Index. It tells you which unit it appears in.",

@@ -1,9 +1,9 @@
 {
- "_note": "TOPIK 쓰기 책 보강(운영자 2026-10-18 「채점 기준 · 예시 풀이 · 답안 분석」). 유형마다 채점 기준 표(criteria)와 예시 풀이(worked). 문항 글 · 모범답안 · 상중하 답안은 topik-writing.js 에서 그대로 가져온다 — 여기에는 풀이 단계와 해설만. 배점은 TW_QS(총점)만 쓰고 영역별 최대점은 적지 않는다(공식 세부 배점을 지어내지 않기 위해).",
+ "_note": "TOPIK 쓰기 책 보강(운영자 2026-10-18 「채점 기준 · 예시 풀이 · 답안 분석」). 유형마다 채점 기준 표(criteria)와 예시 풀이(worked). 문항 글 · 모범답안 · 상중하 답안은 topik-writing.js 에서 그대로 가져온다, 여기에는 풀이 단계와 해설만. 배점은 TW_QS(총점)만 쓰고 영역별 최대점은 적지 않는다(공식 세부 배점을 지어내지 않기 위해).",
  "51": {
   "scoring": {
    "en": "10 points in all: 5 points per blank. Each blank is read for meaning and for grammar.",
-   "ko": "총 10점 — 빈칸 하나에 5점. 빈칸마다 내용(문맥에 맞는가)과 언어(문법 · 문체)를 함께 봅니다."
+   "ko": "총 10점: 빈칸 하나에 5점. 빈칸마다 내용(문맥에 맞는가)과 언어(문법 · 문체)를 함께 봅니다."
   },
   "criteria": [
    {
@@ -40,19 +40,19 @@
    "steps": [
     {
      "en": "Name the text type: a club recruitment notice, so the style is formal (-ㅂ니다).",
-     "ko": "글의 종류부터 정한다 — 동아리 모집 안내문이므로 격식체(-ㅂ니다)."
+     "ko": "글의 종류부터 정한다: 동아리 모집 안내문이므로 격식체(-ㅂ니다)."
     },
     {
      "en": "㉠ follows “even without a camera, anyone with a smartphone…”. The sentence must say what anyone can do: ability.",
-     "ko": "㉠은 ‘카메라가 없어도 스마트폰만 있으면 누구나’ 뒤 — 누구나 할 수 있는 일, 곧 가능 표현."
+     "ko": "㉠은 ‘카메라가 없어도 스마트폰만 있으면 누구나’ 뒤: 누구나 할 수 있는 일, 곧 가능 표현."
     },
     {
      "en": "㉡ ends a recruitment notice: a polite request (-기 바랍니다).",
-     "ko": "㉡은 모집 안내문의 끝 — 정중한 요청(-기 바랍니다)."
+     "ko": "㉡은 모집 안내문의 끝: 정중한 요청(-기 바랍니다)."
     },
     {
      "en": "Write one sentence each and check the ending against the text: -습니다 / -ㅂ니다.",
-     "ko": "한 문장씩 쓰고 끝을 지문과 맞춘다 — -습니다 / -ㅂ니다."
+     "ko": "한 문장씩 쓰고 끝을 지문과 맞춘다: -습니다 / -ㅂ니다."
     }
    ],
    "analysis": [
@@ -61,12 +61,12 @@
      "ko": "만점: ‘가입하실 수 있습니다.’(가능, 격식) · ‘지원을 바랍니다.’(요청, 격식)."
     },
     {
-     "en": "Lower marks: right meaning, wrong register — “가입할 수 있어요.”",
-     "ko": "감점: 뜻은 맞지만 문체가 어긋남 — ‘가입할 수 있어요.’"
+     "en": "Lower marks: right meaning, wrong register, “가입할 수 있어요.”",
+     "ko": "감점: 뜻은 맞지만 문체가 어긋남, ‘가입할 수 있어요.’"
     },
     {
-     "en": "No marks: meaning reversed — “가입할 수 없습니다.”",
-     "ko": "0점: 뜻이 반대 — ‘가입할 수 없습니다.’"
+     "en": "No marks: meaning reversed, “가입할 수 없습니다.”",
+     "ko": "0점: 뜻이 반대, ‘가입할 수 없습니다.’"
     }
    ]
   }
@@ -74,7 +74,7 @@
  "52": {
   "scoring": {
    "en": "10 points in all: 5 points per blank, read for meaning and for the plain written style.",
-   "ko": "총 10점 — 빈칸 하나에 5점. 뜻과 -(느)ㄴ다체를 함께 봅니다."
+   "ko": "총 10점: 빈칸 하나에 5점. 뜻과 -(느)ㄴ다체를 함께 봅니다."
   },
   "criteria": [
    {
@@ -111,11 +111,11 @@
    "steps": [
     {
      "en": "Read the link words around each blank: “but” before the second sentence, “therefore” before ㉡.",
-     "ko": "빈칸 앞뒤 연결어를 먼저 읽는다 — 둘째 문장 앞 ‘그러나’, ㉡ 앞 ‘따라서’."
+     "ko": "빈칸 앞뒤 연결어를 먼저 읽는다: 둘째 문장 앞 ‘그러나’, ㉡ 앞 ‘따라서’."
     },
     {
      "en": "㉠: the subject is “emotion control”; lack of sleep makes it harder. Write the result.",
-     "ko": "㉠: 주어는 ‘감정 조절이’ — 수면이 부족하면 어떻게 되는지, 결과를 쓴다."
+     "ko": "㉠: 주어는 ‘감정 조절이’, 수면이 부족하면 어떻게 되는지, 결과를 쓴다."
     },
     {
      "en": "㉡: “therefore” + what to do for health → an obligation: -아/어야 한다.",
@@ -128,16 +128,16 @@
    ],
    "analysis": [
     {
-     "en": "Full marks: “어려워진다.” / “잠을 자야 한다.” — direction and style both right.",
-     "ko": "만점: ‘어려워진다.’ / ‘잠을 자야 한다.’ — 방향과 문체 모두 맞다."
+     "en": "Full marks: “어려워진다.” / “잠을 자야 한다.”, direction and style both right.",
+     "ko": "만점: ‘어려워진다.’ / ‘잠을 자야 한다.’, 방향과 문체 모두 맞다."
     },
     {
-     "en": "Lower marks: “어려워져요.” — direction right, style wrong.",
-     "ko": "감점: ‘어려워져요.’ — 방향은 맞고 문체가 틀림."
+     "en": "Lower marks: “어려워져요.”, direction right, style wrong.",
+     "ko": "감점: ‘어려워져요.’, 방향은 맞고 문체가 틀림."
     },
     {
-     "en": "No marks: “쉬워진다.” — contradicts the sentence before it.",
-     "ko": "0점: ‘쉬워진다.’ — 앞 문장과 모순."
+     "en": "No marks: “쉬워진다.”, contradicts the sentence before it.",
+     "ko": "0점: ‘쉬워진다.’, 앞 문장과 모순."
     }
    ]
   }
@@ -145,7 +145,7 @@
  "53": {
   "scoring": {
    "en": "30 points in all, read in three areas: content and task, structure, language. The sample answers below show how a high, middle and low answer score.",
-   "ko": "총 30점 — 내용 및 과제 수행 · 글의 전개 구조 · 언어 사용 세 영역으로 봅니다. 아래 예시 답안으로 상 · 중 · 하가 어떻게 점수를 받는지 보세요."
+   "ko": "총 30점: 내용 및 과제 수행 · 글의 전개 구조 · 언어 사용 세 영역으로 봅니다. 아래 예시 답안으로 상 · 중 · 하가 어떻게 점수를 받는지 보세요."
   },
   "criteria": [
    {
@@ -196,11 +196,11 @@
    "steps": [
     {
      "en": "Underline every number and label in the data box (source, 1,000 adults, 27% → 35%, three causes).",
-     "ko": "자료 상자의 숫자와 이름표에 모두 밑줄 — 기관, 성인 1,000명, 27% → 35%, 원인 셋."
+     "ko": "자료 상자의 숫자와 이름표에 모두 밑줄: 기관, 성인 1,000명, 27% → 35%, 원인 셋."
     },
     {
      "en": "Plan three sentences: who surveyed whom → how the rate changed (8%p) → the causes in rank order.",
-     "ko": "세 덩어리로 짠다 — 누가 누구를 조사했나 → 비율이 어떻게 변했나(8%p) → 원인을 순위대로."
+     "ko": "세 덩어리로 짠다: 누가 누구를 조사했나 → 비율이 어떻게 변했나(8%p) → 원인을 순위대로."
     },
     {
      "en": "Write in the plain style; open the second part with 조사 결과에 따르면, join causes with 또한.",
@@ -208,7 +208,7 @@
     },
     {
      "en": "Check: 200–300 characters, 8%p not 8%, ranks in the right order.",
-     "ko": "점검 — 200~300자, 8%가 아니라 8%포인트, 순위가 맞는지."
+     "ko": "점검: 200~300자, 8%가 아니라 8%포인트, 순위가 맞는지."
     }
    ]
   }
@@ -216,7 +216,7 @@
  "54": {
   "scoring": {
    "en": "50 points in all, read in three areas. Covering all three sub-questions in separate paragraphs is the base of a high score.",
-   "ko": "총 50점 — 세 영역으로 봅니다. 세부 과제 셋을 문단으로 나누어 다 쓰는 것이 높은 점수의 바탕입니다."
+   "ko": "총 50점: 세 영역으로 봅니다. 세부 과제 셋을 문단으로 나누어 다 쓰는 것이 높은 점수의 바탕입니다."
   },
   "criteria": [
    {
@@ -267,15 +267,15 @@
    "steps": [
     {
      "en": "Read the three sub-questions: the first two are answered in the body, the last in the final paragraph.",
-     "ko": "세부 과제 셋을 읽는다 — 앞의 두 질문은 본론에, 마지막 질문은 끝 문단에 답한다."
+     "ko": "세부 과제 셋을 읽는다: 앞의 두 질문은 본론에, 마지막 질문은 끝 문단에 답한다."
     },
     {
      "en": "Write the opening in two sentences: state the theme and your claim.",
-     "ko": "서론은 두 문장 — 주제를 열고 주장을 밝힌다."
+     "ko": "서론은 두 문장: 주제를 열고 주장을 밝힌다."
     },
     {
      "en": "Body: one reason or example per sub-question; connect with 반면에, 왜냐하면 … 때문이다.",
-     "ko": "본론: 과제마다 이유나 예 하나 — ‘반면에’ ‘왜냐하면 … 때문이다’로 잇는다."
+     "ko": "본론: 과제마다 이유나 예 하나, ‘반면에’ ‘왜냐하면 … 때문이다’로 잇는다."
     },
     {
      "en": "Conclusion with 따라서 and a concrete action; then count characters (600–700) and check every ending is the plain style.",

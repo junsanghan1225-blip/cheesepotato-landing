@@ -243,7 +243,7 @@
           "오천 원"
         ]
       ],
-      "note": "Number first, counter after: 사과 세 개 (three apples) — the noun comes before the number."
+      "note": "Number first, counter after: 사과 세 개 (three apples) / the noun comes before the number."
     },
     {
       "type": "text",
@@ -256,7 +256,7 @@
     {
       "type": "practice",
       "title": {
-        "en": "Practice A — Write in Hangul (Sino-Korean)",
+        "en": "Practice A: Write in Hangul (Sino-Korean)",
         "ko": "한자어 수로 한글로 써요"
       },
       "items": [
@@ -289,7 +289,7 @@
     {
       "type": "practice",
       "title": {
-        "en": "Practice B — Native numbers with counters",
+        "en": "Practice B: Native numbers with counters",
         "ko": "고유어 수 + 세는 말"
       },
       "items": [
@@ -322,7 +322,7 @@
     {
       "type": "practice",
       "title": {
-        "en": "Practice C — Tell the time",
+        "en": "Practice C: Tell the time",
         "ko": "시각을 한글로 써요"
       },
       "items": [
@@ -351,7 +351,7 @@
     {
       "type": "practice",
       "title": {
-        "en": "Practice D — Say your age and the price",
+        "en": "Practice D: Say your age and the price",
         "ko": "나이와 값을 말해요"
       },
       "items": [

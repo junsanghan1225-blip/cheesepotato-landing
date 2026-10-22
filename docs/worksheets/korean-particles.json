@@ -76,7 +76,7 @@
     {
       "type": "practice",
       "title": {
-        "en": "Practice A — Choose the topic or subject particle (은/는, 이/가)",
+        "en": "Practice A: Choose the topic or subject particle (은/는, 이/가)",
         "ko": "은/는, 이/가 중 알맞은 것을 골라요"
       },
       "items": [
@@ -91,7 +91,7 @@
     {
       "type": "practice",
       "title": {
-        "en": "Practice B — Choose the object particle (을 / 를)",
+        "en": "Practice B: Choose the object particle (을 / 를)",
         "ko": "을/를 중 알맞은 것을 골라요"
       },
       "items": [
@@ -106,7 +106,7 @@
     {
       "type": "practice",
       "title": {
-        "en": "Practice C — Choose between 에 and 에서",
+        "en": "Practice C: Choose between 에 and 에서",
         "ko": "에/에서 중 알맞은 것을 골라요"
       },
       "items": [
@@ -120,7 +120,7 @@
     {
       "type": "practice",
       "title": {
-        "en": "Practice D — Choose the connecting or tool particle (와/과, (으)로)",
+        "en": "Practice D: Choose the connecting or tool particle (와/과, (으)로)",
         "ko": "와/과, (으)로 중 알맞은 것을 골라요"
       },
       "items": [

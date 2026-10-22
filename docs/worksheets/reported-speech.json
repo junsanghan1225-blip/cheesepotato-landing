@@ -16,10 +16,10 @@
       ["먹다 (verb, 받침)", "먹는다고", "먹냐고", "먹자고", "먹으라고"],
       ["하다", "한다고", "하냐고", "하자고", "하라고"],
       ["만들다 (ㄹ verb)", "만든다고", "만드냐고", "만들자고", "만들라고"],
-      ["크다 / 좋다 (adjective)", "크다고 / 좋다고", "크냐고 / 좋냐고", "—", "—"],
-      ["학생이다 / 친구이다 (noun)", "학생이라고 / 친구라고", "학생이냐고 / 친구냐고", "—", "—"],
-      ["Past: 갔다 / 먹었다", "갔다고 / 먹었다고", "갔냐고 / 먹었냐고", "—", "—"],
-      ["Future: 갈 거예요", "갈 거라고", "갈 거냐고", "—", "—"]
+      ["크다 / 좋다 (adjective)", "크다고 / 좋다고", "크냐고 / 좋냐고", " / ", " / "],
+      ["학생이다 / 친구이다 (noun)", "학생이라고 / 친구라고", "학생이냐고 / 친구냐고", " / ", " / "],
+      ["Past: 갔다 / 먹었다", "갔다고 / 먹었다고", "갔냐고 / 먹었냐고", " / ", " / "],
+      ["Future: 갈 거예요", "갈 거라고", "갈 거냐고", " / ", " / "]
     ], "note": "Verb present statement: vowel → -ㄴ다고, consonant → -는다고. Adjectives and past tense take plain -다고 / -냐고. ㄹ drops before ㄴ: 만들다 → 만든다고, 살다 → 산다고 / 사냐고. Negative command: -지 말라고 (늦지 말라고)." },
     { "type": "table", "title": { "en": "Spoken short forms", "ko": "줄여서 말해요" }, "cols": ["Full form", "Short form", "Example", "Meaning"], "rows": [
       ["-ㄴ/는다고 해요", "-ㄴ/는대요", "비가 온대요.", "They say it will rain."],
@@ -28,7 +28,7 @@
       ["-(으)라고 해요", "-(으)래요", "일찍 오래요.", "They tell you to come early."]
     ], "note": "In speech the short forms sound natural; in writing and tests use the full forms. Adjectives and nouns: 좋대요 · 학생이래요." },
     { "type": "text", "title": { "en": "People and time words change", "ko": "사람 · 때를 바꿔요" }, "text": "When you report, change the speaker’s “I / you”: 민수: “저는 학생이에요.” → 민수가 자기는 학생이라고 했어요. 선생님: “너 숙제했어?” → 선생님이 숙제했냐고 물어봤어요. Honorific verbs stay honorific: “약을 드세요.” → 약을 드시라고 했어요." },
-    { "type": "practice", "title": { "en": "Practice A — Statements: -다고", "ko": "평서" }, "hint": "민수 said: “…”. Complete the reported sentence.", "items": [
+    { "type": "practice", "title": { "en": "Practice A: Statements: -다고", "ko": "평서" }, "hint": "민수 said: “…”. Complete the reported sentence.", "items": [
       { "q": "“비가 와요.” → 비가 ___ 했어요", "a": "온다고" },
       { "q": "“지금 밥을 먹어요.” → 지금 밥을 ___ 했어요", "a": "먹는다고" },
       { "q": "“날씨가 좋아요.” → 날씨가 ___ 했어요", "a": "좋다고" },
@@ -36,21 +36,21 @@
       { "q": "“내일 갈 거예요.” → 내일 ___ 했어요", "a": "갈 거라고" },
       { "q": "“수지는 학생이에요.” → 수지가 ___ 했어요", "a": "학생이라고" }
     ] },
-    { "type": "practice", "title": { "en": "Practice B — Questions: -냐고", "ko": "의문" }, "items": [
+    { "type": "practice", "title": { "en": "Practice B: Questions: -냐고", "ko": "의문" }, "items": [
       { "q": "“지금 뭐 해요?” → 지금 뭐 ___ 물어봤어요", "a": "하냐고" },
       { "q": "“어디에 살아요?” → 어디에 ___ 물어봤어요", "a": "사냐고" },
       { "q": "“학생이에요?” → 학생 ___ 물어봤어요", "a": "이냐고" },
       { "q": "“어제 뭐 먹었어요?” → 어제 뭐 ___ 물어봤어요", "a": "먹었냐고" },
       { "q": "“한국어가 어려워요?” → 한국어가 ___ 물어봤어요", "a": "어려우냐고" }
     ] },
-    { "type": "practice", "title": { "en": "Practice C — Suggestions: -자고", "ko": "청유" }, "items": [
+    { "type": "practice", "title": { "en": "Practice C: Suggestions: -자고", "ko": "청유" }, "items": [
       { "q": "“같이 먹어요.” → 같이 ___ 했어요", "a": "먹자고" },
       { "q": "“영화 봐요.” → 영화 ___ 했어요", "a": "보자고" },
       { "q": "“내일 만나요.” → 내일 ___ 했어요", "a": "만나자고" },
       { "q": "“여기서 기다려요.” → 여기서 ___ 했어요", "a": "기다리자고" },
       { "q": "“같이 노래해요.” → 같이 ___ 했어요", "a": "노래하자고" }
     ] },
-    { "type": "practice", "title": { "en": "Practice D — Commands: -(으)라고", "ko": "명령" }, "items": [
+    { "type": "practice", "title": { "en": "Practice D: Commands: -(으)라고", "ko": "명령" }, "items": [
       { "q": "“일찍 자세요.” → 일찍 ___ 했어요", "a": "자라고" },
       { "q": "“손을 씻으세요.” → 손을 ___ 했어요", "a": "씻으라고" },
       { "q": "“문을 닫으세요.” → 문을 ___ 했어요", "a": "닫으라고" },
@@ -58,14 +58,14 @@
       { "q": "“늦지 마세요.” → 늦지 ___ 했어요", "a": "말라고" },
       { "q": "“전화하세요.” → ___ 했어요", "a": "전화하라고" }
     ] },
-    { "type": "practice", "title": { "en": "Practice E — Choose the right ending", "ko": "알맞은 꼴" }, "items": [
+    { "type": "practice", "title": { "en": "Practice E: Choose the right ending", "ko": "알맞은 꼴" }, "items": [
       { "q": "친구가 내일 같이 가 ___ 했어요 (자고 / 냐고)", "a": "자고" },
       { "q": "선생님이 숙제를 했 ___ 물어봤어요 (냐고 / 라고)", "a": "냐고" },
       { "q": "의사가 약을 먹 ___ 했어요 (자고 / 으라고)", "a": "으라고" },
       { "q": "동생이 배가 고프 ___ 했어요 (다고 / 자고)", "a": "다고" },
       { "q": "엄마가 일찍 오 ___ 했어요 (라고 / 냐고)", "a": "라고" }
     ] },
-    { "type": "practice", "title": { "en": "Practice F — Make the spoken short form", "ko": "줄여서" }, "items": [
+    { "type": "practice", "title": { "en": "Practice F: Make the spoken short form", "ko": "줄여서" }, "items": [
       { "q": "영수가 내일 온다고 해요 → 영수가 내일 ___", "a": "온대요" },
       { "q": "어디 가냐고 해요 → 어디 ___", "a": "가냬요" },
       { "q": "같이 가자고 해요 → 같이 ___", "a": "가재요" },
@@ -75,7 +75,7 @@
   ],
   "howto": [
     "Read the four endings and the conjugation table, then do practice A–F and check with the answer key.",
-    "Remember the pattern: statement -다고, question -냐고, suggestion -자고, command -(으)라고 — followed by 하다 / 말하다 / 물어보다.",
+    "Remember the pattern: statement -다고, question -냐고, suggestion -자고, command -(으)라고, followed by 하다 / 말하다 / 물어보다.",
     "Teachers: print the worksheet for students and keep the answer key for yourself."
   ],
   "koSummary": "남의 말을 전하는 간접 인용 네 가지를 한 장에 모았어요. 평서 -다고, 의문 -냐고, 청유 -자고, 명령 -(으)라고와 말로 줄인 -대요 · -냬요 · -재요 · -래요를 표로 보고 연습 A~F를 풀어요. 정답지는 따로 인쇄하세요."

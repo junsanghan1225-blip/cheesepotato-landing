@@ -6,7 +6,7 @@
   },
   "sub": {
     "en": "The most useful everyday verbs and describing words, with their polite present",
-    "ko": "가장 자주 쓰는 동사와 형용사 — 해요체 현재형까지"
+    "ko": "가장 자주 쓰는 동사와 형용사: 해요체 현재형까지"
   },
   "desc": {
     "en": "Free printable Korean worksheet of essential everyday verbs and adjectives with dictionary form, polite present form and meaning, plus opposites, fill-in practice and an answer key."
@@ -263,7 +263,7 @@
           "비싸다 (expensive)"
         ]
       ],
-      "note": "Learn words in pairs — you remember two words for the price of one."
+      "note": "Learn words in pairs: you remember two words for the price of one."
     },
     {
       "type": "text",
@@ -276,7 +276,7 @@
     {
       "type": "practice",
       "title": {
-        "en": "Practice A — Match the meaning (dictionary form)",
+        "en": "Practice A: Match the meaning (dictionary form)",
         "ko": "뜻에 맞는 동사를 써요"
       },
       "items": [
@@ -317,7 +317,7 @@
     {
       "type": "practice",
       "title": {
-        "en": "Practice B — Write the polite present",
+        "en": "Practice B: Write the polite present",
         "ko": "해요체로 바꿔 써요"
       },
       "items": [
@@ -358,7 +358,7 @@
     {
       "type": "practice",
       "title": {
-        "en": "Practice C — Write the opposite (dictionary form)",
+        "en": "Practice C: Write the opposite (dictionary form)",
         "ko": "반대말을 써요"
       },
       "items": [
@@ -391,7 +391,7 @@
     {
       "type": "practice",
       "title": {
-        "en": "Practice D — Fill in the blank",
+        "en": "Practice D: Fill in the blank",
         "ko": "알맞은 말을 써요"
       },
       "items": [

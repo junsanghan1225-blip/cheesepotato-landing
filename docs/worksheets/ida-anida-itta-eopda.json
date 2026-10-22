@@ -104,7 +104,7 @@
     {
       "type": "practice",
       "title": {
-        "en": "Practice A — Fill in the right form of 이다 or 아니다",
+        "en": "Practice A: Fill in the right form of 이다 or 아니다",
         "ko": "이다와 아니다를 알맞게 채워요"
       },
       "items": [
@@ -137,7 +137,7 @@
     {
       "type": "practice",
       "title": {
-        "en": "Practice B — Choose between 이다/아니다 and 있다/없다",
+        "en": "Practice B: Choose between 이다/아니다 and 있다/없다",
         "ko": "문맥에 알맞은 동사를 골라요"
       },
       "items": [
@@ -170,7 +170,7 @@
     {
       "type": "practice",
       "title": {
-        "en": "Practice C — Complete the sentence with the appropriate ending or particle",
+        "en": "Practice C: Complete the sentence with the appropriate ending or particle",
         "ko": "알맞은 어미나 조사를 완성해요"
       },
       "items": [

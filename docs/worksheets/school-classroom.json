@@ -29,13 +29,13 @@
         [
           "Classroom",
           "교실",
-          "—",
+          " / ",
           "Room where lessons take place"
         ],
         [
           "Blackboard / Board",
           "칠판",
-          "—",
+          " / ",
           "Board at the front of class"
         ],
         [
@@ -47,43 +47,43 @@
         [
           "Chair",
           "의자",
-          "—",
+          " / ",
           "Chair in the classroom"
         ],
         [
           "Textbook",
           "교과서 / 교재",
-          "—",
+          " / ",
           "Subject book or instructional material"
         ],
         [
           "Notebook",
           "공책",
-          "—",
+          " / ",
           "Notebook for taking notes"
         ],
         [
           "Pencil",
           "연필",
-          "—",
+          " / ",
           "Pencil for writing and sketching"
         ],
         [
           "Eraser",
           "지우개",
-          "—",
+          " / ",
           "Rubber eraser"
         ],
         [
           "Pencil case",
           "필통",
-          "—",
+          " / ",
           "Case storing writing instruments"
         ],
         [
           "Dictionary",
           "사전",
-          "—",
+          " / ",
           "Reference book for word definitions"
         ]
       ],
@@ -181,13 +181,13 @@
         [
           "Please say it once more",
           "다시 한번 말씀해 주세요.",
-          "—",
+          " / ",
           "Polite request to repeat"
         ],
         [
           "Please speak slowly",
           "천천히 말씀해 주세요.",
-          "—",
+          " / ",
           "Polite request for slower speech"
         ],
         [
@@ -202,7 +202,7 @@
     {
       "type": "practice",
       "title": {
-        "en": "Practice A — Match the teacher instruction with its English meaning",
+        "en": "Practice A: Match the teacher instruction with its English meaning",
         "ko": "선생님 말씀의 뜻을 알맞게 연결해요"
       },
       "items": [
@@ -235,7 +235,7 @@
     {
       "type": "practice",
       "title": {
-        "en": "Practice B — Choose the correct classroom item",
+        "en": "Practice B: Choose the correct classroom item",
         "ko": "알맞은 교실 물건을 골라요"
       },
       "items": [
@@ -268,7 +268,7 @@
     {
       "type": "practice",
       "title": {
-        "en": "Practice C — Complete the student expression",
+        "en": "Practice C: Complete the student expression",
         "ko": "학생 표현의 빈칸을 채워요"
       },
       "items": [
@@ -285,7 +285,7 @@
           "a": "한번"
         },
         {
-          "q": "선생님 말씀 이해했어요? — 네, ___ (I understood) →",
+          "q": "선생님 말씀 이해했어요? / 네, ___ (I understood) →",
           "a": "알겠습니다"
         },
         {
