@@ -28,7 +28,7 @@
 2. `node tools/expand-list.mjs --todo <코스 id 앞부분>` 으로 한 묶음(레슨 30개쯤)을 본다.
 3. `docs/expand-decoys.json` 에 키를 더한다(이미 있는 키는 건드리지 않는다).
 4. `node tools/build-lesson-blocks.mjs` 가 에러 없이 끝나면(틀린 조각이 정답과 같거나 3개 이상이면 에러) 커밋한다.
-5. 의심스러운 단계는 `docs/expand-decoys-notes.md` 에 레슨 id 와 한 줄로만 적는다(고치지 않는다).
+5. 의심스러운 단계는 `docs/antigravity/expand-decoys-notes.md` 에 레슨 id 와 한 줄로만 적는다(고치지 않는다).
 
 ## 올리기
 - 커밋 메시지: `문장 늘리기 틀린 조각 — <코스 id 앞부분> N단계`. 브랜치를 푸시한다(PR 은 만들지 않는다 — Claude 가 검토해 넣는다).

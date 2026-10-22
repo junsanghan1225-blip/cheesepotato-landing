@@ -23,6 +23,8 @@ const bookId = args.find((a) => !a.startsWith('--'));
 const REVIEW = args.includes('--review');
 /* --digital : 파는 PDF(전자책) — 종이책 자리표시(출판사 신고번호 · ISBN · 발행일 · 바코드)를 빼고 「디지털판」으로 적는다(운영자 2026-10-18 「책 PDF 최종」). */
 const DIGITAL = args.includes('--digital');
+/* --epub : 같은 내용으로 ePub 3(글자가 화면에 맞게 흐르는 판)도 한 부 — 예스24 · 아마존 같은 전자책 판매처용. 찾아보기 · 메모(쪽 번호 · 인쇄 줄)는 빼고 구매자 혜택 쪽은 넣는다. */
+const EPUB = args.includes('--epub');
 const outDir = path.resolve(ROOT, args.includes('--out') ? args[args.indexOf('--out') + 1] : 'books-out');
 if (!bookId) { console.error('사용: node tools/build-book.mjs <책 id> [--out 폴더]   (책 틀: docs/books/<id>.json)'); process.exit(1); }
 
@@ -660,6 +662,58 @@ fs.writeFileSync(path.join(dir, 'cover-spread.pdf'), await pg.pdf({ preferCSSPag
 const front = await pg.$('.front');
 await pg.setViewportSize({ width: Math.ceil(CW * 3.78), height: Math.ceil(CH * 3.78) });
 await front.screenshot({ path: path.join(dir, 'front-cover.png') });
+/* ── ePub ── */
+if (EPUB) {
+  const ex = path.join(dir, 'epub-src'); fs.rmSync(ex, { recursive: true, force: true });
+  fs.mkdirSync(path.join(ex, 'META-INF'), { recursive: true }); fs.mkdirSync(path.join(ex, 'OEBPS'), { recursive: true });
+  const O = (f) => path.join(ex, 'OEBPS', f);
+  const xesc = (x) => String(x).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+  const chap = [];   // { id, file, title }
+  const skip = new Set(['toc', 'index', 'memo', 'title']);
+  const list = blocks.filter(([k]) => !skip.has(k));
+  if (B.bonus) list.push(['bonus', `<div class="blk plain"><h2>Reader bonus · 구매자 혜택</h2>${bonusBox()}</div>`]);
+  for (const [k, html] of list) {
+    pages.set('cur', shell(html));
+    await pg.goto(`${BASE}/__book.html`, { waitUntil: 'networkidle' });
+    const r = await pg.evaluate(() => ({ title: ((document.querySelector('.ttl h2, h2, h1') || {}).textContent || '').trim(), body: [...document.body.childNodes].map((n) => new XMLSerializer().serializeToString(n)).join('') }));
+    const file = `c_${k}.xhtml`;
+    const body = r.body.replace(/ style="page:[^"]*"/g, '');
+    fs.writeFileSync(O(file), `<?xml version="1.0" encoding="utf-8"?>\n<!DOCTYPE html>\n<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops" lang="en"><head><meta charset="utf-8"/><title>${xesc(r.title || B.title.en)}</title><link rel="stylesheet" type="text/css" href="style.css"/></head><body>${body}</body></html>`);
+    chap.push({ id: k, file, title: r.title || k, svg: /<svg[\s>]/.test(body) });
+  }
+  fs.copyFileSync(path.join(dir, 'front-cover.png'), O('cover.png'));
+  fs.writeFileSync(O('cover.xhtml'), `<?xml version="1.0" encoding="utf-8"?>\n<!DOCTYPE html>\n<html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta charset="utf-8"/><title>${xesc(B.title.en)}</title><link rel="stylesheet" type="text/css" href="style.css"/></head><body class="cv"><img src="cover.png" alt="${xesc(B.title.en)}"/></body></html>`);
+  fs.writeFileSync(O('style.css'), `body{font-family:'Pretendard Variable',Pretendard,'Noto Sans KR','Apple SD Gothic Neo',sans-serif;line-height:1.65;margin:0 4%;color:#1d1a17}
+.cv{margin:0;text-align:center}.cv img{max-width:100%;max-height:100vh}
+h1,h2,h3,h4{line-height:1.3;margin:1.2em 0 .4em;page-break-after:avoid}h2{font-size:1.5em;color:${ACC}}h3{font-size:1.15em}small{color:#6d655c;font-size:.85em;display:block}
+.blk{margin:0 0 1em}.uo .no,.uo .pn,.pn,.un{letter-spacing:.12em;font-size:.8em;font-weight:700;color:${ACC}}
+.sec{margin:1.2em 0}.sec h3{border-bottom:2px solid ${ACC};padding-bottom:.2em}.sec h3 em{font-style:normal;color:${ACC};margin-right:.4em;font-size:.8em}
+table{border-collapse:collapse;width:100%;margin:.6em 0;font-size:.95em}th,td{border:1px solid #d8cfc0;padding:.35em .5em;text-align:left;vertical-align:top}th{background:${TINT}}
+ol.pr{padding-left:1.6em}ol.pr li{margin:.7em 0;padding-bottom:.5em;border-bottom:1px solid #d8cfc0}
+.note,.hint{background:${TINT};border-left:4px solid ${ACC};padding:.5em .8em;margin:.6em 0;border-radius:3px}
+.flow{display:block}.flow .fs{display:inline-block;margin:.2em .4em .2em 0;padding:.3em .6em;border:1px solid ${ACC};border-radius:6px}.flow .fs b{display:block}.flow .fs span{font-size:.85em;color:#6d655c}
+.wl{margin:.4em 0}.wans{color:${ACC};font-weight:600}.wp{margin:.6em 0;padding:.6em .8em;border:1px solid #d8cfc0;border-radius:4px}
+.qrb{display:block;margin:1em 0;padding:.6em .8em;border:1px solid ${ACC};border-radius:6px;background:${TINT}}.qrb .qr svg{width:6em;height:6em}.qrb b{display:block;color:${ACC}}.qrb small{margin:.3em 0}.qrb a{word-break:break-all}
+a{color:${ACC}}
+`);
+  const nav = chap.map((c) => `<li><a href="${c.file}">${xesc(c.title)}</a></li>`).join('');
+  fs.writeFileSync(O('nav.xhtml'), `<?xml version="1.0" encoding="utf-8"?>\n<!DOCTYPE html>\n<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops" lang="en"><head><meta charset="utf-8"/><title>Contents</title></head><body><nav epub:type="toc" id="toc"><h1>Contents · 목차</h1><ol>${nav}</ol></nav></body></html>`);
+  const items = chap.map((c) => `<item id="${c.id}" href="${c.file}" media-type="application/xhtml+xml"${c.svg ? ' properties="svg"' : ''}/>`).join('');
+  const spine = chap.map((c) => `<itemref idref="${c.id}"/>`).join('');
+  const modified = new Date().toISOString().replace(/\.\d+Z$/, 'Z');
+  fs.writeFileSync(O('content.opf'), `<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://www.idpf.org/2007/opf" version="3.0" unique-identifier="bid" xml:lang="en"><metadata xmlns:dc="http://purl.org/dc/elements/1.1/">
+<dc:identifier id="bid">urn:everykoreans:${xesc(B.id)}</dc:identifier><dc:title>${xesc(B.title.en)} · ${xesc(B.title.ko)}</dc:title><dc:language>en</dc:language><dc:language>ko</dc:language>
+<dc:creator>${xesc(B.author.en)}</dc:creator><dc:publisher>${xesc(B.publisher.en)}</dc:publisher><meta property="dcterms:modified">${modified}</meta><meta name="cover" content="cover-img"/></metadata>
+<manifest><item id="cover-img" href="cover.png" media-type="image/png" properties="cover-image"/><item id="cover" href="cover.xhtml" media-type="application/xhtml+xml"/><item id="nav" href="nav.xhtml" media-type="application/xhtml+xml" properties="nav"/><item id="css" href="style.css" media-type="text/css"/>${items}</manifest>
+<spine><itemref idref="cover"/><itemref idref="nav"/>${spine}</spine></package>`);
+  fs.writeFileSync(path.join(ex, 'META-INF', 'container.xml'), `<?xml version="1.0"?>\n<container version="1.0" xmlns="urn:oasis:names:tc:opendocument:xmlns:container"><rootfiles><rootfile full-path="OEBPS/content.opf" media-type="application/oebps-package+xml"/></rootfiles></container>`);
+  fs.writeFileSync(path.join(ex, 'mimetype'), 'application/epub+zip');
+  const out = path.join(dir, `${bookId}.epub`); fs.rmSync(out, { force: true });
+  const { execFileSync } = await import('node:child_process');
+  execFileSync('zip', ['-X0', out, 'mimetype'], { cwd: ex }); execFileSync('zip', ['-Xr9D', out, 'META-INF', 'OEBPS'], { cwd: ex });
+  console.log(`ePub ${bookId}: ${chap.length}개 장 → ${path.relative(ROOT, out)}`);
+}
 await browser.close(); server.close();
 
 console.log(`책 ${bookId}: 속지 ${realTotal}쪽(계산 ${total}쪽) · 단원 ${units.length} · 찾아보기 ${entries.length}개 · 책등 ${spine}mm(종이 ${T.paperMm}mm/장 가정) → ${path.relative(ROOT, dir)}/`);
