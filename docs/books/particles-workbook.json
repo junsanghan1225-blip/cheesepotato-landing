@@ -40,11 +40,11 @@
   "preface": {
     "en": [
       "Particles are the small words that glue Korean together: they tell you who does what, where, when and with whom. Get them right and your sentences sound natural; get them wrong and even simple ideas are hard to follow.",
-      "Each unit takes one particle: its meaning, its form, six examples, the trap to avoid, and practice. The “Choose the right particle” part then puts the look-alikes side by side, 은/는 vs 이/가, 에 vs 에서, and more: and the review tests mix everything."
+      "Each unit takes one particle: its meaning, its form, six examples, the contexts where it is used, the trap to avoid, practice and a short self-check. The “Choose the right particle” part then puts the look-alikes side by side, 은/는 vs 이/가, 에 vs 에서, and more: and the review tests mix everything."
     ],
     "ko": [
       "조사는 한국어를 이어 붙이는 작은 말입니다. 누가 무엇을 어디서 언제 누구와 하는지를 알려 줍니다. 조사를 맞게 쓰면 문장이 자연스럽고, 틀리면 쉬운 말도 알아듣기 어렵습니다.",
-      "단원마다 조사 하나씩: 뜻 · 모양 · 예문 여섯 개 · 조심할 것 · 연습입니다. 「헷갈리는 조사 가르기」에서 비슷한 조사를 나란히 놓고 고르는 연습을 하고, 종합 연습에서 모두 섞어 풀어 봅니다."
+      "단원마다 조사 하나씩: 뜻 · 모양 · 예문 여섯 개 · 쓰이는 맥락 · 조심할 것 · 연습 · 스스로 점검입니다. 「헷갈리는 조사 가르기」에서 비슷한 조사를 나란히 놓고 고르는 연습을 하고, 종합 연습에서 모두 섞어 풀어 봅니다."
     ]
   },
   "howto": {
@@ -408,14 +408,6 @@
             "ko": "효과 보는 습관 네 가지"
           },
           "text": "1. Ask two questions about each noun: what is its job (who / where / with what / how many)? does it end in a consonant?\n2. Keep an error log: copy every sentence you miss onto one page and reread it before each new unit.\n3. Say first, then write. Saying makes the particle sound natural; writing fixes the spelling.\n4. Listen for particles: pick one a day and count how often you hear it in Korean you watch or listen to.\n1. 낱말마다 두 가지를 물어요: 「무슨 역할인가(누가 · 어디 · 무엇으로 · 얼마나)」, 「받침이 있나」.\n2. 틀린 문장 노트: 틀린 문장을 한 쪽에 모아 새 단원 전에 다시 읽어요.\n3. 먼저 말하고, 그다음 쓰세요. 말하면 소리가 익고, 쓰면 맞춤법이 잡힙니다.\n4. 들으며 찾기: 하루에 조사 하나를 정해 보고 듣는 한국어에서 몇 번 나오는지 세어 보세요."
-        },
-        {
-          "type": "text",
-          "title": {
-            "en": "More practice online",
-            "ko": "사이트에서 더 연습"
-          },
-          "text": "Each particle has more practice sentences, free, at everykoreans.com under Learn → Grammar. Use it for the next-day review.\neverykoreans.com 의 「배우기 → 문법」에서 조사마다 연습 문장을 더 풀 수 있어요(무료). 다음 날 복습에 쓰세요."
         }
       ]
     },
@@ -4214,27 +4206,27 @@
           },
           "items": [
             {
-              "q": "A: 누가 왔어요? B: 민수___ 왔어요.",
+              "q": "A: 누가 왔어요? B: 민수___ 왔어요.  (Who came? Minsu did. ▸ answers who/what)",
               "a": "가"
             },
             {
-              "q": "저___ 한국 사람이에요. (introducing yourself)",
+              "q": "저___ 한국 사람이에요.  (I am Korean. ▸ topic)",
               "a": "는"
             },
             {
-              "q": "A: 뭐가 맛있어요? B: 불고기___ 맛있어요.",
+              "q": "A: 뭐가 맛있어요? B: 불고기___ 맛있어요.  (What is tasty? Bulgogi is. ▸ answers who/what)",
               "a": "가"
             },
             {
-              "q": "커피___ 좋아하지만 차___ 안 좋아해요. (contrast)",
+              "q": "커피___ 좋아하지만 차___ 안 좋아해요.  (I like coffee but not tea. ▸ contrast)",
               "a": "는 / 는"
             },
             {
-              "q": "저기 고양이___ 있어요. (a new thing)",
+              "q": "저기 고양이___ 있어요.  (There is a cat over there. ▸ new information)",
               "a": "가"
             },
             {
-              "q": "제 이름___ 민수예요. (introducing)",
+              "q": "제 이름___ 민수예요.  (My name is Minsu. ▸ topic)",
               "a": "은"
             }
           ]
@@ -5968,5 +5960,6 @@
       "en": "Two meanings of (이)나. Compare them.",
       "ko": "(이)나의 두 가지 뜻을 견줘 보세요."
     }
-  }
+  },
+  "tagHints": true
 }
