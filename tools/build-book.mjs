@@ -84,7 +84,19 @@ const esc = (x) => String(x ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').
 const cssStr = (x) => '"' + String(x).replace(/\\/g, '\\\\').replace(/"/g, '\\"') + '"';
 const HAN = /[가-힣]/;
 const T = B.trim, W = T.w, H = T.h;
-const ACC = CLASSIC ? '#1F3A68' : B.color, TINT = CLASSIC ? '#EEF2F8' : B.tint;
+/* 정석풍(classic) 속지의 강조색 — 레벨 시리즈 책은 표지 색(coverLevel.bg)을 그대로 쓴다(운영자 2026-10-23 「색이 달라 통일성이 없다」).
+   차가운 회청색 보조색(#5a6780 …)은 밝기 · 채도는 두고 색상만 책 색으로 옮긴다. */
+const hex2hsl = (h) => { const n = parseInt(h.slice(1), 16), r = (n >> 16) / 255, g = ((n >> 8) & 255) / 255, b = (n & 255) / 255, mx = Math.max(r, g, b), mn = Math.min(r, g, b), l = (mx + mn) / 2, d = mx - mn; let hh = 0, ss = 0; if (d) { ss = d / (1 - Math.abs(2 * l - 1)); hh = mx === r ? ((g - b) / d + 6) % 6 : mx === g ? (b - r) / d + 2 : (r - g) / d + 4; hh *= 60; } return [hh, ss, l]; };
+const hsl2hex = (h, s, l) => { const c = (1 - Math.abs(2 * l - 1)) * s, x = c * (1 - Math.abs(((h / 60) % 2) - 1)), m = l - c / 2, [r, g, b] = h < 60 ? [c, x, 0] : h < 120 ? [x, c, 0] : h < 180 ? [0, c, x] : h < 240 ? [0, x, c] : h < 300 ? [x, 0, c] : [c, 0, x]; return '#' + [r, g, b].map((v) => Math.round((v + m) * 255).toString(16).padStart(2, '0')).join(''); };
+const mixHex = (a, b, t) => { const f = (h) => [16, 8, 0].map((sh) => (parseInt(h.slice(1), 16) >> sh) & 255); const A = f(a), B2 = f(b); return '#' + A.map((v, i) => Math.round(v * (1 - t) + B2[i] * t).toString(16).padStart(2, '0')).join(''); };
+const COOL = ['#5a6780', '#2a3550', '#7a8aa6', '#6b7a92', '#8e9ab0', '#44506a', '#9aa7bf', '#cfd6e2', '#d6dce8', '#c5d1e6', '#b9c3d6', '#e8ecf3', '#fafbfd', '#f6f8fc', '#f4f6fa', '#f3f5fa', '#f1f4fa', '#f1f4fa', '#2f5da8'];
+const recolor = (str) => {
+  if (!CLASSIC || !B.coverLevel) return str;
+  const hue = hex2hsl(B.coverLevel.bg)[0];
+  for (const c of COOL) { const [, ss, ll] = hex2hsl(c); str = str.replace(new RegExp(c, 'gi'), hsl2hex(hue, Math.min(ss, 0.3), ll)); }
+  return str.replace(/#1f3a68/gi, B.coverLevel.bg).replace(/#14264a/gi, B.coverLevel.bg2).replace(/#eef2f8/gi, mixHex(B.coverLevel.bg, '#ffffff', 0.93));
+};
+const ACC = CLASSIC ? (B.coverLevel?.bg || '#1F3A68') : B.color, TINT = CLASSIC ? (B.coverLevel ? mixHex(B.coverLevel.bg, '#ffffff', 0.93) : '#EEF2F8') : B.tint;
 
 /* ── 단원 끝 QR(운영자 2026-10-22 「책과 앱이 연결되게」) ──
    단원마다 그 주제의 사이트 쪽(있으면 <id>-worksheet/, 쓰기 책은 /topik-writing/)으로 가는 QR + PDF 안 눌러지는 링크.
@@ -497,13 +509,18 @@ function unitBlock(u) {
     if (s.type === 'writing') return `<div class="sec wq">${sr(si)}${secLabel(s)}${writingHtml(s.raw)}</div>`;
     return `<div class="sec"${s.items.length <= 8 ? ' style="break-inside:avoid"' : ''}>${sr(si)}${secLabel(s)}${s.hint ? `<div class="hint">${esc(s.hint)}</div>` : ''}${s.think ? `<ol class="pr th">${s.items.map((x) => `<li><span class="q">${esc(x.q).replace(/_{3,}/g, '<span class="bl"></span>')}</span><span class="tl"></span><span class="tl"></span></li>`).join('')}</ol>` : `<ol class="pr" style="--qw:${qw(s.items)}">${s.items.map((x) => `<li${liCls(x.q) ? ` class="${liCls(x.q)}"` : ''}>${qLine(x.q)}</li>`).join('')}</ol>`}</div>`;
   }).join('\n');
-  if (CLASSIC) return dialogueOpener(u) + `<div class="blk ${unitCss(u)}" style="page:${unitCss(u)}">${u._head}${unitQr(u)}${body}${lookalike(u)}${selfCheck(u)}</div>`;
+  if (CLASSIC) return (dialogueOpener(u) || unitCover(u)) + `<div class="blk ${unitCss(u)}" style="page:${unitCss(u)}">${u._head}${unitQr(u)}${body}${lookalike(u)}${selfCheck(u)}</div>`;
   return dialogueOpener(u) + open + `<div class="blk ${unitCss(u)}" style="page:${unitCss(u)}">${body}${lookalike(u)}${selfCheck(u)}${unitQr(u)}</div>`;
 }
 const dialogueOpener = (u) => {
   const o = u.opener; if (!o) return '';
   const rib = `<svg viewBox="0 0 78 26" preserveAspectRatio="none"><path d="M0 4h8v18H0l5 -9z M70 4h8l-5 9 5 9h-8z" fill="${LV ? LVG[1] : ACC}" opacity=".6"/><path d="M6 0h66v22H6z" fill="${LV ? LVG[0] : ACC}"/><path d="M6 22v4l6-4zM72 22v4l-6-4z" fill="#000" opacity=".28"/></svg>`;
   return `<div class="blk dop${LV ? ' lv' : ''}">${LV ? '<div class="fr"></div>' : ''}<div class="rb">${rib}<b>DIALOGUE</b><i>${esc(o.no)}</i></div><div class="dbx"><span></span></div><div class="tx"><h2>${esc(o.ko)}</h2><p>${esc(o.en)}</p></div><div class="dt"></div><div class="pl">${esc(o.place.en)}<small>${esc(o.place.ko)}</small></div>${LV ? `<div class="ft"><div class="mini">${lvMascot}</div>${logoSvg({ fg: LVG[0], one: true, height: '4mm' })}</div>` : ''}</div>`;
+};
+const unitCover = (u) => {
+  if (!LV) return '';
+  const items = u.sections.filter((x) => x.title?.en).map((x) => `<li>${esc(x.title.en)}${x.title.ko ? `<small>${esc(x.title.ko)}</small>` : ''}</li>`).join('');
+  return `<div class="blk uoc"><div class="fr"></div><div class="ptp"><span>PART ${u.part.no} · ${esc(u.part.title.en.toUpperCase())}</span><span>${esc(LV.code)} · ${esc(LV.name)}</span></div><div class="no">UNIT</div><div class="big">${String(u.no).padStart(2, '0')}</div><div class="orn"></div><h2>${esc(u.title.ko)}</h2><h3>${esc(u.title.en)}</h3><p class="sb">${esc(u.sub.en)}<small>${esc(u.sub.ko)}</small></p><div class="in"><b>IN THIS UNIT · 이 단원에서</b><ol>${items}</ol></div><div class="ft"><div class="mini">${lvMascot}</div>${logoSvg({ fg: LVG[0], one: true, height: '4mm' })}</div></div>`;
 };
 function answersBlock() {
   let h = `<div class="blk plain ak"><h2>Answer Key</h2><div class="k">정답</div>`;
@@ -648,8 +665,19 @@ const lvPageCss = LV ? `.pd.lv,.dop.lv{background:radial-gradient(ellipse at 72%
 .pd.lv .ft,.dop.lv .ft{position:absolute;left:18mm;right:18mm;bottom:17mm;display:flex;align-items:center;justify-content:space-between}
 .pd.lv .mini,.dop.lv .mini{position:relative;width:16mm;height:16mm;border-radius:50%;background:radial-gradient(circle at 50% 38%,${LV.bg},${LV.bg2});box-shadow:0 0 0 .5mm ${LVG[1]},0 0 0 1.1mm #fff,0 0 0 1.5mm ${LVG[1]}aa}.pd.lv .mini svg,.dop.lv .mini svg{position:absolute;left:1.4mm;top:.9mm;width:13.2mm;height:13.2mm}
 .dop.lv .rb b{color:${LV.bg}}.dop.lv .rb i{color:${LV.bg}}.dop.lv .tx h2{color:#fff}.dop.lv .tx p{color:${LVG[0]}}.dop.lv .dbx:before,.dop.lv .dbx:after,.dop.lv .dbx span:before,.dop.lv .dbx span:after{border-color:${LVG[1]}}
+.uoc{page:unitopen;height:${H}mm;width:${W}mm;position:relative;overflow:hidden;break-after:page;background:radial-gradient(ellipse at 72% 78%,${LV.bg} 0%,${LV.bg2} 80%) !important;color:#fff !important}
+.uoc .fr{position:absolute;left:9mm;top:9mm;right:9mm;bottom:9mm;border:.5mm solid ${LVG[1]}}
+.uoc .ptp{position:absolute;left:18mm;right:18mm;top:17mm;display:flex;justify-content:space-between;font-size:7.4pt;font-weight:700;letter-spacing:.18em;color:${LVG[0]}}
+.uoc .no{position:absolute;left:18mm;top:46mm;font-size:11pt;font-weight:800;letter-spacing:.36em;color:${LVG[1]}}
+.uoc .big{position:absolute;left:16mm;top:52mm;font-size:96pt;font-weight:900;line-height:.9;letter-spacing:-.04em;color:${LVG[0]}}
+.uoc .orn{position:absolute;left:18mm;top:100mm;width:70mm;height:.5mm;background:${LVG[1]}}.uoc .orn:after{content:'';position:absolute;left:72mm;top:-1.1mm;width:2.6mm;height:2.6mm;background:${LVG[1]};transform:rotate(45deg)}
+.uoc h2{position:absolute;left:18mm;right:18mm;top:108mm;margin:0;border:0 !important;padding:0 !important;font-size:24pt;line-height:1.25;color:#fff}.uoc h3{position:absolute;left:18mm;right:18mm;top:128mm;margin:0;font-size:12pt;font-weight:500;color:${LVG[0]}}
+.uoc .sb{position:absolute;left:18mm;right:22mm;top:142mm;margin:0;font-size:9.4pt;line-height:1.6;color:#fff;opacity:.92}.uoc .sb small{display:block;margin-top:1.5mm;font-size:8.6pt;color:${LVG[0]}}
+.uoc .in{position:absolute;left:18mm;right:18mm;top:172mm;border-top:.3mm solid ${LVG[1]};padding-top:3mm}.uoc .in b{font-size:7.2pt;letter-spacing:.2em;color:${LVG[1]}}.uoc .in ol{margin:1.5mm 0 0;padding:0;list-style:none;font-size:8.6pt;line-height:1.55;color:#fff}.uoc .in li small{margin-left:2mm;color:${LVG[0]};opacity:.85}
+.uoc .ft{position:absolute;left:18mm;right:18mm;bottom:17mm;display:flex;align-items:center;justify-content:space-between}
+.uoc .mini{position:relative;width:16mm;height:16mm;border-radius:50%;background:radial-gradient(circle at 50% 38%,${LV.bg},${LV.bg2});box-shadow:0 0 0 .5mm ${LVG[1]},0 0 0 1.1mm #fff,0 0 0 1.5mm ${LVG[1]}aa}.uoc .mini svg{position:absolute;left:1.4mm;top:.9mm;width:13.2mm;height:13.2mm}
 .dop.lv .dt{background:${LVG[1]}}.dop.lv .pl{color:${LVG[0]}}.dop.lv .pl small{color:${LVG[1]}}` : '';
-const shell = (body) => `<!doctype html><html lang="en"><head><meta charset="utf-8"><link rel="stylesheet" href="/vendor/pretendard.css"><style>${CSS}${CLASSIC ? CLASSIC_CSS : ''}${LV ? lvPageCss : ''}${reviewTop}</style></head><body>${body.replace(/[㉠㉡㉢]/g, (c) => CM[c])}</body></html>`;
+const shell = (body) => recolor(`<!doctype html><html lang="en"><head><meta charset="utf-8"><link rel="stylesheet" href="/vendor/pretendard.css"><style>${CSS}${CLASSIC ? CLASSIC_CSS : ''}${LV ? lvPageCss : ''}${reviewTop}</style></head><body>${body.replace(/[㉠㉡㉢]/g, (c) => CM[c])}</body></html>`);
 let pages = new Map();
 const server = http.createServer((req, res) => {
   const u = decodeURIComponent(new URL(req.url, 'http://x').pathname);
