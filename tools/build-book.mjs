@@ -101,6 +101,7 @@ const unitUrl = (u) => {
   return `${SITE_URL}${page}?utm_source=book&utm_medium=qr&utm_campaign=${encodeURIComponent(B.id)}&utm_content=${encodeURIComponent(u.id)}`;
 };
 const unitQr = (u) => {
+  if (u.id === 'fs-guide') return '';   // 계획표 쪽은 연습 쪽이 따로 없다
   const url = unitUrl(u), q = qrLib(0, 'M'); q.addData(url); q.make();
   const svg = q.createSvgTag({ cellSize: 3, margin: 0, scalable: true });
   const shown = url.split('?')[0].replace('https://', '');
@@ -763,7 +764,7 @@ const coverHtml = `<!doctype html><html><head><meta charset="utf-8"><link rel="s
 <div class="back"><div class="ser">${esc(B.series.en)} · ${esc(B.level)}</div>
 <h3>${esc(B.sub.ko)}</h3><h4>${esc(B.sub.en)}</h4>
 <p>${esc(B.preface.ko[0])}</p>
-<ul><li>${units.length} units · ${units.length}개 단원<small>Hangul to everyday conversation · 한글부터 생활 표현까지</small></li><li>4 practice sets per unit · 단원마다 연습 4묶음<small>Write in the book · 책에 바로 쓰기</small></li><li>Answer key &amp; index · 정답과 찾아보기<small>Check yourself, look up any word · 스스로 확인하고 낱말 찾기</small></li></ul>
+<ul><li>${B.unitCount ?? units.length} units · ${B.unitCount ?? units.length}개 단원<small>Hangul to everyday conversation · 한글부터 생활 표현까지</small></li><li>4 practice sets per unit · 단원마다 연습 4묶음<small>Write in the book · 책에 바로 쓰기</small></li><li>Answer key &amp; index · 정답과 찾아보기<small>Check yourself, look up any word · 스스로 확인하고 낱말 찾기</small></li></ul>
 <div class="pts">${parts.map((p) => `<div><b>PART ${p.no}</b> ${esc(p.title.ko)} <span>${esc(p.title.en)}</span></div>`).join('')}</div>
 <div class="for">For complete beginners and A1 classes · 완전 초급과 A1 수업에<br>${esc(B.web)}</div>
 <div class="pr"><b>정가 ○○,○○○원</b> (예정)<br>${esc(B.publisher.ko)}<br>${logoSvg({ fg: '#14264A', one: true, height: '4.4mm' })}</div>

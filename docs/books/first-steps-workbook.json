@@ -74,6 +74,7 @@
         "ko": "읽고 쓰기 시작"
       },
       "units": [
+        "fs-guide",
         "hangul-alphabet",
         "hangul-batchim",
         "ft-1"
@@ -1146,6 +1147,199 @@
           "text": "Score: ____ / 10\n9 or more: move on. 6 to 8: re-read the tip and watch-out boxes in this part, then mark your misses. 5 or fewer: redo Practice A to D of the units in this part, then take this test again after 3 days.\n점수: ____ / 10\n9개 이상이면 다음 부로 가세요. 6~8개면 이 부의 팁과 조심할 것을 다시 읽고 틀린 곳에 표시하세요. 5개 이하면 이 부 단원의 연습 A~D를 다시 하고 3일 뒤 이 테스트를 다시 풀어 보세요."
         }
       ]
+    },
+    "fs-guide": {
+      "id": "fs-guide",
+      "title": {
+        "en": "Study plan: 8 weeks",
+        "ko": "공부 계획표 · 8주"
+      },
+      "sub": {
+        "en": "How to study each unit, an eight-week plan and when to review.",
+        "ko": "단원마다 공부하는 법 · 8주 계획 · 다시 보는 때"
+      },
+      "sections": [
+        {
+          "type": "text",
+          "title": {
+            "en": "Read this first",
+            "ko": "먼저 읽으세요"
+          },
+          "text": "Twenty minutes a day is enough. Small and regular beats long and rare. This book has 23 topics in 5 parts, and each part ends with a mini test. The plan below fits them into eight weeks; take longer if you need to. A plan you finish at your own speed is a good plan.\n하루 20분이면 충분합니다. 길게 한 번보다 짧게 매일이 낫습니다. 이 책은 5부에 주제 23개가 있고, 부마다 미니 테스트로 끝납니다. 아래 계획은 이것을 8주에 담았습니다. 시간이 더 필요하면 늘려도 좋습니다. 내 속도로 끝내는 계획이 좋은 계획입니다."
+        },
+        {
+          "type": "flow",
+          "title": {
+            "en": "One unit in four steps · about 20 minutes",
+            "ko": "한 단원 네 단계 · 약 20분"
+          },
+          "steps": [
+            {
+              "ko": "① 소리 내어 읽기: 표를 처음부터 끝까지",
+              "en": "Read the tables aloud, top to bottom",
+              "blank": false
+            },
+            {
+              "ko": "② 가리고 말하기: 영어 칸을 가리고 한국어로",
+              "en": "Cover the English and say the Korean",
+              "blank": false
+            },
+            {
+              "ko": "③ 연습 A~D: 연필로 책에 바로",
+              "en": "Do practice A to D in pencil, right in the book",
+              "blank": true
+            },
+            {
+              "ko": "④ 정답 확인: 틀린 것에 표시",
+              "en": "Check the key and mark every miss",
+              "blank": false
+            }
+          ]
+        },
+        {
+          "type": "table",
+          "title": {
+            "en": "Eight-week plan",
+            "ko": "8주 계획"
+          },
+          "cols": [
+            "Week · 주",
+            "Topics · 주제",
+            "Goal · 목표",
+            "Done · 완료"
+          ],
+          "rows": [
+            [
+              "1",
+              "Hangul letters · Batchim · Mini test 1",
+              "Read and write any Hangul syllable",
+              "☐"
+            ],
+            [
+              "2",
+              "Greetings · Is / is not, have / do not have · This, that · Basic particles",
+              "Say who you are and point at things",
+              "☐"
+            ],
+            [
+              "3",
+              "Question words · Polite present · Basic verbs · Mini test 2",
+              "Ask and answer simple questions",
+              "☐"
+            ],
+            [
+              "4",
+              "Numbers · Days and dates · Family · Places",
+              "Count, give dates, talk about family and places",
+              "☐"
+            ],
+            [
+              "5",
+              "Colors and shapes · House · School · Mini test 3",
+              "Describe your room and your class",
+              "☐"
+            ],
+            [
+              "6",
+              "Food · Shopping · Directions",
+              "Order, buy and ask the way",
+              "☐"
+            ],
+            [
+              "7",
+              "Weather · Hobbies · Health · Mini test 4",
+              "Talk about weather, hobbies and aches",
+              "☐"
+            ],
+            [
+              "8",
+              "Negation and tenses · Mini test 5 · Redo your misses",
+              "Say it in the past, the future and the negative",
+              "☐"
+            ]
+          ]
+        },
+        {
+          "type": "table",
+          "title": {
+            "en": "My plan",
+            "ko": "내 계획"
+          },
+          "cols": [
+            "Item · 항목",
+            "Write here · 여기에 쓰세요"
+          ],
+          "rows": [
+            [
+              "Start date · 시작한 날",
+              "______________________"
+            ],
+            [
+              "Finish date · 끝낼 날",
+              "______________________"
+            ],
+            [
+              "Study days (circle) · 요일 (동그라미)",
+              "Mon · 월    Tue · 화    Wed · 수    Thu · 목    Fri · 금    Sat · 토    Sun · 일"
+            ],
+            [
+              "Time of day · 공부 시간대",
+              "______________________"
+            ],
+            [
+              "Minutes each time · 한 번에 몇 분",
+              "______________________"
+            ],
+            [
+              "My goal for this book · 이 책의 내 목표",
+              "______________________"
+            ]
+          ]
+        },
+        {
+          "type": "table",
+          "title": {
+            "en": "Spaced review · when to come back",
+            "ko": "다시 보는 때"
+          },
+          "cols": [
+            "When · 언제",
+            "What · 무엇을",
+            "Time · 시간"
+          ],
+          "rows": [
+            [
+              "Next day · 다음 날",
+              "Redo only the questions you missed",
+              "5 min"
+            ],
+            [
+              "Day 3 · 3일 뒤",
+              "Cover the Korean in the tables and say it all aloud",
+              "5 min"
+            ],
+            [
+              "Day 7 · 7일 뒤",
+              "Take the part's mini test again on a sheet of paper",
+              "10 min"
+            ],
+            [
+              "Day 21 · 3주 뒤",
+              "Reread the tables of the part you liked least",
+              "10 min"
+            ]
+          ]
+        },
+        {
+          "type": "text",
+          "title": {
+            "en": "Four habits that work",
+            "ko": "효과 보는 습관 네 가지"
+          },
+          "text": "1. Say first, then write. Saying makes the sound natural; writing fixes the spelling.\n2. Use pencil. You will want to do the page again.\n3. Look up unknown words in the Index at the back. It tells you which unit they are in.\n4. After each part, take its mini test and be honest with your score.\n1. 먼저 말하고, 그다음 쓰세요. 말하면 소리가 익고, 쓰면 맞춤법이 잡힙니다.\n2. 연필로 쓰세요. 다시 풀고 싶어집니다.\n3. 모르는 낱말은 뒤쪽 찾아보기에서 찾으세요. 어느 단원에 있는지 알려 줍니다.\n4. 부가 끝나면 미니 테스트를 풀고 점수를 솔직하게 적으세요."
+        }
+      ]
     }
-  }
+  },
+  "unitCount": 23
 }
