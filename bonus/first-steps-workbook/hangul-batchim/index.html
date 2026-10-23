@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hangul Batchim &amp; Sound Rules 보너스 연습 · Bonus practice — Korean First Steps Workbook</title>
+<meta name="description" content="한국어 첫걸음 워크북 단원 보너스 연습: 낱말 카드, 퀴즈, 빈칸 쓰기. 쪽에서 바로 채우고 채점해요.">
+<link rel="canonical" href="https://everykoreans.com/bonus/first-steps-workbook/hangul-batchim/">
+<!-- 생성물 — 손으로 고치지 말 것. docs/bonus/*.json 을 고치고 node tools/build-bonus.mjs -->
+<script src="/gtm.js" async></script>
+<script src="/analytics.js" defer></script>
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta property="og:title" content="Hangul Batchim &amp; Sound Rules 보너스 연습 · Bonus practice — Korean First Steps Workbook">
+<meta property="og:description" content="한국어 첫걸음 워크북 단원 보너스 연습: 낱말 카드, 퀴즈, 빈칸 쓰기. 쪽에서 바로 채우고 채점해요.">
+<meta property="og:url" content="https://everykoreans.com/bonus/first-steps-workbook/hangul-batchim/">
+<meta property="og:image" content="https://everykoreans.com/og-image.jpg">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="stylesheet" href="/vendor/pretendard.css">
+<link rel="stylesheet" href="/page.css">
+<script src="/bonus.js?v=cfcfc558" defer></script>
+<style>
+main{max-width:760px;margin:0 auto;padding:22px 20px 80px}
+.bk-badge{display:inline-block;font-size:12px;font-weight:800;letter-spacing:.06em;color:#C4551C;background:#FDF0E2;border-radius:99px;padding:4px 12px}
+.bk-h{font-size:19px;font-weight:800;margin:30px 0 4px}.bk-h small{font-weight:500;color:var(--ink-3);font-size:13px;margin-left:6px}
+.bk-sub{color:var(--ink-3);font-size:14px;margin:0 0 12px}
+.bcards{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.bcard{font:inherit;text-align:center;cursor:pointer;min-height:84px;padding:14px 12px;border:1px solid var(--line);border-radius:14px;background:#fff;color:var(--ink);display:flex;align-items:center;justify-content:center}
+.bcard .b{display:none;font-size:14px;color:var(--ink-2);line-height:1.45}.bcard .f{font-size:18px;font-weight:800}
+.bcard.flip{background:#FFF7E3;border-color:#F0C24B}.bcard.flip .f{display:none}.bcard.flip .b{display:block}
+.bq,.bf{background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px 16px;margin:10px 0}
+.bqq{font-weight:700;margin:0 0 8px;line-height:1.5}.bqq i{font-style:normal;color:var(--ink-3);font-weight:500;margin-right:6px}
+.bo{list-style:none;margin:0;padding:0;display:grid;gap:6px}
+.bo li{min-height:44px;display:flex;align-items:center;gap:8px;padding:8px 12px;border:1px solid var(--line);border-radius:10px;cursor:pointer;background:#FBF8F1}
+.bo li:hover{border-color:#F0C24B}.bo li.right{background:#E6F4EA;border-color:#3A9A5B}.bo li.wrong{background:#FCE8E6;border-color:#D1493E}
+.bw{margin:8px 0 0;font-size:14px;color:var(--ink-2);line-height:1.55}
+.bf .fq{font-size:18px;font-weight:700;line-height:1.7;margin:0}.bf .fe{color:var(--ink-3);font-size:13.5px;margin:2px 0 8px}
+.bf input{font:inherit;font-size:17px;width:9em;max-width:100%;padding:6px 10px;border:0;border-bottom:2px solid #C4551C;background:#FFF7E3;border-radius:6px 6px 0 0;text-align:center}
+.bf button{font:inherit;min-height:44px;margin-left:8px;padding:0 18px;border:0;border-radius:10px;background:#C4551C;color:#fff;font-weight:700;cursor:pointer}
+.bf .bm{margin:8px 0 0;font-weight:700}.bf.ok .bm{color:#2E7D4A}.bf.no .bm{color:#B3322D}
+.bsc{position:sticky;bottom:0;margin-top:26px;padding:12px 16px;background:#fff;border:1px solid var(--line);border-radius:14px;display:flex;justify-content:space-between;align-items:center;font-weight:800}
+.bsc.fin{background:#FFF7E3;border-color:#F0C24B}.bfin,.bbest{margin:10px 0 0;font-size:14px;color:var(--ink-2)}
+.bapp{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin:14px 0 0;padding:12px 14px;background:#FFF7E3;border:1px solid #F0C24B;border-radius:14px}.bapp div{flex:1 1 220px}.bapp b{display:block;font-size:14.5px}.bapp small{color:var(--ink-3);font-size:12.5px}
+.bcta{display:flex;flex-wrap:wrap;gap:10px;margin:22px 0 0}
+@media(max-width:480px){.bcards{grid-template-columns:1fr}.bf button{margin:8px 0 0}}
+</style>
+</head>
+<body>
+<header class="hd"><div class="hd-in">
+  <a href="/"><img src="/logo.png" alt=""><span>치즈감자 CheesePotato</span></a>
+</div></header>
+<main>
+<div data-bonus="first-steps-workbook/hangul-batchim">
+<span class="bk-badge">책 보너스 · BOOK BONUS</span>
+<h1>받침과 소리 규칙</h1>
+<div class="bapp"><div><b>앱에서 열면 진행률 · 연속 학습이 기록돼요</b><small>Open in the app to track progress and your streak</small></div><a class="btn main" href="intent://book/first-steps-workbook/hangul-batchim#Intent;scheme=cheesepotato;package=com.cheesepotato.app;S.browser_fallback_url=https%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3Dcom.cheesepotato.app;end">앱에서 열기 · Open app</a><a class="btn sub" href="https://play.google.com/store/apps/details?id=com.cheesepotato.app">Google Play</a></div>
+<p class="bk-sub">Hangul Batchim &amp; Sound Rules · 한국어 첫걸음 워크북 · Korean First Steps Workbook</p>
+<h2 class="bk-h">낱말 카드 <small>Flashcards · 눌러서 뒤집기 · tap to flip</small></h2>
+<div class="bcards"><button type="button" class="bcard" data-say="받침"><span class="f">받침</span><span class="b">final consonant (batchim at the bottom of a block)</span></button><button type="button" class="bcard" data-say="대표음"><span class="f">대표음</span><span class="b">representative sound (one of 7 basic sounds)</span></button><button type="button" class="bcard" data-say="연음"><span class="f">연음</span><span class="b">liaison (carrying a batchim over to a following vowel)</span></button><button type="button" class="bcard" data-say="한국어 [한구거]"><span class="f">한국어 [한구거]</span><span class="b">Korean language (pronounced hangugeo)</span></button><button type="button" class="bcard" data-say="음악 [으막]"><span class="f">음악 [으막]</span><span class="b">music (pronounced eumak)</span></button><button type="button" class="bcard" data-say="꽃 [꼳]"><span class="f">꽃 [꼳]</span><span class="b">flower (pronounced kkot with [ㄷ] sound)</span></button><button type="button" class="bcard" data-say="부엌 [부억]"><span class="f">부엌 [부억]</span><span class="b">kitchen (pronounced bueok with [ㄱ] sound)</span></button><button type="button" class="bcard" data-say="옷 [옫]"><span class="f">옷 [옫]</span><span class="b">clothes (pronounced ot with [ㄷ] sound)</span></button></div>
+<h2 class="bk-h">퀴즈 <small>Quiz</small></h2><div class="bq" data-ans="1"><p class="bqq"><i>Q1</i>How many representative batchim sounds exist when final consonants are pronounced in isolation?</p><ul class="bo"><li tabindex="0" role="button">① 5</li><li tabindex="0" role="button">② 7</li><li tabindex="0" role="button">③ 9</li><li tabindex="0" role="button">④ 14</li></ul><p class="bw" hidden>All Korean final consonants collapse into one of 7 representative sounds: [ㄱ ㄴ ㄷ ㄹ ㅁ ㅂ ㅇ].</p></div><div class="bq" data-ans="2"><p class="bqq"><i>Q2</i>What representative sound does the final consonant in 옷 (clothes) make when spoken alone?</p><ul class="bo"><li tabindex="0" role="button">① [ㄱ]</li><li tabindex="0" role="button">② [ㄴ]</li><li tabindex="0" role="button">③ [ㄷ]</li><li tabindex="0" role="button">④ [ㅂ]</li></ul><p class="bw" hidden>The letter ㅅ simplifies to the representative stop sound [ㄷ] at the end of a syllable.</p></div><div class="bq" data-ans="1"><p class="bqq"><i>Q3</i>According to the liaison rule (연음), how is the phrase 부엌에 pronounced?</p><ul class="bo"><li tabindex="0" role="button">① [부어게]</li><li tabindex="0" role="button">② [부어케]</li><li tabindex="0" role="button">③ [부억에]</li><li tabindex="0" role="button">④ [부얼에]</li></ul><p class="bw" hidden>The final consonant ㅋ moves into the silent ㅇ of 에, so 부엌에 is read [부어케].</p></div><div class="bq" data-ans="0"><p class="bqq"><i>Q4</i>Which of the following words ends with the [ㅂ] representative sound when spoken alone?</p><ul class="bo"><li tabindex="0" role="button">① 밥</li><li tabindex="0" role="button">② 달</li><li tabindex="0" role="button">③ 눈</li><li tabindex="0" role="button">④ 강</li></ul><p class="bw" hidden>밥 ends with ㅂ, which is pronounced as the representative bilabial stop [ㅂ].</p></div><div class="bq" data-ans="0"><p class="bqq"><i>Q5</i>How is the phrase 집에 (to home) pronounced in natural spoken Korean?</p><ul class="bo"><li tabindex="0" role="button">① [지베]</li><li tabindex="0" role="button">② [집에]</li><li tabindex="0" role="button">③ [짐에]</li><li tabindex="0" role="button">④ [지페]</li></ul><p class="bw" hidden>Due to liaison, the final ㅂ carries over into the following vowel 에, producing [지베].</p></div>
+<h2 class="bk-h">빈칸 쓰기 <small>Fill in the blank</small></h2><p class="bk-sub">한글로 쓰고 [확인]을 누르세요. · Type in Hangul, then press Check.</p><div class="bf" data-a="[&quot;꼬치&quot;]"><p class="fq">읽기 연습: 꽃이 → [<input type="text" autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="빈칸 1">]<button type="button">확인 · Check</button></p><p class="fe">Reading practice: the sound of 꽃이 is [kkochi].</p><p class="bm" hidden></p></div><div class="bf" data-a="[&quot;바께&quot;]"><p class="fq">밖에를 읽는 소리는 [<input type="text" autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="빈칸 2">]예요.<button type="button">확인 · Check</button></p><p class="fe">The sound of 밖에 is [bakke].</p><p class="bm" hidden></p></div><div class="bf" data-a="[&quot;ㅂ&quot;,&quot;비읍&quot;]"><p class="fq">단어 잎의 대표 받침 소리는 [<input type="text" autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="빈칸 3">]입니다.<button type="button">확인 · Check</button></p><p class="fe">The representative batchim sound of the word ip (leaf) is [ㅂ].</p><p class="bm" hidden></p></div><div class="bf" data-a="[&quot;ㄷ&quot;,&quot;디귿&quot;]"><p class="fq">꽃 한 송이를 발음할 때 받침 소리는 [<input type="text" autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="빈칸 4">]으로 바뀝니다.<button type="button">확인 · Check</button></p><p class="fe">When pronouncing a flower (꽃), the final consonant changes to [ㄷ].</p><p class="bm" hidden></p></div><div class="bf" data-a="[&quot;단는&quot;]"><p class="fq">닫는을 읽는 소리는 [<input type="text" autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="빈칸 5">]이에요.<button type="button">확인 · Check</button></p><p class="fe">The sound of 닫는 is [danneun].</p><p class="bm" hidden></p></div>
+<div class="bsc"><span>점수 · Score</span><span class="bscore">0 / 10</span></div>
+<p class="bfin" hidden>끝! 틀린 곳은 책 정답 쪽과 같이 다시 보세요. · Done! Review your misses with the book's answer key.</p><p class="bbest" hidden></p>
+<div class="bcta"><a class="btn main" href="/#learn">앱에서 더 연습하기<span> · Practice more free</span></a><a class="btn sub" href="/hangul-batchim-worksheet/">인쇄용 학습지 · Printable sheet</a></div>
+</div>
+<p class="bk-sub" style="margin-top:30px">이 연습은 책에 없는 새로 만든 문항이에요(기출 아님). · New practice made for this site, not from any past exam.</p>
+</main>
+</body>
+</html>
