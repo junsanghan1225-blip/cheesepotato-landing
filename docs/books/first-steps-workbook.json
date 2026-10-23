@@ -77,6 +77,7 @@
         "fs-guide",
         "hangul-alphabet",
         "hangul-batchim",
+        "fd-1",
         "ft-1"
       ]
     },
@@ -93,6 +94,7 @@
         "question-words",
         "polite-present",
         "basic-verbs-adjectives",
+        "fd-2",
         "ft-2"
       ]
     },
@@ -109,6 +111,7 @@
         "colors-shapes-opposites",
         "house-rooms-furniture",
         "school-classroom",
+        "fd-3",
         "ft-3"
       ]
     },
@@ -124,6 +127,7 @@
         "weather-seasons-temperature",
         "hobbies-leisure-sports",
         "health-hospital",
+        "fd-4",
         "ft-4"
       ]
     },
@@ -134,6 +138,7 @@
       },
       "units": [
         "negation-tenses",
+        "fd-5",
         "ft-5"
       ]
     }
@@ -1339,6 +1344,706 @@
           "text": "1. Say first, then write. Saying makes the sound natural; writing fixes the spelling.\n2. Use pencil. You will want to do the page again.\n3. Look up unknown words in the Index at the back. It tells you which unit they are in.\n4. After each part, take its mini test and be honest with your score.\n1. 먼저 말하고, 그다음 쓰세요. 말하면 소리가 익고, 쓰면 맞춤법이 잡힙니다.\n2. 연필로 쓰세요. 다시 풀고 싶어집니다.\n3. 모르는 낱말은 뒤쪽 찾아보기에서 찾으세요. 어느 단원에 있는지 알려 줍니다.\n4. 부가 끝나면 미니 테스트를 풀고 점수를 솔직하게 적으세요."
         }
       ]
+    },
+    "fd-1": {
+      "id": "fd-1",
+      "title": {
+        "en": "Short dialogue · Part 1: Reading practice",
+        "ko": "1부 짧은 대화 · 읽기 연습"
+      },
+      "sub": {
+        "en": "Read two people's talk aloud. Only letters you know.",
+        "ko": "아는 글자로 대화 소리 내어 읽기"
+      },
+      "sections": [
+        {
+          "type": "table",
+          "title": {
+            "en": "The dialogue",
+            "ko": "대화"
+          },
+          "cols": [
+            "Who · 누구",
+            "Korean · 한국어",
+            "English · 영어"
+          ],
+          "rows": [
+            [
+              "A",
+              "어디 가요?",
+              "Where are you going?"
+            ],
+            [
+              "B",
+              "마트에 가요.",
+              "I'm going to the mart."
+            ],
+            [
+              "A",
+              "우유 사요?",
+              "Are you buying milk?"
+            ],
+            [
+              "B",
+              "네, 우유하고 라면을 사요.",
+              "Yes, I'm buying milk and ramen."
+            ],
+            [
+              "A",
+              "저도 가요!",
+              "I'm going too!"
+            ],
+            [
+              "B",
+              "좋아요, 가요.",
+              "Good, let's go."
+            ]
+          ]
+        },
+        {
+          "type": "table",
+          "title": {
+            "en": "Sound notes",
+            "ko": "소리 메모"
+          },
+          "cols": [
+            "Word · 낱말",
+            "Sound · 소리",
+            "Note · 메모"
+          ],
+          "rows": [
+            [
+              "라면을",
+              "[라며늘]",
+              "The batchim ㄴ moves to the next vowel (liaison)."
+            ],
+            [
+              "좋아요",
+              "[조아요]",
+              "ㅎ is not pronounced before a vowel."
+            ],
+            [
+              "어디",
+              "[어디]",
+              "ㅇ at the start of a syllable is silent."
+            ]
+          ]
+        },
+        {
+          "type": "practice",
+          "title": {
+            "en": "Did you understand?",
+            "ko": "이해했나요?"
+          },
+          "hint": "Answer in English.",
+          "items": [
+            {
+              "q": "Where is B going?",
+              "a": "To the mart."
+            },
+            {
+              "q": "What does B buy?",
+              "a": "Milk and ramen."
+            },
+            {
+              "q": "Does A go too?",
+              "a": "Yes. A says 저도 가요!"
+            }
+          ]
+        },
+        {
+          "type": "practice",
+          "title": {
+            "en": "Make it yours",
+            "ko": "내 말로"
+          },
+          "hint": "Write one line. Model answers are in the Answer Key.",
+          "items": [
+            {
+              "q": "좋아요 is read…  (a) [조하요]  (b) [조아요]",
+              "a": "(b) [조아요]. ㅎ is not pronounced before a vowel."
+            },
+            {
+              "q": "Say 'I'm going to the park.' with the same pattern →",
+              "a": "공원에 가요."
+            }
+          ]
+        }
+      ],
+      "opener": {
+        "no": "1",
+        "ko": "어디 가요?",
+        "en": "Where are you going?",
+        "place": {
+          "en": "On the street",
+          "ko": "길에서"
+        }
+      }
+    },
+    "fd-2": {
+      "id": "fd-2",
+      "title": {
+        "en": "Short dialogue · Part 2: Meeting a neighbor",
+        "ko": "2부 짧은 대화 · 이웃을 만나요"
+      },
+      "sub": {
+        "en": "Introduce yourself, say where you live and ask about a person.",
+        "ko": "자기소개 · 사는 곳 · 사람 묻기"
+      },
+      "sections": [
+        {
+          "type": "table",
+          "title": {
+            "en": "The dialogue",
+            "ko": "대화"
+          },
+          "cols": [
+            "Who · 누구",
+            "Korean · 한국어",
+            "English · 영어"
+          ],
+          "rows": [
+            [
+              "A",
+              "안녕하세요? 저는 하나예요. 이 건물에 살아요.",
+              "Hello. I'm Hana. I live in this building."
+            ],
+            [
+              "B",
+              "반가워요! 저는 민수예요. 저는 저 집에 살아요.",
+              "Nice to meet you! I'm Minsu. I live in that house over there."
+            ],
+            [
+              "A",
+              "학생이에요?",
+              "Are you a student?"
+            ],
+            [
+              "B",
+              "아니요, 회사원이에요. 하나는요?",
+              "No, I work at a company. And you, Hana?"
+            ],
+            [
+              "A",
+              "저는 선생님이에요.",
+              "I'm a teacher."
+            ],
+            [
+              "B",
+              "저기 저 남자는 누구예요?",
+              "Who is that man over there?"
+            ],
+            [
+              "A",
+              "제 친구예요. 이름이 지민이에요.",
+              "My friend. His name is Jimin."
+            ]
+          ]
+        },
+        {
+          "type": "table",
+          "title": {
+            "en": "Useful phrases",
+            "ko": "쓸모 있는 표현"
+          },
+          "cols": [
+            "Korean · 한국어",
+            "English · 영어",
+            "Note · 메모"
+          ],
+          "rows": [
+            [
+              "반가워요",
+              "Nice to meet you (softer than 반갑습니다)",
+              "Everyday speech"
+            ],
+            [
+              "하나는요?",
+              "And you, Hana?",
+              "는요 returns the question"
+            ],
+            [
+              "저기",
+              "over there",
+              "Pointing far away"
+            ]
+          ]
+        },
+        {
+          "type": "practice",
+          "title": {
+            "en": "Did you understand?",
+            "ko": "이해했나요?"
+          },
+          "hint": "Answer in English.",
+          "items": [
+            {
+              "q": "Where does Hana live?",
+              "a": "In this building."
+            },
+            {
+              "q": "What is Minsu's job?",
+              "a": "He works at a company."
+            },
+            {
+              "q": "Who is the man over there?",
+              "a": "Hana's friend, Jimin."
+            }
+          ]
+        },
+        {
+          "type": "practice",
+          "title": {
+            "en": "Make it yours",
+            "ko": "내 말로"
+          },
+          "hint": "Write one line. Model answers are in the Answer Key.",
+          "items": [
+            {
+              "q": "Say 'I live in this city.' →",
+              "a": "저는 이 도시에 살아요."
+            },
+            {
+              "q": "Ask 'And you?' to a person named 수진 →",
+              "a": "수진은요?"
+            }
+          ]
+        }
+      ],
+      "opener": {
+        "no": "2",
+        "ko": "저는 하나예요.",
+        "en": "I'm Hana.",
+        "place": {
+          "en": "Next door",
+          "ko": "이웃집 앞에서"
+        }
+      }
+    },
+    "fd-3": {
+      "id": "fd-3",
+      "title": {
+        "en": "Short dialogue · Part 3: A visit to my home",
+        "ko": "3부 짧은 대화 · 우리 집에 오세요"
+      },
+      "sub": {
+        "en": "Talk about rooms, family, colors and where things are.",
+        "ko": "방 · 가족 · 색 · 위치 말하기"
+      },
+      "sections": [
+        {
+          "type": "table",
+          "title": {
+            "en": "The dialogue",
+            "ko": "대화"
+          },
+          "cols": [
+            "Who · 누구",
+            "Korean · 한국어",
+            "English · 영어"
+          ],
+          "rows": [
+            [
+              "A",
+              "우리 집에 오세요!",
+              "Come to my home!"
+            ],
+            [
+              "B",
+              "와, 거실이 커요! 저 소파는 무슨 색이에요?",
+              "Wow, the living room is big! What color is that sofa?"
+            ],
+            [
+              "A",
+              "파란색이에요. 아버지 의자는 창문 옆에 있어요.",
+              "It's blue. My father's chair is next to the window."
+            ],
+            [
+              "B",
+              "형제가 있어요?",
+              "Do you have siblings?"
+            ],
+            [
+              "A",
+              "네, 오빠가 한 명 있어요. 모두 네 명이에요.",
+              "Yes, one older brother. We are four in all."
+            ],
+            [
+              "B",
+              "오빠는 지금 어디예요?",
+              "Where is your older brother now?"
+            ],
+            [
+              "A",
+              "방에 있어요. 오늘은 일요일이에요.",
+              "He's in his room. Today is Sunday."
+            ]
+          ]
+        },
+        {
+          "type": "table",
+          "title": {
+            "en": "Useful phrases",
+            "ko": "쓸모 있는 표현"
+          },
+          "cols": [
+            "Korean · 한국어",
+            "English · 영어",
+            "Note · 메모"
+          ],
+          "rows": [
+            [
+              "무슨 색이에요?",
+              "What color is it?",
+              "Asking about a color"
+            ],
+            [
+              "형제가 있어요?",
+              "Do you have siblings?",
+              "형제 = brothers and sisters"
+            ],
+            [
+              "우리 집",
+              "our home",
+              "우리 = our, also used for my own home"
+            ]
+          ]
+        },
+        {
+          "type": "practice",
+          "title": {
+            "en": "Did you understand?",
+            "ko": "이해했나요?"
+          },
+          "hint": "Answer in English.",
+          "items": [
+            {
+              "q": "What color is the sofa?",
+              "a": "Blue."
+            },
+            {
+              "q": "How many people are in A's family?",
+              "a": "Four, with a father, a mother, an older brother and A."
+            },
+            {
+              "q": "Where is A's older brother?",
+              "a": "In his room."
+            }
+          ]
+        },
+        {
+          "type": "practice",
+          "title": {
+            "en": "Make it yours",
+            "ko": "내 말로"
+          },
+          "hint": "Write one line. Model answers are in the Answer Key.",
+          "items": [
+            {
+              "q": "Say 'My room is narrow.' →",
+              "a": "제 방은 좁아요."
+            },
+            {
+              "q": "Ask 'What color is that bag?' →",
+              "a": "저 가방은 무슨 색이에요?"
+            }
+          ]
+        }
+      ],
+      "opener": {
+        "no": "3",
+        "ko": "우리 집에 오세요!",
+        "en": "Come to my home!",
+        "place": {
+          "en": "At Hana's home",
+          "ko": "하나네 집에서"
+        }
+      }
+    },
+    "fd-4": {
+      "id": "fd-4",
+      "title": {
+        "en": "Short dialogue · Part 4: At a restaurant",
+        "ko": "4부 짧은 대화 · 식당에서"
+      },
+      "sub": {
+        "en": "Order food, ask the total and pay.",
+        "ko": "주문 · 값 묻기 · 계산"
+      },
+      "sections": [
+        {
+          "type": "table",
+          "title": {
+            "en": "The dialogue",
+            "ko": "대화"
+          },
+          "cols": [
+            "Who · 누구",
+            "Korean · 한국어",
+            "English · 영어"
+          ],
+          "rows": [
+            [
+              "A",
+              "어서 오세요! 뭐 드릴까요?",
+              "Welcome! What can I get you?"
+            ],
+            [
+              "B",
+              "라면 두 그릇 주세요.",
+              "Two bowls of ramen, please."
+            ],
+            [
+              "A",
+              "매운 거 괜찮아요?",
+              "Is spicy food okay?"
+            ],
+            [
+              "B",
+              "네, 좋아요. 모두 얼마예요?",
+              "Yes, that's fine. How much is it in total?"
+            ],
+            [
+              "A",
+              "구천 원이에요.",
+              "It's 9,000 won."
+            ],
+            [
+              "B",
+              "카드로 계산해도 돼요?",
+              "Can I pay by card?"
+            ],
+            [
+              "A",
+              "네, 돼요. 또 오세요!",
+              "Yes, you can. Please come again!"
+            ]
+          ]
+        },
+        {
+          "type": "table",
+          "title": {
+            "en": "Useful phrases",
+            "ko": "쓸모 있는 표현"
+          },
+          "cols": [
+            "Korean · 한국어",
+            "English · 영어",
+            "Note · 메모"
+          ],
+          "rows": [
+            [
+              "뭐 드릴까요?",
+              "What can I get you?",
+              "Said by the server"
+            ],
+            [
+              "모두 얼마예요?",
+              "How much in total?",
+              "모두 = all together"
+            ],
+            [
+              "계산해도 돼요?",
+              "May I pay?",
+              "-도 돼요 asks permission"
+            ]
+          ]
+        },
+        {
+          "type": "practice",
+          "title": {
+            "en": "Did you understand?",
+            "ko": "이해했나요?"
+          },
+          "hint": "Answer in English.",
+          "items": [
+            {
+              "q": "What does B order?",
+              "a": "Two bowls of ramen."
+            },
+            {
+              "q": "How much is it?",
+              "a": "9,000 won."
+            },
+            {
+              "q": "How does B pay?",
+              "a": "By card."
+            }
+          ]
+        },
+        {
+          "type": "practice",
+          "title": {
+            "en": "Make it yours",
+            "ko": "내 말로"
+          },
+          "hint": "Write one line. Model answers are in the Answer Key.",
+          "items": [
+            {
+              "q": "Order two cups of tea →",
+              "a": "차 두 잔 주세요."
+            },
+            {
+              "q": "Ask 'May I sit here?' →",
+              "a": "여기 앉아도 돼요?"
+            }
+          ]
+        }
+      ],
+      "opener": {
+        "no": "4",
+        "ko": "라면 두 그릇 주세요.",
+        "en": "Two bowls of ramen, please.",
+        "place": {
+          "en": "At a restaurant",
+          "ko": "식당에서"
+        }
+      }
+    },
+    "fd-5": {
+      "id": "fd-5",
+      "title": {
+        "en": "Short dialogue · Part 5: After being sick",
+        "ko": "5부 짧은 대화 · 아팠어요"
+      },
+      "sub": {
+        "en": "Talk about yesterday, today and tomorrow.",
+        "ko": "어제 · 오늘 · 내일 말하기"
+      },
+      "sections": [
+        {
+          "type": "table",
+          "title": {
+            "en": "The dialogue",
+            "ko": "대화"
+          },
+          "cols": [
+            "Who · 누구",
+            "Korean · 한국어",
+            "English · 영어"
+          ],
+          "rows": [
+            [
+              "A",
+              "어제 왜 수업에 안 왔어요?",
+              "Why didn't you come to class yesterday?"
+            ],
+            [
+              "B",
+              "아팠어요. 병원에 갔어요.",
+              "I was sick. I went to the hospital."
+            ],
+            [
+              "A",
+              "지금은 괜찮아요?",
+              "Are you okay now?"
+            ],
+            [
+              "B",
+              "네, 괜찮아요. 오늘은 약을 먹었어요.",
+              "Yes, I'm fine. I took medicine today."
+            ],
+            [
+              "A",
+              "내일은 수업에 나올 거예요?",
+              "Will you come to class tomorrow?"
+            ],
+            [
+              "B",
+              "네, 꼭 나올 거예요. 오늘은 숙제를 못 했어요.",
+              "Yes, I will definitely come. I couldn't do my homework today."
+            ],
+            [
+              "A",
+              "괜찮아요. 내일 하세요.",
+              "It's okay. Do it tomorrow."
+            ]
+          ]
+        },
+        {
+          "type": "table",
+          "title": {
+            "en": "Useful phrases",
+            "ko": "쓸모 있는 표현"
+          },
+          "cols": [
+            "Korean · 한국어",
+            "English · 영어",
+            "Note · 메모"
+          ],
+          "rows": [
+            [
+              "꼭",
+              "definitely",
+              "Placed before the verb"
+            ],
+            [
+              "나오다",
+              "to come out / to show up",
+              "수업에 나오다 = to attend class"
+            ],
+            [
+              "괜찮아요",
+              "It's okay / I'm fine",
+              "Works for both feelings and permission"
+            ],
+            [
+              "숙제",
+              "homework",
+              "숙제를 하다 = to do homework"
+            ]
+          ]
+        },
+        {
+          "type": "practice",
+          "title": {
+            "en": "Did you understand?",
+            "ko": "이해했나요?"
+          },
+          "hint": "Answer in English.",
+          "items": [
+            {
+              "q": "Why was B absent?",
+              "a": "B was sick."
+            },
+            {
+              "q": "Will B come tomorrow?",
+              "a": "Yes."
+            },
+            {
+              "q": "Why can't B hand in homework?",
+              "a": "B could not do it today."
+            }
+          ]
+        },
+        {
+          "type": "practice",
+          "title": {
+            "en": "Make it yours",
+            "ko": "내 말로"
+          },
+          "hint": "Write one line. Model answers are in the Answer Key.",
+          "items": [
+            {
+              "q": "Say 'I did not eat breakfast.' →",
+              "a": "아침을 안 먹었어요."
+            },
+            {
+              "q": "Say 'I will call you tomorrow.' →",
+              "a": "내일 전화할 거예요."
+            }
+          ]
+        }
+      ],
+      "opener": {
+        "no": "5",
+        "ko": "어제 왜 수업에 안 왔어요?",
+        "en": "Why didn't you come to class yesterday?",
+        "place": {
+          "en": "After class",
+          "ko": "수업이 끝난 뒤"
+        }
+      }
     }
   },
   "unitCount": 23

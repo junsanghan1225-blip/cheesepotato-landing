@@ -165,6 +165,17 @@ h1,h2,h3,h4{font-weight:800;letter-spacing:-.01em}
 .pd h2{font-size:28pt;line-height:1.25}.pd h3{font-size:14pt;font-weight:500;opacity:.92;margin-top:3mm}
 .pd .list{position:relative;z-index:1;margin-top:14mm;font-size:9.4pt;line-height:1.9;opacity:.95}
 /* 단원 첫 쪽 */
+.dop{page:unitopen;height:${H}mm;width:${W}mm;position:relative;overflow:hidden;background:#fff;break-after:page}
+.dop .rb{position:absolute;left:50%;top:34mm;transform:translateX(-50%);width:78mm;height:26mm}.dop .rb svg{display:block;width:100%;height:100%}
+.dop .rb b{position:absolute;left:0;right:0;top:3.2mm;text-align:center;color:#fff;font-size:15pt;font-weight:800;letter-spacing:.04em}
+.dop .rb i{position:absolute;left:0;right:0;top:11.2mm;text-align:center;color:#fff;font-style:normal;font-size:23pt;font-weight:900}
+.dop .bx{position:absolute;left:30mm;right:30mm;top:96mm;height:62mm}
+.dop .bx:before,.dop .bx:after,.dop .bx span:before,.dop .bx span:after{content:'';position:absolute;width:7mm;height:7mm;border:0 solid ${ACC}}
+.dop .bx:before{left:0;top:0;border-width:1.2mm 0 0 1.2mm}.dop .bx:after{right:0;top:0;border-width:1.2mm 1.2mm 0 0}.dop .bx span:before{left:0;bottom:0;border-width:0 0 1.2mm 1.2mm}.dop .bx span:after{right:0;bottom:0;border-width:0 1.2mm 1.2mm 0}
+.dop .tx{position:absolute;left:34mm;right:34mm;top:108mm;text-align:center}
+.dop .tx h2{font-size:23pt;line-height:1.35;font-weight:800;color:#1d1a17}.dop .tx p{margin-top:3mm;font-size:12pt;color:#6d655c;line-height:1.5}
+.dop .dt{position:absolute;left:50%;top:176mm;width:2.2mm;height:2.2mm;margin-left:-1.1mm;border-radius:50%;background:${ACC}}
+.dop .pl{position:absolute;left:0;right:0;top:190mm;text-align:center;font-size:11pt;font-weight:700;color:#5a6780}.dop .pl small{display:block;margin-top:1mm;font-weight:500;font-size:9pt;color:#8a8278}
 .uo{page:unitopen;height:${H}mm;width:${W}mm;position:relative;overflow:hidden;background:#fff}
 .uo .band{position:absolute;left:0;top:0;width:100%;height:96mm;background:${ACC}}
 .uo .band:after{content:'';position:absolute;right:-18mm;top:-18mm;width:70mm;height:70mm;border-radius:50%;background:rgba(255,255,255,.14)}
@@ -479,9 +490,14 @@ function unitBlock(u) {
     if (s.type === 'writing') return `<div class="sec wq">${sr(si)}${secLabel(s)}${writingHtml(s.raw)}</div>`;
     return `<div class="sec"${s.items.length <= 8 ? ' style="break-inside:avoid"' : ''}>${sr(si)}${secLabel(s)}${s.hint ? `<div class="hint">${esc(s.hint)}</div>` : ''}${s.think ? `<ol class="pr th">${s.items.map((x) => `<li><span class="q">${esc(x.q).replace(/_{3,}/g, '<span class="bl"></span>')}</span><span class="tl"></span><span class="tl"></span></li>`).join('')}</ol>` : `<ol class="pr" style="--qw:${qw(s.items)}">${s.items.map((x) => `<li${liCls(x.q) ? ` class="${liCls(x.q)}"` : ''}>${qLine(x.q)}</li>`).join('')}</ol>`}</div>`;
   }).join('\n');
-  if (CLASSIC) return `<div class="blk ${unitCss(u)}" style="page:${unitCss(u)}">${u._head}${unitQr(u)}${body}${lookalike(u)}${selfCheck(u)}</div>`;
-  return open + `<div class="blk ${unitCss(u)}" style="page:${unitCss(u)}">${body}${lookalike(u)}${selfCheck(u)}${unitQr(u)}</div>`;
+  if (CLASSIC) return dialogueOpener(u) + `<div class="blk ${unitCss(u)}" style="page:${unitCss(u)}">${u._head}${unitQr(u)}${body}${lookalike(u)}${selfCheck(u)}</div>`;
+  return dialogueOpener(u) + open + `<div class="blk ${unitCss(u)}" style="page:${unitCss(u)}">${body}${lookalike(u)}${selfCheck(u)}${unitQr(u)}</div>`;
 }
+const dialogueOpener = (u) => {
+  const o = u.opener; if (!o) return '';
+  const rib = `<svg viewBox="0 0 78 26" preserveAspectRatio="none"><path d="M0 4h8v18H0l5 -9z M70 4h8l-5 9 5 9h-8z" fill="${ACC}" opacity=".55"/><path d="M6 0h66v22H6z" fill="${ACC}"/><path d="M6 22v4l6-4zM72 22v4l-6-4z" fill="#000" opacity=".28"/></svg>`;
+  return `<div class="blk dop"><div class="rb">${rib}<b>DIALOGUE</b><i>${esc(o.no)}</i></div><div class="bx"><span></span></div><div class="tx"><h2>${esc(o.ko)}</h2><p>${esc(o.en)}</p></div><div class="dt"></div><div class="pl">${esc(o.place.en)}<small>${esc(o.place.ko)}</small></div></div>`;
+};
 function answersBlock() {
   let h = `<div class="blk plain ak"><h2>Answer Key</h2><div class="k">정답</div>`;
   for (const u of units) {
