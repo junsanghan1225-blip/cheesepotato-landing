@@ -509,18 +509,13 @@ function unitBlock(u) {
     if (s.type === 'writing') return `<div class="sec wq">${sr(si)}${secLabel(s)}${writingHtml(s.raw)}</div>`;
     return `<div class="sec"${s.items.length <= 8 ? ' style="break-inside:avoid"' : ''}>${sr(si)}${secLabel(s)}${s.hint ? `<div class="hint">${esc(s.hint)}</div>` : ''}${s.think ? `<ol class="pr th">${s.items.map((x) => `<li><span class="q">${esc(x.q).replace(/_{3,}/g, '<span class="bl"></span>')}</span><span class="tl"></span><span class="tl"></span></li>`).join('')}</ol>` : `<ol class="pr" style="--qw:${qw(s.items)}">${s.items.map((x) => `<li${liCls(x.q) ? ` class="${liCls(x.q)}"` : ''}>${qLine(x.q)}</li>`).join('')}</ol>`}</div>`;
   }).join('\n');
-  if (CLASSIC) return (dialogueOpener(u) || unitCover(u)) + `<div class="blk ${unitCss(u)}" style="page:${unitCss(u)}">${u._head}${unitQr(u)}${body}${lookalike(u)}${selfCheck(u)}</div>`;
+  if (CLASSIC) return dialogueOpener(u) + `<div class="blk ${unitCss(u)}" style="page:${unitCss(u)}">${u._head}${unitQr(u)}${body}${lookalike(u)}${selfCheck(u)}</div>`;
   return dialogueOpener(u) + open + `<div class="blk ${unitCss(u)}" style="page:${unitCss(u)}">${body}${lookalike(u)}${selfCheck(u)}${unitQr(u)}</div>`;
 }
 const dialogueOpener = (u) => {
   const o = u.opener; if (!o) return '';
   const rib = `<svg viewBox="0 0 78 26" preserveAspectRatio="none"><path d="M0 4h8v18H0l5 -9z M70 4h8l-5 9 5 9h-8z" fill="${LV ? LVG[1] : ACC}" opacity=".6"/><path d="M6 0h66v22H6z" fill="${LV ? LVG[0] : ACC}"/><path d="M6 22v4l6-4zM72 22v4l-6-4z" fill="#000" opacity=".28"/></svg>`;
   return `<div class="blk dop${LV ? ' lv' : ''}">${LV ? '<div class="fr"></div>' : ''}<div class="rb">${rib}<b>DIALOGUE</b><i>${esc(o.no)}</i></div><div class="dbx"><span></span></div><div class="tx"><h2>${esc(o.ko)}</h2><p>${esc(o.en)}</p></div><div class="dt"></div><div class="pl">${esc(o.place.en)}<small>${esc(o.place.ko)}</small></div>${LV ? `<div class="ft"><div class="mini">${lvMascot}</div>${logoSvg({ fg: LVG[0], one: true, height: '4mm' })}</div>` : ''}</div>`;
-};
-const unitCover = (u) => {
-  if (!LV) return '';
-  const items = u.sections.filter((x) => x.title?.en).map((x) => `<li>${esc(x.title.en)}${x.title.ko ? `<small>${esc(x.title.ko)}</small>` : ''}</li>`).join('');
-  return `<div class="blk uoc"><div class="fr"></div><div class="ptp"><span>PART ${u.part.no} · ${esc(u.part.title.en.toUpperCase())}</span><span>${esc(LV.code)} · ${esc(LV.name)}</span></div><div class="no">UNIT</div><div class="big">${String(u.no).padStart(2, '0')}</div><div class="orn"></div><h2>${esc(u.title.ko)}</h2><h3>${esc(u.title.en)}</h3><p class="sb">${esc(u.sub.en)}<small>${esc(u.sub.ko)}</small></p><div class="in"><b>IN THIS UNIT · 이 단원에서</b><ol>${items}</ol></div><div class="ft"><div class="mini">${lvMascot}</div>${logoSvg({ fg: LVG[0], one: true, height: '4mm' })}</div></div>`;
 };
 function answersBlock() {
   let h = `<div class="blk plain ak"><h2>Answer Key</h2><div class="k">정답</div>`;
@@ -665,17 +660,6 @@ const lvPageCss = LV ? `.pd.lv,.dop.lv{background:radial-gradient(ellipse at 72%
 .pd.lv .ft,.dop.lv .ft{position:absolute;left:18mm;right:18mm;bottom:17mm;display:flex;align-items:center;justify-content:space-between}
 .pd.lv .mini,.dop.lv .mini{position:relative;width:16mm;height:16mm;border-radius:50%;background:radial-gradient(circle at 50% 38%,${LV.bg},${LV.bg2});box-shadow:0 0 0 .5mm ${LVG[1]},0 0 0 1.1mm #fff,0 0 0 1.5mm ${LVG[1]}aa}.pd.lv .mini svg,.dop.lv .mini svg{position:absolute;left:1.4mm;top:.9mm;width:13.2mm;height:13.2mm}
 .dop.lv .rb b{color:${LV.bg}}.dop.lv .rb i{color:${LV.bg}}.dop.lv .tx h2{color:#fff}.dop.lv .tx p{color:${LVG[0]}}.dop.lv .dbx:before,.dop.lv .dbx:after,.dop.lv .dbx span:before,.dop.lv .dbx span:after{border-color:${LVG[1]}}
-.uoc{page:unitopen;height:${H}mm;width:${W}mm;position:relative;overflow:hidden;break-after:page;background:radial-gradient(ellipse at 72% 78%,${LV.bg} 0%,${LV.bg2} 80%) !important;color:#fff !important}
-.uoc .fr{position:absolute;left:9mm;top:9mm;right:9mm;bottom:9mm;border:.5mm solid ${LVG[1]}}
-.uoc .ptp{position:absolute;left:18mm;right:18mm;top:17mm;display:flex;justify-content:space-between;font-size:7.4pt;font-weight:700;letter-spacing:.18em;color:${LVG[0]}}
-.uoc .no{position:absolute;left:18mm;top:46mm;font-size:11pt;font-weight:800;letter-spacing:.36em;color:${LVG[1]}}
-.uoc .big{position:absolute;left:16mm;top:52mm;font-size:96pt;font-weight:900;line-height:.9;letter-spacing:-.04em;color:${LVG[0]}}
-.uoc .orn{position:absolute;left:18mm;top:100mm;width:70mm;height:.5mm;background:${LVG[1]}}.uoc .orn:after{content:'';position:absolute;left:72mm;top:-1.1mm;width:2.6mm;height:2.6mm;background:${LVG[1]};transform:rotate(45deg)}
-.uoc h2{position:absolute;left:18mm;right:18mm;top:108mm;margin:0;border:0 !important;padding:0 !important;font-size:24pt;line-height:1.25;color:#fff}.uoc h3{position:absolute;left:18mm;right:18mm;top:128mm;margin:0;font-size:12pt;font-weight:500;color:${LVG[0]}}
-.uoc .sb{position:absolute;left:18mm;right:22mm;top:142mm;margin:0;font-size:9.4pt;line-height:1.6;color:#fff;opacity:.92}.uoc .sb small{display:block;margin-top:1.5mm;font-size:8.6pt;color:${LVG[0]}}
-.uoc .in{position:absolute;left:18mm;right:18mm;top:172mm;border-top:.3mm solid ${LVG[1]};padding-top:3mm}.uoc .in b{font-size:7.2pt;letter-spacing:.2em;color:${LVG[1]}}.uoc .in ol{margin:1.5mm 0 0;padding:0;list-style:none;font-size:8.6pt;line-height:1.55;color:#fff}.uoc .in li small{margin-left:2mm;color:${LVG[0]};opacity:.85}
-.uoc .ft{position:absolute;left:18mm;right:18mm;bottom:17mm;display:flex;align-items:center;justify-content:space-between}
-.uoc .mini{position:relative;width:16mm;height:16mm;border-radius:50%;background:radial-gradient(circle at 50% 38%,${LV.bg},${LV.bg2});box-shadow:0 0 0 .5mm ${LVG[1]},0 0 0 1.1mm #fff,0 0 0 1.5mm ${LVG[1]}aa}.uoc .mini svg{position:absolute;left:1.4mm;top:.9mm;width:13.2mm;height:13.2mm}
 .dop.lv .dt{background:${LVG[1]}}.dop.lv .pl{color:${LVG[0]}}.dop.lv .pl small{color:${LVG[1]}}` : '';
 const shell = (body) => recolor(`<!doctype html><html lang="en"><head><meta charset="utf-8"><link rel="stylesheet" href="/vendor/pretendard.css"><style>${CSS}${CLASSIC ? CLASSIC_CSS : ''}${LV ? lvPageCss : ''}${reviewTop}</style></head><body>${body.replace(/[㉠㉡㉢]/g, (c) => CM[c])}</body></html>`);
 let pages = new Map();
