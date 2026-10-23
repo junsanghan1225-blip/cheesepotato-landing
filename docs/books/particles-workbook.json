@@ -455,45 +455,38 @@
           "cols": [
             "Particle · 조사",
             "Example · 예",
-            "English",
-            "Context · 맥락"
+            "English"
           ],
           "rows": [
             [
               "가",
               "비가 내려요.",
-              "Rain falls.",
-              "#just noticed #weather"
+              "Rain falls."
             ],
             [
               "이",
               "바람이 불어요.",
-              "The wind blows.",
-              "#just noticed #weather"
+              "The wind blows."
             ],
             [
               "가",
               "사과가 맛있어요.",
-              "The apple is delicious.",
-              "#new information"
+              "The apple is delicious."
             ],
             [
               "가",
               "겨울 바다가 정말 아름다워요.",
-              "The winter sea is truly beautiful.",
-              "#describing a scene"
+              "The winter sea is truly beautiful."
             ],
             [
               "이",
               "선생님이 교실로 천천히 들어오세요.",
-              "The teacher slowly enters the classroom.",
-              "#new person enters #scene"
+              "The teacher slowly enters the classroom."
             ],
             [
               "이",
               "어제 산 노트북이 가볍고 디자인도 좋아요.",
-              "The laptop I bought yesterday is light and has a nice design.",
-              "#new thing #first mention"
+              "The laptop I bought yesterday is light and has a nice design."
             ]
           ]
         },
@@ -513,51 +506,51 @@
           },
           "items": [
             {
-              "q": "버스___ 도착했어요.  (The bus has arrived. ▸ just happened, new information)",
+              "q": "버스___ 도착했어요.  (The bus has arrived. ▸ new information)",
               "a": "가"
             },
             {
-              "q": "눈___ 내려요.  (Snow falls. ▸ happening now)",
+              "q": "눈___ 내려요.  (Snow falls. ▸ just noticed)",
               "a": "이"
             },
             {
-              "q": "꽃___ 피었어요.  (Flowers bloomed. ▸ seen right now)",
+              "q": "꽃___ 피었어요.  (Flowers bloomed. ▸ just noticed)",
               "a": "이"
             },
             {
-              "q": "자동차___ 멈췄어요.  (The car stopped. ▸ just happened, new information)",
+              "q": "자동차___ 멈췄어요.  (The car stopped. ▸ new information)",
               "a": "가"
             },
             {
-              "q": "동생___ 집에서 혼자 숙제를 해요.  (My younger sibling does homework alone at home. ▸ answers: Who does it?)",
+              "q": "동생___ 집에서 혼자 숙제를 해요.  (My younger sibling does homework alone at home. ▸ answers who/what)",
               "a": "이"
             },
             {
-              "q": "새 신발___ 발에 아주 편해요.  (The new shoes are very comfortable on my feet. ▸ describing what you notice)",
+              "q": "새 신발___ 발에 아주 편해요.  (The new shoes are very comfortable on my feet. ▸ just noticed)",
               "a": "이"
             },
             {
-              "q": "맑은 강물___ 아래로 빠르게 흘러요.  (Clear river water flows quickly downward. ▸ describing a scene)",
+              "q": "맑은 강물___ 아래로 빠르게 흘러요.  (Clear river water flows quickly downward. ▸ just noticed)",
               "a": "이"
             },
             {
-              "q": "오랜만에 만난 사촌___ 반갑게 인사해요.  (My cousin whom I met after a long time greets warmly. ▸ a new person comes into the story)",
+              "q": "오랜만에 만난 사촌___ 반갑게 인사해요.  (My cousin whom I met after a long time greets warmly. ▸ new information)",
               "a": "이"
             },
             {
-              "q": "새로 산 청소기___ 아주 조용해요.  (The newly bought vacuum cleaner is very quiet. ▸ a new thing, first mention)",
+              "q": "새로 산 청소기___ 아주 조용해요.  (The newly bought vacuum cleaner is very quiet. ▸ new information)",
               "a": "가"
             },
             {
-              "q": "외국인 관광객___ 시장에서 기념품을 골라요.  (Foreign tourists choose souvenirs at the market. ▸ a new person, first mention)",
+              "q": "외국인 관광객___ 시장에서 기념품을 골라요.  (Foreign tourists choose souvenirs at the market. ▸ new information)",
               "a": "이"
             },
             {
-              "q": "민수___ 약속 시간에 늦어서 먼저 출발했어요.  (Minsu was late for the appointment, so we left first. ▸ subject of a because-clause)",
+              "q": "민수___ 약속 시간에 늦어서 먼저 출발했어요.  (Minsu was late for the appointment, so we left first. ▸ clause subject)",
               "a": "가"
             },
             {
-              "q": "골목길에 예쁜 카페___ 새로 문을 열었어요.  (A pretty cafe newly opened its doors on the alley. ▸ a new place appears)",
+              "q": "골목길에 예쁜 카페___ 새로 문을 열었어요.  (A pretty cafe newly opened its doors on the alley. ▸ new information)",
               "a": "가"
             }
           ]
@@ -670,45 +663,38 @@
           "cols": [
             "Particle · 조사",
             "Example · 예",
-            "English",
-            "Context · 맥락"
+            "English"
           ],
           "rows": [
             [
               "는",
               "사과는 달아요.",
-              "Apples are sweet.",
-              "#general fact"
+              "Apples are sweet."
             ],
             [
               "은",
               "동생은 학생이에요.",
-              "My sibling is a student.",
-              "#topic #already known"
+              "My sibling is a student."
             ],
             [
               "는",
               "민수는 키가 커요.",
-              "Minsu is tall.",
-              "#topic #already known"
+              "Minsu is tall."
             ],
             [
               "는",
               "언니는 주말에 요리를 자주 해요.",
-              "My older sister often cooks on weekends.",
-              "#topic #habit"
+              "My older sister often cooks on weekends."
             ],
             [
               "은",
               "이 식당은 김치찌개가 참 맛있어요.",
-              "As for this restaurant, kimchi stew is really delicious.",
-              "#topic #known place"
+              "As for this restaurant, kimchi stew is really delicious."
             ],
             [
               "은",
               "제 고향은 바다가 가깝고 조용한 곳이에요.",
-              "My hometown is a quiet place close to the sea.",
-              "#topic #telling about my hometown"
+              "My hometown is a quiet place close to the sea."
             ]
           ]
         },
@@ -728,7 +714,7 @@
           },
           "items": [
             {
-              "q": "이 물___ 차가워요.  (This water is cold. ▸ this = already known, the topic)",
+              "q": "이 물___ 차가워요.  (This water is cold. ▸ topic)",
               "a": "은"
             },
             {
@@ -744,23 +730,23 @@
               "a": "은"
             },
             {
-              "q": "형___ 회사에서 컴퓨터를 고쳐요.  (My older brother fixes computers at the office. ▸ telling about my brother (topic))",
+              "q": "형___ 회사에서 컴퓨터를 고쳐요.  (My older brother fixes computers at the office. ▸ topic)",
               "a": "은"
             },
             {
-              "q": "어머니___ 아침마다 따뜻한 녹차를 드세요.  (Mother drinks warm green tea every morning. ▸ contrast: mother vs father)",
+              "q": "어머니___ 아침마다 따뜻한 녹차를 드세요.  (Mother drinks warm green tea every morning. ▸ contrast)",
               "a": "는"
             },
             {
-              "q": "아버지___ 매일 아침 따뜻한 차를 마셔요.  (My father drinks warm tea every morning. ▸ contrast: mother vs father)",
+              "q": "아버지___ 매일 아침 따뜻한 차를 마셔요.  (My father drinks warm tea every morning. ▸ contrast)",
               "a": "는"
             },
             {
-              "q": "이 영화___ 스토리가 독특해서 인기가 많아요.  (This movie is very popular because of its unique story. ▸ this movie = known topic)",
+              "q": "이 영화___ 스토리가 독특해서 인기가 많아요.  (This movie is very popular because of its unique story. ▸ topic)",
               "a": "는"
             },
             {
-              "q": "지하철___ 빠르고 편리하지만 출근 시간엔 너무 복잡해요.  (The subway is fast and convenient, but crowded at rush hour. ▸ contrast: but)",
+              "q": "지하철___ 빠르고 편리하지만 출근 시간엔 너무 복잡해요.  (The subway is fast and convenient, but crowded at rush hour. ▸ contrast)",
               "a": "은"
             }
           ]
@@ -5354,19 +5340,19 @@
           "hint": "The context is in the English line under each sentence.",
           "items": [
             {
-              "q": "A: 누가 학생이에요? B: 제___ 학생이에요.  (Who is the student? I am. ▸ answers: Who?)",
+              "q": "A: 누가 학생이에요? B: 제___ 학생이에요.  (Who is the student? I am. ▸ answers who/what)",
               "a": "가"
             },
             {
-              "q": "A: 민수 씨는 뭐 해요? B: 민수 씨___ 학생이에요.  (What does Minsu do? He is a student. ▸ asked about Minsu)",
+              "q": "A: 민수 씨는 뭐 해요? B: 민수 씨___ 학생이에요.  (What does Minsu do? He is a student. ▸ topic)",
               "a": "는"
             },
             {
-              "q": "와, 눈___ 와요!  (Wow, it is snowing! ▸ just noticed, happening now)",
+              "q": "와, 눈___ 와요!  (Wow, it is snowing! ▸ just noticed)",
               "a": "이"
             },
             {
-              "q": "우리 가족___ 모두 네 명이에요.  (There are four people in my family. ▸ telling about my family, a known topic)",
+              "q": "우리 가족___ 모두 네 명이에요.  (There are four people in my family. ▸ topic)",
               "a": "은"
             },
             {
@@ -5374,7 +5360,7 @@
               "a": "는 / 는"
             },
             {
-              "q": "어제 새 친구___ 생겼어요.  (I made a new friend yesterday. ▸ a new person, first mention)",
+              "q": "어제 새 친구___ 생겼어요.  (I made a new friend yesterday. ▸ new information)",
               "a": "가"
             },
             {
@@ -5382,7 +5368,7 @@
               "a": "은"
             },
             {
-              "q": "A: 누가 케이크를 먹었어요? B: 동생___ 먹었어요.  (Who ate the cake? My younger sibling did. ▸ answers: Who?)",
+              "q": "A: 누가 케이크를 먹었어요? B: 동생___ 먹었어요.  (Who ate the cake? My younger sibling did. ▸ answers who/what)",
               "a": "이"
             }
           ]
@@ -5426,42 +5412,80 @@
         {
           "type": "practice",
           "title": {
-            "en": "Mini test (8 questions)",
-            "ko": "미니 테스트 (8문항)"
+            "en": "Choose one",
+            "ko": "고르기"
           },
-          "hint": "Cover the Answer Key and finish in about ten minutes. The English line under each sentence gives the context.",
+          "hint": "Pick the best option. The English line gives the meaning.",
           "items": [
             {
-              "q": "저___ 한국 사람이에요.  (I am Korean. ▸ introducing yourself)",
-              "a": "는"
+              "q": "나는 매일 아침 우유___ 마셔요.  (a) 가  (b) 를  (c) 의  (I drink milk every morning.)",
+              "a": "(b) 를"
             },
             {
-              "q": "A: 누가 왔어요? B: 민수___ 왔어요.  (Who came? Minsu did. ▸ answers: Who?)",
-              "a": "가"
+              "q": "저기 새 가게___ 생겼어요.  (a) 는  (b) 를  (c) 가  (A new shop opened over there. ▸ new information)",
+              "a": "(c) 가"
             },
             {
-              "q": "저는 커피___ 마셔요.  (I drink coffee.)",
-              "a": "를"
+              "q": "이 사람___ 우리 형이에요.  (a) 은  (b) 이  (c) 를  (This person is my older brother. ▸ topic)",
+              "a": "(a) 은"
+            }
+          ]
+        },
+        {
+          "type": "practice",
+          "title": {
+            "en": "Spot the mistake",
+            "ko": "틀린 곳 고치기"
+          },
+          "hint": "One particle is wrong. Write the correct sentence.",
+          "items": [
+            {
+              "q": "동생이 책가 읽어요. →",
+              "a": "동생이 책을 읽어요."
             },
             {
-              "q": "제 친구___ 이름은 수진이에요.  (My friend's name is Sujin. ▸ belongs to)",
-              "a": "의"
+              "q": "제 친구가 이름은 민수예요. →",
+              "a": "제 친구의 이름은 민수예요."
+            }
+          ]
+        },
+        {
+          "type": "practice",
+          "title": {
+            "en": "Match the context",
+            "ko": "맥락 맞추기"
+          },
+          "hint": "Write the particle that fits the context.",
+          "items": [
+            {
+              "q": "You answer a 「누가?」 question. 이/가 or 은/는? →",
+              "a": "이/가"
             },
             {
-              "q": "오늘은 날씨___ 정말 좋아요.  (The weather is really nice today. ▸ just noticed)",
-              "a": "가"
+              "q": "You are contrasting coffee and tea. 이/가 or 은/는? →",
+              "a": "은/는"
             },
             {
-              "q": "책___ 읽어요.  (I read a book. ▸ the thing being read)",
-              "a": "을"
+              "q": "The thing you read gets 을/를 or 의? →",
+              "a": "을/를"
+            }
+          ]
+        },
+        {
+          "type": "practice",
+          "title": {
+            "en": "Say it in Korean",
+            "ko": "한국어로 쓰기"
+          },
+          "hint": "Write one sentence. Model answers are in the Answer Key.",
+          "items": [
+            {
+              "q": "I like Korean music.",
+              "a": "저는 한국 음악을 좋아해요."
             },
             {
-              "q": "저기 고양이___ 있어요.  (There is a cat over there. ▸ a new thing)",
-              "a": "가"
-            },
-            {
-              "q": "커피___ 좋아하지만 차___ 안 좋아해요.  (I like coffee but not tea. ▸ contrast)",
-              "a": "는 / 는"
+              "q": "My friend's book is on the desk.",
+              "a": "친구의 책이 책상 위에 있어요."
             }
           ]
         },
@@ -5471,7 +5495,7 @@
             "en": "Score it",
             "ko": "점수 매기기"
           },
-          "text": "Score: ____ / 8\n7 or more: move on. 5 to 6: re-read the Watch out boxes in this part, then write your mistakes in the mistake log. 4 or fewer: redo the Fill in practice in this part, then take this test again after 3 days.\n점수: ____ / 8\n7개 이상이면 다음으로 가세요. 5~6개면 이 부의 「조심할 것」을 다시 읽고 틀린 문장을 기록하세요. 4개 이하면 이 부의 채우기를 다시 하고 3일 뒤 이 테스트를 다시 풀어 보세요."
+          "text": "Score: ____ / 10\n9 or more: move on. 6 to 8: re-read the Watch out boxes in this part, then write your mistakes in the mistake log. 5 or fewer: redo the Fill in practice in this part, then take this test again after 3 days.\n점수: ____ / 10\n9개 이상이면 다음으로 가세요. 6~8개면 이 부의 「조심할 것」을 다시 읽고 틀린 문장을 기록하세요. 5개 이하면 이 부의 채우기를 다시 하고 3일 뒤 이 테스트를 다시 풀어 보세요."
         }
       ]
     },
@@ -5489,42 +5513,76 @@
         {
           "type": "practice",
           "title": {
-            "en": "Mini test (8 questions)",
-            "ko": "미니 테스트 (8문항)"
+            "en": "Choose one",
+            "ko": "고르기"
           },
-          "hint": "Cover the Answer Key and finish in about ten minutes. The English line under each sentence gives the context.",
+          "hint": "Pick the best option. The English line gives the meaning.",
           "items": [
             {
-              "q": "저는 학교___ 가요.  (I go to school. ▸ destination)",
-              "a": "에"
+              "q": "주말에 공원___ 운동해요.  (a) 에  (b) 에서  (c) 에게  (I exercise at the park on weekends.)",
+              "a": "(b) 에서"
             },
             {
-              "q": "도서관___ 공부해요.  (I study at the library. ▸ where an action happens)",
+              "q": "동생___ 생일 선물을 줬어요.  (a) 에서  (b) 에  (c) 한테  (I gave my younger sibling a birthday present.)",
+              "a": "(c) 한테"
+            },
+            {
+              "q": "수업은 오후 두 시___ 시작해요.  (a) 에  (b) 에서  (c) 에게  (Class starts at two p.m.)",
+              "a": "(a) 에"
+            }
+          ]
+        },
+        {
+          "type": "practice",
+          "title": {
+            "en": "Spot the mistake",
+            "ko": "틀린 곳 고치기"
+          },
+          "hint": "One particle is wrong. Write the correct sentence.",
+          "items": [
+            {
+              "q": "저는 매일 학교에서 가요. →",
+              "a": "저는 매일 학교에 가요."
+            },
+            {
+              "q": "친구에 편지를 썼어요. →",
+              "a": "친구에게 편지를 썼어요. / 친구한테 편지를 썼어요."
+            }
+          ]
+        },
+        {
+          "type": "practice",
+          "title": {
+            "en": "Match the context",
+            "ko": "맥락 맞추기"
+          },
+          "hint": "Write the particle that fits the context.",
+          "items": [
+            {
+              "q": "You say where an action happens. 에 or 에서? →",
               "a": "에서"
             },
             {
-              "q": "일곱 시___ 일어나요.  (I get up at seven. ▸ a point in time)",
+              "q": "You say where something simply exists. 에 or 에서? →",
               "a": "에"
+            }
+          ]
+        },
+        {
+          "type": "practice",
+          "title": {
+            "en": "Say it in Korean",
+            "ko": "한국어로 쓰기"
+          },
+          "hint": "Write one sentence. Model answers are in the Answer Key.",
+          "items": [
+            {
+              "q": "I go to the library at nine.",
+              "a": "저는 아홉 시에 도서관에 가요."
             },
             {
-              "q": "친구___ 선물을 줬어요.  (I gave a present to my friend. ▸ a person)",
-              "a": "에게 / 한테"
-            },
-            {
-              "q": "집___ 학교까지 걸어서 십 분이에요.  (It takes ten minutes on foot from home to school. ▸ starting place)",
-              "a": "에서"
-            },
-            {
-              "q": "수업은 아홉 시___ 열두 시까지예요.  (Class runs from nine to twelve. ▸ starting time)",
-              "a": "부터"
-            },
-            {
-              "q": "지금 서울___ 있어요.  (I am in Seoul now. ▸ simply being there)",
-              "a": "에"
-            },
-            {
-              "q": "회사___ 전화했어요.  (I called the company. ▸ an organization, not a person)",
-              "a": "에"
+              "q": "I called my mother from the office.",
+              "a": "회사에서 어머니께 전화했어요."
             }
           ]
         },
@@ -5534,7 +5592,7 @@
             "en": "Score it",
             "ko": "점수 매기기"
           },
-          "text": "Score: ____ / 8\n7 or more: move on. 5 to 6: re-read the Watch out boxes in this part, then write your mistakes in the mistake log. 4 or fewer: redo the Fill in practice in this part, then take this test again after 3 days.\n점수: ____ / 8\n7개 이상이면 다음으로 가세요. 5~6개면 이 부의 「조심할 것」을 다시 읽고 틀린 문장을 기록하세요. 4개 이하면 이 부의 채우기를 다시 하고 3일 뒤 이 테스트를 다시 풀어 보세요."
+          "text": "Score: ____ / 9\n7 or more: move on. 5 to 6: re-read the Watch out boxes in this part, then write your mistakes in the mistake log. 4 or fewer: redo the Fill in practice in this part, then take this test again after 3 days.\n점수: ____ / 9\n7개 이상이면 다음으로 가세요. 5~6개면 이 부의 「조심할 것」을 다시 읽고 틀린 문장을 기록하세요. 4개 이하면 이 부의 채우기를 다시 하고 3일 뒤 이 테스트를 다시 풀어 보세요."
         }
       ]
     },
@@ -5552,42 +5610,76 @@
         {
           "type": "practice",
           "title": {
-            "en": "Mini test (8 questions)",
-            "ko": "미니 테스트 (8문항)"
+            "en": "Choose one",
+            "ko": "고르기"
           },
-          "hint": "Cover the Answer Key and finish in about ten minutes. The English line under each sentence gives the context.",
+          "hint": "Pick the best option. The English line gives the meaning.",
           "items": [
             {
-              "q": "저는 친구___ 영화를 봤어요.  (I watched a movie with a friend. ▸ spoken style)",
-              "a": "랑 / 하고"
+              "q": "친구___ 같이 점심을 먹었어요.  (a) 도  (b) 랑  (c) 만  (I had lunch together with a friend.)",
+              "a": "(b) 랑"
             },
             {
-              "q": "저___ 학생이에요.  (I am a student too. ▸ also)",
+              "q": "저는 커피___ 마셔요. 다른 건 안 마셔요.  (a) 만  (b) 도  (c) 밖에  (I only drink coffee. I drink nothing else.)",
+              "a": "(a) 만"
+            },
+            {
+              "q": "지갑에 오천 원___ 없어요.  (a) 만  (b) 도  (c) 밖에  (I have only 5,000 won in my wallet. ▸ too little)",
+              "a": "(c) 밖에"
+            }
+          ]
+        },
+        {
+          "type": "practice",
+          "title": {
+            "en": "Spot the mistake",
+            "ko": "틀린 곳 고치기"
+          },
+          "hint": "One particle is wrong. Write the correct sentence.",
+          "items": [
+            {
+              "q": "천 원밖에 있어요. →",
+              "a": "천 원밖에 없어요."
+            },
+            {
+              "q": "한 시간이나 잤어요. (I meant: I slept only one hour.) →",
+              "a": "한 시간밖에 못 잤어요. / 한 시간만 잤어요."
+            }
+          ]
+        },
+        {
+          "type": "practice",
+          "title": {
+            "en": "Match the context",
+            "ko": "맥락 맞추기"
+          },
+          "hint": "Write the particle that fits the context.",
+          "items": [
+            {
+              "q": "You offer a choice between two drinks. (이)나 or 도? →",
+              "a": "(이)나"
+            },
+            {
+              "q": "You add one more person: “me too”. 도 or 만? →",
               "a": "도"
+            }
+          ]
+        },
+        {
+          "type": "practice",
+          "title": {
+            "en": "Say it in Korean",
+            "ko": "한국어로 쓰기"
+          },
+          "hint": "Write one sentence. Model answers are in the Answer Key.",
+          "items": [
+            {
+              "q": "I eat only vegetables.",
+              "a": "저는 채소만 먹어요."
             },
             {
-              "q": "물___ 마셨어요. 다른 건 안 마셨어요.  (I drank only water. ▸ only)",
-              "a": "만"
-            },
-            {
-              "q": "돈이 천 원___ 없어요.  (I only have 1,000 won. ▸ nothing but, with a negative verb)",
-              "a": "밖에"
-            },
-            {
-              "q": "커피___ 차___ 마시고 싶어요.  (I want to drink coffee or tea. ▸ choose one)",
-              "a": "나 / 나"
-            },
-            {
-              "q": "밥을 세 그릇___ 먹었어요!  (I ate as many as three bowls of rice! ▸ more than expected)",
-              "a": "이나"
-            },
-            {
-              "q": "한국어___ 영어를 공부해요.  (I study Korean and English. ▸ formal, written style)",
-              "a": "와"
-            },
-            {
-              "q": "사과___ 바나나를 샀어요.  (I bought apples and bananas. ▸ spoken style)",
-              "a": "랑 / 하고"
+              "q": "I went to the park with my sister.",
+              "a": "저는 언니랑 공원에 갔어요."
             }
           ]
         },
@@ -5597,7 +5689,7 @@
             "en": "Score it",
             "ko": "점수 매기기"
           },
-          "text": "Score: ____ / 8\n7 or more: move on. 5 to 6: re-read the Watch out boxes in this part, then write your mistakes in the mistake log. 4 or fewer: redo the Fill in practice in this part, then take this test again after 3 days.\n점수: ____ / 8\n7개 이상이면 다음으로 가세요. 5~6개면 이 부의 「조심할 것」을 다시 읽고 틀린 문장을 기록하세요. 4개 이하면 이 부의 채우기를 다시 하고 3일 뒤 이 테스트를 다시 풀어 보세요."
+          "text": "Score: ____ / 9\n7 or more: move on. 5 to 6: re-read the Watch out boxes in this part, then write your mistakes in the mistake log. 4 or fewer: redo the Fill in practice in this part, then take this test again after 3 days.\n점수: ____ / 9\n7개 이상이면 다음으로 가세요. 5~6개면 이 부의 「조심할 것」을 다시 읽고 틀린 문장을 기록하세요. 4개 이하면 이 부의 채우기를 다시 하고 3일 뒤 이 테스트를 다시 풀어 보세요."
         }
       ]
     },
@@ -5615,42 +5707,76 @@
         {
           "type": "practice",
           "title": {
-            "en": "Mini test (8 questions)",
-            "ko": "미니 테스트 (8문항)"
+            "en": "Choose one",
+            "ko": "고르기"
           },
-          "hint": "Cover the Answer Key and finish in about ten minutes. The English line under each sentence gives the context.",
+          "hint": "Pick the best option. The English line gives the meaning.",
           "items": [
             {
-              "q": "버스___ 학교에 가요.  (I go to school by bus. ▸ means of transport)",
-              "a": "로"
+              "q": "저는 지하철___ 회사에 가요.  (a) 에  (b) 로  (c) 를  (I go to work by subway.)",
+              "a": "(b) 로"
             },
             {
-              "q": "연필___ 써요.  (I write with a pencil. ▸ tool. 연필 ends in ㄹ)",
-              "a": "로"
+              "q": "오늘은 어제___ 더 추워요.  (a) 보다  (b) 처럼  (c) 마다  (Today is colder than yesterday.)",
+              "a": "(a) 보다"
             },
             {
-              "q": "이쪽___ 가세요.  (Please go this way. ▸ direction. 쪽 ends in a consonant)",
-              "a": "으로"
+              "q": "그 아이는 천사___ 착해요.  (a) 마다  (b) 쯤  (c) 처럼  (That child is as kind as an angel.)",
+              "a": "(c) 처럼"
+            }
+          ]
+        },
+        {
+          "type": "practice",
+          "title": {
+            "en": "Spot the mistake",
+            "ko": "틀린 곳 고치기"
+          },
+          "hint": "One particle is wrong. Write the correct sentence.",
+          "items": [
+            {
+              "q": "한 시간마다 걸려요. (I meant: It takes about an hour.) →",
+              "a": "한 시간쯤 걸려요."
             },
             {
-              "q": "저는 형___ 키가 작아요.  (I am shorter than my older brother. ▸ comparison)",
-              "a": "보다"
-            },
+              "q": "연필을 써요. (I meant: I write with a pencil.) →",
+              "a": "연필로 써요."
+            }
+          ]
+        },
+        {
+          "type": "practice",
+          "title": {
+            "en": "Match the context",
+            "ko": "맥락 맞추기"
+          },
+          "hint": "Write the particle that fits the context.",
+          "items": [
             {
-              "q": "그는 모델___ 멋있어요.  (He is handsome like a model. ▸ resembles)",
-              "a": "처럼 / 같이"
-            },
-            {
-              "q": "일요일___ 운동해요.  (I exercise every Sunday. ▸ every)",
+              "q": "Something happens every Sunday. 마다 or 쯤? →",
               "a": "마다"
             },
             {
-              "q": "한 시간___ 걸려요.  (It takes about an hour. ▸ approximate)",
+              "q": "You give an approximate time: around ten o'clock. 쯤 or 보다? →",
               "a": "쯤"
+            }
+          ]
+        },
+        {
+          "type": "practice",
+          "title": {
+            "en": "Say it in Korean",
+            "ko": "한국어로 쓰기"
+          },
+          "hint": "Write one sentence. Model answers are in the Answer Key.",
+          "items": [
+            {
+              "q": "I go to school by bus every day.",
+              "a": "저는 날마다 버스로 학교에 가요."
             },
             {
-              "q": "택시___ 갔어요.  (I went by taxi. ▸ means of transport)",
-              "a": "로"
+              "q": "My bag is bigger than my friend's bag.",
+              "a": "제 가방이 친구 가방보다 커요."
             }
           ]
         },
@@ -5660,7 +5786,7 @@
             "en": "Score it",
             "ko": "점수 매기기"
           },
-          "text": "Score: ____ / 8\n7 or more: move on. 5 to 6: re-read the Watch out boxes in this part, then write your mistakes in the mistake log. 4 or fewer: redo the Fill in practice in this part, then take this test again after 3 days.\n점수: ____ / 8\n7개 이상이면 다음으로 가세요. 5~6개면 이 부의 「조심할 것」을 다시 읽고 틀린 문장을 기록하세요. 4개 이하면 이 부의 채우기를 다시 하고 3일 뒤 이 테스트를 다시 풀어 보세요."
+          "text": "Score: ____ / 9\n7 or more: move on. 5 to 6: re-read the Watch out boxes in this part, then write your mistakes in the mistake log. 4 or fewer: redo the Fill in practice in this part, then take this test again after 3 days.\n점수: ____ / 9\n7개 이상이면 다음으로 가세요. 5~6개면 이 부의 「조심할 것」을 다시 읽고 틀린 문장을 기록하세요. 4개 이하면 이 부의 채우기를 다시 하고 3일 뒤 이 테스트를 다시 풀어 보세요."
         }
       ]
     },
@@ -5678,50 +5804,80 @@
         {
           "type": "practice",
           "title": {
-            "en": "Mini test (10 questions)",
-            "ko": "미니 테스트 (10문항)"
+            "en": "Choose one",
+            "ko": "고르기"
           },
-          "hint": "Cover the Answer Key and finish in about ten minutes. The English line under each sentence gives the context.",
+          "hint": "Pick the best option. The English line gives the meaning.",
           "items": [
             {
-              "q": "A: 누가 학생이에요? B: 제___ 학생이에요.  (Who is the student? I am. ▸ answers: Who?)",
-              "a": "가"
+              "q": "A: 누가 학생이에요? B: 제___ 학생이에요.  (a) 가  (b) 는  (c) 를  (Who is the student? I am.)",
+              "a": "(a) 가"
             },
             {
-              "q": "저는 도서관___ 있어요.  (I am at the library. ▸ simply being there)",
+              "q": "저는 도서관___ 책을 읽어요.  (a) 에  (b) 에서  (c) 로  (I read books at the library. ▸ action place)",
+              "a": "(b) 에서"
+            },
+            {
+              "q": "회사___ 이메일을 보냈어요.  (a) 한테  (b) 에게  (c) 에  (I sent an email to the company. ▸ organization)",
+              "a": "(c) 에"
+            },
+            {
+              "q": "택시___ 갔어요.  (a) 에  (b) 로  (c) 에서  (I went by taxi.)",
+              "a": "(b) 로"
+            }
+          ]
+        },
+        {
+          "type": "practice",
+          "title": {
+            "en": "Spot the mistake",
+            "ko": "틀린 곳 고치기"
+          },
+          "hint": "One particle is wrong. Write the correct sentence.",
+          "items": [
+            {
+              "q": "저는 서울로 살아요. (I meant: I live in Seoul.) →",
+              "a": "저는 서울에 살아요. / 저는 서울에서 살아요."
+            },
+            {
+              "q": "월요일에서 금요일까지 일해요. (I meant: from Monday to Friday.) →",
+              "a": "월요일부터 금요일까지 일해요."
+            }
+          ]
+        },
+        {
+          "type": "practice",
+          "title": {
+            "en": "Match the context",
+            "ko": "맥락 맞추기"
+          },
+          "hint": "Write the particle that fits the context.",
+          "items": [
+            {
+              "q": "커피나 차를 마셔요 / 커피도 차도 마셔요. Which one means “both”? →",
+              "a": "커피도 차도 마셔요 (도 … 도 = both)"
+            },
+            {
+              "q": "People and animals get 에게/한테. A company or a place gets what? →",
               "a": "에"
+            }
+          ]
+        },
+        {
+          "type": "practice",
+          "title": {
+            "en": "Say it in Korean",
+            "ko": "한국어로 쓰기"
+          },
+          "hint": "Write one sentence. Model answers are in the Answer Key.",
+          "items": [
+            {
+              "q": "I study at home, but I sleep at a hotel.",
+              "a": "저는 집에서 공부하지만 호텔에서 자요."
             },
             {
-              "q": "저는 도서관___ 공부해요.  (I study at the library. ▸ an action happens there)",
-              "a": "에서"
-            },
-            {
-              "q": "친구___ 편지를 썼어요.  (I wrote a letter to a friend. ▸ a person)",
-              "a": "에게 / 한테"
-            },
-            {
-              "q": "회사___ 편지를 보냈어요.  (I sent a letter to the company. ▸ an organization)",
-              "a": "에"
-            },
-            {
-              "q": "지하철___ 가요.  (I go by subway. ▸ means of transport. 철 ends in ㄹ)",
-              "a": "로"
-            },
-            {
-              "q": "서울___ 가요.  (I go to Seoul. ▸ destination)",
-              "a": "에"
-            },
-            {
-              "q": "월요일___ 금요일까지 일해요.  (I work from Monday to Friday. ▸ starting time)",
-              "a": "부터"
-            },
-            {
-              "q": "집___ 회사까지 삼십 분이에요.  (It takes 30 minutes from home to work. ▸ starting place)",
-              "a": "에서"
-            },
-            {
-              "q": "친구가 열 명___ 왔어요.  (As many as ten friends came. ▸ more than expected)",
-              "a": "이나"
+              "q": "It takes ten minutes from my house to the station.",
+              "a": "우리 집에서 역까지 십 분 걸려요."
             }
           ]
         },

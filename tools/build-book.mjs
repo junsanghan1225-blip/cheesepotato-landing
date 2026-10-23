@@ -64,7 +64,16 @@ for (const [uid, secs] of Object.entries(THINK)) {
     x.items.forEach((q, k) => { if (typeof q.q !== 'string' || typeof q.a !== 'string' || !q.q.trim() || !q.a.trim()) throw new Error(`${w} 문제 ${k + 1}: q · a 문자열`); if (/—/.test(JSON.stringify(q) + JSON.stringify(x.title) + (x.hint || ''))) throw new Error(`${w}: 줄표(—)는 쓰지 않는다`); });
   });
 }
-const sheet = (id) => { const s0 = sheetBase(id); const t = THINK[id]; return t ? { ...s0, sections: [...s0.sections, ...t.map((x) => ({ ...x, think: true }))] } : s0; };
+/* 「이런 맥락에서 써요」 — docs/books/<책 id>.contexts.json = { 단원 id: [[꼬리표, 이럴 때, 예, 영어], …] }. 예문표 바로 뒤에 따로 한 칸으로 끼운다(운영자 2026-10-23 「별도 섹션 · 여러 맥락에 쓰이는 조사 모두」). */
+const CTXF = path.join(ROOT, `docs/books/${bookId}.contexts.json`);
+const CTX = fs.existsSync(CTXF) ? JSON.parse(fs.readFileSync(CTXF, 'utf8')) : {};
+for (const [uid, rows] of Object.entries(CTX)) {
+  if (!B.parts.some((p) => p.units.includes(uid))) throw new Error(`contexts: 책에 없는 단원 ${uid}`);
+  rows.forEach((r, i) => { if (!Array.isArray(r) || r.length !== 4 || r.some((c) => typeof c !== 'string' || !c.trim()) || !r[0].startsWith('#') || /—/.test(r.join(''))) throw new Error(`contexts ${uid}[${i}]: [#꼬리표, 이럴 때, 예, 영어] 네 칸 · 줄표 금지`); });
+}
+const ctxSec = (rows) => ({ type: 'table', title: { en: 'Where it is used', ko: '이런 맥락에서 써요' }, cols: ['Context · 맥락', 'When · 이럴 때', 'Example · 예', 'English'], rows });
+const withCtx = (s0, id) => { const rows = CTX[id]; if (!rows) return s0; const k = s0.sections.findIndex((x) => x.type === 'table' && /^Examples/.test(x.title.en)); const at = k >= 0 ? k + 1 : s0.sections.length; return { ...s0, sections: [...s0.sections.slice(0, at), ctxSec(rows), ...s0.sections.slice(at)] }; };
+const sheet = (id) => { const s0 = withCtx(sheetBase(id), id); const t = THINK[id]; return t ? { ...s0, sections: [...s0.sections, ...t.map((x) => ({ ...x, think: true }))] } : s0; };
 const esc = (x) => String(x ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 const cssStr = (x) => '"' + String(x).replace(/\\/g, '\\\\').replace(/"/g, '\\"') + '"';
 const HAN = /[가-힣]/;
@@ -451,7 +460,7 @@ function unitBlock(u) {
     secNo = `${u.no}-${si + 1}`;
     if (s.type === 'table') {
       const tipCols = s.cols.map((c) => /reading|tip|sound|pronunc/i.test(c));
-      return `<div class="sec"${s.rows.length <= 8 ? ' style="break-inside:avoid"' : ''}>${sr(si)}${secLabel(s)}<table><thead><tr>${s.cols.map((c) => `<th>${esc(c)}</th>`).join('')}</tr></thead><tbody>${s.rows.map((r) => `<tr>${r.map((c, i) => `<td${tipCols[i] ? ' class="tip"' : ''}>${tagsOr(c)}</td>`).join('')}</tr>`).join('')}</tbody></table>${s.note ? (CLASSIC ? blockHtml(u, si, s, s.note) : `<div class="note">${esc(s.note)}</div>`) : ''}</div>`;
+      return `<div class="sec"${s.rows.length <= 8 ? ' style="break-inside:avoid"' : ''}>${sr(si)}${secLabel(s)}<table${/^Context/.test(s.cols[s.cols.length - 1]) ? ' class="ctx"' : ''}><thead><tr>${s.cols.map((c) => `<th>${esc(c)}</th>`).join('')}</tr></thead><tbody>${s.rows.map((r) => `<tr>${r.map((c, i) => `<td${tipCols[i] ? ' class="tip"' : ''}>${tagsOr(c)}</td>`).join('')}</tr>`).join('')}</tbody></table>${s.note ? (CLASSIC ? blockHtml(u, si, s, s.note) : `<div class="note">${esc(s.note)}</div>`) : ''}</div>`;
     }
     if (s.type === 'text') {
       const k = CLASSIC ? kindOf(u, si, s) : 'ref';
@@ -576,6 +585,7 @@ tbody tr:nth-child(even) td,tr:nth-child(even) td{background:transparent}td{bord
 .sm h2,.ml h2{font-size:17pt;margin-bottom:1mm}.sm .k,.ml .k{font-size:9pt;color:#44506a;margin-bottom:3mm;line-height:1.55}
 .sm-t,.ml-t{width:100%;border-collapse:collapse;font-size:8.6pt}.sm-t th,.ml-t th{background:${TINT};border:.25mm solid #b9c3d6;padding:1.2mm;font-size:7.8pt}.sm-t td,.ml-t td{border:.25mm solid #cfd6e2;padding:1.2mm 1.6mm;vertical-align:middle}.sm-t td:first-child{width:9mm;text-align:center;font-weight:800;color:${ACC}}.sm-t td:nth-child(n+3){text-align:center;width:17mm}.sm-t small{display:block;color:#6d655c;font-size:7.4pt}.ml-t td{height:15.2mm}
 .pr li.open{display:block;position:relative;padding:1.4mm 0 1mm 6mm}.pr li.open:before{position:absolute;left:0;top:1.6mm}.pr li.open .q{display:block}.pr li.open .tl{display:block;height:7.2mm;border-bottom:.25mm solid #9aa7bf}
+table.ctx{table-layout:fixed}table.ctx th:nth-child(1){width:15%}table.ctx th:nth-child(4){width:27%}table.ctx td:last-child{white-space:nowrap}
 .tg{display:inline-block;padding:.2mm 2mm;margin:0 1mm .5mm 0;border-radius:99px;background:${TINT};border:.25mm solid ${ACC};color:${ACC};font-size:7.4pt;font-weight:700;line-height:1.5;white-space:nowrap}
 .pr .q .en .cx{display:block;margin-top:.6mm}
 .la{display:flex;gap:3mm;align-items:center;margin-top:4mm;padding:2.2mm 3.4mm;border-left:1.2mm solid #d9822b;background:#fff6ea;border-radius:1.2mm;font-size:8.6pt;line-height:1.45;break-inside:avoid}.la b{flex:none;font-size:7.6pt;letter-spacing:.03em;color:#b25f12;max-width:24mm}.la span{flex:1}.la em{flex:none;font-style:normal;font-weight:800;color:${ACC};font-size:8.2pt}
