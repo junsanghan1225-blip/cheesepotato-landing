@@ -1,0 +1,32 @@
+{
+  "_note": "책 QR 로 들어온 사람이 쪽에서 직접 채우는 보너스 연습(운영자 2026-10-23 「QR 들어갔을 때 채울 수 있는 콘텐츠」). 책 안의 문항과 겹치지 않는 새 문항. 모양 · 규칙은 docs/antigravity/antigravity-bonus-task.md, 검사 node tools/check-bonus.mjs, 쪽 만들기 node tools/build-bonus.mjs.",
+  "book": "first-steps-workbook",
+  "units": {
+    "greetings-self-introduction": {
+      "cards": [
+        { "ko": "처음 뵙겠습니다", "en": "How do you do? (very formal, first meeting)" },
+        { "ko": "만나서 반갑습니다", "en": "Nice to meet you." },
+        { "ko": "잘 부탁드립니다", "en": "Please take care of me. / I look forward to working with you." },
+        { "ko": "어서 오세요", "en": "Welcome. (said to someone who comes in)" },
+        { "ko": "또 만나요", "en": "See you again." },
+        { "ko": "안녕히 주무세요", "en": "Good night. (to an older person)" },
+        { "ko": "이름이 뭐예요?", "en": "What is your name?" },
+        { "ko": "어느 나라 사람이에요?", "en": "Which country are you from?" }
+      ],
+      "quiz": [
+        { "q": "You meet your new boss for the first time. What is the best thing to say?", "opts": ["안녕", "처음 뵙겠습니다", "또 만나요", "어서 오세요"], "a": 1, "why": "처음 뵙겠습니다 is the formal way to greet someone you meet for the first time." },
+        { "q": "A customer walks into your shop. What do you say?", "opts": ["어서 오세요", "잘 부탁드립니다", "안녕히 주무세요", "이름이 뭐예요?"], "a": 0, "why": "어서 오세요 means welcome. The shop says it to the person who comes in." },
+        { "q": "저는 일본에서 왔어요 means:", "opts": ["I am going to Japan.", "I came from Japan.", "I like Japan.", "Japan is far."], "a": 1, "why": "-에서 왔어요 means came from. 일본에서 = from Japan." },
+        { "q": "Which question asks about someone's nationality?", "opts": ["이름이 뭐예요?", "어느 나라 사람이에요?", "몇 살이에요?", "어디에 살아요?"], "a": 1, "why": "어느 나라 사람이에요? literally asks which country person you are." },
+        { "q": "Before bed, you say good night to your grandmother.", "opts": ["잘 자", "안녕히 주무세요", "또 만나요", "처음 뵙겠습니다"], "a": 1, "why": "안녕히 주무세요 is the respectful form of good night for an older person." }
+      ],
+      "fill": [
+        { "q": "만나서 ___.", "en": "Nice to meet you.", "a": ["반갑습니다"] },
+        { "q": "저는 미국에서 ___.", "en": "I came from the USA.", "a": ["왔어요"] },
+        { "q": "이름이 ___예요?", "en": "What is your name?", "a": ["뭐"] },
+        { "q": "잘 ___드립니다.", "en": "Please take care of me.", "a": ["부탁"] },
+        { "q": "어서 ___.", "en": "Welcome.", "a": ["오세요"] }
+      ]
+    }
+  }
+}

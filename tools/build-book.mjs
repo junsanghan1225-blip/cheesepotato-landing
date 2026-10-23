@@ -32,6 +32,11 @@ if (!bookId) { console.error('사용: node tools/build-book.mjs <책 id> [--out 
 const B = JSON.parse(fs.readFileSync(path.join(ROOT, `docs/books/${bookId}.json`), 'utf8'));
 const THEME = args.includes('--theme') ? args[args.indexOf('--theme') + 1] : (B.theme || 'brand');
 const CLASSIC = THEME === 'classic';
+/* 레벨별 시리즈 색 · 마스코트(표지 · 부 속표지 · 대화 표지가 같이 쓴다) */
+const { potatoLevel, cheeseLevel } = await import(path.join(ROOT, 'levels.js'));
+const LV = B.coverLevel;
+const lvMascot = LV ? (LV.mascot[0] === 'cheese' ? cheeseLevel(LV.mascot[1]) : potatoLevel(LV.mascot[1])).icon : '';
+const LVG = ['#EFE6CB', '#D2BC86', '#A8915C'];
 /* 문제은행 단원 「w51:2」 = TOPIK II 쓰기 51번의 2번째 10문항(topik-writing.js). 학습지 JSON 대신 이 자리에서 단원 모양으로 만든다. */
 const BANKQ = { 51: ['Practical Text Completion', '실용문 완성', 'Fill each blank with one sentence that fits the text and its style.', '각 빈칸에 지문의 문체에 맞는 한 문장을 써요'], 52: ['Explanatory Text Completion', '설명문 완성', 'Fill each blank with one sentence in the -(느)ㄴ다 style.', '각 빈칸에 -(느)ㄴ다체로 한 문장을 써요'], 53: ['Describing Data', '자료 설명하기', 'Write 200–300 characters describing the data.', '자료를 보고 200~300자로 써요'], 54: ['Argumentative Essay', '논술', 'Write 600–700 characters giving your own view.', '자신의 생각을 600~700자로 써요'] };
 const TWM = B.needTW || B.parts.some((p) => p.units.some((u) => /^(w\d\d:|g\d\d-)/.test(u))) ? await import(path.join(ROOT, 'topik-writing.js')) : null;
@@ -79,7 +84,19 @@ const esc = (x) => String(x ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').
 const cssStr = (x) => '"' + String(x).replace(/\\/g, '\\\\').replace(/"/g, '\\"') + '"';
 const HAN = /[가-힣]/;
 const T = B.trim, W = T.w, H = T.h;
-const ACC = CLASSIC ? '#1F3A68' : B.color, TINT = CLASSIC ? '#EEF2F8' : B.tint;
+/* 정석풍(classic) 속지의 강조색 — 레벨 시리즈 책은 표지 색(coverLevel.bg)을 그대로 쓴다(운영자 2026-10-23 「색이 달라 통일성이 없다」).
+   차가운 회청색 보조색(#5a6780 …)은 밝기 · 채도는 두고 색상만 책 색으로 옮긴다. */
+const hex2hsl = (h) => { const n = parseInt(h.slice(1), 16), r = (n >> 16) / 255, g = ((n >> 8) & 255) / 255, b = (n & 255) / 255, mx = Math.max(r, g, b), mn = Math.min(r, g, b), l = (mx + mn) / 2, d = mx - mn; let hh = 0, ss = 0; if (d) { ss = d / (1 - Math.abs(2 * l - 1)); hh = mx === r ? ((g - b) / d + 6) % 6 : mx === g ? (b - r) / d + 2 : (r - g) / d + 4; hh *= 60; } return [hh, ss, l]; };
+const hsl2hex = (h, s, l) => { const c = (1 - Math.abs(2 * l - 1)) * s, x = c * (1 - Math.abs(((h / 60) % 2) - 1)), m = l - c / 2, [r, g, b] = h < 60 ? [c, x, 0] : h < 120 ? [x, c, 0] : h < 180 ? [0, c, x] : h < 240 ? [0, x, c] : h < 300 ? [x, 0, c] : [c, 0, x]; return '#' + [r, g, b].map((v) => Math.round((v + m) * 255).toString(16).padStart(2, '0')).join(''); };
+const mixHex = (a, b, t) => { const f = (h) => [16, 8, 0].map((sh) => (parseInt(h.slice(1), 16) >> sh) & 255); const A = f(a), B2 = f(b); return '#' + A.map((v, i) => Math.round(v * (1 - t) + B2[i] * t).toString(16).padStart(2, '0')).join(''); };
+const COOL = ['#5a6780', '#2a3550', '#7a8aa6', '#6b7a92', '#8e9ab0', '#44506a', '#9aa7bf', '#cfd6e2', '#d6dce8', '#c5d1e6', '#b9c3d6', '#e8ecf3', '#fafbfd', '#f6f8fc', '#f4f6fa', '#f3f5fa', '#f1f4fa', '#f1f4fa', '#2f5da8'];
+const recolor = (str) => {
+  if (!CLASSIC || !B.coverLevel) return str;
+  const hue = hex2hsl(B.coverLevel.bg)[0];
+  for (const c of COOL) { const [, ss, ll] = hex2hsl(c); str = str.replace(new RegExp(c, 'gi'), hsl2hex(hue, Math.min(ss, 0.3), ll)); }
+  return str.replace(/#1f3a68/gi, B.coverLevel.bg).replace(/#14264a/gi, B.coverLevel.bg2).replace(/#eef2f8/gi, mixHex(B.coverLevel.bg, '#ffffff', 0.93));
+};
+const ACC = CLASSIC ? (B.coverLevel?.bg || '#1F3A68') : B.color, TINT = CLASSIC ? (B.coverLevel ? mixHex(B.coverLevel.bg, '#ffffff', 0.93) : '#EEF2F8') : B.tint;
 
 /* ── 단원 끝 QR(운영자 2026-10-22 「책과 앱이 연결되게」) ──
    단원마다 그 주제의 사이트 쪽(있으면 <id>-worksheet/, 쓰기 책은 /topik-writing/)으로 가는 QR + PDF 안 눌러지는 링크.
@@ -91,7 +108,12 @@ const unitUrl = (u) => {
   const gid = u.id.replace(/^i(?=g\d\d-)/, '');   // 유형 안내 단원(ig51-…)은 같은 유형 묶음의 쪽으로
   let page = '/';
   const pg = /^pt-26-(\d+)$/.exec(u.id);
-  if (ex(`${u.id}-worksheet/index.html`)) page = `/${u.id}-worksheet/`;
+  /* 책 보너스 연습 쪽(docs/bonus → bonus/<책 id>/<단원>/)이 있으면 그리로 — 칸을 직접 채우고 채점하는 쪽. 부 미니 테스트 · 대화는 그 부의 보너스가 있는 첫 단원으로. */
+  const bn = (id) => ex(`bonus/${B.id}/${id}/index.html`);
+  const pn = /^(?:ft|fd)-(\d)$/.exec(u.id);
+  const bu = bn(u.id) ? u.id : pn ? B.parts[+pn[1] - 1]?.units.find(bn) : null;
+  if (bu) page = `/bonus/${B.id}/${bu}/`;
+  else if (ex(`${u.id}-worksheet/index.html`)) page = `/${u.id}-worksheet/`;
   else if (B.groups?.[gid]) { const f = B.groups[gid].items[0]; page = ex(`topik-writing/${f}.html`) ? `/topik-writing/${f}.html` : '/topik-writing/'; }   // 그 유형의 첫 문항 쪽
   else if (pg && ex(`sentence/26-${pg[1]}.html`)) page = `/sentence/26-${pg[1]}.html`;   // 조사 한 개 = 사이트 문법 쪽(26-N)
   else if (/^ct-/.test(u.id) && ex('compare/26.html')) page = '/compare/26.html';   // 헷갈리는 조사 = 조사 표현 비교 쪽
@@ -169,9 +191,9 @@ h1,h2,h3,h4{font-weight:800;letter-spacing:-.01em}
 .dop .rb{position:absolute;left:50%;top:34mm;transform:translateX(-50%);width:78mm;height:26mm}.dop .rb svg{display:block;width:100%;height:100%}
 .dop .rb b{position:absolute;left:0;right:0;top:3.2mm;text-align:center;color:#fff;font-size:15pt;font-weight:800;letter-spacing:.04em}
 .dop .rb i{position:absolute;left:0;right:0;top:11.2mm;text-align:center;color:#fff;font-style:normal;font-size:23pt;font-weight:900}
-.dop .bx{position:absolute;left:30mm;right:30mm;top:96mm;height:62mm}
-.dop .bx:before,.dop .bx:after,.dop .bx span:before,.dop .bx span:after{content:'';position:absolute;width:7mm;height:7mm;border:0 solid ${ACC}}
-.dop .bx:before{left:0;top:0;border-width:1.2mm 0 0 1.2mm}.dop .bx:after{right:0;top:0;border-width:1.2mm 1.2mm 0 0}.dop .bx span:before{left:0;bottom:0;border-width:0 0 1.2mm 1.2mm}.dop .bx span:after{right:0;bottom:0;border-width:0 1.2mm 1.2mm 0}
+.dop .dbx{position:absolute;left:30mm;right:30mm;top:96mm;height:62mm}
+.dop .dbx:before,.dop .dbx:after,.dop .dbx span:before,.dop .dbx span:after{content:'';position:absolute;width:7mm;height:7mm;border:0 solid ${ACC}}
+.dop .dbx:before{left:0;top:0;border-width:1.2mm 0 0 1.2mm}.dop .dbx:after{right:0;top:0;border-width:1.2mm 1.2mm 0 0}.dop .dbx span:before{left:0;bottom:0;border-width:0 0 1.2mm 1.2mm}.dop .dbx span:after{right:0;bottom:0;border-width:0 1.2mm 1.2mm 0}
 .dop .tx{position:absolute;left:34mm;right:34mm;top:108mm;text-align:center}
 .dop .tx h2{font-size:23pt;line-height:1.35;font-weight:800;color:#1d1a17}.dop .tx p{margin-top:3mm;font-size:12pt;color:#6d655c;line-height:1.5}
 .dop .dt{position:absolute;left:50%;top:176mm;width:2.2mm;height:2.2mm;margin-left:-1.1mm;border-radius:50%;background:${ACC}}
@@ -447,8 +469,10 @@ ${qrBox()}</div>`;
 const FRONT_LIST = B.front ? [['fm1', 'Exam overview', '시험 소개', fmExam], ['fm2', FRONT.plan[B.front].title.en, FRONT.plan[B.front].title.ko, fmPlan], ['fm3', 'Answer grid (원고지)', '원고지 쓰기법', fmGoji], ['fm4', 'Spoken → written', '말 → 글 바꾸기 표', fmWritten], ['fm5', 'Self-check', '자가 점검표', fmCheck]] : [];
 
 function partPage(p) {
+  const list = p.sheets.map((s) => { const u = units.find((x) => x.id === s.id); return `Unit ${String(u.no).padStart(2, '0')} &nbsp; ${esc(s.title.en)}`; }).join('<br>');
+  if (LV) return `<div class="blk pd lv"><div class="fr"></div><div class="ptp"><span>KOREAN WORKBOOK SERIES</span><span>${esc(LV.code)} · ${esc(LV.name)}</span></div><div class="no">PART</div><div class="big">${String(p.no).padStart(2, '0')}</div><div class="orn"></div><h2>${esc(p.title.ko)}</h2><h3>${esc(p.title.en)}</h3><div class="list">${list}</div><div class="ft"><div class="mini">${lvMascot}</div>${logoSvg({ fg: LVG[0], one: true, height: '4mm' })}</div></div>`;
   return `<div class="blk pd"><div class="no">PART ${p.no}</div><div class="big">${String(p.no).padStart(2, '0')}</div><h2>${esc(p.title.ko)}</h2><h3>${esc(p.title.en)}</h3>
-<div class="list">${p.sheets.map((s) => { const u = units.find((x) => x.id === s.id); return `Unit ${String(u.no).padStart(2, '0')} &nbsp; ${esc(s.title.en)}`; }).join('<br>')}</div></div>`;
+<div class="list">${list}</div></div>`;
 }
 /* 한 장 요약 · 풀이 쪽의 「예시」 — 우리 창작 문항(topik-writing.js)의 지문 + 모범답안 */
 function exampleHtml(s) {
@@ -495,8 +519,8 @@ function unitBlock(u) {
 }
 const dialogueOpener = (u) => {
   const o = u.opener; if (!o) return '';
-  const rib = `<svg viewBox="0 0 78 26" preserveAspectRatio="none"><path d="M0 4h8v18H0l5 -9z M70 4h8l-5 9 5 9h-8z" fill="${ACC}" opacity=".55"/><path d="M6 0h66v22H6z" fill="${ACC}"/><path d="M6 22v4l6-4zM72 22v4l-6-4z" fill="#000" opacity=".28"/></svg>`;
-  return `<div class="blk dop"><div class="rb">${rib}<b>DIALOGUE</b><i>${esc(o.no)}</i></div><div class="bx"><span></span></div><div class="tx"><h2>${esc(o.ko)}</h2><p>${esc(o.en)}</p></div><div class="dt"></div><div class="pl">${esc(o.place.en)}<small>${esc(o.place.ko)}</small></div></div>`;
+  const rib = `<svg viewBox="0 0 78 26" preserveAspectRatio="none"><path d="M0 4h8v18H0l5 -9z M70 4h8l-5 9 5 9h-8z" fill="${LV ? LVG[1] : ACC}" opacity=".6"/><path d="M6 0h66v22H6z" fill="${LV ? LVG[0] : ACC}"/><path d="M6 22v4l6-4zM72 22v4l-6-4z" fill="#000" opacity=".28"/></svg>`;
+  return `<div class="blk dop${LV ? ' lv' : ''}">${LV ? '<div class="fr"></div>' : ''}<div class="rb">${rib}<b>DIALOGUE</b><i>${esc(o.no)}</i></div><div class="dbx"><span></span></div><div class="tx"><h2>${esc(o.ko)}</h2><p>${esc(o.en)}</p></div><div class="dt"></div><div class="pl">${esc(o.place.en)}<small>${esc(o.place.ko)}</small></div>${LV ? `<div class="ft"><div class="mini">${lvMascot}</div>${logoSvg({ fg: LVG[0], one: true, height: '4mm' })}</div>` : ''}</div>`;
 };
 function answersBlock() {
   let h = `<div class="blk plain ak"><h2>Answer Key</h2><div class="k">정답</div>`;
@@ -629,7 +653,20 @@ table.ctx{table-layout:fixed}table.ctx th:nth-child(1){width:15%}table.ctx th:nt
 /* ㉠ ㉡ ㉢ — 글꼴에 없는 글자라 동그라미 + 자음을 선으로 직접 그린다(글꼴 자음은 칸 안에서 위 · 아래로 쏠려 보였다 — 운영자 2026-10-18 「위치가 이상하다」) */
 const CMP = { '㉠': 'M6.6 6.4H13.6V13.6', '㉡': 'M6.6 6.4V13.6H13.6', '㉢': 'M13.6 6.4H6.6V13.6H13.6' };
 const CM = Object.fromEntries(Object.entries(CMP).map(([k, d]) => [k, `<svg class="cm" viewBox="0 0 20 20" aria-label="${k}"><circle cx="10" cy="10" r="9" fill="none" stroke="currentColor" stroke-width="1.1"/><path d="${d}" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="miter"/></svg>`]));
-const shell = (body) => `<!doctype html><html lang="en"><head><meta charset="utf-8"><link rel="stylesheet" href="/vendor/pretendard.css"><style>${CSS}${CLASSIC ? CLASSIC_CSS : ''}${reviewTop}</style></head><body>${body.replace(/[㉠㉡㉢]/g, (c) => CM[c])}</body></html>`;
+const lvPageCss = LV ? `.pd.lv,.dop.lv{background:radial-gradient(ellipse at 72% 78%,${LV.bg} 0%,${LV.bg2} 80%) !important;color:#fff !important;padding:0 !important;overflow:hidden}
+.pd.lv:before,.pd.lv:after{display:none !important}
+.pd.lv .fr,.dop.lv .fr{position:absolute;left:9mm;top:9mm;right:9mm;bottom:9mm;border:.5mm solid ${LVG[1]}}
+.pd.lv .ptp{position:absolute;left:18mm;right:18mm;top:17mm;display:flex;justify-content:space-between;font-size:7.4pt;font-weight:700;letter-spacing:.18em;color:${LVG[0]}}
+.pd.lv .no{position:absolute;left:18mm;top:52mm;font-size:11pt;font-weight:800;letter-spacing:.36em;color:${LVG[1]};opacity:1}
+.pd.lv .big{position:absolute;left:16mm;top:56mm;margin:0;font-size:132pt;font-weight:900;line-height:.9;letter-spacing:-.04em;color:${LVG[0]};opacity:1}
+.pd.lv .orn{position:absolute;left:18mm;top:118mm;width:70mm;height:.5mm;background:${LVG[1]}}.pd.lv .orn:after{content:'';position:absolute;left:72mm;top:-1.1mm;width:2.6mm;height:2.6mm;background:${LVG[1]};transform:rotate(45deg)}
+.pd.lv h2{position:absolute;left:18mm;right:18mm;top:127mm;font-size:26pt;line-height:1.25;color:#fff;border:0 !important;padding:0 !important;margin:0}.pd.lv h3{position:absolute;left:18mm;right:18mm;top:147mm;margin:0;font-size:12.5pt;font-weight:500;color:${LVG[0]};opacity:.95}
+.pd.lv .list{position:absolute;left:18mm;right:18mm;top:162mm;margin:0;font-size:8.4pt;line-height:1.62;color:#fff;opacity:.92}
+.pd.lv .ft,.dop.lv .ft{position:absolute;left:18mm;right:18mm;bottom:17mm;display:flex;align-items:center;justify-content:space-between}
+.pd.lv .mini,.dop.lv .mini{position:relative;width:16mm;height:16mm;border-radius:50%;background:radial-gradient(circle at 50% 38%,${LV.bg},${LV.bg2});box-shadow:0 0 0 .5mm ${LVG[1]},0 0 0 1.1mm #fff,0 0 0 1.5mm ${LVG[1]}aa}.pd.lv .mini svg,.dop.lv .mini svg{position:absolute;left:1.4mm;top:.9mm;width:13.2mm;height:13.2mm}
+.dop.lv .rb b{color:${LV.bg}}.dop.lv .rb i{color:${LV.bg}}.dop.lv .tx h2{color:#fff}.dop.lv .tx p{color:${LVG[0]}}.dop.lv .dbx:before,.dop.lv .dbx:after,.dop.lv .dbx span:before,.dop.lv .dbx span:after{border-color:${LVG[1]}}
+.dop.lv .dt{background:${LVG[1]}}.dop.lv .pl{color:${LVG[0]}}.dop.lv .pl small{color:${LVG[1]}}` : '';
+const shell = (body) => recolor(`<!doctype html><html lang="en"><head><meta charset="utf-8"><link rel="stylesheet" href="/vendor/pretendard.css"><style>${CSS}${CLASSIC ? CLASSIC_CSS : ''}${LV ? lvPageCss : ''}${reviewTop}</style></head><body>${body.replace(/[㉠㉡㉢]/g, (c) => CM[c])}</body></html>`);
 let pages = new Map();
 const server = http.createServer((req, res) => {
   const u = decodeURIComponent(new URL(req.url, 'http://x').pathname);
@@ -744,7 +781,6 @@ body{width:${CW}mm;height:${CH}mm;font-family:'Pretendard Variable',sans-serif;p
 .back .bar{position:absolute;right:${T.bleed + 18}mm;bottom:${T.bleed + 14}mm;width:62mm;height:34mm;background:#fff;border:.3mm dashed #c9bfae;display:flex;align-items:center;justify-content:center;text-align:center;font-size:7.4pt;color:#a49a8a;line-height:1.5}
 .back .pr{position:absolute;left:${T.bleed + 18}mm;bottom:${T.bleed + 14}mm;font-size:8.4pt;color:#6d655c;line-height:1.6}.back .pr b{font-size:9.8pt;color:#1d1a17}
 `;
-const { potatoLevel, cheeseLevel } = await import(path.join(ROOT, 'levels.js'));
 const classicCover = CLASSIC ? `.front{background:#1F3A68}.front .c2{display:none}.front .g{display:block;top:auto;bottom:40mm;right:16mm;width:auto;font-size:74pt;font-weight:900;color:rgba(217,179,91,.14);letter-spacing:.02em;line-height:1.08;white-space:pre;text-align:right}.front .c1{display:block;right:-52mm;bottom:-52mm;width:158mm;height:158mm;background:transparent;border:.5mm solid rgba(217,179,91,.42)}.front:after{content:'';position:absolute;left:8mm;top:8mm;right:8mm;bottom:8mm;border:.3mm solid rgba(217,179,91,.38);pointer-events:none}.front h1 .hl{color:#D9B35B}.front .g svg{display:block;width:96mm;height:67mm;overflow:visible}.front .z:before{content:'';position:absolute;left:0;right:0;top:0;height:1px}
 .front .ser{color:#D9B35B;letter-spacing:.34em}.front h1{font-weight:800;margin-top:24mm;font-size:50pt;line-height:1.1;letter-spacing:-.02em}.front h2{font-size:17pt}.front h2{color:#C5D1E6;font-weight:500}.front .rule{background:#D9B35B;height:.8mm;width:26mm}.front .sub{color:#C5D1E6}
 .front .badge{background:transparent;color:#D9B35B;border:.6mm solid #D9B35B;border-radius:1.5mm;padding:2mm 5mm}.front .mk{position:absolute;right:${T.bleed + 18}mm;top:${T.bleed + 66}mm;display:flex;gap:2mm;opacity:.95}.front .mk i{display:block;width:26mm;height:26mm}.front .mk svg{width:100%;height:100%}
@@ -756,9 +792,6 @@ const hlTitle = (t) => (B.coverAccent && t.includes(B.coverAccent) ? esc(t).repl
 /* ── 레벨별 표지(운영자 2026-10-23 「정석풍 + 고급 · 레벨 상자 안에 작은 캐릭터」) ──
    책 틀 JSON 의 coverLevel {code, name, bg, bg2, mascot:[potato|cheese, 레벨], title:[윗줄, 큰 낱말, 아랫줄], sub}. 앞표지는 px(1px = 0.2646mm) 로 그린다 — 앞표지 폭 ≈ 699px.
    --b 는 재단 여유(3mm ≈ 11px): 위 · 아래 · 오른쪽은 여유가 있고 왼쪽(책등 쪽)은 없다. */
-const LV = B.coverLevel;
-const lvMascot = LV ? (LV.mascot[0] === 'cheese' ? cheeseLevel(LV.mascot[1]) : potatoLevel(LV.mascot[1])).icon : '';
-const LVG = ['#EFE6CB', '#D2BC86', '#A8915C'];
 const lvCss = LV ? `.front.lvc{padding:0;--b:11px;background:radial-gradient(ellipse at 72% 74%,${LV.bg} 0%,${LV.bg2} 78%);color:#fff}
 .lvc .fr{position:absolute;left:34px;top:calc(34px + var(--b));right:calc(34px + var(--b));bottom:calc(34px + var(--b));border:2px solid #fff}
 .lvc .top{position:absolute;left:62px;right:calc(62px + var(--b));top:calc(62px + var(--b));display:flex;justify-content:space-between;font-size:13px;font-weight:700;letter-spacing:.18em}
