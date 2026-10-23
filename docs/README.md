@@ -18,7 +18,7 @@
 ## ops 안내 (운영자가 따라 하는 순서, 주제별)
 | 주제 | 파일 |
 |---|---|
-| 📚 책 · 출판 | `publishing-week1.md`(이번 주 순서 · 예스24 칸 채우기) · `book-listings.md`(판매처에 붙일 글) · `shop-launch.md`(상점) · `tiers.md`(무료 · Pro · 책 구분) · `topik-niied-reply-2026-10-21.md`(TOPIK 이름 문의 답) |
+| 📚 책 · 출판 | `publishing-week1.md`(이번 주 순서 · 예스24 칸 채우기) · `book-listings.md`(판매처에 붙일 글) · `kdp-upload.md`(아마존 KDP 올리기) · `shop-launch.md`(상점) · `tiers.md`(무료 · Pro · 책 구분) · `topik-niied-reply-2026-10-21.md`(TOPIK 이름 문의 답) |
 | 💳 결제 · 구독 | `billing-setup.md` · `downloads-gate.md` |
 | 📊 숫자 · 검색 | `analytics-api-setup.md` · `analytics-baseline-2026-10-18.md` · `funnel.md` · `search-console.md` |
 | 🎙️ 자동으로 올리기 | `podcast-auto.md` · `shorts-auto.md` · `insta-auto.md` · `reminders.md` |

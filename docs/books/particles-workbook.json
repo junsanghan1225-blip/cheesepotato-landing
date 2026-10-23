@@ -54,7 +54,8 @@
       "Write your answers on the lines. Use pencil: you will want to do the page again.",
       "Check the Answer Key at the back. If you missed more than a few, re-read the tables and retry later.",
       "Look up any word in the Index. It tells you which unit it appears in.",
-      "Free lessons, games and more worksheets: everykoreans.com"
+      "Free lessons, games and more worksheets: everykoreans.com",
+      "Take charge of your own learning: tick the particle map before you start, write each rule in your own words in the \"My check\" box, come back after 1, 3 and 7 days, and log every mistake in the mistake log at the back."
     ],
     "ko": [
       "표를 소리 내 읽으세요. 소리가 글자와 다른 곳은 「읽기 팁」이 실제 발음을 보여 줍니다.",
@@ -62,7 +63,8 @@
       "답은 줄 위에 직접 쓰세요. 다시 풀고 싶어지니 연필로 쓰기를 권합니다.",
       "뒤쪽 정답으로 확인하세요. 틀린 것이 많으면 표를 다시 읽고 나중에 다시 풀어 보세요.",
       "낱말이 궁금하면 찾아보기에서 찾으세요. 어느 단원에 나오는지 알려 줍니다.",
-      "무료 레슨 · 게임 · 학습지 더 보기: everykoreans.com"
+      "무료 레슨 · 게임 · 학습지 더 보기: everykoreans.com",
+      "내 공부는 내가 이끄세요. 시작 전에 「조사 지도」에 표시하고, 단원마다 「나의 점검」에 규칙을 내 말로 쓰고, 1일 · 3일 · 7일 뒤에 다시 보고, 틀린 문장은 뒤쪽 틀린 문장 기록에 남기세요."
     ]
   },
   "parts": [
@@ -84,7 +86,8 @@
         "pt-26-1",
         "pt-26-2",
         "pt-26-3",
-        "pt-26-5"
+        "pt-26-5",
+        "mt-2"
       ]
     },
     {
@@ -97,7 +100,8 @@
         "pt-26-7",
         "pt-26-8",
         "pt-26-9",
-        "pt-26-10"
+        "pt-26-10",
+        "mt-3"
       ]
     },
     {
@@ -111,7 +115,8 @@
         "pt-26-12",
         "pt-26-13",
         "pt-26-15",
-        "pt-26-16"
+        "pt-26-16",
+        "mt-4"
       ]
     },
     {
@@ -124,7 +129,8 @@
         "pt-26-17",
         "pt-26-18",
         "pt-26-19",
-        "pt-26-20"
+        "pt-26-20",
+        "mt-5"
       ]
     },
     {
@@ -134,13 +140,15 @@
       },
       "units": [
         "ct-topic-subject",
+        "ct-context",
         "ct-place-action",
         "ct-give-receive",
         "ct-tool-direction",
         "ct-with",
         "ct-also-only",
         "ct-na",
-        "ct-from-to"
+        "ct-from-to",
+        "mt-6"
       ]
     },
     {
@@ -428,7 +436,7 @@
             "en": "Meaning",
             "ko": "뜻"
           },
-          "text": "Subject marker pointing out who or what performs the action. Often introduces new information.\n누가·무엇이 그런지 가리키는 주어 표시입니다. 새로 꺼내는 정보에 붙습니다."
+          "text": "Subject marker pointing out who or what performs the action. Often introduces new information. Use it when the thing is new or just noticed, when it answers “who / what”, or when it is the subject of a because / when clause.\n누가·무엇이 그런지 가리키는 주어 표시입니다. 새로 꺼내는 정보에 붙습니다. 새로 나왔거나 방금 본 것, 「누가 · 뭐가」의 답, 이유 · 때를 말하는 절의 주어에 씁니다."
         },
         {
           "type": "text",
@@ -447,38 +455,45 @@
           "cols": [
             "Particle · 조사",
             "Example · 예",
-            "English"
+            "English",
+            "Context · 맥락"
           ],
           "rows": [
             [
               "가",
               "비가 내려요.",
-              "Rain falls."
+              "Rain falls.",
+              "#just noticed #weather"
             ],
             [
               "이",
               "바람이 불어요.",
-              "The wind blows."
+              "The wind blows.",
+              "#just noticed #weather"
             ],
             [
               "가",
               "사과가 맛있어요.",
-              "The apple is delicious."
+              "The apple is delicious.",
+              "#new information"
             ],
             [
               "가",
               "겨울 바다가 정말 아름다워요.",
-              "The winter sea is truly beautiful."
+              "The winter sea is truly beautiful.",
+              "#describing a scene"
             ],
             [
               "이",
               "선생님이 교실로 천천히 들어오세요.",
-              "The teacher slowly enters the classroom."
+              "The teacher slowly enters the classroom.",
+              "#new person enters #scene"
             ],
             [
               "이",
               "어제 산 노트북이 가볍고 디자인도 좋아요.",
-              "The laptop I bought yesterday is light and has a nice design."
+              "The laptop I bought yesterday is light and has a nice design.",
+              "#new thing #first mention"
             ]
           ]
         },
@@ -498,51 +513,51 @@
           },
           "items": [
             {
-              "q": "버스___ 도착했어요.  (The bus has arrived.)",
+              "q": "버스___ 도착했어요.  (The bus has arrived. ▸ just happened, new information)",
               "a": "가"
             },
             {
-              "q": "눈___ 내려요.  (Snow falls.)",
+              "q": "눈___ 내려요.  (Snow falls. ▸ happening now)",
               "a": "이"
             },
             {
-              "q": "꽃___ 피었어요.  (Flowers bloomed.)",
+              "q": "꽃___ 피었어요.  (Flowers bloomed. ▸ seen right now)",
               "a": "이"
             },
             {
-              "q": "자동차___ 멈췄어요.  (The car stopped.)",
+              "q": "자동차___ 멈췄어요.  (The car stopped. ▸ just happened, new information)",
               "a": "가"
             },
             {
-              "q": "동생___ 집에서 혼자 숙제를 해요.  (My younger sibling does homework alone at home.)",
+              "q": "동생___ 집에서 혼자 숙제를 해요.  (My younger sibling does homework alone at home. ▸ answers: Who does it?)",
               "a": "이"
             },
             {
-              "q": "새 신발___ 발에 아주 편해요.  (The new shoes are very comfortable on my feet.)",
+              "q": "새 신발___ 발에 아주 편해요.  (The new shoes are very comfortable on my feet. ▸ describing what you notice)",
               "a": "이"
             },
             {
-              "q": "맑은 강물___ 아래로 빠르게 흘러요.  (Clear river water flows quickly downward.)",
+              "q": "맑은 강물___ 아래로 빠르게 흘러요.  (Clear river water flows quickly downward. ▸ describing a scene)",
               "a": "이"
             },
             {
-              "q": "오랜만에 만난 사촌___ 반갑게 인사해요.  (My cousin whom I met after a long time greets warmly.)",
+              "q": "오랜만에 만난 사촌___ 반갑게 인사해요.  (My cousin whom I met after a long time greets warmly. ▸ a new person comes into the story)",
               "a": "이"
             },
             {
-              "q": "새로 산 청소기___ 아주 조용해요.  (The newly bought vacuum cleaner is very quiet.)",
+              "q": "새로 산 청소기___ 아주 조용해요.  (The newly bought vacuum cleaner is very quiet. ▸ a new thing, first mention)",
               "a": "가"
             },
             {
-              "q": "외국인 관광객___ 시장에서 기념품을 골라요.  (Foreign tourists choose souvenirs at the market.)",
+              "q": "외국인 관광객___ 시장에서 기념품을 골라요.  (Foreign tourists choose souvenirs at the market. ▸ a new person, first mention)",
               "a": "이"
             },
             {
-              "q": "민수___ 약속 시간에 늦어서 먼저 출발했어요.  (Minsu was late for the appointment, so we left first.)",
+              "q": "민수___ 약속 시간에 늦어서 먼저 출발했어요.  (Minsu was late for the appointment, so we left first. ▸ subject of a because-clause)",
               "a": "가"
             },
             {
-              "q": "골목길에 예쁜 카페___ 새로 문을 열었어요.  (A pretty cafe newly opened its doors on the alley.)",
+              "q": "골목길에 예쁜 카페___ 새로 문을 열었어요.  (A pretty cafe newly opened its doors on the alley. ▸ a new place appears)",
               "a": "가"
             }
           ]
@@ -556,23 +571,23 @@
           "hint": "Each sentence has one wrong particle. Write the correct sentence.",
           "items": [
             {
-              "q": "고치기: 풍경가 예뻐요. →",
+              "q": "풍경가 예뻐요. →",
               "a": "풍경이 예뻐요."
             },
             {
-              "q": "고치기: 바다이 넓어요. →",
+              "q": "바다이 넓어요. →",
               "a": "바다가 넓어요."
             },
             {
-              "q": "고치기: 주방에서 구수한 찌개 냄새이 나요. →",
+              "q": "주방에서 구수한 찌개 냄새이 나요. →",
               "a": "주방에서 구수한 찌개 냄새가 나요."
             },
             {
-              "q": "고치기: 어린아이이 공원에서 밝게 웃으며 뛰어요. →",
+              "q": "어린아이이 공원에서 밝게 웃으며 뛰어요. →",
               "a": "어린아이가 공원에서 밝게 웃으며 뛰어요."
             },
             {
-              "q": "고치기: 하늘에 떠 있는 별가 반짝여요. →",
+              "q": "하늘에 떠 있는 별가 반짝여요. →",
               "a": "하늘에 떠 있는 별이 반짝여요."
             }
           ]
@@ -636,7 +651,7 @@
             "en": "Meaning",
             "ko": "뜻"
           },
-          "text": "Topic marker used to introduce what you are talking about or to draw a contrast with something else.\n무엇에 대해 말하는지 화제를 얹거나, 다른 것과 견줄 때 씁니다."
+          "text": "Topic marker used to introduce what you are talking about or to draw a contrast with something else. Use it when the thing is already known (the topic), when you state a general fact, or when you contrast two things.\n무엇에 대해 말하는지 화제를 얹거나, 다른 것과 견줄 때 씁니다. 이미 아는 것(화제), 일반적인 사실, 둘을 견줄 때 씁니다."
         },
         {
           "type": "text",
@@ -655,38 +670,45 @@
           "cols": [
             "Particle · 조사",
             "Example · 예",
-            "English"
+            "English",
+            "Context · 맥락"
           ],
           "rows": [
             [
               "는",
               "사과는 달아요.",
-              "Apples are sweet."
+              "Apples are sweet.",
+              "#general fact"
             ],
             [
               "은",
               "동생은 학생이에요.",
-              "My sibling is a student."
+              "My sibling is a student.",
+              "#topic #already known"
             ],
             [
               "는",
               "민수는 키가 커요.",
-              "Minsu is tall."
+              "Minsu is tall.",
+              "#topic #already known"
             ],
             [
               "는",
               "언니는 주말에 요리를 자주 해요.",
-              "My older sister often cooks on weekends."
+              "My older sister often cooks on weekends.",
+              "#topic #habit"
             ],
             [
               "은",
               "이 식당은 김치찌개가 참 맛있어요.",
-              "As for this restaurant, kimchi stew is really delicious."
+              "As for this restaurant, kimchi stew is really delicious.",
+              "#topic #known place"
             ],
             [
               "은",
               "제 고향은 바다가 가깝고 조용한 곳이에요.",
-              "My hometown is a quiet place close to the sea."
+              "My hometown is a quiet place close to the sea.",
+              "#topic #telling about my hometown"
             ]
           ]
         },
@@ -706,39 +728,39 @@
           },
           "items": [
             {
-              "q": "이 물___ 차가워요.  (This water is cold.)",
+              "q": "이 물___ 차가워요.  (This water is cold. ▸ this = already known, the topic)",
               "a": "은"
             },
             {
-              "q": "포도___ 달아요.  (Grapes are sweet.)",
+              "q": "포도___ 달아요.  (Grapes are sweet. ▸ general fact)",
               "a": "는"
             },
             {
-              "q": "겨울___ 추워요.  (Winter is cold.)",
+              "q": "겨울___ 추워요.  (Winter is cold. ▸ general fact)",
               "a": "은"
             },
             {
-              "q": "하늘___ 파래요.  (The sky is blue.)",
+              "q": "하늘___ 파래요.  (The sky is blue. ▸ general fact)",
               "a": "은"
             },
             {
-              "q": "형___ 회사에서 컴퓨터를 고쳐요.  (My older brother fixes computers at the office.)",
+              "q": "형___ 회사에서 컴퓨터를 고쳐요.  (My older brother fixes computers at the office. ▸ telling about my brother (topic))",
               "a": "은"
             },
             {
-              "q": "어머니___ 아침마다 따뜻한 녹차를 드세요.  (Mother drinks warm green tea every morning.)",
+              "q": "어머니___ 아침마다 따뜻한 녹차를 드세요.  (Mother drinks warm green tea every morning. ▸ contrast: mother vs father)",
               "a": "는"
             },
             {
-              "q": "아버지___ 매일 아침 따뜻한 차를 마셔요.  (My father drinks warm tea every morning.)",
+              "q": "아버지___ 매일 아침 따뜻한 차를 마셔요.  (My father drinks warm tea every morning. ▸ contrast: mother vs father)",
               "a": "는"
             },
             {
-              "q": "이 영화___ 스토리가 독특해서 인기가 많아요.  (This movie is very popular because of its unique story.)",
+              "q": "이 영화___ 스토리가 독특해서 인기가 많아요.  (This movie is very popular because of its unique story. ▸ this movie = known topic)",
               "a": "는"
             },
             {
-              "q": "지하철___ 빠르고 편리하지만 출근 시간엔 너무 복잡해요.  (The subway is fast and convenient, but crowded at rush hour.)",
+              "q": "지하철___ 빠르고 편리하지만 출근 시간엔 너무 복잡해요.  (The subway is fast and convenient, but crowded at rush hour. ▸ contrast: but)",
               "a": "은"
             }
           ]
@@ -752,11 +774,11 @@
           "hint": "Each sentence has one wrong particle. Write the correct sentence.",
           "items": [
             {
-              "q": "고치기: 삼촌는 의사예요. →",
+              "q": "삼촌는 의사예요. →",
               "a": "삼촌은 의사예요."
             },
             {
-              "q": "고치기: 바람는 시원해요. →",
+              "q": "바람는 시원해요. →",
               "a": "바람은 시원해요."
             }
           ]
@@ -956,23 +978,23 @@
           "hint": "Each sentence has one wrong particle. Write the correct sentence.",
           "items": [
             {
-              "q": "고치기: 신발를 닦아요. →",
+              "q": "신발를 닦아요. →",
               "a": "신발을 닦아요."
             },
             {
-              "q": "고치기: 창문를 닫아요. →",
+              "q": "창문를 닫아요. →",
               "a": "창문을 닫아요."
             },
             {
-              "q": "고치기: 주말마다 공원에서 산책로을 가볍게 걸어요. →",
+              "q": "주말마다 공원에서 산책로을 가볍게 걸어요. →",
               "a": "주말마다 공원에서 산책로를 가볍게 걸어요."
             },
             {
-              "q": "고치기: 저녁 식사 후에 달콤한 과일를 깎았어요. →",
+              "q": "저녁 식사 후에 달콤한 과일를 깎았어요. →",
               "a": "저녁 식사 후에 달콤한 과일을 깎았어요."
             },
             {
-              "q": "고치기: 친구에게 보낼 크리스마스 카드을 정성껏 썼어요. →",
+              "q": "친구에게 보낼 크리스마스 카드을 정성껏 썼어요. →",
               "a": "친구에게 보낼 크리스마스 카드를 정성껏 썼어요."
             }
           ]
@@ -1342,23 +1364,23 @@
           "hint": "Each sentence has one wrong particle. Write the correct sentence.",
           "items": [
             {
-              "q": "고치기: 신발이 현관에서 있어요. →",
+              "q": "신발이 현관에서 있어요. →",
               "a": "신발이 현관에 있어요."
             },
             {
-              "q": "고치기: 아침 여덟 시에서 일어나요. →",
+              "q": "아침 여덟 시에서 일어나요. →",
               "a": "아침 여덟 시에 일어나요."
             },
             {
-              "q": "고치기: 퇴근 후 저녁에서 동료들과 약속이 있어요. →",
+              "q": "퇴근 후 저녁에서 동료들과 약속이 있어요. →",
               "a": "퇴근 후 저녁에 동료들과 약속이 있어요."
             },
             {
-              "q": "고치기: 서랍에서 소중한 통장이 잘 들어 있어요. →",
+              "q": "서랍에서 소중한 통장이 잘 들어 있어요. →",
               "a": "서랍에 소중한 통장이 잘 들어 있어요."
             },
             {
-              "q": "고치기: 내일 정오에서 친구와 점심을 먹기로 했어요. →",
+              "q": "내일 정오에서 친구와 점심을 먹기로 했어요. →",
               "a": "내일 정오에 친구와 점심을 먹기로 했어요."
             }
           ]
@@ -2946,23 +2968,23 @@
           "hint": "Each sentence has one wrong particle. Write the correct sentence.",
           "items": [
             {
-              "q": "고치기: 바나나이나 귤을 주세요. →",
+              "q": "바나나이나 귤을 주세요. →",
               "a": "바나나나 귤을 주세요."
             },
             {
-              "q": "고치기: 농구이나 축구를 해요. →",
+              "q": "농구이나 축구를 해요. →",
               "a": "농구나 축구를 해요."
             },
             {
-              "q": "고치기: 문구점에서 가위이나 풀을 사야 해요. →",
+              "q": "문구점에서 가위이나 풀을 사야 해요. →",
               "a": "문구점에서 가위나 풀을 사야 해요."
             },
             {
-              "q": "고치기: 가벼운 감기에는 따뜻한 차이나 물을 마셔요. →",
+              "q": "가벼운 감기에는 따뜻한 차이나 물을 마셔요. →",
               "a": "가벼운 감기에는 따뜻한 차나 물을 마셔요."
             },
             {
-              "q": "고치기: 심심할 때는 음악나 라디오를 들어요. →",
+              "q": "심심할 때는 음악나 라디오를 들어요. →",
               "a": "심심할 때는 음악이나 라디오를 들어요."
             }
           ]
@@ -3154,23 +3176,23 @@
           "hint": "Each sentence has one wrong particle. Write the correct sentence.",
           "items": [
             {
-              "q": "고치기: 스무 쪽나 읽었어요. →",
+              "q": "스무 쪽나 읽었어요. →",
               "a": "스무 쪽이나 읽었어요."
             },
             {
-              "q": "고치기: 오십 명나 모였어요. →",
+              "q": "오십 명나 모였어요. →",
               "a": "오십 명이나 모였어요."
             },
             {
-              "q": "고치기: 도서관에 재미있는 소설책이 천 권나 있어요. →",
+              "q": "도서관에 재미있는 소설책이 천 권나 있어요. →",
               "a": "도서관에 재미있는 소설책이 천 권이나 있어요."
             },
             {
-              "q": "고치기: 교통 체증으로 차에서 두 시간나 머물렀어요. →",
+              "q": "교통 체증으로 차에서 두 시간나 머물렀어요. →",
               "a": "교통 체증으로 차에서 두 시간이나 머물렀어요."
             },
             {
-              "q": "고치기: 민수는 오늘 골을 세 개이나 넣었어요. →",
+              "q": "민수는 오늘 골을 세 개이나 넣었어요. →",
               "a": "민수는 오늘 골을 세 개나 넣었어요."
             }
           ]
@@ -3362,23 +3384,23 @@
           "hint": "Each sentence has one wrong particle. Write the correct sentence.",
           "items": [
             {
-              "q": "고치기: 연필으로 이름을 써요. →",
+              "q": "연필으로 이름을 써요. →",
               "a": "연필로 이름을 써요."
             },
             {
-              "q": "고치기: 종이으로 배를 접어요. →",
+              "q": "종이으로 배를 접어요. →",
               "a": "종이로 배를 접어요."
             },
             {
-              "q": "고치기: 새로운 소식을 스마트폰 메신저으로 친구들에게 전했어요. →",
+              "q": "새로운 소식을 스마트폰 메신저으로 친구들에게 전했어요. →",
               "a": "새로운 소식을 스마트폰 메신저로 친구들에게 전했어요."
             },
             {
-              "q": "고치기: 밀가루와 달걀으로 맛있는 팬케이크를 구웠어요. →",
+              "q": "밀가루와 달걀으로 맛있는 팬케이크를 구웠어요. →",
               "a": "밀가루와 달걀로 맛있는 팬케이크를 구웠어요."
             },
             {
-              "q": "고치기: 안내 표지판을 보고 남쪽 출구으로 걸어갔어요. →",
+              "q": "안내 표지판을 보고 남쪽 출구으로 걸어갔어요. →",
               "a": "안내 표지판을 보고 남쪽 출구로 걸어갔어요."
             }
           ]
@@ -5203,10 +5225,592 @@
           ]
         }
       ]
+    },
+    "ct-context": {
+      "id": "ct-context",
+      "title": {
+        "en": "은/는 or 이/가? Context decides",
+        "ko": "은/는 vs 이/가: 맥락이 정해요"
+      },
+      "sub": {
+        "en": "The same noun can take either one. What the speaker wants to say, and what the listener already knows, makes the choice.",
+        "ko": "같은 말에도 둘 다 붙을 수 있어요. 말하는 사람의 뜻과 듣는 사람이 이미 아는 것이 고르게 해요."
+      },
+      "sections": [
+        {
+          "type": "text",
+          "title": {
+            "en": "Two questions to ask",
+            "ko": "먼저 물어볼 두 가지"
+          },
+          "text": "1) Is the listener already aware of this thing, or is it new or just noticed? Known: 은/는. New or just noticed: 이/가.\n2) Is the sentence an answer to “who / what”, or does it set up a contrast? Answer to who / what: 이/가. Contrast, or a general fact: 은/는.\n1) 듣는 사람이 이미 아는 것이면 은/는, 새로 나왔거나 방금 본 것이면 이/가. 2) 「누가 · 뭐가」의 답이면 이/가, 둘을 견주거나 일반적인 사실이면 은/는."
+        },
+        {
+          "type": "table",
+          "title": {
+            "en": "Context cards",
+            "ko": "맥락 카드"
+          },
+          "cols": [
+            "Context · 맥락",
+            "Particle",
+            "Example · 예",
+            "What it means"
+          ],
+          "rows": [
+            [
+              "First mention, new thing · 처음 나온 것",
+              "이/가",
+              "저기 고양이가 있어요.",
+              "There is a cat over there. (new information)"
+            ],
+            [
+              "Already known, now commenting · 이미 아는 것",
+              "은/는",
+              "그 고양이는 하얀색이에요.",
+              "That cat is white. (we both know the cat)"
+            ],
+            [
+              "Answer to 누가 / 뭐가 · 질문의 답",
+              "이/가",
+              "A: 누가 왔어요? B: 민수가 왔어요.",
+              "Minsu came. (Minsu is the answer)"
+            ],
+            [
+              "Asked about someone · 그 사람에 대한 질문",
+              "은/는",
+              "A: 민수 씨는 뭐 해요? B: 민수 씨는 학생이에요.",
+              "What does Minsu do? He is a student."
+            ],
+            [
+              "Just noticed, happening now · 지금 보이는 것",
+              "이/가",
+              "와, 눈이 와요!",
+              "Wow, it is snowing!"
+            ],
+            [
+              "General fact · 일반적인 사실",
+              "은/는",
+              "물은 백 도에서 끓어요.",
+              "Water boils at 100 degrees."
+            ],
+            [
+              "Contrast · 둘을 견줄 때",
+              "은/는",
+              "차는 좋아해요. 커피는 안 좋아해요.",
+              "I like tea. (But) I do not like coffee."
+            ],
+            [
+              "Subject of a because / when clause · 이유 · 때를 말하는 절",
+              "이/가",
+              "민수가 늦어서 먼저 출발했어요.",
+              "Minsu was late, so we left first."
+            ]
+          ]
+        },
+        {
+          "type": "table",
+          "title": {
+            "en": "Same words, different meaning",
+            "ko": "같은 말, 다른 뜻"
+          },
+          "cols": [
+            "Question · 질문",
+            "Answer · 대답",
+            "Why · 왜"
+          ],
+          "rows": [
+            [
+              "누가 학생이에요? (Who is the student?)",
+              "제가 학생이에요.",
+              "The question asks who, so the answer takes 이/가."
+            ],
+            [
+              "민수 씨는 학생이에요? (Is Minsu a student?)",
+              "네, 민수 씨는 학생이에요.",
+              "The question is about Minsu, so he is the topic: 은/는."
+            ],
+            [
+              "민수 씨가 학생이에요? (Is it Minsu who is the student?)",
+              "아니요, 지수 씨가 학생이에요.",
+              "이/가 asks which person, so the answer names a person."
+            ]
+          ]
+        },
+        {
+          "type": "text",
+          "title": {
+            "en": "Watch out",
+            "ko": "조심할 것"
+          },
+          "text": "There is no one rule that works every time. When both seem possible, ask what the listener already knows. If you are unsure, 은/는 is the safer choice for known things and general facts, and 이/가 for new things and answers to who / what.\n하나의 규칙으로 늘 맞지는 않아요. 둘 다 될 것 같으면 듣는 사람이 이미 아는 것이 무엇인지 생각하세요."
+        },
+        {
+          "type": "practice",
+          "title": {
+            "en": "Read the context, then choose",
+            "ko": "맥락을 읽고 고르기"
+          },
+          "hint": "The context is in the English line under each sentence.",
+          "items": [
+            {
+              "q": "A: 누가 학생이에요? B: 제___ 학생이에요.  (Who is the student? I am. ▸ answers: Who?)",
+              "a": "가"
+            },
+            {
+              "q": "A: 민수 씨는 뭐 해요? B: 민수 씨___ 학생이에요.  (What does Minsu do? He is a student. ▸ asked about Minsu)",
+              "a": "는"
+            },
+            {
+              "q": "와, 눈___ 와요!  (Wow, it is snowing! ▸ just noticed, happening now)",
+              "a": "이"
+            },
+            {
+              "q": "우리 가족___ 모두 네 명이에요.  (There are four people in my family. ▸ telling about my family, a known topic)",
+              "a": "은"
+            },
+            {
+              "q": "차___ 좋아해요. 커피___ 안 좋아해요.  (I like tea. I do not like coffee. ▸ contrast)",
+              "a": "는 / 는"
+            },
+            {
+              "q": "어제 새 친구___ 생겼어요.  (I made a new friend yesterday. ▸ a new person, first mention)",
+              "a": "가"
+            },
+            {
+              "q": "물___ 백 도에서 끓어요.  (Water boils at 100 degrees. ▸ general fact)",
+              "a": "은"
+            },
+            {
+              "q": "A: 누가 케이크를 먹었어요? B: 동생___ 먹었어요.  (Who ate the cake? My younger sibling did. ▸ answers: Who?)",
+              "a": "이"
+            }
+          ]
+        },
+        {
+          "type": "practice",
+          "think": true,
+          "title": {
+            "en": "Explain the context",
+            "ko": "맥락을 설명해 보세요"
+          },
+          "hint": "Say which particle fits and why, using the two questions above.",
+          "items": [
+            {
+              "q": "하늘이 파래요 / 하늘은 파래요.  When would you say each?  (The sky is blue.)",
+              "a": "하늘이 파래요: you just looked up and noticed it. 하늘은 파래요: a general fact, or a contrast with something else."
+            },
+            {
+              "q": "제가 학생이에요 / 저는 학생이에요.  Which answers 「누가 학생이에요?」 and which introduces yourself?",
+              "a": "제가 학생이에요 answers who. 저는 학생이에요 introduces yourself (I am the topic)."
+            },
+            {
+              "q": "Write one sentence about a place you know well (topic), then one sentence that mentions a new thing there (new information).",
+              "a": "Example: 우리 동네는 조용해요. 어제 새 카페가 생겼어요. (Topic with 는, new thing with 가.)"
+            }
+          ]
+        }
+      ]
+    },
+    "mt-2": {
+      "id": "mt-2",
+      "title": {
+        "en": "Mini test · Part 2: Core markers",
+        "ko": "2부 미니 테스트 · 핵심 조사"
+      },
+      "sub": {
+        "en": "Which core particle fits the context?",
+        "ko": "문맥에 맞는 핵심 조사는?"
+      },
+      "sections": [
+        {
+          "type": "practice",
+          "title": {
+            "en": "Mini test (8 questions)",
+            "ko": "미니 테스트 (8문항)"
+          },
+          "hint": "Cover the Answer Key and finish in about ten minutes. The English line under each sentence gives the context.",
+          "items": [
+            {
+              "q": "저___ 한국 사람이에요.  (I am Korean. ▸ introducing yourself)",
+              "a": "는"
+            },
+            {
+              "q": "A: 누가 왔어요? B: 민수___ 왔어요.  (Who came? Minsu did. ▸ answers: Who?)",
+              "a": "가"
+            },
+            {
+              "q": "저는 커피___ 마셔요.  (I drink coffee.)",
+              "a": "를"
+            },
+            {
+              "q": "제 친구___ 이름은 수진이에요.  (My friend's name is Sujin. ▸ belongs to)",
+              "a": "의"
+            },
+            {
+              "q": "오늘은 날씨___ 정말 좋아요.  (The weather is really nice today. ▸ just noticed)",
+              "a": "가"
+            },
+            {
+              "q": "책___ 읽어요.  (I read a book. ▸ the thing being read)",
+              "a": "을"
+            },
+            {
+              "q": "저기 고양이___ 있어요.  (There is a cat over there. ▸ a new thing)",
+              "a": "가"
+            },
+            {
+              "q": "커피___ 좋아하지만 차___ 안 좋아해요.  (I like coffee but not tea. ▸ contrast)",
+              "a": "는 / 는"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "title": {
+            "en": "Score it",
+            "ko": "점수 매기기"
+          },
+          "text": "Score: ____ / 8\n7 or more: move on. 5 to 6: re-read the Watch out boxes in this part, then write your mistakes in the mistake log. 4 or fewer: redo the Fill in practice in this part, then take this test again after 3 days.\n점수: ____ / 8\n7개 이상이면 다음으로 가세요. 5~6개면 이 부의 「조심할 것」을 다시 읽고 틀린 문장을 기록하세요. 4개 이하면 이 부의 채우기를 다시 하고 3일 뒤 이 테스트를 다시 풀어 보세요."
+        }
+      ]
+    },
+    "mt-3": {
+      "id": "mt-3",
+      "title": {
+        "en": "Mini test · Part 3: Place, time & direction",
+        "ko": "3부 미니 테스트 · 장소 · 시간 · 방향"
+      },
+      "sub": {
+        "en": "에, 에서, 에게/한테, 부터.",
+        "ko": "에 · 에서 · 에게/한테 · 부터 가르기"
+      },
+      "sections": [
+        {
+          "type": "practice",
+          "title": {
+            "en": "Mini test (8 questions)",
+            "ko": "미니 테스트 (8문항)"
+          },
+          "hint": "Cover the Answer Key and finish in about ten minutes. The English line under each sentence gives the context.",
+          "items": [
+            {
+              "q": "저는 학교___ 가요.  (I go to school. ▸ destination)",
+              "a": "에"
+            },
+            {
+              "q": "도서관___ 공부해요.  (I study at the library. ▸ where an action happens)",
+              "a": "에서"
+            },
+            {
+              "q": "일곱 시___ 일어나요.  (I get up at seven. ▸ a point in time)",
+              "a": "에"
+            },
+            {
+              "q": "친구___ 선물을 줬어요.  (I gave a present to my friend. ▸ a person)",
+              "a": "에게 / 한테"
+            },
+            {
+              "q": "집___ 학교까지 걸어서 십 분이에요.  (It takes ten minutes on foot from home to school. ▸ starting place)",
+              "a": "에서"
+            },
+            {
+              "q": "수업은 아홉 시___ 열두 시까지예요.  (Class runs from nine to twelve. ▸ starting time)",
+              "a": "부터"
+            },
+            {
+              "q": "지금 서울___ 있어요.  (I am in Seoul now. ▸ simply being there)",
+              "a": "에"
+            },
+            {
+              "q": "회사___ 전화했어요.  (I called the company. ▸ an organization, not a person)",
+              "a": "에"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "title": {
+            "en": "Score it",
+            "ko": "점수 매기기"
+          },
+          "text": "Score: ____ / 8\n7 or more: move on. 5 to 6: re-read the Watch out boxes in this part, then write your mistakes in the mistake log. 4 or fewer: redo the Fill in practice in this part, then take this test again after 3 days.\n점수: ____ / 8\n7개 이상이면 다음으로 가세요. 5~6개면 이 부의 「조심할 것」을 다시 읽고 틀린 문장을 기록하세요. 4개 이하면 이 부의 채우기를 다시 하고 3일 뒤 이 테스트를 다시 풀어 보세요."
+        }
+      ]
+    },
+    "mt-4": {
+      "id": "mt-4",
+      "title": {
+        "en": "Mini test · Part 4: Together, also & only",
+        "ko": "4부 미니 테스트 · 함께 · 도 · 만"
+      },
+      "sub": {
+        "en": "와/과, 도, 만, 밖에, (이)나.",
+        "ko": "와/과 · 도 · 만 · 밖에 · (이)나"
+      },
+      "sections": [
+        {
+          "type": "practice",
+          "title": {
+            "en": "Mini test (8 questions)",
+            "ko": "미니 테스트 (8문항)"
+          },
+          "hint": "Cover the Answer Key and finish in about ten minutes. The English line under each sentence gives the context.",
+          "items": [
+            {
+              "q": "저는 친구___ 영화를 봤어요.  (I watched a movie with a friend. ▸ spoken style)",
+              "a": "랑 / 하고"
+            },
+            {
+              "q": "저___ 학생이에요.  (I am a student too. ▸ also)",
+              "a": "도"
+            },
+            {
+              "q": "물___ 마셨어요. 다른 건 안 마셨어요.  (I drank only water. ▸ only)",
+              "a": "만"
+            },
+            {
+              "q": "돈이 천 원___ 없어요.  (I only have 1,000 won. ▸ nothing but, with a negative verb)",
+              "a": "밖에"
+            },
+            {
+              "q": "커피___ 차___ 마시고 싶어요.  (I want to drink coffee or tea. ▸ choose one)",
+              "a": "나 / 나"
+            },
+            {
+              "q": "밥을 세 그릇___ 먹었어요!  (I ate as many as three bowls of rice! ▸ more than expected)",
+              "a": "이나"
+            },
+            {
+              "q": "한국어___ 영어를 공부해요.  (I study Korean and English. ▸ formal, written style)",
+              "a": "와"
+            },
+            {
+              "q": "사과___ 바나나를 샀어요.  (I bought apples and bananas. ▸ spoken style)",
+              "a": "랑 / 하고"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "title": {
+            "en": "Score it",
+            "ko": "점수 매기기"
+          },
+          "text": "Score: ____ / 8\n7 or more: move on. 5 to 6: re-read the Watch out boxes in this part, then write your mistakes in the mistake log. 4 or fewer: redo the Fill in practice in this part, then take this test again after 3 days.\n점수: ____ / 8\n7개 이상이면 다음으로 가세요. 5~6개면 이 부의 「조심할 것」을 다시 읽고 틀린 문장을 기록하세요. 4개 이하면 이 부의 채우기를 다시 하고 3일 뒤 이 테스트를 다시 풀어 보세요."
+        }
+      ]
+    },
+    "mt-5": {
+      "id": "mt-5",
+      "title": {
+        "en": "Mini test · Part 5: Ways, amounts & comparing",
+        "ko": "5부 미니 테스트 · 방법 · 양 · 비교"
+      },
+      "sub": {
+        "en": "로, 쯤, 처럼, 보다, 마다.",
+        "ko": "(으)로 · 쯤 · 처럼 · 보다 · 마다"
+      },
+      "sections": [
+        {
+          "type": "practice",
+          "title": {
+            "en": "Mini test (8 questions)",
+            "ko": "미니 테스트 (8문항)"
+          },
+          "hint": "Cover the Answer Key and finish in about ten minutes. The English line under each sentence gives the context.",
+          "items": [
+            {
+              "q": "버스___ 학교에 가요.  (I go to school by bus. ▸ means of transport)",
+              "a": "로"
+            },
+            {
+              "q": "연필___ 써요.  (I write with a pencil. ▸ tool. 연필 ends in ㄹ)",
+              "a": "로"
+            },
+            {
+              "q": "이쪽___ 가세요.  (Please go this way. ▸ direction. 쪽 ends in a consonant)",
+              "a": "으로"
+            },
+            {
+              "q": "저는 형___ 키가 작아요.  (I am shorter than my older brother. ▸ comparison)",
+              "a": "보다"
+            },
+            {
+              "q": "그는 모델___ 멋있어요.  (He is handsome like a model. ▸ resembles)",
+              "a": "처럼 / 같이"
+            },
+            {
+              "q": "일요일___ 운동해요.  (I exercise every Sunday. ▸ every)",
+              "a": "마다"
+            },
+            {
+              "q": "한 시간___ 걸려요.  (It takes about an hour. ▸ approximate)",
+              "a": "쯤"
+            },
+            {
+              "q": "택시___ 갔어요.  (I went by taxi. ▸ means of transport)",
+              "a": "로"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "title": {
+            "en": "Score it",
+            "ko": "점수 매기기"
+          },
+          "text": "Score: ____ / 8\n7 or more: move on. 5 to 6: re-read the Watch out boxes in this part, then write your mistakes in the mistake log. 4 or fewer: redo the Fill in practice in this part, then take this test again after 3 days.\n점수: ____ / 8\n7개 이상이면 다음으로 가세요. 5~6개면 이 부의 「조심할 것」을 다시 읽고 틀린 문장을 기록하세요. 4개 이하면 이 부의 채우기를 다시 하고 3일 뒤 이 테스트를 다시 풀어 보세요."
+        }
+      ]
+    },
+    "mt-6": {
+      "id": "mt-6",
+      "title": {
+        "en": "Mini test · Part 6: Choose the right particle",
+        "ko": "6부 미니 테스트 · 헷갈리는 조사 가르기"
+      },
+      "sub": {
+        "en": "Look-alike pairs, side by side.",
+        "ko": "비슷한 조사 나란히 가르기"
+      },
+      "sections": [
+        {
+          "type": "practice",
+          "title": {
+            "en": "Mini test (10 questions)",
+            "ko": "미니 테스트 (10문항)"
+          },
+          "hint": "Cover the Answer Key and finish in about ten minutes. The English line under each sentence gives the context.",
+          "items": [
+            {
+              "q": "A: 누가 학생이에요? B: 제___ 학생이에요.  (Who is the student? I am. ▸ answers: Who?)",
+              "a": "가"
+            },
+            {
+              "q": "저는 도서관___ 있어요.  (I am at the library. ▸ simply being there)",
+              "a": "에"
+            },
+            {
+              "q": "저는 도서관___ 공부해요.  (I study at the library. ▸ an action happens there)",
+              "a": "에서"
+            },
+            {
+              "q": "친구___ 편지를 썼어요.  (I wrote a letter to a friend. ▸ a person)",
+              "a": "에게 / 한테"
+            },
+            {
+              "q": "회사___ 편지를 보냈어요.  (I sent a letter to the company. ▸ an organization)",
+              "a": "에"
+            },
+            {
+              "q": "지하철___ 가요.  (I go by subway. ▸ means of transport. 철 ends in ㄹ)",
+              "a": "로"
+            },
+            {
+              "q": "서울___ 가요.  (I go to Seoul. ▸ destination)",
+              "a": "에"
+            },
+            {
+              "q": "월요일___ 금요일까지 일해요.  (I work from Monday to Friday. ▸ starting time)",
+              "a": "부터"
+            },
+            {
+              "q": "집___ 회사까지 삼십 분이에요.  (It takes 30 minutes from home to work. ▸ starting place)",
+              "a": "에서"
+            },
+            {
+              "q": "친구가 열 명___ 왔어요.  (As many as ten friends came. ▸ more than expected)",
+              "a": "이나"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "title": {
+            "en": "Score it",
+            "ko": "점수 매기기"
+          },
+          "text": "Score: ____ / 10\n9 or more: move on. 6 to 8: re-read the Watch out boxes in this part, then write your mistakes in the mistake log. 5 or fewer: redo the Fill in practice in this part, then take this test again after 3 days.\n점수: ____ / 10\n9개 이상이면 다음으로 가세요. 6~8개면 이 부의 「조심할 것」을 다시 읽고 틀린 문장을 기록하세요. 5개 이하면 이 부의 채우기를 다시 하고 3일 뒤 이 테스트를 다시 풀어 보세요."
+        }
+      ]
     }
   },
   "bonus": {
     "code": "CP-PW-5XD5QK",
     "days": 30
+  },
+  "selfStudy": true,
+  "lookalike": {
+    "pt-26-1": {
+      "to": "ct-context",
+      "en": "Mixing it up with 은/는? Context decides.",
+      "ko": "은/는과 헷갈리나요? 맥락이 정해요."
+    },
+    "pt-26-2": {
+      "to": "ct-context",
+      "en": "Mixing it up with 이/가? Context decides.",
+      "ko": "이/가와 헷갈리나요? 맥락이 정해요."
+    },
+    "pt-26-6": {
+      "to": "ct-place-action",
+      "en": "Not sure between 에 and 에서? Compare them.",
+      "ko": "에와 에서가 헷갈리나요? 나란히 견줘 보세요."
+    },
+    "pt-26-7": {
+      "to": "ct-tool-direction",
+      "en": "Not sure between 에 and (으)로? Compare them.",
+      "ko": "에와 (으)로가 헷갈리나요? 나란히 견줘 보세요."
+    },
+    "pt-26-8": {
+      "to": "ct-place-action",
+      "en": "Not sure between 에서 and 에? Compare them.",
+      "ko": "에서와 에가 헷갈리나요? 나란히 견줘 보세요."
+    },
+    "pt-26-9": {
+      "to": "ct-from-to",
+      "en": "Compare 에서 and 부터 for place and time.",
+      "ko": "장소와 시간의 에서와 부터를 견줘 보세요."
+    },
+    "pt-26-10": {
+      "to": "ct-give-receive",
+      "en": "Not sure between 에게/한테 and 에? Compare them.",
+      "ko": "에게/한테와 에가 헷갈리나요? 나란히 견줘 보세요."
+    },
+    "pt-26-4": {
+      "to": "ct-with",
+      "en": "Several ways to say “with”. Compare them.",
+      "ko": "「함께」를 말하는 조사가 여럿이에요. 견줘 보세요."
+    },
+    "pt-26-11": {
+      "to": "ct-also-only",
+      "en": "도, 만 and 밖에 look alike. Compare them.",
+      "ko": "도 · 만 · 밖에가 비슷해 보여요. 견줘 보세요."
+    },
+    "pt-26-12": {
+      "to": "ct-also-only",
+      "en": "도, 만 and 밖에 look alike. Compare them.",
+      "ko": "도 · 만 · 밖에가 비슷해 보여요. 견줘 보세요."
+    },
+    "pt-26-13": {
+      "to": "ct-also-only",
+      "en": "도, 만 and 밖에 look alike. Compare them.",
+      "ko": "도 · 만 · 밖에가 비슷해 보여요. 견줘 보세요."
+    },
+    "pt-26-14": {
+      "to": "ct-tool-direction",
+      "en": "Not sure between (으)로 and 에? Compare them.",
+      "ko": "(으)로와 에가 헷갈리나요? 나란히 견줘 보세요."
+    },
+    "pt-26-15": {
+      "to": "ct-na",
+      "en": "Two meanings of (이)나. Compare them.",
+      "ko": "(이)나의 두 가지 뜻을 견줘 보세요."
+    },
+    "pt-26-16": {
+      "to": "ct-na",
+      "en": "Two meanings of (이)나. Compare them.",
+      "ko": "(이)나의 두 가지 뜻을 견줘 보세요."
+    }
   }
 }

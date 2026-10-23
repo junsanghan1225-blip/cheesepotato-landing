@@ -1,0 +1,31 @@
+{
+ "_note": "책 전용 생각해 보는 칸(단원 id → practice 칸 배열). 만드는 법 docs/antigravity/antigravity-particles-think-task.md. 안티가 채우고 Claude 가 검토한다.",
+ "pt-26-1": [
+  {
+   "type": "practice",
+   "title": {
+    "en": "Think it through · Which fits better?",
+    "ko": "생각해 보기 · 어느 쪽이 더 맞을까요?"
+   },
+   "hint": "Sometimes more than one is possible. Choose, then say why.",
+   "items": [
+    {
+     "q": "누가 학생이에요?  (Who is the student?)   (a) 저는 학생이에요.   (b) 제가 학생이에요.",
+     "a": "(b) 제가 학생이에요. The question asks who, so the answer, the new information, takes 이/가."
+    },
+    {
+     "q": "친구가 새 가방을 샀어요. 가방___ 예뻐요.  (Which is the natural reaction: 이 or 은?)",
+     "a": "이: 가방이 예뻐요. It reacts to what you see. 가방은 예뻐요 would sound like 'the bag is pretty (but something else is not)'."
+    },
+    {
+     "q": "하늘이 파래요 / 하늘은 파래요.  Both are correct. What is the difference?  (The sky is blue.)",
+     "a": "이 comments on what you see now. 은 states a general truth or sets up a contrast."
+    },
+    {
+     "q": "물이 있어요. / 물가 있어요.  One is wrong. Which one, and why?  (There is water.)",
+     "a": "물가 is wrong. 물 ends in a consonant (ㄹ), so it takes 이: 물이 있어요."
+    }
+   ]
+  }
+ ]
+}
