@@ -52,6 +52,8 @@ const ASSETS = [
   'search-tr.js',
   /* 정적 쪽(사전 · 문제 쪽)의 🔊 · 보기 채점 — 그 쪽들은 build-pages.mjs 가 이 파일 내용으로 따로 자국을 붙인다. */
   'page.js',
+  /* 책 QR 보너스 연습 쪽(tools/build-bonus.mjs)의 카드 · 퀴즈 · 빈칸 — 쪽마다 build-bonus 가 내용 해시를 주소에 붙인다. */
+  'bonus.js',
   /* TOPIK II 예문 조각(vocab-topik2-ex/<n>.js) — 조각 수가 묶음마다 늘어 폴더에서 읽는다. 주소는 app.module.js 가
      vocab-topik2.js 의 자국을 그대로 빌려 쓴다(한 자국이 모든 파일에 같으니 조각이 바뀌면 그 주소도 바뀐다). */
   ...(existsSync(join(dirname(fileURLToPath(import.meta.url)), '..', 'vocab-topik2-ex'))

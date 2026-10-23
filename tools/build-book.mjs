@@ -108,7 +108,12 @@ const unitUrl = (u) => {
   const gid = u.id.replace(/^i(?=g\d\d-)/, '');   // 유형 안내 단원(ig51-…)은 같은 유형 묶음의 쪽으로
   let page = '/';
   const pg = /^pt-26-(\d+)$/.exec(u.id);
-  if (ex(`${u.id}-worksheet/index.html`)) page = `/${u.id}-worksheet/`;
+  /* 책 보너스 연습 쪽(docs/bonus → bonus/<책 id>/<단원>/)이 있으면 그리로 — 칸을 직접 채우고 채점하는 쪽. 부 미니 테스트 · 대화는 그 부의 보너스가 있는 첫 단원으로. */
+  const bn = (id) => ex(`bonus/${B.id}/${id}/index.html`);
+  const pn = /^(?:ft|fd)-(\d)$/.exec(u.id);
+  const bu = bn(u.id) ? u.id : pn ? B.parts[+pn[1] - 1]?.units.find(bn) : null;
+  if (bu) page = `/bonus/${B.id}/${bu}/`;
+  else if (ex(`${u.id}-worksheet/index.html`)) page = `/${u.id}-worksheet/`;
   else if (B.groups?.[gid]) { const f = B.groups[gid].items[0]; page = ex(`topik-writing/${f}.html`) ? `/topik-writing/${f}.html` : '/topik-writing/'; }   // 그 유형의 첫 문항 쪽
   else if (pg && ex(`sentence/26-${pg[1]}.html`)) page = `/sentence/26-${pg[1]}.html`;   // 조사 한 개 = 사이트 문법 쪽(26-N)
   else if (/^ct-/.test(u.id) && ex('compare/26.html')) page = '/compare/26.html';   // 헷갈리는 조사 = 조사 표현 비교 쪽
