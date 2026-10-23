@@ -620,5 +620,20 @@
     "days": 30
   },
   "coverAccent": "첫걸음",
-  "coverArt": "steps"
+  "coverLevel": {
+    "code": "A1",
+    "name": "입문",
+    "bg": "#1D5C45",
+    "bg2": "#12402F",
+    "mascot": [
+      "potato",
+      1
+    ],
+    "title": [
+      "한국어",
+      "첫걸음",
+      "워크북"
+    ],
+    "sub": "한글 · 인사 · 생활 낱말"
+  }
 }

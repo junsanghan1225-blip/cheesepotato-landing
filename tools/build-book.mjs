@@ -733,7 +733,31 @@ const classicCover = CLASSIC ? `.front{background:#1F3A68}.front .c2{display:non
 /* 표지 그림 — coverArt: 'steps' = 계단 한 줄(첫걸음). 금색 면 + 맨 위 한 칸에 점 하나 */
 const STEPS_SVG = `<svg viewBox="0 0 120 84" xmlns="http://www.w3.org/2000/svg"><g fill="rgba(217,179,91,.16)" stroke="rgba(217,179,91,.55)" stroke-width=".7"><rect x="0" y="62" width="24" height="22"/><rect x="24" y="48" width="24" height="36"/><rect x="48" y="34" width="24" height="50"/><rect x="72" y="20" width="24" height="64"/><rect x="96" y="6" width="24" height="78"/></g><circle cx="108" cy="-1" r="3.2" fill="#D9B35B"/><path d="M6 56 Q18 40 30 42 T54 28 T78 14 T102 2" fill="none" stroke="#D9B35B" stroke-width=".9" stroke-dasharray="1.6 2.2" opacity=".9"/></svg>`;
 const hlTitle = (t) => (B.coverAccent && t.includes(B.coverAccent) ? esc(t).replace(esc(B.coverAccent), `<span class="hl">${esc(B.coverAccent)}</span>`) : esc(t));
-const coverHtml = `<!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="/vendor/pretendard.css"><style>${coverCss}${classicCover}</style></head><body>
+
+/* ── 레벨별 표지(운영자 2026-10-23 「정석풍 + 고급 · 레벨 상자 안에 작은 캐릭터」) ──
+   책 틀 JSON 의 coverLevel {code, name, bg, bg2, mascot:[potato|cheese, 레벨], title:[윗줄, 큰 낱말, 아랫줄], sub}. 앞표지는 px(1px = 0.2646mm) 로 그린다 — 앞표지 폭 ≈ 699px.
+   --b 는 재단 여유(3mm ≈ 11px): 위 · 아래 · 오른쪽은 여유가 있고 왼쪽(책등 쪽)은 없다. */
+const LV = B.coverLevel;
+const lvMascot = LV ? (LV.mascot[0] === 'cheese' ? cheeseLevel(LV.mascot[1]) : potatoLevel(LV.mascot[1])).icon : '';
+const LVG = ['#EFE6CB', '#D2BC86', '#A8915C'];
+const lvCss = LV ? `.front.lvc{padding:0;--b:11px;background:radial-gradient(ellipse at 72% 74%,${LV.bg} 0%,${LV.bg2} 78%);color:#fff}
+.lvc .fr{position:absolute;left:34px;top:calc(34px + var(--b));right:calc(34px + var(--b));bottom:calc(34px + var(--b));border:2px solid #fff}
+.lvc .top{position:absolute;left:62px;right:calc(62px + var(--b));top:calc(62px + var(--b));display:flex;justify-content:space-between;font-size:13px;font-weight:700;letter-spacing:.18em}
+.lvc .r1{position:absolute;left:62px;right:calc(62px + var(--b));top:calc(96px + var(--b));height:2px;background:#fff}
+.lvc .tt{position:absolute;left:62px;right:calc(62px + var(--b));top:calc(176px + var(--b))}.lvc .tt .a{font-size:30px;font-weight:600;letter-spacing:.02em;margin-bottom:10px}
+.lvc .tt h1{margin:0;font-size:92px;font-weight:900;letter-spacing:-.04em;line-height:1.08;color:#E3D4A6}.lvc .tt .c{font-size:60px;font-weight:800;letter-spacing:-.03em;margin-top:12px}
+.lvc .orn{position:absolute;left:62px;top:calc(506px + var(--b));width:120px;height:12px}.lvc .orn:before{content:'';position:absolute;left:0;top:5px;width:120px;height:2px;background:#fff}.lvc .orn:after{content:'';position:absolute;left:128px;top:1px;width:9px;height:9px;background:${LVG[1]};transform:rotate(45deg)}
+.lvc .en{position:absolute;left:62px;top:calc(534px + var(--b));font-size:23px;font-weight:500;letter-spacing:.03em}.lvc .sub{position:absolute;left:62px;top:calc(572px + var(--b));font-size:18px;opacity:.85}
+.lvc .lvb{position:absolute;left:62px;bottom:calc(128px + var(--b));background:#fff;color:${LV.bg};padding:14px 18px 14px 26px;min-width:250px;display:flex;align-items:center;justify-content:space-between;gap:22px}
+.lvc .lvb b{display:block;font-size:56px;font-weight:900;letter-spacing:-.02em;line-height:1}.lvc .lvb span{display:block;margin-top:8px;font-size:19px;font-weight:800;letter-spacing:.2em}
+.lvc .mini{flex:none;position:relative;width:70px;height:70px;border-radius:50%;background:radial-gradient(circle at 50% 38%,${LV.bg},${LV.bg2});box-shadow:0 0 0 2px ${LVG[1]},0 0 0 4px #fff,0 0 0 5px ${LVG[1]}aa}.lvc .mini svg{position:absolute;left:6px;top:4px;width:58px;height:58px}
+.lvc .r3{position:absolute;left:62px;right:calc(62px + var(--b));bottom:calc(92px + var(--b));height:2px;background:#fff}
+.lvc .au{position:absolute;left:62px;right:calc(62px + var(--b));bottom:calc(50px + var(--b));display:flex;justify-content:space-between;font-size:15px;font-weight:700}.lvc .au small{font-size:11px;letter-spacing:.24em;font-weight:500;color:${LVG[0]}}
+.front.lvc:after{display:none}.spine{background:${LV.bg} !important}` : '';
+const lvFront = LV ? `<div class="front lvc"><div class="fr"></div><div class="top"><span>KOREAN WORKBOOK SERIES</span><span>한국어 워크북 시리즈</span></div><div class="r1"></div>
+<div class="tt"><div class="a">${esc(LV.title[0])}</div><h1>${esc(LV.title[1])}</h1><div class="c">${esc(LV.title[2])}</div></div><div class="orn"></div><div class="en">${esc(B.title.en)}</div><div class="sub">${esc(LV.sub || '')}</div>
+<div class="lvb"><div><b>${esc(LV.code)}</b><span>${esc(LV.name)}</span></div><div class="mini">${lvMascot}</div></div><div class="r3"></div><div class="au"><span>${esc(B.author.ko)} · ${esc(B.author.en)}</span><small>${esc(B.publisher.ko)} ${esc(B.publisher.en.toUpperCase())}</small></div></div>` : '';
+const coverHtml = `<!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="/vendor/pretendard.css"><style>${coverCss}${classicCover}${lvCss}</style></head><body>
 <div class="back"><div class="ser">${esc(B.series.en)} · ${esc(B.level)}</div>
 <h3>${esc(B.sub.ko)}</h3><h4>${esc(B.sub.en)}</h4>
 <p>${esc(B.preface.ko[0])}</p>
@@ -743,9 +767,9 @@ const coverHtml = `<!doctype html><html><head><meta charset="utf-8"><link rel="s
 <div class="pr"><b>정가 ○○,○○○원</b> (예정)<br>${esc(B.publisher.ko)} · ${esc(B.publisher.en)}</div>
 ${CLASSIC ? `<div class="mk2"><i>${potatoLevel(3).icon}</i><i>${cheeseLevel(2).icon}</i></div>` : ''}<div class="bar">ISBN barcode<br>발급 후 이 자리에 · 40×25mm 이상</div></div>
 <div class="spine"><div class="t">${esc(B.title.ko)} <small>${esc(B.title.en)}</small></div><div class="p">${esc(B.publisher.en.toUpperCase())}</div></div>
-<div class="front"><div class="g"${B.coverGlyphPt ? ` style="font-size:${Number(B.coverGlyphPt)}pt"` : ''}>${B.coverArt === 'steps' ? STEPS_SVG : esc(B.coverGlyph || "ㄱㄴㄷ ㄹㅁㅂ ㅅㅇㅈ ㅊㅋㅌ ㅍㅎ 가나 다라")}</div><div class="c1"></div><div class="c2"></div>
+${LV ? lvFront : `<div class="front"><div class="g"${B.coverGlyphPt ? ` style="font-size:${Number(B.coverGlyphPt)}pt"` : ''}>${B.coverArt === 'steps' ? STEPS_SVG : esc(B.coverGlyph || "ㄱㄴㄷ ㄹㅁㅂ ㅅㅇㅈ ㅊㅋㅌ ㅍㅎ 가나 다라")}</div><div class="c1"></div><div class="c2"></div>
 <div class="z"><div class="ser">${esc(B.series.en)}</div><h1>${hlTitle(B.title.ko)}</h1><h2>${esc(B.title.en)}</h2><div class="rule"></div><p class="sub">${esc(B.sub.en)}</p>
-<div class="lv"><span class="badge">${esc(B.level)} · ${esc(B.levelTag || "BEGINNER")}</span><div class="by"><b>${esc(B.author.ko)} · ${esc(B.author.en)}</b><span>${esc(B.publisher.en.toUpperCase())}</span></div></div></div></div>
+<div class="lv"><span class="badge">${esc(B.level)} · ${esc(B.levelTag || "BEGINNER")}</span><div class="by"><b>${esc(B.author.ko)} · ${esc(B.author.en)}</b><span>${esc(B.publisher.en.toUpperCase())}</span></div></div></div></div>`}
 </body></html>`;
 pages.set('cur', coverHtml);
 await pg.goto(`${BASE}/__book.html`, { waitUntil: 'networkidle' });

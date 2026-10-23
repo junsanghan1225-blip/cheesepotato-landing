@@ -5962,6 +5962,21 @@
     }
   },
   "tagHints": true,
-  "coverGlyph": "은/는\n이/가\n을/를\n에서",
-  "coverAccent": "조사"
+  "coverAccent": "조사",
+  "coverLevel": {
+    "code": "A1–A2",
+    "name": "초급",
+    "bg": "#1F3A68",
+    "bg2": "#14264A",
+    "mascot": [
+      "potato",
+      2
+    ],
+    "title": [
+      "한국어",
+      "조사",
+      "워크북"
+    ],
+    "sub": "조사 20개 · 맥락으로 익히기"
+  }
 }
