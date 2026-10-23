@@ -14,7 +14,7 @@
     "ko": "한국어 조사 워크북"
   },
   "sub": {
-    "en": "20 particles, how to choose between them, and 600 sentences to learn from.",
+    "en": "20 particles, how to choose between them, and sentences to learn from.",
     "ko": "조사 20개 · 헷갈리는 조사 가르기 · 문장으로 익히기"
   },
   "level": "A1–A2",
@@ -5961,5 +5961,7 @@
       "ko": "(이)나의 두 가지 뜻을 견줘 보세요."
     }
   },
-  "tagHints": true
+  "tagHints": true,
+  "coverGlyph": "은/는\n이/가\n을/를\n에서",
+  "coverAccent": "조사"
 }
