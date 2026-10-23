@@ -64,7 +64,16 @@ for (const [uid, secs] of Object.entries(THINK)) {
     x.items.forEach((q, k) => { if (typeof q.q !== 'string' || typeof q.a !== 'string' || !q.q.trim() || !q.a.trim()) throw new Error(`${w} 문제 ${k + 1}: q · a 문자열`); if (/—/.test(JSON.stringify(q) + JSON.stringify(x.title) + (x.hint || ''))) throw new Error(`${w}: 줄표(—)는 쓰지 않는다`); });
   });
 }
-const sheet = (id) => { const s0 = sheetBase(id); const t = THINK[id]; return t ? { ...s0, sections: [...s0.sections, ...t.map((x) => ({ ...x, think: true }))] } : s0; };
+/* 「이런 맥락에서 써요」 — docs/books/<책 id>.contexts.json = { 단원 id: [[꼬리표, 이럴 때, 예, 영어], …] }. 예문표 바로 뒤에 따로 한 칸으로 끼운다(운영자 2026-10-23 「별도 섹션 · 여러 맥락에 쓰이는 조사 모두」). */
+const CTXF = path.join(ROOT, `docs/books/${bookId}.contexts.json`);
+const CTX = fs.existsSync(CTXF) ? JSON.parse(fs.readFileSync(CTXF, 'utf8')) : {};
+for (const [uid, rows] of Object.entries(CTX)) {
+  if (!B.parts.some((p) => p.units.includes(uid))) throw new Error(`contexts: 책에 없는 단원 ${uid}`);
+  rows.forEach((r, i) => { if (!Array.isArray(r) || r.length !== 4 || r.some((c) => typeof c !== 'string' || !c.trim()) || !r[0].startsWith('#') || /—/.test(r.join(''))) throw new Error(`contexts ${uid}[${i}]: [#꼬리표, 이럴 때, 예, 영어] 네 칸 · 줄표 금지`); });
+}
+const ctxSec = (rows) => ({ noIndex: true, type: 'table', title: { en: 'Where it is used', ko: '이런 맥락에서 써요' }, cols: ['Context · 맥락', 'When · 이럴 때', 'Example · 예', 'English'], rows });
+const withCtx = (s0, id) => { const rows = CTX[id]; if (!rows) return s0; const k = s0.sections.findIndex((x) => x.type === 'table' && /^Examples/.test(x.title.en)); const at = k >= 0 ? k + 1 : s0.sections.length; return { ...s0, sections: [...s0.sections.slice(0, at), ctxSec(rows), ...s0.sections.slice(at)] }; };
+const sheet = (id) => { const s0 = withCtx(sheetBase(id), id); const t = THINK[id]; return t ? { ...s0, sections: [...s0.sections, ...t.map((x) => ({ ...x, think: true }))] } : s0; };
 const esc = (x) => String(x ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 const cssStr = (x) => '"' + String(x).replace(/\\/g, '\\\\').replace(/"/g, '\\"') + '"';
 const HAN = /[가-힣]/;
@@ -216,8 +225,10 @@ const qLine = (q) => {
   if (isOpen(q)) return `<span class="q">${esc(q.replace(/\s*→\s*$/, ''))}</span><span class="tl"></span>`;
   const m = EN_TAIL.exec(q), ko = m ? m[1] : q;
   const body = (ko.includes('___') ? esc(ko.replace(/\s*→\s*$/, '')).replace(/_{3,}/g, '<span class="bl"></span>') : esc(ko));
-  const [enText, cxText] = m ? m[2].split(' ▸ ') : [];   // 「▸」 뒤는 맥락 꼬리표(은/는 · 이/가처럼 맥락이 정하는 문제)
-  const txt = m ? `<span class="ko">${body}</span><span class="en">${esc(enText)}${cxText ? `<span class="cx">${tagHtml(cxText.split(/,\s*/))}</span>` : ''}</span>` : body;
+  let [enText, cxText] = m ? m[2].split(' ▸ ') : [];   // 「▸」 뒤는 맥락 꼬리표(은/는 · 이/가처럼 맥락이 정하는 문제)
+  /* 책 틀 tagHints: 괄호 안이 문장이 아니라 짧은 힌트((tool) · (person) · (topic / object))면 영어 줄이 아니라 꼬리표로 */
+  if (m && B.tagHints && cxText === undefined && !/[.?!]\s*$/.test(enText) && enText.length <= 45) { cxText = enText; enText = ''; }
+  const txt = m ? `<span class="ko">${body}</span><span class="en">${enText ? esc(enText) : ''}${cxText ? `<span class="cx">${tagHtml(cxText.split(/,\s*| \/ /))}</span>` : ''}</span>` : body;
   return ko.includes('___')
     ? `<span class="q">${txt}</span><span class="ln" style="visibility:hidden;min-width:0"></span>`
     : `<span class="q">${txt}</span><span class="ln"></span>`;
@@ -270,9 +281,11 @@ const selfCheck = (u) => !isStudyUnit(u) ? '' : `<div class="sc"><h4>My check ·
 <div class="r"><b>My rule in my own words · 내 말로 규칙 쓰기</b><span class="tl"></span><span class="tl"></span></div>
 <div class="r2"><span><b>How sure am I? · 얼마나 자신 있나요</b> ${cb} Not yet · 아직 ${cb} Almost · 거의 ${cb} Sure · 확실</span><span><b>Come back · 다시 보기</b> ${cb} Day 1 · 1일 ${cb} Day 3 · 3일 ${cb} Day 7 · 7일</span></div></div>`;
 const studyMap = () => {
-  const rows = parts.flatMap((p) => p.sheets.filter((x) => isStudyUnit(x)).map((x) => units.find((y) => y.id === x.id)));
-  return `<div class="blk plain sm"><h2>Which particles do I know? · 내가 아는 조사는?</h2><div class="k">${esc(B.studyIntro?.en || 'Before you start, tick one box per row. Come back after the review tests and tick again in a different colour.')}<br>${esc(B.studyIntro?.ko || '시작하기 전에 줄마다 하나씩 표시하세요. 복습 시험을 마친 뒤 다른 색으로 한 번 더 표시해 보세요.')}</div>
-<table class="sm-t"><thead><tr><th>Unit</th><th>Particle · 조사</th><th>New · 처음</th><th>Seen it · 본 적 있음</th><th>I use it · 쓸 수 있음</th><th>After the book · 책 뒤</th></tr></thead><tbody>${rows.map((u) => `<tr><td>${String(u.no).padStart(2, '0')}</td><td>${esc(u.title.ko)}${u.title.en !== u.title.ko ? `<small>${esc(u.title.en)}</small>` : ''}</td><td>${cb}</td><td>${cb}</td><td>${cb}</td><td>${cb}</td></tr>`).join('')}</tbody></table></div>`;
+  /* 조사 하나짜리 단원만 부(部)별로 묶어서 한 쪽에 — 가르기 · 테스트 단원은 뺀다 */
+  const groups = parts.map((p) => ({ p, us: p.sheets.filter((x) => isStudyUnit(x) && !/^ct-/.test(x.id)).map((x) => units.find((y) => y.id === x.id)) })).filter((g) => g.us.length);
+  const th = (en, ko) => `<th class="tk">${en}<small>${ko}</small></th>`;
+  return `<div class="blk plain sm"><h2>Which particles do I know? · 내가 아는 조사는?</h2><div class="k">${esc(B.studyIntro?.en || 'Before you start, tick one box per row. After the review tests, tick again in a different colour.')}<br>${esc(B.studyIntro?.ko || '시작하기 전에 줄마다 하나씩 표시하세요. 복습 시험을 마친 뒤 다른 색으로 한 번 더 표시해 보세요.')}</div>
+<table class="sm-t"><thead><tr><th class="un">Unit</th><th class="pn">Particle · 조사</th>${th('New', '처음')}${th('Seen it', '본 적 있음')}${th('I use it', '쓸 수 있음')}${th('After the book', '책을 끝낸 뒤')}</tr></thead><tbody>${groups.map((g) => `<tr class="gp"><td colspan="6">${esc(g.p.title.en)} · ${esc(g.p.title.ko)}</td></tr>` + g.us.map((u) => `<tr><td class="un">${String(u.no).padStart(2, '0')}</td><td class="pn">${esc(u.title.ko)}</td><td>${cb}</td><td>${cb}</td><td>${cb}</td><td>${cb}</td></tr>`).join('')).join('')}</tbody></table></div>`;
 };
 const mistakeLog = (n) => Array.from({ length: n }, (_, i) => `<div class="blk plain ml"><h2>My mistake log · 틀린 문장 기록${n > 1 ? ` ${i + 1}` : ''}</h2><div class="k">${i === 0 ? esc('Copy a sentence you got wrong, fix it, and write WHY in your own words. Check this page again after a week. · 틀린 문장을 옮겨 쓰고, 고친 뒤, 왜 그런지 내 말로 적으세요. 일주일 뒤 이 쪽을 다시 보세요.') : ''}</div>
 <table class="ml-t"><thead><tr><th>Date · 날짜</th><th>My sentence · 내 문장</th><th>Fixed · 고친 문장</th><th>Why · 왜?</th></tr></thead><tbody>${'<tr><td></td><td></td><td></td><td></td></tr>'.repeat(11)}</tbody></table></div>`).join('');
@@ -451,7 +464,7 @@ function unitBlock(u) {
     secNo = `${u.no}-${si + 1}`;
     if (s.type === 'table') {
       const tipCols = s.cols.map((c) => /reading|tip|sound|pronunc/i.test(c));
-      return `<div class="sec"${s.rows.length <= 8 ? ' style="break-inside:avoid"' : ''}>${sr(si)}${secLabel(s)}<table><thead><tr>${s.cols.map((c) => `<th>${esc(c)}</th>`).join('')}</tr></thead><tbody>${s.rows.map((r) => `<tr>${r.map((c, i) => `<td${tipCols[i] ? ' class="tip"' : ''}>${tagsOr(c)}</td>`).join('')}</tr>`).join('')}</tbody></table>${s.note ? (CLASSIC ? blockHtml(u, si, s, s.note) : `<div class="note">${esc(s.note)}</div>`) : ''}</div>`;
+      return `<div class="sec"${s.rows.length <= 8 ? ' style="break-inside:avoid"' : ''}>${sr(si)}${secLabel(s)}<table${/^Context/.test(s.cols[s.cols.length - 1]) ? ' class="ctx"' : ''}><thead><tr>${s.cols.map((c) => `<th>${esc(c)}</th>`).join('')}</tr></thead><tbody>${s.rows.map((r) => `<tr>${r.map((c, i) => `<td${tipCols[i] ? ' class="tip"' : ''}>${tagsOr(c)}</td>`).join('')}</tr>`).join('')}</tbody></table>${s.note ? (CLASSIC ? blockHtml(u, si, s, s.note) : `<div class="note">${esc(s.note)}</div>`) : ''}</div>`;
     }
     if (s.type === 'text') {
       const k = CLASSIC ? kindOf(u, si, s) : 'ref';
@@ -487,7 +500,7 @@ const INI = ['ㄱ', 'ㄱ', 'ㄴ', 'ㄷ', 'ㄷ', 'ㄹ', 'ㅁ', 'ㅂ', 'ㅂ', 'ㅅ
 const ini = (w) => INI[Math.floor((w.charCodeAt(0) - 0xac00) / 588)];
 function indexEntries() {
   const map = new Map();
-  for (const u of units) for (const s of u.sections.filter((x) => x.type === 'table')) {
+  for (const u of units) for (const s of u.sections.filter((x) => x.type === 'table' && !x.noIndex)) {
     const skip = s.cols.map((c) => /reading|tip|sound|pronunc|example|sentence|usage|situation|collocat|note|expression/i.test(c));
     for (const r of s.rows) r.forEach((cell, i) => {
       const w = String(cell).trim();
@@ -574,8 +587,10 @@ tbody tr:nth-child(even) td,tr:nth-child(even) td{background:transparent}td{bord
 .sc{margin-top:5mm;padding:2.6mm 3.4mm;border:.3mm solid ${ACC};border-radius:2mm;background:${TINT};break-inside:avoid}.sc h4{display:block;background:none;border:0;padding:0;font-size:9pt;color:${ACC};letter-spacing:.04em;margin:0 0 1.5mm;font-weight:800}.sc .r b{display:block;font-size:8.4pt;margin-bottom:.6mm}.sc .tl{display:block;height:6.4mm;border-bottom:.25mm solid #9aa7bf}.sc .r2{margin-top:2mm;font-size:8pt;line-height:1.9}.sc .r2 span{display:block}.sc .r2 b{margin-right:1.5mm}
 .cb{display:inline-block;width:3.2mm;height:3.2mm;border:.3mm solid ${ACC};border-radius:.6mm;margin:0 .8mm 0 1.6mm;vertical-align:-.5mm;background:#fff}
 .sm h2,.ml h2{font-size:17pt;margin-bottom:1mm}.sm .k,.ml .k{font-size:9pt;color:#44506a;margin-bottom:3mm;line-height:1.55}
-.sm-t,.ml-t{width:100%;border-collapse:collapse;font-size:8.6pt}.sm-t th,.ml-t th{background:${TINT};border:.25mm solid #b9c3d6;padding:1.2mm;font-size:7.8pt}.sm-t td,.ml-t td{border:.25mm solid #cfd6e2;padding:1.2mm 1.6mm;vertical-align:middle}.sm-t td:first-child{width:9mm;text-align:center;font-weight:800;color:${ACC}}.sm-t td:nth-child(n+3){text-align:center;width:17mm}.sm-t small{display:block;color:#6d655c;font-size:7.4pt}.ml-t td{height:15.2mm}
+.sm-t,.ml-t{width:100%;border-collapse:collapse;font-size:8.6pt}.sm-t th,.ml-t th{background:${TINT};border:.25mm solid #b9c3d6;padding:1.2mm;font-size:7.8pt}.sm-t td,.ml-t td{border:.25mm solid #cfd6e2;padding:.9mm 1.6mm;vertical-align:middle}
+.sm-t{table-layout:fixed}.sm-t th.un,.sm-t td.un{width:11mm;text-align:center;font-weight:800;color:${ACC}}.sm-t th.pn{text-align:left}.sm-t td.pn{font-size:9pt}.sm-t th.tk,.sm-t td:nth-child(n+3){width:21mm;text-align:center}.sm-t th.tk small{display:block;font-weight:500;color:#5a6780;font-size:7pt;margin-top:.3mm}.sm-t tr.gp td{background:#f3f5fa;font-weight:800;color:${ACC};font-size:8pt;letter-spacing:.03em;text-align:left;padding:1mm 2mm}.sm-t .cb{margin:0}.ml-t td{height:15.2mm}
 .pr li.open{display:block;position:relative;padding:1.4mm 0 1mm 6mm}.pr li.open:before{position:absolute;left:0;top:1.6mm}.pr li.open .q{display:block}.pr li.open .tl{display:block;height:7.2mm;border-bottom:.25mm solid #9aa7bf}
+table.ctx{table-layout:fixed}table.ctx th:nth-child(1){width:15%}table.ctx th:nth-child(4){width:27%}table.ctx td:last-child{white-space:nowrap}
 .tg{display:inline-block;padding:.2mm 2mm;margin:0 1mm .5mm 0;border-radius:99px;background:${TINT};border:.25mm solid ${ACC};color:${ACC};font-size:7.4pt;font-weight:700;line-height:1.5;white-space:nowrap}
 .pr .q .en .cx{display:block;margin-top:.6mm}
 .la{display:flex;gap:3mm;align-items:center;margin-top:4mm;padding:2.2mm 3.4mm;border-left:1.2mm solid #d9822b;background:#fff6ea;border-radius:1.2mm;font-size:8.6pt;line-height:1.45;break-inside:avoid}.la b{flex:none;font-size:7.6pt;letter-spacing:.03em;color:#b25f12;max-width:24mm}.la span{flex:1}.la em{flex:none;font-style:normal;font-weight:800;color:${ACC};font-size:8.2pt}
