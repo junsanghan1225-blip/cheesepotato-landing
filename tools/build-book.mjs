@@ -77,7 +77,16 @@ const ACC = CLASSIC ? '#1F3A68' : B.color, TINT = CLASSIC ? '#EEF2F8' : B.tint;
 const qrLib = createRequire(import.meta.url)(path.join(ROOT, 'qrcode-lib.js'));
 const SITE_URL = 'https://everykoreans.com';
 const unitUrl = (u) => {
-  const page = fs.existsSync(path.join(ROOT, `${u.id}-worksheet/index.html`)) ? `/${u.id}-worksheet/` : B.front ? '/topik-writing/' : '/';
+  const ex = (f) => fs.existsSync(path.join(ROOT, f));
+  const gid = u.id.replace(/^i(?=g\d\d-)/, '');   // 유형 안내 단원(ig51-…)은 같은 유형 묶음의 쪽으로
+  let page = '/';
+  const pg = /^pt-26-(\d+)$/.exec(u.id);
+  if (ex(`${u.id}-worksheet/index.html`)) page = `/${u.id}-worksheet/`;
+  else if (B.groups?.[gid]) { const f = B.groups[gid].items[0]; page = ex(`topik-writing/${f}.html`) ? `/topik-writing/${f}.html` : '/topik-writing/'; }   // 그 유형의 첫 문항 쪽
+  else if (pg && ex(`sentence/26-${pg[1]}.html`)) page = `/sentence/26-${pg[1]}.html`;   // 조사 한 개 = 사이트 문법 쪽(26-N)
+  else if (/^ct-/.test(u.id) && ex('compare/26.html')) page = '/compare/26.html';   // 헷갈리는 조사 = 조사 표현 비교 쪽
+  else if (/^(rv-|pt-guide)/.test(u.id) && ex('korean-particles-worksheet/index.html')) page = '/korean-particles-worksheet/';
+  else if (B.front) page = '/topik-writing/';
   return `${SITE_URL}${page}?utm_source=book&utm_medium=qr&utm_campaign=${encodeURIComponent(B.id)}&utm_content=${encodeURIComponent(u.id)}`;
 };
 const unitQr = (u) => {
@@ -196,9 +205,21 @@ const blockHtml = (u, si, s, text) => { const k = kindOf(u, si, s); const pat = 
 const boxHtml = (kind, text) => `<div class="bx ${kind}">${legend(kind)}<div class="tt">${esc(text)}</div></div>`;
 let secNo = '';
 const secLabel = (s, lab) => `<h3>${CLASSIC ? `<em class="lab">${lab || LAB[s.type]} ${secNo}</em>` : ''}<span>${esc(s.title.en)}</span>${s.title.ko ? `<small>${esc(s.title.ko)}</small>` : ''}</h3>`;
-const qLine = (q) => q.includes('___')
-  ? `<span class="q">${esc(q.replace(/\s*→\s*$/, '')).replace(/___/g, '<span class="bl"></span>')}</span><span class="ln" style="visibility:hidden;min-width:0"></span>`
-  : `<span class="q">${esc(q)}</span><span class="ln"></span>`;
+/* 문제 글 끝의 (영어 뜻)은 한국어 줄 밑 작은 글씨 한 줄로 내린다 — 줄 중간에 어중간하게 걸쳐 읽기 힘들던 것(운영자 2026-10-23). */
+const EN_TAIL = /^(.*?\S)\s+\(([^()]*[A-Za-z][^()]*)\)\s*$/;
+/* 한글이 하나도 없는 문제(영어 지시 · 「한국어로 쓰기」)는 한 줄이 아니라 넓은 줄에 쓰게 한다 */
+const isOpen = (q) => !q.includes('___') && (q.match(/[가-힣]/g) || []).length <= 3 && (q.match(/[A-Za-z]/g) || []).length >= 15;
+const qLine = (q) => {
+  if (isOpen(q)) return `<span class="q">${esc(q.replace(/\s*→\s*$/, ''))}</span><span class="tl"></span>`;
+  const m = EN_TAIL.exec(q), ko = m ? m[1] : q;
+  const body = (ko.includes('___') ? esc(ko.replace(/\s*→\s*$/, '')).replace(/___/g, '<span class="bl"></span>') : esc(ko));
+  const [enText, cxText] = m ? m[2].split(' ▸ ') : [];   // 「▸」 뒤는 맥락 꼬리표(은/는 · 이/가처럼 맥락이 정하는 문제)
+  const txt = m ? `<span class="ko">${body}</span><span class="en">${esc(enText)}${cxText ? `<span class="cx">Context · 맥락: ${esc(cxText)}</span>` : ''}</span>` : body;
+  return ko.includes('___')
+    ? `<span class="q">${txt}</span><span class="ln" style="visibility:hidden;min-width:0"></span>`
+    : `<span class="q">${txt}</span><span class="ln"></span>`;
+};
+const liCls = (q) => [isOpen(q) ? 'open' : '', q.includes('___') ? 'fill' : '', EN_TAIL.test(q) ? 'two' : ''].filter(Boolean).join(' ');
 
 function titlePage() {
   return `<div class="blk plain"><div class="tp"><span class="ser">${esc(B.series.en)}</span><h1>${esc(B.title.ko)}</h1><h2>${esc(B.title.en)}</h2><div class="rule"></div><span class="by">${esc(B.author.ko)} · ${esc(B.author.en)}</span><span class="pub">${esc(B.publisher.en.toUpperCase())}</span></div></div>`;
@@ -233,6 +254,13 @@ ${B.preface.en.map((t, i) => `<p class="en">${esc(t)}</p><p class="ko">${esc(B.p
 /* ── 스스로 하는 공부(운영자 2026-10-22 「학생의 주도적인 학습을 유도」, 책 틀의 selfStudy: true) ──
    근거(요약): 규칙을 내 말로 써 보기(스스로 만들어 내기) · 끄집어내 보기와 간격 두고 다시 보기(1일 · 3일 · 7일) · 자기 점검과 틀린 것 기록(스스로 조절하는 학습).
    조사에 딱 맞춰 검증된 연구는 얇다 — 효과를 단정하지 않고 학습자가 쓰기 쉬운 도구로만 넣는다. */
+
+/* 헷갈리는 조사 알림 — docs/books/<책 id>.json 의 lookalike {단원 id: {to, en, ko}}. 그 조사를 가르는 「헷갈리는 조사 가르기」 단원 번호를 알려 준다(운영자 2026-10-23 「비슷한 문법은 따로 집중」). */
+const lookalike = (u) => {
+  const la = B.lookalike?.[u.id]; if (!la) return '';
+  const t = units.find((x) => x.id === la.to); if (!t) throw new Error(`lookalike ${u.id}: 책에 없는 단원 ${la.to}`);
+  return `<div class="la"><b>Look-alike alert · 헷갈리는 조사</b><span>${esc(la.en)}<br>${esc(la.ko)}</span><em>→ Unit ${String(t.no).padStart(2, '0')} · ${esc(t.title.ko)}</em></div>`;
+};
 const cb = '<i class="cb"></i>';
 const isStudyUnit = (u) => B.selfStudy && !/guide|^rv-/.test(u.id);
 const selfCheck = (u) => !isStudyUnit(u) ? '' : `<div class="sc"><h4>My check · 나의 점검</h4>
@@ -430,10 +458,10 @@ function unitBlock(u) {
     if (s.type === 'flow') return `<div class="sec">${sr(si)}${secLabel(s)}<div class="flow">${s.steps.map((st) => `<div class="fs${st.blank ? ' bl' : ''}"><b>${esc(st.ko)}</b><span>${esc(st.en)}</span></div>`).join('<i class="ar">→</i>')}</div></div>`;
     if (s.type === 'example') return `<div class="sec">${sr(si)}${secLabel(s)}${exampleHtml(s)}</div>`;
     if (s.type === 'writing') return `<div class="sec wq">${sr(si)}${secLabel(s)}${writingHtml(s.raw)}</div>`;
-    return `<div class="sec"${s.items.length <= 8 ? ' style="break-inside:avoid"' : ''}>${sr(si)}${secLabel(s)}${s.hint ? `<div class="hint">${esc(s.hint)}</div>` : ''}${s.think ? `<ol class="pr th">${s.items.map((x) => `<li><span class="q">${esc(x.q).replace(/___/g, '<span class="bl"></span>')}</span><span class="tl"></span><span class="tl"></span></li>`).join('')}</ol>` : `<ol class="pr" style="--qw:${qw(s.items)}">${s.items.map((x) => `<li${x.q.includes('___') ? ' class="fill"' : ''}>${qLine(x.q)}</li>`).join('')}</ol>`}</div>`;
+    return `<div class="sec"${s.items.length <= 8 ? ' style="break-inside:avoid"' : ''}>${sr(si)}${secLabel(s)}${s.hint ? `<div class="hint">${esc(s.hint)}</div>` : ''}${s.think ? `<ol class="pr th">${s.items.map((x) => `<li><span class="q">${esc(x.q).replace(/___/g, '<span class="bl"></span>')}</span><span class="tl"></span><span class="tl"></span></li>`).join('')}</ol>` : `<ol class="pr" style="--qw:${qw(s.items)}">${s.items.map((x) => `<li${liCls(x.q) ? ` class="${liCls(x.q)}"` : ''}>${qLine(x.q)}</li>`).join('')}</ol>`}</div>`;
   }).join('\n');
-  if (CLASSIC) return `<div class="blk ${unitCss(u)}" style="page:${unitCss(u)}">${u._head}${unitQr(u)}${body}${selfCheck(u)}</div>`;
-  return open + `<div class="blk ${unitCss(u)}" style="page:${unitCss(u)}">${body}${selfCheck(u)}${unitQr(u)}</div>`;
+  if (CLASSIC) return `<div class="blk ${unitCss(u)}" style="page:${unitCss(u)}">${u._head}${unitQr(u)}${body}${lookalike(u)}${selfCheck(u)}</div>`;
+  return open + `<div class="blk ${unitCss(u)}" style="page:${unitCss(u)}">${body}${lookalike(u)}${selfCheck(u)}${unitQr(u)}</div>`;
 }
 function answersBlock() {
   let h = `<div class="blk plain ak"><h2>Answer Key</h2><div class="k">정답</div>`;
@@ -544,6 +572,10 @@ tbody tr:nth-child(even) td,tr:nth-child(even) td{background:transparent}td{bord
 .cb{display:inline-block;width:3.2mm;height:3.2mm;border:.3mm solid ${ACC};border-radius:.6mm;margin:0 .8mm 0 1.6mm;vertical-align:-.5mm;background:#fff}
 .sm h2,.ml h2{font-size:17pt;margin-bottom:1mm}.sm .k,.ml .k{font-size:9pt;color:#44506a;margin-bottom:3mm;line-height:1.55}
 .sm-t,.ml-t{width:100%;border-collapse:collapse;font-size:8.6pt}.sm-t th,.ml-t th{background:${TINT};border:.25mm solid #b9c3d6;padding:1.2mm;font-size:7.8pt}.sm-t td,.ml-t td{border:.25mm solid #cfd6e2;padding:1.2mm 1.6mm;vertical-align:middle}.sm-t td:first-child{width:9mm;text-align:center;font-weight:800;color:${ACC}}.sm-t td:nth-child(n+3){text-align:center;width:17mm}.sm-t small{display:block;color:#6d655c;font-size:7.4pt}.ml-t td{height:15.2mm}
+.pr li.open{display:block;position:relative;padding:1.4mm 0 1mm 6mm}.pr li.open:before{position:absolute;left:0;top:1.6mm}.pr li.open .q{display:block}.pr li.open .tl{display:block;height:7.2mm;border-bottom:.25mm solid #9aa7bf}
+.pr .q .en .cx{display:block;margin-top:.3mm;font-weight:600;color:${ACC}}
+.la{display:flex;gap:3mm;align-items:center;margin-top:4mm;padding:2.2mm 3.4mm;border-left:1.2mm solid #d9822b;background:#fff6ea;border-radius:1.2mm;font-size:8.6pt;line-height:1.45;break-inside:avoid}.la b{flex:none;font-size:7.6pt;letter-spacing:.03em;color:#b25f12;max-width:24mm}.la span{flex:1}.la em{flex:none;font-style:normal;font-weight:800;color:${ACC};font-size:8.2pt}
+.pr li.fill,.pr li.two{align-items:start}.pr li.two .ln{align-self:end}.pr li.two.fill{grid-template-columns:6mm 1fr}.pr .q .ko{display:block}.pr .q .en{display:block;margin-top:.5mm;font-size:8.2pt;color:#6d655c;line-height:1.35}
 .pr.th li{display:block;position:relative;padding:1.4mm 0 1mm 6mm;min-height:0}.pr.th li:before{position:absolute;left:0;top:1.6mm}.pr.th .q{display:block}.pr.th .tl{display:block;height:7.2mm;border-bottom:.25mm solid #9aa7bf}
 .pr .q{font-weight:500;line-height:1.45;padding-bottom:.4mm}.pr .ln{flex:none;min-width:0;height:4.8mm;border-bottom:.2mm solid #8e9ab0;margin:0}.pr .bl{border-bottom:.2mm solid #8e9ab0}
 .uh{display:block;padding-bottom:3mm;border-bottom:.35mm solid ${ACC};margin-bottom:1.2mm;position:relative}
