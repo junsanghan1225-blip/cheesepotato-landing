@@ -56,6 +56,7 @@
       "Write your answers on the lines. Use pencil: you will want to do the page again.",
       "Check the Answer Key at the back. If you missed more than a few, re-read the tables and retry later.",
       "Look up any word in the Index. It tells you which unit it appears in.",
+      "Scan the QR at the start of a unit. It opens your reader course: flashcards, a quiz and fill-in practice you can finish on your phone. Open it in the Cheese Potato app to build your progress and streak.",
       "Free lessons, games and more worksheets: everykoreans.com"
     ],
     "ko": [
@@ -64,6 +65,7 @@
       "답은 줄 위에 직접 쓰세요. 다시 풀고 싶어지니 연필로 쓰기를 권합니다.",
       "뒤쪽 정답으로 확인하세요. 틀린 것이 많으면 표를 다시 읽고 나중에 다시 풀어 보세요.",
       "낱말이 궁금하면 찾아보기에서 찾으세요. 어느 단원에 나오는지 알려 줍니다.",
+      "단원 처음의 QR을 찍으세요. 폰에서 낱말 카드 · 퀴즈 · 빈칸 연습을 바로 풀 수 있는 독자 전용 코스가 열려요. 치즈감자 앱에서 열면 진행률과 연속 학습이 쌓여요.",
       "무료 레슨 · 게임 · 학습지 더 보기: everykoreans.com"
     ]
   },
@@ -628,7 +630,8 @@
   },
   "bonus": {
     "code": "CP-FS-342TXN",
-    "days": 30
+    "days": 30,
+    "app": true
   },
   "coverAccent": "첫걸음",
   "coverLevel": {

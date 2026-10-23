@@ -11,6 +11,9 @@ const ROOT = path.join(path.dirname(fileURLToPath(import.meta.url)), '..');
 const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 const JS = `/bonus.js?v=${crypto.createHash('sha1').update(fs.readFileSync(path.join(ROOT, 'bonus.js'))).digest('hex').slice(0, 8)}`;
 const NUM = ['①', '②', '③', '④'];
+const PLAY = 'https://play.google.com/store/apps/details?id=com.cheesepotato.app';
+/* 안드로이드 크롬은 intent: 주소로 앱을 열고, 앱이 없으면 Google Play 로 보낸다. 다른 기기에서는 아무 일도 없다(아래 Google Play 링크). */
+const APP_INTENT = (book, unit) => `intent://book/${book}/${unit}#Intent;scheme=cheesepotato;package=com.cheesepotato.app;S.browser_fallback_url=${encodeURIComponent(PLAY)};end`;
 const CSS = `
 main{max-width:760px;margin:0 auto;padding:22px 20px 80px}
 .bk-badge{display:inline-block;font-size:12px;font-weight:800;letter-spacing:.06em;color:#C4551C;background:#FDF0E2;border-radius:99px;padding:4px 12px}
@@ -32,6 +35,7 @@ main{max-width:760px;margin:0 auto;padding:22px 20px 80px}
 .bf .bm{margin:8px 0 0;font-weight:700}.bf.ok .bm{color:#2E7D4A}.bf.no .bm{color:#B3322D}
 .bsc{position:sticky;bottom:0;margin-top:26px;padding:12px 16px;background:#fff;border:1px solid var(--line);border-radius:14px;display:flex;justify-content:space-between;align-items:center;font-weight:800}
 .bsc.fin{background:#FFF7E3;border-color:#F0C24B}.bfin,.bbest{margin:10px 0 0;font-size:14px;color:var(--ink-2)}
+.bapp{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin:14px 0 0;padding:12px 14px;background:#FFF7E3;border:1px solid #F0C24B;border-radius:14px}.bapp div{flex:1 1 220px}.bapp b{display:block;font-size:14.5px}.bapp small{color:var(--ink-3);font-size:12.5px}
 .bcta{display:flex;flex-wrap:wrap;gap:10px;margin:22px 0 0}
 @media(max-width:480px){.bcards{grid-template-columns:1fr}.bf button{margin:8px 0 0}}
 `;
@@ -87,6 +91,7 @@ for (const f of bonusFiles()) {
     const page = head(title, `${book.title.ko} 단원 보너스 연습: 낱말 카드, 퀴즈, 빈칸 쓰기. 쪽에서 바로 채우고 채점해요.`, url) + `<div data-bonus="${esc(id + '/' + u)}">
 <span class="bk-badge">책 보너스 · BOOK BONUS</span>
 <h1>${esc(tk.ko || tk.en)}</h1>
+<div class="bapp"><div><b>앱에서 열면 진행률 · 연속 학습이 기록돼요</b><small>Open in the app to track progress and your streak</small></div><a class="btn main" href="${APP_INTENT(id, u)}">앱에서 열기 · Open app</a><a class="btn sub" href="${PLAY}">Google Play</a></div>
 <p class="bk-sub">${esc(tk.en)} · ${esc(book.title.ko)} · ${esc(book.title.en)}</p>
 <h2 class="bk-h">낱말 카드 <small>Flashcards · 눌러서 뒤집기 · tap to flip</small></h2>
 <div class="bcards">${cards}</div>
@@ -101,6 +106,12 @@ for (const f of bonusFiles()) {
     fs.writeFileSync(path.join(ROOT, 'bonus', id, u, 'index.html'), page);
     list.push({ u, ko: tk.ko || tk.en, en: tk.en }); n++;
   }
+  /* 앱(cheesepotatoapp 의 책 코스 화면)이 받아 가는 자료 — 같은 JSON 을 쪽과 앱이 쓴다. */
+  const lvl = book.coverLevel || {};
+  const appData = { schema: 1, book: id, title: book.title, level: { code: lvl.code || '', name: lvl.name || '' }, color: { bg: lvl.bg || '#1F3A68', bg2: lvl.bg2 || '#14264A' }, mascot: lvl.mascot || null,
+    parts: book.parts.map((pt) => ({ title: pt.title, units: pt.units.filter((x) => !book.inline?.[x]).map((x) => { const w = JSON.parse(fs.readFileSync(path.join(ROOT, 'docs/worksheets', `${x}.json`), 'utf8')); const t = typeof w.title === 'object' ? w.title : { en: w.title, ko: w.title }; return { id: x, title: { ko: t.ko || t.en, en: t.en }, ready: !!d.units[x] }; }) })).filter((pt) => pt.units.length),
+    units: d.units };
+  fs.writeFileSync(path.join(ROOT, 'bonus', id, 'data.json'), JSON.stringify(appData));
   const idx = head(`${book.title.en} 보너스 연습 · Bonus practice`, `${book.title.ko} 단원별 보너스 연습`, `/bonus/${id}/`) + `<span class="bk-badge">책 보너스 · BOOK BONUS</span><h1>${esc(book.title.ko)}</h1><p class="bk-sub">${esc(book.title.en)} · 단원별 보너스 연습</p><ul>${list.map((x) => `<li style="margin:8px 0"><a href="/bonus/${id}/${x.u}/">${esc(x.ko)} <small>${esc(x.en)}</small></a></li>`).join('')}</ul>` + foot;
   fs.writeFileSync(path.join(ROOT, 'bonus', id, 'index.html'), idx);
 }
