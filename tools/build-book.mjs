@@ -726,10 +726,11 @@ body{width:${CW}mm;height:${CH}mm;font-family:'Pretendard Variable',sans-serif;p
 .back .pr{position:absolute;left:${T.bleed + 18}mm;bottom:${T.bleed + 14}mm;font-size:8.4pt;color:#6d655c;line-height:1.6}.back .pr b{font-size:9.8pt;color:#1d1a17}
 `;
 const { potatoLevel, cheeseLevel } = await import(path.join(ROOT, 'levels.js'));
-const classicCover = CLASSIC ? `.front{background:#1F3A68}.front .g,.front .c1,.front .c2{display:none}.front .z:before{content:'';position:absolute;left:0;right:0;top:0;height:1px}
-.front .ser{color:#D9B35B;letter-spacing:.34em}.front h1{font-weight:800;margin-top:26mm;font-size:42pt;letter-spacing:-.01em}.front h2{color:#C5D1E6;font-weight:500}.front .rule{background:#D9B35B;height:.8mm;width:26mm}.front .sub{color:#C5D1E6}
+const classicCover = CLASSIC ? `.front{background:#1F3A68}.front .c2{display:none}.front .g{display:block;top:auto;bottom:40mm;right:16mm;width:auto;font-size:74pt;font-weight:900;color:rgba(217,179,91,.14);letter-spacing:.02em;line-height:1.08;white-space:pre;text-align:right}.front .c1{display:block;right:-52mm;bottom:-52mm;width:158mm;height:158mm;background:transparent;border:.5mm solid rgba(217,179,91,.42)}.front:after{content:'';position:absolute;left:8mm;top:8mm;right:8mm;bottom:8mm;border:.3mm solid rgba(217,179,91,.38);pointer-events:none}.front h1 .hl{color:#D9B35B}.front .z:before{content:'';position:absolute;left:0;right:0;top:0;height:1px}
+.front .ser{color:#D9B35B;letter-spacing:.34em}.front h1{font-weight:800;margin-top:24mm;font-size:50pt;line-height:1.1;letter-spacing:-.02em}.front h2{font-size:17pt}.front h2{color:#C5D1E6;font-weight:500}.front .rule{background:#D9B35B;height:.8mm;width:26mm}.front .sub{color:#C5D1E6}
 .front .badge{background:transparent;color:#D9B35B;border:.6mm solid #D9B35B;border-radius:1.5mm;padding:2mm 5mm}.front .mk{position:absolute;right:${T.bleed + 18}mm;top:${T.bleed + 66}mm;display:flex;gap:2mm;opacity:.95}.front .mk i{display:block;width:26mm;height:26mm}.front .mk svg{width:100%;height:100%}
 .back{background:#F4F6FA}.mk2{position:absolute;left:${T.bleed + 18}mm;bottom:${T.bleed + 38}mm;display:flex;gap:2mm}.mk2 i{display:block;width:16mm;height:16mm}.mk2 svg{width:100%;height:100%}` : '';
+const hlTitle = (t) => (B.coverAccent && t.includes(B.coverAccent) ? esc(t).replace(esc(B.coverAccent), `<span class="hl">${esc(B.coverAccent)}</span>`) : esc(t));
 const coverHtml = `<!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="/vendor/pretendard.css"><style>${coverCss}${classicCover}</style></head><body>
 <div class="back"><div class="ser">${esc(B.series.en)} · ${esc(B.level)}</div>
 <h3>${esc(B.sub.ko)}</h3><h4>${esc(B.sub.en)}</h4>
@@ -740,8 +741,8 @@ const coverHtml = `<!doctype html><html><head><meta charset="utf-8"><link rel="s
 <div class="pr"><b>정가 ○○,○○○원</b> (예정)<br>${esc(B.publisher.ko)} · ${esc(B.publisher.en)}</div>
 ${CLASSIC ? `<div class="mk2"><i>${potatoLevel(3).icon}</i><i>${cheeseLevel(2).icon}</i></div>` : ''}<div class="bar">ISBN barcode<br>발급 후 이 자리에 · 40×25mm 이상</div></div>
 <div class="spine"><div class="t">${esc(B.title.ko)} <small>${esc(B.title.en)}</small></div><div class="p">${esc(B.publisher.en.toUpperCase())}</div></div>
-<div class="front"><div class="g">ㄱㄴㄷ ㄹㅁㅂ ㅅㅇㅈ ㅊㅋㅌ ㅍㅎ 가나 다라</div><div class="c1"></div><div class="c2"></div>
-<div class="z"><div class="ser">${esc(B.series.en)}</div><h1>${esc(B.title.ko)}</h1><h2>${esc(B.title.en)}</h2><div class="rule"></div><p class="sub">${esc(B.sub.en)}</p>
+<div class="front"><div class="g"${B.coverGlyphPt ? ` style="font-size:${Number(B.coverGlyphPt)}pt"` : ''}>${esc(B.coverGlyph || "ㄱㄴㄷ ㄹㅁㅂ ㅅㅇㅈ ㅊㅋㅌ ㅍㅎ 가나 다라")}</div><div class="c1"></div><div class="c2"></div>
+<div class="z"><div class="ser">${esc(B.series.en)}</div><h1>${hlTitle(B.title.ko)}</h1><h2>${esc(B.title.en)}</h2><div class="rule"></div><p class="sub">${esc(B.sub.en)}</p>
 <div class="lv"><span class="badge">${esc(B.level)} · ${esc(B.levelTag || "BEGINNER")}</span><div class="by"><b>${esc(B.author.ko)} · ${esc(B.author.en)}</b><span>${esc(B.publisher.en.toUpperCase())}</span></div></div></div></div>
 </body></html>`;
 pages.set('cur', coverHtml);

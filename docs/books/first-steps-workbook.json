@@ -618,5 +618,8 @@
   "bonus": {
     "code": "CP-FS-342TXN",
     "days": 30
-  }
+  },
+  "coverAccent": "첫걸음",
+  "coverGlyph": "조사",
+  "coverGlyphPt": 150
 }
