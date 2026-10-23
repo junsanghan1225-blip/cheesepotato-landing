@@ -95,6 +95,7 @@ const unitUrl = (u) => {
   else if (B.groups?.[gid]) { const f = B.groups[gid].items[0]; page = ex(`topik-writing/${f}.html`) ? `/topik-writing/${f}.html` : '/topik-writing/'; }   // 그 유형의 첫 문항 쪽
   else if (pg && ex(`sentence/26-${pg[1]}.html`)) page = `/sentence/26-${pg[1]}.html`;   // 조사 한 개 = 사이트 문법 쪽(26-N)
   else if (/^ct-/.test(u.id) && ex('compare/26.html')) page = '/compare/26.html';   // 헷갈리는 조사 = 조사 표현 비교 쪽
+  else if (/^ft-\d$/.test(u.id) && ex(`${B.parts[+u.id.slice(3) - 1]?.units[0]}-worksheet/index.html`)) page = `/${B.parts[+u.id.slice(3) - 1].units[0]}-worksheet/`;   // 부 미니 테스트 = 그 부 첫 단원의 연습 쪽
   else if (/^(rv-|mt-|pt-guide)/.test(u.id) && ex('korean-particles-worksheet/index.html')) page = '/korean-particles-worksheet/';
   else if (B.front) page = '/topik-writing/';
   return `${SITE_URL}${page}?utm_source=book&utm_medium=qr&utm_campaign=${encodeURIComponent(B.id)}&utm_content=${encodeURIComponent(u.id)}`;

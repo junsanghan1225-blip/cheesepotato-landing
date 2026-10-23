@@ -75,7 +75,8 @@
       },
       "units": [
         "hangul-alphabet",
-        "hangul-batchim"
+        "hangul-batchim",
+        "ft-1"
       ]
     },
     {
@@ -90,7 +91,8 @@
         "korean-particles",
         "question-words",
         "polite-present",
-        "basic-verbs-adjectives"
+        "basic-verbs-adjectives",
+        "ft-2"
       ]
     },
     {
@@ -105,7 +107,8 @@
         "location-places-exist",
         "colors-shapes-opposites",
         "house-rooms-furniture",
-        "school-classroom"
+        "school-classroom",
+        "ft-3"
       ]
     },
     {
@@ -119,7 +122,8 @@
         "directions-transportation",
         "weather-seasons-temperature",
         "hobbies-leisure-sports",
-        "health-hospital"
+        "health-hospital",
+        "ft-4"
       ]
     },
     {
@@ -128,7 +132,8 @@
         "ko": "시제와 부정"
       },
       "units": [
-        "negation-tenses"
+        "negation-tenses",
+        "ft-5"
       ]
     }
   ],
@@ -635,5 +640,512 @@
       "워크북"
     ],
     "sub": "한글 · 인사 · 생활 낱말"
+  },
+  "inline": {
+    "ft-1": {
+      "id": "ft-1",
+      "title": {
+        "en": "Mini test · Part 1: Start Reading & Writing",
+        "ko": "1부 미니 테스트 · 읽고 쓰기 시작"
+      },
+      "sub": {
+        "en": "Letters, syllables and batchim sounds.",
+        "ko": "글자 · 음절 · 받침 소리"
+      },
+      "sections": [
+        {
+          "type": "practice",
+          "title": {
+            "en": "Choose one",
+            "ko": "고르기"
+          },
+          "hint": "Pick the best option.",
+          "items": [
+            {
+              "q": "ㅂ + ㅗ = ___  (a) 부  (b) 보  (c) 바  (Combine consonant and vowel.)",
+              "a": "(b) 보"
+            },
+            {
+              "q": "ㅈ + ㅜ = ___  (a) 주  (b) 조  (c) 저  (Combine consonant and vowel.)",
+              "a": "(a) 주"
+            },
+            {
+              "q": "Which word ends with the sound [ㄴ]?  (a) 곧  (b) 간  (c) 달",
+              "a": "(b) 간. 곧 ends in [ㄷ] and 달 ends in [ㄹ]."
+            },
+            {
+              "q": "밭 (field): final sound →  (a) [ㅂ]  (b) [ㄷ]  (c) [ㄹ]",
+              "a": "(b) [ㄷ]. 밭 is read [받]."
+            }
+          ]
+        },
+        {
+          "type": "practice",
+          "title": {
+            "en": "Spot the mistake",
+            "ko": "틀린 곳 고치기"
+          },
+          "hint": "Fix the one wrong thing.",
+          "items": [
+            {
+              "q": "ㅅ + ㅏ = 소 →  (write the correct syllable)",
+              "a": "사"
+            },
+            {
+              "q": "The batchim of 집 is read [ㄱ]. →  (write the correct sound)",
+              "a": "[ㅂ]. 집 is read [집]."
+            }
+          ]
+        },
+        {
+          "type": "practice",
+          "title": {
+            "en": "Write the sound",
+            "ko": "소리 쓰기"
+          },
+          "hint": "Write the actual pronunciation in Hangul.",
+          "items": [
+            {
+              "q": "꿈이 →",
+              "a": "[꾸미]"
+            },
+            {
+              "q": "입니다 →",
+              "a": "[임니다]"
+            }
+          ]
+        },
+        {
+          "type": "practice",
+          "title": {
+            "en": "Say it in Hangul",
+            "ko": "한글로 쓰기"
+          },
+          "hint": "Write the word in Hangul.",
+          "items": [
+            {
+              "q": "ra-myeon →",
+              "a": "라면"
+            },
+            {
+              "q": "ko-a-la →",
+              "a": "코알라"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "title": {
+            "en": "Score it",
+            "ko": "점수 매기기"
+          },
+          "text": "Score: ____ / 10\n9 or more: move on. 6 to 8: re-read the tip and watch-out boxes in this part, then mark your misses. 5 or fewer: redo Practice A to D of the units in this part, then take this test again after 3 days.\n점수: ____ / 10\n9개 이상이면 다음 부로 가세요. 6~8개면 이 부의 팁과 조심할 것을 다시 읽고 틀린 곳에 표시하세요. 5개 이하면 이 부 단원의 연습 A~D를 다시 하고 3일 뒤 이 테스트를 다시 풀어 보세요."
+        }
+      ]
+    },
+    "ft-2": {
+      "id": "ft-2",
+      "title": {
+        "en": "Mini test · Part 2: Your First Sentences",
+        "ko": "2부 미니 테스트 · 첫 문장 만들기"
+      },
+      "sub": {
+        "en": "Greetings, being and having, particles, questions, polite present.",
+        "ko": "인사 · 이다/있다 · 조사 · 질문 · 해요체"
+      },
+      "sections": [
+        {
+          "type": "practice",
+          "title": {
+            "en": "Choose one",
+            "ko": "고르기"
+          },
+          "hint": "Pick the best option. The English line gives the meaning.",
+          "items": [
+            {
+              "q": "You step on someone's foot.  (a) 감사합니다  (b) 죄송합니다  (c) 반갑습니다  (I'm sorry.)",
+              "a": "(b) 죄송합니다"
+            },
+            {
+              "q": "이분은 제 어머니___.  (a) 이에요  (b) 예요  (This is my mother.)",
+              "a": "(b) 예요. 어머니 ends in a vowel."
+            },
+            {
+              "q": "___ 건물이 커요.  (a) 이  (b) 그  (c) 저  (That building over there is big.)",
+              "a": "(c) 저"
+            },
+            {
+              "q": "___ 울어요?  (a) 왜  (b) 뭐  (c) 몇  (Why are you crying?)",
+              "a": "(a) 왜"
+            }
+          ]
+        },
+        {
+          "type": "practice",
+          "title": {
+            "en": "Spot the mistake",
+            "ko": "틀린 곳 고치기"
+          },
+          "hint": "One word is wrong. Write the correct sentence.",
+          "items": [
+            {
+              "q": "저는 도서관을 가요. →",
+              "a": "저는 도서관에 가요."
+            },
+            {
+              "q": "저는 신문을 읽아요. →",
+              "a": "저는 신문을 읽어요."
+            }
+          ]
+        },
+        {
+          "type": "practice",
+          "title": {
+            "en": "Write the form",
+            "ko": "형태 쓰기"
+          },
+          "hint": "Write the polite present (해요체).",
+          "items": [
+            {
+              "q": "웃다 →",
+              "a": "웃어요"
+            },
+            {
+              "q": "놀다 →",
+              "a": "놀아요"
+            }
+          ]
+        },
+        {
+          "type": "practice",
+          "title": {
+            "en": "Say it in Korean",
+            "ko": "한국어로 쓰기"
+          },
+          "hint": "Write one sentence. Model answers are in the Answer Key.",
+          "items": [
+            {
+              "q": "I have a younger sister.",
+              "a": "저는 여동생이 있어요."
+            },
+            {
+              "q": "I do not have a pen.",
+              "a": "저는 펜이 없어요."
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "title": {
+            "en": "Score it",
+            "ko": "점수 매기기"
+          },
+          "text": "Score: ____ / 10\n9 or more: move on. 6 to 8: re-read the tip and watch-out boxes in this part, then mark your misses. 5 or fewer: redo Practice A to D of the units in this part, then take this test again after 3 days.\n점수: ____ / 10\n9개 이상이면 다음 부로 가세요. 6~8개면 이 부의 팁과 조심할 것을 다시 읽고 틀린 곳에 표시하세요. 5개 이하면 이 부 단원의 연습 A~D를 다시 하고 3일 뒤 이 테스트를 다시 풀어 보세요."
+        }
+      ]
+    },
+    "ft-3": {
+      "id": "ft-3",
+      "title": {
+        "en": "Mini test · Part 3: Talking About My World",
+        "ko": "3부 미니 테스트 · 내 주변 이야기"
+      },
+      "sub": {
+        "en": "Numbers, dates, family, places, colors, home and school.",
+        "ko": "숫자 · 날짜 · 가족 · 장소 · 색 · 집 · 학교"
+      },
+      "sections": [
+        {
+          "type": "practice",
+          "title": {
+            "en": "Choose one",
+            "ko": "고르기"
+          },
+          "hint": "Pick the best option. The English line gives the meaning.",
+          "items": [
+            {
+              "q": "강아지 ___ 마리  (a) 일곱  (b) 칠  (c) 이레  (seven puppies)",
+              "a": "(a) 일곱. A counter takes a native number."
+            },
+            {
+              "q": "저는 ___ 살이에요.  (a) 이십이  (b) 스물두  (I am 22 years old.)",
+              "a": "(b) 스물두. Age uses native numbers."
+            },
+            {
+              "q": "___  (a) 남동생  (b) 여동생  (c) 오빠  (a younger brother)",
+              "a": "(a) 남동생"
+            },
+            {
+              "q": "은행은 병원 ___이에요.  (a) 뒤  (b) 옆  (c) 밖  (The bank is next to the hospital.)",
+              "a": "(b) 옆"
+            }
+          ]
+        },
+        {
+          "type": "practice",
+          "title": {
+            "en": "Spot the mistake",
+            "ko": "틀린 곳 고치기"
+          },
+          "hint": "Fix the one wrong thing.",
+          "items": [
+            {
+              "q": "친구 삼 명이 와요. →",
+              "a": "친구 세 명이 와요."
+            },
+            {
+              "q": "오늘은 화요일이에요. 내일은 월요일이에요. →  (fix tomorrow)",
+              "a": "내일은 수요일이에요."
+            }
+          ]
+        },
+        {
+          "type": "practice",
+          "title": {
+            "en": "Write the word",
+            "ko": "낱말 쓰기"
+          },
+          "hint": "Write it in Korean.",
+          "items": [
+            {
+              "q": "15 people (사람)",
+              "a": "열다섯 명"
+            },
+            {
+              "q": "pink (the color, noun)",
+              "a": "분홍색"
+            }
+          ]
+        },
+        {
+          "type": "practice",
+          "title": {
+            "en": "Say it in Korean",
+            "ko": "한국어로 쓰기"
+          },
+          "hint": "Write one sentence. Model answers are in the Answer Key.",
+          "items": [
+            {
+              "q": "There is a lamp next to the sofa.",
+              "a": "소파 옆에 램프가 있어요."
+            },
+            {
+              "q": "The classroom is big.",
+              "a": "교실이 커요."
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "title": {
+            "en": "Score it",
+            "ko": "점수 매기기"
+          },
+          "text": "Score: ____ / 10\n9 or more: move on. 6 to 8: re-read the tip and watch-out boxes in this part, then mark your misses. 5 or fewer: redo Practice A to D of the units in this part, then take this test again after 3 days.\n점수: ____ / 10\n9개 이상이면 다음 부로 가세요. 6~8개면 이 부의 팁과 조심할 것을 다시 읽고 틀린 곳에 표시하세요. 5개 이하면 이 부 단원의 연습 A~D를 다시 하고 3일 뒤 이 테스트를 다시 풀어 보세요."
+        }
+      ]
+    },
+    "ft-4": {
+      "id": "ft-4",
+      "title": {
+        "en": "Mini test · Part 4: Out and About",
+        "ko": "4부 미니 테스트 · 밖으로 나가요"
+      },
+      "sub": {
+        "en": "Food, shopping, directions, weather, hobbies and health.",
+        "ko": "음식 · 쇼핑 · 길 · 날씨 · 취미 · 병원"
+      },
+      "sections": [
+        {
+          "type": "practice",
+          "title": {
+            "en": "Choose one",
+            "ko": "고르기"
+          },
+          "hint": "Pick the best option. The English line gives the meaning.",
+          "items": [
+            {
+              "q": "커피 두 ___ 주세요.  (a) 잔  (b) 마리  (c) 권  (Two cups of coffee, please.)",
+              "a": "(a) 잔"
+            },
+            {
+              "q": "국이 너무 ___.  (a) 짜요  (b) 싱거워요  (c) 달아요  (The soup is too salty.)",
+              "a": "(a) 짜요"
+            },
+            {
+              "q": "다음 역에서 ___.  (a) 타요  (b) 내려요  (c) 입어요  (I get off at the next station.)",
+              "a": "(b) 내려요"
+            },
+            {
+              "q": "모자를 ___.  (a) 입어요  (b) 신어요  (c) 써요  (I wear a hat.)",
+              "a": "(c) 써요. A hat uses 쓰다."
+            }
+          ]
+        },
+        {
+          "type": "practice",
+          "title": {
+            "en": "Spot the mistake",
+            "ko": "틀린 곳 고치기"
+          },
+          "hint": "One word is wrong. Write the correct sentence.",
+          "items": [
+            {
+              "q": "여름에는 추워요. →",
+              "a": "여름에는 더워요."
+            },
+            {
+              "q": "저는 음악이 좋아해요. →",
+              "a": "저는 음악을 좋아해요."
+            }
+          ]
+        },
+        {
+          "type": "practice",
+          "title": {
+            "en": "Write in Hangul",
+            "ko": "한글로 쓰기"
+          },
+          "hint": "Write the number words in Hangul.",
+          "items": [
+            {
+              "q": "7,500원 →",
+              "a": "칠천오백 원"
+            },
+            {
+              "q": "18,000원 →",
+              "a": "만 팔천 원"
+            }
+          ]
+        },
+        {
+          "type": "practice",
+          "title": {
+            "en": "Say it in Korean",
+            "ko": "한국어로 쓰기"
+          },
+          "hint": "Write one sentence. Model answers are in the Answer Key.",
+          "items": [
+            {
+              "q": "My ear hurts.",
+              "a": "귀가 아파요."
+            },
+            {
+              "q": "I like cooking.",
+              "a": "저는 요리를 좋아해요."
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "title": {
+            "en": "Score it",
+            "ko": "점수 매기기"
+          },
+          "text": "Score: ____ / 10\n9 or more: move on. 6 to 8: re-read the tip and watch-out boxes in this part, then mark your misses. 5 or fewer: redo Practice A to D of the units in this part, then take this test again after 3 days.\n점수: ____ / 10\n9개 이상이면 다음 부로 가세요. 6~8개면 이 부의 팁과 조심할 것을 다시 읽고 틀린 곳에 표시하세요. 5개 이하면 이 부 단원의 연습 A~D를 다시 하고 3일 뒤 이 테스트를 다시 풀어 보세요."
+        }
+      ]
+    },
+    "ft-5": {
+      "id": "ft-5",
+      "title": {
+        "en": "Mini test · Part 5: Past, Future & Negation",
+        "ko": "5부 미니 테스트 · 시제와 부정"
+      },
+      "sub": {
+        "en": "안 and 못, past and future.",
+        "ko": "안 · 못 · 과거 · 미래"
+      },
+      "sections": [
+        {
+          "type": "practice",
+          "title": {
+            "en": "Choose one",
+            "ko": "고르기"
+          },
+          "hint": "Pick the best option. The English line gives the meaning.",
+          "items": [
+            {
+              "q": "저는 운전을 ___ 해요.  (a) 안  (b) 못  (c) 잘  (I cannot drive.)",
+              "a": "(b) 못. 못 shows you are unable."
+            },
+            {
+              "q": "어젯밤에 ___.  (a) 자요  (b) 잤어요  (c) 잘 거예요  (I slept last night.)",
+              "a": "(b) 잤어요"
+            },
+            {
+              "q": "다음 주말에 ___.  (a) 쉬었어요  (b) 쉬어요  (c) 쉴 거예요  (I will rest next weekend.)",
+              "a": "(c) 쉴 거예요"
+            },
+            {
+              "q": "너무 아파서 학교에 ___ 갔어요.  (a) 안  (b) 못  (I was too sick to go to school.)",
+              "a": "(b) 못"
+            }
+          ]
+        },
+        {
+          "type": "practice",
+          "title": {
+            "en": "Spot the mistake",
+            "ko": "틀린 곳 고치기"
+          },
+          "hint": "The tense is wrong. Write the correct sentence.",
+          "items": [
+            {
+              "q": "어제 버스를 탈 거예요. →",
+              "a": "어제 버스를 탔어요."
+            },
+            {
+              "q": "내일 선물을 샀어요. →",
+              "a": "내일 선물을 살 거예요."
+            }
+          ]
+        },
+        {
+          "type": "practice",
+          "title": {
+            "en": "Write the form",
+            "ko": "형태 쓰기"
+          },
+          "hint": "Write the form in the tense given.",
+          "items": [
+            {
+              "q": "공부하다 (past) →",
+              "a": "공부했어요"
+            },
+            {
+              "q": "씻다 (future) →",
+              "a": "씻을 거예요"
+            }
+          ]
+        },
+        {
+          "type": "practice",
+          "title": {
+            "en": "Say it in Korean",
+            "ko": "한국어로 쓰기"
+          },
+          "hint": "Write one sentence. Model answers are in the Answer Key.",
+          "items": [
+            {
+              "q": "I did not watch TV yesterday.",
+              "a": "어제 텔레비전을 안 봤어요."
+            },
+            {
+              "q": "I will clean my room on Saturday.",
+              "a": "토요일에 방을 청소할 거예요."
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "title": {
+            "en": "Score it",
+            "ko": "점수 매기기"
+          },
+          "text": "Score: ____ / 10\n9 or more: move on. 6 to 8: re-read the tip and watch-out boxes in this part, then mark your misses. 5 or fewer: redo Practice A to D of the units in this part, then take this test again after 3 days.\n점수: ____ / 10\n9개 이상이면 다음 부로 가세요. 6~8개면 이 부의 팁과 조심할 것을 다시 읽고 틀린 곳에 표시하세요. 5개 이하면 이 부 단원의 연습 A~D를 다시 하고 3일 뒤 이 테스트를 다시 풀어 보세요."
+        }
+      ]
+    }
   }
 }
