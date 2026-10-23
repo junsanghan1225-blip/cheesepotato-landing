@@ -573,7 +573,7 @@ const bonusBox = () => {
   if (!B.bonus) return '';
   const url = `${SITE_URL}/?bk=${B.bonus.code}&utm_source=book&utm_medium=bonus&utm_campaign=${encodeURIComponent(B.id)}`;
   const q = qrLib(0, 'M'); q.addData(url); q.make();
-  return `<div class="qrb uq"><div class="qr">${q.createSvgTag({ cellSize: 3, margin: 0, scalable: true })}</div><div><b>Reader bonus · Pro free for ${B.bonus.days} days</b><small>이 책을 사신 분께 드리는 선물이에요. QR을 찍거나 아래 주소를 열고 로그인하면 Pro ${B.bonus.days}일이 열려요. 코드 ${esc(B.bonus.code)} (한 계정에 한 번)</small><a href="${esc(url)}">${esc(url.split('&utm')[0].replace('https://', ''))}</a></div></div>`;
+  return `<div class="qrb uq"><div class="qr">${q.createSvgTag({ cellSize: 3, margin: 0, scalable: true })}</div><div><b>Reader bonus · Pro free for ${B.bonus.days} days</b><small>이 책을 사신 분께 드리는 선물이에요. QR을 찍거나 아래 주소를 열고 로그인하면 Pro ${B.bonus.days}일이 열려요. 코드 ${esc(B.bonus.code)} (한 계정에 한 번)${B.bonus.app ? ' 앱을 쓰신다면 앱의 더보기 · 내 책 코스 · 책 코드 칸에 코드를 넣어도 돼요.' : ''}</small><a href="${esc(url)}">${esc(url.split('&utm')[0].replace('https://', ''))}</a></div></div>`;
 };
 const memoBlock = (n) => Array.from({ length: n }, (_, i) => `<div class="blk plain memo"><h2>Notes · 메모</h2>${i === 0 ? bonusBox() : ''}${'<div class="rule"></div>'.repeat(i === 0 && B.bonus ? 18 : 22)}</div>`).join('');
 
