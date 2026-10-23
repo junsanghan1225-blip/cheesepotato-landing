@@ -86,7 +86,8 @@
         "pt-26-1",
         "pt-26-2",
         "pt-26-3",
-        "pt-26-5"
+        "pt-26-5",
+        "mt-2"
       ]
     },
     {
@@ -99,7 +100,8 @@
         "pt-26-7",
         "pt-26-8",
         "pt-26-9",
-        "pt-26-10"
+        "pt-26-10",
+        "mt-3"
       ]
     },
     {
@@ -113,7 +115,8 @@
         "pt-26-12",
         "pt-26-13",
         "pt-26-15",
-        "pt-26-16"
+        "pt-26-16",
+        "mt-4"
       ]
     },
     {
@@ -126,7 +129,8 @@
         "pt-26-17",
         "pt-26-18",
         "pt-26-19",
-        "pt-26-20"
+        "pt-26-20",
+        "mt-5"
       ]
     },
     {
@@ -143,7 +147,8 @@
         "ct-with",
         "ct-also-only",
         "ct-na",
-        "ct-from-to"
+        "ct-from-to",
+        "mt-6"
       ]
     },
     {
@@ -431,7 +436,7 @@
             "en": "Meaning",
             "ko": "뜻"
           },
-          "text": "Subject marker pointing out who or what performs the action. Often introduces new information.\n누가·무엇이 그런지 가리키는 주어 표시입니다. 새로 꺼내는 정보에 붙습니다."
+          "text": "Subject marker pointing out who or what performs the action. Often introduces new information. Use it when the thing is new or just noticed, when it answers “who / what”, or when it is the subject of a because / when clause.\n누가·무엇이 그런지 가리키는 주어 표시입니다. 새로 꺼내는 정보에 붙습니다. 새로 나왔거나 방금 본 것, 「누가 · 뭐가」의 답, 이유 · 때를 말하는 절의 주어에 씁니다."
         },
         {
           "type": "text",
@@ -450,38 +455,45 @@
           "cols": [
             "Particle · 조사",
             "Example · 예",
-            "English"
+            "English",
+            "Context · 맥락"
           ],
           "rows": [
             [
               "가",
               "비가 내려요.",
-              "Rain falls."
+              "Rain falls.",
+              "#just noticed #weather"
             ],
             [
               "이",
               "바람이 불어요.",
-              "The wind blows."
+              "The wind blows.",
+              "#just noticed #weather"
             ],
             [
               "가",
               "사과가 맛있어요.",
-              "The apple is delicious."
+              "The apple is delicious.",
+              "#new information"
             ],
             [
               "가",
               "겨울 바다가 정말 아름다워요.",
-              "The winter sea is truly beautiful."
+              "The winter sea is truly beautiful.",
+              "#describing a scene"
             ],
             [
               "이",
               "선생님이 교실로 천천히 들어오세요.",
-              "The teacher slowly enters the classroom."
+              "The teacher slowly enters the classroom.",
+              "#new person enters #scene"
             ],
             [
               "이",
               "어제 산 노트북이 가볍고 디자인도 좋아요.",
-              "The laptop I bought yesterday is light and has a nice design."
+              "The laptop I bought yesterday is light and has a nice design.",
+              "#new thing #first mention"
             ]
           ]
         },
@@ -639,7 +651,7 @@
             "en": "Meaning",
             "ko": "뜻"
           },
-          "text": "Topic marker used to introduce what you are talking about or to draw a contrast with something else.\n무엇에 대해 말하는지 화제를 얹거나, 다른 것과 견줄 때 씁니다."
+          "text": "Topic marker used to introduce what you are talking about or to draw a contrast with something else. Use it when the thing is already known (the topic), when you state a general fact, or when you contrast two things.\n무엇에 대해 말하는지 화제를 얹거나, 다른 것과 견줄 때 씁니다. 이미 아는 것(화제), 일반적인 사실, 둘을 견줄 때 씁니다."
         },
         {
           "type": "text",
@@ -658,38 +670,45 @@
           "cols": [
             "Particle · 조사",
             "Example · 예",
-            "English"
+            "English",
+            "Context · 맥락"
           ],
           "rows": [
             [
               "는",
               "사과는 달아요.",
-              "Apples are sweet."
+              "Apples are sweet.",
+              "#general fact"
             ],
             [
               "은",
               "동생은 학생이에요.",
-              "My sibling is a student."
+              "My sibling is a student.",
+              "#topic #already known"
             ],
             [
               "는",
               "민수는 키가 커요.",
-              "Minsu is tall."
+              "Minsu is tall.",
+              "#topic #already known"
             ],
             [
               "는",
               "언니는 주말에 요리를 자주 해요.",
-              "My older sister often cooks on weekends."
+              "My older sister often cooks on weekends.",
+              "#topic #habit"
             ],
             [
               "은",
               "이 식당은 김치찌개가 참 맛있어요.",
-              "As for this restaurant, kimchi stew is really delicious."
+              "As for this restaurant, kimchi stew is really delicious.",
+              "#topic #known place"
             ],
             [
               "은",
               "제 고향은 바다가 가깝고 조용한 곳이에요.",
-              "My hometown is a quiet place close to the sea."
+              "My hometown is a quiet place close to the sea.",
+              "#topic #telling about my hometown"
             ]
           ]
         },
@@ -5390,6 +5409,329 @@
               "a": "Example: 우리 동네는 조용해요. 어제 새 카페가 생겼어요. (Topic with 는, new thing with 가.)"
             }
           ]
+        }
+      ]
+    },
+    "mt-2": {
+      "id": "mt-2",
+      "title": {
+        "en": "Mini test · Part 2: Core markers",
+        "ko": "2부 미니 테스트 · 핵심 조사"
+      },
+      "sub": {
+        "en": "Which core particle fits the context?",
+        "ko": "문맥에 맞는 핵심 조사는?"
+      },
+      "sections": [
+        {
+          "type": "practice",
+          "title": {
+            "en": "Mini test (8 questions)",
+            "ko": "미니 테스트 (8문항)"
+          },
+          "hint": "Cover the Answer Key and finish in about ten minutes. The English line under each sentence gives the context.",
+          "items": [
+            {
+              "q": "저___ 한국 사람이에요.  (I am Korean. ▸ introducing yourself)",
+              "a": "는"
+            },
+            {
+              "q": "A: 누가 왔어요? B: 민수___ 왔어요.  (Who came? Minsu did. ▸ answers: Who?)",
+              "a": "가"
+            },
+            {
+              "q": "저는 커피___ 마셔요.  (I drink coffee.)",
+              "a": "를"
+            },
+            {
+              "q": "제 친구___ 이름은 수진이에요.  (My friend's name is Sujin. ▸ belongs to)",
+              "a": "의"
+            },
+            {
+              "q": "오늘은 날씨___ 정말 좋아요.  (The weather is really nice today. ▸ just noticed)",
+              "a": "가"
+            },
+            {
+              "q": "책___ 읽어요.  (I read a book. ▸ the thing being read)",
+              "a": "을"
+            },
+            {
+              "q": "저기 고양이___ 있어요.  (There is a cat over there. ▸ a new thing)",
+              "a": "가"
+            },
+            {
+              "q": "커피___ 좋아하지만 차___ 안 좋아해요.  (I like coffee but not tea. ▸ contrast)",
+              "a": "는 / 는"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "title": {
+            "en": "Score it",
+            "ko": "점수 매기기"
+          },
+          "text": "Score: ____ / 8\n7 or more: move on. 5 to 6: re-read the Watch out boxes in this part, then write your mistakes in the mistake log. 4 or fewer: redo the Fill in practice in this part, then take this test again after 3 days.\n점수: ____ / 8\n7개 이상이면 다음으로 가세요. 5~6개면 이 부의 「조심할 것」을 다시 읽고 틀린 문장을 기록하세요. 4개 이하면 이 부의 채우기를 다시 하고 3일 뒤 이 테스트를 다시 풀어 보세요."
+        }
+      ]
+    },
+    "mt-3": {
+      "id": "mt-3",
+      "title": {
+        "en": "Mini test · Part 3: Place, time & direction",
+        "ko": "3부 미니 테스트 · 장소 · 시간 · 방향"
+      },
+      "sub": {
+        "en": "에, 에서, 에게/한테, 부터.",
+        "ko": "에 · 에서 · 에게/한테 · 부터 가르기"
+      },
+      "sections": [
+        {
+          "type": "practice",
+          "title": {
+            "en": "Mini test (8 questions)",
+            "ko": "미니 테스트 (8문항)"
+          },
+          "hint": "Cover the Answer Key and finish in about ten minutes. The English line under each sentence gives the context.",
+          "items": [
+            {
+              "q": "저는 학교___ 가요.  (I go to school. ▸ destination)",
+              "a": "에"
+            },
+            {
+              "q": "도서관___ 공부해요.  (I study at the library. ▸ where an action happens)",
+              "a": "에서"
+            },
+            {
+              "q": "일곱 시___ 일어나요.  (I get up at seven. ▸ a point in time)",
+              "a": "에"
+            },
+            {
+              "q": "친구___ 선물을 줬어요.  (I gave a present to my friend. ▸ a person)",
+              "a": "에게 / 한테"
+            },
+            {
+              "q": "집___ 학교까지 걸어서 십 분이에요.  (It takes ten minutes on foot from home to school. ▸ starting place)",
+              "a": "에서"
+            },
+            {
+              "q": "수업은 아홉 시___ 열두 시까지예요.  (Class runs from nine to twelve. ▸ starting time)",
+              "a": "부터"
+            },
+            {
+              "q": "지금 서울___ 있어요.  (I am in Seoul now. ▸ simply being there)",
+              "a": "에"
+            },
+            {
+              "q": "회사___ 전화했어요.  (I called the company. ▸ an organization, not a person)",
+              "a": "에"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "title": {
+            "en": "Score it",
+            "ko": "점수 매기기"
+          },
+          "text": "Score: ____ / 8\n7 or more: move on. 5 to 6: re-read the Watch out boxes in this part, then write your mistakes in the mistake log. 4 or fewer: redo the Fill in practice in this part, then take this test again after 3 days.\n점수: ____ / 8\n7개 이상이면 다음으로 가세요. 5~6개면 이 부의 「조심할 것」을 다시 읽고 틀린 문장을 기록하세요. 4개 이하면 이 부의 채우기를 다시 하고 3일 뒤 이 테스트를 다시 풀어 보세요."
+        }
+      ]
+    },
+    "mt-4": {
+      "id": "mt-4",
+      "title": {
+        "en": "Mini test · Part 4: Together, also & only",
+        "ko": "4부 미니 테스트 · 함께 · 도 · 만"
+      },
+      "sub": {
+        "en": "와/과, 도, 만, 밖에, (이)나.",
+        "ko": "와/과 · 도 · 만 · 밖에 · (이)나"
+      },
+      "sections": [
+        {
+          "type": "practice",
+          "title": {
+            "en": "Mini test (8 questions)",
+            "ko": "미니 테스트 (8문항)"
+          },
+          "hint": "Cover the Answer Key and finish in about ten minutes. The English line under each sentence gives the context.",
+          "items": [
+            {
+              "q": "저는 친구___ 영화를 봤어요.  (I watched a movie with a friend. ▸ spoken style)",
+              "a": "랑 / 하고"
+            },
+            {
+              "q": "저___ 학생이에요.  (I am a student too. ▸ also)",
+              "a": "도"
+            },
+            {
+              "q": "물___ 마셨어요. 다른 건 안 마셨어요.  (I drank only water. ▸ only)",
+              "a": "만"
+            },
+            {
+              "q": "돈이 천 원___ 없어요.  (I only have 1,000 won. ▸ nothing but, with a negative verb)",
+              "a": "밖에"
+            },
+            {
+              "q": "커피___ 차___ 마시고 싶어요.  (I want to drink coffee or tea. ▸ choose one)",
+              "a": "나 / 나"
+            },
+            {
+              "q": "밥을 세 그릇___ 먹었어요!  (I ate as many as three bowls of rice! ▸ more than expected)",
+              "a": "이나"
+            },
+            {
+              "q": "한국어___ 영어를 공부해요.  (I study Korean and English. ▸ formal, written style)",
+              "a": "와"
+            },
+            {
+              "q": "사과___ 바나나를 샀어요.  (I bought apples and bananas. ▸ spoken style)",
+              "a": "랑 / 하고"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "title": {
+            "en": "Score it",
+            "ko": "점수 매기기"
+          },
+          "text": "Score: ____ / 8\n7 or more: move on. 5 to 6: re-read the Watch out boxes in this part, then write your mistakes in the mistake log. 4 or fewer: redo the Fill in practice in this part, then take this test again after 3 days.\n점수: ____ / 8\n7개 이상이면 다음으로 가세요. 5~6개면 이 부의 「조심할 것」을 다시 읽고 틀린 문장을 기록하세요. 4개 이하면 이 부의 채우기를 다시 하고 3일 뒤 이 테스트를 다시 풀어 보세요."
+        }
+      ]
+    },
+    "mt-5": {
+      "id": "mt-5",
+      "title": {
+        "en": "Mini test · Part 5: Ways, amounts & comparing",
+        "ko": "5부 미니 테스트 · 방법 · 양 · 비교"
+      },
+      "sub": {
+        "en": "로, 쯤, 처럼, 보다, 마다.",
+        "ko": "(으)로 · 쯤 · 처럼 · 보다 · 마다"
+      },
+      "sections": [
+        {
+          "type": "practice",
+          "title": {
+            "en": "Mini test (8 questions)",
+            "ko": "미니 테스트 (8문항)"
+          },
+          "hint": "Cover the Answer Key and finish in about ten minutes. The English line under each sentence gives the context.",
+          "items": [
+            {
+              "q": "버스___ 학교에 가요.  (I go to school by bus. ▸ means of transport)",
+              "a": "로"
+            },
+            {
+              "q": "연필___ 써요.  (I write with a pencil. ▸ tool. 연필 ends in ㄹ)",
+              "a": "로"
+            },
+            {
+              "q": "이쪽___ 가세요.  (Please go this way. ▸ direction. 쪽 ends in a consonant)",
+              "a": "으로"
+            },
+            {
+              "q": "저는 형___ 키가 작아요.  (I am shorter than my older brother. ▸ comparison)",
+              "a": "보다"
+            },
+            {
+              "q": "그는 모델___ 멋있어요.  (He is handsome like a model. ▸ resembles)",
+              "a": "처럼 / 같이"
+            },
+            {
+              "q": "일요일___ 운동해요.  (I exercise every Sunday. ▸ every)",
+              "a": "마다"
+            },
+            {
+              "q": "한 시간___ 걸려요.  (It takes about an hour. ▸ approximate)",
+              "a": "쯤"
+            },
+            {
+              "q": "택시___ 갔어요.  (I went by taxi. ▸ means of transport)",
+              "a": "로"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "title": {
+            "en": "Score it",
+            "ko": "점수 매기기"
+          },
+          "text": "Score: ____ / 8\n7 or more: move on. 5 to 6: re-read the Watch out boxes in this part, then write your mistakes in the mistake log. 4 or fewer: redo the Fill in practice in this part, then take this test again after 3 days.\n점수: ____ / 8\n7개 이상이면 다음으로 가세요. 5~6개면 이 부의 「조심할 것」을 다시 읽고 틀린 문장을 기록하세요. 4개 이하면 이 부의 채우기를 다시 하고 3일 뒤 이 테스트를 다시 풀어 보세요."
+        }
+      ]
+    },
+    "mt-6": {
+      "id": "mt-6",
+      "title": {
+        "en": "Mini test · Part 6: Choose the right particle",
+        "ko": "6부 미니 테스트 · 헷갈리는 조사 가르기"
+      },
+      "sub": {
+        "en": "Look-alike pairs, side by side.",
+        "ko": "비슷한 조사 나란히 가르기"
+      },
+      "sections": [
+        {
+          "type": "practice",
+          "title": {
+            "en": "Mini test (10 questions)",
+            "ko": "미니 테스트 (10문항)"
+          },
+          "hint": "Cover the Answer Key and finish in about ten minutes. The English line under each sentence gives the context.",
+          "items": [
+            {
+              "q": "A: 누가 학생이에요? B: 제___ 학생이에요.  (Who is the student? I am. ▸ answers: Who?)",
+              "a": "가"
+            },
+            {
+              "q": "저는 도서관___ 있어요.  (I am at the library. ▸ simply being there)",
+              "a": "에"
+            },
+            {
+              "q": "저는 도서관___ 공부해요.  (I study at the library. ▸ an action happens there)",
+              "a": "에서"
+            },
+            {
+              "q": "친구___ 편지를 썼어요.  (I wrote a letter to a friend. ▸ a person)",
+              "a": "에게 / 한테"
+            },
+            {
+              "q": "회사___ 편지를 보냈어요.  (I sent a letter to the company. ▸ an organization)",
+              "a": "에"
+            },
+            {
+              "q": "지하철___ 가요.  (I go by subway. ▸ means of transport. 철 ends in ㄹ)",
+              "a": "로"
+            },
+            {
+              "q": "서울___ 가요.  (I go to Seoul. ▸ destination)",
+              "a": "에"
+            },
+            {
+              "q": "월요일___ 금요일까지 일해요.  (I work from Monday to Friday. ▸ starting time)",
+              "a": "부터"
+            },
+            {
+              "q": "집___ 회사까지 삼십 분이에요.  (It takes 30 minutes from home to work. ▸ starting place)",
+              "a": "에서"
+            },
+            {
+              "q": "친구가 열 명___ 왔어요.  (As many as ten friends came. ▸ more than expected)",
+              "a": "이나"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "title": {
+            "en": "Score it",
+            "ko": "점수 매기기"
+          },
+          "text": "Score: ____ / 10\n9 or more: move on. 6 to 8: re-read the Watch out boxes in this part, then write your mistakes in the mistake log. 5 or fewer: redo the Fill in practice in this part, then take this test again after 3 days.\n점수: ____ / 10\n9개 이상이면 다음으로 가세요. 6~8개면 이 부의 「조심할 것」을 다시 읽고 틀린 문장을 기록하세요. 5개 이하면 이 부의 채우기를 다시 하고 3일 뒤 이 테스트를 다시 풀어 보세요."
         }
       ]
     }
