@@ -1267,5 +1267,21 @@
   "bonus": {
     "code": "CP-TW-ZSSGZW",
     "days": 30
+  },
+  "coverLevel": {
+    "code": "TOPIK II",
+    "name": "3~4급",
+    "bg": "#4B2A85",
+    "bg2": "#32195E",
+    "mascot": [
+      "cheese",
+      4
+    ],
+    "title": [
+      "TOPIK II",
+      "쓰기 51~52번",
+      "100제"
+    ],
+    "sub": "실용문 · 설명문 빈칸 쓰기"
   }
 }

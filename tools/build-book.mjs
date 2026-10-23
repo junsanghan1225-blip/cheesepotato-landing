@@ -10,6 +10,7 @@
    만든 PDF 는 파는 파일이라 저장소에 두지 않는다(out 기본값 books-out/ 은 .gitignore). 문장은 전부 우리 학습지(창작) — 기출 아님.
    브라우저는 smoke.mjs 처럼 PLAYWRIGHT_PATH · CHROMIUM_PATH 로 바꿀 수 있다. */
 import fs from 'node:fs';
+import { logoSvg } from './brand-logo.mjs';
 import { createRequire } from 'node:module';
 import http from 'node:http';
 import path from 'node:path';
@@ -139,7 +140,7 @@ h1,h2,h3,h4{font-weight:800;letter-spacing:-.01em}
 .tp{height:${H - 46}mm;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;gap:6mm}
 .tp .ser{font-size:8pt;font-weight:800;letter-spacing:.3em;color:${ACC}}
 .tp h1{font-size:30pt;line-height:1.2}.tp h2{font-size:14pt;font-weight:600;color:#6d655c}
-.tp .rule{width:18mm;height:.8mm;background:${ACC}}.tp .by{font-size:11pt;font-weight:700}.tp .pub{font-size:8.5pt;color:#8a8278;letter-spacing:.1em}
+.tp .rule{width:18mm;height:.8mm;background:${ACC}}.tp .by{font-size:11pt;font-weight:700}.tp .pub{display:block;margin-top:2mm}.tp .pub svg{display:block;margin:0 auto}
 .cr{font-size:8pt;line-height:1.7;color:#4a443d;display:flex;flex-direction:column;justify-content:flex-end;height:${H - 46}mm}
 .cr h4{font-size:9.5pt;margin-bottom:2mm;color:#1d1a17}.cr p{margin-bottom:2.2mm}.cr dl{display:grid;grid-template-columns:24mm 1fr;gap:.6mm 3mm;margin:3mm 0 4mm}.cr dt{color:#8a8278}.cr .ph{color:#b0a89c}
 /* 머리말 · 쓰는 법 */
@@ -236,7 +237,7 @@ const qLine = (q) => {
 const liCls = (q) => [isOpen(q) ? 'open' : '', /_{3}/.test(q) ? 'fill' : '', EN_TAIL.test(q) ? 'two' : ''].filter(Boolean).join(' ');
 
 function titlePage() {
-  return `<div class="blk plain"><div class="tp"><span class="ser">${esc(B.series.en)}</span><h1>${esc(B.title.ko)}</h1><h2>${esc(B.title.en)}</h2><div class="rule"></div><span class="by">${esc(B.author.ko)} · ${esc(B.author.en)}</span><span class="pub">${esc(B.publisher.en.toUpperCase())}</span></div></div>`;
+  return `<div class="blk plain"><div class="tp"><span class="ser">${esc(B.series.en)}</span><h1>${esc(B.title.ko)}</h1><h2>${esc(B.title.en)}</h2><div class="rule"></div><span class="by">${esc(B.author.ko)} · ${esc(B.author.en)}</span><span class="pub">${logoSvg({ fg: '#14264A', one: true, height: '5mm' })}</span></div></div>`;
 }
 /* 출판사 신고(2026-10-20, 경기도 수원시 영통구청 — 운영자 「출판사 신고확인증」). 주소는 판권면에 적지 않는다(신고 주소가 집 주소라서 공개하지 않는다) */
 const PUBLISHER_NO = '제 2026-000158 호 (Reg. no. 2026-000158 · Suwon Yeongtong-gu, Gyeonggi-do)';
@@ -726,24 +727,50 @@ body{width:${CW}mm;height:${CH}mm;font-family:'Pretendard Variable',sans-serif;p
 .back .pr{position:absolute;left:${T.bleed + 18}mm;bottom:${T.bleed + 14}mm;font-size:8.4pt;color:#6d655c;line-height:1.6}.back .pr b{font-size:9.8pt;color:#1d1a17}
 `;
 const { potatoLevel, cheeseLevel } = await import(path.join(ROOT, 'levels.js'));
-const classicCover = CLASSIC ? `.front{background:#1F3A68}.front .c2{display:none}.front .g{display:block;top:auto;bottom:40mm;right:16mm;width:auto;font-size:74pt;font-weight:900;color:rgba(217,179,91,.14);letter-spacing:.02em;line-height:1.08;white-space:pre;text-align:right}.front .c1{display:block;right:-52mm;bottom:-52mm;width:158mm;height:158mm;background:transparent;border:.5mm solid rgba(217,179,91,.42)}.front:after{content:'';position:absolute;left:8mm;top:8mm;right:8mm;bottom:8mm;border:.3mm solid rgba(217,179,91,.38);pointer-events:none}.front h1 .hl{color:#D9B35B}.front .z:before{content:'';position:absolute;left:0;right:0;top:0;height:1px}
+const classicCover = CLASSIC ? `.front{background:#1F3A68}.front .c2{display:none}.front .g{display:block;top:auto;bottom:40mm;right:16mm;width:auto;font-size:74pt;font-weight:900;color:rgba(217,179,91,.14);letter-spacing:.02em;line-height:1.08;white-space:pre;text-align:right}.front .c1{display:block;right:-52mm;bottom:-52mm;width:158mm;height:158mm;background:transparent;border:.5mm solid rgba(217,179,91,.42)}.front:after{content:'';position:absolute;left:8mm;top:8mm;right:8mm;bottom:8mm;border:.3mm solid rgba(217,179,91,.38);pointer-events:none}.front h1 .hl{color:#D9B35B}.front .g svg{display:block;width:96mm;height:67mm;overflow:visible}.front .z:before{content:'';position:absolute;left:0;right:0;top:0;height:1px}
 .front .ser{color:#D9B35B;letter-spacing:.34em}.front h1{font-weight:800;margin-top:24mm;font-size:50pt;line-height:1.1;letter-spacing:-.02em}.front h2{font-size:17pt}.front h2{color:#C5D1E6;font-weight:500}.front .rule{background:#D9B35B;height:.8mm;width:26mm}.front .sub{color:#C5D1E6}
 .front .badge{background:transparent;color:#D9B35B;border:.6mm solid #D9B35B;border-radius:1.5mm;padding:2mm 5mm}.front .mk{position:absolute;right:${T.bleed + 18}mm;top:${T.bleed + 66}mm;display:flex;gap:2mm;opacity:.95}.front .mk i{display:block;width:26mm;height:26mm}.front .mk svg{width:100%;height:100%}
 .back{background:#F4F6FA}.mk2{position:absolute;left:${T.bleed + 18}mm;bottom:${T.bleed + 38}mm;display:flex;gap:2mm}.mk2 i{display:block;width:16mm;height:16mm}.mk2 svg{width:100%;height:100%}` : '';
+/* 표지 그림 — coverArt: 'steps' = 계단 한 줄(첫걸음). 금색 면 + 맨 위 한 칸에 점 하나 */
+const STEPS_SVG = `<svg viewBox="0 0 120 84" xmlns="http://www.w3.org/2000/svg"><g fill="rgba(217,179,91,.16)" stroke="rgba(217,179,91,.55)" stroke-width=".7"><rect x="0" y="62" width="24" height="22"/><rect x="24" y="48" width="24" height="36"/><rect x="48" y="34" width="24" height="50"/><rect x="72" y="20" width="24" height="64"/><rect x="96" y="6" width="24" height="78"/></g><circle cx="108" cy="-1" r="3.2" fill="#D9B35B"/><path d="M6 56 Q18 40 30 42 T54 28 T78 14 T102 2" fill="none" stroke="#D9B35B" stroke-width=".9" stroke-dasharray="1.6 2.2" opacity=".9"/></svg>`;
 const hlTitle = (t) => (B.coverAccent && t.includes(B.coverAccent) ? esc(t).replace(esc(B.coverAccent), `<span class="hl">${esc(B.coverAccent)}</span>`) : esc(t));
-const coverHtml = `<!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="/vendor/pretendard.css"><style>${coverCss}${classicCover}</style></head><body>
+
+/* ── 레벨별 표지(운영자 2026-10-23 「정석풍 + 고급 · 레벨 상자 안에 작은 캐릭터」) ──
+   책 틀 JSON 의 coverLevel {code, name, bg, bg2, mascot:[potato|cheese, 레벨], title:[윗줄, 큰 낱말, 아랫줄], sub}. 앞표지는 px(1px = 0.2646mm) 로 그린다 — 앞표지 폭 ≈ 699px.
+   --b 는 재단 여유(3mm ≈ 11px): 위 · 아래 · 오른쪽은 여유가 있고 왼쪽(책등 쪽)은 없다. */
+const LV = B.coverLevel;
+const lvMascot = LV ? (LV.mascot[0] === 'cheese' ? cheeseLevel(LV.mascot[1]) : potatoLevel(LV.mascot[1])).icon : '';
+const LVG = ['#EFE6CB', '#D2BC86', '#A8915C'];
+const lvCss = LV ? `.front.lvc{padding:0;--b:11px;background:radial-gradient(ellipse at 72% 74%,${LV.bg} 0%,${LV.bg2} 78%);color:#fff}
+.lvc .fr{position:absolute;left:34px;top:calc(34px + var(--b));right:calc(34px + var(--b));bottom:calc(34px + var(--b));border:2px solid #fff}
+.lvc .top{position:absolute;left:62px;right:calc(62px + var(--b));top:calc(62px + var(--b));display:flex;justify-content:space-between;font-size:13px;font-weight:700;letter-spacing:.18em}
+.lvc .r1{position:absolute;left:62px;right:calc(62px + var(--b));top:calc(96px + var(--b));height:2px;background:#fff}
+.lvc .tt{position:absolute;left:62px;right:calc(62px + var(--b));top:calc(176px + var(--b))}.lvc .tt .a{font-size:30px;font-weight:600;letter-spacing:.02em;margin-bottom:10px}
+.lvc .tt h1{margin:0;font-size:92px;font-weight:900;letter-spacing:-.04em;line-height:1.08;color:#E3D4A6}.lvc .tt .c{font-size:60px;font-weight:800;letter-spacing:-.03em;margin-top:12px}
+.lvc .orn{position:absolute;left:62px;top:calc(506px + var(--b));width:120px;height:12px}.lvc .orn:before{content:'';position:absolute;left:0;top:5px;width:120px;height:2px;background:#fff}.lvc .orn:after{content:'';position:absolute;left:128px;top:1px;width:9px;height:9px;background:${LVG[1]};transform:rotate(45deg)}
+.lvc .en{position:absolute;left:62px;top:calc(534px + var(--b));font-size:23px;font-weight:500;letter-spacing:.03em}.lvc .sub{position:absolute;left:62px;top:calc(572px + var(--b));font-size:18px;opacity:.85}
+.lvc .lvb{position:absolute;left:62px;bottom:calc(128px + var(--b));background:#fff;color:${LV.bg};padding:14px 18px 14px 26px;min-width:250px;display:flex;align-items:center;justify-content:space-between;gap:22px}
+.lvc .lvb b{display:block;font-size:56px;font-weight:900;letter-spacing:-.02em;line-height:1}.lvc .lvb span{display:block;margin-top:8px;font-size:19px;font-weight:800;letter-spacing:.2em}
+.lvc .mini{flex:none;position:relative;width:70px;height:70px;border-radius:50%;background:radial-gradient(circle at 50% 38%,${LV.bg},${LV.bg2});box-shadow:0 0 0 2px ${LVG[1]},0 0 0 4px #fff,0 0 0 5px ${LVG[1]}aa}.lvc .mini svg{position:absolute;left:6px;top:4px;width:58px;height:58px}
+.lvc .r3{position:absolute;left:62px;right:calc(62px + var(--b));bottom:calc(92px + var(--b));height:2px;background:#fff}
+.lvc .au{position:absolute;left:62px;right:calc(62px + var(--b));bottom:calc(50px + var(--b));display:flex;justify-content:space-between;font-size:15px;font-weight:700}.lvc .au small{font-size:11px;letter-spacing:.24em;font-weight:500;color:${LVG[0]}}
+.front.lvc:after{display:none}.spine{background:${LV.bg} !important}` : '';
+const lvFront = LV ? `<div class="front lvc"><div class="fr"></div><div class="top"><span>KOREAN WORKBOOK SERIES</span><span>한국어 워크북 시리즈</span></div><div class="r1"></div>
+<div class="tt"><div class="a">${esc(LV.title[0])}</div><h1>${esc(LV.title[1])}</h1><div class="c">${esc(LV.title[2])}</div></div><div class="orn"></div><div class="en">${esc(B.title.en)}</div><div class="sub">${esc(LV.sub || '')}</div>
+<div class="lvb"><div><b>${esc(LV.code)}</b><span>${esc(LV.name)}</span></div><div class="mini">${lvMascot}</div></div><div class="r3"></div><div class="au"><span>${esc(B.author.ko)} · ${esc(B.author.en)}</span><small>${logoSvg({ fg: LVG[0], one: true, height: '16px' })}</small></div></div>` : '';
+const coverHtml = `<!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="/vendor/pretendard.css"><style>${coverCss}${classicCover}${lvCss}</style></head><body>
 <div class="back"><div class="ser">${esc(B.series.en)} · ${esc(B.level)}</div>
 <h3>${esc(B.sub.ko)}</h3><h4>${esc(B.sub.en)}</h4>
 <p>${esc(B.preface.ko[0])}</p>
 <ul><li>${units.length} units · ${units.length}개 단원<small>Hangul to everyday conversation · 한글부터 생활 표현까지</small></li><li>4 practice sets per unit · 단원마다 연습 4묶음<small>Write in the book · 책에 바로 쓰기</small></li><li>Answer key &amp; index · 정답과 찾아보기<small>Check yourself, look up any word · 스스로 확인하고 낱말 찾기</small></li></ul>
 <div class="pts">${parts.map((p) => `<div><b>PART ${p.no}</b> ${esc(p.title.ko)} <span>${esc(p.title.en)}</span></div>`).join('')}</div>
 <div class="for">For complete beginners and A1 classes · 완전 초급과 A1 수업에<br>${esc(B.web)}</div>
-<div class="pr"><b>정가 ○○,○○○원</b> (예정)<br>${esc(B.publisher.ko)} · ${esc(B.publisher.en)}</div>
+<div class="pr"><b>정가 ○○,○○○원</b> (예정)<br>${esc(B.publisher.ko)}<br>${logoSvg({ fg: '#14264A', one: true, height: '4.4mm' })}</div>
 ${CLASSIC ? `<div class="mk2"><i>${potatoLevel(3).icon}</i><i>${cheeseLevel(2).icon}</i></div>` : ''}<div class="bar">ISBN barcode<br>발급 후 이 자리에 · 40×25mm 이상</div></div>
-<div class="spine"><div class="t">${esc(B.title.ko)} <small>${esc(B.title.en)}</small></div><div class="p">${esc(B.publisher.en.toUpperCase())}</div></div>
-<div class="front"><div class="g"${B.coverGlyphPt ? ` style="font-size:${Number(B.coverGlyphPt)}pt"` : ''}>${esc(B.coverGlyph || "ㄱㄴㄷ ㄹㅁㅂ ㅅㅇㅈ ㅊㅋㅌ ㅍㅎ 가나 다라")}</div><div class="c1"></div><div class="c2"></div>
+<div class="spine"><div class="t">${esc(B.title.ko)} <small>${esc(B.title.en)}</small></div><div class="p">${logoSvg({ fg: '#fff', one: true, rotate: true, width: '3.4mm' })}</div></div>
+${LV ? lvFront : `<div class="front"><div class="g"${B.coverGlyphPt ? ` style="font-size:${Number(B.coverGlyphPt)}pt"` : ''}>${B.coverArt === 'steps' ? STEPS_SVG : esc(B.coverGlyph || "ㄱㄴㄷ ㄹㅁㅂ ㅅㅇㅈ ㅊㅋㅌ ㅍㅎ 가나 다라")}</div><div class="c1"></div><div class="c2"></div>
 <div class="z"><div class="ser">${esc(B.series.en)}</div><h1>${hlTitle(B.title.ko)}</h1><h2>${esc(B.title.en)}</h2><div class="rule"></div><p class="sub">${esc(B.sub.en)}</p>
-<div class="lv"><span class="badge">${esc(B.level)} · ${esc(B.levelTag || "BEGINNER")}</span><div class="by"><b>${esc(B.author.ko)} · ${esc(B.author.en)}</b><span>${esc(B.publisher.en.toUpperCase())}</span></div></div></div></div>
+<div class="lv"><span class="badge">${esc(B.level)} · ${esc(B.levelTag || "BEGINNER")}</span><div class="by"><b>${esc(B.author.ko)} · ${esc(B.author.en)}</b><span>${logoSvg({ fg: '#fff', one: true, height: '3.6mm' })}</span></div></div></div></div>`}
 </body></html>`;
 pages.set('cur', coverHtml);
 await pg.goto(`${BASE}/__book.html`, { waitUntil: 'networkidle' });
