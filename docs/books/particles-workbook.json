@@ -29,8 +29,8 @@
     "ko": "준상"
   },
   "authorAbout": {
-    "en": "Junsang is a Korean teacher. He has taught Korean for about two years and led over 1,700 lessons with students from many different cultural backgrounds.",
-    "ko": "준상은 한국어 교사입니다. 약 2년 동안 다양한 문화권의 학생들과 1,700회가 넘는 수업을 했습니다."
+    "ko": "준상은 한국어 교사입니다. 약 2년 동안 약 100명의 학생에게 1,700시간이 넘게 한국어를 가르쳤고, 주로 유럽과 미국의 학생들을 만났습니다. 한국어를 가르치는 웹사이트 everykoreans.com 을 운영합니다.",
+    "en": "Junsang is a Korean teacher. In about two years he has taught around 100 students for more than 1,700 hours, mostly from Europe and the United States. He runs everykoreans.com, a website for learning Korean."
   },
   "publisher": {
     "en": "Everykoreans",
@@ -5978,5 +5978,29 @@
       "워크북"
     ],
     "sub": "조사 20개 · 맥락으로 익히기"
+  },
+  "authorNote": {
+    "ko": "저는 문법을 이름부터 외우는 공부가 어렵다고 느꼈던 사람입니다. 그래서 이 책은 조사의 이름이나 규칙보다 문장을 먼저 보여 줍니다. 조사는 짧지만 문장의 뜻을 정하는 말이라, 여러 문장에서 자꾸 만나 보는 것이 가장 좋은 공부라고 생각했기 때문입니다. 펴내기 전에 단원을 하나씩 읽고 확인했습니다. 책에서 연습하고, 앱의 점검으로 확인하고, 틀린 문장은 책 뒤의 기록에 남겨 두었다가 다시 보세요.",
+    "en": "I am someone who found studying grammar by memorising its names hard. So this book shows you sentences before rules or names. Particles are short, but they decide what a sentence means, so meeting them again and again in many sentences seemed to me the best way to learn them. Before publishing I read and checked every unit myself. Practise in the book, check yourself in the app, and keep the sentences you miss in the log at the back to read again."
+  },
+  "reviewer": {
+    "ko": "준상",
+    "en": "Junsang"
+  },
+  "authorBio": {
+    "ko": [
+      "저는 한국어를 우연히 가르치게 되었습니다.",
+      "어릴 때부터 국어는 문법부터 배우는 어려운 과목이었고, 수능을 준비하면서는 더욱 어렵다고만 생각했습니다. 그런 제가 대학교에 다니던 중, 한국어 선생님을 하는 친구를 보고 \"나도 한번 해 볼까\" 하는 마음으로 도전하게 되었습니다.",
+      "처음에는 학생이 한 명도 없었습니다. 말 그대로 파리만 날렸습니다. 그러던 어느 날 제 계정으로 알림이 왔습니다. 한 학생이 수업을 예약했다는 소식이었습니다. 그때부터 가슴이 뛰기 시작했고, 그 학생을 위해 자료를 준비하는 일이 설렜습니다. 어쩌면 그때부터 한국어를 가르치는 일에 빠졌는지도 모르겠습니다.",
+      "재미로, 아르바이트처럼 시작한 일이 2년을 넘었습니다. 그동안 1,700시간이 넘게, 100명의 학생을 가르쳤습니다. 전 세계의 학생들을 만났고, 주로 유럽과 미국의 학생들을 가르쳤습니다.",
+      "가르치다 보면 설명이 안 돼서 답답할 만큼 아름다운 한국어를 만납니다. 그런 한국어를 가르칠 수 있다는 것이 저는 축복이라고 느낍니다. 지금은 한국어를 더 널리 알리기 위해 한국어를 가르치는 웹사이트 everykoreans.com 을 운영하고 있고, 대학교 공부도 함께 하고 있습니다."
+    ],
+    "en": [
+      "I became a Korean teacher by accident.",
+      "Ever since I was a child, Korean class meant learning grammar first, and I thought of it as a hard subject, even more so while preparing for the national college entrance exam. While I was still in university, I saw a friend teaching Korean and thought, \"Why not give it a try?\"",
+      "At first I had no students at all. Truly, not a soul. Then one day a notification arrived on my account: a student had booked a lesson. My heart started to race, and I felt a thrill preparing materials for that student. Maybe that was the moment I fell for teaching Korean.",
+      "What began as a fun side job has now lasted more than two years. In that time I have taught over 1,700 hours to 100 students. I have taught students from all over the world, mostly from Europe and the United States.",
+      "When you teach Korean, you sometimes meet a beauty so deep that it frustrates you because you cannot explain it. I feel blessed to be able to teach that Korean. Today I run everykoreans.com, a website for learning Korean, to spread Korean further, and I am studying at university at the same time."
+    ]
   }
 }

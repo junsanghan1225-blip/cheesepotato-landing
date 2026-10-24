@@ -170,6 +170,10 @@ h1,h2,h3,h4{font-weight:800;letter-spacing:-.01em}
 /* 머리말 · 쓰는 법 */
 .pf h2{font-size:20pt;margin-bottom:1mm}.pf .k{font-size:11pt;color:#6d655c;margin-bottom:7mm}
 .pf p{margin-bottom:3.4mm;font-size:10pt;line-height:1.7}.pf p.en{color:#1d1a17}.pf p.ko{color:#4a443d;font-size:9.6pt;margin-bottom:5mm}
+.pf.nt p{font-size:10.6pt;line-height:1.85;margin-bottom:4mm}.pf.nt p.ko{font-size:10.2pt;margin-bottom:6mm}.pf.nt .au{margin-top:10mm}
+.pf .an,.pf .ab p,.pf .au{break-inside:avoid}
+.pf .ab p{font-size:9pt;line-height:1.55;margin-bottom:1.8mm}.pf .ab p.ko{font-size:8.8pt;margin-bottom:3.2mm}.pf .ab+.au{margin-top:3mm}
+.pf .an{margin-top:7mm;padding:4mm 5mm;background:${TINT};border-radius:2mm}.pf .an h3{font-size:10pt;margin-bottom:2mm;color:${ACC}}.pf .an p{font-size:9.2pt;line-height:1.65;margin-bottom:2mm}.pf .an p.ko{font-size:9pt;margin-bottom:0}
 .pf .au{margin-top:8mm;padding-top:4mm;border-top:.3mm solid #d8d0c4;font-size:8.8pt;color:#4a443d}
 .how ol{margin-top:6mm;list-style:none;counter-reset:h}.how li{counter-increment:h;display:grid;grid-template-columns:9mm 1fr;gap:3mm;padding:3.4mm 0;border-top:.25mm solid #e6dfd4}
 .how li:before{content:counter(h);width:7mm;height:7mm;border-radius:50%;background:${ACC};color:#fff;font-weight:800;font-size:9pt;display:flex;align-items:center;justify-content:center}
@@ -281,7 +285,7 @@ function copyrightPage() {
 <h4>${esc(B.title.ko)} · ${esc(B.title.en)}</h4>
 <p>${esc(B.sub.en)}<br>${esc(B.sub.ko)}</p>
 <dl><dt>Author · 지은이</dt><dd>${esc(B.author.ko)} (${esc(B.author.en)})</dd>
-<dt>Publisher · 펴낸곳</dt><dd>${esc(B.publisher.ko)} · ${esc(B.publisher.en)}</dd>
+${B.reviewer ? `<dt>Reviewed by · 검수</dt><dd>${esc(B.reviewer.ko)} (${esc(B.reviewer.en)})</dd>\n` : ''}<dt>Publisher · 펴낸곳</dt><dd>${esc(B.publisher.ko)} · ${esc(B.publisher.en)}</dd>
 <dt>Publisher reg. no. · 출판사 신고번호</dt><dd>${PUBLISHER_NO}</dd>
 ${DIGITAL ? `<dt>Format · 형태</dt><dd>Digital edition (PDF) · 디지털판(PDF) · print it at home or at a print shop · 집이나 인쇄소에서 인쇄해 쓰세요</dd>
 <dt>Edition · 판</dt><dd>${esc(B.digitalEdition || 'First digital edition · 디지털판 초판')}</dd>
@@ -298,7 +302,7 @@ ${DIGITAL ? `<dt>Format · 형태</dt><dd>Digital edition (PDF) · 디지털판(
 function prefacePage() {
   return `<div class="blk plain"><div class="pf"><h2>Preface</h2><div class="k">머리말</div>
 ${B.preface.en.map((t, i) => `<p class="en">${esc(t)}</p><p class="ko">${esc(B.preface.ko[i])}</p>`).join('')}
-<div class="au"><b>${esc(B.author.en)}</b>: ${esc(B.authorAbout.en)}<br>${esc(B.authorAbout.ko)}</div></div></div>`;
+${B.authorNote && !B.authorBio ? `<div class="an"><h3>Author's note · 저자의 말</h3><p class="en">${esc(B.authorNote.en)}</p><p class="ko">${esc(B.authorNote.ko)}</p></div>` : ''}${B.authorBio ? '' : `<div class="au"><b>${esc(B.author.en)}</b>: ${esc(B.authorAbout.en)}<br>${esc(B.authorAbout.ko)}</div>`}</div></div>`;
 }
 
 /* ── 스스로 하는 공부(운영자 2026-10-22 「학생의 주도적인 학습을 유도」, 책 틀의 selfStudy: true) ──
@@ -335,6 +339,18 @@ const courseQr = () => {
   const q = qrLib(0, 'M'); q.addData(url); q.make();
   return `<div class="qrb uq"><div class="qr">${q.createSvgTag({ cellSize: 3, margin: 0, scalable: true })}</div><div><b>Your reader course · 독자 전용 코스</b><small>찍으면 이 책의 전용 쪽이 열려요: 단원별 연습, 진행률, 연속 학습, 틀린 문제 노트. 치즈감자 앱에서 열면 기록이 앱에도 쌓여요.</small><a href="${esc(url)}">${esc(url.split('?')[0].replace('https://', ''))}</a></div></div>`;
 };
+/* 저자의 말 — 한 쪽에 통째로(쪽 사이에서 잘리지 않게 따로 한 쪽). 책 틀 JSON 의 authorNote {ko, en}. */
+function notePage() {
+  return `<div class="blk plain"><div class="pf nt"><h2>Author's note</h2><div class="k">저자의 말</div>
+<p class="en">${esc(B.authorNote.en)}</p><p class="ko">${esc(B.authorNote.ko)}</p>
+<div class="au"><b>${esc(B.author.en)}</b> · ${esc(B.author.ko)}</div></div></div>`;
+}
+/* 저자 소개 — 운영자가 직접 들려준 이야기(2026-10-24)를 1인칭으로 옮긴 글. 책 틀 JSON 의 authorBio {ko:[문단], en:[문단]}. */
+function authorPage() {
+  return `<div class="blk plain"><div class="pf"><h2>About the author</h2><div class="k">저자 소개</div>
+<div class="ab">${B.authorBio.en.map((t, i) => `<p class="en">${esc(t)}</p><p class="ko">${esc(B.authorBio.ko[i])}</p>`).join('')}</div>
+<div class="au"><b>${esc(B.author.en)}</b> · ${esc(B.author.ko)}<br>everykoreans.com</div></div></div>`;
+}
 function howPage() {
   return `<div class="blk plain"><div class="pf how"><h2>How to use this book</h2><div class="k">이 책 쓰는 법</div><ol>${B.howto.en.map((t, i) => `<li><div><b>${esc(t)}</b><span>${esc(B.howto.ko[i])}</span></div></li>`).join('')}</ol>${courseQr()}</div></div>`;
 }
@@ -361,7 +377,7 @@ function guidePage() {
 function tocPage(starts) {
   let h = `<div class="blk plain"><div class="toc"><h2>Contents · 목차</h2>`;
   const ln = (n, en, ko, p) => `<div class="ln"><span class="n">${n}</span><span class="t">${esc(en)}<small>${esc(ko)}</small></span><span class="d"></span><span class="p">${p ?? '··'}</span></div>`;
-  h += ln('', 'Preface · How to use this book', '머리말 · 쓰는 법', starts?.preface);
+  h += ln('', B.authorBio ? 'Preface · About the author · How to use this book' : 'Preface · How to use this book', B.authorBio ? '머리말 · 저자 소개 · 쓰는 법' : '머리말 · 쓰는 법', starts?.preface);
   if (!B.noGuide) h += ln('', 'How this book is organized', '이 책의 구성 · 블록 읽는 법', starts?.guide);
   if (FRONT_LIST.length) { h += `<div class="pt">BEFORE YOU START · <span style="color:#9a9288;font-weight:500">시작하기 전에</span></div>`; for (const [k, en, ko] of FRONT_LIST) h += ln('', en, ko, starts?.front?.[k]); }
   for (const p of parts) {
@@ -700,7 +716,7 @@ const countPages = (buf) => (buf.toString('latin1').match(/\/Type\s*\/Page(?![s\
 
 const entries = indexEntries();
 const blocks = B.compact ? parts.flatMap((p) => p.sheets.map((sh) => { const u = units.find((x) => x.id === sh.id); return [`unit${u.no}`, unitBlock(u)]; })) : [
-  ['title', titlePage()], ['copyright', copyrightPage()], ['preface', prefacePage()], ['how', howPage()], ...(B.selfStudy ? [['studymap', studyMap()]] : []), ...(B.noGuide ? [] : [['guide', guidePage()]]), ['toc', tocPage(null)], ...FRONT_LIST.map(([k, , , fn]) => [k, fn()]),
+  ['title', titlePage()], ['copyright', copyrightPage()], ['preface', prefacePage()], ...(B.authorNote && B.authorBio ? [['note', notePage()]] : []), ...(B.authorBio ? [['author', authorPage()]] : []), ['how', howPage()], ...(B.selfStudy ? [['studymap', studyMap()]] : []), ...(B.noGuide ? [] : [['guide', guidePage()]]), ['toc', tocPage(null)], ...FRONT_LIST.map(([k, , , fn]) => [k, fn()]),
   ...parts.flatMap((p) => [[`part${p.no}`, partPage(p)], ...(TWM ? [[`qguide${p.no}`, qGuidePage(p)], [`qscore${p.no}`, qScorePage(p)], [`qworked${p.no}`, qWorkedPage(p)]] : []), ...p.sheets.map((s) => { const u = units.find((x) => x.id === s.id); return [`unit${u.no}`, unitBlock(u)]; })]),
   ...(B.selfStudy ? [['mlog', mistakeLog(2)]] : []), ['answers', answersBlock()], ...(B.noIndex ? [] : [['index', indexBlock(entries)]]),
 ];
