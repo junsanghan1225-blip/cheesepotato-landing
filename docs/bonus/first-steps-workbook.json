@@ -915,6 +915,658 @@
           ]
         }
       ]
+    },
+    "polite-present": {
+      "cards": [
+        {
+          "ko": "가요",
+          "en": "to go / goes"
+        },
+        {
+          "ko": "와요",
+          "en": "to come / comes"
+        },
+        {
+          "ko": "먹어요",
+          "en": "to eat / eats"
+        },
+        {
+          "ko": "마셔요",
+          "en": "to drink / drinks"
+        },
+        {
+          "ko": "봐요",
+          "en": "to look at / watches"
+        },
+        {
+          "ko": "읽어요",
+          "en": "to read / reads"
+        },
+        {
+          "ko": "공부해요",
+          "en": "to study / studies"
+        },
+        {
+          "ko": "운동해요",
+          "en": "to exercise / exercises"
+        }
+      ],
+      "quiz": [
+        {
+          "q": "Which ending attaches to the stem of 좋다 (좋-)?",
+          "opts": [
+            "-아요",
+            "-어요",
+            "-해요",
+            "-여요"
+          ],
+          "a": 0,
+          "why": "The stem vowel of 좋다 is ㅗ, so it takes -아요 to become 좋아요."
+        },
+        {
+          "q": "What is the correct polite present form of 배우다 (to learn)?",
+          "opts": [
+            "배와요",
+            "배워요",
+            "배우해요",
+            "배우어요"
+          ],
+          "a": 1,
+          "why": "The stem vowel is ㅜ, which combines with -어요 into -워요 (배워요)."
+        },
+        {
+          "q": "What is the polite present form of 노래하다 (to sing)?",
+          "opts": [
+            "노래하요",
+            "노래해요",
+            "노래하여요",
+            "노래와요"
+          ],
+          "a": 1,
+          "why": "Verbs ending in 하다 always change to 해요 in the polite present tense."
+        },
+        {
+          "q": "Which verb conjugates with -어요?",
+          "opts": [
+            "살다",
+            "앉다",
+            "열다",
+            "받다"
+          ],
+          "a": 2,
+          "why": "열다 has the stem vowel ㅕ, so it takes -어요 (열어요). The others have ㅏ and take -아요."
+        },
+        {
+          "q": "What is the polite present form of 보다 (to see / watch)?",
+          "opts": [
+            "보아요",
+            "보어요",
+            "봐요",
+            "보해요"
+          ],
+          "a": 2,
+          "why": "보- combines with -아요 to contract into 봐요."
+        }
+      ],
+      "fill": [
+        {
+          "q": "아침에 주스를 ___.",
+          "en": "I drink juice in the morning.",
+          "a": [
+            "마셔요"
+          ]
+        },
+        {
+          "q": "공원에서 강아지를 ___.",
+          "en": "I see a puppy in the park.",
+          "a": [
+            "봐요"
+          ]
+        },
+        {
+          "q": "교실에서 선생님을 ___.",
+          "en": "I meet the teacher in the classroom.",
+          "a": [
+            "만나요"
+          ]
+        },
+        {
+          "q": "매일 아침에 열심히 운동___.",
+          "en": "I exercise diligently every morning.",
+          "a": [
+            "해요"
+          ]
+        },
+        {
+          "q": "시장에서 맛있는 사과를 ___.",
+          "en": "I buy delicious apples at the market.",
+          "a": [
+            "사요"
+          ]
+        }
+      ]
+    },
+    "basic-verbs-adjectives": {
+      "cards": [
+        {
+          "ko": "크다",
+          "en": "to be big"
+        },
+        {
+          "ko": "작다",
+          "en": "to be small"
+        },
+        {
+          "ko": "많다",
+          "en": "to be many / much"
+        },
+        {
+          "ko": "적다",
+          "en": "to be few / little"
+        },
+        {
+          "ko": "맛있다",
+          "en": "to be delicious"
+        },
+        {
+          "ko": "바쁘다",
+          "en": "to be busy"
+        },
+        {
+          "ko": "가깝다",
+          "en": "to be close / near"
+        },
+        {
+          "ko": "멀다",
+          "en": "to be far"
+        }
+      ],
+      "quiz": [
+        {
+          "q": "What is the opposite of 크다 (big)?",
+          "opts": [
+            "높다",
+            "작다",
+            "길다",
+            "많다"
+          ],
+          "a": 1,
+          "why": "작다 means small, which is the opposite of 크다 (big)."
+        },
+        {
+          "q": "What is the polite present form of 크다 (to be big)?",
+          "opts": [
+            "크아요",
+            "크어요",
+            "커요",
+            "크해요"
+          ],
+          "a": 2,
+          "why": "When the stem vowel ㅡ is dropped without another vowel, it conjugates as 커요."
+        },
+        {
+          "q": "Which word means to be busy?",
+          "opts": [
+            "바쁘다",
+            "예쁘다",
+            "아프다",
+            "슬프다"
+          ],
+          "a": 0,
+          "why": "바쁘다 means to be busy. Its polite form is 바빠요."
+        },
+        {
+          "q": "What is the opposite of 맛있다 (delicious)?",
+          "opts": [
+            "재미있다",
+            "맛없다",
+            "멋있다",
+            "괜찮다"
+          ],
+          "a": 1,
+          "why": "맛없다 means not delicious, the direct opposite of 맛있다."
+        },
+        {
+          "q": "What is the polite present form of 만나다 (to meet)?",
+          "opts": [
+            "만나요",
+            "만나어요",
+            "만내요",
+            "만나해요"
+          ],
+          "a": 0,
+          "why": "만나- ends in vowel ㅏ, so adding -아요 contracts naturally to 만나요."
+        }
+      ],
+      "fill": [
+        {
+          "q": "이 가방이 정말 ___.",
+          "en": "This bag is really big. (크다)",
+          "a": [
+            "커요"
+          ]
+        },
+        {
+          "q": "회사 일이 많아서 아주 ___.",
+          "en": "Because there is a lot of work at the office, I am very busy. (바쁘다)",
+          "a": [
+            "바빠요"
+          ]
+        },
+        {
+          "q": "도서관에 사람이 아주 ___.",
+          "en": "There are very many people in the library. (많다)",
+          "a": [
+            "많아요"
+          ]
+        },
+        {
+          "q": "지하철역이 집에서 아주 ___.",
+          "en": "The subway station is very close to home. (가깝다)",
+          "a": [
+            "가까워요"
+          ]
+        },
+        {
+          "q": "한국어 시험이 생각보다 ___.",
+          "en": "The Korean exam is easier than expected. (쉽다)",
+          "a": [
+            "쉬워요"
+          ]
+        }
+      ]
+    },
+    "numbers-counters": {
+      "cards": [
+        {
+          "ko": "일, 이, 삼",
+          "en": "one, two, three (Sino-Korean)"
+        },
+        {
+          "ko": "하나, 둘, 셋",
+          "en": "one, two, three (Native Korean)"
+        },
+        {
+          "ko": "개",
+          "en": "counter for items / general objects"
+        },
+        {
+          "ko": "명",
+          "en": "counter for people"
+        },
+        {
+          "ko": "마리",
+          "en": "counter for animals"
+        },
+        {
+          "ko": "잔",
+          "en": "counter for cups / glasses"
+        },
+        {
+          "ko": "시",
+          "en": "o clock (used with Native Korean numbers)"
+        },
+        {
+          "ko": "분",
+          "en": "minute (used with Sino-Korean numbers)"
+        }
+      ],
+      "quiz": [
+        {
+          "q": "Which counter is used for cats and dogs?",
+          "opts": [
+            "개",
+            "명",
+            "마리",
+            "권"
+          ],
+          "a": 2,
+          "why": "마리 is the counter for animals like cats, dogs, and birds."
+        },
+        {
+          "q": "How do you say one cup of green tea in Korean?",
+          "opts": [
+            "녹차 일 잔",
+            "녹차 하나 잔",
+            "녹차 한 잔",
+            "녹차 첫 잔"
+          ],
+          "a": 2,
+          "why": "Before a counter, 하나 changes to 한, so one cup is 한 잔."
+        },
+        {
+          "q": "Which number system is used for minutes (분)?",
+          "opts": [
+            "Native Korean (하나, 둘...)",
+            "Sino-Korean (일, 이...)",
+            "Either one",
+            "Neither"
+          ],
+          "a": 1,
+          "why": "Hours (시) use Native Korean numbers, but minutes (분) use Sino-Korean numbers."
+        },
+        {
+          "q": "How do you read 10,000 won in Korean?",
+          "opts": [
+            "천 원",
+            "만 원",
+            "십만 원",
+            "백만 원"
+          ],
+          "a": 1,
+          "why": "10,000 in Sino-Korean is 만, so 10,000 won is 만 원."
+        },
+        {
+          "q": "What happens to 둘 when placed right before a counter?",
+          "opts": [
+            "It stays 둘",
+            "It changes to 두",
+            "It changes to 이",
+            "It drops completely"
+          ],
+          "a": 1,
+          "why": "하나, 둘, 셋, 넷 shorten to 한, 두, 세, 네 when placed directly before a counter."
+        }
+      ],
+      "fill": [
+        {
+          "q": "식당에 손님이 세 ___ 있어요.",
+          "en": "There are three guests in the restaurant.",
+          "a": [
+            "명",
+            "분"
+          ]
+        },
+        {
+          "q": "카페에서 시원한 주스 두 ___ 주세요.",
+          "en": "Please give me two glasses of cold juice at the cafe.",
+          "a": [
+            "잔"
+          ]
+        },
+        {
+          "q": "공원에 귀여운 강아지가 한 ___ 있어요.",
+          "en": "There is one cute puppy in the park.",
+          "a": [
+            "마리"
+          ]
+        },
+        {
+          "q": "지금은 오후 다섯 ___ 삼십 분이에요.",
+          "en": "Right now it is 5:30 in the afternoon.",
+          "a": [
+            "시"
+          ]
+        },
+        {
+          "q": "이 티셔츠는 이만 ___이에요.",
+          "en": "This T-shirt is 20,000 won.",
+          "a": [
+            "원"
+          ]
+        }
+      ]
+    },
+    "days-months-dates": {
+      "cards": [
+        {
+          "ko": "월요일",
+          "en": "Monday"
+        },
+        {
+          "ko": "금요일",
+          "en": "Friday"
+        },
+        {
+          "ko": "일요일",
+          "en": "Sunday"
+        },
+        {
+          "ko": "유월",
+          "en": "June (special form of 6월)"
+        },
+        {
+          "ko": "시월",
+          "en": "October (special form of 10월)"
+        },
+        {
+          "ko": "오늘",
+          "en": "today"
+        },
+        {
+          "ko": "어제",
+          "en": "yesterday"
+        },
+        {
+          "ko": "내일",
+          "en": "tomorrow"
+        }
+      ],
+      "quiz": [
+        {
+          "q": "How do you pronounce June (6월) in Korean?",
+          "opts": [
+            "육월",
+            "유월",
+            "륙월",
+            "구월"
+          ],
+          "a": 1,
+          "why": "The final consonant drops before 월, so June is pronounced and written as 유월."
+        },
+        {
+          "q": "How do you pronounce October (10월) in Korean?",
+          "opts": [
+            "십월",
+            "시월",
+            "열월",
+            "일월"
+          ],
+          "a": 1,
+          "why": "The final consonant drops before 월, so October is written and spoken as 시월."
+        },
+        {
+          "q": "Which day of the week is Wednesday?",
+          "opts": [
+            "화요일",
+            "수요일",
+            "목요일",
+            "금요일"
+          ],
+          "a": 1,
+          "why": "수요일 is Wednesday (수 represents water)."
+        },
+        {
+          "q": "If today is Friday (금요일), what day is tomorrow (내일)?",
+          "opts": [
+            "목요일",
+            "토요일",
+            "일요일",
+            "월요일"
+          ],
+          "a": 1,
+          "why": "The day after Friday (금요일) is Saturday (토요일)."
+        },
+        {
+          "q": "What does 모레 mean in English?",
+          "opts": [
+            "yesterday",
+            "tomorrow",
+            "the day after tomorrow",
+            "two days ago"
+          ],
+          "a": 2,
+          "why": "모레 means the day after tomorrow. Tomorrow is 내일."
+        }
+      ],
+      "fill": [
+        {
+          "q": "주말인 토요일과 ___에는 쉬어요.",
+          "en": "I rest on the weekend, Saturday and Sunday.",
+          "a": [
+            "일요일"
+          ]
+        },
+        {
+          "q": "어린이날은 5월 5___이에요.",
+          "en": "Children s Day is May 5th.",
+          "a": [
+            "일"
+          ]
+        },
+        {
+          "q": "한글날은 ___ 9일이에요.",
+          "en": "Hangul Day is October 9th.",
+          "a": [
+            "시월",
+            "10월"
+          ]
+        },
+        {
+          "q": "오늘은 수요일이니까 어제는 ___이었어요.",
+          "en": "Since today is Wednesday, yesterday was Tuesday.",
+          "a": [
+            "화요일"
+          ]
+        },
+        {
+          "q": "이번 주는 바쁘니까 ___ 주말에 만나요.",
+          "en": "Since this week is busy, let s meet next weekend.",
+          "a": [
+            "다음"
+          ]
+        }
+      ]
+    },
+    "family-terms": {
+      "cards": [
+        {
+          "ko": "부모님",
+          "en": "parents"
+        },
+        {
+          "ko": "아버지",
+          "en": "father"
+        },
+        {
+          "ko": "어머니",
+          "en": "mother"
+        },
+        {
+          "ko": "형",
+          "en": "older brother (male speaker)"
+        },
+        {
+          "ko": "오빠",
+          "en": "older brother (female speaker)"
+        },
+        {
+          "ko": "누나",
+          "en": "older sister (male speaker)"
+        },
+        {
+          "ko": "언니",
+          "en": "older sister (female speaker)"
+        },
+        {
+          "ko": "할아버지",
+          "en": "grandfather"
+        }
+      ],
+      "quiz": [
+        {
+          "q": "A female speaker calls her older brother:",
+          "opts": [
+            "형",
+            "오빠",
+            "누나",
+            "언니"
+          ],
+          "a": 1,
+          "why": "A female speaker calls her older brother 오빠. A male speaker calls his older brother 형."
+        },
+        {
+          "q": "A male speaker calls his older sister:",
+          "opts": [
+            "언니",
+            "누나",
+            "여동생",
+            "이모"
+          ],
+          "a": 1,
+          "why": "A male speaker calls his older sister 누나. A female speaker calls her older sister 언니."
+        },
+        {
+          "q": "What is the polite honorific word for 이름 (name)?",
+          "opts": [
+            "말씀",
+            "성함",
+            "연세",
+            "진지"
+          ],
+          "a": 1,
+          "why": "성함 is the respectful honorific term for an elder person s name."
+        },
+        {
+          "q": "What is the honorific partner of the verb 자다 (to sleep)?",
+          "opts": [
+            "드시다",
+            "계시다",
+            "주무시다",
+            "말씀하시다"
+          ],
+          "a": 2,
+          "why": "주무시다 is the honorific verb for to sleep (자다)."
+        },
+        {
+          "q": "What is the respectful subject particle replacing 이/가 for elders?",
+          "opts": [
+            "께",
+            "께서",
+            "한테",
+            "에게"
+          ],
+          "a": 1,
+          "why": "께서 is the honorific subject particle (replacing 이/가), while 께 is the dative particle (to someone)."
+        }
+      ],
+      "fill": [
+        {
+          "q": "할아버지의 ___이 어떻게 되세요?",
+          "en": "What is your grandfather s name? (respectful form of 이름)",
+          "a": [
+            "성함"
+          ]
+        },
+        {
+          "q": "어르신의 올해 ___가 어떻게 되세요?",
+          "en": "How old is the elderly person? (respectful form of 나이)",
+          "a": [
+            "연세"
+          ]
+        },
+        {
+          "q": "저는 남동생 하나와 ___ 하나가 있어요.",
+          "en": "I have one younger brother and one younger sister.",
+          "a": [
+            "여동생"
+          ]
+        },
+        {
+          "q": "선생님___ 감사 카드를 드렸어요.",
+          "en": "I gave a thank-you card to my teacher. (honorific to)",
+          "a": [
+            "께"
+          ]
+        },
+        {
+          "q": "어머니___ 거실에서 책을 읽으세요.",
+          "en": "Mother is reading a book in the living room. (honorific subject particle)",
+          "a": [
+            "께서"
+          ]
+        }
+      ]
     }
   }
 }
