@@ -5888,6 +5888,7 @@
     "code": "CP-PW-5XD5QK",
     "days": 30
   },
+  "bonusUnits": ["pt-26-1", "pt-26-2", "pt-26-3", "pt-26-5", "pt-26-6", "pt-26-7", "pt-26-8", "pt-26-9", "pt-26-10", "pt-26-4", "pt-26-11", "pt-26-12", "pt-26-13", "pt-26-15", "pt-26-16", "pt-26-14", "pt-26-17", "pt-26-18", "pt-26-19", "pt-26-20", "ct-topic-subject", "ct-context", "ct-place-action", "ct-give-receive", "ct-tool-direction", "ct-with", "ct-also-only", "ct-na", "ct-from-to"],
   "selfStudy": true,
   "lookalike": {
     "pt-26-1": {

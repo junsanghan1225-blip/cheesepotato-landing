@@ -6,7 +6,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import crypto from 'node:crypto';
 import { fileURLToPath } from 'node:url';
-import { bonusFiles, loadBonus, validateBonus } from './bonus-data.mjs';
+import { bonusFiles, loadBonus, validateBonus, bonusUnitIds, unitTitle } from './bonus-data.mjs';
 const ROOT = path.join(path.dirname(fileURLToPath(import.meta.url)), '..');
 const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 const JS = `/bonus.js?v=${crypto.createHash('sha1').update(fs.readFileSync(path.join(ROOT, 'bonus.js'))).digest('hex').slice(0, 8)}`;
@@ -92,10 +92,9 @@ for (const f of bonusFiles()) {
   const errs = validateBonus(f);
   if (errs.length) { console.error(errs.join('\n')); process.exit(1); }
   const d = loadBonus(f), id = d.book, book = JSON.parse(fs.readFileSync(path.join(ROOT, 'docs/books', `${id}.json`), 'utf8'));
-  const list = [];
+  const list = [], bonusSet = new Set(bonusUnitIds(book));
   for (const [u, c] of Object.entries(d.units)) {
-    const ws = JSON.parse(fs.readFileSync(path.join(ROOT, 'docs/worksheets', `${u}.json`), 'utf8'));
-    const tk = typeof ws.title === 'object' ? ws.title : { en: ws.title, ko: ws.titleKo || ws.title };
+    const tk = unitTitle(book, u);
     const total = c.quiz.length + c.fill.length;
     const url = `/bonus/${id}/${u}/`;
     const cards = c.cards.map((x) => `<button type="button" class="bcard" data-say="${esc(x.ko)}"><span class="f">${esc(x.ko)}</span><span class="b">${esc(x.en)}</span></button>`).join('');
@@ -123,7 +122,7 @@ for (const f of bonusFiles()) {
   /* 앱(cheesepotatoapp 의 책 코스 화면)이 받아 가는 자료 — 같은 JSON 을 쪽과 앱이 쓴다. */
   const lvl = book.coverLevel || {};
   const appData = { schema: 1, book: id, title: book.title, level: { code: lvl.code || '', name: lvl.name || '' }, color: { bg: lvl.bg || '#1F3A68', bg2: lvl.bg2 || '#14264A' }, mascot: lvl.mascot || null,
-    parts: book.parts.map((pt) => ({ title: pt.title, units: pt.units.filter((x) => !book.inline?.[x]).map((x) => { const w = JSON.parse(fs.readFileSync(path.join(ROOT, 'docs/worksheets', `${x}.json`), 'utf8')); const t = typeof w.title === 'object' ? w.title : { en: w.title, ko: w.title }; return { id: x, title: { ko: t.ko || t.en, en: t.en }, ready: !!d.units[x] }; }) })).filter((pt) => pt.units.length),
+    parts: book.parts.map((pt) => ({ title: pt.title, units: pt.units.filter((x) => bonusSet.has(x)).map((x) => { const t = unitTitle(book, x); return { id: x, title: { ko: t.ko || t.en, en: t.en }, ready: !!d.units[x] }; }) })).filter((pt) => pt.units.length),
     units: d.units };
   fs.writeFileSync(path.join(ROOT, 'bonus', id, 'data.json'), JSON.stringify(appData));
   /* 독자 전용 코스(허브) · 틀린 문제 노트 · 부 챌린지 — 같은 자료로 웹에서도 앱과 같은 흐름을 쓴다. */
@@ -134,7 +133,7 @@ for (const f of bonusFiles()) {
   const bankTag = `<script type="application/json" id="bk-bank">${JSON.stringify(bankItems).replace(/</g, '\\u003c')}</script>`;
   const lv = book.coverLevel || { bg: '#1F3A68', bg2: '#14264A' };
   const appBtn = `<a class="btn sub" href="intent://book/${id}#Intent;scheme=cheesepotato;package=com.cheesepotato.app;S.browser_fallback_url=${encodeURIComponent(PLAY)};end">앱에서 열기 · Open app</a>`;
-  const unitsLi = (pt) => pt.units.filter((x) => !book.inline?.[x]).map((x) => { const w = JSON.parse(fs.readFileSync(path.join(ROOT, 'docs/worksheets', `${x}.json`), 'utf8')); const t = typeof w.title === 'object' ? w.title : { en: w.title, ko: w.title }; const c = d.units[x]; const n = c ? c.quiz.length + c.fill.length : 0;
+  const unitsLi = (pt) => pt.units.filter((x) => bonusSet.has(x)).map((x) => { const t = unitTitle(book, x); const c = d.units[x]; const n = c ? c.quiz.length + c.fill.length : 0;
     return `<li data-u="${esc(x)}" data-total="${n}" class="${c ? '' : 'off'}"><a href="/bonus/${id}/${x}/">${esc(t.ko || t.en)} <small style="font-weight:500;color:var(--ink-3)">${esc(t.en)}</small></a><span class="hs">${c ? '' : '준비 중 · soon'}</span></li>`; }).join('');
   const chalParts = book.parts.map((pt, pi) => ({ pt, p: pi + 1, n: bankItems.filter((q) => q.p === pi + 1).length })).filter((x) => x.n >= 5);
   const idx = head(`${book.title.en} 독자 전용 코스 · Reader course`, `${book.title.ko} 독자 전용 코스: 단원별 연습, 진행률, 연속 학습, 틀린 문제 노트, 부 챌린지.`, `/bonus/${id}/`) + `<div data-bonus-mode="hub" data-book="${esc(id)}">

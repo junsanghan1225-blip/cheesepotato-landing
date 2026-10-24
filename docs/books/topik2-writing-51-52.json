@@ -1268,6 +1268,7 @@
     "code": "CP-TW-ZSSGZW",
     "days": 30
   },
+  "bonusUnits": ["g51-recruit", "g51-sell", "g51-notice", "g51-ask", "g52-why", "g52-effect", "g52-contrast"],
   "coverLevel": {
     "code": "TOPIK II",
     "name": "3~4급",
