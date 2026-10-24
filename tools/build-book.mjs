@@ -170,6 +170,8 @@ h1,h2,h3,h4{font-weight:800;letter-spacing:-.01em}
 /* 머리말 · 쓰는 법 */
 .pf h2{font-size:20pt;margin-bottom:1mm}.pf .k{font-size:11pt;color:#6d655c;margin-bottom:7mm}
 .pf p{margin-bottom:3.4mm;font-size:10pt;line-height:1.7}.pf p.en{color:#1d1a17}.pf p.ko{color:#4a443d;font-size:9.6pt;margin-bottom:5mm}
+.pf.nt p{font-size:10.6pt;line-height:1.85;margin-bottom:4mm}.pf.nt p.ko{font-size:10.2pt;margin-bottom:6mm}.pf.nt .au{margin-top:10mm}
+.pf .an,.pf .ab p,.pf .au{break-inside:avoid}
 .pf .ab p{font-size:9pt;line-height:1.55;margin-bottom:1.8mm}.pf .ab p.ko{font-size:8.8pt;margin-bottom:3.2mm}.pf .ab+.au{margin-top:3mm}
 .pf .an{margin-top:7mm;padding:4mm 5mm;background:${TINT};border-radius:2mm}.pf .an h3{font-size:10pt;margin-bottom:2mm;color:${ACC}}.pf .an p{font-size:9.2pt;line-height:1.65;margin-bottom:2mm}.pf .an p.ko{font-size:9pt;margin-bottom:0}
 .pf .au{margin-top:8mm;padding-top:4mm;border-top:.3mm solid #d8d0c4;font-size:8.8pt;color:#4a443d}
@@ -300,7 +302,7 @@ ${DIGITAL ? `<dt>Format · 형태</dt><dd>Digital edition (PDF) · 디지털판(
 function prefacePage() {
   return `<div class="blk plain"><div class="pf"><h2>Preface</h2><div class="k">머리말</div>
 ${B.preface.en.map((t, i) => `<p class="en">${esc(t)}</p><p class="ko">${esc(B.preface.ko[i])}</p>`).join('')}
-${B.authorNote ? `<div class="an"><h3>Author's note · 저자의 말</h3><p class="en">${esc(B.authorNote.en)}</p><p class="ko">${esc(B.authorNote.ko)}</p></div>` : ''}<div class="au"><b>${esc(B.author.en)}</b>: ${esc(B.authorAbout.en)}<br>${esc(B.authorAbout.ko)}</div></div></div>`;
+${B.authorNote && !B.authorBio ? `<div class="an"><h3>Author's note · 저자의 말</h3><p class="en">${esc(B.authorNote.en)}</p><p class="ko">${esc(B.authorNote.ko)}</p></div>` : ''}${B.authorBio ? '' : `<div class="au"><b>${esc(B.author.en)}</b>: ${esc(B.authorAbout.en)}<br>${esc(B.authorAbout.ko)}</div>`}</div></div>`;
 }
 
 /* ── 스스로 하는 공부(운영자 2026-10-22 「학생의 주도적인 학습을 유도」, 책 틀의 selfStudy: true) ──
@@ -337,6 +339,12 @@ const courseQr = () => {
   const q = qrLib(0, 'M'); q.addData(url); q.make();
   return `<div class="qrb uq"><div class="qr">${q.createSvgTag({ cellSize: 3, margin: 0, scalable: true })}</div><div><b>Your reader course · 독자 전용 코스</b><small>찍으면 이 책의 전용 쪽이 열려요: 단원별 연습, 진행률, 연속 학습, 틀린 문제 노트. 치즈감자 앱에서 열면 기록이 앱에도 쌓여요.</small><a href="${esc(url)}">${esc(url.split('?')[0].replace('https://', ''))}</a></div></div>`;
 };
+/* 저자의 말 — 한 쪽에 통째로(쪽 사이에서 잘리지 않게 따로 한 쪽). 책 틀 JSON 의 authorNote {ko, en}. */
+function notePage() {
+  return `<div class="blk plain"><div class="pf nt"><h2>Author's note</h2><div class="k">저자의 말</div>
+<p class="en">${esc(B.authorNote.en)}</p><p class="ko">${esc(B.authorNote.ko)}</p>
+<div class="au"><b>${esc(B.author.en)}</b> · ${esc(B.author.ko)}</div></div></div>`;
+}
 /* 저자 소개 — 운영자가 직접 들려준 이야기(2026-10-24)를 1인칭으로 옮긴 글. 책 틀 JSON 의 authorBio {ko:[문단], en:[문단]}. */
 function authorPage() {
   return `<div class="blk plain"><div class="pf"><h2>About the author</h2><div class="k">저자 소개</div>
@@ -708,7 +716,7 @@ const countPages = (buf) => (buf.toString('latin1').match(/\/Type\s*\/Page(?![s\
 
 const entries = indexEntries();
 const blocks = B.compact ? parts.flatMap((p) => p.sheets.map((sh) => { const u = units.find((x) => x.id === sh.id); return [`unit${u.no}`, unitBlock(u)]; })) : [
-  ['title', titlePage()], ['copyright', copyrightPage()], ['preface', prefacePage()], ...(B.authorBio ? [['author', authorPage()]] : []), ['how', howPage()], ...(B.selfStudy ? [['studymap', studyMap()]] : []), ...(B.noGuide ? [] : [['guide', guidePage()]]), ['toc', tocPage(null)], ...FRONT_LIST.map(([k, , , fn]) => [k, fn()]),
+  ['title', titlePage()], ['copyright', copyrightPage()], ['preface', prefacePage()], ...(B.authorNote && B.authorBio ? [['note', notePage()]] : []), ...(B.authorBio ? [['author', authorPage()]] : []), ['how', howPage()], ...(B.selfStudy ? [['studymap', studyMap()]] : []), ...(B.noGuide ? [] : [['guide', guidePage()]]), ['toc', tocPage(null)], ...FRONT_LIST.map(([k, , , fn]) => [k, fn()]),
   ...parts.flatMap((p) => [[`part${p.no}`, partPage(p)], ...(TWM ? [[`qguide${p.no}`, qGuidePage(p)], [`qscore${p.no}`, qScorePage(p)], [`qworked${p.no}`, qWorkedPage(p)]] : []), ...p.sheets.map((s) => { const u = units.find((x) => x.id === s.id); return [`unit${u.no}`, unitBlock(u)]; })]),
   ...(B.selfStudy ? [['mlog', mistakeLog(2)]] : []), ['answers', answersBlock()], ...(B.noIndex ? [] : [['index', indexBlock(entries)]]),
 ];
