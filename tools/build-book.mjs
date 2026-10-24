@@ -170,6 +170,7 @@ h1,h2,h3,h4{font-weight:800;letter-spacing:-.01em}
 /* 머리말 · 쓰는 법 */
 .pf h2{font-size:20pt;margin-bottom:1mm}.pf .k{font-size:11pt;color:#6d655c;margin-bottom:7mm}
 .pf p{margin-bottom:3.4mm;font-size:10pt;line-height:1.7}.pf p.en{color:#1d1a17}.pf p.ko{color:#4a443d;font-size:9.6pt;margin-bottom:5mm}
+.pf .an{margin-top:7mm;padding:4mm 5mm;background:${TINT};border-radius:2mm}.pf .an h3{font-size:10pt;margin-bottom:2mm;color:${ACC}}.pf .an p{font-size:9.2pt;line-height:1.65;margin-bottom:2mm}.pf .an p.ko{font-size:9pt;margin-bottom:0}
 .pf .au{margin-top:8mm;padding-top:4mm;border-top:.3mm solid #d8d0c4;font-size:8.8pt;color:#4a443d}
 .how ol{margin-top:6mm;list-style:none;counter-reset:h}.how li{counter-increment:h;display:grid;grid-template-columns:9mm 1fr;gap:3mm;padding:3.4mm 0;border-top:.25mm solid #e6dfd4}
 .how li:before{content:counter(h);width:7mm;height:7mm;border-radius:50%;background:${ACC};color:#fff;font-weight:800;font-size:9pt;display:flex;align-items:center;justify-content:center}
@@ -281,7 +282,7 @@ function copyrightPage() {
 <h4>${esc(B.title.ko)} · ${esc(B.title.en)}</h4>
 <p>${esc(B.sub.en)}<br>${esc(B.sub.ko)}</p>
 <dl><dt>Author · 지은이</dt><dd>${esc(B.author.ko)} (${esc(B.author.en)})</dd>
-<dt>Publisher · 펴낸곳</dt><dd>${esc(B.publisher.ko)} · ${esc(B.publisher.en)}</dd>
+${B.reviewer ? `<dt>Reviewed by · 검수</dt><dd>${esc(B.reviewer.ko)} (${esc(B.reviewer.en)})</dd>\n` : ''}<dt>Publisher · 펴낸곳</dt><dd>${esc(B.publisher.ko)} · ${esc(B.publisher.en)}</dd>
 <dt>Publisher reg. no. · 출판사 신고번호</dt><dd>${PUBLISHER_NO}</dd>
 ${DIGITAL ? `<dt>Format · 형태</dt><dd>Digital edition (PDF) · 디지털판(PDF) · print it at home or at a print shop · 집이나 인쇄소에서 인쇄해 쓰세요</dd>
 <dt>Edition · 판</dt><dd>${esc(B.digitalEdition || 'First digital edition · 디지털판 초판')}</dd>
@@ -298,7 +299,7 @@ ${DIGITAL ? `<dt>Format · 형태</dt><dd>Digital edition (PDF) · 디지털판(
 function prefacePage() {
   return `<div class="blk plain"><div class="pf"><h2>Preface</h2><div class="k">머리말</div>
 ${B.preface.en.map((t, i) => `<p class="en">${esc(t)}</p><p class="ko">${esc(B.preface.ko[i])}</p>`).join('')}
-<div class="au"><b>${esc(B.author.en)}</b>: ${esc(B.authorAbout.en)}<br>${esc(B.authorAbout.ko)}</div></div></div>`;
+${B.authorNote ? `<div class="an"><h3>Author's note · 저자의 말</h3><p class="en">${esc(B.authorNote.en)}</p><p class="ko">${esc(B.authorNote.ko)}</p></div>` : ''}<div class="au"><b>${esc(B.author.en)}</b>: ${esc(B.authorAbout.en)}<br>${esc(B.authorAbout.ko)}</div></div></div>`;
 }
 
 /* ── 스스로 하는 공부(운영자 2026-10-22 「학생의 주도적인 학습을 유도」, 책 틀의 selfStudy: true) ──

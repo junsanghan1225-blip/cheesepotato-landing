@@ -2049,5 +2049,13 @@
       }
     }
   },
-  "unitCount": 23
+  "unitCount": 23,
+  "authorNote": {
+    "ko": "저는 한국어를 가르치는 교사 준상입니다. 약 2년 동안 여러 나라 학생들과 1,700번이 넘는 수업을 했습니다. 이 워크북은 everykoreans.com 의 무료 학습지에서 시작했고, 손에 들고 직접 쓸 수 있는 책이 있으면 좋겠다는 학습자들의 바람을 따라 한 권으로 묶었습니다. 펴내기 전에 단원을 하나씩 읽고 확인했습니다. 책으로 쓰고, 단원 처음의 QR로 앱에서 점검하고, 며칠 뒤 다시 보는 순서로 공부해 보세요. 여러분의 첫 한국어 공부가 즐겁기를 바랍니다.",
+    "en": "I am Junsang, a Korean teacher. For about two years I have taught over 1,700 lessons to students from many countries. This workbook began as the free worksheets on everykoreans.com, and I gathered them into one book because learners wanted something to hold and write in. Before publishing I read and checked every unit myself. Try this order: write in the book, scan the QR at the start of a unit to check yourself in the app, and come back a few days later. I hope your first steps in Korean are a happy ones."
+  },
+  "reviewer": {
+    "ko": "준상",
+    "en": "Junsang"
+  }
 }
