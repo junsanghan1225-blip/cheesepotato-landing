@@ -5,6 +5,15 @@ import { fileURLToPath } from 'node:url';
 const ROOT = path.join(path.dirname(fileURLToPath(import.meta.url)), '..');
 export const bonusFiles = () => fs.readdirSync(path.join(ROOT, 'docs/bonus')).filter((f) => f.endsWith('.json')).sort();
 export const loadBonus = (f) => JSON.parse(fs.readFileSync(path.join(ROOT, 'docs/bonus', f), 'utf8'));
+/* 책 틀의 단원 중 보너스를 붙이는 것. book.bonusUnits 가 있으면 그것(조사 · TOPIK 쓰기 책처럼 단원이 inline · 유형 묶음인 책),
+   없으면 예전대로 학습지(docs/worksheets) 단원만. */
+export const bonusUnitIds = (book) => book?.bonusUnits || (book?.parts || []).flatMap((p) => p.units).filter((x) => !book.inline?.[x]);
+/* 단원 제목 {ko, en} — inline · 유형 묶음 · 학습지 순서로 찾는다. */
+export function unitTitle(book, u) {
+  const raw = book?.inline?.[u]?.title ?? book?.groups?.[u]?.title ?? (() => { const w = JSON.parse(fs.readFileSync(path.join(ROOT, 'docs/worksheets', `${u}.json`), 'utf8')); return w.title ?? u; })();
+  const t = typeof raw === 'object' ? raw : { en: raw, ko: raw };
+  return { ko: t.ko || t.en, en: t.en || t.ko };
+}
 const ko = (s) => (String(s).match(/[가-힣]+/g) || []).join('');
 export function validateBonus(f) {
   const err = [], d = loadBonus(f), id = f.replace(/\.json$/, '');
@@ -12,12 +21,12 @@ export function validateBonus(f) {
   const bookFile = path.join(ROOT, 'docs/books', `${id}.json`);
   const book = fs.existsSync(bookFile) ? JSON.parse(fs.readFileSync(bookFile, 'utf8')) : null;
   if (!book) err.push(`${f}: docs/books/${id}.json 이 없어요`);
-  const bookUnits = new Set((book?.parts || []).flatMap((p) => p.units));
+  const bookUnits = new Set(bonusUnitIds(book));
   for (const [u, c] of Object.entries(d.units || {})) {
     const at = `${f} · ${u}`;
     if (book && !bookUnits.has(u)) err.push(`${at}: 책 틀에 없는 단원이에요`);
     const wsf = path.join(ROOT, 'docs/worksheets', `${u}.json`);
-    const corpus = ko((fs.existsSync(wsf) ? fs.readFileSync(wsf, 'utf8') : '') + JSON.stringify(book?.inline?.[u] || {}));
+    const corpus = ko((fs.existsSync(wsf) ? fs.readFileSync(wsf, 'utf8') : '') + JSON.stringify(book?.inline?.[u] || {}) + JSON.stringify(book?.groups?.[u] || {}));
     const n = (a) => (Array.isArray(a) ? a.length : 0);
     if (n(c.cards) < 6 || n(c.cards) > 12) err.push(`${at}: 낱말 카드는 6~12개(지금 ${n(c.cards)})`);
     if (n(c.quiz) < 4 || n(c.quiz) > 8) err.push(`${at}: 퀴즈는 4~8개(지금 ${n(c.quiz)})`);
