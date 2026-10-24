@@ -170,6 +170,7 @@ h1,h2,h3,h4{font-weight:800;letter-spacing:-.01em}
 /* 머리말 · 쓰는 법 */
 .pf h2{font-size:20pt;margin-bottom:1mm}.pf .k{font-size:11pt;color:#6d655c;margin-bottom:7mm}
 .pf p{margin-bottom:3.4mm;font-size:10pt;line-height:1.7}.pf p.en{color:#1d1a17}.pf p.ko{color:#4a443d;font-size:9.6pt;margin-bottom:5mm}
+.pf .ab p{font-size:9pt;line-height:1.55;margin-bottom:1.8mm}.pf .ab p.ko{font-size:8.8pt;margin-bottom:3.2mm}.pf .ab+.au{margin-top:3mm}
 .pf .an{margin-top:7mm;padding:4mm 5mm;background:${TINT};border-radius:2mm}.pf .an h3{font-size:10pt;margin-bottom:2mm;color:${ACC}}.pf .an p{font-size:9.2pt;line-height:1.65;margin-bottom:2mm}.pf .an p.ko{font-size:9pt;margin-bottom:0}
 .pf .au{margin-top:8mm;padding-top:4mm;border-top:.3mm solid #d8d0c4;font-size:8.8pt;color:#4a443d}
 .how ol{margin-top:6mm;list-style:none;counter-reset:h}.how li{counter-increment:h;display:grid;grid-template-columns:9mm 1fr;gap:3mm;padding:3.4mm 0;border-top:.25mm solid #e6dfd4}
@@ -336,6 +337,12 @@ const courseQr = () => {
   const q = qrLib(0, 'M'); q.addData(url); q.make();
   return `<div class="qrb uq"><div class="qr">${q.createSvgTag({ cellSize: 3, margin: 0, scalable: true })}</div><div><b>Your reader course · 독자 전용 코스</b><small>찍으면 이 책의 전용 쪽이 열려요: 단원별 연습, 진행률, 연속 학습, 틀린 문제 노트. 치즈감자 앱에서 열면 기록이 앱에도 쌓여요.</small><a href="${esc(url)}">${esc(url.split('?')[0].replace('https://', ''))}</a></div></div>`;
 };
+/* 저자 소개 — 운영자가 직접 들려준 이야기(2026-10-24)를 1인칭으로 옮긴 글. 책 틀 JSON 의 authorBio {ko:[문단], en:[문단]}. */
+function authorPage() {
+  return `<div class="blk plain"><div class="pf"><h2>About the author</h2><div class="k">저자 소개</div>
+<div class="ab">${B.authorBio.en.map((t, i) => `<p class="en">${esc(t)}</p><p class="ko">${esc(B.authorBio.ko[i])}</p>`).join('')}</div>
+<div class="au"><b>${esc(B.author.en)}</b> · ${esc(B.author.ko)}<br>everykoreans.com</div></div></div>`;
+}
 function howPage() {
   return `<div class="blk plain"><div class="pf how"><h2>How to use this book</h2><div class="k">이 책 쓰는 법</div><ol>${B.howto.en.map((t, i) => `<li><div><b>${esc(t)}</b><span>${esc(B.howto.ko[i])}</span></div></li>`).join('')}</ol>${courseQr()}</div></div>`;
 }
@@ -362,7 +369,7 @@ function guidePage() {
 function tocPage(starts) {
   let h = `<div class="blk plain"><div class="toc"><h2>Contents · 목차</h2>`;
   const ln = (n, en, ko, p) => `<div class="ln"><span class="n">${n}</span><span class="t">${esc(en)}<small>${esc(ko)}</small></span><span class="d"></span><span class="p">${p ?? '··'}</span></div>`;
-  h += ln('', 'Preface · How to use this book', '머리말 · 쓰는 법', starts?.preface);
+  h += ln('', B.authorBio ? 'Preface · About the author · How to use this book' : 'Preface · How to use this book', B.authorBio ? '머리말 · 저자 소개 · 쓰는 법' : '머리말 · 쓰는 법', starts?.preface);
   if (!B.noGuide) h += ln('', 'How this book is organized', '이 책의 구성 · 블록 읽는 법', starts?.guide);
   if (FRONT_LIST.length) { h += `<div class="pt">BEFORE YOU START · <span style="color:#9a9288;font-weight:500">시작하기 전에</span></div>`; for (const [k, en, ko] of FRONT_LIST) h += ln('', en, ko, starts?.front?.[k]); }
   for (const p of parts) {
@@ -701,7 +708,7 @@ const countPages = (buf) => (buf.toString('latin1').match(/\/Type\s*\/Page(?![s\
 
 const entries = indexEntries();
 const blocks = B.compact ? parts.flatMap((p) => p.sheets.map((sh) => { const u = units.find((x) => x.id === sh.id); return [`unit${u.no}`, unitBlock(u)]; })) : [
-  ['title', titlePage()], ['copyright', copyrightPage()], ['preface', prefacePage()], ['how', howPage()], ...(B.selfStudy ? [['studymap', studyMap()]] : []), ...(B.noGuide ? [] : [['guide', guidePage()]]), ['toc', tocPage(null)], ...FRONT_LIST.map(([k, , , fn]) => [k, fn()]),
+  ['title', titlePage()], ['copyright', copyrightPage()], ['preface', prefacePage()], ...(B.authorBio ? [['author', authorPage()]] : []), ['how', howPage()], ...(B.selfStudy ? [['studymap', studyMap()]] : []), ...(B.noGuide ? [] : [['guide', guidePage()]]), ['toc', tocPage(null)], ...FRONT_LIST.map(([k, , , fn]) => [k, fn()]),
   ...parts.flatMap((p) => [[`part${p.no}`, partPage(p)], ...(TWM ? [[`qguide${p.no}`, qGuidePage(p)], [`qscore${p.no}`, qScorePage(p)], [`qworked${p.no}`, qWorkedPage(p)]] : []), ...p.sheets.map((s) => { const u = units.find((x) => x.id === s.id); return [`unit${u.no}`, unitBlock(u)]; })]),
   ...(B.selfStudy ? [['mlog', mistakeLog(2)]] : []), ['answers', answersBlock()], ...(B.noIndex ? [] : [['index', indexBlock(entries)]]),
 ];
