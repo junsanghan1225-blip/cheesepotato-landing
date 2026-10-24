@@ -33,13 +33,7 @@
 4. `node tools/build-bonus.mjs` 로 쪽이 만들어지는지 본다. 그다음 **JSON 파일만** 커밋한다(`bonus/` 폴더는 Claude 가 만든다).
 - 커밋 메시지: `첫걸음 보너스 연습 — <단원 id 범위> N단원`. 브랜치를 푸시한다(PR 은 만들지 않는다). 끝나면 한 줄: 「<브랜치> · N단원 · 건너뜀 K · <커밋 앞 7자리> 올림」.
 
-## 아직 없는 단원 (22개)
-- `hangul-alphabet`
-- `hangul-batchim`
-- `ida-anida-itta-eopda`
-- `demonstratives`
-- `korean-particles`
-- `question-words`
+## 아직 없는 단원 (16개)
 - `polite-present`
 - `basic-verbs-adjectives`
 - `numbers-counters`

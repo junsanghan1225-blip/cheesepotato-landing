@@ -326,8 +326,15 @@ const studyMap = () => {
 const mistakeLog = (n) => Array.from({ length: n }, (_, i) => `<div class="blk plain ml"><h2>My mistake log · 틀린 문장 기록${n > 1 ? ` ${i + 1}` : ''}</h2><div class="k">${i === 0 ? esc('Copy a sentence you got wrong, fix it, and write WHY in your own words. Check this page again after a week. · 틀린 문장을 옮겨 쓰고, 고친 뒤, 왜 그런지 내 말로 적으세요. 일주일 뒤 이 쪽을 다시 보세요.') : ''}</div>
 <table class="ml-t"><thead><tr><th>Date · 날짜</th><th>My sentence · 내 문장</th><th>Fixed · 고친 문장</th><th>Why · 왜?</th></tr></thead><tbody>${'<tr><td></td><td></td><td></td><td></td></tr>'.repeat(11)}</tbody></table></div>`).join('');
 
+/* 독자 전용 코스 쪽(bonus/<책 id>/ — 진행률 · 연속 학습 · 틀린 문제 노트 · 부 챌린지)으로 가는 QR. 보너스 자료가 있는 책만. */
+const courseQr = () => {
+  if (!fs.existsSync(path.join(ROOT, `bonus/${B.id}/index.html`))) return '';
+  const url = `${SITE_URL}/bonus/${B.id}/?utm_source=book&utm_medium=qr&utm_campaign=${encodeURIComponent(B.id)}&utm_content=course`;
+  const q = qrLib(0, 'M'); q.addData(url); q.make();
+  return `<div class="qrb uq"><div class="qr">${q.createSvgTag({ cellSize: 3, margin: 0, scalable: true })}</div><div><b>Your reader course · 독자 전용 코스</b><small>찍으면 이 책의 전용 쪽이 열려요: 단원별 연습, 진행률, 연속 학습, 틀린 문제 노트. 치즈감자 앱에서 열면 기록이 앱에도 쌓여요.</small><a href="${esc(url)}">${esc(url.split('?')[0].replace('https://', ''))}</a></div></div>`;
+};
 function howPage() {
-  return `<div class="blk plain"><div class="pf how"><h2>How to use this book</h2><div class="k">이 책 쓰는 법</div><ol>${B.howto.en.map((t, i) => `<li><div><b>${esc(t)}</b><span>${esc(B.howto.ko[i])}</span></div></li>`).join('')}</ol></div></div>`;
+  return `<div class="blk plain"><div class="pf how"><h2>How to use this book</h2><div class="k">이 책 쓰는 법</div><ol>${B.howto.en.map((t, i) => `<li><div><b>${esc(t)}</b><span>${esc(B.howto.ko[i])}</span></div></li>`).join('')}</ol>${courseQr()}</div></div>`;
 }
 const GUIDE = [
   ['table', '핵심 정리 · Key Points', '읽고 소리 내 말하고 따라 쓰는 표. 단원의 뼈대입니다.', 'Tables to read aloud, copy and revisit · the backbone of each unit.'],

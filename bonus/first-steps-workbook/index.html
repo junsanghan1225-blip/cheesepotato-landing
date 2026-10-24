@@ -3,21 +3,21 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Korean First Steps Workbook 보너스 연습 · Bonus practice</title>
-<meta name="description" content="한국어 첫걸음 워크북 단원별 보너스 연습">
+<title>Korean First Steps Workbook 독자 전용 코스 · Reader course</title>
+<meta name="description" content="한국어 첫걸음 워크북 독자 전용 코스: 단원별 연습, 진행률, 연속 학습, 틀린 문제 노트, 부 챌린지.">
 <link rel="canonical" href="https://everykoreans.com/bonus/first-steps-workbook/">
 <!-- 생성물 — 손으로 고치지 말 것. docs/bonus/*.json 을 고치고 node tools/build-bonus.mjs -->
 <script src="/gtm.js" async></script>
 <script src="/analytics.js" defer></script>
 <meta name="referrer" content="strict-origin-when-cross-origin">
-<meta property="og:title" content="Korean First Steps Workbook 보너스 연습 · Bonus practice">
-<meta property="og:description" content="한국어 첫걸음 워크북 단원별 보너스 연습">
+<meta property="og:title" content="Korean First Steps Workbook 독자 전용 코스 · Reader course">
+<meta property="og:description" content="한국어 첫걸음 워크북 독자 전용 코스: 단원별 연습, 진행률, 연속 학습, 틀린 문제 노트, 부 챌린지.">
 <meta property="og:url" content="https://everykoreans.com/bonus/first-steps-workbook/">
 <meta property="og:image" content="https://everykoreans.com/og-image.jpg">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
 <link rel="stylesheet" href="/vendor/pretendard.css">
 <link rel="stylesheet" href="/page.css">
-<script src="/bonus.js?v=cfcfc558" defer></script>
+<script src="/bonus.js?v=140103d5" defer></script>
 <style>
 main{max-width:760px;margin:0 auto;padding:22px 20px 80px}
 .bk-badge{display:inline-block;font-size:12px;font-weight:800;letter-spacing:.06em;color:#C4551C;background:#FDF0E2;border-radius:99px;padding:4px 12px}
@@ -40,6 +40,20 @@ main{max-width:760px;margin:0 auto;padding:22px 20px 80px}
 .bsc{position:sticky;bottom:0;margin-top:26px;padding:12px 16px;background:#fff;border:1px solid var(--line);border-radius:14px;display:flex;justify-content:space-between;align-items:center;font-weight:800}
 .bsc.fin{background:#FFF7E3;border-color:#F0C24B}.bfin,.bbest{margin:10px 0 0;font-size:14px;color:var(--ink-2)}
 .bapp{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin:14px 0 0;padding:12px 14px;background:#FFF7E3;border:1px solid #F0C24B;border-radius:14px}.bapp div{flex:1 1 220px}.bapp b{display:block;font-size:14.5px}.bapp small{color:var(--ink-3);font-size:12.5px}
+.bk-back{font-size:13px;margin-left:8px}
+.hub-top{margin:14px 0 4px;padding:18px;border-radius:18px;color:#fff}.hub-top h1{color:#fff;margin:4px 0 2px}.hub-top small{opacity:.85}
+.hprog{height:12px;border-radius:99px;background:rgba(255,255,255,.22);overflow:hidden;margin:14px 0 6px}.hprog i{display:block;height:100%;width:0;background:#F6C443;border-radius:99px;transition:width .5s}
+.hrow{display:flex;justify-content:space-between;gap:10px;font-size:14px;font-weight:700;flex-wrap:wrap}
+.hnext{display:block;margin-top:14px;text-align:center}
+.htools{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px;margin:14px 0}
+.htool{display:block;background:#fff;border:1px solid var(--line);border-radius:14px;padding:12px 14px;color:var(--ink);text-decoration:none}.htool b{display:block}.htool span{font-size:13px;color:var(--ink-3)}
+.hpart{font-size:14px;font-weight:800;color:var(--ink-3);margin:22px 0 6px}
+.hunits{list-style:none;margin:0;padding:0;background:#fff;border:1px solid var(--line);border-radius:16px;overflow:hidden}
+.hunits li{display:flex;align-items:center;gap:10px;padding:12px 14px;min-height:52px;border-top:1px solid var(--line2,#eee)}.hunits li:first-child{border-top:0}
+.hunits li a{flex:1;color:var(--ink);text-decoration:none;font-weight:700}.hunits li.off{opacity:.45}.hunits li.off a{pointer-events:none}
+.hunits .hs{font-size:12.5px;color:var(--ink-3);white-space:nowrap}.hunits li.ok .hs{color:#2E7D4A;font-weight:800}
+.bempty{padding:18px;background:#fff;border:1px solid var(--line);border-radius:14px}
+.bagain{font:inherit;min-height:44px;margin-top:10px;padding:0 18px;border:0;border-radius:10px;background:#C4551C;color:#fff;font-weight:700;cursor:pointer}
 .bcta{display:flex;flex-wrap:wrap;gap:10px;margin:22px 0 0}
 @media(max-width:480px){.bcards{grid-template-columns:1fr}.bf button{margin:8px 0 0}}
 </style>
@@ -49,7 +63,16 @@ main{max-width:760px;margin:0 auto;padding:22px 20px 80px}
   <a href="/"><img src="/logo.png" alt=""><span>치즈감자 CheesePotato</span></a>
 </div></header>
 <main>
-<span class="bk-badge">책 보너스 · BOOK BONUS</span><h1>한국어 첫걸음 워크북</h1><p class="bk-sub">Korean First Steps Workbook · 단원별 보너스 연습</p><ul><li style="margin:8px 0"><a href="/bonus/first-steps-workbook/greetings-self-introduction/">인사말과 자기소개 <small>Greetings &amp; Self-Introduction</small></a></li></ul><p class="bk-sub" style="margin-top:30px">이 연습은 책에 없는 새로 만든 문항이에요(기출 아님). · New practice made for this site, not from any past exam.</p>
+<div data-bonus-mode="hub" data-book="first-steps-workbook">
+<div class="hub-top" style="background:linear-gradient(135deg,#1D5C45,#12402F)"><small>독자 전용 코스 · READER COURSE A1</small><h1>한국어 첫걸음 워크북</h1><small>Korean First Steps Workbook</small>
+<div class="hprog"><i></i></div><div class="hrow"><span class="hpct">0 / 0</span><span class="hstreak"></span></div>
+<a class="btn main hnext" href="#" hidden>시작하기 · Start</a></div>
+<div class="bcta" style="margin-top:10px"><a class="btn sub" href="intent://book/first-steps-workbook#Intent;scheme=cheesepotato;package=com.cheesepotato.app;S.browser_fallback_url=https%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3Dcom.cheesepotato.app;end">앱에서 열기 · Open app</a></div>
+<div class="htools"><a class="htool" href="/bonus/first-steps-workbook/notebook/"><b>틀린 문제 노트 · Mistake notebook</b><span class="hmiss"></span></a><a class="htool" href="/bonus/first-steps-workbook/part-1/" data-chal="1"><b>1부 챌린지 · Part 1 challenge</b><span>읽고 쓰기 시작 · 섞어서 10문제 <i class="hcb" style="font-style:normal"></i></span></a><a class="htool" href="/bonus/first-steps-workbook/part-2/" data-chal="2"><b>2부 챌린지 · Part 2 challenge</b><span>첫 문장 만들기 · 섞어서 10문제 <i class="hcb" style="font-style:normal"></i></span></a></div>
+<h2 class="hpart">읽고 쓰기 시작 <small>Start Reading &amp; Writing</small></h2><ul class="hunits"><li data-u="hangul-alphabet" data-total="10" class=""><a href="/bonus/first-steps-workbook/hangul-alphabet/">한글 자음과 모음 <small style="font-weight:500;color:var(--ink-3)">Hangul Alphabet: Consonants &amp; Vowels</small></a><span class="hs"></span></li><li data-u="hangul-batchim" data-total="10" class=""><a href="/bonus/first-steps-workbook/hangul-batchim/">받침과 소리 규칙 <small style="font-weight:500;color:var(--ink-3)">Hangul Batchim &amp; Sound Rules</small></a><span class="hs"></span></li></ul><h2 class="hpart">첫 문장 만들기 <small>Your First Sentences</small></h2><ul class="hunits"><li data-u="greetings-self-introduction" data-total="10" class=""><a href="/bonus/first-steps-workbook/greetings-self-introduction/">인사말과 자기소개 <small style="font-weight:500;color:var(--ink-3)">Greetings &amp; Self-Introduction</small></a><span class="hs"></span></li><li data-u="ida-anida-itta-eopda" data-total="10" class=""><a href="/bonus/first-steps-workbook/ida-anida-itta-eopda/">이다 · 아니다 · 있다 · 없다 비교 <small style="font-weight:500;color:var(--ink-3)">이다 vs 아니다 and 있다 vs 없다</small></a><span class="hs"></span></li><li data-u="demonstratives" data-total="10" class=""><a href="/bonus/first-steps-workbook/demonstratives/">지시어: 이 · 그 · 저 <small style="font-weight:500;color:var(--ink-3)">Korean Demonstratives: 이 · 그 · 저</small></a><span class="hs"></span></li><li data-u="korean-particles" data-total="10" class=""><a href="/bonus/first-steps-workbook/korean-particles/">기초 필수 조사 <small style="font-weight:500;color:var(--ink-3)">Essential Korean Particles</small></a><span class="hs"></span></li><li data-u="question-words" data-total="10" class=""><a href="/bonus/first-steps-workbook/question-words/">의문사: 누구 · 언제 · 어디 · 무엇 · 왜 <small style="font-weight:500;color:var(--ink-3)">Korean Question Words</small></a><span class="hs"></span></li><li data-u="polite-present" data-total="0" class="off"><a href="/bonus/first-steps-workbook/polite-present/">해요체 현재형 만들기 <small style="font-weight:500;color:var(--ink-3)">Polite Present Tense: -아요 / -어요 / 해요</small></a><span class="hs">준비 중 · soon</span></li><li data-u="basic-verbs-adjectives" data-total="0" class="off"><a href="/bonus/first-steps-workbook/basic-verbs-adjectives/">꼭 필요한 동사 · 형용사 <small style="font-weight:500;color:var(--ink-3)">Essential Verbs &amp; Adjectives</small></a><span class="hs">준비 중 · soon</span></li></ul><h2 class="hpart">내 주변 이야기 <small>Talking About My World</small></h2><ul class="hunits"><li data-u="numbers-counters" data-total="0" class="off"><a href="/bonus/first-steps-workbook/numbers-counters/">숫자와 세는 말 <small style="font-weight:500;color:var(--ink-3)">Numbers &amp; Counters</small></a><span class="hs">준비 중 · soon</span></li><li data-u="days-months-dates" data-total="0" class="off"><a href="/bonus/first-steps-workbook/days-months-dates/">요일 · 월 · 날짜 <small style="font-weight:500;color:var(--ink-3)">Days, months &amp; dates</small></a><span class="hs">준비 중 · soon</span></li><li data-u="family-terms" data-total="0" class="off"><a href="/bonus/first-steps-workbook/family-terms/">가족 호칭과 높임말 <small style="font-weight:500;color:var(--ink-3)">Family Terms &amp; Honorifics</small></a><span class="hs">준비 중 · soon</span></li><li data-u="location-places-exist" data-total="0" class="off"><a href="/bonus/first-steps-workbook/location-places-exist/">위치 · 장소 · 있다/없다 <small style="font-weight:500;color:var(--ink-3)">Location, Places &amp; Existence</small></a><span class="hs">준비 중 · soon</span></li><li data-u="colors-shapes-opposites" data-total="0" class="off"><a href="/bonus/first-steps-workbook/colors-shapes-opposites/">색깔 · 모양 · 반대말 형용사 <small style="font-weight:500;color:var(--ink-3)">Colors, Shapes &amp; Opposite Adjectives</small></a><span class="hs">준비 중 · soon</span></li><li data-u="house-rooms-furniture" data-total="0" class="off"><a href="/bonus/first-steps-workbook/house-rooms-furniture/">집 · 방 · 가구 <small style="font-weight:500;color:var(--ink-3)">House, Rooms &amp; Furniture</small></a><span class="hs">준비 중 · soon</span></li><li data-u="school-classroom" data-total="0" class="off"><a href="/bonus/first-steps-workbook/school-classroom/">학교 · 교실 표현 <small style="font-weight:500;color:var(--ink-3)">School &amp; Classroom Expressions</small></a><span class="hs">준비 중 · soon</span></li></ul><h2 class="hpart">밖으로 나가요 <small>Out and About</small></h2><ul class="hunits"><li data-u="food-ordering-taste" data-total="0" class="off"><a href="/bonus/first-steps-workbook/food-ordering-taste/">음식 주문 · 메뉴 · 맛 표현 <small style="font-weight:500;color:var(--ink-3)">Food Ordering, Menus &amp; Taste</small></a><span class="hs">준비 중 · soon</span></li><li data-u="shopping-prices-clothes" data-total="0" class="off"><a href="/bonus/first-steps-workbook/shopping-prices-clothes/">쇼핑 · 가격 · 옷 · 크기 <small style="font-weight:500;color:var(--ink-3)">Shopping, Prices &amp; Clothing</small></a><span class="hs">준비 중 · soon</span></li><li data-u="directions-transportation" data-total="0" class="off"><a href="/bonus/first-steps-workbook/directions-transportation/">길 묻기 · 교통 · 방향 <small style="font-weight:500;color:var(--ink-3)">Directions &amp; Transportation</small></a><span class="hs">준비 중 · soon</span></li><li data-u="weather-seasons-temperature" data-total="0" class="off"><a href="/bonus/first-steps-workbook/weather-seasons-temperature/">날씨 · 계절 · 기온 <small style="font-weight:500;color:var(--ink-3)">Weather, Seasons &amp; Temperature</small></a><span class="hs">준비 중 · soon</span></li><li data-u="hobbies-leisure-sports" data-total="0" class="off"><a href="/bonus/first-steps-workbook/hobbies-leisure-sports/">취미 · 여가 · 운동 <small style="font-weight:500;color:var(--ink-3)">Hobbies, Leisure &amp; Sports</small></a><span class="hs">준비 중 · soon</span></li><li data-u="health-hospital" data-total="0" class="off"><a href="/bonus/first-steps-workbook/health-hospital/">몸 · 아플 때 쓰는 말 · 병원 <small style="font-weight:500;color:var(--ink-3)">Body Parts, Illness &amp; Hospital</small></a><span class="hs">준비 중 · soon</span></li></ul><h2 class="hpart">시제와 부정 <small>Past, Future &amp; Negation</small></h2><ul class="hunits"><li data-u="negation-tenses" data-total="0" class="off"><a href="/bonus/first-steps-workbook/negation-tenses/">부정과 시제: 안 · 못 · 과거 · 미래 <small style="font-weight:500;color:var(--ink-3)">Negation &amp; Tenses</small></a><span class="hs">준비 중 · soon</span></li></ul>
+<h2 class="hpart">구매자 혜택 · Reader bonus</h2><div class="bq"><p class="bqq">책 맨 끝 「구매자 혜택」 쪽의 코드로 Pro 30일이 열려요. 한 계정에 한 번이에요.</p><a class="btn main" href="/?bk=CP-FS-342TXN&utm_source=book&utm_medium=hub&utm_campaign=first-steps-workbook">Pro 30일 받기 · Get Pro</a></div>
+</div>
+<p class="bk-sub" style="margin-top:30px">이 연습은 책에 없는 새로 만든 문항이에요(기출 아님). · New practice made for this site, not from any past exam.</p>
 </main>
 </body>
 </html>
