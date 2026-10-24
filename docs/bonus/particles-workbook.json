@@ -511,6 +511,516 @@
         { "q": "비빔밥에는 고추장___ 참기름이 꼭 들어가야 맛있어요.", "en": "Red chili paste and sesame oil must go into bibimbap for it to taste delicious.", "a": ["과", "하고", "이랑"] },
         { "q": "주말에 고향 친구___ 함께 한강 공원을 산책했어요.", "en": "Over the weekend, I took a walk in Hangang Park together with a hometown friend.", "a": ["와", "하고", "랑"] }
       ]
+    },
+    "pt-26-11": {
+      "cards": [
+        { "ko": "저도 학생이에요", "en": "I am also a student. (replacing topic/subject)" },
+        { "ko": "사과도 샀어요", "en": "I also bought apples. (replacing object)" },
+        { "ko": "한국에도 가 봤어요", "en": "I have also been to Korea. (adding to destination 에)" },
+        { "ko": "도서관에서도 공부해요", "en": "I also study at the library. (adding to dynamic location 에서)" },
+        { "ko": "친구에게도 보냈어요", "en": "I also sent it to a friend. (adding to recipient 에게)" },
+        { "ko": "비도 오고 바람도 불어요", "en": "It rains and the wind also blows. (parallel listing with 도)" },
+        { "ko": "하나도 없어요", "en": "There is not even one. (emphasis with negative verb)" },
+        { "ko": "주말에도 일해요", "en": "I work even on weekends. (emphasis on time)" }
+      ],
+      "quiz": [
+        {
+          "q": "Which sentence correctly uses 도 to mean 'also' when replacing the object marker 을/를?",
+          "opts": ["커피를도 마셔요.", "커피도 마셔요.", "커피에도 마셔요.", "커피이도 마셔요."],
+          "a": 1,
+          "why": "When attaching 도 to an object, it completely replaces 을/를, becoming 커피도 마셔요."
+        },
+        {
+          "q": "Can 도 attach after the location marker 에서?",
+          "opts": ["No, they cannot combine.", "Yes, it combines into 에서도.", "Only with people.", "Only in questions."],
+          "a": 1,
+          "why": "Particles like 에서, 에, and 에게 can combine with 도, forming 에서도, 에도, and 에게도."
+        },
+        {
+          "q": "Fill in the blank: '지민 씨가 사과를 샀어요. 그리고 배___ 샀어요.'",
+          "opts": ["도", "는", "만", "로"],
+          "a": 0,
+          "why": "Since Jimin bought apples and additionally bought pears, the addition marker 도 (also) is used."
+        },
+        {
+          "q": "What nuance does 도 express in '지갑에 동전이 하나도 없어요'?",
+          "opts": ["Exclusivity", "Strong emphasis meaning not even one", "Comparison", "Direction"],
+          "a": 1,
+          "why": "When combined with 하나 (one) and a negative predicate, 도 emphasizes not even one (none at all)."
+        },
+        {
+          "q": "Which sentence has an INCORRECT combination with 도?",
+          "opts": ["집에서도 일해요.", "저는도 영화를 봐요.", "친구에게도 알려줘요.", "일요일에도 문을 열어요."],
+          "a": 1,
+          "why": "도 replaces the subject/topic marker 은/는, so it must be 저도, not 저는도."
+        }
+      ],
+      "fill": [
+        { "q": "오늘 회의에 지수 씨___ 참석했어요.", "en": "Jisu also attended today's meeting.", "a": ["도"] },
+        { "q": "어제 피자를 먹고 파스타___ 먹었어요.", "en": "Yesterday I ate pizza and also ate pasta.", "a": ["도"] },
+        { "q": "우리 동네는 밤에___ 거리가 밝고 안전해요.", "en": "In our neighborhood, the streets are bright and safe even at night.", "a": ["도"] },
+        { "q": "냉장고 안에 물이 한 방울___ 남아 있지 않아요.", "en": "Not even a single drop of water remains in the refrigerator.", "a": ["도"] },
+        { "q": "도서관뿐만 아니라 집에서___ 열심히 복습해요.", "en": "Not only at the library, but I also review diligently at home.", "a": ["도"] }
+      ]
+    },
+    "pt-26-12": {
+      "cards": [
+        { "ko": "물만 마셨어요", "en": "I only drank water. (object exclusivity)" },
+        { "ko": "저만 몰랐어요", "en": "Only I did not know. (subject exclusivity)" },
+        { "ko": "주말에만 쉬어요", "en": "I rest only on weekends. (time exclusivity with 에만)" },
+        { "ko": "집에서만 공부해요", "en": "I study only at home. (location exclusivity with 에서만)" },
+        { "ko": "잠깐만 기다려 주세요", "en": "Please wait just a moment. (quantity/time unit)" },
+        { "ko": "한 번만 도와주세요", "en": "Please help me just once. (counting unit)" },
+        { "ko": "채소만 먹어요", "en": "I only eat vegetables. (dietary exclusivity)" },
+        { "ko": "친구에게만 말했어요", "en": "I told only my friend. (recipient exclusivity with 에게만)" }
+      ],
+      "quiz": [
+        {
+          "q": "Which sentence correctly expresses 'I only drank tea'?",
+          "opts": ["차를만 마셨어요.", "차만 마셨어요.", "차이만 마셨어요.", "차는만 마셨어요."],
+          "a": 1,
+          "why": "When attached to a direct object, 만 replaces 을/를 completely to form 차만 마셨어요."
+        },
+        {
+          "q": "Can 만 attach after the particle 에서?",
+          "opts": ["Yes, it forms 에서만 meaning only at.", "No, 에서 drops completely.", "Only in writing.", "Only with people."],
+          "a": 0,
+          "why": "만 can combine with prepositional particles like 에서 to form 에서만, meaning only at."
+        },
+        {
+          "q": "What does 만 express in '오 분만 쉬었다가 다시 시작합시다'?",
+          "opts": ["Addition", "Limitation to just five minutes", "Comparison", "Reason"],
+          "a": 1,
+          "why": "Attached to 오 분 (five minutes), 만 limits the break to just or only five minutes."
+        },
+        {
+          "q": "Which sentence has an INCORRECT combination with 만?",
+          "opts": ["교실에만 있어요.", "선생님에게만 물어봤어요.", "김밥을만 주문했어요.", "한국에서만 파는 과자예요."],
+          "a": 2,
+          "why": "The particle 만 replaces the object marker 을/를, so it should be 김밥만, not 김밥을만."
+        },
+        {
+          "q": "Fill in the blank: '모두 왔는데 민수___ 아직 안 왔어요.'",
+          "opts": ["만", "도", "로", "까지"],
+          "a": 0,
+          "why": "Everyone arrived except Minsu, so 만 (only) specifies that Minsu is the exclusive one who has not arrived."
+        }
+      ],
+      "fill": [
+        { "q": "저는 아침에 사과 반 쪽___ 간단하게 먹어요.", "en": "In the morning, I only eat half an apple simply.", "a": ["만"] },
+        { "q": "이 비밀은 우리 둘___ 알고 있기로 해요.", "en": "Let us keep this secret known only between the two of us.", "a": ["만"] },
+        { "q": "평일에는 바빠서 토요일에___ 영화를 봐요.", "en": "Since I am busy on weekdays, I watch movies only on Saturdays.", "a": ["만"] },
+        { "q": "어려운 질문이라 정답을 지우 씨___ 맞혔어요.", "en": "Because it was a difficult question, only Jiu got the correct answer.", "a": ["만"] },
+        { "q": "실내에서는 이 슬리퍼___ 신어야 해요.", "en": "Indoors, you must only wear these slippers.", "a": ["만"] }
+      ]
+    },
+    "pt-26-13": {
+      "cards": [
+        { "ko": "천 원밖에 없어요", "en": "I only have 1,000 won (nothing but). (insufficient money)" },
+        { "ko": "한 개밖에 안 남았어요", "en": "Only one is left. (disappointing small amount)" },
+        { "ko": "너밖에 없어", "en": "There is no one but you. (exclusivity / relying on someone)" },
+        { "ko": "한국어밖에 몰라요", "en": "I only know Korean (no other language). (limitation with 모르다)" },
+        { "ko": "물밖에 안 마셔요", "en": "I drink nothing but water. (exclusivity with negative verb)" },
+        { "ko": "삼십 분밖에 못 잤어요", "en": "I could only sleep for 30 minutes. (insufficient sleep)" },
+        { "ko": "세 명밖에 안 왔어요", "en": "Only three people came. (fewer attendees than expected)" },
+        { "ko": "이 방법밖에 없어요", "en": "There is no other way but this. (only remaining option)" }
+      ],
+      "quiz": [
+        {
+          "q": "What kind of verb MUST always follow the particle 밖에?",
+          "opts": ["An affirmative imperative verb", "A negative predicate (없다, 안, 못, etc.)", "A question word", "A future tense verb only"],
+          "a": 1,
+          "why": "The particle 밖에 must always be paired with a negative predicate like 없다, 안, or 못."
+        },
+        {
+          "q": "Which sentence is grammatically INCORRECT because of the verb choice after 밖에?",
+          "opts": ["사과가 하나밖에 없어요.", "사과가 하나밖에 있어요.", "사과가 하나밖에 안 남았어요.", "사과를 하나밖에 못 샀어요."],
+          "a": 1,
+          "why": "The predicate after 밖에 must be negative. 하나밖에 있어요 is ungrammatical; it should be 하나밖에 없어요 or 하나만 있어요."
+        },
+        {
+          "q": "What nuance does 밖에 express compared to 만?",
+          "opts": ["A sense of satisfaction", "A feeling that the quantity is smaller than expected or regrettable", "A feeling of honorific respect", "A choice between two alternatives"],
+          "a": 1,
+          "why": "While 만 simply states exclusivity, 밖에 highlights that the amount is small, insufficient, or regrettable."
+        },
+        {
+          "q": "Which sentence correctly expresses: 'I only slept two hours last night'?",
+          "opts": ["어젯밤에 두 시간밖에 잤어요.", "어젯밤에 두 시간밖에 못 잤어요.", "어젯밤에 두 시간만 못 잤어요.", "어젯밤에 두 시간밖에 많이 잤어요."],
+          "a": 1,
+          "why": "The negative adverb 못 combines with 밖에 to express that sleeping two hours was insufficient."
+        },
+        {
+          "q": "Fill in the blank: '지갑에 버스비 오백 원___ 남아 있지 않아요.'",
+          "opts": ["밖에", "만", "도", "까지"],
+          "a": 0,
+          "why": "With the negative ending 남아 있지 않아요, 밖에 expresses that only 500 won remains."
+        }
+      ],
+      "fill": [
+        { "q": "주머니에 동전 몇 개___ 없어서 음료수를 못 샀어요.", "en": "Because I had nothing but a few coins in my pocket, I could not buy a drink.", "a": ["밖에"] },
+        { "q": "약속 시간까지 십 분___ 안 남았으니 서둘러요.", "en": "There are only ten minutes left until the appointment time, so hurry.", "a": ["밖에"] },
+        { "q": "교실에 학생이 두 사람___ 안 와서 쓸쓸해요.", "en": "Only two students came to the classroom, so it feels lonely.", "a": ["밖에"] },
+        { "q": "너무 피곤해서 어젯밤에 세 시간___ 못 잤어요.", "en": "Because I was so tired, I could only sleep for three hours last night.", "a": ["밖에"] },
+        { "q": "지금은 이 방법___ 다른 해결책이 전혀 없어요.", "en": "Right now, there is no other solution at all but this method.", "a": ["밖에"] }
+      ]
+    },
+    "pt-26-15": {
+      "cards": [
+        { "ko": "커피나 차", "en": "Coffee or tea. (choice without final consonant)" },
+        { "ko": "수박이나 딸기", "en": "Watermelon or strawberries. (choice with final consonant)" },
+        { "ko": "토요일이나 일요일", "en": "Saturday or Sunday. (choosing between days)" },
+        { "ko": "산이나 바다", "en": "Mountains or the sea. (choice of destinations)" },
+        { "ko": "영화나 볼까요?", "en": "Shall we watch a movie or something? (suggesting an option)" },
+        { "ko": "차나 한잔해요", "en": "Let us have tea or something. (casual suggestion)" },
+        { "ko": "빵이나 밥", "en": "Bread or rice. (food options)" },
+        { "ko": "지하철이나 버스", "en": "Subway or bus. (transportation options)" }
+      ],
+      "quiz": [
+        {
+          "q": "Which pair of nouns correctly uses (이)나 to mean 'or'?",
+          "opts": ["주스이나 우유", "주스나 우유", "주스이나는 우유", "주스로 우유"],
+          "a": 1,
+          "why": "주스 ends with a vowel, so it takes 나 (주스나 우유) instead of 이나."
+        },
+        {
+          "q": "Which noun requires 이나 because it ends with a final consonant?",
+          "opts": ["사과", "피자", "가방", "바나나"],
+          "a": 2,
+          "why": "가방 ends with the final consonant (ㅇ), so it takes 이나 (가방이나 지갑)."
+        },
+        {
+          "q": "What does 나 mean in '주말에 심심한데 영화나 볼까요?'?",
+          "opts": ["As much as", "Suggesting an acceptable option (a movie or something)", "Exclusivity", "Direction"],
+          "a": 1,
+          "why": "(이)나 can be used to suggest an option casually, meaning something like or or something."
+        },
+        {
+          "q": "Which sentence has an INCORRECT form of (이)나?",
+          "opts": ["책이나 공책을 꺼내세요.", "커피이나 녹차를 마실래요?", "토요일이나 일요일에 만나요.", "지하철이나 버스를 타세요."],
+          "a": 1,
+          "why": "커피 ends in a vowel, so it must take 나 (커피나 녹차), not 커피이나."
+        },
+        {
+          "q": "Fill in the blank: '배가 고프니 라면___ 끓여 먹읍시다.'",
+          "opts": ["이나", "나", "도", "만"],
+          "a": 0,
+          "why": "라면 ends with a final consonant (ㄴ), so the particle 이나 is used to suggest cooking ramen."
+        }
+      ],
+      "fill": [
+        { "q": "아침에 보통 빵___ 시리얼을 간단히 먹어요.", "en": "In the morning, I usually eat bread or cereal simply.", "a": ["이나"] },
+        { "q": "피곤할 때는 따뜻한 녹차___ 유자차를 마셔요.", "en": "When tired, I drink warm green tea or citron tea.", "a": ["나"] },
+        { "q": "이번 휴가에는 부산___ 강릉으로 여행을 가고 싶어요.", "en": "For this vacation, I want to travel to Busan or Gangneung.", "a": ["이나"] },
+        { "q": "주말에 시간이 나면 집에서 소설책___ 읽을 생각이에요.", "en": "If I have time on the weekend, I plan to read a novel or something at home.", "a": ["이나"] },
+        { "q": "목이 많이 마른데 시원한 음료수___ 한 캔 사 마실까요?", "en": "I am very thirsty; shall we buy and drink a cool soda or something?", "a": ["나"] }
+      ]
+    },
+    "pt-26-16": {
+      "cards": [
+        { "ko": "세 시간이나 기다렸어요", "en": "I waited as long as three hours! (unexpected long duration)" },
+        { "ko": "다섯 잔이나 마셨어요", "en": "I drank as many as five cups! (large quantity of drinks)" },
+        { "ko": "백 명이나 왔어요", "en": "As many as 100 people came! (large crowd)" },
+        { "ko": "사과를 다섯 개나 먹었어요", "en": "I ate as many as five apples! (counter ending in vowel + 나)" },
+        { "ko": "열 권이나 읽었어요", "en": "I read as many as ten books! (large number of books)" },
+        { "ko": "한 달이나 걸렸어요", "en": "It took as long as a whole month! (surprising duration)" },
+        { "ko": "만 원이나 해요", "en": "It costs as much as 10,000 won! (surprising high price)" },
+        { "ko": "열 번이나 전화했어요", "en": "I called as many as ten times! (high frequency)" }
+      ],
+      "quiz": [
+        {
+          "q": "What nuance does (이)나 express in '어제 열 시간이나 잤어요'?",
+          "opts": ["Only slept a little", "Surprise at sleeping as long as ten hours", "Choice between ten hours or more", "Doubt whether sleeping occurred"],
+          "a": 1,
+          "why": "Attached to a number or counter, (이)나 expresses surprise that the quantity or duration is larger than expected."
+        },
+        {
+          "q": "Which counter correctly takes 나 instead of 이나?",
+          "opts": ["다섯 권", "사과 세 개", "열 명", "세 시간"],
+          "a": 1,
+          "why": "개 ends in a vowel (ㅐ), so it attaches directly to 나 (세 개나), while 권, 명, and 시간 end in consonants."
+        },
+        {
+          "q": "Which sentence has an INCORRECT particle form?",
+          "opts": ["학생이 오십 명이나 왔어요.", "커피를 네 잔이나 마셨어요.", "선물을 세 개이나 받았어요.", "도서관에서 다섯 시간이나 공부했어요."],
+          "a": 2,
+          "why": "개 ends with a vowel, so it must take 나 (세 개나), not 세 개이나."
+        },
+        {
+          "q": "Fill in the blank: '비행기 표가 백만 원___ 해서 깜짝 놀랐어요.'",
+          "opts": ["이나", "나", "밖에", "도"],
+          "a": 0,
+          "why": "원 ends with a final consonant (ㄴ), so 이나 is attached to express shock at the high price."
+        },
+        {
+          "q": "Which sentence expresses that eating three bowls of noodles was a surprisingly large amount?",
+          "opts": ["국수를 세 그릇만 먹었어요.", "국수를 세 그릇이나 먹었어요.", "국수를 세 그릇밖에 안 먹었어요.", "국수를 세 그릇으로 먹었어요."],
+          "a": 1,
+          "why": "그릇 ends with a final consonant, so 이나 expresses that three bowls is a surprisingly large amount."
+        }
+      ],
+      "fill": [
+        { "q": "어제 시험공부를 하느라 새벽 세 시___ 깨어 있었어요.", "en": "Studying for the exam yesterday, I was awake until as late as 3 AM.", "a": ["나"] },
+        { "q": "콘서트 티켓을 사려고 줄을 두 시간___ 서 있었어요.", "en": "To buy concert tickets, I stood in line for as long as two hours.", "a": ["이나"] },
+        { "q": "점심에 너무 배가 고파서 만두를 열 개___ 혼자 다 먹었어요.", "en": "Because I was so hungry at lunch, I ate as many as ten dumplings all by myself.", "a": ["나"] },
+        { "q": "그 축제에는 외국인 관광객이 천 명___ 모였어요.", "en": "As many as 1,000 foreign tourists gathered at that festival.", "a": ["이나"] },
+        { "q": "기숙사 방 청소를 한 지 벌써 한 달___ 지났어요.", "en": "As long as a whole month has already passed since I cleaned my dorm room.", "a": ["이나"] }
+      ]
+    },
+    "pt-26-14": {
+      "cards": [
+        { "ko": "연필로 써요", "en": "I write with a pencil. (tool ending in ㄹ -> 로)" },
+        { "ko": "가위로 잘라요", "en": "I cut with scissors. (tool ending in vowel -> 로)" },
+        { "ko": "숟가락으로 먹어요", "en": "I eat with a spoon. (tool ending in consonant -> 으로)" },
+        { "ko": "지하철로 가요", "en": "I go by subway. (means of transportation)" },
+        { "ko": "오른쪽으로 가세요", "en": "Please go to the right. (direction)" },
+        { "ko": "한국어로 말해요", "en": "Speak in Korean. (language/medium)" },
+        { "ko": "콩으로 두부를 만들어요", "en": "Tofu is made from soybeans. (raw material)" },
+        { "ko": "서울역으로 출발해요", "en": "Depart toward Seoul Station. (direction of travel)" }
+      ],
+      "quiz": [
+        {
+          "q": "Which noun ending with a final consonant exceptionally takes 로 instead of 으로?",
+          "opts": ["Words ending in ㄴ", "Words ending in ㄹ (such as 연필, 칼, 서울)", "Words ending in ㅁ", "Words ending in ㅇ"],
+          "a": 1,
+          "why": "Nouns ending in the final consonant ㄹ (like 연필, 칼, 서울) take 로 rather than 으로."
+        },
+        {
+          "q": "Which sentence correctly attaches (으)로 to express a tool?",
+          "opts": ["젓가락으로 음식을 집어요.", "젓가락로 음식을 집어요.", "젓가락에 음식을 집어요.", "젓가락을 음식을 집어요."],
+          "a": 0,
+          "why": "젓가락 ends with the final consonant ㄱ, so it takes 으로 (젓가락으로)."
+        },
+        {
+          "q": "What does (으)로 indicate in '저 사거리에서 왼쪽으로 도세요'?",
+          "opts": ["Raw material", "Direction of movement", "Price", "Reason"],
+          "a": 1,
+          "why": "Attached to 왼쪽 (left), 으로 indicates the direction in which to turn."
+        },
+        {
+          "q": "Which phrase has an INCORRECT form of (으)로?",
+          "opts": ["가위로", "버스로", "비행기으로", "볼펜으로"],
+          "a": 2,
+          "why": "비행기 ends with a vowel (기), so it must take 로 (비행기로), not 비행기으로."
+        },
+        {
+          "q": "Fill in the blank: '저는 부산까지 빠른 기차___ 이동했어요.'",
+          "opts": ["로", "으로", "에", "에서"],
+          "a": 0,
+          "why": "기차 ends in a vowel, so the particle 로 expresses the means of transportation."
+        }
+      ],
+      "fill": [
+        { "q": "상자를 튼튼한 테이프___ 꼼꼼하게 붙였어요.", "en": "I taped the box meticulously with strong tape.", "a": ["로"] },
+        { "q": "이 국물 요리는 숟가락___ 드시면 편리해요.", "en": "It is convenient if you eat this soup dish with a spoon.", "a": ["으로"] },
+        { "q": "지하철 출구에서 나와서 오른쪽___ 오십 미터만 오세요.", "en": "Come out of the subway exit and come just 50 meters to the right.", "a": ["으로"] },
+        { "q": "친구와 비밀 이야기를 한국어___ 나누었어요.", "en": "I shared secret stories with my friend in Korean.", "a": ["로"] },
+        { "q": "이 빵은 고소한 쌀가루___ 정성껏 만들었어요.", "en": "This bread was made with all heart from flavorful rice flour.", "a": ["로"] }
+      ]
+    },
+    "pt-26-17": {
+      "cards": [
+        { "ko": "세 시쯤 만나요", "en": "Let us meet around three o'clock. (approximate time)" },
+        { "ko": "삼십 분쯤 걸려요", "en": "It takes about thirty minutes. (estimated duration)" },
+        { "ko": "열 명쯤 모였어요", "en": "About ten people gathered. (estimated count)" },
+        { "ko": "천 원쯤 해요", "en": "It costs around 1,000 won. (estimated price)" },
+        { "ko": "내일쯤 출발해요", "en": "I will depart around tomorrow. (estimated date)" },
+        { "ko": "절반쯤 끝냈어요", "en": "I finished about half of it. (estimated portion)" },
+        { "ko": "이 킬로미터쯤 남았어요", "en": "About two kilometers remain. (estimated distance)" },
+        { "ko": "며칠쯤 걸릴까요?", "en": "How many days will it take approximately? (inquiry of estimate)" }
+      ],
+      "quiz": [
+        {
+          "q": "What does the particle 쯤 mean when attached to a number or time?",
+          "opts": ["Exactly", "About / around / approximately", "Only", "Never"],
+          "a": 1,
+          "why": "쯤 indicates an approximation, estimate, or rough guess (about, around)."
+        },
+        {
+          "q": "Does the form of 쯤 change depending on whether the noun ends with a final consonant?",
+          "opts": ["Yes, it changes to 이쯤 after a consonant.", "No, it is always 쯤 regardless of final consonants.", "Yes, it drops after vowels.", "It only attaches to vowels."],
+          "a": 1,
+          "why": "The particle 쯤 has a single fixed form and attaches directly to nouns whether they have a final consonant or not."
+        },
+        {
+          "q": "Which sentence correctly uses 쯤 to estimate time?",
+          "opts": ["내일 오후 두 시쯤 커피숍에서 만나요.", "내일 오후 두 시이쯤 커피숍에서 만나요.", "내일 오후 두 시을쯤 커피숍에서 만나요.", "내일 오후 두 시로쯤 커피숍에서 만나요."],
+          "a": 0,
+          "why": "쯤 attaches directly to time nouns: 두 시쯤 means around 2 o'clock."
+        },
+        {
+          "q": "Which question asks for an approximate count using 쯤?",
+          "opts": ["학생이 몇 명쯤 왔어요?", "학생이 몇 명을 왔어요?", "학생이 몇 명으로 왔어요?", "학생이 몇 명에 왔어요?"],
+          "a": 0,
+          "why": "몇 명쯤 means approximately how many people."
+        },
+        {
+          "q": "Fill in the blank: '역까지 걸어가면 십오 분___ 걸려요.'",
+          "opts": ["쯤", "이쯤", "과", "보다"],
+          "a": 0,
+          "why": "십오 분쯤 means about 15 minutes, expressing an estimated duration."
+        }
+      ],
+      "fill": [
+        { "q": "퇴근하고 집에 도착하면 저녁 일곱 시___ 될 거예요.", "en": "When I arrive home after work, it will be around 7 PM.", "a": ["쯤"] },
+        { "q": "오늘 동아리 모임에 스무 명___ 참석할 예정이에요.", "en": "About twenty people are scheduled to attend today's club meeting.", "a": ["쯤"] },
+        { "q": "학교 도서관까지 걸어서 십 분___ 걸려요.", "en": "It takes about ten minutes on foot to the school library.", "a": ["쯤"] },
+        { "q": "주문하신 음식은 십오 분___ 뒤에 나올 거예요.", "en": "The food you ordered will come out in about 15 minutes.", "a": ["쯤"] },
+        { "q": "이번 프로젝트는 다음 주 화요일___ 끝날 것 같아요.", "en": "This project seems like it will finish around next Tuesday.", "a": ["쯤"] }
+      ]
+    },
+    "pt-26-18": {
+      "cards": [
+        { "ko": "천사처럼 착해요", "en": "Kind like an angel. (resemblance in personality)" },
+        { "ko": "바다처럼 넓어요", "en": "Wide like the ocean. (resemblance in scale)" },
+        { "ko": "영화처럼 아름다워요", "en": "Beautiful like a movie. (resemblance in quality)" },
+        { "ko": "물처럼 마셔요", "en": "Drink it like water. (resemblance in manner)" },
+        { "ko": "가족같이 따뜻해요", "en": "Warm like family. (resemblance with 같이)" },
+        { "ko": "그림같이 예뻐요", "en": "Pretty like a picture. (scenic beauty)" },
+        { "ko": "거짓말처럼 사라졌어요", "en": "Disappeared like a lie. (figurative manner)" },
+        { "ko": "평소처럼 행동해요", "en": "Act as usual. (comparison with standard/usual)" }
+      ],
+      "quiz": [
+        {
+          "q": "What do 처럼 and 같이 mean when attached to a noun in '천사처럼 웃어요'?",
+          "opts": ["Together with", "Like / as (comparing resemblance)", "Because of", "Toward"],
+          "a": 1,
+          "why": "Attached to a noun, 처럼 or 같이 means like or as, drawing a comparison of resemblance."
+        },
+        {
+          "q": "Which sentence has the same meaning as '가족처럼 지내요'?",
+          "opts": ["가족같이 지내요.", "가족에게 지내요.", "가족으로 지내요.", "가족보다 지내요."],
+          "a": 0,
+          "why": "The particles 처럼 and 같이 are interchangeable when expressing resemblance (like family)."
+        },
+        {
+          "q": "Does 처럼 change form based on the presence of a final consonant?",
+          "opts": ["Yes, it changes to 이처럼.", "No, it attaches directly as 처럼 to all nouns.", "Only after vowels.", "Only after consonants."],
+          "a": 1,
+          "why": "The particle 처럼 has an invariant form and attaches directly to any noun."
+        },
+        {
+          "q": "Which sentence correctly describes someone singing like a bird?",
+          "opts": ["새처럼 맑은 목소리로 노래해요.", "새으로 맑은 목소리로 노래해요.", "새에게 맑은 목소리로 노래해요.", "새보다만 맑은 목소리로 노래해요."],
+          "a": 0,
+          "why": "새처럼 means like a bird, comparing the voice to a bird."
+        },
+        {
+          "q": "Fill in the blank: '창밖 풍경이 한 폭의 그림___ 아름다워요.'",
+          "opts": ["처럼", "보다", "마다", "쯤"],
+          "a": 0,
+          "why": "그림처럼 (or 그림같이) means like a painting, depicting poetic resemblance."
+        }
+      ],
+      "fill": [
+        { "q": "제 친구는 마음씨가 바다___ 넓고 따뜻해요.", "en": "My friend's heart is wide and warm like the ocean.", "a": ["처럼", "같이"] },
+        { "q": "선생님은 우리를 친자식___ 다정하게 챙겨 주셨어요.", "en": "The teacher took care of us warmly like their own children.", "a": ["처럼", "같이"] },
+        { "q": "봄비가 내리더니 거짓말___ 하늘이 다시 맑아졌어요.", "en": "After the spring rain fell, the sky became clear again like magic.", "a": ["처럼", "같이"] },
+        { "q": "오늘 아침에도 평소___ 일찍 일어나서 조깅을 했어요.", "en": "This morning as well, I woke up early as usual and jogged.", "a": ["처럼", "같이"] },
+        { "q": "그 가수는 밤하늘의 별___ 밝게 빛나는 목소리를 가졌어요.", "en": "That singer has a voice that shines brightly like stars in the night sky.", "a": ["처럼", "같이"] }
+      ]
+    },
+    "pt-26-19": {
+      "cards": [
+        { "ko": "어제보다 더 추워요", "en": "It is colder than yesterday. (comparison with time)" },
+        { "ko": "비행기가 기차보다 빨라요", "en": "Airplanes are faster than trains. (comparison between transports)" },
+        { "ko": "한국어가 영어보다 어려워요", "en": "Korean is more difficult than English. (comparison of difficulty)" },
+        { "ko": "형이 동생보다 키가 커요", "en": "The older brother is taller than the younger sibling. (comparison of height)" },
+        { "ko": "영화가 책보다 재미있어요", "en": "The movie is more interesting than the book. (comparison of interest)" },
+        { "ko": "생각보다 쉬워요", "en": "It is easier than I thought. (comparison with expectation)" },
+        { "ko": "말보다 행동이 중요해요", "en": "Action is more important than words. (comparison of importance)" },
+        { "ko": "무엇보다 건강이 최고예요", "en": "Health is the best above anything else. (superlative comparison)" }
+      ],
+      "quiz": [
+        {
+          "q": "In the sentence '수박이 사과보다 커요', which fruit is bigger?",
+          "opts": ["Apple", "Watermelon", "Both are equal", "Cannot be determined"],
+          "a": 1,
+          "why": "The particle 보다 attaches to the baseline of comparison (사과). So watermelon is bigger than apple."
+        },
+        {
+          "q": "Which word is often used alongside 보다 to emphasize 'more'?",
+          "opts": ["더", "덜", "안", "못"],
+          "a": 0,
+          "why": "더 (more) commonly reinforces comparative statements using 보다 (for example, 어제보다 더 더워요)."
+        },
+        {
+          "q": "Does 보다 change form when attached to a noun with a final consonant?",
+          "opts": ["Yes, it becomes 이보다.", "No, it is always 보다 on all nouns.", "It becomes 으로보다.", "It becomes 과보다."],
+          "a": 1,
+          "why": "The particle 보다 has a constant form and attaches directly to nouns with or without a final consonant."
+        },
+        {
+          "q": "Which sentence correctly expresses: 'Today is warmer than yesterday'?",
+          "opts": ["오늘이 어제보다 따뜻해요.", "오늘이 어제처럼 따뜻해요.", "오늘이 어제까지 따뜻해요.", "오늘이 어제에게 따뜻해요."],
+          "a": 0,
+          "why": "어제보다 attaches 보다 to yesterday as the point of comparison, meaning warmer than yesterday."
+        },
+        {
+          "q": "Fill in the blank: '이번 시험은 지난번 시험___ 훨씬 쉬웠어요.'",
+          "opts": ["보다", "처럼", "마다", "이나"],
+          "a": 0,
+          "why": "보다 attaches to 지난번 시험 to mean much easier than the previous exam."
+        }
+      ],
+      "fill": [
+        { "q": "고속열차는 시외버스___ 속도가 훨씬 빨라요.", "en": "The high-speed train is much faster in speed than the intercity bus.", "a": ["보다"] },
+        { "q": "오늘 낮 기온은 어제___ 삼 도 더 높아요.", "en": "Today's daytime temperature is 3 degrees higher than yesterday.", "a": ["보다"] },
+        { "q": "직접 만들어 보니 생각___ 어렵지 않았어요.", "en": "When I tried making it myself, it was not as difficult as I thought.", "a": ["보다"] },
+        { "q": "인생에서는 돈___ 건강이 훨씬 더 중요해요.", "en": "In life, health is much more important than money.", "a": ["보다"] },
+        { "q": "이 전자사전은 종이책 사전___ 가볍고 편리해요.", "en": "This electronic dictionary is lighter and more convenient than a paper book dictionary.", "a": ["보다"] }
+      ]
+    },
+    "pt-26-20": {
+      "cards": [
+        { "ko": "날마다 운동해요", "en": "I exercise every day. (daily recurrence)" },
+        { "ko": "주말마다 등산해요", "en": "I hike every weekend. (weekly recurrence)" },
+        { "ko": "아침마다 커피를 마셔요", "en": "I drink coffee every morning. (time interval recurrence)" },
+        { "ko": "사람마다 생각이 달라요", "en": "Each person has different thoughts. (individual difference)" },
+        { "ko": "나라마다 문화가 달라요", "en": "Every country has different culture. (cultural variation)" },
+        { "ko": "방마다 에어컨이 있어요", "en": "There is an air conditioner in every room. (spatial distribution)" },
+        { "ko": "십 분마다 버스가 와요", "en": "The bus comes every ten minutes. (time frequency interval)" },
+        { "ko": "해마다 여행을 떠나요", "en": "I go on a trip every year. (yearly recurrence)" }
+      ],
+      "quiz": [
+        {
+          "q": "What does 마다 mean in '아침마다 조깅을 해요'?",
+          "opts": ["Only this morning", "Every morning without exception", "Like morning", "Than morning"],
+          "a": 1,
+          "why": "The particle 마다 indicates repetition without exception (every morning)."
+        },
+        {
+          "q": "Does 마다 change form after a final consonant?",
+          "opts": ["Yes, it becomes 이마다.", "No, it attaches directly as 마다 to all nouns.", "It becomes 으로마다.", "It drops after vowels."],
+          "a": 1,
+          "why": "The particle 마다 attaches directly to all nouns without form change."
+        },
+        {
+          "q": "Which sentence expresses: 'Every person has a different taste'?",
+          "opts": ["사람마다 취향이 달라요.", "사람보다 취향이 달라요.", "사람처럼 취향이 달라요.", "사람에게 취향이 달라요."],
+          "a": 0,
+          "why": "사람마다 means each and every person, expressing individual differences."
+        },
+        {
+          "q": "Fill in the blank: '지하철은 출근 시간에 삼 분___ 한 대씩 와요.'",
+          "opts": ["마다", "보다", "처럼", "쯤"],
+          "a": 0,
+          "why": "삼 분마다 means every three minutes, indicating regular time intervals."
+        },
+        {
+          "q": "Which phrase has an INCORRECT particle choice for 'every weekend'?",
+          "opts": ["주말마다", "주말이마다", "토요일마다", "일요일마다"],
+          "a": 1,
+          "why": "마다 attaches directly without adding 이; 주말이마다 is ungrammatical."
+        }
+      ],
+      "fill": [
+        { "q": "저는 아침___ 따뜻한 보리차 한 잔을 마셔요.", "en": "Every morning, I drink a cup of warm barley tea.", "a": ["마다"] },
+        { "q": "나라___ 전통 명절을 보내는 방식이 달라요.", "en": "Every country has a different way of spending traditional holidays.", "a": ["마다"] },
+        { "q": "시내버스가 십 분___ 정류장에 도착해요.", "en": "The city bus arrives at the stop every ten minutes.", "a": ["마다"] },
+        { "q": "계절___ 피어나는 꽃의 색깔과 향기가 달라요.", "en": "The colors and scents of blooming flowers differ with each season.", "a": ["마다"] },
+        { "q": "우리 가족은 주말___ 근처 공원에서 함께 자전거를 타요.", "en": "Every weekend, our family rides bicycles together in the nearby park.", "a": ["마다"] }
+      ]
     }
   }
 }
