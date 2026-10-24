@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Negation &amp; Tenses 보너스 연습 · Bonus practice — Korean First Steps Workbook</title>
+<meta name="description" content="한국어 첫걸음 워크북 단원 보너스 연습: 낱말 카드, 퀴즈, 빈칸 쓰기. 쪽에서 바로 채우고 채점해요.">
+<link rel="canonical" href="https://everykoreans.com/bonus/first-steps-workbook/negation-tenses/">
+<!-- 생성물 — 손으로 고치지 말 것. docs/bonus/*.json 을 고치고 node tools/build-bonus.mjs -->
+<script src="/gtm.js" async></script>
+<script src="/analytics.js" defer></script>
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta property="og:title" content="Negation &amp; Tenses 보너스 연습 · Bonus practice — Korean First Steps Workbook">
+<meta property="og:description" content="한국어 첫걸음 워크북 단원 보너스 연습: 낱말 카드, 퀴즈, 빈칸 쓰기. 쪽에서 바로 채우고 채점해요.">
+<meta property="og:url" content="https://everykoreans.com/bonus/first-steps-workbook/negation-tenses/">
+<meta property="og:image" content="https://everykoreans.com/og-image.jpg">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="stylesheet" href="/vendor/pretendard.css">
+<link rel="stylesheet" href="/page.css">
+<script src="/bonus.js?v=140103d5" defer></script>
+<style>
+main{max-width:760px;margin:0 auto;padding:22px 20px 80px}
+.bk-badge{display:inline-block;font-size:12px;font-weight:800;letter-spacing:.06em;color:#C4551C;background:#FDF0E2;border-radius:99px;padding:4px 12px}
+.bk-h{font-size:19px;font-weight:800;margin:30px 0 4px}.bk-h small{font-weight:500;color:var(--ink-3);font-size:13px;margin-left:6px}
+.bk-sub{color:var(--ink-3);font-size:14px;margin:0 0 12px}
+.bcards{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.bcard{font:inherit;text-align:center;cursor:pointer;min-height:84px;padding:14px 12px;border:1px solid var(--line);border-radius:14px;background:#fff;color:var(--ink);display:flex;align-items:center;justify-content:center}
+.bcard .b{display:none;font-size:14px;color:var(--ink-2);line-height:1.45}.bcard .f{font-size:18px;font-weight:800}
+.bcard.flip{background:#FFF7E3;border-color:#F0C24B}.bcard.flip .f{display:none}.bcard.flip .b{display:block}
+.bq,.bf{background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px 16px;margin:10px 0}
+.bqq{font-weight:700;margin:0 0 8px;line-height:1.5}.bqq i{font-style:normal;color:var(--ink-3);font-weight:500;margin-right:6px}
+.bo{list-style:none;margin:0;padding:0;display:grid;gap:6px}
+.bo li{min-height:44px;display:flex;align-items:center;gap:8px;padding:8px 12px;border:1px solid var(--line);border-radius:10px;cursor:pointer;background:#FBF8F1}
+.bo li:hover{border-color:#F0C24B}.bo li.right{background:#E6F4EA;border-color:#3A9A5B}.bo li.wrong{background:#FCE8E6;border-color:#D1493E}
+.bw{margin:8px 0 0;font-size:14px;color:var(--ink-2);line-height:1.55}
+.bf .fq{font-size:18px;font-weight:700;line-height:1.7;margin:0}.bf .fe{color:var(--ink-3);font-size:13.5px;margin:2px 0 8px}
+.bf input{font:inherit;font-size:17px;width:9em;max-width:100%;padding:6px 10px;border:0;border-bottom:2px solid #C4551C;background:#FFF7E3;border-radius:6px 6px 0 0;text-align:center}
+.bf button{font:inherit;min-height:44px;margin-left:8px;padding:0 18px;border:0;border-radius:10px;background:#C4551C;color:#fff;font-weight:700;cursor:pointer}
+.bf .bm{margin:8px 0 0;font-weight:700}.bf.ok .bm{color:#2E7D4A}.bf.no .bm{color:#B3322D}
+.bsc{position:sticky;bottom:0;margin-top:26px;padding:12px 16px;background:#fff;border:1px solid var(--line);border-radius:14px;display:flex;justify-content:space-between;align-items:center;font-weight:800}
+.bsc.fin{background:#FFF7E3;border-color:#F0C24B}.bfin,.bbest{margin:10px 0 0;font-size:14px;color:var(--ink-2)}
+.bapp{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin:14px 0 0;padding:12px 14px;background:#FFF7E3;border:1px solid #F0C24B;border-radius:14px}.bapp div{flex:1 1 220px}.bapp b{display:block;font-size:14.5px}.bapp small{color:var(--ink-3);font-size:12.5px}
+.bk-back{font-size:13px;margin-left:8px}
+.hub-top{margin:14px 0 4px;padding:18px;border-radius:18px;color:#fff}.hub-top h1{color:#fff;margin:4px 0 2px}.hub-top small{opacity:.85}
+.hprog{height:12px;border-radius:99px;background:rgba(255,255,255,.22);overflow:hidden;margin:14px 0 6px}.hprog i{display:block;height:100%;width:0;background:#F6C443;border-radius:99px;transition:width .5s}
+.hrow{display:flex;justify-content:space-between;gap:10px;font-size:14px;font-weight:700;flex-wrap:wrap}
+.hnext{display:block;margin-top:14px;text-align:center}
+.htools{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px;margin:14px 0}
+.htool{display:block;background:#fff;border:1px solid var(--line);border-radius:14px;padding:12px 14px;color:var(--ink);text-decoration:none}.htool b{display:block}.htool span{font-size:13px;color:var(--ink-3)}
+.hpart{font-size:14px;font-weight:800;color:var(--ink-3);margin:22px 0 6px}
+.hunits{list-style:none;margin:0;padding:0;background:#fff;border:1px solid var(--line);border-radius:16px;overflow:hidden}
+.hunits li{display:flex;align-items:center;gap:10px;padding:12px 14px;min-height:52px;border-top:1px solid var(--line2,#eee)}.hunits li:first-child{border-top:0}
+.hunits li a{flex:1;color:var(--ink);text-decoration:none;font-weight:700}.hunits li.off{opacity:.45}.hunits li.off a{pointer-events:none}
+.hunits .hs{font-size:12.5px;color:var(--ink-3);white-space:nowrap}.hunits li.ok .hs{color:#2E7D4A;font-weight:800}
+.bempty{padding:18px;background:#fff;border:1px solid var(--line);border-radius:14px}
+.bagain{font:inherit;min-height:44px;margin-top:10px;padding:0 18px;border:0;border-radius:10px;background:#C4551C;color:#fff;font-weight:700;cursor:pointer}
+.bcta{display:flex;flex-wrap:wrap;gap:10px;margin:22px 0 0}
+@media(max-width:480px){.bcards{grid-template-columns:1fr}.bf button{margin:8px 0 0}}
+</style>
+</head>
+<body>
+<header class="hd"><div class="hd-in">
+  <a href="/"><img src="/logo.png" alt=""><span>치즈감자 CheesePotato</span></a>
+</div></header>
+<main>
+<div data-bonus-mode="unit" data-book="first-steps-workbook" data-unit-key="first-steps-workbook/negation-tenses">
+<span class="bk-badge">책 보너스 · BOOK BONUS</span> <a class="bk-back" href="/bonus/first-steps-workbook/">← 책 코스 전체 · Course</a>
+<h1>부정과 시제: 안 · 못 · 과거 · 미래</h1>
+<div class="bapp"><div><b>앱에서 열면 진행률 · 연속 학습이 기록돼요</b><small>Open in the app to track progress and your streak</small></div><a class="btn main" href="intent://book/first-steps-workbook/negation-tenses#Intent;scheme=cheesepotato;package=com.cheesepotato.app;S.browser_fallback_url=https%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3Dcom.cheesepotato.app;end">앱에서 열기 · Open app</a><a class="btn sub" href="https://play.google.com/store/apps/details?id=com.cheesepotato.app">Google Play</a></div>
+<p class="bk-sub">Negation &amp; Tenses · 한국어 첫걸음 워크북 · Korean First Steps Workbook</p>
+<h2 class="bk-h">낱말 카드 <small>Flashcards · 눌러서 뒤집기 · tap to flip</small></h2>
+<div class="bcards"><button type="button" class="bcard" data-say="안"><span class="f">안</span><span class="b">not (simple negation / intention)</span></button><button type="button" class="bcard" data-say="못"><span class="f">못</span><span class="b">cannot (inability / circumstance)</span></button><button type="button" class="bcard" data-say="갔어요"><span class="f">갔어요</span><span class="b">went (past tense of 가다)</span></button><button type="button" class="bcard" data-say="먹었어요"><span class="f">먹었어요</span><span class="b">ate (past tense of 먹다)</span></button><button type="button" class="bcard" data-say="봤어요"><span class="f">봤어요</span><span class="b">watched / saw (past tense of 보다)</span></button><button type="button" class="bcard" data-say="갈 거예요"><span class="f">갈 거예요</span><span class="b">will go (future tense of 가다)</span></button><button type="button" class="bcard" data-say="먹을 거예요"><span class="f">먹을 거예요</span><span class="b">will eat (future tense of 먹다)</span></button><button type="button" class="bcard" data-say="만날 거예요"><span class="f">만날 거예요</span><span class="b">will meet (future tense of 만나다)</span></button></div>
+<h2 class="bk-h">퀴즈 <small>Quiz</small></h2><div class="bq" data-ans="1" data-id="negation-tenses:q0"><p class="bqq"><i>Q1</i>What is the difference between 안 and 못 in Korean?</p><ul class="bo"><li tabindex="0" role="button">① 안 is inability; 못 is personal choice</li><li tabindex="0" role="button">② 안 is not (choice/state); 못 is cannot (inability/circumstance)</li><li tabindex="0" role="button">③ Both mean exactly the same thing</li><li tabindex="0" role="button">④ 못 is only used for past tense</li></ul><p class="bw" hidden>안 expresses simple negation or choice not to do something, while 못 expresses inability or impossibility.</p></div><div class="bq" data-ans="1" data-id="negation-tenses:q1"><p class="bqq"><i>Q2</i>What is the past tense form of 마시다 (to drink)?</p><ul class="bo"><li tabindex="0" role="button">① 마시었어요</li><li tabindex="0" role="button">② 마셨어요</li><li tabindex="0" role="button">③ 마시았어요</li><li tabindex="0" role="button">④ 마시했어요</li></ul><p class="bw" hidden>마시- contracts with -었어요 to form 마셨어요.</p></div><div class="bq" data-ans="1" data-id="negation-tenses:q2"><p class="bqq"><i>Q3</i>How do you say I will study Korean tomorrow in polite future tense?</p><ul class="bo"><li tabindex="0" role="button">① 내일 한국어를 공부했어요</li><li tabindex="0" role="button">② 내일 한국어를 공부할 거예요</li><li tabindex="0" role="button">③ 내일 한국어를 공부해요</li><li tabindex="0" role="button">④ 내일 한국어를 공부하지 않아요</li></ul><p class="bw" hidden>-(으)ㄹ 거예요 forms the standard polite future tense: 공부하다 -&gt; 공부할 거예요.</p></div><div class="bq" data-ans="0" data-id="negation-tenses:q3"><p class="bqq"><i>Q4</i>Why is 오늘 날씨가 못 추워요 incorrect in Korean?</p><ul class="bo"><li tabindex="0" role="button">① 못 cannot be used with adjectives (describing states)</li><li tabindex="0" role="button">② 날씨 cannot be a subject</li><li tabindex="0" role="button">③ 추워요 is already negative</li><li tabindex="0" role="button">④ Today should be yesterday</li></ul><p class="bw" hidden>못 only negates dynamic action verbs (inability to act). Adjectives must be negated with 안 (안 추워요).</p></div><div class="bq" data-ans="2" data-id="negation-tenses:q4"><p class="bqq"><i>Q5</i>What is the past tense form of 하다 (to do)?</p><ul class="bo"><li tabindex="0" role="button">① 하았어요</li><li tabindex="0" role="button">② 하었어요</li><li tabindex="0" role="button">③ 했어요</li><li tabindex="0" role="button">④ 했었어요</li></ul><p class="bw" hidden>하다 always changes to 했어요 in the polite past tense.</p></div>
+<h2 class="bk-h">빈칸 쓰기 <small>Fill in the blank</small></h2><p class="bk-sub">한글로 쓰고 [확인]을 누르세요. · Type in Hangul, then press Check.</p><div class="bf" data-a="[&quot;못&quot;]" data-id="negation-tenses:f0"><p class="fq">다리가 아파서 오늘은 계단을 <input type="text" autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="빈칸 1"> 올라가요.<button type="button">확인 · Check</button></p><p class="fe">Because my leg hurts, I cannot walk up the stairs today.</p><p class="bm" hidden></p></div><div class="bf" data-a="[&quot;안&quot;]" data-id="negation-tenses:f1"><p class="fq">커피는 카페인이 많아서 밤에는 잘 <input type="text" autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="빈칸 2"> 마셔요.<button type="button">확인 · Check</button></p><p class="fe">Because coffee has a lot of caffeine, I choose not to drink it at night.</p><p class="bm" hidden></p></div><div class="bf" data-a="[&quot;보냈어요&quot;]" data-id="negation-tenses:f2"><p class="fq">지난 주말에 친구들과 시내에서 즐거운 시간을 <input type="text" autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="빈칸 3">.<button type="button">확인 · Check</button></p><p class="fe">Last weekend, I spent an enjoyable time with friends downtown. (보내다 - past tense)</p><p class="bm" hidden></p></div><div class="bf" data-a="[&quot;갈 거예요&quot;]" data-id="negation-tenses:f3"><p class="fq">이번 여름휴가에는 부모님과 함께 제주도에 <input type="text" autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="빈칸 4">.<button type="button">확인 · Check</button></p><p class="fe">During this summer vacation, I will go to Jeju Island with my parents. (가다 - future tense)</p><p class="bm" hidden></p></div><div class="bf" data-a="[&quot;했어요&quot;,&quot;전했어요&quot;]" data-id="negation-tenses:f4"><p class="fq">생일 파티에서 친구들에게 감사 인사를 <input type="text" autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="빈칸 5">.<button type="button">확인 · Check</button></p><p class="fe">At the birthday party, I thanked my friends. (하다, past tense)</p><p class="bm" hidden></p></div>
+<div class="bsc"><span>점수 · Score</span><span class="bscore">0 / 10</span></div>
+<p class="bfin" hidden>끝! 틀린 곳은 책 정답 쪽과 같이 다시 보세요. · Done! Review your misses with the book's answer key.</p><p class="bbest" hidden></p>
+<div class="bcta"><a class="btn main" href="/#learn">앱에서 더 연습하기<span> · Practice more free</span></a><a class="btn sub" href="/negation-tenses-worksheet/">인쇄용 학습지 · Printable sheet</a></div>
+</div>
+<p class="bk-sub" style="margin-top:30px">이 연습은 책에 없는 새로 만든 문항이에요(기출 아님). · New practice made for this site, not from any past exam.</p>
+</main>
+</body>
+</html>
