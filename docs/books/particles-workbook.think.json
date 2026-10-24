@@ -1,31 +1,199 @@
 {
- "_note": "책 전용 생각해 보는 칸(단원 id → practice 칸 배열). 만드는 법 docs/antigravity/antigravity-particles-think-task.md. 안티가 채우고 Claude 가 검토한다.",
- "pt-26-1": [
-  {
-   "type": "practice",
-   "title": {
-    "en": "Think it through · Which fits better?",
-    "ko": "생각해 보기 · 어느 쪽이 더 맞을까요?"
-   },
-   "hint": "Sometimes more than one is possible. Choose, then say why.",
-   "items": [
+  "_note": "책 전용 생각해 보는 칸(단원 id → practice 칸 배열). 만드는 법 docs/antigravity/antigravity-particles-think-task.md. 안티가 채우고 Claude 가 검토한다.",
+  "pt-26-1": [
     {
-     "q": "누가 학생이에요?  (Who is the student?)   (a) 저는 학생이에요.   (b) 제가 학생이에요.",
-     "a": "(b) 제가 학생이에요. The question asks who, so the answer, the new information, takes 이/가."
-    },
-    {
-     "q": "친구가 새 가방을 샀어요. 가방___ 예뻐요.  (Which is the natural reaction: 이 or 은?)",
-     "a": "이: 가방이 예뻐요. It reacts to what you see. 가방은 예뻐요 would sound like 'the bag is pretty (but something else is not)'."
-    },
-    {
-     "q": "하늘이 파래요 / 하늘은 파래요.  Both are correct. What is the difference?  (The sky is blue.)",
-     "a": "이 comments on what you see now. 은 states a general truth or sets up a contrast."
-    },
-    {
-     "q": "물이 있어요. / 물가 있어요.  One is wrong. Which one, and why?  (There is water.)",
-     "a": "물가 is wrong. 물 ends in a consonant (ㄹ), so it takes 이: 물이 있어요."
+      "type": "practice",
+      "title": {
+        "en": "Think it through · Which fits better?",
+        "ko": "생각해 보기 · 어느 쪽이 더 맞을까요?"
+      },
+      "hint": "Sometimes more than one is possible. Choose, then say why.",
+      "items": [
+        {
+          "q": "누가 학생이에요?  (Who is the student?)   (a) 저는 학생이에요.   (b) 제가 학생이에요.",
+          "a": "(b) 제가 학생이에요. The question asks who, so the answer, the new information, takes 이/가."
+        },
+        {
+          "q": "친구가 새 가방을 샀어요. 가방___ 예뻐요.  (Which is the natural reaction: 이 or 은?)",
+          "a": "이: 가방이 예뻐요. It reacts to what you see. 가방은 예뻐요 would sound like 'the bag is pretty (but something else is not)'."
+        },
+        {
+          "q": "하늘이 파래요 / 하늘은 파래요.  Both are correct. What is the difference?  (The sky is blue.)",
+          "a": "이 comments on what you see now. 은 states a general truth or sets up a contrast."
+        },
+        {
+          "q": "물이 있어요. / 물가 있어요.  One is wrong. Which one, and why?  (There is water.)",
+          "a": "물가 is wrong. 물 ends in a consonant (ㄹ), so it takes 이: 물이 있어요."
+        }
+      ]
     }
-   ]
-  }
- ]
+  ],
+  "pt-26-2": [
+    {
+      "type": "practice",
+      "title": {
+        "en": "Think it through · Which fits better?",
+        "ko": "생각해 보기 · 어느 쪽이 더 맞을까요?"
+      },
+      "hint": "Sometimes more than one is possible. Choose, then say why.",
+      "items": [
+        {
+          "q": "처음 만난 사람에게 자신을 소개할 때:  (Introducing yourself to someone for the first time:)   (a) 제가 마이클이에요.   (b) 저는 마이클이에요.",
+          "a": "(b) 저는 마이클이에요. You are setting yourself up as the topic of conversation. 제가 sounds like you are identifying yourself in answer to 'who is Michael?'."
+        },
+        {
+          "q": "사과는 달아요 / 사과가 달아요.  Both are correct. What is the difference?  (Apples are sweet.)",
+          "a": "사과는 states a general fact about apples (or contrasts with another fruit). 사과가 points out the specific apple in front of you."
+        },
+        {
+          "q": "선생님는 한국어를 가르치세요. / 선생님은 한국어를 가르치세요.  One is wrong. Which one, and why?",
+          "a": "선생님는 is wrong. 선생님 ends in a consonant (ㅁ), so it must take 은: 선생님은 한국어를 가르치세요."
+        },
+        {
+          "q": "커피는 마시지만 녹차___ 안 마셔요.  (Which particle highlights the contrast: 는 or 를?)",
+          "a": "는: 녹차는 안 마셔요. Using 은/는 on both nouns clearly sets up the contrast between what you drink and what you do not."
+        }
+      ]
+    }
+  ],
+  "pt-26-3": [
+    {
+      "type": "practice",
+      "title": {
+        "en": "Think it through · Which fits better?",
+        "ko": "생각해 보기 · 어느 쪽이 더 맞을까요?"
+      },
+      "hint": "Sometimes more than one is possible. Choose, then say why.",
+      "items": [
+        {
+          "q": "식당에서 음식을 주문할 때:  (Ordering food at a restaurant:)   (a) 김밥을 주세요.   (b) 김밥이 주세요.",
+          "a": "(a) 김밥을 주세요. 김밥 is the object of the action requested (giving). 김밥이 would imply the kimbap itself is giving something."
+        },
+        {
+          "q": "친구가 물어요: '점심 먹었어요?' / '점심을 먹었어요?'  Both are natural. What is the difference?  (Did you eat lunch?)",
+          "a": "Dropping 을 in 점심 먹었어요? is more common in friendly casual speech. 점심을 먹었어요? sounds more formal and precise."
+        },
+        {
+          "q": "가방를 샀어요. / 가방을 샀어요.  One is wrong. Which one, and why?  (I bought a bag.)",
+          "a": "가방를 is wrong. 가방 ends in a consonant (ㅇ), so it must take 을: 가방을 샀어요."
+        },
+        {
+          "q": "책이 재미있어요 / 책을 읽어요.  Why does one take 이 and the other 을?",
+          "a": "재미있다 is an adjective describing the book's quality (subject 이), while 읽다 is an action verb performed on the book (object 을)."
+        }
+      ]
+    }
+  ],
+  "pt-26-5": [
+    {
+      "type": "practice",
+      "title": {
+        "en": "Think it through · Which fits better?",
+        "ko": "생각해 보기 · 어느 쪽이 더 맞을까요?"
+      },
+      "hint": "Sometimes more than one is possible. Choose, then say why.",
+      "items": [
+        {
+          "q": "친구에게 내 책을 가리킬 때:  (Pointing to your own book to a friend:)   (a) 이것은 나의 책이에요.   (b) 이것은 내 책이에요.",
+          "a": "(b) 이것은 내 책이에요. In natural Korean, 나의 is almost always shortened to 내 in everyday speech."
+        },
+        {
+          "q": "한국 문화 / 한국의 문화.  Both are correct. What is the difference?  (Korean culture.)",
+          "a": "한국 문화 drops 의, which is very common when two nouns form a familiar compound. 한국의 문화 sounds slightly more formal and written."
+        },
+        {
+          "q": "선생님에 가방이에요. / 선생님의 가방이에요.  One is wrong. Which one, and why?  (It is the teacher's bag.)",
+          "a": "선생님에 is wrong in spelling. Although 의 is often pronounced [에], it must be written as 의 to show possession: 선생님의 가방."
+        },
+        {
+          "q": "친구에게 공책을 빌릴 때:  (Asking to borrow a notebook:)   (a) 네 공책 좀 빌려줘.   (b) 네의 공책 좀 빌려줘.",
+          "a": "(a) 네 공책 좀 빌려줘. 너의 (your) contracts to 네 (often pronounced [니]). 네의 is redundant and incorrect."
+        }
+      ]
+    }
+  ],
+  "pt-26-6": [
+    {
+      "type": "practice",
+      "title": {
+        "en": "Think it through · Which fits better?",
+        "ko": "생각해 보기 · 어느 쪽이 더 맞을까요?"
+      },
+      "hint": "Sometimes more than one is possible. Choose, then say why.",
+      "items": [
+        {
+          "q": "친구가 지금 어디에 있는지 말할 때:  (Saying where a friend is right now:)   (a) 친구가 도서관에 있어요.   (b) 친구가 도서관에서 있어요.",
+          "a": "(a) 친구가 도서관에 있어요. With 있다 (to exist), static location takes 에, not 에서."
+        },
+        {
+          "q": "오늘 만나요 / 오늘에 만나요.  One is natural. Which one, and why?  (Let's meet today.)",
+          "a": "오늘 만나요 is natural. Relative time words like 오늘, 어제, and 내일 do not take the time particle 에."
+        },
+        {
+          "q": "아침 일곱 시___ 일어나요.  (Which particle marks the specific time point: 에 or 에서?)",
+          "a": "에: 아침 일곱 시에 일어나요. 에 marks the specific clock time when an action takes place."
+        },
+        {
+          "q": "방에 있어요 / 방에서 쉬어요.  Why does one take 에 and the other 에서?",
+          "a": "있어요 expresses static presence (where something is, taking 에), while 쉬어요 is an active behavior (taking 에서)."
+        }
+      ]
+    }
+  ],
+  "pt-26-7": [
+    {
+      "type": "practice",
+      "title": {
+        "en": "Think it through · Which fits better?",
+        "ko": "생각해 보기 · 어느 쪽이 더 맞을까요?"
+      },
+      "hint": "Sometimes more than one is possible. Choose, then say why.",
+      "items": [
+        {
+          "q": "시장에서 사과 가격을 물을 때:  (Asking the price of apples at the market:)   (a) 한 개에 얼마예요?   (b) 한 개로 얼마예요?",
+          "a": "(a) 한 개에 얼마예요? 에 attaches to counting units to mean 'per' or 'for each unit'."
+        },
+        {
+          "q": "학교에 가요 / 학교로 가요.  Both are correct. What is the difference?  (I go to school.)",
+          "a": "학교에 marks school as the specific destination. 학교로 marks school as the general direction (heading toward school)."
+        },
+        {
+          "q": "하루에 세 번 먹어요. / 하루에서 세 번 먹어요.  One is wrong. Which one, and why?  (Take three times a day.)",
+          "a": "하루에서 is wrong. 에 is the unit particle indicating rate or frequency per time period: 하루에 세 번."
+        },
+        {
+          "q": "오후 두 시에 공항___ 도착했어요.  (Which particle marks the destination arrival point: 에 or 에서?)",
+          "a": "에: 공항에 도착했어요. 도착하다 (to arrive) takes 에 to mark the final arrival point."
+        }
+      ]
+    }
+  ],
+  "pt-26-8": [
+    {
+      "type": "practice",
+      "title": {
+        "en": "Think it through · Which fits better?",
+        "ko": "생각해 보기 · 어느 쪽이 더 맞을까요?"
+      },
+      "hint": "Sometimes more than one is possible. Choose, then say why.",
+      "items": [
+        {
+          "q": "카페에서 친구를 만나요 / 카페에 친구를 만나요.  Which one is correct, and why?  (I meet a friend at the cafe.)",
+          "a": "카페에서 친구를 만나요 is correct. Meeting a friend is an active event taking place at the cafe, requiring 에서."
+        },
+        {
+          "q": "어디에 살아요? / 어디에서 살아요?  Both are heard. What is the difference?  (Where do you live?)",
+          "a": "어디에 살아요 focuses on static residence location (more common). 어디에서 살아요 views living as active daily life."
+        },
+        {
+          "q": "미국에 왔어요 / 미국에서 왔어요.  How does the meaning change?  (Coming and America.)",
+          "a": "미국에 왔어요 means you arrived in America (destination). 미국에서 왔어요 means you came from America (origin)."
+        },
+        {
+          "q": "식당에 밥을 먹어요. / 식당에서 밥을 먹어요.  One is wrong. Which one, and why?  (I eat a meal at the restaurant.)",
+          "a": "식당에 밥을 먹어요 is wrong. Eating is an action, so the place where it happens must take 에서: 식당에서 밥을 먹어요."
+        }
+      ]
+    }
+  ]
 }
