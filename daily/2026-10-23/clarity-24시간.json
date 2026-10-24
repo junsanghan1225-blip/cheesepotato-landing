@@ -1,0 +1,349 @@
+{
+ "overall": [
+  {
+   "metricName": "DeadClickCount",
+   "information": [
+    {
+     "sessionsCount": 64,
+     "sessionsWithMetricPercentage": 15.62,
+     "sessionsWithoutMetricPercentage": 84.38,
+     "pagesViews": 13,
+     "subTotal": 25
+    }
+   ]
+  },
+  {
+   "metricName": "ExcessiveScroll",
+   "information": [
+    {
+     "sessionsCount": 64,
+     "sessionsWithMetricPercentage": 4.69,
+     "sessionsWithoutMetricPercentage": 95.31,
+     "pagesViews": 3,
+     "subTotal": 3
+    }
+   ]
+  },
+  {
+   "metricName": "RageClickCount",
+   "information": [
+    {
+     "sessionsCount": 64,
+     "sessionsWithMetricPercentage": 1.56,
+     "sessionsWithoutMetricPercentage": 98.44,
+     "pagesViews": 1,
+     "subTotal": 1
+    }
+   ]
+  },
+  {
+   "metricName": "QuickbackClick",
+   "information": [
+    {
+     "sessionsCount": 64,
+     "sessionsWithMetricPercentage": 10.94,
+     "sessionsWithoutMetricPercentage": 89.06,
+     "pagesViews": 35,
+     "subTotal": 35
+    }
+   ]
+  },
+  {
+   "metricName": "ScriptErrorCount",
+   "information": [
+    {
+     "sessionsCount": 64,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0
+    }
+   ]
+  },
+  {
+   "metricName": "ErrorClickCount",
+   "information": [
+    {
+     "sessionsCount": 64,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0
+    }
+   ]
+  },
+  {
+   "metricName": "ScrollDepth",
+   "information": [
+    {
+     "averageScrollDepth": 66.54
+    }
+   ]
+  },
+  {
+   "metricName": "Traffic",
+   "information": [
+    {
+     "totalSessionCount": 64,
+     "totalBotSessionCount": 74,
+     "distinctUserCount": 56,
+     "pagesPerSessionPercentage": 2.296875
+    }
+   ]
+  },
+  {
+   "metricName": "EngagementTime",
+   "information": [
+    {
+     "totalTime": 309,
+     "activeTime": 151
+    }
+   ]
+  },
+  {
+   "metricName": "Browser",
+   "information": [
+    {
+     "name": "Chrome",
+     "sessionsCount": 41
+    },
+    {
+     "name": "MobileSafari",
+     "sessionsCount": 10
+    },
+    {
+     "name": "Edge",
+     "sessionsCount": 5
+    },
+    {
+     "name": "SamsungInternet",
+     "sessionsCount": 4
+    },
+    {
+     "name": "ChromeMobile",
+     "sessionsCount": 2
+    },
+    {
+     "name": "GoogleApp",
+     "sessionsCount": 1
+    },
+    {
+     "name": "Firefox",
+     "sessionsCount": 1
+    }
+   ]
+  },
+  {
+   "metricName": "Device",
+   "information": [
+    {
+     "name": "PC",
+     "sessionsCount": 45
+    },
+    {
+     "name": "Mobile",
+     "sessionsCount": 13
+    },
+    {
+     "name": "Tablet",
+     "sessionsCount": 6
+    }
+   ]
+  },
+  {
+   "metricName": "OS",
+   "information": [
+    {
+     "name": "Windows",
+     "sessionsCount": 20
+    },
+    {
+     "name": "Linux",
+     "sessionsCount": 15
+    },
+    {
+     "name": "IOS",
+     "sessionsCount": 11
+    },
+    {
+     "name": "MacOSX",
+     "sessionsCount": 9
+    },
+    {
+     "name": "Android",
+     "sessionsCount": 8
+    },
+    {
+     "name": "ChromeOS",
+     "sessionsCount": 1
+    }
+   ]
+  },
+  {
+   "metricName": "Country",
+   "information": [
+    {
+     "name": "Turkey",
+     "sessionsCount": 19
+    },
+    {
+     "name": "Czech Republic",
+     "sessionsCount": 11
+    },
+    {
+     "name": "Singapore",
+     "sessionsCount": 8
+    },
+    {
+     "name": "Korea, Republic of",
+     "sessionsCount": 6
+    },
+    {
+     "name": "United States",
+     "sessionsCount": 5
+    },
+    {
+     "name": "Japan",
+     "sessionsCount": 3
+    },
+    {
+     "name": "Poland",
+     "sessionsCount": 3
+    },
+    {
+     "name": "Uzbekistan",
+     "sessionsCount": 3
+    },
+    {
+     "name": "China",
+     "sessionsCount": 2
+    },
+    {
+     "name": "India",
+     "sessionsCount": 1
+    }
+   ]
+  },
+  {
+   "metricName": "PageTitle",
+   "information": [
+    {
+     "name": "치즈감자 웹사이트 — 무료 한국어 학습과 TOPIK 연습 | Learn Korean Free",
+     "sessionsCount": 33
+    },
+    {
+     "name": "TOPIK Vocabulary List — Free CSV & Anki Download (Levels 1–6) | CheesePotato",
+     "sessionsCount": 8
+    },
+    {
+     "name": "TOPIK(토픽) II 쓰기 연습 문항 200개 — 51·52·53·54번 | CheesePotato",
+     "sessionsCount": 6
+    },
+    {
+     "name": "Download — CheesePotato",
+     "sessionsCount": 3
+    },
+    {
+     "name": "TOPIK Grammar List — 290 Korean Grammar Patterns, Free CSV & Anki | CheesePotato",
+     "sessionsCount": 3
+    },
+    {
+     "name": "\"late\" in Korean — 늦다 (neutda) and 2 more ways to say it | CheesePotato",
+     "sessionsCount": 2
+    },
+    {
+     "name": "TOPIK 51번 연습 — 행사 초대 | CheesePotato",
+     "sessionsCount": 2
+    },
+    {
+     "name": "TOPIK 52번 연습 — 색이 주는 느낌 | CheesePotato",
+     "sessionsCount": 2
+    },
+    {
+     "name": "TOPIK 54번 연습 — 지속 가능한 소비의 필요성 | CheesePotato",
+     "sessionsCount": 2
+    },
+    {
+     "name": "TOPIK II Writing Practice: 200 Questions (51–54) with Model Answers | CheesePotato",
+     "sessionsCount": 2
+    }
+   ]
+  },
+  {
+   "metricName": "ReferrerUrl",
+   "information": [
+    {
+     "name": "everykoreans.com",
+     "sessionsCount": 34
+    },
+    {
+     "name": "www.bing.com",
+     "sessionsCount": 5
+    },
+    {
+     "name": "accounts.google.com",
+     "sessionsCount": 3
+    },
+    {
+     "name": "www.google.com",
+     "sessionsCount": 3
+    },
+    {
+     "name": "accounts.google.com.tr",
+     "sessionsCount": 1
+    },
+    {
+     "name": "duckduckgo.com",
+     "sessionsCount": 1
+    }
+   ]
+  },
+  {
+   "metricName": "PopularPages",
+   "information": [
+    {
+     "url": "https://everykoreans.com/",
+     "visitsCount": 34
+    },
+    {
+     "url": "https://everykoreans.com/topik-vocabulary-list/",
+     "visitsCount": 8
+    },
+    {
+     "url": "https://everykoreans.com/topik-writing/",
+     "visitsCount": 6
+    },
+    {
+     "url": "https://everykoreans.com/topik-writing/w51-5.html",
+     "visitsCount": 4
+    },
+    {
+     "url": "https://everykoreans.com/download/",
+     "visitsCount": 3
+    },
+    {
+     "url": "https://everykoreans.com/topik-grammar-list/",
+     "visitsCount": 3
+    },
+    {
+     "url": "https://everykoreans.com/en/topik-writing/",
+     "visitsCount": 2
+    },
+    {
+     "url": "https://everykoreans.com/korean-word-for/late.html",
+     "visitsCount": 2
+    },
+    {
+     "url": "https://everykoreans.com/topik-writing/w52-4.html",
+     "visitsCount": 2
+    },
+    {
+     "url": "https://everykoreans.com/topik-writing/w54-7.html",
+     "visitsCount": 2
+    }
+   ]
+  }
+ ],
+ "byUrl": [],
+ "note": ""
+}
