@@ -1567,6 +1567,658 @@
           ]
         }
       ]
+    },
+    "location-places-exist": {
+      "cards": [
+        {
+          "ko": "위",
+          "en": "on / above / top"
+        },
+        {
+          "ko": "아래",
+          "en": "under / below"
+        },
+        {
+          "ko": "앞",
+          "en": "in front of"
+        },
+        {
+          "ko": "뒤",
+          "en": "behind / back"
+        },
+        {
+          "ko": "옆",
+          "en": "next to / beside"
+        },
+        {
+          "ko": "안",
+          "en": "inside / in"
+        },
+        {
+          "ko": "약국",
+          "en": "pharmacy"
+        },
+        {
+          "ko": "도서관",
+          "en": "library"
+        }
+      ],
+      "quiz": [
+        {
+          "q": "Which position word means behind or in the back?",
+          "opts": [
+            "앞",
+            "뒤",
+            "위",
+            "밑"
+          ],
+          "a": 1,
+          "why": "뒤 means behind or back. 앞 means in front."
+        },
+        {
+          "q": "Where do you go to buy medicine in Korea?",
+          "opts": [
+            "은행",
+            "약국",
+            "식당",
+            "도서관"
+          ],
+          "a": 1,
+          "why": "약국 is pharmacy, where you purchase medicine."
+        },
+        {
+          "q": "Where do you deposit or withdraw money?",
+          "opts": [
+            "병원",
+            "은행",
+            "학교",
+            "공원"
+          ],
+          "a": 1,
+          "why": "은행 means bank."
+        },
+        {
+          "q": "What is the opposite of 있어요 (there is / to have)?",
+          "opts": [
+            "없어요",
+            "좋아요",
+            "가요",
+            "와요"
+          ],
+          "a": 0,
+          "why": "없어요 means there is not or to not have, the direct opposite of 있어요."
+        },
+        {
+          "q": "Which word means inside?",
+          "opts": [
+            "밖",
+            "안",
+            "위",
+            "옆"
+          ],
+          "a": 1,
+          "why": "안 means inside. 밖 means outside."
+        }
+      ],
+      "fill": [
+        {
+          "q": "선생님이 칠판 ___에 서 계세요.",
+          "en": "The teacher is standing in front of the board.",
+          "a": [
+            "앞"
+          ]
+        },
+        {
+          "q": "지하철역 ___에 큰 서점이 있어요.",
+          "en": "There is a large bookstore next to the subway station.",
+          "a": [
+            "옆"
+          ]
+        },
+        {
+          "q": "침대 ___에 작은 슬리퍼가 놓여 있어요.",
+          "en": "Small slippers are placed under the bed.",
+          "a": [
+            "밑",
+            "아래"
+          ]
+        },
+        {
+          "q": "감기에 걸려서 약을 사러 ___에 가요.",
+          "en": "Because I caught a cold, I go to the pharmacy to buy medicine.",
+          "a": [
+            "약국"
+          ]
+        },
+        {
+          "q": "지금 지갑에 현금이 하나도 ___.",
+          "en": "Right now there is no cash at all in my wallet.",
+          "a": [
+            "없어요"
+          ]
+        }
+      ]
+    },
+    "colors-shapes-opposites": {
+      "cards": [
+        {
+          "ko": "빨간색",
+          "en": "red (noun)"
+        },
+        {
+          "ko": "파란색",
+          "en": "blue (noun)"
+        },
+        {
+          "ko": "노란색",
+          "en": "yellow (noun)"
+        },
+        {
+          "ko": "초록색",
+          "en": "green (noun)"
+        },
+        {
+          "ko": "검은색",
+          "en": "black (noun)"
+        },
+        {
+          "ko": "동그라미",
+          "en": "circle (shape)"
+        },
+        {
+          "ko": "세모",
+          "en": "triangle (shape)"
+        },
+        {
+          "ko": "네모",
+          "en": "square / rectangle (shape)"
+        }
+      ],
+      "quiz": [
+        {
+          "q": "What color is a ripe banana (바나나)?",
+          "opts": [
+            "빨간색",
+            "파란색",
+            "노란색",
+            "검은색"
+          ],
+          "a": 2,
+          "why": "A banana is yellow, which is 노란색 in Korean."
+        },
+        {
+          "q": "What is the three-sided triangle shape called in everyday Korean?",
+          "opts": [
+            "동그라미",
+            "세모",
+            "네모",
+            "별"
+          ],
+          "a": 1,
+          "why": "세모 is the everyday word for triangle (세 means three)."
+        },
+        {
+          "q": "What is the opposite of 무겁다 (heavy)?",
+          "opts": [
+            "가볍다",
+            "작다",
+            "짧다",
+            "느리다"
+          ],
+          "a": 0,
+          "why": "가볍다 means light in weight, which is the opposite of 무겁다."
+        },
+        {
+          "q": "What is the opposite of 빠르다 (fast) in the polite present tense?",
+          "opts": [
+            "느려요",
+            "무거워요",
+            "쉬워요",
+            "추워요"
+          ],
+          "a": 0,
+          "why": "The opposite of 빠르다 (fast) is 느리다 (slow), which conjugates to 느려요."
+        },
+        {
+          "q": "What color is clean snow (눈)?",
+          "opts": [
+            "흰색",
+            "초록색",
+            "검은색",
+            "파란색"
+          ],
+          "a": 0,
+          "why": "Snow is white, which is 흰색 or 하얀색."
+        }
+      ],
+      "fill": [
+        {
+          "q": "신호등의 멈춤 불빛은 ___이에요.",
+          "en": "The stop light on the traffic signal is red.",
+          "a": [
+            "빨간색"
+          ]
+        },
+        {
+          "q": "바다와 하늘은 시원한 ___이에요.",
+          "en": "The sea and the sky are a refreshing blue.",
+          "a": [
+            "파란색"
+          ]
+        },
+        {
+          "q": "이 상자는 종이로 만들어서 아주 ___.",
+          "en": "Because this box is made of paper, it is very light. (가볍다)",
+          "a": [
+            "가벼워요"
+          ]
+        },
+        {
+          "q": "창문 모양이 반듯한 ___예요.",
+          "en": "The shape of the window is a neat square / rectangle.",
+          "a": [
+            "네모"
+          ]
+        },
+        {
+          "q": "달리기 시합에서 치타는 정말 ___.",
+          "en": "In a running race, the cheetah is really fast. (빠르다)",
+          "a": [
+            "빨라요"
+          ]
+        }
+      ]
+    },
+    "house-rooms-furniture": {
+      "cards": [
+        {
+          "ko": "거실",
+          "en": "living room"
+        },
+        {
+          "ko": "부엌",
+          "en": "kitchen"
+        },
+        {
+          "ko": "침실",
+          "en": "bedroom"
+        },
+        {
+          "ko": "화장실",
+          "en": "bathroom / restroom"
+        },
+        {
+          "ko": "소파",
+          "en": "sofa / couch"
+        },
+        {
+          "ko": "침대",
+          "en": "bed"
+        },
+        {
+          "ko": "냉장고",
+          "en": "refrigerator"
+        },
+        {
+          "ko": "옷장",
+          "en": "wardrobe / closet"
+        }
+      ],
+      "quiz": [
+        {
+          "q": "Where do you cook food in a home?",
+          "opts": [
+            "거실",
+            "부엌",
+            "침실",
+            "화장실"
+          ],
+          "a": 1,
+          "why": "부엌 is the kitchen, where meals are prepared and cooked."
+        },
+        {
+          "q": "Which appliance is used to wash dirty clothes?",
+          "opts": [
+            "냉장고",
+            "세탁기",
+            "청소기",
+            "전자레인지"
+          ],
+          "a": 1,
+          "why": "세탁기 is the washing machine."
+        },
+        {
+          "q": "Where do Koreans typically take off their shoes when entering a house?",
+          "opts": [
+            "현관",
+            "베란다",
+            "부엌",
+            "침실"
+          ],
+          "a": 0,
+          "why": "현관 is the front entrance where shoes are removed."
+        },
+        {
+          "q": "Which piece of furniture do you sleep on?",
+          "opts": [
+            "식탁",
+            "소파",
+            "침대",
+            "책장"
+          ],
+          "a": 2,
+          "why": "침대 means bed."
+        },
+        {
+          "q": "Where do family members usually gather to watch TV?",
+          "opts": [
+            "화장실",
+            "거실",
+            "현관",
+            "부엌"
+          ],
+          "a": 1,
+          "why": "거실 is the living room, typically where the TV and sofa are placed."
+        }
+      ],
+      "fill": [
+        {
+          "q": "가족들이 식사할 때 주방 ___에 둘러앉아요.",
+          "en": "Family members sit around the dining table when having a meal.",
+          "a": [
+            "식탁"
+          ]
+        },
+        {
+          "q": "더러워진 양말과 옷을 모아서 ___에 넣어요.",
+          "en": "I gather dirty socks and clothes and put them in the washing machine.",
+          "a": [
+            "세탁기"
+          ]
+        },
+        {
+          "q": "아침에 일어나서 침실 창문을 활짝 ___.",
+          "en": "Getting up in the morning, I open the bedroom window wide. (열다)",
+          "a": [
+            "열어요"
+          ]
+        },
+        {
+          "q": "새로 산 외투를 옷걸이에 걸어서 ___에 넣었어요.",
+          "en": "I hung the newly bought coat on a hanger and put it in the wardrobe.",
+          "a": [
+            "옷장"
+          ]
+        },
+        {
+          "q": "퇴근하고 집에 오면 편안한 ___에 앉아서 쉬어요.",
+          "en": "Coming home after work, I sit on the comfortable sofa and rest.",
+          "a": [
+            "소파"
+          ]
+        }
+      ]
+    },
+    "school-classroom": {
+      "cards": [
+        {
+          "ko": "교실",
+          "en": "classroom"
+        },
+        {
+          "ko": "선생님",
+          "en": "teacher"
+        },
+        {
+          "ko": "칠판",
+          "en": "blackboard / whiteboard"
+        },
+        {
+          "ko": "공책",
+          "en": "notebook"
+        },
+        {
+          "ko": "지우개",
+          "en": "eraser"
+        },
+        {
+          "ko": "교과서",
+          "en": "textbook"
+        },
+        {
+          "ko": "질문이 있어요",
+          "en": "I have a question."
+        },
+        {
+          "ko": "천천히 말씀해 주세요",
+          "en": "Please speak slowly."
+        }
+      ],
+      "quiz": [
+        {
+          "q": "What does the teacher mean by 책을 펴세요?",
+          "opts": [
+            "Please close your book.",
+            "Please open your book.",
+            "Please write in your book.",
+            "Please read after me."
+          ],
+          "a": 1,
+          "why": "책을 펴세요 means Please open your book (펴다 means to open or unfold)."
+        },
+        {
+          "q": "When the teacher speaks too fast, what is the best polite request?",
+          "opts": [
+            "잘 들으세요",
+            "천천히 말씀해 주세요",
+            "공책에 쓰세요",
+            "칠판을 보세요"
+          ],
+          "a": 1,
+          "why": "천천히 말씀해 주세요 politely asks Please speak slowly."
+        },
+        {
+          "q": "What tool do you use to erase pencil writing?",
+          "opts": [
+            "필통",
+            "지우개",
+            "칠판",
+            "가방"
+          ],
+          "a": 1,
+          "why": "지우개 means eraser (from 지우다 to erase)."
+        },
+        {
+          "q": "What does 따라 읽으세요 mean?",
+          "opts": [
+            "Please read after me.",
+            "Please write in silence.",
+            "Please close the book.",
+            "Please listen carefully."
+          ],
+          "a": 0,
+          "why": "따라 읽으세요 means Please read after me / repeat after me."
+        },
+        {
+          "q": "How do you politely say I understand to your teacher?",
+          "opts": [
+            "모르겠어요",
+            "알겠습니다",
+            "아니에요",
+            "반갑습니다"
+          ],
+          "a": 1,
+          "why": "알겠습니다 is the formal polite acknowledgment meaning Understood / I understand."
+        }
+      ],
+      "fill": [
+        {
+          "q": "수업을 시작하니까 모두 책을 ___.",
+          "en": "Since class is starting, everyone please open your books.",
+          "a": [
+            "펴세요"
+          ]
+        },
+        {
+          "q": "필통 안에 연필과 볼펜이 세 자루 ___.",
+          "en": "There are three pencils and ballpoint pens inside the pencil case.",
+          "a": [
+            "있어요"
+          ]
+        },
+        {
+          "q": "선생님이 중요한 단어를 칠판에 ___.",
+          "en": "The teacher writes an important word on the board. (쓰다)",
+          "a": [
+            "써요",
+            "쓰세요"
+          ]
+        },
+        {
+          "q": "발음이 어려워서 선생님 목소리를 잘 ___.",
+          "en": "Because pronunciation is difficult, I listen carefully to the teacher s voice. (듣다)",
+          "a": [
+            "들어요"
+          ]
+        },
+        {
+          "q": "수업이 끝나서 가방에 교과서를 ___.",
+          "en": "Because class ended, I put the textbook in my bag. (넣다)",
+          "a": [
+            "넣어요"
+          ]
+        }
+      ]
+    },
+    "food-ordering-taste": {
+      "cards": [
+        {
+          "ko": "저기요",
+          "en": "Excuse me! (calling a waiter/server)"
+        },
+        {
+          "ko": "메뉴판",
+          "en": "menu (board/book)"
+        },
+        {
+          "ko": "계산해 주세요",
+          "en": "Check, please. / The bill, please."
+        },
+        {
+          "ko": "맛있어요",
+          "en": "It is delicious."
+        },
+        {
+          "ko": "매워요",
+          "en": "It is spicy. (맵다)"
+        },
+        {
+          "ko": "달아요",
+          "en": "It is sweet. (달다)"
+        },
+        {
+          "ko": "짜요",
+          "en": "It is salty. (짜다)"
+        },
+        {
+          "ko": "인분",
+          "en": "counter for servings of food"
+        }
+      ],
+      "quiz": [
+        {
+          "q": "How do you call a server over at a Korean restaurant?",
+          "opts": [
+            "여보세요",
+            "저기요",
+            "누구세요",
+            "어서 오세요"
+          ],
+          "a": 1,
+          "why": "저기요 or 여기요 is used to politely get the server s attention."
+        },
+        {
+          "q": "What does 계산해 주세요 mean when finishing a meal?",
+          "opts": [
+            "Please bring water.",
+            "Please show me the menu.",
+            "Check, please. / Please give me the bill.",
+            "One more, please."
+          ],
+          "a": 2,
+          "why": "계산해 주세요 asks the cashier or server for the bill/check."
+        },
+        {
+          "q": "Which word describes the taste of hot spicy kimchi stew (김치찌개)?",
+          "opts": [
+            "달아요",
+            "매워요",
+            "셔요",
+            "싱거워요"
+          ],
+          "a": 1,
+          "why": "Kimchi stew is typically spicy, which is 맵다 (매워요 in polite present)."
+        },
+        {
+          "q": "Which counter is used to order servings of barbecue meat (고기)?",
+          "opts": [
+            "인분",
+            "명",
+            "권",
+            "마리"
+          ],
+          "a": 0,
+          "why": "인분 is the counter for food portions or servings per person."
+        },
+        {
+          "q": "What is the polite present form of 달다 (to be sweet)?",
+          "opts": [
+            "달라요",
+            "달아요",
+            "대요",
+            "달해요"
+          ],
+          "a": 1,
+          "why": "달다 conjugates with -아요 into 달아요."
+        }
+      ],
+      "fill": [
+        {
+          "q": "주문하기 전에 먼저 ___을 보여 주세요.",
+          "en": "Before ordering, please show me the menu first.",
+          "a": [
+            "메뉴판"
+          ]
+        },
+        {
+          "q": "갈비 2___과 공깃밥 두 개 주세요.",
+          "en": "Please give me two servings of galbi and two bowls of rice.",
+          "a": [
+            "인분"
+          ]
+        },
+        {
+          "q": "이 국은 간이 맞지 않아서 조금 ___.",
+          "en": "This soup lacks seasoning so it is a bit bland. (싱겁다)",
+          "a": [
+            "싱거워요"
+          ]
+        },
+        {
+          "q": "소금을 너무 많이 넣어서 국물이 너무 ___.",
+          "en": "Because too much salt was added, the broth is too salty. (짜다)",
+          "a": [
+            "짜요"
+          ]
+        },
+        {
+          "q": "초콜릿과 아이스크림은 아주 ___.",
+          "en": "Chocolate and ice cream are very sweet. (달다)",
+          "a": [
+            "달아요"
+          ]
+        }
+      ]
     }
   }
 }
