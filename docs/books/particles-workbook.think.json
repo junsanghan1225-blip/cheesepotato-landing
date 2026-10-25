@@ -811,7 +811,7 @@
         },
         {
           "q": "친구가 약속 장소에서 한 시간___ 기다렸대요.  (Which particle expresses shock at the long wait: 이나 or 만?)",
-          "a": "이나: 한 시간이나. 이나 highlights the speaker surprise at the large amount of time spent waiting."
+          "a": "이나: 한 시간이나. 이나 highlights the speaker's surprise at the large amount of time spent waiting."
         }
       ]
     }
@@ -827,7 +827,7 @@
       "items": [
         {
           "q": "아침부터 저녁까지 일해요 / 집에서 회사까지 걸어요.  Why do they use different start particles?",
-          "a": "아침 and 저녁 are time points, taking 부터. 집 and 회사 physical locations, taking 에서."
+          "a": "아침 and 저녁 are time points, taking 부터. 집 and 회사 are physical locations, taking 에서."
         },
         {
           "q": "서울부터 부산까지 가요. / 서울에서 부산까지 가요.  Which is more natural for physical travel distance?",
@@ -894,7 +894,7 @@
           "a": "(b) 할아버지께. For respected elders like grandfather, the honorific dative 께 is most appropriate."
         },
         {
-          "q": "회의는 두 시___ 시작해요.  (The meeting starts from 2 o clock:)   (a) 두 시에서   (b) 두 시부터",
+          "q": "회의는 두 시___ 시작해요.  (The meeting starts from 2 o'clock:)   (a) 두 시에서   (b) 두 시부터",
           "a": "(b) 두 시부터. Time points pair with 부터. 에서 is reserved for spatial starting points."
         },
         {
@@ -966,7 +966,7 @@
           "a": "사과만 안 먹었어요 means I ate everything except apples. 사과밖에 안 먹었어요 means I ate only apples."
         },
         {
-          "q": "내일 한 시___ 만나요.  (Let us meet around 1 o clock: Choose the estimation particle)   (a) 한 시쯤   (b) 한 시보다",
+          "q": "내일 한 시___ 만나요.  (Let us meet around 1 o'clock: Choose the estimation particle)   (a) 한 시쯤   (b) 한 시보다",
           "a": "(a) 한 시쯤. 쯤 means around or approximately when attached to clock times."
         },
         {
@@ -998,7 +998,7 @@
           "a": "남았어요 is affirmative. 밖에 requires a negative predicate like 안 남았어요 or 없어요."
         },
         {
-          "q": "점심에 밥___ 라면을 먹을래요.  (Consonant trap: Choose bread or ramen)   (a) 밥나   (b) 밥이나",
+          "q": "점심에 밥___ 라면을 먹을래요.  (Consonant trap: Choose rice or ramen)   (a) 밥나   (b) 밥이나",
           "a": "(b) 밥이나. 밥 ends in a consonant (ㅂ), so the choice particle is 이나. 나 is only used after vowels."
         },
         {
