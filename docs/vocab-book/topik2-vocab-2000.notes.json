@@ -994,5 +994,345 @@
    "kind": "synonym",
    "note": "섬세하다 (纖細) highlights sensitive, artistic subtlety and emotional delicacy (섬세한 표현 delicate expression). 세밀하다 (細密) highlights minute technical precision and thoroughness (세밀한 묘사 detailed rendering)."
   }
+ ],
+ "tw-31": [
+  {
+   "words": [
+    "절다",
+    "절다"
+   ],
+   "kind": "homonym",
+   "note": "절다 be salted, pickled, or drenched in sweat (소금에 절인 배추 salted cabbage) vs 절다 limp or walk unevenly due to leg injury (다리를 절며 걷다 walk with a limp). Two distinct native Korean verbs."
+  },
+  {
+   "words": [
+    "착용",
+    "입다"
+   ],
+   "kind": "synonym",
+   "note": "착용 (着用) is formal and spans clothes, protective helmets, masks, and seatbelts (헬멧 착용 wearing helmets). 입다 is everyday native Korean for putting on garments over the body (코트를 입다 wear a coat)."
+  },
+  {
+   "words": [
+    "화사하다",
+    "화려하다"
+   ],
+   "kind": "synonym",
+   "note": "화사하다 (華奢) evokes radiant, cheerful blooming brightness typical of spring or smiles (화사한 꽃무늬 radiant floral pattern). 화려하다 (華麗) conveys grand, opulent luxury and eye-catching spectacle (화려한 파티 드레스)."
+  },
+  {
+   "words": [
+    "반듯하다",
+    "곧다"
+   ],
+   "kind": "synonym",
+   "note": "반듯하다 stresses orderly neatness, symmetry, and tidy rectangular alignment (반듯하게 정리된 책상 tidy desk). 곧다 focuses on being linear without curves or moral deviation (곧은 길 straight path, 곧은 신념)."
+  }
+ ],
+ "tw-32": [
+  {
+   "words": [
+    "환기",
+    "환기"
+   ],
+   "kind": "homonym",
+   "note": "換氣 air ventilation to refresh indoor air (실내 환기 room ventilation) vs 喚起 psychological arousing or awakening of attention (주의를 환기하다 call attention). Two distinct Hanja terms."
+  },
+  {
+   "words": [
+    "후기",
+    "후기"
+   ],
+   "kind": "homonym",
+   "note": "後期 later half or historical latter stage (학기 후기 second half of term) vs 後記 written review or postscript recounting an experience (구매 후기 product review). Unrelated Hanja terms."
+  },
+  {
+   "words": [
+    "생전",
+    "사후"
+   ],
+   "kind": "contrast",
+   "note": "Opposite life intervals: 생전 (生前) refers to a person's living years before passing away (생전에 남긴 편지 letter left while alive), whereas 사후 (死後) refers to the period after death (사후 관리 posthumous arrangements)."
+  },
+  {
+   "words": [
+    "민감하다",
+    "예민하다"
+   ],
+   "kind": "synonym",
+   "note": "민감하다 (敏感) highlights physical or economic susceptibility to external stimuli (온도 변화에 민감하다). 예민하다 (銳敏) highlights razor-sharp sensory alertness or touchy, irritable nerves (소리에 예민하다 alert to sounds)."
+  }
+ ],
+ "tw-33": [
+  {
+   "words": [
+    "식수",
+    "식수"
+   ],
+   "kind": "homonym",
+   "note": "食水 clean drinking or potable water (비상 식수 emergency drinking water) vs 植樹 act of planting trees in soil (기념 식수 commemorative tree planting). Different Hanja roots."
+  },
+  {
+   "words": [
+    "절이다",
+    "저리다"
+   ],
+   "kind": "contrast",
+   "note": "Sound identical ([저리다]). 절이다 is salting or pickling food ingredients (배추를 소금에 절이다 pickle cabbage). 저리다 describes prickly numbness or tingling in limbs (오래 앉아 다리가 저리다 legs fell asleep)."
+  },
+  {
+   "words": [
+    "뽐내다",
+    "자랑하다"
+   ],
+   "kind": "synonym",
+   "note": "자랑하다 verbally shares or takes pride in accomplishments or possessions (가족을 자랑하다). 뽐내다 vividly flaunts one's charm, talent, or appearance before an audience (실력을 뽐내다 show off talent)."
+  },
+  {
+   "words": [
+    "차분하다",
+    "침착하다"
+   ],
+   "kind": "synonym",
+   "note": "차분하다 describes a gently relaxed, composed personality or tranquil mood (차분한 분위기 tranquil atmosphere). 침착하다 (沈着) emphasizes remaining poised and level-headed during sudden crises (침착하게 대처하다)."
+  }
+ ],
+ "tw-34": [
+  {
+   "words": [
+    "경주",
+    "경주"
+   ],
+   "kind": "homonym",
+   "note": "競走 competitive running race or athletic sprint (달리기 경주 running race) vs 慶州 historic Korean cultural city of Gyeongju (경주 여행 trip to Gyeongju). Unrelated Hanja terms."
+  },
+  {
+   "words": [
+    "염소",
+    "염소"
+   ],
+   "kind": "homonym",
+   "note": "염소 domestic horned mammal goat (풀을 뜯는 염소 goat grazing grass) vs 鹽素 chemical halogen element chlorine (수영장 염소 냄새 chlorine smell in swimming pool). Different origins."
+  },
+  {
+   "words": [
+    "베다",
+    "베다"
+   ],
+   "kind": "homonym",
+   "note": "베다 slicing with a blade or cutting down plants (풀을 베다 cut grass) vs 베다 resting one's head on a supportive cushion (베개를 베고 눕다 rest head on a pillow). Distinct native verbs."
+  },
+  {
+   "words": [
+    "진화",
+    "진화"
+   ],
+   "kind": "homonym",
+   "note": "進化 biological evolution or gradual advancement (기술의 진화 technological evolution) vs 鎭火 suppressing or extinguishing a fire (화재 진화 작업 fire extinguishing operation). Different Hanja."
+  }
+ ],
+ "tw-35": [
+  {
+   "words": [
+    "가시",
+    "가시"
+   ],
+   "kind": "homonym",
+   "note": "가시 sharp plant thorn or fish bone (손에 가시가 박히다 get a thorn stuck in hand) vs 可視 optical visibility (가시거리 500미터 visibility of 500 meters). Two unrelated words."
+  },
+  {
+   "words": [
+    "훼손",
+    "손상"
+   ],
+   "kind": "synonym",
+   "note": "훼손 (毁損) denotes harmful ruin of natural integrity, cultural value, or social reputation (문화재 훼손). 손상 (損傷) denotes physical injury or mechanical impairment to organs or devices (세포 손상 cellular damage)."
+  },
+  {
+   "words": [
+    "메마르다",
+    "건조하다"
+   ],
+   "kind": "synonym",
+   "note": "건조하다 (乾燥) is neutral scientific absence of humidity (건조한 실내 dry indoor air). 메마르다 portrays cracked, parched barrenness of drought or callous cold-heartedness (가뭄으로 메마른 논 barren rice paddies)."
+  },
+  {
+   "words": [
+    "불신",
+    "신뢰"
+   ],
+   "kind": "contrast",
+   "note": "Opposite interpersonal stances: 불신 (不信) is chronic suspicion and lack of faith (사회적 불신 social distrust), while 신뢰 (信賴) is solid dependable trust (신뢰를 쌓다 build trust)."
+  }
+ ],
+ "tw-36": [
+  {
+   "words": [
+    "수치",
+    "수치"
+   ],
+   "kind": "homonym",
+   "note": "數値 measured numerical value or scientific data figure (혈당 수치 blood sugar level) vs 羞恥 deep humiliation or moral shame (수치심을 느끼다 feel shame). Distinct Hanja terms."
+  },
+  {
+   "words": [
+    "문어",
+    "문어"
+   ],
+   "kind": "homonym",
+   "note": "문어 eight-armed marine mollusk octopus (살아 있는 문어 live octopus) vs 文語 literary or written language style (문어체 표현 written literary expression). Different origins."
+  },
+  {
+   "words": [
+    "수료",
+    "졸업"
+   ],
+   "kind": "contrast",
+   "note": "수료 (修了) is finishing prescribed hours of an academy or vocational course (어학당 수료 completing language center). 졸업 (卒業) is officially graduating with a formal degree (고등학교 졸업 high school graduation)."
+  },
+  {
+   "words": [
+    "수익",
+    "이익"
+   ],
+   "kind": "synonym",
+   "note": "수익 (收益) refers to gross monetary yield or proceeds generated by assets (임대 수익 rental return). 이익 (利益) refers to net profit remaining after costs, or broader utilitarian gain (이익을 남기다 make a profit)."
+  }
+ ],
+ "tw-37": [
+  {
+   "words": [
+    "재고",
+    "재고"
+   ],
+   "kind": "homonym",
+   "note": "在庫 physical inventory or warehouse stock (재고 부족 out of stock) vs 再考 reconsidering or reviewing a prior stance (결정의 재고 reconsideration of a decision). Different Hanja."
+  },
+  {
+   "words": [
+    "공중",
+    "공중"
+   ],
+   "kind": "homonym",
+   "note": "公衆 the collective general public (공중 화장실 public restroom) vs 空中 open midair or airborne space (공중제비를 돌다 do a midair flip). Completely different Hanja."
+  },
+  {
+   "words": [
+    "연대",
+    "연대"
+   ],
+   "kind": "homonym",
+   "note": "連帶 civic solidarity or shared collective responsibility (시민 연대 civic solidarity) vs 年代 historical decade or chronological era (조선 시대의 연대 historical period). Different Hanja."
+  },
+  {
+   "words": [
+    "약자",
+    "강자"
+   ],
+   "kind": "contrast",
+   "note": "Contrasting societal positions: 약자 (弱者) is the underprivileged or physically weak person (약자를 배려하다 care for the vulnerable), while 강자 (强者) is the powerful dominant party (경쟁의 강자 strong competitor)."
+  }
+ ],
+ "tw-38": [
+  {
+   "words": [
+    "전적",
+    "전적"
+   ],
+   "kind": "homonym",
+   "note": "全的 complete, absolute, or total (전적인 신뢰 absolute trust) vs 戰績 competitive match history or athletic record (상대 전적 head-to-head record). Distinct Hanja terms."
+  },
+  {
+   "words": [
+    "간접",
+    "직접"
+   ],
+   "kind": "contrast",
+   "note": "Opposite modes of experience: 간접 (間接) is mediated through third parties or media (간접 광고 indirect product placement), while 직접 (直接) is firsthand and unmediated (직접 확인 firsthand check)."
+  },
+  {
+   "words": [
+    "회상",
+    "기억"
+   ],
+   "kind": "synonym",
+   "note": "회상 (回想) is an active emotional reverie reflecting back over bygone years (젊은 날의 회상 reminiscing about youth). 기억 (記憶) is cognitive data or mental retention of facts (약속 시간 기억 remembering appointment time)."
+  },
+  {
+   "words": [
+    "거부",
+    "거절"
+   ],
+   "kind": "synonym",
+   "note": "거절 (拒絶) is declining a personal invitation, favor, or proposal (제안을 정중히 거절하다). 거부 (拒否) is forceful institutional rejection or resistance to authority (명령 거부 defying an order)."
+  }
+ ],
+ "tw-39": [
+  {
+   "words": [
+    "무선",
+    "유선"
+   ],
+   "kind": "contrast",
+   "note": "Contrasting connection methods: 무선 (無線) transmits signals without physical cords (무선 마우스 wireless mouse), while 유선 (有線) requires physical cables (유선 인터넷 wired internet)."
+  },
+  {
+   "words": [
+    "수동",
+    "자동"
+   ],
+   "kind": "contrast",
+   "note": "Contrasting operation modes: 수동 (手動) requires human hands to adjust controls (수동 변속기 manual transmission), while 자동 (自動) functions by self-operating systems (자동 감지 automatic detection)."
+  },
+  {
+   "words": [
+    "현지",
+    "현장"
+   ],
+   "kind": "synonym",
+   "note": "현지 (現地) refers broadly to the regional locality or host country (현지 언어 local language). 현장 (現場) refers pinpoint to the immediate physical scene of work or an accident (사고 현장 accident scene)."
+  },
+  {
+   "words": [
+    "지연",
+    "연기"
+   ],
+   "kind": "synonym",
+   "note": "지연 (遲延) is involuntary operational slowness or late arrival caused by traffic or weather (출발 지연 delayed departure). 연기 (延期) is deliberate formal rescheduling of an event to a future date (시험 연기 postponing an exam)."
+  }
+ ],
+ "tw-40": [
+  {
+   "words": [
+    "사유",
+    "사유"
+   ],
+   "kind": "homonym",
+   "note": "事由 justified reason, cause, or pretext for an action (지각 사유 reason for being late) vs 私有 private personal ownership of assets or land (사유지 private land). Two distinct Hanja terms."
+  },
+  {
+   "words": [
+    "구직",
+    "구인"
+   ],
+   "kind": "contrast",
+   "note": "Opposite employment market roles: 구직 (求職) is seeking a job as a candidate (구직자 job seeker), while 구인 (求人) is hiring and recruiting personnel as an employer (구인 공고 job opening notice)."
+  },
+  {
+   "words": [
+    "급여",
+    "월급"
+   ],
+   "kind": "synonym",
+   "note": "급여 (給與) is formal administrative terminology for all payroll compensation and benefits (급여 계좌 payroll account). 월급 (月給) is everyday conversational Korean for a monthly paycheck (이번 달 월급 this month's salary)."
+  },
+  {
+   "words": [
+    "촉촉하다",
+    "축축하다"
+   ],
+   "kind": "contrast",
+   "note": "촉촉하다 conveys pleasing, fresh, well-hydrated moisture (촉촉한 눈망울 moist glistening eyes). 축축하다 conveys uncomfortable, clammy, and unpleasantly soggy wetness (비에 젖어 축축한 양말 soggy wet socks)."
+  }
  ]
 }
