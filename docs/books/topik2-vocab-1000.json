@@ -1,5 +1,5 @@
 {
- "_note": "책 한 권의 틀: tools/build-topik2-vocab-book.mjs 가 만든다(손으로 고치지 않는다). node tools/build-book.mjs topik2-vocab-1000. 낱말 · 뜻 · 예문은 vocab/data/topik2.json. 지은이 · 신고번호 · ISBN · 정가 · 발행일은 비어 있는 자리.",
+ "_note": "책 한 권의 틀: tools/build-topik2-vocab-book.mjs 1 이 만든다(손으로 고치지 않는다). node tools/build-book.mjs topik2-vocab-1000. 낱말 · 뜻 · 예문은 vocab/data/topik2.json. 지은이 · 신고번호 · ISBN · 정가 · 발행일은 비어 있는 자리.",
  "id": "topik2-vocab-1000",
  "edition": "Draft proof · 시안",
  "theme": "classic",
@@ -10,12 +10,12 @@
   "ko": "워크북 시리즈"
  },
  "title": {
-  "en": "TOPIK II Vocabulary Workbook · 1,000 Words",
-  "ko": "TOPIK II 단어장 워크북 1,000"
+  "en": "TOPIK II Vocabulary Workbook 1",
+  "ko": "TOPIK II 단어장 워크북 1"
  },
  "sub": {
-  "en": "1,000 words that appear often in TOPIK II, 20 per unit, with example sentences and writing practice.",
-  "ko": "TOPIK II 에 자주 나오는 낱말 1,000개 · 20개씩 50단원 · 예문과 쓰기 연습"
+  "en": "Words 1-1,000 by how often they appear in TOPIK II, 20 per unit, with example sentences and writing practice.",
+  "ko": "TOPIK II 에 자주 나오는 순 1~1,000번째 낱말 · 20개씩 50단원 · 예문과 쓰기 연습"
  },
  "levelTag": "VOCAB",
  "level": "TOPIK II",
@@ -124,7 +124,7 @@
   "items": [
    [
     "50 units · 50개 단원",
-    "1,000 frequent TOPIK II words, level 3 to 6 · 3급부터 6급까지 자주 나오는 낱말 1,000개"
+    "TOPIK II words 1-1,000, level 3 to 6 · 3급부터 6급까지 1~1,000번째 낱말"
    ],
    [
     "Example, checkup &amp; look-alike words · 예문 · 단원 점검 · 헷갈리는 낱말",
@@ -252,7 +252,7 @@
         "en": "To maintain health, one must get sufficient sleep every night."
        },
        "lv": 3,
-       "fq": 5
+       "fq": 4
       },
       {
        "ko": "취하다",
@@ -263,7 +263,7 @@
         "en": "To recover fatigue, I comfortably take sufficient rest on weekends."
        },
        "lv": 3,
-       "fq": 4
+       "fq": 3
       },
       {
        "ko": "규칙적",
@@ -274,7 +274,7 @@
         "en": "I steadily do regular exercise for health."
        },
        "lv": 3,
-       "fq": 1
+       "fq": 2
       },
       {
        "ko": "효과",
@@ -318,7 +318,7 @@
         "en": "In winter, I apply moisturizer carefully so skin does not chap."
        },
        "lv": 3,
-       "fq": 5
+       "fq": 4
       },
       {
        "ko": "근육",
@@ -329,7 +329,7 @@
         "en": "I steadily do muscle workouts at the gym after work."
        },
        "lv": 3,
-       "fq": 5
+       "fq": 4
       },
       {
        "ko": "신체",
@@ -340,7 +340,7 @@
         "en": "Regular aerobic exercise makes the body strong and healthy."
        },
        "lv": 3,
-       "fq": 4
+       "fq": 3
       },
       {
        "ko": "감각",
@@ -406,7 +406,7 @@
         "en": "While boiling hot soup, I burned my hand on the pot."
        },
        "lv": 3,
-       "fq": 1
+       "fq": 2
       },
       {
        "ko": "떨다",
@@ -417,7 +417,7 @@
         "en": "The weather was so cold that I trembled all over."
        },
        "lv": 3,
-       "fq": 1
+       "fq": 2
       },
       {
        "ko": "변화",
@@ -668,7 +668,7 @@
         "en": "Foreign friends interested in Korean culture are increasing greatly."
        },
        "lv": 3,
-       "fq": 5
+       "fq": 4
       },
       {
        "ko": "사라지다",
@@ -679,7 +679,7 @@
         "en": "As morning sunlight shines, the thick fog disappears."
        },
        "lv": 3,
-       "fq": 5
+       "fq": 4
       },
       {
        "ko": "커지다",
@@ -690,7 +690,7 @@
         "en": "Conflict between friends grows bigger due to a small misunderstanding."
        },
        "lv": 3,
-       "fq": 5
+       "fq": 4
       },
       {
        "ko": "결국",
@@ -712,7 +712,7 @@
         "en": "I choose the fastest and most convenient transport means to the destination in the city."
        },
        "lv": 3,
-       "fq": 4
+       "fq": 3
       },
       {
        "ko": "쌓이다",
@@ -723,7 +723,7 @@
         "en": "Thick major books to read are piled up full on the desk."
        },
        "lv": 3,
-       "fq": 4
+       "fq": 3
       },
       {
        "ko": "경우",
@@ -734,7 +734,7 @@
         "en": "I put a small umbrella in my bag in case it rains."
        },
        "lv": 3,
-       "fq": 4
+       "fq": 3
       },
       {
        "ko": "높아지다",
@@ -745,7 +745,7 @@
         "en": "As wind blew hard, waves on the seashore gradually got higher."
        },
        "lv": 3,
-       "fq": 4
+       "fq": 3
       },
       {
        "ko": "이루어지다",
@@ -756,7 +756,7 @@
         "en": "My study-abroad dream longed for a long time is finally achieved."
        },
        "lv": 3,
-       "fq": 4
+       "fq": 3
       },
       {
        "ko": "없애다",
@@ -822,7 +822,7 @@
         "en": "We establish fair standards for scholarship student selection."
        },
        "lv": 3,
-       "fq": 5
+       "fq": 4
       },
       {
        "ko": "온",
@@ -833,7 +833,7 @@
         "en": "Welcoming early spring, the whole family does big cleaning together."
        },
        "lv": 3,
-       "fq": 5
+       "fq": 4
       },
       {
        "ko": "지나치다",
@@ -844,7 +844,7 @@
         "en": "For health, I rather avoid unreasonable and excessive exercise."
        },
        "lv": 3,
-       "fq": 5
+       "fq": 4
       },
       {
        "ko": "널리",
@@ -855,7 +855,7 @@
         "en": "Korean traditional food bulgogi and bibimbap are widely known worldwide."
        },
        "lv": 3,
-       "fq": 4
+       "fq": 3
       },
       {
        "ko": "대표적",
@@ -866,7 +866,7 @@
         "en": "Hanbok and kimchi are representative traditional cultures introducing Korea to the world."
        },
        "lv": 3,
-       "fq": 4
+       "fq": 3
       },
       {
        "ko": "충분히",
@@ -1095,7 +1095,7 @@
         "en": "For healthy eating habits, I eat appropriate amounts of food evenly each meal."
        },
        "lv": 3,
-       "fq": 4
+       "fq": 3
       },
       {
        "ko": "이하",
@@ -1128,7 +1128,7 @@
         "en": "I added a little salt to the stew to season it."
        },
        "lv": 3,
-       "fq": 1
+       "fq": 2
       },
       {
        "ko": "많아지다",
@@ -1139,7 +1139,7 @@
         "en": "As spring came, people taking walks in the park increased."
        },
        "lv": 3,
-       "fq": 1
+       "fq": 2
       },
       {
        "ko": "데",
@@ -1161,7 +1161,7 @@
         "en": "I close windows connected to the outside so dust does not enter."
        },
        "lv": 3,
-       "fq": 5
+       "fq": 4
       },
       {
        "ko": "닿다",
@@ -1172,7 +1172,7 @@
         "en": "Standing on tiptoe, my hand barely reaches the edge of the high shelf."
        },
        "lv": 3,
-       "fq": 5
+       "fq": 4
       },
       {
        "ko": "간",
@@ -1183,7 +1183,7 @@
         "en": "Active cultural exchange between nations helps mutual understanding."
        },
        "lv": 3,
-       "fq": 5
+       "fq": 4
       },
       {
        "ko": "편",
@@ -1194,7 +1194,7 @@
         "en": "I watch a heartwarming family movie at home in the evening."
        },
        "lv": 3,
-       "fq": 4
+       "fq": 3
       },
       {
        "ko": "한쪽",
@@ -1205,7 +1205,7 @@
         "en": "The road is narrow, so I step aside to one side and walk for passing people."
        },
        "lv": 3,
-       "fq": 4
+       "fq": 3
       },
       {
        "ko": "가리다",
@@ -1260,7 +1260,7 @@
         "en": "As spring arrived, pretty flowers bloomed in places all over the city."
        },
        "lv": 3,
-       "fq": 1
+       "fq": 2
       },
       {
        "ko": "대형",
@@ -1271,7 +1271,7 @@
         "en": "I go to a large mart to buy necessary daily goods on weekends."
        },
        "lv": 3,
-       "fq": 5
+       "fq": 4
       },
       {
        "ko": "면적",
@@ -1500,7 +1500,7 @@
         "en": "A round full moon rose brightly in the Chuseok night sky."
        },
        "lv": 3,
-       "fq": 1
+       "fq": 2
       },
       {
        "ko": "축제",
@@ -1544,7 +1544,7 @@
         "en": "I visit a traditional hanok village on the weekend to experience kimchi making."
        },
        "lv": 3,
-       "fq": 4
+       "fq": 3
       },
       {
        "ko": "역사적",
@@ -1577,7 +1577,7 @@
         "en": "On the weekend, I went to the downtown art museum and appreciated modern art works."
        },
        "lv": 3,
-       "fq": 1
+       "fq": 2
       },
       {
        "ko": "가죽",
@@ -1588,7 +1588,7 @@
         "en": "I buy a leather jacket to wear in cool autumn weather."
        },
        "lv": 3,
-       "fq": 5
+       "fq": 4
       },
       {
        "ko": "점퍼",
@@ -1621,7 +1621,7 @@
         "en": "The shoelace came untied, so I stopped on the roadside and tied it again."
        },
        "lv": 3,
-       "fq": 1
+       "fq": 2
       },
       {
        "ko": "비용",
@@ -1643,7 +1643,7 @@
         "en": "I do not want to give a heavy burden to my parents due to expensive tuition."
        },
        "lv": 3,
-       "fq": 5
+       "fq": 4
       },
       {
        "ko": "경제적",
@@ -1654,7 +1654,7 @@
         "en": "Using public transit regularly is much more economical than a private car."
        },
        "lv": 3,
-       "fq": 5
+       "fq": 4
       },
       {
        "ko": "결제",
@@ -1927,7 +1927,7 @@
         "en": "After working hard, I take sufficient rest to relieve fatigue."
        },
        "lv": 3,
-       "fq": 5
+       "fq": 4
       },
       {
        "ko": "챙기다",
@@ -1938,7 +1938,7 @@
         "en": "I thoroughly pack my passport and wallet in my bag before going on a trip."
        },
        "lv": 3,
-       "fq": 4
+       "fq": 3
       },
       {
        "ko": "일상생활",
@@ -1982,7 +1982,7 @@
         "en": "I made rich soap foam and washed my hands clean."
        },
        "lv": 3,
-       "fq": 1
+       "fq": 2
       },
       {
        "ko": "끌다",
@@ -1993,7 +1993,7 @@
         "en": "I moved while pulling a heavy suitcase at the airport."
        },
        "lv": 3,
-       "fq": 1
+       "fq": 2
       },
       {
        "ko": "제품",
@@ -2015,7 +2015,7 @@
         "en": "I go to the department store clothing shop to pick a fresh spring shirt."
        },
        "lv": 3,
-       "fq": 4
+       "fq": 3
       },
       {
        "ko": "저렴하다",
@@ -2026,7 +2026,7 @@
         "en": "This restaurant has excellent food taste and very inexpensive prices."
        },
        "lv": 3,
-       "fq": 4
+       "fq": 3
       },
       {
        "ko": "판매",
@@ -2037,7 +2037,7 @@
         "en": "I sell directly grown fresh fruits cheaply at the weekend market."
        },
        "lv": 3,
-       "fq": 4
+       "fq": 3
       },
       {
        "ko": "모델",
@@ -2081,7 +2081,7 @@
         "en": "Revisiting the neighborhood where I lived as a child, time is really fast."
        },
        "lv": 3,
-       "fq": 5
+       "fq": 4
       },
       {
        "ko": "시대",
@@ -2092,7 +2092,7 @@
         "en": "We live in an artificial intelligence era dominated by high-tech."
        },
        "lv": 3,
-       "fq": 5
+       "fq": 4
       },
       {
        "ko": "현대",
@@ -2103,7 +2103,7 @@
         "en": "In modern society, it is difficult to live without computers and internet."
        },
        "lv": 3,
-       "fq": 5
+       "fq": 4
       },
       {
        "ko": "오랜",
@@ -2114,7 +2114,7 @@
         "en": "I go down to my hometown on the weekend and happily talk with an old friend."
        },
        "lv": 3,
-       "fq": 5
+       "fq": 4
       },
       {
        "ko": "일정",
@@ -2125,7 +2125,7 @@
         "en": "Before going on a business trip, I meticulously arrange flight times and travel itineraries."
        },
        "lv": 3,
-       "fq": 5
+       "fq": 4
       }
      ]
     },
@@ -2332,7 +2332,7 @@
         "en": "A village festival for residents is held on Saturday and Sunday this week."
        },
        "lv": 3,
-       "fq": 4
+       "fq": 3
       },
       {
        "ko": "올",
@@ -2343,7 +2343,7 @@
         "en": "I decide to enter the Korean language institute opening this March."
        },
        "lv": 3,
-       "fq": 4
+       "fq": 3
       },
       {
        "ko": "시각",
@@ -2354,7 +2354,7 @@
         "en": "On New Year's Day morning, I go to watch the sunrise timed to East Coast sunrise hour."
        },
        "lv": 3,
-       "fq": 4
+       "fq": 3
       },
       {
        "ko": "순간",
@@ -2453,7 +2453,7 @@
         "en": "I wipe dust accumulated on window sills cleanly with a wet rag."
        },
        "lv": 3,
-       "fq": 5
+       "fq": 4
       },
       {
        "ko": "여름철",
@@ -2464,7 +2464,7 @@
         "en": "Food spoils easily in the hot summer, so put it in the fridge immediately."
        },
        "lv": 3,
-       "fq": 5
+       "fq": 4
       },
       {
        "ko": "쏟아지다",
@@ -2486,7 +2486,7 @@
         "en": "Hanging laundry, I pleasantly take a walk enjoying warm spring sunshine."
        },
        "lv": 3,
-       "fq": 4
+       "fq": 3
       },
       {
        "ko": "녹다",
@@ -2770,7 +2770,7 @@
         "en": "Even when encountering difficulties, I always keep a bright, positive attitude."
        },
        "lv": 3,
-       "fq": 4
+       "fq": 3
       },
       {
        "ko": "자유롭다",
@@ -2781,7 +2781,7 @@
         "en": "On weekends, escaping complex work, I enjoy free time."
        },
        "lv": 3,
-       "fq": 4
+       "fq": 3
       },
       {
        "ko": "이루다",
@@ -2825,7 +2825,7 @@
         "en": "While walking down the street, a good idea suddenly comes to mind."
        },
        "lv": 3,
-       "fq": 5
+       "fq": 4
       },
       {
        "ko": "기대",
@@ -2924,7 +2924,7 @@
         "en": "I put the food mom lovingly made into pretty dishes."
        },
        "lv": 3,
-       "fq": 5
+       "fq": 4
       },
       {
        "ko": "채우다",
@@ -2935,7 +2935,7 @@
         "en": "I am thirsty, so I fill the cup full with cool water."
        },
        "lv": 3,
-       "fq": 5
+       "fq": 4
       },
       {
        "ko": "까다",
@@ -3274,7 +3274,7 @@
         "en": "This program is widely used to study Korean easily."
        },
        "lv": 3,
-       "fq": 5
+       "fq": 4
       },
       {
        "ko": "그러다",
@@ -3307,7 +3307,7 @@
         "en": "While older brother talks a lot, younger brother is quiet and calm."
        },
        "lv": 3,
-       "fq": 5
+       "fq": 4
       },
       {
        "ko": "또한",
@@ -3318,7 +3318,7 @@
         "en": "He speaks English fluently, and furthermore is good at Spanish."
        },
        "lv": 3,
-       "fq": 5
+       "fq": 4
       },
       {
        "ko": "및",
@@ -3329,7 +3329,7 @@
         "en": "I thoroughly check the application method and submission deadline."
        },
        "lv": 3,
-       "fq": 5
+       "fq": 4
       },
       {
        "ko": "즉",
@@ -3340,7 +3340,7 @@
         "en": "Regular exercise, that is walking 30 minutes daily, is best for health."
        },
        "lv": 3,
-       "fq": 4
+       "fq": 3
       },
       {
        "ko": "자기",
@@ -3373,7 +3373,7 @@
         "en": "I use eco-friendly detergent to cleanly eliminate grease stains on the kitchen sink."
        },
        "lv": 3,
-       "fq": 4
+       "fq": 3
       }
      ]
     },
@@ -3613,7 +3613,7 @@
         "en": "I hung and dried laundry on the sunny veranda."
        },
        "lv": 3,
-       "fq": 1
+       "fq": 2
       },
       {
        "ko": "낡다",
@@ -3635,7 +3635,7 @@
         "en": "I drop off the broken bicycle at a nearby repair shop to fix it."
        },
        "lv": 3,
-       "fq": 5
+       "fq": 4
       },
       {
        "ko": "냉방",
@@ -3646,7 +3646,7 @@
         "en": "If indoor cooling temperature is lowered too much, you easily catch air-conditioning sickness."
        },
        "lv": 3,
-       "fq": 4
+       "fq": 3
       },
       {
        "ko": "테이프",
@@ -3657,7 +3657,7 @@
         "en": "I tape the parcel box tightly with sturdy tape so it doesn't burst."
        },
        "lv": 3,
-       "fq": 4
+       "fq": 3
       },
       {
        "ko": "가전제품",
@@ -3668,7 +3668,7 @@
         "en": "Moving to a new house, I acquire home appliances with high energy efficiency."
        },
        "lv": 3,
-       "fq": 4
+       "fq": 3
       },
       {
        "ko": "난방",
@@ -3690,7 +3690,7 @@
         "en": "The weather is chilly, so please sleep covering yourself with a warm blanket."
        },
        "lv": 3,
-       "fq": 1
+       "fq": 2
       },
       {
        "ko": "단지",
@@ -3723,7 +3723,7 @@
         "en": "The outside weather is so cold that I mainly stay indoors where it is warm."
        },
        "lv": 3,
-       "fq": 5
+       "fq": 4
       },
       {
        "ko": "잠기다",
@@ -3778,7 +3778,7 @@
         "en": "The wind blew strongly, so the window shut with a bang."
        },
        "lv": 3,
-       "fq": 1
+       "fq": 2
       },
       {
        "ko": "무대",
@@ -3789,7 +3789,7 @@
         "en": "Singers decorate a wonderful concert stage under colorful lights."
        },
        "lv": 3,
-       "fq": 5
+       "fq": 4
       }
      ]
     },
@@ -4073,7 +4073,7 @@
         "en": "Because it is the weekend, there are very many visitors in the art museum."
        },
        "lv": 3,
-       "fq": 1
+       "fq": 2
       },
       {
        "ko": "기구",
@@ -4084,7 +4084,7 @@
         "en": "I use exercise equipment installed in the park after work to promote health."
        },
        "lv": 3,
-       "fq": 4
+       "fq": 3
       },
       {
        "ko": "참가",
@@ -4095,7 +4095,7 @@
         "en": "I participate in the foreign speech contest to show off my Korean speaking skills."
        },
        "lv": 3,
-       "fq": 4
+       "fq": 3
       },
       {
        "ko": "털",
@@ -4106,7 +4106,7 @@
         "en": "Our family dog has white, soft fur."
        },
        "lv": 3,
-       "fq": 5
+       "fq": 4
       },
       {
        "ko": "알",
@@ -4150,7 +4150,7 @@
         "en": "I walk along dense forest trails breathing clean air on weekends."
        },
        "lv": 3,
-       "fq": 5
+       "fq": 4
       },
       {
        "ko": "재활용",
@@ -4161,7 +4161,7 @@
         "en": "For environmental protection, I do separate disposal and recycling of plastics and cans."
        },
        "lv": 3,
-       "fq": 5
+       "fq": 4
       },
       {
        "ko": "보호",
@@ -4172,7 +4172,7 @@
         "en": "We strive for wildlife protection to preserve the earth's beautiful nature."
        },
        "lv": 3,
-       "fq": 5
+       "fq": 4
       },
       {
        "ko": "야외",
@@ -4205,7 +4205,7 @@
         "en": "At the summer beach, I gaze at cool waves breaking white."
        },
        "lv": 3,
-       "fq": 4
+       "fq": 3
       }
      ]
     },
@@ -4456,7 +4456,7 @@
         "en": "I plant flowers and vegetables in the yard and tend the garden with care."
        },
        "lv": 3,
-       "fq": 5
+       "fq": 4
       },
       {
        "ko": "뿌리",
@@ -4467,7 +4467,7 @@
         "en": "The roots of the tree planted in the pot take deep root in the soil."
        },
        "lv": 3,
-       "fq": 5
+       "fq": 4
       },
       {
        "ko": "파다",
@@ -4478,7 +4478,7 @@
         "en": "Welcoming spring, I dig soil with a shovel to plant flowers in a corner of the yard."
        },
        "lv": 3,
-       "fq": 4
+       "fq": 3
       },
       {
        "ko": "활짝",
@@ -4533,7 +4533,7 @@
         "en": "I thoroughly respect other people's privacy and personal information."
        },
        "lv": 3,
-       "fq": 5
+       "fq": 4
       },
       {
        "ko": "당신",
@@ -4555,7 +4555,7 @@
         "en": "Jisu is truly outstanding in hand dexterity and drawing skills compared to others."
        },
        "lv": 3,
-       "fq": 5
+       "fq": 4
       },
       {
        "ko": "장점",
@@ -4566,7 +4566,7 @@
         "en": "It is important for anyone to develop their own strengths rather than weaknesses."
        },
        "lv": 3,
-       "fq": 4
+       "fq": 3
       },
       {
        "ko": "단점",
@@ -4621,7 +4621,7 @@
         "en": "On weekends, the whole family gathers and nurtures a harmonious home."
        },
        "lv": 3,
-       "fq": 5
+       "fq": 4
       }
      ]
     },
@@ -4905,7 +4905,7 @@
         "en": "Since childhood, I wanted to become a scientist exploring the universe."
        },
        "lv": 3,
-       "fq": 1
+       "fq": 2
       },
       {
        "ko": "기다",
@@ -4916,7 +4916,7 @@
         "en": "A baby not yet one year old crawls excitedly on the living room floor."
        },
        "lv": 3,
-       "fq": 4
+       "fq": 3
       },
       {
        "ko": "삶",
@@ -4949,7 +4949,7 @@
         "en": "Aunt gave birth to a healthy baby at the hospital yesterday."
        },
        "lv": 3,
-       "fq": 1
+       "fq": 2
       },
       {
        "ko": "미소",
@@ -4982,7 +4982,7 @@
         "en": "Entering university, I joined a photography club."
        },
        "lv": 3,
-       "fq": 1
+       "fq": 2
       },
       {
        "ko": "등록",
@@ -4993,7 +4993,7 @@
         "en": "I finished course registration to take classes next semester."
        },
        "lv": 3,
-       "fq": 1
+       "fq": 2
       },
       {
        "ko": "과정",
@@ -5015,7 +5015,7 @@
         "en": "I register the application online to take the TOPIK exam."
        },
        "lv": 3,
-       "fq": 5
+       "fq": 4
       },
       {
        "ko": "연구",
@@ -5026,7 +5026,7 @@
         "en": "I research new drug developments in the university laboratory."
        },
        "lv": 3,
-       "fq": 5
+       "fq": 4
       },
       {
        "ko": "학습",
@@ -5037,7 +5037,7 @@
         "en": "I steadily study Korean vocabulary and grammar for 30 minutes every morning."
        },
        "lv": 3,
-       "fq": 4
+       "fq": 3
       }
      ]
     },
@@ -5354,7 +5354,7 @@
         "en": "I made a short sentence using newly learned vocabulary."
        },
        "lv": 3,
-       "fq": 1
+       "fq": 2
       },
       {
        "ko": "기업",
@@ -5376,7 +5376,7 @@
         "en": "As technology develops rapidly, people's daily lives become convenient."
        },
        "lv": 3,
-       "fq": 5
+       "fq": 4
       },
       {
        "ko": "산업",
@@ -5387,7 +5387,7 @@
         "en": "Korea has well developed advanced industries like cars and semiconductors."
        },
        "lv": 3,
-       "fq": 5
+       "fq": 4
       },
       {
        "ko": "수출",
@@ -5398,7 +5398,7 @@
         "en": "We export Korea's superior electronics and cars to many countries overseas."
        },
        "lv": 3,
-       "fq": 4
+       "fq": 3
       },
       {
        "ko": "품질",
@@ -5671,7 +5671,7 @@
         "en": "The government provides financial support to help young entrepreneurs."
        },
        "lv": 3,
-       "fq": 5
+       "fq": 4
       },
       {
        "ko": "역할",
@@ -5682,7 +5682,7 @@
         "en": "In the team project, I took the role in charge of research."
        },
        "lv": 3,
-       "fq": 5
+       "fq": 4
       },
       {
        "ko": "심각하다",
@@ -5693,7 +5693,7 @@
         "en": "Air pollution and garbage problems are serious in our town."
        },
        "lv": 3,
-       "fq": 5
+       "fq": 4
       },
       {
        "ko": "일반",
@@ -5704,7 +5704,7 @@
         "en": "This lecture is open to ordinary citizens as well as experts."
        },
        "lv": 3,
-       "fq": 5
+       "fq": 4
       },
       {
        "ko": "공공",
@@ -5715,7 +5715,7 @@
         "en": "It is a public library that any citizen can conveniently use."
        },
        "lv": 3,
-       "fq": 5
+       "fq": 4
       },
       {
        "ko": "봉사",
@@ -5748,7 +5748,7 @@
         "en": "I visit a nearby public institution community center to issue civil documents."
        },
        "lv": 3,
-       "fq": 4
+       "fq": 3
       },
       {
        "ko": "신분",
@@ -5759,7 +5759,7 @@
         "en": "I present my ID card for identity verification when opening a bank account."
        },
        "lv": 3,
-       "fq": 4
+       "fq": 3
       },
       {
        "ko": "사회",
@@ -5770,7 +5770,7 @@
         "en": "I take charge of hosting the whole ceremony at my friend's wedding."
        },
        "lv": 3,
-       "fq": 4
+       "fq": 3
       },
       {
        "ko": "화재",
@@ -5781,7 +5781,7 @@
         "en": "Seeing smoke rising from the building, I immediately report the fire."
        },
        "lv": 3,
-       "fq": 4
+       "fq": 3
       },
       {
        "ko": "사회적",
@@ -5836,7 +5836,7 @@
         "en": "Korea is a proud nation achieving both democracy and economic prosperity."
        },
        "lv": 3,
-       "fq": 4
+       "fq": 3
       },
       {
        "ko": "계약",
@@ -6098,7 +6098,7 @@
         "en": "When conversing, I don't only talk myself but listen attentively to the other's opinion."
        },
        "lv": 3,
-       "fq": 4
+       "fq": 3
       },
       {
        "ko": "상관없다",
@@ -6230,7 +6230,7 @@
         "en": "The presidential office announced an official position to the press."
        },
        "lv": 3,
-       "fq": 1
+       "fq": 2
       },
       {
        "ko": "나타내다",
@@ -6241,7 +6241,7 @@
         "en": "Please try expressing your thoughts clearly in words."
        },
        "lv": 3,
-       "fq": 1
+       "fq": 2
       },
       {
        "ko": "목표",
@@ -6252,7 +6252,7 @@
         "en": "I study hard with the goal of passing TOPIK Level 4 this year."
        },
        "lv": 3,
-       "fq": 1
+       "fq": 2
       },
       {
        "ko": "울리다",
@@ -6274,7 +6274,7 @@
         "en": "I get useful information about travel spots through internet search."
        },
        "lv": 3,
-       "fq": 5
+       "fq": 4
       },
       {
        "ko": "화면",
@@ -6285,7 +6285,7 @@
         "en": "If you look at the smartphone screen too long, eyes easily tire."
        },
        "lv": 3,
-       "fq": 5
+       "fq": 4
       }
      ]
     },
@@ -6492,7 +6492,7 @@
         "en": "I conveniently use digital devices in daily life using smartphones."
        },
        "lv": 3,
-       "fq": 5
+       "fq": 4
       },
       {
        "ko": "기능",
@@ -6514,7 +6514,7 @@
         "en": "To turn the machine on or off, press the button at bottom right of the screen."
        },
        "lv": 3,
-       "fq": 4
+       "fq": 3
       },
       {
        "ko": "자동",
@@ -6525,7 +6525,7 @@
         "en": "Approaching the building entrance, sensors detect and doors open automatically."
        },
        "lv": 3,
-       "fq": 4
+       "fq": 3
       },
       {
        "ko": "배터리",
@@ -6591,7 +6591,7 @@
         "en": "Looking up at the night sky, I imagine the mysterious universe."
        },
        "lv": 3,
-       "fq": 5
+       "fq": 4
       },
       {
        "ko": "로봇",
@@ -6624,7 +6624,7 @@
         "en": "Ahead of an overseas trip, I check the flight schedule on airline websites."
        },
        "lv": 3,
-       "fq": 4
+       "fq": 3
       },
       {
        "ko": "도심",
@@ -6657,7 +6657,7 @@
         "en": "Taking the bus-only lane during rush hour is very fast."
        },
        "lv": 3,
-       "fq": 5
+       "fq": 4
       },
       {
        "ko": "골목",
@@ -6668,7 +6668,7 @@
         "en": "I walk slowly along the narrow alley giving off warm, nostalgic scents."
        },
        "lv": 3,
-       "fq": 4
+       "fq": 3
       },
       {
        "ko": "구역",
@@ -6679,7 +6679,7 @@
         "en": "The park is designated as a non-smoking zone to prevent secondhand smoke."
        },
        "lv": 3,
-       "fq": 4
+       "fq": 3
       },
       {
        "ko": "동",
@@ -6952,7 +6952,7 @@
         "en": "Drivers must always watch out for pedestrians crossing the crosswalk."
        },
        "lv": 3,
-       "fq": 5
+       "fq": 4
       },
       {
        "ko": "서",
@@ -6963,7 +6963,7 @@
         "en": "The sun rises in the east in the morning and sets in the west in the evening."
        },
        "lv": 3,
-       "fq": 4
+       "fq": 3
       },
       {
        "ko": "목적지",
@@ -7040,7 +7040,7 @@
         "en": "Vehicle congestion is severe due to road widening construction."
        },
        "lv": 3,
-       "fq": 5
+       "fq": 4
       },
       {
        "ko": "도구",
@@ -7062,7 +7062,7 @@
         "en": "I operate machines that precisely process parts in the factory."
        },
        "lv": 3,
-       "fq": 5
+       "fq": 4
       },
       {
        "ko": "창고",
@@ -7095,7 +7095,7 @@
         "en": "The club is recruiting new members to spend this semester together."
        },
        "lv": 3,
-       "fq": 5
+       "fq": 4
       },
       {
        "ko": "자격",
@@ -7106,7 +7106,7 @@
         "en": "I obtain official TOPIK qualifications helpful for employment."
        },
        "lv": 3,
-       "fq": 4
+       "fq": 3
       },
       {
        "ko": "면접",
@@ -7324,7 +7324,7 @@
         "en": "I steadily expand my specialized knowledge at the vocational school."
        },
        "lv": 3,
-       "fq": 5
+       "fq": 4
       },
       {
        "ko": "업무",
@@ -7335,7 +7335,7 @@
         "en": "Before leaving work, I neatly finish all tasks assigned today."
        },
        "lv": 3,
-       "fq": 5
+       "fq": 4
       },
       {
        "ko": "관리",
@@ -7346,7 +7346,7 @@
         "en": "I thoroughly manage diet and exercise every day to maintain health."
        },
        "lv": 3,
-       "fq": 5
+       "fq": 4
       },
       {
        "ko": "맡다",
@@ -7357,7 +7357,7 @@
         "en": "In this festival planning meeting, I take charge of the host role."
        },
        "lv": 3,
-       "fq": 4
+       "fq": 3
       },
       {
        "ko": "자료",
@@ -7423,7 +7423,7 @@
         "en": "Before submitting the document, I examined whether there were omitted parts."
        },
        "lv": 3,
-       "fq": 1
+       "fq": 2
       },
       {
        "ko": "조건",
@@ -7467,7 +7467,7 @@
         "en": "Sufficient sleep is important for relieving fatigue and keeping brain health."
        },
        "lv": 4,
-       "fq": 5
+       "fq": 4
       },
       {
        "ko": "숨",
@@ -7478,7 +7478,7 @@
         "en": "Having rushed up the stairs, my chest is tight and breath is short."
        },
        "lv": 4,
-       "fq": 4
+       "fq": 3
       },
       {
        "ko": "볼",
@@ -7489,7 +7489,7 @@
         "en": "Having caught cold winter wind, both cheeks become flushed red."
        },
        "lv": 4,
-       "fq": 4
+       "fq": 3
       },
       {
        "ko": "심장",
@@ -7740,7 +7740,7 @@
         "en": "Ahead of the exam, complicated thoughts are full inside my head."
        },
        "lv": 4,
-       "fq": 1
+       "fq": 2
       },
       {
        "ko": "목구멍",
@@ -7751,7 +7751,7 @@
         "en": "Having caught a cold, my throat is swollen so it is difficult to swallow saliva."
        },
        "lv": 4,
-       "fq": 1
+       "fq": 2
       },
       {
        "ko": "체온",
@@ -7762,7 +7762,7 @@
         "en": "I seem to have a fever, so I quickly measure my body temperature with a thermometer."
        },
        "lv": 4,
-       "fq": 5
+       "fq": 4
       },
       {
        "ko": "시력",
@@ -7850,7 +7850,7 @@
         "en": "After taking painkillers, severe headache pain lessened."
        },
        "lv": 4,
-       "fq": 1
+       "fq": 2
       },
       {
        "ko": "인하다",
@@ -7894,7 +7894,7 @@
         "en": "The train going to Busan passes through Daejeon and Daegu in order."
        },
        "lv": 4,
-       "fq": 5
+       "fq": 4
       },
       {
        "ko": "갖추다",
@@ -7905,7 +7905,7 @@
         "en": "The new library is perfectly equipped with modern digital facilities."
        },
        "lv": 4,
-       "fq": 5
+       "fq": 4
       },
       {
        "ko": "겪다",
@@ -7916,7 +7916,7 @@
         "en": "When I first came to Korea, I experienced many difficulties with language."
        },
        "lv": 4,
-       "fq": 5
+       "fq": 4
       },
       {
        "ko": "줄어들다",
@@ -7927,7 +7927,7 @@
         "en": "As birth rates drop, elementary school entrants decrease significantly."
        },
        "lv": 4,
-       "fq": 5
+       "fq": 4
       },
       {
        "ko": "이어지다",
@@ -7938,7 +7938,7 @@
         "en": "Along the village road, a narrow trail continues long into the forest."
        },
        "lv": 4,
-       "fq": 5
+       "fq": 4
       },
       {
        "ko": "흐름",
@@ -8156,7 +8156,7 @@
         "en": "I broaden my view of the world through reading and foreign language study."
        },
        "lv": 4,
-       "fq": 4
+       "fq": 3
       },
       {
        "ko": "무너지다",
@@ -8167,7 +8167,7 @@
         "en": "The old wall could not withstand heavy rain and collapsed with a crash."
        },
        "lv": 4,
-       "fq": 4
+       "fq": 3
       },
       {
        "ko": "벗어나다",
@@ -8178,7 +8178,7 @@
         "en": "Escaping the stuffy city, I travel to the countryside full of clean air."
        },
        "lv": 4,
-       "fq": 4
+       "fq": 3
       },
       {
        "ko": "실제",
@@ -8189,7 +8189,7 @@
         "en": "Rather than looking in photos, actual appearance is much more beautiful and grand."
        },
        "lv": 4,
-       "fq": 4
+       "fq": 3
       },
       {
        "ko": "넘치다",
@@ -8200,7 +8200,7 @@
         "en": "Conversing with friends met after a long time, laughter overflows."
        },
        "lv": 4,
-       "fq": 4
+       "fq": 3
       },
       {
        "ko": "굳다",
@@ -8255,7 +8255,7 @@
         "en": "As soon as the sun set, the temperature dropped sharply and it is chilly."
        },
        "lv": 4,
-       "fq": 5
+       "fq": 4
       },
       {
        "ko": "한계",
@@ -8266,7 +8266,7 @@
         "en": "I want to overcome my own limits by making hard efforts."
        },
        "lv": 4,
-       "fq": 5
+       "fq": 4
       },
       {
        "ko": "대량",
@@ -8277,7 +8277,7 @@
         "en": "I buy drinks needed for the event in large quantities at the wholesale market."
        },
        "lv": 4,
-       "fq": 5
+       "fq": 4
       },
       {
        "ko": "특정",
@@ -8288,7 +8288,7 @@
         "en": "We consider evenly so benefits do not go only to specific classes."
        },
        "lv": 4,
-       "fq": 5
+       "fq": 4
       },
       {
        "ko": "특수",
@@ -8299,7 +8299,7 @@
         "en": "Firefighters wear special fire-retardant suits to put out fires."
        },
        "lv": 4,
-       "fq": 5
+       "fq": 4
       },
       {
        "ko": "여전히",
@@ -8332,7 +8332,7 @@
         "en": "If you work steadily, the possibility of passing the exam is high enough."
        },
        "lv": 4,
-       "fq": 4
+       "fq": 3
       },
       {
        "ko": "미치다",
@@ -8343,7 +8343,7 @@
         "en": "Parents' good reading habits exert positive influences on children."
        },
        "lv": 4,
-       "fq": 4
+       "fq": 3
       },
       {
        "ko": "필수",
@@ -8354,7 +8354,7 @@
         "en": "To graduate college in Korea, Korean proficiency certification is essential."
        },
        "lv": 4,
-       "fq": 4
+       "fq": 3
       },
       {
        "ko": "효과적",
@@ -8365,7 +8365,7 @@
         "en": "When memorizing foreign words, using flashcards is effective."
        },
        "lv": 4,
-       "fq": 4
+       "fq": 3
       }
      ]
     },
@@ -8649,7 +8649,7 @@
         "en": "Dozens of volunteers gather at the festival venue to help out."
        },
        "lv": 4,
-       "fq": 4
+       "fq": 3
       },
       {
        "ko": "수많다",
@@ -8660,7 +8660,7 @@
         "en": "Numerous citizens gather in the plaza and cheer for World Cup soccer together."
        },
        "lv": 4,
-       "fq": 4
+       "fq": 3
       },
       {
        "ko": "수천",
@@ -8693,7 +8693,7 @@
         "en": "The number of festival visitors reached 100,000 during the weekend."
        },
        "lv": 4,
-       "fq": 1
+       "fq": 2
       },
       {
        "ko": "비율",
@@ -8704,7 +8704,7 @@
         "en": "The proportion of female managers in the company is gradually rising."
        },
        "lv": 4,
-       "fq": 1
+       "fq": 2
       },
       {
        "ko": "내부",
@@ -8715,7 +8715,7 @@
         "en": "The library interior is spacious and quiet, so it is nice to read books."
        },
        "lv": 4,
-       "fq": 5
+       "fq": 4
       },
       {
        "ko": "갇히다",
@@ -8726,7 +8726,7 @@
         "en": "The elevator broke down and I was trapped inside briefly, but safely rescued."
        },
        "lv": 4,
-       "fq": 4
+       "fq": 3
       },
       {
        "ko": "빠져나가다",
@@ -8737,7 +8737,7 @@
         "en": "As rush hour passed, I hurry and escape congested downtown roads."
        },
        "lv": 4,
-       "fq": 4
+       "fq": 3
       },
       {
        "ko": "스치다",
@@ -8988,7 +8988,7 @@
         "en": "I walked in the park side by side with my friend, shoulder to shoulder."
        },
        "lv": 4,
-       "fq": 1
+       "fq": 2
       },
       {
        "ko": "너머",
@@ -8999,7 +8999,7 @@
         "en": "Beyond the window, blue mountains and sea are coolly visible."
        },
        "lv": 4,
-       "fq": 1
+       "fq": 2
       },
       {
        "ko": "표면",
@@ -9021,7 +9021,7 @@
         "en": "My hands' skin is a bit rough from the winter wind."
        },
        "lv": 4,
-       "fq": 5
+       "fq": 4
       },
       {
        "ko": "소형",
@@ -9032,7 +9032,7 @@
         "en": "I drive a practical compact car that is easy to park with good fuel economy."
        },
        "lv": 4,
-       "fq": 4
+       "fq": 3
       },
       {
        "ko": "띠다",
@@ -9043,7 +9043,7 @@
         "en": "As autumn deepens, tree leaves assume a reddish hue."
        },
        "lv": 4,
-       "fq": 1
+       "fq": 2
       },
       {
        "ko": "흔적",
@@ -9098,7 +9098,7 @@
         "en": "Walking ten thousand steps every day, sneaker soles wear out quickly."
        },
        "lv": 4,
-       "fq": 4
+       "fq": 3
       },
       {
        "ko": "감싸다",
@@ -9153,7 +9153,7 @@
         "en": "I save half my salary every month targeting acquiring my own home."
        },
        "lv": 4,
-       "fq": 5
+       "fq": 4
       },
       {
        "ko": "이익",
@@ -9164,7 +9164,7 @@
         "en": "When running a business, social responsibility is important as well as profit."
        },
        "lv": 4,
-       "fq": 5
+       "fq": 4
       },
       {
        "ko": "소비",
@@ -9186,7 +9186,7 @@
         "en": "I do not unnecessarily waste water and electricity to conserve resources."
        },
        "lv": 4,
-       "fq": 4
+       "fq": 3
       },
       {
        "ko": "거래",
@@ -9197,7 +9197,7 @@
         "en": "I safely complete item deals with neighbors on internet secondhand markets."
        },
        "lv": 4,
-       "fq": 4
+       "fq": 3
       }
      ]
     },
@@ -9426,7 +9426,7 @@
         "en": "Welcoming the year end, I donated funds for neighbors needing help."
        },
        "lv": 4,
-       "fq": 1
+       "fq": 2
       },
       {
        "ko": "대가",
@@ -9437,7 +9437,7 @@
         "en": "Receiving fair compensation for effort is a natural right."
        },
        "lv": 4,
-       "fq": 1
+       "fq": 2
       },
       {
        "ko": "대출",
@@ -9448,7 +9448,7 @@
         "en": "To prepare my own house, I received a lease deposit loan from the bank."
        },
        "lv": 4,
-       "fq": 1
+       "fq": 2
       },
       {
        "ko": "일상",
@@ -9459,7 +9459,7 @@
         "en": "I enjoy small daily life drinking a cup of warm tea after work."
        },
        "lv": 4,
-       "fq": 5
+       "fq": 4
       },
       {
        "ko": "추가",
@@ -9470,7 +9470,7 @@
         "en": "Eating stew at the restaurant, I order an additional ramen noodle."
        },
        "lv": 4,
-       "fq": 4
+       "fq": 3
       },
       {
        "ko": "별도",
@@ -9481,7 +9481,7 @@
         "en": "Apart from main documents, supplementary data is attached and submitted separately."
        },
        "lv": 4,
-       "fq": 4
+       "fq": 3
       },
       {
        "ko": "살아가다",
@@ -9492,7 +9492,7 @@
         "en": "Sharing affection with neighbors, I live happily day by day."
        },
        "lv": 4,
-       "fq": 4
+       "fq": 3
       },
       {
        "ko": "들이다",
@@ -9569,7 +9569,7 @@
         "en": "Lest I be late for the appointment time, I hurried and ran to the subway station."
        },
        "lv": 4,
-       "fq": 1
+       "fq": 2
       },
       {
        "ko": "돌아서다",
@@ -9580,7 +9580,7 @@
         "en": "Sharing farewell greetings, I turned around with regretful steps."
        },
        "lv": 4,
-       "fq": 1
+       "fq": 2
       },
       {
        "ko": "매달리다",
@@ -9591,7 +9591,7 @@
         "en": "Appetizing apples are hanging in clusters on tree branches."
        },
        "lv": 4,
-       "fq": 1
+       "fq": 2
       },
       {
        "ko": "배송",
@@ -9613,7 +9613,7 @@
         "en": "I purchase necessary goods much cheaper during the discount event period."
        },
        "lv": 4,
-       "fq": 4
+       "fq": 3
       }
      ]
     },
@@ -9842,7 +9842,7 @@
         "en": "I received the wedding invitation and write the gathering date and time on the calendar."
        },
        "lv": 4,
-       "fq": 5
+       "fq": 4
       },
       {
        "ko": "초기",
@@ -9853,7 +9853,7 @@
         "en": "In the early stage of business, I gain experience going through trials."
        },
        "lv": 4,
-       "fq": 5
+       "fq": 4
       },
       {
        "ko": "어둠",
@@ -9864,7 +9864,7 @@
         "en": "As the sun sets and deep darkness falls, village streetlamps turn on brightly."
        },
        "lv": 4,
-       "fq": 4
+       "fq": 3
       },
       {
        "ko": "당일",
@@ -9875,7 +9875,7 @@
         "en": "I leave for a light same-day trip to the nearby suburbs without burden on weekends."
        },
        "lv": 4,
-       "fq": 4
+       "fq": 3
       },
       {
        "ko": "앞두다",
@@ -9886,7 +9886,7 @@
         "en": "Having the important Korean exam right ahead, I focus on review."
        },
        "lv": 4,
-       "fq": 4
+       "fq": 3
       },
       {
        "ko": "간격",
@@ -9974,7 +9974,7 @@
         "en": "After work, I went straight home without dropping by other places."
        },
        "lv": 4,
-       "fq": 1
+       "fq": 2
       },
       {
        "ko": "다가오다",
@@ -9985,7 +9985,7 @@
         "en": "As the exam date gradually approaches, I feel nervous."
        },
        "lv": 4,
-       "fq": 1
+       "fq": 2
       },
       {
        "ko": "비로소",
@@ -9996,7 +9996,7 @@
         "en": "Only after becoming a parent do I finally understand parents’ hearts."
        },
        "lv": 4,
-       "fq": 1
+       "fq": 2
       },
       {
        "ko": "빗물",
@@ -10018,7 +10018,7 @@
         "en": "Rain hasn't come for a long time, so drought occurs in rice paddies and fields."
        },
        "lv": 4,
-       "fq": 5
+       "fq": 4
       },
       {
        "ko": "겨울철",
@@ -10236,7 +10236,7 @@
         "en": "Winter wind blows, so I block biting cold with a warm scarf."
        },
        "lv": 4,
-       "fq": 4
+       "fq": 3
       },
       {
        "ko": "열기",
@@ -10313,7 +10313,7 @@
         "en": "As cold winter came, the fields were entirely covered with white snow."
        },
        "lv": 4,
-       "fq": 1
+       "fq": 2
       },
       {
        "ko": "정성",
@@ -10335,7 +10335,7 @@
         "en": "Even if others don't notice, I fulfill assigned responsibilities silently."
        },
        "lv": 4,
-       "fq": 4
+       "fq": 3
       },
       {
        "ko": "부정적",
@@ -10412,7 +10412,7 @@
         "en": "Closing my eyes and listening to music, I rested motionlessly."
        },
        "lv": 4,
-       "fq": 1
+       "fq": 2
       },
       {
        "ko": "견디다",
@@ -10423,7 +10423,7 @@
         "en": "I endured and withstood hard training to the end."
        },
        "lv": 4,
-       "fq": 1
+       "fq": 2
       },
       {
        "ko": "무사히",
@@ -10434,7 +10434,7 @@
         "en": "Finishing the long trip, I returned safely to the family bosom."
        },
        "lv": 4,
-       "fq": 1
+       "fq": 2
       },
       {
        "ko": "사소하다",
@@ -10445,7 +10445,7 @@
         "en": "Don't argue over trivial matters."
        },
        "lv": 4,
-       "fq": 1
+       "fq": 2
       }
      ]
     },
@@ -10652,7 +10652,7 @@
         "en": "Memories of playing at grandma's house in childhood are still vivid before eyes."
        },
        "lv": 4,
-       "fq": 4
+       "fq": 3
       },
       {
        "ko": "억울하다",
@@ -10663,7 +10663,7 @@
         "en": "Being misunderstood for something I didn't do, I feel mistreated and upset."
        },
        "lv": 4,
-       "fq": 4
+       "fq": 3
       },
       {
        "ko": "심리적",
@@ -10762,7 +10762,7 @@
         "en": "Everyone was greatly surprised at the sudden accident news."
        },
        "lv": 4,
-       "fq": 1
+       "fq": 2
       },
       {
        "ko": "빚다",
@@ -10828,7 +10828,7 @@
         "en": "This restaurant has delicious food and moreover prices are very cheap."
        },
        "lv": 4,
-       "fq": 5
+       "fq": 4
       },
       {
        "ko": "오히려",
@@ -10839,7 +10839,7 @@
         "en": "Drinking spring water, far from quenching thirst, makes me rather more thirsty."
        },
        "lv": 4,
-       "fq": 5
+       "fq": 4
       },
       {
        "ko": "비록",
@@ -10861,7 +10861,7 @@
         "en": "I agree with this plan; however, a little more prep time is needed."
        },
        "lv": 4,
-       "fq": 4
+       "fq": 3
       }
      ]
     },
@@ -11068,7 +11068,7 @@
         "en": "I helped with housework on the weekend; meanwhile, did overdue homework hard."
        },
        "lv": 4,
-       "fq": 4
+       "fq": 3
       },
       {
        "ko": "모",
@@ -11079,7 +11079,7 @@
         "en": "Police arrested a certain Mr. Kim on charges of fraud."
        },
        "lv": 4,
-       "fq": 1
+       "fq": 2
       },
       {
        "ko": "조명",
@@ -11101,7 +11101,7 @@
         "en": "I apply for fast internet installation in the living room of my moved house."
        },
        "lv": 4,
-       "fq": 5
+       "fq": 4
       },
       {
        "ko": "뚜껑",
@@ -11112,7 +11112,7 @@
         "en": "I tightly close the pot lid so food does not cool and odors do not spread."
        },
        "lv": 4,
-       "fq": 4
+       "fq": 3
       },
       {
        "ko": "소음",
@@ -11123,7 +11123,7 @@
         "en": "I take care not to blush with neighbors over floor noise issues."
        },
        "lv": 4,
-       "fq": 5
+       "fq": 4
       },
       {
        "ko": "건축",
@@ -11145,7 +11145,7 @@
         "en": "Doing spring cleaning, I wipe the dusty living room glass window cleanly."
        },
        "lv": 4,
-       "fq": 4
+       "fq": 3
       },
       {
        "ko": "기둥",
@@ -11211,7 +11211,7 @@
         "en": "Having turned on the boiler, the room floor became very warm."
        },
        "lv": 4,
-       "fq": 1
+       "fq": 2
       },
       {
        "ko": "소재",
@@ -11222,7 +11222,7 @@
         "en": "The writer takes small daily experiences as interesting subject matter."
        },
        "lv": 4,
-       "fq": 5
+       "fq": 4
       },
       {
        "ko": "작품",
@@ -11233,7 +11233,7 @@
         "en": "I appreciate the famous painter's creative artwork at the art gallery."
        },
        "lv": 4,
-       "fq": 4
+       "fq": 3
       },
       {
        "ko": "줄거리",
@@ -11255,7 +11255,7 @@
         "en": "Missing the live broadcast, I recorded programs to watch on the weekend in advance."
        },
        "lv": 4,
-       "fq": 1
+       "fq": 2
       },
       {
        "ko": "쏘다",
@@ -11277,7 +11277,7 @@
         "en": "In the soccer match, they launched an all-out attack in the second half."
        },
        "lv": 4,
-       "fq": 1
+       "fq": 2
       }
      ]
     },
@@ -11484,7 +11484,7 @@
         "en": "Every morning, I give birdfeed and food to small birds in the yard."
        },
        "lv": 4,
-       "fq": 5
+       "fq": 4
       },
       {
        "ko": "생존",
@@ -11495,7 +11495,7 @@
         "en": "Wild animals fight for survival amid severe cold."
        },
        "lv": 4,
-       "fq": 5
+       "fq": 4
       },
       {
        "ko": "날개",
@@ -11506,7 +11506,7 @@
         "en": "Spreading wide wings toward the blue sky, the bird flies away."
        },
        "lv": 4,
-       "fq": 4
+       "fq": 3
       },
       {
        "ko": "개미",
@@ -11517,7 +11517,7 @@
         "en": "Small ants pass in line carrying snack crumbs."
        },
        "lv": 4,
-       "fq": 4
+       "fq": 3
       },
       {
        "ko": "고래",
@@ -11583,7 +11583,7 @@
         "en": "I conserve water and electricity to save precious earth resources."
        },
        "lv": 4,
-       "fq": 5
+       "fq": 4
       },
       {
        "ko": "흙",
@@ -11594,7 +11594,7 @@
         "en": "I put soft soil mixed with fertilizer in the pot and plant flowers."
        },
        "lv": 4,
-       "fq": 5
+       "fq": 4
       },
       {
        "ko": "기후",
@@ -11605,7 +11605,7 @@
         "en": "Korea has a temperate climate with four distinct seasons."
        },
        "lv": 4,
-       "fq": 5
+       "fq": 4
       },
       {
        "ko": "재생",
@@ -11616,7 +11616,7 @@
         "en": "We process discarded paper to make high-quality recycled paper."
        },
        "lv": 4,
-       "fq": 5
+       "fq": 4
       },
       {
        "ko": "살리다",
@@ -11627,7 +11627,7 @@
         "en": "Emergency room doctors do their best to save precious lives."
        },
        "lv": 4,
-       "fq": 5
+       "fq": 4
       },
       {
        "ko": "비닐",
@@ -11649,7 +11649,7 @@
         "en": "If food waste is neglected, a severe stench emanates in summer."
        },
        "lv": 4,
-       "fq": 4
+       "fq": 3
       },
       {
        "ko": "일회용",
@@ -11660,7 +11660,7 @@
         "en": "I do not use disposable chopsticks at restaurants to reduce pollution."
        },
        "lv": 4,
-       "fq": 4
+       "fq": 3
       },
       {
        "ko": "생명",
@@ -11911,7 +11911,7 @@
         "en": "Wearing swimming goggles, I looked into the deep underwater."
        },
        "lv": 4,
-       "fq": 1
+       "fq": 2
       },
       {
        "ko": "식물",
@@ -11933,7 +11933,7 @@
         "en": "Fresh green new stems grow from the flowering tree planted in the pot."
        },
        "lv": 4,
-       "fq": 4
+       "fq": 3
       },
       {
        "ko": "씨앗",
@@ -11955,7 +11955,7 @@
         "en": "Waking up in the morning, I stretched my arms and legs coolly."
        },
        "lv": 4,
-       "fq": 1
+       "fq": 2
       },
       {
        "ko": "타인",
@@ -11966,7 +11966,7 @@
         "en": "When conflict arises, I first consider other people's positions."
        },
        "lv": 4,
-       "fq": 5
+       "fq": 4
       },
       {
        "ko": "인간",
@@ -11977,7 +11977,7 @@
         "en": "Every human has the right to live happily and peacefully."
        },
        "lv": 4,
-       "fq": 5
+       "fq": 4
       },
       {
        "ko": "지니다",
@@ -11988,7 +11988,7 @@
         "en": "He always carries a bright and positive attitude in his heart."
        },
        "lv": 4,
-       "fq": 5
+       "fq": 4
       },
       {
        "ko": "지혜",
@@ -11999,7 +11999,7 @@
         "en": "I learn seniors' wisdom in wisely overcoming life's big and small crises."
        },
        "lv": 4,
-       "fq": 4
+       "fq": 3
       },
       {
        "ko": "독특하다",
@@ -12032,7 +12032,7 @@
         "en": "I wore clothes bringing out my own unique individuality."
        },
        "lv": 4,
-       "fq": 1
+       "fq": 2
       },
       {
        "ko": "삼다",
@@ -12065,7 +12065,7 @@
         "en": "I miss my school days when I hung out happily with friends."
        },
        "lv": 4,
-       "fq": 5
+       "fq": 4
       },
       {
        "ko": "평생",
@@ -12076,7 +12076,7 @@
         "en": "There is no end to learning, so I live with an attitude of lifelong study."
        },
        "lv": 4,
-       "fq": 4
+       "fq": 3
       },
       {
        "ko": "수명",
@@ -12327,7 +12327,7 @@
         "en": "As I steadily practice Korean, pronunciation is now much more natural."
        },
        "lv": 4,
-       "fq": 5
+       "fq": 4
       },
       {
        "ko": "띄다",
@@ -12349,7 +12349,7 @@
         "en": "Mother’s warm and caring gaze gives me great courage."
        },
        "lv": 4,
-       "fq": 1
+       "fq": 2
       },
       {
        "ko": "펼치다",
@@ -12360,7 +12360,7 @@
         "en": "Sitting at the quiet library desk, I spread open the thick major book."
        },
        "lv": 4,
-       "fq": 4
+       "fq": 3
       },
       {
        "ko": "심사",
@@ -12371,7 +12371,7 @@
         "en": "I submit scholarship application papers and undergo screening waiting for results."
        },
        "lv": 4,
-       "fq": 4
+       "fq": 3
       },
       {
        "ko": "넘기다",
@@ -12448,7 +12448,7 @@
         "en": "I bought Korean learning textbooks recommended by my teacher."
        },
        "lv": 4,
-       "fq": 1
+       "fq": 2
       },
       {
        "ko": "소비자",
@@ -12470,7 +12470,7 @@
         "en": "Our company collaborates with capable and reliable specialized businesses."
        },
        "lv": 4,
-       "fq": 5
+       "fq": 4
       },
       {
        "ko": "상승",
@@ -12481,7 +12481,7 @@
         "en": "Household burden grows due to steep rises in prices and oil costs."
        },
        "lv": 4,
-       "fq": 4
+       "fq": 3
       },
       {
        "ko": "공급",
@@ -12776,7 +12776,7 @@
         "en": "Development of eco-friendly alternative energy to replace petroleum is brisk."
        },
        "lv": 4,
-       "fq": 1
+       "fq": 2
       },
       {
        "ko": "가치",
@@ -12787,7 +12787,7 @@
         "en": "The values people hold most precious in life differ from person to person."
        },
        "lv": 4,
-       "fq": 5
+       "fq": 4
       },
       {
        "ko": "혜택",
@@ -12798,7 +12798,7 @@
         "en": "Young people receive various welfare benefits such as public transport discounts."
        },
        "lv": 4,
-       "fq": 5
+       "fq": 4
       },
       {
        "ko": "발생",
@@ -12809,7 +12809,7 @@
         "en": "An unexpected problem occurred, so we reconvene the meeting."
        },
        "lv": 4,
-       "fq": 5
+       "fq": 4
       },
       {
        "ko": "위기",
@@ -12820,7 +12820,7 @@
         "en": "The company faced an economic crisis, but all staff unite to overcome it."
        },
        "lv": 4,
-       "fq": 5
+       "fq": 4
       },
       {
        "ko": "편의",
@@ -12875,7 +12875,7 @@
         "en": "When I first came to Korea, there were times I often wandered not knowing ways."
        },
        "lv": 4,
-       "fq": 4
+       "fq": 3
       },
       {
        "ko": "인류",
@@ -12886,7 +12886,7 @@
         "en": "Creating a peaceful world without war is the hope of all humanity."
        },
        "lv": 4,
-       "fq": 4
+       "fq": 3
       },
       {
        "ko": "참여",
@@ -12897,7 +12897,7 @@
         "en": "I actively participate in resident meetings making our neighborhood better."
        },
        "lv": 4,
-       "fq": 4
+       "fq": 3
       },
       {
        "ko": "개선",
@@ -13181,7 +13181,7 @@
         "en": "The library reading room is opened free to residents even on weekends."
        },
        "lv": 4,
-       "fq": 1
+       "fq": 2
       },
       {
        "ko": "제도",
@@ -13192,7 +13192,7 @@
         "en": "We improve the scholarship support system to help students' convenience."
        },
        "lv": 4,
-       "fq": 5
+       "fq": 4
       },
       {
        "ko": "권리",
@@ -13203,7 +13203,7 @@
         "en": "Workers have the right to enjoy fair treatment and rest."
        },
        "lv": 4,
-       "fq": 5
+       "fq": 4
       },
       {
        "ko": "정부",
@@ -13214,7 +13214,7 @@
         "en": "The government prepares various measures to stabilize prices."
        },
        "lv": 4,
-       "fq": 5
+       "fq": 4
       },
       {
        "ko": "정책",
@@ -13225,7 +13225,7 @@
         "en": "A new government policy begins to help young people's housing stability."
        },
        "lv": 4,
-       "fq": 5
+       "fq": 4
       },
       {
        "ko": "강제",
@@ -13236,7 +13236,7 @@
         "en": "You must not forcibly compel your own thoughts on others."
        },
        "lv": 4,
-       "fq": 5
+       "fq": 4
       },
       {
        "ko": "법적",
@@ -13247,7 +13247,7 @@
         "en": "When drafting a contract, check carefully whether it has legal effect."
        },
        "lv": 4,
-       "fq": 5
+       "fq": 4
       },
       {
        "ko": "절차",
@@ -13258,7 +13258,7 @@
         "en": "I follow immigration office guidance procedures for visa extension."
        },
        "lv": 4,
-       "fq": 4
+       "fq": 3
       },
       {
        "ko": "제한",
@@ -13269,7 +13269,7 @@
         "en": "Automobile driving speed is strictly restricted in child protection zones."
        },
        "lv": 4,
-       "fq": 4
+       "fq": 3
       },
       {
        "ko": "규정",
@@ -13335,7 +13335,7 @@
         "en": "Police conducted a special crackdown on drunk driving at night."
        },
        "lv": 4,
-       "fq": 1
+       "fq": 2
       },
       {
        "ko": "건네다",
@@ -13346,7 +13346,7 @@
         "en": "When paying at the store, I politely hand over money from my wallet to the clerk."
        },
        "lv": 4,
-       "fq": 4
+       "fq": 3
       },
       {
        "ko": "반응",
@@ -13357,7 +13357,7 @@
         "en": "When proposing a new idea, teammates' reactions are very good."
        },
        "lv": 4,
-       "fq": 4
+       "fq": 3
       }
      ]
     },
@@ -13564,7 +13564,7 @@
         "en": "Village youths step forward leading the way to help neighbors in trouble."
        },
        "lv": 4,
-       "fq": 4
+       "fq": 3
       },
       {
        "ko": "달리",
@@ -13751,7 +13751,7 @@
         "en": "As rumored, it was indeed an excellent taste worthy of a renowned restaurant."
        },
        "lv": 4,
-       "fq": 1
+       "fq": 2
       },
       {
        "ko": "기울이다",
@@ -13762,7 +13762,7 @@
         "en": "I concentrated all attention and paid ear to the presenter’s words."
        },
        "lv": 4,
-       "fq": 1
+       "fq": 2
       },
       {
        "ko": "대처",
@@ -13773,7 +13773,7 @@
         "en": "Without panicking in unexpected situations, I handled it calmly."
        },
        "lv": 4,
-       "fq": 1
+       "fq": 2
       }
      ]
     },
@@ -13980,7 +13980,7 @@
         "en": "After thorough investigation, the hidden truth was finally revealed."
        },
        "lv": 4,
-       "fq": 1
+       "fq": 2
       },
       {
        "ko": "마찰",
@@ -13991,7 +13991,7 @@
         "en": "Due to opinion clashes, a small friction was created between colleagues."
        },
        "lv": 4,
-       "fq": 1
+       "fq": 2
       },
       {
        "ko": "명확하다",
@@ -14002,7 +14002,7 @@
         "en": "Please clearly explain the meaning of contract clauses."
        },
        "lv": 4,
-       "fq": 1
+       "fq": 2
       },
       {
        "ko": "바람직하다",
@@ -14013,7 +14013,7 @@
         "en": "Resolving misunderstandings through conversation is most desirable."
        },
        "lv": 4,
-       "fq": 1
+       "fq": 2
       },
       {
        "ko": "배경",
@@ -14024,7 +14024,7 @@
         "en": "I took a wonderful memorial photo against the background of the sea."
        },
        "lv": 4,
-       "fq": 1
+       "fq": 2
       },
       {
        "ko": "시스템",
@@ -14046,7 +14046,7 @@
         "en": "In busy daily life, I conveniently order necessary goods online."
        },
        "lv": 4,
-       "fq": 4
+       "fq": 3
       },
       {
        "ko": "이용자",
@@ -14090,7 +14090,7 @@
         "en": "The number of users of the new app has increased a lot."
        },
        "lv": 4,
-       "fq": 1
+       "fq": 2
       },
       {
        "ko": "기술",
@@ -14145,7 +14145,7 @@
         "en": "An artificial waterfall just like nature was made inside the botanical garden."
        },
        "lv": 4,
-       "fq": 5
+       "fq": 4
       },
       {
        "ko": "지구",
@@ -14156,7 +14156,7 @@
         "en": "I reduce garbage to keep the beautiful Earth healthy."
        },
        "lv": 4,
-       "fq": 5
+       "fq": 4
       },
       {
        "ko": "원리",
@@ -14167,7 +14167,7 @@
         "en": "The teacher explains the complex machine's operating principle easily."
        },
        "lv": 4,
-       "fq": 5
+       "fq": 4
       },
       {
        "ko": "도입",
@@ -14429,7 +14429,7 @@
         "en": "I calmly wait for my name in the hospital waiting room to receive treatment."
        },
        "lv": 4,
-       "fq": 5
+       "fq": 4
       },
       {
        "ko": "가로등",
@@ -14440,7 +14440,7 @@
         "en": "Streetlights are brightly turned on in the dark alley, so I feel relieved."
        },
        "lv": 4,
-       "fq": 5
+       "fq": 4
       },
       {
        "ko": "충돌",
@@ -14484,7 +14484,7 @@
         "en": "I walked along a wide boulevard where cars run smoothly."
        },
        "lv": 4,
-       "fq": 1
+       "fq": 2
       },
       {
        "ko": "발길",
@@ -14495,7 +14495,7 @@
         "en": "Attracted by beautiful busking sounds, I stop my walking footsteps."
        },
        "lv": 4,
-       "fq": 4
+       "fq": 3
       },
       {
        "ko": "차도",
@@ -14528,7 +14528,7 @@
         "en": "I stay in Seoul for a month learning Korea's beautiful traditional culture."
        },
        "lv": 4,
-       "fq": 4
+       "fq": 3
       },
       {
        "ko": "운행",
@@ -14539,7 +14539,7 @@
         "en": "City bus service is temporarily suspended because it snowed a lot."
        },
        "lv": 4,
-       "fq": 5
+       "fq": 4
       },
       {
        "ko": "부딪히다",
@@ -14561,7 +14561,7 @@
         "en": "The factory actively produces high-quality eco-friendly products."
        },
        "lv": 4,
-       "fq": 5
+       "fq": 4
       },
       {
        "ko": "부품",
@@ -14572,7 +14572,7 @@
         "en": "I buy parts at the service center to repair the broken vacuum."
        },
        "lv": 4,
-       "fq": 5
+       "fq": 4
       },
       {
        "ko": "농업",
@@ -14583,7 +14583,7 @@
         "en": "People in our countryside hometown mainly engage in agriculture."
        },
        "lv": 4,
-       "fq": 5
+       "fq": 4
       },
       {
        "ko": "농촌",
@@ -14605,7 +14605,7 @@
         "en": "From spring to autumn, farmers sweat in fields growing rice."
        },
        "lv": 4,
-       "fq": 4
+       "fq": 3
       }
      ]
     },
@@ -14845,7 +14845,7 @@
         "en": "I founded and run a small specialized design company with a senior."
        },
        "lv": 4,
-       "fq": 5
+       "fq": 4
       },
       {
        "ko": "분야",
@@ -14966,7 +14966,7 @@
         "en": "We are practicing transparent and honest corporate management."
        },
        "lv": 4,
-       "fq": 1
+       "fq": 2
       },
       {
        "ko": "현장",
@@ -14977,7 +14977,7 @@
         "en": "At construction sites, one must wear a safety helmet."
        },
        "lv": 4,
-       "fq": 5
+       "fq": 4
       },
       {
        "ko": "사기",
@@ -14988,7 +14988,7 @@
         "en": "Please boost the morale of the team members."
        },
        "lv": 4,
-       "fq": 1
+       "fq": 2
       },
       {
        "ko": "지급",
@@ -14999,7 +14999,7 @@
         "en": "The company pays monthly salaries to employees on a fixed date each month."
        },
        "lv": 4,
-       "fq": 4
+       "fq": 3
       },
       {
        "ko": "노동자",
@@ -15010,7 +15010,7 @@
         "en": "They are precious workers working faithfully sweating in factories."
        },
        "lv": 4,
-       "fq": 4
+       "fq": 3
       },
       {
        "ko": "소득",
@@ -15272,7 +15272,7 @@
         "en": "My body aches are severe, so I stop by the clinic on my way home for treatment."
        },
        "lv": 5,
-       "fq": 5
+       "fq": 4
       },
       {
        "ko": "보건소",
@@ -15338,7 +15338,7 @@
         "en": "Standing up suddenly, I feel dizzy and my head spins around, staggering."
        },
        "lv": 5,
-       "fq": 4
+       "fq": 3
       },
       {
        "ko": "순환",
@@ -15371,7 +15371,7 @@
         "en": "I greatly boost my Korean writing score through thorough review."
        },
        "lv": 5,
-       "fq": 5
+       "fq": 4
       },
       {
        "ko": "전환",
@@ -15404,7 +15404,7 @@
         "en": "I observe dosage instructions well to lengthen the duration of drug effects."
        },
        "lv": 5,
-       "fq": 4
+       "fq": 3
       },
       {
        "ko": "의하다",
@@ -15415,7 +15415,7 @@
         "en": "According to recent reports, prices are said to stabilize little by little from next month."
        },
        "lv": 5,
-       "fq": 4
+       "fq": 3
       },
       {
        "ko": "자체",
@@ -15426,7 +15426,7 @@
         "en": "Results are important too, but the process of challenging itself has great meaning."
        },
        "lv": 5,
-       "fq": 4
+       "fq": 3
       },
       {
        "ko": "잦다",
@@ -15437,7 +15437,7 @@
         "en": "As seasons change, I caught a cold and throat hurts with frequent coughing."
        },
        "lv": 5,
-       "fq": 4
+       "fq": 3
       }
      ]
     },
@@ -15644,7 +15644,7 @@
         "en": "Rain hasn't come for months, so drought damage in the village is extreme."
        },
        "lv": 5,
-       "fq": 4
+       "fq": 3
       },
       {
        "ko": "풍성하다",
@@ -15655,7 +15655,7 @@
         "en": "As autumn arrives, orange persimmon fruits ripen abundantly in the orchard."
        },
        "lv": 5,
-       "fq": 4
+       "fq": 3
       },
       {
        "ko": "과도하다",
@@ -15721,7 +15721,7 @@
         "en": "Exiting the subway station, I come up to the aboveground where cool breeze blows."
        },
        "lv": 5,
-       "fq": 4
+       "fq": 3
       },
       {
        "ko": "원형",
@@ -15765,7 +15765,7 @@
         "en": "I appreciate beautiful ceramics of the Joseon era at the history museum."
        },
        "lv": 5,
-       "fq": 5
+       "fq": 4
       },
       {
        "ko": "백성",
@@ -15842,7 +15842,7 @@
         "en": "Not a small loss occurred in the village due to sudden natural disasters."
        },
        "lv": 5,
-       "fq": 5
+       "fq": 4
       },
       {
        "ko": "전액",
@@ -15853,7 +15853,7 @@
         "en": "As I canceled the class, I get a full refund of the course fee paid."
        },
        "lv": 5,
-       "fq": 5
+       "fq": 4
       }
      ]
     },
@@ -16082,7 +16082,7 @@
         "en": "It is a popular free lecture, so I hurry and apply on a first-come basis."
        },
        "lv": 5,
-       "fq": 5
+       "fq": 4
       },
       {
        "ko": "대여",
@@ -16126,7 +16126,7 @@
         "en": "Late-night buses run for citizens returning home at late hours."
        },
        "lv": 5,
-       "fq": 5
+       "fq": 4
       },
       {
        "ko": "기한",
@@ -16137,7 +16137,7 @@
         "en": "To meet the report submission deadline, I finish work until late at night."
        },
        "lv": 5,
-       "fq": 4
+       "fq": 3
       },
       {
        "ko": "자정",
@@ -16181,7 +16181,7 @@
         "en": "Before going out in the morning, I check today's weather information on my smartphone."
        },
        "lv": 5,
-       "fq": 4
+       "fq": 3
       },
       {
        "ko": "거세다",
@@ -16269,7 +16269,7 @@
         "en": "Please do not make extreme choices."
        },
        "lv": 5,
-       "fq": 1
+       "fq": 2
       }
      ]
     },
@@ -16520,7 +16520,7 @@
         "en": "Having worked all day, my body is very weary."
        },
        "lv": 5,
-       "fq": 1
+       "fq": 2
       },
       {
        "ko": "발효",
@@ -16542,7 +16542,7 @@
         "en": "Before buying processed food, I check nutritional ingredients written on the package."
        },
        "lv": 5,
-       "fq": 5
+       "fq": 4
       },
       {
        "ko": "수산물",
@@ -16575,7 +16575,7 @@
         "en": "I intake protein through eggs and tofu."
        },
        "lv": 5,
-       "fq": 1
+       "fq": 2
       },
       {
        "ko": "구석구석",
@@ -16586,7 +16586,7 @@
         "en": "I clean every nook and corner of the house thoroughly."
        },
        "lv": 5,
-       "fq": 1
+       "fq": 2
       },
       {
        "ko": "군데군데",
@@ -16597,7 +16597,7 @@
         "en": "Underlines are drawn here and there in the book."
        },
        "lv": 5,
-       "fq": 1
+       "fq": 2
       },
       {
        "ko": "뒤집어쓰다",
@@ -16608,7 +16608,7 @@
         "en": "Because it was cold, I covered myself with the blanket up to my head."
        },
        "lv": 5,
-       "fq": 1
+       "fq": 2
       },
       {
        "ko": "주거",
@@ -16619,7 +16619,7 @@
         "en": "We build more public rental housing for young people's housing stability."
        },
        "lv": 5,
-       "fq": 5
+       "fq": 4
       },
       {
        "ko": "주택가",
@@ -16630,7 +16630,7 @@
         "en": "I walk slowly along the quiet, pleasant residential alleyway."
        },
        "lv": 5,
-       "fq": 4
+       "fq": 3
       },
       {
        "ko": "소유자",
@@ -16641,7 +16641,7 @@
         "en": "Before concluding a real estate contract, verify the actual owner via register copy."
        },
        "lv": 5,
-       "fq": 4
+       "fq": 3
       },
       {
        "ko": "건축물",
@@ -16903,7 +16903,7 @@
         "en": "I observe grass insects and small bugs in the forest with kids."
        },
        "lv": 5,
-       "fq": 5
+       "fq": 4
       },
       {
        "ko": "야생",
@@ -16914,7 +16914,7 @@
         "en": "Walking in the deep forest, I accidentally meet a cute wild squirrel."
        },
        "lv": 5,
-       "fq": 4
+       "fq": 3
       },
       {
        "ko": "날아들다",
@@ -16925,7 +16925,7 @@
         "en": "A pretty bird flew in through the window."
        },
        "lv": 5,
-       "fq": 1
+       "fq": 2
       },
       {
        "ko": "친환경",
@@ -16958,7 +16958,7 @@
         "en": "I tend the field's soil fertilely by giving plenty of fertilizer."
        },
        "lv": 5,
-       "fq": 5
+       "fq": 4
       },
       {
        "ko": "농도",
@@ -16969,7 +16969,7 @@
         "en": "In spring, fine dust concentration in the air becomes very dense and stuffy."
        },
        "lv": 5,
-       "fq": 5
+       "fq": 4
       },
       {
        "ko": "배출",
@@ -16980,7 +16980,7 @@
         "en": "I minimize household waste discharge to reduce environmental pollution."
        },
        "lv": 5,
-       "fq": 5
+       "fq": 4
       },
       {
        "ko": "천연",
@@ -16991,7 +16991,7 @@
         "en": "My skin is sensitive, so I use natural soap without chemicals."
        },
        "lv": 5,
-       "fq": 5
+       "fq": 4
       },
       {
        "ko": "매연",
@@ -17046,7 +17046,7 @@
         "en": "We collect ocean waste to preserve the blue marine ecosystem."
        },
        "lv": 5,
-       "fq": 5
+       "fq": 4
       },
       {
        "ko": "진흙",
@@ -17068,7 +17068,7 @@
         "en": "I pull weeds sprouted on field ridges so vegetables grow well."
        },
        "lv": 5,
-       "fq": 4
+       "fq": 3
       },
       {
        "ko": "종",
@@ -17090,7 +17090,7 @@
         "en": "Sometimes, escaping busy daily life, I travel alone to unfamiliar destinations."
        },
        "lv": 5,
-       "fq": 4
+       "fq": 3
       },
       {
        "ko": "함께하다",
@@ -17319,7 +17319,7 @@
         "en": "On weekend evenings, our four-person family gathers at the table and eats."
        },
        "lv": 5,
-       "fq": 4
+       "fq": 3
       },
       {
        "ko": "봉사자",
@@ -17418,7 +17418,7 @@
         "en": "I take a cooking course at the cultural center."
        },
        "lv": 5,
-       "fq": 1
+       "fq": 2
       },
       {
        "ko": "안정적",
@@ -17451,7 +17451,7 @@
         "en": "Worries among surrounding farm households are big due to drought."
        },
        "lv": 5,
-       "fq": 1
+       "fq": 2
       },
       {
        "ko": "마케팅",
@@ -17462,7 +17462,7 @@
         "en": "We actively unfold online marketing."
        },
        "lv": 5,
-       "fq": 1
+       "fq": 2
       },
       {
        "ko": "침수",
@@ -17473,7 +17473,7 @@
         "en": "Due to sudden heavy rain, low-lying residential alleys are submerged."
        },
        "lv": 5,
-       "fq": 4
+       "fq": 3
       },
       {
        "ko": "장애물",
@@ -17506,7 +17506,7 @@
         "en": "I went to the nearby district office to get documents."
        },
        "lv": 5,
-       "fq": 1
+       "fq": 2
       },
       {
        "ko": "복지",
@@ -17517,7 +17517,7 @@
         "en": "Welfare facilities for the elderly have increased."
        },
        "lv": 5,
-       "fq": 1
+       "fq": 2
       }
      ]
     },
@@ -17735,7 +17735,7 @@
         "en": "Let us look for realistic alternatives to reduce environmental pollution."
        },
        "lv": 5,
-       "fq": 5
+       "fq": 4
       },
       {
        "ko": "탓",
@@ -17746,7 +17746,7 @@
         "en": "You should not blame others just because things did not go well."
        },
        "lv": 5,
-       "fq": 5
+       "fq": 4
       },
       {
        "ko": "뻔하다",
@@ -17757,7 +17757,7 @@
         "en": "The road was slippery so I almost fell, but fortunately kept my balance."
        },
        "lv": 5,
-       "fq": 4
+       "fq": 3
       },
       {
        "ko": "복합",
@@ -17812,7 +17812,7 @@
         "en": "You must observe formalities in front of elders."
        },
        "lv": 5,
-       "fq": 1
+       "fq": 2
       },
       {
        "ko": "장치",
@@ -17823,7 +17823,7 @@
         "en": "We install a device that detects fires for factory safety."
        },
        "lv": 5,
-       "fq": 5
+       "fq": 4
       },
       {
        "ko": "무인",
@@ -17834,7 +17834,7 @@
         "en": "These days, unmanned stores used conveniently increase in each neighborhood."
        },
        "lv": 5,
-       "fq": 5
+       "fq": 4
       },
       {
        "ko": "공유",
@@ -17878,7 +17878,7 @@
         "en": "I observe chemical reactions while mixing various substances in the lab."
        },
        "lv": 5,
-       "fq": 5
+       "fq": 4
       },
       {
        "ko": "산소",
@@ -17889,7 +17889,7 @@
         "en": "Walking deep into the forest, I breathe clean, fresh oxygen."
        },
        "lv": 5,
-       "fq": 5
+       "fq": 4
       },
       {
        "ko": "미생물",
@@ -17900,7 +17900,7 @@
         "en": "In fermented foods, there are many beneficial microbes good for gut health."
        },
        "lv": 5,
-       "fq": 4
+       "fq": 3
       },
       {
        "ko": "전력",
@@ -17911,7 +17911,7 @@
         "en": "In summer, air conditioner operation rises and village power consumption surges."
        },
        "lv": 5,
-       "fq": 4
+       "fq": 3
       },
       {
        "ko": "금속",
@@ -18162,7 +18162,7 @@
         "en": "A festival is held in the plaza in front of City Hall."
        },
        "lv": 5,
-       "fq": 1
+       "fq": 2
       },
       {
        "ko": "나침반",
@@ -18173,7 +18173,7 @@
         "en": "Always pack a compass when hiking."
        },
        "lv": 5,
-       "fq": 1
+       "fq": 2
       },
       {
        "ko": "운전자",
@@ -18294,7 +18294,7 @@
         "en": "Apply only a little chemical fertilizer to the field."
        },
        "lv": 5,
-       "fq": 1
+       "fq": 2
       },
       {
        "ko": "채용",
@@ -18327,7 +18327,7 @@
         "en": "When you organize your desk, study concentration and efficiency rise much more."
        },
        "lv": 5,
-       "fq": 5
+       "fq": 4
       },
       {
        "ko": "건",
@@ -18338,7 +18338,7 @@
         "en": "There are three or four important matters to discuss in today's meeting."
        },
        "lv": 5,
-       "fq": 4
+       "fq": 3
       },
       {
        "ko": "본",
@@ -18589,7 +18589,7 @@
         "en": "There is little time left before the application deadline."
        },
        "lv": 5,
-       "fq": 1
+       "fq": 2
       },
       {
        "ko": "장비",
@@ -18611,7 +18611,7 @@
         "en": "To not get hurt in the factory, observe set work safety rules."
        },
        "lv": 5,
-       "fq": 4
+       "fq": 3
       },
       {
        "ko": "들이마시다",
@@ -18622,7 +18622,7 @@
         "en": "Breathe in deeply fresh air in the forest."
        },
        "lv": 6,
-       "fq": 1
+       "fq": 2
       },
       {
        "ko": "살균",
@@ -18644,7 +18644,7 @@
         "en": "Children must enter together with a guardian."
        },
        "lv": 6,
-       "fq": 1
+       "fq": 2
       },
       {
        "ko": "수분",
@@ -18699,7 +18699,7 @@
         "en": "Through the window cracks, sweet spring flower scents subtly permeate the room."
        },
        "lv": 6,
-       "fq": 4
+       "fq": 3
       },
       {
        "ko": "치솟다",
@@ -18732,7 +18732,7 @@
         "en": "We drastically increase library convenience facilities for the new semester."
        },
        "lv": 6,
-       "fq": 5
+       "fq": 4
       },
       {
        "ko": "막대하다",
@@ -18743,7 +18743,7 @@
         "en": "Enormous budget and manpower go into building the new factory."
        },
        "lv": 6,
-       "fq": 4
+       "fq": 3
       },
       {
        "ko": "최적",
@@ -18986,7 +18986,7 @@
         "en": "Putting multiple books in the bag, it is weighty enough to hurt shoulders."
        },
        "lv": 6,
-       "fq": 4
+       "fq": 3
       },
       {
        "ko": "잘다",
@@ -19008,7 +19008,7 @@
         "en": "We must live while adhering to social norms."
        },
        "lv": 6,
-       "fq": 1
+       "fq": 2
       },
       {
        "ko": "항아리",
@@ -19030,7 +19030,7 @@
         "en": "Take a souvenir photo in front of the alley mural."
        },
        "lv": 6,
-       "fq": 1
+       "fq": 2
       },
       {
        "ko": "섬유",
@@ -19041,7 +19041,7 @@
         "en": "When rinsing laundry, I add a little fabric softener so fabric softens."
        },
        "lv": 6,
-       "fq": 4
+       "fq": 3
       },
       {
        "ko": "두툼하다",
@@ -19052,7 +19052,7 @@
         "en": "Since the weather is chilly, wear a thick coat."
        },
        "lv": 6,
-       "fq": 1
+       "fq": 2
       },
       {
        "ko": "지원금",
@@ -19063,7 +19063,7 @@
         "en": "I go to apply for the youth employment subsidy provided by the government."
        },
        "lv": 6,
-       "fq": 4
+       "fq": 3
       },
       {
        "ko": "손수",
@@ -19085,7 +19085,7 @@
         "en": "When I go to the traditional market, I meet kind and generous merchants."
        },
        "lv": 6,
-       "fq": 5
+       "fq": 4
       },
       {
        "ko": "시간대",
@@ -19129,7 +19129,7 @@
         "en": "Many guests arrived despite the foul weather."
        },
        "lv": 6,
-       "fq": 1
+       "fq": 2
       },
       {
        "ko": "자발적",
@@ -19140,7 +19140,7 @@
         "en": "I participate in voluntary service arising from the heart without compulsion."
        },
        "lv": 6,
-       "fq": 4
+       "fq": 3
       },
       {
        "ko": "자율적",
@@ -19162,7 +19162,7 @@
         "en": "Ancestors' wisdom is passed down completely intact."
        },
        "lv": 6,
-       "fq": 1
+       "fq": 2
       },
       {
        "ko": "극도",
@@ -19457,7 +19457,7 @@
         "en": "Anyone is reluctant to disclose personal information."
        },
        "lv": 6,
-       "fq": 1
+       "fq": 2
       },
       {
        "ko": "고다",
@@ -19468,7 +19468,7 @@
         "en": "I stew beef bones thoroughly in a large pot for family health."
        },
        "lv": 6,
-       "fq": 5
+       "fq": 4
       },
       {
        "ko": "담장",
@@ -19512,7 +19512,7 @@
         "en": "The goalkeeper defends against the opponent's shoot splendidly."
        },
        "lv": 6,
-       "fq": 1
+       "fq": 2
       },
       {
        "ko": "철새",
@@ -19523,7 +19523,7 @@
         "en": "When winter comes, countless migratory birds fly to the riverside."
        },
        "lv": 6,
-       "fq": 5
+       "fq": 4
       },
       {
        "ko": "번식",
@@ -19534,7 +19534,7 @@
         "en": "As spring comes, small birds in the forest build nests and breed."
        },
        "lv": 6,
-       "fq": 4
+       "fq": 3
       },
       {
        "ko": "개체",
@@ -19545,7 +19545,7 @@
         "en": "The individual population count of endangered animals has decreased."
        },
        "lv": 6,
-       "fq": 1
+       "fq": 2
       },
       {
        "ko": "연료",
@@ -19556,7 +19556,7 @@
         "en": "I fill up the fuel at the gas station before leaving for a long trip."
        },
        "lv": 6,
-       "fq": 5
+       "fq": 4
       },
       {
        "ko": "녹지",
@@ -19567,7 +19567,7 @@
         "en": "We build wide green spaces in downtown so residents can rest."
        },
        "lv": 6,
-       "fq": 5
+       "fq": 4
       },
       {
        "ko": "정화",
@@ -19578,7 +19578,7 @@
         "en": "We carry out water purification activities to tend the lake cleanly."
        },
        "lv": 6,
-       "fq": 5
+       "fq": 4
       },
       {
        "ko": "폐기물",
@@ -19796,7 +19796,7 @@
         "en": "In dry spring weather, we prevent wildfires and protect green forests."
        },
        "lv": 6,
-       "fq": 4
+       "fq": 3
       },
       {
        "ko": "감축",
@@ -19807,7 +19807,7 @@
         "en": "We join in reducing greenhouse gas emissions to stop global warming."
        },
        "lv": 6,
-       "fq": 4
+       "fq": 3
       },
       {
        "ko": "온실가스",
@@ -19818,7 +19818,7 @@
         "en": "The whole world strives to reduce greenhouse gases to slow climate change."
        },
        "lv": 6,
-       "fq": 4
+       "fq": 3
       },
       {
        "ko": "조성",
@@ -19829,7 +19829,7 @@
         "en": "We create a small forest in downtown so citizens can take walks and rest."
        },
        "lv": 6,
-       "fq": 4
+       "fq": 3
       },
       {
        "ko": "고갈",
@@ -19906,7 +19906,7 @@
         "en": "Morning dew formed in droplets on the grass blades."
        },
        "lv": 6,
-       "fq": 1
+       "fq": 2
       },
       {
        "ko": "무성하다",
@@ -19917,7 +19917,7 @@
         "en": "As summer arrives, trees on the back mountain are luxuriant."
        },
        "lv": 6,
-       "fq": 1
+       "fq": 2
       },
       {
        "ko": "품격",
@@ -19939,7 +19939,7 @@
         "en": "Korea is moving rapidly into an aged society."
        },
        "lv": 6,
-       "fq": 1
+       "fq": 2
       },
       {
        "ko": "잠재력",
@@ -19961,7 +19961,7 @@
         "en": "The government gradually increases fiscal expenditure to help the vulnerable."
        },
        "lv": 6,
-       "fq": 4
+       "fq": 3
       },
       {
        "ko": "가계",
@@ -19972,7 +19972,7 @@
         "en": "The household burden is heavy as prices rose."
        },
        "lv": 6,
-       "fq": 1
+       "fq": 2
       },
       {
        "ko": "국경",
@@ -20234,7 +20234,7 @@
         "en": "We deliver coal briquettes for seniors living alone in winter."
        },
        "lv": 6,
-       "fq": 1
+       "fq": 2
       },
       {
        "ko": "공정",
@@ -20256,7 +20256,7 @@
         "en": "We tighten regulations on single-use items to prevent environmental pollution."
        },
        "lv": 6,
-       "fq": 4
+       "fq": 3
       },
       {
        "ko": "채다",
@@ -20267,7 +20267,7 @@
         "en": "Looking at my friend's expression, I notice that there is some secret."
        },
        "lv": 6,
-       "fq": 5
+       "fq": 4
       },
       {
        "ko": "인위적",
@@ -20322,7 +20322,7 @@
         "en": "I often use various digital devices such as smartphones in daily life."
        },
        "lv": 6,
-       "fq": 5
+       "fq": 4
       },
       {
        "ko": "첨단",
@@ -20333,7 +20333,7 @@
         "en": "We foster high-tech future industries utilizing AI and robotics."
        },
        "lv": 6,
-       "fq": 4
+       "fq": 3
       },
       {
        "ko": "구축",
@@ -20355,7 +20355,7 @@
         "en": "Thanks to the new battery tech, charging speed becomes groundbreakingly fast."
        },
        "lv": 6,
-       "fq": 5
+       "fq": 4
       },
       {
        "ko": "세포",
@@ -20377,7 +20377,7 @@
         "en": "We go through expert verification to see whether rumors online are true."
        },
        "lv": 6,
-       "fq": 4
+       "fq": 3
       },
       {
        "ko": "궤도",
@@ -20388,7 +20388,7 @@
         "en": "The newly launched satellite enters its set space orbit safely."
        },
        "lv": 6,
-       "fq": 4
+       "fq": 3
       },
       {
        "ko": "정교하다",
@@ -20399,7 +20399,7 @@
         "en": "Sundials and water clocks of the Joseon era are astonishingly elaborate."
        },
        "lv": 6,
-       "fq": 4
+       "fq": 3
       },
       {
        "ko": "반도체",
@@ -20694,7 +20694,7 @@
         "en": "The electric motor creates rotational power."
        },
        "lv": 6,
-       "fq": 1
+       "fq": 2
       },
       {
        "ko": "물체",
@@ -20705,7 +20705,7 @@
         "en": "A flying object shining in the night sky is visible."
        },
        "lv": 6,
-       "fq": 1
+       "fq": 2
       },
       {
        "ko": "공터",
@@ -20716,7 +20716,7 @@
         "en": "Neighborhood kids gather in the wide vacant lot after school and play soccer."
        },
        "lv": 6,
-       "fq": 4
+       "fq": 3
       },
       {
        "ko": "경로",
@@ -20782,7 +20782,7 @@
         "en": "I inspect old factory facilities to prevent safety accidents."
        },
        "lv": 6,
-       "fq": 5
+       "fq": 4
       },
       {
        "ko": "원료",
@@ -20793,7 +20793,7 @@
         "en": "It is a cosmetic product you can use with relief using only natural raw materials."
        },
        "lv": 6,
-       "fq": 4
+       "fq": 3
       },
       {
        "ko": "결함",
@@ -20826,7 +20826,7 @@
         "en": "I regularly service my car for safe driving."
        },
        "lv": 6,
-       "fq": 5
+       "fq": 4
       },
       {
        "ko": "단단히",
@@ -21032,9 +21032,9 @@
   "title": [
    "TOPIK II",
    "단어장",
-   "워크북 1,000"
+   "워크북 1"
   ],
-  "sub": "자주 나오는 낱말 1,000개"
+  "sub": "자주 나오는 낱말 1~1,000"
  },
  "reviewer": {
   "ko": "준상",
