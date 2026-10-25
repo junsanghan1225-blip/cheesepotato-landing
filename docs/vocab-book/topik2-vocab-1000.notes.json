@@ -1,0 +1,1294 @@
+{
+ "tv-01": [
+  {
+   "words": [
+    "대상",
+    "대상"
+   ],
+   "kind": "homonym",
+   "note": "對象 target or research subject (조사 대상 survey subjects) vs 大賞 grand prize (연기 대상 grand acting award). Different hanja roots sharing the exact same spelling."
+  },
+  {
+   "words": [
+    "비용",
+    "요금"
+   ],
+   "kind": "synonym",
+   "note": "Both mean cost, but 비용 is overall expenditure for an activity or project (여행 비용 travel costs), while 요금 is a fixed rate for using a service (버스 요금 bus fare)."
+  },
+  {
+   "words": [
+    "빛",
+    "빚"
+   ],
+   "kind": "contrast",
+   "note": "Sound identical in isolation ([빋]). 빛 means optical light or glow (햇빛 sunlight), whereas 빚 means financial debt (빚을 갚다 to pay off debt)."
+  }
+ ],
+ "tv-02": [
+  {
+   "words": [
+    "상태",
+    "상황"
+   ],
+   "kind": "synonym",
+   "note": "상태 refers to the physical or mental condition of a person or object (건강 상태 health condition). 상황 refers to external circumstances or surroundings (경제 상황 economic situation)."
+  },
+  {
+   "words": [
+    "높이다",
+    "늘리다"
+   ],
+   "kind": "synonym",
+   "note": "Both mean to increase, but 높이다 raises grade, level, or quality (가치를 높이다 to raise value), while 늘리다 increases volume, count, or duration (생산량을 늘리다 to increase output)."
+  },
+  {
+   "words": [
+    "구조",
+    "구조"
+   ],
+   "kind": "homonym",
+   "note": "構造 organization or framework (건물의 구조 building structure) vs 救助 rescue or relief from danger (조난자 구조 rescuing a stranded person). Context determines the meaning."
+  }
+ ],
+ "tv-03": [
+  {
+   "words": [
+    "수리",
+    "수리"
+   ],
+   "kind": "homonym",
+   "note": "修理 physical repair or fixing (기계 수리 machine repair) vs 受理 formal acceptance and processing of an application (서류 수리 document acceptance). Unrelated hanja roots."
+  },
+  {
+   "words": [
+    "떠오르다",
+    "생각나다"
+   ],
+   "kind": "synonym",
+   "note": "Both are about a thought coming to mind. 떠오르다 is an idea or image that rises in the mind (좋은 생각이 떠오르다 a good idea comes to mind). 생각나다 is something you already knew coming back to you (단어가 생각나다 the word comes to mind)."
+  },
+  {
+   "words": [
+    "외부",
+    "실외"
+   ],
+   "kind": "synonym",
+   "note": "외부 denotes the exterior side of a boundary or outside an organization (외부 시선 outside perspective). 실외 specifically refers to the open air outdoors, opposite of 실내 (실외 수영장)."
+  }
+ ],
+ "tv-04": [
+  {
+   "words": [
+    "수면",
+    "수면"
+   ],
+   "kind": "homonym",
+   "note": "睡眠 sleep (수면 부족 lack of sleep) vs 水面 surface of water (수면 위 on the water). Same spelling and pronunciation, but completely different hanja and meanings."
+  },
+  {
+   "words": [
+    "가정",
+    "가정"
+   ],
+   "kind": "homonym",
+   "note": "家庭 family household or home (화목한 가정 harmonious home) vs 假定 hypothesis or supposition (가정을 세우다 to set up a hypothesis). Context clarifies the meaning."
+  },
+  {
+   "words": [
+    "담다",
+    "채우다"
+   ],
+   "kind": "synonym",
+   "note": "담다 means placing items into a container or expressing sentiments (상자에 담다, 정성을 담다). 채우다 stresses filling a space to capacity (물병을 가득 채우다 to fill a bottle)."
+  }
+ ],
+ "tv-05": [
+  {
+   "words": [
+    "일정",
+    "일정"
+   ],
+   "kind": "homonym",
+   "note": "日程 daily schedule or itinerary (여행 일정 travel itinerary) vs 一定 uniform, fixed, or steady (일정한 온도 constant temperature). The first is a noun; the second functions as a determiner."
+  },
+  {
+   "words": [
+    "간",
+    "간"
+   ],
+   "kind": "homonym",
+   "note": "間 relationship or interval between groups (세대 간 between generations) vs 肝 biological liver (간 건강 liver health) vs salty seasoning (간을 맞추다 to season food)."
+  },
+  {
+   "words": [
+    "지나치다",
+    "과하다"
+   ],
+   "kind": "synonym",
+   "note": "Both mean excessive, but 지나치다 can also mean physically passing by a location (정류장을 지나치다 to miss a stop). 과하다 only means exceeding moderation (과한 요구 excessive request)."
+  }
+ ],
+ "tv-06": [
+  {
+   "words": [
+    "용기",
+    "용기"
+   ],
+   "kind": "homonym",
+   "note": "容器 container or vessel (플라스틱 용기 plastic container) vs 勇氣 courage or bravery (용기를 내다 to muster courage). Distinct hanja roots that share identical spelling."
+  },
+  {
+   "words": [
+    "기관",
+    "기관"
+   ],
+   "kind": "homonym",
+   "note": "機關 public institution or engine mechanism (정부 기관 government organization) vs 器官 biological bodily organ (소화 기관 digestive organ). Context distinguishes them."
+  },
+  {
+   "words": [
+    "야외",
+    "실외"
+   ],
+   "kind": "synonym",
+   "note": "야외 highlights open natural space away from buildings (야외 공연 open-air performance). 실외 simply means outdoors, the opposite of 실내 (실외 수영장 outdoor pool, 실외기 outdoor unit)."
+  }
+ ],
+ "tv-07": [
+  {
+   "words": [
+    "맡다",
+    "맡다"
+   ],
+   "kind": "homonym",
+   "note": "Two native verbs: 맡다 ① to take charge of a duty or role (역할을 맡다) vs 맡다 ② to perceive an odor with the nose (향기를 맡다 to smell a fragrance)."
+  },
+  {
+   "words": [
+    "매장",
+    "매장"
+   ],
+   "kind": "homonym",
+   "note": "賣場 retail outlet or shop counter (의류 매장 clothing store) vs 埋葬 burial in the earth (유물 매장 burial of artifacts). Two completely separate Sino-Korean words."
+  },
+  {
+   "words": [
+    "저렴하다",
+    "싸다"
+   ],
+   "kind": "synonym",
+   "note": "Both mean inexpensive, but 저렴하다 is polite and formal, preferred in commercial writing (저렴한 가격 affordable price), while 싸다 is casual everyday speech (값이 싸다)."
+  }
+ ],
+ "tv-08": [
+  {
+   "words": [
+    "시각",
+    "시각"
+   ],
+   "kind": "homonym",
+   "note": "時刻 point in time or clock time (도착 시각 arrival time) vs 視覺 visual sense (시각 장애 visual impairment) vs 視角 viewpoint or perspective (새로운 시각 fresh perspective)."
+  },
+  {
+   "words": [
+    "세제",
+    "세제"
+   ],
+   "kind": "homonym",
+   "note": "洗劑 detergent or cleaning chemical (세탁 세제 laundry detergent) vs 稅制 national tax policy system (세제 혜택 tax benefit). Context makes the distinction obvious."
+  },
+  {
+   "words": [
+    "취하다",
+    "고르다"
+   ],
+   "kind": "synonym",
+   "note": "Both can mean to select or adopt, but 취하다 is formal and abstract (적절한 조치를 취하다 to take proper action), while 고르다 is everyday physical selection (선물을 고르다)."
+  }
+ ],
+ "tv-09": [
+  {
+   "words": [
+    "결제",
+    "결재"
+   ],
+   "kind": "contrast",
+   "note": "Commonly confused homophones. 決濟 결제 is financial settlement or paying money (카드 결제 card payment). 決裁 결재 is approval from a workplace superior (서류 결재 document approval)."
+  },
+  {
+   "words": [
+    "햇볕",
+    "햇빛"
+   ],
+   "kind": "synonym",
+   "note": "햇볕 highlights the warmth and heat radiated by the sun (햇볕에 말리다 to dry in the sun). 햇빛 emphasizes visual optical brightness and shine (눈부신 햇빛 bright sunlight)."
+  },
+  {
+   "words": [
+    "가리다",
+    "가리다"
+   ],
+   "kind": "homonym",
+   "note": "가리다 ① to shield or conceal from sight (얼굴을 가리다 to cover a face). 가리다 ② to distinguish right from wrong or be finicky (시비를 가리다, 음식을 가리다 to be a picky eater)."
+  }
+ ],
+ "tv-10": [
+  {
+   "words": [
+    "기사",
+    "기사"
+   ],
+   "kind": "homonym",
+   "note": "記事 published news article or report (신문 기사 newspaper article) vs 技士 professional driver or technician (택시 기사 taxi driver). Both are very common in TOPIK II."
+  },
+  {
+   "words": [
+    "감정",
+    "감정"
+   ],
+   "kind": "homonym",
+   "note": "感情 human feeling or emotion (감정을 표현하다 to express emotion) vs 鑑定 expert appraisal of authenticity or value (보석 감정 gem appraisal). Unrelated hanja roots."
+  },
+  {
+   "words": [
+    "단점",
+    "결점"
+   ],
+   "kind": "synonym",
+   "note": "단점 is a drawback or disadvantage compared to strengths (장점과 단점 pros and cons). 결점 highlights a specific defect, flaw, or shortcoming needing repair (제품의 결점 product defect)."
+  }
+ ],
+ "tv-11": [
+  {
+   "words": [
+    "예정",
+    "계획"
+   ],
+   "kind": "synonym",
+   "note": "Both relate to future events, but 예정 emphasizes an expected schedule or timetable (도착 예정 시간 estimated arrival time), while 계획 focuses on active planning and intentions (사업 계획 business plan)."
+  },
+  {
+   "words": [
+    "수수료",
+    "비용"
+   ],
+   "kind": "synonym",
+   "note": "수수료 is a handling fee or commission charged for a specific transactional service (송금 수수료 transfer fee). 비용 is a broader term for total expenses incurred (생활 비용 living expenses)."
+  },
+  {
+   "words": [
+    "이하",
+    "이상"
+   ],
+   "kind": "contrast",
+   "note": "Both set numerical cutoffs that include the stated number itself. 이하 means that number or below (18세 이하 18 or younger), while 이상 means that number or above (20세 이상 20 or older)."
+  }
+ ],
+ "tv-12": [
+  {
+   "words": [
+    "잠기다",
+    "잠기다"
+   ],
+   "kind": "homonym",
+   "note": "Two distinct native usages: 잠기다 ① to be locked or closed tightly (문이 잠기다 the door is locked) vs 잠기다 ② to be submerged under liquid or lost in thought (물에 잠기다, 생각에 잠기다)."
+  },
+  {
+   "words": [
+    "갈다",
+    "갈다"
+   ],
+   "kind": "homonym",
+   "note": "갈다 ① to replace or substitute a part (타이어를 갈다 to change a tire) vs 갈다 ② to grind into powder or sharpen an edge (원두를 갈다 to grind coffee beans, 칼을 갈다 to sharpen a knife)."
+  },
+  {
+   "words": [
+    "즉시",
+    "곧"
+   ],
+   "kind": "synonym",
+   "note": "즉시 means instantly with zero delay, on the spot (즉시 환불 immediate refund). 곧 means soon or in the near future, allowing a short buffer of time (곧 시작해요 starting shortly)."
+  }
+ ],
+ "tv-13": [
+  {
+   "words": [
+    "금",
+    "금"
+   ],
+   "kind": "homonym",
+   "note": "金 gold the precious metal (순금 pure gold) vs native 금 meaning a crack or rift (유리에 금이 가다 a crack forms in glass, 둘 사이에 금이 가다 a rift opens between two people)."
+  },
+  {
+   "words": [
+    "수도",
+    "수도"
+   ],
+   "kind": "homonym",
+   "note": "首都 capital city of a nation (한국의 수도 서울 Seoul the capital of Korea) vs 水道 municipal running water system (수도 요금 water bill, 수돗물 tap water). Unrelated hanja roots."
+  },
+  {
+   "words": [
+    "담그다",
+    "담기다"
+   ],
+   "kind": "contrast",
+   "note": "담그다 is transitive: immersing in liquid or fermenting food (김치를 담그다 to make kimchi). 담기다 is passive/intransitive: being contained inside something (상자에 담긴 선물 a gift inside a box)."
+  }
+ ],
+ "tv-14": [
+  {
+   "words": [
+    "연장",
+    "연장"
+   ],
+   "kind": "homonym",
+   "note": "延長 extension of a time limit or contract (비자 연장 visa extension) vs native 연장 meaning manual tools or equipment (목수의 연장 carpenter tools). Distinct origins."
+  },
+  {
+   "words": [
+    "풀",
+    "풀"
+   ],
+   "kind": "homonym",
+   "note": "풀 grass or pasture plants (풀밭 grassy field) vs 풀 glue or starch paste (종이에 풀을 바르다 to apply glue to paper). Two native Korean nouns with identical pronunciation."
+  },
+  {
+   "words": [
+    "건조",
+    "건조"
+   ],
+   "kind": "homonym",
+   "note": "乾燥 dryness or moisture removal (건조기 clothes dryer) vs 建造 ship construction or vessel building (선박 건조 ship construction). Unrelated hanja compounds."
+  }
+ ],
+ "tv-15": [
+  {
+   "words": [
+    "단지",
+    "단지"
+   ],
+   "kind": "homonym",
+   "note": "團地 residential or industrial complex (아파트 단지 apartment complex) vs adverb 但只 meaning simply or merely (단지 소문일 뿐이다 it is merely a rumor). Very common TOPIK pair."
+  },
+  {
+   "words": [
+    "보관",
+    "저장"
+   ],
+   "kind": "synonym",
+   "note": "보관 stresses custody and safekeeping of personal belongings (물품 보관소 baggage storage). 저장 stresses stockpiling resources or digitally saving files (파일 저장 file saving)."
+  },
+  {
+   "words": [
+    "낯설다",
+    "익숙하다"
+   ],
+   "kind": "antonym",
+   "note": "Exact antonyms for familiarity. 낯설다 describes an unfamiliar environment or face (낯선 동네 unfamiliar neighborhood), whereas 익숙하다 describes being well-accustomed (익숙한 길 familiar street)."
+  }
+ ],
+ "tv-16": [
+  {
+   "words": [
+    "수입",
+    "수입"
+   ],
+   "kind": "homonym",
+   "note": "收入 money earned or received (월 수입 monthly income) vs 輸入 purchasing goods from abroad (원자재 수입 importing raw materials). Two major economic terms with identical Korean form."
+  },
+  {
+   "words": [
+    "전원",
+    "전원"
+   ],
+   "kind": "homonym",
+   "note": "電源 electrical power source (전원을 끄다 to turn off power) vs 全員 all persons in a group (전원 합격 100% pass rate) vs 田園 rural countryside (전원생활 country life)."
+  },
+  {
+   "words": [
+    "아끼다",
+    "절약하다"
+   ],
+   "kind": "synonym",
+   "note": "절약하다 specifically means economizing resources or spending less money (전기 절약 saving electricity). 아끼다 also includes emotional cherishing of people and objects (동생을 아끼다 to treasure a sibling)."
+  }
+ ],
+ "tv-17": [
+  {
+   "words": [
+    "낳다",
+    "낫다"
+   ],
+   "kind": "contrast",
+   "note": "Frequently confused spellings with similar pronunciation. 낳다 [나타] means to give birth or yield results (아이를 낳다). 낫다 [낟따] means to recover from illness or be better (감기가 낫다)."
+  },
+  {
+   "words": [
+    "제공",
+    "공급"
+   ],
+   "kind": "synonym",
+   "note": "Both mean supplying, but 제공 focuses on offering services or convenience to users (정보 제공 providing info), while 공급 focuses on macro distribution of commodities or utilities (물 공급 water supply)."
+  },
+  {
+   "words": [
+    "끌다",
+    "당기다"
+   ],
+   "kind": "synonym",
+   "note": "당기다 means pulling something toward one body (손잡이를 당기다 to pull a handle). 끌다 involves dragging an object along or drawing abstract attention (주의를 끌다 to draw attention)."
+  }
+ ],
+ "tv-18": [
+  {
+   "words": [
+    "말리다",
+    "말리다"
+   ],
+   "kind": "homonym",
+   "note": "Two distinct native Korean verbs: 말리다 ① to dry wet items (빨래를 말리다 to dry laundry) vs 말리다 ② to stop a dispute or dissuade someone (친구의 싸움을 말리다 to stop a fight)."
+  },
+  {
+   "words": [
+    "개발",
+    "계발"
+   ],
+   "kind": "contrast",
+   "note": "Both sound similar ([개발]). 開發 개발 is developing external resources, products, or software (소프트웨어 개발). 啓發 계발 is developing inner human potential and talents (자기계발 self-improvement)."
+  },
+  {
+   "words": [
+    "목표",
+    "목적"
+   ],
+   "kind": "synonym",
+   "note": "목적 is the overarching purpose or why behind an action (방문 목적 purpose of visit). 목표 is a specific, measurable target or milestone to hit (매출 목표 sales target)."
+  }
+ ],
+ "tv-19": [
+  {
+   "words": [
+    "낮추다",
+    "줄이다"
+   ],
+   "kind": "synonym",
+   "note": "낮추다 lowers a level, height, or intensity along a vertical scale (온도를 낮추다 to lower temperature). 줄이다 reduces numerical amount, physical size, or quantity (지출을 줄이다 to cut expenses)."
+  },
+  {
+   "words": [
+    "시절",
+    "시대"
+   ],
+   "kind": "synonym",
+   "note": "시절 describes a nostalgic or personal phase of life (학창 시절 school days). 시대 refers to a broad historical epoch or social era (조선 시대 the Joseon era, 스마트폰 시대 the smartphone age)."
+  },
+  {
+   "words": [
+    "자원",
+    "자원"
+   ],
+   "kind": "homonym",
+   "note": "資源 natural or economic resources (천연자원 natural resources) vs 自願 voluntary action by one's own choice (자원봉사 volunteer service). Unrelated hanja roots."
+  }
+ ],
+ "tv-20": [
+  {
+   "words": [
+    "일시",
+    "일시"
+   ],
+   "kind": "homonym",
+   "note": "日時 date and hour of an appointment (행사 일시 event date and time) vs 一時 temporary or one-time occurrence (일시 정지 temporary pause). Note the difference between noun and modifier."
+  },
+  {
+   "words": [
+    "지구",
+    "지구"
+   ],
+   "kind": "homonym",
+   "note": "地球 the planet Earth (지구 온난화 global warming) vs 地區 designated municipal district or zone (관광 지구 tourism zone). Two fundamental TOPIK II nouns."
+  },
+  {
+   "words": [
+    "겪다",
+    "경험하다"
+   ],
+   "kind": "synonym",
+   "note": "Both mean to experience, but 겪다 strongly leans toward enduring hardships, pain, or challenges (어려움을 겪다 to undergo difficulty). 경험하다 is neutral and versatile (한국 문화를 경험하다)."
+  }
+ ],
+ "tv-21": [
+  {
+   "words": [
+    "대기",
+    "대기"
+   ],
+   "kind": "homonym",
+   "note": "待機 standing by or waiting for one turn (대기 인원 waiting list) vs 大氣 Earth atmospheric air (대기 오염 air pollution). Unrelated hanja roots."
+  },
+  {
+   "words": [
+    "원리",
+    "원칙"
+   ],
+   "kind": "synonym",
+   "note": "원리 is a fundamental scientific law or mechanical principle explaining how things work (과학 원리). 원칙 is an agreed-upon rule or operational principle to follow (행동 원칙 code of conduct)."
+  },
+  {
+   "words": [
+    "줄어들다",
+    "늘어나다"
+   ],
+   "kind": "antonym",
+   "note": "Direct antonyms for quantity and volume change. 줄어들다 means decreasing over time (인구가 줄어들다), while 늘어나다 means expanding or growing (수출이 늘어나다)."
+  }
+ ],
+ "tv-22": [
+  {
+   "words": [
+    "소재",
+    "소재"
+   ],
+   "kind": "homonym",
+   "note": "素材 raw material or creative subject matter (글의 소재 topic of writing) vs 所在 whereabouts or physical location (소재가 불분명하다 whereabouts are unknown)."
+  },
+  {
+   "words": [
+    "특수",
+    "특수"
+   ],
+   "kind": "homonym",
+   "note": "特殊 special or exceptional nature (특수 제작 special production) vs 特需 economic boom driven by a special event (월드컵 특수 World Cup market boom)."
+  },
+  {
+   "words": [
+    "배송",
+    "배달"
+   ],
+   "kind": "synonym",
+   "note": "배송 refers to parcel logistics and product shipments over distances (무료 배송 free shipping). 배달 traditionally refers to immediate local delivery of food or mail (피자 배달 pizza delivery)."
+  }
+ ],
+ "tv-23": [
+  {
+   "words": [
+    "낭비",
+    "절약"
+   ],
+   "kind": "antonym",
+   "note": "Direct antonyms for resource use. 낭비 is squandering money, time, or energy carelessly (시간 낭비 waste of time), whereas 절약 is careful conservation (에너지 절약 saving energy)."
+  },
+  {
+   "words": [
+    "절차",
+    "과정"
+   ],
+   "kind": "synonym",
+   "note": "절차 specifies formal procedural steps and paperwork rules that must be followed (출국 절차 departure procedures). 과정 is the broader evolving course or journey (치료 과정 course of treatment)."
+  },
+  {
+   "words": [
+    "넓히다",
+    "좁히다"
+   ],
+   "kind": "antonym",
+   "note": "Direct antonyms. 넓히다 means expanding physical or conceptual width (시야를 넓히다 to broaden one's perspective), while 좁히다 means reducing distance or discrepancies (의견 차이를 좁히다)."
+  }
+ ],
+ "tv-24": [
+  {
+   "words": [
+    "지급",
+    "지급"
+   ],
+   "kind": "homonym",
+   "note": "支給 paying out money or supplies (장학금 지급 paying scholarships) vs 至急 urgent or pressing matter (지급 우편 urgent express mail). Distinct hanja roots."
+  },
+  {
+   "words": [
+    "소형",
+    "대형"
+   ],
+   "kind": "antonym",
+   "note": "Polar opposites for scale and product size. 소형 is compact or portable (소형차 compact car), whereas 대형 is large-scale or bulky (대형 마트 hypermarket, 대형 사고 massive accident)."
+  },
+  {
+   "words": [
+    "실제",
+    "이론"
+   ],
+   "kind": "antonym",
+   "note": "Classic contrast between practice and theory. 실제 refers to real facts on the ground (실제 경험 real experience), whereas 이론 refers to conceptual abstract knowledge (이론적 배경 theoretical background)."
+  }
+ ],
+ "tv-25": [
+  {
+   "words": [
+    "미치다",
+    "미치다"
+   ],
+   "kind": "homonym",
+   "note": "Two native verbs: 미치다 ① to reach or exert influence (영향을 미치다 to exert influence) vs 미치다 ② to lose one mind or go crazy (미치도록 그립다 to miss someone crazy)."
+  },
+  {
+   "words": [
+    "구매",
+    "판매"
+   ],
+   "kind": "antonym",
+   "note": "Direct antonyms in commercial trade. 구매 is buying or procuring products (온라인 구매 online purchase), whereas 판매 is selling goods to customers (상품 판매 merchandise sale)."
+  },
+  {
+   "words": [
+    "상승",
+    "하락"
+   ],
+   "kind": "antonym",
+   "note": "Key TOPIK graph reading vocabulary. 상승 indicates an upward climb (물가 상승 price rise), whereas 하락 indicates a downward decline (주가 하락 stock price drop)."
+  }
+ ],
+ "tv-26": [
+  {
+   "words": [
+    "수명",
+    "수명"
+   ],
+   "kind": "homonym",
+   "note": "壽命 lifespan of a person or device (평균 수명 life expectancy, 부품 수명 part lifespan) vs 數名 several people (수명이 모였다 several people gathered). Distinct hanja roots."
+  },
+  {
+   "words": [
+    "부정적",
+    "긍정적"
+   ],
+   "kind": "antonym",
+   "note": "Direct antonyms for perspective. 부정적 views matters with criticism or doubt (부정적인 영향 negative impact), whereas 긍정적 views them with optimism and approval (긍정적인 생각 positive thoughts)."
+  },
+  {
+   "words": [
+    "개선",
+    "개혁"
+   ],
+   "kind": "synonym",
+   "note": "Both mean making changes for the better, but 개선 focuses on remedying flaws step by step (품질 개선 quality improvement), while 개혁 involves sweeping structural overhauls (법률 개혁 legal reform)."
+  }
+ ],
+ "tv-27": [
+  {
+   "words": [
+    "열기",
+    "열기"
+   ],
+   "kind": "homonym",
+   "note": "熱氣 thermal heat or feverish enthusiasm (응원의 열기 passionate cheer heat) vs nominalized verb 열기 from 열다, meaning the act of opening (창문 열기 opening windows)."
+  },
+  {
+   "words": [
+    "확대",
+    "축소"
+   ],
+   "kind": "antonym",
+   "note": "Direct antonyms for scale. 확대 is expanding size, scale, or scope (사업 확대 business expansion), whereas 축소 is cutting down or shrinking (규모 축소 downsizing)."
+  },
+  {
+   "words": [
+    "공급",
+    "수요"
+   ],
+   "kind": "antonym",
+   "note": "Core economic paired concepts. 공급 is the provision of commodities or energy (전력 공급 power supply), whereas 수요 is the market need or consumer demand (소비자 수요 consumer demand)."
+  }
+ ],
+ "tv-28": [
+  {
+   "words": [
+    "바치다",
+    "받치다"
+   ],
+   "kind": "contrast",
+   "note": "Frequently confused spellings with similar pronunciation. 바치다 means dedicating or offering up devotion (청춘을 바치다). 받치다 means supporting from below (턱을 받치다 to rest one's chin on hands)."
+  },
+  {
+   "words": [
+    "보상",
+    "배상"
+   ],
+   "kind": "synonym",
+   "note": "보상 is compensation for lawful losses or rewards for sacrifice (적절한 보상 fair compensation). 배상 is legal damages paid for unlawful injury or wrongdoing (손해 배상 liability damages)."
+  },
+  {
+   "words": [
+    "시선",
+    "눈길"
+   ],
+   "kind": "synonym",
+   "note": "Both mean gaze or attention, but 시선 often carries social pressure or critical awareness (사람들의 시선 social gaze), while 눈길 feels more immediate, sensory, and warm (따뜻한 눈길 a warm glance)."
+  }
+ ],
+ "tv-29": [
+  {
+   "words": [
+    "차도",
+    "차도"
+   ],
+   "kind": "homonym",
+   "note": "車道 physical road lane for motor vehicles (차도와 인도 roadway and sidewalk) vs 差度 noticeable improvement in an illness (차도를 보이다 to show signs of recovery). Distinct hanja roots."
+  },
+  {
+   "words": [
+    "충격",
+    "충돌"
+   ],
+   "kind": "synonym",
+   "note": "충돌 is the physical collision between moving entities or conflict of opinions (차량 충돌 car crash). 충격 is the force, blow, or emotional shock resulting from an event (정신적 충격 mental shock)."
+  },
+  {
+   "words": [
+    "취업",
+    "창업"
+   ],
+   "kind": "contrast",
+   "note": "취업 is entering employment at an established company (취업 준비 job hunting preparation), while 창업 is launching a new independent business venture (청년 창업 youth startup)."
+  }
+ ],
+ "tv-30": [
+  {
+   "words": [
+    "배다",
+    "배다"
+   ],
+   "kind": "homonym",
+   "note": "Two native verbs: 배다 ① for odors or moisture to permeate deeply into fabric (옷에 냄새가 배다) vs 배다 ② to become pregnant with child (아이를 배다). Distinct origins."
+  },
+  {
+   "words": [
+    "늦추다",
+    "앞당기다"
+   ],
+   "kind": "antonym",
+   "note": "Direct opposites for time management. 늦추다 means pushing back a scheduled time or slowing pace (출발을 늦추다), whereas 앞당기다 means moving a date earlier (약속을 앞당기다)."
+  },
+  {
+   "words": [
+    "악화",
+    "개선"
+   ],
+   "kind": "antonym",
+   "note": "Direct antonyms for condition trends. 악화 means getting worse or deteriorating (건강 악화 worsening health), whereas 개선 means changing for the better (관계 개선 improving relations)."
+  }
+ ],
+ "tv-31": [
+  {
+   "words": [
+    "위로",
+    "위로"
+   ],
+   "kind": "homonym",
+   "note": "慰勞 comforting someone in grief or distress (따뜻한 위로 warm consolation) vs native spatial noun 위 with directional marker 로 meaning upward (계단 위로 up the stairs)."
+  },
+  {
+   "words": [
+    "유치하다",
+    "유치하다"
+   ],
+   "kind": "homonym",
+   "note": "幼稚하다 childish or crude (유치한 장난 childish prank) vs 誘致하다 to attract investment or host events (외국인 투자 유치 attracting foreign investment). Distinct hanja roots."
+  },
+  {
+   "words": [
+    "최대한",
+    "최소한"
+   ],
+   "kind": "antonym",
+   "note": "Direct opposites for limit boundaries. 최대한 pushes toward the ceiling (최대한 빨리 as quickly as possible), whereas 최소한 marks the bottom baseline (최소한의 예의 minimum courtesy)."
+  }
+ ],
+ "tv-32": [
+  {
+   "words": [
+    "객관적",
+    "주관적"
+   ],
+   "kind": "antonym",
+   "note": "Key philosophical pair in TOPIK. 객관적 relies on verifiable data and facts (객관적인 평가 objective assessment), while 주관적 reflects personal feelings and views (주관적인 판단 subjective judgment)."
+  },
+  {
+   "words": [
+    "방안",
+    "방법"
+   ],
+   "kind": "synonym",
+   "note": "방안 is a comprehensive proposal or policy measure to solve an issue (해결 방안 solution plan). 방법 is a specific procedure or how-to technique (공부하는 방법 study method)."
+  },
+  {
+   "words": [
+    "감소",
+    "증가"
+   ],
+   "kind": "antonym",
+   "note": "Standard TOPIK data analysis opposites. 감소 is a drop in statistics (인구 감소 population decrease), whereas 증가 is an upward trend (매출 증가 sales increase)."
+  }
+ ],
+ "tv-33": [
+  {
+   "words": [
+    "사례",
+    "사례"
+   ],
+   "kind": "homonym",
+   "note": "事例 concrete case or real-world example (성공 사례 success story) vs 謝禮 token of monetary thanks or honorarium (수고에 대한 사례 payment of gratitude). Unrelated hanja roots."
+  },
+  {
+   "words": [
+    "사설",
+    "사설"
+   ],
+   "kind": "homonym",
+   "note": "社說 newspaper editorial column (신문 사설 newspaper editorial) vs 私設 privately established or commercial institution (사설 학원 private academy). Context makes the meaning clear."
+  },
+  {
+   "words": [
+    "소득",
+    "수입"
+   ],
+   "kind": "synonym",
+   "note": "Both mean earnings, but 소득 is the formal economic and tax term for net income earned (소득 수준 income level). 수입 is broader revenue or cash inflow (가계 수입 household income)."
+  }
+ ],
+ "tv-34": [
+  {
+   "words": [
+    "개방",
+    "폐쇄"
+   ],
+   "kind": "antonym",
+   "note": "Direct opposites for accessibility. 개방 is opening doors, borders, or markets to the public (시장 개방 market opening), whereas 폐쇄 is shutting them down completely (공항 폐쇄 airport closure)."
+  },
+  {
+   "words": [
+    "활용",
+    "이용"
+   ],
+   "kind": "synonym",
+   "note": "이용 means using an existing tool, transport, or service (지하철 이용 using the subway). 활용 emphasizes maximizing utility or adapting materials skillfully (남은 시간 활용 utilizing spare time)."
+  },
+  {
+   "words": [
+    "편견",
+    "선입견"
+   ],
+   "kind": "synonym",
+   "note": "선입견 is a preconceived assumption formed before experiencing something (첫인상에 대한 선입견). 편견 is a distorted or unfair prejudice (외국인에 대한 편견 prejudice against foreigners)."
+  }
+ ],
+ "tv-35": [
+  {
+   "words": [
+    "녹화",
+    "녹화"
+   ],
+   "kind": "homonym",
+   "note": "錄畫 video recording of a program or camera footage (방송 녹화 television recording) vs 綠化 planting trees and vegetation (도시 녹화 urban greening project). Distinct hanja roots."
+  },
+  {
+   "words": [
+    "견디다",
+    "참다"
+   ],
+   "kind": "synonym",
+   "note": "참다 means suppressing an immediate emotional impulse or reaction (웃음을 참다 to hold back laughter). 견디다 means enduring continuous hardship or adversity over time (고통을 견디다 to endure pain)."
+  },
+  {
+   "words": [
+    "공격",
+    "수비"
+   ],
+   "kind": "antonym",
+   "note": "Direct antonyms in sports, military, and debate. 공격 is initiating an assault or pressing forward (공격적인 전술 offensive tactics), whereas 수비 is protecting one's goal (철저한 수비 solid defense)."
+  }
+ ],
+ "tv-36": [
+  {
+   "words": [
+    "띠다",
+    "띄다"
+   ],
+   "kind": "contrast",
+   "note": "Frequently confused homophones. 띠다 means displaying a look, hue, or mission (미소를 띠다 to wear a smile). 띄다 (from 뜨이다) means being noticed by sight (눈에 띄다 to catch the eye)."
+  },
+  {
+   "words": [
+    "대체",
+    "대체"
+   ],
+   "kind": "homonym",
+   "note": "代替 substitution or replacement (대체 에너지 alternative energy) vs adverb 大體 meaning on the whole or expressing bewilderment in questions (대체 무슨 일이에요? what on earth happened?)."
+  },
+  {
+   "words": [
+    "드러나다",
+    "숨겨지다"
+   ],
+   "kind": "antonym",
+   "note": "Direct antonyms for visibility and truth. 드러나다 means being exposed or coming to light (진실이 드러나다 the truth is revealed), whereas 숨겨지다 means remaining hidden from view."
+  }
+ ],
+ "tv-37": [
+  {
+   "words": [
+    "사기",
+    "사기"
+   ],
+   "kind": "homonym",
+   "note": "士氣 high morale or team spirit (사기가 오르다 morale rises) vs 詐欺 fraud or financial scam (사기를 당하다 to be scammed). Unrelated hanja compounds."
+  },
+  {
+   "words": [
+    "조선",
+    "조선"
+   ],
+   "kind": "homonym",
+   "note": "朝鮮 the historical Joseon kingdom of Korea (조선 왕조 Joseon dynasty) vs 造船 shipbuilding industry and naval architecture (조선소 shipyard). Unrelated hanja roots."
+  },
+  {
+   "words": [
+    "손실",
+    "이익"
+   ],
+   "kind": "antonym",
+   "note": "Direct business antonyms. 손실 is losing capital or resources (경제적 손실 economic loss), whereas 이익 is net financial profit gained (영업 이익 operating profit)."
+  }
+ ],
+ "tv-38": [
+  {
+   "words": [
+    "대여",
+    "반납"
+   ],
+   "kind": "antonym",
+   "note": "Paired lifecycle of borrowed goods. 대여 is borrowing or renting equipment for a fee (장비 대여 equipment rental), whereas 반납 is returning it to the provider (도서 반납 returning books)."
+  },
+  {
+   "words": [
+    "천연",
+    "인공"
+   ],
+   "kind": "antonym",
+   "note": "Direct antonyms for origin. 천연 describes substances occurring untouched in nature (천연 자원 natural resources), while 인공 describes human-engineered creations (인공위성 artificial satellite)."
+  },
+  {
+   "words": [
+    "채용",
+    "해고"
+   ],
+   "kind": "antonym",
+   "note": "Polar opposites in labor and human resources. 채용 is welcoming an employee into a job (신규 채용 new hiring), whereas 해고 is terminating employment (부당 해고 wrongful dismissal)."
+  }
+ ],
+ "tv-39": [
+  {
+   "words": [
+    "기상",
+    "기상"
+   ],
+   "kind": "homonym",
+   "note": "氣象 meteorological weather conditions (기상 예보 weather forecast) vs 起床 waking up and getting out of bed (기상 시간 wake-up time). Distinct hanja roots."
+  },
+  {
+   "words": [
+    "전력",
+    "전력"
+   ],
+   "kind": "homonym",
+   "note": "電力 electrical energy or power (전력 소비 electricity consumption) vs 全力 all-out effort (전력을 다하다 to do one's utmost). Completely different hanja."
+  },
+  {
+   "words": [
+    "지상",
+    "지하"
+   ],
+   "kind": "antonym",
+   "note": "Direct spatial antonyms. 지상 is on or above the surface of the earth (지상 주차장 aboveground parking), whereas 지하 is below the earth surface (지하철 underground railway)."
+  }
+ ],
+ "tv-40": [
+  {
+   "words": [
+    "방수",
+    "방수"
+   ],
+   "kind": "homonym",
+   "note": "防水 blocking water infiltration (방수 기능 water-resistant feature) vs 放水 spraying or releasing stored water from a dam (댐 방수 water release). Antonymous actions sharing spelling."
+  },
+  {
+   "words": [
+    "원형",
+    "원형"
+   ],
+   "kind": "homonym",
+   "note": "原形 original or authentic shape before alteration (원형을 보존하다 to preserve original form) vs 圓形 circular geometry (원형 경기장 circular stadium). Distinct hanja roots."
+  },
+  {
+   "words": [
+    "과도하다",
+    "적절하다"
+   ],
+   "kind": "antonym",
+   "note": "Direct antonyms for moderation. 과도하다 means going beyond reasonable limits (과도한 소비 excessive spending), whereas 적절하다 means fitting the proper measure (적절한 운동 proper exercise)."
+  }
+ ],
+ "tv-41": [
+  {
+   "words": [
+    "무상",
+    "유상"
+   ],
+   "kind": "antonym",
+   "note": "Direct legal and economic antonyms. 無償 무상 is provision without cost or compensation (무상 원조 free aid), whereas 有償 유상 involves payment or fees (유상 교환 paid exchange)."
+  },
+  {
+   "words": [
+    "공유",
+    "독점"
+   ],
+   "kind": "antonym",
+   "note": "Direct opposites for possession. 공유 is joint ownership and open sharing among many (정보 공유 sharing info), while 독점 is exclusive cornering of goods by one party (독점 판매 exclusive sales)."
+  },
+  {
+   "words": [
+    "복원",
+    "복구"
+   ],
+   "kind": "synonym",
+   "note": "Both mean restoration, but 복원 focuses on returning cultural artifacts or nature to original historic form (유적지 복원). 복구 focuses on repairing storm damage or computer crashes back to operation (전산망 복구)."
+  }
+ ],
+ "tv-42": [
+  {
+   "words": [
+    "자정",
+    "자정"
+   ],
+   "kind": "homonym",
+   "note": "子正 the exact hour of midnight (자정이 넘은 시간 past midnight) vs 自淨 natural ability of nature or society to cleanse itself (하천의 자정 작용 self-purifying action of rivers)."
+  },
+  {
+   "words": [
+    "종",
+    "종"
+   ],
+   "kind": "homonym",
+   "note": "鐘 metallic bell struck to produce sound (보신각 종 Bosingak bell) vs 種 biological category or species (새로운 식물 종 new plant species). Distinct hanja roots."
+  },
+  {
+   "words": [
+    "가공",
+    "가공"
+   ],
+   "kind": "homonym",
+   "note": "加工 industrial processing of raw goods (가공식품 processed food) vs 架空 fictional or imaginary creation (가공의 인물 fictitious character). Distinct hanja compounds."
+  }
+ ],
+ "tv-43": [
+  {
+   "words": [
+    "노후",
+    "노후"
+   ],
+   "kind": "homonym",
+   "note": "老後 years after retirement (노후 생활 retirement life) vs 老朽 physical aging and decrepitude of machinery or buildings (노후 배관 aging pipes). Two major societal themes in TOPIK."
+  },
+  {
+   "words": [
+    "모방",
+    "창조"
+   ],
+   "kind": "antonym",
+   "note": "Direct philosophical opposites. 모방 is mimicking or reproducing an existing model (모방 범죄 copycat crime), whereas 창조 is originating novel creations (예술적 창조 artistic creation)."
+  },
+  {
+   "words": [
+    "단기간",
+    "장기간"
+   ],
+   "kind": "antonym",
+   "note": "Direct antonyms for duration. 단기간 is over a brief window of days or weeks (단기간 집중 훈련 short-term intensive training), while 장기간 spans months or years (장기간 연구 long-term research)."
+  }
+ ],
+ "tv-44": [
+  {
+   "words": [
+    "장기",
+    "장기"
+   ],
+   "kind": "homonym",
+   "note": "長期 long duration of time (장기 체류 long-term stay) vs 臟器 internal anatomical organ (장기 이식 organ transplant) vs traditional board game 將棋. Completely distinct roots."
+  },
+  {
+   "words": [
+    "투명",
+    "불투명"
+   ],
+   "kind": "antonym",
+   "note": "Direct antonyms. 透明 투명 means clear enough to see through or transparent in governance (투명한 유리, 투명한 경영), while 不透明 불투명 means opaque or murky (불투명한 미래 uncertain future)."
+  },
+  {
+   "words": [
+    "자금",
+    "비용"
+   ],
+   "kind": "synonym",
+   "note": "자금 refers to a pool of capital or funding prepared to start an enterprise (사업 자금 business capital). 비용 refers to money actually spent during execution (공사 비용 construction expense)."
+  }
+ ],
+ "tv-45": [
+  {
+   "words": [
+    "전면",
+    "전면"
+   ],
+   "kind": "homonym",
+   "note": "前面 physical front facade or front surface (건물 전면 front of building) vs 全面 comprehensive or all-out scope (전면 재검토 full-scale reexamination). Distinct hanja roots."
+  },
+  {
+   "words": [
+    "대폭",
+    "소폭"
+   ],
+   "kind": "antonym",
+   "note": "Direct opposites for statistical margins. 대폭 indicates a dramatic shift (대폭 인상 sharp price hike), whereas 소폭 indicates a minor adjustment (소폭 하락 slight drop)."
+  }
+ ],
+ "tv-46": [
+  {
+   "words": [
+    "공정",
+    "공정"
+   ],
+   "kind": "homonym",
+   "note": "公正 fairness and impartiality (공정한 심사 fair judging) vs 工程 industrial manufacturing process stage (조립 공정 assembly line process). Major TOPIK homonym."
+  },
+  {
+   "words": [
+    "원료",
+    "재료"
+   ],
+   "kind": "synonym",
+   "note": "원료 refers to raw unprocessed basic substances undergoing chemical transformation (철광석은 철의 원료). 재료 refers to direct ingredients or parts that retain their form (음식 재료 food ingredients)."
+  },
+  {
+   "words": [
+    "자발적",
+    "강제적"
+   ],
+   "kind": "antonym",
+   "note": "Direct antonyms for agency. 자발적 arises from one's own free will (자발적인 참여 voluntary participation), whereas 강제적 is imposed by external pressure (강제적 퇴장 forced eviction)."
+  }
+ ],
+ "tv-47": [
+  {
+   "words": [
+    "과다",
+    "과소"
+   ],
+   "kind": "antonym",
+   "note": "Direct antonyms for quantity extremes. 過多 과다 is having far too much (비타민 과다 섭취 excessive vitamin intake), whereas 過少 과소 is having too little (과소 평가 underestimation)."
+  },
+  {
+   "words": [
+    "재정",
+    "제정"
+   ],
+   "kind": "contrast",
+   "note": "Often pronounced alike, but spelled differently. 財政 재정 is public or corporate finance (지방 재정 local government finances), while 制定 제정 is the enactment of a law or rule (법률 제정 enacting a law)."
+  },
+  {
+   "words": [
+    "민간",
+    "정부"
+   ],
+   "kind": "antonym",
+   "note": "Direct institutional antonyms. 민간 refers to the private non-governmental sphere (민간 기업 private enterprise), whereas 정부 is state authorities (정부 지원 government subsidy)."
+  }
+ ],
+ "tv-48": [
+  {
+   "words": [
+    "공방",
+    "공방"
+   ],
+   "kind": "homonym",
+   "note": "工房 artisan craft workshop (가죽 공방 leather craft studio) vs 攻防 intense offensive-defensive clash in debate or court (치열한 법정 공방 heated courtroom battle)."
+  },
+  {
+   "words": [
+    "인위적",
+    "자연적"
+   ],
+   "kind": "antonym",
+   "note": "Direct philosophical antonyms. 인위적 is produced by deliberate human contrivance (인위적인 조작 artificial manipulation), while 자연적 arises without human hands (자연적인 현상 natural phenomenon)."
+  },
+  {
+   "words": [
+    "파장",
+    "파장"
+   ],
+   "kind": "homonym",
+   "note": "波長 physical wavelength or social reverberation (큰 파장을 불러일으키다 to cause widespread repercussions) vs traditional 罷場 meaning the end of a market day (파장 분위기 a winding-down mood)."
+  }
+ ],
+ "tv-49": [
+  {
+   "words": [
+    "물리적",
+    "화학적"
+   ],
+   "kind": "antonym",
+   "note": "Classic scientific and legal contrast. 물리적 refers to bodily, mechanical, or tangible forces (물리적 충돌 physical impact), whereas 화학적 involves transformation of molecular properties (화학적 결합 chemical bond)."
+  },
+  {
+   "words": [
+    "정밀",
+    "세밀"
+   ],
+   "kind": "synonym",
+   "note": "Both mean meticulous, but 정밀 emphasizes scientific precision with zero tolerance for error (정밀 진단 precision diagnosis). 세밀 emphasizes painstaking observation of intricate details (세밀한 묘사 detailed description)."
+  },
+  {
+   "words": [
+    "조치",
+    "대책"
+   ],
+   "kind": "synonym",
+   "note": "Both mean countermeasures, but 조치 is a prompt concrete action executed right away (응급 조치 emergency measure), whereas 대책 is a strategic plan designed to tackle problems (재발 방지 대책 prevention plan)."
+  }
+ ],
+ "tv-50": [
+  {
+   "words": [
+    "가계",
+    "가계"
+   ],
+   "kind": "homonym",
+   "note": "家計 household economy and living expenses (가계 소득 household income, 가계 부채 household debt) vs 家系 genealogical pedigree or family ancestry (가계도 family tree). Distinct hanja roots."
+  },
+  {
+   "words": [
+    "방어",
+    "방어"
+   ],
+   "kind": "homonym",
+   "note": "防禦 physical defense or protection against an attack (적극적인 방어 active defense) vs 魴魚 the edible yellowtail marine fish popular in winter (방어회 yellowtail sashimi). Distinct origins."
+  },
+  {
+   "words": [
+    "호응",
+    "반응"
+   ],
+   "kind": "synonym",
+   "note": "반응 is any generic response or physical reaction, positive or negative (화학 반응 chemical reaction). 호응 specifically implies positive approval, warm enthusiasm, and active support (관객의 큰 호응 audience acclaim)."
+  }
+ ]
+}

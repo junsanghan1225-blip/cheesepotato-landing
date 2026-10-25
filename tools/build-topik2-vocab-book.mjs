@@ -54,7 +54,7 @@ function bonusFor(ws, id, usedInBook) {
 /* 헷갈리는 낱말(유의어 · 동음이의어 · 비슷한 말) — 안티가 쓴 docs/vocab-book/topik2-vocab-1000.notes.json 이 있으면 단원 끝에 표로 붙인다(지시 docs/antigravity/antigravity-vocab-notes-task.md) */
 const NOTES_F = path.join(ROOT, 'docs/vocab-book/topik2-vocab-1000.notes.json');
 const NOTES = fs.existsSync(NOTES_F) ? JSON.parse(fs.readFileSync(NOTES_F, 'utf8')) : {};
-const KIND = { synonym: 'Similar · 비슷한 말', homonym: 'Same spelling · 동음이의어', contrast: 'Do not mix up · 헷갈림' };
+const KIND = { synonym: 'Similar · 비슷한 말', homonym: 'Same spelling · 동음이의어', contrast: 'Do not mix up · 헷갈림', antonym: 'Opposites · 반대말' };
 const inline = {};
 const unitsOf = [];
 for (let u = 0; u < N_WORDS / PER; u++) {
