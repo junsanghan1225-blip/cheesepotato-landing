@@ -778,5 +778,265 @@
       "kind": "contrast",
       "note": "내성적 (內省的) describes an introverted or reserved personality (내성적인 성격), whereas 사교적 (社交的) describes an outgoing, sociable demeanor (사교적인 사람)."
     }
+  ],
+  "tx-31": [
+    {
+      "words": [
+        "신사",
+        "신사"
+      ],
+      "kind": "homonym",
+      "note": "紳士 (gentleman of fine manners: 신사 숙녀 여러분) vs 神社 (Shinto shrine: 신사 참배). Distinct Hanja and meanings."
+    },
+    {
+      "words": [
+        "특기",
+        "취미"
+      ],
+      "kind": "contrast",
+      "note": "특기 (特技) is a special skill or talent one does exceptionally well (특기가 태권도이다), while 취미 (趣味) is a leisure activity one enjoys doing in free time (취미는 독서이다)."
+    },
+    {
+      "words": [
+        "영리하다",
+        "똑똑하다"
+      ],
+      "kind": "synonym",
+      "note": "Both mean smart or clever. 영리하다 (伶俐하다) often describes quick-witted or cunning sharpness in children or animals (영리한 아이), while 똑똑하다 refers broadly to intellectual brightness (똑똑한 학생)."
+    }
+  ],
+  "tx-32": [
+    {
+      "words": [
+        "웃어른",
+        "윗사람"
+      ],
+      "kind": "synonym",
+      "note": "Both refer to seniors. 웃어른 emphasizes family or societal elders deserving moral respect (웃어른을 공경하다), while 윗사람 refers to a superior in rank or workplace hierarchy (직장 윗사람)."
+    },
+    {
+      "words": [
+        "연인",
+        "애인"
+      ],
+      "kind": "synonym",
+      "note": "Both mean romantic partner. 연인 (戀人) is often used in romantic or media contexts describing a couple (연인들의 데이트 코스), whereas 애인 (愛人) is the everyday term for a partner (애인이 생기다)."
+    },
+    {
+      "words": [
+        "부친",
+        "모친"
+      ],
+      "kind": "contrast",
+      "note": "Formal titles for parents in polite discourse. 부친 (父親) refers to someone else's or one's father formally (부친의 뜻), while 모친 (母親) refers to mother (모친을 모시다)."
+    }
+  ],
+  "tx-33": [
+    {
+      "words": [
+        "저자",
+        "작가"
+      ],
+      "kind": "synonym",
+      "note": "Both relate to writers. 저자 (著者) refers to the specific author or creator of a written book or paper (책의 저자), whereas 작가 (作家) denotes the profession of creative writing or art (소설 작가, 방송 작가)."
+    },
+    {
+      "words": [
+        "사회자",
+        "진행자"
+      ],
+      "kind": "synonym",
+      "note": "사회자 (司會者) is an MC or presider who moderates formal meetings, ceremonies, or debates (결혼식 사회자), while 진행자 (進行者) leads and hosts continuous broadcasts or shows (라디오 진행자)."
+    },
+    {
+      "words": [
+        "큰아버지",
+        "작은아버지"
+      ],
+      "kind": "contrast",
+      "note": "In Korean kinship, 큰아버지 is father's elder brother (큰아버지 댁), while 작은아버지 is father's married younger brother (작은아버지의 배려)."
+    }
+  ],
+  "tx-34": [
+    {
+      "words": [
+        "단정하다",
+        "깔끔하다"
+      ],
+      "kind": "synonym",
+      "note": "Both mean neat. 단정하다 (端正하다) implies proper decorum and tidiness according to etiquette or dress codes (단정한 옷차림), while 깔끔하다 means clean, fresh, and sharp in style (깔끔한 방, 깔끔한 성격)."
+    },
+    {
+      "words": [
+        "미장원",
+        "미용실"
+      ],
+      "kind": "synonym",
+      "note": "Both mean hair salon. 미장원 (美粧院) is an older traditional term still used by neighborhood shops (동네 미장원), while 미용실 (美容室) is the standard modern term in daily life (미용실 예약)."
+    },
+    {
+      "words": [
+        "미인",
+        "미남"
+      ],
+      "kind": "contrast",
+      "note": "미인 (美人) refers to a beautiful woman (절세미인), while 미남 (美男) refers to a handsome man (미남 배우)."
+    }
+  ],
+  "tx-35": [
+    {
+      "words": [
+        "화장",
+        "화장"
+      ],
+      "kind": "homonym",
+      "note": "化粧 (applying cosmetics or makeup: 아침에 화장을 하다) vs 火葬 (cremation of a deceased body: 매장 대신 화장을 선택하다). Distinct Hanja."
+    },
+    {
+      "words": [
+        "조사",
+        "조사"
+      ],
+      "kind": "homonym",
+      "note": "調査 (survey or factual investigation: 여론 조사, 사건 조사) vs 助詞 (grammar postpositional particle: 주격 조사). Completely distinct concepts."
+    },
+    {
+      "words": [
+        "빗다",
+        "빚다"
+      ],
+      "kind": "contrast",
+      "note": "빗다 means to comb hair with a comb (머리를 빗다), while 빚다 means to knead dough or shape dumplings (만두를 빚다), or figuratively cause a misunderstanding (오해를 빚다)."
+    }
+  ],
+  "tx-36": [
+    {
+      "words": [
+        "번역",
+        "통역"
+      ],
+      "kind": "contrast",
+      "note": "번역 (飜譯) is translating written text from one language to another (외국 서적을 번역하다), while 통역 (通譯) is real-time oral interpreting of spoken language (동시통역)."
+    },
+    {
+      "words": [
+        "참고",
+        "참조"
+      ],
+      "kind": "synonym",
+      "note": "참고 (參考) is consulting materials to gain helpful information (참고 서적, 참고 자료), while 참조 (參照) is cross-referencing or comparing specific documents side by side (첨부 자료 참조)."
+    },
+    {
+      "words": [
+        "합격",
+        "불합격"
+      ],
+      "kind": "contrast",
+      "note": "합격 (合格) means passing a test or screening (합격 통지서), while 불합격 (不合格) means failing to meet the passing standard (불합격 처리)."
+    }
+  ],
+  "tx-37": [
+    {
+      "words": [
+        "한문",
+        "한자"
+      ],
+      "kind": "contrast",
+      "note": "한자 (漢字) refers to individual Chinese logographic characters (한자 쓰기), whereas 한문 (漢文) refers to classical Chinese prose, literature, or grammar texts written in Hanja (한문 고전)."
+    },
+    {
+      "words": [
+        "박사",
+        "석사"
+      ],
+      "kind": "contrast",
+      "note": "Academic degrees. 박사 (博士) is a doctoral degree / Ph.D. holder (박사 학위 논문), while 석사 (碩士) is a master's degree holder (석사 과정)."
+    },
+    {
+      "words": [
+        "가난",
+        "빈곤"
+      ],
+      "kind": "synonym",
+      "note": "Both mean poverty. 가난 is the everyday native Korean word (가난을 이겨내다), whereas 빈곤 (貧困) is formal Sino-Korean used in academic or socio-economic contexts (빈곤 문제, 빈곤층)."
+    }
+  ],
+  "tx-38": [
+    {
+      "words": [
+        "사건",
+        "사고"
+      ],
+      "kind": "contrast",
+      "note": "사건 (事件) is an incident or criminal event caused by human conflict or intent (살인 사건, 범죄 사건), while 사고 (事故) is an unexpected accidental disaster or mishap (교통사고, 안전사고)."
+    },
+    {
+      "words": [
+        "개인적",
+        "사적"
+      ],
+      "kind": "synonym",
+      "note": "개인적 (個人的) refers to an individual rather than a collective group (개인적인 견해), while 사적 (私的) is private and unofficial, the direct opposite of public or official (사적인 질문 vs 공적 업무)."
+    },
+    {
+      "words": [
+        "국기",
+        "국기"
+      ],
+      "kind": "homonym",
+      "note": "國旗 (national flag: 국기를 게양하다) vs 國技 (national sport or martial art: 태권도는 한국의 국기이다). Distinct Hanja and concepts."
+    }
+  ],
+  "tx-39": [
+    {
+      "words": [
+        "총",
+        "총"
+      ],
+      "kind": "homonym",
+      "note": "銃 (gun or firearm: 총을 겨누다) vs 總 (total or gross sum: 총 금액, 총 5명). Distinct Hanja and usages."
+    },
+    {
+      "words": [
+        "피해자",
+        "가해자"
+      ],
+      "kind": "contrast",
+      "note": "피해자 (被害者) is the victim who suffered loss, injury, or harm (피해자 구제), while 가해자 (加害者) is the perpetrator who caused the harm (가해자 처벌)."
+    },
+    {
+      "words": [
+        "어기다",
+        "위반하다"
+      ],
+      "kind": "synonym",
+      "note": "Both mean to break a rule. 어기다 is native Korean used for promises, rules, or agreements (약속을 어기다), while 위반하다 (違反하다) is formal Sino-Korean used for legal regulations or statutes (법률을 위반하다)."
+    }
+  ],
+  "tx-40": [
+    {
+      "words": [
+        "어떡하다",
+        "어떻게"
+      ],
+      "kind": "contrast",
+      "note": "어떡하다 is a contracted verb predicate meaning what to do (이제 어떡하지?), whereas 어떻게 is an interrogative adverb modifying a verb (어떻게 풀어요?). Writing 어떻게 해 as 어떡해 is correct."
+    },
+    {
+      "words": [
+        "토론",
+        "토의"
+      ],
+      "kind": "contrast",
+      "note": "토론 (討論) is a debate where opposing pros and cons argue to persuade (찬반 토론), while 토의 (討議) is a collaborative discussion to deliberate and solve a problem together (문제 해결을 위한 토의)."
+    },
+    {
+      "words": [
+        "송별회",
+        "환영회"
+      ],
+      "kind": "contrast",
+      "note": "송별회 (送別會) is a farewell party to say goodbye to departing people (송별회를 열다), while 환영회 (歡迎會) is a welcome reception to greet newcomers (신입사원 환영회)."
+    }
   ]
 }
