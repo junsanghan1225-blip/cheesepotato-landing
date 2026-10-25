@@ -314,5 +314,345 @@
    "kind": "synonym",
    "note": "사용법 (使用法) focuses on technical operations for using physical devices, tools, or medicines (스마트폰 사용법 phone user guide), while 이용법 (利用法) focuses on accessing public services, facilities, or systems (지하철 이용법 subway transit guide)."
   }
+ ],
+ "tw-11": [
+  {
+   "words": [
+    "구하다",
+    "구하다"
+   ],
+   "kind": "homonym",
+   "note": "求하다 seek, look for, or obtain (일자리를 구하다 search for a job) vs 救하다 save, rescue, or relieve from danger (위험에서 아이를 구하다 save a child). Two distinct Hanja verbs."
+  },
+  {
+   "words": [
+    "미루다",
+    "연기하다"
+   ],
+   "kind": "synonym",
+   "note": "미루다 is common everyday Korean for putting off chores or decisions (결정을 내일로 미루다). 연기하다 (延期) is formal for officially rescheduling events or meetings (개막식을 다음 주로 연기하다)."
+  },
+  {
+   "words": [
+    "보고서",
+    "신청서"
+   ],
+   "kind": "contrast",
+   "note": "Both end in -서 (document), but 보고서 (報告書) reports completed findings or results (출장 보고서 business trip report), while 신청서 (申請書) applies for entry or approval (회원 신청서 application form)."
+  },
+  {
+   "words": [
+    "곧장",
+    "곧바로"
+   ],
+   "kind": "synonym",
+   "note": "곧장 emphasizes direct physical path without stopping or detours (집으로 곧장 가다 head straight home). 곧바로 focuses on immediate timing with zero delay (도착하자마자 곧바로 연락하다 call right away)."
+  }
+ ],
+ "tw-12": [
+  {
+   "words": [
+    "조기",
+    "조기"
+   ],
+   "kind": "homonym",
+   "note": "早期 early stage or period (암의 조기 진단 early diagnosis of cancer) vs native Korean fish yellow corvina (영광 조기 Yeonggwang corvina fish). Completely different origins."
+  },
+  {
+   "words": [
+    "과장",
+    "과장"
+   ],
+   "kind": "homonym",
+   "note": "課長 section chief or department manager in a workplace (인사과 과장 HR manager) vs 誇張 exaggeration or overstatement (과장된 표현 exaggerated expression). Different Hanja roots."
+  },
+  {
+   "words": [
+    "근무",
+    "근로"
+   ],
+   "kind": "synonym",
+   "note": "근무 (勤務) refers to serving active working hours or shifts at a specific post (근무 시간 work hours). 근로 (勤勞) refers broadly to economic labor as protected by law (근로 기준법 labor standards act)."
+  },
+  {
+   "words": [
+    "주의",
+    "주목"
+   ],
+   "kind": "synonym",
+   "note": "주의 (注意) is vigilance or care to avoid risks or errors (주의 사항 precautions). 주목 (注目) is focusing sight or public interest onto a prominent subject (전 세계의 주목 global spotlight)."
+  }
+ ],
+ "tw-13": [
+  {
+   "words": [
+    "의식",
+    "의식"
+   ],
+   "kind": "homonym",
+   "note": "意識 cognitive consciousness or awareness (의식을 되찾다 regain consciousness) vs 儀式 formal ceremony or ritual (입학 의식 entrance ceremony). Two distinct Hanja terms."
+  },
+  {
+   "words": [
+    "부상",
+    "부상"
+   ],
+   "kind": "homonym",
+   "note": "負傷 physical injury or trauma (부상을 당하다 get injured) vs 浮上 floating to the surface or rising to prominence (새로운 문제로 부상 emerge as an issue). Unrelated Hanja terms."
+  },
+  {
+   "words": [
+    "구분",
+    "구별"
+   ],
+   "kind": "synonym",
+   "note": "구분 (區分) is classifying items into defined sections or partitions (연령대별 구분 sorting by age). 구별 (區別) is discerning the difference between two confusing things (참과 거짓을 구별하다 discern truth from falsehood)."
+  },
+  {
+   "words": [
+    "대비",
+    "대조"
+   ],
+   "kind": "synonym",
+   "note": "대비 (對比) compares two elements side by side to assess relative ratio or differences (전년 대비 성장률). 대조 (對照) explicitly sets two opposites side by side to expose stark differences (흑백의 대조 contrast of black and white)."
+  }
+ ],
+ "tw-14": [
+  {
+   "words": [
+    "조",
+    "조"
+   ],
+   "kind": "homonym",
+   "note": "兆 number trillion (1조 원 one trillion won) vs 組 small group or team (조를 나누다 divide into groups) vs 條 article of a treaty or law (헌법 제1조 Article 1 of Constitution). Different Hanja."
+  },
+  {
+   "words": [
+    "보존",
+    "유지"
+   ],
+   "kind": "synonym",
+   "note": "보존 (保存) protects valuable heritage, natural ecosystems, or records from decay or ruin (생태계 보존). 유지 (維持) keeps an ongoing condition, habit, or standard stable over time (체중 유지 weight maintenance)."
+  },
+  {
+   "words": [
+    "초청",
+    "초대"
+   ],
+   "kind": "synonym",
+   "note": "초대 (招待) is common invitation to personal events or meals (친구를 집에 초대하다). 초청 (招請) is highly formal invitation extended to dignitaries, experts, or state guests (해외 전문가 초청 inviting overseas experts)."
+  },
+  {
+   "words": [
+    "숙이다",
+    "굽히다"
+   ],
+   "kind": "synonym",
+   "note": "숙이다 is tilting downward from the neck or waist (머리를 숙여 인사하다 bow). 굽히다 is flexing joints like knees and elbows (팔을 굽히다 bend arms) or figurative yielding of pride (자존심을 굽히다 swallow pride)."
+  }
+ ],
+ "tw-15": [
+  {
+   "words": [
+    "고전",
+    "고전"
+   ],
+   "kind": "homonym",
+   "note": "古典 time-honored classic book or piece of music (고전 소설 classic novel) vs 苦戰 hard struggle or uphill battle (원정 경기에서 고전하다 struggle in an away match). Different Hanja."
+  },
+  {
+   "words": [
+    "개최",
+    "주최"
+   ],
+   "kind": "contrast",
+   "note": "주최 (主催) refers to the sponsoring organization taking responsibility for an event (시청 주최 hosted by city hall). 개최 (開催) refers to the physical staging or opening of the gathering (행사 개최 staging an event)."
+  },
+  {
+   "words": [
+    "교체",
+    "교환"
+   ],
+   "kind": "synonym",
+   "note": "교체 (交替) replaces worn-out components or personnel with fresh ones (배터리 교체 battery replacement). 교환 (交換) is mutual swapping of things or exchanging purchased items at a store (사이즈 교환 exchange for size)."
+  },
+  {
+   "words": [
+    "당기다",
+    "밀다"
+   ],
+   "kind": "contrast",
+   "note": "Antithetical door actions: 당기다 is pulling toward yourself (당기시오 pull), while 밀다 is pushing away (미시오 push). 당기다 also means moving a schedule earlier (시간을 한 시간 당기다)."
+  }
+ ],
+ "tw-16": [
+  {
+   "words": [
+    "이내",
+    "이내"
+   ],
+   "kind": "homonym",
+   "note": "以內 within numerical bounds of time, range, or quantity (일주일 이내 within a week) vs native adverb meaning soon or before long (이내 눈물을 흘렸다 soon shed tears). Context tells them apart."
+  },
+  {
+   "words": [
+    "마침내",
+    "드디어"
+   ],
+   "kind": "synonym",
+   "note": "드디어 expresses positive thrill and relief at an eagerly awaited happy outcome (드디어 도착했다 finally arrived!). 마침내 neutrally recounts the ultimate culmination after prolonged trials (마침내 결론에 도달했다)."
+  },
+  {
+   "words": [
+    "서늘하다",
+    "시원하다"
+   ],
+   "kind": "synonym",
+   "note": "시원하다 describes refreshing, pleasant relief from heat (시원한 물 refreshing water). 서늘하다 has an edge of crisp chill that borders on cold (늦가을의 서늘한 바람 crisp chilly wind of late autumn)."
+  },
+  {
+   "words": [
+    "단기",
+    "장기"
+   ],
+   "kind": "contrast",
+   "note": "Opposite time horizons: 단기 (短期) spans a brief temporary window (단기 연수 short-term training), while 장기 (長期) spans an extensive multi-year duration (장기 대출 long-term loan)."
+  }
+ ],
+ "tw-17": [
+  {
+   "words": [
+    "소중하다",
+    "귀중하다"
+   ],
+   "kind": "synonym",
+   "note": "소중하다 (所重) emphasizes deeply cherished personal or sentimental value (소중한 가족 precious family). 귀중하다 (貴重) emphasizes objective rarity, utility, or high worth (귀중한 문화유산 valuable cultural heritage)."
+  },
+  {
+   "words": [
+    "드러내다",
+    "나타내다"
+   ],
+   "kind": "synonym",
+   "note": "드러내다 is uncovering what was concealed or hidden from view (진실을 드러내다 reveal the truth). 나타내다 is expressing ideas symbolically or manifesting signs (기호로 나타내다 express in symbols)."
+  },
+  {
+   "words": [
+    "신념",
+    "소신"
+   ],
+   "kind": "synonym",
+   "note": "신념 (信念) is an overarching philosophical or ethical conviction that guides one's life (굳은 신념 firm belief). 소신 (所信) is an independent personal stance maintained with courage in work or decisions (소신 있는 태도 independent stance)."
+  },
+  {
+   "words": [
+    "서툴다",
+    "능숙하다"
+   ],
+   "kind": "contrast",
+   "note": "Contrasting skill proficiencies: 서툴다 is unaccustomed and clumsy at handling tasks (운전이 아직 서툴다 still clumsy at driving), while 능숙하다 (能熟) is highly practiced and fluent (능숙한 외국어 솜씨 fluent foreign language skill)."
+  }
+ ],
+ "tw-18": [
+  {
+   "words": [
+    "눈길",
+    "눈길"
+   ],
+   "kind": "homonym",
+   "note": "눈길 gaze or glance (사람들의 눈길을 끌다 catch people's eyes) vs 눈길 snow-covered path or road (눈길 운전 driving on snowy roads). Two completely distinct words sharing spelling."
+  },
+  {
+   "words": [
+    "서운하다",
+    "섭섭하다"
+   ],
+   "kind": "synonym",
+   "note": "Both mean feeling disappointed or hurt by someone's lacking warmth. 서운하다 focuses on inward emotional disappointment (연락이 없어 서운하다), while 섭섭하다 often accompanies farewells or feeling insufficiently accommodated (작별 인사를 못 해 섭섭하다)."
+  },
+  {
+   "words": [
+    "아깝다",
+    "아쉽다"
+   ],
+   "kind": "synonym",
+   "note": "아깝다 focuses on the waste or loss of precious resources, money, or chances (음식을 버리기 아깝다 wasteful to throw away food). 아쉽다 expresses mild sorrow over lack of completeness or missing an ideal chance (다음을 기약하기 아쉽다)."
+  },
+  {
+   "words": [
+    "맞서다",
+    "굴복하다"
+   ],
+   "kind": "contrast",
+   "note": "Contrasting stances against adversity: 맞서다 is confronting hardship or opponents face-to-face (어려움에 당당히 맞서다 confront difficulties proudly), while 굴복하다 (屈服) is yielding or surrendering under pressure (위협에 굴복하다 yield to threats)."
+  }
+ ],
+ "tw-19": [
+  {
+   "words": [
+    "조각",
+    "조각"
+   ],
+   "kind": "homonym",
+   "note": "彫刻 three-dimensional sculptural artwork or statue (조각을 감상하다 appreciate a sculpture) vs piece, scrap, or fragment of an object (피자 한 조각 slice of pizza). Different Hanja and origins."
+  },
+  {
+   "words": [
+    "질투",
+    "시기"
+   ],
+   "kind": "synonym",
+   "note": "질투 (嫉妬) often arises in personal or romantic relationships fearing displacement (사랑에서 오는 질투). 시기 (猜忌) is cold envy directed toward another person's advantages or success (남의 성공을 시기하다 envy another's success)."
+  },
+  {
+   "words": [
+    "공감",
+    "동감"
+   ],
+   "kind": "synonym",
+   "note": "공감 (共感) is emotional resonance and empathy for someone's feelings (아픔에 공감하다 empathize with pain). 동감 (同感) is intellectual concurrence with someone's viewpoint or proposal (제 생각도 동감입니다 I agree with that opinion)."
+  },
+  {
+   "words": [
+    "깨뜨리다",
+    "부수다"
+   ],
+   "kind": "synonym",
+   "note": "깨뜨리다 shatters fragile, brittle materials like glass and pottery, or figurative records (접시를 깨뜨리다 break a dish). 부수다 forcefully demolishes or smashes solid structures and bulky objects (건물을 부수다 tear down a building)."
+  }
+ ],
+ "tw-20": [
+  {
+   "words": [
+    "조화",
+    "조화"
+   ],
+   "kind": "homonym",
+   "note": "調和 harmonious balance or unity (색상의 조화 harmony of colors) vs 造花 artificial faux flowers made of silk or plastic (조화 화환 artificial flower wreath). Completely different Hanja."
+  },
+  {
+   "words": [
+    "독자",
+    "독자"
+   ],
+   "kind": "homonym",
+   "note": "讀者 reader or subscriber of written works (책의 애독자 avid reader of a book) vs 獨子 only son in a family lineage (삼대 독자 only son for three generations). Context easily resolves meaning."
+  },
+  {
+   "words": [
+    "동화",
+    "동화"
+   ],
+   "kind": "homonym",
+   "note": "童話 children's story or fairy tale (동화 구연 fairy tale storytelling) vs 同化 cultural or biological assimilation (사회에의 동화 assimilation into society). Distinct Hanja terms."
+  },
+  {
+   "words": [
+    "꾸미다",
+    "장식하다"
+   ],
+   "kind": "synonym",
+   "note": "장식하다 (裝飾) specifically attaches ornaments or accessories to embellish something physically (리본으로 상자를 장식하다). 꾸미다 broadly covers beautifying spaces, personal styling, as well as plotting or fabricating stories (계략을 꾸미다 hatch a plot)."
+  }
  ]
 }
