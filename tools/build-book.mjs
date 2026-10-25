@@ -1009,6 +1009,9 @@ svg{width:1.2em;height:1.2em;max-width:100%}svg[height]{width:auto}svg.ic{width:
   }
   const nav = navHtml + (open ? '</ol></li>' : '');
   fs.writeFileSync(O('nav.xhtml'), `<?xml version="1.0" encoding="utf-8"?>\n<!DOCTYPE html>\n<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops" lang="en"><head><meta charset="utf-8"/><title>Contents</title><link rel="stylesheet" type="text/css" href="style.css"/></head><body><nav epub:type="toc" id="toc"><h1>Contents · 목차</h1><ol class="nv" style="list-style:none;padding:0;margin:0">${nav}</ol></nav></body></html>`);
+  /* Kindle 은 spine 에 든 차례(nav) 문서의 글꼴 · 링크 모양을 무시하고 파란 밑줄로 그린다 — 눈에 보이는 차례 쪽은 일반 쪽으로 따로 만들고, nav 는 기기의 「차례」 메뉴용으로만 둔다 */
+  fs.writeFileSync(O('c_contents.xhtml'), `<?xml version="1.0" encoding="utf-8"?>\n<!DOCTYPE html>\n<html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta charset="utf-8"/><title>Contents</title><link rel="stylesheet" type="text/css" href="style.css"/></head><body><div class="blk plain"><h2>Contents · 목차</h2><ol class="nv">${nav}</ol></div></body></html>`);
+  chap.unshift({ id: 'contents', file: 'c_contents.xhtml', title: 'Contents · 목차', svg: false });
   const items = chap.map((c) => `<item id="${c.id}" href="${c.file}" media-type="application/xhtml+xml"${c.svg ? ' properties="svg"' : ''}/>`).join('') + [...imgFiles].map((f, n) => `<item id="img${n}" href="${f}" media-type="image/png"/>`).join('');
   const spine = chap.map((c) => `<itemref idref="${c.id}"/>`).join('');
   const modified = new Date().toISOString().replace(/\.\d+Z$/, 'Z');
@@ -1017,7 +1020,7 @@ svg{width:1.2em;height:1.2em;max-width:100%}svg[height]{width:auto}svg.ic{width:
 <dc:identifier id="bid">urn:everykoreans:${xesc(B.id)}</dc:identifier><dc:title>${xesc(B.title.en)} · ${xesc(B.title.ko)}</dc:title><dc:language>en</dc:language><dc:language>ko</dc:language>
 <dc:creator>${xesc(B.author.en)}</dc:creator><dc:publisher>${xesc(B.publisher.en)}</dc:publisher><meta property="dcterms:modified">${modified}</meta><meta name="cover" content="cover-img"/></metadata>
 <manifest><item id="cover-img" href="cover.png" media-type="image/png" properties="cover-image"/><item id="cover" href="cover.xhtml" media-type="application/xhtml+xml"/><item id="nav" href="nav.xhtml" media-type="application/xhtml+xml" properties="nav"/><item id="css" href="style.css" media-type="text/css"/>${items}</manifest>
-<spine><itemref idref="cover"/><itemref idref="nav"/>${spine}</spine></package>`);
+<spine><itemref idref="cover"/>${spine}</spine></package>`);
   fs.writeFileSync(path.join(ex, 'META-INF', 'container.xml'), `<?xml version="1.0"?>\n<container version="1.0" xmlns="urn:oasis:names:tc:opendocument:xmlns:container"><rootfiles><rootfile full-path="OEBPS/content.opf" media-type="application/oebps-package+xml"/></rootfiles></container>`);
   fs.writeFileSync(path.join(ex, 'mimetype'), 'application/epub+zip');
   const out = path.join(dir, `${bookId}.epub`); fs.rmSync(out, { force: true });
