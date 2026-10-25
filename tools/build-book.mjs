@@ -946,11 +946,11 @@ if (EPUB) {
       const em = v.inQr ? 6 : /\blvl-ic\b/.test(v.cls) ? 4 : /\bic\b/.test(v.cls) ? 1 : v.inLg ? 1.4 : Math.min(8, Math.max(.8, v.w / 16));
       plan.push({ i: v.i, f, em, alt: v.inQr ? 'QR code' : '' });
     }
-    await px.evaluate((plan) => { for (const t of plan) { const sv = document.querySelector(`svg[data-i="${t.i}"]`); if (!sv) continue; if (t.drop) { sv.remove(); continue; } const im = document.createElement('img'); im.setAttribute('src', t.f); im.setAttribute('alt', t.alt); im.setAttribute('style', `width:${t.em}em;height:auto`); sv.replaceWith(im); } }, plan);
+    await px.evaluate((plan) => { for (const t of plan) { const sv = document.querySelector(`svg[data-i="${t.i}"]`); if (!sv) continue; if (t.drop) { sv.remove(); continue; } const im = document.createElement('img'); im.setAttribute('src', t.f); im.setAttribute('alt', t.alt); im.setAttribute('style', `width:${t.em}em;height:auto`); sv.replaceWith(im); } document.querySelectorAll('.qrb.uq').forEach((b) => { const a = b.querySelector('a'); const im = b.querySelector('.qr img'); if (a && im) { const w = document.createElement('a'); w.setAttribute('href', a.getAttribute('href')); im.replaceWith(w); w.appendChild(im); a.remove(); } }); }, plan);   // 단원 QR 상자: 눈에 보이는 주소 줄은 빼고, QR 그림 자체를 누르면 열리게
     const r = await px.evaluate(() => ({ title: ((document.querySelector('.ttl h2, h2, h1') || {}).textContent || '').trim(), body: [...document.body.childNodes].map((n) => new XMLSerializer().serializeToString(n)).join('') }));
     const file = `c_${k}.xhtml`;
     const body = r.body.replace(/ style="page:[^"]*"/g, '').replace('Digital edition (PDF) · 디지털판(PDF) · print it at home or at a print shop · 집이나 인쇄소에서 인쇄해 쓰세요', 'Digital edition (ePub) · 디지털판(ePub)');   // 글꼴을 책에 넣지 않으므로 「Typeset in Pretendard」 줄도 ePub 에서는 뺀다
-    const bodyKo = body.replace('<dt>Web</dt>', EPUBVER ? `<dt>File version · 파일 버전</dt><dd>ePub ${EPUBVER}</dd><dt>Web</dt>` : '<dt>Web</dt>').replace(/PDF판은 아래 주소/g, '전자책은 아래 주소').replace('<p>Typeset in Pretendard (SIL Open Font License 1.1).</p>', '').replace(/>([^<>]*[가-힣][^<>]*)</g, '><span lang="ko" xml:lang="ko">$1</span><');   // 한글 덩어리에 언어 표시 — 전자책 기기가 한글 글꼴 · 줄 맞춤을 제대로 고르게   // 판권면의 「PDF · 인쇄해 쓰세요」 는 PDF 판 글 — ePub 에서는 맞지 않아 바꾼다
+    const bodyKo = body.replace('<dt>Web</dt>', EPUBVER ? `<dt>File version · 파일 버전</dt><dd>ePub ${EPUBVER}</dd><dt>Web</dt>` : '<dt>Web</dt>').replace(/PDF판은 아래 주소를 눌러도 돼요\./g, 'QR 그림을 눌러도 열려요.').replace('<p>Typeset in Pretendard (SIL Open Font License 1.1).</p>', '').replace(/>([^<>]*[가-힣][^<>]*)</g, '><span lang="ko" xml:lang="ko">$1</span><');   // 한글 덩어리에 언어 표시 — 전자책 기기가 한글 글꼴 · 줄 맞춤을 제대로 고르게   // 판권면의 「PDF · 인쇄해 쓰세요」 는 PDF 판 글 — ePub 에서는 맞지 않아 바꾼다
     fs.writeFileSync(O(file), `<?xml version="1.0" encoding="utf-8"?>\n<!DOCTYPE html>\n<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops" lang="en"><head><meta charset="utf-8"/><title>${xesc(r.title || B.title.en)}</title><link rel="stylesheet" type="text/css" href="style.css"/></head><body>${bodyKo}</body></html>`);
     chap.push({ id: k, file, title: r.title || k, svg: /<svg[\s>]/.test(body) });
   }
@@ -982,6 +982,16 @@ a{color:${ACC}}
 .sec h3 em.lab{display:inline-block;border:1px solid ${ACC};background:#fff;padding:.05em .5em;border-radius:3px;margin-right:.5em}
 table th{color:${ACC}}
 h2{page-break-before:auto}
+/* 더 깔끔하게(2026-10-25 샘플 검토): 표는 가로줄만, 상자는 옅은 색 + 왼쪽 띠, 한글 소제목은 연한 색 · 간격 통일 */
+table{font-size:.92em;margin:.5em 0 .9em}th,td{border:0;border-bottom:1px solid #e4ddd0;padding:.45em .5em}th{background:transparent;border-bottom:2px solid ${ACC};font-weight:700}tr:last-child td{border-bottom:0}
+.sec{margin:1.5em 0 .6em}.sec h3{border-bottom:1px solid #d8cfc0;font-size:1.08em}.sec h3 small{color:#8a8278;font-weight:400;font-size:.8em}
+.note,.hint,.bx{border-radius:0 4px 4px 0;font-size:.95em}.bx .tt,.note{line-height:1.6}
+ol.pr li{border-bottom:1px solid #ece6da}small{color:#8a8278}
+.flow .fs{display:block;margin:.4em 0}.flow .ar{display:none}
+.sec h3 em.lab{display:inline;white-space:nowrap;padding:.05em .45em}.pd .ptp span{display:inline;margin-right:.7em}
+.plg>div{margin:.3em 0 .5em}.plk b{font-size:.95em}.plk small{display:inline;margin-left:.4em}.pll{border-bottom:1px solid #cfc6b6;height:1.7em;margin:.1em 0 .5em}
+.pldc{margin:.3em 0 .8em}.pldc i{display:inline-block;font-style:normal;text-align:center;border:1px solid #cfc6b6;border-radius:4px;padding:.15em .55em;margin:.15em .4em .15em 0}.pldc i b,.pldc i small{display:block;margin:0}
+.bx,.note,.hint,.qrb,.flow .fs,table tr{page-break-inside:avoid;break-inside:avoid}.bx .lg,.sec h3,h2,h3{page-break-after:avoid;break-after:avoid}
 ol.nv,ol.nv ol{list-style:none;padding-left:0;margin:0}ol.nv ol{padding-left:1.1em}ol.nv li{margin:.35em 0}ol.nv a{text-decoration:none;color:#1d1a17}ol.nv li.np>a{font-weight:700;color:${ACC}}
 body,p,td,li,div{text-align:left;letter-spacing:normal;word-spacing:normal}.d b,.gd .d b{display:block}.d{margin:.3em 0 1em}
 /* 인라인 SVG 그림은 PDF 에서는 클래스 CSS 로 크기가 정해진다 — ePub 에서는 크기를 안 주면 화면 가득 커지므로 여기서 정한다 */
@@ -991,13 +1001,13 @@ svg{width:1.2em;height:1.2em;max-width:100%}svg[height]{width:auto}svg.ic{width:
   const NAV_NAME = { copyright: 'Copyright · 판권', preface: 'Preface · 머리말', note: "Author's note · 저자의 말", author: 'About the author · 저자 소개', how: 'How to use this book · 이 책 쓰는 법', guide: 'How this book is organized · 이 책의 구성', answers: 'Answer Key · 정답', bonus: 'Reader bonus · 구매자 혜택' };
   let navHtml = '', open = false;
   for (const c of chap) {
-    const t = xesc(NAV_NAME[c.id] || c.title), a = `<a href="${c.file}">${t}</a>`;
-    if (/^part\d+$/.test(c.id)) { navHtml += `${open ? '</ol></li>' : ''}<li class="np">${a}<ol>`; open = true; }
+    const t = xesc(NAV_NAME[c.id] || c.title), a = `<a href="${c.file}" style="text-decoration:none;color:#1d1a17">${t}</a>`;
+    if (/^part\d+$/.test(c.id)) { navHtml += `${open ? '</ol></li>' : ''}<li class="np" style="list-style:none;font-weight:700;margin-top:.6em">${a}<ol style="list-style:none;padding-left:1em;margin:0">`; open = true; }
     else if (/^(answers|bonus)$/.test(c.id) && open) { navHtml += `</ol></li><li>${a}</li>`; open = false; }
-    else navHtml += `<li>${a}</li>`;
+    else navHtml += `<li style="list-style:none">${a}</li>`;
   }
   const nav = navHtml + (open ? '</ol></li>' : '');
-  fs.writeFileSync(O('nav.xhtml'), `<?xml version="1.0" encoding="utf-8"?>\n<!DOCTYPE html>\n<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops" lang="en"><head><meta charset="utf-8"/><title>Contents</title><link rel="stylesheet" type="text/css" href="style.css"/></head><body><nav epub:type="toc" id="toc"><h1>Contents · 목차</h1><ol class="nv">${nav}</ol></nav></body></html>`);
+  fs.writeFileSync(O('nav.xhtml'), `<?xml version="1.0" encoding="utf-8"?>\n<!DOCTYPE html>\n<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops" lang="en"><head><meta charset="utf-8"/><title>Contents</title><link rel="stylesheet" type="text/css" href="style.css"/></head><body><nav epub:type="toc" id="toc"><h1>Contents · 목차</h1><ol class="nv" style="list-style:none;padding:0;margin:0">${nav}</ol></nav></body></html>`);
   const items = chap.map((c) => `<item id="${c.id}" href="${c.file}" media-type="application/xhtml+xml"${c.svg ? ' properties="svg"' : ''}/>`).join('') + [...imgFiles].map((f, n) => `<item id="img${n}" href="${f}" media-type="image/png"/>`).join('');
   const spine = chap.map((c) => `<itemref idref="${c.id}"/>`).join('');
   const modified = new Date().toISOString().replace(/\.\d+Z$/, 'Z');
