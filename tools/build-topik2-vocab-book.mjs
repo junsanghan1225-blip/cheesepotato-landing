@@ -78,7 +78,7 @@ for (let u = 0; u < N_WORDS / PER; u++) {
   if (matchW.length === 5 && clozeW.length >= 3) secs.push({ type: 'checkup', title: { en: 'Unit Checkup', ko: '단원 점검' },
     match: { words: matchW.map((w) => w.head), options: mOpts.map((w) => mean(w)), answer: matchW.map((w) => 'abcdef'[mOpts.indexOf(w)]) },
     cloze: { items: clozeW.map((w) => ({ q: w.examples[1].ko.replace(w.head, '___'), en: w.examples[1].en, a: w.head })), bank: cBank.map((w) => w.head) } });
-  if (Array.isArray(NOTES[id]) && NOTES[id].length) secs.push({ type: 'table', noIndex: true, title: { en: 'Look-alike words', ko: '헷갈리는 낱말' }, cols: ['Words · 낱말', 'Type · 종류', 'Difference · 차이'], rows: NOTES[id].map((n) => [n.words.join(' · '), KIND[n.kind] || n.kind, n.note]) });
+  if (Array.isArray(NOTES[id]) && NOTES[id].length) secs.push({ type: 'compare', noIndex: true, title: { en: 'Look-alike words', ko: '헷갈리는 낱말' }, items: NOTES[id] });
   const uniq = (i) => firsts.filter((x) => x === firsts[i]).length === 1;
   secs.push({ type: 'practice', title: { en: 'Write the meaning', ko: '뜻 쓰기' }, hint: 'Cover the word list first, then write the English meaning.', items: pick(ws, (i) => i % 4 === 0).map((w) => ({ q: `${w.head} →`, a: w.en })) });
   secs.push({ type: 'practice', title: { en: 'Write the Korean', ko: '한국어 쓰기' }, hint: 'Cover the word list first, then write the Korean word.', items: ws.map((w, i) => ({ w, i })).filter(({ i }) => i % 4 === 2).map(({ w, i }) => ({ q: `${uniq(i) ? firsts[i] : w.en} →`, a: w.head })) });
