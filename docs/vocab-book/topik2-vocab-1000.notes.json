@@ -258,5 +258,265 @@
       "kind": "synonym",
       "note": "단점 is a drawback or disadvantage compared to strengths (장점과 단점 pros and cons). 결점 highlights a specific defect, flaw, or shortcoming needing repair (제품의 결점 product defect)."
     }
+  ],
+  "tv-11": [
+    {
+      "words": [
+        "예정",
+        "계획"
+      ],
+      "kind": "synonym",
+      "note": "Both relate to future events, but 예정 emphasizes an expected schedule or timetable (도착 예정 시간 estimated arrival time), while 계획 focuses on active planning and intentions (사업 계획 business plan)."
+    },
+    {
+      "words": [
+        "수수료",
+        "비용"
+      ],
+      "kind": "synonym",
+      "note": "수수료 is a handling fee or commission charged for a specific transactional service (송금 수수료 transfer fee). 비용 is a broader term for total expenses incurred (생활 비용 living expenses)."
+    },
+    {
+      "words": [
+        "이하",
+        "이상"
+      ],
+      "kind": "contrast",
+      "note": "Both set numerical cutoffs that include the stated number itself. 이하 means that number or below (18세 이하 18 or younger), while 이상 means that number or above (20세 이상 20 or older)."
+    }
+  ],
+  "tv-12": [
+    {
+      "words": [
+        "잠기다",
+        "잠기다"
+      ],
+      "kind": "homonym",
+      "note": "Two distinct native usages: 잠기다 ① to be locked or closed tightly (문이 잠기다 the door is locked) vs 잠기다 ② to be submerged under liquid or lost in thought (물에 잠기다, 생각에 잠기다)."
+    },
+    {
+      "words": [
+        "갈다",
+        "갈다"
+      ],
+      "kind": "homonym",
+      "note": "갈다 ① to replace or substitute a part (타이어를 갈다 to change a tire) vs 갈다 ② to grind into powder or sharpen an edge (원두를 갈다 to grind coffee beans, 칼을 갈다 to sharpen a knife)."
+    },
+    {
+      "words": [
+        "즉시",
+        "곧"
+      ],
+      "kind": "synonym",
+      "note": "즉시 means instantly with zero delay, on the spot (즉시 환불 immediate refund). 곧 means soon or in the near future, allowing a short buffer of time (곧 시작해요 starting shortly)."
+    }
+  ],
+  "tv-13": [
+    {
+      "words": [
+        "금",
+        "금"
+      ],
+      "kind": "homonym",
+      "note": "金 gold the precious metal (순금 pure gold) vs native 금 meaning a crack or rift (유리에 금이 가다 a crack forms in glass, 둘 사이에 금이 가다 a rift opens between two people)."
+    },
+    {
+      "words": [
+        "수도",
+        "수도"
+      ],
+      "kind": "homonym",
+      "note": "首都 capital city of a nation (한국의 수도 서울 Seoul the capital of Korea) vs 水道 municipal running water system (수도 요금 water bill, 수돗물 tap water). Unrelated hanja roots."
+    },
+    {
+      "words": [
+        "담그다",
+        "담기다"
+      ],
+      "kind": "contrast",
+      "note": "담그다 is transitive: immersing in liquid or fermenting food (김치를 담그다 to make kimchi). 담기다 is passive/intransitive: being contained inside something (상자에 담긴 선물 a gift inside a box)."
+    }
+  ],
+  "tv-14": [
+    {
+      "words": [
+        "연장",
+        "연장"
+      ],
+      "kind": "homonym",
+      "note": "延長 extension of a time limit or contract (비자 연장 visa extension) vs native 연장 meaning manual tools or equipment (목수의 연장 carpenter tools). Distinct origins."
+    },
+    {
+      "words": [
+        "풀",
+        "풀"
+      ],
+      "kind": "homonym",
+      "note": "풀 grass or pasture plants (풀밭 grassy field) vs 풀 glue or starch paste (종이에 풀을 바르다 to apply glue to paper). Two native Korean nouns with identical pronunciation."
+    },
+    {
+      "words": [
+        "건조",
+        "건조"
+      ],
+      "kind": "homonym",
+      "note": "乾燥 dryness or moisture removal (건조기 clothes dryer) vs 建造 ship construction or vessel building (선박 건조 ship construction). Unrelated hanja compounds."
+    }
+  ],
+  "tv-15": [
+    {
+      "words": [
+        "단지",
+        "단지"
+      ],
+      "kind": "homonym",
+      "note": "團地 residential or industrial complex (아파트 단지 apartment complex) vs adverb 但只 meaning simply or merely (단지 소문일 뿐이다 it is merely a rumor). Very common TOPIK pair."
+    },
+    {
+      "words": [
+        "보관",
+        "저장"
+      ],
+      "kind": "synonym",
+      "note": "보관 stresses custody and safekeeping of personal belongings (물품 보관소 baggage storage). 저장 stresses stockpiling resources or digitally saving files (파일 저장 file saving)."
+    },
+    {
+      "words": [
+        "낯설다",
+        "익숙하다"
+      ],
+      "kind": "contrast",
+      "note": "Exact antonyms for familiarity. 낯설다 describes an unfamiliar environment or face (낯선 동네 unfamiliar neighborhood), whereas 익숙하다 describes being well-accustomed (익숙한 길 familiar street)."
+    }
+  ],
+  "tv-16": [
+    {
+      "words": [
+        "수입",
+        "수입"
+      ],
+      "kind": "homonym",
+      "note": "收入 money earned or received (월 수입 monthly income) vs 輸入 purchasing goods from abroad (원자재 수입 importing raw materials). Two major economic terms with identical Korean form."
+    },
+    {
+      "words": [
+        "전원",
+        "전원"
+      ],
+      "kind": "homonym",
+      "note": "電源 electrical power source (전원을 끄다 to turn off power) vs 全員 all persons in a group (전원 합격 100% pass rate) vs 田園 rural countryside (전원생활 country life)."
+    },
+    {
+      "words": [
+        "아끼다",
+        "절약하다"
+      ],
+      "kind": "synonym",
+      "note": "절약하다 specifically means economizing resources or spending less money (전기 절약 saving electricity). 아끼다 also includes emotional cherishing of people and objects (동생을 아끼다 to treasure a sibling)."
+    }
+  ],
+  "tv-17": [
+    {
+      "words": [
+        "낳다",
+        "낫다"
+      ],
+      "kind": "contrast",
+      "note": "Frequently confused spellings with similar pronunciation. 낳다 [나타] means to give birth or yield results (아이를 낳다). 낫다 [낟따] means to recover from illness or be better (감기가 낫다)."
+    },
+    {
+      "words": [
+        "제공",
+        "공급"
+      ],
+      "kind": "synonym",
+      "note": "Both mean supplying, but 제공 focuses on offering services or convenience to users (정보 제공 providing info), while 공급 focuses on macro distribution of commodities or utilities (물 공급 water supply)."
+    },
+    {
+      "words": [
+        "끌다",
+        "당기다"
+      ],
+      "kind": "synonym",
+      "note": "당기다 means pulling something toward one body (손잡이를 당기다 to pull a handle). 끌다 involves dragging an object along or drawing abstract attention (주의를 끌다 to draw attention)."
+    }
+  ],
+  "tv-18": [
+    {
+      "words": [
+        "말리다",
+        "말리다"
+      ],
+      "kind": "homonym",
+      "note": "Two distinct native Korean verbs: 말리다 ① to dry wet items (빨래를 말리다 to dry laundry) vs 말리다 ② to stop a dispute or dissuade someone (친구의 싸움을 말리다 to stop a fight)."
+    },
+    {
+      "words": [
+        "개발",
+        "계발"
+      ],
+      "kind": "contrast",
+      "note": "Both sound similar ([개발]). 開發 개발 is developing external resources, products, or software (소프트웨어 개발). 啓發 계발 is developing inner human potential and talents (자기계발 self-improvement)."
+    },
+    {
+      "words": [
+        "목표",
+        "목적"
+      ],
+      "kind": "synonym",
+      "note": "목적 is the overarching purpose or why behind an action (방문 목적 purpose of visit). 목표 is a specific, measurable target or milestone to hit (매출 목표 sales target)."
+    }
+  ],
+  "tv-19": [
+    {
+      "words": [
+        "낮추다",
+        "줄이다"
+      ],
+      "kind": "synonym",
+      "note": "낮추다 lowers a level, height, or intensity along a vertical scale (온도를 낮추다 to lower temperature). 줄이다 reduces numerical amount, physical size, or quantity (지출을 줄이다 to cut expenses)."
+    },
+    {
+      "words": [
+        "시절",
+        "시대"
+      ],
+      "kind": "synonym",
+      "note": "시절 describes a nostalgic or personal phase of life (학창 시절 school days). 시대 refers to a broad historical epoch or social era (조선 시대 the Joseon era, 스마트폰 시대 the smartphone age)."
+    },
+    {
+      "words": [
+        "자원",
+        "자원"
+      ],
+      "kind": "homonym",
+      "note": "資源 natural or economic resources (천연자원 natural resources) vs 自願 voluntary action by one own choice (자원봉사 volunteer service). Unrelated hanja roots."
+    }
+  ],
+  "tv-20": [
+    {
+      "words": [
+        "일시",
+        "일시"
+      ],
+      "kind": "homonym",
+      "note": "日時 date and hour of an appointment (행사 일시 event date and time) vs 一時 temporary or one-time occurrence (일시 정지 temporary pause). Note the difference between noun and modifier."
+    },
+    {
+      "words": [
+        "지구",
+        "지구"
+      ],
+      "kind": "homonym",
+      "note": "地球 the planet Earth (지구 온난화 global warming) vs 地區 designated municipal district or zone (관광 지구 tourism zone). Two fundamental TOPIK II nouns."
+    },
+    {
+      "words": [
+        "겪다",
+        "경험하다"
+      ],
+      "kind": "synonym",
+      "note": "Both mean to experience, but 겪다 strongly leans toward enduring hardships, pain, or challenges (어려움을 겪다 to undergo difficulty). 경험하다 is neutral and versatile (한국 문화를 경험하다)."
+    }
   ]
 }
