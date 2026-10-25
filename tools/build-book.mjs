@@ -793,6 +793,10 @@ if (REVIEW) {
       if (x.type === 'table') { md.push(`| ${x.cols.join(' | ')} |`, `|${x.cols.map(() => '---').join('|')}|`, ...x.rows.map((r) => `| ${r.join(' | ')} |`)); if (x.note) md.push('', `[${kindOf(u, i, x)}] ${x.note}`); }
       else if (x.type === 'text') md.push(`[${k}] ${x.text}`);
       else if (x.type === 'plan') md.push(x.fields.map((f) => `${f.en} · ${f.ko}`).join(' / '), `${x.days.en} · ${x.days.ko}`, `${x.goal.en} · ${x.goal.ko}`);
+      else if (x.type === 'vocab') x.entries.forEach((e, n) => md.push(`${(x.from || 0) + n + 1}. ${e.ko} [${e.pos}] ${e.en}  | 예문: ${e.ex.ko} (${e.ex.en})  | 급 ${e.lv} · 빈출도 ${e.fq}`));
+      else if (x.type === 'checkup') { md.push(`(짝짓기) ${x.match.words.map((w, n) => `${n + 1}. ${w}`).join(' · ')}  ↔  ${x.match.options.map((o, n) => `${'abcdef'[n]}. ${o}`).join(' · ')}  →  **${x.match.answer.map((c, n) => `${n + 1}${c}`).join(' ')}**`); x.cloze.items.forEach((q, n) => md.push(`${x.match.words.length + n + 1}. ${q.q}  (${q.en})  →  **${q.a}**`)); md.push(`(낱말 상자) ${x.cloze.bank.join(' · ')}`); }
+      else if (x.type === 'compare') x.items.forEach((q, n) => md.push(`${n + 1}. [${q.kind}] ${q.words.join(' · ')}: ${q.note}`));
+      else if (x.type === 'writing') { const r = x.raw; md.push(`(지문) ${r.passage || ''}`); if (r.blanks) r.blanks.forEach((b) => md.push(`${b.mark} 모범답안: ${b.answers.join(' / ')}  |  채점 포인트: ${b.point}`)); else if (r.model) md.push(`모범답안: ${r.model}`); }
       else if (x.type === 'flow') md.push(x.steps.map((st) => `${st.ko} (${st.en})`).join(' → '));
       else if (x.items) { if (x.hint) md.push(`(hint) ${x.hint}`); x.items.forEach((q, n) => md.push(`${n + 1}. ${q.q}  →  **${q.a}**`)); }
       const pat = (B.patterns || {})[`${u.id}:${i + 1}`];

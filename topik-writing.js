@@ -766,7 +766,7 @@ export const TW_ITEMS = [
     {
       mark: '㉠',
       answers: [
-        '드시지 마셔야 합니다.',
+        '드시지 않으셔야 합니다.',
         '먹지 마시기 바랍니다.',
         '금식해 주십시오.',
       ],
@@ -6447,7 +6447,7 @@ export const TW_GUIDE = {
     steps: [
       { ko: '글의 종류(모집 · 판매 · 분실 · 안내 · 신청)를 정한다.', en: 'Name the text type: recruiting, selling, lost item, notice, application.' },
       { ko: '빈칸 앞 문장이 이유 · 요청 · 가능 · 결과 중 무엇을 부르는지 정한다.', en: 'Decide what the sentence before the blank calls for: reason, request, ability or result.' },
-      { ko: '지문의 문체(-ㅂ니다 / -(으)세요 / -아요)에 끝을 맞춘다.', en: 'Match the ending of the text (-ㅂ니다, -(으)세요 or -아요).' },
+      { ko: '지문의 격식체(-ㅂ니다 / -(으)십시오 / -시기 바랍니다)에 끝을 맞춘다.', en: 'Match the formal ending of the text (-ㅂ니다, -(으)십시오 or -시기 바랍니다).' },
       { ko: '지문의 낱말을 되풀이하지 않고 한 문장으로 쓴다.', en: 'One sentence, without repeating words from the text.' },
     ],
     phrases: [

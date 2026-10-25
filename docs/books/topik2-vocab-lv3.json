@@ -1452,7 +1452,7 @@
       {
        "ko": "종합",
        "pos": "noun",
-       "en": "being aggregate; being combined",
+       "en": "synthesis; comprehensive",
        "ex": {
         "ko": "여러 의견을 종합해서 최종 결론을 내리기로 했어요.",
         "en": "We decided to synthesize various opinions and reach a final conclusion."
@@ -1496,7 +1496,7 @@
       {
        "ko": "깨지다",
        "pos": "verb",
-       "en": "break; shatter",
+       "en": "shatter; be broken",
        "ex": {
         "ko": "바닥에 유리컵을 떨어뜨려서 산산조각으로 깨졌어요.",
         "en": "I dropped the glass cup on the floor, so it shattered into pieces."
@@ -1623,7 +1623,7 @@
        "hard",
        "jump over",
        "stop",
-       "break",
+       "shatter",
        "suspension",
        "vomit"
       ],
@@ -1709,11 +1709,11 @@
        "a": "콜록콜록"
       },
       {
-       "q": "being aggregate →",
+       "q": "synthesis →",
        "a": "종합"
       },
       {
-       "q": "break →",
+       "q": "shatter →",
        "a": "깨지다"
       },
       {
@@ -2532,7 +2532,7 @@
       {
        "ko": "살짝",
        "pos": "adverb",
-       "en": "stealthily; secretly; furtively",
+       "en": "slightly; lightly; secretly",
        "ex": {
         "ko": "음식 간이 조금 심심하니까 소금을 살짝만 더 넣어 보세요.",
         "en": "Food seasoning is a bit bland, so try adding salt slightly more."
@@ -2822,7 +2822,7 @@
      "items": [
       {
        "q": "살짝 →",
-       "a": "stealthily; secretly; furtively"
+       "a": "slightly; lightly; secretly"
       },
       {
        "q": "이만 →",
@@ -3428,7 +3428,7 @@
       {
        "ko": "면",
        "pos": "noun",
-       "en": "side; aspect; cotton; noodles",
+       "en": "surface; side; aspect",
        "ex": {
         "ko": "정육면체는 여섯 개의 정사각형 면으로 둘러싸여 있어요.",
         "en": "A regular cube is surrounded by six square sides."
@@ -3598,7 +3598,7 @@
       },
       {
        "q": "면 →",
-       "a": "side; aspect; cotton; noodles"
+       "a": "surface; side; aspect"
       },
       {
        "q": "빨강 →",
@@ -3810,7 +3810,7 @@
       {
        "ko": "기도",
        "pos": "noun",
-       "en": "prayer; attempt",
+       "en": "prayer",
        "ex": {
         "ko": "가족들의 건강과 평안을 빌며 간절히 기도를 올렸어요.",
         "en": "I offered earnest prayers wishing for my family's health and peace."
@@ -3980,7 +3980,7 @@
       },
       {
        "q": "기도 →",
-       "a": "prayer; attempt"
+       "a": "prayer"
       },
       {
        "q": "무덤 →",
@@ -4442,7 +4442,7 @@
       {
        "ko": "양산",
        "pos": "noun",
-       "en": "parasol; sunshade; mass production",
+       "en": "parasol; sunshade",
        "ex": {
         "ko": "뜨거운 햇볕을 가리려고 가방에서 양산을 꺼내 썼어요.",
         "en": "To block scorching sunlight, I took a parasol from my bag and used it."
@@ -4732,7 +4732,7 @@
      "items": [
       {
        "q": "양산 →",
-       "a": "parasol; sunshade; mass production"
+       "a": "parasol; sunshade"
       },
       {
        "q": "겉옷 →",
@@ -4956,7 +4956,7 @@
       {
        "ko": "경비",
        "pos": "noun",
-       "en": "expense; guard; security",
+       "en": "expenses; costs",
        "ex": {
         "ko": "이번 제주도 여행에 드는 총경비를 미리 계산해 봤어요.",
         "en": "I calculated in advance the total expenses needed for this Jeju trip."
@@ -5126,7 +5126,7 @@
       },
       {
        "q": "경비 →",
-       "a": "expense; guard; security"
+       "a": "expenses; costs"
       },
       {
        "q": "수표 →",
@@ -6866,7 +6866,7 @@
       {
        "ko": "공포",
        "pos": "noun",
-       "en": "fear; terror; proclamation",
+       "en": "fear; terror",
        "ex": {
         "ko": "갑자기 불이 꺼지자 어둠 속에서 극심한 공포를 느꼈어요.",
         "en": "When lights suddenly went out, I felt extreme terror in the dark."
@@ -7036,7 +7036,7 @@
       },
       {
        "q": "공포 →",
-       "a": "fear; terror; proclamation"
+       "a": "fear; terror"
       },
       {
        "q": "떠올리다 →",
@@ -9584,7 +9584,7 @@
       {
        "ko": "부채",
        "pos": "noun",
-       "en": "folding fan; debt",
+       "en": "folding fan",
        "ex": {
         "ko": "무더운 여름날 그늘에 앉아 종이 부채로 시원한 바람을 일으켰어요.",
         "en": "On sweltering summer days, I sat in shade fanning cool wind with paper fan."
@@ -9714,7 +9714,7 @@
       },
       {
        "q": "부채 →",
-       "a": "folding fan; debt"
+       "a": "folding fan"
       }
      ]
     },
@@ -10304,7 +10304,7 @@
       {
        "ko": "창가",
        "pos": "noun",
-       "en": "window",
+       "en": "window seat; by the window",
        "ex": {
         "ko": "카페에서 경치를 감상하며 책을 읽으려고 햇살 드는 창가에 앉았어요.",
         "en": "To read while enjoying scenery at the cafe, I sat by sunny windows."
@@ -10474,7 +10474,7 @@
       },
       {
        "q": "창가 →",
-       "a": "window"
+       "a": "window seat; by the window"
       },
       {
        "q": "여가 →",
@@ -10958,7 +10958,7 @@
       {
        "ko": "사자",
        "pos": "noun",
-       "en": "dead person; decedent; the dead; the deceased",
+       "en": "lion",
        "ex": {
         "ko": "동물원 사파리에서 위풍당당하게 포효하는 수사자를 보았어요.",
         "en": "In zoo safari, I saw a male lion roaring magnificently."
@@ -11255,7 +11255,7 @@
      "hint": "Cover the word list first, then write the Korean word.",
      "items": [
       {
-       "q": "dead person →",
+       "q": "lion →",
        "a": "사자"
       },
       {
@@ -12574,7 +12574,7 @@
       {
        "ko": "사회자",
        "pos": "noun",
-       "en": "host; MC; moderator",
+       "en": "MC; moderator",
        "ex": {
         "ko": "결혼식 사회자가 재치 있는 입담으로 분위기를 화기애애하게 띄웠어요.",
         "en": "The wedding MC enlivened the atmosphere with witty talking skills."
@@ -12791,7 +12791,7 @@
        "a": "큰아버지"
       },
       {
-       "q": "host →",
+       "q": "MC →",
        "a": "사회자"
       },
       {
@@ -12868,7 +12868,7 @@
       {
        "ko": "진행자",
        "pos": "noun",
-       "en": "host; MC; presenter",
+       "en": "program host; presenter",
        "ex": {
         "ko": "라디오 방송 진행자의 부드러운 목소리가 마음에 깊은 편안함을 주어요.",
         "en": "The radio host's soft voice brings deep comfort to minds."
@@ -13165,7 +13165,7 @@
      "hint": "Cover the word list first, then write the Korean word.",
      "items": [
       {
-       "q": "host →",
+       "q": "program host →",
        "a": "진행자"
       },
       {
@@ -14910,7 +14910,7 @@
       {
        "ko": "어기다",
        "pos": "verb",
-       "en": "break; violate (rules)",
+       "en": "violate; go against (a rule)",
        "ex": {
         "ko": "한번 약속한 시간은 어떤 일이 있어도 어기면 안 돼요.",
         "en": "Once promised, you must never break the time whatever happens."
@@ -14954,7 +14954,7 @@
       {
        "ko": "별말씀",
        "pos": "noun",
-       "en": "special word; don't mention it",
+       "en": "don't mention it; you're welcome",
        "ex": {
         "ko": "도와주셔서 감사하다는 인사에 '별말씀을요'라고 화답했어요.",
         "en": "To greetings thanking for help, I replied 'Don't mention it'."
@@ -14991,7 +14991,7 @@
       ],
       "options": [
        "gun",
-       "break",
+       "violate",
        "politics",
        "unification",
        "damage",
@@ -15087,11 +15087,11 @@
        "a": "벌금"
       },
       {
-       "q": "break →",
+       "q": "violate →",
        "a": "어기다"
       },
       {
-       "q": "special word →",
+       "q": "don't mention it →",
        "a": "별말씀"
       }
      ]
@@ -15109,7 +15109,7 @@
        "a": "(Your own sentence · 내 문장)"
       },
       {
-       "q": "Write a sentence with 살인. →",
+       "q": "Write a sentence with 신고. →",
        "a": "(Your own sentence · 내 문장)"
       }
      ]
@@ -15182,7 +15182,7 @@
       {
        "ko": "여보",
        "pos": "interjection",
-       "en": "hey; excuse me",
+       "en": "honey; darling (between spouses)",
        "ex": {
         "ko": "여보, 오늘 저녁 식사로 따뜻한 된장찌개 끓여 뒀어요.",
         "en": "Honey, I boiled warm soybean paste stew for dinner today."
@@ -15314,7 +15314,7 @@
       {
        "ko": "포기",
        "pos": "noun",
-       "en": "giving up; head (counter for plants)",
+       "en": "giving up",
        "ex": {
         "ko": "어려운 문제 앞에서도 포기하지 않고 끝까지 풀었어요.",
         "en": "Even facing tough problems, I solved them to the end without giving up."
@@ -15372,7 +15372,7 @@
        "이러다"
       ],
       "options": [
-       "hey",
+       "honey",
        "to look closely",
        "what to do (about it)",
        "do this way",
@@ -15432,7 +15432,7 @@
       },
       {
        "q": "여보 →",
-       "a": "hey; excuse me"
+       "a": "honey; darling (between spouses)"
       },
       {
        "q": "소문 →",
@@ -15444,7 +15444,7 @@
       },
       {
        "q": "포기 →",
-       "a": "giving up; head (counter for plants)"
+       "a": "giving up"
       }
      ]
     },
@@ -16820,7 +16820,7 @@
       {
        "ko": "차로",
        "pos": "noun",
-       "en": "road",
+       "en": "lane; roadway",
        "ex": {
         "ko": "출퇴근 시간에 버스 전용 차로를 이용하면 교통 체증 없이 빠르게 이동해요.",
         "en": "Using bus-only lanes during commutes, I move fast without traffic jams."
@@ -16997,7 +16997,7 @@
        "a": "에스컬레이터"
       },
       {
-       "q": "road →",
+       "q": "lane →",
        "a": "차로"
       },
       {

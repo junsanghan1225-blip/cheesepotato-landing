@@ -620,7 +620,7 @@
     },
     {
      "ko": "종합",
-     "en": "being aggregate; being combined (noun)"
+     "en": "synthesis; comprehensive (noun)"
     },
     {
      "ko": "중단",
@@ -636,7 +636,7 @@
     },
     {
      "ko": "깨지다",
-     "en": "break; shatter (verb)"
+     "en": "shatter; be broken (verb)"
     },
     {
      "ko": "꺼지다",
@@ -679,7 +679,7 @@
     {
      "q": "What does 찜질 mean?",
      "opts": [
-      "being aggregate",
+      "synthesis",
       "compress",
       "go out",
       "give"
@@ -704,10 +704,10 @@
       "improve",
       "become dirty",
       "hard",
-      "being aggregate"
+      "synthesis"
      ],
      "a": 3,
-     "why": "종합 means being aggregate; being combined. 정부는 각 부처의 대책을 종합한 경제 활성화 방안을 발표했다. (The government announced an economic revitalization plan integrating ministries' measures.)"
+     "why": "종합 means synthesis; comprehensive. 정부는 각 부처의 대책을 종합한 경제 활성화 방안을 발표했다. (The government announced an economic revitalization plan integrating ministries' measures.)"
     },
     {
      "q": "Which Korean word means \"stop\"?",
@@ -1184,7 +1184,7 @@
    "cards": [
     {
      "ko": "살짝",
-     "en": "stealthily; secretly; furtively (adverb)"
+     "en": "slightly; lightly; secretly (adverb)"
     },
     {
      "ko": "서투르다",
@@ -1268,12 +1268,12 @@
      "q": "What does 살짝 mean?",
      "opts": [
       "being absolute",
-      "stealthily",
+      "slightly",
       "one by one",
       "under"
      ],
      "a": 1,
-     "why": "살짝 means stealthily; secretly; furtively. 그는 회의 도중 급한 연락을 받고 뒷문으로 살짝 빠져나갔다. (Receiving urgent calls during meetings, he slipped out softly via back door.)"
+     "why": "살짝 means slightly; lightly; secretly. 그는 회의 도중 급한 연락을 받고 뒷문으로 살짝 빠져나갔다. (Receiving urgent calls during meetings, he slipped out softly via back door.)"
     },
     {
      "q": "Which Korean word means \"without\"?",
@@ -1354,8 +1354,8 @@
      ]
     },
     {
-     "q": "\"stealthily\" in Korean: ___",
-     "en": "stealthily; secretly; furtively",
+     "q": "\"slightly\" in Korean: ___",
+     "en": "slightly; lightly; secretly",
      "a": [
       "살짝"
      ]
@@ -1624,7 +1624,7 @@
     },
     {
      "ko": "면",
-     "en": "side; aspect; cotton; noodles (noun)"
+     "en": "surface; side; aspect (noun)"
     },
     {
      "ko": "무늬",
@@ -1704,12 +1704,12 @@
      "q": "What does 면 mean?",
      "opts": [
       "white",
-      "side",
+      "surface",
       "yellow",
       "pattern"
      ],
      "a": 1,
-     "why": "면 means side; aspect; cotton; noodles. 사태의 한쪽 면만 보지 말고 다각적인 시각에서 분석해야 한다. (Don't see just one side of a crisis, analyze from diverse views.)"
+     "why": "면 means surface; side; aspect. 사태의 한쪽 면만 보지 말고 다각적인 시각에서 분석해야 한다. (Don't see just one side of a crisis, analyze from diverse views.)"
     },
     {
      "q": "Which Korean word means \"drop\"?",
@@ -1820,7 +1820,7 @@
     },
     {
      "ko": "기도",
-     "en": "prayer; attempt (noun)"
+     "en": "prayer (noun)"
     },
     {
      "ko": "대중가요",
@@ -1905,7 +1905,7 @@
       "pop song"
      ],
      "a": 1,
-     "why": "기도 means prayer; attempt. 범인은 국외 도주를 기도하다가 공항 검문소에서 덜미를 잡혔다. (The criminal was caught at airport checkpoints while attempting escape abroad.)"
+     "why": "기도 means prayer. 범인은 국외 도주를 기도하다가 공항 검문소에서 덜미를 잡혔다. (The criminal was caught at airport checkpoints while attempting escape abroad.)"
     },
     {
      "q": "Which Korean word means \"melody\"?",
@@ -2164,7 +2164,7 @@
    "cards": [
     {
      "ko": "양산",
-     "en": "parasol; sunshade; mass production (noun)"
+     "en": "parasol; sunshade (noun)"
     },
     {
      "ko": "옷차림",
@@ -2253,7 +2253,7 @@
       "shirt"
      ],
      "a": 1,
-     "why": "양산 means parasol; sunshade; mass production. 자외선 차단 코팅이 된 양산은 체감 온도를 낮추는 데 효과적이다. (Parasols with UV-blocking coatings are effective in lowering perceived temperature.)"
+     "why": "양산 means parasol; sunshade. 자외선 차단 코팅이 된 양산은 체감 온도를 낮추는 데 효과적이다. (Parasols with UV-blocking coatings are effective in lowering perceived temperature.)"
     },
     {
      "q": "Which Korean word means \"stripe\"?",
@@ -2335,7 +2335,7 @@
     },
     {
      "q": "\"parasol\" in Korean: ___",
-     "en": "parasol; sunshade; mass production",
+     "en": "parasol; sunshade",
      "a": [
       "양산"
      ]
@@ -2408,7 +2408,7 @@
     },
     {
      "ko": "경비",
-     "en": "expense; guard; security (noun)"
+     "en": "expenses; costs (noun)"
     },
     {
      "ko": "계좌",
@@ -2488,12 +2488,12 @@
      "q": "What does 경비 mean?",
      "opts": [
       "overcoat",
-      "expense",
+      "expenses",
       "handbag",
       "bank account"
      ],
      "a": 1,
-     "why": "경비 means expense; guard; security. 공항 당국은 테러 방지를 위해 외곽 경비 태세를 대폭 강화했다. (Airport authorities significantly strengthened perimeter security posture against terrorism.)"
+     "why": "경비 means expenses; costs. 공항 당국은 테러 방지를 위해 외곽 경비 태세를 대폭 강화했다. (Airport authorities significantly strengthened perimeter security posture against terrorism.)"
     },
     {
      "q": "Which Korean word means \"dollar\"?",
@@ -3388,7 +3388,7 @@
     },
     {
      "ko": "공포",
-     "en": "fear; terror; proclamation (noun)"
+     "en": "fear; terror (noun)"
     },
     {
      "ko": "다행",
@@ -3473,7 +3473,7 @@
       "recall"
      ],
      "a": 1,
-     "why": "공포 means fear; terror; proclamation. 정부는 국회에서 통과된 개정 법률안을 정식으로 공포했다. (The government officially proclaimed the amended bill passed by the assembly.)"
+     "why": "공포 means fear; terror. 정부는 국회에서 통과된 개정 법률안을 정식으로 공포했다. (The government officially proclaimed the amended bill passed by the assembly.)"
     },
     {
      "q": "Which Korean word means \"embarrassment\"?",
@@ -4776,7 +4776,7 @@
     },
     {
      "ko": "부채",
-     "en": "folding fan; debt (noun)"
+     "en": "folding fan (noun)"
     },
     {
      "ko": "설명서",
@@ -5152,7 +5152,7 @@
     },
     {
      "ko": "창가",
-     "en": "window (noun)"
+     "en": "window seat; by the window (noun)"
     },
     {
      "ko": "창밖",
@@ -5231,13 +5231,13 @@
     {
      "q": "What does 창가 mean?",
      "opts": [
-      "boarding",
-      "window",
-      "hallway",
-      "collection"
+      "house rent",
+      "window seat",
+      "curtain",
+      "outside a window"
      ],
      "a": 1,
-     "why": "창가 means window. 식당 직원은 미리 예약한 손님들을 전망 좋은 창가 좌석으로 안내했다. (Restaurant staff guided reserved customers to window seats with good views.)"
+     "why": "창가 means window seat; by the window. 식당 직원은 미리 예약한 손님들을 전망 좋은 창가 좌석으로 안내했다. (Restaurant staff guided reserved customers to window seats with good views.)"
     },
     {
      "q": "Which Korean word means \"collection\"?",
@@ -5504,7 +5504,7 @@
     },
     {
      "ko": "사자",
-     "en": "dead person; decedent; the dead; the deceased (noun)"
+     "en": "lion (noun)"
     },
     {
      "ko": "애완동물",
@@ -5623,7 +5623,7 @@
     {
      "q": "What does 동부 mean?",
      "opts": [
-      "dead person",
+      "lion",
       "eastern part/region",
       "river water",
       "sound of water"
@@ -5680,8 +5680,8 @@
      ]
     },
     {
-     "q": "\"dead person\" in Korean: ___",
-     "en": "dead person; decedent; the dead; the deceased",
+     "q": "\"lion\" in Korean: ___",
+     "en": "lion",
      "a": [
       "사자"
      ]
@@ -6320,7 +6320,7 @@
     },
     {
      "ko": "사회자",
-     "en": "host; MC; moderator (noun)"
+     "en": "MC; moderator (noun)"
     },
     {
      "ko": "소방관",
@@ -6484,7 +6484,7 @@
     },
     {
      "ko": "진행자",
-     "en": "host; MC; presenter (noun)"
+     "en": "program host; presenter (noun)"
     },
     {
      "ko": "학자",
@@ -6603,7 +6603,7 @@
     {
      "q": "What does 처녀 mean?",
      "opts": [
-      "host",
+      "program host",
       "unmarried woman",
       "date of birth",
       "marriage proposal"
@@ -6660,8 +6660,8 @@
      ]
     },
     {
-     "q": "\"host\" in Korean: ___",
-     "en": "host; MC; presenter",
+     "q": "\"program host\" in Korean: ___",
+     "en": "program host; presenter",
      "a": [
       "진행자"
      ]
@@ -7512,7 +7512,7 @@
     },
     {
      "ko": "어기다",
-     "en": "break; violate (rules) (verb)"
+     "en": "violate; go against (a rule) (verb)"
     },
     {
      "ko": "증명서",
@@ -7528,7 +7528,7 @@
     },
     {
      "ko": "별말씀",
-     "en": "special word; don't mention it (noun)"
+     "en": "don't mention it; you're welcome (noun)"
     },
     {
      "ko": "별일",
@@ -7561,7 +7561,7 @@
     {
      "q": "What does 피해 mean?",
      "opts": [
-      "break",
+      "violate",
       "odd thing",
       "politics",
       "damage"
@@ -7668,7 +7668,7 @@
     },
     {
      "ko": "여보",
-     "en": "hey; excuse me (interjection)"
+     "en": "honey; darling (between spouses) (interjection)"
     },
     {
      "ko": "마음대로",
@@ -7716,7 +7716,7 @@
     },
     {
      "ko": "포기",
-     "en": "giving up; head (counter for plants) (noun)"
+     "en": "giving up (noun)"
     },
     {
      "ko": "게시",
@@ -7759,7 +7759,7 @@
      "opts": [
       "debate",
       "Dear",
-      "hey",
+      "honey",
       "to look closely"
      ],
      "a": 3,
@@ -8492,7 +8492,7 @@
     },
     {
      "ko": "차로",
-     "en": "road (noun)"
+     "en": "lane; roadway (noun)"
     },
     {
      "ko": "큰길",
@@ -8541,7 +8541,7 @@
     {
      "q": "What does 맞은편 mean?",
      "opts": [
-      "road",
+      "lane",
       "right turn",
       "suburbs",
       "opposite side"

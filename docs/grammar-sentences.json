@@ -736,7 +736,7 @@
     },
     {
       "ko": "퇴근길에 마트에 들러 싱싱한 채소와 과일을 샀어요.",
-      "en": "On the way from work, I stopped by mart and bought fresh produce.",
+      "en": "On the way from work, I stopped by the mart and bought fresh produce.",
       "lv": 3
     },
     {
@@ -858,7 +858,7 @@
     },
     {
       "ko": "휴일에 형이랑 근처 체육관에서 운동했어요.",
-      "en": "On the holiday, I worked out with my brother at nearby gym.",
+      "en": "On the holiday, I worked out with my brother at a nearby gym.",
       "lv": 2
     },
     {
@@ -883,7 +883,7 @@
     },
     {
       "ko": "방학 동안 친구와 배낭여행을 떠나서 멋진 추억을 쌓았어요.",
-      "en": "During vacation, I went backpacking with friend and made memories.",
+      "en": "During vacation, I went backpacking with a friend and made memories.",
       "lv": 3
     },
     {
@@ -915,27 +915,27 @@
   "26-5": [
     {
       "ko": "민수의 신발이에요.",
-      "en": "They are Minsus shoes.",
+      "en": "They are Minsu's shoes.",
       "lv": 1
     },
     {
       "ko": "친구의 집이에요.",
-      "en": "It is my friends house.",
+      "en": "It is my friend's house.",
       "lv": 1
     },
     {
       "ko": "어머니의 안경이에요.",
-      "en": "They are my mothers glasses.",
+      "en": "They are my mother's glasses.",
       "lv": 1
     },
     {
       "ko": "선생님의 책이에요.",
-      "en": "It is the teachers book.",
+      "en": "It is the teacher's book.",
       "lv": 1
     },
     {
       "ko": "여기는 서울의 유명한 공원이에요.",
-      "en": "This is Seouls famous park.",
+      "en": "This is Seoul's famous park.",
       "lv": 2
     },
     {
@@ -949,8 +949,8 @@
       "lv": 2
     },
     {
-      "ko": "할아버지의 오랜 시계가 아직도 잘 가요.",
-      "en": "Grandfathers old clock still runs well.",
+      "ko": "할아버지의 오래된 시계가 아직도 잘 가요.",
+      "en": "Grandfather's old clock still runs well.",
       "lv": 2
     },
     {
@@ -960,17 +960,17 @@
     },
     {
       "ko": "우리 회사의 새로운 제품이 시장에서 인기예요.",
-      "en": "Our companys new product is popular in the market.",
+      "en": "Our company's new product is popular in the market.",
       "lv": 3
     },
     {
       "ko": "지수의 밝은 미소가 주위 사람들을 행복하게 해요.",
-      "en": "Jisus bright smile makes the people around her happy.",
+      "en": "Jisu's bright smile makes the people around her happy.",
       "lv": 3
     },
     {
       "ko": "가을 산의 단풍이 바람에 붉게 물들었어요.",
-      "en": "The autumn mountains foliage turned red in the wind.",
+      "en": "The autumn mountain's foliage turned red in the wind.",
       "lv": 3
     },
     {
@@ -1577,8 +1577,8 @@
       "lv": 3
     },
     {
-      "ko": "어제 시험 문제는 전체에서 팔십 퍼센트쯤 맞았어요.",
-      "en": "I got about 80 percent of the questions right on yesterdays exam.",
+      "ko": "어제 시험 문제는 전체에서 팔십 퍼센트쯤 맞혔어요.",
+      "en": "I got about 80 percent of the questions right on yesterday's exam.",
       "lv": 3
     },
     {
@@ -1597,7 +1597,7 @@
       "lv": 1
     },
     {
-      "ko": "만원쯤 들었어요.",
+      "ko": "만 원쯤 들었어요.",
       "en": "It cost about 10,000 won.",
       "lv": 1
     },
@@ -1730,7 +1730,7 @@
     },
     {
       "ko": "어머니의 품처럼 포근하고 아늑한 방이에요.",
-      "en": "It is a cozy room warm like a mothers embrace.",
+      "en": "It is a cozy room warm like a mother's embrace.",
       "lv": 3
     },
     {
@@ -1917,7 +1917,7 @@
     },
     {
       "ko": "지하철이 시내버스보다 훨씬 정체 없이 빨라요.",
-      "en": "The subway is much faster than city bus without traffic.",
+      "en": "The subway is much faster than a city bus without traffic.",
       "lv": 2
     },
     {
@@ -2019,7 +2019,7 @@
     },
     {
       "ko": "방학마다 가족과 함께 시골 할머니 댁에 가요.",
-      "en": "Every vacation, I go to my countryside grandmothers house with family.",
+      "en": "Every vacation, I go to my countryside grandmother's house with family.",
       "lv": 3
     },
     {
@@ -5291,7 +5291,7 @@
     },
     {
       "ko": "지난 주말에 미술관에서 유명 화가의 그림 전시회를 관람했어요.",
-      "en": "Last weekend I viewed a famous painter's exhibition at art museum.",
+      "en": "Last weekend I viewed a famous painter's exhibition at the art museum.",
       "lv": 3
     },
     {
@@ -7743,7 +7743,7 @@
     },
     {
       "ko": "지방 출장을 위해 아침 일찍 고속버스터미널에 도착했어요.",
-      "en": "For a business trip to the provinces, I arrived early at express bus terminal.",
+      "en": "For a business trip to the provinces, I arrived early at the express bus terminal.",
       "lv": 3
     },
     {
@@ -7769,7 +7769,7 @@
       "lv": 1
     },
     {
-      "ko": "너밖에 없어.",
+      "ko": "너밖에 없어요.",
       "en": "I have only you.",
       "lv": 1
     },
