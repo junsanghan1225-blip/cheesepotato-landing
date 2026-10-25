@@ -120,6 +120,24 @@
   "tv-49",
   "tv-50"
  ],
+ "back": {
+  "items": [
+   [
+    "50 units · 50개 단원",
+    "1,000 frequent TOPIK II words, level 3 to 6 · 3급부터 6급까지 자주 나오는 낱말 1,000개"
+   ],
+   [
+    "Example, checkup &amp; look-alike words · 예문 · 단원 점검 · 헷갈리는 낱말",
+    "Cheese = level, potato = frequency · 치즈는 급수, 감자는 빈출도"
+   ],
+   [
+    "Scan the QR for a match game · QR 로 짝 맞추기 게임",
+    "Practice the same 20 words on your phone · 같은 낱말 20개를 폰으로"
+   ]
+  ],
+  "for": "For TOPIK II learners, level 3 to 6 · TOPIK II 3~6급 준비에",
+  "price": "정가 6.9달러"
+ },
  "parts": [
   {
    "title": {
