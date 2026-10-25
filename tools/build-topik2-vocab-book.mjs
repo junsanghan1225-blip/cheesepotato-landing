@@ -19,6 +19,10 @@ const picked = [...all].sort((a, b) => (b.freq - a.freq) || a.head.localeCompare
 if (picked.length < N_WORDS) throw new Error(`낱말이 ${picked.length}개뿐`);
 
 const POS = { 명사: 'noun', 동사: 'verb', 형용사: 'adjective', 부사: 'adverb', 관형사: 'determiner', '의존 명사': 'bound noun', 수사: 'numeral', 대명사: 'pronoun', 감탄사: 'interjection', 조사: 'particle' };
+/* 빈출도 감자 1~3: 뽑은 1,000개를 많이 나오는 순으로 3등분(위 1/3 = 감자 3개) */
+const byFreq = [...picked].sort((a, b) => b.freq - a.freq);
+const cut1 = byFreq[Math.floor(N_WORDS / 3) - 1].freq, cut2 = byFreq[Math.floor((N_WORDS * 2) / 3) - 1].freq;
+const fq = (f) => (f >= cut1 ? 3 : f >= cut2 ? 2 : 1);
 const first = (en) => String(en).split(';')[0].trim();
 const pick = (arr, f) => arr.filter((_, i) => f(i));
 const LV_KO = { 3: '3급', 4: '4급', 5: '5급', 6: '6급' };
@@ -32,8 +36,7 @@ for (let u = 0; u < N_WORDS / PER; u++) {
   const lvKo = lvs.map((l) => LV_KO[l]).join('·'), lvEn = lvs.map((l) => `Level ${l}`).join(' / ');
   const exOf = (w) => (w.examples && w.examples[0]) || null;
   const secs = [];
-  secs.push({ type: 'table', title: { en: 'Words', ko: '낱말' }, cols: ['Korean · 한국어', 'English · 뜻'], rows: ws.map((w) => [w.head, `${w.en}  (${POS[w.pos] || w.pos})`]) });
-  secs.push({ type: 'table', title: { en: 'In a sentence', ko: '문장 속에서' }, cols: ['Example · 예문', 'English'], rows: ws.map((w) => { const e = exOf(w); return [e.ko, e.en]; }) });
+  secs.push({ type: 'vocab', title: { en: 'Words', ko: '낱말' }, from: u * PER, entries: ws.map((w) => ({ ko: w.head, pos: POS[w.pos] || w.pos, en: w.en, ex: exOf(w), lv: w.level, fq: fq(w.freq) })) });
   const firsts = ws.map((w) => first(w.en));
   const uniq = (i) => firsts.filter((x) => x === firsts[i]).length === 1;
   secs.push({ type: 'practice', title: { en: 'Meaning check', ko: '뜻 쓰기' }, hint: 'Write the English meaning. Cover the table first.', items: pick(ws, (i) => i % 2 === 0).map((w) => ({ q: `${w.head} →`, a: w.en })) });
