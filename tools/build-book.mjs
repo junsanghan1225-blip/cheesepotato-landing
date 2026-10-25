@@ -932,6 +932,30 @@ if (EPUB) {
     pages.set('cur', shell(html));
     await px.goto(`${BASE}/__book.html`, { waitUntil: 'networkidle' });
     await px.evaluate(() => document.querySelectorAll('.sc, .fr, .ft').forEach((e) => e.remove()));   // 연필로 체크하는 줄 · 장식은 전자책에서 뺀다
+    /* 제목 띠 · 부 표지 · 소제목은 글꼴이 입혀진 그림으로 — Kindle 마다 한글이 다르게(가늘게) 보이는 것을 제목에서는 없앤다. 본문은 글로 둔다(글자 크기 조절 · 검색). */
+    const title0 = await px.evaluate(() => ((document.querySelector('.ttl h2, h2, h1') || {}).textContent || '').trim());
+    const heads = await px.evaluate(() => { const out = []; document.querySelectorAll('.uh, .pd, .sec > h3').forEach((e, i) => { e.setAttribute('data-h', String(i)); const g = (q) => { const x = e.querySelector(q); return x ? x.textContent.replace(/\s+/g, ' ').trim() : ''; }; if (e.matches('.uh')) out.push({ i, kind: 'uh', un: g('.un'), ko: g('h2'), en: g('h3') }); else if (e.matches('.pd')) out.push({ i, kind: 'pd', ptp: [...e.querySelectorAll('.ptp span')].map((x) => x.textContent.trim()).join('   '), no: g('.no'), big: g('.big'), ko: g('h2'), en: g('h3') }); else { const sp = [...e.children].find((c) => c.tagName === 'SPAN'); out.push({ i, kind: 'sec', lab: g('.lab'), en: sp ? sp.textContent.trim() : '', ko: g('small') }); } }); return out; });
+    const hesc = (x) => String(x).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+    const FONT = "font-family:'Pretendard Variable','Pretendard','Noto Sans KR',sans-serif;";
+    const bannerHtml = (h) => h.kind === 'uh'
+      ? `<div style="${FONT}background:${ACC};color:#fff;padding:16px 18px;border-radius:12px"><div style="font-size:11.5px;letter-spacing:.12em;font-weight:700;opacity:.88">${hesc(h.un)}</div><div style="font-size:26px;font-weight:800;line-height:1.25;margin-top:8px">${hesc(h.ko)}</div><div style="font-size:15px;font-weight:500;opacity:.93;margin-top:4px">${hesc(h.en)}</div></div>`
+      : h.kind === 'pd'
+        ? `<div style="${FONT}background:${ACC};color:#fff;padding:24px 22px 22px;border-radius:12px"><div style="font-size:12px;letter-spacing:.1em;opacity:.9">${hesc(h.ptp)}</div><div style="font-size:14px;letter-spacing:.3em;font-weight:800;margin-top:26px">${hesc(h.no)}</div><div style="font-size:80px;font-weight:900;line-height:1;letter-spacing:-.03em">${hesc(h.big)}</div><div style="width:54px;height:4px;background:#fff;margin:12px 0 18px"></div><div style="font-size:30px;font-weight:800;line-height:1.25">${hesc(h.ko)}</div><div style="font-size:17px;font-weight:500;opacity:.93;margin-top:6px">${hesc(h.en)}</div></div>`
+        : `<div style="${FONT}background:#fff;color:#1d1a17;padding:6px 2px 9px"><div style="display:flex;flex-wrap:wrap;align-items:center;gap:6px 10px"><span style="border:1.5px solid ${ACC};color:${ACC};border-radius:5px;padding:1px 8px;font-size:13px;font-weight:700;white-space:nowrap">${hesc(h.lab)}</span><span style="font-size:19px;font-weight:800;line-height:1.25">${hesc(h.en)}</span></div>${h.ko ? `<div style="font-size:13px;color:#8a8278;margin-top:4px">${hesc(h.ko)}</div>` : ''}</div>`;
+    const hplan = [];
+    for (const h of heads) {
+      const html = bannerHtml(h), f = `img/h_${createHash('md5').update(html).digest('hex').slice(0, 12)}.png`;
+      if (!imgFiles.has(f)) {
+        await px.evaluate((x) => { const d = document.createElement('div'); d.id = '__bn'; d.style.cssText = 'position:fixed;left:0;top:0;width:420px;z-index:99999;background:#fff'; d.innerHTML = x; document.body.appendChild(d); }, html);
+        await px.evaluate(() => document.fonts.ready);
+        await px.locator('#__bn').screenshot({ path: O(f) });
+        (await import('node:child_process')).execFileSync('convert', [O(f), '-gravity', 'south', '-chop', '0x4', '+repage', '-colors', '64', `PNG8:${O(f)}`]);   // 평평한 색 그림 — 색 수를 줄여 용량을 1/5 로
+        await px.evaluate(() => document.getElementById('__bn').remove());
+        imgFiles.add(f);
+      }
+      hplan.push({ i: h.i, f, alt: h.kind === 'pd' ? `Part ${h.big} · ${h.ko} · ${h.en}` : h.kind === 'uh' ? `${h.un} · ${h.ko} · ${h.en}` : `${h.lab} ${h.en} ${h.ko}`.trim() });
+    }
+    await px.evaluate((plan) => { for (const t of plan) { const e = document.querySelector(`[data-h="${t.i}"]`); if (!e) continue; const im = document.createElement('img'); im.setAttribute('src', t.f); im.setAttribute('alt', t.alt); im.setAttribute('class', 'hd'); e.replaceWith(im); } }, hplan);
     const svgs = await px.evaluate(() => [...document.querySelectorAll('svg')].map((sv, i) => {
       sv.setAttribute('data-i', String(i));
       const cs = getComputedStyle(sv), r = sv.getBoundingClientRect();
@@ -952,8 +976,8 @@ document.querySelectorAll('.pldc').forEach((d) => { const cells = [...d.querySel
     const file = `c_${k}.xhtml`;
     const body = r.body.replace(/ style="page:[^"]*"/g, '').replace(/ style="break-inside:avoid"/g, '').replace('Digital edition (PDF) · 디지털판(PDF) · print it at home or at a print shop · 집이나 인쇄소에서 인쇄해 쓰세요', 'Digital edition (ePub) · 디지털판(ePub)');   // 글꼴을 책에 넣지 않으므로 「Typeset in Pretendard」 줄도 ePub 에서는 뺀다
     const bodyKo = body.replace('<dt>Web</dt>', EPUBVER ? `<dt>File version · 파일 버전</dt><dd>ePub ${EPUBVER}</dd><dt>Web</dt>` : '<dt>Web</dt>').replace(/PDF판은 아래 주소를 눌러도 돼요\./g, 'QR 그림을 눌러도 열려요.').replace('<p>Typeset in Pretendard (SIL Open Font License 1.1).</p>', '').replace(/>([^<>]*[가-힣][^<>]*)</g, '><span lang="ko" xml:lang="ko">$1</span><');   // 한글 덩어리에 언어 표시 — 전자책 기기가 한글 글꼴 · 줄 맞춤을 제대로 고르게   // 판권면의 「PDF · 인쇄해 쓰세요」 는 PDF 판 글 — ePub 에서는 맞지 않아 바꾼다
-    fs.writeFileSync(O(file), `<?xml version="1.0" encoding="utf-8"?>\n<!DOCTYPE html>\n<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops" lang="en"><head><meta charset="utf-8"/><title>${xesc(r.title || B.title.en)}</title><link rel="stylesheet" type="text/css" href="style.css"/></head><body>${bodyKo}</body></html>`);
-    chap.push({ id: k, file, title: r.title || k, svg: /<svg[\s>]/.test(body) });
+    fs.writeFileSync(O(file), `<?xml version="1.0" encoding="utf-8"?>\n<!DOCTYPE html>\n<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops" lang="en"><head><meta charset="utf-8"/><title>${xesc(title0 || r.title || B.title.en)}</title><link rel="stylesheet" type="text/css" href="style.css"/></head><body>${bodyKo}</body></html>`);
+    chap.push({ id: k, file, title: title0 || r.title || k, svg: /<svg[\s>]/.test(body) });
   }
   fs.copyFileSync(path.join(dir, 'front-cover.png'), O('cover.png'));
   fs.writeFileSync(O('cover.xhtml'), `<?xml version="1.0" encoding="utf-8"?>\n<!DOCTYPE html>\n<html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta charset="utf-8"/><title>${xesc(B.title.en)}</title><link rel="stylesheet" type="text/css" href="style.css"/></head><body class="cv"><img src="cover.png" alt="${xesc(B.title.en)}"/></body></html>`);
@@ -1000,6 +1024,7 @@ table.wk{table-layout:fixed;width:100%}table.wk td{text-align:center;border:1px 
 .bx.more{border:1px dashed #9aa4b5;border-left:4px dashed #5B6B86}
 .tlb{font-size:1.5em;line-height:1.2}.tld{color:#b5ab9b}
 .tl{margin:.5em 0 1em;border-top:2px solid ${ACC}}.tlr{border-bottom:1px solid #e4ddd0;padding:.5em 0 .55em}.tl1{font-weight:700;margin-bottom:.1em}.tlc{margin:.05em 0 .05em .9em;font-size:.95em}.tlh{color:#8a8278;font-size:.78em;letter-spacing:.02em;margin-right:.2em}
+img.hd{display:block;width:100%;height:auto;margin:.9em 0 .5em}
 ol.nv,ol.nv ol{list-style:none;padding-left:0;margin:0}ol.nv ol{padding-left:1.1em}ol.nv li{margin:.35em 0}ol.nv a{text-decoration:none;color:#1d1a17}ol.nv li.np>a{font-weight:700;color:${ACC}}
 body,p,td,li,div{text-align:left;letter-spacing:normal;word-spacing:normal}.d b,.gd .d b{display:block}.d{margin:.3em 0 1em}
 /* 인라인 SVG 그림은 PDF 에서는 클래스 CSS 로 크기가 정해진다 — ePub 에서는 크기를 안 주면 화면 가득 커지므로 여기서 정한다 */
