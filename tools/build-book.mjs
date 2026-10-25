@@ -944,6 +944,8 @@ ol.pr{padding-left:1.6em}ol.pr li{margin:.7em 0;padding-bottom:.5em;border-botto
 .qrb{display:block;margin:1em 0;padding:.6em .8em;border:1px solid ${ACC};border-radius:6px;background:${TINT}}.qrb .qr svg{width:6em;height:6em}.qrb b{display:block;color:${ACC}}.qrb small{margin:.3em 0}.qrb a{word-break:break-all}
 a{color:${ACC}}
 body,p,td,li,div{text-align:left;letter-spacing:normal;word-spacing:normal}.d b,.gd .d b{display:block}.d{margin:.3em 0 1em}
+/* 인라인 SVG 그림은 PDF 에서는 클래스 CSS 로 크기가 정해진다 — ePub 에서는 크기를 안 주면 화면 가득 커지므로 여기서 정한다 */
+svg{width:1.2em;height:1.2em;max-width:100%}svg[height]{width:auto}svg.ic{width:1em;height:1em;vertical-align:-.12em}.lg svg{width:1.6em;height:1.6em}svg.lvl-ic{width:4em;height:4em}.qr svg,.qrb .qr svg{width:6em;height:6em}
 `);
   const nav = chap.map((c) => `<li><a href="${c.file}">${xesc(c.title)}</a></li>`).join('');
   fs.writeFileSync(O('nav.xhtml'), `<?xml version="1.0" encoding="utf-8"?>\n<!DOCTYPE html>\n<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops" lang="en"><head><meta charset="utf-8"/><title>Contents</title></head><body><nav epub:type="toc" id="toc"><h1>Contents · 목차</h1><ol>${nav}</ol></nav></body></html>`);
