@@ -1038,5 +1038,187 @@
       "kind": "contrast",
       "note": "송별회 (送別會) is a farewell party to say goodbye to departing people (송별회를 열다), while 환영회 (歡迎會) is a welcome reception to greet newcomers (신입사원 환영회)."
     }
+  ],
+  "tx-41": [
+    {
+      "words": [
+        "높임말",
+        "반말"
+      ],
+      "kind": "contrast",
+      "note": "높임말 is honorific or polite speech used toward elders, seniors, or unfamiliar adults (높임말을 쓰다), while 반말 is informal or casual speech used with close peers or younger individuals (반말을 쓰다)."
+    },
+    {
+      "words": [
+        "사인",
+        "서명"
+      ],
+      "kind": "synonym",
+      "note": "Both mean signature. 사인 is the everyday loanword used on receipts or for celebrity autographs (카드 영수증에 사인하다), while 서명 (署名) is formal Sino-Korean used on contracts or petitions (계약서에 서명하다)."
+    },
+    {
+      "words": [
+        "속담",
+        "격언"
+      ],
+      "kind": "synonym",
+      "note": "속담 (俗談) is a traditional folk proverb passed down through cultural wisdom (한국 속담), whereas 격언 (格言) is a formal moral maxim, adage, or wise precept (인생의 격언)."
+    }
+  ],
+  "tx-42": [
+    {
+      "words": [
+        "이성",
+        "이성"
+      ],
+      "kind": "homonym",
+      "note": "理性 (reason or intellect: 이성을 되찾다) vs 異性 (the opposite sex: 이성 친구). Distinct Hanja and concepts."
+    },
+    {
+      "words": [
+        "차이점",
+        "공통점"
+      ],
+      "kind": "contrast",
+      "note": "차이점 (差異點) is a point of difference or contrast (두 나라의 문화적 차이점), while 공통점 (共通點) is a shared point in common (발견된 공통점)."
+    },
+    {
+      "words": [
+        "여쭈다",
+        "묻다"
+      ],
+      "kind": "synonym",
+      "note": "Both mean to ask. 여쭈다 (or 여쭙다) is the humble honorific form used when asking a question to a teacher, elder, or superior (선생님께 여쭈다), whereas 묻다 is standard (친구에게 묻다)."
+    }
+  ],
+  "tx-43": [
+    {
+      "words": [
+        "입국",
+        "출국"
+      ],
+      "kind": "contrast",
+      "note": "입국 (入國) is entry into a country (입국 심사를 받다), whereas 출국 (出國) is departure from a country (출국 수속을 밟다)."
+    },
+    {
+      "words": [
+        "발명",
+        "발견"
+      ],
+      "kind": "contrast",
+      "note": "발명 (發明) is creating or inventing an entirely new device or technique (신기술 발명), while 발견 (發見) is discovering something that already existed but was hidden or unknown (유적 발견)."
+    },
+    {
+      "words": [
+        "다운로드",
+        "업로드"
+      ],
+      "kind": "contrast",
+      "note": "다운로드 is downloading files from the internet onto a local device (자료 다운로드), while 업로드 is uploading files from a local device up to the internet or server (과제물 업로드)."
+    }
+  ],
+  "tx-44": [
+    {
+      "words": [
+        "인도",
+        "인도"
+      ],
+      "kind": "homonym",
+      "note": "人道 (pedestrian sidewalk or walkway: 인도로 안전하게 걷다) vs 印度 (India, the South Asian country: 인도 여행). Completely distinct Hanja."
+    },
+    {
+      "words": [
+        "맞은편",
+        "건너편"
+      ],
+      "kind": "synonym",
+      "note": "Both mean the opposite side across a road, street, or river. 맞은편 and 건너편 are interchangeable in daily directions (길 맞은편 편의점, 도로 건너편 건물)."
+    },
+    {
+      "words": [
+        "붐비다",
+        "한산하다"
+      ],
+      "kind": "contrast",
+      "note": "붐비다 means crowded and bustling with crowds or traffic (주말에 명동이 붐비다), while 한산하다 (閑散하다) means quiet, empty, or uncrowded (평일 오전에는 한산하다)."
+    }
+  ],
+  "tx-45": [
+    {
+      "words": [
+        "묵다",
+        "묶다"
+      ],
+      "kind": "contrast",
+      "note": "묵다 means to lodge or stay overnight (호텔에 묵다), or to get old and aged (오래 묵은 장류). 묶다 means to tie, knot, or bind with string (신발 끈을 묶다). Pronounced identically as [묵따]."
+    },
+    {
+      "words": [
+        "좌회전",
+        "우회전"
+      ],
+      "kind": "contrast",
+      "note": "좌회전 (左回轉) is a left turn (사거리에서 좌회전), while 우회전 (右回轉) is a right turn (골목에서 우회전)."
+    },
+    {
+      "words": [
+        "승차",
+        "하차"
+      ],
+      "kind": "contrast",
+      "note": "승차 (乘車) is boarding or getting into a bus, train, or car (버스 승차), while 하차 (下車) is getting off or disembarking (지하철 하차)."
+    }
+  ],
+  "tx-46": [
+    {
+      "words": [
+        "왕복",
+        "편도"
+      ],
+      "kind": "contrast",
+      "note": "왕복 (往復) is a round-trip ticket or journey (왕복 승차권), whereas 편도 (片道) is a one-way trip (편도 티켓)."
+    },
+    {
+      "words": [
+        "배웅",
+        "마중"
+      ],
+      "kind": "contrast",
+      "note": "배웅 is seeing someone off upon their departure (공항에서 친구를 배웅하다), while 마중 is going out to welcome or greet someone arriving (역으로 마중을 나가다)."
+    },
+    {
+      "words": [
+        "국내선",
+        "국제선"
+      ],
+      "kind": "contrast",
+      "note": "국내선 (國內線) refers to domestic airline flights operating within a single country (국내선 터미널), whereas 국제선 (國際線) refers to international flights between countries (국제선 탑승구)."
+    }
+  ],
+  "tx-47": [
+    {
+      "words": [
+        "수정",
+        "수정"
+      ],
+      "kind": "homonym",
+      "note": "修正 (revision or editorial correction: 오타를 수정하다) vs 水晶 (quartz or clear crystal: 수정 구슬). Distinct Hanja and concepts."
+    },
+    {
+      "words": [
+        "작성",
+        "제출"
+      ],
+      "kind": "contrast",
+      "note": "작성 (作成) is filling out, composing, or drawing up a document (신청서 작성), while 제출 (提出) is handing in or submitting the completed paperwork to an office (서류 제출)."
+    },
+    {
+      "words": [
+        "승진",
+        "진급"
+      ],
+      "kind": "synonym",
+      "note": "Both mean career promotion. 승진 (昇進) is standard for corporate and office rank elevations (부장으로 승진하다), while 진급 (晉級) often denotes advancement in military rank or grade systems (대위로 진급하다)."
+    }
   ]
 }
