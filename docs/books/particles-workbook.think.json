@@ -1,31 +1,1043 @@
 {
- "_note": "책 전용 생각해 보는 칸(단원 id → practice 칸 배열). 만드는 법 docs/antigravity/antigravity-particles-think-task.md. 안티가 채우고 Claude 가 검토한다.",
- "pt-26-1": [
-  {
-   "type": "practice",
-   "title": {
-    "en": "Think it through · Which fits better?",
-    "ko": "생각해 보기 · 어느 쪽이 더 맞을까요?"
-   },
-   "hint": "Sometimes more than one is possible. Choose, then say why.",
-   "items": [
+  "_note": "책 전용 생각해 보는 칸(단원 id → practice 칸 배열). 만드는 법 docs/antigravity/antigravity-particles-think-task.md. 안티가 채우고 Claude 가 검토한다.",
+  "pt-26-1": [
     {
-     "q": "누가 학생이에요?  (Who is the student?)   (a) 저는 학생이에요.   (b) 제가 학생이에요.",
-     "a": "(b) 제가 학생이에요. The question asks who, so the answer, the new information, takes 이/가."
-    },
-    {
-     "q": "친구가 새 가방을 샀어요. 가방___ 예뻐요.  (Which is the natural reaction: 이 or 은?)",
-     "a": "이: 가방이 예뻐요. It reacts to what you see. 가방은 예뻐요 would sound like 'the bag is pretty (but something else is not)'."
-    },
-    {
-     "q": "하늘이 파래요 / 하늘은 파래요.  Both are correct. What is the difference?  (The sky is blue.)",
-     "a": "이 comments on what you see now. 은 states a general truth or sets up a contrast."
-    },
-    {
-     "q": "물이 있어요. / 물가 있어요.  One is wrong. Which one, and why?  (There is water.)",
-     "a": "물가 is wrong. 물 ends in a consonant (ㄹ), so it takes 이: 물이 있어요."
+      "type": "practice",
+      "title": {
+        "en": "Think it through · Which fits better?",
+        "ko": "생각해 보기 · 어느 쪽이 더 맞을까요?"
+      },
+      "hint": "Sometimes more than one is possible. Choose, then say why.",
+      "items": [
+        {
+          "q": "누가 학생이에요?  (Who is the student?)   (a) 저는 학생이에요.   (b) 제가 학생이에요.",
+          "a": "(b) 제가 학생이에요. The question asks who, so the answer, the new information, takes 이/가."
+        },
+        {
+          "q": "친구가 새 가방을 샀어요. 가방___ 예뻐요.  (Which is the natural reaction: 이 or 은?)",
+          "a": "이: 가방이 예뻐요. It reacts to what you see. 가방은 예뻐요 would sound like 'the bag is pretty (but something else is not)'."
+        },
+        {
+          "q": "하늘이 파래요 / 하늘은 파래요.  Both are correct. What is the difference?  (The sky is blue.)",
+          "a": "이 comments on what you see now. 은 states a general truth or sets up a contrast."
+        },
+        {
+          "q": "물이 있어요. / 물가 있어요.  One is wrong. Which one, and why?  (There is water.)",
+          "a": "물가 is wrong. 물 ends in a consonant (ㄹ), so it takes 이: 물이 있어요."
+        }
+      ]
     }
-   ]
-  }
- ]
+  ],
+  "pt-26-2": [
+    {
+      "type": "practice",
+      "title": {
+        "en": "Think it through · Which fits better?",
+        "ko": "생각해 보기 · 어느 쪽이 더 맞을까요?"
+      },
+      "hint": "Sometimes more than one is possible. Choose, then say why.",
+      "items": [
+        {
+          "q": "처음 만난 사람에게 자신을 소개할 때:  (Introducing yourself to someone for the first time:)   (a) 제가 마이클이에요.   (b) 저는 마이클이에요.",
+          "a": "(b) 저는 마이클이에요. You are setting yourself up as the topic of conversation. 제가 sounds like you are identifying yourself in answer to 'who is Michael?'."
+        },
+        {
+          "q": "사과는 달아요 / 사과가 달아요.  Both are correct. What is the difference?  (Apples are sweet.)",
+          "a": "사과는 states a general fact about apples (or contrasts with another fruit). 사과가 points out the specific apple in front of you."
+        },
+        {
+          "q": "선생님는 한국어를 가르치세요. / 선생님은 한국어를 가르치세요.  One is wrong. Which one, and why?",
+          "a": "선생님는 is wrong. 선생님 ends in a consonant (ㅁ), so it must take 은: 선생님은 한국어를 가르치세요."
+        },
+        {
+          "q": "커피는 마시지만 녹차___ 안 마셔요.  (Which particle highlights the contrast: 는 or 를?)",
+          "a": "는: 녹차는 안 마셔요. Using 은/는 on both nouns clearly sets up the contrast between what you drink and what you do not."
+        }
+      ]
+    }
+  ],
+  "pt-26-3": [
+    {
+      "type": "practice",
+      "title": {
+        "en": "Think it through · Which fits better?",
+        "ko": "생각해 보기 · 어느 쪽이 더 맞을까요?"
+      },
+      "hint": "Sometimes more than one is possible. Choose, then say why.",
+      "items": [
+        {
+          "q": "식당에서 음식을 주문할 때:  (Ordering food at a restaurant:)   (a) 김밥을 주세요.   (b) 김밥이 주세요.",
+          "a": "(a) 김밥을 주세요. 김밥 is the object of the action requested (giving). 김밥이 would imply the kimbap itself is giving something."
+        },
+        {
+          "q": "친구가 물어요: '점심 먹었어요?' / '점심을 먹었어요?'  Both are natural. What is the difference?  (Did you eat lunch?)",
+          "a": "Both are natural. 점심을 먹었어요? is the full form. Dropping 을 (점심 먹었어요?) is very common in everyday speech and sounds just as polite."
+        },
+        {
+          "q": "가방를 샀어요. / 가방을 샀어요.  One is wrong. Which one, and why?  (I bought a bag.)",
+          "a": "가방를 is wrong. 가방 ends in a consonant (ㅇ), so it must take 을: 가방을 샀어요."
+        },
+        {
+          "q": "책이 재미있어요 / 책을 읽어요.  Why does one take 이 and the other 을?",
+          "a": "재미있다 is an adjective describing the book's quality (subject 이), while 읽다 is an action verb performed on the book (object 을)."
+        }
+      ]
+    }
+  ],
+  "pt-26-5": [
+    {
+      "type": "practice",
+      "title": {
+        "en": "Think it through · Which fits better?",
+        "ko": "생각해 보기 · 어느 쪽이 더 맞을까요?"
+      },
+      "hint": "Sometimes more than one is possible. Choose, then say why.",
+      "items": [
+        {
+          "q": "친구에게 내 책을 가리킬 때:  (Pointing to your own book to a friend:)   (a) 이것은 나의 책이에요.   (b) 이것은 내 책이에요.",
+          "a": "(b) 이것은 내 책이에요. In natural Korean, 나의 is almost always shortened to 내 in everyday speech."
+        },
+        {
+          "q": "한국 문화 / 한국의 문화.  Both are correct. What is the difference?  (Korean culture.)",
+          "a": "한국 문화 drops 의, which is very common when two nouns form a familiar compound. 한국의 문화 sounds slightly more formal and written."
+        },
+        {
+          "q": "선생님에 가방이에요. / 선생님의 가방이에요.  One is wrong. Which one, and why?  (It is the teacher's bag.)",
+          "a": "선생님에 is wrong in spelling. Although 의 is often pronounced [에], it must be written as 의 to show possession: 선생님의 가방."
+        },
+        {
+          "q": "친구에게 공책을 빌릴 때:  (Asking to borrow a notebook:)   (a) 네 공책 좀 빌려 주세요.   (b) 네의 공책 좀 빌려 주세요.",
+          "a": "(a) 네 공책 좀 빌려 주세요. 너의 (your) contracts to 네. 네의 is redundant and incorrect."
+        }
+      ]
+    }
+  ],
+  "pt-26-6": [
+    {
+      "type": "practice",
+      "title": {
+        "en": "Think it through · Which fits better?",
+        "ko": "생각해 보기 · 어느 쪽이 더 맞을까요?"
+      },
+      "hint": "Sometimes more than one is possible. Choose, then say why.",
+      "items": [
+        {
+          "q": "친구가 지금 어디에 있는지 말할 때:  (Saying where a friend is right now:)   (a) 친구가 도서관에 있어요.   (b) 친구가 도서관에서 있어요.",
+          "a": "(a) 친구가 도서관에 있어요. With 있다 (to exist), static location takes 에, not 에서."
+        },
+        {
+          "q": "오늘 만나요 / 오늘에 만나요.  One is natural. Which one, and why?  (Let's meet today.)",
+          "a": "오늘 만나요 is natural. Relative time words like 오늘, 어제, and 내일 do not take the time particle 에."
+        },
+        {
+          "q": "아침 일곱 시___ 일어나요.  (Which particle marks the specific time point: 에 or 에서?)",
+          "a": "에: 아침 일곱 시에 일어나요. 에 marks the specific clock time when an action takes place."
+        },
+        {
+          "q": "방에 있어요 / 방에서 쉬어요.  Why does one take 에 and the other 에서?",
+          "a": "있어요 expresses static presence (where something is, taking 에), while 쉬어요 is an active behavior (taking 에서)."
+        }
+      ]
+    }
+  ],
+  "pt-26-7": [
+    {
+      "type": "practice",
+      "title": {
+        "en": "Think it through · Which fits better?",
+        "ko": "생각해 보기 · 어느 쪽이 더 맞을까요?"
+      },
+      "hint": "Sometimes more than one is possible. Choose, then say why.",
+      "items": [
+        {
+          "q": "시장에서 사과 가격을 물을 때:  (Asking the price of apples at the market:)   (a) 한 개에 얼마예요?   (b) 한 개로 얼마예요?",
+          "a": "(a) 한 개에 얼마예요? 에 attaches to counting units to mean 'per' or 'for each unit'."
+        },
+        {
+          "q": "학교에 가요 / 학교로 가요.  Both are correct. What is the difference?  (I go to school.)",
+          "a": "학교에 marks school as the specific destination. 학교로 marks school as the general direction (heading toward school)."
+        },
+        {
+          "q": "하루에 세 번 먹어요. / 하루에서 세 번 먹어요.  One is wrong. Which one, and why?  (Take three times a day.)",
+          "a": "하루에서 is wrong. 에 is the unit particle indicating rate or frequency per time period: 하루에 세 번."
+        },
+        {
+          "q": "오후 두 시에 공항___ 도착했어요.  (Which particle marks the destination arrival point: 에 or 에서?)",
+          "a": "에: 공항에 도착했어요. 도착하다 (to arrive) takes 에 to mark the final arrival point."
+        }
+      ]
+    }
+  ],
+  "pt-26-8": [
+    {
+      "type": "practice",
+      "title": {
+        "en": "Think it through · Which fits better?",
+        "ko": "생각해 보기 · 어느 쪽이 더 맞을까요?"
+      },
+      "hint": "Sometimes more than one is possible. Choose, then say why.",
+      "items": [
+        {
+          "q": "카페에서 친구를 만나요 / 카페에 친구를 만나요.  Which one is correct, and why?  (I meet a friend at the cafe.)",
+          "a": "카페에서 친구를 만나요 is correct. Meeting a friend is an active event taking place at the cafe, requiring 에서."
+        },
+        {
+          "q": "어디에 살아요? / 어디에서 살아요?  Both are heard. What is the difference?  (Where do you live?)",
+          "a": "어디에 살아요 focuses on static residence location (more common). 어디에서 살아요 views living as active daily life."
+        },
+        {
+          "q": "미국에 왔어요 / 미국에서 왔어요.  How does the meaning change?  (Coming and America.)",
+          "a": "미국에 왔어요 means you arrived in America (destination). 미국에서 왔어요 means you came from America (origin)."
+        },
+        {
+          "q": "식당에 밥을 먹어요. / 식당에서 밥을 먹어요.  One is wrong. Which one, and why?  (I eat a meal at the restaurant.)",
+          "a": "식당에 밥을 먹어요 is wrong. Eating is an action, so the place where it happens must take 에서: 식당에서 밥을 먹어요."
+        }
+      ]
+    }
+  ],
+  "pt-26-9": [
+    {
+      "type": "practice",
+      "title": {
+        "en": "Think it through · Start and end points",
+        "ko": "생각해 보기 · 시작과 끝"
+      },
+      "hint": "에서 pairs with locations, while 부터 pairs with time.",
+      "items": [
+        {
+          "q": "회의 시간을 말할 때:  (Talking about meeting hours:)   (a) 두 시에서 네 시까지 회의를 해요.   (b) 두 시부터 네 시까지 회의를 해요.",
+          "a": "(b) 두 시부터 네 시까지. Time points pair with 부터, while 에서 is reserved for physical starting places."
+        },
+        {
+          "q": "서울에서 왔어요 / 서울부터 시작해요.  Both are correct. What is the difference?",
+          "a": "서울에서 indicates the physical place of origin (I came from Seoul). 서울부터 indicates the sequence or starting point in an itinerary."
+        },
+        {
+          "q": "집에 학교까지 걸어가요. / 집에서 학교까지 걸어가요.  One is wrong. Which one, and why?  (I walk from home to school.)",
+          "a": "집에 학교까지 is wrong. 에 marks a destination or a location, not a starting point. A starting place takes 에서: 집에서 학교까지."
+        },
+        {
+          "q": "월요일___ 금요일까지 한국어를 배워요.  (Which particle marks the start of the time range: 부터 or 에서?)",
+          "a": "부터: 월요일부터 금요일까지. 월요일 is a point in time, so 부터 marks the beginning of the duration."
+        }
+      ]
+    }
+  ],
+  "pt-26-10": [
+    {
+      "type": "practice",
+      "title": {
+        "en": "Think it through · Who receives the action?",
+        "ko": "생각해 보기 · 누구에게 주는 행동일까요?"
+      },
+      "hint": "Use 에게 or 한테 for people and animals, but 에 for inanimate objects.",
+      "items": [
+        {
+          "q": "꽃에 물을 줄 때:  (Giving water to a flower:)   (a) 꽃한테 물을 줘요.   (b) 꽃에 물을 줘요.",
+          "a": "(b) 꽃에 물을 줘요. Plants and inanimate things take 에, not 에게 or 한테, which are used for people and animals."
+        },
+        {
+          "q": "친구에게 편지를 썼어요 / 친구한테 편지를 썼어요.  Both are correct. What is the difference?",
+          "a": "Both mean the same. 에게 is more formal and common in writing, while 한테 is everyday conversational speech."
+        },
+        {
+          "q": "도서관한테 전화를 걸었어요. / 도서관에 전화를 걸었어요.  One is wrong. Which one, and why?",
+          "a": "도서관한테 is wrong. A library is an organization/place, not an animate person, so it takes 에: 도서관에."
+        },
+        {
+          "q": "선생님께 편지를 드려요.  Why do we use 께 instead of 에게 or 한테?  (I give a letter to the teacher.)",
+          "a": "께 is the honorific form of 에게/한테, used to show respect to a person of higher status like a teacher."
+        }
+      ]
+    }
+  ],
+  "pt-26-4": [
+    {
+      "type": "practice",
+      "title": {
+        "en": "Think it through · Connecting people and things",
+        "ko": "생각해 보기 · 사람과 사물 잇기"
+      },
+      "hint": "Choose between written and conversational style, and watch out for final consonants.",
+      "items": [
+        {
+          "q": "친구와 편하게 이야기할 때:  (Chatting casually with a close friend:)   (a) 사과와 바나나를 샀어요.   (b) 사과랑 바나나를 샀어요.",
+          "a": "(b) 사과랑 바나나를 샀어요. (이)랑 and 하고 are natural in casual speech. 와/과 sounds formal and bookish in friendly talk."
+        },
+        {
+          "q": "친구하고 같이 밥을 먹어요 / 친구를 만나요.  Both are correct. What is the difference?",
+          "a": "친구하고 같이 marks the companion doing the activity together. 친구를 marks the person as the direct object of meeting."
+        },
+        {
+          "q": "책과 연필 / 책와 연필.  Which one is correct, and why?  (Book and pencil)",
+          "a": "책과 is correct. 책 ends in a consonant (ㄱ), so it pairs with 과. 와 follows a vowel (사과와)."
+        },
+        {
+          "q": "선생님___ 지수가 이야기해요.  (Which particle fits after consonant 님: 과 or 와?)",
+          "a": "과: 선생님과 지수. 선생님 ends with a consonant (ㅁ), so it must take 과, not 와."
+        }
+      ]
+    }
+  ],
+  "pt-26-11": [
+    {
+      "type": "practice",
+      "title": {
+        "en": "Think it through · Adding also or too",
+        "ko": "생각해 보기 · 도 로 더하기"
+      },
+      "hint": "도 replaces subject and object particles or attaches to other particles.",
+      "items": [
+        {
+          "q": "다른 사람에 이어 나도 같은 음료를 주문할 때:  (Ordering the same drink after someone:)   (a) 저는 커피를 마셔요.   (b) 저도 커피를 마셔요.",
+          "a": "(b) 저도 커피를 마셔요. 도 shows addition (me too), while 저는 introduces a new topic or potential contrast."
+        },
+        {
+          "q": "사과도 먹어요 / 사과를 먹어요.  Both are correct. What is the difference?  (I eat apples.)",
+          "a": "사과도 implies you are eating apples in addition to other things. 사과를 is simply the neutral direct object statement."
+        },
+        {
+          "q": "물을도 마셔요. / 물도 마셔요.  One is wrong. Which one, and why?",
+          "a": "물을도 is wrong. 도 replaces 을/를 entirely when marking a noun, so you say 물도 마셔요, not 물을도."
+        },
+        {
+          "q": "서울에 가요. 부산___ 가요.  (Which particle shows you visit Busan as well: 에도 or 만?)",
+          "a": "에도: 부산에도 가요. Adding 도 to the destination particle indicates visiting Busan in addition to Seoul."
+        }
+      ]
+    }
+  ],
+  "pt-26-12": [
+    {
+      "type": "practice",
+      "title": {
+        "en": "Think it through · Setting limits with only",
+        "ko": "생각해 보기 · 만 으로 한정하기"
+      },
+      "hint": "만 singles out one item and excludes others.",
+      "items": [
+        {
+          "q": "모두 떠나고 민수 혼자 남았을 때:  (When everyone left and only Minsu remained:)   (a) 민수는 남았어요.   (b) 민수만 남았어요.",
+          "a": "(b) 민수만 남았어요. 만 explicitly restricts the remaining person to only Minsu, excluding everyone else."
+        },
+        {
+          "q": "지수만 와요 / 지수도 와요.  Both are correct. What is the difference?",
+          "a": "지수만 means only Jisu comes (nobody else). 지수도 means Jisu comes too (in addition to others)."
+        },
+        {
+          "q": "물만을 마셔요. / 물만 마셔요.  Are both possible in natural speech?",
+          "a": "Both are grammatically possible, but 물만 마셔요 is far more natural in everyday speech because 만 usually replaces 를."
+        },
+        {
+          "q": "오 분___ 기다려 주세요.  (Which particle means just or only five minutes: 만 or 도?)",
+          "a": "만: 오 분만 기다려 주세요. 만 specifies the exact limited duration (just five minutes)."
+        }
+      ]
+    }
+  ],
+  "pt-26-13": [
+    {
+      "type": "practice",
+      "title": {
+        "en": "Think it through · Nothing but with negative endings",
+        "ko": "생각해 보기 · 부정과 어울리는 밖에"
+      },
+      "hint": "밖에 must always end with a negative verb or adjective.",
+      "items": [
+        {
+          "q": "돈이 천 원뿐일 때:  (When you have only 1,000 won left:)   (a) 천 원밖에 있어요.   (b) 천 원밖에 없어요.",
+          "a": "(b) 천 원밖에 없어요. 밖에 always requires a negative predicate like 없어요 or 안 해요. It cannot pair with 있어요."
+        },
+        {
+          "q": "물만 있어요 / 물밖에 없어요.  Both are correct. What is the difference?  (There is only water.)",
+          "a": "물만 있어요 neutrally states that water is all there is. 물밖에 없어요 emphasizes regret or scarcity, that nothing else exists."
+        },
+        {
+          "q": "사과 하나밖에 먹었어요. / 사과 하나밖에 안 먹었어요.  One is wrong. Which one, and why?",
+          "a": "사과 하나밖에 먹었어요 is wrong. 밖에 must be followed by a negative verb form like 안 먹었어요."
+        },
+        {
+          "q": "시간이 삼십 분___ 안 남았어요.  (Which particle fits the negative verb 안 남았어요: 밖에 or 도?)",
+          "a": "밖에: 삼십 분밖에 안 남았어요. The negative verb 안 남았어요 pairs naturally with 밖에 to mean only thirty minutes are left."
+        }
+      ]
+    }
+  ],
+  "pt-26-15": [
+    {
+      "type": "practice",
+      "title": {
+        "en": "Think it through · Choosing either option",
+        "ko": "생각해 보기 · 둘 중 하나 고르기"
+      },
+      "hint": "(이)나 means or when choosing between nouns.",
+      "items": [
+        {
+          "q": "카페에서 주문을 고민할 때:  (Deciding between coffee or juice:)   (a) 커피나 주스를 마실래요.   (b) 커피와 주스를 마실래요.",
+          "a": "(a) 커피나 주스를 마실래요. (이)나 offers a choice between the two drinks, whereas 와 means having both together."
+        },
+        {
+          "q": "빵이나 밥을 먹어요 / 빵과 밥을 먹어요.  Both are correct. What is the difference?",
+          "a": "빵이나 밥 means bread or rice (choosing one). 빵과 밥 means eating both bread and rice together."
+        },
+        {
+          "q": "수박나 참외를 사요. / 수박이나 참외를 사요.  One is wrong. Which one, and why?",
+          "a": "수박나 is wrong. 수박 ends in a consonant (ㄱ), so it must take 이나: 수박이나 참외."
+        },
+        {
+          "q": "토요일___ 일요일에 영화 봐요.  (Which form fits after consonant 토요일: 이나 or 나?)",
+          "a": "이나: 토요일이나 일요일. 토요일 ends in a consonant (ㄹ), so it takes 이나, not 나."
+        }
+      ]
+    }
+  ],
+  "pt-26-16": [
+    {
+      "type": "practice",
+      "title": {
+        "en": "Think it through · Surprise at a large amount",
+        "ko": "생각해 보기 · 많은 양에 놀라기"
+      },
+      "hint": "(이)나 attached to quantity words indicates more than expected.",
+      "items": [
+        {
+          "q": "친구가 책을 10권이나 읽어서 놀랐을 때:  (Surprised that a friend read 10 books:)   (a) 책을 열 권 읽었어요!   (b) 책을 열 권이나 읽었어요!",
+          "a": "(b) 책을 열 권이나 읽었어요! 이나 expresses surprise at the large number of books read, beyond expectations."
+        },
+        {
+          "q": "커피를 세 잔 마셨어요 / 커피를 세 잔이나 마셨어요.  Both are correct. What is the difference?",
+          "a": "세 잔 is a neutral statement of quantity. 세 잔이나 emphasizes that three cups is a lot and conveys surprise."
+        },
+        {
+          "q": "사과 세 개이나 샀어요. / 사과 세 개나 샀어요.  One is wrong. Which one, and why?",
+          "a": "세 개이나 is wrong. 개 ends in a vowel (ㅐ), so it must take 나 without 이: 세 개나."
+        },
+        {
+          "q": "친구가 두 시간___ 기다렸어요!  (Which particle emphasizes that two hours was a very long wait: 이나 or 만?)",
+          "a": "이나: 두 시간이나 기다렸어요! 시간 ends in a consonant (ㄴ), so 이나 is used to highlight the surprisingly long wait."
+        }
+      ]
+    }
+  ],
+  "pt-26-14": [
+    {
+      "type": "practice",
+      "title": {
+        "en": "Think it through · Means and directions",
+        "ko": "생각해 보기 · 수단과 방향"
+      },
+      "hint": "로 follows vowels and the consonant ㄹ. 으로 follows other consonants.",
+      "items": [
+        {
+          "q": "지하철을 타고 갈 때:  (Going by subway:)   (a) 지하철으로 가요.   (b) 지하철로 가요.",
+          "a": "(b) 지하철로 가요. 지하철 ends in the consonant ㄹ, which exceptionally takes 로, not 으로."
+        },
+        {
+          "q": "오른쪽으로 가세요 / 오른쪽에 있어요.  Both are correct. What is the difference?",
+          "a": "오른쪽으로 marks movement in that direction (Go toward the right). 오른쪽에 marks stationary location (It is on the right)."
+        },
+        {
+          "q": "연필으로 글씨를 써요. / 연필로 글씨를 써요.  One is wrong. Which one, and why?",
+          "a": "연필으로 is wrong. 연필 ends in ㄹ, so it must take 로 without 으: 연필로."
+        },
+        {
+          "q": "한국어___ 편지를 썼어요.  (Which particle marks the language used as a tool: 로 or 에서?)",
+          "a": "로: 한국어로 편지를 썼어요. 한국어 ends in a vowel, so 로 indicates the means or medium of expression."
+        }
+      ]
+    }
+  ],
+  "pt-26-17": [
+    {
+      "type": "practice",
+      "title": {
+        "en": "Think it through · Estimating amounts with about",
+        "ko": "생각해 보기 · 쯤 으로 어림하기"
+      },
+      "hint": "쯤 attaches directly to numbers or time expressions without a space.",
+      "items": [
+        {
+          "q": "대략 몇 시에 만날지 이야기할 때:  (Suggesting an approximate meeting time:)   (a) 세 시에 만나요.   (b) 세 시쯤 만나요.",
+          "a": "(b) 세 시쯤 만나요. 쯤 adds the meaning of about or around, giving flexibility rather than a sharp appointment."
+        },
+        {
+          "q": "사과 세 개 주세요 / 사과 세 개쯤 주세요.  Both are correct. What is the difference?",
+          "a": "세 개 주세요 is an exact order for three apples. 세 개쯤 주세요 is an estimate (give me around three apples)."
+        },
+        {
+          "q": "천 원 쯤 있어요. / 천 원쯤 있어요.  Which spelling is standard in Korean writing?",
+          "a": "천 원쯤 is standard. 쯤 is a particle (or suffix) and must be attached directly to the preceding word without a space."
+        },
+        {
+          "q": "학생이 스무 명___ 왔어요.  (Which particle means about twenty students: 쯤 or 마다?)",
+          "a": "쯤: 스무 명쯤 왔어요. 쯤 expresses an approximate count (around twenty)."
+        }
+      ]
+    }
+  ],
+  "pt-26-18": [
+    {
+      "type": "practice",
+      "title": {
+        "en": "Think it through · Similes with like or as",
+        "ko": "생각해 보기 · 처럼 과 같이 로 비유하기"
+      },
+      "hint": "Both mean like or as, comparing something to another noun.",
+      "items": [
+        {
+          "q": "친구가 가수와 거의 같은 수준으로 노래할 때:  (Your friend sings at about the level of a professional singer:)   (a) 가수처럼 노래를 잘해요.   (b) 가수보다 노래를 잘해요.",
+          "a": "(a) 가수처럼 노래를 잘해요. 처럼 compares the quality to a singer (as good as a singer). 보다 would mean better than a singer."
+        },
+        {
+          "q": "천사처럼 착해요 / 천사같이 착해요.  Both are correct. What is the difference?",
+          "a": "Both mean the same (kind like an angel). 처럼 and 같이 are interchangeable when making similes."
+        },
+        {
+          "q": "형처럼에 달려요. / 형처럼 달려요.  One is awkward. Which one, and why?",
+          "a": "형처럼에 is awkward. 처럼 functions adverbially on its own, so attaching 에 is unnecessary and unnatural."
+        },
+        {
+          "q": "바다___ 넓은 마음.  (Which particle creates the simile a heart wide like the ocean: 처럼 or 보다?)",
+          "a": "처럼: 바다처럼 넓은 마음. 처럼 makes the figurative comparison (as wide as the sea)."
+        }
+      ]
+    }
+  ],
+  "pt-26-19": [
+    {
+      "type": "practice",
+      "title": {
+        "en": "Think it through · Comparing two things",
+        "ko": "생각해 보기 · 보다 로 견주기"
+      },
+      "hint": "보다 attaches to the standard of comparison (than X).",
+      "items": [
+        {
+          "q": "여름이 겨울보다 더 더울 때:  (Comparing summer and winter:)   (a) 겨울보다 여름이 더워요.   (b) 여름보다 겨울이 더워요.",
+          "a": "(a) 겨울보다 여름이 더워요. 보다 marks the reference point of comparison (hotter than winter)."
+        },
+        {
+          "q": "어제보다 오늘이 추워요 / 오늘보다 어제가 추웠어요.  Both are correct. What is the difference?",
+          "a": "In the first, today is colder than yesterday. In the second, yesterday was colder than today. The noun with 보다 is the standard of comparison, the other noun is the one being described."
+        },
+        {
+          "q": "비행기가 기차보다에 빨라요. / 비행기가 기차보다 빨라요.  One is wrong. Which one, and why?",
+          "a": "기차보다에 is wrong. 보다 is already a comparison particle, so adding 에 is incorrect: 기차보다 빨라요."
+        },
+        {
+          "q": "사과___ 수박이 더 커요.  (Which particle marks apples as the standard of comparison: 보다 or 처럼?)",
+          "a": "보다: 사과보다 수박이 더 커요. 보다 marks the noun being compared against (bigger than an apple)."
+        }
+      ]
+    }
+  ],
+  "pt-26-20": [
+    {
+      "type": "practice",
+      "title": {
+        "en": "Think it through · Every single one",
+        "ko": "생각해 보기 · 빠짐없이 마다"
+      },
+      "hint": "마다 means every or each without exception.",
+      "items": [
+        {
+          "q": "매일 아침 운동하는 습관을 말할 때:  (Talking about an everyday morning habit:)   (a) 아침마다 운동해요.   (b) 아침에 운동해요.",
+          "a": "(a) 아침마다 운동해요. 마다 emphasizes the regular recurrence (every single morning), whereas 아침에 just mentions the time."
+        },
+        {
+          "q": "나라마다 언어가 달라요 / 나라에 언어가 달라요.  Which sentence naturally expresses diversity across nations?",
+          "a": "나라마다 is natural. 마다 highlights that each individual country has its own distinct language."
+        },
+        {
+          "q": "아침마다 운동해요 / 아침마다에 운동해요.  One is wrong. Which one, and why?  (I exercise every morning.)",
+          "a": "아침마다에 is wrong. 마다 already means every morning, so it does not take 에. Say 아침마다 or 아침에."
+        },
+        {
+          "q": "버스 정류장___ 사람이 많아요.  (Which particle means at every bus stop: 마다 or 보다?)",
+          "a": "마다: 버스 정류장마다 사람이 많아요. 마다 means at each and every bus stop."
+        }
+      ]
+    }
+  ],
+  "ct-topic-subject": [
+    {
+      "type": "practice",
+      "title": {
+        "en": "Explain the difference · Topic vs Subject",
+        "ko": "차이를 설명해 보세요 · 은/는과 이/가"
+      },
+      "hint": "Contrast context, known information, and question answers.",
+      "items": [
+        {
+          "q": "누가 빵을 먹었어요?  (Who ate the bread?)   (a) 민수는 먹었어요.   (b) 민수가 먹었어요.",
+          "a": "(b) 민수가 먹었어요. The question asks who (누가), so the response identifies the new focus using 이/가."
+        },
+        {
+          "q": "저는 대학생이에요 / 제가 대학생이에요.  Both are correct. What is the difference?",
+          "a": "저는 introduces oneself neutrally as the topic. 제가 identifies oneself specifically (I am the one who is a college student)."
+        },
+        {
+          "q": "사과는 맛있어요 / 사과가 맛있어요.  Both are correct. How does the nuance differ?",
+          "a": "사과는 states a general fact about apples (or contrasts with other fruit). 사과가 points out the delicious apple right here."
+        },
+        {
+          "q": "한국어는 재미있지만 문법___ 어려워요.  (Which particle highlights the contrast: 은 or 이?)",
+          "a": "은: 문법은 어려워요. Pairing 은/는 with both clauses creates a balanced contrast (Korean is fun, but grammar is hard)."
+        },
+        {
+          "q": "어디가 아파요?  (Where does it hurt?)   (a) 배는 아파요.   (b) 배가 아파요.",
+          "a": "(b) 배가 아파요. Since 어디가 asks for specific information with 가, the answering body part takes 가."
+        }
+      ]
+    }
+  ],
+  "ct-context": [
+    {
+      "type": "practice",
+      "title": {
+        "en": "Explain the difference · Context decides",
+        "ko": "차이를 설명해 보세요 · 맥락이 정해요"
+      },
+      "hint": "First mention takes 이/가, repeated mention takes 은/는.",
+      "items": [
+        {
+          "q": "옛날에 한 왕___ 살았어요. 그 왕___ 착했어요.  (Fill in the story opening: 이/은 or 은/이)",
+          "a": "이, 은: 왕이 살았어요. 그 왕은 착했어요. First mention introduces the new subject with 이, and second mention refers back with 은."
+        },
+        {
+          "q": "비가 와요 / 비는 와요.  Why is 비가 와요 the natural exclamation when seeing rain?",
+          "a": "비가 와요 reports an immediate observed event or new phenomenon. 비는 와요 implies rain falls (even if something else does not)."
+        },
+        {
+          "q": "이 사람이 제 친구예요. 친구 이름___ 민수예요.  (Which particle fits the already-introduced friend: 은 or 이?)",
+          "a": "은: 이름은 민수예요. The friend was already introduced, so their name is now the ongoing topic of discussion."
+        },
+        {
+          "q": "방에 책상이 있어요. 책상 위에 시계___ 있어요.  (Which particle marks the new item noticed: 가 or 는?)",
+          "a": "가: 시계가 있어요. The clock is new information being pointed out in the room, taking 이/가."
+        },
+        {
+          "q": "어제 영화를 봤어요. 영화___ 정말 슬펐어요.  (Which particle marks the movie we both know about: 는 or 가?)",
+          "a": "는: 영화는 정말 슬펐어요. The movie was mentioned in the previous sentence, so it is now the known topic."
+        }
+      ]
+    }
+  ],
+  "ct-place-action": [
+    {
+      "type": "practice",
+      "title": {
+        "en": "Explain the difference · Place of existence vs Action",
+        "ko": "차이를 설명해 보세요 · 에와 에서"
+      },
+      "hint": "에 is for existence (있다/없다) and arrival. 에서 is for dynamic actions.",
+      "items": [
+        {
+          "q": "도서관에서 책이 있어요. / 도서관에 책이 있어요.  Which is correct, and why?  (There are books in the library.)",
+          "a": "도서관에 is correct. With the existence verb 있다/없다, the static location takes 에, not 에서."
+        },
+        {
+          "q": "카페에 있어요 / 카페에서 공부해요.  Both are correct. Why do they take different particles?",
+          "a": "에 indicates static presence (being at the cafe). 에서 indicates the dynamic activity happening there (studying at the cafe)."
+        },
+        {
+          "q": "운동장에서 축구를 해요. / 운동장에 축구를 해요.  One is awkward. Which one, and why?",
+          "a": "운동장에 is awkward. Playing soccer (축구를 하다) is a dynamic physical action, which requires 에서."
+        },
+        {
+          "q": "내일 서울___ 도착해요.  (Which particle marks the destination of arrival: 에 or 에서?)",
+          "a": "에: 서울에 도착해요. Destination endpoints with verbs like 가다, 오다, and 도착하다 take 에."
+        },
+        {
+          "q": "집___ 밥을 먹고, 방___ 쉬어요.  (Fill in both blanks: 에서/에서 or 에/에)",
+          "a": "에서, 에서: 집에서 밥을 먹고, 방에서 쉬어요. Both eating and resting are activities carried out in those locations."
+        }
+      ]
+    }
+  ],
+  "ct-give-receive": [
+    {
+      "type": "practice",
+      "title": {
+        "en": "Explain the difference · People vs Inanimate things",
+        "ko": "차이를 설명해 보세요 · 사람과 사물"
+      },
+      "hint": "To people: 에게/한테/께. To places/plants/things: 에.",
+      "items": [
+        {
+          "q": "동생에게 용돈을 줘요 / 나무에 물을 줘요.  Both are correct. Why are the particles different?",
+          "a": "동생 is a person (animate), taking 에게. 나무 is a tree/plant (inanimate/non-person), taking 에."
+        },
+        {
+          "q": "화분에 물을 줬어요. / 화분한테 물을 줬어요.  Which is natural, and why?",
+          "a": "화분에 is natural. A flowerpot is an inanimate object, so it takes 에, never 한테."
+        },
+        {
+          "q": "친구한테 소식을 전해요 / 회사에 소식을 전해요.  What distinguishes the two targets?",
+          "a": "친구 is an individual human, so it takes 한테. 회사 is an organization or institution, so it takes 에."
+        },
+        {
+          "q": "할머니___ 선물을 드려요.  (Which honorific particle is correct: 께 or 에게?)",
+          "a": "께: 할머니께 선물을 드려요. 께 is the honorific counterpart of 에게/한테 for revered elders."
+        },
+        {
+          "q": "강아지___ 밥을 줘요.  (Which particle is natural for a pet dog: 한테 or 에?)",
+          "a": "한테: 강아지한테 밥을 줘요. Animals are animate beings, so they naturally take 한테 (or 에게)."
+        }
+      ]
+    }
+  ],
+  "ct-tool-direction": [
+    {
+      "type": "practice",
+      "title": {
+        "en": "Explain the difference · Direction/Means vs Target",
+        "ko": "차이를 설명해 보세요 · (으)로와 에"
+      },
+      "hint": "로 indicates heading/means. 에 indicates arrival/static point.",
+      "items": [
+        {
+          "q": "학교에 가요 / 학교로 가요.  Both are correct. How does the nuance differ?",
+          "a": "학교에 marks the school as the specific destination. 학교로 emphasizes heading in that general direction."
+        },
+        {
+          "q": "비행기에 타요 / 비행기로 가요.  Both are correct. What is the difference?",
+          "a": "비행기에 indicates boarding onto the plane. 비행기로 indicates the means of transportation (traveling by air)."
+        },
+        {
+          "q": "오른쪽에 도세요. / 오른쪽으로 도세요.  Which one is correct for turning?",
+          "a": "오른쪽으로 is correct. Turning is a change of direction, so it requires the directional particle (으)로."
+        },
+        {
+          "q": "가위___ 종이를 잘라요.  (Which particle marks scissors as the cutting tool: 로 or 에?)",
+          "a": "로: 가위로 종이를 잘라요. 가위 ends in a vowel, so 로 marks the instrument used to perform the action."
+        },
+        {
+          "q": "버스___ 학교에 가요.  (Which particle marks the means of transport: 로 or 에?)",
+          "a": "로: 버스로 학교에 가요. 버스 ends in a vowel, so 로 marks the means of transportation."
+        }
+      ]
+    }
+  ],
+  "ct-with": [
+    {
+      "type": "practice",
+      "title": {
+        "en": "Explain the difference · Three ways to say and or with",
+        "ko": "차이를 설명해 보세요 · 함께하는 세 가지 말"
+      },
+      "hint": "와/과 is formal/written, 하고 is versatile, (이)랑 is casual/spoken.",
+      "items": [
+        {
+          "q": "보고서나 뉴스에서 자연스러운 표현:  (In a written report or formal text:)   (a) 정부와 국민   (b) 정부랑 국민",
+          "a": "(a) 정부와 국민. 와/과 is the appropriate formal and written style. (이)랑 is casual conversational speech."
+        },
+        {
+          "q": "엄마하고 마트에 가요 / 엄마랑 마트에 가요.  Are both natural in spoken Korean?",
+          "a": "Both are completely natural in daily spoken Korean. 하고 is neutral and common; (이)랑 feels warm and friendly."
+        },
+        {
+          "q": "친구과 영화를 봤어요. / 친구와 영화를 봤어요.  Which spelling is correct, and why?",
+          "a": "친구와 is correct. 친구 ends in a vowel (ㅜ), so it takes 와. 과 is used only after a consonant (선생님과)."
+        },
+        {
+          "q": "동생___ 손을 잡고 걸어요.  (Which colloquial form fits after consonant 동생: 이랑 or 랑?)",
+          "a": "이랑: 동생이랑. 동생 ends in a consonant (ㅇ), so it requires 이랑. Vowels take 랑."
+        },
+        {
+          "q": "연필___ 지우개를 준비하세요.  (Which formal connecting particle fits after consonant 연필: 과 or 와?)",
+          "a": "과: 연필과 지우개. 연필 ends in a consonant (ㄹ), so it pairs with 과 in written Korean."
+        }
+      ]
+    }
+  ],
+  "ct-also-only": [
+    {
+      "type": "practice",
+      "title": {
+        "en": "Explain the difference · Also, Only, Nothing but",
+        "ko": "차이를 설명해 보세요 · 도, 만, 밖에"
+      },
+      "hint": "도 adds, 만 restricts (positive/negative), 밖에 requires negative.",
+      "items": [
+        {
+          "q": "물만 마셨어요 / 물밖에 안 마셨어요.  Both mean only water was drunk. What is the difference?",
+          "a": "물만 is a neutral statement of limit. 물밖에 emphasizes scarcity and always pairs with the negative 안 마셨어요."
+        },
+        {
+          "q": "저도 학생이에요 / 저만 학생이에요.  How do the meanings contrast?",
+          "a": "저도 means I am also a student (like others). 저만 means Only I am a student (nobody else is)."
+        },
+        {
+          "q": "사과밖에 있어요. / 사과밖에 없어요.  Which sentence is grammatical, and why?",
+          "a": "사과밖에 없어요 is correct. 밖에 cannot attach to an affirmative predicate like 있어요; it requires 없어요."
+        },
+        {
+          "q": "교실에 민수___ 남았어요.  (Which particle means only Minsu remained: 만 or 밖에?)",
+          "a": "만: 민수만 남았어요. The verb 남았어요 is affirmative, so 만 is required. 밖에 would require a negative verb."
+        },
+        {
+          "q": "동전 하나___ 없어서 버스를 못 탔어요.  (Which particle means having only one coin: 밖에 or 도?)",
+          "a": "밖에: 동전 하나밖에 없어서 버스를 못 탔어요. 밖에 means only one coin was left. 하나도 없어서 would mean not even one coin."
+        }
+      ]
+    }
+  ],
+  "ct-na": [
+    {
+      "type": "practice",
+      "title": {
+        "en": "Explain the difference · Choice vs Surprising amount",
+        "ko": "차이를 설명해 보세요 · 선택과 놀라운 양"
+      },
+      "hint": "Between nouns = or. After numbers/time = as many as.",
+      "items": [
+        {
+          "q": "사과나 배를 먹어요 / 사과를 열 개나 먹었어요.  What do the two (이)나 mean?",
+          "a": "사과나 배 means apples or pears (choice). 열 개나 means as many as ten (surprising large amount)."
+        },
+        {
+          "q": "커피를 세 잔이나 마셨어요!  Why does the speaker use 이나 here instead of 을?",
+          "a": "이나 emphasizes astonishment that three cups is unexpectedly many. 을 would just state the amount neutrally."
+        },
+        {
+          "q": "책 세 권이나 / 책 세 권나.  Which is correct, and why?",
+          "a": "세 권이나 is correct. 권 ends in a consonant (ㄴ), so it requires 이나. 나 is used only after vowels."
+        },
+        {
+          "q": "주말에는 영화___ 음악을 즐겨요.  (Which form provides the choice of movies or music: 나 or 이나?)",
+          "a": "나: 영화나 음악. 영화 ends in a vowel (ㅏ), so it takes 나 to express the choice or."
+        },
+        {
+          "q": "친구가 약속 장소에서 한 시간___ 기다렸대요.  (Which particle expresses shock at the long wait: 이나 or 만?)",
+          "a": "이나: 한 시간이나. 이나 highlights the speaker surprise at the large amount of time spent waiting."
+        }
+      ]
+    }
+  ],
+  "ct-from-to": [
+    {
+      "type": "practice",
+      "title": {
+        "en": "Explain the difference · Places vs Times",
+        "ko": "차이를 설명해 보세요 · 장소와 시간"
+      },
+      "hint": "Places pair with 에서, times pair with 부터.",
+      "items": [
+        {
+          "q": "아침부터 저녁까지 일해요 / 집에서 회사까지 걸어요.  Why do they use different start particles?",
+          "a": "아침 and 저녁 are time points, taking 부터. 집 and 회사 physical locations, taking 에서."
+        },
+        {
+          "q": "서울부터 부산까지 가요. / 서울에서 부산까지 가요.  Which is more natural for physical travel distance?",
+          "a": "서울에서 is more natural. Physical spatial distance from a location starts with 에서."
+        },
+        {
+          "q": "일 번 문제___ 십 번 문제까지 푸세요.  (Which particle marks the start of the item sequence: 부터 or 에서?)",
+          "a": "부터: 일 번 문제부터. Sequence or order of tasks naturally pairs with 부터 (from problem 1 to 10)."
+        },
+        {
+          "q": "역___ 공항까지 얼마나 걸려요?  (Which particle marks the physical starting location: 에서 or 부터?)",
+          "a": "에서: 역에서 공항까지. Physical transit from one place to another uses 에서 to mark the departure point."
+        },
+        {
+          "q": "오늘 회의는 한 시___ 세 시까지예요.  (Which particle marks the start of the time block: 부터 or 에서?)",
+          "a": "부터: 한 시부터. Time intervals start with 부터, not 에서."
+        }
+      ]
+    }
+  ],
+  "rv-1": [
+    {
+      "type": "practice",
+      "title": {
+        "en": "Trap round · Watch out for first instincts",
+        "ko": "함정 라운드 · 첫 느낌을 조심하세요"
+      },
+      "hint": "Look out for irregular 받침 rules and hidden particle restrictions.",
+      "items": [
+        {
+          "q": "지하철___ 갈아타요.  (Consonant ㄹ trap: Choose the right form of (으)로)   (a) 지하철으로   (b) 지하철로",
+          "a": "(b) 지하철로. Even though ㄹ is a consonant, words ending in ㄹ take 로, never 으로."
+        },
+        {
+          "q": "꽃___ 물을 줘요.  (Giving water to flowers: Which particle fits?)   (a) 꽃한테   (b) 꽃에",
+          "a": "(b) 꽃에. Flowers are plants, not people or animals. Only animate beings take 에게 or 한테."
+        },
+        {
+          "q": "___ 왔어요?  (Who came?: Choose the natural form of who)   (a) 누구는   (b) 누가",
+          "a": "(b) 누가. Who is unknown new information, which always takes 이/가 (contracted as 누가), never 는."
+        },
+        {
+          "q": "도서관___ 공부해요.  (Studying at the library: Choose 에 or 에서)   (a) 도서관에   (b) 도서관에서",
+          "a": "(b) 도서관에서. Studying is an active action taking place at the location, which demands 에서."
+        },
+        {
+          "q": "물___ 마실래요.  (I will drink water too: Choose the natural phrasing)   (a) 물도   (b) 물을도",
+          "a": "(a) 물도. 도 completely replaces the object marker 을/를. You cannot combine them as 물을도."
+        }
+      ]
+    }
+  ],
+  "rv-2": [
+    {
+      "type": "practice",
+      "title": {
+        "en": "Trap round · Subtle contrasts",
+        "ko": "함정 라운드 · 미묘한 차이 잡기"
+      },
+      "hint": "Be careful with honorific counterparts and paired particles.",
+      "items": [
+        {
+          "q": "할아버지___ 전화를 걸었어요.  (Calling grandfather with respect:)   (a) 할아버지한테   (b) 할아버지께",
+          "a": "(b) 할아버지께. For respected elders like grandfather, the honorific dative 께 is most appropriate."
+        },
+        {
+          "q": "회의는 두 시___ 시작해요.  (The meeting starts from 2 o clock:)   (a) 두 시에서   (b) 두 시부터",
+          "a": "(b) 두 시부터. Time points pair with 부터. 에서 is reserved for spatial starting points."
+        },
+        {
+          "q": "지갑에 오천 원밖에 있어요.  Why is this sentence ungrammatical in Korean?",
+          "a": "밖에 requires a negative predicate like 없어요. It can never pair with an affirmative verb like 있어요."
+        },
+        {
+          "q": "아침에 밥___ 국을 먹었어요.  (Which spoken particle fits after consonant 밥?)   (a) 밥랑   (b) 밥이랑",
+          "a": "(b) 밥이랑. 밥 ends in a consonant (ㅂ), so it requires 이랑. Vowel-ending nouns take 랑."
+        },
+        {
+          "q": "오른쪽___ 돌아가세요.  (Turn toward the right: Which indicates direction?)   (a) 오른쪽에   (b) 오른쪽으로",
+          "a": "(b) 오른쪽으로. Turning is moving along a trajectory, so directional (으)로 is required."
+        }
+      ]
+    }
+  ],
+  "rv-3": [
+    {
+      "type": "practice",
+      "title": {
+        "en": "Trap round · Meaning shifts",
+        "ko": "함정 라운드 · 뜻의 변화"
+      },
+      "hint": "Think about whether you are stating a fact, setting a contrast, or expressing surprise.",
+      "items": [
+        {
+          "q": "커피를 다섯 잔___ 마셨어요!  (Surprised at the huge amount: Which particle conveys shock?)   (a) 다섯 잔이나   (b) 다섯 잔만",
+          "a": "(a) 다섯 잔이나. (이)나 after a quantity conveys surprise at an unexpectedly large amount."
+        },
+        {
+          "q": "다른 사람은 안 오고 민수___ 왔어요.  (Nobody else came, only Minsu:)   (a) 민수도   (b) 민수만",
+          "a": "(b) 민수만. 만 restricts the subject to Minsu alone, excluding all others."
+        },
+        {
+          "q": "책상 위에 책___ 공책이 있어요.  (Which written particle fits consonant 책: 과 or 와?)   (a) 책과   (b) 책와",
+          "a": "(a) 책과. 책 ends in a consonant (ㄱ), so the formal connecting particle is 과, not 와."
+        },
+        {
+          "q": "형이 동생___ 키가 커요.  (The older brother is taller than the younger brother: Where does 보다 attach?)",
+          "a": "동생보다: 형이 동생보다 키가 커요. 보다 attaches to the standard being compared against (the younger brother)."
+        },
+        {
+          "q": "아침___ 조깅을 해요.  (Running every single morning without fail: Which particle fits?)   (a) 아침마다   (b) 아침보다",
+          "a": "(a) 아침마다. 마다 means every or each, marking repetitive regular routines."
+        }
+      ]
+    }
+  ],
+  "rv-4": [
+    {
+      "type": "practice",
+      "title": {
+        "en": "Trap round · Spot the hidden trap",
+        "ko": "함정 라운드 · 숨은 함정 찾기"
+      },
+      "hint": "Pay close attention to verbs that govern specific particles.",
+      "items": [
+        {
+          "q": "부산역___ 도착했어요.  (Arrived at Busan station: Choose the destination particle)   (a) 부산역에서   (b) 부산역에",
+          "a": "(b) 부산역에. 도착하다 marks reaching a destination point, which takes the target particle 에."
+        },
+        {
+          "q": "물만 마셔요 / 물만을 마셔요.  Which is more natural and common in spoken Korean?",
+          "a": "물만 마셔요 is far more natural. In everyday speech, 만 replaces 을/를 rather than stacking."
+        },
+        {
+          "q": "사과만 안 먹었어요. / 사과밖에 안 먹었어요.  How do their meanings contrast?",
+          "a": "사과만 안 먹었어요 means I ate everything except apples. 사과밖에 안 먹었어요 means I ate only apples."
+        },
+        {
+          "q": "내일 한 시___ 만나요.  (Let us meet around 1 o clock: Choose the estimation particle)   (a) 한 시쯤   (b) 한 시보다",
+          "a": "(a) 한 시쯤. 쯤 means around or approximately when attached to clock times."
+        },
+        {
+          "q": "노래를 가수___ 잘해요.  (Sings like a professional singer: Which particle creates the simile?)   (a) 가수으로   (b) 가수처럼",
+          "a": "(b) 가수처럼. 처럼 means like or as, creating a figurative comparison to a singer."
+        }
+      ]
+    }
+  ],
+  "rv-5": [
+    {
+      "type": "practice",
+      "title": {
+        "en": "Trap round · Grammar showdown",
+        "ko": "함정 라운드 · 문법 대결"
+      },
+      "hint": "Check the final syllable of the noun and whether the clause is positive or negative.",
+      "items": [
+        {
+          "q": "이번 주말에 서울___ 가요.  (Heading toward Seoul: Which form is correct?)   (a) 서울으로   (b) 서울로",
+          "a": "(b) 서울로. 서울 ends in the consonant ㄹ, so it takes 로, not 으로."
+        },
+        {
+          "q": "동생이 지금 방___ 있어요.  (My sibling is in the room right now: Which particle marks existence?)   (a) 방에서   (b) 방에",
+          "a": "(b) 방에. Stative existence with 있다/없다 takes 에. 에서 requires an action verb."
+        },
+        {
+          "q": "사과가 하나밖에 남았어요.  Why is this sentence incorrect?",
+          "a": "남았어요 is affirmative. 밖에 requires a negative predicate like 안 남았어요 or 없어요."
+        },
+        {
+          "q": "점심에 밥___ 라면을 먹을래요.  (Consonant trap: Choose bread or ramen)   (a) 밥나   (b) 밥이나",
+          "a": "(b) 밥이나. 밥 ends in a consonant (ㅂ), so the choice particle is 이나. 나 is only used after vowels."
+        },
+        {
+          "q": "학교___ 문의했어요.  (Inquiring at the school: Choose the appropriate particle)   (a) 학교께   (b) 학교에",
+          "a": "(b) 학교에. 께 is strictly for respected human persons. Organizations and places take 에."
+        }
+      ]
+    }
+  ],
+  "rv-6": [
+    {
+      "type": "practice",
+      "title": {
+        "en": "Trap round · The ultimate test",
+        "ko": "함정 라운드 · 최종 점검"
+      },
+      "hint": "Everything you have learned: topic vs subject, time vs place, and polite forms.",
+      "items": [
+        {
+          "q": "A: 누가 발표해요? B: ___ 발표해요.  (Answering who presents:)   (a) 저는   (b) 제가",
+          "a": "(b) 제가. Answering a 누가 question requires identifying the person with 이/가 (제가)."
+        },
+        {
+          "q": "낮에는 따뜻하지만 밤___ 추워요.  (Day is warm, but night is cold: Which particle sets the contrast?)   (a) 밤에   (b) 밤에는",
+          "a": "(b) 밤에는. Adding 는 to 에 (밤에는) balances the earlier contrast with 낮에는."
+        },
+        {
+          "q": "민수는 지수___ 같이 도서관에 갔어요.  (Formal/written companion with vowel 지수:)   (a) 지수과   (b) 지수와",
+          "a": "(b) 지수와. 지수 ends in a vowel (ㅜ), so the companion particle is 와, not 과."
+        },
+        {
+          "q": "매일 아침 버스___ 출근해요.  (Commuting by bus: Which marks the vehicle as means of transport?)   (a) 버스에   (b) 버스로",
+          "a": "(b) 버스로. (으)로 marks the mode of transportation used to travel."
+        },
+        {
+          "q": "집___ 공항까지 택시를 탔어요.  (Took a taxi from home to the airport:)   (a) 집부터   (b) 집에서",
+          "a": "(b) 집에서. Physical travel from a location uses 에서. 부터 is used for starting time or order."
+        }
+      ]
+    }
+  ]
 }
