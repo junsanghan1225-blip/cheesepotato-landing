@@ -28,6 +28,7 @@ const DIGITAL = args.includes('--digital');
 const EPUB = args.includes('--epub');
 /* --fxl : 쪽 그대로 보이는 고정형 ePub(쪽마다 그림 한 장) — PDF 와 같은 디자인이 필요한 전자책 판매처용. 글이 흐르는 ePub 와 달리 글자 크기 · 검색이 안 된다. */
 const FXL = args.includes('--fxl');
+const EPUBVER = args.includes('--ver') ? args[args.indexOf('--ver') + 1] : '';   // 판권면에 「파일 버전」 한 줄 — 어느 파일을 열었는지 구분하려고
 const outDir = path.resolve(ROOT, args.includes('--out') ? args[args.indexOf('--out') + 1] : 'books-out');
 if (!bookId) { console.error('사용: node tools/build-book.mjs <책 id> [--out 폴더]   (책 틀: docs/books/<id>.json)'); process.exit(1); }
 
@@ -949,7 +950,7 @@ if (EPUB) {
     const r = await px.evaluate(() => ({ title: ((document.querySelector('.ttl h2, h2, h1') || {}).textContent || '').trim(), body: [...document.body.childNodes].map((n) => new XMLSerializer().serializeToString(n)).join('') }));
     const file = `c_${k}.xhtml`;
     const body = r.body.replace(/ style="page:[^"]*"/g, '').replace('Digital edition (PDF) · 디지털판(PDF) · print it at home or at a print shop · 집이나 인쇄소에서 인쇄해 쓰세요', 'Digital edition (ePub) · 디지털판(ePub)');   // 글꼴을 책에 넣지 않으므로 「Typeset in Pretendard」 줄도 ePub 에서는 뺀다
-    const bodyKo = body.replace(/PDF판은 아래 주소/g, '전자책은 아래 주소').replace('<p>Typeset in Pretendard (SIL Open Font License 1.1).</p>', '').replace(/>([^<>]*[가-힣][^<>]*)</g, '><span lang="ko" xml:lang="ko">$1</span><');   // 한글 덩어리에 언어 표시 — 전자책 기기가 한글 글꼴 · 줄 맞춤을 제대로 고르게   // 판권면의 「PDF · 인쇄해 쓰세요」 는 PDF 판 글 — ePub 에서는 맞지 않아 바꾼다
+    const bodyKo = body.replace('<dt>Web</dt>', EPUBVER ? `<dt>File version · 파일 버전</dt><dd>ePub ${EPUBVER}</dd><dt>Web</dt>` : '<dt>Web</dt>').replace(/PDF판은 아래 주소/g, '전자책은 아래 주소').replace('<p>Typeset in Pretendard (SIL Open Font License 1.1).</p>', '').replace(/>([^<>]*[가-힣][^<>]*)</g, '><span lang="ko" xml:lang="ko">$1</span><');   // 한글 덩어리에 언어 표시 — 전자책 기기가 한글 글꼴 · 줄 맞춤을 제대로 고르게   // 판권면의 「PDF · 인쇄해 쓰세요」 는 PDF 판 글 — ePub 에서는 맞지 않아 바꾼다
     fs.writeFileSync(O(file), `<?xml version="1.0" encoding="utf-8"?>\n<!DOCTYPE html>\n<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops" lang="en"><head><meta charset="utf-8"/><title>${xesc(r.title || B.title.en)}</title><link rel="stylesheet" type="text/css" href="style.css"/></head><body>${bodyKo}</body></html>`);
     chap.push({ id: k, file, title: r.title || k, svg: /<svg[\s>]/.test(body) });
   }
@@ -971,10 +972,16 @@ a{color:${ACC}}
 .bx{margin:.9em 0;padding:.5em .8em;border-left:4px solid #5B6B86;background:#f4f5f8;border-radius:3px}.bx.tip{border-color:#2F5DA8;background:#f2f6fc}.bx.warn{border-color:#B3322D;background:#fbf1f0}.bx.pattern{border-color:${ACC};background:${TINT}}.bx.more{border-style:dashed}
 .bx .lg{font-size:.78em;font-weight:700;letter-spacing:.08em;color:#2F5DA8;margin-bottom:.3em}.bx.warn .lg{color:#B3322D}.bx.pattern .lg{color:${ACC}}.bx.more .lg{color:#5B6B86}.bx .lg small{display:inline;margin-left:.5em;font-weight:400;letter-spacing:0}
 .lg svg{fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:-.3em;margin-right:.3em}
-.dop .rb svg,.dop .rb i,.dop .dbx,.dop .dt{display:none}.dop .rb b{font-size:.78em;letter-spacing:.2em;color:${ACC}}.dop{margin:1.2em 0 .4em}.dop .pl{color:#4a443d}
+.dop .rb svg,.dop .rb img,.dop .rb i,.dop .dbx,.dop .dt{display:none}.dop .rb b{font-size:.78em;letter-spacing:.2em;color:${ACC}}.dop{margin:1.2em 0 .4em}.dop .pl{color:#4a443d}
 .cr dt{font-weight:700;margin-top:.5em;font-size:.9em}.cr dd{margin:0 0 .2em 1em}
 .q .en{display:block;font-size:.85em;color:#6d655c}.bl{display:inline-block;min-width:3.2em;border-bottom:1px solid #1d1a17;margin:0 .2em}
 .ak h4{margin:1.2em 0 .3em;font-size:1em}.ak h4 span{display:block;font-size:.72em;letter-spacing:.12em;color:${ACC}}.ak .set{margin:.35em 0}.ak .set b{display:block;font-size:.88em}.ak .k{color:#6d655c;margin:-.3em 0 .8em}
+/* 부 표지 · 단원 머리: PDF 처럼 색 띠로 */
+.pd{background:${ACC};color:#fff;padding:1.4em 1.2em;border-radius:6px;margin:0 0 1em}.pd .ptp,.pd .no,.pd .big,.pd .list,.pd h2,.pd h3{color:#fff}.pd .orn{background:#fff}.pd .ptp{opacity:.9}
+.uh{background:${ACC};color:#fff;padding:.9em 1em;border-radius:6px;margin:0 0 .8em}.uh .un{color:#fff;opacity:.9;margin:0 0 .3em}.uh h2,.uh h3{color:#fff;margin:.15em 0}.uh h3{font-weight:500;font-size:1em}
+.sec h3 em.lab{display:inline-block;border:1px solid ${ACC};background:#fff;padding:.05em .5em;border-radius:3px;margin-right:.5em}
+table th{color:${ACC}}
+h2{page-break-before:auto}
 ol.nv,ol.nv ol{list-style:none;padding-left:0;margin:0}ol.nv ol{padding-left:1.1em}ol.nv li{margin:.35em 0}ol.nv a{text-decoration:none;color:#1d1a17}ol.nv li.np>a{font-weight:700;color:${ACC}}
 body,p,td,li,div{text-align:left;letter-spacing:normal;word-spacing:normal}.d b,.gd .d b{display:block}.d{margin:.3em 0 1em}
 /* 인라인 SVG 그림은 PDF 에서는 클래스 CSS 로 크기가 정해진다 — ePub 에서는 크기를 안 주면 화면 가득 커지므로 여기서 정한다 */
