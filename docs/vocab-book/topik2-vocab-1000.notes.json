@@ -518,5 +518,265 @@
       "kind": "synonym",
       "note": "Both mean to experience, but 겪다 strongly leans toward enduring hardships, pain, or challenges (어려움을 겪다 to undergo difficulty). 경험하다 is neutral and versatile (한국 문화를 경험하다)."
     }
+  ],
+  "tv-21": [
+    {
+      "words": [
+        "대기",
+        "대기"
+      ],
+      "kind": "homonym",
+      "note": "待機 standing by or waiting for one turn (대기 인원 waiting list) vs 大氣 Earth atmospheric air (대기 오염 air pollution). Unrelated hanja roots."
+    },
+    {
+      "words": [
+        "원리",
+        "원칙"
+      ],
+      "kind": "synonym",
+      "note": "원리 is a fundamental scientific law or mechanical principle explaining how things work (과학 원리). 원칙 is an agreed-upon rule or operational principle to follow (행동 원칙 code of conduct)."
+    },
+    {
+      "words": [
+        "줄어들다",
+        "늘어나다"
+      ],
+      "kind": "contrast",
+      "note": "Direct antonyms for quantity and volume change. 줄어들다 means decreasing over time (인구가 줄어들다), while 늘어나다 means expanding or growing (수출이 늘어나다)."
+    }
+  ],
+  "tv-22": [
+    {
+      "words": [
+        "소재",
+        "소재"
+      ],
+      "kind": "homonym",
+      "note": "素材 raw material or creative subject matter (글의 소재 topic of writing) vs 所在 whereabouts or physical location (소재가 불분명하다 whereabouts are unknown)."
+    },
+    {
+      "words": [
+        "특수",
+        "특수"
+      ],
+      "kind": "homonym",
+      "note": "特殊 special or exceptional nature (특수 제작 special production) vs 特需 economic boom driven by a special event (월드컵 특수 World Cup market boom)."
+    },
+    {
+      "words": [
+        "배송",
+        "배달"
+      ],
+      "kind": "synonym",
+      "note": "배송 refers to parcel logistics and product shipments over distances (무료 배송 free shipping). 배달 traditionally refers to immediate local delivery of food or mail (피자 배달 pizza delivery)."
+    }
+  ],
+  "tv-23": [
+    {
+      "words": [
+        "낭비",
+        "절약"
+      ],
+      "kind": "contrast",
+      "note": "Direct antonyms for resource use. 낭비 is squandering money, time, or energy carelessly (시간 낭비 waste of time), whereas 절약 is careful conservation (에너지 절약 saving energy)."
+    },
+    {
+      "words": [
+        "절차",
+        "과정"
+      ],
+      "kind": "synonym",
+      "note": "절차 specifies formal procedural steps and paperwork rules that must be followed (출국 절차 departure procedures). 과정 is the broader evolving course or journey (치료 과정 course of treatment)."
+    },
+    {
+      "words": [
+        "넓히다",
+        "좁히다"
+      ],
+      "kind": "contrast",
+      "note": "Direct antonyms. 넓히다 means expanding physical or conceptual width (시야를 넓히다 to broaden one perspective), while 좁히다 means reducing distance or discrepancies (의견 차이를 좁히다)."
+    }
+  ],
+  "tv-24": [
+    {
+      "words": [
+        "지급",
+        "지급"
+      ],
+      "kind": "homonym",
+      "note": "支給 paying out money or supplies (장학금 지급 paying scholarships) vs 至急 urgent or pressing matter (지급 우편 urgent express mail). Distinct hanja roots."
+    },
+    {
+      "words": [
+        "소형",
+        "대형"
+      ],
+      "kind": "contrast",
+      "note": "Polar opposites for scale and product size. 소형 is compact or portable (소형차 compact car), whereas 대형 is large-scale or bulky (대형 마트 hypermarket, 대형 사고 massive accident)."
+    },
+    {
+      "words": [
+        "실제",
+        "이론"
+      ],
+      "kind": "contrast",
+      "note": "Classic contrast between practice and theory. 실제 refers to real facts on the ground (실제 경험 real experience), whereas 이론 refers to conceptual abstract knowledge (이론적 배경 theoretical background)."
+    }
+  ],
+  "tv-25": [
+    {
+      "words": [
+        "미치다",
+        "미치다"
+      ],
+      "kind": "homonym",
+      "note": "Two native verbs: 미치다 ① to reach or exert influence (영향을 미치다 to exert influence) vs 미치다 ② to lose one mind or go crazy (미치도록 그립다 to miss someone crazy)."
+    },
+    {
+      "words": [
+        "구매",
+        "판매"
+      ],
+      "kind": "contrast",
+      "note": "Direct antonyms in commercial trade. 구매 is buying or procuring products (온라인 구매 online purchase), whereas 판매 is selling goods to customers (상품 판매 merchandise sale)."
+    },
+    {
+      "words": [
+        "상승",
+        "하락"
+      ],
+      "kind": "contrast",
+      "note": "Key TOPIK graph reading vocabulary. 상승 indicates an upward climb (물가 상승 price rise), whereas 하락 indicates a downward decline (주가 하락 stock price drop)."
+    }
+  ],
+  "tv-26": [
+    {
+      "words": [
+        "수명",
+        "수명"
+      ],
+      "kind": "homonym",
+      "note": "壽命 lifespan of a person or device (평균 수명 life expectancy, 부품 수명 part lifespan) vs 數名 several people (수명이 모였다 several people gathered). Distinct hanja roots."
+    },
+    {
+      "words": [
+        "부정적",
+        "긍정적"
+      ],
+      "kind": "contrast",
+      "note": "Direct antonyms for perspective. 부정적 views matters with criticism or doubt (부정적인 영향 negative impact), whereas 긍정적 views them with optimism and approval (긍정적인 생각 positive thoughts)."
+    },
+    {
+      "words": [
+        "개선",
+        "개혁"
+      ],
+      "kind": "synonym",
+      "note": "Both mean making changes for the better, but 개선 focuses on remedying flaws step by step (품질 개선 quality improvement), while 개혁 involves sweeping structural overhauls (법률 개혁 legal reform)."
+    }
+  ],
+  "tv-27": [
+    {
+      "words": [
+        "열기",
+        "열기"
+      ],
+      "kind": "homonym",
+      "note": "熱氣 thermal heat or feverish enthusiasm (응원의 열기 passionate cheer heat) vs nominalized verb 열기 from 열다, meaning the act of opening (창문 열기 opening windows)."
+    },
+    {
+      "words": [
+        "확대",
+        "축소"
+      ],
+      "kind": "contrast",
+      "note": "Direct antonyms for scale. 확대 is expanding size, scale, or scope (사업 확대 business expansion), whereas 축소 is cutting down or shrinking (규모 축소 downsizing)."
+    },
+    {
+      "words": [
+        "공급",
+        "수요"
+      ],
+      "kind": "contrast",
+      "note": "Core economic paired concepts. 공급 is the provision of commodities or energy (전력 공급 power supply), whereas 수요 is the market need or consumer demand (소비자 수요 consumer demand)."
+    }
+  ],
+  "tv-28": [
+    {
+      "words": [
+        "바치다",
+        "받치다"
+      ],
+      "kind": "contrast",
+      "note": "Frequently confused spellings with similar pronunciation. 바치다 means dedicating or offering up devotion (청춘을 바치다). 받치다 means supporting from below (턱을 받치다 to rest one chin on hands)."
+    },
+    {
+      "words": [
+        "보상",
+        "배상"
+      ],
+      "kind": "synonym",
+      "note": "보상 is compensation for lawful losses or rewards for sacrifice (적절한 보상 fair compensation). 배상 is legal damages paid for unlawful injury or wrongdoing (손해 배상 liability damages)."
+    },
+    {
+      "words": [
+        "시선",
+        "눈길"
+      ],
+      "kind": "synonym",
+      "note": "Both mean gaze or attention, but 시선 often carries social pressure or critical awareness (사람들의 시선 social gaze), while 눈길 feels more immediate, sensory, and warm (따뜻한 눈길 a warm glance)."
+    }
+  ],
+  "tv-29": [
+    {
+      "words": [
+        "차도",
+        "차도"
+      ],
+      "kind": "homonym",
+      "note": "車道 physical road lane for motor vehicles (차도와 인도 roadway and sidewalk) vs 差度 noticeable improvement in an illness (차도를 보이다 to show signs of recovery). Distinct hanja roots."
+    },
+    {
+      "words": [
+        "충격",
+        "충돌"
+      ],
+      "kind": "synonym",
+      "note": "충돌 is the physical collision between moving entities or conflict of opinions (차량 충돌 car crash). 충격 is the force, blow, or emotional shock resulting from an event (정신적 충격 mental shock)."
+    },
+    {
+      "words": [
+        "취업",
+        "창업"
+      ],
+      "kind": "contrast",
+      "note": "취업 is entering employment at an established company (취업 준비 job hunting preparation), while 창업 is launching a new independent business venture (청년 창업 youth startup)."
+    }
+  ],
+  "tv-30": [
+    {
+      "words": [
+        "배다",
+        "배다"
+      ],
+      "kind": "homonym",
+      "note": "Two native verbs: 배다 ① for odors or moisture to permeate deeply into fabric (옷에 냄새가 배다) vs 배다 ② to become pregnant with child (아이를 배다). Distinct origins."
+    },
+    {
+      "words": [
+        "늦추다",
+        "앞당기다"
+      ],
+      "kind": "contrast",
+      "note": "Direct opposites for time management. 늦추다 means pushing back a scheduled time or slowing pace (출발을 늦추다), whereas 앞당기다 means moving a date earlier (약속을 앞당기다)."
+    },
+    {
+      "words": [
+        "악화",
+        "개선"
+      ],
+      "kind": "contrast",
+      "note": "Direct antonyms for condition trends. 악화 means getting worse or deteriorating (건강 악화 worsening health), whereas 개선 means changing for the better (관계 개선 improving relations)."
+    }
   ]
 }
