@@ -542,7 +542,7 @@ function unitBlock(u) {
     if (s.type === 'vocab') {
       const ic = (kind, n, max) => Array.from({ length: max }, (_, i) => (kind === 'c' ? cheeseIc(i < n) : potatoIc(i < n))).join('');
       const bold = (ko, w) => { const h = esc(ko); const stem = w.endsWith('다') ? w.slice(0, -1) : w; const k = ko.includes(w) ? w : stem.length >= 1 && ko.includes(stem) ? stem : ''; return k ? h.replace(esc(k), `<b>${esc(k)}</b>`) : h; };
-      const legend = `<div class="vlg"><span>${ic('c', 1, 1)} <b>Difficulty · 난이도</b> = TOPIK level: more cheese, harder</span><span>${ic('p', 1, 1)} <b>Frequency · 빈출도</b>: more potato, more common (1–5)</span></div>`;
+      const legend = `<div class="vlg"><span>${ic('c', 1, 1)} <b>Difficulty · 난이도</b> = TOPIK level: more cheese, harder</span><span>${ic('p', 1, 1)} <b>Frequency · 빈출도</b>: more potato, appears more often (same scale in every book)</span></div>`;
       return `<div class="sec vsec">${sr(si)}${secLabel(s)}${legend}${s.entries.map((e, k) => `<div class="vw"><div class="vn">${(s.from || 0) + k + 1}</div><div class="vb"><div class="vh"><b>${esc(e.ko)}</b><span class="vp">${esc(e.pos)}</span><span class="vi">${ic('c', e.lv - 2, 4)}<em></em>${ic('p', e.fq, 5)}</span></div><div class="ve">${esc(e.en)}</div><div class="vx">${bold(e.ex.ko, e.ko)}<small>${esc(e.ex.en)}</small></div></div></div>`).join('')}</div>`;
     }
     /* 단원 점검(운영자 2026-10-25 「체크업도 이런 느낌」): 뜻 짝짓기 + 낱말 상자 빈칸. 정답은 뒤쪽 정답 쪽에 */
