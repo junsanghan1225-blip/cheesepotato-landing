@@ -920,11 +920,31 @@ if (EPUB) {
   const skip = new Set(['toc', 'index', 'memo', 'title', 'studymap', 'mlog']);
   const list = blocks.filter(([k]) => !skip.has(k));
   if (B.bonus) list.push(['bonus', `<div class="blk plain"><h2>Reader bonus · 구매자 혜택</h2>${bonusBox()}</div>`]);
+  /* 인라인 SVG 는 Kindle(KF8)이 제대로 못 그린다 — QR · 아이콘이 쪽 가득한 빈 상자로 나왔다. 그림(PNG)으로 바꿔 넣는다: 같은 모양은 한 번만 찍어 나눠 쓴다. */
+  const { createHash } = await import('node:crypto');
+  const px = await browser.newPage({ viewport: { width: Math.ceil(CW * 3.78), height: Math.ceil(CH * 3.78) }, deviceScaleFactor: 3 });
+  fs.mkdirSync(O('img'), { recursive: true });
+  const imgFiles = new Set();
   for (const [k, html] of list) {
     pages.set('cur', shell(html));
-    await pg.goto(`${BASE}/__book.html`, { waitUntil: 'networkidle' });
-    await pg.evaluate(() => document.querySelectorAll('.sc, .fr, .ft').forEach((e) => e.remove()));   // 연필로 체크하는 줄 · 장식은 전자책에서 뺀다
-    const r = await pg.evaluate(() => ({ title: ((document.querySelector('.ttl h2, h2, h1') || {}).textContent || '').trim(), body: [...document.body.childNodes].map((n) => new XMLSerializer().serializeToString(n)).join('') }));
+    await px.goto(`${BASE}/__book.html`, { waitUntil: 'networkidle' });
+    await px.evaluate(() => document.querySelectorAll('.sc, .fr, .ft').forEach((e) => e.remove()));   // 연필로 체크하는 줄 · 장식은 전자책에서 뺀다
+    const svgs = await px.evaluate(() => [...document.querySelectorAll('svg')].map((sv, i) => {
+      sv.setAttribute('data-i', String(i));
+      const cs = getComputedStyle(sv), r = sv.getBoundingClientRect();
+      const inQr = !!sv.closest('.qr'), logo = sv.getAttribute('role') === 'img' && !!sv.getAttribute('aria-label');
+      return { i, w: r.width, h: r.height, inQr, logo, cls: sv.getAttribute('class') || '', inLg: !!sv.closest('.lg'), key: sv.outerHTML + '|' + cs.color + cs.fill + cs.stroke + cs.strokeWidth + Math.round(r.width) + 'x' + Math.round(r.height) };
+    }));
+    const plan = [];
+    for (const v of svgs) {
+      if (v.logo || v.w < 1 || v.h < 1) { plan.push({ i: v.i, drop: true }); continue; }
+      const f = `img/s_${createHash('md5').update(v.key).digest('hex').slice(0, 10)}.png`;
+      if (!imgFiles.has(f)) { await px.locator(`svg[data-i="${v.i}"]`).screenshot({ path: O(f), omitBackground: true }); imgFiles.add(f); }
+      const em = v.inQr ? 6 : /\blvl-ic\b/.test(v.cls) ? 4 : /\bic\b/.test(v.cls) ? 1 : v.inLg ? 1.4 : Math.min(8, Math.max(.8, v.w / 16));
+      plan.push({ i: v.i, f, em, alt: v.inQr ? 'QR code' : '' });
+    }
+    await px.evaluate((plan) => { for (const t of plan) { const sv = document.querySelector(`svg[data-i="${t.i}"]`); if (!sv) continue; if (t.drop) { sv.remove(); continue; } const im = document.createElement('img'); im.setAttribute('src', t.f); im.setAttribute('alt', t.alt); im.setAttribute('style', `width:${t.em}em;height:auto`); sv.replaceWith(im); } }, plan);
+    const r = await px.evaluate(() => ({ title: ((document.querySelector('.ttl h2, h2, h1') || {}).textContent || '').trim(), body: [...document.body.childNodes].map((n) => new XMLSerializer().serializeToString(n)).join('') }));
     const file = `c_${k}.xhtml`;
     const body = r.body.replace(/ style="page:[^"]*"/g, '').replace('Digital edition (PDF) · 디지털판(PDF) · print it at home or at a print shop · 집이나 인쇄소에서 인쇄해 쓰세요', 'Digital edition (ePub) · 디지털판(ePub)');   // 글꼴을 책에 넣지 않으므로 「Typeset in Pretendard」 줄도 ePub 에서는 뺀다
     const bodyKo = body.replace(/PDF판은 아래 주소/g, '전자책은 아래 주소').replace('<p>Typeset in Pretendard (SIL Open Font License 1.1).</p>', '').replace(/>([^<>]*[가-힣][^<>]*)</g, '><span lang="ko" xml:lang="ko">$1</span><');   // 한글 덩어리에 언어 표시 — 전자책 기기가 한글 글꼴 · 줄 맞춤을 제대로 고르게   // 판권면의 「PDF · 인쇄해 쓰세요」 는 PDF 판 글 — ePub 에서는 맞지 않아 바꾼다
@@ -969,7 +989,7 @@ svg{width:1.2em;height:1.2em;max-width:100%}svg[height]{width:auto}svg.ic{width:
   }
   const nav = navHtml + (open ? '</ol></li>' : '');
   fs.writeFileSync(O('nav.xhtml'), `<?xml version="1.0" encoding="utf-8"?>\n<!DOCTYPE html>\n<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops" lang="en"><head><meta charset="utf-8"/><title>Contents</title><link rel="stylesheet" type="text/css" href="style.css"/></head><body><nav epub:type="toc" id="toc"><h1>Contents · 목차</h1><ol class="nv">${nav}</ol></nav></body></html>`);
-  const items = chap.map((c) => `<item id="${c.id}" href="${c.file}" media-type="application/xhtml+xml"${c.svg ? ' properties="svg"' : ''}/>`).join('');
+  const items = chap.map((c) => `<item id="${c.id}" href="${c.file}" media-type="application/xhtml+xml"${c.svg ? ' properties="svg"' : ''}/>`).join('') + [...imgFiles].map((f, n) => `<item id="img${n}" href="${f}" media-type="image/png"/>`).join('');
   const spine = chap.map((c) => `<itemref idref="${c.id}"/>`).join('');
   const modified = new Date().toISOString().replace(/\.\d+Z$/, 'Z');
   fs.writeFileSync(O('content.opf'), `<?xml version="1.0" encoding="utf-8"?>
