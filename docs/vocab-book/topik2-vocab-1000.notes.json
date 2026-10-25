@@ -1,0 +1,262 @@
+{
+  "tv-01": [
+    {
+      "words": [
+        "대상",
+        "대상"
+      ],
+      "kind": "homonym",
+      "note": "對象 target or research subject (조사 대상 survey subjects) vs 大賞 grand prize (연기 대상 grand acting award). Different hanja roots sharing the exact same spelling."
+    },
+    {
+      "words": [
+        "비용",
+        "요금"
+      ],
+      "kind": "synonym",
+      "note": "Both mean cost, but 비용 is overall expenditure for an activity or project (여행 비용 travel costs), while 요금 is a fixed rate for using a service (버스 요금 bus fare)."
+    },
+    {
+      "words": [
+        "빛",
+        "빚"
+      ],
+      "kind": "contrast",
+      "note": "Sound identical in isolation ([빋]). 빛 means optical light or glow (햇빛 sunlight), whereas 빚 means financial debt (빚을 갚다 to pay off debt)."
+    }
+  ],
+  "tv-02": [
+    {
+      "words": [
+        "상태",
+        "상황"
+      ],
+      "kind": "synonym",
+      "note": "상태 refers to the physical or mental condition of a person or object (건강 상태 health condition). 상황 refers to external circumstances or surroundings (경제 상황 economic situation)."
+    },
+    {
+      "words": [
+        "높이다",
+        "늘리다"
+      ],
+      "kind": "synonym",
+      "note": "Both mean to increase, but 높이다 raises grade, level, or quality (가치를 높이다 to raise value), while 늘리다 increases volume, count, or duration (생산량을 늘리다 to increase output)."
+    },
+    {
+      "words": [
+        "구조",
+        "구조"
+      ],
+      "kind": "homonym",
+      "note": "構造 organization or framework (건물의 구조 building structure) vs 救助 rescue or relief from danger (조난자 구조 rescuing a stranded person). Context determines the meaning."
+    }
+  ],
+  "tv-03": [
+    {
+      "words": [
+        "수리",
+        "수리"
+      ],
+      "kind": "homonym",
+      "note": "修理 physical repair or fixing (기계 수리 machine repair) vs 受理 formal acceptance and processing of an application (서류 수리 document acceptance). Unrelated hanja roots."
+    },
+    {
+      "words": [
+        "떠오르다",
+        "생각나다"
+      ],
+      "kind": "synonym",
+      "note": "떠오르다 evokes an idea or mental image naturally floating up (좋은 생각이 떠오르다), whereas 생각나다 is actively recalling a forgotten piece of information (단어가 생각나다)."
+    },
+    {
+      "words": [
+        "외부",
+        "실외"
+      ],
+      "kind": "synonym",
+      "note": "외부 denotes the exterior side of a boundary or outside an organization (외부 시선 outside perspective). 실외 specifically refers to the open air outdoors, opposite of 실내 (실외 수영장)."
+    }
+  ],
+  "tv-04": [
+    {
+      "words": [
+        "수면",
+        "수면"
+      ],
+      "kind": "homonym",
+      "note": "睡眠 sleep (수면 부족 lack of sleep) vs 水面 surface of water (수면 위 on the water). Same spelling and pronunciation, but completely different hanja and meanings."
+    },
+    {
+      "words": [
+        "가정",
+        "가정"
+      ],
+      "kind": "homonym",
+      "note": "家庭 family household or home (화목한 가정 harmonious home) vs 假定 hypothesis or supposition (가정을 세우다 to set up a hypothesis). Context clarifies the meaning."
+    },
+    {
+      "words": [
+        "담다",
+        "채우다"
+      ],
+      "kind": "synonym",
+      "note": "담다 means placing items into a container or expressing sentiments (상자에 담다, 정성을 담다). 채우다 stresses filling a space to capacity (물병을 가득 채우다 to fill a bottle)."
+    }
+  ],
+  "tv-05": [
+    {
+      "words": [
+        "일정",
+        "일정"
+      ],
+      "kind": "homonym",
+      "note": "日程 daily schedule or itinerary (여행 일정 travel itinerary) vs 一定 uniform, fixed, or steady (일정한 온도 constant temperature). The first is a noun; the second functions as a determiner."
+    },
+    {
+      "words": [
+        "간",
+        "간"
+      ],
+      "kind": "homonym",
+      "note": "間 relationship or interval between groups (세대 간 between generations) vs 肝 biological liver (간 건강 liver health) vs salty seasoning (간을 맞추다 to season food)."
+    },
+    {
+      "words": [
+        "지나치다",
+        "과하다"
+      ],
+      "kind": "synonym",
+      "note": "Both mean excessive, but 지나치다 can also mean physically passing by a location (정류장을 지나치다 to miss a stop). 과하다 only means exceeding moderation (과한 요구 excessive request)."
+    }
+  ],
+  "tv-06": [
+    {
+      "words": [
+        "용기",
+        "용기"
+      ],
+      "kind": "homonym",
+      "note": "容器 container or vessel (플라스틱 용기 plastic container) vs 勇氣 courage or bravery (용기를 내다 to muster courage). Distinct hanja roots that share identical spelling."
+    },
+    {
+      "words": [
+        "기관",
+        "기관"
+      ],
+      "kind": "homonym",
+      "note": "機關 public institution or engine mechanism (정부 기관 government organization) vs 器官 biological bodily organ (소화 기관 digestive organ). Context distinguishes them."
+    },
+    {
+      "words": [
+        "야외",
+        "실외"
+      ],
+      "kind": "synonym",
+      "note": "야외 highlights natural open spaces and fields away from buildings (야외 공연 open-air performance). 실외 simply denotes the physical space immediately outside a room (실외기)."
+    }
+  ],
+  "tv-07": [
+    {
+      "words": [
+        "맡다",
+        "맡다"
+      ],
+      "kind": "homonym",
+      "note": "Two native verbs: 맡다 ① to take charge of a duty or role (역할을 맡다) vs 맡다 ② to perceive an odor with the nose (향기를 맡다 to smell a fragrance)."
+    },
+    {
+      "words": [
+        "매장",
+        "매장"
+      ],
+      "kind": "homonym",
+      "note": "賣場 retail outlet or shop counter (의류 매장 clothing store) vs 埋葬 burial in the earth (유물 매장 burial of artifacts). Two completely separate Sino-Korean words."
+    },
+    {
+      "words": [
+        "저렴하다",
+        "싸다"
+      ],
+      "kind": "synonym",
+      "note": "Both mean inexpensive, but 저렴하다 is polite and formal, preferred in commercial writing (저렴한 가격 affordable price), while 싸다 is casual everyday speech (값이 싸다)."
+    }
+  ],
+  "tv-08": [
+    {
+      "words": [
+        "시각",
+        "시각"
+      ],
+      "kind": "homonym",
+      "note": "時刻 point in time or clock time (도착 시각 arrival time) vs 視覺 visual sense (시각 장애 visual impairment) vs 視角 viewpoint or perspective (새로운 시각 fresh perspective)."
+    },
+    {
+      "words": [
+        "세제",
+        "세제"
+      ],
+      "kind": "homonym",
+      "note": "洗劑 detergent or cleaning chemical (세탁 세제 laundry detergent) vs 稅制 national tax policy system (세제 혜택 tax benefit). Context makes the distinction obvious."
+    },
+    {
+      "words": [
+        "취하다",
+        "고르다"
+      ],
+      "kind": "synonym",
+      "note": "Both can mean to select or adopt, but 취하다 is formal and abstract (적절한 조치를 취하다 to take proper action), while 고르다 is everyday physical selection (선물을 고르다)."
+    }
+  ],
+  "tv-09": [
+    {
+      "words": [
+        "결제",
+        "결재"
+      ],
+      "kind": "contrast",
+      "note": "Commonly confused homophones. 決濟 결제 is financial settlement or paying money (카드 결제 card payment). 決裁 결재 is approval from a workplace superior (서류 결재 document approval)."
+    },
+    {
+      "words": [
+        "햇볕",
+        "햇빛"
+      ],
+      "kind": "synonym",
+      "note": "햇볕 highlights the warmth and heat radiated by the sun (햇볕에 말리다 to dry in the sun). 햇빛 emphasizes visual optical brightness and shine (눈부신 햇빛 bright sunlight)."
+    },
+    {
+      "words": [
+        "가리다",
+        "가리다"
+      ],
+      "kind": "homonym",
+      "note": "가리다 ① to shield or conceal from sight (얼굴을 가리다 to cover one face). 가리다 ② to distinguish right from wrong or be finicky (시비를 가리다, 음식을 가리다 to be a picky eater)."
+    }
+  ],
+  "tv-10": [
+    {
+      "words": [
+        "기사",
+        "기사"
+      ],
+      "kind": "homonym",
+      "note": "記事 published news article or report (신문 기사 newspaper article) vs 技士 professional driver or technician (택시 기사 taxi driver). Both are very common in TOPIK II."
+    },
+    {
+      "words": [
+        "감정",
+        "감정"
+      ],
+      "kind": "homonym",
+      "note": "感情 human feeling or emotion (감정을 표현하다 to express emotion) vs 鑑定 expert appraisal of authenticity or value (보석 감정 gem appraisal). Unrelated hanja roots."
+    },
+    {
+      "words": [
+        "단점",
+        "결점"
+      ],
+      "kind": "synonym",
+      "note": "단점 is a drawback or disadvantage compared to strengths (장점과 단점 pros and cons). 결점 highlights a specific defect, flaw, or shortcoming needing repair (제품의 결점 product defect)."
+    }
+  ]
+}
