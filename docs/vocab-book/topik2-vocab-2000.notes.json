@@ -1,0 +1,318 @@
+{
+ "tw-01": [
+  {
+   "words": [
+    "장수",
+    "장수"
+   ],
+   "kind": "homonym",
+   "note": "長壽 longevity or living a long life (무병장수 long and healthy life) vs 將帥 military commander or general (용감한 장수 brave general). Different hanja roots sharing the same spelling."
+  },
+  {
+   "words": [
+    "기억력",
+    "암기력"
+   ],
+   "kind": "synonym",
+   "note": "기억력 (記憶力) is broad mental recall or retention (기억력이 좋다 good memory), whereas 암기력 (暗記力) is the specific skill of deliberately memorizing words or data (단어 암기력 skill at memorizing vocabulary)."
+  },
+  {
+   "words": [
+    "증상",
+    "증세"
+   ],
+   "kind": "synonym",
+   "note": "Both mean symptoms, but 증상 (症狀) denotes specific bodily symptoms (기침 증상 cough symptom), while 증세 (症勢) describes the overall trend or severity of illness (증세가 호전되다 condition improves)."
+  },
+  {
+   "words": [
+    "기대다",
+    "의지하다"
+   ],
+   "kind": "synonym",
+   "note": "기대다 describes both physical leaning (벽에 기대다 lean on a wall) and emotional reliance. 의지하다 is strictly emotional or practical dependence (부모에게 의지하다 rely on parents) and cannot mean physical leaning."
+  }
+ ],
+ "tw-02": [
+  {
+   "words": [
+    "연",
+    "연"
+   ],
+   "kind": "homonym",
+   "note": "年 year or annual period (연 1회 once a year, 연회비 annual fee) vs 鳶 traditional flying kite (연을 날리다 fly a kite). Completely different hanja roots with identical spelling."
+  },
+  {
+   "words": [
+    "절",
+    "절"
+   ],
+   "kind": "homonym",
+   "note": "寺 Buddhist temple (절에 가다 visit a temple) vs deep ceremonial bow (새해 절을 올리다 perform a New Year bow). Context tells whether it is a sacred place or a bow."
+  },
+  {
+   "words": [
+    "겨우",
+    "간신히"
+   ],
+   "kind": "synonym",
+   "note": "Both mean barely, but 겨우 emphasizes a meager amount or minimal threshold (겨우 세 명 only three people), while 간신히 highlights surviving great difficulty or close failure (간신히 기차를 탔다 barely caught the train)."
+  },
+  {
+   "words": [
+    "국립",
+    "공립"
+   ],
+   "kind": "contrast",
+   "note": "국립 (國立) institutions are funded and governed directly by the national government (국립박물관 national museum), whereas 공립 (公立) institutions are founded and managed by local cities or provinces (공립학교 public school)."
+  }
+ ],
+ "tw-03": [
+  {
+   "words": [
+    "향수",
+    "향수"
+   ],
+   "kind": "homonym",
+   "note": "香水 bottled perfume or fragrance (향수를 뿌리다 spray perfume) vs 鄕愁 homesickness or nostalgia for one's homeland (향수를 달래다 soothe homesickness). Two different Sino-Korean terms."
+  },
+  {
+   "words": [
+    "묶다",
+    "매다"
+   ],
+   "kind": "synonym",
+   "note": "묶다 means binding several things together or tying a firm knot (끈으로 상자를 묶다 tie a box with string), while 매다 is used for fastening worn accessories or shoes (넥타이를 매다 wear a necktie, 신발 끈을 매다 tie shoe laces)."
+  },
+  {
+   "words": [
+    "집다",
+    "짚다"
+   ],
+   "kind": "contrast",
+   "note": "Pronounced identically ([집따]). 집다 means picking up an object with fingers or tongs (반찬을 집다 pick up food). 짚다 means leaning on a support (지팡이를 짚다 lean on a cane) or taking body temperature (이마를 짚다 touch one's forehead)."
+  },
+  {
+   "words": [
+    "치르다",
+    "지불하다"
+   ],
+   "kind": "synonym",
+   "note": "Both can mean paying money (값을 치르다 pay the cost), but 치르다 uniquely extends to going through major life events or trials (시험을 치르다 take an exam, 장례를 치르다 hold a funeral). 지불하다 is strictly financial."
+  }
+ ],
+ "tw-04": [
+  {
+   "words": [
+    "시기",
+    "시기"
+   ],
+   "kind": "homonym",
+   "note": "時期 appropriate time, season, or period (적절한 시기 the right time) vs 猜忌 jealousy or envy toward others (남을 시기하다 envy someone). Unrelated hanja roots."
+  },
+  {
+   "words": [
+    "철",
+    "철"
+   ],
+   "kind": "homonym",
+   "note": "철 meaning season (딸기 철 strawberry season) or maturity (철이 들다 become mature) vs 鐵 iron or steel metal (철강 산업 steel industry). Context indicates time, maturity, or metal."
+  },
+  {
+   "words": [
+    "전날",
+    "지난날"
+   ],
+   "kind": "synonym",
+   "note": "전날 (前날) specifies the single calendar day before a designated event (시험 전날 the day before the test), whereas 지난날 refers broadly to past years or bygone life memories (지난날을 회상하다 reminisce about the past)."
+  }
+ ],
+ "tw-05": [
+  {
+   "words": [
+    "안심",
+    "안심"
+   ],
+   "kind": "homonym",
+   "note": "安心 peace of mind or relief from anxiety (안심하고 쉬다 rest with peace of mind) vs 案心 tenderloin cut of beef or pork (소고기 안심 beef tenderloin). Different hanja origins."
+  },
+  {
+   "words": [
+    "추억",
+    "기억"
+   ],
+   "kind": "synonym",
+   "note": "기억 (記憶) is neutral cognitive storage of data or facts (비밀번호 기억 remembering passwords), whereas 추억 (追憶) specifically denotes nostalgic, emotionally cherished life moments (학창 시절의 추억 fond school memories)."
+  },
+  {
+   "words": [
+    "아쉽다",
+    "안타깝다"
+   ],
+   "kind": "synonym",
+   "note": "아쉽다 expresses mild personal regret when something falls just short (한 점 차로 져서 아쉽다 disappointed to lose by one point), while 안타깝다 conveys deep pity or sorrow for another's misfortune (사고 소식이 안타깝다 feeling sorrow over an accident)."
+  }
+ ],
+ "tw-06": [
+  {
+   "words": [
+    "구수하다",
+    "고소하다"
+   ],
+   "kind": "synonym",
+   "note": "고소하다 describes nutty, toasted flavors like sesame oil or roasted nuts (참기름이 고소하다 sesame oil is fragrant). 구수하다 describes deep, hearty aromas like soybean stew or scorched rice (된장찌개가 구수하다), as well as warm rustic speech."
+  },
+  {
+   "words": [
+    "껍질",
+    "껍데기"
+   ],
+   "kind": "contrast",
+   "note": "껍질 is soft, pliable peel, rind, or skin of fruits and vegetables (사과 껍질 apple peel). 껍데기 is rigid, hard shell or casing of shellfish, eggs, or nuts (조개 껍데기 clam shell, 달걀 껍데기 eggshell)."
+  },
+  {
+   "words": [
+    "양념",
+    "조미료"
+   ],
+   "kind": "synonym",
+   "note": "양념 refers to blended marinades or spice mixtures for seasoned dishes (고기 양념 meat marinade). 조미료 (調味料) refers to individual seasonings or manufactured flavor additives (화학 조미료 MSG flavoring)."
+  },
+  {
+   "words": [
+    "널다",
+    "걷다"
+   ],
+   "kind": "contrast",
+   "note": "Complementary laundry steps: 널다 is hanging wet wash out on a rack or line to dry (빨래를 널다 hang laundry), while 걷다 is taking down and collecting the dried laundry (마른 빨래를 걷다 take in laundry)."
+  }
+ ],
+ "tw-07": [
+  {
+   "words": [
+    "연기",
+    "연기"
+   ],
+   "kind": "homonym",
+   "note": "演技 theatrical acting or performance (명연기를 펼치다 give a great acting performance) vs 煙氣 visible smoke from combustion (연기가 나다 smoke rises) vs 延期 postponement (경기 연기 match postponement). Three different hanja roots."
+  },
+  {
+   "words": [
+    "시집",
+    "시집"
+   ],
+   "kind": "homonym",
+   "note": "詩集 printed anthology of poems (시집을 읽다 read a poetry collection) vs 媤집 married woman's in-law family (시집살이 living with in-laws). Different etymological roots."
+  },
+  {
+   "words": [
+    "상영",
+    "방영"
+   ],
+   "kind": "synonym",
+   "note": "상영 (上映) specifically means screening a film in movie theaters (극장에서 영화 상영 screening a film in cinemas), while 방영 (放映) means broadcasting a drama or show on television (방송국에서 드라마 방영 televising a drama)."
+  },
+  {
+   "words": [
+    "깔끔하다",
+    "단정하다"
+   ],
+   "kind": "synonym",
+   "note": "깔끔하다 highlights spotless cleanliness and refreshing neatness of surroundings or design (깔끔한 방 tidy room), whereas 단정하다 (端正) stresses polite personal grooming, posture, or attire (단정한 옷차림 neat and proper clothes)."
+  }
+ ],
+ "tw-08": [
+  {
+   "words": [
+    "물가",
+    "물가"
+   ],
+   "kind": "homonym",
+   "note": "物價 market prices and cost of living goods (물가 상승 price rise) vs 물가 natural water's edge, shore, or riverbank (물가에서 놀다 play by the waterside). Unrelated word origins."
+  },
+  {
+   "words": [
+    "인상",
+    "인상"
+   ],
+   "kind": "homonym",
+   "note": "印象 facial look or impression (첫인상이 좋다 have a good first impression) vs 引上 markup, hike, or increase in rates and prices (요금 인상 fare hike). Different hanja roots."
+  },
+  {
+   "words": [
+    "선",
+    "선"
+   ],
+   "kind": "homonym",
+   "note": "線 geometric line or wire (선을 긋다 draw a line) vs formal matchmaking meeting arranged for marriage (선을 보다 attend a marriage blind date). Distinct senses separated by context."
+  },
+  {
+   "words": [
+    "강사",
+    "교수"
+   ],
+   "kind": "synonym",
+   "note": "강사 (講師) refers broadly to course lecturers and instructors at academies, community centers, or colleges (학원 강사 academy instructor), while 교수 (敎授) is a faculty professor appointed at a university (대학교 교수 university professor)."
+  }
+ ],
+ "tw-09": [
+  {
+   "words": [
+    "공동",
+    "공동"
+   ],
+   "kind": "homonym",
+   "note": "共同 joint, cooperative, or shared public collaboration (공동 연구 joint research) vs 空洞 hollow cavern, physical cavity, or empty hole (동굴의 공동 cavern cavity). Different hanja words sharing pronunciation."
+  },
+  {
+   "words": [
+    "제안",
+    "조언"
+   ],
+   "kind": "synonym",
+   "note": "제안 (提案) is putting forward a concrete proposal, initiative, or plan for mutual consideration (신제품 아이디어 제안), whereas 조언 (助言) is offering helpful advice to assist someone with guidance (선배의 따뜻한 조언 senior's warm advice)."
+  },
+  {
+   "words": [
+    "추측",
+    "예상"
+   ],
+   "kind": "synonym",
+   "note": "추측 (推測) is deducing or guessing about an unverified current or past situation using clues (이유를 추측하다 deduce reasons), while 예상 (豫想) specifically projects future outcomes ahead of time (내일 날씨 예상 forecasting tomorrow's weather)."
+  },
+  {
+   "words": [
+    "조언",
+    "충고"
+   ],
+   "kind": "synonym",
+   "note": "Both mean advice, but 조언 (助言) provides positive, supportive guidance to help (업무 조언 helpful work tips), while 충고 (忠告) offers direct, stern criticism to correct a mistake or fault (따끔한 충고 stern admonition)."
+  }
+ ],
+ "tw-10": [
+  {
+   "words": [
+    "예상",
+    "예측"
+   ],
+   "kind": "synonym",
+   "note": "Both mean prediction, but 예상 (豫想) is a general expectation or anticipation (예상보다 빠르다 faster than expected), whereas 예측 (豫測) is systematic, scientific forecasting based on data and models (기상 예측 meteorological forecast)."
+  },
+  {
+   "words": [
+    "권하다",
+    "추천하다"
+   ],
+   "kind": "synonym",
+   "note": "권하다 (勸) is warmly offering a drink or inviting someone to try an action (차를 권하다 offer tea, 휴식을 권하다 advise rest). 추천하다 (推薦) is formally nominating or endorsing an item or person (좋은 책을 추천하다 recommend a good book)."
+  },
+  {
+   "words": [
+    "사용법",
+    "이용법"
+   ],
+   "kind": "synonym",
+   "note": "사용법 (使用法) focuses on technical operations for using physical devices, tools, or medicines (스마트폰 사용법 phone user guide), while 이용법 (利用法) focuses on accessing public services, facilities, or systems (지하철 이용법 subway transit guide)."
+  }
+ ]
+}
