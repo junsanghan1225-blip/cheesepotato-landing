@@ -847,5 +847,197 @@
         }
       ]
     }
+  ],
+  "rv-1": [
+    {
+      "type": "practice",
+      "title": {
+        "en": "Trap round · Watch out for first instincts",
+        "ko": "함정 라운드 · 첫 느낌을 조심하세요"
+      },
+      "hint": "Look out for irregular 받침 rules and hidden particle restrictions.",
+      "items": [
+        {
+          "q": "지하철___ 갈아타요.  (Consonant ㄹ trap: Choose the right form of (으)로)   (a) 지하철으로   (b) 지하철로",
+          "a": "(b) 지하철로. Even though ㄹ is a consonant, words ending in ㄹ take 로, never 으로."
+        },
+        {
+          "q": "꽃___ 물을 줘요.  (Giving water to flowers: Which particle fits?)   (a) 꽃한테   (b) 꽃에",
+          "a": "(b) 꽃에. Flowers are plants, not people or animals. Only animate beings take 에게 or 한테."
+        },
+        {
+          "q": "___ 왔어요?  (Who came?: Choose the natural form of who)   (a) 누구는   (b) 누가",
+          "a": "(b) 누가. Who is unknown new information, which always takes 이/가 (contracted as 누가), never 는."
+        },
+        {
+          "q": "도서관___ 공부해요.  (Studying at the library: Choose 에 or 에서)   (a) 도서관에   (b) 도서관에서",
+          "a": "(b) 도서관에서. Studying is an active action taking place at the location, which demands 에서."
+        },
+        {
+          "q": "물___ 마실래요.  (I will drink water too: Choose the natural phrasing)   (a) 물도   (b) 물을도",
+          "a": "(a) 물도. 도 completely replaces the object marker 을/를. You cannot combine them as 물을도."
+        }
+      ]
+    }
+  ],
+  "rv-2": [
+    {
+      "type": "practice",
+      "title": {
+        "en": "Trap round · Subtle contrasts",
+        "ko": "함정 라운드 · 미묘한 차이 잡기"
+      },
+      "hint": "Be careful with honorific counterparts and paired particles.",
+      "items": [
+        {
+          "q": "할아버지___ 전화를 걸었어요.  (Calling grandfather with respect:)   (a) 할아버지한테   (b) 할아버지께",
+          "a": "(b) 할아버지께. For respected elders like grandfather, the honorific dative 께 is most appropriate."
+        },
+        {
+          "q": "회의는 두 시___ 시작해요.  (The meeting starts from 2 o clock:)   (a) 두 시에서   (b) 두 시부터",
+          "a": "(b) 두 시부터. Time points pair with 부터. 에서 is reserved for spatial starting points."
+        },
+        {
+          "q": "지갑에 오천 원밖에 있어요.  Why is this sentence ungrammatical in Korean?",
+          "a": "밖에 requires a negative predicate like 없어요. It can never pair with an affirmative verb like 있어요."
+        },
+        {
+          "q": "아침에 밥___ 국을 먹었어요.  (Which spoken particle fits after consonant 밥?)   (a) 밥랑   (b) 밥이랑",
+          "a": "(b) 밥이랑. 밥 ends in a consonant (ㅂ), so it requires 이랑. Vowel-ending nouns take 랑."
+        },
+        {
+          "q": "오른쪽___ 돌아가세요.  (Turn toward the right: Which indicates direction?)   (a) 오른쪽에   (b) 오른쪽으로",
+          "a": "(b) 오른쪽으로. Turning is moving along a trajectory, so directional (으)로 is required."
+        }
+      ]
+    }
+  ],
+  "rv-3": [
+    {
+      "type": "practice",
+      "title": {
+        "en": "Trap round · Meaning shifts",
+        "ko": "함정 라운드 · 뜻의 변화"
+      },
+      "hint": "Think about whether you are stating a fact, setting a contrast, or expressing surprise.",
+      "items": [
+        {
+          "q": "커피를 다섯 잔___ 마셨어요!  (Surprised at the huge amount: Which particle conveys shock?)   (a) 다섯 잔이나   (b) 다섯 잔만",
+          "a": "(a) 다섯 잔이나. (이)나 after a quantity conveys surprise at an unexpectedly large amount."
+        },
+        {
+          "q": "다른 사람은 안 오고 민수___ 왔어요.  (Nobody else came, only Minsu:)   (a) 민수도   (b) 민수만",
+          "a": "(b) 민수만. 만 restricts the subject to Minsu alone, excluding all others."
+        },
+        {
+          "q": "책상 위에 책___ 공책이 있어요.  (Which written particle fits consonant 책: 과 or 와?)   (a) 책과   (b) 책와",
+          "a": "(a) 책과. 책 ends in a consonant (ㄱ), so the formal connecting particle is 과, not 와."
+        },
+        {
+          "q": "형이 동생___ 키가 커요.  (The older brother is taller than the younger brother: Where does 보다 attach?)",
+          "a": "동생보다: 형이 동생보다 키가 커요. 보다 attaches to the standard being compared against (the younger brother)."
+        },
+        {
+          "q": "아침___ 조깅을 해요.  (Running every single morning without fail: Which particle fits?)   (a) 아침마다   (b) 아침보다",
+          "a": "(a) 아침마다. 마다 means every or each, marking repetitive regular routines."
+        }
+      ]
+    }
+  ],
+  "rv-4": [
+    {
+      "type": "practice",
+      "title": {
+        "en": "Trap round · Spot the hidden trap",
+        "ko": "함정 라운드 · 숨은 함정 찾기"
+      },
+      "hint": "Pay close attention to verbs that govern specific particles.",
+      "items": [
+        {
+          "q": "부산역___ 도착했어요.  (Arrived at Busan station: Choose the destination particle)   (a) 부산역에서   (b) 부산역에",
+          "a": "(b) 부산역에. 도착하다 marks reaching a destination point, which takes the target particle 에."
+        },
+        {
+          "q": "물만 마셔요 / 물만을 마셔요.  Which is more natural and common in spoken Korean?",
+          "a": "물만 마셔요 is far more natural. In everyday speech, 만 replaces 을/를 rather than stacking."
+        },
+        {
+          "q": "사과만 안 먹었어요. / 사과밖에 안 먹었어요.  How do their meanings contrast?",
+          "a": "사과만 안 먹었어요 means I ate everything except apples. 사과밖에 안 먹었어요 means I ate only apples."
+        },
+        {
+          "q": "내일 한 시___ 만나요.  (Let us meet around 1 o clock: Choose the estimation particle)   (a) 한 시쯤   (b) 한 시보다",
+          "a": "(a) 한 시쯤. 쯤 means around or approximately when attached to clock times."
+        },
+        {
+          "q": "노래를 가수___ 잘해요.  (Sings like a professional singer: Which particle creates the simile?)   (a) 가수으로   (b) 가수처럼",
+          "a": "(b) 가수처럼. 처럼 means like or as, creating a figurative comparison to a singer."
+        }
+      ]
+    }
+  ],
+  "rv-5": [
+    {
+      "type": "practice",
+      "title": {
+        "en": "Trap round · Grammar showdown",
+        "ko": "함정 라운드 · 문법 대결"
+      },
+      "hint": "Check the final syllable of the noun and whether the clause is positive or negative.",
+      "items": [
+        {
+          "q": "이번 주말에 서울___ 가요.  (Heading toward Seoul: Which form is correct?)   (a) 서울으로   (b) 서울로",
+          "a": "(b) 서울로. 서울 ends in the consonant ㄹ, so it takes 로, not 으로."
+        },
+        {
+          "q": "동생이 지금 방___ 있어요.  (My sibling is in the room right now: Which particle marks existence?)   (a) 방에서   (b) 방에",
+          "a": "(b) 방에. Stative existence with 있다/없다 takes 에. 에서 requires an action verb."
+        },
+        {
+          "q": "사과가 하나밖에 남았어요.  Why is this sentence incorrect?",
+          "a": "남았어요 is affirmative. 밖에 requires a negative predicate like 안 남았어요 or 없어요."
+        },
+        {
+          "q": "점심에 밥___ 라면을 먹을래요.  (Consonant trap: Choose bread or ramen)   (a) 밥나   (b) 밥이나",
+          "a": "(b) 밥이나. 밥 ends in a consonant (ㅂ), so the choice particle is 이나. 나 is only used after vowels."
+        },
+        {
+          "q": "학교___ 문의했어요.  (Inquiring at the school: Choose the appropriate particle)   (a) 학교께   (b) 학교에",
+          "a": "(b) 학교에. 께 is strictly for respected human persons. Organizations and places take 에."
+        }
+      ]
+    }
+  ],
+  "rv-6": [
+    {
+      "type": "practice",
+      "title": {
+        "en": "Trap round · The ultimate test",
+        "ko": "함정 라운드 · 최종 점검"
+      },
+      "hint": "Everything you have learned: topic vs subject, time vs place, and polite forms.",
+      "items": [
+        {
+          "q": "A: 누가 발표해요? B: ___ 발표해요.  (Answering who presents:)   (a) 저는   (b) 제가",
+          "a": "(b) 제가. Answering a 누가 question requires identifying the person with 이/가 (제가)."
+        },
+        {
+          "q": "낮에는 따뜻하지만 밤___ 추워요.  (Day is warm, but night is cold: Which particle sets the contrast?)   (a) 밤에   (b) 밤에는",
+          "a": "(b) 밤에는. Adding 는 to 에 (밤에는) balances the earlier contrast with 낮에는."
+        },
+        {
+          "q": "민수는 지수___ 같이 도서관에 갔어요.  (Formal/written companion with vowel 지수:)   (a) 지수과   (b) 지수와",
+          "a": "(b) 지수와. 지수 ends in a vowel (ㅜ), so the companion particle is 와, not 과."
+        },
+        {
+          "q": "매일 아침 버스___ 출근해요.  (Commuting by bus: Which marks the vehicle as means of transport?)   (a) 버스에   (b) 버스로",
+          "a": "(b) 버스로. (으)로 marks the mode of transportation used to travel."
+        },
+        {
+          "q": "집___ 공항까지 택시를 탔어요.  (Took a taxi from home to the airport:)   (a) 집부터   (b) 집에서",
+          "a": "(b) 집에서. Physical travel from a location uses 에서. 부터 is used for starting time or order."
+        }
+      ]
+    }
   ]
 }
