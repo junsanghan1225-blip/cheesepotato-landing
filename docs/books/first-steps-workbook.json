@@ -1268,41 +1268,37 @@
           ]
         },
         {
-          "type": "table",
+          "type": "plan",
           "title": {
             "en": "My plan",
             "ko": "내 계획"
           },
-          "cols": [
-            "Item · 항목",
-            "Write here · 여기에 쓰세요"
+          "fields": [
+            {
+              "en": "Start date",
+              "ko": "시작한 날"
+            },
+            {
+              "en": "Finish date",
+              "ko": "끝낼 날"
+            },
+            {
+              "en": "Time of day",
+              "ko": "공부 시간대"
+            },
+            {
+              "en": "Minutes each time",
+              "ko": "한 번에 몇 분"
+            }
           ],
-          "rows": [
-            [
-              "Start date · 시작한 날",
-              "______________________"
-            ],
-            [
-              "Finish date · 끝낼 날",
-              "______________________"
-            ],
-            [
-              "Study days (circle) · 요일 (동그라미)",
-              "Mon · 월    Tue · 화    Wed · 수    Thu · 목    Fri · 금    Sat · 토    Sun · 일"
-            ],
-            [
-              "Time of day · 공부 시간대",
-              "______________________"
-            ],
-            [
-              "Minutes each time · 한 번에 몇 분",
-              "______________________"
-            ],
-            [
-              "My goal for this book · 이 책의 내 목표",
-              "______________________"
-            ]
-          ]
+          "days": {
+            "en": "Study days · circle",
+            "ko": "공부할 요일에 동그라미"
+          },
+          "goal": {
+            "en": "My goal for this book",
+            "ko": "이 책의 내 목표"
+          }
         },
         {
           "type": "table",
