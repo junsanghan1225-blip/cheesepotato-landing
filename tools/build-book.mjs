@@ -1022,9 +1022,10 @@ td:first-child{font-weight:700}ol.nv li.np ol{font-weight:400}.uh,.pd,h2,h3{word
 .pd .list{display:none}.pd{padding:1.1em 1.1em .9em;margin:.8em 0}.pd .big{font-size:3em}.pd h3{margin-bottom:.2em}
 table.wk{table-layout:fixed;width:100%}table.wk td{text-align:center;border:1px solid #cfc6b6;padding:.35em 0;font-size:.9em;line-height:1.3}
 .bx.more{border:1px dashed #9aa4b5;border-left:4px dashed #5B6B86}
-.tlb{font-size:1.5em;line-height:1.2}.tld{color:#b5ab9b}
+.tlb{font-size:1.25em;line-height:1.2}.tld{color:#b5ab9b}
 .tl{margin:.5em 0 1em;border-top:2px solid ${ACC}}.tlr{border-bottom:1px solid #e4ddd0;padding:.5em 0 .55em}.tl1{font-weight:700;margin-bottom:.1em}.tlc{margin:.05em 0 .05em .9em;font-size:.95em}.tlh{color:#8a8278;font-size:.78em;letter-spacing:.02em;margin-right:.2em}
 img.hd{display:block;width:100%;height:auto;margin:.9em 0 .5em}
+.vw{margin:.8em 0 1em;padding-bottom:.65em;border-bottom:1px solid #ece6da}.vn{font-size:.72em;color:#8a8278;margin-bottom:.1em}.vh{margin-bottom:.15em}.vh b{font-size:1.2em;margin-right:.5em}.vp{font-size:.78em;color:#6d655c;border:1px solid #d8cfc0;border-radius:3px;padding:0 .4em;margin-right:.55em}.vi{white-space:nowrap}
 ol.nv,ol.nv ol{list-style:none;padding-left:0;margin:0}ol.nv ol{padding-left:1.1em}ol.nv li{margin:.35em 0}ol.nv a{text-decoration:none;color:#1d1a17}ol.nv li.np>a{font-weight:700;color:${ACC}}
 body,p,td,li,div{text-align:left;letter-spacing:normal;word-spacing:normal}.d b,.gd .d b{display:block}.d{margin:.3em 0 1em}
 /* 인라인 SVG 그림은 PDF 에서는 클래스 CSS 로 크기가 정해진다 — ePub 에서는 크기를 안 주면 화면 가득 커지므로 여기서 정한다 */
