@@ -195,5 +195,229 @@
         }
       ]
     }
+  ],
+  "pt-26-9": [
+    {
+      "type": "practice",
+      "title": {
+        "en": "Think it through · Start and end points",
+        "ko": "생각해 보기 · 시작과 끝"
+      },
+      "hint": "에서 pairs with locations, while 부터 pairs with time.",
+      "items": [
+        {
+          "q": "회의 시간을 말할 때:  (Talking about meeting hours:)   (a) 두 시에서 네 시까지 회의를 해요.   (b) 두 시부터 네 시까지 회의를 해요.",
+          "a": "(b) 두 시부터 네 시까지. Time points pair with 부터, while 에서 is reserved for physical starting places."
+        },
+        {
+          "q": "서울에서 왔어요 / 서울부터 시작해요.  Both are correct. What is the difference?",
+          "a": "서울에서 indicates the physical place of origin (I came from Seoul). 서울부터 indicates the sequence or starting point in an itinerary."
+        },
+        {
+          "q": "집부터 학교까지 걸어가요. / 집에서 학교까지 걸어가요.  One is awkward. Which one, and why?",
+          "a": "집부터 is awkward. 집 is a physical place, so physical distance from a starting point takes 에서: 집에서 학교까지."
+        },
+        {
+          "q": "월요일___ 금요일까지 한국어를 배워요.  (Which particle marks the start of the time range: 부터 or 에서?)",
+          "a": "부터: 월요일부터 금요일까지. 월요일 is a point in time, so 부터 marks the beginning of the duration."
+        }
+      ]
+    }
+  ],
+  "pt-26-10": [
+    {
+      "type": "practice",
+      "title": {
+        "en": "Think it through · Who receives the action?",
+        "ko": "생각해 보기 · 누구에게 주는 행동일까요?"
+      },
+      "hint": "Use 에게 or 한테 for people and animals, but 에 for inanimate objects.",
+      "items": [
+        {
+          "q": "꽃에 물을 줄 때:  (Giving water to a flower:)   (a) 꽃한테 물을 줘요.   (b) 꽃에 물을 줘요.",
+          "a": "(b) 꽃에 물을 줘요. Plants and inanimate things take 에, not 에게 or 한테, which are used for people and animals."
+        },
+        {
+          "q": "친구에게 편지를 썼어요 / 친구한테 편지를 썼어요.  Both are correct. What is the difference?",
+          "a": "Both mean the same. 에게 is more formal and common in writing, while 한테 is everyday conversational speech."
+        },
+        {
+          "q": "도서관한테 전화를 걸었어요. / 도서관에 전화를 걸었어요.  One is wrong. Which one, and why?",
+          "a": "도서관한테 is wrong. A library is an organization/place, not an animate person, so it takes 에: 도서관에."
+        },
+        {
+          "q": "선생님께 편지를 드려요.  Why do we use 께 instead of 에게 or 한테?  (I give a letter to the teacher.)",
+          "a": "께 is the honorific form of 에게/한테, used to show respect to a person of higher status like a teacher."
+        }
+      ]
+    }
+  ],
+  "pt-26-4": [
+    {
+      "type": "practice",
+      "title": {
+        "en": "Think it through · Connecting people and things",
+        "ko": "생각해 보기 · 사람과 사물 잇기"
+      },
+      "hint": "Choose between written and conversational style, and watch out for final consonants.",
+      "items": [
+        {
+          "q": "친구와 편하게 이야기할 때:  (Chatting casually with a close friend:)   (a) 사과와 바나나를 샀어.   (b) 사과랑 바나나를 샀어.",
+          "a": "(b) 사과랑 바나나를 샀어. (이)랑 and 하고 are natural in casual speech. 와/과 sounds formal and bookish in friendly talk."
+        },
+        {
+          "q": "친구하고 같이 밥을 먹어요 / 친구를 만나요.  Both are correct. What is the difference?",
+          "a": "친구하고 같이 marks the companion doing the activity together. 친구를 marks the person as the direct object of meeting."
+        },
+        {
+          "q": "책과 연필 / 책와 연필.  Which one is correct, and why?  (Book and pencil)",
+          "a": "책과 is correct. 책 ends in a consonant (ㄱ), so it pairs with 과. 와 follows a vowel (사과와)."
+        },
+        {
+          "q": "선생님___ 지수가 이야기해요.  (Which particle fits after consonant 님: 과 or 와?)",
+          "a": "과: 선생님과 지수. 선생님 ends with a consonant (ㅁ), so it must take 과, not 와."
+        }
+      ]
+    }
+  ],
+  "pt-26-11": [
+    {
+      "type": "practice",
+      "title": {
+        "en": "Think it through · Adding also or too",
+        "ko": "생각해 보기 · 도 로 더하기"
+      },
+      "hint": "도 replaces subject and object particles or attaches to other particles.",
+      "items": [
+        {
+          "q": "다른 사람에 이어 나도 같은 음료를 주문할 때:  (Ordering the same drink after someone:)   (a) 저는 커피를 마셔요.   (b) 저도 커피를 마셔요.",
+          "a": "(b) 저도 커피를 마셔요. 도 shows addition (me too), while 저는 introduces a new topic or potential contrast."
+        },
+        {
+          "q": "사과도 먹어요 / 사과를 먹어요.  Both are correct. What is the difference?  (I eat apples.)",
+          "a": "사과도 implies you are eating apples in addition to other things. 사과를 is simply the neutral direct object statement."
+        },
+        {
+          "q": "물을도 마셔요. / 물도 마셔요.  One is wrong. Which one, and why?",
+          "a": "물을도 is wrong. 도 replaces 을/를 entirely when marking a noun, so you say 물도 마셔요, not 물을도."
+        },
+        {
+          "q": "서울에 가요. 부산___ 가요.  (Which particle shows you visit Busan as well: 에도 or 만?)",
+          "a": "에도: 부산에도 가요. Adding 도 to the destination particle indicates visiting Busan in addition to Seoul."
+        }
+      ]
+    }
+  ],
+  "pt-26-12": [
+    {
+      "type": "practice",
+      "title": {
+        "en": "Think it through · Setting limits with only",
+        "ko": "생각해 보기 · 만 으로 한정하기"
+      },
+      "hint": "만 singles out one item and excludes others.",
+      "items": [
+        {
+          "q": "모두 떠나고 민수 혼자 남았을 때:  (When everyone left and only Minsu remained:)   (a) 민수는 남았어요.   (b) 민수만 남았어요.",
+          "a": "(b) 민수만 남았어요. 만 explicitly restricts the remaining person to only Minsu, excluding everyone else."
+        },
+        {
+          "q": "지수만 와요 / 지수도 와요.  Both are correct. What is the difference?",
+          "a": "지수만 means only Jisu comes (nobody else). 지수도 means Jisu comes too (in addition to others)."
+        },
+        {
+          "q": "물만을 마셔요. / 물만 마셔요.  Are both possible in natural speech?",
+          "a": "Both are grammatically possible, but 물만 마셔요 is far more natural in everyday speech because 만 usually replaces 를."
+        },
+        {
+          "q": "오 분___ 기다려 주세요.  (Which particle means just or only five minutes: 만 or 도?)",
+          "a": "만: 오 분만 기다려 주세요. 만 specifies the exact limited duration (just five minutes)."
+        }
+      ]
+    }
+  ],
+  "pt-26-13": [
+    {
+      "type": "practice",
+      "title": {
+        "en": "Think it through · Nothing but with negative endings",
+        "ko": "생각해 보기 · 부정과 어울리는 밖에"
+      },
+      "hint": "밖에 must always end with a negative verb or adjective.",
+      "items": [
+        {
+          "q": "돈이 천 원뿐일 때:  (When you have only 1,000 won left:)   (a) 천 원밖에 있어요.   (b) 천 원밖에 없어요.",
+          "a": "(b) 천 원밖에 없어요. 밖에 always requires a negative predicate like 없어요 or 안 해요. It cannot pair with 있어요."
+        },
+        {
+          "q": "물만 있어요 / 물밖에 없어요.  Both are correct. What is the difference?  (There is only water.)",
+          "a": "물만 있어요 neutrally states that water is all there is. 물밖에 없어요 emphasizes regret or scarcity, that nothing else exists."
+        },
+        {
+          "q": "사과 하나밖에 먹었어요. / 사과 하나밖에 안 먹었어요.  One is wrong. Which one, and why?",
+          "a": "사과 하나밖에 먹었어요 is wrong. 밖에 must be followed by a negative verb form like 안 먹었어요."
+        },
+        {
+          "q": "시간이 삼십 분___ 안 남았어요.  (Which particle fits the negative verb 안 남았어요: 밖에 or 도?)",
+          "a": "밖에: 삼십 분밖에 안 남았어요. The negative verb 안 남았어요 pairs naturally with 밖에 to mean only thirty minutes are left."
+        }
+      ]
+    }
+  ],
+  "pt-26-15": [
+    {
+      "type": "practice",
+      "title": {
+        "en": "Think it through · Choosing either option",
+        "ko": "생각해 보기 · 둘 중 하나 고르기"
+      },
+      "hint": "(이)나 means or when choosing between nouns.",
+      "items": [
+        {
+          "q": "카페에서 주문을 고민할 때:  (Deciding between coffee or juice:)   (a) 커피나 주스를 마실래요.   (b) 커피와 주스를 마실래요.",
+          "a": "(a) 커피나 주스를 마실래요. (이)나 offers a choice between the two drinks, whereas 와 means having both together."
+        },
+        {
+          "q": "빵이나 밥을 먹어요 / 빵과 밥을 먹어요.  Both are correct. What is the difference?",
+          "a": "빵이나 밥 means bread or rice (choosing one). 빵과 밥 means eating both bread and rice together."
+        },
+        {
+          "q": "수박나 참외를 사요. / 수박이나 참외를 사요.  One is wrong. Which one, and why?",
+          "a": "수박나 is wrong. 수박 ends in a consonant (ㄱ), so it must take 이나: 수박이나 참외."
+        },
+        {
+          "q": "토요일___ 일요일에 영화 봐요.  (Which form fits after consonant 토요일: 이나 or 나?)",
+          "a": "이나: 토요일이나 일요일. 토요일 ends in a consonant (ㄹ), so it takes 이나, not 나."
+        }
+      ]
+    }
+  ],
+  "pt-26-16": [
+    {
+      "type": "practice",
+      "title": {
+        "en": "Think it through · Surprise at a large amount",
+        "ko": "생각해 보기 · 많은 양에 놀라기"
+      },
+      "hint": "(이)나 attached to quantity words indicates more than expected.",
+      "items": [
+        {
+          "q": "친구가 책을 10권이나 읽어서 놀랐을 때:  (Surprised that a friend read 10 books:)   (a) 책을 열 권 읽었어요!   (b) 책을 열 권이나 읽었어요!",
+          "a": "(b) 책을 열 권이나 읽었어요! 이나 expresses surprise at the large number of books read, beyond expectations."
+        },
+        {
+          "q": "커피를 세 잔 마셨어요 / 커피를 세 잔이나 마셨어요.  Both are correct. What is the difference?",
+          "a": "세 잔 is a neutral statement of quantity. 세 잔이나 emphasizes that three cups is a lot and conveys surprise."
+        },
+        {
+          "q": "사과 세 개이나 샀어요. / 사과 세 개나 샀어요.  One is wrong. Which one, and why?",
+          "a": "세 개이나 is wrong. 개 ends in a vowel (ㅐ), so it must take 나 without 이: 세 개나."
+        },
+        {
+          "q": "친구가 두 시간___ 기다렸어요!  (Which particle emphasizes that two hours was a very long wait: 이나 or 만?)",
+          "a": "이나: 두 시간이나 기다렸어요! 시간 ends in a consonant (ㄴ), so 이나 is used to highlight the surprisingly long wait."
+        }
+      ]
+    }
   ]
 }
