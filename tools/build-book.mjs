@@ -881,10 +881,10 @@ const coverHtml = `<!doctype html><html><head><meta charset="utf-8"><link rel="s
 <div class="back"><div class="ser">${esc(B.series.en)} · ${esc(B.level)}</div>
 <h3>${esc(B.sub.ko)}</h3><h4>${esc(B.sub.en)}</h4>
 <p>${esc(B.preface.ko[0])}</p>
-<ul><li>${B.unitCount ?? units.length} units · ${B.unitCount ?? units.length}개 단원<small>Hangul to everyday conversation · 한글부터 생활 표현까지</small></li><li>4 practice sets per unit · 단원마다 연습 4묶음<small>Write in the book · 책에 바로 쓰기</small></li><li>Answer key &amp; index · 정답과 찾아보기<small>Check yourself, look up any word · 스스로 확인하고 낱말 찾기</small></li></ul>
+<ul>${(B.back?.items || [[`${B.unitCount ?? units.length} units · ${B.unitCount ?? units.length}개 단원`, 'Hangul to everyday conversation · 한글부터 생활 표현까지'], ['4 practice sets per unit · 단원마다 연습 4묶음', 'Write in the book · 책에 바로 쓰기'], ['Answer key &amp; index · 정답과 찾아보기', 'Check yourself, look up any word · 스스로 확인하고 낱말 찾기']]).map(([a, b]) => `<li>${a}<small>${b}</small></li>`).join('')}</ul>
 <div class="pts">${parts.map((p) => `<div><b>PART ${p.no}</b> ${esc(p.title.ko)} <span>${esc(p.title.en)}</span></div>`).join('')}</div>
-<div class="for">For complete beginners and A1 classes · 완전 초급과 A1 수업에<br>${esc(B.web)}</div>
-<div class="pr"><b>정가 ○○,○○○원</b> (예정)<br>${esc(B.publisher.ko)}<br>${logoSvg({ fg: '#14264A', one: true, height: '4.4mm' })}</div>
+<div class="for">${B.back?.for || 'For complete beginners and A1 classes · 완전 초급과 A1 수업에'}<br>${esc(B.web)}</div>
+<div class="pr"><b>${B.back?.price || '정가 ○○,○○○원'}</b> (예정)<br>${esc(B.publisher.ko)}<br>${logoSvg({ fg: '#14264A', one: true, height: '4.4mm' })}</div>
 ${CLASSIC ? `<div class="mk2"><i>${potatoLevel(3).icon}</i><i>${cheeseLevel(2).icon}</i></div>` : ''}<div class="bar">ISBN barcode<br>발급 후 이 자리에 · 40×25mm 이상</div></div>
 <div class="spine"><div class="t">${esc(B.title.ko)} <small>${esc(B.title.en)}</small></div><div class="p">${logoSvg({ fg: '#fff', one: true, rotate: true, width: '3.4mm' })}</div></div>
 ${LV ? lvFront : `<div class="front"><div class="g"${B.coverGlyphPt ? ` style="font-size:${Number(B.coverGlyphPt)}pt"` : ''}>${B.coverArt === 'steps' ? STEPS_SVG : esc(B.coverGlyph || "ㄱㄴㄷ ㄹㅁㅂ ㅅㅇㅈ ㅊㅋㅌ ㅍㅎ 가나 다라")}</div><div class="c1"></div><div class="c2"></div>

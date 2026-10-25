@@ -118,6 +118,7 @@ const book = {
     ko: ['낱말과 예문을 소리 내 읽으세요.', '카드로 영어 칸을 가리고 스스로 확인한 뒤, 이번엔 한국어 칸을 가려 보세요.', '답은 줄 위에 직접 쓰세요. 다시 풀고 싶어지니 연필을 쓰세요.', '뒤쪽 정답을 확인하고, 틀린 낱말에 표시한 뒤 1일, 3일, 7일 뒤에 다시 풀어 보세요.', '모르는 낱말은 찾아보기에서 찾으세요. 어느 단원에 있는지 알려 줍니다.', '무료 레슨 · 게임 · 학습지: everykoreans.com'],
   },
   bonusUnits: unitsOf.map((x) => x.id),
+  back: { items: [[`${N_WORDS / PER} units · ${N_WORDS / PER}개 단원`, '1,000 frequent TOPIK II words, level 3 to 6 · 3급부터 6급까지 자주 나오는 낱말 1,000개'], ['Example, checkup &amp; look-alike words · 예문 · 단원 점검 · 헷갈리는 낱말', 'Cheese = level, potato = frequency · 치즈는 급수, 감자는 빈출도'], ['Scan the QR for a match game · QR 로 짝 맞추기 게임', 'Practice the same 20 words on your phone · 같은 낱말 20개를 폰으로']], for: 'For TOPIK II learners, level 3 to 6 · TOPIK II 3~6급 준비에', price: '정가 6.9달러' },
   parts, noGuide: true, inline, blocks: {}, unitCount: N_WORDS / PER,
   coverAccent: '단어장',
   coverLevel: { code: 'TOPIK II', name: '3~6급', bg: '#4B2A85', bg2: '#32195E', mascot: ['cheese', 5], title: ['TOPIK II', '단어장', '워크북 1,000'], sub: '자주 나오는 낱말 1,000개' },
