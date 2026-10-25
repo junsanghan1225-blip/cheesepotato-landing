@@ -944,12 +944,22 @@ ol.pr{padding-left:1.6em}ol.pr li{margin:.7em 0;padding-bottom:.5em;border-botto
 .wl{margin:.4em 0}.wans{color:${ACC};font-weight:600}.wp{margin:.6em 0;padding:.6em .8em;border:1px solid #d8cfc0;border-radius:4px}
 .qrb{display:block;margin:1em 0;padding:.6em .8em;border:1px solid ${ACC};border-radius:6px;background:${TINT}}.qrb .qr svg{width:6em;height:6em}.qrb b{display:block;color:${ACC}}.qrb small{margin:.3em 0}.qrb a{word-break:break-all}
 a{color:${ACC}}
+ol.nv,ol.nv ol{list-style:none;padding-left:0;margin:0}ol.nv ol{padding-left:1.1em}ol.nv li{margin:.35em 0}ol.nv a{text-decoration:none;color:#1d1a17}ol.nv li.np>a{font-weight:700;color:${ACC}}
 body,p,td,li,div{text-align:left;letter-spacing:normal;word-spacing:normal}.d b,.gd .d b{display:block}.d{margin:.3em 0 1em}
 /* 인라인 SVG 그림은 PDF 에서는 클래스 CSS 로 크기가 정해진다 — ePub 에서는 크기를 안 주면 화면 가득 커지므로 여기서 정한다 */
 svg{width:1.2em;height:1.2em;max-width:100%}svg[height]{width:auto}svg.ic{width:1em;height:1em;vertical-align:-.12em}.lg svg{width:1.6em;height:1.6em}svg.lvl-ic{width:4em;height:4em}.qr svg,.qrb .qr svg{width:6em;height:6em}
 `);
-  const nav = chap.map((c) => `<li><a href="${c.file}">${xesc(c.title)}</a></li>`).join('');
-  fs.writeFileSync(O('nav.xhtml'), `<?xml version="1.0" encoding="utf-8"?>\n<!DOCTYPE html>\n<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops" lang="en"><head><meta charset="utf-8"/><title>Contents</title></head><body><nav epub:type="toc" id="toc"><h1>Contents · 목차</h1><ol>${nav}</ol></nav></body></html>`);
+  /* 차례: 이름이 없는 앞머리 쪽에 영 · 한 이름을 붙이고, 부 아래에 단원을 들여 쓴다(전자책 기기의 「차례 보기」도 이걸 쓴다) */
+  const NAV_NAME = { copyright: 'Copyright · 판권', preface: 'Preface · 머리말', note: "Author's note · 저자의 말", author: 'About the author · 저자 소개', how: 'How to use this book · 이 책 쓰는 법', guide: 'How this book is organized · 이 책의 구성', answers: 'Answer Key · 정답', bonus: 'Reader bonus · 구매자 혜택' };
+  let navHtml = '', open = false;
+  for (const c of chap) {
+    const t = xesc(NAV_NAME[c.id] || c.title), a = `<a href="${c.file}">${t}</a>`;
+    if (/^part\d+$/.test(c.id)) { navHtml += `${open ? '</ol></li>' : ''}<li class="np">${a}<ol>`; open = true; }
+    else if (/^(answers|bonus)$/.test(c.id) && open) { navHtml += `</ol></li><li>${a}</li>`; open = false; }
+    else navHtml += `<li>${a}</li>`;
+  }
+  const nav = navHtml + (open ? '</ol></li>' : '');
+  fs.writeFileSync(O('nav.xhtml'), `<?xml version="1.0" encoding="utf-8"?>\n<!DOCTYPE html>\n<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops" lang="en"><head><meta charset="utf-8"/><title>Contents</title><link rel="stylesheet" type="text/css" href="style.css"/></head><body><nav epub:type="toc" id="toc"><h1>Contents · 목차</h1><ol class="nv">${nav}</ol></nav></body></html>`);
   const items = chap.map((c) => `<item id="${c.id}" href="${c.file}" media-type="application/xhtml+xml"${c.svg ? ' properties="svg"' : ''}/>`).join('');
   const spine = chap.map((c) => `<itemref idref="${c.id}"/>`).join('');
   const modified = new Date().toISOString().replace(/\.\d+Z$/, 'Z');
