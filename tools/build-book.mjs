@@ -993,6 +993,8 @@ ol.pr li{border-bottom:1px solid #ece6da}small{color:#8a8278}
 .pldc{margin:.3em 0 .8em}.pldc i{display:inline-block;font-style:normal;text-align:center;border:1px solid #cfc6b6;border-radius:4px;padding:.15em .55em;margin:.15em .4em .15em 0}.pldc i b,.pldc i small{display:block;margin:0}
 .bx,.note,.hint,.qrb,.flow .fs,table tr{page-break-inside:avoid;break-inside:avoid}.bx .lg,.sec h3,h2,h3{page-break-after:avoid;break-after:avoid}
 .ak .ai{display:inline-block;margin:.12em 1em .12em 0}.ak .set b{margin-bottom:.15em}
+td:first-child{font-size:1.15em;font-weight:700}ol.nv li.np ol{font-weight:400}.uh,.pd,h2,h3{word-break:keep-all}
+.pd .list{display:none}.pd{padding:1.1em 1.1em .9em;margin:.8em 0}.pd .big{font-size:3em}.pd h3{margin-bottom:.2em}
 ol.nv,ol.nv ol{list-style:none;padding-left:0;margin:0}ol.nv ol{padding-left:1.1em}ol.nv li{margin:.35em 0}ol.nv a{text-decoration:none;color:#1d1a17}ol.nv li.np>a{font-weight:700;color:${ACC}}
 body,p,td,li,div{text-align:left;letter-spacing:normal;word-spacing:normal}.d b,.gd .d b{display:block}.d{margin:.3em 0 1em}
 /* 인라인 SVG 그림은 PDF 에서는 클래스 CSS 로 크기가 정해진다 — ePub 에서는 크기를 안 주면 화면 가득 커지므로 여기서 정한다 */
@@ -1003,7 +1005,7 @@ svg{width:1.2em;height:1.2em;max-width:100%}svg[height]{width:auto}svg.ic{width:
   let navHtml = '', open = false;
   for (const c of chap) {
     const t = xesc(NAV_NAME[c.id] || c.title), a = `<a href="${c.file}" style="text-decoration:none;color:#1d1a17">${t}</a>`;
-    if (/^part\d+$/.test(c.id)) { navHtml += `${open ? '</ol></li>' : ''}<li class="np" style="list-style:none;font-weight:700;margin-top:.6em">${a}<ol style="list-style:none;padding-left:1em;margin:0">`; open = true; }
+    if (/^part\d+$/.test(c.id)) { navHtml += `${open ? '</ol></li>' : ''}<li class="np" style="list-style:none;font-weight:700;margin-top:.6em">${a}<ol style="list-style:none;padding-left:1em;margin:0;font-weight:400">`; open = true; }
     else if (/^(answers|bonus)$/.test(c.id) && open) { navHtml += `</ol></li><li>${a}</li>`; open = false; }
     else navHtml += `<li style="list-style:none">${a}</li>`;
   }
