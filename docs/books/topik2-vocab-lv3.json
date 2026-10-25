@@ -297,8 +297,8 @@
        "pos": "verb",
        "en": "feel sleepy; be drowsy",
        "ex": {
-        "ko": "점심을 배부르게 먹고 따뜻한 방에 앉아 있으니 자꾸 눈꺼풀이 졸리네요.",
-        "en": "Sitting in warm rooms after eating full lunches, my eyelids feel sleepy."
+        "ko": "점심을 배부르게 먹고 따뜻한 방에 앉아 있으니 자꾸 졸리네요.",
+        "en": "After a full lunch, sitting in a warm room, I keep feeling sleepy."
        },
        "lv": 3,
        "fq": 0
@@ -735,7 +735,7 @@
        "pos": "noun",
        "en": "hands and feet",
        "ex": {
-        "ko": "겨울철에 혈액순환이 잘 안되면 손발이 쉽게 차가워져요.",
+        "ko": "겨울철에 혈액순환이 잘 안 되면 손발이 쉽게 차가워져요.",
         "en": "In winter, poor circulation easily makes hands and feet cold."
        },
        "lv": 3,
@@ -843,10 +843,10 @@
       {
        "ko": "대변",
        "pos": "noun",
-       "en": "feces; representation",
+       "en": "feces; stool",
        "ex": {
-        "ko": "국민들의 다양한 의견을 국회에서 충실히 대변해야 해요.",
-        "en": "Citizens' diverse opinions must be faithfully represented in assembly."
+        "ko": "건강검진을 받을 때 소변과 대변 검사를 함께 진행했어요.",
+        "en": "During the health checkup, urine and stool tests were done together."
        },
        "lv": 3,
        "fq": 0
@@ -1171,7 +1171,7 @@
       {
        "ko": "설사",
        "pos": "noun",
-       "en": "diarrhea; even if",
+       "en": "diarrhea",
        "ex": {
         "ko": "배탈이 났는지 아침부터 잦은 설사 증세로 기운이 없어요.",
         "en": "Perhaps having stomach trouble, I have no energy from frequent diarrhea."
@@ -1237,7 +1237,7 @@
       {
        "ko": "암",
        "pos": "noun",
-       "en": "female; she",
+       "en": "cancer",
        "ex": {
         "ko": "정기적인 국가 건강검진을 받아 암을 조기에 발견하는 것이 중요해요.",
         "en": "Taking regular national health checkups to detect cancer early is crucial."
@@ -1490,7 +1490,7 @@
        "pos": "noun",
        "en": "compress; poultice; pack",
        "ex": {
-        "ko": "삔 발목의 붓기를 가라앉히려고 얼음주머니를 대고 시원하게 냉찜질을 했어요.",
+        "ko": "삔 발목의 부기를 가라앉히려고 얼음주머니를 대고 시원하게 냉찜질을 했어요.",
         "en": "To relieve sprained ankle swelling, I applied ice packs doing cold compress."
        },
        "lv": 3,
@@ -2430,7 +2430,7 @@
       {
        "ko": "당연히",
        "pos": "adverb",
-       "en": "naturally; fairly",
+       "en": "naturally; of course",
        "ex": {
         "ko": "약속 시간은 당연히 지켜야 할 기본적인 예의이지요.",
         "en": "Keeping promised time is of course a fundamental etiquette."
@@ -2485,7 +2485,7 @@
       {
        "ko": "딱",
        "pos": "adverb",
-       "en": "with a snap",
+       "en": "exactly; tightly; firmly",
        "ex": {
         "ko": "이 신발을 신어 보니 발에 딱 맞고 아주 편해요.",
         "en": "Trying these shoes on, they fit my feet exactly and are very comfortable."
@@ -2945,7 +2945,7 @@
       {
        "ko": "소요",
        "pos": "noun",
-       "en": "taking time; requirement; disturbance",
+       "en": "taking time; requirement",
        "ex": {
         "ko": "서울에서 부산까지 고속철도를 타면 두 시간 반 정도 소요돼요.",
         "en": "Taking high-speed rail from Seoul to Busan takes about two and half hours."
@@ -3404,8 +3404,8 @@
      "cloze": {
       "items": [
        {
-        "q": "밤사이 하늘에서 탐스러운 함박눈 ___가 소복하게 쏟아져 내렸다.",
-        "en": "Plump heavy snow clusters poured down softly from skies overnight.",
+        "q": "정원에 탐스러운 장미꽃 수십 ___가 활짝 피어났다.",
+        "en": "Dozens of plump roses bloomed fully in the garden.",
         "a": "송이"
        },
        {
@@ -3768,8 +3768,8 @@
        "pos": "noun",
        "en": "light green; yellow-green",
        "ex": {
-        "ko": "봄날 나무에 돋아난 싱그러운 연두색 새싹들이 참 싱그러워 보여요.",
-        "en": "Fresh light green sprouts growing on spring trees look very fresh."
+        "ko": "봄날 나뭇가지에 돋아난 파릇한 연두색 새싹들이 참 싱그러워 보여요.",
+        "en": "The fresh light green sprouts on the spring branches look very lively."
        },
        "lv": 3,
        "fq": 0
@@ -4052,8 +4052,8 @@
        "pos": "noun",
        "en": "whip; rod",
        "ex": {
-        "ko": "매 순간 최선을 다하며 보람 있게 살고 싶어요.",
-        "en": "I wish to live fruitfully doing my best every single moment."
+        "ko": "옛날에는 잘못을 하면 서당 훈장님께 종아리에 매를 맞았어요.",
+        "en": "In the old days, a pupil who did wrong was hit on the calves with a rod by the village-school teacher."
        },
        "lv": 3,
        "fq": 1
@@ -4433,7 +4433,7 @@
       {
        "ko": "설",
        "pos": "noun",
-       "en": "Seollal; New Year; theory",
+       "en": "Seollal; Lunar New Year",
        "ex": {
         "ko": "설 명절 아침에 온 가족이 모여 떡국을 맛있게 먹었어요.",
         "en": "On Seollal holiday morning, the family gathered eating rice cake soup."
@@ -5003,7 +5003,7 @@
       {
        "ko": "소매",
        "pos": "noun",
-       "en": "sleeve; retail",
+       "en": "sleeve",
        "ex": {
         "ko": "날씨가 더워서 셔츠 소매를 팔꿈치까지 걷어 올렸어요.",
         "en": "The weather was hot, so I rolled up shirt sleeves to elbows."
@@ -5355,7 +5355,7 @@
        "pos": "noun",
        "en": "change (money)",
        "ex": {
-        "ko": "만원을 내고 거스름돈으로 삼천 원을 돌려받았어요.",
+        "ko": "만 원을 내고 거스름돈으로 삼천 원을 돌려받았어요.",
         "en": "I gave 10,000 won and received 3,000 won back as change."
        },
        "lv": 3,
@@ -5905,8 +5905,8 @@
         "a": "드라이어"
        },
        {
-        "q": "지하철 ___물 센터에는 주인을 기다리는 물건들이 가득하다.",
-        "en": "The subway lost-and-found center is filled with items awaiting owners.",
+        "q": "신분증을 잃어버렸을 때는 즉시 관공서에 ___ 신고를 해야 한다.",
+        "en": "If you lose your ID, you must report the loss to a government office right away.",
         "a": "분실"
        },
        {
@@ -6747,8 +6747,8 @@
         "a": "어느새"
        },
        {
-        "q": "정부는 ___ 국무회의를 열고 민생 안정 대책을 최종 확정했다.",
-        "en": "The government held cabinet meetings yesterday, finalizing measures.",
+        "q": "___ 도서관에서 빌린 소설책을 오늘 벌써 다 읽었다.",
+        "en": "I already finished the novel I borrowed from the library yesterday.",
         "a": "어저께"
        }
       ],
@@ -7061,7 +7061,7 @@
       {
        "ko": "부리다",
        "pos": "verb",
-       "en": "manage; show; display; throw",
+       "en": "show; display; throw (a tantrum); manage (people)",
        "ex": {
         "ko": "사소한 일로 어린아이처럼 투정이나 짜증을 부리지 마세요.",
         "en": "Don't throw tantrums or irritability like a child over trivial things."
@@ -7130,7 +7130,7 @@
        "빌다"
       ],
       "options": [
-       "manage",
+       "show",
        "pray",
        "forecast",
        "humid",
@@ -7325,7 +7325,7 @@
        "pos": "determiner",
        "en": "impressive; memorable",
        "ex": {
-        "ko": "그 영화의 마지막 결말 장면은 오랜 시간 잊히지 않을 만큼 인상적 연출이었어요.",
+        "ko": "그 영화의 마지막 결말 장면은 오랜 시간 잊히지 않을 만큼 인상적인 연출이었어요.",
         "en": "That movie's final ending scene was an impressive direction not forgotten."
        },
        "lv": 3,
@@ -7739,7 +7739,7 @@
       {
        "ko": "반하다",
        "pos": "verb",
-       "en": "fall in love; be against",
+       "en": "fall for; be charmed by",
        "ex": {
         "ko": "다정하고 배려심 깊은 그의 모습에 첫눈에 반해 버렸어요.",
         "en": "I fell in love at first sight with his affectionate, considerate look."
@@ -7906,8 +7906,8 @@
        "pos": "noun",
        "en": "depression; melancholy",
        "ex": {
-        "ko": "비가 계속 내리는 궂은 날씨에는 왠지 마음이 차분해지며 우울이 찾아와요.",
-        "en": "On gloomy days with constant rain, calmness settles and gloom sets in."
+        "ko": "비가 계속 내리는 궂은 날씨에는 마음이 차분해지면서도 왠지 우울한 기분이 들어요.",
+        "en": "On gloomy days with constant rain, I feel calm yet somehow depressed."
        },
        "lv": 3,
        "fq": 0
@@ -7962,7 +7962,7 @@
        "속상하다"
       ],
       "options": [
-       "fall in love",
+       "fall for",
        "envy",
        "unsatisfactory",
        "upset",
@@ -8201,7 +8201,7 @@
        "pos": "determiner",
        "en": "fantastic; magical",
        "ex": {
-        "ko": "밤하늘을 수놓은 오색 불꽃놀이는 모두를 감탄하게 만든 환상적 광경이었어요.",
+        "ko": "밤하늘을 수놓은 오색 불꽃놀이는 모두를 감탄하게 만든 환상적인 광경이었어요.",
         "en": "Five-color fireworks embroidering night skies were a fantastic sight."
        },
        "lv": 3,
@@ -8581,7 +8581,7 @@
       },
       {
        "ko": "끼",
-       "pos": "noun",
+       "pos": "bound noun",
        "en": "meal",
        "ex": {
         "ko": "바쁘더라도 하루 세 끼 식사를 규칙적으로 챙겨 드세요.",
@@ -8787,17 +8787,17 @@
      },
      "match": {
       "words": [
+       "끼",
        "따다",
        "싱싱하다",
-       "끼",
        "인스턴트",
        "술잔"
       ],
       "options": [
        "yogurt",
+       "meal",
        "pick",
        "to be fresh",
-       "meal",
        "instant food",
        "liquor glass"
       ],
@@ -9526,7 +9526,7 @@
        "pos": "noun",
        "en": "overeating",
        "ex": {
-        "ko": "뷔페에서 과식했더니 소화가 잘 안되고 배가 더부룩해요.",
+        "ko": "뷔페에서 과식했더니 소화가 잘 안 되고 배가 더부룩해요.",
         "en": "I overate at the buffet, so digestion isn't good and my stomach feels bloated."
        },
        "lv": 3,
@@ -10006,7 +10006,7 @@
       {
        "ko": "실",
        "pos": "noun",
-       "en": "thread; yarn; room",
+       "en": "thread; yarn",
        "ex": {
         "ko": "단추가 떨어져서 바늘에 굵은 실을 꿰어 튼튼히 달았어요.",
         "en": "Buttons fell off, so I threaded needles with thick thread to sew."
@@ -11111,7 +11111,7 @@
       {
        "ko": "벽지",
        "pos": "noun",
-       "en": "wallpaper; remote area",
+       "en": "wallpaper",
        "ex": {
         "ko": "방 분위기를 화사하게 바꾸려고 새 벽지를 발랐어요.",
         "en": "To brighten the room atmosphere, I put up new wallpaper."
@@ -12328,7 +12328,7 @@
        "pos": "determiner",
        "en": "exotic",
        "ex": {
-        "ko": "지중해풍 건물과 야자수가 어우러져 무척 이국적 풍경을 자아내네요.",
+        "ko": "지중해풍 건물과 야자수가 어우러져 무척 이국적인 풍경을 자아내네요.",
         "en": "Mediterranean buildings and palm trees blend creating very exotic scenery."
        },
        "lv": 3,
@@ -12449,7 +12449,7 @@
        "pos": "determiner",
        "en": "being introverted",
        "ex": {
-        "ko": "그는 내성적 성격이라 처음 만나는 사람 앞에서는 말수가 적어요.",
+        "ko": "그는 내성적인 성격이라 처음 만나는 사람 앞에서는 말수가 적어요.",
         "en": "He has an introverted personality, so he speaks little before strangers."
        },
        "lv": 3,
@@ -12918,7 +12918,7 @@
       {
        "ko": "데리다",
        "pos": "verb",
-       "en": "take; bring (a person)",
+       "en": "take along (a person); bring (a person)",
        "ex": {
         "ko": "어린 동생을 데리고 근처 공원으로 산책을 다녀왔어요.",
         "en": "I took my little sibling and went for a walk to a nearby park."
@@ -12954,7 +12954,7 @@
        "우정"
       ],
       "options": [
-       "take",
+       "take along (a person)",
        "female",
        "woman",
        "friendship",
@@ -13089,7 +13089,7 @@
        "a": "특기"
       },
       {
-       "q": "take →",
+       "q": "take along (a person) →",
        "a": "데리다"
       }
      ]
@@ -14571,7 +14571,7 @@
       {
        "ko": "말하기",
        "pos": "noun",
-       "en": "speaking class",
+       "en": "speaking; speech",
        "ex": {
         "ko": "한국어 말하기 실력을 키우기 위해 매일 연습해요.",
         "en": "I practice every day to improve Korean speaking skills."
@@ -14593,7 +14593,7 @@
       {
        "ko": "조사",
        "pos": "noun",
-       "en": "postpositional particle; survey; investigation",
+       "en": "survey; investigation",
        "ex": {
         "ko": "소비자 만족도 조사를 위해 설문지를 작성했어요.",
         "en": "I drafted a questionnaire for a consumer satisfaction survey."
@@ -14642,7 +14642,7 @@
        },
        {
         "q": "디자이너는 전통 한복의 선을 현대적인 감각의 ___에 접목했다.",
-        "en": "Designers grafted traditional Hanok lines into modern sensibility styles.",
+        "en": "Designers grafted traditional Hanbok lines into modern sensibility styles.",
         "a": "스타일"
        },
        {
@@ -15656,7 +15656,7 @@
        "pos": "determiner",
        "en": "personal; individual",
        "ex": {
-        "ko": "이것은 어디까지나 제 개인적 의견이니 참고만 해 주세요.",
+        "ko": "이것은 어디까지나 제 개인적인 의견이니 참고만 해 주세요.",
         "en": "This is strictly my personal opinion, so please take it only as reference."
        },
        "lv": 3,
@@ -17011,7 +17011,7 @@
       },
       {
        "ko": "사인",
-       "pos": "verb",
+       "pos": "noun",
        "en": "signature; autograph",
        "ex": {
         "ko": "서류 내용을 꼼꼼히 확인한 뒤에 맨 아래 칸에 사인하세요.",
@@ -17047,7 +17047,7 @@
        "pos": "interjection",
        "en": "no; nope",
        "ex": {
-        "ko": "아냐, 그건 네 잘못이 아니에요.",
+        "ko": "아냐, 그건 네 잘못이 아니야.",
         "en": "No, that is not your fault."
        },
        "lv": 3,
@@ -17132,8 +17132,8 @@
      "cloze": {
       "items": [
        {
-        "q": "이야기가 다른 길로 샜는데 ___ 본론으로 돌아갈 필요가 있다.",
-        "en": "The story drifted off, but there is a need to return to main points.",
+        "q": "오늘 날씨가 참 좋네요. ___ 오후에 시간 있으세요?",
+        "en": "The weather is lovely today. By the way, are you free this afternoon?",
         "a": "근데"
        },
        {
@@ -18569,7 +18569,7 @@
       {
        "ko": "박",
        "pos": "bound noun",
-       "en": "gourd",
+       "en": "night(s) (counter for overnight stays)",
        "ex": {
         "ko": "제주도로 2박 3일 동안 여행을 다녀왔어요.",
         "en": "I went on a 2-night 3-day trip to Jeju Island."
@@ -18591,7 +18591,7 @@
       {
        "ko": "묵다",
        "pos": "verb",
-       "en": "get old; get stale",
+       "en": "stay (overnight); lodge; get old",
        "ex": {
         "ko": "부산 여행 중에 바다가 훤히 내려다보이는 호텔에 묵었어요.",
         "en": "During the Busan trip, I stayed at a hotel overlooking the ocean."
@@ -18771,8 +18771,8 @@
       ],
       "options": [
        "inn",
-       "gourd",
-       "get old",
+       "night(s) (counter for overnight stays)",
+       "stay (overnight)",
        "backpack",
        "backpacking trip",
        "guidebook"
