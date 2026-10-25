@@ -1061,22 +1061,22 @@
             [
               "의",
               "민수의 신발이에요.",
-              "They are Minsus shoes."
+              "They are Minsu's shoes."
             ],
             [
               "의",
               "친구의 집이에요.",
-              "It is my friends house."
+              "It is my friend's house."
             ],
             [
               "의",
               "어머니의 안경이에요.",
-              "They are my mothers glasses."
+              "They are my mother's glasses."
             ],
             [
               "의",
               "여기는 서울의 유명한 공원이에요.",
-              "This is Seouls famous park."
+              "This is Seoul's famous park."
             ],
             [
               "의",
@@ -1106,7 +1106,7 @@
           },
           "items": [
             {
-              "q": "선생님___ 책이에요.  (It is the teachers book.)",
+              "q": "선생님___ 책이에요.  (It is the teacher's book.)",
               "a": "의"
             },
             {
@@ -1142,11 +1142,11 @@
               "a": "의"
             },
             {
-              "q": "우리 회사___ 새로운 제품이 시장에서 인기예요.  (Our companys new product is popular in the market.)",
+              "q": "우리 회사___ 새로운 제품이 시장에서 인기예요.  (Our company's new product is popular in the market.)",
               "a": "의"
             },
             {
-              "q": "지수___ 밝은 미소가 주위 사람들을 행복하게 해요.  (Jisus bright smile makes the people around her happy.)",
+              "q": "지수___ 밝은 미소가 주위 사람들을 행복하게 해요.  (Jisu's bright smile makes the people around her happy.)",
               "a": "의"
             },
             {
@@ -3734,7 +3734,7 @@
               "a": "처럼"
             },
             {
-              "q": "어머니의 품___ 포근하고 아늑한 방이에요.  (It is a cozy room warm like a mothers embrace.)",
+              "q": "어머니의 품___ 포근하고 아늑한 방이에요.  (It is a cozy room warm like a mother's embrace.)",
               "a": "처럼"
             }
           ]
@@ -4026,7 +4026,7 @@
             [
               "마다",
               "방학마다 가족과 함께 시골 할머니 댁에 가요.",
-              "Every vacation, I go to my countryside grandmothers house with family."
+              "Every vacation, I go to my countryside grandmother's house with family."
             ]
           ]
         },
