@@ -518,5 +518,265 @@
       "kind": "contrast",
       "note": "Dietary habits opposites. 偏食 편식 is unbalanced eating of only favorite items (아이의 편식 습관 picky eating), whereas 골고루 먹다 is eating a well-balanced spread of all nutrients."
     }
+  ],
+  "tx-21": [
+    {
+      "words": [
+        "와인",
+        "포도주"
+      ],
+      "kind": "synonym",
+      "note": "Both mean wine. 와인 is the standard modern loanword common on menus and in daily speech (화이트 와인), whereas 포도주 (葡萄酒) is formal or literary (포도주 한 병)."
+    },
+    {
+      "words": [
+        "싱싱하다",
+        "신선하다"
+      ],
+      "kind": "synonym",
+      "note": "Both mean fresh. 싱싱하다 describes raw seafood, vegetables, or fruit full of life (싱싱한 생선), while 신선하다 extends to air, ideas, or sensations (신선한 공기, 신선한 충격)."
+    },
+    {
+      "words": [
+        "음주",
+        "금주"
+      ],
+      "kind": "contrast",
+      "note": "음주 (飮酒) means drinking alcohol, while 금주 (禁酒) means abstaining from alcohol. (음주 운전 drunken driving vs 금주 구역 non-drinking zone)."
+    }
+  ],
+  "tx-22": [
+    {
+      "words": [
+        "조미료",
+        "양념"
+      ],
+      "kind": "synonym",
+      "note": "조미료 (調味料) refers to seasonings or flavor enhancers, often manufactured (화학 조미료), while 양념 refers to prepared seasonings, rubs, or marinades (양념 치킨, 양념장)."
+    },
+    {
+      "words": [
+        "양배추",
+        "배추"
+      ],
+      "kind": "contrast",
+      "note": "양배추 (洋배추) is round Western cabbage used for salads or stir-fries (양배추 샐러드), whereas 배추 is napa cabbage mainly used for making kimchi (배추김치)."
+    },
+    {
+      "words": [
+        "참기름",
+        "들기름"
+      ],
+      "kind": "contrast",
+      "note": "참기름 is toasted sesame oil with a fragrant aroma (참기름 한 방울), while 들기름 is perilla oil made from perilla seeds with an earthy herbal flavor (들기름 막국수)."
+    }
+  ],
+  "tx-23": [
+    {
+      "words": [
+        "해물",
+        "해산물"
+      ],
+      "kind": "synonym",
+      "note": "Both mean seafood. 해물 (海物) is commonly used for culinary ingredients and cooked dishes (해물탕, 해물파전), whereas 해산물 (海産物) broadly covers all marine products and marine life (해산물 시장)."
+    },
+    {
+      "words": [
+        "메뉴판",
+        "차림표"
+      ],
+      "kind": "synonym",
+      "note": "Both mean menu. 메뉴판 is the standard modern word used in most restaurants (메뉴판을 보다), whereas 차림표 is a native Korean term seen in traditional Korean eateries (식당 차림표)."
+    },
+    {
+      "words": [
+        "연하다",
+        "질기다"
+      ],
+      "kind": "contrast",
+      "note": "연하다 means tender or soft (고기가 연하다), while 질기다 means tough or chewy (고기가 질기다). 연하다 can also mean light in color or flavor (연한 차)."
+    }
+  ],
+  "tx-24": [
+    {
+      "words": [
+        "수선",
+        "수리"
+      ],
+      "kind": "synonym",
+      "note": "Both mean repair or alteration. 수선 (修繕) is specifically for mending clothes, shoes, or bags (옷 수선, 구두 수선), while 수리 (修理) is for machines, devices, or buildings (시계 수리, 건물 수리)."
+    },
+    {
+      "words": [
+        "세탁물",
+        "빨랫감"
+      ],
+      "kind": "synonym",
+      "note": "Both mean laundry. 세탁물 (洗濯物) is formal or written (세탁물 보관소), while 빨랫감 is everyday native Korean for clothes waiting to be washed (빨랫감이 쌓이다)."
+    },
+    {
+      "words": [
+        "실",
+        "실"
+      ],
+      "kind": "homonym",
+      "note": "실 (thread or yarn: 바늘과 실) vs 室 (room or office: 수술실, 사무실). Completely different roots and meanings."
+    }
+  ],
+  "tx-25": [
+    {
+      "words": [
+        "꽂다",
+        "꼽다"
+      ],
+      "kind": "contrast",
+      "note": "꽂다 means to stick, plug in, or insert into something (플러그를 꽂다, 꽃을 꽂다), while 꼽다 means to count on fingers or single out as notable (손가락을 꼽다, 장점으로 꼽다)."
+    },
+    {
+      "words": [
+        "도장",
+        "도장"
+      ],
+      "kind": "homonym",
+      "note": "圖章 (personal seal or stamp: 계약서에 도장을 찍다) vs 道場 (martial arts training hall or dojo: 태권도 도장). Distinct Hanja and meanings."
+    },
+    {
+      "words": [
+        "부채",
+        "부채"
+      ],
+      "kind": "homonym",
+      "note": "부채 (handheld fan: 부채를 부치다) vs 負債 (debt or liabilities: 부채를 갚다). Same pronunciation, distinct origins."
+    }
+  ],
+  "tx-26": [
+    {
+      "words": [
+        "계약금",
+        "보증금"
+      ],
+      "kind": "contrast",
+      "note": "계약금 (契約金) is the initial down payment paid upon signing a contract (계약금을 걸다), while 보증금 (保證金) is a security deposit held during a lease and refunded upon move-out (임대 보증금)."
+    },
+    {
+      "words": [
+        "월세",
+        "전세"
+      ],
+      "kind": "contrast",
+      "note": "월세 (月貰) is a monthly rent payment (월세를 내다), while 전세 (傳貰) is a lump-sum key money lease unique to Korea where the large deposit is returned when moving out (전세 계약)."
+    },
+    {
+      "words": [
+        "대문",
+        "현관문"
+      ],
+      "kind": "contrast",
+      "note": "대문 (大門) is the outer main gate of a house or courtyard (대문을 열다), whereas 현관문 (玄關門) is the front entrance door directly leading into the indoor living space (현관문을 잠그다)."
+    }
+  ],
+  "tx-27": [
+    {
+      "words": [
+        "벽지",
+        "벽지"
+      ],
+      "kind": "homonym",
+      "note": "벽지 (wallpaper: 벽지를 바르다) vs 僻地 (remote, isolated rural area: 벽지 학교, 벽지 근무). Completely distinct Hanja."
+    },
+    {
+      "words": [
+        "잠그다",
+        "닫다"
+      ],
+      "kind": "synonym",
+      "note": "닫다 means to shut or close without locking (문을 닫다), whereas 잠그다 means to securely lock or fasten, or turn off a valve (열쇠로 잠그다, 가스 밸브를 잠그다)."
+    },
+    {
+      "words": [
+        "수집",
+        "채집"
+      ],
+      "kind": "synonym",
+      "note": "수집 (收集) means collecting items as a hobby or gathering data (우표 수집, 정보 수집), while 채집 (採集) specifically refers to gathering natural specimens like insects or plants (곤충 채집)."
+    }
+  ],
+  "tx-28": [
+    {
+      "words": [
+        "전시회",
+        "박람회"
+      ],
+      "kind": "synonym",
+      "note": "전시회 (展示會) is an exhibition displaying artworks or artifacts for viewing (미술 전시회), whereas 박람회 (博覽會) is a large-scale expo or trade fair showcasing industries and innovations (세계 박람회)."
+    },
+    {
+      "words": [
+        "경기장",
+        "체육관"
+      ],
+      "kind": "contrast",
+      "note": "경기장 (競技場) refers broadly to sports arenas or outdoor stadiums (축구 경기장), while 체육관 (體育館) specifically denotes an indoor gym or sports arena (실내 체육관)."
+    },
+    {
+      "words": [
+        "장면",
+        "광경"
+      ],
+      "kind": "synonym",
+      "note": "장면 (場面) refers to a scene in a film, play, or story (영화의 명장면), while 광경 (光景) refers to an impressive sight or spectacle witnessed in reality (놀라운 광경)."
+    }
+  ],
+  "tx-29": [
+    {
+      "words": [
+        "사자",
+        "사자"
+      ],
+      "kind": "homonym",
+      "note": "사자 (lion: 동물의 왕 사자) vs 使者 (envoy or messenger: 평화의 사자) vs 死者 (the dead or deceased: 사자의 넋). Different Hanja and origins."
+    },
+    {
+      "words": [
+        "애완동물",
+        "반려동물"
+      ],
+      "kind": "synonym",
+      "note": "Both mean pet. 애완동물 (愛玩動物) is the traditional term for kept animals (애완동물을 키우다), while 반려동물 (伴侶動物) is modern, emphasizing animals as life companions and family members."
+    },
+    {
+      "words": [
+        "산꼭대기",
+        "정상"
+      ],
+      "kind": "synonym",
+      "note": "Both mean mountain summit. 산꼭대기 is everyday native Korean (산꼭대기에 오르다), while 정상 (頂上) is Sino-Korean, also used metaphorically for top status or diplomatic summits (정상 회담)."
+    }
+  ],
+  "tx-30": [
+    {
+      "words": [
+        "성명",
+        "성명"
+      ],
+      "kind": "homonym",
+      "note": "姓名 (full name: 성명과 주민등록번호) vs 聲明 (public statement or declaration: 성명을 발표하다). Distinct Hanja and meanings."
+    },
+    {
+      "words": [
+        "해변",
+        "바닷가"
+      ],
+      "kind": "synonym",
+      "note": "Both mean beach or seashore. 해변 (海邊) is Sino-Korean and common in written or travel contexts (해변 휴양지), while 바닷가 is everyday native Korean (바닷가에서 놀다)."
+    },
+    {
+      "words": [
+        "내성적",
+        "사교적"
+      ],
+      "kind": "contrast",
+      "note": "내성적 (內省的) describes an introverted or reserved personality (내성적인 성격), whereas 사교적 (社交的) describes an outgoing, sociable demeanor (사교적인 사람)."
+    }
   ]
 }
