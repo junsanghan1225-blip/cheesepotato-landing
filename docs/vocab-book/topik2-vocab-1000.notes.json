@@ -1038,5 +1038,265 @@
       "kind": "contrast",
       "note": "Direct antonyms for moderation. 과도하다 means going beyond reasonable limits (과도한 소비 excessive spending), whereas 적절하다 means fitting the proper measure (적절한 운동 proper exercise)."
     }
+  ],
+  "tv-41": [
+    {
+      "words": [
+        "무상",
+        "유상"
+      ],
+      "kind": "contrast",
+      "note": "Direct legal and economic antonyms. 無償 무상 is provision without cost or compensation (무상 원조 free aid), whereas 有償 유상 involves payment or fees (유상 교환 paid exchange)."
+    },
+    {
+      "words": [
+        "공유",
+        "독점"
+      ],
+      "kind": "contrast",
+      "note": "Direct opposites for possession. 공유 is joint ownership and open sharing among many (정보 공유 sharing info), while 독점 is exclusive cornering of goods by one party (독점 판매 exclusive sales)."
+    },
+    {
+      "words": [
+        "복원",
+        "복구"
+      ],
+      "kind": "synonym",
+      "note": "Both mean restoration, but 복원 focuses on returning cultural artifacts or nature to original historic form (유적지 복원). 복구 focuses on repairing storm damage or computer crashes back to operation (전산망 복구)."
+    }
+  ],
+  "tv-42": [
+    {
+      "words": [
+        "자정",
+        "자정"
+      ],
+      "kind": "homonym",
+      "note": "子正 the exact hour of midnight (자정이 넘은 시간 past midnight) vs 自淨 natural ability of nature or society to cleanse itself (하천의 자정 작용 self-purifying action of rivers)."
+    },
+    {
+      "words": [
+        "종",
+        "종"
+      ],
+      "kind": "homonym",
+      "note": "鐘 metallic bell struck to produce sound (보신각 종 Bosingak bell) vs 種 biological category or species (새로운 식물 종 new plant species). Distinct hanja roots."
+    },
+    {
+      "words": [
+        "가공",
+        "가공"
+      ],
+      "kind": "homonym",
+      "note": "加工 industrial processing of raw goods (가공식품 processed food) vs 架空 fictional or imaginary creation (가공의 인물 fictitious character). Distinct hanja compounds."
+    }
+  ],
+  "tv-43": [
+    {
+      "words": [
+        "노후",
+        "노후"
+      ],
+      "kind": "homonym",
+      "note": "老後 years after retirement (노후 생활 retirement life) vs 老朽 physical aging and decrepitude of machinery or buildings (노후 배관 aging pipes). Two major societal themes in TOPIK."
+    },
+    {
+      "words": [
+        "모방",
+        "창조"
+      ],
+      "kind": "contrast",
+      "note": "Direct philosophical opposites. 모방 is mimicking or reproducing an existing model (모방 범죄 copycat crime), whereas 창조 is originating novel creations (예술적 창조 artistic creation)."
+    },
+    {
+      "words": [
+        "단기간",
+        "장기간"
+      ],
+      "kind": "contrast",
+      "note": "Direct antonyms for duration. 단기간 is over a brief window of days or weeks (단기간 집중 훈련 short-term intensive training), while 장기간 spans months or years (장기간 연구 long-term research)."
+    }
+  ],
+  "tv-44": [
+    {
+      "words": [
+        "장기",
+        "장기"
+      ],
+      "kind": "homonym",
+      "note": "長期 long duration of time (장기 체류 long-term stay) vs 臟器 internal anatomical organ (장기 이식 organ transplant) vs traditional board game 將棋. Completely distinct roots."
+    },
+    {
+      "words": [
+        "투명",
+        "불투명"
+      ],
+      "kind": "contrast",
+      "note": "Direct antonyms. 透明 투명 means clear enough to see through or transparent in governance (투명한 유리, 투명한 경영), while 不透明 불투명 means opaque or murky (불투명한 미래 uncertain future)."
+    },
+    {
+      "words": [
+        "자금",
+        "비용"
+      ],
+      "kind": "synonym",
+      "note": "자금 refers to a pool of capital or funding prepared to start an enterprise (사업 자금 business capital). 비용 refers to money actually spent during execution (공사 비용 construction expense)."
+    }
+  ],
+  "tv-45": [
+    {
+      "words": [
+        "정비",
+        "정비"
+      ],
+      "kind": "homonym",
+      "note": "整備 mechanical servicing, overhaul, or administrative tidying (자동차 정비 car servicing, 환경 정비) vs historical title 正妃 meaning the primary royal queen consort. Distinct hanja roots."
+    },
+    {
+      "words": [
+        "전면",
+        "전면"
+      ],
+      "kind": "homonym",
+      "note": "前面 physical front facade or front surface (건물 전면 front of building) vs 全面 comprehensive or all-out scope (전면 재검토 full-scale reexamination). Distinct hanja roots."
+    },
+    {
+      "words": [
+        "대폭",
+        "소폭"
+      ],
+      "kind": "contrast",
+      "note": "Direct opposites for statistical margins. 대폭 indicates a dramatic shift (대폭 인상 sharp price hike), whereas 소폭 indicates a minor adjustment (소폭 하락 slight drop)."
+    }
+  ],
+  "tv-46": [
+    {
+      "words": [
+        "공정",
+        "공정"
+      ],
+      "kind": "homonym",
+      "note": "公正 fairness and impartiality (공정한 심사 fair judging) vs 工程 industrial manufacturing process stage (조립 공정 assembly line process). Major TOPIK homonym."
+    },
+    {
+      "words": [
+        "원료",
+        "재료"
+      ],
+      "kind": "synonym",
+      "note": "원료 refers to raw unprocessed basic substances undergoing chemical transformation (철광석은 철의 원료). 재료 refers to direct ingredients or parts that retain their form (음식 재료 food ingredients)."
+    },
+    {
+      "words": [
+        "자발적",
+        "강제적"
+      ],
+      "kind": "contrast",
+      "note": "Direct antonyms for agency. 자발적 arises from one own free will (자발적인 참여 voluntary participation), whereas 강제적 is imposed by external pressure (강제적 퇴장 forced eviction)."
+    }
+  ],
+  "tv-47": [
+    {
+      "words": [
+        "과다",
+        "과소"
+      ],
+      "kind": "contrast",
+      "note": "Direct antonyms for quantity extremes. 過多 과다 is having far too much (비타민 과다 섭취 excessive vitamin intake), whereas 過少 과소 is having too little (과소 평가 underestimation)."
+    },
+    {
+      "words": [
+        "재정",
+        "재정"
+      ],
+      "kind": "homonym",
+      "note": "Sound identical ([재정]). 財政 재정 is financial and fiscal administration (지방 재정 local government finances), while 制定 제정 is the legal enactment of a law or charter (법률 제정 law enactment)."
+    },
+    {
+      "words": [
+        "민간",
+        "정부"
+      ],
+      "kind": "contrast",
+      "note": "Direct institutional antonyms. 민간 refers to the private non-governmental sphere (민간 기업 private enterprise), whereas 정부 is state authorities (정부 지원 government subsidy)."
+    }
+  ],
+  "tv-48": [
+    {
+      "words": [
+        "공방",
+        "공방"
+      ],
+      "kind": "homonym",
+      "note": "工房 artisan craft workshop (가죽 공방 leather craft studio) vs 攻防 intense offensive-defensive clash in debate or court (치열한 법정 공방 heated courtroom battle)."
+    },
+    {
+      "words": [
+        "인위적",
+        "자연적"
+      ],
+      "kind": "contrast",
+      "note": "Direct philosophical antonyms. 인위적 is produced by deliberate human contrivance (인위적인 조작 artificial manipulation), while 자연적 arises without human hands (자연적인 현상 natural phenomenon)."
+    },
+    {
+      "words": [
+        "파장",
+        "파장"
+      ],
+      "kind": "homonym",
+      "note": "波長 physical wavelength or social reverberation (큰 파장을 불러일으키다 to cause widespread repercussions) vs traditional 罷場 meaning the end of a market day (장이 파장하다)."
+    }
+  ],
+  "tv-49": [
+    {
+      "words": [
+        "물리적",
+        "화학적"
+      ],
+      "kind": "contrast",
+      "note": "Classic scientific and legal contrast. 물리적 refers to bodily, mechanical, or tangible forces (물리적 충돌 physical impact), whereas 화학적 involves transformation of molecular properties (화학적 결합 chemical bond)."
+    },
+    {
+      "words": [
+        "정밀",
+        "세밀"
+      ],
+      "kind": "synonym",
+      "note": "Both mean meticulous, but 정밀 emphasizes scientific precision with zero tolerance for error (정밀 진단 precision diagnosis). 세밀 emphasizes painstaking observation of intricate details (세밀한 묘사 detailed description)."
+    },
+    {
+      "words": [
+        "조치",
+        "대책"
+      ],
+      "kind": "synonym",
+      "note": "Both mean countermeasures, but 조치 is a prompt concrete action executed right away (응급 조치 emergency measure), whereas 대책 is a strategic plan designed to tackle problems (재발 방지 대책 prevention plan)."
+    }
+  ],
+  "tv-50": [
+    {
+      "words": [
+        "가계",
+        "가계"
+      ],
+      "kind": "homonym",
+      "note": "家計 household economy and living expenses (가계 소득 household income, 가계 부채 household debt) vs 家系 genealogical pedigree or family ancestry (가계도 family tree). Distinct hanja roots."
+    },
+    {
+      "words": [
+        "방어",
+        "방어"
+      ],
+      "kind": "homonym",
+      "note": "防禦 physical defense or protection against an attack (적극적인 방어 active defense) vs 魴魚 the edible yellowtail marine fish popular in winter (방어회 yellowtail sashimi). Distinct origins."
+    },
+    {
+      "words": [
+        "호응",
+        "반응"
+      ],
+      "kind": "synonym",
+      "note": "반응 is any generic response or physical reaction, positive or negative (화학 반응 chemical reaction). 호응 specifically implies positive approval, warm enthusiasm, and active support (관객의 큰 호응 audience acclaim)."
+    }
   ]
 }
