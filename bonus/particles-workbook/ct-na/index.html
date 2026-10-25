@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>(이)나: “or” and “as many as” 보너스 연습 · Bonus practice — Korean Particles Workbook</title>
+<meta name="description" content="한국어 조사 워크북 단원 보너스 연습: 낱말 카드, 퀴즈, 빈칸 쓰기. 쪽에서 바로 채우고 채점해요.">
+<link rel="canonical" href="https://everykoreans.com/bonus/particles-workbook/ct-na/">
+<!-- 생성물 — 손으로 고치지 말 것. docs/bonus/*.json 을 고치고 node tools/build-bonus.mjs -->
+<script src="/gtm.js" async></script>
+<script src="/analytics.js" defer></script>
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta property="og:title" content="(이)나: “or” and “as many as” 보너스 연습 · Bonus practice — Korean Particles Workbook">
+<meta property="og:description" content="한국어 조사 워크북 단원 보너스 연습: 낱말 카드, 퀴즈, 빈칸 쓰기. 쪽에서 바로 채우고 채점해요.">
+<meta property="og:url" content="https://everykoreans.com/bonus/particles-workbook/ct-na/">
+<meta property="og:image" content="https://everykoreans.com/og-image.jpg">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="stylesheet" href="/vendor/pretendard.css">
+<link rel="stylesheet" href="/page.css">
+<script src="/bonus.js?v=140103d5" defer></script>
+<style>
+main{max-width:760px;margin:0 auto;padding:22px 20px 80px}
+.bk-badge{display:inline-block;font-size:12px;font-weight:800;letter-spacing:.06em;color:#C4551C;background:#FDF0E2;border-radius:99px;padding:4px 12px}
+.bk-h{font-size:19px;font-weight:800;margin:30px 0 4px}.bk-h small{font-weight:500;color:var(--ink-3);font-size:13px;margin-left:6px}
+.bk-sub{color:var(--ink-3);font-size:14px;margin:0 0 12px}
+.bcards{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.bcard{font:inherit;text-align:center;cursor:pointer;min-height:84px;padding:14px 12px;border:1px solid var(--line);border-radius:14px;background:#fff;color:var(--ink);display:flex;align-items:center;justify-content:center}
+.bcard .b{display:none;font-size:14px;color:var(--ink-2);line-height:1.45}.bcard .f{font-size:18px;font-weight:800}
+.bcard.flip{background:#FFF7E3;border-color:#F0C24B}.bcard.flip .f{display:none}.bcard.flip .b{display:block}
+.bq,.bf{background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px 16px;margin:10px 0}
+.bqq{font-weight:700;margin:0 0 8px;line-height:1.5}.bqq i{font-style:normal;color:var(--ink-3);font-weight:500;margin-right:6px}
+.bo{list-style:none;margin:0;padding:0;display:grid;gap:6px}
+.bo li{min-height:44px;display:flex;align-items:center;gap:8px;padding:8px 12px;border:1px solid var(--line);border-radius:10px;cursor:pointer;background:#FBF8F1}
+.bo li:hover{border-color:#F0C24B}.bo li.right{background:#E6F4EA;border-color:#3A9A5B}.bo li.wrong{background:#FCE8E6;border-color:#D1493E}
+.bw{margin:8px 0 0;font-size:14px;color:var(--ink-2);line-height:1.55}
+.bf .fq{font-size:18px;font-weight:700;line-height:1.7;margin:0}.bf .fe{color:var(--ink-3);font-size:13.5px;margin:2px 0 8px}
+.bf input{font:inherit;font-size:17px;width:9em;max-width:100%;padding:6px 10px;border:0;border-bottom:2px solid #C4551C;background:#FFF7E3;border-radius:6px 6px 0 0;text-align:center}
+.bf button{font:inherit;min-height:44px;margin-left:8px;padding:0 18px;border:0;border-radius:10px;background:#C4551C;color:#fff;font-weight:700;cursor:pointer}
+.bf .bm{margin:8px 0 0;font-weight:700}.bf.ok .bm{color:#2E7D4A}.bf.no .bm{color:#B3322D}
+.bsc{position:sticky;bottom:0;margin-top:26px;padding:12px 16px;background:#fff;border:1px solid var(--line);border-radius:14px;display:flex;justify-content:space-between;align-items:center;font-weight:800}
+.bsc.fin{background:#FFF7E3;border-color:#F0C24B}.bfin,.bbest{margin:10px 0 0;font-size:14px;color:var(--ink-2)}
+.bapp{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin:14px 0 0;padding:12px 14px;background:#FFF7E3;border:1px solid #F0C24B;border-radius:14px}.bapp div{flex:1 1 220px}.bapp b{display:block;font-size:14.5px}.bapp small{color:var(--ink-3);font-size:12.5px}
+.bk-back{font-size:13px;margin-left:8px}
+.hub-top{margin:14px 0 4px;padding:18px;border-radius:18px;color:#fff}.hub-top h1{color:#fff;margin:4px 0 2px}.hub-top small{opacity:.85}
+.hprog{height:12px;border-radius:99px;background:rgba(255,255,255,.22);overflow:hidden;margin:14px 0 6px}.hprog i{display:block;height:100%;width:0;background:#F6C443;border-radius:99px;transition:width .5s}
+.hrow{display:flex;justify-content:space-between;gap:10px;font-size:14px;font-weight:700;flex-wrap:wrap}
+.hnext{display:block;margin-top:14px;text-align:center}
+.htools{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px;margin:14px 0}
+.htool{display:block;background:#fff;border:1px solid var(--line);border-radius:14px;padding:12px 14px;color:var(--ink);text-decoration:none}.htool b{display:block}.htool span{font-size:13px;color:var(--ink-3)}
+.hpart{font-size:14px;font-weight:800;color:var(--ink-3);margin:22px 0 6px}
+.hunits{list-style:none;margin:0;padding:0;background:#fff;border:1px solid var(--line);border-radius:16px;overflow:hidden}
+.hunits li{display:flex;align-items:center;gap:10px;padding:12px 14px;min-height:52px;border-top:1px solid var(--line2,#eee)}.hunits li:first-child{border-top:0}
+.hunits li a{flex:1;color:var(--ink);text-decoration:none;font-weight:700}.hunits li.off{opacity:.45}.hunits li.off a{pointer-events:none}
+.hunits .hs{font-size:12.5px;color:var(--ink-3);white-space:nowrap}.hunits li.ok .hs{color:#2E7D4A;font-weight:800}
+.bempty{padding:18px;background:#fff;border:1px solid var(--line);border-radius:14px}
+.bagain{font:inherit;min-height:44px;margin-top:10px;padding:0 18px;border:0;border-radius:10px;background:#C4551C;color:#fff;font-weight:700;cursor:pointer}
+.bcta{display:flex;flex-wrap:wrap;gap:10px;margin:22px 0 0}
+@media(max-width:480px){.bcards{grid-template-columns:1fr}.bf button{margin:8px 0 0}}
+</style>
+</head>
+<body>
+<header class="hd"><div class="hd-in">
+  <a href="/"><img src="/logo.png" alt=""><span>치즈감자 CheesePotato</span></a>
+</div></header>
+<main>
+<div data-bonus-mode="unit" data-book="particles-workbook" data-unit-key="particles-workbook/ct-na">
+<span class="bk-badge">책 보너스 · BOOK BONUS</span> <a class="bk-back" href="/bonus/particles-workbook/">← 책 코스 전체 · Course</a>
+<h1>(이)나 ① 선택 · ② 많음</h1>
+<div class="bapp"><div><b>앱에서 열면 진행률 · 연속 학습이 기록돼요</b><small>Open in the app to track progress and your streak</small></div><a class="btn main" href="intent://book/particles-workbook/ct-na#Intent;scheme=cheesepotato;package=com.cheesepotato.app;S.browser_fallback_url=https%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3Dcom.cheesepotato.app;end">앱에서 열기 · Open app</a><a class="btn sub" href="https://play.google.com/store/apps/details?id=com.cheesepotato.app">Google Play</a></div>
+<p class="bk-sub">(이)나: “or” and “as many as” · 한국어 조사 워크북 · Korean Particles Workbook</p>
+<h2 class="bk-h">낱말 카드 <small>Flashcards · 눌러서 뒤집기 · tap to flip</small></h2>
+<div class="bcards"><button type="button" class="bcard" data-say="주스나 우유"><span class="f">주스나 우유</span><span class="b">Juice or milk. (choice between drinks)</span></button><button type="button" class="bcard" data-say="커피를 세 잔이나 마셨어요"><span class="f">커피를 세 잔이나 마셨어요</span><span class="b">I drank as many as three cups of coffee! (surprise at quantity)</span></button><button type="button" class="bcard" data-say="영화나 볼까요?"><span class="f">영화나 볼까요?</span><span class="b">Shall we watch a movie or something? (suggesting an option)</span></button><button type="button" class="bcard" data-say="두 시간이나 기다렸어요"><span class="f">두 시간이나 기다렸어요</span><span class="b">I waited as long as two hours! (surprise at duration)</span></button><button type="button" class="bcard" data-say="토요일이나 일요일"><span class="f">토요일이나 일요일</span><span class="b">Saturday or Sunday. (choice of days)</span></button><button type="button" class="bcard" data-say="백 명이나 모였어요"><span class="f">백 명이나 모였어요</span><span class="b">As many as a hundred people gathered! (surprise at crowd size)</span></button><button type="button" class="bcard" data-say="라면이나 끓여 먹어요"><span class="f">라면이나 끓여 먹어요</span><span class="b">Let's just cook ramen or something. (casual suggestion)</span></button><button type="button" class="bcard" data-say="오만 원이나 해요"><span class="f">오만 원이나 해요</span><span class="b">It costs as much as 50,000 won! (surprise at price)</span></button></div>
+<h2 class="bk-h">퀴즈 <small>Quiz</small></h2><div class="bq" data-ans="1" data-id="ct-na:q0"><p class="bqq"><i>Q1</i>What does (이)나 mean in '사과를 다섯 개나 먹었어요'?</p><ul class="bo"><li tabindex="0" role="button">① Choice between five apples or fewer</li><li tabindex="0" role="button">② Surprise that eating five apples is a large amount</li><li tabindex="0" role="button">③ Only five apples</li><li tabindex="0" role="button">④ With five apples</li></ul><p class="bw" hidden>Attached to a number and counter (다섯 개), (이)나 expresses surprise that the quantity is larger than expected.</p></div><div class="bq" data-ans="1" data-id="ct-na:q1"><p class="bqq"><i>Q2</i>What does (이)나 mean in '시간이 있으면 차나 한잔합시다'?</p><ul class="bo"><li tabindex="0" role="button">① As many as</li><li tabindex="0" role="button">② Suggesting an option casually (something like tea)</li><li tabindex="0" role="button">③ Only tea</li><li tabindex="0" role="button">④ Never tea</li></ul><p class="bw" hidden>Attached to a noun without a counter, (이)나 here suggests an acceptable casual option (tea or something).</p></div><div class="bq" data-ans="1" data-id="ct-na:q2"><p class="bqq"><i>Q3</i>Which sentence uses (이)나 to present a choice between two alternatives?</p><ul class="bo"><li tabindex="0" role="button">① 어제 열 시간이나 잤어요.</li><li tabindex="0" role="button">② 부산이나 제주도로 여행 가고 싶어요.</li><li tabindex="0" role="button">③ 책을 열 권이나 읽었어요.</li><li tabindex="0" role="button">④ 선물이 스무 개나 들어왔어요.</li></ul><p class="bw" hidden>부산이나 제주도 expresses a choice between two destinations (Busan or Jeju Island).</p></div><div class="bq" data-ans="1" data-id="ct-na:q3"><p class="bqq"><i>Q4</i>Which noun ending with a vowel correctly takes 나 instead of 이나 for choice?</p><ul class="bo"><li tabindex="0" role="button">① 물</li><li tabindex="0" role="button">② 피자</li><li tabindex="0" role="button">③ 가방</li><li tabindex="0" role="button">④ 지하철</li></ul><p class="bw" hidden>피자 ends with a vowel (자), so it takes 나 (피자나 햄버거), while the others end with consonants taking 이나.</p></div><div class="bq" data-ans="0" data-id="ct-na:q4"><p class="bqq"><i>Q5</i>Fill in the blank expressing shock at waiting time: '친구가 늦어서 정류장에서 한 시간___ 기다렸어요.'</p><ul class="bo"><li tabindex="0" role="button">① 이나</li><li tabindex="0" role="button">② 나</li><li tabindex="0" role="button">③ 밖에</li><li tabindex="0" role="button">④ 도</li></ul><p class="bw" hidden>시간 ends with a final consonant (ㄴ), so 이나 expresses that waiting for a whole hour was a surprisingly long time.</p></div>
+<h2 class="bk-h">빈칸 쓰기 <small>Fill in the blank</small></h2><p class="bk-sub">한글로 쓰고 [확인]을 누르세요. · Type in Hangul, then press Check.</p><div class="bf" data-a="[&quot;이나&quot;]" data-id="ct-na:f0"><p class="fq">아침 식사로 김밥<input type="text" autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="빈칸 1"> 샌드위치를 간단히 먹을 생각이에요.<button type="button">확인 · Check</button></p><p class="fe">For breakfast, I plan to eat kimbap or a sandwich simply.</p><p class="bm" hidden></p></div><div class="bf" data-a="[&quot;이나&quot;]" data-id="ct-na:f1"><p class="fq">어제 밤에 시험공부를 하느라 에너지 드링크를 세 캔<input type="text" autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="빈칸 2"> 마셨어요.<button type="button">확인 · Check</button></p><p class="fe">Studying for the exam last night, I drank as many as three cans of energy drinks.</p><p class="bm" hidden></p></div><div class="bf" data-a="[&quot;이나&quot;]" data-id="ct-na:f2"><p class="fq">주말에 심심하면 근처 공원에 가서 산책<input type="text" autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="빈칸 3"> 할까요?<button type="button">확인 · Check</button></p><p class="fe">If you are bored on the weekend, shall we go to the nearby park and take a walk or something?</p><p class="bm" hidden></p></div><div class="bf" data-a="[&quot;이나&quot;]" data-id="ct-na:f3"><p class="fq">어제 개막한 영화제에 관객이 만 명<input type="text" autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="빈칸 4"> 몰려들었어요.<button type="button">확인 · Check</button></p><p class="fe">As many as 10,000 spectators flocked to the film festival that opened yesterday.</p><p class="bm" hidden></p></div><div class="bf" data-a="[&quot;나&quot;]" data-id="ct-na:f4"><p class="fq">목이 마르면 시원한 생수<input type="text" autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="빈칸 5"> 보리차를 드세요.<button type="button">확인 · Check</button></p><p class="fe">If you are thirsty, please drink cool bottled water or barley tea.</p><p class="bm" hidden></p></div>
+<div class="bsc"><span>점수 · Score</span><span class="bscore">0 / 10</span></div>
+<p class="bfin" hidden>끝! 틀린 곳은 책 정답 쪽과 같이 다시 보세요. · Done! Review your misses with the book's answer key.</p><p class="bbest" hidden></p>
+<div class="bcta"><a class="btn main" href="/#learn">앱에서 더 연습하기<span> · Practice more free</span></a><a class="btn sub" href="/ct-na-worksheet/">인쇄용 학습지 · Printable sheet</a></div>
+</div>
+<p class="bk-sub" style="margin-top:30px">이 연습은 책에 없는 새로 만든 문항이에요(기출 아님). · New practice made for this site, not from any past exam.</p>
+</main>
+</body>
+</html>

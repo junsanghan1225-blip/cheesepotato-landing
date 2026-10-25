@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Korean Particles Workbook 독자 전용 코스 · Reader course</title>
+<meta name="description" content="한국어 조사 워크북 독자 전용 코스: 단원별 연습, 진행률, 연속 학습, 틀린 문제 노트, 부 챌린지.">
+<link rel="canonical" href="https://everykoreans.com/bonus/particles-workbook/">
+<!-- 생성물 — 손으로 고치지 말 것. docs/bonus/*.json 을 고치고 node tools/build-bonus.mjs -->
+<script src="/gtm.js" async></script>
+<script src="/analytics.js" defer></script>
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta property="og:title" content="Korean Particles Workbook 독자 전용 코스 · Reader course">
+<meta property="og:description" content="한국어 조사 워크북 독자 전용 코스: 단원별 연습, 진행률, 연속 학습, 틀린 문제 노트, 부 챌린지.">
+<meta property="og:url" content="https://everykoreans.com/bonus/particles-workbook/">
+<meta property="og:image" content="https://everykoreans.com/og-image.jpg">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="stylesheet" href="/vendor/pretendard.css">
+<link rel="stylesheet" href="/page.css">
+<script src="/bonus.js?v=140103d5" defer></script>
+<style>
+main{max-width:760px;margin:0 auto;padding:22px 20px 80px}
+.bk-badge{display:inline-block;font-size:12px;font-weight:800;letter-spacing:.06em;color:#C4551C;background:#FDF0E2;border-radius:99px;padding:4px 12px}
+.bk-h{font-size:19px;font-weight:800;margin:30px 0 4px}.bk-h small{font-weight:500;color:var(--ink-3);font-size:13px;margin-left:6px}
+.bk-sub{color:var(--ink-3);font-size:14px;margin:0 0 12px}
+.bcards{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.bcard{font:inherit;text-align:center;cursor:pointer;min-height:84px;padding:14px 12px;border:1px solid var(--line);border-radius:14px;background:#fff;color:var(--ink);display:flex;align-items:center;justify-content:center}
+.bcard .b{display:none;font-size:14px;color:var(--ink-2);line-height:1.45}.bcard .f{font-size:18px;font-weight:800}
+.bcard.flip{background:#FFF7E3;border-color:#F0C24B}.bcard.flip .f{display:none}.bcard.flip .b{display:block}
+.bq,.bf{background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px 16px;margin:10px 0}
+.bqq{font-weight:700;margin:0 0 8px;line-height:1.5}.bqq i{font-style:normal;color:var(--ink-3);font-weight:500;margin-right:6px}
+.bo{list-style:none;margin:0;padding:0;display:grid;gap:6px}
+.bo li{min-height:44px;display:flex;align-items:center;gap:8px;padding:8px 12px;border:1px solid var(--line);border-radius:10px;cursor:pointer;background:#FBF8F1}
+.bo li:hover{border-color:#F0C24B}.bo li.right{background:#E6F4EA;border-color:#3A9A5B}.bo li.wrong{background:#FCE8E6;border-color:#D1493E}
+.bw{margin:8px 0 0;font-size:14px;color:var(--ink-2);line-height:1.55}
+.bf .fq{font-size:18px;font-weight:700;line-height:1.7;margin:0}.bf .fe{color:var(--ink-3);font-size:13.5px;margin:2px 0 8px}
+.bf input{font:inherit;font-size:17px;width:9em;max-width:100%;padding:6px 10px;border:0;border-bottom:2px solid #C4551C;background:#FFF7E3;border-radius:6px 6px 0 0;text-align:center}
+.bf button{font:inherit;min-height:44px;margin-left:8px;padding:0 18px;border:0;border-radius:10px;background:#C4551C;color:#fff;font-weight:700;cursor:pointer}
+.bf .bm{margin:8px 0 0;font-weight:700}.bf.ok .bm{color:#2E7D4A}.bf.no .bm{color:#B3322D}
+.bsc{position:sticky;bottom:0;margin-top:26px;padding:12px 16px;background:#fff;border:1px solid var(--line);border-radius:14px;display:flex;justify-content:space-between;align-items:center;font-weight:800}
+.bsc.fin{background:#FFF7E3;border-color:#F0C24B}.bfin,.bbest{margin:10px 0 0;font-size:14px;color:var(--ink-2)}
+.bapp{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin:14px 0 0;padding:12px 14px;background:#FFF7E3;border:1px solid #F0C24B;border-radius:14px}.bapp div{flex:1 1 220px}.bapp b{display:block;font-size:14.5px}.bapp small{color:var(--ink-3);font-size:12.5px}
+.bk-back{font-size:13px;margin-left:8px}
+.hub-top{margin:14px 0 4px;padding:18px;border-radius:18px;color:#fff}.hub-top h1{color:#fff;margin:4px 0 2px}.hub-top small{opacity:.85}
+.hprog{height:12px;border-radius:99px;background:rgba(255,255,255,.22);overflow:hidden;margin:14px 0 6px}.hprog i{display:block;height:100%;width:0;background:#F6C443;border-radius:99px;transition:width .5s}
+.hrow{display:flex;justify-content:space-between;gap:10px;font-size:14px;font-weight:700;flex-wrap:wrap}
+.hnext{display:block;margin-top:14px;text-align:center}
+.htools{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px;margin:14px 0}
+.htool{display:block;background:#fff;border:1px solid var(--line);border-radius:14px;padding:12px 14px;color:var(--ink);text-decoration:none}.htool b{display:block}.htool span{font-size:13px;color:var(--ink-3)}
+.hpart{font-size:14px;font-weight:800;color:var(--ink-3);margin:22px 0 6px}
+.hunits{list-style:none;margin:0;padding:0;background:#fff;border:1px solid var(--line);border-radius:16px;overflow:hidden}
+.hunits li{display:flex;align-items:center;gap:10px;padding:12px 14px;min-height:52px;border-top:1px solid var(--line2,#eee)}.hunits li:first-child{border-top:0}
+.hunits li a{flex:1;color:var(--ink);text-decoration:none;font-weight:700}.hunits li.off{opacity:.45}.hunits li.off a{pointer-events:none}
+.hunits .hs{font-size:12.5px;color:var(--ink-3);white-space:nowrap}.hunits li.ok .hs{color:#2E7D4A;font-weight:800}
+.bempty{padding:18px;background:#fff;border:1px solid var(--line);border-radius:14px}
+.bagain{font:inherit;min-height:44px;margin-top:10px;padding:0 18px;border:0;border-radius:10px;background:#C4551C;color:#fff;font-weight:700;cursor:pointer}
+.bcta{display:flex;flex-wrap:wrap;gap:10px;margin:22px 0 0}
+@media(max-width:480px){.bcards{grid-template-columns:1fr}.bf button{margin:8px 0 0}}
+</style>
+</head>
+<body>
+<header class="hd"><div class="hd-in">
+  <a href="/"><img src="/logo.png" alt=""><span>치즈감자 CheesePotato</span></a>
+</div></header>
+<main>
+<div data-bonus-mode="hub" data-book="particles-workbook">
+<div class="hub-top" style="background:linear-gradient(135deg,#1F3A68,#14264A)"><small>독자 전용 코스 · READER COURSE A1–A2</small><h1>한국어 조사 워크북</h1><small>Korean Particles Workbook</small>
+<div class="hprog"><i></i></div><div class="hrow"><span class="hpct">0 / 0</span><span class="hstreak"></span></div>
+<a class="btn main hnext" href="#" hidden>시작하기 · Start</a></div>
+<div class="bcta" style="margin-top:10px"><a class="btn sub" href="intent://book/particles-workbook#Intent;scheme=cheesepotato;package=com.cheesepotato.app;S.browser_fallback_url=https%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3Dcom.cheesepotato.app;end">앱에서 열기 · Open app</a></div>
+<div class="htools"><a class="htool" href="/bonus/particles-workbook/notebook/"><b>틀린 문제 노트 · Mistake notebook</b><span class="hmiss"></span></a><a class="htool" href="/bonus/particles-workbook/part-2/" data-chal="2"><b>2부 챌린지 · Part 2 challenge</b><span>기본 조사 · 섞어서 10문제 <i class="hcb" style="font-style:normal"></i></span></a><a class="htool" href="/bonus/particles-workbook/part-3/" data-chal="3"><b>3부 챌린지 · Part 3 challenge</b><span>장소 · 시간 · 방향 · 섞어서 10문제 <i class="hcb" style="font-style:normal"></i></span></a><a class="htool" href="/bonus/particles-workbook/part-4/" data-chal="4"><b>4부 챌린지 · Part 4 challenge</b><span>함께 · 도 · 만 · 섞어서 10문제 <i class="hcb" style="font-style:normal"></i></span></a><a class="htool" href="/bonus/particles-workbook/part-5/" data-chal="5"><b>5부 챌린지 · Part 5 challenge</b><span>수단 · 어림 · 견주기 · 섞어서 10문제 <i class="hcb" style="font-style:normal"></i></span></a><a class="htool" href="/bonus/particles-workbook/part-6/" data-chal="6"><b>6부 챌린지 · Part 6 challenge</b><span>헷갈리는 조사 가르기 · 섞어서 10문제 <i class="hcb" style="font-style:normal"></i></span></a></div>
+<h2 class="hpart">기본 조사 <small>Core markers</small></h2><ul class="hunits"><li data-u="pt-26-1" data-total="10" class=""><a href="/bonus/particles-workbook/pt-26-1/">N이/가 <small style="font-weight:500;color:var(--ink-3)">N이/가</small></a><span class="hs"></span></li><li data-u="pt-26-2" data-total="10" class=""><a href="/bonus/particles-workbook/pt-26-2/">N은/는 <small style="font-weight:500;color:var(--ink-3)">N은/는</small></a><span class="hs"></span></li><li data-u="pt-26-3" data-total="10" class=""><a href="/bonus/particles-workbook/pt-26-3/">N을/를 <small style="font-weight:500;color:var(--ink-3)">N을/를</small></a><span class="hs"></span></li><li data-u="pt-26-5" data-total="10" class=""><a href="/bonus/particles-workbook/pt-26-5/">N의 <small style="font-weight:500;color:var(--ink-3)">N의</small></a><span class="hs"></span></li></ul><h2 class="hpart">장소 · 시간 · 방향 <small>Place, time &amp; direction</small></h2><ul class="hunits"><li data-u="pt-26-6" data-total="10" class=""><a href="/bonus/particles-workbook/pt-26-6/">N에 ① (장소·시간) <small style="font-weight:500;color:var(--ink-3)">N에 ① (장소·시간)</small></a><span class="hs"></span></li><li data-u="pt-26-7" data-total="10" class=""><a href="/bonus/particles-workbook/pt-26-7/">N에 ② (방향·단위) <small style="font-weight:500;color:var(--ink-3)">N에 ② (방향·단위)</small></a><span class="hs"></span></li><li data-u="pt-26-8" data-total="10" class=""><a href="/bonus/particles-workbook/pt-26-8/">N에서 <small style="font-weight:500;color:var(--ink-3)">N에서</small></a><span class="hs"></span></li><li data-u="pt-26-9" data-total="10" class=""><a href="/bonus/particles-workbook/pt-26-9/">N에서 N까지, N부터 N까지 <small style="font-weight:500;color:var(--ink-3)">N에서 N까지, N부터 N까지</small></a><span class="hs"></span></li><li data-u="pt-26-10" data-total="10" class=""><a href="/bonus/particles-workbook/pt-26-10/">N에게/한테 <small style="font-weight:500;color:var(--ink-3)">N에게/한테</small></a><span class="hs"></span></li></ul><h2 class="hpart">함께 · 도 · 만 <small>Together, also &amp; only</small></h2><ul class="hunits"><li data-u="pt-26-4" data-total="10" class=""><a href="/bonus/particles-workbook/pt-26-4/">N와/과, N(이)랑, N하고 <small style="font-weight:500;color:var(--ink-3)">N와/과, N(이)랑, N하고</small></a><span class="hs"></span></li><li data-u="pt-26-11" data-total="10" class=""><a href="/bonus/particles-workbook/pt-26-11/">N도 <small style="font-weight:500;color:var(--ink-3)">N도</small></a><span class="hs"></span></li><li data-u="pt-26-12" data-total="10" class=""><a href="/bonus/particles-workbook/pt-26-12/">N만 <small style="font-weight:500;color:var(--ink-3)">N만</small></a><span class="hs"></span></li><li data-u="pt-26-13" data-total="10" class=""><a href="/bonus/particles-workbook/pt-26-13/">N밖에 <small style="font-weight:500;color:var(--ink-3)">N밖에</small></a><span class="hs"></span></li><li data-u="pt-26-15" data-total="10" class=""><a href="/bonus/particles-workbook/pt-26-15/">N(이)나 ① (선택) <small style="font-weight:500;color:var(--ink-3)">N(이)나 ① (선택)</small></a><span class="hs"></span></li><li data-u="pt-26-16" data-total="10" class=""><a href="/bonus/particles-workbook/pt-26-16/">N(이)나 ② (많음) <small style="font-weight:500;color:var(--ink-3)">N(이)나 ② (많음)</small></a><span class="hs"></span></li></ul><h2 class="hpart">수단 · 어림 · 견주기 <small>Ways, amounts &amp; comparing</small></h2><ul class="hunits"><li data-u="pt-26-14" data-total="10" class=""><a href="/bonus/particles-workbook/pt-26-14/">N(으)로 <small style="font-weight:500;color:var(--ink-3)">N(으)로</small></a><span class="hs"></span></li><li data-u="pt-26-17" data-total="10" class=""><a href="/bonus/particles-workbook/pt-26-17/">N쯤 <small style="font-weight:500;color:var(--ink-3)">N쯤</small></a><span class="hs"></span></li><li data-u="pt-26-18" data-total="10" class=""><a href="/bonus/particles-workbook/pt-26-18/">N처럼, N같이 <small style="font-weight:500;color:var(--ink-3)">N처럼, N같이</small></a><span class="hs"></span></li><li data-u="pt-26-19" data-total="10" class=""><a href="/bonus/particles-workbook/pt-26-19/">N보다 <small style="font-weight:500;color:var(--ink-3)">N보다</small></a><span class="hs"></span></li><li data-u="pt-26-20" data-total="10" class=""><a href="/bonus/particles-workbook/pt-26-20/">N마다 <small style="font-weight:500;color:var(--ink-3)">N마다</small></a><span class="hs"></span></li></ul><h2 class="hpart">헷갈리는 조사 가르기 <small>Choose the right particle</small></h2><ul class="hunits"><li data-u="ct-topic-subject" data-total="10" class=""><a href="/bonus/particles-workbook/ct-topic-subject/">은/는 vs 이/가 <small style="font-weight:500;color:var(--ink-3)">은/는 or 이/가?</small></a><span class="hs"></span></li><li data-u="ct-context" data-total="10" class=""><a href="/bonus/particles-workbook/ct-context/">은/는 vs 이/가: 맥락이 정해요 <small style="font-weight:500;color:var(--ink-3)">은/는 or 이/가? Context decides</small></a><span class="hs"></span></li><li data-u="ct-place-action" data-total="10" class=""><a href="/bonus/particles-workbook/ct-place-action/">에 vs 에서 <small style="font-weight:500;color:var(--ink-3)">에 or 에서?</small></a><span class="hs"></span></li><li data-u="ct-give-receive" data-total="10" class=""><a href="/bonus/particles-workbook/ct-give-receive/">에게/한테 vs 에 <small style="font-weight:500;color:var(--ink-3)">에게/한테 or 에?</small></a><span class="hs"></span></li><li data-u="ct-tool-direction" data-total="10" class=""><a href="/bonus/particles-workbook/ct-tool-direction/">(으)로 vs 에 <small style="font-weight:500;color:var(--ink-3)">(으)로 or 에?</small></a><span class="hs"></span></li><li data-u="ct-with" data-total="10" class=""><a href="/bonus/particles-workbook/ct-with/">와/과 · 하고 · (이)랑 <small style="font-weight:500;color:var(--ink-3)">와/과, 하고, (이)랑</small></a><span class="hs"></span></li><li data-u="ct-also-only" data-total="10" class=""><a href="/bonus/particles-workbook/ct-also-only/">도 · 만 · 밖에 <small style="font-weight:500;color:var(--ink-3)">도, 만, 밖에</small></a><span class="hs"></span></li><li data-u="ct-na" data-total="10" class=""><a href="/bonus/particles-workbook/ct-na/">(이)나 ① 선택 · ② 많음 <small style="font-weight:500;color:var(--ink-3)">(이)나: “or” and “as many as”</small></a><span class="hs"></span></li><li data-u="ct-from-to" data-total="10" class=""><a href="/bonus/particles-workbook/ct-from-to/">에서 ~ 까지 vs 부터 ~ 까지 <small style="font-weight:500;color:var(--ink-3)">에서~까지 or 부터~까지?</small></a><span class="hs"></span></li></ul>
+<h2 class="hpart">구매자 혜택 · Reader bonus</h2><div class="bq"><p class="bqq">책 맨 끝 「구매자 혜택」 쪽의 코드로 Pro 30일이 열려요. 한 계정에 한 번이에요.</p><a class="btn main" href="/?bk=CP-PW-5XD5QK&utm_source=book&utm_medium=hub&utm_campaign=particles-workbook">Pro 30일 받기 · Get Pro</a></div>
+</div>
+<p class="bk-sub" style="margin-top:30px">이 연습은 책에 없는 새로 만든 문항이에요(기출 아님). · New practice made for this site, not from any past exam.</p>
+</main>
+</body>
+</html>

@@ -1,0 +1,760 @@
+{
+  "_note": "책 QR 보너스 연습 — 안티 작성 · Claude 검토",
+  "book": "particles-workbook",
+  "units": {
+    "pt-26-1": {
+      "cards": [
+        {"ko": "하늘이 맑아요", "en": "The sky is clear. (subject with final consonant)"},
+        {"ko": "기차가 지나가요", "en": "The train passes by. (subject without final consonant)"},
+        {"ko": "목소리가 좋아요", "en": "Your voice is nice. (voice is the subject of adjective)"},
+        {"ko": "질문이 있어요", "en": "I have a question. (subject of existence 있다)"},
+        {"ko": "시간이 없어요", "en": "I do not have time. (subject of non-existence 없다)"},
+        {"ko": "누가 왔어요?", "en": "Who came? (누구 + 가 = 누가)"},
+        {"ko": "제가 할게요", "en": "I will do it. (저 + 가 = 제가)"},
+        {"ko": "의사가 되었어요", "en": "He became a doctor. (complement/subject of 되다)"}
+      ],
+      "quiz": [
+        {"q": "Which sentence correctly uses the subject marker 이/가?", "opts": ["가방가 무거워요.", "가방이 무거워요.", "가방을 무거워요.", "가방에 무거워요."], "a": 1, "why": "가방 ends with a final consonant (ㅇ), so it takes 이 instead of 가. 무겁다 is an adjective, so it takes the subject marker 이."},
+        {"q": "Which form is correct when attaching the subject marker 가 to 저 (I, humble)?", "opts": ["저가", "제가", "저이", "재가"], "a": 1, "why": "When attaching the subject marker 가 to the first-person pronoun 저, it changes to 제가."},
+        {"q": "Which sentence has an INCORRECT particle?", "opts": ["날씨가 따뜻해요.", "친구가 기다려요.", "우산가 없어요.", "음악이 좋아요."], "a": 2, "why": "우산 ends with the final consonant ㄴ, so it must take 이 (우산이 없어요), not 가."},
+        {"q": "Fill in the blank: '누가 커피를 마셔요? - 민호___ 마셔요.'", "opts": ["가", "이", "을", "에"], "a": 0, "why": "민호 ends with a vowel (호), so the subject marker 가 is attached to answer who performs the action."},
+        {"q": "Which particle fits in: '한국어 공부___ 재미있어요.'?", "opts": ["를", "가", "에", "로"], "a": 1, "why": "공부 ends in a vowel, and 재미있다 (to be fun) is an adjective taking the subject marker 가."}
+      ],
+      "fill": [
+        {"q": "밖에 조용히 봄비___ 내려요.", "en": "Spring rain falls quietly outside.", "a": ["가"]},
+        {"q": "창밖 풍경___ 참 아름다워요.", "en": "The view outside the window is truly beautiful.", "a": ["이"]},
+        {"q": "어디___ 아파요?", "en": "Where hurts?", "a": ["가"]},
+        {"q": "오늘 저녁에 시간___ 있어요?", "en": "Do you have time this evening?", "a": ["이"]},
+        {"q": "누가 먼저 발표해요? - 제___ 할게요.", "en": "Who presents first? I will do it.", "a": ["가"]}
+      ]
+    },
+    "pt-26-2": {
+      "cards": [
+        {"ko": "저는 미국 사람이에요", "en": "As for me, I am an American. (topic without final consonant)"},
+        {"ko": "선생님은 친절하세요", "en": "The teacher is kind. (topic with final consonant)"},
+        {"ko": "오늘은 바빠요", "en": "Today, I am busy. (marking time as the topic)"},
+        {"ko": "형은 키가 커요", "en": "My older brother is tall. (topic in double subject construction)"},
+        {"ko": "영화는 재미있어요", "en": "The movie is interesting. (movie as the topic)"},
+        {"ko": "사과는 좋아하지만 배는 안 좋아해요", "en": "I like apples, but I do not like pears. (contrast)"},
+        {"ko": "커피는 마셔요", "en": "I drink coffee (though perhaps not other drinks). (focus/contrast)"},
+        {"ko": "한국에는 가 봤어요", "en": "To Korea, I have been. (combining with 에 for contrast)"}
+      ],
+      "quiz": [
+        {"q": "Which sentence correctly attaches 은/는 to a word with a final consonant?", "opts": ["동생는 학생이에요.", "동생은 학생이에요.", "동생이가 학생이에요.", "동생를 학생이에요."], "a": 1, "why": "동생 ends with a final consonant (ㅇ), so it takes 은 instead of 는."},
+        {"q": "What nuance does the particle 는 convey in '여름은 덥지만 겨울은 추워요'?", "opts": ["Showing direction", "Contrasting two different things", "Indicating a tool or method", "Marking a direct object"], "a": 1, "why": "The particle 은/는 is frequently used to highlight contrast between two opposing subjects or topics."},
+        {"q": "Which sentence has an INCORRECT particle?", "opts": ["이름은 수진이에요.", "한국어는 재미있어요.", "도서관는 조용해요.", "저는 대학생이에요."], "a": 2, "why": "도서관 ends with a final consonant (ㄴ), so it must take 은 (도서관은 조용해요), not 는."},
+        {"q": "Fill in the blank: '지민 씨___ 어디에 살아요?'", "opts": ["는", "은", "를", "로"], "a": 0, "why": "씨 ends with a vowel, so the topic marker 는 attaches to form the topic of the question."},
+        {"q": "Which sentence marks the contrast ('as for alcohol I do not drink, but as for water I do') with the topic particle?", "opts": ["술을 안 마시지만 물을 마셔요.", "술은 안 마시지만 물은 마셔요.", "술에 안 마시지만 물에 마셔요.", "술로 안 마시지만 물로 마셔요."], "a": 1, "why": "Using 은/는 on both nouns emphasizes the contrast between alcohol (not drinking) and water (drinking)."}
+      ],
+      "fill": [
+        {"q": "저___ 한국에서 대학교에 다녀요.", "en": "As for me, I attend university in Korea.", "a": ["는"]},
+        {"q": "이 책___ 아주 흥미진진해요.", "en": "As for this book, it is very intriguing.", "a": ["은", "이"]},
+        {"q": "형은 운동을 잘하지만 동생___ 공부를 잘해요.", "en": "My older brother is good at sports, but my younger sibling is good at studying.", "a": ["은", "이"]},
+        {"q": "지금___ 회의 중이라 통화하기 어려워요.", "en": "Right now, I am in a meeting, so it is hard to speak on the phone.", "a": ["은"]},
+        {"q": "수박은 비싸지만 바나나___ 저렴해요.", "en": "Watermelon is expensive, but bananas are inexpensive.", "a": ["는", "가"]}
+      ]
+    },
+    "pt-26-3": {
+      "cards": [
+        {"ko": "책을 읽어요", "en": "I read a book. (object with final consonant)"},
+        {"ko": "사과를 씻어요", "en": "I wash an apple. (object without final consonant)"},
+        {"ko": "음악을 들어요", "en": "I listen to music. (listening target)"},
+        {"ko": "영화를 봐요", "en": "I watch a movie. (watching target)"},
+        {"ko": "숙제를 해요", "en": "I do homework. (doing target)"},
+        {"ko": "친구를 만나요", "en": "I meet a friend. (meeting target)"},
+        {"ko": "사진을 찍어요", "en": "I take a photo. (photographing target)"},
+        {"ko": "한국어를 배워요", "en": "I learn Korean. (learning target)"}
+      ],
+      "quiz": [
+        {"q": "Which sentence correctly uses the object marker 을/를?", "opts": ["신문를 읽어요.", "신문을 읽어요.", "신문이 읽어요.", "신문에 읽어요."], "a": 1, "why": "신문 ends with a final consonant (ㄴ), so it requires the object marker 을."},
+        {"q": "Which sentence has an INCORRECT object marker?", "opts": ["편지를 써요.", "우유를 마셔요.", "창문를 열어요.", "라면을 끓여요."], "a": 2, "why": "창문 ends with a final consonant (ㄴ), so it must take 을 (창문을 열어요)."},
+        {"q": "Which particle correctly completes: '부모님께 안부 전화___ 드렸어요'?", "opts": ["를", "을", "이", "과"], "a": 0, "why": "전화 ends with a vowel, so the object marker 를 attaches to complete the object of 드렸어요."},
+        {"q": "Why is '빵을 먹어요' correct instead of '빵를 먹어요'?", "opts": ["빵 ends with a vowel.", "빵 ends with a final consonant (ㅇ).", "빵 is a subject.", "빵 indicates location."], "a": 1, "why": "Because 빵 has a final consonant (받침 ㅇ), it takes 을 instead of 를."},
+        {"q": "Which sentence correctly marks the object in: 'I bought shoes yesterday'?", "opts": ["어제 신발이 샀어요.", "어제 신발을 샀어요.", "어제 신발에 샀어요.", "어제 신발로 샀어요."], "a": 1, "why": "신발 is the object of the transitive verb 샀어요 (bought), so it takes 을."}
+      ],
+      "fill": [
+        {"q": "아침에 따뜻한 국___ 끓였어요.", "en": "I boiled warm soup in the morning.", "a": ["을"]},
+        {"q": "주말마다 도서관에서 소설책___ 빌려요.", "en": "Every weekend, I borrow novel books from the library.", "a": ["을"]},
+        {"q": "점심시간에 시원한 보리차___ 마셨어요.", "en": "During lunchtime, I drank cool barley tea.", "a": ["를"]},
+        {"q": "외출하기 전에 가방___ 챙겼어요.", "en": "Before going out, I packed my bag.", "a": ["을"]},
+        {"q": "식사 후에 달콤한 케이크___ 먹었어요.", "en": "After the meal, I ate sweet cake.", "a": ["를"]}
+      ]
+    },
+    "pt-26-5": {
+      "cards": [
+        {"ko": "선생님의 책", "en": "The teacher's book. (possession)"},
+        {"ko": "어머니의 안경", "en": "Mother's glasses. (possession)"},
+        {"ko": "우리의 꿈", "en": "Our dream. (collective possession)"},
+        {"ko": "한국의 문화", "en": "Korea's culture. (characteristic / belonging)"},
+        {"ko": "내 가방", "en": "My bag. (contracted from 나의)"},
+        {"ko": "제 지갑", "en": "My wallet (humble). (contracted from 저의)"},
+        {"ko": "친구의 생일", "en": "Friend's birthday. (event belonging to friend)"},
+        {"ko": "오늘의 날씨", "en": "Today's weather. (time attribute)"}
+      ],
+      "quiz": [
+        {"q": "How is the possessive particle 의 usually pronounced in spoken Korean when marking possession?", "opts": ["Always [이]", "Usually [에]", "Usually [우]", "Usually [아]"], "a": 1, "why": "In standard Korean phonology, the possessive particle 의 is commonly pronounced as [에] in everyday speech."},
+        {"q": "What is the contracted form of 저의 (my, humble)?", "opts": ["내", "네", "제", "저"], "a": 2, "why": "저의 (humble my) contracts to 제, while 나의 (plain my) contracts to 내."},
+        {"q": "Which sentence correctly uses the possessive particle 의?", "opts": ["이것은 민수 씨의 우산이에요.", "이것은 민수 씨을 우산이에요.", "이것은 민수 씨에 우산이에요.", "이것은 민수 씨이 우산이에요."], "a": 0, "why": "The particle 의 links the owner 민수씨 to the owned item 우산."},
+        {"q": "Which pair shows a contracted possessive pronoun correctly?", "opts": ["너의 -> 누", "저의 -> 조", "나의 -> 내", "우리의 -> 유"], "a": 2, "why": "나의 contracts to 내 (for example, 내 친구 means my friend)."},
+        {"q": "Which phrase correctly means 'the future of our country'?", "opts": ["우리나라에 미래", "우리나라의 미래", "우리나라를 미래", "우리나라로 미래"], "a": 1, "why": "The particle 의 indicates belonging or connection, meaning of our country."}
+      ],
+      "fill": [
+        {"q": "이것은 아버지___ 시계예요.", "en": "This is father's watch.", "a": ["의"]},
+        {"q": "저___ 취미는 여행 사진 촬영이에요.", "en": "My hobby is travel photography.", "a": ["의"]},
+        {"q": "그것은 우리 팀___ 공통 목표예요.", "en": "That is our team's common goal.", "a": ["의"]},
+        {"q": "민호___ 생일 파티에 초대받았어요.", "en": "I was invited to Minho's birthday party.", "a": ["의"]},
+        {"q": "도서관 입구에 오늘___ 추천 도서 목록이 붙어 있어요.", "en": "Today's recommended book list is posted at the library entrance.", "a": ["의"]}
+      ]
+    },
+    "pt-26-6": {
+      "cards": [
+        {"ko": "방에 침대가 있어요", "en": "There is a bed in the room. (static location)"},
+        {"ko": "회사에 사람이 없어요", "en": "There is no one at the company. (location of non-existence)"},
+        {"ko": "서울에 살아요", "en": "I live in Seoul. (residence location)"},
+        {"ko": "일곱 시에 일어나요", "en": "I wake up at seven o'clock. (specific time point)"},
+        {"ko": "월요일에 시험이 있어요", "en": "There is an exam on Monday. (day of week)"},
+        {"ko": "주말에 산책해요", "en": "I take a walk on the weekend. (time period)"},
+        {"ko": "오후에 만나요", "en": "Let us meet in the afternoon. (time of meeting)"},
+        {"ko": "나무에 새가 앉아 있어요", "en": "A bird is sitting in the tree. (location where something rests)"}
+      ],
+      "quiz": [
+        {"q": "Which word CANNOT take the time particle 에?", "opts": ["오늘", "두 시", "토요일", "오전"], "a": 0, "why": "Relative time words like 오늘 (today), 어제 (yesterday), and 내일 (tomorrow) do not take the particle 에."},
+        {"q": "Which sentence correctly marks a location of existence with 있다?", "opts": ["책상에서 지갑이 있어요.", "책상에 지갑이 있어요.", "책상으로 지갑이 있어요.", "책상을 지갑이 있어요."], "a": 1, "why": "With the verb 있다 (to exist), the static location where an item exists takes the particle 에, not 에서."},
+        {"q": "Which sentence has an INCORRECT use of 에?", "opts": ["아침에 운동을 해요.", "어제에 친구를 만났어요.", "오후 세 시에 출발해요.", "봄에 꽃이 피어요."], "a": 1, "why": "어제 is a relative time word and cannot be followed by 에 (say 어제 친구를 만났어요)."},
+        {"q": "Fill in the blank: '저는 지금 서울___ 살고 있어요.'", "opts": ["에", "을", "의", "과"], "a": 0, "why": "The verb 살다 (to live) takes the location particle 에 to indicate one's place of residence."},
+        {"q": "What does 에 indicate in '기차가 다섯 시에 도착해요'?", "opts": ["Tool used", "Specific time of arrival", "Place of dynamic action", "Object of action"], "a": 1, "why": "Attached to 다섯 시 (5 o'clock), 에 indicates the specific time at which the action occurs."}
+      ],
+      "fill": [
+        {"q": "냉장고___ 신선한 우유가 가득 들어 있어요.", "en": "The refrigerator is full of fresh milk.", "a": ["에"]},
+        {"q": "매일 아침 일곱 시 반___ 지하철을 타요.", "en": "I take the subway at 7:30 every morning.", "a": ["에"]},
+        {"q": "우리 가족은 제주도___ 살아요.", "en": "Our family lives in Jeju Island.", "a": ["에"]},
+        {"q": "이번 주 일요일___ 친구 결혼식이 있어요.", "en": "There is a friend's wedding this Sunday.", "a": ["에"]},
+        {"q": "교실 안 벽___ 세계 지도가 걸려 있어요.", "en": "A world map is hanging on the wall inside the classroom.", "a": ["에"]}
+      ]
+    },
+    "pt-26-7": {
+      "cards": [
+        {"ko": "학교에 가요", "en": "I go to school. (destination of movement)"},
+        {"ko": "집에 돌아왔어요", "en": "I returned home. (destination of returning)"},
+        {"ko": "공항에 도착했어요", "en": "I arrived at the airport. (arrival destination)"},
+        {"ko": "헬스장에 다녀요", "en": "I attend the gym regularly. (destination with 다니다)"},
+        {"ko": "한 개에 얼마예요?", "en": "How much is it per piece? (unit rate)"},
+        {"ko": "하루에 세 번 먹어요", "en": "I take it three times a day. (frequency per time unit)"},
+        {"ko": "일주일에 두 번 운동해요", "en": "I exercise twice a week. (frequency per week)"},
+        {"ko": "한 시간에 천 원이에요", "en": "It is 1,000 won per hour. (rate per hour)"}
+      ],
+      "quiz": [
+        {"q": "Which sentence uses 에 to express a destination of movement?", "opts": ["도서관에서 책을 읽어요.", "도서관에 공부하러 가요.", "도서관이 아주 넓어요.", "도서관을 지었어요."], "a": 1, "why": "In 도서관에 공부하러 가요, 에 marks 도서관 as the destination of the movement verb 가다."},
+        {"q": "What does 에 express in '사과가 한 개에 천 원이에요'?", "opts": ["Time of purchase", "Destination", "Standard unit or rate", "Reason"], "a": 2, "why": "When attached to counting classifiers like 한 개 (one piece), 에 means per or for each unit."},
+        {"q": "Which particle fits in: '이 약은 하루___ 세 번 드세요'?", "opts": ["에", "를", "에서", "으로"], "a": 0, "why": "하루에 세 번 means three times a (per) day, expressing frequency per time unit."},
+        {"q": "Which verb commonly takes 에 to indicate the destination of moving toward?", "opts": ["먹다", "가다", "보다", "읽다"], "a": 1, "why": "Movement verbs like 가다 (to go) and 오다 (to come) take 에 to mark the destination."},
+        {"q": "Which sentence correctly expresses 'I go to the office by nine'?", "opts": ["아홉 시까지 사무실에 출근해요.", "아홉 시까지 사무실을 출근해요.", "아홉 시까지 사무실로만 출근을 해요.", "아홉 시까지 사무실과 출근해요."], "a": 0, "why": "사무실에 출근해요 uses 에 to mark the office as the destination of going to work."}
+      ],
+      "fill": [
+        {"q": "오후에 편지를 보내러 우체국___ 갔어요.", "en": "In the afternoon, I went to the post office to send a letter.", "a": ["에"]},
+        {"q": "이 귤은 한 상자___ 이만 원이에요.", "en": "These tangerines are 20,000 won per box.", "a": ["에"]},
+        {"q": "저는 한 달___ 한 권씩 책을 꼭 읽어요.", "en": "I make sure to read one book per month.", "a": ["에"]},
+        {"q": "비행기가 저녁 일곱 시에 인천공항___ 도착해요.", "en": "The plane arrives at Incheon Airport at 7 PM.", "a": ["에"]},
+        {"q": "퇴근길에 식료품을 사러 마트___ 들렀어요.", "en": "On the way home from work, I stopped by the grocery mart.", "a": ["에"]}
+      ]
+    },
+    "pt-26-8": {
+      "cards": [
+        {"ko": "식당에서 밥을 먹어요", "en": "I eat a meal at the restaurant. (location of action)"},
+        {"ko": "도서관에서 시험공부를 해요", "en": "I study for the exam at the library. (location of studying)"},
+        {"ko": "공원에서 조깅해요", "en": "I jog in the park. (location of jogging)"},
+        {"ko": "백화점에서 옷을 샀어요", "en": "I bought clothes at the department store. (location of purchase)"},
+        {"ko": "어디에서 일해요?", "en": "Where do you work? (location of work)"},
+        {"ko": "미국에서 왔어요", "en": "I came from the United States. (origin / starting point)"},
+        {"ko": "역에서 내려요", "en": "I get off at the station. (point of disembarking)"},
+        {"ko": "집에서 쉬어요", "en": "I rest at home. (location of resting)"}
+      ],
+      "quiz": [
+        {"q": "What is the difference between 방에 and 방에서?", "opts": ["방에 is for action, 방에서 is for static existence.", "방에 indicates existence or destination, while 방에서 marks the location of an active behavior.", "방에 means from the room, 방에서 means toward the room.", "There is no difference in usage."], "a": 1, "why": "에 is used with verbs like 있다/없다/가다, whereas 에서 marks the dynamic place where an action takes place."},
+        {"q": "Which sentence correctly uses 에서 to indicate a place of action?", "opts": ["카페에서 친구와 커피를 마셨어요.", "카페에 친구와 커피를 마셨어요.", "카페를 친구와 커피를 마셨어요.", "카페의 친구와 커피를 마셨어요."], "a": 0, "why": "Drinking coffee is an active behavior taking place at the cafe, requiring the dynamic location marker 에서."},
+        {"q": "What does 에서 mean in '어느 나라에서 오셨어요?'?", "opts": ["At (location of work)", "From (country of origin)", "Toward (destination)", "Through (method)"], "a": 1, "why": "With movement verbs like 오다 (to come), 에서 marks the starting point or place of origin (from)."},
+        {"q": "Which sentence has an INCORRECT particle?", "opts": ["운동장에서 축구를 해요.", "교실에서 한국어를 배워요.", "영화관에 영화를 봤어요.", "집에서 편하게 쉬었어요."], "a": 2, "why": "Watching a movie is an action taking place inside the cinema, so it must be 영화관에서, not 영화관에."},
+        {"q": "Which particle completes: '저는 어제 서점___ 소설책을 샀어요'?", "opts": ["에", "에서", "으로", "까지"], "a": 1, "why": "Buying a book is an action performed at the bookstore, so 에서 is the correct marker."}
+      ],
+      "fill": [
+        {"q": "주말에 근처 수영장___ 자유형을 연습했어요.", "en": "Over the weekend, I practiced freestyle at the nearby swimming pool.", "a": ["에서"]},
+        {"q": "어느 나라___ 한국으로 오셨어요?", "en": "From which country did you come to Korea?", "a": ["에서"]},
+        {"q": "점심시간에 구내식당___ 돈가스를 먹었어요.", "en": "During lunchtime, I ate pork cutlet at the cafeteria.", "a": ["에서"]},
+        {"q": "동생은 자기 방___ 음악을 크게 듣고 있어요.", "en": "My younger sibling is listening to music loudly in their room.", "a": ["에서"]},
+        {"q": "내일 오후에 중앙역 시계탑 앞___ 만나요.", "en": "Let us meet in front of the Central Station clock tower tomorrow afternoon.", "a": ["에서"]}
+      ]
+    },
+    "pt-26-9": {
+      "cards": [
+        {"ko": "서울에서 부산까지", "en": "From Seoul to Busan. (spatial range)"},
+        {"ko": "집에서 회사까지", "en": "From home to the office. (spatial range)"},
+        {"ko": "여기에서 저기까지", "en": "From here to there. (spatial distance)"},
+        {"ko": "아홉 시부터 다섯 시까지", "en": "From 9 o'clock to 5 o'clock. (temporal range)"},
+        {"ko": "월요일부터 금요일까지", "en": "From Monday to Friday. (range of days)"},
+        {"ko": "처음부터 끝까지", "en": "From the beginning to the end. (range from start to finish)"},
+        {"ko": "일 번부터 십 번까지", "en": "From number 1 to number 10. (sequence range)"},
+        {"ko": "어제부터 오늘까지", "en": "From yesterday to today. (calendar time range)"}
+      ],
+      "quiz": [
+        {"q": "Which pair of particles is generally preferred for a starting and ending point in TIME?", "opts": ["에서 - 까지", "부터 - 까지", "에게 - 한테", "으로 - 로"], "a": 1, "why": "For time periods (such as hours or days), 부터 - 까지 (from - until) is the standard pair."},
+        {"q": "Which pair of particles is generally preferred for a starting and ending point in PHYSICAL SPACE?", "opts": ["부터 - 에게", "에서 - 까지", "에서 - 부터", "까지 - 에게"], "a": 1, "why": "For physical locations and distances, 에서 - 까지 (from place to place) is used."},
+        {"q": "Which sentence has an INCORRECT particle combination?", "opts": ["집에서 학교까지 걸어가요.", "아침부터 저녁까지 일했어요.", "집에 학교까지 걸어가요.", "일 페이지부터 십 페이지까지 읽으세요."], "a": 2, "why": "Starting from a place takes 에서 (집에서 학교까지), not 에. 에 marks a destination or a location, not the starting point."},
+        {"q": "Fill in the blank: '점심시간은 열두 시___ 한 시까지예요.'", "opts": ["부터", "에서", "에게", "으로"], "a": 0, "why": "열두 시 is a time point marking the beginning of an interval, so 부터 is appropriate."},
+        {"q": "Which particle fits in: '지하철역에서 우리 집___ 십 분 걸려요'?", "opts": ["에서", "부터", "까지", "에게"], "a": 2, "why": "지하철역에서 marks the starting location, so 까지 marks the destination ending point."}
+      ],
+      "fill": [
+        {"q": "기숙사에서 강의실___ 걸어서 십 분이면 가요.", "en": "From the dormitory to the lecture room, it takes ten minutes on foot.", "a": ["까지"]},
+        {"q": "오전 아홉 시___ 오후 여섯 시까지 근무해요.", "en": "I work from 9 AM to 6 PM.", "a": ["부터"]},
+        {"q": "제주공항___ 숙소까지 택시를 탔어요.", "en": "I took a taxi from Jeju Airport to the lodging.", "a": ["에서", "부터"]},
+        {"q": "방학은 이번 주 금요일___ 시작해요.", "en": "Vacation starts from this Friday.", "a": ["부터", "에"]},
+        {"q": "선생님이 책 백 쪽부터 백오 쪽___ 풀라고 하셨어요.", "en": "The teacher told us to solve from page 100 to page 105 of the book.", "a": ["까지"]}
+      ]
+    },
+    "pt-26-10": {
+      "cards": [
+        {"ko": "친구에게 편지를 써요", "en": "I write a letter to a friend. (recipient of letter)"},
+        {"ko": "동생한테 선물을 줬어요", "en": "I gave a gift to my younger sibling. (colloquial recipient)"},
+        {"ko": "선생님께 여쭤보았어요", "en": "I inquired to the teacher. (honorific form of 에게/한테)"},
+        {"ko": "강아지에게 간식을 줘요", "en": "I give a snack to the puppy. (animal recipient)"},
+        {"ko": "누구한테 전화했어요?", "en": "To whom did you call? (colloquial phone recipient)"},
+        {"ko": "부모님께 안부 인사를 드렸어요", "en": "I sent regards to my parents. (honorific recipient)"},
+        {"ko": "친구한테 돈을 빌렸어요", "en": "I borrowed money from a friend. (source with 빌리다/받다)"},
+        {"ko": "아이들에게 동화책을 읽어 줘요", "en": "I read a fairy tale book to children. (recipient of action)"}
+      ],
+      "quiz": [
+        {"q": "What is the difference between 에게 and 한테?", "opts": ["에게 is for objects, while 한테 is for people.", "에게 is commonly used in both writing and formal speech, while 한테 is more casual and conversational.", "에게 is honorific, while 한테 is impolite.", "There is no difference in tone or register."], "a": 1, "why": "Both attach to people or animals, but 에게 is standard/formal/written, whereas 한테 is informal and conversational."},
+        {"q": "Which particle is the HONORIFIC form of 에게/한테 used when directing an action to an elder?", "opts": ["에서", "께", "으로", "의"], "a": 1, "why": "께 is the honorific dative particle used instead of 에게/한테 when giving something to an elder or respected person."},
+        {"q": "Can 에게/한테 attach to an inanimate building like 도서관?", "opts": ["Yes, always.", "No, inanimate objects and locations take 에, not 에게/한테.", "Only in questions.", "Only when writing letters."], "a": 1, "why": "에게/한테 is only used with people or animals. Inanimate objects and locations take the particle 에."},
+        {"q": "Which sentence correctly uses an honorific dative particle?", "opts": ["할머니한테 꽃을 드렸어요.", "할머니께 꽃을 드렸어요.", "할머니에게 꽃을 드렸어요.", "할머니를 꽃을 드렸어요."], "a": 1, "why": "When offering something to grandparents (elders), the honorific particle 께 must be used with the verb 드리다."},
+        {"q": "Which particle completes: '짝꿍___ 연필 한 자루를 빌려주었어요'?", "opts": ["에게", "에", "을", "으로"], "a": 0, "why": "짝꿍 (classmate) is a person receiving the lent item, so the dative particle 에게 (or 한테) is used."}
+      ],
+      "fill": [
+        {"q": "생일을 맞은 친구___ 축하 카드를 보냈어요.", "en": "I sent a congratulatory card to my friend celebrating a birthday.", "a": ["에게", "한테"]},
+        {"q": "배고픈 길고양이___ 사료를 챙겨 주었어요.", "en": "I provided pet food to the hungry street cat.", "a": ["에게", "한테"]},
+        {"q": "조카___ 재미있는 장난감을 선물했어요.", "en": "I gifted an interesting toy to my nephew.", "a": ["에게", "한테"]},
+        {"q": "할아버지___ 새해 안부 전화를 드렸어요.", "en": "I made a New Year's greeting phone call to grandfather.", "a": ["께"]},
+        {"q": "담임선생님___ 감사 편지를 정성껏 썼어요.", "en": "I wrote a thank-you letter with all my heart to my homeroom teacher.", "a": ["께"]}
+      ]
+    },
+    "pt-26-4": {
+      "cards": [
+        {"ko": "빵과 우유", "en": "Bread and milk. (과 with final consonant)"},
+        {"ko": "사과와 바나나", "en": "Apples and bananas. (와 without final consonant)"},
+        {"ko": "밥하고 국", "en": "Rice and soup. (하고 used without form changes)"},
+        {"ko": "연필이랑 공책", "en": "Pencil and notebook. (이랑 with final consonant)"},
+        {"ko": "친구랑 영화를 봐요", "en": "I watch a movie with a friend. (companion with 랑)"},
+        {"ko": "가족과 함께 여행해요", "en": "I travel together with family. (formal companion with 과)"},
+        {"ko": "언니하고 이야기해요", "en": "I talk with my older sister. (companion with 하고)"},
+        {"ko": "봄과 가을", "en": "Spring and autumn. (connecting seasons)"}
+      ],
+      "quiz": [
+        {"q": "Which pair of words correctly uses 와/과?", "opts": ["선생님와 학생", "선생님과 학생", "선생님랑 학생", "선생님이랑 학생이"], "a": 1, "why": "선생님 ends with a final consonant (ㅁ), so it correctly takes 과, not 와."},
+        {"q": "Which connective particle has the SAME form regardless of whether the preceding noun has a final consonant?", "opts": ["와/과", "(이)랑", "하고", "이/가"], "a": 2, "why": "하고 attaches in the exact same form to both vowel-ending and consonant-ending nouns."},
+        {"q": "Which particle attaches correctly to 수박 (final consonant ㄱ) in casual spoken Korean?", "opts": ["수박랑", "수박이랑", "수박와", "수박가"], "a": 1, "why": "Because 수박 ends with a final consonant (ㄱ), it takes 이랑 in colloquial spoken Korean."},
+        {"q": "Which sentence correctly expresses 'I went to the museum with my friend'?", "opts": ["친구와 함께 박물관에 갔어요.", "친구을 함께 박물관에 갔어요.", "친구의 함께 박물관에 갔어요.", "친구에 함께 박물관에 갔어요."], "a": 0, "why": "친구와 함께 means together with a friend, using the companion marker 와."},
+        {"q": "Which phrase has an INCORRECT particle choice?", "opts": ["모자와 장갑", "치마과 바지", "책과 연필", "포도와 딸기"], "a": 1, "why": "치마 ends in a vowel (마), so it must take 와 (치마와 바지), not 과."}
+      ],
+      "fill": [
+        {"q": "아침 식사로 따뜻한 토스트___ 신선한 오렌지 주스를 먹었어요.", "en": "For breakfast, I had warm toast and fresh orange juice.", "a": ["와", "하고", "랑"]},
+        {"q": "문구점에서 필통___ 지우개를 새로 샀어요.", "en": "At the stationery store, I bought a new pencil case and an eraser.", "a": ["과", "하고", "이랑"]},
+        {"q": "어제 방과 후에 친한 동기___ 같이 도서관에 갔어요.", "en": "Yesterday after school, I went to the library together with a close classmate.", "a": ["와", "하고", "랑"]},
+        {"q": "비빔밥에는 고추장___ 참기름이 꼭 들어가야 맛있어요.", "en": "Red chili paste and sesame oil must go into bibimbap for it to taste delicious.", "a": ["과", "하고", "이랑"]},
+        {"q": "주말에 고향 친구___ 함께 한강 공원을 산책했어요.", "en": "Over the weekend, I took a walk in Hangang Park together with a hometown friend.", "a": ["와", "하고", "랑"]}
+      ]
+    },
+    "pt-26-11": {
+      "cards": [
+        {"ko": "저도 학생이에요", "en": "I am also a student. (replacing topic/subject)"},
+        {"ko": "사과도 샀어요", "en": "I also bought apples. (replacing object)"},
+        {"ko": "한국에도 가 봤어요", "en": "I have also been to Korea. (adding to destination 에)"},
+        {"ko": "도서관에서도 공부해요", "en": "I also study at the library. (adding to dynamic location 에서)"},
+        {"ko": "친구에게도 보냈어요", "en": "I also sent it to a friend. (adding to recipient 에게)"},
+        {"ko": "비도 오고 바람도 불어요", "en": "It rains and the wind also blows. (parallel listing with 도)"},
+        {"ko": "하나도 없어요", "en": "There is not even one. (emphasis with negative verb)"},
+        {"ko": "주말에도 일해요", "en": "I work even on weekends. (emphasis on time)"}
+      ],
+      "quiz": [
+        {"q": "Which sentence correctly uses 도 to mean 'also' when replacing the object marker 을/를?", "opts": ["커피를도 마셔요.", "커피도 마셔요.", "커피에도 마셔요.", "커피이도 마셔요."], "a": 1, "why": "When attaching 도 to an object, it completely replaces 을/를, becoming 커피도 마셔요."},
+        {"q": "Can 도 attach after the location marker 에서?", "opts": ["No, they cannot combine.", "Yes, it combines into 에서도.", "Only with people.", "Only in questions."], "a": 1, "why": "Particles like 에서, 에, and 에게 can combine with 도, forming 에서도, 에도, and 에게도."},
+        {"q": "Fill in the blank: '지민 씨가 사과를 샀어요. 그리고 배___ 샀어요.'", "opts": ["도", "는", "만", "로"], "a": 0, "why": "Since Jimin bought apples and additionally bought pears, the addition marker 도 (also) is used."},
+        {"q": "What nuance does 도 express in '지갑에 동전이 하나도 없어요'?", "opts": ["Exclusivity", "Strong emphasis meaning not even one", "Comparison", "Direction"], "a": 1, "why": "When combined with 하나 (one) and a negative predicate, 도 emphasizes not even one (none at all)."},
+        {"q": "Which sentence has an INCORRECT combination with 도?", "opts": ["집에서도 일해요.", "저는도 영화를 봐요.", "친구에게도 알려줘요.", "일요일에도 문을 열어요."], "a": 1, "why": "도 replaces the subject/topic marker 은/는, so it must be 저도, not 저는도."}
+      ],
+      "fill": [
+        {"q": "오늘 회의에 지수 씨___ 참석했어요.", "en": "Jisu also attended today's meeting.", "a": ["도"]},
+        {"q": "어제 피자를 먹고 파스타___ 먹었어요.", "en": "Yesterday I ate pizza and also ate pasta.", "a": ["도"]},
+        {"q": "우리 동네는 밤에___ 거리가 밝고 안전해요.", "en": "In our neighborhood, the streets are bright and safe even at night.", "a": ["도"]},
+        {"q": "냉장고 안에 물이 한 방울___ 남아 있지 않아요.", "en": "Not even a single drop of water remains in the refrigerator.", "a": ["도"]},
+        {"q": "도서관뿐만 아니라 집에서___ 열심히 복습해요.", "en": "Not only at the library, but I also review diligently at home.", "a": ["도"]}
+      ]
+    },
+    "pt-26-12": {
+      "cards": [
+        {"ko": "물만 마셨어요", "en": "I only drank water. (object exclusivity)"},
+        {"ko": "저만 몰랐어요", "en": "Only I did not know. (subject exclusivity)"},
+        {"ko": "주말에만 쉬어요", "en": "I rest only on weekends. (time exclusivity with 에만)"},
+        {"ko": "집에서만 공부해요", "en": "I study only at home. (location exclusivity with 에서만)"},
+        {"ko": "잠깐만 기다려 주세요", "en": "Please wait just a moment. (quantity/time unit)"},
+        {"ko": "한 번만 도와주세요", "en": "Please help me just once. (counting unit)"},
+        {"ko": "채소만 먹어요", "en": "I only eat vegetables. (dietary exclusivity)"},
+        {"ko": "친구에게만 말했어요", "en": "I told only my friend. (recipient exclusivity with 에게만)"}
+      ],
+      "quiz": [
+        {"q": "Which sentence correctly expresses 'I only drank tea'?", "opts": ["차에만 마셨어요.", "차만 마셨어요.", "차이만 마셨어요.", "차는만 마셨어요."], "a": 1, "why": "When attached to a direct object, 만 replaces 을/를 completely to form 차만 마셨어요."},
+        {"q": "Can 만 attach after the particle 에서?", "opts": ["Yes, it forms 에서만 meaning only at.", "No, 에서 drops completely.", "Only in writing.", "Only with people."], "a": 0, "why": "만 can combine with prepositional particles like 에서 to form 에서만, meaning only at."},
+        {"q": "What does 만 express in '오 분만 쉬었다가 다시 시작합시다'?", "opts": ["Addition", "Limitation to just five minutes", "Comparison", "Reason"], "a": 1, "why": "Attached to 오 분 (five minutes), 만 limits the break to just or only five minutes."},
+        {"q": "Which sentence has an INCORRECT combination with 만?", "opts": ["교실에만 있어요.", "선생님에게만 물어봤어요.", "김밥이만 주문했어요.", "한국에서만 파는 과자예요."], "a": 2, "why": "만 attaches right after the noun or after a particle like 에서, 에게. 이 cannot sit between the noun and 만, so 김밥이만 is wrong (김밥만)."},
+        {"q": "Fill in the blank: '모두 왔는데 민수___ 아직 안 왔어요.'", "opts": ["만", "를", "로", "까지"], "a": 0, "why": "Everyone arrived except Minsu, so 만 (only) specifies that Minsu is the exclusive one who has not arrived."}
+      ],
+      "fill": [
+        {"q": "저는 아침에 사과 반 쪽___ 간단하게 먹어요.", "en": "In the morning, I only eat half an apple simply.", "a": ["만"]},
+        {"q": "이 비밀은 우리 둘___ 알고 있기로 해요.", "en": "Let us keep this secret known only between the two of us.", "a": ["만"]},
+        {"q": "평일에는 바빠서 토요일에___ 영화를 봐요.", "en": "Since I am busy on weekdays, I watch movies only on Saturdays.", "a": ["만"]},
+        {"q": "어려운 질문이라 정답을 지우 씨___ 맞혔어요.", "en": "Because it was a difficult question, only Jiu got the correct answer.", "a": ["만"]},
+        {"q": "실내에서는 이 슬리퍼___ 신어야 해요.", "en": "Indoors, you must only wear these slippers.", "a": ["만"]}
+      ]
+    },
+    "pt-26-13": {
+      "cards": [
+        {"ko": "천 원밖에 없어요", "en": "I only have 1,000 won (nothing but). (insufficient money)"},
+        {"ko": "한 개밖에 안 남았어요", "en": "Only one is left. (disappointing small amount)"},
+        {"ko": "너밖에 없어요", "en": "There is no one but you. (exclusivity / relying on someone)"},
+        {"ko": "한국어밖에 몰라요", "en": "I only know Korean (no other language). (limitation with 모르다)"},
+        {"ko": "물밖에 안 마셔요", "en": "I drink nothing but water. (exclusivity with negative verb)"},
+        {"ko": "삼십 분밖에 못 잤어요", "en": "I could only sleep for 30 minutes. (insufficient sleep)"},
+        {"ko": "세 명밖에 안 왔어요", "en": "Only three people came. (fewer attendees than expected)"},
+        {"ko": "이 방법밖에 없어요", "en": "There is no other way but this. (only remaining option)"}
+      ],
+      "quiz": [
+        {"q": "What kind of verb MUST always follow the particle 밖에?", "opts": ["An affirmative imperative verb", "A negative predicate (없다, 안, 못, etc.)", "A question word", "A future tense verb only"], "a": 1, "why": "The particle 밖에 must always be paired with a negative predicate like 없다, 안, or 못."},
+        {"q": "Which sentence is grammatically INCORRECT because of the verb choice after 밖에?", "opts": ["사과가 하나밖에 없어요.", "사과가 하나밖에 있어요.", "사과가 하나밖에 안 남았어요.", "사과를 하나밖에 못 샀어요."], "a": 1, "why": "The predicate after 밖에 must be negative. 하나밖에 있어요 is ungrammatical; it should be 하나밖에 없어요 or 하나만 있어요."},
+        {"q": "What nuance does 밖에 express compared to 만?", "opts": ["A sense of satisfaction", "A feeling that the quantity is smaller than expected or regrettable", "A feeling of honorific respect", "A choice between two alternatives"], "a": 1, "why": "While 만 simply states exclusivity, 밖에 highlights that the amount is small, insufficient, or regrettable."},
+        {"q": "Which sentence correctly expresses: 'I only slept two hours last night'?", "opts": ["어젯밤에 두 시간밖에 잤어요.", "어젯밤에 두 시간밖에 못 잤어요.", "어젯밤에 두 시간만 못 잤어요.", "어젯밤에 두 시간밖에 많이 잤어요."], "a": 1, "why": "The negative adverb 못 combines with 밖에 to express that sleeping two hours was insufficient."},
+        {"q": "Fill in the blank: '지갑에 버스비 오백 원___ 남아 있지 않아요.'", "opts": ["밖에", "만", "도", "까지"], "a": 0, "why": "With the negative ending 남아 있지 않아요, 밖에 expresses that only 500 won remains."}
+      ],
+      "fill": [
+        {"q": "주머니에 동전 몇 개___ 없어서 음료수를 못 샀어요.", "en": "Because I had nothing but a few coins in my pocket, I could not buy a drink.", "a": ["밖에"]},
+        {"q": "약속 시간까지 십 분___ 안 남았으니 서둘러요.", "en": "There are only ten minutes left until the appointment time, so hurry.", "a": ["밖에"]},
+        {"q": "교실에 학생이 두 사람___ 안 와서 쓸쓸해요.", "en": "Only two students came to the classroom, so it feels lonely.", "a": ["밖에"]},
+        {"q": "너무 피곤해서 어젯밤에 세 시간___ 못 잤어요.", "en": "Because I was so tired, I could only sleep for three hours last night.", "a": ["밖에"]},
+        {"q": "지금은 이 방법___ 다른 해결책이 전혀 없어요.", "en": "Right now, there is no other solution at all but this method.", "a": ["밖에"]}
+      ]
+    },
+    "pt-26-15": {
+      "cards": [
+        {"ko": "커피나 차", "en": "Coffee or tea. (choice without final consonant)"},
+        {"ko": "수박이나 딸기", "en": "Watermelon or strawberries. (choice with final consonant)"},
+        {"ko": "토요일이나 일요일", "en": "Saturday or Sunday. (choosing between days)"},
+        {"ko": "산이나 바다", "en": "Mountains or the sea. (choice of destinations)"},
+        {"ko": "영화나 볼까요?", "en": "Shall we watch a movie or something? (suggesting an option)"},
+        {"ko": "차나 한잔해요", "en": "Let us have tea or something. (casual suggestion)"},
+        {"ko": "빵이나 밥", "en": "Bread or rice. (food options)"},
+        {"ko": "지하철이나 버스", "en": "Subway or bus. (transportation options)"}
+      ],
+      "quiz": [
+        {"q": "Which pair of nouns correctly uses (이)나 to mean 'or'?", "opts": ["주스이나 우유", "주스나 우유", "주스이나는 우유", "주스로 우유"], "a": 1, "why": "주스 ends with a vowel, so it takes 나 (주스나 우유) instead of 이나."},
+        {"q": "Which noun requires 이나 because it ends with a final consonant?", "opts": ["사과", "피자", "가방", "바나나"], "a": 2, "why": "가방 ends with the final consonant (ㅇ), so it takes 이나 (가방이나 지갑)."},
+        {"q": "What does 나 mean in '주말에 심심한데 영화나 볼까요?'?", "opts": ["As much as", "Suggesting an acceptable option (a movie or something)", "Exclusivity", "Direction"], "a": 1, "why": "(이)나 can be used to suggest an option casually, meaning something like or or something."},
+        {"q": "Which sentence has an INCORRECT form of (이)나?", "opts": ["책이나 공책을 꺼내세요.", "커피이나 녹차를 마실래요?", "토요일이나 일요일에 만나요.", "지하철이나 버스를 타세요."], "a": 1, "why": "커피 ends in a vowel, so it must take 나 (커피나 녹차), not 커피이나."},
+        {"q": "Fill in the blank: '배가 고프니 라면___ 끓여 먹읍시다.'", "opts": ["이나", "나", "도", "만"], "a": 0, "why": "라면 ends with a final consonant (ㄴ), so the particle 이나 is used to suggest cooking ramen."}
+      ],
+      "fill": [
+        {"q": "아침에 보통 빵___ 시리얼을 간단히 먹어요.", "en": "In the morning, I usually eat bread or cereal simply.", "a": ["이나"]},
+        {"q": "피곤할 때는 따뜻한 녹차___ 유자차를 마셔요.", "en": "When tired, I drink warm green tea or citron tea.", "a": ["나"]},
+        {"q": "이번 휴가에는 부산___ 강릉으로 여행을 가고 싶어요.", "en": "For this vacation, I want to travel to Busan or Gangneung.", "a": ["이나"]},
+        {"q": "주말에 시간이 나면 집에서 소설책___ 읽을 생각이에요.", "en": "If I have time on the weekend, I plan to read a novel or something at home.", "a": ["이나"]},
+        {"q": "목이 많이 마른데 시원한 음료수___ 한 캔 사 마실까요?", "en": "I am very thirsty; shall we buy and drink a cool soda or something?", "a": ["나"]}
+      ]
+    },
+    "pt-26-16": {
+      "cards": [
+        {"ko": "세 시간이나 기다렸어요", "en": "I waited as long as three hours! (unexpected long duration)"},
+        {"ko": "다섯 잔이나 마셨어요", "en": "I drank as many as five cups! (large quantity of drinks)"},
+        {"ko": "백 명이나 왔어요", "en": "As many as 100 people came! (large crowd)"},
+        {"ko": "사과를 다섯 개나 먹었어요", "en": "I ate as many as five apples! (counter ending in vowel + 나)"},
+        {"ko": "열 권이나 읽었어요", "en": "I read as many as ten books! (large number of books)"},
+        {"ko": "한 달이나 걸렸어요", "en": "It took as long as a whole month! (surprising duration)"},
+        {"ko": "만 원이나 해요", "en": "It costs as much as 10,000 won! (surprising high price)"},
+        {"ko": "열 번이나 전화했어요", "en": "I called as many as ten times! (high frequency)"}
+      ],
+      "quiz": [
+        {"q": "What nuance does (이)나 express in '어제 열 시간이나 잤어요'?", "opts": ["Only slept a little", "Surprise at sleeping as long as ten hours", "Choice between ten hours or more", "Doubt whether sleeping occurred"], "a": 1, "why": "Attached to a number or counter, (이)나 expresses surprise that the quantity or duration is larger than expected."},
+        {"q": "Which counter correctly takes 나 instead of 이나?", "opts": ["다섯 권", "사과 세 개", "열 명", "세 시간"], "a": 1, "why": "개 ends in a vowel (ㅐ), so it attaches directly to 나 (세 개나), while 권, 명, and 시간 end in consonants."},
+        {"q": "Which sentence has an INCORRECT particle form?", "opts": ["학생이 오십 명이나 왔어요.", "커피를 네 잔이나 마셨어요.", "선물을 세 개이나 받았어요.", "도서관에서 다섯 시간이나 공부했어요."], "a": 2, "why": "개 ends with a vowel, so it must take 나 (세 개나), not 세 개이나."},
+        {"q": "Fill in the blank: '비행기 표가 백만 원___ 해서 깜짝 놀랐어요.'", "opts": ["이나", "나", "밖에", "도"], "a": 0, "why": "원 ends with a final consonant (ㄴ), so 이나 is attached to express shock at the high price."},
+        {"q": "Which sentence expresses that eating three bowls of noodles was a surprisingly large amount?", "opts": ["국수를 세 그릇만 먹었어요.", "국수를 세 그릇이나 먹었어요.", "국수를 세 그릇밖에 안 먹었어요.", "국수를 세 그릇으로 먹었어요."], "a": 1, "why": "그릇 ends with a final consonant, so 이나 expresses that three bowls is a surprisingly large amount."}
+      ],
+      "fill": [
+        {"q": "어제 시험공부를 하느라 새벽 세 시___ 깨어 있었어요.", "en": "Studying for the exam yesterday, I was awake until as late as 3 AM.", "a": ["나"]},
+        {"q": "콘서트 티켓을 사려고 줄을 두 시간___ 서 있었어요.", "en": "To buy concert tickets, I stood in line for as long as two hours.", "a": ["이나"]},
+        {"q": "점심에 너무 배가 고파서 만두를 열 개___ 혼자 다 먹었어요.", "en": "Because I was so hungry at lunch, I ate as many as ten dumplings all by myself.", "a": ["나"]},
+        {"q": "그 축제에는 외국인 관광객이 천 명___ 모였어요.", "en": "As many as 1,000 foreign tourists gathered at that festival.", "a": ["이나"]},
+        {"q": "기숙사 방 청소를 한 지 벌써 한 달___ 지났어요.", "en": "As long as a whole month has already passed since I cleaned my dorm room.", "a": ["이나"]}
+      ]
+    },
+    "pt-26-14": {
+      "cards": [
+        {"ko": "연필로 써요", "en": "I write with a pencil. (tool ending in ㄹ -> 로)"},
+        {"ko": "가위로 잘라요", "en": "I cut with scissors. (tool ending in vowel -> 로)"},
+        {"ko": "숟가락으로 먹어요", "en": "I eat with a spoon. (tool ending in consonant -> 으로)"},
+        {"ko": "지하철로 가요", "en": "I go by subway. (means of transportation)"},
+        {"ko": "오른쪽으로 가세요", "en": "Please go to the right. (direction)"},
+        {"ko": "한국어로 말해요", "en": "Speak in Korean. (language/medium)"},
+        {"ko": "콩으로 두부를 만들어요", "en": "Tofu is made from soybeans. (raw material)"},
+        {"ko": "서울역으로 출발해요", "en": "Depart toward Seoul Station. (direction of travel)"}
+      ],
+      "quiz": [
+        {"q": "Which noun ending with a final consonant exceptionally takes 로 instead of 으로?", "opts": ["Words ending in ㄴ", "Words ending in ㄹ (such as 연필, 칼, 서울)", "Words ending in ㅁ", "Words ending in ㅇ"], "a": 1, "why": "Nouns ending in the final consonant ㄹ (like 연필, 칼, 서울) take 로 rather than 으로."},
+        {"q": "Which sentence correctly attaches (으)로 to express a tool?", "opts": ["젓가락으로 음식을 집어요.", "젓가락로 음식을 집어요.", "젓가락에 음식을 집어요.", "젓가락을 음식을 집어요."], "a": 0, "why": "젓가락 ends with the final consonant ㄱ, so it takes 으로 (젓가락으로)."},
+        {"q": "What does (으)로 indicate in '저 사거리에서 왼쪽으로 도세요'?", "opts": ["Raw material", "Direction of movement", "Price", "Reason"], "a": 1, "why": "Attached to 왼쪽 (left), 으로 indicates the direction in which to turn."},
+        {"q": "Which phrase has an INCORRECT form of (으)로?", "opts": ["가위로", "버스로", "비행기으로", "볼펜으로"], "a": 2, "why": "비행기 ends with a vowel (기), so it must take 로 (비행기로), not 비행기으로."},
+        {"q": "Fill in the blank: '저는 부산까지 빠른 기차___ 이동했어요.'", "opts": ["로", "으로", "에", "에서"], "a": 0, "why": "기차 ends in a vowel, so the particle 로 expresses the means of transportation."}
+      ],
+      "fill": [
+        {"q": "상자를 튼튼한 테이프___ 꼼꼼하게 붙였어요.", "en": "I taped the box meticulously with strong tape.", "a": ["로"]},
+        {"q": "이 국물 요리는 숟가락___ 드시면 편리해요.", "en": "It is convenient if you eat this soup dish with a spoon.", "a": ["으로"]},
+        {"q": "지하철 출구에서 나와서 오른쪽___ 오십 미터만 오세요.", "en": "Come out of the subway exit and come just 50 meters to the right.", "a": ["으로"]},
+        {"q": "친구와 비밀 이야기를 한국어___ 나누었어요.", "en": "I shared secret stories with my friend in Korean.", "a": ["로"]},
+        {"q": "이 빵은 고소한 쌀가루___ 정성껏 만들었어요.", "en": "This bread was made with all heart from flavorful rice flour.", "a": ["로"]}
+      ]
+    },
+    "pt-26-17": {
+      "cards": [
+        {"ko": "세 시쯤 만나요", "en": "Let us meet around three o'clock. (approximate time)"},
+        {"ko": "삼십 분쯤 걸려요", "en": "It takes about thirty minutes. (estimated duration)"},
+        {"ko": "열 명쯤 모였어요", "en": "About ten people gathered. (estimated count)"},
+        {"ko": "천 원쯤 해요", "en": "It costs around 1,000 won. (estimated price)"},
+        {"ko": "내일쯤 출발해요", "en": "I will depart around tomorrow. (estimated date)"},
+        {"ko": "절반쯤 끝냈어요", "en": "I finished about half of it. (estimated portion)"},
+        {"ko": "이 킬로미터쯤 남았어요", "en": "About two kilometers remain. (estimated distance)"},
+        {"ko": "며칠쯤 걸릴까요?", "en": "How many days will it take approximately? (inquiry of estimate)"}
+      ],
+      "quiz": [
+        {"q": "What does the particle 쯤 mean when attached to a number or time?", "opts": ["Exactly", "About / around / approximately", "Only", "Never"], "a": 1, "why": "쯤 indicates an approximation, estimate, or rough guess (about, around)."},
+        {"q": "Does the form of 쯤 change depending on whether the noun ends with a final consonant?", "opts": ["Yes, it changes to 이쯤 after a consonant.", "No, it is always 쯤 regardless of final consonants.", "Yes, it drops after vowels.", "It only attaches to vowels."], "a": 1, "why": "The particle 쯤 has a single fixed form and attaches directly to nouns whether they have a final consonant or not."},
+        {"q": "Which sentence correctly uses 쯤 to estimate time?", "opts": ["내일 오후 두 시쯤 커피숍에서 만나요.", "내일 오후 두 시이쯤 커피숍에서 만나요.", "내일 오후 두 시을쯤 커피숍에서 만나요.", "내일 오후 두 시로쯤 커피숍에서 만나요."], "a": 0, "why": "쯤 attaches directly to time nouns: 두 시쯤 means around 2 o'clock."},
+        {"q": "Which question asks for an approximate count using 쯤?", "opts": ["학생이 몇 명쯤 왔어요?", "학생이 몇 명을 왔어요?", "학생이 몇 명으로 왔어요?", "학생이 몇 명에 왔어요?"], "a": 0, "why": "몇 명쯤 means approximately how many people."},
+        {"q": "Fill in the blank: '역까지 걸어가면 십오 분___ 걸려요.'", "opts": ["쯤", "이쯤", "과", "보다"], "a": 0, "why": "십오 분쯤 means about 15 minutes, expressing an estimated duration."}
+      ],
+      "fill": [
+        {"q": "퇴근하고 집에 도착하면 저녁 일곱 시___ 될 거예요.", "en": "When I arrive home after work, it will be around 7 PM.", "a": ["쯤"]},
+        {"q": "오늘 동아리 모임에 스무 명___ 참석할 예정이에요.", "en": "About twenty people are scheduled to attend today's club meeting.", "a": ["쯤"]},
+        {"q": "학교 도서관까지 걸어서 십 분___ 걸려요.", "en": "It takes about ten minutes on foot to the school library.", "a": ["쯤"]},
+        {"q": "주문하신 음식은 십오 분___ 뒤에 나올 거예요.", "en": "The food you ordered will come out in about 15 minutes.", "a": ["쯤"]},
+        {"q": "이번 프로젝트는 다음 주 화요일___ 끝날 것 같아요.", "en": "This project seems like it will finish around next Tuesday.", "a": ["쯤"]}
+      ]
+    },
+    "pt-26-18": {
+      "cards": [
+        {"ko": "천사처럼 착해요", "en": "Kind like an angel. (resemblance in personality)"},
+        {"ko": "바다처럼 넓어요", "en": "Wide like the ocean. (resemblance in scale)"},
+        {"ko": "영화처럼 아름다워요", "en": "Beautiful like a movie. (resemblance in quality)"},
+        {"ko": "물처럼 마셔요", "en": "Drink it like water. (resemblance in manner)"},
+        {"ko": "가족같이 따뜻해요", "en": "Warm like family. (resemblance with 같이)"},
+        {"ko": "그림같이 예뻐요", "en": "Pretty like a picture. (scenic beauty)"},
+        {"ko": "거짓말처럼 사라졌어요", "en": "Disappeared like a lie. (figurative manner)"},
+        {"ko": "평소처럼 행동해요", "en": "Act as usual. (comparison with standard/usual)"}
+      ],
+      "quiz": [
+        {"q": "What do 처럼 and 같이 mean when attached to a noun in '천사처럼 웃어요'?", "opts": ["Together with", "Like / as (comparing resemblance)", "Because of", "Toward"], "a": 1, "why": "Attached to a noun, 처럼 or 같이 means like or as, drawing a comparison of resemblance."},
+        {"q": "Which sentence has the same meaning as '가족처럼 지내요'?", "opts": ["가족같이 지내요.", "가족에게 지내요.", "가족으로 지내요.", "가족보다 지내요."], "a": 0, "why": "The particles 처럼 and 같이 are interchangeable when expressing resemblance (like family)."},
+        {"q": "Does 처럼 change form based on the presence of a final consonant?", "opts": ["Yes, it changes to 이처럼.", "No, it attaches directly as 처럼 to all nouns.", "Only after vowels.", "Only after consonants."], "a": 1, "why": "The particle 처럼 has an invariant form and attaches directly to any noun."},
+        {"q": "Which sentence correctly describes someone singing like a bird?", "opts": ["새처럼 맑은 목소리로 노래해요.", "새으로 맑은 목소리로 노래해요.", "새에게 맑은 목소리로 노래해요.", "새보다만 맑은 목소리로 노래해요."], "a": 0, "why": "새처럼 means like a bird, comparing the voice to a bird."},
+        {"q": "Fill in the blank: '창밖 풍경이 한 폭의 그림___ 아름다워요.'", "opts": ["처럼", "보다", "마다", "쯤"], "a": 0, "why": "그림처럼 (or 그림같이) means like a painting, depicting poetic resemblance."}
+      ],
+      "fill": [
+        {"q": "제 친구는 마음씨가 바다___ 넓고 따뜻해요.", "en": "My friend's heart is wide and warm like the ocean.", "a": ["처럼", "같이"]},
+        {"q": "선생님은 우리를 친자식___ 다정하게 챙겨 주셨어요.", "en": "The teacher took care of us warmly like their own children.", "a": ["처럼", "같이"]},
+        {"q": "봄비가 내리더니 거짓말___ 하늘이 다시 맑아졌어요.", "en": "After the spring rain fell, the sky became clear again like magic.", "a": ["처럼", "같이"]},
+        {"q": "오늘 아침에도 평소___ 일찍 일어나서 조깅을 했어요.", "en": "This morning as well, I woke up early as usual and jogged.", "a": ["처럼", "같이"]},
+        {"q": "그 가수는 밤하늘의 별___ 밝게 빛나는 목소리를 가졌어요.", "en": "That singer has a voice that shines brightly like stars in the night sky.", "a": ["처럼", "같이"]}
+      ]
+    },
+    "pt-26-19": {
+      "cards": [
+        {"ko": "어제보다 더 추워요", "en": "It is colder than yesterday. (comparison with time)"},
+        {"ko": "비행기가 기차보다 빨라요", "en": "Airplanes are faster than trains. (comparison between transports)"},
+        {"ko": "한국어가 영어보다 어려워요", "en": "Korean is more difficult than English. (comparison of difficulty)"},
+        {"ko": "형이 동생보다 키가 커요", "en": "The older brother is taller than the younger sibling. (comparison of height)"},
+        {"ko": "영화가 책보다 재미있어요", "en": "The movie is more interesting than the book. (comparison of interest)"},
+        {"ko": "생각보다 쉬워요", "en": "It is easier than I thought. (comparison with expectation)"},
+        {"ko": "말보다 행동이 중요해요", "en": "Action is more important than words. (comparison of importance)"},
+        {"ko": "무엇보다 건강이 최고예요", "en": "Health is the best above anything else. (superlative comparison)"}
+      ],
+      "quiz": [
+        {"q": "In the sentence '수박이 사과보다 커요', which fruit is bigger?", "opts": ["Apple", "Watermelon", "Both are equal", "Cannot be determined"], "a": 1, "why": "The particle 보다 attaches to the baseline of comparison (사과). So watermelon is bigger than apple."},
+        {"q": "Which word is often used alongside 보다 to emphasize 'more'?", "opts": ["더", "덜", "안", "못"], "a": 0, "why": "더 (more) commonly reinforces comparative statements using 보다 (for example, 어제보다 더 더워요)."},
+        {"q": "Does 보다 change form when attached to a noun with a final consonant?", "opts": ["Yes, it becomes 이보다.", "No, it is always 보다 on all nouns.", "It becomes 으로보다.", "It becomes 과보다."], "a": 1, "why": "The particle 보다 has a constant form and attaches directly to nouns with or without a final consonant."},
+        {"q": "Which sentence correctly expresses: 'Today is warmer than yesterday'?", "opts": ["오늘이 어제보다 따뜻해요.", "오늘이 어제처럼 따뜻해요.", "오늘이 어제까지 따뜻해요.", "오늘이 어제에게 따뜻해요."], "a": 0, "why": "어제보다 attaches 보다 to yesterday as the point of comparison, meaning warmer than yesterday."},
+        {"q": "Fill in the blank: '이번 시험은 지난번 시험___ 훨씬 쉬웠어요.'", "opts": ["보다", "처럼", "마다", "이나"], "a": 0, "why": "보다 attaches to 지난번 시험 to mean much easier than the previous exam."}
+      ],
+      "fill": [
+        {"q": "고속열차는 시외버스___ 속도가 훨씬 빨라요.", "en": "The high-speed train is much faster in speed than the intercity bus.", "a": ["보다"]},
+        {"q": "오늘 낮 기온은 어제___ 삼 도 더 높아요.", "en": "Today's daytime temperature is 3 degrees higher than yesterday.", "a": ["보다"]},
+        {"q": "직접 만들어 보니 생각___ 어렵지 않았어요.", "en": "When I tried making it myself, it was not as difficult as I thought.", "a": ["보다"]},
+        {"q": "인생에서는 돈___ 건강이 훨씬 더 중요해요.", "en": "In life, health is much more important than money.", "a": ["보다"]},
+        {"q": "이 전자사전은 종이책 사전___ 가볍고 편리해요.", "en": "This electronic dictionary is lighter and more convenient than a paper book dictionary.", "a": ["보다"]}
+      ]
+    },
+    "pt-26-20": {
+      "cards": [
+        {"ko": "날마다 운동해요", "en": "I exercise every day. (daily recurrence)"},
+        {"ko": "주말마다 등산해요", "en": "I hike every weekend. (weekly recurrence)"},
+        {"ko": "아침마다 커피를 마셔요", "en": "I drink coffee every morning. (time interval recurrence)"},
+        {"ko": "사람마다 생각이 달라요", "en": "Each person has different thoughts. (individual difference)"},
+        {"ko": "나라마다 문화가 달라요", "en": "Every country has different culture. (cultural variation)"},
+        {"ko": "방마다 에어컨이 있어요", "en": "There is an air conditioner in every room. (spatial distribution)"},
+        {"ko": "십 분마다 버스가 와요", "en": "The bus comes every ten minutes. (time frequency interval)"},
+        {"ko": "해마다 여행을 떠나요", "en": "I go on a trip every year. (yearly recurrence)"}
+      ],
+      "quiz": [
+        {"q": "What does 마다 mean in '아침마다 조깅을 해요'?", "opts": ["Only this morning", "Every morning without exception", "Like morning", "Than morning"], "a": 1, "why": "The particle 마다 indicates repetition without exception (every morning)."},
+        {"q": "Does 마다 change form after a final consonant?", "opts": ["Yes, it becomes 이마다.", "No, it attaches directly as 마다 to all nouns.", "It becomes 으로마다.", "It drops after vowels."], "a": 1, "why": "The particle 마다 attaches directly to all nouns without form change."},
+        {"q": "Which sentence expresses: 'Every person has a different taste'?", "opts": ["사람마다 취향이 달라요.", "사람보다 취향이 달라요.", "사람처럼 취향이 달라요.", "사람에게 취향이 달라요."], "a": 0, "why": "사람마다 means each and every person, expressing individual differences."},
+        {"q": "Fill in the blank: '지하철은 출근 시간에 삼 분___ 한 대씩 와요.'", "opts": ["마다", "보다", "처럼", "쯤"], "a": 0, "why": "삼 분마다 means every three minutes, indicating regular time intervals."},
+        {"q": "Which phrase has an INCORRECT particle choice for 'every weekend'?", "opts": ["주말마다", "주말이마다", "토요일마다", "일요일마다"], "a": 1, "why": "마다 attaches directly without adding 이; 주말이마다 is ungrammatical."}
+      ],
+      "fill": [
+        {"q": "저는 아침___ 따뜻한 보리차 한 잔을 마셔요.", "en": "Every morning, I drink a cup of warm barley tea.", "a": ["마다"]},
+        {"q": "나라___ 전통 명절을 보내는 방식이 달라요.", "en": "Every country has a different way of spending traditional holidays.", "a": ["마다"]},
+        {"q": "시내버스가 십 분___ 정류장에 도착해요.", "en": "The city bus arrives at the stop every ten minutes.", "a": ["마다"]},
+        {"q": "계절___ 피어나는 꽃의 색깔과 향기가 달라요.", "en": "The colors and scents of blooming flowers differ with each season.", "a": ["마다"]},
+        {"q": "우리 가족은 주말___ 근처 공원에서 함께 자전거를 타요.", "en": "Every weekend, our family rides bicycles together in the nearby park.", "a": ["마다"]}
+      ]
+    },
+    "ct-topic-subject": {
+      "cards": [
+        {"ko": "저는 학생이에요", "en": "I am a student. (introducing yourself as topic)"},
+        {"ko": "누가 왔어요? - 제가 왔어요", "en": "Who came? - I came. (answering 'who' with subject marker)"},
+        {"ko": "사과는 빨갛고 바나나는 노래요", "en": "Apples are red, while bananas are yellow. (contrast with topic marker)"},
+        {"ko": "밖에 비가 내려요", "en": "Rain is falling outside. (newly observed event with subject marker)"},
+        {"ko": "선생님은 친절하세요", "en": "The teacher is kind. (talking about the teacher as topic)"},
+        {"ko": "시간이 있어요", "en": "There is time. (subject with 있다/없다)"},
+        {"ko": "저는 커피는 안 마셔요", "en": "As for me, coffee I do not drink. (topic + contrasted object)"},
+        {"ko": "친구가 선물을 주었어요", "en": "My friend gave me a gift. (subject of specific action)"}
+      ],
+      "quiz": [
+        {"q": "Which particle correctly answers the question '누가 청소했어요?' (Who cleaned up)?", "opts": ["민수가 청소했어요.", "민수는 청소했어요.", "민수를 청소했어요.", "민수에게 청소했어요."], "a": 0, "why": "When answering 'who' (누가), the focus is on the specific person who did the action, requiring the subject marker 가."},
+        {"q": "In the sentence '형은 수영을 잘하지만 동생은 못해요', why is 은 used on both nouns?", "opts": ["To show direction", "To highlight contrast between older brother and younger sibling", "To indicate the object of the verb", "To express an approximation"], "a": 1, "why": "The particle 은/는 is used here to draw a direct contrast between the two people."},
+        {"q": "Which sentence has an INCORRECT particle for stating newly observed weather outside?", "opts": ["밖에 눈이 내려요.", "갑자기 소나기가 내려요.", "밖에 눈을 내려요.", "바람이 세게 불어요."], "a": 2, "why": "Snow falling is a natural event where the subject takes 이/가, not the object marker 을."},
+        {"q": "When introducing yourself for the first time, why do you say '저는' rather than '제가'?", "opts": ["Because you are presenting yourself as the overarching topic of discussion.", "Because 저 cannot take 가.", "Because 는 is more polite than 가.", "Because it answers the question who."], "a": 0, "why": "Introducing yourself establishes yourself as the topic of the following sentences, so 저는 is standard."},
+        {"q": "Fill in the blank: '저분이 우리 학교 교장선생님___ 아니에요.'", "opts": ["이", "을", "에", "로"], "a": 0, "why": "With the negative complement verb 아니다 (to not be), the complement noun takes the subject marker 이/가."}
+      ],
+      "fill": [
+        {"q": "누가 먼저 발표해요? - 지민 씨___ 먼저 발표해요.", "en": "Who presents first? - Jimin presents first.", "a": ["가"]},
+        {"q": "여름은 덥지만 겨울___ 추워요.", "en": "Summer is hot, but winter is cold.", "a": ["은", "이"]},
+        {"q": "창밖을 보니 하얀 눈___ 펑펑 쏟아져요.", "en": "Looking out the window, white snow is pouring down.", "a": ["이"]},
+        {"q": "저___ 베트남에서 온 유학생이에요.", "en": "As for me, I am an international student from Vietnam.", "a": ["는"]},
+        {"q": "누가 이 그림을 그렸어요? - 제 동생___ 그렸어요.", "en": "Who drew this picture? - My younger sibling drew it.", "a": ["이"]}
+      ]
+    },
+    "ct-context": {
+      "cards": [
+        {"ko": "옛날에 한 할아버지가 살았어요", "en": "Once upon a time, an old man lived. (new character introduction with 가)"},
+        {"ko": "그 할아버지는 마음이 착했어요", "en": "That old man was kind-hearted. (referring back to known topic with 는)"},
+        {"ko": "고양이가 들어왔어요", "en": "A cat entered. (new observation with 가)"},
+        {"ko": "그 고양이는 아주 귀여워요", "en": "That cat is very cute. (now established as topic with 는)"},
+        {"ko": "이것이 제 열쇠예요", "en": "This is my key. (identifying which item is the key)"},
+        {"ko": "이것은 제 열쇠예요", "en": "As for this, it is my key. (stating information about this item)"},
+        {"ko": "누가 민수예요? - 제가 민수예요", "en": "Who is Minsu? - I am Minsu. (identifying identity with 제가)"},
+        {"ko": "저는 민수예요", "en": "I am Minsu. (introducing oneself as topic with 저는)"}
+      ],
+      "quiz": [
+        {"q": "In storytelling, how do particles typically shift when introducing a character and then describing them?", "opts": ["First 은/는, then 이/가", "First 이/가 (introducing), then 은/는 (already known)", "Always 이/가", "Always 은/는"], "a": 1, "why": "A new character is first introduced with 이/가, and once established in the context, they become the topic marked by 은/는."},
+        {"q": "Read the sequence: '어제 길에서 강아지 한 마리를 보았어요. 강아지___ 꼬리를 흔들었어요.' Which particle fits best in the second sentence?", "opts": ["는", "로", "에서", "보다"], "a": 0, "why": "The puppy was already introduced in the previous sentence, so it is now known topic information taking 는."},
+        {"q": "Which answer appropriately matches the question: '누가 범인이에요?' (Who is the culprit)?", "opts": ["저 사람이 범인이에요.", "저 사람은 범인이에요.", "저 사람을 범인이에요.", "저 사람에 범인이에요."], "a": 0, "why": "The question asks 'who' (누가), which demands specific identification marked by the subject particle 이."},
+        {"q": "What is the difference between '이 책이 좋아요' and '이 책은 좋아요'?", "opts": ["이 책이 좋아요 is incorrect.", "이 책이 좋아요 focuses specifically on this book, while 이 책은 좋아요 contrasts it with other books.", "They mean opposite things.", "이 책은 좋아요 cannot be used."], "a": 1, "why": "이 책이 marks this specific book, while 이 책은 sets this book apart, often implying contrast with other books."},
+        {"q": "Fill in the blank: '저 방에 누군가 서 있어요. 그 사람___ 누구일까요?'", "opts": ["은", "을", "에", "로"], "a": 0, "why": "The person was already mentioned in the first sentence, so 그 사람은 uses 은 as the established topic."}
+      ],
+      "fill": [
+        {"q": "동네에 새 빵집이 생겼어요. 그 빵집___ 빵 맛이 참 좋아요.", "en": "A new bakery opened in town. As for that bakery, the bread tastes really good.", "a": ["은"]},
+        {"q": "어느 것이 민호 씨 우산이에요? - 파란색 우산___ 제 우산이에요.", "en": "Which one is Minho's umbrella? - The blue umbrella is my umbrella.", "a": ["이"]},
+        {"q": "어제 예쁜 화분을 샀어요. 화분___ 창가에 올려두었어요.", "en": "Yesterday I bought a pretty flowerpot. As for the flowerpot, I placed it on the windowsill.", "a": ["은"]},
+        {"q": "어디선가 맛있는 냄새___ 솔솔 풍겨와요.", "en": "From somewhere, a delicious smell wafts gently.", "a": ["가"]},
+        {"q": "이 음식점의 다른 메뉴는 평범하지만 냉면___ 정말 맛있어요.", "en": "Other dishes at this restaurant are ordinary, but the cold noodles are truly delicious.", "a": ["은"]}
+      ]
+    },
+    "ct-place-action": {
+      "cards": [
+        {"ko": "도서관에 책이 있어요", "en": "There are books in the library. (static location with 있다)"},
+        {"ko": "도서관에서 책을 읽어요", "en": "I read books at the library. (active behavior location with 읽다)"},
+        {"ko": "카페에 친구가 있어요", "en": "My friend is at the cafe. (static presence with 있다)"},
+        {"ko": "카페에서 친구를 만나요", "en": "I meet my friend at the cafe. (active meeting location with 만나다)"},
+        {"ko": "집에 있어요", "en": "I am at home. (static presence)"},
+        {"ko": "집에서 쉬어요", "en": "I rest at home. (active resting action)"},
+        {"ko": "공항에 도착했어요", "en": "I arrived at the airport. (movement destination)"},
+        {"ko": "공항에서 기다려요", "en": "I wait at the airport. (action location)"}
+      ],
+      "quiz": [
+        {"q": "Which pair contrasts static existence versus an active behavior correctly?", "opts": ["방에서 자요 / 방에서 침대가 있어요", "방에 침대가 있어요 / 방에서 잠을 자요", "방에 자요 / 방에 침대가 있어요", "방을 자요 / 방을 침대가 있어요"], "a": 1, "why": "침대가 있다 is static existence taking 에, while 잠을 자다 is an action taking place inside the room taking 에서."},
+        {"q": "Which particle fits in: '저는 매일 헬스장___ 열심히 운동해요'?", "opts": ["에서", "에", "을", "보다"], "a": 0, "why": "Exercising (운동하다) is an active dynamic behavior, so it requires 에서."},
+        {"q": "Which sentence has an INCORRECT particle?", "opts": ["식당에서 점심을 먹어요.", "거실에 소파가 있어요.", "공원에 축구를 했어요.", "교실에서 시험을 봐요."], "a": 2, "why": "Playing soccer (축구를 하다) is a dynamic action, so the location must be marked by 에서 (공원에서 축구를 했어요)."},
+        {"q": "Fill in the blank: '지갑이 가방 안___ 들어 있어요.'", "opts": ["에", "에서", "으로", "까지"], "a": 0, "why": "들어 있다 expresses the static state of being inside, which takes 에."},
+        {"q": "Which sentence correctly uses 에 for the destination and 에서 for the place of the action?", "opts": ["친구 집에 가서 거기에서 저녁을 먹었어요.", "친구 집에서 가서 거기에 저녁을 먹었어요.", "친구 집에 가서 거기에 저녁을 먹었어요.", "친구 집에서 가서 거기에서 저녁을 먹었어요."], "a": 0, "why": "가다 takes the destination particle 에 (친구 집에 가서). Eating is an action done at that place, so it takes 에서 (거기에서 저녁을 먹었어요)."}
+      ],
+      "fill": [
+        {"q": "내일 오후 세 시에 우리 집 앞 놀이터___ 만나요.", "en": "Let's meet at the playground in front of my house tomorrow at 3 PM.", "a": ["에서"]},
+        {"q": "제 책상 위___ 노트북과 필통이 놓여 있어요.", "en": "A laptop and a pencil case are placed on my desk.", "a": ["에"]},
+        {"q": "수진 씨는 지금 회사 회의실___ 회의를 하고 있어요.", "en": "Sujin is currently having a meeting in the company conference room.", "a": ["에서"]},
+        {"q": "우리 가족은 지난 주말에 제주도___ 여행을 다녀왔어요.", "en": "Our family went on a trip to Jeju Island last weekend.", "a": ["에"]},
+        {"q": "백화점 푸드코트___ 맛있는 비빔밥을 사 먹었어요.", "en": "I bought and ate delicious bibimbap at the department store food court.", "a": ["에서"]}
+      ]
+    },
+    "ct-give-receive": {
+      "cards": [
+        {"ko": "동생에게 선물을 줘요", "en": "I give a gift to my younger sibling. (person recipient with 에게)"},
+        {"ko": "화초에 물을 줘요", "en": "I give water to the houseplant. (plant/inanimate with 에)"},
+        {"ko": "강아지한테 밥을 줘요", "en": "I give food to the puppy. (animal recipient with 한테)"},
+        {"ko": "회사에 서류를 제출해요", "en": "I submit documents to the company. (organization/place with 에)"},
+        {"ko": "친구한테 전화를 걸어요", "en": "I make a phone call to a friend. (person with 한테)"},
+        {"ko": "우체통에 편지를 넣어요", "en": "I put the letter into the mailbox. (inanimate object with 에)"},
+        {"ko": "선생님께 감사 인사를 드려요", "en": "I express gratitude to the teacher. (honorific person with 께)"},
+        {"ko": "병원에 연락했어요", "en": "I contacted the hospital. (organization/place with 에)"}
+      ],
+      "quiz": [
+        {"q": "Which sentence correctly chooses between 에게 and 에 for a plant?", "opts": ["화분에 물을 주었어요.", "화분에게 물을 주었어요.", "화분한테 물을 주었어요.", "화분으로 물을 주었어요."], "a": 0, "why": "A flowerpot or plant is an inanimate thing, so it takes the particle 에, not 에게 or 한테."},
+        {"q": "When directing an action to a cat or dog, which particle is used?", "opts": ["에게 or 한테", "Only 에", "Only 으로", "Only 과"], "a": 0, "why": "Animals are living creatures, so they take animate dative particles 에게 or 한테."},
+        {"q": "Which sentence has an INCORRECT particle choice?", "opts": ["동생한테 용돈을 주었어요.", "친구에게 문자를 보냈어요.", "은행에게 대출을 신청했어요.", "나무에 영양제를 주었어요."], "a": 2, "why": "은행 (bank) is an institution/inanimate place, so it takes 에 (은행에 신청했어요), not 에게."},
+        {"q": "What particle fits in: '질문이 있으면 고객센터___ 문의하세요'?", "opts": ["에", "에게", "한테", "께"], "a": 0, "why": "고객센터 (customer center) is an organization/facility, taking 에."},
+        {"q": "Which sentence correctly uses the honorific form 께 for an elder?", "opts": ["할머니께 선물을 드렸어요.", "할머니에 선물을 드렸어요.", "할머니을 선물을 드렸어요.", "할머니로 선물을 드렸어요."], "a": 0, "why": "For grandparents (elders), the honorific dative particle 께 is used instead of 에게 or 한테."}
+      ],
+      "fill": [
+        {"q": "마당에 심은 사과나무___ 거름을 듬뿍 주었어요.", "en": "I gave plenty of fertilizer to the apple tree planted in the yard.", "a": ["에"]},
+        {"q": "생일을 맞은 짝꿍___ 정성스러운 선물을 건넸어요.", "en": "I handed a thoughtful gift to my classmate celebrating a birthday.", "a": ["에게", "한테"]},
+        {"q": "귀여운 토끼___ 신선한 당근을 먹이로 주었어요.", "en": "I gave fresh carrots as food to the cute rabbit.", "a": ["에게", "한테"]},
+        {"q": "다음 주까지 구청___ 서류를 직접 제출해야 해요.", "en": "You must submit documents directly to the district office by next week.", "a": ["에"]},
+        {"q": "연세가 많으신 이웃 어르신___ 깍듯하게 인사를 올렸어요.", "en": "I bowed respectfully to the elderly neighbor.", "a": ["께"]}
+      ]
+    },
+    "ct-tool-direction": {
+      "cards": [
+        {"ko": "기차로 가요", "en": "I go by train. (means of transportation with 로)"},
+        {"ko": "부산에 도착했어요", "en": "I arrived in Busan. (destination with 에)"},
+        {"ko": "오른쪽으로 도세요", "en": "Turn to the right. (heading direction with 으로)"},
+        {"ko": "교실에 들어가요", "en": "I enter the classroom. (destination with 에)"},
+        {"ko": "볼펜으로 써요", "en": "I write with a ballpoint pen. (tool with 으로)"},
+        {"ko": "종이에 써요", "en": "I write on paper. (surface location with 에)"},
+        {"ko": "서울 방면으로 떠나요", "en": "Depart toward Seoul direction. (direction with 으로)"},
+        {"ko": "공항에 마중 나가요", "en": "Go to the airport to greet someone. (destination with 에)"}
+      ],
+      "quiz": [
+        {"q": "In the sentence '부산___ 빠른 KTX___ 갔어요', which particle sequence is correct?", "opts": ["부산에 / KTX로", "부산으로 / KTX에", "부산에 / KTX에", "부산으로 / KTX으로"], "a": 0, "why": "부산 is the arrival destination taking 에, and KTX is the vehicle/means taking 로."},
+        {"q": "What is the difference between 종이에 쓰다 and 연필로 쓰다?", "opts": ["종이에 is the surface location where ink is placed, while 연필로 is the tool used to write.", "They mean the same thing.", "종이에 is the tool, 연필로 is the destination.", "Neither is grammatical."], "a": 0, "why": "에 marks the surface location of writing (on the paper), whereas (으)로 marks the instrument (with a pencil)."},
+        {"q": "Which particle fits in: '이 골목 끝에서 왼쪽___ 꺾으세요'?", "opts": ["으로", "에", "을", "보다"], "a": 0, "why": "왼쪽 (left) indicates the direction to turn, which takes 으로."},
+        {"q": "Which sentence has an INCORRECT particle choice?", "opts": ["가위로 종이를 잘랐어요.", "사무실로 출근했어요.", "비행기에 제주도에 갔어요.", "숟가락으로 밥을 먹었어요."], "a": 2, "why": "The airplane is the vehicle/means of travel, so it must be 비행기로, not 비행기에."},
+        {"q": "Fill in the blank: '버스를 타고 학교___ 아침 여덟 시에 도착했어요.'", "opts": ["에", "로", "에서", "에게"], "a": 0, "why": "학교 is the final arrival destination paired with the verb 도착하다, taking 에."}
+      ],
+      "fill": [
+        {"q": "집에서 서울역까지 지하철___ 이동했어요.", "en": "I traveled from home to Seoul Station by subway.", "a": ["로"]},
+        {"q": "외출 후 저녁 일곱 시에 무사히 집___ 돌아왔어요.", "en": "After going out, I returned home safely at 7 PM.", "a": ["에", "으로"]},
+        {"q": "비상시에는 계단을 이용해 건물 아래___ 대피하세요.", "en": "In an emergency, use the stairs to evacuate downward in the building.", "a": ["로"]},
+        {"q": "따뜻한 국물 요리는 숟가락___ 드셔야 편해요.", "en": "It is convenient to eat warm soup dishes with a spoon.", "a": ["으로"]},
+        {"q": "외국인 친구에게 줄 편지를 한지___ 정성스레 썼어요.", "en": "I carefully wrote a letter to give to my foreign friend on traditional Korean paper.", "a": ["에"]}
+      ]
+    },
+    "ct-with": {
+      "cards": [
+        {"ko": "정치와 경제", "en": "Politics and economy. (formal written list with 와)"},
+        {"ko": "선생님과 학생", "en": "Teacher and students. (formal written list with 과)"},
+        {"ko": "밥하고 국", "en": "Rice and soup. (neutral daily style with 하고)"},
+        {"ko": "사과하고 배", "en": "Apples and pears. (neutral style without batchim changes)"},
+        {"ko": "친구랑 놀아요", "en": "I hang out with a friend. (casual spoken style with 랑)"},
+        {"ko": "동생이랑 가요", "en": "I go with my younger sibling. (casual spoken style with 이랑)"},
+        {"ko": "가족과 함께", "en": "Together with family. (formal companion with 과 함께)"},
+        {"ko": "언니하고 같이", "en": "Together with my older sister. (everyday companion with 하고 같이)"}
+      ],
+      "quiz": [
+        {"q": "Which of the three connective particles is most suitable for a formal news report or formal essay?", "opts": ["(이)랑", "와/과", "하고", "보다"], "a": 1, "why": "와/과 is the formal and written register, preferred in essays, speeches, and news broadcasts."},
+        {"q": "Which pair of words has an INCORRECT combination with 와/과?", "opts": ["도시와 농촌", "책상과 의자", "연필와 공책", "바다와 하늘"], "a": 2, "why": "연필 ends with a final consonant (ㄹ), so it must take 과 (연필과 공책), not 와."},
+        {"q": "How does 하고 differ from 와/과 and (이)랑?", "opts": ["하고 is only used in formal writing.", "하고 never changes its form regardless of whether the noun has a final consonant.", "하고 only attaches to living things.", "하고 is only used in questions."], "a": 1, "why": "Unlike 와/과 and (이)랑 which vary with final consonants, 하고 always retains the exact same form."},
+        {"q": "Which particle attaches correctly to 동생 in casual, friendly spoken Korean?", "opts": ["동생랑", "동생이랑", "동생와", "동생에"], "a": 1, "why": "동생 ends with a final consonant (ㅇ), so in casual speech it takes 이랑 (동생이랑)."},
+        {"q": "Fill in the blank for a news title: '한국___ 일본의 경제 협력 회의 개최.'", "opts": ["과", "와", "랑", "에"], "a": 0, "why": "한국 ends with the final consonant ㄱ, and in formal news headings, the formal particle 과 is used."}
+      ],
+      "fill": [
+        {"q": "우리나라의 봄___ 가을은 날씨가 아주 쾌적해요.", "en": "Spring and autumn in our country have very pleasant weather.", "a": ["과", "하고", "이랑"]},
+        {"q": "어제 저녁에 친한 동기___ 피자를 시켜 먹었어요.", "en": "Yesterday evening, I ordered and ate pizza with a close classmate.", "a": ["와", "하고", "랑"]},
+        {"q": "가방 속에는 두꺼운 책___ 필통이 들어 있어요.", "en": "Inside the bag, there are thick books and a pencil case.", "a": ["과", "하고", "이랑"]},
+        {"q": "어린 시절에 저는 강아지___ 공원에서 자주 뛰놀았어요.", "en": "In my childhood, I often played in the park with a puppy.", "a": ["와", "하고", "랑"]},
+        {"q": "아침 식탁에 따뜻한 밥___ 시원한 콩나물국이 놓여 있어요.", "en": "On the breakfast table, warm rice and cool bean sprout soup are set.", "a": ["과", "하고", "이랑"]}
+      ]
+    },
+    "ct-also-only": {
+      "cards": [
+        {"ko": "저도 갈래요", "en": "I want to go too. (inclusion with 도)"},
+        {"ko": "저만 갈래요", "en": "Only I want to go. (exclusivity with 만)"},
+        {"ko": "한 개만 남았어요", "en": "Only one remains. (neutral exclusivity with 만)"},
+        {"ko": "한 개밖에 안 남았어요", "en": "Only one remains (regrettably small). (negative constraint with 밖에)"},
+        {"ko": "물도 마셔요", "en": "I also drink water. (addition)"},
+        {"ko": "물만 마셔요", "en": "I only drink water. (exclusivity)"},
+        {"ko": "물밖에 안 마셔요", "en": "I drink nothing but water. (strict limitation with negative verb)"},
+        {"ko": "하나도 없어요", "en": "There is not even one. (emphasis on zero with 도)"}
+      ],
+      "quiz": [
+        {"q": "Which particle MUST be paired with a negative verb (like 없다, 안, 못)?", "opts": ["도", "만", "밖에", "처럼"], "a": 2, "why": "The particle 밖에 always requires a negative predicate, whereas 만 and 도 can be used with affirmative predicates."},
+        {"q": "How does '사과만 있어요' differ from '사과밖에 없어요'?", "opts": ["사과만 있어요 expresses addition, while 사과밖에 없어요 expresses comparison.", "사과만 있어요 states factually that only apples are present, while 사과밖에 없어요 conveys that having only apples is insufficient or disappointing.", "They mean completely opposite things.", "사과밖에 없어요 is ungrammatical."], "a": 1, "why": "만 neutrally limits the item, whereas 밖에 carries a nuance of shortage, regret, or disappointment."},
+        {"q": "Which sentence is grammatically INCORRECT?", "opts": ["지갑에 천 원만 있어요.", "지갑에 천 원밖에 있어요.", "지갑에 천 원밖에 없어요.", "지갑에 천 원도 있어요."], "a": 1, "why": "밖에 cannot be used with an affirmative verb like 있어요; it must be negative (천 원밖에 없어요)."},
+        {"q": "Fill in the blank: '지민 씨뿐만 아니라 민수 씨___ 이번 시험에 합격했어요.'", "opts": ["도", "만", "밖에", "로"], "a": 0, "why": "The phrase 뿐만 아니라 (not only) leads into an additive clause marked by 도 (also)."},
+        {"q": "Which sentence expresses: 'I could only sleep for two hours last night'?", "opts": ["어젯밤에 두 시간도 잤어요.", "어젯밤에 두 시간밖에 못 잤어요.", "어젯밤에 두 시간만 못 잤어요.", "어젯밤에 두 시간밖에 많이 잤어요."], "a": 1, "why": "두 시간밖에 못 잤어요 correctly combines 밖에 with the negative adverb 못 to show that two hours was insufficient."}
+      ],
+      "fill": [
+        {"q": "약속 시간까지 십 분___ 남지 않았으니 어서 출발해요.", "en": "Since there are only ten minutes left until the meeting time, let's leave quickly.", "a": ["밖에", "도"]},
+        {"q": "주말에 다른 가족들은 쉬었지만 저___ 출근해서 일했어요.", "en": "Other family members rested on the weekend, but only I went to work.", "a": ["만"]},
+        {"q": "한국어뿐만 아니라 일본어___ 유창하게 잘해요.", "en": "Not only Korean, but they also speak Japanese fluently.", "a": ["도"]},
+        {"q": "주머니에 동전 백 원짜리 하나___ 없어서 난감했어요.", "en": "I was perplexed because I didn't even have a single 100-won coin in my pocket.", "a": ["도"]},
+        {"q": "수업에 전원 출석했고 지각한 사람은 한 명___ 없었어요.", "en": "Everyone attended class, and there was not even one person who was late.", "a": ["도"]}
+      ]
+    },
+    "ct-na": {
+      "cards": [
+        {"ko": "주스나 우유", "en": "Juice or milk. (choice between drinks)"},
+        {"ko": "커피를 세 잔이나 마셨어요", "en": "I drank as many as three cups of coffee! (surprise at quantity)"},
+        {"ko": "영화나 볼까요?", "en": "Shall we watch a movie or something? (suggesting an option)"},
+        {"ko": "두 시간이나 기다렸어요", "en": "I waited as long as two hours! (surprise at duration)"},
+        {"ko": "토요일이나 일요일", "en": "Saturday or Sunday. (choice of days)"},
+        {"ko": "백 명이나 모였어요", "en": "As many as a hundred people gathered! (surprise at crowd size)"},
+        {"ko": "라면이나 끓여 먹어요", "en": "Let's just cook ramen or something. (casual suggestion)"},
+        {"ko": "오만 원이나 해요", "en": "It costs as much as 50,000 won! (surprise at price)"}
+      ],
+      "quiz": [
+        {"q": "What does (이)나 mean in '사과를 다섯 개나 먹었어요'?", "opts": ["Choice between five apples or fewer", "Surprise that eating five apples is a large amount", "Only five apples", "With five apples"], "a": 1, "why": "Attached to a number and counter (다섯 개), (이)나 expresses surprise that the quantity is larger than expected."},
+        {"q": "What does (이)나 mean in '시간이 있으면 차나 한잔합시다'?", "opts": ["As many as", "Suggesting an option casually (something like tea)", "Only tea", "Never tea"], "a": 1, "why": "Attached to a noun without a counter, (이)나 here suggests an acceptable casual option (tea or something)."},
+        {"q": "Which sentence uses (이)나 to present a choice between two alternatives?", "opts": ["어제 열 시간이나 잤어요.", "부산이나 제주도로 여행 가고 싶어요.", "책을 열 권이나 읽었어요.", "선물이 스무 개나 들어왔어요."], "a": 1, "why": "부산이나 제주도 expresses a choice between two destinations (Busan or Jeju Island)."},
+        {"q": "Which noun ending with a vowel correctly takes 나 instead of 이나 for choice?", "opts": ["물", "피자", "가방", "지하철"], "a": 1, "why": "피자 ends with a vowel (자), so it takes 나 (피자나 햄버거), while the others end with consonants taking 이나."},
+        {"q": "Fill in the blank expressing shock at waiting time: '친구가 늦어서 정류장에서 한 시간___ 기다렸어요.'", "opts": ["이나", "나", "밖에", "도"], "a": 0, "why": "시간 ends with a final consonant (ㄴ), so 이나 expresses that waiting for a whole hour was a surprisingly long time."}
+      ],
+      "fill": [
+        {"q": "아침 식사로 김밥___ 샌드위치를 간단히 먹을 생각이에요.", "en": "For breakfast, I plan to eat kimbap or a sandwich simply.", "a": ["이나"]},
+        {"q": "어제 밤에 시험공부를 하느라 에너지 드링크를 세 캔___ 마셨어요.", "en": "Studying for the exam last night, I drank as many as three cans of energy drinks.", "a": ["이나"]},
+        {"q": "주말에 심심하면 근처 공원에 가서 산책___ 할까요?", "en": "If you are bored on the weekend, shall we go to the nearby park and take a walk or something?", "a": ["이나"]},
+        {"q": "어제 개막한 영화제에 관객이 만 명___ 몰려들었어요.", "en": "As many as 10,000 spectators flocked to the film festival that opened yesterday.", "a": ["이나"]},
+        {"q": "목이 마르면 시원한 생수___ 보리차를 드세요.", "en": "If you are thirsty, please drink cool bottled water or barley tea.", "a": ["나"]}
+      ]
+    },
+    "ct-from-to": {
+      "cards": [
+        {"ko": "서울에서 부산까지", "en": "From Seoul to Busan. (spatial starting/ending point with 에서~까지)"},
+        {"ko": "집에서 학교까지", "en": "From home to school. (distance between places)"},
+        {"ko": "아홉 시부터 다섯 시까지", "en": "From 9 to 5. (time starting/ending point with 부터~까지)"},
+        {"ko": "월요일부터 금요일까지", "en": "From Monday to Friday. (days range with 부터~까지)"},
+        {"ko": "일 페이지부터 십 페이지까지", "en": "From page 1 to page 10. (order/sequence range)"},
+        {"ko": "머리끝부터 발끝까지", "en": "From head to toe. (order/range on the body)"},
+        {"ko": "인천공항에서 호텔까지", "en": "From Incheon Airport to the hotel. (transport route)"},
+        {"ko": "처음부터 끝까지", "en": "From the beginning to the end. (temporal/process sequence)"}
+      ],
+      "quiz": [
+        {"q": "Which pair of particles is the standard choice for expressing a range in TIME (hours, dates, months)?", "opts": ["에서 - 까지", "부터 - 까지", "에게 - 한테", "으로 - 로"], "a": 1, "why": "For time periods and dates, 부터 - 까지 (from - until) is standard in Korean."},
+        {"q": "Which pair of particles is the standard choice for expressing a physical DISTANCE between two places?", "opts": ["부터 - 까지", "에서 - 까지", "에서 - 부터", "까지 - 에게"], "a": 1, "why": "For geographical and spatial routes between two physical locations, 에서 - 까지 is standard."},
+        {"q": "Which sentence has an INCORRECT combination of range particles?", "opts": ["집에서 회사까지 자전거를 타요.", "오전 열 시부터 오후 네 시까지 회의가 있어요.", "서울에 대전까지 고속버스를 탔어요.", "일과부터 오과까지 복습하세요."], "a": 2, "why": "A starting place takes 에서 (서울에서 대전까지). 에 marks a destination or location, so 서울에 대전까지 is wrong."},
+        {"q": "Fill in the blank: '겨울방학은 십이월 이십일___ 시작해요.'", "opts": ["부터", "에서", "에게", "으로"], "a": 0, "why": "A specific date marking the beginning of a time period takes 부터 (starting from)."},
+        {"q": "Which sentence correctly expresses: 'I walk from the subway station to my apartment'?", "opts": ["지하철역에서 아파트까지 걸어가요.", "지하철역에 아파트까지 걸어가요.", "지하철역에 아파트으로 걸어가요.", "지하철역으로 아파트에 걸어가요."], "a": 0, "why": "Starting from a physical train station to an apartment uses 에서 - 까지."}
+      ],
+      "fill": [
+        {"q": "기숙사에서 학생식당___ 걸어서 오 분밖에 안 걸려요.", "en": "From the dormitory to the student cafeteria, it only takes five minutes on foot.", "a": ["까지"]},
+        {"q": "오전 아홉 시___ 오후 다섯 시까지 도서관이 개방돼요.", "en": "The library is open from 9 AM to 5 PM.", "a": ["부터"]},
+        {"q": "제주공항___ 숙소까지는 렌터카를 운전해서 갔어요.", "en": "From Jeju Airport to the lodging, I drove a rental car.", "a": ["에서", "부터"]},
+        {"q": "내년 봄 학기 수업은 삼월 이일___ 시작해요.", "en": "Classes for next spring semester start from March 2nd.", "a": ["부터", "에"]},
+        {"q": "교재 오십 쪽부터 육십오 쪽___ 꼼꼼하게 읽어 오세요.", "en": "Please read meticulously from page 50 to page 65 of the textbook.", "a": ["까지"]}
+      ]
+    }
+  }
+}
