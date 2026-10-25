@@ -109,6 +109,47 @@
     const best = get('bonus:' + root.dataset.unitKey, null), b = root.querySelector('.bbest');
     if (best !== null && b) { b.textContent = `내 최고 점수 · Best: ${best} / ${total}`; b.hidden = false; }
   }
+
+  /* ── 짝 맞추기 게임(단어장 책: docs/bonus 의 game:true) — 그 단원의 낱말만, 5쌍씩 판마다 ── */
+  const gm = root.querySelector('.bgame');
+  if (MODE === 'unit' && gm) {
+    const pairs = JSON.parse(gm.dataset.pairs), key = 'bonusgame:' + gm.dataset.key;
+    const board = gm.querySelector('.gboard'), tEl = gm.querySelector('.gtime'), mEl = gm.querySelector('.gmiss'), res = gm.querySelector('.gres'), bestEl = gm.querySelector('.gbest'), startBtn = gm.querySelector('.gstart');
+    const b0 = get(key, null); if (b0 !== null) bestEl.textContent = `최고 · Best ${b0.toFixed(1)}s`;
+    let timer = null, t0 = 0, miss = 0, rounds = [], ri = 0, left = 0, selL = null;
+    const tick = () => { tEl.textContent = ((Date.now() - t0) / 1000).toFixed(1) + 's'; };
+    const draw = () => {
+      board.textContent = ''; const set = rounds[ri]; left = set.length; selL = null;
+      const L = shuffle(set), R = shuffle(set);
+      const mk = (txt, side, p) => { const b = el('button', '', txt); b.type = 'button'; b.dataset.side = side; b.dataset.k = p[0]; if (side === 'l') b.dataset.say = p[0]; return b; };
+      const lb = L.map((p) => mk(p[0], 'l', p)), rb = R.map((p) => mk(p[1], 'r', p));
+      lb.forEach((b, i) => { board.append(b); board.append(rb[i]); });
+    };
+    startBtn.addEventListener('click', () => {
+      miss = 0; mEl.textContent = '틀림 0 · misses'; res.hidden = true; ri = 0;
+      const sh = shuffle(pairs); rounds = []; for (let i = 0; i < sh.length; i += 5) rounds.push(sh.slice(i, i + 5));
+      if (rounds.length > 1 && rounds[rounds.length - 1].length < 3) { const x = rounds.pop(); rounds[rounds.length - 1].push(...x); }
+      draw(); t0 = Date.now(); clearInterval(timer); timer = setInterval(tick, 100); startBtn.textContent = '다시 · Restart'; markDay();
+    });
+    board.addEventListener('click', (e) => {
+      const b = e.target.closest('button'); if (!b || b.classList.contains('done') || !timer) return;
+      if (b.dataset.side === 'l') { [...board.querySelectorAll('button.sel')].forEach((x) => x.classList.remove('sel')); b.classList.add('sel'); selL = b; tts(b.dataset.say); return; }
+      if (!selL) return;
+      if (selL.dataset.k === b.dataset.k) {
+        selL.classList.add('done'); b.classList.add('done'); selL = null; left--;
+        if (!left) {
+          if (ri + 1 < rounds.length) { ri++; draw(); return; }
+          clearInterval(timer); timer = null; tick(); board.textContent = '';
+          const sec = (Date.now() - t0) / 1000; res.hidden = false; res.textContent = `끝! ${sec.toFixed(1)}초 · 틀림 ${miss}개 · Done in ${sec.toFixed(1)}s, ${miss} misses`;
+          const best = get(key, null); if (best === null || sec < best) { set(key, sec); bestEl.textContent = `최고 · Best ${sec.toFixed(1)}s`; }
+          try { (window.dataLayer = window.dataLayer || []).push({ event: 'book_bonus_game_done', book_unit: gm.dataset.key, seconds: Math.round(sec), misses: miss }); } catch (er) {}
+        }
+      } else {
+        miss++; mEl.textContent = `틀림 ${miss} · misses`; b.classList.add('shake'); selL.classList.add('shake');
+        const x = selL; setTimeout(() => { b.classList.remove('shake'); x.classList.remove('shake', 'sel'); }, 260); selL = null;
+      }
+    });
+  }
   if (MODE === 'notebook') {
     const host = root.querySelector('.bqs'), miss = get('bonusmiss:' + BOOK, {});
     const list = bank().filter((q) => miss[q.id]);

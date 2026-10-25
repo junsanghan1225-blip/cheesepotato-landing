@@ -20,6 +20,7 @@ main{max-width:760px;margin:0 auto;padding:22px 20px 80px}
 .bk-h{font-size:19px;font-weight:800;margin:30px 0 4px}.bk-h small{font-weight:500;color:var(--ink-3);font-size:13px;margin-left:6px}
 .bk-sub{color:var(--ink-3);font-size:14px;margin:0 0 12px}
 .bcards{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.bgame{border:1px solid var(--line);border-radius:16px;padding:14px;background:#fff}.gtop{display:flex;gap:12px;align-items:center;flex-wrap:wrap;font-weight:800;margin-bottom:10px}.gtop .gtime{font-size:20px;font-variant-numeric:tabular-nums}.gtop .gmiss{color:#C4551C}.gtop button{margin-left:auto;font:inherit;font-weight:800;padding:8px 16px;border-radius:99px;border:0;background:#E8642C;color:#fff;cursor:pointer}.gboard{display:grid;grid-template-columns:1fr 1fr;gap:8px 12px}.gboard button{font:inherit;font-size:16px;font-weight:700;padding:12px 8px;border-radius:12px;border:1.5px solid var(--line);background:#fff;cursor:pointer;min-height:48px}.gboard button.sel{border-color:#E8642C;background:#FFF3EA}.gboard button.done{visibility:hidden}.gboard button.shake{animation:gshake .25s}@keyframes gshake{25%{transform:translateX(-5px)}75%{transform:translateX(5px)}}.gres{font-weight:800;margin-top:10px}.gnote{font-size:13px;color:var(--ink-3);margin:2px 0 8px}
 .bcard{font:inherit;text-align:center;cursor:pointer;min-height:84px;padding:14px 12px;border:1px solid var(--line);border-radius:14px;background:#fff;color:var(--ink);display:flex;align-items:center;justify-content:center}
 .bcard .b{display:none;font-size:14px;color:var(--ink-2);line-height:1.45}.bcard .f{font-size:18px;font-weight:800}
 .bcard.flip{background:#FFF7E3;border-color:#F0C24B}.bcard.flip .f{display:none}.bcard.flip .b{display:block}
@@ -86,6 +87,7 @@ const foot = `<p class="bk-sub" style="margin-top:30px">이 연습은 책에 없
 </body>
 </html>
 `;
+const gamePairs = (c) => c.cards.map((x) => [x.ko, String(x.en).replace(/\s*\([^)]*\)\s*$/, '').split(';')[0].trim()]);
 fs.rmSync(path.join(ROOT, 'bonus'), { recursive: true, force: true });
 let n = 0;
 for (const f of bonusFiles()) {
@@ -108,7 +110,7 @@ for (const f of bonusFiles()) {
 <p class="bk-sub">${esc(tk.en)} · ${esc(book.title.ko)} · ${esc(book.title.en)}</p>
 <h2 class="bk-h">낱말 카드 <small>Flashcards · 눌러서 뒤집기 · tap to flip</small></h2>
 <div class="bcards">${cards}</div>
-<h2 class="bk-h">퀴즈 <small>Quiz</small></h2>${quiz}
+${d.game ? `<h2 class="bk-h">🎮 짝 맞추기 게임 <small>Match game</small></h2><div class="bgame" data-pairs="${esc(JSON.stringify(gamePairs(c)))}" data-key="${esc(id + '/' + u)}"><p class="gnote">왼쪽 낱말을 누르고, 오른쪽에서 뜻을 눌러 짝을 맞춰요. 5개씩 4판. · Tap a word, then its meaning. 5 pairs per round.</p><div class="gtop"><span class="gtime">0.0s</span><span class="gmiss">틀림 0 · misses</span><span class="gbest"></span><button type="button" class="gstart">시작 · Start</button></div><div class="gboard"></div><p class="gres" hidden></p></div>` : ''}<h2 class="bk-h">퀴즈 <small>Quiz</small></h2>${quiz}
 <h2 class="bk-h">빈칸 쓰기 <small>Fill in the blank</small></h2><p class="bk-sub">한글로 쓰고 [확인]을 누르세요. · Type in Hangul, then press Check.</p>${fill}
 <div class="bsc"><span>점수 · Score</span><span class="bscore">0 / ${total}</span></div>
 <p class="bfin" hidden>끝! 틀린 곳은 책 정답 쪽과 같이 다시 보세요. · Done! Review your misses with the book's answer key.</p><p class="bbest" hidden></p>
