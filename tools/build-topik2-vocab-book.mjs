@@ -63,7 +63,7 @@ function bonusFor(ws, id, usedInBook) {
 const NOTES_F = path.join(ROOT, `docs/vocab-book/${CFG.id}.notes.json`);
 const NOTES = fs.existsSync(NOTES_F) ? JSON.parse(fs.readFileSync(NOTES_F, 'utf8')) : {};
 const KIND = { synonym: 'Similar · 비슷한 말', homonym: 'Same spelling · 동음이의어', contrast: 'Do not mix up · 헷갈림', antonym: 'Opposites · 반대말' };
-const AVOID = new Set(['누다']);
+const AVOID = new Set(['누다', '살인']);
 const inline = {};
 const unitsOf = [];
 for (let u = 0; u < N_WORDS / PER; u++) {

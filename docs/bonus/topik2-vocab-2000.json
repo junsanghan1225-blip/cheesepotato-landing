@@ -16,7 +16,7 @@
     },
     {
      "ko": "기대다",
-     "en": "lean; rest (verb)"
+     "en": "lean on; rely on (verb)"
     },
     {
      "ko": "기억력",
@@ -64,7 +64,7 @@
     },
     {
      "ko": "부러지다",
-     "en": "break; be broken; fracture (verb)"
+     "en": "break; snap (verb)"
     },
     {
      "ko": "몸살",
@@ -135,7 +135,7 @@
     {
      "q": "What does 손등 mean?",
      "opts": [
-      "lean",
+      "lean on",
       "back of the hand",
       "liquid medicine",
       "whole body"
@@ -192,8 +192,8 @@
      ]
     },
     {
-     "q": "\"lean\" in Korean: ___",
-     "en": "lean; rest",
+     "q": "\"lean on\" in Korean: ___",
+     "en": "lean on; rely on",
      "a": [
       "기대다"
      ]
@@ -612,7 +612,7 @@
     },
     {
      "ko": "표시",
-     "en": "expression; statement (noun)"
+     "en": "sign; mark; indication (noun)"
     },
     {
      "ko": "구입",
@@ -703,7 +703,7 @@
      "opts": [
       "opportunely",
       "clear up",
-      "expression",
+      "sign",
       "previous day"
      ],
      "a": 3,
@@ -832,7 +832,7 @@
     },
     {
      "ko": "깜빡",
-     "en": "with a flash (adverb)"
+     "en": "forgetfully; with a blink (adverb)"
     },
     {
      "ko": "신나다",
@@ -840,7 +840,7 @@
     },
     {
      "ko": "아쉽다",
-     "en": "lacking (adjective)"
+     "en": "disappointing; regrettable (adjective)"
     },
     {
      "ko": "여유롭다",
@@ -920,12 +920,12 @@
      "q": "What does 아쉽다 mean?",
      "opts": [
       "steadily",
-      "lacking",
+      "disappointing",
       "peace of mind",
       "to be relaxed"
      ],
      "a": 1,
-     "why": "아쉽다 means lacking. 한 점 차이로 패배하여 무척 아쉬운 경기였다. (It was a very regrettable match losing by a single point margin.)"
+     "why": "아쉽다 means disappointing; regrettable. 한 점 차이로 패배하여 무척 아쉬운 경기였다. (It was a very regrettable match losing by a single point margin.)"
     },
     {
      "q": "Which Korean word means \"moving\"?",
@@ -1044,7 +1044,7 @@
     },
     {
      "ko": "널다",
-     "en": "hang out (verb)"
+     "en": "hang out (laundry); spread out (verb)"
     },
     {
      "ko": "가스레인지",
@@ -1093,7 +1093,7 @@
     {
      "q": "What does 오징어 mean?",
      "opts": [
-      "hang out",
+      "hang out (laundry)",
       "veranda",
       "honey",
       "squid"
@@ -1428,7 +1428,7 @@
     },
     {
      "ko": "평가",
-     "en": "estimation (noun)"
+     "en": "evaluation; assessment (noun)"
     },
     {
      "ko": "반복",
@@ -1508,12 +1508,12 @@
      "q": "What does 평가 mean?",
      "opts": [
       "representative",
-      "estimation",
+      "evaluation",
       "beautiful",
       "repetition"
      ],
      "a": 1,
-     "why": "평가 means estimation. 소비자 단체는 신제품의 가성비에 대해 매우 긍정적인 평가를 내렸다. (Consumer groups gave a very positive evaluation on the cost-effectiveness of the new product.)"
+     "why": "평가 means evaluation; assessment. 소비자 단체는 신제품의 가성비에 대해 매우 긍정적인 평가를 내렸다. (Consumer groups gave a very positive evaluation on the cost-effectiveness of the new product.)"
     },
     {
      "q": "Which Korean word means \"example\"?",
@@ -1592,7 +1592,7 @@
     },
     {
      "ko": "대중",
-     "en": "estimation (noun)"
+     "en": "the public; the masses (noun)"
     },
     {
      "ko": "불균형",
@@ -1683,7 +1683,7 @@
      "opts": [
       "suggestion",
       "actually",
-      "estimation",
+      "the public",
       "oneself"
      ],
      "a": 3,
@@ -2172,7 +2172,7 @@
     },
     {
      "ko": "과장",
-     "en": "head; chief; director; supervisor (noun)"
+     "en": "section chief; manager (noun)"
     },
     {
      "ko": "주의",
@@ -2212,7 +2212,7 @@
     },
     {
      "ko": "조기",
-     "en": "early (stage); croaker (noun)"
+     "en": "early stage; early on (noun)"
     },
     {
      "ko": "진단",
@@ -2291,13 +2291,13 @@
     {
      "q": "What does 조기 mean?",
      "opts": [
-      "head",
-      "early (stage)",
+      "section chief",
+      "early stage",
       "chin",
       "diagnosis"
      ],
      "a": 1,
-     "why": "조기 means early (stage); croaker. 암 환자는 조기 발견과 치료가 매우 중요하다. (Early detection and treatment are very important for cancer patients.)"
+     "why": "조기 means early stage; early on. 암 환자는 조기 발견과 치료가 매우 중요하다. (Early detection and treatment are very important for cancer patients.)"
     },
     {
      "q": "Which Korean word means \"field of vision\"?",
@@ -2348,8 +2348,8 @@
      ]
     },
     {
-     "q": "\"head\" in Korean: ___",
-     "en": "head; chief; director; supervisor",
+     "q": "\"section chief\" in Korean: ___",
+     "en": "section chief; manager",
      "a": [
       "과장"
      ]
@@ -2564,7 +2564,7 @@
     },
     {
      "ko": "여간",
-     "en": "normally; ordinarily (adverb)"
+     "en": "very (used with a negative) (adverb)"
     },
     {
      "ko": "그만큼",
@@ -2683,7 +2683,7 @@
     {
      "q": "What does 밑바닥 mean?",
      "opts": [
-      "normally",
+      "very (used with a negative)",
       "bottom",
       "as many as",
       "opposite side"
@@ -2740,8 +2740,8 @@
      ]
     },
     {
-     "q": "\"normally\" in Korean: ___",
-     "en": "normally; ordinarily",
+     "q": "\"very (used with a negative)\" in Korean: ___",
+     "en": "very (used with a negative)",
      "a": [
       "여간"
      ]
@@ -2752,7 +2752,7 @@
    "cards": [
     {
      "ko": "향",
-     "en": "incense (noun)"
+     "en": "scent; incense (noun)"
     },
     {
      "ko": "개최",
@@ -2816,7 +2816,7 @@
     },
     {
      "ko": "단골",
-     "en": "favorite store (noun)"
+     "en": "regular customer; regular shop (noun)"
     },
     {
      "ko": "헌",
@@ -2836,12 +2836,12 @@
      "q": "What does 향 mean?",
      "opts": [
       "to tear",
-      "incense",
+      "scent",
       "to come running",
-      "favorite store"
+      "regular customer"
      ],
      "a": 1,
-     "why": "향 means incense. 제사를 지낼 때 경건한 마음으로 향을 피웠다. (During memorial services, incense was lit with a devout mind.)"
+     "why": "향 means scent; incense. 제사를 지낼 때 경건한 마음으로 향을 피웠다. (During memorial services, incense was lit with a devout mind.)"
     },
     {
      "q": "Which Korean word means \"expense\"?",
@@ -2922,8 +2922,8 @@
      ]
     },
     {
-     "q": "\"incense\" in Korean: ___",
-     "en": "incense",
+     "q": "\"scent\" in Korean: ___",
+     "en": "scent; incense",
      "a": [
       "향"
      ]
@@ -2988,7 +2988,7 @@
     },
     {
      "ko": "어쩌다",
-     "en": "do (adverb)"
+     "en": "by chance; once in a while (adverb)"
     },
     {
      "ko": "연간",
@@ -3348,7 +3348,7 @@
     },
     {
      "ko": "맞서다",
-     "en": "face; confront; stand face to face (verb)"
+     "en": "confront; stand up against (verb)"
     },
     {
      "ko": "실천",
@@ -3467,7 +3467,7 @@
     {
      "q": "What does 안타까워하다 mean?",
      "opts": [
-      "face",
+      "confront",
       "feel sorry",
       "to be regrettable",
       "to sink down"
@@ -3524,8 +3524,8 @@
      ]
     },
     {
-     "q": "\"face\" in Korean: ___",
-     "en": "face; confront; stand face to face",
+     "q": "\"confront\" in Korean: ___",
+     "en": "confront; stand up against",
      "a": [
       "맞서다"
      ]
@@ -3552,7 +3552,7 @@
     },
     {
      "ko": "공감",
-     "en": "sympathy (noun)"
+     "en": "empathy; sympathy (noun)"
     },
     {
      "ko": "가르다",
@@ -3643,7 +3643,7 @@
      "opts": [
       "recyclable item",
       "removal",
-      "sympathy",
+      "empathy",
       "turn inside out"
      ],
      "a": 3,
@@ -3976,7 +3976,7 @@
     },
     {
      "ko": "굴",
-     "en": "oyster (noun)"
+     "en": "tunnel; cave; oyster (noun)"
     },
     {
      "ko": "열매",
@@ -4056,12 +4056,12 @@
      "q": "What does 굴 mean?",
      "opts": [
       "spark",
-      "oyster",
+      "tunnel",
       "destruction",
       "fruit"
      ],
      "a": 1,
-     "why": "굴 means oyster. 겨울철 남해안 어촌에서는 싱싱한 바다 굴 수확이 한창이다. (Harvesting fresh sea oysters is in full swing in South Sea fishing villages during winter.)"
+     "why": "굴 means tunnel; cave; oyster. 겨울철 남해안 어촌에서는 싱싱한 바다 굴 수확이 한창이다. (Harvesting fresh sea oysters is in full swing in South Sea fishing villages during winter.)"
     },
     {
      "q": "Which Korean word means \"tree branch\"?",
@@ -4132,7 +4132,7 @@
     },
     {
      "ko": "까다롭다",
-     "en": "complex; intricate (adjective)"
+     "en": "picky; strict; tricky (adjective)"
     },
     {
      "ko": "맞벌이",
@@ -4251,7 +4251,7 @@
     {
      "q": "What does 초보자 mean?",
      "opts": [
-      "complex",
+      "picky",
       "beginner",
       "artist",
       "record"
@@ -4308,8 +4308,8 @@
      ]
     },
     {
-     "q": "\"complex\" in Korean: ___",
-     "en": "complex; intricate",
+     "q": "\"picky\" in Korean: ___",
+     "en": "picky; strict; tricky",
      "a": [
       "까다롭다"
      ]
@@ -4392,7 +4392,7 @@
     },
     {
      "ko": "사태",
-     "en": "avalanche; landslide (noun)"
+     "en": "situation; state of affairs; crisis (noun)"
     },
     {
      "ko": "장애인",
@@ -4768,7 +4768,7 @@
     },
     {
      "ko": "십상",
-     "en": "match; suitability (noun)"
+     "en": "very likely; bound to (noun)"
     },
     {
      "ko": "여부",
@@ -4817,7 +4817,7 @@
     {
      "q": "What does 접하다 mean?",
      "opts": [
-      "match",
+      "very likely",
       "silence",
       "demand",
       "to encounter"
@@ -4932,7 +4932,7 @@
     },
     {
      "ko": "굳이",
-     "en": "in the manner of taking trouble (adverb)"
+     "en": "insisting on; (not) necessarily (adverb)"
     },
     {
      "ko": "그렇지",
@@ -4956,7 +4956,7 @@
     },
     {
      "ko": "인정",
-     "en": "human feelings; human nature; humanity (noun)"
+     "en": "acknowledgment; recognition; compassion (noun)"
     },
     {
      "ko": "일종",
@@ -4964,7 +4964,7 @@
     },
     {
      "ko": "장난",
-     "en": "game; joke (noun)"
+     "en": "joke; prank; mischief (noun)"
     },
     {
      "ko": "정작",
@@ -4972,7 +4972,7 @@
     },
     {
      "ko": "제시",
-     "en": "offer (noun)"
+     "en": "presentation; suggestion (noun)"
     },
     {
      "ko": "주장",
@@ -4991,10 +4991,10 @@
     {
      "q": "What does 판단 mean?",
      "opts": [
-      "in the manner of taking trouble",
+      "insisting on",
       "judgment",
       "facing each other",
-      "offer"
+      "presentation"
      ],
      "a": 1,
      "why": "판단 means judgment; decision. 순간의 그릇된 판단이 돌이킬 수 없는 실수를 낳았다. (A momentary mistaken judgment produced an irreversible mistake.)"
@@ -5013,13 +5013,13 @@
     {
      "q": "What does 굳이 mean?",
      "opts": [
-      "game",
+      "joke",
       "necessity",
       "encouragement",
-      "in the manner of taking trouble"
+      "insisting on"
      ],
      "a": 3,
-     "why": "굳이 means in the manner of taking trouble. 그는 지나간 일을 굳이 다시 들추어내지 않았다. (He did not take the trouble to bring up past events again.)"
+     "why": "굳이 means insisting on; (not) necessarily. 그는 지나간 일을 굳이 다시 들추어내지 않았다. (He did not take the trouble to bring up past events again.)"
     },
     {
      "q": "Which Korean word means \"disadvantage\"?",
@@ -5036,12 +5036,12 @@
      "q": "What does 인정 mean?",
      "opts": [
       "agreement",
-      "human feelings",
+      "acknowledgment",
       "of course",
       "kind"
      ],
      "a": 1,
-     "why": "인정 means human feelings; human nature; humanity. 전통 시장 골목에는 이웃 간의 따뜻한 인정이 넘쳐난다. (Traditional market alleys overflow with warm human compassion among neighbors.)"
+     "why": "인정 means acknowledgment; recognition; compassion. 전통 시장 골목에는 이웃 간의 따뜻한 인정이 넘쳐난다. (Traditional market alleys overflow with warm human compassion among neighbors.)"
     },
     {
      "q": "Which Korean word means \"actually\"?",
@@ -5716,7 +5716,7 @@
     },
     {
      "ko": "격",
-     "en": "position; status (noun)"
+     "en": "status; dignity; standard (noun)"
     },
     {
      "ko": "국악",
@@ -5756,7 +5756,7 @@
     },
     {
      "ko": "선행",
-     "en": "going ahead; being ahead (noun)"
+     "en": "good deed; preceding (noun)"
     },
     {
      "ko": "성금",
@@ -5775,10 +5775,10 @@
     {
      "q": "What does 결실 mean?",
      "opts": [
-      "position",
+      "status",
       "bearing fruit",
       "kimchi making",
-      "going ahead"
+      "good deed"
      ],
      "a": 1,
      "why": "결실 means bearing fruit; fruition; successful outcome. 가을철 풍성한 결실을 거두기 위해 농부들은 한 해 동안 헌신했다. (To harvest abundant fruits in autumn, farmers devoted themselves all year.)"
@@ -5800,10 +5800,10 @@
       "industrialization",
       "sword",
       "width",
-      "position"
+      "status"
      ],
      "a": 3,
-     "why": "격 means position; status. 공식 외교 행사는 격에 맞는 철저한 의전과 예우 속에서 진행되었다. (The official diplomatic event proceeded amidst strict protocol and courtesy suited to rank.)"
+     "why": "격 means status; dignity; standard. 공식 외교 행사는 격에 맞는 철저한 의전과 예우 속에서 진행되었다. (The official diplomatic event proceeded amidst strict protocol and courtesy suited to rank.)"
     },
     {
      "q": "Which Korean word means \"craftsmanship\"?",
@@ -6116,7 +6116,7 @@
     },
     {
      "ko": "후기",
-     "en": "epilogue; postscript (noun)"
+     "en": "review; later period (noun)"
     },
     {
      "ko": "예전",
@@ -6492,7 +6492,7 @@
     },
     {
      "ko": "베다",
-     "en": "to pillow (one's head) (verb)"
+     "en": "rest one's head on; cut (verb)"
     },
     {
      "ko": "거주",
@@ -6540,7 +6540,7 @@
     },
     {
      "ko": "염소",
-     "en": "chlorine; goat (noun)"
+     "en": "goat; chlorine (noun)"
     },
     {
      "ko": "소모",
@@ -6562,7 +6562,7 @@
       "residential area",
       "stimulating",
       "overland",
-      "chlorine"
+      "goat"
      ],
      "a": 1,
      "why": "자극적 means stimulating; provocative. 자극적 기사 제목은 독자의 눈길을 끌기 위한 수단이다. (Sensational article headlines are a means to draw readers' eyes.)"
@@ -6583,7 +6583,7 @@
      "opts": [
       "race",
       "natural disaster",
-      "to pillow (one's head)",
+      "rest one's head on",
       "residential area"
      ],
      "a": 3,
@@ -6900,7 +6900,7 @@
     },
     {
      "ko": "어미",
-     "en": "mom; mother (noun)"
+     "en": "(grammatical) ending; mother animal (noun)"
     },
     {
      "ko": "어학",
@@ -8240,7 +8240,7 @@
    "cards": [
     {
      "ko": "의",
-     "en": "righteousness; justice; loyalty; fidelity (noun)"
+     "en": "righteousness; justice; loyalty (noun)"
     },
     {
      "ko": "전파",
@@ -8329,7 +8329,7 @@
       "to be damp"
      ],
      "a": 1,
-     "why": "의 means righteousness; justice; loyalty; fidelity. 선비들은 눈앞의 이익보다 대의와 의를 지키고자 했다. (Scholars sought to safeguard great justice and righteousness above immediate interests.)"
+     "why": "의 means righteousness; justice; loyalty. 선비들은 눈앞의 이익보다 대의와 의를 지키고자 했다. (Scholars sought to safeguard great justice and righteousness above immediate interests.)"
     },
     {
      "q": "Which Korean word means \"asset\"?",
@@ -8411,7 +8411,7 @@
     },
     {
      "q": "\"righteousness\" in Korean: ___",
-     "en": "righteousness; justice; loyalty; fidelity",
+     "en": "righteousness; justice; loyalty",
      "a": [
       "의"
      ]
@@ -9244,7 +9244,7 @@
     },
     {
      "ko": "확충",
-     "en": "increase; expansion; replenishment (noun)"
+     "en": "expansion; enhancement (noun)"
     },
     {
      "ko": "공약",
@@ -9276,7 +9276,7 @@
     },
     {
      "ko": "내걸다",
-     "en": "hang (verb)"
+     "en": "hang up; put up; pledge (verb)"
     },
     {
      "ko": "누출",
@@ -9303,7 +9303,7 @@
     {
      "q": "What does 공존 mean?",
      "opts": [
-      "increase",
+      "expansion",
       "coexistence",
       "home and abroad",
       "to be fair"
@@ -9325,13 +9325,13 @@
     {
      "q": "What does 확충 mean?",
      "opts": [
-      "hang",
+      "hang up",
       "institutional",
       "alienation",
-      "increase"
+      "expansion"
      ],
      "a": 3,
-     "why": "확충 means increase; expansion; replenishment. 정부는 복지 예산 확충을 통해 사회 안전망을 강화하기로 했다. (The government decided to strengthen the social safety net through welfare budget expansion.)"
+     "why": "확충 means expansion; enhancement. 정부는 복지 예산 확충을 통해 사회 안전망을 강화하기로 했다. (The government decided to strengthen the social safety net through welfare budget expansion.)"
     },
     {
      "q": "Which Korean word means \"disturbance\"?",
@@ -9668,7 +9668,7 @@
     },
     {
      "ko": "권한",
-     "en": "right (noun)"
+     "en": "authority; power (noun)"
     },
     {
      "ko": "신설",
@@ -9717,7 +9717,7 @@
     {
      "q": "What does 조립 mean?",
      "opts": [
-      "right",
+      "authority",
       "guideline",
       "transit",
       "assembly"
