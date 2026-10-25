@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>N에 ② (방향·단위) 보너스 연습 · Bonus practice — Korean Particles Workbook</title>
+<meta name="description" content="한국어 조사 워크북 단원 보너스 연습: 낱말 카드, 퀴즈, 빈칸 쓰기. 쪽에서 바로 채우고 채점해요.">
+<link rel="canonical" href="https://everykoreans.com/bonus/particles-workbook/pt-26-7/">
+<!-- 생성물 — 손으로 고치지 말 것. docs/bonus/*.json 을 고치고 node tools/build-bonus.mjs -->
+<script src="/gtm.js" async></script>
+<script src="/analytics.js" defer></script>
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta property="og:title" content="N에 ② (방향·단위) 보너스 연습 · Bonus practice — Korean Particles Workbook">
+<meta property="og:description" content="한국어 조사 워크북 단원 보너스 연습: 낱말 카드, 퀴즈, 빈칸 쓰기. 쪽에서 바로 채우고 채점해요.">
+<meta property="og:url" content="https://everykoreans.com/bonus/particles-workbook/pt-26-7/">
+<meta property="og:image" content="https://everykoreans.com/og-image.jpg">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="stylesheet" href="/vendor/pretendard.css">
+<link rel="stylesheet" href="/page.css">
+<script src="/bonus.js?v=140103d5" defer></script>
+<style>
+main{max-width:760px;margin:0 auto;padding:22px 20px 80px}
+.bk-badge{display:inline-block;font-size:12px;font-weight:800;letter-spacing:.06em;color:#C4551C;background:#FDF0E2;border-radius:99px;padding:4px 12px}
+.bk-h{font-size:19px;font-weight:800;margin:30px 0 4px}.bk-h small{font-weight:500;color:var(--ink-3);font-size:13px;margin-left:6px}
+.bk-sub{color:var(--ink-3);font-size:14px;margin:0 0 12px}
+.bcards{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.bcard{font:inherit;text-align:center;cursor:pointer;min-height:84px;padding:14px 12px;border:1px solid var(--line);border-radius:14px;background:#fff;color:var(--ink);display:flex;align-items:center;justify-content:center}
+.bcard .b{display:none;font-size:14px;color:var(--ink-2);line-height:1.45}.bcard .f{font-size:18px;font-weight:800}
+.bcard.flip{background:#FFF7E3;border-color:#F0C24B}.bcard.flip .f{display:none}.bcard.flip .b{display:block}
+.bq,.bf{background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px 16px;margin:10px 0}
+.bqq{font-weight:700;margin:0 0 8px;line-height:1.5}.bqq i{font-style:normal;color:var(--ink-3);font-weight:500;margin-right:6px}
+.bo{list-style:none;margin:0;padding:0;display:grid;gap:6px}
+.bo li{min-height:44px;display:flex;align-items:center;gap:8px;padding:8px 12px;border:1px solid var(--line);border-radius:10px;cursor:pointer;background:#FBF8F1}
+.bo li:hover{border-color:#F0C24B}.bo li.right{background:#E6F4EA;border-color:#3A9A5B}.bo li.wrong{background:#FCE8E6;border-color:#D1493E}
+.bw{margin:8px 0 0;font-size:14px;color:var(--ink-2);line-height:1.55}
+.bf .fq{font-size:18px;font-weight:700;line-height:1.7;margin:0}.bf .fe{color:var(--ink-3);font-size:13.5px;margin:2px 0 8px}
+.bf input{font:inherit;font-size:17px;width:9em;max-width:100%;padding:6px 10px;border:0;border-bottom:2px solid #C4551C;background:#FFF7E3;border-radius:6px 6px 0 0;text-align:center}
+.bf button{font:inherit;min-height:44px;margin-left:8px;padding:0 18px;border:0;border-radius:10px;background:#C4551C;color:#fff;font-weight:700;cursor:pointer}
+.bf .bm{margin:8px 0 0;font-weight:700}.bf.ok .bm{color:#2E7D4A}.bf.no .bm{color:#B3322D}
+.bsc{position:sticky;bottom:0;margin-top:26px;padding:12px 16px;background:#fff;border:1px solid var(--line);border-radius:14px;display:flex;justify-content:space-between;align-items:center;font-weight:800}
+.bsc.fin{background:#FFF7E3;border-color:#F0C24B}.bfin,.bbest{margin:10px 0 0;font-size:14px;color:var(--ink-2)}
+.bapp{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin:14px 0 0;padding:12px 14px;background:#FFF7E3;border:1px solid #F0C24B;border-radius:14px}.bapp div{flex:1 1 220px}.bapp b{display:block;font-size:14.5px}.bapp small{color:var(--ink-3);font-size:12.5px}
+.bk-back{font-size:13px;margin-left:8px}
+.hub-top{margin:14px 0 4px;padding:18px;border-radius:18px;color:#fff}.hub-top h1{color:#fff;margin:4px 0 2px}.hub-top small{opacity:.85}
+.hprog{height:12px;border-radius:99px;background:rgba(255,255,255,.22);overflow:hidden;margin:14px 0 6px}.hprog i{display:block;height:100%;width:0;background:#F6C443;border-radius:99px;transition:width .5s}
+.hrow{display:flex;justify-content:space-between;gap:10px;font-size:14px;font-weight:700;flex-wrap:wrap}
+.hnext{display:block;margin-top:14px;text-align:center}
+.htools{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px;margin:14px 0}
+.htool{display:block;background:#fff;border:1px solid var(--line);border-radius:14px;padding:12px 14px;color:var(--ink);text-decoration:none}.htool b{display:block}.htool span{font-size:13px;color:var(--ink-3)}
+.hpart{font-size:14px;font-weight:800;color:var(--ink-3);margin:22px 0 6px}
+.hunits{list-style:none;margin:0;padding:0;background:#fff;border:1px solid var(--line);border-radius:16px;overflow:hidden}
+.hunits li{display:flex;align-items:center;gap:10px;padding:12px 14px;min-height:52px;border-top:1px solid var(--line2,#eee)}.hunits li:first-child{border-top:0}
+.hunits li a{flex:1;color:var(--ink);text-decoration:none;font-weight:700}.hunits li.off{opacity:.45}.hunits li.off a{pointer-events:none}
+.hunits .hs{font-size:12.5px;color:var(--ink-3);white-space:nowrap}.hunits li.ok .hs{color:#2E7D4A;font-weight:800}
+.bempty{padding:18px;background:#fff;border:1px solid var(--line);border-radius:14px}
+.bagain{font:inherit;min-height:44px;margin-top:10px;padding:0 18px;border:0;border-radius:10px;background:#C4551C;color:#fff;font-weight:700;cursor:pointer}
+.bcta{display:flex;flex-wrap:wrap;gap:10px;margin:22px 0 0}
+@media(max-width:480px){.bcards{grid-template-columns:1fr}.bf button{margin:8px 0 0}}
+</style>
+</head>
+<body>
+<header class="hd"><div class="hd-in">
+  <a href="/"><img src="/logo.png" alt=""><span>치즈감자 CheesePotato</span></a>
+</div></header>
+<main>
+<div data-bonus-mode="unit" data-book="particles-workbook" data-unit-key="particles-workbook/pt-26-7">
+<span class="bk-badge">책 보너스 · BOOK BONUS</span> <a class="bk-back" href="/bonus/particles-workbook/">← 책 코스 전체 · Course</a>
+<h1>N에 ② (방향·단위)</h1>
+<div class="bapp"><div><b>앱에서 열면 진행률 · 연속 학습이 기록돼요</b><small>Open in the app to track progress and your streak</small></div><a class="btn main" href="intent://book/particles-workbook/pt-26-7#Intent;scheme=cheesepotato;package=com.cheesepotato.app;S.browser_fallback_url=https%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3Dcom.cheesepotato.app;end">앱에서 열기 · Open app</a><a class="btn sub" href="https://play.google.com/store/apps/details?id=com.cheesepotato.app">Google Play</a></div>
+<p class="bk-sub">N에 ② (방향·단위) · 한국어 조사 워크북 · Korean Particles Workbook</p>
+<h2 class="bk-h">낱말 카드 <small>Flashcards · 눌러서 뒤집기 · tap to flip</small></h2>
+<div class="bcards"><button type="button" class="bcard" data-say="학교에 가요"><span class="f">학교에 가요</span><span class="b">I go to school. (destination of movement)</span></button><button type="button" class="bcard" data-say="집에 돌아왔어요"><span class="f">집에 돌아왔어요</span><span class="b">I returned home. (destination of returning)</span></button><button type="button" class="bcard" data-say="공항에 도착했어요"><span class="f">공항에 도착했어요</span><span class="b">I arrived at the airport. (arrival destination)</span></button><button type="button" class="bcard" data-say="헬스장에 다녀요"><span class="f">헬스장에 다녀요</span><span class="b">I attend the gym regularly. (destination with 다니다)</span></button><button type="button" class="bcard" data-say="한 개에 얼마예요?"><span class="f">한 개에 얼마예요?</span><span class="b">How much is it per piece? (unit rate)</span></button><button type="button" class="bcard" data-say="하루에 세 번 먹어요"><span class="f">하루에 세 번 먹어요</span><span class="b">I take it three times a day. (frequency per time unit)</span></button><button type="button" class="bcard" data-say="일주일에 두 번 운동해요"><span class="f">일주일에 두 번 운동해요</span><span class="b">I exercise twice a week. (frequency per week)</span></button><button type="button" class="bcard" data-say="한 시간에 천 원이에요"><span class="f">한 시간에 천 원이에요</span><span class="b">It is 1,000 won per hour. (rate per hour)</span></button></div>
+<h2 class="bk-h">퀴즈 <small>Quiz</small></h2><div class="bq" data-ans="1" data-id="pt-26-7:q0"><p class="bqq"><i>Q1</i>Which sentence uses 에 to express a destination of movement?</p><ul class="bo"><li tabindex="0" role="button">① 도서관에서 책을 읽어요.</li><li tabindex="0" role="button">② 도서관에 공부하러 가요.</li><li tabindex="0" role="button">③ 도서관이 아주 넓어요.</li><li tabindex="0" role="button">④ 도서관을 지었어요.</li></ul><p class="bw" hidden>In 도서관에 공부하러 가요, 에 marks 도서관 as the destination of the movement verb 가다.</p></div><div class="bq" data-ans="2" data-id="pt-26-7:q1"><p class="bqq"><i>Q2</i>What does 에 express in '사과가 한 개에 천 원이에요'?</p><ul class="bo"><li tabindex="0" role="button">① Time of purchase</li><li tabindex="0" role="button">② Destination</li><li tabindex="0" role="button">③ Standard unit or rate</li><li tabindex="0" role="button">④ Reason</li></ul><p class="bw" hidden>When attached to counting classifiers like 한 개 (one piece), 에 means per or for each unit.</p></div><div class="bq" data-ans="0" data-id="pt-26-7:q2"><p class="bqq"><i>Q3</i>Which particle fits in: '이 약은 하루___ 세 번 드세요'?</p><ul class="bo"><li tabindex="0" role="button">① 에</li><li tabindex="0" role="button">② 를</li><li tabindex="0" role="button">③ 에서</li><li tabindex="0" role="button">④ 으로</li></ul><p class="bw" hidden>하루에 세 번 means three times a (per) day, expressing frequency per time unit.</p></div><div class="bq" data-ans="1" data-id="pt-26-7:q3"><p class="bqq"><i>Q4</i>Which verb commonly takes 에 to indicate the destination of moving toward?</p><ul class="bo"><li tabindex="0" role="button">① 먹다</li><li tabindex="0" role="button">② 가다</li><li tabindex="0" role="button">③ 보다</li><li tabindex="0" role="button">④ 읽다</li></ul><p class="bw" hidden>Movement verbs like 가다 (to go) and 오다 (to come) take 에 to mark the destination.</p></div><div class="bq" data-ans="0" data-id="pt-26-7:q4"><p class="bqq"><i>Q5</i>Which sentence correctly expresses 'I go to the office by nine'?</p><ul class="bo"><li tabindex="0" role="button">① 아홉 시까지 사무실에 출근해요.</li><li tabindex="0" role="button">② 아홉 시까지 사무실을 출근해요.</li><li tabindex="0" role="button">③ 아홉 시까지 사무실로만 출근을 해요.</li><li tabindex="0" role="button">④ 아홉 시까지 사무실과 출근해요.</li></ul><p class="bw" hidden>사무실에 출근해요 uses 에 to mark the office as the destination of going to work.</p></div>
+<h2 class="bk-h">빈칸 쓰기 <small>Fill in the blank</small></h2><p class="bk-sub">한글로 쓰고 [확인]을 누르세요. · Type in Hangul, then press Check.</p><div class="bf" data-a="[&quot;에&quot;]" data-id="pt-26-7:f0"><p class="fq">오후에 편지를 보내러 우체국<input type="text" autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="빈칸 1"> 갔어요.<button type="button">확인 · Check</button></p><p class="fe">In the afternoon, I went to the post office to send a letter.</p><p class="bm" hidden></p></div><div class="bf" data-a="[&quot;에&quot;]" data-id="pt-26-7:f1"><p class="fq">이 귤은 한 상자<input type="text" autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="빈칸 2"> 이만 원이에요.<button type="button">확인 · Check</button></p><p class="fe">These tangerines are 20,000 won per box.</p><p class="bm" hidden></p></div><div class="bf" data-a="[&quot;에&quot;]" data-id="pt-26-7:f2"><p class="fq">저는 한 달<input type="text" autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="빈칸 3"> 한 권씩 책을 꼭 읽어요.<button type="button">확인 · Check</button></p><p class="fe">I make sure to read one book per month.</p><p class="bm" hidden></p></div><div class="bf" data-a="[&quot;에&quot;]" data-id="pt-26-7:f3"><p class="fq">비행기가 저녁 일곱 시에 인천공항<input type="text" autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="빈칸 4"> 도착해요.<button type="button">확인 · Check</button></p><p class="fe">The plane arrives at Incheon Airport at 7 PM.</p><p class="bm" hidden></p></div><div class="bf" data-a="[&quot;에&quot;]" data-id="pt-26-7:f4"><p class="fq">퇴근길에 식료품을 사러 마트<input type="text" autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="빈칸 5"> 들렀어요.<button type="button">확인 · Check</button></p><p class="fe">On the way home from work, I stopped by the grocery mart.</p><p class="bm" hidden></p></div>
+<div class="bsc"><span>점수 · Score</span><span class="bscore">0 / 10</span></div>
+<p class="bfin" hidden>끝! 틀린 곳은 책 정답 쪽과 같이 다시 보세요. · Done! Review your misses with the book's answer key.</p><p class="bbest" hidden></p>
+<div class="bcta"><a class="btn main" href="/#learn">앱에서 더 연습하기<span> · Practice more free</span></a><a class="btn sub" href="/pt-26-7-worksheet/">인쇄용 학습지 · Printable sheet</a></div>
+</div>
+<p class="bk-sub" style="margin-top:30px">이 연습은 책에 없는 새로 만든 문항이에요(기출 아님). · New practice made for this site, not from any past exam.</p>
+</main>
+</body>
+</html>

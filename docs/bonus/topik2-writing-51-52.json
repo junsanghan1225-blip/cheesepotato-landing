@@ -1,0 +1,188 @@
+{
+  "_note": "책 QR 보너스 연습 — 안티 작성 · Claude 검토",
+  "book": "topik2-writing-51-52",
+  "units": {
+    "g51-recruit": {
+      "cards": [
+        {"ko": "~을/를 모집합니다", "en": "We are recruiting [target]. (announcing open recruitment)"},
+        {"ko": "~에 관심이 있는 분", "en": "Anyone who is interested in [field]. (defining eligibility)"},
+        {"ko": "많은 참여 바랍니다", "en": "We hope for many people's participation. (standard closing invitation)"},
+        {"ko": "누구나 환영합니다", "en": "Anyone is welcome. (open welcoming formula)"},
+        {"ko": "신청해 주시기 바랍니다", "en": "Please apply. (polite request to register)"},
+        {"ko": "함께하실 분을 찾습니다", "en": "Looking for people to join together. (invitation formula)"},
+        {"ko": "선착순으로 마감됩니다", "en": "Closed on a first-come, first-served basis. (deadline condition)"},
+        {"ko": "연락 주시기 바랍니다", "en": "Please contact us. (contact request)"}
+      ],
+      "quiz": [
+        {"q": "Which sentence ending is standard for a formal recruitment notice in TOPIK Q51?", "opts": ["신청해 주세요.", "신청해 주시기 바랍니다.", "신청해야 해요.", "신청하면 좋겠어요."], "a": 1, "why": "In TOPIK Q51 formal notice writing, the deferential imperative formula -(으)시기 바랍니다 is the most polite and appropriate ending."},
+        {"q": "Fill in the blank for a club recruitment notice: '한국 문화를 함께 배우실 분을 ___.'", "opts": ["찾습니다", "찾는다", "찾아요", "찾아라"], "a": 0, "why": "Recruitment notices directed to readers must use the deferential -ㅂ/습니다 style (찾습니다)."},
+        {"q": "Which phrase is typically used to state eligibility for joining a club?", "opts": ["누구나 참여할 수 있습니다.", "누구나 참여하지 않습니다.", "누구나 참여할 수 없습니다.", "누구나 참여하러 갑니다."], "a": 0, "why": "'누구나 참여할 수 있습니다' (Anyone can participate) is the standard formula indicating open qualification."},
+        {"q": "Which sentence ending is inappropriately informal for a club invitation bulletin board in Q51?", "opts": ["많은 지원 바랍니다.", "부담 없이 연락 주세요.", "환영합니다.", "참여해 주십시오."], "a": 1, "why": "연락 주세요 uses informal 해요체; in Q51 announcement writing, deferential style like 연락 주시기 바랍니다 is required."},
+        {"q": "In the sentence '관심이 있으신 분은 아래 번호로 ___', which closing fits best?", "opts": ["연락 주시기 바랍니다.", "연락을 안 합니다.", "연락이 옵니다.", "연락을 받았다."], "a": 0, "why": "An invitation notice politely prompts the reader to get in touch using 연락 주시기 바랍니다."}
+      ],
+      "fill": [
+        {"q": "이번 독서 모임에 함께 활동하실 분을 찾고 ___.", "en": "We are looking for people to join activities in this reading club.", "a": ["있습니다"]},
+        {"q": "사진 촬영에 관심이 있는 분이라면 누구나 환영___.", "en": "Anyone interested in photography is welcome.", "a": ["합니다"]},
+        {"q": "참여를 원하시는 분은 이번 주 금요일까지 신청해 주시기 ___.", "en": "Those who wish to participate, please apply by this Friday.", "a": ["바랍니다"]},
+        {"q": "인원이 차면 조기에 선착순으로 마감___.", "en": "If capacity is filled, it will close early on a first-come, first-served basis.", "a": ["됩니다", "될 수 있습니다"]},
+        {"q": "자세한 일정이 궁금하시면 아래 번호로 연락 주시기 ___.", "en": "If you are curious about the detailed schedule, please contact the number below.", "a": ["바랍니다"]}
+      ]
+    },
+    "g51-sell": {
+      "cards": [
+        {"ko": "~을/를 판매합니다", "en": "Selling [item]. (announcing sale)"},
+        {"ko": "무료로 나눔합니다", "en": "Giving away for free. (giving away item)"},
+        {"ko": "깨끗하게 사용했습니다", "en": "Used cleanly. (describing good condition of item)"},
+        {"ko": "필요하신 분께 드립니다", "en": "Giving to whoever needs it. (giveaway recipient formula)"},
+        {"ko": "~을/를 분실했습니다", "en": "I lost [item]. (lost item notice)"},
+        {"ko": "보신 분은 연락 바랍니다", "en": "Whoever saw it, please contact me. (request for lost item help)"},
+        {"ko": "소정의 사례를 하겠습니다", "en": "I will give a small reward. (promising reward for return)"},
+        {"ko": "직거래를 원합니다", "en": "I prefer in-person direct transaction. (transaction preference)"}
+      ],
+      "quiz": [
+        {"q": "In a second-hand sale post, which expression describes that an item is almost new?", "opts": ["사용감이 전혀 없고 거의 새것입니다.", "오래되어서 고장이 났습니다.", "버리려고 내놓았습니다.", "작동이 안 됩니다."], "a": 0, "why": "'거의 새것입니다' (almost like new) indicates that the item has been kept in excellent condition."},
+        {"q": "Which ending is appropriate when asking someone to return a lost wallet in Q51?", "opts": ["찾아 주시기 바랍니다.", "찾아 주지 마세요.", "찾아 주면 좋겠다.", "찾아 주었니?"], "a": 0, "why": "When writing a formal lost-and-found request, the polite formula -(으)시기 바랍니다 is expected."},
+        {"q": "What does '소정의 사례를 하겠습니다' mean in a lost property notice?", "opts": ["I will sell it for a low price.", "I will offer a token reward to the finder.", "I will buy a new item.", "I will report to the police."], "a": 1, "why": "사례를 하다 means to give a reward or token of gratitude for returning lost property."},
+        {"q": "Which sentence has an awkward register for a public notice board selling furniture in Q51?", "opts": ["직접 가지러 오셔야 합니다.", "택배 배송은 어렵습니다.", "빨리 와서 가져가라.", "가격은 오만 원입니다."], "a": 2, "why": "Imperative 반말 '가져가라' is rude and unacceptable; deferential style like 가져가시기 바랍니다 is required."},
+        {"q": "Fill in the blank: '이사 때문에 사용하던 전자레인지를 저렴하게 ___.'", "opts": ["팝니다", "팔아라", "파는구나", "판다"], "a": 0, "why": "Second-hand marketplace posts in Q51 require deferential polite ending 팝니다."}
+      ],
+      "fill": [
+        {"q": "유학을 마치고 귀국하게 되어 책상과 의자를 무료로 나눔___.", "en": "Because I am returning home after finishing study abroad, I am giving away a desk and chair for free.", "a": ["합니다"]},
+        {"q": "구입한 지 세 달밖에 안 되어 상태가 거의 새것과 ___.", "en": "It has been only three months since purchase, so the condition is like new.", "a": ["같습니다", "다름없습니다"]},
+        {"q": "어제 저녁 열람실에서 검은색 지갑을 잃어___.", "en": "Yesterday evening in the reading room, I lost my black wallet.", "a": ["버렸습니다"]},
+        {"q": "제 지갑을 보셨거나 보관하고 계신 분은 꼭 연락 주시기 ___.", "en": "If you saw or are keeping my wallet, please be sure to contact me.", "a": ["바랍니다"]},
+        {"q": "물건의 부피가 커서 직접 가지러 오실 수 있는 분을 ___.", "en": "Because the item is bulky, I am looking for someone who can come pick it up in person.", "a": ["찾습니다", "원합니다"]}
+      ]
+    },
+    "g51-notice": {
+      "cards": [
+        {"ko": "안내 말씀 드립니다", "en": "We make an announcement. (opening formula for public notices)"},
+        {"ko": "이용에 착오 없으시기 바랍니다", "en": "Please avoid any confusion in use. (reminder for schedule/rule change)"},
+        {"ko": "많은 양해 부탁드립니다", "en": "We ask for your generous understanding. (asking for patience during disruption)"},
+        {"ko": "서비스가 일시 중단됩니다", "en": "Service is temporarily suspended. (announcing downtime)"},
+        {"ko": "정상적으로 운영됩니다", "en": "Operated normally. (announcing resumption of service)"},
+        {"ko": "적극 협조해 주시기 바랍니다", "en": "Please cooperate actively. (requesting compliance)"},
+        {"ko": "불편을 드려 대단히 죄송합니다", "en": "We sincerely apologize for the inconvenience. (apology formula)"},
+        {"ko": "일정을 미리 확인하시기 바랍니다", "en": "Please check the schedule in advance. (advising advance verification)"}
+      ],
+      "quiz": [
+        {"q": "Which fixed formula is most appropriate when apologizing for inconvenience caused by facility maintenance?", "opts": ["이용해 주셔서 고맙습니다.", "불편을 드려 대단히 죄송합니다.", "축하해 주시기 바랍니다.", "참석해 주시기 바랍니다."], "a": 1, "why": "'불편을 드려 대단히 죄송합니다' (We apologize for the inconvenience) is the standard formula in maintenance notices."},
+        {"q": "What does '이용에 착오 없으시기 바랍니다' mean in an operating hours change announcement?", "opts": ["Please do not use the facility.", "Please check the schedule so there is no mistake or confusion.", "Please cancel your membership.", "Please arrive early."], "a": 1, "why": "This phrase advises users to take note of changes so that no confusion or scheduling mistake occurs."},
+        {"q": "Which expression politely requests the reader's understanding when a service must be stopped temporarily?", "opts": ["너그러운 양해 부탁드립니다.", "절대 불평하지 마십시오.", "당연히 참아야 합니다.", "마음대로 하십시오."], "a": 0, "why": "'너그러운 양해 부탁드립니다' (We ask for your kind understanding) is the standard polite request formula."},
+        {"q": "Fill in the blank: '정기 점검 작업으로 인해 도서관 이용이 일시적으로 ___.'", "opts": ["중단됩니다", "중단한다", "중단해요", "중단하자"], "a": 0, "why": "Public facility announcements in Q51 use deferential passive phrasing (중단됩니다)."},
+        {"q": "Which sentence is appropriate as the opening line of an official building notice?", "opts": ["입주민 여러분께 안내 말씀 드립니다.", "안녕, 오랜만이야.", "내가 알려줄게.", "모두 모여라."], "a": 0, "why": "'입주민 여러분께 안내 말씀 드립니다' is the respectful, standard opening for official notices."}
+      ],
+      "fill": [
+        {"q": "시설 보수 공사로 인하여 이번 주말 엘리베이터 운행이 일시 ___.", "en": "Due to facility repair work, elevator operation will be temporarily suspended this weekend.", "a": ["중단됩니다", "제한됩니다"]},
+        {"q": "공사 기간 동안 다소 불편하시더라도 주민 여러분의 깊은 양해 ___.", "en": "Even if it is somewhat inconvenient during construction, we ask for residents' deep understanding.", "a": ["부탁드립니다", "바랍니다"]},
+        {"q": "다음 주 월요일부터는 모든 시설이 정상적으로 운영될 ___.", "en": "Starting next Monday, all facilities are scheduled to operate normally.", "a": ["예정입니다"]},
+        {"q": "도서관 개관 시간이 변경되오니 이용에 착오 없으시기 ___.", "en": "As library opening hours change, we hope there will be no confusion in use.", "a": ["바랍니다"]},
+        {"q": "이용자 여러분께 불편을 끼쳐 드려 진심으로 죄송___.", "en": "We sincerely apologize for causing inconvenience to our users.", "a": ["합니다"]}
+      ]
+    },
+    "g51-ask": {
+      "cards": [
+        {"ko": "문의 드릴 것이 있어 글을 씁니다", "en": "I write because I have an inquiry. (standard opening for inquiry email/post)"},
+        {"ko": "~(으)ㄹ 수 있는지 알고 싶습니다", "en": "I would like to know if it is possible to [action]. (polite indirect question)"},
+        {"ko": "알려 주시면 감사하겠습니다", "en": "I would be grateful if you could let me know. (deferential conditional request)"},
+        {"ko": "빠른 답변 부탁드립니다", "en": "Please reply promptly. (request for response)"},
+        {"ko": "신청이 가능한지 여쭤봅니다", "en": "I inquire whether registration is possible. (honorific inquiry with 여쭤보다)"},
+        {"ko": "~을/를 신청하려고 합니다", "en": "I intend to apply for [course/event]. (stating application intention)"},
+        {"ko": "일정을 변경할 수 있습니까?", "en": "Can I change the schedule? (direct polite question)"},
+        {"ko": "확인 부탁드립니다", "en": "Please check and verify. (request for confirmation)"}
+      ],
+      "quiz": [
+        {"q": "Which formula is the most polite and natural way to ask for information in an inquiry post in Q51?", "opts": ["가르쳐 줘.", "알려 주시면 감사하겠습니다.", "알려줘라.", "빨리 말해."], "a": 1, "why": "'알려 주시면 감사하겠습니다' (I would be grateful if you let me know) is the standard polite request formula in Q51 writing."},
+        {"q": "How do you honorifically express 'I am asking you' when writing to an office or teacher?", "opts": ["물어봅니다", "여쭤봅니다", "묻는다", "말한다"], "a": 1, "why": "여쭤보다 is the humble/honorific verb for 묻다 (to ask), used when inquiring to someone respected."},
+        {"q": "Which sentence ending appropriately closes an application inquiry email asking for a reply?", "opts": ["답변 기다릴게.", "빠른 답변 부탁드립니다.", "답변해라.", "답변을 썼다."], "a": 1, "why": "'빠른 답변 부탁드립니다' (Please reply promptly) is the standard deferential closing in formal inquiries."},
+        {"q": "Fill in the blank: '개인 사정으로 수업 시간을 변경할 수 있는지 여쭤보고 ___.'", "opts": ["싶습니다", "싶다", "싶어", "싶겠니"], "a": 0, "why": "The writer expresses their polite desire to ask using deferential -고 싶습니다."},
+        {"q": "Which phrase states an intention to sign up for a training course?", "opts": ["강좌를 취소했습니다.", "강좌를 신청하려고 합니다.", "강좌가 끝났습니다.", "강좌를 가르칩니다."], "a": 1, "why": "'-(으)려고 합니다' expresses the writer's goal or intention to register for the course."}
+      ],
+      "fill": [
+        {"q": "외국인 장학금 신청 자격에 대해 몇 가지 문의 드릴 것이 ___.", "en": "I have a few things to inquire about regarding eligibility for the foreign student scholarship.", "a": ["있습니다"]},
+        {"q": "다음 주 시험 일정을 부득이하게 변경할 수 있는지 알고 ___.", "en": "I would like to know if it is possible to change next week's exam schedule unavoidably.", "a": ["싶습니다"]},
+        {"q": "신청 서류가 제대로 접수되었는지 확인해 주시면 ___.", "en": "I would be grateful if you could check whether my application documents were received properly.", "a": ["감사하겠습니다", "고맙겠습니다"]},
+        {"q": "바쁘시겠지만 시간 나실 때 확인하시고 빠른 답변 ___.", "en": "Though you may be busy, please check when you have time and reply promptly.", "a": ["부탁드립니다", "바랍니다"]},
+        {"q": "이번 겨울 방학 한국어 고급 회화 강좌를 신청___ 합니다.", "en": "I intend to apply for the advanced Korean conversation course this winter vacation.", "a": ["하려고"]}
+      ]
+    },
+    "g52-why": {
+      "cards": [
+        {"ko": "그 이유는 ~기 때문이다", "en": "The reason is because [clause]. (standard cause explanation in Q52)"},
+        {"ko": "~는 원인이 된다", "en": "Becomes the cause of [result]. (causal factor formula)"},
+        {"ko": "이러한 현상이 나타난다", "en": "Such a phenomenon appears. (describing an observed result)"},
+        {"ko": "~에 따라 결과가 달라진다", "en": "Results differ depending on [variable]. (conditional variation)"},
+        {"ko": "중요한 역할을 한다", "en": "Plays an important role. (explaining function/mechanism)"},
+        {"ko": "이로 인해 문제가 발생한다", "en": "Due to this, a problem occurs. (consequence description)"},
+        {"ko": "온도가 올라가기 때문이다", "en": "Because temperature rises. (plain-form causal explanation)"},
+        {"ko": "균형을 유지할 수 있다", "en": "Can maintain balance. (mechanism explanation)"}
+      ],
+      "quiz": [
+        {"q": "Which ending is mandatory for explaining reasons in TOPIK Q52 (written explanatory prose)?", "opts": ["-기 때문이에요.", "-기 때문이다.", "-기 때문입니다.", "-기 때문에 그래."], "a": 1, "why": "In TOPIK Q52, texts are written strictly in plain form (해라체/-(느)ㄴ다체), so '-기 때문이다' is the required ending."},
+        {"q": "When a sentence starts with '그 이유는', how must the sentence end?", "opts": ["~기 때문이다.", "~기 마련이다.", "~ㄹ 뿐이다.", "~는 법이다."], "a": 0, "why": "'그 이유는' (The reason is...) must grammatically match with the causal ending '~기 때문이다' (because...)."},
+        {"q": "Which sentence ending violates the style rule of TOPIK Q52?", "opts": ["스트레스가 원인이다.", "이런 현상이 일어난다.", "피로가 누적되기 쉬워요.", "호르몬 분비가 감소한다."], "a": 2, "why": "쉬워요 uses informal spoken 해요체; in Q52 written expository essays, plain form (쉽다) must be used."},
+        {"q": "Fill in the blank: '바람이 불면 체감 온도가 낮아지는 이유는 바람이 땀을 증발시키___.'", "opts": ["기 때문이다", "기 때문이에요", "기 때문입니다", "기 때문에요"], "a": 0, "why": "In Q52, the sentence explaining a reason ending must take plain form '-기 때문이다'."},
+        {"q": "What plain form corresponds to '변화해요' in expository Q52 writing for the verb 변화하다?", "opts": ["변화한다", "변화한다요", "변화합니다", "변화하다가"], "a": 0, "why": "Action verbs ending in vowels take -ㄴ다 in plain form (변화하다 -> 변화한다)."}
+      ],
+      "fill": [
+        {"q": "겨울철에 피부가 쉽게 건조해지는 이유는 실내 공기가 건조하___.", "en": "The reason skin easily dries up in winter is because indoor air is dry.", "a": ["기 때문이다"]},
+        {"q": "식물이 햇빛을 받지 못하면 광합성을 할 수 없어서 성장이 멈추___.", "en": "If plants cannot receive sunlight, they cannot photosynthesize, so growth stops.", "a": ["게 된다", "고 만다", "게 되는 것이다"]},
+        {"q": "운동을 꾸준히 하면 체력이 증진될 뿐만 아니라 스트레스도 줄어___.", "en": "Exercising steadily not only improves stamina but also reduces stress.", "a": ["든다", "들게 된다"]},
+        {"q": "수면이 부족해지면 뇌세포의 활동이 둔화되어 집중력이 떨어지___.", "en": "When sleep is insufficient, brain cell activity slows, so concentration drops.", "a": ["기 마련이다", "게 된다"]},
+        {"q": "낮과 밤의 기온 차이가 심해지는 이유는 일교차가 크___.", "en": "The reason temperature difference between day and night becomes severe is because the diurnal range is large.", "a": ["기 때문이다"]}
+      ]
+    },
+    "g52-effect": {
+      "cards": [
+        {"ko": "~에 긍정적인 영향을 미친다", "en": "Has a positive influence on [topic]. (stating positive impact)"},
+        {"ko": "~에 부정적인 영향을 준다", "en": "Gives negative influence to [topic]. (stating negative impact)"},
+        {"ko": "~을/를 예방하는 효과가 있다", "en": "Has the effect of preventing [issue]. (preventive effect)"},
+        {"ko": "기억력을 높이는 데 도움을 준다", "en": "Helps in enhancing memory. (beneficial function)"},
+        {"ko": "피로를 줄일 수 있다", "en": "Can reduce fatigue. (mitigating adverse state)"},
+        {"ko": "건강을 해칠 위험이 있다", "en": "There is a risk of harming health. (warning of negative consequence)"},
+        {"ko": "학습 능력을 향상시킨다", "en": "Improves learning ability. (enhancing capability)"},
+        {"ko": "업무 효율성을 크게 높인다", "en": "Significantly increases work efficiency. (raising productivity)"}
+      ],
+      "quiz": [
+        {"q": "Which plain form expression means 'exerts a great influence on health' in Q52?", "opts": ["건강에 큰 영향을 미친다.", "건강에 큰 영향을 미쳐요.", "건강에 큰 영향을 미칩니다.", "건강에 큰 영향을 미쳤어요."], "a": 0, "why": "In Q52, statements are formulated in the plain form: 미치다 + -ㄴ다 -> 미친다."},
+        {"q": "Which ending correctly completes '비타민 C는 감기를 예방하는 데 ___' in Q52 plain form?", "opts": ["도움을 준다.", "도움을 줍니다.", "도움을 줘요.", "도움을 줬니?"], "a": 0, "why": "The plain form ending -ㄴ다 (도움을 준다) matches the expository tone required in Q52."},
+        {"q": "What does '효과를 기대할 수 있다' mean in an article about a new study method?", "opts": ["One cannot expect any outcome.", "One can expect positive effects or results.", "It is ineffective.", "It is too costly."], "a": 1, "why": "'효과를 기대할 수 있다' means positive effects or outcomes can be anticipated."},
+        {"q": "Which word appropriately completes: '스마트폰을 밤늦게 사용하면 수면 장애를 ___'?", "opts": ["유발할 수 있다", "유발할 수 있어요", "유발할 수 있습니까", "유발했지요"], "a": 0, "why": "유발할 수 있다 ('can cause/induce') in plain form describes potential adverse consequences."},
+        {"q": "Which sentence has an INCORRECT ending for Q52 expository prose?", "opts": ["면역력을 높여 준다.", "체중을 감량하는 데 효과적이다.", "혈액 순환을 원활하게 해 줘요.", "질병을 예방할 수 있다."], "a": 2, "why": "해 줘요 is spoken 해요체; in Q52, plain form (해 준다) must be used."}
+      ],
+      "fill": [
+        {"q": "규칙적인 유산소 운동은 심혈관 건강에 긍정적인 영향을 ___.", "en": "Regular aerobic exercise exerts a positive influence on cardiovascular health.", "a": ["미친다", "준다"]},
+        {"q": "충분한 수분 섭취는 체내 노폐물을 원활하게 배출하는 데 큰 도움을 ___.", "en": "Sufficient water intake gives great help in smoothly expelling bodily wastes.", "a": ["준다"]},
+        {"q": "자연광을 쬐면 멜라토닌 분비가 조절되어 밤에 깊은 잠을 잘 수 ___.", "en": "Getting sunlight regulates melatonin secretion, so one can sleep deeply at night.", "a": ["있게 된다", "있다"]},
+        {"q": "과도한 카페인 섭취는 불안감을 유발하고 심장 박동을 빠르게 만들 수 ___.", "en": "Excessive caffeine intake can induce anxiety and make heartbeats fast.", "a": ["있다"]},
+        {"q": "녹차에 들어 있는 성분은 노화를 억제하고 염증을 완화하는 효과가 ___.", "en": "Ingredients contained in green tea have the effect of suppressing aging and soothing inflammation.", "a": ["있다"]}
+      ]
+    },
+    "g52-contrast": {
+      "cards": [
+        {"ko": "반면에 다른 측면도 존재한다", "en": "On the other hand, another aspect also exists. (introducing contrasting side)"},
+        {"ko": "~는 것과 달리 차이점이 있다", "en": "Unlike [clause], there is a difference. (contrast with 달리)"},
+        {"ko": "오히려 역효과를 낼 수 있다", "en": "Rather, it can produce an adverse effect. (warning of unintended outcome)"},
+        {"ko": "~지 않도록 각별히 주의해야 한다", "en": "One must be especially careful not to [action]. (caution formula)"},
+        {"ko": "장점이 있는 반면에 단점도 있다", "en": "While there are advantages, there are also disadvantages. (balanced contrast)"},
+        {"ko": "무조건 좋다고 볼 수는 없다", "en": "Cannot be viewed as unconditionally good. (critical counterargument)"},
+        {"ko": "이에 반해 다른 결과가 나타난다", "en": "In contrast to this, a different result appears. (transition connector)"},
+        {"ko": "지나치면 해가 될 수 있다", "en": "If excessive, it can be harmful. (conditional caution)"}
+      ],
+      "quiz": [
+        {"q": "Which transition word in Q52 indicates contrast between two opposing situations?", "opts": ["따라서", "반면에", "그러므로", "왜냐하면"], "a": 1, "why": "'반면에' (on the other hand) is the standard connector used to introduce an opposing or contrasting perspective."},
+        {"q": "Fill in the blank for a contrastive sentence: '낮에는 기온이 높지만 밤에는 ___ 기온이 떨어진다.'", "opts": ["반대로", "따라서", "왜냐하면", "즉"], "a": 0, "why": "'반대로' (conversely) or '반면에' appropriately contrasts the warm daytime with the cold nighttime."},
+        {"q": "Which phrase serves as a formal caution against side effects in Q52 plain form?", "opts": ["부작용이 없도록 주의해야 한다.", "부작용이 없도록 주의하세요.", "부작용이 없도록 주의해라.", "부작용이 없도록 주의합니다."], "a": 0, "why": "'-아야/어야 한다' is the standard plain form expressing obligation or necessity in expository essays."},
+        {"q": "What nuance does '오히려 역효과를 낳을 수 있다' express?", "opts": ["It will definitely succeed.", "Contrary to expectation, it may produce an adverse, opposite result.", "It has no effect whatsoever.", "It was intended from the beginning."], "a": 1, "why": "오히려 ('on the contrary') combined with 역효과 ('adverse effect') highlights an unintended negative backlash."},
+        {"q": "Which sentence ending is inappropriately casual for Q52?", "opts": ["건강을 해칠 우려가 있다.", "무리한 다이어트는 피해야 해.", "신중한 판단이 필요하다.", "균형 있는 식단이 요구된다."], "a": 1, "why": "피해야 해 uses casual 반말; in Q52 expository prose, plain form (피해야 한다) is mandatory."}
+      ],
+      "fill": [
+        {"q": "도시 생활은 편리한 ___ 환경오염과 소음 문제가 심각하다.", "en": "City life is convenient, while pollution and noise problems are serious.", "a": ["반면에", "반면"]},
+        {"q": "긍정적인 기대와는 달리 과도한 사용은 오히려 독이 될 수 ___.", "en": "Unlike positive expectations, excessive use can rather become poison.", "a": ["있다"]},
+        {"q": "이 약은 효능이 뛰어나지만 과다 복용하지 않도록 각별히 주의해야 ___.", "en": "This medicine has excellent efficacy, but one must be especially careful not to overdose.", "a": ["한다"]},
+        {"q": "과거에는 정보 습득이 어려웠던 것과 달리 현대에는 정보가 넘쳐___.", "en": "Unlike the past when acquiring information was difficult, information overflows in modern times.", "a": ["난다", "나고 있다"]},
+        {"q": "스트레스가 적당하면 동기 부여가 되지만 지나치면 건강을 해칠 수 ___.", "en": "If stress is moderate it provides motivation, but if excessive it can harm health.", "a": ["있다"]}
+      ]
+    }
+  }
+}

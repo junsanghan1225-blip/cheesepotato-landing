@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>은/는 or 이/가? Context decides 보너스 연습 · Bonus practice — Korean Particles Workbook</title>
+<meta name="description" content="한국어 조사 워크북 단원 보너스 연습: 낱말 카드, 퀴즈, 빈칸 쓰기. 쪽에서 바로 채우고 채점해요.">
+<link rel="canonical" href="https://everykoreans.com/bonus/particles-workbook/ct-context/">
+<!-- 생성물 — 손으로 고치지 말 것. docs/bonus/*.json 을 고치고 node tools/build-bonus.mjs -->
+<script src="/gtm.js" async></script>
+<script src="/analytics.js" defer></script>
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta property="og:title" content="은/는 or 이/가? Context decides 보너스 연습 · Bonus practice — Korean Particles Workbook">
+<meta property="og:description" content="한국어 조사 워크북 단원 보너스 연습: 낱말 카드, 퀴즈, 빈칸 쓰기. 쪽에서 바로 채우고 채점해요.">
+<meta property="og:url" content="https://everykoreans.com/bonus/particles-workbook/ct-context/">
+<meta property="og:image" content="https://everykoreans.com/og-image.jpg">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="stylesheet" href="/vendor/pretendard.css">
+<link rel="stylesheet" href="/page.css">
+<script src="/bonus.js?v=140103d5" defer></script>
+<style>
+main{max-width:760px;margin:0 auto;padding:22px 20px 80px}
+.bk-badge{display:inline-block;font-size:12px;font-weight:800;letter-spacing:.06em;color:#C4551C;background:#FDF0E2;border-radius:99px;padding:4px 12px}
+.bk-h{font-size:19px;font-weight:800;margin:30px 0 4px}.bk-h small{font-weight:500;color:var(--ink-3);font-size:13px;margin-left:6px}
+.bk-sub{color:var(--ink-3);font-size:14px;margin:0 0 12px}
+.bcards{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.bcard{font:inherit;text-align:center;cursor:pointer;min-height:84px;padding:14px 12px;border:1px solid var(--line);border-radius:14px;background:#fff;color:var(--ink);display:flex;align-items:center;justify-content:center}
+.bcard .b{display:none;font-size:14px;color:var(--ink-2);line-height:1.45}.bcard .f{font-size:18px;font-weight:800}
+.bcard.flip{background:#FFF7E3;border-color:#F0C24B}.bcard.flip .f{display:none}.bcard.flip .b{display:block}
+.bq,.bf{background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px 16px;margin:10px 0}
+.bqq{font-weight:700;margin:0 0 8px;line-height:1.5}.bqq i{font-style:normal;color:var(--ink-3);font-weight:500;margin-right:6px}
+.bo{list-style:none;margin:0;padding:0;display:grid;gap:6px}
+.bo li{min-height:44px;display:flex;align-items:center;gap:8px;padding:8px 12px;border:1px solid var(--line);border-radius:10px;cursor:pointer;background:#FBF8F1}
+.bo li:hover{border-color:#F0C24B}.bo li.right{background:#E6F4EA;border-color:#3A9A5B}.bo li.wrong{background:#FCE8E6;border-color:#D1493E}
+.bw{margin:8px 0 0;font-size:14px;color:var(--ink-2);line-height:1.55}
+.bf .fq{font-size:18px;font-weight:700;line-height:1.7;margin:0}.bf .fe{color:var(--ink-3);font-size:13.5px;margin:2px 0 8px}
+.bf input{font:inherit;font-size:17px;width:9em;max-width:100%;padding:6px 10px;border:0;border-bottom:2px solid #C4551C;background:#FFF7E3;border-radius:6px 6px 0 0;text-align:center}
+.bf button{font:inherit;min-height:44px;margin-left:8px;padding:0 18px;border:0;border-radius:10px;background:#C4551C;color:#fff;font-weight:700;cursor:pointer}
+.bf .bm{margin:8px 0 0;font-weight:700}.bf.ok .bm{color:#2E7D4A}.bf.no .bm{color:#B3322D}
+.bsc{position:sticky;bottom:0;margin-top:26px;padding:12px 16px;background:#fff;border:1px solid var(--line);border-radius:14px;display:flex;justify-content:space-between;align-items:center;font-weight:800}
+.bsc.fin{background:#FFF7E3;border-color:#F0C24B}.bfin,.bbest{margin:10px 0 0;font-size:14px;color:var(--ink-2)}
+.bapp{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin:14px 0 0;padding:12px 14px;background:#FFF7E3;border:1px solid #F0C24B;border-radius:14px}.bapp div{flex:1 1 220px}.bapp b{display:block;font-size:14.5px}.bapp small{color:var(--ink-3);font-size:12.5px}
+.bk-back{font-size:13px;margin-left:8px}
+.hub-top{margin:14px 0 4px;padding:18px;border-radius:18px;color:#fff}.hub-top h1{color:#fff;margin:4px 0 2px}.hub-top small{opacity:.85}
+.hprog{height:12px;border-radius:99px;background:rgba(255,255,255,.22);overflow:hidden;margin:14px 0 6px}.hprog i{display:block;height:100%;width:0;background:#F6C443;border-radius:99px;transition:width .5s}
+.hrow{display:flex;justify-content:space-between;gap:10px;font-size:14px;font-weight:700;flex-wrap:wrap}
+.hnext{display:block;margin-top:14px;text-align:center}
+.htools{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px;margin:14px 0}
+.htool{display:block;background:#fff;border:1px solid var(--line);border-radius:14px;padding:12px 14px;color:var(--ink);text-decoration:none}.htool b{display:block}.htool span{font-size:13px;color:var(--ink-3)}
+.hpart{font-size:14px;font-weight:800;color:var(--ink-3);margin:22px 0 6px}
+.hunits{list-style:none;margin:0;padding:0;background:#fff;border:1px solid var(--line);border-radius:16px;overflow:hidden}
+.hunits li{display:flex;align-items:center;gap:10px;padding:12px 14px;min-height:52px;border-top:1px solid var(--line2,#eee)}.hunits li:first-child{border-top:0}
+.hunits li a{flex:1;color:var(--ink);text-decoration:none;font-weight:700}.hunits li.off{opacity:.45}.hunits li.off a{pointer-events:none}
+.hunits .hs{font-size:12.5px;color:var(--ink-3);white-space:nowrap}.hunits li.ok .hs{color:#2E7D4A;font-weight:800}
+.bempty{padding:18px;background:#fff;border:1px solid var(--line);border-radius:14px}
+.bagain{font:inherit;min-height:44px;margin-top:10px;padding:0 18px;border:0;border-radius:10px;background:#C4551C;color:#fff;font-weight:700;cursor:pointer}
+.bcta{display:flex;flex-wrap:wrap;gap:10px;margin:22px 0 0}
+@media(max-width:480px){.bcards{grid-template-columns:1fr}.bf button{margin:8px 0 0}}
+</style>
+</head>
+<body>
+<header class="hd"><div class="hd-in">
+  <a href="/"><img src="/logo.png" alt=""><span>치즈감자 CheesePotato</span></a>
+</div></header>
+<main>
+<div data-bonus-mode="unit" data-book="particles-workbook" data-unit-key="particles-workbook/ct-context">
+<span class="bk-badge">책 보너스 · BOOK BONUS</span> <a class="bk-back" href="/bonus/particles-workbook/">← 책 코스 전체 · Course</a>
+<h1>은/는 vs 이/가: 맥락이 정해요</h1>
+<div class="bapp"><div><b>앱에서 열면 진행률 · 연속 학습이 기록돼요</b><small>Open in the app to track progress and your streak</small></div><a class="btn main" href="intent://book/particles-workbook/ct-context#Intent;scheme=cheesepotato;package=com.cheesepotato.app;S.browser_fallback_url=https%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3Dcom.cheesepotato.app;end">앱에서 열기 · Open app</a><a class="btn sub" href="https://play.google.com/store/apps/details?id=com.cheesepotato.app">Google Play</a></div>
+<p class="bk-sub">은/는 or 이/가? Context decides · 한국어 조사 워크북 · Korean Particles Workbook</p>
+<h2 class="bk-h">낱말 카드 <small>Flashcards · 눌러서 뒤집기 · tap to flip</small></h2>
+<div class="bcards"><button type="button" class="bcard" data-say="옛날에 한 할아버지가 살았어요"><span class="f">옛날에 한 할아버지가 살았어요</span><span class="b">Once upon a time, an old man lived. (new character introduction with 가)</span></button><button type="button" class="bcard" data-say="그 할아버지는 마음이 착했어요"><span class="f">그 할아버지는 마음이 착했어요</span><span class="b">That old man was kind-hearted. (referring back to known topic with 는)</span></button><button type="button" class="bcard" data-say="고양이가 들어왔어요"><span class="f">고양이가 들어왔어요</span><span class="b">A cat entered. (new observation with 가)</span></button><button type="button" class="bcard" data-say="그 고양이는 아주 귀여워요"><span class="f">그 고양이는 아주 귀여워요</span><span class="b">That cat is very cute. (now established as topic with 는)</span></button><button type="button" class="bcard" data-say="이것이 제 열쇠예요"><span class="f">이것이 제 열쇠예요</span><span class="b">This is my key. (identifying which item is the key)</span></button><button type="button" class="bcard" data-say="이것은 제 열쇠예요"><span class="f">이것은 제 열쇠예요</span><span class="b">As for this, it is my key. (stating information about this item)</span></button><button type="button" class="bcard" data-say="누가 민수예요? - 제가 민수예요"><span class="f">누가 민수예요? - 제가 민수예요</span><span class="b">Who is Minsu? - I am Minsu. (identifying identity with 제가)</span></button><button type="button" class="bcard" data-say="저는 민수예요"><span class="f">저는 민수예요</span><span class="b">I am Minsu. (introducing oneself as topic with 저는)</span></button></div>
+<h2 class="bk-h">퀴즈 <small>Quiz</small></h2><div class="bq" data-ans="1" data-id="ct-context:q0"><p class="bqq"><i>Q1</i>In storytelling, how do particles typically shift when introducing a character and then describing them?</p><ul class="bo"><li tabindex="0" role="button">① First 은/는, then 이/가</li><li tabindex="0" role="button">② First 이/가 (introducing), then 은/는 (already known)</li><li tabindex="0" role="button">③ Always 이/가</li><li tabindex="0" role="button">④ Always 은/는</li></ul><p class="bw" hidden>A new character is first introduced with 이/가, and once established in the context, they become the topic marked by 은/는.</p></div><div class="bq" data-ans="0" data-id="ct-context:q1"><p class="bqq"><i>Q2</i>Read the sequence: '어제 길에서 강아지 한 마리를 보았어요. 강아지___ 꼬리를 흔들었어요.' Which particle fits best in the second sentence?</p><ul class="bo"><li tabindex="0" role="button">① 는</li><li tabindex="0" role="button">② 로</li><li tabindex="0" role="button">③ 에서</li><li tabindex="0" role="button">④ 보다</li></ul><p class="bw" hidden>The puppy was already introduced in the previous sentence, so it is now known topic information taking 는.</p></div><div class="bq" data-ans="0" data-id="ct-context:q2"><p class="bqq"><i>Q3</i>Which answer appropriately matches the question: '누가 범인이에요?' (Who is the culprit)?</p><ul class="bo"><li tabindex="0" role="button">① 저 사람이 범인이에요.</li><li tabindex="0" role="button">② 저 사람은 범인이에요.</li><li tabindex="0" role="button">③ 저 사람을 범인이에요.</li><li tabindex="0" role="button">④ 저 사람에 범인이에요.</li></ul><p class="bw" hidden>The question asks 'who' (누가), which demands specific identification marked by the subject particle 이.</p></div><div class="bq" data-ans="1" data-id="ct-context:q3"><p class="bqq"><i>Q4</i>What is the difference between '이 책이 좋아요' and '이 책은 좋아요'?</p><ul class="bo"><li tabindex="0" role="button">① 이 책이 좋아요 is incorrect.</li><li tabindex="0" role="button">② 이 책이 좋아요 focuses specifically on this book, while 이 책은 좋아요 contrasts it with other books.</li><li tabindex="0" role="button">③ They mean opposite things.</li><li tabindex="0" role="button">④ 이 책은 좋아요 cannot be used.</li></ul><p class="bw" hidden>이 책이 marks this specific book, while 이 책은 sets this book apart, often implying contrast with other books.</p></div><div class="bq" data-ans="0" data-id="ct-context:q4"><p class="bqq"><i>Q5</i>Fill in the blank: '저 방에 누군가 서 있어요. 그 사람___ 누구일까요?'</p><ul class="bo"><li tabindex="0" role="button">① 은</li><li tabindex="0" role="button">② 을</li><li tabindex="0" role="button">③ 에</li><li tabindex="0" role="button">④ 로</li></ul><p class="bw" hidden>The person was already mentioned in the first sentence, so 그 사람은 uses 은 as the established topic.</p></div>
+<h2 class="bk-h">빈칸 쓰기 <small>Fill in the blank</small></h2><p class="bk-sub">한글로 쓰고 [확인]을 누르세요. · Type in Hangul, then press Check.</p><div class="bf" data-a="[&quot;은&quot;]" data-id="ct-context:f0"><p class="fq">동네에 새 빵집이 생겼어요. 그 빵집<input type="text" autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="빈칸 1"> 빵 맛이 참 좋아요.<button type="button">확인 · Check</button></p><p class="fe">A new bakery opened in town. As for that bakery, the bread tastes really good.</p><p class="bm" hidden></p></div><div class="bf" data-a="[&quot;이&quot;]" data-id="ct-context:f1"><p class="fq">어느 것이 민호 씨 우산이에요? - 파란색 우산<input type="text" autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="빈칸 2"> 제 우산이에요.<button type="button">확인 · Check</button></p><p class="fe">Which one is Minho's umbrella? - The blue umbrella is my umbrella.</p><p class="bm" hidden></p></div><div class="bf" data-a="[&quot;은&quot;]" data-id="ct-context:f2"><p class="fq">어제 예쁜 화분을 샀어요. 화분<input type="text" autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="빈칸 3"> 창가에 올려두었어요.<button type="button">확인 · Check</button></p><p class="fe">Yesterday I bought a pretty flowerpot. As for the flowerpot, I placed it on the windowsill.</p><p class="bm" hidden></p></div><div class="bf" data-a="[&quot;가&quot;]" data-id="ct-context:f3"><p class="fq">어디선가 맛있는 냄새<input type="text" autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="빈칸 4"> 솔솔 풍겨와요.<button type="button">확인 · Check</button></p><p class="fe">From somewhere, a delicious smell wafts gently.</p><p class="bm" hidden></p></div><div class="bf" data-a="[&quot;은&quot;]" data-id="ct-context:f4"><p class="fq">이 음식점의 다른 메뉴는 평범하지만 냉면<input type="text" autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="빈칸 5"> 정말 맛있어요.<button type="button">확인 · Check</button></p><p class="fe">Other dishes at this restaurant are ordinary, but the cold noodles are truly delicious.</p><p class="bm" hidden></p></div>
+<div class="bsc"><span>점수 · Score</span><span class="bscore">0 / 10</span></div>
+<p class="bfin" hidden>끝! 틀린 곳은 책 정답 쪽과 같이 다시 보세요. · Done! Review your misses with the book's answer key.</p><p class="bbest" hidden></p>
+<div class="bcta"><a class="btn main" href="/#learn">앱에서 더 연습하기<span> · Practice more free</span></a><a class="btn sub" href="/ct-context-worksheet/">인쇄용 학습지 · Printable sheet</a></div>
+</div>
+<p class="bk-sub" style="margin-top:30px">이 연습은 책에 없는 새로 만든 문항이에요(기출 아님). · New practice made for this site, not from any past exam.</p>
+</main>
+</body>
+</html>
